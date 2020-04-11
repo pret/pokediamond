@@ -3,4 +3,8 @@ project(PokeDiamond)
 
 # TODO: Add commands
 
-add_executable(PokeDiamond main.c)
+enable_language(ASM)
+
+file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c")
+
+add_executable(PokeDiamond ${SOURCES})

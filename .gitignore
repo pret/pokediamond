@@ -1,2 +1,6 @@
+# CLion folders
 .idea/
 cmake-build-debug/
+
+# ROM
+*.nds
