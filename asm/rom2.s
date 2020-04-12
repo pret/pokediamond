@@ -10,4 +10,4 @@ sub_20EC5CC:
 
 	.global sub_20EC694
 sub_20EC694:
-.incbin "baserom.nds", 0xF0694, 0x3F0F96C
+.incbin "baserom.nds", 0xF0694, 0x1b090

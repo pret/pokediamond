@@ -2,8 +2,8 @@
 
 	.text
 
-	arm_func_start Entry_ARM9
-Entry_ARM9: @ 0x02000800
+	arm_func_start Entry
+Entry: @ 0x02000800
 	mov ip, #0x4000000
 	str ip, [ip, #0x208]
 _02000808:
@@ -86,7 +86,7 @@ _0200092C: .4byte 0x027FFF9C
 _02000930: .4byte 0x01FF8000
 _02000934: .4byte 0x02000C55 @ NdsMain
 _02000938: .4byte 0xFFFF0000
-	arm_func_end Entry_ARM9
+	arm_func_end Entry
 
 	arm_func_start sub_200093C
 sub_200093C:

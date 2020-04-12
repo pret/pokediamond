@@ -31,7 +31,7 @@ MWCCVERSION := 2.0/base
 
 CROSS   := arm-linux-gnueabi-
 
-MWCCARM := tools/mwccarm/2.0/base/mwccarm.exe
+MWCCARM := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 
 AS      := $(CROSS)as
 CC      := $(MWCCARM)
@@ -65,8 +65,11 @@ $(BUILD_DIR)/%.o: %.c
 $(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) -MD $(BUILD_DIR)/$*.d -o $@ $<
 
-$(ELF): $(O_FILES) $(LD_SCRIPT) undefined_syms.txt
-	$(LD) -T undefined_syms.txt -T $(LD_SCRIPT) -o $(ELF)
+$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
+	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
+
+$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) undefined_syms.txt
+	$(LD) -T undefined_syms.txt -T $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) -Map $(BUILD_DIR)/$(TARGET).map
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
