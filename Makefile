@@ -12,7 +12,7 @@ TARGET := pokediamond.us
 
 ROM := $(BUILD_DIR)/$(TARGET).nds
 ELF := $(BUILD_DIR)/$(TARGET).elf
-LD_SCRIPT := pokediamond.lcf
+LD_SCRIPT := ld_script.txt
 
 # Directories containing source files
 SRC_DIRS := src
@@ -31,20 +31,17 @@ MWCCVERSION := 2.0/base
 
 CROSS   := arm-linux-gnueabi-
 
-# TODO: Replace mwldarm with gnu ld
-
-MWLDARM := ./tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
-MWCCARM := ./tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
+MWCCARM := tools/mwccarm/2.0/base/mwccarm.exe
 
 AS      := $(CROSS)as
 CC      := $(MWCCARM)
 CPP     := cpp -P
-LD      := $(MWLDARM)
+LD      := $(CROSS)ld
 AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
-CFLAGS = -c -O4,p -proc arm946e -thumb -fp soft -lang c -Cpp_exceptions off
+CFLAGS = -O4,p -proc arm946e -thumb -fp soft -lang c -Cpp_exceptions off
 
 ####################### Other Tools #########################
 
@@ -62,11 +59,14 @@ clean:
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
+$(BUILD_DIR)/%.o: %.c
+	$(CC) -c $(CFLAGS) -o $@ $<
+
 $(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) -MD $(BUILD_DIR)/$*.d -o $@ $<
 
-$(ELF): $(O_FILES) $(LD_SCRIPT)
-	$(MWLDARM) -LC:/pokediamond/$(BUILD_DIR)/asm/ $(O_FILES) $(LD_SCRIPT) -o $@ -nodead
+$(ELF): $(O_FILES) $(LD_SCRIPT) undefined_syms.txt
+	$(LD) -T undefined_syms.txt -T $(LD_SCRIPT) -o $(ELF)
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
