@@ -84,7 +84,7 @@ _02000924: .4byte 0x07000000
 _02000928: .4byte 0x02000B68
 _0200092C: .4byte 0x027FFF9C
 _02000930: .4byte 0x01FF8000
-_02000934: .4byte 0x02000C55 @ NdsMain
+_02000934: .4byte NdsMain+1
 _02000938: .4byte 0xFFFF0000
 	arm_func_end Entry
 
