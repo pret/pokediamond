@@ -1,16 +1,32 @@
+/* Linker Script to build Pokemon Diamond */
+
+#define BEGIN_SEG(name, addr) \
+    _##name##SegmentStart = ADDR(.name); \
+    _##name##SegmentRomStart = __romPos; \
+    .name addr : AT(__romPos)
+
+#define END_SEG(name) \
+    _##name##SegmentEnd = ADDR(.name) + SIZEOF(.name); \
+    _##name##SegmentRomEnd = __romPos + SIZEOF(.name); \
+    __romPos += SIZEOF(.name);
+
 SECTIONS {
-    header :
-	{
-	    build/asm/rom_header.o(.text);
-	}
+    __romPos = 0;
+    BEGIN_SEG(header, 0x0)
+    {
+        build/asm/rom_header.o(.text);
+    }
+	END_SEG(header)
 	
-	. = 0x4000;
-	rom_code :
-	{
+	__romPos += 0x3E00;
+
+    BEGIN_SEG(rom_code, 0x2000000)
+    {
 	    build/asm/secure.o(.text);
-	    build/asm/main.o(.text);
-	    build/asm/rom.o(.text);
-		build/src/sub_02000DF4.o(.text);
-		build/asm/rom2.o(.text);
-	}
+        build/asm/main.o(.text);
+        build/asm/rom.o(.text);
+        build/src/sub_02000DF4.o(.text);
+        build/asm/rom2.o(.text);
+    }
+	END_SEG(rom_code)
 }

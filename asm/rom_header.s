@@ -29,11 +29,11 @@ RomVersion:
 .space 1
 
 ARM9ROMOffset:
-.word 0x00004000
+.word _rom_codeSegmentRomStart
 ARM9EntryAddress:
-.word 0x02000800
+.word Entry
 ARM9RAMAddress:
-.word 0x02000000
+.word _rom_codeSegmentStart
 ARM9CodeSize:
 .word 0x00107724
 ARM7ROMOffset:

@@ -2,8 +2,8 @@
 
 	.text
 
-	arm_func_start Main
-Main: @ 0x02000800
+	arm_func_start Entry
+Entry: @ 0x02000800
 	mov ip, #0x4000000
 	str ip, [ip, #0x208]
 _02000808:
