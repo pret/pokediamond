@@ -8,6 +8,7 @@
 #define END_SEG(name) \
     _##name##SegmentEnd = ADDR(.name) + SIZEOF(.name); \
     _##name##SegmentRomEnd = __romPos + SIZEOF(.name); \
+	_##name##SegmentSize = SIZEOF(.name); \
     __romPos += SIZEOF(.name);
 
 SECTIONS {
@@ -20,7 +21,7 @@ SECTIONS {
 	
 	__romPos += 0x3E00;
 
-    BEGIN_SEG(rom_code, 0x2000000)
+    BEGIN_SEG(arm9, 0x2000000)
     {
 	    build/asm/secure.o(.text);
         build/asm/main.o(.text);
@@ -28,5 +29,11 @@ SECTIONS {
         build/src/sub_02000DF4.o(.text);
         build/asm/rom2.o(.text);
     }
-	END_SEG(rom_code)
+	END_SEG(arm9)
+	
+	BEGIN_SEG(rom3, 0x2000000 + SIZEOF(arm9))
+	{
+	    build/asm/rom3.o(.text);
+	}
+	END_SEG(rom3)
 }
