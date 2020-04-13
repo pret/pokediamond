@@ -24,8 +24,8 @@ SECTIONS {
     BEGIN_SEG(arm9, 0x2000000)
     {
         build/asm/secure.o(.text);
+        build/asm/entry.o(.text);
         build/asm/main.o(.text);
-        build/asm/rom.o(.text);
         build/src/sub_02000DF4.o(.text);
         build/asm/rom2.o(.text);
     }
