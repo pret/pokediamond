@@ -24,8 +24,8 @@ SECTIONS {
     BEGIN_SEG(arm9, 0x2000000)
     {
         build/asm/secure.o(.text);
+        build/asm/entry.o(.text);
         build/asm/main.o(.text);
-        build/asm/rom.o(.text);
         build/src/sub_02000DF4.o(.text);
         build/asm/rom2.o(.text);
     }
@@ -36,4 +36,29 @@ SECTIONS {
         build/asm/rom3.o(.text);
     }
     END_SEG(rom3)
+
+    BEGIN_SEG(gap1, 0x2000000 + SIZEOF(rom3) + SIZEOF(arm9))
+    {
+    	build/asm/gap1.o(.text);
+    }
+    END_SEG(gap1)
+
+    BEGIN_SEG(arm7, 0x02380000)
+    {
+    	build/asm/arm7_rom.o(.text);
+    }
+    END_SEG(arm7)
+
+    BEGIN_SEG(gap2, 0x02380000 + SIZEOF(arm7))
+    {
+    	build/asm/gap2.o(.text)
+    }
+    END_SEG(gap2)
+
+	. = 0x336400;
+    BEGIN_SEG(FileNameTable, 0x02400000)
+    {
+    	build/asm/filenametable.o(.text);
+    }
+    END_SEG(FileNameTable)
 }
