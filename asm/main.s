@@ -10,7 +10,7 @@ _02000808:
 	ldrh r0, [ip, #6]
 	cmp r0, #0
 	bne _02000808
-	bl sub_2000A78
+	bl init_cp15
 	mov r0, #0x13
 	msr cpsr_c, r0
 	ldr r0, _02000918 @ =0x027E0000
@@ -32,19 +32,19 @@ _02000808:
 	mov r0, #0
 	ldr r1, _02000918 @ =0x027E0000
 	mov r2, #0x4000
-	bl sub_200093C
+	bl INITi_CpuClear32
 	mov r0, #0
 	ldr r1, _02000920 @ =0x05000000
 	mov r2, #1024
-	bl sub_200093C
+	bl INITi_CpuClear32
 	mov r0, #512
 	ldr r1, _02000924 @ =0x07000000
 	mov r2, #1024
-	bl sub_200093C
+	bl INITi_CpuClear32
 	ldr r1, _02000928 @ = 0x02000B68
 	ldr r0, [r1, #20]
-	bl sub_2000950
-	bl sub_20009FC
+	bl MIi_UncompressBackward
+	bl do_autoload
 	ldr r0, _02000928 @ =0x02000B68
 	ldr r1, [r0, #12]
 	ldr r2, [r0, #16]
@@ -72,7 +72,7 @@ _020008C4:
 	bl sub_20EC5CC
 	bl sub_2000B64_dummy
 	bl sub_20EC694
-	ldr r1, _02000934 @ =0x02000C55
+	ldr r1, _02000934 @ =0x02000C55 
 	ldr lr, _02000938 @ =0xFFFF0000
 	tst sp, #4
 	subne sp, sp, #4
@@ -88,18 +88,18 @@ _02000934: .4byte 0x02000C55 @ NdsMain
 _02000938: .4byte 0xFFFF0000
 	arm_func_end Entry
 
-	arm_func_start sub_200093C
-sub_200093C:
+	arm_func_start INITi_CpuClear32
+INITi_CpuClear32:
 	add ip, r1, r2
 _02000940:
 	cmp r1, ip
 	stmlt r1!, {r0}
 	blt _02000940
 	bx lr
-	arm_func_end sub_200093C
+	arm_func_end INITi_CpuClear32
 
-	arm_func_start sub_2000950
-sub_2000950:
+	arm_func_start MIi_UncompressBackward
+MIi_UncompressBackward:
 	cmp r0, #0
 	beq _020009F8
 	push {r4, r5, r6, r7}
@@ -151,11 +151,11 @@ _020009DC:
 	pop {r4, r5, r6, r7}
 _020009F8:
 	bx lr
-	arm_func_end sub_2000950
+	arm_func_end MIi_UncompressBackward
 
-	arm_func_start sub_20009FC
-sub_20009FC:
-	ldr r0, _02000A70 @ =0x02000B68
+	arm_func_start do_autoload
+do_autoload:
+	ldr r0, =0x02000B68
 	ldr r1, [r0]
 	ldr r2, [r0, #4]
 	ldr r3, [r0, #8]
@@ -189,42 +189,42 @@ _02000A50:
 	b _02000A0C
 _02000A6C:
 	b _2000A74
-_02000A70: .4byte 0x02000B68
+    .pool
 _2000A74:
 	bx lr
-	arm_func_end sub_20009FC
+	arm_func_end do_autoload
 
-	arm_func_start sub_2000A78
-sub_2000A78: @ 0x02000A78
+	arm_func_start init_cp15
+init_cp15: @ 0x02000A78
 	mrc p15, #0, r0, c1, c0, #0
-	ldr r1, _02000B30 @ =0x000F9005
+	ldr r1, =0x000F9005
 	bic r0, r0, r1
 	mcr p15, #0, r0, c1, c0, #0
 	mov r0, #0
 	mcr p15, #0, r0, c7, c5, #0
 	mcr p15, #0, r0, c7, c6, #0
 	mcr p15, #0, r0, c7, c10, #4
-	ldr r0, _02000B34 @ =0x04000033
+	ldr r0, =0x04000033
 	mcr p15, #0, r0, c6, c0, #0
-	ldr r0, _02000B38 @ =0x0200002D
+	ldr r0, =0x0200002D
 	mcr p15, #0, r0, c6, c1, #0
-	ldr r0, _02000B3C @ =0x027E0021
+	ldr r0, =0x027E0021
 	mcr p15, #0, r0, c6, c2, #0
-	ldr r0, _02000B40 @ =0x08000035
+	ldr r0, =0x08000035
 	mcr p15, #0, r0, c6, c3, #0
-	ldr r0, _02000B44 @ =0x027E0000
+	ldr r0, =0x027E0000
 	orr r0, r0, #0x1a
 	orr r0, r0, #1
 	mcr p15, #0, r0, c6, c4, #0
-	ldr r0, _02000B48 @ =0x0100002F
+	ldr r0, =0x0100002F
 	mcr p15, #0, r0, c6, c5, #0
-	ldr r0, _02000B4C @ =0xFFFF001D
+	ldr r0, =0xFFFF001D
 	mcr p15, #0, r0, c6, c6, #0
-	ldr r0, _02000B50 @ =0x027FF017
+	ldr r0, =0x027FF017
 	mcr p15, #0, r0, c6, c7, #0
 	mov r0, #0x20
 	mcr p15, #0, r0, c9, c1, #1
-	ldr r0, _02000B44 @ =0x027E0000
+	ldr r0, =0x027E0000
 	orr r0, r0, #0xa
 	mcr p15, #0, r0, c9, c1, #0
 	mov r0, #0x42
@@ -233,28 +233,17 @@ sub_2000A78: @ 0x02000A78
 	mcr p15, #0, r0, c2, c0, #0
 	mov r0, #2
 	mcr p15, #0, r0, c3, c0, #0
-	ldr r0, _02000B54 @ =0x05100011
+	ldr r0, =0x05100011
 	mcr p15, #0, r0, c5, c0, #3
-	ldr r0, _02000B58 @ =0x15111011
+	ldr r0, =0x15111011
 	mcr p15, #0, r0, c5, c0, #2
 	mrc p15, #0, r0, c1, c0, #0
-	ldr r1, _02000B5C @ =0x0005707D
+	ldr r1, =0x0005707D
 	orr r0, r0, r1
 	mcr p15, #0, r0, c1, c0, #0
 	bx lr
 	.align 2, 0
-_02000B30: .4byte 0x000F9005
-_02000B34: .4byte 0x04000033
-_02000B38: .4byte 0x0200002D
-_02000B3C: .4byte 0x027E0021
-_02000B40: .4byte 0x08000035
-_02000B44: .4byte 0x027E0000
-_02000B48: .4byte 0x0100002F
-_02000B4C: .4byte 0xFFFF001D
-_02000B50: .4byte 0x027FF017
-_02000B54: .4byte 0x05100011
-_02000B58: .4byte 0x15111011
-_02000B5C: .4byte 0x0005707D
+    .pool
 
 	arm_func_start sub_2000B60_dummy
 sub_2000B60_dummy: @ 0x02000B60
