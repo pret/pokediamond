@@ -2,4 +2,4 @@
 
 	.section .text
 
-	.incbin "baserom.nds", 0x10B724, 0x2016FC
+	.incbin "baserom.nds", 0x10C400, 0x200A20

@@ -12,5 +12,4 @@ build/**
 cmake-build-debug/
 
 # ROM
-*.nds
 *.srl

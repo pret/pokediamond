@@ -64,25 +64,25 @@ FileNameTableOffset:
 	.word _FileNameTableSegmentRomStart
 	.global FileNameTableSize
 FileNameTableSize:
-	.word 0x0000157F
+	.word _FileNameTableSegmentSize
 	.global FATOffset
 FATOffset:
-	.word 0x00337A00
+	.word _FileAllocationTableSegmentRomStart
 	.global FATSize
 FATSize:
-	.word 0x00000B20
+	.word _FileAllocationTableSegmentSize
 	.global ARM9OverlayOffset
 ARM9OverlayOffset:
-	.word 0x0010B800
+	.word _ARM9OverlaySegmentRomStart
 	.global ARM9OverlaySize
 ARM9OverlaySize:
-	.word 0x00000AE0
+	.word _ARM9OverlaySegmentSize
 	.global ARM7OverlayOffset
 ARM7OverlayOffset:
-	.word 0x00000000
+	.word _ARM7OverlaySegmentRomStart
 	.global ARM7OverlaySize
 ARM7OverlaySize:
-	.word 0x00000000
+	.word _ARM7OverlaySegmentSize
 	.global ROMControlInfo1
 ROMControlInfo1:
 	.word 0x00416657
@@ -91,7 +91,7 @@ ROMControlInfo2:
 	.word 0x081808F8
 	.global IconTitleOffset
 IconTitleOffset:
-	.word 0x00338600
+	.word _IconSegmentRomStart
 	.global SecureAreaCC
 SecureAreaCC:
 	.short 0x5931
@@ -100,10 +100,10 @@ ROMControlInfo3:
 	.short 0x0D7E
 	.global ARM9AutoLoadHook
 ARM9AutoLoadHook:
-	.word 0x02000A74
+	.word ARM9AutoLoad
 	.global ARM7AutoLoadHook
 ARM7AutoLoadHook:
-	.word 0x02380158
+	.word ARM7AutoLoad
 	.global SecureAreaDisable
 SecureAreaDisable:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
