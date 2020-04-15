@@ -102,7 +102,7 @@ $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) undefined_syms.txt
 	$(LD) -T undefined_syms.txt -T $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) -Map $(BUILD_DIR)/$(TARGET).map
 
 $(ROM): $(ELF)
-	$(OBJCOPY) -O binary --gap-fill=0xFF $< $@
+	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
