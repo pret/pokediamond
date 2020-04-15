@@ -15,7 +15,7 @@ struct Unk2106FA0 {
 
 extern struct Unk2106FA0 gUnknown2106FA0;
 
-void sub_02000DF4(void)
+void FUN_02000DF4(void)
 {
     gUnknown2106FA0.unk8 = -1;
     gUnknown2106FA0.unkC = 0;

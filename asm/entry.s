@@ -70,9 +70,9 @@ _020008C4:
 	add r1, r1, #60
 	ldr r0, _02000930 ; =0x01FF8000
 	str r0, [r1]
-	bl sub_020EC5CC
-	bl sub_02000B64_dummy
-	bl sub_020EC694
+	bl FUN_020EC5CC
+	bl FUN_02000B64_dummy
+	bl FUN_020EC694
 	ldr r1, _02000934 ; =0x02000C55 
 	ldr lr, _02000938 ; =0xFFFF0000
 	tst sp, #4
@@ -246,12 +246,12 @@ init_cp15: ; 0x02000A78
 	.align 2, 0
 	.pool
 
-	arm_func_start sub_02000B60_dummy
-sub_02000B60_dummy: ; 0x02000B60
+	arm_func_start FUN_02000B60_dummy
+FUN_02000B60_dummy: ; 0x02000B60
 	bx lr
 
-	arm_func_start sub_02000B64_dummy
-sub_02000B64_dummy: ; 0x02000B64
+	arm_func_start FUN_02000B64_dummy
+FUN_02000B64_dummy: ; 0x02000B64
 	bx lr
 
 _02000B68:

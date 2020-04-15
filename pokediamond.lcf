@@ -20,7 +20,7 @@ SECTIONS {
         secure.o (.text)
         entry.o (.text)
         main.o (.text)
-        sub_02000DF4.o (.text)
+        FUN_02000DF4.o (.text)
         arm9_thumb.o (.text)
         rom2.o (.text)
     } > arm9
