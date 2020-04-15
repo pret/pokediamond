@@ -3,6 +3,10 @@ MEMORY {
 	header (RWX) : ORIGIN=0, LENGTH=0
     arm9 (RWX) : ORIGIN=0x2000000, LENGTH=0
 	rom3 (RWX) : ORIGIN=0, LENGTH=0
+	gap1 (RWX) : ORIGIN=0, LENGTH=0
+	arm7 (RWX) : ORIGIN=0, LENGTH=0
+	gap2 (RWX) : ORIGIN=0, LENGTH=0
+	filenametable (RWX) : ORIGIN=0, LENGTH=0
 }
 
 SECTIONS {
@@ -23,4 +27,20 @@ SECTIONS {
 	.rom3 : AT (0x10B724) {
 	    rom3.o (.text)
 	} > rom3
+	
+	.gap1 : AT(0x30CE20) {
+	    gap1.o (.text)
+	} > gap1
+	
+	.arm7 : AT(0x30D000) {
+	    arm7_rom.o(.text)
+	} > arm7
+	
+    .gap2 : AT(0x33631C) {
+	    gap2.o (.text)
+	} > gap2
+	
+	.filenametable : AT(0x336400) {
+	    filenametable.o(.text)
+	} > filenametable
 }

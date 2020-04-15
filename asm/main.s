@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.text
+	.section .text
 
 	thumb_func_start NitroMain
 NitroMain: ; 0x02000C54

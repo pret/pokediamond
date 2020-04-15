@@ -1,4 +1,5 @@
 .extern sub_0200019E
+.extern NitroMain
 .extern sub_02000DF4
 .extern sub_02000E0C
 .extern sub_02000E7C
@@ -1648,6 +1649,8 @@
 .extern sub_020EBE8C
 .extern sub_020EBE8C
 .extern sub_020EBE8C
+.extern sub_020EC5CC
+.extern sub_020EC694
 .extern sub_021D78FC
 .extern sub_021D78FC
 .extern sub_021D79B4
