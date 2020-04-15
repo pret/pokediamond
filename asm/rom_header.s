@@ -29,13 +29,13 @@ RomVersion:
 .space 1
 
 ARM9ROMOffset:
-.word _arm9SegmentRomStart
+.word 0x00004000
 ARM9EntryAddress:
-.word Entry
+.word 0x02000800
 ARM9RAMAddress:
-.word _arm9SegmentStart
+.word 0x02000000
 ARM9CodeSize:
-.word _arm9SegmentSize
+.word 0x00107724
 ARM7ROMOffset:
 .word 0x0030D000
 ARM7EntryAddress:
@@ -110,6 +110,4 @@ HeaderCRC:
 .short 0xCA37
 
 /* reserved */
-.global __startup
-__startup:
 .space 160 /* hack so it builds */
