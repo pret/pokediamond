@@ -37,14 +37,4 @@ typedef int BOOL;
 #endif // __cplusplus
 #endif
 
-typedef enum {
-    OS_PROCMODE_USER=16,
-    OS_PROCMODE_FIQ=17,
-    OS_PROCMODE_IRQ=18,
-    OS_PROCMODE_SVC=19,
-    OS_PROCMODE_ABORT=23,
-    OS_PROCMODE_UNDEF=27,
-    OS_PROCMODE_SYS=31
-} OSProcMode;
-
 #endif //POKEDIAMOND_NITRO_TYPES_H
