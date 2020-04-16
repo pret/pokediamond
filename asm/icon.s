@@ -1,2 +1,6 @@
 	.text
-	.incbin "baserom.nds", 0x338600, 0x371d8c0
+	.2byte 0x0001
+	.2byte 0x048B
+	.space 0x1C
+	.incbin "graphics/icon.4bpp"
+	.incbin "graphics/icon.gbapal"

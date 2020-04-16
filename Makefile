@@ -55,6 +55,7 @@ CFLAGS = -O4,p -proc arm946e -thumb -fp soft -lang c -Cpp_exceptions off
 TOOLS_DIR = tools
 SHA1SUM = sha1sum
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
+GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -106,6 +107,20 @@ $(ROM): $(ELF)
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
+
+%.4bpp: %.png
+	$(GFX) $< $@
+
+%.gbapal: %.png
+	$(GFX) $< $@
+
+%.gbapal: %.pal
+	$(GFX) $< $@
+
+%.lz: %
+	$(GFX) $< $@
+
+$(BUILD_DIR)/asm/icon.o: graphics/icon.4bpp graphics/icon.gbapal
 
 ### Debug Print ###
 
