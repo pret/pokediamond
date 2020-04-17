@@ -4,6 +4,12 @@
 
 default: all
 
+ifeq ($(OS),Windows_NT)
+EXE := .exe
+else
+EXE :=
+endif
+
 ################ Target Executable and Sources ###############
 
 BUILD_DIR := build
@@ -24,6 +30,14 @@ S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
 # Object files
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
+		   
+################### Universal Dependencies ###################
+
+# Make tools if out of date
+DUMMY != make -s -C tools >&2 || echo FAIL
+ifeq ($(DUMMY),FAIL)
+  $(error Failed to build tools)
+endif
 
 ##################### Compiler Options #######################
 
@@ -57,10 +71,17 @@ CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c -Cpp_exceptions off -interwork
 # DS TOOLS
 TOOLS_DIR = tools
 SHA1SUM = sha1sum
+MWASMARM_PATCHER = tools/mwasmarm_patcher/mwasmarm_patcher$(EXE)
+
+DUMMY != $(MWASMARM_PATCHER) $(MWASMARM) || echo FAIL
+ifeq ($(DUMMY),FAIL)
+  $(error MWASMARM patcher returned an error)
+endif
 
 ######################### Targets ###########################
 
 all: $(ROM)
+	$(info Test)
 	@$(SHA1SUM) -c $(TARGET).sha1
 
 clean:
