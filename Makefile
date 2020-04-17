@@ -81,7 +81,6 @@ endif
 ######################### Targets ###########################
 
 all: $(ROM)
-	$(info Test)
 	@$(SHA1SUM) -c $(TARGET).sha1
 
 clean:

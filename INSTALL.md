@@ -8,6 +8,16 @@ The build system requires the use of the Metrowerk C Compiler 2.0/base to compil
 
 In the future, a GCC option will be available so MWCC is not required to build, however it is required for a matching ROM.
 
+#### 3. Dependencies
+
+Building the ROM requires the following packages:
+
+* make
+* git
+* build-essentials
+* libssl-dev
+* binutils-arm-linux-gnueabi
+
 #### 3. Build ROM
 
 Run `make` to build the ROM.
