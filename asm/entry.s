@@ -1,9 +1,10 @@
 	.include "asm/macros.inc"
+	.include "global.inc"
 
 	.text
 
 	arm_func_start Entry
-Entry: @ 0x02000800
+Entry: ; 0x02000800
 	mov ip, #0x4000000
 	str ip, [ip, #0x208]
 _02000808:
@@ -13,39 +14,39 @@ _02000808:
 	bl init_cp15
 	mov r0, #0x13
 	msr cpsr_c, r0
-	ldr r0, _02000918 @ =0x027E0000
+	ldr r0, _02000918 ; =0x027E0000
 	add r0, r0, #0x3fc0
 	mov sp, r0
 	mov r0, #0x12
 	msr cpsr_c, r0
-	ldr r0, _02000918 @ =0x027E0000
+	ldr r0, _02000918 ; =0x027E0000
 	add r0, r0, #0x3fc0
 	sub r0, r0, #0x40
 	sub sp, r0, #4
 	tst sp, #4
 	subeq sp, sp, #4
-	ldr r1, _0200091C @ =0x00000400
+	ldr r1, _0200091C ; =0x00000400
 	sub r1, r0, r1
 	mov r0, #0x1f
 	msr cpsr_fsxc, r0
 	sub sp, r1, #4
 	mov r0, #0
-	ldr r1, _02000918 @ =0x027E0000
+	ldr r1, _02000918 ; =0x027E0000
 	mov r2, #0x4000
 	bl INITi_CpuClear32
 	mov r0, #0
-	ldr r1, _02000920 @ =0x05000000
+	ldr r1, _02000920 ; =0x05000000
 	mov r2, #1024
 	bl INITi_CpuClear32
 	mov r0, #512
-	ldr r1, _02000924 @ =0x07000000
+	ldr r1, _02000924 ; =0x07000000
 	mov r2, #1024
 	bl INITi_CpuClear32
-	ldr r1, _02000928 @ =_02000B68
+	ldr r1, _02000928 ; =_02000B68
 	ldr r0, [r1, #20]
 	bl MIi_UncompressBackward
 	bl do_autoload
-	ldr r0, _02000928 @ =_02000B68
+	ldr r0, _02000928 ; =_02000B68
 	ldr r1, [r0, #12]
 	ldr r2, [r0, #16]
 	mov r3, r1
@@ -56,36 +57,36 @@ _020008B4:
 	bcc _020008B4
 	bic r1, r3, #31
 _020008C4:
-	mcr p15, #0, r0, cr7, cr10, 4
-	mcr p15, #0, r1, cr7, cr5, 1
-	mcr p15, #0, r1, cr7, cr14, 1
-	add r1, #32
+	mcr p15, 0x0, r0, cr7, cr10, 4
+	mcr p15, 0x0, r1, cr7, cr5, 1
+	mcr p15, 0x0, r1, cr7, cr14, 1
+	add r1, r1, #32
 	cmp r1, r2
 	blt _020008C4
-	ldr r1, _0200092C @ =0x027FFF9C
+	ldr r1, _0200092C ; =0x027FFF9C
 	str r0, [r1]
-	ldr r1, _02000918 @ =0x027E0000
+	ldr r1, _02000918 ; =0x027E0000
 	add r1, r1, #16320
 	add r1, r1, #60
-	ldr r0, _02000930 @ =0x01FF8000
+	ldr r0, _02000930 ; =0x01FF8000
 	str r0, [r1]
-	bl sub_20EC5CC
-	bl sub_2000B64_dummy
-	bl sub_20EC694
-	ldr r1, _02000934 @ =0x02000C55 
-	ldr lr, _02000938 @ =0xFFFF0000
+	bl FUN_020EC5CC
+	bl FUN_02000B64_dummy
+	bl FUN_020EC694
+	ldr r1, _02000934 ; =0x02000C55 
+	ldr lr, _02000938 ; =0xFFFF0000
 	tst sp, #4
 	subne sp, sp, #4
 	bx r1
-_02000918: .4byte 0x027E0000
-_0200091C: .4byte 0x00000400
-_02000920: .4byte 0x05000000
-_02000924: .4byte 0x07000000
-_02000928: .4byte _02000B68
-_0200092C: .4byte 0x027FFF9C
-_02000930: .4byte 0x01FF8000
-_02000934: .4byte NitroMain+1
-_02000938: .4byte 0xFFFF0000
+_02000918: .word 0x027E0000
+_0200091C: .word 0x00000400
+_02000920: .word 0x05000000
+_02000924: .word 0x07000000
+_02000928: .word _02000B68
+_0200092C: .word 0x027FFF9C
+_02000930: .word 0x01FF8000
+_02000934: .word NitroMain+1
+_02000938: .word 0xFFFF0000
 	arm_func_end Entry
 
 	arm_func_start INITi_CpuClear32
@@ -93,7 +94,7 @@ INITi_CpuClear32:
 	add ip, r1, r2
 _02000940:
 	cmp r1, ip
-	stmlt r1!, {r0}
+	stmltia r1!, {r0}
 	blt _02000940
 	bx lr
 	arm_func_end INITi_CpuClear32
@@ -102,7 +103,7 @@ _02000940:
 MIi_UncompressBackward:
 	cmp r0, #0
 	beq _020009F8
-	push {r4, r5, r6, r7}
+	stmdb sp!, {r4-r7}
 	ldmdb r0, {r1, r2}
 	add r2, r0, r2
 	sub r3, r0, r1, lsr #24
@@ -136,19 +137,19 @@ _020009B8:
 	bge _020009B8
 _020009C8:
 	cmp r3, r1
-	lsl r5, r5, #1
+	mov r5, r5, lsl #0x1
 	bgt _02000984
 _020009D4:
 	mov r0, #0
 	bic r3, r1, #31
 _020009DC:
-	mcr p15, #0, r0, cr7, cr10, 4
-	mcr p15, #0, r3, cr7, cr5, 1
-	mcr p15, #0, r3, cr7, cr14, 1
+	mcr p15, 0x0, r0, cr7, cr10, 4
+	mcr p15, 0x0, r3, cr7, cr5, 1
+	mcr p15, 0x0, r3, cr7, cr14, 1
 	add r3, r3, #32
 	cmp r3, r4
 	blt _020009DC
-	pop {r4, r5, r6, r7}
+	ldmia sp!, {r4-r7}
 _020009F8:
 	bx lr
 	arm_func_end MIi_UncompressBackward
@@ -180,9 +181,9 @@ _02000A40:
 	bcc _02000A40
 	bic r4, r5, #31
 _02000A50:
-	mcr p15, #0, r7, cr7, cr10, 4
-	mcr p15, #0, r4, cr7, cr5, 1
-	mcr p15, #0, r4, cr7, cr14, 1
+	mcr p15, 0x0, r7, cr7, cr10, 4
+	mcr p15, 0x0, r4, cr7, cr5, 1
+	mcr p15, 0x0, r4, cr7, cr14, 1
 	add r4, r4, #32
 	cmp r4, r6
 	blt _02000A50
@@ -196,63 +197,64 @@ ARM9AutoLoad:
 	arm_func_end do_autoload
 
 	arm_func_start init_cp15
-init_cp15: @ 0x02000A78
-	mrc p15, #0, r0, c1, c0, #0
+init_cp15: ; 0x02000A78
+	mrc p15, 0x0, r0, c1, c0, 0x0
 	ldr r1, =0x000F9005
 	bic r0, r0, r1
-	mcr p15, #0, r0, c1, c0, #0
+	mcr p15, 0x0, r0, c1, c0, 0x0
 	mov r0, #0
-	mcr p15, #0, r0, c7, c5, #0
-	mcr p15, #0, r0, c7, c6, #0
-	mcr p15, #0, r0, c7, c10, #4
+	mcr p15, 0x0, r0, c7, c5, 0x0
+	mcr p15, 0x0, r0, c7, c6, 0x0
+	mcr p15, 0x0, r0, c7, c10, 0x4
 	ldr r0, =0x04000033
-	mcr p15, #0, r0, c6, c0, #0
+	mcr p15, 0x0, r0, c6, c0, 0x0
 	ldr r0, =0x0200002D
-	mcr p15, #0, r0, c6, c1, #0
+	mcr p15, 0x0, r0, c6, c1, 0x0
 	ldr r0, =0x027E0021
-	mcr p15, #0, r0, c6, c2, #0
+	mcr p15, 0x0, r0, c6, c2, 0x0
 	ldr r0, =0x08000035
-	mcr p15, #0, r0, c6, c3, #0
+	mcr p15, 0x0, r0, c6, c3, 0x0
 	ldr r0, =0x027E0000
 	orr r0, r0, #0x1a
 	orr r0, r0, #1
-	mcr p15, #0, r0, c6, c4, #0
+	mcr p15, 0x0, r0, c6, c4, 0x0
 	ldr r0, =0x0100002F
-	mcr p15, #0, r0, c6, c5, #0
+	mcr p15, 0x0, r0, c6, c5, 0x0
 	ldr r0, =0xFFFF001D
-	mcr p15, #0, r0, c6, c6, #0
+	mcr p15, 0x0, r0, c6, c6, 0x0
 	ldr r0, =0x027FF017
-	mcr p15, #0, r0, c6, c7, #0
+	mcr p15, 0x0, r0, c6, c7, 0x0
 	mov r0, #0x20
-	mcr p15, #0, r0, c9, c1, #1
+	mcr p15, 0x0, r0, c9, c1, 0x1
 	ldr r0, =0x027E0000
 	orr r0, r0, #0xa
-	mcr p15, #0, r0, c9, c1, #0
+	mcr p15, 0x0, r0, c9, c1, 0x0
 	mov r0, #0x42
-	mcr p15, #0, r0, c2, c0, #1
+	mcr p15, 0x0, r0, c2, c0, 0x1
 	mov r0, #0x42
-	mcr p15, #0, r0, c2, c0, #0
+	mcr p15, 0x0, r0, c2, c0, 0x0
 	mov r0, #2
-	mcr p15, #0, r0, c3, c0, #0
+	mcr p15, 0x0, r0, c3, c0, 0x0
 	ldr r0, =0x05100011
-	mcr p15, #0, r0, c5, c0, #3
+	mcr p15, 0x0, r0, c5, c0, 0x3
 	ldr r0, =0x15111011
-	mcr p15, #0, r0, c5, c0, #2
-	mrc p15, #0, r0, c1, c0, #0
+	mcr p15, 0x0, r0, c5, c0, 0x2
+	mrc p15, 0x0, r0, c1, c0, 0x0
 	ldr r1, =0x0005707D
 	orr r0, r0, r1
-	mcr p15, #0, r0, c1, c0, #0
+	mcr p15, 0x0, r0, c1, c0, 0x0
 	bx lr
 	.align 2, 0
 	.pool
 
-	arm_func_start sub_2000B60_dummy
-sub_2000B60_dummy: @ 0x02000B60
+	arm_func_start FUN_02000B60_dummy
+FUN_02000B60_dummy: ; 0x02000B60
 	bx lr
 
-	arm_func_start sub_2000B64_dummy
-sub_2000B64_dummy: @ 0x02000B64
+	arm_func_start FUN_02000B64_dummy
+FUN_02000B64_dummy: ; 0x02000B64
 	bx lr
+
 _02000B68:
 	.word 0x02107700
 	.word 0x02107724

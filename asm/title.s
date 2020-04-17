@@ -1,7 +1,7 @@
 	.text
 	.global ROMTitles
 ROMTitles:
-	@ UTF16LE has a leading short that should be skipped
+	; UTF16LE has a leading short that should be skipped
 	.incbin "data/title/title.txt", 2
 	.space 0x100-(.-ROMTitles)
 	.incbin "data/title/title.txt", 2

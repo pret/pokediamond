@@ -37,52 +37,52 @@ RomVersion:
 
 	.global ARM9ROMOffset
 ARM9ROMOffset:
-	.word _arm9SegmentRomStart
+	.word 0x00004000
 	.global ARM9EntryAddress
 ARM9EntryAddress:
-	.word Entry
+	.word 0x02000800
 	.global ARM9RAMAddress
 ARM9RAMAddress:
-	.word _arm9SegmentStart
+	.word 0x02000000
 	.global ARM9CodeSize
 ARM9CodeSize:
-	.word _arm9SegmentSize
+	.word 0x00107724
 	.global ARM7ROMOffset
 ARM7ROMOffset:
-	.word _arm7SegmentRomStart
+	.word 0x0030D000
 	.global ARM7EntryAddress
 ARM7EntryAddress:
-	.word Entry_ARM7
+	.word 0x02380000
 	.global ARM7RAMAddress
 ARM7RAMAddress:
-	.word _arm7SegmentStart
+	.word 0x02380000
 	.global ARM7CodeSize
 ARM7CodeSize:
-	.word _arm7SegmentSize
+	.word 0x0002931C
 	.global FileNameTableOffset
 FileNameTableOffset:
-	.word _FileNameTableSegmentRomStart
+	.word 0x00336400
 	.global FileNameTableSize
 FileNameTableSize:
-	.word _FileNameTableSegmentSize
+	.word 0x157F
 	.global FATOffset
 FATOffset:
-	.word _FileAllocationTableSegmentRomStart
+	.word 0x337A00
 	.global FATSize
 FATSize:
-	.word _FileAllocationTableSegmentSize
+	.word 0xB20
 	.global ARM9OverlayOffset
 ARM9OverlayOffset:
-	.word _ARM9OverlaySegmentRomStart
+	.word 0x10B800
 	.global ARM9OverlaySize
 ARM9OverlaySize:
-	.word _ARM9OverlaySegmentSize
+	.word 0xAE0
 	.global ARM7OverlayOffset
 ARM7OverlayOffset:
-	.word _ARM7OverlaySegmentRomStart
+	.word 0
 	.global ARM7OverlaySize
 ARM7OverlaySize:
-	.word _ARM7OverlaySegmentSize
+	.word 0
 	.global ROMControlInfo1
 ROMControlInfo1:
 	.word 0x00416657
@@ -91,7 +91,7 @@ ROMControlInfo2:
 	.word 0x081808F8
 	.global IconTitleOffset
 IconTitleOffset:
-	.word _IconSegmentRomStart
+	.word 0x338600
 	.global SecureAreaCC
 SecureAreaCC:
 	.short 0x5931
@@ -100,9 +100,11 @@ ROMControlInfo3:
 	.short 0x0D7E
 	.global ARM9AutoLoadHook
 ARM9AutoLoadHook:
+	.extern ARM9AutoLoad
 	.word ARM9AutoLoad
 	.global ARM7AutoLoadHook
 ARM7AutoLoadHook:
+	.extern ARM7AutoLoad
 	.word ARM7AutoLoad
 	.global SecureAreaDisable
 SecureAreaDisable:
@@ -147,6 +149,4 @@ HeaderCRC:
 	.short 0xCA37
 
 /* reserved */
-	.global __startup
-__startup:
-	.space 160 /* hack so it builds */
+.space 160 /* hack so it builds */

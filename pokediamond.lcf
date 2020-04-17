@@ -1,0 +1,65 @@
+/* TEST */
+MEMORY {
+    header (RWX) : ORIGIN=0, LENGTH=0
+    arm9 (RWX) : ORIGIN=0x2000000, LENGTH=0
+    garbage (RWX) : ORIGIN=0, LENGTH=0
+    arm9overlay (RWX) : ORIGIN=0, LENGTH=0
+    rom3 (RWX) : ORIGIN=0, LENGTH=0
+    arm7 (RWX) : ORIGIN=0x2380000, LENGTH=0
+    filenametable (RWX) : ORIGIN=0, LENGTH=0
+    fileallocationtable (RWX) : ORIGIN=0, LENGTH=0
+    icon_title (RWX) : ORIGIN=0, LENGTH=0
+    narc (RWX) : ORIGIN=0, LENGTH=0
+}
+
+SECTIONS {
+#include "undefined_syms.txt"
+
+    __startup = 0;
+    .header: {
+        rom_header.o (.text)
+        . = 0x4000;
+    } > header
+
+    .arm9 : AT (0x4000) {
+        secure.o (.text)
+        entry.o (.text)
+        main.o (.text)
+        FUN_02000DF4.o (.text)
+        arm9_thumb.o (.text)
+        rom2.o (.text)
+    } > arm9
+
+    .arm9overlay : AT (0x10B800) {
+        arm9overlay.o (.text)
+    } > arm9overlay
+
+    .garbage : AT (0x10B724) {
+        unk_10b724.o (.text)
+    } > garbage
+
+    .rom3 : AT (0x10C400) {
+        rom3.o (.text)
+    } > rom3
+    
+    .arm7 : AT(0x30D000) {
+        arm7_rom.o(.text)
+    } > arm7
+    
+    .filenametable : AT(0x336400) {
+        filenametable.o(.text)
+    } > filenametable
+
+    .fileallocationtable : AT(0x337A00) {
+        fat.o(.text)
+    } > fileallocationtable
+
+    .icon_title : AT(0x338600) {
+        icon.o(.text)
+        title.o(.text)
+    } > icon_title
+
+    .narc : AT(0x339000) {
+        narc.o(.text)
+    } > narc
+}

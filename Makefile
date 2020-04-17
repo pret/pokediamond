@@ -18,7 +18,7 @@ TARGET := pokediamond.us
 
 ROM := $(BUILD_DIR)/$(TARGET).nds
 ELF := $(BUILD_DIR)/$(TARGET).elf
-LD_SCRIPT := ld_script.txt
+LD_SCRIPT := pokediamond.lcf
 
 # Directories containing source files
 SRC_DIRS := src
@@ -37,17 +37,26 @@ MWCCVERSION := 2.0/base
 
 CROSS   := arm-linux-gnueabi-
 
-MWCCARM := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
+MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
+# Argh... due to EABI version shenanigans, we can't use GNU LD to link together
+# MWCC built objects and GNU built ones. mwldarm, however, doesn't care, so we
+# have to use mwldarm for now. 
+# TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
+# only dependency should be MWCCARM.
+MWLDARM  := tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
+MWASMARM := tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 
-AS      := $(CROSS)as
+AS      := $(MWASMARM)
 CC      := $(MWCCARM)
 CPP     := cpp -P
-LD      := $(CROSS)ld
+LD      := $(MWLDARM)
 AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
-CFLAGS = -O4,p -proc arm946e -thumb -fp soft -lang c -Cpp_exceptions off
+# ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
+ASFLAGS = -proc arm5te
+CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c -Cpp_exceptions off -interworking
 
 ####################### Other Tools #########################
 
@@ -94,13 +103,13 @@ $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(BUILD_DIR)/%.o: %.s
-	$(AS) $(ASFLAGS) -MD $(BUILD_DIR)/$*.d -o $@ $<
+	$(AS) $(ASFLAGS) $< -o $@
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) undefined_syms.txt
-	$(LD) -T undefined_syms.txt -T $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) -Map $(BUILD_DIR)/$(TARGET).map
+$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
+	$(LD)  $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) -nodead -w off
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@

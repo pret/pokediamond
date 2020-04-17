@@ -6,10 +6,10 @@
 	arm_func_start Entry_ARM7
 
 Entry_ARM7:
-	mov	ip, #67108864	@ 0x4000000
-	str	ip, [ip, #520]	@ 0x208
+	mov	ip, #67108864	; 0x4000000
+	str	ip, [ip, #520]	; 0x208
 	ldr	r1, _23800cc
-	mov	r0, #58720256	@ 0x3800000
+	mov	r0, #58720256	; 0x3800000
 	cmp	r0, r1
 	movpl	r1, r0
 	ldr	r2, _23800d0
@@ -32,7 +32,7 @@ _02380020:
 	sub	sp, r1, #4
 	ldr	r0, _23800e0
 	ldr	r1, _23800e4
-	add	r2, r1, #352	@ 0x160
+	add	r2, r1, #352	; 0x160
 _02380068:
 	ldr	r3, [r0], #4
 	str	r3, [r1], #4
@@ -113,7 +113,7 @@ FUN_238015C:
 	mov	r0, #1
 	mov	r1, #0
 	ldr	r2, _2380194
-	sub	r3, r2, #4194304	@ 0x400000
+	sub	r3, r2, #4194304	; 0x400000
 _0238016c:
 	strh	r1, [r2]
 	ldrh	ip, [r3]
