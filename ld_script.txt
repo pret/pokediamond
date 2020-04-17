@@ -84,11 +84,11 @@ SECTIONS {
     END_SEG(Icon)
 
 	. = 0x339000;__romPos = .;
-	BEGIN_SEG(Unk339000, 0)
+	BEGIN_SEG(NARC, 0)
 	{
-		build/asm/unk_339000.o(.text);
+		build/asm/narc.o(.text);
 	}
-	END_SEG(Unk339000)
+	END_SEG(NARC)
 
 	/DISCARD/ :
 	{
