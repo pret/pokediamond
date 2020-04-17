@@ -27,6 +27,7 @@ SECTIONS {
         build/asm/entry.o(.text);
         build/asm/main.o(.text);
         build/src/sub_02000DF4.o(.text);
+		build/asm/arm9_thumb.o(.text);
         build/asm/rom2.o(.text);
     }
     END_SEG(arm9)

@@ -37,31 +37,31 @@ RomVersion:
 
 	.global ARM9ROMOffset
 ARM9ROMOffset:
-	.word _arm9SegmentRomStart
+	.word 0x00004000
 	.global ARM9EntryAddress
 ARM9EntryAddress:
-	.word Entry
+	.word 0x02000800
 	.global ARM9RAMAddress
 ARM9RAMAddress:
-	.word _arm9SegmentStart
+	.word 0x02000000
 	.global ARM9CodeSize
 ARM9CodeSize:
-	.word _arm9SegmentSize
+	.word 0x00107724
 	.global ARM7ROMOffset
 ARM7ROMOffset:
-	.word _arm7SegmentRomStart
+	.word 0x0030D000
 	.global ARM7EntryAddress
 ARM7EntryAddress:
-	.word Entry_ARM7
+	.word 0x02380000
 	.global ARM7RAMAddress
 ARM7RAMAddress:
-	.word _arm7SegmentStart
+	.word 0x02380000
 	.global ARM7CodeSize
 ARM7CodeSize:
-	.word _arm7SegmentSize
+	.word 0x0002931C
 	.global FileNameTableOffset
 FileNameTableOffset:
-	.word _FileNameTableSegmentRomStart
+	.word 0x00336400
 	.global FileNameTableSize
 FileNameTableSize:
 	.word 0x0000157F
@@ -147,6 +147,4 @@ HeaderCRC:
 	.short 0xCA37
 
 /* reserved */
-	.global __startup
-__startup:
-	.space 160 /* hack so it builds */
+.space 160 /* hack so it builds */

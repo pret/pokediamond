@@ -1,0 +1,46 @@
+/* TEST */
+MEMORY {
+    header (RWX) : ORIGIN=0, LENGTH=0
+    arm9 (RWX) : ORIGIN=0x2000000, LENGTH=0
+    rom3 (RWX) : ORIGIN=0, LENGTH=0
+    gap1 (RWX) : ORIGIN=0, LENGTH=0
+    arm7 (RWX) : ORIGIN=0, LENGTH=0
+    gap2 (RWX) : ORIGIN=0, LENGTH=0
+    filenametable (RWX) : ORIGIN=0, LENGTH=0
+}
+
+SECTIONS {
+#include "undefined_syms.txt"
+
+    __startup = 0;
+    .header: {
+        rom_header.o (.text)
+    } > header
+    .arm9 : AT (0x4000) {
+        secure.o (.text)
+        entry.o (.text)
+        main.o (.text)
+        FUN_02000DF4.o (.text)
+        arm9_thumb.o (.text)
+        rom2.o (.text)
+    } > arm9
+    .rom3 : AT (0x10B724) {
+        rom3.o (.text)
+    } > rom3
+    
+    .gap1 : AT(0x30CE20) {
+        gap1.o (.text)
+    } > gap1
+    
+    .arm7 : AT(0x30D000) {
+        arm7_rom.o(.text)
+    } > arm7
+    
+    .gap2 : AT(0x33631C) {
+        gap2.o (.text)
+    } > gap2
+    
+    .filenametable : AT(0x336400) {
+        filenametable.o(.text)
+    } > filenametable
+}
