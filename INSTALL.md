@@ -18,6 +18,6 @@ Building the ROM requires the following packages:
 * libssl-dev
 * binutils-arm-linux-gnueabi
 
-#### 3. Build ROM
+#### 4. Build ROM
 
 Run `make` to build the ROM.
