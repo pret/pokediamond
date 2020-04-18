@@ -170,8 +170,6 @@ int main(int argc, char *argv[]) {
             sprintf((unsigned char*)&(buf[i*2]), "%02x", sha1[i]);
         }
 
-        printf("SHA1: %s\n", buf);
-
         for(int i = 0; gPatchDefs[i].sha1before != NULL; i++) {
             // check if already patched for the current loop.
             if(!strcmp(buf, gPatchDefs[i].sha1after)) {
