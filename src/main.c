@@ -42,8 +42,8 @@ struct Unk21C48B8
   s32 unk6C;
 };
 
-extern struct Unk2106FA0 gUnknown2106FA0;
-extern struct Unk2106FA0 gUnknown2106FA0_2; // same as the first one, it's referenced twice in the constant pool...
+extern struct Unk2106FA0 gBacklightTop;
+extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
 extern struct Unk2106FA0 gUnknown2106FB8;
 extern struct Unk21C48B8 gUnknown21C48B8;
 
@@ -54,8 +54,8 @@ extern struct {
   u8 unk8;
 } gUnk021C4918;
 
-extern void FUN_020D50D8();
-extern void FUN_020C9C0C();
+extern void PM_GetBackLight();
+extern void OS_WaitIrq();
 extern void FUN_02016438(s32);
 
 extern const s32 CONST_3F; // 0x0000003F
@@ -67,85 +67,85 @@ extern struct Unk21DBE18 gUnk021D76C8;
 
 void NitroMain(void)
 {
-	FUN_02016014();
-	FUN_02016148();
-	FUN_020163BC();
-	FUN_02016438(0);
+    InitSystemForTheGame();
+    InitGraphicMemory();
+    FUN_020163BC();
+    FUN_02016438(0);
 
-	FUN_020D50D8(&gUnknown2106FA0_2, 0); // should be blx please
+    PM_GetBackLight(&gBacklightTop_2, 0); 
 
-	FUN_02022294();
-	FUN_0201259C();
-	FUN_02000DF4();
-	FUN_02002C14();
-	FUN_02002C50(0, 3);
-	FUN_02002C50(1, 3);
-	FUN_02002C50(3, 3);
-	gUnknown2106FA0.unk18 = -1;
-	gUnknown2106FA0.unk20 = FUN_0202254C();
-	FUN_02003B98(FUN_02029EF8(gUnknown2106FA0.unk20), FUN_02023900(gUnknown2106FA0.unk20));
-	FUN_02020AFC();
-	if (FUN_020337E8(3) == 3)
-		FUN_02034188(3, 0);
-	if (FUN_020227FC(gUnknown2106FA0.unk20) == 0)
-	{
-		FUN_02089D90(0);
-	}
-	else
-	{
-		switch (gUnk027FFC20)
-		{
-		case 0:
-			gUnknown2106FA0.unk1C = 0;
-			FUN_02000E7C(&CONST_3F, &gUnk021DBE18);
-			break;
-		case 1:
-			gUnknown2106FA0.unk1C = 1;
-			FUN_02000E7C(&CONST_34, &gUnk021D76C8);
-			break;
-		default:
-			FUN_02020C2C();
-			break;
-		}
-	}
-	gUnknown21C48B8.unk6C = 1;
-	gUnknown21C48B8.unk30 = 0;
-	FUN_02000FA4();
-	FUN_0200A2AC();
-	FUN_02015E30();
-	gUnknown2106FA0.unk4 = 0;
-	for (;;)
-	{
-		FUN_02000EE8();
-		FUN_02000FE8();
-		FUN_02016464();
-		if ((gUnknown21C48B8.unk38 & 0x30C) == 0x30C && !gUnk021C4918.unk8) // soft reset?
-		{
-			FUN_02000F18(0); // soft reset?
-		}
-		if (FUN_0202FB80())
-		{
-			FUN_02000E0C();
-			FUN_0201B5CC(gUnknown21C48B8.unk18);
-			FUN_0201B5CC(gUnknown21C48B8.unk24);
-			if (!gUnknown21C48B8.unk30)
-			{
-				FUN_020C9C0C(1, 1);
-				gUnknown21C48B8.unk2C++;
-			}
-		}
-		FUN_020125D4();
-		FUN_02015E60();
-		FUN_020222C4();
-		FUN_0201B5CC(gUnknown21C48B8.unk24);
-		FUN_020C9C0C(1, 1);
-		gUnknown21C48B8.unk2C++;
-		gUnknown21C48B8.unk30 = 0;
-		FUN_0200A318();
-		FUN_0200E2D8();
-		if (gUnknown21C48B8.unk0)
-			gUnknown21C48B8.unk0(gUnknown21C48B8.unk4);
-		FUN_02003C10();
-		FUN_0201B5CC(gUnknown21C48B8.unk20);
-	}
+    FUN_02022294();
+    FUN_0201259C();
+    FUN_02000DF4();
+    FUN_02002C14();
+    FUN_02002C50(0, 3);
+    FUN_02002C50(1, 3);
+    FUN_02002C50(3, 3);
+    gBacklightTop.unk18 = -1;
+    gBacklightTop.unk20 = FUN_0202254C();
+    FUN_02003B98(FUN_02029EF8(gBacklightTop.unk20), LoadPlayerDataAddress(gBacklightTop.unk20));
+    FUN_02020AFC();
+    if (FUN_020337E8(3) == 3)
+        FUN_02034188(3, 0);
+    if (FUN_020227FC(gBacklightTop.unk20) == 0)
+    {
+        FUN_02089D90(0);
+    }
+    else
+    {
+        switch (gUnk027FFC20)
+        {
+        case 0:
+            gBacklightTop.unk1C = 0;
+            FUN_02000E7C(&CONST_3F, &gUnk021DBE18);
+            break;
+        case 1:
+            gBacklightTop.unk1C = 1;
+            FUN_02000E7C(&CONST_34, &gUnk021D76C8);
+            break;
+        default:
+            ErrorHandling();
+            break;
+        }
+    }
+    gUnknown21C48B8.unk6C = 1;
+    gUnknown21C48B8.unk30 = 0;
+    FUN_02000FA4();
+    FUN_0200A2AC();
+    FUN_02015E30();
+    gBacklightTop.unk4 = 0;
+    for (;;)
+    {
+        FUN_02000EE8();
+        FUN_02000FE8();
+        FUN_02016464();
+        if ((gUnknown21C48B8.unk38 & 0x30C) == 0x30C && !gUnk021C4918.unk8) // soft reset?
+        {
+            FUN_02000F18(0); // soft reset?
+        }
+        if (FUN_0202FB80())
+        {
+            FUN_02000E0C();
+            FUN_0201B5CC(gUnknown21C48B8.unk18);
+            FUN_0201B5CC(gUnknown21C48B8.unk24);
+            if (!gUnknown21C48B8.unk30)
+            {
+                OS_WaitIrq(1, 1);
+                gUnknown21C48B8.unk2C++;
+            }
+        }
+        FUN_020125D4();
+        FUN_02015E60();
+        FUN_020222C4();
+        FUN_0201B5CC(gUnknown21C48B8.unk24);
+        OS_WaitIrq(1, 1);
+        gUnknown21C48B8.unk2C++;
+        gUnknown21C48B8.unk30 = 0;
+        FUN_0200A318();
+        FUN_0200E2D8();
+        if (gUnknown21C48B8.unk0)
+            gUnknown21C48B8.unk0(gUnknown21C48B8.unk4);
+        FUN_02003C10();
+        FUN_0201B5CC(gUnknown21C48B8.unk20);
+    }
 }
