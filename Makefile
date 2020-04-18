@@ -73,11 +73,6 @@ TOOLS_DIR = tools
 SHA1SUM = sha1sum
 MWASMARM_PATCHER = tools/mwasmarm_patcher/mwasmarm_patcher$(EXE)
 
-DUMMY != $(MWASMARM_PATCHER) $(MWASMARM) || echo FAIL
-ifeq ($(DUMMY),FAIL)
-  $(error MWASMARM patcher returned an error)
-endif
-
 ######################### Targets ###########################
 
 all: $(ROM)
@@ -86,12 +81,15 @@ all: $(ROM)
 clean:
 	$(RM) -r $(BUILD_DIR)
 
+patch_mwasmarm:
+	$(MWASMARM_PATCHER) $(MWASMARM)
+
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
 $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.o: %.s
+$(BUILD_DIR)/%.o: %.s patch_mwasmarm
 	$(AS) $(ASFLAGS) $< -o $@
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
