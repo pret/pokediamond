@@ -17,7 +17,6 @@ Building the ROM requires the following packages:
 * make
 * git
 * build-essentials
-* libssl-dev
 * binutils-arm-linux-gnueabi
 
 #### Windows
