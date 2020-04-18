@@ -9,7 +9,156 @@ MEMORY {
     filenametable (RWX) : ORIGIN=0, LENGTH=0
     fileallocationtable (RWX) : ORIGIN=0, LENGTH=0
     icon_title (RWX) : ORIGIN=0, LENGTH=0
-    narc (RWX) : ORIGIN=0, LENGTH=0
+    narc.339000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.33F800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3FAC00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.417600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.426E00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.442C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.445800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.445C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.44DA00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.452800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.473000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.476A00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.494600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.49A200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.57FC00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.58FA00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.593400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.CBB200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.F4D400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.F4F000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.F54C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.F55400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.102EC00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.102F000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.102F400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.102F800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1B6B400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1B78200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C14A00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C1B000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C21600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C22800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C27200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C2D000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C32600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C34C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C35400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C3A400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1C4C800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1CE8E00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D09200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D0E400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D4C600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D4F800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D53A00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D60200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D61C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D63200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D64600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D6C800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D6DA00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1D70800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1DA6200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1DC0000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1DDBC00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1DDFE00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1DE0200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1DE7E00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1DE8600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1DE8A00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1E3A200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1E5C800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1E5F200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1E69C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1E73400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1E73800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1E94800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1E94E00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1E9CE00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1EDB600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1EF5800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1EFA400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1EFB600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F03000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F30000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F5C400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F5DA00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F64600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F6E400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F71600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F7FC00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F86600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F87C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1F8A000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1FA9200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1FAA800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1FB0200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1FB2A00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1FC7A00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.1FC8400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2000000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2001400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2004400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.200CE00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2018600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.201D400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.207DE00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.207E400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.210B600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2119C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2242200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.225E200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.22ACC00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.24F2600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.24F3200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2515600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2528C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.253C200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2712000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2715000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2715400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.2716800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.283BE00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.296EC00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.296F200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3787200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.379AE00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.37A0C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.37A4400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.37ACA00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.37B2400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.37D7800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.37D8600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3810200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.381F000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3821C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3824200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3824600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.382AA00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3835000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.383E200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3841E00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3842600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3843200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.385A600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.385CE00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.385D400 (RWX) : ORIGIN=0, LENGTH=0
+    narc.385D600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3860E00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3861000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3863600 (RWX) : ORIGIN=0, LENGTH=0
+    narc.387EA00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.388CA00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3923C00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.392A200 (RWX) : ORIGIN=0, LENGTH=0
+    narc.392FC00 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3938000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3949800 (RWX) : ORIGIN=0, LENGTH=0
+    narc.395B000 (RWX) : ORIGIN=0, LENGTH=0
+    narc.3968C00 (RWX) : ORIGIN=0, LENGTH=0
 }
 
 SECTIONS {
@@ -59,7 +208,604 @@ SECTIONS {
         title.o(.text)
     } > icon_title
 
-    .narc : AT(0x339000) {
-        narc.o(.text)
-    } > narc
+    .narc.339000 : AT (0x339000) {
+        unk_339000.narc.o (.narc.339000)
+    } > narc.339000
+
+    .narc.33F800 : AT (0x33F800) {
+        unk_33f800.narc.o (.narc.33F800)
+    } > narc.33F800
+
+    .narc.3FAC00 : AT (0x3FAC00) {
+        unk_3fac00.narc.o (.narc.3FAC00)
+    } > narc.3FAC00
+
+    .narc.417600 : AT (0x417600) {
+        unk_417600.narc.o (.narc.417600)
+    } > narc.417600
+
+    .narc.426E00 : AT (0x426E00) {
+        unk_426e00.narc.o (.narc.426E00)
+    } > narc.426E00
+
+    .narc.442C00 : AT (0x442C00) {
+        unk_442c00.narc.o (.narc.442C00)
+    } > narc.442C00
+
+    .narc.445800 : AT (0x445800) {
+        unk_445800.narc.o (.narc.445800)
+    } > narc.445800
+
+    .narc.445C00 : AT (0x445C00) {
+        unk_445c00.narc.o (.narc.445C00)
+    } > narc.445C00
+
+    .narc.44DA00 : AT (0x44DA00) {
+        unk_44da00.narc.o (.narc.44DA00)
+    } > narc.44DA00
+
+    .narc.452800 : AT (0x452800) {
+        unk_452800.narc.o (.narc.452800)
+    } > narc.452800
+
+    .narc.473000 : AT (0x473000) {
+        unk_473000.narc.o (.narc.473000)
+    } > narc.473000
+
+    .narc.476A00 : AT (0x476A00) {
+        unk_476a00.narc.o (.narc.476A00)
+    } > narc.476A00
+
+    .narc.494600 : AT (0x494600) {
+        unk_494600.narc.o (.narc.494600)
+    } > narc.494600
+
+    .narc.49A200 : AT (0x49A200) {
+        unk_49a200.narc.o (.narc.49A200)
+    } > narc.49A200
+
+    .narc.57FC00 : AT (0x57FC00) {
+        unk_57fc00.narc.o (.narc.57FC00)
+    } > narc.57FC00
+
+    .narc.58FA00 : AT (0x58FA00) {
+        unk_58fa00.narc.o (.narc.58FA00)
+    } > narc.58FA00
+
+    .narc.593400 : AT (0x593400) {
+        unk_593400.narc.o (.narc.593400)
+    } > narc.593400
+
+    .narc.CBB200 : AT (0xCBB200) {
+        unk_cbb200.narc.o (.narc.CBB200)
+    } > narc.CBB200
+
+    .narc.F4D400 : AT (0xF4D400) {
+        unk_f4d400.narc.o (.narc.F4D400)
+    } > narc.F4D400
+
+    .narc.F4F000 : AT (0xF4F000) {
+        unk_f4f000.narc.o (.narc.F4F000)
+    } > narc.F4F000
+
+    .narc.F54C00 : AT (0xF54C00) {
+        unk_f54c00.narc.o (.narc.F54C00)
+    } > narc.F54C00
+
+    .narc.F55400 : AT (0xF55400) {
+        unk_f55400.narc.o (.narc.F55400)
+    } > narc.F55400
+
+    .narc.102EC00 : AT (0x102EC00) {
+        unk_102ec00.narc.o (.narc.102EC00)
+    } > narc.102EC00
+
+    .narc.102F000 : AT (0x102F000) {
+        unk_102f000.narc.o (.narc.102F000)
+    } > narc.102F000
+
+    .narc.102F400 : AT (0x102F400) {
+        unk_102f400.narc.o (.narc.102F400)
+    } > narc.102F400
+
+    .narc.102F800 : AT (0x102F800) {
+        unk_102f800.narc.o (.narc.102F800)
+    } > narc.102F800
+
+    .narc.1B6B400 : AT (0x1B6B400) {
+        unk_1b6b400.narc.o (.narc.1B6B400)
+    } > narc.1B6B400
+
+    .narc.1B78200 : AT (0x1B78200) {
+        unk_1b78200.narc.o (.narc.1B78200)
+    } > narc.1B78200
+
+    .narc.1C14A00 : AT (0x1C14A00) {
+        unk_1c14a00.narc.o (.narc.1C14A00)
+    } > narc.1C14A00
+
+    .narc.1C1B000 : AT (0x1C1B000) {
+        unk_1c1b000.narc.o (.narc.1C1B000)
+    } > narc.1C1B000
+
+    .narc.1C21600 : AT (0x1C21600) {
+        unk_1c21600.narc.o (.narc.1C21600)
+    } > narc.1C21600
+
+    .narc.1C22800 : AT (0x1C22800) {
+        unk_1c22800.narc.o (.narc.1C22800)
+    } > narc.1C22800
+
+    .narc.1C27200 : AT (0x1C27200) {
+        unk_1c27200.narc.o (.narc.1C27200)
+    } > narc.1C27200
+
+    .narc.1C2D000 : AT (0x1C2D000) {
+        unk_1c2d000.narc.o (.narc.1C2D000)
+    } > narc.1C2D000
+
+    .narc.1C32600 : AT (0x1C32600) {
+        unk_1c32600.narc.o (.narc.1C32600)
+    } > narc.1C32600
+
+    .narc.1C34C00 : AT (0x1C34C00) {
+        unk_1c34c00.narc.o (.narc.1C34C00)
+    } > narc.1C34C00
+
+    .narc.1C35400 : AT (0x1C35400) {
+        unk_1c35400.narc.o (.narc.1C35400)
+    } > narc.1C35400
+
+    .narc.1C3A400 : AT (0x1C3A400) {
+        unk_1c3a400.narc.o (.narc.1C3A400)
+    } > narc.1C3A400
+
+    .narc.1C4C800 : AT (0x1C4C800) {
+        unk_1c4c800.narc.o (.narc.1C4C800)
+    } > narc.1C4C800
+
+    .narc.1CE8E00 : AT (0x1CE8E00) {
+        unk_1ce8e00.narc.o (.narc.1CE8E00)
+    } > narc.1CE8E00
+
+    .narc.1D09200 : AT (0x1D09200) {
+        unk_1d09200.narc.o (.narc.1D09200)
+    } > narc.1D09200
+
+    .narc.1D0E400 : AT (0x1D0E400) {
+        unk_1d0e400.narc.o (.narc.1D0E400)
+    } > narc.1D0E400
+
+    .narc.1D4C600 : AT (0x1D4C600) {
+        unk_1d4c600.narc.o (.narc.1D4C600)
+    } > narc.1D4C600
+
+    .narc.1D4F800 : AT (0x1D4F800) {
+        unk_1d4f800.narc.o (.narc.1D4F800)
+    } > narc.1D4F800
+
+    .narc.1D53A00 : AT (0x1D53A00) {
+        unk_1d53a00.narc.o (.narc.1D53A00)
+    } > narc.1D53A00
+
+    .narc.1D60200 : AT (0x1D60200) {
+        unk_1d60200.narc.o (.narc.1D60200)
+    } > narc.1D60200
+
+    .narc.1D61C00 : AT (0x1D61C00) {
+        unk_1d61c00.narc.o (.narc.1D61C00)
+    } > narc.1D61C00
+
+    .narc.1D63200 : AT (0x1D63200) {
+        unk_1d63200.narc.o (.narc.1D63200)
+    } > narc.1D63200
+
+    .narc.1D64600 : AT (0x1D64600) {
+        unk_1d64600.narc.o (.narc.1D64600)
+    } > narc.1D64600
+
+    .narc.1D6C800 : AT (0x1D6C800) {
+        unk_1d6c800.narc.o (.narc.1D6C800)
+    } > narc.1D6C800
+
+    .narc.1D6DA00 : AT (0x1D6DA00) {
+        unk_1d6da00.narc.o (.narc.1D6DA00)
+    } > narc.1D6DA00
+
+    .narc.1D70800 : AT (0x1D70800) {
+        unk_1d70800.narc.o (.narc.1D70800)
+    } > narc.1D70800
+
+    .narc.1DA6200 : AT (0x1DA6200) {
+        unk_1da6200.narc.o (.narc.1DA6200)
+    } > narc.1DA6200
+
+    .narc.1DC0000 : AT (0x1DC0000) {
+        unk_1dc0000.narc.o (.narc.1DC0000)
+    } > narc.1DC0000
+
+    .narc.1DDBC00 : AT (0x1DDBC00) {
+        unk_1ddbc00.narc.o (.narc.1DDBC00)
+    } > narc.1DDBC00
+
+    .narc.1DDFE00 : AT (0x1DDFE00) {
+        unk_1ddfe00.narc.o (.narc.1DDFE00)
+    } > narc.1DDFE00
+
+    .narc.1DE0200 : AT (0x1DE0200) {
+        unk_1de0200.narc.o (.narc.1DE0200)
+    } > narc.1DE0200
+
+    .narc.1DE7E00 : AT (0x1DE7E00) {
+        unk_1de7e00.narc.o (.narc.1DE7E00)
+    } > narc.1DE7E00
+
+    .narc.1DE8600 : AT (0x1DE8600) {
+        unk_1de8600.narc.o (.narc.1DE8600)
+    } > narc.1DE8600
+
+    .narc.1DE8A00 : AT (0x1DE8A00) {
+        unk_1de8a00.narc.o (.narc.1DE8A00)
+    } > narc.1DE8A00
+
+    .narc.1E3A200 : AT (0x1E3A200) {
+        unk_1e3a200.narc.o (.narc.1E3A200)
+    } > narc.1E3A200
+
+    .narc.1E5C800 : AT (0x1E5C800) {
+        unk_1e5c800.narc.o (.narc.1E5C800)
+    } > narc.1E5C800
+
+    .narc.1E5F200 : AT (0x1E5F200) {
+        unk_1e5f200.narc.o (.narc.1E5F200)
+    } > narc.1E5F200
+
+    .narc.1E69C00 : AT (0x1E69C00) {
+        unk_1e69c00.narc.o (.narc.1E69C00)
+    } > narc.1E69C00
+
+    .narc.1E73400 : AT (0x1E73400) {
+        unk_1e73400.narc.o (.narc.1E73400)
+    } > narc.1E73400
+
+    .narc.1E73800 : AT (0x1E73800) {
+        unk_1e73800.narc.o (.narc.1E73800)
+    } > narc.1E73800
+
+    .narc.1E94800 : AT (0x1E94800) {
+        unk_1e94800.narc.o (.narc.1E94800)
+    } > narc.1E94800
+
+    .narc.1E94E00 : AT (0x1E94E00) {
+        unk_1e94e00.narc.o (.narc.1E94E00)
+    } > narc.1E94E00
+
+    .narc.1E9CE00 : AT (0x1E9CE00) {
+        unk_1e9ce00.narc.o (.narc.1E9CE00)
+    } > narc.1E9CE00
+
+    .narc.1EDB600 : AT (0x1EDB600) {
+        unk_1edb600.narc.o (.narc.1EDB600)
+    } > narc.1EDB600
+
+    .narc.1EF5800 : AT (0x1EF5800) {
+        unk_1ef5800.narc.o (.narc.1EF5800)
+    } > narc.1EF5800
+
+    .narc.1EFA400 : AT (0x1EFA400) {
+        unk_1efa400.narc.o (.narc.1EFA400)
+    } > narc.1EFA400
+
+    .narc.1EFB600 : AT (0x1EFB600) {
+        unk_1efb600.narc.o (.narc.1EFB600)
+    } > narc.1EFB600
+
+    .narc.1F03000 : AT (0x1F03000) {
+        unk_1f03000.narc.o (.narc.1F03000)
+    } > narc.1F03000
+
+    .narc.1F30000 : AT (0x1F30000) {
+        unk_1f30000.narc.o (.narc.1F30000)
+    } > narc.1F30000
+
+    .narc.1F5C400 : AT (0x1F5C400) {
+        unk_1f5c400.narc.o (.narc.1F5C400)
+    } > narc.1F5C400
+
+    .narc.1F5DA00 : AT (0x1F5DA00) {
+        unk_1f5da00.narc.o (.narc.1F5DA00)
+    } > narc.1F5DA00
+
+    .narc.1F64600 : AT (0x1F64600) {
+        unk_1f64600.narc.o (.narc.1F64600)
+    } > narc.1F64600
+
+    .narc.1F6E400 : AT (0x1F6E400) {
+        unk_1f6e400.narc.o (.narc.1F6E400)
+    } > narc.1F6E400
+
+    .narc.1F71600 : AT (0x1F71600) {
+        unk_1f71600.narc.o (.narc.1F71600)
+    } > narc.1F71600
+
+    .narc.1F7FC00 : AT (0x1F7FC00) {
+        unk_1f7fc00.narc.o (.narc.1F7FC00)
+    } > narc.1F7FC00
+
+    .narc.1F86600 : AT (0x1F86600) {
+        unk_1f86600.narc.o (.narc.1F86600)
+    } > narc.1F86600
+
+    .narc.1F87C00 : AT (0x1F87C00) {
+        unk_1f87c00.narc.o (.narc.1F87C00)
+    } > narc.1F87C00
+
+    .narc.1F8A000 : AT (0x1F8A000) {
+        unk_1f8a000.narc.o (.narc.1F8A000)
+    } > narc.1F8A000
+
+    .narc.1FA9200 : AT (0x1FA9200) {
+        unk_1fa9200.narc.o (.narc.1FA9200)
+    } > narc.1FA9200
+
+    .narc.1FAA800 : AT (0x1FAA800) {
+        unk_1faa800.narc.o (.narc.1FAA800)
+    } > narc.1FAA800
+
+    .narc.1FB0200 : AT (0x1FB0200) {
+        unk_1fb0200.narc.o (.narc.1FB0200)
+    } > narc.1FB0200
+
+    .narc.1FB2A00 : AT (0x1FB2A00) {
+        unk_1fb2a00.narc.o (.narc.1FB2A00)
+    } > narc.1FB2A00
+
+    .narc.1FC7A00 : AT (0x1FC7A00) {
+        unk_1fc7a00.narc.o (.narc.1FC7A00)
+    } > narc.1FC7A00
+
+    .narc.1FC8400 : AT (0x1FC8400) {
+        unk_1fc8400.narc.o (.narc.1FC8400)
+    } > narc.1FC8400
+
+    .narc.2000000 : AT (0x2000000) {
+        unk_2000000.narc.o (.narc.2000000)
+    } > narc.2000000
+
+    .narc.2001400 : AT (0x2001400) {
+        unk_2001400.narc.o (.narc.2001400)
+    } > narc.2001400
+
+    .narc.2004400 : AT (0x2004400) {
+        unk_2004400.narc.o (.narc.2004400)
+    } > narc.2004400
+
+    .narc.200CE00 : AT (0x200CE00) {
+        unk_200ce00.narc.o (.narc.200CE00)
+    } > narc.200CE00
+
+    .narc.2018600 : AT (0x2018600) {
+        unk_2018600.narc.o (.narc.2018600)
+    } > narc.2018600
+
+    .narc.201D400 : AT (0x201D400) {
+        unk_201d400.narc.o (.narc.201D400)
+    } > narc.201D400
+
+    .narc.207DE00 : AT (0x207DE00) {
+        unk_207de00.narc.o (.narc.207DE00)
+    } > narc.207DE00
+
+    .narc.207E400 : AT (0x207E400) {
+        unk_207e400.narc.o (.narc.207E400)
+    } > narc.207E400
+
+    .narc.210B600 : AT (0x210B600) {
+        unk_210b600.narc.o (.narc.210B600)
+    } > narc.210B600
+
+    .narc.2119C00 : AT (0x2119C00) {
+        unk_2119c00.narc.o (.narc.2119C00)
+    } > narc.2119C00
+
+    .narc.2242200 : AT (0x2242200) {
+        unk_2242200.narc.o (.narc.2242200)
+    } > narc.2242200
+
+    .narc.225E200 : AT (0x225E200) {
+        unk_225e200.narc.o (.narc.225E200)
+    } > narc.225E200
+
+    .narc.22ACC00 : AT (0x22ACC00) {
+        unk_22acc00.narc.o (.narc.22ACC00)
+    } > narc.22ACC00
+
+    .narc.24F2600 : AT (0x24F2600) {
+        unk_24f2600.narc.o (.narc.24F2600)
+    } > narc.24F2600
+
+    .narc.24F3200 : AT (0x24F3200) {
+        unk_24f3200.narc.o (.narc.24F3200)
+    } > narc.24F3200
+
+    .narc.2515600 : AT (0x2515600) {
+        unk_2515600.narc.o (.narc.2515600)
+    } > narc.2515600
+
+    .narc.2528C00 : AT (0x2528C00) {
+        unk_2528c00.narc.o (.narc.2528C00)
+    } > narc.2528C00
+
+    .narc.253C200 : AT (0x253C200) {
+        unk_253c200.narc.o (.narc.253C200)
+    } > narc.253C200
+
+    .narc.2712000 : AT (0x2712000) {
+        unk_2712000.narc.o (.narc.2712000)
+    } > narc.2712000
+
+    .narc.2715000 : AT (0x2715000) {
+        unk_2715000.narc.o (.narc.2715000)
+    } > narc.2715000
+
+    .narc.2715400 : AT (0x2715400) {
+        unk_2715400.narc.o (.narc.2715400)
+    } > narc.2715400
+
+    .narc.2716800 : AT (0x2716800) {
+        unk_2716800.narc.o (.narc.2716800)
+    } > narc.2716800
+
+    .narc.283BE00 : AT (0x283BE00) {
+        unk_283be00.narc.o (.narc.283BE00)
+    } > narc.283BE00
+
+    .narc.296EC00 : AT (0x296EC00) {
+        unk_296ec00.narc.o (.narc.296EC00)
+    } > narc.296EC00
+
+    .narc.296F200 : AT (0x296F200) {
+        unk_296f200.narc.o (.narc.296F200)
+    } > narc.296F200
+
+    .narc.3787200 : AT (0x3787200) {
+        unk_3787200.narc.o (.narc.3787200)
+    } > narc.3787200
+
+    .narc.379AE00 : AT (0x379AE00) {
+        unk_379ae00.narc.o (.narc.379AE00)
+    } > narc.379AE00
+
+    .narc.37A0C00 : AT (0x37A0C00) {
+        unk_37a0c00.narc.o (.narc.37A0C00)
+    } > narc.37A0C00
+
+    .narc.37A4400 : AT (0x37A4400) {
+        unk_37a4400.narc.o (.narc.37A4400)
+    } > narc.37A4400
+
+    .narc.37ACA00 : AT (0x37ACA00) {
+        unk_37aca00.narc.o (.narc.37ACA00)
+    } > narc.37ACA00
+
+    .narc.37B2400 : AT (0x37B2400) {
+        unk_37b2400.narc.o (.narc.37B2400)
+    } > narc.37B2400
+
+    .narc.37D7800 : AT (0x37D7800) {
+        unk_37d7800.narc.o (.narc.37D7800)
+    } > narc.37D7800
+
+    .narc.37D8600 : AT (0x37D8600) {
+        unk_37d8600.narc.o (.narc.37D8600)
+    } > narc.37D8600
+
+    .narc.3810200 : AT (0x3810200) {
+        unk_3810200.narc.o (.narc.3810200)
+    } > narc.3810200
+
+    .narc.381F000 : AT (0x381F000) {
+        unk_381f000.narc.o (.narc.381F000)
+    } > narc.381F000
+
+    .narc.3821C00 : AT (0x3821C00) {
+        unk_3821c00.narc.o (.narc.3821C00)
+    } > narc.3821C00
+
+    .narc.3824200 : AT (0x3824200) {
+        unk_3824200.narc.o (.narc.3824200)
+    } > narc.3824200
+
+    .narc.3824600 : AT (0x3824600) {
+        unk_3824600.narc.o (.narc.3824600)
+    } > narc.3824600
+
+    .narc.382AA00 : AT (0x382AA00) {
+        unk_382aa00.narc.o (.narc.382AA00)
+    } > narc.382AA00
+
+    .narc.3835000 : AT (0x3835000) {
+        unk_3835000.narc.o (.narc.3835000)
+    } > narc.3835000
+
+    .narc.383E200 : AT (0x383E200) {
+        unk_383e200.narc.o (.narc.383E200)
+    } > narc.383E200
+
+    .narc.3841E00 : AT (0x3841E00) {
+        unk_3841e00.narc.o (.narc.3841E00)
+    } > narc.3841E00
+
+    .narc.3842600 : AT (0x3842600) {
+        unk_3842600.narc.o (.narc.3842600)
+    } > narc.3842600
+
+    .narc.3843200 : AT (0x3843200) {
+        unk_3843200.narc.o (.narc.3843200)
+    } > narc.3843200
+
+    .narc.385A600 : AT (0x385A600) {
+        unk_385a600.narc.o (.narc.385A600)
+    } > narc.385A600
+
+    .narc.385CE00 : AT (0x385CE00) {
+        unk_385ce00.narc.o (.narc.385CE00)
+    } > narc.385CE00
+
+    .narc.385D400 : AT (0x385D400) {
+        unk_385d400.narc.o (.narc.385D400)
+    } > narc.385D400
+
+    .narc.385D600 : AT (0x385D600) {
+        unk_385d600.narc.o (.narc.385D600)
+    } > narc.385D600
+
+    .narc.3860E00 : AT (0x3860E00) {
+        unk_3860e00.narc.o (.narc.3860E00)
+    } > narc.3860E00
+
+    .narc.3861000 : AT (0x3861000) {
+        unk_3861000.narc.o (.narc.3861000)
+    } > narc.3861000
+
+    .narc.3863600 : AT (0x3863600) {
+        unk_3863600.narc.o (.narc.3863600)
+    } > narc.3863600
+
+    .narc.387EA00 : AT (0x387EA00) {
+        unk_387ea00.narc.o (.narc.387EA00)
+    } > narc.387EA00
+
+    .narc.388CA00 : AT (0x388CA00) {
+        unk_388ca00.narc.o (.narc.388CA00)
+    } > narc.388CA00
+
+    .narc.3923C00 : AT (0x3923C00) {
+        unk_3923c00.narc.o (.narc.3923C00)
+    } > narc.3923C00
+
+    .narc.392A200 : AT (0x392A200) {
+        unk_392a200.narc.o (.narc.392A200)
+    } > narc.392A200
+
+    .narc.392FC00 : AT (0x392FC00) {
+        unk_392fc00.narc.o (.narc.392FC00)
+    } > narc.392FC00
+
+    .narc.3938000 : AT (0x3938000) {
+        unk_3938000.narc.o (.narc.3938000)
+    } > narc.3938000
+
+    .narc.3949800 : AT (0x3949800) {
+        unk_3949800.narc.o (.narc.3949800)
+    } > narc.3949800
+
+    .narc.395B000 : AT (0x395B000) {
+        unk_395b000.narc.o (.narc.395B000)
+    } > narc.395B000
+
+    .narc.3968C00 : AT (0x3968C00) {
+        unk_3968c00.narc.o (.narc.3968C00)
+    } > narc.3968C00
+
 }
