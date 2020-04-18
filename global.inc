@@ -413,7 +413,7 @@
 .extern FUN_020D6DB8
 .extern FUN_020D6DC4
 .extern FUN_020D6F20
-.extern FUN_020D7228
+.extern CARD_Init
 .extern FUN_020D7D18
 .extern FUN_020D7E9C
 .extern FUN_020D8A4C
@@ -462,10 +462,10 @@
 .extern FUN_020EB5C4
 .extern FUN_020EB7B0
 .extern FUN_020EBA38
-.extern FUN_020EBBE8
+.extern _ll_udiv
 .extern FUN_020EBC30
 .extern FUN_020EBC50
-.extern FUN_020EBC80
+.extern _s32_div_f
 .extern FUN_020EBE8C
 .extern FUN_020EC5CC
 .extern FUN_020EC694

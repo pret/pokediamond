@@ -6,25 +6,20 @@
 	.text
 
 .extern FUN_020005F2
-.extern FUN_020EBBE8
-.extern FUN_020EBC80
-.extern FUN_020EBC80
-.extern FUN_020EBC80
-.extern FUN_020DBC80
-.extern FUN_020D7228
-.extern FUN_020D5764
-.extern FUN_020EBBE8
-.extern FUN_020D7228
-.extern FUN_020D66C0
-.extern FUN_020D72AC
-.extern FUN_02000950
-.extern FUN_020D5338
-.extern FUN_020D5338
-.extern FUN_020D66E0
-.extern FUN_020CD380
-.extern FUN_020D58C4
-.extern FUN_020D5374
-.extern FUN_020D5498
+.extern _ll_udiv
+.extern _s32_div_f
+.extern CTRDG_Init
+.extern PM_Init
+.extern CARD_Init
+.extern CARD_LockRom
+.extern CARD_UnlockRom
+.extern CARDi_ReadRom
+.extern MIi_UncompressBackward
+.extern PMi_SetLED
+.extern OS_SpinWait
+.extern PMi_Lock
+.extern PMi_SetLEDAsync
+.extern PMi_ReadRegister
 .extern FUN_01FF857C
 .extern FUN_01FF84E4
 .extern FUN_01FF85F0
@@ -1228,7 +1223,7 @@ _020CAB98:
 	ldr r2, [sp, #0xc]
 	ldr r3, [sp, #0x4]
 	mov r0, r4
-	bl FUN_020EBBE8
+	bl _ll_udiv
 	mov r3, #0xa
 	umull r3, r12, r0, r3
 	subs r3, r4, r3
@@ -2537,7 +2532,7 @@ _020CBCCC:
 	ldr r0, [r6, #0x18]
 	add r0, r0, r1
 	sub r0, r0, #0x1
-	bl FUN_020EBC80
+	bl _s32_div_f
 	str r1, [r6, #0x18]
 	ldr r2, [r6, #0x10]
 	ldr r1, [r6, #0x18]
@@ -2589,7 +2584,7 @@ _020CBD74:
 	ldr r0, [r6, #0x18]
 	ldr r1, [r6, #0x14]
 	add r0, r0, #0x1
-	bl FUN_020EBC80
+	bl _s32_div_f
 	str r1, [r6, #0x18]
 	ldr r1, [r6, #0x1c]
 	mov r0, r6
@@ -2635,7 +2630,7 @@ _020CBE14:
 _020CBE2C:
 	ldr r0, [r6, #0x18]
 	add r0, r0, r2
-	bl FUN_020EBC80
+	bl _s32_div_f
 	ldr r2, [r6, #0x10]
 	add r0, r6, #0x8
 	str r5, [r2, r1, lsl #0x2]
@@ -2945,9 +2940,9 @@ OS_Init: ; 0x020CC1B4
 	bl OSi_InitVramExclusive
 	bl OS_InitThread
 	bl OS_InitReset
-	bl FUN_020DBC80
-	bl FUN_020D7228
-	bl FUN_020D5764
+	bl CTRDG_Init
+	bl CARD_Init
+	bl PM_Init
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
@@ -3885,7 +3880,7 @@ OSi_InsertAlarm: ; 0x020CD038
 	mov r2, r5
 	mov r3, r4
 	sbc r1, r1, r6
-	bl FUN_020EBBE8
+	bl _ll_udiv
 	mov r2, #0x1
 	adds r2, r0, r2
 	adc r0, r1, #0x0
@@ -4150,7 +4145,7 @@ _020CD3D0:
 	bl OS_GetLockID
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl FUN_020D66E0
+	bl CARD_LockRom
 _020CD3E0:
 	.byte 0x00, 0x00, 0xA0, 0xE3, 0x6B, 0x01, 0x00, 0xEB, 0x01, 0x00, 0xA0, 0xE3, 0x69, 0x01, 0x00, 0xEB
 	.byte 0x02, 0x00, 0xA0, 0xE3, 0x67, 0x01, 0x00, 0xEB, 0x03, 0x00, 0xA0, 0xE3, 0x65, 0x01, 0x00, 0xEB
@@ -6233,7 +6228,7 @@ _020CF294:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	mov r0, r6
-	bl FUN_020CD380
+	bl OS_SpinWait
 	bl OS_DisableInterrupts
 	mov r5, r0
 	bl SNDi_GetFinishedCommandTag
@@ -9024,7 +9019,7 @@ FSi_InitRom: ; 0x020D1D84
 	str r12, [r2, #0x4]
 	str r12, [r1, #0x0]
 	str r12, [r1, #0x4]
-	bl FUN_020D7228
+	bl CARD_Init
 	ldr r0, _020D1EF8 ; =0x021D5414
 	bl FS_InitArchive
 	ldr r0, _020D1EF8 ; =0x021D5414
@@ -9143,7 +9138,7 @@ _020D1F58:
 	ldr r0, [r0, #0x0]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl FUN_020D66E0
+	bl CARD_LockRom
 	add sp, sp, #0x4
 	mov r0, #0x0
 	ldmia sp!, {lr}
@@ -9153,7 +9148,7 @@ _020D1F7C:
 	ldr r0, [r0, #0x0]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl FUN_020D66C0
+	bl CARD_UnlockRom
 	add sp, sp, #0x4
 	mov r0, #0x0
 	ldmia sp!, {lr}
@@ -9190,7 +9185,7 @@ FSi_ReadRomCallback: ; 0x020D1FCC
 	mov r1, r2
 	ldr r0, [r0, #0x0]
 	mov r2, lr
-	bl FUN_020D72AC
+	bl CARDi_ReadRom
 	mov r0, #0x6
 	add sp, sp, #0xc
 	ldmia sp!, {lr}
@@ -9358,7 +9353,7 @@ _020D22A4:
 	beq _020D22BC
 	ldr r0, [r5, #0x4]
 	add r0, r0, r4
-	bl FUN_02000950
+	bl MIi_UncompressBackward
 _020D22BC:
 	ldr r0, [r5, #0x4]
 	ldr r1, [r5, #0x8]
@@ -11945,7 +11940,7 @@ PM_GetLEDPatternAsync:
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_020D58C4
+	bl PMi_Lock
 _020D4C70:
 	.byte 0x00, 0x00, 0x50, 0xE3, 0x01, 0x00, 0xA0, 0x03, 0x70, 0x40, 0xBD, 0x08, 0x1E, 0xFF, 0x2F, 0x01
 	.byte 0x1C, 0x10, 0x9F, 0xE5, 0x1C, 0x00, 0x9F, 0xE5, 0x04, 0x50, 0x81, 0xE5, 0x08, 0x40, 0x81, 0xE5
@@ -11971,7 +11966,7 @@ PMi_SendLEDPatternCommandAsync:
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_020D58C4
+	bl PMi_Lock
 _020D4CFC:
 	.byte 0x00, 0x00, 0x50, 0xE3
 	.byte 0x01, 0x00, 0xA0, 0x03, 0x70, 0x40, 0xBD, 0x08, 0x1E, 0xFF, 0x2F, 0x01, 0x20, 0x00, 0x9F, 0xE5
@@ -12028,13 +12023,13 @@ _020D4DC0:
 	cmp r3, #0x0
 	beq _020D4DDC
 	mov r0, r1
-	bl FUN_020D5338
+	bl PMi_SetLED
 	b _020D4DEC
 _020D4DDC:
 	mov r0, r1
 	mov r1, #0x0
 	mov r2, r1
-	bl FUN_020D5374
+	bl PMi_SetLEDAsync
 _020D4DEC:
 	ldr r1, _020D4E64 ; =0x04000304
 	ldrh r0, [r1, #0x0]
@@ -12055,13 +12050,13 @@ _020D4E00:
 	cmp r3, #0x0
 	beq _020D4E3C
 	mov r0, r1
-	bl FUN_020D5338
+	bl PMi_SetLED
 	b _020D4E4C
 _020D4E3C:
 	mov r0, r1
 	mov r1, #0x0
 	mov r2, r1
-	bl FUN_020D5374
+	bl PMi_SetLEDAsync
 _020D4E4C:
 	mov r0, #0x1
 	add sp, sp, #0x4
@@ -12149,7 +12144,7 @@ PM_GetBackLight: ; 0x020D50D8
 	mov r5, r0
 	add r1, sp, #0x0
 	mov r0, #0x0
-	bl FUN_020D5498
+	bl PMi_ReadRegister
 _020D50F4:
 	.byte 0x00, 0x00, 0x50, 0xE3, 0x04, 0xD0, 0x8D, 0x12, 0x30, 0x40, 0xBD, 0x18
 	.byte 0x1E, 0xFF, 0x2F, 0x11, 0x00, 0x00, 0x55, 0xE3, 0x04, 0x00, 0x00, 0x0A, 0xB0, 0x10, 0xDD, 0xE1
