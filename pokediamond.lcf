@@ -22,6 +22,8 @@ SECTIONS {
         main.o (.text)
         FUN_02000DF4.o (.text)
         arm9_thumb.o (.text)
+        rom1.5.o (.text)
+        FUN_020C9C0C.o (.text)
         rom2.o (.text)
     } > arm9
     .rom3 : AT (0x10B724) {

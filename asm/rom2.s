@@ -2,7 +2,7 @@
 
 .section .text
 
-.incbin "baserom.nds", 0x8EC14, 0x619B8
+.incbin "baserom.nds", 0xD9914, 0x16CB8
 
 	.global FUN_020EC5CC
 FUN_020EC5CC:
