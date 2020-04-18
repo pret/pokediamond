@@ -1,0 +1,135 @@
+	.text
+	; NARC header
+	.ascii "NARC"
+	.short 0xFFFE ; byte order
+	.short 0x0100 ; version
+	.word 0x001254B4 ; size
+	.short 0x0010 ; chunk size
+	.short 3 ; number following chunks
+
+	; BTAF header
+	.ascii "BTAF"
+	.word 0x000001C4 ; chunk size
+	.short 55 ; number of files
+	.balign 4
+	.word 0x00000000, 0x000100F0
+	.word 0x000100F0, 0x00016334
+	.word 0x00016334, 0x00028578
+	.word 0x00028578, 0x00030C08
+	.word 0x00030C08, 0x0003C344
+	.word 0x0003C344, 0x00045AFC
+	.word 0x00045AFC, 0x0004F0E4
+	.word 0x0004F0E4, 0x000584E8
+	.word 0x000584E8, 0x000604CC
+	.word 0x000604CC, 0x000693F4
+	.word 0x000693F4, 0x0007170C
+	.word 0x0007170C, 0x000782B0
+	.word 0x000782B0, 0x0007DF60
+	.word 0x0007DF60, 0x00082E94
+	.word 0x00082E94, 0x0008A728
+	.word 0x0008A728, 0x00091BC4
+	.word 0x00091BC4, 0x00096624
+	.word 0x00096624, 0x0009A84C
+	.word 0x0009A84C, 0x0009EF50
+	.word 0x0009EF50, 0x0009FD84
+	.word 0x0009FD84, 0x000A0C9C
+	.word 0x000A0C9C, 0x000A10DC
+	.word 0x000A10DC, 0x000A151C
+	.word 0x000A151C, 0x000A22E0
+	.word 0x000A22E0, 0x000A3000
+	.word 0x000A3000, 0x000A3658
+	.word 0x000A3658, 0x000A4AD8
+	.word 0x000A4AD8, 0x000AA6D4
+	.word 0x000AA6D4, 0x000B2214
+	.word 0x000B2214, 0x000BA4FC
+	.word 0x000BA4FC, 0x000C2BFC
+	.word 0x000C2BFC, 0x000CA73C
+	.word 0x000CA73C, 0x000CC8E0
+	.word 0x000CC8E0, 0x000D4674
+	.word 0x000D4674, 0x000DC4C4
+	.word 0x000DC4C4, 0x000E4A84
+	.word 0x000E4A84, 0x000E6734
+	.word 0x000E6734, 0x000EE274
+	.word 0x000EE274, 0x000F5FBC
+	.word 0x000F5FBC, 0x000F68BC
+	.word 0x000F68BC, 0x000F7C9C
+	.word 0x000F7C9C, 0x000F8E8C
+	.word 0x000F8E8C, 0x000FC588
+	.word 0x000FC588, 0x000FC58C
+	.word 0x000FC58C, 0x00106D00
+	.word 0x00106D00, 0x0010961C
+	.word 0x0010961C, 0x0010A1E8
+	.word 0x0010A1E8, 0x0010A730
+	.word 0x0010A730, 0x0010B438
+	.word 0x0010B438, 0x0010C444
+	.word 0x0010C444, 0x0010EA9C
+	.word 0x0010EA9C, 0x001114AC
+	.word 0x001114AC, 0x00119FC0
+	.word 0x00119FC0, 0x0011AB54
+	.word 0x0011AB54, 0x001252C8
+
+	; BTNF header
+	.ascii "BTNF"
+	.word 0x00000010 ; chunk size
+	.word 0x00000004 ; offset to first dir
+	.short 0 ; first file
+	.short 1 ; number of directories
+
+	; GMIF header
+	.ascii "GMIF"
+	.word 0x001252D0 ; chunk size
+	.incbin "baserom.nds", 0x27169EC, 0x100F0
+	.incbin "baserom.nds", 0x2726ADC, 0x6244
+	.incbin "baserom.nds", 0x272CD20, 0x12244
+	.incbin "baserom.nds", 0x273EF64, 0x8690
+	.incbin "baserom.nds", 0x27475F4, 0xB73C
+	.incbin "baserom.nds", 0x2752D30, 0x97B8
+	.incbin "baserom.nds", 0x275C4E8, 0x95E8
+	.incbin "baserom.nds", 0x2765AD0, 0x9404
+	.incbin "baserom.nds", 0x276EED4, 0x7FE4
+	.incbin "baserom.nds", 0x2776EB8, 0x8F28
+	.incbin "baserom.nds", 0x277FDE0, 0x8318
+	.incbin "baserom.nds", 0x27880F8, 0x6BA4
+	.incbin "baserom.nds", 0x278EC9C, 0x5CB0
+	.incbin "baserom.nds", 0x279494C, 0x4F34
+	.incbin "baserom.nds", 0x2799880, 0x7894
+	.incbin "baserom.nds", 0x27A1114, 0x749C
+	.incbin "baserom.nds", 0x27A85B0, 0x4A60
+	.incbin "baserom.nds", 0x27AD010, 0x4228
+	.incbin "baserom.nds", 0x27B1238, 0x4704
+	.incbin "baserom.nds", 0x27B593C, 0xE34
+	.incbin "baserom.nds", 0x27B6770, 0xF18
+	.incbin "baserom.nds", 0x27B7688, 0x440
+	.incbin "baserom.nds", 0x27B7AC8, 0x440
+	.incbin "baserom.nds", 0x27B7F08, 0xDC4
+	.incbin "baserom.nds", 0x27B8CCC, 0xD20
+	.incbin "baserom.nds", 0x27B99EC, 0x658
+	.incbin "baserom.nds", 0x27BA044, 0x1480
+	.incbin "baserom.nds", 0x27BB4C4, 0x5BFC
+	.incbin "baserom.nds", 0x27C10C0, 0x7B40
+	.incbin "baserom.nds", 0x27C8C00, 0x82E8
+	.incbin "baserom.nds", 0x27D0EE8, 0x8700
+	.incbin "baserom.nds", 0x27D95E8, 0x7B40
+	.incbin "baserom.nds", 0x27E1128, 0x21A4
+	.incbin "baserom.nds", 0x27E32CC, 0x7D94
+	.incbin "baserom.nds", 0x27EB060, 0x7E50
+	.incbin "baserom.nds", 0x27F2EB0, 0x85C0
+	.incbin "baserom.nds", 0x27FB470, 0x1CB0
+	.incbin "baserom.nds", 0x27FD120, 0x7B40
+	.incbin "baserom.nds", 0x2804C60, 0x7D48
+	.incbin "baserom.nds", 0x280C9A8, 0x900
+	.incbin "baserom.nds", 0x280D2A8, 0x13E0
+	.incbin "baserom.nds", 0x280E688, 0x11F0
+	.incbin "baserom.nds", 0x280F878, 0x36FC
+	.incbin "baserom.nds", 0x2812F74, 0x4
+	.incbin "baserom.nds", 0x2812F78, 0xA774
+	.incbin "baserom.nds", 0x281D6EC, 0x291C
+	.incbin "baserom.nds", 0x2820008, 0xBCC
+	.incbin "baserom.nds", 0x2820BD4, 0x548
+	.incbin "baserom.nds", 0x282111C, 0xD08
+	.incbin "baserom.nds", 0x2821E24, 0x100C
+	.incbin "baserom.nds", 0x2822E30, 0x2658
+	.incbin "baserom.nds", 0x2825488, 0x2A10
+	.incbin "baserom.nds", 0x2827E98, 0x8B14
+	.incbin "baserom.nds", 0x28309AC, 0xB94
+	.incbin "baserom.nds", 0x2831540, 0xA774

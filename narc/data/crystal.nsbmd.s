@@ -1,0 +1,2 @@
+	.text
+	.incbin "baserom.nds", 0x33EA00, 0xD04
