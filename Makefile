@@ -19,7 +19,7 @@ EXE := .exe
 WINE := 
 else
 EXE := 
-WINE := wine 
+WINE := "wine "
 endif
 
 ifeq ($(NOWINE),1)
