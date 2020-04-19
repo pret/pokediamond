@@ -1,13 +1,36 @@
 # Makefile to build Pokemon Diamond image
 
+.PHONY: clean tidy all default
+
+# Try to include devkitarm if installed
+TOOLCHAIN := $(DEVKITARM)
+
+ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
+include $(TOOLCHAIN)/base_tools
+endif
+
 ### Default target ###
 
 default: all
 
+# If you are using WSL, it is recommended you build with NOWINE=1.
+WSLENV ?= no
+ifeq ($(WSLENV),)
+NOWINE = 1
+else
+NOWINE = 0
+endif
+
 ifeq ($(OS),Windows_NT)
 EXE := .exe
+WINE := 
 else
-EXE :=
+EXE := 
+WINE := wine
+endif
+
+ifeq ($(NOWINE),1)
+WINE :=
 endif
 
 ################ Target Executable and Sources ###############
@@ -35,7 +58,7 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
 
 MWCCVERSION := 2.0/base
 
-CROSS   := arm-linux-gnueabi-
+CROSS   := arm-none-eabi-
 
 MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
@@ -46,10 +69,10 @@ MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 MWLDARM  := tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM := tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 
-AS      := $(MWASMARM)
-CC      := $(MWCCARM)
+AS      := $(WINE) $(MWASMARM)
+CC      := $(WINE) $(MWCCARM)
 CPP     := cpp -P
-LD      := $(MWLDARM)
+LD      := $(WINE) $(MWLDARM)
 AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
@@ -57,6 +80,7 @@ OBJCOPY := $(CROSS)objcopy
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te
 CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c -Cpp_exceptions off -interworking -i nitro
+LDFLAGS = -nodead -w off -proc v5te -map -symtab -m Entry
 
 ####################### Other Tools #########################
 
@@ -65,6 +89,7 @@ TOOLS_DIR = tools
 SHA1SUM = sha1sum
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
+MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -77,25 +102,33 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
 ifeq (,$(filter-out all,$(MAKECMDGOALS)))
-$(call infoshell, $(MAKE) tools)
+$(call infoshell, $(MAKE) tools patch_mwasmarm)
 else
 NODEP := 1
 endif
 
-.PHONY: all clean tools $(TOOLDIRS)
+.PHONY: all clean tidy tools $(TOOLDIRS) patch_mwasmarm
 
 MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
 	@$(SHA1SUM) -c $(TARGET).sha1
 
-clean:
+clean: tidy
+	make -C tools/mwasmarm_patcher clean
+
+tidy:
 	$(RM) -r $(BUILD_DIR)
 
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@
+
+$(MWASMARM): patch_mwasmarm
+
+patch_mwasmarm:
+	$(MWASMARM_PATCHER) $(MWASMARM)
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
@@ -109,7 +142,7 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
-	$(LD)  $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) -nodead -w off
+	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES)
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@
@@ -128,6 +161,9 @@ DUMMY != mkdir -p $(ALL_DIRS)
 
 %.lz: %
 	$(GFX) $< $@
+
+%.png: ;
+%.pal: ;
 
 $(BUILD_DIR)/asm/icon.o: graphics/icon.4bpp graphics/icon.gbapal
 

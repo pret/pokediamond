@@ -13,3 +13,6 @@ cmake-build-debug/
 
 # ROM
 *.srl
+
+# Tool executables
+*.exe

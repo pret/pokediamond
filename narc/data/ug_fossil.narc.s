@@ -26,6 +26,7 @@
 	; GMIF header
 	.ascii "GMIF"
 	.word 0x00003E94 ; chunk size
-	.incbin "baserom.nds", 0x44DA4C, 0x3640
-	.incbin "baserom.nds", 0x45108C, 0x228
-	.incbin "baserom.nds", 0x4512B4, 0x624
+	.incbin "baserom.nds", 0x0, 0x3640
+	.incbin "baserom.nds", 0x3640, 0x228
+	.incbin "baserom.nds", 0x3868, 0x624
+	.balign 4, 255
