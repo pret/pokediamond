@@ -1,8 +1,32 @@
 # Makefile to build Pokemon Diamond image
 
+.PHONY: clean tidy all default
+
+# Try to include devkitarm if installed
+TOOLCHAIN := $(DEVKITARM)
+
+ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
+include $(TOOLCHAIN)/base_tools
+endif
+
 ### Default target ###
 
 default: all
+
+# If you are using WSL, it is recommended you build with NOWINE=1.
+NOWINE ?= 0
+
+ifeq ($(OS),Windows_NT)
+EXE := .exe
+WINE := 
+else
+EXE := 
+WINE := wine
+endif
+
+ifeq ($(NOWINE),1)
+WINE := 
+endif
 
 ################ Target Executable and Sources ###############
 
@@ -24,12 +48,20 @@ S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
 # Object files
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
+		   
+################### Universal Dependencies ###################
+
+# Make tools if out of date
+DUMMY != make -s -C tools/mwasmarm_patcher >&2 || echo FAIL
+ifeq ($(DUMMY),FAIL)
+  $(error Failed to build tools)
+endif
 
 ##################### Compiler Options #######################
 
 MWCCVERSION := 2.0/base
 
-CROSS   := arm-linux-gnueabi-
+CROSS   := arm-none-eabi-
 
 MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
@@ -40,10 +72,10 @@ MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 MWLDARM  := tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM := tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 
-AS      := $(MWASMARM)
-CC      := $(MWCCARM)
+AS      := $(WINE) $(MWASMARM)
+CC      := $(WINE) $(MWCCARM)
 CPP     := cpp -P
-LD      := $(MWLDARM)
+LD      := $(WINE) $(MWLDARM)
 AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
@@ -57,21 +89,28 @@ CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c -Cpp_exceptions off -interwork
 # DS TOOLS
 TOOLS_DIR = tools
 SHA1SUM = sha1sum
+MWASMARM_PATCHER = tools/mwasmarm_patcher/mwasmarm_patcher$(EXE)
 
 ######################### Targets ###########################
 
 all: $(ROM)
 	@$(SHA1SUM) -c $(TARGET).sha1
 
-clean:
+clean: tidy
+	make -C tools/mwasmarm_patcher clean
+
+tidy:
 	$(RM) -r $(BUILD_DIR)
+
+patch_mwasmarm:
+	$(MWASMARM_PATCHER) $(MWASMARM)
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
 $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.o: %.s
+$(BUILD_DIR)/%.o: %.s patch_mwasmarm
 	$(AS) $(ASFLAGS) $< -o $@
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
