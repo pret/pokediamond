@@ -107,15 +107,18 @@ else
 NODEP := 1
 endif
 
-.PHONY: all clean tidy tools $(TOOLDIRS) patch_mwasmarm
+.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
 
 MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
 	@$(SHA1SUM) -c $(TARGET).sha1
 
-clean: tidy
+clean: mostlyclean
 	make -C tools/mwasmarm_patcher clean
+
+mostlyclean: tidy
+	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 
 tidy:
 	$(RM) -r $(BUILD_DIR)
