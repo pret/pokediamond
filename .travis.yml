@@ -3,6 +3,7 @@ dist: xenial
 language: c
 
 install:
+    - sudo apt update
     - sudo apt install binutils-arm-none-eabi wine
     - wget $TOOLS_URL
     - unzip mwccarm.zip
