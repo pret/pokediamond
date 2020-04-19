@@ -3,9 +3,12 @@
 CC := gcc
 CFLAGS := -O3
 
-all: mwasmarm_patcher
+.PHONY: all clean
 
-clean: ; rm -f mwasmarm_patcher$(EXE)
+all: mwasmarm_patcher
+	@
+
+clean: ; $(RM) mwasmarm_patcher$(EXE)
 
 mwasmarm_patcher: mwasmarm_patcher.c
 	$(CC) $(CFLAGS) -o $@ $<

@@ -189,9 +189,10 @@ _02000A50:
 	blt _02000A50
 	b _02000A0C
 _02000A6C:
-	b _2000A74
+	b ARM9AutoLoad
 	.pool
-_2000A74:
+	.global ARM9AutoLoad
+ARM9AutoLoad:
 	bx lr
 	arm_func_end do_autoload
 

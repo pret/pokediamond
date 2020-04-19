@@ -13,13 +13,17 @@
 
 SECTIONS {
     __romPos = 0;
+    BEGIN_SEG(ARM7Overlay, 0)
+    {
+    }
+    END_SEG(ARM7Overlay)
+
     BEGIN_SEG(header, 0x0)
     {
         build/asm/rom_header.o(.text);
-    }
+        . = 0x4000;
+    } =0
     END_SEG(header)
-    
-    __romPos += 0x3E00;
 
     BEGIN_SEG(arm9, 0x2000000)
     {
@@ -31,35 +35,64 @@ SECTIONS {
         build/asm/rom2.o(.text);
     }
     END_SEG(arm9)
-    
-    BEGIN_SEG(rom3, 0x2000000 + SIZEOF(arm9))
+
+    garbage :
+    {
+    	build/asm/unk_10b724.o(.text);
+    }=0
+
+    . = 0x10B800;__romPos = .;
+    BEGIN_SEG(ARM9Overlay, 0)
+    {
+    	build/asm/arm9overlay.o(.text);
+    }
+    END_SEG(ARM9Overlay)
+
+	. = 0x10C400;__romPos = .;
+    BEGIN_SEG(rom3, 0) /* shrug */
     {
         build/asm/rom3.o(.text);
     }
     END_SEG(rom3)
 
-    BEGIN_SEG(gap1, 0x2000000 + SIZEOF(rom3) + SIZEOF(arm9))
-    {
-    	build/asm/gap1.o(.text);
-    }
-    END_SEG(gap1)
-
+	. = 0x30D000;__romPos = .;
     BEGIN_SEG(arm7, 0x02380000)
     {
     	build/asm/arm7_rom.o(.text);
     }
     END_SEG(arm7)
 
-    BEGIN_SEG(gap2, 0x02380000 + SIZEOF(arm7))
-    {
-    	build/asm/gap2.o(.text)
-    }
-    END_SEG(gap2)
-
-	. = 0x336400;
-    BEGIN_SEG(FileNameTable, 0x02400000)
+	. = 0x336400;__romPos = .;
+    BEGIN_SEG(FileNameTable, 0)
     {
     	build/asm/filenametable.o(.text);
     }
     END_SEG(FileNameTable)
+
+    . = 0x337A00;__romPos = .;
+    BEGIN_SEG(FileAllocationTable, 0)
+    {
+    	build/asm/fat.o(.text);
+    }
+    END_SEG(FileAllocationTable)
+
+    . = 0x338600;__romPos = .;
+    BEGIN_SEG(Icon, __romPos)
+    {
+    	build/asm/icon.o(.text);
+    	build/asm/title.o(.text);
+    }
+    END_SEG(Icon)
+
+	. = 0x339000;__romPos = .;
+	BEGIN_SEG(NARC, 0)
+	{
+		build/asm/narc.o(.text);
+	}
+	END_SEG(NARC)
+
+	/DISCARD/ :
+	{
+		*(*);
+	}
 }

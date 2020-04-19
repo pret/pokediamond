@@ -14,7 +14,12 @@ endif
 default: all
 
 # If you are using WSL, it is recommended you build with NOWINE=1.
-NOWINE ?= 0
+WSLENV ?= no
+ifeq ($(WSLENV),)
+NOWINE = 1
+else
+NOWINE = 0
+endif
 
 ifeq ($(OS),Windows_NT)
 EXE := .exe
@@ -25,7 +30,7 @@ WINE := wine
 endif
 
 ifeq ($(NOWINE),1)
-WINE := 
+WINE :=
 endif
 
 ################ Target Executable and Sources ###############
@@ -48,14 +53,6 @@ S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
 # Object files
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
-		   
-################### Universal Dependencies ###################
-
-# Make tools if out of date
-DUMMY != make -s -C tools/mwasmarm_patcher >&2 || echo FAIL
-ifeq ($(DUMMY),FAIL)
-  $(error Failed to build tools)
-endif
 
 ##################### Compiler Options #######################
 
@@ -82,26 +79,56 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c -Cpp_exceptions off
-LDFLAGS = -map -nodead -w off -proc v5te -interworking
+CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c -Cpp_exceptions off -i nitro
+LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m Entry
 
 ####################### Other Tools #########################
 
 # DS TOOLS
 TOOLS_DIR = tools
 SHA1SUM = sha1sum
-MWASMARM_PATCHER = tools/mwasmarm_patcher/mwasmarm_patcher$(EXE)
+JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
+GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
+MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
+
+TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm,$(wildcard $(TOOLS_DIR)/*))
+TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
+TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
 ######################### Targets ###########################
 
-all: patch_mwasmarm $(ROM)
+infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
+
+# Build tools when building the rom
+# Disable dependency scanning for clean/tidy/tools
+ifeq (,$(filter-out all,$(MAKECMDGOALS)))
+$(call infoshell, $(MAKE) tools patch_mwasmarm)
+else
+NODEP := 1
+endif
+
+.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
+
+MAKEFLAGS += --no-print-directory
+
+all: $(ROM)
 	@$(SHA1SUM) -c $(TARGET).sha1
 
-clean: tidy
+clean: mostlyclean
 	make -C tools/mwasmarm_patcher clean
+
+mostlyclean: tidy
+	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 
 tidy:
 	$(RM) -r $(BUILD_DIR)
+
+tools: $(TOOLDIRS)
+
+$(TOOLDIRS):
+	@$(MAKE) -C $@
+
+$(MWASMARM): patch_mwasmarm
 
 patch_mwasmarm:
 	$(MWASMARM_PATCHER) $(MWASMARM)
@@ -118,13 +145,30 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
-	$(LD)  $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(LDFLAGS)
+	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES)
 
 $(ROM): $(ELF)
-	$(OBJCOPY) -O binary $< $@
+	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
+
+%.4bpp: %.png
+	$(GFX) $< $@
+
+%.gbapal: %.png
+	$(GFX) $< $@
+
+%.gbapal: %.pal
+	$(GFX) $< $@
+
+%.lz: %
+	$(GFX) $< $@
+
+%.png: ;
+%.pal: ;
+
+$(BUILD_DIR)/asm/icon.o: graphics/icon.4bpp graphics/icon.gbapal
 
 ### Debug Print ###
 
