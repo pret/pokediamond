@@ -1,0 +1,17 @@
+dist: xenial
+
+language: c
+
+install:
+    - apt install binutils-arm-none-eabi wine
+    - wget $TOOLS_URL
+    - unzip mwccarm.zip
+    - mv mwccarm tools
+    - wget $ROM_URL
+    - mv "baserom.nds?dl=1" baserom.nds
+
+script:
+  - make
+
+notifications:
+  email: false
