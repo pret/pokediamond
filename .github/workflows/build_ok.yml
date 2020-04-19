@@ -28,7 +28,6 @@ jobs:
         # Get mw tools
         wget https://cdn.discordapp.com/attachments/698589325620936736/698589447096107089/mwccarm.zip
         unzip mwccarm.zip
-        mkdir tools
         mv mwccarm tools
         # build project
         make
