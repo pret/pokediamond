@@ -1,6 +1,6 @@
 # Makefile to build Pokemon Diamond image
 
-.PHONY: clean tidy all default
+.PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
 TOOLCHAIN := $(DEVKITARM)
@@ -79,8 +79,8 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c -Cpp_exceptions off -interworking -i nitro
-LDFLAGS = -nodead -w off -proc v5te -map -symtab -m Entry
+CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c -Cpp_exceptions off -i nitro
+LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m Entry
 
 ####################### Other Tools #########################
 
@@ -138,7 +138,7 @@ $(BUILD_DIR)/%.o: %.c
 $(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
+$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
