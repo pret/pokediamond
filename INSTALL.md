@@ -47,3 +47,7 @@ Install them using either the Cygwin package manager or using pacman on Msys2.
 ### 4. Build ROM
 
 Run `make` to build the ROM.
+
+Windows Users:
+
+If you get an error in saving configuration settings when specifying the license file, you need to add a system environment variable called LM_LICENSE_FILE and point it to the license.dat file.
