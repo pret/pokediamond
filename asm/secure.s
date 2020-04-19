@@ -1,11 +1,11 @@
 /* secure.s TODO: Disassemble */
+	.include "asm/macros.inc"
 
 .section .text
 
 .incbin "baserom.nds", 0x4000, 0x5F2
 
-	.global FUN_020005F2
-	.thumb
+	thumb_func_start
 FUN_020005F2:
 	swi 3
 	bx lr
