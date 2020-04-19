@@ -21,7 +21,7 @@ EXE := .exe
 WINE := 
 else
 EXE := 
-WINE := "wine "
+WINE := wine
 endif
 
 ifeq ($(NOWINE),1)
@@ -72,10 +72,10 @@ MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 MWLDARM  := tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM := tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 
-AS      := $(WINE)$(MWASMARM)
-CC      := $(WINE)$(MWCCARM)
+AS      := $(WINE) $(MWASMARM)
+CC      := $(WINE) $(MWCCARM)
 CPP     := cpp -P
-LD      := $(WINE)$(MWLDARM)
+LD      := $(WINE) $(MWLDARM)
 AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
