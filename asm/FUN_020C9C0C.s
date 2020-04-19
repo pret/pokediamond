@@ -3,29 +3,6 @@
 
 	.text
 
-.extern FUN_020005F2
-.extern _ll_udiv
-.extern _s32_div_f
-.extern CTRDG_Init
-.extern PM_Init
-.extern CARD_Init
-.extern CARD_LockRom
-.extern CARD_UnlockRom
-.extern CARDi_ReadRom
-.extern MIi_UncompressBackward
-.extern PMi_SetLED
-.extern OS_SpinWait
-.extern PMi_Lock
-.extern PMi_SetLEDAsync
-.extern PMi_ReadRegister
-.extern PMi_WaitBusy
-.extern CTRDG_IsExisting
-.extern PMi_SendSleepStart
-.extern FUN_01FF857C
-.extern FUN_01FF84E4
-.extern FUN_01FF85F0
-.extern FUN_01FF84A4
-.extern FUN_01FF8544
 
 
 	arm_func_start OS_WaitIrq
