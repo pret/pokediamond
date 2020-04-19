@@ -12,7 +12,8 @@ install:
     - mv "baserom.nds?dl=1" baserom.nds
 
 script:
-  - make
+    - export LM_LICENSE_FILE="$(pwd)/tools/mwccarm/license.dat"
+    - make
 
 notifications:
   email: false
