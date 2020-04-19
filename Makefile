@@ -1,13 +1,29 @@
 # Makefile to build Pokemon Diamond image
 
+# Try to include devkitarm if installed
+TOOLCHAIN := $(DEVKITARM)
+
+ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
+include $(TOOLCHAIN)/base_tools
+endif
+
 ### Default target ###
 
 default: all
 
+# If you are using WSL, it is recommended you build with NOWINE=1.
+NOWINE ?= 0
+
 ifeq ($(OS),Windows_NT)
 EXE := .exe
+WINE := 
 else
-EXE :=
+EXE := 
+WINE := wine 
+endif
+
+ifeq ($(NOWINE),1)
+WINE := 
 endif
 
 ################ Target Executable and Sources ###############
@@ -43,7 +59,7 @@ endif
 
 MWCCVERSION := 2.0/base
 
-CROSS   := arm-linux-gnueabi-
+CROSS   := arm-none-eabi-
 
 MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
@@ -54,10 +70,10 @@ MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 MWLDARM  := tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM := tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 
-AS      := $(MWASMARM)
-CC      := $(MWCCARM)
+AS      := $(WINE)$(MWASMARM)
+CC      := $(WINE)$(MWCCARM)
 CPP     := cpp -P
-LD      := $(MWLDARM)
+LD      := $(WINE)$(MWLDARM)
 AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
@@ -96,7 +112,7 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
-	$(LD)  $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) -nodead -w off -interworking
+	$(LD)  $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) -nodead -w off
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@

@@ -17,11 +17,32 @@ Building the ROM requires the following packages:
 * make
 * git
 * build-essentials
-* binutils-arm-linux-gnueabi
+* binutils-arm-none-eabi
+* wine (to run the mwcc executables)
+
+NOTE: If you are using Arch/Manjaro or Void you will only need base-devel instead of build-essentials or make or git. You will still need wine.
+
+Also, if you are using WSL on Windows, please pass NOWINE=1 when compiling, and wine is not necessary for a WSL environment.
 
 #### Windows
 
-TODO
+Before following the respective guides, please install devkitARM and ensure the DEVKITPRO and DEVKITARM variables are added to bashrc such that:
+
+Msys2:
+export DEVKITPRO=C:/devkitPro
+export DEVKITARM=${DEVKITPRO}/devkitARM
+
+Cygwin:
+export DEVKITPRO=/cygdrive/c/devkitPro
+export DEVKITARM=${DEVKITPRO}/devkitARM
+
+You will still require the following packages:
+
+* make
+* git
+* build-essentials
+
+Install them using either the Cygwin package manager or using pacman on Msys2.
 
 ### 4. Build ROM
 
