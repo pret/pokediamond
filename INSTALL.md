@@ -1,6 +1,6 @@
 ### 1. Copy baserom(s) into root folder
 
-Put a clean copy of Pokemon Diamond (US) nds rom at `./baserom.us.nds`.
+Put a clean copy of Pokemon Diamond (US) nds rom at `./baserom.nds`.
 
 ### 2. Install MWCC compiler
 
