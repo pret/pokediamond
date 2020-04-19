@@ -1,5 +1,7 @@
 # Makefile to build Pokemon Diamond image
 
+.PHONY: clean tidy all default
+
 # Try to include devkitarm if installed
 TOOLCHAIN := $(DEVKITARM)
 
@@ -94,7 +96,10 @@ MWASMARM_PATCHER = tools/mwasmarm_patcher/mwasmarm_patcher$(EXE)
 all: $(ROM)
 	@$(SHA1SUM) -c $(TARGET).sha1
 
-clean:
+clean: tidy
+	make -C tools/mwasmarm_patcher clean
+
+tidy:
 	$(RM) -r $(BUILD_DIR)
 
 patch_mwasmarm:
