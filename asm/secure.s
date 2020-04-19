@@ -5,7 +5,7 @@
 
 .incbin "baserom.nds", 0x4000, 0x5F2
 
-	thumb_func_start
+	thumb_func_start FUN_020005F2
 FUN_020005F2:
 	swi 3
 	bx lr
