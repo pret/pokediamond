@@ -1,6 +1,6 @@
 # Makefile to build Pokemon Diamond image
 
-.PHONY: clean tidy all default
+.PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
 TOOLCHAIN := $(DEVKITARM)
@@ -93,7 +93,7 @@ MWASMARM_PATCHER = tools/mwasmarm_patcher/mwasmarm_patcher$(EXE)
 
 ######################### Targets ###########################
 
-all: $(ROM)
+all: patch_mwasmarm $(ROM)
 	@$(SHA1SUM) -c $(TARGET).sha1
 
 clean: tidy
@@ -110,14 +110,14 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.o: %.s patch_mwasmarm
+$(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
+$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
-	$(LD)  $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) -nodead -w off
+	$(LD)  $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) -map -nodead -w off
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
