@@ -13,12 +13,12 @@ struct Unk2106FA0 {
     s32 unk14;
 };
 
-extern struct Unk2106FA0 gUnknown2106FA0;
+extern struct Unk2106FA0 gBacklightTop;
 
 void FUN_02000DF4(void)
 {
-    gUnknown2106FA0.unk8 = -1;
-    gUnknown2106FA0.unkC = 0;
-    gUnknown2106FA0.unk10 = -1;
-    gUnknown2106FA0.unk14 = 0;
+    gBacklightTop.unk8 = -1;
+    gBacklightTop.unkC = 0;
+    gBacklightTop.unk10 = -1;
+    gBacklightTop.unk14 = 0;
 }

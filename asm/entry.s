@@ -85,7 +85,7 @@ _02000924: .word 0x07000000
 _02000928: .word _02000B68
 _0200092C: .word 0x027FFF9C
 _02000930: .word 0x01FF8000
-_02000934: .word NitroMain+1
+_02000934: .word NitroMain
 _02000938: .word 0xFFFF0000
 	arm_func_end Entry
 
