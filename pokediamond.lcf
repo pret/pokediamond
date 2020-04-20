@@ -378,10 +378,14 @@ SECTIONS {
         entry.o (.text)
         main.o (.text)
         FUN_02000DF4.o (.text)
-        arm9_thumb.o (.text)
+        unk_02000E0C.o (.text)
+        string_util.o (.text)
+        unk_020023C0.o (.text)
         rom1.5.o (.text)
         FUN_020C9C0C.o (.text)
         rom2.o (.text)
+        string_util.o (.data)
+        rom2_2.o (.text)
     } > arm9
 
     .arm9overlay : AT (0x10B800) {

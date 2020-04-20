@@ -4,53 +4,78 @@
 #include <stdarg.h> 
 #include <stdlib.h>
 
-// mwasmarm patcher v1.1
-// Patches the Metrowerk C compiler assembler to stop the line ending bug.
+// mwasmarm patcher v1.2
+// Patches the Metrowerk C compiler assembler to stop the line ending bug and the 0x400 incbin bug.
 
 // Changelog:
 // v1.1: Added patch definitions and looped over them to find the matching
 // definition as well as the version.
+// v1.2: Switched to array system for applying multiple patches for compiler
+// versions and added 0x400 incbin fix for each version.
+
+struct PatchPair {
+    int offsetPatch;
+    int newByte;
+};
 
 struct PatchDef {
     char *version;
     char *sha1before;
     char *sha1after;
-    int offsetPatch;
-    int newByte;   
+    struct PatchPair *patches;
 };
 
+// Patch definitions for each of the respective assembler versions.
+struct PatchPair g12BasePatches[] = {
+    { 0x57614, 0x5  },
+    { 0xD47,   0x8D },
+    {0}
+};
+
+struct PatchPair g20BasePatches[] = {
+    { 0x57644, 0x5  },
+    { 0xD47,   0x8D },
+    {0}
+};
+
+struct PatchPair g20sp2p4Patches[] = {
+    { 0x57834, 0x5  },
+    { 0xD47,   0x8D },
+    {0}
+};
+
+// Table of definitions for each assembler version
 struct PatchDef gPatchDefs[] = {
     // mwasmarm 1.2/base definition
     {
         "mwasmarm 1.2/base",
         "87f942cc0a0e90e73550d8d6f3fffcdeb5f69fa5",
-        "2f1ccff22eaa443bb79235ca6477d3b86bdfd7e4",
-        0x57614,
-        0x5
+        "3395ac5decf49135d892e93a3e6dd38676025983",
+        g12BasePatches
     },
     // mwasmarm 2.0/base definition
     {
         "mwasmarm 2.0/base",
         "9d63877c776245129b4727b41d3e9e63cfc9cd28",
-        "f5dea73bf90791e104cb59458bebae8b08a55484",
-        0x57644,
-        0x5
+        "ef75c3fb9f8d90cb4881386c41d8dc3ab4de7153",
+        g20BasePatches
     },
     // mwasmarm 2.0/sp2p4 definition
     {
         "mwasmarm 2.0/sp2p4",
         "448cb0c7f1ace4393e9a9562f819f7a9f049be83",
-        "c82161527277b991a1b77e14617a93bcd19cf95c",
-        0x57834,
-        0x5
+        "caa84dd90b1987ab7b42749bd5c9dcfdcfef59f3",
+        g20sp2p4Patches
     },
-    {
-    }
+    {0}
 };
+
+// ---------------------------------------------------------
+// Credit to ax6 for implementation of sha1 hash functions
+// ---------------------------------------------------------
 
 void sha1_process_block (const unsigned char * block, uint32_t * state);
 
-// Credit to ax6 for implementation
 unsigned char * calculate_sha1 (const void * data, unsigned length) {
   uint32_t state[5] = {0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0};
   const char * current;
@@ -118,6 +143,10 @@ void sha1_process_block (const unsigned char * block, uint32_t * state) {
   state[4] += e;
 }
 
+// ---------------------------------------------------------
+// ax6 code end
+// ---------------------------------------------------------
+
 void fatal_printf(char *str, ...) {
     va_list args;
     va_start(args, str);
@@ -146,21 +175,21 @@ int main(int argc, char *argv[]) {
         print_help();
         return 1;
     } else {
-        // Open the file and sha1 read it.
+        // Open the file and read it's sha1 hash.
         FILE *f = fopen(argv[1], "rb+");
-        if(f == NULL) {
+        if (f == NULL) {
             fatal_printf("ERROR: No file detected\n");
         }
         int fsize = get_file_size(f);
         unsigned char *string = malloc(fsize + 1);
-        if(string == NULL) {
+        if (string == NULL) {
             fatal_printf("ERROR: Failed to allocate string variable\n");
         }
         int readvar = fread(string, 1, fsize, f); // var to surpress warning
 
         // Check if sha1 matches either known assembler hashes.
         unsigned char *sha1 = calculate_sha1(string, fsize);
-        if(sha1 == NULL) {
+        if (sha1 == NULL) {
             fatal_printf("ERROR: Failed to retrieve sha1 hash\n");
         }
         free(string);
@@ -169,19 +198,26 @@ int main(int argc, char *argv[]) {
         for (int i=0; i < SHA_DIGEST_LENGTH; i++) {
             sprintf((unsigned char*)&(buf[i*2]), "%02x", sha1[i]);
         }
+        free(sha1);
 
-        for(int i = 0; gPatchDefs[i].sha1before != NULL; i++) {
+        // loop over each patch definition to attempt to locate a supported version and, if
+        // needed, apply the patch definitions.
+        for (int i = 0; gPatchDefs[i].sha1before != NULL; i++) {
             // check if already patched for the current loop.
-            if(!strcmp(buf, gPatchDefs[i].sha1after)) {
+            if (!strcmp(buf, gPatchDefs[i].sha1after)) {
                 printf("Supported patched version detected (%s): no action needed\n", gPatchDefs[i].version);
                 return 0;
             } else if(!strcmp(buf, gPatchDefs[i].sha1before)) {
-                fseek(f, gPatchDefs[i].offsetPatch, SEEK_SET);
-                fputc(gPatchDefs[i].newByte, f);
+                // we found an unpatched version: apply the patches.
+                for (int j = 0; gPatchDefs[i].patches[j].offsetPatch != 0; j++) {
+                    fseek(f, gPatchDefs[i].patches[j].offsetPatch, SEEK_SET);
+                    fputc(gPatchDefs[i].patches[j].newByte, f);
+                }
                 printf("Supported unpatched version detected (%s): assembler patched\n", gPatchDefs[i].version);
                 return 0;
             }
         }
+        // Unable to locate supported version, quitting
         fatal_printf("ERROR: Unsupported mwasmarm.exe version\n");
     }
     return 0;
