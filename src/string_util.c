@@ -1,7 +1,36 @@
 #include "nitro.h"
 
-extern u32 gPowersOfTen[]; // at 0x20ECB24
-extern u16 gDigitTable[];  // at 0x20ECB08
+u16 gDigitTable[] = {
+    0xA2,
+    0xA3,
+    0xA4,
+    0xA5,
+    0xA6,
+    0xA7,
+    0xA8,
+    0xA9,
+    0xAA,
+    0xAB,
+    0xAC,
+    0xAD,
+    0xAE,
+    0xAF,
+    0xB0,
+    0xB1
+};
+
+s32 gPowersOfTen[] = {
+             1,
+            10,
+           100,
+          1000,
+         10000,
+        100000,
+       1000000,
+      10000000,
+     100000000,
+    1000000000,
+};
 
 static const u16 EOS = 0xFFFF;
 
@@ -104,7 +133,7 @@ const u16 NON_DIGIT = 0xE2;
 
 u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n)
 {
-    for (u32 x = gPowersOfTen[n]; x != 0; x = x / 10) {
+    for (u32 x = gPowersOfTen[n - 1]; x != 0; x = x / 10) {
         u16 res = value / x;
         value = value - x * res;
         if (mode == PAD_ZEROES) {
