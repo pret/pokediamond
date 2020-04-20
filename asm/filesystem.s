@@ -1,0 +1,648 @@
+    .include "asm/macros.inc"
+    .include "global.inc"
+
+	.text
+
+	thumb_func_start ReadNARCFile
+ReadNARCFile: ; 0x02006314
+	push {r3-r7, lr}
+	sub sp, #0x60
+	add r4, r1, #0x0
+	mov r1, #0x0
+	str r0, [sp, #0x0]
+	str r1, [sp, #0x14]
+	str r1, [sp, #0x10]
+	str r1, [sp, #0xc]
+	add r0, sp, #0x8
+	strh r1, [r0, #0x0]
+	add r0, sp, #0x18
+	add r5, r2, #0x0
+	str r3, [sp, #0x4]
+	blx FS_InitFile
+	add r0, sp, #0x18
+	add r1, r4, #0x0
+	blx FS_OpenFile
+	add r0, sp, #0x18
+	mov r1, #0xc
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, sp, #0x18
+	add r1, sp, #0x14
+	mov r2, #0x2
+	blx FS_ReadFile
+	ldr r4, [sp, #0x14]
+	add r0, sp, #0x18
+	add r1, r4, #0x4
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, sp, #0x18
+	add r1, sp, #0x14
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r0, sp, #0x18
+	add r1, sp, #0x8
+	mov r2, #0x2
+	blx FS_ReadFile
+	add r0, sp, #0x8
+	ldrh r0, [r0, #0x0]
+	cmp r0, r5
+	bgt _0200637A
+	bl ErrorHandling
+_0200637A:
+	ldr r0, [sp, #0x14]
+	mov r2, #0x0
+	add r6, r4, r0
+	add r0, sp, #0x18
+	add r1, r6, #0x4
+	blx FS_SeekFile
+	add r0, sp, #0x18
+	add r1, sp, #0x14
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r4, #0xc
+	lsl r1, r5, #0x3
+	add r0, sp, #0x18
+	add r1, r4, r1
+	mov r2, #0x0
+	ldr r7, [sp, #0x14]
+	blx FS_SeekFile
+	add r0, sp, #0x18
+	add r1, sp, #0x10
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r0, sp, #0x18
+	add r1, sp, #0xc
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r2, r6, r7
+	ldr r1, [sp, #0x10]
+	add r2, #0x8
+	add r2, r2, r1
+	ldr r1, [sp, #0x4]
+	add r0, sp, #0x18
+	add r1, r1, r2
+	mov r2, #0x0
+	blx FS_SeekFile
+	ldr r0, [sp, #0x78]
+	cmp r0, #0x0
+	bne _020063D6
+	ldr r1, [sp, #0xc]
+	ldr r0, [sp, #0x10]
+	sub r0, r1, r0
+_020063D6:
+	str r0, [sp, #0x14]
+	cmp r0, #0x0
+	bne _020063E0
+	bl ErrorHandling
+_020063E0:
+	ldr r1, [sp, #0x0]
+	ldr r2, [sp, #0x14]
+	add r0, sp, #0x18
+	blx FS_ReadFile
+	add r0, sp, #0x18
+	blx FS_CloseFile
+	add sp, #0x60
+	pop {r3-r7, pc}
+
+	thumb_func_start FUN_020063F4
+FUN_020063F4: ; 0x020063F4
+	push {r3-r7, lr}
+	sub sp, #0x60
+	add r5, r1, #0x0
+	mov r1, #0x0
+	add r4, r0, #0x0
+	str r1, [sp, #0x14]
+	str r1, [sp, #0x10]
+	str r1, [sp, #0xc]
+	add r0, sp, #0x8
+	strh r1, [r0, #0x0]
+	add r0, sp, #0x18
+	str r2, [sp, #0x0]
+	str r3, [sp, #0x4]
+	blx FS_InitFile
+	add r0, sp, #0x18
+	add r1, r4, #0x0
+	blx FS_OpenFile
+	add r0, sp, #0x18
+	mov r1, #0xc
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, sp, #0x18
+	add r1, sp, #0x14
+	mov r2, #0x2
+	blx FS_ReadFile
+	ldr r4, [sp, #0x14]
+	add r0, sp, #0x18
+	add r1, r4, #0x4
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, sp, #0x18
+	add r1, sp, #0x14
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r0, sp, #0x18
+	add r1, sp, #0x8
+	mov r2, #0x2
+	blx FS_ReadFile
+	add r0, sp, #0x8
+	ldrh r0, [r0, #0x0]
+	cmp r0, r5
+	bgt _0200645A
+	bl ErrorHandling
+_0200645A:
+	ldr r0, [sp, #0x14]
+	mov r2, #0x0
+	add r6, r4, r0
+	add r0, sp, #0x18
+	add r1, r6, #0x4
+	blx FS_SeekFile
+	add r0, sp, #0x18
+	add r1, sp, #0x14
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r4, #0xc
+	lsl r1, r5, #0x3
+	add r0, sp, #0x18
+	add r1, r4, r1
+	mov r2, #0x0
+	ldr r7, [sp, #0x14]
+	blx FS_SeekFile
+	add r0, sp, #0x18
+	add r1, sp, #0x10
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r0, sp, #0x18
+	add r1, sp, #0xc
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r2, r6, r7
+	ldr r1, [sp, #0x10]
+	add r2, #0x8
+	add r2, r2, r1
+	ldr r1, [sp, #0x4]
+	add r0, sp, #0x18
+	add r1, r1, r2
+	mov r2, #0x0
+	blx FS_SeekFile
+	ldr r0, [sp, #0x78]
+	cmp r0, #0x0
+	bne _020064B6
+	ldr r1, [sp, #0xc]
+	ldr r0, [sp, #0x10]
+	sub r0, r1, r0
+_020064B6:
+	str r0, [sp, #0x14]
+	cmp r0, #0x0
+	bne _020064C0
+	bl ErrorHandling
+_020064C0:
+	ldr r0, [sp, #0x7c]
+	cmp r0, #0x0
+	bne _020064D0
+	ldr r0, [sp, #0x0]
+	ldr r1, [sp, #0x14]
+	bl FUN_02016998
+	b _020064D8
+_020064D0:
+	ldr r0, [sp, #0x0]
+	ldr r1, [sp, #0x14]
+	bl FUN_020169D8
+_020064D8:
+	add r4, r0, #0x0
+	ldr r2, [sp, #0x14]
+	add r0, sp, #0x18
+	add r1, r4, #0x0
+	blx FS_ReadFile
+	add r0, sp, #0x18
+	blx FS_CloseFile
+	add r0, r4, #0x0
+	add sp, #0x60
+	pop {r3-r7, pc}
+
+	thumb_func_start FUN_020064F0
+FUN_020064F0: ; 0x020064F0
+	push {r3-r4, lr}
+	sub sp, #0x4
+	mov r3, #0x0
+	lsl r4, r1, #0x2
+	ldr r1, _02006508 ; =0x021058A0
+	str r3, [sp, #0x0]
+	ldr r1, [r1, r4]
+	bl ReadNARCFile
+	add sp, #0x4
+	pop {r3-r4, pc}
+	nop
+_02006508: .word 0x021058A0
+
+	thumb_func_start FUN_0200650C
+FUN_0200650C: ; 0x0200650C
+	push {r4, lr}
+	sub sp, #0x8
+	mov r3, #0x0
+	str r3, [sp, #0x0]
+	lsl r4, r0, #0x2
+	ldr r0, _02006524 ; =0x021058A0
+	str r3, [sp, #0x4]
+	ldr r0, [r0, r4]
+	bl FUN_020063F4
+	add sp, #0x8
+	pop {r4, pc}
+	.balign 4
+_02006524: .word 0x021058A0
+
+	thumb_func_start FUN_02006528
+FUN_02006528: ; 0x02006528
+	push {r4, lr}
+	sub sp, #0x8
+	mov r3, #0x0
+	str r3, [sp, #0x0]
+	mov r4, #0x1
+	str r4, [sp, #0x4]
+	lsl r4, r0, #0x2
+	ldr r0, _02006544 ; =0x021058A0
+	ldr r0, [r0, r4]
+	bl FUN_020063F4
+	add sp, #0x8
+	pop {r4, pc}
+	nop
+_02006544: .word 0x021058A0
+
+	thumb_func_start FUN_02006548
+FUN_02006548: ; 0x02006548
+	push {r3-r4, lr}
+	sub sp, #0x4
+	ldr r4, [sp, #0x10]
+	str r4, [sp, #0x0]
+	lsl r4, r1, #0x2
+	ldr r1, _02006560 ; =0x021058A0
+	ldr r1, [r1, r4]
+	bl ReadNARCFile
+	add sp, #0x4
+	pop {r3-r4, pc}
+	nop
+_02006560: .word 0x021058A0
+
+	thumb_func_start FUN_02006564
+FUN_02006564: ; 0x02006564
+	push {r4, lr}
+	sub sp, #0x8
+	ldr r4, [sp, #0x10]
+	str r4, [sp, #0x0]
+	mov r4, #0x0
+	str r4, [sp, #0x4]
+	lsl r4, r0, #0x2
+	ldr r0, _02006580 ; =0x021058A0
+	ldr r0, [r0, r4]
+	bl FUN_020063F4
+	add sp, #0x8
+	pop {r4, pc}
+	nop
+_02006580: .word 0x021058A0
+
+	thumb_func_start FUN_02006584
+FUN_02006584: ; 0x02006584
+	push {r4, lr}
+	sub sp, #0x8
+	ldr r4, [sp, #0x10]
+	str r4, [sp, #0x0]
+	mov r4, #0x1
+	str r4, [sp, #0x4]
+	lsl r4, r0, #0x2
+	ldr r0, _020065A0 ; =0x021058A0
+	ldr r0, [r0, r4]
+	bl FUN_020063F4
+	add sp, #0x8
+	pop {r4, pc}
+	nop
+_020065A0: .word 0x021058A0
+
+	thumb_func_start FUN_020065A4
+FUN_020065A4: ; 0x020065A4
+	push {r3-r7, lr}
+	sub sp, #0x58
+	add r5, r1, #0x0
+	mov r1, #0x0
+	add r4, r0, #0x0
+	str r1, [sp, #0xc]
+	str r1, [sp, #0x8]
+	str r1, [sp, #0x4]
+	add r0, sp, #0x0
+	strh r1, [r0, #0x0]
+	add r0, sp, #0x10
+	blx FS_InitFile
+	ldr r1, _0200666C ; =0x021058A0
+	lsl r2, r4, #0x2
+	ldr r1, [r1, r2]
+	add r0, sp, #0x10
+	blx FS_OpenFile
+	add r0, sp, #0x10
+	mov r1, #0xc
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, sp, #0x10
+	add r1, sp, #0xc
+	mov r2, #0x2
+	blx FS_ReadFile
+	ldr r4, [sp, #0xc]
+	add r0, sp, #0x10
+	add r1, r4, #0x4
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, sp, #0x10
+	add r1, sp, #0xc
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r0, sp, #0x10
+	add r1, sp, #0x0
+	mov r2, #0x2
+	blx FS_ReadFile
+	add r0, sp, #0x0
+	ldrh r0, [r0, #0x0]
+	cmp r0, r5
+	bgt _0200660A
+	bl ErrorHandling
+_0200660A:
+	ldr r0, [sp, #0xc]
+	mov r2, #0x0
+	add r6, r4, r0
+	add r0, sp, #0x10
+	add r1, r6, #0x4
+	blx FS_SeekFile
+	add r0, sp, #0x10
+	add r1, sp, #0xc
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r4, #0xc
+	lsl r1, r5, #0x3
+	add r0, sp, #0x10
+	add r1, r4, r1
+	mov r2, #0x0
+	ldr r7, [sp, #0xc]
+	blx FS_SeekFile
+	add r0, sp, #0x10
+	add r1, sp, #0x8
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r0, sp, #0x10
+	add r1, sp, #0x4
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r2, r6, r7
+	ldr r1, [sp, #0x8]
+	add r2, #0x8
+	add r1, r2, r1
+	add r0, sp, #0x10
+	mov r2, #0x0
+	blx FS_SeekFile
+	ldr r1, [sp, #0x4]
+	ldr r0, [sp, #0x8]
+	sub r0, r1, r0
+	str r0, [sp, #0xc]
+	bne _02006664
+	bl ErrorHandling
+_02006664:
+	ldr r0, [sp, #0xc]
+	add sp, #0x58
+	pop {r3-r7, pc}
+	nop
+_0200666C: .word 0x021058A0
+
+	thumb_func_start FUN_02006670
+FUN_02006670: ; 0x02006670
+	push {r3-r5, lr}
+	add r5, r0, #0x0
+	add r0, r1, #0x0
+	mov r1, #0x54
+	bl FUN_02016998
+	add r4, r0, #0x0
+	beq _020066EC
+	mov r1, #0x0
+	str r1, [r4, #0x48]
+	blx FS_InitFile
+	ldr r1, _020066F0 ; =0x021058A0
+	lsl r2, r5, #0x2
+	ldr r1, [r1, r2]
+	add r0, r4, #0x0
+	blx FS_OpenFile
+	add r0, r4, #0x0
+	mov r1, #0xc
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r1, r4, #0x0
+	add r0, r4, #0x0
+	add r1, #0x48
+	mov r2, #0x2
+	blx FS_ReadFile
+	ldr r1, [r4, #0x48]
+	add r0, r4, #0x0
+	add r1, r1, #0x4
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, r4, #0x0
+	add r1, sp, #0x0
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r1, r4, #0x0
+	add r0, r4, #0x0
+	add r1, #0x50
+	mov r2, #0x2
+	blx FS_ReadFile
+	ldr r1, [r4, #0x48]
+	ldr r0, [sp, #0x0]
+	mov r2, #0x0
+	add r5, r1, r0
+	add r0, r4, #0x0
+	add r1, r5, #0x4
+	blx FS_SeekFile
+	add r0, r4, #0x0
+	add r1, sp, #0x0
+	mov r2, #0x4
+	blx FS_ReadFile
+	ldr r0, [sp, #0x0]
+	add r0, r5, r0
+	str r0, [r4, #0x4c]
+_020066EC:
+	add r0, r4, #0x0
+	pop {r3-r5, pc}
+	.balign 4
+_020066F0: .word 0x021058A0
+
+	thumb_func_start FUN_020066F4
+FUN_020066F4: ; 0x020066F4
+	push {r4, lr}
+	add r4, r0, #0x0
+	blx FS_CloseFile
+	add r0, r4, #0x0
+	bl FUN_02016A18
+	pop {r4, pc}
+
+	thumb_func_start FUN_02006704
+FUN_02006704: ; 0x02006704
+	push {r4-r6, lr}
+	sub sp, #0x8
+	add r5, r0, #0x0
+	add r0, #0x50
+	ldrh r0, [r0, #0x0]
+	add r4, r1, #0x0
+	add r6, r2, #0x0
+	cmp r0, r4
+	bhi _0200671A
+	bl ErrorHandling
+_0200671A:
+	ldr r2, [r5, #0x48]
+	lsl r1, r4, #0x3
+	add r2, #0xc
+	add r1, r2, r1
+	add r0, r5, #0x0
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, r5, #0x0
+	add r1, sp, #0x4
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r0, r5, #0x0
+	add r1, sp, #0x0
+	mov r2, #0x4
+	blx FS_ReadFile
+	ldr r2, [r5, #0x4c]
+	ldr r1, [sp, #0x4]
+	add r2, #0x8
+	add r1, r2, r1
+	add r0, r5, #0x0
+	mov r2, #0x0
+	blx FS_SeekFile
+	ldr r2, [sp, #0x0]
+	ldr r1, [sp, #0x4]
+	add r0, r6, #0x0
+	sub r1, r2, r1
+	bl FUN_02016998
+	add r4, r0, #0x0
+	beq _0200676C
+	ldr r3, [sp, #0x0]
+	ldr r2, [sp, #0x4]
+	add r0, r5, #0x0
+	add r1, r4, #0x0
+	sub r2, r3, r2
+	blx FS_ReadFile
+_0200676C:
+	add r0, r4, #0x0
+	add sp, #0x8
+	pop {r4-r6, pc}
+	.balign 4
+
+	thumb_func_start FUN_02006774
+FUN_02006774: ; 0x02006774
+	push {r4-r6, lr}
+	sub sp, #0x8
+	add r5, r0, #0x0
+	add r0, #0x50
+	ldrh r0, [r0, #0x0]
+	add r4, r1, #0x0
+	add r6, r2, #0x0
+	cmp r0, r4
+	bhi _0200678A
+	bl ErrorHandling
+_0200678A:
+	ldr r2, [r5, #0x48]
+	lsl r1, r4, #0x3
+	add r2, #0xc
+	add r1, r2, r1
+	add r0, r5, #0x0
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, r5, #0x0
+	add r1, sp, #0x4
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r0, r5, #0x0
+	add r1, sp, #0x0
+	mov r2, #0x4
+	blx FS_ReadFile
+	ldr r2, [r5, #0x4c]
+	ldr r1, [sp, #0x4]
+	add r2, #0x8
+	add r1, r2, r1
+	add r0, r5, #0x0
+	mov r2, #0x0
+	blx FS_SeekFile
+	ldr r3, [sp, #0x0]
+	ldr r2, [sp, #0x4]
+	add r0, r5, #0x0
+	add r1, r6, #0x0
+	sub r2, r3, r2
+	blx FS_ReadFile
+	add sp, #0x8
+	pop {r4-r6, pc}
+
+	thumb_func_start FUN_020067D0
+FUN_020067D0: ; 0x020067D0
+	push {r3-r5, lr}
+	sub sp, #0x8
+	add r5, r0, #0x0
+	add r0, #0x50
+	ldrh r0, [r0, #0x0]
+	add r4, r1, #0x0
+	cmp r0, r4
+	bhi _020067E4
+	bl ErrorHandling
+_020067E4:
+	ldr r2, [r5, #0x48]
+	lsl r1, r4, #0x3
+	add r2, #0xc
+	add r1, r2, r1
+	add r0, r5, #0x0
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, r5, #0x0
+	add r1, sp, #0x4
+	mov r2, #0x4
+	blx FS_ReadFile
+	add r0, r5, #0x0
+	add r1, sp, #0x0
+	mov r2, #0x4
+	blx FS_ReadFile
+	ldr r1, [sp, #0x0]
+	ldr r0, [sp, #0x4]
+	sub r0, r1, r0
+	add sp, #0x8
+	pop {r3-r5, pc}
+	.balign 4
+
+	thumb_func_start FUN_02006814
+FUN_02006814: ; 0x02006814
+	push {r3-r7, lr}
+	add r5, r0, #0x0
+	add r0, #0x50
+	ldrh r0, [r0, #0x0]
+	add r4, r1, #0x0
+	add r6, r2, #0x0
+	add r7, r3, #0x0
+	cmp r0, r4
+	bhi _0200682A
+	bl ErrorHandling
+_0200682A:
+	ldr r2, [r5, #0x48]
+	lsl r1, r4, #0x3
+	add r2, #0xc
+	add r1, r2, r1
+	add r0, r5, #0x0
+	mov r2, #0x0
+	blx FS_SeekFile
+	add r0, r5, #0x0
+	add r1, sp, #0x0
+	mov r2, #0x4
+	blx FS_ReadFile
+	ldr r2, [r5, #0x4c]
+	ldr r1, [sp, #0x0]
+	add r2, #0x8
+	add r1, r2, r1
+	add r0, r5, #0x0
+	add r1, r6, r1
+	mov r2, #0x0
+	blx FS_SeekFile
+	ldr r1, [sp, #0x18]
+	add r0, r5, #0x0
+	add r2, r7, #0x0
+	blx FS_ReadFile
+	pop {r3-r7, pc}
+	.balign 4

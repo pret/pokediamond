@@ -381,6 +381,8 @@ SECTIONS {
         unk_02000E0C.o (.text)
         string_util.o (.text)
         unk_020023C0.o (.text)
+        filesystem.o (.text)
+        unk_02006864.o (.text)
         rom1.5.o (.text)
         FUN_020C9C0C.o (.text)
         rom2.o (.text)
