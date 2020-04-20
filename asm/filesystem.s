@@ -104,8 +104,8 @@ _020063E0:
 	add sp, #0x60
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020063F4
-FUN_020063F4: ; 0x020063F4
+	thumb_func_start LoadFileIntoMemory
+LoadFileIntoMemory: ; 0x020063F4
 	push {r3-r7, lr}
 	sub sp, #0x60
 	add r5, r1, #0x0
@@ -219,8 +219,8 @@ _020064D8:
 	add sp, #0x60
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020064F0
-FUN_020064F0: ; 0x020064F0
+	thumb_func_start LoadFromNARC
+LoadFromNARC: ; 0x020064F0
 	push {r3-r4, lr}
 	sub sp, #0x4
 	mov r3, #0x0
@@ -234,8 +234,8 @@ FUN_020064F0: ; 0x020064F0
 	nop
 _02006508: .word 0x021058A0
 
-	thumb_func_start FUN_0200650C
-FUN_0200650C: ; 0x0200650C
+	thumb_func_start LoadFromNarc_2
+LoadFromNarc_2: ; 0x0200650C
 	push {r4, lr}
 	sub sp, #0x8
 	mov r3, #0x0
@@ -244,7 +244,7 @@ FUN_0200650C: ; 0x0200650C
 	ldr r0, _02006524 ; =0x021058A0
 	str r3, [sp, #0x4]
 	ldr r0, [r0, r4]
-	bl FUN_020063F4
+	bl LoadFileIntoMemory
 	add sp, #0x8
 	pop {r4, pc}
 	.balign 4
@@ -261,7 +261,7 @@ FUN_02006528: ; 0x02006528
 	lsl r4, r0, #0x2
 	ldr r0, _02006544 ; =0x021058A0
 	ldr r0, [r0, r4]
-	bl FUN_020063F4
+	bl LoadFileIntoMemory
 	add sp, #0x8
 	pop {r4, pc}
 	nop
@@ -293,7 +293,7 @@ FUN_02006564: ; 0x02006564
 	lsl r4, r0, #0x2
 	ldr r0, _02006580 ; =0x021058A0
 	ldr r0, [r0, r4]
-	bl FUN_020063F4
+	bl LoadFileIntoMemory
 	add sp, #0x8
 	pop {r4, pc}
 	nop
@@ -310,14 +310,14 @@ FUN_02006584: ; 0x02006584
 	lsl r4, r0, #0x2
 	ldr r0, _020065A0 ; =0x021058A0
 	ldr r0, [r0, r4]
-	bl FUN_020063F4
+	bl LoadFileIntoMemory
 	add sp, #0x8
 	pop {r4, pc}
 	nop
 _020065A0: .word 0x021058A0
 
-	thumb_func_start FUN_020065A4
-FUN_020065A4: ; 0x020065A4
+	thumb_func_start LoadFromNARC_7
+LoadFromNARC_7: ; 0x020065A4
 	push {r3-r7, lr}
 	sub sp, #0x58
 	add r5, r1, #0x0

@@ -1101,12 +1101,12 @@
 .extern FUN_02006278
 .extern FUN_0200627C
 .extern FUN_0200628C
-.extern FUN_020064F0
-.extern FUN_0200650C
+.extern LoadFromNARC
+.extern LoadFromNarc_2
 .extern FUN_02006528
 .extern FUN_02006548
 .extern FUN_02006564
-.extern FUN_020065A4
+.extern LoadFromNARC_7
 .extern FUN_02006670
 .extern FUN_020066F4
 .extern FUN_02006704
