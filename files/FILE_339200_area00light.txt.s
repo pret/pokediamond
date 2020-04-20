@@ -1,4 +1,4 @@
 	.include "asm/macros.inc"
 	.text
-	.incbin "asm/FILE_441C00_tmapn_celact.txt"
+	.incbin "files/FILE_339200_area00light.txt"
 	.balign 512, 255

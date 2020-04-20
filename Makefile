@@ -45,7 +45,7 @@ LD_SCRIPT := pokediamond.lcf
 
 # Directories containing source files
 SRC_DIRS := src
-ASM_DIRS := asm
+ASM_DIRS := asm data files
 
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))

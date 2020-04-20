@@ -1,4 +1,4 @@
 	.include "asm/macros.inc"
 	.text
-	.incbin "asm/FILE_3B3E00_dt_test_res_multi.txt"
+	.incbin "files/FILE_3B3600_dt_test_celact.txt"
 	.balign 512, 255

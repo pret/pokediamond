@@ -1,4 +1,4 @@
 	.include "asm/macros.inc"
 	.text
-	.incbin "asm/FILE_3B4000_dt_test_res_multianm.txt"
+	.incbin "files/FILE_442800_tmapn_res_chr.txt"
 	.balign 512, 255
