@@ -1,6 +1,6 @@
 .extern FUN_0200019E
 .extern FUN_02000DF4
-.extern FUN_02000E0C
+.extern StringCopy
 .extern FUN_02000E7C
 .extern FUN_02000EE8
 .extern FUN_02000F18
@@ -466,7 +466,7 @@
 .extern FUN_020EBC30
 .extern FUN_020EBC50
 .extern _s32_div_f
-.extern FUN_020EBE8C
+.extern _u32_div_f
 .extern FUN_020EC5CC
 .extern FUN_020EC694
 .extern FUN_021D74E0
@@ -943,13 +943,13 @@
 .extern FUN_020020EC
 .extern FUN_02002198
 .extern FUN_020021AC
-.extern FUN_02002248
-.extern FUN_02002268
-.extern FUN_02002288
-.extern FUN_020022A4
-.extern FUN_020022D0
-.extern FUN_0200232C
-.extern FUN_0200233C
+.extern StringCopy
+.extern StringCopyN
+.extern StringLength
+.extern StringNotEqual
+.extern StringNotEqualN
+.extern StringFillEOS
+.extern ConvertUIntToDecimalString
 
 .extern FUN_02002E14
 .extern FUN_02002E4C
