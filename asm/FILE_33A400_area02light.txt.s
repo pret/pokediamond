@@ -1,4 +1,4 @@
 	.include "asm/macros.inc"
 	.text
-	.incbin "baserom.nds", 0x33A400, 0x842
+	.incbin "asm/FILE_33A400_area02light.txt"
 	.balign 512, 255

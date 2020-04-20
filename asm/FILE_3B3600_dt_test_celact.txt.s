@@ -1,4 +1,4 @@
 	.include "asm/macros.inc"
 	.text
-	.incbin "baserom.nds", 0x3B3600, 0x36
+	.incbin "asm/FILE_3B3600_dt_test_celact.txt"
 	.balign 512, 255

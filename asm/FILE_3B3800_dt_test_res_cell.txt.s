@@ -1,4 +1,4 @@
 	.include "asm/macros.inc"
 	.text
-	.incbin "baserom.nds", 0x3B3800, 0x26
+	.incbin "asm/FILE_3B3800_dt_test_res_cell.txt"
 	.balign 512, 255

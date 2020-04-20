@@ -1,4 +1,4 @@
 	.include "asm/macros.inc"
 	.text
-	.incbin "baserom.nds", 0x442400, 0xAA
+	.incbin "asm/FILE_442400_tmapn_res_canm.txt"
 	.balign 512, 255

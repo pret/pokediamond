@@ -1,4 +1,4 @@
 	.include "asm/macros.inc"
 	.text
-	.incbin "baserom.nds", 0x442600, 0xBA
+	.incbin "asm/FILE_442600_tmapn_res_cell.txt"
 	.balign 512, 255
