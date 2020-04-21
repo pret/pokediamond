@@ -1,4 +1,4 @@
-#include "nitro.h"
+#include "global.h"
 
 u16 gDigitTable[] = {
     0xA2,

@@ -5,7 +5,7 @@
 #ifndef POKEDIAMOND_OS_ASM_H
 #define POKEDIAMOND_OS_ASM_H
 
-#include "types.h"
+#include "nitro/types.h"
 
 OSProcMode OS_GetProcMode();
 

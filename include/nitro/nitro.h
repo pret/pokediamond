@@ -6,8 +6,8 @@ extern "C" {
 #endif
 
 // Include all nitro files
-#include "types.h"
-#include "os.h"
+#include "nitro/types.h"
+#include "nitro/os.h"
 
 #ifdef __cplusplus
 };

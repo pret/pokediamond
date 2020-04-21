@@ -5,6 +5,6 @@
 #ifndef POKEDIAMOND_OS_H
 #define POKEDIAMOND_OS_H
 
-#include "os_asm.h"
+#include "nitro/os_asm.h"
 
 #endif //POKEDIAMOND_OS_H

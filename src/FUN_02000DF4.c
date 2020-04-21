@@ -1,12 +1,5 @@
-#include "nitro.h"
-
-struct Unk2106FA0 {
-    u8 filler0[0x8];
-    s32 unk8;
-    s32 unkC;
-    s32 unk10;
-    s32 unk14;
-};
+#include "global.h"
+#include "main.h"
 
 extern struct Unk2106FA0 gBacklightTop;
 
