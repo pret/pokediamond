@@ -463,8 +463,8 @@
 .extern FUN_020EB7B0
 .extern FUN_020EBA38
 .extern _ll_udiv
-.extern FUN_020EBC30
-.extern FUN_020EBC50
+.extern _ll_mul
+.extern _ll_shl
 .extern _s32_div_f
 .extern _u32_div_f
 .extern FUN_020EC5CC

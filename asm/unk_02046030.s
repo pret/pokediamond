@@ -31092,7 +31092,7 @@ FUN_02054EA0: ; 0x02054EA0
 	asr r1, r0, #0x1f
 	asr r3, r5, #0x1f
 	add r2, r5, #0x0
-	blx FUN_020EBC30
+	blx _ll_mul
 	mov r2, #0x2
 	mov r3, #0x0
 	lsl r2, r2, #0xa
@@ -31108,7 +31108,7 @@ FUN_02054EA0: ; 0x02054EA0
 	asr r1, r0, #0x1f
 	asr r3, r5, #0x1f
 	add r2, r5, #0x0
-	blx FUN_020EBC30
+	blx _ll_mul
 	mov r2, #0x2
 	mov r3, #0x0
 	lsl r2, r2, #0xa
@@ -70060,7 +70060,7 @@ _020675AA:
 	sub r2, #0x19
 	add r1, r4, #0x0
 	str r2, [sp, #0x4]
-	blx FUN_020EBC50
+	blx _ll_shl
 	ldr r2, [r5, #0x1c]
 	add r3, r4, #0x0
 	and r3, r1
@@ -70156,7 +70156,7 @@ _02067654:
 	sub r2, #0x4e
 	add r1, r4, #0x0
 	str r2, [sp, #0x4]
-	blx FUN_020EBC50
+	blx _ll_shl
 	ldr r2, [r6, #0x14]
 	add r3, r4, #0x0
 	and r3, r1
@@ -70255,7 +70255,7 @@ _02067706:
 	sub r2, #0x7a
 	add r1, r4, #0x0
 	str r2, [sp, #0x4]
-	blx FUN_020EBC50
+	blx _ll_shl
 	ldr r3, [r7, #0x18]
 	ldr r2, [r7, #0x1c]
 	and r3, r0
@@ -71020,7 +71020,7 @@ _02067C98:
 	sub r2, #0x19
 	add r0, r4, #0x0
 	str r2, [sp, #0x4]
-	blx FUN_020EBC50
+	blx _ll_shl
 	cmp r4, #0x0
 	beq _02067CB6
 	ldr r1, [r7, #0x1c]
@@ -71158,7 +71158,7 @@ _02067D94:
 	sub r2, #0x4e
 	add r0, r4, #0x0
 	str r2, [sp, #0x4]
-	blx FUN_020EBC50
+	blx _ll_shl
 	cmp r4, #0x0
 	beq _02067DB2
 	ldr r1, [r5, #0x14]
@@ -71288,7 +71288,7 @@ _02067E8A:
 	sub r2, #0x7a
 	add r0, r4, #0x0
 	str r2, [sp, #0x4]
-	blx FUN_020EBC50
+	blx _ll_shl
 	cmp r4, #0x0
 	beq _02067EB2
 	add r4, r6, #0x0

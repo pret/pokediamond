@@ -45,7 +45,7 @@ LD_SCRIPT := pokediamond.lcf
 
 # Directories containing source files
 SRC_DIRS := src
-ASM_DIRS := asm
+ASM_DIRS := asm data files
 
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
@@ -168,7 +168,7 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.png: ;
 %.pal: ;
 
-$(BUILD_DIR)/asm/icon.o: graphics/icon.4bpp graphics/icon.gbapal
+$(BUILD_DIR)/data/icon.o: graphics/icon.4bpp graphics/icon.gbapal
 
 ### Debug Print ###
 

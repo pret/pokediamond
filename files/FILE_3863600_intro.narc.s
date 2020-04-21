@@ -1,0 +1,76 @@
+	.include "asm/macros.inc"
+	.text
+	; NARC header
+	.ascii "NARC"
+	.short 0xFFFE ; byte order
+	.short 0x0100 ; version
+	.word 0x0001B38C ; size
+	.short 0x0010 ; chunk size
+	.short 3 ; number following chunks
+
+	; BTAF header
+	.ascii "BTAF"
+	.word 0x0000018C ; chunk size
+	.short 48 ; number of files
+	.balign 4
+	.word 0x00000000, 0x00001040
+	.word 0x00001040, 0x00001268
+	.word 0x00001268, 0x00001490
+	.word 0x00001490, 0x00001AB4
+	.word 0x00001AB4, 0x000020D8
+	.word 0x000020D8, 0x000026FC
+	.word 0x000026FC, 0x00002D20
+	.word 0x00002D20, 0x00003344
+	.word 0x00003344, 0x00004384
+	.word 0x00004384, 0x000053C4
+	.word 0x000053C4, 0x00006404
+	.word 0x00006404, 0x00007444
+	.word 0x00007444, 0x0000766C
+	.word 0x0000766C, 0x000086AC
+	.word 0x000086AC, 0x000096EC
+	.word 0x000096EC, 0x0000A72C
+	.word 0x0000A72C, 0x0000B76C
+	.word 0x0000B76C, 0x0000B994
+	.word 0x0000B994, 0x0000C9D4
+	.word 0x0000C9D4, 0x0000CBFC
+	.word 0x0000CBFC, 0x0000DC3C
+	.word 0x0000DC3C, 0x0000DE64
+	.word 0x0000DE64, 0x0000E488
+	.word 0x0000E488, 0x0000F8C8
+	.word 0x0000F8C8, 0x0000FAF0
+	.word 0x0000FAF0, 0x0000FD18
+	.word 0x0000FD18, 0x0001033C
+	.word 0x0001033C, 0x00010960
+	.word 0x00010960, 0x00010F84
+	.word 0x00010F84, 0x000115A8
+	.word 0x000115A8, 0x000117E8
+	.word 0x000117E8, 0x00011A28
+	.word 0x00011A28, 0x00011C68
+	.word 0x00011C68, 0x00011DA8
+	.word 0x00011DA8, 0x00011EE8
+	.word 0x00011EE8, 0x00012028
+	.word 0x00012028, 0x00012168
+	.word 0x00012168, 0x0001278C
+	.word 0x0001278C, 0x00012DB0
+	.word 0x00012DB0, 0x00012FD8
+	.word 0x00012FD8, 0x00014018
+	.word 0x00014018, 0x00015058
+	.word 0x00015058, 0x00016098
+	.word 0x00016098, 0x000170D8
+	.word 0x000170D8, 0x00018118
+	.word 0x00018118, 0x00019158
+	.word 0x00019158, 0x0001A198
+	.word 0x0001A198, 0x0001B1D8
+
+	; BTNF header
+	.ascii "BTNF"
+	.word 0x00000010 ; chunk size
+	.word 0x00000004 ; offset to first dir
+	.short 0 ; first file
+	.short 1 ; number of directories
+
+	; GMIF header
+	.ascii "GMIF"
+	.word 0x0001B1E0 ; chunk size
+	.incbin "baserom.nds", 0x38637B4, 0x1B1D8
+	.balign 512, 255
