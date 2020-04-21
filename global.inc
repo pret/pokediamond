@@ -467,8 +467,8 @@
 .extern _ll_shl
 .extern _s32_div_f
 .extern _u32_div_f
-.extern FUN_020EC5CC
-.extern FUN_020EC694
+.extern _fp_init
+.extern __call_static_initializers
 .extern FUN_021D74E0
 .extern FUN_021D76AC
 .extern FUN_021D77C4
