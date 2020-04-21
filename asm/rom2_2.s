@@ -3,7 +3,7 @@
 
 /* rom2.s TODO: Disassemble */
 
-.section .text
+.section .data
 
 .incbin "baserom.nds", 0xF0B50, 0x6A0C
 

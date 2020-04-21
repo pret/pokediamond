@@ -126,4 +126,7 @@ FUN_020EC5CC:
 
 	.global FUN_020EC694
 FUN_020EC694:
-.incbin "baserom.nds", 0xF0694, 0x474
+.incbin "baserom.nds", 0xF0694, 0x7C
+
+	.section .data
+.incbin "baserom.nds", 0xF0710, 0x3F8

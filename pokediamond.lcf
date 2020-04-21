@@ -390,8 +390,10 @@ SECTIONS {
         rom1.5.o (.text)
         FUN_020C9C0C.o (.text)
         rom2.o (.text)
+        /* rodata */
+        rom2.o (.data)
         string_util.o (.data)
-        rom2_2.o (.text)
+        rom2_2.o (.data)
     } > arm9
 
     .arm9overlay : AT (0x10B800) {
