@@ -63,7 +63,7 @@ CROSS   := arm-none-eabi-
 MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
 # MWCC built objects and GNU built ones. mwldarm, however, doesn't care, so we
-# have to use mwldarm for now. 
+# have to use mwldarm for now.
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
 MWLDARM  := tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
