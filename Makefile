@@ -168,7 +168,7 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.png: ;
 %.pal: ;
 
-$(BUILD_DIR)/asm/icon.o: graphics/icon.4bpp graphics/icon.gbapal
+$(BUILD_DIR)/data/icon.o: graphics/icon.4bpp graphics/icon.gbapal
 
 ### Debug Print ###
 

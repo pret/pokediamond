@@ -3,7 +3,34 @@
 
 	.section .text
 
-	.incbin "baserom.nds", 0xD9150, 0x16B30
+	.incbin "baserom.nds", 0xD9150, 0x16AE0
+
+	arm_func_start FUN_020EBC30
+FUN_020EBC30: ; 0x020EBC30
+	stmdb sp!, {r4, r5, lr}
+	umull r5, r4, r0, r2
+	mla r4, r0, r3, r4
+	mla r4, r2, r1, r4
+	mov r1, r4
+	mov r0, r5
+	ldmia sp!, {r4, r5, lr}
+	bx lr
+
+	arm_func_start FUN_020EBC50
+FUN_020EBC50: ; 0x020EBC50
+	ands r2, r2, #0x3F
+	bxeq lr
+	subs r3, r2, #0x20
+	bge _020EBC74
+	rsb r3, r2, #0x20
+	mov r1, r1, lsl r2
+	orr r1, r1, r0, lsr r3
+	mov r0, r0, lsl r2
+	bx lr
+_020EBC74:
+	mov r1, r0, lsl r3
+	mov r0, #0x0
+	bx lr
 
 	arm_func_start _s32_div_f
 _s32_div_f: ; 0x20EBC80
