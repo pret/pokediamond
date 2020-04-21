@@ -45,7 +45,7 @@ LD_SCRIPT := pokediamond.lcf
 
 # Directories containing source files
 SRC_DIRS := src
-ASM_DIRS := asm
+ASM_DIRS := asm data files
 
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
@@ -79,7 +79,7 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -i nitro
+CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -i include
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m Entry
 
 ####################### Other Tools #########################
@@ -168,7 +168,7 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.png: ;
 %.pal: ;
 
-$(BUILD_DIR)/asm/icon.o: graphics/icon.4bpp graphics/icon.gbapal
+$(BUILD_DIR)/data/icon.o: graphics/icon.4bpp graphics/icon.gbapal
 
 ### Debug Print ###
 
