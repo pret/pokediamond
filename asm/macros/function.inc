@@ -1,5 +1,5 @@
 	.macro arm_func_start name
-	.align 2, 0
+	.balign 4, 0
 	.global \name
 	.arm
 	.endm
@@ -9,7 +9,7 @@
 	.endm
 
 	.macro thumb_func_start name
-	.align 2, 0
+	.balign 4, 0
 	.global \name
 	.thumb
 	.endm
