@@ -1,4 +1,4 @@
-#include "nitro.h"
+#include "global.h"
 #include "script.h"
 
 u16 ScriptReadHalfword(struct ScriptContext *ctx);
