@@ -51,47 +51,45 @@ extern void ErrorHandling(void);
 
 u8 RunScriptCommand(struct ScriptContext *ctx)
 {
-    struct ScriptContext *localCtx = ctx;
-
-    if (localCtx->mode == 0)
+    if (ctx->mode == 0)
         return FALSE;
 
-    switch (localCtx->mode)
+    switch (ctx->mode)
     {
     case 0:
         return FALSE;
     case 2:
-        if (localCtx->nativePtr)
+        if (ctx->nativePtr)
         {
-            if (localCtx->nativePtr(ctx) == TRUE)
-                localCtx->mode = 1;
+            if (ctx->nativePtr(ctx) == TRUE)
+                ctx->mode = 1;
             return TRUE;
         }
-        localCtx->mode = 1;
+        ctx->mode = 1;
     case 1:
         while (1)
         {
             u16 cmdCode;
             ScrCmdFunc *func;
 
-            if (!localCtx->scriptPtr)
+            if (!ctx->scriptPtr)
             {
-                localCtx->mode = 0;
+                ctx->mode = 0;
                 return FALSE;
             }
 
-            cmdCode = ScriptReadHalfword(localCtx);
-            u32 cmdTableEnd = (u32)localCtx->cmdTableEnd;
+            cmdCode = ScriptReadHalfword(ctx);
+            u32 cmdTableEnd = (u32)ctx->cmdTableEnd;
             if (cmdCode >= cmdTableEnd)
             {
                 ErrorHandling();
-                localCtx->mode = 0;
+                ctx->mode = 0;
                 return FALSE;
             }
 
-            func = &localCtx->cmdTable[cmdCode];
+            func = &ctx->cmdTable[cmdCode];
 
-            if ((*func)(localCtx) == 1)
+            if ((*func)(ctx) == 1)
                 break;
         }
     }
