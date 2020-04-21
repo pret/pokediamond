@@ -382,8 +382,9 @@ SECTIONS {
         string_util.o (.text)
         unk_020023C0.o (.text)
         rom1.5.o (.text)
-        FUN_020C9C0C.o (.text)
-        rom2.o (.text)
+        unk_020C9C0C.o (.text)
+        unk_020D5150.o (.text)
+        rom2.o (.data)
         string_util.o (.data)
         rom2_2.o (.text)
     } > arm9

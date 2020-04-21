@@ -3,8 +3,6 @@
 
 	.text
 
-
-
 	arm_func_start OS_WaitIrq
 OS_WaitIrq:
 	stmdb sp!, {r4-r6,lr}
@@ -4344,9 +4342,11 @@ OS_GetProcMode: ; 0x020CD374
 	mrs r0, cpsr
 	and r0, r0, #0x1f
 	bx lr
-_020CD380:
+
+	arm_func_start OS_SpinWait
+OS_SpinWait:
 	subs r0, r0, #0x4
-	bhs _020CD380
+	bhs OS_SpinWait
 	bx lr
 
 	arm_func_start OS_WaitVBlankIntr

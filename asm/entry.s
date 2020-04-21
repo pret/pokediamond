@@ -70,9 +70,9 @@ _020008C4:
 	add r1, r1, #60
 	ldr r0, _02000930 ; =0x01FF8000
 	str r0, [r1]
-	bl FUN_020EC5CC
+	bl _fp_init
 	bl FUN_02000B64_dummy
-	bl FUN_020EC694
+	bl __call_static_initializers
 	ldr r1, _02000934 ; =0x02000C55 
 	ldr lr, _02000938 ; =0xFFFF0000
 	tst sp, #4
