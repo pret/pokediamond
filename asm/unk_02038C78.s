@@ -157,7 +157,7 @@ _02038DA8:
 	cmp r6, #0x0
 	beq _02038DD2
 	add r0, r6, #0x0
-	bl ScriptHandler_Main
+	bl RunScriptCommand
 	cmp r0, #0x0
 	bne _02038DD2
 	add r0, r6, #0x0
@@ -300,7 +300,7 @@ _02038EC6:
 	ldr r1, _02038EE8 ; =gScriptCmdTable
 	ldr r2, [r2, #0x0]
 	add r0, r4, #0x0
-	bl InitScriptHandler
+	bl InitScriptContext
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
@@ -324,7 +324,7 @@ FUN_02038EEC: ; 0x02038EEC
 	add r6, r0, #0x0
 	ldr r1, [r4, #0x7c]
 	add r0, r4, #0x0
-	bl FUN_02038B50
+	bl SetupBytecodeScript
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	bl FUN_02039484
@@ -1046,7 +1046,7 @@ FUN_02039484: ; 0x02039484
 	lsl r1, r1, #0x2
 	add r1, r2, r1
 	str r1, [r4, #0x8]
-	bl FUN_02038C48
+	bl ScriptReadWord
 	ldr r1, [r4, #0x8]
 	add r0, r1, r0
 	str r0, [r4, #0x8]
@@ -1589,7 +1589,7 @@ FUN_02039880: ; 0x02039880
 	add r4, r0, #0x0
 _02039888:
 	add r0, r4, #0x0
-	bl ScriptHandler_Main
+	bl RunScriptCommand
 	cmp r0, #0x1
 	beq _02039888
 	add r0, r4, #0x0
