@@ -1,6 +1,8 @@
 #include "nitro.h"
 #include "script.h"
 
+u16 ScriptReadHalfword(struct ScriptContext *ctx);
+
 void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, void *cmdTableEnd)
 {
     u32 i;
@@ -28,7 +30,7 @@ u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr)
     return 1;
 }
 
-void SetupNativeScript(struct ScriptContext *ctx, u8 (*ptr)(void))
+void SetupNativeScript(struct ScriptContext *ctx, u8 (*ptr)(struct ScriptContext *))
 {
     ctx->mode = 2;
     ctx->nativePtr = ptr;
@@ -47,7 +49,6 @@ void FUN_02038B6C(struct ScriptContext *ctx, int r1)
 
 extern void ErrorHandling(void);
 
-#ifdef NONMATCHING
 u8 RunScriptCommand(struct ScriptContext *ctx)
 {
     struct ScriptContext *localCtx = ctx;
@@ -62,7 +63,7 @@ u8 RunScriptCommand(struct ScriptContext *ctx)
     case 2:
         if (localCtx->nativePtr)
         {
-            if (localCtx->nativePtr() == TRUE)
+            if (localCtx->nativePtr(ctx) == TRUE)
                 localCtx->mode = 1;
             return TRUE;
         }
@@ -80,10 +81,11 @@ u8 RunScriptCommand(struct ScriptContext *ctx)
             }
 
             cmdCode = ScriptReadHalfword(localCtx);
-            if ((u32)localCtx->cmdTableEnd >= cmdCode)
+            u32 cmdTableEnd = (u32)localCtx->cmdTableEnd;
+            if (cmdCode >= cmdTableEnd)
             {
                 ErrorHandling();
-				localCtx->mode = 0;
+                localCtx->mode = 0;
                 return FALSE;
             }
 
@@ -96,73 +98,6 @@ u8 RunScriptCommand(struct ScriptContext *ctx)
 
     return TRUE;
 }
-#else
-u8 RunScriptCommand(struct ScriptContext *ctx)
-{
-    __asm {
-    	add r4, r0, #0x0
-    	ldrb r1, [r4, #0x1]
-    	cmp r1, #0x0
-    	bne _02038B7E
-    	mov r0, #0x0
-    	pop {r4, pc}
-    _02038B7E:
-    	beq _02038B8A
-    	cmp r1, #0x1
-    	beq _02038BA6
-    	cmp r1, #0x2
-    	beq _02038B8E
-    	b _02038BD8
-    _02038B8A:
-    	mov r0, #0x0
-    	pop {r4, pc}
-    _02038B8E:
-    	ldr r1, [r4, #0x4]
-    	cmp r1, #0x0
-    	beq _02038BA2
-    	blx r1
-    	cmp r0, #0x1
-    	bne _02038B9E
-    	mov r0, #0x1
-    	strb r0, [r4, #0x1]
-    _02038B9E:
-    	mov r0, #0x1
-    	pop {r4, pc}
-    _02038BA2:
-    	mov r0, #0x1
-    	strb r0, [r4, #0x1]
-        // for some reason it adds a b _02038BA6 here
-    _02038BA6:
-    	ldr r0, [r4, #0x8]
-    	cmp r0, #0x0
-    	bne _02038BB2
-    	mov r0, #0x0
-    	strb r0, [r4, #0x1]
-    	pop {r4, pc}
-    _02038BB2:
-    	add r0, r4, #0x0
-    	bl ScriptReadHalfword
-    	add r1, r0, #0x0
-    	ldr r0, [r4, #0x60]
-    	cmp r1, r0
-    	blo _02038BCA
-    	bl ErrorHandling
-    	mov r0, #0x0
-    	strb r0, [r4, #0x1]
-    	pop {r4, pc}
-    _02038BCA:
-    	ldr r2, [r4, #0x5c]
-    	lsl r1, r1, #0x2
-    	ldr r1, [r2, r1]
-    	add r0, r4, #0x0
-    	blx r1
-    	cmp r0, #0x1
-    	bne _02038BA6
-    _02038BD8:
-    	mov r0, #0x1
-    }
-}
-#endif
 
 u8 ScriptPush(struct ScriptContext *ctx, const u8 *ptr)
 {
@@ -192,10 +127,11 @@ void ScriptJump(struct ScriptContext *ctx, const u8 *ptr)
     ctx->scriptPtr = ptr;
 }
 
-void ScriptCall(struct ScriptContext *ctx, const u8 *ptr)
+u8 ScriptCall(struct ScriptContext *ctx, const u8 *ptr)
 {
-    ScriptPush(ctx, ctx->scriptPtr);
+    u8 ret = ScriptPush(ctx, ctx->scriptPtr);
     ctx->scriptPtr = ptr;
+    return ret;
 }
 
 void ScriptReturn(struct ScriptContext *ctx)
