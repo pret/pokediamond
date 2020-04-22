@@ -6,8 +6,8 @@ install:
     - sudo apt update
     - sudo apt install binutils-arm-none-eabi wine
     # These files are only accessible from Travis CI IP Addresses to prevent piracy.
-    - wget https://private.martmists.com/mwccarm.zip
-    - wget https://private.martmists.com/baserom.nds
+    - wget http://private.martmists.com/mwccarm.zip
+    - wget http://private.martmists.com/baserom.nds
     - unzip mwccarm.zip
     - mv mwccarm tools
 
