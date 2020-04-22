@@ -286,7 +286,7 @@ _02001032:
 	blx CARD_IsPulledOut
 	cmp r0, #0x0
 	beq _02001048
-	blx FUN_020D5180
+	blx PM_ForceToPowerOff
 	b _0200105C
 _02001048:
 	ldrh r1, [r4, #0x0]
