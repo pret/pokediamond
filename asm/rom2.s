@@ -120,10 +120,31 @@ _u32_div_f: ; 0x020EBE8C
 
 	.incbin "baserom.nds", 0xF0070, 0x55C
 
-	.global FUN_020EC5CC
-FUN_020EC5CC:
-	.incbin "baserom.nds", 0xF05CC, 0xC8
+	arm_func_start _fp_init
+_fp_init: ; 0x020EC5CC
+	bx lr
 
-	.global FUN_020EC694
-FUN_020EC694:
-.incbin "baserom.nds", 0xF0694, 0x474
+	arm_func_start sys_writec
+sys_writec: ; 0x020EC5D0
+	str lr, [sp, #-4]!
+	mov r1, r0
+	mov r0, #0x3
+	swi 0x123456
+	ldr pc, [sp], #0x4
+
+	arm_func_start sys_readc
+sys_readc: ; 0x020EC5E4
+	str lr, [sp, #-4]!
+	mov r1, #0x0
+	mov r0, #0x7
+	swi 0x123456
+	ldr pc, [sp], #0x4
+
+	.incbin "baserom.nds", 0xF05F8, 0x9C
+
+	arm_func_start __call_static_initializers
+__call_static_initializers: ; 0x020EC694
+.incbin "baserom.nds", 0xF0694, 0x7C
+
+	.section .data
+.incbin "baserom.nds", 0xF0710, 0x3F8

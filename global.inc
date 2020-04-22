@@ -467,8 +467,8 @@
 .extern _ll_shl
 .extern _s32_div_f
 .extern _u32_div_f
-.extern FUN_020EC5CC
-.extern FUN_020EC694
+.extern _fp_init
+.extern __call_static_initializers
 .extern FUN_021D74E0
 .extern FUN_021D76AC
 .extern FUN_021D77C4
@@ -3236,3 +3236,10 @@
 .extern FUN_02046338
 .extern FUN_02046380
 .extern FUN_0206AC74
+.extern SDK_AUTOLOAD_DTCM_START
+.extern SDK_AUTOLOAD_LIST
+.extern SDK_AUTOLOAD_LIST_END
+.extern SDK_AUTOLOAD_START
+.extern SDK_STATIC_BSS_START
+.extern SDK_STATIC_BSS_END
+.extern OS_IrqHandler

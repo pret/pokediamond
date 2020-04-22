@@ -2,9 +2,10 @@
 	.include "global.inc"
 
 	.text
+	.set SDK_IRQ_STACKSIZE, 0x400
 
-	arm_func_start Entry
-Entry: ; 0x02000800
+	arm_func_start _start
+_start: ; 0x02000800
 	mov ip, #0x4000000
 	str ip, [ip, #0x208]
 _02000808:
@@ -14,12 +15,12 @@ _02000808:
 	bl init_cp15
 	mov r0, #0x13
 	msr cpsr_c, r0
-	ldr r0, _02000918 ; =0x027E0000
+	ldr r0, _02000918 ; =SDK_AUTOLOAD_DTCM_START
 	add r0, r0, #0x3fc0
 	mov sp, r0
 	mov r0, #0x12
 	msr cpsr_c, r0
-	ldr r0, _02000918 ; =0x027E0000
+	ldr r0, _02000918 ; =SDK_AUTOLOAD_DTCM_START
 	add r0, r0, #0x3fc0
 	sub r0, r0, #0x40
 	sub sp, r0, #4
@@ -31,7 +32,7 @@ _02000808:
 	msr cpsr_fsxc, r0
 	sub sp, r1, #4
 	mov r0, #0
-	ldr r1, _02000918 ; =0x027E0000
+	ldr r1, _02000918 ; =SDK_AUTOLOAD_DTCM_START
 	mov r2, #0x4000
 	bl INITi_CpuClear32
 	mov r0, #0
@@ -42,11 +43,11 @@ _02000808:
 	ldr r1, _02000924 ; =0x07000000
 	mov r2, #1024
 	bl INITi_CpuClear32
-	ldr r1, _02000928 ; =_02000B68
+	ldr r1, _02000928 ; =_start_ModuleParams
 	ldr r0, [r1, #20]
 	bl MIi_UncompressBackward
 	bl do_autoload
-	ldr r0, _02000928 ; =_02000B68
+	ldr r0, _02000928 ; =_start_ModuleParams
 	ldr r1, [r0, #12]
 	ldr r2, [r0, #16]
 	mov r3, r1
@@ -65,29 +66,29 @@ _020008C4:
 	blt _020008C4
 	ldr r1, _0200092C ; =0x027FFF9C
 	str r0, [r1]
-	ldr r1, _02000918 ; =0x027E0000
+	ldr r1, _02000918 ; =SDK_AUTOLOAD_DTCM_START
 	add r1, r1, #16320
 	add r1, r1, #60
-	ldr r0, _02000930 ; =0x01FF8000
+	ldr r0, _02000930 ; =OS_IrqHandler
 	str r0, [r1]
-	bl FUN_020EC5CC
-	bl FUN_02000B64_dummy
-	bl FUN_020EC694
+	bl _fp_init
+	bl NitroStartUp
+	bl __call_static_initializers
 	ldr r1, _02000934 ; =0x02000C55 
 	ldr lr, _02000938 ; =0xFFFF0000
 	tst sp, #4
 	subne sp, sp, #4
 	bx r1
-_02000918: .word 0x027E0000
-_0200091C: .word 0x00000400
+_02000918: .word SDK_AUTOLOAD_DTCM_START
+_0200091C: .word SDK_IRQ_STACKSIZE
 _02000920: .word 0x05000000
 _02000924: .word 0x07000000
-_02000928: .word _02000B68
+_02000928: .word _start_ModuleParams
 _0200092C: .word 0x027FFF9C
-_02000930: .word 0x01FF8000
+_02000930: .word OS_IrqHandler
 _02000934: .word NitroMain
 _02000938: .word 0xFFFF0000
-	arm_func_end Entry
+	arm_func_end _start
 
 	arm_func_start INITi_CpuClear32
 INITi_CpuClear32:
@@ -156,7 +157,7 @@ _020009F8:
 
 	arm_func_start do_autoload
 do_autoload:
-	ldr r0, =_02000B68
+	ldr r0, =_start_ModuleParams
 	ldr r1, [r0]
 	ldr r2, [r0, #4]
 	ldr r3, [r0, #8]
@@ -189,10 +190,10 @@ _02000A50:
 	blt _02000A50
 	b _02000A0C
 _02000A6C:
-	b ARM9AutoLoad
+	b _start_AutoloadDoneCallback
 	.pool
-	.global ARM9AutoLoad
-ARM9AutoLoad:
+	.global _start_AutoloadDoneCallback
+_start_AutoloadDoneCallback:
 	bx lr
 	arm_func_end do_autoload
 
@@ -214,7 +215,7 @@ init_cp15: ; 0x02000A78
 	mcr p15, 0x0, r0, c6, c2, 0x0
 	ldr r0, =0x08000035
 	mcr p15, 0x0, r0, c6, c3, 0x0
-	ldr r0, =0x027E0000
+	ldr r0, =SDK_AUTOLOAD_DTCM_START
 	orr r0, r0, #0x1a
 	orr r0, r0, #1
 	mcr p15, 0x0, r0, c6, c4, 0x0
@@ -226,7 +227,7 @@ init_cp15: ; 0x02000A78
 	mcr p15, 0x0, r0, c6, c7, 0x0
 	mov r0, #0x20
 	mcr p15, 0x0, r0, c9, c1, 0x1
-	ldr r0, =0x027E0000
+	ldr r0, =SDK_AUTOLOAD_DTCM_START
 	orr r0, r0, #0xa
 	mcr p15, 0x0, r0, c9, c1, 0x0
 	mov r0, #0x42
@@ -247,22 +248,22 @@ init_cp15: ; 0x02000A78
 	.align 2, 0
 	.pool
 
-	arm_func_start FUN_02000B60_dummy
-FUN_02000B60_dummy: ; 0x02000B60
+	arm_func_start OSi_ReferSymbol
+OSi_ReferSymbol: ; 0x02000B60
 	bx lr
 
-	arm_func_start FUN_02000B64_dummy
-FUN_02000B64_dummy: ; 0x02000B64
+	arm_func_start NitroStartUp
+NitroStartUp: ; 0x02000B64
 	bx lr
 
-_02000B68:
-	.word 0x02107700
-	.word 0x02107724
-	.word 0x02106FA0
-	.word 0x02106FA0
-	.word 0x021D74E0
+_start_ModuleParams:
+	.word SDK_AUTOLOAD_LIST
+	.word SDK_AUTOLOAD_LIST_END
+	.word SDK_AUTOLOAD_START
+	.word SDK_STATIC_BSS_START
+	.word SDK_STATIC_BSS_END
+
 	.word 0x00000000
-
 	.byte 0x31, 0x75, 0x02, 0x03, 0x21, 0x06, 0xC0, 0xDE, 0xDE, 0xC0, 0x06, 0x21
 	
 	# strings

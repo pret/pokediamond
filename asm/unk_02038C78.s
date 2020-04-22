@@ -1658,9 +1658,7 @@ _020398F6:
 _02039908:
 	add r0, r0, #0x5
 	b _020398EC
-
-	thumb_func_start FUN_0203990C
-FUN_0203990C: ; 0x0203990C
+_0203990C: ; 0x0203990C
 	bx lr
 	nop
 _02039910: .word 0x0000FFFF

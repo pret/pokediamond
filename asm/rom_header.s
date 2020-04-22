@@ -100,8 +100,8 @@ ROMControlInfo3:
 	.short 0x0D7E
 	.global ARM9AutoLoadHook
 ARM9AutoLoadHook:
-	.extern ARM9AutoLoad
-	.word ARM9AutoLoad
+	.extern _start_AutoloadDoneCallback
+	.word _start_AutoloadDoneCallback
 	.global ARM7AutoLoadHook
 ARM7AutoLoadHook:
 	.extern ARM7AutoLoad

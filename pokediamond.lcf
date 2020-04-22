@@ -2,7 +2,7 @@
 MEMORY {
     header (RWX) : ORIGIN=0, LENGTH=0
     arm9 (RWX) : ORIGIN=0x2000000, LENGTH=0
-    garbage (RWX) : ORIGIN=0, LENGTH=0
+    unk_10b724 (RWX) : ORIGIN=0, LENGTH=0
     arm9overlay (RWX) : ORIGIN=0, LENGTH=0
     arm7 (RWX) : ORIGIN=0x2380000, LENGTH=0
     filenametable (RWX) : ORIGIN=0, LENGTH=0
@@ -375,7 +375,7 @@ SECTIONS {
 
     .arm9 : AT (0x4000) {
         secure.o (.text)
-        entry.o (.text)
+        crt0.o (.text)
         main.o (.text)
         FUN_02000DF4.o (.text)
         unk_02000E0C.o (.text)
@@ -390,17 +390,19 @@ SECTIONS {
         rom1.5.o (.text)
         FUN_020C9C0C.o (.text)
         rom2.o (.text)
+        /* rodata */
+        rom2.o (.data)
         string_util.o (.data)
-        rom2_2.o (.text)
+        rom2_2.o (.data)
     } > arm9
+
+    .unk_10b724 : AT (0x10B724) {
+        unk_10b724.o (.text)
+    } > unk_10b724
 
     .arm9overlay : AT (0x10B800) {
         arm9overlay.o (.text)
     } > arm9overlay
-
-    .garbage : AT (0x10B724) {
-        unk_10b724.o (.text)
-    } > garbage
 
 	.FILE_10C400 : AT (0x10C400) {
         FILE_10C400.o (.text) /* 0x10C400 */

@@ -1,2 +1,4 @@
 	.text
-	.incbin "baserom.nds", 0x10B724, 0xC
+	.word 0xdec00621
+	.word 0x00000b68
+	.word 0x00000000
