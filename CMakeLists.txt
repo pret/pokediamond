@@ -8,3 +8,4 @@ enable_language(ASM)
 file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c")
 
 add_executable(PokeDiamond ${SOURCES})
+target_include_directories(PokeDiamond PRIVATE include)

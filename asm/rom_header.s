@@ -37,52 +37,52 @@ RomVersion:
 
 	.global ARM9ROMOffset
 ARM9ROMOffset:
-	.word _arm9SegmentRomStart
+	.word 0x00004000
 	.global ARM9EntryAddress
 ARM9EntryAddress:
-	.word Entry
+	.word 0x02000800
 	.global ARM9RAMAddress
 ARM9RAMAddress:
-	.word _arm9SegmentStart
+	.word 0x02000000
 	.global ARM9CodeSize
 ARM9CodeSize:
-	.word _arm9SegmentSize
+	.word 0x00107724
 	.global ARM7ROMOffset
 ARM7ROMOffset:
-	.word _arm7SegmentRomStart
+	.word 0x0030D000
 	.global ARM7EntryAddress
 ARM7EntryAddress:
-	.word Entry_ARM7
+	.word 0x02380000
 	.global ARM7RAMAddress
 ARM7RAMAddress:
-	.word _arm7SegmentStart
+	.word 0x02380000
 	.global ARM7CodeSize
 ARM7CodeSize:
-	.word _arm7SegmentSize
+	.word 0x0002931C
 	.global FileNameTableOffset
 FileNameTableOffset:
-	.word _FileNameTableSegmentRomStart
+	.word 0x00336400
 	.global FileNameTableSize
 FileNameTableSize:
-	.word 0x0000157F
+	.word 0x157F
 	.global FATOffset
 FATOffset:
-	.word 0x00337A00
+	.word 0x337A00
 	.global FATSize
 FATSize:
-	.word 0x00000B20
+	.word 0xB20
 	.global ARM9OverlayOffset
 ARM9OverlayOffset:
-	.word 0x0010B800
+	.word 0x10B800
 	.global ARM9OverlaySize
 ARM9OverlaySize:
-	.word 0x00000AE0
+	.word 0xAE0
 	.global ARM7OverlayOffset
 ARM7OverlayOffset:
-	.word 0x00000000
+	.word 0
 	.global ARM7OverlaySize
 ARM7OverlaySize:
-	.word 0x00000000
+	.word 0
 	.global ROMControlInfo1
 ROMControlInfo1:
 	.word 0x00416657
@@ -91,7 +91,7 @@ ROMControlInfo2:
 	.word 0x081808F8
 	.global IconTitleOffset
 IconTitleOffset:
-	.word 0x00338600
+	.word 0x338600
 	.global SecureAreaCC
 SecureAreaCC:
 	.short 0x5931
@@ -100,10 +100,12 @@ ROMControlInfo3:
 	.short 0x0D7E
 	.global ARM9AutoLoadHook
 ARM9AutoLoadHook:
-	.word 0x02000A74
+	.extern _start_AutoloadDoneCallback
+	.word _start_AutoloadDoneCallback
 	.global ARM7AutoLoadHook
 ARM7AutoLoadHook:
-	.word 0x02380158
+	.extern ARM7AutoLoad
+	.word ARM7AutoLoad
 	.global SecureAreaDisable
 SecureAreaDisable:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -147,6 +149,4 @@ HeaderCRC:
 	.short 0xCA37
 
 /* reserved */
-	.global __startup
-__startup:
-	.space 160 /* hack so it builds */
+.space 160 /* hack so it builds */

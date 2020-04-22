@@ -1,0 +1,19 @@
+dist: xenial
+
+language: c
+
+install:
+    - sudo apt update
+    - sudo apt install binutils-arm-none-eabi wine
+    # These files are only accessible from Travis CI IP Addresses to prevent piracy.
+    - wget http://private.martmists.com/mwccarm.zip
+    - wget http://private.martmists.com/baserom.nds
+    - unzip mwccarm.zip
+    - mv mwccarm tools
+
+script:
+    - export LM_LICENSE_FILE="$(pwd)/tools/mwccarm/license.dat"
+    - make
+
+notifications:
+  email: false

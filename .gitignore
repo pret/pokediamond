@@ -12,5 +12,12 @@ build/**
 cmake-build-debug/
 
 # ROM
-*.nds
 *.srl
+
+# Tool executables
+*.exe
+
+# Generated files
+*.4bpp
+*.lz
+*.gbapal
