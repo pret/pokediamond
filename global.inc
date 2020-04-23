@@ -1046,3 +1046,9 @@
 .extern MI_DmaFill32
 .extern OS_InitMessageQueue
 .extern RTC_GetTime
+.extern OS_SetDPermissionsForProtectionRegion
+.extern MI_DmaCopy32
+.extern MATH_SHA1Update
+.extern MATH_SHA1GetHash
+.extern MATH_MD5Update
+.extern MATH_MD5GetHash
