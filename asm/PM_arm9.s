@@ -347,7 +347,7 @@ _020D4EFC:
 	bl PM_GetBackLight
 	mov r0, #0x2
 	mov r1, #0x0
-	bl FUN_020D526C
+	bl PM_SetBackLight
 	ldr r2, _020D5098
 	ldr r0, [r2]
 	str r0, [sp, #0x14]

@@ -801,7 +801,7 @@ _020D6364:
 	mov r0, r5
 	mov r1, r4
 	mov r3, #0x0
-	bl FUN_020EBA38
+	bl _ll_sdiv
 	mov r1, r0
 	mov r0, r7
 	bl RTC_ConvertDayToDate

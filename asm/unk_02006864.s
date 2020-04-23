@@ -5127,7 +5127,7 @@ FUN_02008DEC: ; 0x02008DEC
 	mov r1, #0x0
 	add r2, r7, #0x0
 	str r0, [r4, #0x4]
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	str r5, [r4, #0x8]
 	mov r0, #0x0
 	str r0, [r4, #0xc]
@@ -6286,7 +6286,7 @@ _0200969C:
 	mov r2, #0x18
 	add r1, r5, #0x4
 	mul r2, r3
-	blx FUN_020DF438
+	blx memcpy
 _020096B0:
 	pop {r4-r6, pc}
 	.balign 4
@@ -11577,20 +11577,20 @@ FUN_0200BE74: ; 0x0200BE74
 	cmp r3, #0x0
 	ble _0200BEA0
 	lsl r0, r3, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx FUN_020EA980
+	blx _fadd
 	b _0200BEAE
 _0200BEA0:
 	lsl r0, r3, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx FUN_020EB7B0
+	blx _fsub
 _0200BEAE:
-	blx FUN_020EB4C0
+	blx _ffix
 	str r0, [sp, #0x8]
 	add r1, sp, #0x28
 	mov r0, #0x10
@@ -11598,20 +11598,20 @@ _0200BEAE:
 	cmp r0, #0x0
 	ble _0200BED0
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx FUN_020EA980
+	blx _fadd
 	b _0200BEDE
 _0200BED0:
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx FUN_020EB7B0
+	blx _fsub
 _0200BEDE:
-	blx FUN_020EB4C0
+	blx _ffix
 	str r0, [sp, #0xc]
 	add r1, sp, #0x28
 	mov r0, #0x14
@@ -11619,20 +11619,20 @@ _0200BEDE:
 	cmp r0, #0x0
 	ble _0200BF00
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx FUN_020EA980
+	blx _fadd
 	b _0200BF0E
 _0200BF00:
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx FUN_020EB7B0
+	blx _fsub
 _0200BF0E:
-	blx FUN_020EB4C0
+	blx _ffix
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x4c]
 	cmp r0, #0x2
@@ -12069,60 +12069,60 @@ _0200C206:
 	cmp r0, #0x0
 	ble _0200C260
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx FUN_020EA980
+	blx _fadd
 	b _0200C26E
 _0200C260:
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx FUN_020EB7B0
+	blx _fsub
 _0200C26E:
-	blx FUN_020EB4C0
+	blx _ffix
 	str r0, [sp, #0x4c]
 	mov r0, #0x2
 	ldrsh r0, [r5, r0]
 	cmp r0, #0x0
 	ble _0200C28E
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx FUN_020EA980
+	blx _fadd
 	b _0200C29C
 _0200C28E:
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx FUN_020EB7B0
+	blx _fsub
 _0200C29C:
-	blx FUN_020EB4C0
+	blx _ffix
 	str r0, [sp, #0x50]
 	mov r0, #0x4
 	ldrsh r0, [r5, r0]
 	cmp r0, #0x0
 	ble _0200C2BC
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx FUN_020EA980
+	blx _fadd
 	b _0200C2CA
 _0200C2BC:
 	lsl r0, r0, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx FUN_020EB7B0
+	blx _fsub
 _0200C2CA:
-	blx FUN_020EB4C0
+	blx _ffix
 	str r0, [sp, #0x54]
 	ldr r0, [r5, #0x10]
 	cmp r0, #0x2
@@ -12965,13 +12965,13 @@ FUN_0200C84C: ; 0x0200C84C
 	add r4, r0, #0x0
 	ldr r0, _0200C880 ; =0x45800000
 	add r1, r6, #0x0
-	blx FUN_020EB5C4
-	blx FUN_020EB4C0
+	blx _fmul
+	blx _ffix
 	str r0, [r4, #0x0]
 	ldr r0, _0200C880 ; =0x45800000
 	add r1, r7, #0x0
-	blx FUN_020EB5C4
-	blx FUN_020EB4C0
+	blx _fmul
+	blx _ffix
 	str r0, [r4, #0x4]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -14203,27 +14203,27 @@ _0200D1E0:
 	add r0, r5, r6
 	add r1, r4, r1
 	mov r2, #0x20
-	blx FUN_020DF438
+	blx memcpy
 	add r0, r6, #0x0
 	ldr r1, [sp, #0x38]
 	add r0, #0x20
 	add r0, r5, r0
 	add r1, r4, r1
 	mov r2, #0x20
-	blx FUN_020DF438
+	blx memcpy
 	add r0, r6, #0x0
 	ldr r1, [sp, #0x34]
 	add r0, #0x40
 	add r0, r5, r0
 	add r1, r4, r1
 	mov r2, #0x20
-	blx FUN_020DF438
+	blx memcpy
 	ldr r1, [sp, #0x38]
 	add r6, #0x60
 	add r0, r5, r6
 	add r1, r4, r1
 	mov r2, #0x20
-	blx FUN_020DF438
+	blx memcpy
 	add r0, r7, #0x1
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
@@ -14292,7 +14292,7 @@ FUN_0200D274: ; 0x0200D274
 	ldr r1, [r1, #0x14]
 	lsl r2, r2, #0x6
 	add r4, r0, #0x0
-	blx FUN_020DF438
+	blx memcpy
 	mov r0, #0x9
 	mov r3, #0x0
 	lsl r0, r0, #0x6
@@ -15015,7 +15015,7 @@ FUN_0200D858: ; 0x0200D858
 	add r0, r4, r0
 	add r1, r5, r1
 	mov r2, #0x80
-	blx FUN_020DF438
+	blx memcpy
 	ldr r0, [sp, #0x28]
 	mov r1, #0x80
 	bl FUN_02016998
@@ -15026,7 +15026,7 @@ FUN_0200D858: ; 0x0200D858
 	str r1, [sp, #0x2c]
 	add r1, r5, r1
 	add r6, r0, #0x0
-	blx FUN_020DF438
+	blx memcpy
 	ldr r0, [sp, #0x24]
 	mov r2, #0x20
 	add r0, #0xb
@@ -15034,18 +15034,18 @@ FUN_0200D858: ; 0x0200D858
 	add r0, r6, #0x0
 	add r0, #0x20
 	add r1, r5, r7
-	blx FUN_020DF438
+	blx memcpy
 	ldr r1, [sp, #0x2c]
 	add r0, r6, #0x0
 	add r0, #0x40
 	add r1, r5, r1
 	mov r2, #0x20
-	blx FUN_020DF438
+	blx memcpy
 	add r0, r6, #0x0
 	add r0, #0x60
 	add r1, r5, r7
 	mov r2, #0x20
-	blx FUN_020DF438
+	blx memcpy
 	mov r5, #0x0
 	add r7, r4, #0x4
 _0200D8DA:
@@ -15053,7 +15053,7 @@ _0200D8DA:
 	add r0, r7, r0
 	add r1, r6, #0x0
 	mov r2, #0x80
-	blx FUN_020DF438
+	blx memcpy
 	add r0, r5, #0x1
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
@@ -16994,12 +16994,12 @@ _0200E812:
 	add r0, #0x14
 	mov r1, #0x0
 	mov r2, #0x30
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r4, #0x0
 	add r0, #0x44
 	mov r1, #0x0
 	mov r2, #0x30
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r2, r4, #0x0
 	add r2, #0x74
 	mov r1, #0x18
@@ -17013,7 +17013,7 @@ _0200E83A:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0xc0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	pop {r4, pc}
 
 	thumb_func_start FUN_0200E850
@@ -18829,7 +18829,7 @@ _0200F60C:
 	bl FUN_0200F5D8
 	add r1, r0, r6
 	add r2, r7, #0x0
-	blx FUN_020DF438
+	blx memcpy
 	ldr r0, [r5, #0x4]
 	add r4, r4, #0x1
 	cmp r4, r0
@@ -18952,7 +18952,7 @@ FUN_0200F6FC: ; 0x0200F6FC
 	lsl r2, r2, #0x2
 	add r5, r0, #0x0
 	add r7, r3, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	cmp r4, #0x1
 	bne _0200F726
 	mov r0, #0x6
@@ -19028,7 +19028,7 @@ _0200F78E:
 	add r0, #0xc0
 	add r1, r5, #0x0
 	add r2, r7, #0x0
-	blx FUN_020DF438
+	blx memcpy
 	add r4, r4, #0x1
 	add r5, r5, r6
 	cmp r4, #0x2
@@ -21261,7 +21261,7 @@ FUN_02010894: ; 0x02010894
 	lsl r2, r2, #0x8
 	add r0, r0, r2
 	mov r1, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [r6, #0x10]
 	sub r4, r0, #0x1
 	bmi _020108C6
@@ -21363,7 +21363,7 @@ FUN_02010948: ; 0x02010948
 	str r0, [r5, #0x14]
 	mov r1, #0x0
 	mov r2, #0x38
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0x0
 	str r0, [sp, #0x0]
@@ -21776,7 +21776,7 @@ FUN_02010C7C: ; 0x02010C7C
 	str r0, [r5, #0x14]
 	mov r1, #0x0
 	mov r2, #0x38
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0x0
 	str r0, [sp, #0x0]
@@ -22121,7 +22121,7 @@ FUN_02010F2C: ; 0x02010F2C
 	str r0, [r5, #0x14]
 	mov r1, #0x0
 	lsl r2, r2, #0x2
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0x0
 	str r0, [sp, #0x0]
@@ -22213,23 +22213,23 @@ FUN_02010FD0: ; 0x02010FD0
 	add r0, r5, #0x0
 	mov r1, #0x1
 	mov r2, #0xc0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r5, #0x0
 	add r0, #0xc0
 	mov r1, #0x1
 	mov r2, #0xc0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	b _02011020
 _0201100A:
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0xc0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r5, #0x0
 	add r0, #0xc0
 	mov r1, #0x0
 	mov r2, #0xc0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 _02011020:
 	mov r1, #0xc3
 	lsl r1, r1, #0x2
@@ -22460,7 +22460,7 @@ FUN_020111AC: ; 0x020111AC
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	str r0, [r5, #0x14]
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r1, r4, #0x0
 	add r1, #0x23
 	ldrb r1, [r1, #0x0]
@@ -23257,7 +23257,7 @@ _020117A4:
 	str r1, [r0, #0x64]
 	ldr r0, [r0, #0x60]
 	mov r1, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [sp, #0x8]
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -23780,7 +23780,7 @@ _02011B60:
 	ldr r1, [r6, #0xc]
 	add r1, r1, r2
 	ldr r2, [sp, #0x8]
-	blx FUN_020DF438
+	blx memcpy
 	ldr r0, [sp, #0x0]
 	add r4, r4, #0x1
 	add r5, r5, r7
@@ -24423,7 +24423,7 @@ _02012018:
 	ldr r1, [sp, #0x0]
 	add r1, r1, r2
 	add r2, r6, #0x0
-	blx FUN_020DF438
+	blx memcpy
 	ldr r1, [r5, #0x0]
 	ldr r0, [sp, #0x24]
 	add r7, r7, #0x1
@@ -24842,7 +24842,7 @@ _0201233C:
 	add r0, r0, r1
 	ldr r1, [sp, #0x18]
 	add r1, r1, r4
-	blx FUN_020DF438
+	blx memcpy
 	ldr r0, [r5, #0x0]
 	add r6, r6, #0x1
 	add r0, #0x20
@@ -25246,7 +25246,7 @@ FUN_02012634: ; 0x02012634
 	add r0, #0x2c
 	add r1, #0x3c
 	add r3, r4, #0x0
-	blx FUN_020D5F40
+	blx RTC_GetDateTimeAsync
 	str r0, [r4, #0xc]
 	cmp r0, #0x0
 	beq _02012656
@@ -25345,12 +25345,12 @@ _020126F8: .word 0x021C4828
 
 	thumb_func_start FUN_020126FC
 FUN_020126FC: ; 0x020126FC
-	ldr r3, _02012704 ; =FUN_020D6578
+	ldr r3, _02012704 ; =RTC_ConvertDateTimeToSecond
 	ldr r0, _02012708 ; =0x021C4818
 	ldr r1, _0201270C ; =0x021C4828
 	bx r3
 	.balign 4
-_02012704: .word FUN_020D6578
+_02012704: .word RTC_ConvertDateTimeToSecond
 _02012708: .word 0x021C4818
 _0201270C: .word 0x021C4828
 
@@ -25401,9 +25401,9 @@ _02012752:
 	str r0, [sp, #0x4]
 	str r0, [sp, #0x8]
 	add r0, r2, #0x0
-	blx FUN_020D660C
+	blx RTC_ConvertDateToDay
 	add r0, r5, #0x0
-	blx FUN_020D660C
+	blx RTC_ConvertDateToDay
 	add r0, r4, #0x0
 	add sp, #0x10
 	pop {r4-r6, pc}
@@ -25477,7 +25477,7 @@ FUN_020127C0: ; 0x020127C0
 	ldr r1, [sp, #0x4]
 	str r0, [r2, #0x0]
 	ldr r0, [sp, #0x0]
-	blx FUN_020D6578
+	blx RTC_ConvertDateTimeToSecond
 	add r2, r1, #0x0
 	add r3, r0, #0x0
 	mov r1, #0x0
@@ -25791,7 +25791,7 @@ FUN_02012A00: ; 0x02012A00
 	ldr r2, _02012A2C ; =0x0000079C
 	mov r1, #0x0
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	mov r2, #0x3
 	lsl r2, r2, #0x8
 	add r0, r5, #0x0
@@ -25897,7 +25897,7 @@ _02012ACE:
 	mov r2, #0x3
 	ldr r1, [r4, r1]
 	lsl r2, r2, #0x8
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 _02012AF4:
 	pop {r4, pc}
 	nop
@@ -26187,7 +26187,7 @@ _02012D14:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0xdc
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r2, r4, #0x0
 	ldr r0, [sp, #0x8]
 	str r7, [r4, #0x18]
@@ -26215,7 +26215,7 @@ _02012D14:
 	str r0, [r2, #0x0]
 	ldr r2, [sp, #0xc]
 	add r0, r6, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [sp, #0xc]
 	str r6, [r4, #0xc]
 	str r6, [r4, #0x10]
@@ -28859,7 +28859,7 @@ FUN_02013F30: ; 0x02013F30
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x40
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r4, #0x0
 	mov r1, #0x1f
 	add r0, #0x3e
@@ -29929,7 +29929,7 @@ FUN_020146F0: ; 0x020146F0
 	add r5, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x9c
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r5, #0x0
 	add r0, #0x9b
 	ldrb r1, [r0, #0x0]
@@ -30306,7 +30306,7 @@ _020149B4:
 	add r0, r6, #0x0
 	mov r1, #0x0
 	mov r2, #0x38
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add sp, #0x10
 	pop {r4-r6, pc}
 
@@ -33331,7 +33331,7 @@ FUN_02015FC8: ; 0x02015FC8
 	add r0, sp, #0x0
 	add r1, sp, #0x10
 	mov r2, #0x20
-	blx FUN_020DDCE4
+	blx MATH_CalcMD5
 	mov r3, #0x0
 	add r1, r3, #0x0
 	add r2, sp, #0x0
@@ -33601,7 +33601,7 @@ FUN_02016230: ; 0x02016230
 	push {r3-r7, lr}
 	sub sp, #0x8
 	str r0, [sp, #0x0]
-	blx FUN_020E2EAC
+	blx strlen
 	lsl r0, r0, #0x10
 	lsr r3, r0, #0x10
 	lsr r2, r3, #0x1f
@@ -33749,12 +33749,12 @@ FUN_02016324: ; 0x02016324
 	add r0, sp, #0x0
 	bne _02016340
 	add r1, r2, #0x1
-	blx FUN_020E2EC8
+	blx strcpy
 	mov r5, #0x1
 	b _02016346
 _02016340:
 	add r1, r2, #0x0
-	blx FUN_020E2EC8
+	blx strcpy
 _02016346:
 	add r0, sp, #0x0
 	bl FUN_02016230
@@ -34896,7 +34896,7 @@ FUN_02016B94: ; 0x02016B94
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	str r5, [r4, #0x0]
 	mov r0, #0x0
 	strh r0, [r4, #0x4]
@@ -37548,7 +37548,7 @@ FUN_02017F18: ; 0x02017F18
 	add r4, r0, #0x0
 	mov r1, #0x0
 	add r2, r5, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	add r2, r7, #0x0
@@ -40023,7 +40023,7 @@ FUN_020190EC: ; 0x020190EC
 	lsl r1, r1, #0x18
 	ldr r2, [sp, #0x4]
 	lsr r1, r1, #0x18
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	cmp r7, #0x0
 	beq _02019148
 	str r5, [r4, #0x0]
@@ -44364,7 +44364,7 @@ _0201B096:
 	ldr r1, [sp, #0x18]
 	add r1, r1, r2
 	mov r2, #0x40
-	blx FUN_020DF438
+	blx memcpy
 	ldrh r1, [r4, r6]
 	add r0, r7, #0x0
 	asr r2, r1, #0xa
@@ -44454,7 +44454,7 @@ _0201B142:
 	add r0, r7, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x40
-	blx FUN_020DF438
+	blx memcpy
 _0201B166:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x2
@@ -44484,7 +44484,7 @@ _0201B17E:
 	add r0, r7, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x40
-	blx FUN_020DF438
+	blx memcpy
 _0201B19E:
 	add r0, r4, #0x0
 	bl FUN_02016A18
@@ -50427,7 +50427,7 @@ FUN_0201DD00: ; 0x0201DD00
 	add r0, r4, #0x0
 	mov r1, #0x0
 	lsr r2, r2, #0x3
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 _0201DD16:
 	pop {r4, pc}
 
@@ -51269,7 +51269,7 @@ FUN_0201E2F8: ; 0x0201E2F8
 	mov r1, #0x0
 	mov r2, #0x30
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	mov r0, #0x0
 	mvn r0, r0
 	str r0, [r4, #0xc]
@@ -55078,7 +55078,7 @@ FUN_0201FE6C: ; 0x0201FE6C
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	str r1, [r4, #0x3c]
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r4, #0x0
 	add r0, #0xb4
 	blx FUN_020B1A24
@@ -58016,7 +58016,7 @@ FUN_02021310: ; 0x02021310
 	add r1, r6, #0x0
 	add r2, r5, #0x0
 	add r4, r0, #0x0
-	blx FUN_020DF438
+	blx memcpy
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -59038,7 +59038,7 @@ _02021AA2:
 	add r0, #0x8
 	add r1, #0x8
 	lsl r2, r2, #0x1
-	blx FUN_020DF438
+	blx memcpy
 	ldrh r0, [r4, #0x2]
 	strh r0, [r5, #0x2]
 	pop {r3-r5, pc}
@@ -59589,7 +59589,7 @@ _02021EA8:
 	add r0, #0x8
 	add r1, r7, #0x0
 	add r2, r6, #0x0
-	blx FUN_020DF438
+	blx memcpy
 	mov r2, #0x0
 	cmp r4, #0x0
 	bls _02021ED4
@@ -59643,7 +59643,7 @@ _02021F0C:
 	add r0, r6, #0x0
 	add r1, r5, #0x0
 	lsl r2, r2, #0x1
-	blx FUN_020DF438
+	blx memcpy
 	pop {r4-r6, pc}
 _02021F22:
 	bl ErrorHandling
@@ -59710,7 +59710,7 @@ _02021F7A:
 	add r2, r2, #0x1
 	add r1, #0x8
 	lsl r2, r2, #0x1
-	blx FUN_020DF438
+	blx memcpy
 	ldrh r1, [r5, #0x2]
 	ldrh r0, [r4, #0x2]
 	add r0, r1, r0
@@ -60534,7 +60534,7 @@ FUN_0202254C: ; 0x0202254C
 	add r0, r4, #0x0
 	ldr r1, _020225E8 ; =0x00001021
 	add r0, #0x14
-	blx FUN_020DDF60
+	blx MATHi_CRC16InitTable
 	ldr r0, _020225EC ; =0x00020224
 	add r0, r4, r0
 	bl FUN_020230E4
@@ -60967,12 +60967,12 @@ FUN_0202288C: ; 0x0202288C
 
 	thumb_func_start FUN_02022898
 FUN_02022898: ; 0x02022898
-	ldr r3, _020228A0 ; =FUN_020DDD60
+	ldr r3, _020228A0 ; =MATH_CalcCRC16CCITT
 	add r0, #0x14
 	sub r2, #0x14
 	bx r3
 	.balign 4
-_020228A0: .word FUN_020DDD60
+_020228A0: .word MATH_CalcCRC16CCITT
 
 	thumb_func_start FUN_020228A4
 FUN_020228A4: ; 0x020228A4
@@ -61984,14 +61984,14 @@ _02023006:
 	add r0, r0, #0x4
 	cmp r3, #0x2
 	blt _02023006
-	blx FUN_020D6DAC
+	blx CARD_TryWaitBackupAsync
 	cmp r0, #0x0
 	bne _02023034
-	blx FUN_020D6D7C
+	blx CARD_CancelBackupAsync
 	ldr r0, [r4, #0x10]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	blx FUN_020D66A0
+	blx CARD_UnlockBackup
 	ldr r0, [r4, #0x10]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -62290,7 +62290,7 @@ FUN_02023248: ; 0x02023248
 	add r3, #0xe
 	strh r2, [r4, #0xc]
 	add r2, r3, #0x0
-	blx FUN_020DDD60
+	blx MATH_CalcCRC16CCITT
 	strh r0, [r4, #0xe]
 	pop {r3-r5, pc}
 	nop
@@ -62323,7 +62323,7 @@ _02023298:
 	add r3, #0xe
 	add r0, #0x14
 	add r2, r3, #0x0
-	blx FUN_020DDD60
+	blx MATH_CalcCRC16CCITT
 	ldrh r1, [r4, #0xe]
 	cmp r1, r0
 	bne _020232AC
@@ -62680,16 +62680,16 @@ FUN_02023570: ; 0x02023570
 _02023584:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	blx FUN_020D66B0
+	blx CARD_LockBackup
 	ldr r0, _020235C8 ; =0x00001302
-	blx FUN_020D6DC4
+	blx CARD_IdentifyBackup
 	cmp r0, #0x0
 	beq _0202359A
 	ldr r5, _020235C8 ; =0x00001302
 	b _020235AA
 _0202359A:
 	ldr r0, _020235CC ; =0x00001202
-	blx FUN_020D6DC4
+	blx CARD_IdentifyBackup
 	cmp r0, #0x0
 	beq _020235A8
 	ldr r5, _020235CC ; =0x00001202
@@ -62699,7 +62699,7 @@ _020235A8:
 _020235AA:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	blx FUN_020D66A0
+	blx CARD_UnlockBackup
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
 	blx OS_ReleaseLockID
@@ -62747,7 +62747,7 @@ FUN_020235EC: ; 0x020235EC
 _02023608:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	blx FUN_020D66B0
+	blx CARD_LockBackup
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	mov r1, #0x1
@@ -62759,12 +62759,12 @@ _02023608:
 	add r1, r6, #0x0
 	add r2, r7, #0x0
 	str r3, [sp, #0x10]
-	blx FUN_020D6F20
-	blx FUN_020D6DB8
+	blx CARDi_RequestStreamCommand
+	blx CARD_WaitBackupAsync
 	add r5, r0, #0x0
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	blx FUN_020D66A0
+	blx CARD_UnlockBackup
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
 	blx OS_ReleaseLockID
@@ -62808,7 +62808,7 @@ FUN_02023668: ; 0x02023668
 _02023684:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	blx FUN_020D66B0
+	blx CARD_LockBackup
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -62820,7 +62820,7 @@ _02023684:
 	mov r2, #0x4
 	add r3, r0, #0x0
 	str r0, [sp, #0x10]
-	blx FUN_020D6F20
+	blx CARDi_RequestStreamCommand
 	cmp r0, #0x0
 	bne _020236B2
 	add r0, r4, #0x0
@@ -62843,7 +62843,7 @@ _020236B2:
 	add r0, r6, #0x0
 	add r1, r5, #0x0
 	add r2, r7, #0x0
-	blx FUN_020D6F20
+	blx CARDi_RequestStreamCommand
 	add r0, r4, #0x0
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -62862,11 +62862,11 @@ FUN_020236E4: ; 0x020236E4
 	bne _02023738
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
-	blx FUN_020D66A0
+	blx CARD_UnlockBackup
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	blx OS_ReleaseLockID
-	blx FUN_020D6700
+	blx CARD_GetResultCode
 	cmp r0, #0x0
 	beq _02023714
 	cmp r0, #0x4
@@ -62907,7 +62907,7 @@ FUN_02023740: ; 0x02023740
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	add r4, r1, #0x0
-	blx FUN_020D66A0
+	blx CARD_UnlockBackup
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	blx OS_ReleaseLockID
@@ -63072,12 +63072,12 @@ FUN_02023840: ; 0x02023840
 	add r1, #0x14
 	bl FUN_0201265C
 	add r0, r4, #0x4
-	blx FUN_020D660C
+	blx RTC_ConvertDateToDay
 	add r1, r4, #0x0
 	str r0, [r4, #0x20]
 	add r0, r4, #0x4
 	add r1, #0x14
-	blx FUN_020D6578
+	blx RTC_ConvertDateTimeToSecond
 	str r0, [r4, #0x24]
 	str r1, [r4, #0x28]
 	mov r0, #0x0
@@ -63132,7 +63132,7 @@ FUN_020238A4: ; 0x020238A4
 	add r1, #0x14
 	bl FUN_0201265C
 	add r0, r4, #0x4
-	blx FUN_020D660C
+	blx RTC_ConvertDateToDay
 	str r0, [r4, #0x20]
 	pop {r4, pc}
 	.balign 4
@@ -63224,7 +63224,7 @@ FUN_02023948: ; 0x02023948
 	mov r1, #0x0
 	mov r2, #0x20
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	mov r0, #0x2
 	strb r0, [r4, #0x19]
 	pop {r4, pc}
@@ -63517,12 +63517,12 @@ _02023AD4: .word MI_CpuCopy8
 
 	thumb_func_start FUN_02023AD8
 FUN_02023AD8: ; 0x02023AD8
-	ldr r3, _02023AE0 ; =FUN_020DF4A4
+	ldr r3, _02023AE0 ; =Call_FillMemWithValue
 	mov r1, #0x0
 	mov r2, #0x20
 	bx r3
 	.balign 4
-_02023AE0: .word FUN_020DF4A4
+_02023AE0: .word Call_FillMemWithValue
 
 	thumb_func_start FUN_02023AE4
 FUN_02023AE4: ; 0x02023AE4
@@ -63738,7 +63738,7 @@ FUN_02023C48: ; 0x02023C48
 	add r4, r0, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0x4
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r4, #0x0
 	bl FUN_020669A0
 	add r0, r4, #0x0
@@ -64792,7 +64792,7 @@ FUN_02024378: ; 0x02024378
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, _020243C0 ; =0xBEEFCAFE
 	mov r1, #0x0
 	str r0, [r4, #0x0]
@@ -64802,7 +64802,7 @@ FUN_02024378: ; 0x02024378
 	sub r0, #0x2d
 	add r0, r4, r0
 	mov r1, #0xff
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	mov r1, #0xff
 	add r0, r1, #0x0
 	add r0, #0x9
@@ -67248,7 +67248,7 @@ _020254D6:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x88
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	strh r6, [r5, #0x0]
 	add r4, r4, #0x1
 	add r5, #0x88
@@ -67414,7 +67414,7 @@ _020255F8:
 	ldr r0, [sp, #0x0]
 	ldr r1, [sp, #0x10]
 	lsl r2, r2, #0x6
-	blx FUN_020DF438
+	blx memcpy
 	ldr r0, [sp, #0x10]
 	bl FUN_02016A18
 	add sp, #0x2c
@@ -71169,7 +71169,7 @@ _02026F6A:
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0x74
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	str r6, [r5, #0x0]
 	add r4, r4, #0x1
 	add r5, #0x74
@@ -71183,7 +71183,7 @@ _02026F86:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x98
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r1, _02026FC8 ; =0x00001234
 	ldr r0, _02026FCC ; =0x000004FC
 	add r6, r6, #0x1
@@ -71196,7 +71196,7 @@ _02026F86:
 	mov r1, #0x0
 	add r0, r7, r0
 	mov r2, #0x40
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r5, _02026FD4 ; =0x0000081C
 	mov r4, #0x0
 	mov r6, #0x12
@@ -71241,7 +71241,7 @@ FUN_02026FE8: ; 0x02026FE8
 	mov r1, #0x0
 	mov r2, #0x98
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, _02027004 ; =0x00001234
 	str r0, [r4, #0x0]
 	add r0, r4, #0x0
@@ -71708,7 +71708,7 @@ _02027330:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x74
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, _02027340 ; =0x00001234
 	str r0, [r4, #0x0]
 	pop {r4, pc}
@@ -71938,7 +71938,7 @@ _020274DA:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x74
-	blx FUN_020DF438
+	blx memcpy
 	pop {r3-r5, pc}
 	nop
 _020274E8: .word 0x00001234
@@ -72316,7 +72316,7 @@ _02027760:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x98
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, _02027770 ; =0x00001234
 	str r0, [r4, #0x0]
 	pop {r4, pc}
@@ -72540,7 +72540,7 @@ _020278FE:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x98
-	blx FUN_020DF438
+	blx memcpy
 	pop {r3-r5, pc}
 	nop
 _0202790C: .word 0x00001234
@@ -73145,11 +73145,11 @@ FUN_02027D0C: ; 0x02027D0C
 	bne _02027D6A
 	ldr r1, _02027D78 ; =0xEDB88320
 	add r0, sp, #0x4
-	blx FUN_020DDE44
+	blx MATHi_CRC32InitTableRev
 	add r0, sp, #0x4
 	add r1, r4, #0x0
 	mov r2, #0x74
-	blx FUN_020DDD28
+	blx MATH_CalcCRC32
 	add r6, r0, #0x0
 	mov r5, #0x0
 _02027D3C:
@@ -73159,11 +73159,11 @@ _02027D3C:
 	add r4, r0, #0x0
 	ldr r1, _02027D78 ; =0xEDB88320
 	add r0, sp, #0x4
-	blx FUN_020DDE44
+	blx MATHi_CRC32InitTableRev
 	add r0, sp, #0x4
 	add r1, r4, #0x0
 	mov r2, #0x74
-	blx FUN_020DDD28
+	blx MATH_CalcCRC32
 	cmp r0, r6
 	bne _02027D62
 	mov r0, #0x0
@@ -74971,22 +74971,22 @@ FUN_02028980: ; 0x02028980
 
 	thumb_func_start FUN_02028988
 FUN_02028988: ; 0x02028988
-	ldr r3, _02028990 ; =FUN_020DF4A4
+	ldr r3, _02028990 ; =Call_FillMemWithValue
 	mov r1, #0x0
 	mov r2, #0x70
 	bx r3
 	.balign 4
-_02028990: .word FUN_020DF4A4
+_02028990: .word Call_FillMemWithValue
 
 	thumb_func_start FUN_02028994
 FUN_02028994: ; 0x02028994
-	ldr r3, _020289A0 ; =FUN_020DF4A4
+	ldr r3, _020289A0 ; =Call_FillMemWithValue
 	mov r2, #0x46
 	mov r1, #0x0
 	lsl r2, r2, #0x4
 	bx r3
 	nop
-_020289A0: .word FUN_020DF4A4
+_020289A0: .word Call_FillMemWithValue
 
 	thumb_func_start FUN_020289A4
 FUN_020289A4: ; 0x020289A4
@@ -75445,12 +75445,12 @@ _02028CC0:
 	add r0, #0x1c
 	add r1, #0x46
 	mov r2, #0x2a
-	blx FUN_020DF438
+	blx memcpy
 	add r4, #0x46
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x2a
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -76317,7 +76317,7 @@ FUN_020292BC: ; 0x020292BC
 	mov r1, #0x0
 	mov r2, #0x3a
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -76866,7 +76866,7 @@ _020296B4:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x3a
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldrb r0, [r6, #0x1c]
 	cmp r0, #0x10
 	bhi _02029722
@@ -77396,7 +77396,7 @@ FUN_02029A8C: ; 0x02029A8C
 	add r4, r0, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0x4
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r4, #0x0
 	bl FUN_02029ACC
 	add r5, r0, #0x0
@@ -79601,7 +79601,7 @@ FUN_0202A92C: ; 0x0202A92C
 	add r4, r0, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0x2
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	bl FUN_0201BA60
 	str r0, [r4, #0x0]
 	bl FUN_0201BA60
@@ -83178,7 +83178,7 @@ FUN_0202C1C8: ; 0x0202C1C8
 	ldr r1, _0202C1F0 ; =0x021C59D8
 	ldr r0, _0202C1F4 ; =FUN_0202C1F8
 	ldr r1, [r1, #0x4]
-	blx FUN_020D9624
+	blx WM_SetParentParameter
 	cmp r0, #0x2
 	beq _0202C1EC
 	bl FUN_0202C1AC
@@ -83225,7 +83225,7 @@ FUN_0202C21C: ; 0x0202C21C
 	mov r0, #0x1
 	pop {r4, pc}
 _0202C230:
-	blx FUN_020D7E9C
+	blx WMi_GetStatusAddress
 	add r4, r0, #0x0
 	mov r0, #0x66
 	lsl r0, r0, #0x2
@@ -83240,7 +83240,7 @@ _0202C230:
 	mov r1, #0x4
 	blx DC_FlushRange
 	ldr r0, _0202C280 ; =FUN_0202C288
-	blx FUN_020D9554
+	blx WM_StartParent
 	cmp r0, #0x2
 	beq _0202C264
 	bl FUN_0202C1AC
@@ -83334,13 +83334,13 @@ _0202C2DA:
 	ldr r0, _0202C38C ; =0x02105D54
 	add r1, #0x15
 	mov r2, #0x3
-	blx FUN_020DF510
+	blx memcmp
 	cmp r0, #0x0
 	beq _0202C330
 _0202C318:
 	ldrh r1, [r5, #0x10]
 	mov r0, #0x0
-	blx FUN_020D9060
+	blx WM_Disconnect
 	cmp r0, #0x2
 	beq _0202C378
 	bl FUN_0202C1AC
@@ -83429,7 +83429,7 @@ _0202C3AC:
 	ldr r0, _0202C400 ; =FUN_0202C404
 	lsr r2, r2, #0x10
 	add r3, r4, r3
-	blx FUN_020D9B48
+	blx WM_StartMP
 	cmp r0, #0x2
 	beq _0202C3E8
 	bl FUN_0202C1AC
@@ -83502,7 +83502,7 @@ FUN_0202C460: ; 0x0202C460
 	mov r0, #0x3
 	bl FUN_0202C198
 	ldr r0, _0202C480 ; =FUN_0202C484
-	blx FUN_020D9960
+	blx WM_EndMP
 	cmp r0, #0x2
 	beq _0202C47A
 	bl FUN_0202C1AC
@@ -83535,7 +83535,7 @@ _0202C4A2:
 FUN_0202C4A4: ; 0x0202C4A4
 	push {r3, lr}
 	ldr r0, _0202C4BC ; =FUN_0202C4C0
-	blx FUN_020D950C
+	blx WM_EndParent
 	cmp r0, #0x2
 	beq _0202C4B8
 	bl FUN_0202C1AC
@@ -83691,7 +83691,7 @@ _0202C5D4: .word 0x021C59D8
 	thumb_func_start FUN_0202C5D8
 FUN_0202C5D8: ; 0x0202C5D8
 	push {r3-r7, lr}
-	blx FUN_020D8C3C
+	blx WM_GetAllowedChannel
 	add r5, r0, #0x0
 	mov r0, #0x2
 	lsl r0, r0, #0xe
@@ -83751,7 +83751,7 @@ _0202C64C:
 	sub r0, #0x28
 	strh r2, [r3, r0]
 _0202C650:
-	blx FUN_020D8A4C
+	blx WM_GetDispersionScanPeriod
 	ldr r2, _0202C684 ; =0x021C59D8
 	ldr r1, _0202C690 ; =0x000012E6
 	ldr r3, [r2, #0x4]
@@ -83766,7 +83766,7 @@ _0202C650:
 	sub r1, r1, #0x6
 	ldr r0, _0202C694 ; =FUN_0202C698
 	add r1, r2, r1
-	blx FUN_020D940C
+	blx WM_StartScan
 	cmp r0, #0x2
 	beq _0202C680
 	bl FUN_0202C1AC
@@ -83910,7 +83910,7 @@ _0202C790: .word 0x00001310
 FUN_0202C794: ; 0x0202C794
 	push {r3, lr}
 	ldr r0, _0202C7AC ; =FUN_0202C7B0
-	blx FUN_020D9244
+	blx WM_EndScan
 	cmp r0, #0x2
 	beq _0202C7A8
 	bl FUN_0202C1AC
@@ -83984,7 +83984,7 @@ _0202C800:
 	mov r3, #0x1
 	add r1, r2, r1
 	add r2, sp, #0x4
-	blx FUN_020D9168
+	blx WM_StartConnectEx
 	cmp r0, #0x2
 	beq _0202C83E
 	bl FUN_0202C1AC
@@ -84109,7 +84109,7 @@ FUN_0202C908: ; 0x0202C908
 	ldr r0, _0202C954 ; =FUN_0202C958
 	lsr r2, r2, #0x10
 	add r3, r4, r3
-	blx FUN_020D9B48
+	blx WM_StartMP
 	cmp r0, #0x2
 	beq _0202C942
 	bl FUN_0202C1AC
@@ -84185,7 +84185,7 @@ FUN_0202C9BC: ; 0x0202C9BC
 	mov r0, #0x3
 	bl FUN_0202C198
 	ldr r0, _0202C9DC ; =FUN_0202C9E0
-	blx FUN_020D9960
+	blx WM_EndMP
 	cmp r0, #0x2
 	beq _0202C9D6
 	bl FUN_0202C1AC
@@ -84223,7 +84223,7 @@ FUN_0202CA04: ; 0x0202CA04
 	bl FUN_0202C198
 	ldr r0, _0202CA28 ; =FUN_0202CA2C
 	mov r1, #0x0
-	blx FUN_020D9060
+	blx WM_Disconnect
 	cmp r0, #0x2
 	beq _0202CA24
 	bl FUN_0202C1AC
@@ -84256,7 +84256,7 @@ FUN_0202CA44: ; 0x0202CA44
 	mov r0, #0x3
 	bl FUN_0202C198
 	ldr r0, _0202CA64 ; =FUN_0202CA68
-	blx FUN_020D9774
+	blx WM_Reset
 	cmp r0, #0x2
 	beq _0202CA5E
 	bl FUN_0202C1AC
@@ -84312,7 +84312,7 @@ FUN_0202CA88: ; 0x0202CA88
 	ldr r0, _0202CADC ; =FUN_0202CAE0
 	add r2, r5, #0x0
 	add r3, r6, #0x0
-	blx FUN_020D99EC
+	blx WM_SetMPDataToPortEx
 	cmp r0, #0x2
 	bne _0202CACA
 	add sp, #0xc
@@ -84566,7 +84566,7 @@ _0202CC94: .word 0x00003039
 FUN_0202CC98: ; 0x0202CC98
 	push {r4, lr}
 	add r4, r0, #0x0
-	blx FUN_020D8C3C
+	blx WM_GetAllowedChannel
 	mov r1, #0x2
 	lsl r1, r1, #0xe
 	cmp r0, r1
@@ -84693,7 +84693,7 @@ FUN_0202CD90: ; 0x0202CD90
 	str r1, [sp, #0x0]
 	mov r1, #0x3
 	mov r2, #0x11
-	blx FUN_020DADD4
+	blx WM_MeasureChannel
 	pop {r3, pc}
 	.balign 4
 
@@ -84900,7 +84900,7 @@ FUN_0202CF0C: ; 0x0202CF0C
 	ldr r0, [r0, #0x4]
 	mov r2, #0x2
 	add r0, #0x40
-	blx FUN_020D97B4
+	blx WM_Initialize
 	cmp r0, #0x2
 	beq _0202CF34
 	bl FUN_0202C1AC
@@ -84929,7 +84929,7 @@ FUN_0202CF40: ; 0x0202CF40
 	pop {r3, pc}
 _0202CF5A:
 	ldr r0, _0202CF80 ; =FUN_0202CEF4
-	blx FUN_020D9014
+	blx WM_SetIndCallback
 	cmp r0, #0x0
 	beq _0202CF76
 	bl FUN_0202C1AC
@@ -85102,7 +85102,7 @@ FUN_0202D0A0: ; 0x0202D0A0
 	ldr r1, _0202D0CC ; =FUN_0202CB08
 	lsr r0, r0, #0x10
 	mov r2, #0x0
-	blx FUN_020D8F34
+	blx WM_SetPortCallback
 	cmp r0, #0x0
 	beq _0202D0C2
 	mov r0, #0x9
@@ -85210,7 +85210,7 @@ FUN_0202D178: ; 0x0202D178
 	mov r0, #0x3
 	bl FUN_0202C198
 	ldr r0, _0202D198 ; =FUN_0202CB50
-	blx FUN_020D972C
+	blx WM_End
 	cmp r0, #0x2
 	beq _0202D194
 	mov r0, #0x9
@@ -85344,7 +85344,7 @@ FUN_0202D240: ; 0x0202D240
 	add r1, r6, #0x0
 	lsr r2, r2, #0x10
 	add r3, r4, #0x0
-	blx FUN_020DAF30
+	blx WM_SetGameInfo
 _0202D26E:
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -85383,7 +85383,7 @@ FUN_0202D298: ; 0x0202D298
 	cmp r0, #0x4
 	bne _0202D2BE
 	ldr r0, _0202D2CC ; =FUN_0202D27C
-	blx FUN_020DAD74
+	blx WM_SetEntry
 	cmp r0, #0x2
 	bne _0202D2BE
 	mov r0, #0x1
@@ -89240,7 +89240,7 @@ _0202EEE4: .word 0x0000FFFF
 FUN_0202EEE8: ; 0x0202EEE8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	blx FUN_020D8AF0
+	blx WM_GetDispersionBeaconPeriod
 	add r4, r0, #0x0
 	cmp r5, #0x1a
 	blo _0202EEFA
@@ -95249,7 +95249,7 @@ _02031D04:
 	bl FUN_0202EDF8
 	cmp r0, #0x0
 	beq _02031D18
-	blx FUN_020D8B94
+	blx WM_GetLinkLevel
 	mov r1, #0x3
 	sub r0, r1, r0
 	bl FUN_02033EEC
@@ -101482,7 +101482,7 @@ FUN_02034CB4: ; 0x02034CB4
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	add r5, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r4, #0x0
 	bl FUN_020347D8
 	cmp r0, #0x0
@@ -101614,7 +101614,7 @@ FUN_02034D98: ; 0x02034D98
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0xa0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r4, #0x0
 	add r0, #0x6c
 	bl FUN_0204ADE0
@@ -103792,7 +103792,7 @@ FUN_02035E50: ; 0x02035E50
 	ldr r1, [r4, r1]
 	mov r2, #0x40
 	add r6, r0, #0x0
-	blx FUN_020DF438
+	blx memcpy
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -104326,7 +104326,7 @@ FUN_020362E4: ; 0x020362E4
 	add r2, r0, #0x0
 	ldr r0, [sp, #0x8]
 	ldr r1, [r4, r1]
-	blx FUN_020DF438
+	blx memcpy
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -104390,7 +104390,7 @@ _0203638A:
 	mov r1, #0x0
 	mov r2, #0x40
 	add r5, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	str r0, [r5, #0x0]
@@ -104490,7 +104490,7 @@ _02036474:
 	mov r1, #0x0
 	mov r2, #0x40
 	add r5, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [sp, #0x4]
 	str r0, [r5, #0x0]
 	ldr r0, [r6, #0xc]
@@ -104964,7 +104964,7 @@ FUN_0203684C: ; 0x0203684C
 	ldr r1, [r4, r1]
 	mov r2, #0x30
 	add r7, r0, #0x0
-	blx FUN_020DF438
+	blx memcpy
 	mov r0, #0x7e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -104982,7 +104982,7 @@ FUN_0203684C: ; 0x0203684C
 	str r1, [sp, #0x0]
 	mov r1, #0x0
 	add r5, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	str r0, [r5, #0x0]
@@ -105511,7 +105511,7 @@ FUN_02036CEC: ; 0x02036CEC
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [r5, #0xc]
 	bl FUN_0206BB1C
 	str r0, [r4, #0x0]
@@ -107569,7 +107569,7 @@ FUN_02037CF0: ; 0x02037CF0
 	mov r1, #0x0
 	mov r2, #0x30
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [r5, #0xc]
 	bl FUN_0206BB1C
 	str r0, [r4, #0x0]
@@ -107970,7 +107970,7 @@ FUN_0203800C: ; 0x0203800C
 	mov r1, #0x0
 	mov r2, #0x20
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	add r0, r5, #0x0
 	bl FUN_0206BB1C
 	add r1, r7, #0x0
@@ -109131,7 +109131,7 @@ _02038956:
 	bl FUN_020127C0
 	mov r2, #0x3c
 	mov r3, #0x0
-	blx FUN_020EBA38
+	blx _ll_sdiv
 	add r3, r0, #0x0
 	ldr r1, [sp, #0x8]
 	ldr r2, [r5, #0x0]

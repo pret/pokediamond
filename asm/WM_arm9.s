@@ -2541,7 +2541,7 @@ WmGetSharedDataAddress: ; 0x020DA00C
 	mov r5, r0
 	and r0, r1, r3
 	mov r4, r2
-	bl FUN_020DDC5C
+	bl MATH_CountPopulation
 	add r1, r5, #0x800
 	ldrh r1, [r1, #0x10]
 	mla r0, r1, r0, r4
@@ -3336,7 +3336,7 @@ _020DAB4C:
 	strh r2, [r1, #0x18]
 	mov r0, r0, lsr #0x10
 	strh r0, [r1, #0xe]
-	bl FUN_020DDC5C
+	bl MATH_CountPopulation
 	add r3, r10, #0x800
 	mul r1, r5, r0
 	strh r0, [r3, #0x12]

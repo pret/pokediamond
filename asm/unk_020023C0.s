@@ -2156,7 +2156,7 @@ FUN_020033A4: ; 0x020033A4
 	cmp r2, #0x0
 	bge _020033D4
 	add r0, r2, #0x0
-	blx FUN_020DE3F0
+	blx abs
 	add r0, r0, #0x2
 	ldrh r1, [r5, #0x6]
 	mov r2, #0xf
@@ -3840,7 +3840,7 @@ FUN_02004064: ; 0x02004064
 	ldr r2, _02004080 ; =0x000BCD60
 	mov r1, #0x0
 	add r4, r0, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, _02004084 ; =0x000BCD1C
 	mov r1, #0x0
 _02004074:
@@ -5301,7 +5301,7 @@ _02004B80:
 _02004B9C:
 	mov r1, #0x0
 	add r2, r6, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, [r7, #0x0]
 	ldr r1, [r4, #0x0]
 	lsl r0, r0, #0x8
@@ -8178,7 +8178,7 @@ FUN_020061E8: ; 0x020061E8
 _02006202:
 	mov r1, #0x0
 	add r2, r5, #0x0
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	b _0200620E
 _0200620C:
 	mov r4, #0x0

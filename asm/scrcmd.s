@@ -3669,56 +3669,56 @@ FUN_0203B640: ; 0x0203B640
 	cmp r7, #0x0
 	beq _0203B696
 	lsl r0, r7, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx FUN_020EA980
+	blx _fadd
 	b _0203B6A4
 _0203B696:
 	lsl r0, r7, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx FUN_020EB7B0
+	blx _fsub
 _0203B6A4:
-	blx FUN_020EB4C0
+	blx _ffix
 	str r0, [sp, #0x0]
 	cmp r6, #0x0
 	beq _0203B6C0
 	lsl r0, r6, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx FUN_020EA980
+	blx _fadd
 	b _0203B6CE
 _0203B6C0:
 	lsl r0, r6, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx FUN_020EB7B0
+	blx _fsub
 _0203B6CE:
-	blx FUN_020EB4C0
+	blx _ffix
 	str r0, [sp, #0x4]
 	cmp r4, #0x0
 	beq _0203B6EA
 	lsl r0, r4, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx FUN_020EA980
+	blx _fadd
 	b _0203B6F8
 _0203B6EA:
 	lsl r0, r4, #0xc
-	blx FUN_020EB534
+	blx _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx FUN_020EB7B0
+	blx _fsub
 _0203B6F8:
-	blx FUN_020EB4C0
+	blx _ffix
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	add r0, #0x80
