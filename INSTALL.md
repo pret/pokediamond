@@ -19,6 +19,7 @@ Building the ROM requires the following packages:
 * build-essentials
 * binutils-arm-none-eabi
 * wine (to run the mwcc executables)
+* libpng
 
 NOTE: If you are using Arch/Manjaro or Void you will only need base-devel instead of build-essentials or make or git. You will still need wine.
 
@@ -41,6 +42,7 @@ You will still require the following packages:
 * make
 * git
 * build-essentials
+* libpng
 
 Install them using either the Cygwin package manager or using pacman on Msys2.
 
