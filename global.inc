@@ -1052,3 +1052,6 @@
 .extern MATH_SHA1GetHash
 .extern MATH_MD5Update
 .extern MATH_MD5GetHash
+.extern OS_LockMutex
+.extern OS_UnlockMutex
+

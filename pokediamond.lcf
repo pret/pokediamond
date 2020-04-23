@@ -389,7 +389,7 @@ SECTIONS {
         WM_arm9.o (.text)
         CTRDG_arm9.o (.text)
         MATH_arm9.o (.text)
-        rom2dism.o (.text)
+        STD_arm9.o (.text)
         rom2.o (.data)
         string_util.o (.data)
         rom2_2.o (.text)
