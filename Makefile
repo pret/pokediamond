@@ -63,7 +63,7 @@ CROSS   := arm-none-eabi-
 MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
 # MWCC built objects and GNU built ones. mwldarm, however, doesn't care, so we
-# have to use mwldarm for now. 
+# have to use mwldarm for now.
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
 MWLDARM  := tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
@@ -79,8 +79,8 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -i include
-LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m Entry
+CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -ir include
+LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
 
