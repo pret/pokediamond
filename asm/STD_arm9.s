@@ -226,7 +226,7 @@ nan: ; 0x020DE2E4
 _020DE2F4: .word 0x02106B78
 _020DE2F8: .word _f2d
 
-arm_func_start __flush_line_buffered_output_files
+	arm_func_start __flush_line_buffered_output_files
 __flush_line_buffered_output_files:
 	stmdb sp!, {r3-r9,lr}
 	ldr r0, _020DE384 ; =0x02106A58
@@ -328,15 +328,15 @@ __msl_assertion_failed: ; 0x020DE3FC
 	.balign 4
 _020DE434: .word 0x02106B3C
 
-arm_func_start __convert_from_newlines
+	arm_func_start __convert_from_newlines
 __convert_from_newlines:
 	bx lr
 
-arm_func_start __convert_to_newlines
+	arm_func_start __convert_to_newlines
 __convert_to_newlines:
 	bx lr
 
-arm_func_start __prep_buffer
+	arm_func_start __prep_buffer
 __prep_buffer:
 	ldr r1, [r0, #0x1c]
 	str r1, [r0, #0x24]
@@ -351,7 +351,7 @@ __prep_buffer:
 	str r1, [r0, #0x34]
 	bx lr
 
-arm_func_start __load_buffer
+	arm_func_start __load_buffer
 __load_buffer:
 	stmdb sp!, {r4-r6,lr}
 	mov r5, r2
@@ -391,7 +391,7 @@ _020DE4F4:
 	mov r0, #0x0
 	ldmia sp!, {r4-r6,pc}
 
-arm_func_start __flush_buffer
+	arm_func_start __flush_buffer
 __flush_buffer:
 	stmdb sp!, {r3-r5,lr}
 	mov r5, r0
@@ -744,7 +744,7 @@ _020DE9C4:
 	add sp, sp, #0x4
 	ldmia sp!, {r3-r10,pc}
 
-arm_func_start __fwrite
+	arm_func_start __fwrite
 __fwrite:
 	stmdb sp!, {r3-r11,lr}
 	sub sp, sp, #0x8
@@ -971,7 +971,7 @@ _020DECE8: ; 0x020DECE8
 	rsb r0, r2, #0x0
 	ldmia sp!, {r3-r5,pc}
 
-arm_func_start fflush
+	arm_func_start fflush
 fflush:
 	stmdb sp!, {r4,lr}
 	movs r4, r0
@@ -1293,7 +1293,7 @@ _020DF150:
 	.balign 4
 _020DF160: .word 0x021D74A8
 
-arm_func_start fseek
+	arm_func_start fseek
 fseek:
 	stmdb sp!, {r3-r9,lr}
 	ldr r3, _020DF274 ; =0x02106A58
@@ -1391,7 +1391,7 @@ _020DF2A8: ; 0x020DF2A8
 	strb r0, [r4, #0xd]
 	ldmia sp!, {r4,pc}
 
-arm_func_start mbtowc
+	arm_func_start mbtowc
 mbtowc:
 	stmdb sp!, {r3,lr}
 	ldr r3, _020DF2CC ; =0x02106C98
@@ -1480,7 +1480,7 @@ _020DF3B8:
 	mov r0, r4
 	ldmia sp!, {r4-r8,pc}
 
-arm_func_start wcstombs
+	arm_func_start wcstombs
 wcstombs:
 	stmdb sp!, {r3-r9,lr}
 	movs r4, r0
@@ -1561,7 +1561,7 @@ Call_FillMemWithValue: ; 0x020DF4A4
 	mov r0, r4
 	ldmia sp!, {r4,pc}
 
-arm_func_start memchr
+	arm_func_start memchr
 memchr:
 	cmp r2, #0x0
 	and r3, r1, #0xff
@@ -3432,7 +3432,7 @@ _020E0E14: .word 0x02106DD0
 _020E0E18: .word 0x02106DD4
 _020E0E1C: .word 0x66666667
 
-arm_func_start __pformatter
+	arm_func_start __pformatter
 __pformatter:
 	stmdb sp!, {r0-r3}
 	stmdb sp!, {r4-r11,lr}
@@ -7733,7 +7733,7 @@ atod: ; 0x020E463C
 	.balign 4
 _020E4648: .word strtold
 
-arm_func_start __strtoul
+	arm_func_start __strtoul
 __strtoul:
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0xc
@@ -8469,7 +8469,7 @@ atol: ; 0x020E4FE0
 	.balign 4
 _020E4FF0: .word strtold2
 
-arm_func_start fwide
+	arm_func_start fwide
 fwide:
 	cmp r0, #0x0
 	beq _020E500C
@@ -8515,7 +8515,7 @@ wmemcpy: ; 0x020E5068
 	.balign 4
 _020E5074: .word memcpy
 
-arm_func_start wmemchr
+	arm_func_start wmemchr
 wmemchr:
 	cmp r2, #0x0
 	beq _020E5098
@@ -10128,7 +10128,7 @@ _020E6648: .word 0x02106E30
 _020E664C: .word 0x02106E38
 _020E6650: .word 0x66666667
 
-arm_func_start __wpformatter
+	arm_func_start __wpformatter
 __wpformatter:
 	stmdb sp!, {r0-r3}
 	stmdb sp!, {r3-r11,lr}
@@ -12909,7 +12909,7 @@ _020E8CD0: .word 0x02106F50
 _020E8CD4: .word 0x02106F54
 _020E8CD8: .word 0x02106F58
 
-arm_func_start __equals_dec
+	arm_func_start __equals_dec
 __equals_dec:
 	stmdb sp!, {r4,lr}
 	ldrb r3, [r0, #0x5]
@@ -12977,7 +12977,7 @@ _020E8DB4:
 	mov r0, #0x0
 	ldmia sp!, {r4,pc}
 
-arm_func_start __less_dec
+	arm_func_start __less_dec
 __less_dec:
 	stmdb sp!, {r3-r5,lr}
 	ldrb r2, [r0, #0x5]
@@ -13243,7 +13243,7 @@ _020E9130:
 	strb r1, [r0, #0x4]
 	ldmia sp!, {r3-r7,pc}
 
-arm_func_start __num2dec_internal
+	arm_func_start __num2dec_internal
 __num2dec_internal:
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0x58
@@ -13873,7 +13873,7 @@ _020E9A14: .word 0x55555555
 _020E9A18: .word 0x33333333
 _020E9A1C: .word 0x0F0F0F0F
 
-arm_func_start __signbitf
+	arm_func_start __signbitf
 __signbitf:
 	stmdb sp!, {r0-r3}
 	ldr r0, [sp, #0x4]
@@ -13971,7 +13971,7 @@ strnicmp: ; 0x020E9B38
 	.balign 4
 _020E9B40: .word stricmp
 
-arm_func_start _dadd
+	arm_func_start _dadd
 _dadd:
 	stmdb sp!, {r4,lr}
 	eors r12, r1, r3
@@ -14194,7 +14194,7 @@ _020E9E38:
 	.balign 4
 _020E9E58: .word 0x7FF00000
 
-arm_func_start _d2f
+	arm_func_start _d2f
 _d2f:
 	and r2, r1, #0x80000000
 	mov r12, r1, lsr #0x14
@@ -14743,7 +14743,7 @@ _drsb: ; 0x020EA5B4
 	eor r2, r0, r2
 	eor r0, r0, r2
 
-arm_func_start _dsub
+	arm_func_start _dsub
 _dsub:
 	stmdb sp!, {r4,lr}
 	eors r12, r1, r3
@@ -15761,7 +15761,7 @@ _020EB430:
 	ldmia sp!, {lr}
 	bx lr
 
-arm_func_start _f2d
+	arm_func_start _f2d
 _f2d:
 	and r2, r0, #0x80000000
 	mov r12, r0, lsr #0x17
