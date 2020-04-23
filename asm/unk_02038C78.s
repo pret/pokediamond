@@ -224,7 +224,7 @@ _02038E32:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0xdc
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	ldr r0, _02038E44 ; =0x0003643F
 	str r0, [r4, #0x0]
 	add r0, r4, #0x0
@@ -1187,7 +1187,7 @@ FUN_02039564: ; 0x02039564
 	bl FUN_02046380
 	mov r1, #0x0
 	mov r2, #0x40
-	blx FUN_020DF4A4
+	blx Call_FillMemWithValue
 	pop {r4, pc}
 	.balign 4
 
@@ -1540,14 +1540,14 @@ _020397EC:
 	sub r1, r0, r1
 	mov r0, #0x7
 	sub r0, r0, r1
-	blx FUN_020DE3F0
+	blx abs
 	strh r0, [r5, #0x0]
 	ldr r1, [r4, #0x8]
 	ldr r0, [sp, #0x14]
 	sub r1, r0, r1
 	mov r0, #0x7
 	sub r0, r0, r1
-	blx FUN_020DE3F0
+	blx abs
 	strh r0, [r5, #0x2]
 	add r5, r5, #0x6
 	add r6, r6, #0x1
