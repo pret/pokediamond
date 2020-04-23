@@ -32,8 +32,13 @@ typedef union {
     OSIntrMode_Irq mode_irq;
 } OSIntrMode;
 
-OSProcMode OS_GetProcMode();
+OSIntrMode OS_EnableInterrupts();
 OSIntrMode OS_DisableInterrupts();
 OSIntrMode OS_RestoreInterrupts(OSIntrMode state);
+OSIntrMode OS_DisableInterrupts_IrqAndFiq();
+OSIntrMode OS_RestoreInterrupts_IrqAndFiq(OSIntrMode state);
+OSIntrMode_Irq OS_GetCpsrIrq();
+OSProcMode OS_GetProcMode();
+
 
 #endif //POKEDIAMOND_OS_SYSTEM_H

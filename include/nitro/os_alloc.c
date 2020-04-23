@@ -449,7 +449,7 @@ void OS_FreeToHeap(OSArenaId id, OSHeapHandle heap, void* ptr) {
 void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size) {
 #ifdef MATCH_ASM
     __asm {
-
+        // TODO
     }
 #else
     OSHeapInfo* heapInfo;
