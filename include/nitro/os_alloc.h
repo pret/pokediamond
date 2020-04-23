@@ -51,18 +51,6 @@ typedef struct {
     HeapDesc* heapArray;
 } OSHeapInfo;
 
-void* OSiHeapInfo[OS_ARENA_MAX] = {
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
-    NULL
-};
-
 void* OS_AllocFromArenaHi(OSArenaId id, u32 size, u32 align);
 void* OS_AllocFromArenaLo(OSArenaId id, u32 size, u32 align);
 void OS_SetArenaLo(OSArenaId id, void *newLo);

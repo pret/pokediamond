@@ -17,6 +17,18 @@ extern Cell* DLAddFront(Cell* list, Cell* cell);
 extern void OS_SetProtectionRegion1(u32 param);
 extern void OS_SetProtectionRegion2(u32 param);
 
+void* OSiHeapInfo[OS_ARENA_MAX] = {
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL,
+        NULL
+};
+
 #ifdef MATCH_ASM
 asm void* OS_AllocFromArenaHi(OSArenaId id, u32 size, u32 align) {
     stmdb sp!,{ r4-r6, lr }
