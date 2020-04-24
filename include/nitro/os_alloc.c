@@ -5,16 +5,13 @@
 #include "os_alloc.h"
 #include "consts.h"
 #include "os_system.h"
+#include "os_protectionRegion.h"
 
 extern BOOL OSi_MainExArenaEnabled;
 extern BOOL OSi_Initialized;  // TODO: located at 0x021d36f0
 extern u32 OS_GetConsoleType();
-extern u32 OS_CONSOLE_SIZE_MASK;
-extern u32 OS_CONSOLE_SIZE_4MB;
 extern Cell* DLInsert(Cell* list, Cell* cell);
 extern Cell* DLAddFront(Cell* list, Cell* cell);
-extern void OS_SetProtectionRegion1(u32 param);
-extern void OS_SetProtectionRegion2(u32 param);
 
 void* OSiHeapInfo[OS_ARENA_MAX] = {
         NULL,
@@ -394,19 +391,14 @@ _020CC5B8:
     bx lr
 }
 #else
-void OS_InitArenaEx() {
-    void* uVar1;
+void OS_InitArenaEx() { //todo figure out what compiler settings will get this to match
+    OS_SetArenaHi(2, OS_GetInitArenaHi(OS_ARENA_MAINEX));
+    OS_SetArenaLo(2, OS_GetInitArenaLo(OS_ARENA_MAINEX));
 
-    uVar1 = OS_GetInitArenaHi(OS_ARENA_MAINEX);
-    OS_SetArenaHi(2,uVar1);
-    uVar1 = OS_GetInitArenaLo(OS_ARENA_MAINEX);
-    OS_SetArenaLo(2,uVar1);
     if (!OSi_MainExArenaEnabled || (OS_GetConsoleType() & OS_CONSOLE_SIZE_MASK) == OS_CONSOLE_SIZE_4MB) {
-        return;
+        OS_SetProtectionRegion(1, HW_MAIN_MEM, 4MB);
+        OS_SetProtectionRegion(2, HW_MAIN_MEM_MAIN_END, 128KB);
     }
-    // TODO:
-    // OS_SetProtectionRegion1(&UNK_0200002b);
-    // OS_SetProtectionRegion2(0x023e0021);
 }
 #endif
 

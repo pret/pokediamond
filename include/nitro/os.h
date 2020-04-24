@@ -7,6 +7,7 @@
 
 #include "types.h"
 #include "consts.h"
+#include "os_protectionRegion.h"
 #include "os_alloc.h"
 #include "os_system.h"
 
