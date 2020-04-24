@@ -3,19 +3,19 @@
 
 	.text
 
-	arm_func_start GXS_LoadOBJ
-GXS_LoadOBJ:
-	ldr ip, _020AF038 ; =GXS_LoadOBJ_2
+	arm_func_start GXS_LoadOBJ_2
+GXS_LoadOBJ_2:
+	ldr ip, _020AF038 ; =GXS_LoadOBJ
 	bx r12
 	.balign 4
-_020AF038: .word GXS_LoadOBJ_2
+_020AF038: .word GXS_LoadOBJ
 
-	arm_func_start GXS_LoadOAM
-GXS_LoadOAM: ; 0x020AF03C
-	ldr ip, _020AF044 ; =GXS_LoadOAM_2
+	arm_func_start GXS_LoadOAM_2
+GXS_LoadOAM_2: ; 0x020AF03C
+	ldr ip, _020AF044 ; =GXS_LoadOAM
 	bx r12
 	.balign 4
-_020AF044: .word GXS_LoadOAM_2
+_020AF044: .word GXS_LoadOAM
 
 	arm_func_start FUN_020AF048
 FUN_020AF048: ; 0x020AF048
@@ -45,103 +45,103 @@ FUN_020AF074: ; 0x020AF074
 	bl GXS_EndLoadOBJExtPltt
 	ldmia sp!, {r4-r6,pc}
 
-	arm_func_start GXS_LoadBGPltt
-GXS_LoadBGPltt: ; 0x020AF0A0
-	ldr ip, _020AF0A8 ; =GXS_LoadBGPltt_2
+	arm_func_start GXS_LoadBGPltt_2
+GXS_LoadBGPltt_2: ; 0x020AF0A0
+	ldr ip, _020AF0A8 ; =GXS_LoadBGPltt
 	bx r12
 	.balign 4
-_020AF0A8: .word GXS_LoadBGPltt_2
+_020AF0A8: .word GXS_LoadBGPltt
 
-	arm_func_start GXS_LoadOBJPltt
-GXS_LoadOBJPltt: ; 0x020AF0AC
-	ldr ip, _020AF0B4 ; =GXS_LoadOBJPltt_2
+	arm_func_start GXS_LoadOBJPltt_2
+GXS_LoadOBJPltt_2: ; 0x020AF0AC
+	ldr ip, _020AF0B4 ; =GXS_LoadOBJPltt
 	bx r12
 	.balign 4
-_020AF0B4: .word GXS_LoadOBJPltt_2
+_020AF0B4: .word GXS_LoadOBJPltt
 
-	arm_func_start GXS_LoadBG3Scr
-GXS_LoadBG3Scr: ; 0x020AF0B8
-	ldr ip, _020AF0C0 ; =GXS_LoadBG3Scr_3
+	arm_func_start GXS_LoadBG3Scr_3
+GXS_LoadBG3Scr_3: ; 0x020AF0B8
+	ldr ip, _020AF0C0 ; =GXS_LoadBG3Scr
 	bx r12
 	.balign 4
-_020AF0C0: .word GXS_LoadBG3Scr_3
+_020AF0C0: .word GXS_LoadBG3Scr
 
-	arm_func_start GXS_LoadBG2Scr
-GXS_LoadBG2Scr: ; 0x020AF0C4
-	ldr ip, _020AF0CC ; =GXS_LoadBG2Scr_3
+	arm_func_start GXS_LoadBG2Scr_3
+GXS_LoadBG2Scr_3: ; 0x020AF0C4
+	ldr ip, _020AF0CC ; =GXS_LoadBG2Scr
 	bx r12
 	.balign 4
-_020AF0CC: .word GXS_LoadBG2Scr_3
+_020AF0CC: .word GXS_LoadBG2Scr
 
 	arm_func_start GXS_LoadBG3Scr_2
 GXS_LoadBG3Scr_2: ; 0x020AF0D0
-	ldr ip, _020AF0D8 ; =GXS_LoadBG3Scr_3
+	ldr ip, _020AF0D8 ; =GXS_LoadBG3Scr
 	bx r12
 	.balign 4
-_020AF0D8: .word GXS_LoadBG3Scr_3
+_020AF0D8: .word GXS_LoadBG3Scr
 
 	arm_func_start GXS_LoadBG2Scr_2
 GXS_LoadBG2Scr_2: ; 0x020AF0DC
-	ldr ip, _020AF0E4 ; =GXS_LoadBG2Scr_3
+	ldr ip, _020AF0E4 ; =GXS_LoadBG2Scr
 	bx r12
 	.balign 4
-_020AF0E4: .word GXS_LoadBG2Scr_3
+_020AF0E4: .word GXS_LoadBG2Scr
 
-	arm_func_start GXS_LoadBG1Scr
-GXS_LoadBG1Scr: ; 0x020AF0E8
-	ldr ip, _020AF0F0 ; =GXS_LoadBG1Scr_2
+	arm_func_start GXS_LoadBG1Scr_2
+GXS_LoadBG1Scr_2: ; 0x020AF0E8
+	ldr ip, _020AF0F0 ; =GXS_LoadBG1Scr
 	bx r12
 	.balign 4
-_020AF0F0: .word GXS_LoadBG1Scr_2
+_020AF0F0: .word GXS_LoadBG1Scr
 
-	arm_func_start GXS_LoadBG0Scr
-GXS_LoadBG0Scr: ; 0x020AF0F4
-	ldr ip, _020AF0FC ; =GXS_LoadBG0Scr_2
+	arm_func_start GXS_LoadBG0Scr_2
+GXS_LoadBG0Scr_2: ; 0x020AF0F4
+	ldr ip, _020AF0FC ; =GXS_LoadBG0Scr
 	bx r12
 	.balign 4
-_020AF0FC: .word GXS_LoadBG0Scr_2
+_020AF0FC: .word GXS_LoadBG0Scr
 
-	arm_func_start GXS_LoadBG3Char
-GXS_LoadBG3Char: ; 0x020AF100
-	ldr ip, _020AF108 ; =GXS_LoadBG3Char_2
+	arm_func_start GXS_LoadBG3Char_2
+GXS_LoadBG3Char_2: ; 0x020AF100
+	ldr ip, _020AF108 ; =GXS_LoadBG3Char
 	bx r12
 	.balign 4
-_020AF108: .word GXS_LoadBG3Char_2
+_020AF108: .word GXS_LoadBG3Char
 
-	arm_func_start GXS_LoadBG2Char
-GXS_LoadBG2Char: ; 0x020AF10C
-	ldr ip, _020AF114 ; =GXS_LoadBG2Char_2
+	arm_func_start GXS_LoadBG2Char_2
+GXS_LoadBG2Char_2: ; 0x020AF10C
+	ldr ip, _020AF114 ; =GXS_LoadBG2Char
 	bx r12
 	.balign 4
-_020AF114: .word GXS_LoadBG2Char_2
+_020AF114: .word GXS_LoadBG2Char
 
-	arm_func_start GXS_LoadBG1Char
-GXS_LoadBG1Char: ; 0x020AF118
-	ldr ip, _020AF120 ; =GXS_LoadBG1Char_2
+	arm_func_start GXS_LoadBG1Char_2
+GXS_LoadBG1Char_2: ; 0x020AF118
+	ldr ip, _020AF120 ; =GXS_LoadBG1Char
 	bx r12
 	.balign 4
-_020AF120: .word GXS_LoadBG1Char_2
+_020AF120: .word GXS_LoadBG1Char
 
-	arm_func_start GXS_LoadBG0Char
-GXS_LoadBG0Char: ; 0x020AF124
-	ldr ip, _020AF12C ; =GXS_LoadBG0Char_2
+	arm_func_start GXS_LoadBG0Char_2
+GXS_LoadBG0Char_2: ; 0x020AF124
+	ldr ip, _020AF12C ; =GXS_LoadBG0Char
 	bx r12
 	.balign 4
-_020AF12C: .word GXS_LoadBG0Char_2
+_020AF12C: .word GXS_LoadBG0Char
 
-	arm_func_start GX_LoadOBJ
-GX_LoadOBJ: ; 0x020AF130
-	ldr ip, _020AF138 ; =GX_LoadOBJ_2
+	arm_func_start GX_LoadOBJ_2
+GX_LoadOBJ_2: ; 0x020AF130
+	ldr ip, _020AF138 ; =GX_LoadOBJ
 	bx r12
 	.balign 4
-_020AF138: .word GX_LoadOBJ_2
+_020AF138: .word GX_LoadOBJ
 
-	arm_func_start GX_LoadOAM
-GX_LoadOAM: ; 0x020AF13C
-	ldr ip, _020AF144 ; =GX_LoadOAM_2
+	arm_func_start GX_LoadOAM_2
+GX_LoadOAM_2: ; 0x020AF13C
+	ldr ip, _020AF144 ; =GX_LoadOAM
 	bx r12
 	.balign 4
-_020AF144: .word GX_LoadOAM_2
+_020AF144: .word GX_LoadOAM
 
 	arm_func_start FUN_020AF148
 FUN_020AF148: ; 0x020AF148
@@ -171,89 +171,89 @@ FUN_020AF174: ; 0x020AF174
 	bl GX_EndLoadOBJExtPltt
 	ldmia sp!, {r4-r6,pc}
 
-	arm_func_start GX_LoadBGPltt
-GX_LoadBGPltt: ; 0x020AF1A0
-	ldr ip, _020AF1A8 ; =GX_LoadBGPltt_2
+	arm_func_start GX_LoadBGPltt_2
+GX_LoadBGPltt_2: ; 0x020AF1A0
+	ldr ip, _020AF1A8 ; =GX_LoadBGPltt
 	bx r12
 	.balign 4
-_020AF1A8: .word GX_LoadBGPltt_2
+_020AF1A8: .word GX_LoadBGPltt
 
-	arm_func_start GX_LoadOBJPltt
-GX_LoadOBJPltt: ; 0x020AF1AC
-	ldr ip, _020AF1B4 ; =GX_LoadOBJPltt_2
+	arm_func_start GX_LoadOBJPltt_2
+GX_LoadOBJPltt_2: ; 0x020AF1AC
+	ldr ip, _020AF1B4 ; =GX_LoadOBJPltt
 	bx r12
 	.balign 4
-_020AF1B4: .word GX_LoadOBJPltt_2
+_020AF1B4: .word GX_LoadOBJPltt
 
-	arm_func_start GX_LoadBG3Scr
-GX_LoadBG3Scr: ; 0x020AF1B8
-	ldr ip, _020AF1C0 ; =GX_LoadBG3Scr_3
+	arm_func_start GX_LoadBG3Scr_3
+GX_LoadBG3Scr_3: ; 0x020AF1B8
+	ldr ip, _020AF1C0 ; =GX_LoadBG3Scr
 	bx r12
 	.balign 4
-_020AF1C0: .word GX_LoadBG3Scr_3
+_020AF1C0: .word GX_LoadBG3Scr
 
-	arm_func_start GX_LoadBG2Scr
-GX_LoadBG2Scr: ; 0x020AF1C4
-	ldr ip, _020AF1CC ; =GX_LoadBG2Scr_3
+	arm_func_start GX_LoadBG2Scr_3
+GX_LoadBG2Scr_3: ; 0x020AF1C4
+	ldr ip, _020AF1CC ; =GX_LoadBG2Scr
 	bx r12
 	.balign 4
-_020AF1CC: .word GX_LoadBG2Scr_3
+_020AF1CC: .word GX_LoadBG2Scr
 
 	arm_func_start GX_LoadBG3Scr_2
 GX_LoadBG3Scr_2: ; 0x020AF1D0
-	ldr ip, _020AF1D8 ; =GX_LoadBG3Scr_3
+	ldr ip, _020AF1D8 ; =GX_LoadBG3Scr
 	bx r12
 	.balign 4
-_020AF1D8: .word GX_LoadBG3Scr_3
+_020AF1D8: .word GX_LoadBG3Scr
 
 	arm_func_start GX_LoadBG2Scr_2
 GX_LoadBG2Scr_2: ; 0x020AF1DC
-	ldr ip, _020AF1E4 ; =GX_LoadBG2Scr_3
+	ldr ip, _020AF1E4 ; =GX_LoadBG2Scr
 	bx r12
 	.balign 4
-_020AF1E4: .word GX_LoadBG2Scr_3
+_020AF1E4: .word GX_LoadBG2Scr
 
-	arm_func_start GX_LoadBG1Scr
-GX_LoadBG1Scr: ; 0x020AF1E8
-	ldr ip, _020AF1F0 ; =GX_LoadBG1Scr_2
+	arm_func_start GX_LoadBG1Scr_2
+GX_LoadBG1Scr_2: ; 0x020AF1E8
+	ldr ip, _020AF1F0 ; =GX_LoadBG1Scr
 	bx r12
 	.balign 4
-_020AF1F0: .word GX_LoadBG1Scr_2
+_020AF1F0: .word GX_LoadBG1Scr
 
-	arm_func_start GX_LoadBG0Scr
-GX_LoadBG0Scr: ; 0x020AF1F4
-	ldr ip, _020AF1FC ; =GX_LoadBG0Scr_2
+	arm_func_start GX_LoadBG0Scr_2
+GX_LoadBG0Scr_2: ; 0x020AF1F4
+	ldr ip, _020AF1FC ; =GX_LoadBG0Scr
 	bx r12
 	.balign 4
-_020AF1FC: .word GX_LoadBG0Scr_2
+_020AF1FC: .word GX_LoadBG0Scr
 
-	arm_func_start GX_LoadBG3Char
-GX_LoadBG3Char: ; 0x020AF200
-	ldr ip, _020AF208 ; =GX_LoadBG3Char_2
+	arm_func_start GX_LoadBG3Char_2
+GX_LoadBG3Char_2: ; 0x020AF200
+	ldr ip, _020AF208 ; =GX_LoadBG3Char
 	bx r12
 	.balign 4
-_020AF208: .word GX_LoadBG3Char_2
+_020AF208: .word GX_LoadBG3Char
 
-	arm_func_start GX_LoadBG2Char
-GX_LoadBG2Char: ; 0x020AF20C
-	ldr ip, _020AF214 ; =GX_LoadBG2Char_2
+	arm_func_start GX_LoadBG2Char_2
+GX_LoadBG2Char_2: ; 0x020AF20C
+	ldr ip, _020AF214 ; =GX_LoadBG2Char
 	bx r12
 	.balign 4
-_020AF214: .word GX_LoadBG2Char_2
+_020AF214: .word GX_LoadBG2Char
 
-	arm_func_start GX_LoadBG1Char
-GX_LoadBG1Char: ; 0x020AF218
-	ldr ip, _020AF220 ; =GX_LoadBG1Char_2
+	arm_func_start GX_LoadBG1Char_2
+GX_LoadBG1Char_2: ; 0x020AF218
+	ldr ip, _020AF220 ; =GX_LoadBG1Char
 	bx r12
 	.balign 4
-_020AF220: .word GX_LoadBG1Char_2
+_020AF220: .word GX_LoadBG1Char
 
-	arm_func_start GX_LoadBG0Char
-GX_LoadBG0Char: ; 0x020AF224
-	ldr ip, _020AF22C ; =GX_LoadBG0Char_2
+	arm_func_start GX_LoadBG0Char_2
+GX_LoadBG0Char_2: ; 0x020AF224
+	ldr ip, _020AF22C ; =GX_LoadBG0Char
 	bx r12
 	.balign 4
-_020AF22C: .word GX_LoadBG0Char_2
+_020AF22C: .word GX_LoadBG0Char
 
 	arm_func_start FUN_020AF230
 FUN_020AF230: ; 0x020AF230
@@ -2107,13 +2107,13 @@ _020B0A20:
 	mov r0, r4
 	mov r1, r7
 	mov r2, r6
-	bl GX_LoadOAM_2
+	bl GX_LoadOAM
 	ldmia sp!, {r4-r10,pc}
 _020B0A34:
 	mov r0, r4
 	mov r1, r7
 	mov r2, r6
-	bl GXS_LoadOAM_2
+	bl GXS_LoadOAM
 	ldmia sp!, {r4-r10,pc}
 _020B0A48:
 	ldr r0, [r7, #0x0]
@@ -2659,7 +2659,7 @@ _020B1190:
 	mov r0, r4
 	mov r1, r5
 	mov r2, r7
-	bl GX_LoadOBJPltt_2
+	bl GX_LoadOBJPltt
 	b _020B11F8
 _020B11A4:
 	ldr r0, [r10, #0x4]
@@ -2676,7 +2676,7 @@ _020B11CC:
 	mov r0, r4
 	mov r1, r5
 	mov r2, r7
-	bl GXS_LoadOBJPltt_2
+	bl GXS_LoadOBJPltt
 	b _020B11F8
 _020B11E0:
 	bl GX_BeginLoadTexPltt
@@ -2742,7 +2742,7 @@ _020B12B0:
 	mov r0, r5
 	mov r1, r8
 	mov r2, r4
-	bl GX_LoadOBJPltt_2
+	bl GX_LoadOBJPltt
 	b _020B1318
 _020B12C4:
 	ldr r0, [r9, #0x4]
@@ -2759,7 +2759,7 @@ _020B12EC:
 	mov r0, r5
 	mov r1, r8
 	mov r2, r4
-	bl GXS_LoadOBJPltt_2
+	bl GXS_LoadOBJPltt
 	b _020B1318
 _020B1300:
 	bl GX_BeginLoadTexPltt
@@ -3002,13 +3002,13 @@ _020B15D4:
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x10]
 	mov r1, r6
-	bl GX_LoadOBJ_2
+	bl GX_LoadOBJ
 	b _020B15F8
 _020B15E8:
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x10]
 	mov r1, r6
-	bl GXS_LoadOBJ_2
+	bl GXS_LoadOBJ
 _020B15F8:
 	ldr r0, [r7, #0x8]
 	cmp r0, #0x0
@@ -3196,13 +3196,13 @@ _020B1814:
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x10]
 	mov r1, r6
-	bl GX_LoadOBJ_2
+	bl GX_LoadOBJ
 	b _020B1838
 _020B1828:
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x10]
 	mov r1, r6
-	bl GXS_LoadOBJ_2
+	bl GXS_LoadOBJ
 _020B1838:
 	ldr r0, [r7, #0x8]
 	cmp r0, #0x0
@@ -29727,8 +29727,8 @@ _020C7C70: .word 0x04000060
 _020C7C74: .word 0x0000CF7F
 _020C7C78: .word 0x0400035C
 
-	arm_func_start G3X_ResetMtxStack
-G3X_ResetMtxStack: ; 0x020C7C7C
+	arm_func_start G3X_ResetMtxStack_2
+G3X_ResetMtxStack_2: ; 0x020C7C7C
 	stmdb sp!, {r4,lr}
 	sub sp, sp, #0x8
 	ldr r1, _020C7D18 ; =0x04000600
@@ -29848,8 +29848,8 @@ _020C7DEC:
 _020C7E04: .word 0x04000400
 _020C7E08: .word 0x04000600
 
-	arm_func_start G3X_ResetMtxStack_2
-G3X_ResetMtxStack_2: ; 0x020C7E0C
+	arm_func_start G3X_ResetMtxStack
+G3X_ResetMtxStack: ; 0x020C7E0C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r2, _020C7E7C ; =0x04000600
@@ -29867,7 +29867,7 @@ _020C7E18:
 	ldrh r0, [r1, #0x0]
 	orr r0, r0, #0x1000
 	strh r0, [r1, #0x0]
-	bl G3X_ResetMtxStack
+	bl G3X_ResetMtxStack_2
 	ldr r2, _020C7E84 ; =0x001F0080
 	ldr r0, _020C7E88 ; =0x040004A4
 	ldr r1, _020C7E8C ; =0x040004A8
@@ -30856,8 +30856,8 @@ _020C8C08: .word 0x021D33EC
 _020C8C0C: .word 0x06894000
 _020C8C10: .word 0x06890000
 
-	arm_func_start GXS_LoadBG3Char_2
-GXS_LoadBG3Char_2: ; 0x020C8C14
+	arm_func_start GXS_LoadBG3Char
+GXS_LoadBG3Char: ; 0x020C8C14
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -30887,8 +30887,8 @@ _020C8C60:
 	.balign 4
 _020C8C78: .word 0x02106814
 
-	arm_func_start GX_LoadBG3Char_2
-GX_LoadBG3Char_2: ; 0x020C8C7C
+	arm_func_start GX_LoadBG3Char
+GX_LoadBG3Char: ; 0x020C8C7C
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -30918,8 +30918,8 @@ _020C8CC8:
 	.balign 4
 _020C8CE0: .word 0x02106814
 
-	arm_func_start GXS_LoadBG2Char_2
-GXS_LoadBG2Char_2: ; 0x020C8CE4
+	arm_func_start GXS_LoadBG2Char
+GXS_LoadBG2Char: ; 0x020C8CE4
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -30949,8 +30949,8 @@ _020C8D30:
 	.balign 4
 _020C8D48: .word 0x02106814
 
-	arm_func_start GX_LoadBG2Char_2
-GX_LoadBG2Char_2: ; 0x020C8D4C
+	arm_func_start GX_LoadBG2Char
+GX_LoadBG2Char: ; 0x020C8D4C
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -30980,8 +30980,8 @@ _020C8D98:
 	.balign 4
 _020C8DB0: .word 0x02106814
 
-	arm_func_start GXS_LoadBG1Char_2
-GXS_LoadBG1Char_2: ; 0x020C8DB4
+	arm_func_start GXS_LoadBG1Char
+GXS_LoadBG1Char: ; 0x020C8DB4
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31011,8 +31011,8 @@ _020C8E00:
 	.balign 4
 _020C8E18: .word 0x02106814
 
-	arm_func_start GX_LoadBG1Char_2
-GX_LoadBG1Char_2: ; 0x020C8E1C
+	arm_func_start GX_LoadBG1Char
+GX_LoadBG1Char: ; 0x020C8E1C
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31042,8 +31042,8 @@ _020C8E68:
 	.balign 4
 _020C8E80: .word 0x02106814
 
-	arm_func_start GXS_LoadBG0Char_2
-GXS_LoadBG0Char_2: ; 0x020C8E84
+	arm_func_start GXS_LoadBG0Char
+GXS_LoadBG0Char: ; 0x020C8E84
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31073,8 +31073,8 @@ _020C8ED0:
 	.balign 4
 _020C8EE8: .word 0x02106814
 
-	arm_func_start GX_LoadBG0Char_2
-GX_LoadBG0Char_2: ; 0x020C8EEC
+	arm_func_start GX_LoadBG0Char
+GX_LoadBG0Char: ; 0x020C8EEC
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31104,8 +31104,8 @@ _020C8F38:
 	.balign 4
 _020C8F50: .word 0x02106814
 
-	arm_func_start GXS_LoadBG3Scr_3
-GXS_LoadBG3Scr_3: ; 0x020C8F54
+	arm_func_start GXS_LoadBG3Scr
+GXS_LoadBG3Scr: ; 0x020C8F54
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31135,8 +31135,8 @@ _020C8FA0:
 	.balign 4
 _020C8FB8: .word 0x02106814
 
-	arm_func_start GX_LoadBG3Scr_3
-GX_LoadBG3Scr_3: ; 0x020C8FBC
+	arm_func_start GX_LoadBG3Scr
+GX_LoadBG3Scr: ; 0x020C8FBC
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31166,8 +31166,8 @@ _020C9008:
 	.balign 4
 _020C9020: .word 0x02106814
 
-	arm_func_start GXS_LoadBG2Scr_3
-GXS_LoadBG2Scr_3: ; 0x020C9024
+	arm_func_start GXS_LoadBG2Scr
+GXS_LoadBG2Scr: ; 0x020C9024
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31197,8 +31197,8 @@ _020C9070:
 	.balign 4
 _020C9088: .word 0x02106814
 
-	arm_func_start GX_LoadBG2Scr_3
-GX_LoadBG2Scr_3: ; 0x020C908C
+	arm_func_start GX_LoadBG2Scr
+GX_LoadBG2Scr: ; 0x020C908C
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31228,8 +31228,8 @@ _020C90D8:
 	.balign 4
 _020C90F0: .word 0x02106814
 
-	arm_func_start GXS_LoadBG1Scr_2
-GXS_LoadBG1Scr_2: ; 0x020C90F4
+	arm_func_start GXS_LoadBG1Scr
+GXS_LoadBG1Scr: ; 0x020C90F4
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31259,8 +31259,8 @@ _020C9140:
 	.balign 4
 _020C9158: .word 0x02106814
 
-	arm_func_start GX_LoadBG1Scr_2
-GX_LoadBG1Scr_2: ; 0x020C915C
+	arm_func_start GX_LoadBG1Scr
+GX_LoadBG1Scr: ; 0x020C915C
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31290,8 +31290,8 @@ _020C91A8:
 	.balign 4
 _020C91C0: .word 0x02106814
 
-	arm_func_start GXS_LoadBG0Scr_2
-GXS_LoadBG0Scr_2: ; 0x020C91C4
+	arm_func_start GXS_LoadBG0Scr
+GXS_LoadBG0Scr: ; 0x020C91C4
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31321,8 +31321,8 @@ _020C9210:
 	.balign 4
 _020C9228: .word 0x02106814
 
-	arm_func_start GX_LoadBG0Scr_2
-GX_LoadBG0Scr_2: ; 0x020C922C
+	arm_func_start GX_LoadBG0Scr
+GX_LoadBG0Scr: ; 0x020C922C
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r5, r1
@@ -31352,8 +31352,8 @@ _020C9278:
 	.balign 4
 _020C9290: .word 0x02106814
 
-	arm_func_start GXS_LoadOBJ_2
-GXS_LoadOBJ_2: ; 0x020C9294
+	arm_func_start GXS_LoadOBJ
+GXS_LoadOBJ: ; 0x020C9294
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C92F0 ; =0x02106814
 	mov r4, r0
@@ -31381,8 +31381,8 @@ _020C92D8:
 	.balign 4
 _020C92F0: .word 0x02106814
 
-	arm_func_start GX_LoadOBJ_2
-GX_LoadOBJ_2: ; 0x020C92F4
+	arm_func_start GX_LoadOBJ
+GX_LoadOBJ: ; 0x020C92F4
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C9350 ; =0x02106814
 	mov r4, r0
@@ -31410,8 +31410,8 @@ _020C9338:
 	.balign 4
 _020C9350: .word 0x02106814
 
-	arm_func_start GXS_LoadOAM_2
-GXS_LoadOAM_2: ; 0x020C9354
+	arm_func_start GXS_LoadOAM
+GXS_LoadOAM: ; 0x020C9354
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C93B4 ; =0x02106814
 	mov r4, r0
@@ -31441,8 +31441,8 @@ _020C9398:
 _020C93B4: .word 0x02106814
 _020C93B8: .word 0x07000400
 
-	arm_func_start GX_LoadOAM_2
-GX_LoadOAM_2: ; 0x020C93BC
+	arm_func_start GX_LoadOAM
+GX_LoadOAM: ; 0x020C93BC
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C9414 ; =0x02106814
 	mov r4, r0
@@ -31469,8 +31469,8 @@ _020C93FC:
 	.balign 4
 _020C9414: .word 0x02106814
 
-	arm_func_start GXS_LoadOBJPltt_2
-GXS_LoadOBJPltt_2: ; 0x020C9418
+	arm_func_start GXS_LoadOBJPltt
+GXS_LoadOBJPltt: ; 0x020C9418
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C9478 ; =0x02106814
 	mov r4, r0
@@ -31500,8 +31500,8 @@ _020C945C:
 _020C9478: .word 0x02106814
 _020C947C: .word 0x05000600
 
-	arm_func_start GX_LoadOBJPltt_2
-GX_LoadOBJPltt_2: ; 0x020C9480
+	arm_func_start GX_LoadOBJPltt
+GX_LoadOBJPltt: ; 0x020C9480
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C94E0 ; =0x02106814
 	mov r4, r0
@@ -31531,8 +31531,8 @@ _020C94C4:
 _020C94E0: .word 0x02106814
 _020C94E4: .word 0x05000200
 
-	arm_func_start GXS_LoadBGPltt_2
-GXS_LoadBGPltt_2: ; 0x020C94E8
+	arm_func_start GXS_LoadBGPltt
+GXS_LoadBGPltt: ; 0x020C94E8
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C9548 ; =0x02106814
 	mov r4, r0
@@ -31562,8 +31562,8 @@ _020C952C:
 _020C9548: .word 0x02106814
 _020C954C: .word 0x05000400
 
-	arm_func_start GX_LoadBGPltt_2
-GX_LoadBGPltt_2: ; 0x020C9550
+	arm_func_start GX_LoadBGPltt
+GX_LoadBGPltt: ; 0x020C9550
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C95A8 ; =0x02106814
 	mov r4, r0

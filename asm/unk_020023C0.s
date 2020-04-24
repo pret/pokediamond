@@ -2690,25 +2690,25 @@ _020037A6:
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx GX_LoadBGPltt_2
+	blx GX_LoadBGPltt
 	b _020038A4
 _020037B2:
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx GXS_LoadBGPltt_2
+	blx GXS_LoadBGPltt
 	b _020038A4
 _020037BE:
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx GX_LoadOBJPltt_2
+	blx GX_LoadOBJPltt
 	b _020038A4
 _020037CA:
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx GXS_LoadOBJPltt_2
+	blx GXS_LoadOBJPltt
 	b _020038A4
 _020037D6:
 	blx GX_BeginLoadBGExtPltt

@@ -102890,7 +102890,7 @@ FUN_020774B8: ; 0x020774B8
 	ldr r1, _020774E8 ; =0x000057E0
 	add r6, r3, #0x0
 	lsl r2, r2, #0x8
-	blx GX_LoadOBJ_2
+	blx GX_LoadOBJ
 	ldr r4, [r4, #0xc]
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -102900,7 +102900,7 @@ FUN_020774B8: ; 0x020774B8
 	add r0, r4, r0
 	mov r1, #0xc0
 	mov r2, #0x20
-	blx GX_LoadOBJPltt_2
+	blx GX_LoadOBJPltt
 	pop {r4-r6, pc}
 	nop
 _020774E8: .word 0x000057E0
@@ -106027,7 +106027,7 @@ _02078E52:
 	add r0, sp, #0x0
 	mov r1, #0x3a
 	mov r2, #0x2
-	blx GX_LoadOBJPltt_2
+	blx GX_LoadOBJPltt
 	pop {r3, pc}
 
 	thumb_func_start FUN_02078E7C
@@ -106220,7 +106220,7 @@ _02078FD0:
 	add r0, r5, #0x0
 	lsl r2, r2, #0x8
 	lsl r1, r1, #0x5
-	blx GXS_LoadOBJ_2
+	blx GXS_LoadOBJ
 	add r0, r4, #0x1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -106260,7 +106260,7 @@ _02079012:
 	add r0, r7, #0x0
 	lsl r1, r1, #0x5
 	mov r2, #0x80
-	blx GXS_LoadOBJ_2
+	blx GXS_LoadOBJ
 	add r0, r5, #0x1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10

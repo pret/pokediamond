@@ -15859,7 +15859,7 @@ FUN_0200DEF4: ; 0x0200DEF4
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	lsl r2, r2, #0x8
-	blx GX_LoadOBJ_2
+	blx GX_LoadOBJ
 	add r0, r4, #0x0
 	bl FUN_02016A18
 	ldr r2, _0200DFC8 ; =0x00000162
@@ -15884,7 +15884,7 @@ FUN_0200DEF4: ; 0x0200DEF4
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	mov r2, #0x20
-	blx GX_LoadOBJPltt_2
+	blx GX_LoadOBJPltt
 	add r0, r4, #0x0
 	bl FUN_02016A18
 	add sp, #0x28
@@ -16385,12 +16385,12 @@ FUN_0200E3BC: ; 0x0200E3BC
 	bne _0200E3D2
 	mov r1, #0x0
 	mov r2, #0x2
-	blx GX_LoadBGPltt_2
+	blx GX_LoadBGPltt
 	b _0200E3DA
 _0200E3D2:
 	mov r1, #0x0
 	mov r2, #0x2
-	blx GXS_LoadBGPltt_2
+	blx GXS_LoadBGPltt
 _0200E3DA:
 	ldr r0, _0200E41C ; =0x021C4740
 	mov r1, #0x1
@@ -16430,11 +16430,11 @@ FUN_0200E420: ; 0x0200E420
 	add r0, sp, #0x8
 	mov r1, #0x0
 	mov r2, #0x2
-	blx GX_LoadBGPltt_2
+	blx GX_LoadBGPltt
 	add r0, sp, #0x8
 	mov r1, #0x0
 	mov r2, #0x2
-	blx GXS_LoadBGPltt_2
+	blx GXS_LoadBGPltt
 	pop {r3}
 	pop {r3}
 	add sp, #0x10
@@ -24121,7 +24121,7 @@ _02011DC6:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	blx GX_LoadOBJ_2
+	blx GX_LoadOBJ
 	mov r0, #0x1
 	str r6, [r5, #0x4]
 	lsl r0, r0, #0x1a
@@ -24132,7 +24132,7 @@ _02011E08:
 	add r0, r7, #0x0
 	add r1, r6, #0x0
 	add r2, r4, #0x0
-	blx GXS_LoadOBJ_2
+	blx GXS_LoadOBJ
 	ldr r0, _02011E4C ; =0x04001000
 	str r6, [r5, #0x8]
 	ldr r1, [r0, #0x0]
@@ -30499,7 +30499,7 @@ FUN_02014B10: ; 0x02014B10
 	ldr r1, [r4, #0xc]
 	ldr r0, [r0, #0xc]
 	ldr r2, [r4, #0x10]
-	blx GX_LoadBGPltt_2
+	blx GX_LoadBGPltt
 	b _02014B44
 _02014B34:
 	cmp r0, #0x4
@@ -30508,7 +30508,7 @@ _02014B34:
 	ldr r1, [r4, #0xc]
 	ldr r0, [r0, #0xc]
 	ldr r2, [r4, #0x10]
-	blx GXS_LoadBGPltt_2
+	blx GXS_LoadBGPltt
 _02014B44:
 	add r0, r5, #0x0
 	bl FUN_0200CAB4
@@ -37340,49 +37340,49 @@ _02017D9A:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GX_LoadBG0Scr_2
+	blx GX_LoadBG0Scr
 	pop {r3-r7, pc}
 _02017DA6:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GX_LoadBG1Scr_2
+	blx GX_LoadBG1Scr
 	pop {r3-r7, pc}
 _02017DB2:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GX_LoadBG2Scr_3
+	blx GX_LoadBG2Scr
 	pop {r3-r7, pc}
 _02017DBE:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GX_LoadBG3Scr_3
+	blx GX_LoadBG3Scr
 	pop {r3-r7, pc}
 _02017DCA:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GXS_LoadBG0Scr_2
+	blx GXS_LoadBG0Scr
 	pop {r3-r7, pc}
 _02017DD6:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GXS_LoadBG1Scr_2
+	blx GXS_LoadBG1Scr
 	pop {r3-r7, pc}
 _02017DE2:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GXS_LoadBG2Scr_3
+	blx GXS_LoadBG2Scr
 	pop {r3-r7, pc}
 _02017DEE:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GXS_LoadBG3Scr_3
+	blx GXS_LoadBG3Scr
 _02017DF8:
 	pop {r3-r7, pc}
 	.balign 4
@@ -37489,49 +37489,49 @@ _02017EB6:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GX_LoadBG0Char_2
+	blx GX_LoadBG0Char
 	pop {r3-r7, pc}
 _02017EC2:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GX_LoadBG1Char_2
+	blx GX_LoadBG1Char
 	pop {r3-r7, pc}
 _02017ECE:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GX_LoadBG2Char_2
+	blx GX_LoadBG2Char
 	pop {r3-r7, pc}
 _02017EDA:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GX_LoadBG3Char_2
+	blx GX_LoadBG3Char
 	pop {r3-r7, pc}
 _02017EE6:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GXS_LoadBG0Char_2
+	blx GXS_LoadBG0Char
 	pop {r3-r7, pc}
 _02017EF2:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GXS_LoadBG1Char_2
+	blx GXS_LoadBG1Char
 	pop {r3-r7, pc}
 _02017EFE:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GXS_LoadBG2Char_2
+	blx GXS_LoadBG2Char
 	pop {r3-r7, pc}
 _02017F0A:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
-	blx GXS_LoadBG3Char_2
+	blx GXS_LoadBG3Char
 _02017F14:
 	pop {r3-r7, pc}
 	.balign 4
@@ -37629,13 +37629,13 @@ FUN_02017FB4: ; 0x02017FB4
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	add r2, r4, #0x0
-	blx GX_LoadBGPltt_2
+	blx GX_LoadBGPltt
 	pop {r3-r7, pc}
 _02017FD6:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	add r2, r4, #0x0
-	blx GXS_LoadBGPltt_2
+	blx GXS_LoadBGPltt
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -55887,7 +55887,7 @@ FUN_020203CC: ; 0x020203CC
 	add r0, r4, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0xa
-	blx GX_LoadOAM_2
+	blx GX_LoadOAM
 	add r0, r4, #0x0
 	bl FUN_02016A18
 	pop {r4, pc}
@@ -55909,7 +55909,7 @@ FUN_02020404: ; 0x02020404
 	add r0, r4, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0xa
-	blx GXS_LoadOAM_2
+	blx GXS_LoadOAM
 	add r0, r4, #0x0
 	bl FUN_02016A18
 	pop {r4, pc}
@@ -60152,10 +60152,10 @@ _020222A8: .word 0x021C59BC
 
 	thumb_func_start FUN_020222AC
 FUN_020222AC: ; 0x020222AC
-	ldr r3, _020222B0 ; =G3X_ResetMtxStack_2
+	ldr r3, _020222B0 ; =G3X_ResetMtxStack
 	bx r3
 	.balign 4
-_020222B0: .word G3X_ResetMtxStack_2
+_020222B0: .word G3X_ResetMtxStack
 
 	thumb_func_start FUN_020222B4
 FUN_020222B4: ; 0x020222B4
@@ -99423,14 +99423,14 @@ FUN_02033D3C: ; 0x02033D3C
 	add r1, r4, #0x0
 	ldr r0, [r0, #0xc]
 	mov r2, #0x20
-	blx GX_LoadOBJPltt_2
+	blx GX_LoadOBJPltt
 	b _02033D8C
 _02033D80:
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
 	ldr r0, [r0, #0xc]
 	mov r2, #0x20
-	blx GXS_LoadOBJPltt_2
+	blx GXS_LoadOBJPltt
 _02033D8C:
 	ldr r0, [sp, #0x4]
 	bl FUN_02016A18
@@ -99529,14 +99529,14 @@ _02033E34:
 	mov r2, #0x2
 	ldr r0, [r0, #0x14]
 	lsl r2, r2, #0x8
-	blx GX_LoadOBJ_2
+	blx GX_LoadOBJ
 	b _02033E52
 _02033E46:
 	ldr r0, [sp, #0x0]
 	mov r2, #0x2
 	ldr r0, [r0, #0x14]
 	lsl r2, r2, #0x8
-	blx GXS_LoadOBJ_2
+	blx GXS_LoadOBJ
 _02033E52:
 	ldr r0, [sp, #0x4]
 	bl FUN_02016A18
