@@ -6,12 +6,11 @@
 #include "consts.h"
 #include "os_system.h"
 
-extern BOOL OSi_MainExArenaEnabled;  // TODO: located at 0x021d36f4
+extern BOOL OSi_MainExArenaEnabled;
 extern BOOL OSi_Initialized;  // TODO: located at 0x021d36f0
 extern u32 OS_GetConsoleType();
 extern u32 OS_CONSOLE_SIZE_MASK;
 extern u32 OS_CONSOLE_SIZE_4MB;
-extern Cell* DLExtract(Cell* list, Cell* cell);
 extern Cell* DLInsert(Cell* list, Cell* cell);
 extern Cell* DLAddFront(Cell* list, Cell* cell);
 extern void OS_SetProtectionRegion1(u32 param);
@@ -28,6 +27,36 @@ void* OSiHeapInfo[OS_ARENA_MAX] = {
         NULL,
         NULL
 };
+
+#ifdef MATCH_ASM
+asm static Cell* DLExtract(Cell* list, Cell* cell)
+{
+    ldr r3, [r1, #0x4]
+    cmp r3, #0x0
+    ldrne r2, [r1, #0x0]
+    strne r2, [r3, #0x0]
+    ldr r2, [r1, #0x0]
+    cmp r2, #0x0
+    ldreq r0, [r1, #0x4]
+    ldrne r1, [r1, #0x4]
+    strne r1, [r2, #0x4]
+    bx lr
+}
+#else
+static Cell* DLExtract(Cell* list, Cell* cell)
+{
+    if (cell->next) {
+        cell->prev = cell->next->prev;
+    }
+    if (cell->prev) {
+        cell->prev->next = cell->next;
+        return list;
+    }
+    else {
+        return cell->next;
+    }
+}
+#endif
 
 #ifdef MATCH_ASM
 asm void* OS_AllocFromArenaHi(OSArenaId id, u32 size, u32 align) {
@@ -198,27 +227,105 @@ void* OS_GetInitArenaLo(OSArenaId id) {
 
 #ifdef MATCH_ASM
 asm void* OS_GetInitArenaHi(OSArenaId id) {
-    // TODO: idk how to do switch case stuff properly in asm
+	stmdb sp!, {lr}
+	sub sp, sp, #0x4
+	cmp r0, #0x6
+	addls pc, pc, r0, lsl #0x2
+	b _020CC508
+_020CC41C:
+	b _020CC438
+	b _020CC508
+	b _020CC448
+	b _020CC488
+	b _020CC498
+	b _020CC4E8
+	b _020CC4F8
+_020CC438:
+	add sp, sp, #0x4
+	ldr r0, =OSi_MAIN_ARENA_HI_DEFAULT
+	ldmfd sp!, {lr}
+	bx lr
+_020CC448:
+	ldr r0, =OSi_MainExArenaEnabled
+	ldr r0, [r0]
+	cmp r0, #0x0
+	beq _020CC468
+	bl OS_GetConsoleType
+	and r0, r0, #0x3
+	cmp r0, #0x1
+	bne _020CC478
+_020CC468:
+	add sp, sp, #0x4
+	mov r0, #0x0
+	ldmfd sp!, {lr}
+	bx lr
+_020CC478:
+	add sp, sp, #0x4
+	mov r0, #OSi_MAINEX_ARENA_HI_DEFAULT
+	ldmfd sp!, {lr}
+	bx lr
+_020CC488:
+	add sp, sp, #0x4
+	mov r0, #HW_ITCM_ARENA_HI_DEFAULT
+	ldmfd sp!, {lr}
+	bx lr
+_020CC498:
+	ldr r0, =0x027E0000
+	ldr r1, =0x00000000
+	ldr r2, =0x00000400
+	add r3, r0, #0x3f80
+	cmp r1, #0x0
+	sub r2, r3, r2
+	bne _020CC4CC
+	ldr r1, =0x027E0080
+	add sp, sp, #0x4
+	cmp r0, r1
+	movcc r0, r1
+	ldmfd sp!, {lr}
+	bx lr
+_020CC4CC:
+	cmp r1, #0x0
+	ldrlt r0, =0x027E0080
+	add sp, sp, #0x4
+	sublt r0, r0, r1
+	subge r0, r2, r1
+	ldmfd sp!, {lr}
+	bx lr
+_020CC4E8:
+	add sp, sp, #0x4
+	ldr r0, =HW_SHARED_ARENA_HI_DEFAULT
+	ldmfd sp!, {lr}
+	bx lr
+_020CC4F8:
+	add sp, sp, #0x4
+	ldr r0, =OSi_WRAM_MAIN_ARENA_HI_DEFAULT;
+	ldmfd sp!, {lr}
+	bx lr
+_020CC508:
+	mov r0, #0x0
+	add sp, sp, #0x4
+	ldmia sp!, {lr}
+	bx lr
 }
 #else
 void* OS_GetInitArenaHi(OSArenaId id) {
     switch (id) {
         case OS_ARENA_MAIN:
-            return (void *)0x023e0000;
+            return (void *)OSi_MAIN_ARENA_HI_DEFAULT;
         case OS_ARENA_MAINEX:
             if (!OSi_MainExArenaEnabled || (OS_GetConsoleType() & OS_CONSOLE_SIZE_MASK) == OS_CONSOLE_SIZE_4MB) {
                 return (void *)0;
             } else {
-                return (void *)0x02700000;
+                return (void *)OSi_MAINEX_ARENA_HI_DEFAULT;
             }
         case OS_ARENA_ITCM:
-            return (void *)0x02000000;
+            return (void *)HW_ITCM_ARENA_HI_DEFAULT;
         case OS_ARENA_DTCM:
-            return (void *)0x027e0080;
+            return (void *)0x027e0080; //todo pretty sure this is incorrect, no constant and doesn't match
         case OS_ARENA_SHARED:
-            return (void *)0x027ff680;
+            return (void *)HW_SHARED_ARENA_HI_DEFAULT;
         case OS_ARENA_WRAM_MAIN:
-            return (void *)0x037f8000;
+            return (void *)OSi_WRAM_MAIN_ARENA_HI_DEFAULT;
         default:
             return NULL;
     }
