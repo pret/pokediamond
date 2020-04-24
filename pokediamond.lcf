@@ -387,6 +387,7 @@ SECTIONS {
         unk_02038C78.o (.text)
         scrcmd.o (.text)
         unk_02046030.o (.text)
+        unk_0208AC14.o (.text)
         rom1.5.o (.text)
         unk_020C9C0C.o (.text)
         PM_arm9.o (.text)

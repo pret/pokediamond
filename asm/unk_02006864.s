@@ -45943,7 +45943,7 @@ FUN_0201BBD0: ; 0x0201BBD0
 	blx FUN_020C5600
 	add r0, sp, #0x14
 	add r1, sp, #0x8
-	blx FUN_020C5588
+	blx VEC_DotProduct
 	asr r0, r0, #0xc
 	bpl _0201BC72
 	neg r0, r0
