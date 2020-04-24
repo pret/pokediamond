@@ -10700,7 +10700,7 @@ FUN_0204B450: ; 0x0204B450
 	ldr r0, [r3, #0x0]
 	str r0, [r2, #0x0]
 	add r0, sp, #0x0
-	blx FUN_020C3F14
+	blx MTX_Identity33_
 	ldr r0, [r5, #0x4]
 	add r1, r4, #0x0
 	ldr r0, [r0, #0x18]
@@ -84084,14 +84084,14 @@ FUN_0206DE4C: ; 0x0206DE4C
 	mov r1, #0x0
 	mov r2, #0xe
 	mov r3, #0xb
-	blx FUN_020C74DC
+	blx G2x_SetBlendAlpha_
 	mov r0, #0x8
 	str r0, [sp, #0x0]
 	ldr r0, _0206DE74 ; =0x04001050
 	mov r1, #0x0
 	mov r2, #0xe
 	mov r3, #0x7
-	blx FUN_020C74DC
+	blx G2x_SetBlendAlpha_
 	pop {r3, pc}
 	.balign 4
 _0206DE70: .word 0x04000050
@@ -84155,13 +84155,13 @@ FUN_0206DE94: ; 0x0206DE94
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	blx FUN_020C7C28
+	blx G3X_SetFog
 	mov r0, #0x0
 	ldr r2, _0206DF0C ; =0x00007FFF
 	add r1, r0, #0x0
 	mov r3, #0x3f
 	str r0, [sp, #0x0]
-	blx FUN_020C7B3C
+	blx G3X_SetClearColor
 	ldr r1, _0206DF10 ; =0xBFFF0000
 	ldr r0, _0206DF14 ; =0x04000580
 	str r1, [r0, #0x0]
@@ -102890,7 +102890,7 @@ FUN_020774B8: ; 0x020774B8
 	ldr r1, _020774E8 ; =0x000057E0
 	add r6, r3, #0x0
 	lsl r2, r2, #0x8
-	blx FUN_020C92F4
+	blx GX_LoadOBJ_2
 	ldr r4, [r4, #0xc]
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -102900,7 +102900,7 @@ FUN_020774B8: ; 0x020774B8
 	add r0, r4, r0
 	mov r1, #0xc0
 	mov r2, #0x20
-	blx FUN_020C9480
+	blx GX_LoadOBJPltt_2
 	pop {r4-r6, pc}
 	nop
 _020774E8: .word 0x000057E0
@@ -106027,7 +106027,7 @@ _02078E52:
 	add r0, sp, #0x0
 	mov r1, #0x3a
 	mov r2, #0x2
-	blx FUN_020C9480
+	blx GX_LoadOBJPltt_2
 	pop {r3, pc}
 
 	thumb_func_start FUN_02078E7C
@@ -106220,7 +106220,7 @@ _02078FD0:
 	add r0, r5, #0x0
 	lsl r2, r2, #0x8
 	lsl r1, r1, #0x5
-	blx FUN_020C9294
+	blx GXS_LoadOBJ_2
 	add r0, r4, #0x1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -106260,7 +106260,7 @@ _02079012:
 	add r0, r7, #0x0
 	lsl r1, r1, #0x5
 	mov r2, #0x80
-	blx FUN_020C9294
+	blx GXS_LoadOBJ_2
 	add r0, r5, #0x1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -106854,7 +106854,7 @@ _02079470:
 	mov r1, #0x0
 	mov r2, #0x7
 	str r3, [sp, #0x0]
-	blx FUN_020C74DC
+	blx G2x_SetBlendAlpha_
 	mov r0, #0xd3
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -108459,7 +108459,7 @@ FUN_0207A188: ; 0x0207A188
 	mov r1, #0x1
 	mov r2, #0x1e
 	mov r3, #0x17
-	blx FUN_020C74DC
+	blx G2x_SetBlendAlpha_
 	pop {r3, pc}
 	.balign 4
 _0207A19C: .word 0x04000050
@@ -118029,8 +118029,8 @@ FUN_0207EF6C: ; 0x0207EF6C
 	push {r3-r4, lr}
 	sub sp, #0x4
 	blx FUN_020BB7F4
-	blx FUN_020C7E94
-	blx FUN_020C7D28
+	blx G3X_Init
+	blx G3X_InitMtxStack
 	ldr r0, _0207EFEC ; =0x04000060
 	ldr r1, _0207EFF0 ; =0xFFFFCFFD
 	ldrh r2, [r0, #0x0]
@@ -118060,13 +118060,13 @@ FUN_0207EF6C: ; 0x0207EF6C
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	blx FUN_020C7C28
+	blx G3X_SetFog
 	mov r0, #0x0
 	ldr r2, _0207EFF8 ; =0x00007FFF
 	add r1, r0, #0x0
 	mov r3, #0x3f
 	str r0, [sp, #0x0]
-	blx FUN_020C7B3C
+	blx G3X_SetClearColor
 	ldr r1, _0207EFFC ; =0x04000540
 	mov r0, #0x0
 	str r0, [r1, #0x0]
@@ -133167,14 +133167,14 @@ FUN_0208643C: ; 0x0208643C
 	mov r1, #0x0
 	mov r2, #0xe
 	mov r3, #0xb
-	blx FUN_020C74DC
+	blx G2x_SetBlendAlpha_
 	mov r0, #0x8
 	str r0, [sp, #0x0]
 	ldr r0, _02086464 ; =0x04001050
 	mov r1, #0x0
 	mov r2, #0xe
 	mov r3, #0x7
-	blx FUN_020C74DC
+	blx G2x_SetBlendAlpha_
 	pop {r3, pc}
 	.balign 4
 _02086460: .word 0x04000050
@@ -133239,13 +133239,13 @@ FUN_02086488: ; 0x02086488
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	blx FUN_020C7C28
+	blx G3X_SetFog
 	mov r0, #0x0
 	ldr r2, _02086500 ; =0x00007FFF
 	add r1, r0, #0x0
 	mov r3, #0x3f
 	str r0, [sp, #0x0]
-	blx FUN_020C7B3C
+	blx G3X_SetClearColor
 	ldr r1, _02086504 ; =0xBFFF0000
 	ldr r0, _02086508 ; =0x04000580
 	str r1, [r0, #0x0]

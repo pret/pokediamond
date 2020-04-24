@@ -1824,12 +1824,12 @@ FUN_0208C4F4: ; 0x0208C4F4
 	bne _0208C5D4
 	add r1, sp, #0x90
 	add r0, r4, #0x14
-	bl FUN_020C5288
+	bl VEC_Normalize
 	b _0208C604
 _0208C5D4:
 	add r1, sp, #0x90
 	add r0, r4, #0x8
-	bl FUN_020C5288
+	bl VEC_Normalize
 	ldr r2, [sp, #0x90]
 	ldr r1, [sp, #0x94]
 	ldr r0, [sp, #0x98]
@@ -2127,12 +2127,12 @@ FUN_0208C974: ; 0x0208C974
 	bne _0208CA50
 	add r1, sp, #0x90
 	add r0, r4, #0x14
-	bl FUN_020C5288
+	bl VEC_Normalize
 	b _0208CA80
 _0208CA50:
 	add r1, sp, #0x90
 	add r0, r4, #0x8
-	bl FUN_020C5288
+	bl VEC_Normalize
 	ldr r2, [sp, #0x90]
 	ldr r1, [sp, #0x94]
 	ldr r0, [sp, #0x98]
@@ -2954,7 +2954,7 @@ _0208D5D4:
 _0208D678:
 	add r0, sp, #0x18
 	mov r1, r0
-	bl FUN_020C5288
+	bl VEC_Normalize
 	add r1, sp, #0x30
 	mov r0, r8
 	bl MI_Copy36B
@@ -2972,7 +2972,7 @@ _0208D678:
 	stmia r3, {r0-r2}
 	mov r0, r3
 	mov r1, r3
-	bl FUN_020C5288
+	bl VEC_Normalize
 	ldr r0, [r8, #0x20]
 	ldr r1, [sp, #0x8]
 	rsb r0, r0, #0x0
@@ -3118,7 +3118,7 @@ _0208D83C:
 _0208D900:
 	add r0, sp, #0x18
 	mov r1, r0
-	bl FUN_020C5288
+	bl VEC_Normalize
 	add r1, sp, #0x30
 	mov r0, r8
 	bl MI_Copy36B
@@ -3136,7 +3136,7 @@ _0208D900:
 	stmia r3, {r0-r2}
 	mov r0, r3
 	mov r1, r3
-	bl FUN_020C5288
+	bl VEC_Normalize
 	ldr r0, [r8, #0x20]
 	ldr r1, [sp, #0x8]
 	rsb r0, r0, #0x0
@@ -3406,7 +3406,7 @@ _0208DCB4:
 _0208DD58:
 	add r0, sp, #0x18
 	mov r1, r0
-	bl FUN_020C5288
+	bl VEC_Normalize
 	add r1, sp, #0x30
 	mov r0, r8
 	bl MI_Copy36B
@@ -3424,7 +3424,7 @@ _0208DD58:
 	stmia r3, {r0-r2}
 	mov r0, r3
 	mov r1, r3
-	bl FUN_020C5288
+	bl VEC_Normalize
 	ldr r0, [r8, #0x20]
 	ldr r1, [sp, #0x8]
 	rsb r0, r0, #0x0
@@ -3570,7 +3570,7 @@ _0208DF1C:
 _0208DFE0:
 	add r0, sp, #0x18
 	mov r1, r0
-	bl FUN_020C5288
+	bl VEC_Normalize
 	add r1, sp, #0x30
 	mov r0, r8
 	bl MI_Copy36B
@@ -3588,7 +3588,7 @@ _0208DFE0:
 	stmia r3, {r0-r2}
 	mov r0, r3
 	mov r1, r3
-	bl FUN_020C5288
+	bl VEC_Normalize
 	ldr r0, [r8, #0x20]
 	ldr r1, [sp, #0x8]
 	rsb r0, r0, #0x0
@@ -5302,7 +5302,7 @@ _0208F87C:
 	add r0, sp, #0xb8
 	add r1, sp, #0xac
 	str r2, [sp, #0xc0]
-	bl FUN_020C5288
+	bl VEC_Normalize
 	b _0208FA04
 _0208F9C8:
 	ldr r0, [r7, #0x8]
@@ -5320,7 +5320,7 @@ _0208F9C8:
 _0208F9F8:
 	add r0, r7, #0x8
 	add r1, sp, #0xac
-	bl FUN_020C5288
+	bl VEC_Normalize
 _0208FA04:
 	ldr r2, [sp, #0xac]
 	ldr r1, [sp, #0x10]
@@ -6273,7 +6273,7 @@ _020907AC:
 	mov r2, r1, lsl #0x1
 	ldrsh r1, [r3, r12]
 	ldrsh r2, [r3, r2]
-	blx FUN_020C3F38
+	blx MTX_RotX33_
 	b _02090838
 _020907DC:
 	ldrh r1, [r0, #0x0]
@@ -6286,7 +6286,7 @@ _020907DC:
 	mov r2, r1, lsl #0x1
 	ldrsh r1, [r3, r12]
 	ldrsh r2, [r3, r2]
-	blx FUN_020C3F54
+	blx MTX_RotY33_
 	b _02090838
 _0209080C:
 	ldrh r1, [r0, #0x0]
@@ -6299,7 +6299,7 @@ _0209080C:
 	mov r2, r1, lsl #0x1
 	ldrsh r1, [r3, r12]
 	ldrsh r2, [r3, r2]
-	blx FUN_020C3F70
+	blx MTX_RotZ33_
 _02090838:
 	add r0, r4, #0x8
 	add r1, sp, #0x0
@@ -6522,7 +6522,7 @@ FUN_02090AF4:
 	mov r2, r2, asr #0x8
 	str r2, [r0, #0x4]
 	str lr, [r0, #0x8]
-	bl FUN_020C5288
+	bl VEC_Normalize
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
@@ -6552,7 +6552,7 @@ FUN_02090B50: ; 0x02090B50
 	str r2, [r12, #0x0]
 	mov r2, r2, asr #0x8
 	str r2, [r0, #0x8]
-	bl FUN_020C5288
+	bl VEC_Normalize
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4

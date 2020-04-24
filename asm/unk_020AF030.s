@@ -5,10 +5,10 @@
 
 	arm_func_start GXS_LoadOBJ
 GXS_LoadOBJ:
-	ldr ip, _020AF038 ; =GXS_LoadOBJ2
+	ldr ip, _020AF038 ; =GXS_LoadOBJ_2
 	bx r12
 	.balign 4
-_020AF038: .word GXS_LoadOBJ2
+_020AF038: .word GXS_LoadOBJ_2
 
 	arm_func_start GXS_LoadOAM
 GXS_LoadOAM: ; 0x020AF03C
@@ -131,10 +131,10 @@ _020AF12C: .word GXS_LoadBG0Char_2
 
 	arm_func_start GX_LoadOBJ
 GX_LoadOBJ: ; 0x020AF130
-	ldr ip, _020AF138 ; =GX_LoadOBJ2
+	ldr ip, _020AF138 ; =GX_LoadOBJ_2
 	bx r12
 	.balign 4
-_020AF138: .word GX_LoadOBJ2
+_020AF138: .word GX_LoadOBJ_2
 
 	arm_func_start GX_LoadOAM
 GX_LoadOAM: ; 0x020AF13C
@@ -3002,13 +3002,13 @@ _020B15D4:
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x10]
 	mov r1, r6
-	bl GX_LoadOBJ2
+	bl GX_LoadOBJ_2
 	b _020B15F8
 _020B15E8:
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x10]
 	mov r1, r6
-	bl GXS_LoadOBJ2
+	bl GXS_LoadOBJ_2
 _020B15F8:
 	ldr r0, [r7, #0x8]
 	cmp r0, #0x0
@@ -3196,13 +3196,13 @@ _020B1814:
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x10]
 	mov r1, r6
-	bl GX_LoadOBJ2
+	bl GX_LoadOBJ_2
 	b _020B1838
 _020B1828:
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x10]
 	mov r1, r6
-	bl GXS_LoadOBJ2
+	bl GXS_LoadOBJ_2
 _020B1838:
 	ldr r0, [r7, #0x8]
 	cmp r0, #0x0
@@ -31352,8 +31352,8 @@ _020C9278:
 	.balign 4
 _020C9290: .word 0x02106814
 
-	arm_func_start GXS_LoadOBJ2
-GXS_LoadOBJ2: ; 0x020C9294
+	arm_func_start GXS_LoadOBJ_2
+GXS_LoadOBJ_2: ; 0x020C9294
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C92F0 ; =0x02106814
 	mov r4, r0
@@ -31381,8 +31381,8 @@ _020C92D8:
 	.balign 4
 _020C92F0: .word 0x02106814
 
-	arm_func_start GX_LoadOBJ2
-GX_LoadOBJ2: ; 0x020C92F4
+	arm_func_start GX_LoadOBJ_2
+GX_LoadOBJ_2: ; 0x020C92F4
 	stmdb sp!, {r4,lr}
 	ldr r3, _020C9350 ; =0x02106814
 	mov r4, r0
