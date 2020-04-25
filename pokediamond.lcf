@@ -1,8 +1,11 @@
 /* TEST */
 MEMORY {
     header (RWX) : ORIGIN=0, LENGTH=0
-    arm9 (RWX) : ORIGIN=0x2000000, LENGTH=0
-    unk_10b724 (RWX) : ORIGIN=0, LENGTH=0
+    arm9.text (RWX) : ORIGIN=0x02000000, LENGTH=0
+    arm9.data (RWX) : ORIGIN=0x020EC710, LENGTH=0
+    arm9.itcm (RWX) : ORIGIN=0x01FF8000, LENGTH=0
+    arm9.dtcm (RWX) : ORIGIN=0x027E0000, LENGTH=0
+    arm9.autoload (RWX) : ORIGIN=0x02107700, LENGTH=0
     arm9overlay (RWX) : ORIGIN=0, LENGTH=0
     arm7 (RWX) : ORIGIN=0x2380000, LENGTH=0
     filenametable (RWX) : ORIGIN=0, LENGTH=0
@@ -388,6 +391,7 @@ SECTIONS {
         scrcmd.o (.text)
         unk_02046030.o (.text)
         rom1.5.o (.text)
+        OS_arm9.o (.text)
         unk_020C9C0C.o (.text)
         PM_arm9.o (.text)
         RTC_arm9.o (.text)
@@ -396,14 +400,29 @@ SECTIONS {
         CTRDG_arm9.o (.text)
         MATH_arm9.o (.text)
         STD_arm9.o (.text)
+	} > arm9.text
+	.arm9.data : AT (0xF0710) {
         rom2.o (.data)
         string_util.o (.data)
         rom2_2.o (.data)
-    } > arm9
+	} > arm9.data
 
-    .unk_10b724 : AT (0x10B724) {
+	SDK_AUTOLOAD_START = .;
+	SDK_STATIC_BSS_START = .;
+
+	.arm9.itcm : AT (0x10AFA0) {
+        OS_arm9.o (.itcm)
+    } > arm9.itcm
+
+    .arm9.dtcm : AT (0x10B6A0) {
+    	SDK_AUTOLOAD_DTCM_START = .;
+    	OS_arm9.o (.dtcm)
+    } > arm9.dtcm
+
+    .arm9.autoload : AT (0x10B700) {
+		SDK_AUTOLOAD_LIST.o (.data)
         unk_10b724.o (.text)
-    } > unk_10b724
+    } > arm9.autoload
 
     .arm9overlay : AT (0x10B800) {
         arm9overlay.o (.text)

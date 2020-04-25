@@ -61,7 +61,7 @@ _023800a4:
 	ldr	r1, _23800f8
 	ldr	lr, _23800fc
 	bx	r1
-_23800cc:	.word UNK_23801B0
+_23800cc:	.word FUN_023801B0
 _23800d0:	.word 0x0380ff00
 _23800d4:	.word 0x0380ffc0
 _23800d8:	.word 0x0380ff80
@@ -129,17 +129,84 @@ _0238018c:
 _2380194:	.word 0x027ffffa
 _2380198:
 	.word UNK_23A92F8
-	.word UNK_23A92FC
-	.word UNK_23801B0
-	.word UNK_23801B0
-	.word UNK_23801B0
+	.word UNK_23A931C
+	.word FUN_023801B0
+	.word FUN_023801B0
+	.word FUN_023801B0
 	.word 0x00000000
 	arm_func_end FUN_238015C
 
-UNK_23801B0:
-	.incbin "baserom.nds", 0x30D1B0, 0x29148
+	arm_func_start FUN_023801B0
+FUN_023801B0:
+	.incbin "baserom.nds", 0x30D1B0, 0x91B0
+
+	thumb_func_start SVC_SoftReset
+SVC_SoftReset: ; 0x02389360
+	swi 0
+	bx lr
+
+	thumb_func_start SVC_WaitByLoop
+SVC_WaitByLoop: ; 0x02389364
+	swi 3
+	bx lr
+
+	thumb_func_start SVC_WaitIntr
+SVC_WaitIntr: ; 0x02389368
+	ldr r2, =0x04000000
+	mov ip, r2
+	mov r2, #0x0
+	swi 4
+	bx lr
+	.pool
+
+	thumb_func_start SVC_WaitVBlankIntr
+SVC_WaitVBlankIntr:
+	mov r2, #0x0
+	swi 5
+	bx lr
+
+	non_word_aligned_thumb_func_start SVC_Halt
+SVC_Halt:
+	swi 6
+	bx lr
+
+	non_word_aligned_thumb_func_start SVC_Stop
+SVC_Stop:
+	swi 7
+	bx lr
+
+	non_word_aligned_thumb_func_start SVC_SoundBias
+SVC_SoundBias:
+	swi 8
+	bx lr
+
+	non_word_aligned_thumb_func_start SVC_SoundBiasSet
+SVC_SoundBiasSet:
+	add r1, r0, #0x0
+	mov r0, #0x1
+	swi 8
+	bx lr
+
+	non_word_aligned_thumb_func_start SVC_SoundBiasReset
+SVC_SoundBiasReset:
+	add r1, r0, #0x0
+	mov r0, #0x0
+	swi 8
+	bx lr
+
+	non_word_aligned_thumb_func_start SVC_Div
+SVC_Div:
+	swi 9
+	bx lr
+
+	non_word_aligned_thumb_func_start SVC_DivRem
+SVC_DivRem:
+	swi 9
+	add r0, r1, #0x0
+	bx lr
+	.incbin "baserom.nds", 0x3163a4, 0x1ff54
 
 UNK_23A92F8:
 	.incbin "baserom.nds", 0x3362F8, 0x24
 
-UNK_23A92FC:
+UNK_23A931C:

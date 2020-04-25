@@ -3302,3 +3302,17 @@
 .extern SDK_STATIC_BSS_START
 .extern SDK_STATIC_BSS_END
 .extern OS_IrqHandler
+.extern OS_IRQTable
+.extern OSi_IrqThreadQueue
+.extern OSi_ThreadInfo
+.extern CP_SaveContext
+.extern CP_RestoreContext
+.extern OS_IrqDummy
+.extern OSi_IrqDma0
+.extern OSi_IrqDma1
+.extern OSi_IrqDma2
+.extern OSi_IrqDma3
+.extern OSi_IrqTimer0
+.extern OSi_IrqTimer1
+.extern OSi_IrqTimer2
+.extern OSi_IrqTimer3
