@@ -2,7 +2,6 @@
 	.include "global.inc"
 
 	.text
-	.set SDK_IRQ_STACKSIZE, 0x400
 
 	arm_func_start _start
 _start: ; 0x02000800

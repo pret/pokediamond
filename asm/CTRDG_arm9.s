@@ -333,7 +333,7 @@ _020DB520: ; 0x020DB520
 	mov r4, #0x0
 _020DB53C:
 	mov r0, r6
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
@@ -389,7 +389,7 @@ _020DB5DC: ; 0x020DB5DC
 	ldr r0, [r6, #0x4]
 	bl OS_RestoreInterrupts
 	mov r0, r4
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	b _020DB5A8
 _020DB600: ; 0x020DB600
 	add sp, sp, #0x4
@@ -872,7 +872,7 @@ _020DBBDC:
 	mov r7, #0x1
 _020DBC1C:
 	mov r0, r7
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	ldrh r0, [r5, #0x0]
 	cmp r0, #0x1
 	bne _020DBC1C

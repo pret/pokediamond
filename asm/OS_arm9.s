@@ -1,32 +1,33 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
+	.extern isInitialized
 
 	.section .dtcm
 	.balign 16, 0
 	.global OS_IRQTable
 OS_IRQTable: ; 027E0000 ;10b6a0
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OSi_IrqTimer0 ; 020c9cbc
-	.word OSi_IrqTimer1 ; 020c9cac
-	.word OSi_IrqTimer2 ; 020c9c9c
-	.word OSi_IrqTimer3 ; 020c9c8c
-	.word OS_IrqDummy ; 020c9da8
-	.word OSi_IrqDma0 ; 020c9cfc
-	.word OSi_IrqDma1 ; 020c9cec
-	.word OSi_IrqDma2 ; 020c9cdc
-	.word OSi_IrqDma3 ; 020c9ccc
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
-	.word OS_IrqDummy ; 020c9da8
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OSi_IrqTimer0
+	.word OSi_IrqTimer1
+	.word OSi_IrqTimer2
+	.word OSi_IrqTimer3
+	.word OS_IrqDummy
+	.word OSi_IrqDma0
+	.word OSi_IrqDma1
+	.word OSi_IrqDma2
+	.word OSi_IrqDma3
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OS_IrqDummy
+	.word OS_IrqDummy
 	.balign 16, 0
 
 	.global OSi_IrqThreadQueue
@@ -142,7 +143,7 @@ OSi_IrqCallback: ; 0x020C9D0C
 	sub sp, sp, #0x4
 	mov r1, #0xc
 	mul r4, r0, r1
-	ldr r2, _020C9D94 ; =0x021D341C
+	ldr r2, _020C9D94 ; =OSi_IrqCallbackInfo
 	ldr r3, _020C9D98 ; =0x02106818
 	mov r0, r0, lsl #0x1
 	ldr r1, [r2, r4]
@@ -174,11 +175,11 @@ _020C9D54:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020C9D94: .word 0x021D341C
-_020C9D98: .word 0x02106818
-_020C9D9C: .word 0x021D3424
-_020C9DA0: .word 0x027E0000
-_020C9DA4: .word 0x021D3420
+_020C9D94: .word OSi_IrqCallbackInfo
+_020C9D98: .word OSi_IrqCallbackInfoIndex
+_020C9D9C: .word OSi_IrqCallbackInfo + 8
+_020C9DA0: .word SDK_AUTOLOAD_DTCM_START
+_020C9DA4: .word OSi_IrqCallbackInfo + 4
 
 	arm_func_start OS_IrqDummy
 OS_IrqDummy: ; 0x020C9DA8
@@ -294,16 +295,16 @@ OSi_EnterTimerCallback: ; 0x020C9EC8
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020C9F08: .word 0x021D344C
-_020C9F0C: .word 0x021D3454
-_020C9F10: .word 0x021D3450
+_020C9F08: .word OSi_IrqCallbackInfo+0x30
+_020C9F0C: .word OSi_IrqCallbackInfo+0x38
+_020C9F10: .word OSi_IrqCallbackInfo+0x34
 
 	arm_func_start OSi_EnterDmaCallback
 OSi_EnterDmaCallback: ; 0x020C9F14
 	stmdb sp!, {r4-r6,lr}
 	mov r3, #0xc
 	mul r6, r0, r3
-	ldr ip, _020C9F54 ; =0x021D341C
+	ldr ip, _020C9F54 ; =OSi_IrqCallbackInfo
 	add r4, r0, #0x8
 	mov r5, #0x1
 	mov r0, r5, lsl r4
@@ -317,9 +318,9 @@ OSi_EnterDmaCallback: ; 0x020C9F14
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020C9F54: .word 0x021D341C
-_020C9F58: .word 0x021D3424
-_020C9F5C: .word 0x021D3420
+_020C9F54: .word OSi_IrqCallbackInfo
+_020C9F58: .word OSi_IrqCallbackInfo + 8
+_020C9F5C: .word OSi_IrqCallbackInfo + 4
 
 	arm_func_start OS_GetIrqFunction
 OS_GetIrqFunction: ; 0x020C9F60
@@ -335,7 +336,7 @@ _020C9F68:
 	sub r1, r3, #0x8
 	mov r0, #0xc
 	mul r2, r1, r0
-	ldr r0, _020C9FE8 ; =0x021D341C
+	ldr r0, _020C9FE8 ; =OSi_IrqCallbackInfo
 	ldr r0, [r0, r2]
 	bx lr
 _020C9F98:
@@ -346,7 +347,7 @@ _020C9F98:
 	add r1, r3, #0x1
 	mov r0, #0xc
 	mul r2, r1, r0
-	ldr r0, _020C9FE8 ; =0x021D341C
+	ldr r0, _020C9FE8 ; =OSi_IrqCallbackInfo
 	ldr r0, [r0, r2]
 	bx lr
 _020C9FC0:
@@ -362,14 +363,14 @@ _020C9FC8:
 	bx lr
 	.balign 4
 _020C9FE4: .word 0x027E0000
-_020C9FE8: .word 0x021D341C
+_020C9FE8: .word OSi_IrqCallbackInfo
 
 	arm_func_start OS_SetIrqFunction
 OS_SetIrqFunction: ; 0x020C9FEC
 	stmdb sp!, {r4-r8,lr}
 	mov r8, #0x0
 	ldr lr, _020CA074 ; =0x027E0000
-	ldr r5, _020CA078 ; =0x021D341C
+	ldr r5, _020CA078 ; =OSi_IrqCallbackInfo
 	mov r6, r8
 	mov r12, r8
 	mov r3, #0x1
@@ -407,7 +408,7 @@ _020CA05C:
 	bx lr
 	.balign 4
 _020CA074: .word 0x027E0000
-_020CA078: .word 0x021D341C
+_020CA078: .word OSi_IrqCallbackInfo
 
 	arm_func_start OS_InitIrqTable
 OS_InitIrqTable: ; 0x020CA07C
@@ -687,7 +688,7 @@ FUN_020CA358: ; 0x020CA358
 	mov r4, #0x400
 _020CA380:
 	mov r0, r4
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -702,7 +703,7 @@ _020CA380:
 OS_InitLock: ; 0x020CA3AC
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r0, _020CA484 ; =0x021D347C
+	ldr r0, _020CA484 ; =isInitialized
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
 	addne sp, sp, #0x4
@@ -722,7 +723,7 @@ OS_InitLock: ; 0x020CA3AC
 	mov r4, #0x400
 _020CA3FC:
 	mov r0, r4
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	ldrh r0, [r5, #0x6]
 	cmp r0, #0x0
 	bne _020CA3FC
@@ -757,7 +758,7 @@ _020CA410:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020CA484: .word 0x021D347C
+_020CA484: .word isInitialized
 _020CA488: .word 0x027FFFF0
 _020CA48C: .word 0x027FFFB0
 _020CA490: .word 0x027FFFB4
@@ -1517,13 +1518,13 @@ string_put_char:
 	str r1, [r0, #0x4]
 	bx lr
 
-	arm_func_start FUN_020CAED0
-FUN_020CAED0: ; 0x020CAED0
-	ldr r0, _020CAEDC ; =0x021D3494
+	arm_func_start OS_IsThreadAvailable
+OS_IsThreadAvailable: ; 0x020CAED0
+	ldr r0, _020CAEDC ; =OSi_IsThreadInitialized
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020CAEDC: .word 0x021D3494
+_020CAEDC: .word OSi_IsThreadInitialized
 
 	arm_func_start OS_SetThreadDestructor
 OS_SetThreadDestructor:
@@ -1534,7 +1535,7 @@ OS_SetThreadDestructor:
 OS_EnableScheduler: ; 0x020CAEE8
 	stmdb sp!, {r4,lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020CAF1C ; =0x021D3484
+	ldr r1, _020CAF1C ; =OSi_RescheduleCount
 	mov r4, #0x0
 	ldr r3, [r1, #0x0]
 	cmp r3, #0x0
@@ -1546,13 +1547,13 @@ OS_EnableScheduler: ; 0x020CAEE8
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CAF1C: .word 0x021D3484
+_020CAF1C: .word OSi_RescheduleCount
 
 	arm_func_start OS_DisableScheduler
 OS_DisableScheduler: ; 0x020CAF20
 	stmdb sp!, {r4,lr}
 	bl OS_DisableInterrupts
-	ldr r2, _020CAF54 ; =0x021D3484
+	ldr r2, _020CAF54 ; =OSi_RescheduleCount
 	mvn r1, #0x0
 	ldr r3, [r2, #0x0]
 	cmp r3, r1
@@ -1564,7 +1565,7 @@ OS_DisableScheduler: ; 0x020CAF20
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CAF54: .word 0x021D3484
+_020CAF54: .word OSi_RescheduleCount
 
 	arm_func_start OSi_IdleThreadProc
 OSi_IdleThreadProc: ; 0x020CAF58
@@ -1581,7 +1582,7 @@ OS_SetSwitchThreadCallback: ; 0x020CAF6C
 	sub sp, sp, #0x4
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _020CAF9C ; =0x021D3498
+	ldr r1, _020CAF9C ; =OSi_ThreadInfo
 	ldr r4, [r1, #0xc]
 	str r5, [r1, #0xc]
 	bl OS_RestoreInterrupts
@@ -1590,7 +1591,7 @@ OS_SetSwitchThreadCallback: ; 0x020CAF6C
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020CAF9C: .word 0x021D3498
+_020CAF9C: .word OSi_ThreadInfo
 
 	arm_func_start OSi_SleepAlarmCallback
 OSi_SleepAlarmCallback: ; 0x020CAFA0
@@ -1611,7 +1612,7 @@ OS_Sleep: ; 0x020CAFC0
 	mov r4, r0
 	add r0, sp, #0x8
 	bl OS_CreateAlarm
-	ldr r0, _020CB060 ; =0x021D3490
+	ldr r0, _020CB060 ; =OSi_CurrentThreadPtr
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x0]
 	str r0, [sp, #0x4]
@@ -1649,7 +1650,7 @@ _020CB04C:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020CB060: .word 0x021D3490
+_020CB060: .word OSi_CurrentThreadPtr
 _020CB064: .word 0x000082EA
 _020CB068: .word OSi_SleepAlarmCallback
 
@@ -1661,7 +1662,7 @@ OS_GetThreadPriority: ; 0x020CB06C
 	arm_func_start OS_SetThreadPriority
 OS_SetThreadPriority: ; 0x020CB074
 	stmdb sp!, {r4-r8,lr}
-	ldr r2, _020CB120 ; =0x021D3498
+	ldr r2, _020CB120 ; =OSi_ThreadInfo
 	mov r6, r0
 	mov r5, r1
 	ldr r8, [r2, #0x8]
@@ -1680,7 +1681,7 @@ _020CB0A0:
 _020CB0B0:
 	cmp r8, #0x0
 	beq _020CB0C4
-	ldr r0, _020CB124 ; =0x021D34A8
+	ldr r0, _020CB124 ; =OSi_IdleThread
 	cmp r8, r0
 	bne _020CB0D8
 _020CB0C4:
@@ -1696,7 +1697,7 @@ _020CB0D8:
 	beq _020CB10C
 	cmp r7, #0x0
 	ldreq r1, [r6, #0x68]
-	ldreq r0, _020CB120 ; =0x021D3498
+	ldreq r0, _020CB120 ; =OSi_ThreadInfo
 	streq r1, [r0, #0x8]
 	ldrne r0, [r6, #0x68]
 	strne r0, [r7, #0x68]
@@ -1711,19 +1712,19 @@ _020CB10C:
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020CB120: .word 0x021D3498
-_020CB124: .word 0x021D34A8
+_020CB120: .word OSi_ThreadInfo
+_020CB124: .word OSi_IdleThread
 
 	arm_func_start OS_YieldThread
 OS_YieldThread: ; 0x020CB128
 	stmdb sp!, {r4-r8,lr}
-	ldr r0, _020CB1E0 ; =0x021D3498
+	ldr r0, _020CB1E0 ; =OSi_ThreadInfo
 	mov r7, #0x0
 	mov r6, r7
 	mov r5, r7
 	ldr r8, [r0, #0x4]
 	bl OS_DisableInterrupts
-	ldr r1, _020CB1E0 ; =0x021D3498
+	ldr r1, _020CB1E0 ; =OSi_ThreadInfo
 	mov r4, r0
 	ldr r2, [r1, #0x8]
 	mov r0, r7
@@ -1754,7 +1755,7 @@ _020CB198:
 _020CB1A8:
 	cmp r7, #0x0
 	ldreq r1, [r8, #0x68]
-	ldreq r0, _020CB1E0 ; =0x021D3498
+	ldreq r0, _020CB1E0 ; =OSi_ThreadInfo
 	streq r1, [r0, #0x8]
 	ldrne r0, [r8, #0x68]
 	strne r0, [r7, #0x68]
@@ -1767,7 +1768,7 @@ _020CB1A8:
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020CB1E0: .word 0x021D3498
+_020CB1E0: .word OSi_ThreadInfo
 
 	arm_func_start OS_RescheduleThread
 OS_RescheduleThread: ; 0x020CB1E4
@@ -1782,7 +1783,7 @@ OS_RescheduleThread: ; 0x020CB1E4
 
 	arm_func_start OS_SelectThread
 OS_SelectThread: ; 0x020CB204
-	ldr r0, _020CB22C ; =0x021D3498
+	ldr r0, _020CB22C ; =OSi_ThreadInfo
 	ldr r0, [r0, #0x8]
 	b _020CB214
 _020CB210:
@@ -1795,7 +1796,7 @@ _020CB214:
 	bne _020CB210
 	bx lr
 	.balign 4
-_020CB22C: .word 0x021D3498
+_020CB22C: .word OSi_ThreadInfo
 
 	arm_func_start OS_WakeupThreadDirect
 OS_WakeupThreadDirect: ; 0x020CB230
@@ -1856,7 +1857,7 @@ OS_SleepThread:
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	bl OS_DisableInterrupts
-	ldr r1, _020CB334 ; =0x021D3490
+	ldr r1, _020CB334 ; =OSi_CurrentThreadPtr
 	mov r5, r0
 	ldr r0, [r1, #0x0]
 	cmp r6, #0x0
@@ -1875,7 +1876,7 @@ _020CB318:
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020CB334: .word 0x021D3490
+_020CB334: .word OSi_CurrentThreadPtr
 
 	arm_func_start OS_IsThreadTerminated
 OS_IsThreadTerminated: ; 0x020CB338
@@ -1924,7 +1925,7 @@ OS_DestroyThread: ; 0x020CB3B4
 	sub sp, sp, #0x4
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _020CB438 ; =0x021D3498
+	ldr r1, _020CB438 ; =OSi_ThreadInfo
 	mov r4, r0
 	ldr r0, [r1, #0x4]
 	cmp r0, r5
@@ -1956,12 +1957,12 @@ _020CB404:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020CB438: .word 0x021D3498
+_020CB438: .word OSi_ThreadInfo
 
 	arm_func_start OSi_ExitThread_Destroy
 OSi_ExitThread_Destroy: ; 0x020CB43C
 	stmdb sp!, {r4,lr}
-	ldr r0, _020CB498 ; =0x021D3490
+	ldr r0, _020CB498 ; =OSi_CurrentThreadPtr
 	ldr r0, [r0, #0x0]
 	ldr r4, [r0, #0x0]
 	bl OS_DisableScheduler
@@ -1985,13 +1986,13 @@ _020CB46C:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CB498: .word 0x021D3490
+_020CB498: .word OSi_CurrentThreadPtr
 
 	arm_func_start OSi_ExitThread_Destroy2
 OSi_ExitThread_Destroy2: ; 0x020CB49C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020CB4DC ; =0x021D3490
+	ldr r1, _020CB4DC ; =OSi_CurrentThreadPtr
 	ldr r1, [r1, #0x0]
 	ldr r3, [r1, #0x0]
 	ldr r2, [r3, #0xb4]
@@ -2007,13 +2008,13 @@ _020CB4CC:
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CB4DC: .word 0x021D3490
+_020CB4DC: .word OSi_CurrentThreadPtr
 
 	arm_func_start OSi_ExitThread_ArgSpecified
 OSi_ExitThread_ArgSpecified: ; 0x020CB4E0
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r2, _020CB548 ; =0x021D3480
+	ldr r2, _020CB548 ; =OSi_StackForDestructor
 	mov r5, r0
 	ldr r2, [r2, #0x0]
 	mov r4, r1
@@ -2039,7 +2040,7 @@ _020CB534:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020CB548: .word 0x021D3480
+_020CB548: .word OSi_StackForDestructor
 _020CB54C: .word OSi_ExitThread_Destroy2
 
 	arm_func_start OS_ExitThread
@@ -2047,7 +2048,7 @@ OS_ExitThread: ; 0x020CB550
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl OS_DisableInterrupts
-	ldr r0, _020CB578 ; =0x021D3498
+	ldr r0, _020CB578 ; =OSi_ThreadInfo
 	mov r1, #0x0
 	ldr r0, [r0, #0x4]
 	bl OSi_ExitThread_ArgSpecified
@@ -2055,7 +2056,7 @@ OS_ExitThread: ; 0x020CB550
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CB578: .word 0x021D3498
+_020CB578: .word OSi_ThreadInfo
 
 	arm_func_start OS_CreateThread
 OS_CreateThread: ; 0x020CB57C
@@ -2131,7 +2132,7 @@ _020CB680: .word OS_ExitThread
 OS_InitThread: ; 0x020CB684
 	stmdb sp!, {r4-r6,lr}
 	sub sp, sp, #0x8
-	ldr r3, _020CB7A4 ; =0x021D3494
+	ldr r3, _020CB7A4 ; =OSi_IsThreadInitialized
 	ldr r0, [r3, #0x0]
 	cmp r0, #0x0
 	addne sp, sp, #0x8
@@ -2140,7 +2141,7 @@ OS_InitThread: ; 0x020CB684
 	ldr ip, _020CB7A8 ; =0x00000000
 	ldr r1, _020CB7AC ; =0x021D3568
 	mov lr, #0x0
-	ldr r0, _020CB7B0 ; =0x021D3498
+	ldr r0, _020CB7B0 ; =OSi_ThreadInfo
 	mov r6, #0x1
 	mov r4, #0x10
 	str r1, [r0, #0x8]
@@ -2160,7 +2161,7 @@ OS_InitThread: ; 0x020CB684
 	subgt r4, r0, r12
 	ldr r1, _020CB7B8 ; =0x027E0000
 	ldr r5, _020CB7C0 ; =0x021D349C
-	ldr r2, _020CB7C4 ; =0x021D3490
+	ldr r2, _020CB7C4 ; =OSi_CurrentThreadPtr
 	ldr r0, _020CB7BC ; =0x00000400
 	str r5, [r2, #0x0]
 	ldr r2, _020CB7AC ; =0x021D3568
@@ -2175,7 +2176,7 @@ OS_InitThread: ; 0x020CB684
 	str r1, [r3, #-0x4]
 	ldr r3, [r2, #0x90]
 	ldr ip, _020CB7CC ; =0x7BF9DD5B
-	ldr r1, _020CB7B0 ; =0x021D3498
+	ldr r1, _020CB7B0 ; =OSi_ThreadInfo
 	str r12, [r3, #0x0]
 	ldr r3, _020CB7D0 ; =0x027FFFA0
 	str r0, [r2, #0xa0]
@@ -2187,13 +2188,13 @@ OS_InitThread: ; 0x020CB684
 	mov r2, #0xc8
 	str r2, [sp, #0x0]
 	mov r12, #0x1f
-	ldr r0, _020CB7D4 ; =0x021D34A8
+	ldr r0, _020CB7D4 ; =OSi_IdleThread
 	ldr r1, _020CB7D8 ; =OSi_IdleThreadProc
-	ldr r3, _020CB7DC ; =0x021D36F0
+	ldr r3, _020CB7DC ; =OSi_Initialized
 	mov r2, #0x0
 	str r12, [sp, #0x4]
 	bl OS_CreateThread
-	ldr r0, _020CB7D4 ; =0x021D34A8
+	ldr r0, _020CB7D4 ; =OSi_IdleThread
 	mov r2, #0x20
 	mov r1, #0x1
 	str r2, [r0, #0x70]
@@ -2202,31 +2203,31 @@ OS_InitThread: ; 0x020CB684
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020CB7A4: .word 0x021D3494
-_020CB7A8: .word 0x00000000
-_020CB7AC: .word 0x021D3568
-_020CB7B0: .word 0x021D3498
-_020CB7B4: .word 0x027E0080
-_020CB7B8: .word 0x027E0000
-_020CB7BC: .word 0x00000400
-_020CB7C0: .word 0x021D349C
-_020CB7C4: .word 0x021D3490
+_020CB7A4: .word OSi_IsThreadInitialized
+_020CB7A8: .word SDK_SYS_STACKSIZE
+_020CB7AC: .word OSi_LauncherThread
+_020CB7B0: .word OSi_ThreadInfo
+_020CB7B4: .word SDK_SECTION_ARENA_DTCM_START
+_020CB7B8: .word SDK_AUTOLOAD_DTCM_START
+_020CB7BC: .word SDK_IRQ_STACKSIZE
+_020CB7C0: .word OSi_ThreadInfo+4
+_020CB7C4: .word OSi_CurrentThreadPtr
 _020CB7C8: .word 0xFDDB597D
 _020CB7CC: .word 0x7BF9DD5B
 _020CB7D0: .word 0x027FFFA0
-_020CB7D4: .word 0x021D34A8
+_020CB7D4: .word OSi_IdleThread
 _020CB7D8: .word OSi_IdleThreadProc
-_020CB7DC: .word 0x021D36F0
+_020CB7DC: .word OSi_IdleThreadStack+0xc8
 
 	arm_func_start OSi_RescheduleThread
 OSi_RescheduleThread: ; 0x020CB7E0
 	stmdb sp!, {r4-r6,lr}
-	ldr r0, _020CB8BC ; =0x021D3484
+	ldr r0, _020CB8BC ; =OSi_RescheduleCount
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	ldmneia sp!, {r4-r6,lr}
 	bxne lr
-	ldr r4, _020CB8C0 ; =0x021D3498
+	ldr r4, _020CB8C0 ; =OSi_ThreadInfo
 	ldrh r0, [r4, #0x2]
 	cmp r0, #0x0
 	bne _020CB814
@@ -2239,7 +2240,7 @@ _020CB814:
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 _020CB824:
-	ldr r0, _020CB8C4 ; =0x021D3490
+	ldr r0, _020CB8C4 ; =OSi_CurrentThreadPtr
 	ldr r0, [r0, #0x0]
 	ldr r6, [r0, #0x0]
 	bl OS_SelectThread
@@ -2275,21 +2276,21 @@ _020CB88C:
 	mov r1, r5
 	blx r2
 _020CB8A4:
-	ldr r1, _020CB8C0 ; =0x021D3498
+	ldr r1, _020CB8C0 ; =OSi_ThreadInfo
 	mov r0, r5
 	str r5, [r1, #0x4]
 	bl OS_LoadContext
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020CB8BC: .word 0x021D3484
-_020CB8C0: .word 0x021D3498
-_020CB8C4: .word 0x021D3490
-_020CB8C8: .word 0x021D348C
+_020CB8BC: .word OSi_RescheduleCount
+_020CB8C0: .word OSi_ThreadInfo
+_020CB8C4: .word OSi_CurrentThreadPtr
+_020CB8C8: .word OSi_SystemCallbackInSwitchThread
 
 	arm_func_start OSi_RemoveThreadFromList
 OSi_RemoveThreadFromList: ; 0x020CB8CC
-	ldr r1, _020CB910 ; =0x021D3498
+	ldr r1, _020CB910 ; =OSi_ThreadInfo
 	mov r2, #0x0
 	ldr r1, [r1, #0x8]
 	b _020CB8E4
@@ -2304,19 +2305,19 @@ _020CB8E4:
 _020CB8F4:
 	cmp r2, #0x0
 	ldreq r1, [r0, #0x68]
-	ldreq r0, _020CB910 ; =0x021D3498
+	ldreq r0, _020CB910 ; =OSi_ThreadInfo
 	streq r1, [r0, #0x8]
 	ldrne r0, [r0, #0x68]
 	strne r0, [r2, #0x68]
 	bx lr
 	.balign 4
-_020CB910: .word 0x021D3498
+_020CB910: .word OSi_ThreadInfo
 
 	arm_func_start OSi_InsertThreadToList
 OSi_InsertThreadToList: ; 0x020CB914
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020CB978 ; =0x021D3498
+	ldr r1, _020CB978 ; =OSi_ThreadInfo
 	mov r12, #0x0
 	ldr r3, [r1, #0x8]
 	mov lr, r3
@@ -2333,7 +2334,7 @@ _020CB938:
 	blo _020CB930
 _020CB950:
 	cmp r12, #0x0
-	ldreq r1, _020CB978 ; =0x021D3498
+	ldreq r1, _020CB978 ; =OSi_ThreadInfo
 	streq r3, [r0, #0x68]
 	streq r0, [r1, #0x8]
 	ldrne r1, [r12, #0x68]
@@ -2343,7 +2344,7 @@ _020CB950:
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CB978: .word 0x021D3498
+_020CB978: .word OSi_ThreadInfo
 
 	arm_func_start OSi_RemoveMutexLinkFromQueue
 OSi_RemoveMutexLinkFromQueue: ; 0x020CB97C
@@ -2444,13 +2445,13 @@ _020CBA8C:
 
 	arm_func_start OSi_GetUnusedThreadId
 OSi_GetUnusedThreadId: ; 0x020CBAAC
-	ldr r1, _020CBAC0 ; =0x021D3488
+	ldr r1, _020CBAC0 ; =OSi_ThreadIdCount
 	ldr r0, [r1, #0x0]
 	add r0, r0, #0x1
 	str r0, [r1, #0x0]
 	bx lr
 	.balign 4
-_020CBAC0: .word 0x021D3488
+_020CBAC0: .word OSi_ThreadIdCount
 
 	arm_func_start OS_InitContext
 OS_InitContext: ; 0x020CBAC4
@@ -2775,7 +2776,7 @@ OS_TryLockMutex: ; 0x020CBEE4
 	mov r5, r0
 	bl OS_DisableInterrupts
 	ldr r2, [r5, #0x8]
-	ldr r1, _020CBF54 ; =0x021D3498
+	ldr r1, _020CBF54 ; =OSi_ThreadInfo
 	mov r4, r0
 	cmp r2, #0x0
 	ldr r0, [r1, #0x4]
@@ -2802,7 +2803,7 @@ _020CBF40:
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020CBF54: .word 0x021D3498
+_020CBF54: .word OSi_ThreadInfo
 
 	arm_func_start OSi_UnlockAllMutex
 OSi_UnlockAllMutex: ; 0x020CBF58
@@ -2832,7 +2833,7 @@ OS_UnlockMutex: ; 0x020CBFA0
 	sub sp, sp, #0x4
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _020CC00C ; =0x021D3498
+	ldr r1, _020CC00C ; =OSi_ThreadInfo
 	mov r4, r0
 	ldr r0, [r1, #0x4]
 	ldr r1, [r5, #0x8]
@@ -2857,7 +2858,7 @@ _020CBFF8:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020CC00C: .word 0x021D3498
+_020CC00C: .word OSi_ThreadInfo
 
 	arm_func_start OS_LockMutex
 OS_LockMutex: ; 0x020CC010
@@ -2865,7 +2866,7 @@ OS_LockMutex: ; 0x020CC010
 	sub sp, sp, #0x4
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _020CC098 ; =0x021D3498
+	ldr r1, _020CC098 ; =OSi_ThreadInfo
 	mov r4, r0
 	ldr r7, [r1, #0x4]
 	mov r6, #0x0
@@ -2899,7 +2900,7 @@ _020CC084:
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020CC098: .word 0x021D3498
+_020CC098: .word OSi_ThreadInfo
 
 	arm_func_start OS_InitMutex
 OS_InitMutex: ; 0x020CC09C
@@ -3137,7 +3138,7 @@ _020CC34C:
 	ldmfd sp!, {lr}
 	bx lr
 _020CC35C:
-	ldr r0, _020CC3F0 ; =0x021D36F4
+	ldr r0, _020CC3F0 ; =OSi_MainExArenaEnabled
 	ldr r0, [r0]
 	cmp r0, #0x0
 	beq _020CC37C
@@ -3209,7 +3210,7 @@ _020CC438:
 	ldmfd sp!, {lr}
 	bx lr
 _020CC448:
-	ldr r0, _020CC51C ; =0x021D36F4
+	ldr r0, _020CC51C ; =OSi_MainExArenaEnabled
 	ldr r0, [r0]
 	cmp r0, #0x0
 	beq _020CC468
@@ -3270,7 +3271,7 @@ _020CC508:
 	ldmia sp!, {lr}
 	bx lr
 _020CC518: .word 0x023E0000
-_020CC51C: .word 0x021D36F4
+_020CC51C: .word OSi_MainExArenaEnabled
 _020CC520: .word 0x027E0000
 _020CC524: .word 0x00000000
 _020CC528: .word 0x00000400
@@ -3308,7 +3309,7 @@ OS_InitArenaEx: ; 0x020CC560
 	mov r1, r0
 	mov r0, #0x2
 	bl OS_SetArenaLo
-	ldr r0, _020CC5D4 ; =0x021D36F4
+	ldr r0, _020CC5D4 ; =OSi_MainExArenaEnabled
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	beq _020CC5B8
@@ -3327,7 +3328,7 @@ _020CC5B8:
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CC5D4: .word 0x021D36F4
+_020CC5D4: .word OSi_MainExArenaEnabled
 _020CC5D8: .word 0x0200002B
 _020CC5DC: .word 0x023E0021
 
@@ -3335,7 +3336,7 @@ _020CC5DC: .word 0x023E0021
 OS_InitArena: ; 0x020CC5E0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020CC6F4 ; =0x021D36F0
+	ldr r1, _020CC6F4 ; =OSi_Initialized
 	ldr r0, [r1, #0x0]
 	cmp r0, #0x0
 	addne sp, sp, #0x4
@@ -3403,7 +3404,7 @@ _020CC61C:
 	add sp, sp, #0x4
 	ldmfd sp!, {lr}
 	bx lr
-_020CC6F4: .word 0x021D36F0
+_020CC6F4: .word OSi_Initialized
 
 	arm_func_start OS_FreeToHeap
 OS_FreeToHeap: ; 0x020CC6F8
@@ -3413,7 +3414,7 @@ OS_FreeToHeap: ; 0x020CC6F8
 	mov r5, r1
 	mov r4, r2
 	bl OS_DisableInterrupts
-	ldr r1, _020CC768 ; =0x021D36F8
+	ldr r1, _020CC768 ; =OSi_HeapInfo
 	mov r6, r0
 	ldr r0, [r1, r7, lsl #0x2]
 	cmp r5, #0x0
@@ -3436,7 +3437,7 @@ OS_FreeToHeap: ; 0x020CC6F8
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020CC768: .word 0x021D36F8
+_020CC768: .word OSi_HeapInfo
 
 	arm_func_start OS_AllocFromHeap
 OS_AllocFromHeap: ; 0x020CC76C
@@ -3446,7 +3447,7 @@ OS_AllocFromHeap: ; 0x020CC76C
 	mov r5, r1
 	mov r7, r2
 	bl OS_DisableInterrupts
-	ldr r1, _020CC894 ; =0x021D36F8
+	ldr r1, _020CC894 ; =OSi_HeapInfo
 	mov r4, r0
 	ldr r1, [r1, r6, lsl #0x2]
 	cmp r1, #0x0
@@ -3521,7 +3522,7 @@ _020CC86C:
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020CC894: .word 0x021D36F8
+_020CC894: .word OSi_HeapInfo
 
 	arm_func_start DLInsert
 DLInsert: ; 0x020CC898
@@ -3646,7 +3647,7 @@ OS_SetProtectionRegion2: ; 0x020CC9F4
 
 	arm_func_start OSi_ExceptionHandler
 OSi_ExceptionHandler: ; 0x020CC9FC
-	ldr ip, _020CCA68 ; =0x021D3724
+	ldr ip, _020CCA68 ; =OSi_DebuggerHandler
 	ldr r12, [r12, #0x0]
 	cmp r12, #0x0
 	movne lr, pc
@@ -3666,7 +3667,7 @@ _020CCA38:
 	bne _020CCA44
 	bl OSi_GetAndDisplayContext
 _020CCA44:
-	ldr ip, _020CCA68 ; =0x021D3724
+	ldr ip, _020CCA68 ; =OSi_DebuggerHandler
 	ldr r12, [r12, #0x0]
 	cmp r12, #0x0
 _020CCA50:
@@ -3678,7 +3679,7 @@ _020CCA5C:
 	ldmia sp!, {r0-r3,ip,lr}
 	mov sp, ip
 	bx lr
-_020CCA68: .word 0x021D3724
+_020CCA68: .word OSi_DebuggerHandler
 _020CCA6C: .word 0x02000000
 
 	arm_func_start OSi_GetAndDisplayContext
@@ -3691,7 +3692,7 @@ OSi_GetAndDisplayContext: ; 0x020CCA70
 
 	arm_func_start OSi_SetExContext
 OSi_SetExContext: ; 0x020CCA84
-	ldr r1, _020CCB10 ; =0x021D3728
+	ldr r1, _020CCB10 ; =OSi_ExContext
 	mrs r2, cpsr
 	str r2, [r1, #0x74]
 	str r0, [r1, #0x6c]
@@ -3727,13 +3728,13 @@ OSi_SetExContext: ; 0x020CCA84
 	msr cpsr_fsxc, r0
 	bx lr
 	.balign 4
-_020CCB10: .word 0x021D3728
+_020CCB10: .word OSi_ExContext
 
 	arm_func_start OSi_DisplayExContext
 OSi_DisplayExContext: ; 0x020CCB14
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r0, _020CCB70 ; =0x021D371C
+	ldr r0, _020CCB70 ; =OSi_UserExceptionHandler
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
@@ -3744,21 +3745,21 @@ OSi_DisplayExContext: ; 0x020CCB14
 	msr cpsr_fsxc, r1
 	mov sp, r0
 	bl OS_EnableProtectionUnit
-	ldr r1, _020CCB78 ; =0x021D3720
-	ldr r0, _020CCB70 ; =0x021D371C
+	ldr r1, _020CCB78 ; =OSi_UserExceptionHandlerArg
+	ldr r0, _020CCB70 ; =OSi_UserExceptionHandler
 	ldr r1, [r1, #0x0]
 	ldr r2, [r0, #0x0]
-	ldr r0, _020CCB7C ; =0x021D3728
+	ldr r0, _020CCB7C ; =OSi_ExContext
 	blx r2
 	bl OS_DisableProtectionUnit
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CCB70: .word 0x021D371C
+_020CCB70: .word OSi_UserExceptionHandler
 _020CCB74: .word 0x0000009F
-_020CCB78: .word 0x021D3720
-_020CCB7C: .word 0x021D3728
+_020CCB78: .word OSi_UserExceptionHandlerArg
+_020CCB7C: .word OSi_ExContext
 
 	arm_func_start OS_InitException
 OS_InitException: ; 0x020CCB80
@@ -3767,15 +3768,15 @@ OS_InitException: ; 0x020CCB80
 	cmp r1, #0x2600000
 	blo _020CCBA0
 	cmp r1, #0x2800000
-	ldrlo r0, _020CCBE0 ; =0x021D3724
+	ldrlo r0, _020CCBE0 ; =OSi_DebuggerHandler
 	strcc r1, [r0, #0x0]
 	blo _020CCBAC
 _020CCBA0:
-	ldr r0, _020CCBE0 ; =0x021D3724
+	ldr r0, _020CCBE0 ; =OSi_DebuggerHandler
 	mov r1, #0x0
 	str r1, [r0, #0x0]
 _020CCBAC:
-	ldr r0, _020CCBE0 ; =0x021D3724
+	ldr r0, _020CCBE0 ; =OSi_DebuggerHandler
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	ldreq r2, _020CCBE4 ; =OSi_ExceptionHandler
@@ -3783,27 +3784,27 @@ _020CCBAC:
 	ldreq r0, _020CCBE8 ; =0x027E3000
 	streq r2, [r1, #0x0]
 	streq r2, [r0, #0xfdc]
-	ldr r0, _020CCBEC ; =0x021D371C
+	ldr r0, _020CCBEC ; =OSi_UserExceptionHandler
 	mov r1, #0x0
 	str r1, [r0, #0x0]
 	bx lr
 	.balign 4
 _020CCBDC: .word 0x027FFD9C
-_020CCBE0: .word 0x021D3724
+_020CCBE0: .word OSi_DebuggerHandler
 _020CCBE4: .word OSi_ExceptionHandler
 _020CCBE8: .word 0x027E3000
-_020CCBEC: .word 0x021D371C
+_020CCBEC: .word OSi_UserExceptionHandler
 
 	arm_func_start OSi_SetTimerReserved
 OSi_SetTimerReserved: ; 0x020CCBF0
-	ldr r1, _020CCC08 ; =0x021D37A8
+	ldr r1, _020CCC08 ; =OSi_TimerReserved
 	mov r2, #0x1
 	ldrh r3, [r1, #0x0]
 	orr r0, r3, r2, lsl r0
 	strh r0, [r1, #0x0]
 	bx lr
 	.balign 4
-_020CCC08: .word 0x021D37A8
+_020CCC08: .word OSi_TimerReserved
 
 	arm_func_start OS_GetTickLo
 OS_GetTickLo: ; 0x020CCC0C
@@ -3819,7 +3820,7 @@ OS_GetTick: ; 0x020CCC1C
 	sub sp, sp, #0xc
 	bl OS_DisableInterrupts
 	ldr r1, _020CCCBC ; =0x04000100
-	ldr r3, _020CCCC0 ; =0x021D37B4
+	ldr r3, _020CCCC0 ; =OSi_TickCounter
 	ldrh r12, [r1, #0x0]
 	ldr r2, _020CCCC4 ; =0x0000FFFF
 	mvn r1, #0x0
@@ -3858,7 +3859,7 @@ _020CCC90:
 	bx lr
 	.balign 4
 _020CCCBC: .word 0x04000100
-_020CCCC0: .word 0x021D37B4
+_020CCCC0: .word OSi_TickCounter
 _020CCCC4: .word 0x0000FFFF
 _020CCCC8: .word 0x04000214
 
@@ -3866,8 +3867,8 @@ _020CCCC8: .word 0x04000214
 OSi_CountUpTick: ; 0x020CCCCC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r2, _020CCD40 ; =0x021D37B4
-	ldr r1, _020CCD44 ; =0x021D37B0
+	ldr r2, _020CCD40 ; =OSi_TickCounter
+	ldr r1, _020CCD44 ; =OSi_NeedResetTimer
 	ldr r12, [r2, #0x0]
 	mov r0, #0x1
 	ldr r3, [r2, #0x4]
@@ -3895,25 +3896,25 @@ _020CCD24:
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CCD40: .word 0x021D37B4
-_020CCD44: .word 0x021D37B0
+_020CCD40: .word OSi_TickCounter
+_020CCD44: .word OSi_NeedResetTimer
 _020CCD48: .word 0x04000102
 _020CCD4C: .word 0x04000100
 _020CCD50: .word OSi_CountUpTick
 
 	arm_func_start OS_IsTickAvailable
 OS_IsTickAvailable: ; 0x020CCD54
-	ldr r0, _020CCD60 ; =0x021D37AC
+	ldr r0, _020CCD60 ; =OSi_UseTick
 	ldrh r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020CCD60: .word 0x021D37AC
+_020CCD60: .word OSi_UseTick
 
 	arm_func_start OS_InitTick
 OS_InitTick: ; 0x020CCD64
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020CCDE8 ; =0x021D37AC
+	ldr r1, _020CCDE8 ; =OSi_UseTick
 	ldrh r0, [r1, #0x0]
 	cmp r0, #0x0
 	addne sp, sp, #0x4
@@ -3923,7 +3924,7 @@ OS_InitTick: ; 0x020CCD64
 	mov r0, #0x0
 	strh r2, [r1, #0x0]
 	bl OSi_SetTimerReserved
-	ldr r0, _020CCDEC ; =0x021D37B4
+	ldr r0, _020CCDEC ; =OSi_TickCounter
 	mov r2, #0x0
 	str r2, [r0, #0x0]
 	ldr r3, _020CCDF0 ; =0x04000102
@@ -3938,19 +3939,19 @@ OS_InitTick: ; 0x020CCD64
 	bl OS_SetIrqFunction
 	mov r0, #0x8
 	bl OS_EnableIrqMask
-	ldr r0, _020CCDFC ; =0x021D37B0
+	ldr r0, _020CCDFC ; =OSi_NeedResetTimer
 	mov r1, #0x0
 	str r1, [r0, #0x0]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CCDE8: .word 0x021D37AC
-_020CCDEC: .word 0x021D37B4
+_020CCDE8: .word OSi_UseTick
+_020CCDEC: .word OSi_TickCounter
 _020CCDF0: .word 0x04000102
 _020CCDF4: .word 0x04000100
 _020CCDF8: .word OSi_CountUpTick
-_020CCDFC: .word 0x021D37B0
+_020CCDFC: .word OSi_NeedResetTimer
 
 	arm_func_start OSi_AlarmHandler
 OSi_AlarmHandler: ; 0x020CCE00
@@ -3974,7 +3975,7 @@ OSi_ArrangeTimer: ; 0x020CCE10
 	orr r1, r1, #0x10
 	str r1, [r0, #0xff8]
 	bl OS_GetTick
-	ldr r2, _020CCF24 ; =0x021D37C0
+	ldr r2, _020CCF24 ; =OSi_AlarmQueue
 	ldr r4, [r2, #0x0]
 	cmp r4, #0x0
 	addeq sp, sp, #0x4
@@ -4021,7 +4022,7 @@ _020CCECC:
 	str r5, [r4, #0x0]
 	bl OSi_InsertAlarm
 _020CCEF4:
-	ldr r0, _020CCF24 ; =0x021D37C0
+	ldr r0, _020CCF24 ; =OSi_AlarmQueue
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
@@ -4034,7 +4035,7 @@ _020CCEF4:
 	.balign 4
 _020CCF1C: .word 0x04000106
 _020CCF20: .word 0x027E0000
-_020CCF24: .word 0x021D37C0
+_020CCF24: .word OSi_AlarmQueue
 
 	arm_func_start OS_CancelAlarm
 OS_CancelAlarm: ; 0x020CCF28
@@ -4054,7 +4055,7 @@ _020CCF58:
 	ldr r0, [r5, #0x18]
 	cmp r0, #0x0
 	ldreq r2, [r5, #0x14]
-	ldreq r1, _020CCFBC ; =0x021D37C0
+	ldreq r1, _020CCFBC ; =OSi_AlarmQueue
 	streq r2, [r1, #0x4]
 	ldrne r1, [r5, #0x14]
 	strne r1, [r0, #0x14]
@@ -4062,7 +4063,7 @@ _020CCF58:
 	cmp r1, #0x0
 	strne r0, [r1, #0x18]
 	bne _020CCF98
-	ldr r1, _020CCFBC ; =0x021D37C0
+	ldr r1, _020CCFBC ; =OSi_AlarmQueue
 	cmp r0, #0x0
 	str r0, [r1, #0x0]
 	beq _020CCF98
@@ -4078,7 +4079,7 @@ _020CCF98:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020CCFBC: .word 0x021D37C0
+_020CCFBC: .word OSi_AlarmQueue
 
 	arm_func_start OS_SetAlarm
 OS_SetAlarm: ; 0x020CCFC0
@@ -4150,7 +4151,7 @@ OSi_InsertAlarm: ; 0x020CD038
 	adc r6, r6, r1
 _020CD0B4:
 	str r7, [r8, #0xc]
-	ldr r0, _020CD174 ; =0x021D37C0
+	ldr r0, _020CD174 ; =OSi_AlarmQueue
 	str r6, [r8, #0x10]
 	ldr r4, [r0, #0x0]
 	cmp r4, #0x0
@@ -4173,7 +4174,7 @@ _020CD0D0:
 	strne r8, [r0, #0x18]
 	ldmneia sp!, {r4-r8,lr}
 	bxne lr
-	ldr r1, _020CD174 ; =0x021D37C0
+	ldr r1, _020CD174 ; =OSi_AlarmQueue
 	mov r0, r8
 	str r8, [r1, #0x0]
 	bl OSi_SetTimer
@@ -4184,7 +4185,7 @@ _020CD128:
 	cmp r4, #0x0
 	bne _020CD0D0
 _020CD134:
-	ldr r1, _020CD174 ; =0x021D37C0
+	ldr r1, _020CD174 ; =OSi_AlarmQueue
 	mov r0, #0x0
 	str r0, [r8, #0x18]
 	ldr r0, [r1, #0x4]
@@ -4201,7 +4202,7 @@ _020CD134:
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020CD174: .word 0x021D37C0
+_020CD174: .word OSi_AlarmQueue
 
 	arm_func_start OS_CreateAlarm
 OS_CreateAlarm: ; 0x020CD178
@@ -4212,17 +4213,17 @@ OS_CreateAlarm: ; 0x020CD178
 
 	arm_func_start OS_IsAlarmAvailable
 OS_IsAlarmAvailable: ; 0x020CD188
-	ldr r0, _020CD194 ; =0x021D37BC
+	ldr r0, _020CD194 ; =OSi_UseAlarm
 	ldrh r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020CD194: .word 0x021D37BC
+_020CD194: .word OSi_UseAlarm
 
 	arm_func_start OS_InitAlarm
 OS_InitAlarm: ; 0x020CD198
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020CD1E8 ; =0x021D37BC
+	ldr r1, _020CD1E8 ; =OSi_UseAlarm
 	ldrh r0, [r1, #0x0]
 	cmp r0, #0x0
 	addne sp, sp, #0x4
@@ -4231,7 +4232,7 @@ OS_InitAlarm: ; 0x020CD198
 	mov r0, #0x1
 	strh r0, [r1, #0x0]
 	bl OSi_SetTimerReserved
-	ldr r1, _020CD1EC ; =0x021D37C0
+	ldr r1, _020CD1EC ; =OSi_AlarmQueue
 	mov r2, #0x0
 	mov r0, #0x10
 	str r2, [r1, #0x0]
@@ -4241,8 +4242,8 @@ OS_InitAlarm: ; 0x020CD198
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CD1E8: .word 0x021D37BC
-_020CD1EC: .word 0x021D37C0
+_020CD1E8: .word OSi_UseAlarm
+_020CD1EC: .word OSi_AlarmQueue
 
 	arm_func_start OSi_SetTimer
 OSi_SetTimer: ; 0x020CD1F0
@@ -4292,13 +4293,13 @@ _020CD288: .word 0x04000104
 OS_InitVAlarm: ; 0x020CD28C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r2, _020CD2EC ; =0x021D37C8
+	ldr r2, _020CD2EC ; =OSi_UseVAlarm
 	ldrh r0, [r2, #0x0]
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {lr}
 	bxne lr
-	ldr r1, _020CD2F0 ; =0x021D37D4
+	ldr r1, _020CD2F0 ; =OSi_VAlarmQueue
 	mov r3, #0x0
 	mov r12, #0x1
 	mov r0, #0x4
@@ -4306,19 +4307,19 @@ OS_InitVAlarm: ; 0x020CD28C
 	str r3, [r1, #0x0]
 	str r3, [r1, #0x4]
 	bl OS_DisableIrqMask
-	ldr r1, _020CD2F4 ; =0x021D37D0
+	ldr r1, _020CD2F4 ; =OSi_VFrameCount
 	mov r2, #0x0
-	ldr r0, _020CD2F8 ; =0x021D37CC
+	ldr r0, _020CD2F8 ; =OSi_PreviousVCount
 	str r2, [r1, #0x0]
 	str r2, [r0, #0x0]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CD2EC: .word 0x021D37C8
-_020CD2F0: .word 0x021D37D4
-_020CD2F4: .word 0x021D37D0
-_020CD2F8: .word 0x021D37CC
+_020CD2EC: .word OSi_UseVAlarm
+_020CD2F0: .word OSi_VAlarmQueue
+_020CD2F4: .word OSi_VFrameCount
+_020CD2F8: .word OSi_PreviousVCount
 
 	arm_func_start OS_EnableInterrupts
 OS_EnableInterrupts: ; 0x020CD2FC
@@ -4385,7 +4386,7 @@ OS_WaitVBlankIntr: ; 0x020CD38C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r0, #0x1
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	mov r0, #0x1
 	mov r1, r0
 	bl OS_WaitIrq
@@ -4448,14 +4449,14 @@ _020CD454:
 	bx lr
 
 	arm_func_start OSi_CommonCallback
-OSi_CommonCallback: ; 0x020CD464
+OSi_CommonCallback: ; OSi_CommonCallback
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	and r0, r1, #0x7f00
 	mov r0, r0, lsl #0x8
 	mov r0, r0, lsr #0x10
 	cmp r0, #0x10
-	ldreq r0, _020CD4A4 ; =0x021D37E0
+	ldreq r0, _020CD4A4 ; =OSi_IsResetOccurred
 	moveq r1, #0x1
 	streqh r1, [r0, #0x0]
 	addeq sp, sp, #0x4
@@ -4466,7 +4467,7 @@ OSi_CommonCallback: ; 0x020CD464
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CD4A4: .word 0x021D37E0
+_020CD4A4: .word OSi_IsResetOccurred
 
 	arm_func_start OS_InitReset
 OS_InitReset: ; 0x020CD4A8
@@ -4496,8 +4497,8 @@ _020CD4E8:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5, lr}
 	bx lr
-_020CD508: .word 0x021D37DC
-_020CD50C: .word 0x020CD464
+_020CD508: .word OSi_IsInitReset
+_020CD50C: .word OSi_CommonCallback
 
 	arm_func_start OS_GetOwnerRtcOffset
 OS_GetOwnerRtcOffset: ; 0x020CD510
@@ -4565,13 +4566,13 @@ OSi_UnlockVram: ; 0x020CD5C4
 	mov r5, r0
 	mov r10, r1
 	bl OS_DisableInterrupts
-	ldr r4, _020CD640 ; =0x021D37E4
+	ldr r4, _020CD640 ; =OSi_vramExclusive
 	ldr r1, _020CD644 ; =0x000001FF
 	ldr r2, [r4, #0x0]
 	mov r8, r0
 	and r0, r5, r2
 	and r9, r0, r1
-	ldr r6, _020CD648 ; =0x021D37E8
+	ldr r6, _020CD648 ; =OSi_vramLockId
 	mov r7, #0x1
 	mov r5, #0x0
 _020CD5F8:
@@ -4595,9 +4596,9 @@ _020CD630:
 	ldmia sp!, {r4-r10,lr}
 	bx lr
 	.balign 4
-_020CD640: .word 0x021D37E4
+_020CD640: .word OSi_vramExclusive
 _020CD644: .word 0x000001FF
-_020CD648: .word 0x021D37E8
+_020CD648: .word OSi_vramLockId
 
 	arm_func_start OSi_TryLockVram
 OSi_TryLockVram: ; 0x020CD64C
@@ -4606,11 +4607,11 @@ OSi_TryLockVram: ; 0x020CD64C
 	mov r6, r0
 	mov r8, r1
 	bl OS_DisableInterrupts
-	ldr r1, _020CD714 ; =0x021D37E4
+	ldr r1, _020CD714 ; =OSi_vramExclusive
 	mov r7, r0
 	ldr r0, [r1, #0x0]
 	and r5, r6, r0
-	ldr sb, _020CD718 ; =0x021D37E8
+	ldr sb, _020CD718 ; =OSi_vramLockId
 	mov r4, #0x1
 _020CD678:
 	mov r0, r5
@@ -4632,8 +4633,8 @@ _020CD678:
 _020CD6B8:
 	ldr r0, _020CD71C ; =0x000001FF
 	and r6, r6, r0
-	ldr r4, _020CD718 ; =0x021D37E8
-	ldr sb, _020CD714 ; =0x021D37E4
+	ldr r4, _020CD718 ; =OSi_vramLockId
+	ldr sb, _020CD714 ; =OSi_vramExclusive
 	mov r5, #0x1
 _020CD6CC:
 	mov r0, r6
@@ -4656,16 +4657,16 @@ _020CD6FC:
 	ldmia sp!, {r4-r9,lr}
 	bx lr
 	.balign 4
-_020CD714: .word 0x021D37E4
-_020CD718: .word 0x021D37E8
+_020CD714: .word OSi_vramExclusive
+_020CD718: .word OSi_vramLockId
 _020CD71C: .word 0x000001FF
 
 	arm_func_start OSi_InitVramExclusive
 OSi_InitVramExclusive: ; 0x020CD720
-	ldr r0, _020CD74C ; =0x021D37E4
+	ldr r0, _020CD74C ; =OSi_vramExclusive
 	mov r3, #0x0
 	str r3, [r0, #0x0]
-	ldr r0, _020CD750 ; =0x021D37E8
+	ldr r0, _020CD750 ; =OSi_vramLockId
 	mov r2, r3
 _020CD734:
 	mov r1, r3, lsl #0x1
@@ -4675,8 +4676,8 @@ _020CD734:
 	blt _020CD734
 	bx lr
 	.balign 4
-_020CD74C: .word 0x021D37E4
-_020CD750: .word 0x021D37E8
+_020CD74C: .word OSi_vramExclusive
+_020CD750: .word OSi_vramLockId
 
 	arm_func_start OS_GetLowEntropyData
 OS_GetLowEntropyData: ; 0x020CD754
@@ -4691,7 +4692,7 @@ OS_GetLowEntropyData: ; 0x020CD754
 	bl OS_GetTickLo
 	orr r0, r0, r7, lsl #0x10
 	str r0, [r6, #0x0]
-	ldr r1, _020CD834 ; =0x021D37B4
+	ldr r1, _020CD834 ; =OSi_TickCounter
 	ldr r0, _020CD830 ; =0x027FFC00
 	ldr r3, [r1, #0x0]
 	ldrh r5, [r5, #0x4]
@@ -4737,7 +4738,7 @@ OS_GetLowEntropyData: ; 0x020CD754
 	.balign 4
 _020CD82C: .word 0x04000006
 _020CD830: .word 0x027FFC00
-_020CD834: .word 0x021D37B4
+_020CD834: .word OSi_TickCounter
 _020CD838: .word 0x04000600
 _020CD83C: .word 0x04000130
 _020CD840: .word 0x027FFFA8

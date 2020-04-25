@@ -258,8 +258,8 @@ _020D2A60:
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 	.balign 4
-_020D2B78: .word 0x02106900
-_020D2B7C: .word 0x02106840
+_020D2B78: .word Unk_02106900 ; = 0x02106900
+_020D2B7C: .word Unk_02106840 ; = 0x02106840
 
 	arm_func_start DGT_Hash1GetDigest_R
 DGT_Hash1GetDigest_R: ; 0x020D2B80
@@ -314,7 +314,7 @@ _020D2C04:
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020D2C40: .word 0x0210683C
+_020D2C40: .word Unk_0210683C ; = 0x0210683C
 
 	arm_func_start DGT_Hash1SetSource
 DGT_Hash1SetSource: ; 0x020D2C44
@@ -440,7 +440,7 @@ MATH_CalcHMACSHA1: ; 0x020D2D78
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020D2E00: .word 0x02106A04
+_020D2E00: .word Unk_02106A04 ; = 0x02106A04
 _020D2E04: .word MATH_SHA1Init
 _020D2E08: .word MATH_SHA1Update
 _020D2E0C: .word MATH_SHA1GetHash
@@ -581,7 +581,7 @@ _020D2ED0:
 	add sp, sp, #0x10
 	bx lr
 	.balign 4
-_020D3008: .word 0x02106A00
+_020D3008: .word Unk_02106A00 ; = 0x02106A00
 
 	arm_func_start MATH_SHA1Update
 MATH_SHA1Update: ; 0x020D300C
@@ -676,7 +676,7 @@ _020D313C:
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020D3164: .word 0x02106A00
+_020D3164: .word Unk_02106A00 ; = 0x02106A00
 
 	arm_func_start MATH_SHA1Init
 MATH_SHA1Init: ; 0x020D3168

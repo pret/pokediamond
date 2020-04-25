@@ -1635,7 +1635,7 @@ _020D7BEC: ; 0x020D7BEC
 	mov r4, #0x0
 _020D7C04:
 	mov r0, r6
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4

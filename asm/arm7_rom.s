@@ -140,18 +140,18 @@ _2380198:
 FUN_023801B0:
 	.incbin "baserom.nds", 0x30D1B0, 0x91B0
 
-	thumb_func_start SVC_SoftReset
-SVC_SoftReset: ; 0x02389360
+	thumb_func_start ROM7_SVC_SoftReset
+ROM7_SVC_SoftReset: ; 0x02389360
 	swi 0
 	bx lr
 
-	thumb_func_start SVC_WaitByLoop
-SVC_WaitByLoop: ; 0x02389364
+	thumb_func_start ROM7_SVC_WaitByLoop
+ROM7_SVC_WaitByLoop: ; 0x02389364
 	swi 3
 	bx lr
 
-	thumb_func_start SVC_WaitIntr
-SVC_WaitIntr: ; 0x02389368
+	thumb_func_start ROM7_SVC_WaitIntr
+ROM7_SVC_WaitIntr: ; 0x02389368
 	ldr r2, =0x04000000
 	mov ip, r2
 	mov r2, #0x0
@@ -159,48 +159,48 @@ SVC_WaitIntr: ; 0x02389368
 	bx lr
 	.pool
 
-	thumb_func_start SVC_WaitVBlankIntr
-SVC_WaitVBlankIntr:
+	thumb_func_start ROM7_SVC_WaitVBlankIntr
+ROM7_SVC_WaitVBlankIntr:
 	mov r2, #0x0
 	swi 5
 	bx lr
 
-	non_word_aligned_thumb_func_start SVC_Halt
-SVC_Halt:
+	non_word_aligned_thumb_func_start ROM7_SVC_Halt
+ROM7_SVC_Halt:
 	swi 6
 	bx lr
 
-	non_word_aligned_thumb_func_start SVC_Stop
-SVC_Stop:
+	non_word_aligned_thumb_func_start ROM7_SVC_Stop
+ROM7_SVC_Stop:
 	swi 7
 	bx lr
 
-	non_word_aligned_thumb_func_start SVC_SoundBias
-SVC_SoundBias:
+	non_word_aligned_thumb_func_start ROM7_SVC_SoundBias
+ROM7_SVC_SoundBias:
 	swi 8
 	bx lr
 
-	non_word_aligned_thumb_func_start SVC_SoundBiasSet
-SVC_SoundBiasSet:
+	non_word_aligned_thumb_func_start ROM7_SVC_SoundBiasSet
+ROM7_SVC_SoundBiasSet:
 	add r1, r0, #0x0
 	mov r0, #0x1
 	swi 8
 	bx lr
 
-	non_word_aligned_thumb_func_start SVC_SoundBiasReset
-SVC_SoundBiasReset:
+	non_word_aligned_thumb_func_start ROM7_SVC_SoundBiasReset
+ROM7_SVC_SoundBiasReset:
 	add r1, r0, #0x0
 	mov r0, #0x0
 	swi 8
 	bx lr
 
-	non_word_aligned_thumb_func_start SVC_Div
-SVC_Div:
+	non_word_aligned_thumb_func_start ROM7_SVC_Div
+ROM7_SVC_Div:
 	swi 9
 	bx lr
 
-	non_word_aligned_thumb_func_start SVC_DivRem
-SVC_DivRem:
+	non_word_aligned_thumb_func_start ROM7_SVC_DivRem
+ROM7_SVC_DivRem:
 	swi 9
 	add r0, r1, #0x0
 	bx lr
