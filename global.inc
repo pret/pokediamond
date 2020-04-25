@@ -922,11 +922,11 @@
 .extern PMi_WaitBusy
 .extern CTRDG_IsExisting
 .extern PMi_SendSleepStart
-.extern FUN_01FF857C
-.extern FUN_01FF84E4
-.extern FUN_01FF85F0
-.extern FUN_01FF84A4
-.extern FUN_01FF8544
+.extern MIi_DmaSetParams_wait
+.extern MIi_DmaSetParams_wait_noInt
+.extern MIi_DmaSetParams
+.extern OSi_DoResetSystem
+.extern MIi_DmaSetParams_noInt
 
 .extern FUN_020010A8
 .extern FUN_02001204
@@ -1030,7 +1030,7 @@
 .extern OS_UnlockCartridge2
 .extern OS_ExitThread
 .extern MATH_SHA1Init
-.extern MATH_MD5Init
+.extern DGT_Hash1Reset
 .extern __destroy_global_chain
 .extern OS_TryLockMutex
 .extern _ddiv
@@ -1050,8 +1050,8 @@
 .extern MI_DmaCopy32
 .extern MATH_SHA1Update
 .extern MATH_SHA1GetHash
-.extern MATH_MD5Update
-.extern MATH_MD5GetHash
+.extern DGT_Hash1SetSource
+.extern DGT_Hash1GetDigest_R
 .extern OS_LockMutex
 .extern OS_UnlockMutex
 
@@ -3316,3 +3316,14 @@
 .extern OSi_IrqTimer1
 .extern OSi_IrqTimer2
 .extern OSi_IrqTimer3
+.extern OSi_EnterDmaCallback
+.extern OS_IsRunOnEmulator
+.extern OS_GetIrqFunction
+.extern MI_Init
+.extern MI_SwapWord
+.extern OSi_IsResetOccurred
+.extern DC_StoreAll
+.extern DC_InvalidateAll
+.extern IC_InvalidateAll
+.extern MATH_CalcHMACSHA1
+.extern ProcessBlock

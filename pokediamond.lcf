@@ -391,8 +391,15 @@ SECTIONS {
         scrcmd.o (.text)
         unk_02046030.o (.text)
         rom1.5.o (.text)
+        /* SDK */
         OS_arm9.o (.text)
-        unk_020C9C0C.o (.text)
+        MI_arm9.o (.text)
+        SND_arm9.o (.text)
+        PXI_arm9.o (.text)
+        FS_arm9.o (.text)
+        DGT_arm9.o (.text)
+        CP_arm9.o (.text)
+        SPI_arm9.o (.text)
         PM_arm9.o (.text)
         RTC_arm9.o (.text)
         CARD_arm9.o (.text)
@@ -401,6 +408,7 @@ SECTIONS {
         MATH_arm9.o (.text)
         STD_arm9.o (.text)
 	} > arm9.text
+
 	.arm9.data : AT (0xF0710) {
         rom2.o (.data)
         string_util.o (.data)
@@ -410,8 +418,9 @@ SECTIONS {
 	SDK_AUTOLOAD_START = .;
 	SDK_STATIC_BSS_START = .;
 
-	.arm9.itcm : AT (0x10AFA0) {
-        OS_arm9.o (.itcm)
+	.arm9.itcm : AT (0x10AFA0)
+	{
+        arm9_itcm.o (.itcm)
     } > arm9.itcm
 
     .arm9.dtcm : AT (0x10B6A0) {
