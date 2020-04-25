@@ -13544,7 +13544,7 @@ FUN_02096B14: ; 0x02096B14
 	mov r6, r0
 	ldr r0, _02096B74 ; =0x02000B8C
 	mov r4, #0x0
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	mov r0, r6
 	bl FUN_02096190
 	mov r5, r0
@@ -14607,7 +14607,7 @@ FUN_02097834: ; 0x02097834
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, _02097870 ; =0x02000BC4
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	ldr r0, _02097874 ; =0x021C8CC0
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
@@ -24479,7 +24479,7 @@ FUN_0209FD94: ; 0x0209FD94
 	sub sp, sp, #0x8
 	mov r4, r0
 	ldr r0, _0209FFD4 ; =0x02000BEC
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	ldr r12, [r4, #0x14]
 	ldr r6, [r4, #0x18]
 	mov r1, #0x0
@@ -24861,7 +24861,7 @@ FUN_020A02EC:
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, _020A0318 ; =0x02000C04
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	ldr r0, _020A031C ; =0x021D3498
 	ldr r0, [r0, #0x4]
 	ldr r0, [r0, #0xa4]
@@ -40632,7 +40632,7 @@ FUN_020AD93C: ; 0x020AD93C
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, _020ADA78 ; =0x02000C1C
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 _020AD94C: ; 0x020AD94C
 	cmp r4, #0x0
 	moveq r0, #0x0

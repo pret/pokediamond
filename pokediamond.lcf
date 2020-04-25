@@ -419,10 +419,10 @@ SECTIONS {
 
 	SDK_AUTOLOAD_START = .;
 	SDK_STATIC_BSS_START = .;
+	SDK_STATIC_BSS_END = . + 0xd0540;
 
 	.arm9.itcm : AT (0x10AFA0)
 	{
-		OS_arm9.o (.itcm)
         arm9_itcm.o (.itcm)
         . = 0x01FF8720;
         SDK_SECTION_ARENA_ITCM_START = .;

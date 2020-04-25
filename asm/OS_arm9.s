@@ -28,6 +28,8 @@ OS_IRQTable: ; 027E0000 ;10b6a0
 	.word OS_IrqDummy ; 020c9da8
 	.word OS_IrqDummy ; 020c9da8
 	.balign 16, 0
+
+	.global OSi_IrqThreadQueue
 OSi_IrqThreadQueue: ; 027E0060
 
 	.section .text

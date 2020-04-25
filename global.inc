@@ -53,7 +53,7 @@
 .extern FUN_0200019E
 .extern FUN_020002FE
 .extern FUN_020005F2
-.extern FUN_02000B60
+.extern OSi_ReferSymbol
 .extern FUN_02000DF4
 .extern FUN_02000E7C
 .extern FUN_02000EE8

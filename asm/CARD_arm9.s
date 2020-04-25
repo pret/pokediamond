@@ -565,7 +565,7 @@ CARD_IdentifyBackup: ; 0x020D6DC4
 	mov r5, r0
 	ldr r0, _020D6F00 ; =0x02000C3C
 	ldr r7, _020D6F04 ; =0x021D55C0
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 _020D6DDC: ; 0x020D6DDC
 	cmp r5, #0x0
 	bne _020D6DE8
@@ -670,7 +670,7 @@ CARDi_RequestStreamCommand: ; 0x020D6F20
 	mov r9, r1
 	mov r8, r2
 	mov r7, r3
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	bl OS_DisableInterrupts
 	ldr r1, [r6, #0x114]
 	mov r5, r0
@@ -740,7 +740,7 @@ CARDi_RequestStreamCommandCore:
 	ldr r7, [r9, #0x34]
 	ldr r10, [r9, #0x30]
 	mov r6, #0x100
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	cmp r8, #0xb
 	bne _020D7048
 	bl CARD_GetBackupSectorSize
