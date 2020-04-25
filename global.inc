@@ -3327,3 +3327,10 @@
 .extern IC_InvalidateAll
 .extern MATH_CalcHMACSHA1
 .extern ProcessBlock
+.extern MIi_CheckDma0SourceAddress
+.extern SDK_MAIN_ARENA_LO
+.extern OSi_MainExArenaEnabled
+.extern SDK_SECTION_ARENA_EX_START
+.extern SDK_SECTION_ARENA_ITCM_START
+.extern SDK_SECTION_ARENA_DTCM_START
+.extern cardi_common

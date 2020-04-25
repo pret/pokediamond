@@ -1274,7 +1274,7 @@ _020D7738:
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 	.balign 4
-_020D7748: .word 0x021D55C0
+_020D7748: .word cardi_common
 _020D774C: .word 0x01FF8000
 _020D7750: .word 0x000001FF
 _020D7754: .word 0x02106A50

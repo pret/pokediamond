@@ -3,8 +3,8 @@ MEMORY {
     header (RWX) : ORIGIN=0, LENGTH=0
     arm9.text (RWX) : ORIGIN=0x02000000, LENGTH=0
     arm9.data (RWX) : ORIGIN=0x020EC710, LENGTH=0
-    arm9.itcm (RWX) : ORIGIN=0x01FF8000, LENGTH=0
-    arm9.dtcm (RWX) : ORIGIN=0x027E0000, LENGTH=0
+    arm9.itcm (RWX) : ORIGIN=0x01FF8000, LENGTH=0x8000
+    arm9.dtcm (RWX) : ORIGIN=0x027E0000, LENGTH=0x2000
     arm9.autoload (RWX) : ORIGIN=0x02107700, LENGTH=0
     arm9overlay (RWX) : ORIGIN=0, LENGTH=0
     arm7 (RWX) : ORIGIN=0x2380000, LENGTH=0
@@ -420,12 +420,17 @@ SECTIONS {
 
 	.arm9.itcm : AT (0x10AFA0)
 	{
+		OS_arm9.o (.itcm)
         arm9_itcm.o (.itcm)
+        . = 0x01FF8720;
+        SDK_SECTION_ARENA_ITCM_START = .;
     } > arm9.itcm
 
     .arm9.dtcm : AT (0x10B6A0) {
     	SDK_AUTOLOAD_DTCM_START = .;
     	OS_arm9.o (.dtcm)
+    	. = 0x027E0080;
+    	SDK_SECTION_ARENA_DTCM_START = .;
     } > arm9.dtcm
 
     .arm9.autoload : AT (0x10B700) {
