@@ -1,10 +1,8 @@
 /* TEST */
 MEMORY {
     header (RWX) : ORIGIN=0, LENGTH=0
-    arm9 (RWX) : ORIGIN=0x2000000, LENGTH=0
-    unk_10b724 (RWX) : ORIGIN=0, LENGTH=0
-    arm9overlay (RWX) : ORIGIN=0, LENGTH=0
-    arm7 (RWX) : ORIGIN=0x2380000, LENGTH=0
+    arm9 (RWX) : ORIGIN=0x02000000, LENGTH=0
+    arm7 (RWX) : ORIGIN=0x02380000, LENGTH=0
     filenametable (RWX) : ORIGIN=0, LENGTH=0
     fileallocationtable (RWX) : ORIGIN=0, LENGTH=0
     icon_title (RWX) : ORIGIN=0, LENGTH=0
@@ -374,35 +372,10 @@ SECTIONS {
     } > header
 
     .arm9 : AT (0x4000) {
-        secure.o (.text)
-        crt0.o (.text)
-        main.o (.text)
-        FUN_02000DF4.o (.text)
-        unk_02000E0C.o (.text)
-        string_util.o (.text)
-        unk_020023C0.o (.text)
-        filesystem.o (.text)
-        unk_02006864.o (.text)
-        script.o (.text)
-        unk_02038C78.o (.text)
-        scrcmd.o (.text)
-        unk_02046030.o (.text)
-        rom1.5.o (.text)
-        FUN_020C9C0C.o (.text)
-        rom2.o (.text)
-        /* rodata */
-        rom2.o (.data)
-        string_util.o (.data)
-        rom2_2.o (.data)
-    } > arm9
-
-    .unk_10b724 : AT (0x10B724) {
-        unk_10b724.o (.text)
-    } > unk_10b724
-
-    .arm9overlay : AT (0x10B800) {
-        arm9overlay.o (.text)
-    } > arm9overlay
+    	_start = .;
+    	_start_AutoloadDoneCallback = . + 0xA74;
+        INCLUDE arm9.bin
+	} > arm9
 
 	.FILE_10C400 : AT (0x10C400) {
         FILE_10C400.o (.text) /* 0x10C400 */
@@ -667,7 +640,8 @@ SECTIONS {
 	} > rom3.FILE_30C600
 
     .arm7 : AT(0x30D000) {
-        arm7_rom.o(.text)
+		ARM7AutoLoad = 0x02380158;
+        INCLUDE arm7.bin
     } > arm7
 
     .filenametable : AT(0x336400) {

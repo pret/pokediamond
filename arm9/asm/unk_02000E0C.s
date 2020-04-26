@@ -106,7 +106,7 @@ FUN_02000EC8: ; 0x02000EC8
 	bl FUN_02033678
 	cmp r0, #0x0
 	beq _02000EE2
-	blx FUN_020D6DAC
+	blx CARD_TryWaitBackupAsync
 	cmp r0, #0x1
 	bne _02000EE2
 	add r0, r4, #0x0
@@ -256,7 +256,7 @@ FUN_02000FE8: ; 0x02000FE8
 	cmp r0, #0x0
 	bne _02001064
 	bl FUN_0201CE04
-	blx FUN_020DB7A8
+	blx CTRDG_IsPulledOut
 	cmp r0, #0x1
 	bne _02001014
 	ldr r0, _020010A4 ; =0x02106FA0
@@ -286,7 +286,7 @@ _02001032:
 	blx CARD_IsPulledOut
 	cmp r0, #0x0
 	beq _02001048
-	blx FUN_020D5180
+	blx PM_ForceToPowerOff
 	b _0200105C
 _02001048:
 	ldrh r1, [r4, #0x0]
@@ -312,7 +312,7 @@ _02001064:
 	bne _02001096
 	mov r0, #0x2
 	mov r1, #0x0
-	blx FUN_020D526C
+	blx PM_SetBackLight
 	add sp, #0x8
 	pop {r3-r7, pc}
 _0200107E:
@@ -325,7 +325,7 @@ _0200107E:
 	ldr r1, _020010A4 ; =0x02106FA0
 	mov r0, #0x2
 	ldr r1, [r1, #0x0]
-	blx FUN_020D526C
+	blx PM_SetBackLight
 _02001096:
 	add sp, #0x8
 	pop {r3-r7, pc}
