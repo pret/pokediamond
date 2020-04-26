@@ -265,10 +265,11 @@ _start_ModuleParams:
 
 	.balign 16, 0
 
-	; .version
-	.word 0x03027531
-	.word 0xdec00621
-	.byte 0xde, 0xc0, 0x06, 0x21
+	.section .version
+	; NITRO SDK 3.2.30001
+	.word (3 << 24) | (2 << 16) | 30001
+	.word 0xdec00621 ; Nitro code BE
+	.word 0x2106c0de ; Nitro code LE
 	
 	# strings
 	.balign 4

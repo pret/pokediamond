@@ -15,6 +15,7 @@ SECTIONS {
     .text : AT (0x0) {
         secure.o (.text)
         crt0.o (.text)
+        crt0.o (.version)
         main.o (.text)
         FUN_02000DF4.o (.text)
         unk_02000E0C.o (.text)
