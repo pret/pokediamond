@@ -6,6 +6,8 @@ tools/mwccarm/**
 
 # Build folder
 build/**
+arm7/build/**
+arm9/build/**
 
 # CLion folders
 .idea/

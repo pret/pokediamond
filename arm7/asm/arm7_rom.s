@@ -3,9 +3,9 @@
 	.global ARM7AutoLoad
 
 	.section .text
-	arm_func_start Entry_ARM7
+	arm_func_start _start
 
-Entry_ARM7:
+_start:
 	mov	ip, #67108864	; 0x4000000
 	str	ip, [ip, #520]	; 0x208
 	ldr	r1, _23800cc
@@ -74,7 +74,7 @@ _23800f0:	.word 0x0380fffc
 _23800f4:	.word 0x037f853c
 _23800f8:	.word 0x037f8468
 _23800fc:	.word 0xffff0000
-	arm_func_end Entry_ARM7
+	arm_func_end _start
 
 	arm_func_start FUN_2380100
 FUN_2380100:
