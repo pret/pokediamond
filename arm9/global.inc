@@ -3515,3 +3515,7 @@
 .extern OSi_vramLockId
 .extern OSi_ThreadIdCount
 .extern OSi_StackForDestructor
+.extern SDK_AUTOLOAD_ITCM_START
+.extern SDK_AUTOLOAD_ITCM_END
+.extern SDK_AUTOLOAD_DTCM_START
+.extern SDK_AUTOLOAD_DTCM_END

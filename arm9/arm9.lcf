@@ -1,0 +1,84 @@
+MEMORY {
+	.itcm (RWX) : ORIGIN=0x01FF8000, LENGTH=0
+	.text (RX) : ORIGIN=0x02000000, LENGTH=0
+	.data (R) : ORIGIN=0x20EC710, LENGTH=0
+	.autoload (R) : ORIGIN=0x02107700, LENGTH=0
+	.bss (RWX) : ORIGIN=0x02106FA0, LENGTH=0
+	.ewram (RWX) : ORIGIN=0x023E0000, LENGTH=0
+	.dtcm (RW) : ORIGIN=0x027E0000, LENGTH=0
+	.overlay (RX) : ORIGIN=0, LENGTH=0
+}
+
+SECTIONS {
+#include "undefined_syms.txt"
+    .text : AT (0x0) {
+        secure.o (.text)
+        crt0.o (.text)
+        main.o (.text)
+        FUN_02000DF4.o (.text)
+        unk_02000E0C.o (.text)
+        string_util.o (.text)
+        unk_020023C0.o (.text)
+        filesystem.o (.text)
+        unk_02006864.o (.text)
+        script.o (.text)
+        unk_02038C78.o (.text)
+        scrcmd.o (.text)
+        unk_02046030.o (.text)
+        unk_0208AC14.o (.text)
+        unk_020AF030.o (.text)
+        /* SDK */
+        GX_arm9.o (.text)
+        OS_arm9.o (.text)
+        MI_arm9.o (.text)
+        SND_arm9.o (.text)
+        PXI_arm9.o (.text)
+        FS_arm9.o (.text)
+        DGT_arm9.o (.text)
+        CP_arm9.o (.text)
+        SPI_arm9.o (.text)
+        PM_arm9.o (.text)
+        RTC_arm9.o (.text)
+        CARD_arm9.o (.text)
+        WM_arm9.o (.text)
+        CTRDG_arm9.o (.text)
+        MATH_arm9.o (.text)
+        STD_arm9.o (.text)
+	} > .text
+
+	.data : AT (0xEC710) {
+        rom2.o (.data)
+        string_util.o (.data)
+        rom2_2.o (.data)
+	} > .data
+
+	SDK_AUTOLOAD_START = .;
+	SDK_STATIC_BSS_START = .;
+	SDK_STATIC_BSS_END = . + 0xd0540;
+
+	.itcm : AT (0x106FA0)
+	{
+		SDK_AUTOLOAD_ITCM_START = .;
+        arm9_itcm.o (.itcm)
+        SDK_AUTOLOAD_ITCM_END = .;
+        . = 0x01FF8720;
+        SDK_SECTION_ARENA_ITCM_START = .;
+    } > .itcm
+
+    .autoload : AT (0x107700) {
+		SDK_AUTOLOAD_LIST.o (.data)
+        unk_10b724.o (.text)
+    } > .autoload
+
+    .overlay : AT (0x107800) {
+        arm9overlay.o (.text)
+    } > .overlay
+
+    .dtcm : AT (0x1076A0) {
+    	SDK_AUTOLOAD_DTCM_START = .;
+    	OS_arm9.o (.dtcm)
+    	SDK_AUTOLOAD_DTCM_END = .;
+    	SDK_SECTION_ARENA_DTCM_START = 0x027E0080;
+    } > .dtcm
+
+}

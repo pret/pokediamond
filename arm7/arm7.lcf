@@ -1,0 +1,10 @@
+MEMORY {
+	.text (RX) : ORIGIN=0x02380000, LENGTH=0
+}
+
+SECTIONS {
+#include "undefined_syms.txt"
+	.text : AT (0x0) {
+		arm7_rom.o (.text)
+	} > .text
+}

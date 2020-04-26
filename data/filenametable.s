@@ -272,31 +272,31 @@ FileNameTable:
 	.byte 0x05, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /custom_ball
+	; Directory: /application/custom_ball
 	.byte 4 | 0x80
 	.ascii "data"
 	.byte 0x03, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /application/data
+	; Directory: /application/custom_ball/data
 	.byte 12
 	.ascii "cb_data.narc"
 	.byte 0 ; end
 
-	; Directory: /wifi_earth
+	; Directory: /application/wifi_earth
 	.byte 15
 	.ascii "wifi_earth.narc"
 	.byte 21
 	.ascii "wifi_earth_place.narc"
 	.byte 0 ; end
 
-	; Directory: /zukanlist
+	; Directory: /application/zukanlist
 	.byte 8 | 0x80
 	.ascii "zkn_data"
 	.byte 0x06, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /application/zkn_data
+	; Directory: /application/zukanlist/zkn_data
 	.byte 15
 	.ascii "zukan_data.narc"
 	.byte 22
@@ -335,14 +335,14 @@ FileNameTable:
 	.byte 0x0C, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /b_tower
+	; Directory: /battle/b_tower
 	.byte 10
 	.ascii "btdpm.narc"
 	.byte 10
 	.ascii "btdtr.narc"
 	.byte 0 ; end
 
-	; Directory: /graphic
+	; Directory: /battle/graphic
 	.byte 14
 	.ascii "b_bag_gra.narc"
 	.byte 16
@@ -355,7 +355,7 @@ FileNameTable:
 	.ascii "vs_demo_gra.narc"
 	.byte 0 ; end
 
-	; Directory: /skill
+	; Directory: /battle/skill
 	.byte 11
 	.ascii "be_seq.narc"
 	.byte 12
@@ -364,7 +364,7 @@ FileNameTable:
 	.ascii "waza_seq.narc"
 	.byte 0 ; end
 
-	; Directory: /tr_ai
+	; Directory: /battle/tr_ai
 	.byte 14
 	.ascii "tr_ai_seq.narc"
 	.byte 0 ; end
@@ -378,12 +378,12 @@ FileNameTable:
 	.byte 0x0F, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /data
+	; Directory: /contest/data
 	.byte 17
 	.ascii "contest_data.narc"
 	.byte 0 ; end
 
-	; Directory: /graphic
+	; Directory: /contest/graphic
 	.byte 15
 	.ascii "contest_bg.narc"
 	.byte 16
@@ -661,14 +661,14 @@ FileNameTable:
 	.byte 0x12, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /mmodel
+	; Directory: /data/mmodel
 	.byte 11
 	.ascii "fldeff.narc"
 	.byte 11
 	.ascii "mmodel.narc"
 	.byte 0 ; end
 
-	; Directory: /sound
+	; Directory: /data/sound
 	.byte 15
 	.ascii "sound_data.sdat"
 	.byte 0 ; end
@@ -691,13 +691,13 @@ FileNameTable:
 	.byte 0x1C, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /egg
+	; Directory: /demo/egg
 	.byte 4 | 0x80
 	.ascii "data"
 	.byte 0x15, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /demo/data
+	; Directory: /demo/egg/data
 	.byte 13
 	.ascii "egg_data.narc"
 	.byte 8 | 0x80
@@ -705,41 +705,41 @@ FileNameTable:
 	.byte 0x16, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /egg/particle
+	; Directory: /demo/egg/data/particle
 	.byte 22
 	.ascii "egg_demo_particle.narc"
 	.byte 0 ; end
 
-	; Directory: /intro
+	; Directory: /demo/intro
 	.byte 10
 	.ascii "intro.narc"
 	.byte 13
 	.ascii "intro_tv.narc"
 	.byte 0 ; end
 
-	; Directory: /shinka
+	; Directory: /demo/shinka
 	.byte 4 | 0x80
 	.ascii "data"
 	.byte 0x19, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /demo/data
+	; Directory: /demo/shinka/data
 	.byte 8 | 0x80
 	.ascii "particle"
 	.byte 0x1A, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /shinka/particle
+	; Directory: /demo/shinka/data/particle
 	.byte 25
 	.ascii "shinka_demo_particle.narc"
 	.byte 0 ; end
 
-	; Directory: /syoujyou
+	; Directory: /demo/syoujyou
 	.byte 13
 	.ascii "syoujyou.narc"
 	.byte 0 ; end
 
-	; Directory: /title
+	; Directory: /demo/title
 	.byte 12
 	.ascii "op_demo.narc"
 	.byte 14
@@ -784,7 +784,7 @@ FileNameTable:
 	.byte 0x2B, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /areadata
+	; Directory: /fielddata/areadata
 	.byte 14
 	.ascii "area_data.narc"
 	.byte 16 | 0x80
@@ -798,68 +798,68 @@ FileNameTable:
 	.byte 0x22, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /fielddata/area_build_model
+	; Directory: /fielddata/areadata/area_build_model
 	.byte 15
 	.ascii "area_build.narc"
 	.byte 18
 	.ascii "areabm_texset.narc"
 	.byte 0 ; end
 
-	; Directory: /fielddata/area_map_tex
+	; Directory: /fielddata/areadata/area_map_tex
 	.byte 16
 	.ascii "map_tex_set.narc"
 	.byte 0 ; end
 
-	; Directory: /fielddata/area_move_model
+	; Directory: /fielddata/areadata/area_move_model
 	.byte 20
 	.ascii "move_model_list.narc"
 	.byte 0 ; end
 
-	; Directory: /build_model
+	; Directory: /fielddata/build_model
 	.byte 16
 	.ascii "build_model.narc"
 	.byte 22
 	.ascii "build_model_matshp.dat"
 	.byte 0 ; end
 
-	; Directory: /encountdata
+	; Directory: /fielddata/encountdata
 	.byte 15
 	.ascii "d_enc_data.narc"
 	.byte 15
 	.ascii "p_enc_data.narc"
 	.byte 0 ; end
 
-	; Directory: /eventdata
+	; Directory: /fielddata/eventdata
 	.byte 23
 	.ascii "zone_event_release.narc"
 	.byte 0 ; end
 
-	; Directory: /land_data
+	; Directory: /fielddata/land_data
 	.byte 22
 	.ascii "land_data_release.narc"
 	.byte 0 ; end
 
-	; Directory: /mapmatrix
+	; Directory: /fielddata/mapmatrix
 	.byte 15
 	.ascii "map_matrix.narc"
 	.byte 0 ; end
 
-	; Directory: /maptable
+	; Directory: /fielddata/maptable
 	.byte 11
 	.ascii "mapname.bin"
 	.byte 0 ; end
 
-	; Directory: /mm_list
+	; Directory: /fielddata/mm_list
 	.byte 20
 	.ascii "move_model_list.narc"
 	.byte 0 ; end
 
-	; Directory: /pokemon_trade
+	; Directory: /fielddata/pokemon_trade
 	.byte 14
 	.ascii "fld_trade.narc"
 	.byte 0 ; end
 
-	; Directory: /script
+	; Directory: /fielddata/script
 	.byte 20
 	.ascii "scr_seq_release.narc"
 	.byte 0 ; end
@@ -957,7 +957,7 @@ FileNameTable:
 	.byte 0x2E, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /itemdata
+	; Directory: /itemtool/itemdata
 	.byte 14
 	.ascii "item_data.narc"
 	.byte 14
@@ -974,7 +974,7 @@ FileNameTable:
 	.byte 0x30, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /scenario
+	; Directory: /msgdata/scenario
 	.byte 12
 	.ascii "scr_msg.narc"
 	.byte 0 ; end
@@ -1023,12 +1023,12 @@ FileNameTable:
 	.byte 0x3C, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /icongra
+	; Directory: /poketool/icongra
 	.byte 14
 	.ascii "poke_icon.narc"
 	.byte 0 ; end
 
-	; Directory: /personal
+	; Directory: /poketool/personal
 	.byte 8
 	.ascii "evo.narc"
 	.byte 12
@@ -1041,17 +1041,17 @@ FileNameTable:
 	.ascii "wotbl.narc"
 	.byte 0 ; end
 
-	; Directory: /pokeanm
+	; Directory: /poketool/pokeanm
 	.byte 12
 	.ascii "pokeanm.narc"
 	.byte 0 ; end
 
-	; Directory: /pokefoot
+	; Directory: /poketool/pokefoot
 	.byte 13
 	.ascii "pokefoot.narc"
 	.byte 0 ; end
 
-	; Directory: /pokegra
+	; Directory: /poketool/pokegra
 	.byte 11
 	.ascii "height.narc"
 	.byte 13
@@ -1068,28 +1068,28 @@ FileNameTable:
 	.ascii "pokegra.narc"
 	.byte 0 ; end
 
-	; Directory: /trainer
+	; Directory: /poketool/trainer
 	.byte 11
 	.ascii "trdata.narc"
 	.byte 11
 	.ascii "trpoke.narc"
 	.byte 0 ; end
 
-	; Directory: /trgra
+	; Directory: /poketool/trgra
 	.byte 11
 	.ascii "trbgra.narc"
 	.byte 11
 	.ascii "trfgra.narc"
 	.byte 0 ; end
 
-	; Directory: /trmsg
+	; Directory: /poketool/trmsg
 	.byte 10
 	.ascii "trtbl.narc"
 	.byte 13
 	.ascii "trtblofs.narc"
 	.byte 0 ; end
 
-	; Directory: /waza
+	; Directory: /poketool/waza
 	.byte 13
 	.ascii "waza_tbl.narc"
 	.byte 0 ; end
@@ -1100,7 +1100,7 @@ FileNameTable:
 	.byte 0x3E, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /eng
+	; Directory: /resource/eng
 	.byte 5 | 0x80
 	.ascii "trial"
 	.byte 0x3F, 0xF0 ; dir ID
@@ -1109,12 +1109,12 @@ FileNameTable:
 	.byte 0x40, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /resource/trial
+	; Directory: /resource/eng/trial
 	.byte 10
 	.ascii "trial.narc"
 	.byte 0 ; end
 
-	; Directory: /resource/zukan
+	; Directory: /resource/eng/zukan
 	.byte 10
 	.ascii "zukan.narc"
 	.byte 0 ; end
@@ -1135,7 +1135,7 @@ FileNameTable:
 	.byte 0x44, 0xF0 ; dir ID
 	.byte 0 ; end
 
-	; Directory: /effectclact
+	; Directory: /wazaeffect/effectclact
 	.byte 11
 	.ascii "wecell.narc"
 	.byte 14
@@ -1146,14 +1146,14 @@ FileNameTable:
 	.ascii "wepltt.narc"
 	.byte 0 ; end
 
-	; Directory: /effectdata
+	; Directory: /wazaeffect/effectdata
 	.byte 18
 	.ascii "ball_particle.narc"
 	.byte 18
 	.ascii "waza_particle.narc"
 	.byte 0 ; end
 
-	; Directory: /pt_debug
+	; Directory: /wazaeffect/pt_debug
 	.byte 19
 	.ascii "debug_particle.narc"
 	.byte 0 ; end
