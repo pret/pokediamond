@@ -9,6 +9,10 @@
 
 extern BOOL OSi_MainExArenaEnabled;
 extern BOOL OSi_Initialized;  // TODO: located at 0x021d36f0
+extern u32 SDK_MAIN_ARENA_LO; // TODO: technically this should be defined in the lcf
+extern u32 SDK_SECTION_ARENA_EX_START; // TODO: technically this should be defined in the lcf
+extern u32 SDK_SECTION_ARENA_ITCM_START; // TODO: technically this should be defined in the lcf
+extern u32 SDK_SECTION_ARENA_DTCM_START; // TODO: technically this should be defined in the lcf
 extern u32 OS_GetConsoleType();
 extern Cell* DLInsert(Cell* list, Cell* cell);
 extern Cell* DLAddFront(Cell* list, Cell* cell);
@@ -195,27 +199,88 @@ void OS_SetArenaHi(OSArenaId id, void* newHi) {
 
 #ifdef MATCH_ASM
 asm void* OS_GetInitArenaLo(OSArenaId id) {
-    // TODO: idk how to do switch case stuff properly in asm
+	stmdb sp!, {lr}
+	sub sp, sp, #0x4
+	cmp r0, #0x6
+	addls pc, pc, r0, lsl #0x2
+	b _020CC3DC
+_020CC330:
+	b _020CC34C
+	b _020CC3DC
+	b _020CC35C
+	b _020CC39C
+	b _020CC3AC
+	b _020CC3BC
+	b _020CC3CC
+_020CC34C:
+	add sp, sp, #0x4
+	ldr r0, =SDK_MAIN_ARENA_LO
+	ldmfd sp!, {lr}
+	bx lr
+_020CC35C:
+	ldr r0, =OSi_MainExArenaEnabled
+	ldr r0, [r0]
+	cmp r0, #0x0
+	beq _020CC37C
+	bl OS_GetConsoleType
+	and r0, r0, #0x3
+	cmp r0, #0x1
+	bne _020CC38C
+_020CC37C:
+	add sp, sp, #0x4
+	mov r0, #0x0
+	ldmfd sp!, {lr}
+	bx lr
+_020CC38C:
+	add sp, sp, #0x4
+	ldr r0, =SDK_SECTION_ARENA_EX_START
+	ldmfd sp!, {lr}
+	bx lr
+_020CC39C:
+	add sp, sp, #0x4
+	ldr r0, =SDK_SECTION_ARENA_ITCM_START
+	ldmfd sp!, {lr}
+	bx lr
+_020CC3AC:
+	add sp, sp, #0x4
+	ldr r0, =SDK_SECTION_ARENA_DTCM_START
+	ldmfd sp!, {lr}
+	bx lr
+_020CC3BC:
+	add sp, sp, #0x4
+	ldr r0, =HW_SHARED_ARENA_LO_DEFAULT
+	ldmfd sp!, {lr}
+	bx lr
+_020CC3CC:
+	add sp, sp, #0x4
+	ldr r0, =OSi_WRAM_MAIN_ARENA_LO_DEFAULT
+	ldmfd sp!, {lr}
+	bx lr
+_020CC3DC:
+	mov r0, #0x0
+	add sp, sp, #0x4
+	ldmia sp!, {lr}
+	bx lr
 }
 #else
 void* OS_GetInitArenaLo(OSArenaId id) {
     switch (id) {
         case OS_ARENA_MAIN:
-            return (void *)0x0225ffa0;
+            return (void *)SDK_MAIN_ARENA_LO;
         case OS_ARENA_MAINEX:
             if (!OSi_MainExArenaEnabled || (OS_GetConsoleType() & OS_CONSOLE_SIZE_MASK) == OS_CONSOLE_SIZE_4MB) {
                 return NULL;
             } else {
-                return (void *)0x023e0000;
+                return (void *)SDK_SECTION_ARENA_EX_START;
             }
         case OS_ARENA_ITCM:
-            return (void *)0x01ff8720;
+            return (void *)SDK_SECTION_ARENA_ITCM_START;
         case OS_ARENA_DTCM:
-            return (void *)0x027e0080;
+            return (void *)SDK_SECTION_ARENA_DTCM_START;
         case OS_ARENA_SHARED:
-            return (void *)0x027ff000;
+            return (void *)HW_SHARED_ARENA_LO_DEFAULT;
         case OS_ARENA_WRAM_MAIN:
-            return (void *)0x037f8000;
+            return (void *)OSi_WRAM_MAIN_ARENA_LO_DEFAULT;
         default:
             return NULL;
     }
