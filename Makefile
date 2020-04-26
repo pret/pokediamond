@@ -55,6 +55,7 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
 
 ARM9BIN := arm9/build/arm9.bin
+ARM7BIN := arm7/build/arm7.bin
 
 ##################### Compiler Options #######################
 
@@ -109,7 +110,7 @@ else
 NODEP := 1
 endif
 
-.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm $(ARM9BIN)
+.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm $(ARM9BIN) $(ARM7BIN)
 
 MAKEFLAGS += --no-print-directory
 
@@ -138,6 +139,9 @@ patch_mwasmarm:
 $(ARM9BIN):
 	@$(MAKE) -C arm9
 
+$(ARM7BIN):
+	@$(MAKE) -C arm7
+
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
 $(BUILD_DIR)/%.o: %.c
@@ -149,8 +153,8 @@ $(BUILD_DIR)/%.o: %.s
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(ARM9BIN)
-	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(ARM9BIN)
+$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(ARM9BIN) $(ARM7BIN)
+	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(ARM9BIN) $(ARM7BIN)
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@

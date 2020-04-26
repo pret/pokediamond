@@ -2,7 +2,7 @@
 MEMORY {
     header (RWX) : ORIGIN=0, LENGTH=0
     arm9 (RWX) : ORIGIN=0x02000000, LENGTH=0
-    arm7 (RWX) : ORIGIN=0x2380000, LENGTH=0
+    arm7 (RWX) : ORIGIN=0x02380000, LENGTH=0
     filenametable (RWX) : ORIGIN=0, LENGTH=0
     fileallocationtable (RWX) : ORIGIN=0, LENGTH=0
     icon_title (RWX) : ORIGIN=0, LENGTH=0
@@ -640,7 +640,8 @@ SECTIONS {
 	} > rom3.FILE_30C600
 
     .arm7 : AT(0x30D000) {
-        arm7_rom.o(.text)
+		ARM7AutoLoad = 0x02380158;
+        INCLUDE arm7.bin
     } > arm7
 
     .filenametable : AT(0x336400) {

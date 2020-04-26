@@ -37,11 +37,11 @@ endif
 
 BUILD_DIR := build
 
-TARGET := pokediamond.us
+TARGET := arm7
 
-ROM := $(BUILD_DIR)/$(TARGET).nds
+ROM := $(BUILD_DIR)/$(TARGET).bin
 ELF := $(BUILD_DIR)/$(TARGET).elf
-LD_SCRIPT := pokediamond.lcf
+LD_SCRIPT := arm7.lcf
 
 # Directories containing source files
 SRC_DIRS := src
@@ -57,17 +57,18 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
 ##################### Compiler Options #######################
 
 MWCCVERSION := 2.0/base
+TOOLS_DIR = ../tools
 
 CROSS   := arm-none-eabi-
 
-MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
+MWCCARM  := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
 # MWCC built objects and GNU built ones. mwldarm, however, doesn't care, so we
 # have to use mwldarm for now.
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
-MWLDARM  := tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
-MWASMARM := tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
+MWLDARM  := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwldarm.exe
+MWASMARM := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 
 AS      := $(WINE) $(MWASMARM)
 CC      := $(WINE) $(MWCCARM)
@@ -77,15 +78,14 @@ AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
-# ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
+# ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm7_thumb.s -o arm7.o
 ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -ir include
+CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -ir ../include
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
 
 # DS TOOLS
-TOOLS_DIR = tools
 SHA1SUM = sha1sum
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
@@ -112,10 +112,10 @@ endif
 MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
-	@$(SHA1SUM) -c $(TARGET).sha1
+	# @$(SHA1SUM) -c $(TARGET).sha1
 
 clean: mostlyclean
-	make -C tools/mwasmarm_patcher clean
+	make -C $(TOOLS_DIR)/mwasmarm_patcher clean
 
 mostlyclean: tidy
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
@@ -148,7 +148,7 @@ $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
 	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES)
 
 $(ROM): $(ELF)
-	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@
+	$(OBJCOPY) -O binary --gap-fill=0xFF $< $@
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
