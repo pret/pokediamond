@@ -2690,109 +2690,109 @@ _020037A6:
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx FUN_020C9550
+	blx GX_LoadBGPltt
 	b _020038A4
 _020037B2:
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx FUN_020C94E8
+	blx GXS_LoadBGPltt
 	b _020038A4
 _020037BE:
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx FUN_020C9480
+	blx GX_LoadOBJPltt
 	b _020038A4
 _020037CA:
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx FUN_020C9418
+	blx GXS_LoadOBJPltt
 	b _020038A4
 _020037D6:
-	blx FUN_020C8B10
+	blx GX_BeginLoadBGExtPltt
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx FUN_020C8A90
-	blx FUN_020C8A2C
+	blx GX_LoadBGExtPltt
+	blx GX_EndLoadBGExtPltt
 	b _020038A4
 _020037EA:
-	blx FUN_020C8B10
+	blx GX_BeginLoadBGExtPltt
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	add r1, r7, #0x0
-	blx FUN_020C8A90
-	blx FUN_020C8A2C
+	blx GX_LoadBGExtPltt
+	blx GX_EndLoadBGExtPltt
 	b _020038A4
 _020037FE:
-	blx FUN_020C8B10
+	blx GX_BeginLoadBGExtPltt
 	mov r1, #0x1
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	lsl r1, r1, #0xe
-	blx FUN_020C8A90
-	blx FUN_020C8A2C
+	blx GX_LoadBGExtPltt
+	blx GX_EndLoadBGExtPltt
 	b _020038A4
 _02003814:
-	blx FUN_020C8B10
+	blx GX_BeginLoadBGExtPltt
 	mov r1, #0x6
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	lsl r1, r1, #0xc
-	blx FUN_020C8A90
-	blx FUN_020C8A2C
+	blx GX_LoadBGExtPltt
+	blx GX_EndLoadBGExtPltt
 	b _020038A4
 _0200382A:
-	blx FUN_020C88CC
+	blx GXS_BeginLoadBGExtPltt
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx FUN_020C8858
-	blx FUN_020C880C
+	blx GXS_LoadBGExtPltt
+	blx GXS_EndLoadBGExtPltt
 	b _020038A4
 _0200383E:
-	blx FUN_020C88CC
+	blx GXS_BeginLoadBGExtPltt
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	add r1, r7, #0x0
-	blx FUN_020C8858
-	blx FUN_020C880C
+	blx GXS_LoadBGExtPltt
+	blx GXS_EndLoadBGExtPltt
 	b _020038A4
 _02003852:
-	blx FUN_020C88CC
+	blx GXS_BeginLoadBGExtPltt
 	mov r1, #0x1
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	lsl r1, r1, #0xe
-	blx FUN_020C8858
-	blx FUN_020C880C
+	blx GXS_LoadBGExtPltt
+	blx GXS_EndLoadBGExtPltt
 	b _020038A4
 _02003868:
-	blx FUN_020C88CC
+	blx GXS_BeginLoadBGExtPltt
 	mov r1, #0x6
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	lsl r1, r1, #0xc
-	blx FUN_020C8858
-	blx FUN_020C880C
+	blx GXS_LoadBGExtPltt
+	blx GXS_EndLoadBGExtPltt
 	b _020038A4
 _0200387E:
-	blx FUN_020C89BC
+	blx GX_BeginLoadOBJExtPltt
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx FUN_020C8948
-	blx FUN_020C88F0
+	blx GX_LoadOBJExtPltt
+	blx GX_EndLoadOBJExtPltt
 	b _020038A4
 _02003892:
-	blx FUN_020C87E8
+	blx GXS_BeginLoadOBJExtPltt
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x8]
 	mov r1, #0x0
-	blx FUN_020C8774
-	blx FUN_020C8728
+	blx GXS_LoadOBJExtPltt
+	blx GXS_EndLoadOBJExtPltt
 _020038A4:
 	add r5, r5, #0x1
 	add r4, #0x14

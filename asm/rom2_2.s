@@ -732,31 +732,3 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203AFA4
 
 .incbin "baserom.nds",  0xF80A0, 0x12F00
-
-	; Used in autoload
-	.global SDK_AUTOLOAD_START
-	.global SDK_STATIC_BSS_START
-SDK_AUTOLOAD_START:
-SDK_STATIC_BSS_START: ; 0x02106FA0
-.incbin "baserom.nds", 0x10AFA0, 0x700
-
-	.global UNK_021076A0
-UNK_021076A0:
-.incbin "baserom.nds", 0x10B6A0, 0x60
-
-	.global SDK_AUTOLOAD_LIST
-SDK_AUTOLOAD_LIST: ; 0x02107700
-	.word 0x01FF8000
-	.word 0x00000700
-	.word 0x00000000
-
-	.word 0x027e0000
-	.word 0x00000060
-	.word 0x00000020
-
-	.word 0x02400000
-	.word 0x00000000
-	.word 0x00000000
-
-	.global SDK_AUTOLOAD_LIST_END
-SDK_AUTOLOAD_LIST_END:
