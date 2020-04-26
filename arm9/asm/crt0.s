@@ -255,6 +255,7 @@ OSi_ReferSymbol: ; 0x02000B60
 NitroStartUp: ; 0x02000B64
 	bx lr
 
+	.global _start_ModuleParams
 _start_ModuleParams:
 	.word SDK_AUTOLOAD_LIST
 	.word SDK_AUTOLOAD_LIST_END

@@ -1,5 +1,6 @@
 /* arm7_rom.s TODO: Disassemble */
 	.include "asm/macros.inc"
+	.include "global.inc"
 	.global ARM7AutoLoad
 
 	.section .text
@@ -137,11 +138,18 @@ _2380198:
 
 	.balign 16, 0
 
+	.global SDK_STATIC_BSS_START
+	.global SDK_STATIC_BSS_END
 SDK_STATIC_BSS_START:
 SDK_STATIC_BSS_END:
 
+	.global SDK_AUTOLOAD_START
 SDK_AUTOLOAD_START:
-	.incbin "baserom.nds", 0x30D1B0, 0x91B0
+	.section .itcm
+	.incbin "baserom.nds", 0x30D1B0, 0xDC
+
+	.section .dtcm
+	.incbin "baserom.nds", 0x30D28C, 0x90D4
 
 	thumb_func_start SVC_SoftReset
 SVC_SoftReset: ; 0x02389360
@@ -207,19 +215,7 @@ SVC_DivRem:
 	swi 9
 	add r0, r1, #0x0
 	bx lr
-	.incbin "baserom.nds", 0x3163a4, 0x1ff54
+	.incbin "baserom.nds", 0x3163a4, 0x65F4
 
-SDK_AUTOLOAD_LIST:
-	.word 0x027E0000
-	.word 0x000000DC
-	.word 0x00000000
-
-	.word 0x037F8000
-	.word 0x0000F70C
-	.word 0x00004220
-
-	.word 0x06000000
-	.word 0x00019960
-	.word 0x00001590
-
-SDK_AUTOLOAD_LIST_END:
+	.section .ewram
+	.incbin "baserom.nds", 0x31C998, 0x19960

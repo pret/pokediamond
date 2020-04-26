@@ -1,5 +1,9 @@
 MEMORY {
 	.text (RX) : ORIGIN=0x02380000, LENGTH=0
+	.itcm (RWX) : ORIGIN=0x027E0000, LENGTH=0
+	.dtcm (RWX) : ORIGIN=0x037F8000, LENGTH=0
+	.ewram (RW) : ORIGIN=0x06000000, LENGTH=0
+	.autoload (R) : ORIGIN=0x023A92F8, LENGTH=0
 }
 
 SECTIONS {
@@ -7,4 +11,28 @@ SECTIONS {
 	.text : AT (0x0) {
 		arm7_rom.o (.text)
 	} > .text
+
+	.itcm : AT (0x1b0) {
+		arm7_rom.o (.itcm)
+	} > .itcm
+
+	.dtcm : AT (0x28C) {
+		arm7_rom.o (.dtcm)
+	} > .dtcm
+
+	.ewram : AT (0xF998) {
+		arm7_rom.o (.ewram)
+	} > .ewram
+
+	.autoload : AT (0x292F8) {
+		WRITEW SDK_AUTOLOAD_ITCM_START;
+		WRITEW SDK_AUTOLOAD_ITCM_SIZE;
+		WRITEW SDK_AUTOLOAD_ITCM_BSS_SIZE;
+		WRITEW SDK_AUTOLOAD_DTCM_START;
+		WRITEW SDK_AUTOLOAD_DTCM_SIZE;
+		WRITEW SDK_AUTOLOAD_DTCM_BSS_SIZE;
+		WRITEW SDK_AUTOLOAD_EXT_START;
+		WRITEW SDK_AUTOLOAD_EXT_SIZE;
+		WRITEW SDK_AUTOLOAD_EXT_BSS_SIZE;
+	} > .autoload
 }
