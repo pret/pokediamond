@@ -262,9 +262,10 @@ _start_ModuleParams:
 	.word SDK_STATIC_BSS_START
 	.word SDK_STATIC_BSS_END
 
-	.word 0x00000000
-	.ascii "1u" ; 31 75
-	.byte 0x02, 0x03
+	.balign 16, 0
+
+	; .version
+	.word 0x03027531
 	.word 0xdec00621
 	.byte 0xde, 0xc0, 0x06, 0x21
 	

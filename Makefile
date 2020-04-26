@@ -92,7 +92,7 @@ TOOLS_DIR = tools
 SHA1SUM = sha1sum
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
-MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
+MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -138,6 +138,7 @@ $(TOOLDIRS):
 	@$(MAKE) -C $@
 
 $(MWASMARM): patch_mwasmarm
+	@:
 
 patch_mwasmarm:
 	$(MWASMARM_PATCHER) $(MWASMARM)

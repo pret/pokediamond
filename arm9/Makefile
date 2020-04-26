@@ -89,7 +89,7 @@ LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 SHA1SUM = sha1sum
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
-MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
+MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -112,7 +112,7 @@ endif
 MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
-	# @$(SHA1SUM) -c $(TARGET).sha1
+	@$(SHA1SUM) -c $(TARGET).sha1
 
 clean: mostlyclean
 	make -C $(TOOLS_DIR)/mwasmarm_patcher clean
