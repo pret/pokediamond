@@ -118,12 +118,18 @@ all: $(ROM)
 	@$(SHA1SUM) -c $(TARGET).sha1
 
 clean: mostlyclean
+	make -C arm9 clean
+	make -C arm7 clean
 	make -C tools/mwasmarm_patcher clean
 
 mostlyclean: tidy
+	make -C arm9 mostlyclean
+	make -C arm7 mostlyclean
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 
 tidy:
+	make -C arm9 tidy
+	make -C arm7 tidy
 	$(RM) -r $(BUILD_DIR)
 
 tools: $(TOOLDIRS)

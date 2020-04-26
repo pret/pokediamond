@@ -79,7 +79,7 @@ OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm7_thumb.s -o arm7.o
-ASFLAGS = -proc arm5te
+ASFLAGS = -proc arm5te -i  ..
 CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -ir ../include
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 

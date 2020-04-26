@@ -8,8 +8,6 @@ install:
     # These files are only accessible from Travis CI IP Addresses to prevent piracy.
     - wget http://private.martmists.com/mwccarm.zip
     - wget http://private.martmists.com/baserom.nds
-    - cp baserom.nds arm7/
-    - cp baserom.nds arm9/
     - unzip mwccarm.zip
     - mv mwccarm tools
 
