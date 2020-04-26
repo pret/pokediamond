@@ -4,6 +4,8 @@ CONST_3F = 0x0000003F;
 SDK_IRQ_STACKSIZE = 0x00000400;
 
 // .data
+// FX
+FX_AtanTable_ = 0x02103A38;
 // OS
 OSi_IrqCallbackInfoIndex = 0x02106818;
 // DGT

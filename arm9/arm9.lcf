@@ -27,7 +27,8 @@ SECTIONS {
         unk_02046030.o (.text)
         unk_0208AC14.o (.text)
         unk_020AF030.o (.text)
-        /* SDK */
+        /* Nitro SDK */
+        FX_arm9.o (.text)
         GX_arm9.o (.text)
         OS_arm9.o (.text)
         MI_arm9.o (.text)
@@ -44,6 +45,10 @@ SECTIONS {
         CTRDG_arm9.o (.text)
         MATH_arm9.o (.text)
         STD_arm9.o (.text)
+        /* C standard library */
+        libc.o (.text)
+        /* MWCC library */
+        libmwcc.o (.text)
 	} > .text
 
 	.data : AT (0xEC710) {

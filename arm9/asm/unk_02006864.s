@@ -45858,12 +45858,12 @@ _0201BBA2:
 	ldrsh r1, [r2, r1]
 	ldrsh r2, [r2, r3]
 	add r0, r5, #0x0
-	bl FUN_020C3EA4
+	bl MTX_Rot22_
 	add r0, r5, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	add r3, r6, #0x0
-	blx FUN_020C3EB0
+	blx MTX_ScaleApply22
 	pop {r4-r6, pc}
 	nop
 _0201BBC8: .word 0x0000FFFF
@@ -47636,7 +47636,7 @@ _0201C862:
 	pop {r3-r7, pc}
 _0201C86A:
 	add r1, r5, #0x0
-	blx FX_Modf
+	blx FX_Atan2
 	add sp, #0x30
 	pop {r3-r7, pc}
 	.balign 4
