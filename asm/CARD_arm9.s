@@ -565,7 +565,7 @@ CARD_IdentifyBackup: ; 0x020D6DC4
 	mov r5, r0
 	ldr r0, _020D6F00 ; =0x02000C3C
 	ldr r7, _020D6F04 ; =0x021D55C0
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 _020D6DDC: ; 0x020D6DDC
 	cmp r5, #0x0
 	bne _020D6DE8
@@ -670,7 +670,7 @@ CARDi_RequestStreamCommand: ; 0x020D6F20
 	mov r9, r1
 	mov r8, r2
 	mov r7, r3
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	bl OS_DisableInterrupts
 	ldr r1, [r6, #0x114]
 	mov r5, r0
@@ -740,7 +740,7 @@ CARDi_RequestStreamCommandCore:
 	ldr r7, [r9, #0x34]
 	ldr r10, [r9, #0x30]
 	mov r6, #0x100
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	cmp r8, #0xb
 	bne _020D7048
 	bl CARD_GetBackupSectorSize
@@ -1274,7 +1274,7 @@ _020D7738:
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 	.balign 4
-_020D7748: .word 0x021D55C0
+_020D7748: .word cardi_common
 _020D774C: .word 0x01FF8000
 _020D7750: .word 0x000001FF
 _020D7754: .word 0x02106A50
@@ -1635,7 +1635,7 @@ _020D7BEC: ; 0x020D7BEC
 	mov r4, #0x0
 _020D7C04:
 	mov r0, r6
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4

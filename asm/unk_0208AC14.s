@@ -11822,7 +11822,7 @@ _02095460:
 	cmp r0, #0x1
 	beq _02095488
 	mov r0, r4
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	b _02095460
 _02095488:
 	mov r0, #0x1
@@ -11888,7 +11888,7 @@ _0209552C:
 	ldmeqia sp!, {r4-r8,pc}
 _02095548: ; 0x02095548
 	mov r0, r4
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	b _0209552C
 _02095554: ; 0x02095554
 	ldmia sp!, {r4-r8,pc}
@@ -11929,7 +11929,7 @@ _020955B0:
 	cmp r0, #0x1
 	beq _020955D8
 	mov r0, r7
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	b _020955B0
 _020955D8:
 	mov r0, r4
@@ -12286,7 +12286,7 @@ _02095A74:
 	b _0209574C
 _02095A7C:
 	ldr r0, [sp, #0xbc]
-	blx FUN_020005F2
+	blx SVC_WaitByLoop
 	b _0209574C
 _02095A88:
 	add sp, sp, #0xc4
@@ -13544,7 +13544,7 @@ FUN_02096B14: ; 0x02096B14
 	mov r6, r0
 	ldr r0, _02096B74 ; =0x02000B8C
 	mov r4, #0x0
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	mov r0, r6
 	bl FUN_02096190
 	mov r5, r0
@@ -14607,7 +14607,7 @@ FUN_02097834: ; 0x02097834
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, _02097870 ; =0x02000BC4
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	ldr r0, _02097874 ; =0x021C8CC0
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
@@ -24479,7 +24479,7 @@ FUN_0209FD94: ; 0x0209FD94
 	sub sp, sp, #0x8
 	mov r4, r0
 	ldr r0, _0209FFD4 ; =0x02000BEC
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	ldr r12, [r4, #0x14]
 	ldr r6, [r4, #0x18]
 	mov r1, #0x0
@@ -24861,7 +24861,7 @@ FUN_020A02EC:
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, _020A0318 ; =0x02000C04
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 	ldr r0, _020A031C ; =0x021D3498
 	ldr r0, [r0, #0x4]
 	ldr r0, [r0, #0xa4]
@@ -34906,24 +34906,24 @@ _020A8B7C:
 
 	arm_func_start FUN_020A8BA4
 FUN_020A8BA4: ; 0x020A8BA4
-	ldr ip, _020A8BAC ; =MATH_MD5GetHash
+	ldr ip, _020A8BAC ; =DGT_Hash1GetDigest_R
 	bx r12
 	.balign 4
-_020A8BAC: .word MATH_MD5GetHash
+_020A8BAC: .word DGT_Hash1GetDigest_R
 
 	arm_func_start FUN_020A8BB0
 FUN_020A8BB0: ; 0x020A8BB0
-	ldr ip, _020A8BB8 ; =MATH_MD5Update
+	ldr ip, _020A8BB8 ; =DGT_Hash1SetSource
 	bx r12
 	.balign 4
-_020A8BB8: .word MATH_MD5Update
+_020A8BB8: .word DGT_Hash1SetSource
 
 	arm_func_start FUN_020A8BBC
 FUN_020A8BBC: ; 0x020A8BBC
-	ldr ip, _020A8BC4 ; =MATH_MD5Init
+	ldr ip, _020A8BC4 ; =DGT_Hash1Reset
 	bx r12
 	.balign 4
-_020A8BC4: .word MATH_MD5Init
+_020A8BC4: .word DGT_Hash1Reset
 
 	arm_func_start FUN_020A8BC8
 FUN_020A8BC8: ; 0x020A8BC8
@@ -40632,7 +40632,7 @@ FUN_020AD93C: ; 0x020AD93C
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	ldr r0, _020ADA78 ; =0x02000C1C
-	bl FUN_02000B60
+	bl OSi_ReferSymbol
 _020AD94C: ; 0x020AD94C
 	cmp r4, #0x0
 	moveq r0, #0x0

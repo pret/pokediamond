@@ -54,15 +54,15 @@ MATH_CalcMD5: ; 0x020DDCE4
 	add r0, sp, #0x0
 	mov r5, r1
 	mov r4, r2
-	bl MATH_MD5Init
+	bl DGT_Hash1Reset
 _020DDD00: ; 0x020DDD00
 	add r0, sp, #0x0
 	mov r1, r5
 	mov r2, r4
-	bl MATH_MD5Update
+	bl DGT_Hash1SetSource
 	add r1, sp, #0x0
 	mov r0, r6
-	bl MATH_MD5GetHash
+	bl DGT_Hash1GetDigest_R
 	add sp, sp, #0x58
 	ldmia sp!, {r4-r6,lr}
 	bx lr
