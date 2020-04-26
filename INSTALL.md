@@ -1,6 +1,6 @@
 ### 1. Copy baserom(s) into root folder
 
-Put a clean copy of Pokemon Diamond (US) nds rom at `./baserom.nds`.
+Put clean copies of Pokemon Diamond (US) nds rom at `./baserom.nds`, `./arm9/baserom.nds`, and `./arm7/baserom.nds`. All three copies are required and must be identical.
 
 ### 2. Install MWCC compiler
 
