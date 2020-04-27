@@ -55,7 +55,8 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
 
 # Overlay modules
-BIN_FILES := $(wildcard files/*.__AT_*)
+# FIXME: lcf doesn't like this
+# BIN_FILES := $(wildcard files/*.__AT_*)
 
 ##################### Compiler Options #######################
 
