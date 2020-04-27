@@ -147,6 +147,7 @@ void sha1_process_block (const unsigned char * block, uint32_t * state) {
 // ax6 code end
 // ---------------------------------------------------------
 
+__attribute__((format(printf, 1, 2)))
 void fatal_printf(char *str, ...) {
     va_list args;
     va_start(args, str);
@@ -167,16 +168,45 @@ int get_file_size (FILE * fp) {
 #define SHA_DIGEST_LENGTH 20
 
 void print_help(void) {
-    printf("mwasmarm patcher usage: input (example: mwasmarm_patcher mwasmarm.exe)\n");
+    printf("Usage:\n"
+           "\tmwasmarm_patcher [OPTIONS] FILENAME\n\n"
+           "Arguments:\n"
+           "\tFILENAME: path to MWASMARM.exe program\n\n"
+           "OPTIONS:\n"
+           "\t-q/--quietly: Suppress verbose output\n"
+           "\t-h/--help: Print this message and exit\n");
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
+    int quietly = 0;
+    char* filename = NULL;
+    for (int i = 1; i < argc; i++)
+    {
+        if (argv[i][0] == '-') {
+            if (strcmp(argv[i], "-q") == 0 || strcmp(argv[i], "--quietly") == 0)
+                quietly = 1;
+            else if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
+                print_help();
+                exit(0);
+            }
+            else
+            {
+                print_help();
+                fatal_printf("Unrecognized option: %s\n", argv[i]);
+            }
+        } else if (filename != NULL) {
+            print_help();
+            fatal_printf("Excess filename supplied\n");
+        }
+        else
+            filename = argv[i];
+    }
+    if (filename == NULL) {
         print_help();
-        return 1;
+        fatal_printf("Missing required argument: filename\n");
     } else {
         // Open the file and read it's sha1 hash.
-        FILE *f = fopen(argv[1], "rb+");
+        FILE *f = fopen(filename, "rb+");
         if (f == NULL) {
             fatal_printf("ERROR: No file detected\n");
         }
@@ -205,7 +235,7 @@ int main(int argc, char *argv[]) {
         for (int i = 0; gPatchDefs[i].sha1before != NULL; i++) {
             // check if already patched for the current loop.
             if (!strcmp(buf, gPatchDefs[i].sha1after)) {
-                printf("Supported patched version detected (%s): no action needed\n", gPatchDefs[i].version);
+                if (!quietly) printf("Supported patched version detected (%s): no action needed\n", gPatchDefs[i].version);
                 return 0;
             } else if(!strcmp(buf, gPatchDefs[i].sha1before)) {
                 // we found an unpatched version: apply the patches.
@@ -213,7 +243,7 @@ int main(int argc, char *argv[]) {
                     fseek(f, gPatchDefs[i].patches[j].offsetPatch, SEEK_SET);
                     fputc(gPatchDefs[i].patches[j].newByte, f);
                 }
-                printf("Supported unpatched version detected (%s): assembler patched\n", gPatchDefs[i].version);
+                if (!quietly) printf("Supported unpatched version detected (%s): assembler patched\n", gPatchDefs[i].version);
                 return 0;
             }
         }

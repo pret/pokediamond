@@ -54,6 +54,10 @@ S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
 
+# Overlay modules
+# FIXME: lcf doesn't like this
+# BIN_FILES := $(wildcard files/*.__AT_*)
+
 ##################### Compiler Options #######################
 
 MWCCVERSION := 2.0/base
@@ -89,7 +93,7 @@ LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 SHA1SUM = sha1sum
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
-MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
+MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -112,7 +116,7 @@ endif
 MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
-	# @$(SHA1SUM) -c $(TARGET).sha1
+	@$(SHA1SUM) -c $(TARGET).sha1
 
 clean: mostlyclean
 	make -C $(TOOLS_DIR)/mwasmarm_patcher clean
@@ -144,8 +148,8 @@ $(BUILD_DIR)/%.o: %.s
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
-	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES)
+$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
+	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill=0xFF $< $@
@@ -167,6 +171,8 @@ DUMMY != mkdir -p $(ALL_DIRS)
 
 %.png: ;
 %.pal: ;
+
+$(BIN_FILES): ;
 
 $(BUILD_DIR)/data/icon.o: graphics/icon.4bpp graphics/icon.gbapal
 
