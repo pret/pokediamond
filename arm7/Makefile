@@ -79,9 +79,9 @@ OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm7_thumb.s -o arm7.o
-ASFLAGS = -proc arm5te -i  ..
-CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -ir ../include
-LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
+ASFLAGS = -proc arm4t -i  ..
+CFLAGS = -O4,p -proc v4t -thumb -fp soft -lang c99 -Cpp_exceptions off -ir ../include
+LDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
 
@@ -89,7 +89,7 @@ LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 SHA1SUM = sha1sum
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
-MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
+MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -112,7 +112,7 @@ endif
 MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
-	# @$(SHA1SUM) -c $(TARGET).sha1
+	@$(SHA1SUM) -c $(TARGET).sha1
 
 clean: mostlyclean
 	make -C $(TOOLS_DIR)/mwasmarm_patcher clean

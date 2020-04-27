@@ -6,8 +6,7 @@ tools/mwccarm/**
 
 # Build folder
 build/**
-arm7/build/**
-arm9/build/**
+arm*/build/**
 
 # CLion folders
 .idea/
@@ -23,3 +22,7 @@ cmake-build-debug/
 *.4bpp
 *.lz
 *.gbapal
+
+# For asmdiff
+arm*/baserom.*
+*.dump

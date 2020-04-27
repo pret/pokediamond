@@ -255,6 +255,7 @@ OSi_ReferSymbol: ; 0x02000B60
 NitroStartUp: ; 0x02000B64
 	bx lr
 
+	.global _start_ModuleParams
 _start_ModuleParams:
 	.word SDK_AUTOLOAD_LIST
 	.word SDK_AUTOLOAD_LIST_END
@@ -262,11 +263,13 @@ _start_ModuleParams:
 	.word SDK_STATIC_BSS_START
 	.word SDK_STATIC_BSS_END
 
-	.word 0x00000000
-	.ascii "1u" ; 31 75
-	.byte 0x02, 0x03
-	.word 0xdec00621
-	.byte 0xde, 0xc0, 0x06, 0x21
+	.balign 16, 0
+
+	.section .version
+	; NITRO SDK 3.2.30001
+	.word (3 << 24) | (2 << 16) | 30001
+	.word 0xdec00621 ; Nitro code BE
+	.word 0x2106c0de ; Nitro code LE
 	
 	# strings
 	.balign 4
