@@ -2554,8 +2554,8 @@
 .extern FUN_020C3910
 .extern FUN_020C3980
 .extern FUN_020C39CC
-.extern FUN_020C3EA4
-.extern FUN_020C3EB0
+.extern MTX_Rot22_
+.extern MTX_ScaleApply22
 .extern FUN_020C6034
 .extern FUN_020C605C
 .extern FUN_021D74E0
@@ -3001,7 +3001,7 @@
 .extern FX_GetDivResultFx64c
 .extern FX_Init
 .extern FX_InvAsync
-.extern FX_Modf
+.extern FX_Atan2
 .extern FX_Sqrt
 .extern G2S_GetBG0CharPtr
 .extern G2S_GetBG1CharPtr

@@ -1,157 +1,94 @@
 /* arm7_rom.s TODO: Disassemble */
 	.include "asm/macros.inc"
-	.global ARM7AutoLoad
+	.include "global.inc"
 
-	.section .text
-	arm_func_start _start
-
-_start:
-	mov	ip, #67108864	; 0x4000000
-	str	ip, [ip, #520]	; 0x208
-	ldr	r1, _23800cc
-	mov	r0, #58720256	; 0x3800000
-	cmp	r0, r1
-	movpl	r1, r0
-	ldr	r2, _23800d0
-	mov	r0, #0
-_02380020:
-	cmp	r1, r2
-	stmltia	r1!, {r0}
-	blt	_02380020
-	mov	r0, #19
-	msr	CPSR_c, r0
-	ldr	sp, _23800d4
-	mov	r0, #18
-	msr	CPSR_c, r0
-	ldr	r0, _23800d8
-	mov	sp, r0
-	ldr	r1, _23800dc
-	sub	r1, r0, r1
-	mov	r0, #31
-	msr	CPSR_fsxc, r0
-	sub	sp, r1, #4
-	ldr	r0, _23800e0
-	ldr	r1, _23800e4
-	add	r2, r1, #352	; 0x160
-_02380068:
-	ldr	r3, [r0], #4
-	str	r3, [r1], #4
-	cmp	r1, r2
-	bmi	_02380068
-	ldr	r0, _23800e8
-	add	r2, r1, #32
-_02380080:
-	ldr	r3, [r0], #4
-	str	r3, [r1], #4
-	cmp	r1, r2
-	bmi	_02380080
-	bl	FUN_2380100
-	ldr	r0, _23800ec
-	ldr	r1, [r0, #12]
-	ldr	r2, [r0, #16]
-	mov	r0, #0
-_023800a4:
-	cmp	r1, r2
-	strcc	r0, [r1], #4
-	bcc	_023800a4
-	bl	FUN_238015C
-	ldr	r1, _23800f0
-	ldr	r0, _23800f4
-	str	r0, [r1]
-	ldr	r1, _23800f8
-	ldr	lr, _23800fc
-	bx	r1
-_23800cc:	.word FUN_023801B0
-_23800d0:	.word 0x0380ff00
-_23800d4:	.word 0x0380ffc0
-_23800d8:	.word 0x0380ff80
-_23800dc:	.word 0x00000400
-_23800e0:	.word 0x023fe940
-_23800e4:	.word 0x027ffa80
-_23800e8:	.word 0x023fe904
-_23800ec:	.word _2380198
-_23800f0:	.word 0x0380fffc
-_23800f4:	.word 0x037f853c
-_23800f8:	.word 0x037f8468
-_23800fc:	.word 0xffff0000
-	arm_func_end _start
-
-	arm_func_start FUN_2380100
-FUN_2380100:
-	ldr	r0, _2380154
-	ldr	r1, [r0]
-	ldr	r2, [r0, #4]
-	ldr	r3, [r0, #8]
-_02380110:
-	cmp	r1, r2
-	beq	_02380150
-	ldr	r4, [r1], #4
-	ldr	r5, [r1], #4
-	add	r6, r4, r5
-_02380124:
-	cmp	r4, r6
-	ldrmi	r7, [r3], #4
-	strmi	r7, [r4], #4
-	bmi	_02380124
-	ldr	r5, [r1], #4
-	add	r6, r4, r5
-	mov	r7, #0
-_02380140:
-	cmp	r4, r6
-	strcc	r7, [r4], #4
-	bcc	_02380140
-	beq	_02380110
-_02380150:
-	b	ARM7AutoLoad
-_2380154:	.word _2380198
-ARM7AutoLoad:
-	bx	lr
-	arm_func_end FUN_2380100
-
-	arm_func_start FUN_238015C
-FUN_238015C:
-	mov	r0, #1
+	.section .itcm
+	arm_func_start FUNC_027E0000
+FUNC_027E0000: ; 0x027E0000 load at 0x023801B0
+	stmdb	sp!, {r4, r5, r6, lr}
+	ldr	r6, [pc, #180]	; 0x270
+	ldr	r3, [pc, #180]	; 0x274
+	ldr	r0, [pc, #180]	; 0x278
+	b	_027E00B0
+_027E0014:
+	mov	r2, r3
+	ldr	r5, [r3, #4]
+	add	r1, r3, #8
+	add	r3, r3, #12
+	ldr	r4, [r1]
+	ldr	r1, [r2]
+	cmp	r1, #100663296	; 0x6000000
+	bne	_027E00AC
+	ldr	r3, [pc, #144]	; 0x27c
+	ldr	r0, [pc, #144]	; 0x280
+	str	r3, [r0]
+	add	r2, r5, r4
+	ldr	r0, [pc, #136]	; 0x284
+	str	r2, [r0]
+	ldr	r1, [pc, #132]	; 0x288
+	add	r0, r3, r2
+	cmp	r1, r0
+	beq	_027E0060
+	bl	FUN_037FB1F0
+_027E0060:
+	ldr	r0, [pc, #104]	; 0x280
+	ldr	r3, [r0]
+	mov	r2, #0
+	mov	r1, r5, lsr #2
+	b	_027E0080
+_027E0074:
+	ldr	r0, [r6], #4
+	str	r0, [r3], #4
+	add	r2, r2, #1
+_027E0080:
+	cmp	r2, r1
+	bcc	_027E0074
 	mov	r1, #0
-	ldr	r2, _2380194
-	sub	r3, r2, #4194304	; 0x400000
-_0238016c:
-	strh	r1, [r2]
-	ldrh	ip, [r3]
-	cmp	r1, ip
-	movne	r0, #2
-	bne	_0238018c
+	mov	r2, r4, lsr #2
+	mov	r0, r1
+	b	_027E00A0
+_027E0098:
+	str	r0, [r3], #4
 	add	r1, r1, #1
-	cmp	r1, #2
-	bne	_0238016c
-_0238018c:
-	strh	r0, [r2]
+_027E00A0:
+	cmp	r1, r2
+	bcc	_027E0098
+	b	_027E00B8
+_027E00AC:
+	add	r6, r6, r5
+_027E00B0:
+	cmp	r3, r0
+	bne	_027E0014
+_027E00B8:
+	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
-_2380194:	.word 0x027ffffa
-_2380198:
-	.word UNK_23A92F8
-	.word UNK_23A931C
-	.word FUN_023801B0
-	.word FUN_023801B0
-	.word FUN_023801B0
-	.word 0x00000000
-	arm_func_end FUN_238015C
+_027E00C0: .word 0x023801B0
+_027E00C4: .word 0x023A92F8
+_027E00C8: .word 0x023A931C
+_027E00CC: .word 0x027E00DC
+_027E00D0: .word 0x0380A3F4
+_027E00D4: .word 0x0380A3FC
+_027E00D8: .word 0x027FAFCC
 
-	arm_func_start FUN_023801B0
-FUN_023801B0:
-	.incbin "baserom.nds", 0x30D1B0, 0x91B0
+	.section .dtcm
+	.incbin "baserom.nds", 0x30D28C, 0x31F0
 
-	thumb_func_start ROM7_SVC_SoftReset
-ROM7_SVC_SoftReset: ; 0x02389360
+	arm_func_start FUN_037FB1F0
+FUN_037FB1F0: ; 0x037FB1F0
+	.incbin "baserom.nds", 0x31047C, 0x5EE4
+
+	thumb_func_start SVC_SoftReset
+SVC_SoftReset: ; 0x02389360
 	swi 0
 	bx lr
 
-	thumb_func_start ROM7_SVC_WaitByLoop
-ROM7_SVC_WaitByLoop: ; 0x02389364
+	thumb_func_start SVC_WaitByLoop
+SVC_WaitByLoop: ; 0x02389364
 	swi 3
 	bx lr
 
-	thumb_func_start ROM7_SVC_WaitIntr
-ROM7_SVC_WaitIntr: ; 0x02389368
+	thumb_func_start SVC_WaitIntr
+SVC_WaitIntr: ; 0x02389368
 	ldr r2, =0x04000000
 	mov ip, r2
 	mov r2, #0x0
@@ -159,54 +96,52 @@ ROM7_SVC_WaitIntr: ; 0x02389368
 	bx lr
 	.pool
 
-	thumb_func_start ROM7_SVC_WaitVBlankIntr
-ROM7_SVC_WaitVBlankIntr:
+	thumb_func_start SVC_WaitVBlankIntr
+SVC_WaitVBlankIntr:
 	mov r2, #0x0
 	swi 5
 	bx lr
 
-	non_word_aligned_thumb_func_start ROM7_SVC_Halt
-ROM7_SVC_Halt:
+	non_word_aligned_thumb_func_start SVC_Halt
+SVC_Halt:
 	swi 6
 	bx lr
 
-	non_word_aligned_thumb_func_start ROM7_SVC_Stop
-ROM7_SVC_Stop:
+	non_word_aligned_thumb_func_start SVC_Stop
+SVC_Stop:
 	swi 7
 	bx lr
 
-	non_word_aligned_thumb_func_start ROM7_SVC_SoundBias
-ROM7_SVC_SoundBias:
+	non_word_aligned_thumb_func_start SVC_SoundBias
+SVC_SoundBias:
 	swi 8
 	bx lr
 
-	non_word_aligned_thumb_func_start ROM7_SVC_SoundBiasSet
-ROM7_SVC_SoundBiasSet:
+	non_word_aligned_thumb_func_start SVC_SoundBiasSet
+SVC_SoundBiasSet:
 	add r1, r0, #0x0
 	mov r0, #0x1
 	swi 8
 	bx lr
 
-	non_word_aligned_thumb_func_start ROM7_SVC_SoundBiasReset
-ROM7_SVC_SoundBiasReset:
+	non_word_aligned_thumb_func_start SVC_SoundBiasReset
+SVC_SoundBiasReset:
 	add r1, r0, #0x0
 	mov r0, #0x0
 	swi 8
 	bx lr
 
-	non_word_aligned_thumb_func_start ROM7_SVC_Div
-ROM7_SVC_Div:
+	non_word_aligned_thumb_func_start SVC_Div
+SVC_Div:
 	swi 9
 	bx lr
 
-	non_word_aligned_thumb_func_start ROM7_SVC_DivRem
-ROM7_SVC_DivRem:
+	non_word_aligned_thumb_func_start SVC_DivRem
+SVC_DivRem:
 	swi 9
 	add r0, r1, #0x0
 	bx lr
-	.incbin "baserom.nds", 0x3163a4, 0x1ff54
+	.incbin "baserom.nds", 0x3163a4, 0x65F4
 
-UNK_23A92F8:
-	.incbin "baserom.nds", 0x3362F8, 0x24
-
-UNK_23A931C:
+	.section .ewram
+	.incbin "baserom.nds", 0x31C998, 0x19960
