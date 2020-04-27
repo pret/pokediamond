@@ -3,6 +3,7 @@ MEMORY {
 	.sbss (RWX) : ORIGIN=AFTER(.text), LENGTH=0
 	.itcm (RWX) : ORIGIN=0x027E0000, LENGTH=0
 	.dtcm (RWX) : ORIGIN=0x037F8000, LENGTH=0
+	.dtcm.bss (RWX) : ORIGIN=0x0380770C, LENGTH=0
 	.ewram (RW) : ORIGIN=0x06000000, LENGTH=0
 	.autoload (R) : ORIGIN=0x023A92F8, LENGTH=0
 }
@@ -24,7 +25,10 @@ SECTIONS {
 	} > .itcm
 
 	.dtcm : AT (0x28C) {
-		arm7_rom.o (.dtcm)
+		dtcm.o (.text)
+		libsyscall.o (.text)
+		dtcm2.o (.text)
+		dtcm_data.o (.data)
 	} > .dtcm
 
 	.ewram : AT (0xF998) {
