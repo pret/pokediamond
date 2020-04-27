@@ -6,6 +6,7 @@
 #include "os_arena.h"
 #include "os_protectionRegion.h"
 
+extern u32 OS_GetConsoleType();
 extern BOOL OSi_MainExArenaEnabled;
 extern BOOL OSi_Initialized;  // TODO: located at 0x021d36f0
 extern u32 SDK_MAIN_ARENA_LO; // TODO: technically this should be defined in the lcf
