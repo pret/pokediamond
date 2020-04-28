@@ -3,8 +3,8 @@
 	.section	.text
 	.balign	4, 0
 
-	arm_func_start FUNC_06000000
-FUNC_06000000: ; 0x06000000
+	arm_func_start FUN_06000000
+FUN_06000000: ; 0x06000000
 	ldr	r1, _0600002C	; =_0601A960
 	ldr	r2, [r1, #1360]	; 0x550
 	strh	r0, [r2, #50]	; 0x32
@@ -18,8 +18,8 @@ FUNC_06000000: ; 0x06000000
 	bx	lr
 _0600002C:	.word	_0601A960
 
-	arm_func_start FUNC_06000030
-FUNC_06000030: ; 0x06000030
+	arm_func_start FUN_06000030
+FUN_06000030: ; 0x06000030
 	ldr	r1, _0600005C	; =_0601A960
 	ldr	r2, [r1, #1360]	; 0x550
 	strh	r0, [r2, #48]	; 0x30
@@ -33,8 +33,8 @@ FUNC_06000030: ; 0x06000030
 	bx	lr
 _0600005C:	.word	_0601A960
 
-	arm_func_start FUNC_06000060
-FUNC_06000060: ; 0x06000060
+	arm_func_start FUN_06000060
+FUN_06000060: ; 0x06000060
 	ldr	r1, _060000AC	; =_0601A960
 	ldr	r2, [r1, #1360]	; 0x550
 	strh	r0, [r2, #54]	; 0x36
@@ -56,8 +56,8 @@ FUNC_06000060: ; 0x06000060
 	bx	lr
 _060000AC:	.word	_0601A960
 
-	arm_func_start FUNC_060000B0
-FUNC_060000B0: ; 0x060000B0
+	arm_func_start FUN_060000B0
+FUN_060000B0: ; 0x060000B0
 	ldr	r1, _060000FC	; =_0601A960
 	ldr	r2, [r1, #1360]	; 0x550
 	strh	r0, [r2, #48]	; 0x30
@@ -79,8 +79,8 @@ FUNC_060000B0: ; 0x060000B0
 	bx	lr
 _060000FC:	.word	_0601A960
 
-	arm_func_start FUNC_06000100
-FUNC_06000100: ; 0x06000100
+	arm_func_start FUN_06000100
+FUN_06000100: ; 0x06000100
 	ldr	r0, _06000130	; =_0601A960
 	ldr	r1, [r0, #1360]	; 0x550
 	mov	r0, #0
@@ -95,11 +95,11 @@ FUNC_06000100: ; 0x06000100
 	bx	lr
 _06000130:	.word	_0601A960
 
-	arm_func_start FUNC_06000134
-FUNC_06000134: ; 0x06000134
+	arm_func_start FUN_06000134
+FUN_06000134: ; 0x06000134
 	stmdb	sp!, {r4, lr}
 	mov	r4, #0
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	ldr	r1, _060001A0	; =_0601A960
 	ldr	r2, [r1, #1356]	; 0x54c
 	cmp	r2, #0
@@ -124,131 +124,131 @@ _06000188:
 	cmp	ip, #32
 	blt	_06000158
 _06000190:
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060001A0:	.word	_0601A960
 
-	arm_func_start FUNC_060001A4
-FUNC_060001A4: ; 0x060001A4
+	arm_func_start FUN_060001A4
+FUN_060001A4: ; 0x060001A4
 	ldr	pc, _060001A8	; =FUN_037FB05C
 _060001A8:	.word	FUN_037FB05C
 
-	arm_func_start FUNC_060001AC
-FUNC_060001AC: ; 0x060001AC
+	arm_func_start FUN_060001AC
+FUN_060001AC: ; 0x060001AC
 	ldr	pc, _060001B0	; =FUN_037FB070
 _060001B0:	.word	FUN_037FB070
 
-	arm_func_start FUNC_060001B4
-FUNC_060001B4: ; 0x060001B4
+	arm_func_start FUN_060001B4
+FUN_060001B4: ; 0x060001B4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
 	mov	r4, r2
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	strh	r6, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUNC_060001E8
-FUNC_060001E8: ; 0x060001E8
+	arm_func_start FUN_060001E8
+FUN_060001E8: ; 0x060001E8
 	ldr	pc, _060001EC	; =FUN_03807534
 _060001EC:	.word	FUN_03807534
 
-	arm_func_start FUNC_060001F0
-FUNC_060001F0: ; 0x060001F0
+	arm_func_start FUN_060001F0
+FUN_060001F0: ; 0x060001F0
 	ldr	pc, _060001F4	; =FUN_03807590
 _060001F4:	.word	FUN_03807590
 
-	arm_func_start FUNC_060001F8
-FUNC_060001F8: ; 0x060001F8
+	arm_func_start FUN_060001F8
+FUN_060001F8: ; 0x060001F8
 	ldr	r0, _06000200	; =_0380B808
 	bx	lr
 _06000200:	.word	_0380B808
 
-	arm_func_start FUNC_06000204
-FUNC_06000204: ; 0x06000204
+	arm_func_start FUN_06000204
+FUN_06000204: ; 0x06000204
 	ldr	r0, _0600020C	; =_0380B764
 	bx	lr
 _0600020C:	.word	_0380B764
 
-	arm_func_start FUNC_06000210
-FUNC_06000210: ; 0x06000210
+	arm_func_start FUN_06000210
+FUN_06000210: ; 0x06000210
 	stmdb	sp!, {r4, lr}
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
-	bl	FUNC_06000270
+	bl	FUN_06000270
 	ldr	r0, _06000264	; =_0380B808
 	ldr	r1, _06000268	; =_0601A960
 	ldr	r1, [r1, #1400]	; 0x578
-	bl	FUNC_06000278
-	bl	FUNC_06008D18
+	bl	FUN_06000278
+	bl	FUN_06008D18
 	ldr	r1, _06000268	; =_0601A960
 	ldr	r1, [r1, #1404]	; 0x57c
-	bl	FUNC_06000278
+	bl	FUN_06000278
 	ldr	r0, _0600026C	; =_0380B764
 	ldr	r1, _06000268	; =_0601A960
 	ldr	r1, [r1, #1408]	; 0x580
-	bl	FUNC_06000278
-	bl	FUNC_06000280
+	bl	FUN_06000278
+	bl	FUN_06000280
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06000264:	.word	_0380B808
 _06000268:	.word	_0601A960
 _0600026C:	.word	_0380B764
 
-	arm_func_start FUNC_06000270
-FUNC_06000270: ; 0x06000270
+	arm_func_start FUN_06000270
+FUN_06000270: ; 0x06000270
 	ldr	pc, _06000274	; =FUN_037F8D88
 _06000274:	.word	FUN_037F8D88
 
-	arm_func_start FUNC_06000278
-FUNC_06000278: ; 0x06000278
+	arm_func_start FUN_06000278
+FUN_06000278: ; 0x06000278
 	ldr	pc, _0600027C	; =FUN_037F8EB8
 _0600027C:	.word	FUN_037F8EB8
 
-	arm_func_start FUNC_06000280
-FUNC_06000280: ; 0x06000280
+	arm_func_start FUN_06000280
+FUN_06000280: ; 0x06000280
 	ldr	pc, _06000284	; =FUN_037F8D50
 _06000284:	.word	FUN_037F8D50
 
-	arm_func_start FUNC_06000288
-FUNC_06000288: ; 0x06000288
+	arm_func_start FUN_06000288
+FUN_06000288: ; 0x06000288
 	stmdb	sp!, {r4, lr}
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
-	bl	FUNC_06000270
+	bl	FUN_06000270
 	ldr	r0, _060002DC	; =_0380B764
 	ldr	r1, _060002E0	; =_0601A960
 	ldr	r1, [r1, #1420]	; 0x58c
-	bl	FUNC_06000278
-	bl	FUNC_06008D18
+	bl	FUN_06000278
+	bl	FUN_06008D18
 	ldr	r1, _060002E0	; =_0601A960
 	ldr	r1, [r1, #1416]	; 0x588
-	bl	FUNC_06000278
+	bl	FUN_06000278
 	ldr	r0, _060002E4	; =_0380B808
 	ldr	r1, _060002E0	; =_0601A960
 	ldr	r1, [r1, #1412]	; 0x584
-	bl	FUNC_06000278
-	bl	FUNC_06000280
+	bl	FUN_06000278
+	bl	FUN_06000280
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060002DC:	.word	_0380B764
 _060002E0:	.word	_0601A960
 _060002E4:	.word	_0380B808
 
-	arm_func_start FUNC_060002E8
-FUNC_060002E8: ; 0x060002E8
+	arm_func_start FUN_060002E8
+FUN_060002E8: ; 0x060002E8
 	ldr	r1, _0600034C	; =_0601A960
 	ldr	r1, [r1, #1356]	; 0x54c
 	ldrb	r1, [r1, #83]	; 0x53
@@ -277,8 +277,8 @@ _06000324:
 	bx	lr
 _0600034C:	.word	_0601A960
 
-	arm_func_start FUNC_06000350
-FUNC_06000350: ; 0x06000350
+	arm_func_start FUN_06000350
+FUN_06000350: ; 0x06000350
 	mov	r2, #0
 	mov	r3, r2
 	ldr	r1, _06000384	; =_06019960
@@ -291,13 +291,13 @@ _0600035C:
 	cmp	r3, #32
 	blt	_0600035C
 	mov	r0, r2, lsr #5
-	ldr	ip, _06000388	; =FUNC_060002E8
+	ldr	ip, _06000388	; =FUN_060002E8
 	bx	ip
 _06000384:	.word	_06019960
-_06000388:	.word	FUNC_060002E8
+_06000388:	.word	FUN_060002E8
 
-	arm_func_start FUNC_0600038C
-FUNC_0600038C: ; 0x0600038C
+	arm_func_start FUN_0600038C
+FUN_0600038C: ; 0x0600038C
 	mov	r3, #0
 	ldr	r2, _060003BC	; =_06019960
 _06000394:
@@ -314,8 +314,8 @@ _06000394:
 _060003BC:	.word	_06019960
 _060003C0:	.word	_0601A960
 
-	arm_func_start FUNC_060003C4
-FUNC_060003C4: ; 0x060003C4
+	arm_func_start FUN_060003C4
+FUN_060003C4: ; 0x060003C4
 	ldr	r1, _060003FC	; =_0601A960
 	ldr	r3, [r1, #1396]	; 0x574
 	ldr	r2, _06000400	; =_0601AEB4
@@ -334,8 +334,8 @@ _060003FC:	.word	_0601A960
 _06000400:	.word	_0601AEB4
 _06000404:	.word	0x027FFF98
 
-	arm_func_start FUNC_06000408
-FUNC_06000408: ; 0x06000408
+	arm_func_start FUN_06000408
+FUN_06000408: ; 0x06000408
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -344,7 +344,7 @@ FUNC_06000408: ; 0x06000408
 	add	r0, r4, #224	; 0xe0
 	add	r1, r5, #16
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r0, #7
 	strh	r0, [r5, #22]
 	add	r0, r4, #256	; 0x100
@@ -362,7 +362,7 @@ FUNC_06000408: ; 0x06000408
 	strh	r0, [r5, #34]	; 0x22
 	add	r1, r5, #36	; 0x24
 	mov	r2, #80	; 0x50
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r0, #0
 	strh	r0, [r5, #158]	; 0x9e
 	b	_060004A8
@@ -374,7 +374,7 @@ _06000480:
 	add	r0, r4, #412	; 0x19c
 	add	r1, r5, #36	; 0x24
 	mov	r2, #80	; 0x50
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r0, #1
 	strh	r0, [r5, #158]	; 0x9e
 _060004A8:
@@ -394,30 +394,30 @@ _060004A8:
 	mov	r0, #0
 	add	r1, r5, #124	; 0x7c
 	mov	r2, #32
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	b	_06000510
 _060004F0:
 	mov	r0, #0
 	add	r1, r5, #124	; 0x7c
 	mov	r2, #8
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	ldr	r0, _06000550	; =0x0000FFFF
 	add	r1, r5, #132	; 0x84
 	mov	r2, #24
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 _06000510:
 	add	r0, r4, #256	; 0x100
 	ldrh	r0, [r0, #238]	; 0xee
 	strh	r0, [r5, #156]	; 0x9c
 	mov	r0, r5
-	bl	FUNC_06002810
+	bl	FUN_06002810
 	ldrh	r2, [r0, #4]
 	cmp	r2, #0
 	moveq	r0, #1
 	beq	_06000544
 	mov	r0, r6
 	mov	r1, #512	; 0x200
-	bl	FUNC_060001B4
+	bl	FUN_060001B4
 	mov	r0, #0
 _06000544:
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -425,18 +425,18 @@ _06000544:
 _0600054C:	.word	_0601A960
 _06000550:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06000554
-FUNC_06000554: ; 0x06000554
+	arm_func_start FUN_06000554
+FUN_06000554: ; 0x06000554
 	ldr	pc, _06000558	; =FUN_037FB478
 _06000558:	.word	FUN_037FB478
 
-	arm_func_start FUNC_0600055C
-FUNC_0600055C: ; 0x0600055C
+	arm_func_start FUN_0600055C
+FUN_0600055C: ; 0x0600055C
 	ldr	pc, _06000560	; =FUN_037FB300
 _06000560:	.word	FUN_037FB300
 
-	arm_func_start FUNC_06000564
-FUNC_06000564: ; 0x06000564
+	arm_func_start FUN_06000564
+FUN_06000564: ; 0x06000564
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, r0
@@ -477,14 +477,14 @@ FUNC_06000564: ; 0x06000564
 	add	r1, r2, #16
 	add	r2, r3, #1
 	bic	r2, r2, #1
-	bl	FUNC_06000554
+	bl	FUN_06000554
 _06000608:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_06000614
-FUNC_06000614: ; 0x06000614
+	arm_func_start FUN_06000614
+FUN_06000614: ; 0x06000614
 	ldr	r1, _0600068C	; =_0601A960
 	ldr	r1, [r1, #1360]	; 0x550
 	add	r3, r1, #224	; 0xe0
@@ -518,22 +518,22 @@ _06000684:
 	bx	lr
 _0600068C:	.word	_0601A960
 
-	arm_func_start FUNC_06000690
-FUNC_06000690: ; 0x06000690
+	arm_func_start FUN_06000690
+FUN_06000690: ; 0x06000690
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	cmp	r2, #0
 	bne	_060006E8
 	ldr	r0, _060006F0	; =_060199E8
 	mov	r2, #0
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 	cmp	r0, #0
 	bne	_060006E8
 	ldr	r0, _060006F4	; =_0601A960
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_060006E8
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	ldrh	r1, [r4]
 	strh	r1, [r0]
 	mov	r1, #8
@@ -541,46 +541,46 @@ FUNC_06000690: ; 0x06000690
 	mov	r1, #0
 	strh	r1, [r0, #4]
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _060006E8:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060006F0:	.word	_060199E8
 _060006F4:	.word	_0601A960
 
-	arm_func_start FUNC_060006F8
-FUNC_060006F8: ; 0x060006F8
+	arm_func_start FUN_060006F8
+FUN_060006F8: ; 0x060006F8
 	ldr	pc, _060006FC	; =FUN_037F9924
 _060006FC:	.word	FUN_037F9924
 
-	arm_func_start FUNC_06000700
-FUNC_06000700: ; 0x06000700
+	arm_func_start FUN_06000700
+FUN_06000700: ; 0x06000700
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r1, r0
 	ldr	r0, _06000778	; =_06019960
 	mov	r2, #1
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 	ldr	r0, _0600077C	; =_060199B8
 	add	r1, sp, #0
 	mov	r2, #1
-	bl	FUNC_06000780
+	bl	FUN_06000780
 	ldr	r1, [sp]
 	ldrh	r0, [r1, #14]
 	add	r0, r1, r0, lsl #1
 	ldrh	r0, [r0, #20]
 	cmp	r0, #14
 	bne	_06000768
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #19
 	strh	r1, [r0, #2]
 	mov	r1, #24
 	strh	r1, [r0, #4]
-	bl	FUNC_060001F0
-	bl	FUNC_06000788
-	bl	FUNC_06000790
+	bl	FUN_060001F0
+	bl	FUN_06000788
+	bl	FUN_06000790
 _06000768:
 	ldr	r0, [sp]
 	add	sp, sp, #4
@@ -589,23 +589,23 @@ _06000768:
 _06000778:	.word	_06019960
 _0600077C:	.word	_060199B8
 
-	arm_func_start FUNC_06000780
-FUNC_06000780: ; 0x06000780
+	arm_func_start FUN_06000780
+FUN_06000780: ; 0x06000780
 	ldr	pc, _06000784	; =FUN_037F9884
 _06000784:	.word	FUN_037F9884
 
-	arm_func_start FUNC_06000788
-FUNC_06000788: ; 0x06000788
+	arm_func_start FUN_06000788
+FUN_06000788: ; 0x06000788
 	ldr	pc, _0600078C	; =FUN_037FBAA8
 _0600078C:	.word	FUN_037FBAA8
 
-	arm_func_start FUNC_06000790
-FUNC_06000790: ; 0x06000790
+	arm_func_start FUN_06000790
+FUN_06000790: ; 0x06000790
 	ldr	pc, _06000794	; =FUN_037FB1F0
 _06000794:	.word	FUN_037FB1F0
 
-	arm_func_start FUNC_06000798
-FUNC_06000798: ; 0x06000798
+	arm_func_start FUN_06000798
+FUN_06000798: ; 0x06000798
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #12
 	mov	r5, r0
@@ -623,19 +623,19 @@ FUNC_06000798: ; 0x06000798
 	ldr	r0, _06000928	; =_06019960
 	ldr	r1, _0600092C	; =_06019980
 	mov	r2, #2
-	bl	FUNC_06000964
+	bl	FUN_06000964
 	ldr	r0, _06000930	; =_06019988
 	ldr	r1, _06000934	; =_060199A8
 	mov	r2, #4
-	bl	FUNC_06000964
+	bl	FUN_06000964
 	ldr	r0, _06000938	; =_060199B8
 	ldr	r1, _0600093C	; =_060199D8
 	mov	r2, #4
-	bl	FUNC_06000964
+	bl	FUN_06000964
 	ldr	r0, _06000940	; =_060199E8
 	ldr	r1, _06000944	; =_06019A08
 	mov	r2, #32
-	bl	FUNC_06000964
+	bl	FUN_06000964
 	ldr	r0, _06000928	; =_06019960
 	str	r0, [r5, #16]
 	ldr	r0, _06000930	; =_06019988
@@ -654,29 +654,29 @@ FUNC_06000798: ; 0x06000798
 	ldr	r1, [r4, #12]
 	str	r1, [r0, #1420]	; 0x58c
 	ldr	r0, _06000948	; =_0601AE88
-	bl	FUNC_0600096C
+	bl	FUN_0600096C
 	mov	r0, #1024	; 0x400
 	str	r0, [sp]
 	ldr	r0, [r4, #4]
 	str	r0, [sp, #4]
 	ldr	r0, _0600094C	; =_0380B808
-	ldr	r1, _06000950	; =FUNC_060020E0
+	ldr	r1, _06000950	; =FUN_060020E0
 	mov	r2, #0
 	ldr	r3, _06000948	; =_0601AE88
-	bl	FUNC_06000974
+	bl	FUN_06000974
 	ldr	r0, _0600094C	; =_0380B808
-	bl	FUNC_0600097C
+	bl	FUN_0600097C
 	mov	r0, #4096	; 0x1000
 	str	r0, [sp]
 	ldr	r0, [r4, #12]
 	str	r0, [sp, #4]
 	ldr	r0, _06000954	; =_0380B764
-	ldr	r1, _06000958	; =FUNC_06002188
+	ldr	r1, _06000958	; =FUN_06002188
 	mov	r2, #0
 	ldr	r3, _0600095C	; =_0601AA88
-	bl	FUNC_06000974
+	bl	FUN_06000974
 	ldr	r0, _06000954	; =_0380B764
-	bl	FUNC_0600097C
+	bl	FUN_0600097C
 	mov	r3, #0
 	mov	r2, r3
 	ldr	r1, _06000928	; =_06019960
@@ -689,21 +689,21 @@ _060008C0:
 	blt	_060008C0
 	ldr	r0, _06000924	; =_0601A960
 	str	r2, [r0, #1396]	; 0x574
-	bl	FUNC_06000984
+	bl	FUN_06000984
 	cmp	r0, #0
 	bne	_060008F0
-	bl	FUNC_0600098C
+	bl	FUN_0600098C
 _060008F0:
-	bl	FUNC_06000994
+	bl	FUN_06000994
 	mov	r0, #10
-	ldr	r1, _06000960	; =FUNC_06000690
-	bl	FUNC_0600099C
+	ldr	r1, _06000960	; =FUN_06000690
+	bl	FUN_0600099C
 	mov	r0, #2
 	str	r0, [r5, #24]
 	ldr	r0, [r4, #20]
 	str	r0, [r5, #12]
 	mov	r0, r5
-	bl	FUNC_06008D2C
+	bl	FUN_06008D2C
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -718,108 +718,108 @@ _06000940:	.word	_060199E8
 _06000944:	.word	_06019A08
 _06000948:	.word	_0601AE88
 _0600094C:	.word	_0380B808
-_06000950:	.word	FUNC_060020E0
+_06000950:	.word	FUN_060020E0
 _06000954:	.word	_0380B764
-_06000958:	.word	FUNC_06002188
+_06000958:	.word	FUN_06002188
 _0600095C:	.word	_0601AA88
-_06000960:	.word	FUNC_06000690
+_06000960:	.word	FUN_06000690
 
-	arm_func_start FUNC_06000964
-FUNC_06000964: ; 0x06000964
+	arm_func_start FUN_06000964
+FUN_06000964: ; 0x06000964
 	ldr	pc, _06000968	; =FUN_037F99B8
 _06000968:	.word	FUN_037F99B8
 
-	arm_func_start FUNC_0600096C
-FUNC_0600096C: ; 0x0600096C
+	arm_func_start FUN_0600096C
+FUN_0600096C: ; 0x0600096C
 	ldr	pc, _06000970	; =FUN_037F9B68
 _06000970:	.word	FUN_037F9B68
 
-	arm_func_start FUNC_06000974
-FUNC_06000974: ; 0x06000974
+	arm_func_start FUN_06000974
+FUN_06000974: ; 0x06000974
 	ldr	pc, _06000978	; =FUN_037F9244
 _06000978:	.word	FUN_037F9244
 
-	arm_func_start FUNC_0600097C
-FUNC_0600097C: ; 0x0600097C
+	arm_func_start FUN_0600097C
+FUN_0600097C: ; 0x0600097C
 	ldr	pc, _06000980	; =FUN_037F8FB4
 _06000980:	.word	FUN_037F8FB4
 
-	arm_func_start FUNC_06000984
-FUNC_06000984: ; 0x06000984
+	arm_func_start FUN_06000984
+FUN_06000984: ; 0x06000984
 	ldr	pc, _06000988	; =FUN_037FAFD0
 _06000988:	.word	FUN_037FAFD0
 
-	arm_func_start FUNC_0600098C
-FUNC_0600098C: ; 0x0600098C
+	arm_func_start FUN_0600098C
+FUN_0600098C: ; 0x0600098C
 	ldr	pc, _06000990	; =FUN_037FAFE0
 _06000990:	.word	FUN_037FAFE0
 
-	arm_func_start FUNC_06000994
-FUNC_06000994: ; 0x06000994
+	arm_func_start FUN_06000994
+FUN_06000994: ; 0x06000994
 	ldr	pc, _06000998	; =FUN_037FB5B0
 _06000998:	.word	FUN_037FB5B0
 
-	arm_func_start FUNC_0600099C
-FUNC_0600099C: ; 0x0600099C
+	arm_func_start FUN_0600099C
+FUN_0600099C: ; 0x0600099C
 	ldr	pc, _060009A0	; =FUN_037FB7A8
 _060009A0:	.word	FUN_037FB7A8
 
-	arm_func_start FUNC_060009A4
-FUNC_060009A4: ; 0x060009A4
+	arm_func_start FUN_060009A4
+FUN_060009A4: ; 0x060009A4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _060009C8	; =_0380B8D8
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	ldr	r0, _060009CC	; =_0380B8AC
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060009C8:	.word	_0380B8D8
 _060009CC:	.word	_0380B8AC
 
-	arm_func_start FUNC_060009D0
-FUNC_060009D0: ; 0x060009D0
+	arm_func_start FUN_060009D0
+FUN_060009D0: ; 0x060009D0
 	ldr	pc, _060009D4	; =FUN_037FA650
 _060009D4:	.word	FUN_037FA650
 
-	arm_func_start FUNC_060009D8
-FUNC_060009D8: ; 0x060009D8
+	arm_func_start FUN_060009D8
+FUN_060009D8: ; 0x060009D8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _060009FC	; =_0380B8D8
-	bl	FUNC_06000A04
+	bl	FUN_06000A04
 	ldr	r0, _06000A00	; =_0380B8AC
-	bl	FUNC_06000A04
+	bl	FUN_06000A04
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060009FC:	.word	_0380B8D8
 _06000A00:	.word	_0380B8AC
 
-	arm_func_start FUNC_06000A04
-FUNC_06000A04: ; 0x06000A04
+	arm_func_start FUN_06000A04
+FUN_06000A04: ; 0x06000A04
 	ldr	pc, _06000A08	; =FUN_037FA900
 _06000A08:	.word	FUN_037FA900
 
-	arm_func_start FUNC_06000A0C
-FUNC_06000A0C: ; 0x06000A0C
+	arm_func_start FUN_06000A0C
+FUN_06000A0C: ; 0x06000A0C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #19
 	strh	r1, [r0, #4]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_06000A40
-FUNC_06000A40: ; 0x06000A40
+	arm_func_start FUN_06000A40
+FUN_06000A40: ; 0x06000A40
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	r8, r0
@@ -834,14 +834,14 @@ _06000A68:
 	add	r0, r8, #16
 	add	r1, sp, #0
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r5, #0
 	mov	r7, r5
 	mov	r4, #1
 	mov	r9, #6
 	b	_06000B6C
 _06000A8C:
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	fp, r0
 	add	ip, r6, #256	; 0x100
 	ldrh	r3, [ip, #130]	; 0x82
@@ -890,13 +890,13 @@ _06000A8C:
 	add	r0, r6, #296	; 0x128
 	add	r0, r0, r2
 	mov	r2, #6
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 	mov	r0, fp
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	b	_06000B74
 _06000B60:
 	mov	r0, fp
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	add	r7, r7, #1
 _06000B6C:
 	cmp	r7, #15
@@ -904,7 +904,7 @@ _06000B6C:
 _06000B74:
 	cmp	r5, #0
 	beq	_06000CF4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r4, r0
 	mov	r0, #8
 	strh	r0, [r4]
@@ -918,13 +918,13 @@ _06000B74:
 	add	r0, r8, #16
 	add	r1, r4, #10
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r6, #48]	; 0x30
 	strh	r0, [r4, #44]	; 0x2c
 	ldrh	r0, [r6, #50]	; 0x32
 	strh	r0, [r4, #46]	; 0x2e
 	mov	r0, r4
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldr	r0, [r6, #12]
 	cmp	r0, #1
 	bne	_06000CF4
@@ -932,17 +932,17 @@ _06000B74:
 	mov	r0, r0, lsl r5
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 	b	_06000CF4
 _06000BF4:
 	mov	r5, #0
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
 	add	r1, r6, #256	; 0x100
 	ldrh	r1, [r1, #130]	; 0x82
 	cmp	r1, #0
 	bne	_06000C18
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	b	_06000CF4
 _06000C18:
 	ldr	r0, [r6, #12]
@@ -951,8 +951,8 @@ _06000C18:
 	mov	r0, r5
 	str	r0, [r6, #12]
 	mov	r5, #1
-	bl	FUNC_06006978
-	bl	FUNC_06000288
+	bl	FUN_06006978
+	bl	FUN_06000288
 _06000C38:
 	mov	r1, #0
 	add	r0, r6, #256	; 0x100
@@ -965,15 +965,15 @@ _06000C38:
 	strh	r1, [r0, #150]	; 0x96
 	add	r0, r6, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUNC_06000D08
-	bl	FUNC_06000100
+	bl	FUN_06000D08
+	bl	FUN_06000100
 	mov	r0, #0
 	strh	r0, [r6, #194]	; 0xc2
 	mov	r0, #3
 	strh	r0, [r6]
 	mov	r0, r4
-	bl	FUNC_060001AC
-	bl	FUNC_060001E8
+	bl	FUN_060001AC
+	bl	FUN_060001E8
 	mov	r4, r0
 	mov	r0, #12
 	strh	r0, [r4]
@@ -990,17 +990,17 @@ _06000C38:
 	add	r0, r6, r0
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r6, #48]	; 0x30
 	strh	r0, [r4, #22]
 	ldrh	r0, [r6, #50]	; 0x32
 	strh	r0, [r4, #24]
 	mov	r0, r4
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	cmp	r5, #0
 	beq	_06000CF4
 	mov	r0, #1
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 _06000CF4:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -1008,13 +1008,13 @@ _06000CF4:
 _06000D00:	.word	_0601A960
 _06000D04:	.word	0x0000018A
 
-	arm_func_start FUNC_06000D08
-FUNC_06000D08: ; 0x06000D08
+	arm_func_start FUN_06000D08
+FUN_06000D08: ; 0x06000D08
 	ldr	pc, _06000D0C	; =FUN_037FB3E4
 _06000D0C:	.word	FUN_037FB3E4
 
-	arm_func_start FUNC_06000D10
-FUNC_06000D10: ; 0x06000D10
+	arm_func_start FUN_06000D10
+FUN_06000D10: ; 0x06000D10
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -1028,7 +1028,7 @@ FUNC_06000D10: ; 0x06000D10
 	ldrh	r0, [r5, #246]	; 0xf6
 	cmp	r0, #0
 	bne	_06000DB0
-	bl	FUNC_06000134
+	bl	FUN_06000134
 	movs	r4, r0
 	moveq	r0, #0
 	beq	_06000D7C
@@ -1037,15 +1037,15 @@ FUNC_06000D10: ; 0x06000D10
 	add	r0, r7, #16
 	add	r1, r4, #4
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldr	r0, _06000E94	; =_060199E8
 	mov	r1, r4
 	mov	r2, #0
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 _06000D7C:
 	cmp	r0, #0
 	bne	_06000E84
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1054,10 +1054,10 @@ _06000D7C:
 	strh	r1, [r0, #4]
 	mov	r1, #34	; 0x22
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06000E84
 _06000DB0:
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
 	mov	r2, #1
 	add	r0, r5, #256	; 0x100
@@ -1068,7 +1068,7 @@ _06000DB0:
 	mvn	r0, r2, lsl r6
 	and	r0, r1, r0
 	strh	r0, [r5, #134]	; 0x86
-	bl	FUNC_06000E98
+	bl	FUN_06000E98
 	orr	r1, r1, #0
 	orr	r2, r0, #1
 	add	r0, r5, r6, lsl #3
@@ -1079,15 +1079,15 @@ _06000DB0:
 	sub	r3, r6, #1
 	mov	r2, #6
 	mla	r1, r3, r2, r1
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	mov	r0, #1
 	add	r1, r5, #504	; 0x1f8
 	add	r1, r1, r6, lsl #4
 	mov	r2, #16
-	bl	FUNC_0600055C
-	bl	FUNC_060001E8
+	bl	FUN_0600055C
+	bl	FUN_060001E8
 	mov	r4, r0
 	mov	r0, #8
 	strh	r0, [r4]
@@ -1098,18 +1098,18 @@ _06000DB0:
 	add	r0, r7, #16
 	add	r1, r4, #10
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	strh	r6, [r4, #16]
 	add	r0, r7, #34	; 0x22
 	add	r1, r4, #20
 	mov	r2, #24
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r5, #48]	; 0x30
 	strh	r0, [r4, #44]	; 0x2c
 	ldrh	r0, [r5, #50]	; 0x32
 	strh	r0, [r4, #46]	; 0x2e
 	mov	r0, r4
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06000E84:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -1117,50 +1117,50 @@ _06000E84:
 _06000E90:	.word	_0601A960
 _06000E94:	.word	_060199E8
 
-	arm_func_start FUNC_06000E98
-FUNC_06000E98: ; 0x06000E98
+	arm_func_start FUN_06000E98
+FUN_06000E98: ; 0x06000E98
 	ldr	pc, _06000E9C	; =FUN_037FA364
 _06000E9C:	.word	FUN_037FA364
 
-	arm_func_start FUNC_06000EA0
-FUNC_06000EA0: ; 0x06000EA0
+	arm_func_start FUN_06000EA0
+FUN_06000EA0: ; 0x06000EA0
 	ldr	pc, _06000EA4	; =FUN_037FB318
 _06000EA4:	.word	FUN_037FB318
 
-	arm_func_start FUNC_06000EA8
-FUNC_06000EA8: ; 0x06000EA8
+	arm_func_start FUN_06000EA8
+FUN_06000EA8: ; 0x06000EA8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #18
 	strh	r1, [r0, #4]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_06000EDC
-FUNC_06000EDC: ; 0x06000EDC
+	arm_func_start FUN_06000EDC
+FUN_06000EDC: ; 0x06000EDC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #17
 	strh	r1, [r0, #4]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_06000F10
-FUNC_06000F10: ; 0x06000F10
+	arm_func_start FUN_06000F10
+FUN_06000F10: ; 0x06000F10
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r1, _06001034	; =_0601A960
@@ -1171,19 +1171,19 @@ FUNC_06000F10: ; 0x06000F10
 	ldrh	r0, [r0, #16]
 	cmp	r0, #32
 	bne	_06000F94
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
 	ldr	r0, _06001038	; =_0380B8AC
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	mov	r0, #0
 	strh	r0, [r5, #132]	; 0x84
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	mov	r1, #0
 	strh	r1, [r5, #138]	; 0x8a
 	mov	r0, #1
-	bl	FUNC_06007168
-	bl	FUNC_060001E8
+	bl	FUN_06007168
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #0
@@ -1192,10 +1192,10 @@ FUNC_06000F10: ; 0x06000F10
 	strh	r1, [r0, #4]
 	mov	r1, #1
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06001028
 _06000F94:
-	bl	FUNC_06000134
+	bl	FUN_06000134
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_06000FF8
@@ -1223,11 +1223,11 @@ _06000FE4:
 _06000FEC:
 	ldr	r0, _06001044	; =_060199E8
 	mov	r2, #0
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 _06000FF8:
 	cmp	r0, #0
 	bne	_06001028
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1236,7 +1236,7 @@ _06000FF8:
 	strh	r1, [r0, #4]
 	mov	r1, #37	; 0x25
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06001028:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -1247,8 +1247,8 @@ _0600103C:	.word	0x00008003
 _06001040:	.word	0x00007FFE
 _06001044:	.word	_060199E8
 
-	arm_func_start FUNC_06001048
-FUNC_06001048: ; 0x06001048
+	arm_func_start FUN_06001048
+FUN_06001048: ; 0x06001048
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -1264,12 +1264,12 @@ FUNC_06001048: ; 0x06001048
 	moveq	r0, r1, asr #2
 	addeq	r0, r0, #25
 	andeq	r0, r0, #255	; 0xff
-	bl	FUNC_060003C4
-	bl	FUNC_06000350
+	bl	FUN_060003C4
+	bl	FUN_06000350
 	strh	r0, [r4, #188]	; 0xbc
 	add	r5, r5, #16
 	add	r0, r5, #30
-	bl	FUNC_06000614
+	bl	FUN_06000614
 	cmp	r0, #1
 	beq	_0600112C
 	ldrh	r1, [r5, #6]
@@ -1288,16 +1288,16 @@ FUNC_06001048: ; 0x06001048
 	add	r2, r2, #44	; 0x2c
 	add	r2, r2, #1
 	bic	r2, r2, #1
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, r5, #24
 	add	r1, r4, #24
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, r5, #30
 	add	r1, r4, #30
 	mov	r2, #6
-	bl	FUNC_06000554
-	bl	FUNC_060001E8
+	bl	FUN_06000554
+	bl	FUN_060001E8
 	mov	r1, #17
 	strh	r1, [r0]
 	mov	r1, #0
@@ -1305,7 +1305,7 @@ FUNC_06001048: ; 0x06001048
 	mov	r1, #15
 	strh	r1, [r0, #4]
 	str	r4, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _0600112C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -1313,10 +1313,10 @@ _0600112C:
 _06001138:	.word	_0601A960
 _0600113C:	.word	0x000005E4
 
-	arm_func_start FUNC_06001140
-FUNC_06001140: ; 0x06001140
+	arm_func_start FUN_06001140
+FUN_06001140: ; 0x06001140
 	stmdb	sp!, {r4, lr}
-	bl	FUNC_06000134
+	bl	FUN_06000134
 	movs	r1, r0
 	ldr	r4, _060011C8	; =_06019960
 	ldr	r0, _060011CC	; =_0601A960
@@ -1329,7 +1329,7 @@ FUNC_06001140: ; 0x06001140
 	mov	r0, #44	; 0x2c
 	str	r0, [r1]
 	add	r0, r4, #136	; 0x88
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 	mov	r2, r0
 _06001180:
 	cmp	r2, #0
@@ -1338,7 +1338,7 @@ _06001180:
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_060011C0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1347,21 +1347,21 @@ _06001180:
 	strh	r1, [r0, #4]
 	mov	r1, #44	; 0x2c
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _060011C0:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060011C8:	.word	_06019960
 _060011CC:	.word	_0601A960
 
-	arm_func_start FUNC_060011D0
-FUNC_060011D0: ; 0x060011D0
-	ldr	ip, _060011D8	; =FUNC_06001140
+	arm_func_start FUN_060011D0
+FUN_060011D0: ; 0x060011D0
+	ldr	ip, _060011D8	; =FUN_06001140
 	bx	ip
-_060011D8:	.word	FUNC_06001140
+_060011D8:	.word	FUN_06001140
 
-	arm_func_start FUNC_060011DC
-FUNC_060011DC: ; 0x060011DC
+	arm_func_start FUN_060011DC
+FUN_060011DC: ; 0x060011DC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	add	r9, r0, #16
@@ -1396,21 +1396,21 @@ FUNC_060011DC: ; 0x060011DC
 _06001258:
 	mov	r8, r7
 _0600125C:
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
 	ldrh	r1, [r5, #132]	; 0x84
 	cmp	r1, #0
 	bne	_06001278
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	b	_06001428
 _06001278:
 	mov	r0, #0
 	strh	r0, [r5, #132]	; 0x84
 	ldrh	r6, [r5, #144]	; 0x90
 	ldr	r0, _06001440	; =_0380B8AC
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	mov	r0, #1
 	ldrh	r3, [r5, #140]	; 0x8c
 	cmp	r3, #0
@@ -1439,12 +1439,12 @@ _060012C8:
 	mov	r0, r8
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUNC_06007168
+	bl	FUN_06007168
 	mov	r7, r0
 _06001304:
 	cmp	r6, #0
 	beq	_06001428
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r4, r0
 	mov	r0, #14
 	strh	r0, [r4]
@@ -1476,11 +1476,11 @@ _06001354:
 	add	r0, r9, #24
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, r9, #30
 	add	r1, r4, #22
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r9, #42]	; 0x2a
 	strh	r0, [r4, #28]
 	ldrh	r0, [r9, #44]	; 0x2c
@@ -1489,7 +1489,7 @@ _06001354:
 	strh	r0, [r4, #32]
 _060013B4:
 	mov	r0, r4
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	cmp	r6, #0
 	beq	_06001428
 	cmp	r7, #1
@@ -1502,17 +1502,17 @@ _060013D8:
 	cmp	r0, #0
 	beq	_0600140C
 	ldr	r0, _06001444	; =_0380B8D8
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	mov	r0, #0
 	str	r0, [sp]
 	ldr	r0, _06001444	; =_0380B8D8
 	ldr	r1, [r5, #80]	; 0x50
 	ldr	r2, [r5, #84]	; 0x54
-	ldr	r3, _06001448	; =FUNC_060011D0
-	bl	FUNC_0600144C
+	ldr	r3, _06001448	; =FUN_060011D0
+	bl	FUN_0600144C
 	b	_06001428
 _0600140C:
-	bl	FUNC_06001140
+	bl	FUN_06001140
 	b	_06001428
 _06001414:
 	mov	r1, #0
@@ -1529,15 +1529,15 @@ _06001438:	.word	0x048080F8
 _0600143C:	.word	0x048080FA
 _06001440:	.word	_0380B8AC
 _06001444:	.word	_0380B8D8
-_06001448:	.word	FUNC_060011D0
+_06001448:	.word	FUN_060011D0
 
-	arm_func_start FUNC_0600144C
-FUNC_0600144C: ; 0x0600144C
+	arm_func_start FUN_0600144C
+FUN_0600144C: ; 0x0600144C
 	ldr	pc, _06001450	; =FUN_037FA75C
 _06001450:	.word	FUN_037FA75C
 
-	arm_func_start FUNC_06001454
-FUNC_06001454: ; 0x06001454
+	arm_func_start FUN_06001454
+FUN_06001454: ; 0x06001454
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r5, _060014E4	; =_06019960
@@ -1545,7 +1545,7 @@ FUNC_06001454: ; 0x06001454
 	ldr	r0, [r1, #1348]	; 0x544
 	ldr	r1, [r1, #1352]	; 0x548
 	mov	r2, #64	; 0x40
-	bl	FUNC_060014F4
+	bl	FUN_060014F4
 	mov	r4, r0
 	ldr	r0, _060014EC	; =0x00000185
 	strh	r0, [r4, #12]
@@ -1553,16 +1553,16 @@ FUNC_06001454: ; 0x06001454
 	strh	r2, [r4, #14]
 	ldr	r0, _060014F0	; =_06019988
 	mov	r1, r4
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 	cmp	r0, #0
 	bne	_060014D8
 	mov	r0, r4
-	bl	FUNC_06001F4C
+	bl	FUN_06001F4C
 	add	r0, r5, #4096	; 0x1000
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_060014D8
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r2, #128	; 0x80
 	strh	r2, [r0]
 	mov	r1, #8
@@ -1570,7 +1570,7 @@ FUNC_06001454: ; 0x06001454
 	mov	r1, #22
 	strh	r1, [r0, #4]
 	strh	r2, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _060014D8:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -1580,13 +1580,13 @@ _060014E8:	.word	_0601A960
 _060014EC:	.word	0x00000185
 _060014F0:	.word	_06019988
 
-	arm_func_start FUNC_060014F4
-FUNC_060014F4: ; 0x060014F4
+	arm_func_start FUN_060014F4
+FUN_060014F4: ; 0x060014F4
 	ldr	pc, _060014F8	; =FUN_037FA138
 _060014F8:	.word	FUN_037FA138
 
-	arm_func_start FUNC_060014FC
-FUNC_060014FC: ; 0x060014FC
+	arm_func_start FUN_060014FC
+FUN_060014FC: ; 0x060014FC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -1623,8 +1623,8 @@ FUNC_060014FC: ; 0x060014FC
 	movcc	r2, r0
 	add	r0, sl, #16
 	mov	r1, r8
-	bl	FUNC_06000554
-	bl	FUNC_060001A4
+	bl	FUN_06000554
+	bl	FUN_060001A4
 	mov	fp, r0
 	mov	r7, #0
 	ldrh	r0, [r5, #132]	; 0x84
@@ -1632,7 +1632,7 @@ FUNC_060014FC: ; 0x060014FC
 	bne	_060015B4
 	mov	r7, #1
 	ldr	r0, _06001834	; =_0380B8AC
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 _060015B4:
 	mov	r9, #1
 	strh	r9, [r5, #132]	; 0x84
@@ -1664,8 +1664,8 @@ _060015B4:
 	mov	r2, lr, lsr #10
 	mov	r1, r1, lsr #10
 	orr	r1, r1, lr, lsl #22
-	ldr	r3, _0600183C	; =FUNC_06001454
-	bl	FUNC_0600144C
+	ldr	r3, _0600183C	; =FUN_06001454
+	bl	FUN_0600144C
 	and	r0, r4, #10240	; 0x2800
 	cmp	r0, #10240	; 0x2800
 	moveq	r1, #1
@@ -1690,7 +1690,7 @@ _060015B4:
 	ldrh	r0, [r8, #44]	; 0x2c
 	sub	r0, r0, #102	; 0x66
 	mov	r1, #4
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	subs	r1, r0, #32
 	bmi	_060016C4
 	ldrh	r0, [r5, #54]	; 0x36
@@ -1701,19 +1701,19 @@ _060015B4:
 	beq	_060016C4
 	mov	r0, r1, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_06000000
+	bl	FUN_06000000
 _060016C4:
 	mov	r0, fp
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	cmp	r7, #0
 	beq	_06001710
 	cmp	r6, #1
 	bne	_060016E8
 	mov	r0, r7
 	mov	r1, #0
-	bl	FUNC_06007168
+	bl	FUN_06007168
 _060016E8:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #9
@@ -1722,7 +1722,7 @@ _060016E8:
 	strh	r1, [r0, #4]
 	mov	r1, #0
 	str	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06001710:
 	cmp	r9, #0
 	bne	_0600173C
@@ -1739,11 +1739,11 @@ _0600173C:
 	add	r0, sl, #40	; 0x28
 	add	r1, r8, #24
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, sl, #46	; 0x2e
 	add	r1, r8, #30
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r8, #6]
 	cmp	r0, #2
 	bcc	_060017CC
@@ -1754,7 +1754,7 @@ _0600173C:
 	movne	r0, #1
 	moveq	r0, #0
 	strh	r0, [r5, #94]	; 0x5e
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #0
@@ -1762,7 +1762,7 @@ _0600173C:
 	mov	r1, #12
 	strh	r1, [r0, #4]
 	str	r8, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldrh	r3, [r8, #6]
 	cmp	r3, #0
 	beq	_060017F8
@@ -1770,20 +1770,20 @@ _0600173C:
 	mov	r0, #0
 	ldrh	r1, [r8, #48]	; 0x30
 	add	r2, r8, #50	; 0x32
-	bl	FUNC_06006CAC
+	bl	FUN_06006CAC
 	b	_060017F8
 _060017CC:
 	mov	r0, #0
 	strh	r0, [r8, #6]
 	strh	r0, [r5, #94]	; 0x5e
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
 	mov	r1, #12
 	strh	r1, [r0, #4]
 	str	r8, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _060017F8:
 	ldr	r2, [r5, #1976]	; 0x7b8
 	ldr	r1, [r5, #1980]	; 0x7bc
@@ -1791,7 +1791,7 @@ _060017F8:
 	cmp	r1, r0
 	cmpeq	r2, r0
 	beq	_06001824
-	bl	FUNC_06000E98
+	bl	FUN_06000E98
 	orr	r1, r1, #0
 	orr	r0, r0, #1
 	str	r0, [r5, #1848]	; 0x738
@@ -1803,15 +1803,15 @@ _06001824:
 _06001830:	.word	_0601A960
 _06001834:	.word	_0380B8AC
 _06001838:	.word	0x000082EA
-_0600183C:	.word	FUNC_06001454
+_0600183C:	.word	FUN_06001454
 
-	arm_func_start FUNC_06001840
-FUNC_06001840: ; 0x06001840
+	arm_func_start FUN_06001840
+FUN_06001840: ; 0x06001840
 	ldr	pc, _06001844	; =_s32_div_f
 _06001844:	.word	_s32_div_f
 
-	arm_func_start FUNC_06001848
-FUNC_06001848: ; 0x06001848
+	arm_func_start FUN_06001848
+FUN_06001848: ; 0x06001848
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r2, _060018C4	; =_0601A960
@@ -1848,12 +1848,12 @@ _060018B8:
 	bx	lr
 _060018C4:	.word	_0601A960
 
-	arm_func_start FUNC_060018C8
-FUNC_060018C8: ; 0x060018C8
+	arm_func_start FUN_060018C8
+FUN_060018C8: ; 0x060018C8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
-	bl	FUNC_06000134
+	bl	FUN_06000134
 	movs	r1, r0
 	ldr	r4, _0600194C	; =_06019960
 	moveq	r0, #0
@@ -1863,7 +1863,7 @@ FUNC_060018C8: ; 0x060018C8
 	str	r5, [r1, #4]
 	add	r0, r4, #136	; 0x88
 	mov	r2, #0
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 _06001900:
 	cmp	r0, #0
 	bne	_06001940
@@ -1871,7 +1871,7 @@ _06001900:
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_06001940
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1880,27 +1880,27 @@ _06001900:
 	strh	r1, [r0, #4]
 	mov	r1, #43	; 0x2b
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06001940:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600194C:	.word	_06019960
 
-	arm_func_start FUNC_06001950
-FUNC_06001950: ; 0x06001950
+	arm_func_start FUN_06001950
+FUN_06001950: ; 0x06001950
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	ldr	ip, _06001960	; =FUNC_060018C8
+	ldr	ip, _06001960	; =FUN_060018C8
 	bx	ip
-_06001960:	.word	FUNC_060018C8
+_06001960:	.word	FUN_060018C8
 
-	arm_func_start FUNC_06001964
-FUNC_06001964: ; 0x06001964
+	arm_func_start FUN_06001964
+FUN_06001964: ; 0x06001964
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _060019DC	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUNC_06000134
+	bl	FUN_06000134
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_0600199C
@@ -1910,13 +1910,13 @@ FUNC_06001964: ; 0x06001964
 	str	r0, [r1, #4]
 	ldr	r0, _060019E0	; =_060199E8
 	mov	r2, #0
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 _0600199C:
 	cmp	r0, #0
 	movne	r0, #1
 	strneh	r0, [r4, #102]	; 0x66
 	bne	_060019D4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -1925,15 +1925,15 @@ _0600199C:
 	strh	r1, [r0, #4]
 	mov	r1, #45	; 0x2d
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _060019D4:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060019DC:	.word	_0601A960
 _060019E0:	.word	_060199E8
 
-	arm_func_start FUNC_060019E4
-FUNC_060019E4: ; 0x060019E4
+	arm_func_start FUN_060019E4
+FUN_060019E4: ; 0x060019E4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #44	; 0x2c
 	mov	sl, r0
@@ -1953,7 +1953,7 @@ FUNC_060019E4: ; 0x060019E4
 	cmp	r0, #0
 	beq	_06001A34
 _06001A2C:
-	bl	FUNC_06001964
+	bl	FUN_06001964
 	b	_06001D28
 _06001A34:
 	cmp	r1, #0
@@ -1971,12 +1971,12 @@ _06001A34:
 	movcc	r2, r0
 	add	r0, sl, #16
 	mov	r1, r7
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r0, sl
 	ldrh	r1, [r7]
 	ldrh	r2, [r8, #146]	; 0x92
-	bl	FUNC_06001848
-	bl	FUNC_06000E98
+	bl	FUN_06001848
+	bl	FUN_06000E98
 	mov	r9, #0
 	mov	r2, #1
 	str	r2, [sp, #16]
@@ -2026,7 +2026,7 @@ _06001AD4:
 	mov	r0, r4
 	ldrh	r1, [r6, #8]
 	add	r2, r6, #10
-	bl	FUNC_06006CAC
+	bl	FUN_06006CAC
 	b	_06001C28
 _06001B50:
 	cmp	r1, #0
@@ -2055,7 +2055,7 @@ _06001B50:
 	cmp	r3, r1
 	cmpeq	r0, r2
 	bls	_06001C28
-	bl	FUNC_06000134
+	bl	FUN_06000134
 	movs	r1, r0
 	add	r2, r8, r4, lsl #3
 	ldr	r0, [sp, #20]
@@ -2070,11 +2070,11 @@ _06001B50:
 	str	r0, [r1, #8]
 	ldr	r0, _06001D40	; =_060199E8
 	ldr	r2, [sp, #20]
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 _06001BF8:
 	cmp	r0, #0
 	bne	_06001C28
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	ldr	r1, [sp, #28]
 	strh	r1, [r0]
 	ldr	r1, [sp, #32]
@@ -2083,7 +2083,7 @@ _06001BF8:
 	strh	r1, [r0, #4]
 	ldr	r1, [sp, #24]
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06001C28:
 	add	r0, r9, #1
 	mov	r0, r0, lsl #16
@@ -2097,11 +2097,11 @@ _06001C3C:
 	mov	r0, #0
 	mov	r1, fp, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUNC_06007168
+	bl	FUN_06007168
 	ldrh	r0, [r7]
 	cmp	r0, #0
 	movne	r5, #1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #0
@@ -2109,11 +2109,11 @@ _06001C3C:
 	mov	r1, #11
 	strh	r1, [r0, #4]
 	str	r7, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldrh	r0, [r8, #112]	; 0x70
 	eor	r0, r0, #1
 	strh	r0, [r8, #112]	; 0x70
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	cmp	r5, #0
 	ldreqsh	r1, [r8, #98]	; 0x62
 	subeq	r1, r1, #1
@@ -2132,7 +2132,7 @@ _06001C3C:
 _06001CD4:
 	mov	r4, #0
 _06001CD8:
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	cmp	r4, #0
 	beq	_06001D28
 	cmp	r5, #1
@@ -2142,17 +2142,17 @@ _06001CD8:
 	cmp	r0, #0
 	beq	_06001D20
 	ldr	r0, _06001D44	; =_0380B8D8
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	str	r4, [sp]
 	ldr	r0, _06001D44	; =_0380B8D8
 	ldr	r1, [r8, #72]	; 0x48
 	ldr	r2, [r8, #76]	; 0x4c
-	ldr	r3, _06001D48	; =FUNC_06001950
-	bl	FUNC_0600144C
+	ldr	r3, _06001D48	; =FUN_06001950
+	bl	FUN_0600144C
 	b	_06001D28
 _06001D20:
 	mov	r0, r4
-	bl	FUNC_060018C8
+	bl	FUN_060018C8
 _06001D28:
 	add	sp, sp, #44	; 0x2c
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -2162,10 +2162,10 @@ _06001D38:	.word	0x0000FFFF
 _06001D3C:	.word	0x00008001
 _06001D40:	.word	_060199E8
 _06001D44:	.word	_0380B8D8
-_06001D48:	.word	FUNC_06001950
+_06001D48:	.word	FUN_06001950
 
-	arm_func_start FUNC_06001D4C
-FUNC_06001D4C: ; 0x06001D4C
+	arm_func_start FUN_06001D4C
+FUN_06001D4C: ; 0x06001D4C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06001D94	; =_0601A960
@@ -2173,22 +2173,22 @@ FUNC_06001D4C: ; 0x06001D4C
 	ldrh	r0, [r0, #194]	; 0xc2
 	cmp	r0, #0
 	beq	_06001D88
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #8
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06001D88:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06001D94:	.word	_0601A960
 
-	arm_func_start FUNC_06001D98
-FUNC_06001D98: ; 0x06001D98
+	arm_func_start FUN_06001D98
+FUN_06001D98: ; 0x06001D98
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -2217,7 +2217,7 @@ _06001DF4:
 	ldrh	r0, [r6, #8]
 	cmp	r1, r0
 	beq	_06001E6C
-	bl	FUNC_06000134
+	bl	FUN_06000134
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_06001E38
@@ -2229,11 +2229,11 @@ _06001DF4:
 	str	r0, [r1, #8]
 	ldr	r0, _06001EF8	; =_060199E8
 	mov	r2, #0
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 _06001E38:
 	cmp	r0, #0
 	bne	_06001EE0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -2242,7 +2242,7 @@ _06001E38:
 	strh	r1, [r0, #4]
 	mov	r1, #37	; 0x25
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06001EE0
 _06001E6C:
 	ldr	r0, _06001EEC	; =_0601A960
@@ -2250,7 +2250,7 @@ _06001E6C:
 	ldrh	r0, [r0, #194]	; 0xc2
 	cmp	r0, #0
 	beq	_06001EE0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r5, r0
 	mov	r0, #128	; 0x80
 	strh	r0, [r5]
@@ -2271,10 +2271,10 @@ _06001E6C:
 	add	r1, r5, #12
 	add	r2, r2, #1
 	bic	r2, r2, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 _06001ED8:
 	mov	r0, r5
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06001EE0:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -2284,8 +2284,8 @@ _06001EF0:	.word	0x027FFF98
 _06001EF4:	.word	0x00008002
 _06001EF8:	.word	_060199E8
 
-	arm_func_start FUNC_06001EFC
-FUNC_06001EFC: ; 0x06001EFC
+	arm_func_start FUN_06001EFC
+FUN_06001EFC: ; 0x06001EFC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06001F44	; =_0601A960
@@ -2293,50 +2293,50 @@ FUNC_06001EFC: ; 0x06001EFC
 	ldrh	r0, [r0, #194]	; 0xc2
 	cmp	r0, #0
 	beq	_06001F38
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #8
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #2
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06001F38:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06001F44:	.word	_0601A960
 
-	arm_func_start FUNC_06001F48
-FUNC_06001F48: ; 0x06001F48
+	arm_func_start FUN_06001F48
+FUN_06001F48: ; 0x06001F48
 	bx	lr
 
-	arm_func_start FUNC_06001F4C
-FUNC_06001F4C: ; 0x06001F4C
+	arm_func_start FUN_06001F4C
+FUN_06001F4C: ; 0x06001F4C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
 	ldr	r1, _06001F88	; =_0601A960
 	ldr	r0, [r1, #1348]	; 0x544
 	ldr	r1, [r1, #1352]	; 0x548
 	mov	r2, r5
-	bl	FUNC_06001F8C
+	bl	FUN_06001F8C
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06001F88:	.word	_0601A960
 
-	arm_func_start FUNC_06001F8C
-FUNC_06001F8C: ; 0x06001F8C
+	arm_func_start FUN_06001F8C
+FUN_06001F8C: ; 0x06001F8C
 	ldr	pc, _06001F90	; =FUN_037FA0C4
 _06001F90:	.word	FUN_037FA0C4
 
-	arm_func_start FUNC_06001F94
-FUNC_06001F94: ; 0x06001F94
+	arm_func_start FUN_06001F94
+FUN_06001F94: ; 0x06001F94
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldr	r1, _060020D0	; =_0601A960
@@ -2387,51 +2387,51 @@ _0600203C:
 	beq	_060020B0
 	b	_060020B8
 _0600204C:
-	bl	FUNC_06000A0C
+	bl	FUN_06000A0C
 	b	_060020C0
 _06002054:
-	bl	FUNC_06000A40
+	bl	FUN_06000A40
 	b	_060020C0
 _0600205C:
-	bl	FUNC_06000D10
+	bl	FUN_06000D10
 	b	_060020C0
 _06002064:
-	bl	FUNC_06000EA8
+	bl	FUN_06000EA8
 	b	_060020C0
 _0600206C:
-	bl	FUNC_06000EDC
+	bl	FUN_06000EDC
 	b	_060020C0
 _06002074:
-	bl	FUNC_06001D4C
+	bl	FUN_06001D4C
 	b	_060020C0
 _0600207C:
-	bl	FUNC_06001EFC
+	bl	FUN_06001EFC
 	b	_060020C0
 _06002084:
-	bl	FUNC_06001D98
+	bl	FUN_06001D98
 	b	_060020C0
 _0600208C:
 	mov	r0, r4
-	bl	FUNC_06001048
+	bl	FUN_06001048
 	b	_060020C0
 _06002098:
-	bl	FUNC_060014FC
+	bl	FUN_060014FC
 	b	_060020C0
 _060020A0:
-	bl	FUNC_060019E4
+	bl	FUN_060019E4
 	b	_060020C0
 _060020A8:
-	bl	FUNC_060011DC
+	bl	FUN_060011DC
 	b	_060020C0
 _060020B0:
-	bl	FUNC_06000F10
+	bl	FUN_06000F10
 	b	_060020C0
 _060020B8:
 	mov	r0, r4
-	bl	FUNC_06001F48
+	bl	FUN_06001F48
 _060020C0:
 	mov	r0, r4
-	bl	FUNC_06001F4C
+	bl	FUN_06001F4C
 _060020C8:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -2440,12 +2440,12 @@ _060020D4:	.word	0x00000182
 _060020D8:	.word	0x00000185
 _060020DC:	.word	0x00000186
 
-	arm_func_start FUNC_060020E0
-FUNC_060020E0: ; 0x060020E0
+	arm_func_start FUN_060020E0
+FUN_060020E0: ; 0x060020E0
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 
-	arm_func_start FUNC_060020E4
-FUNC_060020E4: ; 0x060020E4
+	arm_func_start FUN_060020E4
+FUN_060020E4: ; 0x060020E4
 	sub	sp, sp, #4
 	ldr	r0, _06002178	; =_06019960
 	add	r7, r0, #88	; 0x58
@@ -2456,11 +2456,11 @@ _060020FC:
 	mov	r0, r6
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUNC_06000780
+	bl	FUN_06000780
 	ldr	r1, [sp]
 	cmp	r1, #0
 	bne	_06002120
-	bl	FUNC_0600217C
+	bl	FUN_0600217C
 	b	_0600216C
 _06002120:
 	ldrh	r2, [r1, #12]
@@ -2477,12 +2477,12 @@ _06002148:
 	ands	r0, r3, #128	; 0x80
 	beq	_0600215C
 	mov	r0, r1
-	bl	FUNC_06001F94
+	bl	FUN_06001F94
 	b	_060020FC
 _0600215C:
 	mov	r0, r7
 	mov	r2, r4
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 	b	_060020FC
 _0600216C:
 	add	sp, sp, #4
@@ -2490,17 +2490,17 @@ _0600216C:
 	bx	lr
 _06002178:	.word	_06019960
 
-	arm_func_start FUNC_0600217C
-FUNC_0600217C: ; 0x0600217C
+	arm_func_start FUN_0600217C
+FUN_0600217C: ; 0x0600217C
 	ldr	pc, _06002180	; =FUN_037F9218
 _06002180:	.word	FUN_037F9218
 
-	arm_func_start FUNC_06002184
-FUNC_06002184: ; 0x06002184
+	arm_func_start FUN_06002184
+FUN_06002184: ; 0x06002184
 	bx	lr
 
-	arm_func_start FUNC_06002188
-FUNC_06002188: ; 0x06002188
+	arm_func_start FUN_06002188
+FUN_06002188: ; 0x06002188
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	sub	sp, sp, #8
 	ldr	r1, _06002228	; =_06019960
@@ -2515,11 +2515,11 @@ _060021B0:
 	mov	r0, r8
 	mov	r1, r7
 	mov	r2, r6
-	bl	FUNC_06000780
+	bl	FUN_06000780
 	ldr	r0, [sp]
 	cmp	r0, #0
 	bne	_060021D4
-	bl	FUNC_0600217C
+	bl	FUN_0600217C
 	b	_0600221C
 _060021D4:
 	ldrh	r9, [r0]
@@ -2549,8 +2549,8 @@ _06002228:	.word	_06019960
 _0600222C:	.word	_0601A960
 _06002230:	.word	_06019268
 
-	arm_func_start FUNC_06002234
-FUNC_06002234: ; 0x06002234
+	arm_func_start FUN_06002234
+FUN_06002234: ; 0x06002234
 	stmdb	sp!, {r4, lr}
 	mov	r3, #0
 	strh	r3, [r0]
@@ -2567,13 +2567,13 @@ FUNC_06002234: ; 0x06002234
 	ldrh	r1, [r0, #12]
 	strh	r1, [r3, #16]
 	strh	r2, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002284
-FUNC_06002284: ; 0x06002284
+	arm_func_start FUN_06002284
+FUN_06002284: ; 0x06002284
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -2598,110 +2598,110 @@ FUNC_06002284: ; 0x06002284
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060022F4:	.word	0x00000309
 
-	arm_func_start FUNC_060022F8
-FUNC_060022F8: ; 0x060022F8
+	arm_func_start FUN_060022F8
+FUN_060022F8: ; 0x060022F8
 	mov	r1, #776	; 0x308
 	mov	r2, #2
-	ldr	ip, _06002308	; =FUNC_06002234
+	ldr	ip, _06002308	; =FUN_06002234
 	bx	ip
-_06002308:	.word	FUNC_06002234
+_06002308:	.word	FUN_06002234
 
-	arm_func_start FUNC_0600230C
-FUNC_0600230C: ; 0x0600230C
+	arm_func_start FUN_0600230C
+FUN_0600230C: ; 0x0600230C
 	ldr	r1, _0600231C	; =0x00000307
 	mov	r2, #92	; 0x5c
-	ldr	ip, _06002320	; =FUNC_06002234
+	ldr	ip, _06002320	; =FUN_06002234
 	bx	ip
 _0600231C:	.word	0x00000307
-_06002320:	.word	FUNC_06002234
+_06002320:	.word	FUN_06002234
 
-	arm_func_start FUNC_06002324
-FUNC_06002324: ; 0x06002324
+	arm_func_start FUN_06002324
+FUN_06002324: ; 0x06002324
 	ldr	r1, _06002334	; =0x00000306
 	mov	r2, #9
-	ldr	ip, _06002338	; =FUNC_06002234
+	ldr	ip, _06002338	; =FUN_06002234
 	bx	ip
 _06002334:	.word	0x00000306
-_06002338:	.word	FUNC_06002234
+_06002338:	.word	FUN_06002234
 
-	arm_func_start FUNC_0600233C
-FUNC_0600233C: ; 0x0600233C
+	arm_func_start FUN_0600233C
+FUN_0600233C: ; 0x0600233C
 	ldr	r1, _0600234C	; =0x00000305
 	mov	r2, #1
-	ldr	ip, _06002350	; =FUNC_06002234
+	ldr	ip, _06002350	; =FUN_06002234
 	bx	ip
 _0600234C:	.word	0x00000305
-_06002350:	.word	FUNC_06002234
+_06002350:	.word	FUN_06002234
 
-	arm_func_start FUNC_06002354
-FUNC_06002354: ; 0x06002354
+	arm_func_start FUN_06002354
+FUN_06002354: ; 0x06002354
 	mov	r1, #772	; 0x304
 	mov	r2, #1
-	ldr	ip, _06002364	; =FUNC_06002234
+	ldr	ip, _06002364	; =FUN_06002234
 	bx	ip
-_06002364:	.word	FUNC_06002234
+_06002364:	.word	FUN_06002234
 
-	arm_func_start FUNC_06002368
-FUNC_06002368: ; 0x06002368
+	arm_func_start FUN_06002368
+FUN_06002368: ; 0x06002368
 	ldr	r1, _06002378	; =0x00000303
 	mov	r2, #1
-	ldr	ip, _0600237C	; =FUNC_06002234
+	ldr	ip, _0600237C	; =FUN_06002234
 	bx	ip
 _06002378:	.word	0x00000303
-_0600237C:	.word	FUNC_06002234
+_0600237C:	.word	FUN_06002234
 
-	arm_func_start FUNC_06002380
-FUNC_06002380: ; 0x06002380
+	arm_func_start FUN_06002380
+FUN_06002380: ; 0x06002380
 	ldr	r1, _06002390	; =0x00000302
 	mov	r2, #1
-	ldr	ip, _06002394	; =FUNC_06002234
+	ldr	ip, _06002394	; =FUN_06002234
 	bx	ip
 _06002390:	.word	0x00000302
-_06002394:	.word	FUNC_06002234
+_06002394:	.word	FUN_06002234
 
-	arm_func_start FUNC_06002398
-FUNC_06002398: ; 0x06002398
+	arm_func_start FUN_06002398
+FUN_06002398: ; 0x06002398
 	ldr	r1, _060023A8	; =0x00000301
 	mov	r2, #1
-	ldr	ip, _060023AC	; =FUNC_06002234
+	ldr	ip, _060023AC	; =FUN_06002234
 	bx	ip
 _060023A8:	.word	0x00000301
-_060023AC:	.word	FUNC_06002234
+_060023AC:	.word	FUN_06002234
 
-	arm_func_start FUNC_060023B0
-FUNC_060023B0: ; 0x060023B0
+	arm_func_start FUN_060023B0
+FUN_060023B0: ; 0x060023B0
 	mov	r1, #644	; 0x284
 	mov	r2, #2
-	ldr	ip, _060023C0	; =FUNC_06002234
+	ldr	ip, _060023C0	; =FUN_06002234
 	bx	ip
-_060023C0:	.word	FUNC_06002234
+_060023C0:	.word	FUN_06002234
 
-	arm_func_start FUNC_060023C4
-FUNC_060023C4: ; 0x060023C4
+	arm_func_start FUN_060023C4
+FUN_060023C4: ; 0x060023C4
 	ldr	r1, _060023D4	; =0x00000283
 	mov	r2, #3
-	ldr	ip, _060023D8	; =FUNC_06002234
+	ldr	ip, _060023D8	; =FUN_06002234
 	bx	ip
 _060023D4:	.word	0x00000283
-_060023D8:	.word	FUNC_06002234
+_060023D8:	.word	FUN_06002234
 
-	arm_func_start FUNC_060023DC
-FUNC_060023DC: ; 0x060023DC
+	arm_func_start FUN_060023DC
+FUN_060023DC: ; 0x060023DC
 	ldr	r1, _060023EC	; =0x00000281
 	mov	r2, #4
-	ldr	ip, _060023F0	; =FUNC_06002234
+	ldr	ip, _060023F0	; =FUN_06002234
 	bx	ip
 _060023EC:	.word	0x00000281
-_060023F0:	.word	FUNC_06002234
+_060023F0:	.word	FUN_06002234
 
-	arm_func_start FUNC_060023F4
-FUNC_060023F4: ; 0x060023F4
+	arm_func_start FUN_060023F4
+FUN_060023F4: ; 0x060023F4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r0
 	mov	r6, r1
@@ -2717,14 +2717,14 @@ FUNC_060023F4: ; 0x060023F4
 	strh	r0, [r4, #12]
 	add	r0, r6, #1
 	mov	r1, #2
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	add	r0, r0, #1
 	strh	r0, [r4, #14]
 	strh	r6, [r4, #16]
 	mov	r0, r5
 	add	r1, r4, #18
 	mov	r2, r6
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
 	add	r5, r1, #16
@@ -2733,14 +2733,14 @@ FUNC_060023F4: ; 0x060023F4
 	mov	r0, #1
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r5
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _06002480:	.word	0x00000245
 
-	arm_func_start FUNC_06002484
-FUNC_06002484: ; 0x06002484
+	arm_func_start FUN_06002484
+FUN_06002484: ; 0x06002484
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2760,14 +2760,14 @@ FUNC_06002484: ; 0x06002484
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060024E0:	.word	0x00000242
 
-	arm_func_start FUNC_060024E4
-FUNC_060024E4: ; 0x060024E4
+	arm_func_start FUN_060024E4
+FUN_060024E4: ; 0x060024E4
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2787,14 +2787,14 @@ FUNC_060024E4: ; 0x060024E4
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06002540:	.word	0x00000216
 
-	arm_func_start FUNC_06002544
-FUNC_06002544: ; 0x06002544
+	arm_func_start FUN_06002544
+FUN_06002544: ; 0x06002544
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2814,14 +2814,14 @@ FUNC_06002544: ; 0x06002544
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060025A0:	.word	0x00000215
 
-	arm_func_start FUNC_060025A4
-FUNC_060025A4: ; 0x060025A4
+	arm_func_start FUN_060025A4
+FUN_060025A4: ; 0x060025A4
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2841,14 +2841,14 @@ FUNC_060025A4: ; 0x060025A4
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06002600:	.word	0x00000212
 
-	arm_func_start FUNC_06002604
-FUNC_06002604: ; 0x06002604
+	arm_func_start FUN_06002604
+FUN_06002604: ; 0x06002604
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -2871,14 +2871,14 @@ FUNC_06002604: ; 0x06002604
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600266C:	.word	0x00000211
 
-	arm_func_start FUNC_06002670
-FUNC_06002670: ; 0x06002670
+	arm_func_start FUN_06002670
+FUN_06002670: ; 0x06002670
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2898,14 +2898,14 @@ FUNC_06002670: ; 0x06002670
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060026CC:	.word	0x0000020E
 
-	arm_func_start FUNC_060026D0
-FUNC_060026D0: ; 0x060026D0
+	arm_func_start FUN_060026D0
+FUN_060026D0: ; 0x060026D0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -2923,7 +2923,7 @@ FUNC_060026D0: ; 0x060026D0
 	mov	r0, r1
 	add	r1, r4, #16
 	mov	r2, #32
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
 	add	r5, r1, #16
@@ -2932,15 +2932,15 @@ FUNC_060026D0: ; 0x060026D0
 	mov	r0, #1
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600274C:	.word	0x0000020D
 
-	arm_func_start FUNC_06002750
-FUNC_06002750: ; 0x06002750
+	arm_func_start FUN_06002750
+FUN_06002750: ; 0x06002750
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2960,14 +2960,14 @@ FUNC_06002750: ; 0x06002750
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060027AC:	.word	0x0000020B
 
-	arm_func_start FUNC_060027B0
-FUNC_060027B0: ; 0x060027B0
+	arm_func_start FUN_060027B0
+FUN_060027B0: ; 0x060027B0
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2987,14 +2987,14 @@ FUNC_060027B0: ; 0x060027B0
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600280C:	.word	0x00000207
 
-	arm_func_start FUNC_06002810
-FUNC_06002810: ; 0x06002810
+	arm_func_start FUN_06002810
+FUN_06002810: ; 0x06002810
 	stmdb	sp!, {r4, lr}
 	mov	r1, #0
 	strh	r1, [r0]
@@ -3014,13 +3014,13 @@ FUNC_06002810: ; 0x06002810
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600286C
-FUNC_0600286C: ; 0x0600286C
+	arm_func_start FUN_0600286C
+FUN_0600286C: ; 0x0600286C
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -3040,13 +3040,13 @@ FUNC_0600286C: ; 0x0600286C
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_060028C8
-FUNC_060028C8: ; 0x060028C8
+	arm_func_start FUN_060028C8
+FUN_060028C8: ; 0x060028C8
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -3081,14 +3081,14 @@ FUNC_060028C8: ; 0x060028C8
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06002960:	.word	0x00000102
 
-	arm_func_start FUNC_06002964
-FUNC_06002964: ; 0x06002964
+	arm_func_start FUN_06002964
+FUN_06002964: ; 0x06002964
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -3111,14 +3111,14 @@ FUNC_06002964: ; 0x06002964
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060029CC:	.word	0x00000101
 
-	arm_func_start FUNC_060029D0
-FUNC_060029D0: ; 0x060029D0
+	arm_func_start FUN_060029D0
+FUN_060029D0: ; 0x060029D0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -3137,7 +3137,7 @@ FUNC_060029D0: ; 0x060029D0
 	mov	r0, r5
 	add	r1, r4, #16
 	mov	r2, #48	; 0x30
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	mov	r0, #0
 	strh	r0, [r5, #2]
 	strh	r0, [r5, #4]
@@ -3160,14 +3160,14 @@ FUNC_060029D0: ; 0x060029D0
 	mov	r0, #2
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002A88
-FUNC_06002A88: ; 0x06002A88
+	arm_func_start FUN_06002A88
+FUN_06002A88: ; 0x06002A88
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -3189,7 +3189,7 @@ FUNC_06002A88: ; 0x06002A88
 	ldr	r0, [sp, #16]
 	add	r1, r4, #24
 	mov	r2, #16
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
 	add	r5, r1, #16
@@ -3198,14 +3198,14 @@ FUNC_06002A88: ; 0x06002A88
 	mov	r0, #18
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002B14
-FUNC_06002B14: ; 0x06002B14
+	arm_func_start FUN_06002B14
+FUN_06002B14: ; 0x06002B14
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -3224,14 +3224,14 @@ FUNC_06002B14: ; 0x06002B14
 	ldrh	r0, [sp, #40]	; 0x28
 	add	r0, r0, #1
 	mov	r1, #2
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	add	r0, r0, #23
 	strh	r0, [r7, #14]
 	strh	r6, [r7, #16]
 	mov	r0, r5
 	add	r1, r7, #18
 	mov	r2, #32
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	strh	r4, [r7, #50]	; 0x32
 	ldrh	r0, [sp, #24]
 	strh	r0, [r7, #52]	; 0x34
@@ -3245,7 +3245,7 @@ FUNC_06002B14: ; 0x06002B14
 	strh	r2, [r7, #60]	; 0x3c
 	ldr	r0, [sp, #44]	; 0x2c
 	add	r1, r7, #62	; 0x3e
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r7, #14]
 	add	r1, r7, r0, lsl #1
 	add	r4, r1, #16
@@ -3254,14 +3254,14 @@ FUNC_06002B14: ; 0x06002B14
 	mov	r0, #1
 	strh	r0, [r4, #2]
 	mov	r0, r7
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002BE8
-FUNC_06002BE8: ; 0x06002BE8
+	arm_func_start FUN_06002BE8
+FUN_06002BE8: ; 0x06002BE8
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r0
 	mov	r6, r2
@@ -3279,7 +3279,7 @@ FUNC_06002BE8: ; 0x06002BE8
 	strh	r0, [r4, #14]
 	mov	r0, r1
 	add	r1, r4, #16
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	strh	r6, [r4, #22]
 	strh	r5, [r4, #24]
 	ldrh	r0, [r4, #14]
@@ -3290,13 +3290,13 @@ FUNC_06002BE8: ; 0x06002BE8
 	mov	r0, #3
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r5
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002C68
-FUNC_06002C68: ; 0x06002C68
+	arm_func_start FUN_06002C68
+FUN_06002C68: ; 0x06002C68
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -3315,7 +3315,7 @@ FUNC_06002C68: ; 0x06002C68
 	mov	r0, r1
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	strh	r5, [r4, #22]
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
@@ -3325,14 +3325,14 @@ FUNC_06002C68: ; 0x06002C68
 	mov	r0, #4
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002CEC
-FUNC_06002CEC: ; 0x06002CEC
+	arm_func_start FUN_06002CEC
+FUN_06002CEC: ; 0x06002CEC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r0
 	mov	r6, r2
@@ -3351,7 +3351,7 @@ FUNC_06002CEC: ; 0x06002CEC
 	mov	r0, r1
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	strh	r6, [r4, #22]
 	strh	r5, [r4, #24]
 	ldrh	r0, [r4, #14]
@@ -3362,13 +3362,13 @@ FUNC_06002CEC: ; 0x06002CEC
 	mov	r0, #6
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r5
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002D70
-FUNC_06002D70: ; 0x06002D70
+	arm_func_start FUN_06002D70
+FUN_06002D70: ; 0x06002D70
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -3388,7 +3388,7 @@ FUNC_06002D70: ; 0x06002D70
 	mov	r0, r2
 	add	r1, r4, #20
 	mov	r2, #68	; 0x44
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r4, #14]
 	add	r1, r4, r0, lsl #1
 	add	r5, r1, #16
@@ -3397,14 +3397,14 @@ FUNC_06002D70: ; 0x06002D70
 	mov	r0, #5
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002DF4
-FUNC_06002DF4: ; 0x06002DF4
+	arm_func_start FUN_06002DF4
+FUN_06002DF4: ; 0x06002DF4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r5, r0
 	mov	r4, r1
@@ -3423,18 +3423,18 @@ FUNC_06002DF4: ; 0x06002DF4
 	mov	r0, r2
 	add	r1, r5, #16
 	mov	r2, #6
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	strh	r6, [r5, #22]
 	ldr	r0, [sp, #16]
 	add	r1, r5, #24
 	mov	r2, #32
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [sp, #20]
 	strh	r0, [r5, #56]	; 0x38
 	ldr	r0, [sp, #24]
 	add	r1, r5, #58	; 0x3a
 	mov	r2, #16
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [sp, #28]
 	strh	r0, [r5, #74]	; 0x4a
 	mov	r0, #0
@@ -3448,13 +3448,13 @@ FUNC_06002DF4: ; 0x06002DF4
 	sub	r0, r0, #44	; 0x2c
 	strh	r0, [r6, #2]
 	mov	r0, r5
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r6
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002EB0
-FUNC_06002EB0: ; 0x06002EB0
+	arm_func_start FUN_06002EB0
+FUN_06002EB0: ; 0x06002EB0
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -3476,13 +3476,13 @@ FUNC_06002EB0: ; 0x06002EB0
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	lr, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002F14
-FUNC_06002F14: ; 0x06002F14
+	arm_func_start FUN_06002F14
+FUN_06002F14: ; 0x06002F14
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -3501,13 +3501,13 @@ FUNC_06002F14: ; 0x06002F14
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUNC_06000700
+	bl	FUN_06000700
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_06002F6C
-FUNC_06002F6C: ; 0x06002F6C
+	arm_func_start FUN_06002F6C
+FUN_06002F6C: ; 0x06002F6C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	ldr	r4, [r0, #4]
@@ -3518,18 +3518,18 @@ FUNC_06002F6C: ; 0x06002F6C
 	str	r2, [r4]
 	ldr	r0, [r0, #12]
 	str	r0, [r4, #8]
-	bl	FUNC_06008124
+	bl	FUN_06008124
 	mov	r0, #15
-	bl	FUNC_0600301C
+	bl	FUN_0600301C
 	mov	r1, #1
 	ldr	r0, [r4]
 	strh	r1, [r0]
 	add	r0, sp, #0
 	add	r1, sp, #2
-	bl	FUNC_06008380
+	bl	FUN_06008380
 	cmp	r0, #0
 	bne	_06002FEC
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #0
 	strh	r1, [r0]
 	mov	r1, #1
@@ -3538,53 +3538,53 @@ FUNC_06002F6C: ; 0x06002F6C
 	strh	r1, [r0, #4]
 	ldrh	r1, [sp, #2]
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_0600300C
 _06002FEC:
 	mov	r1, #2
 	ldr	r0, [r4]
 	strh	r1, [r0]
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #0
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _0600300C:
 	add	sp, sp, #8
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06003018:	.word	_0601A960
 
-	arm_func_start FUNC_0600301C
-FUNC_0600301C: ; 0x0600301C
+	arm_func_start FUN_0600301C
+FUN_0600301C: ; 0x0600301C
 	ldr	pc, _06003020	; =FUN_03802BC8
 _06003020:	.word	FUN_03802BC8
 
-	arm_func_start FUNC_06003024
-FUNC_06003024: ; 0x06003024
+	arm_func_start FUN_06003024
+FUN_06003024: ; 0x06003024
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #1
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600305C
-FUNC_0600305C: ; 0x0600305C
+	arm_func_start FUN_0600305C
+FUN_0600305C: ; 0x0600305C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #532	; 0x214
 	ldr	r0, _06003448	; =_0601A960
 	ldr	r7, [r0, #1360]	; 0x550
 	mov	r5, #0
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
 	ldr	r0, [r7, #12]
 	cmp	r0, #1
@@ -3592,8 +3592,8 @@ FUNC_0600305C: ; 0x0600305C
 	mov	r0, r5
 	str	r0, [r7, #12]
 	mov	r5, #1
-	bl	FUNC_06006978
-	bl	FUNC_06000288
+	bl	FUN_06006978
+	bl	FUN_06000288
 	ldrh	r0, [r7]
 	cmp	r0, #10
 	moveq	r0, #8
@@ -3628,11 +3628,11 @@ _060030F0:
 	str	r1, [r7, #28]
 	strh	r1, [r7, #194]	; 0xc2
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	cmp	r5, #0
 	beq	_06003128
 	ldr	r0, _06003450	; =0x0000FFFF
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 _06003128:
 	cmp	sl, #0
 	movne	r0, #0
@@ -3656,7 +3656,7 @@ _06003154:
 	mov	r0, sl
 	mov	r1, r8, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUNC_06004C5C
+	bl	FUN_06004C5C
 _06003180:
 	add	r8, r8, #1
 	cmp	r8, #16
@@ -3665,24 +3665,24 @@ _0600318C:
 	add	r0, r7, #296	; 0x128
 	mov	r1, #0
 	mov	r2, #90	; 0x5a
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 	add	r0, sp, #16
-	bl	FUNC_060022F8
+	bl	FUN_060022F8
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060031BC
 	mov	r0, #776	; 0x308
-	bl	FUNC_06003024
+	bl	FUN_06003024
 	b	_0600343C
 _060031BC:
 	ldrh	r4, [r0, #6]
 	add	r0, sp, #16
-	bl	FUNC_060023B0
+	bl	FUN_060023B0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060031E0
 	mov	r0, #644	; 0x284
-	bl	FUNC_06003024
+	bl	FUN_06003024
 	b	_0600343C
 _060031E0:
 	ldrh	r1, [r0, #6]
@@ -3727,7 +3727,7 @@ _06003250:
 	add	r0, r7, r0
 	add	r1, sp, #4
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r6, #0
 	add	r5, sp, #4
 	mov	r4, #3
@@ -3736,7 +3736,7 @@ _0600328C:
 	add	r0, sp, #16
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUNC_06002C68
+	bl	FUN_06002C68
 	ldrh	r0, [r0, #4]
 	cmp	r0, #0
 	beq	_060032BC
@@ -3761,11 +3761,11 @@ _060032D8:
 	add	r0, sp, #10
 	mov	r1, #255	; 0xff
 	mov	r2, #6
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 	add	r0, sp, #16
 	add	r1, sp, #10
 	mov	r2, #3
-	bl	FUNC_06002C68
+	bl	FUN_06002C68
 	ldrh	r0, [r0, #4]
 	cmp	r0, #0
 	moveq	r0, #3
@@ -3773,21 +3773,21 @@ _060032D8:
 _06003310:
 	add	r0, sp, #16
 	mov	r1, #1
-	bl	FUNC_06002F14
+	bl	FUN_06002F14
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003334
 	mov	r0, #0
-	bl	FUNC_06003024
+	bl	FUN_06003024
 	b	_0600343C
 _06003334:
 	add	r0, sp, #16
-	bl	FUNC_06002380
+	bl	FUN_06002380
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003354
 	ldr	r0, _0600345C	; =0x00000302
-	bl	FUNC_06003024
+	bl	FUN_06003024
 	b	_0600343C
 _06003354:
 	add	r0, r7, #256	; 0x100
@@ -3796,12 +3796,12 @@ _06003354:
 	bne	_06003394
 	add	r0, sp, #16
 	mov	r1, #1
-	bl	FUNC_06002670
+	bl	FUN_06002670
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003388
 	ldr	r0, _06003460	; =0x0000020E
-	bl	FUNC_06003024
+	bl	FUN_06003024
 	b	_0600343C
 _06003388:
 	mov	r1, #1
@@ -3812,7 +3812,7 @@ _06003394:
 	strh	r0, [r7]
 	mov	r0, #0
 	str	r0, [r7, #408]	; 0x198
-	bl	FUNC_06000100
+	bl	FUN_06000100
 	b	_06003424
 _060033AC:
 	cmp	r1, #0
@@ -3823,21 +3823,21 @@ _060033AC:
 	mov	r1, #0
 	mov	r2, r1
 	mov	r3, #20
-	bl	FUNC_06002284
+	bl	FUN_06002284
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060033E8
 	ldr	r0, _06003464	; =0x00000309
-	bl	FUNC_06003024
+	bl	FUN_06003024
 	b	_0600343C
 _060033E8:
 	add	r0, sp, #16
-	bl	FUNC_06002380
+	bl	FUN_06002380
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003408
 	ldr	r0, _0600345C	; =0x00000302
-	bl	FUNC_06003024
+	bl	FUN_06003024
 	b	_0600343C
 _06003408:
 	mov	r0, #2
@@ -3846,15 +3846,15 @@ _06003408:
 _06003414:
 	mov	r0, #776	; 0x308
 	mov	r1, #0
-	bl	FUNC_06003024
+	bl	FUN_06003024
 	b	_0600343C
 _06003424:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #1
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _0600343C:
 	add	sp, sp, #532	; 0x214
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -3868,26 +3868,26 @@ _0600345C:	.word	0x00000302
 _06003460:	.word	0x0000020E
 _06003464:	.word	0x00000309
 
-	arm_func_start FUNC_06003468
-FUNC_06003468: ; 0x06003468
+	arm_func_start FUN_06003468
+FUN_06003468: ; 0x06003468
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #2
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_060034A4
-FUNC_060034A4: ; 0x060034A4
+	arm_func_start FUN_060034A4
+FUN_060034A4: ; 0x060034A4
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #512	; 0x200
 	ldr	r0, _06003534	; =_0601A960
@@ -3895,34 +3895,34 @@ FUNC_060034A4: ; 0x060034A4
 	ldrh	r0, [r4]
 	cmp	r0, #2
 	beq	_060034DC
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #2
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06003528
 _060034DC:
 	add	r0, sp, #0
-	bl	FUNC_06002398
+	bl	FUN_06002398
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060034FC
 	ldr	r0, _06003538	; =0x00000301
-	bl	FUNC_06003468
+	bl	FUN_06003468
 	b	_06003528
 _060034FC:
 	mov	r0, #1
 	strh	r0, [r4]
-	bl	FUNC_0600301C
+	bl	FUN_0600301C
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #2
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06003528:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, lr}
@@ -3930,26 +3930,26 @@ _06003528:
 _06003534:	.word	_0601A960
 _06003538:	.word	0x00000301
 
-	arm_func_start FUNC_0600353C
-FUNC_0600353C: ; 0x0600353C
+	arm_func_start FUN_0600353C
+FUN_0600353C: ; 0x0600353C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #7
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06003578
-FUNC_06003578: ; 0x06003578
+	arm_func_start FUN_06003578
+FUN_06003578: ; 0x06003578
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #512	; 0x200
 	ldr	r1, _06003618	; =_0601A960
@@ -3957,7 +3957,7 @@ FUNC_06003578: ; 0x06003578
 	ldr	r0, [r0, #4]
 	add	r1, r4, #232	; 0xe8
 	mov	r2, #64	; 0x40
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r2, #1
 	add	r0, r4, #256	; 0x100
 	ldrh	r1, [r0, #26]
@@ -3965,30 +3965,30 @@ FUNC_06003578: ; 0x06003578
 	ldrh	r0, [r0, #244]	; 0xf4
 	ands	r0, r1, r0
 	bne	_060035D0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #7
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_0600360C
 _060035D0:
 	add	r0, sp, #0
 	ldrh	r1, [r4, #248]	; 0xf8
-	bl	FUNC_060025A4
+	bl	FUN_060025A4
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060035F4
 	ldr	r0, _0600361C	; =0x00000212
-	bl	FUNC_0600353C
+	bl	FUN_0600353C
 	b	_0600360C
 _060035F4:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #7
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _0600360C:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, lr}
@@ -3996,13 +3996,13 @@ _0600360C:
 _06003618:	.word	_0601A960
 _0600361C:	.word	0x00000212
 
-	arm_func_start FUNC_06003620
-FUNC_06003620: ; 0x06003620
+	arm_func_start FUN_06003620
+FUN_06003620: ; 0x06003620
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #8
 	strh	r1, [r0]
 	mov	r1, #1
@@ -4011,13 +4011,13 @@ FUNC_06003620: ; 0x06003620
 	strh	r1, [r0, #8]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06003664
-FUNC_06003664: ; 0x06003664
+	arm_func_start FUN_06003664
+FUN_06003664: ; 0x06003664
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #696	; 0x2b8
 	ldr	r1, _060038E0	; =_0601A960
@@ -4026,14 +4026,14 @@ FUNC_06003664: ; 0x06003664
 	ldrh	r1, [r4]
 	cmp	r1, #2
 	beq	_060036A8
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #8
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #0
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060038D4
 _060036A8:
 	ldr	r5, [r0, #4]
@@ -4045,40 +4045,40 @@ _060036A8:
 	mov	r1, r1, asr #1
 	ands	r1, r3, r1
 	bne	_060036F0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #8
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #0
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060038D4
 _060036F0:
 	strh	r2, [r4, #230]	; 0xe6
 	mov	r1, #0
 	strh	r1, [r0, #136]	; 0x88
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r2, #0
 	add	r1, r4, #256	; 0x100
 	strh	r2, [r1, #130]	; 0x82
 	strh	r2, [r4, #134]	; 0x86
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	mov	r1, #1
 	add	r0, r4, #256	; 0x100
 	strh	r1, [r0, #238]	; 0xee
 	mov	r0, #8
 	mov	r1, r6
-	bl	FUNC_06000408
+	bl	FUN_06000408
 	cmp	r0, #0
 	beq	_060038D4
 	mov	r0, r6
-	bl	FUNC_06002368
+	bl	FUN_06002368
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003754
 	ldr	r0, _060038E4	; =0x00000303
-	bl	FUNC_06003620
+	bl	FUN_06003620
 	b	_060038D4
 _06003754:
 	cmp	r5, #0
@@ -4090,12 +4090,12 @@ _06003754:
 	mov	r1, r5
 	mov	r2, #0
 	mov	r3, #1
-	bl	FUNC_06002EB0
+	bl	FUN_06002EB0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003794
 	mov	r0, #1
-	bl	FUNC_06003620
+	bl	FUN_06003620
 	b	_060038D4
 _06003794:
 	strh	r5, [r4, #198]	; 0xc6
@@ -4103,14 +4103,14 @@ _06003794:
 	mov	r0, #0
 	add	r1, sp, #568	; 0x238
 	mov	r2, #128	; 0x80
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	add	r0, sp, #568	; 0x238
 	mov	r1, r5
-	bl	FUNC_06000564
+	bl	FUN_06000564
 	mov	r0, #0
 	add	r1, sp, #24
 	mov	r2, #32
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	ldr	r0, [r5, #8]
 	strh	r0, [sp, #24]
 	ldr	r0, [r5, #8]
@@ -4138,12 +4138,12 @@ _06003794:
 	mov	r1, #32
 	add	r2, sp, #24
 	ldrh	r3, [r5, #24]
-	bl	FUNC_06002B14
+	bl	FUN_06002B14
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003850
 	mov	r0, #9
-	bl	FUNC_06003620
+	bl	FUN_06003620
 	b	_060038D4
 _06003850:
 	ldrh	r0, [r5, #20]
@@ -4154,7 +4154,7 @@ _06003850:
 	add	r0, r0, r1
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_060000B0
+	bl	FUN_060000B0
 	ldrh	r0, [r5, #20]
 	cmp	r0, #0
 	movne	r1, #6
@@ -4163,8 +4163,8 @@ _06003850:
 	add	r0, r0, r1
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_06000060
-	bl	FUNC_060001E8
+	bl	FUN_06000060
+	bl	FUN_060001E8
 	mov	r1, #7
 	strh	r1, [r4]
 	mov	r1, #8
@@ -4176,7 +4176,7 @@ _06003850:
 	strh	r1, [r0, #44]	; 0x2c
 	ldrh	r1, [r4, #50]	; 0x32
 	strh	r1, [r0, #46]	; 0x2e
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	mov	r0, #1
 	strh	r0, [r4, #194]	; 0xc2
 _060038D4:
@@ -4186,26 +4186,26 @@ _060038D4:
 _060038E0:	.word	_0601A960
 _060038E4:	.word	0x00000303
 
-	arm_func_start FUNC_060038E8
-FUNC_060038E8: ; 0x060038E8
+	arm_func_start FUN_060038E8
+FUN_060038E8: ; 0x060038E8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #9
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06003924
-FUNC_06003924: ; 0x06003924
+	arm_func_start FUN_06003924
+FUN_06003924: ; 0x06003924
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #532	; 0x214
 	ldr	r0, _06003AF0	; =_0601A960
@@ -4213,12 +4213,12 @@ FUNC_06003924: ; 0x06003924
 	ldrh	r0, [r8]
 	cmp	r0, #7
 	beq	_0600395C
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #9
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06003AE4
 _0600395C:
 	mov	r6, #0
@@ -4241,14 +4241,14 @@ _06003980:
 	mla	r0, r1, r0, r4
 	add	r1, sp, #8
 	mov	r2, fp
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r9, r6
 	b	_060039E4
 _060039B4:
 	add	r0, sp, #16
 	add	r1, sp, #8
 	ldr	r2, [sp]
-	bl	FUNC_06002C68
+	bl	FUN_06002C68
 	ldrh	r0, [r0, #4]
 	cmp	r0, #0
 	beq	_060039EC
@@ -4262,7 +4262,7 @@ _060039E4:
 	cmp	r9, #2
 	blt	_060039B4
 _060039EC:
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	add	r1, r8, #256	; 0x100
 	ldrh	r2, [r1, #130]	; 0x82
 	ands	r3, r2, r7
@@ -4276,27 +4276,27 @@ _060039EC:
 	add	r1, r8, sl, lsl #3
 	str	r6, [r1, #1848]	; 0x738
 	str	r6, [r1, #1852]	; 0x73c
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	ldr	r0, [sp, #4]
 	mov	r1, sl, lsl #16
 	mov	r1, r1, lsr #16
 	add	r2, sp, #8
-	bl	FUNC_06004C5C
+	bl	FUN_06004C5C
 	b	_06003A44
 _06003A40:
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 _06003A44:
 	add	sl, sl, #1
 	cmp	sl, #16
 	blt	_06003980
 	add	r0, sp, #16
 	mov	r1, #1
-	bl	FUNC_06002F14
+	bl	FUN_06002F14
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003A74
 	mov	r0, #0
-	bl	FUNC_060038E8
+	bl	FUN_060038E8
 	b	_06003AE4
 _06003A74:
 	mov	r0, #0
@@ -4304,12 +4304,12 @@ _06003A74:
 	mov	r0, #3
 	strh	r0, [r8]
 	add	r0, sp, #16
-	bl	FUNC_06002380
+	bl	FUN_06002380
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003AA4
 	ldr	r0, _06003AF4	; =0x00000302
-	bl	FUNC_060038E8
+	bl	FUN_060038E8
 	b	_06003AE4
 _06003AA4:
 	mov	r0, #2
@@ -4320,14 +4320,14 @@ _06003AA4:
 	strh	r1, [r0, #150]	; 0x96
 	add	r0, r8, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUNC_06000D08
-	bl	FUNC_06000100
-	bl	FUNC_060001E8
+	bl	FUN_06000D08
+	bl	FUN_06000100
+	bl	FUN_060001E8
 	mov	r1, #9
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06003AE4:
 	add	sp, sp, #532	; 0x214
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -4335,13 +4335,13 @@ _06003AE4:
 _06003AF0:	.word	_0601A960
 _06003AF4:	.word	0x00000302
 
-	arm_func_start FUNC_06003AF8
-FUNC_06003AF8: ; 0x06003AF8
+	arm_func_start FUN_06003AF8
+FUN_06003AF8: ; 0x06003AF8
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
 	mov	r4, r2
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	cmp	r4, #0
 	movne	r1, #38	; 0x26
 	strneh	r1, [r0]
@@ -4353,29 +4353,29 @@ FUNC_06003AF8: ; 0x06003AF8
 	strh	r1, [r0, #8]
 	strh	r6, [r0, #4]
 	strh	r5, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUNC_06003B44
-FUNC_06003B44: ; 0x06003B44
+	arm_func_start FUN_06003B44
+FUN_06003B44: ; 0x06003B44
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	sub	r0, r4, #64	; 0x40
 	mov	r1, #66	; 0x42
-	bl	FUNC_06003B68
+	bl	FUN_06003B68
 	sub	r0, r4, r0, lsl #1
 	add	r0, r0, #94	; 0x5e
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_06003B68
-FUNC_06003B68: ; 0x06003B68
+	arm_func_start FUN_06003B68
+FUN_06003B68: ; 0x06003B68
 	ldr	pc, _06003B6C	; =_u32_div_f
 _06003B6C:	.word	_u32_div_f
 
-	arm_func_start FUNC_06003B70
-FUNC_06003B70: ; 0x06003B70
+	arm_func_start FUN_06003B70
+FUN_06003B70: ; 0x06003B70
 	ldrh	r2, [r0, #10]
 	cmp	r2, #0
 	moveq	r0, #0
@@ -4398,8 +4398,8 @@ _06003BAC:
 	mov	r0, #0
 	bx	lr
 
-	arm_func_start FUNC_06003BBC
-FUNC_06003BBC: ; 0x06003BBC
+	arm_func_start FUN_06003BBC
+FUN_06003BBC: ; 0x06003BBC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	ldr	ip, _060040D8	; =0x000004CC
 	sub	sp, sp, ip
@@ -4413,14 +4413,14 @@ FUNC_06003BBC: ; 0x06003BBC
 	beq	_06003C14
 	cmp	r0, #5
 	beq	_06003C14
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #38	; 0x26
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060040C8
 _06003C14:
 	ldr	r0, [r8, #4]
@@ -4432,7 +4432,7 @@ _06003C14:
 	add	r0, r8, #12
 	add	r1, sp, #28
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r6, [r8, #54]	; 0x36
 	ldrh	r7, [r8, #18]
 	cmp	r7, #2
@@ -4455,7 +4455,7 @@ _06003C74:
 	add	r0, r8, #22
 	add	r1, sp, #34	; 0x22
 	mov	r2, #32
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r8, #8]
 	str	r0, [sp, #16]
 	ldrh	r1, [sp, #28]
@@ -4472,14 +4472,14 @@ _06003CAC:
 	ldrh	r0, [r0, #244]	; 0xf4
 	ands	sl, r1, r0
 	bne	_06003CE8
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #38	; 0x26
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060040C8
 _06003CE8:
 	ldr	r0, [r8, #4]
@@ -4491,26 +4491,26 @@ _06003CE8:
 	cmp	r0, #64	; 0x40
 	bcs	_06003D2C
 _06003D08:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #38	; 0x26
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060040C8
 _06003D2C:
 	mov	r0, #2
 	strh	r0, [r4, #230]	; 0xe6
 	add	r0, sp, #116	; 0x74
-	bl	FUNC_060022F8
+	bl	FUN_060022F8
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003D58
 	mov	r0, #776	; 0x308
 	mov	r2, #1
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_060040C8
 _06003D58:
 	ldrh	r0, [r0, #6]
@@ -4518,17 +4518,17 @@ _06003D58:
 	bne	_06003DDC
 	mov	r0, #38	; 0x26
 	add	r1, sp, #116	; 0x74
-	bl	FUNC_06000408
+	bl	FUN_06000408
 	cmp	r0, #0
 	beq	_060040C8
 	add	r0, sp, #116	; 0x74
-	bl	FUNC_06002368
+	bl	FUN_06002368
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003D9C
 	ldr	r0, _060040E4	; =0x00000303
 	mov	r2, #1
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_060040C8
 _06003D9C:
 	mov	r0, #3
@@ -4537,13 +4537,13 @@ _06003D9C:
 	mov	r1, #1
 	mov	r2, #0
 	mov	r3, r1
-	bl	FUNC_06002EB0
+	bl	FUN_06002EB0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003DD4
 	mov	r0, #1
 	mov	r2, r0
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_060040C8
 _06003DD4:
 	mov	r0, #1
@@ -4557,13 +4557,13 @@ _06003DDC:
 	bne	_06003E70
 	add	r0, sp, #116	; 0x74
 	mov	r1, #0
-	bl	FUNC_06002670
+	bl	FUN_06002670
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003E1C
 	ldr	r0, _060040E8	; =0x0000020E
 	mov	r2, #1
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_060040C8
 _06003E1C:
 	mov	r1, #0
@@ -4577,13 +4577,13 @@ _06003E2C:
 	bne	_06003E70
 	add	r0, sp, #116	; 0x74
 	mov	r1, #1
-	bl	FUNC_06002670
+	bl	FUN_06002670
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003E64
 	ldr	r0, _060040E8	; =0x0000020E
 	mov	r2, #1
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_060040C8
 _06003E64:
 	mov	r1, #1
@@ -4595,23 +4595,23 @@ _06003E70:
 	add	r0, sp, #66	; 0x42
 	mov	r1, #255	; 0xff
 	mov	r2, #32
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 	cmp	r6, #32
 	bhi	_06003EA0
 	add	r0, sp, #66	; 0x42
 	mov	r1, #0
 	mov	r2, r6
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 _06003EA0:
 	add	r0, sp, #116	; 0x74
 	add	r1, sp, #66	; 0x42
-	bl	FUNC_060026D0
+	bl	FUN_060026D0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003EC8
 	ldr	r0, _060040EC	; =0x0000020D
 	mov	r2, #1
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_060040C8
 _06003EC8:
 	mov	r0, #5
@@ -4620,7 +4620,7 @@ _06003EC8:
 	add	r0, sp, #98	; 0x62
 	mov	r1, r5
 	mov	r2, #16
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 	mov	r3, #1
 	add	r1, sp, #98	; 0x62
 	mov	r2, r3
@@ -4637,7 +4637,7 @@ _06003EF0:
 	cmp	r3, #15
 	bcc	_06003EF0
 	ldr	r0, [sp, #16]
-	bl	FUNC_06003B44
+	bl	FUN_06003B44
 	mov	r1, r0
 	add	r0, sp, #34	; 0x22
 	str	r0, [sp]
@@ -4648,17 +4648,17 @@ _06003EF0:
 	add	r0, sp, #116	; 0x74
 	add	r2, sp, #28
 	mov	r3, r9
-	bl	FUNC_06002DF4
+	bl	FUN_06002DF4
 	mov	r8, r0
 	ldrh	r1, [r8, #4]
 	cmp	r1, #0
 	beq	_06003F70
 	mov	r0, #2
 	mov	r2, #1
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_060040C8
 _06003F70:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r7, r0
 	ldrh	r0, [r8, #8]
 	cmp	r0, #0
@@ -4679,7 +4679,7 @@ _06003FAC:
 	mov	r0, #0
 	mov	r1, r4
 	ldr	r2, [sp, #16]
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r6, #0
 	mov	r0, #32
 	str	r0, [sp, #24]
@@ -4692,18 +4692,18 @@ _06003FD4:
 	mov	r0, r5
 	mov	r1, r4
 	ldr	r2, [sp, #20]
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	cmp	r9, #0
 	beq	_06004020
 	mov	r0, r4
-	bl	FUNC_06003B70
+	bl	FUN_06003B70
 	cmp	r0, #0
 	bne	_06004020
 	strh	r9, [r4, #10]
 	add	r0, sp, #34	; 0x22
 	add	r1, r4, #12
 	ldr	r2, [sp, #24]
-	bl	FUNC_06000554
+	bl	FUN_06000554
 _06004020:
 	add	r0, r7, r6, lsl #2
 	str	r4, [r0, #16]
@@ -4716,7 +4716,7 @@ _06004020:
 	addeq	r0, r0, #25
 	andeq	fp, r0, #255	; 0xff
 	mov	r0, fp
-	bl	FUNC_060002E8
+	bl	FUN_060002E8
 	add	r1, r7, r6, lsl #1
 	strh	r0, [r1, #80]	; 0x50
 	ldr	r0, _060040F0	; =0x027FFF98
@@ -4748,7 +4748,7 @@ _0600408C:
 	strh	r0, [r7, #10]
 _060040C0:
 	mov	r0, r7
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _060040C8:
 	ldr	ip, _060040D8	; =0x000004CC
 	add	sp, sp, ip
@@ -4762,8 +4762,8 @@ _060040E8:	.word	0x0000020E
 _060040EC:	.word	0x0000020D
 _060040F0:	.word	0x027FFF98
 
-	arm_func_start FUNC_060040F4
-FUNC_060040F4: ; 0x060040F4
+	arm_func_start FUN_060040F4
+FUN_060040F4: ; 0x060040F4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #588	; 0x24c
 	add	r6, sp, #72	; 0x48
@@ -4776,14 +4776,14 @@ FUNC_060040F4: ; 0x060040F4
 	beq	_06004148
 	cmp	r1, #5
 	beq	_06004148
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #10
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06004470
 _06004148:
 	ldr	r1, [r0, #4]
@@ -4795,7 +4795,7 @@ _06004148:
 	add	r0, r0, #10
 	add	r1, sp, #16
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r1, [sp, #16]
 	ldr	r0, _06004480	; =0x0000FFFF
 	cmp	r1, r0
@@ -4806,14 +4806,14 @@ _06004148:
 _0600418C:
 	cmp	r7, #0
 	bne	_060041B8
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #10
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06004470
 _060041B8:
 	mov	r0, #1
@@ -4822,26 +4822,26 @@ _060041B8:
 	ldrh	r0, [r0, #244]	; 0xf4
 	ands	r0, r1, r0
 	bne	_060041F4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #10
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	mov	r1, #4
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06004470
 _060041F4:
 	mov	r0, #2
 	strh	r0, [r4, #230]	; 0xe6
 	mov	r0, r6
-	bl	FUNC_060022F8
+	bl	FUN_060022F8
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004220
 	mov	r0, #776	; 0x308
 	mov	r2, #0
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_06004470
 _06004220:
 	ldrh	r0, [r0, #6]
@@ -4849,17 +4849,17 @@ _06004220:
 	bne	_060042A4
 	mov	r0, #10
 	mov	r1, r6
-	bl	FUNC_06000408
+	bl	FUN_06000408
 	cmp	r0, #0
 	beq	_06004470
 	mov	r0, r6
-	bl	FUNC_06002368
+	bl	FUN_06002368
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004264
 	ldr	r0, _06004484	; =0x00000303
 	mov	r2, #0
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_06004470
 _06004264:
 	mov	r0, #3
@@ -4868,13 +4868,13 @@ _06004264:
 	mov	r1, #1
 	mov	r2, #0
 	mov	r3, r1
-	bl	FUNC_06002EB0
+	bl	FUN_06002EB0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_0600429C
 	mov	r0, #1
 	mov	r2, #0
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_06004470
 _0600429C:
 	mov	r0, #1
@@ -4885,12 +4885,12 @@ _060042A4:
 	ldr	r0, _06004480	; =0x0000FFFF
 	add	r1, sp, #22
 	mov	r2, #32
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	strb	r7, [sp, #54]	; 0x36
 	add	r0, sp, #55	; 0x37
 	mov	r1, #0
 	mov	r2, #15
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 	add	r0, sp, #22
 	str	r0, [sp]
 	mov	r0, #1
@@ -4902,17 +4902,17 @@ _060042A4:
 	ldr	r1, _06004488	; =0x0000011E
 	add	r2, sp, #16
 	mov	r3, #0
-	bl	FUNC_06002DF4
+	bl	FUN_06002DF4
 	mov	r6, r0
 	ldrh	r1, [r6, #4]
 	cmp	r1, #0
 	beq	_06004320
 	mov	r0, #2
 	mov	r2, #0
-	bl	FUNC_06003AF8
+	bl	FUN_06003AF8
 	b	_06004470
 _06004320:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r5, r0
 	ldrh	r0, [r6, #8]
 	cmp	r0, #0
@@ -4931,12 +4931,12 @@ _06004358:
 	ldr	r1, [r4, #388]	; 0x184
 	add	r1, r1, #64	; 0x40
 	mov	r2, #128	; 0x80
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	add	r0, r6, #10
 	ldr	r1, [r4, #388]	; 0x184
 	ldrh	r2, [r6, #10]
 	mov	r2, r2, lsl #1
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r0, #10
 	strh	r0, [r5]
 	mov	r0, #0
@@ -4954,7 +4954,7 @@ _06004358:
 	addeq	r0, r0, #25
 	andeq	r4, r0, #255	; 0xff
 	mov	r0, r4
-	bl	FUNC_060002E8
+	bl	FUN_060002E8
 	strh	r0, [r5, #18]
 	ldr	r1, _0600448C	; =0x027FFF98
 	ldrh	r0, [r1]
@@ -4966,11 +4966,11 @@ _06004358:
 	add	r0, r6, #14
 	add	r1, r5, #10
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, r6, #22
 	add	r1, r5, #22
 	mov	r2, #32
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r6, #70]	; 0x46
 	strh	r0, [r5, #54]	; 0x36
 	ldrh	r0, [r5, #54]	; 0x36
@@ -4989,16 +4989,16 @@ _06004440:
 	mov	r0, #0
 	add	r1, r5, #56	; 0x38
 	mov	r2, #128	; 0x80
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	add	r0, r6, #74	; 0x4a
 	add	r1, r5, #56	; 0x38
 	ldrh	r2, [r5, #54]	; 0x36
 	add	r2, r2, #1
 	bic	r2, r2, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 _06004468:
 	mov	r0, r5
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06004470:
 	add	sp, sp, #588	; 0x24c
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -5009,26 +5009,26 @@ _06004484:	.word	0x00000303
 _06004488:	.word	0x0000011E
 _0600448C:	.word	0x027FFF98
 
-	arm_func_start FUNC_06004490
-FUNC_06004490: ; 0x06004490
+	arm_func_start FUN_06004490
+FUN_06004490: ; 0x06004490
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #11
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_060044CC
-FUNC_060044CC: ; 0x060044CC
+	arm_func_start FUN_060044CC
+FUN_060044CC: ; 0x060044CC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	add	r5, sp, #0
@@ -5037,21 +5037,21 @@ FUNC_060044CC: ; 0x060044CC
 	ldrh	r0, [r4]
 	cmp	r0, #5
 	beq	_06004508
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #11
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06004588
 _06004508:
 	mov	r0, r5
-	bl	FUNC_06002380
+	bl	FUN_06002380
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004528
 	ldr	r0, _06004598	; =0x00000302
-	bl	FUNC_06004490
+	bl	FUN_06004490
 	b	_06004588
 _06004528:
 	mov	r0, #2
@@ -5062,24 +5062,24 @@ _06004528:
 	bne	_06004570
 	mov	r0, r5
 	mov	r1, #1
-	bl	FUNC_06002670
+	bl	FUN_06002670
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004564
 	ldr	r0, _0600459C	; =0x0000020E
-	bl	FUNC_06004490
+	bl	FUN_06004490
 	b	_06004588
 _06004564:
 	mov	r1, #1
 	add	r0, r4, #256	; 0x100
 	strh	r1, [r0, #238]	; 0xee
 _06004570:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #11
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06004588:
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
@@ -5088,13 +5088,13 @@ _06004594:	.word	_0601A960
 _06004598:	.word	0x00000302
 _0600459C:	.word	0x0000020E
 
-	arm_func_start FUNC_060045A0
-FUNC_060045A0: ; 0x060045A0
+	arm_func_start FUN_060045A0
+FUN_060045A0: ; 0x060045A0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
 	mov	r4, r2
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #1
@@ -5102,12 +5102,12 @@ FUNC_060045A0: ; 0x060045A0
 	strh	r6, [r0, #4]
 	strh	r5, [r0, #6]
 	strh	r4, [r0, #14]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUNC_060045DC
-FUNC_060045DC: ; 0x060045DC
+	arm_func_start FUN_060045DC
+FUN_060045DC: ; 0x060045DC
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #592	; 0x250
 	mov	r6, r0
@@ -5118,34 +5118,34 @@ FUNC_060045DC: ; 0x060045DC
 	ldrh	r0, [r5]
 	cmp	r0, #2
 	beq	_06004628
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06004B9C
 _06004628:
 	ldr	r0, [r6, #4]
 	add	r1, r7, #16
 	mov	r2, #192	; 0xc0
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r7, #76]	; 0x4c
 	cmp	r0, #16
 	bcc	_06004674
 	ldrb	r0, [r7, #91]	; 0x5b
 	ands	r0, r0, #1
 	bne	_06004674
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #11
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06004B9C
 _06004674:
 	mov	r1, #1
@@ -5160,23 +5160,23 @@ _06004674:
 	ands	r0, r1, r0
 	bne	_060046C0
 _060046A0:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #6
 	strh	r1, [r0, #2]
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06004B9C
 _060046C0:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	r0, r5, #256	; 0x100
 	ldrh	r1, [r0, #236]	; 0xec
 	cmp	r1, #1
@@ -5212,18 +5212,18 @@ _06004724:
 	strneh	r0, [r5, #230]	; 0xe6
 	mov	r0, #12
 	mov	r1, r4
-	bl	FUNC_06000408
+	bl	FUN_06000408
 	cmp	r0, #0
 	beq	_06004B9C
 	mov	r0, r4
 	mov	r1, #0
-	bl	FUNC_060024E4
+	bl	FUN_060024E4
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004798
 	ldr	r0, _06004BB0	; =0x00000216
 	mov	r2, #0
-	bl	FUNC_060045A0
+	bl	FUN_060045A0
 	b	_06004B9C
 _06004798:
 	ldrh	r0, [r7, #76]	; 0x4c
@@ -5234,7 +5234,7 @@ _06004798:
 	moveq	r0, #1
 	beq	_060047C0
 	ldr	r0, _06004BB4	; =0x00002710
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	add	r0, r0, #1
 _060047C0:
 	mov	r0, r0, lsl #16
@@ -5242,23 +5242,23 @@ _060047C0:
 	cmp	r1, #255	; 0xff
 	movhi	r1, #255	; 0xff
 	mov	r0, r4
-	bl	FUNC_06002750
+	bl	FUN_06002750
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060047F4
 	ldr	r0, _06004BB8	; =0x0000020B
 	mov	r2, #0
-	bl	FUNC_060045A0
+	bl	FUN_060045A0
 	b	_06004B9C
 _060047F4:
 	mov	r0, r4
-	bl	FUNC_06002368
+	bl	FUN_06002368
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004818
 	ldr	r0, _06004BBC	; =0x00000303
 	mov	r2, #0
-	bl	FUNC_060045A0
+	bl	FUN_060045A0
 	b	_06004B9C
 _06004818:
 	mov	r0, #3
@@ -5273,20 +5273,20 @@ _06004818:
 	mov	r1, r8
 	mov	r2, #0
 	mov	r3, #1
-	bl	FUNC_06002EB0
+	bl	FUN_06002EB0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004868
 	mov	r0, #1
 	mov	r2, #0
-	bl	FUNC_060045A0
+	bl	FUN_060045A0
 	b	_06004B9C
 _06004868:
 	strh	r8, [r5, #198]	; 0xc6
 	add	r0, r7, #16
 	add	r1, sp, #524	; 0x20c
 	mov	r2, #64	; 0x40
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r5, #230]	; 0xe6
 	cmp	r0, #2
 	bne	_060048C8
@@ -5305,12 +5305,12 @@ _06004868:
 	add	r0, r6, #8
 	add	r1, sp, #544	; 0x220
 	mov	r2, #24
-	bl	FUNC_06000554
+	bl	FUN_06000554
 _060048C8:
 	mov	r0, r4
 	mov	r1, #2000	; 0x7d0
 	add	r2, sp, #524	; 0x20c
-	bl	FUNC_06002D70
+	bl	FUN_06002D70
 	mov	r2, r0
 	ldrh	r1, [r2, #4]
 	cmp	r1, #0
@@ -5321,24 +5321,24 @@ _060048C8:
 _060048F4:
 	mov	r0, #3
 	ldrh	r2, [r2, #6]
-	bl	FUNC_060045A0
+	bl	FUN_060045A0
 	b	_06004B9C
 _06004904:
 	add	r0, r2, #8
 	ldr	r1, _06004BC0	; =0x0000018A
 	add	r1, r5, r1
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldr	r0, _06004BC0	; =0x0000018A
 	add	r0, r5, r0
 	add	r1, sp, #0
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r0, r4
 	add	r1, sp, #0
 	ldrh	r2, [r6, #38]	; 0x26
 	mov	r3, #2000	; 0x7d0
-	bl	FUNC_06002CEC
+	bl	FUN_06002CEC
 	mov	r2, r0
 	ldrh	r1, [r2, #4]
 	cmp	r1, #12
@@ -5346,13 +5346,13 @@ _06004904:
 	ldrh	r0, [r2, #6]
 	cmp	r0, #19
 	bne	_0600497C
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06004B9C
 _0600497C:
 	cmp	r1, #0
@@ -5363,21 +5363,21 @@ _0600497C:
 _06004990:
 	mov	r0, #4
 	ldrh	r2, [r2, #6]
-	bl	FUNC_060045A0
+	bl	FUN_060045A0
 	b	_06004B9C
 _060049A0:
 	ldr	r0, _06004BC0	; =0x0000018A
 	add	r0, r5, r0
 	add	r1, sp, #6
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r0, r4
 	add	r1, sp, #6
 	mov	r2, #1
 	mov	r3, #2000	; 0x7d0
-	bl	FUNC_06002BE8
+	bl	FUN_06002BE8
 	mov	r4, r0
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r6, r0
 	ldrh	r2, [r4, #4]
 	cmp	r2, #12
@@ -5385,14 +5385,14 @@ _060049A0:
 	ldrh	r1, [r4, #6]
 	cmp	r1, #19
 	bne	_06004A10
-	bl	FUNC_060001AC
-	bl	FUNC_060001E8
+	bl	FUN_060001AC
+	bl	FUN_060001E8
 	mov	r1, #12
 	strh	r1, [r0]
 	strh	r1, [r0, #2]
 	mov	r1, #6
 	strh	r1, [r0, #8]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06004B9C
 _06004A10:
 	cmp	r2, #0
@@ -5402,11 +5402,11 @@ _06004A10:
 	beq	_06004A40
 _06004A24:
 	mov	r0, r6
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	mov	r0, #6
 	ldrh	r1, [r4, #4]
 	ldrh	r2, [r4, #6]
-	bl	FUNC_060045A0
+	bl	FUN_060045A0
 	b	_06004B9C
 _06004A40:
 	ldrh	r1, [r4, #8]
@@ -5417,7 +5417,7 @@ _06004A40:
 	mov	r0, #1
 	add	r1, r5, #504	; 0x1f8
 	mov	r2, #16
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	ldrh	r0, [r7, #18]
 	and	r1, r0, #255	; 0xff
 	ands	r0, r1, #2
@@ -5427,11 +5427,11 @@ _06004A40:
 	addeq	r0, r0, #25
 	andeq	r4, r0, #255	; 0xff
 	mov	r0, r4
-	bl	FUNC_060002E8
+	bl	FUN_060002E8
 	strh	r0, [r5, #188]	; 0xbc
 	mov	r0, r4
-	bl	FUNC_0600038C
-	bl	FUNC_060001A4
+	bl	FUN_0600038C
+	bl	FUN_060001A4
 	mov	r4, r0
 	mov	r1, #1
 	add	r0, r5, #256	; 0x100
@@ -5443,7 +5443,7 @@ _06004A40:
 	cmp	r1, r0
 	cmpeq	r2, r0
 	beq	_06004ADC
-	bl	FUNC_06000E98
+	bl	FUN_06000E98
 	orr	r1, r1, #0
 	orr	r0, r0, #1
 	str	r0, [r5, #1848]	; 0x738
@@ -5459,7 +5459,7 @@ _06004ADC:
 	add	r0, r0, r1
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_060000B0
+	bl	FUN_060000B0
 	ldrb	r0, [r7, #91]	; 0x5b
 	ands	r0, r0, #4
 	movne	r1, #6
@@ -5468,12 +5468,12 @@ _06004ADC:
 	add	r0, r0, r1
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_06000060
+	bl	FUN_06000060
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	mov	r0, #1
 	strh	r0, [r5, #194]	; 0xc2
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r4, r0
 	mov	r0, #12
 	strh	r0, [r4]
@@ -5488,15 +5488,15 @@ _06004ADC:
 	add	r0, r5, r0
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r5, #48]	; 0x30
 	strh	r0, [r4, #22]
 	ldrh	r0, [r5, #50]	; 0x32
 	strh	r0, [r4, #24]
 	mov	r0, r4
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	mov	r0, r6
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 _06004B9C:
 	add	sp, sp, #592	; 0x250
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -5509,15 +5509,15 @@ _06004BB8:	.word	0x0000020B
 _06004BBC:	.word	0x00000303
 _06004BC0:	.word	0x0000018A
 
-	arm_func_start FUNC_06004BC4
-FUNC_06004BC4: ; 0x06004BC4
+	arm_func_start FUN_06004BC4
+FUN_06004BC4: ; 0x06004BC4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
 	mov	r6, r1
 	mov	r5, r2
 	mov	r4, r3
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #37	; 0x25
 	strh	r1, [r0]
 	mov	r1, #1
@@ -5526,20 +5526,20 @@ FUNC_06004BC4: ; 0x06004BC4
 	strh	r6, [r0, #6]
 	strh	r5, [r0, #8]
 	strh	r4, [r0, #10]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUNC_06004C10
-FUNC_06004C10: ; 0x06004C10
+	arm_func_start FUN_06004C10
+FUN_06004C10: ; 0x06004C10
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
 	mov	r6, r1
 	mov	r5, r2
 	mov	r4, r3
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #13
 	strh	r1, [r0]
 	mov	r1, #1
@@ -5548,20 +5548,20 @@ FUNC_06004C10: ; 0x06004C10
 	strh	r6, [r0, #6]
 	strh	r5, [r0, #8]
 	strh	r4, [r0, #10]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUNC_06004C5C
-FUNC_06004C5C: ; 0x06004C5C
+	arm_func_start FUN_06004C5C
+FUN_06004C5C: ; 0x06004C5C
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r8, r0
 	mov	r7, r1
 	mov	r6, r2
 	ldr	r0, _06004D20	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r5, r0
 	mov	r0, #0
 	strh	r0, [r5, #2]
@@ -5577,7 +5577,7 @@ FUNC_06004C5C: ; 0x06004C5C
 	mov	r0, r6
 	add	r1, r5, #10
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r4, #48]	; 0x30
 	strh	r0, [r5, #44]	; 0x2c
 	ldrh	r0, [r4, #50]	; 0x32
@@ -5596,21 +5596,21 @@ _06004CCC:
 	mov	r0, r6
 	add	r1, r5, #16
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r4, #48]	; 0x30
 	strh	r0, [r5, #22]
 	ldrh	r0, [r4, #50]	; 0x32
 	strh	r0, [r5, #24]
 _06004D10:
 	mov	r0, r5
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 _06004D20:	.word	_0601A960
 _06004D24:	.word	0x0000F001
 
-	arm_func_start FUNC_06004D28
-FUNC_06004D28: ; 0x06004D28
+	arm_func_start FUN_06004D28
+FUN_06004D28: ; 0x06004D28
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #580	; 0x244
 	movs	sl, r1
@@ -5643,16 +5643,16 @@ _06004D8C:
 	cmp	r0, #8
 	bne	_06004E4C
 _06004D9C:
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
 	add	r1, r5, #256	; 0x100
 	ldrh	r1, [r1, #130]	; 0x82
 	cmp	r1, #0
 	bne	_06004DF4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	cmp	sl, #0
 	bne	_06004DEC
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #13
 	strh	r1, [r0]
 	mov	r1, #3
@@ -5662,7 +5662,7 @@ _06004D9C:
 	strh	r1, [r0, #6]
 	strh	r9, [r0, #8]
 	strh	r1, [r0, #10]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06004DEC:
 	mov	r0, #0
 	b	_06005310
@@ -5673,8 +5673,8 @@ _06004DF4:
 	mov	r0, #0
 	str	r0, [r5, #12]
 	mov	r7, #1
-	bl	FUNC_06006978
-	bl	FUNC_06000288
+	bl	FUN_06006978
+	bl	FUN_06000288
 	ldrh	r0, [r5]
 	cmp	r0, #10
 	moveq	r0, #8
@@ -5688,12 +5688,12 @@ _06004E24:
 	str	r1, [r5, #16]
 	str	r1, [r5, #28]
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	b	_06004E88
 _06004E4C:
 	cmp	sl, #0
 	bne	_06004E80
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #13
 	strh	r1, [r0]
 	mov	r1, #3
@@ -5703,7 +5703,7 @@ _06004E4C:
 	strh	r1, [r0, #6]
 	strh	r9, [r0, #8]
 	strh	r1, [r0, #10]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06004E80:
 	mov	r0, #0
 	b	_06005310
@@ -5718,7 +5718,7 @@ _06004E9C:
 	add	r0, r5, r0
 	add	r1, sp, #56	; 0x38
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r8, #0
 	add	r6, sp, #56	; 0x38
 	mov	r4, #3
@@ -5727,7 +5727,7 @@ _06004EC0:
 	add	r0, sp, #68	; 0x44
 	mov	r1, r6
 	mov	r2, r4
-	bl	FUNC_06002C68
+	bl	FUN_06002C68
 	ldrh	r1, [r0, #4]
 	cmp	r1, #7
 	bgt	_06004F08
@@ -5754,18 +5754,18 @@ _06004F18:
 	mov	r0, #5
 	mov	r2, r9
 	mov	r3, #0
-	bl	FUNC_06004BC4
+	bl	FUN_06004BC4
 	b	_06004F44
 _06004F34:
 	mov	r0, #5
 	mov	r2, r9
 	mov	r3, #0
-	bl	FUNC_06004C10
+	bl	FUN_06004C10
 _06004F44:
 	cmp	r7, #0
 	beq	_06004F54
 	mov	r0, #1
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 _06004F54:
 	mov	r0, #0
 	b	_06005310
@@ -5780,7 +5780,7 @@ _06004F64:
 	strh	r0, [r5]
 	add	r0, sp, #68	; 0x44
 	mov	r1, r8
-	bl	FUNC_06002F14
+	bl	FUN_06002F14
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004FD4
@@ -5789,24 +5789,24 @@ _06004F64:
 	mov	r0, #0
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUNC_06004BC4
+	bl	FUN_06004BC4
 	b	_06004FBC
 _06004FAC:
 	mov	r0, #0
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUNC_06004C10
+	bl	FUN_06004C10
 _06004FBC:
 	cmp	r7, #0
 	beq	_06004FCC
 	mov	r0, #1
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 _06004FCC:
 	mov	r0, #0
 	b	_06005310
 _06004FD4:
 	add	r0, sp, #68	; 0x44
-	bl	FUNC_06002380
+	bl	FUN_06002380
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_0600502C
@@ -5815,18 +5815,18 @@ _06004FD4:
 	ldr	r0, _06005324	; =0x00000302
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUNC_06004BC4
+	bl	FUN_06004BC4
 	b	_06005014
 _06005004:
 	ldr	r0, _06005324	; =0x00000302
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUNC_06004C10
+	bl	FUN_06004C10
 _06005014:
 	cmp	r7, #0
 	beq	_06005024
 	mov	r0, #1
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 _06005024:
 	mov	r0, #0
 	b	_06005310
@@ -5839,11 +5839,11 @@ _0600502C:
 	strh	r1, [r0, #150]	; 0x96
 	add	r0, r5, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUNC_06000D08
-	bl	FUNC_06000100
+	bl	FUN_06000D08
+	bl	FUN_06000100
 	cmp	sl, #1
 	bne	_060050BC
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r4, r0
 	mov	r0, #12
 	strh	r0, [r4]
@@ -5859,24 +5859,24 @@ _0600502C:
 	add	r0, sp, #56	; 0x38
 	add	r1, r4, #16
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r0, [r5, #48]	; 0x30
 	strh	r0, [r4, #22]
 	ldrh	r0, [r5, #50]	; 0x32
 	strh	r0, [r4, #24]
 	mov	r0, r4
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060050CC
 _060050BC:
 	mov	r0, #0
 	mov	r1, r0
 	add	r2, sp, #56	; 0x38
-	bl	FUNC_06004C5C
+	bl	FUN_06004C5C
 _060050CC:
 	cmp	r7, #0
 	beq	_06005300
 	mov	r0, #1
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 	b	_06005300
 _060050E0:
 	mov	r6, #1
@@ -5911,7 +5911,7 @@ _0600511C:
 	str	r0, [sp, #12]
 	add	r1, sp, #62	; 0x3e
 	ldr	r2, [sp, #20]
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldr	r0, [sp, #24]
 	str	r0, [sp, #8]
 	b	_060051EC
@@ -5919,7 +5919,7 @@ _0600516C:
 	add	r0, sp, #68	; 0x44
 	add	r1, sp, #62	; 0x3e
 	ldr	r2, [sp, #28]
-	bl	FUNC_06002C68
+	bl	FUN_06002C68
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060051F8
@@ -5938,18 +5938,18 @@ _060051A8:
 	mov	r0, #5
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUNC_06004BC4
+	bl	FUN_06004BC4
 	b	_060051D4
 _060051C4:
 	mov	r0, #5
 	mov	r2, r9
 	mov	r3, r8
-	bl	FUNC_06004C10
+	bl	FUN_06004C10
 _060051D4:
 	cmp	r7, #0
 	beq	_060051E4
 	mov	r0, #1
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 _060051E4:
 	mov	r0, #0
 	b	_06005310
@@ -5958,7 +5958,7 @@ _060051EC:
 	cmp	r0, #2
 	blt	_0600516C
 _060051F8:
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	str	r0, [sp, #32]
 	add	r2, r5, #256	; 0x100
 	ldrh	r1, [r2, #130]	; 0x82
@@ -5981,12 +5981,12 @@ _060051F8:
 	ldr	r0, [sp, #12]
 	ldr	r1, [sp, #24]
 	ldr	r2, [sp, #20]
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 	ldr	r0, [sp, #32]
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	cmp	sl, #1
 	bne	_060052C4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	str	r0, [sp, #40]	; 0x28
 	ldr	r1, [sp, #44]	; 0x2c
 	strh	r1, [r0]
@@ -6001,29 +6001,29 @@ _060051F8:
 	ldr	r1, [sp, #40]	; 0x28
 	add	r1, r1, #10
 	ldr	r2, [sp, #20]
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldrh	r1, [r5, #48]	; 0x30
 	ldr	r0, [sp, #40]	; 0x28
 	strh	r1, [r0, #44]	; 0x2c
 	ldrh	r1, [r5, #50]	; 0x32
 	strh	r1, [r0, #46]	; 0x2e
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060052D8
 _060052C4:
 	ldr	r0, [sp, #52]	; 0x34
 	mov	r1, r6, lsl #16
 	mov	r1, r1, lsr #16
 	add	r2, sp, #62	; 0x3e
-	bl	FUNC_06004C5C
+	bl	FUN_06004C5C
 _060052D8:
 	cmp	r7, #0
 	beq	_060052F4
 	mov	r0, r4, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 	b	_060052F4
 _060052F0:
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 _060052F4:
 	add	r6, r6, #1
 _060052F8:
@@ -6042,8 +6042,8 @@ _0600531C:	.word	_0601A960
 _06005320:	.word	0x0000018A
 _06005324:	.word	0x00000302
 
-	arm_func_start FUNC_06005328
-FUNC_06005328: ; 0x06005328
+	arm_func_start FUN_06005328
+FUN_06005328: ; 0x06005328
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	ldr	r1, [r0, #4]
@@ -6051,10 +6051,10 @@ FUNC_06005328: ; 0x06005328
 	mov	r4, r1, lsr #16
 	mov	r1, #0
 	add	r2, sp, #0
-	bl	FUNC_06004D28
+	bl	FUN_06004D28
 	cmp	r0, #1
 	bne	_06005374
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #13
 	strh	r1, [r0]
 	mov	r1, #0
@@ -6062,14 +6062,14 @@ FUNC_06005328: ; 0x06005328
 	strh	r4, [r0, #8]
 	ldrh	r1, [sp]
 	strh	r1, [r0, #10]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06005374:
 	add	sp, sp, #8
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_06005380
-FUNC_06005380: ; 0x06005380
+	arm_func_start FUN_06005380
+FUN_06005380: ; 0x06005380
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	sub	sp, sp, #512	; 0x200
 	ldr	r1, _06005630	; =_06019960
@@ -6122,13 +6122,13 @@ _06005408:
 _0600543C:
 	cmp	sl, #0
 	beq	_06005464
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	strh	sl, [r0, #2]
 	mov	r1, #10
 	strh	r1, [r0, #4]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06005624
 _06005464:
 	mov	r1, #0
@@ -6139,13 +6139,13 @@ _06005464:
 	cmp	r1, #0
 	beq	_06005488
 	ldr	r0, _06005638	; =0x0000FFFF
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 _06005488:
-	bl	FUNC_06007F20
+	bl	FUN_06007F20
 	mov	r0, r5
 	mov	r1, #0
-	bl	FUNC_060086D0
-	bl	FUNC_060001A4
+	bl	FUN_060086D0
+	bl	FUN_060001A4
 	mov	r5, r0
 	ldrh	r2, [r4]
 	ldr	r1, _0600563C	; =0x0000FFF9
@@ -6183,7 +6183,7 @@ _06005488:
 	ldr	r0, _06005638	; =0x0000FFFF
 	strh	r0, [r4, #190]	; 0xbe
 	strh	r1, [r4, #192]	; 0xc0
-	bl	FUNC_06000E98
+	bl	FUN_06000E98
 	mov	r2, #0
 	orr	r1, r1, #0
 	orr	r3, r0, #1
@@ -6194,10 +6194,10 @@ _06005540:
 	add	r2, r2, #1
 	cmp	r2, #16
 	blt	_06005540
-	bl	FUNC_06000210
+	bl	FUN_06000210
 	mov	r0, #0
 	strh	r0, [r4, #206]	; 0xce
-	bl	FUNC_060068E0
+	bl	FUN_060068E0
 	ldrh	r0, [r4]
 	cmp	r0, #8
 	moveq	r0, #10
@@ -6207,26 +6207,26 @@ _06005540:
 	moveq	r0, #9
 	streqh	r0, [r4]
 _06005588:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #10
 	strh	r1, [r0, #4]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	mov	r0, #1
 	str	r0, [r4, #12]
 	mov	r0, r5
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	add	r0, sp, #0
 	mov	r1, #1
-	bl	FUNC_060024E4
+	bl	FUN_060024E4
 	mov	r4, r0
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
 	beq	_06005624
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #1
@@ -6235,18 +6235,18 @@ _06005588:
 	strh	r1, [r0, #4]
 	ldrh	r1, [r4, #4]
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06005624
 _06005600:
-	bl	FUNC_060001AC
-	bl	FUNC_060001E8
+	bl	FUN_060001AC
+	bl	FUN_060001E8
 	mov	r1, #14
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
 	mov	r1, #10
 	strh	r1, [r0, #4]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06005624:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -6257,8 +6257,8 @@ _06005638:	.word	0x0000FFFF
 _0600563C:	.word	0x0000FFF9
 _06005640:	.word	0x00000216
 
-	arm_func_start FUNC_06005644
-FUNC_06005644: ; 0x06005644
+	arm_func_start FUN_06005644
+FUN_06005644: ; 0x06005644
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #20
 	ldr	r1, _06005784	; =_0601A960
@@ -6296,12 +6296,12 @@ FUNC_06005644: ; 0x06005644
 	mov	r0, r5
 	ldr	r2, [sp, #16]
 	mov	r3, r8
-	bl	FUNC_060074AC
+	bl	FUN_060074AC
 	mov	r6, r0
 _060056E0:
 	cmp	r6, #2
 	beq	_06005778
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #129	; 0x81
 	strh	r1, [r0]
 	strh	r6, [r0, #2]
@@ -6336,7 +6336,7 @@ _060056E0:
 	cmp	r1, #0
 	movne	r3, r2
 	strh	r3, [r0, #38]	; 0x26
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06005778:
 	add	sp, sp, #20
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -6344,26 +6344,26 @@ _06005778:
 _06005784:	.word	_0601A960
 _06005788:	.word	0x0000FFFF
 
-	arm_func_start FUNC_0600578C
-FUNC_0600578C: ; 0x0600578C
+	arm_func_start FUN_0600578C
+FUN_0600578C: ; 0x0600578C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #16
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_060057C8
-FUNC_060057C8: ; 0x060057C8
+	arm_func_start FUN_060057C8
+FUN_060057C8: ; 0x060057C8
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #512	; 0x200
 	ldr	r0, _060058DC	; =_0601A960
@@ -6374,23 +6374,23 @@ FUNC_060057C8: ; 0x060057C8
 	beq	_0600580C
 	cmp	r0, #10
 	beq	_0600580C
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #16
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060058D0
 _0600580C:
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r5, r0
 	ldr	r0, [r4, #12]
 	cmp	r0, #1
 	moveq	r6, #1
 	mov	r0, #0
 	str	r0, [r4, #12]
-	bl	FUNC_06006978
-	bl	FUNC_06000288
+	bl	FUN_06006978
+	bl	FUN_06000288
 	ldrh	r0, [r4]
 	cmp	r0, #10
 	moveq	r0, #8
@@ -6401,25 +6401,25 @@ _0600580C:
 	streqh	r0, [r4]
 _06005850:
 	mov	r0, r5
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	add	r0, sp, #0
 	mov	r1, #0
-	bl	FUNC_060024E4
+	bl	FUN_060024E4
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_0600587C
 	ldr	r0, _060058E0	; =0x00000216
-	bl	FUNC_0600578C
+	bl	FUN_0600578C
 	b	_060058D0
 _0600587C:
 	add	r0, sp, #0
 	mov	r1, #7
-	bl	FUNC_0600286C
+	bl	FUN_0600286C
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060058A0
 	mov	r0, #260	; 0x104
-	bl	FUNC_0600578C
+	bl	FUN_0600578C
 	b	_060058D0
 _060058A0:
 	mov	r0, #0
@@ -6427,14 +6427,14 @@ _060058A0:
 	cmp	r6, #0
 	beq	_060058B8
 	ldr	r0, _060058E4	; =0x0000FFFF
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 _060058B8:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #16
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _060058D0:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -6443,8 +6443,8 @@ _060058DC:	.word	_0601A960
 _060058E0:	.word	0x00000216
 _060058E4:	.word	0x0000FFFF
 
-	arm_func_start FUNC_060058E8
-FUNC_060058E8: ; 0x060058E8
+	arm_func_start FUN_060058E8
+FUN_060058E8: ; 0x060058E8
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	ldr	r1, _06005970	; =_0601A960
 	ldr	r5, [r1, #1360]	; 0x550
@@ -6452,7 +6452,7 @@ FUNC_060058E8: ; 0x060058E8
 	ldr	r0, [r0, #8]
 	mov	r6, r0, lsl #16
 	mov	r7, r6, lsr #16
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r4, r0
 	str	r8, [r5, #176]	; 0xb0
 	strh	r7, [r5, #184]	; 0xb8
@@ -6465,24 +6465,24 @@ FUNC_060058E8: ; 0x060058E8
 	str	r0, [r5, #24]
 	mov	r0, #11
 	strh	r0, [r5]
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #17
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	mov	r1, #14
 	strh	r1, [r0, #4]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	mov	r0, #1
 	str	r0, [r5, #16]
 	mov	r0, r4
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 _06005970:	.word	_0601A960
 
-	arm_func_start FUNC_06005974
-FUNC_06005974: ; 0x06005974
+	arm_func_start FUN_06005974
+FUN_06005974: ; 0x06005974
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #564	; 0x234
 	mov	r5, r0
@@ -6491,7 +6491,7 @@ FUNC_06005974: ; 0x06005974
 	add	r0, r5, #4
 	add	r1, r4, #162	; 0xa2
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldr	r0, [r5, #12]
 	str	r0, [r4, #168]	; 0xa8
 	ldr	r0, [r5, #16]
@@ -6501,7 +6501,7 @@ FUNC_06005974: ; 0x06005974
 	mov	r0, #0
 	add	r1, sp, #0
 	mov	r2, #48	; 0x30
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r0, #0
 	strh	r0, [sp]
 	ldr	r0, [r5, #16]
@@ -6515,18 +6515,18 @@ FUNC_06005974: ; 0x06005974
 	add	r0, r5, #4
 	add	r1, sp, #24
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, r4, #224	; 0xe0
 	add	r1, sp, #30
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	ldr	r0, [r5, #12]
 	str	r0, [sp, #44]	; 0x2c
 	add	r0, sp, #48	; 0x30
 	add	r1, sp, #0
-	bl	FUNC_060029D0
+	bl	FUN_060029D0
 	mov	r4, r0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #18
 	strh	r1, [r0]
 	ldrh	r1, [r4, #4]
@@ -6540,96 +6540,96 @@ FUNC_06005974: ; 0x06005974
 	strneh	r1, [r0, #4]
 	ldrneh	r1, [r4, #4]
 	strneh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #564	; 0x234
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06005A68:	.word	_0601A960
 
-	arm_func_start FUNC_06005A6C
-FUNC_06005A6C: ; 0x06005A6C
+	arm_func_start FUN_06005A6C
+FUN_06005A6C: ; 0x06005A6C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #19
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06005AA8
-FUNC_06005AA8: ; 0x06005AA8
+	arm_func_start FUN_06005AA8
+FUN_06005AA8: ; 0x06005AA8
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #512	; 0x200
 	ldr	r0, _06005B44	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	ldrh	r1, [r4]
 	cmp	r1, #11
 	beq	_06005AE8
-	bl	FUNC_060001AC
-	bl	FUNC_060001E8
+	bl	FUN_060001AC
+	bl	FUN_060001E8
 	mov	r1, #19
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06005B38
 _06005AE8:
 	mov	r1, #0
 	str	r1, [r4, #16]
 	mov	r1, #8
 	strh	r1, [r4]
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	add	r0, sp, #0
 	mov	r1, #7
-	bl	FUNC_0600286C
+	bl	FUN_0600286C
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06005B20
 	mov	r0, #260	; 0x104
-	bl	FUNC_06005A6C
+	bl	FUN_06005A6C
 	b	_06005B38
 _06005B20:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #19
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06005B38:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06005B44:	.word	_0601A960
 
-	arm_func_start FUNC_06005B48
-FUNC_06005B48: ; 0x06005B48
+	arm_func_start FUN_06005B48
+FUN_06005B48: ; 0x06005B48
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #20
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06005B84
-FUNC_06005B84: ; 0x06005B84
+	arm_func_start FUN_06005B84
+FUN_06005B84: ; 0x06005B84
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r5, r0
@@ -6664,39 +6664,39 @@ _06005BE4:
 	ldr	r0, [r5, #8]
 	add	r1, r4, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	b	_06005C14
 _06005C04:
 	add	r0, r4, #412	; 0x19c
 	mov	r1, #0
 	mov	r2, #80	; 0x50
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 _06005C14:
 	ldr	r0, [r5, #12]
 	strh	r0, [r4, #196]	; 0xc4
 	add	r0, sp, #0
 	ldrh	r1, [r4, #196]	; 0xc4
-	bl	FUNC_060027B0
+	bl	FUN_060027B0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06005C3C
 	ldr	r0, _06005C64	; =0x00000207
-	bl	FUNC_06005B48
+	bl	FUN_06005B48
 _06005C3C:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #39	; 0x27
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06005C60:	.word	_0601A960
 _06005C64:	.word	0x00000207
 
-	arm_func_start FUNC_06005C68
-FUNC_06005C68: ; 0x06005C68
+	arm_func_start FUN_06005C68
+FUN_06005C68: ; 0x06005C68
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _06005D18	; =_0601A960
@@ -6730,27 +6730,27 @@ _06005CC4:
 	ldr	r0, [r0, #8]
 	add	r1, r3, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	b	_06005CF4
 _06005CE4:
 	add	r0, r3, #412	; 0x19c
 	mov	r1, #0
 	mov	r2, #80	; 0x50
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 _06005CF4:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #20
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06005D18:	.word	_0601A960
 
-	arm_func_start FUNC_06005D1C
-FUNC_06005D1C: ; 0x06005D1C
+	arm_func_start FUN_06005D1C
+FUN_06005D1C: ; 0x06005D1C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #640	; 0x280
 	ldr	r1, _06005E08	; =_0601A960
@@ -6783,16 +6783,16 @@ FUNC_06005D1C: ; 0x06005D1C
 	strh	r0, [r4, #254]	; 0xfe
 	add	r0, sp, #512	; 0x200
 	add	r1, r4, #232	; 0xe8
-	bl	FUNC_06000564
+	bl	FUN_06000564
 	add	r0, sp, #0
 	ldrh	r1, [r4, #236]	; 0xec
 	add	r1, r1, #16
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
 	add	r2, sp, #512	; 0x200
-	bl	FUNC_060023F4
+	bl	FUN_060023F4
 	mov	r4, r0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #24
 	strh	r1, [r0]
 	ldrh	r1, [r4, #4]
@@ -6806,33 +6806,33 @@ FUNC_06005D1C: ; 0x06005D1C
 	strneh	r1, [r0, #4]
 	ldrneh	r1, [r4, #4]
 	strneh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #640	; 0x280
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06005E08:	.word	_0601A960
 _06005E0C:	.word	0x00000245
 
-	arm_func_start FUNC_06005E10
-FUNC_06005E10: ; 0x06005E10
+	arm_func_start FUN_06005E10
+FUN_06005E10: ; 0x06005E10
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #25
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06005E4C
-FUNC_06005E4C: ; 0x06005E4C
+	arm_func_start FUN_06005E4C
+FUN_06005E4C: ; 0x06005E4C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r1, r0
@@ -6840,74 +6840,74 @@ FUNC_06005E4C: ; 0x06005E4C
 	ldr	r1, [r1, #4]
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUNC_06002544
+	bl	FUN_06002544
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06005E84
 	ldr	r0, _06005EA8	; =0x00000215
-	bl	FUNC_06005E10
+	bl	FUN_06005E10
 	b	_06005E9C
 _06005E84:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #25
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06005E9C:
 	add	sp, sp, #516	; 0x204
 	ldmfd	sp!, {lr}
 	bx	lr
 _06005EA8:	.word	0x00000215
 
-	arm_func_start FUNC_06005EAC
-FUNC_06005EAC: ; 0x06005EAC
+	arm_func_start FUN_06005EAC
+FUN_06005EAC: ; 0x06005EAC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #26
 	strh	r1, [r0]
 	mov	r1, #4
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_06005ED8
-FUNC_06005ED8: ; 0x06005ED8
+	arm_func_start FUN_06005ED8
+FUN_06005ED8: ; 0x06005ED8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #27
 	strh	r1, [r0]
 	mov	r1, #4
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_06005F04
-FUNC_06005F04: ; 0x06005F04
+	arm_func_start FUN_06005F04
+FUN_06005F04: ; 0x06005F04
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #29
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06005F40
-FUNC_06005F40: ; 0x06005F40
+	arm_func_start FUN_06005F40
+FUN_06005F40: ; 0x06005F40
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r3, r0
@@ -6926,12 +6926,12 @@ FUNC_06005F40: ; 0x06005F40
 	ldr	r3, [r3, #12]
 	mov	r3, r3, lsl #16
 	mov	r3, r3, lsr #16
-	bl	FUNC_06002604
+	bl	FUN_06002604
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06005FA4
 	ldr	r0, _06006054	; =0x00000211
-	bl	FUNC_06005F04
+	bl	FUN_06005F04
 	b	_06006044
 _06005FA4:
 	ldr	r0, _06006058	; =0x0000FFFF
@@ -6961,7 +6961,7 @@ _06005FF8:
 	str	r0, [r4, #1976]	; 0x7b8
 	str	r0, [r4, #1980]	; 0x7bc
 _06006004:
-	bl	FUNC_06000E98
+	bl	FUN_06000E98
 	mov	r2, #0
 	orr	r1, r1, #0
 	orr	r3, r0, #1
@@ -6972,12 +6972,12 @@ _06006014:
 	add	r2, r2, #1
 	cmp	r2, #16
 	blt	_06006014
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #29
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06006044:
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
@@ -6987,26 +6987,26 @@ _06006054:	.word	0x00000211
 _06006058:	.word	0x0000FFFF
 _0600605C:	.word	0x000082EA
 
-	arm_func_start FUNC_06006060
-FUNC_06006060: ; 0x06006060
+	arm_func_start FUN_06006060
+FUN_06006060: ; 0x06006060
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #30
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600609C
-FUNC_0600609C: ; 0x0600609C
+	arm_func_start FUN_0600609C
+FUN_0600609C: ; 0x0600609C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #532	; 0x214
 	mov	r8, r0
@@ -7016,21 +7016,21 @@ FUNC_0600609C: ; 0x0600609C
 	ldrh	r0, [r4]
 	cmp	r0, #2
 	beq	_060060DC
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #30
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06006238
 _060060DC:
 	mov	r0, r7
-	bl	FUNC_060022F8
+	bl	FUN_060022F8
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060060FC
 	mov	r0, #776	; 0x308
-	bl	FUNC_06006060
+	bl	FUN_06006060
 	b	_06006238
 _060060FC:
 	ldrh	r1, [r0, #6]
@@ -7040,16 +7040,16 @@ _060060FC:
 	bne	_06006180
 	mov	r0, #10
 	mov	r1, r7
-	bl	FUNC_06000408
+	bl	FUN_06000408
 	cmp	r0, #0
 	beq	_06006238
 	mov	r0, r7
-	bl	FUNC_06002368
+	bl	FUN_06002368
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06006144
 	ldr	r0, _06006248	; =0x00000303
-	bl	FUNC_06006060
+	bl	FUN_06006060
 	b	_06006238
 _06006144:
 	mov	r0, #3
@@ -7058,12 +7058,12 @@ _06006144:
 	mov	r1, #1
 	mov	r2, #0
 	mov	r3, r1
-	bl	FUNC_06002EB0
+	bl	FUN_06002EB0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06006178
 	mov	r0, #1
-	bl	FUNC_06006060
+	bl	FUN_06006060
 	b	_06006238
 _06006178:
 	mov	r0, #1
@@ -7076,7 +7076,7 @@ _06006180:
 	add	r0, sp, #4
 	mov	r1, #0
 	mov	r2, #16
-	bl	FUNC_06000D08
+	bl	FUN_06000D08
 	strb	r9, [sp, #4]
 	add	r0, sp, #4
 	str	r0, [sp]
@@ -7084,12 +7084,12 @@ _06006180:
 	mov	r1, r6
 	mov	r2, r5
 	mov	r3, r8
-	bl	FUNC_06002A88
+	bl	FUN_06002A88
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060061D8
 	mov	r0, #10
-	bl	FUNC_06006060
+	bl	FUN_06006060
 	b	_06006238
 _060061D8:
 	ldrh	r1, [r0, #8]
@@ -7099,24 +7099,24 @@ _060061D8:
 	mov	r0, r1, lsl #8
 	mov	r6, r0, lsr #16
 	mov	r0, r7
-	bl	FUNC_06002380
+	bl	FUN_06002380
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06006210
 	ldr	r0, _0600624C	; =0x00000302
-	bl	FUNC_06006060
+	bl	FUN_06006060
 	b	_06006238
 _06006210:
 	mov	r0, #2
 	strh	r0, [r4]
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #30
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #8]
 	strh	r6, [r0, #10]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06006238:
 	add	sp, sp, #532	; 0x214
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -7125,82 +7125,82 @@ _06006244:	.word	_0601A960
 _06006248:	.word	0x00000303
 _0600624C:	.word	0x00000302
 
-	arm_func_start FUNC_06006250
-FUNC_06006250: ; 0x06006250
+	arm_func_start FUN_06006250
+FUN_06006250: ; 0x06006250
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #31
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600628C
-FUNC_0600628C: ; 0x0600628C
+	arm_func_start FUN_0600628C
+FUN_0600628C: ; 0x0600628C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #516	; 0x204
 	add	r0, sp, #0
-	bl	FUNC_0600233C
+	bl	FUN_0600233C
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060062B4
 	ldr	r0, _060062D8	; =0x00000305
-	bl	FUNC_06006250
+	bl	FUN_06006250
 	b	_060062CC
 _060062B4:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #31
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _060062CC:
 	add	sp, sp, #516	; 0x204
 	ldmfd	sp!, {lr}
 	bx	lr
 _060062D8:	.word	0x00000305
 
-	arm_func_start FUNC_060062DC
-FUNC_060062DC: ; 0x060062DC
+	arm_func_start FUN_060062DC
+FUN_060062DC: ; 0x060062DC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #32
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06006318
-FUNC_06006318: ; 0x06006318
+	arm_func_start FUN_06006318
+FUN_06006318: ; 0x06006318
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	add	r0, sp, #0
-	bl	FUNC_0600230C
+	bl	FUN_0600230C
 	mov	r5, r0
 	ldrh	r1, [r5, #4]
 	cmp	r1, #0
 	beq	_06006344
 	ldr	r0, _06006380	; =0x00000307
-	bl	FUNC_060062DC
+	bl	FUN_060062DC
 	b	_06006374
 _06006344:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r4, r0
 	mov	r0, #32
 	strh	r0, [r4]
@@ -7209,33 +7209,33 @@ _06006344:
 	add	r0, r5, #8
 	add	r1, r4, #8
 	mov	r2, #180	; 0xb4
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	mov	r0, r4
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06006374:
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06006380:	.word	0x00000307
 
-	arm_func_start FUNC_06006384
-FUNC_06006384: ; 0x06006384
+	arm_func_start FUN_06006384
+FUN_06006384: ; 0x06006384
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r5, _06006434	; =_06019960
 	ldr	r0, _06006438	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	ldrh	r1, [r4, #206]	; 0xce
 	cmp	r1, #1
 	bne	_060063B0
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	b	_06006428
 _060063B0:
 	mov	r1, #1
 	strh	r1, [r4, #206]	; 0xce
-	bl	FUNC_060001AC
-	bl	FUNC_06000134
+	bl	FUN_060001AC
+	bl	FUN_06000134
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_060063E0
@@ -7243,7 +7243,7 @@ _060063B0:
 	str	r0, [r1]
 	add	r0, r5, #136	; 0x88
 	mov	r2, #0
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 _060063E0:
 	cmp	r0, #0
 	bne	_06006428
@@ -7253,7 +7253,7 @@ _060063E0:
 	ldr	r0, [r0, #1356]	; 0x54c
 	cmp	r0, #0
 	beq	_06006428
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -7262,7 +7262,7 @@ _060063E0:
 	strh	r1, [r0, #4]
 	mov	r1, #28
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06006428:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -7270,8 +7270,8 @@ _06006428:
 _06006434:	.word	_06019960
 _06006438:	.word	_0601A960
 
-	arm_func_start FUNC_0600643C
-FUNC_0600643C: ; 0x0600643C
+	arm_func_start FUN_0600643C
+FUN_0600643C: ; 0x0600643C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006478	; =_0601A960
@@ -7280,23 +7280,23 @@ FUNC_0600643C: ; 0x0600643C
 	cmp	r0, #1
 	bne	_0600646C
 	mov	r0, #209	; 0xd1
-	ldr	r1, _0600647C	; =FUNC_06006480
+	ldr	r1, _0600647C	; =FUN_06006480
 	mov	r2, #3
-	bl	FUNC_060068A0
-	bl	FUNC_06006384
+	bl	FUN_060068A0
+	bl	FUN_06006384
 _0600646C:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06006478:	.word	_0601A960
-_0600647C:	.word	FUNC_06006480
+_0600647C:	.word	FUN_06006480
 
-	arm_func_start FUNC_06006480
-FUNC_06006480: ; 0x06006480
+	arm_func_start FUN_06006480
+FUN_06006480: ; 0x06006480
 	stmdb	sp!, {r4, lr}
 
-	arm_func_start FUNC_06006484
-FUNC_06006484: ; 0x06006484
+	arm_func_start FUN_06006484
+FUN_06006484: ; 0x06006484
 	ldr	r0, _060064E0	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
 	ldrh	r0, [r4, #220]	; 0xdc
@@ -7315,19 +7315,19 @@ _060064BC:
 	add	r0, r0, #1
 	strh	r0, [r4, #220]	; 0xdc
 _060064C4:
-	bl	FUNC_06006848
+	bl	FUN_06006848
 	ldrsh	r0, [r4, #64]	; 0x40
-	ldr	r1, _060064E8	; =FUNC_0600643C
+	ldr	r1, _060064E8	; =FUN_0600643C
 	mov	r2, #5
-	bl	FUNC_060068A0
+	bl	FUN_060068A0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060064E0:	.word	_0601A960
 _060064E4:	.word	0x04000006
-_060064E8:	.word	FUNC_0600643C
+_060064E8:	.word	FUN_0600643C
 
-	arm_func_start FUNC_060064EC
-FUNC_060064EC: ; 0x060064EC
+	arm_func_start FUN_060064EC
+FUN_060064EC: ; 0x060064EC
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _060065E4	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
@@ -7335,16 +7335,16 @@ FUNC_060064EC: ; 0x060064EC
 	cmp	r0, #1
 	bne	_060065DC
 	mov	r0, #200	; 0xc8
-	ldr	r1, _060065E8	; =FUNC_06006634
+	ldr	r1, _060065E8	; =FUN_06006634
 	mov	r2, #1
-	bl	FUNC_060068A0
+	bl	FUN_060068A0
 	ldr	r2, [r4, #1976]	; 0x7b8
 	ldr	r1, [r4, #1980]	; 0x7bc
 	mov	r0, #0
 	cmp	r1, r0
 	cmpeq	r2, r0
 	beq	_060065D8
-	bl	FUNC_06000E98
+	bl	FUN_06000E98
 	mov	r2, #0
 	orr	r3, r1, #0
 	orr	ip, r0, #1
@@ -7362,7 +7362,7 @@ FUNC_060064EC: ; 0x060064EC
 	bls	_060065D8
 	str	r2, [r4, #1848]	; 0x738
 	str	r2, [r4, #1852]	; 0x73c
-	bl	FUNC_06000134
+	bl	FUN_06000134
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_060065A4
@@ -7373,11 +7373,11 @@ FUNC_060064EC: ; 0x060064EC
 	ldr	r0, _060065EC	; =0x00008001
 	str	r0, [r1, #8]
 	ldr	r0, _060065F0	; =_060199E8
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 _060065A4:
 	cmp	r0, #0
 	bne	_060065DC
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
 	mov	r1, #8
@@ -7386,43 +7386,43 @@ _060065A4:
 	strh	r1, [r0, #4]
 	mov	r1, #37	; 0x25
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060065DC
 _060065D8:
-	bl	FUNC_06006384
+	bl	FUN_06006384
 _060065DC:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060065E4:	.word	_0601A960
-_060065E8:	.word	FUNC_06006634
+_060065E8:	.word	FUN_06006634
 _060065EC:	.word	0x00008001
 _060065F0:	.word	_060199E8
 
-	arm_func_start FUNC_060065F4
-FUNC_060065F4: ; 0x060065F4
+	arm_func_start FUN_060065F4
+FUN_060065F4: ; 0x060065F4
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600662C	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUNC_060066B4
+	bl	FUN_060066B4
 	ldr	r0, [r4, #216]	; 0xd8
 	cmp	r0, #127	; 0x7f
 	movcs	r0, #0
 	strcs	r0, [r4, #28]
 	ldrsh	r0, [r4, #66]	; 0x42
-	ldr	r1, _06006630	; =FUNC_060064EC
+	ldr	r1, _06006630	; =FUN_060064EC
 	mov	r2, #4
-	bl	FUNC_060068A0
+	bl	FUN_060068A0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600662C:	.word	_0601A960
-_06006630:	.word	FUNC_060064EC
+_06006630:	.word	FUN_060064EC
 
-	arm_func_start FUNC_06006634
-FUNC_06006634: ; 0x06006634
+	arm_func_start FUN_06006634
+FUN_06006634: ; 0x06006634
 	stmdb	sp!, {r4, lr}
 
-	arm_func_start FUNC_06006638
-FUNC_06006638: ; 0x06006638
+	arm_func_start FUN_06006638
+FUN_06006638: ; 0x06006638
 	ldr	r0, _060066A4	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
 	ldr	r0, _060066A8	; =0x0380FFF0
@@ -7433,33 +7433,33 @@ FUNC_06006638: ; 0x06006638
 	cmp	r0, r1
 	beq	_06006664
 	str	r1, [r4, #212]	; 0xd4
-	bl	FUNC_06006748
+	bl	FUN_06006748
 _06006664:
 	ldr	r0, [r4, #216]	; 0xd8
 	cmp	r0, #127	; 0x7f
 	bls	_06006684
 	mov	r0, #208	; 0xd0
-	ldr	r1, _060066AC	; =FUNC_060065F4
+	ldr	r1, _060066AC	; =FUN_060065F4
 	mov	r2, #2
-	bl	FUNC_060068A0
+	bl	FUN_060068A0
 	b	_0600669C
 _06006684:
 	mov	r0, #1
 	str	r0, [r4, #28]
 	ldrsh	r0, [r4, #66]	; 0x42
-	ldr	r1, _060066B0	; =FUNC_060064EC
+	ldr	r1, _060066B0	; =FUN_060064EC
 	mov	r2, #4
-	bl	FUNC_060068A0
+	bl	FUN_060068A0
 _0600669C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060066A4:	.word	_0601A960
 _060066A8:	.word	0x0380FFF0
-_060066AC:	.word	FUNC_060065F4
-_060066B0:	.word	FUNC_060064EC
+_060066AC:	.word	FUN_060065F4
+_060066B0:	.word	FUN_060064EC
 
-	arm_func_start FUNC_060066B4
-FUNC_060066B4: ; 0x060066B4
+	arm_func_start FUN_060066B4
+FUN_060066B4: ; 0x060066B4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006740	; =_0601A960
@@ -7502,8 +7502,8 @@ _06006734:
 _06006740:	.word	_0601A960
 _06006744:	.word	0x04000006
 
-	arm_func_start FUNC_06006748
-FUNC_06006748: ; 0x06006748
+	arm_func_start FUN_06006748
+FUN_06006748: ; 0x06006748
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006828	; =_0601A960
@@ -7573,8 +7573,8 @@ _0600683C:	.word	0x00000107
 _06006840:	.word	0x0000414B
 _06006844:	.word	0x0000400E
 
-	arm_func_start FUNC_06006848
-FUNC_06006848: ; 0x06006848
+	arm_func_start FUN_06006848
+FUN_06006848: ; 0x06006848
 	ldr	r0, _06006890	; =0x04000006
 	ldrh	ip, [r0]
 	ldr	r2, _06006894	; =0x048080F8
@@ -7598,8 +7598,8 @@ _06006894:	.word	0x048080F8
 _06006898:	.word	0x048080FA
 _0600689C:	.word	0x0380FFF0
 
-	arm_func_start FUNC_060068A0
-FUNC_060068A0: ; 0x060068A0
+	arm_func_start FUN_060068A0
+FUN_060068A0: ; 0x060068A0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	ip, r0
@@ -7608,20 +7608,20 @@ FUNC_060068A0: ; 0x060068A0
 	ldr	r0, _060068D0	; =_0380B904
 	mov	r1, ip
 	ldr	r2, _060068D4	; =0x00000107
-	bl	FUNC_060068D8
+	bl	FUN_060068D8
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060068D0:	.word	_0380B904
 _060068D4:	.word	0x00000107
 
-	arm_func_start FUNC_060068D8
-FUNC_060068D8: ; 0x060068D8
+	arm_func_start FUN_060068D8
+FUN_060068D8: ; 0x060068D8
 	ldr	pc, _060068DC	; =FUN_037FAE20
 _060068DC:	.word	FUN_037FAE20
 
-	arm_func_start FUNC_060068E0
-FUNC_060068E0: ; 0x060068E0
+	arm_func_start FUN_060068E0
+FUN_060068E0: ; 0x060068E0
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06006960	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
@@ -7632,12 +7632,12 @@ FUNC_060068E0: ; 0x060068E0
 	ldr	r1, [r0]
 	cmp	r1, #0
 	beq	_0600690C
-	bl	FUNC_06006970
+	bl	FUN_06006970
 _0600690C:
 	mov	r0, #209	; 0xd1
-	ldr	r1, _06006968	; =FUNC_06006480
+	ldr	r1, _06006968	; =FUN_06006480
 	mov	r2, #3
-	bl	FUNC_060068A0
+	bl	FUN_060068A0
 	b	_06006958
 _06006920:
 	cmp	r1, #2
@@ -7647,12 +7647,12 @@ _06006920:
 	ldr	r1, [r0]
 	cmp	r1, #0
 	beq	_06006940
-	bl	FUNC_06006970
+	bl	FUN_06006970
 _06006940:
 	mov	r0, #200	; 0xc8
-	ldr	r1, _0600696C	; =FUNC_06006634
+	ldr	r1, _0600696C	; =FUN_06006634
 	mov	r2, #1
-	bl	FUNC_060068A0
+	bl	FUN_060068A0
 	mov	r0, #0
 	str	r0, [r4, #216]	; 0xd8
 _06006958:
@@ -7660,32 +7660,32 @@ _06006958:
 	bx	lr
 _06006960:	.word	_0601A960
 _06006964:	.word	_0380B904
-_06006968:	.word	FUNC_06006480
-_0600696C:	.word	FUNC_06006634
+_06006968:	.word	FUN_06006480
+_0600696C:	.word	FUN_06006634
 
-	arm_func_start FUNC_06006970
-FUNC_06006970: ; 0x06006970
+	arm_func_start FUN_06006970
+FUN_06006970: ; 0x06006970
 	ldr	pc, _06006974	; =FUN_037FACAC
 _06006974:	.word	FUN_037FACAC
 
-	arm_func_start FUNC_06006978
-FUNC_06006978: ; 0x06006978
+	arm_func_start FUN_06006978
+FUN_06006978: ; 0x06006978
 	ldr	r0, _06006984	; =_0380B904
 	ldr	ip, _06006988	; =FUN_037FACAC
 	bx	ip
 _06006984:	.word	_0380B904
 _06006988:	.word	FUN_037FACAC
 
-	arm_func_start FUNC_0600698C
-FUNC_0600698C: ; 0x0600698C
+	arm_func_start FUN_0600698C
+FUN_0600698C: ; 0x0600698C
 	ldr	r0, _06006998	; =_0380B904
 	ldr	ip, _0600699C	; =FUN_037FAEB8
 	bx	ip
 _06006998:	.word	_0380B904
 _0600699C:	.word	FUN_037FAEB8
 
-	arm_func_start FUNC_060069A0
-FUNC_060069A0: ; 0x060069A0
+	arm_func_start FUN_060069A0
+FUN_060069A0: ; 0x060069A0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _060069D8	; =_0601A960
@@ -7696,15 +7696,15 @@ FUNC_060069A0: ; 0x060069A0
 	ldr	r0, [r0, #4]
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_06007B44
+	bl	FUN_06007B44
 _060069CC:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060069D8:	.word	_0601A960
 
-	arm_func_start FUNC_060069DC
-FUNC_060069DC: ; 0x060069DC
+	arm_func_start FUN_060069DC
+FUN_060069DC: ; 0x060069DC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006A08	; =_0601A960
@@ -7712,15 +7712,15 @@ FUNC_060069DC: ; 0x060069DC
 	ldrh	r0, [r0]
 	cmp	r0, #10
 	bne	_060069FC
-	bl	FUNC_06007E50
+	bl	FUN_06007E50
 _060069FC:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06006A08:	.word	_0601A960
 
-	arm_func_start FUNC_06006A0C
-FUNC_06006A0C: ; 0x06006A0C
+	arm_func_start FUN_06006A0C
+FUN_06006A0C: ; 0x06006A0C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _06006A44	; =_0601A960
@@ -7731,15 +7731,15 @@ FUNC_06006A0C: ; 0x06006A0C
 	ldr	r0, [r0, #4]
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_06007C50
+	bl	FUN_06007C50
 _06006A38:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06006A44:	.word	_0601A960
 
-	arm_func_start FUNC_06006A48
-FUNC_06006A48: ; 0x06006A48
+	arm_func_start FUN_06006A48
+FUN_06006A48: ; 0x06006A48
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006BE8	; =_0601A960
@@ -7761,8 +7761,8 @@ FUNC_06006A48: ; 0x06006A48
 	streqh	r0, [r4, #190]	; 0xbe
 	ldrh	r0, [r4, #190]	; 0xbe
 	and	r0, r0, #255	; 0xff
-	bl	FUNC_060003C4
-	bl	FUNC_06000350
+	bl	FUN_060003C4
+	bl	FUN_06000350
 	strh	r0, [r4, #188]	; 0xbc
 	ldr	r0, _06006BEC	; =0x0000FFFF
 	strh	r0, [r4, #190]	; 0xbe
@@ -7772,14 +7772,14 @@ _06006AB8:
 	ldrh	r0, [r4]
 	cmp	r0, #9
 	bne	_06006BA8
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	add	r1, r4, #256	; 0x100
 	ldrh	r1, [r1, #130]	; 0x82
 	cmp	r1, #0
 	bne	_06006AE8
 	mov	r1, #0
 	strh	r1, [r4, #98]	; 0x62
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	b	_06006BDC
 _06006AE8:
 	mov	r3, #1
@@ -7815,11 +7815,11 @@ _06006B04:
 _06006B5C:
 	mov	r5, #0
 _06006B60:
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	cmp	r5, #0
 	beq	_06006B74
 	ldr	r0, _06006BEC	; =0x0000FFFF
-	bl	FUNC_06007C50
+	bl	FUN_06007C50
 _06006B74:
 	ldrh	r0, [r4, #146]	; 0x92
 	cmp	r0, #1
@@ -7838,16 +7838,16 @@ _06006BA8:
 	cmp	r0, #10
 	bne	_06006BDC
 	mov	r5, #0
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	ldr	r1, [r4, #1844]	; 0x734
 	cmp	r1, #1
 	movne	r5, #1
 	movne	r1, #0
 	strneh	r1, [r4, #96]	; 0x60
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	cmp	r5, #1
 	bne	_06006BDC
-	bl	FUNC_06007E50
+	bl	FUN_06007E50
 _06006BDC:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -7855,8 +7855,8 @@ _06006BDC:
 _06006BE8:	.word	_0601A960
 _06006BEC:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06006BF0
-FUNC_06006BF0: ; 0x06006BF0
+	arm_func_start FUN_06006BF0
+FUN_06006BF0: ; 0x06006BF0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -7868,7 +7868,7 @@ FUNC_06006BF0: ; 0x06006BF0
 	moveq	r0, r0, lsl #2
 	addeq	r5, r0, #102	; 0x66
 	mov	r0, r2
-	bl	FUNC_06006CA4
+	bl	FUN_06006CA4
 	add	r1, r6, #34	; 0x22
 	mov	r1, r1, lsl #2
 	add	r1, r1, #96	; 0x60
@@ -7905,17 +7905,17 @@ _06006C98:	.word	0x04000006
 _06006C9C:	.word	0x00000107
 _06006CA0:	.word	0x66666667
 
-	arm_func_start FUNC_06006CA4
-FUNC_06006CA4: ; 0x06006CA4
+	arm_func_start FUN_06006CA4
+FUN_06006CA4: ; 0x06006CA4
 	ldr	pc, _06006CA8	; =FUN_03806B34
 _06006CA8:	.word	FUN_03806B34
 
-	arm_func_start FUNC_06006CAC
-FUNC_06006CAC: ; 0x06006CAC
+	arm_func_start FUN_06006CAC
+FUN_06006CAC: ; 0x06006CAC
 	stmdb	sp!, {r0, r1, r2, r3}
 
-	arm_func_start FUNC_06006CB0
-FUNC_06006CB0: ; 0x06006CB0
+	arm_func_start FUN_06006CB0
+FUN_06006CB0: ; 0x06006CB0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #44	; 0x2c
 	str	r0, [sp]
@@ -8046,7 +8046,7 @@ _06006E80:
 _06006EA4:
 	cmp	r7, #0
 	ble	_06006F28
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	ldr	r1, [sp, #32]
 	strh	r1, [r0]
 	strh	r4, [r0, #2]
@@ -8076,7 +8076,7 @@ _06006EA4:
 	cmp	r1, #0
 	movne	r3, r2
 	strh	r3, [r0, #66]	; 0x42
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06006F28:
 	cmp	r9, #0
 	bgt	_06006DA4
@@ -8087,8 +8087,8 @@ _06006F28:
 _06006F40:	.word	_0601A960
 _06006F44:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06006F48
-FUNC_06006F48: ; 0x06006F48
+	arm_func_start FUN_06006F48
+FUN_06006F48: ; 0x06006F48
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #36	; 0x24
 	ldr	r1, _06007148	; =_0601A960
@@ -8101,7 +8101,7 @@ FUNC_06006F48: ; 0x06006F48
 	str	r0, [sp, #8]
 	ldr	r0, _0600714C	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUNC_06007158
+	bl	FUN_06007158
 	mov	r0, #0
 	str	r0, [sp]
 	ldr	r0, _06007150	; =0x0000070C
@@ -8139,7 +8139,7 @@ _06006FD4:
 	ldrh	r0, [r7, #6]
 	cmp	r0, #0
 	bne	_060070DC
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	ldr	r1, [sp, #20]
 	strh	r1, [r0]
 	ldr	r1, [sp, #24]
@@ -8177,7 +8177,7 @@ _06006FD4:
 	cmp	r3, #0
 	movne	r2, r1
 	strh	r2, [r0, #38]	; 0x26
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldrh	r0, [r7]
 	cmp	r0, r4
 	streqh	r8, [r5, #2]
@@ -8218,7 +8218,7 @@ _06007104:
 	blt	_06006FB4
 	ldr	r0, _0600714C	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUNC_06007160
+	bl	FUN_06007160
 	add	sp, sp, #36	; 0x24
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	bx	lr
@@ -8227,18 +8227,18 @@ _0600714C:	.word	0x0000071C
 _06007150:	.word	0x0000070C
 _06007154:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06007158
-FUNC_06007158: ; 0x06007158
+	arm_func_start FUN_06007158
+FUN_06007158: ; 0x06007158
 	ldr	pc, _0600715C	; =FUN_037F9ADC
 _0600715C:	.word	FUN_037F9ADC
 
-	arm_func_start FUNC_06007160
-FUNC_06007160: ; 0x06007160
+	arm_func_start FUN_06007160
+FUN_06007160: ; 0x06007160
 	ldr	pc, _06007164	; =FUN_037F9A6C
 _06007164:	.word	FUN_037F9A6C
 
-	arm_func_start FUNC_06007168
-FUNC_06007168: ; 0x06007168
+	arm_func_start FUN_06007168
+FUN_06007168: ; 0x06007168
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #44	; 0x2c
 	str	r0, [sp]
@@ -8262,13 +8262,13 @@ FUNC_06007168: ; 0x06007168
 _060071B8:
 	ldr	r0, _060074A0	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUNC_06007158
+	bl	FUN_06007158
 	ldr	r0, [r6, #1844]	; 0x734
 	cmp	r0, #0
 	bne	_060071EC
 	ldr	r0, _060074A0	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUNC_06007160
+	bl	FUN_06007160
 	mov	r0, #0
 	add	sp, sp, #44	; 0x2c
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -8277,10 +8277,10 @@ _060071EC:
 	cmp	r5, #0
 	moveq	fp, #1
 	beq	_06007208
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	add	r1, r6, #256	; 0x100
 	ldrh	fp, [r1, #130]	; 0x82
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 _06007208:
 	mov	r0, #0
 	str	r0, [sp, #4]
@@ -8361,7 +8361,7 @@ _060072DC:
 	mov	r5, r0, lsr #16
 	b	_06007414
 _06007330:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	ldr	r1, [sp, #28]
 	strh	r1, [r0]
 	ldrh	r1, [r7, #6]
@@ -8403,7 +8403,7 @@ _06007330:
 	cmp	r3, #0
 	movne	r2, r1
 	strh	r2, [r0, #38]	; 0x26
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldrh	r0, [r7]
 	cmp	r0, r4
 	streqh	r4, [r8, #2]
@@ -8450,7 +8450,7 @@ _06007460:
 	str	r0, [r6, #1844]	; 0x734
 	ldr	r0, _060074A0	; =0x0000071C
 	add	r0, r6, r0
-	bl	FUNC_06007160
+	bl	FUN_06007160
 	ldr	r0, [sp, #8]
 	add	sp, sp, #44	; 0x2c
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -8460,8 +8460,8 @@ _060074A0:	.word	0x0000071C
 _060074A4:	.word	0x000006FC
 _060074A8:	.word	0x0000FFFF
 
-	arm_func_start FUNC_060074AC
-FUNC_060074AC: ; 0x060074AC
+	arm_func_start FUN_060074AC
+FUN_060074AC: ; 0x060074AC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r8, r0
@@ -8492,7 +8492,7 @@ FUNC_060074AC: ; 0x060074AC
 	bxgt	lr
 	ldr	r0, _06007600	; =0x0000071C
 	add	r0, r9, r0
-	bl	FUNC_06007158
+	bl	FUN_06007158
 	add	r2, r9, #1536	; 0x600
 	ldrh	r0, [r2, #248]	; 0xf8
 	ldr	r3, _06007604	; =0x0000FFFF
@@ -8500,7 +8500,7 @@ FUNC_060074AC: ; 0x060074AC
 	bne	_06007558
 	ldr	r0, _06007600	; =0x0000071C
 	add	r0, r9, r0
-	bl	FUNC_06007160
+	bl	FUN_06007160
 	mov	r0, #10
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -8541,7 +8541,7 @@ _06007558:
 	strh	r0, [r4, #2]
 	ldr	r0, _06007600	; =0x0000071C
 	add	r0, r9, r0
-	bl	FUNC_06007160
+	bl	FUN_06007160
 	mov	r0, #2
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -8551,8 +8551,8 @@ _060075FC:	.word	0x0000070C
 _06007600:	.word	0x0000071C
 _06007604:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06007608
-FUNC_06007608: ; 0x06007608
+	arm_func_start FUN_06007608
+FUN_06007608: ; 0x06007608
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #100	; 0x64
 	mov	sl, r3
@@ -8636,7 +8636,7 @@ _06007728:
 	ldr	r1, _06007B30	; =0x0000071C
 	ldr	r0, [sp, #56]	; 0x38
 	add	r0, r0, r1
-	bl	FUNC_06007158
+	bl	FUN_06007158
 	ldr	r0, [sp, #56]	; 0x38
 	ldr	r0, [r0, #1844]	; 0x734
 	cmp	r0, #1
@@ -8644,7 +8644,7 @@ _06007728:
 	ldr	r1, _06007B30	; =0x0000071C
 	ldr	r0, [sp, #56]	; 0x38
 	add	r0, r0, r1
-	bl	FUNC_06007160
+	bl	FUN_06007160
 	mov	r0, #1
 	add	sp, sp, #100	; 0x64
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -8768,7 +8768,7 @@ _06007894:
 	ldr	r0, [r5, #20]
 	mov	r1, r7
 	ldrh	r2, [r5, #14]
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r1, [r5, #14]
 	bic	r0, r1, #1
 	add	r7, r7, r0
@@ -8894,7 +8894,7 @@ _06007AF8:
 	ldr	r1, _06007B30	; =0x0000071C
 	ldr	r0, [sp, #56]	; 0x38
 	add	r0, r0, r1
-	bl	FUNC_06007160
+	bl	FUN_06007160
 	mov	r0, #0
 	add	sp, sp, #100	; 0x64
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -8906,15 +8906,15 @@ _06007B38:	.word	0x000006FC
 _06007B3C:	.word	0x0000FFFF
 _06007B40:	.word	0x00007FFF
 
-	arm_func_start FUNC_06007B44
-FUNC_06007B44: ; 0x06007B44
+	arm_func_start FUN_06007B44
+FUN_06007B44: ; 0x06007B44
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #536	; 0x218
 	mov	r7, r0
 	ldr	r0, _06007C3C	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUNC_060001A4
-	bl	FUNC_060001AC
+	bl	FUN_060001A4
+	bl	FUN_060001AC
 	ldr	r0, _06007C40	; =0x048080F8
 	ldrh	r6, [r0]
 	ldrh	r5, [r4, #106]	; 0x6a
@@ -8923,7 +8923,7 @@ FUNC_06007B44: ; 0x06007B44
 	and	r7, r7, r0
 	ldrh	r8, [r4, #58]	; 0x3a
 	mov	r0, r7
-	bl	FUNC_06006CA4
+	bl	FUN_06006CA4
 	ldrh	r2, [r4, #114]	; 0x72
 	add	r1, r8, #12
 	mul	r0, r1, r0
@@ -8932,8 +8932,8 @@ FUNC_06007B44: ; 0x06007B44
 	cmp	r2, r0
 	bge	_06007BB8
 	mov	r0, #2
-	bl	FUNC_06007C48
-	bl	FUNC_06001964
+	bl	FUN_06007C48
+	bl	FUN_06001964
 	add	sp, sp, #536	; 0x218
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
@@ -8949,7 +8949,7 @@ _06007BD0:
 	ldrh	r1, [r4, #108]	; 0x6c
 	mov	r2, r7
 	ldrh	r3, [r4, #64]	; 0x40
-	bl	FUNC_06006BF0
+	bl	FUN_06006BF0
 	orr	r5, r5, #32768	; 0x8000
 	b	_06007BF4
 _06007BEC:
@@ -8970,7 +8970,7 @@ _06007BF4:
 	add	r0, sp, #24
 	ldr	r1, _06007C44	; =0x0000800C
 	mov	r3, r2
-	bl	FUNC_060028C8
+	bl	FUN_060028C8
 	add	sp, sp, #536	; 0x218
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
@@ -8978,23 +8978,23 @@ _06007C3C:	.word	_0601A960
 _06007C40:	.word	0x048080F8
 _06007C44:	.word	0x0000800C
 
-	arm_func_start FUNC_06007C48
-FUNC_06007C48: ; 0x06007C48
+	arm_func_start FUN_06007C48
+FUN_06007C48: ; 0x06007C48
 	ldr	pc, _06007C4C	; =FUN_037F8E14
 _06007C4C:	.word	FUN_037F8E14
 
-	arm_func_start FUNC_06007C50
-FUNC_06007C50: ; 0x06007C50
+	arm_func_start FUN_06007C50
+FUN_06007C50: ; 0x06007C50
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #552	; 0x228
 	mov	r8, r0
 	ldr	r0, _06007E40	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	add	r1, r4, #256	; 0x100
 	ldrh	r7, [r1, #130]	; 0x82
 	ldrh	r6, [r4, #134]	; 0x86
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	mov	r1, #0
 	strh	r1, [sp, #24]
 	ldrh	r0, [r4, #136]	; 0x88
@@ -9013,7 +9013,7 @@ FUNC_06007C50: ; 0x06007C50
 	mov	r1, r7
 	mov	r2, r6
 	add	r3, sp, #24
-	bl	FUNC_06007608
+	bl	FUN_06007608
 	cmp	r0, #1
 	moveq	r0, #0
 	streqh	r0, [r4, #98]	; 0x62
@@ -9027,7 +9027,7 @@ FUNC_06007C50: ; 0x06007C50
 	ldreq	r8, [sp, #28]
 	and	r8, r8, r7
 	mov	r0, r8
-	bl	FUNC_06006CA4
+	bl	FUN_06006CA4
 	ldrh	r2, [r4, #114]	; 0x72
 	add	r1, r5, #12
 	mul	r0, r1, r0
@@ -9038,7 +9038,7 @@ FUNC_06007C50: ; 0x06007C50
 	mov	r0, #0
 	mov	r1, r8, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUNC_06007168
+	bl	FUN_06007168
 	mov	r0, #0
 	strh	r0, [r4, #98]	; 0x62
 	strh	r0, [r4, #100]	; 0x64
@@ -9057,7 +9057,7 @@ _06007D58:
 	mov	r1, r6
 	mov	r2, r8
 	ldrh	r3, [r4, #64]	; 0x40
-	bl	FUNC_06006BF0
+	bl	FUN_06006BF0
 	mov	r5, r0
 	ldrh	r0, [sp, #24]
 	orr	r0, r0, #32768	; 0x8000
@@ -9075,14 +9075,14 @@ _06007D88:
 	ldrh	r0, [sp, #24]
 	bic	r0, r0, #32768	; 0x8000
 	strh	r0, [sp, #24]
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	ldrsh	r1, [r4, #98]	; 0x62
 	add	r1, r1, #1
 	strh	r1, [r4, #98]	; 0x62
 	ldrsh	r1, [r4, #100]	; 0x64
 	add	r1, r1, #1
 	strh	r1, [r4, #100]	; 0x64
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 _06007DC8:
 	mov	r0, r8, lsl #16
 	mov	r0, r0, lsr #16
@@ -9104,7 +9104,7 @@ _06007DC8:
 	mov	r2, r1
 	mov	r3, r6, lsl #16
 	mov	r3, r3, lsr #16
-	bl	FUNC_060028C8
+	bl	FUN_060028C8
 	strh	r8, [r4, #104]	; 0x68
 	ldrh	r0, [sp, #24]
 	strh	r0, [r4, #106]	; 0x6a
@@ -9119,8 +9119,8 @@ _06007E44:	.word	0x0000FFFF
 _06007E48:	.word	0x000080D6
 _06007E4C:	.word	0x048080F8
 
-	arm_func_start FUNC_06007E50
-FUNC_06007E50: ; 0x06007E50
+	arm_func_start FUN_06007E50
+FUN_06007E50: ; 0x06007E50
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #536	; 0x218
 	ldr	r0, _06007F1C	; =_0601A960
@@ -9142,7 +9142,7 @@ FUNC_06007E50: ; 0x06007E50
 	mov	r1, r0
 	mov	r2, r0
 	add	r3, sp, #8
-	bl	FUNC_06007608
+	bl	FUN_06007608
 	cmp	r0, #1
 	moveq	r0, #0
 	streqh	r0, [r4, #138]	; 0x8a
@@ -9160,7 +9160,7 @@ FUNC_06007E50: ; 0x06007E50
 	mov	r1, r1, lsr #16
 	ldrh	r2, [sp, #8]
 	ldr	r3, [r4, #124]	; 0x7c
-	bl	FUNC_06002964
+	bl	FUN_06002964
 	ldrh	r0, [r0, #4]
 	cmp	r0, #0
 	addeq	sp, sp, #536	; 0x218
@@ -9174,18 +9174,18 @@ FUNC_06007E50: ; 0x06007E50
 	bx	lr
 _06007F1C:	.word	_0601A960
 
-	arm_func_start FUNC_06007F20
-FUNC_06007F20: ; 0x06007F20
+	arm_func_start FUN_06007F20
+FUN_06007F20: ; 0x06007F20
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06007FD4	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
 	ldr	r0, _06007FD8	; =0x0000071C
 	add	r0, r4, r0
-	bl	FUNC_06007158
+	bl	FUN_06007158
 	mov	r0, #0
 	add	r1, r4, #760	; 0x2f8
 	mov	r2, #1024	; 0x400
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r2, #0
 _06007F4C:
 	add	r0, r2, #1
@@ -9220,15 +9220,15 @@ _06007F90:
 	bcc	_06007F90
 	ldr	r0, _06007FD8	; =0x0000071C
 	add	r0, r4, r0
-	bl	FUNC_06007160
+	bl	FUN_06007160
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06007FD4:	.word	_0601A960
 _06007FD8:	.word	0x0000071C
 _06007FDC:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06007FE0
-FUNC_06007FE0: ; 0x06007FE0
+	arm_func_start FUN_06007FE0
+FUN_06007FE0: ; 0x06007FE0
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #640	; 0x280
 	ldr	r1, _0600806C	; =_0601A960
@@ -9237,16 +9237,16 @@ FUNC_06007FE0: ; 0x06007FE0
 	strh	r0, [r4, #246]	; 0xf6
 	add	r0, sp, #512	; 0x200
 	add	r1, r4, #232	; 0xe8
-	bl	FUNC_06000564
+	bl	FUN_06000564
 	add	r0, sp, #0
 	ldrh	r1, [r4, #236]	; 0xec
 	add	r1, r1, #16
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
 	add	r2, sp, #512	; 0x200
-	bl	FUNC_060023F4
+	bl	FUN_060023F4
 	mov	r4, r0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #33	; 0x21
 	strh	r1, [r0]
 	ldrh	r1, [r4, #4]
@@ -9261,21 +9261,21 @@ FUNC_06007FE0: ; 0x06007FE0
 	ldrh	r1, [r4, #4]
 	strh	r1, [r0, #6]
 _0600805C:
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #640	; 0x280
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600806C:	.word	_0601A960
 _06008070:	.word	0x00000245
 
-	arm_func_start FUNC_06008074
-FUNC_06008074: ; 0x06008074
+	arm_func_start FUN_06008074
+FUN_06008074: ; 0x06008074
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #520	; 0x208
 	add	r0, r0, #4
 	add	r1, sp, #0
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r8, #0
 	add	r7, sp, #8
 	add	r6, sp, #0
@@ -9285,7 +9285,7 @@ _060080A0:
 	mov	r0, r7
 	mov	r1, r6
 	mov	r2, r5
-	bl	FUNC_06002C68
+	bl	FUN_06002C68
 	mov	r4, r0
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
@@ -9300,7 +9300,7 @@ _060080D4:
 	cmp	r8, #2
 	blt	_060080A0
 _060080DC:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #34	; 0x22
 	strh	r1, [r0]
 	ldrh	r1, [r4, #4]
@@ -9315,20 +9315,20 @@ _060080DC:
 	ldrh	r1, [r4, #4]
 	strh	r1, [r0, #6]
 _06008114:
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #520	; 0x208
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 
-	arm_func_start FUNC_06008124
-FUNC_06008124: ; 0x06008124
+	arm_func_start FUN_06008124
+FUN_06008124: ; 0x06008124
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06008270	; =_0601A960
 	ldr	r7, [r0, #1356]	; 0x54c
 	ldr	r4, [r0, #1360]	; 0x550
 	mov	r6, #0
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r5, r0
 	ldr	r0, [r4, #12]
 	cmp	r0, #1
@@ -9336,8 +9336,8 @@ FUNC_06008124: ; 0x06008124
 	mov	r0, r6
 	str	r0, [r4, #12]
 	mov	r6, #1
-	bl	FUNC_06006978
-	bl	FUNC_06000288
+	bl	FUN_06006978
+	bl	FUN_06000288
 _06008164:
 	mov	r1, #0
 	add	r0, r4, #256	; 0x100
@@ -9362,8 +9362,8 @@ _06008164:
 	strh	r1, [r0, #150]	; 0x96
 	add	r0, r4, #412	; 0x19c
 	mov	r2, #80	; 0x50
-	bl	FUNC_06000D08
-	bl	FUNC_06000100
+	bl	FUN_06000D08
+	bl	FUN_06000100
 	mov	r0, #260	; 0x104
 	strh	r0, [r4, #64]	; 0x40
 	mov	r0, #240	; 0xf0
@@ -9382,11 +9382,11 @@ _06008164:
 	add	r0, r4, #256	; 0x100
 	strh	r1, [r0, #238]	; 0xee
 	mov	r0, r5
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	cmp	r6, #0
 	beq	_06008224
 	ldr	r0, _06008278	; =0x0000FFFF
-	bl	FUNC_06006F48
+	bl	FUN_06006F48
 _06008224:
 	mov	r2, #0
 	mov	r1, #32768	; 0x8000
@@ -9399,12 +9399,12 @@ _0600822C:
 	mov	r0, #1
 	add	r1, r4, #504	; 0x1f8
 	mov	r2, #256	; 0x100
-	bl	FUNC_0600055C
-	bl	FUNC_060009D8
+	bl	FUN_0600055C
+	bl	FUN_060009D8
 	ldr	r0, _0600827C	; =0x0000071C
 	add	r0, r4, r0
-	bl	FUNC_0600096C
-	bl	FUNC_0600698C
+	bl	FUN_0600096C
+	bl	FUN_0600698C
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
@@ -9413,8 +9413,8 @@ _06008274:	.word	0x0000020B
 _06008278:	.word	0x0000FFFF
 _0600827C:	.word	0x0000071C
 
-	arm_func_start FUNC_06008280
-FUNC_06008280: ; 0x06008280
+	arm_func_start FUN_06008280
+FUN_06008280: ; 0x06008280
 	stmdb	sp!, {r4, lr}
 	ldr	r4, [r0, #4]
 	ldr	r1, _060082DC	; =_0601A960
@@ -9424,55 +9424,55 @@ FUNC_06008280: ; 0x06008280
 	str	r2, [r4]
 	ldr	r0, [r0, #12]
 	str	r0, [r4, #8]
-	bl	FUNC_06008124
+	bl	FUN_06008124
 	mov	r0, #15
-	bl	FUNC_0600301C
+	bl	FUN_0600301C
 	mov	r1, #1
 	ldr	r0, [r4]
 	strh	r1, [r0]
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #3
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060082DC:	.word	_0601A960
 
-	arm_func_start FUNC_060082E0
-FUNC_060082E0: ; 0x060082E0
+	arm_func_start FUN_060082E0
+FUN_060082E0: ; 0x060082E0
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06008344	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
 	ldrh	r0, [r4]
 	cmp	r0, #1
 	beq	_06008314
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #4
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_0600833C
 _06008314:
 	mov	r0, #1
-	bl	FUNC_0600301C
+	bl	FUN_0600301C
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #4
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _0600833C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06008344:	.word	_0601A960
 
-	arm_func_start FUNC_06008348
-FUNC_06008348: ; 0x06008348
+	arm_func_start FUN_06008348
+FUN_06008348: ; 0x06008348
 	mov	r1, #200	; 0xc8
 	ldr	r0, _06008370	; =0x04808124
 	strh	r1, [r0]
@@ -9488,8 +9488,8 @@ _06008374:	.word	0x04808128
 _06008378:	.word	0x00000202
 _0600837C:	.word	0x04808150
 
-	arm_func_start FUNC_06008380
-FUNC_06008380: ; 0x06008380
+	arm_func_start FUN_06008380
+FUN_06008380: ; 0x06008380
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r7, r0
@@ -9497,7 +9497,7 @@ FUNC_06008380: ; 0x06008380
 	ldr	r0, _06008550	; =_0601A960
 	ldr	r5, [r0, #1360]	; 0x550
 	add	r0, sp, #0
-	bl	FUNC_06002354
+	bl	FUN_06002354
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060083C4
@@ -9509,7 +9509,7 @@ FUNC_06008380: ; 0x06008380
 	b	_06008544
 _060083C4:
 	add	r0, sp, #0
-	bl	FUNC_06002380
+	bl	FUN_06002380
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060083F0
@@ -9520,9 +9520,9 @@ _060083C4:
 	mov	r0, #0
 	b	_06008544
 _060083F0:
-	bl	FUNC_06008348
+	bl	FUN_06008348
 	add	r0, sp, #0
-	bl	FUNC_060023C4
+	bl	FUN_060023C4
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008420
@@ -9538,14 +9538,14 @@ _06008420:
 	strh	r1, [r0, #244]	; 0xf4
 	mov	r0, r1, lsl #15
 	mov	r0, r0, lsr #16
-	bl	FUNC_06008570
+	bl	FUN_06008570
 	add	r1, r5, #256	; 0x100
 	strh	r0, [r1, #246]	; 0xf6
 	add	r0, sp, #0
 	ldr	r1, _0600855C	; =0x0000FFFF
 	mov	r2, #40	; 0x28
 	mov	r3, #5
-	bl	FUNC_06002604
+	bl	FUN_06002604
 	ldr	r1, _06008560	; =0x001FF621
 	mov	r0, #0
 	str	r1, [r5, #1976]	; 0x7b8
@@ -9556,7 +9556,7 @@ _06008420:
 	mov	r1, #1
 	strh	r1, [r0, #238]	; 0xee
 	add	r0, sp, #0
-	bl	FUNC_06002324
+	bl	FUN_06002324
 	mov	r4, r0
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
@@ -9571,7 +9571,7 @@ _060084A8:
 	add	r0, r4, #6
 	add	r1, r5, #32
 	mov	r2, #8
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r4, #14]
 	strh	r0, [r5, #40]	; 0x28
 	ldrh	r0, [r4, #16]
@@ -9581,7 +9581,7 @@ _060084A8:
 	ldrh	r0, [r4, #20]
 	strh	r0, [r5, #42]	; 0x2a
 	add	r0, sp, #0
-	bl	FUNC_060023DC
+	bl	FUN_060023DC
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008504
@@ -9595,10 +9595,10 @@ _06008504:
 	add	r0, r0, #6
 	add	r1, r5, #224	; 0xe0
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, sp, #0
 	mov	r1, #1
-	bl	FUNC_06002544
+	bl	FUN_06002544
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	moveq	r0, #1
@@ -9621,13 +9621,13 @@ _06008564:	.word	0x00000306
 _06008568:	.word	0x00000281
 _0600856C:	.word	0x00000215
 
-	arm_func_start FUNC_06008570
-FUNC_06008570: ; 0x06008570
+	arm_func_start FUN_06008570
+FUN_06008570: ; 0x06008570
 	ldr	pc, _06008574	; =FUN_03807408
 _06008574:	.word	FUN_03807408
 
-	arm_func_start FUNC_06008578
-FUNC_06008578: ; 0x06008578
+	arm_func_start FUN_06008578
+FUN_06008578: ; 0x06008578
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	ldr	r0, _0600861C	; =_0601A960
@@ -9635,20 +9635,20 @@ FUNC_06008578: ; 0x06008578
 	ldrh	r0, [r4]
 	cmp	r0, #1
 	beq	_060085B0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #5
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06008610
 _060085B0:
 	add	r0, sp, #0
 	add	r1, sp, #2
-	bl	FUNC_06008380
+	bl	FUN_06008380
 	cmp	r0, #0
 	bne	_060085F0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #5
 	strh	r1, [r0]
 	mov	r1, #1
@@ -9657,25 +9657,25 @@ _060085B0:
 	strh	r1, [r0, #4]
 	ldrh	r1, [sp, #2]
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06008610
 _060085F0:
 	mov	r0, #2
 	strh	r0, [r4]
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #5
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06008610:
 	add	sp, sp, #8
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600861C:	.word	_0601A960
 
-	arm_func_start FUNC_06008620
-FUNC_06008620: ; 0x06008620
+	arm_func_start FUN_06008620
+FUN_06008620: ; 0x06008620
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	ldr	r0, _060086C8	; =_0601A960
@@ -9683,21 +9683,21 @@ FUNC_06008620: ; 0x06008620
 	ldrh	r0, [r5]
 	cmp	r0, #2
 	beq	_06008658
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #6
 	strh	r1, [r0]
 	mov	r1, #3
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060086BC
 _06008658:
 	add	r0, sp, #0
-	bl	FUNC_06002398
+	bl	FUN_06002398
 	mov	r4, r0
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
 	beq	_0600869C
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #6
 	strh	r1, [r0]
 	mov	r1, #1
@@ -9706,17 +9706,17 @@ _06008658:
 	strh	r1, [r0, #4]
 	ldrh	r1, [r4, #4]
 	strh	r1, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_060086BC
 _0600869C:
 	mov	r0, #1
 	strh	r0, [r5]
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #6
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _060086BC:
 	add	sp, sp, #516	; 0x204
 	ldmia	sp!, {r4, r5, lr}
@@ -9724,8 +9724,8 @@ _060086BC:
 _060086C8:	.word	_0601A960
 _060086CC:	.word	0x00000301
 
-	arm_func_start FUNC_060086D0
-FUNC_060086D0: ; 0x060086D0
+	arm_func_start FUN_060086D0
+FUN_060086D0: ; 0x060086D0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r9, r0
@@ -9745,7 +9745,7 @@ FUNC_060086D0: ; 0x060086D0
 	movne	r6, #3
 	bicne	r5, r5, #11264	; 0x2c00
 _06008718:
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r7, r0
 	cmp	r8, #0
 	beq	_060087A0
@@ -9818,7 +9818,7 @@ _06008800:
 	cmp	r2, r1
 	movhi	r6, #6
 	bhi	_06008830
-	bl	FUNC_06000030
+	bl	FUN_06000030
 _06008830:
 	ands	r0, r5, #16
 	beq	_06008860
@@ -9831,7 +9831,7 @@ _06008830:
 	cmp	r2, r1
 	movhi	r6, #6
 	bhi	_06008860
-	bl	FUNC_06000000
+	bl	FUN_06000000
 _06008860:
 	ands	r0, r5, #32
 	beq	_060088B4
@@ -9925,7 +9925,7 @@ _06008970:
 	ldrneb	r0, [r9, #27]
 	strneh	r0, [r4, #156]	; 0x9c
 	mov	r0, r7
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	mov	r0, r6
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -9937,16 +9937,16 @@ _060089D0:	.word	0x00002710
 _060089D4:	.word	0x000082EA
 _060089D8:	.word	0x00000106
 
-	arm_func_start FUNC_060089DC
-FUNC_060089DC: ; 0x060089DC
+	arm_func_start FUN_060089DC
+FUN_060089DC: ; 0x060089DC
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #32
 	mov	r6, r0
 	add	r0, r6, #4
 	add	r1, sp, #0
-	bl	FUNC_060086D0
+	bl	FUN_060086D0
 	mov	r5, r0
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r4, r0
 	mov	r0, #35	; 0x23
 	strh	r0, [r4]
@@ -9956,33 +9956,33 @@ FUNC_060089DC: ; 0x060089DC
 	add	r0, sp, #0
 	add	r1, r4, #8
 	mov	r2, #28
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	mov	r0, r4
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #32
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUNC_06008A38
-FUNC_06008A38: ; 0x06008A38
+	arm_func_start FUN_06008A38
+FUN_06008A38: ; 0x06008A38
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #36	; 0x24
 	strh	r1, [r0]
 	mov	r1, #1
 	strh	r1, [r0, #2]
 	strh	r5, [r0, #4]
 	strh	r4, [r0, #6]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUNC_06008A74
-FUNC_06008A74: ; 0x06008A74
+	arm_func_start FUN_06008A74
+FUN_06008A74: ; 0x06008A74
 	stmfd	sp!, {lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r1, r0
@@ -9990,43 +9990,43 @@ FUNC_06008A74: ; 0x06008A74
 	ldr	r1, [r1, #4]
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUNC_06002484
+	bl	FUN_06002484
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008AAC
 	ldr	r0, _06008AD0	; =0x00000242
-	bl	FUNC_06008A38
+	bl	FUN_06008A38
 	b	_06008AC4
 _06008AAC:
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #36	; 0x24
 	strh	r1, [r0]
 	mov	r1, #0
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06008AC4:
 	add	sp, sp, #516	; 0x204
 	ldmfd	sp!, {lr}
 	bx	lr
 _06008AD0:	.word	0x00000242
 
-	arm_func_start FUNC_06008AD4
-FUNC_06008AD4: ; 0x06008AD4
+	arm_func_start FUN_06008AD4
+FUN_06008AD4: ; 0x06008AD4
 	mov	r1, #1
 	mov	r2, #0
-	ldr	ip, _06008AE4	; =FUNC_06004D28
+	ldr	ip, _06008AE4	; =FUN_06004D28
 	bx	ip
-_06008AE4:	.word	FUNC_06004D28
+_06008AE4:	.word	FUN_06004D28
 
-	arm_func_start FUNC_06008AE8
-FUNC_06008AE8: ; 0x06008AE8
+	arm_func_start FUN_06008AE8
+FUN_06008AE8: ; 0x06008AE8
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #564	; 0x234
 	mov	r7, r0
 	ldr	r0, _06008C64	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
 	add	r6, sp, #48	; 0x30
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r5, r0
 	mov	r1, #40	; 0x28
 	strh	r1, [r5]
@@ -10035,7 +10035,7 @@ FUNC_06008AE8: ; 0x06008AE8
 	beq	_06008B2C
 	mov	r1, #3
 	strh	r1, [r5, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06008C58
 _06008B2C:
 	ldr	r0, [r7, #4]
@@ -10047,7 +10047,7 @@ _06008B2C:
 	mov	r1, r1, lsr #16
 	mov	r2, #0
 	mov	r3, #1
-	bl	FUNC_06002EB0
+	bl	FUN_06002EB0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008B80
@@ -10057,7 +10057,7 @@ _06008B2C:
 	ldrh	r0, [r0, #4]
 	strh	r0, [r5, #6]
 	mov	r0, r5
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06008C58
 _06008B80:
 	ldr	r0, _06008C64	; =_0601A960
@@ -10066,7 +10066,7 @@ _06008B80:
 	add	r0, r4, r0
 	add	r1, r4, #162	; 0xa2
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, sp, #48	; 0x30
 	str	r0, [r4, #168]	; 0xa8
 	mov	r0, #0
@@ -10075,7 +10075,7 @@ _06008B80:
 	str	r1, [r4, #24]
 	add	r1, sp, #0
 	mov	r2, #48	; 0x30
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r0, #0
 	strh	r0, [sp]
 	strh	r0, [sp, #6]
@@ -10089,15 +10089,15 @@ _06008B80:
 	add	r0, r4, r0
 	add	r1, sp, #24
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, r4, #224	; 0xe0
 	add	r1, sp, #30
 	mov	r2, #6
-	bl	FUNC_06000554
+	bl	FUN_06000554
 	add	r0, sp, #48	; 0x30
 	str	r0, [sp, #44]	; 0x2c
 	add	r1, sp, #0
-	bl	FUNC_060029D0
+	bl	FUN_060029D0
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008C48
@@ -10108,13 +10108,13 @@ _06008B80:
 	ldrh	r0, [r0, #4]
 	strh	r0, [r5, #6]
 	mov	r0, r5
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	b	_06008C58
 _06008C48:
 	mov	r0, #0
 	strh	r0, [r5, #2]
 	mov	r0, r5
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 _06008C58:
 	add	sp, sp, #564	; 0x234
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -10122,76 +10122,76 @@ _06008C58:
 _06008C64:	.word	_0601A960
 _06008C68:	.word	0x0000018A
 
-	arm_func_start FUNC_06008C6C
-FUNC_06008C6C: ; 0x06008C6C
+	arm_func_start FUN_06008C6C
+FUN_06008C6C: ; 0x06008C6C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #41	; 0x29
 	strh	r1, [r0]
 	mov	r1, #4
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_06008C98
-FUNC_06008C98: ; 0x06008C98
+	arm_func_start FUN_06008C98
+FUN_06008C98: ; 0x06008C98
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_060001E8
+	bl	FUN_060001E8
 	mov	r1, #42	; 0x2a
 	strh	r1, [r0]
 	mov	r1, #4
 	strh	r1, [r0, #2]
-	bl	FUNC_060001F0
+	bl	FUN_060001F0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_06008CC4
-FUNC_06008CC4: ; 0x06008CC4
+	arm_func_start FUN_06008CC4
+FUN_06008CC4: ; 0x06008CC4
 	stmdb	sp!, {r4, lr}
-	bl	FUNC_06008D18
+	bl	FUN_06008D18
 	mov	r4, r0
-	bl	FUNC_06008D08
+	bl	FUN_06008D08
 	cmp	r0, #1
 	beq	_06008D00
 	mov	r0, #2
 	mov	r1, #22
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	mov	r0, r4
-	bl	FUNC_06008D10
+	bl	FUN_06008D10
 _06008CF0:
 	mov	r0, r4
-	bl	FUNC_06008D08
+	bl	FUN_06008D08
 	cmp	r0, #0
 	beq	_06008CF0
 _06008D00:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_06008D08
-FUNC_06008D08: ; 0x06008D08
+	arm_func_start FUN_06008D08
+FUN_06008D08: ; 0x06008D08
 	ldr	pc, _06008D0C	; =FUN_037F90B8
 _06008D0C:	.word	FUN_037F90B8
 
-	arm_func_start FUNC_06008D10
-FUNC_06008D10: ; 0x06008D10
+	arm_func_start FUN_06008D10
+FUN_06008D10: ; 0x06008D10
 	ldr	pc, _06008D14	; =FUN_037F90CC
 _06008D14:	.word	FUN_037F90CC
 
-	arm_func_start FUNC_06008D18
-FUNC_06008D18: ; 0x06008D18
+	arm_func_start FUN_06008D18
+FUN_06008D18: ; 0x06008D18
 	ldr	r0, _06008D28	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #24
 	bx	lr
 _06008D28:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06008D2C
-FUNC_06008D2C: ; 0x06008D2C
+	arm_func_start FUN_06008D2C
+FUN_06008D2C: ; 0x06008D2C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #16
 	mov	r4, r0
@@ -10200,8 +10200,8 @@ FUNC_06008D2C: ; 0x06008D2C
 	str	r1, [r0]
 	mov	r0, #0
 	ldr	r2, _06008EF4	; =0x00000694
-	bl	FUNC_06008F08
-	bl	FUNC_06008F10
+	bl	FUN_06008F08
+	bl	FUN_06008F10
 	ldr	r2, _06008EF0	; =0x0380FFF4
 	ldr	r1, [r2]
 	str	r0, [r1, #788]	; 0x314
@@ -10218,8 +10218,8 @@ FUNC_06008D2C: ; 0x06008D2C
 	mvneq	r0, #0
 	streq	r0, [r1, #784]	; 0x310
 	add	r0, r4, #32
-	bl	FUNC_06009334
-	bl	FUNC_06018FB0
+	bl	FUN_06009334
+	bl	FUN_06018FB0
 	ldr	r1, _06008EF8	; =0x04000304
 	ldrh	r0, [r1]
 	orr	r0, r0, #2
@@ -10236,13 +10236,13 @@ FUNC_06008D2C: ; 0x06008D2C
 	ldr	r3, [r2]
 	ldr	r2, _06008F00	; =0x00000692
 	add	r2, r3, r2
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	mov	r0, #62	; 0x3e
 	mov	r1, #2
 	ldr	r2, _06008EF0	; =0x0380FFF4
 	ldr	r2, [r2]
 	add	r2, r2, #1680	; 0x690
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	ldr	r1, [r4, #16]
 	ldr	r2, _06008EF0	; =0x0380FFF4
 	ldr	r0, [r2]
@@ -10252,17 +10252,17 @@ FUNC_06008D2C: ; 0x06008D2C
 	str	r1, [r0, #772]	; 0x304
 	ldr	r0, [r4, #48]	; 0x30
 	mov	r1, #28
-	bl	FUNC_06003B68
+	bl	FUN_06003B68
 	mov	r1, r0
 	ldr	r0, [r4, #44]	; 0x2c
-	bl	FUNC_0600C338
-	bl	FUNC_060091F8
-	bl	FUNC_0600F858
-	bl	FUNC_0600FC8C
-	bl	FUNC_0600EA9C
-	bl	FUNC_0600A0D0
+	bl	FUN_0600C338
+	bl	FUN_060091F8
+	bl	FUN_0600F858
+	bl	FUN_0600FC8C
+	bl	FUN_0600EA9C
+	bl	FUN_0600A0D0
 	add	r0, sp, #8
-	bl	FUNC_060191BC
+	bl	FUN_060191BC
 	cmp	r0, #0
 	beq	_06008E6C
 	ldr	r0, _06008EF0	; =0x0380FFF4
@@ -10273,16 +10273,16 @@ FUNC_06008D2C: ; 0x06008D2C
 	strh	r1, [r0, #62]	; 0x3e
 	b	_06008E94
 _06008E6C:
-	bl	FUNC_0600A36C
-	bl	FUNC_0600C834
-	bl	FUNC_0600B2D8
-	bl	FUNC_0600A334
-	bl	FUNC_0600A134
-	bl	FUNC_0600C6B0
-	bl	FUNC_0600C3B8
-	bl	FUNC_0600A2C4
-	bl	FUNC_0600B80C
-	bl	FUNC_0600B36C
+	bl	FUN_0600A36C
+	bl	FUN_0600C834
+	bl	FUN_0600B2D8
+	bl	FUN_0600A334
+	bl	FUN_0600A134
+	bl	FUN_0600C6B0
+	bl	FUN_0600C3B8
+	bl	FUN_0600A2C4
+	bl	FUN_0600B80C
+	bl	FUN_0600B36C
 _06008E94:
 	ldr	r0, [r4, #8]
 	str	r0, [sp]
@@ -10291,15 +10291,15 @@ _06008E94:
 	ldr	r0, _06008EF0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #24
-	ldr	r1, _06008F04	; =FUNC_06009138
+	ldr	r1, _06008F04	; =FUN_06009138
 	mov	r2, #0
 	ldr	r3, [r4, #4]
-	bl	FUNC_06000974
+	bl	FUN_06000974
 	ldr	r0, _06008EF0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #24
-	bl	FUNC_0600097C
-	bl	FUNC_0600CA10
+	bl	FUN_0600097C
+	bl	FUN_0600CA10
 	ldr	r0, _06008EF0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -10312,44 +10312,44 @@ _06008EF4:	.word	0x00000694
 _06008EF8:	.word	0x04000304
 _06008EFC:	.word	0x04000206
 _06008F00:	.word	0x00000692
-_06008F04:	.word	FUNC_06009138
+_06008F04:	.word	FUN_06009138
 
-	arm_func_start FUNC_06008F08
-FUNC_06008F08: ; 0x06008F08
+	arm_func_start FUN_06008F08
+FUN_06008F08: ; 0x06008F08
 	ldr	pc, _06008F0C	; =FUN_037FB360
 _06008F0C:	.word	FUN_037FB360
 
-	arm_func_start FUNC_06008F10
-FUNC_06008F10: ; 0x06008F10
+	arm_func_start FUN_06008F10
+FUN_06008F10: ; 0x06008F10
 	ldr	pc, _06008F14	; =FUN_037F8A24
 _06008F14:	.word	FUN_037F8A24
 
-	arm_func_start FUNC_06008F18
-FUNC_06008F18: ; 0x06008F18
+	arm_func_start FUN_06008F18
+FUN_06008F18: ; 0x06008F18
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_06009E28
-	bl	FUNC_0600B36C
-	bl	FUNC_0600A334
-	bl	FUNC_060092D8
-	bl	FUNC_060091F8
+	bl	FUN_06009E28
+	bl	FUN_0600B36C
+	bl	FUN_0600A334
+	bl	FUN_060092D8
+	bl	FUN_060091F8
 	ldr	r0, _06008F68	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, [r1, #796]	; 0x31c
 	add	r1, r1, #768	; 0x300
 	ldrh	r1, [r1, #32]
-	bl	FUNC_0600C338
-	bl	FUNC_0600F858
-	bl	FUNC_0600FC8C
-	bl	FUNC_0600EA9C
-	bl	FUNC_0600B80C
+	bl	FUN_0600C338
+	bl	FUN_0600F858
+	bl	FUN_0600FC8C
+	bl	FUN_0600EA9C
+	bl	FUN_0600B80C
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06008F68:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06008F6C
-FUNC_06008F6C: ; 0x06008F6C
+	arm_func_start FUN_06008F6C
+FUN_06008F6C: ; 0x06008F6C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, [r0]
@@ -10358,18 +10358,18 @@ FUNC_06008F6C: ; 0x06008F6C
 	ldr	r0, _06008FA8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #512	; 0x200
-	bl	FUNC_060095B4
+	bl	FUN_060095B4
 	mov	r0, #2
 	mov	r1, #11
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06008F9C:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06008FA8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06008FAC
-FUNC_06008FAC: ; 0x06008FAC
+	arm_func_start FUN_06008FAC
+FUN_06008FAC: ; 0x06008FAC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06008FEC	; =0x0380FFF4
@@ -10377,25 +10377,25 @@ FUNC_06008FAC: ; 0x06008FAC
 	ldr	r0, [r0, #776]	; 0x308
 	add	r1, sp, #0
 	mov	r2, #1
-	bl	FUNC_06000780
+	bl	FUN_06000780
 	add	r0, sp, #0
-	bl	FUNC_06008F6C
+	bl	FUN_06008F6C
 	mov	r0, #3
 	mov	r1, #12
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06008FEC:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06008FF0
-FUNC_06008FF0: ; 0x06008FF0
+	arm_func_start FUN_06008FF0
+FUN_06008FF0: ; 0x06008FF0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r0
 	ldr	r0, _0600905C	; =0x0380FFF4
 	ldr	r5, [r0]
 	ldr	r0, _06009060	; =0x01000010
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r6, r4, lsl #1
 	ldrh	r4, [r5, r6]
 	ldr	r2, _06009064	; =0x0000FFFF
@@ -10414,7 +10414,7 @@ FUNC_06008FF0: ; 0x06008FF0
 	strneh	r1, [r5, r6]
 	strneh	r2, [lr, r3]
 _0600904C:
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	mov	r0, r4
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
@@ -10422,18 +10422,18 @@ _0600905C:	.word	0x0380FFF4
 _06009060:	.word	0x01000010
 _06009064:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06009068
-FUNC_06009068: ; 0x06009068
+	arm_func_start FUN_06009068
+FUN_06009068: ; 0x06009068
 	ldr	pc, _0600906C	; =FUN_037F8858
 _0600906C:	.word	FUN_037F8858
 
-	arm_func_start FUNC_06009070
-FUNC_06009070: ; 0x06009070
+	arm_func_start FUN_06009070
+FUN_06009070: ; 0x06009070
 	ldr	pc, _06009074	; =FUN_037F8894
 _06009074:	.word	FUN_037F8894
 
-	arm_func_start FUNC_06009078
-FUNC_06009078: ; 0x06009078
+	arm_func_start FUN_06009078
+FUN_06009078: ; 0x06009078
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -10442,7 +10442,7 @@ FUNC_06009078: ; 0x06009078
 	ldr	r5, [r0]
 	add	r4, r5, #188	; 0xbc
 	ldr	r0, _06009130	; =0x01000010
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	ip, r6, lsl #3
 	add	r2, r4, r6, lsl #3
 	ldrh	r1, [r2, #2]
@@ -10465,7 +10465,7 @@ FUNC_06009078: ; 0x06009078
 	cmp	r7, r1
 	strlth	r7, [r5, #16]
 _060090F0:
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	cmp	r7, #3
 	beq	_06009120
 	ldrh	r0, [r5, #18]
@@ -10476,7 +10476,7 @@ _060090F0:
 	ldr	r0, [r0, #776]	; 0x308
 	mov	r1, #0
 	mov	r2, r1
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 _06009120:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -10485,12 +10485,12 @@ _0600912C:	.word	0x0380FFF4
 _06009130:	.word	0x01000010
 _06009134:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06009138
-FUNC_06009138: ; 0x06009138
+	arm_func_start FUN_06009138
+FUN_06009138: ; 0x06009138
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 
-	arm_func_start FUNC_0600913C
-FUNC_0600913C: ; 0x0600913C
+	arm_func_start FUN_0600913C
+FUN_0600913C: ; 0x0600913C
 	sub	sp, sp, #8
 	ldr	r8, _060091EC	; =0x0380FFF4
 	ldr	r9, [r8]
@@ -10506,14 +10506,14 @@ _06009164:
 	ldr	r0, [r0, #776]	; 0x308
 	mov	r1, r6
 	mov	r2, r7
-	bl	FUNC_06000780
+	bl	FUN_06000780
 	cmp	r0, #0
 	beq	_06009188
 	mov	r0, r6
-	bl	FUNC_06008F6C
+	bl	FUN_06008F6C
 _06009188:
 	mov	r0, r5
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	ldrh	r1, [r9, #16]
 	strh	r1, [r9, #18]
 	ldrh	r1, [r9, #18]
@@ -10524,12 +10524,12 @@ _06009188:
 	ldrh	r1, [r4]
 	add	r1, r1, #1
 	strh	r1, [r4]
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	b	_06009164
 _060091C0:
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	ldrh	r0, [r9, #18]
-	bl	FUNC_06008FF0
+	bl	FUN_06008FF0
 	strh	r0, [r9, #20]
 	ldrh	r0, [r9, #20]
 	add	r0, r9, r0, lsl #3
@@ -10542,8 +10542,8 @@ _060091EC:	.word	0x0380FFF4
 _060091F0:	.word	0x01000010
 _060091F4:	.word	0x0000FFFF
 
-	arm_func_start FUNC_060091F8
-FUNC_060091F8: ; 0x060091F8
+	arm_func_start FUN_060091F8
+FUN_060091F8: ; 0x060091F8
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06009278	; =0x0380FFF4
 	ldr	r4, [r0]
@@ -10575,15 +10575,15 @@ _06009244:
 	bcc	_06009244
 	mov	r0, #3
 	mov	r1, #12
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06009278:	.word	0x0380FFF4
 _0600927C:	.word	0x0000FFFF
 _06009280:	.word	_06019320
 
-	arm_func_start FUNC_06009284
-FUNC_06009284: ; 0x06009284
+	arm_func_start FUN_06009284
+FUN_06009284: ; 0x06009284
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -10595,11 +10595,11 @@ FUNC_06009284: ; 0x06009284
 	b	_060092C4
 _060092A8:
 	mov	r0, r6
-	bl	FUNC_06009434
+	bl	FUN_06009434
 	mov	r5, r0
 	mov	r0, r7
 	mov	r1, r6
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 	mov	r6, r5
 _060092C4:
 	cmp	r6, r4
@@ -10609,34 +10609,34 @@ _060092CC:
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUNC_060092D8
-FUNC_060092D8: ; 0x060092D8
+	arm_func_start FUN_060092D8
+FUN_060092D8: ; 0x060092D8
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06009330	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #380	; 0x17c
 	add	r0, r4, #24
-	bl	FUNC_06009284
+	bl	FUN_06009284
 	add	r0, r4, #36	; 0x24
-	bl	FUNC_06009284
+	bl	FUN_06009284
 	add	r0, r4, #48	; 0x30
-	bl	FUNC_06009284
+	bl	FUN_06009284
 	add	r0, r4, #60	; 0x3c
-	bl	FUNC_06009284
+	bl	FUN_06009284
 	add	r0, r4, #72	; 0x48
-	bl	FUNC_06009284
+	bl	FUN_06009284
 	add	r0, r4, #84	; 0x54
-	bl	FUNC_06009284
+	bl	FUN_06009284
 	add	r0, r4, #96	; 0x60
-	bl	FUNC_06009284
+	bl	FUN_06009284
 	add	r0, r4, #108	; 0x6c
-	bl	FUNC_06009284
+	bl	FUN_06009284
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06009330:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009334
-FUNC_06009334: ; 0x06009334
+	arm_func_start FUN_06009334
+FUN_06009334: ; 0x06009334
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r1, _06009414	; =0x0380FFF4
@@ -10651,40 +10651,40 @@ FUNC_06009334: ; 0x06009334
 	str	r0, [r5, #8]
 	add	r0, r5, #12
 	mov	r1, #2
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #24
 	mov	r1, #3
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #36	; 0x24
 	mov	r1, #4
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #48	; 0x30
 	mov	r1, #5
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #60	; 0x3c
 	mov	r1, #6
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #72	; 0x48
 	mov	r1, #7
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #84	; 0x54
 	mov	r1, #8
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #96	; 0x60
 	mov	r1, #9
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #108	; 0x6c
 	mov	r1, #10
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #120	; 0x78
 	mov	r1, #11
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #132	; 0x84
 	mov	r1, #12
-	bl	FUNC_06009418
+	bl	FUN_06009418
 	add	r0, r5, #12
 	mov	r1, #129	; 0x81
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	add	r0, r0, #12
 	str	r0, [r4, #156]	; 0x9c
 	mov	r0, #0
@@ -10695,8 +10695,8 @@ FUNC_06009334: ; 0x06009334
 	bx	lr
 _06009414:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009418
-FUNC_06009418: ; 0x06009418
+	arm_func_start FUN_06009418
+FUN_06009418: ; 0x06009418
 	mvn	r2, #0
 	str	r2, [r0]
 	str	r2, [r0, #4]
@@ -10705,13 +10705,13 @@ FUNC_06009418: ; 0x06009418
 	strh	r1, [r0, #10]
 	bx	lr
 
-	arm_func_start FUNC_06009434
-FUNC_06009434: ; 0x06009434
+	arm_func_start FUN_06009434
+FUN_06009434: ; 0x06009434
 	ldr	r0, [r0, #4]
 	bx	lr
 
-	arm_func_start FUNC_0600943C
-FUNC_0600943C: ; 0x0600943C
+	arm_func_start FUN_0600943C
+FUN_0600943C: ; 0x0600943C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -10727,7 +10727,7 @@ FUNC_0600943C: ; 0x0600943C
 	movne	r0, #2
 	bne	_06009510
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	ldrh	r1, [r5, #8]
 	sub	r1, r1, #1
 	strh	r1, [r5, #8]
@@ -10766,7 +10766,7 @@ _060094E8:
 _06009500:
 	mov	r1, #0
 	strh	r1, [r4, #8]
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	mov	r0, #0
 _06009510:
 	add	sp, sp, #4
@@ -10774,8 +10774,8 @@ _06009510:
 	bx	lr
 _0600951C:	.word	0x0000BF1D
 
-	arm_func_start FUNC_06009520
-FUNC_06009520: ; 0x06009520
+	arm_func_start FUN_06009520
+FUN_06009520: ; 0x06009520
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -10790,7 +10790,7 @@ FUNC_06009520: ; 0x06009520
 	movne	r0, #2
 	bne	_060095A4
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	ldrh	r1, [r5, #8]
 	cmp	r1, #0
 	mvneq	r1, #0
@@ -10807,7 +10807,7 @@ FUNC_06009520: ; 0x06009520
 	ldrh	r1, [r5, #8]
 	add	r1, r1, #1
 	strh	r1, [r5, #8]
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	mov	r0, #0
 _060095A4:
 	add	sp, sp, #4
@@ -10815,14 +10815,14 @@ _060095A4:
 	bx	lr
 _060095B0:	.word	0x0000BF1D
 
-	arm_func_start FUNC_060095B4
-FUNC_060095B4: ; 0x060095B4
+	arm_func_start FUN_060095B4
+FUN_060095B4: ; 0x060095B4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	mov	r4, r1
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	ldrh	r1, [r5, #8]
 	cmp	r1, #0
 	mvneq	r1, #0
@@ -10841,15 +10841,15 @@ FUNC_060095B4: ; 0x060095B4
 	ldrh	r1, [r5, #8]
 	add	r1, r1, #1
 	strh	r1, [r5, #8]
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06009628:	.word	0x0000BF1D
 
-	arm_func_start FUNC_0600962C
-FUNC_0600962C: ; 0x0600962C
+	arm_func_start FUN_0600962C
+FUN_0600962C: ; 0x0600962C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -10861,20 +10861,20 @@ FUNC_0600962C: ; 0x0600962C
 	movne	r0, #1
 	bne	_06009690
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	mov	r0, r5
 	mov	r1, r6
-	bl	FUNC_0600943C
+	bl	FUN_0600943C
 	movs	r5, r0
 	bne	_06009684
 	mov	r0, r7
 	mov	r1, r6
-	bl	FUNC_06009520
+	bl	FUN_06009520
 	mov	r5, r0
 _06009684:
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	mov	r0, r5
 _06009690:
 	add	sp, sp, #4
@@ -10882,8 +10882,8 @@ _06009690:
 	bx	lr
 _0600969C:	.word	0x0000BF1D
 
-	arm_func_start FUNC_060096A0
-FUNC_060096A0: ; 0x060096A0
+	arm_func_start FUN_060096A0
+FUN_060096A0: ; 0x060096A0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r1
 	ldr	r2, _0600971C	; =0x0380FFF4
@@ -10894,7 +10894,7 @@ FUNC_060096A0: ; 0x060096A0
 	cmp	r3, r2
 	movne	r0, #1
 	bne	_06009714
-	bl	FUNC_0600943C
+	bl	FUN_0600943C
 	movs	r5, r0
 	bne	_06009710
 	ldr	r0, [r6]
@@ -10907,7 +10907,7 @@ _060096EC:
 	ldr	r0, [r6, #4]
 	ldr	r1, [r6, #8]
 	mov	r2, r4
-	bl	FUNC_06001F8C
+	bl	FUN_06001F8C
 	b	_06009710
 _06009700:
 	mov	r0, r4
@@ -10922,8 +10922,8 @@ _06009714:
 _0600971C:	.word	0x0380FFF4
 _06009720:	.word	0x0000BF1D
 
-	arm_func_start FUNC_06009724
-FUNC_06009724: ; 0x06009724
+	arm_func_start FUN_06009724
+FUN_06009724: ; 0x06009724
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -10943,7 +10943,7 @@ FUNC_06009724: ; 0x06009724
 _06009764:
 	ldr	r0, [r3, #4]
 	ldr	r1, [r3, #8]
-	bl	FUNC_060014F4
+	bl	FUN_060014F4
 	mov	r4, r0
 	b	_0600978C
 _06009778:
@@ -10962,7 +10962,7 @@ _0600978C:
 	strh	r0, [r4, #8]
 	mov	r0, r5
 	mov	r1, r4
-	bl	FUNC_06009520
+	bl	FUN_06009520
 	mov	r0, r4
 _060097B8:
 	add	sp, sp, #4
@@ -10971,32 +10971,32 @@ _060097B8:
 _060097C4:	.word	0x0380FFF4
 _060097C8:	.word	0x0000BF1D
 
-	arm_func_start FUNC_060097CC
-FUNC_060097CC: ; 0x060097CC
+	arm_func_start FUN_060097CC
+FUN_060097CC: ; 0x060097CC
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600981C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #380	; 0x17c
-	bl	FUNC_0600C9E0
+	bl	FUN_0600C9E0
 	add	r0, r4, #12
 	ldr	r1, _0600981C	; =0x0380FFF4
 	ldr	r1, [r1]
 	ldr	r1, [r1, #792]	; 0x318
 	sub	r1, r1, #12
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 	add	r0, r4, #12
 	ldr	r1, _0600981C	; =0x0380FFF4
 	ldr	r1, [r1]
 	ldr	r1, [r1, #992]	; 0x3e0
 	sub	r1, r1, #12
-	bl	FUNC_060096A0
-	bl	FUNC_0600217C
+	bl	FUN_060096A0
+	bl	FUN_0600217C
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600981C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009820
-FUNC_06009820: ; 0x06009820
+	arm_func_start FUN_06009820
+FUN_06009820: ; 0x06009820
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r2, _060098BC	; =0x0380FFF4
@@ -11010,7 +11010,7 @@ FUNC_06009820: ; 0x06009820
 	ldrh	r0, [r0, #76]	; 0x4c
 	cmp	r0, #0
 	beq	_06009890
-	bl	FUNC_0600A4EC
+	bl	FUN_0600A4EC
 	ldr	r2, _060098BC	; =0x0380FFF4
 	ldr	r0, [r2]
 	add	r0, r0, #1024	; 0x400
@@ -11023,26 +11023,26 @@ FUNC_06009820: ; 0x06009820
 	ldr	r0, [r2]
 	ldr	r0, [r0, #1056]	; 0x420
 	strh	r1, [r0, #4]
-	bl	FUNC_06010228
+	bl	FUN_06010228
 _0600988C:
-	bl	FUNC_0600B36C
+	bl	FUN_0600B36C
 _06009890:
 	mov	r0, #3
-	bl	FUNC_06008FF0
+	bl	FUN_06008FF0
 	ldr	r1, _060098C0	; =0x0000FFFF
 	cmp	r0, r1
 	bne	_06009890
 	mov	r0, #3
 	mov	r1, #23
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060098BC:	.word	0x0380FFF4
 _060098C0:	.word	0x0000FFFF
 
-	arm_func_start FUNC_060098C4
-FUNC_060098C4: ; 0x060098C4
+	arm_func_start FUN_060098C4
+FUN_060098C4: ; 0x060098C4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06009944	; =0x0380FFF4
@@ -11053,7 +11053,7 @@ FUNC_060098C4: ; 0x060098C4
 	beq	_06009938
 	add	r0, r1, #392	; 0x188
 	mov	r1, #18
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	beq	_06009938
 	ldr	r0, _06009948	; =0x00000186
@@ -11061,17 +11061,17 @@ FUNC_060098C4: ; 0x060098C4
 	mov	r0, #1
 	strh	r0, [r4, #14]
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	ldrh	r1, [r5, #176]	; 0xb0
 	strh	r1, [r4, #16]
 	mov	r1, #0
 	strh	r1, [r5, #176]	; 0xb0
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	ldr	r0, _06009944	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 _06009938:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -11079,28 +11079,28 @@ _06009938:
 _06009944:	.word	0x0380FFF4
 _06009948:	.word	0x00000186
 
-	arm_func_start FUNC_0600994C
-FUNC_0600994C: ; 0x0600994C
+	arm_func_start FUN_0600994C
+FUN_0600994C: ; 0x0600994C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	ldr	r1, _0600998C	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #768	; 0x300
 	ldrh	r2, [r1, #244]	; 0xf4
 	orr	r2, r2, r4
 	strh	r2, [r1, #244]	; 0xf4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	mov	r0, #2
 	mov	r1, #21
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600998C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009990
-FUNC_06009990: ; 0x06009990
+	arm_func_start FUN_06009990
+FUN_06009990: ; 0x06009990
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06009A8C	; =0x0380FFF4
@@ -11118,50 +11118,50 @@ FUNC_06009990: ; 0x06009990
 	b	_06009A3C
 _060099CC:
 	add	r0, r4, #120	; 0x78
-	bl	FUNC_06009B28
+	bl	FUN_06009B28
 	cmp	r0, #0
 	beq	_060099E4
-	bl	FUNC_06009AE4
-	bl	FUNC_0601477C
+	bl	FUN_06009AE4
+	bl	FUN_0601477C
 _060099E4:
 	add	r0, r4, #40	; 0x28
-	bl	FUNC_06009B28
+	bl	FUN_06009B28
 	cmp	r0, #0
 	beq	_06009A3C
 	add	r0, r4, #40	; 0x28
-	bl	FUNC_06009A98
+	bl	FUN_06009A98
 	b	_06009A3C
 _06009A00:
 	add	r0, r4, #100	; 0x64
-	bl	FUNC_06009B28
+	bl	FUN_06009B28
 	add	r0, r4, #40	; 0x28
-	bl	FUNC_06009B28
+	bl	FUN_06009B28
 	cmp	r0, #0
 	beq	_06009A3C
 	ldrh	r0, [r4, #40]	; 0x28
 	cmp	r0, #0
 	beq	_06009A28
-	bl	FUNC_06009AE4
+	bl	FUN_06009AE4
 _06009A28:
 	ldrh	r0, [r5, #106]	; 0x6a
-	bl	FUNC_06013E48
+	bl	FUN_06013E48
 	ldrh	r0, [r5, #184]	; 0xb8
 	add	r0, r0, #1
 	strh	r0, [r5, #184]	; 0xb8
 _06009A3C:
 	add	r0, r4, #20
-	bl	FUNC_06009B28
+	bl	FUN_06009B28
 	cmp	r0, #0
 	beq	_06009A54
 	add	r0, r4, #20
-	bl	FUNC_06009A98
+	bl	FUN_06009A98
 _06009A54:
 	mov	r0, r4
-	bl	FUNC_06009B28
+	bl	FUN_06009B28
 	cmp	r0, #0
 	beq	_06009A6C
 	mov	r0, r4
-	bl	FUNC_06009A98
+	bl	FUN_06009A98
 _06009A6C:
 	ldr	r1, _06009A94	; =0x04808004
 	ldrh	r0, [r1]
@@ -11175,18 +11175,18 @@ _06009A8C:	.word	0x0380FFF4
 _06009A90:	.word	0x0000042C
 _06009A94:	.word	0x04808004
 
-	arm_func_start FUNC_06009A98
-FUNC_06009A98: ; 0x06009A98
+	arm_func_start FUN_06009A98
+FUN_06009A98: ; 0x06009A98
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldrh	r0, [r4]
 	cmp	r0, #0
 	beq	_06009AD8
-	bl	FUNC_06009AE4
+	bl	FUN_06009AE4
 	ldr	r0, [r4, #8]
 	ldr	r1, [r4, #12]
 	sub	r1, r1, #16
-	bl	FUNC_06015B0C
+	bl	FUN_06015B0C
 	ldr	r0, _06009AE0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -11198,8 +11198,8 @@ _06009AD8:
 	bx	lr
 _06009AE0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009AE4
-FUNC_06009AE4: ; 0x06009AE4
+	arm_func_start FUN_06009AE4
+FUN_06009AE4: ; 0x06009AE4
 	mov	r1, #0
 	ldr	r0, _06009B20	; =0x04808004
 	strh	r1, [r0]
@@ -11220,8 +11220,8 @@ _06009B14:
 _06009B20:	.word	0x04808004
 _06009B24:	.word	0x04808214
 
-	arm_func_start FUNC_06009B28
-FUNC_06009B28: ; 0x06009B28
+	arm_func_start FUN_06009B28
+FUN_06009B28: ; 0x06009B28
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r3, [r0, #8]
@@ -11263,8 +11263,8 @@ _06009BB0:	.word	0x0000B6B8
 _06009BB4:	.word	0x00001D46
 _06009BB8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009BBC
-FUNC_06009BBC: ; 0x06009BBC
+	arm_func_start FUN_06009BBC
+FUN_06009BBC: ; 0x06009BBC
 	and	r2, r1, #15
 	mov	r3, r2, lsl #1
 	ldr	r2, _06009C2C	; =_060193E4
@@ -11296,8 +11296,8 @@ FUNC_06009BBC: ; 0x06009BBC
 _06009C2C:	.word	_060193E4
 _06009C30:	.word	0x00000FFF
 
-	arm_func_start FUNC_06009C34
-FUNC_06009C34: ; 0x06009C34
+	arm_func_start FUN_06009C34
+FUN_06009C34: ; 0x06009C34
 	ldr	r0, _06009C60	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r3, r0, #1520	; 0x5f0
@@ -11311,8 +11311,8 @@ FUNC_06009C34: ; 0x06009C34
 	bx	lr
 _06009C60:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009C64
-FUNC_06009C64: ; 0x06009C64
+	arm_func_start FUN_06009C64
+FUN_06009C64: ; 0x06009C64
 	ldr	r1, _06009C78	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #1280	; 0x500
@@ -11320,8 +11320,8 @@ FUNC_06009C64: ; 0x06009C64
 	bx	lr
 _06009C78:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009C7C
-FUNC_06009C7C: ; 0x06009C7C
+	arm_func_start FUN_06009C7C
+FUN_06009C7C: ; 0x06009C7C
 	ldr	r2, _06009CA8	; =0x0380FFF4
 	ldr	r3, [r2]
 	add	ip, r3, #1520	; 0x5f0
@@ -11336,8 +11336,8 @@ FUNC_06009C7C: ; 0x06009C7C
 _06009CA8:	.word	0x0380FFF4
 _06009CAC:	.word	0x0000FFF8
 
-	arm_func_start FUNC_06009CB0
-FUNC_06009CB0: ; 0x06009CB0
+	arm_func_start FUN_06009CB0
+FUN_06009CB0: ; 0x06009CB0
 	ands	r1, r0, #1
 	ldrneh	r0, [r0, #-1]
 	movne	r0, r0, asr #8
@@ -11347,8 +11347,8 @@ FUNC_06009CB0: ; 0x06009CB0
 	and	r0, r0, #255	; 0xff
 	bx	lr
 
-	arm_func_start FUNC_06009CD0
-FUNC_06009CD0: ; 0x06009CD0
+	arm_func_start FUN_06009CD0
+FUN_06009CD0: ; 0x06009CD0
 	ands	r2, r0, #1
 	ldrneh	r2, [r0, #-1]
 	andne	r2, r2, #255	; 0xff
@@ -11361,54 +11361,54 @@ FUNC_06009CD0: ; 0x06009CD0
 	streqh	r1, [r0]
 	bx	lr
 
-	arm_func_start FUNC_06009CFC
-FUNC_06009CFC: ; 0x06009CFC
+	arm_func_start FUN_06009CFC
+FUN_06009CFC: ; 0x06009CFC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r2
 	mov	r4, r3
 	mov	r2, #18
-	bl	FUNC_06009D88
+	bl	FUN_06009D88
 	cmp	r4, #0
 	beq	_06009D30
 	add	r0, r6, #40	; 0x28
 	mov	r1, r5
 	add	r2, r4, #1
 	mov	r2, r2, lsr #1
-	bl	FUNC_06009D88
+	bl	FUN_06009D88
 _06009D30:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUNC_06009D38
-FUNC_06009D38: ; 0x06009D38
+	arm_func_start FUN_06009D38
+FUN_06009D38: ; 0x06009D38
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r2
 	mov	r4, r3
 	mov	r2, #18
-	bl	FUNC_06009D88
+	bl	FUN_06009D88
 	cmp	r4, #0
 	beq	_06009D6C
 	add	r0, r6, #36	; 0x24
 	mov	r1, r5
 	add	r2, r4, #1
 	mov	r2, r2, lsr #1
-	bl	FUNC_06009D88
+	bl	FUN_06009D88
 _06009D6C:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUNC_06009D74
-FUNC_06009D74: ; 0x06009D74
+	arm_func_start FUN_06009D74
+FUN_06009D74: ; 0x06009D74
 	add	r2, r2, #1
 	mov	r2, r2, lsr #1
-	ldr	ip, _06009D84	; =FUNC_06009D88
+	ldr	ip, _06009D84	; =FUN_06009D88
 	bx	ip
-_06009D84:	.word	FUNC_06009D88
+_06009D84:	.word	FUN_06009D88
 
-	arm_func_start FUNC_06009D88
-FUNC_06009D88: ; 0x06009D88
+	arm_func_start FUN_06009D88
+FUN_06009D88: ; 0x06009D88
 	mov	r3, r0
 	mov	r0, r1
 	mov	r1, r3
@@ -11417,8 +11417,8 @@ FUNC_06009D88: ; 0x06009D88
 	bx	ip
 _06009DA0:	.word	FUN_037FB318
 
-	arm_func_start FUNC_06009DA4
-FUNC_06009DA4: ; 0x06009DA4
+	arm_func_start FUN_06009DA4
+FUN_06009DA4: ; 0x06009DA4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -11435,7 +11435,7 @@ FUNC_06009DA4: ; 0x06009DA4
 	mov	r0, r6
 	mov	r1, r7
 	mov	r2, r5
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	cmp	r4, #0
 	beq	_06009E14
 	add	r1, r6, r5
@@ -11446,7 +11446,7 @@ FUNC_06009DA4: ; 0x06009DA4
 	sub	r0, r1, r0
 	add	r1, r7, r5
 	mov	r2, r4
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 _06009E14:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -11454,8 +11454,8 @@ _06009E14:
 _06009E20:	.word	0x04805F60
 _06009E24:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009E28
-FUNC_06009E28: ; 0x06009E28
+	arm_func_start FUN_06009E28
+FUN_06009E28: ; 0x06009E28
 	ldr	r0, _06009E40	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _06009E44	; =0x00000634
@@ -11466,8 +11466,8 @@ _06009E40:	.word	0x0380FFF4
 _06009E44:	.word	0x00000634
 _06009E48:	.word	FUN_037FA650
 
-	arm_func_start FUNC_06009E4C
-FUNC_06009E4C: ; 0x06009E4C
+	arm_func_start FUN_06009E4C
+FUN_06009E4C: ; 0x06009E4C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -11476,7 +11476,7 @@ FUNC_06009E4C: ; 0x06009E4C
 	ldr	r1, [r0]
 	ldr	r0, _06009ED4	; =0x00000634
 	add	r0, r1, r0
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	mov	r3, #0
 	ldr	r0, _06009ED8	; =0x000082EA
 	umull	ip, r2, r5, r0
@@ -11486,7 +11486,7 @@ FUNC_06009E4C: ; 0x06009E4C
 	mov	r0, ip, lsr #6
 	orr	r0, r0, r2, lsl #26
 	mov	r2, #1000	; 0x3e8
-	bl	FUNC_06009EDC
+	bl	FUN_06009EDC
 	mov	r3, r0
 	mov	r2, r1
 	mov	r0, #0
@@ -11497,7 +11497,7 @@ FUNC_06009E4C: ; 0x06009E4C
 	add	r0, r1, r0
 	mov	r1, r3
 	mov	r3, r4
-	bl	FUNC_0600144C
+	bl	FUN_0600144C
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -11505,13 +11505,13 @@ _06009ED0:	.word	0x0380FFF4
 _06009ED4:	.word	0x00000634
 _06009ED8:	.word	0x000082EA
 
-	arm_func_start FUNC_06009EDC
-FUNC_06009EDC: ; 0x06009EDC
+	arm_func_start FUN_06009EDC
+FUN_06009EDC: ; 0x06009EDC
 	ldr	pc, _06009EE0	; =_ll_udiv
 _06009EE0:	.word	_ll_udiv
 
-	arm_func_start FUNC_06009EE4
-FUNC_06009EE4: ; 0x06009EE4
+	arm_func_start FUN_06009EE4
+FUN_06009EE4: ; 0x06009EE4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -11520,7 +11520,7 @@ FUNC_06009EE4: ; 0x06009EE4
 	ldr	r1, [r0]
 	ldr	r0, _06009F54	; =0x00000634
 	add	r0, r1, r0
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	mov	r2, #0
 	str	r2, [sp]
 	ldr	r0, _06009F50	; =0x0380FFF4
@@ -11535,7 +11535,7 @@ FUNC_06009EE4: ; 0x06009EE4
 	mov	r1, ip, lsr #6
 	orr	r1, r1, r3, lsl #26
 	mov	r3, r4
-	bl	FUNC_0600144C
+	bl	FUN_0600144C
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -11543,8 +11543,8 @@ _06009F50:	.word	0x0380FFF4
 _06009F54:	.word	0x00000634
 _06009F58:	.word	0x000082EA
 
-	arm_func_start FUNC_06009F5C
-FUNC_06009F5C: ; 0x06009F5C
+	arm_func_start FUN_06009F5C
+FUN_06009F5C: ; 0x06009F5C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06009FD8	; =0x0380FFF4
 	ldr	r4, [r0]
@@ -11553,20 +11553,20 @@ FUNC_06009F5C: ; 0x06009F5C
 	str	r0, [r4, #1004]	; 0x3ec
 	mov	r0, #1
 	mov	r1, #10
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	mov	r0, #2
 	mov	r1, #18
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	mov	r0, #1
 	mov	r1, #17
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	add	r0, r4, #256	; 0x100
 	ldrh	r0, [r0, #252]	; 0xfc
 	cmp	r0, #0
 	beq	_06009FB4
 	mov	r0, #2
 	mov	r1, #19
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06009FB4:
 	add	r0, r4, #768	; 0x300
 	ldrh	r0, [r0, #244]	; 0xf4
@@ -11574,14 +11574,14 @@ _06009FB4:
 	beq	_06009FD0
 	mov	r0, #2
 	mov	r1, #21
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06009FD0:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06009FD8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06009FDC
-FUNC_06009FDC: ; 0x06009FDC
+	arm_func_start FUN_06009FDC
+FUN_06009FDC: ; 0x06009FDC
 	ldr	r0, _06009FF4	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _06009FF8	; =0x00000608
@@ -11592,8 +11592,8 @@ _06009FF4:	.word	0x0380FFF4
 _06009FF8:	.word	0x00000608
 _06009FFC:	.word	FUN_037FA650
 
-	arm_func_start FUNC_0600A000
-FUNC_0600A000: ; 0x0600A000
+	arm_func_start FUN_0600A000
+FUN_0600A000: ; 0x0600A000
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #16
 	mov	r5, r0
@@ -11602,7 +11602,7 @@ FUNC_0600A000: ; 0x0600A000
 	ldr	r1, [r0]
 	ldr	r0, _0600A088	; =0x00000608
 	add	r0, r1, r0
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	mov	r1, #0
 	ldr	r0, _0600A08C	; =0x000082EA
 	umull	r3, r2, r5, r0
@@ -11610,7 +11610,7 @@ FUNC_0600A000: ; 0x0600A000
 	mla	r2, r1, r0, r2
 	mov	r6, r3, lsr #6
 	orr	r6, r6, r2, lsl #26
-	bl	FUNC_06000E98
+	bl	FUN_06000E98
 	mov	r5, #0
 	adds	ip, r6, r0
 	adc	r2, r1, #0
@@ -11623,7 +11623,7 @@ FUNC_0600A000: ; 0x0600A000
 	ldr	r0, _0600A088	; =0x00000608
 	add	r0, r1, r0
 	mov	r1, ip
-	bl	FUNC_0600A090
+	bl	FUN_0600A090
 	add	sp, sp, #16
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
@@ -11631,41 +11631,41 @@ _0600A084:	.word	0x0380FFF4
 _0600A088:	.word	0x00000608
 _0600A08C:	.word	0x000082EA
 
-	arm_func_start FUNC_0600A090
-FUNC_0600A090: ; 0x0600A090
+	arm_func_start FUN_0600A090
+FUN_0600A090: ; 0x0600A090
 	ldr	pc, _0600A094	; =FUN_037FA6E0
 _0600A094:	.word	FUN_037FA6E0
 
-	arm_func_start FUNC_0600A098
-FUNC_0600A098: ; 0x0600A098
+	arm_func_start FUN_0600A098
+FUN_0600A098: ; 0x0600A098
 	ldr	r1, _0600A0A4	; =_0600A0C4
-	ldr	ip, _0600A0A8	; =FUNC_0600F7A0
+	ldr	ip, _0600A0A8	; =FUN_0600F7A0
 	bx	ip
 _0600A0A4:	.word	_0600A0C4
-_0600A0A8:	.word	FUNC_0600F7A0
+_0600A0A8:	.word	FUN_0600F7A0
 
-	arm_func_start FUNC_0600A0AC
-FUNC_0600A0AC: ; 0x0600A0AC
+	arm_func_start FUN_0600A0AC
+FUN_0600A0AC: ; 0x0600A0AC
 	mov	r1, #1000	; 0x3e8
 	mul	r1, r0, r1
 	mov	r0, r1
-	ldr	ip, _0600A0C0	; =FUNC_0600A098
+	ldr	ip, _0600A0C0	; =FUN_0600A098
 	bx	ip
-_0600A0C0:	.word	FUNC_0600A098
+_0600A0C0:	.word	FUN_0600A098
 _0600A0C4:
 	mov	r1, #0
 
-	arm_func_start FUNC_0600A0C8
-FUNC_0600A0C8: ; 0x0600A0C8
+	arm_func_start FUN_0600A0C8
+FUN_0600A0C8: ; 0x0600A0C8
 	str	r1, [r0]
 	bx	lr
 
-	arm_func_start FUNC_0600A0D0
-FUNC_0600A0D0: ; 0x0600A0D0
+	arm_func_start FUN_0600A0D0
+FUN_0600A0D0: ; 0x0600A0D0
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600A120	; =0x0380FFF4
 	ldr	r4, [r0]
-	bl	FUNC_0600A12C
+	bl	FUN_0600A12C
 	cmp	r0, #0
 	addeq	r0, r4, #768	; 0x300
 	ldreqh	r1, [r0, #62]	; 0x3e
@@ -11674,12 +11674,12 @@ FUNC_0600A0D0: ; 0x0600A0D0
 	beq	_0600A118
 	ldr	r0, _0600A124	; =0x00000608
 	add	r0, r4, r0
-	bl	FUNC_06000A04
+	bl	FUN_06000A04
 	ldr	r0, _0600A128	; =0x00000634
 	add	r0, r4, r0
-	bl	FUNC_06000A04
+	bl	FUN_06000A04
 	add	r0, r4, #1632	; 0x660
-	bl	FUNC_06000A04
+	bl	FUN_06000A04
 _0600A118:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -11687,13 +11687,13 @@ _0600A120:	.word	0x0380FFF4
 _0600A124:	.word	0x00000608
 _0600A128:	.word	0x00000634
 
-	arm_func_start FUNC_0600A12C
-FUNC_0600A12C: ; 0x0600A12C
+	arm_func_start FUN_0600A12C
+FUN_0600A12C: ; 0x0600A12C
 	ldr	pc, _0600A130	; =FUN_037FA910
 _0600A130:	.word	FUN_037FA910
 
-	arm_func_start FUNC_0600A134
-FUNC_0600A134: ; 0x0600A134
+	arm_func_start FUN_0600A134
+FUN_0600A134: ; 0x0600A134
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #12
 	ldr	r0, _0600A2B4	; =0x0380FFF4
@@ -11710,7 +11710,7 @@ _0600A160:
 	add	r0, r0, #68	; 0x44
 	mov	r1, r6
 	mov	r2, r5
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	ldr	r1, [sp, #4]
 	mov	r0, r8, lsl #1
 	ldrh	r0, [r4, r0]
@@ -11735,7 +11735,7 @@ _0600A160:
 	and	r0, r0, #127	; 0x7f
 	add	r0, r0, #7
 	mov	r1, #8
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	mov	r8, r0
 	ldrh	r4, [r7, #4]
 	ldrh	r0, [r7]
@@ -11744,7 +11744,7 @@ _0600A160:
 	add	r0, r4, #206	; 0xce
 	mov	r1, #1
 	add	r2, r7, #8
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	mov	r9, #0
 	mov	r8, r9
 	mov	r7, #1
@@ -11755,13 +11755,13 @@ _0600A210:
 	mov	r0, r5
 	mov	r1, r7
 	mov	r2, r6
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	ldr	r1, [sp]
 	mov	r0, r9, lsl #8
 	add	r0, r0, #327680	; 0x50000
 	orr	r0, r1, r0
 	str	r0, [sp]
-	bl	FUNC_0600A450
+	bl	FUN_0600A450
 	add	r9, r9, #1
 	add	r5, r5, #1
 _0600A244:
@@ -11777,9 +11777,9 @@ _0600A260:
 	mov	r0, r5
 	mov	r1, r8
 	mov	r2, r6
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	ldr	r0, [sp]
-	bl	FUNC_0600A450
+	bl	FUN_0600A450
 	ldrh	r0, [r7]
 	cmp	r0, #2
 	bne	_0600A298
@@ -11803,8 +11803,8 @@ _0600A2B8:	.word	0x000005F8
 _0600A2BC:	.word	_06019404
 _0600A2C0:	.word	0x04808184
 
-	arm_func_start FUNC_0600A2C4
-FUNC_0600A2C4: ; 0x0600A2C4
+	arm_func_start FUN_0600A2C4
+FUN_0600A2C4: ; 0x0600A2C4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r1, #256	; 0x100
@@ -11819,24 +11819,24 @@ _0600A2EC:
 	mov	r0, r6
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	mov	r0, r7
 	ldr	r1, [sp]
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	add	r6, r6, #1
 	add	r7, r7, #1
 	cmp	r7, #105	; 0x69
 	bcc	_0600A2EC
 	mov	r0, #90	; 0x5a
 	mov	r1, #2
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 _0600A330:	.word	0x04808160
 
-	arm_func_start FUNC_0600A334
-FUNC_0600A334: ; 0x0600A334
+	arm_func_start FUN_0600A334
+FUN_0600A334: ; 0x0600A334
 	mov	ip, #0
 	ldr	r2, _0600A368	; =_06019474
 _0600A33C:
@@ -11853,8 +11853,8 @@ _0600A33C:
 	bx	lr
 _0600A368:	.word	_06019474
 
-	arm_func_start FUNC_0600A36C
-FUNC_0600A36C: ; 0x0600A36C
+	arm_func_start FUN_0600A36C
+FUN_0600A36C: ; 0x0600A36C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600A3D8	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -11863,30 +11863,30 @@ FUNC_0600A36C: ; 0x0600A36C
 	mov	r0, #0
 	mov	r1, r4
 	mov	r2, #16
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r0, #64	; 0x40
 	mov	r1, #1
 	mov	r2, r4
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	mov	r0, #65	; 0x41
 	mov	r1, #1
 	add	r2, r4, #2
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	mov	r0, #66	; 0x42
 	mov	r1, #1
 	add	r2, r4, #4
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	mov	r0, #67	; 0x43
 	mov	r1, #1
 	add	r2, r4, #6
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600A3D8:	.word	0x0380FFF4
 _0600A3DC:	.word	0x000005F8
 
-	arm_func_start FUNC_0600A3E0
-FUNC_0600A3E0: ; 0x0600A3E0
+	arm_func_start FUN_0600A3E0
+FUN_0600A3E0: ; 0x0600A3E0
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #8
 	mov	r8, #100	; 0x64
@@ -11899,7 +11899,7 @@ _0600A400:
 	mov	r0, r8
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	cmp	r7, #1
 	ldreq	r0, [sp]
 	andeq	r0, r0, #128	; 0x80
@@ -11907,7 +11907,7 @@ _0600A400:
 	ldr	r0, [sp]
 	and	r0, r0, #255	; 0xff
 	mov	r1, r6
-	bl	FUNC_06009BBC
+	bl	FUN_06009BBC
 	mov	r6, r0
 	add	r8, r8, #1
 	add	r7, r7, #1
@@ -11917,8 +11917,8 @@ _0600A400:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600A450
-FUNC_0600A450: ; 0x0600A450
+	arm_func_start FUN_0600A450
+FUN_0600A450: ; 0x0600A450
 	ldr	r1, _0600A46C	; =0x0480817E
 	strh	r0, [r1]
 	mov	r1, r0, lsr #16
@@ -11930,8 +11930,8 @@ _0600A46C:	.word	0x0480817E
 _0600A470:	.word	0x0480817C
 _0600A474:	.word	_0600F6B0
 
-	arm_func_start FUNC_0600A478
-FUNC_0600A478: ; 0x0600A478
+	arm_func_start FUN_0600A478
+FUN_0600A478: ; 0x0600A478
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r2, _0600A4B0	; =0x0480815A
@@ -11939,7 +11939,7 @@ FUNC_0600A478: ; 0x0600A478
 	orr	r1, r0, #20480	; 0x5000
 	ldr	r0, _0600A4B4	; =0x04808158
 	strh	r1, [r0]
-	bl	FUNC_0600F6E4
+	bl	FUN_0600F6E4
 	cmp	r0, #0
 	mvnne	r0, #0
 	moveq	r0, #0
@@ -11949,14 +11949,14 @@ FUNC_0600A478: ; 0x0600A478
 _0600A4B0:	.word	0x0480815A
 _0600A4B4:	.word	0x04808158
 
-	arm_func_start FUNC_0600A4B8
-FUNC_0600A4B8: ; 0x0600A4B8
+	arm_func_start FUN_0600A4B8
+FUN_0600A4B8: ; 0x0600A4B8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	orr	r1, r0, #24576	; 0x6000
 	ldr	r0, _0600A4E4	; =0x04808158
 	strh	r1, [r0]
-	bl	FUNC_0600F6E4
+	bl	FUN_0600F6E4
 	ldr	r0, _0600A4E8	; =0x0480815C
 	ldrh	r0, [r0]
 	add	sp, sp, #4
@@ -11965,16 +11965,16 @@ FUNC_0600A4B8: ; 0x0600A4B8
 _0600A4E4:	.word	0x04808158
 _0600A4E8:	.word	0x0480815C
 
-	arm_func_start FUNC_0600A4EC
-FUNC_0600A4EC: ; 0x0600A4EC
+	arm_func_start FUN_0600A4EC
+FUN_0600A4EC: ; 0x0600A4EC
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600A57C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #836	; 0x344
-	bl	FUNC_06009FDC
-	bl	FUNC_06009E28
+	bl	FUN_06009FDC
+	bl	FUN_06009E28
 	mov	r0, #32
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	mov	r1, #0
 	strh	r1, [r4, #164]	; 0xa4
 	strh	r1, [r4, #18]
@@ -11993,15 +11993,15 @@ FUNC_0600A4EC: ; 0x0600A4EC
 	ldrh	r0, [r4, #12]
 	cmp	r0, #1
 	bne	_0600A558
-	bl	FUNC_06014AE8
+	bl	FUN_06014AE8
 _0600A558:
 	ldr	r1, _0600A598	; =0x0000FFFF
 	ldr	r0, _0600A59C	; =0x048080AC
 	strh	r1, [r0]
 	ldr	r0, _0600A5A0	; =0x048080B4
 	strh	r1, [r0]
-	bl	FUNC_06014D24
-	bl	FUNC_060092D8
+	bl	FUN_06014D24
+	bl	FUN_060092D8
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600A57C:	.word	0x0380FFF4
@@ -12015,21 +12015,21 @@ _0600A598:	.word	0x0000FFFF
 _0600A59C:	.word	0x048080AC
 _0600A5A0:	.word	0x048080B4
 
-	arm_func_start FUNC_0600A5A4
-FUNC_0600A5A4: ; 0x0600A5A4
+	arm_func_start FUN_0600A5A4
+FUN_0600A5A4: ; 0x0600A5A4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #12
 	ldr	r0, _0600A9B8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r7, r0, #836	; 0x344
 	add	r4, r0, #796	; 0x31c
-	bl	FUNC_0600A4EC
+	bl	FUN_0600A4EC
 	ldr	r2, _0600A9BC	; =0x04808044
 	ldrh	r1, [r2]
 	ldrh	r0, [r2]
 	add	r0, r1, r0, lsl #8
 	ldrh	r1, [r2]
-	bl	FUNC_06009C7C
+	bl	FUN_06009C7C
 	mov	r0, #1
 	strh	r0, [r7, #124]	; 0x7c
 	ldrh	r0, [r4, #30]
@@ -12059,10 +12059,10 @@ FUNC_0600A5A4: ; 0x0600A5A4
 	mov	r1, #15
 	ldr	r0, _0600A9D4	; =0x04808038
 	strh	r1, [r0]
-	bl	FUNC_0600EA10
-	bl	FUNC_06018E38
-	bl	FUNC_0601373C
-	bl	FUNC_06015EC8
+	bl	FUN_0600EA10
+	bl	FUN_06018E38
+	bl	FUN_0601373C
+	bl	FUN_06015EC8
 	mov	r1, #32768	; 0x8000
 	ldr	r0, _0600A9D8	; =0x04808030
 	strh	r1, [r0]
@@ -12152,7 +12152,7 @@ _0600A728:
 	ldr	r1, [sp, #4]
 	mov	r2, r4
 	mov	r3, r5
-	bl	FUNC_06009EDC
+	bl	FUN_06009EDC
 	str	r0, [sp]
 	str	r1, [sp, #4]
 	mov	r2, #1
@@ -12183,8 +12183,8 @@ _0600A728:
 	ldr	r0, _0600AA30	; =0x048080EA
 	strh	r2, [r0]
 	mov	r0, #64	; 0x40
-	bl	FUNC_0600AF68
-	bl	FUNC_06014B10
+	bl	FUN_0600AF68
+	bl	FUN_06014B10
 	mov	r1, #2
 	ldr	r0, _0600AA34	; =0x048080AE
 	strh	r1, [r0]
@@ -12226,7 +12226,7 @@ _0600A88C:
 	ldr	r0, _0600AA30	; =0x048080EA
 	strh	r1, [r0]
 	mov	r0, #32
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	b	_0600A97C
 _0600A8E0:
 	ldr	r1, _0600A9C4	; =0x0000FFFF
@@ -12257,7 +12257,7 @@ _0600A8E0:
 	ldr	r0, _0600AA4C	; =0x04808048
 	strh	r1, [r0]
 	mov	r0, #32
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	b	_0600A97C
 _0600A958:
 	ldr	r0, _0600A9F4	; =0x04808012
@@ -12268,21 +12268,21 @@ _0600A958:
 	ldr	r0, _0600AA04	; =0x04808004
 	strh	r1, [r0]
 	mov	r0, #32
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 _0600A97C:
 	mov	r1, #0
 	ldr	r0, _0600AA4C	; =0x04808048
 	strh	r1, [r0]
-	bl	FUNC_0600B21C
+	bl	FUN_0600B21C
 	mov	r0, #2
 	ldr	r1, _0600AA34	; =0x048080AE
 	strh	r0, [r1]
 	ldrh	r1, [r7, #14]
 	cmp	r1, #1
 	bne	_0600A9A8
-	bl	FUNC_0600B3F4
+	bl	FUN_0600B3F4
 _0600A9A8:
-	bl	FUNC_0600F82C
+	bl	FUN_0600F82C
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
@@ -12325,8 +12325,8 @@ _0600AA44:	.word	0x0000C03F
 _0600AA48:	.word	0x00000401
 _0600AA4C:	.word	0x04808048
 
-	arm_func_start FUNC_0600AA50
-FUNC_0600AA50: ; 0x0600AA50
+	arm_func_start FUN_0600AA50
+FUN_0600AA50: ; 0x0600AA50
 	ldr	r0, _0600AA98	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -12350,8 +12350,8 @@ _0600AA90:
 	bx	lr
 _0600AA98:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600AA9C
-FUNC_0600AA9C: ; 0x0600AA9C
+	arm_func_start FUN_0600AA9C
+FUN_0600AA9C: ; 0x0600AA9C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	mov	r4, r0
 	mov	sl, r1
@@ -12359,7 +12359,7 @@ FUNC_0600AA9C: ; 0x0600AA9C
 	strh	r0, [sl]
 	strh	r0, [sl, #2]
 	add	r0, r4, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r8, r0
 	mov	r9, #0
 	ldr	r6, _0600AB54	; =_060194D8
@@ -12369,7 +12369,7 @@ FUNC_0600AA9C: ; 0x0600AA9C
 	b	_0600AB44
 _0600AAD8:
 	add	r0, r7, r9
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	and	r1, r0, #127	; 0x7f
 	sub	r1, r1, #1
 	cmp	r1, #120	; 0x78
@@ -12404,8 +12404,8 @@ _0600AB44:
 	bx	lr
 _0600AB54:	.word	_060194D8
 
-	arm_func_start FUNC_0600AB58
-FUNC_0600AB58: ; 0x0600AB58
+	arm_func_start FUN_0600AB58
+FUN_0600AB58: ; 0x0600AB58
 	mov	r2, #1
 	ldr	r1, _0600AB74	; =0x0380FFF4
 	ldr	r1, [r1]
@@ -12415,8 +12415,8 @@ FUNC_0600AB58: ; 0x0600AB58
 	bx	lr
 _0600AB74:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600AB78
-FUNC_0600AB78: ; 0x0600AB78
+	arm_func_start FUN_0600AB78
+FUN_0600AB78: ; 0x0600AB78
 	ldrh	r3, [r0, #4]
 	ldrh	r2, [r1, #4]
 	cmp	r3, r2
@@ -12434,8 +12434,8 @@ _0600ABAC:
 	mov	r0, #0
 	bx	lr
 
-	arm_func_start FUNC_0600ABB4
-FUNC_0600ABB4: ; 0x0600ABB4
+	arm_func_start FUN_0600ABB4
+FUN_0600ABB4: ; 0x0600ABB4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	mov	r9, r0
 	mov	r8, r1
@@ -12469,15 +12469,15 @@ _0600AC18:
 	b	_0600AC6C
 _0600AC28:
 	mov	r0, r6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r4, r0
 	add	r6, r6, #1
 	mov	r0, r8
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	sl, r0
 	add	r8, r8, #1
 	mov	r0, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	add	r7, r7, #1
 	orr	r1, sl, r4
 	orr	r0, r0, r4
@@ -12494,8 +12494,8 @@ _0600AC78:
 	bx	lr
 _0600AC80:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600AC84
-FUNC_0600AC84: ; 0x0600AC84
+	arm_func_start FUN_0600AC84
+FUN_0600AC84: ; 0x0600AC84
 	ldr	r0, _0600AE7C	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _0600AE80	; =0x0000053C
@@ -12626,31 +12626,31 @@ _0600AE7C:	.word	0x0380FFF4
 _0600AE80:	.word	0x0000053C
 _0600AE84:	.word	0x048081B0
 
-	arm_func_start FUNC_0600AE88
-FUNC_0600AE88: ; 0x0600AE88
+	arm_func_start FUN_0600AE88
+FUN_0600AE88: ; 0x0600AE88
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_0600AC84
+	bl	FUN_0600AC84
 	mov	r0, #0
 	ldr	r1, _0600AEBC	; =0x0380FFF4
 	ldr	r2, [r1]
 	ldr	r1, _0600AEC0	; =0x0000053C
 	add	r1, r2, r1
 	mov	r2, #180	; 0xb4
-	bl	FUNC_0600AEC4
+	bl	FUN_0600AEC4
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0600AEBC:	.word	0x0380FFF4
 _0600AEC0:	.word	0x0000053C
 
-	arm_func_start FUNC_0600AEC4
-FUNC_0600AEC4: ; 0x0600AEC4
+	arm_func_start FUN_0600AEC4
+FUN_0600AEC4: ; 0x0600AEC4
 	ldr	pc, _0600AEC8	; =FUN_037FB334
 _0600AEC8:	.word	FUN_037FB334
 
-	arm_func_start FUNC_0600AECC
-FUNC_0600AECC: ; 0x0600AECC
+	arm_func_start FUN_0600AECC
+FUN_0600AECC: ; 0x0600AECC
 	ldrh	ip, [r1]
 	strh	ip, [r0]
 	ldrh	ip, [r1, #2]
@@ -12685,8 +12685,8 @@ _0600AF18:
 	strh	r1, [r0, #10]
 	bx	lr
 
-	arm_func_start FUNC_0600AF4C
-FUNC_0600AF4C: ; 0x0600AF4C
+	arm_func_start FUN_0600AF4C
+FUN_0600AF4C: ; 0x0600AF4C
 	ldrh	r2, [r1]
 	strh	r2, [r0]
 	ldrh	r2, [r1, #2]
@@ -12695,8 +12695,8 @@ FUNC_0600AF4C: ; 0x0600AF4C
 	strh	r1, [r0, #4]
 	bx	lr
 
-	arm_func_start FUNC_0600AF68
-FUNC_0600AF68: ; 0x0600AF68
+	arm_func_start FUN_0600AF68
+FUN_0600AF68: ; 0x0600AF68
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -12708,7 +12708,7 @@ FUNC_0600AF68: ; 0x0600AF68
 	beq	_0600AFF0
 	cmp	r0, #64	; 0x40
 	bne	_0600AF98
-	bl	FUNC_06009E28
+	bl	FUN_06009E28
 _0600AF98:
 	cmp	r5, #0
 	beq	_0600AFB4
@@ -12718,23 +12718,23 @@ _0600AF98:
 	beq	_0600AFD0
 	b	_0600AFEC
 _0600AFB4:
-	bl	FUNC_0600B36C
+	bl	FUN_0600B36C
 	b	_0600AFEC
 _0600AFBC:
 	mov	r0, #0
-	bl	FUNC_0600B3E0
-	bl	FUNC_0600A4EC
-	bl	FUNC_0600B2D8
+	bl	FUN_0600B3E0
+	bl	FUN_0600A4EC
+	bl	FUN_0600B2D8
 	b	_0600AFEC
 _0600AFD0:
 	ldrh	r0, [r4, #12]
 	cmp	r0, #2
 	bne	_0600AFE0
-	bl	FUNC_0600B1EC
+	bl	FUN_0600B1EC
 _0600AFE0:
 	mov	r0, #100	; 0x64
-	ldr	r1, _0600B000	; =FUNC_06009F5C
-	bl	FUNC_0600A000
+	ldr	r1, _0600B000	; =FUN_06009F5C
+	bl	FUN_0600A000
 _0600AFEC:
 	strh	r5, [r4, #8]
 _0600AFF0:
@@ -12742,25 +12742,25 @@ _0600AFF0:
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600AFFC:	.word	0x0380FFF4
-_0600B000:	.word	FUNC_06009F5C
+_0600B000:	.word	FUN_06009F5C
 
-	arm_func_start FUNC_0600B004
-FUNC_0600B004: ; 0x0600B004
+	arm_func_start FUN_0600B004
+FUN_0600B004: ; 0x0600B004
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600B02C	; =0x04808094
 	ldrh	r0, [r0]
 	ands	r0, r0, #32768	; 0x8000
 	bne	_0600B020
-	bl	FUNC_0600F718
+	bl	FUN_0600F718
 _0600B020:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0600B02C:	.word	0x04808094
 
-	arm_func_start FUNC_0600B030
-FUNC_0600B030: ; 0x0600B030
+	arm_func_start FUN_0600B030
+FUN_0600B030: ; 0x0600B030
 	ldr	r0, _0600B04C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -12771,25 +12771,25 @@ FUNC_0600B030: ; 0x0600B030
 _0600B04C:	.word	0x0380FFF4
 _0600B050:	.word	0x04808028
 
-	arm_func_start FUNC_0600B054
-FUNC_0600B054: ; 0x0600B054
+	arm_func_start FUN_0600B054
+FUN_0600B054: ; 0x0600B054
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600B0A8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #836	; 0x344
 	mov	r0, #0
 	strh	r0, [r4, #106]	; 0x6a
-	bl	FUNC_0600F718
+	bl	FUN_0600F718
 	mov	r1, #0
 	ldr	r0, _0600B0AC	; =0x0480802A
 	strh	r1, [r0]
 	ldrh	r0, [r4, #136]	; 0x88
 	cmp	r0, #0
 	beq	_0600B0A0
-	bl	FUNC_06014EB8
+	bl	FUN_06014EB8
 	ldrh	r0, [r4, #136]	; 0x88
 	mov	r1, #32
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	mov	r0, #0
 	strh	r0, [r4, #136]	; 0x88
 _0600B0A0:
@@ -12798,8 +12798,8 @@ _0600B0A0:
 _0600B0A8:	.word	0x0380FFF4
 _0600B0AC:	.word	0x0480802A
 
-	arm_func_start FUNC_0600B0B0
-FUNC_0600B0B0: ; 0x0600B0B0
+	arm_func_start FUN_0600B0B0
+FUN_0600B0B0: ; 0x0600B0B0
 	ldr	r2, _0600B0E8	; =0x0380FFF4
 	ldr	r1, [r2]
 	add	r1, r1, #768	; 0x300
@@ -12818,8 +12818,8 @@ _0600B0E8:	.word	0x0380FFF4
 _0600B0EC:	.word	0x0480802A
 _0600B0F0:	.word	0x04808028
 
-	arm_func_start FUNC_0600B0F4
-FUNC_0600B0F4: ; 0x0600B0F4
+	arm_func_start FUN_0600B0F4
+FUN_0600B0F4: ; 0x0600B0F4
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -12837,16 +12837,16 @@ FUNC_0600B0F4: ; 0x0600B0F4
 	ldr	r8, [r4, #156]	; 0x9c
 	mov	r0, r8
 	mov	r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r8, r8, #1
 	mov	r7, #0
 	b	_0600B168
 _0600B148:
 	mov	r0, r5
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r8, r8, #1
 	add	r5, r5, #1
 	add	r7, r7, #1
@@ -12858,7 +12858,7 @@ _0600B174:
 	mov	r0, r5
 	ldr	r1, [r4, #156]	; 0x9c
 	add	r2, r6, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 _0600B184:
 	strh	r6, [r4, #160]	; 0xa0
 	mov	r0, #1
@@ -12869,8 +12869,8 @@ _0600B194:
 	bx	lr
 _0600B19C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600B1A0
-FUNC_0600B1A0: ; 0x0600B1A0
+	arm_func_start FUN_0600B1A0
+FUN_0600B1A0: ; 0x0600B1A0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -12883,7 +12883,7 @@ FUNC_0600B1A0: ; 0x0600B1A0
 	mov	r0, r1
 	ldr	r1, [r4, #156]	; 0x9c
 	add	r2, r5, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	strh	r5, [r4, #160]	; 0xa0
 	mov	r0, #0
 _0600B1DC:
@@ -12892,8 +12892,8 @@ _0600B1DC:
 	bx	lr
 _0600B1E8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600B1EC
-FUNC_0600B1EC: ; 0x0600B1EC
+	arm_func_start FUN_0600B1EC
+FUN_0600B1EC: ; 0x0600B1EC
 	mov	r1, #0
 	ldr	r0, _0600B214	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -12907,8 +12907,8 @@ FUNC_0600B1EC: ; 0x0600B1EC
 _0600B214:	.word	0x0380FFF4
 _0600B218:	.word	0x04808038
 
-	arm_func_start FUNC_0600B21C
-FUNC_0600B21C: ; 0x0600B21C
+	arm_func_start FUN_0600B21C
+FUN_0600B21C: ; 0x0600B21C
 	mov	r2, #1
 	ldr	r1, _0600B264	; =0x0380FFF4
 	ldr	r0, [r1]
@@ -12931,8 +12931,8 @@ _0600B264:	.word	0x0380FFF4
 _0600B268:	.word	0x04808038
 _0600B26C:	.word	0x04808048
 
-	arm_func_start FUNC_0600B270
-FUNC_0600B270: ; 0x0600B270
+	arm_func_start FUN_0600B270
+FUN_0600B270: ; 0x0600B270
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _0600B2D0	; =0x0380FFF4
@@ -12948,7 +12948,7 @@ FUNC_0600B270: ; 0x0600B270
 	ldrh	r0, [r5, #110]	; 0x6e
 	mul	r0, r6, r0
 	mov	r1, #100	; 0x64
-	bl	FUNC_06003B68
+	bl	FUN_06003B68
 	cmp	r0, #65536	; 0x10000
 	movhi	r0, #5
 	bhi	_0600B2C8
@@ -12962,14 +12962,14 @@ _0600B2C8:
 _0600B2D0:	.word	0x0380FFF4
 _0600B2D4:	.word	0x0000FFFF
 
-	arm_func_start FUNC_0600B2D8
-FUNC_0600B2D8: ; 0x0600B2D8
+	arm_func_start FUN_0600B2D8
+FUN_0600B2D8: ; 0x0600B2D8
 	stmdb	sp!, {r4, lr}
 	mov	r1, #0
 	ldr	r0, _0600B360	; =0x04808036
 	strh	r1, [r0]
 	mov	r0, #8
-	bl	FUNC_0600A0AC
+	bl	FUN_0600A0AC
 	mov	r1, #0
 	ldr	r0, _0600B364	; =0x04808168
 	strh	r1, [r0]
@@ -12984,20 +12984,20 @@ FUNC_0600B2D8: ; 0x0600B2D8
 	b	_0600B358
 _0600B320:
 	mov	r0, #1
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	mov	r4, r0
 	mov	r0, #1
 	and	r1, r4, #127	; 0x7f
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	mov	r0, #1
 	mov	r1, r4
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	mov	r0, #40	; 0x28
-	bl	FUNC_0600A0AC
-	bl	FUNC_0600A134
+	bl	FUN_0600A0AC
+	bl	FUN_0600A134
 	b	_0600B358
 _0600B354:
-	bl	FUNC_0600A134
+	bl	FUN_0600A134
 _0600B358:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -13005,8 +13005,8 @@ _0600B360:	.word	0x04808036
 _0600B364:	.word	0x04808168
 _0600B368:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600B36C
-FUNC_0600B36C: ; 0x0600B36C
+	arm_func_start FUN_0600B36C
+FUN_0600B36C: ; 0x0600B36C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600B3CC	; =0x0380FFF4
@@ -13016,13 +13016,13 @@ FUNC_0600B36C: ; 0x0600B36C
 	cmp	r0, #2
 	bne	_0600B394
 	ldr	r0, _0600B3D0	; =0x0000C008
-	bl	FUNC_0600A450
+	bl	FUN_0600A450
 _0600B394:
 	mov	r0, #30
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	orr	r1, r0, #63	; 0x3f
 	mov	r0, #30
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	ldr	r1, _0600B3D4	; =0x0000800D
 	ldr	r0, _0600B3D8	; =0x04808168
 	strh	r1, [r0]
@@ -13038,16 +13038,16 @@ _0600B3D4:	.word	0x0000800D
 _0600B3D8:	.word	0x04808168
 _0600B3DC:	.word	0x04808036
 
-	arm_func_start FUNC_0600B3E0
-FUNC_0600B3E0: ; 0x0600B3E0
+	arm_func_start FUN_0600B3E0
+FUN_0600B3E0: ; 0x0600B3E0
 	ldr	r1, _0600B3F0	; =0x04808040
 	strh	r0, [r1]
 	mov	r0, #0
 	bx	lr
 _0600B3F0:	.word	0x04808040
 
-	arm_func_start FUNC_0600B3F4
-FUNC_0600B3F4: ; 0x0600B3F4
+	arm_func_start FUN_0600B3F4
+FUN_0600B3F4: ; 0x0600B3F4
 	mov	r2, r0, lsr #1
 	ldr	r1, _0600B418	; =0x0380FFF4
 	ldr	r1, [r1]
@@ -13060,8 +13060,8 @@ FUNC_0600B3F4: ; 0x0600B3F4
 _0600B418:	.word	0x0380FFF4
 _0600B41C:	.word	0x0480803C
 
-	arm_func_start FUNC_0600B420
-FUNC_0600B420: ; 0x0600B420
+	arm_func_start FUN_0600B420
+FUN_0600B420: ; 0x0600B420
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _0600B48C	; =0x0380FFF4
@@ -13085,7 +13085,7 @@ _0600B460:
 	strh	r0, [r1]
 	ldrh	r0, [r2, #32]
 	mov	r1, #0
-	bl	FUNC_0600BEFC
+	bl	FUN_0600BEFC
 _0600B47C:
 	mov	r0, #0
 	add	sp, sp, #4
@@ -13094,8 +13094,8 @@ _0600B47C:
 _0600B48C:	.word	0x0380FFF4
 _0600B490:	.word	0x04808006
 
-	arm_func_start FUNC_0600B494
-FUNC_0600B494: ; 0x0600B494
+	arm_func_start FUN_0600B494
+FUN_0600B494: ; 0x0600B494
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600B510	; =0x0000E2E2
@@ -13103,12 +13103,12 @@ FUNC_0600B494: ; 0x0600B494
 	mov	r0, #88	; 0x58
 	mov	r1, #2
 	add	r2, sp, #0
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	ldr	r1, [sp]
 	ldr	r0, _0600B514	; =0x00000202
 	add	r0, r1, r0
 	str	r0, [sp]
-	bl	FUNC_0600AA50
+	bl	FUN_0600AA50
 	cmp	r0, #20
 	bne	_0600B4F8
 	ldr	r1, [sp]
@@ -13135,8 +13135,8 @@ _0600B51C:	.word	0x048080BC
 _0600B520:	.word	0x00006060
 _0600B524:	.word	0x04808140
 
-	arm_func_start FUNC_0600B528
-FUNC_0600B528: ; 0x0600B528
+	arm_func_start FUN_0600B528
+FUN_0600B528: ; 0x0600B528
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _0600B56C	; =0x0380FFF4
@@ -13149,23 +13149,23 @@ FUNC_0600B528: ; 0x0600B528
 	ldrh	r0, [r0]
 	orr	r0, r1, r0
 	strh	r0, [r3, #2]
-	bl	FUNC_0600B494
+	bl	FUN_0600B494
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0600B56C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600B570
-FUNC_0600B570: ; 0x0600B570
+	arm_func_start FUN_0600B570
+FUN_0600B570: ; 0x0600B570
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	sl, r0
 	cmp	r1, #0
-	ldrne	r9, _0600B7E8	; =FUNC_060190BC
-	ldreq	r9, _0600B7EC	; =FUNC_0601910C
+	ldrne	r9, _0600B7E8	; =FUN_060190BC
+	ldreq	r9, _0600B7EC	; =FUN_0601910C
 	mov	r0, sl
-	bl	FUNC_0600AB58
+	bl	FUN_0600AB58
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_0600B7DC
@@ -13211,14 +13211,14 @@ _0600B60C:
 	mov	lr, pc
 	bx	r9
 	ldr	r0, [sp]
-	bl	FUNC_0600A450
+	bl	FUN_0600A450
 	add	r0, r5, #245	; 0xf5
 	mov	r1, #3
 	add	r2, sp, #0
 	mov	lr, pc
 	bx	r9
 	ldr	r0, [sp]
-	bl	FUNC_0600A450
+	bl	FUN_0600A450
 	mov	r0, #0
 	str	r0, [sp]
 	ldr	r0, _0600B800	; =0x0380FFF4
@@ -13240,7 +13240,7 @@ _0600B60C:
 	and	r0, r0, #31
 	orr	r0, r1, r0, lsl #10
 	str	r0, [sp]
-	bl	FUNC_0600A450
+	bl	FUN_0600A450
 	b	_0600B7C4
 _0600B6B4:
 	ldr	r0, _0600B804	; =0x00000146
@@ -13251,7 +13251,7 @@ _0600B6B4:
 	bx	r9
 	mov	r0, #30
 	ldr	r1, [sp]
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	b	_0600B7C4
 _0600B6DC:
 	ldrh	r0, [r0, #252]	; 0xfc
@@ -13275,7 +13275,7 @@ _0600B6F4:
 	bx	r9
 	ldr	r0, [sp, #4]
 	ldr	r1, [sp]
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	add	r7, r7, #15
 	add	r6, r6, #1
 _0600B738:
@@ -13307,7 +13307,7 @@ _0600B760:
 	ldr	r0, [sp]
 	orr	r0, r0, #327680	; 0x50000
 	str	r0, [sp]
-	bl	FUNC_0600A450
+	bl	FUN_0600A450
 	add	r7, r7, #15
 	add	r6, r6, #1
 _0600B7B0:
@@ -13327,8 +13327,8 @@ _0600B7DC:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	bx	lr
-_0600B7E8:	.word	FUNC_060190BC
-_0600B7EC:	.word	FUNC_0601910C
+_0600B7E8:	.word	FUN_060190BC
+_0600B7EC:	.word	FUN_0601910C
 _0600B7F0:	.word	0x04808040
 _0600B7F4:	.word	0x00008001
 _0600B7F8:	.word	0x0480803C
@@ -13337,77 +13337,77 @@ _0600B800:	.word	0x0380FFF4
 _0600B804:	.word	0x00000146
 _0600B808:	.word	0x04808048
 
-	arm_func_start FUNC_0600B80C
-FUNC_0600B80C: ; 0x0600B80C
+	arm_func_start FUN_0600B80C
+FUN_0600B80C: ; 0x0600B80C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #12
 	mov	r0, #54	; 0x36
 	mov	r1, #6
 	add	r2, sp, #2
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	mov	r0, #60	; 0x3c
 	mov	r1, #2
 	add	r2, sp, #0
-	bl	FUNC_0601910C
+	bl	FUN_0601910C
 	add	r0, sp, #2
-	bl	FUNC_0600C2D8
+	bl	FUN_0600C2D8
 	mov	r0, #7
-	bl	FUNC_0600C2A4
+	bl	FUN_0600C2A4
 	ldrh	r1, [sp]
 	ldr	r0, _0600B940	; =0x00007FFE
 	and	r0, r1, r0
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_0600C264
+	bl	FUN_0600C264
 	mov	r0, #2
-	bl	FUNC_0600C1DC
+	bl	FUN_0600C1DC
 	mov	r0, #0
-	bl	FUNC_0600C1A0
+	bl	FUN_0600C1A0
 	mov	r0, #0
-	bl	FUNC_0600C0EC
+	bl	FUN_0600C0EC
 	mov	r0, #0
-	bl	FUNC_0600C0C8
+	bl	FUN_0600C0C8
 	ldr	r0, _0600B944	; =_06019424
-	bl	FUNC_0600C064
+	bl	FUN_0600C064
 	mov	r0, #500	; 0x1f4
-	bl	FUNC_0600B9DC
+	bl	FUN_0600B9DC
 	mov	r0, #0
-	bl	FUNC_0600C02C
+	bl	FUN_0600C02C
 	mov	r0, #0
-	bl	FUNC_0600BFF4
+	bl	FUN_0600BFF4
 	mov	r0, #16
-	bl	FUNC_0600BFBC
+	bl	FUN_0600BFBC
 	ldr	r0, _0600B948	; =0x0000FFFF
 	mov	r1, #0
-	bl	FUNC_0600BEFC
+	bl	FUN_0600BEFC
 	ldr	r0, _0600B94C	; =_060193C4
-	bl	FUNC_0600BECC
+	bl	FUN_0600BECC
 	mov	r0, #1
-	bl	FUNC_0600BE0C
+	bl	FUN_0600BE0C
 	mov	r0, #0
-	bl	FUNC_0600BDE8
+	bl	FUN_0600BDE8
 	ldr	r0, _0600B950	; =_06019380
-	bl	FUNC_0600B528
+	bl	FUN_0600B528
 	mov	r0, #0
 	mov	r1, #31
-	bl	FUNC_0600BDA0
+	bl	FUN_0600BDA0
 	mov	r0, #5
-	bl	FUNC_0600B270
+	bl	FUN_0600B270
 	mov	r0, #0
 	mov	r1, r0
-	bl	FUNC_0600BC5C
+	bl	FUN_0600BC5C
 	mov	r0, #0
-	bl	FUNC_0600BD38
+	bl	FUN_0600BD38
 	mov	r0, #0
-	bl	FUNC_0600BC1C
+	bl	FUN_0600BC1C
 	mov	r0, #0
-	bl	FUNC_0600BBC0
+	bl	FUN_0600BBC0
 	ldr	r2, _0600B954	; =0x04808044
 	ldrh	r1, [r2]
 	ldrh	r0, [r2]
 	add	r0, r1, r0, lsl #8
 	ldrh	r1, [r2]
-	bl	FUNC_06009C7C
+	bl	FUN_06009C7C
 	mov	r1, #1
 	ldr	r0, _0600B958	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -13424,8 +13424,8 @@ _0600B950:	.word	_06019380
 _0600B954:	.word	0x04808044
 _0600B958:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600B95C
-FUNC_0600B95C: ; 0x0600B95C
+	arm_func_start FUN_0600B95C
+FUN_0600B95C: ; 0x0600B95C
 	cmp	r0, #1
 	bcc	_0600B96C
 	cmp	r0, #255	; 0xff
@@ -13442,8 +13442,8 @@ _0600B974:
 	bx	lr
 _0600B98C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600B990
-FUNC_0600B990: ; 0x0600B990
+	arm_func_start FUN_0600B990
+FUN_0600B990: ; 0x0600B990
 	cmp	r0, #1
 	bcc	_0600B9A0
 	cmp	r0, #255	; 0xff
@@ -13466,8 +13466,8 @@ _0600B9D0:	.word	0x0380FFF4
 _0600B9D4:	.word	0x0480808E
 _0600B9D8:	.word	0x04808088
 
-	arm_func_start FUNC_0600B9DC
-FUNC_0600B9DC: ; 0x0600B9DC
+	arm_func_start FUN_0600B9DC
+FUN_0600B9DC: ; 0x0600B9DC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	cmp	r0, #10
@@ -13487,7 +13487,7 @@ _0600B9FC:
 	ldr	r0, [r2]
 	add	r0, r0, #768	; 0x300
 	ldrh	r0, [r0, #56]	; 0x38
-	bl	FUNC_0600B270
+	bl	FUN_0600B270
 	mov	r0, #0
 _0600BA28:
 	add	sp, sp, #4
@@ -13496,8 +13496,8 @@ _0600BA28:
 _0600BA34:	.word	0x0380FFF4
 _0600BA38:	.word	0x0480808C
 
-	arm_func_start FUNC_0600BA3C
-FUNC_0600BA3C: ; 0x0600BA3C
+	arm_func_start FUN_0600BA3C
+FUN_0600BA3C: ; 0x0600BA3C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r8, r0
@@ -13529,10 +13529,10 @@ _0600BAA0:
 	b	_0600BAC8
 _0600BAAC:
 	mov	r0, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r9, r5
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r7, r7, #1
 	add	r5, r5, #1
 _0600BAC8:
@@ -13544,7 +13544,7 @@ _0600BAC8:
 _0600BADC:
 	add	r0, r9, r5
 	mov	r1, r7
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r5, r5, #1
 _0600BAEC:
 	cmp	r5, #32
@@ -13563,10 +13563,10 @@ _0600BAEC:
 	b	_0600BB3C
 _0600BB24:
 	add	r0, r4, r5
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r7, r5
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r5, r5, #1
 _0600BB3C:
 	cmp	r5, r8
@@ -13579,18 +13579,18 @@ _0600BB48:
 	bx	lr
 _0600BB54:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600BB58
-FUNC_0600BB58: ; 0x0600BB58
+	arm_func_start FUN_0600BB58
+FUN_0600BB58: ; 0x0600BB58
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldr	r0, _0600BBB4	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #936	; 0x3a8
 	mov	r1, r4
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldr	r0, _0600BBB8	; =0x04808020
 	mov	r1, r4
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldrh	r0, [r4]
 	ands	r0, r0, #1
 	ldrne	r1, _0600BBBC	; =0x048080D0
@@ -13608,8 +13608,8 @@ _0600BBB4:	.word	0x0380FFF4
 _0600BBB8:	.word	0x04808020
 _0600BBBC:	.word	0x048080D0
 
-	arm_func_start FUNC_0600BBC0
-FUNC_0600BBC0: ; 0x0600BBC0
+	arm_func_start FUN_0600BBC0
+FUN_0600BBC0: ; 0x0600BBC0
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13634,8 +13634,8 @@ _0600BC10:	.word	0x0380FFF4
 _0600BC14:	.word	0x0480802A
 _0600BC18:	.word	0x04808028
 
-	arm_func_start FUNC_0600BC1C
-FUNC_0600BC1C: ; 0x0600BC1C
+	arm_func_start FUN_0600BC1C
+FUN_0600BC1C: ; 0x0600BC1C
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13653,8 +13653,8 @@ FUNC_0600BC1C: ; 0x0600BC1C
 	bx	lr
 _0600BC58:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600BC5C
-FUNC_0600BC5C: ; 0x0600BC5C
+	arm_func_start FUN_0600BC5C
+FUN_0600BC5C: ; 0x0600BC5C
 	cmp	r0, #1
 	bhi	_0600BC6C
 	cmp	r1, #1
@@ -13716,8 +13716,8 @@ _0600BCDC:
 _0600BD30:	.word	0x0380FFF4
 _0600BD34:	.word	0x04808290
 
-	arm_func_start FUNC_0600BD38
-FUNC_0600BD38: ; 0x0600BD38
+	arm_func_start FUN_0600BD38
+FUN_0600BD38: ; 0x0600BD38
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13745,8 +13745,8 @@ FUNC_0600BD38: ; 0x0600BD38
 _0600BD98:	.word	0x0380FFF4
 _0600BD9C:	.word	0x04808290
 
-	arm_func_start FUNC_0600BDA0
-FUNC_0600BDA0: ; 0x0600BDA0
+	arm_func_start FUN_0600BDA0
+FUN_0600BDA0: ; 0x0600BDA0
 	stmdb	sp!, {r4, lr}
 	mov	r2, r0
 	mov	r4, r1
@@ -13758,17 +13758,17 @@ FUNC_0600BDA0: ; 0x0600BDA0
 	bhi	_0600BDE0
 	mov	r0, #19
 	mov	r1, r2
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	mov	r0, #53	; 0x35
 	mov	r1, r4
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	mov	r0, #0
 _0600BDE0:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600BDE8
-FUNC_0600BDE8: ; 0x0600BDE8
+	arm_func_start FUN_0600BDE8
+FUN_0600BDE8: ; 0x0600BDE8
 	cmp	r0, #1
 	movhi	r0, #5
 	ldrls	r1, _0600BE08	; =0x0380FFF4
@@ -13779,8 +13779,8 @@ FUNC_0600BDE8: ; 0x0600BDE8
 	bx	lr
 _0600BE08:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600BE0C
-FUNC_0600BE0C: ; 0x0600BE0C
+	arm_func_start FUN_0600BE0C
+FUN_0600BE0C: ; 0x0600BE0C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _0600BEC4	; =0x0380FFF4
@@ -13823,7 +13823,7 @@ _0600BE8C:
 	ldrneh	r0, [r1]
 	orrne	r0, r0, #6
 	strneh	r0, [r1]
-	bl	FUNC_0600B494
+	bl	FUN_0600B494
 	mov	r0, #0
 _0600BEB8:
 	add	sp, sp, #4
@@ -13832,8 +13832,8 @@ _0600BEB8:
 _0600BEC4:	.word	0x0380FFF4
 _0600BEC8:	.word	0x048080BC
 
-	arm_func_start FUNC_0600BECC
-FUNC_0600BECC: ; 0x0600BECC
+	arm_func_start FUN_0600BECC
+FUN_0600BECC: ; 0x0600BECC
 	ldr	r1, _0600BEF8	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r2, r1, #900	; 0x384
@@ -13848,8 +13848,8 @@ _0600BEDC:
 	bx	lr
 _0600BEF8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600BEFC
-FUNC_0600BEFC: ; 0x0600BEFC
+	arm_func_start FUN_0600BEFC
+FUN_0600BEFC: ; 0x0600BEFC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -13880,19 +13880,19 @@ FUNC_0600BEFC: ; 0x0600BEFC
 	bne	_0600BF8C
 	mov	r0, r5
 	and	r1, r4, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r5, #1
 	mov	r1, r4, asr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	b	_0600BFA4
 _0600BF8C:
 	mov	r0, r5
 	mov	r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r5, #1
 	mov	r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 _0600BFA4:
 	mov	r0, #0
 _0600BFA8:
@@ -13902,8 +13902,8 @@ _0600BFA8:
 _0600BFB4:	.word	0x0380FFF4
 _0600BFB8:	.word	0x04808134
 
-	arm_func_start FUNC_0600BFBC
-FUNC_0600BFBC: ; 0x0600BFBC
+	arm_func_start FUN_0600BFBC
+FUN_0600BFBC: ; 0x0600BFBC
 	cmp	r0, #255	; 0xff
 	movhi	r0, #5
 	bxhi	lr
@@ -13919,8 +13919,8 @@ FUNC_0600BFBC: ; 0x0600BFBC
 	bx	lr
 _0600BFF0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600BFF4
-FUNC_0600BFF4: ; 0x0600BFF4
+	arm_func_start FUN_0600BFF4
+FUN_0600BFF4: ; 0x0600BFF4
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13936,8 +13936,8 @@ FUNC_0600BFF4: ; 0x0600BFF4
 	bx	lr
 _0600C028:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600C02C
-FUNC_0600C02C: ; 0x0600C02C
+	arm_func_start FUN_0600C02C
+FUN_0600C02C: ; 0x0600C02C
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13953,26 +13953,26 @@ FUNC_0600C02C: ; 0x0600C02C
 	bx	lr
 _0600C060:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600C064
-FUNC_0600C064: ; 0x0600C064
+	arm_func_start FUN_0600C064
+FUN_0600C064: ; 0x0600C064
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldr	r0, _0600C0B8	; =0x04805F80
 	mov	r1, r4
 	mov	r2, #20
-	bl	FUNC_06009D74
+	bl	FUN_06009D74
 	ldr	r0, _0600C0BC	; =0x04805FA0
 	add	r1, r4, #20
 	mov	r2, #20
-	bl	FUNC_06009D74
+	bl	FUN_06009D74
 	ldr	r0, _0600C0C0	; =0x04805FC0
 	add	r1, r4, #40	; 0x28
 	mov	r2, #20
-	bl	FUNC_06009D74
+	bl	FUN_06009D74
 	ldr	r0, _0600C0C4	; =0x04805FE0
 	add	r1, r4, #60	; 0x3c
 	mov	r2, #20
-	bl	FUNC_06009D74
+	bl	FUN_06009D74
 	mov	r0, #0
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -13981,8 +13981,8 @@ _0600C0BC:	.word	0x04805FA0
 _0600C0C0:	.word	0x04805FC0
 _0600C0C4:	.word	0x04805FE0
 
-	arm_func_start FUNC_0600C0C8
-FUNC_0600C0C8: ; 0x0600C0C8
+	arm_func_start FUN_0600C0C8
+FUN_0600C0C8: ; 0x0600C0C8
 	cmp	r0, #3
 	movhi	r0, #5
 	ldrls	r1, _0600C0E8	; =0x0380FFF4
@@ -13993,8 +13993,8 @@ FUNC_0600C0C8: ; 0x0600C0C8
 	bx	lr
 _0600C0E8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600C0EC
-FUNC_0600C0EC: ; 0x0600C0EC
+	arm_func_start FUN_0600C0EC
+FUN_0600C0EC: ; 0x0600C0EC
 	ldr	r1, _0600C194	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r2, r1, #836	; 0x344
@@ -14044,8 +14044,8 @@ _0600C194:	.word	0x0380FFF4
 _0600C198:	.word	0x04808006
 _0600C19C:	.word	0x0000FFC7
 
-	arm_func_start FUNC_0600C1A0
-FUNC_0600C1A0: ; 0x0600C1A0
+	arm_func_start FUN_0600C1A0
+FUN_0600C1A0: ; 0x0600C1A0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	cmp	r0, #2
@@ -14055,7 +14055,7 @@ FUNC_0600C1A0: ; 0x0600C1A0
 	ldr	r1, [r1]
 	add	r1, r1, #768	; 0x300
 	strh	r0, [r1, #48]	; 0x30
-	bl	FUNC_0600B494
+	bl	FUN_0600B494
 	mov	r0, #0
 _0600C1CC:
 	add	sp, sp, #4
@@ -14063,8 +14063,8 @@ _0600C1CC:
 	bx	lr
 _0600C1D8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600C1DC
-FUNC_0600C1DC: ; 0x0600C1DC
+	arm_func_start FUN_0600C1DC
+FUN_0600C1DC: ; 0x0600C1DC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	cmp	r0, #3
@@ -14086,7 +14086,7 @@ FUNC_0600C1DC: ; 0x0600C1DC
 	ldr	r0, [ip]
 	add	r0, r0, #768	; 0x300
 	ldrh	r0, [r0, #82]	; 0x52
-	bl	FUNC_0600B420
+	bl	FUN_0600B420
 	ldr	r0, _0600C258	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, [r1, #832]	; 0x340
@@ -14101,8 +14101,8 @@ _0600C258:	.word	0x0380FFF4
 _0600C25C:	.word	0x04808006
 _0600C260:	.word	0x0000FFF8
 
-	arm_func_start FUNC_0600C264
-FUNC_0600C264: ; 0x0600C264
+	arm_func_start FUN_0600C264
+FUN_0600C264: ; 0x0600C264
 	ldr	r1, _0600C29C	; =0x00007FFE
 	ands	r1, r0, r1
 	moveq	r0, #5
@@ -14120,8 +14120,8 @@ FUNC_0600C264: ; 0x0600C264
 _0600C29C:	.word	0x00007FFE
 _0600C2A0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600C2A4
-FUNC_0600C2A4: ; 0x0600C2A4
+	arm_func_start FUN_0600C2A4
+FUN_0600C2A4: ; 0x0600C2A4
 	cmp	r0, #255	; 0xff
 	movhi	r0, #5
 	bxhi	lr
@@ -14136,8 +14136,8 @@ FUNC_0600C2A4: ; 0x0600C2A4
 _0600C2D0:	.word	0x0380FFF4
 _0600C2D4:	.word	0x0480802C
 
-	arm_func_start FUNC_0600C2D8
-FUNC_0600C2D8: ; 0x0600C2D8
+	arm_func_start FUN_0600C2D8
+FUN_0600C2D8: ; 0x0600C2D8
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldrh	r0, [r4]
@@ -14148,10 +14148,10 @@ FUNC_0600C2D8: ; 0x0600C2D8
 	ldr	r0, [r0]
 	add	r0, r0, #804	; 0x324
 	mov	r1, r4
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldr	r0, _0600C334	; =0x04808018
 	mov	r1, r4
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldr	r0, _0600C330	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, [r1, #832]	; 0x340
@@ -14164,8 +14164,8 @@ _0600C328:
 _0600C330:	.word	0x0380FFF4
 _0600C334:	.word	0x04808018
 
-	arm_func_start FUNC_0600C338
-FUNC_0600C338: ; 0x0600C338
+	arm_func_start FUN_0600C338
+FUN_0600C338: ; 0x0600C338
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -14175,13 +14175,13 @@ FUNC_0600C338: ; 0x0600C338
 	mov	r0, #0
 	add	r1, r1, #796	; 0x31c
 	mov	r2, #40	; 0x28
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r0, #0
 	ldr	r1, _0600C3B4	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #836	; 0x344
 	mov	r2, #192	; 0xc0
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	ldr	r2, _0600C3B4	; =0x0380FFF4
 	ldr	r0, [r2]
 	str	r6, [r0, #796]	; 0x31c
@@ -14199,8 +14199,8 @@ FUNC_0600C338: ; 0x0600C338
 	bx	lr
 _0600C3B4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600C3B8
-FUNC_0600C3B8: ; 0x0600C3B8
+	arm_func_start FUN_0600C3B8
+FUN_0600C3B8: ; 0x0600C3B8
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	r9, #0
@@ -14218,7 +14218,7 @@ FUNC_0600C3B8: ; 0x0600C3B8
 _0600C3F0:
 	mov	r0, r6
 	mov	r1, r5
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	cmp	r0, r4
 	moveq	r9, #1
 	beq	_0600C678
@@ -14236,7 +14236,7 @@ _0600C420:
 	addeq	r5, r5, #1
 	beq	_0600C458
 	mov	r0, r4
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	cmp	r0, #255	; 0xff
@@ -14254,7 +14254,7 @@ _0600C45C:
 _0600C46C:
 	mov	r0, r5
 	mov	r1, r4
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	add	r5, r5, #1
 	cmp	r5, #105	; 0x69
 	bcc	_0600C46C
@@ -14268,7 +14268,7 @@ _0600C490:
 	addeq	r4, r4, #1
 	beq	_0600C4C4
 	mov	r0, r5
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	mov	r0, r0, lsl #16
 	movs	r0, r0, lsr #16
 	beq	_0600C4C4
@@ -14285,7 +14285,7 @@ _0600C4C8:
 _0600C4D8:
 	mov	r0, r4
 	mov	r1, r5
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	add	r4, r4, #1
 	mvn	r0, r5
 	mov	r0, r0, lsl #16
@@ -14303,7 +14303,7 @@ _0600C50C:
 	addeq	r4, r4, #1
 	beq	_0600C544
 	mov	r0, r6
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	cmp	r0, r5
@@ -14325,7 +14325,7 @@ _0600C558:
 _0600C568:
 	mov	r0, r5
 	mov	r1, r4
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	add	r5, r5, #1
 	sub	r0, r4, #1
 	mov	r0, r0, lsl #16
@@ -14343,7 +14343,7 @@ _0600C59C:
 	addeq	r4, r4, #1
 	beq	_0600C5D4
 	mov	r0, r6
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	cmp	r0, r5
@@ -14376,9 +14376,9 @@ _0600C600:
 _0600C620:
 	mov	r0, r6
 	mov	r1, r7
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	mov	r0, r6
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	cmp	r0, r7
@@ -14417,8 +14417,8 @@ _0600C6A4:	.word	0x0380FFF4
 _0600C6A8:	.word	_060195D0
 _0600C6AC:	.word	_06019604
 
-	arm_func_start FUNC_0600C6B0
-FUNC_0600C6B0: ; 0x0600C6B0
+	arm_func_start FUN_0600C6B0
+FUN_0600C6B0: ; 0x0600C6B0
 	mov	r0, #0
 	ldr	r3, _0600C820	; =0x04804000
 	ldr	r1, _0600C824	; =0x0000FFFF
@@ -14530,8 +14530,8 @@ _0600C828:	.word	0x00005A5A
 _0600C82C:	.word	0x0000A5A5
 _0600C830:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600C834
-FUNC_0600C834: ; 0x0600C834
+	arm_func_start FUN_0600C834
+FUN_0600C834: ; 0x0600C834
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r3, #0
@@ -14654,40 +14654,40 @@ _0600C9D4:	.word	_060195C8
 _0600C9D8:	.word	0x00001234
 _0600C9DC:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600C9E0
-FUNC_0600C9E0: ; 0x0600C9E0
+	arm_func_start FUN_0600C9E0
+FUN_0600C9E0: ; 0x0600C9E0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r0, #16777216	; 0x1000000
 	mov	r1, #0
-	bl	FUNC_0600CA08
+	bl	FUN_0600CA08
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_0600CA08
-FUNC_0600CA08: ; 0x0600CA08
+	arm_func_start FUN_0600CA08
+FUN_0600CA08: ; 0x0600CA08
 	ldr	pc, _0600CA0C	; =FUN_037F894C
 _0600CA0C:	.word	FUN_037F894C
 
-	arm_func_start FUNC_0600CA10
-FUNC_0600CA10: ; 0x0600CA10
+	arm_func_start FUN_0600CA10
+FUN_0600CA10: ; 0x0600CA10
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #16777216	; 0x1000000
-	ldr	r1, _0600CA38	; =FUNC_0600E000
-	bl	FUNC_0600CA08
+	ldr	r1, _0600CA38	; =FUN_0600E000
+	bl	FUN_0600CA08
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
-_0600CA38:	.word	FUNC_0600E000
+_0600CA38:	.word	FUN_0600E000
 
-	arm_func_start FUNC_0600CA3C
-FUNC_0600CA3C: ; 0x0600CA3C
+	arm_func_start FUN_0600CA3C
+FUN_0600CA3C: ; 0x0600CA3C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldrh	r1, [r0]
@@ -14705,7 +14705,7 @@ FUNC_0600CA3C: ; 0x0600CA3C
 	ldrh	r1, [r1]
 	cmp	r2, r1
 	beq	_0600CA8C
-	bl	FUNC_06015270
+	bl	FUN_06015270
 	mov	r0, #1
 	b	_0600CA90
 _0600CA8C:
@@ -14717,20 +14717,20 @@ _0600CA90:
 _0600CA9C:	.word	0x00003FFF
 _0600CAA0:	.word	0x04808098
 
-	arm_func_start FUNC_0600CAA4
-FUNC_0600CAA4: ; 0x0600CAA4
+	arm_func_start FUN_0600CAA4
+FUN_0600CAA4: ; 0x0600CAA4
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600CAE8	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _0600CAEC	; =0x0000042C
 	add	r4, r1, r0
 	add	r0, r4, #80	; 0x50
-	bl	FUNC_0600CA3C
+	bl	FUN_0600CA3C
 	cmp	r0, #0
 	movne	r0, #1
 	bne	_0600CAE0
 	add	r0, r4, #100	; 0x64
-	bl	FUNC_0600CA3C
+	bl	FUN_0600CA3C
 	cmp	r0, #0
 	movne	r0, #1
 	moveq	r0, #0
@@ -14740,8 +14740,8 @@ _0600CAE0:
 _0600CAE8:	.word	0x0380FFF4
 _0600CAEC:	.word	0x0000042C
 
-	arm_func_start FUNC_0600CAF0
-FUNC_0600CAF0: ; 0x0600CAF0
+	arm_func_start FUN_0600CAF0
+FUN_0600CAF0: ; 0x0600CAF0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600CB48	; =0x0380FFF4
@@ -14771,8 +14771,8 @@ _0600CB50:	.word	0x0000FFFF
 _0600CB54:	.word	0x04808094
 _0600CB58:	.word	0x04808030
 
-	arm_func_start FUNC_0600CB5C
-FUNC_0600CB5C: ; 0x0600CB5C
+	arm_func_start FUN_0600CB5C
+FUN_0600CB5C: ; 0x0600CB5C
 	ldr	r1, _0600CB7C	; =0x04805F60
 	cmp	r0, r1
 	ldrcs	r1, _0600CB80	; =0x0380FFF4
@@ -14784,11 +14784,11 @@ FUNC_0600CB5C: ; 0x0600CB5C
 _0600CB7C:	.word	0x04805F60
 _0600CB80:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600CB84
-FUNC_0600CB84: ; 0x0600CB84
+	arm_func_start FUN_0600CB84
+FUN_0600CB84: ; 0x0600CB84
 	stmdb	sp!, {r4, lr}
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	ldr	r2, _0600CBE8	; =0x04808210
 	ldrh	r3, [r2]
@@ -14809,16 +14809,16 @@ _0600CBC8:
 	mov	r0, #0
 	ldr	r1, _0600CBEC	; =0x04808244
 	strh	r0, [r1]
-	bl	FUNC_0600D070
+	bl	FUN_0600D070
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600CBE8:	.word	0x04808210
 _0600CBEC:	.word	0x04808244
 
-	arm_func_start FUNC_0600CBF0
-FUNC_0600CBF0: ; 0x0600CBF0
+	arm_func_start FUN_0600CBF0
+FUN_0600CBF0: ; 0x0600CBF0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600CCBC	; =0x0380FFF4
@@ -14827,11 +14827,11 @@ FUNC_0600CBF0: ; 0x0600CBF0
 	add	r5, r1, r0
 	mov	r4, #0
 	mov	r0, #2
-	bl	FUNC_06014FC8
+	bl	FUN_06014FC8
 	mov	r0, #1
-	bl	FUNC_06014FC8
+	bl	FUN_06014FC8
 	mov	r0, r4
-	bl	FUNC_06014FC8
+	bl	FUN_06014FC8
 	ldrh	r0, [r5, #40]	; 0x28
 	cmp	r0, #0
 	beq	_0600CC48
@@ -14866,19 +14866,19 @@ _0600CC90:
 	beq	_0600CCA4
 	mov	r0, #0
 	mov	r1, #14
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _0600CCA4:
 	mov	r0, #0
 	mov	r1, #20
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600CCBC:	.word	0x0380FFF4
 _0600CCC0:	.word	0x0000042C
 
-	arm_func_start FUNC_0600CCC4
-FUNC_0600CCC4: ; 0x0600CCC4
+	arm_func_start FUN_0600CCC4
+FUN_0600CCC4: ; 0x0600CCC4
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	ldr	r2, _0600CEF4	; =0x0380FFF4
 	ldr	r1, [r2]
@@ -14915,16 +14915,16 @@ FUNC_0600CCC4: ; 0x0600CCC4
 	ldr	r0, _0600CF18	; =0x04804000
 	add	r0, r0, r6, lsl #1
 	add	r0, r0, #8
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	add	r0, r0, #4
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	ldrh	r2, [r0]
 	ldr	r1, _0600CF1C	; =0x0000E7FF
 	and	r1, r2, r1
 	cmp	r1, #552	; 0x228
 	bne	_0600CEEC
 	add	r0, r0, #2
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	ldr	r2, _0600CF20	; =0x048080F8
 	ldrh	r1, [r2]
 	sub	r7, r1, #65536	; 0x10000
@@ -14953,7 +14953,7 @@ _0600CDD4:
 	mov	r8, #0
 	b	_0600CE04
 _0600CDE0:
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	mov	r1, r0
 	add	r0, r1, #2
 	ldrh	r2, [r1]
@@ -14966,7 +14966,7 @@ _0600CE04:
 	cmp	r8, #3
 	bcc	_0600CDE0
 	add	r0, r0, #10
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	ldr	r3, _0600CF20	; =0x048080F8
 	ldr	r1, _0600CF08	; =0x04808268
 _0600CE1C:
@@ -15023,7 +15023,7 @@ _0600CEA8:
 	strh	r0, [r1]
 	mov	r0, #0
 	strh	r0, [r1]
-	bl	FUNC_0600CAF0
+	bl	FUN_0600CAF0
 _0600CEEC:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
@@ -15045,8 +15045,8 @@ _0600CF2C:	.word	0x048080B4
 _0600CF30:	.word	0x04808244
 _0600CF34:	.word	0x04808228
 
-	arm_func_start FUNC_0600CF38
-FUNC_0600CF38: ; 0x0600CF38
+	arm_func_start FUN_0600CF38
+FUN_0600CF38: ; 0x0600CF38
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r3, _0600D048	; =0x0380FFF4
@@ -15109,7 +15109,7 @@ _0600D018:
 	add	r3, r3, #1
 	bls	_0600D030
 	mov	r0, #64	; 0x40
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	b	_0600D03C
 _0600D030:
 	ldrh	r0, [r1]
@@ -15130,8 +15130,8 @@ _0600D064:	.word	0x04808000
 _0600D068:	.word	0x0480819C
 _0600D06C:	.word	0x048082B8
 
-	arm_func_start FUNC_0600D070
-FUNC_0600D070: ; 0x0600D070
+	arm_func_start FUN_0600D070
+FUN_0600D070: ; 0x0600D070
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	ip, _0600D168	; =0x0380FFF4
@@ -15182,8 +15182,8 @@ _0600D104:
 	add	r0, r0, r1, lsl #2
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	ldr	r1, _0600D17C	; =FUNC_0600CB84
-	bl	FUNC_06009E4C
+	ldr	r1, _0600D17C	; =FUN_0600CB84
+	bl	FUN_06009E4C
 	ldr	r0, _0600D168	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1024	; 0x400
@@ -15194,7 +15194,7 @@ _0600D104:
 _0600D150:
 	mov	r0, #0
 	mov	r1, #16
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _0600D15C:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
@@ -15204,10 +15204,10 @@ _0600D16C:	.word	0x0000042C
 _0600D170:	.word	0x04808010
 _0600D174:	.word	0x048080B6
 _0600D178:	.word	0x04808214
-_0600D17C:	.word	FUNC_0600CB84
+_0600D17C:	.word	FUN_0600CB84
 
-	arm_func_start FUNC_0600D180
-FUNC_0600D180: ; 0x0600D180
+	arm_func_start FUN_0600D180
+FUN_0600D180: ; 0x0600D180
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #28
 	ldr	r0, _0600D5BC	; =0x0380FFF4
@@ -15256,23 +15256,23 @@ _0600D1DC:
 	ldr	r0, _0600D5DC	; =0x000008EF
 	cmp	r7, r0
 	bhi	_0600D240
-	bl	FUNC_0600AC84
+	bl	FUN_0600AC84
 _0600D240:
 	mov	r0, r7, lsl #1
 	str	r0, [sp, #8]
 	ldr	r0, _0600D5E0	; =0x04804000
 	add	r8, r0, r7, lsl #1
 	add	r0, r8, #2
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	mov	r4, r0
 	add	r0, r4, #2
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	str	r0, [sp, #12]
 	add	r0, r0, #4
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	str	r0, [sp, #16]
 	add	r0, r8, #14
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	str	r0, [sp, #4]
 	ldr	r0, [sp, #8]
 	add	r0, r0, #75497472	; 0x4800000
@@ -15351,10 +15351,10 @@ _0600D390:
 	cmp	r0, #12
 	bne	_0600D4EC
 	add	r0, r8, #12
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	ldrh	fp, [r0]
 	add	r0, r8, #34	; 0x22
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	ldrh	r6, [r0]
 	ldrh	r0, [r9]
 	cmp	r0, r6
@@ -15389,7 +15389,7 @@ _0600D3EC:
 	ands	r1, r1, #32768	; 0x8000
 	beq	_0600D49C
 	add	r0, r0, #1632	; 0x660
-	bl	FUNC_060009D0
+	bl	FUN_060009D0
 	ldr	r0, [sp, #4]
 	ldrh	r2, [r0]
 	mov	r1, #0
@@ -15402,7 +15402,7 @@ _0600D3EC:
 	orr	r0, r0, r3, lsl #26
 	ldr	r2, [sp, #20]
 	ldr	r3, [sp, #24]
-	bl	FUNC_06009EDC
+	bl	FUN_06009EDC
 	mov	r3, r0
 	mov	r2, r1
 	ldr	r0, [sp, #24]
@@ -15411,8 +15411,8 @@ _0600D3EC:
 	ldr	r0, [r0]
 	add	r0, r0, #1632	; 0x660
 	mov	r1, r3
-	ldr	r3, _0600D600	; =FUNC_0600B004
-	bl	FUNC_0600144C
+	ldr	r3, _0600D600	; =FUN_0600B004
+	bl	FUN_0600144C
 	b	_0600D4C4
 _0600D49C:
 	ldr	r6, _0600D5E8	; =0x0000FFFF
@@ -15427,7 +15427,7 @@ _0600D49C:
 	strh	r0, [r8]
 _0600D4C4:
 	strh	r6, [r9]
-	bl	FUNC_0600CAA4
+	bl	FUN_0600CAA4
 	cmp	r0, #0
 	bne	_0600D544
 	ldr	r0, _0600D5BC	; =0x0380FFF4
@@ -15471,7 +15471,7 @@ _0600D558:
 	beq	_0600D58C
 	ldr	r0, _0600D5C8	; =0x04808054
 	ldrh	r4, [r0]
-	bl	FUNC_0600CAA4
+	bl	FUN_0600CAA4
 	cmp	r0, #0
 	beq	_0600D58C
 	ldr	r0, _0600D5C8	; =0x04808054
@@ -15479,7 +15479,7 @@ _0600D558:
 	cmp	r4, r0
 	bne	_0600D58C
 	mov	r0, #32
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 _0600D58C:
 	ldr	r0, _0600D5CC	; =0x0480805A
 	ldrh	r1, [r0]
@@ -15489,7 +15489,7 @@ _0600D58C:
 	beq	_0600D5B0
 	mov	r0, #0
 	mov	r1, #15
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _0600D5B0:
 	add	sp, sp, #28
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -15511,13 +15511,13 @@ _0600D5F0:	.word	0x00000FFF
 _0600D5F4:	.word	0x04808028
 _0600D5F8:	.word	0x04808098
 _0600D5FC:	.word	0x000082EA
-_0600D600:	.word	FUNC_0600B004
+_0600D600:	.word	FUN_0600B004
 _0600D604:	.word	0x04805F7E
 _0600D608:	.word	0x0480824C
 _0600D60C:	.word	0x0480824E
 
-	arm_func_start FUNC_0600D610
-FUNC_0600D610: ; 0x0600D610
+	arm_func_start FUN_0600D610
+FUN_0600D610: ; 0x0600D610
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r2, _0600D87C	; =0x0380FFF4
@@ -15532,7 +15532,7 @@ FUNC_0600D610: ; 0x0600D610
 	ldrh	r1, [r1, #76]	; 0x4c
 	cmp	r1, #18
 	bne	_0600D650
-	bl	FUNC_0601269C
+	bl	FUN_0601269C
 	b	_0600D870
 _0600D650:
 	ldr	r1, _0600D888	; =0x048080B8
@@ -15549,7 +15549,7 @@ _0600D678:
 	ldr	r0, [r5, #140]	; 0x8c
 	ands	r0, r0, #2
 	beq	_0600D688
-	bl	FUNC_0600CBF0
+	bl	FUN_0600CBF0
 _0600D688:
 	ldr	r0, _0600D87C	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -15558,7 +15558,7 @@ _0600D688:
 	str	r0, [r1, #1368]	; 0x558
 	mov	r0, #0
 	mov	r1, #8
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_0600D7F0
 _0600D6AC:
 	ldrh	r2, [r5, #158]	; 0x9e
@@ -15670,7 +15670,7 @@ _0600D7F0:
 	addne	r0, r0, #1
 	strneh	r0, [r5, #172]	; 0xac
 	bne	_0600D84C
-	bl	FUNC_0600D070
+	bl	FUN_0600D070
 _0600D84C:
 	ldrh	r0, [r5, #170]	; 0xaa
 	add	r0, r0, #1
@@ -15682,7 +15682,7 @@ _0600D858:
 _0600D864:
 	mov	r0, #0
 	mov	r1, #14
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _0600D870:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -15704,8 +15704,8 @@ _0600D8B0:	.word	0x048080B4
 _0600D8B4:	.word	0x04808048
 _0600D8B8:	.word	0x048080AE
 
-	arm_func_start FUNC_0600D8BC
-FUNC_0600D8BC: ; 0x0600D8BC
+	arm_func_start FUN_0600D8BC
+FUN_0600D8BC: ; 0x0600D8BC
 	stmdb	sp!, {r4, lr}
 	ldr	r4, _0600DA44	; =0x0380FFF4
 	ldr	r1, [r4]
@@ -15789,14 +15789,14 @@ _0600D9BC:
 	ldrh	r0, [r0]
 	sub	r0, r0, #16384	; 0x4000
 	mov	r1, #2
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	cmp	r4, r0
 	bge	_0600DA1C
 	ldr	r0, _0600DA6C	; =0x04808050
 	ldrh	r0, [r0]
 	sub	r0, r0, #16384	; 0x4000
 	mov	r1, #2
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	cmp	r4, r0
 	bge	_0600DA38
 _0600DA1C:
@@ -15808,7 +15808,7 @@ _0600DA1C:
 	ldr	r0, _0600DA7C	; =0x04808030
 	strh	r1, [r0]
 _0600DA38:
-	bl	FUNC_06009990
+	bl	FUN_06009990
 _0600DA3C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -15828,8 +15828,8 @@ _0600DA74:	.word	0x04808056
 _0600DA78:	.word	0x00008001
 _0600DA7C:	.word	0x04808030
 
-	arm_func_start FUNC_0600DA80
-FUNC_0600DA80: ; 0x0600DA80
+	arm_func_start FUN_0600DA80
+FUN_0600DA80: ; 0x0600DA80
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r1, #8
@@ -15910,11 +15910,11 @@ _0600DBA0:	.word	0x04808290
 _0600DBA4:	.word	0x0000042C
 _0600DBA8:	.word	0x04808032
 
-	arm_func_start FUNC_0600DBAC
-FUNC_0600DBAC: ; 0x0600DBAC
+	arm_func_start FUN_0600DBAC
+FUN_0600DBAC: ; 0x0600DBAC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_0600AC84
+	bl	FUN_0600AC84
 	ldr	r1, _0600DBDC	; =0x0000FFFF
 	ldr	r0, _0600DBE0	; =0x048081AC
 	strh	r1, [r0]
@@ -15928,16 +15928,16 @@ _0600DBDC:	.word	0x0000FFFF
 _0600DBE0:	.word	0x048081AC
 _0600DBE4:	.word	0x04808010
 
-	arm_func_start FUNC_0600DBE8
-FUNC_0600DBE8: ; 0x0600DBE8
+	arm_func_start FUN_0600DBE8
+FUN_0600DBE8: ; 0x0600DBE8
 	mov	r1, #2048	; 0x800
 	ldr	r0, _0600DBF8	; =0x04808010
 	strh	r1, [r0]
 	bx	lr
 _0600DBF8:	.word	0x04808010
 
-	arm_func_start FUNC_0600DBFC
-FUNC_0600DBFC: ; 0x0600DBFC
+	arm_func_start FUN_0600DBFC
+FUN_0600DBFC: ; 0x0600DBFC
 	ldr	r0, _0600DC68	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r2, r0, #836	; 0x344
@@ -15970,8 +15970,8 @@ _0600DC6C:	.word	0x04808010
 _0600DC70:	.word	0x048080AC
 _0600DC74:	.word	0x04808048
 
-	arm_func_start FUNC_0600DC78
-FUNC_0600DC78: ; 0x0600DC78
+	arm_func_start FUN_0600DC78
+FUN_0600DC78: ; 0x0600DC78
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600DF48	; =0x0380FFF4
@@ -16001,11 +16001,11 @@ _0600DCC4:
 	ldrh	r5, [r0]
 	mov	r0, r6
 	and	r1, r5, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #1
 	mov	r1, r5, lsr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	ldrh	r0, [sl, #14]
 	cmp	r0, #1
 	bne	_0600DD20
@@ -16035,7 +16035,7 @@ _0600DD5C:
 	ldr	r0, [r9, #140]	; 0x8c
 	bic	r0, r0, #2
 	str	r0, [r9, #140]	; 0x8c
-	bl	FUNC_0600CBF0
+	bl	FUN_0600CBF0
 	b	_0600DF3C
 _0600DD70:
 	ldr	r0, [r9, #140]	; 0x8c
@@ -16060,7 +16060,7 @@ _0600DDB0:
 	cmp	r0, #2
 	bne	_0600DDC4
 	mov	r0, #2
-	bl	FUNC_0600B3F4
+	bl	FUN_0600B3F4
 _0600DDC4:
 	ldrh	r0, [sl, #8]
 	cmp	r0, #64	; 0x40
@@ -16146,12 +16146,12 @@ _0600DEF4:
 	bls	_0600DF24
 _0600DEFC:
 	mov	r0, r8
-	bl	FUNC_06014FC8
+	bl	FUN_06014FC8
 	ldr	r0, [r7, #8]
 	strh	r6, [r0]
 	mov	r0, fp
 	mov	r1, r5
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	ldrh	r0, [r9, #174]	; 0xae
 	add	r0, r0, #1
 	strh	r0, [r9, #174]	; 0xae
@@ -16178,8 +16178,8 @@ _0600DF68:	.word	0x04808118
 _0600DF6C:	.word	0x04808048
 _0600DF70:	.word	0x048080AE
 
-	arm_func_start FUNC_0600DF74
-FUNC_0600DF74: ; 0x0600DF74
+	arm_func_start FUN_0600DF74
+FUN_0600DF74: ; 0x0600DF74
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600DFF8	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -16208,7 +16208,7 @@ FUNC_0600DF74: ; 0x0600DF74
 	strh	r0, [r4, #128]	; 0x80
 	mov	r0, #1
 	mov	r1, #13
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _0600DFE8:
 	mov	r0, #1
 	strh	r0, [r4, #16]
@@ -16217,12 +16217,12 @@ _0600DFE8:
 _0600DFF8:	.word	0x0380FFF4
 _0600DFFC:	.word	0x04808010
 
-	arm_func_start FUNC_0600E000
-FUNC_0600E000: ; 0x0600E000
+	arm_func_start FUN_0600E000
+FUN_0600E000: ; 0x0600E000
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 
-	arm_func_start FUNC_0600E004
-FUNC_0600E004: ; 0x0600E004
+	arm_func_start FUN_0600E004
+FUN_0600E004: ; 0x0600E004
 	sub	sp, sp, #4
 	mov	r7, #1
 	ldr	r5, _0600E0D8	; =0x04808010
@@ -16234,52 +16234,52 @@ _0600E014:
 	beq	_0600E0BC
 	ands	r0, r6, #128	; 0x80
 	beq	_0600E030
-	bl	FUNC_0600CF38
+	bl	FUN_0600CF38
 _0600E030:
 	ands	r0, r6, #64	; 0x40
 	beq	_0600E03C
-	bl	FUNC_0600CCC4
+	bl	FUN_0600CCC4
 _0600E03C:
 	ands	r0, r6, #32768	; 0x8000
 	beq	_0600E048
-	bl	FUNC_0600DF74
+	bl	FUN_0600DF74
 _0600E048:
 	ands	r0, r6, #16384	; 0x4000
 	beq	_0600E054
-	bl	FUNC_0600DC78
+	bl	FUN_0600DC78
 _0600E054:
 	ands	r0, r6, #8192	; 0x2000
 	beq	_0600E060
-	bl	FUNC_0600DBFC
+	bl	FUN_0600DBFC
 _0600E060:
 	ands	r0, r6, #2048	; 0x800
 	beq	_0600E06C
-	bl	FUNC_0600DBE8
+	bl	FUN_0600DBE8
 _0600E06C:
 	ands	r0, r6, #8
 	beq	_0600E078
-	bl	FUNC_0600DA80
+	bl	FUN_0600DA80
 _0600E078:
 	ands	r0, r6, #4
 	beq	_0600E084
-	bl	FUNC_0600D8BC
+	bl	FUN_0600D8BC
 _0600E084:
 	ands	r0, r6, #1
 	beq	_0600E090
-	bl	FUNC_0600D180
+	bl	FUN_0600D180
 _0600E090:
 	ands	r0, r6, #48	; 0x30
 	beq	_0600E09C
-	bl	FUNC_0600DBAC
+	bl	FUN_0600DBAC
 _0600E09C:
 	ands	r0, r6, #2
 	beq	_0600E0A8
-	bl	FUNC_0600D610
+	bl	FUN_0600D610
 _0600E0A8:
 	ands	r0, r6, #4096	; 0x1000
 	beq	_0600E014
 	mov	r0, r7
-	bl	FUNC_0600D070
+	bl	FUN_0600D070
 	b	_0600E014
 _0600E0BC:
 	ldr	r1, _0600E0E0	; =0x0380FFF8
@@ -16293,8 +16293,8 @@ _0600E0D8:	.word	0x04808010
 _0600E0DC:	.word	0x04808012
 _0600E0E0:	.word	0x0380FFF8
 
-	arm_func_start FUNC_0600E0E4
-FUNC_0600E0E4: ; 0x0600E0E4
+	arm_func_start FUN_0600E0E4
+FUN_0600E0E4: ; 0x0600E0E4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -16302,7 +16302,7 @@ FUNC_0600E0E4: ; 0x0600E0E4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	add	r1, r5, #34	; 0x22
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	cmp	r0, #0
 	moveq	r0, #0
 	beq	_0600E14C
@@ -16310,7 +16310,7 @@ FUNC_0600E0E4: ; 0x0600E0E4
 	add	r0, r4, #8
 	mov	r1, r6
 	add	r2, r5, #12
-	bl	FUNC_06009DA4
+	bl	FUN_06009DA4
 	sub	r0, r5, #24
 	strh	r0, [r4, #6]
 	ldrh	r0, [r4, #14]
@@ -16326,8 +16326,8 @@ _0600E14C:
 	bx	lr
 _0600E154:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600E158
-FUNC_0600E158: ; 0x0600E158
+	arm_func_start FUN_0600E158
+FUN_0600E158: ; 0x0600E158
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600E210	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -16343,7 +16343,7 @@ FUNC_0600E158: ; 0x0600E158
 	ldr	r0, _0600E218	; =0x048080AE
 	strh	r1, [r0]
 	mov	r0, #2
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 	b	_0600E208
 _0600E19C:
 	add	r0, r1, #1280	; 0x500
@@ -16359,7 +16359,7 @@ _0600E19C:
 	cmp	r0, #0
 	beq	_0600E1D4
 	mov	r0, #2
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 _0600E1D4:
 	mov	r1, #5
 	ldr	r0, _0600E218	; =0x048080AE
@@ -16368,13 +16368,13 @@ _0600E1D4:
 	cmp	r0, #0
 	beq	_0600E1F4
 	mov	r0, #1
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 _0600E1F4:
 	ldrh	r0, [r4, #32]
 	cmp	r0, #0
 	beq	_0600E208
 	mov	r0, #0
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 _0600E208:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -16382,8 +16382,8 @@ _0600E210:	.word	0x0380FFF4
 _0600E214:	.word	0x04808088
 _0600E218:	.word	0x048080AE
 
-	arm_func_start FUNC_0600E21C
-FUNC_0600E21C: ; 0x0600E21C
+	arm_func_start FUN_0600E21C
+FUN_0600E21C: ; 0x0600E21C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600E300	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -16398,7 +16398,7 @@ FUNC_0600E21C: ; 0x0600E21C
 	ldrh	r0, [r0, #2]
 	cmp	r1, r0
 	beq	_0600E258
-	bl	FUNC_0600E308
+	bl	FUN_0600E308
 _0600E258:
 	ldr	r0, [r4, #68]	; 0x44
 	ldrh	r0, [r0, #4]
@@ -16435,21 +16435,21 @@ _0600E290:
 	ldrh	r0, [r0, #234]	; 0xea
 	cmp	r0, #0
 	beq	_0600E2E4
-	bl	FUNC_0600B21C
+	bl	FUN_0600B21C
 _0600E2E4:
 	ldr	r0, _0600E300	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	ldr	r1, [r4, #144]	; 0x90
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 _0600E2F8:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600E300:	.word	0x0380FFF4
 _0600E304:	.word	0x0000042C
 
-	arm_func_start FUNC_0600E308
-FUNC_0600E308: ; 0x0600E308
+	arm_func_start FUN_0600E308
+FUN_0600E308: ; 0x0600E308
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #52	; 0x34
 	ldr	sl, _0600E6B8	; =0x0380FFF4
@@ -16489,13 +16489,13 @@ _0600E380:
 	ldr	r0, _0600E6C4	; =0x000008C6
 	cmp	r5, r0
 	bcc	_0600E3A4
-	bl	FUNC_0600AC84
+	bl	FUN_0600AC84
 _0600E3A4:
 	mov	r4, r5, lsl #1
 	ldr	r0, _0600E6C8	; =0x04804000
 	add	r5, r0, r5, lsl #1
 	add	r0, r5, #2
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	ldrh	r9, [r0]
 	add	r0, r4, #75497472	; 0x4800000
 	add	r0, r0, #16384	; 0x4000
@@ -16506,10 +16506,10 @@ _0600E3A4:
 	streqh	r9, [r0]
 	beq	_0600E69C
 	add	r0, r5, #8
-	bl	FUNC_0600CB5C
+	bl	FUN_0600CB5C
 	ldrh	r1, [r0]
 	mov	r0, r5
-	bl	FUNC_0600E0E4
+	bl	FUN_0600E0E4
 	movs	r4, r0
 	ldr	r0, _0600E6C0	; =0x0480805A
 	strh	r9, [r0]
@@ -16519,11 +16519,11 @@ _0600E3A4:
 	cmp	r0, #12
 	bne	_0600E41C
 	ldr	r0, [sp, #4]
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	b	_0600E69C
 _0600E41C:
 	ldr	r0, [sp, #8]
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	b	_0600E69C
 _0600E428:
 	ldr	r0, [sl]
@@ -16554,10 +16554,10 @@ _0600E480:
 	add	r0, r6, #12
 	add	r1, r6, #108	; 0x6c
 	sub	r2, r4, #16
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, fp
 	ldr	r1, [sp, #20]
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_0600E644
 _0600E4A4:
 	and	r0, r1, #15
@@ -16589,17 +16589,17 @@ _0600E4F4:
 	add	r0, r6, #12
 	add	r1, r6, #72	; 0x48
 	sub	r2, r4, #16
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, fp
 	ldr	r1, [sp, #28]
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_0600E644
 _0600E528:
 	ldrh	r0, [r4, #20]
 	cmp	r0, #128	; 0x80
 	bne	_0600E644
 	mov	r0, r4
-	bl	FUNC_06017FDC
+	bl	FUN_06017FDC
 	b	_0600E644
 _0600E540:
 	ldrh	r0, [r4, #20]
@@ -16609,10 +16609,10 @@ _0600E540:
 	add	r0, r6, #12
 	add	r1, r6, #96	; 0x60
 	sub	r2, r4, #16
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, r8
 	ldr	r1, [sp, #36]	; 0x24
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_0600E644
 _0600E570:
 	ldrh	r1, [r4, #20]
@@ -16624,10 +16624,10 @@ _0600E570:
 	add	r0, r6, #12
 	add	r1, r6, #96	; 0x60
 	sub	r2, r4, #16
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, r8
 	ldr	r1, [sp, #36]	; 0x24
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_0600E644
 _0600E5A8:
 	ldrh	r1, [r4, #20]
@@ -16636,7 +16636,7 @@ _0600E5A8:
 	cmp	r0, #280	; 0x118
 	bne	_0600E644
 	mov	r0, r4
-	bl	FUNC_06018780
+	bl	FUN_06018780
 	b	_0600E644
 _0600E5C8:
 	ldrh	r1, [r4, #20]
@@ -16655,7 +16655,7 @@ _0600E5C8:
 	add	r0, r0, #1
 	str	r0, [r1, #1452]	; 0x5ac
 	mov	r0, r4
-	bl	FUNC_06018944
+	bl	FUN_06018944
 	mov	r9, r0
 	b	_0600E644
 _0600E614:
@@ -16669,14 +16669,14 @@ _0600E614:
 	add	r0, r0, #1
 	str	r0, [r1, #1456]	; 0x5b0
 	mov	r0, r4
-	bl	FUNC_0601869C
+	bl	FUN_0601869C
 	mov	r9, r0
 _0600E644:
 	cmp	r9, #0
 	beq	_0600E658
 	add	r0, r6, #12
 	sub	r1, r4, #16
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 _0600E658:
 	ldr	r0, [sl]
 	add	r0, r0, #1536	; 0x600
@@ -16716,8 +16716,8 @@ _0600E6D4:	.word	0x0000E7BF
 _0600E6D8:	.word	0x0480803C
 _0600E6DC:	.word	0x04805F60
 
-	arm_func_start FUNC_0600E6E0
-FUNC_0600E6E0: ; 0x0600E6E0
+	arm_func_start FUN_0600E6E0
+FUN_0600E6E0: ; 0x0600E6E0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600E8D8	; =0x0380FFF4
@@ -16856,8 +16856,8 @@ _0600E8DC:	.word	0x0000042C
 _0600E8E0:	.word	0x048080A0
 _0600E8E4:	.word	0x04808032
 
-	arm_func_start FUNC_0600E8E8
-FUNC_0600E8E8: ; 0x0600E8E8
+	arm_func_start FUN_0600E8E8
+FUN_0600E8E8: ; 0x0600E8E8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600E938	; =0x0380FFF4
@@ -16866,7 +16866,7 @@ FUNC_0600E8E8: ; 0x0600E8E8
 	ldrh	r0, [r0, #232]	; 0xe8
 	cmp	r0, #0
 	beq	_0600E90C
-	bl	FUNC_06014670
+	bl	FUN_06014670
 _0600E90C:
 	ldr	r0, _0600E938	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -16875,15 +16875,15 @@ _0600E90C:
 	mov	r0, r0, lsl #25
 	movs	r0, r0, lsr #31
 	beq	_0600E92C
-	bl	FUNC_0600FDE4
+	bl	FUN_0600FDE4
 _0600E92C:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0600E938:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600E93C
-FUNC_0600E93C: ; 0x0600E93C
+	arm_func_start FUN_0600E93C
+FUN_0600E93C: ; 0x0600E93C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -16902,7 +16902,7 @@ FUNC_0600E93C: ; 0x0600E93C
 	mov	r0, #0
 	mov	r1, r4
 	mov	r2, #26
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	ldr	r0, _0600EA08	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -16914,12 +16914,12 @@ FUNC_0600E93C: ; 0x0600E93C
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #0
-	bl	FUNC_0600F218
+	bl	FUN_0600F218
 	mov	r0, r6
-	bl	FUNC_0600F1B4
+	bl	FUN_0600F1B4
 	add	r0, r4, #4
 	mov	r1, r5
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldr	r0, _0600EA0C	; =0x0000FFFF
 	strh	r0, [r4, #20]
 	ldr	r0, _0600EA08	; =0x0380FFF4
@@ -16932,14 +16932,14 @@ FUNC_0600E93C: ; 0x0600E93C
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600EA08:	.word	0x0380FFF4
 _0600EA0C:	.word	0x0000FFFF
 
-	arm_func_start FUNC_0600EA10
-FUNC_0600EA10: ; 0x0600EA10
+	arm_func_start FUN_0600EA10
+FUN_0600EA10: ; 0x0600EA10
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	ldr	r0, _0600EA90	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -16957,7 +16957,7 @@ _0600EA44:
 	mov	r0, r8
 	mla	r1, sl, r6, r5
 	mov	r2, r7
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	add	sl, sl, #1
 _0600EA58:
 	cmp	sl, r9
@@ -16978,8 +16978,8 @@ _0600EA90:	.word	0x0380FFF4
 _0600EA94:	.word	0x0000052C
 _0600EA98:	.word	0x0000FFFE
 
-	arm_func_start FUNC_0600EA9C
-FUNC_0600EA9C: ; 0x0600EA9C
+	arm_func_start FUN_0600EA9C
+FUN_0600EA9C: ; 0x0600EA9C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600EB34	; =0x0380FFF4
@@ -16991,14 +16991,14 @@ FUNC_0600EA9C: ; 0x0600EA9C
 	mov	r1, r5
 	mov	r2, #28
 	mul	r2, r4, r2
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r0, #0
 	ldr	r1, _0600EB34	; =0x0380FFF4
 	ldr	r2, [r1]
 	ldr	r1, _0600EB38	; =0x0000052C
 	add	r1, r2, r1
 	mov	r2, #16
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	ldr	r2, _0600EB3C	; =0x0000FFFF
 	strh	r2, [r5, #26]
 	mov	r3, #1
@@ -17013,10 +17013,10 @@ _0600EB08:
 	bcc	_0600EAFC
 	mov	r0, #0
 	ldr	r1, _0600EB40	; =_06019384
-	bl	FUNC_0600E93C
+	bl	FUN_0600E93C
 	mov	r0, #0
 	mov	r1, #64	; 0x40
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -17025,11 +17025,11 @@ _0600EB38:	.word	0x0000052C
 _0600EB3C:	.word	0x0000FFFF
 _0600EB40:	.word	_06019384
 
-	arm_func_start FUNC_0600EB44
-FUNC_0600EB44: ; 0x0600EB44
+	arm_func_start FUN_0600EB44
+FUN_0600EB44: ; 0x0600EB44
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
-	bl	FUNC_06014EB8
+	bl	FUN_06014EB8
 	mov	r3, #0
 	ldr	r2, _0600EB88	; =0x0380FFF4
 	ldr	r0, [r2]
@@ -17046,8 +17046,8 @@ FUNC_0600EB44: ; 0x0600EB44
 	bx	lr
 _0600EB88:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600EB8C
-FUNC_0600EB8C: ; 0x0600EB8C
+	arm_func_start FUN_0600EB8C
+FUN_0600EB8C: ; 0x0600EB8C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #44	; 0x2c
 	ldr	r0, _0600ED6C	; =0x0380FFF4
@@ -17090,14 +17090,14 @@ _0600EBE8:
 	cmp	r0, #32
 	bcc	_0600ED24
 	mov	r0, r8
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	mov	r5, r0
 	mov	r0, r8, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, r4
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	mov	r0, r8
-	bl	FUNC_06014EB8
+	bl	FUN_06014EB8
 	add	r0, sl, #768	; 0x300
 	ldrh	r1, [r0, #80]	; 0x50
 	cmp	r1, #1
@@ -17113,24 +17113,24 @@ _0600EBE8:
 	mov	r0, r8, lsl #16
 	mov	r0, r0, lsr #16
 	ldr	r1, [sp]
-	bl	FUNC_0600F218
+	bl	FUN_0600F218
 	mov	r0, r8
-	bl	FUNC_0600F1B4
+	bl	FUN_0600F1B4
 	add	r0, r9, #4
 	ldr	r1, [sp, #4]
 	ldr	r2, [sp, #8]
-	bl	FUNC_06013E9C
+	bl	FUN_06013E9C
 	cmp	r0, #0
 	beq	_0600ECC4
 	ldr	r1, [sp, #12]
 	strh	r1, [r0]
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	add	r7, r7, #1
 	b	_0600ED48
 _0600ECC4:
 	add	r0, r9, #4
 	ldr	r1, [sp, #16]
-	bl	FUNC_06010130
+	bl	FUN_06010130
 	b	_0600ED24
 _0600ECD4:
 	ldrh	r0, [r0, #204]	; 0xcc
@@ -17139,21 +17139,21 @@ _0600ECD4:
 	add	r0, r9, #4
 	ldr	r1, [sp, #20]
 	ldr	r2, [sp, #24]
-	bl	FUNC_06013E9C
+	bl	FUN_06013E9C
 	cmp	r0, #0
 	beq	_0600ED0C
 	ldr	r1, [sp, #28]
 	strh	r1, [r0]
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	add	r7, r7, #1
 	b	_0600ED48
 _0600ED0C:
 	mov	r0, r4
-	bl	FUNC_0600AF68
-	bl	FUNC_0600B054
+	bl	FUN_0600AF68
+	bl	FUN_0600B054
 	add	r0, r9, #4
 	ldr	r1, [sp, #32]
-	bl	FUNC_06010130
+	bl	FUN_06010130
 _0600ED24:
 	ldr	r0, [sp, #36]	; 0x24
 	strh	r0, [r9]
@@ -17181,11 +17181,11 @@ _0600ED60:
 _0600ED6C:	.word	0x0380FFF4
 _0600ED70:	.word	0x0000FFFF
 
-	arm_func_start FUNC_0600ED74
-FUNC_0600ED74: ; 0x0600ED74
+	arm_func_start FUN_0600ED74
+FUN_0600ED74: ; 0x0600ED74
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r5, r0
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	bne	_0600EE10
 	ldr	r0, _0600EE18	; =0x0380FFF4
@@ -17195,46 +17195,46 @@ FUNC_0600ED74: ; 0x0600ED74
 	ldr	r0, _0600EE1C	; =0x0480425C
 	add	r6, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	cmp	r5, #0
 	bne	_0600EDD0
 	add	r0, r6, #4
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	and	r1, r0, #254	; 0xfe
 	add	r0, r6, #4
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	b	_0600EE08
 _0600EDD0:
 	mov	r0, r5
-	bl	FUNC_0600EF18
+	bl	FUN_0600EF18
 	mov	r5, r0
 	add	r0, r6, #5
 	add	r6, r0, r5, lsr #3
 	mov	r0, r6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r2, #1
 	and	r1, r5, #7
 	mvn	r1, r2, lsl r1
 	and	r1, r1, r0
 	mov	r0, r6
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 _0600EE08:
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 _0600EE10:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600EE18:	.word	0x0380FFF4
 _0600EE1C:	.word	0x0480425C
 
-	arm_func_start FUNC_0600EE20
-FUNC_0600EE20: ; 0x0600EE20
+	arm_func_start FUN_0600EE20
+FUN_0600EE20: ; 0x0600EE20
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r5, r0
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	bne	_0600EED0
 	ldr	r0, _0600EED8	; =0x0380FFF4
@@ -17250,42 +17250,42 @@ FUNC_0600EE20: ; 0x0600EE20
 	ldr	r0, _0600EEDC	; =0x0480425C
 	add	r6, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	cmp	r5, #0
 	bne	_0600EE94
 	add	r0, r6, #4
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	orr	r1, r0, #1
 	add	r0, r6, #4
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	b	_0600EEC8
 _0600EE94:
 	mov	r0, r5
-	bl	FUNC_0600EF18
+	bl	FUN_0600EF18
 	mov	r5, r0
 	add	r0, r6, #5
 	add	r6, r0, r5, lsr #3
 	mov	r0, r6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r2, #1
 	and	r1, r5, #7
 	orr	r1, r0, r2, lsl r1
 	mov	r0, r6
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 _0600EEC8:
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 _0600EED0:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600EED8:	.word	0x0380FFF4
 _0600EEDC:	.word	0x0480425C
 
-	arm_func_start FUNC_0600EEE0
-FUNC_0600EEE0: ; 0x0600EEE0
+	arm_func_start FUN_0600EEE0
+FUN_0600EEE0: ; 0x0600EEE0
 	ldr	r1, _0600EEF8	; =0x0380FFF4
 	ldr	r1, [r1]
 	ldr	r2, [r1, #796]	; 0x31c
@@ -17294,31 +17294,31 @@ FUNC_0600EEE0: ; 0x0600EEE0
 	bx	lr
 _0600EEF8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600EEFC
-FUNC_0600EEFC: ; 0x0600EEFC
+	arm_func_start FUN_0600EEFC
+FUN_0600EEFC: ; 0x0600EEFC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	ldrh	r0, [r0, #22]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_0600EF18
-FUNC_0600EF18: ; 0x0600EF18
+	arm_func_start FUN_0600EF18
+FUN_0600EF18: ; 0x0600EF18
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	ldrh	r0, [r0, #2]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_0600EF34
-FUNC_0600EF34: ; 0x0600EF34
+	arm_func_start FUN_0600EF34
+FUN_0600EF34: ; 0x0600EF34
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	ldrh	r0, [r0, #16]
 	ands	r0, r0, #2
 	movne	r0, #20
@@ -17327,38 +17327,38 @@ FUNC_0600EF34: ; 0x0600EF34
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_0600EF5C
-FUNC_0600EF5C: ; 0x0600EF5C
+	arm_func_start FUN_0600EF5C
+FUN_0600EF5C: ; 0x0600EF5C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	ldrh	r0, [r0, #20]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_0600EF78
-FUNC_0600EF78: ; 0x0600EF78
+	arm_func_start FUN_0600EF78
+FUN_0600EF78: ; 0x0600EF78
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	ldrh	r0, [r0, #14]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_0600EF94
-FUNC_0600EF94: ; 0x0600EF94
+	arm_func_start FUN_0600EF94
+FUN_0600EF94: ; 0x0600EF94
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	add	r0, r0, #4
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_0600EFB0
-FUNC_0600EFB0: ; 0x0600EFB0
+	arm_func_start FUN_0600EFB0
+FUN_0600EFB0: ; 0x0600EFB0
 	ldr	r1, _0600EFCC	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #1280	; 0x500
@@ -17368,8 +17368,8 @@ FUNC_0600EFB0: ; 0x0600EFB0
 	bx	lr
 _0600EFCC:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600EFD0
-FUNC_0600EFD0: ; 0x0600EFD0
+	arm_func_start FUN_0600EFD0
+FUN_0600EFD0: ; 0x0600EFD0
 	ldr	r1, _0600EFEC	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #1280	; 0x500
@@ -17379,29 +17379,29 @@ FUNC_0600EFD0: ; 0x0600EFD0
 	bx	lr
 _0600EFEC:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600EFF0
-FUNC_0600EFF0: ; 0x0600EFF0
+	arm_func_start FUN_0600EFF0
+FUN_0600EFF0: ; 0x0600EFF0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	ldrh	r0, [r0]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_0600F00C
-FUNC_0600F00C: ; 0x0600F00C
+	arm_func_start FUN_0600F00C
+FUN_0600F00C: ; 0x0600F00C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r1, _0600F07C	; =0x0380FFF4
 	ldr	r5, [r1]
-	bl	FUNC_0600ED74
+	bl	FUN_0600ED74
 	mov	r0, r6
-	bl	FUNC_0600EF18
+	bl	FUN_0600EF18
 	movs	r4, r0
 	beq	_0600F074
 	mov	r0, r6
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	add	r0, r5, #1280	; 0x500
@@ -17416,14 +17416,14 @@ FUNC_0600F00C: ; 0x0600F00C
 	ldrh	r0, [r0, #56]	; 0x38
 	cmp	r0, #0
 	bne	_0600F074
-	bl	FUNC_0600B21C
+	bl	FUN_0600B21C
 _0600F074:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600F07C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F080
-FUNC_0600F080: ; 0x0600F080
+	arm_func_start FUN_0600F080
+FUN_0600F080: ; 0x0600F080
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -17432,7 +17432,7 @@ FUNC_0600F080: ; 0x0600F080
 	ldr	r0, _0600F12C	; =0x0000052C
 	add	r6, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	mov	r5, #1
 	mov	r2, #2
@@ -17449,13 +17449,13 @@ _0600F0B4:
 	ldrh	r0, [r6, #12]
 	cmp	r0, #1
 	bne	_0600F0E4
-	bl	FUNC_0600B1EC
+	bl	FUN_0600B1EC
 _0600F0E4:
 	mov	r0, r7
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	strh	r5, [r0, #2]
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	mov	r0, r5
 	b	_0600F11C
 _0600F100:
@@ -17465,7 +17465,7 @@ _0600F108:
 	cmp	r5, #16
 	bcc	_0600F0B4
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	mov	r0, #0
 _0600F11C:
 	add	sp, sp, #4
@@ -17474,8 +17474,8 @@ _0600F11C:
 _0600F128:	.word	0x0380FFF4
 _0600F12C:	.word	0x0000052C
 
-	arm_func_start FUNC_0600F130
-FUNC_0600F130: ; 0x0600F130
+	arm_func_start FUN_0600F130
+FUN_0600F130: ; 0x0600F130
 	mov	r1, #28
 	ldr	r2, _0600F150	; =0x0380FFF4
 	ldr	r2, [r2]
@@ -17486,44 +17486,44 @@ FUNC_0600F130: ; 0x0600F130
 	bx	lr
 _0600F150:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F154
-FUNC_0600F154: ; 0x0600F154
+	arm_func_start FUN_0600F154
+FUN_0600F154: ; 0x0600F154
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	strh	r4, [r0, #14]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600F16C
-FUNC_0600F16C: ; 0x0600F16C
+	arm_func_start FUN_0600F16C
+FUN_0600F16C: ; 0x0600F16C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	strh	r4, [r0, #20]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600F184
-FUNC_0600F184: ; 0x0600F184
+	arm_func_start FUN_0600F184
+FUN_0600F184: ; 0x0600F184
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	strh	r4, [r0, #16]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600F19C
-FUNC_0600F19C: ; 0x0600F19C
+	arm_func_start FUN_0600F19C
+FUN_0600F19C: ; 0x0600F19C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	strh	r4, [r0, #12]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600F1B4
-FUNC_0600F1B4: ; 0x0600F1B4
+	arm_func_start FUN_0600F1B4
+FUN_0600F1B4: ; 0x0600F1B4
 	ldr	r1, _0600F1D4	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #1280	; 0x500
@@ -17534,11 +17534,11 @@ FUNC_0600F1B4: ; 0x0600F1B4
 	bx	lr
 _0600F1D4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F1D8
-FUNC_0600F1D8: ; 0x0600F1D8
+	arm_func_start FUN_0600F1D8
+FUN_0600F1D8: ; 0x0600F1D8
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	bne	_0600F20C
 	ldr	r0, _0600F214	; =0x0380FFF4
@@ -17554,8 +17554,8 @@ _0600F20C:
 	bx	lr
 _0600F214:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F218
-FUNC_0600F218: ; 0x0600F218
+	arm_func_start FUN_0600F218
+FUN_0600F218: ; 0x0600F218
 	ldr	r2, _0600F26C	; =0x0380FFF4
 	ldr	r3, [r2]
 	ldr	r2, _0600F270	; =0x0000052C
@@ -17582,27 +17582,27 @@ _0600F270:	.word	0x0000052C
 _0600F274:	.word	0x048080AC
 _0600F278:	.word	0x048080AE
 
-	arm_func_start FUNC_0600F27C
-FUNC_0600F27C: ; 0x0600F27C
+	arm_func_start FUN_0600F27C
+FUN_0600F27C: ; 0x0600F27C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	strh	r4, [r0, #10]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_0600F294
-FUNC_0600F294: ; 0x0600F294
+	arm_func_start FUN_0600F294
+FUN_0600F294: ; 0x0600F294
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	cmp	r5, #64	; 0x40
 	bcs	_0600F308
 	mov	r0, r6
-	bl	FUNC_0600F1B4
+	bl	FUN_0600F1B4
 	ldr	r3, _0600F35C	; =0x0380FFF4
 	ldr	r0, [r3]
 	add	r0, r0, #1280	; 0x500
@@ -17616,11 +17616,11 @@ FUNC_0600F294: ; 0x0600F294
 	cmp	r0, #1
 	bne	_0600F340
 	mov	r0, r6
-	bl	FUNC_0600EF18
+	bl	FUN_0600EF18
 	cmp	r0, #0
 	beq	_0600F340
 	mov	r0, r6
-	bl	FUNC_0600F00C
+	bl	FUN_0600F00C
 	b	_0600F340
 _0600F308:
 	ldr	r0, _0600F35C	; =0x0380FFF4
@@ -17632,30 +17632,30 @@ _0600F308:
 	and	r1, r2, r1
 	strh	r1, [r0, #50]	; 0x32
 	mov	r0, r6
-	bl	FUNC_0600EFB0
+	bl	FUN_0600EFB0
 	cmp	r0, #0
 	beq	_0600F340
 	mov	r0, r6
-	bl	FUNC_0600F1D8
+	bl	FUN_0600F1D8
 _0600F340:
 	mov	r0, r6
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	strh	r5, [r0]
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600F35C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F360
-FUNC_0600F360: ; 0x0600F360
+	arm_func_start FUN_0600F360
+FUN_0600F360: ; 0x0600F360
 	stmdb	sp!, {r4, r5, r6, lr}
 	ldrh	r4, [r0, #2]
 	mov	r0, r4
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	mov	r6, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r5, r0
 	ldr	r0, _0600F3C8	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -17667,26 +17667,26 @@ FUNC_0600F360: ; 0x0600F360
 	cmp	r0, #1
 	bne	_0600F3AC
 	mov	r0, r4
-	bl	FUNC_0600ED74
+	bl	FUN_0600ED74
 _0600F3AC:
 	ldrh	r0, [r6, #22]
 	sub	r0, r0, #1
 	strh	r0, [r6, #22]
 	mov	r0, r5
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600F3C8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F3CC
-FUNC_0600F3CC: ; 0x0600F3CC
+	arm_func_start FUN_0600F3CC
+FUN_0600F3CC: ; 0x0600F3CC
 	stmdb	sp!, {r4, r5, r6, lr}
 	ldrh	r4, [r0, #2]
 	mov	r0, r4
-	bl	FUNC_0600EEE0
+	bl	FUN_0600EEE0
 	mov	r6, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r5, r0
 	ldr	r0, _0600F458	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -17698,13 +17698,13 @@ FUNC_0600F3CC: ; 0x0600F3CC
 	cmp	r0, #0
 	bne	_0600F418
 	mov	r0, r4
-	bl	FUNC_0600EE20
+	bl	FUN_0600EE20
 _0600F418:
 	ldrh	r0, [r6, #22]
 	add	r0, r0, #1
 	strh	r0, [r6, #22]
 	mov	r0, r5
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	ldr	r0, _0600F458	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -17718,8 +17718,8 @@ _0600F418:
 	bx	lr
 _0600F458:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F45C
-FUNC_0600F45C: ; 0x0600F45C
+	arm_func_start FUN_0600F45C
+FUN_0600F45C: ; 0x0600F45C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -17728,27 +17728,27 @@ FUNC_0600F45C: ; 0x0600F45C
 	ldr	r0, [r0]
 	add	r5, r0, #428	; 0x1ac
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	ldrh	r0, [r5, #8]
 	cmp	r0, #0
 	bne	_0600F498
 	mov	r0, #0
-	bl	FUNC_0600EE20
+	bl	FUN_0600EE20
 _0600F498:
 	mov	r0, r7
 	mov	r1, r5
 	mov	r2, r6
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 _0600F4BC:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F4C0
-FUNC_0600F4C0: ; 0x0600F4C0
+	arm_func_start FUN_0600F4C0
+FUN_0600F4C0: ; 0x0600F4C0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	mov	r9, r0
 	ldr	sl, _0600F604	; =0x0380FFF4
@@ -17774,7 +17774,7 @@ _0600F50C:
 	beq	_0600F54C
 	add	r0, r7, #4
 	mov	r1, r9
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	movne	r0, r6
 	bne	_0600F5FC
@@ -17837,15 +17837,15 @@ _0600F5D8:
 _0600F5EC:
 	mov	r0, r6
 	mov	r1, r9
-	bl	FUNC_0600E93C
+	bl	FUN_0600E93C
 	mov	r0, r6
 _0600F5FC:
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	bx	lr
 _0600F604:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F608
-FUNC_0600F608: ; 0x0600F608
+	arm_func_start FUN_0600F608
+FUN_0600F608: ; 0x0600F608
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r8, r0
 	ldrh	r0, [r8]
@@ -17869,7 +17869,7 @@ _0600F64C:
 	beq	_0600F688
 	add	r0, r7, #4
 	mov	r1, r8
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	movne	r0, r6
 	bne	_0600F6A4
@@ -17896,8 +17896,8 @@ _0600F6AC:	.word	0x0380FFF4
 _0600F6B0:
 	mov	r2, #0
 
-	arm_func_start FUNC_0600F6B4
-FUNC_0600F6B4: ; 0x0600F6B4
+	arm_func_start FUN_0600F6B4
+FUN_0600F6B4: ; 0x0600F6B4
 	ldr	r1, _0600F6E0	; =0x04808180
 	b	_0600F6D0
 _0600F6BC:
@@ -17913,8 +17913,8 @@ _0600F6D0:
 	bx	lr
 _0600F6E0:	.word	0x04808180
 
-	arm_func_start FUNC_0600F6E4
-FUNC_0600F6E4: ; 0x0600F6E4
+	arm_func_start FUN_0600F6E4
+FUN_0600F6E4: ; 0x0600F6E4
 	mov	r2, #0
 	ldr	r1, _0600F714	; =0x0480815E
 	b	_0600F704
@@ -17931,8 +17931,8 @@ _0600F704:
 	bx	lr
 _0600F714:	.word	0x0480815E
 
-	arm_func_start FUNC_0600F718
-FUNC_0600F718: ; 0x0600F718
+	arm_func_start FUN_0600F718
+FUN_0600F718: ; 0x0600F718
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, #1
@@ -17971,12 +17971,12 @@ _0600F794:	.word	0x04808214
 _0600F798:	.word	0x04000208
 _0600F79C:	.word	0x0480819C
 
-	arm_func_start FUNC_0600F7A0
-FUNC_0600F7A0: ; 0x0600F7A0
+	arm_func_start FUN_0600F7A0
+FUN_0600F7A0: ; 0x0600F7A0
 	stmdb	sp!, {r4, lr}
 
-	arm_func_start FUNC_0600F7A4
-FUNC_0600F7A4: ; 0x0600F7A4
+	arm_func_start FUN_0600F7A4
+FUN_0600F7A4: ; 0x0600F7A4
 	sub	sp, sp, #8
 	mov	r4, r1
 	mov	r1, #1
@@ -17990,7 +17990,7 @@ FUNC_0600F7A4: ; 0x0600F7A4
 	mov	r0, ip, lsr #6
 	orr	r0, r0, r2, lsl #26
 	mov	r2, #1000	; 0x3e8
-	bl	FUNC_06009EDC
+	bl	FUN_06009EDC
 	mov	r3, r0
 	mov	r2, r1
 	add	r0, sp, #4
@@ -18001,7 +18001,7 @@ FUNC_0600F7A4: ; 0x0600F7A4
 	add	r0, r1, r0
 	mov	r1, r3
 	mov	r3, r4
-	bl	FUNC_0600144C
+	bl	FUN_0600144C
 _0600F808:
 	ldr	r0, [sp, #4]
 	cmp	r0, #0
@@ -18013,8 +18013,8 @@ _0600F820:	.word	0x000082EA
 _0600F824:	.word	0x0380FFF4
 _0600F828:	.word	0x00000634
 
-	arm_func_start FUNC_0600F82C
-FUNC_0600F82C: ; 0x0600F82C
+	arm_func_start FUN_0600F82C
+FUN_0600F82C: ; 0x0600F82C
 	mov	r2, #4000	; 0xfa0
 	ldr	r1, _0600F854	; =0x0480819C
 	b	_0600F848
@@ -18029,8 +18029,8 @@ _0600F848:
 	bx	lr
 _0600F854:	.word	0x0480819C
 
-	arm_func_start FUNC_0600F858
-FUNC_0600F858: ; 0x0600F858
+	arm_func_start FUN_0600F858
+FUN_0600F858: ; 0x0600F858
 	mov	r1, #0
 	ldr	r0, _0600F870	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -18039,8 +18039,8 @@ FUNC_0600F858: ; 0x0600F858
 	bx	lr
 _0600F870:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F874
-FUNC_0600F874: ; 0x0600F874
+	arm_func_start FUN_0600F874
+FUN_0600F874: ; 0x0600F874
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r6, _0600F8D8	; =0x0380FFF4
@@ -18053,13 +18053,13 @@ _0600F894:
 	ldr	r0, [r0, #772]	; 0x304
 	mov	r1, r7
 	mov	r2, r5
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 	cmp	r0, #0
 	beq	_0600F8CC
 	ldr	r0, [r6]
 	add	r0, r0, #500	; 0x1f4
 	mov	r1, r7
-	bl	FUNC_0600943C
+	bl	FUN_0600943C
 	ldr	r0, [r6]
 	ldr	r7, [r0, #500]	; 0x1f4
 _0600F8C4:
@@ -18071,8 +18071,8 @@ _0600F8CC:
 	bx	lr
 _0600F8D8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F8DC
-FUNC_0600F8DC: ; 0x0600F8DC
+	arm_func_start FUN_0600F8DC
+FUN_0600F8DC: ; 0x0600F8DC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -18085,20 +18085,20 @@ FUNC_0600F8DC: ; 0x0600F8DC
 	beq	_0600F920
 	add	r1, r3, #500	; 0x1f4
 	mov	r2, r4
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, #2
 	mov	r1, #19
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_0600F95C
 _0600F920:
 	ldr	r0, [r3, #772]	; 0x304
 	mov	r2, #0
-	bl	FUNC_060006F8
+	bl	FUN_060006F8
 	cmp	r0, #0
 	beq	_0600F944
 	mov	r0, r5
 	mov	r1, r4
-	bl	FUNC_0600943C
+	bl	FUN_0600943C
 	b	_0600F95C
 _0600F944:
 	mov	r0, r5
@@ -18106,20 +18106,20 @@ _0600F944:
 	ldr	r1, [r1]
 	add	r1, r1, #500	; 0x1f4
 	mov	r2, r4
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 _0600F95C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600F968:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600F96C
-FUNC_0600F96C: ; 0x0600F96C
+	arm_func_start FUN_0600F96C
+FUN_0600F96C: ; 0x0600F96C
 	mov	r0, #3
 	bx	lr
 
-	arm_func_start FUNC_0600F974
-FUNC_0600F974: ; 0x0600F974
+	arm_func_start FUN_0600F974
+FUN_0600F974: ; 0x0600F974
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r1, _0600FC68	; =0x0380FFF4
@@ -18310,7 +18310,7 @@ _0600FC14:
 	ldr	r0, [r0]
 	add	r0, r0, #512	; 0x200
 	ldr	r1, [r6]
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 _0600FC38:
 	ldr	r0, _0600FC68	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -18320,7 +18320,7 @@ _0600FC38:
 	beq	_0600FC5C
 	mov	r0, #2
 	mov	r1, #11
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _0600FC5C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -18335,8 +18335,8 @@ _0600FC80:	.word	_060197E0
 _0600FC84:	.word	_060196D0
 _0600FC88:	.word	_06019788
 
-	arm_func_start FUNC_0600FC8C
-FUNC_0600FC8C: ; 0x0600FC8C
+	arm_func_start FUN_0600FC8C
+FUN_0600FC8C: ; 0x0600FC8C
 	mov	r0, #0
 	ldr	r1, _0600FCAC	; =0x0380FFF4
 	ldr	r2, [r1]
@@ -18349,8 +18349,8 @@ _0600FCAC:	.word	0x0380FFF4
 _0600FCB0:	.word	0x00000404
 _0600FCB4:	.word	FUN_037FB300
 
-	arm_func_start FUNC_0600FCB8
-FUNC_0600FCB8: ; 0x0600FCB8
+	arm_func_start FUN_0600FCB8
+FUN_0600FCB8: ; 0x0600FCB8
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r6, r0
@@ -18361,11 +18361,11 @@ FUNC_0600FCB8: ; 0x0600FCB8
 	add	r1, r1, #768	; 0x300
 	ldrh	r1, [r1, #228]	; 0xe4
 	add	r1, r1, #62	; 0x3e
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_0600FCFC
 	mov	r0, #1
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, #0
 	b	_0600FDD4
 _0600FCFC:
@@ -18374,20 +18374,20 @@ _0600FCFC:
 	ldrh	r0, [r5, #160]	; 0xa0
 	add	r0, r0, #1
 	mov	r1, #2
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	add	r0, r0, #22
 	strh	r0, [r4, #14]
 	add	r0, r4, #31
 	ldrh	r1, [r6, #18]
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r4, #30
 	ldrh	r1, [r6, #14]
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r4, #46	; 0x2e
 	add	r1, r6, #30
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldrh	r0, [r5, #160]	; 0xa0
 	strh	r0, [r4, #22]
 	ldrh	r2, [r4, #22]
@@ -18403,10 +18403,10 @@ _0600FCFC:
 	b	_0600FD9C
 _0600FD7C:
 	mov	r0, r6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, r5
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r6, r6, #1
 	add	r5, r5, #1
 	add	r7, r7, #1
@@ -18419,13 +18419,13 @@ _0600FDAC:
 	ldr	r0, [r5, #156]	; 0x9c
 	add	r1, r4, #60	; 0x3c
 	add	r2, r2, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 _0600FDBC:
 	ldr	r0, _0600FDE0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #1
 _0600FDD4:
 	add	sp, sp, #4
@@ -18433,19 +18433,19 @@ _0600FDD4:
 	bx	lr
 _0600FDE0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600FDE4
-FUNC_0600FDE4: ; 0x0600FDE4
+	arm_func_start FUN_0600FDE4
+FUN_0600FDE4: ; 0x0600FDE4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600FE48	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #16
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r1, r0
 	bne	_0600FE18
 	mov	r0, #1
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, #0
 	b	_0600FE3C
 _0600FE18:
@@ -18456,7 +18456,7 @@ _0600FE18:
 	ldr	r0, _0600FE48	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #1
 _0600FE3C:
 	add	sp, sp, #4
@@ -18464,8 +18464,8 @@ _0600FE3C:
 	bx	lr
 _0600FE48:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600FE4C
-FUNC_0600FE4C: ; 0x0600FE4C
+	arm_func_start FUN_0600FE4C
+FUN_0600FE4C: ; 0x0600FE4C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -18473,11 +18473,11 @@ FUNC_0600FE4C: ; 0x0600FE4C
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #22
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_0600FE84
 	mov	r0, #1
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, #0
 	b	_0600FEB8
 _0600FE84:
@@ -18487,12 +18487,12 @@ _0600FE84:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r5
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldr	r0, _0600FEC4	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #1
 _0600FEB8:
 	add	sp, sp, #4
@@ -18500,8 +18500,8 @@ _0600FEB8:
 	bx	lr
 _0600FEC4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600FEC8
-FUNC_0600FEC8: ; 0x0600FEC8
+	arm_func_start FUN_0600FEC8
+FUN_0600FEC8: ; 0x0600FEC8
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -18509,11 +18509,11 @@ FUNC_0600FEC8: ; 0x0600FEC8
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #24
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_0600FF00
 	mov	r0, #1
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, #0
 	b	_0600FF38
 _0600FF00:
@@ -18523,21 +18523,21 @@ _0600FF00:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r6
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	strh	r5, [r4, #22]
 	ldr	r0, _0600FF40	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #1
 _0600FF38:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600FF40:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0600FF44
-FUNC_0600FF44: ; 0x0600FF44
+	arm_func_start FUN_0600FF44
+FUN_0600FF44: ; 0x0600FF44
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -18547,11 +18547,11 @@ FUNC_0600FF44: ; 0x0600FF44
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #58	; 0x3a
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_0600FF84
 	mov	r0, #1
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, #0
 	b	_06010024
 _0600FF84:
@@ -18561,10 +18561,10 @@ _0600FF84:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r7
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	strh	r6, [r4, #22]
 	add	r0, r5, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	strh	r0, [r4, #24]
 	mov	r7, #0
 	add	r6, r5, #2
@@ -18574,10 +18574,10 @@ _0600FFC0:
 	cmp	r7, #32
 	bcs	_06010004
 	add	r0, r6, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r5, r7
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r7, r7, #1
 _0600FFE0:
 	ldrh	r0, [r4, #24]
@@ -18588,7 +18588,7 @@ _0600FFF0:
 	add	r0, r4, #26
 	add	r0, r0, r7
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r7, r7, #1
 _06010004:
 	cmp	r7, #32
@@ -18597,7 +18597,7 @@ _06010004:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #1
 _06010024:
 	add	sp, sp, #4
@@ -18605,8 +18605,8 @@ _06010024:
 	bx	lr
 _06010030:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06010034
-FUNC_06010034: ; 0x06010034
+	arm_func_start FUN_06010034
+FUN_06010034: ; 0x06010034
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -18616,11 +18616,11 @@ FUNC_06010034: ; 0x06010034
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #58	; 0x3a
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_06010074
 	mov	r0, #1
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, #0
 	b	_0601011C
 _06010074:
@@ -18630,12 +18630,12 @@ _06010074:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r7
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldr	r0, _0601012C	; =0x00000FFF
 	and	r0, r6, r0
 	strh	r0, [r4, #22]
 	add	r0, r5, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	strh	r0, [r4, #24]
 	mov	r7, #0
 	add	r6, r5, #2
@@ -18645,10 +18645,10 @@ _060100B8:
 	cmp	r7, #32
 	bcs	_060100FC
 	add	r0, r6, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r5, r7
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r7, r7, #1
 _060100D8:
 	ldrh	r0, [r4, #24]
@@ -18659,7 +18659,7 @@ _060100E8:
 	add	r0, r4, #26
 	add	r0, r0, r7
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r7, r7, #1
 _060100FC:
 	cmp	r7, #32
@@ -18668,7 +18668,7 @@ _060100FC:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #1
 _0601011C:
 	add	sp, sp, #4
@@ -18677,8 +18677,8 @@ _0601011C:
 _06010128:	.word	0x0380FFF4
 _0601012C:	.word	0x00000FFF
 
-	arm_func_start FUNC_06010130
-FUNC_06010130: ; 0x06010130
+	arm_func_start FUN_06010130
+FUN_06010130: ; 0x06010130
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -18686,11 +18686,11 @@ FUNC_06010130: ; 0x06010130
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #24
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_06010168
 	mov	r0, #1
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, #0
 	b	_060101A0
 _06010168:
@@ -18700,21 +18700,21 @@ _06010168:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r6
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	strh	r5, [r4, #22]
 	ldr	r0, _060101A8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #1
 _060101A0:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _060101A8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_060101AC
-FUNC_060101AC: ; 0x060101AC
+	arm_func_start FUN_060101AC
+FUN_060101AC: ; 0x060101AC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -18722,11 +18722,11 @@ FUNC_060101AC: ; 0x060101AC
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #24
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_060101E4
 	mov	r0, #1
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, #0
 	b	_0601021C
 _060101E4:
@@ -18736,21 +18736,21 @@ _060101E4:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r6
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	strh	r5, [r4, #22]
 	ldr	r0, _06010224	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #1
 _0601021C:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _06010224:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06010228
-FUNC_06010228: ; 0x06010228
+	arm_func_start FUN_06010228
+FUN_06010228: ; 0x06010228
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06010278	; =0x0380FFF4
 	ldr	r2, [r0]
@@ -18762,33 +18762,33 @@ FUNC_06010228: ; 0x06010228
 	strh	r0, [r1, #4]
 	add	r0, r4, #132	; 0x84
 	ldr	r1, [r2, #1060]	; 0x424
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	ldrh	r0, [r4, #140]	; 0x8c
 	cmp	r0, #0
 	beq	_06010270
 	mov	r0, #2
 	mov	r1, #11
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06010270:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06010278:	.word	0x0380FFF4
 _0601027C:	.word	0x00000424
 
-	arm_func_start FUNC_06010280
-FUNC_06010280: ; 0x06010280
+	arm_func_start FUN_06010280
+FUN_06010280: ; 0x06010280
 	ldr	r0, _06010298	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _0601029C	; =0x000003C6
 	add	r0, r1, r0
-	ldr	ip, _060102A0	; =FUNC_0600FE4C
+	ldr	ip, _060102A0	; =FUN_0600FE4C
 	bx	ip
 _06010298:	.word	0x0380FFF4
 _0601029C:	.word	0x000003C6
-_060102A0:	.word	FUNC_0600FE4C
+_060102A0:	.word	FUN_0600FE4C
 
-	arm_func_start FUNC_060102A4
-FUNC_060102A4: ; 0x060102A4
+	arm_func_start FUN_060102A4
+FUN_060102A4: ; 0x060102A4
 	mov	r1, #131	; 0x83
 	ldr	r0, _060102C8	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -18796,13 +18796,13 @@ FUNC_060102A4: ; 0x060102A4
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, #5
-	ldr	ip, _060102CC	; =FUNC_06009078
+	ldr	ip, _060102CC	; =FUN_06009078
 	bx	ip
 _060102C8:	.word	0x0380FFF4
-_060102CC:	.word	FUNC_06009078
+_060102CC:	.word	FUN_06009078
 
-	arm_func_start FUNC_060102D0
-FUNC_060102D0: ; 0x060102D0
+	arm_func_start FUN_060102D0
+FUN_060102D0: ; 0x060102D0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06010544	; =0x0380FFF4
@@ -18825,15 +18825,15 @@ _06010318:
 	mov	r0, #0
 	strh	r0, [r4, #20]
 	mov	r0, #19
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	strh	r0, [r4, #14]
 	mov	r0, #53	; 0x35
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	strh	r0, [r4, #16]
 	ldr	r1, [r4, #24]
 	ldrh	r0, [r1, #18]
 	ldrh	r1, [r1, #20]
-	bl	FUNC_0600BDA0
+	bl	FUN_0600BDA0
 	mov	r0, #4
 	strh	r0, [r5, #12]
 	mov	r0, #0
@@ -18846,7 +18846,7 @@ _06010358:
 	add	r1, r0, #24
 	ldrh	r0, [r4, #20]
 	add	r0, r1, r0
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	movs	r5, r0
 	beq	_0601038C
 	ldrh	r0, [r4, #20]
@@ -18858,7 +18858,7 @@ _0601038C:
 	b	_06010520
 _06010398:
 	mov	r0, #0
-	bl	FUNC_060191BC
+	bl	FUN_060191BC
 	cmp	r0, #0
 	movne	r0, #14
 	strneh	r0, [r4, #22]
@@ -18871,26 +18871,26 @@ _06010398:
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #0
-	bl	FUNC_0600B570
-	bl	FUNC_0600A5A4
+	bl	FUN_0600B570
+	bl	FUN_0600A5A4
 	ldr	r0, _0601054C	; =0x04808040
 	ldrh	r0, [r0]
 	strh	r0, [r4, #12]
 	mov	r0, #32768	; 0x8000
-	bl	FUNC_0600B3E0
+	bl	FUN_0600B3E0
 	b	_06010400
 _060103F0:
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #0
-	bl	FUNC_0600B570
+	bl	FUN_0600B570
 _06010400:
 	mov	r0, #130	; 0x82
 	strh	r0, [r4]
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #22]
-	ldr	r1, _06010550	; =FUNC_060102A4
-	bl	FUNC_06009EE4
+	ldr	r1, _06010550	; =FUN_060102A4
+	bl	FUN_06009EE4
 _06010418:
 	ldr	r0, [r4, #4]
 	add	r0, r0, #1
@@ -18907,7 +18907,7 @@ _06010440:
 	add	r1, r0, #24
 	ldrh	r0, [r4, #20]
 	add	r0, r1, r0
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r5, r0
 	mov	r2, #0
 	ldr	r1, [r4, #4]
@@ -18916,7 +18916,7 @@ _06010440:
 	ldr	r0, [r4, #8]
 	cmp	r0, #0
 	beq	_06010484
-	bl	FUNC_06003B68
+	bl	FUN_06003B68
 	add	r2, r0, #1
 	cmp	r2, #100	; 0x64
 	movhi	r2, #100	; 0x64
@@ -18933,7 +18933,7 @@ _06010484:
 	strh	r0, [r4]
 	b	_06010520
 _060104B0:
-	bl	FUNC_0600A4EC
+	bl	FUN_0600A4EC
 	ldr	r0, _06010544	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -18941,12 +18941,12 @@ _060104B0:
 	strh	r0, [r5, #12]
 	mov	r0, #19
 	ldrh	r1, [r4, #14]
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	mov	r0, #53	; 0x35
 	ldrh	r1, [r4, #16]
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	ldrh	r0, [r4, #12]
-	bl	FUNC_0600B3E0
+	bl	FUN_0600B3E0
 	ldrh	r1, [r4, #22]
 	ldr	r0, [r4, #28]
 	strh	r1, [r0, #4]
@@ -18962,14 +18962,14 @@ _06010504:
 _06010514:
 	cmp	r2, #16
 	bcc	_06010504
-	bl	FUNC_06010228
+	bl	FUN_06010228
 _06010520:
 	ldrh	r0, [r4]
 	cmp	r0, #0
 	beq	_06010538
 	mov	r0, #2
 	mov	r1, #5
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06010538:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -18977,11 +18977,11 @@ _06010538:
 _06010544:	.word	0x0380FFF4
 _06010548:	.word	0x00000404
 _0601054C:	.word	0x04808040
-_06010550:	.word	FUNC_060102A4
+_06010550:	.word	FUN_060102A4
 _06010554:	.word	0x0480819C
 
-	arm_func_start FUNC_06010558
-FUNC_06010558: ; 0x06010558
+	arm_func_start FUN_06010558
+FUN_06010558: ; 0x06010558
 	ldr	r0, _06010590	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _06010594	; =0x00000404
@@ -18994,14 +18994,14 @@ FUNC_06010558: ; 0x06010558
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, #4
-	ldr	ip, _06010598	; =FUNC_06009078
+	ldr	ip, _06010598	; =FUN_06009078
 	bx	ip
 _06010590:	.word	0x0380FFF4
 _06010594:	.word	0x00000404
-_06010598:	.word	FUNC_06009078
+_06010598:	.word	FUN_06009078
 
-	arm_func_start FUNC_0601059C
-FUNC_0601059C: ; 0x0601059C
+	arm_func_start FUN_0601059C
+FUN_0601059C: ; 0x0601059C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0601064C	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19017,7 +19017,7 @@ FUNC_0601059C: ; 0x0601059C
 _060105CC:
 	ldr	r0, [r4, #24]
 	add	r0, r0, #16
-	bl	FUNC_06014458
+	bl	FUN_06014458
 	cmp	r0, #0
 	bne	_06010604
 	mov	r1, #8
@@ -19027,35 +19027,35 @@ _060105CC:
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, #4
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_06010644
 _06010604:
 	mov	r1, #97	; 0x61
 	strh	r1, [r4]
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #24]
-	ldr	r1, _06010654	; =FUNC_06010558
-	bl	FUNC_06009EE4
+	ldr	r1, _06010654	; =FUN_06010558
+	bl	FUN_06009EE4
 	b	_06010644
 _06010624:
 	mov	r0, #1
-	bl	FUNC_06015060
+	bl	FUN_06015060
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUNC_06010228
+	bl	FUN_06010228
 _06010644:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0601064C:	.word	0x0380FFF4
 _06010650:	.word	0x00000404
-_06010654:	.word	FUNC_06010558
+_06010654:	.word	FUN_06010558
 
-	arm_func_start FUNC_06010658
-FUNC_06010658: ; 0x06010658
+	arm_func_start FUN_06010658
+FUN_06010658: ; 0x06010658
 	ldr	r0, _06010690	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _06010694	; =0x00000404
@@ -19068,14 +19068,14 @@ FUNC_06010658: ; 0x06010658
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, #3
-	ldr	ip, _06010698	; =FUNC_06009078
+	ldr	ip, _06010698	; =FUN_06009078
 	bx	ip
 _06010690:	.word	0x0380FFF4
 _06010694:	.word	0x00000404
-_06010698:	.word	FUNC_06009078
+_06010698:	.word	FUN_06009078
 
-	arm_func_start FUNC_0601069C
-FUNC_0601069C: ; 0x0601069C
+	arm_func_start FUN_0601069C
+FUN_0601069C: ; 0x0601069C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06010754	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19091,7 +19091,7 @@ FUNC_0601069C: ; 0x0601069C
 _060106CC:
 	ldr	r0, [r4, #24]
 	add	r0, r0, #16
-	bl	FUNC_06014510
+	bl	FUN_06014510
 	cmp	r0, #0
 	bne	_06010704
 	mov	r1, #8
@@ -19101,37 +19101,37 @@ _060106CC:
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, #3
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_0601074C
 _06010704:
 	mov	r1, #81	; 0x51
 	strh	r1, [r4]
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #24]
-	ldr	r1, _0601075C	; =FUNC_06010658
-	bl	FUNC_06009EE4
+	ldr	r1, _0601075C	; =FUN_06010658
+	bl	FUN_06009EE4
 	b	_0601074C
 _06010724:
 	mov	r0, #1
-	bl	FUNC_06014FC8
+	bl	FUN_06014FC8
 	mov	r0, #1
-	bl	FUNC_06015060
+	bl	FUN_06015060
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUNC_06010228
+	bl	FUN_06010228
 _0601074C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06010754:	.word	0x0380FFF4
 _06010758:	.word	0x00000404
-_0601075C:	.word	FUNC_06010658
+_0601075C:	.word	FUN_06010658
 
-	arm_func_start FUNC_06010760
-FUNC_06010760: ; 0x06010760
+	arm_func_start FUN_06010760
+FUN_06010760: ; 0x06010760
 	ldr	r0, _06010798	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _0601079C	; =0x00000404
@@ -19144,14 +19144,14 @@ FUNC_06010760: ; 0x06010760
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, r0
-	ldr	ip, _060107A0	; =FUNC_06009078
+	ldr	ip, _060107A0	; =FUN_06009078
 	bx	ip
 _06010798:	.word	0x0380FFF4
 _0601079C:	.word	0x00000404
-_060107A0:	.word	FUNC_06009078
+_060107A0:	.word	FUN_06009078
 
-	arm_func_start FUNC_060107A4
-FUNC_060107A4: ; 0x060107A4
+	arm_func_start FUN_060107A4
+FUN_060107A4: ; 0x060107A4
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06010880	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19169,7 +19169,7 @@ _060107D4:
 	add	r0, r0, #16
 	mov	r1, #0
 	mov	r2, r1
-	bl	FUNC_06013F38
+	bl	FUN_06013F38
 	cmp	r0, #0
 	bne	_06010814
 	mov	r1, #8
@@ -19179,7 +19179,7 @@ _060107D4:
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, r0
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_06010878
 _06010814:
 	ldr	r1, [r4, #24]
@@ -19191,32 +19191,32 @@ _06010814:
 	strh	r1, [r0, #48]	; 0x30
 	mov	r1, #49	; 0x31
 	strh	r1, [r4]
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #24]
-	ldr	r1, _06010888	; =FUNC_06010760
-	bl	FUNC_06009EE4
+	ldr	r1, _06010888	; =FUN_06010760
+	bl	FUN_06009EE4
 	b	_06010878
 _06010850:
 	mov	r0, #1
-	bl	FUNC_06014FC8
+	bl	FUN_06014FC8
 	mov	r0, #1
-	bl	FUNC_06015060
+	bl	FUN_06015060
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUNC_06010228
+	bl	FUN_06010228
 _06010878:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06010880:	.word	0x0380FFF4
 _06010884:	.word	0x00000404
-_06010888:	.word	FUNC_06010760
+_06010888:	.word	FUN_06010760
 
-	arm_func_start FUNC_0601088C
-FUNC_0601088C: ; 0x0601088C
+	arm_func_start FUN_0601088C
+FUN_0601088C: ; 0x0601088C
 	ldr	r0, _060108C0	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _060108C4	; =0x00000404
@@ -19228,14 +19228,14 @@ FUNC_0601088C: ; 0x0601088C
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, #1
-	ldr	ip, _060108C8	; =FUNC_06009078
+	ldr	ip, _060108C8	; =FUN_06009078
 	bx	ip
 _060108C0:	.word	0x0380FFF4
 _060108C4:	.word	0x00000404
-_060108C8:	.word	FUNC_06009078
+_060108C8:	.word	FUN_06009078
 
-	arm_func_start FUNC_060108CC
-FUNC_060108CC: ; 0x060108CC
+	arm_func_start FUN_060108CC
+FUN_060108CC: ; 0x060108CC
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06010964	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19249,7 +19249,7 @@ FUNC_060108CC: ; 0x060108CC
 	beq	_06010928
 	b	_0601095C
 _060108FC:
-	bl	FUNC_0600A5A4
+	bl	FUN_0600A5A4
 	mov	r0, #0
 	strh	r0, [r4, #4]
 	strh	r0, [r4, #6]
@@ -19257,8 +19257,8 @@ _060108FC:
 	strh	r0, [r4]
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #16]
-	ldr	r1, _0601096C	; =FUNC_0601088C
-	bl	FUNC_06009EE4
+	ldr	r1, _0601096C	; =FUN_0601088C
+	bl	FUN_06009EE4
 	b	_0601095C
 _06010928:
 	ldrh	r1, [r4, #4]
@@ -19270,20 +19270,20 @@ _06010928:
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
 	beq	_06010950
-	bl	FUNC_0600A4EC
+	bl	FUN_0600A4EC
 _06010950:
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUNC_06010228
+	bl	FUN_06010228
 _0601095C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06010964:	.word	0x0380FFF4
 _06010968:	.word	0x00000404
-_0601096C:	.word	FUNC_0601088C
+_0601096C:	.word	FUN_0601088C
 
-	arm_func_start FUNC_06010970
-FUNC_06010970: ; 0x06010970
+	arm_func_start FUN_06010970
+FUN_06010970: ; 0x06010970
 	ldr	r0, _060109CC	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _060109D0	; =0x00000404
@@ -19306,14 +19306,14 @@ FUNC_06010970: ; 0x06010970
 _060109BC:
 	mov	r0, #2
 	mov	r1, #0
-	ldr	ip, _060109D4	; =FUNC_06009078
+	ldr	ip, _060109D4	; =FUN_06009078
 	bx	ip
 _060109CC:	.word	0x0380FFF4
 _060109D0:	.word	0x00000404
-_060109D4:	.word	FUNC_06009078
+_060109D4:	.word	FUN_06009078
 
-	arm_func_start FUNC_060109D8
-FUNC_060109D8: ; 0x060109D8
+	arm_func_start FUN_060109D8
+FUN_060109D8: ; 0x060109D8
 	stmdb	sp!, {r4, r5, r6, lr}
 	ldr	r0, _06010BC8	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19335,7 +19335,7 @@ FUNC_060109D8: ; 0x060109D8
 	b	_06010B8C
 _06010A24:
 	mov	r0, #32
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	mov	r0, #2
 	strh	r0, [r5, #12]
 	mov	r1, r4
@@ -19352,7 +19352,7 @@ _06010A24:
 	ldrh	r0, [r1, #74]	; 0x4a
 	add	r0, r0, #3
 	mov	r1, #4
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	strh	r0, [r6, #12]
 	ldrh	r0, [r6, #12]
 	cmp	r0, #10
@@ -19371,7 +19371,7 @@ _06010A9C:
 	add	r1, r0, #58	; 0x3a
 	ldrh	r0, [r6, #6]
 	add	r0, r1, r0
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	movs	r5, r0
 	moveq	r0, #21
 	streqh	r0, [r6]
@@ -19382,7 +19382,7 @@ _06010A9C:
 	strh	r0, [r6, #6]
 	mov	r0, #0
 	strh	r0, [r6, #10]
-	bl	FUNC_060191BC
+	bl	FUN_060191BC
 	cmp	r0, #0
 	beq	_06010B00
 	mov	r1, #14
@@ -19398,13 +19398,13 @@ _06010B00:
 	bne	_06010B20
 	mov	r0, r5
 	mov	r1, #0
-	bl	FUNC_0600B570
-	bl	FUNC_0600A5A4
+	bl	FUN_0600B570
+	bl	FUN_0600A5A4
 	b	_06010B2C
 _06010B20:
 	mov	r0, r5
 	mov	r1, #0
-	bl	FUNC_0600B570
+	bl	FUN_0600B570
 _06010B2C:
 	mov	r0, #18
 	strh	r0, [r6]
@@ -19416,7 +19416,7 @@ _06010B34:
 	cmp	r0, #0
 	bne	_06010B7C
 	add	r0, r1, #16
-	bl	FUNC_060140E4
+	bl	FUN_060140E4
 	cmp	r0, #0
 	bne	_06010B78
 	mov	r1, #8
@@ -19427,36 +19427,36 @@ _06010B34:
 	mov	r4, #1
 	b	_06010BAC
 _06010B78:
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 _06010B7C:
 	ldrh	r0, [r6, #12]
-	ldr	r1, _06010BD0	; =FUNC_06010970
-	bl	FUNC_06009EE4
+	ldr	r1, _06010BD0	; =FUN_06010970
+	bl	FUN_06009EE4
 	b	_06010BAC
 _06010B8C:
 	strh	r4, [r6]
-	bl	FUNC_0600A4EC
+	bl	FUN_0600A4EC
 	ldr	r0, _06010BC8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
 	ldrh	r0, [r0, #46]	; 0x2e
 	strh	r0, [r5, #12]
-	bl	FUNC_06010228
+	bl	FUN_06010228
 _06010BAC:
 	cmp	r4, #0
 	beq	_06010BC0
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06010BC0:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _06010BC8:	.word	0x0380FFF4
 _06010BCC:	.word	0x00000404
-_06010BD0:	.word	FUNC_06010970
+_06010BD0:	.word	FUN_06010970
 
-	arm_func_start FUNC_06010BD4
-FUNC_06010BD4: ; 0x06010BD4
+	arm_func_start FUN_06010BD4
+FUN_06010BD4: ; 0x06010BD4
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -19492,10 +19492,10 @@ FUNC_06010BD4: ; 0x06010BD4
 	b	_06010C7C
 _06010C58:
 	add	r0, r7, r8
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	cmp	r0, #0
 	beq	_06010C84
-	bl	FUNC_0600AB58
+	bl	FUN_0600AB58
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06010CAC
@@ -19512,7 +19512,7 @@ _06010C84:
 	mov	r0, #128	; 0x80
 	strh	r0, [r4]
 	strh	r0, [r5, #4]
-	bl	FUNC_060102D0
+	bl	FUN_060102D0
 	mov	r0, #128	; 0x80
 _06010CAC:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -19520,8 +19520,8 @@ _06010CAC:
 _06010CB4:	.word	0x0380FFF4
 _06010CB8:	.word	0x00000404
 
-	arm_func_start FUNC_06010CBC
-FUNC_06010CBC: ; 0x06010CBC
+	arm_func_start FUN_06010CBC
+FUN_06010CBC: ; 0x06010CBC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _06010E54	; =0x0380FFF4
@@ -19567,7 +19567,7 @@ _06010CF4:
 	ands	r1, r0, r1
 	movne	r0, #5
 	bne	_06010E4C
-	bl	FUNC_0600AB58
+	bl	FUN_0600AB58
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06010E4C
@@ -19592,7 +19592,7 @@ _06010CF4:
 	movhi	r0, #5
 	bhi	_06010E4C
 	mov	r0, #0
-	bl	FUNC_060191BC
+	bl	FUN_060191BC
 	cmp	r0, #0
 	movne	r0, #14
 	bne	_06010E4C
@@ -19600,30 +19600,30 @@ _06010CF4:
 	cmp	r0, #0
 	bne	_06010DF8
 	ldr	r0, _06010E5C	; =_06019384
-	bl	FUNC_0600BB58
+	bl	FUN_0600BB58
 	b	_06010E00
 _06010DF8:
 	add	r0, r4, #8
-	bl	FUNC_0600BB58
+	bl	FUN_0600BB58
 _06010E00:
 	ldrh	r0, [r6, #16]
 	add	r1, r6, #18
-	bl	FUNC_0600BA3C
+	bl	FUN_0600BA3C
 	ldrh	r0, [r6, #50]	; 0x32
-	bl	FUNC_0600B9DC
+	bl	FUN_0600B9DC
 	ldrh	r0, [r6, #52]	; 0x34
-	bl	FUNC_0600B990
+	bl	FUN_0600B990
 	ldrh	r0, [r6, #54]	; 0x36
 	mov	r1, #0
-	bl	FUNC_0600B570
+	bl	FUN_0600B570
 	add	r0, r6, #56	; 0x38
-	bl	FUNC_0600B528
+	bl	FUN_0600B528
 	ldrh	r0, [r6, #60]	; 0x3c
 	add	r1, r6, #62	; 0x3e
-	bl	FUNC_0600B1A0
+	bl	FUN_0600B1A0
 	mov	r0, #0
 	strh	r0, [r5, #164]	; 0xa4
-	bl	FUNC_0600A5A4
+	bl	FUN_0600A5A4
 	mov	r0, #0
 _06010E4C:
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -19632,8 +19632,8 @@ _06010E54:	.word	0x0380FFF4
 _06010E58:	.word	0x0000FFF0
 _06010E5C:	.word	_06019384
 
-	arm_func_start FUNC_06010E60
-FUNC_06010E60: ; 0x06010E60
+	arm_func_start FUN_06010E60
+FUN_06010E60: ; 0x06010E60
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -19664,7 +19664,7 @@ _06010EB8:
 	bne	_06010F64
 	add	r0, r7, #16
 	ldrh	r1, [r7, #22]
-	bl	FUNC_060145BC
+	bl	FUN_060145BC
 	movs	r4, r0
 	moveq	r0, #8
 	beq	_06010F64
@@ -19683,7 +19683,7 @@ _06010EB8:
 	ldr	r0, [r1]
 	add	r0, r0, #392	; 0x188
 	sub	r1, r4, #16
-	bl	FUNC_0600F45C
+	bl	FUN_0600F45C
 	ldr	r0, _06010F70	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -19693,13 +19693,13 @@ _06010EB8:
 	ands	r0, r1, r0
 	bne	_06010F60
 	mov	r0, #2
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 	b	_06010F60
 _06010F50:
 	add	r0, r7, #16
-	bl	FUNC_06014E14
+	bl	FUN_06014E14
 	mov	r0, r4
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 _06010F60:
 	mov	r0, #128	; 0x80
 _06010F64:
@@ -19709,8 +19709,8 @@ _06010F64:
 _06010F70:	.word	0x0380FFF4
 _06010F74:	.word	0x00000404
 
-	arm_func_start FUNC_06010F78
-FUNC_06010F78: ; 0x06010F78
+	arm_func_start FUN_06010F78
+FUN_06010F78: ; 0x06010F78
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r2, _06011040	; =0x0380FFF4
@@ -19757,7 +19757,7 @@ _06010FB8:
 	str	r1, [r2, #28]
 	mov	r0, #96	; 0x60
 	strh	r0, [r2]
-	bl	FUNC_0601059C
+	bl	FUN_0601059C
 	mov	r0, #128	; 0x80
 _06011034:
 	add	sp, sp, #4
@@ -19766,8 +19766,8 @@ _06011034:
 _06011040:	.word	0x0380FFF4
 _06011044:	.word	0x00000404
 
-	arm_func_start FUNC_06011048
-FUNC_06011048: ; 0x06011048
+	arm_func_start FUN_06011048
+FUN_06011048: ; 0x06011048
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -19810,8 +19810,8 @@ _06011090:
 	movcc	r0, #5
 	bcc	_0601111C
 	mov	r0, #48	; 0x30
-	bl	FUNC_0600AF68
-	bl	FUNC_0600B054
+	bl	FUN_0600AF68
+	bl	FUN_0600B054
 	ldrh	r0, [r7, #22]
 	strh	r0, [r5, #112]	; 0x70
 	ldrh	r0, [r7, #22]
@@ -19820,7 +19820,7 @@ _06011090:
 	str	r6, [r4, #28]
 	mov	r0, #80	; 0x50
 	strh	r0, [r4]
-	bl	FUNC_0601069C
+	bl	FUN_0601069C
 	mov	r0, #128	; 0x80
 _0601111C:
 	add	sp, sp, #4
@@ -19829,8 +19829,8 @@ _0601111C:
 _06011128:	.word	0x0380FFF4
 _0601112C:	.word	0x00000404
 
-	arm_func_start FUNC_06011130
-FUNC_06011130: ; 0x06011130
+	arm_func_start FUN_06011130
+FUN_06011130: ; 0x06011130
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -19870,11 +19870,11 @@ _06011180:
 _060111BC:
 	add	r0, r6, #6
 	add	r1, r7, #16
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	add	r0, r6, #6
 	ldrh	r1, [r7, #22]
 	mov	r2, #0
-	bl	FUNC_06013E9C
+	bl	FUN_06013E9C
 	movs	r4, r0
 	moveq	r0, #8
 	beq	_06011264
@@ -19893,7 +19893,7 @@ _060111BC:
 	ldr	r0, [r1]
 	add	r0, r0, #392	; 0x188
 	sub	r1, r4, #16
-	bl	FUNC_0600F45C
+	bl	FUN_0600F45C
 	ldr	r0, _06011270	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -19903,13 +19903,13 @@ _060111BC:
 	ands	r0, r1, r0
 	bne	_06011260
 	mov	r0, #2
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 	b	_06011260
 _06011250:
 	add	r0, r7, #16
-	bl	FUNC_06014E14
+	bl	FUN_06014E14
 	mov	r0, r4
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 _06011260:
 	mov	r0, #128	; 0x80
 _06011264:
@@ -19920,8 +19920,8 @@ _06011270:	.word	0x0380FFF4
 _06011274:	.word	0x00000404
 _06011278:	.word	0x0000FFFE
 
-	arm_func_start FUNC_0601127C
-FUNC_0601127C: ; 0x0601127C
+	arm_func_start FUN_0601127C
+FUN_0601127C: ; 0x0601127C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -19960,7 +19960,7 @@ _060112C0:
 	movcc	r0, #5
 	bcc	_06011348
 	mov	r0, #32
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	str	r6, [r4, #24]
 	str	r5, [r4, #28]
 	mov	r0, #48	; 0x30
@@ -19971,8 +19971,8 @@ _060112C0:
 	add	r0, r5, #8
 	ldr	r1, [r4, #24]
 	add	r1, r1, #16
-	bl	FUNC_0600AF4C
-	bl	FUNC_060107A4
+	bl	FUN_0600AF4C
+	bl	FUN_060107A4
 	mov	r0, #128	; 0x80
 _06011348:
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -19980,8 +19980,8 @@ _06011348:
 _06011350:	.word	0x0380FFF4
 _06011354:	.word	0x00000404
 
-	arm_func_start FUNC_06011358
-FUNC_06011358: ; 0x06011358
+	arm_func_start FUN_06011358
+FUN_06011358: ; 0x06011358
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -20005,7 +20005,7 @@ _0601139C:
 	movcc	r0, #1
 	bcc	_06011504
 	mov	r0, #32
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	ldrh	r0, [r6, #24]
 	ands	r0, r0, #1
 	movne	r0, #5
@@ -20033,7 +20033,7 @@ _0601139C:
 	ands	r1, r0, r1
 	movne	r0, #5
 	bne	_06011504
-	bl	FUNC_0600AB58
+	bl	FUN_0600AB58
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06011504
@@ -20058,7 +20058,7 @@ _0601139C:
 	movhi	r0, #5
 	bhi	_06011504
 	mov	r0, #0
-	bl	FUNC_060191BC
+	bl	FUN_060191BC
 	cmp	r0, #0
 	movne	r0, #14
 	bne	_06011504
@@ -20066,31 +20066,31 @@ _0601139C:
 	ands	r0, r0, #32
 	beq	_060114AC
 	mov	r0, #1
-	bl	FUNC_0600BE0C
+	bl	FUN_0600BE0C
 	b	_060114B4
 _060114AC:
 	mov	r0, #0
-	bl	FUNC_0600BE0C
+	bl	FUN_0600BE0C
 _060114B4:
 	add	r0, r6, #24
-	bl	FUNC_0600BB58
+	bl	FUN_0600BB58
 	ldrh	r0, [r6, #30]
 	add	r1, r6, #32
-	bl	FUNC_0600BA3C
+	bl	FUN_0600BA3C
 	ldrh	r0, [r6, #70]	; 0x46
-	bl	FUNC_0600B9DC
+	bl	FUN_0600B9DC
 	ldrh	r0, [r6, #74]	; 0x4a
 	mov	r1, #0
-	bl	FUNC_0600B570
+	bl	FUN_0600B570
 	add	r0, r6, #66	; 0x42
-	bl	FUNC_0600B528
+	bl	FUN_0600B528
 	str	r6, [r4, #24]
 	str	r5, [r4, #28]
 	mov	r0, #32
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, #1
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	mov	r0, #128	; 0x80
 _06011504:
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -20099,8 +20099,8 @@ _0601150C:	.word	0x0380FFF4
 _06011510:	.word	0x00000404
 _06011514:	.word	0x0000FFF0
 
-	arm_func_start FUNC_06011518
-FUNC_06011518: ; 0x06011518
+	arm_func_start FUN_06011518
+FUN_06011518: ; 0x06011518
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -20139,7 +20139,7 @@ _0601156C:
 	movhi	r0, #5
 	bhi	_06011654
 	add	r0, r6, #58	; 0x3a
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06011654
@@ -20159,10 +20159,10 @@ _0601156C:
 	b	_06011618
 _060115F4:
 	add	r0, r7, r8
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	cmp	r0, #0
 	beq	_06011620
-	bl	FUNC_0600AB58
+	bl	FUN_0600AB58
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06011654
@@ -20172,17 +20172,17 @@ _06011618:
 	bcc	_060115F4
 _06011620:
 	add	r0, r6, #16
-	bl	FUNC_0600BB58
+	bl	FUN_0600BB58
 	ldrh	r0, [r6, #22]
 	add	r1, r6, #24
-	bl	FUNC_0600BA3C
+	bl	FUN_0600BA3C
 	str	r6, [r4, #24]
 	str	r5, [r4, #28]
 	mov	r0, #16
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	mov	r0, #128	; 0x80
 _06011654:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -20190,8 +20190,8 @@ _06011654:
 _0601165C:	.word	0x0380FFF4
 _06011660:	.word	0x00000404
 
-	arm_func_start FUNC_06011664
-FUNC_06011664: ; 0x06011664
+	arm_func_start FUN_06011664
+FUN_06011664: ; 0x06011664
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #9
@@ -20208,7 +20208,7 @@ FUNC_06011664: ; 0x06011664
 	cmp	r1, #1
 	movhi	r0, #5
 	bhi	_06011700
-	bl	FUNC_0600B420
+	bl	FUN_0600B420
 	ldrh	r0, [r4, #16]
 	cmp	r0, #1
 	bne	_060116EC
@@ -20216,11 +20216,11 @@ FUNC_06011664: ; 0x06011664
 	cmp	r0, #1
 	bne	_060116CC
 	ldr	r0, _06011708	; =0x00008001
-	bl	FUNC_0600B3E0
+	bl	FUN_0600B3E0
 	b	_060116D4
 _060116CC:
 	mov	r0, #0
-	bl	FUNC_0600B3E0
+	bl	FUN_0600B3E0
 _060116D4:
 	ldrh	r1, [r4, #20]
 	ldr	r0, _0601170C	; =0x0380FFF4
@@ -20230,9 +20230,9 @@ _060116D4:
 	b	_060116FC
 _060116EC:
 	mov	r0, #32768	; 0x8000
-	bl	FUNC_0600B3E0
+	bl	FUN_0600B3E0
 	mov	r0, #2
-	bl	FUNC_0600B3F4
+	bl	FUN_0600B3F4
 _060116FC:
 	mov	r0, #0
 _06011700:
@@ -20241,8 +20241,8 @@ _06011700:
 _06011708:	.word	0x00008001
 _0601170C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011710
-FUNC_06011710: ; 0x06011710
+	arm_func_start FUN_06011710
+FUN_06011710: ; 0x06011710
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #1
@@ -20251,19 +20251,19 @@ FUNC_06011710: ; 0x06011710
 	cmp	r0, #1
 	movhi	r0, #5
 	bhi	_06011748
-	bl	FUNC_0600A4EC
+	bl	FUN_0600A4EC
 	ldrh	r0, [r4, #16]
 	cmp	r0, #1
 	bne	_06011744
-	bl	FUNC_0600AE88
+	bl	FUN_0600AE88
 _06011744:
 	mov	r0, #0
 _06011748:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_06011750
-FUNC_06011750: ; 0x06011750
+	arm_func_start FUN_06011750
+FUN_06011750: ; 0x06011750
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r4, r1
@@ -20296,10 +20296,10 @@ FUNC_06011750: ; 0x06011750
 	b	_060117E8
 _060117C8:
 	mov	r0, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, r6
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r6, r6, #1
 	add	r7, r7, #1
 	add	r5, r5, #1
@@ -20312,12 +20312,12 @@ _060117F8:
 	ldr	r0, [r3, #992]	; 0x3e0
 	add	r1, r4, #8
 	add	r2, r2, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 _06011808:
 	ldrh	r0, [r4, #6]
 	add	r0, r0, #1
 	mov	r1, #2
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	add	r0, r0, #2
 	strh	r0, [r4, #2]
 	mov	r0, #0
@@ -20327,8 +20327,8 @@ _06011824:
 	bx	lr
 _06011830:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011834
-FUNC_06011834: ; 0x06011834
+	arm_func_start FUN_06011834
+FUN_06011834: ; 0x06011834
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011858	; =0x0380FFF4
@@ -20340,8 +20340,8 @@ FUNC_06011834: ; 0x06011834
 	bx	lr
 _06011858:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0601185C
-FUNC_0601185C: ; 0x0601185C
+	arm_func_start FUN_0601185C
+FUN_0601185C: ; 0x0601185C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011880	; =0x0380FFF4
@@ -20353,8 +20353,8 @@ FUNC_0601185C: ; 0x0601185C
 	bx	lr
 _06011880:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011884
-FUNC_06011884: ; 0x06011884
+	arm_func_start FUN_06011884
+FUN_06011884: ; 0x06011884
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _060118A8	; =0x0380FFF4
@@ -20366,8 +20366,8 @@ FUNC_06011884: ; 0x06011884
 	bx	lr
 _060118A8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_060118AC
-FUNC_060118AC: ; 0x060118AC
+	arm_func_start FUN_060118AC
+FUN_060118AC: ; 0x060118AC
 	mov	r0, #18
 	strh	r0, [r1, #2]
 	ldr	r2, _060118F4	; =0x0380FFF4
@@ -20389,8 +20389,8 @@ _060118D8:
 	bx	lr
 _060118F4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_060118F8
-FUNC_060118F8: ; 0x060118F8
+	arm_func_start FUN_060118F8
+FUN_060118F8: ; 0x060118F8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #4
@@ -20399,15 +20399,15 @@ FUNC_060118F8: ; 0x060118F8
 	ldr	r1, _0601192C	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #936	; 0x3a8
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0601192C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011930
-FUNC_06011930: ; 0x06011930
+	arm_func_start FUN_06011930
+FUN_06011930: ; 0x06011930
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011968	; =0x0380FFF4
@@ -20424,8 +20424,8 @@ FUNC_06011930: ; 0x06011930
 	bx	lr
 _06011968:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0601196C
-FUNC_0601196C: ; 0x0601196C
+	arm_func_start FUN_0601196C
+FUN_0601196C: ; 0x0601196C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _060119A4	; =0x0380FFF4
@@ -20442,8 +20442,8 @@ FUNC_0601196C: ; 0x0601196C
 	bx	lr
 _060119A4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_060119A8
-FUNC_060119A8: ; 0x060119A8
+	arm_func_start FUN_060119A8
+FUN_060119A8: ; 0x060119A8
 	mov	r0, #3
 	strh	r0, [r1, #2]
 	ldr	r3, _06011A04	; =0x0380FFF4
@@ -20469,8 +20469,8 @@ FUNC_060119A8: ; 0x060119A8
 	bx	lr
 _06011A04:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011A08
-FUNC_06011A08: ; 0x06011A08
+	arm_func_start FUN_06011A08
+FUN_06011A08: ; 0x06011A08
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011A40	; =0x0380FFF4
@@ -20487,8 +20487,8 @@ FUNC_06011A08: ; 0x06011A08
 	bx	lr
 _06011A40:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011A44
-FUNC_06011A44: ; 0x06011A44
+	arm_func_start FUN_06011A44
+FUN_06011A44: ; 0x06011A44
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011A6C	; =0x0380FFF4
@@ -20501,20 +20501,20 @@ FUNC_06011A44: ; 0x06011A44
 	bx	lr
 _06011A6C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011A70
-FUNC_06011A70: ; 0x06011A70
+	arm_func_start FUN_06011A70
+FUN_06011A70: ; 0x06011A70
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	mov	r0, #4
 	strh	r0, [r4, #2]
 	mov	r0, #19
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	strh	r0, [r4, #6]
 	mov	r0, #53	; 0x35
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	strh	r0, [r4, #8]
 	mov	r0, #46	; 0x2e
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	strh	r0, [r4, #10]
 	mov	r0, #0
 	ldmia	sp!, {r4, lr}
@@ -20530,8 +20530,8 @@ FUNC_06011A70: ; 0x06011A70
 	bx	lr
 _06011AD4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011AD8
-FUNC_06011AD8: ; 0x06011AD8
+	arm_func_start FUN_06011AD8
+FUN_06011AD8: ; 0x06011AD8
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011B04	; =0x0380FFF4
@@ -20545,8 +20545,8 @@ FUNC_06011AD8: ; 0x06011AD8
 	bx	lr
 _06011B04:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011B08
-FUNC_06011B08: ; 0x06011B08
+	arm_func_start FUN_06011B08
+FUN_06011B08: ; 0x06011B08
 	mov	r0, #17
 	strh	r0, [r1, #2]
 	add	r2, r1, #6
@@ -20564,8 +20564,8 @@ _06011B24:
 	bx	lr
 _06011B40:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011B44
-FUNC_06011B44: ; 0x06011B44
+	arm_func_start FUN_06011B44
+FUN_06011B44: ; 0x06011B44
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011B68	; =0x0380FFF4
@@ -20577,8 +20577,8 @@ FUNC_06011B44: ; 0x06011B44
 	bx	lr
 _06011B68:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011B6C
-FUNC_06011B6C: ; 0x06011B6C
+	arm_func_start FUN_06011B6C
+FUN_06011B6C: ; 0x06011B6C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011B90	; =0x0380FFF4
@@ -20590,8 +20590,8 @@ FUNC_06011B6C: ; 0x06011B6C
 	bx	lr
 _06011B90:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011B94
-FUNC_06011B94: ; 0x06011B94
+	arm_func_start FUN_06011B94
+FUN_06011B94: ; 0x06011B94
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011BC0	; =0x0380FFF4
@@ -20605,8 +20605,8 @@ FUNC_06011B94: ; 0x06011B94
 	bx	lr
 _06011BC0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011BC4
-FUNC_06011BC4: ; 0x06011BC4
+	arm_func_start FUN_06011BC4
+FUN_06011BC4: ; 0x06011BC4
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011BF0	; =0x0380FFF4
@@ -20620,8 +20620,8 @@ FUNC_06011BC4: ; 0x06011BC4
 	bx	lr
 _06011BF0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011BF4
-FUNC_06011BF4: ; 0x06011BF4
+	arm_func_start FUN_06011BF4
+FUN_06011BF4: ; 0x06011BF4
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011C18	; =0x0380FFF4
@@ -20633,8 +20633,8 @@ FUNC_06011BF4: ; 0x06011BF4
 	bx	lr
 _06011C18:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011C1C
-FUNC_06011C1C: ; 0x06011C1C
+	arm_func_start FUN_06011C1C
+FUN_06011C1C: ; 0x06011C1C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011C40	; =0x0380FFF4
@@ -20646,8 +20646,8 @@ FUNC_06011C1C: ; 0x06011C1C
 	bx	lr
 _06011C40:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011C44
-FUNC_06011C44: ; 0x06011C44
+	arm_func_start FUN_06011C44
+FUN_06011C44: ; 0x06011C44
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011C68	; =0x0380FFF4
@@ -20659,8 +20659,8 @@ FUNC_06011C44: ; 0x06011C44
 	bx	lr
 _06011C68:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011C6C
-FUNC_06011C6C: ; 0x06011C6C
+	arm_func_start FUN_06011C6C
+FUN_06011C6C: ; 0x06011C6C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011C90	; =0x0380FFF4
@@ -20672,8 +20672,8 @@ FUNC_06011C6C: ; 0x06011C6C
 	bx	lr
 _06011C90:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011C94
-FUNC_06011C94: ; 0x06011C94
+	arm_func_start FUN_06011C94
+FUN_06011C94: ; 0x06011C94
 	mov	r0, #3
 	strh	r0, [r1, #2]
 	ldr	r2, _06011CC8	; =0x0380FFF4
@@ -20689,8 +20689,8 @@ FUNC_06011C94: ; 0x06011C94
 	bx	lr
 _06011CC8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011CCC
-FUNC_06011CCC: ; 0x06011CCC
+	arm_func_start FUN_06011CCC
+FUN_06011CCC: ; 0x06011CCC
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011CF0	; =0x0380FFF4
@@ -20702,8 +20702,8 @@ FUNC_06011CCC: ; 0x06011CCC
 	bx	lr
 _06011CF0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011CF4
-FUNC_06011CF4: ; 0x06011CF4
+	arm_func_start FUN_06011CF4
+FUN_06011CF4: ; 0x06011CF4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #4
@@ -20712,15 +20712,15 @@ FUNC_06011CF4: ; 0x06011CF4
 	ldr	r1, _06011D28	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #804	; 0x324
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06011D28:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011D2C
-FUNC_06011D2C: ; 0x06011D2C
+	arm_func_start FUN_06011D2C
+FUN_06011D2C: ; 0x06011D2C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	mov	r0, #33	; 0x21
@@ -20729,7 +20729,7 @@ FUNC_06011D2C: ; 0x06011D2C
 	ldr	r1, _06011E60	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #804	; 0x324
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldr	r0, _06011E60	; =0x0380FFF4
 	ldr	r1, [r0]
 	add	r1, r1, #768	; 0x300
@@ -20783,7 +20783,7 @@ FUNC_06011D2C: ; 0x06011D2C
 	add	r0, r0, #900	; 0x384
 	add	r1, r4, #34	; 0x22
 	mov	r2, #32
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldr	r1, _06011E60	; =0x0380FFF4
 	ldr	r0, [r1]
 	add	r0, r0, #768	; 0x300
@@ -20800,8 +20800,8 @@ FUNC_06011D2C: ; 0x06011D2C
 	bx	lr
 _06011E60:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011E64
-FUNC_06011E64: ; 0x06011E64
+	arm_func_start FUN_06011E64
+FUN_06011E64: ; 0x06011E64
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -20817,7 +20817,7 @@ FUNC_06011E64: ; 0x06011E64
 	ldrh	r5, [r4, #16]
 	add	r0, r5, #1
 	mov	r1, #2
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	ldrh	r1, [r4, #14]
 	add	r0, r0, #1
 	cmp	r1, r0
@@ -20825,15 +20825,15 @@ FUNC_06011E64: ; 0x06011E64
 	blt	_06011EC4
 	mov	r0, r5
 	add	r1, r4, #18
-	bl	FUNC_0600B0F4
+	bl	FUN_0600B0F4
 _06011EC4:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06011ED0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011ED4
-FUNC_06011ED4: ; 0x06011ED4
+	arm_func_start FUN_06011ED4
+FUN_06011ED4: ; 0x06011ED4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20849,15 +20849,15 @@ FUNC_06011ED4: ; 0x06011ED4
 	bne	_06011F10
 _06011F08:
 	ldrh	r0, [r0, #16]
-	bl	FUNC_0600B95C
+	bl	FUN_0600B95C
 _06011F10:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06011F1C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011F20
-FUNC_06011F20: ; 0x06011F20
+	arm_func_start FUN_06011F20
+FUN_06011F20: ; 0x06011F20
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20870,15 +20870,15 @@ FUNC_06011F20: ; 0x06011F20
 	movne	r0, #11
 	bne	_06011F54
 	ldrh	r0, [r0, #16]
-	bl	FUNC_0600B990
+	bl	FUN_0600B990
 _06011F54:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06011F60:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011F64
-FUNC_06011F64: ; 0x06011F64
+	arm_func_start FUN_06011F64
+FUN_06011F64: ; 0x06011F64
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20891,35 +20891,35 @@ FUNC_06011F64: ; 0x06011F64
 	movne	r0, #11
 	bne	_06011F98
 	ldrh	r0, [r0, #16]
-	bl	FUNC_0600B9DC
+	bl	FUN_0600B9DC
 _06011F98:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06011FA4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06011FA8
-FUNC_06011FA8: ; 0x06011FA8
+	arm_func_start FUN_06011FA8
+FUN_06011FA8: ; 0x06011FA8
 	mov	r2, r0
 	mov	r0, #1
 	strh	r0, [r1, #2]
 	ldrh	r0, [r2, #16]
 	add	r1, r2, #18
-	ldr	ip, _06011FC4	; =FUNC_0600BA3C
+	ldr	ip, _06011FC4	; =FUN_0600BA3C
 	bx	ip
-_06011FC4:	.word	FUNC_0600BA3C
+_06011FC4:	.word	FUN_0600BA3C
 
-	arm_func_start FUNC_06011FC8
-FUNC_06011FC8: ; 0x06011FC8
+	arm_func_start FUN_06011FC8
+FUN_06011FC8: ; 0x06011FC8
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	add	r0, r0, #16
-	ldr	ip, _06011FDC	; =FUNC_0600BB58
+	ldr	ip, _06011FDC	; =FUN_0600BB58
 	bx	ip
-_06011FDC:	.word	FUNC_0600BB58
+_06011FDC:	.word	FUN_0600BB58
 
-	arm_func_start FUNC_06011FE0
-FUNC_06011FE0: ; 0x06011FE0
+	arm_func_start FUN_06011FE0
+FUN_06011FE0: ; 0x06011FE0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20931,7 +20931,7 @@ FUNC_06011FE0: ; 0x06011FE0
 	cmp	r1, #16
 	bcc	_06012014
 	ldrh	r0, [r0, #16]
-	bl	FUNC_0600BBC0
+	bl	FUN_0600BBC0
 	mov	r2, r0
 _06012014:
 	mov	r0, r2
@@ -20940,8 +20940,8 @@ _06012014:
 	bx	lr
 _06012024:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012028
-FUNC_06012028: ; 0x06012028
+	arm_func_start FUN_06012028
+FUN_06012028: ; 0x06012028
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20953,7 +20953,7 @@ FUNC_06012028: ; 0x06012028
 	cmp	r1, #16
 	bcc	_0601205C
 	ldrh	r0, [r0, #16]
-	bl	FUNC_0600BC1C
+	bl	FUN_0600BC1C
 	mov	r2, r0
 _0601205C:
 	mov	r0, r2
@@ -20962,8 +20962,8 @@ _0601205C:
 	bx	lr
 _0601206C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012070
-FUNC_06012070: ; 0x06012070
+	arm_func_start FUN_06012070
+FUN_06012070: ; 0x06012070
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, r0
@@ -20977,15 +20977,15 @@ FUNC_06012070: ; 0x06012070
 	bcc	_060120A8
 	ldrh	r0, [r2, #16]
 	ldrh	r1, [r2, #18]
-	bl	FUNC_0600BC5C
+	bl	FUN_0600BC5C
 _060120A8:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060120B4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_060120B8
-FUNC_060120B8: ; 0x060120B8
+	arm_func_start FUN_060120B8
+FUN_060120B8: ; 0x060120B8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20997,7 +20997,7 @@ FUNC_060120B8: ; 0x060120B8
 	cmp	r1, #16
 	bcc	_060120EC
 	ldrh	r0, [r0, #16]
-	bl	FUNC_0600BD38
+	bl	FUN_0600BD38
 	mov	r2, r0
 _060120EC:
 	mov	r0, r2
@@ -21006,8 +21006,8 @@ _060120EC:
 	bx	lr
 _060120FC:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012100
-FUNC_06012100: ; 0x06012100
+	arm_func_start FUN_06012100
+FUN_06012100: ; 0x06012100
 	mov	r3, #1
 	strh	r3, [r1, #2]
 	ldr	r2, _06012154	; =0x0380FFF4
@@ -21031,8 +21031,8 @@ FUNC_06012100: ; 0x06012100
 	bx	lr
 _06012154:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012158
-FUNC_06012158: ; 0x06012158
+	arm_func_start FUN_06012158
+FUN_06012158: ; 0x06012158
 	stmdb	sp!, {r4, lr}
 	ldr	ip, _0601225C	; =0x0380FFF4
 	ldr	r2, [ip]
@@ -21100,7 +21100,7 @@ _06012240:
 	ldrh	r0, [r0, #20]
 	cmp	r0, #0
 	beq	_06012250
-	bl	FUNC_0600B270
+	bl	FUN_0600B270
 _06012250:
 	mov	r0, #0
 _06012254:
@@ -21109,8 +21109,8 @@ _06012254:
 _0601225C:	.word	0x0380FFF4
 _06012260:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06012264
-FUNC_06012264: ; 0x06012264
+	arm_func_start FUN_06012264
+FUN_06012264: ; 0x06012264
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -21122,12 +21122,12 @@ FUNC_06012264: ; 0x06012264
 	bhi	_060122AC
 	ldrh	r0, [r5, #16]
 	ldrh	r1, [r5, #18]
-	bl	FUNC_0600BDA0
+	bl	FUN_0600BDA0
 	movs	r4, r0
 	bne	_060122A8
 	mov	r0, #46	; 0x2e
 	ldrh	r1, [r5, #20]
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 _060122A8:
 	mov	r0, r4
 _060122AC:
@@ -21137,58 +21137,58 @@ _060122AC:
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060122CC	; =FUNC_0600BDE8
+	ldr	ip, _060122CC	; =FUN_0600BDE8
 	bx	ip
-_060122CC:	.word	FUNC_0600BDE8
+_060122CC:	.word	FUN_0600BDE8
 
-	arm_func_start FUNC_060122D0
-FUNC_060122D0: ; 0x060122D0
+	arm_func_start FUN_060122D0
+FUN_060122D0: ; 0x060122D0
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060122E4	; =FUNC_0600BE0C
+	ldr	ip, _060122E4	; =FUN_0600BE0C
 	bx	ip
-_060122E4:	.word	FUNC_0600BE0C
+_060122E4:	.word	FUN_0600BE0C
 
-	arm_func_start FUNC_060122E8
-FUNC_060122E8: ; 0x060122E8
+	arm_func_start FUN_060122E8
+FUN_060122E8: ; 0x060122E8
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	add	r0, r0, #16
-	ldr	ip, _060122FC	; =FUNC_0600BECC
+	ldr	ip, _060122FC	; =FUN_0600BECC
 	bx	ip
-_060122FC:	.word	FUNC_0600BECC
+_060122FC:	.word	FUN_0600BECC
 
-	arm_func_start FUNC_06012300
-FUNC_06012300: ; 0x06012300
+	arm_func_start FUN_06012300
+FUN_06012300: ; 0x06012300
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
 	mov	r1, #0
-	ldr	ip, _06012318	; =FUNC_0600BEFC
+	ldr	ip, _06012318	; =FUN_0600BEFC
 	bx	ip
-_06012318:	.word	FUNC_0600BEFC
+_06012318:	.word	FUN_0600BEFC
 
-	arm_func_start FUNC_0601231C
-FUNC_0601231C: ; 0x0601231C
+	arm_func_start FUN_0601231C
+FUN_0601231C: ; 0x0601231C
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _06012330	; =FUNC_0600BFBC
+	ldr	ip, _06012330	; =FUN_0600BFBC
 	bx	ip
-_06012330:	.word	FUNC_0600BFBC
+_06012330:	.word	FUN_0600BFBC
 
-	arm_func_start FUNC_06012334
-FUNC_06012334: ; 0x06012334
+	arm_func_start FUN_06012334
+FUN_06012334: ; 0x06012334
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _06012348	; =FUNC_0600BFF4
+	ldr	ip, _06012348	; =FUN_0600BFF4
 	bx	ip
-_06012348:	.word	FUNC_0600BFF4
+_06012348:	.word	FUN_0600BFF4
 
-	arm_func_start FUNC_0601234C
-FUNC_0601234C: ; 0x0601234C
+	arm_func_start FUN_0601234C
+FUN_0601234C: ; 0x0601234C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -21200,7 +21200,7 @@ FUNC_0601234C: ; 0x0601234C
 	cmp	r1, #32
 	bhi	_06012380
 	ldrh	r0, [r0, #16]
-	bl	FUNC_0600C02C
+	bl	FUN_0600C02C
 	mov	r2, r0
 _06012380:
 	mov	r0, r2
@@ -21209,44 +21209,44 @@ _06012380:
 	bx	lr
 _06012390:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012394
-FUNC_06012394: ; 0x06012394
+	arm_func_start FUN_06012394
+FUN_06012394: ; 0x06012394
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	add	r0, r0, #16
-	ldr	ip, _060123A8	; =FUNC_0600C064
+	ldr	ip, _060123A8	; =FUN_0600C064
 	bx	ip
-_060123A8:	.word	FUNC_0600C064
+_060123A8:	.word	FUN_0600C064
 
-	arm_func_start FUNC_060123AC
-FUNC_060123AC: ; 0x060123AC
+	arm_func_start FUN_060123AC
+FUN_060123AC: ; 0x060123AC
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060123C0	; =FUNC_0600C0C8
+	ldr	ip, _060123C0	; =FUN_0600C0C8
 	bx	ip
-_060123C0:	.word	FUNC_0600C0C8
+_060123C0:	.word	FUN_0600C0C8
 
-	arm_func_start FUNC_060123C4
-FUNC_060123C4: ; 0x060123C4
+	arm_func_start FUN_060123C4
+FUN_060123C4: ; 0x060123C4
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060123D8	; =FUNC_0600C0EC
+	ldr	ip, _060123D8	; =FUN_0600C0EC
 	bx	ip
-_060123D8:	.word	FUNC_0600C0EC
+_060123D8:	.word	FUN_0600C0EC
 
-	arm_func_start FUNC_060123DC
-FUNC_060123DC: ; 0x060123DC
+	arm_func_start FUN_060123DC
+FUN_060123DC: ; 0x060123DC
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060123F0	; =FUNC_0600C1A0
+	ldr	ip, _060123F0	; =FUN_0600C1A0
 	bx	ip
-_060123F0:	.word	FUNC_0600C1A0
+_060123F0:	.word	FUN_0600C1A0
 
-	arm_func_start FUNC_060123F4
-FUNC_060123F4: ; 0x060123F4
+	arm_func_start FUN_060123F4
+FUN_060123F4: ; 0x060123F4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r3, #1
@@ -21266,15 +21266,15 @@ FUNC_060123F4: ; 0x060123F4
 	bne	_06012440
 _06012438:
 	ldrh	r0, [r0, #16]
-	bl	FUNC_0600C1DC
+	bl	FUN_0600C1DC
 _06012440:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0601244C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012450
-FUNC_06012450: ; 0x06012450
+	arm_func_start FUN_06012450
+FUN_06012450: ; 0x06012450
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -21286,7 +21286,7 @@ FUNC_06012450: ; 0x06012450
 	cmp	r1, #16
 	bne	_06012484
 	ldrh	r0, [r0, #16]
-	bl	FUNC_0600C264
+	bl	FUN_0600C264
 	mov	r2, r0
 _06012484:
 	mov	r0, r2
@@ -21295,17 +21295,17 @@ _06012484:
 	bx	lr
 _06012494:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012498
-FUNC_06012498: ; 0x06012498
+	arm_func_start FUN_06012498
+FUN_06012498: ; 0x06012498
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060124AC	; =FUNC_0600C2A4
+	ldr	ip, _060124AC	; =FUN_0600C2A4
 	bx	ip
-_060124AC:	.word	FUNC_0600C2A4
+_060124AC:	.word	FUN_0600C2A4
 
-	arm_func_start FUNC_060124B0
-FUNC_060124B0: ; 0x060124B0
+	arm_func_start FUN_060124B0
+FUN_060124B0: ; 0x060124B0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -21317,7 +21317,7 @@ FUNC_060124B0: ; 0x060124B0
 	cmp	r1, #16
 	bne	_060124E4
 	add	r0, r0, #16
-	bl	FUNC_0600C2D8
+	bl	FUN_0600C2D8
 	mov	r2, r0
 _060124E4:
 	mov	r0, r2
@@ -21326,8 +21326,8 @@ _060124E4:
 	bx	lr
 _060124F4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_060124F8
-FUNC_060124F8: ; 0x060124F8
+	arm_func_start FUN_060124F8
+FUN_060124F8: ; 0x060124F8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -21340,50 +21340,50 @@ FUNC_060124F8: ; 0x060124F8
 	cmp	r1, #16
 	bne	_060125DC
 	add	r0, r5, #16
-	bl	FUNC_0600C2D8
+	bl	FUN_0600C2D8
 	mov	r4, r0
 	ldrh	r0, [r5, #22]
-	bl	FUNC_0600C2A4
+	bl	FUN_0600C2A4
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #24]
-	bl	FUNC_0600C264
+	bl	FUN_0600C264
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #28]
-	bl	FUNC_0600C1DC
+	bl	FUN_0600C1DC
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #30]
-	bl	FUNC_0600C1A0
+	bl	FUN_0600C1A0
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #32]
-	bl	FUNC_0600C0EC
+	bl	FUN_0600C0EC
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #34]	; 0x22
-	bl	FUNC_0600C0C8
+	bl	FUN_0600C0C8
 	orr	r4, r4, r0
 	add	r0, r5, #36	; 0x24
-	bl	FUNC_0600C064
+	bl	FUN_0600C064
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #116]	; 0x74
-	bl	FUNC_0600C02C
+	bl	FUN_0600C02C
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #118]	; 0x76
-	bl	FUNC_0600BFF4
+	bl	FUN_0600BFF4
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #120]	; 0x78
-	bl	FUNC_0600BFBC
+	bl	FUN_0600BFBC
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #122]	; 0x7a
 	mov	r1, #0
-	bl	FUNC_0600BEFC
+	bl	FUN_0600BEFC
 	orr	r4, r4, r0
 	add	r0, r5, #124	; 0x7c
-	bl	FUNC_0600BECC
+	bl	FUN_0600BECC
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #156]	; 0x9c
-	bl	FUNC_0600BE0C
+	bl	FUN_0600BE0C
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #158]	; 0x9e
-	bl	FUNC_0600BDE8
+	bl	FUN_0600BDE8
 	orr	r0, r4, r0
 _060125DC:
 	add	sp, sp, #4
@@ -21391,8 +21391,8 @@ _060125DC:
 	bx	lr
 _060125E8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_060125EC
-FUNC_060125EC: ; 0x060125EC
+	arm_func_start FUN_060125EC
+FUN_060125EC: ; 0x060125EC
 	stmdb	sp!, {r4, lr}
 	ldr	r2, _06012698	; =0x0380FFF4
 	ldr	r2, [r2]
@@ -21414,12 +21414,12 @@ FUNC_060125EC: ; 0x060125EC
 	bne	_06012690
 	ldrh	r0, [r0, #18]
 	mov	r1, r3
-	bl	FUNC_0600B570
+	bl	FUN_0600B570
 	mov	r0, #0
 	strh	r0, [r4, #12]
-	bl	FUNC_0600A5A4
+	bl	FUN_0600A5A4
 	mov	r0, #32768	; 0x8000
-	bl	FUNC_0600B3E0
+	bl	FUN_0600B3E0
 	mov	r0, #17
 	strh	r0, [r4, #8]
 	b	_0601268C
@@ -21427,8 +21427,8 @@ _06012664:
 	cmp	r2, #17
 	bne	_0601267C
 	mov	r0, #0
-	bl	FUNC_0600B3E0
-	bl	FUNC_0600A4EC
+	bl	FUN_0600B3E0
+	bl	FUN_0600A4EC
 	b	_06012684
 _0601267C:
 	mov	r0, r3
@@ -21443,8 +21443,8 @@ _06012690:
 	bx	lr
 _06012698:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0601269C
-FUNC_0601269C: ; 0x0601269C
+	arm_func_start FUN_0601269C
+FUN_0601269C: ; 0x0601269C
 	ldr	r0, _0601271C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -21489,30 +21489,30 @@ _06012738:	.word	0x04808010
 _0601273C:	.word	0x04808194
 _06012740:	.word	0x04808040
 
-	arm_func_start FUNC_06012744
-FUNC_06012744: ; 0x06012744
+	arm_func_start FUN_06012744
+FUN_06012744: ; 0x06012744
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
 	ldr	r0, _0601285C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #836	; 0x344
-	bl	FUNC_0600A5A4
-	bl	FUNC_0600A4EC
+	bl	FUN_0600A5A4
+	bl	FUN_0600A4EC
 	mov	r0, #6
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	strh	r0, [r4, #172]	; 0xac
 	ldrh	r0, [r5, #18]
 	cmp	r0, #4
 	bne	_06012788
 	mov	r0, #6
 	mov	r1, #0
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 _06012788:
 	mov	r0, #0
 	ldr	r1, _06012860	; =0x04804000
 	mov	r2, #12
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r0, #20
 	ldr	r1, _06012860	; =0x04804000
 	strh	r0, [r1, #8]
@@ -21538,12 +21538,12 @@ _060127BC:
 	mov	r1, #1
 	strh	r1, [r4, #24]
 	ldrh	r0, [r5, #22]
-	bl	FUNC_0600B570
+	bl	FUN_0600B570
 	mov	r1, #32768	; 0x8000
 	ldr	r0, _06012870	; =0x04808040
 	strh	r1, [r0]
 	ldr	r0, _06012874	; =0x000005DC
-	bl	FUNC_0600A098
+	bl	FUN_0600A098
 	mov	r1, #2
 	ldr	r0, _06012878	; =0x04808012
 	strh	r1, [r0]
@@ -21576,8 +21576,8 @@ _06012880:	.word	0x048080AE
 _06012884:	.word	0x00003FFF
 _06012888:	.word	0x048080A0
 
-	arm_func_start FUNC_0601288C
-FUNC_0601288C: ; 0x0601288C
+	arm_func_start FUN_0601288C
+FUN_0601288C: ; 0x0601288C
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #8
 	mov	r5, r0
@@ -21606,7 +21606,7 @@ _060128E4:
 	movhi	r0, #5
 	bhi	_06012AD0
 	mov	r0, #0
-	bl	FUNC_060191BC
+	bl	FUN_060191BC
 	cmp	r0, #0
 	movne	r0, #14
 	bne	_06012AD0
@@ -21624,17 +21624,17 @@ _060128E4:
 	mov	r0, #101	; 0x65
 	mov	r1, #1
 	add	r2, sp, #0
-	bl	FUNC_060190BC
+	bl	FUN_060190BC
 	ldr	r6, [sp]
 	mov	r0, #1
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	cmp	r6, r0
 	beq	_0601296C
 	mov	r0, #1
 	mov	r1, r6
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	ldr	r0, _06012AE0	; =0x00001388
-	bl	FUNC_0600A098
+	bl	FUN_0600A098
 _0601296C:
 	ldrh	r0, [r5, #18]
 	cmp	r0, #4
@@ -21650,16 +21650,16 @@ _06012990:
 	strh	r0, [r4, #8]
 	ldrh	r0, [r5, #22]
 	mov	r1, #1
-	bl	FUNC_0600B570
+	bl	FUN_0600B570
 	mov	r1, #32768	; 0x8000
 	ldr	r0, _06012AE4	; =0x04808040
 	strh	r1, [r0]
 	ldr	r0, _06012AE8	; =0x000005DC
-	bl	FUNC_0600A098
+	bl	FUN_0600A098
 	ldrh	r0, [r5, #20]
 	strh	r0, [r4, #22]
 	mov	r0, #2
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	str	r0, [sp]
 	ldrh	r1, [r5, #18]
 	cmp	r1, #1
@@ -21682,20 +21682,20 @@ _06012990:
 _06012A14:
 	mov	r0, #2
 	ldr	r1, [sp]
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	ldr	r1, _06012AF4	; =0x00000823
 	ldr	r0, _06012AF8	; =0x048081A0
 	strh	r1, [r0]
 	b	_06012ACC
 _06012A30:
 	mov	r0, r5
-	bl	FUNC_06012744
+	bl	FUN_06012744
 	b	_06012ACC
 _06012A3C:
 	ldrh	r0, [r4, #8]
 	cmp	r0, #17
 	bne	_06012A8C
-	bl	FUNC_06009FDC
+	bl	FUN_06009FDC
 	mov	r2, #0
 	ldr	r0, _06012AF8	; =0x048081A0
 	strh	r2, [r0]
@@ -21705,12 +21705,12 @@ _06012A3C:
 	ldr	r0, _06012AE4	; =0x04808040
 	strh	r2, [r0]
 	mov	r0, #2
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	str	r0, [sp]
 	bic	r1, r0, #48	; 0x30
 	str	r1, [sp]
 	mov	r0, #2
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	b	_06012AC4
 _06012A8C:
 	cmp	r0, #18
@@ -21724,7 +21724,7 @@ _06012AA0:
 	bne	_06012AA0
 	mov	r0, #6
 	ldrh	r1, [r4, #172]	; 0xac
-	bl	FUNC_0600A478
+	bl	FUN_0600A478
 	b	_06012AC4
 _06012ABC:
 	mov	r0, #1
@@ -21748,8 +21748,8 @@ _06012AF4:	.word	0x00000823
 _06012AF8:	.word	0x048081A0
 _06012AFC:	.word	0x04808004
 
-	arm_func_start FUNC_06012B00
-FUNC_06012B00: ; 0x06012B00
+	arm_func_start FUN_06012B00
+FUN_06012B00: ; 0x06012B00
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06012B24	; =0x0380FFF4
@@ -21761,8 +21761,8 @@ FUNC_06012B00: ; 0x06012B00
 	bx	lr
 _06012B24:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012B28
-FUNC_06012B28: ; 0x06012B28
+	arm_func_start FUN_06012B28
+FUN_06012B28: ; 0x06012B28
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	ldr	r0, _06012B80	; =0x0380FFF4
@@ -21774,14 +21774,14 @@ FUNC_06012B28: ; 0x06012B28
 	beq	_06012B78
 	mov	r0, #92	; 0x5c
 	strh	r0, [r4, #2]
-	bl	FUNC_0600AC84
+	bl	FUN_0600AC84
 	ldr	r0, _06012B80	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _06012B84	; =0x0000053C
 	add	r0, r1, r0
 	add	r1, r4, #8
 	mov	r2, #180	; 0xb4
-	bl	FUNC_06012B88
+	bl	FUN_06012B88
 	mov	r0, #0
 _06012B78:
 	ldmia	sp!, {r4, lr}
@@ -21789,13 +21789,13 @@ _06012B78:
 _06012B80:	.word	0x0380FFF4
 _06012B84:	.word	0x0000053C
 
-	arm_func_start FUNC_06012B88
-FUNC_06012B88: ; 0x06012B88
+	arm_func_start FUN_06012B88
+FUN_06012B88: ; 0x06012B88
 	ldr	pc, _06012B8C	; =FUN_037FB348
 _06012B8C:	.word	FUN_037FB348
 
-	arm_func_start FUNC_06012B90
-FUNC_06012B90: ; 0x06012B90
+	arm_func_start FUN_06012B90
+FUN_06012B90: ; 0x06012B90
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	mov	r0, #9
@@ -21803,7 +21803,7 @@ FUNC_06012B90: ; 0x06012B90
 	ldr	r0, _06012C2C	; =_06019950
 	add	r1, r4, #6
 	mov	r2, #8
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldr	r0, _06012C30	; =0x04808000
 	ldrh	r0, [r0]
 	strh	r0, [r4, #14]
@@ -21818,9 +21818,9 @@ FUNC_06012B90: ; 0x06012B90
 	streqh	r0, [r4, #18]
 	beq	_06012BF8
 	mov	r0, #0
-	bl	FUNC_0600A4B8
+	bl	FUN_0600A4B8
 	strh	r0, [r4, #16]
-	bl	FUNC_0600A3E0
+	bl	FUN_0600A3E0
 	strh	r0, [r4, #18]
 _06012BF8:
 	ldr	r0, _06012C34	; =0x0380FFF4
@@ -21841,8 +21841,8 @@ _06012C30:	.word	0x04808000
 _06012C34:	.word	0x0380FFF4
 _06012C38:	.word	0x0000933D
 
-	arm_func_start FUNC_06012C3C
-FUNC_06012C3C: ; 0x06012C3C
+	arm_func_start FUN_06012C3C
+FUN_06012C3C: ; 0x06012C3C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06012C7C	; =0x0380FFF4
@@ -21854,7 +21854,7 @@ FUNC_06012C3C: ; 0x06012C3C
 	beq	_06012C70
 	mov	r0, #1
 	strh	r0, [r1, #2]
-	bl	FUNC_0600AE88
+	bl	FUN_0600AE88
 	mov	r0, #0
 _06012C70:
 	add	sp, sp, #4
@@ -21862,8 +21862,8 @@ _06012C70:
 	bx	lr
 _06012C7C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012C80
-FUNC_06012C80: ; 0x06012C80
+	arm_func_start FUN_06012C80
+FUN_06012C80: ; 0x06012C80
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #1
@@ -21874,17 +21874,17 @@ FUNC_06012C80: ; 0x06012C80
 	ldrh	r0, [r0, #76]	; 0x4c
 	cmp	r0, #32
 	bcc	_06012CAC
-	bl	FUNC_0600A4EC
+	bl	FUN_0600A4EC
 _06012CAC:
-	bl	FUNC_06008F18
+	bl	FUN_06008F18
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06012CC0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012CC4
-FUNC_06012CC4: ; 0x06012CC4
+	arm_func_start FUN_06012CC4
+FUN_06012CC4: ; 0x06012CC4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #1
@@ -21902,7 +21902,7 @@ FUNC_06012CC4: ; 0x06012CC4
 	bne	_06012D10
 _06012D00:
 	mov	r0, #32
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	mov	r0, #0
 	b	_06012D14
 _06012D10:
@@ -21913,8 +21913,8 @@ _06012D14:
 	bx	lr
 _06012D20:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012D24
-FUNC_06012D24: ; 0x06012D24
+	arm_func_start FUN_06012D24
+FUN_06012D24: ; 0x06012D24
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #1
@@ -21929,12 +21929,12 @@ FUNC_06012D24: ; 0x06012D24
 	cmp	r1, #0
 	bne	_06012D78
 	mov	r0, #0
-	bl	FUNC_060191BC
+	bl	FUN_060191BC
 	cmp	r0, #0
 	movne	r0, #14
 	bne	_06012D78
 	mov	r0, #16
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	mov	r0, #0
 _06012D78:
 	add	sp, sp, #4
@@ -21942,8 +21942,8 @@ _06012D78:
 	bx	lr
 _06012D84:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012D88
-FUNC_06012D88: ; 0x06012D88
+	arm_func_start FUN_06012D88
+FUN_06012D88: ; 0x06012D88
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #1
@@ -21958,7 +21958,7 @@ FUNC_06012D88: ; 0x06012D88
 	bne	_06012DC4
 _06012DB8:
 	mov	r0, #0
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	mov	r0, #0
 _06012DC4:
 	add	sp, sp, #4
@@ -21966,8 +21966,8 @@ _06012DC4:
 	bx	lr
 _06012DD0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012DD4
-FUNC_06012DD4: ; 0x06012DD4
+	arm_func_start FUN_06012DD4
+FUN_06012DD4: ; 0x06012DD4
 	ldrh	r2, [r1, #14]
 	add	r2, r1, r2, lsl #1
 	add	r3, r2, #16
@@ -21979,12 +21979,12 @@ FUNC_06012DD4: ; 0x06012DD4
 	strh	r2, [r3, #4]
 	ldrh	r2, [r1, #24]
 	strh	r2, [r3, #6]
-	ldr	ip, _06012E08	; =FUNC_0600F8DC
+	ldr	ip, _06012E08	; =FUN_0600F8DC
 	bx	ip
-_06012E08:	.word	FUNC_0600F8DC
+_06012E08:	.word	FUN_0600F8DC
 
-	arm_func_start FUNC_06012E0C
-FUNC_06012E0C: ; 0x06012E0C
+	arm_func_start FUN_06012E0C
+FUN_06012E0C: ; 0x06012E0C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #1
@@ -21992,24 +21992,24 @@ FUNC_06012E0C: ; 0x06012E0C
 	ldrh	r0, [r4, #16]
 	ands	r0, r0, #1
 	beq	_06012E2C
-	bl	FUNC_060151F0
+	bl	FUN_060151F0
 _06012E2C:
 	ldrh	r0, [r4, #16]
 	ands	r0, r0, #2
 	beq	_06012E3C
-	bl	FUNC_06015190
+	bl	FUN_06015190
 _06012E3C:
 	ldrh	r0, [r4, #16]
 	ands	r0, r0, #4
 	beq	_06012E4C
-	bl	FUNC_060150D8
+	bl	FUN_060150D8
 _06012E4C:
 	mov	r0, #0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_06012E58
-FUNC_06012E58: ; 0x06012E58
+	arm_func_start FUN_06012E58
+FUN_06012E58: ; 0x06012E58
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #1
@@ -22021,23 +22021,23 @@ FUNC_06012E58: ; 0x06012E58
 	strh	r1, [r0, #2]
 	ldrh	r1, [r0, #6]
 	strh	r1, [r0, #18]
-	bl	FUNC_0600F3CC
+	bl	FUN_0600F3CC
 	ldr	r0, _06012EB8	; =0x0380FFF4
 	ldr	r1, [r0]
 	add	r0, r1, #512	; 0x200
 	add	r1, r1, #404	; 0x194
 	mov	r2, r4
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, #0
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 	mov	r0, #0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06012EB4:	.word	0x0000FFFF
 _06012EB8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06012EBC
-FUNC_06012EBC: ; 0x06012EBC
+	arm_func_start FUN_06012EBC
+FUN_06012EBC: ; 0x06012EBC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	r5, r0
@@ -22145,7 +22145,7 @@ _06013038:
 	add	r0, sl, #12
 	ldr	r1, [sp, #8]
 	add	r1, r1, #26
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	str	r0, [r9, #144]	; 0x90
 	ldr	r0, [r9, #144]	; 0x90
 	cmp	r0, #0
@@ -22187,7 +22187,7 @@ _06013038:
 	ldr	r2, [sp]
 	add	r2, r2, #100	; 0x64
 	add	r3, r7, #8
-	bl	FUNC_0600AECC
+	bl	FUN_0600AECC
 	ldrh	r0, [r5, #16]
 	ands	r0, r0, #32768	; 0x8000
 	beq	_06013120
@@ -22213,11 +22213,11 @@ _0601312C:
 	ldrh	r0, [r5, #28]
 	cmp	r0, #0
 	beq	_06013170
-	bl	FUNC_0600AC84
+	bl	FUN_0600AC84
 	add	r0, r4, #42	; 0x2a
 	ldr	r1, [r5, #32]
 	ldrh	r2, [r5, #28]
-	bl	FUNC_06009D74
+	bl	FUN_06009D74
 _06013170:
 	ands	r0, r8, #4
 	beq	_060131A0
@@ -22295,9 +22295,9 @@ _06013228:
 	add	r0, r2, r0
 	add	r0, r0, #50	; 0x32
 	mov	r1, #10
-	bl	FUNC_06003B68
+	bl	FUN_06003B68
 	mov	r5, r0
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	ldr	r1, _060133A4	; =0x04808118
 	strh	r5, [r1]
 	ldr	r1, _060133A8	; =0x00003FFF
@@ -22307,10 +22307,10 @@ _06013228:
 	orr	r2, r1, r7
 	ldr	r1, _060133AC	; =0x04808090
 	strh	r2, [r1]
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	b	_06013368
 _060132CC:
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	mov	r6, r0
 	ldr	r0, _060133B0	; =0x048080F8
 	ldrh	r0, [r0]
@@ -22318,7 +22318,7 @@ _060132CC:
 	ldr	r0, _0601338C	; =0x0000FFFF
 	and	r0, r1, r0
 	mov	r1, #10
-	bl	FUNC_06003B68
+	bl	FUN_06003B68
 	ldrh	r2, [r5, #24]
 	add	r1, r0, #3
 	cmp	r1, r2
@@ -22335,14 +22335,14 @@ _060132CC:
 	ldr	r0, _060133AC	; =0x04808090
 	strh	r1, [r0]
 	mov	r0, r6
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	b	_06013368
 _06013338:
 	mov	r0, r6
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	add	r0, sl, #12
 	ldr	r1, [r9, #144]	; 0x90
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 	mov	r0, #0
 	strh	r0, [r9, #60]	; 0x3c
 	ldrh	r0, [r9, #62]	; 0x3e
@@ -22372,8 +22372,8 @@ _060133A8:	.word	0x00003FFF
 _060133AC:	.word	0x04808090
 _060133B0:	.word	0x048080F8
 
-	arm_func_start FUNC_060133B4
-FUNC_060133B4: ; 0x060133B4
+	arm_func_start FUN_060133B4
+FUN_060133B4: ; 0x060133B4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -22426,7 +22426,7 @@ FUNC_060133B4: ; 0x060133B4
 	add	r1, r2, #100	; 0x64
 	add	r2, r8, #8
 	ldr	r3, _06013548	; =_0601938C
-	bl	FUNC_0600AECC
+	bl	FUN_0600AECC
 	ldrh	r0, [sl, #18]
 	strh	r0, [r5, #36]	; 0x24
 	ldrh	r0, [sl, #16]
@@ -22434,12 +22434,12 @@ FUNC_060133B4: ; 0x060133B4
 	beq	_060134B8
 	cmp	r9, #0
 	bne	_060134A8
-	bl	FUNC_0600AC84
+	bl	FUN_0600AC84
 _060134A8:
 	add	r0, r5, #38	; 0x26
 	ldr	r1, [sl, #20]
 	ldrh	r2, [sl, #16]
-	bl	FUNC_06009D74
+	bl	FUN_06009D74
 _060134B8:
 	ands	r0, r6, #4
 	beq	_060134E8
@@ -22470,7 +22470,7 @@ _060134E8:
 	mov	r0, r0, lsl #24
 	movs	r0, r0, lsr #31
 	bne	_0601352C
-	bl	FUNC_0600B030
+	bl	FUN_0600B030
 _0601352C:
 	mov	r0, #0
 _06013530:
@@ -22485,8 +22485,8 @@ _0601354C:	.word	0x0000B6B8
 _06013550:	.word	0x00001D46
 _06013554:	.word	0x00003FFF
 
-	arm_func_start FUNC_06013558
-FUNC_06013558: ; 0x06013558
+	arm_func_start FUN_06013558
+FUN_06013558: ; 0x06013558
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r9, r0
@@ -22505,11 +22505,11 @@ FUNC_06013558: ; 0x06013558
 	cmp	r0, #1
 	bne	_060135C4
 	add	r0, r5, #24
-	bl	FUNC_0600F608
+	bl	FUN_0600F608
 	mov	r4, r0
 	cmp	r4, #255	; 0xff
 	beq	_060135BC
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	beq	_060135C8
 _060135BC:
@@ -22530,7 +22530,7 @@ _060135C8:
 	strneh	r0, [r5, #14]
 	bne	_06013600
 	mov	r0, r4
-	bl	FUNC_0600EF34
+	bl	FUN_0600EF34
 	strh	r0, [r5, #16]
 _06013600:
 	ldrh	r0, [r5, #6]
@@ -22566,15 +22566,15 @@ _06013650:
 _06013670:
 	add	r0, r5, #36	; 0x24
 	add	r1, r5, #30
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	add	r0, r5, #30
 	add	r1, r8, #100	; 0x64
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	cmp	r4, #0
 	bne	_060136C8
 	add	r0, r6, #132	; 0x84
 	mov	r1, r9
-	bl	FUNC_0600F45C
+	bl	FUN_0600F45C
 	ldr	r0, _06013734	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -22584,33 +22584,33 @@ _06013670:
 	ands	r0, r1, r0
 	bne	_06013724
 	mov	r0, #2
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 	b	_06013724
 _060136C8:
 	mov	r0, r5
-	bl	FUNC_0600F3CC
+	bl	FUN_0600F3CC
 	add	r0, r6, #132	; 0x84
 	add	r1, r6, #24
 	mov	r2, r9
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, #0
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 	b	_06013724
 _060136EC:
 	add	r0, r5, #36	; 0x24
 	add	r1, r5, #24
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	add	r0, r5, #24
 	add	r1, r8, #100	; 0x64
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	mov	r0, r5
-	bl	FUNC_0600F3CC
+	bl	FUN_0600F3CC
 	add	r0, r6, #132	; 0x84
 	add	r1, r6, #24
 	mov	r2, r9
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, #0
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 _06013724:
 	mov	r0, #129	; 0x81
 _06013728:
@@ -22620,8 +22620,8 @@ _06013728:
 _06013734:	.word	0x0380FFF4
 _06013738:	.word	0x000005E4
 
-	arm_func_start FUNC_0601373C
-FUNC_0601373C: ; 0x0601373C
+	arm_func_start FUN_0601373C
+FUN_0601373C: ; 0x0601373C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06013A30	; =0x0380FFF4
@@ -22633,7 +22633,7 @@ FUNC_0601373C: ; 0x0601373C
 	mov	r0, #0
 	mov	r1, r6
 	mov	r2, #176	; 0xb0
-	bl	FUNC_0600AEC4
+	bl	FUN_0600AEC4
 	mov	r1, #0
 	add	r0, r7, #1024	; 0x400
 	strh	r1, [r0, #44]	; 0x2c
@@ -22660,9 +22660,9 @@ _060137B8:
 	str	r0, [r6, #28]
 	ldr	r0, _06013A44	; =0x04804000
 	str	r0, [r6, #48]	; 0x30
-	ldr	r0, _06013A48	; =FUNC_06015974
+	ldr	r0, _06013A48	; =FUN_06015974
 	str	r0, [r6, #16]
-	ldr	r0, _06013A4C	; =FUNC_06015458
+	ldr	r0, _06013A4C	; =FUN_06015458
 	str	r0, [r6, #36]	; 0x24
 	ldr	r0, _06013A50	; =_060153E4
 	str	r0, [r6, #56]	; 0x38
@@ -22693,11 +22693,11 @@ _06013838:
 	str	r0, [r6, #28]
 	ldr	r0, _06013A80	; =0x04804334
 	str	r0, [r6, #48]	; 0x30
-	ldr	r0, _06013A48	; =FUNC_06015974
+	ldr	r0, _06013A48	; =FUN_06015974
 	str	r0, [r6, #16]
-	ldr	r0, _06013A4C	; =FUNC_06015458
+	ldr	r0, _06013A4C	; =FUN_06015458
 	str	r0, [r6, #36]	; 0x24
-	ldr	r0, _06013A84	; =FUNC_060152C4
+	ldr	r0, _06013A84	; =FUN_060152C4
 	str	r0, [r6, #56]	; 0x38
 	ldr	r2, _06013A88	; =0x04804238
 	str	r2, [r6, #128]	; 0x80
@@ -22728,7 +22728,7 @@ _06013838:
 	mov	r0, #520	; 0x208
 	strh	r0, [r5, #138]	; 0x8a
 	str	r2, [r6, #128]	; 0x80
-	bl	FUNC_0601477C
+	bl	FUN_0601477C
 	b	_06013A10
 _060138E4:
 	ldr	r0, _06013AB4	; =0x048045D8
@@ -22737,9 +22737,9 @@ _060138E4:
 	str	r0, [r6, #28]
 	ldr	r0, _06013ABC	; =0x04804468
 	str	r0, [r6, #48]	; 0x30
-	ldr	r0, _06013A48	; =FUNC_06015974
+	ldr	r0, _06013A48	; =FUN_06015974
 	str	r0, [r6, #16]
-	ldr	r0, _06013A4C	; =FUNC_06015458
+	ldr	r0, _06013A4C	; =FUN_06015458
 	str	r0, [r6, #36]	; 0x24
 	ldr	r0, _06013A50	; =_060153E4
 	str	r0, [r6, #56]	; 0x38
@@ -22782,9 +22782,9 @@ _06013994:
 	str	r0, [r6, #28]
 	ldr	r0, _06013A44	; =0x04804000
 	str	r0, [r6, #48]	; 0x30
-	ldr	r0, _06013A48	; =FUNC_06015974
+	ldr	r0, _06013A48	; =FUN_06015974
 	str	r0, [r6, #16]
-	ldr	r0, _06013A4C	; =FUNC_06015458
+	ldr	r0, _06013A4C	; =FUN_06015458
 	str	r0, [r6, #36]	; 0x24
 	ldr	r0, _06013A50	; =_060153E4
 	str	r0, [r6, #56]	; 0x38
@@ -22822,8 +22822,8 @@ _06013A38:	.word	0x0000FFFF
 _06013A3C:	.word	0x04804170
 _06013A40:	.word	0x04804028
 _06013A44:	.word	0x04804000
-_06013A48:	.word	FUNC_06015974
-_06013A4C:	.word	FUNC_06015458
+_06013A48:	.word	FUN_06015974
+_06013A4C:	.word	FUN_06015458
 _06013A50:	.word	_060153E4
 _06013A54:	.word	0x0000B6B8
 _06013A58:	.word	0x04804024
@@ -22837,7 +22837,7 @@ _06013A74:	.word	0x048080AE
 _06013A78:	.word	0x04804AA0
 _06013A7C:	.word	0x04804958
 _06013A80:	.word	0x04804334
-_06013A84:	.word	FUNC_060152C4
+_06013A84:	.word	FUN_060152C4
 _06013A88:	.word	0x04804238
 _06013A8C:	.word	0x04804234
 _06013A90:	.word	0x04804236
@@ -22863,8 +22863,8 @@ _06013ADC:	.word	0x048045D6
 _06013AE0:	.word	0x04804BF8
 _06013AE4:	.word	0x04804BFA
 
-	arm_func_start FUNC_06013AE8
-FUNC_06013AE8: ; 0x06013AE8
+	arm_func_start FUN_06013AE8
+FUN_06013AE8: ; 0x06013AE8
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r7, r0
 	ldr	r1, _06013C04	; =0x0380FFF4
@@ -22873,7 +22873,7 @@ FUNC_06013AE8: ; 0x06013AE8
 	add	r5, r1, #796	; 0x31c
 	mov	r4, #0
 	mov	r1, #221	; 0xdd
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r7, #1
 	ldr	r1, _06013C04	; =0x0380FFF4
 	ldr	r1, [r1]
@@ -22881,37 +22881,37 @@ FUNC_06013AE8: ; 0x06013AE8
 	ldrh	r1, [r1, #228]	; 0xe4
 	add	r1, r1, #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r7, #2
 	mov	r1, r4
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r7, #3
 	mov	r1, #9
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r7, #4
 	mov	r1, #191	; 0xbf
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r7, #5
 	mov	r1, r4
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r7, #6
 	ldrh	r1, [r5, #32]
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r7, #7
 	ldrh	r1, [r5, #32]
 	mov	r1, r1, asr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	ldr	r0, _06013C08	; =0x0380FFF0
 	ldrh	r5, [r0]
 	add	r0, r7, #8
 	and	r1, r5, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r7, #9
 	mov	r1, r5, lsr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r4, r4, #10
 	ldrh	r0, [r6, #160]	; 0xa0
 	cmp	r0, #0
@@ -22924,10 +22924,10 @@ FUNC_06013AE8: ; 0x06013AE8
 	b	_06013BEC
 _06013BCC:
 	mov	r0, r5
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r7, r4
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r4, r4, #1
 	add	r5, r5, #1
 	add	r8, r8, #1
@@ -22942,29 +22942,29 @@ _06013BF8:
 _06013C04:	.word	0x0380FFF4
 _06013C08:	.word	0x0380FFF0
 
-	arm_func_start FUNC_06013C0C
-FUNC_06013C0C: ; 0x06013C0C
+	arm_func_start FUN_06013C0C
+FUN_06013C0C: ; 0x06013C0C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r1, #3
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r4, #1
 	mov	r1, #1
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r4, #2
 	ldr	r1, _06013C50	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #768	; 0x300
 	ldrh	r1, [r1, #190]	; 0xbe
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	mov	r0, #3
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06013C50:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06013C54
-FUNC_06013C54: ; 0x06013C54
+	arm_func_start FUN_06013C54
+FUN_06013C54: ; 0x06013C54
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r9, r0
@@ -22973,7 +22973,7 @@ FUNC_06013C54: ; 0x06013C54
 	add	r8, r1, #836	; 0x344
 	mov	r7, #0
 	mov	r1, #1
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r7, r7, #2
 	mov	r6, #0
 	ldr	r4, _06013D08	; =_060193A4
@@ -22991,14 +22991,14 @@ _06013C88:
 	ldrh	r1, [r4, r1]
 	orr	r1, r1, #128	; 0x80
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	b	_06013CD4
 _06013CC0:
 	add	r0, r9, r7
 	mov	r1, r6, lsl #1
 	ldrh	r1, [r4, r1]
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 _06013CD4:
 	add	r7, r7, #1
 _06013CD8:
@@ -23008,7 +23008,7 @@ _06013CD8:
 	add	r0, r9, #1
 	sub	r1, r7, #2
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	mov	r0, r7
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -23016,8 +23016,8 @@ _06013CD8:
 _06013D04:	.word	0x0380FFF4
 _06013D08:	.word	_060193A4
 
-	arm_func_start FUNC_06013D0C
-FUNC_06013D0C: ; 0x06013D0C
+	arm_func_start FUN_06013D0C
+FUN_06013D0C: ; 0x06013D0C
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r4, r0
 	ldr	r1, _06013D7C	; =0x0380FFF4
@@ -23026,20 +23026,20 @@ FUNC_06013D0C: ; 0x06013D0C
 	mov	r8, #0
 	ldrh	r7, [r5, #30]
 	mov	r1, r8
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r4, #1
 	and	r1, r7, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r8, r8, #2
 	mov	r6, #0
 	add	r5, r5, #32
 	b	_06013D68
 _06013D4C:
 	add	r0, r5, r6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r4, r8
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r8, r8, #1
 	add	r6, r6, #1
 _06013D68:
@@ -23050,8 +23050,8 @@ _06013D68:
 	bx	lr
 _06013D7C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06013D80
-FUNC_06013D80: ; 0x06013D80
+	arm_func_start FUN_06013D80
+FUN_06013D80: ; 0x06013D80
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -23068,13 +23068,13 @@ _06013DA4:
 	bne	_06013DCC
 	add	r0, r1, #24
 	mov	r1, r5
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	movne	r0, #1
 	bne	_06013DE4
 _06013DCC:
 	mov	r0, r7
-	bl	FUNC_06009434
+	bl	FUN_06009434
 	mov	r7, r0
 _06013DD8:
 	cmp	r7, r6
@@ -23086,8 +23086,8 @@ _06013DE4:
 	bx	lr
 _06013DF0:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06013DF4
-FUNC_06013DF4: ; 0x06013DF4
+	arm_func_start FUN_06013DF4
+FUN_06013DF4: ; 0x06013DF4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -23095,8 +23095,8 @@ FUNC_06013DF4: ; 0x06013DF4
 	mov	r0, #0
 	mov	r1, r5
 	mov	r2, #44	; 0x2c
-	bl	FUNC_0600055C
-	bl	FUNC_0600AA50
+	bl	FUN_0600055C
+	bl	FUN_0600AA50
 	strh	r0, [r5, #16]
 	ldr	r0, _06013E44	; =0x0380FFF4
 	ldr	r3, [r0]
@@ -23104,14 +23104,14 @@ FUNC_06013DF4: ; 0x06013DF4
 	mov	r1, r4
 	add	r2, r3, #804	; 0x324
 	add	r3, r3, #936	; 0x3a8
-	bl	FUNC_0600AECC
+	bl	FUN_0600AECC
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06013E44:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06013E48
-FUNC_06013E48: ; 0x06013E48
+	arm_func_start FUN_06013E48
+FUN_06013E48: ; 0x06013E48
 	ldr	r2, _06013E94	; =0x0380FFF4
 	ldr	r1, [r2]
 	ldr	r3, [r1, #1116]	; 0x45c
@@ -23134,14 +23134,14 @@ FUNC_06013E48: ; 0x06013E48
 _06013E94:	.word	0x0380FFF4
 _06013E98:	.word	_0600AF18
 
-	arm_func_start FUNC_06013E9C
-FUNC_06013E9C: ; 0x06013E9C
+	arm_func_start FUN_06013E9C
+FUN_06013E9C: ; 0x06013E9C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
 	cmp	r2, #0
 	bne	_06013EC0
-	bl	FUNC_06014640
+	bl	FUN_06014640
 	cmp	r0, #0
 	moveq	r0, #0
 	beq	_06013F28
@@ -23150,11 +23150,11 @@ _06013EC0:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #54	; 0x36
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_06013EEC
 	mov	r0, #2
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, r4
 	b	_06013F28
 _06013EEC:
@@ -23163,7 +23163,7 @@ _06013EEC:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUNC_06013DF4
+	bl	FUN_06013DF4
 	strh	r5, [r4, #44]	; 0x2c
 	mov	r0, #2
 	strh	r0, [r4, #6]
@@ -23179,14 +23179,14 @@ _06013F28:
 _06013F30:	.word	0x0380FFF4
 _06013F34:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06013F38
-FUNC_06013F38: ; 0x06013F38
+	arm_func_start FUN_06013F38
+FUN_06013F38: ; 0x06013F38
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
 	cmp	r2, #0
 	beq	_06013F5C
-	bl	FUNC_06014640
+	bl	FUN_06014640
 	cmp	r0, #0
 	moveq	r0, #0
 	beq	_06013FEC
@@ -23195,11 +23195,11 @@ _06013F5C:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	add	r1, r5, #61	; 0x3d
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_06013F88
 	mov	r0, #2
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, r4
 	b	_06013FEC
 _06013F88:
@@ -23208,15 +23208,15 @@ _06013F88:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUNC_06013DF4
+	bl	FUN_06013DF4
 	cmp	r5, #0
 	beq	_06013FCC
 	add	r0, r4, #50	; 0x32
 	mov	r1, #16
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r4, #51	; 0x33
 	and	r1, r5, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r5, #2
 	mov	r0, r0, lsl #16
 	mov	r5, r0, lsr #16
@@ -23235,14 +23235,14 @@ _06013FEC:
 _06013FF4:	.word	0x0380FFF4
 _06013FF8:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06013FFC
-FUNC_06013FFC: ; 0x06013FFC
+	arm_func_start FUN_06013FFC
+FUN_06013FFC: ; 0x06013FFC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _060140DC	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r5, r0, #836	; 0x344
-	bl	FUNC_06014640
+	bl	FUN_06014640
 	cmp	r0, #0
 	moveq	r0, #0
 	beq	_060140D4
@@ -23251,11 +23251,11 @@ FUNC_06013FFC: ; 0x06013FFC
 	add	r0, r0, #392	; 0x188
 	ldrh	r1, [r5, #160]	; 0xa0
 	add	r1, r1, #120	; 0x78
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_06014050
 	mov	r0, #2
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, r4
 	b	_060140D4
 _06014050:
@@ -23264,25 +23264,25 @@ _06014050:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUNC_06013DF4
+	bl	FUN_06013DF4
 	ldrh	r0, [r5, #110]	; 0x6e
 	strh	r0, [r4, #52]	; 0x34
 	ldrh	r0, [r5, #124]	; 0x7c
 	strh	r0, [r4, #54]	; 0x36
 	add	r0, r4, #56	; 0x38
-	bl	FUNC_06013D0C
+	bl	FUN_06013D0C
 	mov	r5, r0
 	add	r0, r4, #56	; 0x38
 	add	r0, r0, r5
-	bl	FUNC_06013C54
+	bl	FUN_06013C54
 	add	r5, r5, r0
 	add	r0, r4, #56	; 0x38
 	add	r0, r0, r5
-	bl	FUNC_06013C0C
+	bl	FUN_06013C0C
 	add	r5, r5, r0
 	add	r0, r4, #56	; 0x38
 	add	r0, r0, r5
-	bl	FUNC_06013AE8
+	bl	FUN_06013AE8
 	add	r0, r5, r0
 	add	r0, r0, #12
 	strh	r0, [r4, #6]
@@ -23298,19 +23298,19 @@ _060140D4:
 _060140DC:	.word	0x0380FFF4
 _060140E0:	.word	0x0000FFFF
 
-	arm_func_start FUNC_060140E4
-FUNC_060140E4: ; 0x060140E4
+	arm_func_start FUN_060140E4
+FUN_060140E4: ; 0x060140E4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _0601416C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #90	; 0x5a
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_06014118
 	mov	r0, #2
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, r4
 	b	_06014164
 _06014118:
@@ -23319,13 +23319,13 @@ _06014118:
 	add	r5, r4, #16
 	mov	r0, r5
 	mov	r1, r6
-	bl	FUNC_06013DF4
+	bl	FUN_06013DF4
 	add	r0, r5, #44	; 0x2c
-	bl	FUNC_06013D0C
+	bl	FUN_06013D0C
 	mov	r4, r0
 	add	r0, r5, #44	; 0x2c
 	add	r0, r0, r4
-	bl	FUNC_06013C54
+	bl	FUN_06013C54
 	add	r0, r4, r0
 	strh	r0, [r5, #6]
 	add	r0, r0, #28
@@ -23339,8 +23339,8 @@ _06014164:
 _0601416C:	.word	0x0380FFF4
 _06014170:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06014174
-FUNC_06014174: ; 0x06014174
+	arm_func_start FUN_06014174
+FUN_06014174: ; 0x06014174
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r8, r0
@@ -23350,11 +23350,11 @@ FUNC_06014174: ; 0x06014174
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #96	; 0x60
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_060141B4
 	mov	r0, #2
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, r4
 	b	_060142CC
 _060141B4:
@@ -23364,7 +23364,7 @@ _060141B4:
 	cmp	r7, #0
 	bne	_060141DC
 	mov	r0, r8
-	bl	FUNC_0600F080
+	bl	FUN_0600F080
 	movs	r4, r0
 	moveq	r7, #19
 	b	_060141E0
@@ -23372,10 +23372,10 @@ _060141DC:
 	mov	r4, #0
 _060141E0:
 	mov	r0, r8
-	bl	FUNC_0600EF94
+	bl	FUN_0600EF94
 	mov	r1, r0
 	mov	r0, r5
-	bl	FUNC_06013DF4
+	bl	FUN_06013DF4
 	ldr	r0, _060142D8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -23385,7 +23385,7 @@ _060141E0:
 	orr	r0, r4, #49152	; 0xc000
 	strh	r0, [r5, #48]	; 0x30
 	add	r0, r5, #50	; 0x32
-	bl	FUNC_06013C54
+	bl	FUN_06013C54
 	add	r0, r0, #6
 	strh	r0, [r5, #6]
 	ldrh	r0, [r5, #6]
@@ -23399,26 +23399,26 @@ _060141E0:
 	cmp	r6, #0
 	beq	_060142B0
 	add	r0, r6, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r7, r0
 	mov	r0, r6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r8, #1
 	and	r1, r7, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r8, r8, #2
 	mov	r9, #0
 	add	r4, r6, #2
 	b	_060142A4
 _06014288:
 	add	r0, r4, r9
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r8, r8, #1
 	add	r9, r9, #1
 _060142A4:
@@ -23428,10 +23428,10 @@ _060142A4:
 _060142B0:
 	mov	r0, r8
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r8, #1
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 _060142C8:
 	mov	r0, r5
 _060142CC:
@@ -23441,8 +23441,8 @@ _060142CC:
 _060142D8:	.word	0x0380FFF4
 _060142DC:	.word	0x0000FFFF
 
-	arm_func_start FUNC_060142E0
-FUNC_060142E0: ; 0x060142E0
+	arm_func_start FUN_060142E0
+FUN_060142E0: ; 0x060142E0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r8, r0
@@ -23452,11 +23452,11 @@ FUNC_060142E0: ; 0x060142E0
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #96	; 0x60
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_06014320
 	mov	r0, #2
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, r4
 	b	_06014444
 _06014320:
@@ -23466,7 +23466,7 @@ _06014320:
 	cmp	r7, #0
 	bne	_06014348
 	mov	r0, r8
-	bl	FUNC_0600F080
+	bl	FUN_0600F080
 	movs	r4, r0
 	moveq	r7, #19
 	b	_0601434C
@@ -23474,10 +23474,10 @@ _06014348:
 	mov	r4, #0
 _0601434C:
 	mov	r0, r8
-	bl	FUNC_0600EF94
+	bl	FUN_0600EF94
 	mov	r1, r0
 	mov	r0, r5
-	bl	FUNC_06013DF4
+	bl	FUN_06013DF4
 	ldr	r0, _06014450	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -23490,7 +23490,7 @@ _0601434C:
 	orrne	r0, r0, #49152	; 0xc000
 	strneh	r0, [r5, #48]	; 0x30
 	add	r0, r5, #50	; 0x32
-	bl	FUNC_06013C54
+	bl	FUN_06013C54
 	add	r0, r0, #6
 	strh	r0, [r5, #6]
 	ldrh	r0, [r5, #6]
@@ -23504,26 +23504,26 @@ _0601434C:
 	cmp	r6, #0
 	beq	_06014428
 	add	r0, r6, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r7, r0
 	mov	r0, r6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r8, #1
 	add	r8, r8, #2
 	and	r1, r7, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	mov	r9, #0
 	add	r4, r6, #2
 	b	_0601441C
 _06014400:
 	add	r0, r4, r9
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r9, r9, #1
 	add	r8, r8, #1
 _0601441C:
@@ -23533,10 +23533,10 @@ _0601441C:
 _06014428:
 	mov	r0, r8
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r8, #1
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 _06014440:
 	mov	r0, r5
 _06014444:
@@ -23546,8 +23546,8 @@ _06014444:
 _06014450:	.word	0x0380FFF4
 _06014454:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06014458
-FUNC_06014458: ; 0x06014458
+	arm_func_start FUN_06014458
+FUN_06014458: ; 0x06014458
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _06014508	; =0x0380FFF4
@@ -23555,11 +23555,11 @@ FUNC_06014458: ; 0x06014458
 	add	r5, r0, #836	; 0x344
 	add	r0, r0, #392	; 0x188
 	mov	r1, #100	; 0x64
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_06014490
 	mov	r0, #2
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, r4
 	b	_06014500
 _06014490:
@@ -23568,20 +23568,20 @@ _06014490:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUNC_06013DF4
+	bl	FUN_06013DF4
 	ldrh	r0, [r5, #124]	; 0x7c
 	strh	r0, [r4, #44]	; 0x2c
 	ldrh	r0, [r5, #112]	; 0x70
 	strh	r0, [r4, #46]	; 0x2e
 	add	r0, r4, #48	; 0x30
 	add	r1, r5, #130	; 0x82
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	add	r0, r4, #54	; 0x36
-	bl	FUNC_06013D0C
+	bl	FUN_06013D0C
 	mov	r5, r0
 	add	r0, r4, #54	; 0x36
 	add	r0, r0, r5
-	bl	FUNC_06013C54
+	bl	FUN_06013C54
 	add	r0, r5, r0
 	add	r0, r0, #10
 	strh	r0, [r4, #6]
@@ -23597,8 +23597,8 @@ _06014500:
 _06014508:	.word	0x0380FFF4
 _0601450C:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06014510
-FUNC_06014510: ; 0x06014510
+	arm_func_start FUN_06014510
+FUN_06014510: ; 0x06014510
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _060145B4	; =0x0380FFF4
@@ -23606,11 +23606,11 @@ FUNC_06014510: ; 0x06014510
 	add	r5, r0, #836	; 0x344
 	add	r0, r0, #392	; 0x188
 	mov	r1, #94	; 0x5e
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_06014548
 	mov	r0, #2
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, r4
 	b	_060145AC
 _06014548:
@@ -23619,17 +23619,17 @@ _06014548:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUNC_06013DF4
+	bl	FUN_06013DF4
 	ldrh	r0, [r5, #124]	; 0x7c
 	strh	r0, [r4, #44]	; 0x2c
 	ldrh	r0, [r5, #112]	; 0x70
 	strh	r0, [r4, #46]	; 0x2e
 	add	r0, r4, #48	; 0x30
-	bl	FUNC_06013D0C
+	bl	FUN_06013D0C
 	mov	r5, r0
 	add	r0, r4, #48	; 0x30
 	add	r0, r0, r5
-	bl	FUNC_06013C54
+	bl	FUN_06013C54
 	add	r0, r5, r0
 	add	r0, r0, #4
 	strh	r0, [r4, #6]
@@ -23645,8 +23645,8 @@ _060145AC:
 _060145B4:	.word	0x0380FFF4
 _060145B8:	.word	0x0000FFFF
 
-	arm_func_start FUNC_060145BC
-FUNC_060145BC: ; 0x060145BC
+	arm_func_start FUN_060145BC
+FUN_060145BC: ; 0x060145BC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -23654,11 +23654,11 @@ FUNC_060145BC: ; 0x060145BC
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #54	; 0x36
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r4, r0
 	bne	_060145F4
 	mov	r0, #2
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 	mov	r0, r4
 	b	_06014630
 _060145F4:
@@ -23667,7 +23667,7 @@ _060145F4:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUNC_06013DF4
+	bl	FUN_06013DF4
 	strh	r5, [r4, #44]	; 0x2c
 	mov	r0, #2
 	strh	r0, [r4, #6]
@@ -23683,8 +23683,8 @@ _06014630:
 _06014638:	.word	0x0380FFF4
 _0601463C:	.word	0x0000FFFF
 
-	arm_func_start FUNC_06014640
-FUNC_06014640: ; 0x06014640
+	arm_func_start FUN_06014640
+FUN_06014640: ; 0x06014640
 	ldr	r0, _0601466C	; =0x0380FFF4
 	ldr	r2, [r0]
 	add	r0, r2, #256	; 0x100
@@ -23698,8 +23698,8 @@ FUNC_06014640: ; 0x06014640
 	bx	lr
 _0601466C:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06014670
-FUNC_06014670: ; 0x06014670
+	arm_func_start FUN_06014670
+FUN_06014670: ; 0x06014670
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0601476C	; =0x0380FFF4
@@ -23719,19 +23719,19 @@ FUNC_06014670: ; 0x06014670
 	sub	r0, r0, #1
 	ldr	r1, [r5, #156]	; 0x9c
 	add	r2, r2, #2
-	bl	FUNC_06009D74
+	bl	FUN_06009D74
 	add	r0, r4, #9
 	ldr	r1, _06014770	; =0x0380FFF0
 	ldrh	r1, [r1]
 	mov	r1, r1, asr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	b	_060146EC
 _060146DC:
 	add	r0, r4, #10
 	ldr	r1, [r5, #156]	; 0x9c
 	add	r2, r2, #1
-	bl	FUNC_06009D74
+	bl	FUN_06009D74
 _060146EC:
 	ldrh	r0, [r5, #150]	; 0x96
 	add	r1, r0, #38	; 0x26
@@ -23745,7 +23745,7 @@ _060146EC:
 	ldrh	r1, [r5, #160]	; 0xa0
 	add	r1, r1, #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	ldr	r0, _0601476C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1536	; 0x600
@@ -23771,8 +23771,8 @@ _06014770:	.word	0x0380FFF0
 _06014774:	.word	0x0000B6B8
 _06014778:	.word	0x00001D46
 
-	arm_func_start FUNC_0601477C
-FUNC_0601477C: ; 0x0601477C
+	arm_func_start FUN_0601477C
+FUN_0601477C: ; 0x0601477C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	ldr	r0, _06014AD0	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -23784,7 +23784,7 @@ FUNC_0601477C: ; 0x0601477C
 	strh	r0, [sl, #2]
 	strh	r0, [sl, #4]
 	strh	r0, [sl, #6]
-	bl	FUNC_0600AA50
+	bl	FUN_0600AA50
 	strh	r0, [sl, #8]
 	mov	r0, #128	; 0x80
 	strh	r0, [sl, #12]
@@ -23794,7 +23794,7 @@ FUNC_0601477C: ; 0x0601477C
 	ldr	r1, _06014AD4	; =_06019384
 	add	r2, r9, #8
 	mov	r3, r2
-	bl	FUNC_0600AECC
+	bl	FUN_0600AECC
 	mov	r1, #0
 	strh	r1, [sl, #34]	; 0x22
 	add	r7, sl, #36	; 0x24
@@ -23812,21 +23812,21 @@ FUNC_0601477C: ; 0x0601477C
 	sub	r0, r6, r7
 	strh	r0, [r8, #146]	; 0x92
 	mov	r0, r6
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #1
 	add	r6, r6, #2
 	ldrh	r1, [r8, #30]
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	mov	r5, #0
 	add	r4, r8, #32
 	b	_06014858
 _0601483C:
 	add	r0, r4, r5
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, r6
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r6, r6, #1
 	add	r5, r5, #1
 _06014858:
@@ -23837,24 +23837,24 @@ _06014858:
 	sub	r0, r0, r5
 	add	r0, r6, r0
 	and	r1, r5, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	b	_06014880
 _0601487C:
 	strh	r1, [r8, #146]	; 0x92
 _06014880:
 	mov	r0, r6
-	bl	FUNC_06013C54
+	bl	FUN_06013C54
 	add	r6, r6, r0
 	mov	r0, r6
 	mov	r1, #3
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #1
 	mov	r1, #1
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #2
 	ldrh	r1, [r8, #122]	; 0x7a
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #3
 	sub	r1, r0, r7
 	strh	r1, [r8, #148]	; 0x94
@@ -23863,26 +23863,26 @@ _06014880:
 	ldr	r1, _06014AD8	; =0x04808084
 	strh	r2, [r1]
 	mov	r1, #5
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #4
 	mov	r1, #5
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #5
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #6
 	ldrh	r1, [r8, #116]	; 0x74
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #7
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #8
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #9
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #10
 	sub	r1, r0, r7
 	strh	r1, [r8, #150]	; 0x96
@@ -23890,66 +23890,66 @@ _06014880:
 	and	r1, r1, #1
 	strh	r1, [r8, #162]	; 0xa2
 	mov	r1, #221	; 0xdd
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #11
 	ldrh	r1, [r8, #160]	; 0xa0
 	add	r1, r1, #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #12
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #13
 	mov	r1, #9
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #14
 	mov	r1, #191	; 0xbf
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #15
 	mov	r1, #0
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	ldrh	r0, [r8, #14]
 	cmp	r0, #1
 	bne	_060149C0
 	add	r0, r6, #16
 	ldrh	r1, [r9, #32]
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #17
 	add	r6, r6, #18
 	ldrh	r1, [r9, #32]
 	mov	r1, r1, asr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	b	_060149DC
 _060149C0:
 	add	r0, r6, #16
 	mov	r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #17
 	add	r6, r6, #18
 	mov	r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 _060149DC:
 	ldr	r0, _06014ADC	; =0x0380FFF0
 	ldrh	r4, [r0]
 	mov	r0, r6
 	and	r1, r4, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r6, #1
 	add	r6, r6, #2
 	mov	r1, r4, lsr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	ldr	r5, [r8, #156]	; 0x9c
 	mov	r4, #0
 	b	_06014A30
 _06014A10:
 	mov	r0, r5
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, r6
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r6, r6, #1
 	add	r5, r5, #1
 	add	r4, r4, #1
@@ -23967,10 +23967,10 @@ _06014A30:
 	b	_06014A78
 _06014A5C:
 	mov	r0, r4
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r4, #1
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r5, r5, #1
 	sub	r4, r4, #1
 _06014A78:
@@ -24005,8 +24005,8 @@ _06014ADC:	.word	0x0380FFF0
 _06014AE0:	.word	0x0000B6B8
 _06014AE4:	.word	0x00001D46
 
-	arm_func_start FUNC_06014AE8
-FUNC_06014AE8: ; 0x06014AE8
+	arm_func_start FUN_06014AE8
+FUN_06014AE8: ; 0x06014AE8
 	ldr	r0, _06014B08	; =0x0380FFF4
 	ldr	r2, [r0]
 	mov	r1, #0
@@ -24018,8 +24018,8 @@ FUNC_06014AE8: ; 0x06014AE8
 _06014B08:	.word	0x0380FFF4
 _06014B0C:	.word	0x04808080
 
-	arm_func_start FUNC_06014B10
-FUNC_06014B10: ; 0x06014B10
+	arm_func_start FUN_06014B10
+FUN_06014B10: ; 0x06014B10
 	ldr	r0, _06014B4C	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _06014B50	; =0x000004A4
@@ -24040,8 +24040,8 @@ _06014B50:	.word	0x000004A4
 _06014B54:	.word	0x00003FFF
 _06014B58:	.word	0x04808080
 
-	arm_func_start FUNC_06014B5C
-FUNC_06014B5C: ; 0x06014B5C
+	arm_func_start FUN_06014B5C
+FUN_06014B5C: ; 0x06014B5C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06014BE8	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -24064,7 +24064,7 @@ FUNC_06014B5C: ; 0x06014B5C
 	strh	r1, [r0]
 	ldr	r0, [r4, #8]
 	strh	r1, [r0, #4]
-	bl	FUNC_0600AA50
+	bl	FUN_0600AA50
 	ldr	r1, [r4, #8]
 	strh	r0, [r1, #8]
 	ldr	r1, [r4, #8]
@@ -24083,12 +24083,12 @@ _06014BEC:	.word	0x00000454
 _06014BF0:	.word	0x00003FFF
 _06014BF4:	.word	0x048080A8
 
-	arm_func_start FUNC_06014BF8
-FUNC_06014BF8: ; 0x06014BF8
+	arm_func_start FUN_06014BF8
+FUN_06014BF8: ; 0x06014BF8
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	add	r0, r4, #24
-	bl	FUNC_0600F608
+	bl	FUN_0600F608
 	strh	r0, [r4, #2]
 	ldrh	r0, [r4, #2]
 	cmp	r0, #255	; 0xff
@@ -24104,30 +24104,30 @@ FUNC_06014BF8: ; 0x06014BF8
 	addne	r0, r0, #8
 	strneh	r0, [r4, #18]
 	mov	r0, r4
-	bl	FUNC_0600F3CC
+	bl	FUN_0600F3CC
 	ldr	r0, _06014C68	; =0x0380FFF4
 	ldr	r1, [r0]
 	add	r0, r1, #392	; 0x188
 	add	r1, r1, #416	; 0x1a0
 	sub	r2, r4, #16
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06014C68:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06014C6C
-FUNC_06014C6C: ; 0x06014C6C
+	arm_func_start FUN_06014C6C
+FUN_06014C6C: ; 0x06014C6C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUNC_06014BF8
+	bl	FUN_06014BF8
 	mov	r0, #1
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUNC_06014C8C
-FUNC_06014C8C: ; 0x06014C8C
+	arm_func_start FUN_06014C8C
+FUN_06014C8C: ; 0x06014C8C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -24144,13 +24144,13 @@ FUNC_06014C8C: ; 0x06014C8C
 	mov	r5, #2
 _06014CC4:
 	mov	r0, r8
-	bl	FUNC_06009434
+	bl	FUN_06009434
 	mov	fp, r0
 	add	r7, r8, #16
 	cmp	sl, #2
 	beq	_06014CE4
 	mov	r0, r7
-	bl	FUNC_0600F360
+	bl	FUN_0600F360
 _06014CE4:
 	strh	r5, [r7, #8]
 	cmp	r9, #0
@@ -24160,7 +24160,7 @@ _06014CE4:
 	add	r0, r0, #404	; 0x194
 	add	r0, r0, r6
 	mov	r1, r8
-	bl	FUNC_06012DD4
+	bl	FUN_06012DD4
 _06014D08:
 	mov	r8, fp
 	cmp	fp, r4
@@ -24171,8 +24171,8 @@ _06014D14:
 	bx	lr
 _06014D20:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06014D24
-FUNC_06014D24: ; 0x06014D24
+	arm_func_start FUN_06014D24
+FUN_06014D24: ; 0x06014D24
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06014E0C	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -24190,13 +24190,13 @@ FUNC_06014D24: ; 0x06014D24
 _06014D5C:
 	mov	r0, #0
 	mov	r1, #1
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, #2
 	mov	r1, #1
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	ldrh	r0, [r4, #60]	; 0x3c
 	cmp	r0, #0
 	beq	_06014E04
@@ -24209,37 +24209,37 @@ _06014D5C:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	ldr	r1, [r4, #144]	; 0x90
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 	b	_06014E04
 _06014DB8:
 	mov	r0, #0
 	mov	r1, #1
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	b	_06014E04
 _06014DE0:
 	mov	r0, #0
 	mov	r1, r0
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 _06014E04:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06014E0C:	.word	0x0380FFF4
 _06014E10:	.word	0x0000042C
 
-	arm_func_start FUNC_06014E14
-FUNC_06014E14: ; 0x06014E14
+	arm_func_start FUN_06014E14
+FUN_06014E14: ; 0x06014E14
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldrh	r1, [r0]
@@ -24250,7 +24250,7 @@ FUNC_06014E14: ; 0x06014E14
 	b	_06014E40
 _06014E34:
 	mov	r0, r5
-	bl	FUNC_06014EB8
+	bl	FUN_06014EB8
 	add	r5, r5, #1
 _06014E40:
 	ldr	r0, [r4]
@@ -24260,11 +24260,11 @@ _06014E40:
 	bcc	_06014E34
 	b	_06014EA8
 _06014E58:
-	bl	FUNC_0600F608
+	bl	FUN_0600F608
 	mov	r4, r0
 	cmp	r4, #255	; 0xff
 	beq	_06014E6C
-	bl	FUNC_06014EB8
+	bl	FUN_06014EB8
 _06014E6C:
 	ldr	r0, _06014EB4	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -24273,27 +24273,27 @@ _06014E6C:
 	cmp	r0, #1
 	bne	_06014EA8
 	mov	r0, r4
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	bne	_06014EA8
 	mov	r0, r4, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUNC_0600F294
-	bl	FUNC_060151F0
+	bl	FUN_0600F294
+	bl	FUN_060151F0
 _06014EA8:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06014EB4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06014EB8
-FUNC_06014EB8: ; 0x06014EB8
+	arm_func_start FUN_06014EB8
+FUN_06014EB8: ; 0x06014EB8
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	fp, r0
 	mov	r8, #0
-	bl	FUNC_0600EEFC
+	bl	FUN_0600EEFC
 	cmp	r0, #0
 	beq	_06014FB8
 	mov	r7, r8
@@ -24315,7 +24315,7 @@ _06014EE8:
 	mul	r6, r7, r0
 _06014F14:
 	mov	r0, sl
-	bl	FUNC_06009434
+	bl	FUN_06009434
 	str	r0, [sp]
 	add	r9, sl, #16
 	ldrh	r0, [r9, #2]
@@ -24331,22 +24331,22 @@ _06014F14:
 	bne	_06014F6C
 _06014F50:
 	mov	r0, r9
-	bl	FUNC_0600F360
+	bl	FUN_0600F360
 	ldr	r0, [sp, #4]
 	strh	r0, [r9, #2]
 	mov	r0, r9
-	bl	FUNC_0600F3CC
+	bl	FUN_0600F3CC
 	b	_06014F98
 _06014F6C:
 	strh	r4, [r9, #8]
 	mov	r0, r9
-	bl	FUNC_0600F360
+	bl	FUN_0600F360
 	ldr	r0, _06014FC4	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #404	; 0x194
 	add	r0, r0, r5
 	mov	r1, sl
-	bl	FUNC_06012DD4
+	bl	FUN_06012DD4
 	cmp	r8, #0
 	ldreq	r8, [sp, #8]
 _06014F98:
@@ -24365,8 +24365,8 @@ _06014FB8:
 	bx	lr
 _06014FC4:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06014FC8
-FUNC_06014FC8: ; 0x06014FC8
+	arm_func_start FUN_06014FC8
+FUN_06014FC8: ; 0x06014FC8
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -24378,7 +24378,7 @@ FUNC_06014FC8: ; 0x06014FC8
 	mul	r4, r7, r0
 	add	r6, r5, r4
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r2, r7, lsl #1
 	ldr	r1, _06015058	; =_06019958
 	ldrh	r2, [r1, r2]
@@ -24398,7 +24398,7 @@ FUNC_06014FC8: ; 0x06014FC8
 	ldr	r1, [r6, #12]
 	strh	r2, [r1, #42]	; 0x2a
 _06015040:
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
@@ -24407,8 +24407,8 @@ _06015054:	.word	0x0000042C
 _06015058:	.word	_06019958
 _0601505C:	.word	0x048080B4
 
-	arm_func_start FUNC_06015060
-FUNC_06015060: ; 0x06015060
+	arm_func_start FUN_06015060
+FUN_06015060: ; 0x06015060
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _060150D0	; =0x0380FFF4
@@ -24441,8 +24441,8 @@ _060150C4:
 _060150D0:	.word	0x0380FFF4
 _060150D4:	.word	0x0000042C
 
-	arm_func_start FUNC_060150D8
-FUNC_060150D8: ; 0x060150D8
+	arm_func_start FUN_060150D8
+FUN_060150D8: ; 0x060150D8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06015184	; =0x0380FFF4
@@ -24450,7 +24450,7 @@ FUNC_060150D8: ; 0x060150D8
 	ldr	r0, _06015188	; =0x0000042C
 	add	r5, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	ldr	r0, _06015184	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -24465,11 +24465,11 @@ FUNC_060150D8: ; 0x060150D8
 	cmp	r0, #0
 	beq	_06015134
 	mov	r0, #2
-	bl	FUNC_06015060
+	bl	FUN_06015060
 _06015134:
 	mov	r0, #2
 	mov	r1, #1
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	b	_06015150
 _06015144:
 	mov	r1, #1
@@ -24480,13 +24480,13 @@ _06015150:
 	cmp	r0, #0
 	beq	_06015164
 	mov	r0, #0
-	bl	FUNC_06015060
+	bl	FUN_06015060
 _06015164:
 	mov	r0, #0
 	mov	r1, #1
-	bl	FUNC_06014C8C
+	bl	FUN_06014C8C
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -24494,8 +24494,8 @@ _06015184:	.word	0x0380FFF4
 _06015188:	.word	0x0000042C
 _0601518C:	.word	0x048080B4
 
-	arm_func_start FUNC_06015190
-FUNC_06015190: ; 0x06015190
+	arm_func_start FUN_06015190
+FUN_06015190: ; 0x06015190
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _060151E4	; =0x0380FFF4
@@ -24503,7 +24503,7 @@ FUNC_06015190: ; 0x06015190
 	ldr	r0, _060151E8	; =0x0000042C
 	add	r5, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	mov	r1, #2
 	ldr	r0, _060151EC	; =0x048080B4
@@ -24511,10 +24511,10 @@ FUNC_06015190: ; 0x06015190
 	ldrh	r0, [r5, #60]	; 0x3c
 	cmp	r0, #0
 	beq	_060151D0
-	bl	FUNC_0600E21C
+	bl	FUN_0600E21C
 _060151D0:
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -24522,8 +24522,8 @@ _060151E4:	.word	0x0380FFF4
 _060151E8:	.word	0x0000042C
 _060151EC:	.word	0x048080B4
 
-	arm_func_start FUNC_060151F0
-FUNC_060151F0: ; 0x060151F0
+	arm_func_start FUN_060151F0
+FUN_060151F0: ; 0x060151F0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06015264	; =0x0380FFF4
@@ -24531,7 +24531,7 @@ FUNC_060151F0: ; 0x060151F0
 	ldr	r0, _06015268	; =0x0000042C
 	add	r5, r1, r0
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	mov	r4, r0
 	ldr	r0, _06015264	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -24541,7 +24541,7 @@ FUNC_060151F0: ; 0x060151F0
 	movs	r0, r0, lsr #31
 	bne	_06015238
 	mov	r0, #0
-	bl	FUNC_0600B004
+	bl	FUN_0600B004
 _06015238:
 	mov	r1, #192	; 0xc0
 	ldr	r0, _0601526C	; =0x048080B4
@@ -24550,7 +24550,7 @@ _06015238:
 	strh	r0, [r5, #80]	; 0x50
 	strh	r0, [r5, #100]	; 0x64
 	mov	r0, r4
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -24558,8 +24558,8 @@ _06015264:	.word	0x0380FFF4
 _06015268:	.word	0x0000042C
 _0601526C:	.word	0x048080B4
 
-	arm_func_start FUNC_06015270
-FUNC_06015270: ; 0x06015270
+	arm_func_start FUN_06015270
+FUN_06015270: ; 0x06015270
 	ldr	r1, [r0, #8]
 	ldrh	r1, [r1, #4]
 	ands	r3, r1, #255	; 0xff
@@ -24582,12 +24582,12 @@ FUNC_06015270: ; 0x06015270
 _060152BC:	.word	0x0380FFF4
 _060152C0:	.word	0x0000053C
 
-	arm_func_start FUNC_060152C4
-FUNC_060152C4: ; 0x060152C4
+	arm_func_start FUN_060152C4
+FUN_060152C4: ; 0x060152C4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 
-	arm_func_start FUNC_060152C8
-FUNC_060152C8: ; 0x060152C8
+	arm_func_start FUN_060152C8
+FUN_060152C8: ; 0x060152C8
 	sub	sp, sp, #4
 	mov	r7, r0
 	mov	r6, r1
@@ -24602,19 +24602,19 @@ FUNC_060152C8: ; 0x060152C8
 	mov	r1, r1, lsl #28
 	movs	r1, r1, lsr #30
 	bne	_06015324
-	bl	FUNC_0600F3CC
+	bl	FUN_0600F3CC
 	mov	r0, r4
 	add	r1, r5, #36	; 0x24
 	sub	r2, r7, #16
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, r7
 	mov	r1, #0
-	bl	FUNC_06015458
+	bl	FUN_06015458
 	b	_06015330
 _06015324:
 	mov	r0, r4
 	sub	r1, r7, #16
-	bl	FUNC_06012DD4
+	bl	FUN_06012DD4
 _06015330:
 	mov	r2, #0
 	ldr	r1, _060153D8	; =0x0380FFF4
@@ -24639,13 +24639,13 @@ _06015330:
 	cmp	r0, #0
 	beq	_06015390
 	mov	r0, #1
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 _06015390:
 	ldrh	r0, [r5, #32]
 	cmp	r0, #0
 	beq	_060153A4
 	mov	r0, #0
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 _060153A4:
 	ldrh	r0, [r4, #8]
 	cmp	r0, #0
@@ -24653,11 +24653,11 @@ _060153A4:
 	cmp	r6, #0
 	beq	_060153CC
 	mov	r0, #2
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 	b	_060153CC
 _060153C4:
 	mov	r0, #0
-	bl	FUNC_0600ED74
+	bl	FUN_0600ED74
 _060153CC:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -24668,8 +24668,8 @@ _060153E0:	.word	0x048080AE
 _060153E4:
 	ldr	r1, _06015450	; =0x0380FFF4
 
-	arm_func_start FUNC_060153E8
-FUNC_060153E8: ; 0x060153E8
+	arm_func_start FUN_060153E8
+FUN_060153E8: ; 0x060153E8
 	ldr	r2, [r1]
 	ldr	r1, _06015454	; =0x0000053C
 	add	r3, r2, r1
@@ -24700,12 +24700,12 @@ _06015438:
 _06015450:	.word	0x0380FFF4
 _06015454:	.word	0x0000053C
 
-	arm_func_start FUNC_06015458
-FUNC_06015458: ; 0x06015458
+	arm_func_start FUN_06015458
+FUN_06015458: ; 0x06015458
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 
-	arm_func_start FUNC_0601545C
-FUNC_0601545C: ; 0x0601545C
+	arm_func_start FUN_0601545C
+FUN_0601545C: ; 0x0601545C
 	sub	sp, sp, #4
 	mov	sl, r0
 	mov	r9, r1
@@ -24733,14 +24733,14 @@ FUNC_0601545C: ; 0x0601545C
 	addeq	r0, r0, #1
 	streq	r0, [r5, #16]
 	mov	r0, r6
-	bl	FUNC_0600EFB0
+	bl	FUN_0600EFB0
 	cmp	r0, #0
 	beq	_060154F8
 	ldrh	r0, [sl, #20]
 	ands	r0, r0, #8192	; 0x2000
 	bne	_060154F8
 	mov	r0, r6
-	bl	FUNC_0600F1D8
+	bl	FUN_0600F1D8
 	b	_060154F8
 _060154EC:
 	ldr	r0, [r5, #4]
@@ -24801,10 +24801,10 @@ _0601557C:
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #48	; 0x30
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	add	r0, sl, #24
 	ldrh	r1, [sl, #44]	; 0x2c
-	bl	FUNC_060101AC
+	bl	FUN_060101AC
 	b	_06015918
 _060155D4:
 	cmp	r1, #1
@@ -24818,10 +24818,10 @@ _060155D4:
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #48	; 0x30
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	add	r0, sl, #24
 	ldrh	r1, [sl, #44]	; 0x2c
-	bl	FUNC_060101AC
+	bl	FUN_060101AC
 	b	_06015918
 _06015614:
 	cmp	r6, #0
@@ -24833,13 +24833,13 @@ _06015614:
 	cmp	r0, #0
 	bne	_06015918
 	mov	r0, r6
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #48	; 0x30
 	bne	_06015918
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #64	; 0x40
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	cmp	r5, #16
 	bne	_06015678
 	add	r0, sl, #24
@@ -24847,7 +24847,7 @@ _06015614:
 	add	r3, sl, #20
 	ldrh	r2, [sl, #18]
 	add	r2, r3, r2
-	bl	FUNC_06010034
+	bl	FUN_06010034
 	b	_06015918
 _06015678:
 	add	r0, sl, #24
@@ -24855,26 +24855,26 @@ _06015678:
 	add	r3, sl, #20
 	ldrh	r2, [sl, #18]
 	add	r2, r3, r2
-	bl	FUNC_0600FF44
+	bl	FUN_0600FF44
 	b	_06015918
 _06015694:
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_0600F00C
+	bl	FUN_0600F00C
 	add	r0, sl, #24
 	mov	r1, #1
 	mov	r2, #0
-	bl	FUNC_06013E9C
+	bl	FUN_06013E9C
 	cmp	r0, #0
 	beq	_06015918
 	mov	r1, #2
 	strh	r1, [r0]
 	cmp	r9, #0
 	beq	_060156D0
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	b	_06015918
 _060156D0:
-	bl	FUNC_06014BF8
+	bl	FUN_06014BF8
 	b	_06015918
 _060156D8:
 	ldrh	r0, [r4, #12]
@@ -24883,13 +24883,13 @@ _060156D8:
 	cmp	r6, #0
 	beq	_06015710
 	mov	r0, r6
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #48	; 0x30
 	bls	_06015780
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #48	; 0x30
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	b	_06015780
 _06015710:
 	ldrh	r0, [sl, #24]
@@ -24901,13 +24901,13 @@ _06015710:
 	b	_06015750
 _0601572C:
 	mov	r0, r6
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #48	; 0x30
 	bls	_0601574C
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, r5
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 _0601574C:
 	add	r6, r6, #1
 _06015750:
@@ -24922,8 +24922,8 @@ _06015768:
 	cmp	r0, #48	; 0x30
 	bls	_06015780
 	mov	r0, #48	; 0x30
-	bl	FUNC_0600AF68
-	bl	FUNC_0600B054
+	bl	FUN_0600AF68
+	bl	FUN_0600B054
 _06015780:
 	ldrh	r0, [r8]
 	cmp	r0, #113	; 0x71
@@ -24941,7 +24941,7 @@ _06015780:
 	strneh	r1, [r0, #4]
 	mov	r0, #0
 	strh	r0, [r8]
-	bl	FUNC_06010228
+	bl	FUN_06010228
 	b	_06015918
 _060157C8:
 	ldrh	r0, [r4, #12]
@@ -24950,13 +24950,13 @@ _060157C8:
 	cmp	r6, #0
 	beq	_06015800
 	mov	r0, r6
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #32
 	bls	_06015870
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	b	_06015870
 _06015800:
 	ldrh	r0, [sl, #24]
@@ -24968,13 +24968,13 @@ _06015800:
 	b	_06015840
 _0601581C:
 	mov	r0, r5
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #32
 	bls	_0601583C
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, r4
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 _0601583C:
 	add	r5, r5, #1
 _06015840:
@@ -24989,8 +24989,8 @@ _06015858:
 	cmp	r0, #32
 	bls	_06015870
 	mov	r0, #32
-	bl	FUNC_0600AF68
-	bl	FUNC_0600B054
+	bl	FUN_0600AF68
+	bl	FUN_0600B054
 _06015870:
 	ldrh	r0, [r8]
 	cmp	r0, #65	; 0x41
@@ -25008,7 +25008,7 @@ _06015870:
 	strneh	r1, [r0, #4]
 	mov	r0, #0
 	strh	r0, [r8]
-	bl	FUNC_06010228
+	bl	FUN_06010228
 _060158B4:
 	ldrh	r0, [sl]
 	cmp	r0, #1
@@ -25025,24 +25025,24 @@ _060158B4:
 	strh	r1, [r0, #52]	; 0x34
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_0600EB44
+	bl	FUN_0600EB44
 _060158F4:
 	add	r0, sl, #24
 	mov	r1, #1
-	bl	FUNC_06010130
+	bl	FUN_06010130
 	b	_06015918
 _06015904:
 	cmp	r0, #2
 	bne	_06015918
 	add	r0, sl, #24
 	ldrh	r1, [sl, #44]	; 0x2c
-	bl	FUNC_06010130
+	bl	FUN_06010130
 _06015918:
 	mov	r0, sl
-	bl	FUNC_0600F360
+	bl	FUN_0600F360
 	mov	r0, r7
 	sub	r1, sl, #16
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 	mov	r1, #0
 	ldr	r0, _06015968	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -25054,7 +25054,7 @@ _06015918:
 	cmp	r0, #0
 	beq	_0601595C
 	mov	r0, #1
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 _0601595C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -25063,12 +25063,12 @@ _06015968:	.word	0x0380FFF4
 _0601596C:	.word	0x00000404
 _06015970:	.word	0x0000053C
 
-	arm_func_start FUNC_06015974
-FUNC_06015974: ; 0x06015974
+	arm_func_start FUN_06015974
+FUN_06015974: ; 0x06015974
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 
-	arm_func_start FUNC_06015978
-FUNC_06015978: ; 0x06015978
+	arm_func_start FUN_06015978
+FUN_06015978: ; 0x06015978
 	sub	sp, sp, #4
 	mov	r9, r0
 	mov	r8, r1
@@ -25079,7 +25079,7 @@ FUNC_06015978: ; 0x06015978
 	ldr	r1, _06015B04	; =0x0000053C
 	add	r5, r2, r1
 	sub	r4, r9, #16
-	bl	FUNC_0600F360
+	bl	FUN_0600F360
 	ldrh	r0, [r9, #8]
 	ands	r0, r0, #2
 	bne	_06015A14
@@ -25122,21 +25122,21 @@ _06015A20:
 	strne	r0, [r5, #24]
 	mov	r0, r7
 	mov	r1, r4
-	bl	FUNC_06012DD4
+	bl	FUN_06012DD4
 	mov	r1, #0
 	ldr	r0, _06015B00	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1024	; 0x400
 	strh	r1, [r0, #44]	; 0x2c
 	ldrh	r0, [r9, #2]
-	bl	FUNC_0600EFB0
+	bl	FUN_0600EFB0
 	cmp	r0, #0
 	beq	_06015A7C
 	ldrh	r0, [r9, #20]
 	ands	r0, r0, #8192	; 0x2000
 	bne	_06015A7C
 	ldrh	r0, [r9, #2]
-	bl	FUNC_0600F1D8
+	bl	FUN_0600F1D8
 _06015A7C:
 	cmp	r8, #0
 	beq	_06015AF4
@@ -25144,7 +25144,7 @@ _06015A7C:
 	cmp	r0, #0
 	beq	_06015A9C
 	mov	r0, #0
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 	b	_06015AF4
 _06015A9C:
 	ldrh	r1, [r6, #12]
@@ -25161,14 +25161,14 @@ _06015A9C:
 	cmp	r0, #0
 	beq	_06015AF4
 	ldrh	r0, [r6, #136]	; 0x88
-	bl	FUNC_0600EEFC
+	bl	FUN_0600EEFC
 	cmp	r0, #0
 	bne	_06015AF4
 	ldrh	r0, [r6, #142]	; 0x8e
 	cmp	r0, #0
 	bne	_06015AF4
 	mov	r0, #1
-	bl	FUNC_0600B3F4
+	bl	FUN_0600B3F4
 _06015AF4:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -25177,8 +25177,8 @@ _06015B00:	.word	0x0380FFF4
 _06015B04:	.word	0x0000053C
 _06015B08:	.word	0x0000FFFE
 
-	arm_func_start FUNC_06015B0C
-FUNC_06015B0C: ; 0x06015B0C
+	arm_func_start FUN_06015B0C
+FUN_06015B0C: ; 0x06015B0C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -25192,7 +25192,7 @@ FUNC_06015B0C: ; 0x06015B0C
 	ldrh	r0, [r0, #80]	; 0x50
 	cmp	r0, #3
 	bne	_06015B44
-	bl	FUNC_0600AC84
+	bl	FUN_0600AC84
 _06015B44:
 	ldrh	r1, [r5, #12]
 	ldr	r0, _06015C68	; =0x0000FFFF
@@ -25202,14 +25202,14 @@ _06015B44:
 	add	r1, r4, #8
 	add	r2, r4, #44	; 0x2c
 	ldrh	r3, [r4, #6]
-	bl	FUNC_06009CFC
+	bl	FUN_06009CFC
 	b	_06015B80
 _06015B6C:
 	mov	r0, r6
 	add	r1, r4, #8
 	ldr	r2, [r4, #44]	; 0x2c
 	ldrh	r3, [r4, #6]
-	bl	FUNC_06009CFC
+	bl	FUN_06009CFC
 _06015B80:
 	ldr	r2, _06015C6C	; =0x04808044
 	ldrh	r1, [r2]
@@ -25246,13 +25246,13 @@ _06015BEC:
 	add	r1, r4, #8
 	ldrh	r2, [r4, #6]
 	add	r2, r2, #36	; 0x24
-	bl	FUNC_06009D74
+	bl	FUN_06009D74
 	b	_06015C20
 _06015C10:
 	add	r1, r4, #8
 	ldr	r2, [r4, #44]	; 0x2c
 	ldrh	r3, [r4, #6]
-	bl	FUNC_06009D38
+	bl	FUN_06009D38
 _06015C20:
 	ldr	r0, _06015C64	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -25278,8 +25278,8 @@ _06015C6C:	.word	0x04808044
 _06015C70:	.word	0x0000B6B8
 _06015C74:	.word	0x00001D46
 
-	arm_func_start FUNC_06015C78
-FUNC_06015C78: ; 0x06015C78
+	arm_func_start FUN_06015C78
+FUN_06015C78: ; 0x06015C78
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #20
 	mov	sl, r0
@@ -25297,12 +25297,12 @@ FUNC_06015C78: ; 0x06015C78
 	cmp	r0, #0
 	beq	_06015EAC
 	mov	r0, #16777216	; 0x1000000
-	bl	FUNC_06009068
+	bl	FUN_06009068
 	str	r0, [sp, #8]
 	ldrh	r1, [r7]
 	cmp	r1, #0
 	beq	_06015CD8
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	b	_06015EAC
 _06015CD8:
 	ldr	r0, [fp]
@@ -25316,11 +25316,11 @@ _06015CEC:
 	cmp	r0, r1
 	bne	_06015D08
 	ldr	r0, [sp, #8]
-	bl	FUNC_06009070
+	bl	FUN_06009070
 	b	_06015EAC
 _06015D08:
 	str	r0, [sp]
-	bl	FUNC_06009434
+	bl	FUN_06009434
 	str	r0, [sp, #4]
 	ldr	r0, [sp]
 	add	r6, r0, #16
@@ -25360,24 +25360,24 @@ _06015D8C:
 	cmp	sl, #1
 	bne	_06015DE8
 	mov	r0, r5
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	bne	_06015DE8
 _06015DAC:
 	mov	r0, r5
-	bl	FUNC_0600EFD0
+	bl	FUN_0600EFD0
 	cmp	r0, #0
 	beq	_06015CEC
 	mov	r0, r5
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	beq	_06015DE8
 	strh	r4, [r6, #8]
 	mov	r0, fp
 	sub	r1, r6, #16
-	bl	FUNC_06012DD4
+	bl	FUN_06012DD4
 	mov	r0, r6
-	bl	FUNC_0600F360
+	bl	FUN_0600F360
 	b	_06015CEC
 _06015DE8:
 	mov	r0, #1
@@ -25391,16 +25391,16 @@ _06015DE8:
 	cmp	r0, #0
 	bne	_06015E18
 	mov	r0, #2
-	bl	FUNC_0600B3F4
+	bl	FUN_0600B3F4
 _06015E18:
 	mov	r0, r4
 	ldr	r1, [sp]
-	bl	FUNC_06015B0C
+	bl	FUN_06015B0C
 	ldrh	r0, [r9, #12]
 	cmp	r0, #1
 	bne	_06015E48
 	mov	r0, r5
-	bl	FUNC_0600EEFC
+	bl	FUN_0600EEFC
 	cmp	r0, #1
 	ldrhih	r0, [r4, #12]
 	orrhi	r0, r0, #8192	; 0x2000
@@ -25431,7 +25431,7 @@ _06015E48:
 	strneh	r1, [r0]
 _06015EA4:
 	ldr	r0, [sp, #8]
-	bl	FUNC_06009070
+	bl	FUN_06009070
 _06015EAC:
 	add	sp, sp, #20
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -25441,8 +25441,8 @@ _06015EBC:	.word	0x0000042C
 _06015EC0:	.word	0x048080A0
 _06015EC4:	.word	0x00003FFF
 
-	arm_func_start FUNC_06015EC8
-FUNC_06015EC8: ; 0x06015EC8
+	arm_func_start FUN_06015EC8
+FUN_06015EC8: ; 0x06015EC8
 	stmdb	sp!, {r4, r5, r6, lr}
 	ldr	r0, _06015FE0	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -25452,7 +25452,7 @@ FUNC_06015EC8: ; 0x06015EC8
 	mov	r0, #0
 	mov	r1, r5
 	mov	r2, #80	; 0x50
-	bl	FUNC_0600AEC4
+	bl	FUN_0600AEC4
 	mov	r1, #32768	; 0x8000
 	ldr	r0, _06015FE8	; =0x04808030
 	strh	r1, [r0]
@@ -25542,8 +25542,8 @@ _06016030:	.word	0x04805F72
 _06016034:	.word	0x04805F7E
 _06016038:	.word	0x04805F76
 
-	arm_func_start FUNC_0601603C
-FUNC_0601603C: ; 0x0601603C
+	arm_func_start FUN_0601603C
+FUN_0601603C: ; 0x0601603C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r4, _060160AC	; =0x0380FFF4
@@ -25566,7 +25566,7 @@ _0601605C:
 	ldr	r0, [r4]
 	add	r0, r0, #392	; 0x188
 	ldr	r1, [r1, #20]
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 _06016094:
 	add	r5, r5, #1
 	cmp	r5, #3
@@ -25577,8 +25577,8 @@ _06016094:
 _060160AC:	.word	0x0380FFF4
 _060160B0:	.word	0x000004E4
 
-	arm_func_start FUNC_060160B4
-FUNC_060160B4: ; 0x060160B4
+	arm_func_start FUN_060160B4
+FUN_060160B4: ; 0x060160B4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	sl, r0
@@ -25603,12 +25603,12 @@ _060160EC:
 	beq	_06016188
 	add	r0, r4, #4
 	mov	r1, r9
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06016188
 	add	r0, r4, #10
 	add	r1, r9, #6
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06016188
 	ldrh	r0, [r9, #12]
@@ -25653,7 +25653,7 @@ _06016194:
 	bls	_060161DC
 	add	r0, r8, #12
 	sub	r1, r6, #16
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 	mov	r0, #0
 	strh	r0, [r7, r4]
 	b	_060162DC
@@ -25664,12 +25664,12 @@ _060161DC:
 	add	r2, r6, #44	; 0x2c
 	add	r1, r2, r1
 	add	r2, r5, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	strh	r9, [r6, #16]
 	ldrh	r0, [sl]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	add	r2, r7, r4
 	ldrh	r3, [r2, #16]
 	bic	r1, r3, #15
@@ -25706,24 +25706,24 @@ _060161DC:
 	add	r0, r8, #12
 	add	r1, r8, #72	; 0x48
 	sub	r2, r6, #16
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, #2
 	mov	r1, #6
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_060162DC
 _060162B0:
 	add	r0, r8, #12
 	add	r1, r8, #96	; 0x60
 	sub	r2, r6, #16
-	bl	FUNC_0600962C
+	bl	FUN_0600962C
 	mov	r0, #1
 	mov	r1, #7
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_060162DC
 _060162D0:
 	add	r0, r8, #12
 	sub	r1, r6, #16
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 _060162DC:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -25732,8 +25732,8 @@ _060162E8:	.word	0x0380FFF4
 _060162EC:	.word	0x000004E4
 _060162F0:	.word	0x000005E4
 
-	arm_func_start FUNC_060162F4
-FUNC_060162F4: ; 0x060162F4
+	arm_func_start FUN_060162F4
+FUN_060162F4: ; 0x060162F4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -25756,12 +25756,12 @@ _0601632C:
 	beq	_06016434
 	add	r0, r4, #4
 	mov	r1, r9
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06016438
 	add	r0, r4, #10
 	ldr	r1, [sp]
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06016438
 	ldrh	r0, [r9, #12]
@@ -25774,7 +25774,7 @@ _0601632C:
 	ldrh	r0, [sl]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	mov	r6, r0
 	ldrh	r0, [r4, #16]
 	mov	r0, r0, lsl #28
@@ -25798,7 +25798,7 @@ _0601632C:
 	add	r1, r7, #44	; 0x2c
 	add	r1, r1, r2
 	mov	r2, r5
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r7, #16]
 	add	r0, r0, r5
 	strh	r0, [r7, #16]
@@ -25829,7 +25829,7 @@ _0601643C:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	ldr	r1, _06016540	; =0x00000622
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	movs	r5, r0
 	beq	_06016524
 	mov	r0, #24
@@ -25838,7 +25838,7 @@ _0601643C:
 	mov	r0, r9
 	add	r1, r6, #4
 	mov	r2, #16
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	mov	r0, #5
 	strh	r0, [r8, r4]
 	mov	r0, r6
@@ -25848,15 +25848,15 @@ _0601643C:
 	add	r1, r5, #8
 	ldrh	r2, [sl, #8]
 	add	r2, r2, #12
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldr	r0, _06016538	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #780]	; 0x30c
-	bl	FUNC_06016544
+	bl	FUN_06016544
 	ldrh	r0, [r5, #8]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	mov	r1, r0
 	ldrh	r0, [r6, #16]
 	bic	r2, r0, #15
@@ -25874,13 +25874,13 @@ _0601643C:
 	sub	r0, r0, #24
 	strh	r0, [r5, #16]
 	ldrh	r0, [r5, #16]
-	bl	FUNC_06003B68
+	bl	FUN_06003B68
 	mov	r1, r6
 	strh	r0, [r1, #2]
 	b	_0601652C
 _06016524:
 	mov	r0, #4
-	bl	FUNC_0600994C
+	bl	FUN_0600994C
 _0601652C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -25889,13 +25889,13 @@ _06016538:	.word	0x0380FFF4
 _0601653C:	.word	0x000004E4
 _06016540:	.word	0x00000622
 
-	arm_func_start FUNC_06016544
-FUNC_06016544: ; 0x06016544
+	arm_func_start FUN_06016544
+FUN_06016544: ; 0x06016544
 	ldr	pc, _06016548	; =FUN_037FB290
 _06016548:	.word	FUN_037FB290
 
-	arm_func_start FUNC_0601654C
-FUNC_0601654C: ; 0x0601654C
+	arm_func_start FUN_0601654C
+FUN_0601654C: ; 0x0601654C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #20
 	ldr	r0, _06016660	; =0x0380FFF4
@@ -25919,27 +25919,27 @@ FUNC_0601654C: ; 0x0601654C
 	beq	_060165C4
 	add	r0, sp, #0
 	add	r1, r5, #36	; 0x24
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ands	r0, r4, #512	; 0x200
 	bne	_06016630
 	add	r0, sp, #6
 	add	r1, r5, #30
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	b	_060165F4
 _060165C4:
 	add	r0, sp, #0
 	add	r1, r5, #24
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ands	r0, r4, #512	; 0x200
 	beq	_060165E8
 	add	r0, sp, #6
 	add	r1, r5, #36	; 0x24
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	b	_060165F4
 _060165E8:
 	add	r0, sp, #6
 	add	r1, r5, #30
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 _060165F4:
 	ldrh	r0, [r5, #42]	; 0x2a
 	strh	r0, [sp, #12]
@@ -25951,22 +25951,22 @@ _060165F4:
 	bne	_06016624
 	add	r0, r5, #8
 	add	r1, sp, #0
-	bl	FUNC_060162F4
+	bl	FUN_060162F4
 	b	_06016630
 _06016624:
 	add	r0, r5, #8
 	add	r1, sp, #0
-	bl	FUNC_060160B4
+	bl	FUN_060160B4
 _06016630:
 	add	r0, r7, #108	; 0x6c
 	mov	r1, r6
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 	ldrh	r0, [r7, #116]	; 0x74
 	cmp	r0, #0
 	beq	_06016654
 	mov	r0, #2
 	mov	r1, #9
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06016654:
 	add	sp, sp, #20
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -25974,23 +25974,23 @@ _06016654:
 _06016660:	.word	0x0380FFF4
 _06016664:	.word	0x000005FC
 
-	arm_func_start FUNC_06016668
-FUNC_06016668: ; 0x06016668
+	arm_func_start FUN_06016668
+FUN_06016668: ; 0x06016668
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
 	ldrh	r0, [r4, #2]
-	bl	FUNC_0600EF78
-	bl	FUNC_06009C64
+	bl	FUN_0600EF78
+	bl	FUN_06009C64
 	add	r5, r4, #52	; 0x34
 	add	r0, r4, #51	; 0x33
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r6, r0
 	mov	r7, #0
 	mov	r4, r6, lsr #1
 	b	_060166B4
 _0601669C:
-	bl	FUNC_06009C34
+	bl	FUN_06009C34
 	ldrh	r1, [r5], #2
 	cmp	r1, r0
 	movne	r0, #0
@@ -26001,7 +26001,7 @@ _060166B4:
 	bcc	_0601669C
 	ands	r0, r6, #1
 	beq	_060166E0
-	bl	FUNC_06009C34
+	bl	FUN_06009C34
 	ldrh	r1, [r5]
 	and	r1, r1, #255	; 0xff
 	and	r0, r0, #255	; 0xff
@@ -26015,8 +26015,8 @@ _060166E4:
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUNC_060166F0
-FUNC_060166F0: ; 0x060166F0
+	arm_func_start FUN_060166F0
+FUN_060166F0: ; 0x060166F0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r5, r0
 	mov	r4, r1
@@ -26028,18 +26028,18 @@ FUNC_060166F0: ; 0x060166F0
 	movs	r6, r0, lsr #16
 	moveq	r6, #1
 	mov	r0, r6
-	bl	FUNC_06009C64
+	bl	FUN_06009C64
 	mov	r0, r5
 	mov	r1, r6
-	bl	FUNC_0600F154
+	bl	FUN_0600F154
 	add	r5, r4, #52	; 0x34
 	add	r0, r4, #51	; 0x33
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r4, r0
 	mov	r6, #0
 	b	_06016750
 _06016744:
-	bl	FUNC_06009C34
+	bl	FUN_06009C34
 	strh	r0, [r5], #2
 	add	r6, r6, #2
 _06016750:
@@ -26049,8 +26049,8 @@ _06016750:
 	bx	lr
 _06016760:	.word	0x04808044
 
-	arm_func_start FUNC_06016764
-FUNC_06016764: ; 0x06016764
+	arm_func_start FUN_06016764
+FUN_06016764: ; 0x06016764
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	ldr	r0, _06016AA8	; =0x0380FFF4
@@ -26078,7 +26078,7 @@ FUNC_06016764: ; 0x06016764
 	ldrh	r0, [r6, #8]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	ldr	r1, [r8, #36]	; 0x24
 	sub	r0, r0, #1
 	add	r0, r1, r0
@@ -26089,7 +26089,7 @@ FUNC_06016764: ; 0x06016764
 	mov	r0, r0, lsl #24
 	mov	r4, r0, lsr #28
 	add	r0, sl, #10
-	bl	FUNC_0600F4C0
+	bl	FUN_0600F4C0
 	mov	fp, r0
 	strh	fp, [r6, #2]
 	cmp	fp, #255	; 0xff
@@ -26107,31 +26107,31 @@ FUNC_06016764: ; 0x06016764
 	cmp	r4, #11
 	bne	_06016A78
 	mov	r0, r6
-	bl	FUNC_06016F18
+	bl	FUN_06016F18
 	b	_06016A78
 _0601684C:
 	mov	r0, r6
-	bl	FUNC_0601784C
+	bl	FUN_0601784C
 	b	_06016A78
 _06016858:
 	mov	r0, r6
-	bl	FUNC_06017D0C
+	bl	FUN_06017D0C
 	b	_06016A78
 _06016864:
-	bl	FUNC_0600F130
+	bl	FUN_0600F130
 	mov	r0, fp, lsl #16
 	mov	r0, r0, lsr #16
 	ldrh	r1, [r6, #18]
 	and	r1, r1, #255	; 0xff
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUNC_0600F27C
+	bl	FUN_0600F27C
 	cmp	r5, #0
 	bne	_060168BC
 	ldrh	r0, [r6, #42]	; 0x2a
 	str	r0, [sp, #4]
 	mov	r0, fp
-	bl	FUNC_0600EF5C
+	bl	FUN_0600EF5C
 	ldr	r1, [sp, #4]
 	cmp	r1, r0
 	ldreq	r0, [r8, #60]	; 0x3c
@@ -26139,7 +26139,7 @@ _06016864:
 	streq	r0, [r8, #60]	; 0x3c
 	beq	_06016A78
 	mov	r0, fp
-	bl	FUNC_0600F16C
+	bl	FUN_0600F16C
 _060168BC:
 	cmp	r7, #1
 	beq	_060168D8
@@ -26154,7 +26154,7 @@ _060168D8:
 	ldrh	r1, [sl]
 	mov	r1, r1, lsl #19
 	mov	r1, r1, lsr #31
-	bl	FUNC_0600F218
+	bl	FUN_0600F218
 	cmp	r5, #0
 	bne	_0601699C
 	cmp	r4, #12
@@ -26175,36 +26175,36 @@ _060168D8:
 	b	_06016990
 _06016938:
 	mov	r0, r6
-	bl	FUNC_06017FDC
+	bl	FUN_06017FDC
 	b	_06016A78
 _06016944:
 	mov	r0, r6
-	bl	FUNC_06017D0C
+	bl	FUN_06017D0C
 	b	_06016A78
 _06016950:
 	mov	r0, r6
-	bl	FUNC_06017A34
+	bl	FUN_06017A34
 	b	_06016A78
 _0601695C:
 	mov	r0, r6
-	bl	FUNC_0601784C
+	bl	FUN_0601784C
 	b	_06016A78
 _06016968:
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUNC_0601745C
+	bl	FUN_0601745C
 	b	_06016A78
 _06016978:
 	mov	r0, r6
-	bl	FUNC_06017EE8
+	bl	FUN_06017EE8
 	b	_06016A78
 _06016984:
 	mov	r0, r6
-	bl	FUNC_06016F18
+	bl	FUN_06016F18
 	b	_06016A78
 _06016990:
 	mov	r0, r6
-	bl	FUNC_06016E5C
+	bl	FUN_06016E5C
 	b	_06016A78
 _0601699C:
 	cmp	r5, #1
@@ -26212,7 +26212,7 @@ _0601699C:
 	cmp	r4, #10
 	bne	_06016A78
 	mov	r0, r6
-	bl	FUNC_06016DF4
+	bl	FUN_06016DF4
 	b	_06016A78
 _060169B8:
 	cmp	r5, #0
@@ -26235,32 +26235,32 @@ _060169B8:
 	b	_06016A4C
 _06016A00:
 	mov	r0, r6
-	bl	FUNC_06017FDC
+	bl	FUN_06017FDC
 	b	_06016A78
 _06016A0C:
 	mov	r0, r6
-	bl	FUNC_06017BE0
+	bl	FUN_06017BE0
 	b	_06016A78
 _06016A18:
 	mov	r0, r6
-	bl	FUNC_06017900
+	bl	FUN_06017900
 	b	_06016A78
 _06016A24:
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUNC_0601745C
+	bl	FUN_0601745C
 	b	_06016A78
 _06016A34:
 	mov	r0, r6
-	bl	FUNC_06017EE8
+	bl	FUN_06017EE8
 	b	_06016A78
 _06016A40:
 	mov	r0, r6
-	bl	FUNC_06016F18
+	bl	FUN_06016F18
 	b	_06016A78
 _06016A4C:
 	mov	r0, r6
-	bl	FUNC_06016E5C
+	bl	FUN_06016E5C
 	b	_06016A78
 _06016A58:
 	cmp	r5, #1
@@ -26271,17 +26271,17 @@ _06016A58:
 	bne	_06016A78
 _06016A70:
 	mov	r0, r6
-	bl	FUNC_06016DF0
+	bl	FUN_06016DF0
 _06016A78:
 	add	r0, r9, #96	; 0x60
 	ldr	r1, [sp]
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 	ldrh	r0, [r9, #104]	; 0x68
 	cmp	r0, #0
 	beq	_06016A9C
 	mov	r0, #1
 	mov	r1, #7
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06016A9C:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -26289,8 +26289,8 @@ _06016A9C:
 _06016AA8:	.word	0x0380FFF4
 _06016AAC:	.word	0x0000053C
 
-	arm_func_start FUNC_06016AB0
-FUNC_06016AB0: ; 0x06016AB0
+	arm_func_start FUN_06016AB0
+FUN_06016AB0: ; 0x06016AB0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	r9, r0
@@ -26311,11 +26311,11 @@ FUNC_06016AB0: ; 0x06016AB0
 	b	_06016D5C
 _06016AF8:
 	mov	r0, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	sl, r0
 	add	r0, r7, #1
 	add	r7, r7, #2
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r5, r0
 	cmp	sl, #6
 	addls	pc, pc, sl, lsl #2
@@ -26354,7 +26354,7 @@ _06016B84:
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, r7
-	bl	FUNC_0600ABB4
+	bl	FUN_0600ABB4
 	cmp	r0, #0
 	ldrneh	r0, [r9, #10]
 	orrne	r0, r0, #1
@@ -26368,7 +26368,7 @@ _06016BB4:
 	strh	r0, [r4]
 	sub	r0, r7, #2
 	mov	r1, fp
-	bl	FUNC_0600AA9C
+	bl	FUN_0600AA9C
 	ldrh	r1, [r9, #20]
 	ldrh	r0, [r8, #96]	; 0x60
 	ldrh	r2, [r8, #98]	; 0x62
@@ -26396,7 +26396,7 @@ _06016C20:
 	orr	r0, r0, #2
 	strh	r0, [r4]
 	mov	r0, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	strh	r0, [r9, #18]
 	ldrh	r1, [r9, #18]
 	ldr	r0, _06016DEC	; =0x0380FFF4
@@ -26433,19 +26433,19 @@ _06016CB4:
 	cmp	r5, #8
 	bcc	_06016CFC
 	mov	r0, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	cmp	r0, #0
 	bne	_06016CFC
 	add	r0, r7, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	cmp	r0, #9
 	bne	_06016CFC
 	add	r0, r7, #2
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	cmp	r0, #191	; 0xbf
 	bne	_06016CFC
 	add	r0, r7, #3
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	cmp	r0, #0
 	beq	_06016D1C
 _06016CFC:
@@ -26518,12 +26518,12 @@ _06016DE0:
 	bx	lr
 _06016DEC:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06016DF0
-FUNC_06016DF0: ; 0x06016DF0
+	arm_func_start FUN_06016DF0
+FUN_06016DF0: ; 0x06016DF0
 	bx	lr
 
-	arm_func_start FUNC_06016DF4
-FUNC_06016DF4: ; 0x06016DF4
+	arm_func_start FUN_06016DF4
+FUN_06016DF4: ; 0x06016DF4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r1, _06016E58	; =0x0380FFF4
@@ -26531,30 +26531,30 @@ FUNC_06016DF4: ; 0x06016DF4
 	add	r5, r1, #380	; 0x17c
 	ldrh	r4, [r0, #2]
 	mov	r0, r4
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	bne	_06016E4C
 	mov	r0, r4
-	bl	FUNC_0600F1B4
+	bl	FUN_0600F1B4
 	ldrh	r0, [r5, #44]	; 0x2c
 	cmp	r0, #0
 	beq	_06016E38
 	mov	r0, #1
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 _06016E38:
 	ldrh	r0, [r5, #32]
 	cmp	r0, #0
 	beq	_06016E4C
 	mov	r0, #0
-	bl	FUNC_06015C78
+	bl	FUN_06015C78
 _06016E4C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06016E58:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06016E5C
-FUNC_06016E5C: ; 0x06016E5C
+	arm_func_start FUN_06016E5C
+FUN_06016E5C: ; 0x06016E5C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -26572,18 +26572,18 @@ FUNC_06016E5C: ; 0x06016E5C
 	b	_06016F08
 _06016E98:
 	mov	r0, r5
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #32
 	bls	_06016F08
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	add	r0, r4, #30
 	ldrh	r1, [r4, #44]	; 0x2c
-	bl	FUNC_06010130
+	bl	FUN_06010130
 	mov	r0, r5
-	bl	FUNC_06014EB8
+	bl	FUN_06014EB8
 	b	_06016F08
 _06016ED0:
 	ldrh	r0, [r1, #8]
@@ -26591,23 +26591,23 @@ _06016ED0:
 	bls	_06016F08
 	add	r0, r4, #30
 	add	r1, r1, #130	; 0x82
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06016F08
 	mov	r0, #32
-	bl	FUNC_0600AF68
-	bl	FUNC_0600B054
+	bl	FUN_0600AF68
+	bl	FUN_0600B054
 	add	r0, r4, #30
 	ldrh	r1, [r4, #44]	; 0x2c
-	bl	FUNC_06010130
+	bl	FUN_06010130
 _06016F08:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06016F14:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06016F18
-FUNC_06016F18: ; 0x06016F18
+	arm_func_start FUN_06016F18
+FUN_06016F18: ; 0x06016F18
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -26659,7 +26659,7 @@ _06016F98:
 _06016FCC:
 	add	r0, sl, #30
 	mov	r1, #176	; 0xb0
-	bl	FUNC_06013D80
+	bl	FUN_06013D80
 	cmp	r0, #0
 	bne	_06017438
 	mov	r5, #0
@@ -26676,22 +26676,22 @@ _06016FCC:
 	cmp	r0, #1
 	bne	_0601707C
 	mov	r0, r6
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #32
 	bls	_06017040
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	add	r0, sl, #30
 	mov	r1, #1
-	bl	FUNC_06010130
+	bl	FUN_06010130
 _06017040:
 	ldrh	r0, [sl, #8]
 	ands	r0, r0, #1024	; 0x400
 	beq	_0601707C
 	mov	r0, r6
-	bl	FUNC_0600EF78
+	bl	FUN_0600EF78
 	cmp	r0, #0
 	beq	_0601707C
 	mov	r5, #1
@@ -26700,7 +26700,7 @@ _06017040:
 	mov	fp, #4
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUNC_0600F154
+	bl	FUN_0600F154
 	b	_060173FC
 _0601707C:
 	ldrh	r0, [r7]
@@ -26744,18 +26744,18 @@ _060170E8:
 	bne	_060173FC
 	add	r0, r1, #16
 	add	r1, sl, #30
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_060173FC
 	ldrh	r0, [r8]
 	cmp	r0, #49	; 0x31
 	bne	_060173FC
-	bl	FUNC_06009E28
+	bl	FUN_06009E28
 	ldrh	r0, [r7, #4]
 	cmp	r0, #0
 	bne	_0601715C
 	mov	r0, #48	; 0x30
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	mov	r1, #0
 	ldr	r0, [r8, #28]
 	strh	r1, [r0, #4]
@@ -26774,7 +26774,7 @@ _06017174:
 	strh	r0, [r8]
 	mov	r0, #2
 	mov	r1, r0
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_060173FC
 _0601718C:
 	ldrh	r0, [r9, #12]
@@ -26783,14 +26783,14 @@ _0601718C:
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	ldrh	r0, [r7, #2]
 	cmp	r0, #1
 	bne	_060171F8
 	add	r0, sl, #30
 	mov	r1, #128	; 0x80
 	mov	r2, #1
-	bl	FUNC_06013F38
+	bl	FUN_06013F38
 	movs	r8, r0
 	beq	_060173FC
 	ldrh	r0, [r7]
@@ -26800,19 +26800,19 @@ _0601718C:
 	strh	r0, [r8, #48]	; 0x30
 	mov	r0, r6
 	mov	r1, r8
-	bl	FUNC_060166F0
+	bl	FUN_060166F0
 	mov	r0, r8
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	b	_060173FC
 _060171F8:
 	cmp	r0, #3
 	bne	_0601726C
 	mov	r0, r6
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #32
 	bne	_06017220
 	mov	r0, r6
-	bl	FUNC_0600EF78
+	bl	FUN_0600EF78
 	cmp	r0, #0
 	bne	_0601722C
 _06017220:
@@ -26821,26 +26821,26 @@ _06017220:
 	b	_060173FC
 _0601722C:
 	mov	r0, sl
-	bl	FUNC_06016668
+	bl	FUN_06016668
 	cmp	r0, #0
 	bne	_06017254
 	mov	r4, #15
 	mov	r5, #1
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUNC_0600F154
+	bl	FUN_0600F154
 	b	_060173FC
 _06017254:
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUNC_0600F154
+	bl	FUN_0600F154
 	mov	r4, #0
 	mov	r5, #1
 	b	_060173FC
 _0601726C:
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUNC_0600F154
+	bl	FUN_0600F154
 	mov	r4, #14
 	mov	fp, #2
 	mov	r5, #1
@@ -26852,7 +26852,7 @@ _06017288:
 	bne	_060173FC
 	add	r0, r1, #16
 	add	r1, sl, #30
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_060173FC
 	ldrh	r0, [r7, #2]
@@ -26864,7 +26864,7 @@ _06017288:
 	ldrh	r0, [r7, #4]
 	cmp	r0, #0
 	beq	_0601730C
-	bl	FUNC_06009E28
+	bl	FUN_06009E28
 	mov	r0, #53	; 0x35
 	strh	r0, [r8]
 	mov	r1, #12
@@ -26875,19 +26875,19 @@ _06017288:
 	strh	r1, [r0, #6]
 	mov	r0, #2
 	mov	r1, r0
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	mov	r0, #32
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	b	_060173FC
 _0601730C:
 	mov	r0, #51	; 0x33
 	strh	r0, [r8]
 	add	r0, sl, #51	; 0x33
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, sl, #30
 	mov	r2, #1
-	bl	FUNC_06013F38
+	bl	FUN_06013F38
 	movs	r6, r0
 	beq	_060173FC
 	ldrh	r0, [r6, #20]
@@ -26897,7 +26897,7 @@ _0601730C:
 	add	r1, r6, #44	; 0x2c
 	ldrh	r2, [sl, #6]
 	add	r2, r2, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	ldrh	r0, [r7]
 	strh	r0, [r6, #44]	; 0x2c
 	mov	r0, #3
@@ -26905,7 +26905,7 @@ _0601730C:
 	mov	r0, #0
 	strh	r0, [r6, #48]	; 0x30
 	mov	r0, r6
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	b	_060173FC
 _06017378:
 	cmp	r0, #4
@@ -26913,12 +26913,12 @@ _06017378:
 	ldrh	r0, [r8]
 	cmp	r0, #51	; 0x33
 	bne	_060173FC
-	bl	FUNC_06009E28
+	bl	FUN_06009E28
 	ldrh	r0, [r7, #4]
 	cmp	r0, #0
 	bne	_060173BC
 	mov	r0, #48	; 0x30
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	mov	r1, #0
 	ldr	r0, [r8, #28]
 	strh	r1, [r0, #4]
@@ -26937,7 +26937,7 @@ _060173D4:
 	strh	r0, [r8]
 	mov	r0, #2
 	mov	r1, r0
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_060173FC
 _060173EC:
 	ldrh	r0, [r9, #12]
@@ -26952,14 +26952,14 @@ _060173FC:
 	moveq	r2, #0
 	add	r0, sl, #30
 	mov	r1, #0
-	bl	FUNC_06013F38
+	bl	FUN_06013F38
 	cmp	r0, #0
 	beq	_06017438
 	ldrh	r1, [r7]
 	strh	r1, [r0, #44]	; 0x2c
 	strh	fp, [r0, #46]	; 0x2e
 	strh	r4, [r0, #48]	; 0x30
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 _06017438:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -26971,8 +26971,8 @@ _06017450:	.word	0x048080B0
 _06017454:	.word	0x0480819C
 _06017458:	.word	0x04808032
 
-	arm_func_start FUNC_0601745C
-FUNC_0601745C: ; 0x0601745C
+	arm_func_start FUN_0601745C
+FUN_0601745C: ; 0x0601745C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #52	; 0x34
 	mov	r5, r0
@@ -26995,7 +26995,7 @@ FUNC_0601745C: ; 0x0601745C
 _060174A8:
 	mov	r0, r6
 	mov	r1, fp
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	ldrneh	r1, [r8, #6]
 	movne	r0, #1
@@ -27016,7 +27016,7 @@ _060174D4:
 _060174F4:
 	mov	r0, fp
 	add	r1, r7, #4
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	bne	_06017834
 	ldrh	r0, [r7]
@@ -27029,7 +27029,7 @@ _06017514:
 	mov	r0, #0
 	mov	r1, r7
 	mov	r2, #64	; 0x40
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	ldrh	r6, [r5, #6]
 	cmp	r6, #12
 	bls	_06017834
@@ -27038,7 +27038,7 @@ _06017514:
 	mov	r0, #0
 	add	r1, sp, #8
 	mov	r2, #44	; 0x2c
-	bl	FUNC_0600AEC4
+	bl	FUN_0600AEC4
 	add	r0, r4, #12
 	str	r0, [sp, #8]
 	sub	r0, r6, #12
@@ -27052,7 +27052,7 @@ _06017514:
 	ldrh	r0, [r4, #10]
 	strh	r0, [sp, #14]
 	add	r0, sp, #8
-	bl	FUNC_06016AB0
+	bl	FUN_06016AB0
 	add	sl, sp, #8
 _06017590:
 	ldr	r0, [sl, #40]	; 0x28
@@ -27063,7 +27063,7 @@ _06017590:
 	streqh	r0, [r7]
 	beq	_060175CC
 	add	r0, r0, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	sub	r0, r0, #8
 	strh	r0, [r7, #60]	; 0x3c
 	ldrh	r0, [r7, #60]	; 0x3c
@@ -27086,7 +27086,7 @@ _060175CC:
 	strh	r0, [r7, #44]	; 0x2c
 	add	r0, r7, #4
 	add	r1, r5, #36	; 0x24
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	ldrh	r0, [r4, #8]
 	strh	r0, [r7, #50]	; 0x32
 	ldrh	r0, [r5, #18]
@@ -27102,10 +27102,10 @@ _06017638:
 	ldr	r0, [sl, #40]	; 0x28
 	add	r0, r0, #10
 	add	r0, r0, r4
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r5, r4
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r4, r4, #1
 _06017658:
 	ldrh	r0, [r7, #60]	; 0x3c
@@ -27125,10 +27125,10 @@ _06017668:
 	b	_06017704
 _06017690:
 	mov	r0, r6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r4, r0
 	add	r0, r6, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	cmp	r4, #6
 	bls	_060176FC
 	ldr	r1, [sl, #40]	; 0x28
@@ -27140,10 +27140,10 @@ _06017690:
 	b	_060176E8
 _060176C8:
 	mov	r0, r6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	mov	r0, fp
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	fp, fp, #1
 	add	r6, r6, #1
 	add	r4, r4, #1
@@ -27165,7 +27165,7 @@ _06017710:
 	cmp	r0, #0
 	beq	_06017764
 	add	r0, r0, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	strh	r0, [r7, #10]
 	mov	r4, #0
 	add	r5, r7, #12
@@ -27174,10 +27174,10 @@ _06017734:
 	ldr	r0, [sl, #28]
 	add	r0, r0, #2
 	add	r0, r0, r4
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r5, r4
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r4, r4, #1
 _06017754:
 	ldrh	r0, [r7, #10]
@@ -27192,7 +27192,7 @@ _06017764:
 _06017774:
 	add	r0, r5, r6
 	mov	r1, r4
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r6, r6, #1
 	cmp	r6, #32
 	bcc	_06017774
@@ -27207,14 +27207,14 @@ _0601778C:
 	cmp	r0, #0
 	beq	_060177BC
 	add	r0, r0, #3
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	strh	r0, [r7, #56]	; 0x38
 _060177BC:
 	ldr	r0, [sl, #36]	; 0x24
 	cmp	r0, #0
 	beq	_060177D4
 	add	r0, r0, #3
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	strh	r0, [r7, #52]	; 0x34
 _060177D4:
 	ldrh	r1, [r8, #2]
@@ -27231,17 +27231,17 @@ _060177D4:
 	ldrh	r0, [r9, #4]
 	cmp	r0, #32
 	bcs	_06017834
-	bl	FUNC_06009E28
+	bl	FUN_06009E28
 	mov	r0, #21
 	strh	r0, [r9]
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUNC_06009078
+	bl	FUN_06009078
 	b	_06017834
 _06017828:
 	add	r0, r7, #4
 	ldr	r1, _06017848	; =_06019394
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 _06017834:
 	add	sp, sp, #52	; 0x34
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -27250,14 +27250,14 @@ _06017840:	.word	0x0380FFF4
 _06017844:	.word	0x00000404
 _06017848:	.word	_06019394
 
-	arm_func_start FUNC_0601784C
-FUNC_0601784C: ; 0x0601784C
+	arm_func_start FUN_0601784C
+FUN_0601784C: ; 0x0601784C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #48	; 0x30
 	mov	r4, r0
 	add	r0, r4, #30
 	mov	r1, #80	; 0x50
-	bl	FUNC_06013D80
+	bl	FUN_06013D80
 	cmp	r0, #0
 	bne	_060178F0
 	ldrh	r0, [r4, #36]	; 0x24
@@ -27270,7 +27270,7 @@ _06017884:
 	mov	r0, #0
 	add	r1, sp, #0
 	mov	r2, #44	; 0x2c
-	bl	FUNC_0600AEC4
+	bl	FUN_0600AEC4
 	add	r0, r4, #44	; 0x2c
 	str	r0, [sp]
 	ldrh	r0, [r4, #6]
@@ -27284,24 +27284,24 @@ _06017884:
 	moveq	r0, #2048	; 0x800
 	streqh	r0, [sp, #12]
 	add	r0, sp, #0
-	bl	FUNC_06016AB0
+	bl	FUN_06016AB0
 	ldrh	r0, [sp, #10]
 	and	r0, r0, #1
 	cmp	r0, #1
 	bne	_060178F0
 	add	r0, r4, #30
-	bl	FUNC_06013FFC
+	bl	FUN_06013FFC
 	cmp	r0, #0
 	beq	_060178F0
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 _060178F0:
 	add	sp, sp, #48	; 0x30
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060178FC:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06017900
-FUNC_06017900: ; 0x06017900
+	arm_func_start FUN_06017900
+FUN_06017900: ; 0x06017900
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -27323,10 +27323,10 @@ _06017938:
 	ldr	r0, [r5, #24]
 	add	r0, r0, #16
 	add	r1, r7, #30
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06017A1C
-	bl	FUNC_06009E28
+	bl	FUN_06009E28
 	ldrh	r0, [r4, #2]
 	cmp	r0, #0
 	bne	_060179B8
@@ -27335,20 +27335,20 @@ _06017938:
 	and	r0, r1, r0
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_0600B0B0
+	bl	FUN_0600B0B0
 	ldrh	r0, [r6, #106]	; 0x6a
-	bl	FUNC_06013E48
+	bl	FUN_06013E48
 	add	r0, r6, #130	; 0x82
 	add	r1, r7, #30
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	add	r0, r7, #30
-	bl	FUNC_0600F608
+	bl	FUN_0600F608
 	strh	r0, [r6, #136]	; 0x88
 	ldrh	r0, [r6, #136]	; 0x88
 	mov	r1, #64	; 0x40
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	mov	r0, #64	; 0x40
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 _060179B8:
 	ldrh	r0, [r4, #2]
 	cmp	r0, #0
@@ -27359,7 +27359,7 @@ _060179B8:
 	ldr	r0, [r5, #28]
 	strh	r1, [r0, #6]
 	mov	r0, #64	; 0x40
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	b	_060179FC
 _060179E4:
 	mov	r1, #12
@@ -27376,7 +27376,7 @@ _060179FC:
 	strh	r0, [r5]
 	mov	r0, #2
 	mov	r1, #4
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06017A1C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -27385,8 +27385,8 @@ _06017A28:	.word	0x0380FFF4
 _06017A2C:	.word	0x00000404
 _06017A30:	.word	0x00000FFF
 
-	arm_func_start FUNC_06017A34
-FUNC_06017A34: ; 0x06017A34
+	arm_func_start FUN_06017A34
+FUN_06017A34: ; 0x06017A34
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #48	; 0x30
 	mov	r8, r0
@@ -27402,49 +27402,49 @@ FUNC_06017A34: ; 0x06017A34
 	bne	_06017BCC
 	add	r0, r8, #30
 	mov	r1, #48	; 0x30
-	bl	FUNC_06013D80
+	bl	FUN_06013D80
 	cmp	r0, #0
 	bne	_06017BCC
 	ldrh	r4, [r8, #2]
 	mov	r0, r4
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #48	; 0x30
 	bcs	_06017AC4
 	add	r0, r8, #30
 	mov	r1, #192	; 0xc0
-	bl	FUNC_06013D80
+	bl	FUN_06013D80
 	cmp	r0, #0
 	bne	_06017BCC
 	add	r0, r8, #30
 	mov	r1, #6
 	mov	r2, #1
-	bl	FUNC_06013E9C
+	bl	FUN_06013E9C
 	cmp	r0, #0
 	beq	_06017BCC
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	b	_06017BCC
 _06017AC4:
 	mov	r0, r4
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	bne	_06017AF0
 	mov	r0, r4
 	mov	r1, #48	; 0x30
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	add	r0, r8, #30
 	mov	r1, #1
-	bl	FUNC_0600FEC8
+	bl	FUN_0600FEC8
 	b	_06017B00
 _06017AF0:
 	mov	r0, r4
-	bl	FUNC_0600EF18
+	bl	FUN_0600EF18
 	cmp	r0, #0
 	bne	_06017BCC
 _06017B00:
 	mov	r0, #0
 	add	r1, sp, #0
 	mov	r2, #44	; 0x2c
-	bl	FUNC_0600AEC4
+	bl	FUN_0600AEC4
 	add	r0, r6, #10
 	str	r0, [sp]
 	sub	r0, r5, #10
@@ -27452,7 +27452,7 @@ _06017B00:
 	mov	r0, #2048	; 0x800
 	strh	r0, [sp, #12]
 	add	r0, sp, #0
-	bl	FUNC_06016AB0
+	bl	FUN_06016AB0
 	ldrh	r1, [r6]
 	ldr	r0, _06017BDC	; =0x0000FFC2
 	ands	r0, r1, r0
@@ -27477,7 +27477,7 @@ _06017B78:
 	b	_06017BB4
 _06017B80:
 	mov	r0, r4
-	bl	FUNC_0600F19C
+	bl	FUN_0600F19C
 	ldrh	r1, [sp, #10]
 	ands	r0, r1, #1
 	moveq	r1, #1
@@ -27487,15 +27487,15 @@ _06017B80:
 	beq	_06017BB4
 	mov	r0, r4
 	ldrh	r1, [sp, #22]
-	bl	FUNC_0600F184
+	bl	FUN_0600F184
 	mov	r1, #0
 _06017BB4:
 	mov	r0, r4
 	ldr	r2, [sp, #28]
-	bl	FUNC_06014174
+	bl	FUN_06014174
 	cmp	r0, #0
 	beq	_06017BCC
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 _06017BCC:
 	add	sp, sp, #48	; 0x30
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -27503,8 +27503,8 @@ _06017BCC:
 _06017BD8:	.word	0x0380FFF4
 _06017BDC:	.word	0x0000FFC2
 
-	arm_func_start FUNC_06017BE0
-FUNC_06017BE0: ; 0x06017BE0
+	arm_func_start FUN_06017BE0
+FUN_06017BE0: ; 0x06017BE0
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -27526,10 +27526,10 @@ _06017C18:
 	ldr	r0, [r5, #24]
 	add	r0, r0, #16
 	add	r1, r7, #30
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06017CF4
-	bl	FUNC_06009E28
+	bl	FUN_06009E28
 	ldrh	r0, [r4, #2]
 	cmp	r0, #0
 	bne	_06017C90
@@ -27538,18 +27538,18 @@ _06017C18:
 	and	r0, r1, r0
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUNC_0600B0B0
+	bl	FUN_0600B0B0
 	ldrh	r0, [r6, #106]	; 0x6a
-	bl	FUNC_06013E48
+	bl	FUN_06013E48
 	add	r0, r6, #130	; 0x82
 	add	r1, r7, #30
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	add	r0, r7, #30
-	bl	FUNC_0600F608
+	bl	FUN_0600F608
 	strh	r0, [r6, #136]	; 0x88
 	ldrh	r0, [r6, #136]	; 0x88
 	mov	r1, #64	; 0x40
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 _06017C90:
 	ldrh	r0, [r4, #2]
 	cmp	r0, #0
@@ -27560,7 +27560,7 @@ _06017C90:
 	ldr	r0, [r5, #28]
 	strh	r1, [r0, #6]
 	mov	r0, #64	; 0x40
-	bl	FUNC_0600AF68
+	bl	FUN_0600AF68
 	b	_06017CD4
 _06017CBC:
 	mov	r1, #12
@@ -27577,7 +27577,7 @@ _06017CD4:
 	strh	r0, [r5]
 	mov	r0, #2
 	mov	r1, #3
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06017CF4:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -27586,8 +27586,8 @@ _06017D00:	.word	0x0380FFF4
 _06017D04:	.word	0x00000404
 _06017D08:	.word	0x00000FFF
 
-	arm_func_start FUNC_06017D0C
-FUNC_06017D0C: ; 0x06017D0C
+	arm_func_start FUN_06017D0C
+FUN_06017D0C: ; 0x06017D0C
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #48	; 0x30
 	mov	r8, r0
@@ -27604,58 +27604,58 @@ FUNC_06017D0C: ; 0x06017D0C
 	bne	_06017ED4
 	add	r0, r8, #30
 	mov	r1, #16
-	bl	FUNC_06013D80
+	bl	FUN_06013D80
 	cmp	r0, #0
 	bne	_06017ED4
 	ldrh	r4, [r8, #2]
 	cmp	r4, #0
 	beq	_06017D74
 	mov	r0, r4
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #48	; 0x30
 	bcs	_06017DA8
 _06017D74:
 	add	r0, r8, #30
 	mov	r1, #192	; 0xc0
-	bl	FUNC_06013D80
+	bl	FUN_06013D80
 	cmp	r0, #0
 	bne	_06017ED4
 	add	r0, r8, #30
 	mov	r1, #6
 	mov	r2, #1
-	bl	FUNC_06013E9C
+	bl	FUN_06013E9C
 	cmp	r0, #0
 	beq	_06017ED4
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	b	_06017ED4
 _06017DA8:
 	mov	r0, r4
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	bne	_06017DD4
 	mov	r0, r4
 	mov	r1, #48	; 0x30
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	add	r0, r8, #30
 	mov	r1, #1
-	bl	FUNC_0600FEC8
+	bl	FUN_0600FEC8
 	b	_06017DE4
 _06017DD4:
 	mov	r0, r4
-	bl	FUNC_0600EF18
+	bl	FUN_0600EF18
 	cmp	r0, #0
 	bne	_06017ED4
 _06017DE4:
 	mov	r0, #0
 	add	r1, sp, #0
 	mov	r2, #44	; 0x2c
-	bl	FUNC_0600AEC4
+	bl	FUN_0600AEC4
 	add	r0, r6, #4
 	str	r0, [sp]
 	sub	r0, r5, #4
 	strh	r0, [sp, #8]
 	add	r0, sp, #0
-	bl	FUNC_06016AB0
+	bl	FUN_06016AB0
 	ldrh	r1, [r6]
 	ldr	r0, _06017EE4	; =0x0000FFC2
 	ands	r0, r1, r0
@@ -27692,7 +27692,7 @@ _06017E80:
 	b	_06017EBC
 _06017E88:
 	mov	r0, r4
-	bl	FUNC_0600F19C
+	bl	FUN_0600F19C
 	ldrh	r1, [sp, #10]
 	ands	r0, r1, #1
 	moveq	r1, #1
@@ -27702,15 +27702,15 @@ _06017E88:
 	beq	_06017EBC
 	mov	r0, r4
 	ldrh	r1, [sp, #22]
-	bl	FUNC_0600F184
+	bl	FUN_0600F184
 	mov	r1, #0
 _06017EBC:
 	mov	r0, r4
 	ldr	r2, [sp, #28]
-	bl	FUNC_060142E0
+	bl	FUN_060142E0
 	cmp	r0, #0
 	beq	_06017ED4
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 _06017ED4:
 	add	sp, sp, #48	; 0x30
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -27718,8 +27718,8 @@ _06017ED4:
 _06017EE0:	.word	0x0380FFF4
 _06017EE4:	.word	0x0000FFC2
 
-	arm_func_start FUNC_06017EE8
-FUNC_06017EE8: ; 0x06017EE8
+	arm_func_start FUN_06017EE8
+FUN_06017EE8: ; 0x06017EE8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -27737,35 +27737,35 @@ FUNC_06017EE8: ; 0x06017EE8
 	b	_06017FCC
 _06017F24:
 	mov	r0, r5
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	bne	_06017F5C
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #48	; 0x30
-	bl	FUNC_0600F294
+	bl	FUN_0600F294
 	add	r0, r4, #30
 	ldrh	r1, [r4, #44]	; 0x2c
-	bl	FUNC_0600FEC8
+	bl	FUN_0600FEC8
 	mov	r0, r5
-	bl	FUNC_06014EB8
+	bl	FUN_06014EB8
 	b	_06017FCC
 _06017F5C:
 	cmp	r0, #48	; 0x30
 	bne	_06017F74
 	add	r0, r4, #30
 	mov	r1, #7
-	bl	FUNC_060145BC
+	bl	FUN_060145BC
 	b	_06017F84
 _06017F74:
 	add	r0, r4, #30
 	mov	r1, #7
 	mov	r2, #1
-	bl	FUNC_06013E9C
+	bl	FUN_06013E9C
 _06017F84:
 	cmp	r0, #0
 	beq	_06017FCC
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	b	_06017FCC
 _06017F94:
 	ldrh	r0, [r1, #8]
@@ -27773,23 +27773,23 @@ _06017F94:
 	bne	_06017FCC
 	add	r0, r4, #30
 	add	r1, r1, #130	; 0x82
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06017FCC
 	mov	r0, #48	; 0x30
-	bl	FUNC_0600AF68
-	bl	FUNC_0600B054
+	bl	FUN_0600AF68
+	bl	FUN_0600B054
 	add	r0, r4, #30
 	ldrh	r1, [r4, #44]	; 0x2c
-	bl	FUNC_0600FEC8
+	bl	FUN_0600FEC8
 _06017FCC:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06017FD8:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06017FDC
-FUNC_06017FDC: ; 0x06017FDC
+	arm_func_start FUN_06017FDC
+FUN_06017FDC: ; 0x06017FDC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #68	; 0x44
 	mov	sl, r0
@@ -27804,7 +27804,7 @@ FUNC_06017FDC: ; 0x06017FDC
 	add	r0, r0, #1
 	str	r0, [r1, #1392]	; 0x570
 	add	r0, sl, #30
-	bl	FUNC_0600F4C0
+	bl	FUN_0600F4C0
 	mov	r4, r0
 	mov	r0, r4, lsl #16
 	mov	r0, r0, lsr #16
@@ -27812,7 +27812,7 @@ FUNC_06017FDC: ; 0x06017FDC
 	cmp	r4, #255	; 0xff
 	beq	_06018650
 	ldrh	r1, [sl, #18]
-	bl	FUNC_0600F27C
+	bl	FUN_0600F27C
 	add	r9, sl, #44	; 0x2c
 	ldrh	fp, [sl, #6]
 	cmp	fp, #12
@@ -27820,7 +27820,7 @@ FUNC_06017FDC: ; 0x06017FDC
 	mov	r0, #0
 	add	r1, sp, #24
 	mov	r2, #44	; 0x2c
-	bl	FUNC_0600AEC4
+	bl	FUN_0600AEC4
 	add	r0, r9, #12
 	str	r0, [sp, #24]
 	sub	r0, fp, #12
@@ -27839,7 +27839,7 @@ FUNC_06017FDC: ; 0x06017FDC
 	ldrh	r0, [r9, #10]
 	strh	r0, [sp, #30]
 	add	r0, sp, #24
-	bl	FUNC_06016AB0
+	bl	FUN_06016AB0
 	ldr	r9, [sp, #56]	; 0x38
 	cmp	r9, #0
 	beq	_060180DC
@@ -27847,10 +27847,10 @@ FUNC_06017FDC: ; 0x06017FDC
 	ands	r0, r0, #32768	; 0x8000
 	beq	_060180DC
 	add	r0, r9, #6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	fp, r0
 	add	r0, r9, #7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	add	r1, fp, r0, lsl #8
 	ldr	r0, _06018664	; =0x0480810C
 	strh	r1, [r0]
@@ -27868,7 +27868,7 @@ _060180DC:
 	bne	_06018638
 	mov	r0, sl
 	add	r1, sp, #24
-	bl	FUNC_0601745C
+	bl	FUN_0601745C
 	b	_06018638
 _06018118:
 	ldrh	r0, [sp, #34]	; 0x22
@@ -27876,7 +27876,7 @@ _06018118:
 	beq	_06018638
 	cmp	r1, #33	; 0x21
 	bne	_060182A0
-	bl	FUNC_06009E28
+	bl	FUN_06009E28
 	ldrh	r0, [sp, #34]	; 0x22
 	and	r0, r0, #48	; 0x30
 	cmp	r0, #48	; 0x30
@@ -27901,11 +27901,11 @@ _06018118:
 	ands	r0, r0, #2
 	bne	_06018194
 	ldrh	r0, [sp, #42]	; 0x2a
-	bl	FUNC_0600B570
+	bl	FUN_0600B570
 _06018194:
 	mov	r0, r4
 	ldrh	r1, [sp, #46]	; 0x2e
-	bl	FUNC_0600F184
+	bl	FUN_0600F184
 	ldrh	r0, [r8, #12]
 	cmp	r0, #2
 	bne	_06018224
@@ -27913,22 +27913,22 @@ _06018194:
 	cmp	r9, #0
 	beq	_0601820C
 	add	r0, r9, #6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	fp, r0
 	add	r0, r9, #7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	add	r0, fp, r0, lsl #8
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #1
-	bl	FUNC_0600BEFC
+	bl	FUN_0600BEFC
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #8
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r9, r0
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #9
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	add	r1, r9, r0, lsl #8
 	ldr	r0, _06018668	; =0x0380FFF0
 	strh	r1, [r0]
@@ -27936,21 +27936,21 @@ _06018194:
 _0601820C:
 	ldr	r0, _0601866C	; =0x0000FFFF
 	mov	r1, #1
-	bl	FUNC_0600BEFC
+	bl	FUN_0600BEFC
 	mov	r1, #0
 	ldr	r0, _06018668	; =0x0380FFF0
 	strh	r1, [r0]
 _06018224:
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #3
-	bl	FUNC_06009CB0
-	bl	FUNC_0600B990
+	bl	FUN_06009CB0
+	bl	FUN_0600B990
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #2
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	strh	r0, [r8, #118]	; 0x76
 	ldrh	r0, [sl, #52]	; 0x34
-	bl	FUNC_0600B9DC
+	bl	FUN_0600B9DC
 	mov	r0, #1
 	strh	r0, [r8, #18]
 	strh	r0, [r8, #26]
@@ -27967,12 +27967,12 @@ _0601827C:
 	ldr	r0, [r7, #28]
 	add	r0, r0, #8
 	add	r1, sl, #30
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	mov	r0, #37	; 0x25
 	strh	r0, [r7]
 	mov	r0, #2
 	mov	r1, #1
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _060182A0:
 	ldrh	r0, [r8, #12]
 	cmp	r0, #2
@@ -27985,28 +27985,28 @@ _060182B8:
 	cmp	r9, #0
 	beq	_06018374
 	add	r0, r9, #6
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r7, r0
 	add	r0, r9, #7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	add	r0, r7, r0, lsl #8
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #0
-	bl	FUNC_0600BEFC
+	bl	FUN_0600BEFC
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #8
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r7, r0
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #9
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	add	r1, r7, r0, lsl #8
 	ldr	r0, _06018668	; =0x0380FFF0
 	strh	r1, [r0]
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	sub	r0, r0, #8
 	strh	r0, [r8, #160]	; 0xa0
 	ldrh	r2, [r8, #160]	; 0xa0
@@ -28018,7 +28018,7 @@ _060182B8:
 	add	r0, r1, #9
 	ldr	r1, [r8, #156]	; 0x9c
 	add	r2, r2, #2
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	mov	r0, #1
 	strh	r0, [r8, #162]	; 0xa2
 	b	_06018374
@@ -28026,14 +28026,14 @@ _0601835C:
 	add	r0, r1, #10
 	ldr	r1, [r8, #156]	; 0x9c
 	add	r2, r2, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 	mov	r0, #0
 	strh	r0, [r8, #162]	; 0xa2
 _06018374:
 	mov	r0, #0
 	strh	r0, [r8, #128]	; 0x80
 	mov	r0, r4
-	bl	FUNC_0600F130
+	bl	FUN_0600F130
 	add	r0, sl, #44	; 0x2c
 	ldmia	r0, {r2, r3}
 	add	r0, sp, #0
@@ -28045,7 +28045,7 @@ _06018374:
 	ldr	r1, [sp, #4]
 	mov	r2, r7
 	mov	r3, r4
-	bl	FUNC_06009EDC
+	bl	FUN_06009EDC
 	str	r0, [sp]
 	str	r1, [sp, #4]
 	mov	r2, #1
@@ -28084,7 +28084,7 @@ _06018374:
 	sbc	r0, r0, r4
 	str	r1, [sp]
 	str	r0, [sp, #4]
-	bl	FUNC_060001A4
+	bl	FUN_060001A4
 	ldr	r7, _06018688	; =0x048080F8
 	ldrh	r1, [r7]
 	strh	r1, [sp, #8]
@@ -28105,7 +28105,7 @@ _06018374:
 	strh	r1, [sp, #20]
 	ldrh	r1, [r2]
 	strh	r1, [sp, #22]
-	bl	FUNC_060001AC
+	bl	FUN_060001AC
 	ldrh	r1, [sp, #8]
 	ldrh	r0, [sp, #16]
 	cmp	r1, r0
@@ -28148,7 +28148,7 @@ _06018518:
 	cmp	r0, #1
 	bne	_06018620
 	add	r0, r1, #2
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	ldrh	r1, [r8, #118]	; 0x76
 	cmp	r1, r0
 	strneh	r0, [r8, #118]	; 0x76
@@ -28158,7 +28158,7 @@ _06018518:
 	bne	_0601857C
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #4
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	ands	r0, r0, #1
 	ldrneh	r0, [r8, #142]	; 0x8e
 	orrne	r0, r0, #1
@@ -28166,12 +28166,12 @@ _06018518:
 _0601857C:
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #4
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	and	r7, r0, #254	; 0xfe
 	mov	r4, r7, lsl #3
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	add	r0, r7, r0
 	sub	r0, r0, #3
 	mov	r1, r0, lsl #3
@@ -28184,7 +28184,7 @@ _0601857C:
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #5
 	add	r0, r0, r4, lsr #3
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r2, #1
 	and	r1, r4, #7
 	mov	r1, r2, lsl r1
@@ -28193,7 +28193,7 @@ _0601857C:
 	ldrh	r0, [r8, #142]	; 0x8e
 	orr	r0, r0, #2
 	strh	r0, [r8, #142]	; 0x8e
-	bl	FUNC_06014B5C
+	bl	FUN_06014B5C
 _060185F4:
 	ldrh	r0, [r5, #32]
 	cmp	r0, #0
@@ -28205,21 +28205,21 @@ _060185F4:
 	cmp	r0, #0
 	bne	_06018620
 	mov	r0, #1
-	bl	FUNC_0600B3F4
+	bl	FUN_0600B3F4
 _06018620:
 	ldrh	r0, [r6, #30]
 	mov	r0, r0, lsl #25
 	movs	r0, r0, lsr #31
 	beq	_06018638
 	mov	r0, sl
-	bl	FUNC_0600FCB8
+	bl	FUN_0600FCB8
 _06018638:
 	ldr	r2, [sp, #52]	; 0x34
 	cmp	r2, #0
 	beq	_06018650
 	ldrh	r0, [sp, #42]	; 0x2a
 	mov	r1, sl
-	bl	FUNC_06018E5C
+	bl	FUN_06018E5C
 _06018650:
 	add	sp, sp, #68	; 0x44
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -28241,8 +28241,8 @@ _06018690:	.word	0x048080FC
 _06018694:	.word	0x048080FE
 _06018698:	.word	0x04808134
 
-	arm_func_start FUNC_0601869C
-FUNC_0601869C: ; 0x0601869C
+	arm_func_start FUN_0601869C
+FUN_0601869C: ; 0x0601869C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -28256,12 +28256,12 @@ FUNC_0601869C: ; 0x0601869C
 	bne	_06018764
 	add	r0, r4, #30
 	add	r1, r5, #100	; 0x64
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_060186F0
 	add	r0, r4, #36	; 0x24
 	add	r1, r5, #130	; 0x82
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	bne	_060186F8
 _060186F0:
@@ -28293,7 +28293,7 @@ _060186F8:
 	strh	r0, [r1, #24]
 	ldr	r0, [r4]
 	add	r0, r0, #392	; 0x188
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #0
 _06018764:
 	add	sp, sp, #4
@@ -28304,8 +28304,8 @@ _06018774:	.word	0x00000185
 _06018778:	.word	0x04808094
 _0601877C:	.word	0x04808098
 
-	arm_func_start FUNC_06018780
-FUNC_06018780: ; 0x06018780
+	arm_func_start FUN_06018780
+FUN_06018780: ; 0x06018780
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -28320,7 +28320,7 @@ FUNC_06018780: ; 0x06018780
 	beq	_06018930
 	add	r0, r7, #24
 	add	r1, r1, #936	; 0x3a8
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06018930
 	ldrh	r0, [r7, #16]
@@ -28330,30 +28330,30 @@ FUNC_06018780: ; 0x06018780
 	cmp	r1, r0
 	bgt	_06018930
 	add	r0, r7, #30
-	bl	FUNC_0600F608
+	bl	FUN_0600F608
 	mov	r4, r0
 	cmp	r4, #255	; 0xff
 	beq	_06018804
 	cmp	r4, #0
 	beq	_06018840
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	beq	_06018840
 _06018804:
 	add	r0, r7, #30
 	mov	r1, #192	; 0xc0
-	bl	FUNC_06013D80
+	bl	FUN_06013D80
 	cmp	r0, #0
 	bne	_06018930
 	add	r0, r7, #30
 	mov	r1, #7
 	mov	r2, #0
-	bl	FUNC_06013E9C
+	bl	FUN_06013E9C
 	cmp	r0, #0
 	beq	_06018930
 	mov	r1, #2
 	strh	r1, [r0]
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	b	_06018930
 _06018840:
 	cmp	r4, #0
@@ -28363,11 +28363,11 @@ _06018840:
 	ldrh	r1, [r7, #20]
 	mov	r1, r1, lsl #19
 	mov	r1, r1, lsr #31
-	bl	FUNC_0600F218
+	bl	FUN_0600F218
 	mov	r0, r4
-	bl	FUNC_0600F130
+	bl	FUN_0600F130
 	mov	r0, r4
-	bl	FUNC_0600EF18
+	bl	FUN_0600EF18
 	mov	r1, #1
 	mov	r0, r1, lsl r0
 	mov	r0, r0, lsl #16
@@ -28405,19 +28405,19 @@ _060188D8:
 	ldrh	r1, [r7, #18]
 	and	r1, r1, #255	; 0xff
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r0, r4, #2
 	ldrh	r1, [r7, #14]
 	and	r1, r1, #255	; 0xff
 	and	r1, r1, #255	; 0xff
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	ldrh	r2, [r4]
 	cmp	r2, #0
 	beq	_06018930
 	add	r0, r7, #44	; 0x2c
 	add	r1, r4, #8
 	add	r2, r2, #1
-	bl	FUNC_06000EA0
+	bl	FUN_06000EA0
 _06018930:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -28425,8 +28425,8 @@ _06018930:
 _0601893C:	.word	0x0380FFF4
 _06018940:	.word	0x0000042C
 
-	arm_func_start FUNC_06018944
-FUNC_06018944: ; 0x06018944
+	arm_func_start FUN_06018944
+FUN_06018944: ; 0x06018944
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _06018AC0	; =0x0380FFF4
@@ -28440,12 +28440,12 @@ FUNC_06018944: ; 0x06018944
 	bne	_06018AB8
 	add	r0, r6, #30
 	add	r1, r5, #100	; 0x64
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	beq	_06018998
 	add	r0, r6, #36	; 0x24
 	add	r1, r5, #130	; 0x82
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	bne	_060189A0
 _06018998:
@@ -28479,7 +28479,7 @@ _060189A0:
 	strneh	r0, [r4, #6]
 _06018A04:
 	ldrh	r0, [r5, #136]	; 0x88
-	bl	FUNC_0600F130
+	bl	FUN_0600F130
 	ldrh	r0, [r6, #16]
 	sub	r0, r0, #28
 	strh	r0, [r6, #6]
@@ -28523,7 +28523,7 @@ _06018A50:
 	ldr	r0, _06018AC0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	mov	r0, #0
 _06018AB8:
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -28535,8 +28535,8 @@ _06018ACC:	.word	0x00007FFF
 _06018AD0:	.word	0x00000182
 _06018AD4:	.word	0x04808094
 
-	arm_func_start FUNC_06018AD8
-FUNC_06018AD8: ; 0x06018AD8
+	arm_func_start FUN_06018AD8
+FUN_06018AD8: ; 0x06018AD8
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	ldr	r0, _06018DE0	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -28553,7 +28553,7 @@ FUNC_06018AD8: ; 0x06018AD8
 	beq	_06018B20
 	add	r0, r7, #72	; 0x48
 	mov	r1, sl
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 	b	_06018DD8
 _06018B20:
 	add	r9, sl, #16
@@ -28583,7 +28583,7 @@ _06018B78:
 	ldrh	r0, [r9, #8]
 	and	r0, r0, #240	; 0xf0
 	mov	r1, #16
-	bl	FUNC_06001840
+	bl	FUN_06001840
 	ldr	r1, [r6, #36]	; 0x24
 	sub	r0, r0, #1
 	add	r0, r1, r0
@@ -28602,41 +28602,41 @@ _06018BBC:
 	ands	r0, r0, #1
 	bne	_06018D44
 	add	r0, r9, #30
-	bl	FUNC_0600F608
+	bl	FUN_0600F608
 	mov	r5, r0
 	cmp	r5, #255	; 0xff
 	beq	_06018BE8
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #64	; 0x40
 	beq	_06018C50
 _06018BE8:
 	mov	r0, r5
-	bl	FUNC_0600EFF0
+	bl	FUN_0600EFF0
 	cmp	r0, #48	; 0x30
 	bne	_06018C1C
 	add	r0, r9, #30
 	mov	r1, #160	; 0xa0
-	bl	FUNC_06013D80
+	bl	FUN_06013D80
 	cmp	r0, #0
 	bne	_06018D44
 	add	r0, r9, #30
 	mov	r1, #7
-	bl	FUNC_060145BC
+	bl	FUN_060145BC
 	b	_06018C40
 _06018C1C:
 	add	r0, r9, #30
 	mov	r1, #192	; 0xc0
-	bl	FUNC_06013D80
+	bl	FUN_06013D80
 	cmp	r0, #0
 	bne	_06018D44
 	add	r0, r9, #30
 	mov	r1, #7
 	mov	r2, #1
-	bl	FUNC_06013E9C
+	bl	FUN_06013E9C
 _06018C40:
 	cmp	r0, #0
 	beq	_06018D44
-	bl	FUNC_06014C6C
+	bl	FUN_06014C6C
 	b	_06018D44
 _06018C50:
 	mov	r0, r5, lsl #16
@@ -28644,9 +28644,9 @@ _06018C50:
 	ldrh	r1, [r9, #20]
 	mov	r1, r1, lsl #19
 	mov	r1, r1, lsr #31
-	bl	FUNC_0600F218
+	bl	FUN_0600F218
 	mov	r0, r5
-	bl	FUNC_0600EF5C
+	bl	FUN_0600EF5C
 	ldrh	r1, [r9, #42]	; 0x2a
 	cmp	r1, r0
 	ldreq	r0, [r6, #60]	; 0x3c
@@ -28655,7 +28655,7 @@ _06018C50:
 	beq	_06018D44
 	add	r0, r9, #24
 	add	r1, r9, #36	; 0x24
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	mov	r4, #0
 	b	_06018D44
 _06018C9C:
@@ -28688,11 +28688,11 @@ _06018CE4:
 	cmp	r0, #0
 	bne	_06018D10
 	mov	r0, #1
-	bl	FUNC_0600B3F4
+	bl	FUN_0600B3F4
 _06018D10:
 	ldrh	r5, [r8, #136]	; 0x88
 	mov	r0, r5
-	bl	FUNC_0600EF5C
+	bl	FUN_0600EF5C
 	ldrh	r1, [r9, #42]	; 0x2a
 	cmp	r1, r0
 	ldreq	r0, [r6, #60]	; 0x3c
@@ -28701,7 +28701,7 @@ _06018D10:
 	beq	_06018D44
 	add	r0, r9, #30
 	add	r1, r9, #36	; 0x24
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	mov	r4, #0
 _06018D44:
 	cmp	r4, #0
@@ -28713,12 +28713,12 @@ _06018D44:
 	and	r1, r1, #255	; 0xff
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUNC_0600F27C
+	bl	FUN_0600F27C
 	mov	r0, r5
 	ldrh	r1, [r9, #42]	; 0x2a
-	bl	FUNC_0600F16C
+	bl	FUN_0600F16C
 	mov	r0, r5
-	bl	FUNC_0600F130
+	bl	FUN_0600F130
 	ldrh	r0, [r9, #16]
 	sub	r0, r0, #24
 	strh	r0, [r9, #6]
@@ -28730,27 +28730,27 @@ _06018D44:
 	strh	r0, [sl, #14]
 	add	r0, r7, #72	; 0x48
 	mov	r1, sl
-	bl	FUNC_0600F8DC
+	bl	FUN_0600F8DC
 	b	_06018DC0
 _06018DB4:
 	add	r0, r7, #72	; 0x48
 	mov	r1, sl
-	bl	FUNC_060096A0
+	bl	FUN_060096A0
 _06018DC0:
 	ldrh	r0, [r7, #80]	; 0x50
 	cmp	r0, #0
 	beq	_06018DD8
 	mov	r0, #2
 	mov	r1, #6
-	bl	FUNC_06009078
+	bl	FUN_06009078
 _06018DD8:
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	bx	lr
 _06018DE0:	.word	0x0380FFF4
 _06018DE4:	.word	0x0000053C
 
-	arm_func_start FUNC_06018DE8
-FUNC_06018DE8: ; 0x06018DE8
+	arm_func_start FUN_06018DE8
+FUN_06018DE8: ; 0x06018DE8
 	ldr	r0, _06018E34	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	ip, r0, #572	; 0x23c
@@ -28774,8 +28774,8 @@ _06018E24:
 	bx	lr
 _06018E34:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06018E38
-FUNC_06018E38: ; 0x06018E38
+	arm_func_start FUN_06018E38
+FUN_06018E38: ; 0x06018E38
 	mov	r0, #0
 	ldr	r1, _06018E54	; =0x0380FFF4
 	ldr	r1, [r1]
@@ -28786,8 +28786,8 @@ FUNC_06018E38: ; 0x06018E38
 _06018E54:	.word	0x0380FFF4
 _06018E58:	.word	FUN_037FB300
 
-	arm_func_start FUNC_06018E5C
-FUNC_06018E5C: ; 0x06018E5C
+	arm_func_start FUN_06018E5C
+FUN_06018E5C: ; 0x06018E5C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	fp, r0
@@ -28797,7 +28797,7 @@ FUNC_06018E5C: ; 0x06018E5C
 	ldr	r0, [r0]
 	add	r8, r0, #572	; 0x23c
 	add	r0, r9, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	cmp	r0, #32
 	bhi	_06018FA0
 	mov	r6, #4
@@ -28813,7 +28813,7 @@ _06018EA8:
 	beq	_06018EDC
 	add	r0, r8, #6
 	ldr	r1, [sp]
-	bl	FUNC_0600AB78
+	bl	FUN_0600AB78
 	cmp	r0, #0
 	bne	_06018F08
 	ldrh	r0, [r8, #48]	; 0x30
@@ -28844,7 +28844,7 @@ _06018F08:
 	add	r6, r5, r4
 	mov	r0, #0
 	mov	r1, r6
-	bl	FUNC_0600055C
+	bl	FUN_0600055C
 	mov	r0, #1024	; 0x400
 	strh	r0, [r6, #48]	; 0x30
 	ldrh	r0, [sl, #18]
@@ -28853,9 +28853,9 @@ _06018F08:
 	strh	fp, [r6, #2]
 	add	r0, r6, #6
 	add	r1, sl, #36	; 0x24
-	bl	FUNC_0600AF4C
+	bl	FUN_0600AF4C
 	add	r0, r9, #1
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	strh	r0, [r6, #12]
 	mov	r7, #0
 	add	r5, r9, #2
@@ -28863,10 +28863,10 @@ _06018F08:
 	b	_06018F84
 _06018F6C:
 	add	r0, r5, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	mov	r1, r0
 	add	r0, r4, r7
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r7, r7, #1
 _06018F84:
 	ldrh	r0, [r6, #12]
@@ -28882,25 +28882,25 @@ _06018FA0:
 	bx	lr
 _06018FAC:	.word	0x0380FFF4
 
-	arm_func_start FUNC_06018FB0
-FUNC_06018FB0: ; 0x06018FB0
+	arm_func_start FUN_06018FB0
+FUN_06018FB0: ; 0x06018FB0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0601909C	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUNC_060190A4
-	bl	FUNC_0601916C
+	bl	FUN_060190A4
+	bl	FUN_0601916C
 	mov	r0, #0
 	str	r0, [sp]
 	mov	r0, #44	; 0x2c
 	mov	r1, #2
 	add	r2, sp, #0
-	bl	FUNC_060190AC
+	bl	FUN_060190AC
 	ldr	r0, _0601909C	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUNC_060190B4
+	bl	FUN_060190B4
 	ldr	r1, [sp]
 	cmp	r1, #164	; 0xa4
 	bcc	_0601900C
@@ -28916,7 +28916,7 @@ _06019014:
 	ldr	r0, _0601909C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
-	bl	FUNC_06009724
+	bl	FUN_06009724
 	ldr	r2, _0601909C	; =0x0380FFF4
 	ldr	r1, [r2]
 	str	r0, [r1, #792]	; 0x318
@@ -28929,18 +28929,18 @@ _06019014:
 	str	r0, [r1, #792]	; 0x318
 	ldr	r0, [r2]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUNC_060190A4
-	bl	FUNC_0601916C
+	bl	FUN_060190A4
+	bl	FUN_0601916C
 	mov	r0, #42	; 0x2a
 	ldr	r1, [sp]
 	ldr	r2, _0601909C	; =0x0380FFF4
 	ldr	r2, [r2]
 	ldr	r2, [r2, #792]	; 0x318
-	bl	FUNC_060190AC
+	bl	FUN_060190AC
 	ldr	r0, _0601909C	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUNC_060190B4
+	bl	FUN_060190B4
 	mov	r0, #1
 _06019090:
 	add	sp, sp, #4
@@ -28949,49 +28949,49 @@ _06019090:
 _0601909C:	.word	0x0380FFF4
 _060190A0:	.word	0x000001D6
 
-	arm_func_start FUNC_060190A4
-FUNC_060190A4: ; 0x060190A4
+	arm_func_start FUN_060190A4
+FUN_060190A4: ; 0x060190A4
 	ldr	pc, _060190A8	; =FUN_038014E0
 _060190A8:	.word	FUN_038014E0
 
-	arm_func_start FUNC_060190AC
-FUNC_060190AC: ; 0x060190AC
+	arm_func_start FUN_060190AC
+FUN_060190AC: ; 0x060190AC
 	ldr	pc, _060190B0	; =FUN_03804E50
 _060190B0:	.word	FUN_03804E50
 
-	arm_func_start FUNC_060190B4
-FUNC_060190B4: ; 0x060190B4
+	arm_func_start FUN_060190B4
+FUN_060190B4: ; 0x060190B4
 	ldr	pc, _060190B8	; =FUN_03801474
 _060190B8:	.word	FUN_03801474
 
-	arm_func_start FUNC_060190BC
-FUNC_060190BC: ; 0x060190BC
+	arm_func_start FUN_060190BC
+FUN_060190BC: ; 0x060190BC
 	stmdb	sp!, {r4, r5, r6, lr}
 
-	arm_func_start FUNC_060190C0
-FUNC_060190C0: ; 0x060190C0
+	arm_func_start FUN_060190C0
+FUN_060190C0: ; 0x060190C0
 	mov	r6, r0
 	mov	r5, r1
 	mov	r4, r2
 	ldr	r0, _06019108	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUNC_060190A4
-	bl	FUNC_0601916C
+	bl	FUN_060190A4
+	bl	FUN_0601916C
 	mov	r0, r6
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUNC_060190AC
+	bl	FUN_060190AC
 	ldr	r0, _06019108	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
-	bl	FUNC_060190B4
+	bl	FUN_060190B4
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _06019108:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0601910C
-FUNC_0601910C: ; 0x0601910C
+	arm_func_start FUN_0601910C
+FUN_0601910C: ; 0x0601910C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r1
 	mov	r5, r2
@@ -29005,11 +29005,11 @@ FUNC_0601910C: ; 0x0601910C
 	b	_06019158
 _06019138:
 	mov	r0, r4
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	add	r4, r4, #1
 	mov	r1, r0
 	mov	r0, r5
-	bl	FUNC_06009CD0
+	bl	FUN_06009CD0
 	add	r5, r5, #1
 	sub	r6, r6, #1
 _06019158:
@@ -29020,18 +29020,18 @@ _06019160:
 	bx	lr
 _06019168:	.word	0x0380FFF4
 
-	arm_func_start FUNC_0601916C
-FUNC_0601916C: ; 0x0601916C
+	arm_func_start FUN_0601916C
+FUN_0601916C: ; 0x0601916C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	add	r4, sp, #0
 _06019178:
 	mov	r0, r4
-	bl	FUNC_060191AC
+	bl	FUN_060191AC
 	ldr	r0, [sp]
 	ands	r0, r0, #32
 	beq	_06019194
-	bl	FUNC_060191B4
+	bl	FUN_060191B4
 	b	_06019178
 _06019194:
 	ldr	r0, [sp]
@@ -29041,18 +29041,18 @@ _06019194:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUNC_060191AC
-FUNC_060191AC: ; 0x060191AC
+	arm_func_start FUN_060191AC
+FUN_060191AC: ; 0x060191AC
 	ldr	pc, _060191B0	; =FUN_03804F70
 _060191B0:	.word	FUN_03804F70
 
-	arm_func_start FUNC_060191B4
-FUNC_060191B4: ; 0x060191B4
+	arm_func_start FUN_060191B4
+FUN_060191B4: ; 0x060191B4
 	ldr	pc, _060191B8	; =FUN_03804798
 _060191B8:	.word	FUN_03804798
 
-	arm_func_start FUNC_060191BC
-FUNC_060191BC: ; 0x060191BC
+	arm_func_start FUN_060191BC
+FUN_060191BC: ; 0x060191BC
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -29074,12 +29074,12 @@ _060191F4:
 	b	_06019224
 _06019200:
 	mov	r0, r7
-	bl	FUNC_06009CB0
+	bl	FUN_06009CB0
 	add	r7, r7, #1
 	and	r0, r0, #255	; 0xff
 	mov	r1, r4, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUNC_06009BBC
+	bl	FUN_06009BBC
 	mov	r4, r0
 	sub	r6, r6, #1
 _06019224:
@@ -29102,80 +29102,79 @@ _06019254:
 _06019260:	.word	0x0380FFF4
 _06019264:	.word	0x000001D6
 _06019268:
-	.word	FUNC_06002F6C
+	.word	FUN_06002F6C
 
-	arm_func_start FUNC_0601926C
-FUNC_0601926C: ; 0x0601926C
-	.word	FUNC_0600305C
-	.word	FUNC_060034A4
-	.word	FUNC_06008280
-	.word	FUNC_060082E0
-	.word	FUNC_06008578
-	.word	FUNC_06008620
-	.word	FUNC_06003578
-	.word	FUNC_06003664
-	.word	FUNC_06003924
-	.word	FUNC_060040F4
-	.word	FUNC_060044CC
-	.word	FUNC_060045DC
-	.word	FUNC_06005328
-	.word	FUNC_06005380
-	.word	FUNC_06005644
-	.word	FUNC_060057C8
-	.word	FUNC_060058E8
-	.word	FUNC_06005974
-	.word	FUNC_06005AA8
-	.word	FUNC_06005C68
-	.word	FUNC_06002184
-	.word	FUNC_06002184
-	.word	FUNC_06002184
-	.word	FUNC_06005D1C
-	.word	FUNC_06005E4C
-	.word	FUNC_06005EAC
-	.word	FUNC_06005ED8
-	.word	FUNC_06006A48
-	.word	FUNC_06005F40
-	.word	FUNC_0600609C
-	.word	FUNC_0600628C
-	.word	FUNC_06006318
-	.word	FUNC_06007FE0
-	.word	FUNC_06008074
-	.word	FUNC_060089DC
-	.word	FUNC_06008A74
-	.word	FUNC_06008AD4
-	.word	FUNC_06003BBC
-	.word	FUNC_06005B84
-	.word	FUNC_06008AE8
-	.word	FUNC_06008C6C
-	.word	FUNC_06008C98
-	.word	FUNC_06006A0C
-	.word	FUNC_060069DC
-	.word	FUNC_060069A0
+_0601926C: ; 0x0601926C
+	.word	FUN_0600305C
+	.word	FUN_060034A4
+	.word	FUN_06008280
+	.word	FUN_060082E0
+	.word	FUN_06008578
+	.word	FUN_06008620
+	.word	FUN_06003578
+	.word	FUN_06003664
+	.word	FUN_06003924
+	.word	FUN_060040F4
+	.word	FUN_060044CC
+	.word	FUN_060045DC
+	.word	FUN_06005328
+	.word	FUN_06005380
+	.word	FUN_06005644
+	.word	FUN_060057C8
+	.word	FUN_060058E8
+	.word	FUN_06005974
+	.word	FUN_06005AA8
+	.word	FUN_06005C68
+	.word	FUN_06002184
+	.word	FUN_06002184
+	.word	FUN_06002184
+	.word	FUN_06005D1C
+	.word	FUN_06005E4C
+	.word	FUN_06005EAC
+	.word	FUN_06005ED8
+	.word	FUN_06006A48
+	.word	FUN_06005F40
+	.word	FUN_0600609C
+	.word	FUN_0600628C
+	.word	FUN_06006318
+	.word	FUN_06007FE0
+	.word	FUN_06008074
+	.word	FUN_060089DC
+	.word	FUN_06008A74
+	.word	FUN_06008AD4
+	.word	FUN_06003BBC
+	.word	FUN_06005B84
+	.word	FUN_06008AE8
+	.word	FUN_06008C6C
+	.word	FUN_06008C98
+	.word	FUN_06006A0C
+	.word	FUN_060069DC
+	.word	FUN_060069A0
 _06019320:
-	.word	FUNC_060109D8
-	.word	FUNC_060108CC
-	.word	FUNC_060107A4
-	.word	FUNC_0601069C
-	.word	FUNC_0601059C
-	.word	FUNC_060102D0
-	.word	FUNC_06018AD8
-	.word	FUNC_06016764
-	.word	FUNC_0600E8E8
-	.word	FUNC_0601654C
-	.word	FUNC_0600EB8C
-	.word	FUNC_0600F974
-	.word	FUNC_06008FAC
-	.word	FUNC_06010280
-	.word	FUNC_0600E6E0
-	.word	FUNC_0600E308
-	.word	FUNC_0600E21C
-	.word	FUNC_0601603C
-	.word	FUNC_06018DE8
-	.word	FUNC_0600F874
-	.word	FUNC_0600E158
-	.word	FUNC_060098C4
-	.word	FUNC_06009820
-	.word	FUNC_060097CC
+	.word	FUN_060109D8
+	.word	FUN_060108CC
+	.word	FUN_060107A4
+	.word	FUN_0601069C
+	.word	FUN_0601059C
+	.word	FUN_060102D0
+	.word	FUN_06018AD8
+	.word	FUN_06016764
+	.word	FUN_0600E8E8
+	.word	FUN_0601654C
+	.word	FUN_0600EB8C
+	.word	FUN_0600F974
+	.word	FUN_06008FAC
+	.word	FUN_06010280
+	.word	FUN_0600E6E0
+	.word	FUN_0600E308
+	.word	FUN_0600E21C
+	.word	FUN_0601603C
+	.word	FUN_06018DE8
+	.word	FUN_0600F874
+	.word	FUN_0600E158
+	.word	FUN_060098C4
+	.word	FUN_06009820
+	.word	FUN_060097CC
 _06019380:
 	.word	0x00030003
 _06019384:
@@ -29396,181 +29395,181 @@ _0601963C:
 	.word	0xFFFF0142
 _060196A8:
 	.word	0x00020018
-	.word	FUNC_06013558
+	.word	FUN_06013558
 	.word	0x00010004
-	.word	FUNC_060133B4
+	.word	FUN_060133B4
 	.word	0x0001000A
-	.word	FUNC_06012EBC
+	.word	FUN_06012EBC
 	.word	0x0001000C
-	.word	FUNC_06012E58
+	.word	FUN_06012E58
 	.word	0x00010001
-	.word	FUNC_06012E0C
+	.word	FUN_06012E0C
 _060196D0:
 	.word	0x00040000
-	.word	FUNC_060118F8
+	.word	FUN_060118F8
 	.word	0x00120000
-	.word	FUNC_060118AC
+	.word	FUN_060118AC
 	.word	0x00020000
-	.word	FUNC_06011884
+	.word	FUN_06011884
 	.word	0x00020000
-	.word	FUNC_0601185C
+	.word	FUN_0601185C
 	.word	0x00020000
-	.word	FUNC_06011834
+	.word	FUN_06011834
 	.word	0x00010000
-	.word	FUNC_06011750
+	.word	FUN_06011750
 _06019700:
 	.word	0x00010003
-	.word	FUNC_06011FC8
+	.word	FUN_06011FC8
 	.word	0x00010011
-	.word	FUNC_06011FA8
+	.word	FUN_06011FA8
 	.word	0x00010001
-	.word	FUNC_06011F64
+	.word	FUN_06011F64
 	.word	0x00010001
-	.word	FUNC_06011F20
+	.word	FUN_06011F20
 	.word	0x00010001
-	.word	FUNC_06011ED4
+	.word	FUN_06011ED4
 	.word	0x00010000
-	.word	FUNC_06011E64
+	.word	FUN_06011E64
 _06019730:
 	.word	0x00010001
-	.word	FUNC_06011710
+	.word	FUN_06011710
 	.word	0x00010003
-	.word	FUNC_06011664
+	.word	FUN_06011664
 	.word	0x0023001F
-	.word	FUNC_06011518
+	.word	FUN_06011518
 	.word	0x00050022
-	.word	FUNC_06011358
+	.word	FUN_06011358
 	.word	0x00060005
-	.word	FUNC_0601127C
+	.word	FUN_0601127C
 	.word	0x00040004
-	.word	FUNC_06011130
+	.word	FUN_06011130
 	.word	0x00030005
-	.word	FUNC_06011048
+	.word	FUN_06011048
 	.word	0x00030005
-	.word	FUNC_06010F78
+	.word	FUN_06010F78
 	.word	0x00010004
-	.word	FUNC_06010E60
+	.word	FUN_06010E60
 	.word	0x00010017
-	.word	FUNC_06010CBC
+	.word	FUN_06010CBC
 	.word	0x0012000C
-	.word	FUNC_06010BD4
+	.word	FUN_06010BD4
 _06019788:
 	.word	0x00010000
-	.word	FUNC_0600F96C
+	.word	FUN_0600F96C
 	.word	0x00010000
-	.word	FUNC_06012D88
+	.word	FUN_06012D88
 	.word	0x00010000
-	.word	FUNC_06012D24
+	.word	FUN_06012D24
 	.word	0x00010000
-	.word	FUNC_06012CC4
+	.word	FUN_06012CC4
 	.word	0x00010000
-	.word	FUNC_06012C80
+	.word	FUN_06012C80
 	.word	0x00010000
-	.word	FUNC_06012C3C
+	.word	FUN_06012C3C
 	.word	0x00090000
-	.word	FUNC_06012B90
+	.word	FUN_06012B90
 	.word	0x005C0000
-	.word	FUNC_06012B28
+	.word	FUN_06012B28
 	.word	0x00020000
-	.word	FUNC_06012B00
+	.word	FUN_06012B00
 	.word	0x00010004
-	.word	FUNC_0601288C
+	.word	FUN_0601288C
 	.word	0x00010002
-	.word	FUNC_060125EC
+	.word	FUN_060125EC
 _060197E0:
 	.word	0x00210000
-	.word	FUNC_06011D2C
+	.word	FUN_06011D2C
 	.word	0x00040000
-	.word	FUNC_06011CF4
+	.word	FUN_06011CF4
 	.word	0x00020000
-	.word	FUNC_06011CCC
+	.word	FUN_06011CCC
 	.word	0x00030000
-	.word	FUNC_06011C94
+	.word	FUN_06011C94
 	.word	0x00020000
-	.word	FUNC_06011C6C
+	.word	FUN_06011C6C
 	.word	0x00020000
-	.word	FUNC_06011C44
+	.word	FUN_06011C44
 	.word	0x00020000
-	.word	FUNC_06011C1C
+	.word	FUN_06011C1C
 	.word	0x00020000
-	.word	FUNC_06011BF4
+	.word	FUN_06011BF4
 	.word	0x00010000
-	.word	FUNC_0600F96C
+	.word	FUN_0600F96C
 	.word	0x00020000
-	.word	FUNC_06011BC4
+	.word	FUN_06011BC4
 	.word	0x00020000
-	.word	FUNC_06011B94
+	.word	FUN_06011B94
 	.word	0x00020000
-	.word	FUNC_06011B6C
+	.word	FUN_06011B6C
 	.word	0x00020000
-	.word	FUNC_06011B44
+	.word	FUN_06011B44
 	.word	0x00110000
-	.word	FUNC_06011B08
+	.word	FUN_06011B08
 	.word	0x00020000
-	.word	FUNC_06011AD8
+	.word	FUN_06011AD8
 	.word	0x00020000
 	.word	0x06011AB0
 	.word	0x00040000
-	.word	FUNC_06011A70
+	.word	FUN_06011A70
 	.word	0x00010000
-	.word	FUNC_0600F96C
+	.word	FUN_0600F96C
 	.word	0x00020000
-	.word	FUNC_06011A44
+	.word	FUN_06011A44
 	.word	0x00020000
-	.word	FUNC_06011A08
+	.word	FUN_06011A08
 	.word	0x00030000
-	.word	FUNC_060119A8
+	.word	FUN_060119A8
 	.word	0x00020000
-	.word	FUNC_0601196C
+	.word	FUN_0601196C
 	.word	0x00020000
-	.word	FUNC_06011930
+	.word	FUN_06011930
 _06019898:
 	.word	0x00010048
-	.word	FUNC_060124F8
+	.word	FUN_060124F8
 	.word	0x00010003
-	.word	FUNC_060124B0
+	.word	FUN_060124B0
 	.word	0x00010001
-	.word	FUNC_06012498
+	.word	FUN_06012498
 	.word	0x00010001
-	.word	FUNC_06012450
+	.word	FUN_06012450
 	.word	0x00010001
-	.word	FUNC_060123F4
+	.word	FUN_060123F4
 	.word	0x00010001
-	.word	FUNC_060123DC
+	.word	FUN_060123DC
 	.word	0x00010001
-	.word	FUNC_060123C4
+	.word	FUN_060123C4
 	.word	0x00010001
-	.word	FUNC_060123AC
+	.word	FUN_060123AC
 	.word	0x00010028
-	.word	FUNC_06012394
+	.word	FUN_06012394
 	.word	0x00010001
-	.word	FUNC_0601234C
+	.word	FUN_0601234C
 	.word	0x00010001
-	.word	FUNC_06012334
+	.word	FUN_06012334
 	.word	0x00010001
-	.word	FUNC_0601231C
+	.word	FUN_0601231C
 	.word	0x00010001
-	.word	FUNC_06012300
+	.word	FUN_06012300
 	.word	0x00010010
-	.word	FUNC_060122E8
+	.word	FUN_060122E8
 	.word	0x00010001
-	.word	FUNC_060122D0
+	.word	FUN_060122D0
 	.word	0x00010001
 	.word	0x060122B8
 	.word	0x00010003
-	.word	FUNC_06012264
+	.word	FUN_06012264
 	.word	0x00010003
-	.word	FUNC_06012158
+	.word	FUN_06012158
 	.word	0x00010001
-	.word	FUNC_06012100
+	.word	FUN_06012100
 	.word	0x00010001
-	.word	FUNC_060120B8
+	.word	FUN_060120B8
 	.word	0x00010002
-	.word	FUNC_06012070
+	.word	FUN_06012070
 	.word	0x00010001
-	.word	FUNC_06012028
+	.word	FUN_06012028
 	.word	0x00010001
-	.word	FUNC_06011FE0
+	.word	FUN_06011FE0
 _06019950:
 	.word	0x38372E32
 	.word	0x0030302E
