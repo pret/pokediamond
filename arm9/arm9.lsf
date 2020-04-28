@@ -1,0 +1,56 @@
+
+Static arm9
+{
+	Address 0x02000000
+    Object main.o
+    Object FUN_02000DF4.o
+    Object unk_02000E0C.o
+    Object rom2.o
+    Object string_util.o
+    Object unk_020023C0.o
+    Object filesystem.o
+    Object unk_02006864.o
+    Object script.o
+    Object unk_02038C78.o
+    Object scrcmd.o
+    Object unk_02046030.o
+    Object unk_0208AC14.o
+    Object unk_020AF030.o
+    Object FX_arm9.o
+    Object GX_arm9.o
+    Object OS_arm9.o (.text)
+    Object MI_arm9.o
+    Object SND_arm9.o
+    Object PXI_arm9.o
+    Object FS_arm9.o
+    Object DGT_arm9.o
+    Object CP_arm9.o
+    Object SPI_arm9.o
+    Object PM_arm9.o
+    Object RTC_arm9.o
+    Object CARD_arm9.o
+    Object WM_arm9.o
+    Object CTRDG_arm9.o
+    Object MATH_arm9.o
+    Object STD_arm9.o
+    Object libc.o
+    Object libmwcc.o
+    Object rom2_2.o
+}
+
+Autoload ITCM
+{
+	Address 0x01FF8000
+	Object arm9_itcm.o (.itcm)
+}
+
+Autoload DTCM
+{
+	Address 0x027E0000
+	Object OS_arm9.o (.dtcm)
+}
+
+Autoload EXT
+{
+	Address 0x023E0000
+}

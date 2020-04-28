@@ -75,6 +75,8 @@ MWCCARM  := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # only dependency should be MWCCARM.
 MWLDARM  := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwasmarm.exe
+MAKELSF := $(WINE) $(TOOLS_DIR)/bin/makelcf.exe
+MAKELSF_FLAGS := -DCONST_34=0x34 -DCONST_3F=0x3F $(foreach module,$(wildcard files/OVERLAY_*.bin.__AT_*),-M${module})
 
 AS      := $(WINE) $(MWASMARM)
 CC      := $(WINE) $(MWCCARM)
@@ -148,7 +150,7 @@ $(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros.lcf.inc
-	# $(MAKELSF) $< $(LD_TEMPLATE) | $(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@
+	# $(MAKELSF) $(MAKELSF_FLAGS) $< $(LD_TEMPLATE) $@
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)

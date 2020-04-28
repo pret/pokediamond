@@ -5,11 +5,11 @@
 
 .incbin "baserom.nds", 0x4000, 0x19E
 
-	non_word_aligned_thumb_func_start FUN_0200019E
-FUN_0200019E: ; 0x0200019E
+	non_word_aligned_thumb_func_start SVC_Sqrt
+SVC_Sqrt: ; 0x0200019E
 	swi 13
 	bx lr
-	thumb_func_end FUN_0200019E
+	thumb_func_end SVC_Sqrt
 
 .incbin "baserom.nds", 0x41A2, 0x15C
 

@@ -1989,3 +1989,4 @@ _020C5970: .word 0x00000FFF
 	arm_func_start FX_Init
 FX_Init: ; 0x020C5974
 	bx lr
+
