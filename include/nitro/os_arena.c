@@ -9,10 +9,12 @@
 extern u32 OS_GetConsoleType();
 extern BOOL OSi_MainExArenaEnabled;
 extern BOOL OSi_Initialized;  // TODO: located at 0x021d36f0
-extern u32 SDK_MAIN_ARENA_LO; // TODO: technically this should be defined in the lcf
-extern u32 SDK_SECTION_ARENA_EX_START; // TODO: technically this should be defined in the lcf
-extern u32 SDK_SECTION_ARENA_ITCM_START; // TODO: technically this should be defined in the lcf
-extern u32 SDK_SECTION_ARENA_DTCM_START; // TODO: technically this should be defined in the lcf
+void SDK_MAIN_ARENA_LO(); // TODO: technically this should be defined in the lcf
+extern void SDK_SECTION_ARENA_EX_START(); // TODO: technically this should be defined in the lcf
+extern void SDK_SECTION_ARENA_ITCM_START(); // TODO: technically this should be defined in the lcf
+extern void SDK_SECTION_ARENA_DTCM_START(); // TODO: technically this should be defined in the lcf
+extern void SDK_IRQ_STACKSIZE(); // TODO: technically this should be defined in the lcf
+extern void SDK_SYS_STACKSIZE(); // TODO: technically this should be defined in the lcf
 
 #ifdef MATCH_ASM
 asm void OS_InitArena() {
@@ -147,7 +149,7 @@ _020CC5B8:
     bx lr
 }
 #else
-void OS_InitArenaEx() { //todo figure out what compiler settings will get this to match
+void OS_InitArenaEx() {
     OS_SetArenaHi(2, OS_GetInitArenaHi(OS_ARENA_MAINEX));
     OS_SetArenaLo(2, OS_GetInitArenaLo(OS_ARENA_MAINEX));
 
@@ -282,7 +284,22 @@ void* OS_GetInitArenaHi(OSArenaId id) {
         case OS_ARENA_ITCM:
             return (void *)HW_ITCM_ARENA_HI_DEFAULT;
         case OS_ARENA_DTCM:
-            return (void *)0x027e0080; //todo pretty sure this is incorrect, no constant and doesn't match
+            u32 irqStackLo = (u32)HW_DTCM_IRQ_STACK_END - (s32)SDK_IRQ_STACKSIZE;
+            u32 sysStackLo;
+
+            if (!(s32)SDK_SYS_STACKSIZE) {
+                sysStackLo = HW_DTCM;
+                if (sysStackLo < (u32)SDK_SECTION_ARENA_DTCM_START) {
+                    sysStackLo = (u32)SDK_SECTION_ARENA_DTCM_START;
+                }
+            }
+            else if ((s32)SDK_SYS_STACKSIZE < 0) {
+                sysStackLo = (u32)SDK_SECTION_ARENA_DTCM_START - (s32)SDK_SYS_STACKSIZE;
+            }
+            else {
+                sysStackLo = irqStackLo - (s32)SDK_SYS_STACKSIZE;
+            }
+            return (void*)sysStackLo;
         case OS_ARENA_SHARED:
             return (void *)HW_SHARED_ARENA_HI_DEFAULT;
         case OS_ARENA_WRAM_MAIN:
@@ -393,7 +410,7 @@ asm void OS_SetArenaHi(OSArenaId id, void* newHi) {
 }
 #else
 void OS_SetArenaHi(OSArenaId id, void* newHi) {
-    OSi_GetArenaInfo().lo[id] = newHi;
+    OSi_GetArenaInfo().hi[id] = newHi;
 }
 #endif
 
