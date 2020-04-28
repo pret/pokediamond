@@ -20,7 +20,6 @@ Autoload WRAM
 	Object dtcm2.o
 	Object dtcm_data.o
 	Object dtcm_bss.o
-	Object dtcm_bss.
 }
 
 Autoload EXT

@@ -39,9 +39,11 @@ BUILD_DIR := build
 
 TARGET := arm9
 
-ROM := $(BUILD_DIR)/$(TARGET).bin
+ROM := $(BUILD_DIR)/$(TARGET).sbin
 ELF := $(BUILD_DIR)/$(TARGET).elf
-LD_SCRIPT := arm9.lcf
+LD_SCRIPT := $(TARGET).lcf
+LD_SPEC := $(TARGET).lsf
+LD_TEMPLATE := ARM9-TS.lcf.template
 
 # Directories containing source files
 SRC_DIRS := src
@@ -95,7 +97,7 @@ JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
-TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm,$(wildcard $(TOOLS_DIR)/*))
+TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
@@ -145,7 +147,8 @@ $(BUILD_DIR)/%.o: %.c
 $(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt macros.lcf.inc
+$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros.lcf.inc
+	# $(MAKELSF) $< $(LD_TEMPLATE) | $(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)

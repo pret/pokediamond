@@ -29598,11 +29598,11 @@ _06019A08:
 	.space 0xF58
 	.global _0601A960
 _0601A960:
-	.space 0x118
+	.space 0x128
 _0601AA88:
 	.space 0x400
 	.global _0601AE88
 _0601AE88:
 	.space 0x2C
 _0601AEB4:
-	.space 92
+	.space 60
