@@ -297,12 +297,12 @@
 .extern _0380B064
 
 ; .ext
-.extern _060001F8
-.extern _06000204
-.extern _06000798
-.extern _060009A4
-.extern _06006978
-.extern _06008CC4
+.extern FUNC_060001F8
+.extern FUNC_06000204
+.extern FUNC_06000798
+.extern FUNC_060009A4
+.extern FUNC_06006978
+.extern FUNC_06008CC4
 .extern _06019960
 .extern _0601A960
 .extern _0601AE88

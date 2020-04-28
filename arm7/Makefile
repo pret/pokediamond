@@ -144,11 +144,9 @@ $(BUILD_DIR)/%.o: %.s
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
+$(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
 	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES)
-
-$(ROM): $(ELF)
-	$(OBJCOPY) -O binary --gap-fill=0xFF $< $@
+	cp $(ROM:%.bin=%.sbin) $@
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
