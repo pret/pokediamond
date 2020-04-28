@@ -6,7 +6,6 @@
 #include "consts.h"
 #include "os_system.h"
 
-extern u32 OS_GetConsoleType();
 extern Cell* DLInsert(Cell* list, Cell* cell);
 extern Cell* DLAddFront(Cell* list, Cell* cell);
 
