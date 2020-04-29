@@ -2401,7 +2401,6 @@ _020EBC0C:
 	bne _020EBAAC
 	mov r1, r2
 	bl _u32_div_not_0_f
-_020EBC1C: ; 0x020EBC1C
 	cmp r4, #0x0
 	movne r0, r1
 	mov r1, #0x0
