@@ -145,7 +145,7 @@ $(BUILD_DIR)/%.o: %.c
 $(BUILD_DIR)/%.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt
+$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt macros.lcf.inc
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)

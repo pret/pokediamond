@@ -21,7 +21,7 @@ SECTIONS {
 
 	SDK_AUTOLOAD_START = .;
 	.itcm : AT (0x1b0) {
-		arm7_rom.o (.itcm)
+		itcm.o (.text)
 	} > .itcm
 
 	.dtcm : AT (0x28C) {
@@ -32,7 +32,7 @@ SECTIONS {
 	} > .dtcm
 
 	.ewram : AT (0xF998) {
-		arm7_rom.o (.ewram)
+		ext.o (.text)
 	} > .ewram
 
 	.autoload : AT (0x292F8) {
