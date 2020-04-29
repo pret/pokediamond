@@ -20,7 +20,6 @@ FUN_020002FE: ; 0x020002FE
 
 .incbin "baserom.nds", 0x4302, 0x2F0
 
-
 	non_word_aligned_thumb_func_start SVC_WaitByLoop
 SVC_WaitByLoop:
 	swi 3

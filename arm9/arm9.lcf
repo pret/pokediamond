@@ -119,23 +119,23 @@ SECTIONS {
 		unk_0208AC14.o (.text)
 		unk_020AF030.o (.text)
 		/* Nitro SDK */
-		FX_arm9.o (.text)
-		GX_arm9.o (.text)
-		OS_arm9.o (.text)
-		MI_arm9.o (.text)
-		SND_arm9.o (.text)
-		PXI_arm9.o (.text)
-		FS_arm9.o (.text)
-		DGT_arm9.o (.text)
-		CP_arm9.o (.text)
-		SPI_arm9.o (.text)
-		PM_arm9.o (.text)
-		RTC_arm9.o (.text)
-		CARD_arm9.o (.text)
-		WM_arm9.o (.text)
-		CTRDG_arm9.o (.text)
-		MATH_arm9.o (.text)
-		STD_arm9.o (.text)
+		libfx.o (.text)
+		libgx.o (.text)
+		libos.o (.text)
+		libmi.o (.text)
+		libsnd.o (.text)
+		libpxi.o (.text)
+		libfs.o (.text)
+		libdgt.o (.text)
+		libcp.o (.text)
+		libspi.o (.text)
+		libpm.o (.text)
+		librtc.o (.text)
+		libcard.o (.text)
+		libwm.o (.text)
+		libctrdg.o (.text)
+		libmath.o (.text)
+		libstd.o (.text)
 		/* C standard library */
 		libc.o (.text)
 		/* MWCC library */
@@ -164,7 +164,7 @@ SECTIONS {
 
 	.dtcm : AT (0x1076A0) {
 		SDK_AUTOLOAD_DTCM_START = .;
-		OS_arm9.o (.dtcm)
+		libos.o (.dtcm)
 		SDK_AUTOLOAD_DTCM_END = .;
 		SDK_SECTION_ARENA_DTCM_START = 0x027E0080;
 	} > .dtcm
