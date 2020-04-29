@@ -3191,6 +3191,7 @@
 .extern MTX_RotZ33_
 .extern MTX_Scale43_
 .extern MTX_ScaleApply22
+.extern MTX_ScaleApply33
 .extern MTX_ScaleApply43
 .extern NitroMain
 .extern OS_AllocFromArenaHi
