@@ -121,7 +121,34 @@ SECTIONS {
 		/* Nitro SDK */
 		FX_arm9.o (.text)
 		GX_arm9.o (.text)
-		OS_arm9.o (.text)
+		OS_irqHandler.o (.text)
+		OS_irqTable.o (.text)
+		OS_interrupt.o (.text)
+		OS_spinLock.o (.text)
+		OS_printf.o (.text)
+		OS_thread.o (.text)
+		OS_context.o (.text)
+		OS_emulator.o (.text)
+		OS_message.o (.text)
+		OS_mutex.o (.text)
+		OS_cache.o (.text)
+		OS_init.o (.text)
+		OS_arena.o (.text)
+		OS_alloc.o (.text)
+		OS_tcm.o (.text)
+		OS_protectionUnit.o (.text)
+		OS_protectionRegion.o (.text)
+		OS_exception.o (.text)
+		OS_timer.o (.text)
+		OS_tick.o (.text)
+		OS_alarm.o (.text)
+		OS_valarm.o (.text)
+		OS_system.o (.text)
+		OS_reset.o (.text)
+		OS_ownerInfo.o (.text)
+		OS_vramExclusive.o (.text)
+		OS_entropy.o (.text)
+		OS_terminate_proc.o (.text)
 		MI_arm9.o (.text)
 		SND_arm9.o (.text)
 		PXI_arm9.o (.text)
@@ -164,7 +191,8 @@ SECTIONS {
 
 	.dtcm : AT (0x1076A0) {
 		SDK_AUTOLOAD_DTCM_START = .;
-		OS_arm9.o (.dtcm)
+		OS_irqTable.o (.dtcm)
+		OS_irqHandler.o (.dtcm)
 		SDK_AUTOLOAD_DTCM_END = .;
 		SDK_SECTION_ARENA_DTCM_START = 0x027E0080;
 	} > .dtcm
