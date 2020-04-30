@@ -1,0 +1,28 @@
+
+Static arm7
+{
+	Address 0x02380000
+	StackSize 1024 512
+}
+
+Autoload MAIN
+{
+	Address 0x027E0000
+	Object itcm.o
+}
+
+Autoload WRAM
+{
+	Address 0x037F8000
+	Object dtcm.o
+	Object libsyscall.o
+	Object dtcm2.o
+	Object dtcm_data.o
+	Object dtcm_bss.o
+}
+
+Autoload EXT
+{
+	Address 0x06000000
+	Object ext.o
+}

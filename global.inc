@@ -50,7 +50,7 @@
 .extern FS_UnloadOverlay
 .extern FS_WaitAsync
 .extern FUNRTC_Init
-.extern FUN_0200019E
+.extern SVC_Sqrt
 .extern FUN_020002FE
 .extern SVC_WaitByLoop
 .extern OSi_ReferSymbol

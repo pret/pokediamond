@@ -13644,7 +13644,9 @@ _02096C6C:
 	mov r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,pc}
-_02096C78: ; 0x02096C78
+
+	arm_func_start FUN_02096C78
+FUN_02096C78: ; 0x02096C78
 	ldr ip, _02096C8C ; =FUN_02097218
 	mov r3, r0
 	mov r0, r1

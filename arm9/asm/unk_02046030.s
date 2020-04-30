@@ -107533,7 +107533,7 @@ FUN_020799F4: ; 0x020799F4
 	mul r0, r1
 	add r0, r2, r0
 	lsl r0, r0, #0x4
-	bl FUN_0200019E
+	bl SVC_Sqrt
 	lsr r0, r0, #0x2
 	pop {r3, pc}
 	.balign 4

@@ -11,10 +11,10 @@ MEMORY {
 	.dtcm (RW) : ORIGIN=0x027E0000, LENGTH=0
 	.overlay (RX) : ORIGIN=0, LENGTH=0
 	MODULE_00 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_01 (RWX) : ORIGIN=0, LENGTH=0
+	MODULE_01 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
 	MODULE_02 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_03 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_04 (RWX) : ORIGIN=0, LENGTH=0
+	MODULE_04 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
 	MODULE_05 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_06 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_07 (RWX) : ORIGIN=0, LENGTH=0
@@ -168,20 +168,20 @@ SECTIONS {
 		OS_vramExclusive.o (.text)
 		OS_entropy.o (.text)
 		OS_terminate_proc.o (.text)
-		MI_arm9.o (.text)
-		SND_arm9.o (.text)
-		PXI_arm9.o (.text)
-		FS_arm9.o (.text)
-		DGT_arm9.o (.text)
-		CP_arm9.o (.text)
-		SPI_arm9.o (.text)
-		PM_arm9.o (.text)
-		RTC_arm9.o (.text)
-		CARD_arm9.o (.text)
-		WM_arm9.o (.text)
-		CTRDG_arm9.o (.text)
-		MATH_arm9.o (.text)
-		STD_arm9.o (.text)
+		libmi.o (.text)
+		libsnd.o (.text)
+		libpxi.o (.text)
+		libfs.o (.text)
+		libdgt.o (.text)
+		libcp.o (.text)
+		libspi.o (.text)
+		libpm.o (.text)
+		librtc.o (.text)
+		libcard.o (.text)
+		libwm.o (.text)
+		libctrdg.o (.text)
+		libmath.o (.text)
+		libstd.o (.text)
 		/* C standard library */
 		libc.o (.text)
 		/* MWCC library */
@@ -325,10 +325,33 @@ SECTIONS {
 	} > .overlay
 
 	OVERLAY_FILE(00, 0x108400, FILE_10C400.o)
-	OVERLAY_FILE(01, 0x108600, FILE_10C600.o)
+
+	.MODULE.01 : AT (0x108600)
+	{
+		module_01.o (.text)
+		module_01.o (.sdata)
+		module_01.o (.data)
+	} > MODULE_01
+	.MODULE.01.bss :
+	{
+		module_01.o (.sbss)
+		module_01.o (.bss)
+	} >> MODULE_01
+
 	OVERLAY_FILE(02, 0x108800, FILE_10C800.o)
 	OVERLAY_FILE(03, 0x108A00, FILE_10CA00.o)
-	OVERLAY_FILE(04, 0x108C00, FILE_10CC00.o)
+
+	.MODULE.04 : AT (0x108C00)
+	{
+		thumb_04.o (.text)
+		arm_04.o (.text)
+		arm_04.o (.data)
+	} > MODULE_04
+	.MODULE.04.bss :
+	{
+		arm_04.o (.bss)
+	} >> MODULE_04
+
 	OVERLAY_FILE(05, 0x141400, FILE_145400.o)
 	OVERLAY_FILE(06, 0x167600, FILE_16B600.o)
 	OVERLAY_FILE(07, 0x180400, FILE_184400.o)
