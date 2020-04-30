@@ -46,8 +46,8 @@ LD_SPEC := $(TARGET).lsf
 LD_TEMPLATE := ARM9-TS.lcf.template
 
 # Directories containing source files
-SRC_DIRS := src
-ASM_DIRS := asm data files
+SRC_DIRS := src $(wildcard modules/*/src)
+ASM_DIRS := asm data files $(wildcard modules/*/asm)
 
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
