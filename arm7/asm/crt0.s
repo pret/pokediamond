@@ -1,6 +1,6 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.global ARM7AutoLoad
+	.global _start_AutoloadDoneCallback
 
 	.section .text
 	arm_func_start _start
@@ -102,9 +102,9 @@ _02380140:
 	bcc	_02380140
 	beq	_02380110
 _02380150:
-	b	ARM7AutoLoad
+	b	_start_AutoloadDoneCallback
 _2380154:	.word _2380198
-ARM7AutoLoad:
+_start_AutoloadDoneCallback:
 	bx	lr
 	arm_func_end FUN_2380100
 
@@ -135,5 +135,3 @@ _2380198:
 	.word SDK_AUTOLOAD_START
 	.word SDK_STATIC_BSS_START
 	.word SDK_STATIC_BSS_END
-
-	.balign 16, 0

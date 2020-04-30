@@ -4,6 +4,9 @@
 # Compilers
 tools/mwccarm/**
 
+# SDK
+tools/bin/**
+
 # Build folder
 build/**
 arm*/build/**
@@ -26,3 +29,5 @@ cmake-build-debug/
 # For asmdiff
 arm*/baserom.*
 *.dump
+
+*.lcf.template

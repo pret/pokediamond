@@ -6,9 +6,9 @@
 	arm_func_start FUN_027E0000
 FUN_027E0000: ; 0x027E0000 load at 0x023801B0
 	stmdb	sp!, {r4, r5, r6, lr}
-	ldr	r6, [pc, #180]	; 0x270
-	ldr	r3, [pc, #180]	; 0x274
-	ldr	r0, [pc, #180]	; 0x278
+	ldr	r6, _027E00C0	; =0x023801B0
+	ldr	r3, _027E00C4	; =0x023A92F8
+	ldr	r0, _027E00C8	; =0x023A931C
 	b	_027E00B0
 _027E0014:
 	mov	r2, r3
@@ -19,19 +19,19 @@ _027E0014:
 	ldr	r1, [r2]
 	cmp	r1, #100663296	; 0x6000000
 	bne	_027E00AC
-	ldr	r3, [pc, #144]	; 0x27c
-	ldr	r0, [pc, #144]	; 0x280
+	ldr	r3, _027E00CC	; =0x027E00DC
+	ldr	r0, _027E00D0	; =0x0380A3F4
 	str	r3, [r0]
 	add	r2, r5, r4
-	ldr	r0, [pc, #136]	; 0x284
+	ldr	r0, _027E00D4	; =0x0380A3FC
 	str	r2, [r0]
-	ldr	r1, [pc, #132]	; 0x288
+	ldr	r1, _027E00D8	; =0x027FAFCC
 	add	r0, r3, r2
 	cmp	r1, r0
 	beq	_027E0060
 	bl	FUN_037FB1F0
 _027E0060:
-	ldr	r0, [pc, #104]	; 0x280
+	ldr	r0, _027E00D0	; =0x0380A3F4
 	ldr	r3, [r0]
 	mov	r2, #0
 	mov	r1, r5, lsr #2

@@ -3,18 +3,6 @@
 	.section	.text
 	.balign	4, 0
 
-	; This file's BSS
-	; Linking of BSS is a work in progress
-	.extern	_06019980
-	.extern	_06019988
-	.extern	_060199A8
-	.extern	_060199B8
-	.extern	_060199D8
-	.extern	_060199E8
-	.extern	_06019A08
-	.extern	_0601AA88
-	.extern	_0601AEB4
-
 	arm_func_start FUN_06000000
 FUN_06000000: ; 0x06000000
 	ldr	r1, _0600002C	; =_0601A960
@@ -29589,23 +29577,32 @@ _06019958:
 	.word	0x00040001
 	.word	0x00000008
 
-; 	.section .bss
-; 	.balign 16, 0
-; _06019980:
-; 	.space 8
-; _06019988:
-; 	.space 32
-; _060199A8:
-; 	.space 16
-; _060199B8:
-; 	.space 32
-; _060199D8:
-; 	.space 16
-; _060199E8:
-; 	.space 32
-; _06019A08:
-; 	.space 16
-; _0601AA88:
-; 	.space 1068
-; _0601AEB4:
-; 	.space 92
+ 	.section .bss
+ 	.balign 16, 0
+ 	.global _06019960
+_06019960:
+	.space 32
+_06019980:
+	.space 8
+_06019988:
+	.space 32
+_060199A8:
+	.space 16
+_060199B8:
+	.space 32
+_060199D8:
+	.space 16
+_060199E8:
+	.space 32
+_06019A08:
+	.space 0xF58
+	.global _0601A960
+_0601A960:
+	.space 0x128
+_0601AA88:
+	.space 0x400
+	.global _0601AE88
+_0601AE88:
+	.space 0x2C
+_0601AEB4:
+	.space 60
