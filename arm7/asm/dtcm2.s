@@ -6660,6 +6660,9 @@ _03806B24:	.word	_0380A3F0
 _03806B28:	.word	_0380A400
 _03806B2C:	.word	FUN_03806854
 _03806B30:	.word	FUN_03806920
+
+	arm_func_start FUN_03806B34
+FUN_03806B34: ; 0x03806B34
 	ldr	r1, _03806B6C	;@ =0x55555555
 	and	r1, r1, r0, lsr #1
 	sub	r2, r0, r1
