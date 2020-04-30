@@ -10,7 +10,7 @@ In the future, a GCC option will be available so MWCC is not required to build, 
 
 ### 3. Install Nitro SDK
 
-As with the compiler, the Nitro SDK is proprietary and cannot be distributed here. Opened the pinned Mega folder in the PRET discord and download "NITRO SDK v3.0.zip" and "NITRO SDK V3.0 Plus 2.zip" from the "SDK System Libraries" folder. Extract v3.0.zip into a separate folder, then extract v3.0 Plus 2.zip into the same folder, overwriting when prompted. Copy the contents of tools/bin from the Nitro SDK to tools/bin in your pokediamond clone. Finally, copy include/nitro/specfiles/ARM7-TS.lcf.template into the arm7 subdirectory, and include/nitro/specfiles/ARM9-TS.lcf.template into the arm9 subdirectory. Be sure to all comments from both of these files (lines where the first non-whitespace character is `#`).
+As with the compiler, the Nitro SDK is proprietary and cannot be distributed here. Opened the pinned Mega folder in the PRET discord and download "NITRO SDK v3.0.zip" and "NITRO SDK V3.0 Plus 2.zip" from the "SDK System Libraries" folder. Extract v3.0.zip into a separate folder, then extract v3.0 Plus 2.zip into the same folder, overwriting when prompted. Copy the contents of tools/bin from the Nitro SDK to tools/bin in your pokediamond clone. Finally, copy include/nitro/specfiles/ARM7-TS.lcf.template into the arm7 subdirectory, and include/nitro/specfiles/ARM9-TS.lcf.template into the arm9 subdirectory.
 
 ### 4. Dependencies
 

@@ -26,3 +26,5 @@ cmake-build-debug/
 # For asmdiff
 arm*/baserom.*
 *.dump
+
+*.lcf.template
