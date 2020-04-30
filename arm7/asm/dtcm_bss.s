@@ -1,4 +1,4 @@
-	.include "asm/macros.inc
+	.include "asm/macros.inc"
 	.include "global.inc"
 	.section .bss
 	.global _0380770C
