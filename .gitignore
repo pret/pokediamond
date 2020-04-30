@@ -4,6 +4,9 @@
 # Compilers
 tools/mwccarm/**
 
+# SDK
+tools/bin/**
+
 # Build folder
 build/**
 arm*/build/**
