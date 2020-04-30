@@ -1,11 +1,16 @@
 dist: bionic
 sudo: false
 language: c
-apt:
-    - gcc-multilib
-    - linux-libc-dev
-    - binutils-arm-none-eabi
-    - wine
+addons:
+    apt:
+        packages:
+            - gcc-multilib
+            - linux-libc-dev
+            - binutils-arm-none-eabi
+            - wine32
+            - wine-stable
+cache:
+    apt: true
 install:
     # These files are only accessible from Travis CI IP Addresses to prevent piracy.
     - wget http://private.martmists.com/mwccarm.zip
@@ -14,9 +19,9 @@ install:
     - unzip mwccarm.zip
     - mv mwccarm tools
     - unzip nitro.zip
-    - mv Nitro\ SDK\ 3.0/tools/bin tools
-    - mv Nitro\ SDK\ 3.0/include/nitro/specfiles/ARM7-TS.lcf.template arm7
-    - mv Nitro\ SDK\ 3.0/include/nitro/specfiles/ARM9-TS.lcf.template arm9
+    - mv NITRO\ SDK\ v3.0/tools/bin tools
+    - mv NITRO\ SDK\ v3.0/include/nitro/specfiles/ARM7-TS.lcf.template arm7
+    - mv NITRO\ SDK\ v3.0/include/nitro/specfiles/ARM9-TS.lcf.template arm9
 
 script:
     - export LM_LICENSE_FILE="$(pwd)/tools/mwccarm/license.dat"
