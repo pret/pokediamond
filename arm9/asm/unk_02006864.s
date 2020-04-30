@@ -95240,7 +95240,7 @@ _02031CEE:
 	bl FUN_02033590
 	cmp r0, #0x0
 	beq _02031D04
-	blx FUN_021DDB08
+	bl FUN_021DDB08
 	mov r1, #0x3
 	sub r0, r1, r0
 	bl FUN_02033EEC
@@ -98149,10 +98149,10 @@ _020333AA:
 	bne _020333C8
 	add r0, sp, #0x4
 	add r1, sp, #0x0
-	blx FUN_021DD718
+	bl FUN_021DD718
 	cmp r0, #0x0
 	beq _020333E4
-	blx FUN_021DD6F0
+	bl FUN_021DD6F0
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r3, pc}
@@ -98161,7 +98161,7 @@ _020333C8:
 	bne _020333E4
 	add r0, sp, #0x4
 	add r1, sp, #0x0
-	blx FUN_021DD718
+	bl FUN_021DD718
 	cmp r0, #0x0
 	beq _020333E4
 	ldr r0, [sp, #0x0]
