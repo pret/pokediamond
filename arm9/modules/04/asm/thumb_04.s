@@ -3,8 +3,8 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start FUN_021D74E0
-FUN_021D74E0: ; 0x021D74E0
+	thumb_func_start MOD04_021D74E0
+MOD04_021D74E0: ; 0x021D74E0
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, _021D7644 ; =0x0220FBC0
