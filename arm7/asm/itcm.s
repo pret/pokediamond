@@ -2,7 +2,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.section .itcm
+	.section .text
 	arm_func_start FUN_027E0000
 FUN_027E0000: ; 0x027E0000 load at 0x023801B0
 	stmdb	sp!, {r4, r5, r6, lr}
@@ -69,6 +69,3 @@ _027E00CC: .word 0x027E00DC
 _027E00D0: .word 0x0380A3F4
 _027E00D4: .word 0x0380A3FC
 _027E00D8: .word 0x027FAFCC
-
-	.section .ewram
-	.incbin "baserom.nds", 0x31C998, 0x19960
