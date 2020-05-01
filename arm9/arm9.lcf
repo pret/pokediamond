@@ -10,10 +10,10 @@ MEMORY {
 	.ewram (RWX) : ORIGIN=0x023E0000, LENGTH=0
 	.dtcm (RW) : ORIGIN=0x027E0000, LENGTH=0
 	.overlay (RX) : ORIGIN=0, LENGTH=0
-	MODULE_00 (RWX) : ORIGIN=0, LENGTH=0
+	MODULE_00 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
 	MODULE_01 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
-	MODULE_02 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_03 (RWX) : ORIGIN=0, LENGTH=0
+	MODULE_02 (RWX) : ORIGIN=0x021D7520, LENGTH=0
+	MODULE_03 (RWX) : ORIGIN=0x01FF8700, LENGTH=0
 	MODULE_04 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
 	MODULE_05 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
 	MODULE_06 (RWX) : ORIGIN=0x022396A0, LENGTH=0
@@ -334,7 +334,17 @@ SECTIONS {
 	OVERLAY_TABLE(SDK_MODULE_86, 86)
 	} > .overlay
 
-	OVERLAY_FILE(00, 0x108400, FILE_10C400.o)
+	.MODULE.00 : AT (0x108400)
+	{
+		module_00_dummy.o (.text)
+		module_00_dummy.o (.sdata)
+		module_00_dummy.o (.data)
+	} > MODULE_00
+	.MODULE.00.bss :
+	{
+		module_00_dummy.o (.sbss)
+		module_00_dummy.o (.bss)
+	} >> MODULE_00
 
 	.MODULE.01 : AT (0x108600)
 	{
@@ -348,13 +358,36 @@ SECTIONS {
 		module_01.o (.bss)
 	} >> MODULE_01
 
-	OVERLAY_FILE(02, 0x108800, FILE_10C800.o)
-	OVERLAY_FILE(03, 0x108A00, FILE_10CA00.o)
+	.MODULE.02 : AT (0x108800)
+	{
+		module_02_dummy.o (.text)
+		module_02_dummy.o (.sdata)
+		module_02_dummy.o (.data)
+	} > MODULE_02
+	.MODULE.02.bss :
+	{
+		module_02_dummy.o (.sbss)
+		module_02_dummy.o (.bss)
+	} >> MODULE_02
+
+	.MODULE.03 : AT (0x108A00)
+	{
+		module_03_dummy.o (.text)
+		module_03_dummy.o (.sdata)
+		module_03_dummy.o (.data)
+	} > MODULE_03
+	.MODULE.03.bss :
+	{
+		module_03_dummy.o (.sbss)
+		module_03_dummy.o (.bss)
+	} >> MODULE_03
 
 	.MODULE.04 : AT (0x108C00)
 	{
 		thumb_04.o (.text)
 		arm_04.o (.text)
+		thumb_04.o (.sdata)
+		arm_04.o (.sdata)
 		thumb_04.o (.data)
 		arm_04.o (.data)
 	} > MODULE_04
@@ -369,6 +402,7 @@ SECTIONS {
 	.MODULE.05 : AT (0x141400)
 	{
 		module_05.o (.text)
+		module_05.o (.sdata)
 		module_05.o (.data)
 	} > MODULE_05
 	.MODULE.05.bss :
@@ -380,6 +414,7 @@ SECTIONS {
 	.MODULE.06 : AT (0x167600)
 	{
 		module_06.o (.text)
+		module_06.o (.sdata)
 		module_06.o (.data)
 	} > MODULE_06
 	.MODULE.06.bss :
