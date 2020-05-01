@@ -46,7 +46,7 @@ LD_SPEC := $(TARGET).lsf
 LD_TEMPLATE := ARM9-TS.lcf.template
 
 # Directories containing source files
-SRC_DIRS := src $(wildcard modules/*/src)
+SRC_DIRS := src lib lib/src $(wildcard modules/*/src)
 ASM_DIRS := asm data files $(wildcard modules/*/asm)
 
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
@@ -62,7 +62,7 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
 
 ##################### Compiler Options #######################
 
-MWCCVERSION := 2.0/base
+MWCCVERSION = 2.0/base
 TOOLS_DIR = ../tools
 
 CROSS   := arm-none-eabi-
@@ -142,6 +142,14 @@ patch_mwasmarm:
 	$(MWASMARM_PATCHER) $(MWASMARM)
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
+
+######################## Special Rules ########################
+
+# TODO: Move out to lib/Makefile
+build/lib/src/%.o: CC := $(WINE) $(TOOLS_DIR)/mwccarm/1.2/sp2p3/mwccarm.exe
+build/lib/src/%.o: CFLAGS := -O4,p -proc arm9tdmi -interworking -ir include -ir ../include -lang c99
+
+####################### Everything Else ######################
 
 $(BUILD_DIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
