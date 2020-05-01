@@ -3592,8 +3592,11 @@
 .extern SDK_STATIC_BSS_END
 .extern SDK_STATIC_BSS_START
 .extern SDK_SYS_STACKSIZE
+.extern SND_AlarmInit
+.extern SND_AllocCommand
 .extern SND_AssignWaveArc
 .extern SND_CalcChannelVolume
+.extern SND_CommandInit
 .extern SND_DestroyBank
 .extern SND_DestroyWaveArc
 .extern SND_FlushCommand
@@ -3613,6 +3616,7 @@
 .extern SND_LockChannel
 .extern SND_PauseSeq
 .extern SND_PrepareSeq
+.extern SND_PushCommand
 .extern SND_RecvCommandReply
 .extern SND_ResetMasterPan
 .extern SND_SetChannelPan
@@ -3635,6 +3639,13 @@
 .extern SND_StopTimer
 .extern SND_UnlockChannel
 .extern SND_WaitForCommandProc
+.extern SNDi_CallAlarmHandler
+.extern SNDi_GetFinishedCommandTag
+.extern SNDi_IncAlarmId
+.extern SNDi_InitSharedWork
+.extern SNDi_LockMutex
+.extern SNDi_SetAlarmHandler
+.extern SNDi_UnlockMutex
 .extern STD_CopyLString
 .extern SVC_Sqrt
 .extern SVC_WaitByLoop
