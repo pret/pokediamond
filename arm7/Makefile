@@ -58,32 +58,32 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
 
 ##################### Compiler Options #######################
 
-MWCCVERSION := 2.0/base
+MWCCVERSION = 2.0/base
 TOOLS_DIR = ../tools
 
 CROSS   := arm-none-eabi-
 
-MWCCARM  := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwccarm.exe
+MWCCARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
 # MWCC built objects and GNU built ones. mwldarm, however, doesn't care, so we
 # have to use mwldarm for now.
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
-MWLDARM  := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwldarm.exe
-MWASMARM := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwasmarm.exe
+MWLDARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwldarm.exe
+MWASMARM = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 MAKELSF := $(WINE) $(TOOLS_DIR)/bin/makelcf.exe
 
-AS      := $(WINE) $(MWASMARM)
-CC      := $(WINE) $(MWCCARM)
+AS      = $(WINE) $(MWASMARM)
+CC      = $(WINE) $(MWCCARM)
 CPP     := cpp -P
-LD      := $(WINE) $(MWLDARM)
+LD      = $(WINE) $(MWLDARM)
 AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm7_thumb.s -o arm7.o
 ASFLAGS = -proc arm4t -i  ..
-CFLAGS = -O4,p -proc v4t -thumb -fp soft -lang c99 -Cpp_exceptions off -ir ../include
+CFLAGS = -O4,p -proc v4t -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw
 LDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################

@@ -3,7 +3,6 @@
 
 extern struct Unk2106FA0 gBacklightTop;
 extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
-extern struct Unk2106FA0 gUnknown2106FB8;
 extern struct Unk21C48B8 gUnknown21C48B8;
 
 extern s32 gUnk027FFC20;
@@ -24,7 +23,7 @@ extern struct Unk21DBE18 gUnk021DBE18;
 extern struct Unk21DBE18 gUnk021D76C8;
 
 
-void NitroMain(void)
+THUMB_FUNC void NitroMain(void)
 {
     InitSystemForTheGame();
     InitGraphicMemory();
