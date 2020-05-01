@@ -6,7 +6,7 @@
 #define POKEDIAMOND_OS_ALLOC_H
 
 #include "types.h"
-#include "os_arena.h"
+#include "OS_arena.h"
 
 typedef int OSHeapHandle;
 
