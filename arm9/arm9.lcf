@@ -15,8 +15,8 @@ MEMORY {
 	MODULE_02 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_03 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_04 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
-	MODULE_05 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_06 (RWX) : ORIGIN=0, LENGTH=0
+	MODULE_05 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
+	MODULE_06 (RWX) : ORIGIN=0x022396A0, LENGTH=0
 	MODULE_07 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_08 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_09 (RWX) : ORIGIN=0, LENGTH=0
@@ -355,15 +355,39 @@ SECTIONS {
 	{
 		thumb_04.o (.text)
 		arm_04.o (.text)
+		thumb_04.o (.data)
 		arm_04.o (.data)
 	} > MODULE_04
 	.MODULE.04.bss :
 	{
+		thumb_04.o (.sbss)
+		arm_04.o (.sbss)
+		thumb_04.o (.bss)
 		arm_04.o (.bss)
 	} >> MODULE_04
 
-	OVERLAY_FILE(05, 0x141400, FILE_145400.o)
-	OVERLAY_FILE(06, 0x167600, FILE_16B600.o)
+	.MODULE.05 : AT (0x141400)
+	{
+		module_05.o (.text)
+		module_05.o (.data)
+	} > MODULE_05
+	.MODULE.05.bss :
+	{
+		module_05.o (.sbss)
+		module_05.o (.bss)
+	} >> MODULE_05
+
+	.MODULE.06 : AT (0x167600)
+	{
+		module_06.o (.text)
+		module_06.o (.data)
+	} > MODULE_06
+	.MODULE.06.bss :
+	{
+		module_06.o (.sbss)
+		module_06.o (.bss)
+	} >> MODULE_06
+
 	OVERLAY_FILE(07, 0x180400, FILE_184400.o)
 	OVERLAY_FILE(08, 0x183800, FILE_187800.o)
 	OVERLAY_FILE(09, 0x19F000, FILE_1A3000.o)
