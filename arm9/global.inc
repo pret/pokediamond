@@ -3802,3 +3802,14 @@
 .extern thunk_FUN_020afda0_2
 .extern thunk_FUN_020b5040
 .extern wcslen
+.extern FUN_0200CA98
+.extern FUN_020C5D8C
+.extern FUN_021D7A20
+.extern FUN_021D7A28
+.extern FUN_021E8648
+.extern GX_GetBankForBGExtPltt
+.extern GX_GetBankForBGExtPltt_2
+.extern GX_GetBankForSubOBJ
+.extern GX_GetBankForSubBGExtPltt
+.extern GX_GetBankForSubBGExtPltt_2
+.extern GX_GetBankForTexPltt
