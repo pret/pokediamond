@@ -67,28 +67,28 @@ TOOLS_DIR = ../tools
 
 CROSS   := arm-none-eabi-
 
-MWCCARM  := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwccarm.exe
+MWCCARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
 # MWCC built objects and GNU built ones. mwldarm, however, doesn't care, so we
 # have to use mwldarm for now.
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
-MWLDARM  := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwldarm.exe
-MWASMARM := $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwasmarm.exe
+MWLDARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwldarm.exe
+MWASMARM = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 MAKELSF := $(WINE) $(TOOLS_DIR)/bin/makelcf.exe
 MAKELSF_FLAGS := -DCONST_34=0x34 -DCONST_3F=0x3F
 
-AS      := $(WINE) $(MWASMARM)
-CC      := $(WINE) $(MWCCARM)
+AS      = $(WINE) $(MWASMARM)
+CC      = $(WINE) $(MWCCARM)
 CPP     := cpp -P
-LD      := $(WINE) $(MWLDARM)
+LD      = $(WINE) $(MWLDARM)
 AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te -i ..
-CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -ir ../include
+CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -interworking
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
@@ -146,8 +146,8 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 ######################## Special Rules ########################
 
 # TODO: Move out to lib/Makefile
-build/lib/src/%.o: CC := $(WINE) $(TOOLS_DIR)/mwccarm/1.2/sp2p3/mwccarm.exe
-build/lib/src/%.o: CFLAGS := -O4,p -proc arm9tdmi -interworking -ir include -ir ../include -lang c99
+build/lib/src/%.o: MWCCVERSION = 1.2/sp2p3
+build/src/FUN_020910A4.o: MWCCVERSION = 1.2/sp2p3
 
 ####################### Everything Else ######################
 

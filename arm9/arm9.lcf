@@ -117,6 +117,8 @@ SECTIONS {
 		scrcmd.o (.text)
 		unk_02046030.o (.text)
 		unk_0208AC14.o (.text)
+		FUN_020910A4.o (.text)
+		unk_020910EC.o (.text)
 		unk_020AF030.o (.text)
 		/* Nitro SDK */
 		FX_mtx22.o (.text)

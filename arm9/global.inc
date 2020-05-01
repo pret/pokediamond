@@ -3802,3 +3802,6 @@
 .extern thunk_FUN_020afda0_2
 .extern thunk_FUN_020b5040
 .extern wcslen
+
+.extern FUN_0209105C
+.extern FUN_020910A4
