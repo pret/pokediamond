@@ -310,93 +310,94 @@ VEC_CrossProduct:
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 
-	arm_func_start VEC_Fx16DotProduct
-VEC_Fx16DotProduct: ; 0x020C5538
-	stmdb sp!, {r4-r5,lr}
-	sub sp, sp, #0x4
-	ldrsh lr, [r0, #0x2]
-	ldrsh r12, [r1, #0x2]
-	ldrsh r3, [r0, #0x4]
-	ldrsh r2, [r1, #0x4]
-	ldrsh r5, [r0, #0x0]
-	ldrsh r4, [r1, #0x0]
-	smulbb r1, lr, r12
-	smulbb r0, r3, r2
-	smlabb r1, r5, r4, r1
-	add r0, r0, #0x800
-	adds r2, r1, r0
-	mov r1, r1, asr #0x1f
-	adc r1, r1, r0, asr #0x1f
-	mov r0, r2, lsr #0xc
-	orr r0, r0, r1, lsl #0x14
-	add sp, sp, #0x4
-	ldmia sp!, {r4-r5,lr}
-	bx lr
-
-	arm_func_start VEC_DotProduct
-VEC_DotProduct:
-	stmdb sp!, {r4,lr}
-	ldr r3, [r0, #0x4]
-	ldr r2, [r1, #0x4]
-	ldr r12, [r0, #0x0]
-	smull r4, lr, r3, r2
-	ldr r2, [r1, #0x0]
-	ldr r3, [r0, #0x8]
-	smlal r4, lr, r12, r2
-	ldr r1, [r1, #0x8]
-	mov r0, #0x800
-	smlal r4, lr, r3, r1
-	adds r0, r4, r0
-	adc r1, lr, #0x0
-	mov r0, r0, lsr #0xc
-	orr r0, r0, r1, lsl #0x14
-	ldmia sp!, {r4,lr}
-	bx lr
-
-	arm_func_start VEC_Fx16Add
-VEC_Fx16Add: ; 0x020C55CC
-	ldrsh r12, [r0, #0x0]
-	ldrsh r3, [r1, #0x0]
-	add r3, r12, r3
-	strh r3, [r2, #0x0]
-	ldrsh r12, [r0, #0x2]
-	ldrsh r3, [r1, #0x2]
-	add r3, r12, r3
-	strh r3, [r2, #0x2]
-	ldrsh r3, [r0, #0x4]
-	ldrsh r0, [r1, #0x4]
-	add r0, r3, r0
-	strh r0, [r2, #0x4]
-	bx lr
-
-	arm_func_start VEC_Subtract
-VEC_Subtract: ; 0x020C5600
-	ldr r12, [r0, #0x0]
-	ldr r3, [r1, #0x0]
-	sub r3, r12, r3
-	str r3, [r2, #0x0]
-	ldr r12, [r0, #0x4]
-	ldr r3, [r1, #0x4]
-	sub r3, r12, r3
-	str r3, [r2, #0x4]
-	ldr r3, [r0, #0x8]
-	ldr r0, [r1, #0x8]
-	sub r0, r3, r0
-	str r0, [r2, #0x8]
-	bx lr
-
-	arm_func_start VEC_Add
-VEC_Add: ; 0x020C5634
-	ldr r12, [r0, #0x0]
-	ldr r3, [r1, #0x0]
-	add r3, r12, r3
-	str r3, [r2, #0x0]
-	ldr r12, [r0, #0x4]
-	ldr r3, [r1, #0x4]
-	add r3, r12, r3
-	str r3, [r2, #0x4]
-	ldr r3, [r0, #0x8]
-	ldr r0, [r1, #0x8]
-	add r0, r3, r0
-	str r0, [r2, #0x8]
-	bx lr
+;	arm_func_start VEC_Fx16DotProduct
+;VEC_Fx16DotProduct: ; 0x020C5538
+;	stmdb sp!, {r4-r5,lr}
+;	sub sp, sp, #0x4
+;	ldrsh lr, [r0, #0x2]
+;	ldrsh r12, [r1, #0x2]
+;	ldrsh r3, [r0, #0x4]
+;	ldrsh r2, [r1, #0x4]
+;	ldrsh r5, [r0, #0x0]
+;	ldrsh r4, [r1, #0x0]
+;	smulbb r1, lr, r12
+;	smulbb r0, r3, r2
+;	smlabb r1, r5, r4, r1
+;	add r0, r0, #0x800
+;	adds r2, r1, r0
+;	mov r1, r1, asr #0x1f
+;	adc r1, r1, r0, asr #0x1f
+;	mov r0, r2, lsr #0xc
+;	orr r0, r0, r1, lsl #0x14
+;	add sp, sp, #0x4
+;	ldmia sp!, {r4-r5,lr}
+;	bx lr
+;
+;	arm_func_start VEC_DotProduct
+;VEC_DotProduct:
+;	stmdb sp!, {r4,lr}
+;	ldr r3, [r0, #0x4]
+;	ldr r2, [r1, #0x4]
+;	ldr r12, [r0, #0x0]
+;	smull r4, lr, r3, r2
+;	ldr r2, [r1, #0x0]
+;	ldr r3, [r0, #0x8]
+;	smlal r4, lr, r12, r2
+;	ldr r1, [r1, #0x8]
+;	mov r0, #0x800
+;	smlal r4, lr, r3, r1
+;	adds r0, r4, r0
+;	adc r1, lr, #0x0
+;	mov r0, r0, lsr #0xc
+;	orr r0, r0, r1, lsl #0x14
+;	ldmia sp!, {r4,lr}
+;	bx lr
+;
+;	arm_func_start VEC_Fx16Add
+;VEC_Fx16Add: ; 0x020C55CC
+;	ldrsh r12, [r0, #0x0]
+;	ldrsh r3, [r1, #0x0]
+;	add r3, r12, r3
+;	strh r3, [r2, #0x0]
+;	ldrsh r12, [r0, #0x2]
+;	ldrsh r3, [r1, #0x2]
+;	add r3, r12, r3
+;	strh r3, [r2, #0x2]
+;	ldrsh r3, [r0, #0x4]
+;	ldrsh r0, [r1, #0x4]
+;	add r0, r3, r0
+;	strh r0, [r2, #0x4]
+;	bx lr
+;
+;	arm_func_start VEC_Subtract
+;VEC_Subtract: ; 0x020C5600
+;	ldr r12, [r0, #0x0]
+;	ldr r3, [r1, #0x0]
+;	sub r3, r12, r3
+;	str r3, [r2, #0x0]
+;	ldr r12, [r0, #0x4]
+;	ldr r3, [r1, #0x4]
+;	sub r3, r12, r3
+;	str r3, [r2, #0x4]
+;	ldr r3, [r0, #0x8]
+;	ldr r0, [r1, #0x8]
+;	sub r0, r3, r0
+;	str r0, [r2, #0x8]
+;	bx lr
+;
+;	arm_func_start VEC_Add
+;VEC_Add: ; 0x020C5634
+;	ldr r12, [r0, #0x0]
+;	ldr r3, [r1, #0x0]
+;	add r3, r12, r3
+;	str r3, [r2, #0x0]
+;	ldr r12, [r0, #0x4]
+;	ldr r3, [r1, #0x4]
+;	add r3, r12, r3
+;	str r3, [r2, #0x4]
+;	ldr r3, [r0, #0x8]
+;	ldr r0, [r1, #0x8]
+;	add r0, r3, r0
+;	str r0, [r2, #0x8]
+;	bx lr
+;

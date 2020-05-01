@@ -127,6 +127,7 @@ SECTIONS {
 		FX_mtx44.o (.text)
 		FX_cp.o (.text)
 		FX_vec.o (.text)
+        FX_vec_c.o (.text)
 		FX_atan.o (.text)
 		FX.o (.text)
 		GX.o (.text)
