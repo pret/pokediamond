@@ -3351,12 +3351,14 @@
 .extern MI_Init
 .extern MI_SendGXCommandAsync
 .extern MI_SendGXCommandAsyncFast
+.extern MI_SetWramBank
 .extern MI_StopDma
 .extern MI_SwapWord
 .extern MI_UncompressLZ8
 .extern MI_WaitDma
 .extern MI_Zero36B
 .extern MIi_CardDmaCopy32
+.extern MIi_CheckAnotherAutoDMA
 .extern MIi_CheckDma0SourceAddress
 .extern MIi_CpuClear16
 .extern MIi_CpuClear32
