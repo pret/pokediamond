@@ -2,7 +2,8 @@
 // Created by mart on 4/12/20.
 //
 
-#include "os.h"
+#include "function_target.h"
+#include "OS_init.h"
 
 extern void PXI_Init();
 extern void OS_InitLock();
@@ -18,7 +19,7 @@ extern void CTRDG_Init();
 extern void CARD_Init();
 extern void PM_Init();
 
-void OS_Init(void) {
+ARM_FUNC void OS_Init(void) {
     OS_InitArena();
     PXI_Init();
     OS_InitLock();
@@ -35,4 +36,3 @@ void OS_Init(void) {
     CARD_Init();
     PM_Init();
 }
-
