@@ -3813,3 +3813,5 @@
 .extern GX_GetBankForSubBGExtPltt
 .extern GX_GetBankForSubBGExtPltt_2
 .extern GX_GetBankForTexPltt
+.extern FUN_0209105C
+.extern FUN_020910A4

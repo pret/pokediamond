@@ -3,7 +3,7 @@
 
 extern struct Unk2106FA0 gBacklightTop;
 
-void FUN_02000DF4(void)
+THUMB_FUNC void FUN_02000DF4(void)
 {
     gBacklightTop.unk8 = -1;
     gBacklightTop.unkC = 0;

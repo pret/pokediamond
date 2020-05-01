@@ -34,7 +34,7 @@ s32 gPowersOfTen[] = {
 
 static const u16 EOS = 0xFFFF;
 
-void StringCopy(u16 *dest, const u16 *src)
+THUMB_FUNC void StringCopy(u16 *dest, const u16 *src)
 {
     u16 c = *src;
     while (c != EOS) {
@@ -46,7 +46,7 @@ void StringCopy(u16 *dest, const u16 *src)
     *dest = EOS;
 }
 
-u16 *StringCopyN(u16 *dest, const u16 *src, u32 num)
+THUMB_FUNC u16 *StringCopyN(u16 *dest, const u16 *src, u32 num)
 {
     u32 copied = 0;
     if (num > copied) {
@@ -62,7 +62,7 @@ u16 *StringCopyN(u16 *dest, const u16 *src, u32 num)
     return dest + num;
 }
 
-u32 StringLength(const u16 *s)
+THUMB_FUNC u32 StringLength(const u16 *s)
 {
     u16 c = *s;
     u32 len = 0;
@@ -74,7 +74,7 @@ u32 StringLength(const u16 *s)
     return len;
 }
 
-BOOL StringNotEqual(const u16 *s1, const u16 *s2)
+THUMB_FUNC BOOL StringNotEqual(const u16 *s1, const u16 *s2)
 {
     for (; *s1 == *s2; s1++, s2++) {
         if (*s1 == EOS)
@@ -83,7 +83,7 @@ BOOL StringNotEqual(const u16 *s1, const u16 *s2)
     return TRUE;
 }
 
-BOOL StringNotEqualN(const u16 *s1, const u16 *s2, u32 num)
+THUMB_FUNC BOOL StringNotEqualN(const u16 *s1, const u16 *s2, u32 num)
 {
     u16 c1, c2;
     c2 = *s2;
@@ -104,7 +104,7 @@ BOOL StringNotEqualN(const u16 *s1, const u16 *s2, u32 num)
     return TRUE;
 }
 
-u16 *StringFill(u16 *dest, u16 value, u32 num)
+THUMB_FUNC u16 *StringFill(u16 *dest, u16 value, u32 num)
 {
     u32 copied = 0;
     if (num > copied) {
@@ -118,7 +118,7 @@ u16 *StringFill(u16 *dest, u16 value, u32 num)
     return dest + copied;
 }
 
-u16 *StringFillEOS(u16 *dest, u32 num)
+THUMB_FUNC u16 *StringFillEOS(u16 *dest, u32 num)
 {
     return StringFill(dest, EOS, num);
 }
@@ -131,7 +131,7 @@ enum PrintingMode {
 
 const u16 NON_DIGIT = 0xE2;
 
-u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n)
+THUMB_FUNC u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n)
 {
     for (u32 x = gPowersOfTen[n - 1]; x != 0; x = x / 10) {
         u16 res = value / x;

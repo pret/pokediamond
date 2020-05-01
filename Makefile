@@ -59,30 +59,30 @@ ARM7BIN := arm7/build/arm7.sbin
 
 ##################### Compiler Options #######################
 
-MWCCVERSION := 2.0/base
+MWCCVERSION = 2.0/base
 
 CROSS   := arm-none-eabi-
 
-MWCCARM  := tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
+MWCCARM  = tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # Argh... due to EABI version shenanigans, we can't use GNU LD to link together
 # MWCC built objects and GNU built ones. mwldarm, however, doesn't care, so we
 # have to use mwldarm for now.
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
-MWLDARM  := tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
-MWASMARM := tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
+MWLDARM  = tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
+MWASMARM = tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 
-AS      := $(WINE) $(MWASMARM)
-CC      := $(WINE) $(MWCCARM)
+AS      = $(WINE) $(MWASMARM)
+CC      = $(WINE) $(MWCCARM)
 CPP     := cpp -P
-LD      := $(WINE) $(MWLDARM)
+LD      = $(WINE) $(MWLDARM)
 AR      := $(CROSS)ar
 OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -proc v5te -thumb -fp soft -lang c99 -Cpp_exceptions off -ir include
+CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir include -ir include-mw
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
