@@ -9,9 +9,9 @@
 
 #define HW_PSR_CPU_MODE_MASK       0x1f // CPU mode
 
-#define HW_PSR_FIQ_DISABLE         0x40 // Disable FIQ
-#define HW_PSR_IRQ_DISABLE         0x80 // Disable IRQ
-#define HW_PSR_IRQ_FIQ_DISABLE     0xc0 // Disable FIQ and IRQ
+#define HW_PSR_DISABLE_FIQ         0x40 // Disable FIQ
+#define HW_PSR_DISABLE_IRQ         0x80 // Disable IRQ
+#define HW_PSR_DISABLE_IRQ_FIQ     0xc0 // Disable FIQ and IRQ
 
 #define HW_C6_PR_4KB               0x16
 #define HW_C6_PR_8KB               0x18
@@ -41,5 +41,7 @@
 #define OSi_GetArenaInfo()         (*(OSArenaInfo*)HW_ARENA_INFO_BUF)
 #define OSi_TRUNC(n, a)            (((u32) (n)) & ~((a) - 1))
 #define OSi_ROUND(n, a)            (((u32) (n) + (a) - 1) & ~((a) - 1))
+
+#define OS_IE_V_BLANK       (1UL << 0)
 
 #endif //POKEDIAMOND_CONSTS_H

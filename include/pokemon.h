@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_POKEMON_H
 #define POKEDIAMOND_POKEMON_H
 
-#include "nitro/types.h"
+#include "types.h"
 
 // Enums
 
