@@ -2,9 +2,9 @@
 // Created by mart on 4/23/20.
 //
 #include "function_target.h"
-#include "os_alloc.h"
+#include "OS_alloc.h"
 #include "consts.h"
-#include "os_system.h"
+#include "OS_system.h"
 
 void* OSiHeapInfo[OS_ARENA_MAX];
 
