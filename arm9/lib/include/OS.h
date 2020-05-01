@@ -7,10 +7,10 @@
 
 #include "types.h"
 #include "consts.h"
-#include "os_protectionRegion.h"
-#include "os_arena.h"
-#include "os_alloc.h"
-#include "os_system.h"
+#include "OS_protectionRegion.h"
+#include "OS_arena.h"
+#include "OS_alloc.h"
+#include "OS_system.h"
 
 void OS_Init();
 

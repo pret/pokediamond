@@ -8,6 +8,7 @@
 #include "types.h"
 #include "consts.h"
 
+void OS_SetDPermissionsForProtectionRegion(register u32 setMask, register u32 flags);
 void OS_SetProtectionRegion1(u32 param);
 void OS_SetProtectionRegion2(u32 param);
 

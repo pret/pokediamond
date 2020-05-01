@@ -3,8 +3,8 @@
 //
 #include "function_target.h"
 #include "consts.h"
-#include "os_arena.h"
-#include "os_protectionRegion.h"
+#include "OS_arena.h"
+#include "OS_protectionRegion.h"
 
 extern u32 OS_GetConsoleType();
 extern BOOL OSi_MainExArenaEnabled;
