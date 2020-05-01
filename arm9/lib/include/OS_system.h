@@ -17,19 +17,19 @@ typedef enum {
     OS_PROCMODE_SYS=31
 } OSProcMode;
 
-#pragma enumsalwaysint on
+ENUMS_ALWAYS_INT_ON
 typedef enum {
     OS_INTRMODE_DISABLE_IRQ = HW_PSR_DISABLE_IRQ,
     OS_INTRMODE_DISABLE_FIQ = HW_PSR_DISABLE_FIQ,
     OS_INTRMODE_ENABLE = 0
 } OSIntrMode;
-#pragma enumsalwaysint reset
+ENUMS_ALWAYS_INT_RESET
 
 OSIntrMode OS_EnableInterrupts();
 OSIntrMode OS_DisableInterrupts();
-OSIntrMode OS_RestoreInterrupts(register OSIntrMode state);
+OSIntrMode OS_RestoreInterrupts(OSIntrMode state);
 OSIntrMode OS_DisableInterrupts_IrqAndFiq();
-OSIntrMode OS_RestoreInterrupts_IrqAndFiq(register OSIntrMode state);
+OSIntrMode OS_RestoreInterrupts_IrqAndFiq(OSIntrMode state);
 OSIntrMode OS_GetCpsrIrq();
 OSProcMode OS_GetProcMode();
 void OS_SpinWait();

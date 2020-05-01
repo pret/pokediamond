@@ -21,7 +21,7 @@ ARM_FUNC asm OSIntrMode OS_DisableInterrupts() {
     bx      lr
 }
 
-ARM_FUNC asm OSIntrMode OS_RestoreInterrupts(register OSIntrMode state) {
+ARM_FUNC asm OSIntrMode OS_RestoreInterrupts(OSIntrMode state) {
     mrs     r1, cpsr
     bic     r2, r1, #HW_PSR_DISABLE_IRQ
     orr     r2, r2, r0
@@ -38,7 +38,7 @@ ARM_FUNC asm OSIntrMode OS_DisableInterrupts_IrqAndFiq() {
     bx lr
 }
 
-ARM_FUNC asm OSIntrMode OS_RestoreInterrupts_IrqAndFiq(register OSIntrMode state) {
+ARM_FUNC asm OSIntrMode OS_RestoreInterrupts_IrqAndFiq(OSIntrMode state) {
     mrs r1, cpsr
     bic r2, r1, #HW_PSR_DISABLE_IRQ_FIQ
     orr r2, r2, r0
