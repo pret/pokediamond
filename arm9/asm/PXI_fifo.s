@@ -1,13 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.section .text
 
-	arm_func_start PXI_Init
-PXI_Init: ; 0x020CFBB0
-	ldr ip, _020CFBB8 ; =PXI_InitFifo
-	bx r12
-	.balign 4
-_020CFBB8: .word PXI_InitFifo
+	.text
 
 	arm_func_start PXIi_HandlerRecvFifoNotEmpty
 PXIi_HandlerRecvFifoNotEmpty: ; 0x020CFBBC
