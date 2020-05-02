@@ -1,24 +1,36 @@
 #ifndef GUARD_FX_H
 #define GUARD_FX_H
 
-#define FX32_INT_MASK     0xFFFFF000
-#define FX32_INT_ABS_MASK 0x7FFFF000
-#define FX32_FRAC_MASK    0x00000FFF
-#define FX32_INT_SHIFT    0xC
+#define FX32_INT_MASK              0xFFFFF000
+#define FX32_INT_ABS_MASK          0x7FFFF000
+#define FX32_FRAC_MASK             0x00000FFF
+#define FX32_INT_SHIFT             0xC
 
-#define FX64_INT_MASK     0xFFFFFFFFFFFFF000
-#define FX64_INT_ABS_MASK 0x7FFFFFFFFFFFF000
-#define FX64_FRAC_MASK    0x0000000000000FFF
-#define FX64_INT_SHIFT    0xC
+#define FX64_INT_MASK              0xFFFFFFFFFFFFF000
+#define FX64_INT_ABS_MASK          0x7FFFFFFFFFFFF000
+#define FX64_FRAC_MASK             0x0000000000000FFF
+#define FX64_INT_SHIFT             0xC
 
+#define FX64C_INT_MASK             0xFFFFFFFF00000000
+#define FX64C_INT_ABS_MASK         0x7FFFFFFF00000000
+#define FX64C_FRAC_MASK            0x00000000FFFFFFFF
+#define FX64C_INT_SHIFT            0x20
 
-#define FX32_INT(x)       (((x) & FX32_INT_MASK) >> FX32_INT_SHIFT)
-#define FX32_INT_ABS(x)   (((x) & FX32_INT_ABS_MASK) >> FX32_INT_SHIFT)
-#define FX32_FRAC(x)      ((x) & FX32_FRAC_MASK)
+#define FX_INT(TYPE, x)            (((x) & TYPE ## _INT_MASK) >> TYPE ## _INT_SHIFT)
+#define FX_INT_ABS(TYPE, x)        (((x) & TYPE ## _INT_ABS_MASK) >> TYPE ## _INT_SHIFT)
+#define FX_FRAC(TYPE, x)           ((x) & TYPE ## _FRAC_MASK)
 
-#define FX64_INT(x)       (((x) & FX64_INT_MASK) >> FX64_INT_SHIFT)
-#define FX64_INT_ABS(x)   (((x) & FX64_INT_ABS_MASK) >> FX64_INT_SHIFT)
-#define FX64_FRAC(x)      ((x) & FX64_FRAC_MASK)
+#define FX32_INT(x)                FX_INT(FX32, x)
+#define FX32_INT_ABS(x)            FX_INT_ABS(FX32, x)
+#define FX32_FRAC(x)               FX_FRAC(FX32, x)
+
+#define FX64_INT(x)                FX_INT(FX64, x)
+#define FX64_INT_ABS(x)            FX_INT_ABS(FX64, x)
+#define FX64_FRAC(x)               FX_FRAC(FX64, x)
+
+#define FX64C_INT(x)               FX_INT(FX64C, x)
+#define FX64C_INT_ABS(x)           FX_INT_ABS(FX64C, x)
+#define FX64C_FRAC(x)              FX_FRAC(FX64C, x)
 
 
 
@@ -53,9 +65,11 @@ struct Vecx16
     s16 z;
 };
 
+//FX
 void FX_Init();
 s32 FX_Modf(s32 x, s32 *iptr);
-s32 FX_Inv(s32 x);
+
+//Atan
 u16 FX_Atan(s32 x);
 u16 FX_Atan2(s32 x, s32 y);
 
@@ -64,5 +78,17 @@ void VEC_Add(struct Vecx32 *x, struct Vecx32 *y, struct Vecx32 *dst);
 void VEC_Subtract(struct Vecx32 *x, struct Vecx32 *y, struct Vecx32 *dst);
 void VEC_Fx16Add(struct Vecx16 *x, struct Vecx16 *y, struct Vecx16 *dst);
 s32 VEC_DotProduct(struct Vecx32 *x, struct Vecx32 *y);
+
+//CP
+s32 FX_Div(s32 numerator, s32 denominator);
+s32 FX_Inv(s32 x);
+s32 FX_Sqrt(s32 x);
+s64 FX_GetDivResultFx64c();
+s32 FX_GetDivResult();
+void FX_InvAsync(s32 x);
+s32 FX_GetSqrtResult();
+void FX_DivAsync(s32 numerator, s32 denominator);
+s32 FX_DivS32(s32 numerator, s32 denominator);
+s32 FX_ModS32(s32 num, s32 mod);
 
 #endif //GUARD_FX_H
