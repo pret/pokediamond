@@ -63625,9 +63625,332 @@ _021F61D0: .word 0x000001BD
 _021F61D4: .word 0x000001BE
 _021F61D8: .word 0x000001BF
 
+	thumb_func_start MOD05_021F61DC
+MOD05_021F61DC: ; 0x021F61DC
+	lsl r1, r0, #2
+	ldr r0, _021F61E4 ; =0x021FCA00
+	ldrh r0, [r0, r1]
+	bx lr
+	.align 2, 0
+_021F61E4: .word 0x021FCA00
+
+	thumb_func_start MOD05_021F61E8
+MOD05_021F61E8: ; 0x021F61E8
+	lsl r1, r0, #2
+	ldr r0, _021F61F0 ; =0x021FCA02
+	ldrh r0, [r0, r1]
+	bx lr
+	.align 2, 0
+_021F61F0: .word 0x021FCA02
+
+	thumb_func_start MOD05_021F61F4
+MOD05_021F61F4: ; 0x021F61F4
+	push {r4, r5, r6, lr}
+	add r6, r1, #0
+	add r5, r0, #0
+	add r0, r6, #0
+	mov r1, #0x34
+	bl FUN_020169D8
+	add r4, r0, #0
+	mov r1, #0
+	mov r2, #0x34
+	bl Call_FillMemWithValue
+	str r6, [r4]
+	mov r0, #0
+	str r0, [r4, #0xc]
+	str r5, [r4, #0x2c]
+	ldr r0, [r5, #0x20]
+	str r0, [r4, #0x30]
+	bl FUN_0201F010
+	str r0, [r4, #0x10]
+	str r0, [r4, #0x20]
+	ldr r0, _021F622C ; =MOD05_021F6270
+	ldr r2, _021F6230 ; =0x0000FFFF
+	add r1, r4, #0
+	bl FUN_0200CA44
+	pop {r4, r5, r6, pc}
+	.align 2, 0
+_021F622C: .word MOD05_021F6270
+_021F6230: .word 0x0000FFFF
+
+	thumb_func_start MOD05_021F6234
+MOD05_021F6234: ; 0x021F6234
+	push {r3, lr}
+	bl FUN_0201B6C8
+	ldr r0, [r0, #8]
+	pop {r3, pc}
+	.align 2, 0
+
+	thumb_func_start MOD05_021F6240
+MOD05_021F6240: ; 0x021F6240
+	push {r4, lr}
+	add r4, r0, #0
+	bl FUN_0201B6C8
+	bl FUN_02016A18
+	add r0, r4, #0
+	bl FUN_0200CAB4
+	pop {r4, pc}
+
+	thumb_func_start MOD05_021F6254
+MOD05_021F6254: ; 0x021F6254
+	push {r4, r5, r6, lr}
+	add r5, r1, #0
+	add r4, r2, #0
+	add r6, r3, #0
+	bl FUN_0201B6C8
+	mov r1, #0
+	str r1, [r0, #4]
+	str r1, [r0, #8]
+	str r5, [r0, #0xc]
+	str r4, [r0, #0x14]
+	str r6, [r0, #0x1c]
+	str r1, [r0, #0x24]
+	pop {r4, r5, r6, pc}
+
+	thumb_func_start MOD05_021F6270
+MOD05_021F6270: ; 0x021F6270
+	push {r3, lr}
+	add r0, r1, #0
+	ldr r1, [r1, #0xc]
+	lsl r2, r1, #2
+	ldr r1, _021F6280 ; =0x021FD1B8
+	ldr r1, [r1, r2]
+	blx r1
+	pop {r3, pc}
+	.align 2, 0
+_021F6280: .word 0x021FD1B8
+
+	thumb_func_start MOD05_021F6284
+MOD05_021F6284: ; 0x021F6284
+	mov r1, #1
+	str r1, [r0, #8]
+	bx lr
+	.align 2, 0
+
+	thumb_func_start MOD05_021F628C
+MOD05_021F628C: ; 0x021F628C
+	push {r4, lr}
+	add r4, r0, #0
+	ldr r1, [r4, #4]
+	cmp r1, #0
+	beq _021F629C
+	cmp r1, #1
+	beq _021F62A6
+	pop {r4, pc}
+_021F629C:
+	bl MOD05_021F630C
+	ldr r0, [r4, #4]
+	add r0, r0, #1
+	str r0, [r4, #4]
+_021F62A6:
+	add r0, r4, #0
+	bl MOD05_021F633C
+	cmp r0, #1
+	bne _021F62BA
+	ldr r0, [r4, #4]
+	add r0, r0, #1
+	str r0, [r4, #4]
+	mov r0, #1
+	str r0, [r4, #8]
+_021F62BA:
+	add r0, r4, #0
+	bl MOD05_021F62FC
+	pop {r4, pc}
+	.align 2, 0
+
+	thumb_func_start MOD05_021F62C4
+MOD05_021F62C4: ; 0x021F62C4
+	push {r4, lr}
+	add r4, r0, #0
+	ldr r1, [r4, #4]
+	cmp r1, #0
+	beq _021F62D4
+	cmp r1, #1
+	beq _021F62DE
+	pop {r4, pc}
+_021F62D4:
+	bl MOD05_021F6324
+	ldr r0, [r4, #4]
+	add r0, r0, #1
+	str r0, [r4, #4]
+_021F62DE:
+	add r0, r4, #0
+	bl MOD05_021F633C
+	cmp r0, #1
+	bne _021F62F2
+	ldr r0, [r4, #4]
+	add r0, r0, #1
+	str r0, [r4, #4]
+	mov r0, #1
+	str r0, [r4, #8]
+_021F62F2:
+	add r0, r4, #0
+	bl MOD05_021F62FC
+	pop {r4, pc}
+	.align 2, 0
+
+	thumb_func_start MOD05_021F62FC
+MOD05_021F62FC: ; 0x021F62FC
+	ldr r3, _021F6308 ; =0x0201EFE1
+	add r1, r0, #0
+	ldr r0, [r1, #0x20]
+	ldr r1, [r1, #0x30]
+	bx r3
+	nop
+_021F6308: .word 0x0201EFE1
+
+	thumb_func_start MOD05_021F630C
+MOD05_021F630C: ; 0x021F630C
+	push {r4, lr}
+	add r4, r0, #0
+	ldr r0, [r4, #0x14]
+	ldr r1, [r4, #0x1c]
+	bl _s32_div_f
+	str r0, [r4, #0x28]
+	ldr r1, [r4, #0x20]
+	ldr r0, [r4, #0x14]
+	add r0, r1, r0
+	str r0, [r4, #0x18]
+	pop {r4, pc}
+
+	thumb_func_start MOD05_021F6324
+MOD05_021F6324: ; 0x021F6324
+	push {r4, lr}
+	add r4, r0, #0
+	ldr r1, [r4, #0x10]
+	ldr r0, [r4, #0x20]
+	sub r0, r1, r0
+	ldr r1, [r4, #0x1c]
+	bl _s32_div_f
+	str r0, [r4, #0x28]
+	ldr r0, [r4, #0x10]
+	str r0, [r4, #0x18]
+	pop {r4, pc}
+
+	thumb_func_start MOD05_021F633C
+MOD05_021F633C: ; 0x021F633C
+	ldr r2, [r0, #0x20]
+	ldr r1, [r0, #0x28]
+	add r1, r2, r1
+	str r1, [r0, #0x20]
+	ldr r1, [r0, #0x24]
+	add r2, r1, #1
+	str r2, [r0, #0x24]
+	ldr r1, [r0, #0x1c]
+	cmp r2, r1
+	blo _021F635A
+	str r1, [r0, #0x24]
+	ldr r1, [r0, #0x18]
+	str r1, [r0, #0x20]
+	mov r0, #1
+	bx lr
+_021F635A:
+	mov r0, #0
+	bx lr
+	.align 2, 0
+
+	thumb_func_start MOD05_021F6360
+MOD05_021F6360: ; 0x021F6360
+	push {r3, r4, r5, r6, r7, lr}
+	add r7, r0, #0
+	bl FUN_02046528
+	str r0, [sp]
+	add r0, r7, #0
+	bl FUN_0204652C
+	add r6, r0, #0
+	add r0, r7, #0
+	bl FUN_02046530
+	add r4, r0, #0
+	ldr r0, [r4]
+	ldr r5, [r6, #4]
+	cmp r0, #5
+	bhi _021F6424
+	add r0, r0, r0
+	add r0, pc
+	ldrh r0, [r0, #6]
+	lsl r0, r0, #0x10
+	asr r0, r0, #0x10
+	add pc, r0
+_021F638E: ; jump table
+	.short _021F639A - _021F638E - 2 ; case 0
+	.short _021F63AC - _021F638E - 2 ; case 1
+	.short _021F63CC - _021F638E - 2 ; case 2
+	.short _021F63EA - _021F638E - 2 ; case 3
+	.short _021F6402 - _021F638E - 2 ; case 4
+	.short _021F6414 - _021F638E - 2 ; case 5
+_021F639A:
+	mov r0, #0xb
+	mov r1, #8
+	bl FUN_020169D8
+	str r0, [r6, #4]
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _021F6424
+_021F63AC:
+	bl MOD05_021F57EC
+	add r6, r0, #0
+	mov r0, #0xb
+	add r1, r6, #0
+	bl FUN_020169D8
+	str r0, [r5, #4]
+	mov r1, #0
+	add r2, r6, #0
+	bl Call_FillMemWithValue
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _021F6424
+_021F63CC:
+	ldr r0, [sp]
+	ldr r0, [r0, #0x38]
+	bl FUN_020553E8
+	add r3, r0, #0
+	ldr r0, [sp]
+	ldr r2, [r6]
+	mov r1, #0
+	bl FUN_0224666C
+	str r0, [r5]
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _021F6424
+_021F63EA:
+	ldr r0, [r5]
+	bl FUN_022466A0
+	cmp r0, #0
+	beq _021F6424
+	ldr r0, [r5]
+	bl FUN_022466AC
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _021F6424
+_021F6402:
+	ldr r1, _021F6428 ; =MOD05_021F57F0
+	ldr r2, [r5, #4]
+	add r0, r7, #0
+	bl FUN_0204640C
+	ldr r0, [r4]
+	add r0, r0, #1
+	str r0, [r4]
+	b _021F6424
+_021F6414:
+	add r0, r5, #0
+	bl FUN_02016A18
+	add r0, r6, #0
+	bl FUN_02016A18
+	mov r0, #1
+	pop {r3, r4, r5, r6, r7, pc}
+_021F6424:
+	mov r0, #0
+	pop {r3, r4, r5, r6, r7, pc}
+	.align 2, 0
+_021F6428: .word MOD05_021F57F0
+
 	.section .data
-	; 0x021F61DC
-	.incbin "baserom.nds", 0x1640fc, 0x74a4
+	; 0x021F642C
+	.incbin "baserom.nds", 0x16434c, 0x7254
 
 	.section .bss
 	; 0x021FD680
