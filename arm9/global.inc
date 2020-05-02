@@ -4330,3 +4330,8 @@
 .extern FUN_02079A54
 .extern FUN_02079A70
 .extern FUN_0207C2D4
+.extern FUN_02047964
+.extern FUN_02055648
+.extern FUN_02058544
+.extern FUN_02061208
+.extern FUN_0223BD14
