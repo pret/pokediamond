@@ -394,6 +394,8 @@ SECTIONS {
 		arm_04.o (.text)
 		thumb_04.o (.sdata)
 		arm_04.o (.sdata)
+		thumb_04.o (.rodata)
+		arm_04.o (.rodata)
 		thumb_04.o (.data)
 		arm_04.o (.data)
 	} > MODULE_04
