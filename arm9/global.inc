@@ -3564,6 +3564,7 @@
 .extern PMi_SetLEDAsync
 .extern PMi_WaitBusy
 .extern PXI_Init
+.extern PXI_InitFifo
 .extern PXI_IsCallbackReady
 .extern PXI_SendWordByFifo
 .extern PXI_SetFifoRecvCallback
