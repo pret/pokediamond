@@ -51,23 +51,6 @@ void VEC_Fx16CrossProduct(struct Vecx16 *a, struct Vecx16 *b, struct Vecx16 *dst
     dst->z = z;
 }
 
-#define HW_REG_DIVCNT              0x04000280
-#define HW_REG_DIV_NUMER           0x04000290
-#define HW_REG_DIV_DENOM           0x04000298
-#define HW_REG_DIV_RESULT          0x040002A0
-#define HW_REG_DIVREM_RESULT       0x040002A8
-
-#define HW_REG_SQRTCNT             0x040002B0
-#define HW_REG_SQRT_RESULT         0x040002B4
-#define HW_REG_SQRT_PARAM          0x040002B8
-
-#define SETREG16(x, y)             ((*(vu16 *)x) = y)
-#define SETREG32(x, y)             ((*(vu32 *)x) = y)
-#define SETREG64(x, y)             ((*(vu64 *)x) = y)
-#define READREG16(x)               (*(vu16 *)x)
-#define READREG32(x)               (*(vu32 *)x)
-#define READREG64(x)               (*(vu64 *)x)
-
 s32 VEC_Mag(struct Vecx32 *a){
     s64 l2 = (s64)a->x * a->x;
     l2 += (s64)a->y * a->y;
