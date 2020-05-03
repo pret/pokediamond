@@ -33,4 +33,6 @@ arm*/baserom.*
 *.lcf.template
 
 # Working files
-arm9/modules/module_*.{s,sbin,cfg}
+arm9/modules/module_*.s
+arm9/modules/module_*.sbin
+arm9/modules/module_*.cfg
