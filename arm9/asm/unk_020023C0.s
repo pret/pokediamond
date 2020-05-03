@@ -7793,8 +7793,10 @@ _02005F36:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02005F3C
-FUN_02005F3C: ; 0x02005F3C
+	; Code that handles overlays?
+
+	thumb_func_start FreeOverlayAllocation
+FreeOverlayAllocation: ; 0x02005F3C
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x4]
@@ -7813,12 +7815,12 @@ _02005F5A:
 	str r0, [r4, #0x4]
 	pop {r4, pc}
 
-	thumb_func_start FUN_02005F60
-FUN_02005F60: ; 0x02005F60
+	thumb_func_start UnloadOverlayByID
+UnloadOverlayByID: ; 0x02005F60
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02005F90
-	bl FUN_0200610C
+	bl GetOverlayLoadDestination
+	bl GetLoadedOverlaysInRegion
 	mov r2, #0x0
 	add r3, r0, #0x0
 _02005F70:
@@ -7830,7 +7832,7 @@ _02005F70:
 	bne _02005F86
 	lsl r1, r2, #0x3
 	add r0, r0, r1
-	bl FUN_02005F3C
+	bl FreeOverlayAllocation
 	pop {r4, pc}
 _02005F86:
 	add r2, r2, #0x1
@@ -7839,8 +7841,8 @@ _02005F86:
 	blt _02005F70
 	pop {r4, pc}
 
-	thumb_func_start FUN_02005F90
-FUN_02005F90: ; 0x02005F90
+	thumb_func_start GetOverlayLoadDestination
+GetOverlayLoadDestination: ; 0x02005F90
 	push {lr}
 	sub sp, #0x2c
 	add r2, r0, #0x0
@@ -7881,24 +7883,24 @@ _02005FD2:
 	.balign 4
 _02005FD8: .word 0x027E0000
 
-	thumb_func_start FUN_02005FDC
-FUN_02005FDC: ; 0x02005FDC
+	thumb_func_start HandleLoadOverlay
+HandleLoadOverlay: ; 0x02005FDC
 	push {r3-r7, lr}
 	add r4, r1, #0x0
 	mov r1, #0x0
 	mvn r1, r1
 	add r5, r0, #0x0
 	str r1, [sp, #0x0]
-	bl FUN_02006090
+	bl CanOverlayBeLoaded
 	cmp r0, #0x0
 	bne _02005FF4
 	mov r0, #0x0
 	pop {r3-r7, pc}
 _02005FF4:
 	add r0, r5, #0x0
-	bl FUN_02005F90
+	bl GetOverlayLoadDestination
 	add r7, r0, #0x0
-	bl FUN_0200610C
+	bl GetLoadedOverlaysInRegion
 	add r3, r0, #0x0
 	mov r6, #0x0
 	add r1, r3, #0x0
@@ -7942,19 +7944,19 @@ _0200603C:
 _0200604A:
 	mov r0, #0x0
 	add r1, r5, #0x0
-	bl FUN_02006168
+	bl LoadOverlayNormal
 	add r4, r0, #0x0
 	b _02006076
 _02006056:
 	mov r0, #0x0
 	add r1, r5, #0x0
-	bl FUN_02006170
+	bl LoadOverlayNoInit
 	add r4, r0, #0x0
 	b _02006076
 _02006062:
 	mov r0, #0x0
 	add r1, r5, #0x0
-	bl FUN_020061A8
+	bl LoadOverlayNoInitAsync
 	add r4, r0, #0x0
 	b _02006076
 _0200606E:
@@ -7976,14 +7978,14 @@ _0200608C:
 	mov r0, #0x1
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02006090
-FUN_02006090: ; 0x02006090
+	thumb_func_start CanOverlayBeLoaded
+CanOverlayBeLoaded: ; 0x02006090
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r1, sp, #0xc
 	add r2, sp, #0x8
 	add r4, r0, #0x0
-	bl FUN_02006130
+	bl GetOverlayRamBounds
 	cmp r0, #0x0
 	bne _020060A8
 	add sp, #0x10
@@ -7991,8 +7993,8 @@ FUN_02006090: ; 0x02006090
 	pop {r3-r7, pc}
 _020060A8:
 	add r0, r4, #0x0
-	bl FUN_02005F90
-	bl FUN_0200610C
+	bl GetOverlayLoadDestination
+	bl GetLoadedOverlaysInRegion
 	add r5, r0, #0x0
 	mov r4, #0x0
 	add r6, sp, #0x4
@@ -8004,7 +8006,7 @@ _020060BA:
 	ldr r0, [r5, #0x0]
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_02006130
+	bl GetOverlayRamBounds
 	cmp r0, #0x1
 	bne _020060FC
 	ldr r1, [sp, #0x4]
@@ -8042,8 +8044,8 @@ _020060FC:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0200610C
-FUN_0200610C: ; 0x0200610C
+	thumb_func_start GetLoadedOverlaysInRegion
+GetLoadedOverlaysInRegion: ; 0x0200610C
 	cmp r0, #0x0
 	beq _02006118
 	cmp r0, #0x1
@@ -8064,8 +8066,8 @@ _02006124: .word 0x021C45B0
 _02006128: .word 0x021C45F0
 _0200612C: .word 0x021C4630
 
-	thumb_func_start FUN_02006130
-FUN_02006130: ; 0x02006130
+	thumb_func_start GetOverlayRamBounds
+GetOverlayRamBounds: ; 0x02006130
 	push {r4-r5, lr}
 	sub sp, #0x2c
 	add r3, r0, #0x0
@@ -8094,15 +8096,15 @@ _02006152:
 	pop {r4-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02006168
-FUN_02006168: ; 0x02006168
+	thumb_func_start LoadOverlayNormal
+LoadOverlayNormal: ; 0x02006168
 	ldr r3, _0200616C ; =FS_LoadOverlay
 	bx r3
 	.balign 4
 _0200616C: .word FS_LoadOverlay
 
-	thumb_func_start FUN_02006170
-FUN_02006170: ; 0x02006170
+	thumb_func_start LoadOverlayNoInit
+LoadOverlayNoInit: ; 0x02006170
 	push {lr}
 	sub sp, #0x2c
 	add r3, r0, #0x0
@@ -8131,8 +8133,8 @@ _0200619A:
 	pop {pc}
 	.balign 4
 
-	thumb_func_start FUN_020061A8
-FUN_020061A8: ; 0x020061A8
+	thumb_func_start LoadOverlayNoInitAsync
+LoadOverlayNoInitAsync: ; 0x020061A8
 	push {lr}
 	sub sp, #0x74
 	add r3, r0, #0x0
@@ -8289,7 +8291,7 @@ _020062AE:
 	cmp r0, r1
 	beq _020062BE
 	mov r1, #0x2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 _020062BE:
 	mov r0, #0x1
 	str r0, [r4, #0x10]
@@ -8330,7 +8332,7 @@ _020062F0:
 	mvn r1, r1
 	cmp r0, r1
 	beq _0200630A
-	bl FUN_02005F60
+	bl UnloadOverlayByID
 _0200630A:
 	mov r0, #0x1
 	pop {r4, pc}

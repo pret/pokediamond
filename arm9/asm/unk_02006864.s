@@ -106335,7 +106335,7 @@ _02037360:
 _0203736C:
 	ldr r0, _0203738C ; =0x00000005
 	mov r1, #0x2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	mov r1, #0x0
 	str r1, [r4, #0x64]
 	ldr r0, [r4, #0x0]
@@ -106576,7 +106576,7 @@ _02037546:
 	cmp r0, #0x0
 	bne _0203756E
 	ldr r0, _02037590 ; =0x00000005
-	bl FUN_02005F60
+	bl UnloadOverlayByID
 	b _0203756E
 _02037562:
 	ldr r1, [r0, #0x4]
