@@ -165,6 +165,8 @@
 .extern FUN_02006930
 .extern FUN_02006BB0
 .extern FUN_02006C08
+.extern FUN_02006C30
+.extern FUN_02006C5C
 .extern FUN_02006C98
 .extern FUN_02006D98
 .extern FUN_02006ED4
@@ -180,6 +182,8 @@
 .extern FUN_02007E68
 .extern FUN_02007E98
 .extern FUN_02007F20
+.extern FUN_02008010
+.extern FUN_02008030
 .extern FUN_020080D0
 .extern FUN_020081C4
 .extern FUN_02008AA4
@@ -352,7 +356,9 @@
 .extern FUN_0200E3A0
 .extern FUN_0200E3BC
 .extern FUN_02011B20
+.extern FUN_02012400
 .extern FUN_02012420
+.extern FUN_02012530
 .extern FUN_0201259C
 .extern FUN_020125D4
 .extern FUN_0201265C
@@ -465,6 +471,7 @@
 .extern FUN_020191A4
 .extern FUN_020191D0
 .extern FUN_02019220
+.extern FUN_02019270
 .extern FUN_02019548
 .extern FUN_02019570
 .extern FUN_0201958C
@@ -537,6 +544,7 @@
 .extern FUN_0201EB70
 .extern FUN_0201EB8C
 .extern FUN_0201EBA4
+.extern FUN_0201EC58
 .extern FUN_0201EC68
 .extern FUN_0201EC88
 .extern FUN_0201EC94
@@ -565,6 +573,7 @@
 .extern FUN_0202022C
 .extern FUN_02020248
 .extern FUN_02020310
+.extern FUN_02020334
 .extern FUN_02020354
 .extern FUN_02020388
 .extern FUN_02020398
@@ -584,6 +593,8 @@
 .extern FUN_02021A74
 .extern FUN_02021CE0
 .extern FUN_02021D3C
+.extern FUN_02021D5C
+.extern FUN_02021D9C
 .extern FUN_02021E28
 .extern FUN_02021EF0
 .extern FUN_02021F2C
@@ -2224,6 +2235,7 @@
 .extern FUN_020672BC
 .extern FUN_02067830
 .extern FUN_02068678
+.extern FUN_020687C0
 .extern FUN_02068854
 .extern FUN_020689E0
 .extern FUN_02068AAC
@@ -2506,6 +2518,7 @@
 .extern FUN_020AEB70
 .extern FUN_020AEC7C
 .extern FUN_020AEC98
+.extern FUN_020AEDF4
 .extern FUN_020AEE40
 .extern FUN_020AEEB8
 .extern FUN_020AEF1C
@@ -2542,6 +2555,7 @@
 .extern FUN_020B19C4
 .extern FUN_020B19DC
 .extern FUN_020B1A14
+.extern FUN_020B1A1C
 .extern FUN_020B1A24
 .extern FUN_020B1EA4
 .extern FUN_020B1EC4
@@ -2938,6 +2952,7 @@
 .extern FUN_0222E3A0
 .extern FUN_0222E7E8
 .extern FUN_0222E874
+.extern FUN_0222EC60
 .extern FUN_0222ED34
 .extern FUN_0222EDBC
 .extern FUN_0222F440
@@ -3203,6 +3218,19 @@
 .extern G2x_SetBGyAffine_
 .extern G2x_SetBlendAlpha_
 .extern G2x_SetBlendBrightness_
+.extern G3B_Begin
+.extern G3B_Color
+.extern G3B_End
+.extern G3B_LightColor
+.extern G3B_LightVector
+.extern G3B_LoadMtx44
+.extern G3B_MaterialColorDiffAmb
+.extern G3B_MaterialColorSpecEmi
+.extern G3B_Normal
+.extern G3B_PolygonAttr
+.extern G3B_PopMtx
+.extern G3B_PushMtx
+.extern G3B_Vtx
 .extern G3X_GetBoxTestResult
 .extern G3X_GetClipMtx
 .extern G3X_GetVectorMtx
@@ -3211,6 +3239,8 @@
 .extern G3X_ResetMtxStack
 .extern G3X_SetClearColor
 .extern G3X_SetFog
+.extern G3_BeginMakeDL
+.extern G3_EndMakeDL
 .extern G3_LoadMtx43
 .extern G3_MultMtx33
 .extern G3_MultMtx43
@@ -3349,6 +3379,7 @@
 .extern MI_HBlankDmaCopy16
 .extern MI_HBlankDmaCopy32
 .extern MI_Init
+.extern MI_SendGXCommand
 .extern MI_SendGXCommandAsync
 .extern MI_SendGXCommandAsyncFast
 .extern MI_SetWramBank
@@ -3385,12 +3416,16 @@
 .extern MTX_MultVec43
 .extern MTX_Rot22_
 .extern MTX_RotX33_
+.extern MTX_RotX44_
 .extern MTX_RotY33_
+.extern MTX_RotY44_
 .extern MTX_RotZ33_
+.extern MTX_RotZ44_
 .extern MTX_Scale43_
 .extern MTX_ScaleApply22
 .extern MTX_ScaleApply33
 .extern MTX_ScaleApply43
+.extern MTX_TransApply44
 .extern NitroMain
 .extern OS_AllocFromArenaHi
 .extern OS_AllocFromArenaLo
@@ -3685,6 +3720,7 @@
 .extern VEC_Add
 .extern VEC_CrossProduct
 .extern VEC_DotProduct
+.extern VEC_Fx16Add
 .extern VEC_Fx16CrossProduct
 .extern VEC_Fx16DotProduct
 .extern VEC_Fx16Normalize
