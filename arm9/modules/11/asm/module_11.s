@@ -363,7 +363,7 @@ MOD11_0222D88C: ; 0x0222D88C
 	add r1, r0, #0
 	mov r0, #0
 	add r2, r5, #0
-	blx MIi_CpuClear16
+	bl MIi_CpuClear16
 	bl FUN_02031190
 	add r1, r0, #0
 	add r0, r4, #0
@@ -663,14 +663,14 @@ MOD11_0222DB50: ; 0x0222DB50
 	add r1, r0, #0
 	mov r0, #0
 	add r2, r5, #0
-	blx MIi_CpuClear16
+	bl MIi_CpuClear16
 	bl FUN_02022300
 	add r5, r0, #0
 	bl FUN_020222F8
 	add r1, r0, #0
 	mov r0, #0
 	add r2, r5, #0
-	blx MIi_CpuClear16
+	bl MIi_CpuClear16
 	bl FUN_0201B9D4
 	ldr r1, _0222DF0C ; =0x00002430
 	str r0, [r4, r1]
@@ -915,14 +915,14 @@ _0222DC42:
 	ldr r1, _0222DF24 ; =0x00002224
 	mov r2, #0xe0
 	add r1, r4, r1
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	ldr r0, [r4, #0x28]
 	mov r1, #2
 	bl FUN_020031FC
 	ldr r1, _0222DF28 ; =0x00002304
 	mov r2, #0xe0
 	add r1, r4, r1
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, r4, #0
 	bl MOD11_02230C68
 	mov r1, #0
@@ -1440,25 +1440,25 @@ _0222E282:
 	mov r0, #0
 	lsl r1, r1, #0x18
 	lsl r2, r2, #0x12
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x62
 	mov r2, #2
 	mov r0, #0
 	lsl r1, r1, #0x14
 	lsl r2, r2, #0x10
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x19
 	mov r2, #1
 	mov r0, #0
 	lsl r1, r1, #0x16
 	lsl r2, r2, #0x12
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x66
 	mov r2, #2
 	mov r0, #0
 	lsl r1, r1, #0x14
 	lsl r2, r2, #0x10
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	ldr r6, _0222E454 ; =0x0225D9A8
 	add r3, sp, #0x10
 	add r2, r3, #0
@@ -3032,13 +3032,13 @@ MOD11_0222EF50: ; 0x0222EF50
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
-	blx G3X_SetFog
+	bl G3X_SetFog
 	mov r0, #0
 	ldr r2, _0222EFC8 ; =0x00007FFF
 	add r1, r0, #0
 	mov r3, #0x3f
 	str r0, [sp]
-	blx G3X_SetClearColor
+	bl G3X_SetClearColor
 	ldr r1, _0222EFCC ; =0xBFFF0000
 	ldr r0, _0222EFD0 ; =0x04000580
 	str r1, [r0]
@@ -3454,31 +3454,31 @@ _0222F30E:
 	mov r0, #0
 	lsl r1, r1, #0x18
 	lsl r2, r2, #0x12
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x62
 	mov r2, #2
 	mov r0, #0
 	lsl r1, r1, #0x14
 	lsl r2, r2, #0x10
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x19
 	mov r2, #1
 	mov r0, #0
 	lsl r1, r1, #0x16
 	lsl r2, r2, #0x12
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x66
 	mov r2, #2
 	mov r0, #0
 	lsl r1, r1, #0x14
 	lsl r2, r2, #0x10
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #5
 	mov r2, #2
 	mov r0, #0
 	lsl r1, r1, #0x18
 	lsl r2, r2, #8
-	blx MIi_CpuClear16
+	bl MIi_CpuClear16
 	ldr r6, _0222F4CC ; =0x0225D9B8
 	add r3, sp, #0x30
 	add r2, r3, #0
@@ -4229,7 +4229,7 @@ MOD11_0222F988: ; 0x0222F988
 	ldr r2, _0222FAB4 ; =0x00002444
 	mov r0, #0
 	add r1, r4, #0
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r4, #0
 	add r1, r6, #0
 	bl MOD11_0222E520
@@ -4263,7 +4263,7 @@ _0222F9DE:
 	ldr r1, [r4, r1]
 	mov r0, #0
 	mov r2, #0x2c
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r5, #0
 	bl FUN_020313CC
 	cmp r0, #3
@@ -4435,7 +4435,7 @@ _0222FB2E:
 	ldr r1, [r4, r1]
 	mov r0, #0
 	mov r2, #0x2c
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	ldr r1, [r4, #0x2c]
 	mov r0, #8
 	tst r0, r1
@@ -4625,7 +4625,7 @@ _0222FCA8:
 	mov r0, #0
 	add r1, r6, #0
 	mov r2, #0x2c
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	str r7, [r6]
 	ldr r0, [r7, #0x14]
 	cmp r0, #5
@@ -6514,7 +6514,7 @@ _02230AA2:
 	mul r1, r0
 	add r0, r1, #0
 	mov r1, #0x64
-	blx _u32_div_f
+	bl _u32_div_f
 	str r0, [sp, #0x20]
 	cmp r0, #0
 	bne _02230AC2
@@ -6686,7 +6686,7 @@ _02230BFC:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #8]
 _02230C28:
 	ldr r0, [sp, #0x18]
@@ -7242,7 +7242,7 @@ MOD11_02230FCC: ; 0x02230FCC
 	ldr r0, _02231224 ; =0x06010000
 	ldr r1, [r4, r1]
 	lsl r2, r2, #0x10
-	blx MIi_CpuCopy32
+	bl MIi_CpuCopy32
 	mov r0, #0x22
 	lsl r0, r0, #4
 	ldr r5, [r4, r0]
@@ -7252,7 +7252,7 @@ MOD11_02230FCC: ; 0x02230FCC
 	mov r2, #2
 	add r1, r5, #0
 	lsl r2, r2, #8
-	blx MIi_CpuCopy32
+	bl MIi_CpuCopy32
 	mov r0, #0x19
 	lsl r0, r0, #0x16
 	str r0, [sp, #0x24]
@@ -11434,7 +11434,7 @@ _02232FB4:
 	ldr r1, [r5, r1]
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, _022330E4 ; =0x00002144
 	str r0, [r5, r1]
 _02233040:
@@ -11456,7 +11456,7 @@ _02233040:
 	add r0, #0xa
 	mul r0, r1
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, _022330E4 ; =0x00002144
 	str r0, [r5, r1]
 _0223306E:
@@ -11497,7 +11497,7 @@ _02233094:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, _022330E4 ; =0x00002144
 	add sp, #0x1c
 	str r0, [r5, r1]
@@ -12655,7 +12655,7 @@ _022339C6:
 	ldrb r0, [r2, r0]
 	mul r0, r1
 	mov r1, #7
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	ldr r1, [sp]
 	lsr r0, r0, #0x10
@@ -12664,7 +12664,7 @@ _022339C6:
 	lsr r4, r0, #1
 	ldr r1, [sp, #4]
 	add r0, r4, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r5, #0
 	add r1, #0x9c
 	str r0, [r1]
@@ -12680,7 +12680,7 @@ _022339C6:
 _02233A1E:
 	ldr r1, [sp]
 	add r0, r4, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r5, #0
 	add r1, #0xa0
 	str r0, [r1]
@@ -12695,7 +12695,7 @@ _02233A1E:
 	b _02233A6A
 _02233A3E:
 	ldr r1, [sp, #4]
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r5, #0
 	add r1, #0x9c
 	str r0, [r1]
@@ -13311,7 +13311,7 @@ _02233EEA:
 _02233EF4:
 	ldr r0, [r4]
 	add r1, r5, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [r4]
 	b _02233F42
 _02233F00:
@@ -14219,7 +14219,7 @@ _022345FE:
 	b _02234648
 _02234606:
 	add r1, r4, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0xc]
 	b _02234648
 _02234610:
@@ -14442,7 +14442,7 @@ MOD11_022347B0: ; 0x022347B0
 	add r6, r0, #0
 	bl FUN_0201B9EC
 	add r1, r4, #1
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r0, #0x4d
 	add r1, r6, r1
 	lsl r0, r0, #2
@@ -14548,7 +14548,7 @@ _02234890:
 _0223489A:
 	ldr r0, [r4]
 	ldr r1, [r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [r4]
 	b _022348F6
 _022348A6:
@@ -14709,7 +14709,7 @@ _022349C0:
 _022349CA:
 	ldr r0, [sp, #0xc]
 	ldr r1, [r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0xc]
 	b _02234A26
 _022349D6:
@@ -15703,7 +15703,7 @@ _0223519E:
 _022351A0:
 	bl FUN_0201B9EC
 	add r1, r6, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r2, [r4, #0x64]
 	mov r0, #0xc0
 	mul r0, r2
@@ -16388,7 +16388,7 @@ _022356AA:
 	lsr r5, r0, #0x10
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, r5
 	bge _0223572C
 	ldr r1, [r4, #0x64]
@@ -16476,7 +16476,7 @@ _02235784:
 	lsr r5, r0, #0x10
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, r5
 	bge _022357DA
 	ldr r1, [r4, #0x64]
@@ -16623,7 +16623,7 @@ _022358DE:
 _022358E0:
 	ldr r0, [r4]
 	ldr r1, [r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [r4]
 	cmp r0, #0
 	bne _022358F0
@@ -16802,7 +16802,7 @@ MOD11_02235A2C: ; 0x02235A2C
 _02235A3C:
 	bl FUN_0201B9EC
 	ldr r1, _02235A80 ; =0x000001D3
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r1, #1
 	ldr r1, [r6, #0x64]
 	lsl r0, r0, #0x10
@@ -17258,7 +17258,7 @@ _02235D7E:
 	add r5, r2, #0
 	mul r5, r1
 	mov r1, #5
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r2, [r4, r5]
 	mov r0, #0x38
 	bic r2, r0
@@ -18521,7 +18521,7 @@ _022367DE:
 _022367EA:
 	bl FUN_0201B9EC
 	add r1, r6, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r0, [sp, #0xc]
 	add r5, r1, #0
 	add r5, r5, r0
@@ -19867,7 +19867,7 @@ MOD11_02237290: ; 0x02237290
 	bne _0223731C
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r0, _0223732C ; =0x00003120
 	strb r1, [r4, r0]
 	ldrb r1, [r4, r0]
@@ -20322,7 +20322,7 @@ MOD11_02237584: ; 0x02237584
 	mov r0, #0x28
 	mul r0, r1
 	mov r1, #0x3f
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, _02237668 ; =0x00002154
 	add r0, #0x1e
 	str r0, [r4, r1]
@@ -20331,7 +20331,7 @@ MOD11_02237584: ; 0x02237584
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0x3f
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #1
 	ldr r0, _0223766C ; =0x00002160
 	str r1, [r4, r0]
@@ -20496,7 +20496,7 @@ MOD11_022376D0: ; 0x022376D0
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [r5, r4]
 	b _022377AC
 _022377A4:
@@ -20701,7 +20701,7 @@ _02237900:
 	str r2, [r5, r1]
 	lsl r0, r4, #1
 	mov r1, #5
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, _02237AB0 ; =0x00002144
 	add r0, r0, #2
 	ldr r2, [r5, r1]
@@ -20723,12 +20723,12 @@ _02237900:
 	add r1, r0, #0
 	ldr r0, _02237AB0 ; =0x00002144
 	ldr r0, [r5, r0]
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, _02237AB0 ; =0x00002144
 	str r0, [r5, r1]
 	ldr r0, [r5, r1]
 	mov r1, #0x32
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, _02237AB0 ; =0x00002144
 	str r0, [r5, r1]
 	ldr r0, [r5, r1]
@@ -20753,7 +20753,7 @@ _02237900:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, _02237AB0 ; =0x00002144
 	str r0, [r5, r1]
 _022379CC:
@@ -21220,7 +21220,7 @@ _02237D8A:
 	beq _02237DA8
 	bl FUN_0201B9EC
 	add r1, r7, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r1, r1, #1
 	add r0, sp, #0x18
 	ldrh r2, [r0, r1]
@@ -21713,7 +21713,7 @@ MOD11_02238130: ; 0x02238130
 	add r1, r1, #4
 	ldr r1, [r2, r1]
 	mul r0, r3
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, _02238178 ; =0x00002154
 	str r0, [r4, r1]
 	ldr r0, [r4, r1]
@@ -22681,7 +22681,7 @@ MOD11_022388C0: ; 0x022388C0
 	lsl r2, r2, #2
 	add r2, r4, r2
 	ldr r1, [r2, r1]
-	blx _u32_div_f
+	bl _u32_div_f
 	add r1, r0, #1
 	ldr r0, _02238900 ; =0x00002154
 	str r1, [r4, r0]
@@ -22743,7 +22743,7 @@ MOD11_02238904: ; 0x02238904
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, _022389F4 ; =0x00002144
 	str r0, [r5, r1]
 	mov r0, #0x71
@@ -22906,7 +22906,7 @@ MOD11_02238A84: ; 0x02238A84
 	add r1, r1, #4
 	ldr r1, [r3, r1]
 	mul r0, r2
-	blx _u32_div_f
+	bl _u32_div_f
 	add r1, r0, #1
 	ldr r0, _02238AB8 ; =0x00002154
 	str r1, [r4, r0]
@@ -23905,12 +23905,12 @@ _02239222:
 	bne _022392EC
 	bl FUN_0201B9EC
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #0
 	bne _022392EC
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r5, r1, #0
 	add r0, r4, #0
 	mov r1, #0xa0
@@ -23918,7 +23918,7 @@ _02239222:
 	bl FUN_020671BC
 	sub r0, r0, #1
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	lsl r0, r0, #0x18
 	lsr r2, r0, #0x18
 	cmp r2, #0xa
@@ -23999,7 +23999,7 @@ _02239324:
 _0223932E:
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r2, [sp, #0xc]
 	ldr r0, _02239378 ; =0x0225E15C
 	ldrb r0, [r0, r2]
@@ -24716,7 +24716,7 @@ _022398F0:
 _022398F8:
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, r4
 	bge _0223991E
 	add r0, r5, #0
@@ -24799,7 +24799,7 @@ _022399A0:
 _022399A2:
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, r4
 	ble _022399C2
 	add r0, r5, #0
@@ -25529,7 +25529,7 @@ _02239F82:
 	beq _02239FB0
 	bl FUN_0201B9EC
 	add r1, r4, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r1, r1, #2
 	add r0, sp, #0
 	ldr r0, [r0, r1]
@@ -25721,7 +25721,7 @@ MOD11_0223A0D8: ; 0x0223A0D8
 	bne _0223A126
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r0, [sp]
 	cmp r1, r0
 	bge _0223A126
@@ -26840,7 +26840,7 @@ _0223A96C:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _u32_div_f
+	bl _u32_div_f
 	str r0, [sp, #0x34]
 _0223A980:
 	ldr r0, [sp, #0x1c]
@@ -26850,7 +26850,7 @@ _0223A980:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _u32_div_f
+	bl _u32_div_f
 	str r0, [sp, #0x34]
 _0223A994:
 	ldr r0, [r4]
@@ -26870,7 +26870,7 @@ _0223A994:
 	mov r0, #0xaa
 	mul r0, r1
 	mov r1, #0x64
-	blx _u32_div_f
+	bl _u32_div_f
 	str r0, [sp, #0x34]
 	b _0223A9D0
 _0223A9C2:
@@ -26878,7 +26878,7 @@ _0223A9C2:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _u32_div_f
+	bl _u32_div_f
 	str r0, [sp, #0x34]
 _0223A9D0:
 	mov r1, #2
@@ -29543,7 +29543,7 @@ _0223BFEE:
 	add r0, r2, #0
 	ldr r2, _0223C208 ; =0x0225DCF1
 	ldrb r1, [r2, r1]
-	blx _u32_div_f
+	bl _u32_div_f
 	str r0, [sp]
 	b _0223C03A
 _0223C026:
@@ -29697,7 +29697,7 @@ _0223C12E:
 	add r0, r1, #0
 	mul r0, r5
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, _0223C218 ; =0x00002D8C
 	add r2, r4, r6
 	ldr r1, [r2, r1]
@@ -29706,7 +29706,7 @@ _0223C12E:
 	mul r1, r0
 	add r0, r1, #0
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	add r1, r0, #0
 	ldr r0, _0223C21C ; =0x00002DAC
 	add r2, r4, r6
@@ -29722,7 +29722,7 @@ _0223C170:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	add r1, r0, #0
 _0223C182:
 	cmp r1, #0xff
@@ -29735,7 +29735,7 @@ _0223C18A:
 	strh r2, [r0]
 	mov r0, #0xff
 	lsl r0, r0, #0x10
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, _0223C224 ; =0x040002B8
 	add r2, r1, #0
 	str r0, [r1]
@@ -29772,7 +29772,7 @@ _0223C1CC:
 	ldr r1, _0223C228 ; =0x040002B4
 	ldr r0, _0223C22C ; =0x000FFFF0
 	ldr r1, [r1]
-	blx _u32_div_f
+	bl _u32_div_f
 	add r6, r0, #0
 	mov r5, #0
 _0223C1E0:
@@ -31753,7 +31753,7 @@ MOD11_0223D1DC: ; 0x0223D1DC
 	ldr r2, _0223D22C ; =0x0000314C
 	mov r0, #0
 	add r1, r4, #0
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r4, #0
 	bl MOD11_02245494
 	add r0, r5, #0
@@ -36663,7 +36663,7 @@ MOD11_0223F770: ; 0x0223F770
 	str r0, [r4, #0xc]
 	bl FUN_0201B9EC
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r0, #0x4e
 	lsl r0, r0, #2
 	str r1, [r4, r0]
@@ -36709,7 +36709,7 @@ MOD11_0223F7CC: ; 0x0223F7CC
 	str r0, [r4, #0xc]
 	bl FUN_0201B9EC
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r0, #0x4e
 	lsl r0, r0, #2
 	str r1, [r4, r0]
@@ -37667,7 +37667,7 @@ _0223FF42:
 	beq _0223FF9E
 	bl FUN_0201B9EC
 	mov r1, #5
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #0
 	beq _0223FF82
 	ldr r0, [sp, #0x1c]
@@ -38595,7 +38595,7 @@ _02240688:
 	ldr r2, _02240880 ; =0x0225E179
 	ldrb r1, [r2, r1]
 	mul r0, r4
-	blx _u32_div_f
+	bl _u32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r5, #0
@@ -38606,7 +38606,7 @@ _02240688:
 	mov r0, #0x82
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _022406B6:
@@ -38644,7 +38644,7 @@ _022406B6:
 	mov r0, #0x50
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _02240708:
@@ -38664,7 +38664,7 @@ _02240708:
 	mov r0, #0x50
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _02240732:
@@ -38678,7 +38678,7 @@ _02240732:
 	mov r0, #6
 	mul r0, r4
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224074E:
@@ -38693,7 +38693,7 @@ _0224074E:
 	mov r0, #0x50
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224076E:
@@ -38713,7 +38713,7 @@ _0224076E:
 	mov r0, #0x32
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _02240798:
@@ -38730,7 +38730,7 @@ _02240798:
 	mov r1, #0x64
 	sub r0, r1, r0
 	mul r0, r4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _022407BE:
@@ -38748,7 +38748,7 @@ _022407BE:
 	add r0, #0x64
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _022407E6:
@@ -38763,7 +38763,7 @@ _022407E6:
 	add r0, r4, #0
 	mul r0, r6
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _02240806:
@@ -38781,7 +38781,7 @@ _02240806:
 	mov r0, #0x78
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224082A:
@@ -38795,13 +38795,13 @@ _0224082A:
 	mov r0, #0xa
 	mul r0, r4
 	mov r1, #6
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _02240846:
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r1, #1
 	cmp r0, r4
 	ble _02240860
@@ -39876,7 +39876,7 @@ _0224106A:
 	bne _022410A4
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r0, [sp]
 	cmp r1, r0
 	bge _022410A4
@@ -42997,7 +42997,7 @@ MOD11_02242870: ; 0x02242870
 _022428B8:
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, r6
 	bge _0224290A
 	ldr r0, _02242918 ; =0x00003044
@@ -46522,7 +46522,7 @@ _02244356:
 	mul r0, r2
 	ldr r2, _0224456C ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	add r6, r0, #0
 	ldr r0, [sp, #0x14]
 	lsl r1, r7, #1
@@ -46534,7 +46534,7 @@ _02244356:
 	mul r0, r2
 	ldr r2, _0224456C ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	add r4, r0, #0
 	mov r0, #0xd
 	str r0, [sp]
@@ -46630,7 +46630,7 @@ _0224442E:
 	mov r0, #0xf
 	mul r0, r6
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	add r6, r0, #0
 _02244440:
 	ldr r0, [sp, #0x58]
@@ -46658,7 +46658,7 @@ _02244456:
 	mov r0, #0xf
 	mul r0, r6
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	add r6, r0, #0
 	b _02244488
 _02244478:
@@ -46721,14 +46721,14 @@ _022444DE:
 	bne _0224451C
 	ldr r1, [sp, #0x54]
 	mov r0, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0
 	ldr r0, [sp, #8]
 	lsl r0, r0, #1
 	add r2, r5, r0
 	ldr r0, _02244584 ; =0x0000310C
 	ldrh r0, [r2, r0]
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #0
 	bne _0224451C
 	mov r0, #1
@@ -46806,7 +46806,7 @@ _02244594:
 	mov r0, #0xf
 	mul r0, r4
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	add r4, r0, #0
 _022445A6:
 	ldr r0, [sp, #0x50]
@@ -46834,7 +46834,7 @@ _022445BC:
 	mov r0, #0xf
 	mul r0, r4
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	add r4, r0, #0
 	b _022445EE
 _022445DE:
@@ -46897,14 +46897,14 @@ _02244644:
 	bne _02244682
 	ldr r1, [sp, #0x4c]
 	mov r0, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0
 	ldr r0, [sp, #0xc]
 	lsl r0, r0, #1
 	add r2, r5, r0
 	ldr r0, _022448A0 ; =0x0000310C
 	ldrh r0, [r2, r0]
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #0
 	bne _02244682
 	mov r0, #1
@@ -47517,7 +47517,7 @@ _02244AF4:
 _02244AFC:
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, r6
 	bge _02244B16
 	ldr r1, _02244C1C ; =0x0000213C
@@ -47586,7 +47586,7 @@ _02244B7C:
 _02244B84:
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, r7
 	bge _02244C00
 	ldr r2, _02244C04 ; =0x00002174
@@ -48866,7 +48866,7 @@ _02245558:
 	mov r0, #0
 	add r1, r6, #0
 	mov r2, #0x1c
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r1, r5, r4
 	ldr r0, _02245584 ; =0x000021A4
 	add r4, r4, #1
@@ -49765,11 +49765,11 @@ _02245C7A:
 	mov r0, #0
 	add r1, r7, #0
 	mov r2, #0x40
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	mov r0, #0
 	add r1, r6, #0
 	mov r2, #4
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	ldr r0, _02245D24 ; =0x00002DB0
 	ldr r1, [r4, r0]
 	ldr r0, [sp, #8]
@@ -50618,7 +50618,7 @@ _02246346:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x50]
 _02246354:
 	add r0, r5, #0
@@ -50866,7 +50866,7 @@ _02246532:
 	str r0, [sp, #0x1c]
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x50]
 _0224654A:
 	ldr r0, [sp, #0x54]
@@ -51718,7 +51718,7 @@ MOD11_02246B58: ; 0x02246B58
 	blo _02246B76
 	bl FUN_0201B9EC
 	mov r1, #0x70
-	blx _u32_div_f
+	bl _u32_div_f
 	add r6, r1, #0
 	mov r0, #0
 _02246B76:
@@ -51758,7 +51758,7 @@ _02246BA8:
 	ldrb r0, [r4, #2]
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0
 _02246BC2:
 	cmp r6, r7
@@ -51768,7 +51768,7 @@ _02246BC2:
 	ldrb r0, [r4, #2]
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0
 _02246BD6:
 	add r4, r4, #3
@@ -52481,7 +52481,7 @@ _0224711C:
 	cmp r2, r1
 	bhs _02247164
 	lsl r0, r2, #7
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, _0224718C ; =0x0000311E
 	ldrb r2, [r5, r1]
 	mov r1, #0x1e
@@ -53156,7 +53156,7 @@ _02247616:
 	beq _02247696
 	bl FUN_0201B9EC
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #3
 	bge _02247696
 	ldr r0, [sp, #4]
@@ -53237,7 +53237,7 @@ MOD11_022476C0: ; 0x022476C0
 _022476CC:
 	mov r4, #1
 _022476CE:
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r0, #0
 	bne _022476D8
 	add r0, r4, #0
@@ -53740,7 +53740,7 @@ _02247A56:
 	ldr r0, _02247D6C ; =0x0225E284
 	ldrb r0, [r0, r2]
 	mul r0, r3
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, [sp, #0x78]
 	add r0, r1, r0
 	str r0, [sp, #0x78]
@@ -53755,7 +53755,7 @@ _02247A56:
 	ldr r0, _02247D6C ; =0x0225E284
 	ldrb r0, [r0, r2]
 	mul r0, r3
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, [sp, #0x74]
 	add r0, r1, r0
 	str r0, [sp, #0x74]
@@ -54211,7 +54211,7 @@ _02247E08:
 	add r6, r0, #0
 	bl FUN_0201B9EC
 	add r1, r6, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r0, #0xc0
 	add r2, r5, #0
 	mul r2, r0
@@ -54974,7 +54974,7 @@ _022483C6:
 	beq _022483E6
 	bl FUN_0201B9EC
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #3
 	blt _022483E8
 _022483E6:
@@ -55214,12 +55214,12 @@ _0224859A:
 	beq _02248650
 	bl FUN_0201B9EC
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #3
 	bge _02248650
 	bl FUN_0201B9EC
 	mov r1, #3
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #0
 	beq _022485D0
 	cmp r1, #1
@@ -55322,7 +55322,7 @@ _02248688:
 	beq _02248770
 	bl FUN_0201B9EC
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #3
 	bge _02248770
 	add r0, r5, #0
@@ -55396,7 +55396,7 @@ _02248712:
 	beq _02248770
 	bl FUN_0201B9EC
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #3
 	bge _02248770
 	add r0, r5, #0
@@ -55482,7 +55482,7 @@ _022487AC:
 	beq _0224887A
 	bl FUN_0201B9EC
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #3
 	bge _0224887A
 	add r0, r5, #0
@@ -56527,7 +56527,7 @@ _02248F98:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -56561,7 +56561,7 @@ _02248FDC:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -56599,7 +56599,7 @@ _02249024:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -56634,7 +56634,7 @@ _0224906A:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -56669,7 +56669,7 @@ _022490B0:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -56704,7 +56704,7 @@ _022490F6:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -56740,7 +56740,7 @@ _0224913A:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -56765,7 +56765,7 @@ _02249168:
 _02249172:
 	bl FUN_0201B9EC
 	add r1, r7, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r5, r1
 	ldrsb r0, [r0, r6]
 	cmp r0, #0xc
@@ -56833,7 +56833,7 @@ _022491EA:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -56859,7 +56859,7 @@ _0224921E:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57417,7 +57417,7 @@ _0224965C:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57444,7 +57444,7 @@ _02249692:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57654,7 +57654,7 @@ _02249838:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57689,7 +57689,7 @@ _0224987E:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57725,7 +57725,7 @@ _022498C6:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57761,7 +57761,7 @@ _0224990E:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57800,7 +57800,7 @@ _02249958:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57836,7 +57836,7 @@ _022499A0:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57870,7 +57870,7 @@ _022499E4:
 	add r1, r4, r1
 	ldr r0, [r1, r0]
 	add r1, r7, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0x14]
 	ldr r1, [r1, r5]
 	cmp r1, r0
@@ -57894,7 +57894,7 @@ _02249A12:
 _02249A1A:
 	bl FUN_0201B9EC
 	mov r1, #5
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r5, r1
 	ldrsb r0, [r0, r7]
 	cmp r0, #0xc
@@ -59203,7 +59203,7 @@ _0224A3F2:
 _0224A3FC:
 	bl FUN_0201B9EC
 	add r1, r7, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r0, [r4, #0x64]
 	add r2, r0, #0
 	mul r2, r6
@@ -60053,7 +60053,7 @@ _0224AA5A:
 _0224AA64:
 	bl FUN_0201B9EC
 	add r1, r7, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r0, [r4, #0x6c]
 	add r2, r0, #0
 	mul r2, r6
@@ -61458,7 +61458,7 @@ _0224B564:
 	mov r1, #0xa
 	ldr r0, [r5, r0]
 	mul r0, r4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, sp, #0x90
@@ -61489,7 +61489,7 @@ _0224B594:
 	mov r0, #0xf
 	mul r0, r4
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B5B2:
@@ -61503,7 +61503,7 @@ _0224B5B2:
 	mov r0, #0xf
 	mul r0, r4
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B5CE:
@@ -61561,7 +61561,7 @@ _0224B620:
 	mov r1, #0x64
 	add r0, #0x64
 	mul r0, r4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	b _0224B648
@@ -61578,7 +61578,7 @@ _0224B648:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x7c]
@@ -61590,7 +61590,7 @@ _0224B660:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x74]
@@ -61613,7 +61613,7 @@ _0224B678:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x74]
@@ -61636,7 +61636,7 @@ _0224B6A6:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x10]
@@ -61727,7 +61727,7 @@ _0224B774:
 	mov r1, #0x64
 	add r0, #0x64
 	mul r0, r4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B78A:
@@ -61748,7 +61748,7 @@ _0224B798:
 	mov r1, #0x64
 	add r0, #0x64
 	mul r0, r4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B7B2:
@@ -61762,7 +61762,7 @@ _0224B7B2:
 	mov r1, #0x64
 	add r0, #0x64
 	mul r0, r4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B7CE:
@@ -61777,7 +61777,7 @@ _0224B7CE:
 	add r0, #0x64
 	str r0, [sp, #0x2c]
 	mul r0, r4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B7EC:
@@ -61802,7 +61802,7 @@ _0224B808:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x7c]
@@ -61816,7 +61816,7 @@ _0224B81E:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x7c]
@@ -61835,7 +61835,7 @@ _0224B83A:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x78]
@@ -61855,7 +61855,7 @@ _0224B862:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x74]
@@ -61875,7 +61875,7 @@ _0224B88C:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x74]
@@ -61910,14 +61910,14 @@ _0224B8E6:
 	bne _0224B90A
 	ldr r0, [sp, #0x4c]
 	mov r1, #3
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, [sp, #0x50]
 	cmp r1, r0
 	bgt _0224B90A
 	mov r0, #0x96
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B90A:
@@ -61927,14 +61927,14 @@ _0224B90A:
 	bne _0224B92E
 	ldr r0, [sp, #0x4c]
 	mov r1, #3
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, [sp, #0x50]
 	cmp r1, r0
 	bgt _0224B92E
 	mov r0, #0x96
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B92E:
@@ -61944,14 +61944,14 @@ _0224B92E:
 	bne _0224B952
 	ldr r0, [sp, #0x4c]
 	mov r1, #3
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, [sp, #0x50]
 	cmp r1, r0
 	bgt _0224B952
 	mov r0, #0x96
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B952:
@@ -61961,14 +61961,14 @@ _0224B952:
 	bne _0224B976
 	ldr r0, [sp, #0x4c]
 	mov r1, #3
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, [sp, #0x50]
 	cmp r1, r0
 	bgt _0224B976
 	mov r0, #0x96
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B976:
@@ -61996,7 +61996,7 @@ _0224B98E:
 	mov r0, #0x7d
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224B9B0:
@@ -62129,7 +62129,7 @@ _0224BA5C:
 	mov r0, #0x7d
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224BAAA:
@@ -62148,7 +62148,7 @@ _0224BAAA:
 	mov r0, #0x4b
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _0224BAD0:
@@ -62164,7 +62164,7 @@ _0224BAD4:
 	mov r0, #0xc
 	mul r0, r4
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	b _0224BAF8
@@ -62203,7 +62203,7 @@ _0224BAF8:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x74]
@@ -62223,7 +62223,7 @@ _0224BB54:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x10]
@@ -62244,7 +62244,7 @@ _0224BB66:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x7c]
@@ -62270,7 +62270,7 @@ _0224BB92:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x10]
@@ -62303,7 +62303,7 @@ _0224BBE0:
 	mul r0, r2
 	ldr r2, _0224BDE8 ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 	b _0224BC24
 _0224BC08:
@@ -62319,7 +62319,7 @@ _0224BC0E:
 	mul r0, r2
 	ldr r2, _0224BDE8 ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 _0224BC24:
 	ldr r0, [sp, #0x84]
@@ -62329,7 +62329,7 @@ _0224BC24:
 	str r1, [sp, #0x84]
 	lsl r0, r0, #1
 	mov r1, #5
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #2
 	ldr r0, [sp, #0x84]
 	mul r1, r0
@@ -62347,7 +62347,7 @@ _0224BC24:
 	mul r0, r2
 	ldr r2, _0224BDE8 ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x78]
 	b _0224BC76
 _0224BC60:
@@ -62359,14 +62359,14 @@ _0224BC60:
 	mul r0, r2
 	ldr r2, _0224BDE8 ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x78]
 _0224BC76:
 	ldr r0, [sp, #0x84]
 	ldr r1, [sp, #0x78]
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r1, #0x32
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 	ldr r0, [sp, #0x48]
 	mov r1, #0x10
@@ -62406,7 +62406,7 @@ _0224BCB2:
 	ldr r0, [sp, #0x84]
 	mov r1, #3
 	lsl r0, r0, #1
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 	b _0224BDC8
 _0224BCD6:
@@ -62432,7 +62432,7 @@ _0224BCE2:
 	mul r0, r2
 	ldr r2, _0224BDE8 ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 	b _0224BD24
 _0224BD08:
@@ -62448,7 +62448,7 @@ _0224BD0E:
 	mul r0, r2
 	ldr r2, _0224BDE8 ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 _0224BD24:
 	ldr r0, [sp, #0x84]
@@ -62458,7 +62458,7 @@ _0224BD24:
 	str r1, [sp, #0x84]
 	lsl r0, r0, #1
 	mov r1, #5
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #2
 	ldr r0, [sp, #0x84]
 	mul r1, r0
@@ -62476,7 +62476,7 @@ _0224BD24:
 	mul r0, r2
 	ldr r2, _0224BDE8 ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x10]
 	b _0224BD76
 _0224BD60:
@@ -62488,14 +62488,14 @@ _0224BD60:
 	mul r0, r2
 	ldr r2, _0224BDE8 ; =0x0225E285
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x10]
 _0224BD76:
 	ldr r0, [sp, #0x84]
 	ldr r1, [sp, #0x10]
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r1, #0x32
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 	ldr r0, [sp, #0xc]
 	mov r1, #2
@@ -62520,7 +62520,7 @@ _0224BD76:
 	ldr r0, [sp, #0x84]
 	mov r1, #3
 	lsl r0, r0, #1
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 	b _0224BDC8
 _0224BDBE:
@@ -62628,7 +62628,7 @@ _0224BE8C:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 _0224BE9A:
 	ldr r1, _0224BF0C ; =0x000080CF
@@ -62658,7 +62658,7 @@ _0224BEC4:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 	b _0224BEDE
 _0224BED4:
@@ -62681,7 +62681,7 @@ _0224BEDE:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x84]
 _0224BF00:
 	ldr r0, [sp, #0x84]
@@ -62707,7 +62707,7 @@ MOD11_0224BF10: ; 0x0224BF10
 	mov r1, #0x64
 	sub r0, r1, r0
 	mul r0, r4
-	blx _s32_div_f
+	bl _s32_div_f
 	add r4, r0, #0
 	bne _0224BF36
 	mov r4, #1
@@ -62812,7 +62812,7 @@ _0224BFE0:
 	bl FUN_0201B9EC
 	ldr r1, _0224C040 ; =0x0225E244
 	ldrb r1, [r1, r5]
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #0
 	bne _0224C026
 	ldr r1, [sp]
@@ -64223,7 +64223,7 @@ _0224C9A6:
 	mov r0, #0xf
 	mul r0, r1
 	mov r1, #0x3f
-	blx _s32_div_f
+	bl _s32_div_f
 	add r5, r0, #1
 	cmp r5, #9
 	blt _0224CA54
@@ -64295,7 +64295,7 @@ MOD11_0224CA64: ; 0x0224CA64
 	mov r0, #0
 	add r1, r4, #0
 	lsl r2, r2, #2
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	mov r0, #0x65
 	ldrb r1, [r5]
 	lsl r0, r0, #2
@@ -66824,7 +66824,7 @@ MOD11_0224DE50: ; 0x0224DE50
 	mov r0, #0
 	add r1, r4, #0
 	mov r2, #1
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	mov r0, #0x65
 	str r7, [r4, #0xc]
 	lsl r0, r0, #2
@@ -66918,7 +66918,7 @@ MOD11_0224DF18: ; 0x0224DF18
 	mov r0, #0
 	add r1, r4, #0
 	mov r2, #1
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	mov r0, #0x65
 	str r6, [r4, #0xc]
 	lsl r0, r0, #2
@@ -66957,7 +66957,7 @@ MOD11_0224DF60: ; 0x0224DF60
 	mov r0, #0
 	add r1, r4, #0
 	mov r2, #0x3c
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	mov r7, #0
 	strb r7, [r4, #0xa]
 	strb r7, [r4, #0xb]
@@ -67569,7 +67569,7 @@ _0224E422:
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #1
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	str r7, [r4, #0xc]
 	add r0, r4, #0
 	ldrb r1, [r5]
@@ -67637,7 +67637,7 @@ _0224E4AE:
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #1
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	str r7, [r4, #0xc]
 	add r0, r4, #0
 	ldrb r1, [r5]
@@ -68275,7 +68275,7 @@ MOD11_0224E9C0: ; 0x0224E9C0
 	mov r0, #0
 	add r1, r4, #0
 	mov r2, #1
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	mov r0, #0x65
 	str r7, [r4, #0xc]
 	lsl r0, r0, #2
@@ -72931,11 +72931,11 @@ MOD11_02250F94: ; 0x02250F94
 	add r0, r2, #0
 	ldr r2, _02251010 ; =0x0225E831
 	ldrb r1, [r2, r1]
-	blx _s32_div_f
+	bl _s32_div_f
 	add r5, r0, #0
 	bl FUN_0201B9EC
 	mov r1, #0xff
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, r5
 	ldr r0, [r4]
 	bgt _02250FEA
@@ -73224,7 +73224,7 @@ _0225122E:
 	blt _0225121C
 	bl FUN_0201B9EC
 	add r1, r7, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r1, r1, #2
 	add r0, sp, #0x10
 	ldr r4, [r0, r1]
@@ -74576,7 +74576,7 @@ _02251CEC:
 	mov r1, #0
 	mov r2, #1
 	add r5, r0, #0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [r4]
 	add r1, r6, #0
 	bl MOD11_02230260
@@ -77140,7 +77140,7 @@ _0225319A:
 	bl MOD11_02231244
 	add r1, r7, #0
 	mov r2, #0xe0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	ldr r0, [r4]
 	bl MOD11_0222FF74
 	cmp r0, #0x4a
@@ -77153,7 +77153,7 @@ _0225319A:
 	bl MOD11_02231250
 	add r1, r7, #0
 	mov r2, #0xa0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	b _0225323E
 _022531DC:
 	ldr r0, [r4]
@@ -77168,7 +77168,7 @@ _022531DC:
 	bl MOD11_02231250
 	add r1, r7, #0
 	mov r2, #0xe0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	b _0225323E
 _02253200:
 	ldr r0, [r4]
@@ -77184,7 +77184,7 @@ _02253200:
 	bl MOD11_02231250
 	add r1, r7, #0
 	mov r2, #0xa0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	b _0225323E
 _02253226:
 	add r0, r5, #0
@@ -77195,7 +77195,7 @@ _02253226:
 	bl MOD11_02231250
 	add r1, r7, #0
 	mov r2, #0x80
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 _0225323E:
 	mov r0, #0x10
 	str r0, [sp]
@@ -77292,7 +77292,7 @@ _022532F6:
 	bl MOD11_02231244
 	add r1, r6, #0
 	mov r2, #0xe0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	ldr r0, [r4]
 	bl MOD11_0222FF74
 	cmp r0, #0x4a
@@ -77305,7 +77305,7 @@ _022532F6:
 	bl MOD11_02231250
 	add r1, r6, #0
 	mov r2, #0xa0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	b _02253394
 _02253332:
 	ldr r0, [r4]
@@ -77320,7 +77320,7 @@ _02253332:
 	bl MOD11_02231250
 	add r1, r6, #0
 	mov r2, #0xe0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	b _02253394
 _02253356:
 	ldr r0, [r4]
@@ -77336,7 +77336,7 @@ _02253356:
 	bl MOD11_02231250
 	add r1, r6, #0
 	mov r2, #0xa0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	b _02253394
 _0225337C:
 	add r0, r5, #0
@@ -77347,7 +77347,7 @@ _0225337C:
 	bl MOD11_02231250
 	add r1, r6, #0
 	mov r2, #0x80
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 _02253394:
 	mov r3, #0
 	str r3, [sp]
@@ -79823,7 +79823,7 @@ _022546D4:
 	asr r1, r0, #0x1f
 	lsl r2, r2, #0xa
 	mov r3, #0
-	blx _ll_mul
+	bl _ll_mul
 	add r2, r1, #0
 	mov r1, #4
 	add r5, r0, #0
@@ -81204,7 +81204,7 @@ MOD11_02255188: ; 0x02255188
 	add r1, sp, #0x28
 	mov r2, #0x2c
 	add r6, r3, #0
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	ldr r0, [sp, #4]
 	bl MOD11_0222FF78
 	ldr r1, [sp, #0xc]
@@ -82911,7 +82911,7 @@ MOD11_02255EAC: ; 0x02255EAC
 	mov r0, #0x64
 	mul r0, r1
 	add r1, r2, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, sp, #4
 	strh r0, [r1, #2]
 	mov r0, #4
@@ -82952,7 +82952,7 @@ _02255F12:
 	mul r0, r1
 	add r1, r2, #4
 	ldr r1, [r6, r1]
-	blx _u32_div_f
+	bl _u32_div_f
 	add r1, sp, #4
 	strh r0, [r1, #2]
 _02255F24:
@@ -84395,7 +84395,7 @@ MOD11_022569DC: ; 0x022569DC
 	add r1, r5, #0
 	mov r2, #8
 	add r6, r3, #0
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	ldr r0, [sp]
 	bl MOD11_0222FF74
 	add r4, r0, #0
@@ -85259,7 +85259,7 @@ _0225705C:
 	add r1, r1, r3
 	ldr r3, _0225713C ; =0x0225E9B2
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r0, #0x45
 	bl MOD11_02257F60
 	add r1, r5, #0
@@ -85273,7 +85273,7 @@ _0225705C:
 	add r1, r1, r3
 	ldr r3, _02257144 ; =0x0225EA12
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	ldr r1, [r5, #0x28]
 	add r0, r5, #0
 	mov r2, #6
@@ -85295,7 +85295,7 @@ _022570E8:
 	add r1, r1, r3
 	ldr r3, _0225713C ; =0x0225E9B2
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r0, #0x44
 	bl MOD11_02257F60
 	add r1, r5, #0
@@ -85309,7 +85309,7 @@ _022570E8:
 	add r1, r1, r3
 	ldr r3, _0225714C ; =0x0225E9E2
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	ldr r1, [r5, #0x28]
 	add r0, r5, #0
 	mov r2, #1
@@ -85908,7 +85908,7 @@ MOD11_022574F0: ; 0x022574F0
 	add r0, r6, #0
 	ldrh r2, [r2, r7]
 	add r1, r3, r1
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, r5, #0
 	add r0, #0x25
 	ldrb r0, [r0]
@@ -85923,7 +85923,7 @@ MOD11_022574F0: ; 0x022574F0
 	ldr r0, [sp, #0x20]
 	ldrh r2, [r2, r7]
 	add r1, r3, r1
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, r5, #0
 	add r0, #0x25
 	ldrb r0, [r0]
@@ -85940,7 +85940,7 @@ MOD11_022574F0: ; 0x022574F0
 	add r1, r1, r3
 	ldr r3, _02257648 ; =0x0225EC92
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r5, #0x25
 	ldrb r0, [r5]
 	ldr r4, [r4, #4]
@@ -85957,7 +85957,7 @@ MOD11_022574F0: ; 0x022574F0
 	ldr r3, _02257650 ; =0x0225EC96
 	add r1, r4, r1
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, sp, #0x24
 	bl FUN_02019178
 	ldr r0, [sp, #0x18]
@@ -86022,7 +86022,7 @@ _02257670:
 	ldrh r2, [r3, r2]
 	add r0, r0, r1
 	add r1, r7, #0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	ldr r0, [sp]
 	ldr r1, _02257754 ; =0x0225EABC
 	add r0, #0x25
@@ -86039,7 +86039,7 @@ _02257670:
 	add r0, r0, r1
 	add r1, r7, #0
 	add r1, #0x40
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r2, #0
 	add r1, r2, #0
 _022576D6:
@@ -86077,7 +86077,7 @@ _022576DA:
 	ldr r3, _02257750 ; =0x0225EABA
 	add r0, r7, #0
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	ldr r0, [sp]
 	ldr r3, _02257754 ; =0x0225EABC
 	add r0, #0x25
@@ -86095,7 +86095,7 @@ _022576DA:
 	ldr r3, _02257758 ; =0x0225EABE
 	add r0, #0x40
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, r7, #0
 	bl FUN_02016A18
 	add sp, #8
@@ -86122,7 +86122,7 @@ MOD11_0225775C: ; 0x0225775C
 	add r0, r4, #0
 	mov r1, #0xff
 	mov r2, #0x60
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [sp, #4]
 	ldr r0, [r0, #0xc]
 	bl MOD11_022300BC
@@ -86153,7 +86153,7 @@ MOD11_0225775C: ; 0x0225775C
 	ldrh r2, [r3, r2]
 	add r0, r0, r1
 	add r1, r7, #0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	ldr r0, [sp, #4]
 	ldr r1, _02257874 ; =0x0225EA2C
 	add r0, #0x25
@@ -86170,7 +86170,7 @@ MOD11_0225775C: ; 0x0225775C
 	add r0, r0, r1
 	add r1, r7, #0
 	add r1, #0x60
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r2, #0
 	add r1, r2, #0
 _022577EE:
@@ -86208,7 +86208,7 @@ _022577F2:
 	ldr r3, _02257870 ; =0x0225EA2A
 	add r0, r7, #0
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	ldr r0, [sp, #4]
 	ldr r3, _02257874 ; =0x0225EA2C
 	add r0, #0x25
@@ -86226,7 +86226,7 @@ _022577F2:
 	ldr r3, _02257878 ; =0x0225EA2E
 	add r0, #0x60
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, r4, #0
 	bl FUN_02016A18
 	add r0, r7, #0
@@ -86250,7 +86250,7 @@ MOD11_0225787C: ; 0x0225787C
 	mov r1, #0xff
 	mov r2, #0x60
 	add r4, r0, #0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [r5, #0xc]
 	bl MOD11_022300B4
 	str r4, [sp]
@@ -86276,7 +86276,7 @@ MOD11_0225787C: ; 0x0225787C
 	ldr r3, _022578FC ; =0x0225EA5A
 	add r0, r4, #0
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r5, #0x25
 	ldrb r0, [r5]
 	ldr r3, _02257900 ; =0x0225EA5C
@@ -86290,7 +86290,7 @@ MOD11_0225787C: ; 0x0225787C
 	ldr r3, _02257904 ; =0x0225EA5E
 	ldrh r2, [r3, r2]
 	add r0, r4, r0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, r4, #0
 	bl FUN_02016A18
 	pop {r3, r4, r5, r6, r7, pc}
@@ -86310,7 +86310,7 @@ MOD11_02257908: ; 0x02257908
 	mov r1, #0xff
 	mov r2, #0x60
 	add r4, r0, #0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [r5, #0xc]
 	bl MOD11_022300B4
 	str r4, [sp]
@@ -86335,7 +86335,7 @@ MOD11_02257908: ; 0x02257908
 	ldr r3, _02257964 ; =0x0225E9FA
 	add r0, r4, #0
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, r4, #0
 	bl FUN_02016A18
 	pop {r3, r4, r5, pc}
@@ -86376,7 +86376,7 @@ _02257982:
 	ldr r3, _022579B4 ; =0x0225E9CA
 	add r1, r4, r1
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	pop {r3, r4, r5, pc}
 	nop
 _022579B0: .word 0x0225E9C8
@@ -86406,7 +86406,7 @@ MOD11_022579B8: ; 0x022579B8
 	ldr r3, _022579F4 ; =0x0225E99A
 	add r1, r4, r1
 	ldrh r2, [r3, r2]
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	pop {r3, r4, r5, pc}
 	nop
 _022579F0: .word 0x0225E998
@@ -86473,7 +86473,7 @@ _02257A26:
 	add r1, r1, r2
 	add r0, r5, #0
 	mov r2, #0xc0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r2, #0xd
 	mov r0, #0x1a
 	lsl r2, r2, #6
@@ -86483,7 +86483,7 @@ _02257A26:
 	add r1, r1, r2
 	add r0, r5, r0
 	mov r2, #0xc0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r2, #0xa
 	lsl r2, r2, #8
 	add r0, r5, #0
@@ -86492,7 +86492,7 @@ _02257A26:
 	add r1, r1, r2
 	add r0, #0xc0
 	mov r2, #0xe0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r0, #0x1a
 	mov r1, #0xb
 	lsl r0, r0, #4
@@ -86503,7 +86503,7 @@ _02257A26:
 	add r1, r2, r1
 	add r0, #0xc0
 	mov r2, #0xe0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, sp, #0x18
 	bl FUN_02019178
 	add r0, r7, #0
@@ -86598,7 +86598,7 @@ _02257B1E:
 	add r1, r1, r2
 	add r0, r5, #0
 	mov r2, #0xc0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r2, #0x15
 	mov r0, #0x1a
 	lsl r2, r2, #6
@@ -86608,7 +86608,7 @@ _02257B1E:
 	add r1, r1, r2
 	add r0, r5, r0
 	mov r2, #0xc0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r2, #3
 	lsl r2, r2, #0xa
 	add r0, r5, #0
@@ -86617,7 +86617,7 @@ _02257B1E:
 	add r1, r1, r2
 	add r0, #0xc0
 	mov r2, #0xe0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r0, #0x1a
 	mov r1, #0xd
 	lsl r0, r0, #4
@@ -86628,7 +86628,7 @@ _02257B1E:
 	add r1, r2, r1
 	add r0, #0xc0
 	mov r2, #0xe0
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, sp, #0x24
 	bl FUN_02019178
 	add r0, r6, #0
@@ -86671,8 +86671,8 @@ _02257C10:
 _02257C22:
 	ldr r6, [r5, #0x40]
 	add r0, r6, #0
-	blx _s32_div_f
-	blx abs
+	bl _s32_div_f
+	bl abs
 	mov r1, #0xb
 	lsl r0, r0, #0x10
 	add r3, r5, #0
@@ -86793,7 +86793,7 @@ _02257CE6:
 	add r2, r3, r2
 	add r1, r1, r2
 	mov r2, #0x20
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	b _02257D42
 _02257D16:
 	ldrb r0, [r0, r4]
@@ -86816,7 +86816,7 @@ _02257D16:
 	add r1, r1, r3
 	add r1, r2, r1
 	mov r2, #0x20
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 _02257D42:
 	add r0, r4, #1
 	lsl r0, r0, #0x18
@@ -86877,7 +86877,7 @@ _02257D9C:
 	add r0, r6, r0
 	add r1, r3, r1
 	mov r2, #0x20
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	b _02257DD0
 _02257DBA:
 	ldrb r0, [r0, r4]
@@ -86889,7 +86889,7 @@ _02257DBA:
 	add r1, r1, r2
 	add r0, r6, r0
 	mov r2, #0x20
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 _02257DD0:
 	add r0, r4, #1
 	lsl r0, r0, #0x18
@@ -86957,7 +86957,7 @@ _02257E3E:
 	bge _02257E7E
 	lsl r0, r0, #8
 	add r1, r2, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r6, #0
 	ldr r1, [r5]
 	bge _02257E62
@@ -87043,14 +87043,14 @@ _02257ECE:
 	add r0, r1, #0
 	mul r0, r2
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 	lsr r0, r0, #8
 	b _02257EEC
 _02257EE2:
 	add r0, r1, #0
 	mul r0, r2
 	add r1, r6, #0
-	blx _u32_div_f
+	bl _u32_div_f
 _02257EEC:
 	add r2, r0, #0
 	cmp r0, #0
@@ -87103,18 +87103,18 @@ _02257F38:
 	add r0, r7, #0
 	mul r0, r6
 	add r1, r5, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r7, r0, #0
 	add r0, r4, #0
 	mul r0, r6
 	add r1, r5, #0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r1, r7, #0x18
 	lsl r0, r0, #0x18
 	asr r1, r1, #0x18
 	asr r0, r0, #0x18
 	sub r0, r1, r0
-	blx abs
+	bl abs
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 
@@ -87281,7 +87281,7 @@ MOD11_0225805C: ; 0x0225805C
 	mov r1, #0
 	mov r2, #0xc
 	add r4, r0, #0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r2, #0xfa
 	str r5, [r4]
 	ldr r0, _0225808C ; =MOD11_02258090
@@ -87493,7 +87493,7 @@ _022581FC:
 	asr r1, r0, #0x1f
 	lsl r2, r2, #0xa
 	mov r3, #0
-	blx _ll_mul
+	bl _ll_mul
 	mov r2, #2
 	add r3, r0, #0
 	add r5, r1, #0
@@ -87722,7 +87722,7 @@ MOD11_022583D8: ; 0x022583D8
 	add r1, r5, #0
 	mov r2, #0x10
 	add r7, r3, #0
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	str r4, [r5, #4]
 	strb r6, [r5, #8]
 	strb r7, [r5, #9]
@@ -87748,7 +87748,7 @@ MOD11_0225840C: ; 0x0225840C
 	mov r0, #0
 	add r1, r4, #0
 	mov r2, #0x10
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	pop {r4, pc}
 	.align 2, 0
 
@@ -87763,7 +87763,7 @@ MOD11_02258428: ; 0x02258428
 	mov r1, #0
 	lsl r2, r2, #8
 	add r4, r0, #0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r1, #0
 	ldr r0, _0225844C ; =0x0000069F
 	mvn r1, r1
@@ -87891,7 +87891,7 @@ _02258512:
 	ldr r0, [sp, #0x18]
 	add r2, r7, #0
 	add r0, #0xc
-	blx MIi_CpuCopy32
+	bl MIi_CpuCopy32
 	add r0, r5, #0
 	bl FUN_02016A18
 	add r4, r4, #1
@@ -87919,7 +87919,7 @@ _0225854E:
 	mov r2, #2
 	ldr r1, [r6, #0x58]
 	lsl r2, r2, #8
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r5, r6, #0
 	mov r7, #0x46
 	mov r4, #0
@@ -87932,7 +87932,7 @@ _02258592:
 	add r0, r5, r0
 	mov r1, #0xff
 	mov r2, #0x18
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r4, r4, #1
 _022585A2:
 	cmp r4, #4
@@ -87981,7 +87981,7 @@ _022585DE:
 	ldr r1, [r6, #0x5c]
 	ldr r0, [r6, #0x58]
 	mov r2, #0x20
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	mov r0, #7
 	mov r1, #0xca
 	add r2, sp, #0x14
@@ -87992,7 +87992,7 @@ _022585DE:
 	ldr r1, [r6, #0x60]
 	ldr r0, [r0, #0xc]
 	mov r2, #0x20
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	add r0, r4, #0
 	bl FUN_02016A18
 	bl FUN_02002BE4
@@ -88226,7 +88226,7 @@ MOD11_02258820: ; 0x02258820
 	add r0, r3, #0
 	add r1, #0x18
 	mov r2, #0x22
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 _0225883A:
 	ldr r0, _0225893C ; =0x000006A2
 	mov r1, #0
@@ -88333,7 +88333,7 @@ _022588D0:
 	ldr r0, _02258950 ; =0x04001050
 	mov r1, #2
 	mov r3, #0x1b
-	blx G2x_SetBlendAlpha_
+	bl G2x_SetBlendAlpha_
 	add r0, r7, #0
 	bl MOD11_0225ACB0
 	ldr r0, [sp, #0x2c]
@@ -89077,7 +89077,7 @@ _02258F20:
 	add r0, r5, r0
 	mov r1, #0
 	mov r2, #4
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, _02258F54 ; =0x000006EC
 	ldr r0, [r5, r0]
 	bl MOD11_0225D648
@@ -89445,7 +89445,7 @@ MOD11_0225916C: ; 0x0225916C
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x14
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	str r5, [r4]
 	ldr r0, _02259254 ; =0xFFFF9C64
 	strb r6, [r4, #0x12]
@@ -89458,7 +89458,7 @@ MOD11_0225916C: ; 0x0225916C
 	ldr r0, _02259258 ; =0x0000639C
 	sub r0, r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	strh r0, [r4, #0xc]
 	mov r0, #0xa
 	ldrsh r1, [r4, r0]
@@ -89466,7 +89466,7 @@ MOD11_0225916C: ; 0x0225916C
 	lsl r0, r0, #4
 	sub r0, r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	strh r0, [r4, #0xe]
 	ldr r0, _0225925C ; =0x0000070E
 	bl FUN_020054C8
@@ -91621,7 +91621,7 @@ MOD11_0225A428: ; 0x0225A428
 	add r1, r4, r1
 	asr r5, r1, #3
 	mov r1, #8
-	blx FX_ModS32
+	bl FX_ModS32
 	cmp r0, #0
 	beq _0225A450
 	add r5, r5, #1
@@ -92109,7 +92109,7 @@ _0225A7CE:
 	ldr r0, [r0, #0x14]
 	ldr r1, [r1, #0x18]
 	ldr r2, [sp, #0xc]
-	blx MIi_CpuCopy32
+	bl MIi_CpuCopy32
 	ldr r0, [sp, #0x44]
 	bl FUN_02016A18
 _0225A814:
@@ -92426,7 +92426,7 @@ _0225AA24:
 	lsl r3, r3, #0x14
 	ldr r0, [r0, #0x18]
 	add r1, r3, r1
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 _0225AA9E:
 	add r4, r4, #1
 _0225AAA0:
@@ -92821,7 +92821,7 @@ _0225AD90:
 	add r0, r4, r0
 	mov r1, #0
 	mov r2, #0x24
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r2, _0225ADAC ; =0x00000514
 	add r0, r5, #0
 	add r1, r4, #0
@@ -92845,7 +92845,7 @@ MOD11_0225ADB0: ; 0x0225ADB0
 	add r0, r4, r0
 	mov r2, #0x24
 	str r1, [r4, #8]
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 _0225ADCE:
 	pop {r4, pc}
 
@@ -93706,13 +93706,13 @@ _0225B454:
 	lsl r0, r0, #2
 	sub r0, r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	strh r0, [r5, #0xc]
 	mov r0, #0xa
 	ldrsh r0, [r5, r0]
 	mov r1, #0x64
 	neg r0, r0
-	blx _s32_div_f
+	bl _s32_div_f
 	strh r0, [r5, #0xe]
 	mov r0, #8
 	ldrsh r0, [r5, r0]
@@ -93829,7 +93829,7 @@ _0225B55A:
 	ldrsh r0, [r5, r0]
 	mov r1, #0x64
 	neg r0, r0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r4, r0, #0
 	b _0225B5B6
 _0225B586:
@@ -93852,7 +93852,7 @@ _0225B590:
 	mov r0, #8
 	ldrsh r0, [r5, r0]
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r4, r0, #0
 	add r4, #0xff
 _0225B5B6:
@@ -93869,7 +93869,7 @@ _0225B5B6:
 	mov r0, #0xa
 	ldrsh r0, [r5, r0]
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, #0x90
 	cmp r4, #0
 	bge _0225B5E2
@@ -94210,7 +94210,7 @@ _0225B866:
 	add r0, #0x16
 	add r1, #0x16
 	mov r2, #0xa
-	blx memcmp
+	bl memcmp
 	cmp r0, #0
 	bne _0225B8A8
 	ldr r0, [r5, #0x60]
@@ -94218,7 +94218,7 @@ _0225B866:
 	add r0, #0x16
 	add r1, r4, #0
 	mov r2, #0xa
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 	pop {r3, r4, r5, r6, r7, pc}
 _0225B888:
 	ldr r1, [r5, #0x60]
@@ -94226,7 +94226,7 @@ _0225B888:
 	add r0, #0x16
 	add r1, #0x16
 	mov r2, #0xa
-	blx memcmp
+	bl memcmp
 	cmp r0, #0
 	bne _0225B8A8
 	ldr r0, [r5, #0x5c]
@@ -94234,7 +94234,7 @@ _0225B888:
 	add r0, #0x16
 	add r1, r4, #0
 	mov r2, #0xa
-	blx MIi_CpuCopy16
+	bl MIi_CpuCopy16
 _0225B8A8:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -94819,7 +94819,7 @@ _0225BD10:
 	ldr r0, _0225BDD8 ; =0x0225F6A0
 	add r1, sp, #8
 	mov r2, #6
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r0, r4, #0
 	mov r1, #2
 	mov r2, #3
@@ -95001,7 +95001,7 @@ MOD11_0225BE30: ; 0x0225BE30
 	str r0, [sp, #0x48]
 	ldr r0, _0225C13C ; =0x0225F690
 	add r1, sp, #0x50
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r1, sp, #0x58
 	add r0, r6, #0
 	add r1, #2
@@ -96552,7 +96552,7 @@ MOD11_0225C9D4: ; 0x0225C9D4
 	mov r1, #0
 	lsl r2, r2, #6
 	add r4, r0, #0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r4, #0
 	pop {r4, pc}
 	.align 2, 0
@@ -96741,7 +96741,7 @@ _0225CB32:
 	add r0, r5, #0
 	mov r1, #0
 	mov r2, #0x1c
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r1, [sp, #0x18]
 	ldr r2, _0225CBA8 ; =0x0225FE48
 	add r0, r7, #0
@@ -96958,7 +96958,7 @@ _0225CCBC:
 	sub r0, r0, r3
 	str r0, [sp]
 	ldr r0, _0225CDA0 ; =0x04000050
-	blx G2x_SetBlendAlpha_
+	bl G2x_SetBlendAlpha_
 	ldrb r0, [r4, #0x1a]
 	add r0, r0, #1
 	strb r0, [r4, #0x1a]
@@ -97076,7 +97076,7 @@ _0225CDD4:
 	add r0, r5, #0
 	mov r1, #0
 	mov r2, #0x30
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x28]
 	ldr r2, _0225CEA4 ; =0x0225FE7C
@@ -98000,7 +98000,7 @@ _0225D496:
 	mov r1, #0
 	mov r2, #0x18
 	str r0, [sp]
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r5, [sp]
 	mov r4, #0
 _0225D4CE:
@@ -98351,7 +98351,7 @@ _0225D74C:
 	mov r1, #0
 	mov r2, #0x20
 	add r4, r0, #0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r1, [sp]
 	add r0, r7, #0
 	add r2, sp, #4
@@ -98497,7 +98497,7 @@ _0225D886:
 	bne _0225D8DA
 	ldr r0, [r4, #0x10]
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bl FUN_0201B93C
@@ -98505,7 +98505,7 @@ _0225D886:
 	asr r1, r0, #0x1f
 	lsl r2, r2, #0xc
 	mov r3, #0
-	blx _ll_mul
+	bl _ll_mul
 	add r5, r1, #0
 	ldr r1, [r4, #8]
 	mov r2, #2
