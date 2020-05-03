@@ -6,23 +6,17 @@
 #include "consts.h"
 #include "OS_entropy.h"
 
-u32 * const HW_REG_006 = (u32 *) 0x04000006;
-u32 * const HW_REG_130 = (u32 *) 0x04000130;
-u32 * const HW_REG_600 = (u32 *) 0x04000600;
-
-u32 * const OSi_TickCounter = (u32 *) 0x021D37B4;
-
 ARM_FUNC void OS_GetLowEntropyData(u32 * arr)
 {
-    OSSystemWork* work = OS_GetSystemWork();
-    u16 x = *((u16 *)HW_REG_006);
-    u8 * nvramUserInfo = work->nvramUserInfo;
-    u8 r5 = nvramUserInfo[0x74];
-    arr[0] = (OS_GetTickLo()<<0x10) | x ;
-    arr[1] = (OSi_TickCounter[0]<<0x10) ^ r5[2];
-    u32 what = OSi_TickCounter[0];
-    what = OSi_TickCounter[1];
-    arr[2] = *((u32 *)r4) ^ what ^ *(u32 *)((u8 *)work+0x3c);
-    arr[2] ^= *HW_REG_600;
-    // ...
+    const OSSystemWork* work = OS_GetSystemWork();
+    const u8 * macAddress = (u8 *)((u32)(work->nvramUserInfo) + ((sizeof(NVRAMConfig) + 3) & ~3));
+    arr[0] = (u32)((GX_GetVCount() << 16) | OS_GetTickLo());
+    arr[1] = (u32)(*(u16 *)(macAddress + 4) << 16) ^ (u32)(OSi_TickCounter);
+    arr[2] = (u32)(OSi_TickCounter >> 32) ^ *(u32 *)macAddress ^ work->vblankCount;
+    arr[2] ^= reg_G3X_GXSTAT;
+    arr[3] = *(u32 *)(&work->real_time_clock[0]);
+    arr[4] = *(u32 *)(&work->real_time_clock[4]);
+    arr[5] = (((u32)work->mic_sampling_data) << 16) ^ work->mic_last_address;
+    arr[6] = (u32) ((*(u16 *)(&work->touch_panel[0]) << 16) | *(u16 *)(&work->touch_panel[2]));
+    arr[7] = (u32)((work->wm_rssi_pool << 16) | (reg_PAD_KEYINPUT | *(vu16 *)HW_BUTTON_XY_BUF));
 }
