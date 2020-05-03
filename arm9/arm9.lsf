@@ -58,62 +58,63 @@ Autoload EXT
 Overlay overlay_00
 {
 	Address 0x021D74E0
-	Object FILE_10C400.o
+	Object module_00_dummy.o
 }
 Overlay overlay_01
 {
 	Address 0x021D74E0
-	Object FILE_10C600.o
+	Object module_01.o
 }
 Overlay overlay_02
 {
 	Address 0x021D7520
-	Object FILE_10C800.o
+	Object module_02_dummy.o
 }
 Overlay overlay_03
 {
 	Address 0x01FF8700
-	Object FILE_10CA00.o
+	Object module_03_dummy.o
 }
 Overlay overlay_04
 {
 	Address 0x021D74E0
-	Object FILE_10CC00.o
+	Object thumb_04.o
+	Object arm_04.o
 }
 Overlay overlay_05
 {
 	Address 0x021D74E0
-	Object FILE_145400.o
+	Object module_05.o
 }
 Overlay overlay_06
 {
 	Address 0x022396A0
-	Object FILE_16B600.o
+	Object module_06.o
 }
 Overlay overlay_07
 {
 	Address 0x02211E60
-	Object FILE_184400.o
+	Object module_07.o
 }
 Overlay overlay_08
 {
 	Address 0x02211E60
-	Object FILE_187800.o
+	Object module_08.o
 }
 Overlay overlay_09
 {
 	Address 0x02211E60
-	Object FILE_1A3000.o
+	Object module_09.o
 }
 Overlay overlay_10
 {
 	Address 0x021D74E0
-	Object FILE_1AD200.o
+	Object module_10_dummy.o
 }
 Overlay overlay_11
 {
 	Address 0x0222D5C0
-	Object FILE_1AD400.o
+	Object module_11.o
 }
 Overlay overlay_12
 {
