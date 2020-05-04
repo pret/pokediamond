@@ -3,7 +3,7 @@
 #include "fx.h"
 
 
-void MTX_ScaleApply43(struct Mtx43 *mtx, struct Mtx43 *dst, fx32 x, fx32 y, fx32 z){
+ARM_FUNC void MTX_ScaleApply43(struct Mtx43 *mtx, struct Mtx43 *dst, fx32 x, fx32 y, fx32 z){
     //this works because matrices are indexed columns first
     MTX_ScaleApply33((struct Mtx33 *)mtx, (struct Mtx33 *)dst, x, y, z);
     dst->_[9] = mtx->_[9];
@@ -11,7 +11,7 @@ void MTX_ScaleApply43(struct Mtx43 *mtx, struct Mtx43 *dst, fx32 x, fx32 y, fx32
     dst->_[11] = mtx->_[11];
 }
 
-fx32 MTX_Inverse43(struct Mtx43 *mtx, struct Mtx43 *inv){
+ARM_FUNC fx32 MTX_Inverse43(struct Mtx43 *mtx, struct Mtx43 *inv){
     struct Mtx43 tempmat;
     struct Mtx43 *dst;
     fx32 det0, det1, det2, det;
@@ -59,7 +59,7 @@ fx32 MTX_Inverse43(struct Mtx43 *mtx, struct Mtx43 *inv){
     return 0;
 }
 
-void MTX_Concat43(struct Mtx43 *a, struct Mtx43 *b, struct Mtx43 *c){
+ARM_FUNC void MTX_Concat43(struct Mtx43 *a, struct Mtx43 *b, struct Mtx43 *c){
     struct Mtx43 temp;
     struct Mtx43 *dst;
     fx32 a0, a1, a2;
@@ -107,7 +107,7 @@ void MTX_Concat43(struct Mtx43 *a, struct Mtx43 *b, struct Mtx43 *c){
         *c = temp;
 }
 
-void MTX_MultVec43(struct Vecx32 *vec, struct Mtx43 *mtx, struct Vecx32 *dst){
+ARM_FUNC void MTX_MultVec43(struct Vecx32 *vec, struct Mtx43 *mtx, struct Vecx32 *dst){
     fx32 x, y, z;
     x = vec->x;
     y = vec->y;
@@ -120,7 +120,7 @@ void MTX_MultVec43(struct Vecx32 *vec, struct Mtx43 *mtx, struct Vecx32 *dst){
     dst->z += mtx->_[11];
 }
 
-asm void MTX_Identity43_(struct Mtx43 *mtx){
+ARM_FUNC asm void MTX_Identity43_(struct Mtx43 *mtx){
     mov r2, #0x1000
     mov r3, #0x0
     stmia r0!, {r2-r3}
@@ -133,7 +133,7 @@ asm void MTX_Identity43_(struct Mtx43 *mtx){
     bx lr
 }
 
-asm void MTX_Copy43To44_(struct Mtx43 *src, struct Mtx44 *dst){
+ARM_FUNC asm void MTX_Copy43To44_(struct Mtx43 *src, struct Mtx44 *dst){
     stmdb sp!, {r4}
     mov r12, #0x0
     ldmia r0!, {r2-r4}
@@ -149,8 +149,7 @@ asm void MTX_Copy43To44_(struct Mtx43 *src, struct Mtx44 *dst){
     bx lr
 }
 
-#pragma thumb on
-asm void MTX_Scale43_(struct Mtx43 *dst, fx32 x, fx32 y, fx32 z){
+THUMB_FUNC asm void MTX_Scale43_(struct Mtx43 *dst, fx32 x, fx32 y, fx32 z){
     stmia r0!, {r1}
     mov r1, #0x0
     str r3, [r0, #0x1c]
@@ -163,10 +162,8 @@ asm void MTX_Scale43_(struct Mtx43 *dst, fx32 x, fx32 y, fx32 z){
     stmia r0!, {r1-r3}
     bx lr
 }
-#pragma thumb off
 
-#pragma thumb on
-asm void MTX_RotX43_(struct Mtx43 *mtx, fx32 sinphi, fx32 cosphi){
+THUMB_FUNC asm void MTX_RotX43_(struct Mtx43 *mtx, fx32 sinphi, fx32 cosphi){
     str r1, [r0, #0x14]
 	neg r1, r1
 	str r1, [r0, #0x1c]
@@ -183,10 +180,8 @@ asm void MTX_RotX43_(struct Mtx43 *mtx, fx32 sinphi, fx32 cosphi){
 	stmia r0!, {r1,r3}
 	bx lr
 }
-#pragma thumb off
 
-#pragma thumb on
-asm void MTX_RotY43_(struct Mtx43 *mtx, fx32 sinphi, fx32 cosphi){
+THUMB_FUNC asm void MTX_RotY43_(struct Mtx43 *mtx, fx32 sinphi, fx32 cosphi){
     str r1, [r0, #0x18]
 	mov r3, #0x0
 	stmia r0!, {r2-r3}
@@ -201,4 +196,3 @@ asm void MTX_RotY43_(struct Mtx43 *mtx, fx32 sinphi, fx32 cosphi){
 	stmia r0!, {r1,r3}
 	bx lr
 }
-#pragma thumb off

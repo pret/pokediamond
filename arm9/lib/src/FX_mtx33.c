@@ -2,7 +2,7 @@
 #include "main.h"
 #include "fx.h"
 
-void MTX_ScaleApply33(struct Mtx33 *mtx, struct Mtx33 *dst, fx32 x, fx32 y, fx32 z){
+ARM_FUNC void MTX_ScaleApply33(struct Mtx33 *mtx, struct Mtx33 *dst, fx32 x, fx32 y, fx32 z){
     dst->_[0] = ((fx64)x * mtx->_[0]) >> FX32_INT_SHIFT;
     dst->_[1] = ((fx64)x * mtx->_[1]) >> FX32_INT_SHIFT;
     dst->_[2] = ((fx64)x * mtx->_[2]) >> FX32_INT_SHIFT;
@@ -14,7 +14,7 @@ void MTX_ScaleApply33(struct Mtx33 *mtx, struct Mtx33 *dst, fx32 x, fx32 y, fx32
     dst->_[8] = ((fx64)z * mtx->_[8]) >> FX32_INT_SHIFT;
 }
 
-void MTX_Concat33(struct Mtx33 *a, struct Mtx33 *b, struct Mtx33 *c){
+ARM_FUNC void MTX_Concat33(struct Mtx33 *a, struct Mtx33 *b, struct Mtx33 *c){
     struct Mtx33 temp;
     struct Mtx33 *dst;
     fx32 a0, a1, a2;
@@ -57,7 +57,7 @@ void MTX_Concat33(struct Mtx33 *a, struct Mtx33 *b, struct Mtx33 *c){
         *c = temp;
 }
 
-void MTX_MultVec33(struct Vecx32 *vec, struct Mtx33 *mtx, struct Vecx32 *dst){
+ARM_FUNC void MTX_MultVec33(struct Vecx32 *vec, struct Mtx33 *mtx, struct Vecx32 *dst){
     fx32 x, y, z;
     x = vec->x;
     y = vec->y;
@@ -67,7 +67,7 @@ void MTX_MultVec33(struct Vecx32 *vec, struct Mtx33 *mtx, struct Vecx32 *dst){
     dst->z = ((fx64)x * mtx->_[2] + (fx64)y * mtx->_[5] + (fx64)z * mtx->_[8]) >> FX32_INT_SHIFT;
 }
 
-asm void MTX_Identity33_(struct Mtx33 *mtx){
+ARM_FUNC asm void MTX_Identity33_(struct Mtx33 *mtx){
     mov r2, #0x1000
     str r2, [r0, #0x20]
     mov r3, #0x0
@@ -79,8 +79,7 @@ asm void MTX_Identity33_(struct Mtx33 *mtx){
     bx lr
 }
 
-#pragma thumb on
-asm void MTX_RotX33_(struct Mtx33 *mtx, fx32 sinphi, fx32 cosphi){
+THUMB_FUNC asm void MTX_RotX33_(struct Mtx33 *mtx, fx32 sinphi, fx32 cosphi){
     mov r3, #0x1
 	lsl r3, r3, #0xc
 	str r3, [r0, #0x0]
@@ -96,10 +95,8 @@ asm void MTX_RotX33_(struct Mtx33 *mtx, fx32 sinphi, fx32 cosphi){
 	str r2, [r0, #0x20]
 	bx lr
 }
-#pragma thumb off
 
-#pragma thumb on
-asm void MTX_RotY33_(struct Mtx33 *mtx, fx32 sinphi, fx32 cosphi){
+THUMB_FUNC asm void MTX_RotY33_(struct Mtx33 *mtx, fx32 sinphi, fx32 cosphi){
     str r2, [r0, #0x0]
 	str r2, [r0, #0x20]
 	mov r3, #0x0
@@ -115,10 +112,8 @@ asm void MTX_RotY33_(struct Mtx33 *mtx, fx32 sinphi, fx32 cosphi){
 	str r3, [r0, #0x10]
 	bx lr
 }
-#pragma thumb off
 
-#pragma thumb on
-asm void MTX_RotZ33_(struct Mtx33 *mtx, fx32 sinphi, fx32 cosphi){
+THUMB_FUNC asm void MTX_RotZ33_(struct Mtx33 *mtx, fx32 sinphi, fx32 cosphi){
     stmia r0!, {r2}
 	mov r3, #0x0
 	stmia r0!, {r1,r3}
@@ -132,4 +127,3 @@ asm void MTX_RotZ33_(struct Mtx33 *mtx, fx32 sinphi, fx32 cosphi){
 	str r1, [r0, #0xc]
 	bx lr
 }
-#pragma thumb off

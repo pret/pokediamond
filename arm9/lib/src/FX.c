@@ -2,11 +2,11 @@
 #include "main.h"
 #include "fx.h"
 
-void FX_Init(){
+ARM_FUNC void FX_Init(){
     return;
 }
 
-fx32 FX_Modf(fx32 x, fx32 *iptr){
+ARM_FUNC fx32 FX_Modf(fx32 x, fx32 *iptr){
     if (x >= 0)
     {
         *iptr = x & 0x7FFFF000;

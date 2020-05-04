@@ -2,14 +2,14 @@
 #include "main.h"
 #include "fx.h"
 
-void MTX_ScaleApply22(struct Mtx22 *mtx, struct Mtx22 *dst, fx32 x, fx32 y){
+ARM_FUNC void MTX_ScaleApply22(struct Mtx22 *mtx, struct Mtx22 *dst, fx32 x, fx32 y){
     dst->_[0] = ((fx64)x * mtx->_[0]) >> FX32_INT_SHIFT;
     dst->_[1] = ((fx64)x * mtx->_[1]) >> FX32_INT_SHIFT;
     dst->_[2] = ((fx64)y * mtx->_[2]) >> FX32_INT_SHIFT;
     dst->_[3] = ((fx64)y * mtx->_[3]) >> FX32_INT_SHIFT;
 }
 
-asm void MTX_Identity22_(struct Mtx22 *mtx){
+ARM_FUNC asm void MTX_Identity22_(struct Mtx22 *mtx){
     mov r1, #0x0
     mov r2, #0x1000
     mov r3, #0x0
@@ -18,8 +18,7 @@ asm void MTX_Identity22_(struct Mtx22 *mtx){
     bx lr
 }
 
-#pragma thumb on
-asm void MTX_Rot22_(struct Mtx22 *mtx, fx32 sinphi, fx32 cosphi){
+THUMB_FUNC asm void MTX_Rot22_(struct Mtx22 *mtx, fx32 sinphi, fx32 cosphi){
     str r2, [r0, #0x0]
 	str r1, [r0, #0x4]
 	neg r1, r1
@@ -27,4 +26,3 @@ asm void MTX_Rot22_(struct Mtx22 *mtx, fx32 sinphi, fx32 cosphi){
 	str r2, [r0, #0xc]
 	bx lr
 }
-#pragma thumb off

@@ -4,7 +4,7 @@
 
 extern fx16 FX_AtanTable_[];
 
-u16 FX_Atan(fx32 x){
+ARM_FUNC u16 FX_Atan(fx32 x){
     if (x >= 0)
     {
         if (x > 0x1000)
@@ -41,7 +41,7 @@ u16 FX_Atan(fx32 x){
     }
 }
 
-u16 FX_Atan2(fx32 x, fx32 y){
+ARM_FUNC u16 FX_Atan2(fx32 x, fx32 y){
     fx32 result;
     u32 positive, bias, denominator, numerator;
     if (x > 0)
