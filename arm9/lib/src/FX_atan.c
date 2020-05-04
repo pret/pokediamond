@@ -2,15 +2,15 @@
 #include "main.h"
 #include "fx.h"
 
-extern s16 FX_AtanTable_[];
+extern fx16 FX_AtanTable_[];
 
-u16 FX_Atan(s32 x){
+u16 FX_Atan(fx32 x){
     if (x >= 0)
     {
         if (x > 0x1000)
         {
             x = FX_Inv(x);
-            s16 y = FX_AtanTable_[x >> 5];
+            fx16 y = FX_AtanTable_[x >> 5];
             return 0x4000 - y;
         }
         else if (x < 0x1000)
@@ -27,7 +27,7 @@ u16 FX_Atan(s32 x){
         if (x < -0x1000)
         {
             x = FX_Inv(-x);
-            s16 y = FX_AtanTable_[x >> 5];
+            fx16 y = FX_AtanTable_[x >> 5];
             return y - 0x4000;
         }
         else if (x > -0x1000)
@@ -41,8 +41,8 @@ u16 FX_Atan(s32 x){
     }
 }
 
-u16 FX_Atan2(s32 x, s32 y){
-    s32 result;
+u16 FX_Atan2(fx32 x, fx32 y){
+    fx32 result;
     u32 positive, bias, denominator, numerator;
     if (x > 0)
     {

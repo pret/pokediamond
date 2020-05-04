@@ -6,7 +6,7 @@ void FX_Init(){
     return;
 }
 
-s32 FX_Modf(s32 x, s32 *iptr){
+fx32 FX_Modf(fx32 x, fx32 *iptr){
     if (x >= 0)
     {
         *iptr = x & 0x7FFFF000;

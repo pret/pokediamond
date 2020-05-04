@@ -5,20 +5,20 @@
 void MI_Copy48B(void *src, void *dst);
 
 
-void MTX_TransApply44(struct Mtx44 *mtx, struct Mtx44 *dst, s32 x, s32 y, s32 z){
+void MTX_TransApply44(struct Mtx44 *mtx, struct Mtx44 *dst, fx32 x, fx32 y, fx32 z){
     if(mtx != dst)
         MI_Copy48B(mtx, dst);
-    dst->_[12] = mtx->_[12] + (s32)(((s64)x * mtx->_[0] + (s64)y * mtx->_[4] + (s64)z * mtx->_[8] ) >> FX32_INT_SHIFT);
-    dst->_[13] = mtx->_[13] + (s32)(((s64)x * mtx->_[1] + (s64)y * mtx->_[5] + (s64)z * mtx->_[9] ) >> FX32_INT_SHIFT);
-    dst->_[14] = mtx->_[14] + (s32)(((s64)x * mtx->_[2] + (s64)y * mtx->_[6] + (s64)z * mtx->_[10]) >> FX32_INT_SHIFT);
-    dst->_[15] = mtx->_[15] + (s32)(((s64)x * mtx->_[3] + (s64)y * mtx->_[7] + (s64)z * mtx->_[11]) >> FX32_INT_SHIFT);
+    dst->_[12] = mtx->_[12] + (fx32)(((fx64)x * mtx->_[0] + (fx64)y * mtx->_[4] + (fx64)z * mtx->_[8] ) >> FX32_INT_SHIFT);
+    dst->_[13] = mtx->_[13] + (fx32)(((fx64)x * mtx->_[1] + (fx64)y * mtx->_[5] + (fx64)z * mtx->_[9] ) >> FX32_INT_SHIFT);
+    dst->_[14] = mtx->_[14] + (fx32)(((fx64)x * mtx->_[2] + (fx64)y * mtx->_[6] + (fx64)z * mtx->_[10]) >> FX32_INT_SHIFT);
+    dst->_[15] = mtx->_[15] + (fx32)(((fx64)x * mtx->_[3] + (fx64)y * mtx->_[7] + (fx64)z * mtx->_[11]) >> FX32_INT_SHIFT);
 }
 
 void MTX_Concat44(struct Mtx44 *a, struct Mtx44 *b, struct Mtx44 *c){
     struct Mtx44 temp;
     struct Mtx44 *dst;
-    s32 a0, a1, a2, a3;
-    s32 b0, b1, b2, b3;
+    fx32 a0, a1, a2, a3;
+    fx32 b0, b1, b2, b3;
 
     if (c == b)
         dst = &temp;
@@ -29,46 +29,46 @@ void MTX_Concat44(struct Mtx44 *a, struct Mtx44 *b, struct Mtx44 *c){
     a1 = a->_[1];
     a2 = a->_[2];
     a3 = a->_[3];
-    dst->_[0] =  (((s64)a0  * b->_[0] + (s64)a1  * b->_[4] + (s64)a2  * b->_[8]  + (s64)a3  * b->_[12]) >> FX32_INT_SHIFT);
-    dst->_[1] =  (((s64)a0  * b->_[1] + (s64)a1  * b->_[5] + (s64)a2  * b->_[9]  + (s64)a3  * b->_[13]) >> FX32_INT_SHIFT);
-    dst->_[3] =  (((s64)a0  * b->_[3] + (s64)a1  * b->_[7] + (s64)a2  * b->_[11] + (s64)a3  * b->_[15]) >> FX32_INT_SHIFT);
+    dst->_[0] =  (((fx64)a0  * b->_[0] + (fx64)a1  * b->_[4] + (fx64)a2  * b->_[8]  + (fx64)a3  * b->_[12]) >> FX32_INT_SHIFT);
+    dst->_[1] =  (((fx64)a0  * b->_[1] + (fx64)a1  * b->_[5] + (fx64)a2  * b->_[9]  + (fx64)a3  * b->_[13]) >> FX32_INT_SHIFT);
+    dst->_[3] =  (((fx64)a0  * b->_[3] + (fx64)a1  * b->_[7] + (fx64)a2  * b->_[11] + (fx64)a3  * b->_[15]) >> FX32_INT_SHIFT);
     b0 = b->_[2];
     b1 = b->_[6];
     b2 = b->_[10];
     b3 = b->_[14];
-    dst->_[2] =  (((s64)a0  * b0 + (s64)a1  * b1 + (s64)a2  * b2 + (s64)a3  * b3) >> FX32_INT_SHIFT);
+    dst->_[2] =  (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2  * b2 + (fx64)a3  * b3) >> FX32_INT_SHIFT);
     a0 = a->_[4];
     a1 = a->_[5];
     a2 = a->_[6];
     a3 = a->_[7];
-    dst->_[6] =  (((s64)a0  * b0 + (s64)a1  * b1 + (s64)a2  * b2 + (s64)a3  * b3) >> FX32_INT_SHIFT);
-    dst->_[5] =  (((s64)a0  * b->_[1] + (s64)a1  * b->_[5] + (s64)a2  * b->_[9]  + (s64)a3  * b->_[13]) >> FX32_INT_SHIFT);
-    dst->_[7] =  (((s64)a0  * b->_[3] + (s64)a1  * b->_[7] + (s64)a2  * b->_[11] + (s64)a3  * b->_[15]) >> FX32_INT_SHIFT);
+    dst->_[6] =  (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2  * b2 + (fx64)a3  * b3) >> FX32_INT_SHIFT);
+    dst->_[5] =  (((fx64)a0  * b->_[1] + (fx64)a1  * b->_[5] + (fx64)a2  * b->_[9]  + (fx64)a3  * b->_[13]) >> FX32_INT_SHIFT);
+    dst->_[7] =  (((fx64)a0  * b->_[3] + (fx64)a1  * b->_[7] + (fx64)a2  * b->_[11] + (fx64)a3  * b->_[15]) >> FX32_INT_SHIFT);
     b0 = b->_[0];
     b1 = b->_[4];
     b2 = b->_[8];
     b3 = b->_[12];
-    dst->_[4] =  (((s64)a0  * b0 + (s64)a1  * b1 + (s64)a2  * b2  + (s64)a3  * b3) >> FX32_INT_SHIFT);
+    dst->_[4] =  (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2  * b2  + (fx64)a3  * b3) >> FX32_INT_SHIFT);
     a0 = a->_[8];
     a1 = a->_[9];
     a2 = a->_[10];
     a3 = a->_[11];
-    dst->_[8] =  (((s64)a0  * b0 + (s64)a1  * b1 + (s64)a2 * b2  + (s64)a3 * b3) >> FX32_INT_SHIFT);
-    dst->_[9] =  (((s64)a0  * b->_[1] + (s64)a1  * b->_[5] + (s64)a2 * b->_[9]  + (s64)a3 * b->_[13]) >> FX32_INT_SHIFT);
-    dst->_[11] = (((s64)a0  * b->_[3] + (s64)a1  * b->_[7] + (s64)a2 * b->_[11] + (s64)a3 * b->_[15]) >> FX32_INT_SHIFT);
+    dst->_[8] =  (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2 * b2  + (fx64)a3 * b3) >> FX32_INT_SHIFT);
+    dst->_[9] =  (((fx64)a0  * b->_[1] + (fx64)a1  * b->_[5] + (fx64)a2 * b->_[9]  + (fx64)a3 * b->_[13]) >> FX32_INT_SHIFT);
+    dst->_[11] = (((fx64)a0  * b->_[3] + (fx64)a1  * b->_[7] + (fx64)a2 * b->_[11] + (fx64)a3 * b->_[15]) >> FX32_INT_SHIFT);
     b0 = b->_[2];
     b1 = b->_[6];
     b2 = b->_[10];
     b3 = b->_[14];
-    dst->_[10] = (((s64)a0  * b0 + (s64)a1  * b1 + (s64)a2 * b2 + (s64)a3 * b3) >> FX32_INT_SHIFT);
+    dst->_[10] = (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2 * b2 + (fx64)a3 * b3) >> FX32_INT_SHIFT);
     a0 = a->_[12];
     a1 = a->_[13];
     a2 = a->_[14];
     a3 = a->_[15];
-    dst->_[14] = (((s64)a0 * b0 + (s64)a1 * b1 + (s64)a2 * b2 + (s64)a3 * b3) >> FX32_INT_SHIFT);
-    dst->_[13] = (((s64)a0 * b->_[1] + (s64)a1 * b->_[5] + (s64)a2 * b->_[9]  + (s64)a3 * b->_[13]) >> FX32_INT_SHIFT);
-    dst->_[12] = (((s64)a0 * b->_[0] + (s64)a1 * b->_[4] + (s64)a2 * b->_[8]  + (s64)a3 * b->_[12]) >> FX32_INT_SHIFT);
-    dst->_[15] = (((s64)a0 * b->_[3] + (s64)a1 * b->_[7] + (s64)a2 * b->_[11] + (s64)a3 * b->_[15]) >> FX32_INT_SHIFT);
+    dst->_[14] = (((fx64)a0 * b0 + (fx64)a1 * b1 + (fx64)a2 * b2 + (fx64)a3 * b3) >> FX32_INT_SHIFT);
+    dst->_[13] = (((fx64)a0 * b->_[1] + (fx64)a1 * b->_[5] + (fx64)a2 * b->_[9]  + (fx64)a3 * b->_[13]) >> FX32_INT_SHIFT);
+    dst->_[12] = (((fx64)a0 * b->_[0] + (fx64)a1 * b->_[4] + (fx64)a2 * b->_[8]  + (fx64)a3 * b->_[12]) >> FX32_INT_SHIFT);
+    dst->_[15] = (((fx64)a0 * b->_[3] + (fx64)a1 * b->_[7] + (fx64)a2 * b->_[11] + (fx64)a3 * b->_[15]) >> FX32_INT_SHIFT);
     if (dst == &temp)
         *c = temp;
 }
@@ -104,7 +104,7 @@ asm void MTX_Copy44To43_(struct Mtx44 *src, struct Mtx43 *dst){
 }
 
 #pragma thumb on
-asm void MTX_RotX44_(struct Mtx44 *mtx, s32 sinphi, s32 cosphi){
+asm void MTX_RotX44_(struct Mtx44 *mtx, fx32 sinphi, fx32 cosphi){
     str r2, [r0, #0x14]
 	str r2, [r0, #0x28]
 	str r1, [r0, #0x18]
@@ -127,7 +127,7 @@ asm void MTX_RotX44_(struct Mtx44 *mtx, s32 sinphi, s32 cosphi){
 #pragma thumb off
 
 #pragma thumb on
-asm void MTX_RotY44_(struct Mtx44 *mtx, s32 sinphi, s32 cosphi){
+asm void MTX_RotY44_(struct Mtx44 *mtx, fx32 sinphi, fx32 cosphi){
     str r2, [r0, #0x0]
 	str r2, [r0, #0x28]
 	str r1, [r0, #0x20]
@@ -150,7 +150,7 @@ asm void MTX_RotY44_(struct Mtx44 *mtx, s32 sinphi, s32 cosphi){
 #pragma thumb off
 
 #pragma thumb on
-asm void MTX_RotZ44_(struct Mtx44 *mtx, s32 sinphi, s32 cosphi){
+asm void MTX_RotZ44_(struct Mtx44 *mtx, fx32 sinphi, fx32 cosphi){
     str r2, [r0, #0x0]
     str r2, [r0, #0x14]
     str r1, [r0, #0x4]
