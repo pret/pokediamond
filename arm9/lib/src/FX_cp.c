@@ -53,7 +53,7 @@ void FX_DivAsync(fx32 numerator, fx32 denominator){
     SETREG64(HW_REG_DIV_DENOM, (u32)denominator);
 }
 
-fx32 FX_Divfx32(fx32 numerator, fx32 denominator){
+fx32 FX_DivS32(fx32 numerator, fx32 denominator){
     SETREG16(HW_REG_DIVCNT, 0x0);
     SETREG32(HW_REG_DIV_NUMER, (u32)numerator); //32bit write for some reason
     SETREG64(HW_REG_DIV_DENOM, (u32)denominator);
@@ -61,7 +61,7 @@ fx32 FX_Divfx32(fx32 numerator, fx32 denominator){
     return READREG32(HW_REG_DIV_RESULT);
 }
 
-fx32 FX_Modfx32(fx32 num, fx32 mod){
+fx32 FX_ModS32(fx32 num, fx32 mod){
     SETREG16(HW_REG_DIVCNT, 0x0);
     SETREG32(HW_REG_DIV_NUMER, (u32)num); //32bit write for some reason
     SETREG64(HW_REG_DIV_DENOM, (u32)mod);

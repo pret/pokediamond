@@ -134,8 +134,8 @@ fx32 FX_GetDivResult();
 void FX_InvAsync(fx32 x);
 fx32 FX_GetSqrtResult();
 void FX_DivAsync(fx32 numerator, fx32 denominator);
-fx32 FX_Divfx32(fx32 numerator, fx32 denominator);
-fx32 FX_Modfx32(fx32 num, fx32 mod);
+fx32 FX_DivS32(fx32 numerator, fx32 denominator);
+fx32 FX_ModS32(fx32 num, fx32 mod);
 
 //Mtx
 //The functions ending in underscores seem to be in assembly originally
