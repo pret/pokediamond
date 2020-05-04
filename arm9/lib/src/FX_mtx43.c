@@ -3,9 +3,6 @@
 #include "fx.h"
 
 
-
-
-
 void MTX_ScaleApply43(struct Mtx43 *mtx, struct Mtx43 *dst, s32 x, s32 y, s32 z){
     //this works because matrices are indexed columns first
     MTX_ScaleApply33((struct Mtx33 *)mtx, (struct Mtx33 *)dst, x, y, z);

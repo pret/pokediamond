@@ -59,6 +59,9 @@
 #define READREG32(x)               (*(vu32 *)x)
 #define READREG64(x)               (*(vu64 *)x)
 
+//TODO: add muladd aund mulsub macros
+//need the extra term on mulsub to round up?
+
 struct Vecx32
 {
     s32 x;
@@ -129,7 +132,6 @@ s32 FX_ModS32(s32 num, s32 mod);
 
 //Mtx
 //The functions ending in underscores seem to be in assembly originally
-//at least I see no way to recreate the stmia copies and some of them are actually in thumb
 //Mtx44
 void MTX_TransApply44(struct Mtx44 *mtx, struct Mtx44 *dst, s32 x, s32 y, s32 z);
 void MTX_Concat44(struct Mtx44 *a, struct Mtx44 *b, struct Mtx44 *c);
@@ -149,6 +151,15 @@ void MTX_Copy43To44_(struct Mtx43 *src, struct Mtx44 *dst);
 void MTX_Scale43_(struct Mtx43 *dst, s32 x, s32 y, s32 z);
 void MTX_RotX43_(struct Mtx43 *mtx, s32 sinphi, s32 cosphi);
 void MTX_RotY43_(struct Mtx43 *mtx, s32 sinphi, s32 cosphi);
+
+//Mtx33
+void MTX_ScaleApply33(struct Mtx33 *mtx, struct Mtx33 *dst, s32 x, s32 y, s32 z);
+void MTX_Concat33(struct Mtx33 *a, struct Mtx33 *b, struct Mtx33 *c);
+void MTX_MultVec33(struct Vecx32 *vec, struct Mtx33 *mtx, struct Vecx32 *dst);
+void MTX_Identity33_(struct Mtx33 *mtx);
+void MTX_RotX33_(struct Mtx33 *mtx, s32 sinphi, s32 cosphi);
+void MTX_RotY33_(struct Mtx33 *mtx, s32 sinphi, s32 cosphi);
+void MTX_RotZ33_(struct Mtx33 *mtx, s32 sinphi, s32 cosphi);
 
 
 #endif //GUARD_FX_H
