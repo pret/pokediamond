@@ -4770,7 +4770,9 @@ _0209530C:
 	strb r7, [r0, #-0x4]
 	strb r6, [r0, #-0x3]
 	ldmia sp!, {r4-r9,pc}
-_02095324: ; 0x02095324
+
+	arm_func_start FUN_02095324
+FUN_02095324: ; 0x02095324
 	ldr r0, _0209532C ; =0x021C8C84
 	bx lr
 	.balign 4

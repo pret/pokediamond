@@ -23,7 +23,7 @@ MEMORY {
 	MODULE_10 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
 	MODULE_11 (RWX) : ORIGIN=0x0222D5C0, LENGTH=0
 	MODULE_12 (RWX) : ORIGIN=0x0222D5C0, LENGTH=0
-	MODULE_13 (RWX) : ORIGIN=0, LENGTH=0
+	MODULE_13 (RWX) : ORIGIN=0x02211E60, LENGTH=0
 	MODULE_14 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_15 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_16 (RWX) : ORIGIN=0, LENGTH=0
@@ -510,7 +510,34 @@ SECTIONS {
 		module_12.o (.bss)
 	} >> MODULE_12
 
-	OVERLAY_FILE(13, 0x1F5200, FILE_1F9200.o)
+	.MODULE.13 : AT (0x1F5200)
+	{
+		module_13_init.o (.text)
+		module_13_arm1.o (.text)
+		module_13_thumb.o (.text)
+		module_13_arm2.o (.text)
+		module_13_init.o (.sdata)
+		module_13_arm1.o (.sdata)
+		module_13_thumb.o (.sdata)
+		module_13_arm2.o (.sdata)
+		module_13_init.o (.data)
+		module_13_arm1.o (.data)
+		module_13_thumb.o (.data)
+		module_13_arm2.o (.data)
+	} > MODULE_13
+
+	.MODULE.13.BSS :
+	{
+		module_13_init.o (.sbss)
+		module_13_arm1.o (.sbss)
+		module_13_thumb.o (.sbss)
+		module_13_arm2.o (.sbss)
+		module_13_init.o (.bss)
+		module_13_arm1.o (.bss)
+		module_13_thumb.o (.bss)
+		module_13_arm2.o (.bss)
+	} >> MODULE_13
+
 	OVERLAY_FILE(14, 0x223E00, FILE_227E00.o)
 	OVERLAY_FILE(15, 0x233400, FILE_237400.o)
 	OVERLAY_FILE(16, 0x237C00, FILE_23BC00.o)
