@@ -144,8 +144,8 @@
 .extern FUN_02005E80
 .extern FUN_02005E90
 .extern FUN_02005F14
-.extern FUN_02005F60
-.extern FUN_02005FDC
+.extern UnloadOverlayByID
+.extern HandleLoadOverlay
 .extern FUN_020061E8
 .extern FUN_0200621C
 .extern FUN_02006234
