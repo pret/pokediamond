@@ -73,6 +73,7 @@ struct Vecx16
     s16 z;
 };
 
+//Matrices are indexed as [column][row]
 struct Mtx44
 {
     s32 _[16];
@@ -137,6 +138,17 @@ void MTX_Copy44To43_(struct Mtx44 *src, struct Mtx43 *dst);
 void MTX_RotX44_(struct Mtx44 *mtx, s32 sinphi, s32 cosphi);
 void MTX_RotY44_(struct Mtx44 *mtx, s32 sinphi, s32 cosphi);
 void MTX_RotZ44_(struct Mtx44 *mtx, s32 sinphi, s32 cosphi);
+
+//Mtx43
+void MTX_ScaleApply33(struct Mtx33 *mtx, struct Mtx33 *dst, s32 x, s32 y, s32 z);
+s32 MTX_Inverse43(struct Mtx43 *mtx, struct Mtx43 *inv);
+void MTX_Concat43(struct Mtx43 *a, struct Mtx43 *b, struct Mtx43 *c);
+void MTX_MultVec43(struct Vecx32 *vec, struct Mtx43 *mtx, struct Vecx32 *dst);
+void MTX_Identity43_(struct Mtx43 *mtx);
+void MTX_Copy43To44_(struct Mtx43 *src, struct Mtx44 *dst);
+void MTX_Scale43_(struct Mtx43 *dst, s32 x, s32 y, s32 z);
+void MTX_RotX43_(struct Mtx43 *mtx, s32 sinphi, s32 cosphi);
+void MTX_RotY43_(struct Mtx43 *mtx, s32 sinphi, s32 cosphi);
 
 
 #endif //GUARD_FX_H
