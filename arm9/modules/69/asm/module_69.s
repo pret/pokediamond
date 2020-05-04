@@ -3352,7 +3352,7 @@ MOD69_0222F11C: ; 0x0222F11C
 	ldr r2, [r3, r2]
 	mov r0, #3
 	add r1, #0x14
-	blx MI_SendGXCommand
+	bl MI_SendGXCommand
 	ldr r0, _0222F14C ; =0x04000448
 	mov r1, #1
 	str r1, [r0]
@@ -3973,7 +3973,7 @@ MOD69_0222F63C: ; 0x0222F63C
 	ldr r2, [r4, r2]
 	mov r0, #3
 	add r1, r4, r1
-	blx MI_SendGXCommand
+	bl MI_SendGXCommand
 	ldr r0, _0222F67C ; =0x04000448
 	mov r1, #1
 	str r1, [r0]
