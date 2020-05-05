@@ -161,7 +161,7 @@ $(BUILD_DIR)/%.o: dep :=
 endif
 
 $(BUILD_DIR)/%.o: %.c $$(dep)
-	$(CC) -c $(CFLAGS) -o $@
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
