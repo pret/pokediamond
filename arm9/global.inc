@@ -5111,6 +5111,15 @@
 .extern MOD11_02249E58
 .extern MOD11_0224B310
 .extern MOD11_0224C12C
+.extern FSi_ExecuteSyncCommand
+.extern FSi_InitRom
+.extern FSi_SendCommand
+.extern FSi_TranslateCommand
+.extern FS_NotifyArchiveAsyncEnd
+.extern FS_ResumeArchive
+.extern FS_SuspendArchive
+.extern FS_ReadFileAsync
+.extern FSi_ReleaseCommand
 .extern FX_DivS32
 .extern G2x_ChangeBlendBrightness_
 .extern GX_DisableBankForARM7
