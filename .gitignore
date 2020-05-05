@@ -36,3 +36,7 @@ arm*/baserom.*
 arm9/modules/module_*.s
 arm9/modules/module_*.sbin
 arm9/modules/module_*.cfg
+
+# Dism scripts
+dism.sh
+asmdiff.sh

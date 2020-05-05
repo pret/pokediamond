@@ -16,6 +16,7 @@ Unk_02106A00 = 0x02106A00;
 Unk_02106A04 = 0x02106A04;
 
 // .bss
+OSi_ConsoleTypeCache = 0x02106828;
 gBacklightTop = 0x02106FA0;
 gBacklightTop_2 = 0x02106FA0;
 gUnknown21C48B8 = 0x021C48B8;

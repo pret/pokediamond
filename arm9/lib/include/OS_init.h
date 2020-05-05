@@ -11,6 +11,7 @@
 #include "OS_thread.h"
 #include "OS_protectionRegion.h"
 #include "OS_entropy.h"
+#include "OS_emulator.h"
 #include "OS_arena.h"
 #include "OS_alloc.h"
 #include "OS_system.h"
