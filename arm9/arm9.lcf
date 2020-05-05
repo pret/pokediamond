@@ -25,11 +25,11 @@ MEMORY {
 	MODULE_12 (RWX) : ORIGIN=0x0222D5C0, LENGTH=0
 	MODULE_13 (RWX) : ORIGIN=0x02211E60, LENGTH=0
 	MODULE_14 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
-	MODULE_15 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_16 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_17 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_18 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_19 (RWX) : ORIGIN=0, LENGTH=0
+	MODULE_15 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
+	MODULE_16 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
+	MODULE_17 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
+	MODULE_18 (RWX) : ORIGIN=0x022396A0, LENGTH=0
+	MODULE_19 (RWX) : ORIGIN=0x02252440, LENGTH=0
 	MODULE_20 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_21 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_22 (RWX) : ORIGIN=0, LENGTH=0
@@ -551,11 +551,71 @@ SECTIONS {
 		module_14.o (.bss)
 	} >> MODULE_14
 
-	OVERLAY_FILE(15, 0x233400, FILE_237400.o)
-	OVERLAY_FILE(16, 0x237C00, FILE_23BC00.o)
-	OVERLAY_FILE(17, 0x260200, FILE_264200.o)
-	OVERLAY_FILE(18, 0x267200, FILE_26B200.o)
-	OVERLAY_FILE(19, 0x27F000, FILE_283000.o)
+	.MODULE.15 : AT (0x233400)
+	{
+		module_15.o (.text)
+		module_15.o (.sdata)
+		module_15.o (.data)
+	} > MODULE_15
+
+	.MODULE.15.bss :
+	{
+		module_15.o (.sbss)
+		module_15.o (.bss)
+	} >> MODULE_15
+
+	.MODULE.16 : AT (0x237C00)
+	{
+		module_16.o (.text)
+		module_16.o (.sdata)
+		module_16.o (.data)
+	} > MODULE_16
+
+	.MODULE.16.bss :
+	{
+		module_16.o (.sbss)
+		module_16.o (.bss)
+	} >> MODULE_16
+
+	.MODULE.17 : AT (0x260200)
+	{
+		module_17.o (.text)
+		module_17.o (.sdata)
+		module_17.o (.data)
+	} > MODULE_17
+
+	.MODULE.17.bss :
+	{
+		module_17.o (.sbss)
+		module_17.o (.bss)
+	} >> MODULE_17
+
+	.MODULE.18 : AT (0x267200)
+	{
+		module_18.o (.text)
+		module_18.o (.sdata)
+		module_18.o (.data)
+	} > MODULE_18
+
+	.MODULE.18.bss :
+	{
+		module_18.o (.sbss)
+		module_18.o (.bss)
+	} >> MODULE_18
+
+	.MODULE.19 : AT (0x27F000)
+	{
+		module_19.o (.text)
+		module_19.o (.sdata)
+		module_19.o (.data)
+	} > MODULE_19
+
+	.MODULE.19.bss :
+	{
+		module_19.o (.sbss)
+		module_19.o (.bss)
+	} >> MODULE_19
+
 	OVERLAY_FILE(20, 0x27F200, FILE_283200.o)
 	OVERLAY_FILE(21, 0x281600, FILE_285600.o)
 	OVERLAY_FILE(22, 0x281C00, FILE_285C00.o)
