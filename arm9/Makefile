@@ -59,6 +59,9 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
 # Overlay modules
 # FIXME: lcf doesn't like this
 # BIN_FILES := $(wildcard files/*.__AT_*)
+.SECONDARY:
+.DELETE_ON_ERROR:
+.SECONDEXPANSION:
 
 ##################### Compiler Options #######################
 
@@ -151,11 +154,17 @@ build/src/FUN_020910A4.o: MWCCVERSION = 1.2/sp2p3
 
 ####################### Everything Else ######################
 
-$(BUILD_DIR)/%.o: %.c
-	$(CC) -c $(CFLAGS) -o $@ $<
+ifeq (,$(NODEP))
+$(BUILD_DIR)/%.o: dep = $(shell grep -E '(#\s*|\.)(include|incbin)\s*"(\S+?)"' $*.[cs] | cut -d'"' -f2 | sort -u)
+else
+$(BUILD_DIR)/%.o: dep :=
+endif
 
-$(BUILD_DIR)/%.o: %.s
-	$(AS) $(ASFLAGS) $< -o $@
+$(BUILD_DIR)/%.o: %.c $$(dep)
+	$(CC) -c $(CFLAGS) -o $@
+
+$(BUILD_DIR)/%.o: %.s $$(dep)
+	$(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros.lcf.inc
 	# $(MAKELSF) $(MAKELSF_FLAGS) $< $(LD_TEMPLATE) $@
@@ -184,6 +193,11 @@ DUMMY != mkdir -p $(ALL_DIRS)
 
 %.png: ;
 %.pal: ;
+
+# Included files
+baserom.%: ;
+%.h: ;
+%.inc: ;
 
 $(BIN_FILES): ;
 
