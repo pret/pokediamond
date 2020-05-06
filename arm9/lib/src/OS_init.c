@@ -14,7 +14,6 @@ extern void MI_Init();
 extern void OS_InitVAlarm();
 extern void OSi_InitVramExclusive();
 extern void OS_InitThread();
-extern void OS_InitReset();
 extern void CTRDG_Init();
 extern void CARD_Init();
 extern void PM_Init();
