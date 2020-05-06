@@ -7,6 +7,7 @@
 
 #include "function_target.h"
 #include "consts.h"
+#include "function_target.h"
 
 typedef enum {
     OS_PROCMODE_USER=16,

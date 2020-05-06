@@ -48,6 +48,8 @@
 #define HW_C6_PR_2GB               0x3c
 #define HW_C6_PR_4GB               0x3e
 
+#define PXI_PROC_ARM7              0x01
+
 #define OSi_CONSOLE_NOT_DETECT     0xffffffff
 
 #define OS_CONSOLE_NITRO           0x80000000
