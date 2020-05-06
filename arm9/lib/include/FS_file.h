@@ -1,0 +1,164 @@
+#ifndef NITRO_FS_FILE_H_
+#define NITRO_FS_FILE_H_
+
+#include "nitro.h"
+
+#include "FS_archive.h"
+
+struct FSFile;
+
+#define FS_DMA_NOT_USE ((u32)~0)
+
+typedef struct FSDirPos
+{
+    struct FSArchive *arc;
+    u16 own_id;
+    u16 index;
+    u32 pos;
+}
+FSDirPos;
+
+typedef struct FSFileID
+{
+    struct FSArchive *arc;
+    u32 file_id;
+}
+FSFileID;
+
+typedef struct
+{
+    union
+    {
+        FSFileID file_id;
+        FSDirPos dir_id;
+    };
+    u32 is_directory;
+    u32 name_len;
+    char name[128];
+}
+FSDirEntry;
+
+
+typedef struct
+{
+    FSDirPos pos;
+}
+FSSeekDirInfo;
+
+
+typedef struct
+{
+    FSDirEntry *p_entry;
+    BOOL skip_string;
+}
+FSReadDirInfo;
+
+
+typedef struct
+{
+    FSDirPos pos;
+    const char *path;
+    BOOL find_directory;
+    union
+    {
+        FSFileID *file;
+        FSDirPos *dir;
+    }
+        result;
+}
+FSFindPathInfo;
+
+
+typedef struct
+{
+    u8 *buf;
+    u32 buf_len;
+    u16 total_len;
+    u16 dir_id;
+}
+FSGetPathInfo;
+
+
+typedef struct
+{
+    FSFileID id;
+}
+FSOpenFileFastInfo;
+
+
+typedef struct
+{
+    u32 top;
+    u32 bottom;
+    u32 index;
+}
+FSOpenFileDirectInfo;
+
+
+typedef struct
+{
+    u32 reserved;
+}
+FSCloseFileInfo;
+
+
+typedef struct
+{
+    void *dst;
+    u32 len_org;
+    u32 len;
+}
+FSReadFileInfo;
+
+
+typedef struct
+{
+    const void *src;
+    u32 len_org;
+    u32 len;
+}
+FSWriteFileInfo;
+
+typedef struct FSFile
+{
+    FSFileLink link;
+    struct FSArchive *arc;
+    u32 stat;
+    FSCommandType command;
+    FSResult error;
+    OSThreadQueue queue[1];
+    u32 filler; // Figure out what this actually is
+    union {
+        struct
+        {
+            u32 own_id;
+            u32 top;
+            u32 bottom;
+            u32 pos;
+        } file;
+        struct
+        {
+            FSDirPos pos;
+            u32 parent;
+        } dir;
+    } prop;
+
+    union {
+        FSReadFileInfo readfile;
+        FSWriteFileInfo writefile;
+
+        FSSeekDirInfo seekdir;
+        FSReadDirInfo readdir;
+        FSFindPathInfo findpath;
+        FSGetPathInfo getpath;
+        FSOpenFileFastInfo openfilefast;
+        FSOpenFileDirectInfo openfiledirect;
+        FSCloseFileInfo closefile;
+    };
+}
+FSFile;
+
+u32 FS_SetDefaultDMA(u32 dma_no); // returns the previous selection
+void FS_InitFile(FSFile * p_file);
+
+#endif //NITRO_FS_FILE_H_

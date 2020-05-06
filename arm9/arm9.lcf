@@ -110,6 +110,8 @@ SECTIONS {
 		unk_02000E0C.o (.text)
 		string_util.o (.text)
 		unk_020023C0.o (.text)
+		poke_overlay.o (.text)
+		unk_020061E8.o (.text)
 		filesystem.o (.text)
 		unk_02006864.o (.text)
 		script.o (.text)

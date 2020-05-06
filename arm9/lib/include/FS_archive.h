@@ -1,0 +1,90 @@
+#ifndef NITRO_FS_ARCHIVE_H_
+#define NITRO_FS_ARCHIVE_H_
+
+#include "nitro.h"
+
+#include "OS_thread.h"
+
+struct FSFile;
+struct FSArchive;
+
+typedef enum {
+    FS_COMMAND_ASYNC_BEGIN = 0,
+    FS_COMMAND_READFILE = FS_COMMAND_ASYNC_BEGIN,
+    FS_COMMAND_WRITEFILE,
+    FS_COMMAND_ASYNC_END,
+
+    FS_COMMAND_SYNC_BEGIN = FS_COMMAND_ASYNC_END,
+    FS_COMMAND_SEEKDIR = FS_COMMAND_SYNC_BEGIN,
+    FS_COMMAND_READDIR,
+    FS_COMMAND_FINDPATH,
+    FS_COMMAND_GETPATH,
+    FS_COMMAND_OPENFILEFAST,
+    FS_COMMAND_OPENFILEDIRECT,
+    FS_COMMAND_CLOSEFILE,
+    FS_COMMAND_SYNC_END,
+
+    FS_COMMAND_STATUS_BEGIN = FS_COMMAND_SYNC_END,
+    FS_COMMAND_ACTIVATE = FS_COMMAND_STATUS_BEGIN,
+    FS_COMMAND_IDLE,
+    FS_COMMAND_SUSPEND,
+    FS_COMMAND_RESUME,
+    FS_COMMAND_STATUS_END,
+
+    FS_COMMAND_INVALID
+} FSCommandType;
+
+typedef enum {
+    FS_RESULT_SUCCESS = 0,
+    FS_RESULT_FAILURE,
+    FS_RESULT_BUSY,
+    FS_RESULT_CANCELED,
+    FS_RESULT_CANCELLED = FS_RESULT_CANCELED, // SDK alias
+    FS_RESULT_UNSUPPORTED,
+    FS_RESULT_ERROR,
+    FS_RESULT_PROC_ASYNC,
+    FS_RESULT_PROC_DEFAULT,
+    FS_RESULT_PROC_UNKNOWN
+}
+FSResult;
+
+typedef FSResult (*FS_ARCHIVE_READ_FUNC) (struct FSArchive *p, void *dst, u32 pos, u32 size);
+typedef FSResult (*FS_ARCHIVE_WRITE_FUNC) (struct FSArchive *p, const void *src, u32 pos, u32 size);
+typedef FSResult (*FS_ARCHIVE_PROC_FUNC) (struct FSFile *, FSCommandType);
+
+typedef struct
+{
+    struct FSFile * prev;
+    struct FSFile * next;
+}
+FSFileLink;
+
+typedef struct FSArchive
+{
+    union
+    {
+        char ptr[4];
+        u32 pack;
+    } name;
+    struct FSArchive * prev;
+    struct FSArchive * next;
+    OSThreadQueue sync_q;
+    OSThreadQueue stat_q;
+    u32 flag;
+    FSFileLink list;
+    u32 base;
+    u32 fat;
+    u32 fat_size;
+    u32 fnt;
+    u32 fnt_size;
+    u32 fat_bak;
+    u32 fnt_bak;
+    void * load_mem;
+    FS_ARCHIVE_READ_FUNC read_func;
+    FS_ARCHIVE_WRITE_FUNC write_func;
+    FS_ARCHIVE_READ_FUNC table_func;
+    FS_ARCHIVE_PROC_FUNC proc;
+    u32 proc_flag;
+} FSArchive;
+
+#endif //NITRO_FS_ARCHIVE_H_

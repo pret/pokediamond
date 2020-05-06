@@ -7,6 +7,14 @@
 
 typedef struct _OSThread OSThread;
 
+struct _OSThreadQueue
+{
+    OSThread *head;
+    OSThread *tail;
+};
+
+typedef struct _OSThreadQueue OSThreadQueue;
+
 typedef struct OSThreadInfo {
     u16 isNeedRescheduling;
     u16 irqDepth;
