@@ -3315,7 +3315,7 @@
 .extern MATH_CalcCRC16CCITT
 .extern MATH_CalcCRC32
 .extern MATH_CalcCRC8
-.extern MATH_CalcHMACSHA1
+.extern DGT_Hash2CalcHmac
 .extern MATH_CalcMD5
 .extern MATH_CalcSHA1
 .extern MATH_CountPopulation

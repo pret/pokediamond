@@ -30,6 +30,21 @@ typedef struct FSOverlayInfo
     CARDRomRegion file_pos;
 } FSOverlayInfo;
 
+static inline u8 *const FS_GetOverlayAddress(FSOverlayInfo * p_ovi)
+{
+    return p_ovi->header.ram_address;
+}
+
+static inline u32 const FS_GetOverlayImageSize(FSOverlayInfo * p_ovi)
+{
+    return p_ovi->header.ram_size;
+}
+
+static inline u32 const FS_GetOverlayTotalSize(FSOverlayInfo * p_ovi)
+{
+    return p_ovi->header.ram_size + p_ovi->header.bss_size;
+}
+
 BOOL    FS_LoadOverlayInfo(FSOverlayInfo *p_ovi, MIProcessor target, FSOverlayID id);
 BOOL    FS_LoadOverlay(MIProcessor target, FSOverlayID id);
 BOOL    FS_UnloadOverlay(MIProcessor target, FSOverlayID id);

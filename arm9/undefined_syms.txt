@@ -14,6 +14,11 @@ Unk_02106840 = 0x02106840;
 Unk_02106900 = 0x02106900;
 Unk_02106A00 = 0x02106A00;
 Unk_02106A04 = 0x02106A04;
+// FS
+fsi_digest_key_ptr = 0x02106834;
+fsi_digest_key_len = 0x02106838;
+SDK_OVERLAY_DIGEST = 0x02106F84;
+SDK_OVERLAY_DIGEST_END = 0x02106F84;
 
 // .bss
 OSi_ConsoleTypeCache = 0x02106828;
@@ -27,6 +32,10 @@ OSi_IrqCallbackInfo = 0x021D341C;
 isInitialized = 0x021D347C;
 current_dir_pos = 0x021D53EC;
 is_init = 0x021D53F8;
+fsi_ovt9 = 0x021D5404;
+fsi_ovt7 = 0x021D540C;
+fsi_arc_rom = 0x021D5414;
+__global_destructor_chain = 0x021D74C8;
 OSi_StackForDestructor = 0x021D3480;
 OSi_RescheduleCount = 0x021D3484;
 OSi_ThreadIdCount = 0x021D3488;

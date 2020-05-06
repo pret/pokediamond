@@ -175,5 +175,18 @@ FSFile;
 u32 FS_SetDefaultDMA(u32 dma_no); // returns the previous selection
 void FS_InitFile(FSFile * p_file);
 BOOL FS_WaitAsync(FSFile * p_file);
+BOOL FS_OpenFileDirect(FSFile * p_file, FSArchive * p_arc, u32 image_top, u32 image_bottom, u32 file_index);
+int FS_ReadFile(FSFile * p_file, void * dst, s32 len);
+int FS_ReadFileAsync(FSFile * p_file, void * dst, s32 len);
+BOOL FS_OpenFileFast(FSFile * p_file, FSFileID file_id);
+
+static inline u32 const FS_GetFileImageTop(volatile const FSFile * p_file) {
+    return p_file->prop.file.top;
+}
+
+static inline u32 const FS_GetLength(volatile const FSFile * p_file)
+{
+    return p_file->prop.file.bottom - p_file->prop.file.top;
+}
 
 #endif //NITRO_FS_FILE_H_
