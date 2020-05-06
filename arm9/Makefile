@@ -91,7 +91,7 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te -i ..
-CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking
+CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
@@ -150,6 +150,7 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
 # TODO: Move out to lib/Makefile
 build/lib/src/%.o: MWCCVERSION = 1.2/sp2p3
+build/lib/src/%.o: CFLAGS += -enum int
 build/src/FUN_020910A4.o: MWCCVERSION = 1.2/sp2p3
 
 ####################### Everything Else ######################

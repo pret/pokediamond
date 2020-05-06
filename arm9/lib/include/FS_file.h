@@ -5,6 +5,21 @@
 
 #include "FS_archive.h"
 
+#define	FS_FILE_STATUS_BUSY			0x00000001
+#define	FS_FILE_STATUS_CANCEL		0x00000002
+#define	FS_FILE_STATUS_SYNC			0x00000004
+#define	FS_FILE_STATUS_ASYNC		0x00000008
+#define	FS_FILE_STATUS_IS_FILE		0x00000010
+#define	FS_FILE_STATUS_IS_DIR		0x00000020
+#define FS_FILE_STATUS_OPERATING    0x00000040
+
+typedef enum FSSeekFileMode
+{
+    FS_SEEK_SET = 0,
+    FS_SEEK_CUR,
+    FS_SEEK_END
+} FSSeekFileMode;
+
 struct FSFile;
 
 #define FS_DMA_NOT_USE ((u32)~0)
@@ -127,7 +142,6 @@ typedef struct FSFile
     FSCommandType command;
     FSResult error;
     OSThreadQueue queue[1];
-    u32 filler; // Figure out what this actually is
     union {
         struct
         {
@@ -154,11 +168,12 @@ typedef struct FSFile
         FSOpenFileFastInfo openfilefast;
         FSOpenFileDirectInfo openfiledirect;
         FSCloseFileInfo closefile;
-    };
+    } arg;
 }
 FSFile;
 
 u32 FS_SetDefaultDMA(u32 dma_no); // returns the previous selection
 void FS_InitFile(FSFile * p_file);
+BOOL FS_WaitAsync(FSFile * p_file);
 
 #endif //NITRO_FS_FILE_H_

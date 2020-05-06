@@ -8,6 +8,19 @@
 struct FSFile;
 struct FSArchive;
 
+#define FS_ARCHIVE_NAME_LEN_MAX 3
+
+#define	FS_ARCHIVE_FLAG_REGISTER	0x00000001
+#define	FS_ARCHIVE_FLAG_LOADED		0x00000002
+#define	FS_ARCHIVE_FLAG_TABLE_LOAD	0x00000004
+#define	FS_ARCHIVE_FLAG_SUSPEND		0x00000008
+#define	FS_ARCHIVE_FLAG_RUNNING		0x00000010
+#define	FS_ARCHIVE_FLAG_CANCELING	0x00000020
+#define	FS_ARCHIVE_FLAG_SUSPENDING	0x00000040
+#define	FS_ARCHIVE_FLAG_UNLOADING	0x00000080
+#define	FS_ARCHIVE_FLAG_IS_ASYNC	0x00000100
+#define	FS_ARCHIVE_FLAG_IS_SYNC		0x00000200
+
 typedef enum {
     FS_COMMAND_ASYNC_BEGIN = 0,
     FS_COMMAND_READFILE = FS_COMMAND_ASYNC_BEGIN,
@@ -86,5 +99,15 @@ typedef struct FSArchive
     FS_ARCHIVE_PROC_FUNC proc;
     u32 proc_flag;
 } FSArchive;
+
+FSArchive * const FS_FindArchive(const char * path, int offset);
+
+static inline BOOL FS_IsArchiveLoaded(volatile const FSArchive * p_arc)
+{
+    return (p_arc->flag & FS_ARCHIVE_FLAG_LOADED) ? TRUE : FALSE;
+}
+
+BOOL FSi_SendCommand(struct FSFile * file, FSCommandType command);
+BOOL FSi_ExecuteSyncCommand(struct FSFile * file);
 
 #endif //NITRO_FS_ARCHIVE_H_
