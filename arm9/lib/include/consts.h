@@ -55,6 +55,8 @@
 #define OS_CONSOLE_SIZE_MASK       0x00000003
 #define OS_CONSOLE_SIZE_4MB        0x00000001
 
+#define OSi_TCM_REGION_BASE_MASK   0xfffff000
+
 #define OSi_GetArenaInfo()         (*(OSArenaInfo*)HW_ARENA_INFO_BUF)
 #define OSi_TRUNC(n, a)            (((u32) (n)) & ~((a) - 1))
 #define OSi_ROUND(n, a)            (((u32) (n) + (a) - 1) & ~((a) - 1))
