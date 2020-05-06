@@ -8,54 +8,13 @@ SDK_IRQ_STACKSIZE = 0x00000400;
 FX_AtanTable_ = 0x02103A38;
 // OS
 OSi_IrqCallbackInfoIndex = 0x02106818;
+OSi_ConsoleTypeCache = 0x02106828;
 // DGT
 Unk_0210683C = 0x0210683C;
 Unk_02106840 = 0x02106840;
 Unk_02106900 = 0x02106900;
 Unk_02106A00 = 0x02106A00;
 Unk_02106A04 = 0x02106A04;
-
-// .bss
-OSi_ConsoleTypeCache = 0x02106828;
-gBacklightTop = 0x02106FA0;
-gBacklightTop_2 = 0x02106FA0;
-gUnknown21C48B8 = 0x021C48B8;
-gUnk021C4918 = 0x021C4918;
-gUnk021C8C70 = 0x021C8C70;
-OSi_IrqCallbackInfo = 0x021D341C;
-isInitialized = 0x021D347C;
-OSi_StackForDestructor = 0x021D3480;
-OSi_RescheduleCount = 0x021D3484;
-OSi_ThreadIdCount = 0x021D3488;
-OSi_SystemCallbackInSwitchThread = 0x021D348C;
-OSi_CurrentThreadPtr = 0x021D3490;
-OSi_IsThreadInitialized = 0x021D3494;
-OSi_ThreadInfo = 0x021D3498;
-OSi_IdleThread = 0x021D34A8;
-OSi_LauncherThread = 0x021D3568;
-OSi_IdleThreadStack = 0x021D3628;
-OSi_Initialized = 0x021D36F0;
-OSi_MainExArenaEnabled = 0x021D36F4;
-OSiHeapInfo = 0x021D36F8;
-OSi_UserExceptionHandler = 0x021D371C;
-OSi_UserExceptionHandlerArg = 0x21D3720;
-OSi_DebuggerHandler = 0x021D3724;
-OSi_ExContext = 0x021D3728;
-OSi_TimerReserved = 0x021D37A8;
-OSi_UseTick = 0x021D37AC;
-OSi_NeedResetTimer = 0x021D37B0;
-OSi_TickCounter = 0x021D37B4;
-OSi_UseAlarm = 0x021D37BC;
-OSi_AlarmQueue = 0x021D37C0;
-OSi_UseVAlarm = 0x021D37C8;
-OSi_PreviousVCount = 0x021D37CC;
-OSi_VFrameCount = 0x021D37D0;
-OSi_VAlarmQueue = 0x021D37D4;
-OSi_IsInitReset = 0x021D37DC;
-OSi_IsResetOccurred = 0x021D37E0;
-OSi_vramExclusive = 0x021D37E4;
-OSi_vramLockId = 0x021D37E8;
-cardi_common = 0x021D55C0;
 
 // Overlay
 FUN_021D74E0 = 0x021D74E0;
