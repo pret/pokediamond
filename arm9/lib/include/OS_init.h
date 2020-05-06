@@ -7,6 +7,7 @@
 
 #include "types.h"
 #include "consts.h"
+#include "OS_tcm.h"
 #include "OS_spinLock.h"
 #include "OS_thread.h"
 #include "OS_protectionRegion.h"
