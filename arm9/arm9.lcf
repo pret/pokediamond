@@ -30,15 +30,15 @@ MEMORY {
 	MODULE_17 (RWX) : ORIGIN=0x021D74E0, LENGTH=0
 	MODULE_18 (RWX) : ORIGIN=0x022396A0, LENGTH=0
 	MODULE_19 (RWX) : ORIGIN=0x02252440, LENGTH=0
-	MODULE_20 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_21 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_22 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_23 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_24 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_25 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_26 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_27 (RWX) : ORIGIN=0, LENGTH=0
-	MODULE_28 (RWX) : ORIGIN=0, LENGTH=0
+	MODULE_20 (RWX) : ORIGIN=0x02252440, LENGTH=0
+	MODULE_21 (RWX) : ORIGIN=0x02254840, LENGTH=0
+	MODULE_22 (RWX) : ORIGIN=0x02254840, LENGTH=0
+	MODULE_23 (RWX) : ORIGIN=0x02254840, LENGTH=0
+	MODULE_24 (RWX) : ORIGIN=0x02254840, LENGTH=0
+	MODULE_25 (RWX) : ORIGIN=0x02254840, LENGTH=0
+	MODULE_26 (RWX) : ORIGIN=0x02254840, LENGTH=0
+	MODULE_27 (RWX) : ORIGIN=0x02254840, LENGTH=0
+	MODULE_28 (RWX) : ORIGIN=0x02254840, LENGTH=0
 	MODULE_29 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_30 (RWX) : ORIGIN=0, LENGTH=0
 	MODULE_31 (RWX) : ORIGIN=0, LENGTH=0
@@ -616,15 +616,123 @@ SECTIONS {
 		module_19.o (.bss)
 	} >> MODULE_19
 
-	OVERLAY_FILE(20, 0x27F200, FILE_283200.o)
-	OVERLAY_FILE(21, 0x281600, FILE_285600.o)
-	OVERLAY_FILE(22, 0x281C00, FILE_285C00.o)
-	OVERLAY_FILE(23, 0x282C00, FILE_286C00.o)
-	OVERLAY_FILE(24, 0x284600, FILE_288600.o)
-	OVERLAY_FILE(25, 0x285000, FILE_289000.o)
-	OVERLAY_FILE(26, 0x285600, FILE_289600.o)
-	OVERLAY_FILE(27, 0x285E00, FILE_289E00.o)
-	OVERLAY_FILE(28, 0x286A00, FILE_28AA00.o)
+	.MODULE.20 : AT (0x27F200)
+	{
+		module_20.o (.text)
+		module_20.o (.sdata)
+		module_20.o (.data)
+	} > MODULE_20
+
+	.MODULE.20.bss :
+	{
+		module_20.o (.sbss)
+		module_20.o (.bss)
+	} >> MODULE_20
+
+	.MODULE.21 : AT (0x281600)
+	{
+		module_21.o (.text)
+		module_21.o (.sdata)
+		module_21.o (.data)
+	} > MODULE_21
+
+	.MODULE.21.bss :
+	{
+		module_21.o (.sbss)
+		module_21.o (.bss)
+	} >> MODULE_21
+
+	.MODULE.22 : AT (0x281C00)
+	{
+		module_22.o (.text)
+		module_22.o (.sdata)
+		module_22.o (.data)
+	} > MODULE_22
+
+	.MODULE.22.bss :
+	{
+		module_22.o (.sbss)
+		module_22.o (.bss)
+	} >> MODULE_22
+
+	.MODULE.23 : AT (0x282C00)
+	{
+		module_23.o (.text)
+		module_23.o (.sdata)
+		module_23.o (.data)
+	} > MODULE_23
+
+	.MODULE.23.bss :
+	{
+		module_23.o (.sbss)
+		module_23.o (.bss)
+	} >> MODULE_23
+
+	.MODULE.24 : AT (0x284600)
+	{
+		module_24.o (.text)
+		module_24.o (.sdata)
+		module_24.o (.data)
+	} > MODULE_24
+
+	.MODULE.24.bss :
+	{
+		module_24.o (.sbss)
+		module_24.o (.bss)
+	} >> MODULE_24
+
+	.MODULE.25 : AT (0x285000)
+	{
+		module_25.o (.text)
+		module_25.o (.sdata)
+		module_25.o (.data)
+	} > MODULE_25
+
+	.MODULE.25.bss :
+	{
+		module_25.o (.sbss)
+		module_25.o (.bss)
+	} >> MODULE_25
+
+	.MODULE.26 : AT (0x285600)
+	{
+		module_26.o (.text)
+		module_26.o (.sdata)
+		module_26.o (.data)
+	} > MODULE_26
+
+	.MODULE.26.bss :
+	{
+		module_26.o (.sbss)
+		module_26.o (.bss)
+	} >> MODULE_26
+
+	.MODULE.27 : AT (0x285E00)
+	{
+		module_27.o (.text)
+		module_27.o (.sdata)
+		module_27.o (.data)
+	} > MODULE_27
+
+	.MODULE.27.bss :
+	{
+		module_27.o (.sbss)
+		module_27.o (.bss)
+	} >> MODULE_27
+
+	.MODULE.28 : AT (0x286A00)
+	{
+		module_28.o (.text)
+		module_28.o (.sdata)
+		module_28.o (.data)
+	} > MODULE_28
+
+	.MODULE.28.bss :
+	{
+		module_28.o (.sbss)
+		module_28.o (.bss)
+	} >> MODULE_28
+
 	OVERLAY_FILE(29, 0x288200, FILE_28C200.o)
 	OVERLAY_FILE(30, 0x288C00, FILE_28CC00.o)
 	OVERLAY_FILE(31, 0x289200, FILE_28D200.o)

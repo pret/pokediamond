@@ -1960,7 +1960,9 @@ _020B0824: ; 0x020B0824
 	cmp r2, r1
 	strcc r1, [r4, #0x0]
 	ldmia sp!, {r4,pc}
-_020B0830: ; 0x020B0830
+
+	arm_func_start FUN_020B0830
+FUN_020B0830: ; 0x020B0830
 	ldrh r3, [r0, #0x6]
 	ldrh r2, [r0, #0x8]
 	mov r12, #0x0
