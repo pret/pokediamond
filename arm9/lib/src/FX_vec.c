@@ -55,10 +55,10 @@ ARM_FUNC fx32 VEC_Mag(struct Vecx32 *a){
     fx64 l2 = (fx64)a->x * a->x;
     l2 += (fx64)a->y * a->y;
     l2 += (fx64)a->z * a->z;
-    SETREG16(HW_REG_SQRTCNT, 0x1);
-    SETREG64(HW_REG_SQRT_PARAM, l2 * 4);
-    while (READREG16(HW_REG_SQRTCNT) & 0x8000); //wait for coprocessor to finish
-    return ((fx32)READREG32(HW_REG_SQRT_RESULT) + 1) >> 1;
+    reg_CP_SQRTCNT = 0x1;
+    reg_CP_SQRT_PARAM = l2 * 4;
+    while (reg_CP_SQRTCNT & 0x8000); //wait for coprocessor to finish
+    return ((fx32)reg_CP_SQRT_RESULT + 1) >> 1;
 }
 
 ARM_FUNC void VEC_Normalize(struct Vecx32 *a, struct Vecx32 *dst){
@@ -66,15 +66,15 @@ ARM_FUNC void VEC_Normalize(struct Vecx32 *a, struct Vecx32 *dst){
     l2 += (fx64)a->y * a->y;
     l2 += (fx64)a->z * a->z;
     //1/sqrt(l) is computed by calculating sqrt(l)*(1/l)
-    SETREG16(HW_REG_DIVCNT, 0x2);
-    SETREG64(HW_REG_DIV_NUMER, 0x0100000000000000);
-    SETREG64(HW_REG_DIV_DENOM, l2);
-    SETREG16(HW_REG_SQRTCNT, 0x1);
-    SETREG64(HW_REG_SQRT_PARAM, l2 * 4);
-    while (READREG16(HW_REG_SQRTCNT) & 0x8000); //wait for sqrt to finish
-    fx32 sqrtresult = READREG32(HW_REG_SQRT_RESULT);
-    while (READREG16(HW_REG_DIVCNT) & 0x8000); //wait for division to finish
-    l2 = READREG64(HW_REG_DIV_RESULT);
+    reg_CP_DIVCNT = 0x2;
+    reg_CP_DIV_NUMER = 0x0100000000000000;
+    reg_CP_DIV_DENOM = l2;
+    reg_CP_SQRTCNT = 0x1;
+    reg_CP_SQRT_PARAM = l2 * 4;
+    while (reg_CP_SQRTCNT & 0x8000); //wait for sqrt to finish
+    fx32 sqrtresult = reg_CP_SQRT_RESULT;
+    while (reg_CP_DIVCNT & 0x8000); //wait for division to finish
+    l2 = reg_CP_DIV_RESULT;
     l2 = sqrtresult * l2;
     dst->x = (l2 * a->x + (1LL << (0x2D - 1))) >> 0x2D;
     dst->y = (l2 * a->y + (1LL << (0x2D - 1))) >> 0x2D;
@@ -86,15 +86,15 @@ ARM_FUNC void VEC_Fx16Normalize(struct Vecx16 *a, struct Vecx16 *dst){
     l2 += a->y * a->y;
     l2 += a->z * a->z;
     //1/sqrt(l) is computed by calculating sqrt(l)*(1/l)
-    SETREG16(HW_REG_DIVCNT, 0x2);
-    SETREG64(HW_REG_DIV_NUMER, 0x0100000000000000);
-    SETREG64(HW_REG_DIV_DENOM, l2);
-    SETREG16(HW_REG_SQRTCNT, 0x1);
-    SETREG64(HW_REG_SQRT_PARAM, l2 * 4);
-    while (READREG16(HW_REG_SQRTCNT) & 0x8000); //wait for sqrt to finish
-    fx32 sqrtresult = READREG32(HW_REG_SQRT_RESULT);
-    while (READREG16(HW_REG_DIVCNT) & 0x8000); //wait for division to finish
-    l2 = READREG64(HW_REG_DIV_RESULT);
+    reg_CP_DIVCNT = 0x2;
+    reg_CP_DIV_NUMER = 0x0100000000000000;
+    reg_CP_DIV_DENOM =  l2;
+    reg_CP_SQRTCNT = 0x1;
+    reg_CP_SQRT_PARAM = l2 * 4;
+    while (reg_CP_SQRTCNT & 0x8000); //wait for sqrt to finish
+    fx32 sqrtresult = reg_CP_SQRT_RESULT;
+    while (reg_CP_DIVCNT & 0x8000); //wait for division to finish
+    l2 = reg_CP_DIV_RESULT;
     l2 = sqrtresult * l2;
     dst->x = (l2 * a->x + (1LL << (0x2D - 1))) >> 0x2D;
     dst->y = (l2 * a->y + (1LL << (0x2D - 1))) >> 0x2D;
