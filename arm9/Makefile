@@ -98,8 +98,9 @@ LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 # DS TOOLS
 SHA1SUM = sha1sum
-JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
-GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
+JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
+GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx$(EXE)
+SCANINC = $(TOOLS_DIR)/scaninc/scaninc$(EXE)
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
@@ -156,7 +157,7 @@ build/src/FUN_020910A4.o: MWCCVERSION = 1.2/sp2p3
 ####################### Everything Else ######################
 
 ifeq (,$(NODEP))
-$(BUILD_DIR)/%.o: dep = $(shell grep -E '(#\s*|\.)(include|incbin)\s*"(\S+?)"' $*.[cs] | cut -d'"' -f2 | sort -u)
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $*.[cs])
 else
 $(BUILD_DIR)/%.o: dep :=
 endif
