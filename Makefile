@@ -54,8 +54,103 @@ S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
 
-ARM9BIN := arm9/build/arm9.sbin
-ARM7BIN := arm7/build/arm7.sbin
+ARM9SBIN := arm9/build/arm9.sbin
+ARM7SBIN := arm7/build/arm7.sbin
+
+BINFILES = \
+	arm9/build/arm9.bin \
+	arm9/build/arm9_table.bin \
+	arm9/build/arm9_defs.bin \
+	arm7/build/arm7.bin \
+	arm9/build/MODULE_00.bin \
+	arm9/build/MODULE_01.bin \
+	arm9/build/MODULE_02.bin \
+	arm9/build/MODULE_03.bin \
+	arm9/build/MODULE_04.bin \
+	arm9/build/MODULE_05.bin \
+	arm9/build/MODULE_06.bin \
+	arm9/build/MODULE_07.bin \
+	arm9/build/MODULE_08.bin \
+	arm9/build/MODULE_09.bin \
+	arm9/build/MODULE_10.bin \
+	arm9/build/MODULE_11.bin \
+	arm9/build/MODULE_12.bin \
+	arm9/build/MODULE_13.bin \
+	arm9/build/MODULE_14.bin \
+	arm9/build/MODULE_15.bin \
+	arm9/build/MODULE_16.bin \
+	arm9/build/MODULE_17.bin \
+	arm9/build/MODULE_18.bin \
+	arm9/build/MODULE_19.bin \
+	arm9/build/MODULE_20.bin \
+	arm9/build/MODULE_21.bin \
+	arm9/build/MODULE_22.bin \
+	arm9/build/MODULE_23.bin \
+	arm9/build/MODULE_24.bin \
+	arm9/build/MODULE_25.bin \
+	arm9/build/MODULE_26.bin \
+	arm9/build/MODULE_27.bin \
+	arm9/build/MODULE_28.bin \
+	arm9/build/MODULE_29.bin \
+	arm9/build/MODULE_30.bin \
+	arm9/build/MODULE_31.bin \
+	arm9/build/MODULE_32.bin \
+	arm9/build/MODULE_33.bin \
+	arm9/build/MODULE_34.bin \
+	arm9/build/MODULE_35.bin \
+	arm9/build/MODULE_36.bin \
+	arm9/build/MODULE_37.bin \
+	arm9/build/MODULE_38.bin \
+	arm9/build/MODULE_39.bin \
+	arm9/build/MODULE_40.bin \
+	arm9/build/MODULE_41.bin \
+	arm9/build/MODULE_42.bin \
+	arm9/build/MODULE_43.bin \
+	arm9/build/MODULE_44.bin \
+	arm9/build/MODULE_45.bin \
+	arm9/build/MODULE_46.bin \
+	arm9/build/MODULE_47.bin \
+	arm9/build/MODULE_48.bin \
+	arm9/build/MODULE_49.bin \
+	arm9/build/MODULE_50.bin \
+	arm9/build/MODULE_51.bin \
+	arm9/build/MODULE_52.bin \
+	arm9/build/MODULE_53.bin \
+	arm9/build/MODULE_54.bin \
+	arm9/build/MODULE_55.bin \
+	arm9/build/MODULE_56.bin \
+	arm9/build/MODULE_57.bin \
+	arm9/build/MODULE_58.bin \
+	arm9/build/MODULE_59.bin \
+	arm9/build/MODULE_60.bin \
+	arm9/build/MODULE_61.bin \
+	arm9/build/MODULE_62.bin \
+	arm9/build/MODULE_63.bin \
+	arm9/build/MODULE_64.bin \
+	arm9/build/MODULE_65.bin \
+	arm9/build/MODULE_66.bin \
+	arm9/build/MODULE_67.bin \
+	arm9/build/MODULE_68.bin \
+	arm9/build/MODULE_69.bin \
+	arm9/build/MODULE_70.bin \
+	arm9/build/MODULE_71.bin \
+	arm9/build/MODULE_72.bin \
+	arm9/build/MODULE_73.bin \
+	arm9/build/MODULE_74.bin \
+	arm9/build/MODULE_75.bin \
+	arm9/build/MODULE_76.bin \
+	arm9/build/MODULE_77.bin \
+	arm9/build/MODULE_78.bin \
+	arm9/build/MODULE_79.bin \
+	arm9/build/MODULE_80.bin \
+	arm9/build/MODULE_81.bin \
+	arm9/build/MODULE_82.bin \
+	arm9/build/MODULE_83.bin \
+	arm9/build/MODULE_84.bin \
+	arm9/build/MODULE_85.bin \
+	arm9/build/MODULE_86.bin
+
+SBINFILES = $(BINFILES:%.bin=%.sbin)
 
 ##################### Compiler Options #######################
 
@@ -110,7 +205,7 @@ else
 NODEP := 1
 endif
 
-.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm $(ARM9BIN) $(ARM7BIN)
+.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
 
 MAKEFLAGS += --no-print-directory
 
@@ -143,12 +238,6 @@ $(MWASMARM): patch_mwasmarm
 patch_mwasmarm:
 	$(MWASMARM_PATCHER) $(MWASMARM)
 
-$(ARM9BIN):
-	@$(MAKE) -C arm9
-
-$(ARM7BIN):
-	@$(MAKE) -C arm7
-
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
 $(BUILD_DIR)/%.o: %.c
@@ -160,11 +249,20 @@ $(BUILD_DIR)/%.o: %.s
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(ARM9BIN) $(ARM7BIN)
+$(SBINFILES): arm9 arm7
+
+arm9:
+	$(MAKE) -C arm9
+
+arm7:
+	$(MAKE) -C arm7
+
+$(BINFILES): %.bin: %.sbin
+	cp $< $@
+
+$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BINFILES)
 	# Hack because mwldarm doesn't like the sbin suffix
-	cp $(ARM7BIN) $(BUILD_DIR)/arm7.bin
-	cp $(ARM9BIN) $(BUILD_DIR)/arm9.bin
-	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BUILD_DIR)/arm7.bin $(BUILD_DIR)/arm9.bin
+	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BINFILES)
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@
