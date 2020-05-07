@@ -168,7 +168,19 @@ static inline BOOL FSi_IsArchiveUnloading(volatile const FSArchive * p_arc)
     return (p_arc->flag & FS_ARCHIVE_FLAG_UNLOADING) != 0;
 }
 
+static inline BOOL FSi_IsArchiveAsync(volatile const FSArchive * p_arc)
+{
+    return (p_arc->flag & FS_ARCHIVE_FLAG_IS_ASYNC) != 0;
+}
+
+static inline BOOL FS_IsArchiveTableLoaded(volatile const FSArchive * p_arc)
+{
+    return (p_arc->flag & FS_ARCHIVE_FLAG_TABLE_LOAD) ? TRUE : FALSE;
+}
+
 BOOL FSi_SendCommand(struct FSFile * file, FSCommandType command);
 BOOL FSi_ExecuteSyncCommand(struct FSFile * file);
+BOOL FS_SuspendArchive(FSArchive * p_arc);
+BOOL FS_ResumeArchive(FSArchive * p_arc);
 
 #endif //NITRO_FS_ARCHIVE_H_

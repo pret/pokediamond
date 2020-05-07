@@ -4,14 +4,14 @@
 
 	arm_func_start FS_TryLoadTable
 FS_TryLoadTable: ; 0x020D1D10
-	ldr ip, _020D1D28 ; =FUN_020D0D84
+	ldr ip, _020D1D28 ; =FS_LoadArchiveTables
 	mov r3, r0
 	mov r2, r1
 	ldr r0, _020D1D2C ; =0x021D5414
 	mov r1, r3
 	bx r12
 	.balign 4
-_020D1D28: .word FUN_020D0D84
+_020D1D28: .word FS_LoadArchiveTables
 _020D1D2C: .word 0x021D5414
 
 	arm_func_start FS_SetDefaultDMA

@@ -5021,8 +5021,8 @@
 .extern FUN_020B7218
 .extern FUN_020C2444
 .extern FUN_020C5E04
-.extern FUN_020D0D84
-.extern FUN_020D0EB0
+.extern FS_LoadArchiveTables
+.extern FS_UnloadArchive
 .extern FS_ReleaseArchiveName
 .extern FUN_021EB9A4
 .extern FUN_021EB9D8

@@ -179,6 +179,7 @@ BOOL FS_OpenFileDirect(FSFile * p_file, FSArchive * p_arc, u32 image_top, u32 im
 int FS_ReadFile(FSFile * p_file, void * dst, s32 len);
 int FS_ReadFileAsync(FSFile * p_file, void * dst, s32 len);
 BOOL FS_OpenFileFast(FSFile * p_file, FSFileID file_id);
+BOOL FS_CloseFile(FSFile * p_file);
 
 static inline u32 const FS_GetFileImageTop(volatile const FSFile * p_file) {
     return p_file->prop.file.top;

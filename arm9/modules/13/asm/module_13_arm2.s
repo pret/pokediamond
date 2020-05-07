@@ -31909,7 +31909,7 @@ MOD13_022395A0: ; 0x022395A0
 	ldr r0, _02239628 ; =0x02243190
 	ldr r0, [r0]
 	add r0, r0, #0x88
-	bl FUN_020D0EB0
+	bl FS_UnloadArchive
 	ldr r0, _02239628 ; =0x02243190
 	ldr r0, [r0]
 	add r0, r0, #0x88
@@ -32012,7 +32012,7 @@ _02239738:
 	ldr r0, [r0]
 	mov r2, r1
 	add r0, r0, #0x88
-	bl FUN_020D0D84
+	bl FS_LoadArchiveTables
 	mov r1, #4
 	mov r4, r0
 	bl MOD13_0223B004
@@ -32022,7 +32022,7 @@ _02239738:
 	str r0, [r3]
 	ldr r0, [r1]
 	ldr r1, [r0], #0x88
-	bl FUN_020D0D84
+	bl FS_LoadArchiveTables
 	ldr r1, _022397BC ; =0x02243190
 	mov r0, #0x20
 	ldr r1, [r1]

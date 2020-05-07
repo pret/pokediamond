@@ -1,6 +1,10 @@
 #ifndef NITRO_FSI_UTIL_H_
 #define NITRO_FSI_UTIL_H_
 
+#define ALIGN_MASK(a) ((u32)((a) - 1))
+
+#define ALIGN_BYTE(n, a) (((u32)(n) + ALIGN_MASK(a)) & ~ALIGN_MASK(a))
+
 static inline BOOL FSi_IsSlash(u32 c)
 {
     return (c == '/') || (c == '\\');
