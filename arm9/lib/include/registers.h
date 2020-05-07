@@ -1,0 +1,55 @@
+//
+// Created by red031000 on 2020-05-06.
+//
+
+#ifndef POKEDIAMOND_REGISTERS_H
+#define POKEDIAMOND_REGISTERS_H
+
+#include "types.h"
+
+#define HW_REG_BASE                0x04000000
+#define REG_VCOUNT_OFFSET          0x006
+#define REG_VCOUNT_ADDR            (HW_REG_BASE + REG_VCOUNT_OFFSET)
+#define reg_GX_VCOUNT              (*(REGType16v *)REG_VCOUNT_ADDR)
+
+#define REG_KEYINPUT_OFFSET        0x130
+#define REG_KEYINPUT_ADDR          (HW_REG_BASE + REG_KEYINPUT_OFFSET)
+#define reg_PAD_KEYINPUT           (*(REGType16v *)REG_KEYINPUT_ADDR)
+
+#define REG_DIVCNT_OFFSET          0x280
+#define REG_DIVCNT_ADDR            (HW_REG_BASE + REG_DIVCNT_OFFSET)
+#define reg_CP_DIVCNT              (*(REGType16v *)REG_DIVCNT_ADDR)
+
+#define REG_DIV_NUMER_OFFSET       0x290
+#define REG_DIV_NUMER_ADDR         (HW_REG_BASE + REG_DIV_NUMER_OFFSET)
+#define reg_CP_DIV_NUMER           (*(REGType64v *)REG_DIV_NUMER_ADDR)
+
+#define REG_DIV_DENOM_OFFSET       0x298
+#define REG_DIV_DENOM_ADDR         (HW_REG_BASE + REG_DIV_DENOM_OFFSET)
+#define reg_CP_DIV_DENOM           (*(REGType64v *)REG_DIV_DENOM_ADDR)
+
+#define REG_DIV_RESULT_OFFSET      0x2A0
+#define REG_DIV_RESULT_ADDR        (HW_REG_BASE + REG_DIV_RESULT_OFFSET)
+#define reg_CP_DIV_RESULT          (*(REGType64v *)REG_DIV_RESULT_ADDR)
+
+#define REG_DIVREM_RESULT_OFFSET   0x2A8
+#define REG_DIVREM_RESULT_ADDR     (HW_REG_BASE + REG_DIVREM_RESULT_OFFSET)
+#define reg_CP_DIVREM_RESULT       (*(REGType64v *)REG_DIVREM_RESULT_ADDR)
+
+#define REG_SQRTCNT_OFFSET         0x2B0
+#define REG_SQRTCNT_ADDR           (HW_REG_BASE + REG_SQRTCNT_OFFSET)
+#define reg_CP_SQRTCNT             (*(REGType16v *)REG_SQRTCNT_ADDR)
+
+#define REG_SQRT_RESULT_OFFSET     0x2B4
+#define REG_SQRT_RESULT_ADDR       (HW_REG_BASE + REG_SQRT_RESULT_OFFSET)
+#define reg_CP_SQRT_RESULT         (*(REGType32v *)REG_SQRT_RESULT_ADDR)
+
+#define REG_SQRT_PARAM_OFFSET      0x2B8
+#define REG_SQRT_PARAM_ADDR        (HW_REG_BASE + REG_SQRT_PARAM_OFFSET)
+#define reg_CP_SQRT_PARAM          (*(REGType64v *)REG_SQRT_PARAM_ADDR)
+
+#define REG_GXSTAT_OFFSET          0x600
+#define REG_GXSTAT_ADDR            (HW_REG_BASE + REG_GXSTAT_OFFSET)
+#define reg_G3X_GXSTAT             (*(REGType32v *)REG_GXSTAT_ADDR)
+
+#endif //POKEDIAMOND_REGISTERS_H
