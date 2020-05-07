@@ -78,6 +78,8 @@ typedef enum {
 	(FS_ARCHIVE_PROC_ACTIVATE | FS_ARCHIVE_PROC_IDLE |	\
 	 FS_ARCHIVE_PROC_SUSPENDING | FS_ARCHIVE_PROC_RESUME)
 
+#define	FS_ARCHIVE_PROC_ALL	(~0)
+
 typedef enum {
     FS_RESULT_SUCCESS = 0,
     FS_RESULT_FAILURE,
@@ -182,5 +184,11 @@ BOOL FSi_SendCommand(struct FSFile * file, FSCommandType command);
 BOOL FSi_ExecuteSyncCommand(struct FSFile * file);
 BOOL FS_SuspendArchive(FSArchive * p_arc);
 BOOL FS_ResumeArchive(FSArchive * p_arc);
+void FS_NotifyArchiveAsyncEnd(FSArchive *p_arc, FSResult ret);
+BOOL FS_RegisterArchiveName(FSArchive * p_arc, const char * name, int name_len);
+void FS_InitArchive(FSArchive * p_arc);
+void FS_SetArchiveProc(struct FSArchive * p_arc, FS_ARCHIVE_PROC_FUNC proc, u32 flags);
+BOOL FS_LoadArchive(FSArchive * p_arc, u32 base, u32 fat, u32 fat_size, u32 fnt, u32 fnt_size, FS_ARCHIVE_READ_FUNC read_func, FS_ARCHIVE_WRITE_FUNC write_func);
+u32 FS_LoadArchiveTables(FSArchive *p_arc, void *p_mem, u32 max_size);
 
 #endif //NITRO_FS_ARCHIVE_H_

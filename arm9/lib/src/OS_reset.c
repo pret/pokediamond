@@ -14,7 +14,6 @@ extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
 extern void OS_Terminate();
 extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 extern void CARD_LockRom(u16 lockId);
-extern u32 OS_GetLockID();
 extern void MI_StopDma(u32 dma);
 extern void OS_SetIrqMask(u32 mask);
 extern void OS_ResetRequestIrqMask(u32 mask);

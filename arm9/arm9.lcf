@@ -221,9 +221,13 @@ SECTIONS {
 		libc.o (.text)
 		/* MWCC library */
 		libmwcc.o (.text)
+
+		/* Static data */
 		rom2.o (.data)
 		string_util.o (.data)
 		rom2_2.o (.data)
+		FS_rom.o (.data)
+		rom2_3.o (.data)
 		SDK_STATIC_END = .;
 		SDK_STATIC_SIZE = SDK_STATIC_END - SDK_STATIC_START;
 	} > arm9
@@ -274,6 +278,8 @@ SECTIONS {
 		arc_list                         = 0x021D53E8;
 		current_dir_pos                  = 0x021D53EC;
 		is_init                          = 0x021D53F8;
+		fsi_card_lock_id                 = 0x021D53FC;
+		fsi_default_dma_no               = 0x021D5400;
 		fsi_ovt9                         = 0x021D5404;
 		fsi_ovt7                         = 0x021D540C;
 		fsi_arc_rom                      = 0x021D5414;

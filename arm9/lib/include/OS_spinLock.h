@@ -11,4 +11,6 @@ typedef volatile struct OSLockWord {
     u16 extension;
 } OSLockWord;
 
+s32 OS_GetLockID(void);
+
 #endif //POKEDIAMOND_OS_SPINLOCK_H
