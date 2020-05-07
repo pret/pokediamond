@@ -205,7 +205,7 @@ else
 NODEP := 1
 endif
 
-.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
+.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
 
 MAKEFLAGS += --no-print-directory
 
@@ -249,8 +249,12 @@ $(BUILD_DIR)/%.o: %.s
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) undefined_syms.txt
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(SBINFILES):
+$(SBINFILES): arm9 arm7
+
+arm9:
 	$(MAKE) -C arm9
+
+arm7:
 	$(MAKE) -C arm7
 
 $(BINFILES): %.bin: %.sbin
