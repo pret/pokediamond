@@ -1,4 +1,5 @@
 	.include "asm/macros.inc"
-	.text
+	.section .text
 	.incbin "baserom.nds", 0x2E9A00, 0x5580
-	.balign 512, 255
+	.section .bss
+	.space 0xa0
