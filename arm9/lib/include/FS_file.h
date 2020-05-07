@@ -189,4 +189,24 @@ static inline u32 const FS_GetLength(volatile const FSFile * p_file)
     return p_file->prop.file.bottom - p_file->prop.file.top;
 }
 
+static inline BOOL FS_IsCanceling(volatile const FSFile * p_file)
+{
+    return (p_file->stat & FS_FILE_STATUS_CANCEL) ? TRUE : FALSE;
+}
+
+static inline BOOL FS_IsFileSyncMode(volatile const FSFile * p_file)
+{
+    return (p_file->stat & FS_FILE_STATUS_SYNC) ? TRUE : FALSE;
+}
+
+static inline BOOL FS_IsBusy(volatile const FSFile * p_file)
+{
+    return p_file->stat & FS_FILE_STATUS_BUSY ? TRUE : FALSE;
+}
+
+static inline BOOL FS_IsSucceeded(volatile const FSFile * p_file)
+{
+    return (p_file->error == FS_RESULT_SUCCESS) ? TRUE : FALSE;
+}
+
 #endif //NITRO_FS_FILE_H_

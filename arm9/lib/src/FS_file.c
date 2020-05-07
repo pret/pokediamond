@@ -11,16 +11,6 @@ static inline BOOL FSi_IsSlash(u32 c)
     return (c == '/') || (c == '\\');
 }
 
-static inline BOOL FS_IsBusy(volatile const FSFile * p_file)
-{
-    return p_file->stat & FS_FILE_STATUS_BUSY ? TRUE : FALSE;
-}
-
-static inline BOOL FS_IsSucceeded(volatile const FSFile * p_file)
-{
-    return p_file->error == FS_RESULT_SUCCESS ? TRUE : FALSE;
-}
-
 void FS_Init(u32 default_dma_no)
 {
     if (!is_init)

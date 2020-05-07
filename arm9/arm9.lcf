@@ -192,6 +192,7 @@ SECTIONS {
 		PXI_fifo.o (.text)
 		FS_command.o (.text)
 		FS_command_default.o (.text)
+		FS_archive.asm.o (.text)
 		FS_archive.o (.text)
 		FS_file.o (.text)
 		FS_rom.o (.text)

@@ -29,6 +29,7 @@ struct _OSThread
 };
 
 void OS_SleepThread(OSThreadQueue * queue);
+void OS_WakeupThread(OSThreadQueue * queue);
 static inline void OS_InitThreadQueue(OSThreadQueue * queue)
 {
     queue->head = queue->tail = NULL;
