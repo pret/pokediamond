@@ -731,4 +731,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203AF84
     .word FUN_0203AFA4
 
-.incbin "baserom.nds",  0xF80A0, 0x12790
+	.incbin "baserom.nds", 0xF80A0, 0xFEE0
+
+	.global fsi_default_command
+fsi_default_command: ; 0x02103F80
+	.incbin "baserom.nds", 0x107F80, 0x28b0

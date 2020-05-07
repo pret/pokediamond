@@ -20,6 +20,13 @@ static inline void FSi_CutFromListCore(FSFileLink *trg)
         nx->link.prev = pr;
 }
 
+static inline void FSi_CutFromList(FSFile *elem)
+{
+    FSFileLink *const trg = &elem->link;
+    FSi_CutFromListCore(trg);
+    trg->next = trg->prev = NULL;
+}
+
 static inline void FSi_AppendToList(FSFile *elem, FSFile *list)
 {
     FSFileLink *const trg = &elem->link;

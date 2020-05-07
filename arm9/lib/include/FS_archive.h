@@ -175,6 +175,11 @@ static inline BOOL FSi_IsArchiveAsync(volatile const FSArchive * p_arc)
     return (p_arc->flag & FS_ARCHIVE_FLAG_IS_ASYNC) != 0;
 }
 
+static inline BOOL FSi_IsArchiveSync(volatile const FSArchive * p_arc)
+{
+    return (p_arc->flag & FS_ARCHIVE_FLAG_IS_SYNC) != 0;
+}
+
 static inline BOOL FS_IsArchiveTableLoaded(volatile const FSArchive * p_arc)
 {
     return (p_arc->flag & FS_ARCHIVE_FLAG_TABLE_LOAD) ? TRUE : FALSE;

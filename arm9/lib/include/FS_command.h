@@ -3,6 +3,8 @@
 
 #include "FS_file.h"
 
+extern FSResult (*const fsi_default_command[])(FSFile *);
+
 void FSi_ReleaseCommand(FSFile * file, FSResult signal);
 FSResult FSi_TranslateCommand(FSFile * file, FSCommandType command);
 
