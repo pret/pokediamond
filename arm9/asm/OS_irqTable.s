@@ -28,6 +28,9 @@ OS_IRQTable: ; 027E0000 ;10b6a0
 	.word OS_IrqDummy
 	.word OS_IrqDummy
 
+	.section .bss
+	.space 0x20
+
     .section .text
 
 	arm_func_start OSi_IrqTimer3
