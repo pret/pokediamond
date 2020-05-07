@@ -110,8 +110,8 @@ typedef struct FSArchive
         char ptr[4];
         u32 pack;
     } name;
-    struct FSArchive * prev;
     struct FSArchive * next;
+    struct FSArchive * prev;
     OSThreadQueue sync_q;
     OSThreadQueue stat_q;
     u32 flag;
@@ -161,6 +161,11 @@ static inline BOOL FSi_IsArchiveSuspending(volatile const FSArchive * p_arc)
 static inline BOOL FSi_IsArchiveRunning(volatile const FSArchive * p_arc)
 {
     return (p_arc->flag & FS_ARCHIVE_FLAG_RUNNING) != 0;
+}
+
+static inline BOOL FSi_IsArchiveUnloading(volatile const FSArchive * p_arc)
+{
+    return (p_arc->flag & FS_ARCHIVE_FLAG_UNLOADING) != 0;
 }
 
 BOOL FSi_SendCommand(struct FSFile * file, FSCommandType command);

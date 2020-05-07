@@ -2,14 +2,10 @@
 #include "MI_byteAccess.h"
 #include "FS_rom.h"
 #include "FS_file.h"
+#include "FSi_util.h"
 
 extern FSDirPos current_dir_pos;
 BOOL is_init = FALSE;
-
-static inline BOOL FSi_IsSlash(u32 c)
-{
-    return (c == '/') || (c == '\\');
-}
 
 void FS_Init(u32 default_dma_no)
 {

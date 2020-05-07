@@ -31913,7 +31913,7 @@ MOD13_022395A0: ; 0x022395A0
 	ldr r0, _02239628 ; =0x02243190
 	ldr r0, [r0]
 	add r0, r0, #0x88
-	bl FUN_020D0FF0
+	bl FS_ReleaseArchiveName
 	ldr r0, _02239628 ; =0x02243190
 	ldr r0, [r0]
 	ldrh r0, [r0, #0xe4]

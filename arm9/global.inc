@@ -5023,7 +5023,7 @@
 .extern FUN_020C5E04
 .extern FUN_020D0D84
 .extern FUN_020D0EB0
-.extern FUN_020D0FF0
+.extern FS_ReleaseArchiveName
 .extern FUN_021EB9A4
 .extern FUN_021EB9D8
 .extern FUN_021EBAE8

@@ -272,6 +272,7 @@ SECTIONS {
 		OSi_vramExclusive                = 0x021D37E4;
 		OSi_vramLockId                   = 0x021D37E8;
 		cardi_common                     = 0x021D55C0;
+		arc_list                         = 0x021D53E8;
 		current_dir_pos                  = 0x021D53EC;
 		is_init                          = 0x021D53F8;
 		fsi_ovt9                         = 0x021D5404;

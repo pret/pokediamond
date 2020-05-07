@@ -1,6 +1,7 @@
 #include "FS_archive.h"
 #include "FS_file.h"
 #include "FS_command.h"
+#include "FSi_util.h"
 #include "MI_memory.h"
 #include "MI_byteAccess.h"
 
@@ -29,15 +30,15 @@ u32 FSi_GetPackedName(const char * name, int name_len)
     return ret;
 }
 
-FSResult FSi_ReadMemCallback(FSArchive * p_arc, u8 * dest, u32 offset, u32 size)
+FSResult FSi_ReadMemCallback(struct FSArchive * p_arc, void * dest, u32 pos, u32 size)
 {
-    MI_CpuCopy8((const void *)FS_GetArchiveOffset(p_arc, offset), dest, size);
+    MI_CpuCopy8((const void *)FS_GetArchiveOffset(p_arc, pos), dest, size);
     return FS_RESULT_SUCCESS;
 }
 
-FSResult FSi_WriteMemCallback(FSArchive * p_arc, const u8 * src, u32 offset, u32 size)
+FSResult FSi_WriteMemCallback(struct FSArchive * p_arc, const void * src, u32 pos, u32 size)
 {
-    MI_CpuCopy8(src, (void *)FS_GetArchiveOffset(p_arc, offset), size);
+    MI_CpuCopy8(src, (void *)FS_GetArchiveOffset(p_arc, pos), size);
     return FS_RESULT_SUCCESS;
 }
 
@@ -144,4 +145,141 @@ BOOL FSi_ExecuteSyncCommand(FSFile * p_file)
     if (p_target)
         FSi_ExecuteAsyncCommand(p_target);
     return FS_IsSucceeded(p_file);
+}
+
+BOOL FSi_SendCommand(FSFile * p_file, FSCommandType command)
+{
+    FSArchive * p_arc = p_file->arc;
+    const int bit = 1 << command;
+    p_file->command = command;
+    p_file->error = FS_RESULT_BUSY;
+    p_file->stat |= FS_FILE_STATUS_BUSY;
+    {
+        OSIntrMode bak_psr = OS_DisableInterrupts();
+        if (FSi_IsArchiveUnloading(p_arc))
+        {
+            FSi_ReleaseCommand(p_file, FS_RESULT_CANCELLED);
+            OS_RestoreInterrupts(bak_psr);
+            return FALSE;
+        }
+        if ((bit & FS_ARCHIVE_PROC_SYNC) != 0)
+            p_file->stat |= FS_FILE_STATUS_SYNC;
+        FSi_AppendToList(p_file, (FSFile *)&p_arc->list);
+        if (!FS_IsArchiveSuspended(p_arc) && !FSi_IsArchiveRunning(p_arc))
+        {
+            p_arc->flag |= FS_ARCHIVE_FLAG_RUNNING;
+            OS_RestoreInterrupts(bak_psr);
+            if ((p_arc->proc_flag & FS_ARCHIVE_PROC_ACTIVATE))
+                (*p_arc->proc)(p_file, FS_COMMAND_ACTIVATE);
+            bak_psr = OS_DisableInterrupts();
+            p_file->stat |= FS_FILE_STATUS_OPERATING;
+            if (!FS_IsFileSyncMode(p_file))
+            {
+                OS_RestoreInterrupts(bak_psr);
+                FSi_ExecuteAsyncCommand(p_file);
+                return TRUE;
+            }
+            OS_RestoreInterrupts(bak_psr);
+        }
+        else if (!FS_IsFileSyncMode(p_file))
+        {
+            OS_RestoreInterrupts(bak_psr);
+            return TRUE;
+        }
+        else
+        {
+            do
+            {
+                OS_SleepThread(p_file->queue);
+            } while (!(p_file->stat & FS_FILE_STATUS_OPERATING));
+            OS_RestoreInterrupts(bak_psr);
+        }
+    }
+    return FSi_ExecuteSyncCommand(p_file);
+}
+
+void FS_InitArchive(FSArchive * p_arc)
+{
+    MI_CpuClear8(p_arc, sizeof(FSArchive));
+    p_arc->sync_q.head = p_arc->sync_q.tail = NULL;
+    p_arc->stat_q.head = p_arc->stat_q.tail = NULL;
+}
+
+FSArchive * const FS_FindArchive(const char * name, int name_len)
+{
+    u32 pack = FSi_GetPackedName(name, name_len);
+    OSIntrMode bak_psr = OS_DisableInterrupts();
+    FSArchive * p_arc = arc_list;
+    while (p_arc && (p_arc->name.pack != pack))
+        p_arc = p_arc->next;
+    OS_RestoreInterrupts(bak_psr);
+    return p_arc;
+}
+
+BOOL FS_RegisterArchiveName(FSArchive * p_arc, const char * name, int name_len)
+{
+    BOOL ret = FALSE;
+    OSIntrMode bak_psr = OS_DisableInterrupts();
+    if (!FS_FindArchive(name, name_len))
+    {
+        FSArchive * p_tail = arc_list;
+        if (!p_tail)
+        {
+            arc_list = p_arc;
+            current_dir_pos.arc = p_arc;
+            current_dir_pos.pos = 0;
+            current_dir_pos.index = 0;
+            current_dir_pos.own_id = 0;
+        }
+        else
+        {
+            while (p_tail->next)
+                p_tail = p_tail->next;
+            p_tail->next = p_arc;
+            p_arc->prev = p_tail;
+        }
+        p_arc->name.pack = FSi_GetPackedName(name, name_len);
+        p_arc->flag |= FS_ARCHIVE_FLAG_REGISTER;
+        ret = TRUE;
+    }
+    OS_RestoreInterrupts(bak_psr);
+    return ret;
+}
+
+void FS_ReleaseArchiveName(FSArchive * p_arc)
+{
+    if (p_arc->name.pack)
+    {
+        OSIntrMode bak_psr = OS_DisableInterrupts();
+        if (p_arc->next)
+            p_arc->next->prev = p_arc->prev;
+        if (p_arc->prev)
+            p_arc->prev->next = p_arc->next;
+        p_arc->name.pack = 0;
+        p_arc->next = p_arc->prev = NULL;
+        p_arc->flag &= ~FS_ARCHIVE_FLAG_REGISTER;
+        if (current_dir_pos.arc == p_arc)
+        {
+            current_dir_pos.arc = arc_list;
+            current_dir_pos.pos = 0;
+            current_dir_pos.index = 0;
+            current_dir_pos.own_id = 0;
+        }
+        OS_RestoreInterrupts(bak_psr);
+    }
+}
+
+BOOL FS_LoadArchive(FSArchive * p_arc, u32 base, u32 fat, u32 fat_size, u32 fnt, u32 fnt_size, FS_ARCHIVE_READ_FUNC read_func, FS_ARCHIVE_WRITE_FUNC write_func)
+{
+    p_arc->base = base;
+    p_arc->fat_size = fat_size;
+    p_arc->fat = p_arc->fat_bak = fat;
+    p_arc->fnt_size = fnt_size;
+    p_arc->fnt = p_arc->fnt_bak = fnt;
+    p_arc->read_func = (read_func != NULL) ? read_func : FSi_ReadMemCallback;
+    p_arc->write_func = (write_func != NULL) ? write_func : FSi_WriteMemCallback;
+    p_arc->table_func = p_arc->read_func;
+    p_arc->load_mem = NULL;
+    p_arc->flag |= FS_ARCHIVE_FLAG_LOADED;
+    return TRUE;
 }
