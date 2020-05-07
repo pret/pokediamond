@@ -5,13 +5,13 @@
 #include "function_target.h"
 #include "OS_reset.h"
 #include "MB_mb.h"
+#include "OS_terminate_proc.h"
 
 extern u16 OSi_IsInitReset;
 extern vu16 OSi_IsResetOccurred;
 extern void PXI_Init();
 extern u32 PXI_IsCallbackReady(u32 param1, u32 param2);
 extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
-extern void OS_Terminate();
 extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 extern void CARD_LockRom(u16 lockId);
 extern u32 OS_GetLockID();
