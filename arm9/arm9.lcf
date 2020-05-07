@@ -203,6 +203,7 @@ SECTIONS {
 		PXI_fifo.o (.text)
 		FS_command.o (.text)
 		FS_command_default.o (.text)
+		FS_archive.asm.o (.text)
 		FS_archive.o (.text)
 		FS_file.o (.text)
 		FS_rom.o (.text)
@@ -273,6 +274,10 @@ SECTIONS {
 		cardi_common                     = 0x021D55C0;
 		current_dir_pos                  = 0x021D53EC;
 		is_init                          = 0x021D53F8;
+		fsi_ovt9                         = 0x021D5404;
+		fsi_ovt7                         = 0x021D540C;
+		fsi_arc_rom                      = 0x021D5414;
+		__global_destructor_chain        = 0x021D74C8;
 		SDK_STATIC_BSS_END               = 0x021D74E0;
 		SDK_STATIC_BSS_SIZE = SDK_STATIC_BSS_END - SDK_STATIC_BSS_START;
 	} >> arm9

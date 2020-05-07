@@ -236,7 +236,6 @@ FSi_OnRomReadDone: ; 0x020D2018
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl CARD_IsPulledOut
-_020D2024:
 	cmp r0, #0x0
 	movne r1, #0x5
 	moveq r1, #0x0

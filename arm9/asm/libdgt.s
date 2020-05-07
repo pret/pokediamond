@@ -403,8 +403,8 @@ _020D2D6C: .word 0xEFCDAB89
 _020D2D70: .word 0x98BADCFE
 _020D2D74: .word 0x10325476
 
-	arm_func_start MATH_CalcHMACSHA1
-MATH_CalcHMACSHA1: ; 0x020D2D78
+	arm_func_start DGT_Hash2CalcHmac
+DGT_Hash2CalcHmac: ; 0x020D2D78
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0xa0
 	ldr lr, _020D2E00 ; =0x02106A04

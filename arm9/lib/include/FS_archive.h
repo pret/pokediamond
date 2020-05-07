@@ -47,6 +47,37 @@ typedef enum {
     FS_COMMAND_INVALID
 } FSCommandType;
 
+/* Asynchronous commands*/
+#define	FS_ARCHIVE_PROC_READFILE		(1 << FS_COMMAND_READFILE)
+#define	FS_ARCHIVE_PROC_WRITEFILE		(1 << FS_COMMAND_WRITEFILE)
+/* All asynchronous commands*/
+#define	FS_ARCHIVE_PROC_ASYNC	\
+	(FS_ARCHIVE_PROC_READFILE | FS_ARCHIVE_PROC_WRITEFILE)
+
+/* Synchronous commands*/
+#define	FS_ARCHIVE_PROC_SEEKDIR			(1 << FS_COMMAND_SEEKDIR)
+#define	FS_ARCHIVE_PROC_READDIR			(1 << FS_COMMAND_READDIR)
+#define	FS_ARCHIVE_PROC_FINDPATH		(1 << FS_COMMAND_FINDPATH)
+#define	FS_ARCHIVE_PROC_GETPATH			(1 << FS_COMMAND_GETPATH)
+#define	FS_ARCHIVE_PROC_OPENFILEFAST	(1 << FS_COMMAND_OPENFILEFAST)
+#define	FS_ARCHIVE_PROC_OPENFILEDIRECT	(1 << FS_COMMAND_OPENFILEDIRECT)
+#define	FS_ARCHIVE_PROC_CLOSEFILE		(1 << FS_COMMAND_CLOSEFILE)
+/* All synchronous commands*/
+#define	FS_ARCHIVE_PROC_SYNC	\
+	(FS_ARCHIVE_PROC_SEEKDIR | FS_ARCHIVE_PROC_READDIR |	\
+	 FS_ARCHIVE_PROC_FINDPATH | FS_ARCHIVE_PROC_GETPATH |	\
+	FS_ARCHIVE_PROC_OPENFILEFAST | FS_ARCHIVE_PROC_OPENFILEDIRECT | FS_ARCHIVE_PROC_CLOSEFILE)
+
+/* Messages when status changes*/
+#define	FS_ARCHIVE_PROC_ACTIVATE		(1 << FS_COMMAND_ACTIVATE)
+#define	FS_ARCHIVE_PROC_IDLE			(1 << FS_COMMAND_IDLE)
+#define	FS_ARCHIVE_PROC_SUSPENDING		(1 << FS_COMMAND_SUSPEND)
+#define	FS_ARCHIVE_PROC_RESUME			(1 << FS_COMMAND_RESUME)
+/* All messages when status changes*/
+#define	FS_ARCHIVE_PROC_STATUS	\
+	(FS_ARCHIVE_PROC_ACTIVATE | FS_ARCHIVE_PROC_IDLE |	\
+	 FS_ARCHIVE_PROC_SUSPENDING | FS_ARCHIVE_PROC_RESUME)
+
 typedef enum {
     FS_RESULT_SUCCESS = 0,
     FS_RESULT_FAILURE,
@@ -105,6 +136,31 @@ FSArchive * const FS_FindArchive(const char * path, int offset);
 static inline BOOL FS_IsArchiveLoaded(volatile const FSArchive * p_arc)
 {
     return (p_arc->flag & FS_ARCHIVE_FLAG_LOADED) ? TRUE : FALSE;
+}
+
+static inline u32 FS_GetArchiveOffset(const FSArchive * p_arc, u32 pos)
+{
+    return p_arc->base + pos;
+}
+
+static inline BOOL FSi_IsArchiveCanceling(volatile const FSArchive * p_arc)
+{
+    return (p_arc->flag & FS_ARCHIVE_FLAG_CANCELING) != 0;
+}
+
+static inline BOOL FS_IsArchiveSuspended(volatile const FSArchive * p_arc)
+{
+    return (p_arc->flag & FS_ARCHIVE_FLAG_SUSPEND) ? TRUE : FALSE;
+}
+
+static inline BOOL FSi_IsArchiveSuspending(volatile const FSArchive * p_arc)
+{
+    return (p_arc->flag & FS_ARCHIVE_FLAG_SUSPENDING) != 0;
+}
+
+static inline BOOL FSi_IsArchiveRunning(volatile const FSArchive * p_arc)
+{
+    return (p_arc->flag & FS_ARCHIVE_FLAG_RUNNING) != 0;
 }
 
 BOOL FSi_SendCommand(struct FSFile * file, FSCommandType command);
