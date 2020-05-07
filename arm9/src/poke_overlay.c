@@ -188,47 +188,16 @@ THUMB_FUNC BOOL LoadOverlayNoInit(MIProcessor target, FSOverlayID id)
     return TRUE;
 }
 
-//THUMB_FUNC BOOL LoadOverlayNoInitAsync(MIProcessor target, FSOverlayID id)
-//{
-//    FSOverlayInfo info;
-//    FSFile file;
-//    if (!FS_LoadOverlayInfo(&info, target, id))
-//        return FALSE;
-//    FS_InitFile(&file);
-//    FS_LoadOverlayImageAsync(&info, &file);
-//    FS_WaitAsync(&file);
-//    FS_CloseFile(&file);
-//    FS_StartOverlay(&info);
-//    return TRUE;
-//}
-
-THUMB_FUNC asm BOOL LoadOverlayNoInitAsync(MIProcessor target, FSOverlayID id)
+THUMB_FUNC BOOL LoadOverlayNoInitAsync(MIProcessor target, FSOverlayID id)
 {
-    push {lr}
-    sub sp, #0x74
-    add r3, r0, #0x0
-    add r2, r1, #0x0
-    add r0, sp, #0x0
-    add r1, r3, #0x0
-    bl FS_LoadOverlayInfo
-    cmp r0, #0x0
-    bne _020061C2
-    add sp, #0x74
-    mov r0, #0x0
-    pop {pc}
-_020061C2:
-    add r0, sp, #0x2c
-    bl FS_InitFile
-    add r0, sp, #0x0
-    add r1, sp, #0x2c
-    bl FS_LoadOverlayImageAsync
-    add r0, sp, #0x2c
-    bl FS_WaitAsync
-    add r0, sp, #0x2c
-    bl FS_CloseFile
-    add r0, sp, #0x0
-    bl FS_StartOverlay
-    mov r0, #0x1
-    add sp, #0x74
-    pop {pc}
+    FSOverlayInfo info;
+    FSFile file;
+    if (!FS_LoadOverlayInfo(&info, target, id))
+        return FALSE;
+    FS_InitFile(&file);
+    FS_LoadOverlayImageAsync(&info, &file);
+    FS_WaitAsync(&file);
+    FS_CloseFile(&file);
+    FS_StartOverlay(&info);
+    return TRUE;
 }
