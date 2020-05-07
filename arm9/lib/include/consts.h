@@ -6,25 +6,13 @@
 #define POKEDIAMOND_CONSTS_H
 
 #include "mmap.h"
+#include "registers.h"
 
 #define HW_PSR_CPU_MODE_MASK       0x1f // CPU mode
 
 #define HW_PSR_DISABLE_FIQ         0x40 // Disable FIQ
 #define HW_PSR_DISABLE_IRQ         0x80 // Disable IRQ
 #define HW_PSR_DISABLE_IRQ_FIQ     0xc0 // Disable FIQ and IRQ
-
-#define HW_REG_BASE                0x04000000
-#define REG_VCOUNT_OFFSET          0x006
-#define REG_VCOUNT_ADDR            (HW_REG_BASE + REG_VCOUNT_OFFSET)
-#define reg_GX_VCOUNT              (*(REGType16v *)REG_VCOUNT_ADDR)
-
-#define REG_KEYINPUT_OFFSET        0x130
-#define REG_KEYINPUT_ADDR          (HW_REG_BASE + REG_KEYINPUT_OFFSET)
-#define reg_PAD_KEYINPUT           (*(REGType16v *)REG_KEYINPUT_ADDR)
-
-#define REG_GXSTAT_OFFSET          0x600
-#define REG_GXSTAT_ADDR            (HW_REG_BASE + REG_GXSTAT_OFFSET)
-#define reg_G3X_GXSTAT             (*(REGType32v *)REG_GXSTAT_ADDR)
 
 #define HW_C6_PR_4KB               0x16
 #define HW_C6_PR_8KB               0x18
@@ -47,6 +35,8 @@
 #define HW_C6_PR_1GB               0x3a
 #define HW_C6_PR_2GB               0x3c
 #define HW_C6_PR_4GB               0x3e
+
+#define PXI_PROC_ARM7              0x01
 
 #define OSi_CONSOLE_NOT_DETECT     0xffffffff
 

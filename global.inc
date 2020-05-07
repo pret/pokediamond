@@ -2558,7 +2558,7 @@
 .extern MTX_ScaleApply22
 .extern FUN_020C6034
 .extern FUN_020C605C
-.extern FUN_021D74E0
+.extern MOD05_021D74E0
 .extern FUN_021D76AC
 .extern FUN_021D77C4
 .extern FUN_021D7800
