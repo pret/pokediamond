@@ -18,7 +18,7 @@ extern u32 OS_GetLockID();
 extern void MI_StopDma(u32 dma);
 extern void OS_SetIrqMask(u32 mask);
 extern void OS_ResetRequestIrqMask(u32 mask);
-extern void OSi_DoResetSystem();
+extern void OSi_DoResetSystem(); //in itcm, should technically be in this file
 
 ARM_FUNC void OS_InitReset() {
     if (OSi_IsInitReset) {
