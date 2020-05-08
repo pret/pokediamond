@@ -2,7 +2,6 @@
 // Created by mart on 4/23/20.
 //
 
-#include "function_target.h"
 #include "OS_system.h"
 
 ARM_FUNC asm OSIntrMode OS_EnableInterrupts() {

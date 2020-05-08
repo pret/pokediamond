@@ -61,9 +61,9 @@ _021D752C:
 	lsl r0, r0, #8
 	lsr r0, r0, #0x1c
 	beq _021D7564
-	ldr r0, _021D7678 ; =0x00000006
+	ldr r0, _021D7678 ; =SDK_OVERLAY_MODULE_06_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 _021D7564:
 	ldr r2, [r4, #0x70]
 	mov r0, #3
@@ -174,7 +174,7 @@ _021D7666:
 	.balign 4, 0
 _021D7670: .word 0x04000050
 _021D7674: .word 0x04001050
-_021D7678: .word 0x00000006
+_021D7678: .word SDK_OVERLAY_MODULE_06_ID
 
 	thumb_func_start MOD05_021D767C
 MOD05_021D767C: ; 0x021D767C
@@ -367,8 +367,8 @@ _021D7806:
 	lsl r0, r0, #8
 	lsr r0, r0, #0x1c
 	beq _021D7856
-	ldr r0, _021D7860 ; =0x00000006
-	bl FUN_02005F60
+	ldr r0, _021D7860 ; =SDK_OVERLAY_MODULE_06_ID
+	bl UnloadOverlayByID
 _021D7856:
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -376,7 +376,7 @@ _021D785A:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D7860: .word 0x00000006
+_021D7860: .word SDK_OVERLAY_MODULE_06_ID
 
 	thumb_func_start MOD05_021D7864
 MOD05_021D7864: ; 0x021D7864
@@ -9485,16 +9485,16 @@ _021DBE9C: .word 0x02050E2D
 MOD05_021DBEA0: ; 0x021DBEA0
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _021DBEB8 ; =0x00000033
+	ldr r0, _021DBEB8 ; =SDK_OVERLAY_MODULE_51_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	add r0, r4, #0
 	bl FUN_02254A68
 	add r4, #0x80
 	str r0, [r4]
 	pop {r4, pc}
 	.balign 4, 0
-_021DBEB8: .word 0x00000033
+_021DBEB8: .word SDK_OVERLAY_MODULE_51_ID
 
 	thumb_func_start MOD05_021DBEBC
 MOD05_021DBEBC: ; 0x021DBEBC
@@ -9516,11 +9516,11 @@ MOD05_021DBECC: ; 0x021DBECC
 	add r0, #0x80
 	ldr r0, [r0]
 	bl FUN_02254AB8
-	ldr r0, _021DBEE0 ; =0x00000033
-	bl FUN_02005F60
+	ldr r0, _021DBEE0 ; =SDK_OVERLAY_MODULE_51_ID
+	bl UnloadOverlayByID
 	pop {r3, pc}
 	nop
-_021DBEE0: .word 0x00000033
+_021DBEE0: .word SDK_OVERLAY_MODULE_51_ID
 
 	thumb_func_start MOD05_021DBEE4
 MOD05_021DBEE4: ; 0x021DBEE4
@@ -24576,11 +24576,11 @@ _021E33A0:
 	ldr r0, [r5, #0xc]
 	bl FUN_0204C1A8
 	add r6, r0, #0
-	ldr r0, _021E341C ; =0x00000013
-	bl FUN_02005F60
-	ldr r0, _021E3420 ; =0x00000014
+	ldr r0, _021E341C ; =SDK_OVERLAY_MODULE_19_ID
+	bl UnloadOverlayByID
+	ldr r0, _021E3420 ; =SDK_OVERLAY_MODULE_20_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	add r0, r6, #0
 	bl FUN_0204BEB8
 	mov r0, #1
@@ -24624,8 +24624,8 @@ _021E3414:
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	nop
-_021E341C: .word 0x00000013
-_021E3420: .word 0x00000014
+_021E341C: .word SDK_OVERLAY_MODULE_19_ID
+_021E3420: .word SDK_OVERLAY_MODULE_20_ID
 
 	thumb_func_start MOD05_021E3424
 MOD05_021E3424: ; 0x021E3424
@@ -50085,9 +50085,9 @@ MOD05_021EFAAC: ; 0x021EFAAC
 	bl FUN_0205F1E4
 	cmp r0, #0
 	bne _021EFAF8
-	ldr r0, _021EFB0C ; =0x00000014
+	ldr r0, _021EFB0C ; =SDK_OVERLAY_MODULE_20_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	mov r0, #1
 	bl FUN_0200A03C
 	str r0, [sp]
@@ -50100,16 +50100,16 @@ MOD05_021EFAAC: ; 0x021EFAAC
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 _021EFAF8:
-	ldr r0, _021EFB10 ; =0x00000013
+	ldr r0, _021EFB10 ; =SDK_OVERLAY_MODULE_19_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	ldr r0, [r5, #8]
 	bl FUN_02252440
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	nop
-_021EFB0C: .word 0x00000014
-_021EFB10: .word 0x00000013
+_021EFB0C: .word SDK_OVERLAY_MODULE_20_ID
+_021EFB10: .word SDK_OVERLAY_MODULE_19_ID
 
 	thumb_func_start MOD05_021EFB14
 MOD05_021EFB14: ; 0x021EFB14
@@ -50165,8 +50165,8 @@ MOD05_021EFB50: ; 0x021EFB50
 	ldr r0, [r5, #4]
 	mov r1, #0
 	str r1, [r0, #0x14]
-	ldr r0, _021EFBAC ; =0x00000014
-	bl FUN_02005F60
+	ldr r0, _021EFBAC ; =SDK_OVERLAY_MODULE_20_ID
+	bl UnloadOverlayByID
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _021EFB94:
@@ -50174,29 +50174,29 @@ _021EFB94:
 	bl FUN_02252504
 	cmp r0, #0
 	beq _021EFBA8
-	ldr r0, _021EFBB0 ; =0x00000013
-	bl FUN_02005F60
+	ldr r0, _021EFBB0 ; =SDK_OVERLAY_MODULE_19_ID
+	bl UnloadOverlayByID
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _021EFBA8:
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
-_021EFBAC: .word 0x00000014
-_021EFBB0: .word 0x00000013
+_021EFBAC: .word SDK_OVERLAY_MODULE_20_ID
+_021EFBB0: .word SDK_OVERLAY_MODULE_19_ID
 
 	thumb_func_start MOD05_021EFBB4
 MOD05_021EFBB4: ; 0x021EFBB4
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _021EFBC8 ; =0x00000013
+	ldr r0, _021EFBC8 ; =SDK_OVERLAY_MODULE_19_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	ldr r0, [r4, #8]
 	bl FUN_02252440
 	pop {r4, pc}
 	.balign 4, 0
-_021EFBC8: .word 0x00000013
+_021EFBC8: .word SDK_OVERLAY_MODULE_19_ID
 
 	thumb_func_start MOD05_021EFBCC
 MOD05_021EFBCC: ; 0x021EFBCC
@@ -50213,15 +50213,15 @@ MOD05_021EFBD8: ; 0x021EFBD8
 	bl FUN_02252504
 	cmp r0, #0
 	beq _021EFBEE
-	ldr r0, _021EFBF4 ; =0x00000013
-	bl FUN_02005F60
+	ldr r0, _021EFBF4 ; =SDK_OVERLAY_MODULE_19_ID
+	bl UnloadOverlayByID
 	mov r0, #1
 	pop {r3, pc}
 _021EFBEE:
 	mov r0, #0
 	pop {r3, pc}
 	nop
-_021EFBF4: .word 0x00000013
+_021EFBF4: .word SDK_OVERLAY_MODULE_19_ID
 
 	thumb_func_start MOD05_021EFBF8
 MOD05_021EFBF8: ; 0x021EFBF8

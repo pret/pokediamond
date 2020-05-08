@@ -19,7 +19,7 @@ FUN_02000E0C: ; 0x02000E0C
 	cmp r0, r1
 	beq _02000E2C
 	mov r1, #0x0
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 _02000E2C:
 	ldr r0, _02000E74 ; =0x02106FA0
 	mov r2, #0x0
@@ -51,7 +51,7 @@ _02000E4A:
 	sub r1, r1, #0x1
 	cmp r0, r1
 	beq _02000E70
-	bl FUN_02005F60
+	bl UnloadOverlayByID
 _02000E70:
 	pop {r3, pc}
 	nop

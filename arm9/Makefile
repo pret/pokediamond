@@ -59,6 +59,9 @@ O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
 # Overlay modules
 # FIXME: lcf doesn't like this
 # BIN_FILES := $(wildcard files/*.__AT_*)
+.SECONDARY:
+.DELETE_ON_ERROR:
+.SECONDEXPANSION:
 
 ##################### Compiler Options #######################
 
@@ -151,21 +154,25 @@ build/src/FUN_020910A4.o: MWCCVERSION = 1.2/sp2p3
 
 ####################### Everything Else ######################
 
-$(BUILD_DIR)/%.o: %.c
+ifeq (,$(NODEP))
+$(BUILD_DIR)/%.o: dep = $(shell grep -E '(#\s*|\.)(include|incbin)\s*"(\S+?)"' $*.[cs] | cut -d'"' -f2 | sort -u)
+else
+$(BUILD_DIR)/%.o: dep :=
+endif
+
+$(BUILD_DIR)/%.o: %.c $$(dep)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.o: %.s
-	$(AS) $(ASFLAGS) $< -o $@
+$(BUILD_DIR)/%.o: %.s $$(dep)
+	$(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros.lcf.inc
 	# $(MAKELSF) $(MAKELSF_FLAGS) $< $(LD_TEMPLATE) $@
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
+$(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
 	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
 
-$(ROM): $(ELF)
-	$(OBJCOPY) -O binary --gap-fill=0xFF $< $@
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
@@ -184,6 +191,11 @@ DUMMY != mkdir -p $(ALL_DIRS)
 
 %.png: ;
 %.pal: ;
+
+# Included files
+baserom.%: ;
+%.h: ;
+%.inc: ;
 
 $(BIN_FILES): ;
 

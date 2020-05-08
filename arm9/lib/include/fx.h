@@ -46,24 +46,6 @@ typedef s64 fx64c;
 #define FX64C_INT_ABS(x)           FX_INT_ABS(FX64C, x)
 #define FX64C_FRAC(x)              FX_FRAC(FX64C, x)
 
-
-#define HW_REG_DIVCNT              0x04000280
-#define HW_REG_DIV_NUMER           0x04000290
-#define HW_REG_DIV_DENOM           0x04000298
-#define HW_REG_DIV_RESULT          0x040002A0
-#define HW_REG_DIVREM_RESULT       0x040002A8
-
-#define HW_REG_SQRTCNT             0x040002B0
-#define HW_REG_SQRT_RESULT         0x040002B4
-#define HW_REG_SQRT_PARAM          0x040002B8
-
-#define SETREG16(x, y)             ((*(vu16 *)x) = y)
-#define SETREG32(x, y)             ((*(vu32 *)x) = y)
-#define SETREG64(x, y)             ((*(vu64 *)x) = y)
-#define READREG16(x)               (*(vu16 *)x)
-#define READREG32(x)               (*(vu32 *)x)
-#define READREG64(x)               (*(vu64 *)x)
-
 #define FX32_MUL(a, b)               ((fx32)(((fx64)a * b) >> FX32_INT_SHIFT))
 #define FX32_MUL_ADD_MUL(a, b, c, d) ((fx32)(((fx64)a * b + (fx64)c * d) >> FX32_INT_SHIFT))
 //the extra term here is for rounding
