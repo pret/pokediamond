@@ -13,15 +13,15 @@ typedef struct
 }
 FSiSyncReadParam;
 
-FSResult FSi_ReadFileCommand(FSFile * p_file);
-FSResult FSi_WriteFileCommand(FSFile * p_file);
-FSResult FSi_SeekDirCommand(FSFile * p_file);
-FSResult FSi_ReadDirCommand(FSFile * p_file);
-FSResult FSi_FindPathCommand(FSFile * p_file);
-FSResult FSi_GetPathCommand(FSFile * p_file);
-FSResult FSi_OpenFileFastCommand(FSFile * p_file);
-FSResult FSi_OpenFileDirectCommand(FSFile * p_file);
-FSResult FSi_CloseFileCommand(FSFile * p_file);
+ARM_FUNC FSResult FSi_ReadFileCommand(FSFile * p_file);
+ARM_FUNC FSResult FSi_WriteFileCommand(FSFile * p_file);
+ARM_FUNC FSResult FSi_SeekDirCommand(FSFile * p_file);
+ARM_FUNC FSResult FSi_ReadDirCommand(FSFile * p_file);
+ARM_FUNC FSResult FSi_FindPathCommand(FSFile * p_file);
+ARM_FUNC FSResult FSi_GetPathCommand(FSFile * p_file);
+ARM_FUNC FSResult FSi_OpenFileFastCommand(FSFile * p_file);
+ARM_FUNC FSResult FSi_OpenFileDirectCommand(FSFile * p_file);
+ARM_FUNC FSResult FSi_CloseFileCommand(FSFile * p_file);
 
 FSResult (*const fsi_default_command[])(FSFile *) = {
     [FS_COMMAND_READFILE]       = FSi_ReadFileCommand,
@@ -36,7 +36,7 @@ FSResult (*const fsi_default_command[])(FSFile *) = {
 };
 
 // Case-insensitive string comparison
-u32 FSi_StrNICmp(const char * str1, const char * str2, u32 len)
+ARM_FUNC u32 FSi_StrNICmp(const char * str1, const char * str2, u32 len)
 {
     int i;
     for (i = 0; i < len; i++)
@@ -53,7 +53,7 @@ u32 FSi_StrNICmp(const char * str1, const char * str2, u32 len)
     return 0;
 }
 
-FSResult FSi_ReadTable(FSiSyncReadParam * p, void * dst, u32 len)
+ARM_FUNC FSResult FSi_ReadTable(FSiSyncReadParam * p, void * dst, u32 len)
 {
     FSResult ret;
     FSArchive * const p_arc = p->arc;
@@ -78,7 +78,7 @@ FSResult FSi_ReadTable(FSiSyncReadParam * p, void * dst, u32 len)
     return ret;
 }
 
-FSResult FSi_SeekDirDirect(FSFile * p_dir, u32 id)
+ARM_FUNC FSResult FSi_SeekDirDirect(FSFile * p_dir, u32 id)
 {
     p_dir->stat |= FS_FILE_STATUS_SYNC;
     p_dir->arg.seekdir.pos.arc = p_dir->arc;
@@ -89,7 +89,7 @@ FSResult FSi_SeekDirDirect(FSFile * p_dir, u32 id)
 }
 
 // The actual commands
-FSResult FSi_ReadFileCommand(FSFile * p_file)
+ARM_FUNC FSResult FSi_ReadFileCommand(FSFile * p_file)
 {
     FSArchive *const p_arc = p_file->arc;
     const u32 pos = p_file->prop.file.pos;
@@ -99,7 +99,7 @@ FSResult FSi_ReadFileCommand(FSFile * p_file)
     return (*p_arc->read_func)(p_arc, dst, pos, len);
 }
 
-FSResult FSi_WriteFileCommand(FSFile * p_file)
+ARM_FUNC FSResult FSi_WriteFileCommand(FSFile * p_file)
 {
     FSArchive *const p_arc = p_file->arc;
     const u32 pos = p_file->prop.file.pos;
@@ -109,7 +109,7 @@ FSResult FSi_WriteFileCommand(FSFile * p_file)
     return (*p_arc->write_func)(p_arc, src, pos, len);
 }
 
-FSResult FSi_SeekDirCommand(FSFile * p_dir)
+ARM_FUNC FSResult FSi_SeekDirCommand(FSFile * p_dir)
 {
     FSResult ret;
     FSArchive *const p_arc = p_dir->arc;
@@ -133,7 +133,7 @@ FSResult FSi_SeekDirCommand(FSFile * p_dir)
     return ret;
 }
 
-FSResult FSi_ReadDirCommand(FSFile *p_dir)
+ARM_FUNC FSResult FSi_ReadDirCommand(FSFile *p_dir)
 {
     FSDirEntry *p_entry = p_dir->arg.readdir.p_entry;
     FSResult ret;
@@ -187,7 +187,7 @@ FSResult FSi_ReadDirCommand(FSFile *p_dir)
     return ret;
 }
 
-FSResult FSi_FindPathCommand(FSFile *p_dir)
+ARM_FUNC FSResult FSi_FindPathCommand(FSFile *p_dir)
 {
     const char *path = p_dir->arg.findpath.path;
     const BOOL is_dir = p_dir->arg.findpath.find_directory;
@@ -262,7 +262,7 @@ FSResult FSi_FindPathCommand(FSFile *p_dir)
     return FS_RESULT_SUCCESS;
 }
 
-FSResult FSi_GetPathCommand(FSFile *p_file)
+ARM_FUNC FSResult FSi_GetPathCommand(FSFile *p_file)
 {
     FSArchive *const p_arc = p_file->arc;
 
@@ -425,7 +425,7 @@ FSResult FSi_GetPathCommand(FSFile *p_file)
     return FS_RESULT_SUCCESS;
 }
 
-FSResult FSi_OpenFileFastCommand(FSFile * p_file)
+ARM_FUNC FSResult FSi_OpenFileFastCommand(FSFile * p_file)
 {
     FSArchive *const p_arc = p_file->arc;
     const FSFileID *p_id = &p_file->arg.openfilefast.id;
@@ -453,7 +453,7 @@ FSResult FSi_OpenFileFastCommand(FSFile * p_file)
     }
 }
 
-FSResult FSi_OpenFileDirectCommand(FSFile * p_file)
+ARM_FUNC FSResult FSi_OpenFileDirectCommand(FSFile * p_file)
 {
     p_file->prop.file.top = p_file->arg.openfiledirect.top;
     p_file->prop.file.pos = p_file->arg.openfiledirect.top;
@@ -462,7 +462,7 @@ FSResult FSi_OpenFileDirectCommand(FSFile * p_file)
     return FS_RESULT_SUCCESS;
 }
 
-FSResult FSi_CloseFileCommand(FSFile * p_file)
+ARM_FUNC FSResult FSi_CloseFileCommand(FSFile * p_file)
 {
     return FS_RESULT_SUCCESS;
 }

@@ -3,7 +3,7 @@
 #include "FSi_util.h"
 #include "FS_command.h"
 
-void FSi_ReleaseCommand(FSFile * p_file, FSResult ret)
+ARM_FUNC void FSi_ReleaseCommand(FSFile * p_file, FSResult ret)
 {
     OSIntrMode bak_psr = OS_DisableInterrupts();
     FSi_CutFromList(p_file);
@@ -13,7 +13,7 @@ void FSi_ReleaseCommand(FSFile * p_file, FSResult ret)
     OS_RestoreInterrupts(bak_psr);
 }
 
-FSResult FSi_TranslateCommand(FSFile *p_file, FSCommandType command)
+ARM_FUNC FSResult FSi_TranslateCommand(FSFile *p_file, FSCommandType command)
 {
     FSResult ret;
 

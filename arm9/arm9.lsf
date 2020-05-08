@@ -87,11 +87,11 @@ Static arm9
 		Object PXI_fifo.o
 		Object rom2_2.o
 		Object FS_command.o
-        Object FS_command_default.o
-        Object FS_archive.o
-        Object FS_file.o
-        Object FS_rom.o
-        Object FS_overlay.o
+		Object FS_command_default.o
+		Object FS_archive.o
+		Object FS_file.o
+		Object FS_rom.o
+		Object FS_overlay.o
 		Object libdgt.o
 		Object libcp.o
 		Object libspi.o

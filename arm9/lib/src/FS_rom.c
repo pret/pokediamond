@@ -9,23 +9,23 @@
 
 u32 fsi_default_dma_no;
 
-void FSi_OnRomReadDone(void * p_arc)
+ARM_FUNC void FSi_OnRomReadDone(void * p_arc)
 {
     FS_NotifyArchiveAsyncEnd(p_arc, CARD_IsPulledOut() ? FS_RESULT_ERROR : FS_RESULT_SUCCESS);
 }
 
-FSResult FSi_ReadRomCallback(FSArchive * p_arc, void * dst, u32 src, u32 len)
+ARM_FUNC FSResult FSi_ReadRomCallback(FSArchive * p_arc, void * dst, u32 src, u32 len)
 {
     CARD_ReadRomAsync(fsi_default_dma_no, (const void *)src, dst, len, FSi_OnRomReadDone, p_arc);
     return FS_RESULT_PROC_ASYNC;
 }
 
-FSResult FSi_WriteDummyCallback(FSArchive * p_arc, const void *src, u32 dst, u32 len)
+ARM_FUNC FSResult FSi_WriteDummyCallback(FSArchive * p_arc, const void *src, u32 dst, u32 len)
 {
     return FS_RESULT_FAILURE;
 }
 
-FSResult FSi_RomArchiveProc(FSFile * p_arc, FSCommandType cmd)
+ARM_FUNC FSResult FSi_RomArchiveProc(FSFile * p_arc, FSCommandType cmd)
 {
     switch (cmd)
     {
@@ -42,17 +42,17 @@ FSResult FSi_RomArchiveProc(FSFile * p_arc, FSCommandType cmd)
     }
 }
 
-FSResult FSi_ReadDummyCallback(FSArchive *p_arc, void *dst, u32 src, u32 len)
+ARM_FUNC FSResult FSi_ReadDummyCallback(FSArchive *p_arc, void *dst, u32 src, u32 len)
 {
     return FS_RESULT_FAILURE;
 }
 
-FSResult FSi_EmptyArchiveProc(FSFile *p_file, FSCommandType cmd)
+ARM_FUNC FSResult FSi_EmptyArchiveProc(FSFile *p_file, FSCommandType cmd)
 {
     return FS_RESULT_UNSUPPORTED;
 }
 
-void FSi_InitRom(u32 default_dma_no)
+ARM_FUNC void FSi_InitRom(u32 default_dma_no)
 {
     fsi_default_dma_no = default_dma_no;
     fsi_card_lock_id = OS_GetLockID();
@@ -99,7 +99,7 @@ void FSi_InitRom(u32 default_dma_no)
     }
 }
 
-u32 FS_SetDefaultDMA(u32 dma_no)
+ARM_FUNC u32 FS_SetDefaultDMA(u32 dma_no)
 {
     OSIntrMode bak_psr = OS_DisableInterrupts();
     u32 bak_dma_no = fsi_default_dma_no;
@@ -111,7 +111,7 @@ u32 FS_SetDefaultDMA(u32 dma_no)
     return bak_dma_no;
 }
 
-u32 FS_TryLoadTable(void * p_mem, u32 size)
+ARM_FUNC u32 FS_TryLoadTable(void * p_mem, u32 size)
 {
     return FS_LoadArchiveTables(&fsi_arc_rom, p_mem, size);
 }

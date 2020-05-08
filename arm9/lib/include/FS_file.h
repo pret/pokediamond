@@ -5,13 +5,13 @@
 
 #include "FS_archive.h"
 
-#define	FS_FILE_STATUS_BUSY			0x00000001
-#define	FS_FILE_STATUS_CANCEL		0x00000002
-#define	FS_FILE_STATUS_SYNC			0x00000004
-#define	FS_FILE_STATUS_ASYNC		0x00000008
-#define	FS_FILE_STATUS_IS_FILE		0x00000010
-#define	FS_FILE_STATUS_IS_DIR		0x00000020
-#define FS_FILE_STATUS_OPERATING    0x00000040
+#define FS_FILE_STATUS_BUSY      0x00000001
+#define FS_FILE_STATUS_CANCEL    0x00000002
+#define FS_FILE_STATUS_SYNC      0x00000004
+#define FS_FILE_STATUS_ASYNC     0x00000008
+#define FS_FILE_STATUS_IS_FILE   0x00000010
+#define FS_FILE_STATUS_IS_DIR    0x00000020
+#define FS_FILE_STATUS_OPERATING 0x00000040
 
 #define FS_FILE_NAME_MAX 127
 
@@ -81,7 +81,7 @@ typedef struct
         FSFileID *file;
         FSDirPos *dir;
     }
-        result;
+    result;
 }
 FSFindPathInfo;
 

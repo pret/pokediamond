@@ -7,7 +7,6 @@
 
 #include "function_target.h"
 #include "consts.h"
-#include "function_target.h"
 
 typedef enum {
     OS_PROCMODE_USER=16,
@@ -36,8 +35,5 @@ OSIntrMode OS_GetCpsrIrq();
 OSProcMode OS_GetProcMode();
 void OS_SpinWait();
 void OS_WaitVBlankIntr();
-void OS_Terminate(void);
-#define OS_TPanic(...) OS_Terminate()
-#define OS_TWarning(...) ((void)0)
 
 #endif //POKEDIAMOND_OS_SYSTEM_H

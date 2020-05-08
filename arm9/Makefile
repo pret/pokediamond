@@ -125,6 +125,7 @@ MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
 	@$(SHA1SUM) -c $(TARGET).sha1
+	@echo $(ROM): OK
 
 clean: mostlyclean
 	make -C $(TOOLS_DIR)/mwasmarm_patcher clean

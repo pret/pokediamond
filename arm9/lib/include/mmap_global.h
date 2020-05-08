@@ -1,4 +1,0 @@
-#ifndef NITRO_MMAP_GLOBAL_H_
-#define NITRO_MMAP_GLOBAL_H_
-
-#endif //NITRO_MMAP_GLOBAL_H_
