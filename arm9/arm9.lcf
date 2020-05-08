@@ -255,9 +255,12 @@ SECTIONS {
 
 	.arm9.bss :
 	{
+		/* ALIGNALL(4); . = ALIGN(32); */
 		SDK_STATIC_BSS_START = .;
+		/* .sbss */
 		gBacklightTop                    = 0x02106FA0;
 		gBacklightTop_2                  = 0x02106FA0;
+		/* .bss */
 		gLoadedOverlays                  = 0x021C45B0;
 		gUnknown21C48B8                  = 0x021C48B8;
 		gUnk021C4918                     = 0x021C4918;
@@ -305,6 +308,7 @@ SECTIONS {
 		fsi_ovt7                         = 0x021D540C;
 		fsi_arc_rom                      = 0x021D5414;
 		__global_destructor_chain        = 0x021D74C8;
+		/* . = ALIGN(32); */
 		SDK_STATIC_BSS_END               = 0x021D74E0;
 		SDK_STATIC_BSS_SIZE = SDK_STATIC_BSS_END - SDK_STATIC_BSS_START;
 	} >> arm9

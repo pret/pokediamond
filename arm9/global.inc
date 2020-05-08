@@ -3806,6 +3806,7 @@
 .extern sys_writec
 .extern tempName_NNS_FndAllocFromExpHeapEx
 .extern tempName_NNS_FndCreateExpHeapEx
+.extern __global_destructor_chain
 .extern thunk_FUN_02096e4c
 .extern thunk_FUN_02097190
 .extern thunk_FUN_020995dc
