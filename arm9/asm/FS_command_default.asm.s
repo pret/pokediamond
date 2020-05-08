@@ -1,6 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 	.section .text
+	.extern FSi_StrNICmp
+	.extern FSi_ReadTable
+	.extern FSi_SeekDirDirect
 
 	arm_func_start FSi_CloseFileCommand
 FSi_CloseFileCommand: ; 0x020D0114
@@ -42,7 +45,6 @@ FSi_OpenFileFastCommand: ; 0x020D0144
 	mov r2, #0x8
 	str r3, [sp, #0xc]
 	bl FSi_ReadTable
-_020D0194:
 	cmp r0, #0
 	addne sp, sp, #0x14
 	ldmneia sp!, {r4-r5,lr}
@@ -614,135 +616,3 @@ _020D0978:
 	bx lr
 	.balign 4
 _020D0988: .word 0x00000FFF
-
-	arm_func_start FSi_WriteFileCommand
-FSi_WriteFileCommand: ; 0x020D098C
-	stmdb sp!, {lr}
-	sub sp, sp, #0x4
-	ldr r2, [r0, #0x2c]
-	ldr r3, [r0, #0x38]
-	ldr lr, [r0, #0x8]
-	ldr r1, [r0, #0x30]
-	add r12, r2, r3
-	str r12, [r0, #0x2c]
-	ldr r12, [lr, #0x4c]
-	mov r0, lr
-	blx r12
-	add sp, sp, #0x4
-	ldmia sp!, {lr}
-	bx lr
-
-	arm_func_start FSi_ReadFileCommand
-FSi_ReadFileCommand: ; 0x020D09C4
-	stmdb sp!, {lr}
-	sub sp, sp, #0x4
-	ldr r2, [r0, #0x2c]
-	ldr r3, [r0, #0x38]
-	ldr lr, [r0, #0x8]
-	ldr r1, [r0, #0x30]
-	add r12, r2, r3
-	str r12, [r0, #0x2c]
-	ldr r12, [lr, #0x48]
-	mov r0, lr
-	blx r12
-	add sp, sp, #0x4
-	ldmia sp!, {lr}
-	bx lr
-
-	arm_func_start FSi_SeekDirDirect
-FSi_SeekDirDirect: ; 0x020D09FC
-	ldr r3, [r0, #0xc]
-	mov r2, #0x0
-	orr r3, r3, #0x4
-	str r3, [r0, #0xc]
-	ldr r3, [r0, #0x8]
-	ldr ip, _020D0A2C ; =FSi_TranslateCommand
-	str r3, [r0, #0x30]
-	str r2, [r0, #0x38]
-	strh r2, [r0, #0x36]
-	strh r1, [r0, #0x34]
-	mov r1, #0x2
-	bx r12
-	.balign 4
-_020D0A2C: .word FSi_TranslateCommand
-
-	arm_func_start FSi_ReadTable
-FSi_ReadTable:
-	stmdb sp!, {r4-r8,lr}
-	mov r7, r0
-	ldr r5, [r7, #0x0]
-	mov r6, r2
-	ldr r2, [r5, #0x1c]
-	mov r0, r5
-	orr r2, r2, #0x200
-	str r2, [r5, #0x1c]
-	ldr r2, [r7, #0x4]
-	ldr r4, [r5, #0x50]
-	mov r3, r6
-	blx r4
-	cmp r0, #0x0
-	beq _020D0A7C
-	cmp r0, #0x1
-	beq _020D0A7C
-	cmp r0, #0x6
-	beq _020D0A8C
-	b _020D0AC8
-_020D0A7C:
-	ldr r1, [r5, #0x1c]
-	bic r1, r1, #0x200
-	str r1, [r5, #0x1c]
-	b _020D0AC8
-_020D0A8C:
-	bl OS_DisableInterrupts
-	ldr r1, [r5, #0x1c]
-	mov r4, r0
-	ands r0, r1, #0x200
-	beq _020D0AB8
-	add r8, r5, #0xc
-_020D0AA4:
-	mov r0, r8
-	bl OS_SleepThread
-	ldr r0, [r5, #0x1c]
-	ands r0, r0, #0x200
-	bne _020D0AA4
-_020D0AB8:
-	mov r0, r4
-	bl OS_RestoreInterrupts
-	ldr r0, [r5, #0x24]
-	ldr r0, [r0, #0x14]
-_020D0AC8:
-	ldr r1, [r7, #0x4]
-	add r1, r1, r6
-	str r1, [r7, #0x4]
-	ldmia sp!, {r4-r8,lr}
-	bx lr
-
-	arm_func_start FSi_StrNICmp
-FSi_StrNICmp: ; 0x020D0ADC
-	stmdb sp!, {lr}
-	sub sp, sp, #0x4
-	cmp r2, #0x0
-	mov lr, #0x0
-	bls _020D0B30
-_020D0AF0:
-	ldrb r12, [r0, lr]
-	ldrb r3, [r1, lr]
-	sub r12, r12, #0x41
-	cmp r12, #0x19
-	sub r3, r3, #0x41
-	addls r12, r12, #0x20
-	cmp r3, #0x19
-	addls r3, r3, #0x20
-	cmp r12, r3
-	addne sp, sp, #0x4
-	subne r0, r12, r3
-	ldmneia sp!, {lr}
-	bxne lr
-	add lr, lr, #0x1
-	cmp lr, r2
-	blo _020D0AF0
-_020D0B30:
-	mov r0, #0x0
-	add sp, sp, #0x4
-	ldmia sp!, {lr}
-	bx lr

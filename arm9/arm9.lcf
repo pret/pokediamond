@@ -113,6 +113,7 @@ SECTIONS {
 #include "undefined_syms.txt"
 	.arm9 : {
 		SDK_STATIC_START = .;
+		SDK_STATIC_TEXT_START = .;
 		secure.o (.text)
 		crt0.o (.text)
 		crt0.o (.version)
@@ -202,6 +203,7 @@ SECTIONS {
 		PXI_init.o (.text)
 		PXI_fifo.o (.text)
 		FS_command.o (.text)
+		FS_command_default.asm.o (.text)
 		FS_command_default.o (.text)
 		FS_archive.o (.text)
 		FS_file.o (.text)
@@ -221,13 +223,18 @@ SECTIONS {
 		libc.o (.text)
 		/* MWCC library */
 		libmwcc.o (.text)
+		SDK_STATIC_TEXT_END = .;
 
 		/* Static data */
+		SDK_STATIC_DATA_START = .;
 		rom2.o (.data)
 		string_util.o (.data)
 		rom2_2.o (.data)
-		FS_rom.o (.data)
+		FS_command_default.o (.rodata)
 		rom2_3.o (.data)
+		FS_rom.o (.data)
+		rom2_4.o (.data)
+		SDK_STATIC_DATA_END = .;
 		SDK_STATIC_END = .;
 		SDK_STATIC_SIZE = SDK_STATIC_END - SDK_STATIC_START;
 	} > arm9
