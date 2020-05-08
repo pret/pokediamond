@@ -3,6 +3,8 @@
 
 	.text
 
+	; Nintendo DWC
+
 	arm_func_start FUN_020910EC
 FUN_020910EC: ; 0x020910EC
 	stmdb sp!, {r4-r5,lr}
@@ -6625,6 +6627,8 @@ _02096B64:
 	.balign 4
 _02096B74: .word _SDK_NintendoDWC
 
+	; Nintendo Wifi (?)
+
 	arm_func_start FUN_02096B78
 FUN_02096B78: ; 0x02096B78
 	stmdb sp!, {r4-r7,lr}
@@ -7681,6 +7685,8 @@ FUN_02097834: ; 0x02097834
 	.balign 4
 _02097870: .word _SDK_NintendoWiFi
 _02097874: .word 0x021C8CC0
+
+	; Ubiquitous CPS (?)
 
 	arm_func_start FUN_02097878
 FUN_02097878: ; 0x02097878
@@ -17717,6 +17723,8 @@ _020A0044: .word 0x021C90A0
 _020A0048: .word FUN_0209BA80
 _020A004C: .word 0x021C9EE0
 
+	; Ubiquitous SSL (?)
+
 	arm_func_start FUN_020A0050
 FUN_020A0050: ; 0x020A0050
 	mov r0, #0x1
@@ -17935,6 +17943,8 @@ FUN_020A02EC:
 	.balign 4
 _020A0318: .word _SDK_UbiquitousSSL
 _020A031C: .word 0x021D3498
+
+	; Abiosso libVCT (?)
 
 	arm_func_start FUN_020A0320
 FUN_020A0320: ; 0x020A0320
@@ -33691,6 +33701,7 @@ _020AD934: .word 0x021CCD20
 _020AD938: .word 0x021CCD1C
 
 	.extern _SDK_AbiossolibVCT
+
 	arm_func_start FUN_020AD93C
 FUN_020AD93C: ; 0x020AD93C
 	stmdb sp!, {r4,lr}
@@ -33781,6 +33792,8 @@ _020ADA50:
 _020ADA78: .word _SDK_AbiossolibVCT
 _020ADA7C: .word 0x021CCD1C
 _020ADA80: .word 0x021CCD20
+
+	; unknown
 
 	arm_func_start FUN_020ADA84
 FUN_020ADA84: ; 0x020ADA84
