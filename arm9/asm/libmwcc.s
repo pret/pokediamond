@@ -3100,10 +3100,15 @@ __close_console: ; 0x020EC68C
 	mov r0, #0x0
 	bx lr
 
+	.section .rodata
+__static_initializers:
+	.word 0
+
+	.section .text
 	arm_func_start __call_static_initializers
 __call_static_initializers: ; 0x020EC694
 	stmdb sp!, {r4,lr}
-	ldr r4, _020EC6BC ; =0x02104774
+	ldr r4, _020EC6BC ; =__static_initializers
 	b _020EC6A8
 _020EC6A0:
 	blx r0
@@ -3115,7 +3120,7 @@ _020EC6A8:
 	bne _020EC6A0
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020EC6BC: .word 0x02104774
+_020EC6BC: .word __static_initializers
 
 	arm_func_start __destroy_global_chain
 __destroy_global_chain: ; 0x020EC6C0

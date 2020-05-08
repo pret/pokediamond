@@ -234,8 +234,11 @@ SECTIONS {
 		FS_file.o (.rodata)
 		FS_rom.o (.rodata)
 		FS_overlay.o (.rodata)
-		/* . = ALIGN(32); */
-		SDK_STATIC_TEXT_END = .; /* somewhere around here */
+		rom2_3.o (.rodata)
+		libmwcc.o (.rodata)
+		. = ALIGN(32);
+		SDK_STATIC_TEXT_END = .;
+
 		SDK_STATIC_DATA_START = .;
 		rom2_3.o (.data)
 		FS_command.o (.data)
