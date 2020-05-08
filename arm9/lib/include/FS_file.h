@@ -13,6 +13,8 @@
 #define	FS_FILE_STATUS_IS_DIR		0x00000020
 #define FS_FILE_STATUS_OPERATING    0x00000040
 
+#define FS_FILE_NAME_MAX 127
+
 typedef enum FSSeekFileMode
 {
     FS_SEEK_SET = 0,
@@ -208,6 +210,11 @@ static inline BOOL FS_IsBusy(volatile const FSFile * p_file)
 static inline BOOL FS_IsSucceeded(volatile const FSFile * p_file)
 {
     return (p_file->error == FS_RESULT_SUCCESS) ? TRUE : FALSE;
+}
+
+static inline BOOL FS_IsDir(volatile const FSFile * p_file)
+{
+    return (p_file->stat & FS_FILE_STATUS_IS_DIR) ? TRUE : FALSE;
 }
 
 #endif //NITRO_FS_FILE_H_

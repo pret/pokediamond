@@ -112,6 +112,7 @@ MEMORY {
 SECTIONS {
 #include "undefined_syms.txt"
 	.arm9 : {
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_STATIC_START = .;
 		SDK_STATIC_TEXT_START = .;
 		secure.o (.text)
@@ -203,7 +204,6 @@ SECTIONS {
 		PXI_init.o (.text)
 		PXI_fifo.o (.text)
 		FS_command.o (.text)
-		FS_command_default.asm.o (.text)
 		FS_command_default.o (.text)
 		FS_archive.o (.text)
 		FS_file.o (.text)
@@ -223,15 +223,17 @@ SECTIONS {
 		libc.o (.text)
 		/* MWCC library */
 		libmwcc.o (.text)
-		SDK_STATIC_TEXT_END = .;
 
-		/* Static data */
-		SDK_STATIC_DATA_START = .;
-		rom2.o (.data)
-		string_util.o (.data)
-		rom2_2.o (.data)
+		/* Text data */
+		rom2.o (.rodata)
+		string_util.o (.rodata)
+		rom2_2.o (.rodata)
 		FS_command_default.o (.rodata)
+		/* . = ALIGN(32); */
+		SDK_STATIC_TEXT_END = .; /* somewhere around here */
+		SDK_STATIC_DATA_START = .;
 		rom2_3.o (.data)
+		FS_command_default.o (.data)
 		FS_rom.o (.data)
 		rom2_4.o (.data)
 		SDK_STATIC_DATA_END = .;

@@ -105,6 +105,19 @@ typedef struct
 }
 FSFileLink;
 
+typedef struct
+{
+    u32 start;
+    u16 index;
+    u16 parent;
+} FSArchiveFNT;
+
+typedef struct
+{
+    u32 top;
+    u32 bottom;
+} FSArchiveFAT;
+
 typedef struct FSArchive
 {
     union
