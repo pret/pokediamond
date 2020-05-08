@@ -180,8 +180,10 @@ BOOL FS_WaitAsync(FSFile * p_file);
 BOOL FS_OpenFileDirect(FSFile * p_file, FSArchive * p_arc, u32 image_top, u32 image_bottom, u32 file_index);
 int FS_ReadFile(FSFile * p_file, void * dst, s32 len);
 int FS_ReadFileAsync(FSFile * p_file, void * dst, s32 len);
+BOOL FS_OpenFile(FSFile * p_file, const char * path);
 BOOL FS_OpenFileFast(FSFile * p_file, FSFileID file_id);
 BOOL FS_CloseFile(FSFile * p_file);
+BOOL FS_SeekFile(FSFile * p_file, int offset, FSSeekFileMode origin);
 
 static inline u32 const FS_GetFileImageTop(volatile const FSFile * p_file) {
     return p_file->prop.file.top;
