@@ -558,12 +558,14 @@ CARD_WaitBackupAsync: ; 0x020D6DB8
 	.balign 4
 _020D6DC0: .word CARDi_WaitAsync
 
+	.extern _SDK_NintendoBackup
+
 	arm_func_start CARD_IdentifyBackup
 CARD_IdentifyBackup: ; 0x020D6DC4
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
 	mov r5, r0
-	ldr r0, _020D6F00 ; =0x02000C3C
+	ldr r0, _020D6F00 ; =_SDK_NintendoBackup
 	ldr r7, _020D6F04 ; =0x021D55C0
 	bl OSi_ReferSymbol
 _020D6DDC: ; 0x020D6DDC
@@ -648,7 +650,7 @@ _020D6EE0:
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020D6F00: .word 0x02000C3C
+_020D6F00: .word _SDK_NintendoBackup
 _020D6F04: .word 0x021D55C0
 _020D6F08: .word 0x021D3498
 
@@ -666,7 +668,7 @@ CARDi_RequestStreamCommand: ; 0x020D6F20
 	stmdb sp!, {r4-r10,lr}
 	mov r10, r0
 	ldr r6, _020D7004 ; =0x021D55C0
-	ldr r0, _020D7008 ; =0x02000C3C
+	ldr r0, _020D7008 ; =_SDK_NintendoBackup
 	mov r9, r1
 	mov r8, r2
 	mov r7, r3
@@ -726,7 +728,7 @@ _020D6FE8: ; 0x020D6FE8
 	bx lr
 	.balign 4
 _020D7004: .word 0x021D55C0
-_020D7008: .word 0x02000C3C
+_020D7008: .word _SDK_NintendoBackup
 _020D700C: .word CARDi_RequestStreamCommandCore
 _020D7010: .word 0x021D3498
 
@@ -736,7 +738,7 @@ CARDi_RequestStreamCommandCore:
 	sub sp, sp, #0x4
 	mov r9, r0
 	ldr r8, [r9, #0x2c]
-	ldr r0, _020D720C ; =0x02000C3C
+	ldr r0, _020D720C ; =_SDK_NintendoBackup
 	ldr r7, [r9, #0x34]
 	ldr r10, [r9, #0x30]
 	mov r6, #0x100
@@ -878,7 +880,7 @@ _020D71E8: ; 0x020D71E8
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 	.balign 4
-_020D720C: .word 0x02000C3C
+_020D720C: .word _SDK_NintendoBackup
 
 	arm_func_start CARDi_GetRomAccessor
 CARDi_GetRomAccessor: ; 0x020D7210
