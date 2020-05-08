@@ -4,7 +4,7 @@
 #include "FS_file.h"
 #include "FSi_util.h"
 
-ARM_FUNC extern FSDirPos current_dir_pos;
+extern FSDirPos current_dir_pos;
 BOOL is_init = FALSE;
 
 ARM_FUNC void FS_Init(u32 default_dma_no)
