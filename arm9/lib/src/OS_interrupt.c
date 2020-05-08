@@ -10,6 +10,7 @@
 #pragma optimize_for_size on
 
 extern OSThreadQueue OSi_IrqThreadQueue;
+extern OSIrqMask OS_EnableIrqMask(OSIrqMask intr);
 
 ARM_FUNC void OS_InitIrqTable() {
     OS_InitThreadQueue(&OSi_IrqThreadQueue);
@@ -66,4 +67,13 @@ ARM_FUNC OSIrqFunction OS_GetIrqFunction(OSIrqMask intrBit) {
         i++;
     } while (i < 0x16);
     return 0;
+}
+
+ARM_FUNC void OSi_EnterDmaCallback(u32 dmaNo, void (*callback) (void *), void *arg)
+{
+    OSIrqMask mask = 1UL << (dmaNo + 8);
+    OSi_IrqCallbackInfo[dmaNo].func = callback;
+    OSi_IrqCallbackInfo[dmaNo].arg = arg;
+
+    OSi_IrqCallbackInfo[dmaNo].enable = OS_EnableIrqMask(mask) & mask;
 }

@@ -116,26 +116,3 @@ OSi_EnterTimerCallback: ; 0x020C9EC8
 _020C9F08: .word OSi_IrqCallbackInfo+0x30
 _020C9F0C: .word OSi_IrqCallbackInfo+0x38
 _020C9F10: .word OSi_IrqCallbackInfo+0x34
-
-	arm_func_start OSi_EnterDmaCallback
-OSi_EnterDmaCallback: ; 0x020C9F14
-	stmdb sp!, {r4-r6,lr}
-	mov r3, #0xc
-	mul r6, r0, r3
-	ldr ip, _020C9F54 ; =OSi_IrqCallbackInfo
-	add r4, r0, #0x8
-	mov r5, #0x1
-	mov r0, r5, lsl r4
-	ldr r3, _020C9F58 ; =0x021D3424
-	str r1, [r12, r6]
-	str r2, [r3, r6]
-	bl OS_EnableIrqMask
-	and r1, r0, r5, lsl r4
-	ldr r0, _020C9F5C ; =0x021D3420
-	str r1, [r0, r6]
-	ldmia sp!, {r4-r6,lr}
-	bx lr
-	.balign 4
-_020C9F54: .word OSi_IrqCallbackInfo
-_020C9F58: .word OSi_IrqCallbackInfo + 8
-_020C9F5C: .word OSi_IrqCallbackInfo + 4

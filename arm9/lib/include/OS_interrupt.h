@@ -24,5 +24,6 @@ extern OSIrqCallbackInfo OSi_IrqCallbackInfo[7+1];
 void OS_InitIrqTable();
 void OS_SetIrqFunction(OSIrqMask intrBit, OSIrqFunction function);
 OSIrqFunction OS_GetIrqFunction(OSIrqMask intrBit);
+void OSi_EnterDmaCallback(u32 dmaNo, void (*callback) (void *), void *arg);
 
 #endif //POKEDIAMOND_OS_INTERRUPT_H
