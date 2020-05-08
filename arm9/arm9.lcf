@@ -228,13 +228,22 @@ SECTIONS {
 		rom2.o (.rodata)
 		string_util.o (.rodata)
 		rom2_2.o (.rodata)
+		FS_command.o (.rodata)
 		FS_command_default.o (.rodata)
+		FS_archive.o (.rodata)
+		FS_file.o (.rodata)
+		FS_rom.o (.rodata)
+		FS_overlay.o (.rodata)
 		/* . = ALIGN(32); */
 		SDK_STATIC_TEXT_END = .; /* somewhere around here */
 		SDK_STATIC_DATA_START = .;
 		rom2_3.o (.data)
+		FS_command.o (.data)
 		FS_command_default.o (.data)
+		FS_archive.o (.data)
+		FS_file.o (.data)
 		FS_rom.o (.data)
+		FS_overlay.o (.data)
 		rom2_4.o (.data)
 		SDK_STATIC_DATA_END = .;
 		SDK_STATIC_END = .;

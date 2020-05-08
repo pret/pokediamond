@@ -5,5 +5,5 @@
 
 	.section .data
 
-	/* 0x02106834 */
-	.incbin "baserom.nds", 0x10a834, 0x76c
+	/* 0x0210683C */
+	.incbin "baserom.nds", 0x10a83C, 0x764
