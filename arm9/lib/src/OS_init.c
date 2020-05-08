@@ -7,7 +7,6 @@
 
 extern void PXI_Init();
 extern void OS_InitLock();
-extern void OS_InitIrqTable();
 extern void OS_SetIrqStackChecker();
 extern void OS_InitException();
 extern void MI_Init();
