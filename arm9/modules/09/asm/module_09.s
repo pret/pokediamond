@@ -17658,6 +17658,6 @@ _0221AEBC: .word 0x021C48B8
 _0221AEC0: .word 0x000005DC
 _0221AEC4: .word 0x000005DD
 
-	.section .data
+	.section .rodata
 	; 0x0221AEC8
-	.incbin "baserom.nds", 0x1AC068, 0x1138
+	.incbin "baserom.nds", 0x1AC068, 0x1120

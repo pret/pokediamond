@@ -597,8 +597,17 @@ SECTIONS {
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_06.START = .;
 		module_06.o (.text)
+		module_06.o (.rodata)
+		module_06.o (.init)
+		SDK_OVERLAY.MODULE_06.SINIT_START = .;
+		module_06.o (.ctor)
+		module_06.o (.sinit)
+		WRITEW 0;
+		SDK_OVERLAY.MODULE_06.SINIT_END = .;
+		. = ALIGN(32);
 		module_06.o (.sdata)
 		module_06.o (.data)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_06.END = .;
 		SDK_OVERLAY.MODULE_06.SIZE = SDK_OVERLAY.MODULE_06.END - SDK_OVERLAY.MODULE_06.START;
 	} > MODULE_06
@@ -608,6 +617,7 @@ SECTIONS {
 		SDK_OVERLAY.MODULE_06.BSS_START = .;
 		module_06.o (.sbss)
 		module_06.o (.bss)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_06.BSS_END = .;
 		SDK_OVERLAY.MODULE_06.BSS_SIZE = SDK_OVERLAY.MODULE_06.BSS_END - SDK_OVERLAY.MODULE_06.BSS_START;
 	} >> MODULE_06
@@ -617,8 +627,17 @@ SECTIONS {
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_07.START = .;
 		module_07.o (.text)
+		module_07.o (.rodata)
+		module_07.o (.init)
+		SDK_OVERLAY.MODULE_07.SINIT_START = .;
+		module_07.o (.ctor)
+		module_07.o (.sinit)
+		WRITEW 0;
+		SDK_OVERLAY.MODULE_07.SINIT_END = .;
+		. = ALIGN(32);
 		module_07.o (.sdata)
 		module_07.o (.data)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_07.END = .;
 		SDK_OVERLAY.MODULE_07.SIZE = SDK_OVERLAY.MODULE_07.END - SDK_OVERLAY.MODULE_07.START;
 	} > MODULE_07
@@ -629,6 +648,7 @@ SECTIONS {
 		SDK_OVERLAY.MODULE_07.BSS_START = .;
 		module_07.o (.sbss)
 		module_07.o (.bss)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_07.BSS_END = .;
 		SDK_OVERLAY.MODULE_07.BSS_SIZE = SDK_OVERLAY.MODULE_07.BSS_END - SDK_OVERLAY.MODULE_07.BSS_START;
 	} >> MODULE_07
@@ -638,8 +658,17 @@ SECTIONS {
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_08.START = .;
 		module_08.o (.text)
+		module_08.o (.rodata)
+		module_08.o (.init)
+		SDK_OVERLAY.MODULE_08.SINIT_START = .;
+		module_08.o (.ctor)
+		module_08.o (.sinit)
+		WRITEW 0;
+		SDK_OVERLAY.MODULE_08.SINIT_END = .;
+		. = ALIGN(32);
 		module_08.o (.sdata)
 		module_08.o (.data)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_08.END = .;
 		SDK_OVERLAY.MODULE_08.SIZE = SDK_OVERLAY.MODULE_08.END - SDK_OVERLAY.MODULE_08.START;
 	} > MODULE_08
@@ -650,6 +679,7 @@ SECTIONS {
 		SDK_OVERLAY.MODULE_08.BSS_START = .;
 		module_08.o (.sbss)
 		module_08.o (.bss)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_08.BSS_END = .;
 		SDK_OVERLAY.MODULE_08.BSS_SIZE = SDK_OVERLAY.MODULE_08.BSS_END - SDK_OVERLAY.MODULE_08.BSS_START;
 	} >> MODULE_08
@@ -659,8 +689,17 @@ SECTIONS {
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_09.START = .;
 		module_09.o (.text)
+		module_09.o (.rodata)
+		module_09.o (.init)
+		SDK_OVERLAY.MODULE_09.SINIT_START = .;
+		module_09.o (.ctor)
+		module_09.o (.sinit)
+		WRITEW 0;
+		SDK_OVERLAY.MODULE_09.SINIT_END = .;
+		. = ALIGN(32);
 		module_09.o (.sdata)
 		module_09.o (.data)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_09.END = .;
 		SDK_OVERLAY.MODULE_09.SIZE = SDK_OVERLAY.MODULE_09.END - SDK_OVERLAY.MODULE_09.START;
 	} > MODULE_09
@@ -671,6 +710,7 @@ SECTIONS {
 		SDK_OVERLAY.MODULE_09.BSS_START = .;
 		module_09.o (.sbss)
 		module_09.o (.bss)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_09.BSS_END = .;
 		SDK_OVERLAY.MODULE_09.BSS_SIZE = SDK_OVERLAY.MODULE_09.BSS_END - SDK_OVERLAY.MODULE_09.BSS_START;
 	} >> MODULE_09
