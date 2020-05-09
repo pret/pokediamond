@@ -23,9 +23,9 @@ endif
 
 ifeq ($(OS),Windows_NT)
 EXE := .exe
-WINE := 
+WINE :=
 else
-EXE := 
+EXE :=
 WINE := wine
 endif
 
@@ -49,12 +49,16 @@ LD_TEMPLATE := ARM9-TS.lcf.template
 SRC_DIRS := src lib lib/src $(wildcard modules/*/src)
 ASM_DIRS := asm data files $(wildcard modules/*/asm)
 
-C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+C_FILES   := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
+CXX_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
+S_FILES   := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+
+C_OBJS = $(C_FILES:%.c=$(BUILD_DIR)/%.o)
+CXX_OBJS = $(CXX_FILES:%.cpp=$(BUILD_DIR)/%.o)
+S_OBJS = $(S_FILES:%.s=$(BUILD_DIR)/%.o)
 
 # Object files
-O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
-           $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
+O_FILES := $(C_OBJS) $(CXX_OBJS) $(S_OBJS)
 
 # Overlay modules
 # FIXME: lcf doesn't like this
@@ -83,6 +87,7 @@ MAKELSF_FLAGS := -DCONST_34=0x34 -DCONST_3F=0x3F
 
 AS      = $(WINE) $(MWASMARM)
 CC      = $(WINE) $(MWCCARM)
+CXX     = $(WINE) $(MWCCARM)
 CPP     := cpp -P
 LD      = $(WINE) $(MWLDARM)
 AR      := $(CROSS)ar
@@ -92,6 +97,7 @@ OBJCOPY := $(CROSS)objcopy
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te -i ..
 CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int
+CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
@@ -157,15 +163,18 @@ build/src/FUN_020910A4.o: MWCCVERSION = 1.2/sp2p3
 ####################### Everything Else ######################
 
 ifeq (,$(NODEP))
-$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $*.[cs])
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)))
 else
 $(BUILD_DIR)/%.o: dep :=
 endif
 
-$(BUILD_DIR)/%.o: %.c $$(dep)
+$(C_OBJS): $(BUILD_DIR)/%.o: %.c $$(dep)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.o: %.s $$(dep)
+$(CXX_OBJS): $(BUILD_DIR)/%.o: %.cpp $$(dep)
+	$(CXX) -c $(CXXFLAGS) -o $@ $<
+
+$(S_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros.lcf.inc

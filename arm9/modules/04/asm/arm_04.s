@@ -58938,9 +58938,12 @@ _0220BAB8:
 	mov r0, r2
 	bx lr
 
-	.section .data
+	.section .rodata
 	; 0x0220BAC0
-	.incbin "baserom.nds", 0x1411e0, 0x4100
+	.incbin "baserom.nds", 0x1411e0, 0x3D4
+
+	.section .data
+	.incbin "baserom.nds", 0x1415C0, 0x3D20
 
 	.section .bss
 	; 0x0220FBC0
