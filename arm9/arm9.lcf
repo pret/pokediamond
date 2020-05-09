@@ -407,6 +407,7 @@ SECTIONS {
 
 	.MODULE.00 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_00.START = .;
 		module_00_dummy.o (.text)
 		module_00_dummy.o (.sdata)
@@ -416,6 +417,7 @@ SECTIONS {
 	} > MODULE_00
 	.MODULE.00.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_00.BSS_START = .;
 		module_00_dummy.o (.sbss)
 		module_00_dummy.o (.bss)
@@ -425,6 +427,7 @@ SECTIONS {
 
 	.MODULE.01 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_01.START = .;
 		module_01.o (.text)
 		module_01.o (.sdata)
@@ -434,6 +437,7 @@ SECTIONS {
 	} > MODULE_01
 	.MODULE.01.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_01.BSS_START = .;
 		module_01.o (.sbss)
 		module_01.o (.bss)
@@ -443,6 +447,7 @@ SECTIONS {
 
 	.MODULE.02 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_02.START = .;
 		module_02_dummy.o (.text)
 		module_02_dummy.o (.sdata)
@@ -452,6 +457,7 @@ SECTIONS {
 	} > MODULE_02
 	.MODULE.02.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_02.BSS_START = .;
 		module_02_dummy.o (.sbss)
 		module_02_dummy.o (.bss)
@@ -461,6 +467,7 @@ SECTIONS {
 
 	.MODULE.03 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_03.START = .;
 		module_03_dummy.o (.text)
 		module_03_dummy.o (.sdata)
@@ -470,6 +477,7 @@ SECTIONS {
 	} > MODULE_03
 	.MODULE.03.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_03.BSS_START = .;
 		module_03_dummy.o (.sbss)
 		module_03_dummy.o (.bss)
@@ -479,6 +487,7 @@ SECTIONS {
 
 	.MODULE.04 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_04.START = .;
 		thumb_04.o (.text)
 		arm_04.o (.text)
@@ -493,6 +502,7 @@ SECTIONS {
 	} > MODULE_04
 	.MODULE.04.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_04.BSS_START = .;
 		thumb_04.o (.sbss)
 		arm_04.o (.sbss)
@@ -504,6 +514,7 @@ SECTIONS {
 
 	.MODULE.05 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_05.START = .;
 		module_05.o (.text)
 		module_05.o (.sdata)
@@ -513,6 +524,7 @@ SECTIONS {
 	} > MODULE_05
 	.MODULE.05.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_05.BSS_START = .;
 		module_05.o (.sbss)
 		module_05.o (.bss)
@@ -522,6 +534,7 @@ SECTIONS {
 
 	.MODULE.06 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_06.START = .;
 		module_06.o (.text)
 		module_06.o (.sdata)
@@ -531,6 +544,7 @@ SECTIONS {
 	} > MODULE_06
 	.MODULE.06.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_06.BSS_START = .;
 		module_06.o (.sbss)
 		module_06.o (.bss)
@@ -540,6 +554,7 @@ SECTIONS {
 
 	.MODULE.07 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_07.START = .;
 		module_07.o (.text)
 		module_07.o (.sdata)
@@ -550,6 +565,7 @@ SECTIONS {
 
 	.MODULE.07.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_07.BSS_START = .;
 		module_07.o (.sbss)
 		module_07.o (.bss)
@@ -559,6 +575,7 @@ SECTIONS {
 
 	.MODULE.08 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_08.START = .;
 		module_08.o (.text)
 		module_08.o (.sdata)
@@ -569,6 +586,7 @@ SECTIONS {
 
 	.MODULE.08.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_08.BSS_START = .;
 		module_08.o (.sbss)
 		module_08.o (.bss)
@@ -578,6 +596,7 @@ SECTIONS {
 
 	.MODULE.09 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_09.START = .;
 		module_09.o (.text)
 		module_09.o (.sdata)
@@ -588,6 +607,7 @@ SECTIONS {
 
 	.MODULE.09.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_09.BSS_START = .;
 		module_09.o (.sbss)
 		module_09.o (.bss)
@@ -597,6 +617,7 @@ SECTIONS {
 
 	.MODULE.10 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_10.START = .;
 		module_10_dummy.o (.text)
 		module_10_dummy.o (.sdata)
@@ -607,6 +628,7 @@ SECTIONS {
 
 	.MODULE.10.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_10.BSS_START = .;
 		module_10_dummy.o (.sbss)
 		module_10_dummy.o (.bss)
@@ -616,6 +638,7 @@ SECTIONS {
 
 	.MODULE.11 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_11.START = .;
 		module_11.o (.text)
 		module_11.o (.sdata)
@@ -626,6 +649,7 @@ SECTIONS {
 
 	.MODULE.11.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_11.BSS_START = .;
 		module_11.o (.sbss)
 		module_11.o (.bss)
@@ -635,6 +659,7 @@ SECTIONS {
 
 	.MODULE.12 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_12.START = .;
 		module_12.o (.text)
 		module_12.o (.sdata)
@@ -645,6 +670,7 @@ SECTIONS {
 
 	.MODULE.12.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_12.BSS_START = .;
 		module_12.o (.sbss)
 		module_12.o (.bss)
@@ -654,6 +680,7 @@ SECTIONS {
 
 	.MODULE.13 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_13.START = .;
 		module_13_init.o (.text)
 		module_13_arm1.o (.text)
@@ -673,6 +700,7 @@ SECTIONS {
 
 	.MODULE.13.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_13.BSS_START = .;
 		module_13_init.o (.sbss)
 		module_13_arm1.o (.sbss)
@@ -688,6 +716,7 @@ SECTIONS {
 
 	.MODULE.14 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_14.START = .;
 		module_14.o (.text)
 		module_14.o (.sdata)
@@ -698,6 +727,7 @@ SECTIONS {
 
 	.MODULE.14.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_14.BSS_START = .;
 		module_14.o (.sbss)
 		module_14.o (.bss)
@@ -707,6 +737,7 @@ SECTIONS {
 
 	.MODULE.15 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_15.START = .;
 		module_15.o (.text)
 		module_15.o (.sdata)
@@ -717,6 +748,7 @@ SECTIONS {
 
 	.MODULE.15.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_15.BSS_START = .;
 		module_15.o (.sbss)
 		module_15.o (.bss)
@@ -726,6 +758,7 @@ SECTIONS {
 
 	.MODULE.16 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_16.START = .;
 		module_16.o (.text)
 		module_16.o (.sdata)
@@ -736,6 +769,7 @@ SECTIONS {
 
 	.MODULE.16.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_16.BSS_START = .;
 		module_16.o (.sbss)
 		module_16.o (.bss)
@@ -745,6 +779,7 @@ SECTIONS {
 
 	.MODULE.17 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_17.START = .;
 		module_17.o (.text)
 		module_17.o (.sdata)
@@ -755,6 +790,7 @@ SECTIONS {
 
 	.MODULE.17.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_17.BSS_START = .;
 		module_17.o (.sbss)
 		module_17.o (.bss)
@@ -764,6 +800,7 @@ SECTIONS {
 
 	.MODULE.18 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_18.START = .;
 		module_18.o (.text)
 		module_18.o (.sdata)
@@ -774,6 +811,7 @@ SECTIONS {
 
 	.MODULE.18.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_18.BSS_START = .;
 		module_18.o (.sbss)
 		module_18.o (.bss)
@@ -783,6 +821,7 @@ SECTIONS {
 
 	.MODULE.19 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_19.START = .;
 		module_19.o (.text)
 		module_19.o (.sdata)
@@ -793,6 +832,7 @@ SECTIONS {
 
 	.MODULE.19.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_19.BSS_START = .;
 		module_19.o (.sbss)
 		module_19.o (.bss)
@@ -802,6 +842,7 @@ SECTIONS {
 
 	.MODULE.20 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_20.START = .;
 		module_20.o (.text)
 		module_20.o (.sdata)
@@ -812,6 +853,7 @@ SECTIONS {
 
 	.MODULE.20.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_20.BSS_START = .;
 		module_20.o (.sbss)
 		module_20.o (.bss)
@@ -821,6 +863,7 @@ SECTIONS {
 
 	.MODULE.21 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_21.START = .;
 		module_21.o (.text)
 		module_21.o (.sdata)
@@ -831,6 +874,7 @@ SECTIONS {
 
 	.MODULE.21.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_21.BSS_START = .;
 		module_21.o (.sbss)
 		module_21.o (.bss)
@@ -840,6 +884,7 @@ SECTIONS {
 
 	.MODULE.22 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_22.START = .;
 		module_22.o (.text)
 		module_22.o (.sdata)
@@ -850,6 +895,7 @@ SECTIONS {
 
 	.MODULE.22.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_22.BSS_START = .;
 		module_22.o (.sbss)
 		module_22.o (.bss)
@@ -859,6 +905,7 @@ SECTIONS {
 
 	.MODULE.23 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_23.START = .;
 		module_23.o (.text)
 		module_23.o (.sdata)
@@ -869,6 +916,7 @@ SECTIONS {
 
 	.MODULE.23.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_23.BSS_START = .;
 		module_23.o (.sbss)
 		module_23.o (.bss)
@@ -878,6 +926,7 @@ SECTIONS {
 
 	.MODULE.24 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_24.START = .;
 		module_24.o (.text)
 		module_24.o (.sdata)
@@ -888,6 +937,7 @@ SECTIONS {
 
 	.MODULE.24.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_24.BSS_START = .;
 		module_24.o (.sbss)
 		module_24.o (.bss)
@@ -897,6 +947,7 @@ SECTIONS {
 
 	.MODULE.25 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_25.START = .;
 		module_25.o (.text)
 		module_25.o (.sdata)
@@ -907,6 +958,7 @@ SECTIONS {
 
 	.MODULE.25.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_25.BSS_START = .;
 		module_25.o (.sbss)
 		module_25.o (.bss)
@@ -916,6 +968,7 @@ SECTIONS {
 
 	.MODULE.26 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_26.START = .;
 		module_26.o (.text)
 		module_26.o (.sdata)
@@ -926,6 +979,7 @@ SECTIONS {
 
 	.MODULE.26.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_26.BSS_START = .;
 		module_26.o (.sbss)
 		module_26.o (.bss)
@@ -935,6 +989,7 @@ SECTIONS {
 
 	.MODULE.27 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_27.START = .;
 		module_27.o (.text)
 		module_27.o (.sdata)
@@ -945,6 +1000,7 @@ SECTIONS {
 
 	.MODULE.27.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_27.BSS_START = .;
 		module_27.o (.sbss)
 		module_27.o (.bss)
@@ -954,6 +1010,7 @@ SECTIONS {
 
 	.MODULE.28 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_28.START = .;
 		module_28.o (.text)
 		module_28.o (.sdata)
@@ -964,6 +1021,7 @@ SECTIONS {
 
 	.MODULE.28.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_28.BSS_START = .;
 		module_28.o (.sbss)
 		module_28.o (.bss)
@@ -973,6 +1031,7 @@ SECTIONS {
 
 	.MODULE.29 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_29.START = .;
 		module_29.o (.text)
 		module_29.o (.sdata)
@@ -983,6 +1042,7 @@ SECTIONS {
 
 	.MODULE.29.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_29.BSS_START = .;
 		module_29.o (.sbss)
 		module_29.o (.bss)
@@ -992,6 +1052,7 @@ SECTIONS {
 
 	.MODULE.30 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_30.START = .;
 		module_30.o (.text)
 		module_30.o (.sdata)
@@ -1002,6 +1063,7 @@ SECTIONS {
 
 	.MODULE.30.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_30.BSS_START = .;
 		module_30.o (.sbss)
 		module_30.o (.bss)
@@ -1011,6 +1073,7 @@ SECTIONS {
 
 	.MODULE.31 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_31.START = .;
 		module_31.o (.text)
 		module_31.o (.sdata)
@@ -1021,6 +1084,7 @@ SECTIONS {
 
 	.MODULE.31.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_31.BSS_START = .;
 		module_31.o (.sbss)
 		module_31.o (.bss)
@@ -1030,6 +1094,7 @@ SECTIONS {
 
 	.MODULE.32 :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_32.START = .;
 		module_32.o (.text)
 		module_32.o (.sdata)
@@ -1040,6 +1105,7 @@ SECTIONS {
 
 	.MODULE.32.bss :
 	{
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_32.BSS_START = .;
 		module_32.o (.sbss)
 		module_32.o (.bss)
@@ -1050,7 +1116,8 @@ SECTIONS {
 	.MODULE.33: {
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_33.START = .;
-		FILE_28DE00.o (.text) /* 0x289E00 */
+		module_33.o (.text) /* 0x289E00 */
+		module_33.o (.data)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_33.END = .;
 		SDK_OVERLAY.MODULE_33.SIZE = SDK_OVERLAY.MODULE_33.END - SDK_OVERLAY.MODULE_33.START;
@@ -1060,7 +1127,7 @@ SECTIONS {
 	{
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_33.BSS_START = .;
-		FILE_28DE00.o (.bss)
+		module_33.o (.bss)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_33.BSS_END = .;
 		SDK_OVERLAY.MODULE_33.BSS_SIZE = SDK_OVERLAY.MODULE_33.BSS_END - SDK_OVERLAY.MODULE_33.BSS_START;
