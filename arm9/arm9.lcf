@@ -143,6 +143,7 @@ SECTIONS {
 		GX.o (.text)
 		GX_state.o (.text)
 		GX_vramcnt.o (.text)
+        GX_vramcnt_c.o (.text)
 		GX_bgcnt.o (.text)
 		GX_g2.o (.text)
 		GX_g3b.o (.text)

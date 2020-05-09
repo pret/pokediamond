@@ -34,11 +34,25 @@
 
 #define HW_REG_SHININESS       0x040004D0
 
+
+#define HW_REG_VRAMCNT_A       0x04000240
+#define HW_REG_VRAMCNT_B       0x04000241
+#define HW_REG_VRAMCNT_C       0x04000242
+#define HW_REG_VRAMCNT_D       0x04000243
+#define HW_REG_VRAMCNT_E       0x04000244
+#define HW_REG_VRAMCNT_F       0x04000245
+#define HW_REG_VRAMCNT_G       0x04000246
+#define HW_REG_WRAMCNT         0x04000247
+#define HW_REG_VRAMCNT_H       0x04000248
+#define HW_REG_VRAMCNT_I       0x04000249
+
 //TODO: wait for register commit and replace these
+#define SETREG8(x, y) ((*(vu8 *)x) = y)
 #define SETREG16(x, y) ((*(vu16 *)x) = y)
 #define SETREG32(x, y) ((*(vu32 *)x) = y)
 #define SETREG64(x, y) ((*(vu64 *)x) = y)
 
+#define READREG8(x) (*(vu8 *)x)
 #define READREG16(x) (*(vu16 *)x)
 #define READREG32(x) (*(vu32 *)x)
 #define READREG64(x) (*(vu64 *)x)

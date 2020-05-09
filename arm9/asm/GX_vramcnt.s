@@ -1489,52 +1489,52 @@ _020C6E9C: .word 0x04000246
 _020C6EA0: .word 0x04000245
 _020C6EA4: .word 0x04000244
 
-	arm_func_start GX_VRAMCNT_SetLCDC_
-GX_VRAMCNT_SetLCDC_: ; 0x020C6EA8
-	ands r1, r0, #0x1
-	ldrne r1, _020C6F3C ; =0x04000240
-	movne r2, #0x80
-	strneb r2, [r1, #0x0]
-	ands r1, r0, #0x2
-	ldrne r1, _020C6F40 ; =0x04000241
-	movne r2, #0x80
-	strneb r2, [r1, #0x0]
-	ands r1, r0, #0x4
-	ldrne r1, _020C6F44 ; =0x04000242
-	movne r2, #0x80
-	strneb r2, [r1, #0x0]
-	ands r1, r0, #0x8
-	ldrne r1, _020C6F48 ; =0x04000243
-	movne r2, #0x80
-	strneb r2, [r1, #0x0]
-	ands r1, r0, #0x10
-	ldrne r1, _020C6F4C ; =0x04000244
-	movne r2, #0x80
-	strneb r2, [r1, #0x0]
-	ands r1, r0, #0x20
-	ldrne r1, _020C6F50 ; =0x04000245
-	movne r2, #0x80
-	strneb r2, [r1, #0x0]
-	ands r1, r0, #0x40
-	ldrne r1, _020C6F54 ; =0x04000246
-	movne r2, #0x80
-	strneb r2, [r1, #0x0]
-	ands r1, r0, #0x80
-	ldrne r1, _020C6F58 ; =0x04000248
-	movne r2, #0x80
-	strneb r2, [r1, #0x0]
-	ands r0, r0, #0x100
-	ldrne r0, _020C6F5C ; =0x04000249
-	movne r1, #0x80
-	strneb r1, [r0, #0x0]
-	bx lr
-	.balign 4
-_020C6F3C: .word 0x04000240
-_020C6F40: .word 0x04000241
-_020C6F44: .word 0x04000242
-_020C6F48: .word 0x04000243
-_020C6F4C: .word 0x04000244
-_020C6F50: .word 0x04000245
-_020C6F54: .word 0x04000246
-_020C6F58: .word 0x04000248
-_020C6F5C: .word 0x04000249
+.extern GX_VRAMCNT_SetLCDC_
+;GX_VRAMCNT_SetLCDC_: ; 0x020C6EA8
+;	ands r1, r0, #0x1
+;	ldrne r1, _020C6F3C ; =0x04000240
+;	movne r2, #0x80
+;	strneb r2, [r1, #0x0]
+;	ands r1, r0, #0x2
+;	ldrne r1, _020C6F40 ; =0x04000241
+;	movne r2, #0x80
+;	strneb r2, [r1, #0x0]
+;	ands r1, r0, #0x4
+;	ldrne r1, _020C6F44 ; =0x04000242
+;	movne r2, #0x80
+;	strneb r2, [r1, #0x0]
+;	ands r1, r0, #0x8
+;	ldrne r1, _020C6F48 ; =0x04000243
+;	movne r2, #0x80
+;	strneb r2, [r1, #0x0]
+;	ands r1, r0, #0x10
+;	ldrne r1, _020C6F4C ; =0x04000244
+;	movne r2, #0x80
+;	strneb r2, [r1, #0x0]
+;	ands r1, r0, #0x20
+;	ldrne r1, _020C6F50 ; =0x04000245
+;	movne r2, #0x80
+;	strneb r2, [r1, #0x0]
+;	ands r1, r0, #0x40
+;	ldrne r1, _020C6F54 ; =0x04000246
+;	movne r2, #0x80
+;	strneb r2, [r1, #0x0]
+;	ands r1, r0, #0x80
+;	ldrne r1, _020C6F58 ; =0x04000248
+;	movne r2, #0x80
+;	strneb r2, [r1, #0x0]
+;	ands r0, r0, #0x100
+;	ldrne r0, _020C6F5C ; =0x04000249
+;	movne r1, #0x80
+;	strneb r1, [r0, #0x0]
+;	bx lr
+;	.balign 4
+;_020C6F3C: .word 0x04000240
+;_020C6F40: .word 0x04000241
+;_020C6F44: .word 0x04000242
+;_020C6F48: .word 0x04000243
+;_020C6F4C: .word 0x04000244
+;_020C6F50: .word 0x04000245
+;_020C6F54: .word 0x04000246
+;_020C6F58: .word 0x04000248
+;_020C6F5C: .word 0x04000249
