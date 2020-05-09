@@ -20,14 +20,12 @@ Building the ROM requires the following packages:
 
 * make
 * git
-* build-essentials
+* build-essentials (build-essential on Ubuntu)
 * binutils-arm-none-eabi
 * wine (to run the mwcc executables)
-* libpng-devel
+* libpng-devel (libpng-dev on Ubuntu)
 
 NOTE: If you are using Arch/Manjaro or Void you will only need base-devel instead of build-essentials or make or git. You will still need wine.
-
-Also, if you are using WSL on Windows, please pass NOWINE=1 when compiling, and wine is not necessary for a WSL environment.
 
 #### Windows
 
