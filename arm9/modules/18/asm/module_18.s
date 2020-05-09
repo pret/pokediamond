@@ -46251,9 +46251,13 @@ _0224FFDC: .word 0x02250834
 _0224FFE0: .word 0x022507F0
 	thumb_func_end MOD18_0224FFA0
 
-	.section .data
+	.section .rodata
 	; 0x0224FFE4
-	.incbin "baserom.nds", 0x281B44, 0x139C
+	.incbin "baserom.nds", 0x281B44, 0x874
+
+	.section .data
+	; 0x02250860
+	.incbin "baserom.nds", 0x2823C0, 0xB20
 
 	.section .bss
 	; 0x02251380

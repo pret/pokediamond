@@ -8748,6 +8748,6 @@ _021DB85C:
 	.align 2, 0
 _021DB868: .word 0x021DBA55
 
-	.section .data
+	.section .rodata
 	; 0x021DB86C
-	.incbin "baserom.nds", 0x23B78C, 0x2F4
+	.incbin "baserom.nds", 0x23B78C, 0x2F0

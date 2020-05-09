@@ -30394,9 +30394,13 @@ MOD14_021E6220: ; 0x021E6220
 	ldr r0, [r0, #0x74]
 	bx lr
 
-	.section .data
+	.section .rodata
 	; 0x021E6224
-	.incbin "baserom.nds", 0x236b44, 0x7dc
+	.incbin "baserom.nds", 0x236b44, 0x7a4
+
+	.section .data
+	; 0x021E69E0
+	.incbin "baserom.nds", 0x237300, 0x1C
 
 	.section .bss
 	; 0x021E69FC

@@ -63320,6 +63320,6 @@ _021F4E2C: .word 0x000003D1
 _021F4E30: .word 0x000003D6
 	thumb_func_end MOD16_021F4A40
 
-	.section .data
+	.section .rodata
 	; 0x021F4E34
-	.incbin "baserom.nds", 0x259554, 0xABAC
+	.incbin "baserom.nds", 0x259554, 0xAB90
