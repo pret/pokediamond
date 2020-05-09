@@ -34,6 +34,16 @@
 
 #define HW_REG_SHININESS       0x040004D0
 
+//TODO: wait for register commit and replace these
+#define SETREG16(x, y) ((*(vu16 *)x) = y)
+#define SETREG32(x, y) ((*(vu32 *)x) = y)
+#define SETREG64(x, y) ((*(vu64 *)x) = y)
+
+#define READREG16(x) (*(vu16 *)x)
+#define READREG32(x) (*(vu32 *)x)
+#define READREG64(x) (*(vu64 *)x)
+
+
 struct DL
 {
     u8 *var00; //end pointer
