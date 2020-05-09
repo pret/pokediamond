@@ -49,7 +49,7 @@ ARM_FUNC FSResult FSi_ReadMemoryCore(FSArchive * p_arc, void * dest, u32 pos, u3
     return FS_RESULT_SUCCESS;
 }
 
-FSFile * FSi_NextCommand(FSArchive * p_arc)
+ARM_FUNC FSFile * FSi_NextCommand(FSArchive * p_arc)
 {
     OSIntrMode bak_psr = OS_DisableInterrupts();
     if (FSi_IsArchiveCanceling(p_arc))
@@ -206,7 +206,7 @@ ARM_FUNC void FS_InitArchive(FSArchive * p_arc)
     p_arc->stat_q.head = p_arc->stat_q.tail = NULL;
 }
 
-FSArchive * const FS_FindArchive(const char * name, int name_len)
+ARM_FUNC FSArchive * const FS_FindArchive(const char * name, int name_len)
 {
     u32 pack = FSi_GetPackedName(name, name_len);
     OSIntrMode bak_psr = OS_DisableInterrupts();
@@ -353,7 +353,7 @@ ARM_FUNC u32 FS_LoadArchiveTables(FSArchive *p_arc, void *p_mem, u32 max_size)
     return total_size;
 }
 
-void * FS_UnloadArchiveTables(FSArchive * p_arc)
+ARM_FUNC void * FS_UnloadArchiveTables(FSArchive * p_arc)
 {
     void *ret = NULL;
     if (FS_IsArchiveLoaded(p_arc))
