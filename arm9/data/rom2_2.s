@@ -732,4 +732,3 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203AFA4
 
 	.incbin "baserom.nds", 0xF80A0, 0xFEE0
-
