@@ -2654,7 +2654,7 @@
 .extern FUN_020C39CC
 .extern FUN_020C6034
 .extern FUN_020C605C
-.extern FUN_021D74E0
+.extern MOD05_021D74E0
 .extern FUN_021D7660
 .extern FUN_021D76AC
 .extern FUN_021D77C4
@@ -3315,7 +3315,7 @@
 .extern MATH_CalcCRC16CCITT
 .extern MATH_CalcCRC32
 .extern MATH_CalcCRC8
-.extern MATH_CalcHMACSHA1
+.extern DGT_Hash2CalcHmac
 .extern MATH_CalcMD5
 .extern MATH_CalcSHA1
 .extern MATH_CountPopulation
@@ -3806,6 +3806,7 @@
 .extern sys_writec
 .extern tempName_NNS_FndAllocFromExpHeapEx
 .extern tempName_NNS_FndCreateExpHeapEx
+.extern __global_destructor_chain
 .extern thunk_FUN_02096e4c
 .extern thunk_FUN_02097190
 .extern thunk_FUN_020995dc
@@ -5021,9 +5022,9 @@
 .extern FUN_020B7218
 .extern FUN_020C2444
 .extern FUN_020C5E04
-.extern FUN_020D0D84
-.extern FUN_020D0EB0
-.extern FUN_020D0FF0
+.extern FS_LoadArchiveTables
+.extern FS_UnloadArchive
+.extern FS_ReleaseArchiveName
 .extern FUN_021EB9A4
 .extern FUN_021EB9D8
 .extern FUN_021EBAE8
@@ -5111,6 +5112,15 @@
 .extern MOD11_02249E58
 .extern MOD11_0224B310
 .extern MOD11_0224C12C
+.extern FSi_ExecuteSyncCommand
+.extern FSi_InitRom
+.extern FSi_SendCommand
+.extern FSi_TranslateCommand
+.extern FS_NotifyArchiveAsyncEnd
+.extern FS_ResumeArchive
+.extern FS_SuspendArchive
+.extern FS_ReadFileAsync
+.extern FSi_ReleaseCommand
 .extern FX_DivS32
 .extern G2x_ChangeBlendBrightness_
 .extern GX_DisableBankForARM7

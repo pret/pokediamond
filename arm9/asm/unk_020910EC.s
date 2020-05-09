@@ -3,6 +3,8 @@
 
 	.text
 
+	; Nintendo DWC
+
 	arm_func_start FUN_020910EC
 FUN_020910EC: ; 0x020910EC
 	stmdb sp!, {r4-r5,lr}
@@ -6591,11 +6593,13 @@ _02096B08: .word 0x0000FFFF
 _02096B0C: .word 0x020FF580
 _02096B10: .word 0x020FF578
 
+	.extern _SDK_NintendoDWC
+
 	arm_func_start FUN_02096B14
 FUN_02096B14: ; 0x02096B14
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
-	ldr r0, _02096B74 ; =0x02000B8C
+	ldr r0, _02096B74 ; =_SDK_NintendoDWC
 	mov r4, #0x0
 	bl OSi_ReferSymbol
 	mov r0, r6
@@ -6621,7 +6625,9 @@ _02096B64:
 	moveq r0, #0x0
 	ldmia sp!, {r4-r6,pc}
 	.balign 4
-_02096B74: .word 0x02000B8C
+_02096B74: .word _SDK_NintendoDWC
+
+	; Nintendo Wifi (?)
 
 	arm_func_start FUN_02096B78
 FUN_02096B78: ; 0x02096B78
@@ -7657,11 +7663,13 @@ _02097828: .word 0x021C8CC0
 _0209782C: .word 0x021061F4
 _02097830: .word 0x021C8CD0
 
+	.extern _SDK_NintendoWiFi
+
 	arm_func_start FUN_02097834
 FUN_02097834: ; 0x02097834
 	stmdb sp!, {r4,lr}
 	mov r4, r0
-	ldr r0, _02097870 ; =0x02000BC4
+	ldr r0, _02097870 ; =_SDK_NintendoWiFi
 	bl OSi_ReferSymbol
 	ldr r0, _02097874 ; =0x021C8CC0
 	ldr r1, [r0, #0x0]
@@ -7675,8 +7683,10 @@ FUN_02097834: ; 0x02097834
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_02097870: .word 0x02000BC4
+_02097870: .word _SDK_NintendoWiFi
 _02097874: .word 0x021C8CC0
+
+	; Ubiquitous CPS (?)
 
 	arm_func_start FUN_02097878
 FUN_02097878: ; 0x02097878
@@ -17528,12 +17538,14 @@ _0209FD74:
 _0209FD8C: .word 0x021C90A0
 _0209FD90: .word 0x021C8EF8
 
+	.extern _SDK_UbiquitousCPS
+
 	arm_func_start FUN_0209FD94
 FUN_0209FD94: ; 0x0209FD94
 	stmdb sp!, {r4-r6,lr}
 	sub sp, sp, #0x8
 	mov r4, r0
-	ldr r0, _0209FFD4 ; =0x02000BEC
+	ldr r0, _0209FFD4 ; =_SDK_UbiquitousCPS
 	bl OSi_ReferSymbol
 	ldr r12, [r4, #0x14]
 	ldr r6, [r4, #0x18]
@@ -17679,7 +17691,7 @@ _0209FE60:
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_0209FFD4: .word 0x02000BEC
+_0209FFD4: .word _SDK_UbiquitousCPS
 _0209FFD8: .word 0x021C8F24
 _0209FFDC: .word 0x6C078965
 _0209FFE0: .word 0x5D588B65
@@ -17710,6 +17722,8 @@ _020A0040: .word 0x021CA6E0
 _020A0044: .word 0x021C90A0
 _020A0048: .word FUN_0209BA80
 _020A004C: .word 0x021C9EE0
+
+	; Ubiquitous SSL (?)
 
 	arm_func_start FUN_020A0050
 FUN_020A0050: ; 0x020A0050
@@ -17911,11 +17925,13 @@ _020A02E0: .word 0x021CA6FC
 _020A02E4: .word 0x000003BD
 _020A02E8: .word 0x021D3498
 
+	.extern _SDK_UbiquitousSSL
+
 	arm_func_start FUN_020A02EC
 FUN_020A02EC:
 	stmdb sp!, {r4,lr}
 	mov r4, r0
-	ldr r0, _020A0318 ; =0x02000C04
+	ldr r0, _020A0318 ; =_SDK_UbiquitousSSL
 	bl OSi_ReferSymbol
 	ldr r0, _020A031C ; =0x021D3498
 	ldr r0, [r0, #0x4]
@@ -17925,8 +17941,10 @@ FUN_020A02EC:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020A0318: .word 0x02000C04
+_020A0318: .word _SDK_UbiquitousSSL
 _020A031C: .word 0x021D3498
+
+	; Abiosso libVCT (?)
 
 	arm_func_start FUN_020A0320
 FUN_020A0320: ; 0x020A0320
@@ -33682,23 +33700,22 @@ FUN_020AD904: ; 0x020AD904
 _020AD934: .word 0x021CCD20
 _020AD938: .word 0x021CCD1C
 
+	.extern _SDK_AbiossolibVCT
+
 	arm_func_start FUN_020AD93C
 FUN_020AD93C: ; 0x020AD93C
 	stmdb sp!, {r4,lr}
 	mov r4, r0
-	ldr r0, _020ADA78 ; =0x02000C1C
+	ldr r0, _020ADA78 ; =_SDK_AbiossolibVCT
 	bl OSi_ReferSymbol
-_020AD94C: ; 0x020AD94C
 	cmp r4, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020AD958: ; 0x020AD958
 	ldr r0, _020ADA7C ; =0x021CCD1C
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	movne r0, #0x1
 	ldmneia sp!, {r4,pc}
-_020AD96C: ; 0x020AD96C
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x1
 	beq _020AD98C
@@ -33712,7 +33729,6 @@ _020AD98C:
 	cmp r0, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020AD99C: ; 0x020AD99C
 	ldr r2, [r4, #0x10]
 	cmp r2, #0x0
 	beq _020AD9B4
@@ -33728,7 +33744,6 @@ _020AD9BC:
 	adds r0, r1, r0, ror #0x1b
 	movne r0, #0x0
 	ldmneia sp!, {r4,pc}
-_020AD9D0: ; 0x020AD9D0
 	ldr r0, _020ADA80 ; =0x021CCD20
 	mov r1, #0x0
 	mov r2, #0x18
@@ -33745,46 +33760,40 @@ _020AD9D0: ; 0x020AD9D0
 	ldrb r2, [r4, #0xc]
 	cmp r2, #0x20
 	ldmcsia sp!, {r4,pc}
-_020ADA10: ; 0x020ADA10
 	strb r2, [r1, #0x0]
 	ldr r0, [r4, #0x10]
 	ldr r1, [r4, #0x14]
 	bl FUN_020ACE30
-_020ADA20: ; 0x020ADA20
 	cmp r0, #0x0
 	bne _020ADA34
 	bl FUN_020ACE10
-_020ADA2C: ; 0x020ADA2C
 	mov r0, #0x0
 	ldmia sp!, {r4,pc}
 _020ADA34:
 	mov r0, r4
 	bl FUN_020AC97C
-_020ADA3C: ; 0x020ADA3C
 	cmp r0, #0x0
 	bne _020ADA50
 	bl FUN_020ACE10
-_020ADA48: ; 0x020ADA48
 	mov r0, #0x0
 	ldmia sp!, {r4,pc}
 _020ADA50:
 	bl FUN_020AAF58
-_020ADA54: ; 0x020ADA54
 	cmp r0, #0x0
 	ldrne r1, _020ADA7C ; =0x021CCD1C
 	movne r0, #0x1
 	strne r0, [r1, #0x0]
 	ldmneia sp!, {r4,pc}
-_020ADA68: ; 0x020ADA68
 	bl FUN_020AC964
 	bl FUN_020ACE10
-_020ADA70: ; 0x020ADA70
 	mov r0, #0x0
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020ADA78: .word 0x02000C1C
+_020ADA78: .word _SDK_AbiossolibVCT
 _020ADA7C: .word 0x021CCD1C
 _020ADA80: .word 0x021CCD20
+
+	; unknown
 
 	arm_func_start FUN_020ADA84
 FUN_020ADA84: ; 0x020ADA84

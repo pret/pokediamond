@@ -258,7 +258,7 @@ arm7:
 	$(MAKE) -C arm7
 
 $(BINFILES): %.bin: %.sbin
-	cp $< $@
+	@cp $< $@
 
 $(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BINFILES)
 	# Hack because mwldarm doesn't like the sbin suffix

@@ -255,32 +255,43 @@ OSi_ReferSymbol: ; 0x02000B60
 NitroStartUp: ; 0x02000B64
 	bx lr
 
+	.section .rodata
 	.global _start_ModuleParams
-_start_ModuleParams:
+_start_ModuleParams: ; 0x02000B68
 	.word SDK_AUTOLOAD_LIST
 	.word SDK_AUTOLOAD_LIST_END
 	.word SDK_AUTOLOAD_START
 	.word SDK_STATIC_BSS_START
 	.word SDK_STATIC_BSS_END
-
-	.balign 16, 0
-
-	.section .version
+	.word 0 ; Compressed static init end
 	; NITRO SDK 3.2.30001
 	.word (3 << 24) | (2 << 16) | 30001
 	.word 0xdec00621 ; Nitro code BE
 	.word 0x2106c0de ; Nitro code LE
-	
+
 	# strings
+	# .section .version
 	.balign 4
+	.global _SDK_NintendoDWC
+_SDK_NintendoDWC: ; 0x02000b8c
 	.asciz "[SDK+NINTENDO:DWC1.2.30006.061019.2254_DWC_1_2_PLUS6]"
 	.balign 4
+	.global _SDK_NintendoWiFi
+_SDK_NintendoWiFi: ; 0x02000bc4
 	.asciz "[SDK+NINTENDO:WiFi1.2.30000.0609050341]"
 	.balign 4
+	.global _SDK_UbiquitousCPS
+_SDK_UbiquitousCPS: ; 0x02000bec
 	.asciz "[SDK+UBIQUITOUS:CPS]"
 	.balign 4
+	.global _SDK_UbiquitousSSL
+_SDK_UbiquitousSSL: ; 0x02000c04
 	.asciz "[SDK+UBIQUITOUS:SSL]"
 	.balign 4
+	.global _SDK_AbiossolibVCT
+_SDK_AbiossolibVCT: ; 0x02000c1c
 	.asciz "[SDK+Abiosso:libVCT 1.0.1_ec]"
 	.balign 4
+	.global _SDK_NintendoBackup
+_SDK_NintendoBackup: ; 0x02000c3c
 	.asciz "[SDK+NINTENDO:BACKUP]"
