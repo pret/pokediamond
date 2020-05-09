@@ -782,8 +782,17 @@ SECTIONS {
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_12.START = .;
 		module_12.o (.text)
+		module_12.o (.rodata)
+		module_12.o (.init)
+		SDK_OVERLAY.MODULE_12.SINIT_START = .;
+		module_12.o (.ctor)
+		module_12.o (.sinit)
+		WRITEW 0;
+		SDK_OVERLAY.MODULE_12.SINIT_END = .;
+		. = ALIGN(32);
 		module_12.o (.sdata)
 		module_12.o (.data)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_12.END = .;
 		SDK_OVERLAY.MODULE_12.SIZE = SDK_OVERLAY.MODULE_12.END - SDK_OVERLAY.MODULE_12.START;
 	} > MODULE_12
@@ -794,6 +803,7 @@ SECTIONS {
 		SDK_OVERLAY.MODULE_12.BSS_START = .;
 		module_12.o (.sbss)
 		module_12.o (.bss)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_12.BSS_END = .;
 		SDK_OVERLAY.MODULE_12.BSS_SIZE = SDK_OVERLAY.MODULE_12.BSS_END - SDK_OVERLAY.MODULE_12.BSS_START;
 	} >> MODULE_12
@@ -806,6 +816,25 @@ SECTIONS {
 		module_13_arm1.o (.text)
 		module_13_thumb.o (.text)
 		module_13_arm2.o (.text)
+		module_13_init.o (.rodata)
+		module_13_arm1.o (.rodata)
+		module_13_thumb.o (.rodata)
+		module_13_arm2.o (.rodata)
+		module_13_init.o (.init)
+		module_13_arm1.o (.init)
+		module_13_thumb.o (.init)
+		module_13_arm2.o (.init)
+		SDK_OVERLAY.MODULE_13.SINIT_START = .;
+		module_13_init.o (.ctor)
+		module_13_arm1.o (.ctor)
+		module_13_thumb.o (.ctor)
+		module_13_arm2.o (.ctor)
+		module_13_init.o (.sinit)
+		module_13_arm1.o (.sinit)
+		module_13_thumb.o (.sinit)
+		module_13_arm2.o (.sinit)
+		SDK_OVERLAY.MODULE_13.SINIT_END = .;
+		. = ALIGN(32);
 		module_13_init.o (.sdata)
 		module_13_arm1.o (.sdata)
 		module_13_thumb.o (.sdata)
@@ -814,6 +843,7 @@ SECTIONS {
 		module_13_arm1.o (.data)
 		module_13_thumb.o (.data)
 		module_13_arm2.o (.data)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_13.END = .;
 		SDK_OVERLAY.MODULE_13.SIZE = SDK_OVERLAY.MODULE_13.END - SDK_OVERLAY.MODULE_13.START;
 	} > MODULE_13
@@ -830,6 +860,7 @@ SECTIONS {
 		module_13_arm1.o (.bss)
 		module_13_thumb.o (.bss)
 		module_13_arm2.o (.bss)
+		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_13.BSS_END = .;
 		SDK_OVERLAY.MODULE_13.BSS_SIZE = SDK_OVERLAY.MODULE_13.BSS_END - SDK_OVERLAY.MODULE_13.BSS_START;
 	} >> MODULE_13
