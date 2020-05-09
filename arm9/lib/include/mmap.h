@@ -12,8 +12,10 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_MAIN_MEM_SHARED_SIZE 0x00001000
 #define HW_MAIN_MEM_DEBUGGER_OFFSET     0x00700000
 
+#define HW_ITCM_IMAGE 0x01000000
 #define HW_ITCM                 0x01FF8000
 #define HW_ITCM_SIZE            0x00008000
+#define HW_ITCM_END (HW_ITCM + HW_ITCM_SIZE)
 
 #define HW_WRAM                 0x037F8000
 

@@ -3,7 +3,7 @@
 
 /* rom2.s TODO: Disassemble */
 
-.section .data
+.section .rodata
 
 .incbin "baserom.nds", 0xF0B50, 0x6A0C
 
@@ -731,4 +731,4 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203AF84
     .word FUN_0203AFA4
 
-.incbin "baserom.nds",  0xF80A0, 0x12F00
+	.incbin "baserom.nds", 0xF80A0, 0xFEE0

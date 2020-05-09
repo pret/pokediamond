@@ -28,6 +28,9 @@ struct _OSThread
     u8 padding[0x80]; //todo: not the correct size but idfk
 };
 
+void OS_SleepThread(OSThreadQueue * queue);
+void OS_WakeupThread(OSThreadQueue * queue);
+
 static inline void OS_InitThreadQueue(OSThreadQueue * queue)
 {
     queue->head = queue->tail = NULL;

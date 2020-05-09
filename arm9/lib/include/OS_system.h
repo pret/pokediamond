@@ -5,8 +5,8 @@
 #ifndef POKEDIAMOND_OS_SYSTEM_H
 #define POKEDIAMOND_OS_SYSTEM_H
 
-#include "consts.h"
 #include "function_target.h"
+#include "consts.h"
 
 typedef enum {
     OS_PROCMODE_USER=16,

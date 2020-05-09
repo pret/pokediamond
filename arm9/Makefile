@@ -91,15 +91,16 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te -i ..
-CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking
+CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
 
 # DS TOOLS
-SHA1SUM = sha1sum
-JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
-GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
+SHA1SUM = sha1sum --quiet
+JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
+GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx$(EXE)
+SCANINC = $(TOOLS_DIR)/scaninc/scaninc$(EXE)
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
@@ -124,6 +125,7 @@ MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
 	@$(SHA1SUM) -c $(TARGET).sha1
+	@echo $(ROM): OK
 
 clean: mostlyclean
 	make -C $(TOOLS_DIR)/mwasmarm_patcher clean
@@ -155,7 +157,7 @@ build/src/FUN_020910A4.o: MWCCVERSION = 1.2/sp2p3
 ####################### Everything Else ######################
 
 ifeq (,$(NODEP))
-$(BUILD_DIR)/%.o: dep = $(shell grep -E '(#\s*|\.)(include|incbin)\s*"(\S+?)"' $*.[cs] | cut -d'"' -f2 | sort -u)
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $*.[cs])
 else
 $(BUILD_DIR)/%.o: dep :=
 endif

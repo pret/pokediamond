@@ -1,6 +1,9 @@
 #include "global.h"
 
-u16 gDigitTable[] = {
+#define EOS 0xFFFF
+#define NON_DIGIT 0xE2
+
+const u16 gDigitTable[] = {
     0xA2,
     0xA3,
     0xA4,
@@ -19,7 +22,7 @@ u16 gDigitTable[] = {
     0xB1
 };
 
-s32 gPowersOfTen[] = {
+const s32 gPowersOfTen[] = {
              1,
             10,
            100,
@@ -31,8 +34,6 @@ s32 gPowersOfTen[] = {
      100000000,
     1000000000,
 };
-
-static const u16 EOS = 0xFFFF;
 
 THUMB_FUNC void StringCopy(u16 *dest, const u16 *src)
 {
@@ -128,8 +129,6 @@ enum PrintingMode {
     PAD_SPACE,
     PAD_ZEROES
 };
-
-const u16 NON_DIGIT = 0xE2;
 
 THUMB_FUNC u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n)
 {

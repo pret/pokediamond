@@ -3100,10 +3100,15 @@ __close_console: ; 0x020EC68C
 	mov r0, #0x0
 	bx lr
 
+	.section .rodata
+__static_initializers:
+	.word 0
+
+	.section .text
 	arm_func_start __call_static_initializers
 __call_static_initializers: ; 0x020EC694
 	stmdb sp!, {r4,lr}
-	ldr r4, _020EC6BC ; =0x02104774
+	ldr r4, _020EC6BC ; =__static_initializers
 	b _020EC6A8
 _020EC6A0:
 	blx r0
@@ -3115,12 +3120,12 @@ _020EC6A8:
 	bne _020EC6A0
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020EC6BC: .word 0x02104774
+_020EC6BC: .word __static_initializers
 
 	arm_func_start __destroy_global_chain
 __destroy_global_chain: ; 0x020EC6C0
 	stmdb sp!, {r3-r5,lr}
-	ldr r4, _020EC700 ; =0x021D74C8
+	ldr r4, _020EC700 ; =__global_destructor_chain
 	ldr r2, [r4, #0x0]
 	cmp r2, #0x0
 	ldmeqia sp!, {r3-r5,pc}
@@ -3138,7 +3143,7 @@ _020EC6D8:
 	bne _020EC6D8
 	ldmia sp!, {r3-r5,pc}
 	.balign 4
-_020EC700: .word 0x021D74C8
+_020EC700: .word __global_destructor_chain
 
 	arm_func_start _ExitProcess
 _ExitProcess: ; 0x020EC704
