@@ -3379,7 +3379,7 @@ _0222F27C:
 _0222F280: .word 0x00002434
 
 	thumb_func_start MOD11_0222F284
-MOD11_0222F284: ; 0x0222F284
+MOD11_0222F284: ; 0x0222F284 __sinit
 	push {r3, lr}
 	bl FUN_02033590
 	cmp r0, #0
@@ -98632,6 +98632,20 @@ MOD11_0225D98C: ; 0x0225D98C
 	strb r1, [r0, #0x1e]
 	bx lr
 
-	.section .data
+	.section .rodata
 	; 0x0225D998
-	.incbin "baserom.nds", 0x1dd7d8, 0x2608
+	.incbin "baserom.nds", 0x1dd7d8, 0x2580
+
+	; Stupid hack to override alignment
+	; .section .sinit
+	; 0x0225FF18
+	.global SDK_OVERLAY.MODULE_11.SINIT_START
+	.global SDK_OVERLAY.MODULE_11.SINIT_END
+SDK_OVERLAY.MODULE_11.SINIT_START:
+	.word MOD11_0222F284
+	.word 0
+SDK_OVERLAY.MODULE_11.SINIT_END:
+
+	.section .data
+	; 0x0225FF20
+	.incbin "baserom.nds", 0x1dfd60, 0x80
