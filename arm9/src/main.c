@@ -7,8 +7,6 @@ FS_EXTERN_OVERLAY(MODULE_63);
 
 #define SOFT_RESET_KEY (REG_PAD_KEYINPUT_L_MASK | REG_PAD_KEYINPUT_R_MASK | REG_PAD_KEYINPUT_START_MASK | REG_PAD_KEYINPUT_SEL_MASK)
 
-extern struct Unk2106FA0 gBacklightTop;
-extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
 extern struct Unk21C48B8 gUnknown21C48B8;
 
 extern struct { 
@@ -17,7 +15,6 @@ extern struct {
     u8 unk8;
 } gUnk021C4918;
 
-extern void PM_GetBackLight();
 extern void OS_WaitIrq();
 extern void FUN_02016438(s32);
 extern void InitSystemForTheGame(void);
@@ -67,7 +64,7 @@ THUMB_FUNC void NitroMain(void)
     FUN_020163BC();
     FUN_02016438(0);
 
-    PM_GetBackLight(&gBacklightTop_2, 0); 
+    PM_GetBackLight(&gBacklightTop_2.unk0, NULL);
 
     FUN_02022294();
     FUN_0201259C();
