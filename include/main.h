@@ -22,6 +22,21 @@ struct Unk2106FA0
     s32 unk20;
 };
 
+struct Unk21C4818
+{
+    u32 unk0;
+    u32 unk4;
+    u32 unk8;
+    u32 unkC;
+};
+
+struct Unk21C4828
+{
+    u32 unk0;
+    u32 unk4;
+    u32 unk8;
+};
+
 struct Unk21C48B8
 {
     void (*unk0)(s32);

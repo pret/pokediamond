@@ -42,7 +42,7 @@ extern void FUN_02015E30(void);
 extern void FUN_02000EE8(void);
 extern void FUN_02000FE8(void);
 extern void FUN_02016464(void);
-extern void FUN_02000F18(int);
+extern void FUN_02000F18(u32 parameter);
 extern BOOL FUN_0202FB80(void);
 extern void FUN_02000E0C(void);
 extern void FUN_0201B5CC(int);
@@ -52,6 +52,7 @@ extern void FUN_020222C4(void);
 extern void FUN_0200A318(void);
 extern void FUN_0200E2D8(void);
 extern void FUN_02003C10(void);
+void FUN_02000F4C(int arg0, int arg1);
 
 extern struct Unk21DBE18 gUnk021DBE18; 
 extern struct Unk21DBE18 gUnk021D76C8;
@@ -190,11 +191,70 @@ THUMB_FUNC void FUN_02000E9C(void)
         gUnknown21C48B8.unk0(gUnknown21C48B8.unk4);
 }
 
-void FUN_02000EC8(u32 parameter)
+THUMB_FUNC void FUN_02000EC8(u32 parameter)
 {
     if (FUN_02033678() && CARD_TryWaitBackupAsync() == 1)
     {
         OS_ResetSystem(parameter);
     }
     FUN_02000E9C();
+}
+
+THUMB_FUNC void FUN_02000EE8(void)
+{
+    int r1 = FUN_020335B8();
+    switch (r1)
+    {
+    case 1:
+        FUN_02000F4C(1, r1);
+        break;
+    case 2:
+        FUN_02000F4C(0, r1);
+        break;
+    case 3:
+        FUN_02000F4C(1, r1);
+        break;
+    }
+}
+
+THUMB_FUNC void FUN_02000F18(u32 parameter)
+{
+    FUN_0200E3A0(0, 0x7FFF);
+    FUN_0200E3A0(1, 0x7FFF);
+    if (FUN_02032DAC())
+    {
+        FUN_020225F8();
+        FUN_0202287C();
+    }
+    do
+    {
+        FUN_02000FE8();
+        FUN_02000EC8(parameter);
+    } while (1);
+}
+
+THUMB_FUNC void FUN_02000F4C(int arg0, int arg1)
+{
+    if (arg1 == 3)
+    {
+        FUN_02033F70(0, 3, 0);
+    }
+    else if (arg0 == 0)
+    {
+        FUN_02033F70(0, 2, 0);
+    }
+    else
+    {
+        FUN_02033F70(0, 0, 0);
+    }
+    FUN_02032DAC();
+    while (1)
+    {
+        FUN_02000FE8();
+        FUN_02016464();
+        if (gUnknown21C48B8.unk48 & 1)
+            break;
+        FUN_02000E9C();
+    }
+    FUN_02000F18(arg0);
 }
