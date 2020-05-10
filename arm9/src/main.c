@@ -1,11 +1,16 @@
 #include "global.h"
 #include "main.h"
+#include "FS_overlay.h"
+
+FS_EXTERN_OVERLAY(MODULE_52);
+FS_EXTERN_OVERLAY(MODULE_63);
+
+#define SOFT_RESET_KEY (REG_PAD_KEYINPUT_L_MASK | REG_PAD_KEYINPUT_R_MASK | REG_PAD_KEYINPUT_START_MASK | REG_PAD_KEYINPUT_SEL_MASK)
 
 extern struct Unk2106FA0 gBacklightTop;
 extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
 extern struct Unk21C48B8 gUnknown21C48B8;
 
-extern s32 gUnk027FFC20;
 extern struct { 
     s32 unk0;
     s32 unk4;
@@ -15,6 +20,41 @@ extern struct {
 extern void PM_GetBackLight();
 extern void OS_WaitIrq();
 extern void FUN_02016438(s32);
+extern void InitSystemForTheGame(void);
+extern void InitGraphicMemory(void);
+extern void FUN_020163BC(void);
+extern void FUN_02022294(void);
+extern void FUN_0201259C(void);
+extern void FUN_02000DF4(void);
+extern void FUN_02002C14(void);
+extern void FUN_02002C50(int, int);
+extern int FUN_0202254C(void);
+extern void FUN_02003B98(int, int);
+extern int FUN_02029EF8(int);
+extern int LoadPlayerDataAddress(int);
+extern void FUN_02020AFC(void);
+extern int FUN_020337E8(int);
+extern void FUN_02034188(int, int);
+extern int FUN_020227FC(int);
+extern void FUN_02089D90(int);
+extern void FUN_02000E7C(int, struct Unk21DBE18 *);
+extern void ErrorHandling(void);
+extern void FUN_02000FA4(void);
+extern void FUN_0200A2AC(void);
+extern void FUN_02015E30(void);
+extern void FUN_02000EE8(void);
+extern void FUN_02000FE8(void);
+extern void FUN_02016464(void);
+extern void FUN_02000F18(int);
+extern BOOL FUN_0202FB80(void);
+extern void FUN_02000E0C(void);
+extern void FUN_0201B5CC(int);
+extern void FUN_020125D4(void);
+extern void FUN_02015E60(void);
+extern void FUN_020222C4(void);
+extern void FUN_0200A318(void);
+extern void FUN_0200E2D8(void);
+extern void FUN_02003C10(void);
 
 extern const s32 CONST_3F; // 0x0000003F
 extern const s32 CONST_34; // 0x00000034
@@ -51,15 +91,15 @@ THUMB_FUNC void NitroMain(void)
     }
     else
     {
-        switch (gUnk027FFC20)
+        switch (*((s32 *)HW_RESET_PARAMETER_BUF))
         {
         case 0:
             gBacklightTop.unk1C = 0;
-            FUN_02000E7C(&CONST_3F, &gUnk021DBE18);
+            FUN_02000E7C(FS_OVERLAY_ID(MODULE_63), &gUnk021DBE18);
             break;
         case 1:
             gBacklightTop.unk1C = 1;
-            FUN_02000E7C(&CONST_34, &gUnk021D76C8);
+            FUN_02000E7C(FS_OVERLAY_ID(MODULE_52), &gUnk021D76C8);
             break;
         default:
             ErrorHandling();
@@ -77,7 +117,7 @@ THUMB_FUNC void NitroMain(void)
         FUN_02000EE8();
         FUN_02000FE8();
         FUN_02016464();
-        if ((gUnknown21C48B8.unk38 & 0x30C) == 0x30C && !gUnk021C4918.unk8) // soft reset?
+        if ((gUnknown21C48B8.unk38 & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gUnk021C4918.unk8) // soft reset?
         {
             FUN_02000F18(0); // soft reset?
         }

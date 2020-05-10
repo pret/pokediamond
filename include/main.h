@@ -1,14 +1,21 @@
 #ifndef GUARD_MAIN_H
 #define GUARD_MAIN_H
 
+#include "FS_overlay.h"
+
+struct Unk21DBE18
+{
+    u8 filler_00[16];
+};
+
 struct Unk2106FA0
 {
     s32 unk0;
     s32 unk4;
     s32 unk8;
     s32 unkC;
-    s32 unk10;
-    s32 unk14;
+    FSOverlayID unk10;
+    struct Unk21DBE18 * unk14;
     s32 unk18;
     s32 unk1C;
     s32 unk20;
