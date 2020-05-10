@@ -63,6 +63,95 @@ O_FILES := $(C_OBJS) $(CXX_OBJS) $(S_OBJS)
 # Overlay modules
 # FIXME: lcf doesn't like this
 # BIN_FILES := $(wildcard files/*.__AT_*)
+OVERLAYS :=   \
+	MODULE_00 \
+    MODULE_01 \
+    MODULE_02 \
+    MODULE_03 \
+    MODULE_04 \
+    MODULE_05 \
+    MODULE_06 \
+    MODULE_07 \
+    MODULE_08 \
+    MODULE_09 \
+    MODULE_10 \
+    MODULE_11 \
+    MODULE_12 \
+    MODULE_13 \
+    MODULE_14 \
+    MODULE_15 \
+    MODULE_16 \
+    MODULE_17 \
+    MODULE_18 \
+    MODULE_19 \
+    MODULE_20 \
+    MODULE_21 \
+    MODULE_22 \
+    MODULE_23 \
+    MODULE_24 \
+    MODULE_25 \
+    MODULE_26 \
+    MODULE_27 \
+    MODULE_28 \
+    MODULE_29 \
+    MODULE_30 \
+    MODULE_31 \
+    MODULE_32 \
+    MODULE_33 \
+    MODULE_34 \
+    MODULE_35 \
+    MODULE_36 \
+    MODULE_37 \
+    MODULE_38 \
+    MODULE_39 \
+    MODULE_40 \
+    MODULE_41 \
+    MODULE_42 \
+    MODULE_43 \
+    MODULE_44 \
+    MODULE_45 \
+    MODULE_46 \
+    MODULE_47 \
+    MODULE_48 \
+    MODULE_49 \
+    MODULE_50 \
+    MODULE_51 \
+    MODULE_52 \
+    MODULE_53 \
+    MODULE_54 \
+    MODULE_55 \
+    MODULE_56 \
+    MODULE_57 \
+    MODULE_58 \
+    MODULE_59 \
+    MODULE_60 \
+    MODULE_61 \
+    MODULE_62 \
+    MODULE_63 \
+    MODULE_64 \
+    MODULE_65 \
+    MODULE_66 \
+    MODULE_67 \
+    MODULE_68 \
+    MODULE_69 \
+    MODULE_70 \
+    MODULE_71 \
+    MODULE_72 \
+    MODULE_73 \
+    MODULE_74 \
+    MODULE_75 \
+    MODULE_76 \
+    MODULE_77 \
+    MODULE_78 \
+    MODULE_79 \
+    MODULE_80 \
+    MODULE_81 \
+    MODULE_82 \
+    MODULE_83 \
+    MODULE_84 \
+    MODULE_85 \
+    MODULE_86 \
+
 .SECONDARY:
 .DELETE_ON_ERROR:
 .SECONDEXPANSION:
@@ -182,7 +271,7 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros
 
 $(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
 	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
-	$(OBJCOPY) --update-section arm9=$@ -j arm9 $(ELF) 2>/dev/null
+	$(OBJCOPY) --update-section arm9=$@ -j arm9 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
