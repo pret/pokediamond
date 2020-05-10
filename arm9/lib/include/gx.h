@@ -46,6 +46,11 @@
 #define HW_REG_VRAMCNT_H       0x04000248
 #define HW_REG_VRAMCNT_I       0x04000249
 
+#define HW_REG_DISPCNT         0x04000000
+#define HW_REG_DISPCNT_2D      0x04001000
+
+#define HW_REG_DISP3DCNT       0x04000060
+
 //TODO: wait for register commit and replace these
 #define SETREG8(x, y) ((*(vu8 *)x) = y)
 #define SETREG16(x, y) ((*(vu16 *)x) = y)
@@ -57,6 +62,9 @@
 #define READREG32(x) (*(vu32 *)x)
 #define READREG64(x) (*(vu64 *)x)
 
+//TODO: add SDK signatures and symbols
+//TODO: add arm function attributes
+
 
 struct DL
 {
@@ -65,6 +73,23 @@ struct DL
     u8 *var08; //start pointer
     u32 var0C;
     u32 var10; //pad end with zero bool
+};
+
+struct VRAM_banks
+{
+    u16 var00; //lcdc
+    u16 var02; //bg
+    u16 var04; //obj
+    u16 var06; //arm7
+    u16 var08; //tex
+    u16 var0A; //texpltt
+    u16 var0C; //clearimage
+    u16 var0E; //bgextpltt
+    u16 var10; //objextpltt
+    u16 var12; //subbg
+    u16 var14; //subobj
+    u16 var16; //subbgextpltt
+    u16 var18; //subobjextpltt
 };
 
 //GX_g3
@@ -110,6 +135,59 @@ void G3B_End(struct DL * displaylist);
 //GX_asm
 void GX_SendFifo48B(void *src, void *dst);
 
+//GX_vramcnt
+//some of the symbols don't match what the function does
+void GX_VRAMCNT_SetLCDC_(u32 mask);
+void GX_SetBankForBG(u16 bg);
+void GX_SetBankForOBJ(u16 obj);
+void GX_SetBankForBGExtPltt(u16 bgextpltt);
+void GX_SetBankForOBJExtPltt(u16 objextpltt);
+void GX_SetBankForTex(u16 tex);
+void GX_SetBankForTexPltt(u16 texpltt);
+void GX_SetBankForClearImage(u16 clearimage);
+void GX_SetBankForARM7(u16 arm7);
+void GX_SetBankForLCDC(u16 lcdc);
+void GX_SetBankForSubBG(u16 subbg);
+void GX_SetBankForSubOBJ(u16 subobj);
+void GX_SetBankForSubBGExtPltt(u16 subbgextpltt);
+void GX_SetBankForSubOBJExtPltt(u16 subobjextpltt);
+u32 FUN_020C6130(u16 *ptr);
+u32 GX_ResetBankForBG();
+u32 GX_ResetBankForOBJ();
+u32 GX_ResetBankForBGExtPltt();
+u32 GX_ResetBankForOBJExtPltt();
+u32 GX_ResetBankForTex();
+u32 GX_ResetBankForTexPltt();
+u32 GX_ResetBankForClearImage();
+u32 GX_ResetBankForSubBG();
+u32 FUN_020C605C();
+u32 FUN_020C6034();
+u32 GX_ResetBankForSubOBJ();
+u32 FUN_020C5F28(u16 *ptr);
+u32 disableBankForX_();
+u32 GX_DisableBankForOBJExtPltt_2();
+u32 GX_DisableBankForBGExtPltt();
+u32 GX_DisableBankForOBJExtPltt();
+u32 GX_DisableBankForTexPltt_2();
+u32 GX_DisableBankForTexPltt();
+u32 GX_DisableBankForClearImage();
+u32 GX_DisableBankForARM7();
+u32 GX_DisableBankForLCDC();
+u32 GX_DisableBankForSubBGExtPltt();
+u32 GX_DisableBankForSubOBJExtPltt_2();
+u32 FUN_020C5E04();
+u32 GX_DisableBankForSubOBJExtPltt();
+u32 GX_GetBankForBGExtPltt_2();
+u32 GX_GetBankForOBJ();
+u32 GX_GetBankForBGExtPltt();
+u32 GX_GetBankForOBJExtPltt();
+u32 FUN_020C5D8C();
+u32 GX_GetBankForTexPltt();
+u32 GX_GetBankForLCDC();
+u32 GX_GetBankForSubBGExtPltt_2();
+u32 GX_GetBankForSubOBJ();
+u32 GX_GetBankForSubBGExtPltt();
+u32 GX_GetBankForSubOBJExtPltt();
 
 //GXi_NopClearFifo128_ probably asm
 
