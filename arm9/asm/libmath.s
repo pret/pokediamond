@@ -32,16 +32,16 @@ MATH_CalcSHA1: ; 0x020DDCA0
 	add r0, sp, #0x0
 	mov r5, r1
 	mov r4, r2
-	bl MATH_SHA1Init
+	bl DGT_Hash2Reset
 _020DDCBC: ; 0x020DDCBC
 	add r0, sp, #0x0
 	mov r1, r5
 	mov r2, r4
-	bl MATH_SHA1Update
+	bl DGT_Hash2SetSource
 _020DDCCC: ; 0x020DDCCC
 	add r0, sp, #0x0
 	mov r1, r6
-	bl MATH_SHA1GetHash
+	bl DGT_Hash2GetDigest
 	add sp, sp, #0x68
 	ldmia sp!, {r4-r6,lr}
 	bx lr

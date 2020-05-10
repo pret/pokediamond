@@ -28,6 +28,9 @@
 .extern DGT_Hash1GetDigest_R
 .extern DGT_Hash1Reset
 .extern DGT_Hash1SetSource
+.extern DGT_Hash2GetDigest
+.extern DGT_Hash2Reset
+.extern DGT_Hash2SetSource
 .extern DGTi_hash2_arm4_small
 .extern ErrorHandling
 .extern FS_CloseFile
@@ -3322,14 +3325,11 @@
 .extern MATH_MD5GetHash
 .extern MATH_MD5Init
 .extern MATH_MD5Update
-.extern MATH_SHA1GetHash
-.extern MATH_SHA1Init
-.extern MATH_SHA1Update
 .extern MATHi_CRC16InitTable
 .extern MATHi_CRC16InitTableRev
 .extern MATHi_CRC32InitTableRev
 .extern MATHi_CRC8InitTable
-.extern MATHi_CalcHMAC
+.extern DGTi_Hash2CalcHmac
 .extern MIC_DoSamplingAsync
 .extern MIC_GetLastSamplingAddress
 .extern MIC_Init
