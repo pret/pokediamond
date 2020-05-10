@@ -183,7 +183,7 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros
 
 $(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
 	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
-	$(OBJCOPY) --update-section arm9=$@ -j arm9 $(ELF)
+	$(OBJCOPY) --update-section arm9=$@ -j arm9 $(ELF) 2>/dev/null
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
