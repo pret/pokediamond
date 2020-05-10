@@ -107,4 +107,69 @@
     ((u32)(a) << REG_PAD_KEYINPUT_A_SHIFT))
 #endif
 
+#define REG_PAD_KEYCNT_LOGIC_SHIFT                         15
+#define REG_PAD_KEYCNT_LOGIC_SIZE                          1
+#define REG_PAD_KEYCNT_LOGIC_MASK                          0x8000
+
+#define REG_PAD_KEYCNT_INTR_SHIFT                          14
+#define REG_PAD_KEYCNT_INTR_SIZE                           1
+#define REG_PAD_KEYCNT_INTR_MASK                           0x4000
+
+#define REG_PAD_KEYCNT_L_SHIFT                             9
+#define REG_PAD_KEYCNT_L_SIZE                              1
+#define REG_PAD_KEYCNT_L_MASK                              0x0200
+
+#define REG_PAD_KEYCNT_R_SHIFT                             8
+#define REG_PAD_KEYCNT_R_SIZE                              1
+#define REG_PAD_KEYCNT_R_MASK                              0x0100
+
+#define REG_PAD_KEYCNT_DOWN_SHIFT                          7
+#define REG_PAD_KEYCNT_DOWN_SIZE                           1
+#define REG_PAD_KEYCNT_DOWN_MASK                           0x0080
+
+#define REG_PAD_KEYCNT_UP_SHIFT                            6
+#define REG_PAD_KEYCNT_UP_SIZE                             1
+#define REG_PAD_KEYCNT_UP_MASK                             0x0040
+
+#define REG_PAD_KEYCNT_LEFT_SHIFT                          5
+#define REG_PAD_KEYCNT_LEFT_SIZE                           1
+#define REG_PAD_KEYCNT_LEFT_MASK                           0x0020
+
+#define REG_PAD_KEYCNT_RIGHT_SHIFT                         4
+#define REG_PAD_KEYCNT_RIGHT_SIZE                          1
+#define REG_PAD_KEYCNT_RIGHT_MASK                          0x0010
+
+#define REG_PAD_KEYCNT_START_SHIFT                         3
+#define REG_PAD_KEYCNT_START_SIZE                          1
+#define REG_PAD_KEYCNT_START_MASK                          0x0008
+
+#define REG_PAD_KEYCNT_SEL_SHIFT                           2
+#define REG_PAD_KEYCNT_SEL_SIZE                            1
+#define REG_PAD_KEYCNT_SEL_MASK                            0x0004
+
+#define REG_PAD_KEYCNT_B_SHIFT                             1
+#define REG_PAD_KEYCNT_B_SIZE                              1
+#define REG_PAD_KEYCNT_B_MASK                              0x0002
+
+#define REG_PAD_KEYCNT_A_SHIFT                             0
+#define REG_PAD_KEYCNT_A_SIZE                              1
+#define REG_PAD_KEYCNT_A_MASK                              0x0001
+
+#ifndef SDK_ASM
+#define REG_PAD_KEYCNT_FIELD( logic, intr, l, r, down, up, left, right, start, sel, b, a ) \
+    (u16)( \
+    ((u32)(logic) << REG_PAD_KEYCNT_LOGIC_SHIFT) | \
+    ((u32)(intr) << REG_PAD_KEYCNT_INTR_SHIFT) | \
+    ((u32)(l) << REG_PAD_KEYCNT_L_SHIFT) | \
+    ((u32)(r) << REG_PAD_KEYCNT_R_SHIFT) | \
+    ((u32)(down) << REG_PAD_KEYCNT_DOWN_SHIFT) | \
+    ((u32)(up) << REG_PAD_KEYCNT_UP_SHIFT) | \
+    ((u32)(left) << REG_PAD_KEYCNT_LEFT_SHIFT) | \
+    ((u32)(right) << REG_PAD_KEYCNT_RIGHT_SHIFT) | \
+    ((u32)(start) << REG_PAD_KEYCNT_START_SHIFT) | \
+    ((u32)(sel) << REG_PAD_KEYCNT_SEL_SHIFT) | \
+    ((u32)(b) << REG_PAD_KEYCNT_B_SHIFT) | \
+    ((u32)(a) << REG_PAD_KEYCNT_A_SHIFT))
+#endif
+
 #endif //POKEDIAMOND_REGISTERS_H

@@ -1,17 +1,22 @@
 #include "global.h"
 #include "main.h"
 #include "FS_overlay.h"
+#include "PAD_pad.h"
+#include "CARD_pullOut.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
 FS_EXTERN_OVERLAY(MODULE_63);
 
-#define SOFT_RESET_KEY (REG_PAD_KEYINPUT_L_MASK | REG_PAD_KEYINPUT_R_MASK | REG_PAD_KEYINPUT_START_MASK | REG_PAD_KEYINPUT_SEL_MASK)
+#define SOFT_RESET_KEY (PAD_BUTTON_L | PAD_BUTTON_R | PAD_BUTTON_START | PAD_BUTTON_SELECT)
 
 extern struct Unk21C48B8 gUnknown21C48B8;
 
 extern struct { 
     s32 unk0;
-    s32 unk4;
+    u8 unk4;
+    u8 unk5;
+    u8 unk6;
+    u8 unk7;
     u8 unk8;
 } gUnk021C4918;
 
@@ -257,4 +262,68 @@ THUMB_FUNC void FUN_02000F4C(int arg0, int arg1)
         FUN_02000E9C();
     }
     FUN_02000F18(arg0);
+}
+
+void FUN_02000FA4(void)
+{
+    struct Unk21C4818 spC;
+    struct Unk21C4828 sp0;
+    FUN_0201265C(&spC, &sp0);
+    {
+        int r4 = gUnknown21C48B8.unk2C;
+        int r5 = ((sp0.unk4 + sp0.unk8) << 24) + (spC.unk0 + ((256 * spC.unk4 * spC.unk8) << 16) + (sp0.unk0 << 16));
+        FUN_0201BA1C(r4 + r5);
+        FUN_0201B9E0(r4 + r5);
+    }
+}
+
+void FUN_02000FE8(void)
+{
+    PMBackLightSwitch top, bottom;
+    if (PAD_DetectFold())
+    {
+        if (!gUnk021C4918.unk7)
+        {
+            FUN_0201CE04();
+            if (CTRDG_IsPulledOut() == TRUE)
+            {
+                gBacklightTop.unk4 = 1;
+            }
+            {
+                int r1 = gBacklightTop.unk4;
+                while (1)
+                {
+                    PMWakeUpTrigger trigger = PM_TRIGGER_COVER_OPEN | PM_TRIGGER_CARD;
+                    if (gUnk021C4918.unk6 && !r1)
+                        trigger |= PM_TRIGGER_CARTRIDGE;
+                    PM_GoSleepMode(trigger, PM_PAD_LOGIC_OR, 0);
+                    if (CARD_IsPulledOut())
+                    {
+                        PM_ForceToPowerOff();
+                        break;
+                    }
+                    else if (PAD_DetectFold())
+                    {
+                        r1 = gBacklightTop.unk4 = 1;
+                    }
+                    else
+                        break;
+                }
+                FUN_0201CDD0();
+                return;
+            }
+        }
+        else
+        {
+            PM_GetBackLight(&top, &bottom);
+            if (top == PM_BACKLIGHT_ON)
+                PM_SetBackLight(2, PM_BACKLIGHT_OFF);
+        }
+    }
+    else
+    {
+        PM_GetBackLight(&top, &bottom);
+        if (top == PM_BACKLIGHT_OFF)
+            PM_SetBackLight(2, gBacklightTop.unk0);
+    }
 }
