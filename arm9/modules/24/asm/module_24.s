@@ -1179,6 +1179,9 @@ _022550DC:
 	.align 2, 0
 	thumb_func_end MOD24_022550D4
 
-	.section .data
+	.section .rodata
 	; 0x022550F8
-	.incbin "baserom.nds", 0x288EB8, 0xE8
+	.incbin "baserom.nds", 0x288EB8, 0xC8
+
+	.section .sinit
+	.word MOD24_02254840

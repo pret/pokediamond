@@ -101,6 +101,6 @@ MOD19_02252504: ; 0x02252504
 	bx lr
 	thumb_func_end MOD19_02252504
 
-	.section .data
+	.section .rodata
 	; 0x02252508
-	.incbin "baserom.nds", 0x2830C8, 0x38
+	.incbin "baserom.nds", 0x2830C8, 0x1c

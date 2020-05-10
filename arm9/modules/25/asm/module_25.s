@@ -658,6 +658,9 @@ _02254CE6:
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD25_02254CD8
 
-	.section .data
+	.section .rodata
 	; 0x02254CF8
-	.incbin "baserom.nds", 0x2894B8, 0xA8
+	.incbin "baserom.nds", 0x2894B8, 0x88
+
+	.section .sinit
+	.word MOD25_02254840

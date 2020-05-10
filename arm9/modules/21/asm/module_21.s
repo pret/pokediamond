@@ -721,6 +721,15 @@ _02254D78: .word 0x040002A0
 _02254D7C: .word 0x040002A8
 	thumb_func_end MOD21_02254C5C
 
-	.section .data
+	.section .rodata
 	; 0x02254D80
-	.incbin "baserom.nds", 0x285B40, 0x80
+	.incbin "baserom.nds", 0x285B40, 0x68
+
+	; Dumb hack because the compiler aligns to 16 instead of 8
+	;.section .sinit
+	.global SDK_OVERLAY.MODULE_21.SINIT_START
+    .global SDK_OVERLAY.MODULE_21.SINIT_END
+SDK_OVERLAY.MODULE_21.SINIT_START:
+	.word MOD21_02254840
+	.word 0
+SDK_OVERLAY.MODULE_21.SINIT_END:
