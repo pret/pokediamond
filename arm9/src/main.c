@@ -56,9 +56,6 @@ extern void FUN_0200A318(void);
 extern void FUN_0200E2D8(void);
 extern void FUN_02003C10(void);
 
-extern const s32 CONST_3F; // 0x0000003F
-extern const s32 CONST_34; // 0x00000034
-
 extern struct Unk21DBE18 gUnk021DBE18; 
 extern struct Unk21DBE18 gUnk021D76C8;
 

@@ -83,7 +83,6 @@ MWCCARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwccarm.exe
 MWLDARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 MAKELSF := $(WINE) $(TOOLS_DIR)/bin/makelcf.exe
-MAKELSF_FLAGS := -DCONST_34=0x34 -DCONST_3F=0x3F
 
 AS      = $(WINE) $(MWASMARM)
 CC      = $(WINE) $(MWCCARM)
