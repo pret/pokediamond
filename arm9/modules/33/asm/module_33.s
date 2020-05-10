@@ -391,6 +391,9 @@ MOD33_02254AD8: ; 0x02254AD8
 	.align 2, 0
 	thumb_func_end MOD33_02254AD8
 
-	.section .data
+	.section .rodata
 	; 0x02254AF4
-	.incbin "baserom.nds", 0x28E0B4, 0x6C
+	.incbin "baserom.nds", 0x28E0B4, 0x4C
+
+	.section .sinit
+	.word MOD33_02254840
