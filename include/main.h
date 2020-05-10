@@ -13,7 +13,7 @@ struct Unk2106FA0
 {
     PMBackLightSwitch unk0;
     s32 unk4;
-    s32 unk8;
+    FSOverlayID unk8;
     s32 unkC;
     FSOverlayID unk10;
     struct Unk21DBE18 * unk14;

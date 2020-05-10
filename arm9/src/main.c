@@ -34,7 +34,7 @@ extern int FUN_020337E8(int);
 extern void FUN_02034188(int, int);
 extern int FUN_020227FC(int);
 extern void FUN_02089D90(int);
-extern void FUN_02000E7C(int, struct Unk21DBE18 *);
+extern void FUN_02000E7C(FSOverlayID, struct Unk21DBE18 *);
 extern void ErrorHandling(void);
 extern void FUN_02000FA4(void);
 extern void FUN_0200A2AC(void);
@@ -140,4 +140,61 @@ THUMB_FUNC void NitroMain(void)
         FUN_02003C10();
         FUN_0201B5CC(gUnknown21C48B8.unk20);
     }
+}
+
+THUMB_FUNC void FUN_02000DF4(void)
+{
+    gBacklightTop.unk8 = -1;
+    gBacklightTop.unkC = 0;
+    gBacklightTop.unk10 = -1; // overlay invalid
+    gBacklightTop.unk14 = NULL;
+}
+
+THUMB_FUNC void FUN_02000E0C(void)
+{
+    if (!gBacklightTop.unkC)
+    {
+        if (gBacklightTop.unk14 == NULL)
+            return;
+        if (gBacklightTop.unk10 != -1u)
+            HandleLoadOverlay(gBacklightTop.unk10, 0);
+        gBacklightTop.unk8 = gBacklightTop.unk10;
+        gBacklightTop.unkC = FUN_02006234(gBacklightTop.unk14, &gBacklightTop.unk18, 0);
+        gBacklightTop.unk10 = -1u;
+        gBacklightTop.unk14 = NULL;
+    }
+    if (FUN_02006290(gBacklightTop.unkC))
+    {
+        FUN_02006260(gBacklightTop.unkC);
+        gBacklightTop.unkC = 0;
+        if (gBacklightTop.unk8 != -1u)
+            UnloadOverlayByID(gBacklightTop.unk8);
+    }
+}
+
+THUMB_FUNC void FUN_02000E7C(FSOverlayID id, struct Unk21DBE18 * arg1)
+{
+    if (gBacklightTop.unk14 != NULL)
+        ErrorHandling();
+    gBacklightTop.unk10 = id;
+    gBacklightTop.unk14 = arg1;
+}
+
+THUMB_FUNC void FUN_02000E9C(void)
+{
+    FUN_0202FB80();
+    OS_WaitIrq(1, 1);
+    gUnknown21C48B8.unk2C++;
+    gUnknown21C48B8.unk30 = 0;
+    if (gUnknown21C48B8.unk0 != NULL)
+        gUnknown21C48B8.unk0(gUnknown21C48B8.unk4);
+}
+
+void FUN_02000EC8(u32 parameter)
+{
+    if (FUN_02033678() && CARD_TryWaitBackupAsync() == 1)
+    {
+        OS_ResetSystem(parameter);
+    }
+    FUN_02000E9C();
 }

@@ -120,7 +120,6 @@ SECTIONS {
 		crt0.o (.rodata)
 		* (.version)
 		main.o (.text)
-		FUN_02000DF4.o (.text)
 		unk_02000E0C.o (.text)
 		string_util.o (.text)
 		unk_020023C0.o (.text)
