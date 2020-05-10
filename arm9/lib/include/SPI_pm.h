@@ -20,8 +20,18 @@ typedef enum
     PM_BACKLIGHT_ON = 1
 } PMBackLightSwitch;
 
+typedef enum
+{
+    PM_LCD_TOP = 0,
+    PM_LCD_BOTTOM = 1,
+    PM_LCD_ALL = 2
+}
+PMLCDTarget;
+
 void PM_GetBackLight(PMBackLightSwitch * top, PMBackLightSwitch * bottom);
 void PM_GoSleepMode(PMWakeUpTrigger trigger, PMLogic logic, u16 keyPattern);
+u32 PM_SetBackLight(PMLCDTarget target, PMBackLightSwitch status);
+void PM_ForceToPowerOff(void);
 
 ENUMS_ALWAYS_INT_RESET
 

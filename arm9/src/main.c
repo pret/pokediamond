@@ -1,8 +1,10 @@
 #include "global.h"
 #include "main.h"
-#include "FS_overlay.h"
 #include "PAD_pad.h"
 #include "CARD_pullOut.h"
+#include "CARD_backup.h"
+#include "CTRDG_common.h"
+#include "poke_overlay.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
 FS_EXTERN_OVERLAY(MODULE_63);
@@ -47,7 +49,7 @@ extern void FUN_02015E30(void);
 extern void FUN_02000EE8(void);
 extern void FUN_02000FE8(void);
 extern void FUN_02016464(void);
-extern void FUN_02000F18(u32 parameter);
+void DoSoftReset(u32 parameter);
 extern BOOL FUN_0202FB80(void);
 extern void FUN_02000E0C(void);
 extern void FUN_0201B5CC(int);
@@ -58,6 +60,11 @@ extern void FUN_0200A318(void);
 extern void FUN_0200E2D8(void);
 extern void FUN_02003C10(void);
 void FUN_02000F4C(int arg0, int arg1);
+extern BOOL FUN_02006234(struct Unk21DBE18 *, s32 *, int);
+extern BOOL FUN_02006290(int);
+extern void FUN_02006260(int);
+int FUN_02033678(void);
+BOOL FUN_020335B8(void);
 
 extern struct Unk21DBE18 gUnk021DBE18; 
 extern struct Unk21DBE18 gUnk021D76C8;
@@ -119,7 +126,7 @@ THUMB_FUNC void NitroMain(void)
         FUN_02016464();
         if ((gUnknown21C48B8.unk38 & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gUnk021C4918.unk8) // soft reset?
         {
-            FUN_02000F18(0); // soft reset?
+            DoSoftReset(0); // soft reset?
         }
         if (FUN_0202FB80())
         {
@@ -198,7 +205,7 @@ THUMB_FUNC void FUN_02000E9C(void)
 
 THUMB_FUNC void FUN_02000EC8(u32 parameter)
 {
-    if (FUN_02033678() && CARD_TryWaitBackupAsync() == 1)
+    if (FUN_02033678() && CARD_TryWaitBackupAsync() == TRUE)
     {
         OS_ResetSystem(parameter);
     }
@@ -222,7 +229,13 @@ THUMB_FUNC void FUN_02000EE8(void)
     }
 }
 
-THUMB_FUNC void FUN_02000F18(u32 parameter)
+extern void FUN_0200E3A0(int, int);
+extern BOOL FUN_02032DAC(void);
+extern void FUN_020225F8(void);
+extern void FUN_0202287C(void);
+
+// No Return
+THUMB_FUNC void DoSoftReset(u32 parameter)
 {
     FUN_0200E3A0(0, 0x7FFF);
     FUN_0200E3A0(1, 0x7FFF);
@@ -237,6 +250,8 @@ THUMB_FUNC void FUN_02000F18(u32 parameter)
         FUN_02000EC8(parameter);
     } while (1);
 }
+
+extern void FUN_02033F70(int, int, int);
 
 THUMB_FUNC void FUN_02000F4C(int arg0, int arg1)
 {
@@ -261,8 +276,12 @@ THUMB_FUNC void FUN_02000F4C(int arg0, int arg1)
             break;
         FUN_02000E9C();
     }
-    FUN_02000F18(arg0);
+    DoSoftReset(arg0);
 }
+
+extern void FUN_0201265C(struct Unk21C4818 *, struct Unk21C4828 *);
+extern void FUN_0201BA1C(int);
+extern void FUN_0201B9E0(int);
 
 void FUN_02000FA4(void)
 {
@@ -276,6 +295,9 @@ void FUN_02000FA4(void)
         FUN_0201B9E0(r4 + r5);
     }
 }
+
+extern void FUN_0201CE04(void);
+extern void FUN_0201CDD0(void);
 
 void FUN_02000FE8(void)
 {
@@ -317,13 +339,13 @@ void FUN_02000FE8(void)
         {
             PM_GetBackLight(&top, &bottom);
             if (top == PM_BACKLIGHT_ON)
-                PM_SetBackLight(2, PM_BACKLIGHT_OFF);
+                PM_SetBackLight(PM_LCD_ALL, PM_BACKLIGHT_OFF);
         }
     }
     else
     {
         PM_GetBackLight(&top, &bottom);
         if (top == PM_BACKLIGHT_OFF)
-            PM_SetBackLight(2, gBacklightTop.unk0);
+            PM_SetBackLight(PM_LCD_ALL, gBacklightTop.unk0);
     }
 }
