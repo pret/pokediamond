@@ -93,26 +93,3 @@ OS_SetIrqMask: ; 0x020C9E94
 	.balign 4
 _020C9EC0: .word 0x04000208
 _020C9EC4: .word 0x04000210
-
-	arm_func_start OSi_EnterTimerCallback
-OSi_EnterTimerCallback: ; 0x020C9EC8
-	stmdb sp!, {r4,lr}
-	mov r3, #0xc
-	mul r4, r0, r3
-	ldr ip, _020C9F08 ; =0x021D344C
-	add r0, r0, #0x3
-	mov r3, #0x1
-	mov r0, r3, lsl r0
-	ldr r3, _020C9F0C ; =0x021D3454
-	str r1, [r12, r4]
-	str r2, [r3, r4]
-	bl OS_EnableIrqMask
-	ldr r0, _020C9F10 ; =0x021D3450
-	mov r1, #0x1
-	str r1, [r0, r4]
-	ldmia sp!, {r4,lr}
-	bx lr
-	.balign 4
-_020C9F08: .word OSi_IrqCallbackInfo+0x30
-_020C9F0C: .word OSi_IrqCallbackInfo+0x38
-_020C9F10: .word OSi_IrqCallbackInfo+0x34
