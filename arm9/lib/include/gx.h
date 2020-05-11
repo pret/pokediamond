@@ -96,6 +96,14 @@ struct VRAM_banks
 void G3_BeginMakeDL(struct DL *displaylist, void *r1, u32 r2);
 s32 G3_EndMakeDL(struct DL *displaylist);
 
+//GX_g3_util
+void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near, fx32 far, fx32 scale, u32 load, struct Mtx44 *mtx);
+void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 near, fx32 far, fx32 scale, u32 load, struct Mtx44 *mtx);
+void G3i_LookAt_(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *c, u32 load, struct Mtx44 *mtx);
+void G3_RotX(fx32 sinphi, fx32 cosphi);
+void G3_RotY(fx32 sinphi, fx32 cosphi);
+void G3_RotZ(fx32 sinphi, fx32 cosphi);
+
 //GX_g3x
 asm void GXi_NopClearFifo128_(void *reg);
 void G3X_Init();
