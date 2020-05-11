@@ -5214,7 +5214,7 @@ MOD13_02222D0C: ; 0x02222D0C
 	sub sp, sp, #4
 	ldr r0, _02222D74 ; =0x02243048
 	ldr r0, [r0]
-	blx MOD13_02219798
+	bl MOD13_02219798
 	cmp r0, #0
 	ldreq r1, _02222D78 ; =0x02243044
 	moveq r0, #1
@@ -5246,7 +5246,7 @@ _02222D78: .word 0x02243044
 MOD13_02222D7C: ; 0x02222D7C
 	stmdb sp!, {r4, lr}
 	mov r4, r0
-	blx MOD13_02219C9C
+	bl MOD13_02219C9C
 	cmp r4, #0
 	beq _02222DC0
 	ldr r0, _02222DCC ; =0x02243048
@@ -5329,7 +5329,7 @@ _02222E48:
 	bl OS_GetMacAddress
 	ldr r0, _02222EE0 ; =MOD13_02222CFC
 	ldr r1, _02222EE4 ; =MOD13_02222CF0
-	blx MOD13_02219D58
+	bl MOD13_02219D58
 	cmp r0, #0
 	addeq sp, sp, #0x104
 	ldmeqia sp!, {pc}
@@ -6270,7 +6270,7 @@ MOD13_02223AF8: ; 0x02223AF8
 	stmdb sp!, {lr}
 	sub sp, sp, #0xec
 	add r0, sp, #0
-	blx MOD13_0221A794
+	bl MOD13_0221A794
 	cmp r0, #1
 	beq _02223B14
 	bl OS_Terminate
@@ -6313,7 +6313,7 @@ _02223B7C:
 	ldmia sp!, {pc}
 _02223B88:
 	add r0, sp, #0
-	blx MOD13_0221A794
+	bl MOD13_0221A794
 	cmp r0, #1
 	beq _02223B9C
 	bl OS_Terminate
@@ -6344,7 +6344,7 @@ _02223BDC: .word 0x02243078
 MOD13_02223BE0: ; 0x02223BE0
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	blx MOD13_0221A7EC
+	bl MOD13_0221A7EC
 	cmp r0, #1
 	beq _02223BF8
 	bl OS_Terminate
@@ -6373,7 +6373,7 @@ MOD13_02223C0C: ; 0x02223C0C
 	mov r0, #0xf
 	mov r1, #0x40
 	str ip, [sp, #4]
-	blx MOD13_0221A8A4
+	bl MOD13_0221A8A4
 	cmp r0, #1
 	beq _02223C58
 	bl OS_Terminate

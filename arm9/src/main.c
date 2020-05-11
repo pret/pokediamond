@@ -63,8 +63,8 @@ void FUN_02000F4C(int arg0, int arg1);
 extern BOOL FUN_02006234(struct Unk21DBE18 *, s32 *, int);
 extern BOOL FUN_02006290(int);
 extern void FUN_02006260(int);
-int FUN_02033678(void);
-BOOL FUN_020335B8(void);
+extern BOOL FUN_02033678(void);
+extern int FUN_020335B8(void);
 
 extern struct Unk21DBE18 gUnk021DBE18; 
 extern struct Unk21DBE18 gUnk021D76C8;

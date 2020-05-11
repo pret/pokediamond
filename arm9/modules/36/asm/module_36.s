@@ -632,7 +632,7 @@ _02254CDA:
 	ldr r0, [sp, #0x28]
 	sub r0, r0, r4
 	lsl r0, r0, #0xc
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x10]
 	b _02254CF0
 _02254CEC:
@@ -699,7 +699,7 @@ _02254D54:
 	add r1, r2, #0
 	sub r0, r0, r5
 	lsl r0, r0, #0xc
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #8]
 	b _02254D6C
 _02254D68:
@@ -1225,7 +1225,7 @@ MOD36_0225510C: ; 0x0225510C
 	mov r2, #0x20
 	add r1, r1, r5
 	lsl r1, r1, #5
-	blx GXS_LoadBG3Char
+	bl GXS_LoadBG3Char
 	add r0, r6, #0
 	bl MOD36_02254F48
 	add sp, #8

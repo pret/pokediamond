@@ -2910,7 +2910,7 @@ FUN_020476CC: ; 0x020476CC
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	add r7, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r1, #0x63
 	str r4, [r7, #0x0]
 	mov r0, #0x0
@@ -2926,7 +2926,7 @@ _020476FA:
 	add r1, r4, #0x0
 	mov r2, #0x34
 	str r0, [r6, #0x18]
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	ldr r0, [sp, #0x0]
 	add r6, r6, #0x4
 	add r0, r0, #0x1
@@ -3034,7 +3034,7 @@ _02047774:
 	add r0, r2, #0x4
 	add r0, r7, r0
 	mov r2, #0xc
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r7, #0x0
 	pop {r3-r7, pc}
 
@@ -4191,7 +4191,7 @@ _0204817A:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x24
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	str r5, [r4, #0x4]
@@ -4788,7 +4788,7 @@ _02048666:
 	mov r0, #0x4
 	bl FUN_020168D0
 	mov r0, #0x0
-	blx OS_ResetSystem
+	bl OS_ResetSystem
 	add sp, #0xc
 	mov r0, #0x1
 	pop {r4-r7, pc}
@@ -6863,7 +6863,7 @@ FUN_02049718: ; 0x02049718
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r7, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [r5, #0x38]
 	bl FUN_020552F8
 	mov r1, #0x0
@@ -7675,7 +7675,7 @@ FUN_02049D9C: ; 0x02049D9C
 	add r6, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x1c
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r2, r6, #0x0
 	ldmia r4!, {r0-r1}
 	add r2, #0x8
@@ -7806,7 +7806,7 @@ FUN_02049EA4: ; 0x02049EA4
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r7, #0x0
 	add r1, r5, #0x0
 	bl FUN_02048CB0
@@ -9432,7 +9432,7 @@ FUN_0204AAD4: ; 0x0204AAD4
 	add r5, r0, #0x0
 	add r6, r1, #0x0
 	str r2, [r4, #0x8]
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	ldr r0, [r4, #0x0]
@@ -9441,7 +9441,7 @@ FUN_0204AAD4: ; 0x0204AAD4
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	ldr r1, [r4, #0x8]
@@ -9890,7 +9890,7 @@ _0204AE28:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x6
 	add r0, r0, #0x1
-	blx _s32_div_f
+	bl _s32_div_f
 	str r1, [r4, #0x0]
 _0204AE58:
 	pop {r4, pc}
@@ -9933,7 +9933,7 @@ _0204AE74:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x6
 	add r0, r0, #0x1
-	blx _s32_div_f
+	bl _s32_div_f
 	str r1, [r4, #0x0]
 _0204AEA6:
 	pop {r4, pc}
@@ -10279,7 +10279,7 @@ FUN_0204B130: ; 0x0204B130
 	add r6, r0, #0x0
 	add r5, r1, #0x0
 	add r0, r2, #0x0
-	blx RTC_ConvertDateToDay
+	bl RTC_ConvertDateToDay
 	ldr r1, [r5, #0x20]
 	add r4, r0, #0x0
 	cmp r4, r1
@@ -10306,13 +10306,13 @@ FUN_0204B158: ; 0x0204B158
 	add r5, r1, #0x0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	blx RTC_ConvertDateTimeToSecond
+	bl RTC_ConvertDateTimeToSecond
 	str r1, [sp, #0x8]
 	add r1, r5, #0x0
 	add r7, r0, #0x0
 	add r0, r5, #0x4
 	add r1, #0x14
-	blx RTC_ConvertDateTimeToSecond
+	bl RTC_ConvertDateTimeToSecond
 	add r2, r1, #0x0
 	sub r1, r7, r0
 	ldr r1, [sp, #0x8]
@@ -10337,7 +10337,7 @@ _0204B19C:
 	mov r2, #0x3c
 	mov r3, #0x0
 	str r1, [sp, #0x8]
-	blx _ll_sdiv
+	bl _ll_sdiv
 	add r7, r0, #0x0
 	cmp r7, #0x0
 	ble _0204B1D8
@@ -10505,7 +10505,7 @@ FUN_0204B2F0: ; 0x0204B2F0
 	ldr r3, [r3, #0x28]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	blx RTC_ConvertSecondToDateTime
+	bl RTC_ConvertSecondToDateTime
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0204B30C
@@ -10520,7 +10520,7 @@ FUN_0204B30C: ; 0x0204B30C
 	ldr r3, [r3, #0x30]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	blx RTC_ConvertSecondToDateTime
+	bl RTC_ConvertSecondToDateTime
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0204B328
@@ -10600,7 +10600,7 @@ FUN_0204B388: ; 0x0204B388
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x64
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	str r6, [r4, #0x0]
 	add r0, r6, #0x0
 	bl FUN_02025128
@@ -10700,7 +10700,7 @@ FUN_0204B450: ; 0x0204B450
 	ldr r0, [r3, #0x0]
 	str r0, [r2, #0x0]
 	add r0, sp, #0x0
-	blx MTX_Identity33_
+	bl MTX_Identity33_
 	ldr r0, [r5, #0x4]
 	add r1, r4, #0x0
 	ldr r0, [r0, #0x18]
@@ -11405,7 +11405,7 @@ FUN_0204B9EC: ; 0x0204B9EC
 	add r4, r0, #0x0
 	mov r0, #0x0
 	mov r2, #0x4c
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	ldr r1, _0204BA14 ; =0x021C5A1C
 	add r0, r4, #0x0
 	bl FUN_0204BB20
@@ -11651,7 +11651,7 @@ FUN_0204BBC4: ; 0x0204BBC4
 	add r4, r0, #0x0
 	bl FUN_0201B9EC
 	ldr r1, _0204BBE4 ; =0x0000199A
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	cmp r5, #0xa
@@ -11780,13 +11780,13 @@ _0204BCA4:
 	lsl r1, r1, #0x10
 	ldr r0, _0204BD14 ; =0x0000FFFF
 	lsr r1, r1, #0x10
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0x0
 	add r1, r1, #0x1
 	lsl r1, r1, #0x10
 	add r0, r4, #0x0
 	lsr r1, r1, #0x10
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	add r6, #0x14
 	lsr r4, r0, #0x10
@@ -12410,7 +12410,7 @@ FUN_0204C0D4: ; 0x0204C0D4
 	beq _0204C0E6
 	add r0, #0x2a
 	mov r2, #0x78
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 _0204C0E6:
 	pop {r3, pc}
 
@@ -12422,7 +12422,7 @@ FUN_0204C0E8: ; 0x0204C0E8
 	add r1, r4, #0x0
 	add r1, #0x2a
 	mov r2, #0x78
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	ldrb r1, [r4, #0x0]
 	mov r0, #0x4
 	orr r0, r1
@@ -13740,7 +13740,7 @@ _0204CB32:
 	str r0, [r1, #0x0]
 	mov r1, #0x0
 	lsl r2, r2, #0x2
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 _0204CB40:
 	ldr r1, _0204CC34 ; =0x021C5A68
 	ldr r0, _0204CC38 ; =0x000002BE
@@ -14894,7 +14894,7 @@ FUN_0204D43C: ; 0x0204D43C
 	add r0, #0x5a
 	mov r1, #0x0
 	mov r2, #0x8
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r5, #0x0
 	bl FUN_0204CD78
 	ldr r0, _0204D4CC ; =0x021C5A68
@@ -16246,10 +16246,10 @@ _0204DE98:
 	b _0204DEEC
 _0204DEC2:
 	ldr r0, [sp, #0x10]
-	blx abs
+	bl abs
 	add r6, r0, #0x0
 	add r0, r7, #0x0
-	blx abs
+	bl abs
 	cmp r6, r0
 	ble _0204DEE2
 	ldr r0, [sp, #0x10]
@@ -16269,9 +16269,9 @@ _0204DEEA:
 	mov r6, #0x80
 _0204DEEC:
 	add r0, r7, #0x0
-	blx abs
+	bl abs
 	ldr r0, [sp, #0x10]
-	blx abs
+	bl abs
 	ldrb r3, [r5, #0x5]
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -20040,7 +20040,7 @@ FUN_0204FBB0: ; 0x0204FBB0
 	mov r2, #0x48
 	str r0, [r1, #0x0]
 	mov r1, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, _0204FC08 ; =0x021C5A6C
 	mov r1, #0x32
 	ldr r0, [r0, #0x0]
@@ -22383,7 +22383,7 @@ FUN_02050E48: ; 0x02050E48
 	mov r1, #0x0
 	mov r2, #0x30
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [r5, #0xc]
 	bl FUN_020238F4
 	add r1, r0, #0x0
@@ -22438,7 +22438,7 @@ FUN_02050ED4: ; 0x02050ED4
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [r5, #0x24]
 	ldr r0, [r0, #0xc]
 	bl LoadPlayerDataAddress
@@ -22564,7 +22564,7 @@ _02050FDA:
 	add r0, #0x2c
 	add r1, #0x3d
 	mov r2, #0x6
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	ldr r0, [r4, #0x4]
 	add r0, #0x22
 	ldrb r0, [r0, #0x0]
@@ -23654,7 +23654,7 @@ _0205188E:
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x8c
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r4, #0x0
 	mov r1, #0x5
 	add r0, #0x43
@@ -23840,7 +23840,7 @@ _02051A16:
 	bl FUN_0206B9B0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r5, r5, #0x1
 	add r4, r4, r6
 	cmp r5, #0x3
@@ -24002,7 +24002,7 @@ FUN_02051B1C: ; 0x02051B1C
 	mul r2, r4
 	add r1, r3, r2
 	add r2, r4, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	ldr r0, [r6, #0x50]
 	mov r1, #0x3
 	bl FUN_0206B8CC
@@ -24746,7 +24746,7 @@ _0205211E:
 	mov r1, #0x0
 	lsl r2, r2, #0x4
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x0
 	str r0, [r4, #0x10]
 	mov r0, #0x28
@@ -26131,7 +26131,7 @@ FUN_02052B74: ; 0x02052B74
 	add r0, sp, #0x0
 	mov r1, #0x0
 	mov r2, #0x20
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	cmp r4, #0xb
 	bhi _02052BFA
 	add r0, r4, r4
@@ -26593,7 +26593,7 @@ FUN_02052EE8: ; 0x02052EE8
 	ldr r2, _02052F58 ; =0x000004E8
 	mov r0, #0x0
 	add r1, r4, #0x0
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	mov r0, #0x4e
 	str r5, [r4, #0x0]
 	mov r1, #0x1
@@ -30706,7 +30706,7 @@ FUN_02054C14: ; 0x02054C14
 	push {r4, lr}
 	mov r1, #0xa
 	add r4, r0, #0x0
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r0, #0x0
 	bne _02054C26
 	mov r0, #0x1
@@ -30714,7 +30714,7 @@ FUN_02054C14: ; 0x02054C14
 _02054C26:
 	add r0, r4, #0x0
 	mov r1, #0x64
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r0, #0x0
 	bne _02054C36
 	mov r0, #0x2
@@ -30723,7 +30723,7 @@ _02054C36:
 	mov r1, #0xfa
 	add r0, r4, #0x0
 	lsl r1, r1, #0x2
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r0, #0x0
 	bne _02054C48
 	mov r0, #0x3
@@ -30731,7 +30731,7 @@ _02054C36:
 _02054C48:
 	ldr r1, _02054C9C ; =0x00002710
 	add r0, r4, #0x0
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r0, #0x0
 	bne _02054C58
 	mov r0, #0x4
@@ -30739,7 +30739,7 @@ _02054C48:
 _02054C58:
 	ldr r1, _02054CA0 ; =0x000186A0
 	add r0, r4, #0x0
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r0, #0x0
 	bne _02054C68
 	mov r0, #0x5
@@ -30747,7 +30747,7 @@ _02054C58:
 _02054C68:
 	ldr r1, _02054CA4 ; =0x000F4240
 	add r0, r4, #0x0
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r0, #0x0
 	bne _02054C78
 	mov r0, #0x6
@@ -30755,7 +30755,7 @@ _02054C68:
 _02054C78:
 	ldr r1, _02054CA8 ; =0x00989680
 	add r0, r4, #0x0
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r0, #0x0
 	bne _02054C88
 	mov r0, #0x7
@@ -30763,7 +30763,7 @@ _02054C78:
 _02054C88:
 	ldr r1, _02054CAC ; =0x05F5E100
 	add r0, r4, #0x0
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r0, #0x0
 	bne _02054C98
 	mov r0, #0x8
@@ -31092,7 +31092,7 @@ FUN_02054EA0: ; 0x02054EA0
 	asr r1, r0, #0x1f
 	asr r3, r5, #0x1f
 	add r2, r5, #0x0
-	blx _ll_mul
+	bl _ll_mul
 	mov r2, #0x2
 	mov r3, #0x0
 	lsl r2, r2, #0xa
@@ -31108,7 +31108,7 @@ FUN_02054EA0: ; 0x02054EA0
 	asr r1, r0, #0x1f
 	asr r3, r5, #0x1f
 	add r2, r5, #0x0
-	blx _ll_mul
+	bl _ll_mul
 	mov r2, #0x2
 	mov r3, #0x0
 	lsl r2, r2, #0xa
@@ -31171,46 +31171,46 @@ FUN_02054F50: ; 0x02054F50
 	mov r1, #0x0
 	mov r2, #0x14
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, sp, #0x8
 	ldrh r0, [r0, #0x10]
 	cmp r0, #0x0
 	beq _02054F8A
 	lsl r0, r0, #0xc
-	blx _fflt
+	bl _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx _fadd
+	bl _fadd
 	b _02054F98
 _02054F8A:
 	lsl r0, r0, #0xc
-	blx _fflt
+	bl _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx _fsub
+	bl _fsub
 _02054F98:
-	blx _ffix
+	bl _ffix
 	str r0, [r4, #0x4]
 	add r0, sp, #0x8
 	ldrh r0, [r0, #0x14]
 	cmp r0, #0x0
 	beq _02054FB8
 	lsl r0, r0, #0xc
-	blx _fflt
+	bl _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx _fadd
+	bl _fadd
 	b _02054FC6
 _02054FB8:
 	lsl r0, r0, #0xc
-	blx _fflt
+	bl _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx _fsub
+	bl _fsub
 _02054FC6:
-	blx _ffix
+	bl _ffix
 	str r0, [r4, #0x8]
 	strh r6, [r4, #0xc]
 	strh r7, [r4, #0x10]
@@ -31274,7 +31274,7 @@ FUN_0205502C: ; 0x0205502C
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0xc
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	strh r6, [r4, #0x4]
 	strh r7, [r4, #0x6]
 	str r5, [r4, #0x0]
@@ -31430,7 +31430,7 @@ _0205518E:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x3c
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r4, pc}
 
@@ -36030,7 +36030,7 @@ _0205745A:
 	add r0, r5, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0x2
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	mov r0, #0x4a
 	lsl r0, r0, #0x2
 	add r6, r4, #0x0
@@ -36045,7 +36045,7 @@ _0205747E:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	add r2, r6, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	bl FUN_020583B4
@@ -36489,7 +36489,7 @@ _02057846:
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mul r2, r4
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 _02057856:
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -36889,7 +36889,7 @@ _02057BD4:
 	ldr r2, [sp, #0x4]
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	blx memcpy
+	bl memcpy
 	mov r0, #0xb
 	mov r1, #0x14
 	bl FUN_020169D8
@@ -38313,7 +38313,7 @@ _0205859A:
 	mov r1, #0x0
 	add r2, r5, #0x0
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -38337,7 +38337,7 @@ _020585C2:
 	mov r1, #0x0
 	add r2, r5, #0x0
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -38361,7 +38361,7 @@ _020585EA:
 	mov r1, #0x0
 	add r2, r5, #0x0
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -38385,7 +38385,7 @@ _02058612:
 	mov r1, #0x0
 	add r2, r5, #0x0
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -43565,7 +43565,7 @@ FUN_0205AAB0: ; 0x0205AAB0
 	bl FUN_0205AA90
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r1, #0x2
 	ldr r0, [r5, r0]
 	pop {r4-r6, pc}
@@ -43584,7 +43584,7 @@ FUN_0205AAD4: ; 0x0205AAD4
 	bl FUN_0205AA90
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r1, #0x2
 	ldr r0, [r4, r0]
 	pop {r4-r6, pc}
@@ -47960,7 +47960,7 @@ _0205CA9A:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x2c
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	ldr r0, [sp, #0x0]
 	str r7, [r4, #0x8]
 	str r0, [r4, #0xc]
@@ -48724,7 +48724,7 @@ FUN_0205D024: ; 0x0205D024
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	ldr r0, [r5, #0xc]
 	bl FUN_0206BB1C
 	str r0, [r4, #0x0]
@@ -49207,7 +49207,7 @@ FUN_0205D400: ; 0x0205D400
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	ldr r0, [r5, #0xc]
 	bl FUN_0206BB1C
 	str r0, [r4, #0x0]
@@ -49574,7 +49574,7 @@ FUN_0205D6BC: ; 0x0205D6BC
 	ldr r2, [sp, #0x0]
 	mov r1, #0x0
 	add r7, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	mov r0, #0x72
 	ldr r1, _0205D710 ; =0x021F57F1
 	lsl r0, r0, #0x2
@@ -49938,7 +49938,7 @@ FUN_0205D9A8: ; 0x0205D9A8
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	ldr r0, [r5, #0xc]
 	bl FUN_0206BB1C
 	str r0, [r4, #0x0]
@@ -50170,7 +50170,7 @@ _0205DB9C:
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x2c
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	str r5, [r4, #0x0]
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x4
@@ -50392,7 +50392,7 @@ FUN_0205DD40: ; 0x0205DD40
 	add r0, #0x1c
 	mov r2, #0xa0
 	str r1, [r4, #0x18]
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r3, #0x0
 	add r2, r3, #0x0
 	mov r0, #0x28
@@ -50453,13 +50453,13 @@ _0205DDCA:
 	add r6, r0, #0x0
 	ldr r0, _0205DED0 ; =0x0000FFFF
 	add r1, r4, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0x0
 	add r1, r1, #0x1
 	lsl r1, r1, #0x10
 	add r0, r6, #0x0
 	lsr r1, r1, #0x10
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	cmp r6, r4
@@ -50475,13 +50475,13 @@ _0205DDF2:
 	lsr r6, r0, #0x18
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	bne _0205DE1C
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r5, r1
 	add r0, r5, #0x0
 	b _0205DE5C
@@ -50490,7 +50490,7 @@ _0205DE1C:
 	bne _0205DE30
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r5, r4
 	add r1, r5, r1
 	sub r0, r0, #0x1
@@ -50603,7 +50603,7 @@ _0205DEE0:
 	bl FUN_0201B9EC
 	mov r1, #0x29
 	lsl r1, r1, #0x4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r7, r0, #0x10
 	cmp r7, #0x64
@@ -51150,7 +51150,7 @@ _0205E2DC:
 	bl FUN_0201B9EC
 	mov r1, #0x29
 	lsl r1, r1, #0x4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	cmp r4, #0x64
@@ -51325,13 +51325,13 @@ _0205E43C:
 	lsl r1, r5, #0x10
 	ldr r0, _0205E47C ; =0x0000FFFF
 	lsr r1, r1, #0x10
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0x0
 	add r1, r1, #0x1
 	lsl r1, r1, #0x10
 	add r0, r4, #0x0
 	lsr r1, r1, #0x10
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	lsl r0, r5, #0x10
@@ -52260,7 +52260,7 @@ FUN_0205EB38: ; 0x0205EB38
 	add r7, r0, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0x2
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r7, #0x0
 	add r1, sp, #0xc
 	mov r2, #0x2
@@ -53787,7 +53787,7 @@ FUN_0205F668: ; 0x0205F668
 	add r4, r0, #0x0
 	bl FUN_0201B9EC
 	mov r1, #0x62
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r1, #0x2
 	lsl r1, r1, #0x10
 	add r0, r4, #0x0
@@ -53977,7 +53977,7 @@ FUN_0205F7A0: ; 0x0205F7A0
 	add r0, r5, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0x6
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	ldr r0, [sp, #0x0]
 	ldr r0, [r0, #0x38]
 	bl FUN_02055320
@@ -54024,7 +54024,7 @@ _0205F812:
 	ldr r0, [r0, #0x0]
 	mov r1, #0x6
 	add r0, r0, #0x4
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r6, #0x0
 	add r4, r5, #0x0
 _0205F83E:
@@ -54046,7 +54046,7 @@ _0205F85A:
 	strh r0, [r4, #0x28]
 	add r0, r1, #0x5
 	mov r1, #0x6
-	blx _s32_div_f
+	bl _s32_div_f
 	add r6, r6, #0x1
 	add r4, #0xc
 	cmp r6, #0x5
@@ -54109,10 +54109,10 @@ FUN_0205F8CC: ; 0x0205F8CC
 	bl FUN_020462AC
 	str r0, [sp, #0x0]
 	add r0, sp, #0x28
-	blx FS_InitFile
+	bl FS_InitFile
 	add r0, sp, #0x28
 	add r1, r4, #0x0
-	blx FS_OpenFile
+	bl FS_OpenFile
 	cmp r0, #0x0
 	bne _0205F8F8
 	bl ErrorHandling
@@ -54122,7 +54122,7 @@ _0205F8F8:
 	add r0, sp, #0x28
 	add r1, sp, #0x24
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	cmp r0, #0x0
 	bge _0205F90A
 	bl ErrorHandling
@@ -54133,7 +54133,7 @@ _0205F90A:
 	mov r1, #0x0
 	mov r2, #0x4
 	add r6, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r1, [sp, #0x24]
 	ldr r0, _0205FA28 ; =0x0000013A
 	mov r4, #0x0
@@ -54162,7 +54162,7 @@ _0205F94C:
 	add r0, sp, #0x28
 	add r1, r6, #0x0
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldrb r0, [r6, #0x0]
 	cmp r0, #0x1
 	beq _0205F962
@@ -54263,7 +54263,7 @@ _0205FA0E:
 	blt _0205F94C
 _0205FA16:
 	add r0, sp, #0x28
-	blx FS_CloseFile
+	bl FS_CloseFile
 	add r0, r6, #0x0
 	bl FUN_02016A18
 	add sp, #0x70
@@ -54283,7 +54283,7 @@ FUN_0205FA2C: ; 0x0205FA2C
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r6, #0x0
 	bl LoadPlayerDataAddress
 	str r0, [r4, #0xc]
@@ -54390,7 +54390,7 @@ _0205FB0C:
 	add r0, #0x2c
 	add r1, #0xe
 	mov r2, #0x6
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r0, r4, #0x0
 	add r0, #0x22
 	ldrb r0, [r0, #0x0]
@@ -54416,7 +54416,7 @@ FUN_0205FB34: ; 0x0205FB34
 	mov r1, #0x0
 	mov r2, #0x30
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r5, #0x0
 	bl LoadPlayerDataAddress
 	str r0, [r4, #0x4]
@@ -54554,7 +54554,7 @@ FUN_0205FC50: ; 0x0205FC50
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x18
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	strb r6, [r4, #0x8]
 	strb r7, [r4, #0x9]
 	add r0, sp, #0x8
@@ -54673,7 +54673,7 @@ FUN_0205FD38: ; 0x0205FD38
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x18
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	strh r5, [r4, #0x12]
 	strh r7, [r4, #0x14]
 	ldr r0, [sp, #0x0]
@@ -54752,7 +54752,7 @@ FUN_0205FDDC: ; 0x0205FDDC
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x4
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	strh r5, [r4, #0x0]
 	strh r6, [r4, #0x2]
 	ldr r0, [r7, #0x10]
@@ -55722,7 +55722,7 @@ FUN_02060588: ; 0x02060588
 _0206059C:
 	bl FUN_0201B9EC
 	ldr r1, _020605D4 ; =0x000008D4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	cmp r5, #0x1d
@@ -55796,13 +55796,13 @@ _02060630:
 	add r6, r0, #0x0
 	ldr r0, _02060684 ; =0x0000FFFF
 	add r1, r5, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0x0
 	add r1, r1, #0x1
 	lsl r1, r1, #0x10
 	add r0, r6, #0x0
 	lsr r1, r1, #0x10
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	cmp r6, r5
@@ -55975,7 +55975,7 @@ FUN_02060790: ; 0x02060790
 	mov r1, #0x0
 	mov r2, #0x2c
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	str r5, [r4, #0x0]
@@ -56541,7 +56541,7 @@ _02060BF6:
 	add r0, r4, #0x0
 	bl FUN_021F4BD0
 	ldr r0, [r0, #0x0]
-	blx FUN_020BC13C
+	bl FUN_020BC13C
 	ldrh r1, [r0, #0xe]
 	add r2, sp, #0x20
 	mov r3, #0x0
@@ -57077,7 +57077,7 @@ FUN_02061008: ; 0x02061008
 	mov r0, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x24
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r4, #0x0
 	pop {r4, pc}
 
@@ -57098,7 +57098,7 @@ FUN_02061028: ; 0x02061028
 	add r1, r5, #0x0
 	mov r2, #0x24
 	add r7, r3, #0x0
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	str r6, [r5, #0x0]
 	add r0, r5, #0x0
 	add r2, r5, #0x0
@@ -57426,7 +57426,7 @@ FUN_020612AC: ; 0x020612AC
 	mov r0, #0x0
 	add r1, sp, #0x0
 	mov r2, #0x28
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r6, #0x0
 	mov r1, #0x1
 	mov r2, #0x0
@@ -57692,7 +57692,7 @@ FUN_02061498: ; 0x02061498
 	bl FUN_02060D90
 	bl FUN_0201B9EC
 	ldr r1, _020614F8 ; =0x00003334
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	cmp r4, #0x5
@@ -58051,7 +58051,7 @@ FUN_02061798: ; 0x02061798
 	strb r2, [r0, #0x6]
 	bl FUN_0201BA60
 	mov r1, #0x3
-	blx _u32_div_f
+	bl _u32_div_f
 	add r0, sp, #0x4
 	strb r1, [r0, #0x5]
 	add r0, sp, #0x8
@@ -58100,7 +58100,7 @@ FUN_020617D8: ; 0x020617D8
 	bl FUN_02060E70
 	bl FUN_0201B9EC
 	ldr r1, _02061830 ; =0x00005556
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	cmp r4, #0x3
@@ -58371,13 +58371,13 @@ FUN_020619F0: ; 0x020619F0
 	lsl r0, r0, #0x2
 	mul r0, r1
 	mov r1, #0xfe
-	blx _u32_div_f
+	bl _u32_div_f
 	add r0, r0, #0x5
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	mov r1, #0xa
 	add r4, r0, #0x0
-	blx _u32_div_f
+	bl _u32_div_f
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -58389,7 +58389,7 @@ FUN_020619F0: ; 0x020619F0
 	bl FUN_0200AD38
 	add r0, r4, #0x0
 	mov r1, #0xa
-	blx _u32_div_f
+	bl _u32_div_f
 	mov r0, #0x0
 	add r2, r1, #0x0
 	str r0, [sp, #0x0]
@@ -59220,7 +59220,7 @@ _020620BE:
 	ble _020620D0
 	bl FUN_0201BA60
 	add r1, r4, #0x0
-	blx _u32_div_f
+	bl _u32_div_f
 	add r5, r1, #0x0
 	b _020620D2
 _020620D0:
@@ -59255,7 +59255,7 @@ _02062100:
 	bl FUN_0201B9EC
 	mov r1, #0xf1
 	lsl r1, r1, #0x4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	cmp r4, #0x11
@@ -59313,7 +59313,7 @@ FUN_02062170: ; 0x02062170
 	add r7, r1, #0x0
 	bl FUN_0201B9EC
 	ldr r1, _02062234 ; =0x00003334
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	cmp r4, #0x5
@@ -59499,7 +59499,7 @@ FUN_020622C4: ; 0x020622C4
 	bl FUN_0201B9EC
 	mov r1, #0xf1
 	lsl r1, r1, #0x4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	cmp r5, #0x11
@@ -59513,7 +59513,7 @@ _020622E6:
 	bl FUN_0201B9EC
 	mov r1, #0xf1
 	lsl r1, r1, #0x4
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	cmp r4, #0x11
@@ -59625,13 +59625,13 @@ _020623B0:
 	lsl r1, r4, #0x10
 	ldr r0, _020623F0 ; =0x0000FFFF
 	lsr r1, r1, #0x10
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0x0
 	add r1, r1, #0x1
 	lsl r1, r1, #0x10
 	add r0, r5, #0x0
 	lsr r1, r1, #0x10
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	lsl r0, r4, #0x10
@@ -59745,13 +59745,13 @@ _0206249E:
 	add r5, r0, #0x0
 	ldr r0, _02062504 ; =0x0000FFFF
 	add r1, r4, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0x0
 	add r1, r1, #0x1
 	lsl r1, r1, #0x10
 	add r0, r5, #0x0
 	lsr r1, r1, #0x10
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	cmp r5, r4
@@ -59827,7 +59827,7 @@ FUN_0206252C: ; 0x0206252C
 	ble _02062552
 	bl FUN_0201BA60
 	add r1, r4, #0x0
-	blx _u32_div_f
+	bl _u32_div_f
 	add r5, r1, #0x0
 	b _02062554
 _02062552:
@@ -59925,16 +59925,16 @@ FUN_020625EC: ; 0x020625EC
 	mov r1, #0x0
 	lsl r2, r2, #0x4
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x50
 	str r0, [r4, #0x0]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x3
-	blx _s32_div_f
+	bl _s32_div_f
 	strb r1, [r4, #0x16]
 	ldr r0, [sp, #0x0]
 	mov r1, #0x3
-	blx _s32_div_f
+	bl _s32_div_f
 	strb r0, [r4, #0x17]
 	ldrb r0, [r4, #0x16]
 	bl FUN_0202B870
@@ -60047,7 +60047,7 @@ _020626FE:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0x4
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r5, #0x0
 	bl FUN_020168D0
 	mov r0, #0xc
@@ -60511,7 +60511,7 @@ FUN_02062A70: ; 0x02062A70
 	mov r2, #0x3c
 	mov r1, #0x0
 	mul r2, r3
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldrb r1, [r4, #0x16]
 	ldr r2, [r4, #0x0]
 	add r0, r5, #0x0
@@ -61269,7 +61269,7 @@ _02063094:
 	ldr r0, _02063164 ; =0x020F7C2C
 	add r1, #0xa0
 	mov r2, #0x20
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r1, r5, #0x0
 	add r0, r5, #0x0
 	add r1, #0xd4
@@ -63987,7 +63987,7 @@ _02064622:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	add r2, r5, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 
@@ -64007,7 +64007,7 @@ FUN_02064640: ; 0x02064640
 	mov r1, #0x0
 	mov r2, #0xc8
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	ldr r1, _02064680 ; =FUN_0206478C
 	add r0, r4, #0x0
 	bl FUN_020646B8
@@ -64166,7 +64166,7 @@ FUN_0206473C: ; 0x0206473C
 	bl FUN_02064738
 	mov r1, #0x0
 	add r2, r4, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	pop {r4, pc}
 	.balign 4
 
@@ -65347,7 +65347,7 @@ FUN_02065054: ; 0x02065054
 	ldr r2, _0206506C ; =0x0000066C
 	mov r1, #0x0
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r4, pc}
 	nop
@@ -65640,7 +65640,7 @@ _02065290:
 	ldr r0, [sp, #0x10]
 	add r1, r4, #0x0
 	lsl r2, r2, #0x8
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	pop {r3-r5, pc}
 	.balign 4
 _020652A0: .word 0x000F423F
@@ -65828,7 +65828,7 @@ FUN_020653EC: ; 0x020653EC
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r5, #0x0
 	str r6, [r4, #0x4]
 	bl FUN_020377AC
@@ -66796,7 +66796,7 @@ _02065B9E:
 	ldr r0, _02065CE4 ; =0x020F7E8C
 	add r1, r5, r1
 	mov r2, #0x20
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	mov r1, #0x5d
 	lsl r1, r1, #0x2
 	add r0, r1, #0x0
@@ -67096,7 +67096,7 @@ _02065E14:
 	ldr r0, _02065ED0 ; =0x020F7E8C
 	add r1, r5, r1
 	mov r2, #0x20
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	add r1, r0, #0x0
@@ -67807,7 +67807,7 @@ FUN_020663D4: ; 0x020663D4
 	add r0, r4, r0
 	mov r1, #0x0
 	mov r2, #0x10
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x17
 	mov r1, #0x0
 	lsl r0, r0, #0x4
@@ -68148,7 +68148,7 @@ _02066676:
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
@@ -68387,13 +68387,13 @@ FUN_02066840: ; 0x02066840
 	add r0, r7, #0x0
 	mov r1, #0x0
 	mov r2, #0xe4
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r4, #0x0
 	bl FUN_0202398C
 	add r1, r7, #0x0
 	add r1, #0xa8
 	mov r2, #0x10
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r0, r4, #0x0
 	bl FUN_020239BC
 	add r1, r7, #0x0
@@ -68460,7 +68460,7 @@ _020668FC:
 	ldr r1, [sp, #0x8]
 	mov r2, #0x8
 	add r1, r1, r5
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r4, r4, #0x1
 	add r5, #0x8
 	cmp r4, #0x3
@@ -68471,7 +68471,7 @@ _020668FC:
 	add r1, r7, #0x0
 	add r1, #0xc0
 	mov r2, #0x8
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	ldr r0, [sp, #0x0]
 	cmp r0, #0x0
 	bne _02066956
@@ -68517,7 +68517,7 @@ FUN_02066978: ; 0x02066978
 	mov r0, #0x0
 	add r1, r4, #0x0
 	mov r2, #0xec
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r4, #0x0
 	ldrh r2, [r4, #0x6]
 	add r0, #0x8
@@ -68537,7 +68537,7 @@ FUN_020669A0: ; 0x020669A0
 	mov r0, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x88
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r4, #0x0
 	ldrh r2, [r4, #0x6]
 	add r0, #0x8
@@ -68747,7 +68747,7 @@ FUN_02066ACC: ; 0x02066ACC
 	mov r0, #0x0
 	add r1, sp, #0x14
 	mov r2, #0x18
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r5, #0x0
 	mov r1, #0xaa
 	add r2, sp, #0x14
@@ -69083,7 +69083,7 @@ _02066DF4:
 	orr r0, r1
 	orr r0, r2
 	mov r1, #0x1c
-	blx _u32_div_f
+	bl _u32_div_f
 	lsl r0, r1, #0x10
 	lsr r5, r0, #0x10
 	add r0, r4, #0x0
@@ -69137,7 +69137,7 @@ FUN_02066E74: ; 0x02066E74
 	cmp r5, #0x0
 	bne _02066EA0
 	mov r1, #0x19
-	blx _s32_div_f
+	bl _s32_div_f
 	add r1, r0, #0x1
 	mov r0, #0x19
 	mul r0, r1
@@ -69312,7 +69312,7 @@ _02066FFC:
 	add r0, r0, r1
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r4, r0
 	add r0, #0xa
 _0206701E:
@@ -69334,7 +69334,7 @@ _0206701E:
 	add r0, r0, r1
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r0, #0x5
 	str r0, [sp, #0x4c]
 	add r0, r5, #0x0
@@ -69362,7 +69362,7 @@ _0206701E:
 	add r0, r0, r1
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r0, #0x5
 	str r0, [sp, #0x48]
 	add r0, r5, #0x0
@@ -69390,7 +69390,7 @@ _0206701E:
 	add r0, r0, r1
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r0, #0x5
 	str r0, [sp, #0x44]
 	add r0, r5, #0x0
@@ -69418,7 +69418,7 @@ _0206701E:
 	add r0, r0, r1
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r0, #0x5
 	str r0, [sp, #0x40]
 	add r0, r5, #0x0
@@ -69446,7 +69446,7 @@ _0206701E:
 	add r0, r0, r1
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r0, #0x5
 	str r0, [sp, #0x3c]
 	add r0, r5, #0x0
@@ -70060,7 +70060,7 @@ _020675AA:
 	sub r2, #0x19
 	add r1, r4, #0x0
 	str r2, [sp, #0x4]
-	blx _ll_shl
+	bl _ll_shl
 	ldr r2, [r5, #0x1c]
 	add r3, r4, #0x0
 	and r3, r1
@@ -70156,7 +70156,7 @@ _02067654:
 	sub r2, #0x4e
 	add r1, r4, #0x0
 	str r2, [sp, #0x4]
-	blx _ll_shl
+	bl _ll_shl
 	ldr r2, [r6, #0x14]
 	add r3, r4, #0x0
 	and r3, r1
@@ -70255,7 +70255,7 @@ _02067706:
 	sub r2, #0x7a
 	add r1, r4, #0x0
 	str r2, [sp, #0x4]
-	blx _ll_shl
+	bl _ll_shl
 	ldr r3, [r7, #0x18]
 	ldr r2, [r7, #0x1c]
 	and r3, r0
@@ -71020,7 +71020,7 @@ _02067C98:
 	sub r2, #0x19
 	add r0, r4, #0x0
 	str r2, [sp, #0x4]
-	blx _ll_shl
+	bl _ll_shl
 	cmp r4, #0x0
 	beq _02067CB6
 	ldr r1, [r7, #0x1c]
@@ -71158,7 +71158,7 @@ _02067D94:
 	sub r2, #0x4e
 	add r0, r4, #0x0
 	str r2, [sp, #0x4]
-	blx _ll_shl
+	bl _ll_shl
 	cmp r4, #0x0
 	beq _02067DB2
 	ldr r1, [r5, #0x14]
@@ -71288,7 +71288,7 @@ _02067E8A:
 	sub r2, #0x7a
 	add r0, r4, #0x0
 	str r2, [sp, #0x4]
-	blx _ll_shl
+	bl _ll_shl
 	cmp r4, #0x0
 	beq _02067EB2
 	add r4, r6, #0x0
@@ -72436,7 +72436,7 @@ FUN_02068698: ; 0x02068698
 	mov r0, #0x64
 	mul r0, r1
 	sub r1, r6, r4
-	blx _u32_div_f
+	bl _u32_div_f
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	pop {r3-r7, pc}
@@ -72652,7 +72652,7 @@ FUN_0206885C: ; 0x0206885C
 FUN_02068884: ; 0x02068884
 	push {r3, lr}
 	mov r1, #0x19
-	blx _u32_div_f
+	bl _u32_div_f
 	lsl r0, r1, #0x18
 	lsr r0, r0, #0x18
 	pop {r3, pc}
@@ -72686,7 +72686,7 @@ _020688A2:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	b _020688E0
@@ -72696,7 +72696,7 @@ _020688CE:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 _020688E0:
@@ -72798,7 +72798,7 @@ _02068994:
 	mov r0, #0x96
 	mul r0, r4
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x18
 	asr r4, r0, #0x18
 _020689AA:
@@ -73726,7 +73726,7 @@ FUN_02069010: ; 0x02069010
 	add r0, sp, #0xc
 	add r1, r4, #0x0
 	mov r2, #0x14
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add sp, #0x20
 	pop {r3-r5, pc}
 	.balign 4
@@ -74006,7 +74006,7 @@ _02069216:
 	ldr r0, [sp, #0x1c]
 	mov r1, #0xa
 	ldr r4, [sp, #0x18]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r1, [sp, #0x8]
 _02069246:
 	ldrh r0, [r4, #0x0]
@@ -74438,20 +74438,20 @@ FUN_02069558: ; 0x02069558
 	bl ErrorHandling
 _0206956E:
 	add r0, sp, #0x4
-	blx FS_InitFile
+	bl FS_InitFile
 	ldr r1, _020695A4 ; =0x02105FC8
 	add r0, sp, #0x4
-	blx FS_OpenFile
+	bl FS_OpenFile
 	add r0, sp, #0x4
 	lsl r1, r4, #0x1
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x4
 	add r1, sp, #0x0
 	mov r2, #0x2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x4
-	blx FS_CloseFile
+	bl FS_CloseFile
 	add r0, sp, #0x0
 	ldrh r0, [r0, #0x0]
 	add sp, #0x4c
@@ -75115,7 +75115,7 @@ _02069A8E:
 	mov r0, #0x0
 	add r1, sp, #0x4
 	mov r2, #0x18
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r4, #0x0
 	mov r1, #0xaa
 	add r2, sp, #0x4
@@ -75347,7 +75347,7 @@ FUN_02069C4C: ; 0x02069C4C
 _02069C70:
 	bl FUN_0201B9EC
 	add r1, r6, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r5, #0x0
 	add r7, r1, #0x0
 	bl FUN_0206B9B0
@@ -75529,7 +75529,7 @@ FUN_02069DC8: ; 0x02069DC8
 	add r7, r0, #0x0
 	bl FUN_0201B9EC
 	mov r1, #0x3
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #0x0
 	bne _02069E70
 	mov r4, #0x0
@@ -75917,7 +75917,7 @@ FUN_0206A094: ; 0x0206A094
 	bne _0206A12E
 	bl FUN_0201B9EC
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r4, r1, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x5
@@ -77385,7 +77385,7 @@ FUN_0206AA84: ; 0x0206AA84
 	add r1, sp, #0x0
 	add r1, #0x1
 	mov r2, #0x18
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r4, #0x0
 	mov r1, #0xa1
 	add r2, sp, #0x0
@@ -77479,7 +77479,7 @@ _0206AB3A:
 	mul r0, r4
 	mul r0, r5
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r4, r0
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
@@ -77970,7 +77970,7 @@ _0206AECE:
 	mov r0, #0x1f
 	mul r0, r1
 	mov r1, #0xff
-	blx _s32_div_f
+	bl _s32_div_f
 	add r3, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -78054,7 +78054,7 @@ _0206AF76:
 	mov r0, #0x1f
 	mul r0, r1
 	mov r1, #0xff
-	blx _s32_div_f
+	bl _s32_div_f
 	add r3, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -78147,7 +78147,7 @@ _0206B030:
 	mov r0, #0x1f
 	mul r0, r1
 	mov r1, #0xff
-	blx _s32_div_f
+	bl _s32_div_f
 	add r3, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -78231,7 +78231,7 @@ _0206B0DA:
 	mov r0, #0x1f
 	mul r0, r1
 	mov r1, #0xff
-	blx _s32_div_f
+	bl _s32_div_f
 	add r3, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -79377,7 +79377,7 @@ _0206B8DA:
 	add r0, r5, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0x4
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	mov r4, #0x0
 	str r4, [r5, #0x4]
 	str r6, [r5, #0x0]
@@ -80144,7 +80144,7 @@ FUN_0206BE48: ; 0x0206BE48
 	add r0, sp, #0x30
 	mov r1, #0x0
 	mov r2, #0xc
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [sp, #0x20]
 	mov r7, #0x0
 	cmp r0, #0x0
@@ -81362,21 +81362,21 @@ FUN_0206C700: ; 0x0206C700
 	mov r0, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x80
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	bl FUN_020222F0
 	str r0, [sp, #0x1c]
 	bl FUN_020222E8
 	add r1, r0, #0x0
 	ldr r2, [sp, #0x1c]
 	mov r0, #0x0
-	blx MIi_CpuClear16
+	bl MIi_CpuClear16
 	bl FUN_02022300
 	str r0, [sp, #0x20]
 	bl FUN_020222F8
 	add r1, r0, #0x0
 	ldr r2, [sp, #0x20]
 	mov r0, #0x0
-	blx MIi_CpuClear16
+	bl MIi_CpuClear16
 	ldr r0, [sp, #0x14]
 	str r6, [r4, #0x24]
 	mov r1, #0x5
@@ -81497,7 +81497,7 @@ FUN_0206C700: ; 0x0206C700
 	ldr r1, [r4, #0x3c]
 	mov r0, #0x0
 	mov r2, #0x30
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	ldr r1, [sp, #0x38]
 	ldr r0, [r4, #0x3c]
 	str r1, [r0, #0x2c]
@@ -83490,7 +83490,7 @@ _0206D8EA:
 	mov r0, #0x0
 	add r1, sp, #0x8
 	mov r2, #0x18
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	add r0, r5, #0x0
 	mov r1, #0xaa
 	add r2, sp, #0x8
@@ -83559,25 +83559,25 @@ _0206D9C6:
 	mov r0, #0x0
 	lsl r1, r1, #0x18
 	lsl r2, r2, #0x12
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x62
 	mov r2, #0x2
 	mov r0, #0x0
 	lsl r1, r1, #0x14
 	lsl r2, r2, #0x10
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x19
 	mov r2, #0x1
 	mov r0, #0x0
 	lsl r1, r1, #0x16
 	lsl r2, r2, #0x12
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x66
 	mov r2, #0x2
 	mov r0, #0x0
 	lsl r1, r1, #0x14
 	lsl r2, r2, #0x10
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	ldr r6, _0206DC2C ; =0x020F8328
 	add r3, sp, #0x2c
 	add r2, r3, #0x0
@@ -84084,14 +84084,14 @@ FUN_0206DE4C: ; 0x0206DE4C
 	mov r1, #0x0
 	mov r2, #0xe
 	mov r3, #0xb
-	blx G2x_SetBlendAlpha_
+	bl G2x_SetBlendAlpha_
 	mov r0, #0x8
 	str r0, [sp, #0x0]
 	ldr r0, _0206DE74 ; =0x04001050
 	mov r1, #0x0
 	mov r2, #0xe
 	mov r3, #0x7
-	blx G2x_SetBlendAlpha_
+	bl G2x_SetBlendAlpha_
 	pop {r3, pc}
 	.balign 4
 _0206DE70: .word 0x04000050
@@ -84155,13 +84155,13 @@ FUN_0206DE94: ; 0x0206DE94
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	blx G3X_SetFog
+	bl G3X_SetFog
 	mov r0, #0x0
 	ldr r2, _0206DF0C ; =0x00007FFF
 	add r1, r0, #0x0
 	mov r3, #0x3f
 	str r0, [sp, #0x0]
-	blx G3X_SetClearColor
+	bl G3X_SetClearColor
 	ldr r1, _0206DF10 ; =0xBFFF0000
 	ldr r0, _0206DF14 ; =0x04000580
 	str r1, [r0, #0x0]
@@ -84214,7 +84214,7 @@ FUN_0206DF58: ; 0x0206DF58
 	cmp r0, #0x0
 	ble _0206DF6E
 	bl FUN_020222AC
-	blx FUN_020B02C8
+	bl FUN_020B02C8
 _0206DF6E:
 	bl FUN_02013388
 	mov r0, #0x1
@@ -84720,7 +84720,7 @@ FUN_0206E2F0: ; 0x0206E2F0
 	mov r1, #0x0
 	mov r2, #0x78
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -86830,7 +86830,7 @@ FUN_0206F164: ; 0x0206F164
 	mov r0, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x24
-	blx MIi_CpuClear16
+	bl MIi_CpuClear16
 	add r0, r4, #0x0
 	pop {r4, pc}
 
@@ -87126,7 +87126,7 @@ _0206F34A:
 	mov r0, #0x36
 	bl FUN_02211E60
 	mov r0, #0x0
-	blx OS_ResetSystem
+	bl OS_ResetSystem
 	b _0206F380
 _0206F366:
 	ldr r0, [r4, #0x0]
@@ -87157,14 +87157,14 @@ FUN_0206F38C: ; 0x0206F38C
 	mov r1, #0x0
 	mov r2, #0x10
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0xb
 	mov r1, #0xc
 	bl FUN_020169D8
 	mov r1, #0x0
 	mov r2, #0xc
 	str r0, [r4, #0x0]
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r4, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -88362,7 +88362,7 @@ FUN_0206FD24: ; 0x0206FD24
 	bl LoadFromNarc_2
 	add r1, sp, #0x10
 	add r4, r0, #0x0
-	blx FUN_020B0138
+	bl FUN_020B0138
 	ldr r2, [sp, #0x10]
 	mov r0, #0x3
 	ldr r1, [r2, #0xc]
@@ -88378,7 +88378,7 @@ FUN_0206FD24: ; 0x0206FD24
 	add r0, r5, r0
 	add r1, #0x60
 	lsl r2, r2, #0x8
-	blx memcpy
+	bl memcpy
 	mov r0, #0xc
 	add r1, r4, #0x0
 	bl FUN_02016A8C
@@ -88490,7 +88490,7 @@ FUN_0206FE74: ; 0x0206FE74
 	ldr r2, _0206FF50 ; =0x00000B38
 	mov r1, #0x0
 	add r6, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	bl FUN_0200628C
 	ldr r1, _0206FF54 ; =0x000005A4
@@ -93292,7 +93292,7 @@ FUN_020724D4: ; 0x020724D4
 	bl LoadFromNarc_2
 	add r1, sp, #0xc
 	str r0, [sp, #0x8]
-	blx FUN_020B0180
+	bl FUN_020B0180
 	ldr r0, [sp, #0xc]
 	mov r4, #0x0
 	str r0, [sp, #0x4]
@@ -93303,14 +93303,14 @@ _020724FE:
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r2, #0x20
-	blx memcpy
+	bl memcpy
 	add r1, r4, #0x6
 	lsl r2, r1, #0x6
 	ldr r1, [sp, #0x4]
 	add r0, r6, #0x0
 	add r1, r1, r2
 	mov r2, #0x20
-	blx memcpy
+	bl memcpy
 	add r1, r4, #0x0
 	add r1, #0xc
 	lsl r2, r1, #0x6
@@ -93318,7 +93318,7 @@ _020724FE:
 	add r0, r7, #0x0
 	add r1, r1, r2
 	mov r2, #0x20
-	blx memcpy
+	bl memcpy
 	ldr r0, [sp, #0x0]
 	add r4, r4, #0x1
 	add r0, #0x40
@@ -97348,13 +97348,13 @@ _02074638:
 	ldr r1, [sp, #0x14]
 	add r0, r0, r5
 	add r1, r1, r7
-	blx memcpy
+	bl memcpy
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x10]
 	add r0, r0, r5
 	add r1, r1, r7
 	mov r2, #0x20
-	blx memcpy
+	bl memcpy
 	ldr r0, [sp, #0x4]
 	mov r2, #0x20
 	add r0, r0, r4
@@ -97366,13 +97366,13 @@ _02074638:
 	ldr r1, [sp, #0x14]
 	add r0, r0, r5
 	add r1, r1, r7
-	blx memcpy
+	bl memcpy
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x10]
 	add r0, r0, r5
 	add r1, r1, r7
 	mov r2, #0x20
-	blx memcpy
+	bl memcpy
 	add r0, r4, #0x1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -99044,7 +99044,7 @@ FUN_020753B4: ; 0x020753B4
 	ldr r0, _020754AC ; =0x00000708
 	ldrh r0, [r1, r0]
 	mov r1, #0x5
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r1, _020754B0 ; =0x00000B28
 	strh r0, [r4, r1]
 	sub r0, r1, #0x3
@@ -102727,7 +102727,7 @@ _020772FE:
 	mov r1, #0x0
 	lsl r2, r2, #0x4
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	mov r0, #0x12
 	bl FUN_02016B94
 	mov r1, #0x16
@@ -102890,7 +102890,7 @@ FUN_020774B8: ; 0x020774B8
 	ldr r1, _020774E8 ; =0x000057E0
 	add r6, r3, #0x0
 	lsl r2, r2, #0x8
-	blx GX_LoadOBJ
+	bl GX_LoadOBJ
 	ldr r4, [r4, #0xc]
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -102900,7 +102900,7 @@ FUN_020774B8: ; 0x020774B8
 	add r0, r4, r0
 	mov r1, #0xc0
 	mov r2, #0x20
-	blx GX_LoadOBJPltt
+	bl GX_LoadOBJPltt
 	pop {r4-r6, pc}
 	nop
 _020774E8: .word 0x000057E0
@@ -103279,7 +103279,7 @@ FUN_020777D4: ; 0x020777D4
 	bne _020777FE
 	bl FUN_0201B9EC
 	mov r1, #0x12
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
@@ -103291,7 +103291,7 @@ _020777FE:
 	bne _0207781A
 	bl FUN_0201B9EC
 	mov r1, #0x12
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
@@ -103949,7 +103949,7 @@ _02077D88:
 	mov r0, #0x1
 	add r1, #0xd8
 	mov r2, #0x40
-	blx MIi_CpuClear16
+	bl MIi_CpuClear16
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x1
 	bne _02077DCE
@@ -104394,7 +104394,7 @@ FUN_02078140: ; 0x02078140
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
-	blx FUN_020B0FC0
+	bl FUN_020B0FC0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r1, #0x80
@@ -104516,7 +104516,7 @@ _0207818C:
 	mov r1, #0x2
 	ldr r0, [r5, r0]
 	lsl r1, r1, #0x8
-	blx DC_FlushRange
+	bl DC_FlushRange
 	bl FUN_0206B888
 	add r1, r0, #0x0
 	mov r0, #0x13
@@ -104529,7 +104529,7 @@ _0207818C:
 	add r0, r1, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x80
-	blx DC_FlushRange
+	bl DC_FlushRange
 _02078272:
 	mov r3, #0x1
 	str r3, [sp, #0x0]
@@ -106027,7 +106027,7 @@ _02078E52:
 	add r0, sp, #0x0
 	mov r1, #0x3a
 	mov r2, #0x2
-	blx GX_LoadOBJPltt
+	bl GX_LoadOBJPltt
 	pop {r3, pc}
 
 	thumb_func_start FUN_02078E7C
@@ -106197,7 +106197,7 @@ FUN_02078FA0: ; 0x02078FA0
 	bl FUN_02078F7C
 	mov r1, #0x2
 	lsl r1, r1, #0xa
-	blx DC_FlushRange
+	bl DC_FlushRange
 	add r7, r6, #0x0
 	mov r4, #0x0
 	add r7, #0x30
@@ -106213,14 +106213,14 @@ _02078FD0:
 	mov r1, #0x1
 	add r0, r5, #0x0
 	lsl r1, r1, #0x8
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r1, _02079070 ; =0x020F9D28
 	mov r2, #0x1
 	ldrb r1, [r1, r4]
 	add r0, r5, #0x0
 	lsl r2, r2, #0x8
 	lsl r1, r1, #0x5
-	blx GXS_LoadOBJ
+	bl GXS_LoadOBJ
 	add r0, r4, #0x1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -106253,14 +106253,14 @@ _02079012:
 	bl FUN_02078F7C
 	mov r1, #0x80
 	add r7, r0, #0x0
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r1, _02079078 ; =0x020F9D40
 	lsl r2, r5, #0x2
 	ldr r1, [r1, r2]
 	add r0, r7, #0x0
 	lsl r1, r1, #0x5
 	mov r2, #0x80
-	blx GXS_LoadOBJ
+	bl GXS_LoadOBJ
 	add r0, r5, #0x1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -106854,7 +106854,7 @@ _02079470:
 	mov r1, #0x0
 	mov r2, #0x7
 	str r3, [sp, #0x0]
-	blx G2x_SetBlendAlpha_
+	bl G2x_SetBlendAlpha_
 	mov r0, #0xd3
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -107543,7 +107543,7 @@ FUN_02079A0C: ; 0x02079A0C
 	push {r4, lr}
 	add r4, r0, #0x0
 	mul r0, r2
-	blx _u32_div_f
+	bl _u32_div_f
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	bne _02079A22
@@ -107566,7 +107566,7 @@ FUN_02079A24: ; 0x02079A24
 	pop {r4, pc}
 _02079A36:
 	mov r1, #0x5
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r4, r0
 	bls _02079A44
 	mov r0, #0x2
@@ -107767,7 +107767,7 @@ FUN_02079B60: ; 0x02079B60
 _02079B9A:
 	add r0, r7, #0x0
 	add r1, sp, #0x10
-	blx FUN_020B0088
+	bl FUN_020B0088
 	cmp r4, #0x0
 	bne _02079BAE
 	ldr r0, [sp, #0x10]
@@ -107789,7 +107789,7 @@ _02079BAE:
 _02079BC6:
 	add r0, r7, #0x0
 	add r1, sp, #0xc
-	blx FUN_020B0180
+	bl FUN_020B0180
 	cmp r4, #0x0
 	bne _02079BDA
 	ldr r0, [sp, #0xc]
@@ -107825,7 +107825,7 @@ _02079BF8:
 _02079C10:
 	add r0, r7, #0x0
 	add r1, sp, #0x8
-	blx FUN_020B0138
+	bl FUN_020B0138
 	cmp r4, #0x0
 	bne _02079C24
 	ldr r0, [sp, #0x8]
@@ -107866,7 +107866,7 @@ FUN_02079C40: ; 0x02079C40
 	bl FUN_02006774
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	blx FUN_020B0180
+	bl FUN_020B0180
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 
@@ -107924,7 +107924,7 @@ FUN_02079C7C: ; 0x02079C7C
 	ldr r2, _02079DAC ; =0x0000069C
 	mov r1, #0x0
 	add r5, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r4, #0x0
 	bl FUN_0200628C
 	mov r1, #0x93
@@ -108459,7 +108459,7 @@ FUN_0207A188: ; 0x0207A188
 	mov r1, #0x1
 	mov r2, #0x1e
 	mov r3, #0x17
-	blx G2x_SetBlendAlpha_
+	bl G2x_SetBlendAlpha_
 	pop {r3, pc}
 	.balign 4
 _0207A19C: .word 0x04000050
@@ -110574,7 +110574,7 @@ _0207B256:
 	bl LoadFromNarc_2
 	add r1, sp, #0xc
 	add r4, r0, #0x0
-	blx FUN_020B0180
+	bl FUN_020B0180
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	mov r0, #0x20
@@ -111980,7 +111980,7 @@ FUN_0207BD84: ; 0x0207BD84
 	bl FUN_0206AB18
 	bl FUN_02083114
 	mov r1, #0xa
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r0, #0x18
 	asr r6, r0, #0x18
 	mov r4, #0x0
@@ -113920,7 +113920,7 @@ _0207CD3E:
 	mov r1, #0xa
 	ldrb r0, [r4, r0]
 	add r0, r0, #0x1
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r0, _0207CE44 ; =0x00000693
 	strb r1, [r4, r0]
 	b _0207CDE8
@@ -114375,7 +114375,7 @@ FUN_0207D0C8: ; 0x0207D0C8
 	lsl r0, r1, #0x10
 	mov r1, #0x4b
 	lsl r1, r1, #0x2
-	blx _u32_div_f
+	bl _u32_div_f
 	lsr r0, r0, #0x10
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
@@ -114390,7 +114390,7 @@ _0207D0EE:
 	lsl r0, r1, #0x10
 	mov r1, #0x4b
 	lsl r1, r1, #0x2
-	blx _u32_div_f
+	bl _u32_div_f
 	lsr r0, r0, #0x10
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
@@ -118028,9 +118028,9 @@ _0207EF68: .word 0x0001020F
 FUN_0207EF6C: ; 0x0207EF6C
 	push {r3-r4, lr}
 	sub sp, #0x4
-	blx FUN_020BB7F4
-	blx G3X_Init
-	blx G3X_InitMtxStack
+	bl FUN_020BB7F4
+	bl G3X_Init
+	bl G3X_InitMtxStack
 	ldr r0, _0207EFEC ; =0x04000060
 	ldr r1, _0207EFF0 ; =0xFFFFCFFD
 	ldrh r2, [r0, #0x0]
@@ -118060,13 +118060,13 @@ FUN_0207EF6C: ; 0x0207EF6C
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	blx G3X_SetFog
+	bl G3X_SetFog
 	mov r0, #0x0
 	ldr r2, _0207EFF8 ; =0x00007FFF
 	add r1, r0, #0x0
 	mov r3, #0x3f
 	str r0, [sp, #0x0]
-	blx G3X_SetClearColor
+	bl G3X_SetClearColor
 	ldr r1, _0207EFFC ; =0x04000540
 	mov r0, #0x0
 	str r0, [r1, #0x0]
@@ -118112,16 +118112,16 @@ FUN_0207F008: ; 0x0207F008
 	mov r0, #0x2
 	str r0, [r2, #0x0]
 	str r3, [r1, #0x0]
-	blx FUN_020B849C
+	bl FUN_020B849C
 	mov r0, #0xb7
 	lsl r0, r0, #0x2
 	add r0, r4, r0
 	bl FUN_0207F108
-	blx FUN_020B849C
+	bl FUN_020B849C
 	add r0, r4, #0x0
 	bl FUN_0207F1A4
 _0207F046:
-	blx FUN_020B02C8
+	bl FUN_020B02C8
 	mov r0, #0xae
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -118682,43 +118682,43 @@ FUN_0207F48C: ; 0x0207F48C
 	add r6, r2, #0x0
 	sub r7, r1, r0
 	add r0, r7, #0x0
-	blx _fflt
+	bl _fflt
 	ldr r1, _0207F600 ; =0x45800000
-	blx _fdiv
+	bl _fdiv
 	ldr r1, _0207F604 ; =0x40800000
-	blx _fdiv
+	bl _fdiv
 	mov r1, #0x0
-	blx _fgr
+	bl _fgr
 	bls _0207F4E0
 	add r0, r7, #0x0
-	blx _fflt
+	bl _fflt
 	ldr r1, _0207F600 ; =0x45800000
-	blx _fdiv
+	bl _fdiv
 	ldr r1, _0207F604 ; =0x40800000
-	blx _fdiv
+	bl _fdiv
 	add r1, r0, #0x0
 	ldr r0, _0207F600 ; =0x45800000
-	blx _fmul
+	bl _fmul
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx _fadd
-	blx _ffix
+	bl _fadd
+	bl _ffix
 	b _0207F506
 _0207F4E0:
 	add r0, r7, #0x0
-	blx _fflt
+	bl _fflt
 	ldr r1, _0207F600 ; =0x45800000
-	blx _fdiv
+	bl _fdiv
 	ldr r1, _0207F604 ; =0x40800000
-	blx _fdiv
+	bl _fdiv
 	add r1, r0, #0x0
 	ldr r0, _0207F600 ; =0x45800000
-	blx _fmul
+	bl _fmul
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx _fsub
-	blx _ffix
+	bl _fsub
+	bl _ffix
 _0207F506:
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
@@ -118728,43 +118728,43 @@ _0207F506:
 	ldrsh r0, [r5, r0]
 	sub r7, r1, r0
 	add r0, r7, #0x0
-	blx _fflt
+	bl _fflt
 	ldr r1, _0207F600 ; =0x45800000
-	blx _fdiv
+	bl _fdiv
 	ldr r1, _0207F604 ; =0x40800000
-	blx _fdiv
+	bl _fdiv
 	mov r1, #0x0
-	blx _fgr
+	bl _fgr
 	bls _0207F558
 	add r0, r7, #0x0
-	blx _fflt
+	bl _fflt
 	ldr r1, _0207F600 ; =0x45800000
-	blx _fdiv
+	bl _fdiv
 	ldr r1, _0207F604 ; =0x40800000
-	blx _fdiv
+	bl _fdiv
 	add r1, r0, #0x0
 	ldr r0, _0207F600 ; =0x45800000
-	blx _fmul
+	bl _fmul
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx _fadd
-	blx _ffix
+	bl _fadd
+	bl _ffix
 	b _0207F57E
 _0207F558:
 	add r0, r7, #0x0
-	blx _fflt
+	bl _fflt
 	ldr r1, _0207F600 ; =0x45800000
-	blx _fdiv
+	bl _fdiv
 	ldr r1, _0207F604 ; =0x40800000
-	blx _fdiv
+	bl _fdiv
 	add r1, r0, #0x0
 	ldr r0, _0207F600 ; =0x45800000
-	blx _fmul
+	bl _fmul
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx _fsub
-	blx _ffix
+	bl _fsub
+	bl _ffix
 _0207F57E:
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
@@ -118774,43 +118774,43 @@ _0207F57E:
 	ldrsh r0, [r5, r0]
 	sub r4, r1, r0
 	add r0, r4, #0x0
-	blx _fflt
+	bl _fflt
 	ldr r1, _0207F600 ; =0x45800000
-	blx _fdiv
+	bl _fdiv
 	ldr r1, _0207F604 ; =0x40800000
-	blx _fdiv
+	bl _fdiv
 	mov r1, #0x0
-	blx _fgr
+	bl _fgr
 	bls _0207F5D0
 	add r0, r4, #0x0
-	blx _fflt
+	bl _fflt
 	ldr r1, _0207F600 ; =0x45800000
-	blx _fdiv
+	bl _fdiv
 	ldr r1, _0207F604 ; =0x40800000
-	blx _fdiv
+	bl _fdiv
 	add r1, r0, #0x0
 	ldr r0, _0207F600 ; =0x45800000
-	blx _fmul
+	bl _fmul
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx _fadd
-	blx _ffix
+	bl _fadd
+	bl _ffix
 	b _0207F5F6
 _0207F5D0:
 	add r0, r4, #0x0
-	blx _fflt
+	bl _fflt
 	ldr r1, _0207F600 ; =0x45800000
-	blx _fdiv
+	bl _fdiv
 	ldr r1, _0207F604 ; =0x40800000
-	blx _fdiv
+	bl _fdiv
 	add r1, r0, #0x0
 	ldr r0, _0207F600 ; =0x45800000
-	blx _fmul
+	bl _fmul
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx _fsub
-	blx _ffix
+	bl _fsub
+	bl _ffix
 _0207F5F6:
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
@@ -120608,7 +120608,7 @@ FUN_0208048C: ; 0x0208048C
 	add r2, r1, #0x0
 	bl FUN_020671BC
 	mov r1, #0x6
-	blx _u32_div_f
+	bl _u32_div_f
 	cmp r1, #0x5
 	bhi _02080510
 	add r0, r1, r1
@@ -120819,7 +120819,7 @@ _0208064C:
 	add r0, r7, #0x0
 _02080654:
 	mov r1, #0x5
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r2, #0xa
 	add r6, r5, #0x0
 	mul r6, r2
@@ -121550,7 +121550,7 @@ FUN_02080C38: ; 0x02080C38
 	mov r1, #0x0
 	mov r2, #0x8
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r1, _02080C5C ; =FUN_02080C60
 	add r0, r5, #0x0
 	add r2, r4, #0x0
@@ -121774,7 +121774,7 @@ FUN_02080E0C: ; 0x02080E0C
 	mov r1, #0x0
 	mov r2, #0x8
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, _02080E50 ; =0x00000121
 	str r6, [r4, #0x0]
 	ldrb r0, [r6, r0]
@@ -122275,7 +122275,7 @@ FUN_020811D8: ; 0x020811D8
 	ldr r2, _02081204 ; =0x000019C4
 	mov r1, #0x0
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, _02081208 ; =0x00000123
 	mov r1, #0x0
 	strb r1, [r4, r0]
@@ -122790,7 +122790,7 @@ FUN_020815D0: ; 0x020815D0
 	mov r1, #0x0
 	mov r2, #0x28
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, _02081658 ; =0x00000123
 	ldrb r1, [r5, r0]
 	lsl r1, r1, #0x2
@@ -123406,7 +123406,7 @@ _02081A8A:
 	ldr r1, _02081D30 ; =0x00000585
 	ldr r0, [r4, r0]
 	add r1, r4, r1
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	mov r0, #0xc
 	bl FUN_02031588
 	ldr r0, _02081D2C ; =0x00000584
@@ -124765,7 +124765,7 @@ _02082456:
 	mov r1, #0x0
 	mov r2, #0x10
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r6, #0x0
 	bl FUN_020832E4
 	strb r0, [r4, #0xc]
@@ -125393,7 +125393,7 @@ _0208292A:
 	mov r1, #0x0
 	bl LoadFromNARC_7
 	mov r1, #0x30
-	blx _u32_div_f
+	bl _u32_div_f
 	str r0, [sp, #0x24]
 	ldr r1, [sp, #0x24]
 	add r0, r5, #0x0
@@ -125553,7 +125553,7 @@ _02082A5A:
 	ldr r0, [sp, #0x4]
 	bl FUN_02082878
 	ldr r1, [sp, #0x10]
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r3, #0x0
 	cmp r6, #0x0
 	ble _02082AA2
@@ -125597,7 +125597,7 @@ _02082AB0:
 	ldr r0, [sp, #0x4]
 	bl FUN_02082878
 	add r1, r6, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r1, #0x10
 	lsr r2, r0, #0x10
 	ldrb r3, [r5, r2]
@@ -125658,7 +125658,7 @@ _02082B16:
 	ldr r0, [sp, #0x4]
 	bl FUN_02082878
 	ldr r1, [sp, #0x8]
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, r4, r1
 	lsl r0, r0, #0x10
 	lsr r2, r0, #0x10
@@ -126341,7 +126341,7 @@ _02083058:
 	ldr r0, [sp, #0x4]
 	bl FUN_02082878
 	add r1, r4, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r1, #0x10
 	lsr r1, r0, #0x10
 	ldr r0, [sp, #0x10]
@@ -126929,7 +126929,7 @@ FUN_02083454: ; 0x02083454
 _02083464:
 	bl FUN_0201B9EC
 	mov r1, #0xc
-	blx _s32_div_f
+	bl _s32_div_f
 	add sp, #0xc
 	add r0, r1, #0x0
 	pop {r4-r5, pc}
@@ -126937,7 +126937,7 @@ _02083474:
 	add r0, sp, #0x0
 	add r1, r4, #0x0
 	mov r2, #0xc
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r1, #0x2
 	add r0, sp, #0x0
 	strb r1, [r0, #0x0]
@@ -126974,7 +126974,7 @@ _020834A6:
 _020834BE:
 	bl FUN_0201B9EC
 	add r1, r4, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	add r0, sp, #0x0
 	ldrb r0, [r0, r1]
 	add sp, #0xc
@@ -127090,7 +127090,7 @@ _02083578:
 	add r1, r2, r1
 	ldr r0, [sp, #0x0]
 	add r2, r6, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	mov r0, #0x1
 	strb r0, [r7, r5]
 	pop {r3-r7, pc}
@@ -127125,7 +127125,7 @@ FUN_020835B0: ; 0x020835B0
 	lsl r1, r6, #0x8
 	add r1, r2, r1
 	add r2, r5, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	ldr r2, _02083628 ; =0x00000584
 	ldrb r0, [r4, r2]
 	add r0, r0, #0x1
@@ -127247,7 +127247,7 @@ FUN_02083694: ; 0x02083694
 	add r0, r5, #0x0
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	ldr r0, _020836B8 ; =0x00000584
 	ldrb r1, [r4, r0]
 	add r1, r1, #0x1
@@ -127270,7 +127270,7 @@ FUN_020836BC: ; 0x020836BC
 	add r0, r7, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	mov r0, #0x1b
 	add r1, r5, #0x0
 	add r2, r4, #0x1
@@ -127304,7 +127304,7 @@ _02083710:
 	ldr r1, [r4, #0x0]
 	add r0, r0, r5
 	add r2, r6, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r7, r7, #0x1
 	add r4, r4, #0x4
 	add r5, r5, r6
@@ -127341,7 +127341,7 @@ _02083758:
 	ldr r0, [r5, #0x0]
 	add r1, r1, r4
 	add r2, r6, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r7, r7, #0x1
 	add r4, r4, r6
 	add r5, r5, #0x4
@@ -127376,7 +127376,7 @@ FUN_0208378C: ; 0x0208378C
 	add r5, #0x10
 	mul r3, r2
 	add r1, r5, r3
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	ldr r0, _020837B0 ; =0x00000584
 	ldrb r1, [r4, r0]
 	add r1, r1, #0x1
@@ -127397,7 +127397,7 @@ FUN_020837B4: ; 0x020837B4
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x30
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r0, r4, #0x0
 	add r0, #0x30
 	strb r5, [r0, #0x0]
@@ -127432,7 +127432,7 @@ _02083802:
 	add r0, r6, r0
 	add r1, r5, #0x0
 	add r2, r7, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r4, r4, #0x1
 	add r5, #0x8
 	cmp r4, #0x3
@@ -127467,7 +127467,7 @@ _02083848:
 	add r0, r5, #0x0
 	add r1, r6, r1
 	add r2, r7, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r4, r4, #0x1
 	add r5, #0x8
 	cmp r4, #0x3
@@ -127532,7 +127532,7 @@ FUN_020838B4: ; 0x020838B4
 	add r0, sp, #0x0
 	add r1, r4, #0x4
 	mov r2, #0x10
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	strb r5, [r4, #0x0]
 	mov r0, #0x10
 	strb r0, [r4, #0x1]
@@ -127569,7 +127569,7 @@ FUN_02083904: ; 0x02083904
 	add r1, r4, r1
 	add r1, #0xf8
 	ldr r1, [r1, #0x0]
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	ldr r0, _0208392C ; =0x00000584
 	ldrb r1, [r4, r0]
 	add r1, r1, #0x1
@@ -127592,7 +127592,7 @@ FUN_02083930: ; 0x02083930
 	add r0, r7, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	mov r0, #0x20
 	add r1, r5, #0x0
 	add r2, r4, #0x1
@@ -127635,7 +127635,7 @@ _02083992:
 	ldr r1, [r1, #0x0]
 	add r0, r0, r5
 	add r2, r6, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r7, r7, #0x1
 	add r4, r4, #0x4
 	add r5, r5, r6
@@ -127678,7 +127678,7 @@ _020839E8:
 	ldr r0, [r5, #0x0]
 	add r1, r1, r4
 	add r2, r6, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	add r7, r7, #0x1
 	add r4, r4, r6
 	add r5, r5, #0x4
@@ -127708,7 +127708,7 @@ FUN_02083A1C: ; 0x02083A1C
 	add r0, r2, #0x0
 	add r1, r3, r1
 	add r2, r4, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	pop {r4, pc}
 	nop
 _02083A30: .word 0x000019A0
@@ -127796,7 +127796,7 @@ FUN_02083AA8: ; 0x02083AA8
 	mov r1, #0x57
 	lsl r1, r1, #0x2
 	ldr r1, [r3, r1]
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	ldr r0, _02083AD0 ; =0x00000584
 	ldrb r1, [r4, r0]
 	add r1, r1, #0x1
@@ -127820,7 +127820,7 @@ FUN_02083AD4: ; 0x02083AD4
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	add r2, r5, #0x0
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 _02083AF4:
 	mov r0, #0x24
 	add r1, r4, #0x0
@@ -127879,7 +127879,7 @@ FUN_02083B48: ; 0x02083B48
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	mov r2, #0x6
-	blx MI_CpuCopy8
+	bl MI_CpuCopy8
 	mov r0, #0x25
 	add r1, r4, #0x0
 	mov r2, #0x7
@@ -127939,7 +127939,7 @@ FUN_02083BAC: ; 0x02083BAC
 	ldr r0, [r4, r0]
 	add r1, r6, #0x0
 	lsl r2, r2, #0x4
-	blx memcpy
+	bl memcpy
 	ldr r0, [r4, #0x58]
 	add r0, r0, #0x1
 	str r0, [r4, #0x58]
@@ -128115,7 +128115,7 @@ FUN_02083CD8: ; 0x02083CD8
 	add r0, r6, #0x0
 	add r1, r3, r1
 	sub r2, r2, #0x4
-	blx MIi_CpuCopyFast
+	bl MIi_CpuCopyFast
 	mov r0, #0x4
 	str r0, [r4, #0x54]
 	mov r0, #0x0
@@ -128205,14 +128205,14 @@ FUN_02083D5C: ; 0x02083D5C
 	mov r2, #0x19
 	add r0, r5, #0x0
 	lsl r2, r2, #0x4
-	blx MIi_CpuCopyFast
+	bl MIi_CpuCopyFast
 	b _02083D9C
 _02083D90:
 	add r2, r4, r2
 	add r1, r2, r1
 	add r0, r5, #0x0
 	sub r2, r3, #0x4
-	blx MIi_CpuCopyFast
+	bl MIi_CpuCopyFast
 _02083D9C:
 	mov r1, #0xb5
 	ldr r0, _02083DE8 ; =0x000043D0
@@ -128221,7 +128221,7 @@ _02083D9C:
 	ldr r1, [r4, r1]
 	add r0, r4, r0
 	lsl r2, r2, #0x6
-	blx MIi_CpuCopyFast
+	bl MIi_CpuCopyFast
 	mov r0, #0xb2
 	lsl r0, r0, #0x2
 	add r0, r4, r0
@@ -128322,7 +128322,7 @@ FUN_02083E4C: ; 0x02083E4C
 	mov r0, #0x0
 	add r1, r4, r1
 	lsl r2, r2, #0x6
-	blx MIi_CpuClearFast
+	bl MIi_CpuClearFast
 	bl FUN_02031190
 	cmp r0, #0x0
 	bne _02083E8A
@@ -128388,7 +128388,7 @@ _02083ED0:
 	cmp r1, r0
 	bne _02083EFE
 	bl FUN_0202CB8C
-	blx MATH_CountPopulation
+	bl MATH_CountPopulation
 	mov r1, #0xc6
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -128577,7 +128577,7 @@ FUN_0208402C: ; 0x0208402C
 	add r0, r1, r0
 	ldr r1, _02084078 ; =0x00007C10
 	add r1, r5, r1
-	blx MIi_CpuCopyFast
+	bl MIi_CpuCopyFast
 	ldr r0, _02084078 ; =0x00007C10
 	mov r2, #0x0
 	add r1, r2, #0x0
@@ -128742,7 +128742,7 @@ _0208415E:
 	cmp r1, r0
 	bne _02084186
 	bl FUN_0202CB8C
-	blx MATH_CountPopulation
+	bl MATH_CountPopulation
 	ldr r1, _02084208 ; =0x00004A48
 	ldr r2, [r4, r1]
 	cmp r2, r0
@@ -130682,7 +130682,7 @@ _020850BE:
 	mov r0, #0x96
 	mul r0, r1
 	mov r1, #0x64
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [sp, #0x18]
 _020850EC:
 	add r0, r5, #0x0
@@ -131327,7 +131327,7 @@ FUN_020854E0: ; 0x020854E0
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [sp, #0x0]
 	strb r0, [r4, #0xf]
 	ldr r0, [sp, #0x4]
@@ -131365,7 +131365,7 @@ FUN_02085538: ; 0x02085538
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
 	str r5, [r4, #0x8]
@@ -131395,7 +131395,7 @@ FUN_02085578: ; 0x02085578
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
 	str r5, [r4, #0x10]
@@ -131422,7 +131422,7 @@ FUN_020855B0: ; 0x020855B0
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x0
 	strh r0, [r4, #0x0]
 	add r0, r7, #0x0
@@ -131582,7 +131582,7 @@ FUN_020856F0: ; 0x020856F0
 	mov r1, #0x0
 	mov r2, #0x34
 	add r6, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x0
 	strh r0, [r6, #0x0]
 	add r0, r4, #0x0
@@ -131720,7 +131720,7 @@ FUN_020857F8: ; 0x020857F8
 	mov r1, #0x0
 	mov r2, #0x1c
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r1, #0x28
 	str r1, [r4, #0x0]
 	ldr r0, [r5, #0x14]
@@ -131946,7 +131946,7 @@ FUN_020859C0: ; 0x020859C0
 	ldr r2, _02085BA0 ; =0x0000042C
 	mov r1, #0x0
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	bl FUN_0222E2BC
 	mov r1, #0x23
 	lsl r1, r1, #0x4
@@ -132596,7 +132596,7 @@ _02085F5E:
 	mov r1, #0x0
 	mov r2, #0x30
 	str r0, [r4, #0x8]
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r5, #0x0
 	bl LoadPlayerDataAddress
 	ldr r1, [r4, #0x8]
@@ -132609,7 +132609,7 @@ _02085F5E:
 	mov r1, #0x0
 	mov r2, #0x40
 	str r0, [r4, #0xc]
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	ldr r1, _02085FA8 ; =FUN_02085DA4
 	add r0, r6, #0x0
 	add r2, r4, #0x0
@@ -132752,7 +132752,7 @@ FUN_02086084: ; 0x02086084
 	mov r1, #0x0
 	mov r2, #0x80
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r5, #0x0
 	bl FUN_0200628C
 	str r0, [r4, #0x0]
@@ -133167,14 +133167,14 @@ FUN_0208643C: ; 0x0208643C
 	mov r1, #0x0
 	mov r2, #0xe
 	mov r3, #0xb
-	blx G2x_SetBlendAlpha_
+	bl G2x_SetBlendAlpha_
 	mov r0, #0x8
 	str r0, [sp, #0x0]
 	ldr r0, _02086464 ; =0x04001050
 	mov r1, #0x0
 	mov r2, #0xe
 	mov r3, #0x7
-	blx G2x_SetBlendAlpha_
+	bl G2x_SetBlendAlpha_
 	pop {r3, pc}
 	.balign 4
 _02086460: .word 0x04000050
@@ -133239,13 +133239,13 @@ FUN_02086488: ; 0x02086488
 	add r1, r0, #0x0
 	add r2, r0, #0x0
 	add r3, r0, #0x0
-	blx G3X_SetFog
+	bl G3X_SetFog
 	mov r0, #0x0
 	ldr r2, _02086500 ; =0x00007FFF
 	add r1, r0, #0x0
 	mov r3, #0x3f
 	str r0, [sp, #0x0]
-	blx G3X_SetClearColor
+	bl G3X_SetClearColor
 	ldr r1, _02086504 ; =0xBFFF0000
 	ldr r0, _02086508 ; =0x04000580
 	str r1, [r0, #0x0]
@@ -133311,25 +133311,25 @@ _0208655C:
 	mov r0, #0x0
 	lsl r1, r1, #0x18
 	lsl r2, r2, #0x12
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x62
 	mov r2, #0x2
 	mov r0, #0x0
 	lsl r1, r1, #0x14
 	lsl r2, r2, #0x10
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x19
 	mov r2, #0x1
 	mov r0, #0x0
 	lsl r1, r1, #0x16
 	lsl r2, r2, #0x12
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	mov r1, #0x66
 	mov r2, #0x2
 	mov r0, #0x0
 	lsl r1, r1, #0x14
 	lsl r2, r2, #0x10
-	blx MIi_CpuClear32
+	bl MIi_CpuClear32
 	ldr r5, _02086654 ; =0x020FCE24
 	add r3, sp, #0x1c
 	add r2, r3, #0x0
@@ -133444,7 +133444,7 @@ FUN_02086698: ; 0x02086698
 	cmp r0, #0x0
 	ble _020866AE
 	bl FUN_020222AC
-	blx FUN_020B02C8
+	bl FUN_020B02C8
 _020866AE:
 	bl FUN_02013388
 	mov r0, #0x1
@@ -134325,7 +134325,7 @@ _02086DB4:
 	bl FUN_0200C82C
 	mov r0, #0x0
 	add r1, r7, #0x0
-	blx _feq
+	bl _feq
 	beq _02086DD2
 	ldr r0, [r6, #0x6c]
 	ldr r2, [sp, #0x0]
@@ -136295,7 +136295,7 @@ FUN_02087D00: ; 0x02087D00
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	add r7, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r4, #0x0
 	bl FUN_02028048
 	str r0, [r7, #0x8]
@@ -136454,7 +136454,7 @@ FUN_02087E40: ; 0x02087E40
 	mov r1, #0x0
 	mov r2, #0x18
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x2c
 	str r0, [r4, #0x0]
 	str r5, [r4, #0xc]
@@ -136620,7 +136620,7 @@ _02087F86:
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r0, [r5, #0xc]
 	mov r1, #0x0
 	ldr r0, [r0, #0x10]
@@ -136761,7 +136761,7 @@ FUN_020880A0: ; 0x020880A0
 	mov r1, #0x0
 	mov r2, #0xc
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r1, [r5, #0xc]
 	ldrb r0, [r1, #0x1]
 	lsl r0, r0, #0x3
@@ -136992,22 +136992,22 @@ _0208826A:
 	cmp r0, #0x5
 	beq _020882B8
 	ldrb r0, [r4, r0]
-	blx _ffltu
+	bl _ffltu
 	add r1, r0, #0x0
 	ldr r0, _02088318 ; =0x3F8CCCCD
-	blx _fmul
-	blx _ffixu
+	bl _fmul
+	bl _ffixu
 	ldr r1, [sp, #0x4]
 	strb r0, [r4, r1]
 	add r4, sp, #0x8
 	ldr r0, [sp, #0x0]
 	add r4, #0x1
 	ldrb r0, [r4, r0]
-	blx _ffltu
+	bl _ffltu
 	add r1, r0, #0x0
 	ldr r0, _0208831C ; =0x3F666666
-	blx _fmul
-	blx _ffixu
+	bl _fmul
+	bl _ffixu
 	ldr r1, [sp, #0x0]
 	strb r0, [r4, r1]
 _020882B8:
@@ -137075,7 +137075,7 @@ FUN_02088320: ; 0x02088320
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	str r6, [r4, #0x0]
 	cmp r5, #0x10
 	bls _0208834A
@@ -137104,7 +137104,7 @@ FUN_02088360: ; 0x02088360
 	add r0, r4, #0x0
 	mov r1, #0x0
 	lsl r2, r2, #0x2
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r4, #0x0
 	bl FUN_02016A18
 	pop {r4, pc}
@@ -137199,7 +137199,7 @@ _02088402:
 	ldr r0, [r0, r2]
 	mov r1, #0x0
 	mov r2, #0x4
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -137272,7 +137272,7 @@ _020884B4:
 	str r0, [sp, #0x38]
 	mov r1, #0x0
 	mov r2, #0x8
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	ldr r1, [sp, #0x3c]
 	ldr r0, [sp, #0x38]
 	strh r1, [r0, #0x0]
@@ -137365,59 +137365,59 @@ _020884D8:
 	str r0, [sp, #0x44]
 	beq _02088596
 	lsl r0, r7, #0xc
-	blx _fflt
+	bl _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx _fadd
+	bl _fadd
 	b _020885A4
 _02088596:
 	lsl r0, r7, #0xc
-	blx _fflt
+	bl _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx _fsub
+	bl _fsub
 _020885A4:
-	blx _ffix
+	bl _ffix
 	str r0, [sp, #0x48]
 	ldr r0, [sp, #0x30]
 	cmp r0, #0x0
 	beq _020885C2
 	lsl r0, r0, #0xc
-	blx _fflt
+	bl _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx _fadd
+	bl _fadd
 	b _020885D0
 _020885C2:
 	lsl r0, r0, #0xc
-	blx _fflt
+	bl _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx _fsub
+	bl _fsub
 _020885D0:
-	blx _ffix
+	bl _ffix
 	str r0, [sp, #0x4c]
 	add r0, sp, #0x78
 	ldrh r0, [r0, #0x10]
 	cmp r0, #0x0
 	beq _020885F0
 	lsl r0, r0, #0xc
-	blx _fflt
+	bl _fflt
 	add r1, r0, #0x0
 	mov r0, #0x3f
 	lsl r0, r0, #0x18
-	blx _fadd
+	bl _fadd
 	b _020885FE
 _020885F0:
 	lsl r0, r0, #0xc
-	blx _fflt
+	bl _fflt
 	mov r1, #0x3f
 	lsl r1, r1, #0x18
-	blx _fsub
+	bl _fsub
 _020885FE:
-	blx _ffix
+	bl _ffix
 	str r0, [sp, #0x50]
 	cmp r6, #0x2
 	bne _02088612
@@ -137804,7 +137804,7 @@ FUN_02088898: ; 0x02088898
 	bl FUN_02088888
 	bl FUN_02088868
 	mov r0, #0x0
-	blx OS_ResetSystem
+	bl OS_ResetSystem
 	pop {r4, pc}
 	.balign 4
 
@@ -137844,7 +137844,7 @@ FUN_020888DC: ; 0x020888DC
 	mov r0, #0x31
 	bl FUN_020168D0
 	mov r0, #0x0
-	blx OS_ResetSystem
+	bl OS_ResetSystem
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
@@ -137861,7 +137861,7 @@ FUN_0208890C: ; 0x0208890C
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x20
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	str r5, [r4, #0xc]
 	add r0, r5, #0x0
 	bl FUN_02028048
@@ -137950,7 +137950,7 @@ FUN_020889B0: ; 0x020889B0
 	mov r1, #0x0
 	mov r2, #0x24
 	add r4, r0, #0x0
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	mov r0, #0x37
 	str r0, [r4, #0x0]
 	str r5, [r4, #0x10]
@@ -138050,7 +138050,7 @@ FUN_02088A78: ; 0x02088A78
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x24
-	blx MI_CpuFill8
+	bl MI_CpuFill8
 	add r0, r5, #0x0
 	bl FUN_0200627C
 	add r0, r6, #0x0
@@ -138221,7 +138221,7 @@ _02088BBA:
 	add r2, r0, #0x0
 	ldr r1, [r4, #0x18]
 	add r0, r5, #0x0
-	blx memcpy
+	bl memcpy
 	ldr r0, [r4, #0x18]
 	bl FUN_02016A18
 	mov r0, #0x0
@@ -139359,7 +139359,7 @@ FUN_020893F0: ; 0x020893F0
 	bhs _0208940A
 	add r0, r1, #0x0
 	ldr r1, _02089410 ; =0x021C5C58
-	blx MIi_CpuCopy32
+	bl MIi_CpuCopy32
 	ldr r0, _02089414 ; =0x02106154
 	str r4, [r0, #0x0]
 	pop {r4, pc}
@@ -139382,7 +139382,7 @@ FUN_02089418: ; 0x02089418
 	cmp r0, r3
 	bne _02089438
 	ldr r0, _02089440 ; =0x021C5C58
-	blx MIi_CpuCopy32
+	bl MIi_CpuCopy32
 	mov r0, #0x1
 	pop {r3, pc}
 _02089434:
@@ -139404,7 +139404,7 @@ FUN_02089444: ; 0x02089444
 	bhs _0208945E
 	add r0, r1, #0x0
 	ldr r1, _02089464 ; =0x021C5C58
-	blx MIi_CpuCopyFast
+	bl MIi_CpuCopyFast
 	ldr r0, _02089468 ; =0x02106154
 	str r4, [r0, #0x0]
 	pop {r4, pc}
@@ -139427,7 +139427,7 @@ FUN_0208946C: ; 0x0208946C
 	cmp r0, r3
 	bne _0208948C
 	ldr r0, _02089494 ; =0x021C5C58
-	blx MIi_CpuCopyFast
+	bl MIi_CpuCopyFast
 	mov r0, #0x1
 	pop {r3, pc}
 _02089488:
@@ -139455,7 +139455,7 @@ FUN_02089498: ; 0x02089498
 	mov r1, #0x0
 	mov r2, #0x38
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	mov r0, #0x58
 	str r0, [r4, #0x0]
 	mov r0, #0x0
@@ -139604,7 +139604,7 @@ FUN_020895F0: ; 0x020895F0
 	add r0, r4, #0x0
 	bl FUN_020168D0
 	mov r0, #0x0
-	blx OS_ResetSystem
+	bl OS_ResetSystem
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
@@ -140031,7 +140031,7 @@ FUN_02089960: ; 0x02089960
 	mov r1, #0x0
 	mov r2, #0x3c
 	add r4, r0, #0x0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	mov r0, #0x58
 	str r0, [r4, #0x0]
 	mov r0, #0x0
@@ -140667,7 +140667,7 @@ _02089EE4:
 	bl FUN_02000FE8
 	add r0, r4, #0x0
 	add r1, r4, #0x0
-	blx OS_WaitIrq
+	bl OS_WaitIrq
 	b _02089EE4
 	nop
 _02089EF4: .word 0xFFFFE0FF
@@ -140828,7 +140828,7 @@ _0208A078:
 	bl FUN_02000FE8
 	add r0, r4, #0x0
 	add r1, r4, #0x0
-	blx OS_WaitIrq
+	bl OS_WaitIrq
 	b _0208A078
 	nop
 _0208A088: .word 0xFFFFE0FF
@@ -140997,7 +140997,7 @@ _0208A21A:
 	bl FUN_02000FE8
 	add r0, r4, #0x0
 	add r1, r4, #0x0
-	blx OS_WaitIrq
+	bl OS_WaitIrq
 	b _0208A21A
 	.balign 4
 _0208A228: .word 0xFFFFE0FF
@@ -141956,15 +141956,15 @@ _0208A9C6:
 	mov r1, #0x1
 	str r1, [r0, #0x0]
 	mov r0, #0x0
-	blx OS_GetInitArenaHi
+	bl OS_GetInitArenaHi
 	add r1, r0, #0x0
 	mov r0, #0x0
-	blx OS_SetArenaHi
+	bl OS_SetArenaHi
 	mov r0, #0x0
-	blx OS_GetInitArenaLo
+	bl OS_GetInitArenaLo
 	add r1, r0, #0x0
 	mov r0, #0x0
-	blx OS_SetArenaLo
+	bl OS_SetArenaLo
 	mov r1, #0x1
 	ldr r0, _0208ABCC ; =0x020FF4A4
 	add r2, r1, #0x0
@@ -141977,12 +141977,12 @@ _0208A9C6:
 	mov r1, #0x0
 	bl FUN_0200E3A0
 	mov r0, #0x1
-	blx OS_DisableIrqMask
+	bl OS_DisableIrqMask
 	ldr r1, _0208ABD0 ; =FUN_0208A998
 	mov r0, #0x1
-	blx OS_SetIrqFunction
+	bl OS_SetIrqFunction
 	mov r0, #0x1
-	blx OS_EnableIrqMask
+	bl OS_EnableIrqMask
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_02015F10
@@ -142122,7 +142122,7 @@ _0208AB58:
 	bne _0208AB72
 	add r0, r4, #0x0
 	add r1, r4, #0x0
-	blx OS_WaitIrq
+	bl OS_WaitIrq
 	b _0208AB58
 _0208AB72:
 	ldr r5, _0208AC04 ; =0x04000130
@@ -142143,7 +142143,7 @@ _0208AB7A:
 	bne _0208AB9C
 	mov r0, #0x1
 	add r1, r0, #0x0
-	blx OS_WaitIrq
+	bl OS_WaitIrq
 	b _0208AB7A
 _0208AB9C:
 	ldr r1, _0208AC10 ; =0x00007FFF
@@ -142159,7 +142159,7 @@ _0208AB9C:
 	ldr r0, [sp, #0x10]
 	bl FUN_02016A18
 	mov r0, #0x0
-	blx OS_ResetSystem
+	bl OS_ResetSystem
 _0208ABC4:
 	add sp, #0x24
 	pop {r4-r7, pc}

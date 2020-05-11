@@ -8,4 +8,4 @@ public:
     THUMB_FUNC Unk021D7500() { unk4++; }
 };
 
-static class Unk021D7500 UNK_021D7500;
+static Unk021D7500 UNK_021D7500;
