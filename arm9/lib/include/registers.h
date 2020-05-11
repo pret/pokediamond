@@ -7,50 +7,51 @@
 
 #include "types.h"
 
-#define HW_REG_BASE                0x04000000
-#define REG_VCOUNT_OFFSET          0x006
-#define REG_VCOUNT_ADDR            (HW_REG_BASE + REG_VCOUNT_OFFSET)
-#define reg_GX_VCOUNT              (*(REGType16v *)REG_VCOUNT_ADDR)
+#define reg_GX_VCOUNT              (*(REGType16v *)0x4000006)
 
-#define REG_KEYINPUT_OFFSET        0x130
-#define REG_KEYINPUT_ADDR          (HW_REG_BASE + REG_KEYINPUT_OFFSET)
-#define reg_PAD_KEYINPUT           (*(REGType16v *)REG_KEYINPUT_ADDR)
+#define reg_MI_DMA0SAD             (*(REGType32v *)0x40000b0)
+#define reg_MI_DMA0DAD             (*(REGType32v *)0x40000b4)
+#define reg_MI_DMA0CNT             (*(REGType32v *)0x40000b8)
+#define reg_MI_DMA1SAD             (*(REGType32v *)0x40000bc)
+#define reg_MI_DMA1DAD             (*(REGType32v *)0x40000c0)
+#define reg_MI_DMA1CNT             (*(REGType32v *)0x40000c4)
+#define reg_MI_DMA2SAD             (*(REGType32v *)0x40000c8)
+#define reg_MI_DMA2DAD             (*(REGType32v *)0x40000cc)
+#define reg_MI_DMA2CNT             (*(REGType32v *)0x40000d0)
+#define reg_MI_DMA3SAD             (*(REGType32v *)0x40000d4)
+#define reg_MI_DMA3DAD             (*(REGType32v *)0x40000d8)
+#define reg_MI_DMA3CNT             (*(REGType32v *)0x40000dc)
+#define reg_MI_DMA0_CLR_DATA       (*(REGType32v *)0x40000e0)
+#define reg_MI_DMA1_CLR_DATA       (*(REGType32v *)0x40000e4)
+#define reg_MI_DMA2_CLR_DATA       (*(REGType32v *)0x40000e8)
+#define reg_MI_DMA3_CLR_DATA       (*(REGType32v *)0x40000ec)
 
-#define REG_DIVCNT_OFFSET          0x280
-#define REG_DIVCNT_ADDR            (HW_REG_BASE + REG_DIVCNT_OFFSET)
-#define reg_CP_DIVCNT              (*(REGType16v *)REG_DIVCNT_ADDR)
+#define reg_PAD_KEYINPUT           (*(REGType16v *)0x4000130)
 
-#define REG_DIV_NUMER_OFFSET       0x290
-#define REG_DIV_NUMER_ADDR         (HW_REG_BASE + REG_DIV_NUMER_OFFSET)
-#define reg_CP_DIV_NUMER           (*(REGType64v *)REG_DIV_NUMER_ADDR)
+#define reg_MI_MCCNT0              (*(REGType16v *)0x40001a0)
+#define reg_MI_MCD0                (*(REGType16v *)0x40001a2)
+#define reg_MI_MCCNT1              (*(REGType32v *)0x40001a4)
+#define reg_MI_MCCMD0              (*(REGType32v *)0x40001a8)
+#define reg_MI_MCCMD1              (*(REGType32v *)0x40001ac)
+#define reg_MI_EXMEMCNT            (*(REGType16v *)0x4000204)
 
-#define REG_DIV_DENOM_OFFSET       0x298
-#define REG_DIV_DENOM_ADDR         (HW_REG_BASE + REG_DIV_DENOM_OFFSET)
-#define reg_CP_DIV_DENOM           (*(REGType64v *)REG_DIV_DENOM_ADDR)
+#define reg_CP_DIVCNT              (*(REGType16v *)0x4000280)
+#define reg_CP_DIV_NUMER           (*(REGType64v *)0x4000290)
+#define reg_CP_DIV_DENOM           (*(REGType64v *)0x4000298)
+#define reg_CP_DIV_RESULT          (*(REGType64v *)0x40002A0)
+#define reg_CP_DIVREM_RESULT       (*(REGType64v *)0x40002A8)
+#define reg_CP_SQRTCNT             (*(REGType16v *)0x40002B0)
+#define reg_CP_SQRT_RESULT         (*(REGType32v *)0x40002B4)
+#define reg_CP_SQRT_PARAM          (*(REGType64v *)0x40002B8)
 
-#define REG_DIV_RESULT_OFFSET      0x2A0
-#define REG_DIV_RESULT_ADDR        (HW_REG_BASE + REG_DIV_RESULT_OFFSET)
-#define reg_CP_DIV_RESULT          (*(REGType64v *)REG_DIV_RESULT_ADDR)
+#define reg_G3_MTX_MODE            (*(REGType32v *)0x4000440)
+#define reg_G3_MTX_PUSH            (*(REGType32v *)0x4000444)
+#define reg_G3_MTX_POP             (*(REGType32v *)0x4000448)
+#define reg_G3_MTX_STORE           (*(REGType32v *)0x400044c)
 
-#define REG_DIVREM_RESULT_OFFSET   0x2A8
-#define REG_DIVREM_RESULT_ADDR     (HW_REG_BASE + REG_DIVREM_RESULT_OFFSET)
-#define reg_CP_DIVREM_RESULT       (*(REGType64v *)REG_DIVREM_RESULT_ADDR)
+#define reg_G3X_GXSTAT             (*(REGType32v *)0x4000600)
 
-#define REG_SQRTCNT_OFFSET         0x2B0
-#define REG_SQRTCNT_ADDR           (HW_REG_BASE + REG_SQRTCNT_OFFSET)
-#define reg_CP_SQRTCNT             (*(REGType16v *)REG_SQRTCNT_ADDR)
-
-#define REG_SQRT_RESULT_OFFSET     0x2B4
-#define REG_SQRT_RESULT_ADDR       (HW_REG_BASE + REG_SQRT_RESULT_OFFSET)
-#define reg_CP_SQRT_RESULT         (*(REGType32v *)REG_SQRT_RESULT_ADDR)
-
-#define REG_SQRT_PARAM_OFFSET      0x2B8
-#define REG_SQRT_PARAM_ADDR        (HW_REG_BASE + REG_SQRT_PARAM_OFFSET)
-#define reg_CP_SQRT_PARAM          (*(REGType64v *)REG_SQRT_PARAM_ADDR)
-
-#define REG_GXSTAT_OFFSET          0x600
-#define REG_GXSTAT_ADDR            (HW_REG_BASE + REG_GXSTAT_OFFSET)
-#define reg_G3X_GXSTAT             (*(REGType32v *)REG_GXSTAT_ADDR)
+#define reg_MI_MCD1                (*(REGType32v *)0x4100010)
 
 #define REG_PAD_KEYINPUT_L_SHIFT                           9
 #define REG_PAD_KEYINPUT_L_SIZE                            1
