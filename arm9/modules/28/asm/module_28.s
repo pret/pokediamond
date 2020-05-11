@@ -2963,5 +2963,19 @@ _02255E6E:
 	nop
 _02255E74: .word 0x00000163
 	thumb_func_end MOD28_02255920
+
+	.section .rodata
 	; 0x02255E78
-	.incbin "baserom.nds", 0x28C038, 0x148
+	.incbin "baserom.nds", 0x28C038, 0xa0
+
+	; .section .sinit
+	.global SDK_OVERLAY.MODULE_28.SINIT_START
+	.global SDK_OVERLAY.MODULE_28.SINIT_END
+SDK_OVERLAY.MODULE_28.SINIT_START:
+	.word MOD28_02254840
+	.word 0
+SDK_OVERLAY.MODULE_28.SINIT_END:
+
+	.section .data
+	; 0x02255F20
+	.incbin "baserom.nds", 0x28C0E0, 0xa0

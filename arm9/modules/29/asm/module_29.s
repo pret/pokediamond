@@ -1121,6 +1121,14 @@ MOD29_0225508C: ; 0x0225508C
 	.align 2, 0
 	thumb_func_end MOD29_0225508C
 
-	.section .data
+	.section .rodata
 	; 0x0225509C
-	.incbin "baserom.nds", 0x28CA5C, 0xA4
+	.incbin "baserom.nds", 0x28CA5C, 0x90
+
+	; .section .sinit
+	.global SDK_OVERLAY.MODULE_29.SINIT_START
+    .global SDK_OVERLAY.MODULE_29.SINIT_END
+SDK_OVERLAY.MODULE_29.SINIT_START:
+	.word MOD29_02254840
+	.word 0
+SDK_OVERLAY.MODULE_29.SINIT_END:

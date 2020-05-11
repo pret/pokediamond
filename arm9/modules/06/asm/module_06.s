@@ -44468,9 +44468,13 @@ _0224F144:
 _0224F16C: .word 0x02252210
 _0224F170: .word MOD06_0224F0D8
 
-	.section .data
+	.section .rodata
 	; 0x0224F174
-	.incbin "baserom.nds", 0x1810D4, 0x32AC
+	.incbin "baserom.nds", 0x1810D4, 0x30B4
+
+	.section .data
+	; 0x022252240
+	.incbin "baserom.nds", 0x1841a0, 0x1e0
 
 	.section .bss
 	; 0x02252420

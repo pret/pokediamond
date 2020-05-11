@@ -4565,6 +4565,6 @@ _022544BC: .word 0x022547C4
 _022544C0: .word 0x022547C5
 	thumb_func_end MOD20_02254488
 
-	.section .data
+	.section .rodata
 	; 0x022544C4
-	.incbin "baserom.nds", 0x285284, 0x37C
+	.incbin "baserom.nds", 0x285284, 0x374

@@ -35364,10 +35364,14 @@ _0223C330:
 _0223C418: .word 0x0224320C
 _0223C41C: .word 0x0223F764
 
+	.section .rodata
+	; 0x0223EC6C
+	.incbin "baserom.nds", 0x22600C, 0xafc
+
 	.section .data
 	; 0x0223C420
-	.incbin "baserom.nds", 0x2237C0, 0x4620
+	.incbin "baserom.nds", 0x226CD4, 0x110C
 
 	.section .bss
-	; 0x02240A40
-	.space 0x27E0
+	; 0x02242FE4
+	.space 0x23C

@@ -1840,6 +1840,9 @@ _02255604:
 	.align 2, 0
 	thumb_func_end MOD22_022555FC
 
-	.section .data
+	.section .rodata
 	; 0x02255618
-	.incbin "baserom.nds", 0x2869D8, 0x128
+	.incbin "baserom.nds", 0x2869D8, 0x118
+
+	.section .sinit
+	.word MOD22_02254840

@@ -5270,6 +5270,6 @@ _0221494A:
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 
-	.section .data
+	.section .rodata
 	; 0x02214950
-	.incbin "baserom.nds", 0x186EF0, 0x7F0
+	.incbin "baserom.nds", 0x186EF0, 0x7E4

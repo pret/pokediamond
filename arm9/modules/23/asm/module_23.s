@@ -2789,6 +2789,14 @@ _02255C96:
 _02255CB8: .word 0x022560D0
 	thumb_func_end MOD23_02255C6C
 
-	.section .data
+	.section .rodata
 	; 0x02255CBC
-	.incbin "baserom.nds", 0x28807C, 0x484
+	.incbin "baserom.nds", 0x28807C, 0x46C
+
+	; .section .sinit
+	.global SDK_OVERLAY.MODULE_23.SINIT_START
+    .global SDK_OVERLAY.MODULE_23.SINIT_END
+SDK_OVERLAY.MODULE_23.SINIT_START:
+	.word MOD23_02254840
+	.word 0
+SDK_OVERLAY.MODULE_23.SINIT_END:

@@ -14777,3 +14777,15 @@ _0221E556:
 	bx r3
 	.align 2, 0
 _0221E55C: .word 0x02241B30
+
+	.section .rodata
+	; 0x0223C444
+	.incbin "baserom.nds", 0x2237e4, 0x2828
+
+	.section .data
+	; 0x0223F7B8
+	.incbin "baserom.nds", 0x226B58, 0x17C
+
+	.section .bss
+	; 0x02240B34
+	.space 0x24B0

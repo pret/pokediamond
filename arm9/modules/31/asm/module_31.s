@@ -719,6 +719,9 @@ _02254D90: .word 0x040002A0
 _02254D94: .word 0x040002A8
 	thumb_func_end MOD31_02254D1C
 
-	.section .data
+	.section .rodata
 	; 0x02254D98
-	.incbin "baserom.nds", 0x28D758, 0xA8
+	.incbin "baserom.nds", 0x28D758, 0x88
+
+	.section .sinit
+	.word MOD31_02254840

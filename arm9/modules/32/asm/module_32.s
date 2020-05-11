@@ -571,6 +571,14 @@ _02254C48:
 _02254C50: .word 0x00000663
 	thumb_func_end MOD32_02254C08
 
-	.section .data
+	.section .rodata
 	; 0x02254C54
-	.incbin "baserom.nds", 0x28DC14, 0x8C
+	.incbin "baserom.nds", 0x28DC14, 0x70
+
+	; .section .sinit
+	.global SDK_OVERLAY.MODULE_32.SINIT_START
+    .global SDK_OVERLAY.MODULE_32.SINIT_END
+SDK_OVERLAY.MODULE_32.SINIT_START:
+	.word MOD32_02254840
+	.word 0
+SDK_OVERLAY.MODULE_32.SINIT_END:
