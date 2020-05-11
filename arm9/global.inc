@@ -2653,6 +2653,7 @@
 .extern FUN_020C3674
 .extern FUN_020C36A8
 .extern FUN_020C3910
+.extern FUN_02020C14
 .extern FUN_020C3980
 .extern FUN_020C39CC
 .extern FUN_020C6034
