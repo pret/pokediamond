@@ -138,7 +138,7 @@ MOD40_02254940: ; 0x02254940
 	cmp r0, #0x18
 	blo _0225495A
 	mov r1, #0x18
-	blx _u32_div_f
+	bl _u32_div_f
 	str r1, [sp]
 _0225495A:
 	ldr r0, [sp, #4]
@@ -146,7 +146,7 @@ _0225495A:
 	blo _0225496A
 	ldr r0, [sp]
 	mov r1, #0x3c
-	blx _u32_div_f
+	bl _u32_div_f
 	str r1, [sp]
 _0225496A:
 	ldr r0, [sp]

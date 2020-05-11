@@ -600,7 +600,7 @@ MOD39_02254C6C: ; 0x02254C6C
 	mov r1, #0x4a
 	bl FUN_02006A34
 	mov r1, #0x14
-	blx _u32_div_f
+	bl _u32_div_f
 	ldr r1, [sp, #0xc]
 	str r0, [r5, #0x64]
 	add r2, r1, #0
@@ -1272,7 +1272,7 @@ _0225517A:
 	add r1, #0x84
 	ldr r0, [r6]
 	ldr r1, [r1]
-	blx _u32_div_f
+	bl _u32_div_f
 	str r0, [r6]
 	str r7, [r4, #0x70]
 	b _02255276
@@ -1311,7 +1311,7 @@ _022551C2:
 	add r1, #0x84
 	ldr r0, [r6]
 	ldr r1, [r1]
-	blx _u32_div_f
+	bl _u32_div_f
 	str r0, [r6]
 	mov r0, #1
 	str r0, [r4, #0x70]

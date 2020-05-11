@@ -18,31 +18,31 @@ ReadNARCFile: ; 0x02006314
 	add r0, sp, #0x18
 	add r5, r2, #0x0
 	str r3, [sp, #0x4]
-	blx FS_InitFile
+	bl FS_InitFile
 	add r0, sp, #0x18
 	add r1, r4, #0x0
-	blx FS_OpenFile
+	bl FS_OpenFile
 	add r0, sp, #0x18
 	mov r1, #0xc
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x18
 	add r1, sp, #0x14
 	mov r2, #0x2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r4, [sp, #0x14]
 	add r0, sp, #0x18
 	add r1, r4, #0x4
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x18
 	add r1, sp, #0x14
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x18
 	add r1, sp, #0x8
 	mov r2, #0x2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x8
 	ldrh r0, [r0, #0x0]
 	cmp r0, r5
@@ -54,26 +54,26 @@ _0200637A:
 	add r6, r4, r0
 	add r0, sp, #0x18
 	add r1, r6, #0x4
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x18
 	add r1, sp, #0x14
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r4, #0xc
 	lsl r1, r5, #0x3
 	add r0, sp, #0x18
 	add r1, r4, r1
 	mov r2, #0x0
 	ldr r7, [sp, #0x14]
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x18
 	add r1, sp, #0x10
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x18
 	add r1, sp, #0xc
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r2, r6, r7
 	ldr r1, [sp, #0x10]
 	add r2, #0x8
@@ -82,7 +82,7 @@ _0200637A:
 	add r0, sp, #0x18
 	add r1, r1, r2
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	ldr r0, [sp, #0x78]
 	cmp r0, #0x0
 	bne _020063D6
@@ -98,9 +98,9 @@ _020063E0:
 	ldr r1, [sp, #0x0]
 	ldr r2, [sp, #0x14]
 	add r0, sp, #0x18
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x18
-	blx FS_CloseFile
+	bl FS_CloseFile
 	add sp, #0x60
 	pop {r3-r7, pc}
 
@@ -119,31 +119,31 @@ LoadFileIntoMemory: ; 0x020063F4
 	add r0, sp, #0x18
 	str r2, [sp, #0x0]
 	str r3, [sp, #0x4]
-	blx FS_InitFile
+	bl FS_InitFile
 	add r0, sp, #0x18
 	add r1, r4, #0x0
-	blx FS_OpenFile
+	bl FS_OpenFile
 	add r0, sp, #0x18
 	mov r1, #0xc
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x18
 	add r1, sp, #0x14
 	mov r2, #0x2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r4, [sp, #0x14]
 	add r0, sp, #0x18
 	add r1, r4, #0x4
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x18
 	add r1, sp, #0x14
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x18
 	add r1, sp, #0x8
 	mov r2, #0x2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x8
 	ldrh r0, [r0, #0x0]
 	cmp r0, r5
@@ -155,26 +155,26 @@ _0200645A:
 	add r6, r4, r0
 	add r0, sp, #0x18
 	add r1, r6, #0x4
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x18
 	add r1, sp, #0x14
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r4, #0xc
 	lsl r1, r5, #0x3
 	add r0, sp, #0x18
 	add r1, r4, r1
 	mov r2, #0x0
 	ldr r7, [sp, #0x14]
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x18
 	add r1, sp, #0x10
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x18
 	add r1, sp, #0xc
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r2, r6, r7
 	ldr r1, [sp, #0x10]
 	add r2, #0x8
@@ -183,7 +183,7 @@ _0200645A:
 	add r0, sp, #0x18
 	add r1, r1, r2
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	ldr r0, [sp, #0x78]
 	cmp r0, #0x0
 	bne _020064B6
@@ -212,9 +212,9 @@ _020064D8:
 	ldr r2, [sp, #0x14]
 	add r0, sp, #0x18
 	add r1, r4, #0x0
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x18
-	blx FS_CloseFile
+	bl FS_CloseFile
 	add r0, r4, #0x0
 	add sp, #0x60
 	pop {r3-r7, pc}
@@ -329,33 +329,33 @@ LoadFromNARC_7: ; 0x020065A4
 	add r0, sp, #0x0
 	strh r1, [r0, #0x0]
 	add r0, sp, #0x10
-	blx FS_InitFile
+	bl FS_InitFile
 	ldr r1, _0200666C ; =0x021058A0
 	lsl r2, r4, #0x2
 	ldr r1, [r1, r2]
 	add r0, sp, #0x10
-	blx FS_OpenFile
+	bl FS_OpenFile
 	add r0, sp, #0x10
 	mov r1, #0xc
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x10
 	add r1, sp, #0xc
 	mov r2, #0x2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r4, [sp, #0xc]
 	add r0, sp, #0x10
 	add r1, r4, #0x4
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x10
 	add r1, sp, #0xc
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x10
 	add r1, sp, #0x0
 	mov r2, #0x2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x0
 	ldrh r0, [r0, #0x0]
 	cmp r0, r5
@@ -367,33 +367,33 @@ _0200660A:
 	add r6, r4, r0
 	add r0, sp, #0x10
 	add r1, r6, #0x4
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x10
 	add r1, sp, #0xc
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r4, #0xc
 	lsl r1, r5, #0x3
 	add r0, sp, #0x10
 	add r1, r4, r1
 	mov r2, #0x0
 	ldr r7, [sp, #0xc]
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, sp, #0x10
 	add r1, sp, #0x8
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, sp, #0x10
 	add r1, sp, #0x4
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r2, r6, r7
 	ldr r1, [sp, #0x8]
 	add r2, #0x8
 	add r1, r2, r1
 	add r0, sp, #0x10
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	ldr r1, [sp, #0x4]
 	ldr r0, [sp, #0x8]
 	sub r0, r1, r0
@@ -418,46 +418,46 @@ FUN_02006670: ; 0x02006670
 	beq _020066EC
 	mov r1, #0x0
 	str r1, [r4, #0x48]
-	blx FS_InitFile
+	bl FS_InitFile
 	ldr r1, _020066F0 ; =0x021058A0
 	lsl r2, r5, #0x2
 	ldr r1, [r1, r2]
 	add r0, r4, #0x0
-	blx FS_OpenFile
+	bl FS_OpenFile
 	add r0, r4, #0x0
 	mov r1, #0xc
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r1, r4, #0x0
 	add r0, r4, #0x0
 	add r1, #0x48
 	mov r2, #0x2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r1, [r4, #0x48]
 	add r0, r4, #0x0
 	add r1, r1, #0x4
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, r4, #0x0
 	add r1, sp, #0x0
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r1, r4, #0x0
 	add r0, r4, #0x0
 	add r1, #0x50
 	mov r2, #0x2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r1, [r4, #0x48]
 	ldr r0, [sp, #0x0]
 	mov r2, #0x0
 	add r5, r1, r0
 	add r0, r4, #0x0
 	add r1, r5, #0x4
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, r4, #0x0
 	add r1, sp, #0x0
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r0, [sp, #0x0]
 	add r0, r5, r0
 	str r0, [r4, #0x4c]
@@ -471,7 +471,7 @@ _020066F0: .word 0x021058A0
 FUN_020066F4: ; 0x020066F4
 	push {r4, lr}
 	add r4, r0, #0x0
-	blx FS_CloseFile
+	bl FS_CloseFile
 	add r0, r4, #0x0
 	bl FUN_02016A18
 	pop {r4, pc}
@@ -495,22 +495,22 @@ _0200671A:
 	add r1, r2, r1
 	add r0, r5, #0x0
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, r5, #0x0
 	add r1, sp, #0x4
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, r5, #0x0
 	add r1, sp, #0x0
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r2, [r5, #0x4c]
 	ldr r1, [sp, #0x4]
 	add r2, #0x8
 	add r1, r2, r1
 	add r0, r5, #0x0
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	ldr r2, [sp, #0x0]
 	ldr r1, [sp, #0x4]
 	add r0, r6, #0x0
@@ -523,7 +523,7 @@ _0200671A:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	sub r2, r3, r2
-	blx FS_ReadFile
+	bl FS_ReadFile
 _0200676C:
 	add r0, r4, #0x0
 	add sp, #0x8
@@ -549,28 +549,28 @@ _0200678A:
 	add r1, r2, r1
 	add r0, r5, #0x0
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, r5, #0x0
 	add r1, sp, #0x4
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, r5, #0x0
 	add r1, sp, #0x0
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r2, [r5, #0x4c]
 	ldr r1, [sp, #0x4]
 	add r2, #0x8
 	add r1, r2, r1
 	add r0, r5, #0x0
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	ldr r3, [sp, #0x0]
 	ldr r2, [sp, #0x4]
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	sub r2, r3, r2
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add sp, #0x8
 	pop {r4-r6, pc}
 
@@ -592,15 +592,15 @@ _020067E4:
 	add r1, r2, r1
 	add r0, r5, #0x0
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, r5, #0x0
 	add r1, sp, #0x4
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	add r0, r5, #0x0
 	add r1, sp, #0x0
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r1, [sp, #0x0]
 	ldr r0, [sp, #0x4]
 	sub r0, r1, r0
@@ -627,11 +627,11 @@ _0200682A:
 	add r1, r2, r1
 	add r0, r5, #0x0
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	add r0, r5, #0x0
 	add r1, sp, #0x0
 	mov r2, #0x4
-	blx FS_ReadFile
+	bl FS_ReadFile
 	ldr r2, [r5, #0x4c]
 	ldr r1, [sp, #0x0]
 	add r2, #0x8
@@ -639,10 +639,10 @@ _0200682A:
 	add r0, r5, #0x0
 	add r1, r6, r1
 	mov r2, #0x0
-	blx FS_SeekFile
+	bl FS_SeekFile
 	ldr r1, [sp, #0x18]
 	add r0, r5, #0x0
 	add r2, r7, #0x0
-	blx FS_ReadFile
+	bl FS_ReadFile
 	pop {r3-r7, pc}
 	.balign 4

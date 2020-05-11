@@ -4877,7 +4877,7 @@ _02095460:
 	cmp r0, #0x1
 	beq _02095488
 	mov r0, r4
-	blx SVC_WaitByLoop
+	bl SVC_WaitByLoop
 	b _02095460
 _02095488:
 	mov r0, #0x1
@@ -4943,7 +4943,7 @@ _0209552C:
 	ldmeqia sp!, {r4-r8,pc}
 _02095548: ; 0x02095548
 	mov r0, r4
-	blx SVC_WaitByLoop
+	bl SVC_WaitByLoop
 	b _0209552C
 _02095554: ; 0x02095554
 	ldmia sp!, {r4-r8,pc}
@@ -4984,7 +4984,7 @@ _020955B0:
 	cmp r0, #0x1
 	beq _020955D8
 	mov r0, r7
-	blx SVC_WaitByLoop
+	bl SVC_WaitByLoop
 	b _020955B0
 _020955D8:
 	mov r0, r4
@@ -5341,7 +5341,7 @@ _02095A74:
 	b _0209574C
 _02095A7C:
 	ldr r0, [sp, #0xbc]
-	blx SVC_WaitByLoop
+	bl SVC_WaitByLoop
 	b _0209574C
 _02095A88:
 	add sp, sp, #0xc4
