@@ -51,6 +51,19 @@
 
 #define HW_REG_DISP3DCNT       0x04000060
 
+#define HW_REG_BG0CNT_A 0x04000008
+#define HW_REG_BG1CNT_A 0x0400000A
+#define HW_REG_BG2CNT_A 0x0400000C
+#define HW_REG_BG3CNT_A 0x0400000E
+
+#define HW_REG_BG0CNT_B 0x04001008
+#define HW_REG_BG1CNT_B 0x0400100A
+#define HW_REG_BG2CNT_B 0x0400100C
+#define HW_REG_BG3CNT_B 0x0400100E
+
+#define HW_REG_DISPCNT_A 0x04000000
+#define HW_REG_DISPCNT_B 0x04001000
+
 //TODO: wait for register commit and replace these
 #define SETREG8(x, y) ((*(vu8 *)x) = y)
 #define SETREG16(x, y) ((*(vu16 *)x) = y)
@@ -105,7 +118,7 @@ void G3_RotY(fx32 sinphi, fx32 cosphi);
 void G3_RotZ(fx32 sinphi, fx32 cosphi);
 
 //GX_g3x
-asm void GXi_NopClearFifo128_(void *reg);
+void GXi_NopClearFifo128_(void *reg);
 void G3X_Init();
 void G3X_ResetMtxStack();
 void G3X_ClearFifo();
@@ -196,6 +209,25 @@ u32 GX_GetBankForSubBGExtPltt_2();
 u32 GX_GetBankForSubOBJ();
 u32 GX_GetBankForSubBGExtPltt();
 u32 GX_GetBankForSubOBJExtPltt();
+
+//GX_bgcnt
+void *G2_GetBG0ScrPtr();
+void *G2S_GetBG0ScrPtr();
+void *G2_GetBG1ScrPtr();
+void *G2S_GetBG1ScrPtr();
+void *G2_GetBG2ScrPtr();
+void *G2S_GetBG2ScrPtr();
+void *G2_GetBG3ScrPtr();
+void *G2S_GetBG3ScrPtr();
+void *G2_GetBG0CharPtr();
+void *G2S_GetBG0CharPtr();
+void *G2_GetBG1CharPtr();
+void *G2S_GetBG1CharPtr();
+void *G2_GetBG2CharPtr();
+void *G2S_GetBG2CharPtr();
+void *G2_GetBG3CharPtr();
+void *G2S_GetBG3CharPtr();
+
 
 //GXi_NopClearFifo128_ probably asm
 
