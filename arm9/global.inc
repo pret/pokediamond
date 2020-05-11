@@ -28,6 +28,9 @@
 .extern DGT_Hash1GetDigest_R
 .extern DGT_Hash1Reset
 .extern DGT_Hash1SetSource
+.extern DGT_Hash2GetDigest
+.extern DGT_Hash2Reset
+.extern DGT_Hash2SetSource
 .extern DGTi_hash2_arm4_small
 .extern ErrorHandling
 .extern FS_CloseFile
@@ -2654,6 +2657,11 @@
 .extern FUN_020C39CC
 .extern FUN_020C6034
 .extern FUN_020C605C
+.extern MOD05_021EC464
+.extern MOD05_021EC7B4
+.extern MOD20_02253A04
+.extern MOD20_02253FAC
+.extern MOD20_02253FB4
 .extern MOD05_021D74E0
 .extern FUN_021D7660
 .extern FUN_021D76AC
@@ -3322,14 +3330,11 @@
 .extern MATH_MD5GetHash
 .extern MATH_MD5Init
 .extern MATH_MD5Update
-.extern MATH_SHA1GetHash
-.extern MATH_SHA1Init
-.extern MATH_SHA1Update
 .extern MATHi_CRC16InitTable
 .extern MATHi_CRC16InitTableRev
 .extern MATHi_CRC32InitTableRev
 .extern MATHi_CRC8InitTable
-.extern MATHi_CalcHMAC
+.extern DGTi_Hash2CalcHmac
 .extern MIC_DoSamplingAsync
 .extern MIC_GetLastSamplingAddress
 .extern MIC_Init
@@ -5409,7 +5414,6 @@
 .extern FUN_02006C88
 .extern FUN_02020A6C
 .extern FUN_02012690
-.extern MOD20_02252978
 .extern FUN_02020BF4
 .extern FUN_02020BFC
 .extern FUN_020893F0
@@ -5417,6 +5421,8 @@
 .extern FUN_02069B60
 .extern FUN_02089444
 .extern FUN_0208946C
+.extern MOD20_02252978
+.extern MOD20_02253AA4
 .extern MOD20_02252B68
 .extern MOD20_02252C08
 .extern MOD20_02253794

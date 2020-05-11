@@ -23,9 +23,9 @@ endif
 
 ifeq ($(OS),Windows_NT)
 EXE := .exe
-WINE := 
+WINE :=
 else
-EXE := 
+EXE :=
 WINE := wine
 endif
 
@@ -49,16 +49,109 @@ LD_TEMPLATE := ARM9-TS.lcf.template
 SRC_DIRS := src lib lib/src $(wildcard modules/*/src)
 ASM_DIRS := asm data files $(wildcard modules/*/asm)
 
-C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+C_FILES   := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
+CXX_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
+S_FILES   := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+
+C_OBJS = $(C_FILES:%.c=$(BUILD_DIR)/%.o)
+CXX_OBJS = $(CXX_FILES:%.cpp=$(BUILD_DIR)/%.o)
+S_OBJS = $(S_FILES:%.s=$(BUILD_DIR)/%.o)
 
 # Object files
-O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
-           $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
+O_FILES := $(C_OBJS) $(CXX_OBJS) $(S_OBJS)
 
 # Overlay modules
 # FIXME: lcf doesn't like this
 # BIN_FILES := $(wildcard files/*.__AT_*)
+OVERLAYS :=   \
+	MODULE_00 \
+    MODULE_01 \
+    MODULE_02 \
+    MODULE_03 \
+    MODULE_04 \
+    MODULE_05 \
+    MODULE_06 \
+    MODULE_07 \
+    MODULE_08 \
+    MODULE_09 \
+    MODULE_10 \
+    MODULE_11 \
+    MODULE_12 \
+    MODULE_13 \
+    MODULE_14 \
+    MODULE_15 \
+    MODULE_16 \
+    MODULE_17 \
+    MODULE_18 \
+    MODULE_19 \
+    MODULE_20 \
+    MODULE_21 \
+    MODULE_22 \
+    MODULE_23 \
+    MODULE_24 \
+    MODULE_25 \
+    MODULE_26 \
+    MODULE_27 \
+    MODULE_28 \
+    MODULE_29 \
+    MODULE_30 \
+    MODULE_31 \
+    MODULE_32 \
+    MODULE_33 \
+    MODULE_34 \
+    MODULE_35 \
+    MODULE_36 \
+    MODULE_37 \
+    MODULE_38 \
+    MODULE_39 \
+    MODULE_40 \
+    MODULE_41 \
+    MODULE_42 \
+    MODULE_43 \
+    MODULE_44 \
+    MODULE_45 \
+    MODULE_46 \
+    MODULE_47 \
+    MODULE_48 \
+    MODULE_49 \
+    MODULE_50 \
+    MODULE_51 \
+    MODULE_52 \
+    MODULE_53 \
+    MODULE_54 \
+    MODULE_55 \
+    MODULE_56 \
+    MODULE_57 \
+    MODULE_58 \
+    MODULE_59 \
+    MODULE_60 \
+    MODULE_61 \
+    MODULE_62 \
+    MODULE_63 \
+    MODULE_64 \
+    MODULE_65 \
+    MODULE_66 \
+    MODULE_67 \
+    MODULE_68 \
+    MODULE_69 \
+    MODULE_70 \
+    MODULE_71 \
+    MODULE_72 \
+    MODULE_73 \
+    MODULE_74 \
+    MODULE_75 \
+    MODULE_76 \
+    MODULE_77 \
+    MODULE_78 \
+    MODULE_79 \
+    MODULE_80 \
+    MODULE_81 \
+    MODULE_82 \
+    MODULE_83 \
+    MODULE_84 \
+    MODULE_85 \
+    MODULE_86 \
+
 .SECONDARY:
 .DELETE_ON_ERROR:
 .SECONDEXPANSION:
@@ -79,10 +172,10 @@ MWCCARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwccarm.exe
 MWLDARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 MAKELSF := $(WINE) $(TOOLS_DIR)/bin/makelcf.exe
-MAKELSF_FLAGS := -DCONST_34=0x34 -DCONST_3F=0x3F
 
 AS      = $(WINE) $(MWASMARM)
 CC      = $(WINE) $(MWCCARM)
+CXX     = $(WINE) $(MWCCARM)
 CPP     := cpp -P
 LD      = $(WINE) $(MWLDARM)
 AR      := $(CROSS)ar
@@ -92,6 +185,7 @@ OBJCOPY := $(CROSS)objcopy
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te -i ..
 CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int
+CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
@@ -157,15 +251,18 @@ build/src/FUN_020910A4.o: MWCCVERSION = 1.2/sp2p3
 ####################### Everything Else ######################
 
 ifeq (,$(NODEP))
-$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $*.[cs])
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)))
 else
 $(BUILD_DIR)/%.o: dep :=
 endif
 
-$(BUILD_DIR)/%.o: %.c $$(dep)
+$(C_OBJS): $(BUILD_DIR)/%.o: %.c $$(dep)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.o: %.s $$(dep)
+$(CXX_OBJS): $(BUILD_DIR)/%.o: %.cpp $$(dep)
+	$(CXX) -c $(CXXFLAGS) -o $@ $<
+
+$(S_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros.lcf.inc
@@ -174,7 +271,7 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros
 
 $(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
 	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
-
+	$(OBJCOPY) --update-section arm9=$@ -j arm9 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)

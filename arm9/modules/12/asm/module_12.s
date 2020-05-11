@@ -7445,7 +7445,7 @@ _022312B4: .word 0x00001158
 _022312B8: .word 0x00000127
 
 	thumb_func_start MOD12_022312BC
-MOD12_022312BC: ; 0x022312BC
+MOD12_022312BC: ; 0x022312BC __sinit
 	push {r3, lr}
 	ldr r0, _022312D0 ; =SDK_OVERLAY_MODULE_08_ID
 	mov r1, #2
@@ -48103,6 +48103,9 @@ _0224496A:
 _02244988:
 	pop {r4, r5, r6, pc}
 
-	.section .data
+	.section .rodata
 	; 0x0224498C
-	.incbin "baserom.nds", 0x1F71CC, 0x1E94
+	.incbin "baserom.nds", 0x1F71CC, 0x1E84
+
+	.section .sinit
+	.word MOD12_022312BC

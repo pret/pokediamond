@@ -63948,9 +63948,13 @@ _021F6424:
 	.align 2, 0
 _021F6428: .word MOD05_021F57F0
 
-	.section .data
+	.section .rodata
 	; 0x021F642C
-	.incbin "baserom.nds", 0x16434c, 0x7254
+	.incbin "baserom.nds", 0x16434c, 0x6d9c
+
+	.section .data
+	; 0x021FD1E0
+	.incbin "baserom.nds", 0x16b100, 0x4A0
 
 	.section .bss
 	; 0x021FD680

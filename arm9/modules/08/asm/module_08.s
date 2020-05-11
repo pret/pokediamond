@@ -49976,6 +49976,9 @@ _0222A758:
 	.align 2, 0
 _0222A75C: .word 0x0000013B
 
-	.section .data
+	.section .rodata
 	; 0x0222A760
-	.incbin "baserom.nds", 0x1A0100, 0x2E60
+	.incbin "baserom.nds", 0x1A0100, 0x2E38
+
+	.section .data
+	.incbin "baserom.nds", 0x1A2F40, 0x20

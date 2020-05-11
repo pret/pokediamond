@@ -14601,6 +14601,6 @@ _021DE24C: .word 0x00000151
 _021DE250: .word 0x00010200
 	thumb_func_end MOD17_021DE0F4
 
-	.section .data
+	.section .rodata
 	; 0x021DE254
-	.incbin "baserom.nds", 0x26AF74, 0x10C
+	.incbin "baserom.nds", 0x26AF74, 0x100
