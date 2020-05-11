@@ -55,16 +55,16 @@ ARM_FUNC void FX_DivAsync(fx32 numerator, fx32 denominator){
 
 ARM_FUNC fx32 FX_DivS32(fx32 numerator, fx32 denominator){
     reg_CP_DIVCNT = 0x0;
-    *(REGType32 *)REG_DIV_NUMER_ADDR = (u32)numerator; //32bit write for some reason
+    *(REGType32 *)&reg_CP_DIV_NUMER = (u32)numerator; //32bit write for some reason
     reg_CP_DIV_DENOM = (u32)denominator;
     while (reg_CP_DIVCNT & 0x8000);
-    return *(REGType32 *)REG_DIV_RESULT_ADDR;
+    return *(REGType32 *)&reg_CP_DIV_RESULT;
 }
 
 ARM_FUNC fx32 FX_ModS32(fx32 num, fx32 mod){
     reg_CP_DIVCNT = 0x0;
-    *(REGType32 *)REG_DIV_NUMER_ADDR = (u32)num; //32bit write for some reason
+    *(REGType32 *)&reg_CP_DIV_NUMER = (u32)num; //32bit write for some reason
     reg_CP_DIV_DENOM = (u32)mod;
     while (reg_CP_DIVCNT & 0x8000);
-    return *(REGType32 *)REG_DIVREM_RESULT_ADDR;
+    return *(REGType32 *)&reg_CP_DIVREM_RESULT;
 }
