@@ -7,9 +7,18 @@
 
 #include "types.h"
 
+#define reg_GX_DISPCNT             (*(REGType32v *)0x4000000)
+#define reg_GX_DISPSTAT            (*(REGType16v *)0x4000004)
 #define reg_GX_VCOUNT              (*(REGType16v *)0x4000006)
 
 #define reg_G3X_DISP3DCNT          (*(REGType16v *)0x4000060)
+
+#define reg_GX_DISPCAPCNT          (*(REGType32v *)0x4000064)
+#define reg_GX_DISP_MMEM_FIFO      (*(REGType32v *)0x4000068)
+#define reg_GX_DISP_MMEM_FIFO_L    (*(REGType16v *)0x4000068)
+#define reg_GX_DISP_MMEM_FIFO_H    (*(REGType16v *)0x400006a)
+#define reg_GX_MASTER_BRIGHT       (*(REGType16v *)0x400006c)
+#define reg_GX_TVOUTCNT            (*(REGType16v *)0x4000070)
 
 #define reg_MI_DMA0SAD             (*(REGType32v *)0x40000b0)
 #define reg_MI_DMA0DAD             (*(REGType32v *)0x40000b4)
@@ -37,6 +46,20 @@
 #define reg_MI_MCCMD1              (*(REGType32v *)0x40001ac)
 #define reg_MI_EXMEMCNT            (*(REGType16v *)0x4000204)
 
+#define reg_GX_VRAMCNT             (*(REGType32v *)0x4000240)
+#define reg_GX_VRAMCNT_A           (*(REGType8v *)0x4000240)
+#define reg_GX_VRAMCNT_B           (*(REGType8v *)0x4000241)
+#define reg_GX_VRAMCNT_C           (*(REGType8v *)0x4000242)
+#define reg_GX_VRAMCNT_D           (*(REGType8v *)0x4000243)
+#define reg_GX_WVRAMCNT            (*(REGType32v *)0x4000244)
+#define reg_GX_VRAMCNT_E           (*(REGType8v *)0x4000244)
+#define reg_GX_VRAMCNT_F           (*(REGType8v *)0x4000245)
+#define reg_GX_VRAMCNT_G           (*(REGType8v *)0x4000246)
+#define reg_GX_VRAMCNT_WRAM        (*(REGType8v *)0x4000247)
+#define reg_GX_VRAM_HI_CNT         (*(REGType16v *)0x4000248)
+#define reg_GX_VRAMCNT_H           (*(REGType8v *)0x4000248)
+#define reg_GX_VRAMCNT_I           (*(REGType8v *)0x4000249)
+
 #define reg_CP_DIVCNT              (*(REGType16v *)0x4000280)
 #define reg_CP_DIV_NUMER           (*(REGType64v *)0x4000290)
 #define reg_CP_DIV_DENOM           (*(REGType64v *)0x4000298)
@@ -45,6 +68,8 @@
 #define reg_CP_SQRTCNT             (*(REGType16v *)0x40002B0)
 #define reg_CP_SQRT_RESULT         (*(REGType32v *)0x40002B4)
 #define reg_CP_SQRT_PARAM          (*(REGType64v *)0x40002B8)
+
+#define reg_GX_POWCNT              (*(REGType16v *)0x4000304)
 
 #define reg_G3X_RDLINES_COUNT      (*(const REGType16v *)0x4000320)
 #define reg_G3X_EDGE_COLOR_0       (*(REGType32v *)0x4000330)
