@@ -1960,7 +1960,9 @@ _020B0824: ; 0x020B0824
 	cmp r2, r1
 	strcc r1, [r4, #0x0]
 	ldmia sp!, {r4,pc}
-_020B0830: ; 0x020B0830
+
+	arm_func_start FUN_020B0830
+FUN_020B0830: ; 0x020B0830
 	ldrh r3, [r0, #0x6]
 	ldrh r2, [r0, #0x8]
 	mov r12, #0x0
@@ -13214,7 +13216,7 @@ _020BA188:
 	str r1, [sp, #0x0]
 	ldrsh r1, [r5, #0x2]
 	str r1, [sp, #0x4]
-	blx MI_Zero36B
+	bl MI_Zero36B
 	ldrh r0, [r4, #0x0]
 	add r1, r6, r11, lsl #0x2
 	add r5, r5, #0x4
@@ -17207,7 +17209,7 @@ FUN_020BD850: ; 0x020BD850
 	mov r5, r2, asr #0x4
 	ldrsh r7, [r1, #0x0]
 	ldrsh r6, [r1, #0x2]
-	blx MI_Zero36B
+	bl MI_Zero36B
 	ldrh r0, [r4, #0x0]
 	add r1, r8, r5, lsl #0x2
 	ands r0, r0, #0x100

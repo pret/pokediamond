@@ -5,7 +5,7 @@ project(PokeDiamond)
 
 enable_language(ASM)
 
-file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c")
+file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c" "*.cpp")
 
 add_executable(PokeDiamond ${SOURCES})
-target_include_directories(PokeDiamond PRIVATE include)
+target_include_directories(PokeDiamond PRIVATE include include-mw arm9/lib/include)

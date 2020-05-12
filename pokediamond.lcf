@@ -278,7 +278,6 @@ MEMORY {
 }
 
 SECTIONS {
-#include "undefined_syms.txt"
     .header: {
         rom_header.o (.text)
         . = 0x4000;
@@ -289,6 +288,358 @@ SECTIONS {
     	_start_AutoloadDoneCallback = . + 0xA74;
         INCLUDE arm9.bin
 	} > arm9
+
+	.arm9_table : AT (0x10B800) {
+        INCLUDE arm9_table.bin
+	} >> arm9
+
+	.MODULE_00 : AT (0x10C400) {
+        INCLUDE MODULE_00.bin
+	} >> arm9
+
+	.MODULE_01 : AT (0x10C600) {
+        INCLUDE MODULE_01.bin
+	} >> arm9
+
+	.MODULE_02 : AT (0x10C800) {
+        INCLUDE MODULE_02.bin
+	} >> arm9
+
+	.MODULE_03 : AT (0x10CA00) {
+        INCLUDE MODULE_03.bin
+	} >> arm9
+
+	.MODULE_04 : AT (0x10CC00) {
+        INCLUDE MODULE_04.bin
+	} >> arm9
+
+	.MODULE_05 : AT (0x145400) {
+        INCLUDE MODULE_05.bin
+	} >> arm9
+
+	.MODULE_06 : AT (0x16B600) {
+        INCLUDE MODULE_06.bin
+	} >> arm9
+
+	.MODULE_07 : AT (0x184400) {
+        INCLUDE MODULE_07.bin
+	} >> arm9
+
+	.MODULE_08 : AT (0x187800) {
+        INCLUDE MODULE_08.bin
+	} >> arm9
+
+	.MODULE_09 : AT (0x1A3000) {
+        INCLUDE MODULE_09.bin
+	} >> arm9
+
+	.MODULE_10 : AT (0x1AD200) {
+        INCLUDE MODULE_10.bin
+	} >> arm9
+
+	.MODULE_11 : AT (0x1AD400) {
+        INCLUDE MODULE_11.bin
+	} >> arm9
+
+	.MODULE_12 : AT (0x1DFE00) {
+        INCLUDE MODULE_12.bin
+	} >> arm9
+
+	.MODULE_13 : AT (0x1F9200) {
+        INCLUDE MODULE_13.bin
+	} >> arm9
+
+	.MODULE_14 : AT (0x227E00) {
+        INCLUDE MODULE_14.bin
+	} >> arm9
+
+	.MODULE_15 : AT (0x237400) {
+        INCLUDE MODULE_15.bin
+	} >> arm9
+
+	.MODULE_16 : AT (0x23BC00) {
+        INCLUDE MODULE_16.bin
+	} >> arm9
+
+	.MODULE_17 : AT (0x264200) {
+        INCLUDE MODULE_17.bin
+	} >> arm9
+
+	.MODULE_18 : AT (0x26B200) {
+        INCLUDE MODULE_18.bin
+	} >> arm9
+
+	.MODULE_19 : AT (0x283000) {
+        INCLUDE MODULE_19.bin
+	} >> arm9
+
+	.MODULE_20 : AT (0x283200) {
+        INCLUDE MODULE_20.bin
+	} >> arm9
+
+	.MODULE_21 : AT (0x285600) {
+        INCLUDE MODULE_21.bin
+	} >> arm9
+
+	.MODULE_22 : AT (0x285C00) {
+        INCLUDE MODULE_22.bin
+	} >> arm9
+
+	.MODULE_23 : AT (0x286C00) {
+        INCLUDE MODULE_23.bin
+	} >> arm9
+
+	.MODULE_24 : AT (0x288600) {
+        INCLUDE MODULE_24.bin
+	} >> arm9
+
+	.MODULE_25 : AT (0x289000) {
+        INCLUDE MODULE_25.bin
+	} >> arm9
+
+	.MODULE_26 : AT (0x289600) {
+        INCLUDE MODULE_26.bin
+	} >> arm9
+
+	.MODULE_27 : AT (0x289E00) {
+        INCLUDE MODULE_27.bin
+	} >> arm9
+
+	.MODULE_28 : AT (0x28AA00) {
+        INCLUDE MODULE_28.bin
+	} >> arm9
+
+	.MODULE_29 : AT (0x28C200) {
+        INCLUDE MODULE_29.bin
+	} >> arm9
+
+	.MODULE_30 : AT (0x28CC00) {
+        INCLUDE MODULE_30.bin
+	} >> arm9
+
+	.MODULE_31 : AT (0x28D200) {
+        INCLUDE MODULE_31.bin
+	} >> arm9
+
+	.MODULE_32 : AT (0x28D800) {
+        INCLUDE MODULE_32.bin
+	} >> arm9
+
+	.MODULE_33 : AT (0x28DE00) {
+        INCLUDE MODULE_33.bin
+	} >> arm9
+
+	.MODULE_34 : AT (0x28E200) {
+        INCLUDE MODULE_34.bin
+	} >> arm9
+
+	.MODULE_35 : AT (0x28E800) {
+        INCLUDE MODULE_35.bin
+	} >> arm9
+
+	.MODULE_36 : AT (0x28F200) {
+        INCLUDE MODULE_36.bin
+	} >> arm9
+
+	.MODULE_37 : AT (0x290000) {
+        INCLUDE MODULE_37.bin
+	} >> arm9
+
+	.MODULE_38 : AT (0x290600) {
+        INCLUDE MODULE_38.bin
+	} >> arm9
+
+	.MODULE_39 : AT (0x291200) {
+        INCLUDE MODULE_39.bin
+	} >> arm9
+
+	.MODULE_40 : AT (0x292000) {
+        INCLUDE MODULE_40.bin
+	} >> arm9
+
+	.MODULE_41 : AT (0x292E00) {
+        INCLUDE MODULE_41.bin
+	} >> arm9
+
+	.MODULE_42 : AT (0x294000) {
+        INCLUDE MODULE_42.bin
+	} >> arm9
+
+	.MODULE_43 : AT (0x294A00) {
+        INCLUDE MODULE_43.bin
+	} >> arm9
+
+	.MODULE_44 : AT (0x295400) {
+        INCLUDE MODULE_44.bin
+	} >> arm9
+
+	.MODULE_45 : AT (0x295A00) {
+        INCLUDE MODULE_45.bin
+	} >> arm9
+
+	.MODULE_46 : AT (0x296400) {
+        INCLUDE MODULE_46.bin
+	} >> arm9
+
+	.MODULE_47 : AT (0x296800) {
+        INCLUDE MODULE_47.bin
+	} >> arm9
+
+	.MODULE_48 : AT (0x297600) {
+        INCLUDE MODULE_48.bin
+	} >> arm9
+
+	.MODULE_49 : AT (0x298000) {
+        INCLUDE MODULE_49.bin
+	} >> arm9
+
+	.MODULE_50 : AT (0x298600) {
+        INCLUDE MODULE_50.bin
+	} >> arm9
+
+	.MODULE_51 : AT (0x298A00) {
+        INCLUDE MODULE_51.bin
+	} >> arm9
+
+	.MODULE_52 : AT (0x299A00) {
+        INCLUDE MODULE_52.bin
+	} >> arm9
+
+	.MODULE_53 : AT (0x299E00) {
+        INCLUDE MODULE_53.bin
+	} >> arm9
+
+	.MODULE_54 : AT (0x29C400) {
+        INCLUDE MODULE_54.bin
+	} >> arm9
+
+	.MODULE_55 : AT (0x29E800) {
+        INCLUDE MODULE_55.bin
+	} >> arm9
+
+	.MODULE_56 : AT (0x2A1A00) {
+        INCLUDE MODULE_56.bin
+	} >> arm9
+
+	.MODULE_57 : AT (0x2A6200) {
+        INCLUDE MODULE_57.bin
+	} >> arm9
+
+	.MODULE_58 : AT (0x2A8800) {
+        INCLUDE MODULE_58.bin
+	} >> arm9
+
+	.MODULE_59 : AT (0x2A9E00) {
+        INCLUDE MODULE_59.bin
+	} >> arm9
+
+	.MODULE_60 : AT (0x2ACC00) {
+        INCLUDE MODULE_60.bin
+	} >> arm9
+
+	.MODULE_61 : AT (0x2ADA00) {
+        INCLUDE MODULE_61.bin
+	} >> arm9
+
+	.MODULE_62 : AT (0x2AEC00) {
+        INCLUDE MODULE_62.bin
+	} >> arm9
+
+	.MODULE_63 : AT (0x2B2A00) {
+        INCLUDE MODULE_63.bin
+	} >> arm9
+
+	.MODULE_64 : AT (0x2B7600) {
+        INCLUDE MODULE_64.bin
+	} >> arm9
+
+	.MODULE_65 : AT (0x2B9400) {
+        INCLUDE MODULE_65.bin
+	} >> arm9
+
+	.MODULE_66 : AT (0x2BC400) {
+        INCLUDE MODULE_66.bin
+	} >> arm9
+
+	.MODULE_67 : AT (0x2BEC00) {
+        INCLUDE MODULE_67.bin
+	} >> arm9
+
+	.MODULE_68 : AT (0x2C1200) {
+        INCLUDE MODULE_68.bin
+	} >> arm9
+
+	.MODULE_69 : AT (0x2C2800) {
+        INCLUDE MODULE_69.bin
+	} >> arm9
+
+	.MODULE_70 : AT (0x2C4C00) {
+        INCLUDE MODULE_70.bin
+	} >> arm9
+
+	.MODULE_71 : AT (0x2C5C00) {
+        INCLUDE MODULE_71.bin
+	} >> arm9
+
+	.MODULE_72 : AT (0x2C9C00) {
+        INCLUDE MODULE_72.bin
+	} >> arm9
+
+	.MODULE_73 : AT (0x2C9E00) {
+        INCLUDE MODULE_73.bin
+	} >> arm9
+
+	.MODULE_74 : AT (0x2CEA00) {
+        INCLUDE MODULE_74.bin
+	} >> arm9
+
+	.MODULE_75 : AT (0x2CFE00) {
+        INCLUDE MODULE_75.bin
+	} >> arm9
+
+	.MODULE_76 : AT (0x2D5C00) {
+        INCLUDE MODULE_76.bin
+	} >> arm9
+
+	.MODULE_77 : AT (0x2D7C00) {
+        INCLUDE MODULE_77.bin
+	} >> arm9
+
+	.MODULE_78 : AT (0x2D9800) {
+        INCLUDE MODULE_78.bin
+	} >> arm9
+
+	.MODULE_79 : AT (0x2D9E00) {
+        INCLUDE MODULE_79.bin
+	} >> arm9
+
+	.MODULE_80 : AT (0x2DF200) {
+        INCLUDE MODULE_80.bin
+	} >> arm9
+
+	.MODULE_81 : AT (0x2E9A00) {
+        INCLUDE MODULE_81.bin
+	} >> arm9
+
+	.MODULE_82 : AT (0x2EF000) {
+        INCLUDE MODULE_82.bin
+	} >> arm9
+
+	.MODULE_83 : AT (0x2F1600) {
+        INCLUDE MODULE_83.bin
+	} >> arm9
+
+	.MODULE_84 : AT (0x2FFA00) {
+        INCLUDE MODULE_84.bin
+	} >> arm9
+
+	.MODULE_85 : AT (0x303400) {
+        INCLUDE MODULE_85.bin
+	} >> arm9
+
+	.MODULE_86 : AT (0x30C600) {
+        INCLUDE MODULE_86.bin
+	} >> arm9
 
     .arm7 : AT(0x30D000) {
 		ARM7AutoLoad = 0x02380158;

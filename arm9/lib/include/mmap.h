@@ -12,8 +12,10 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_MAIN_MEM_SHARED_SIZE 0x00001000
 #define HW_MAIN_MEM_DEBUGGER_OFFSET     0x00700000
 
+#define HW_ITCM_IMAGE 0x01000000
 #define HW_ITCM                 0x01FF8000
 #define HW_ITCM_SIZE            0x00008000
+#define HW_ITCM_END (HW_ITCM + HW_ITCM_SIZE)
 
 #define HW_WRAM                 0x037F8000
 
@@ -23,6 +25,8 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_CARD_ROM_HEADER_SIZE 0x00000160
 #define HW_DOWNLOAD_PARAMETER_SIZE      0x00000020
 
+#define HW_RESET_PARAMETER_BUF  (HW_MAIN_MEM + 0x007ffc20)
+#define HW_WM_BOOT_BUF          (HW_MAIN_MEM + 0x007ffc40)
 #define HW_ARENA_INFO_BUF       (HW_MAIN_MEM + 0x007ffda0)      // Arena data structure
 #define HW_ROM_HEADER_BUF       (HW_MAIN_MEM + 0x007ffe00)      // ROM registration area data buffer
 #define HW_RED_RESERVED         (HW_MAIN_MEM + 0x007ff800)      // Some kind of reserved data for shared memory

@@ -1803,7 +1803,7 @@ _02212AE8:
 	bl MOD08_02212004
 	cmp r0, #0
 	bne _02212B3C
-	bl FUN_02231678
+	bl MOD11_02231678
 	add r0, r5, #0
 	mov r1, #1
 	bl MOD08_02215588
@@ -1833,7 +1833,7 @@ _02212AE8:
 	bl FUN_0201797C
 	b _02212B40
 _02212B3C:
-	bl FUN_02233560
+	bl MOD12_02233560
 _02212B40:
 	mov r1, #0x1a
 	lsl r1, r1, #4
@@ -4691,10 +4691,10 @@ _022140F8:
 	bl MOD08_02212004
 	cmp r0, #0
 	bne _02214108
-	bl FUN_02231678
+	bl MOD11_02231678
 	b _0221410C
 _02214108:
-	bl FUN_02233560
+	bl MOD12_02233560
 _0221410C:
 	ldr r0, [r4, #0x48]
 	mov r1, #2
@@ -7633,13 +7633,13 @@ MOD08_022156C0: ; 0x022156C0
 	str r5, [r4]
 	str r6, [r4, #4]
 	add r0, r7, #0
-	bl FUN_02230078
+	bl MOD11_02230078
 	str r0, [r4, #8]
 	add r0, r7, #0
-	bl FUN_02230080
+	bl MOD11_02230080
 	str r0, [r4, #0xc]
 	add r0, r7, #0
-	bl FUN_022300CC
+	bl MOD11_022300CC
 	str r0, [r4, #0x10]
 	mov r6, #0
 	add r5, r4, #0
@@ -7648,7 +7648,7 @@ _02215704:
 	str r0, [r5, #0x24]
 	add r0, r7, #0
 	add r1, r6, #0
-	bl FUN_022312D0
+	bl MOD11_022312D0
 	str r0, [r5, #0x34]
 	add r6, r6, #1
 	add r5, r5, #4
@@ -7657,11 +7657,11 @@ _02215704:
 	add r1, r4, #0
 	add r0, r7, #0
 	add r1, #0x44
-	bl FUN_02231504
+	bl MOD11_02231504
 	add r1, r4, #0
 	add r0, r7, #0
 	add r1, #0x48
-	bl FUN_02231534
+	bl MOD11_02231534
 	mov r6, #0
 	add r7, r6, #0
 _02215732:
@@ -49976,6 +49976,9 @@ _0222A758:
 	.align 2, 0
 _0222A75C: .word 0x0000013B
 
-	.section .data
+	.section .rodata
 	; 0x0222A760
-	.incbin "baserom.nds", 0x1A0100, 0x2E60
+	.incbin "baserom.nds", 0x1A0100, 0x2E38
+
+	.section .data
+	.incbin "baserom.nds", 0x1A2F40, 0x20

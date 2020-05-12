@@ -1950,7 +1950,7 @@ _0208C778:
 _0208C79C:
 	add r0, sp, #0x60
 	mov r3, r2
-	blx MTX_Scale43_
+	bl MTX_Scale43_
 	add r0, sp, #0x30
 	add r1, sp, #0x60
 	add r2, sp, #0x0
@@ -2253,7 +2253,7 @@ _0208CBF4:
 _0208CC18:
 	add r0, sp, #0x60
 	mov r3, r2
-	blx MTX_Scale43_
+	bl MTX_Scale43_
 	add r0, sp, #0x60
 	add r1, sp, #0x30
 	add r2, sp, #0x0
@@ -2479,7 +2479,7 @@ _0208CF4C:
 _0208CF70:
 	add r0, sp, #0x60
 	mov r3, r2
-	blx MTX_Scale43_
+	bl MTX_Scale43_
 	add r0, sp, #0x30
 	add r1, sp, #0x60
 	add r2, sp, #0x0
@@ -2703,7 +2703,7 @@ _0208D29C:
 _0208D2C0:
 	add r0, sp, #0x60
 	mov r3, r2
-	blx MTX_Scale43_
+	bl MTX_Scale43_
 	add r0, sp, #0x60
 	add r1, sp, #0x30
 	add r2, sp, #0x0
@@ -6273,7 +6273,7 @@ _020907AC:
 	mov r2, r1, lsl #0x1
 	ldrsh r1, [r3, r12]
 	ldrsh r2, [r3, r2]
-	blx MTX_RotX33_
+	bl MTX_RotX33_
 	b _02090838
 _020907DC:
 	ldrh r1, [r0, #0x0]
@@ -6286,7 +6286,7 @@ _020907DC:
 	mov r2, r1, lsl #0x1
 	ldrsh r1, [r3, r12]
 	ldrsh r2, [r3, r2]
-	blx MTX_RotY33_
+	bl MTX_RotY33_
 	b _02090838
 _0209080C:
 	ldrh r1, [r0, #0x0]
@@ -6299,7 +6299,7 @@ _0209080C:
 	mov r2, r1, lsl #0x1
 	ldrsh r1, [r3, r12]
 	ldrsh r2, [r3, r2]
-	blx MTX_RotZ33_
+	bl MTX_RotZ33_
 _02090838:
 	add r0, r4, #0x8
 	add r1, sp, #0x0

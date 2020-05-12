@@ -61,9 +61,9 @@ _021D752C:
 	lsl r0, r0, #8
 	lsr r0, r0, #0x1c
 	beq _021D7564
-	ldr r0, _021D7678 ; =0x00000006
+	ldr r0, _021D7678 ; =SDK_OVERLAY_MODULE_06_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 _021D7564:
 	ldr r2, [r4, #0x70]
 	mov r0, #3
@@ -174,7 +174,7 @@ _021D7666:
 	.balign 4, 0
 _021D7670: .word 0x04000050
 _021D7674: .word 0x04001050
-_021D7678: .word 0x00000006
+_021D7678: .word SDK_OVERLAY_MODULE_06_ID
 
 	thumb_func_start MOD05_021D767C
 MOD05_021D767C: ; 0x021D767C
@@ -367,8 +367,8 @@ _021D7806:
 	lsl r0, r0, #8
 	lsr r0, r0, #0x1c
 	beq _021D7856
-	ldr r0, _021D7860 ; =0x00000006
-	bl FUN_02005F60
+	ldr r0, _021D7860 ; =SDK_OVERLAY_MODULE_06_ID
+	bl UnloadOverlayByID
 _021D7856:
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -376,7 +376,7 @@ _021D785A:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D7860: .word 0x00000006
+_021D7860: .word SDK_OVERLAY_MODULE_06_ID
 
 	thumb_func_start MOD05_021D7864
 MOD05_021D7864: ; 0x021D7864
@@ -2091,24 +2091,24 @@ _021D862C:
 	mov r0, #0
 	pop {r4, pc}
 _021D8630:
-	bl FUN_0223DCB4
+	bl MOD18_0223DCB4
 	ldrh r0, [r4]
 	lsl r1, r0, #0x1f
 	lsr r1, r1, #0x1f
 	beq _021D8646
 	mov r0, #0
-	bl FUN_0223DCD0
+	bl MOD18_0223DCD0
 	mov r0, #0
 	pop {r4, pc}
 _021D8646:
 	lsl r0, r0, #0x1d
 	lsr r0, r0, #0x1f
 	beq _021D8654
-	bl FUN_0223DC98
+	bl MOD18_0223DC98
 	mov r0, #0
 	pop {r4, pc}
 _021D8654:
-	bl FUN_0223D8F4
+	bl MOD18_0223D8F4
 	mov r0, #0
 	pop {r4, pc}
 
@@ -2508,7 +2508,7 @@ _021D8998:
 	cmp r0, #0
 	beq _021D89B4
 	add r0, r4, #0
-	bl FUN_0223BA04
+	bl MOD06_0223BA04
 	cmp r0, #1
 	bne _021D89B4
 	add sp, #8
@@ -2535,7 +2535,7 @@ MOD05_021D89BC: ; 0x021D89BC
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 _021D89D4:
-	bl FUN_022426AC
+	bl MOD06_022426AC
 	cmp r0, #0
 	beq _021D89E2
 	add sp, #0x28
@@ -2932,7 +2932,7 @@ _021D8D20: .word 0x0000FFFF
 MOD05_021D8D24: ; 0x021D8D24
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl FUN_02242404
+	bl MOD06_02242404
 	cmp r0, #0
 	beq _021D8D34
 	mov r0, #1
@@ -9485,16 +9485,16 @@ _021DBE9C: .word 0x02050E2D
 MOD05_021DBEA0: ; 0x021DBEA0
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _021DBEB8 ; =0x00000033
+	ldr r0, _021DBEB8 ; =SDK_OVERLAY_MODULE_51_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	add r0, r4, #0
-	bl FUN_02254A68
+	bl MOD51_02254A68
 	add r4, #0x80
 	str r0, [r4]
 	pop {r4, pc}
 	.balign 4, 0
-_021DBEB8: .word 0x00000033
+_021DBEB8: .word SDK_OVERLAY_MODULE_51_ID
 
 	thumb_func_start MOD05_021DBEBC
 MOD05_021DBEBC: ; 0x021DBEBC
@@ -9515,12 +9515,12 @@ MOD05_021DBECC: ; 0x021DBECC
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0]
-	bl FUN_02254AB8
-	ldr r0, _021DBEE0 ; =0x00000033
-	bl FUN_02005F60
+	bl MOD51_02254AB8
+	ldr r0, _021DBEE0 ; =SDK_OVERLAY_MODULE_51_ID
+	bl UnloadOverlayByID
 	pop {r3, pc}
 	nop
-_021DBEE0: .word 0x00000033
+_021DBEE0: .word SDK_OVERLAY_MODULE_51_ID
 
 	thumb_func_start MOD05_021DBEE4
 MOD05_021DBEE4: ; 0x021DBEE4
@@ -24563,24 +24563,24 @@ _021E3388:
 	cmp r0, #0
 	beq _021E3414
 	ldr r0, [r5, #8]
-	bl FUN_022524F4
+	bl MOD19_022524F4
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
 	b _021E3414
 _021E33A0:
 	ldr r0, [r5, #8]
-	bl FUN_02252504
+	bl MOD19_02252504
 	cmp r0, #0
 	beq _021E3414
 	ldr r0, [r5, #0xc]
 	bl FUN_0204C1A8
 	add r6, r0, #0
-	ldr r0, _021E341C ; =0x00000013
-	bl FUN_02005F60
-	ldr r0, _021E3420 ; =0x00000014
+	ldr r0, _021E341C ; =SDK_OVERLAY_MODULE_19_ID
+	bl UnloadOverlayByID
+	ldr r0, _021E3420 ; =SDK_OVERLAY_MODULE_20_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	add r0, r6, #0
 	bl FUN_0204BEB8
 	mov r0, #1
@@ -24591,7 +24591,7 @@ _021E33A0:
 	ldr r3, [r5, #8]
 	add r0, r5, #0
 	add r1, #0x14
-	bl FUN_02252448
+	bl MOD20_02252448
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -24624,8 +24624,8 @@ _021E3414:
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	nop
-_021E341C: .word 0x00000013
-_021E3420: .word 0x00000014
+_021E341C: .word SDK_OVERLAY_MODULE_19_ID
+_021E3420: .word SDK_OVERLAY_MODULE_20_ID
 
 	thumb_func_start MOD05_021E3424
 MOD05_021E3424: ; 0x021E3424
@@ -30566,7 +30566,7 @@ _021E60D2:
 	add r0, r6, #0
 	add r2, r1, #0
 	add r3, r4, #0
-	bl FUN_0224ABAC
+	bl MOD06_0224ABAC
 	add r1, r0, #0
 	add r0, r5, #0
 	bl FUN_02055450
@@ -31119,7 +31119,7 @@ _021E6514:
 	ldr r3, [r4, #4]
 	add r1, r5, r6
 	add r2, r7, r2
-	bl FUN_0224ABAC
+	bl MOD06_0224ABAC
 	str r0, [r4, #0x28]
 	ldr r0, [r4, #0x20]
 	ldr r1, [r4, #0x28]
@@ -31175,7 +31175,7 @@ _021E65AC:
 	bl FUN_0205AE50
 	ldr r0, [r4, #0x28]
 	mov r1, #1
-	bl FUN_0224ADF8
+	bl MOD06_0224ADF8
 	ldr r0, [r4, #0x20]
 	bl FUN_020553E8
 	add r1, r0, #0
@@ -31297,7 +31297,7 @@ _021E668C:
 	bl FUN_0205ADDC
 	ldr r0, [r4, #0x14]
 	mov r1, #0
-	bl FUN_0224ADF8
+	bl MOD06_0224ADF8
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -31509,7 +31509,7 @@ _021E682A:
 	bl FUN_02046528
 	add r1, sp, #8
 	str r0, [sp, #4]
-	bl FUN_0223C08C
+	bl MOD06_0223C08C
 	cmp r0, #1
 	bne _021E68A2
 	ldr r0, [r4, #0xc]
@@ -31776,10 +31776,10 @@ MOD05_021E6A58: ; 0x021E6A58
 	ldr r3, [r5, #4]
 	add r1, r4, r6
 	add r2, r7, r2
-	bl FUN_0224AEE8
+	bl MOD06_0224AEE8
 	str r0, [r5, #0x18]
 	ldr r0, [r5, #0xc]
-	bl FUN_0224F0BC
+	bl MOD06_0224F0BC
 	str r0, [r5, #0x2c]
 	ldr r0, _021E6AA8 ; =0x00000627
 	bl FUN_020054C8
@@ -31825,7 +31825,7 @@ MOD05_021E6AD4: ; 0x021E6AD4
 	add r0, r0, #1
 	str r0, [r4]
 	ldr r0, [r4, #0x18]
-	bl FUN_0224AF68
+	bl MOD06_0224AF68
 _021E6AF0:
 	mov r0, #0
 	pop {r4, pc}
@@ -31891,9 +31891,9 @@ _021E6B54:
 	add r0, r0, #1
 	str r0, [r5]
 	ldr r0, [r5, #0x18]
-	bl FUN_0224AF68
+	bl MOD06_0224AF68
 	ldr r0, [r5, #0x2c]
-	bl FUN_0224F0D0
+	bl MOD06_0224F0D0
 	mov r0, #0
 	str r0, [r5, #0x2c]
 	pop {r3, r4, r5, pc}
@@ -32151,7 +32151,7 @@ _021E6D36:
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r5, #0x34]
-	bl FUN_0224ED94
+	bl MOD06_0224ED94
 	str r0, [r5, #0x50]
 	ldr r0, [r5]
 	add r0, r0, #1
@@ -32257,7 +32257,7 @@ _021E6E1E:
 	ldr r0, [r4, #0x3c]
 	bl FUN_02059C60
 	ldr r0, [r4, #0x50]
-	bl FUN_0224EDA8
+	bl MOD06_0224EDA8
 	mov r0, #1
 	add sp, #0xc
 	pop {r3, r4, pc}
@@ -32384,7 +32384,7 @@ _021E6F06:
 	ldr r0, [r3]
 	str r0, [r2]
 	ldr r0, [r5, #0x34]
-	bl FUN_0224ED94
+	bl MOD06_0224ED94
 	str r0, [r5, #0x50]
 	ldr r0, [r5]
 	add r0, r0, #1
@@ -32503,7 +32503,7 @@ _021E7004:
 	ldr r0, [r4, #0x3c]
 	bl FUN_02059C60
 	ldr r0, [r4, #0x50]
-	bl FUN_0224EDA8
+	bl MOD06_0224EDA8
 	mov r0, #1
 	add sp, #0xc
 	pop {r3, r4, pc}
@@ -32762,7 +32762,7 @@ MOD05_021E723C: ; 0x021E723C
 	ldr r2, [r4, #8]
 	ldr r3, [r4, #4]
 	mov r1, #0
-	bl FUN_0224666C
+	bl MOD06_0224666C
 	str r0, [r4, #0xc]
 	pop {r4, pc}
 	.balign 4, 0
@@ -32772,11 +32772,11 @@ MOD05_021E7250: ; 0x021E7250
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0xc]
-	bl FUN_022466A0
+	bl MOD06_022466A0
 	cmp r0, #1
 	bne _021E7268
 	ldr r0, [r4, #0xc]
-	bl FUN_022466AC
+	bl MOD06_022466AC
 	mov r0, #1
 	pop {r4, pc}
 _021E7268:
@@ -50062,7 +50062,7 @@ MOD05_021EFA9C: ; 0x021EFA9C
 	ldr r0, [r0, #0x14]
 	cmp r0, #0
 	beq _021EFAAA
-	bl FUN_022524DC
+	bl MOD20_022524DC
 _021EFAAA:
 	pop {r3, pc}
 
@@ -50085,9 +50085,9 @@ MOD05_021EFAAC: ; 0x021EFAAC
 	bl FUN_0205F1E4
 	cmp r0, #0
 	bne _021EFAF8
-	ldr r0, _021EFB0C ; =0x00000014
+	ldr r0, _021EFB0C ; =SDK_OVERLAY_MODULE_20_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	mov r0, #1
 	bl FUN_0200A03C
 	str r0, [sp]
@@ -50096,20 +50096,20 @@ MOD05_021EFAAC: ; 0x021EFAAC
 	ldr r3, [r5, #8]
 	add r0, r5, #0
 	add r1, #0x14
-	bl FUN_02252448
+	bl MOD20_02252448
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 _021EFAF8:
-	ldr r0, _021EFB10 ; =0x00000013
+	ldr r0, _021EFB10 ; =SDK_OVERLAY_MODULE_19_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	ldr r0, [r5, #8]
-	bl FUN_02252440
+	bl MOD19_02252440
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	nop
-_021EFB0C: .word 0x00000014
-_021EFB10: .word 0x00000013
+_021EFB0C: .word SDK_OVERLAY_MODULE_20_ID
+_021EFB10: .word SDK_OVERLAY_MODULE_19_ID
 
 	thumb_func_start MOD05_021EFB14
 MOD05_021EFB14: ; 0x021EFB14
@@ -50131,11 +50131,11 @@ MOD05_021EFB14: ; 0x021EFB14
 	bne _021EFB46
 	ldr r0, [r5, #4]
 	ldr r0, [r0, #0x14]
-	bl FUN_022524BC
+	bl MOD20_022524BC
 	pop {r4, r5, r6, pc}
 _021EFB46:
 	ldr r0, [r5, #8]
-	bl FUN_022524F4
+	bl MOD19_022524F4
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 
@@ -50159,69 +50159,69 @@ MOD05_021EFB50: ; 0x021EFB50
 	bne _021EFB94
 	ldr r0, [r5, #4]
 	ldr r0, [r0, #0x14]
-	bl FUN_022524D0
+	bl MOD20_022524D0
 	cmp r0, #0
 	beq _021EFBA8
 	ldr r0, [r5, #4]
 	mov r1, #0
 	str r1, [r0, #0x14]
-	ldr r0, _021EFBAC ; =0x00000014
-	bl FUN_02005F60
+	ldr r0, _021EFBAC ; =SDK_OVERLAY_MODULE_20_ID
+	bl UnloadOverlayByID
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _021EFB94:
 	ldr r0, [r5, #8]
-	bl FUN_02252504
+	bl MOD19_02252504
 	cmp r0, #0
 	beq _021EFBA8
-	ldr r0, _021EFBB0 ; =0x00000013
-	bl FUN_02005F60
+	ldr r0, _021EFBB0 ; =SDK_OVERLAY_MODULE_19_ID
+	bl UnloadOverlayByID
 	mov r0, #1
 	pop {r4, r5, r6, pc}
 _021EFBA8:
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
-_021EFBAC: .word 0x00000014
-_021EFBB0: .word 0x00000013
+_021EFBAC: .word SDK_OVERLAY_MODULE_20_ID
+_021EFBB0: .word SDK_OVERLAY_MODULE_19_ID
 
 	thumb_func_start MOD05_021EFBB4
 MOD05_021EFBB4: ; 0x021EFBB4
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _021EFBC8 ; =0x00000013
+	ldr r0, _021EFBC8 ; =SDK_OVERLAY_MODULE_19_ID
 	mov r1, #2
-	bl FUN_02005FDC
+	bl HandleLoadOverlay
 	ldr r0, [r4, #8]
-	bl FUN_02252440
+	bl MOD19_02252440
 	pop {r4, pc}
 	.balign 4, 0
-_021EFBC8: .word 0x00000013
+_021EFBC8: .word SDK_OVERLAY_MODULE_19_ID
 
 	thumb_func_start MOD05_021EFBCC
 MOD05_021EFBCC: ; 0x021EFBCC
-	ldr r3, _021EFBD4 ; =FUN_022524F4
+	ldr r3, _021EFBD4 ; =MOD19_022524F4
 	ldr r0, [r0, #8]
 	bx r3
 	nop
-_021EFBD4: .word FUN_022524F4 + 1
+_021EFBD4: .word MOD19_022524F4
 
 	thumb_func_start MOD05_021EFBD8
 MOD05_021EFBD8: ; 0x021EFBD8
 	push {r3, lr}
 	ldr r0, [r0, #8]
-	bl FUN_02252504
+	bl MOD19_02252504
 	cmp r0, #0
 	beq _021EFBEE
-	ldr r0, _021EFBF4 ; =0x00000013
-	bl FUN_02005F60
+	ldr r0, _021EFBF4 ; =SDK_OVERLAY_MODULE_19_ID
+	bl UnloadOverlayByID
 	mov r0, #1
 	pop {r3, pc}
 _021EFBEE:
 	mov r0, #0
 	pop {r3, pc}
 	nop
-_021EFBF4: .word 0x00000013
+_021EFBF4: .word SDK_OVERLAY_MODULE_19_ID
 
 	thumb_func_start MOD05_021EFBF8
 MOD05_021EFBF8: ; 0x021EFBF8
@@ -53980,7 +53980,7 @@ MOD05_021F19E4: ; 0x021F19E4
 	bl FUN_02058604
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0224A130
+	bl MOD06_0224A130
 	str r0, [r4]
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -53993,7 +53993,7 @@ MOD05_021F19FC: ; 0x021F19FC
 	bl FUN_02058604
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0224A6B8
+	bl MOD06_0224A6B8
 	str r0, [r4]
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -54006,7 +54006,7 @@ MOD05_021F1A14: ; 0x021F1A14
 	bl FUN_02058604
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0224A8D4
+	bl MOD06_0224A8D4
 	str r0, [r4]
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -54019,7 +54019,7 @@ MOD05_021F1A2C: ; 0x021F1A2C
 	bl FUN_02058604
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0224AA40
+	bl MOD06_0224AA40
 	str r0, [r4]
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -54069,7 +54069,7 @@ MOD05_021F1A78: ; 0x021F1A78
 	bl ErrorHandling
 _021F1A8C:
 	add r0, r5, #0
-	bl FUN_0224A130
+	bl MOD06_0224A130
 	str r0, [r4]
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -54086,7 +54086,7 @@ MOD05_021F1A98: ; 0x021F1A98
 	bl ErrorHandling
 _021F1AAC:
 	add r0, r5, #0
-	bl FUN_0224A6B8
+	bl MOD06_0224A6B8
 	str r0, [r4]
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -54103,7 +54103,7 @@ MOD05_021F1AB8: ; 0x021F1AB8
 	bl ErrorHandling
 _021F1ACC:
 	add r0, r5, #0
-	bl FUN_0224A8D4
+	bl MOD06_0224A8D4
 	str r0, [r4]
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -54120,7 +54120,7 @@ MOD05_021F1AD8: ; 0x021F1AD8
 	bl ErrorHandling
 _021F1AEC:
 	add r0, r5, #0
-	bl FUN_0224AA40
+	bl MOD06_0224AA40
 	str r0, [r4]
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -54131,7 +54131,7 @@ MOD05_021F1AF8: ; 0x021F1AF8
 	bl FUN_02058628
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl FUN_0224A6FC
+	bl MOD06_0224A6FC
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}
@@ -57801,7 +57801,7 @@ _021F3658:
 	ldr r2, [r5, #0x24]
 	add r1, #0x28
 	add r3, sp, #0x1c
-	bl FUN_02249B7C
+	bl MOD06_02249B7C
 	str r0, [r5, #0x54]
 _021F367A:
 	add r0, r7, #0
@@ -62383,7 +62383,7 @@ _021F5888:
 	bl FUN_0204A6E0
 	add r1, r0, #0
 	add r0, r5, #0
-	bl FUN_0223CDB8
+	bl MOD06_0223CDB8
 	cmp r0, #0
 	beq _021F58CE
 	mov r0, #6
@@ -62433,7 +62433,7 @@ _021F5914:
 _021F5924:
 	add r0, r5, #0
 	add r1, r6, #0
-	bl FUN_0223BE70
+	bl MOD06_0223BE70
 	cmp r0, #0
 	bne _021F5980
 	bl ErrorHandling
@@ -62797,9 +62797,9 @@ MOD05_021F5B9C: ; 0x021F5B9C
 	bl FUN_02050DF0
 	add r7, r0, #0
 	beq _021F5C40
-	bl FUN_0223E2C4
+	bl MOD18_0223E2C4
 	add r6, r0, #0
-	bl FUN_0223E2DC
+	bl MOD18_0223E2DC
 	lsl r1, r6, #0x15
 	lsl r0, r0, #0x15
 	mov r4, #0
@@ -62917,7 +62917,7 @@ _021F5C8E:
 	ldr r1, [r5, #0xc]
 	add r0, r4, #0
 	add r2, #0x10
-	bl FUN_0223BD14
+	bl MOD06_0223BD14
 	str r0, [r5, #8]
 	ldr r1, [r5, #0xc]
 	ldr r2, [r5, #8]
@@ -63909,7 +63909,7 @@ _021F63CC:
 	ldr r0, [sp]
 	ldr r2, [r6]
 	mov r1, #0
-	bl FUN_0224666C
+	bl MOD06_0224666C
 	str r0, [r5]
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -63917,11 +63917,11 @@ _021F63CC:
 	b _021F6424
 _021F63EA:
 	ldr r0, [r5]
-	bl FUN_022466A0
+	bl MOD06_022466A0
 	cmp r0, #0
 	beq _021F6424
 	ldr r0, [r5]
-	bl FUN_022466AC
+	bl MOD06_022466AC
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
@@ -63948,9 +63948,13 @@ _021F6424:
 	.align 2, 0
 _021F6428: .word MOD05_021F57F0
 
-	.section .data
+	.section .rodata
 	; 0x021F642C
-	.incbin "baserom.nds", 0x16434c, 0x7254
+	.incbin "baserom.nds", 0x16434c, 0x6d9c
+
+	.section .data
+	; 0x021FD1E0
+	.incbin "baserom.nds", 0x16b100, 0x4A0
 
 	.section .bss
 	; 0x021FD680
