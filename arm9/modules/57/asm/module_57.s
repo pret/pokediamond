@@ -41,7 +41,7 @@ MOD57_021D74E0: ; 0x021D74E0
 	ldr r2, _021D76F0 ; =0x00003320
 	mov r1, #0
 	add r4, r0, #0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	add r0, r5, #0
 	bl FUN_0200628C
 	add r1, r4, #0
@@ -722,19 +722,19 @@ _021D7AC4:
 	mov r1, #2
 	ldr r0, [r0, #0xc]
 	lsl r1, r1, #8
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r0, [sp]
 	mov r1, #0x20
 	ldr r5, [r0, #0xc]
 	mov r2, #0x60
 	add r0, r5, #0
 	add r0, #0x20
-	blx GXS_LoadBGPltt
+	bl GXS_LoadBGPltt
 	mov r1, #0x1e
 	lsl r1, r1, #4
 	add r0, r5, r1
 	mov r2, #0x20
-	blx GXS_LoadBGPltt
+	bl GXS_LoadBGPltt
 	add r0, r4, #0
 	bl FUN_02016A18
 	pop {r3, r4, r5, pc}
@@ -776,17 +776,17 @@ _021D7B30:
 	ldr r0, [sp]
 	mov r1, #0x20
 	ldr r0, [r0, #0xc]
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r0, [sp]
 	mov r1, #0
 	ldr r0, [r0, #0xc]
 	mov r2, #0x20
-	blx GX_LoadBGPltt
+	bl GX_LoadBGPltt
 	ldr r0, [sp]
 	mov r1, #0
 	ldr r0, [r0, #0xc]
 	mov r2, #0x20
-	blx GXS_LoadBGPltt
+	bl GXS_LoadBGPltt
 	add r0, r4, #0
 	bl FUN_02016A18
 	add sp, #4
@@ -809,11 +809,11 @@ MOD57_021D7B5C: ; 0x021D7B5C
 	ldr r5, [r0, #0xc]
 	mov r1, #0x20
 	add r0, r5, r4
-	blx DC_FlushRange
+	bl DC_FlushRange
 	add r0, r5, r4
 	mov r1, #0x80
 	mov r2, #0x20
-	blx GXS_LoadBGPltt
+	bl GXS_LoadBGPltt
 	add r0, r6, #0
 	bl FUN_02016A18
 	add sp, #4
@@ -958,13 +958,13 @@ MOD57_021D7CA4: ; 0x021D7CA4
 	mov r1, #2
 	ldr r0, [r0, #0xc]
 	lsl r1, r1, #8
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r0, [sp, #0x14]
 	mov r2, #2
 	ldr r0, [r0, #0xc]
 	mov r1, #0
 	lsl r2, r2, #8
-	blx GXS_LoadBGPltt
+	bl GXS_LoadBGPltt
 	add r0, r5, #0
 	bl FUN_02016A18
 	add r0, r4, #0
@@ -985,13 +985,13 @@ MOD57_021D7CA4: ; 0x021D7CA4
 	mov r1, #2
 	ldr r0, [r0, #0xc]
 	lsl r1, r1, #8
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r0, [sp, #0x10]
 	mov r2, #2
 	ldr r0, [r0, #0xc]
 	mov r1, #0
 	lsl r2, r2, #8
-	blx GX_LoadBGPltt
+	bl GX_LoadBGPltt
 	add r0, r5, #0
 	bl FUN_02016A18
 	add r0, r4, #0
@@ -1022,7 +1022,7 @@ _021D7D4C:
 	ldr r0, [r4, r1]
 	add r1, r1, #4
 	add r1, r4, r1
-	blx FUN_020B0030
+	bl FUN_020B0030
 	cmp r0, #0
 	bne _021D7D60
 	bl ErrorHandling
@@ -1076,7 +1076,7 @@ _021D7DBC:
 	ldr r0, [r4, r1]
 	add r1, r1, #4
 	add r1, r4, r1
-	blx FUN_020B0030
+	bl FUN_020B0030
 	cmp r0, #0
 	bne _021D7DD0
 	bl ErrorHandling
@@ -1420,17 +1420,17 @@ _021D806A:
 _021D8092:
 	ldr r0, _021D80E0 ; =0x000030C8
 	ldr r0, [r4, r0]
-	blx FX_Inv
+	bl FX_Inv
 	add r6, r0, #0
 	ldr r0, _021D80EC ; =0x000030CC
 	ldr r0, [r4, r0]
-	blx FX_Inv
+	bl FX_Inv
 	mov r1, #0
 	str r6, [sp, #0x10]
 	str r1, [sp, #0x14]
 	str r1, [sp, #0x18]
 	str r0, [sp, #0x1c]
-	blx OS_WaitVBlankIntr
+	bl OS_WaitVBlankIntr
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1438,7 +1438,7 @@ _021D8092:
 	add r1, sp, #0x10
 	mov r2, #0x80
 	mov r3, #0x60
-	blx G2x_SetBGyAffine_
+	bl G2x_SetBGyAffine_
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1446,7 +1446,7 @@ _021D8092:
 	add r1, sp, #0x10
 	mov r2, #0x80
 	mov r3, #0x60
-	blx G2x_SetBGyAffine_
+	bl G2x_SetBGyAffine_
 	add r0, r5, #0
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1562,24 +1562,24 @@ _021D81A8:
 _021D81AE:
 	mov r0, #1
 	lsl r0, r0, #0xc
-	blx FX_Inv
+	bl FX_Inv
 	add r5, r0, #0
 	ldr r0, _021D81E8 ; =0x000030D0
 	ldr r0, [r4, r0]
-	blx FX_Inv
+	bl FX_Inv
 	mov r1, #0
 	str r5, [sp, #8]
 	str r1, [sp, #0xc]
 	str r1, [sp, #0x10]
 	str r0, [sp, #0x14]
-	blx OS_WaitVBlankIntr
+	bl OS_WaitVBlankIntr
 	mov r3, #0
 	str r3, [sp]
 	ldr r0, _021D81F4 ; =0x04000030
 	add r1, sp, #8
 	mov r2, #0x80
 	str r3, [sp, #4]
-	blx G2x_SetBGyAffine_
+	bl G2x_SetBGyAffine_
 	mov r0, #0
 	add sp, #0x18
 	pop {r3, r4, r5, pc}
@@ -2068,17 +2068,17 @@ MOD57_021D8588: ; 0x021D8588
 	sub sp, #0x18
 	mov r0, #1
 	lsl r0, r0, #0xc
-	blx FX_Inv
+	bl FX_Inv
 	add r4, r0, #0
 	mov r0, #1
 	lsl r0, r0, #0xc
-	blx FX_Inv
+	bl FX_Inv
 	mov r1, #0
 	str r4, [sp, #8]
 	str r1, [sp, #0xc]
 	str r1, [sp, #0x10]
 	str r0, [sp, #0x14]
-	blx OS_WaitVBlankIntr
+	bl OS_WaitVBlankIntr
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2086,7 +2086,7 @@ MOD57_021D8588: ; 0x021D8588
 	add r1, sp, #8
 	mov r2, #0x80
 	mov r3, #0x60
-	blx G2x_SetBGyAffine_
+	bl G2x_SetBGyAffine_
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -2094,15 +2094,15 @@ MOD57_021D8588: ; 0x021D8588
 	add r1, sp, #8
 	mov r2, #0x80
 	mov r3, #0x60
-	blx G2x_SetBGyAffine_
-	blx OS_WaitVBlankIntr
+	bl G2x_SetBGyAffine_
+	bl OS_WaitVBlankIntr
 	mov r3, #0
 	str r3, [sp]
 	ldr r0, _021D85F0 ; =0x04000030
 	add r1, sp, #8
 	mov r2, #0x80
 	str r3, [sp, #4]
-	blx G2x_SetBGyAffine_
+	bl G2x_SetBGyAffine_
 	add sp, #0x18
 	pop {r4, pc}
 	.align 2, 0
@@ -2538,7 +2538,7 @@ _021D88F0:
 	mov r1, #0x1e
 	ldrb r0, [r4, r0]
 	add r0, r0, #1
-	blx _s32_div_f
+	bl _s32_div_f
 	ldr r0, _021D8904 ; =0x0000331E
 	strb r1, [r4, r0]
 _021D8900:
@@ -3573,7 +3573,7 @@ MOD57_021D9184: ; 0x021D9184
 	sub sp, #0x3c
 	add r7, r0, #0
 	bl MOD57_021D9578
-	blx FUN_020B0FC0
+	bl FUN_020B0FC0
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -3709,7 +3709,7 @@ _021D9290:
 	beq _021D92CA
 	ldr r1, [sp, #0x18]
 	add r1, r1, r6
-	blx FUN_020B0138
+	bl FUN_020B0138
 	cmp r0, #0
 	bne _021D92CE
 	mov r0, #0x1e
@@ -4024,7 +4024,7 @@ _021D9536:
 	ldr r0, [r1, r0]
 	bl FUN_02020354
 	mov r1, #1
-	blx FUN_020B19C4
+	bl FUN_020B19C4
 	str r0, [sp]
 	lsl r0, r4, #5
 	str r0, [sp, #4]
@@ -4036,13 +4036,13 @@ _021D9536:
 	ldr r4, [r0, #0xc]
 	mov r1, #0x20
 	add r0, r4, r5
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r2, [sp]
 	ldr r1, [sp, #4]
 	add r0, r4, r5
 	add r1, r2, r1
 	mov r2, #0x20
-	blx GX_LoadOBJPltt
+	bl GX_LoadOBJPltt
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
