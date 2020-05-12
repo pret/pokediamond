@@ -682,11 +682,11 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	lsl r0, r0, #0x1a
 	tst r0, r1
 	bne _0222DB8E
-	blx G3X_ResetMtxStack
+	bl G3X_ResetMtxStack
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	blx FUN_020BB1C0
+	bl FUN_020BB1C0
 	ldr r0, _0222DB98 ; =0x00001B38
 	ldr r0, [r4, r0]
 	bl MOD69_0222F11C
@@ -694,11 +694,11 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	mov r0, #0x12
 	add r1, sp, #4
 	str r2, [sp, #4]
-	blx FUN_020BB1C0
+	bl FUN_020BB1C0
 	mov r1, #0
 	mov r0, #0x11
 	add r2, r1, #0
-	blx FUN_020BB1C0
+	bl FUN_020BB1C0
 	ldr r0, _0222DB9C ; =0x00001B3C
 	ldr r0, [r4, r0]
 	bl MOD69_0222F63C
@@ -706,7 +706,7 @@ MOD69_0222DB2C: ; 0x0222DB2C
 	mov r0, #0x12
 	add r1, sp, #0
 	str r2, [sp]
-	blx FUN_020BB1C0
+	bl FUN_020BB1C0
 	ldr r0, _0222DBA0 ; =0x04000540
 	mov r1, #1
 	str r1, [r0]
@@ -921,8 +921,8 @@ MOD69_0222DD54: ; 0x0222DD54
 	push {r3, r4, lr}
 	sub sp, #4
 	add r4, r0, #0
-	blx FUN_020BB7F4
-	blx G3X_InitMtxStack
+	bl FUN_020BB7F4
+	bl G3X_InitMtxStack
 	ldr r0, _0222DDE4 ; =0x04000060
 	ldr r2, _0222DDE8 ; =0xFFFFCFFD
 	ldrh r1, [r0]
@@ -949,7 +949,7 @@ MOD69_0222DD54: ; 0x0222DD54
 	add r1, r0, #0
 	mov r3, #0x3f
 	str r0, [sp]
-	blx G3X_SetClearColor
+	bl G3X_SetClearColor
 	ldr r1, _0222DDF0 ; =0x04000540
 	mov r0, #2
 	str r0, [r1]
@@ -957,11 +957,11 @@ MOD69_0222DD54: ; 0x0222DD54
 	str r0, [r1, #0x40]
 	mov r0, #1
 	add r1, r0, #0
-	blx FUN_020AEB70
+	bl FUN_020AEB70
 	mov r0, #1
 	lsl r0, r0, #0xe
 	mov r1, #1
-	blx FUN_020AEDF4
+	bl FUN_020AEDF4
 	mov r0, #1
 	add r1, r0, #0
 	bl FUN_0201E6E4
@@ -977,7 +977,7 @@ MOD69_0222DD54: ; 0x0222DD54
 	mov r2, #0x18
 	add r3, r1, #0
 	str r1, [sp]
-	blx G2x_SetBlendAlpha_
+	bl G2x_SetBlendAlpha_
 	add r0, r4, #0
 	bl MOD69_0222DDFC
 	add sp, #4
@@ -1071,7 +1071,7 @@ MOD69_0222DE98: ; 0x0222DE98
 	push {r3, r4, lr}
 	sub sp, #0x1c
 	add r4, r0, #0
-	blx FUN_020B0FC0
+	bl FUN_020B0FC0
 	mov r0, #0
 	str r0, [sp]
 	mov r1, #0x80
@@ -1193,19 +1193,19 @@ _0222DF72:
 	str r0, [sp, #0x34]
 _0222DF98:
 	add r0, sp, #0x5c
-	blx FUN_020B1A24
+	bl FUN_020B1A24
 	add r0, sp, #0x48
-	blx FUN_020B19DC
+	bl FUN_020B19DC
 	ldr r0, [sp, #0x44]
 	add r1, r7, #0
 	mov r2, #1
 	add r3, sp, #0x5c
-	blx FUN_020B1768
+	bl FUN_020B1768
 	ldr r0, [sp, #0x40]
 	add r1, r6, #0
 	mov r2, #1
 	add r3, sp, #0x48
-	blx FUN_020B1240
+	bl FUN_020B1240
 	ldr r0, [sp, #0x20]
 	add r0, r0, #1
 	str r0, [sp, #0x94]
@@ -1260,11 +1260,11 @@ _0222DF98:
 	bl FUN_02012530
 	ldr r1, [sp, #0x30]
 	add r0, r4, #0
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r2, [sp, #0x34]
 	add r0, r4, #0
 	add r1, r7, #0
-	blx GX_LoadOBJ
+	bl GX_LoadOBJ
 	mov r1, #0
 	ldr r0, [sp, #0x2c]
 	add r2, r1, #0
@@ -1288,11 +1288,11 @@ _0222DF98:
 	bl FUN_02012530
 	ldr r1, [sp, #0x38]
 	add r0, r4, #0
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r1, [sp, #0x1c]
 	ldr r2, [sp, #0x3c]
 	add r0, r4, #0
-	blx GX_LoadOBJ
+	bl GX_LoadOBJ
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x3f
@@ -1333,20 +1333,20 @@ _0222DF98:
 	b _0222DF98
 _0222E0D4:
 	add r0, sp, #0x5c
-	blx FUN_020B1A24
+	bl FUN_020B1A24
 	add r0, sp, #0x48
-	blx FUN_020B19DC
+	bl FUN_020B19DC
 	mov r1, #0x96
 	ldr r0, [sp, #0x44]
 	lsl r1, r1, #8
 	mov r2, #1
 	add r3, sp, #0x5c
-	blx FUN_020B1768
+	bl FUN_020B1768
 	ldr r0, [sp, #0x40]
 	mov r1, #0xc0
 	mov r2, #1
 	add r3, sp, #0x48
-	blx FUN_020B1240
+	bl FUN_020B1240
 	ldr r0, [sp, #0x14]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0]
@@ -1379,7 +1379,7 @@ _0222E10E:
 	add r0, r0, r1
 	mov r1, #0x32
 	lsl r1, r1, #6
-	blx DC_FlushRange
+	bl DC_FlushRange
 	mov r1, #0x87
 	mov r2, #0x32
 	ldr r0, [sp, #0x14]
@@ -1388,7 +1388,7 @@ _0222E10E:
 	mov r1, #0x96
 	lsl r1, r1, #8
 	lsl r2, r2, #6
-	blx GX_LoadOBJ
+	bl GX_LoadOBJ
 	mov r0, #0x20
 	str r0, [sp]
 	mov r0, #0x3f
@@ -2169,7 +2169,7 @@ _0222E77E:
 	str r0, [r3]
 	add r0, r4, #0
 	add r0, #0x48
-	blx FUN_020B1A24
+	bl FUN_020B1A24
 	mov r3, #0x19
 	add r0, r4, #0
 	lsl r3, r3, #8
@@ -2179,7 +2179,7 @@ _0222E77E:
 	add r0, #0x48
 	mov r1, #1
 	add r2, r2, r3
-	blx FUN_020B1A1C
+	bl FUN_020B1A1C
 	ldr r0, _0222E7BC ; =MOD69_0222E7C0
 	add r1, r4, #0
 	mov r2, #0
@@ -2993,17 +2993,17 @@ MOD69_0222EE2C: ; 0x0222EE2C
 	add r0, r4, #0
 	add r1, #0x14
 	lsl r2, r2, #0xa
-	blx G3_BeginMakeDL
+	bl G3_BeginMakeDL
 	ldr r1, _0222EE74 ; =0x00007FFF
 	ldr r2, _0222EE78 ; =0x00004210
 	add r0, r4, #0
 	mov r3, #0
-	blx G3B_MaterialColorDiffAmb
+	bl G3B_MaterialColorDiffAmb
 	mov r2, #0
 	ldr r1, _0222EE78 ; =0x00004210
 	add r0, r4, #0
 	add r3, r2, #0
-	blx G3B_MaterialColorSpecEmi
+	bl G3B_MaterialColorSpecEmi
 	pop {r4, pc}
 _0222EE60:
 	ldr r1, _0222EE7C ; =0x0222F960
@@ -3027,13 +3027,13 @@ MOD69_0222EE80: ; 0x0222EE80
 	cmp r1, #0
 	beq _0222EEA2
 	add r0, r4, #0
-	blx G3_EndMakeDL
+	bl G3_EndMakeDL
 	ldr r1, _0222EEB4 ; =0x00000814
 	str r0, [r4, r1]
 	add r0, r4, #0
 	ldr r1, [r4, r1]
 	add r0, #0x14
-	blx DC_FlushRange
+	bl DC_FlushRange
 	pop {r4, pc}
 _0222EEA2:
 	ldr r1, _0222EEB8 ; =0x0222F960
@@ -3209,7 +3209,7 @@ _0222EFE4:
 	mov r3, #0
 	ldr r0, [r0, r1]
 	asr r1, r0, #0x1f
-	blx _ll_mul
+	bl _ll_mul
 	ldr r4, _0222F108 ; =0x00000818
 	mov r3, #0
 	ldrsh r2, [r5, r4]
@@ -3226,7 +3226,7 @@ _0222EFE4:
 	ldr r0, [r0, r1]
 	lsl r2, r2, #0xa
 	asr r1, r0, #0x1f
-	blx _ll_mul
+	bl _ll_mul
 	mov r2, #2
 	mov r3, #0
 	lsl r2, r2, #0xa
@@ -3271,17 +3271,17 @@ _0222EFE4:
 	add r2, r3, #0
 	ldr r0, [r5]
 	mov r3, #2
-	blx G3B_PolygonAttr
+	bl G3B_PolygonAttr
 	ldr r0, [r5]
 	mov r1, #1
-	blx G3B_Begin
+	bl G3B_Begin
 	mov r1, #0x81
 	lsl r1, r1, #4
 	ldr r1, [r5, r1]
 	ldr r0, [r5]
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	blx G3B_Color
+	bl G3B_Color
 	ldr r3, _0222F10C ; =0x0000081A
 	ldr r0, [r5]
 	add r2, r3, #2
@@ -3289,7 +3289,7 @@ _0222EFE4:
 	add r3, r3, #4
 	ldrsh r2, [r5, r2]
 	ldrsh r3, [r5, r3]
-	blx G3B_Vtx
+	bl G3B_Vtx
 	mov r3, #0x82
 	lsl r3, r3, #4
 	add r2, r3, #2
@@ -3298,7 +3298,7 @@ _0222EFE4:
 	ldrsh r2, [r5, r2]
 	ldrsh r3, [r5, r3]
 	ldr r0, [r5]
-	blx G3B_Vtx
+	bl G3B_Vtx
 	ldr r3, _0222F110 ; =0x0000082C
 	ldr r0, [r5]
 	add r2, r3, #2
@@ -3306,7 +3306,7 @@ _0222EFE4:
 	add r3, r3, #4
 	ldrsh r2, [r5, r2]
 	ldrsh r3, [r5, r3]
-	blx G3B_Vtx
+	bl G3B_Vtx
 	ldr r3, _0222F114 ; =0x00000826
 	ldr r0, [r5]
 	add r2, r3, #2
@@ -3314,9 +3314,9 @@ _0222EFE4:
 	add r3, r3, #4
 	ldrsh r2, [r5, r2]
 	ldrsh r3, [r5, r3]
-	blx G3B_Vtx
+	bl G3B_Vtx
 	ldr r0, [r5]
-	blx G3B_End
+	bl G3B_End
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 _0222F0EC:
@@ -3487,7 +3487,7 @@ _0222F206:
 	bl FUN_0201B9EC
 	mov r1, #0x29
 	lsl r1, r1, #4
-	blx _s32_div_f
+	bl _s32_div_f
 	mov r0, #0x52
 	lsl r0, r0, #2
 	sub r0, r1, r0
@@ -3551,7 +3551,7 @@ _0222F25C:
 	add r0, r1, r0
 	strh r0, [r4, #0x32]
 	ldr r0, [sp, #0x18]
-	blx MTX_Identity44_
+	bl MTX_Identity44_
 	add r7, r7, #1
 	add r5, r5, #6
 	add r6, r6, #6
@@ -3567,7 +3567,7 @@ _0222F2E8:
 	ldr r0, [sp, #0xc]
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0x14]
-	blx VEC_Fx16Add
+	bl VEC_Fx16Add
 	add r0, r5, #0
 	sub r5, r5, #1
 	cmp r0, #0
@@ -3658,7 +3658,7 @@ _0222F396:
 	add r1, #0x14
 	add r1, r7, r1
 	lsl r2, r2, #0xa
-	blx G3_BeginMakeDL
+	bl G3_BeginMakeDL
 	mov r0, #0x3f
 	str r0, [sp]
 	mov r0, #0x1f
@@ -3669,13 +3669,13 @@ _0222F396:
 	add r0, r7, r0
 	add r3, r1, #0
 	str r2, [sp, #8]
-	blx G3B_PolygonAttr
+	bl G3B_PolygonAttr
 	ldr r0, _0222F610 ; =0x00001508
 	mov r2, #0
 	ldr r1, _0222F614 ; =0x00005294
 	add r0, r7, r0
 	add r3, r2, #0
-	blx G3B_MaterialColorDiffAmb
+	bl G3B_MaterialColorDiffAmb
 	mov r0, #0
 	str r0, [sp, #0x1c]
 	add r0, r7, #0
@@ -3722,9 +3722,9 @@ _0222F408:
 	ldrsh r0, [r4, r0]
 	strh r0, [r4, #0x1e]
 	ldr r0, [sp, #0x10]
-	blx VEC_Fx16Add
+	bl VEC_Fx16Add
 	ldr r0, [sp, #0xc]
-	blx MTX_Identity44_
+	bl MTX_Identity44_
 	mov r0, #0x14
 	ldrsh r0, [r4, r0]
 	mov r2, #0x10
@@ -3734,19 +3734,19 @@ _0222F408:
 	ldrsh r3, [r4, r3]
 	ldr r1, [sp, #0xc]
 	add r0, r5, #0
-	blx MTX_TransApply44
+	bl MTX_TransApply44
 	ldr r0, _0222F610 ; =0x00001508
 	ldr r2, _0222F620 ; =0x00002D6B
 	add r0, r7, r0
 	mov r1, #0
-	blx G3B_LightColor
+	bl G3B_LightColor
 	ldr r2, [r4, #8]
 	ldr r0, _0222F610 ; =0x00001508
 	lsl r2, r2, #0x10
 	add r0, r7, r0
 	mov r1, #1
 	lsr r2, r2, #0x10
-	blx G3B_LightColor
+	bl G3B_LightColor
 	mov r1, #0
 	add r0, sp, #0x20
 	strh r1, [r0]
@@ -3756,7 +3756,7 @@ _0222F408:
 	strh r1, [r0, #4]
 	add r0, sp, #0x20
 	add r1, r0, #0
-	blx VEC_Fx16Normalize
+	bl VEC_Fx16Normalize
 	add r3, sp, #0x20
 	add r1, sp, #0x20
 	mov r0, #4
@@ -3770,7 +3770,7 @@ _0222F408:
 	mov r3, #2
 	ldrsh r3, [r6, r3]
 	add r0, r7, r0
-	blx G3B_LightVector
+	bl G3B_LightVector
 	mov r1, #0
 	add r0, r6, #0
 	strh r1, [r0]
@@ -3780,7 +3780,7 @@ _0222F408:
 	strh r1, [r0, #4]
 	add r0, sp, #0x20
 	add r1, r0, #0
-	blx VEC_Fx16Normalize
+	bl VEC_Fx16Normalize
 	add r1, r6, #0
 	mov r0, #4
 	ldrsh r0, [r1, r0]
@@ -3793,7 +3793,7 @@ _0222F408:
 	ldrsh r3, [r6, r3]
 	add r0, r7, r0
 	mov r1, #1
-	blx G3B_LightVector
+	bl G3B_LightVector
 	ldrh r0, [r4, #0x28]
 	ldr r3, _0222F62C ; =0x020FFA38
 	asr r0, r0, #4
@@ -3808,7 +3808,7 @@ _0222F408:
 	ldr r2, [sp, #0xc]
 	add r0, sp, #0x28
 	add r1, r5, #0
-	blx MTX_Concat44
+	bl MTX_Concat44
 	ldrh r0, [r4, #0x2a]
 	ldr r3, _0222F62C ; =0x020FFA38
 	asr r0, r0, #4
@@ -3823,7 +3823,7 @@ _0222F408:
 	ldr r2, [sp, #0xc]
 	add r0, sp, #0x28
 	add r1, r5, #0
-	blx MTX_Concat44
+	bl MTX_Concat44
 	ldrh r0, [r4, #0x2c]
 	ldr r3, _0222F62C ; =0x020FFA38
 	asr r0, r0, #4
@@ -3838,7 +3838,7 @@ _0222F408:
 	ldr r2, [sp, #0xc]
 	add r0, sp, #0x28
 	add r1, r5, #0
-	blx MTX_Concat44
+	bl MTX_Concat44
 	ldr r2, [r4, #8]
 	ldr r0, _0222F610 ; =0x00001508
 	lsl r2, r2, #0x10
@@ -3846,24 +3846,24 @@ _0222F408:
 	add r0, r7, r0
 	lsr r2, r2, #0x10
 	mov r3, #0
-	blx G3B_MaterialColorSpecEmi
+	bl G3B_MaterialColorSpecEmi
 	ldr r0, _0222F610 ; =0x00001508
 	add r0, r7, r0
-	blx G3B_PushMtx
+	bl G3B_PushMtx
 	ldr r0, _0222F610 ; =0x00001508
 	add r1, r5, #0
 	add r0, r7, r0
-	blx G3B_LoadMtx44
+	bl G3B_LoadMtx44
 	ldr r0, _0222F610 ; =0x00001508
 	mov r1, #1
 	add r0, r7, r0
-	blx G3B_Begin
+	bl G3B_Begin
 	ldr r0, _0222F610 ; =0x00001508
 	mov r1, #0
 	ldr r3, _0222F628 ; =0xFFFFF001
 	add r0, r7, r0
 	add r2, r1, #0
-	blx G3B_Normal
+	bl G3B_Normal
 	mov r1, #0x9b
 	ldr r0, _0222F610 ; =0x00001508
 	mvn r1, r1
@@ -3871,34 +3871,34 @@ _0222F408:
 	add r0, r7, r0
 	sub r2, #0x31
 	mov r3, #0
-	blx G3B_Vtx
+	bl G3B_Vtx
 	ldr r0, _0222F610 ; =0x00001508
 	mov r2, #0xcc
 	add r0, r7, r0
 	mov r1, #0x9c
 	mvn r2, r2
 	mov r3, #0
-	blx G3B_Vtx
+	bl G3B_Vtx
 	ldr r0, _0222F610 ; =0x00001508
 	mov r1, #0x9c
 	add r0, r7, r0
 	mov r2, #0xcd
 	mov r3, #0
-	blx G3B_Vtx
+	bl G3B_Vtx
 	ldr r0, _0222F610 ; =0x00001508
 	mov r1, #0x9b
 	add r0, r7, r0
 	mvn r1, r1
 	mov r2, #0xcd
 	mov r3, #0
-	blx G3B_Vtx
+	bl G3B_Vtx
 	ldr r0, _0222F610 ; =0x00001508
 	add r0, r7, r0
-	blx G3B_End
+	bl G3B_End
 	ldr r0, _0222F610 ; =0x00001508
 	mov r1, #1
 	add r0, r7, r0
-	blx G3B_PopMtx
+	bl G3B_PopMtx
 	ldr r0, [sp, #0x18]
 	add r4, #0x70
 	add r0, #0x70
@@ -3922,13 +3922,13 @@ _0222F408:
 _0222F5E2:
 	ldr r0, _0222F610 ; =0x00001508
 	add r0, r7, r0
-	blx G3_EndMakeDL
+	bl G3_EndMakeDL
 	ldr r1, _0222F634 ; =0x00008D1C
 	str r0, [r7, r1]
 	ldr r0, _0222F638 ; =0x0000151C
 	ldr r1, [r7, r1]
 	add r0, r7, r0
-	blx DC_FlushRange
+	bl DC_FlushRange
 	ldr r0, _0222F634 ; =0x00008D1C
 	ldr r1, [r7, r0]
 	mov r0, #0x1e
@@ -3996,7 +3996,7 @@ MOD69_0222F680: ; 0x0222F680
 	sub r0, r2, r1
 	add r1, r5, #0
 	str r2, [r4, #8]
-	blx _s32_div_f
+	bl _s32_div_f
 	str r0, [r4, #4]
 	sub r0, r5, #1
 	str r0, [r4, #0xc]
