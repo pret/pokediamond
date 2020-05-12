@@ -245,4 +245,6 @@ _021D76C4: .word 0x00000BB8
 
 	.section .rodata
 	; 0x021D76C8
+	.global MOD52_UNK_021D76C8
+MOD52_UNK_021D76C8: ; 0x021D76C8
 	.incbin "baserom.nds", 0x299BE8, 0x208

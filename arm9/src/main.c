@@ -66,8 +66,8 @@ extern void FUN_02006260(int);
 extern BOOL FUN_02033678(void);
 extern int FUN_020335B8(void);
 
-extern struct Unk21DBE18 gUnk021DBE18; 
-extern struct Unk21DBE18 gUnk021D76C8;
+extern struct Unk21DBE18 MOD63_UNK_021DBE18; 
+extern struct Unk21DBE18 MOD52_UNK_021D76C8;
 
 
 THUMB_FUNC void NitroMain(void)
@@ -102,11 +102,11 @@ THUMB_FUNC void NitroMain(void)
         {
         case 0:
             gBacklightTop.unk1C = 0;
-            FUN_02000E7C(FS_OVERLAY_ID(MODULE_63), &gUnk021DBE18);
+            FUN_02000E7C(FS_OVERLAY_ID(MODULE_63), &MOD63_UNK_021DBE18);
             break;
         case 1:
             gBacklightTop.unk1C = 1;
-            FUN_02000E7C(FS_OVERLAY_ID(MODULE_52), &gUnk021D76C8);
+            FUN_02000E7C(FS_OVERLAY_ID(MODULE_52), &MOD52_UNK_021D76C8);
             break;
         default:
             ErrorHandling();
