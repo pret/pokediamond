@@ -278,7 +278,6 @@ MEMORY {
 }
 
 SECTIONS {
-#include "undefined_syms.txt"
     .header: {
         rom_header.o (.text)
         . = 0x4000;
