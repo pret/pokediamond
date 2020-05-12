@@ -1120,7 +1120,7 @@
 .extern FUN_02036D94
 .extern FUN_02036DD4
 .extern FUN_02037024
-.extern FUN_02037350
+.extern LoadOverlay_MODULE_05
 .extern FUN_02037394
 .extern FUN_0203739C
 .extern FUN_020373AC

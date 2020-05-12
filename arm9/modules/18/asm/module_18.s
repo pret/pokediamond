@@ -26764,7 +26764,7 @@ MOD18_022464D0: ; 0x022464D0
 	b _0224650E
 _022464EE:
 	add r0, r5, #0
-	bl FUN_02037350
+	bl LoadOverlay_MODULE_05
 	ldr r0, [r4, #0x10]
 	add r0, r0, #1
 	str r0, [r4, #0x10]
