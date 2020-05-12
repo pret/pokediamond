@@ -9489,7 +9489,7 @@ MOD05_021DBEA0: ; 0x021DBEA0
 	mov r1, #2
 	bl HandleLoadOverlay
 	add r0, r4, #0
-	bl FUN_02254A68
+	bl MOD51_02254A68
 	add r4, #0x80
 	str r0, [r4]
 	pop {r4, pc}
@@ -9515,7 +9515,7 @@ MOD05_021DBECC: ; 0x021DBECC
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0]
-	bl FUN_02254AB8
+	bl MOD51_02254AB8
 	ldr r0, _021DBEE0 ; =SDK_OVERLAY_MODULE_51_ID
 	bl UnloadOverlayByID
 	pop {r3, pc}
