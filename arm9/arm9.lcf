@@ -323,7 +323,7 @@ SECTIONS {
 	{
 		. = ALIGN(32);
 		SDK_AUTOLOAD.ITCM.START = .;
-		arm9_itcm.o (.itcm)
+		arm9_itcm.o (.text)
 		. = ALIGN(32);
 		SDK_AUTOLOAD.ITCM.END = .;
 		SDK_AUTOLOAD.ITCM.SIZE = SDK_AUTOLOAD.ITCM.END - SDK_AUTOLOAD.ITCM.START;
