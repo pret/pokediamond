@@ -5589,6 +5589,8 @@
 .extern FUN_020294A8
 .extern FUN_0202EEB0
 .extern FUN_02031370
+.extern FUN_0200A064
+.extern FUN_0200C918
 .extern FUN_02031388
 .extern FUN_02052F8C
 .extern FUN_02083D48
