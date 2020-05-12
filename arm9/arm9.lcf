@@ -268,6 +268,7 @@ SECTIONS {
 		gUnknown21C48B8                  = 0x021C48B8;
 		gUnk021C4918                     = 0x021C4918;
 		gUnk021C8C70                     = 0x021C8C70;
+		gUnk021C8C74                     = 0x021C8C74;
 		OSi_IrqCallbackInfo              = 0x021D341C;
 		isInitialized                    = 0x021D347C;
 		OSi_StackForDestructor           = 0x021D3480;
