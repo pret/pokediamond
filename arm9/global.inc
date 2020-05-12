@@ -2649,6 +2649,9 @@
 .extern FUN_0200B468
 .extern FUN_02029584
 .extern FUN_02029960
+.extern FUN_02085224
+.extern FUN_02085274
+.extern FUN_02085310
 .extern FUN_020345A8
 .extern FUN_020345DC
 .extern FUN_020345F0
