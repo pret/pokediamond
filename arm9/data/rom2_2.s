@@ -731,4 +731,8 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203AF84
     .word FUN_0203AFA4
 
-	.incbin "baserom.nds", 0xF80A0, 0xFEE0
+	; 0x020F40A0
+	.incbin "baserom.nds", 0xF80A0, 0xF998
+	.global FX_AtanTable_
+FX_AtanTable_: ; 0x02103A38
+	.incbin "baserom.nds", 0x107A38, 0x548

@@ -21960,7 +21960,7 @@ MOD13_02231018: ; 0x02231018
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
 	mov r5, r0
-	bl FUN_021EBB80
+	bl MOD04_021EBB80
 	movs r4, r0
 	addeq sp, sp, #4
 	ldmeqia sp!, {r4, r5, pc}
@@ -21975,7 +21975,7 @@ MOD13_02231018: ; 0x02231018
 	bl MOD13_0223424C
 	b _0223106C
 _0223105C:
-	bl FUN_021EBAE8
+	bl MOD04_021EBAE8
 	bl MOD13_0222B0BC
 	mov r0, #0x12
 	bl MOD13_0223424C
@@ -21996,7 +21996,7 @@ MOD13_02231090: ; 0x02231090
 	stmdb sp!, {r4, lr}
 	bl MOD13_022338FC
 	mov r4, r0
-	bl FUN_021EB9D8
+	bl MOD04_021EB9D8
 	cmp r0, #0
 	ldmeqia sp!, {r4, pc}
 	bl FUN_02095324
@@ -22162,7 +22162,7 @@ MOD13_0223126C: ; 0x0223126C
 	addne r0, r0, #1
 	strneb r0, [sp, #0xe]
 	add r0, sp, #4
-	bl FUN_021EBC60
+	bl MOD04_021EBC60
 	cmp r0, #0
 	bne _022312C8
 	bl OS_Terminate
@@ -22172,7 +22172,7 @@ _022312C8:
 	bne _022312E0
 	ldrb r0, [r4, #0xf4]
 	mov r1, r4
-	bl FUN_021EB9A4
+	bl MOD04_021EB9A4
 _022312E0:
 	mov r0, #0
 	ldr r1, _02231300 ; =MOD13_02231018
