@@ -111,6 +111,8 @@ MEMORY {
 
 SECTIONS {
 #include "undefined_syms.txt"
+SDK_SYS_STACKSIZE = 0x00000000;
+SDK_IRQ_STACKSIZE = 0x00000400;
 	.arm9 : {
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_STATIC_START = .;
@@ -2852,12 +2854,14 @@ SECTIONS {
 
 	.arena.MAIN:
 	{
-
+		. = ALIGN(32);
+		SDK_MAIN_ARENA_LO = .;
 	} > arena.MAIN
 
 	.arena.MAIN_EX:
 	{
-
+		. = ALIGN(32);
+		SDK_SECTION_ARENA_EX_START = .;
 	} > arena.MAIN_EX
 
 	.arena.ITCM:
