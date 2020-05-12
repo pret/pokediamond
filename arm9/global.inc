@@ -5601,6 +5601,12 @@
 .extern FUN_02085D9C
 .extern FUN_02085FAC
 .extern FUN_02031370
+.extern FUN_02016B44
+.extern FUN_02017BD0
+.extern FUN_0201ED5C
+.extern FUN_0201EE2C
+.extern FUN_0201EFB4
+.extern FUN_0201F05C
 .extern FUN_0200A064
 .extern FUN_0200C918
 .extern FUN_02031388
