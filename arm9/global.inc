@@ -2637,6 +2637,11 @@
 .extern FUN_020C1F54
 .extern FUN_020C1FA4
 .extern FUN_020C1FF0
+.extern FUN_02013EA8
+.extern FUN_02013EC4
+.extern FUN_02013ED8
+.extern FUN_02013EE0
+.extern FUN_0201EC58
 .extern FUN_020C20DC
 .extern FUN_020C2104
 .extern FUN_020C217C
