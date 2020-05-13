@@ -362,10 +362,10 @@ MOD64_021D77E8: ; 0x021D77E8
 
 	thumb_func_start MOD64_021D7808
 MOD64_021D7808: ; 0x021D7808
-	ldr r3, _021D780C ; =0x0200E309
+	ldr r3, _021D780C ; =FUN_0200E308
 	bx r3
 	.align 2, 0
-_021D780C: .word 0x0200E309
+_021D780C: .word FUN_0200E308
 	thumb_func_end MOD64_021D7808
 
 	thumb_func_start MOD64_021D7810
@@ -911,12 +911,12 @@ _021D7C60: .word 0x0000064C
 	thumb_func_start MOD64_021D7C64
 MOD64_021D7C64: ; 0x021D7C64
 	ldr r1, _021D7C6C ; =0x0000064C
-	ldr r3, _021D7C70 ; =0x02013D19
+	ldr r3, _021D7C70 ; =FUN_02013D18
 	ldr r0, [r0, r1]
 	bx r3
 	.align 2, 0
 _021D7C6C: .word 0x0000064C
-_021D7C70: .word 0x02013D19
+_021D7C70: .word FUN_02013D18
 	thumb_func_end MOD64_021D7C64
 
 	thumb_func_start MOD64_021D7C74
@@ -1736,11 +1736,11 @@ _021D82B8: .word 0x00000FA4
 MOD64_021D82BC: ; 0x021D82BC
 	mov r1, #0x5f
 	lsl r1, r1, #4
-	ldr r3, _021D82C8 ; =0x0201EB71
+	ldr r3, _021D82C8 ; =FUN_0201EB70
 	ldr r0, [r0, r1]
 	bx r3
 	nop
-_021D82C8: .word 0x0201EB71
+_021D82C8: .word FUN_0201EB70
 	thumb_func_end MOD64_021D82BC
 
 	thumb_func_start MOD64_021D82CC
@@ -2765,11 +2765,11 @@ MOD64_021D89FC: ; 0x021D89FC
 
 	thumb_func_start MOD64_021D8A78
 MOD64_021D8A78: ; 0x021D8A78
-	ldr r3, _021D8A80 ; =0x0201FFC9
+	ldr r3, _021D8A80 ; =FUN_0201FFC8
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D8A80: .word 0x0201FFC9
+_021D8A80: .word FUN_0201FFC8
 	thumb_func_end MOD64_021D8A78
 
 	thumb_func_start MOD64_021D8A84
@@ -2890,11 +2890,11 @@ _021D8B56:
 
 	thumb_func_start MOD64_021D8B58
 MOD64_021D8B58: ; 0x021D8B58
-	ldr r3, _021D8B60 ; =0x020200A1
+	ldr r3, _021D8B60 ; =FUN_020200A0
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D8B60: .word 0x020200A1
+_021D8B60: .word FUN_020200A0
 	thumb_func_end MOD64_021D8B58
 
 	thumb_func_start MOD64_021D8B64
@@ -2999,11 +2999,11 @@ MOD64_021D8C0C: ; 0x021D8C0C
 
 	thumb_func_start MOD64_021D8C30
 MOD64_021D8C30: ; 0x021D8C30
-	ldr r3, _021D8C38 ; =0x02013EB1
+	ldr r3, _021D8C38 ; =FUN_02013EB0
 	ldr r0, [r0, #8]
 	bx r3
 	nop
-_021D8C38: .word 0x02013EB1
+_021D8C38: .word FUN_02013EB0
 	thumb_func_end MOD64_021D8C30
 
 	thumb_func_start MOD64_021D8C3C
@@ -3537,14 +3537,14 @@ MOD64_021D902C: ; 0x021D902C
 	add r1, r0, #0
 	add r1, #0xa8
 	ldr r1, [r1]
-	ldr r3, _021D9040 ; =0x02019571
+	ldr r3, _021D9040 ; =FUN_02019570
 	lsl r1, r1, #2
 	add r0, r0, r1
 	add r0, #0x9c
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9040: .word 0x02019571
+_021D9040: .word FUN_02019570
 	thumb_func_end MOD64_021D902C
 
 	thumb_func_start MOD64_021D9044

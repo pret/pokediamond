@@ -73,7 +73,7 @@ _020008C4:
 	bl _fp_init
 	bl NitroStartUp
 	bl __call_static_initializers
-	ldr r1, _02000934 ; =0x02000C55 
+	ldr r1, _02000934 ; =NitroMain 
 	ldr lr, _02000938 ; =0xFFFF0000
 	tst sp, #4
 	subne sp, sp, #4

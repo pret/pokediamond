@@ -3082,11 +3082,11 @@ MOD54_021D8D40: ; 0x021D8D40
 	mov r1, #0xba
 	lsl r1, r1, #2
 	add r0, r0, r1
-	ldr r3, _021D8D4C ; =0x0200D0E1
+	ldr r3, _021D8D4C ; =FUN_0200D0E0
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_021D8D4C: .word 0x0200D0E1
+_021D8D4C: .word FUN_0200D0E0
 	thumb_func_end MOD54_021D8D40
 
 	thumb_func_start MOD54_021D8D50
@@ -4184,10 +4184,10 @@ MOD54_021D9500: ; 0x021D9500
 
 	thumb_func_start MOD54_021D9518
 MOD54_021D9518: ; 0x021D9518
-	ldr r3, _021D951C ; =0x0202B9ED
+	ldr r3, _021D951C ; =FUN_0202B9EC
 	bx r3
 	.align 2, 0
-_021D951C: .word 0x0202B9ED
+_021D951C: .word FUN_0202B9EC
 	thumb_func_end MOD54_021D9518
 
 	thumb_func_start MOD54_021D9520

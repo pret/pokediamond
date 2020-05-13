@@ -1496,12 +1496,12 @@ _021D80A4: .word 0x04000540
 
 	thumb_func_start MOD_021D80A8
 MOD_021D80A8: ; 0x021D80A8
-	ldr r3, _021D80B0 ; =0x0201EB71
+	ldr r3, _021D80B0 ; =FUN_0201EB70
 	add r0, #0xd0
 	ldr r0, [r0]
 	bx r3
 	.align 2, 0
-_021D80B0: .word 0x0201EB71
+_021D80B0: .word FUN_0201EB70
 	thumb_func_end MOD_021D80A8
 
 	thumb_func_start MOD_021D80B4

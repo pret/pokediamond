@@ -400,11 +400,11 @@ _021D7828: .word 0x021DBE18
 
 	thumb_func_start MOD63_021D782C
 MOD63_021D782C: ; 0x021D782C
-	ldr r3, _021D7834 ; =0x0201AB61
+	ldr r3, _021D7834 ; =FUN_0201AB60
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021D7834: .word 0x0201AB61
+_021D7834: .word FUN_0201AB60
 	thumb_func_end MOD63_021D782C
 
 	thumb_func_start MOD63_021D7838
@@ -482,11 +482,11 @@ _021D78AC: .word 0x04000008
 
 	thumb_func_start MOD63_021D78B0
 MOD63_021D78B0: ; 0x021D78B0
-	ldr r3, _021D78B8 ; =0x020223BD
+	ldr r3, _021D78B8 ; =FUN_020223BC
 	ldr r0, [r0, #8]
 	bx r3
 	nop
-_021D78B8: .word 0x020223BD
+_021D78B8: .word FUN_020223BC
 	thumb_func_end MOD63_021D78B0
 
 	thumb_func_start MOD63_021D78BC
@@ -2178,12 +2178,12 @@ _021D8640: .word 0x020ECAC0
 
 	thumb_func_start MOD63_021D8644
 MOD63_021D8644: ; 0x021D8644
-	ldr r3, _021D864C ; =0x02019179
+	ldr r3, _021D864C ; =FUN_02019178
 	add r2, #0xac
 	add r0, r2, #0
 	bx r3
 	.align 2, 0
-_021D864C: .word 0x02019179
+_021D864C: .word FUN_02019178
 	thumb_func_end MOD63_021D8644
 
 	thumb_func_start MOD63_021D8650
@@ -2972,10 +2972,10 @@ _021D8CA4: .word 0x04000580
 
 	thumb_func_start MOD63_021D8CA8
 MOD63_021D8CA8: ; 0x021D8CA8
-	ldr r3, _021D8CAC ; =0x02009F81
+	ldr r3, _021D8CAC ; =FUN_02009F80
 	bx r3
 	.align 2, 0
-_021D8CAC: .word 0x02009F81
+_021D8CAC: .word FUN_02009F80
 	thumb_func_end MOD63_021D8CA8
 
 	thumb_func_start MOD63_021D8CB0
@@ -6002,11 +6002,11 @@ MOD63_021DA588: ; 0x021DA588
 	strb r2, [r0, #3]
 	mov r2, #0
 	strb r2, [r0, #1]
-	ldr r3, _021DA59C ; =0x0201E6E5
+	ldr r3, _021DA59C ; =FUN_0201E6E4
 	add r0, r1, #0
 	bx r3
 	nop
-_021DA59C: .word 0x0201E6E5
+_021DA59C: .word FUN_0201E6E4
 	thumb_func_end MOD63_021DA588
 
 	thumb_func_start MOD63_021DA5A0
@@ -6807,11 +6807,11 @@ _021DABEC:
 
 	thumb_func_start MOD63_021DAC18
 MOD63_021DAC18: ; 0x021DAC18
-	ldr r3, _021DAC20 ; =0x0201FDED
+	ldr r3, _021DAC20 ; =FUN_0201FDEC
 	ldr r0, [r0]
 	bx r3
 	nop
-_021DAC20: .word 0x0201FDED
+_021DAC20: .word FUN_0201FDEC
 	thumb_func_end MOD63_021DAC18
 
 	thumb_func_start MOD63_021DAC24
@@ -6821,11 +6821,11 @@ MOD63_021DAC24: ; 0x021DAC24
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	ldr r3, _021DAC34 ; =0x020200A1
+	ldr r3, _021DAC34 ; =FUN_020200A0
 	add r1, r2, #0
 	bx r3
 	.align 2, 0
-_021DAC34: .word 0x020200A1
+_021DAC34: .word FUN_020200A0
 	thumb_func_end MOD63_021DAC24
 
 	thumb_func_start MOD63_021DAC38
@@ -7533,11 +7533,11 @@ _021DB15C:
 
 	thumb_func_start MOD63_021DB1A0
 MOD63_021DB1A0: ; 0x021DB1A0
-	ldr r3, _021DB1A8 ; =0x0201FDED
+	ldr r3, _021DB1A8 ; =FUN_0201FDEC
 	ldr r0, [r0]
 	bx r3
 	nop
-_021DB1A8: .word 0x0201FDED
+_021DB1A8: .word FUN_0201FDEC
 	thumb_func_end MOD63_021DB1A0
 
 	thumb_func_start MOD63_021DB1AC
