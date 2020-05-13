@@ -106,6 +106,7 @@ MEMORY {
 	binary.MODULE_FILES		(RW)  : ORIGIN = 0x0, LENGTH = 0x0     > component.files
 	check.ITCM			(RWX) : ORIGIN = 0x0, LENGTH = 0x08000 > itcm.check
 	check.DTCM			(RW)  : ORIGIN = 0x0, LENGTH = 0x04000 > dtcm.check
+
 }
 
 SECTIONS {
@@ -801,7 +802,6 @@ SECTIONS {
 		SDK_OVERLAY.MODULE_11.BSS_END = .;
 		SDK_OVERLAY.MODULE_11.BSS_SIZE = SDK_OVERLAY.MODULE_11.BSS_END - SDK_OVERLAY.MODULE_11.BSS_START;
 	} >> MODULE_11
-
 
 	.MODULE_12 :
 	{
@@ -2724,8 +2724,8 @@ SECTIONS {
 		module_69.o (.sinit)
 		WRITEW 0;
 		SDK_OVERLAY.MODULE_69.SINIT_END = .;
-        . = ALIGN(32);
-        module_69.o (.sdata)
+		. = ALIGN(32);
+		module_69.o (.sdata)
 		module_69.o (.data)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_69.END = .;
