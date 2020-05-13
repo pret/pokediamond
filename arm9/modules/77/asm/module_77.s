@@ -36,7 +36,7 @@ MOD77_021D74E0: ; 0x021D74E0
 	ldr r2, _021D75DC ; =0x0000C32C
 	mov r1, #0
 	add r5, r0, #0
-	blx Call_FillMemWithValue
+	bl Call_FillMemWithValue
 	mov r0, #0x32
 	str r0, [r5]
 	ldr r0, _021D75E0 ; =0x020ECAC4
@@ -901,7 +901,7 @@ MOD77_021D7C64: ; 0x021D7C64
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x20]
 	mov r1, #6
-	blx _u32_div_f
+	bl _u32_div_f
 	add r7, r0, #0
 	ldr r0, [sp, #0x18]
 	mov r5, #1
@@ -2554,7 +2554,7 @@ MOD77_021D89F4: ; 0x021D89F4
 	asr r1, r1, #0x10
 	asr r2, r2, #0x10
 	asr r3, r3, #0x10
-	blx FUN_020B8418
+	bl FUN_020B8418
 	pop {r4, pc}
 	nop
 _021D8A28: .word 0x0000C2DC
@@ -2595,7 +2595,7 @@ MOD77_021D8A30: ; 0x021D8A30
 	add r0, r5, #0
 	add r1, sp, #0
 	add r2, r5, #0
-	blx MTX_Concat33
+	bl MTX_Concat33
 	ldr r0, [r4, #8]
 	ldr r3, _021D8AA4 ; =0x020FFA38
 	lsl r0, r0, #0x10
@@ -2612,7 +2612,7 @@ MOD77_021D8A30: ; 0x021D8A30
 	add r0, r5, #0
 	add r1, sp, #0
 	add r2, r5, #0
-	blx MTX_Concat33
+	bl MTX_Concat33
 	add sp, #0x24
 	pop {r4, r5, pc}
 	nop
@@ -2654,7 +2654,7 @@ MOD77_021D8AA8: ; 0x021D8AA8
 	add r0, r5, #0
 	add r1, sp, #0
 	add r2, r5, #0
-	blx MTX_Concat33
+	bl MTX_Concat33
 	ldr r0, [r4, #8]
 	ldr r3, _021D8B1C ; =0x020FFA38
 	lsl r0, r0, #0x10
@@ -2671,7 +2671,7 @@ MOD77_021D8AA8: ; 0x021D8AA8
 	add r0, r5, #0
 	add r1, sp, #0
 	add r2, r5, #0
-	blx MTX_Concat33
+	bl MTX_Concat33
 	add sp, #0x24
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -3103,7 +3103,7 @@ _021D8E32:
 	add r0, r6, #0
 	add r1, sp, #0x4c
 	add r2, sp, #4
-	blx MTX_Concat33
+	bl MTX_Concat33
 	ldrh r2, [r4, #0x38]
 	cmp r2, #0
 	beq _021D8E5A
