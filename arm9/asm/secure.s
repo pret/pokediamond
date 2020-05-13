@@ -3,7 +3,14 @@
 
 .section .text
 
-.incbin "baserom.nds", 0x4000, 0x19E
+.incbin "baserom.nds", 0x4000, 0xC8
+	non_word_aligned_thumb_func_start SVC_GetCRC16
+SVC_GetCRC16: ; 0x020000C8
+	swi 14
+	bx lr
+	thumb_func_end SVC_GetCRC16
+
+.incbin "baserom.nds", 0x40CC, 0xD2
 
 	non_word_aligned_thumb_func_start SVC_Sqrt
 SVC_Sqrt: ; 0x0200019E

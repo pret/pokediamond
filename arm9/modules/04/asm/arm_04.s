@@ -21204,7 +21204,7 @@ _021EB430:
 	mov r0, r5
 	mov r3, r4
 	mov r1, #0
-	bl FUN_02213D80
+	bl MOD79_02213D80
 	movs r5, r0
 	bpl _021EB46C
 	bl MOD04_021EB25C
@@ -21280,7 +21280,7 @@ MOD04_021EB524: ; 0x021EB524
 	addne sp, sp, #4
 	movne r0, #0
 	ldmneia sp!, {pc}
-	bl FUN_02213B08
+	bl MOD79_02213B08
 	mov r0, #1
 	add sp, sp, #4
 	ldmfd sp!, {pc}
@@ -21292,7 +21292,7 @@ MOD04_021EB524: ; 0x021EB524
 	addle sp, sp, #4
 	movle r0, #1
 	ldmleia sp!, {pc}
-	bl FUN_02213DBC
+	bl MOD79_02213DBC
 	ldr r0, _021EB598 ; =0x02210E44
 	ldr r1, [r0]
 	subs r1, r1, #1
@@ -21310,7 +21310,7 @@ _021EB598: .word 0x02210E44
 MOD04_021EB59C: ; 0x021EB59C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_02213E24
+	bl MOD79_02213E24
 	ldr r1, _021EB5C4 ; =0x02210E44
 	mov r0, #1
 	ldr r2, [r1]
