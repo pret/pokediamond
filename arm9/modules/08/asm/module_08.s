@@ -6055,7 +6055,7 @@ _02214B50: .word FUN_020054C8
 	thumb_func_start MOD08_02214B54
 MOD08_02214B54: ; 0x02214B54
 	ldr r1, [r0, #0x18]
-	ldr r3, _02214B6C ; =0x020054F1
+	ldr r3, _02214B6C ; =FUN_020054F0
 	add r1, r1, #4
 	str r1, [r0, #0x18]
 	ldr r2, [r1]
@@ -6066,7 +6066,7 @@ MOD08_02214B54: ; 0x02214B54
 	mov r1, #0
 	bx r3
 	nop
-_02214B6C: .word 0x020054F1
+_02214B6C: .word FUN_020054F0
 
 	thumb_func_start MOD08_02214B70
 MOD08_02214B70: ; 0x02214B70

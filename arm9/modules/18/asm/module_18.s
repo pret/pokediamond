@@ -11550,7 +11550,7 @@ _0223EF78: .word MOD18_02240C8C
 	thumb_func_start MOD18_0223EF7C
 MOD18_0223EF7C: ; 0x0223EF7C
 	ldr r1, _0223EF90 ; =0x022513A0
-	ldr r3, _0223EF94 ; =0x0203105D
+	ldr r3, _0223EF94 ; =FUN_0203105C
 	ldr r2, [r1, #4]
 	mov r1, #0xa9
 	lsl r1, r1, #2
@@ -11560,7 +11560,7 @@ MOD18_0223EF7C: ; 0x0223EF7C
 	bx r3
 	nop
 _0223EF90: .word 0x022513A0
-_0223EF94: .word 0x0203105D
+_0223EF94: .word FUN_0203105C
 	thumb_func_end MOD18_0223EF7C
 
 	thumb_func_start MOD18_0223EF98
