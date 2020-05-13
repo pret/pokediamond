@@ -1,6 +1,6 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.section .itcm
+	.section .text
 
 	; OS
 	arm_func_start OS_IrqHandler
@@ -125,7 +125,7 @@ _01FF81A8: .word OSi_ThreadInfo
 _01FF81AC: .word CP_SaveContext
 _01FF81B0: .word CP_RestoreContext
 
-	.section .itcm
+	.section .text
 	arm_func_start OSi_DoBoot
 OSi_DoBoot: ; 0x01FF81B4
 	mov ip, #0x04000000
