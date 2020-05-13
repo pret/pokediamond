@@ -4131,8 +4131,11 @@ _0222F77A:
 _0222F788: .word 0x00001B54
 _0222F78C: .word 0x00001B58
 
+    .section .rodata
+    .incbin "baserom.nds", 0x2c49d0, 0x1ac
+
     .section .data
-    .incbin "baserom.nds", 0x2c49d0, 0x1d0
+    .word 0x00000001
 
     .section .bss
     .space 0x20

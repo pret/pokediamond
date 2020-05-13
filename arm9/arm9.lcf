@@ -2722,8 +2722,10 @@ SECTIONS {
 		SDK_OVERLAY.MODULE_69.SINIT_START = .;
 		module_69.o (.ctor)
 		module_69.o (.sinit)
+		WRITEW 0;
 		SDK_OVERLAY.MODULE_69.SINIT_END = .;
-		module_69.o (.sdata)
+        . = ALIGN(32);
+        module_69.o (.sdata)
 		module_69.o (.data)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_69.END = .;
