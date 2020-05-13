@@ -213,7 +213,7 @@ SECTIONS {
 		DGT_hash1.o (.text)
 		DGT_hash2.o (.text)
 		DGT_sha1s_arm4cw.o (.text)
-		libcp.o (.text)
+		CP_context.o (.text)
 		libspi.o (.text)
 		libpm.o (.text)
 		librtc.o (.text)
