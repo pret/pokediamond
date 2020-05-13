@@ -499,11 +499,11 @@ MOD75_021E6FA4: ; 0x021E6FA4
 MOD75_021E6FDC: ; 0x021E6FDC
 	add r0, #0xc4
 	ldr r0, [r0]
-	ldr r3, _021E6FE8 ; =0x0202A9B1
+	ldr r3, _021E6FE8 ; =FUN_0202A9B0
 	ldr r0, [r0]
 	bx r3
 	nop
-_021E6FE8: .word 0x0202A9B1
+_021E6FE8: .word FUN_0202A9B0
 	thumb_func_end MOD75_021E6FDC
 
 	thumb_func_start MOD75_021E6FEC
@@ -1045,10 +1045,10 @@ MOD75_021E7448: ; 0x021E7448
 	add r3, r1, #0
 	add r1, r2, #0
 	add r2, r3, #0
-	ldr r3, _021E7454 ; =0x0200A8E1
+	ldr r3, _021E7454 ; =FUN_0200A8E0
 	bx r3
 	nop
-_021E7454: .word 0x0200A8E1
+_021E7454: .word FUN_0200A8E0
 	thumb_func_end MOD75_021E7448
 
 	thumb_func_start MOD75_021E7458

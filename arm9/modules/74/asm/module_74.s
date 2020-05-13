@@ -1790,10 +1790,10 @@ _021D82E4:
 
 	thumb_func_start MOD74_021D82E8
 MOD74_021D82E8: ; 0x021D82E8
-	ldr r3, _021D82EC ; =0x0200BC31
+	ldr r3, _021D82EC ; =FUN_0200BC30
 	bx r3
 	.align 2, 0
-_021D82EC: .word 0x0200BC31
+_021D82EC: .word FUN_0200BC30
 	thumb_func_end MOD74_021D82E8
 
 	thumb_func_start MOD74_021D82F0

@@ -2583,11 +2583,11 @@ _021D8A04: .word 0x021DBD10
 MOD73_021D8A08: ; 0x021D8A08
 	mov r1, #0xaf
 	lsl r1, r1, #2
-	ldr r3, _021D8A14 ; =0x02013D19
+	ldr r3, _021D8A14 ; =FUN_02013D18
 	ldr r0, [r0, r1]
 	bx r3
 	nop
-_021D8A14: .word 0x02013D19
+_021D8A14: .word FUN_02013D18
 	thumb_func_end MOD73_021D8A08
 
 	thumb_func_start MOD73_021D8A18
@@ -5294,12 +5294,12 @@ _021D9E7C:
 
 	thumb_func_start MOD73_021D9E80
 MOD73_021D9E80: ; 0x021D9E80
-	ldr r3, _021D9E88 ; =0x020DF4A4
+	ldr r3, _021D9E88 ; =Call_FillMemWithValue
 	mov r1, #0
 	mov r2, #0x78
 	bx r3
 	.align 2, 0
-_021D9E88: .word 0x020DF4A4
+_021D9E88: .word Call_FillMemWithValue
 	thumb_func_end MOD73_021D9E80
 
 	thumb_func_start MOD73_021D9E8C
@@ -6581,12 +6581,12 @@ _021DA818: .word 0x0001020F
 
 	thumb_func_start MOD73_021DA81C
 MOD73_021DA81C: ; 0x021DA81C
-	ldr r3, _021DA824 ; =0x020DF4A4
+	ldr r3, _021DA824 ; =Call_FillMemWithValue
 	mov r1, #0
 	ldr r2, _021DA828 ; =0x00000414
 	bx r3
 	.align 2, 0
-_021DA824: .word 0x020DF4A4
+_021DA824: .word Call_FillMemWithValue
 _021DA828: .word 0x00000414
 	thumb_func_end MOD73_021DA81C
 
@@ -7292,12 +7292,12 @@ _021DAD72:
 
 	thumb_func_start MOD73_021DAD78
 MOD73_021DAD78: ; 0x021DAD78
-	ldr r3, _021DAD80 ; =0x020DF4A4
+	ldr r3, _021DAD80 ; =Call_FillMemWithValue
 	mov r1, #0
 	mov r2, #0x80
 	bx r3
 	.align 2, 0
-_021DAD80: .word 0x020DF4A4
+_021DAD80: .word Call_FillMemWithValue
 	thumb_func_end MOD73_021DAD78
 
 	thumb_func_start MOD73_021DAD84
@@ -7992,11 +7992,11 @@ MOD73_021DB24C: ; 0x021DB24C
 
 	thumb_func_start MOD73_021DB260
 MOD73_021DB260: ; 0x021DB260
-	ldr r3, _021DB268 ; =0x02088485
+	ldr r3, _021DB268 ; =FUN_02088484
 	ldr r0, [r0]
 	bx r3
 	nop
-_021DB268: .word 0x02088485
+_021DB268: .word FUN_02088484
 	thumb_func_end MOD73_021DB260
 
 	thumb_func_start MOD73_021DB26C
@@ -8014,11 +8014,11 @@ MOD73_021DB26C: ; 0x021DB26C
 
 	thumb_func_start MOD73_021DB280
 MOD73_021DB280: ; 0x021DB280
-	ldr r3, _021DB288 ; =0x020145A9
+	ldr r3, _021DB288 ; =FUN_020145A8
 	ldr r0, [r0]
 	bx r3
 	nop
-_021DB288: .word 0x020145A9
+_021DB288: .word FUN_020145A8
 	thumb_func_end MOD73_021DB280
 
 	thumb_func_start MOD73_021DB28C

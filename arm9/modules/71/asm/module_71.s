@@ -3791,14 +3791,14 @@ _0222F4F4:
 
 	thumb_func_start MOD70_0222F528
 MOD70_0222F528: ; 0x0222F528
-	ldr r3, _0222F534 ; =0x02030A79
+	ldr r3, _0222F534 ; =FUN_02030A78
 	mov r2, #0xfa
 	add r1, r0, #0
 	mov r0, #0x1d
 	lsl r2, r2, #2
 	bx r3
 	.align 2, 0
-_0222F534: .word 0x02030A79
+_0222F534: .word FUN_02030A78
 	thumb_func_end MOD70_0222F528
 
 	thumb_func_start MOD70_0222F538
