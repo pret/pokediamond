@@ -2232,7 +2232,7 @@ _0222E768:
 	str r0, [r4, #0x1c]
 	b _0222E782
 _0222E76E:
-	blx FUN_021EB550
+	bl MOD04_021EB550
 	mov r0, #0x35
 	str r0, [r4, #0x1c]
 	b _0222E782

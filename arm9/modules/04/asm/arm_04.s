@@ -6128,6 +6128,9 @@ MOD04_021DE308: ; 0x021DE308
 	bl MOD04_02207158
 	add sp, sp, #4
 	ldmfd sp!, {pc}
+
+	arm_func_start MOD04_021DE330
+MOD04_021DE330: ; 0x021DE330
 	stmdb sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -21284,6 +21287,9 @@ MOD04_021EB524: ; 0x021EB524
 	mov r0, #1
 	add sp, sp, #4
 	ldmfd sp!, {pc}
+
+	arm_func_start MOD04_021EB550
+MOD04_021EB550:
 	stmdb sp!, {lr}
 	sub sp, sp, #4
 	ldr r0, _021EB598 ; =0x02210E44

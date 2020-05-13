@@ -265,8 +265,10 @@ $(CXX_OBJS): $(BUILD_DIR)/%.o: %.cpp $$(dep)
 $(S_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
 
-$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT) $(LD_TEMPLATE) undefined_syms.txt macros.lcf.inc
-	# $(MAKELSF) $(MAKELSF_FLAGS) $< $(LD_TEMPLATE) $@
+# $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
+	# $(MAKELSF) $(MAKELSF_FLAGS) $^ $@
+
+$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)

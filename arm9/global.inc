@@ -5802,7 +5802,7 @@
 .extern MOD04_021D8640
 .extern MOD04_021D8678
 .extern FUN_02029B08
-.extern FUN_021EB550
+.extern MOD04_021EB550
 .extern MOD04_021DD904
 .extern MOD04_021DD944
 .extern MOD04_021EB3B8
@@ -5938,7 +5938,7 @@
 .extern CTRDG_TerminateForPulledOut
 .extern CTRDG_WriteAndVerifyAgbFlashAsync
 .extern SVC_GetCRC16
-.extern FUN_021DE330
+.extern MOD04_021DE330
 .extern MOD04_021DDB40
 .extern MOD04_021DDF40
 .extern MOD04_021DE2D0

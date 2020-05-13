@@ -2,110 +2,112 @@
 Static arm9
 {
 	Address 0x02000000
-		Object main.o
-		Object FUN_02000DF4.o
-		Object unk_02000E0C.o
-		Object rom2.o
-		Object string_util.o
-		Object unk_020023C0.o
-		Object filesystem.o
-		Object unk_02006864.o
-		Object script.o
-		Object unk_02038C78.o
-		Object scrcmd.o
-		Object unk_02046030.o
-		Object unk_0208AC14.o
-		Object FUN_020910A4.o
-		Object unk_020910EC.o
-		Object unk_020AF030.o
-		Object FX_mtx22.o
-		Object FX_mtx33.o
-		Object FX_mtx43.o
-		Object FX_mtx44.o
-		Object FX_cp.o
-		Object FX_vec.o
-		Object FX_atan.o
-		Object FX.o
-		Object GX.o
-		Object GX_state.o
-		Object GX_vramcnt.o
-		Object GX_bgcnt.o
-		Object GX_g2.o
-		Object GX_g3b.o
-		Object GX_g3imm.o
-		Object GX_g3x.o
-		Object GX_g3_util.o
-		Object GX_load2d.o
-		Object GX_load3d.o
-		Object GX_g3.o
-		Object GX_asm.o
-		Object OS_irqHandler.o
-		Object OS_irqTable.o
-		Object OS_interrupt.o
-		Object OS_spinLock.o
-		Object OS_printf.o
-		Object OS_thread.o
-		Object OS_context.o
-		Object OS_emulator.o
-		Object OS_message.o
-		Object OS_mutex.o
-		Object OS_cache.o
-		Object OS_init.o
-		Object OS_arena.o
-		Object OS_alloc.o
-		Object OS_tcm.o
-		Object OS_protectionUnit.o
-		Object OS_protectionRegion.o
-		Object OS_exception.o
-		Object OS_timer.o
-		Object OS_tick.o
-		Object OS_alarm.o
-		Object OS_valarm.o
-		Object OS_system.o
-		Object OS_reset.o
-		Object OS_ownerInfo.o
-		Object OS_vramExclusive.o
-		Object OS_entropy.o
-		Object OS_terminate_proc.o
-		Object MI_wram.o
-		Object MI_dma.o
-		Object MI_dma_hblank.o
-		Object MI_dma_gxcommand.o
-		Object MI_memory.o
-		Object MI_swap.o
-		Object MI_uncompress.o
-		Object MI_dma_card.o
-		Object MI_init.o
-		Object SND_interface.o
-		Object SND_main.o
-		Object SND_command.o
-		Object SND_alarm.o
-		Object SND_work.o
-		Object SND_util.o
-		Object SND_bank.o
-		Object PXI_init.o
-		Object PXI_fifo.o
-		Object rom2_2.o
-		Object FS_command.o
-		Object FS_command_default.o
-		Object FS_archive.o
-		Object FS_file.o
-		Object FS_rom.o
-		Object FS_overlay.o
-		Object libdgt.o
-		Object libcp.o
-		Object libspi.o
-		Object libpm.o
-		Object librtc.o
-		Object libcard.o
-		Object libwm.o
-		Object libctrdg.o
-		Object libmath.o
-		Object libstd.o
-		Object libc.o
-		Object rom2_3.o
-		Object libmwcc.o
-		Object rom2_4.o
+	Object main.o
+	Object FUN_02000DF4.o
+	Object unk_02000E0C.o
+	Object rom2.o
+	Object string_util.o
+	Object unk_020023C0.o
+	Object filesystem.o
+	Object unk_02006864.o
+	Object script.o
+	Object unk_02038C78.o
+	Object scrcmd.o
+	Object unk_02046030.o
+	Object unk_0208AC14.o
+	Object FUN_020910A4.o
+	Object unk_020910EC.o
+	Object unk_020AF030.o
+	Object FX_mtx22.o
+	Object FX_mtx33.o
+	Object FX_mtx43.o
+	Object FX_mtx44.o
+	Object FX_cp.o
+	Object FX_vec.o
+	Object FX_atan.o
+	Object FX.o
+	Object GX.o
+	Object GX_state.o
+	Object GX_vramcnt.o
+	Object GX_bgcnt.o
+	Object GX_g2.o
+	Object GX_g3b.o
+	Object GX_g3imm.o
+	Object GX_g3x.o
+	Object GX_g3_util.o
+	Object GX_load2d.o
+	Object GX_load3d.o
+	Object GX_g3.o
+	Object GX_asm.o
+	Object OS_irqHandler.o
+	Object OS_irqTable.o
+	Object OS_interrupt.o
+	Object OS_spinLock.o
+	Object OS_printf.o
+	Object OS_thread.o
+	Object OS_context.o
+	Object OS_emulator.o
+	Object OS_message.o
+	Object OS_mutex.o
+	Object OS_cache.o
+	Object OS_init.o
+	Object OS_arena.o
+	Object OS_alloc.o
+	Object OS_tcm.o
+	Object OS_protectionUnit.o
+	Object OS_protectionRegion.o
+	Object OS_exception.o
+	Object OS_timer.o
+	Object OS_tick.o
+	Object OS_alarm.o
+	Object OS_valarm.o
+	Object OS_system.o
+	Object OS_reset.o
+	Object OS_ownerInfo.o
+	Object OS_vramExclusive.o
+	Object OS_entropy.o
+	Object OS_terminate_proc.o
+	Object MI_wram.o
+	Object MI_dma.o
+	Object MI_dma_hblank.o
+	Object MI_dma_gxcommand.o
+	Object MI_memory.o
+	Object MI_swap.o
+	Object MI_uncompress.o
+	Object MI_dma_card.o
+	Object MI_init.o
+	Object SND_interface.o
+	Object SND_main.o
+	Object SND_command.o
+	Object SND_alarm.o
+	Object SND_work.o
+	Object SND_util.o
+	Object SND_bank.o
+	Object PXI_init.o
+	Object PXI_fifo.o
+	Object rom2_2.o
+	Object FS_command.o
+	Object FS_command_default.o
+	Object FS_archive.o
+	Object FS_file.o
+	Object FS_rom.o
+	Object FS_overlay.o
+	Object DGT_hash1.o
+	Object DGT_hash2.o
+	Object DGT_sha1s_arm4cw.o
+	Object libcp.o
+	Object libspi.o
+	Object libpm.o
+	Object librtc.o
+	Object libcard.o
+	Object libwm.o
+	Object libctrdg.o
+	Object libmath.o
+	Object libstd.o
+	Object libc.o
+	Object rom2_3.o
+	Object libmwcc.o
+	Object rom2_4.o
 }
 
 Autoload ITCM
@@ -297,270 +299,270 @@ Overlay MODULE_32
 Overlay MODULE_33
 {
 	Address 0x02254840
-	Object FILE_28DE00.o
+	Object module_33.o
 }
 Overlay MODULE_34
 {
 	Address 0x02254840
-	Object FILE_28E200.o
+	Object module_34.o
 }
 Overlay MODULE_35
 {
 	Address 0x02254840
-	Object FILE_28E800.o
+	Object module_35.o
 }
 Overlay MODULE_36
 {
 	Address 0x02254840
-	Object FILE_28F200.o
+	Object module_36.o
 }
 Overlay MODULE_37
 {
 	Address 0x02254840
-	Object FILE_290000.o
+	Object module_37.o
 }
 Overlay MODULE_38
 {
 	Address 0x02254840
-	Object FILE_290600.o
+	Object module_38.o
 }
 Overlay MODULE_39
 {
 	Address 0x02254840
-	Object FILE_291200.o
+	Object module_39.o
 }
 Overlay MODULE_40
 {
 	Address 0x02254840
-	Object FILE_292000.o
+	Object module_40.o
 }
 Overlay MODULE_41
 {
 	Address 0x02254840
-	Object FILE_292E00.o
+	Object module_41.o
 }
 Overlay MODULE_42
 {
 	Address 0x02254840
-	Object FILE_294000.o
+	Object module_42.o
 }
 Overlay MODULE_43
 {
 	Address 0x02254840
-	Object FILE_294A00.o
+	Object module_43.o
 }
 Overlay MODULE_44
 {
 	Address 0x02254840
-	Object FILE_295400.o
+	Object module_44.o
 }
 Overlay MODULE_45
 {
 	Address 0x02254840
-	Object FILE_295A00.o
+	Object module_45.o
 }
 Overlay MODULE_46
 {
 	Address 0x02254840
-	Object FILE_296400.o
+	Object module_46.o
 }
 Overlay MODULE_47
 {
 	Address 0x02254840
-	Object FILE_296800.o
+	Object module_47.o
 }
 Overlay MODULE_48
 {
 	Address 0x02254840
-	Object FILE_297600.o
+	Object module_48.o
 }
 Overlay MODULE_49
 {
 	Address 0x02254840
-	Object FILE_298000.o
+	Object module_49.o
 }
 Overlay MODULE_50
 {
 	Address 0x02254840
-	Object FILE_298600.o
+	Object module_50.o
 }
 Overlay MODULE_51
 {
 	Address 0x02254840
-	Object FILE_298A00.o
+	Object module_51.o
 }
 Overlay MODULE_52
 {
 	Address 0x021D74E0
-	Object FILE_299A00.o
+	Object module_52.o
 }
 Overlay MODULE_53
 {
 	Address 0x021D74E0
-	Object FILE_299E00.o
+	Object module_53.o
 }
 Overlay MODULE_54
 {
 	Address 0x021D74E0
-	Object FILE_29C400.o
+	Object module_54.o
 }
 Overlay MODULE_55
 {
 	Address 0x021D74E0
-	Object FILE_29E800.o
+	Object module_55.o
 }
 Overlay MODULE_56
 {
 	Address 0x02211E60
-	Object FILE_2A1A00.o
+	Object module_56.o
 }
 Overlay MODULE_57
 {
 	Address 0x021D74E0
-	Object FILE_2A6200.o
+	Object module_57.o
 }
 Overlay MODULE_58
 {
 	Address 0x021D9A20
-	Object FILE_2A8800.o
+	Object module_58.o
 }
 Overlay MODULE_59
 {
 	Address 0x021D74E0
-	Object FILE_2A9E00.o
+	Object module_59.o
 }
 Overlay MODULE_60
 {
 	Address 0x021D74E0
-	Object FILE_2ACC00.o
+	Object module_60.o
 }
 Overlay MODULE_61
 {
 	Address 0x021D74E0
-	Object FILE_2ADA00.o
+	Object module_61.o
 }
 Overlay MODULE_62
 {
 	Address 0x0222D5C0
-	Object FILE_2AEC00.o
+	Object module_62.o
 }
 Overlay MODULE_63
 {
 	Address 0x021D74E0
-	Object FILE_2B2A00.o
+	Object module_63.o
 }
 Overlay MODULE_64
 {
 	Address 0x021D74E0
-	Object FILE_2B7600.o
+	Object module_64.o
 }
 Overlay MODULE_65
 {
 	Address 0x021D74E0
-	Object FILE_2B9400.o
+	Object module_65.o
 }
 Overlay MODULE_66
 {
 	Address 0x021D74E0
-	Object FILE_2BC400.o
+	Object module_66.o
 }
 Overlay MODULE_67
 {
 	Address 0x021D74E0
-	Object FILE_2BEC00.o
+	Object module_67.o
 }
 Overlay MODULE_68
 {
 	Address 0x021D74E0
-	Object FILE_2C1200.o
+	Object module_68.o
 }
 Overlay MODULE_69
 {
 	Address 0x0222D5C0
-	Object FILE_2C2800.o
+	Object module_69.o
 }
 Overlay MODULE_70
 {
 	Address 0x021D74E0
-	Object FILE_2C4C00.o
+	Object module_70.o
 }
 Overlay MODULE_71
 {
 	Address 0x0222D5C0
-	Object FILE_2C5C00.o
+	Object module_71.o
 }
 Overlay MODULE_72
 {
 	Address 0x021D74E0
-	Object FILE_2C9C00.o
+	Object module_72.o
 }
 Overlay MODULE_73
 {
 	Address 0x021D74E0
-	Object FILE_2C9E00.o
+	Object module_73.o
 }
 Overlay MODULE_74
 {
 	Address 0x021D74E0
-	Object FILE_2CEA00.o
+	Object module_74.o
 }
 Overlay MODULE_75
 {
 	Address 0x021E6BA0
-	Object FILE_2CFE00.o
+	Object module_75.o
 }
 Overlay MODULE_76
 {
 	Address 0x021D74E0
-	Object FILE_2D5C00.o
+	Object module_76.o
 }
 Overlay MODULE_77
 {
 	Address 0x021D74E0
-	Object FILE_2D7C00.o
+	Object module_77.o
 }
 Overlay MODULE_78
 {
 	Address 0x021D74E0
-	Object FILE_2D9800.o
+	Object module_78.o
 }
 Overlay MODULE_79
 {
 	Address 0x02211E60
-	Object FILE_2D9E00.o
+	Object module_79.o
 }
 Overlay MODULE_80
 {
 	Address 0x0222D5C0
-	Object FILE_2DF200.o
+	Object module_80.o
 }
 Overlay MODULE_81
 {
 	Address 0x02237E40
-	Object FILE_2E9A00.o
+	Object module_81.o
 }
 Overlay MODULE_82
 {
 	Address 0x0222D5C0
-	Object FILE_2EF000.o
+	Object module_82.o
 }
 Overlay MODULE_83
 {
 	Address 0x0222D5C0
-	Object FILE_2F1600.o
+	Object module_83.o
 }
 Overlay MODULE_84
 {
 	Address 0x021D74E0
-	Object FILE_2FFA00.o
+	Object module_84.o
 }
 Overlay MODULE_85
 {
 	Address 0x021D74E0
-	Object FILE_303400.o
+	Object module_85.o
 }
 Overlay MODULE_86
 {
 	Address 0x021D74E0
-	Object FILE_30C600.o
+	Object module_86.o
 }

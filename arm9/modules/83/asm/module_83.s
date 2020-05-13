@@ -26210,7 +26210,7 @@ _0223A14E:
 	ldr r0, _0223A2AC ; =0x0223CAEC
 	add r1, r4, r1
 	add r2, r3, #0
-	blx FUN_021DE330
+	bl MOD04_021DE330
 	cmp r0, #0
 	bne _0223A168
 	add r0, r4, #0
