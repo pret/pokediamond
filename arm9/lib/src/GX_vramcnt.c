@@ -28,8 +28,8 @@ void GX_VRAMCNT_SetLCDC_(u32 mask){
         SETREG8(HW_REG_VRAMCNT_I, 0x80);
 }
 
-void GX_SetBankForBG(u16 bg){
-    gUnk021D33C4.var00 = ~bg & (gUnk021D33C4.var00 | gUnk021D33C4.var02);
+void GX_SetBankForBG(s32 bg){
+    gUnk021D33C4.var00 = (u16)(~bg & (gUnk021D33C4.var00 | gUnk021D33C4.var02));
     gUnk021D33C4.var02 = bg;
     switch (bg)
     {
@@ -101,8 +101,8 @@ void GX_SetBankForBG(u16 bg){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForOBJ(u16 obj){
-    gUnk021D33C4.var00 = ~obj & (gUnk021D33C4.var00 | gUnk021D33C4.var04);
+void GX_SetBankForOBJ(s32 obj){
+    gUnk021D33C4.var00 = (u16)(~obj & (gUnk021D33C4.var00 | gUnk021D33C4.var04));
     gUnk021D33C4.var04 = obj;
     switch (obj)
     {
@@ -140,8 +140,8 @@ void GX_SetBankForOBJ(u16 obj){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForBGExtPltt(u16 bgextpltt){
-    gUnk021D33C4.var00 = ~bgextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var0E);
+void GX_SetBankForBGExtPltt(s32 bgextpltt){
+    gUnk021D33C4.var00 = (u16)(~bgextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var0E));
     gUnk021D33C4.var0E = bgextpltt;
     switch (bgextpltt)
     {
@@ -166,8 +166,8 @@ void GX_SetBankForBGExtPltt(u16 bgextpltt){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForOBJExtPltt(u16 objextpltt){
-    gUnk021D33C4.var00 = ~objextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var10);
+void GX_SetBankForOBJExtPltt(s32 objextpltt){
+    gUnk021D33C4.var00 = (u16)(~objextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var10));
     gUnk021D33C4.var10 = objextpltt;
     switch (objextpltt)
     {
@@ -186,8 +186,8 @@ void GX_SetBankForOBJExtPltt(u16 objextpltt){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForTex(u16 tex){
-    gUnk021D33C4.var00 = ~tex & (gUnk021D33C4.var00 | gUnk021D33C4.var08);
+void GX_SetBankForTex(s32 tex){
+    gUnk021D33C4.var00 = (u16)(~tex & (gUnk021D33C4.var00 | gUnk021D33C4.var08));
     gUnk021D33C4.var08 = tex;
     if (tex == 0)
     {
@@ -249,8 +249,8 @@ void GX_SetBankForTex(u16 tex){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForTexPltt(u16 texpltt){
-    gUnk021D33C4.var00 = ~texpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var0A);
+void GX_SetBankForTexPltt(s32 texpltt){
+    gUnk021D33C4.var00 = (u16)(~texpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var0A));
     gUnk021D33C4.var0A = texpltt;
     switch (texpltt)
     {
@@ -275,8 +275,8 @@ void GX_SetBankForTexPltt(u16 texpltt){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForClearImage(u16 clearimage){
-    gUnk021D33C4.var00 = ~clearimage & (gUnk021D33C4.var00 | gUnk021D33C4.var0C);
+void GX_SetBankForClearImage(s32 clearimage){
+    gUnk021D33C4.var00 = (u16)(~clearimage & (gUnk021D33C4.var00 | gUnk021D33C4.var0C));
     gUnk021D33C4.var0C = clearimage;
     switch (clearimage)
     {
@@ -306,8 +306,8 @@ void GX_SetBankForClearImage(u16 clearimage){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForARM7(u16 arm7){
-    gUnk021D33C4.var00 = ~arm7 & (gUnk021D33C4.var00 | gUnk021D33C4.var06);
+void GX_SetBankForARM7(s32 arm7){
+    gUnk021D33C4.var00 = (u16)(~arm7 & (gUnk021D33C4.var00 | gUnk021D33C4.var06));
     gUnk021D33C4.var06 = arm7;
     switch (arm7)
     {
@@ -326,13 +326,13 @@ void GX_SetBankForARM7(u16 arm7){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForLCDC(u16 lcdc){
+void GX_SetBankForLCDC(s32 lcdc){
     gUnk021D33C4.var00 |= lcdc;
     GX_VRAMCNT_SetLCDC_(lcdc);
 }
 
-void GX_SetBankForSubBG(u16 subbg){
-    gUnk021D33C4.var00 = ~subbg & (gUnk021D33C4.var00 | gUnk021D33C4.var12);
+void GX_SetBankForSubBG(s32 subbg){
+    gUnk021D33C4.var00 = (u16)(~subbg & (gUnk021D33C4.var00 | gUnk021D33C4.var12));
     gUnk021D33C4.var12 = subbg;
     switch (subbg)
     {
@@ -350,8 +350,8 @@ void GX_SetBankForSubBG(u16 subbg){
 }
 
 
-void GX_SetBankForSubOBJ(u16 subobj){
-    gUnk021D33C4.var00 = ~subobj & (gUnk021D33C4.var00 | gUnk021D33C4.var14);
+void GX_SetBankForSubOBJ(s32 subobj){
+    gUnk021D33C4.var00 = (u16)(~subobj & (gUnk021D33C4.var00 | gUnk021D33C4.var14));
     gUnk021D33C4.var14 = subobj;
     switch (subobj)
     {
@@ -367,8 +367,8 @@ void GX_SetBankForSubOBJ(u16 subobj){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForSubBGExtPltt(u16 subbgextpltt){
-    gUnk021D33C4.var00 = ~subbgextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var16);
+void GX_SetBankForSubBGExtPltt(s32 subbgextpltt){
+    gUnk021D33C4.var00 = (u16)(~subbgextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var16));
     gUnk021D33C4.var16 = subbgextpltt;
     switch (subbgextpltt)
     {
@@ -383,8 +383,8 @@ void GX_SetBankForSubBGExtPltt(u16 subbgextpltt){
     GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
 }
 
-void GX_SetBankForSubOBJExtPltt(u16 subobjextpltt){
-    gUnk021D33C4.var00 = ~subobjextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var18);
+void GX_SetBankForSubOBJExtPltt(s32 subobjextpltt){
+    gUnk021D33C4.var00 = (u16)(~subobjextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var18));
     gUnk021D33C4.var18 = subobjextpltt;
     switch (subobjextpltt)
     {
