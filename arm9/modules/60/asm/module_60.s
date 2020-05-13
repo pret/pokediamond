@@ -817,11 +817,11 @@ MOD60_021D7A40: ; 0x021D7A40
 
 	thumb_func_start MOD60_021D7B98
 MOD60_021D7B98: ; 0x021D7B98
-	ldr r3, _021D7BA0 ; =0x02016A19
+	ldr r3, _021D7BA0 ; =FUN_02016A18
 	ldr r0, [r0, #0x24]
 	bx r3
 	nop
-_021D7BA0: .word 0x02016A19
+_021D7BA0: .word FUN_02016A18
 	thumb_func_end MOD60_021D7B98
 
 	thumb_func_start MOD60_021D7BA4

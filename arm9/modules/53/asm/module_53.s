@@ -3691,11 +3691,11 @@ MOD53_021D925C: ; 0x021D925C
 	mov r1, #0xb6
 	lsl r1, r1, #2
 	add r0, r0, r1
-	ldr r3, _021D9268 ; =0x0200D0E1
+	ldr r3, _021D9268 ; =FUN_0200D0E0
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_021D9268: .word 0x0200D0E1
+_021D9268: .word FUN_0200D0E0
 	thumb_func_end MOD53_021D925C
 
 	thumb_func_start MOD53_021D926C

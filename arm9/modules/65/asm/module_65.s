@@ -2057,11 +2057,11 @@ _021D84E0: .word 0x00000001
 
 	thumb_func_start MOD65_021D84E4
 MOD65_021D84E4: ; 0x021D84E4
-	ldr r3, _021D84EC ; =0x02001471
+	ldr r3, _021D84EC ; =FUN_02001470
 	mov r1, #0x13
 	bx r3
 	nop
-_021D84EC: .word 0x02001471
+_021D84EC: .word FUN_02001470
 	thumb_func_end MOD65_021D84E4
 
 	thumb_func_start MOD65_021D84F0
@@ -3416,11 +3416,11 @@ MOD65_021D8F34: ; 0x021D8F34
 
 	thumb_func_start MOD65_021D8FA4
 MOD65_021D8FA4: ; 0x021D8FA4
-	ldr r3, _021D8FAC ; =0x02021A21
+	ldr r3, _021D8FAC ; =FUN_02021A20
 	ldr r0, [r0, #0x3c]
 	bx r3
 	nop
-_021D8FAC: .word 0x02021A21
+_021D8FAC: .word FUN_02021A20
 	thumb_func_end MOD65_021D8FA4
 
 	thumb_func_start MOD65_021D8FB0

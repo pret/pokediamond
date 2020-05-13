@@ -626,11 +626,11 @@ _02254CD0: .word MOD22_02254CE0
 
 	thumb_func_start MOD22_02254CD4
 MOD22_02254CD4: ; 0x02254CD4
-	ldr r3, _02254CDC ; =0x02254199
+	ldr r3, _02254CDC ; =MOD20_02254198
 	ldr r0, [r0, #0x5c]
 	bx r3
 	nop
-_02254CDC: .word 0x02254199
+_02254CDC: .word MOD20_02254198
 	thumb_func_end MOD22_02254CD4
 
 	thumb_func_start MOD22_02254CE0
@@ -1124,20 +1124,20 @@ _02255068: .word 0x02255670
 
 	thumb_func_start MOD22_0225506C
 MOD22_0225506C: ; 0x0225506C
-	ldr r3, _02255074 ; =0x02253795
+	ldr r3, _02255074 ; =MOD20_02253794
 	add r0, #8
 	bx r3
 	nop
-_02255074: .word 0x02253795
+_02255074: .word MOD20_02253794
 	thumb_func_end MOD22_0225506C
 
 	thumb_func_start MOD22_02255078
 MOD22_02255078: ; 0x02255078
-	ldr r3, _02255080 ; =0x022537B9
+	ldr r3, _02255080 ; =MOD20_022537B8
 	add r0, #8
 	bx r3
 	nop
-_02255080: .word 0x022537B9
+_02255080: .word MOD20_022537B8
 	thumb_func_end MOD22_02255078
 
 	thumb_func_start MOD22_02255084

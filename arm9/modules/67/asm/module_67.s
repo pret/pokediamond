@@ -708,10 +708,10 @@ _021D7AA4: .word 0x0000105F
 
 	thumb_func_start MOD67_021D7AA8
 MOD67_021D7AA8: ; 0x021D7AA8
-	ldr r3, _021D7AAC ; =0x0200E309
+	ldr r3, _021D7AAC ; =FUN_0200E308
 	bx r3
 	.align 2, 0
-_021D7AAC: .word 0x0200E309
+_021D7AAC: .word FUN_0200E308
 	thumb_func_end MOD67_021D7AA8
 
 	thumb_func_start MOD67_021D7AB0
