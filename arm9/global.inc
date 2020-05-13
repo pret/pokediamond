@@ -5923,6 +5923,8 @@
 .extern FUN_020910EC
 .extern FUN_0209521C
 .extern FUN_020952AC
+.extern FUN_02009CDC
+.extern FUN_0201C348
 .extern CTRDG_CpuCopy16
 .extern CTRDG_CpuCopy32
 .extern CTRDG_CpuCopy8
