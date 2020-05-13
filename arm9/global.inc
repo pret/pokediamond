@@ -5918,6 +5918,8 @@
 .extern FUN_0206E6D8
 .extern FUN_02089F24
 .extern SetCustomAllocator
+.extern FUN_02008D04
+.extern FUN_02024DAC
 .extern FUN_020910EC
 .extern FUN_0209521C
 .extern FUN_020952AC
