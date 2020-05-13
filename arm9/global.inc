@@ -5762,6 +5762,7 @@
 .extern FUN_02027E30
 .extern FUN_02027E94
 .extern FUN_02029520
+.extern FUN_0202A878
 .extern FUN_02060FAC
 .extern FUN_020842D0
 .extern FUN_020842D8
