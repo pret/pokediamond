@@ -586,7 +586,7 @@ _0222DA74:
 	b _0222DAD4
 _0222DA90:
 	mov r1, #0
-	bl FUN_0222EC60
+	bl MOD69_0222EC60
 	ldr r0, [r4]
 	add r0, r0, #1
 	str r0, [r4]
