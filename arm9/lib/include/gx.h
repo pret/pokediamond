@@ -266,6 +266,18 @@ void GXS_BeginLoadOBJExtPltt();
 void GXS_LoadOBJExtPltt(void *src, u32 offset, u32 size);
 void GXS_EndLoadOBJExtPltt();
 
+//GX_load3d
+void GX_BeginLoadTex();
+void GX_LoadTex(void *src, u32 offset, u32 size);
+void GX_EndLoadTex();
+void GX_BeginLoadTexPltt();
+void GX_LoadTexPltt(void *src, u32 offset, u32 size);
+void GX_EndLoadTexPltt();
+void GX_BeginLoadClearImage();
+void GX_LoadClearImageColor(void *src, u32 size);
+void GX_LoadClearImageDepth(void *src, u32 size);
+void GX_EndLoadClearImage();
+
 //GXi_NopClearFifo128_ probably asm
 
 #endif //GUARD_GX_H
