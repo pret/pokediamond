@@ -127956,21 +127956,21 @@ FUN_02083BAC: ; 0x02083BAC
 	add r0, r4, #0x0
 	mov r1, #0x1b
 	mov r2, #0x0
-	bl FUN_0222F440
+	bl MOD70_0222F440
 	b _02083C14
 _02083BF6:
 	bl FUN_02031190
 	ldr r1, _02083C20 ; =0x00002218
 	ldr r2, [r4, #0x50]
 	ldr r1, [r4, r1]
-	bl FUN_0222F480
+	bl MOD70_0222F480
 	b _02083C14
 _02083C06:
 	bl FUN_02031190
 	ldr r1, _02083C20 ; =0x00002218
 	ldr r2, [r4, #0x50]
 	ldr r1, [r4, r1]
-	bl FUN_0222F480
+	bl MOD70_0222F480
 _02083C14:
 	ldr r0, [r4, #0x50]
 	add r0, r0, #0x1
@@ -131937,8 +131937,8 @@ FUN_020859C0: ; 0x020859C0
 	lsl r2, r2, #0x12
 	bl FUN_0201681C
 	mov r0, #0x35
-	bl FUN_02230F3C
-	bl FUN_0222F7E0
+	bl MOD62_02230F3C
+	bl MOD62_0222F7E0
 	ldr r1, _02085BA0 ; =0x0000042C
 	add r0, r5, #0x0
 	mov r2, #0x35
@@ -131947,7 +131947,7 @@ FUN_020859C0: ; 0x020859C0
 	mov r1, #0x0
 	add r4, r0, #0x0
 	bl Call_FillMemWithValue
-	bl FUN_0222E2BC
+	bl MOD62_0222E2BC
 	mov r1, #0x23
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
@@ -132083,8 +132083,8 @@ _02085A9A:
 	add r0, r4, #0x0
 	add r0, #0xe4
 	ldr r0, [r0, #0x0]
-	bl FUN_02230F80
-	bl FUN_0222E360
+	bl MOD62_02230F80
+	bl MOD62_0222E360
 	mov r0, #0x35
 	bl FUN_02006D98
 	mov r1, #0x69
@@ -132108,7 +132108,7 @@ _02085A9A:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r1, #0x0]
 	add r2, r5, #0x0
-	bl FUN_0222ED34
+	bl MOD62_0222ED34
 	add r0, r4, #0x0
 	add r1, r4, #0x0
 	add r0, #0xe4
@@ -132116,20 +132116,20 @@ _02085A9A:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r1, #0x0]
 	add r2, r5, #0x0
-	bl FUN_0222EDBC
+	bl MOD62_0222EDBC
 	add r0, r4, #0x0
 	add r0, #0xd4
-	bl FUN_0222E7E8
+	bl MOD62_0222E7E8
 	bl FUN_0201CC08
 	mov r0, #0x4
 	bl FUN_0201CC24
 	add r0, r4, #0x0
-	bl FUN_022300E4
+	bl MOD62_022300E4
 	ldr r0, _02085BAC ; =0x022310CD
 	add r1, r4, #0x0
 	bl FUN_02015F10
 	add r0, r4, #0x0
-	bl FUN_0222DD1C
+	bl MOD62_0222DD1C
 	mov r1, #0x0
 	mov r0, #0x3b
 	add r2, r1, #0x0
@@ -132175,7 +132175,7 @@ _02085BE6:
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
 	bl FUN_02006ED4
-	bl FUN_0222E3A0
+	bl MOD62_0222E3A0
 	b _02085C02
 _02085BF6:
 	bl FUN_0200E308
@@ -132292,7 +132292,7 @@ FUN_02085C08: ; 0x02085C08
 	ldr r0, [r4, r0]
 	bl FUN_02016A18
 	add r0, r4, #0x0
-	bl FUN_0222DAEC
+	bl MOD62_0222DAEC
 	mov r0, #0x73
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -132306,17 +132306,17 @@ FUN_02085C08: ; 0x02085C08
 	ldr r0, [r4, r0]
 	bl FUN_02014C28
 	add r0, r4, #0x0
-	bl FUN_0222DD38
+	bl MOD62_0222DD38
 	add r0, r4, #0x0
 	add r0, #0xd4
-	bl FUN_0222E874
+	bl MOD62_0222E874
 	bl FUN_0201C29C
 	mov r0, #0x23
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
 	bl FUN_020223BC
 	mov r0, #0x35
-	bl FUN_02230F70
+	bl MOD62_02230F70
 	add r0, r5, #0x0
 	bl FUN_0200627C
 	bl FUN_0201CD04
