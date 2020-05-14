@@ -1,0 +1,1133 @@
+	.section .bss
+
+	.global UNK_021C8C78
+UNK_021C8C78: ; 0x021C8C78
+	.space 0x4
+
+	.global UNK_021C8C7C
+UNK_021C8C7C: ; 0x021C8C7C
+	.space 0x4
+
+	.global UNK_021C8C80
+UNK_021C8C80: ; 0x021C8C80
+	.space 0x4
+
+	.global UNK_021C8C84
+UNK_021C8C84: ; 0x021C8C84
+	.space 0x5
+
+	.global UNK_021C8C89
+UNK_021C8C89: ; 0x021C8C89
+	.space 0x1
+
+	.global UNK_021C8C8A
+UNK_021C8C8A: ; 0x021C8C8A
+	.space 0x4
+
+	.global UNK_021C8C8E
+UNK_021C8C8E: ; 0x021C8C8E
+	.space 0x2
+
+	.global UNK_021C8C90
+UNK_021C8C90: ; 0x021C8C90
+	.space 0x10
+
+	.global UNK_021C8CA0
+UNK_021C8CA0: ; 0x021C8CA0
+	.space 0x20
+
+	.global UNK_021C8CC0
+UNK_021C8CC0: ; 0x021C8CC0
+	.space 0x4
+
+	.global UNK_021C8CC4
+UNK_021C8CC4: ; 0x021C8CC4
+	.space 0x4
+
+	.global UNK_021C8CC8
+UNK_021C8CC8: ; 0x021C8CC8
+	.space 0x4
+
+	.global UNK_021C8CCC
+UNK_021C8CCC: ; 0x021C8CCC
+	.space 0x4
+
+	.global UNK_021C8CD0
+UNK_021C8CD0: ; 0x021C8CD0
+	.space 0x4
+
+	.global UNK_021C8CD4
+UNK_021C8CD4: ; 0x021C8CD4
+	.space 0x30
+
+	.global UNK_021C8D04
+UNK_021C8D04: ; 0x021C8D04
+	.space 0x4
+
+	.global UNK_021C8D08
+UNK_021C8D08: ; 0x021C8D08
+	.space 0x20
+
+	.global UNK_021C8D28
+UNK_021C8D28: ; 0x021C8D28
+	.space 0x8
+
+	.global UNK_021C8D30
+UNK_021C8D30: ; 0x021C8D30
+	.space 0x4
+
+	.global UNK_021C8D34
+UNK_021C8D34: ; 0x021C8D34
+	.space 0x4
+
+	.global UNK_021C8D38
+UNK_021C8D38: ; 0x021C8D38
+	.space 0x4
+
+	.global UNK_021C8D3C
+UNK_021C8D3C: ; 0x021C8D3C
+	.space 0x4
+
+	.global UNK_021C8D40
+UNK_021C8D40: ; 0x021C8D40
+	.space 0x4
+
+	.global UNK_021C8D44
+UNK_021C8D44: ; 0x021C8D44
+	.space 0x8
+
+	.global UNK_021C8D4C
+UNK_021C8D4C: ; 0x021C8D4C
+	.space 0x10
+
+	.global UNK_021C8D5C
+UNK_021C8D5C: ; 0x021C8D5C
+	.space 0x10
+
+	.global UNK_021C8D6C
+UNK_021C8D6C: ; 0x021C8D6C
+	.space 0x38
+
+	.global UNK_021C8DA4
+UNK_021C8DA4: ; 0x021C8DA4
+	.space 0x104
+
+	.global UNK_021C8EA8
+UNK_021C8EA8: ; 0x021C8EA8
+	.space 0x4
+
+	.global UNK_021C8EAC
+UNK_021C8EAC: ; 0x021C8EAC
+	.space 0x4
+
+	.global UNK_021C8EB0
+UNK_021C8EB0: ; 0x021C8EB0
+	.space 0x4
+
+	.global UNK_021C8EB4
+UNK_021C8EB4: ; 0x021C8EB4
+	.space 0x4
+
+	.global UNK_021C8EB8
+UNK_021C8EB8: ; 0x021C8EB8
+	.space 0x4
+
+	.global UNK_021C8EBC
+UNK_021C8EBC: ; 0x021C8EBC
+	.space 0x4
+
+	.global UNK_021C8EC0
+UNK_021C8EC0: ; 0x021C8EC0
+	.space 0x4
+
+	.global UNK_021C8EC4
+UNK_021C8EC4: ; 0x021C8EC4
+	.space 0x4
+
+	.global UNK_021C8EC8
+UNK_021C8EC8: ; 0x021C8EC8
+	.space 0x4
+
+	.global UNK_021C8ECC
+UNK_021C8ECC: ; 0x021C8ECC
+	.space 0x4
+
+	.global UNK_021C8ED0
+UNK_021C8ED0: ; 0x021C8ED0
+	.space 0x4
+
+	.global UNK_021C8ED4
+UNK_021C8ED4: ; 0x021C8ED4
+	.space 0x4
+
+	.global UNK_021C8ED8
+UNK_021C8ED8: ; 0x021C8ED8
+	.space 0x4
+
+	.global UNK_021C8EDC
+UNK_021C8EDC: ; 0x021C8EDC
+	.space 0x4
+
+	.global UNK_021C8EE0
+UNK_021C8EE0: ; 0x021C8EE0
+	.space 0x4
+
+	.global UNK_021C8EE4
+UNK_021C8EE4: ; 0x021C8EE4
+	.space 0x4
+
+	.global UNK_021C8EE8
+UNK_021C8EE8: ; 0x021C8EE8
+	.space 0x4
+
+	.global UNK_021C8EEC
+UNK_021C8EEC: ; 0x021C8EEC
+	.space 0x4
+
+	.global UNK_021C8EF0
+UNK_021C8EF0: ; 0x021C8EF0
+	.space 0x4
+
+	.global UNK_021C8EF4
+UNK_021C8EF4: ; 0x021C8EF4
+	.space 0x4
+
+	.global UNK_021C8EF8
+UNK_021C8EF8: ; 0x021C8EF8
+	.space 0x4
+
+	.global UNK_021C8EFC
+UNK_021C8EFC: ; 0x021C8EFC
+	.space 0x4
+
+	.global UNK_021C8F00
+UNK_021C8F00: ; 0x021C8F00
+	.space 0x4
+
+	.global UNK_021C8F04
+UNK_021C8F04: ; 0x021C8F04
+	.space 0x4
+
+	.global UNK_021C8F08
+UNK_021C8F08: ; 0x021C8F08
+	.space 0x4
+
+	.global UNK_021C8F0C
+UNK_021C8F0C: ; 0x021C8F0C
+	.space 0x4
+
+	.global UNK_021C8F10
+UNK_021C8F10: ; 0x021C8F10
+	.space 0x4
+
+	.global UNK_021C8F14
+UNK_021C8F14: ; 0x021C8F14
+	.space 0x8
+
+	.global UNK_021C8F1C
+UNK_021C8F1C: ; 0x021C8F1C
+	.space 0x8
+
+	.global UNK_021C8F24
+UNK_021C8F24: ; 0x021C8F24
+	.space 0x3a
+
+	.global UNK_021C8F5E
+UNK_021C8F5E: ; 0x021C8F5E
+	.space 0x1a
+
+	.global UNK_021C8F78
+UNK_021C8F78: ; 0x021C8F78
+	.space 0xa
+
+	.global UNK_021C8F82
+UNK_021C8F82: ; 0x021C8F82
+	.space 0x56
+
+	.global UNK_021C8FD8
+UNK_021C8FD8: ; 0x021C8FD8
+	.space 0x64
+
+	.global UNK_021C903C
+UNK_021C903C: ; 0x021C903C
+	.space 0x64
+
+	.global UNK_021C90A0
+UNK_021C90A0: ; 0x021C90A0
+	.space 0xc0
+
+	.global UNK_021C9160
+UNK_021C9160: ; 0x021C9160
+	.space 0xc0
+
+	.global UNK_021C9220
+UNK_021C9220: ; 0x021C9220
+	.space 0x2a
+
+	.global UNK_021C924A
+UNK_021C924A: ; 0x021C924A
+	.space 0x156
+
+	.global UNK_021C93A0
+UNK_021C93A0: ; 0x021C93A0
+	.space 0x180
+
+	.global UNK_021C9520
+UNK_021C9520: ; 0x021C9520
+	.space 0x9c0
+
+	.global UNK_021C9EE0
+UNK_021C9EE0: ; 0x021C9EE0
+	.space 0x800
+
+	.global UNK_021CA6E0
+UNK_021CA6E0: ; 0x021CA6E0
+	.space 0x4
+
+	.global UNK_021CA6E4
+UNK_021CA6E4: ; 0x021CA6E4
+	.space 0x4
+
+	.global UNK_021CA6E8
+UNK_021CA6E8: ; 0x021CA6E8
+	.space 0x13
+
+	.global UNK_021CA6FB
+UNK_021CA6FB: ; 0x021CA6FB
+	.space 0x1
+
+	.global UNK_021CA6FC
+UNK_021CA6FC: ; 0x021CA6FC
+	.space 0x170
+
+	.global UNK_021CA86C
+UNK_021CA86C: ; 0x021CA86C
+	.space 0x4
+
+	.global UNK_021CA870
+UNK_021CA870: ; 0x021CA870
+	.space 0x4
+
+	.global UNK_021CA874
+UNK_021CA874: ; 0x021CA874
+	.space 0x8
+
+	.global UNK_021CA87C
+UNK_021CA87C: ; 0x021CA87C
+	.space 0x20
+
+	.global UNK_021CA89C
+UNK_021CA89C: ; 0x021CA89C
+	.space 0x4
+
+	.global UNK_021CA8A0
+UNK_021CA8A0: ; 0x021CA8A0
+	.space 0x10
+
+	.global UNK_021CA8B0
+UNK_021CA8B0: ; 0x021CA8B0
+	.space 0x4
+
+	.global UNK_021CA8B4
+UNK_021CA8B4: ; 0x021CA8B4
+	.space 0x4
+
+	.global UNK_021CA8B8
+UNK_021CA8B8: ; 0x021CA8B8
+	.space 0x4
+
+	.global UNK_021CA8BC
+UNK_021CA8BC: ; 0x021CA8BC
+	.space 0x4
+
+	.global UNK_021CA8C0
+UNK_021CA8C0: ; 0x021CA8C0
+	.space 0x4
+
+	.global UNK_021CA8C4
+UNK_021CA8C4: ; 0x021CA8C4
+	.space 0x4
+
+	.global UNK_021CA8C8
+UNK_021CA8C8: ; 0x021CA8C8
+	.space 0x4
+
+	.global UNK_021CA8CC
+UNK_021CA8CC: ; 0x021CA8CC
+	.space 0x4
+
+	.global UNK_021CA8D0
+UNK_021CA8D0: ; 0x021CA8D0
+	.space 0x4
+
+	.global UNK_021CA8D4
+UNK_021CA8D4: ; 0x021CA8D4
+	.space 0x4
+
+	.global UNK_021CA8D8
+UNK_021CA8D8: ; 0x021CA8D8
+	.space 0x4
+
+	.global UNK_021CA8DC
+UNK_021CA8DC: ; 0x021CA8DC
+	.space 0xc
+
+	.global UNK_021CA8E8
+UNK_021CA8E8: ; 0x021CA8E8
+	.space 0x1bc
+
+	.global UNK_021CAAA4
+UNK_021CAAA4: ; 0x021CAAA4
+	.space 0x45c
+
+	.global UNK_021CAF00
+UNK_021CAF00: ; 0x021CAF00
+	.space 0x8d8
+
+	.global UNK_021CB7D8
+UNK_021CB7D8: ; 0x021CB7D8
+	.space 0x4
+
+	.global UNK_021CB7DC
+UNK_021CB7DC: ; 0x021CB7DC
+	.space 0x4
+
+	.global UNK_021CB7E0
+UNK_021CB7E0: ; 0x021CB7E0
+	.space 0xc
+
+	.global UNK_021CB7EC
+UNK_021CB7EC: ; 0x021CB7EC
+	.space 0x4
+
+	.global UNK_021CB7F0
+UNK_021CB7F0: ; 0x021CB7F0
+	.space 0xc
+
+	.global UNK_021CB7FC
+UNK_021CB7FC: ; 0x021CB7FC
+	.space 0xc
+
+	.global UNK_021CB808
+UNK_021CB808: ; 0x021CB808
+	.space 0xc
+
+	.global UNK_021CB814
+UNK_021CB814: ; 0x021CB814
+	.space 0x4
+
+	.global UNK_021CB818
+UNK_021CB818: ; 0x021CB818
+	.space 0x4
+
+	.global UNK_021CB81C
+UNK_021CB81C: ; 0x021CB81C
+	.space 0x8
+
+	.global UNK_021CB824
+UNK_021CB824: ; 0x021CB824
+	.space 0x14
+
+	.global UNK_021CB838
+UNK_021CB838: ; 0x021CB838
+	.space 0x18
+
+	.global UNK_021CB850
+UNK_021CB850: ; 0x021CB850
+	.space 0x18
+
+	.global UNK_021CB868
+UNK_021CB868: ; 0x021CB868
+	.space 0x4
+
+	.global UNK_021CB86C
+UNK_021CB86C: ; 0x021CB86C
+	.space 0x4
+
+	.global UNK_021CB870
+UNK_021CB870: ; 0x021CB870
+	.space 0x4
+
+	.global UNK_021CB874
+UNK_021CB874: ; 0x021CB874
+	.space 0x4
+
+	.global UNK_021CB878
+UNK_021CB878: ; 0x021CB878
+	.space 0x4
+
+	.global UNK_021CB87C
+UNK_021CB87C: ; 0x021CB87C
+	.space 0x4
+
+	.global UNK_021CB880
+UNK_021CB880: ; 0x021CB880
+	.space 0x10
+
+	.global UNK_021CB890
+UNK_021CB890: ; 0x021CB890
+	.space 0x4
+
+	.global UNK_021CB894
+UNK_021CB894: ; 0x021CB894
+	.space 0x4
+
+	.global UNK_021CB898
+UNK_021CB898: ; 0x021CB898
+	.space 0x4
+
+	.global UNK_021CB89C
+UNK_021CB89C: ; 0x021CB89C
+	.space 0x4
+
+	.global UNK_021CB8A0
+UNK_021CB8A0: ; 0x021CB8A0
+	.space 0x4
+
+	.global UNK_021CB8A4
+UNK_021CB8A4: ; 0x021CB8A4
+	.space 0x18
+
+	.global UNK_021CB8BC
+UNK_021CB8BC: ; 0x021CB8BC
+	.space 0x18
+
+	.global UNK_021CB8D4
+UNK_021CB8D4: ; 0x021CB8D4
+	.space 0x440
+
+	.global UNK_021CBD14
+UNK_021CBD14: ; 0x021CBD14
+	.space 0x1000
+
+	.global UNK_021CCD14
+UNK_021CCD14: ; 0x021CCD14
+	.space 0x4
+
+	.global UNK_021CCD18
+UNK_021CCD18: ; 0x021CCD18
+	.space 0x4
+
+	.global UNK_021CCD1C
+UNK_021CCD1C: ; 0x021CCD1C
+	.space 0x4
+
+	.global UNK_021CCD20
+UNK_021CCD20: ; 0x021CCD20
+	.space 0x18
+
+	.global UNK_021CCD38
+UNK_021CCD38: ; 0x021CCD38
+	.space 0x4
+
+	.global UNK_021CCD3C
+UNK_021CCD3C: ; 0x021CCD3C
+	.space 0xc
+
+	.global UNK_021CCD48
+UNK_021CCD48: ; 0x021CCD48
+	.space 0x4
+
+	.global UNK_021CCD4C
+UNK_021CCD4C: ; 0x021CCD4C
+	.space 0xc
+
+	.global UNK_021CCD58
+UNK_021CCD58: ; 0x021CCD58
+	.space 0x14
+
+	.global UNK_021CCD6C
+UNK_021CCD6C: ; 0x021CCD6C
+	.space 0x4
+
+	.global UNK_021CCD70
+UNK_021CCD70: ; 0x021CCD70
+	.space 0x4
+
+	.global UNK_021CCD74
+UNK_021CCD74: ; 0x021CCD74
+	.space 0x14
+
+	.global UNK_021CCD88
+UNK_021CCD88: ; 0x021CCD88
+	.space 0x4
+
+	.global UNK_021CCD8C
+UNK_021CCD8C: ; 0x021CCD8C
+	.space 0x10
+
+	.global UNK_021CCD9C
+UNK_021CCD9C: ; 0x021CCD9C
+	.space 0x4
+
+	.global UNK_021CCDA0
+UNK_021CCDA0: ; 0x021CCDA0
+	.space 0x100
+
+	.global UNK_021CCEA0
+UNK_021CCEA0: ; 0x021CCEA0
+	.space 0x400
+
+	.global UNK_021CD2A0
+UNK_021CD2A0: ; 0x021CD2A0
+	.space 0x40
+
+	.global UNK_021CD2E0
+UNK_021CD2E0: ; 0x021CD2E0
+	.space 0x100
+
+	.global UNK_021CD3E0
+UNK_021CD3E0: ; 0x021CD3E0
+	.space 0x400
+
+	.global UNK_021CD7E0
+UNK_021CD7E0: ; 0x021CD7E0
+	.space 0x40
+
+	.global UNK_021CD820
+UNK_021CD820: ; 0x021CD820
+	.space 0x100
+
+	.global UNK_021CD920
+UNK_021CD920: ; 0x021CD920
+	.space 0x400
+
+	.global UNK_021CDD20
+UNK_021CDD20: ; 0x021CDD20
+	.space 0x40
+
+	.global UNK_021CDD60
+UNK_021CDD60: ; 0x021CDD60
+	.space 0x4
+
+	.global UNK_021CDD64
+UNK_021CDD64: ; 0x021CDD64
+	.space 0x4
+
+	.global UNK_021CDD68
+UNK_021CDD68: ; 0x021CDD68
+	.space 0x4
+
+	.global UNK_021CDD6C
+UNK_021CDD6C: ; 0x021CDD6C
+	.space 0x4
+
+	.global UNK_021CDD70
+UNK_021CDD70: ; 0x021CDD70
+	.space 0x4
+
+	.global UNK_021CDD74
+UNK_021CDD74: ; 0x021CDD74
+	.space 0x80
+
+	.global UNK_021CDDF4
+UNK_021CDDF4: ; 0x021CDDF4
+	.space 0x4
+
+	.global UNK_021CDDF8
+UNK_021CDDF8: ; 0x021CDDF8
+	.space 0xfc
+
+	.global UNK_021CDEF4
+UNK_021CDEF4: ; 0x021CDEF4
+	.space 0x10
+
+	.global UNK_021CDF04
+UNK_021CDF04: ; 0x021CDF04
+	.space 0x4
+
+	.global UNK_021CDF08
+UNK_021CDF08: ; 0x021CDF08
+	.space 0x2ec
+
+	.global UNK_021CE1F4
+UNK_021CE1F4: ; 0x021CE1F4
+	.space 0x300
+
+	.global UNK_021CE4F4
+UNK_021CE4F4: ; 0x021CE4F4
+	.space 0x400
+
+	.global UNK_021CE8F4
+UNK_021CE8F4: ; 0x021CE8F4
+	.space 0x4
+
+	.global UNK_021CE8F8
+UNK_021CE8F8: ; 0x021CE8F8
+	.space 0x404
+
+	.global UNK_021CECFC
+UNK_021CECFC: ; 0x021CECFC
+	.space 0x4
+
+	.global UNK_021CED00
+UNK_021CED00: ; 0x021CED00
+	.space 0x4
+
+	.global UNK_021CED04
+UNK_021CED04: ; 0x021CED04
+	.space 0x4
+
+	.global UNK_021CED08
+UNK_021CED08: ; 0x021CED08
+	.space 0x4
+
+	.global UNK_021CED0C
+UNK_021CED0C: ; 0x021CED0C
+	.space 0x4
+
+	.global UNK_021CED10
+UNK_021CED10: ; 0x021CED10
+	.space 0x4
+
+	.global UNK_021CED14
+UNK_021CED14: ; 0x021CED14
+	.space 0x4
+
+	.global UNK_021CED18
+UNK_021CED18: ; 0x021CED18
+	.space 0x8
+
+	.global UNK_021CED20
+UNK_021CED20: ; 0x021CED20
+	.space 0x44
+
+	.global UNK_021CED64
+UNK_021CED64: ; 0x021CED64
+	.space 0x34
+
+	.global UNK_021CED98
+UNK_021CED98: ; 0x021CED98
+	.space 0x28
+
+	.global UNK_021CEDC0
+UNK_021CEDC0: ; 0x021CEDC0
+	.space 0x14
+
+	.global UNK_021CEDD4
+UNK_021CEDD4: ; 0x021CEDD4
+	.space 0x24
+
+	.global UNK_021CEDF8
+UNK_021CEDF8: ; 0x021CEDF8
+	.space 0xc
+
+	.global UNK_021CEE04
+UNK_021CEE04: ; 0x021CEE04
+	.space 0x14
+
+	.global UNK_021CEE18
+UNK_021CEE18: ; 0x021CEE18
+	.space 0x30
+
+	.global UNK_021CEE48
+UNK_021CEE48: ; 0x021CEE48
+	.space 0x30
+
+	.global UNK_021CEE78
+UNK_021CEE78: ; 0x021CEE78
+	.space 0xe0
+
+	.global UNK_021CEF58
+UNK_021CEF58: ; 0x021CEF58
+	.space 0xc
+
+	.global UNK_021CEF64
+UNK_021CEF64: ; 0x021CEF64
+	.space 0xc
+
+	.global UNK_021CEF70
+UNK_021CEF70: ; 0x021CEF70
+	.space 0xc
+
+	.global UNK_021CEF7C
+UNK_021CEF7C: ; 0x021CEF7C
+	.space 0x4
+
+	.global UNK_021CEF80
+UNK_021CEF80: ; 0x021CEF80
+	.space 0xe00
+
+	.global UNK_021CFD80
+UNK_021CFD80: ; 0x021CFD80
+	.space 0x4
+
+	.global UNK_021CFD84
+UNK_021CFD84: ; 0x021CFD84
+	.space 0x4
+
+	.global UNK_021CFD88
+UNK_021CFD88: ; 0x021CFD88
+	.space 0x4
+
+	.global UNK_021CFD8C
+UNK_021CFD8C: ; 0x021CFD8C
+	.space 0x4
+
+	.global UNK_021CFD90
+UNK_021CFD90: ; 0x021CFD90
+	.space 0x4
+
+	.global UNK_021CFD94
+UNK_021CFD94: ; 0x021CFD94
+	.space 0x2ba
+
+	.global UNK_021D004E
+UNK_021D004E: ; 0x021D004E
+	.space 0x332
+
+	.global UNK_021D0380
+UNK_021D0380: ; 0x021D0380
+	.space 0x40
+
+	.global UNK_021D03C0
+UNK_021D03C0: ; 0x021D03C0
+	.space 0xb42
+
+	.global UNK_021D0F02
+UNK_021D0F02: ; 0x021D0F02
+	.space 0xd7e
+
+	.global UNK_021D1C80
+UNK_021D1C80: ; 0x021D1C80
+	.space 0x4
+
+	.global UNK_021D1C84
+UNK_021D1C84: ; 0x021D1C84
+	.space 0x4
+
+	.global UNK_021D1C88
+UNK_021D1C88: ; 0x021D1C88
+	.space 0x4
+
+	.global UNK_021D1C8C
+UNK_021D1C8C: ; 0x021D1C8C
+	.space 0x4
+
+	.global UNK_021D1C90
+UNK_021D1C90: ; 0x021D1C90
+	.space 0x4
+
+	.global UNK_021D1C94
+UNK_021D1C94: ; 0x021D1C94
+	.space 0x4
+
+	.global UNK_021D1C98
+UNK_021D1C98: ; 0x021D1C98
+	.space 0xc
+
+	.global UNK_021D1CA4
+UNK_021D1CA4: ; 0x021D1CA4
+	.space 0xc
+
+	.global UNK_021D1CB0
+UNK_021D1CB0: ; 0x021D1CB0
+	.space 0x4
+
+	.global UNK_021D1CB4
+UNK_021D1CB4: ; 0x021D1CB4
+	.space 0x4
+
+	.global UNK_021D1CB8
+UNK_021D1CB8: ; 0x021D1CB8
+	.space 0x4
+
+	.global UNK_021D1CBC
+UNK_021D1CBC: ; 0x021D1CBC
+	.space 0x140
+
+	.global UNK_021D1DFC
+UNK_021D1DFC: ; 0x021D1DFC
+	.space 0xc
+
+	.global UNK_021D1E08
+UNK_021D1E08: ; 0x021D1E08
+	.space 0xc
+
+	.global UNK_021D1E14
+UNK_021D1E14: ; 0x021D1E14
+	.space 0x440
+
+	.global UNK_021D2254
+UNK_021D2254: ; 0x021D2254
+	.space 0x8
+
+	.global UNK_021D225C
+UNK_021D225C: ; 0x021D225C
+	.space 0x10
+
+	.global UNK_021D226C
+UNK_021D226C: ; 0x021D226C
+	.space 0x4
+
+	.global UNK_021D2270
+UNK_021D2270: ; 0x021D2270
+	.space 0x4
+
+	.global UNK_021D2274
+UNK_021D2274: ; 0x021D2274
+	.space 0x460
+
+	.global UNK_021D26D4
+UNK_021D26D4: ; 0x021D26D4
+	.space 0x4
+
+	.global UNK_021D26D8
+UNK_021D26D8: ; 0x021D26D8
+	.space 0xc
+
+	.global UNK_021D26E4
+UNK_021D26E4: ; 0x021D26E4
+	.space 0x40
+
+	.global UNK_021D2724
+UNK_021D2724: ; 0x021D2724
+	.space 0x80
+
+	.global UNK_021D27A4
+UNK_021D27A4: ; 0x021D27A4
+	.space 0x4
+
+	.global UNK_021D27A8
+UNK_021D27A8: ; 0x021D27A8
+	.space 0x4
+
+	.global UNK_021D27AC
+UNK_021D27AC: ; 0x021D27AC
+	.space 0x20
+
+	.global UNK_021D27CC
+UNK_021D27CC: ; 0x021D27CC
+	.space 0x54
+
+	.global UNK_021D2820
+UNK_021D2820: ; 0x021D2820
+	.space 0xa0
+
+	.global UNK_021D28C0
+UNK_021D28C0: ; 0x021D28C0
+	.space 0x4
+
+	.global UNK_021D28C4
+UNK_021D28C4: ; 0x021D28C4
+	.space 0x3c
+
+	.global UNK_021D2900
+UNK_021D2900: ; 0x021D2900
+	.space 0x4
+
+	.global UNK_021D2904
+UNK_021D2904: ; 0x021D2904
+	.space 0x4d4
+
+	.global UNK_021D2DD8
+UNK_021D2DD8: ; 0x021D2DD8
+	.space 0x18
+
+	.global UNK_021D2DF0
+UNK_021D2DF0: ; 0x021D2DF0
+	.space 0xc
+
+	.global UNK_021D2DFC
+UNK_021D2DFC: ; 0x021D2DFC
+	.space 0x5c0
+
+	.global UNK_021D33BC
+UNK_021D33BC: ; 0x021D33BC
+	.space 0x4
+
+	.global UNK_021D33C0
+UNK_021D33C0: ; 0x021D33C0
+	.space 0x4
+
+	.global UNK_021D33C4
+UNK_021D33C4: ; 0x021D33C4
+	.space 0x2
+
+	.global UNK_021D33C6
+UNK_021D33C6: ; 0x021D33C6
+	.space 0x2
+
+	.global UNK_021D33C8
+UNK_021D33C8: ; 0x021D33C8
+	.space 0x2
+
+	.global UNK_021D33CA
+UNK_021D33CA: ; 0x021D33CA
+	.space 0x2
+
+	.global UNK_021D33CC
+UNK_021D33CC: ; 0x021D33CC
+	.space 0x2
+
+	.global UNK_021D33CE
+UNK_021D33CE: ; 0x021D33CE
+	.space 0x2
+
+	.global UNK_021D33D0
+UNK_021D33D0: ; 0x021D33D0
+	.space 0x2
+
+	.global UNK_021D33D2
+UNK_021D33D2: ; 0x021D33D2
+	.space 0x2
+
+	.global UNK_021D33D4
+UNK_021D33D4: ; 0x021D33D4
+	.space 0x2
+
+	.global UNK_021D33D6
+UNK_021D33D6: ; 0x021D33D6
+	.space 0x2
+
+	.global UNK_021D33D8
+UNK_021D33D8: ; 0x021D33D8
+	.space 0x2
+
+	.global UNK_021D33DA
+UNK_021D33DA: ; 0x021D33DA
+	.space 0x2
+
+	.global UNK_021D33DC
+UNK_021D33DC: ; 0x021D33DC
+	.space 0x4
+
+	.global UNK_021D33E0
+UNK_021D33E0: ; 0x021D33E0
+	.space 0x4
+
+	.global UNK_021D33E4
+UNK_021D33E4: ; 0x021D33E4
+	.space 0x4
+
+	.global UNK_021D33E8
+UNK_021D33E8: ; 0x021D33E8
+	.space 0x4
+
+	.global UNK_021D33EC
+UNK_021D33EC: ; 0x021D33EC
+	.space 0x4
+
+	.global UNK_021D33F0
+UNK_021D33F0: ; 0x021D33F0
+	.space 0x4
+
+	.global UNK_021D33F4
+UNK_021D33F4: ; 0x021D33F4
+	.space 0x4
+
+	.global UNK_021D33F8
+UNK_021D33F8: ; 0x021D33F8
+	.space 0x4
+
+	.global UNK_021D33FC
+UNK_021D33FC: ; 0x021D33FC
+	.space 0x4
+
+	.global UNK_021D3400
+UNK_021D3400: ; 0x021D3400
+	.space 0x4
+
+	.global UNK_021D3404
+UNK_021D3404: ; 0x021D3404
+	.space 0x4
+
+	.global UNK_021D3408
+UNK_021D3408: ; 0x021D3408
+	.space 0x4
+
+	.global UNK_021D340C
+UNK_021D340C: ; 0x021D340C
+	.space 0x4
+
+	.global UNK_021D3410
+UNK_021D3410: ; 0x021D3410
+	.space 0x4
+
+	.global UNK_021D3414
+UNK_021D3414: ; 0x021D3414
+	.space 0x4
+
+	.global UNK_021D3418
+UNK_021D3418: ; 0x021D3418
+	.space 0x4
+
+	.global OSi_IrqCallbackInfo
+OSi_IrqCallbackInfo: ; 0x021D341C
+	.space 0x4
+
+	.global UNK_021D3420
+UNK_021D3420: ; 0x021D3420
+	.space 0x4
+
+	.global UNK_021D3424
+UNK_021D3424: ; 0x021D3424
+	.space 0x28
+
+	.global UNK_021D344C
+UNK_021D344C: ; 0x021D344C
+	.space 0x4
+
+	.global UNK_021D3450
+UNK_021D3450: ; 0x021D3450
+	.space 0x4
+
+	.global UNK_021D3454
+UNK_021D3454: ; 0x021D3454
+	.space 0x28
+
+	.global isInitialized
+isInitialized: ; 0x021D347C
+	.space 0x4
+
+	.global OSi_StackForDestructor
+OSi_StackForDestructor: ; 0x021D3480
+	.space 0x4
+
+	.global OSi_RescheduleCount
+OSi_RescheduleCount: ; 0x021D3484
+	.space 0x4
+
+	.global OSi_ThreadIdCount
+OSi_ThreadIdCount: ; 0x021D3488
+	.space 0x4
+
+	.global OSi_SystemCallbackInSwitchThread
+OSi_SystemCallbackInSwitchThread: ; 0x021D348C
+	.space 0x4
+
+	.global OSi_CurrentThreadPtr
+OSi_CurrentThreadPtr: ; 0x021D3490
+	.space 0x4
+
+	.global OSi_IsThreadInitialized
+OSi_IsThreadInitialized: ; 0x021D3494
+	.space 0x4
+
+	.global OSi_ThreadInfo
+OSi_ThreadInfo: ; 0x021D3498
+	.space 0x4
+
+	.global UNK_021D349C
+UNK_021D349C: ; 0x021D349C
+	.space 0xc
+
+	.global OSi_IdleThread
+OSi_IdleThread: ; 0x021D34A8
+	.space 0xc0
+
+	.global OSi_LauncherThread
+OSi_LauncherThread: ; 0x021D3568
+	.space 0xC0
+
+	.global OSi_IdleThreadStack
+OSi_IdleThreadStack: ; 0x021D3628
+	.space 0xC8
+
+	.global OSi_Initialized
+OSi_Initialized: ; 0x021D36F0
+	.space 0x4
+
+	.global OSi_MainExArenaEnabled
+OSi_MainExArenaEnabled: ; 0x021D36F4
+	.space 0x4
