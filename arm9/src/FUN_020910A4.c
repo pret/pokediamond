@@ -3,8 +3,8 @@
 typedef void * (* AllocFunc)(u32 size);
 typedef void (* FreeFunc)(void * ptr);
 
-AllocFunc gUnk021C8C70;
-FreeFunc gUnk021C8C74;
+static FreeFunc gUnk021C8C74;
+static AllocFunc gUnk021C8C70;
 
 // Custom allocator
 ARM_FUNC void* FUN_020910A4(u32 size)

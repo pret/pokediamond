@@ -262,60 +262,17 @@ SECTIONS {
 	{
 		/* ALIGNALL(4); . = ALIGN(32); */
 		SDK_STATIC_BSS_START = .;
-		/* .sbss */
-		gBacklightTop                    = 0x02106FA0;
-		gBacklightTop_2                  = 0x02106FA0;
-		/* .bss */
-		gLoadedOverlays                  = 0x021C45B0;
-		gUnknown21C48B8                  = 0x021C48B8;
-		gUnk021C4918                     = 0x021C4918;
-		gUnk021C8C70                     = 0x021C8C70;
-		gUnk021C8C74                     = 0x021C8C74;
-		OSi_IrqCallbackInfo              = 0x021D341C;
-		isInitialized                    = 0x021D347C;
-		OSi_StackForDestructor           = 0x021D3480;
-		OSi_RescheduleCount              = 0x021D3484;
-		OSi_ThreadIdCount                = 0x021D3488;
-		OSi_SystemCallbackInSwitchThread = 0x021D348C;
-		OSi_CurrentThreadPtr             = 0x021D3490;
-		OSi_IsThreadInitialized          = 0x021D3494;
-		OSi_ThreadInfo                   = 0x021D3498;
-		OSi_IdleThread                   = 0x021D34A8;
-		OSi_LauncherThread               = 0x021D3568;
-		OSi_IdleThreadStack              = 0x021D3628;
-		OSi_Initialized                  = 0x021D36F0;
-		OSi_MainExArenaEnabled           = 0x021D36F4;
-		OSiHeapInfo                      = 0x021D36F8;
-		OSi_UserExceptionHandler         = 0x021D371C;
-		OSi_UserExceptionHandlerArg      = 0x021D3720;
-		OSi_DebuggerHandler              = 0x021D3724;
-		OSi_ExContext                    = 0x021D3728;
-		OSi_TimerReserved                = 0x021D37A8;
-		OSi_UseTick                      = 0x021D37AC;
-		OSi_NeedResetTimer               = 0x021D37B0;
-		OSi_TickCounter                  = 0x021D37B4;
-		OSi_UseAlarm                     = 0x021D37BC;
-		OSi_AlarmQueue                   = 0x021D37C0;
-		OSi_UseVAlarm                    = 0x021D37C8;
-		OSi_PreviousVCount               = 0x021D37CC;
-		OSi_VFrameCount                  = 0x021D37D0;
-		OSi_VAlarmQueue                  = 0x021D37D4;
-		OSi_IsInitReset                  = 0x021D37DC;
-		OSi_IsResetOccurred              = 0x021D37E0;
-		OSi_vramExclusive                = 0x021D37E4;
-		OSi_vramLockId                   = 0x021D37E8;
-		cardi_common                     = 0x021D55C0;
-		arc_list                         = 0x021D53E8;
-		current_dir_pos                  = 0x021D53EC;
-		is_init                          = 0x021D53F8;
-		fsi_card_lock_id                 = 0x021D53FC;
-		fsi_default_dma_no               = 0x021D5400;
-		fsi_ovt9                         = 0x021D5404;
-		fsi_ovt7                         = 0x021D540C;
-		fsi_arc_rom                      = 0x021D5414;
-		__global_destructor_chain        = 0x021D74C8;
+		bss.o (.bss)
+		FUN_020910A4.o (.bss)
+		bss_2.o (.bss)
+		OS_alloc.o (.bss)
+		bss_3.o (.bss)
+		FS_archive.o (.bss)
+		FS_file.o (.bss)
+		FS_rom.o (.bss)
+		bss_4.o (.bss)
 		/* . = ALIGN(32); */
-		SDK_STATIC_BSS_END               = 0x021D74E0;
+		SDK_STATIC_BSS_END = .;
 		SDK_STATIC_BSS_SIZE = SDK_STATIC_BSS_END - SDK_STATIC_BSS_START;
 	} >> arm9
 

@@ -5820,7 +5820,7 @@ _021DA41E:
 	mov r2, #1
 	mov r3, #0
 	bl FUN_0206E314
-	ldr r0, _021DA5DC ; =0x0000004B
+	ldr r0, _021DA5DC ; =SDK_OVERLAY_MODULE_75_ID
 	mov r1, #2
 	bl HandleLoadOverlay
 	mov r1, #0x85
@@ -5860,7 +5860,7 @@ _021DA498:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	bl FUN_02016A18
-	ldr r0, _021DA5DC ; =0x0000004B
+	ldr r0, _021DA5DC ; =SDK_OVERLAY_MODULE_75_ID
 	bl UnloadOverlayByID
 	ldr r0, _021DA5E4 ; =0x021E6A00
 	ldr r6, [r0, #8]
@@ -5992,7 +5992,7 @@ _021DA5D6:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021DA5D8: .word 0x021E6264
-_021DA5DC: .word 0x0000004B
+_021DA5DC: .word SDK_OVERLAY_MODULE_75_ID
 _021DA5E0: .word 0x021EC68C
 _021DA5E4: .word 0x021E6A00
 _021DA5E8: .word 0x021C48B8
