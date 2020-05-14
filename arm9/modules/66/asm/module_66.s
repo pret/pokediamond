@@ -3727,20 +3727,20 @@ MOD66_021D91F4: ; 0x021D91F4
 
 	thumb_func_start MOD66_021D9214
 MOD66_021D9214: ; 0x021D9214
-	ldr r3, _021D921C ; =0x0200BC1D
+	ldr r3, _021D921C ; =FUN_0200BC1C
 	add r0, #0xdc
 	ldr r0, [r0]
 	bx r3
 	.align 2, 0
-_021D921C: .word 0x0200BC1D
+_021D921C: .word FUN_0200BC1C
 	thumb_func_end MOD66_021D9214
 
 	thumb_func_start MOD66_021D9220
 MOD66_021D9220: ; 0x021D9220
-	ldr r3, _021D9224 ; =0x0200BC31
+	ldr r3, _021D9224 ; =FUN_0200BC30
 	bx r3
 	.align 2, 0
-_021D9224: .word 0x0200BC31
+_021D9224: .word FUN_0200BC30
 	thumb_func_end MOD66_021D9220
 
 	thumb_func_start MOD66_021D9228
