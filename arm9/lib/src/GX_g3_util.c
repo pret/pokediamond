@@ -2,13 +2,7 @@
 #include "main.h"
 #include "gx.h"
 
-#define HW_REG_DIV_NUMER 0x04000290
-#define HW_REG_DIV_DENOM 0x04000298
 
-#define HW_REG_MTX_MODE  0x04000440
-#define HW_REG_MTX_LOAD_4x4 0x04000458
-#define HW_REG_MTX_LOAD_4x3 0x0400045C
-#define HW_REG_MTX_MULT_3x3 0x04000468
 
 void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near, fx32 far, fx32 scale, u32 load, struct Mtx44 *mtx){
     fx32 fovcot, temp1, temp2;

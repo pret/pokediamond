@@ -5,8 +5,6 @@
 extern u16 gUnk021D33BC;
 extern struct VRAM_banks gUnk021D33C4;
 
-void OSi_UnlockVram(u16, u16);
-
 void GX_VRAMCNT_SetLCDC_(u32 mask){
     if (mask & (0x1 << 0))
         SETREG8(HW_REG_VRAMCNT_A, 0x80);

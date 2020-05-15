@@ -3,8 +3,6 @@
 #include "gx.h"
 
 
-void MI_Copy64B(void *src, void *dst);
-
 void G3BS_LoadMtx44(struct DL *displaylist, struct Mtx44 *mtx){
     *(u32 *)displaylist->var00 = 0x16;
     MI_Copy64B(mtx, displaylist->var04);

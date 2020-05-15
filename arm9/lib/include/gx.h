@@ -3,9 +3,34 @@
 
 #include "fx.h"
 
+//temporary while other files aren't decompiled
+void MIi_CpuCopy16(void *, void *, u32);
+void GXi_NopClearFifo128_(void *);
+void MI_Copy16B(void *, void *);
+void MI_DmaFill32Async(u32, void *, u32, u32, u32, u32);
+void MI_DmaFill32(u32, void *, u32, u32);
+void MIi_CpuClear32(u32, void *, u32);
+void MI_Copy64B(void *src, void *dst);
+void MI_WaitDma(u32);
+void MI_DmaCopy32Async(u32, void *, void *, u32, void *, void *);
+void MI_DmaCopy16(u32 unk, void *src, void *dst, u32 size);
+void MIi_CpuCopy16(void *src, void *dst, u32 size);
+void MI_DmaCopy32(u32 unk, void *src, void *dst, u32 size);
+void MIi_CpuCopy32(void *src, void *dst, u32 size);
+void OSi_UnlockVram(u16, u16);
+void MIi_CpuClear32(u32, void *, u32);
+
 //Todos before PR
 //TODO: Add defines for GX commands, add structs/unions for HW registers
 //TODO: Add ARM_FUNC attributes
+
+#define HW_REG_DIV_NUMER 0x04000290
+#define HW_REG_DIV_DENOM 0x04000298
+
+#define HW_REG_MTX_MODE  0x04000440
+#define HW_REG_MTX_LOAD_4x4 0x04000458
+#define HW_REG_MTX_LOAD_4x3 0x0400045C
+#define HW_REG_MTX_MULT_3x3 0x04000468
 
 #define HW_REG_END_VTXS        0x04000504
 #define HW_REG_GXSTAT          0x04000600
@@ -88,9 +113,38 @@
 #define READREG32(x) (*(vu32 *)x)
 #define READREG64(x) (*(vu64 *)x)
 
-//TODO: add SDK signatures and symbols
-//TODO: add arm function attributes
+static inline void _GX_Load_16(u32 var, void *src, void *dst, u32 size){
+    if (var != -1 && size > 0x1C)
+    {
+        MI_DmaCopy16(var, src, dst, size);
+    }
+    else
+    {
+        MIi_CpuCopy16(src, dst, size);
+    }
+}
 
+static inline void _GX_Load_32(u32 var, void *src, void *dst, u32 size){
+    if (var != -1 && size > 0x30)
+    {
+        MI_DmaCopy32(var, src, dst, size);
+    }
+    else
+    {
+        MIi_CpuCopy32(src, dst, size);
+    }
+}
+
+static inline void _GX_Load_32_Async(u32 var, void *src, void *dst, u32 size, void *func, void *ptr){
+    if (var != -1)
+    {
+        MI_DmaCopy32Async(var, src, dst, size, func, ptr);
+    }
+    else
+    {
+        MIi_CpuCopy32(src, dst, size);
+    }
+}
 
 struct DL
 {

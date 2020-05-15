@@ -7,11 +7,6 @@ extern u16 gUnk021D33C0;
 extern u32 gUnk02106814;
 extern u16 gUnk02106810;
 
-void GX_InitGXState();
-
-void MI_DmaFill32(u32, void *, u32, u32);
-void MIi_CpuClear32(u32, void *, u32);
-
 void GX_Init(){
     SETREG16(HW_REG_POWCNT1, READREG16(HW_REG_POWCNT1) | 0x8000);
     SETREG16(HW_REG_POWCNT1, (READREG16(HW_REG_POWCNT1) & ~0x20E) | 0x20E);

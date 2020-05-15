@@ -3,13 +3,6 @@
 #include "gx.h"
 
 extern u32 gUnk02106814;
-void MI_Copy64B(void *, void *);
-void MIi_CpuCopy16(void *, void *, u32);
-void GXi_NopClearFifo128_(void *);
-void MI_Copy16B(void *, void *);
-void MI_DmaFill32Async(u32, void *, u32, u32, u32, u32);
-void MI_DmaFill32(u32, void *, u32, u32);
-void MIi_CpuClear32(u32, void *, u32);
 
 asm void GXi_NopClearFifo128_(void *reg){
     mov r1, #0x0

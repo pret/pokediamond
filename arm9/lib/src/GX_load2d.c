@@ -12,46 +12,6 @@ extern s32 gUnk021D33E8;
 extern u32 gUnk021D33E4;
 extern s32 gUnk021D33E0;
 
-void MI_WaitDma(u32);
-void MI_DmaCopy32Async(u32, void *, void *, u32, void *, void *);
-void MI_DmaCopy16(u32 unk, void *src, void *dst, u32 size);
-void MIi_CpuCopy16(void *src, void *dst, u32 size);
-void MI_DmaCopy32(u32 unk, void *src, void *dst, u32 size);
-void MIi_CpuCopy32(void *src, void *dst, u32 size);
-
-
-static inline void _GX_Load_16(void *src, u32 offset, u32 size, u32 base){
-    if (gUnk02106814 != -1 && size > 0x1C)
-    {
-        MI_DmaCopy16(gUnk02106814, src, (void *)(base + offset), size);
-    }
-    else
-    {
-        MIi_CpuCopy16(src, (void *)(base + offset), size);
-    }
-}
-
-static inline void _GX_Load_32(void *src, u32 offset, u32 size, u32 base){
-    if (gUnk02106814 != -1 && size > 0x30)
-    {
-        MI_DmaCopy32(gUnk02106814, src, (void *)(base + offset), size);
-    }
-    else
-    {
-        MIi_CpuCopy32(src, (void *)(base + offset), size);
-    }
-}
-
-static inline void _GX_Load_32_Async(void *src, void *dst, u32 size, void *func, void *ptr){
-    if (gUnk02106814 != -1)
-    {
-        MI_DmaCopy32Async(gUnk02106814, src, dst, size, func, ptr);
-    }
-    else
-    {
-        MIi_CpuCopy32(src, dst, size);
-    }
-}
 
 static inline void *_GX_OBJ_PTR(){
     return (void *)0x6400000;
@@ -61,117 +21,117 @@ static inline void *_GXS_OBJ_PTR(){
 }
 
 void GX_LoadBGPltt(void *src, u32 offset, u32 size){
-    _GX_Load_16(src, offset, size, 0x5000000);
+    _GX_Load_16(gUnk02106814, src, (void *)(0x5000000 + offset), size);
 }
 
 void GXS_LoadBGPltt(void *src, u32 offset, u32 size){
-    _GX_Load_16(src, offset, size, 0x5000400);
+    _GX_Load_16(gUnk02106814, src, (void *)(0x5000400 + offset), size);
 }
 
 void GX_LoadOBJPltt(void *src, u32 offset, u32 size){
-    _GX_Load_16(src, offset, size, 0x5000200);
+    _GX_Load_16(gUnk02106814, src, (void *)(0x5000200 + offset), size);
 }
 
 void GXS_LoadOBJPltt(void *src, u32 offset, u32 size){
-    _GX_Load_16(src, offset, size, 0x5000600);
+    _GX_Load_16(gUnk02106814, src, (void *)(0x5000600 + offset), size);
 }
 
 void GX_LoadOAM(void *src, u32 offset, u32 size){
-    _GX_Load_32(src, offset, size, 0x7000000);
+    _GX_Load_32(gUnk02106814, src, (void *)(0x7000000 + offset), size);
 }
 
 void GXS_LoadOAM(void *src, u32 offset, u32 size){
-    _GX_Load_32(src, offset, size, 0x7000400);
+    _GX_Load_32(gUnk02106814, src, (void *)(0x7000400 + offset), size);
 }
 
 void GX_LoadOBJ(void *src, u32 offset, u32 size){
     u32 base = (u32)_GX_OBJ_PTR();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GXS_LoadOBJ(void *src, u32 offset, u32 size){
     u32 base = (u32)_GXS_OBJ_PTR();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GX_LoadBG0Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG0ScrPtr();
-    _GX_Load_16(src, offset, size, base);
+    _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GXS_LoadBG0Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG0ScrPtr();
-    _GX_Load_16(src, offset, size, base);
+    _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GX_LoadBG1Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG1ScrPtr();
-    _GX_Load_16(src, offset, size, base);
+    _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GXS_LoadBG1Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG1ScrPtr();
-    _GX_Load_16(src, offset, size, base);
+    _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GX_LoadBG2Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG2ScrPtr();
-    _GX_Load_16(src, offset, size, base);
+    _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GXS_LoadBG2Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG2ScrPtr();
-    _GX_Load_16(src, offset, size, base);
+    _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GX_LoadBG3Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG3ScrPtr();
-    _GX_Load_16(src, offset, size, base);
+    _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GXS_LoadBG3Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG3ScrPtr();
-    _GX_Load_16(src, offset, size, base);
+    _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GX_LoadBG0Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG0CharPtr();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GXS_LoadBG0Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG0CharPtr();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GX_LoadBG1Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG1CharPtr();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GXS_LoadBG1Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG1CharPtr();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GX_LoadBG2Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG2CharPtr();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GXS_LoadBG2Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG2CharPtr();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GX_LoadBG3Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG3CharPtr();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GXS_LoadBG3Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG3CharPtr();
-    _GX_Load_32(src, offset, size, base);
+    _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
 void GX_BeginLoadBGExtPltt(){
@@ -197,7 +157,7 @@ void GX_BeginLoadBGExtPltt(){
 }
 
 void GX_LoadBGExtPltt(void *src, u32 offset, u32 size){
-    _GX_Load_32_Async(src, (void *)(gUnk021D33F0 + offset - gUnk021D33EC), size, NULL, NULL);
+    _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D33F0 + offset - gUnk021D33EC), size, NULL, NULL);
 }
 
 void GX_EndLoadBGExtPltt(){
@@ -225,7 +185,7 @@ void GX_BeginLoadOBJExtPltt(){
 }
 
 void GX_LoadOBJExtPltt(void *src, u32 offset, u32 size){
-    _GX_Load_32_Async(src, (void *)(gUnk021D33E4 + offset), size, NULL, NULL);
+    _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D33E4 + offset), size, NULL, NULL);
 }
 
 void GX_EndLoadOBJExtPltt(){
@@ -241,7 +201,7 @@ void GXS_BeginLoadBGExtPltt(){
 }
 
 void GXS_LoadBGExtPltt(void *src, u32 offset, u32 size){
-    _GX_Load_32_Async(src, (void *)(0x06898000 + offset), size, NULL, NULL);
+    _GX_Load_32_Async(gUnk02106814, src, (void *)(0x06898000 + offset), size, NULL, NULL);
 }
 
 void GXS_EndLoadBGExtPltt(){
@@ -256,7 +216,7 @@ void GXS_BeginLoadOBJExtPltt(){
 }
 
 void GXS_LoadOBJExtPltt(void *src, u32 offset, u32 size){
-    _GX_Load_32_Async(src, (void *)(0x068A0000 + offset), size, NULL, NULL);
+    _GX_Load_32_Async(gUnk02106814, src, (void *)(0x068A0000 + offset), size, NULL, NULL);
 }
 
 void GXS_EndLoadOBJExtPltt(){

@@ -21,39 +21,6 @@ extern u16 gUnk02103B3C[];
 extern s32 gUnk021D33FC;
 extern u32 gUnk021D340C;
 
-static inline void _GX_Load_16(void *src, void *dst, u32 size){
-    if (gUnk02106814 != -1 && size > 0x1C)
-    {
-        MI_DmaCopy16(gUnk02106814, src, dst, size);
-    }
-    else
-    {
-        MIi_CpuCopy16(src, dst, size);
-    }
-}
-
-static inline void _GX_Load_32(void *src, void *dst, u32 size){
-    if (gUnk02106814 != -1 && size > 0x30)
-    {
-        MI_DmaCopy32(gUnk02106814, src, dst, size);
-    }
-    else
-    {
-        MIi_CpuCopy32(src, dst, size);
-    }
-}
-
-static inline void _GX_Load_32_Async(void *src, void *dst, u32 size, void *func, void *ptr){
-    if (gUnk02106814 != -1)
-    {
-        MI_DmaCopy32Async(gUnk02106814, src, dst, size, func, ptr);
-    }
-    else
-    {
-        MIi_CpuCopy32(src, dst, size);
-    }
-}
-
 void GX_BeginLoadTex(){
     u32 temp = GX_ResetBankForTex();
     gUnk021D3410 = temp;
@@ -83,12 +50,12 @@ void GX_LoadTex(void *src, u32 offset, u32 size){
             void *temp2 = (void *)gUnk021D3414;
             u32 temp1 = gUnk021D3418 - offset;
             temp = (void *)(gUnk021D3400 + offset);
-            _GX_Load_32(src, temp, temp1);
-            _GX_Load_32_Async((void *)((u8 *)src + temp1), temp2, (size - temp1), NULL, NULL);
+            _GX_Load_32(gUnk02106814, src, temp, temp1);
+            _GX_Load_32_Async(gUnk02106814, (void *)((u8 *)src + temp1), temp2, (size - temp1), NULL, NULL);
             return;
         }
     }
-    _GX_Load_32_Async(src, temp, size, NULL, NULL);
+    _GX_Load_32_Async(gUnk02106814, src, temp, size, NULL, NULL);
 }
 
 void GX_EndLoadTex(){
@@ -108,7 +75,7 @@ void GX_BeginLoadTexPltt(){
 }
 
 void GX_LoadTexPltt(void *src, u32 offset, u32 size){
-    _GX_Load_32_Async(src, (void *)(gUnk021D3404 + offset), size, NULL, NULL);
+    _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D3404 + offset), size, NULL, NULL);
 }
 
 void GX_EndLoadTexPltt(){
@@ -141,11 +108,11 @@ void GX_BeginLoadClearImage(){
 }
 
 void GX_LoadClearImageColor(void *src, u32 size){
-    _GX_Load_32_Async(src, (void *)(gUnk021D340C), size, NULL, NULL);
+    _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D340C), size, NULL, NULL);
 }
 
 void GX_LoadClearImageDepth(void *src, u32 size){
-    _GX_Load_32_Async(src, (void *)(gUnk021D340C + 0x20000), size, NULL, NULL);
+    _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D340C + 0x20000), size, NULL, NULL);
 }
 
 void GX_EndLoadClearImage(){
