@@ -2,8 +2,8 @@
 #include "main.h"
 #include "gx.h"
 
-extern u16 gUnk021D33BC;
-extern struct VRAM_banks gUnk021D33C4;
+extern u16 UNK_021D33BC;
+extern struct VRAM_banks UNK_021D33C4;
 
 ARM_FUNC void GX_VRAMCNT_SetLCDC_(u32 mask){
     if (mask & (0x1 << 0))
@@ -27,8 +27,8 @@ ARM_FUNC void GX_VRAMCNT_SetLCDC_(u32 mask){
 }
 
 ARM_FUNC void GX_SetBankForBG(s32 bg){
-    gUnk021D33C4.var00 = (u16)(~bg & (gUnk021D33C4.var00 | gUnk021D33C4.var02));
-    gUnk021D33C4.var02 = bg;
+    UNK_021D33C4.var00 = (u16)(~bg & (UNK_021D33C4.var00 | UNK_021D33C4.var02));
+    UNK_021D33C4.var02 = bg;
     switch (bg)
     {
     case 8:
@@ -96,12 +96,12 @@ ARM_FUNC void GX_SetBankForBG(s32 bg){
     default:
         break;
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForOBJ(s32 obj){
-    gUnk021D33C4.var00 = (u16)(~obj & (gUnk021D33C4.var00 | gUnk021D33C4.var04));
-    gUnk021D33C4.var04 = obj;
+    UNK_021D33C4.var00 = (u16)(~obj & (UNK_021D33C4.var00 | UNK_021D33C4.var04));
+    UNK_021D33C4.var04 = obj;
     switch (obj)
     {
     case 3:
@@ -135,12 +135,12 @@ ARM_FUNC void GX_SetBankForOBJ(s32 obj){
     default:
         break;
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForBGExtPltt(s32 bgextpltt){
-    gUnk021D33C4.var00 = (u16)(~bgextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var0E));
-    gUnk021D33C4.var0E = bgextpltt;
+    UNK_021D33C4.var00 = (u16)(~bgextpltt & (UNK_021D33C4.var00 | UNK_021D33C4.var0E));
+    UNK_021D33C4.var0E = bgextpltt;
     switch (bgextpltt)
     {
     case 0x10:
@@ -161,12 +161,12 @@ ARM_FUNC void GX_SetBankForBGExtPltt(s32 bgextpltt){
         SETREG32(HW_REG_DISPCNT, READREG32(HW_REG_DISPCNT) & ~0x40000000);
         break;
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForOBJExtPltt(s32 objextpltt){
-    gUnk021D33C4.var00 = (u16)(~objextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var10));
-    gUnk021D33C4.var10 = objextpltt;
+    UNK_021D33C4.var00 = (u16)(~objextpltt & (UNK_021D33C4.var00 | UNK_021D33C4.var10));
+    UNK_021D33C4.var10 = objextpltt;
     switch (objextpltt)
     {
     case 32:
@@ -181,12 +181,12 @@ ARM_FUNC void GX_SetBankForOBJExtPltt(s32 objextpltt){
         SETREG32(HW_REG_DISPCNT, READREG32(HW_REG_DISPCNT) & ~0x80000000);
         break;
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForTex(s32 tex){
-    gUnk021D33C4.var00 = (u16)(~tex & (gUnk021D33C4.var00 | gUnk021D33C4.var08));
-    gUnk021D33C4.var08 = tex;
+    UNK_021D33C4.var00 = (u16)(~tex & (UNK_021D33C4.var00 | UNK_021D33C4.var08));
+    UNK_021D33C4.var08 = tex;
     if (tex == 0)
     {
         SETREG16(HW_REG_DISP3DCNT, READREG16(HW_REG_DISP3DCNT) & 0x0000CFFE);
@@ -244,12 +244,12 @@ ARM_FUNC void GX_SetBankForTex(s32 tex){
             break;
         }
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForTexPltt(s32 texpltt){
-    gUnk021D33C4.var00 = (u16)(~texpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var0A));
-    gUnk021D33C4.var0A = texpltt;
+    UNK_021D33C4.var00 = (u16)(~texpltt & (UNK_021D33C4.var00 | UNK_021D33C4.var0A));
+    UNK_021D33C4.var0A = texpltt;
     switch (texpltt)
     {
     case 0: //needed to match
@@ -270,12 +270,12 @@ ARM_FUNC void GX_SetBankForTexPltt(s32 texpltt){
         SETREG8(HW_REG_VRAMCNT_G, 0x83);
         break;
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForClearImage(s32 clearimage){
-    gUnk021D33C4.var00 = (u16)(~clearimage & (gUnk021D33C4.var00 | gUnk021D33C4.var0C));
-    gUnk021D33C4.var0C = clearimage;
+    UNK_021D33C4.var00 = (u16)(~clearimage & (UNK_021D33C4.var00 | UNK_021D33C4.var0C));
+    UNK_021D33C4.var0C = clearimage;
     switch (clearimage)
     {
     case 3:
@@ -301,12 +301,12 @@ ARM_FUNC void GX_SetBankForClearImage(s32 clearimage){
         SETREG8(HW_REG_VRAMCNT_C, 0x9B);
         SETREG16(HW_REG_DISP3DCNT, READREG16(HW_REG_DISP3DCNT) | 0x4000);
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForARM7(s32 arm7){
-    gUnk021D33C4.var00 = (u16)(~arm7 & (gUnk021D33C4.var00 | gUnk021D33C4.var06));
-    gUnk021D33C4.var06 = arm7;
+    UNK_021D33C4.var00 = (u16)(~arm7 & (UNK_021D33C4.var00 | UNK_021D33C4.var06));
+    UNK_021D33C4.var06 = arm7;
     switch (arm7)
     {
     case 0: //needed to match
@@ -321,17 +321,17 @@ ARM_FUNC void GX_SetBankForARM7(s32 arm7){
     case 8:
         SETREG8(HW_REG_VRAMCNT_D, 0x82);
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForLCDC(s32 lcdc){
-    gUnk021D33C4.var00 |= lcdc;
+    UNK_021D33C4.var00 |= lcdc;
     GX_VRAMCNT_SetLCDC_(lcdc);
 }
 
 ARM_FUNC void GX_SetBankForSubBG(s32 subbg){
-    gUnk021D33C4.var00 = (u16)(~subbg & (gUnk021D33C4.var00 | gUnk021D33C4.var12));
-    gUnk021D33C4.var12 = subbg;
+    UNK_021D33C4.var00 = (u16)(~subbg & (UNK_021D33C4.var00 | UNK_021D33C4.var12));
+    UNK_021D33C4.var12 = subbg;
     switch (subbg)
     {
     case 0: //needed to match
@@ -344,13 +344,13 @@ ARM_FUNC void GX_SetBankForSubBG(s32 subbg){
     case 128:
         SETREG8(HW_REG_VRAMCNT_H, 0x81);
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 
 ARM_FUNC void GX_SetBankForSubOBJ(s32 subobj){
-    gUnk021D33C4.var00 = (u16)(~subobj & (gUnk021D33C4.var00 | gUnk021D33C4.var14));
-    gUnk021D33C4.var14 = subobj;
+    UNK_021D33C4.var00 = (u16)(~subobj & (UNK_021D33C4.var00 | UNK_021D33C4.var14));
+    UNK_021D33C4.var14 = subobj;
     switch (subobj)
     {
     case 8:
@@ -362,12 +362,12 @@ ARM_FUNC void GX_SetBankForSubOBJ(s32 subobj){
     case 0: //needed to match
         break;
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForSubBGExtPltt(s32 subbgextpltt){
-    gUnk021D33C4.var00 = (u16)(~subbgextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var16));
-    gUnk021D33C4.var16 = subbgextpltt;
+    UNK_021D33C4.var00 = (u16)(~subbgextpltt & (UNK_021D33C4.var00 | UNK_021D33C4.var16));
+    UNK_021D33C4.var16 = subbgextpltt;
     switch (subbgextpltt)
     {
         case 128:
@@ -378,12 +378,12 @@ ARM_FUNC void GX_SetBankForSubBGExtPltt(s32 subbgextpltt){
             SETREG32(HW_REG_DISPCNT_2D, READREG32(HW_REG_DISPCNT_2D) & ~0x40000000);
             break;
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC void GX_SetBankForSubOBJExtPltt(s32 subobjextpltt){
-    gUnk021D33C4.var00 = (u16)(~subobjextpltt & (gUnk021D33C4.var00 | gUnk021D33C4.var18));
-    gUnk021D33C4.var18 = subobjextpltt;
+    UNK_021D33C4.var00 = (u16)(~subobjextpltt & (UNK_021D33C4.var00 | UNK_021D33C4.var18));
+    UNK_021D33C4.var18 = subobjextpltt;
     switch (subobjextpltt)
     {
         case 256:
@@ -394,63 +394,63 @@ ARM_FUNC void GX_SetBankForSubOBJExtPltt(s32 subobjextpltt){
             SETREG32(HW_REG_DISPCNT_2D, READREG32(HW_REG_DISPCNT_2D) & ~0x80000000);
             break;
     }
-    GX_VRAMCNT_SetLCDC_(gUnk021D33C4.var00);
+    GX_VRAMCNT_SetLCDC_(UNK_021D33C4.var00);
 }
 
 ARM_FUNC u32 FUN_020C6130(u16 *ptr){
     u16 temp = *ptr;
     *ptr = 0;
-    gUnk021D33C4.var00 |= temp;
+    UNK_021D33C4.var00 |= temp;
     GX_VRAMCNT_SetLCDC_(temp);
     return temp;
 }
 
 ARM_FUNC u32 GX_ResetBankForBG(){
-    return FUN_020C6130(&gUnk021D33C4.var02);
+    return FUN_020C6130(&UNK_021D33C4.var02);
 }
 
 ARM_FUNC u32 GX_ResetBankForOBJ(){
-    return FUN_020C6130(&gUnk021D33C4.var04);
+    return FUN_020C6130(&UNK_021D33C4.var04);
 }
 
 ARM_FUNC u32 GX_ResetBankForBGExtPltt(){
     SETREG32(HW_REG_DISPCNT, READREG32(HW_REG_DISPCNT) & ~0x40000000);
-    return FUN_020C6130(&gUnk021D33C4.var0E);
+    return FUN_020C6130(&UNK_021D33C4.var0E);
 }
 
 ARM_FUNC u32 GX_ResetBankForOBJExtPltt(){
     SETREG32(HW_REG_DISPCNT, READREG32(HW_REG_DISPCNT) & ~0x80000000);
-    return FUN_020C6130(&gUnk021D33C4.var10);
+    return FUN_020C6130(&UNK_021D33C4.var10);
 }
 
 ARM_FUNC u32 GX_ResetBankForTex(){
-    return FUN_020C6130(&gUnk021D33C4.var08);
+    return FUN_020C6130(&UNK_021D33C4.var08);
 }
 
 ARM_FUNC u32 GX_ResetBankForTexPltt(){
-    return FUN_020C6130(&gUnk021D33C4.var0A);
+    return FUN_020C6130(&UNK_021D33C4.var0A);
 }
 
 ARM_FUNC u32 GX_ResetBankForClearImage(){
-    return FUN_020C6130(&gUnk021D33C4.var0C);
+    return FUN_020C6130(&UNK_021D33C4.var0C);
 }
 
 ARM_FUNC u32 GX_ResetBankForSubBG(){
-    return FUN_020C6130(&gUnk021D33C4.var12);
+    return FUN_020C6130(&UNK_021D33C4.var12);
 }
 
 ARM_FUNC u32 FUN_020C605C(){
-    return FUN_020C6130(&gUnk021D33C4.var14);
+    return FUN_020C6130(&UNK_021D33C4.var14);
 }
 
 ARM_FUNC u32 FUN_020C6034(){
     SETREG32(HW_REG_DISPCNT_2D, READREG32(HW_REG_DISPCNT_2D) & ~0x40000000);
-    return FUN_020C6130(&gUnk021D33C4.var16);
+    return FUN_020C6130(&UNK_021D33C4.var16);
 }
 
 ARM_FUNC u32 GX_ResetBankForSubOBJ(){
     SETREG32(HW_REG_DISPCNT_2D, READREG32(HW_REG_DISPCNT_2D) & ~0x80000000);
-    return FUN_020C6130(&gUnk021D33C4.var18);
+    return FUN_020C6130(&UNK_021D33C4.var18);
 }
 
 ARM_FUNC u32 FUN_020C5F28(u16 *ptr){
@@ -474,106 +474,106 @@ ARM_FUNC u32 FUN_020C5F28(u16 *ptr){
         SETREG8(HW_REG_VRAMCNT_H, 0x0);
     if (temp & (0x1 << 8))
         SETREG8(HW_REG_VRAMCNT_I, 0x0);
-    OSi_UnlockVram((u16)temp, gUnk021D33BC);
+    OSi_UnlockVram((u16)temp, UNK_021D33BC);
     return temp;
 }
 
 ARM_FUNC u32 disableBankForX_(){
-    return FUN_020C5F28(&gUnk021D33C4.var02);
+    return FUN_020C5F28(&UNK_021D33C4.var02);
 }
 
 ARM_FUNC u32 GX_DisableBankForOBJExtPltt_2(){
-    return FUN_020C5F28(&gUnk021D33C4.var04);
+    return FUN_020C5F28(&UNK_021D33C4.var04);
 }
 
 ARM_FUNC u32 GX_DisableBankForBGExtPltt(){
     SETREG32(HW_REG_DISPCNT, READREG32(HW_REG_DISPCNT) & ~0x40000000);
-    return FUN_020C5F28(&gUnk021D33C4.var0E);
+    return FUN_020C5F28(&UNK_021D33C4.var0E);
 }
 
 ARM_FUNC u32 GX_DisableBankForOBJExtPltt(){
     SETREG32(HW_REG_DISPCNT, READREG32(HW_REG_DISPCNT) & ~0x80000000);
-    return FUN_020C5F28(&gUnk021D33C4.var10);
+    return FUN_020C5F28(&UNK_021D33C4.var10);
 }
 
 ARM_FUNC u32 GX_DisableBankForTexPltt_2(){
-    return FUN_020C5F28(&gUnk021D33C4.var08);
+    return FUN_020C5F28(&UNK_021D33C4.var08);
 }
 
 ARM_FUNC u32 GX_DisableBankForTexPltt(){
-    return FUN_020C5F28(&gUnk021D33C4.var0A);
+    return FUN_020C5F28(&UNK_021D33C4.var0A);
 }
 
 ARM_FUNC u32 GX_DisableBankForClearImage(){
-    return FUN_020C5F28(&gUnk021D33C4.var0C);
+    return FUN_020C5F28(&UNK_021D33C4.var0C);
 }
 
 ARM_FUNC u32 GX_DisableBankForARM7(){
-    return FUN_020C5F28(&gUnk021D33C4.var06);
+    return FUN_020C5F28(&UNK_021D33C4.var06);
 }
 
 ARM_FUNC u32 GX_DisableBankForLCDC(){
-    return FUN_020C5F28(&gUnk021D33C4.var00);
+    return FUN_020C5F28(&UNK_021D33C4.var00);
 }
 
 ARM_FUNC u32 GX_DisableBankForSubBGExtPltt(){
-    return FUN_020C5F28(&gUnk021D33C4.var12);
+    return FUN_020C5F28(&UNK_021D33C4.var12);
 }
 
 ARM_FUNC u32 GX_DisableBankForSubOBJExtPltt_2(){
-    return FUN_020C5F28(&gUnk021D33C4.var14);
+    return FUN_020C5F28(&UNK_021D33C4.var14);
 }
 
 ARM_FUNC u32 FUN_020C5E04(){
     SETREG32(HW_REG_DISPCNT_2D, READREG32(HW_REG_DISPCNT_2D) & ~0x40000000);
-    return FUN_020C5F28(&gUnk021D33C4.var16);
+    return FUN_020C5F28(&UNK_021D33C4.var16);
 }
 
 ARM_FUNC u32 GX_DisableBankForSubOBJExtPltt(){
     SETREG32(HW_REG_DISPCNT_2D, READREG32(HW_REG_DISPCNT_2D) & ~0x80000000);
-    return FUN_020C5F28(&gUnk021D33C4.var18);
+    return FUN_020C5F28(&UNK_021D33C4.var18);
 }
 
 ARM_FUNC u32 GX_GetBankForBGExtPltt_2(){
-    return gUnk021D33C4.var02;
+    return UNK_021D33C4.var02;
 }
 
 ARM_FUNC u32 GX_GetBankForOBJ(){
-    return gUnk021D33C4.var04;
+    return UNK_021D33C4.var04;
 }
 
 ARM_FUNC u32 GX_GetBankForBGExtPltt(){
-    return gUnk021D33C4.var0E;
+    return UNK_021D33C4.var0E;
 }
 
 ARM_FUNC u32 GX_GetBankForOBJExtPltt(){
-    return gUnk021D33C4.var10;
+    return UNK_021D33C4.var10;
 }
 
 ARM_FUNC u32 FUN_020C5D8C(){
-    return gUnk021D33C4.var08;
+    return UNK_021D33C4.var08;
 }
 
 ARM_FUNC u32 GX_GetBankForTexPltt(){
-    return gUnk021D33C4.var0A;
+    return UNK_021D33C4.var0A;
 }
 
 ARM_FUNC u32 GX_GetBankForLCDC(){
-    return gUnk021D33C4.var00;
+    return UNK_021D33C4.var00;
 }
 
 ARM_FUNC u32 GX_GetBankForSubBGExtPltt_2(){
-    return gUnk021D33C4.var12;
+    return UNK_021D33C4.var12;
 }
 
 ARM_FUNC u32 GX_GetBankForSubOBJ(){
-    return gUnk021D33C4.var14;
+    return UNK_021D33C4.var14;
 }
 
 ARM_FUNC u32 GX_GetBankForSubBGExtPltt(){
-    return gUnk021D33C4.var16;
+    return UNK_021D33C4.var16;
 }
 
 ARM_FUNC u32 GX_GetBankForSubOBJExtPltt(){
-    return gUnk021D33C4.var18;
+    return UNK_021D33C4.var18;
 }

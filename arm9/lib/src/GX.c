@@ -2,10 +2,10 @@
 #include "main.h"
 #include "gx.h"
 
-extern u16 gUnk021D33BC;
-extern u16 gUnk021D33C0;
-extern u32 gUnk02106814;
-extern u16 gUnk02106810;
+extern u16 UNK_021D33BC;
+extern u16 UNK_021D33C0;
+extern u32 UNK_02106814;
+extern u16 UNK_02106810;
 
 ARM_FUNC void GX_Init(){
     SETREG16(HW_REG_POWCNT1, READREG16(HW_REG_POWCNT1) | 0x8000);
@@ -13,22 +13,22 @@ ARM_FUNC void GX_Init(){
     SETREG16(HW_REG_POWCNT1, READREG16(HW_REG_POWCNT1) | 0x1);
     GX_InitGXState();
     u32 temp;
-    while (gUnk021D33BC == 0)
+    while (UNK_021D33BC == 0)
     {
         temp = OS_GetLockID();
         if (temp == -3)
         {
             OS_Terminate();
         }
-        gUnk021D33BC = temp;
+        UNK_021D33BC = temp;
     }
     SETREG16(HW_REG_DISPSTAT, 0x0);
     SETREG32(HW_REG_DISPCNT, 0x0);
-    if (gUnk02106814 != -1)
+    if (UNK_02106814 != -1)
     {
-        MI_DmaFill32(gUnk02106814, (void *)HW_REG_BG0CNT_A, 0x0, 0x60);
+        MI_DmaFill32(UNK_02106814, (void *)HW_REG_BG0CNT_A, 0x0, 0x60);
         SETREG16(HW_REG_MASTER_BRIGHT, 0x0);
-        MI_DmaFill32(gUnk02106814, (void *)HW_REG_DISPCNT_2D, 0x0, 0x70);
+        MI_DmaFill32(UNK_02106814, (void *)HW_REG_DISPCNT_2D, 0x0, 0x70);
     }
     else
     {
@@ -74,16 +74,16 @@ ARM_FUNC u32 GX_VBlankIntr(u32 enable){
 
 ARM_FUNC void GX_DispOff(){
     u32 temp = READREG32(HW_REG_DISPCNT);
-    gUnk02106810 = 0x0;
-    gUnk021D33C0 = (temp & 0x30000) >> 0x10;
+    UNK_02106810 = 0x0;
+    UNK_021D33C0 = (temp & 0x30000) >> 0x10;
     SETREG32(HW_REG_DISPCNT, temp & ~0x30000);
 }
 
 ARM_FUNC void GX_DispOn(){
-    gUnk02106810 = 0x1;
-    if (gUnk021D33C0)
+    UNK_02106810 = 0x1;
+    if (UNK_021D33C0)
     {
-        SETREG32(HW_REG_DISPCNT, READREG32(HW_REG_DISPCNT) & ~0x30000 | (gUnk021D33C0 << 0x10));
+        SETREG32(HW_REG_DISPCNT, READREG32(HW_REG_DISPCNT) & ~0x30000 | (UNK_021D33C0 << 0x10));
 
     }
     else
@@ -94,12 +94,12 @@ ARM_FUNC void GX_DispOn(){
 
 ARM_FUNC void GX_SetGraphicsMode(u32 mode1, u32 mode2, u32 mode3){
     u32 temp2 = READREG32(HW_REG_DISPCNT);
-    gUnk021D33C0 = mode1;
-    if (!gUnk02106810)
+    UNK_021D33C0 = mode1;
+    if (!UNK_02106810)
         mode1 = 0;
     SETREG32(HW_REG_DISPCNT, (mode2 | ((temp2 & 0xFFF0FFF0) | (mode1 << 0x10))) | (mode3 << 0x3));
-    if (!gUnk021D33C0)
-        gUnk02106810 = 0x0;
+    if (!UNK_021D33C0)
+        UNK_02106810 = 0x0;
 }
 
 ARM_FUNC void GXS_SetGraphicsMode(u32 mode){
