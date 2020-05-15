@@ -307,6 +307,12 @@ void G2x_SetBlendBrightness_(u16 *ptr, fx32 a, fx32 brightness);
 void G2x_SetBlendBrightnessExt_(u16 *ptr, fx32 a, fx32 b, fx32 c, fx32 d, fx32 brightness);
 void *G2x_ChangeBlendBrightness_(u16 *ptr, fx32 brightness);
 
-//GXi_NopClearFifo128_ probably asm
+//GX_state
+void GX_InitGXState();
+
+//GX_g3imm
+void G3_LoadMtx43(struct Mtx43 *mtx);
+void G3_MultMtx43(struct Mtx43 *mtx);
+void G3_MultMtx33(struct Mtx33 *mtx);
 
 #endif //GUARD_GX_H
