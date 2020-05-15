@@ -383,7 +383,7 @@ _02254AE0:
 	mul r1, r0
 	add r0, r2, r1
 	lsl r0, r0, #0xc
-	blx FX_Sqrt
+	bl FX_Sqrt
 	ldrb r1, [r5, #4]
 	lsl r2, r1, #2
 	ldr r1, _02254B6C ; =0x022550A8
@@ -724,13 +724,13 @@ MOD29_02254D10: ; 0x02254D10
 	add r0, r4, #0
 	add r0, #0x70
 	mov r1, #0x20
-	blx DC_FlushRange
+	bl DC_FlushRange
 	add r0, r4, #0
 	mov r1, #0x1a
 	add r0, #0x70
 	lsl r1, r1, #4
 	mov r2, #0x20
-	blx GXS_LoadOBJPltt
+	bl GXS_LoadOBJPltt
 	add r0, r4, #0
 	add r0, #0x8e
 	ldrh r1, [r0]
@@ -740,13 +740,13 @@ MOD29_02254D10: ; 0x02254D10
 	add r0, r4, #0
 	add r0, #0x70
 	mov r1, #0x20
-	blx DC_FlushRange
+	bl DC_FlushRange
 	add r0, r4, #0
 	mov r1, #7
 	add r0, #0x70
 	lsl r1, r1, #6
 	mov r2, #0x20
-	blx GXS_LoadOBJPltt
+	bl GXS_LoadOBJPltt
 	ldr r0, [r4, #4]
 	mov r1, #6
 	bl FUN_02017CD0
@@ -1121,6 +1121,14 @@ MOD29_0225508C: ; 0x0225508C
 	.align 2, 0
 	thumb_func_end MOD29_0225508C
 
-	.section .data
+	.section .rodata
 	; 0x0225509C
-	.incbin "baserom.nds", 0x28CA5C, 0xA4
+	.incbin "baserom.nds", 0x28CA5C, 0x90
+
+	; .section .sinit
+	.global SDK_OVERLAY.MODULE_29.SINIT_START
+    .global SDK_OVERLAY.MODULE_29.SINIT_END
+SDK_OVERLAY.MODULE_29.SINIT_START:
+	.word MOD29_02254840
+	.word 0
+SDK_OVERLAY.MODULE_29.SINIT_END:

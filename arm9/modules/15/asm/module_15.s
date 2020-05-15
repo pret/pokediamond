@@ -2402,11 +2402,11 @@ MOD15_021D86E4: ; 0x021D86E4
 
 	thumb_func_start MOD15_021D86E8
 MOD15_021D86E8: ; 0x021D86E8
-	ldr r3, _021D86F0 ; =0x02085411
+	ldr r3, _021D86F0 ; =FUN_02085410
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D86F0: .word 0x02085411
+_021D86F0: .word FUN_02085410
 
 	thumb_func_start MOD15_021D86F4
 MOD15_021D86F4: ; 0x021D86F4
@@ -2417,11 +2417,11 @@ MOD15_021D86F4: ; 0x021D86F4
 
 	thumb_func_start MOD15_021D86FC
 MOD15_021D86FC: ; 0x021D86FC
-	ldr r3, _021D8704 ; =0x02013921
+	ldr r3, _021D8704 ; =FUN_02013920
 	add r0, #8
 	bx r3
 	nop
-_021D8704: .word 0x02013921
+_021D8704: .word FUN_02013920
 
 	thumb_func_start MOD15_021D8708
 MOD15_021D8708: ; 0x021D8708
@@ -2440,11 +2440,11 @@ _021D8718:
 
 	thumb_func_start MOD15_021D8720
 MOD15_021D8720: ; 0x021D8720
-	ldr r3, _021D8728 ; =0x02013841
+	ldr r3, _021D8728 ; =FUN_02013840
 	add r0, #8
 	bx r3
 	nop
-_021D8728: .word 0x02013841
+_021D8728: .word FUN_02013840
 
 	thumb_func_start MOD15_021D872C
 MOD15_021D872C: ; 0x021D872C
@@ -2560,11 +2560,11 @@ _021D87DC:
 
 	thumb_func_start MOD15_021D87E0
 MOD15_021D87E0: ; 0x021D87E0
-	ldr r3, _021D87E8 ; =0x02085415
+	ldr r3, _021D87E8 ; =FUN_02085414
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D87E8: .word 0x02085415
+_021D87E8: .word FUN_02085414
 
 	thumb_func_start MOD15_021D87EC
 MOD15_021D87EC: ; 0x021D87EC
@@ -2676,10 +2676,10 @@ _021D88CE:
 
 	thumb_func_start MOD15_021D88D0
 MOD15_021D88D0: ; 0x021D88D0
-	ldr r3, _021D88D4 ; =0x0200CA61
+	ldr r3, _021D88D4 ; =FUN_0200CA60
 	bx r3
 	.align 2, 0
-_021D88D4: .word 0x0200CA61
+_021D88D4: .word FUN_0200CA60
 
 	thumb_func_start MOD15_021D88D8
 MOD15_021D88D8: ; 0x021D88D8
@@ -4967,11 +4967,11 @@ _021D9B2C: .word 0x0000FFFE
 
 	thumb_func_start MOD15_021D9B30
 MOD15_021D9B30: ; 0x021D9B30
-	ldr r3, _021D9B38 ; =0x02021A21
+	ldr r3, _021D9B38 ; =FUN_02021A20
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9B38: .word 0x02021A21
+_021D9B38: .word FUN_02021A20
 
 	thumb_func_start MOD15_021D9B3C
 MOD15_021D9B3C: ; 0x021D9B3C
@@ -5718,37 +5718,37 @@ MOD15_021DA0B8: ; 0x021DA0B8
 
 	thumb_func_start MOD15_021DA0F4
 MOD15_021DA0F4: ; 0x021DA0F4
-	ldr r3, _021DA0FC ; =0x02020131
+	ldr r3, _021DA0FC ; =FUN_02020130
 	ldr r0, [r0, #0xc]
 	mov r1, #3
 	bx r3
 	.align 2, 0
-_021DA0FC: .word 0x02020131
+_021DA0FC: .word FUN_02020130
 
 	thumb_func_start MOD15_021DA100
 MOD15_021DA100: ; 0x021DA100
-	ldr r3, _021DA108 ; =0x02020131
+	ldr r3, _021DA108 ; =FUN_02020130
 	ldr r0, [r0, #0xc]
 	mov r1, #2
 	bx r3
 	.align 2, 0
-_021DA108: .word 0x02020131
+_021DA108: .word FUN_02020130
 
 	thumb_func_start MOD15_021DA10C
 MOD15_021DA10C: ; 0x021DA10C
-	ldr r3, _021DA114 ; =0x020200A1
+	ldr r3, _021DA114 ; =FUN_020200A0
 	ldr r0, [r0, #0xc]
 	bx r3
 	nop
-_021DA114: .word 0x020200A1
+_021DA114: .word FUN_020200A0
 
 	thumb_func_start MOD15_021DA118
 MOD15_021DA118: ; 0x021DA118
-	ldr r3, _021DA120 ; =0x02020129
+	ldr r3, _021DA120 ; =FUN_02020128
 	ldr r0, [r0, #0xc]
 	bx r3
 	nop
-_021DA120: .word 0x02020129
+_021DA120: .word FUN_02020128
 
 	thumb_func_start MOD15_021DA124
 MOD15_021DA124: ; 0x021DA124
@@ -8748,6 +8748,6 @@ _021DB85C:
 	.align 2, 0
 _021DB868: .word 0x021DBA55
 
-	.section .data
+	.section .rodata
 	; 0x021DB86C
-	.incbin "baserom.nds", 0x23B78C, 0x2F4
+	.incbin "baserom.nds", 0x23B78C, 0x2F0

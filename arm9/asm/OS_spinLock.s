@@ -272,7 +272,7 @@ FUN_020CA358: ; 0x020CA358
 	mov r4, #0x400
 _020CA380:
 	mov r0, r4
-	blx SVC_WaitByLoop
+	bl SVC_WaitByLoop
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -307,7 +307,7 @@ OS_InitLock: ; 0x020CA3AC
 	mov r4, #0x400
 _020CA3FC:
 	mov r0, r4
-	blx SVC_WaitByLoop
+	bl SVC_WaitByLoop
 	ldrh r0, [r5, #0x6]
 	cmp r0, #0x0
 	bne _020CA3FC

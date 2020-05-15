@@ -731,4 +731,12 @@ _02254D9C: .word 0x040002A8
 
 	.section .data
 	; 0x02254DA0
-	.incbin "baserom.nds", 0x28D160, 0xA0
+	.incbin "baserom.nds", 0x28D160, 0x88
+
+	; .section .sinit
+	.global SDK_OVERLAY.MODULE_30.SINIT_START
+	.global SDK_OVERLAY.MODULE_30.SINIT_END
+SDK_OVERLAY.MODULE_30.SINIT_START:
+	.word MOD30_02254840
+	.word 0
+SDK_OVERLAY.MODULE_30.SINIT_END:

@@ -6049,3 +6049,15 @@ MOD13_022172A0: ; 0x022172A0
 	bx lr
 	.align 2, 0
 _022172D8: .word 0x02240B28
+
+	.section .rodata
+	; 0x0223C420
+	.incbin "baserom.nds", 0x2237C0, 0x24
+
+	.section .data
+	; 0x0223F780
+	.incbin "baserom.nds", 0x226B20, 0x38
+
+	.section .bss
+	; 0x02240A40
+	.space 0xF4

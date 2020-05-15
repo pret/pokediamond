@@ -1,17 +1,40 @@
 #ifndef GUARD_MAIN_H
 #define GUARD_MAIN_H
 
+#include "FS_overlay.h"
+#include "SPI_pm.h"
+
+struct Unk21DBE18
+{
+    u8 filler_00[16];
+};
+
 struct Unk2106FA0
 {
-    s32 unk0;
+    PMBackLightSwitch unk0;
     s32 unk4;
-    s32 unk8;
+    FSOverlayID unk8;
     s32 unkC;
-    s32 unk10;
-    s32 unk14;
+    FSOverlayID unk10;
+    struct Unk21DBE18 * unk14;
     s32 unk18;
     s32 unk1C;
     s32 unk20;
+};
+
+struct Unk21C4818
+{
+    u32 unk0;
+    u32 unk4;
+    u32 unk8;
+    u32 unkC;
+};
+
+struct Unk21C4828
+{
+    u32 unk0;
+    u32 unk4;
+    u32 unk8;
 };
 
 struct Unk21C48B8
@@ -36,5 +59,8 @@ struct Unk21C48B8
     u8 filler4C[0x20];
     s32 unk6C;
 };
+
+extern struct Unk2106FA0 gBacklightTop;
+extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
 
 #endif //GUARD_MAIN_H

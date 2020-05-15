@@ -7,7 +7,11 @@
 #include "MB_mb.h"
 #include "OS_printf.h"
 
-u32 fsi_default_dma_no;
+static u32 fsi_default_dma_no;
+s32 fsi_card_lock_id;
+CARDRomRegion fsi_ovt9;
+CARDRomRegion fsi_ovt7;
+FSArchive fsi_arc_rom;
 
 ARM_FUNC void FSi_OnRomReadDone(void * p_arc)
 {

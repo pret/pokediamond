@@ -1950,7 +1950,7 @@ _0208C778:
 _0208C79C:
 	add r0, sp, #0x60
 	mov r3, r2
-	blx MTX_Scale43_
+	bl MTX_Scale43_
 	add r0, sp, #0x30
 	add r1, sp, #0x60
 	add r2, sp, #0x0
@@ -2253,7 +2253,7 @@ _0208CBF4:
 _0208CC18:
 	add r0, sp, #0x60
 	mov r3, r2
-	blx MTX_Scale43_
+	bl MTX_Scale43_
 	add r0, sp, #0x60
 	add r1, sp, #0x30
 	add r2, sp, #0x0
@@ -2479,7 +2479,7 @@ _0208CF4C:
 _0208CF70:
 	add r0, sp, #0x60
 	mov r3, r2
-	blx MTX_Scale43_
+	bl MTX_Scale43_
 	add r0, sp, #0x30
 	add r1, sp, #0x60
 	add r2, sp, #0x0
@@ -2703,7 +2703,7 @@ _0208D29C:
 _0208D2C0:
 	add r0, sp, #0x60
 	mov r3, r2
-	blx MTX_Scale43_
+	bl MTX_Scale43_
 	add r0, sp, #0x60
 	add r1, sp, #0x30
 	add r2, sp, #0x0
@@ -6273,7 +6273,7 @@ _020907AC:
 	mov r2, r1, lsl #0x1
 	ldrsh r1, [r3, r12]
 	ldrsh r2, [r3, r2]
-	blx MTX_RotX33_
+	bl MTX_RotX33_
 	b _02090838
 _020907DC:
 	ldrh r1, [r0, #0x0]
@@ -6286,7 +6286,7 @@ _020907DC:
 	mov r2, r1, lsl #0x1
 	ldrsh r1, [r3, r12]
 	ldrsh r2, [r3, r2]
-	blx MTX_RotY33_
+	bl MTX_RotY33_
 	b _02090838
 _0209080C:
 	ldrh r1, [r0, #0x0]
@@ -6299,7 +6299,7 @@ _0209080C:
 	mov r2, r1, lsl #0x1
 	ldrsh r1, [r3, r12]
 	ldrsh r2, [r3, r2]
-	blx MTX_RotZ33_
+	bl MTX_RotZ33_
 _02090838:
 	add r0, r4, #0x8
 	add r1, sp, #0x0
@@ -6894,37 +6894,3 @@ _02091030: .word 0x04000243
 _02091034: .word FUN_02090BBC
 _02091038: .word FUN_02090BB8
 _0209103C: .word 0x021C8C68
-
-	arm_func_start FUN_02091040
-FUN_02091040: ; 0x02091040
-	ldr r3, _02091054 ; =0x021C8C70
-	ldr r2, _02091058 ; =0x021C8C74
-	str r0, [r3, #0x0]
-	str r1, [r2, #0x0]
-	bx lr
-	.balign 4
-_02091054: .word 0x021C8C70
-_02091058: .word 0x021C8C74
-
-	arm_func_start FUN_0209105C
-FUN_0209105C: ; 0x0209105C
-	stmdb sp!, {lr}
-	sub sp, sp, #0x4
-	ldr r1, _020910A0 ; =0x021C8C74
-	mov r2, r0
-	ldr r1, [r1, #0x0]
-	cmp r1, #0x0
-	beq _02091088
-	blx r1
-	add sp, sp, #0x4
-	ldmia sp!, {lr}
-	bx lr
-_02091088:
-	mov r0, #0x0
-	mvn r1, #0x0
-	bl OS_FreeToHeap
-	add sp, sp, #0x4
-	ldmia sp!, {lr}
-	bx lr
-	.balign 4
-_020910A0: .word 0x021C8C74

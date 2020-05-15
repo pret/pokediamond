@@ -1123,20 +1123,20 @@ _02255058: .word 0x02256040
 
 	thumb_func_start MOD23_0225505C
 MOD23_0225505C: ; 0x0225505C
-	ldr r3, _02255064 ; =0x02253795
+	ldr r3, _02255064 ; =MOD20_02253794
 	add r0, #8
 	bx r3
 	nop
-_02255064: .word 0x02253795
+_02255064: .word MOD20_02253794
 	thumb_func_end MOD23_0225505C
 
 	thumb_func_start MOD23_02255068
 MOD23_02255068: ; 0x02255068
-	ldr r3, _02255070 ; =0x022537B9
+	ldr r3, _02255070 ; =MOD20_022537B8
 	add r0, #8
 	bx r3
 	nop
-_02255070: .word 0x022537B9
+_02255070: .word MOD20_022537B8
 	thumb_func_end MOD23_02255068
 
 	thumb_func_start MOD23_02255074
@@ -1746,10 +1746,10 @@ _0225553C:
 
 	thumb_func_start MOD23_02255540
 MOD23_02255540: ; 0x02255540
-	ldr r3, _02255544 ; =0x02016A19
+	ldr r3, _02255544 ; =FUN_02016A18
 	bx r3
 	.align 2, 0
-_02255544: .word 0x02016A19
+_02255544: .word FUN_02016A18
 	thumb_func_end MOD23_02255540
 
 	thumb_func_start MOD23_02255548
@@ -2789,6 +2789,14 @@ _02255C96:
 _02255CB8: .word 0x022560D0
 	thumb_func_end MOD23_02255C6C
 
-	.section .data
+	.section .rodata
 	; 0x02255CBC
-	.incbin "baserom.nds", 0x28807C, 0x484
+	.incbin "baserom.nds", 0x28807C, 0x46C
+
+	; .section .sinit
+	.global SDK_OVERLAY.MODULE_23.SINIT_START
+    .global SDK_OVERLAY.MODULE_23.SINIT_END
+SDK_OVERLAY.MODULE_23.SINIT_START:
+	.word MOD23_02254840
+	.word 0
+SDK_OVERLAY.MODULE_23.SINIT_END:

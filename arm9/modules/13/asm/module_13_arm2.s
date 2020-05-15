@@ -5214,7 +5214,7 @@ MOD13_02222D0C: ; 0x02222D0C
 	sub sp, sp, #4
 	ldr r0, _02222D74 ; =0x02243048
 	ldr r0, [r0]
-	blx MOD13_02219798
+	bl MOD13_02219798
 	cmp r0, #0
 	ldreq r1, _02222D78 ; =0x02243044
 	moveq r0, #1
@@ -5246,7 +5246,7 @@ _02222D78: .word 0x02243044
 MOD13_02222D7C: ; 0x02222D7C
 	stmdb sp!, {r4, lr}
 	mov r4, r0
-	blx MOD13_02219C9C
+	bl MOD13_02219C9C
 	cmp r4, #0
 	beq _02222DC0
 	ldr r0, _02222DCC ; =0x02243048
@@ -5329,7 +5329,7 @@ _02222E48:
 	bl OS_GetMacAddress
 	ldr r0, _02222EE0 ; =MOD13_02222CFC
 	ldr r1, _02222EE4 ; =MOD13_02222CF0
-	blx MOD13_02219D58
+	bl MOD13_02219D58
 	cmp r0, #0
 	addeq sp, sp, #0x104
 	ldmeqia sp!, {pc}
@@ -6270,7 +6270,7 @@ MOD13_02223AF8: ; 0x02223AF8
 	stmdb sp!, {lr}
 	sub sp, sp, #0xec
 	add r0, sp, #0
-	blx MOD13_0221A794
+	bl MOD13_0221A794
 	cmp r0, #1
 	beq _02223B14
 	bl OS_Terminate
@@ -6313,7 +6313,7 @@ _02223B7C:
 	ldmia sp!, {pc}
 _02223B88:
 	add r0, sp, #0
-	blx MOD13_0221A794
+	bl MOD13_0221A794
 	cmp r0, #1
 	beq _02223B9C
 	bl OS_Terminate
@@ -6344,7 +6344,7 @@ _02223BDC: .word 0x02243078
 MOD13_02223BE0: ; 0x02223BE0
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	blx MOD13_0221A7EC
+	bl MOD13_0221A7EC
 	cmp r0, #1
 	beq _02223BF8
 	bl OS_Terminate
@@ -6373,7 +6373,7 @@ MOD13_02223C0C: ; 0x02223C0C
 	mov r0, #0xf
 	mov r1, #0x40
 	str ip, [sp, #4]
-	blx MOD13_0221A8A4
+	bl MOD13_0221A8A4
 	cmp r0, #1
 	beq _02223C58
 	bl OS_Terminate
@@ -21960,7 +21960,7 @@ MOD13_02231018: ; 0x02231018
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
 	mov r5, r0
-	bl FUN_021EBB80
+	bl MOD04_021EBB80
 	movs r4, r0
 	addeq sp, sp, #4
 	ldmeqia sp!, {r4, r5, pc}
@@ -21975,7 +21975,7 @@ MOD13_02231018: ; 0x02231018
 	bl MOD13_0223424C
 	b _0223106C
 _0223105C:
-	bl FUN_021EBAE8
+	bl MOD04_021EBAE8
 	bl MOD13_0222B0BC
 	mov r0, #0x12
 	bl MOD13_0223424C
@@ -21996,7 +21996,7 @@ MOD13_02231090: ; 0x02231090
 	stmdb sp!, {r4, lr}
 	bl MOD13_022338FC
 	mov r4, r0
-	bl FUN_021EB9D8
+	bl MOD04_021EB9D8
 	cmp r0, #0
 	ldmeqia sp!, {r4, pc}
 	bl FUN_02095324
@@ -22162,7 +22162,7 @@ MOD13_0223126C: ; 0x0223126C
 	addne r0, r0, #1
 	strneb r0, [sp, #0xe]
 	add r0, sp, #4
-	bl FUN_021EBC60
+	bl MOD04_021EBC60
 	cmp r0, #0
 	bne _022312C8
 	bl OS_Terminate
@@ -22172,7 +22172,7 @@ _022312C8:
 	bne _022312E0
 	ldrb r0, [r4, #0xf4]
 	mov r1, r4
-	bl FUN_021EB9A4
+	bl MOD04_021EB9A4
 _022312E0:
 	mov r0, #0
 	ldr r1, _02231300 ; =MOD13_02231018
@@ -35364,10 +35364,14 @@ _0223C330:
 _0223C418: .word 0x0224320C
 _0223C41C: .word 0x0223F764
 
+	.section .rodata
+	; 0x0223EC6C
+	.incbin "baserom.nds", 0x22600C, 0xafc
+
 	.section .data
 	; 0x0223C420
-	.incbin "baserom.nds", 0x2237C0, 0x4620
+	.incbin "baserom.nds", 0x226CD4, 0x110C
 
 	.section .bss
-	; 0x02240A40
-	.space 0x27E0
+	; 0x02242FE4
+	.space 0x23C

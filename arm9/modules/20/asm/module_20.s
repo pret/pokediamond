@@ -5,10 +5,10 @@
 
 	thumb_func_start MOD20_02252440
 MOD20_02252440: ; 0x02252440
-	ldr r3, _02252444 ; =0x02037791
+	ldr r3, _02252444 ; =FUN_02037790
 	bx r3
 	.align 2, 0
-_02252444: .word 0x02037791
+_02252444: .word FUN_02037790
 	thumb_func_end MOD20_02252440
 
 	thumb_func_start MOD20_02252448
@@ -1136,11 +1136,11 @@ _02252C04:
 
 	thumb_func_start MOD20_02252C08
 MOD20_02252C08: ; 0x02252C08
-	ldr r3, _02252C10 ; =0x0204646D
+	ldr r3, _02252C10 ; =FUN_0204646C
 	ldr r0, [r0, #0x5c]
 	bx r3
 	nop
-_02252C10: .word 0x0204646D
+_02252C10: .word FUN_0204646C
 	thumb_func_end MOD20_02252C08
 
 	thumb_func_start MOD20_02252C14
@@ -4565,6 +4565,6 @@ _022544BC: .word 0x022547C4
 _022544C0: .word 0x022547C5
 	thumb_func_end MOD20_02254488
 
-	.section .data
+	.section .rodata
 	; 0x022544C4
-	.incbin "baserom.nds", 0x285284, 0x37C
+	.incbin "baserom.nds", 0x285284, 0x374

@@ -159,11 +159,11 @@ MOD17_021D75DC: ; 0x021D75DC
 
 	thumb_func_start MOD17_021D75F4
 MOD17_021D75F4: ; 0x021D75F4
-	ldr r3, _021D75FC ; =0x02013EC5
+	ldr r3, _021D75FC ; =FUN_02013EC4
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021D75FC: .word 0x02013EC5
+_021D75FC: .word FUN_02013EC4
 	thumb_func_end MOD17_021D75F4
 
 	thumb_func_start MOD17_021D7600
@@ -222,29 +222,29 @@ MOD17_021D7630: ; 0x021D7630
 
 	thumb_func_start MOD17_021D7660
 MOD17_021D7660: ; 0x021D7660
-	ldr r3, _021D7668 ; =0x02013EB1
+	ldr r3, _021D7668 ; =FUN_02013EB0
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021D7668: .word 0x02013EB1
+_021D7668: .word FUN_02013EB0
 	thumb_func_end MOD17_021D7660
 
 	thumb_func_start MOD17_021D766C
 MOD17_021D766C: ; 0x021D766C
-	ldr r3, _021D7674 ; =0x02013EFD
+	ldr r3, _021D7674 ; =FUN_02013EFC
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021D7674: .word 0x02013EFD
+_021D7674: .word FUN_02013EFC
 	thumb_func_end MOD17_021D766C
 
 	thumb_func_start MOD17_021D7678
 MOD17_021D7678: ; 0x021D7678
-	ldr r3, _021D7680 ; =0x02013F01
+	ldr r3, _021D7680 ; =FUN_02013F00
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021D7680: .word 0x02013F01
+_021D7680: .word FUN_02013F00
 	thumb_func_end MOD17_021D7678
 
 	thumb_func_start MOD17_021D7684
@@ -1016,21 +1016,21 @@ MOD17_021D7BE4: ; 0x021D7BE4
 
 	thumb_func_start MOD17_021D7C10
 MOD17_021D7C10: ; 0x021D7C10
-	ldr r3, _021D7C18 ; =0x020178A1
+	ldr r3, _021D7C18 ; =FUN_020178A0
 	ldr r0, [r0, #0x38]
 	mov r1, #2
 	bx r3
 	.align 2, 0
-_021D7C18: .word 0x020178A1
+_021D7C18: .word FUN_020178A0
 	thumb_func_end MOD17_021D7C10
 
 	thumb_func_start MOD17_021D7C1C
 MOD17_021D7C1C: ; 0x021D7C1C
-	ldr r3, _021D7C24 ; =0x020081C5
+	ldr r3, _021D7C24 ; =FUN_020081C4
 	ldr r0, [r0, #0x20]
 	bx r3
 	nop
-_021D7C24: .word 0x020081C5
+_021D7C24: .word FUN_020081C4
 	thumb_func_end MOD17_021D7C1C
 
 	thumb_func_start MOD17_021D7C28
@@ -1330,11 +1330,11 @@ MOD17_021D7E58: ; 0x021D7E58
 
 	thumb_func_start MOD17_021D7E68
 MOD17_021D7E68: ; 0x021D7E68
-	ldr r3, _021D7E70 ; =0x02013D5D
+	ldr r3, _021D7E70 ; =FUN_02013D5C
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D7E70: .word 0x02013D5D
+_021D7E70: .word FUN_02013D5C
 	thumb_func_end MOD17_021D7E68
 
 	thumb_func_start MOD17_021D7E74
@@ -1730,11 +1730,11 @@ _021D8178:
 
 	thumb_func_start MOD17_021D8194
 MOD17_021D8194: ; 0x021D8194
-	ldr r3, _021D819C ; =0x0201FDED
+	ldr r3, _021D819C ; =FUN_0201FDEC
 	ldr r0, [r0, #0x3c]
 	bx r3
 	nop
-_021D819C: .word 0x0201FDED
+_021D819C: .word FUN_0201FDEC
 	thumb_func_end MOD17_021D8194
 
 	thumb_func_start MOD17_021D81A0
@@ -1956,11 +1956,11 @@ _021D8348: .word 0xFFFF0000
 
 	thumb_func_start MOD17_021D834C
 MOD17_021D834C: ; 0x021D834C
-	ldr r3, _021D8354 ; =0x020072E9
+	ldr r3, _021D8354 ; =FUN_020072E8
 	ldr r0, [r0, #0x20]
 	bx r3
 	nop
-_021D8354: .word 0x020072E9
+_021D8354: .word FUN_020072E8
 	thumb_func_end MOD17_021D834C
 
 	thumb_func_start MOD17_021D8358
@@ -8952,23 +8952,23 @@ _021DB7CE:
 
 	thumb_func_start MOD17_021DB7D8
 MOD17_021DB7D8: ; 0x021DB7D8
-	ldr r3, _021DB7E4 ; =0x02007559
+	ldr r3, _021DB7E4 ; =FUN_02007558
 	add r2, r1, #0
 	ldr r0, [r0]
 	mov r1, #2
 	bx r3
 	nop
-_021DB7E4: .word 0x02007559
+_021DB7E4: .word FUN_02007558
 	thumb_func_end MOD17_021DB7D8
 
 	thumb_func_start MOD17_021DB7E8
 MOD17_021DB7E8: ; 0x021DB7E8
-	ldr r3, _021DB7F0 ; =0x0200782D
+	ldr r3, _021DB7F0 ; =FUN_0200782C
 	ldr r0, [r0]
 	mov r1, #2
 	bx r3
 	.align 2, 0
-_021DB7F0: .word 0x0200782D
+_021DB7F0: .word FUN_0200782C
 	thumb_func_end MOD17_021DB7E8
 
 	thumb_func_start MOD17_021DB7F4
@@ -9011,20 +9011,20 @@ MOD17_021DB7F4: ; 0x021DB7F4
 
 	thumb_func_start MOD17_021DB840
 MOD17_021DB840: ; 0x021DB840
-	ldr r3, _021DB848 ; =0x02020A41
+	ldr r3, _021DB848 ; =FUN_02020A40
 	add r0, r0, #4
 	bx r3
 	nop
-_021DB848: .word 0x02020A41
+_021DB848: .word FUN_02020A40
 	thumb_func_end MOD17_021DB840
 
 	thumb_func_start MOD17_021DB84C
 MOD17_021DB84C: ; 0x021DB84C
-	ldr r3, _021DB854 ; =0x02020AE9
+	ldr r3, _021DB854 ; =FUN_02020AE8
 	add r0, r0, #4
 	bx r3
 	nop
-_021DB854: .word 0x02020AE9
+_021DB854: .word FUN_02020AE8
 	thumb_func_end MOD17_021DB84C
 
 	thumb_func_start MOD17_021DB858
@@ -10513,32 +10513,32 @@ MOD17_021DC2DC: ; 0x021DC2DC
 
 	thumb_func_start MOD17_021DC2E0
 MOD17_021DC2E0: ; 0x021DC2E0
-	ldr r3, _021DC2E8 ; =0x02020209
+	ldr r3, _021DC2E8 ; =FUN_02020208
 	ldr r0, [r0]
 	mov r1, #2
 	bx r3
 	.align 2, 0
-_021DC2E8: .word 0x02020209
+_021DC2E8: .word FUN_02020208
 	thumb_func_end MOD17_021DC2E0
 
 	thumb_func_start MOD17_021DC2EC
 MOD17_021DC2EC: ; 0x021DC2EC
-	ldr r3, _021DC2F4 ; =0x02020209
+	ldr r3, _021DC2F4 ; =FUN_02020208
 	ldr r0, [r0]
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_021DC2F4: .word 0x02020209
+_021DC2F4: .word FUN_02020208
 	thumb_func_end MOD17_021DC2EC
 
 	thumb_func_start MOD17_021DC2F8
 MOD17_021DC2F8: ; 0x021DC2F8
-	ldr r3, _021DC300 ; =0x02020209
+	ldr r3, _021DC300 ; =FUN_02020208
 	ldr r0, [r0]
 	mov r1, #1
 	bx r3
 	.align 2, 0
-_021DC300: .word 0x02020209
+_021DC300: .word FUN_02020208
 	thumb_func_end MOD17_021DC2F8
 
 	thumb_func_start MOD17_021DC304
@@ -11304,11 +11304,11 @@ _021DC8F4: .word 0x00010203
 
 	thumb_func_start MOD17_021DC8F8
 MOD17_021DC8F8: ; 0x021DC8F8
-	ldr r3, _021DC900 ; =0x020191A5
+	ldr r3, _021DC900 ; =FUN_020191A4
 	mov r1, #1
 	bx r3
 	nop
-_021DC900: .word 0x020191A5
+_021DC900: .word FUN_020191A4
 	thumb_func_end MOD17_021DC8F8
 
 	thumb_func_start MOD17_021DC904
@@ -11844,11 +11844,11 @@ _021DCCDC: .word MOD17_021DBD4C
 
 	thumb_func_start MOD17_021DCCE0
 MOD17_021DCCE0: ; 0x021DCCE0
-	ldr r3, _021DCCE8 ; =0x020191A5
+	ldr r3, _021DCCE8 ; =FUN_020191A4
 	mov r1, #1
 	bx r3
 	nop
-_021DCCE8: .word 0x020191A5
+_021DCCE8: .word FUN_020191A4
 	thumb_func_end MOD17_021DCCE0
 
 	thumb_func_start MOD17_021DCCEC
@@ -14601,6 +14601,6 @@ _021DE24C: .word 0x00000151
 _021DE250: .word 0x00010200
 	thumb_func_end MOD17_021DE0F4
 
-	.section .data
+	.section .rodata
 	; 0x021DE254
-	.incbin "baserom.nds", 0x26AF74, 0x10C
+	.incbin "baserom.nds", 0x26AF74, 0x100

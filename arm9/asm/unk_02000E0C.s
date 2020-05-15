@@ -2,337 +2,8 @@
     .include "global.inc"
 
 	.text
-
-	thumb_func_start FUN_02000E0C
-FUN_02000E0C: ; 0x02000E0C
-	push {r3, lr}
-	ldr r0, _02000E74 ; =0x02106FA0
-	ldr r1, [r0, #0xc]
-	cmp r1, #0x0
-	bne _02000E4A
-	ldr r1, [r0, #0x14]
-	cmp r1, #0x0
-	beq _02000E70
-	mov r1, #0x0
-	ldr r0, [r0, #0x10]
-	mvn r1, r1
-	cmp r0, r1
-	beq _02000E2C
-	mov r1, #0x0
-	bl HandleLoadOverlay
-_02000E2C:
-	ldr r0, _02000E74 ; =0x02106FA0
-	mov r2, #0x0
-	ldr r1, [r0, #0x10]
-	str r1, [r0, #0x8]
-	ldr r0, [r0, #0x14]
-	ldr r1, _02000E78 ; =0x02106FB8
-	bl FUN_02006234
-	ldr r1, _02000E74 ; =0x02106FA0
-	str r0, [r1, #0xc]
-	mov r0, #0x0
-	mvn r0, r0
-	str r0, [r1, #0x10]
-	mov r0, #0x0
-	str r0, [r1, #0x14]
-_02000E4A:
-	ldr r0, _02000E74 ; =0x02106FA0
-	ldr r0, [r0, #0xc]
-	bl FUN_02006290
-	cmp r0, #0x0
-	beq _02000E70
-	ldr r0, _02000E74 ; =0x02106FA0
-	ldr r0, [r0, #0xc]
-	bl FUN_02006260
-	ldr r0, _02000E74 ; =0x02106FA0
-	mov r1, #0x0
-	str r1, [r0, #0xc]
-	ldr r0, [r0, #0x8]
-	sub r1, r1, #0x1
-	cmp r0, r1
-	beq _02000E70
-	bl UnloadOverlayByID
-_02000E70:
-	pop {r3, pc}
-	nop
-_02000E74: .word 0x02106FA0
-_02000E78: .word 0x02106FB8
-
-	thumb_func_start FUN_02000E7C
-FUN_02000E7C: ; 0x02000E7C
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	ldr r0, _02000E98 ; =0x02106FA0
-	add r4, r1, #0x0
-	ldr r0, [r0, #0x14]
-	cmp r0, #0x0
-	beq _02000E8E
-	bl ErrorHandling
-_02000E8E:
-	ldr r0, _02000E98 ; =0x02106FA0
-	str r5, [r0, #0x10]
-	str r4, [r0, #0x14]
-	pop {r3-r5, pc}
-	nop
-_02000E98: .word 0x02106FA0
-
-	thumb_func_start FUN_02000E9C
-FUN_02000E9C: ; 0x02000E9C
-	push {r3, lr}
-	bl FUN_0202FB80
-	mov r0, #0x1
-	add r1, r0, #0x0
-	blx OS_WaitIrq
-	ldr r0, _02000EC4 ; =0x021C48B8
-	ldr r1, [r0, #0x2c]
-	add r1, r1, #0x1
-	str r1, [r0, #0x2c]
-	mov r1, #0x0
-	str r1, [r0, #0x30]
-	ldr r1, [r0, #0x0]
-	cmp r1, #0x0
-	beq _02000EC0
-	ldr r0, [r0, #0x4]
-	blx r1
-_02000EC0:
-	pop {r3, pc}
-	nop
-_02000EC4: .word 0x021C48B8
-
-	thumb_func_start FUN_02000EC8
-FUN_02000EC8: ; 0x02000EC8
-	push {r4, lr}
-	add r4, r0, #0x0
-	bl FUN_02033678
-	cmp r0, #0x0
-	beq _02000EE2
-	blx CARD_TryWaitBackupAsync
-	cmp r0, #0x1
-	bne _02000EE2
-	add r0, r4, #0x0
-	blx OS_ResetSystem
-_02000EE2:
-	bl FUN_02000E9C
-	pop {r4, pc}
-
-	thumb_func_start FUN_02000EE8
-FUN_02000EE8: ; 0x02000EE8
-	push {r3, lr}
-	bl FUN_020335B8
-	add r1, r0, #0x0
-	cmp r1, #0x1
-	beq _02000EFE
-	cmp r1, #0x2
-	beq _02000F06
-	cmp r1, #0x3
-	beq _02000F0E
-	pop {r3, pc}
-_02000EFE:
-	mov r0, #0x1
-	bl FUN_02000F4C
-	pop {r3, pc}
-_02000F06:
-	mov r0, #0x0
-	bl FUN_02000F4C
-	pop {r3, pc}
-_02000F0E:
-	mov r0, #0x1
-	bl FUN_02000F4C
-	pop {r3, pc}
-	.balign 4
-
-	thumb_func_start FUN_02000F18
-FUN_02000F18: ; 0x02000F18
-	push {r4, lr}
-	ldr r1, _02000F48 ; =0x00007FFF
-	add r4, r0, #0x0
-	mov r0, #0x0
-	bl FUN_0200E3A0
-	ldr r1, _02000F48 ; =0x00007FFF
-	mov r0, #0x1
-	bl FUN_0200E3A0
-	bl FUN_02032DAC
-	cmp r0, #0x0
-	beq _02000F3C
-	bl FUN_020225F8
-	bl FUN_0202287C
-_02000F3C:
-	bl FUN_02000FE8
-	add r0, r4, #0x0
-	bl FUN_02000EC8
-	b _02000F3C
-	.balign 4
-_02000F48: .word 0x00007FFF
-
-	thumb_func_start FUN_02000F4C
-FUN_02000F4C: ; 0x02000F4C
-	push {r4-r6, lr}
-	add r6, r0, #0x0
-	cmp r1, #0x3
-	bne _02000F60
-	mov r0, #0x0
-	mov r1, #0x3
-	add r2, r0, #0x0
-	bl FUN_02033F70
-	b _02000F7A
-_02000F60:
-	cmp r6, #0x0
-	bne _02000F70
-	mov r0, #0x0
-	mov r1, #0x2
-	add r2, r0, #0x0
-	bl FUN_02033F70
-	b _02000F7A
-_02000F70:
-	mov r0, #0x0
-	add r1, r0, #0x0
-	add r2, r0, #0x0
-	bl FUN_02033F70
-_02000F7A:
-	bl FUN_02032DAC
-	ldr r5, _02000FA0 ; =0x021C48B8
-	mov r4, #0x1
-_02000F82:
-	bl FUN_02000FE8
-	bl FUN_02016464
-	ldr r0, [r5, #0x48]
-	tst r0, r4
-	bne _02000F96
-	bl FUN_02000E9C
-	b _02000F82
-_02000F96:
-	add r0, r6, #0x0
-	bl FUN_02000F18
-	pop {r4-r6, pc}
-	nop
-_02000FA0: .word 0x021C48B8
-
-	thumb_func_start FUN_02000FA4
-FUN_02000FA4: ; 0x02000FA4
-	push {r4-r5, lr}
-	sub sp, #0x1c
-	add r0, sp, #0xc
-	add r1, sp, #0x0
-	bl FUN_0201265C
-	ldr r0, _02000FE4 ; =0x021C48B8
-	ldr r3, [sp, #0x10]
-	ldr r4, [r0, #0x2c]
-	ldr r1, [sp, #0x4]
-	ldr r0, [sp, #0x8]
-	ldr r5, [sp, #0x14]
-	add r0, r1, r0
-	lsl r2, r0, #0x18
-	ldr r0, [sp, #0x0]
-	lsl r3, r3, #0x8
-	lsl r1, r0, #0x10
-	mul r3, r5
-	ldr r0, [sp, #0xc]
-	lsl r3, r3, #0x10
-	add r0, r0, r3
-	add r0, r1, r0
-	add r5, r2, r0
-	add r0, r4, r5
-	bl FUN_0201BA1C
-	add r0, r4, r5
-	bl FUN_0201B9E0
-	add sp, #0x1c
-	pop {r4-r5, pc}
-	nop
-_02000FE4: .word 0x021C48B8
-
-	thumb_func_start FUN_02000FE8
-FUN_02000FE8: ; 0x02000FE8
-	push {r3-r7, lr}
-	sub sp, #0x8
-	ldr r0, _0200109C ; =0x027FFFA8
-	ldrh r1, [r0, #0x0]
-	mov r0, #0x2
-	lsl r0, r0, #0xe
-	and r0, r1
-	asr r0, r0, #0xf
-	beq _0200107E
-	ldr r0, _020010A0 ; =0x021C4918
-	ldrb r0, [r0, #0x7]
-	cmp r0, #0x0
-	bne _02001064
-	bl FUN_0201CE04
-	blx CTRDG_IsPulledOut
-	cmp r0, #0x1
-	bne _02001014
-	ldr r0, _020010A4 ; =0x02106FA0
-	mov r1, #0x1
-	str r1, [r0, #0x4]
-_02001014:
-	ldr r6, _020010A4 ; =0x02106FA0
-	mov r0, #0xc
-	ldr r1, [r6, #0x4]
-	ldr r4, _0200109C ; =0x027FFFA8
-	mov r2, #0x10
-	add r5, r0, #0x0
-	ldr r7, _020010A0 ; =0x021C4918
-	orr r5, r2
-_02001024:
-	ldrb r2, [r7, #0x6]
-	mov r0, #0xc
-	cmp r2, #0x0
-	beq _02001032
-	cmp r1, #0x0
-	bne _02001032
-	add r0, r5, #0x0
-_02001032:
-	mov r1, #0x0
-	add r2, r1, #0x0
-	blx PM_GoSleepMode
-	blx CARD_IsPulledOut
-	cmp r0, #0x0
-	beq _02001048
-	blx PM_ForceToPowerOff
-	b _0200105C
-_02001048:
-	ldrh r1, [r4, #0x0]
-	mov r0, #0x2
-	lsl r0, r0, #0xe
-	and r0, r1
-	asr r0, r0, #0xf
-	beq _0200105C
-	mov r0, #0x1
-	str r0, [r6, #0x4]
-	add r1, r0, #0x0
-	b _02001024
-_0200105C:
-	bl FUN_0201CDD0
-	add sp, #0x8
-	pop {r3-r7, pc}
-_02001064:
-	add r0, sp, #0x4
-	add r1, sp, #0x0
-	blx PM_GetBackLight
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x1
-	bne _02001096
-	mov r0, #0x2
-	mov r1, #0x0
-	blx PM_SetBackLight
-	add sp, #0x8
-	pop {r3-r7, pc}
-_0200107E:
-	add r0, sp, #0x4
-	add r1, sp, #0x0
-	blx PM_GetBackLight
-	ldr r0, [sp, #0x4]
-	cmp r0, #0x0
-	bne _02001096
-	ldr r1, _020010A4 ; =0x02106FA0
-	mov r0, #0x2
-	ldr r1, [r1, #0x0]
-	blx PM_SetBackLight
-_02001096:
-	add sp, #0x8
-	pop {r3-r7, pc}
-	nop
-_0200109C: .word 0x027FFFA8
-_020010A0: .word 0x021C4918
-_020010A4: .word 0x02106FA0
+	.extern FUN_02000E9C
+	.extern FUN_02000EC8
 
 	thumb_func_start FUN_020010A8
 FUN_020010A8: ; 0x020010A8
@@ -2291,7 +1962,7 @@ _02001ECE:
 	ldrb r4, [r5, #0x15]
 	add r1, r6, #0x0
 	add r0, r4, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r1, #0x0
 	bne _02001EF2
 	ldrb r0, [r5, #0xb]
@@ -2323,7 +1994,7 @@ _02001F08:
 	ldrb r6, [r5, #0x15]
 	sub r4, r1, #0x1
 	add r0, r6, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	cmp r4, r1
 	bne _02001F2A
 	ldrb r0, [r5, #0xb]
@@ -2393,7 +2064,7 @@ _02001F72:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 _02001F8A:
-	blx _s32_div_f
+	bl _s32_div_f
 	lsl r0, r1, #0x18
 	asr r2, r0, #0x18
 	b _02001F9A
@@ -2563,7 +2234,7 @@ FUN_020020B0: ; 0x020020B0
 	ldrb r1, [r5, #0xa]
 	add r0, r7, #0x0
 	add r6, r2, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	ldrb r2, [r5, #0x19]
 	ldrb r1, [r5, #0x16]
 	lsl r2, r2, #0x1
@@ -2572,7 +2243,7 @@ FUN_020020B0: ; 0x020020B0
 	strb r1, [r4, #0x0]
 	ldrb r1, [r5, #0xa]
 	add r0, r7, #0x0
-	blx _s32_div_f
+	bl _s32_div_f
 	ldrb r2, [r5, #0xb]
 	ldrb r3, [r5, #0x1a]
 	ldrb r0, [r5, #0x18]

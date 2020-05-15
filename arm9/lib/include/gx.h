@@ -22,7 +22,6 @@ void MIi_CpuClear32(u32, void *, u32);
 
 //Todos before PR
 //TODO: Add defines for GX commands, add structs/unions for HW registers
-//TODO: Add ARM_FUNC attributes
 
 #define HW_REG_DIV_NUMER 0x04000290
 #define HW_REG_DIV_DENOM 0x04000298

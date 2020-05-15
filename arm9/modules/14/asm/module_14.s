@@ -5820,7 +5820,7 @@ _021DA41E:
 	mov r2, #1
 	mov r3, #0
 	bl FUN_0206E314
-	ldr r0, _021DA5DC ; =0x0000004B
+	ldr r0, _021DA5DC ; =SDK_OVERLAY_MODULE_75_ID
 	mov r1, #2
 	bl HandleLoadOverlay
 	mov r1, #0x85
@@ -5860,7 +5860,7 @@ _021DA498:
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	bl FUN_02016A18
-	ldr r0, _021DA5DC ; =0x0000004B
+	ldr r0, _021DA5DC ; =SDK_OVERLAY_MODULE_75_ID
 	bl UnloadOverlayByID
 	ldr r0, _021DA5E4 ; =0x021E6A00
 	ldr r6, [r0, #8]
@@ -5992,7 +5992,7 @@ _021DA5D6:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021DA5D8: .word 0x021E6264
-_021DA5DC: .word 0x0000004B
+_021DA5DC: .word SDK_OVERLAY_MODULE_75_ID
 _021DA5E0: .word 0x021EC68C
 _021DA5E4: .word 0x021E6A00
 _021DA5E8: .word 0x021C48B8
@@ -7805,11 +7805,11 @@ MOD14_021DB470: ; 0x021DB470
 
 	thumb_func_start MOD14_021DB490
 MOD14_021DB490: ; 0x021DB490
-	ldr r3, _021DB498 ; =0x02016A19
+	ldr r3, _021DB498 ; =FUN_02016A18
 	ldr r0, [r0]
 	bx r3
 	nop
-_021DB498: .word 0x02016A19
+_021DB498: .word FUN_02016A18
 
 	thumb_func_start MOD14_021DB49C
 MOD14_021DB49C: ; 0x021DB49C
@@ -7829,11 +7829,11 @@ MOD14_021DB49C: ; 0x021DB49C
 
 	thumb_func_start MOD14_021DB4BC
 MOD14_021DB4BC: ; 0x021DB4BC
-	ldr r3, _021DB4C4 ; =0x02021A21
+	ldr r3, _021DB4C4 ; =FUN_02021A20
 	ldr r0, [r0, #4]
 	bx r3
 	nop
-_021DB4C4: .word 0x02021A21
+_021DB4C4: .word FUN_02021A20
 
 	thumb_func_start MOD14_021DB4C8
 MOD14_021DB4C8: ; 0x021DB4C8
@@ -9849,11 +9849,11 @@ MOD14_021DC3AC: ; 0x021DC3AC
 MOD14_021DC3B4: ; 0x021DC3B4
 	mov r1, #0x69
 	lsl r1, r1, #2
-	ldr r3, _021DC3C0 ; =0x02025085
+	ldr r3, _021DC3C0 ; =FUN_02025084
 	ldr r0, [r0, r1]
 	bx r3
 	nop
-_021DC3C0: .word 0x02025085
+_021DC3C0: .word FUN_02025084
 
 	thumb_func_start MOD14_021DC3C4
 MOD14_021DC3C4: ; 0x021DC3C4
@@ -13176,10 +13176,10 @@ _021DDD3C:
 
 	thumb_func_start MOD14_021DDD40
 MOD14_021DDD40: ; 0x021DDD40
-	ldr r3, _021DDD44 ; =0x0200CA61
+	ldr r3, _021DDD44 ; =FUN_0200CA60
 	bx r3
 	.align 2, 0
-_021DDD44: .word 0x0200CA61
+_021DDD44: .word FUN_0200CA60
 
 	thumb_func_start MOD14_021DDD48
 MOD14_021DDD48: ; 0x021DDD48
@@ -17686,12 +17686,12 @@ _021E0024:
 
 	thumb_func_start MOD14_021E002C
 MOD14_021E002C: ; 0x021E002C
-	ldr r3, _021E0034 ; =0x02020131
+	ldr r3, _021E0034 ; =FUN_02020130
 	ldr r0, [r0, #4]
 	mov r1, #1
 	bx r3
 	.align 2, 0
-_021E0034: .word 0x02020131
+_021E0034: .word FUN_02020130
 
 	thumb_func_start MOD14_021E0038
 MOD14_021E0038: ; 0x021E0038
@@ -19244,11 +19244,11 @@ _021E0C64:
 _021E0C66:
 	ldr r0, [r1]
 	ldrh r1, [r1, #0x2c]
-	ldr r3, _021E0C70 ; =0x02020249
+	ldr r3, _021E0C70 ; =FUN_02020248
 	add r1, r1, r2
 	bx r3
 	.align 2, 0
-_021E0C70: .word 0x02020249
+_021E0C70: .word FUN_02020248
 
 	thumb_func_start MOD14_021E0C74
 MOD14_021E0C74: ; 0x021E0C74
@@ -27001,12 +27001,12 @@ _021E4762:
 
 	thumb_func_start MOD14_021E4764
 MOD14_021E4764: ; 0x021E4764
-	ldr r3, _021E476C ; =0x0201797D
+	ldr r3, _021E476C ; =FUN_0201797C
 	mov r0, #4
 	mov r1, #0
 	bx r3
 	.align 2, 0
-_021E476C: .word 0x0201797D
+_021E476C: .word FUN_0201797C
 
 	thumb_func_start MOD14_021E4770
 MOD14_021E4770: ; 0x021E4770
@@ -30394,9 +30394,13 @@ MOD14_021E6220: ; 0x021E6220
 	ldr r0, [r0, #0x74]
 	bx lr
 
-	.section .data
+	.section .rodata
 	; 0x021E6224
-	.incbin "baserom.nds", 0x236b44, 0x7dc
+	.incbin "baserom.nds", 0x236b44, 0x7a4
+
+	.section .data
+	; 0x021E69E0
+	.incbin "baserom.nds", 0x237300, 0x1C
 
 	.section .bss
 	; 0x021E69FC
