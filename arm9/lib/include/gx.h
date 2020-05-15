@@ -21,6 +21,8 @@
 #define HW_REG_TEXIMAGE_PARAM  0x040004A8
 #define HW_REG_PLTT_BASE       0x040004AC
 
+#define HW_REG_POWCNT1         0x04000304
+
 #define HW_REG_GXFIFO          0x04000400
 #define HW_REG_MTX_IDENTITY    0x04000454
 #define HW_REG_MTX_POP         0x04000448
@@ -34,6 +36,7 @@
 
 #define HW_REG_SHININESS       0x040004D0
 
+#define HW_REG_MASTER_BRIGHT   0x0400006C
 
 #define HW_REG_VRAMCNT_A       0x04000240
 #define HW_REG_VRAMCNT_B       0x04000241
@@ -47,9 +50,19 @@
 #define HW_REG_VRAMCNT_I       0x04000249
 
 #define HW_REG_DISPCNT         0x04000000
+#define HW_REG_DISPSTAT        0x04000004
 #define HW_REG_DISPCNT_2D      0x04001000
 
 #define HW_REG_DISP3DCNT       0x04000060
+
+#define HW_REG_BG2PA_A   0x04000020
+#define HW_REG_BG2PD_A   0x04000026
+#define HW_REG_BG3PA_A   0x04000030
+#define HW_REG_BG3PD_A   0x04000036
+#define HW_REG_BG2PA_B   0x04001020
+#define HW_REG_BG2PD_B   0x04001026
+#define HW_REG_BG3PA_B   0x04001030
+#define HW_REG_BG3PD_B   0x04001036
 
 #define HW_REG_BG0CNT_A 0x04000008
 #define HW_REG_BG1CNT_A 0x0400000A
@@ -135,7 +148,6 @@ u32 G3X_GetMtxStackLevelPV(u32 *level);
 u32 G3X_GetMtxStackLevelPJ(u32 *level);
 u32 G3X_GetBoxTestResult(u32 *result);
 void G3X_SetHOffset(u32 offset);
-
 
 //GX_g3b
 void G3BS_LoadMtx44(struct DL *displaylist, struct Mtx44 *mtx);
@@ -277,6 +289,16 @@ void GX_BeginLoadClearImage();
 void GX_LoadClearImageColor(void *src, u32 size);
 void GX_LoadClearImageDepth(void *src, u32 size);
 void GX_EndLoadClearImage();
+
+//GX
+void GX_Init();
+u32 GX_HBlankIntr(u32 enable);
+u32 GX_VBlankIntr(u32 enable);
+void GX_DispOff();
+void GX_DispOn();
+void GX_SetGraphicsMode(u32 mode1, u32 mode2, u32 mode3);
+void GXS_SetGraphicsMode(u32 mode);
+void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness);
 
 //GXi_NopClearFifo128_ probably asm
 
