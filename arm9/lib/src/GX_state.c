@@ -4,7 +4,7 @@
 
 extern struct VRAM_banks gUnk021D33C4;
 
-void GX_InitGXState(){
+ARM_FUNC void GX_InitGXState(){
     gUnk021D33C4.var00 = 0x0;
     gUnk021D33C4.var02 = 0x0;
     gUnk021D33C4.var04 = 0x0;

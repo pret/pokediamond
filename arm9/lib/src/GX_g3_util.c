@@ -3,8 +3,7 @@
 #include "gx.h"
 
 
-
-void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near, fx32 far, fx32 scale, u32 load, struct Mtx44 *mtx){
+ARM_FUNC void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near, fx32 far, fx32 scale, u32 load, struct Mtx44 *mtx){
     fx32 fovcot, temp1, temp2;
     fx64c temp0;
     vu32 *reg_ptr;
@@ -76,7 +75,7 @@ void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near, fx32 far
     }
 }
 
-void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 near, fx32 far, fx32 scale, u32 load, struct Mtx44 *mtx){
+ARM_FUNC void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 near, fx32 far, fx32 scale, u32 load, struct Mtx44 *mtx){
     fx64c temp1, temp2, temp3;
     fx32 temp0, temp4, temp5;
     vu32 *reg_ptr;
@@ -167,7 +166,7 @@ void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 near, fx32 f
     }
 }
 
-void G3i_LookAt_(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *c, u32 load, struct Mtx44 *mtx){
+ARM_FUNC void G3i_LookAt_(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *c, u32 load, struct Mtx44 *mtx){
     struct Vecx32 temp, temp1, temp2;
     fx32 c1, c2, c3;
     vu32 *reg_ptr;
@@ -218,7 +217,7 @@ void G3i_LookAt_(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *c, u32 load,
     }
 }
 
-void G3_RotX(fx32 sinphi, fx32 cosphi){
+ARM_FUNC void G3_RotX(fx32 sinphi, fx32 cosphi){
     vu32 *reg_ptr;
     reg_ptr = (vu32 *)HW_REG_MTX_MULT_3x3;
     *reg_ptr = 0x1000;
@@ -232,7 +231,7 @@ void G3_RotX(fx32 sinphi, fx32 cosphi){
     *reg_ptr = cosphi;
 }
 
-void G3_RotY(fx32 sinphi, fx32 cosphi){
+ARM_FUNC void G3_RotY(fx32 sinphi, fx32 cosphi){
     vu32 *reg_ptr;
     reg_ptr = (vu32 *)HW_REG_MTX_MULT_3x3;
     *reg_ptr = cosphi;
@@ -246,7 +245,7 @@ void G3_RotY(fx32 sinphi, fx32 cosphi){
     *reg_ptr = cosphi;
 }
 
-void G3_RotZ(fx32 sinphi, fx32 cosphi){
+ARM_FUNC void G3_RotZ(fx32 sinphi, fx32 cosphi){
     vu32 *reg_ptr;
     reg_ptr = (vu32 *)HW_REG_MTX_MULT_3x3;
     *reg_ptr = cosphi;

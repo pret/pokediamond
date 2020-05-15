@@ -21,7 +21,7 @@ extern u16 gUnk02103B3C[];
 extern s32 gUnk021D33FC;
 extern u32 gUnk021D340C;
 
-void GX_BeginLoadTex(){
+ARM_FUNC void GX_BeginLoadTex(){
     u32 temp = GX_ResetBankForTex();
     gUnk021D3410 = temp;
     gUnk021D3400 = gUnk02103B4C[temp * 3] << 0xC;
@@ -29,7 +29,7 @@ void GX_BeginLoadTex(){
     gUnk021D3418 = gUnk02103B50[temp * 3] << 0xC;
 }
 
-void GX_LoadTex(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadTex(void *src, u32 offset, u32 size){
     void *temp;
     if (!gUnk021D3414)
     {
@@ -58,7 +58,7 @@ void GX_LoadTex(void *src, u32 offset, u32 size){
     _GX_Load_32_Async(gUnk02106814, src, temp, size, NULL, NULL);
 }
 
-void GX_EndLoadTex(){
+ARM_FUNC void GX_EndLoadTex(){
     if (gUnk02106814 != -1)
         MI_WaitDma(gUnk02106814);
     GX_SetBankForTex(gUnk021D3410);
@@ -68,17 +68,17 @@ void GX_EndLoadTex(){
     gUnk021D3410 = 0x0;
 }
 
-void GX_BeginLoadTexPltt(){
+ARM_FUNC void GX_BeginLoadTexPltt(){
     s32 temp = GX_ResetBankForTexPltt();
     gUnk021D3408 = temp;
     gUnk021D3404 = gUnk02103B3C[temp >> 4] << 0xC;
 }
 
-void GX_LoadTexPltt(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadTexPltt(void *src, u32 offset, u32 size){
     _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D3404 + offset), size, NULL, NULL);
 }
 
-void GX_EndLoadTexPltt(){
+ARM_FUNC void GX_EndLoadTexPltt(){
     if (gUnk02106814 != -1)
         MI_WaitDma(gUnk02106814);
     GX_SetBankForTexPltt(gUnk021D3408);
@@ -86,7 +86,7 @@ void GX_EndLoadTexPltt(){
     gUnk021D3404 = 0x0;
 }
 
-void GX_BeginLoadClearImage(){
+ARM_FUNC void GX_BeginLoadClearImage(){
     s32 temp = GX_ResetBankForClearImage();
     gUnk021D33FC = temp;
     switch (temp)
@@ -107,15 +107,15 @@ void GX_BeginLoadClearImage(){
     }
 }
 
-void GX_LoadClearImageColor(void *src, u32 size){
+ARM_FUNC void GX_LoadClearImageColor(void *src, u32 size){
     _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D340C), size, NULL, NULL);
 }
 
-void GX_LoadClearImageDepth(void *src, u32 size){
+ARM_FUNC void GX_LoadClearImageDepth(void *src, u32 size){
     _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D340C + 0x20000), size, NULL, NULL);
 }
 
-void GX_EndLoadClearImage(){
+ARM_FUNC void GX_EndLoadClearImage(){
     if (gUnk02106814 != -1)
         MI_WaitDma(gUnk02106814);
     GX_SetBankForClearImage(gUnk021D33FC);

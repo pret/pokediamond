@@ -20,121 +20,121 @@ static inline void *_GXS_OBJ_PTR(){
     return (void *)0x6600000;
 }
 
-void GX_LoadBGPltt(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBGPltt(void *src, u32 offset, u32 size){
     _GX_Load_16(gUnk02106814, src, (void *)(0x5000000 + offset), size);
 }
 
-void GXS_LoadBGPltt(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBGPltt(void *src, u32 offset, u32 size){
     _GX_Load_16(gUnk02106814, src, (void *)(0x5000400 + offset), size);
 }
 
-void GX_LoadOBJPltt(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadOBJPltt(void *src, u32 offset, u32 size){
     _GX_Load_16(gUnk02106814, src, (void *)(0x5000200 + offset), size);
 }
 
-void GXS_LoadOBJPltt(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadOBJPltt(void *src, u32 offset, u32 size){
     _GX_Load_16(gUnk02106814, src, (void *)(0x5000600 + offset), size);
 }
 
-void GX_LoadOAM(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadOAM(void *src, u32 offset, u32 size){
     _GX_Load_32(gUnk02106814, src, (void *)(0x7000000 + offset), size);
 }
 
-void GXS_LoadOAM(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadOAM(void *src, u32 offset, u32 size){
     _GX_Load_32(gUnk02106814, src, (void *)(0x7000400 + offset), size);
 }
 
-void GX_LoadOBJ(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadOBJ(void *src, u32 offset, u32 size){
     u32 base = (u32)_GX_OBJ_PTR();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GXS_LoadOBJ(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadOBJ(void *src, u32 offset, u32 size){
     u32 base = (u32)_GXS_OBJ_PTR();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GX_LoadBG0Scr(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBG0Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG0ScrPtr();
     _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GXS_LoadBG0Scr(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBG0Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG0ScrPtr();
     _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GX_LoadBG1Scr(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBG1Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG1ScrPtr();
     _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GXS_LoadBG1Scr(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBG1Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG1ScrPtr();
     _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GX_LoadBG2Scr(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBG2Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG2ScrPtr();
     _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GXS_LoadBG2Scr(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBG2Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG2ScrPtr();
     _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GX_LoadBG3Scr(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBG3Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG3ScrPtr();
     _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GXS_LoadBG3Scr(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBG3Scr(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG3ScrPtr();
     _GX_Load_16(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GX_LoadBG0Char(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBG0Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG0CharPtr();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GXS_LoadBG0Char(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBG0Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG0CharPtr();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GX_LoadBG1Char(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBG1Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG1CharPtr();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GXS_LoadBG1Char(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBG1Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG1CharPtr();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GX_LoadBG2Char(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBG2Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG2CharPtr();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GXS_LoadBG2Char(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBG2Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG2CharPtr();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GX_LoadBG3Char(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBG3Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2_GetBG3CharPtr();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GXS_LoadBG3Char(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBG3Char(void *src, u32 offset, u32 size){
     u32 base = (u32)G2S_GetBG3CharPtr();
     _GX_Load_32(gUnk02106814, src, (void *)(base + offset), size);
 }
 
-void GX_BeginLoadBGExtPltt(){
+ARM_FUNC void GX_BeginLoadBGExtPltt(){
     gUnk021D33F4 = GX_ResetBankForBGExtPltt();
     switch (gUnk021D33F4)
     {
@@ -156,11 +156,11 @@ void GX_BeginLoadBGExtPltt(){
     }
 }
 
-void GX_LoadBGExtPltt(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadBGExtPltt(void *src, u32 offset, u32 size){
     _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D33F0 + offset - gUnk021D33EC), size, NULL, NULL);
 }
 
-void GX_EndLoadBGExtPltt(){
+ARM_FUNC void GX_EndLoadBGExtPltt(){
     if (gUnk02106814 != -1)
         MI_WaitDma(gUnk02106814);
     GX_SetBankForBGExtPltt(gUnk021D33F4);
@@ -169,7 +169,7 @@ void GX_EndLoadBGExtPltt(){
     gUnk021D33EC = 0x0;
 }
 
-void GX_BeginLoadOBJExtPltt(){
+ARM_FUNC void GX_BeginLoadOBJExtPltt(){
     gUnk021D33E8 = GX_ResetBankForOBJExtPltt();
     switch (gUnk021D33E8)
     {
@@ -184,11 +184,11 @@ void GX_BeginLoadOBJExtPltt(){
     }
 }
 
-void GX_LoadOBJExtPltt(void *src, u32 offset, u32 size){
+ARM_FUNC void GX_LoadOBJExtPltt(void *src, u32 offset, u32 size){
     _GX_Load_32_Async(gUnk02106814, src, (void *)(gUnk021D33E4 + offset), size, NULL, NULL);
 }
 
-void GX_EndLoadOBJExtPltt(){
+ARM_FUNC void GX_EndLoadOBJExtPltt(){
     if (gUnk02106814 != -1)
         MI_WaitDma(gUnk02106814);
     GX_SetBankForOBJExtPltt(gUnk021D33E8);
@@ -196,30 +196,30 @@ void GX_EndLoadOBJExtPltt(){
     gUnk021D33E4 = 0x0;
 }
 
-void GXS_BeginLoadBGExtPltt(){
+ARM_FUNC void GXS_BeginLoadBGExtPltt(){
     gUnk021D33E0 = FUN_020C6034();
 }
 
-void GXS_LoadBGExtPltt(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadBGExtPltt(void *src, u32 offset, u32 size){
     _GX_Load_32_Async(gUnk02106814, src, (void *)(0x06898000 + offset), size, NULL, NULL);
 }
 
-void GXS_EndLoadBGExtPltt(){
+ARM_FUNC void GXS_EndLoadBGExtPltt(){
     if (gUnk02106814 != -1)
         MI_WaitDma(gUnk02106814);
     GX_SetBankForSubBGExtPltt(gUnk021D33E0);
     gUnk021D33E0 = 0x0;
 }
 
-void GXS_BeginLoadOBJExtPltt(){
+ARM_FUNC void GXS_BeginLoadOBJExtPltt(){
     gUnk021D33F8 = GX_ResetBankForSubOBJ();
 }
 
-void GXS_LoadOBJExtPltt(void *src, u32 offset, u32 size){
+ARM_FUNC void GXS_LoadOBJExtPltt(void *src, u32 offset, u32 size){
     _GX_Load_32_Async(gUnk02106814, src, (void *)(0x068A0000 + offset), size, NULL, NULL);
 }
 
-void GXS_EndLoadOBJExtPltt(){
+ARM_FUNC void GXS_EndLoadOBJExtPltt(){
     if (gUnk02106814 != -1)
         MI_WaitDma(gUnk02106814);
     GX_SetBankForSubOBJExtPltt(gUnk021D33F8);

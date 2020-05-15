@@ -3,7 +3,7 @@
 #include "gx.h"
 
 
-void G3_BeginMakeDL(struct DL *displaylist, void *r1, u32 r2){
+ARM_FUNC void G3_BeginMakeDL(struct DL *displaylist, void *r1, u32 r2){
     displaylist->var0C = r2;
     displaylist->var08 = r1;
     displaylist->var00 = r1;
@@ -11,7 +11,7 @@ void G3_BeginMakeDL(struct DL *displaylist, void *r1, u32 r2){
     displaylist->var10 = 0x0;
 }
 
-s32 G3_EndMakeDL(struct DL *displaylist){
+ARM_FUNC s32 G3_EndMakeDL(struct DL *displaylist){
     if (displaylist->var08 == displaylist->var00)
         return 0;
     //pads the buffer with 0 to 4byte alignment if needed
