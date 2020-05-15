@@ -18,9 +18,9 @@ ARM_FUNC void GX_InitGXState(){
     UNK_021D33C4.var14 = 0x0;
     UNK_021D33C4.var16 = 0x0;
     UNK_021D33C4.var18 = 0x0;
-    SETREG32(HW_REG_VRAMCNT_A, 0x0);
-    SETREG8(HW_REG_VRAMCNT_E, 0x0);
-    SETREG8(HW_REG_VRAMCNT_F, 0x0);
-    SETREG8(HW_REG_VRAMCNT_G, 0x0);
-    SETREG16(HW_REG_VRAMCNT_H, 0x0);
+    reg_GX_VRAMCNT = 0x0;
+    reg_GX_VRAMCNT_E = 0x0;
+    reg_GX_VRAMCNT_F = 0x0;
+    reg_GX_VRAMCNT_G = 0x0;
+    reg_GX_VRAM_HI_CNT = 0x0;
 }

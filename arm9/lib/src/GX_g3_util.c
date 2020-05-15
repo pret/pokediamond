@@ -11,12 +11,12 @@ ARM_FUNC void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near,
     fovcot = FX_Div(fovcos, fovsin);
     if (scale != 0x1000) //!= 1.0
         fovcot = (fovcot * scale) / 0x1000;
-    SETREG64(HW_REG_DIV_NUMER, (s64)fovcot << 0x20);
-    SETREG64(HW_REG_DIV_DENOM, (u32)ratio);
+    reg_CP_DIV_NUMER = (s64)fovcot << 0x20;
+    reg_CP_DIV_DENOM = (u32)ratio;
     if (load)
     {
-        SETREG32(HW_REG_MTX_MODE, 0x0);
-        reg_ptr = (vu32 *)HW_REG_MTX_LOAD_4x4;
+        reg_G3_MTX_MODE =  0x0;
+        reg_ptr = (vu32 *)&reg_G3_MTX_LOAD_4x4;
     }
     if (mtx)
     {
@@ -34,8 +34,8 @@ ARM_FUNC void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near,
         mtx->_[15] = 0x0;
     }
     temp1 = FX_GetDivResult();
-    SETREG64(HW_REG_DIV_NUMER, (s64)0x1000 << 0x20);
-    SETREG64(HW_REG_DIV_DENOM, (u32)(near - far));
+    reg_CP_DIV_NUMER = (s64)0x1000 << 0x20;
+    reg_CP_DIV_DENOM = (u32)(near - far);
     if (load)
     {
         *reg_ptr = temp1;
@@ -83,8 +83,8 @@ ARM_FUNC void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 nea
     FX_InvAsync(right - left);
     if (load)
     {
-        SETREG32(HW_REG_MTX_MODE, 0x0);
-        reg_ptr = (vu32 *)HW_REG_MTX_LOAD_4x4;
+        reg_G3_MTX_MODE = 0x0;
+        reg_ptr = (vu32 *)&reg_G3_MTX_LOAD_4x4;
     }
     if (mtx)
     {
@@ -100,8 +100,8 @@ ARM_FUNC void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 nea
         mtx->_[15] = scale;
     }
     temp1 = FX_GetDivResultFx64c();
-    SETREG64(HW_REG_DIV_NUMER, (s64)0x1000 << 0x20);
-    SETREG64(HW_REG_DIV_DENOM, (u32)(top - bottom));
+    reg_CP_DIV_NUMER = (s64)0x1000 << 0x20;
+    reg_CP_DIV_DENOM = (u32)(top - bottom);
     if (scale != 0x1000)
         temp1 = (temp1 * scale) / 0x1000;
     temp0 = (0x2000 * temp1 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
@@ -118,8 +118,8 @@ ARM_FUNC void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 nea
         mtx->_[0] = temp0;
     }
     temp2 = FX_GetDivResultFx64c();
-    SETREG64(HW_REG_DIV_NUMER, (s64)0x1000 << 0x20);
-    SETREG64(HW_REG_DIV_DENOM, (u32)(near - far));
+    reg_CP_DIV_NUMER = (s64)0x1000 << 0x20;
+    reg_CP_DIV_DENOM = (u32)(near - far);
     if (scale != 0x1000)
         temp2 = (temp2 * scale) / 0x1000;
     temp0 = (0x2000 * temp2 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
@@ -179,8 +179,8 @@ ARM_FUNC void G3i_LookAt_(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *c, 
     VEC_CrossProduct(&temp, &temp1, &temp2);
     if (load)
     {
-        SETREG32(HW_REG_MTX_MODE, 0x2);
-        reg_ptr = (vu32 *)HW_REG_MTX_LOAD_4x3;
+        reg_G3_MTX_MODE = 0x2;
+        reg_ptr = (vu32 *)&reg_G3_MTX_LOAD_4x3;
         *reg_ptr = temp1.x;
         *reg_ptr = temp2.x;
         *reg_ptr = temp.x;
@@ -219,7 +219,7 @@ ARM_FUNC void G3i_LookAt_(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *c, 
 
 ARM_FUNC void G3_RotX(fx32 sinphi, fx32 cosphi){
     vu32 *reg_ptr;
-    reg_ptr = (vu32 *)HW_REG_MTX_MULT_3x3;
+    reg_ptr = (vu32 *)&reg_G3_MTX_MULT_3x3;
     *reg_ptr = 0x1000;
     *reg_ptr = 0x0;
     *reg_ptr = 0x0;
@@ -233,7 +233,7 @@ ARM_FUNC void G3_RotX(fx32 sinphi, fx32 cosphi){
 
 ARM_FUNC void G3_RotY(fx32 sinphi, fx32 cosphi){
     vu32 *reg_ptr;
-    reg_ptr = (vu32 *)HW_REG_MTX_MULT_3x3;
+    reg_ptr = (vu32 *)&reg_G3_MTX_MULT_3x3;
     *reg_ptr = cosphi;
     *reg_ptr = 0x0;
     *reg_ptr = -sinphi;
@@ -247,7 +247,7 @@ ARM_FUNC void G3_RotY(fx32 sinphi, fx32 cosphi){
 
 ARM_FUNC void G3_RotZ(fx32 sinphi, fx32 cosphi){
     vu32 *reg_ptr;
-    reg_ptr = (vu32 *)HW_REG_MTX_MULT_3x3;
+    reg_ptr = (vu32 *)&reg_G3_MTX_MULT_3x3;
     *reg_ptr = cosphi;
     *reg_ptr = sinphi;
     *reg_ptr = 0x0;
