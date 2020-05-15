@@ -300,6 +300,13 @@ void GX_SetGraphicsMode(u32 mode1, u32 mode2, u32 mode3);
 void GXS_SetGraphicsMode(u32 mode);
 void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness);
 
+//GX_g2
+void G2x_SetBGyAffine_(u32 *ptr, struct Mtx22 *mtx, fx32 a, fx32 b, fx32 c, fx32 d);
+void G2x_SetBlendAlpha_(u32 *ptr, fx32 a, fx32 b, fx32 c, fx32 d);
+void G2x_SetBlendBrightness_(u16 *ptr, fx32 a, fx32 brightness);
+void G2x_SetBlendBrightnessExt_(u16 *ptr, fx32 a, fx32 b, fx32 c, fx32 d, fx32 brightness);
+void *G2x_ChangeBlendBrightness_(u16 *ptr, fx32 brightness);
+
 //GXi_NopClearFifo128_ probably asm
 
 #endif //GUARD_GX_H
