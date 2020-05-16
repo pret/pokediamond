@@ -25,22 +25,22 @@ _020D4B14: .word 0x021D54D8
 
 	arm_func_start PM_AppendPostSleepCallback
 PM_AppendPostSleepCallback: ; 0x020D4B18
-	ldr ip, _020D4B28 ; =FUN_020D4BC4
+	ldr ip, _020D4B28 ; =PMi_AppendList
 	mov r1, r0
 	ldr r0, _020D4B2C ; =0x021D54E0
 	bx r12
 	.balign 4
-_020D4B28: .word FUN_020D4BC4
+_020D4B28: .word PMi_AppendList
 _020D4B2C: .word 0x021D54E0
 
 	arm_func_start PM_PrependPreSleepCallback
 PM_PrependPreSleepCallback: ; 0x020D4B30
-	ldr ip, _020D4B40 ; =FUN_020D4C0C
+	ldr ip, _020D4B40 ; =PMi_PrependList
 	mov r1, r0
 	ldr r0, _020D4B44 ; =0x021D54D8
 	bx r12
 	.balign 4
-_020D4B40: .word FUN_020D4C0C
+_020D4B40: .word PMi_PrependList
 _020D4B44: .word 0x021D54D8
 
 	arm_func_start PMi_ExecuteList
@@ -59,8 +59,8 @@ _020D4B58:
 	ldmia sp!, {r4,lr}
 	bx lr
 
-	arm_func_start FUN_020D4B78
-FUN_020D4B78:
+	arm_func_start PMi_DeleteList
+PMi_DeleteList:
 	cmp r0, #0x0
 	bxeq lr
 	ldr r3, [r0]
@@ -83,8 +83,8 @@ _020D4BB0:
 	bne _020D4B90
 	bx lr
 
-	arm_func_start FUN_020D4BC4
-FUN_020D4BC4: ; 0x020D4BC4
+	arm_func_start PMi_AppendList
+PMi_AppendList: ; 0x020D4BC4
 	cmp r0, #0x0
 	bxeq lr
 	ldr r2, [r0, #0x0]
@@ -106,8 +106,8 @@ _020D4C00:
 	str r1, [r2, #0x8]
 	bx lr
 
-	arm_func_start FUN_020D4C0C
-FUN_020D4C0C: ; 0x020D4C0C
+	arm_func_start PMi_PrependList
+PMi_PrependList: ; 0x020D4C0C
 	cmp r0, #0x0
 	ldrne r2, [r0, #0x0]
 	strne r2, [r1, #0x8]
@@ -508,23 +508,23 @@ _020D5120:
 
 	arm_func_start PM_SetAmpGain
 PM_SetAmpGain: ; 0x020D5150
-	ldr ip, _020D5164 ; =FUN_020D53DC
+	ldr ip, _020D5164 ; =PMi_WriteRegister
 	mov r0, r0, lsl #0x10
 	mov r1, r0, lsr #0x10
 	mov r0, #0x3
 	bx r12
 	.balign 4
-_020D5164: .word FUN_020D53DC
+_020D5164: .word PMi_WriteRegister
 
 	arm_func_start PM_SetAmp
 PM_SetAmp: ; 0x020D5168
-	ldr ip, _020D517C ; =FUN_020D53DC
+	ldr ip, _020D517C ; =PMi_WriteRegister
 	mov r0, r0, lsl #0x10
 	mov r1, r0, lsr #0x10
 	mov r0, #0x2
 	bx r12
 	.balign 4
-_020D517C: .word FUN_020D53DC
+_020D517C: .word PMi_WriteRegister
 
 	arm_func_start PM_ForceToPowerOff
 PM_ForceToPowerOff: ; 0x020D5180
@@ -722,8 +722,8 @@ _020D53B4:
 	.balign 4
 _020D53D8: .word 0x0000FFFF
 
-	arm_func_start FUN_020D53DC
-FUN_020D53DC: ; 0x020D53DC
+	arm_func_start PMi_WriteRegister
+PMi_WriteRegister: ; 0x020D53DC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r2, _020D5414 ; =PMi_DummyCallback
