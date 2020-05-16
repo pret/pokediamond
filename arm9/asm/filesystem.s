@@ -646,3 +646,20 @@ _0200682A:
 	bl FS_ReadFile
 	pop {r3-r7, pc}
 	.balign 4
+
+	thumb_func_start FUN_02006864
+FUN_02006864: ; 0x02006864
+	add r3, r1, #0x0
+	add r1, r2, #0x0
+	add r2, r3, #0x0
+	ldr r3, _02006870 ; =FS_ReadFile
+	bx r3
+	nop
+_02006870: .word FS_ReadFile
+
+	thumb_func_start FUN_02006874
+FUN_02006874: ; 0x02006874
+	add r0, #0x50
+	ldrh r0, [r0, #0x0]
+	bx lr
+	.balign 4
