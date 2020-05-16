@@ -213,6 +213,7 @@ else
 NODEP := 1
 endif
 
+.PRECIOUS: $(ROM)
 .PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
 
 MAKEFLAGS += --no-print-directory
