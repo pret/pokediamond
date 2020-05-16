@@ -35,5 +35,6 @@ OSIntrMode OS_GetCpsrIrq();
 OSProcMode OS_GetProcMode();
 void OS_SpinWait();
 void OS_WaitVBlankIntr();
+void OS_WaitIrq(BOOL, u32);
 
 #endif //POKEDIAMOND_OS_SYSTEM_H

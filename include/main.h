@@ -60,6 +60,17 @@ struct Unk21C48B8
     s32 unk6C;
 };
 
+struct UnkStruct_021C4918 {
+    s32 unk0;
+    u8 unk4;
+    u8 unk5;
+    u8 unk6;
+    u8 unk7;
+    u8 unk8;
+};
+
+extern struct UnkStruct_021C4918 gUnk021C4918;
+
 extern struct Unk2106FA0 gBacklightTop;
 extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
 
