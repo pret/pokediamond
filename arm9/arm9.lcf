@@ -161,7 +161,6 @@ SECTIONS {
 		GX_asm.o (.text)
 		OS_irqHandler.o (.text)
 		OS_irqTable.o (.text)
-		OS_interrupt_asm.o (.text)
 		OS_interrupt.o (.text)
 		OS_spinLock.o (.text)
 		OS_printf.o (.text)
