@@ -2,22 +2,22 @@
 #include "main.h"
 #include "gx.h"
 
-extern struct VRAM_banks UNK_021D33C4;
+extern struct GX_State gGXState;
 
 ARM_FUNC void GX_InitGXState(){
-    UNK_021D33C4.var00 = 0x0;
-    UNK_021D33C4.var02 = 0x0;
-    UNK_021D33C4.var04 = 0x0;
-    UNK_021D33C4.var06 = 0x0;
-    UNK_021D33C4.var08 = 0x0;
-    UNK_021D33C4.var0A = 0x0;
-    UNK_021D33C4.var0C = 0x0;
-    UNK_021D33C4.var0E = 0x0;
-    UNK_021D33C4.var10 = 0x0;
-    UNK_021D33C4.var12 = 0x0;
-    UNK_021D33C4.var14 = 0x0;
-    UNK_021D33C4.var16 = 0x0;
-    UNK_021D33C4.var18 = 0x0;
+    gGXState.lcdc = 0x0;
+    gGXState.bg = 0x0;
+    gGXState.obj = 0x0;
+    gGXState.arm7 = 0x0;
+    gGXState.tex = 0x0;
+    gGXState.texPltt = 0x0;
+    gGXState.clrImg = 0x0;
+    gGXState.bgExtPltt = 0x0;
+    gGXState.objExtPltt = 0x0;
+    gGXState.sub_bg = 0x0;
+    gGXState.sub_obj = 0x0;
+    gGXState.sub_bgExtPltt = 0x0;
+    gGXState.sub_objExtPltt = 0x0;
     reg_GX_VRAMCNT = 0x0;
     reg_GX_VRAMCNT_E = 0x0;
     reg_GX_VRAMCNT_F = 0x0;

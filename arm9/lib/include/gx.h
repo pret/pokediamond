@@ -21,6 +21,12 @@ void OSi_UnlockVram(u16, u16);
 void MIi_CpuClear32(u32, void *, u32);
 
 //TODO: Add defines for GX commands, add structs/unions for HW registers
+//TODO: structs
+//TODO: useful macros
+//TODO: inline functions
+//TODO: enums
+//TODO: function signatures
+
 
 static inline void _GX_Load_16(u32 var, void *src, void *dst, u32 size){
     if (var != -1 && size > 0x1C)
@@ -55,35 +61,37 @@ static inline void _GX_Load_32_Async(u32 var, void *src, void *dst, u32 size, vo
     }
 }
 
-struct DL
+struct GXDLInfo
 {
-    u8 *var00; //end pointer
-    u32 *var04; //aligned end pointer, used to write data
-    u8 *var08; //start pointer
-    u32 var0C;
-    u32 var10; //pad end with zero bool
+    u8     *curr_cmd;
+    u32    *curr_param;
+    u32    *bottom;
+    u32     length;
+    BOOL    param0_cmd_flg;
 };
 
-struct VRAM_banks
+
+struct GX_State
 {
-    u16 var00; //lcdc
-    u16 var02; //bg
-    u16 var04; //obj
-    u16 var06; //arm7
-    u16 var08; //tex
-    u16 var0A; //texpltt
-    u16 var0C; //clearimage
-    u16 var0E; //bgextpltt
-    u16 var10; //objextpltt
-    u16 var12; //subbg
-    u16 var14; //subobj
-    u16 var16; //subbgextpltt
-    u16 var18; //subobjextpltt
+    u16     lcdc;
+    u16     bg;
+    u16     obj;
+    u16     arm7;
+    u16     tex;
+    u16     texPltt;
+    u16     clrImg;
+    u16     bgExtPltt;
+    u16     objExtPltt;
+
+    u16     sub_bg;
+    u16     sub_obj;
+    u16     sub_bgExtPltt;
+    u16     sub_objExtPltt;
 };
 
 //GX_g3
-void G3_BeginMakeDL(struct DL *displaylist, void *r1, u32 r2);
-s32 G3_EndMakeDL(struct DL *displaylist);
+void G3_BeginMakeDL(struct GXDLInfo *displaylist, void *r1, u32 r2);
+s32 G3_EndMakeDL(struct GXDLInfo *displaylist);
 
 //GX_g3_util
 void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near, fx32 far, fx32 scale, u32 load, struct Mtx44 *mtx);
@@ -113,20 +121,20 @@ u32 G3X_GetBoxTestResult(u32 *result);
 void G3X_SetHOffset(u32 offset);
 
 //GX_g3b
-void G3BS_LoadMtx44(struct DL *displaylist, struct Mtx44 *mtx);
-void G3B_PushMtx(struct DL *displaylist);
-void G3B_PopMtx(struct DL *displaylist, void *mtx);
-void G3B_LoadMtx44(struct DL *displaylist, struct Mtx44 *mtx);
-void G3B_Color(struct DL * displaylist, u32 vtx_col);
-void G3B_Normal(struct DL * displaylist, fx16 x, fx16 y, fx16 z);
-void G3B_Vtx(struct DL * displaylist, fx32 x, fx32 y, fx32 z);
-void G3B_PolygonAttr(struct DL *displaylist, u32 r1, u32 r2, u32 r3, u32 r4, u32 r5, u32 r6);
-void G3B_MaterialColorDiffAmb(struct DL *displaylist, u32 diffuse_col, u32 ambient_col, u32 replace);
-void G3B_MaterialColorSpecEmi(struct DL *displaylist, u32 specular_col, u32 emission_col, u32 shiny_table);
-void G3B_LightVector(struct DL * displaylist, u32 light_num, fx16 x, fx16 y, fx16 z);
-void G3B_LightColor(struct DL * displaylist, u32 light_num, u32 col);
-void G3B_Begin(struct DL * displaylist, u32 type);
-void G3B_End(struct DL * displaylist);
+void G3BS_LoadMtx44(struct GXDLInfo *displaylist, struct Mtx44 *mtx);
+void G3B_PushMtx(struct GXDLInfo *displaylist);
+void G3B_PopMtx(struct GXDLInfo *displaylist, void *mtx);
+void G3B_LoadMtx44(struct GXDLInfo *displaylist, struct Mtx44 *mtx);
+void G3B_Color(struct GXDLInfo * displaylist, u32 vtx_col);
+void G3B_Normal(struct GXDLInfo * displaylist, fx16 x, fx16 y, fx16 z);
+void G3B_Vtx(struct GXDLInfo * displaylist, fx32 x, fx32 y, fx32 z);
+void G3B_PolygonAttr(struct GXDLInfo *displaylist, u32 r1, u32 r2, u32 r3, u32 r4, u32 r5, u32 r6);
+void G3B_MaterialColorDiffAmb(struct GXDLInfo *displaylist, u32 diffuse_col, u32 ambient_col, u32 replace);
+void G3B_MaterialColorSpecEmi(struct GXDLInfo *displaylist, u32 specular_col, u32 emission_col, u32 shiny_table);
+void G3B_LightVector(struct GXDLInfo * displaylist, u32 light_num, fx16 x, fx16 y, fx16 z);
+void G3B_LightColor(struct GXDLInfo * displaylist, u32 light_num, u32 col);
+void G3B_Begin(struct GXDLInfo * displaylist, u32 type);
+void G3B_End(struct GXDLInfo * displaylist);
 
 //GX_asm
 void GX_SendFifo48B(void *src, void *dst);

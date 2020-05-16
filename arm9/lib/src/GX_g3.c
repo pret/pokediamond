@@ -3,34 +3,34 @@
 #include "gx.h"
 
 
-ARM_FUNC void G3_BeginMakeDL(struct DL *displaylist, void *r1, u32 r2){
-    displaylist->var0C = r2;
-    displaylist->var08 = r1;
-    displaylist->var00 = r1;
-    displaylist->var04 = (u32 *)r1 + 1;
-    displaylist->var10 = 0x0;
+ARM_FUNC void G3_BeginMakeDL(struct GXDLInfo *displaylist, void *r1, u32 r2){
+    displaylist->length = r2;
+    displaylist->bottom = r1;
+    displaylist->curr_cmd = r1;
+    displaylist->curr_param = (u32 *)r1 + 1;
+    displaylist->param0_cmd_flg = 0x0;
 }
 
-ARM_FUNC s32 G3_EndMakeDL(struct DL *displaylist){
-    if (displaylist->var08 == displaylist->var00)
+ARM_FUNC s32 G3_EndMakeDL(struct GXDLInfo *displaylist){
+    if (displaylist->bottom == (u32 *)displaylist->curr_cmd)
         return 0;
     //pads the buffer with 0 to 4byte alignment if needed
-    switch((u32)displaylist->var00 & 0x3)
+    switch((u32)displaylist->curr_cmd & 0x3)
     {
     case 0:
-        return displaylist->var00 - displaylist->var08;
+        return displaylist->curr_cmd - (u8 *)displaylist->bottom;
     case 1:
-        *displaylist->var00++ = 0x0;
+        *displaylist->curr_cmd++ = 0x0;
     case 2:
-        *displaylist->var00++ = 0x0;
+        *displaylist->curr_cmd++ = 0x0;
     case 3:
-        *displaylist->var00++ = 0x0;
+        *displaylist->curr_cmd++ = 0x0;
     }
-    if (displaylist->var10)
+    if (displaylist->param0_cmd_flg)
     {
-        *displaylist->var04++ = 0x0;
-        displaylist->var10 = 0x0;
+        *displaylist->curr_param++ = 0x0;
+        displaylist->param0_cmd_flg = 0x0;
     }
-    displaylist->var00 = (u8 *)displaylist->var04;
-    return displaylist->var00 - displaylist->var08;
+    displaylist->curr_cmd = (u8 *)displaylist->curr_param;
+    return displaylist->curr_cmd - (u8 *)displaylist->bottom;
 }

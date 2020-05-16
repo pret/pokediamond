@@ -940,8 +940,8 @@ UNK_021D33BC: ; 0x021D33BC
 UNK_021D33C0: ; 0x021D33C0
 	.space 0x4
 
-	.global UNK_021D33C4
-UNK_021D33C4: ; 0x021D33C4
+	.global gGXState
+gGXState: ; 0x021D33C4
 	.space 0x2
 
 	.global UNK_021D33C6
