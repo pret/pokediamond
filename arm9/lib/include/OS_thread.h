@@ -11,6 +11,8 @@
 typedef struct OSiAlarm OSAlarm;
 
 typedef struct _OSThread OSThread;
+
+typedef struct _OSThreadQueue OSThreadQueue;
 typedef struct _OSThreadLink OSThreadLink;
 typedef struct _OSMutexQueue OSMutexQueue;
 typedef struct _OSMutexLink OSMutexLink;
@@ -39,9 +41,6 @@ struct _OSMutexLink
     OSMutex *next;
     OSMutex *prev;
 };
-
-typedef struct _OSThreadQueue OSThreadQueue;
-typedef struct _OSThreadLink OSThreadLink;
 
 typedef struct OSThreadInfo {
     u16 isNeedRescheduling;
