@@ -6,6 +6,7 @@
 #include "OS_reset.h"
 #include "MB_mb.h"
 #include "OS_terminate_proc.h"
+#include "OS_interrupt.h"
 
 extern u16 OSi_IsInitReset;
 extern vu16 OSi_IsResetOccurred;
@@ -15,8 +16,6 @@ extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
 extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 extern void CARD_LockRom(u16 lockId);
 extern void MI_StopDma(u32 dma);
-extern void OS_SetIrqMask(u32 mask);
-extern void OS_ResetRequestIrqMask(u32 mask);
 extern void OSi_DoResetSystem(); //in itcm, should technically be in this file
 
 ARM_FUNC void OS_InitReset() {
@@ -54,7 +53,7 @@ ARM_FUNC void OS_ResetSystem(u32 parameter) {
     MI_StopDma(1);
     MI_StopDma(2);
     MI_StopDma(3);
-    OS_SetIrqMask(0x40000);
+    (void)OS_SetIrqMask(0x40000);
     OS_ResetRequestIrqMask((u32)~0);
     *(u32 *)HW_RESET_PARAMETER_BUF = parameter;
     OSi_SendToPxi(OS_PXI_COMMAND_RESET);
