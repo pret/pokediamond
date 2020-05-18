@@ -2,120 +2,120 @@
 #include "main.h"
 #include "gx.h"
 
-extern u32 UNK_02106814;
+extern u32 GXi_DmaId;
 
-extern u32 UNK_021D3410;
-extern u32 UNK_021D3400;
-extern u32 UNK_021D3414;
-extern u32 UNK_021D3418;
+extern u32 sTex;
+extern u32 sTexLCDCBlk1;
+extern u32 sTexLCDCBlk2;
+extern u32 sSzTexBlk1;
 
 //probably structs of length 0x6
-extern u16 UNK_02103B4C[];
-extern u16 UNK_02103B4E[];
-extern u16 UNK_02103B50[];
+extern u16 sTexStartAddrTable[];
+extern u16 sTexStartAddrTable[];
+extern u16 sTexStartAddrTable[];
 
-extern u32 UNK_021D3408;
-extern u32 UNK_021D3404;
-extern u16 UNK_02103B3C[];
+extern u32 sTexPltt;
+extern u32 sTexPlttLCDCBlk;
+extern u16 sTexPlttStartAddrTable[];
 
-extern s32 UNK_021D33FC;
-extern u32 UNK_021D340C;
+extern s32 sClrImg;
+extern u32 sClrImgLCDCBlk;
 
 ARM_FUNC void GX_BeginLoadTex(){
     u32 temp = GX_ResetBankForTex();
-    UNK_021D3410 = temp;
-    UNK_021D3400 = UNK_02103B4C[temp * 3] << 0xC;
-    UNK_021D3414 = UNK_02103B4E[temp * 3] << 0xC;
-    UNK_021D3418 = UNK_02103B50[temp * 3] << 0xC;
+    sTex = temp;
+    sTexLCDCBlk1 = sTexStartAddrTable[temp * 3] << 0xC;
+    sTexLCDCBlk2 = sTexStartAddrTable[temp * 3] << 0xC;
+    sSzTexBlk1 = sTexStartAddrTable[temp * 3] << 0xC;
 }
 
 ARM_FUNC void GX_LoadTex(void *src, u32 offset, u32 size){
     void *temp;
-    if (!UNK_021D3414)
+    if (!sTexLCDCBlk2)
     {
-        temp = (void *)(UNK_021D3400 + offset);
+        temp = (void *)(sTexLCDCBlk1 + offset);
     }
     else
     {
-        if ((offset + size) < UNK_021D3418)
+        if ((offset + size) < sSzTexBlk1)
         {
-            temp = (void *)(UNK_021D3400 + offset);
+            temp = (void *)(sTexLCDCBlk1 + offset);
         }
-        else if (offset >= UNK_021D3418)
+        else if (offset >= sSzTexBlk1)
         {
-            temp = (void *)(UNK_021D3414 + offset - UNK_021D3418);
+            temp = (void *)(sTexLCDCBlk2 + offset - sSzTexBlk1);
         }
         else
         {
-            void *temp2 = (void *)UNK_021D3414;
-            u32 temp1 = UNK_021D3418 - offset;
-            temp = (void *)(UNK_021D3400 + offset);
-            GXi_DmaCopy32(UNK_02106814, src, temp, temp1);
-            GXi_DmaCopy32Async(UNK_02106814, (void *)((u8 *)src + temp1), temp2, (size - temp1), NULL, NULL);
+            void *temp2 = (void *)sTexLCDCBlk2;
+            u32 temp1 = sSzTexBlk1 - offset;
+            temp = (void *)(sTexLCDCBlk1 + offset);
+            GXi_DmaCopy32(GXi_DmaId, src, temp, temp1);
+            GXi_DmaCopy32Async(GXi_DmaId, (void *)((u8 *)src + temp1), temp2, (size - temp1), NULL, NULL);
             return;
         }
     }
-    GXi_DmaCopy32Async(UNK_02106814, src, temp, size, NULL, NULL);
+    GXi_DmaCopy32Async(GXi_DmaId, src, temp, size, NULL, NULL);
 }
 
 ARM_FUNC void GX_EndLoadTex(){
-    GXi_WaitDma(UNK_02106814);
-    GX_SetBankForTex(UNK_021D3410);
-    UNK_021D3418 = 0x0;
-    UNK_021D3414 = 0x0;
-    UNK_021D3400 = 0x0;
-    UNK_021D3410 = 0x0;
+    GXi_WaitDma(GXi_DmaId);
+    GX_SetBankForTex(sTex);
+    sSzTexBlk1 = 0x0;
+    sTexLCDCBlk2 = 0x0;
+    sTexLCDCBlk1 = 0x0;
+    sTex = 0x0;
 }
 
 ARM_FUNC void GX_BeginLoadTexPltt(){
     s32 temp = GX_ResetBankForTexPltt();
-    UNK_021D3408 = temp;
-    UNK_021D3404 = UNK_02103B3C[temp >> 4] << 0xC;
+    sTexPltt = temp;
+    sTexPlttLCDCBlk = sTexPlttStartAddrTable[temp >> 4] << 0xC;
 }
 
 ARM_FUNC void GX_LoadTexPltt(void *src, u32 offset, u32 size){
-    GXi_DmaCopy32Async(UNK_02106814, src, (void *)(UNK_021D3404 + offset), size, NULL, NULL);
+    GXi_DmaCopy32Async(GXi_DmaId, src, (void *)(sTexPlttLCDCBlk + offset), size, NULL, NULL);
 }
 
 ARM_FUNC void GX_EndLoadTexPltt(){
-    GXi_WaitDma(UNK_02106814);
-    GX_SetBankForTexPltt(UNK_021D3408);
-    UNK_021D3408 = 0x0;
-    UNK_021D3404 = 0x0;
+    GXi_WaitDma(GXi_DmaId);
+    GX_SetBankForTexPltt(sTexPltt);
+    sTexPltt = 0x0;
+    sTexPlttLCDCBlk = 0x0;
 }
 
 ARM_FUNC void GX_BeginLoadClearImage(){
     s32 temp = GX_ResetBankForClearImage();
-    UNK_021D33FC = temp;
+    sClrImg = temp;
     switch (temp)
     {
     case 2:
     case 3:
-        UNK_021D340C = 0x6800000;
+        sClrImgLCDCBlk = 0x6800000;
         return;
     case 8:
     case 12:
-        UNK_021D340C = 0x6840000;
+        sClrImgLCDCBlk = 0x6840000;
         return;
     case 1:
-        UNK_021D340C = 0x67E0000;
+        sClrImgLCDCBlk = 0x67E0000;
         return;
     case 4:
-        UNK_021D340C = 0x6820000;
+        sClrImgLCDCBlk = 0x6820000;
     }
 }
 
 ARM_FUNC void GX_LoadClearImageColor(void *src, u32 size){
-    GXi_DmaCopy32Async(UNK_02106814, src, (void *)(UNK_021D340C), size, NULL, NULL);
+    GXi_DmaCopy32Async(GXi_DmaId, src, (void *)(sClrImgLCDCBlk), size, NULL, NULL);
 }
 
 ARM_FUNC void GX_LoadClearImageDepth(void *src, u32 size){
-    GXi_DmaCopy32Async(UNK_02106814, src, (void *)(UNK_021D340C + 0x20000), size, NULL, NULL);
+    GXi_DmaCopy32Async(GXi_DmaId, src, (void *)(sClrImgLCDCBlk + 0x20000), size, NULL, NULL);
 }
 
 ARM_FUNC void GX_EndLoadClearImage(){
-    GXi_WaitDma(UNK_02106814);
-    GX_SetBankForClearImage(UNK_021D33FC);
-    UNK_021D33FC = 0x0;
-    UNK_021D340C = 0x0;
+    GXi_WaitDma(GXi_DmaId);
+    GX_SetBankForClearImage(sClrImg);
+    sClrImg = 0x0;
+    sClrImgLCDCBlk = 0x0;
 }

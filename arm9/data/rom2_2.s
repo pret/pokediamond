@@ -5075,20 +5075,20 @@ UNK_02103001: ; 0x02103001
 FX_AtanTable_: ; 0x02103A38
 	.incbin "baserom.nds", 0x107a38, 0x104
 
-	.global UNK_02103B3C
-UNK_02103B3C: ; 0x02103B3C
+	.global sTexPlttStartAddrTable
+sTexPlttStartAddrTable: ; 0x02103B3C
 	.incbin "baserom.nds", 0x107b3c, 0x10
 
-	.global UNK_02103B4C
-UNK_02103B4C: ; 0x02103B4C
+	.global sTexStartAddrTable
+sTexStartAddrTable: ; 0x02103B4C
 	.incbin "baserom.nds", 0x107b4c, 0x2
 
-	.global UNK_02103B4E
-UNK_02103B4E: ; 0x02103B4E
+	.global sTexStartAddrTable
+sTexStartAddrTable: ; 0x02103B4E
 	.incbin "baserom.nds", 0x107b4e, 0x2
 
-	.global UNK_02103B50
-UNK_02103B50: ; 0x02103B50
+	.global sTexStartAddrTable
+sTexStartAddrTable: ; 0x02103B50
 	.incbin "baserom.nds", 0x107b50, 0x5c
 
 	.global UNK_02103BAC

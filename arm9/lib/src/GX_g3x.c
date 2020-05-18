@@ -2,7 +2,7 @@
 #include "main.h"
 #include "gx.h"
 
-extern u32 UNK_02106814;
+extern u32 GXi_DmaId;
 
 ARM_FUNC asm void GXi_NopClearFifo128_(void *reg){
     mov r1, #0x0
@@ -178,10 +178,10 @@ ARM_FUNC void G3X_SetClearColor(u32 col, u32 alpha, u32 depth, u32 polygon_id, u
 }
 
 ARM_FUNC void G3X_InitTable(){
-    if (UNK_02106814 != -1)
+    if (GXi_DmaId != -1)
     {
-        MI_DmaFill32Async(UNK_02106814, (void *)&reg_G3X_EDGE_COLOR_0, 0x0, 0x10, 0x0, 0x0);
-        MI_DmaFill32(UNK_02106814, (void *)&reg_G3X_FOG_TABLE_0, 0x0, 0x60);
+        MI_DmaFill32Async(GXi_DmaId, (void *)&reg_G3X_EDGE_COLOR_0, 0x0, 0x10, 0x0, 0x0);
+        MI_DmaFill32(GXi_DmaId, (void *)&reg_G3X_FOG_TABLE_0, 0x0, 0x60);
     }
     else
     {

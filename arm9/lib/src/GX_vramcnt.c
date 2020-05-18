@@ -2,7 +2,7 @@
 #include "main.h"
 #include "gx.h"
 
-extern u16 UNK_021D33BC;
+extern u16 GXi_VRamLockId;
 extern struct GX_State gGXState;
 
 ARM_FUNC void GX_VRAMCNT_SetLCDC_(u32 mask){
@@ -474,7 +474,7 @@ ARM_FUNC u32 FUN_020C5F28(u16 *ptr){
         reg_GX_VRAMCNT_H = 0x0;
     if (temp & (0x1 << 8))
         reg_GX_VRAMCNT_I = 0x0;
-    OSi_UnlockVram((u16)temp, UNK_021D33BC);
+    OSi_UnlockVram((u16)temp, GXi_VRamLockId);
     return temp;
 }
 

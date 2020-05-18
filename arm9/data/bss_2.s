@@ -932,12 +932,12 @@ UNK_021D2DF0: ; 0x021D2DF0
 UNK_021D2DFC: ; 0x021D2DFC
 	.space 0x5c0
 
-	.global UNK_021D33BC
-UNK_021D33BC: ; 0x021D33BC
+	.global GXi_VRamLockId
+GXi_VRamLockId: ; 0x021D33BC
 	.space 0x4
 
-	.global UNK_021D33C0
-UNK_021D33C0: ; 0x021D33C0
+	.global sDispMode
+sDispMode: ; 0x021D33C0
 	.space 0x4
 
 	.global gGXState
@@ -992,64 +992,64 @@ UNK_021D33DA: ; 0x021D33DA
 UNK_021D33DC: ; 0x021D33DC
 	.space 0x4
 
-	.global UNK_021D33E0
-UNK_021D33E0: ; 0x021D33E0
+	.global sSubBGExtPltt
+sSubBGExtPltt: ; 0x021D33E0
 	.space 0x4
 
-	.global UNK_021D33E4
-UNK_021D33E4: ; 0x021D33E4
+	.global sOBJExtPlttLCDCBlk
+sOBJExtPlttLCDCBlk: ; 0x021D33E4
 	.space 0x4
 
-	.global UNK_021D33E8
-UNK_021D33E8: ; 0x021D33E8
+	.global sOBJExtPltt
+sOBJExtPltt: ; 0x021D33E8
 	.space 0x4
 
-	.global UNK_021D33EC
-UNK_021D33EC: ; 0x021D33EC
+	.global sBGExtPlttLCDCOffset
+sBGExtPlttLCDCOffset: ; 0x021D33EC
 	.space 0x4
 
-	.global UNK_021D33F0
-UNK_021D33F0: ; 0x021D33F0
+	.global sBGExtPlttLCDCBlk
+sBGExtPlttLCDCBlk: ; 0x021D33F0
 	.space 0x4
 
-	.global UNK_021D33F4
-UNK_021D33F4: ; 0x021D33F4
+	.global sBGExtPltt
+sBGExtPltt: ; 0x021D33F4
 	.space 0x4
 
-	.global UNK_021D33F8
-UNK_021D33F8: ; 0x021D33F8
+	.global sSubOBJExtPltt
+sSubOBJExtPltt: ; 0x021D33F8
 	.space 0x4
 
-	.global UNK_021D33FC
-UNK_021D33FC: ; 0x021D33FC
+	.global sClrImg
+sClrImg: ; 0x021D33FC
 	.space 0x4
 
-	.global UNK_021D3400
-UNK_021D3400: ; 0x021D3400
+	.global sTexLCDCBlk1
+sTexLCDCBlk1: ; 0x021D3400
 	.space 0x4
 
-	.global UNK_021D3404
-UNK_021D3404: ; 0x021D3404
+	.global sTexPlttLCDCBlk
+sTexPlttLCDCBlk: ; 0x021D3404
 	.space 0x4
 
-	.global UNK_021D3408
-UNK_021D3408: ; 0x021D3408
+	.global sTexPltt
+sTexPltt: ; 0x021D3408
 	.space 0x4
 
-	.global UNK_021D340C
-UNK_021D340C: ; 0x021D340C
+	.global sClrImgLCDCBlk
+sClrImgLCDCBlk: ; 0x021D340C
 	.space 0x4
 
-	.global UNK_021D3410
-UNK_021D3410: ; 0x021D3410
+	.global sTex
+sTex: ; 0x021D3410
 	.space 0x4
 
-	.global UNK_021D3414
-UNK_021D3414: ; 0x021D3414
+	.global sTexLCDCBlk2
+sTexLCDCBlk2: ; 0x021D3414
 	.space 0x4
 
-	.global UNK_021D3418
-UNK_021D3418: ; 0x021D3418
+	.global sSzTexBlk1
+sSzTexBlk1: ; 0x021D3418
 	.space 0x4
 
 	.global OSi_IrqCallbackInfo

@@ -1357,12 +1357,12 @@ UNK_021067D0: ; 0x021067D0
 UNK_021067F0: ; 0x021067F0
 	.incbin "baserom.nds", 0x10a7f0, 0x20
 
-	.global UNK_02106810
-UNK_02106810: ; 0x02106810
+	.global sIsDispOn
+sIsDispOn: ; 0x02106810
 	.incbin "baserom.nds", 0x10a810, 0x4
 
-	.global UNK_02106814
-UNK_02106814: ; 0x02106814
+	.global GXi_DmaId
+GXi_DmaId: ; 0x02106814
 	.incbin "baserom.nds", 0x10a814, 0x4
 
 	.global OSi_IrqCallbackInfoIndex
