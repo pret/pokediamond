@@ -6206,3 +6206,11 @@
 .extern FUN_020161F8
 .extern FUN_0201BB74
 .extern FUN_0201C100
+.extern FUN_0201C750
+.extern FUN_02022244
+.extern FUN_0201C360
+.extern FUN_0201C39C
+.extern FUN_0201C3B4
+.extern FUN_0201C40C
+.extern FUN_0201C438
+.extern FUN_0201C7B0
