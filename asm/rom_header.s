@@ -85,10 +85,7 @@ ARM7OverlaySize:
 	.word 0
 	.global ROMControlInfo1
 ROMControlInfo1:
-	.word 0x00416657
-	.global ROMControlInfo2
-ROMControlInfo2:
-	.word 0x081808F8
+	.byte 0x57, 0x66, 0x41, 0x00, 0xf8, 0x08, 0x18, 0x08
 	.global IconTitleOffset
 IconTitleOffset:
 	.word 0x338600
@@ -97,7 +94,7 @@ SecureAreaCC:
 	.short 0x5931
 	.global ROMControlInfo3
 ROMControlInfo3:
-	.short 0x0D7E
+	.byte 0x7E, 0x0D
 	.global ARM9AutoLoadHook
 ARM9AutoLoadHook:
 	.extern _start_AutoloadDoneCallback
