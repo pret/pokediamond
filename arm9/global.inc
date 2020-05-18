@@ -6214,3 +6214,4 @@
 .extern FUN_0201C40C
 .extern FUN_0201C438
 .extern FUN_0201C7B0
+.extern FUN_02021F4C
