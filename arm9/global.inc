@@ -3679,8 +3679,13 @@
 .extern RTC_ConvertSecondToDateTime
 .extern RTC_GetDate
 .extern RTC_GetDateTimeAsync
+.extern RTC_GetDayOfWeek
 .extern RTC_GetTime
 .extern RTC_Init
+.extern RTCi_ReadRawDateAsync
+.extern RTCi_ReadRawDateTimeAsync
+.extern RTCi_ReadRawTimeAsync
+.extern RTCi_WriteRawStatus2Async
 .extern RunScriptCommand
 .extern SDK_AUTOLOAD_DTCM_END
 .extern SDK_AUTOLOAD_DTCM_START
