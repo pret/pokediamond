@@ -5081,15 +5081,7 @@ sTexPlttStartAddrTable: ; 0x02103B3C
 
 	.global sTexStartAddrTable
 sTexStartAddrTable: ; 0x02103B4C
-	.incbin "baserom.nds", 0x107b4c, 0x2
-
-	.global sTexStartAddrTable
-sTexStartAddrTable: ; 0x02103B4E
-	.incbin "baserom.nds", 0x107b4e, 0x2
-
-	.global sTexStartAddrTable
-sTexStartAddrTable: ; 0x02103B50
-	.incbin "baserom.nds", 0x107b50, 0x5c
+	.incbin "baserom.nds", 0x107b4c, 0x60
 
 	.global UNK_02103BAC
 UNK_02103BAC: ; 0x02103BAC

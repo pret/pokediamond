@@ -9,14 +9,18 @@ extern u32 sTexLCDCBlk1;
 extern u32 sTexLCDCBlk2;
 extern u32 sSzTexBlk1;
 
-//probably structs of length 0x6
-extern u16 sTexStartAddrTable[];
-extern u16 sTexStartAddrTable[];
-extern u16 sTexStartAddrTable[];
+static const struct _TexStartAddrTable
+{
+    u16     blk1;                      // 12 bit shift
+    u16     blk2;                      // 12 bit shift
+    u16     szBlk1;                    // 12 bit shift
+};
+extern struct _TexStartAddrTable sTexStartAddrTable[16];
+
 
 extern u32 sTexPltt;
 extern u32 sTexPlttLCDCBlk;
-extern u16 sTexPlttStartAddrTable[];
+extern u16 sTexPlttStartAddrTable[8];
 
 extern s32 sClrImg;
 extern u32 sClrImgLCDCBlk;
@@ -24,9 +28,9 @@ extern u32 sClrImgLCDCBlk;
 ARM_FUNC void GX_BeginLoadTex(){
     u32 temp = GX_ResetBankForTex();
     sTex = temp;
-    sTexLCDCBlk1 = sTexStartAddrTable[temp * 3] << 0xC;
-    sTexLCDCBlk2 = sTexStartAddrTable[temp * 3] << 0xC;
-    sSzTexBlk1 = sTexStartAddrTable[temp * 3] << 0xC;
+    sTexLCDCBlk1 = sTexStartAddrTable[temp].blk1 << 0xC;
+    sTexLCDCBlk2 = sTexStartAddrTable[temp].blk2 << 0xC;
+    sSzTexBlk1 = sTexStartAddrTable[temp].szBlk1 << 0xC;
 }
 
 ARM_FUNC void GX_LoadTex(void *src, u32 offset, u32 size){
