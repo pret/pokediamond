@@ -31,7 +31,7 @@ MOD73_021D74F0: ; 0x021D74F0
 	ldr r2, _021D757C ; =0x000015E8
 	add r5, r0, #0
 	mov r1, #0
-	bl Call_FillMemWithValue
+	bl memset
 	str r5, [r4, #0x18]
 	mov r1, #0x38
 	str r1, [r5]
@@ -3073,7 +3073,7 @@ _021D8E12:
 	mov r1, #4
 	add r0, r7, r0
 	add r2, r1, #0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, _021D8E7C ; =0x00001428
 	ldr r0, [r7, r0]
 	cmp r0, #1
@@ -3513,7 +3513,7 @@ MOD73_021D9120: ; 0x021D9120
 	mov r1, #0
 	lsl r2, r2, #4
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r1, #0x1a
 	lsl r1, r1, #4
 	str r5, [r4, r1]
@@ -3569,7 +3569,7 @@ _021D9174:
 	add r0, r6, #0
 	mov r1, #0
 	mov r2, #0x34
-	bl Call_FillMemWithValue
+	bl memset
 _021D91AA:
 	ldr r0, [sp]
 	add r6, #0x34
@@ -4260,7 +4260,7 @@ MOD73_021D96B0: ; 0x021D96B0
 	mov r1, #0
 	lsl r2, r2, #4
 	add r5, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x42
 	lsl r0, r0, #2
 	str r4, [r5, r0]
@@ -4280,7 +4280,7 @@ _021D96D6:
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #4
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	thumb_func_end MOD73_021D96C8
 
@@ -4716,7 +4716,7 @@ MOD73_021D9A28: ; 0x021D9A28
 	mov r1, #0
 	mov r2, #0x34
 	add r7, r3, #0
-	bl Call_FillMemWithValue
+	bl memset
 	str r6, [r5, #0x18]
 	ldr r0, [sp, #0x1c]
 	str r4, [r5, #0x14]
@@ -4740,7 +4740,7 @@ _021D9A5A:
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x34
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD73_021D9A4C
@@ -5294,12 +5294,12 @@ _021D9E7C:
 
 	thumb_func_start MOD73_021D9E80
 MOD73_021D9E80: ; 0x021D9E80
-	ldr r3, _021D9E88 ; =Call_FillMemWithValue
+	ldr r3, _021D9E88 ; =memset
 	mov r1, #0
 	mov r2, #0x78
 	bx r3
 	.align 2, 0
-_021D9E88: .word Call_FillMemWithValue
+_021D9E88: .word memset
 	thumb_func_end MOD73_021D9E80
 
 	thumb_func_start MOD73_021D9E8C
@@ -5314,7 +5314,7 @@ _021D9E9A:
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x78
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD73_021D9E8C
@@ -5634,7 +5634,7 @@ MOD73_021DA0E0: ; 0x021DA0E0
 	mov r2, #0x20
 	add r5, r0, #0
 	add r7, r3, #0
-	bl Call_FillMemWithValue
+	bl memset
 	str r4, [r5, #0x14]
 	str r6, [r5, #0x18]
 	str r7, [r5, #0x1c]
@@ -5654,7 +5654,7 @@ _021DA10A:
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x20
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD73_021DA0FC
@@ -5807,7 +5807,7 @@ MOD73_021DA210: ; 0x021DA210
 	mov r1, #0
 	mov r2, #0x34
 	add r7, r3, #0
-	bl Call_FillMemWithValue
+	bl memset
 	str r6, [r5, #0x1c]
 	ldr r0, [sp, #0x1c]
 	str r4, [r5, #0x20]
@@ -5833,7 +5833,7 @@ _021DA242:
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x34
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	thumb_func_end MOD73_021DA234
 
@@ -6581,12 +6581,12 @@ _021DA818: .word 0x0001020F
 
 	thumb_func_start MOD73_021DA81C
 MOD73_021DA81C: ; 0x021DA81C
-	ldr r3, _021DA824 ; =Call_FillMemWithValue
+	ldr r3, _021DA824 ; =memset
 	mov r1, #0
 	ldr r2, _021DA828 ; =0x00000414
 	bx r3
 	.align 2, 0
-_021DA824: .word Call_FillMemWithValue
+_021DA824: .word memset
 _021DA828: .word 0x00000414
 	thumb_func_end MOD73_021DA81C
 
@@ -6602,7 +6602,7 @@ _021DA83A:
 	ldr r2, _021DA848 ; =0x00000414
 	add r0, r4, #0
 	mov r1, #0
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	nop
 _021DA848: .word 0x00000414
@@ -6714,17 +6714,17 @@ _021DA900:
 	ldr r0, [sp, #0x60]
 	bl MOD73_021DAB30
 _021DA906:
-	bl FUN_0201BA60
+	bl rand_MT
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
-	bl FUN_0201BA60
+	bl rand_MT
 	add r1, sp, #0x9c
 	ldrb r1, [r1, #0x11]
 	bl _u32_div_f
 	add r0, sp, #0x9c
 	ldrb r0, [r0, #0x10]
 	add r4, r0, r1
-	bl FUN_0201BA60
+	bl rand_MT
 	add r1, sp, #0x9c
 	ldrb r1, [r1, #0x13]
 	bl _u32_div_f
@@ -6752,7 +6752,7 @@ _021DA906:
 	str r3, [sp, #0x68]
 	ldrsh r4, [r1, r2]
 	str r0, [sp, #0x78]
-	bl FUN_0201BA60
+	bl rand_MT
 	ldr r1, [sp, #0xa0]
 	bl _u32_div_f
 	ldr r0, [sp, #0x9c]
@@ -7008,7 +7008,7 @@ _021DAB3E:
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x80
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	thumb_func_end MOD73_021DAB30
 
@@ -7292,12 +7292,12 @@ _021DAD72:
 
 	thumb_func_start MOD73_021DAD78
 MOD73_021DAD78: ; 0x021DAD78
-	ldr r3, _021DAD80 ; =Call_FillMemWithValue
+	ldr r3, _021DAD80 ; =memset
 	mov r1, #0
 	mov r2, #0x80
 	bx r3
 	.align 2, 0
-_021DAD80: .word Call_FillMemWithValue
+_021DAD80: .word memset
 	thumb_func_end MOD73_021DAD78
 
 	thumb_func_start MOD73_021DAD84
@@ -7312,7 +7312,7 @@ _021DAD92:
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x80
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD73_021DAD84
@@ -7595,7 +7595,7 @@ MOD73_021DAF70: ; 0x021DAF70
 	add r4, r1, #0
 	mov r1, #0
 	add r5, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	str r4, [r5, #4]
 	pop {r3, r4, r5, pc}
 	nop
@@ -7614,7 +7614,7 @@ _021DAF96:
 	ldr r2, _021DAFA4 ; =0x0000090C
 	add r0, r4, #0
 	mov r1, #0
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	nop
 _021DAFA4: .word 0x0000090C
@@ -8639,7 +8639,7 @@ MOD73_021DB698: ; 0x021DB698
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bge _021DB70A
-	bl FUN_0201BA60
+	bl rand_MT
 	mov r1, #5
 	add r6, r0, #0
 	bl _u32_div_f
@@ -8905,7 +8905,7 @@ MOD73_021DB884: ; 0x021DB884
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x68
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r4, #0
 	add r0, #0xc
 	bl MOD73_021DB680

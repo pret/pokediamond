@@ -70,7 +70,7 @@ _02005D70:
 	bl FUN_02005DFC
 	mov r0, #0xe
 	bl FUN_02004984
-	bl FUN_0201B9EC
+	bl rand_LC
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x13
 	sub r1, r1, r2

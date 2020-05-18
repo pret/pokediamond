@@ -17010,7 +17010,7 @@ _0222CC8C:
 	add r0, sp, #0
 	mov r2, r4
 	mov r1, #0x2a
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, sp, #0
 	mov r1, r5
 	bl MOD13_0222C788

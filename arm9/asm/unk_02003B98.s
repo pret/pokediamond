@@ -634,7 +634,7 @@ FUN_02004064: ; 0x02004064
 	ldr r2, _02004080 ; =0x000BCD60
 	mov r1, #0x0
 	add r4, r0, #0x0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, _02004084 ; =0x000BCD1C
 	mov r1, #0x0
 _02004074:

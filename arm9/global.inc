@@ -28,7 +28,7 @@
 .extern CTRDG_ReadAgbFlash
 .extern CTRDG_TerminateForPulledOut
 .extern CTRDG_WriteAndVerifyAgbFlashAsync
-.extern Call_FillMemWithValue
+.extern memset
 .extern ConvertUIntToDecimalString
 .extern DC_FlushAll
 .extern DC_FlushRange
@@ -873,12 +873,12 @@
 .extern FUN_0201B988
 .extern FUN_0201B9A0
 .extern FUN_0201B9B8
-.extern FUN_0201B9D4
-.extern FUN_0201B9E0
-.extern FUN_0201B9EC
-.extern FUN_0201BA10
-.extern FUN_0201BA1C
-.extern FUN_0201BA60
+.extern getseed_LC
+.extern seedr_LC
+.extern rand_LC
+.extern rand_ALT
+.extern seedr_MT
+.extern rand_MT
 .extern FUN_0201BBD0
 .extern FUN_0201BC84
 .extern FUN_0201BCBC
@@ -6199,3 +6199,4 @@
 .extern FUN_020110BC
 .extern FUN_0201DED0
 .extern FUN_02012710
+.extern FUN_02013764

@@ -149,8 +149,8 @@ THUMB_FUNC void FUN_02000F4C(int arg0, int arg1)
 }
 
 extern void FUN_0201265C(struct Unk21C4818 *, struct Unk21C4828 *);
-extern void FUN_0201BA1C(int);
-extern void FUN_0201B9E0(int);
+extern void seedr_MT(int);
+extern void seedr_LC(int);
 
 void FUN_02000FA4(void)
 {
@@ -160,8 +160,8 @@ void FUN_02000FA4(void)
     {
         int r4 = gUnknown21C48B8.unk2C;
         int r5 = ((sp0.unk4 + sp0.unk8) << 24) + (spC.unk0 + ((256 * spC.unk4 * spC.unk8) << 16) + (sp0.unk0 << 16));
-        FUN_0201BA1C(r4 + r5);
-        FUN_0201B9E0(r4 + r5);
+        seedr_MT(r4 + r5);
+        seedr_LC(r4 + r5);
     }
 }
 

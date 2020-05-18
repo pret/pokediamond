@@ -1939,7 +1939,7 @@ FUN_0200F6FC: ; 0x0200F6FC
 	lsl r2, r2, #0x2
 	add r5, r0, #0x0
 	add r7, r3, #0x0
-	bl Call_FillMemWithValue
+	bl memset
 	cmp r4, #0x1
 	bne _0200F726
 	mov r0, #0x6
@@ -4248,7 +4248,7 @@ FUN_02010894: ; 0x02010894
 	lsl r2, r2, #0x8
 	add r0, r0, r2
 	mov r1, #0x0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [r6, #0x10]
 	sub r4, r0, #0x1
 	bmi _020108C6
@@ -4350,7 +4350,7 @@ FUN_02010948: ; 0x02010948
 	str r0, [r5, #0x14]
 	mov r1, #0x0
 	mov r2, #0x38
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0x0
 	str r0, [sp, #0x0]
@@ -4763,7 +4763,7 @@ FUN_02010C7C: ; 0x02010C7C
 	str r0, [r5, #0x14]
 	mov r1, #0x0
 	mov r2, #0x38
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0x0
 	str r0, [sp, #0x0]
@@ -5108,7 +5108,7 @@ FUN_02010F2C: ; 0x02010F2C
 	str r0, [r5, #0x14]
 	mov r1, #0x0
 	lsl r2, r2, #0x2
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [r5, #0x10]
 	add r1, r4, #0x0
 	str r0, [sp, #0x0]
@@ -5200,23 +5200,23 @@ FUN_02010FD0: ; 0x02010FD0
 	add r0, r5, #0x0
 	mov r1, #0x1
 	mov r2, #0xc0
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #0x0
 	add r0, #0xc0
 	mov r1, #0x1
 	mov r2, #0xc0
-	bl Call_FillMemWithValue
+	bl memset
 	b _02011020
 _0201100A:
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0xc0
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #0x0
 	add r0, #0xc0
 	mov r1, #0x0
 	mov r2, #0xc0
-	bl Call_FillMemWithValue
+	bl memset
 _02011020:
 	mov r1, #0xc3
 	lsl r1, r1, #0x2
@@ -5447,7 +5447,7 @@ FUN_020111AC: ; 0x020111AC
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	str r0, [r5, #0x14]
-	bl Call_FillMemWithValue
+	bl memset
 	add r1, r4, #0x0
 	add r1, #0x23
 	ldrb r1, [r1, #0x0]

@@ -51,7 +51,7 @@ _021D9A36:
 	ldr r2, _021D9B74 ; =0x00005CB0
 	mov r1, #0
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x27
 	bl FUN_02016B94
 	str r0, [r4]

@@ -857,12 +857,12 @@ _0200E812:
 	add r0, #0x14
 	mov r1, #0x0
 	mov r2, #0x30
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r4, #0x0
 	add r0, #0x44
 	mov r1, #0x0
 	mov r2, #0x30
-	bl Call_FillMemWithValue
+	bl memset
 	add r2, r4, #0x0
 	add r2, #0x74
 	mov r1, #0x18
@@ -876,5 +876,5 @@ _0200E83A:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0xc0
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}

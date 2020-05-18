@@ -21,7 +21,7 @@ MOD76_021D74E0: ; 0x021D74E0
 	mov r1, #0
 	lsl r2, r2, #2
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #0
 	bl FUN_0200628C
 	str r0, [r4]

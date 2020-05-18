@@ -19,7 +19,7 @@ MOD59_021D74E0: ; 0x021D74E0
 	mov r1, #0
 	mov r2, #0xb4
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x52
 	str r0, [r4]
 	add r0, r5, #0
@@ -4427,7 +4427,7 @@ MOD59_021D9868: ; 0x021D9868
 	mov r1, #0
 	mov r2, #0x28
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x53
 	str r0, [r4]
 	mov r0, #0

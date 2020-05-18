@@ -26,7 +26,7 @@ FUN_02008DEC: ; 0x02008DEC
 	mov r1, #0x0
 	add r2, r7, #0x0
 	str r0, [r4, #0x4]
-	bl Call_FillMemWithValue
+	bl memset
 	str r5, [r4, #0x8]
 	mov r0, #0x0
 	str r0, [r4, #0xc]

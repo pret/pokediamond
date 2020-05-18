@@ -8810,7 +8810,7 @@ FUN_0203DFA8: ; 0x0203DFA8
 	ldr r0, [r5, #0x0]
 	bl FUN_020394F0
 	add r5, r0, #0x0
-	bl FUN_0201B9EC
+	bl rand_LC
 	add r1, r5, #0x0
 	bl _s32_div_f
 	strh r1, [r4, #0x0]
@@ -8835,7 +8835,7 @@ FUN_0203DFE0: ; 0x0203DFE0
 	ldr r0, [r5, #0x0]
 	bl FUN_020394F0
 	add r5, r0, #0x0
-	bl FUN_0201B9EC
+	bl rand_LC
 	add r1, r5, #0x0
 	bl _s32_div_f
 	strh r1, [r4, #0x0]
@@ -9763,7 +9763,7 @@ FUN_0203E774: ; 0x0203E774
 	add r0, r7, #0x0
 	bl FUN_020244A4
 	add r4, r0, #0x0
-	bl FUN_0201B9EC
+	bl rand_LC
 	add r1, r4, #0x0
 	bl _s32_div_f
 	lsl r0, r1, #0x10
@@ -11057,7 +11057,7 @@ _0203F1E0:
 	mov r0, #0x0
 	pop {r4-r7, pc}
 _0203F1F8:
-	bl FUN_0201B9EC
+	bl rand_LC
 	add r1, r6, #0x0
 	bl _s32_div_f
 	mov r4, #0x0
@@ -11483,7 +11483,7 @@ _0203F54C:
 	lsl r7, r7, #0x2
 	b _0203F582
 _0203F556:
-	bl FUN_0201B9EC
+	bl rand_LC
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, #0x19
@@ -11491,7 +11491,7 @@ _0203F556:
 	ldr r7, _0203F5CC ; =0x0000010D
 	b _0203F582
 _0203F568:
-	bl FUN_0201B9EC
+	bl rand_LC
 	mov r1, #0x6
 	bl _s32_div_f
 	lsl r0, r1, #0x10
@@ -11898,7 +11898,7 @@ FUN_0203F880: ; 0x0203F880
 	bls _0203F8A2
 	mov r4, #0x64
 _0203F8A2:
-	bl FUN_0201B9EC
+	bl rand_LC
 	mov r1, #0x65
 	bl _s32_div_f
 	lsl r0, r1, #0x10
@@ -16502,7 +16502,7 @@ _02041DCE:
 	mov r1, #0x0
 	mov r2, #0x2
 	bl FUN_02028810
-	bl FUN_0201BA60
+	bl rand_MT
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
@@ -18699,7 +18699,7 @@ FUN_02042F6C: ; 0x02042F6C
 	bl FUN_020671BC
 	add r6, r0, #0x0
 	bl OS_GetTick
-	bl FUN_0201BA10
+	bl rand_ALT
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x14]
 	str r1, [sp, #0x34]
@@ -18713,7 +18713,7 @@ FUN_02042F6C: ; 0x02042F6C
 	beq _02042FE8
 _02042FD0:
 	ldr r0, [sp, #0x34]
-	bl FUN_0201BA10
+	bl rand_ALT
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	str r1, [sp, #0x34]
@@ -18774,7 +18774,7 @@ _02042FE8:
 	add r0, r0, r1
 	str r0, [sp, #0x30]
 	bne _020430DA
-	bl FUN_0201B9EC
+	bl rand_LC
 	add r6, r0, #0x0
 	mov r0, #0x1f
 	and r0, r6
@@ -18801,7 +18801,7 @@ _02042FE8:
 	mov r1, #0x48
 	add r2, sp, #0x34
 	bl FUN_02067830
-	bl FUN_0201B9EC
+	bl rand_LC
 	add r6, r0, #0x0
 	mov r0, #0x1f
 	and r0, r6
@@ -20912,7 +20912,7 @@ FUN_02044198: ; 0x02044198
 	ldr r0, [r5, #0x0]
 	bl FUN_020394F0
 	add r5, r0, #0x0
-	bl FUN_0201B9EC
+	bl rand_LC
 	mov r1, #0x64
 	bl _s32_div_f
 	lsl r0, r1, #0x10

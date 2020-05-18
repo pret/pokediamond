@@ -20,7 +20,7 @@ MOD61_021D74E0: ; 0x021D74E0
 	mov r1, #0
 	mov r2, #0xbc
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x29
 	str r0, [r4]
 	add r0, r5, #0

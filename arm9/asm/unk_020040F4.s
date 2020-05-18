@@ -1394,7 +1394,7 @@ _02004B80:
 _02004B9C:
 	mov r1, #0x0
 	add r2, r6, #0x0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [r7, #0x0]
 	ldr r1, [r4, #0x0]
 	lsl r0, r0, #0x8

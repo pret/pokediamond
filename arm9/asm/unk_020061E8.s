@@ -19,7 +19,7 @@ FUN_020061E8: ; 0x020061E8
 _02006202:
 	mov r1, #0x0
 	add r2, r5, #0x0
-	bl Call_FillMemWithValue
+	bl memset
 	b _0200620E
 _0200620C:
 	mov r4, #0x0

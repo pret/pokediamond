@@ -40,7 +40,7 @@ MOD75_021E6BA0: ; 0x021E6BA0
 	ldr r2, _021E6D60 ; =0x000004A4
 	mov r1, #0
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #0
 	bl FUN_0200628C
 	add r1, r4, #0

@@ -57,7 +57,7 @@ _020117A4:
 	str r1, [r0, #0x64]
 	ldr r0, [r0, #0x60]
 	mov r1, #0x0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [sp, #0x8]
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -2591,7 +2591,7 @@ FUN_02012A00: ; 0x02012A00
 	ldr r2, _02012A2C ; =0x0000079C
 	mov r1, #0x0
 	add r4, r0, #0x0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r2, #0x3
 	lsl r2, r2, #0x8
 	add r0, r5, #0x0
@@ -2697,7 +2697,7 @@ _02012ACE:
 	mov r2, #0x3
 	ldr r1, [r4, r1]
 	lsl r2, r2, #0x8
-	bl Call_FillMemWithValue
+	bl memset
 _02012AF4:
 	pop {r4, pc}
 	nop
