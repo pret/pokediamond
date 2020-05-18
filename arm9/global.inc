@@ -1,7 +1,9 @@
 .extern CARD_CancelBackupAsync
+.extern CARD_CheckEnabled
 .extern CARD_GetResultCode
 .extern CARD_IdentifyBackup
 .extern CARD_Init
+.extern CARD_InitPulledOutCallback
 .extern CARD_IsPulledOut
 .extern CARD_LockBackup
 .extern CARD_LockRom
@@ -9,8 +11,16 @@
 .extern CARD_UnlockBackup
 .extern CARD_UnlockRom
 .extern CARD_WaitBackupAsync
+.extern CARDi_CheckPulledOutCore
+.extern CARDi_IdentifyBackupCore
+.extern CARDi_InitCommon
+.extern CARDi_OnFifoRecv
 .extern CARDi_ReadRom
+.extern CARDi_Request
 .extern CARDi_RequestStreamCommand
+.extern CARDi_SetTask
+.extern CARDi_TaskThread
+.extern CARDi_WaitAsync
 .extern CP_RestoreContext
 .extern CP_SaveContext
 .extern CTRDG_Init
@@ -2651,6 +2661,7 @@
 .extern FUN_020C1F54
 .extern FUN_020C1FA4
 .extern FUN_020C1FF0
+.extern FUN_020D6714
 .extern FUN_02013EA8
 .extern FUN_02013EC4
 .extern FUN_0200A06C
