@@ -50,17 +50,16 @@ ARM_FUNC void GX_LoadTex(void *src, u32 offset, u32 size){
             void *temp2 = (void *)UNK_021D3414;
             u32 temp1 = UNK_021D3418 - offset;
             temp = (void *)(UNK_021D3400 + offset);
-            _GX_Load_32(UNK_02106814, src, temp, temp1);
-            _GX_Load_32_Async(UNK_02106814, (void *)((u8 *)src + temp1), temp2, (size - temp1), NULL, NULL);
+            GXi_DmaCopy32(UNK_02106814, src, temp, temp1);
+            GXi_DmaCopy32Async(UNK_02106814, (void *)((u8 *)src + temp1), temp2, (size - temp1), NULL, NULL);
             return;
         }
     }
-    _GX_Load_32_Async(UNK_02106814, src, temp, size, NULL, NULL);
+    GXi_DmaCopy32Async(UNK_02106814, src, temp, size, NULL, NULL);
 }
 
 ARM_FUNC void GX_EndLoadTex(){
-    if (UNK_02106814 != -1)
-        MI_WaitDma(UNK_02106814);
+    GXi_WaitDma(UNK_02106814);
     GX_SetBankForTex(UNK_021D3410);
     UNK_021D3418 = 0x0;
     UNK_021D3414 = 0x0;
@@ -75,12 +74,11 @@ ARM_FUNC void GX_BeginLoadTexPltt(){
 }
 
 ARM_FUNC void GX_LoadTexPltt(void *src, u32 offset, u32 size){
-    _GX_Load_32_Async(UNK_02106814, src, (void *)(UNK_021D3404 + offset), size, NULL, NULL);
+    GXi_DmaCopy32Async(UNK_02106814, src, (void *)(UNK_021D3404 + offset), size, NULL, NULL);
 }
 
 ARM_FUNC void GX_EndLoadTexPltt(){
-    if (UNK_02106814 != -1)
-        MI_WaitDma(UNK_02106814);
+    GXi_WaitDma(UNK_02106814);
     GX_SetBankForTexPltt(UNK_021D3408);
     UNK_021D3408 = 0x0;
     UNK_021D3404 = 0x0;
@@ -108,16 +106,15 @@ ARM_FUNC void GX_BeginLoadClearImage(){
 }
 
 ARM_FUNC void GX_LoadClearImageColor(void *src, u32 size){
-    _GX_Load_32_Async(UNK_02106814, src, (void *)(UNK_021D340C), size, NULL, NULL);
+    GXi_DmaCopy32Async(UNK_02106814, src, (void *)(UNK_021D340C), size, NULL, NULL);
 }
 
 ARM_FUNC void GX_LoadClearImageDepth(void *src, u32 size){
-    _GX_Load_32_Async(UNK_02106814, src, (void *)(UNK_021D340C + 0x20000), size, NULL, NULL);
+    GXi_DmaCopy32Async(UNK_02106814, src, (void *)(UNK_021D340C + 0x20000), size, NULL, NULL);
 }
 
 ARM_FUNC void GX_EndLoadClearImage(){
-    if (UNK_02106814 != -1)
-        MI_WaitDma(UNK_02106814);
+    GXi_WaitDma(UNK_02106814);
     GX_SetBankForClearImage(UNK_021D33FC);
     UNK_021D33FC = 0x0;
     UNK_021D340C = 0x0;
