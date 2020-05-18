@@ -20,14 +20,6 @@ void MIi_CpuCopy32(const void *src, void *dst, u32 size);
 void OSi_UnlockVram(u16, u16);
 void MIi_CpuClear32(u32, void *, u32);
 
-//DONE: Add defines for GX commands, add structs/unions for HW registers
-//DONE: structs
-//DONE: useful macros
-//DONE: inline functions used in sdk
-//DONE: enums
-//DONE: maybe some function signatures
-//TODO: proper global names
-
 #include "GXcommon.h"
 #include "GX_struct_2d.h"
 #include "GX_g3.h"

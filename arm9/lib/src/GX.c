@@ -1,6 +1,6 @@
 #include "global.h"
 #include "main.h"
-#include "gx.h"
+#include "GX.h"
 
 extern u16 GXi_VRamLockId;
 extern u16 sDispMode;

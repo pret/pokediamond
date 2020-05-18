@@ -1,6 +1,6 @@
 #include "global.h"
 #include "main.h"
-#include "gx.h"
+#include "GX.h"
 
 ARM_FUNC void G3_LoadMtx43(struct Mtx43 *mtx){
     reg_G3X_GXFIFO = 0x17;

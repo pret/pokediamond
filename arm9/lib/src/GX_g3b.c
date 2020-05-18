@@ -1,6 +1,6 @@
 #include "global.h"
 #include "main.h"
-#include "gx.h"
+#include "GX.h"
 
 
 ARM_FUNC void G3BS_LoadMtx44(struct GXDLInfo *displaylist, struct Mtx44 *mtx){

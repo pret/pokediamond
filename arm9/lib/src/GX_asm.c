@@ -1,6 +1,6 @@
 #include "global.h"
 #include "main.h"
-#include "gx.h"
+#include "GX.h"
 
 //looks like asm and says asm on the tin...
 ARM_FUNC asm void GX_SendFifo48B(void *src, void *dst){
