@@ -8,13 +8,11 @@
 #include "types.h"
 #include "OS_thread.h"
 
-#pragma warn_padding off //apparently needed?
 struct OSMutex {
     OSThreadQueue queue;
     OSThread *thread;
     s32 count;
     OSMutexLink link;
 };
-#pragma warn_padding reset
 
 #endif //POKEDIAMOND_OS_MUTEX_H
