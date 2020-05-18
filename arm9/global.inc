@@ -6205,3 +6205,4 @@
 .extern FUN_02022450
 .extern FUN_020161F8
 .extern FUN_0201BB74
+.extern FUN_0201C100
