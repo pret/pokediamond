@@ -17,7 +17,6 @@ extern void FUN_02006260(int);
 extern BOOL FUN_02033678(void);
 extern int FUN_020335B8(void);
 extern BOOL FUN_0202FB80(void);
-extern void ErrorHandling(void);
 extern void FUN_02000FE8(void);
 extern void FUN_02016464(void);
 
@@ -152,7 +151,7 @@ extern void FUN_0201265C(struct Unk21C4818 *, struct Unk21C4828 *);
 extern void seedr_MT(int);
 extern void seedr_LC(int);
 
-void FUN_02000FA4(void)
+void InitializeMainRNG(void)
 {
     struct Unk21C4818 spC;
     struct Unk21C4828 sp0;

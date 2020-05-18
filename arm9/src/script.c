@@ -47,8 +47,6 @@ THUMB_FUNC void FUN_02038B6C(struct ScriptContext *ctx, int r1)
     ctx->unk74 = r1;
 }
 
-extern void ErrorHandling(void);
-
 THUMB_FUNC u8 RunScriptCommand(struct ScriptContext *ctx)
 {
     if (ctx->mode == 0)

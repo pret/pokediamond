@@ -11,7 +11,7 @@ MOD52_021D74E0: ; 0x021D74E0
 	mov r1, #0x4d
 	lsl r2, r2, #0x10
 	bl FUN_0201681C
-	bl FUN_02000FA4
+	bl InitializeMainRNG
 	mov r0, #1
 	pop {r3, pc}
 	.align 2, 0
@@ -52,7 +52,7 @@ MOD52_021D7528: ; 0x021D7528
 	mov r1, #0x4d
 	lsl r2, r2, #0x10
 	bl FUN_0201681C
-	bl FUN_02000FA4
+	bl InitializeMainRNG
 	mov r0, #1
 	pop {r3, pc}
 	.align 2, 0
@@ -97,7 +97,7 @@ MOD52_021D757C: ; 0x021D757C
 	mov r1, #0x4d
 	lsl r2, r2, #0x10
 	bl FUN_0201681C
-	bl FUN_02000FA4
+	bl InitializeMainRNG
 	mov r0, #1
 	pop {r3, pc}
 	.align 2, 0

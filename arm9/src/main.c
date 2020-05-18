@@ -1,9 +1,6 @@
 #include "global.h"
 #include "main.h"
 #include "PAD_pad.h"
-#include "CARD_pullOut.h"
-#include "CARD_backup.h"
-#include "CTRDG_common.h"
 #include "poke_overlay.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
@@ -23,18 +20,17 @@ extern void FUN_0201259C(void);
 extern void FUN_02000DF4(void);
 extern void FUN_02002C14(void);
 extern void FUN_02002C50(int, int);
-extern int FUN_0202254C(void);
+extern struct UnkStruct_021C59C8 * FUN_0202254C(void);
 extern void FUN_02003B98(int, int);
-extern int FUN_02029EF8(int);
-extern int LoadPlayerDataAddress(int);
+extern int FUN_02029EF8(struct UnkStruct_021C59C8 *);
+extern int LoadPlayerDataAddress(struct UnkStruct_021C59C8 *);
 extern void FUN_02020AFC(void);
 extern int FUN_020337E8(int);
 extern void FUN_02034188(int, int);
-extern int FUN_020227FC(int);
+extern int FUN_020227FC(struct UnkStruct_021C59C8 *);
 extern void FUN_02089D90(int);
 extern void FUN_02000E7C(FSOverlayID, struct Unk21DBE18 *);
-extern void ErrorHandling(void);
-extern void FUN_02000FA4(void);
+extern void InitializeMainRNG(void);
 extern void FUN_0200A2AC(void);
 extern void FUN_02015E30(void);
 extern void FUN_02000EE8(void);
@@ -100,7 +96,7 @@ THUMB_FUNC void NitroMain(void)
     }
     gUnknown21C48B8.unk6C = 1;
     gUnknown21C48B8.unk30 = 0;
-    FUN_02000FA4();
+    InitializeMainRNG();
     FUN_0200A2AC();
     FUN_02015E30();
     gBacklightTop.unk4 = 0;

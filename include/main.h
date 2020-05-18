@@ -3,6 +3,7 @@
 
 #include "FS_overlay.h"
 #include "SPI_pm.h"
+#include "structs.h"
 
 struct Unk21DBE18
 {
@@ -19,7 +20,7 @@ struct Unk2106FA0
     struct Unk21DBE18 * unk14;
     s32 unk18;
     s32 unk1C;
-    s32 unk20;
+    struct UnkStruct_021C59C8 * unk20;
 };
 
 struct Unk21C4818

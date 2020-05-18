@@ -91,7 +91,7 @@
 .extern FUN_02000E7C
 .extern FUN_02000EE8
 .extern FUN_02000F18
-.extern FUN_02000FA4
+.extern InitializeMainRNG
 .extern FUN_02000FE8
 .extern FUN_020010A8
 .extern FUN_02001204
@@ -6200,3 +6200,8 @@
 .extern FUN_0201DED0
 .extern FUN_02012710
 .extern FUN_02013764
+.extern FUN_020144FC
+.extern FUN_02029E54
+.extern FUN_02022450
+.extern FUN_020161F8
+.extern FUN_0201BB74
