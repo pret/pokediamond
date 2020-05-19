@@ -4826,7 +4826,7 @@ _02216228:
 	ldr r1, _02216904 ; =0x0223F7A0
 	ldr r0, _02216900 ; =MOD13_02216098
 	ldr r1, [r1]
-	bl FUN_020D9564
+	bl WMi_StartParentEx
 	mov r1, r0
 	mov r0, #8
 	bl MOD13_02214B08

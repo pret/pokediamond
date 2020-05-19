@@ -30397,7 +30397,7 @@ MOD13_02238130: ; 0x02238130
 	ldr r2, [r2]
 	ldr r0, _0223819C ; =MOD13_022380E8
 	add r2, r2, #0x13c0
-	bl WM_SetWEPKeyEx2
+	bl WM_SetWEPKey
 	cmp r0, #2
 	addeq sp, sp, #4
 	moveq r0, #1
