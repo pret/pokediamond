@@ -6225,3 +6225,10 @@
 .extern FUN_02023ACC
 .extern FUN_020250A4
 .extern FUN_02024F18
+.extern FUN_0203380C
+.extern FUN_02028404
+.extern FUN_02028608
+.extern FUN_0202877C
+.extern FUN_02028854
+.extern FUN_02028918
+.extern FUN_02029B90
