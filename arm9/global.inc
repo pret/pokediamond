@@ -6351,3 +6351,7 @@
 .extern FUN_02038690
 .extern FUN_02036FA4
 .extern FUN_02037000
+.extern FUN_02049160
+.extern FUN_0204AFC8
+.extern FUN_0204B00C
+.extern FUN_0203BC04
