@@ -6232,3 +6232,5 @@
 .extern FUN_02028854
 .extern FUN_02028918
 .extern FUN_02029B90
+.extern FUN_0202A1C4
+.extern FUN_0202ABBC
