@@ -6215,3 +6215,13 @@
 .extern FUN_0201C438
 .extern FUN_0201C7B0
 .extern FUN_02021F4C
+.extern FUN_020232BC
+.extern FUN_02023408
+.extern FUN_02022634
+.extern FUN_02024F50
+.extern FUN_02028910
+.extern FUN_02029E48
+.extern FUN_02023AC4
+.extern FUN_02023ACC
+.extern FUN_020250A4
+.extern FUN_02024F18
