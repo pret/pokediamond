@@ -247,7 +247,7 @@ SECTIONS {
 		MATH.o (.text)
 		MATH_dgt.o (.text)
 		MATH_crc.o (.text)
-		libstd.o (.text)
+		STD_string.o (.text)
 		/* C standard library */
 		libc.o (.text)
 		/* MWCC library */
