@@ -7170,7 +7170,7 @@ MOD13_0221AA64: ; 0x0221AA64
 	beq _0221AA82
 	mov r1, #0
 	add r2, r4, #0
-	bl Call_FillMemWithValue
+	bl memset
 _0221AA82:
 	add r0, r5, #0
 	add sp, #4
@@ -11705,7 +11705,7 @@ _0221CDE0:
 	add r0, r0, r1
 	add r1, r7, #0
 	mov r2, #0x20
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, _0221CE88 ; =0x02241E90
 	ldr r0, [r0, #0x5c]
 	cmp r0, #1
@@ -12253,7 +12253,7 @@ MOD13_0221D1E0: ; 0x0221D1E0
 	add r0, r5, #0
 	mov r1, #0
 	add r2, r6, #0
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #0
 	add r1, r7, #0
 	add r2, r4, #0

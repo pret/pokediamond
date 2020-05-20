@@ -452,7 +452,7 @@ _02212A98:
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x24
-	bl Call_FillMemWithValue
+	bl memset
 	ldmia sp!, {r4, pc}
 	.align 2, 0
 _02212AAC: .word 0x02216888
@@ -1475,7 +1475,7 @@ _0221384C:
 	mov r2, #0x184
 	ldr r4, [r0, r5, lsl #2]
 	mov r0, r4
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #1
 	str r0, [r4]
 	ldr r0, _022139C4 ; =0x02217134

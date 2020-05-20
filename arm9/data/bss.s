@@ -6,11 +6,7 @@
 UNK_02106FA0: ; 0x02106FA0
 gBacklightTop: ; 0x02106FA0
 gBacklightTop_2: ; 0x02106FA0
-	.space 0x18
-
-	.global UNK_02106FB8
-UNK_02106FB8: ; 0x02106FB8
-	.space 0xc
+	.space 0x24
 
 	.global UNK_02106FC4
 UNK_02106FC4: ; 0x02106FC4

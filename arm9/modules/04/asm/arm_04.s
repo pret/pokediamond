@@ -27478,7 +27478,7 @@ _021F0708:
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x210
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, pc}
 _021F072C:
@@ -28619,7 +28619,7 @@ MOD04_021F1668: ; 0x021F1668
 	ldmeqia sp!, {r4, r5, r6, pc}
 	mov r1, #0
 	mov r2, #0x490
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [sp]
 	mov r3, #0
 	strb r3, [r0]
@@ -31477,7 +31477,7 @@ _021F3F08:
 _021F3F50:
 	mov r1, #0
 	mov r2, #0x20
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r1, [r5, #0x1a0]
 	mov r0, #0
 	str r1, [r4, #4]
@@ -32038,7 +32038,7 @@ _021F4710:
 _021F4790:
 	mov r1, #0
 	mov r2, #0x308
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [sp, #0x3c]
 	ldr r1, [sp, #0x2c]
 	str r0, [r4, #0x304]
@@ -34817,7 +34817,7 @@ _021F6EE8:
 _021F6F10:
 	mov r1, #0
 	mov r2, #0x20
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r1, [r6, #0x1c]
 	ldr r0, _021F717C ; =0x00000201
 	str r1, [r4]
@@ -34886,7 +34886,7 @@ _021F6FEC:
 _021F7014:
 	mov r1, #0
 	mov r2, #0x204
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r1, [r6, #0x1c]
 	mov r0, #0
 	str r1, [r4]
@@ -35344,7 +35344,7 @@ MOD04_021F7674: ; 0x021F7674
 	ldmeqia sp!, {r4, r5, r6, r7, pc}
 	mov r1, #0
 	mov r2, #0x40
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x64
 	str r0, [r4]
 	str r6, [r4, #4]
@@ -37410,7 +37410,7 @@ _021F939C:
 	ldr r1, [sp, #0x40]
 	ldr r2, [sp, #0x44]
 	mov r0, r7
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, r6
 	bl atol
 	str r0, [r8, fp]
@@ -38001,7 +38001,7 @@ _021F9C5C:
 	ldr r1, [sp, #0x58]
 	ldr r2, [sp, #0x5c]
 	mov r0, r8
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, r5
 	str fp, [r8, #0x24]
 	bl atol
@@ -38420,7 +38420,7 @@ _021FA27C:
 	add r8, r7, fp
 	ldr r1, [sp, #0x70]
 	mov r0, r8
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [sp, #0x2c]
 	ldr r1, [r0, #4]
 	mov r0, r6
@@ -38951,7 +38951,7 @@ MOD04_021FA9F0: ; 0x021FA9F0
 _021FAA2C:
 	mov r1, #0
 	mov r2, #0x144
-	bl Call_FillMemWithValue
+	bl memset
 	str r7, [r4]
 	mvn r0, #0
 	str r0, [r4, #4]
@@ -44663,7 +44663,7 @@ MOD04_021FF790: ; 0x021FF790
 	beq _021FF930
 	mov r1, #0
 	mov r2, #0xa0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [sp]
 	str r5, [r0]
 	ldr r0, [sp]
@@ -44848,7 +44848,7 @@ MOD04_021FFA10: ; 0x021FFA10
 	ldmeqia sp!, {r4, r5, r6, r7, pc}
 	mov r1, #0
 	mov r2, #0x44
-	bl Call_FillMemWithValue
+	bl memset
 	mvn r0, #0
 	str r0, [r4]
 	str r6, [r4, #0x3c]

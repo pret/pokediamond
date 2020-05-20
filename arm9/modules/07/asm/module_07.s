@@ -16,7 +16,7 @@ MOD07_02211E60: ; 0x02211E60
 	ldr r2, _02211E8C ; =0x00000B84
 	mov r1, #0
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, _02211E90 ; =0x00000B7F
 	str r5, [r4]
 	mov r1, #0
@@ -733,7 +733,7 @@ _02212450:
 _02212454:
 	sub r0, r0, #6
 	ldrsb r4, [r5, r0]
-	bl FUN_0201B9EC
+	bl rand_LC
 	add r1, r4, #0
 	bl _s32_div_f
 	lsr r0, r4, #0x1f
@@ -744,7 +744,7 @@ _02212454:
 	asr r6, r0, #0x10
 	ldr r0, _02212580 ; =0x00000B7D
 	ldrsb r4, [r5, r0]
-	bl FUN_0201B9EC
+	bl rand_LC
 	add r1, r4, #0
 	bl _s32_div_f
 	lsr r0, r4, #0x1f
@@ -3504,7 +3504,7 @@ _02213AC2:
 	add r0, r6, r4
 	mov r1, #0
 	mov r2, #0x20
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -3795,7 +3795,7 @@ MOD07_02213D30: ; 0x02213D30
 	add r0, r4, r0
 	mov r1, #0
 	mov r2, #0x90
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r1, [r4]
 	add r0, r4, #0
 	ldr r1, [r1, #4]

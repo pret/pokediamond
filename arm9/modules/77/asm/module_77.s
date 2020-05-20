@@ -36,7 +36,7 @@ MOD77_021D74E0: ; 0x021D74E0
 	ldr r2, _021D75DC ; =0x0000C32C
 	mov r1, #0
 	add r5, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x32
 	str r0, [r5]
 	ldr r0, _021D75E0 ; =0x020ECAC4

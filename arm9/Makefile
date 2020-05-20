@@ -171,7 +171,7 @@ MWCCARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # only dependency should be MWCCARM.
 MWLDARM  = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = $(TOOLS_DIR)/mwccarm/$(MWCCVERSION)/mwasmarm.exe
-MAKELSF := $(WINE) $(TOOLS_DIR)/bin/makelcf.exe
+MAKELCF := $(WINE) $(TOOLS_DIR)/bin/makelcf.exe
 
 AS      = $(WINE) $(MWASMARM)
 CC      = $(WINE) $(MWCCARM)
@@ -267,7 +267,7 @@ $(S_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
 
 # $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
-	# $(MAKELSF) $(MAKELSF_FLAGS) $^ $@
+# 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<

@@ -52,7 +52,7 @@ MOD63_021D74E0: ; 0x021D74E0
 	mov r1, #0
 	lsl r2, r2, #2
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x1e
 	str r0, [r4]
 	mov r0, #0x1d
@@ -3066,7 +3066,7 @@ MOD63_021D8D10: ; 0x021D8D10
 	mov r1, #0
 	lsl r2, r2, #2
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x4c
 	str r0, [r4]
 	mov r1, #0
@@ -3077,10 +3077,10 @@ MOD63_021D8D10: ; 0x021D8D10
 	ldr r0, _021D8D94 ; =0x021C4918
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
-	bl FUN_0201B9D4
+	bl getseed_LC
 	str r0, [r4, #0x14]
 	mov r0, #0
-	bl FUN_0201B9E0
+	bl seedr_LC
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -3205,7 +3205,7 @@ MOD63_021D8E68: ; 0x021D8E68
 	add r4, r0, #0
 	bl FUN_0200E31C
 	ldr r0, [r4, #0x14]
-	bl FUN_0201B9E0
+	bl seedr_LC
 	add r0, r5, #0
 	bl FUN_0200627C
 	mov r0, #0x4c
@@ -4000,11 +4000,11 @@ MOD63_021D9498: ; 0x021D9498
 	ldr r0, [r5, #0x44]
 	mov r1, #0
 	add r2, r4, #0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [r5, #0x4c]
 	mov r1, #0
 	add r2, r6, #0
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #0
 	mov r1, #4
 	add r0, #0x3b
@@ -7201,7 +7201,7 @@ MOD63_021DAEF8: ; 0x021DAEF8
 	add r4, r0, #0
 	mov r1, #0
 	lsl r2, r2, #2
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r4, #0
 	bl MOD63_021DAFEC
 	add r0, r4, #0
@@ -7227,7 +7227,7 @@ MOD63_021DAF20: ; 0x021DAF20
 	mov r1, #0
 	add r2, r6, #0
 	str r0, [r4, #4]
-	bl Call_FillMemWithValue
+	bl memset
 	str r5, [r4]
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
@@ -7639,7 +7639,7 @@ _021DB248:
 	stmia r2!, {r0, r1}
 	ldr r0, [r3]
 	str r0, [r2]
-	bl FUN_0201B9EC
+	bl rand_LC
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x19
 	sub r2, r2, r1
@@ -7649,7 +7649,7 @@ _021DB248:
 	add r0, #0x40
 	lsl r0, r0, #0xc
 	str r0, [sp, #4]
-	bl FUN_0201B9EC
+	bl rand_LC
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x1a
 	sub r2, r2, r1
@@ -7823,13 +7823,13 @@ _021DB3A8:
 	stmia r2!, {r0, r1}
 	ldr r0, [r3]
 	str r0, [r2]
-	bl FUN_0201B9EC
+	bl rand_LC
 	mov r1, #0xe0
 	bl _s32_div_f
 	add r1, #0xa
 	lsl r0, r1, #0xc
 	str r0, [sp, #4]
-	bl FUN_0201B9EC
+	bl rand_LC
 	mov r1, #0x38
 	bl _s32_div_f
 	ldr r0, _021DB41C ; =0x0000013A

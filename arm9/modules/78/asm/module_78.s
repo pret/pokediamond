@@ -20,7 +20,7 @@ MOD78_021D74E0: ; 0x021D74E0
 	mov r1, #0
 	mov r2, #0xa0
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #0
 	bl FUN_0200628C
 	add r5, r0, #0

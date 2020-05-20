@@ -3,6 +3,7 @@
 
 #include "FS_overlay.h"
 #include "SPI_pm.h"
+#include "structs.h"
 
 struct Unk21DBE18
 {
@@ -19,7 +20,7 @@ struct Unk2106FA0
     struct Unk21DBE18 * unk14;
     s32 unk18;
     s32 unk1C;
-    s32 unk20;
+    struct UnkStruct_021C59C8 * unk20;
 };
 
 struct Unk21C4818
@@ -59,6 +60,17 @@ struct Unk21C48B8
     u8 filler4C[0x20];
     s32 unk6C;
 };
+
+struct UnkStruct_021C4918 {
+    s32 unk0;
+    u8 unk4;
+    u8 unk5;
+    u8 unk6;
+    u8 unk7;
+    u8 unk8;
+};
+
+extern struct UnkStruct_021C4918 gUnk021C4918;
 
 extern struct Unk2106FA0 gBacklightTop;
 extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...

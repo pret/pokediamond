@@ -1079,7 +1079,7 @@ _02239E96:
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _02239EA8:
-	bl FUN_0201B9EC
+	bl rand_LC
 	add r1, r5, #0
 	bl _s32_div_f
 	ldr r0, _02239EF4 ; =0x02251380
@@ -14722,7 +14722,7 @@ _0224072E:
 	ldrh r1, [r1, #0x16]
 	strh r2, [r0, #8]
 	strh r1, [r0, #0xa]
-	bl FUN_0201B9EC
+	bl rand_LC
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1e
 	sub r1, r1, r2
@@ -19641,7 +19641,7 @@ _02242DD2:
 	ldrb r1, [r4, r0]
 	add r1, r1, #1
 	strb r1, [r4, r0]
-	bl FUN_0201B9EC
+	bl rand_LC
 	mov r1, #0xa
 	bl _s32_div_f
 	add r1, #0x7b
@@ -22737,13 +22737,13 @@ _022445F6:
 	str r0, [r5]
 	str r0, [r5, #4]
 	str r0, [r5, #8]
-	bl FUN_0201B9EC
+	bl rand_LC
 	mov r1, #0x7d
 	lsl r1, r1, #2
 	bl _s32_div_f
 	add r1, #0x32
 	str r1, [r4]
-	bl FUN_0201B9EC
+	bl rand_LC
 	mov r1, #0x7d
 	lsl r1, r1, #2
 	bl _s32_div_f
@@ -29675,7 +29675,7 @@ MOD18_02247BB8: ; 0x02247BB8
 	mov r4, #0
 	add r7, sp, #0x14
 _02247C0A:
-	bl FUN_0201BA60
+	bl rand_MT
 	mov r1, #0xc
 	bl _u32_div_f
 	add r2, r1, #0

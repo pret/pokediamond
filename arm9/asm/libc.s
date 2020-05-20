@@ -1463,8 +1463,8 @@ _020DF490:
 	bne _020DF490
 	bx lr
 
-	arm_func_start Call_FillMemWithValue
-Call_FillMemWithValue: ; 0x020DF4A4
+	arm_func_start memset
+memset: ; 0x020DF4A4
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl __fill_mem

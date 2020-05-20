@@ -24,7 +24,7 @@ _021D7504:
 	ldr r2, _021D7630 ; =0x000006B4
 	add r0, r5, #0
 	mov r1, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x25
 	lsl r0, r0, #4
 	add r0, r5, r0
@@ -1006,7 +1006,7 @@ MOD64_021D7D18: ; 0x021D7D18
 	add r4, r3, #0
 	mov r1, #0
 	mov r2, #0x98
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r4, #0
@@ -1033,7 +1033,7 @@ MOD64_021D7D50: ; 0x021D7D50
 	add r5, r0, #0
 	mov r1, #0
 	mov r2, #0x98
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
@@ -1135,7 +1135,7 @@ _021D7E28:
 	add r0, r5, #0
 	mov r1, #0
 	mov r2, #0x98
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD64_021D7E04
 

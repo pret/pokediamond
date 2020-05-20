@@ -3,8 +3,6 @@
 #include "FS_file.h"
 #include "poke_overlay.h"
 
-extern void ErrorHandling(void);
-
 struct LoadedOverlay {
     FSOverlayID id;
     BOOL active;

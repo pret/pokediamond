@@ -19,7 +19,7 @@ MOD17_021D74E0: ; 0x021D74E0
 	mov r1, #0
 	add r2, r6, #0
 	str r0, [r4]
-	bl Call_FillMemWithValue
+	bl memset
 	str r5, [r4, #4]
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1616,7 +1616,7 @@ MOD17_021D8088: ; 0x021D8088
 	mov r1, #0
 	lsl r2, r2, #2
 	str r0, [r4, #0x30]
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x77
 	str r0, [r4, #0x34]
 	pop {r4, pc}
@@ -1978,7 +1978,7 @@ MOD17_021D8358: ; 0x021D8358
 	ldr r2, [sp]
 	mov r1, #0
 	str r0, [r5]
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r4, #0
 	add r1, r7, #0
 	bl FUN_02020C44
@@ -1993,7 +1993,7 @@ MOD17_021D8358: ; 0x021D8358
 	mov r1, #0
 	add r2, r4, #0
 	str r0, [r5, #8]
-	bl Call_FillMemWithValue
+	bl memset
 	add r0, r6, #0
 	add r1, r7, #0
 	bl FUN_02020C44
@@ -2055,7 +2055,7 @@ MOD17_021D83E4: ; 0x021D83E4
 	ldr r2, _021D84D8 ; =0x000006D8
 	mov r1, #0
 	add r5, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, _021D84DC ; =MOD17_021D8FC8
 	add r1, r5, #0
 	bl FUN_02015F10
@@ -2545,7 +2545,7 @@ MOD17_021D8818: ; 0x021D8818
 	ldr r2, _021D897C ; =0x000006D8
 	mov r1, #0
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, _021D8980 ; =MOD17_021D8FC8
 	add r1, r4, #0
 	bl FUN_02015F10
@@ -5604,7 +5604,7 @@ MOD17_021D9FD4: ; 0x021D9FD4
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x88
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD17_021D9FD4
@@ -6485,7 +6485,7 @@ _021DA5EE:
 	add r0, r6, #0
 	mov r1, #0
 	mov r2, #0x8c
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD17_021DA5E0
 
@@ -6601,7 +6601,7 @@ _021DA6B8:
 	str r0, [r5]
 	mov r0, #0x12
 	str r0, [r4]
-	bl FUN_0201BA60
+	bl rand_MT
 	ldr r2, [sp, #0x10]
 	mov r1, #0x6c
 	sub r1, r1, r2
@@ -6609,7 +6609,7 @@ _021DA6B8:
 	ldr r0, [r5]
 	add r0, r0, r1
 	str r0, [r5]
-	bl FUN_0201BA60
+	bl rand_MT
 	ldr r2, [sp, #0x14]
 	mov r1, #0x7d
 	sub r1, r1, r2
@@ -7506,7 +7506,7 @@ _021DAD04:
 	ldr r0, [r4, #0x28]
 	mov r1, #0
 	mul r2, r3
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #1
 	str r0, [r5, #0x3c]
 	pop {r3, r4, r5, r6, r7, pc}
@@ -7987,7 +7987,7 @@ MOD17_021DB038: ; 0x021DB038
 	str r0, [r5]
 	mov r1, #0
 	mov r2, #0x34
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r1, [r5]
 	ldr r0, [sp, #0x18]
 	str r4, [r1, #4]
@@ -8316,14 +8316,14 @@ _021DB2C2:
 	add r1, sp, #0x14
 	add r2, sp, #0x10
 	bl MOD17_021DBC08
-	bl FUN_0201BA60
+	bl rand_MT
 	ldr r2, [sp, #0x14]
 	mov r1, #0x6c
 	sub r1, r1, r2
 	bl _u32_div_f
 	add r1, #0xa
 	str r1, [sp, #0xc]
-	bl FUN_0201BA60
+	bl rand_MT
 	ldr r2, [sp, #0x10]
 	mov r1, #0x7d
 	sub r1, r1, r2
@@ -9282,7 +9282,7 @@ _021DBA0E:
 	ldr r0, [r5]
 	mov r1, #0
 	add r2, r4, #0
-	bl Call_FillMemWithValue
+	bl memset
 	str r6, [r5, #4]
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD17_021DB9F4
@@ -9762,7 +9762,7 @@ MOD17_021DBD4C: ; 0x021DBD4C
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x2c
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	thumb_func_end MOD17_021DBD4C
 
@@ -10428,7 +10428,7 @@ MOD17_021DC248: ; 0x021DC248
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x20
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD17_021DC248
@@ -11366,7 +11366,7 @@ MOD17_021DC950: ; 0x021DC950
 	mov r2, #0x52
 	mov r1, #0
 	lsl r2, r2, #2
-	bl Call_FillMemWithValue
+	bl memset
 _021DC96A:
 	mov r0, #2
 	tst r0, r6
@@ -11588,7 +11588,7 @@ _021DCB22:
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #2
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	thumb_func_end MOD17_021DCA80
 
@@ -12454,7 +12454,7 @@ _021DD192:
 	add r0, r5, #0
 	mov r1, #0
 	mov r2, #0x94
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD17_021DD178
 
@@ -13202,7 +13202,7 @@ MOD17_021DD6DC: ; 0x021DD6DC
 	mov r1, #0
 	lsl r2, r2, #2
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x8b
 	ldr r1, [r5, #0x68]
 	lsl r0, r0, #2
@@ -13272,7 +13272,7 @@ MOD17_021DD778: ; 0x021DD778
 	mov r1, #0
 	lsl r2, r2, #2
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x8b
 	ldr r1, [r5, #0x68]
 	lsl r0, r0, #2
@@ -13795,7 +13795,7 @@ MOD17_021DDB58: ; 0x021DDB58
 	mov r1, #0
 	lsl r2, r2, #2
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, _021DDC28 ; =MOD17_021DDD40
 	add r1, r4, #0
 	bl FUN_02015F10

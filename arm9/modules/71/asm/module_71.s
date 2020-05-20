@@ -957,7 +957,7 @@ _0222DDD8:
 	bl FUN_02031190
 	cmp r0, #0
 	bne _0222DE04
-	bl FUN_0201B9EC
+	bl rand_LC
 	ldr r1, _0222E0F0 ; =0x00000445
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -2157,7 +2157,7 @@ MOD70_0222E76C: ; 0x0222E76C
 	ldr r0, _0222E844 ; =0x0000221C
 	mov r1, #0xff
 	ldr r0, [r5, r0]
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [r4, #4]
 	mov r1, #0x1a
 	bl FUN_020239A0

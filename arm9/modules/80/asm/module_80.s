@@ -1399,7 +1399,7 @@ _0222DFE4:
 	ldr r2, _0222E108 ; =0x00001044
 	mov r1, #0
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #0x3e
 	bl FUN_02016B94
 	str r0, [r4, #4]
@@ -15859,7 +15859,7 @@ MOD80_022353B4: ; 0x022353B4
 	bl FUN_02022840
 	mov r0, #0x1f
 	str r0, [r4, #0x2c]
-	bl FUN_0201B9EC
+	bl rand_LC
 	ldr r1, _022353EC ; =0x00000445
 	bl _s32_div_f
 	lsl r0, r0, #0x10

@@ -224,7 +224,7 @@ _02038E32:
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0xdc
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, _02038E44 ; =0x0003643F
 	str r0, [r4, #0x0]
 	add r0, r4, #0x0
@@ -1187,7 +1187,7 @@ FUN_02039564: ; 0x02039564
 	bl FUN_02046380
 	mov r1, #0x0
 	mov r2, #0x40
-	bl Call_FillMemWithValue
+	bl memset
 	pop {r4, pc}
 	.balign 4
 

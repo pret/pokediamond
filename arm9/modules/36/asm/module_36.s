@@ -1439,7 +1439,7 @@ _022552D8:
 	ldr r0, [r4, #0x60]
 	cmp r0, #0
 	beq _0225539A
-	bl FUN_0201BA60
+	bl rand_MT
 	mov r1, #7
 	and r0, r1
 	str r0, [r4, #0x6c]

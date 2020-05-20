@@ -3,6 +3,7 @@
 //
 
 #include "OS_system.h"
+#include "syscall.h"
 
 ARM_FUNC asm OSIntrMode OS_EnableInterrupts() {
     mrs r0, cpsr

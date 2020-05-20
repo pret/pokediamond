@@ -21,7 +21,7 @@ MOD66_021D74E0: ; 0x021D74E0
 	mov r1, #0
 	mov r2, #0xe4
 	add r4, r0, #0
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, _021D7534 ; =0x00000139
 	str r5, [r4, #0x2c]
 	ldrb r0, [r5, r0]
@@ -871,7 +871,7 @@ MOD66_021D7BB4: ; 0x021D7BB4
 	mov r1, #0
 	lsl r2, r2, #4
 	str r0, [r4, #0x34]
-	bl Call_FillMemWithValue
+	bl memset
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -3780,7 +3780,7 @@ MOD66_021D9228: ; 0x021D9228
 	mov r2, #0x1c
 	mov r1, #0
 	mul r2, r3
-	bl Call_FillMemWithValue
+	bl memset
 	ldrh r0, [r7]
 	mov r6, #0
 	ldr r5, _021D9344 ; =0x021D990C
@@ -4130,7 +4130,7 @@ _021D94DA:
 	mov r2, #0x18
 	mov r1, #0
 	mul r2, r3
-	bl Call_FillMemWithValue
+	bl memset
 	ldr r0, [sp]
 	mov r4, #0
 	str r0, [r6]

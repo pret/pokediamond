@@ -22,7 +22,7 @@ _02211E6E:
 	ldr r2, _02211EDC ; =0x00002090
 	add r4, r0, #0
 	mov r1, #0
-	bl Call_FillMemWithValue
+	bl memset
 	str r5, [r4]
 	ldr r0, [r5, #8]
 	bl MOD11_0222FF68
@@ -12661,7 +12661,7 @@ MOD09_022186F0: ; 0x022186F0
 	ldr r2, _02218784 ; =0x0000115C
 	add r4, r0, #0
 	mov r1, #0
-	bl Call_FillMemWithValue
+	bl memset
 	str r5, [r4]
 	ldr r0, [r5]
 	bl MOD11_0222FF68
