@@ -46,10 +46,14 @@ typedef s64 fx64c;
 #define FX64C_INT_ABS(x)           FX_INT_ABS(FX64C, x)
 #define FX64C_FRAC(x)              FX_FRAC(FX64C, x)
 
-#define FX32_MUL(a, b)               ((fx32)(((fx64)a * b) >> FX32_INT_SHIFT))
-#define FX32_MUL_ADD_MUL(a, b, c, d) ((fx32)(((fx64)a * b + (fx64)c * d) >> FX32_INT_SHIFT))
+//TODO: clean up these macros
+#define FX32_MUL_NO_ROUND(a, b)      ((fx32)(((fx64)(a) * (b)) >> FX32_INT_SHIFT))
+#define FX32_MUL(a, b)               ((fx32)((((fx64)(a) * (b) + (1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT)))
+#define FX32_MUL_ADD_MUL(a, b, c, d) ((fx32)(((fx64)(a) * (b) + (fx64)c * d) >> FX32_INT_SHIFT))
 //the extra term here is for rounding
-#define FX32_MUL_SUB_MUL(a, b, c, d) ((fx32)(((fx64)a * b - (fx64)c * d + (1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT))
+#define FX32_MUL_SUB_MUL(a, b, c, d) ((fx32)(((fx64)(a) * (b) - (fx64)c * d + (1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT))
+
+#define FX_MUL_FX32_FX64C(a, b)      ((fx32)((((a) * (b) + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT)))
 
 struct Vecx32
 {

@@ -2055,12 +2055,12 @@ UNK_021067F0: ; 0x021067F0
 	.word 0x020BFC4C
 	.word 0x020BFC28
 
-	.global UNK_02106810
-UNK_02106810: ; 0x02106810
+	.global sIsDispOn
+sIsDispOn: ; 0x02106810
 	.byte 0x01, 0x00, 0x00, 0x00
 
-	.global UNK_02106814
-UNK_02106814: ; 0x02106814
+	.global GXi_DmaId
+GXi_DmaId: ; 0x02106814
 	.byte 0x03, 0x00, 0x00, 0x00
 
 	.global OSi_IrqCallbackInfoIndex
