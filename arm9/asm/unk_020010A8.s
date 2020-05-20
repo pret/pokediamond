@@ -1,6 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern gUnknown21C48B8
+
 	.text
 
 	thumb_func_start FUN_020010A8
@@ -178,7 +180,7 @@ FUN_02001204: ; 0x02001204
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
-	ldr r6, _020012FC ; =0x021C48B8
+	ldr r6, _020012FC ; =gUnknown21C48B8
 	mov r3, #0x0
 	add r1, #0x33
 	strb r3, [r1, #0x0]
@@ -309,7 +311,7 @@ _020012F4:
 	mvn r0, r0
 	pop {r4-r6, pc}
 	nop
-_020012FC: .word 0x021C48B8
+_020012FC: .word gUnknown21C48B8
 
 	thumb_func_start FUN_02001300
 FUN_02001300: ; 0x02001300

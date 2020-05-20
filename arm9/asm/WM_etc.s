@@ -1,6 +1,8 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D68C0
+
 	.text
 
 	arm_func_start WM_SetEntry
@@ -163,11 +165,11 @@ _020DAF58: ; 0x020DAF58
 	movhi r0, #0x6
 	ldmhiia sp!, {r4-r7,lr}
 	bxhi lr
-	ldr r1, _020DAFF4 ; =0x021D68C0
+	ldr r1, _020DAFF4 ; =UNK_021D68C0
 	mov r0, r6
 	mov r2, r5
 	bl MIi_CpuCopy16
-	ldr r0, _020DAFF4 ; =0x021D68C0
+	ldr r0, _020DAFF4 ; =UNK_021D68C0
 	mov r1, r5
 	bl DC_StoreRange
 	mov r1, r7
@@ -177,7 +179,7 @@ _020DAF58: ; 0x020DAF58
 	str r4, [sp, #0x0]
 	ldrb r1, [sp, #0x24]
 	str r0, [sp, #0x4]
-	ldr r2, _020DAFF4 ; =0x021D68C0
+	ldr r2, _020DAFF4 ; =UNK_021D68C0
 	str r1, [sp, #0x8]
 	mov r3, r5
 	mov r0, #0x18
@@ -190,7 +192,7 @@ _020DAFE0: ; 0x020DAFE0
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020DAFF4: .word 0x021D68C0
+_020DAFF4: .word UNK_021D68C0
 
 	arm_func_start WM_SetWEPKeyEx
 WM_SetWEPKeyEx: ; 0x020DAFF8

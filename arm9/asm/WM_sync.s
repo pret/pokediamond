@@ -1,6 +1,8 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_02106A54
+
     .text
 
 	arm_func_start WM_GetNextTgid
@@ -10,7 +12,7 @@ WM_GetNextTgid: ; 0x020D8868
 
 	arm_func_start FUN_020D8870
 FUN_020D8870: ; 0x020D8870
-	ldr r0, _020D88DC ; =0x02106A54
+	ldr r0, _020D88DC ; =UNK_02106A54
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x10000
 	bne _020D88B0
@@ -23,13 +25,13 @@ _020D888C: ; 0x020D888C
 	bne _020D88B0
 	ldr r2, [sp, #0x8]
 	ldr r0, [sp, #0x4]
-	ldr r1, _020D88DC ; =0x02106A54
+	ldr r1, _020D88DC ; =UNK_02106A54
 	add r0, r2, r0, lsl #0x8
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
 	str r0, [r1, #0x0]
 _020D88B0:
-	ldr r1, _020D88DC ; =0x02106A54
+	ldr r1, _020D88DC ; =UNK_02106A54
 	ldr r0, [r1, #0x0]
 	add r0, r0, #0x1
 	mov r0, r0, lsl #0x10
@@ -41,7 +43,7 @@ _020D88B0:
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D88DC: .word 0x02106A54
+_020D88DC: .word UNK_02106A54
 
 	arm_func_start WM_GetOtherElements
 WM_GetOtherElements: ; 0x020D88E0

@@ -1,6 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FD6E4
+
 	.text
 
 	thumb_func_start FUN_0208890C
@@ -38,11 +40,11 @@ FUN_0208890C: ; 0x0208890C
 FUN_02088950: ; 0x02088950
 	ldr r3, _02088958 ; =FUN_020373D4
 	add r2, r1, #0x0
-	ldr r1, _0208895C ; =0x020FD6E4
+	ldr r1, _0208895C ; =UNK_020FD6E4
 	bx r3
 	.balign 4
 _02088958: .word FUN_020373D4
-_0208895C: .word 0x020FD6E4
+_0208895C: .word UNK_020FD6E4
 
 	thumb_func_start FUN_02088960
 FUN_02088960: ; 0x02088960

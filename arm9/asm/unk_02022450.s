@@ -1,6 +1,8 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020EE6D4
+
 	.text
 
 	thumb_func_start FUN_02022450
@@ -31,7 +33,7 @@ _02022460:
 	ldr r0, _020224BC ; =0x027FF00C
 	str r1, [r0, #0x0]
 _0202248A:
-	ldr r0, _020224D0 ; =0x020EE6D4
+	ldr r0, _020224D0 ; =UNK_020EE6D4
 	mov r1, #0x3
 	bl FS_FindArchive
 	ldr r1, _020224C4 ; =0x027FF000
@@ -61,7 +63,7 @@ _020224C0: .word 0x027FFE00
 _020224C4: .word 0x027FF000
 _020224C8: .word 0x027FFA80
 _020224CC: .word 0x4A414441
-_020224D0: .word 0x020EE6D4
+_020224D0: .word UNK_020EE6D4
 _020224D4: .word 0x00003130
 
 	thumb_func_start FUN_020224D8

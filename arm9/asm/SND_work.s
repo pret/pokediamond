@@ -1,6 +1,8 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D5360
+
     .text
 
 	arm_func_start SNDi_InitSharedWork
@@ -45,71 +47,71 @@ _020CF5E8:
 SNDi_GetFinishedCommandTag: ; 0x020CF610
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r0, _020CF640 ; =0x021D5360
+	ldr r0, _020CF640 ; =UNK_021D5360
 	mov r1, #0x4
 	ldr r0, [r0, #0x0]
 	bl DC_InvalidateRange
-	ldr r0, _020CF640 ; =0x021D5360
+	ldr r0, _020CF640 ; =UNK_021D5360
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x0]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CF640: .word 0x021D5360
+_020CF640: .word UNK_021D5360
 
 	arm_func_start SND_GetPlayerTickCounter
 SND_GetPlayerTickCounter: ; 0x020CF644
 	stmdb sp!, {r4,lr}
 	mov r1, #0x24
 	mul r4, r0, r1
-	ldr r0, _020CF680 ; =0x021D5360
+	ldr r0, _020CF680 ; =UNK_021D5360
 	mov r1, #0x4
 	ldr r0, [r0, #0x0]
 	add r0, r0, #0x40
 	add r0, r0, r4
 	bl DC_InvalidateRange
-	ldr r0, _020CF680 ; =0x021D5360
+	ldr r0, _020CF680 ; =UNK_021D5360
 	ldr r0, [r0, #0x0]
 	add r0, r0, r4
 	ldr r0, [r0, #0x40]
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CF680: .word 0x021D5360
+_020CF680: .word UNK_021D5360
 
 	arm_func_start SND_GetChannelStatus
 SND_GetChannelStatus: ; 0x020CF684
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r0, _020CF6B8 ; =0x021D5360
+	ldr r0, _020CF6B8 ; =UNK_021D5360
 	mov r1, #0x2
 	ldr r0, [r0, #0x0]
 	add r0, r0, #0x8
 	bl DC_InvalidateRange
-	ldr r0, _020CF6B8 ; =0x021D5360
+	ldr r0, _020CF6B8 ; =UNK_021D5360
 	ldr r0, [r0, #0x0]
 	ldrh r0, [r0, #0x8]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CF6B8: .word 0x021D5360
+_020CF6B8: .word UNK_021D5360
 
 	arm_func_start SND_GetPlayerStatus
 SND_GetPlayerStatus: ; 0x020CF6BC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r0, _020CF6F0 ; =0x021D5360
+	ldr r0, _020CF6F0 ; =UNK_021D5360
 	mov r1, #0x4
 	ldr r0, [r0, #0x0]
 	add r0, r0, #0x4
 	bl DC_InvalidateRange
-	ldr r0, _020CF6F0 ; =0x021D5360
+	ldr r0, _020CF6F0 ; =UNK_021D5360
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CF6F0: .word 0x021D5360
+_020CF6F0: .word UNK_021D5360

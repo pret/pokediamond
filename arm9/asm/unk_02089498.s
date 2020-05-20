@@ -1,6 +1,13 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FF324
+	.extern UNK_020FF304
+	.extern UNK_020FF340
+	.extern UNK_020FF30C
+	.extern UNK_020FF314
+	.extern gUnknown21C48B8
+
 	.text
 
 	thumb_func_start FUN_02089498
@@ -184,7 +191,7 @@ _02089618: .word FUN_0201AB60
 FUN_0208961C: ; 0x0208961C
 	push {r4-r5, lr}
 	sub sp, #0x5c
-	ldr r5, _020896C8 ; =0x020FF340
+	ldr r5, _020896C8 ; =UNK_020FF340
 	add r4, r0, #0x0
 	add r3, sp, #0x34
 	mov r2, #0x5
@@ -198,7 +205,7 @@ _02089628:
 	ldr r0, [r4, #0x0]
 	bl FUN_02016B94
 	add r3, sp, #0x24
-	ldr r5, _020896CC ; =0x020FF314
+	ldr r5, _020896CC ; =UNK_020FF314
 	str r0, [r4, #0x14]
 	add r2, r3, #0x0
 	ldmia r5!, {r0-r1}
@@ -207,7 +214,7 @@ _02089628:
 	stmia r3!, {r0-r1}
 	add r0, r2, #0x0
 	bl FUN_02016BBC
-	ldr r5, _020896D0 ; =0x020FF324
+	ldr r5, _020896D0 ; =UNK_020FF324
 	add r3, sp, #0x8
 	ldmia r5!, {r0-r1}
 	add r2, r3, #0x0
@@ -259,9 +266,9 @@ _02089628:
 	add sp, #0x5c
 	pop {r4-r5, pc}
 	.balign 4
-_020896C8: .word 0x020FF340
-_020896CC: .word 0x020FF314
-_020896D0: .word 0x020FF324
+_020896C8: .word UNK_020FF340
+_020896CC: .word UNK_020FF314
+_020896D0: .word UNK_020FF324
 _020896D4: .word 0x000001E2
 _020896D8: .word 0x000001D9
 _020896DC: .word 0x00006C21
@@ -317,7 +324,7 @@ FUN_02089734: ; 0x02089734
 	str r0, [r4, #0x8]
 	add r1, r4, #0x0
 	ldr r0, [r4, #0x14]
-	ldr r2, _02089778 ; =0x020FF304
+	ldr r2, _02089778 ; =UNK_020FF304
 	add r1, #0x1c
 	bl FUN_02019150
 	mov r0, #0xd8
@@ -333,7 +340,7 @@ FUN_02089734: ; 0x02089734
 	add sp, #0x8
 	pop {r4, pc}
 	nop
-_02089778: .word 0x020FF304
+_02089778: .word UNK_020FF304
 
 	thumb_func_start FUN_0208977C
 FUN_0208977C: ; 0x0208977C
@@ -379,7 +386,7 @@ _020897B8:
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
-	ldr r1, _02089890 ; =0x020FF30C
+	ldr r1, _02089890 ; =UNK_020FF30C
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0x14]
 	ldr r2, _02089894 ; =0x000001D9
@@ -417,7 +424,7 @@ _02089802:
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x0]
-	ldr r1, _02089890 ; =0x020FF30C
+	ldr r1, _02089890 ; =UNK_020FF30C
 	str r0, [sp, #0x4]
 	ldr r0, [r4, #0x14]
 	ldr r2, _02089894 ; =0x000001D9
@@ -478,7 +485,7 @@ _02089888:
 	add sp, #0x8
 	pop {r3-r5, pc}
 	nop
-_02089890: .word 0x020FF30C
+_02089890: .word UNK_020FF30C
 _02089894: .word 0x000001D9
 _02089898: .word 0x000001E2
 
@@ -562,7 +569,7 @@ _02089920:
 _0208993C:
 	cmp r2, #0x0
 	bne _0208994A
-	ldr r0, _0208995C ; =0x021C48B8
+	ldr r0, _0208995C ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -577,4 +584,4 @@ _02089950:
 	pop {r4-r7, pc}
 	nop
 _02089958: .word 0x000001E2
-_0208995C: .word 0x021C48B8
+_0208995C: .word gUnknown21C48B8

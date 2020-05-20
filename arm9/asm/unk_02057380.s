@@ -1,6 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F6364
+
 	.text
 
 	thumb_func_start FUN_02057380
@@ -3730,12 +3732,12 @@ FUN_02058D14: ; 0x02058D14
 	blo _02058D20
 	bl ErrorHandling
 _02058D20:
-	ldr r0, _02058D28 ; =0x020F6364
+	ldr r0, _02058D28 ; =UNK_020F6364
 	lsl r1, r4, #0x2
 	ldr r0, [r0, r1]
 	pop {r4, pc}
 	.balign 4
-_02058D28: .word 0x020F6364
+_02058D28: .word UNK_020F6364
 
 	thumb_func_start FUN_02058D2C
 FUN_02058D2C: ; 0x02058D2C

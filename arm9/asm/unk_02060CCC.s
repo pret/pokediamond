@@ -1,6 +1,14 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F78A6
+	.extern UNK_020F7658
+	.extern UNK_020F7650
+	.extern UNK_02105FBC
+	.extern UNK_020F79EE
+	.extern UNK_020F78A4
+	.extern UNK_020F767C
+
 	.text
 
 	thumb_func_start FUN_02060CCC
@@ -15,7 +23,7 @@ _02060CD8:
 	bl ErrorHandling
 _02060CDC:
 	sub r1, r5, #0x1
-	ldr r6, _02060CF4 ; =0x020F767C
+	ldr r6, _02060CF4 ; =UNK_020F767C
 	mov r0, #0xc
 	add r4, r1, #0x0
 	mul r4, r0
@@ -27,7 +35,7 @@ _02060CF0:
 	add r0, r6, r4
 	pop {r4-r6, pc}
 	.balign 4
-_02060CF4: .word 0x020F767C
+_02060CF4: .word UNK_020F767C
 
 	thumb_func_start FUN_02060CF8
 FUN_02060CF8: ; 0x02060CF8
@@ -2550,7 +2558,7 @@ _02062072:
 FUN_02062078: ; 0x02062078
 	push {r3-r7, lr}
 	mov r6, #0x0
-	ldr r5, _0206209C ; =0x020F7650
+	ldr r5, _0206209C ; =UNK_020F7650
 	add r7, r0, #0x0
 	add r4, r6, #0x0
 _02062082:
@@ -2568,7 +2576,7 @@ _02062090:
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 	.balign 4
-_0206209C: .word 0x020F7650
+_0206209C: .word UNK_020F7650
 
 	thumb_func_start FUN_020620A0
 FUN_020620A0: ; 0x020620A0
@@ -2595,7 +2603,7 @@ _020620BE:
 _020620D0:
 	mov r5, #0x0
 _020620D2:
-	ldr r4, _02062154 ; =0x020F7650
+	ldr r4, _02062154 ; =UNK_020F7650
 	mov r6, #0x0
 _020620D6:
 	ldrb r1, [r4, #0x0]
@@ -2605,7 +2613,7 @@ _020620D6:
 	beq _020620F0
 	cmp r5, #0x0
 	bne _020620EE
-	ldr r0, _02062154 ; =0x020F7650
+	ldr r0, _02062154 ; =UNK_020F7650
 	ldrb r0, [r0, r6]
 	str r0, [sp, #0xc]
 	b _020620F8
@@ -2659,7 +2667,7 @@ _0206211E:
 	add sp, #0x10
 	pop {r3-r7, pc}
 	nop
-_02062154: .word 0x020F7650
+_02062154: .word UNK_020F7650
 
 	thumb_func_start FUN_02062158
 FUN_02062158: ; 0x02062158
@@ -2689,7 +2697,7 @@ FUN_02062170: ; 0x02062170
 	blo _0206218C
 	bl ErrorHandling
 _0206218C:
-	ldr r0, _02062238 ; =0x02105FBC
+	ldr r0, _02062238 ; =UNK_02105FBC
 	lsl r1, r4, #0x1
 	ldrh r5, [r0, r1]
 	add r0, r6, #0x0
@@ -2786,7 +2794,7 @@ _0206222C:
 	pop {r3-r7, pc}
 	.balign 4
 _02062234: .word 0x00003334
-_02062238: .word 0x02105FBC
+_02062238: .word UNK_02105FBC
 
 	thumb_func_start FUN_0206223C
 FUN_0206223C: ; 0x0206223C
@@ -2834,7 +2842,7 @@ FUN_02062280: ; 0x02062280
 	thumb_func_start FUN_02062290
 FUN_02062290: ; 0x02062290
 	push {r3-r4}
-	ldr r4, _020622BC ; =0x020F78A4
+	ldr r4, _020622BC ; =UNK_020F78A4
 	mov r3, #0x0
 _02062296:
 	ldrb r2, [r4, #0x0]
@@ -2845,7 +2853,7 @@ _02062296:
 	bne _020622AE
 	lsl r0, r3, #0x1
 	add r1, r3, r0
-	ldr r0, _020622C0 ; =0x020F78A6
+	ldr r0, _020622C0 ; =UNK_020F78A6
 	ldrb r0, [r0, r1]
 	pop {r3-r4}
 	bx lr
@@ -2858,8 +2866,8 @@ _020622AE:
 	pop {r3-r4}
 	bx lr
 	.balign 4
-_020622BC: .word 0x020F78A4
-_020622C0: .word 0x020F78A6
+_020622BC: .word UNK_020F78A4
+_020622C0: .word UNK_020F78A6
 
 	thumb_func_start FUN_020622C4
 FUN_020622C4: ; 0x020622C4
@@ -2941,7 +2949,7 @@ FUN_0206234C: ; 0x0206234C
 	sub sp, #0x88
 	ldr r0, [r0, #0xc]
 	bl FUN_020462AC
-	ldr r4, _020623E8 ; =0x020F7658
+	ldr r4, _020623E8 ; =UNK_020F7658
 	add r7, r0, #0x0
 	mov r6, #0x0
 	add r5, sp, #0x0
@@ -2958,7 +2966,7 @@ _0206235E:
 	blo _0206235E
 	mov r3, #0x0
 	add r2, sp, #0x10
-	ldr r0, _020623EC ; =0x020F79EE
+	ldr r0, _020623EC ; =UNK_020F79EE
 	add r4, r3, #0x0
 	add r1, r3, #0x0
 	add r2, #0x2
@@ -3015,8 +3023,8 @@ _020623DE:
 	add sp, #0x88
 	pop {r3-r7, pc}
 	.balign 4
-_020623E8: .word 0x020F7658
-_020623EC: .word 0x020F79EE
+_020623E8: .word UNK_020F7658
+_020623EC: .word UNK_020F79EE
 _020623F0: .word 0x0000FFFF
 
 	thumb_func_start FUN_020623F4
@@ -3033,7 +3041,7 @@ FUN_020623F4: ; 0x020623F4
 	lsl r0, r4, #0x1
 	add r0, r0, #0x1
 	lsl r1, r0, #0x1
-	ldr r0, _0206245C ; =0x020F79EE
+	ldr r0, _0206245C ; =UNK_020F79EE
 	ldrh r0, [r0, r1]
 	bl FUN_02034824
 	add r2, r0, #0x0
@@ -3074,7 +3082,7 @@ _02062456:
 	mov r0, #0x27
 	pop {r4-r6, pc}
 	nop
-_0206245C: .word 0x020F79EE
+_0206245C: .word UNK_020F79EE
 
 	thumb_func_start FUN_02062460
 FUN_02062460: ; 0x02062460

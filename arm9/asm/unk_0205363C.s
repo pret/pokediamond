@@ -1,6 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F5B44
+	.extern UNK_020F5AC4
+	.extern UNK_020F5B48
+	.extern UNK_020F5B4C
+
 	.text
 
 	thumb_func_start FUN_0205363C
@@ -8,12 +13,12 @@ FUN_0205363C: ; 0x0205363C
 	push {r3-r7, lr}
 	add r7, r2, #0x0
 	lsl r0, r0, #0x1d
-	ldr r2, _02053670 ; =0x020F5AC4
+	ldr r2, _02053670 ; =UNK_020F5AC4
 	lsr r0, r0, #0x19
 	add r5, r2, r0
 	lsl r2, r1, #0x3
 	mov r1, #0xc
-	ldr r0, _02053674 ; =0x020F5B44
+	ldr r0, _02053674 ; =UNK_020F5B44
 	mul r1, r2
 	mov r4, #0x0
 	add r6, r0, r1
@@ -32,14 +37,14 @@ _02053654:
 	blt _02053654
 	pop {r3-r7, pc}
 	.balign 4
-_02053670: .word 0x020F5AC4
-_02053674: .word 0x020F5B44
+_02053670: .word UNK_020F5AC4
+_02053674: .word UNK_020F5B44
 
 	thumb_func_start FUN_02053678
 FUN_02053678: ; 0x02053678
 	lsl r0, r0, #0x1d
 	lsr r3, r0, #0x19
-	ldr r0, _02053694 ; =0x020F5AC4
+	ldr r0, _02053694 ; =UNK_020F5AC4
 	lsl r2, r2, #0x2
 	add r0, r0, r3
 	ldr r0, [r2, r0]
@@ -48,19 +53,19 @@ FUN_02053678: ; 0x02053678
 	mov r0, #0xc
 	add r2, r1, #0x0
 	mul r2, r0
-	ldr r0, _02053698 ; =0x020F5B44
+	ldr r0, _02053698 ; =UNK_020F5B44
 	ldr r0, [r0, r2]
 	bx lr
 	.balign 4
-_02053694: .word 0x020F5AC4
-_02053698: .word 0x020F5B44
+_02053694: .word UNK_020F5AC4
+_02053698: .word UNK_020F5B44
 
 	thumb_func_start FUN_0205369C
 FUN_0205369C: ; 0x0205369C
 	push {r3-r4}
 	lsl r4, r0, #0x3
 	mov r0, #0xc
-	ldr r2, _020536C4 ; =0x020F5B44
+	ldr r2, _020536C4 ; =UNK_020F5B44
 	mul r0, r4
 	mov r3, #0x0
 	add r2, r2, r0
@@ -80,7 +85,7 @@ _020536B6:
 	pop {r3-r4}
 	bx lr
 	.balign 4
-_020536C4: .word 0x020F5B44
+_020536C4: .word UNK_020F5B44
 
 	thumb_func_start FUN_020536C8
 FUN_020536C8: ; 0x020536C8
@@ -102,13 +107,13 @@ FUN_020536D0: ; 0x020536D0
 	bne _020536F8
 	mov r1, #0xc
 	mul r1, r0
-	ldr r0, _02053700 ; =0x020F5B48
+	ldr r0, _02053700 ; =UNK_020F5B48
 	ldr r0, [r0, r1]
 	pop {r4, pc}
 _020536EE:
 	mov r1, #0xc
 	mul r1, r0
-	ldr r0, _02053704 ; =0x020F5B4C
+	ldr r0, _02053704 ; =UNK_020F5B4C
 	ldr r0, [r0, r1]
 	pop {r4, pc}
 _020536F8:
@@ -117,8 +122,8 @@ _020536F8:
 _020536FE:
 	pop {r4, pc}
 	.balign 4
-_02053700: .word 0x020F5B48
-_02053704: .word 0x020F5B4C
+_02053700: .word UNK_020F5B48
+_02053704: .word UNK_020F5B4C
 
 	thumb_func_start FUN_02053708
 FUN_02053708: ; 0x02053708

@@ -1,6 +1,12 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_021064C0
+	.extern UNK_020FFA38
+	.extern UNK_021064B8
+	.extern UNK_021064C4
+	.extern UNK_021064BC
+
 	.text
 
 	thumb_func_start FUN_02013CD4
@@ -135,7 +141,7 @@ _02013DC6:
 	thumb_func_start FUN_02013DD4
 FUN_02013DD4: ; 0x02013DD4
 	push {r4, lr}
-	ldr r1, _02013DE8 ; =0x021064BC
+	ldr r1, _02013DE8 ; =UNK_021064BC
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r1, [r1, #0x0]
@@ -144,7 +150,7 @@ FUN_02013DD4: ; 0x02013DD4
 	bl FUN_02013F50
 	pop {r4, pc}
 	.balign 4
-_02013DE8: .word 0x021064BC
+_02013DE8: .word UNK_021064BC
 
 	thumb_func_start FUN_02013DEC
 FUN_02013DEC: ; 0x02013DEC
@@ -198,7 +204,7 @@ _02013E36:
 	thumb_func_start FUN_02013E44
 FUN_02013E44: ; 0x02013E44
 	push {r4, lr}
-	ldr r1, _02013E58 ; =0x021064C4
+	ldr r1, _02013E58 ; =UNK_021064C4
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
 	ldr r1, [r1, #0x0]
@@ -207,7 +213,7 @@ FUN_02013E44: ; 0x02013E44
 	bl FUN_02013F5C
 	pop {r4, pc}
 	.balign 4
-_02013E58: .word 0x021064C4
+_02013E58: .word UNK_021064C4
 
 	thumb_func_start FUN_02013E5C
 FUN_02013E5C: ; 0x02013E5C
@@ -579,7 +585,7 @@ _02014076:
 	thumb_func_start FUN_0201407C
 FUN_0201407C: ; 0x0201407C
 	push {r3, lr}
-	ldr r3, _0201408C ; =0x021064B8
+	ldr r3, _0201408C ; =UNK_021064B8
 	mov r1, #0x0
 	ldr r0, [r0, #0x10]
 	ldr r3, [r3, #0x0]
@@ -587,12 +593,12 @@ FUN_0201407C: ; 0x0201407C
 	blx r3
 	pop {r3, pc}
 	.balign 4
-_0201408C: .word 0x021064B8
+_0201408C: .word UNK_021064B8
 
 	thumb_func_start FUN_02014090
 FUN_02014090: ; 0x02014090
 	push {r3, lr}
-	ldr r3, _020140A0 ; =0x021064C0
+	ldr r3, _020140A0 ; =UNK_021064C0
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	lsl r0, r0, #0x5
@@ -600,7 +606,7 @@ FUN_02014090: ; 0x02014090
 	blx r3
 	pop {r3, pc}
 	.balign 4
-_020140A0: .word 0x021064C0
+_020140A0: .word UNK_021064C0
 
 	thumb_func_start FUN_020140A4
 FUN_020140A4: ; 0x020140A4
@@ -735,7 +741,7 @@ _02014172:
 	str r1, [r3, #0x0]
 	str r2, [r3, #0x0]
 	ldr r0, [r5, #0x18]
-	ldr r1, _0201420C ; =0x020FFA38
+	ldr r1, _0201420C ; =UNK_020FFA38
 	asr r0, r0, #0x4
 	lsl r2, r0, #0x1
 	lsl r0, r2, #0x1
@@ -787,7 +793,7 @@ _020141FC: .word 0x7FFF8000
 _02014200: .word 0x00004210
 _02014204: .word 0x040004AC
 _02014208: .word 0x04000470
-_0201420C: .word 0x020FFA38
+_0201420C: .word UNK_020FFA38
 _02014210: .word 0x0400046C
 _02014214: .word 0x04000448
 

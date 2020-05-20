@@ -1,13 +1,16 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F73B0
+	.extern UNK_020F73C8
+
 	.text
 
 	thumb_func_start FUN_0205EB38
 FUN_0205EB38: ; 0x0205EB38
 	push {r4-r7, lr}
 	sub sp, #0x24
-	ldr r3, _0205EBE0 ; =0x020F73B0
+	ldr r3, _0205EBE0 ; =UNK_020F73B0
 	add r2, sp, #0xc
 	add r4, r0, #0x0
 	ldmia r3!, {r0-r1}
@@ -63,7 +66,7 @@ FUN_0205EB38: ; 0x0205EB38
 	mov r1, #0x55
 	mov r3, #0x0
 	bl MOD05_021D971C
-	ldr r4, _0205EBE8 ; =0x020F73C8
+	ldr r4, _0205EBE8 ; =UNK_020F73C8
 	mov r6, #0x0
 	add r5, r7, #0x0
 _0205EBC0:
@@ -82,9 +85,9 @@ _0205EBC0:
 	add sp, #0x24
 	pop {r4-r7, pc}
 	nop
-_0205EBE0: .word 0x020F73B0
+_0205EBE0: .word UNK_020F73B0
 _0205EBE4: .word 0x000034D8
-_0205EBE8: .word 0x020F73C8
+_0205EBE8: .word UNK_020F73C8
 
 	thumb_func_start FUN_0205EBEC
 FUN_0205EBEC: ; 0x0205EBEC

@@ -1,18 +1,20 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FC52C
+
 	.text
 
 	thumb_func_start FUN_02084098
 FUN_02084098: ; 0x02084098
 	ldr r3, _020840A4 ; =FUN_0202D8D0
 	add r2, r0, #0x0
-	ldr r0, _020840A8 ; =0x020FC52C
+	ldr r0, _020840A8 ; =UNK_020FC52C
 	mov r1, #0x6c
 	bx r3
 	nop
 _020840A4: .word FUN_0202D8D0
-_020840A8: .word 0x020FC52C
+_020840A8: .word UNK_020FC52C
 
 	thumb_func_start FUN_020840AC
 FUN_020840AC: ; 0x020840AC

@@ -1,6 +1,12 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern OSi_ThreadInfo
+	.extern UNK_021D5BE0
+	.extern cardi_common
+	.extern UNK_02106A50
+	.extern UNK_021D5C00
+
     .text
 
 	arm_func_start CARDi_GetRomAccessor
@@ -21,7 +27,7 @@ _020D7224: .word CARDi_WaitAsync
 CARD_Init: ; 0x020D7228
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr ip, _020D72A0 ; =0x021D55C0
+	ldr ip, _020D72A0 ; =cardi_common
 	ldr r0, [r12, #0x114]
 	cmp r0, #0x0
 	addne sp, sp, #0x4
@@ -35,7 +41,7 @@ CARD_Init: ; 0x020D7228
 	mvn r1, #0x0
 	str r0, [r12, #0x20]
 	ldr r2, [r12, #0x20]
-	ldr r0, _020D72A4 ; =0x021D5BE0
+	ldr r0, _020D72A4 ; =UNK_021D5BE0
 	str r2, [r12, #0x1c]
 	str r1, [r12, #0x28]
 	str r3, [r12, #0x38]
@@ -43,27 +49,27 @@ CARD_Init: ; 0x020D7228
 	str r3, [r0, #0x0]
 	bl CARDi_InitCommon
 	bl CARDi_GetRomAccessor
-	ldr r1, _020D72A8 ; =0x021D5C00
+	ldr r1, _020D72A8 ; =UNK_021D5C00
 	str r0, [r1, #0x0]
 	bl CARD_InitPulledOutCallback
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D72A0: .word 0x021D55C0
-_020D72A4: .word 0x021D5BE0
-_020D72A8: .word 0x021D5C00
+_020D72A0: .word cardi_common
+_020D72A4: .word UNK_021D5BE0
+_020D72A8: .word UNK_021D5C00
 
 	arm_func_start CARDi_ReadRom
 CARDi_ReadRom: ; 0x020D72AC
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
-	ldr r6, _020D73C0 ; =0x021D55C0
+	ldr r6, _020D73C0 ; =cardi_common
 	mov r10, r0
 	mov r9, r1
 	mov r8, r2
 	mov r7, r3
-	ldr fp, _020D73C4 ; =0x021D5C00
+	ldr fp, _020D73C4 ; =UNK_021D5C00
 	bl CARD_CheckEnabled
 	bl OS_DisableInterrupts
 	ldr r1, [r6, #0x114]
@@ -87,7 +93,7 @@ _020D72FC:
 	mov r0, r5
 	str r1, [r6, #0x3c]
 	bl OS_RestoreInterrupts
-	ldr r0, _020D73C8 ; =0x021D5BE0
+	ldr r0, _020D73C8 ; =UNK_021D5BE0
 	str r10, [r6, #0x28]
 	ldr r0, [r0, #0x0]
 	cmp r10, #0x3
@@ -123,7 +129,7 @@ _020D7380:
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 _020D73A0:
-	ldr r1, _020D73D0 ; =0x021D3498
+	ldr r1, _020D73D0 ; =OSi_ThreadInfo
 	mov r0, r6
 	ldr r1, [r1, #0x4]
 	str r1, [r6, #0x104]
@@ -132,17 +138,17 @@ _020D73A0:
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 	.balign 4
-_020D73C0: .word 0x021D55C0
-_020D73C4: .word 0x021D5C00
-_020D73C8: .word 0x021D5BE0
+_020D73C0: .word cardi_common
+_020D73C4: .word UNK_021D5C00
+_020D73C8: .word UNK_021D5BE0
 _020D73CC: .word CARDi_ReadRomSyncCore
-_020D73D0: .word 0x021D3498
+_020D73D0: .word OSi_ThreadInfo
 
 	arm_func_start CARDi_ReadRomSyncCore
 CARDi_ReadRomSyncCore: ; 0x020D73D4
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
-	ldr r4, _020D7478 ; =0x021D5C00
+	ldr r4, _020D7478 ; =UNK_021D5C00
 	mov r0, r4
 	bl CARDi_ReadFromCache
 _020D73E8: ; 0x020D73E8
@@ -152,7 +158,7 @@ _020D73E8: ; 0x020D73E8
 	mov r0, r4
 	blx r1
 _020D73FC:
-	ldr r7, _020D747C ; =0x021D55C0
+	ldr r7, _020D747C ; =cardi_common
 	bl CARDi_ReadRomIDCore
 	bl CARDi_CheckPulledOutCore
 _020D7408: ; 0x020D7408
@@ -187,8 +193,8 @@ _020D7454: ; 0x020D7454
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020D7478: .word 0x021D5C00
-_020D747C: .word 0x021D55C0
+_020D7478: .word UNK_021D5C00
+_020D747C: .word cardi_common
 
 	arm_func_start CARDi_ReadRomIDCore
 CARDi_ReadRomIDCore: ; 0x020D7480
@@ -197,7 +203,7 @@ CARDi_ReadRomIDCore: ; 0x020D7480
 	mov r0, #0xb8000000
 	mov r1, #0x0
 	bl CARDi_SetRomOp
-	ldr r1, _020D74DC ; =0x02106A50
+	ldr r1, _020D74DC ; =UNK_02106A50
 	mov r0, #0x2000
 	ldr r1, [r1, #0x0]
 	rsb r0, r0, #0x0
@@ -217,7 +223,7 @@ _020D74BC:
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D74DC: .word 0x02106A50
+_020D74DC: .word UNK_02106A50
 _020D74E0: .word 0x040001A4
 _020D74E4: .word 0x04100010
 
@@ -226,7 +232,7 @@ CARDi_ReadCard: ; 0x020D74E8
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
 	mov r10, r0
-	ldr sb, _020D75DC ; =0x021D55C0
+	ldr sb, _020D75DC ; =cardi_common
 	add r7, r10, #0x20
 	ldr r5, _020D75E0 ; =0x04100010
 	ldr r6, _020D75E4 ; =0x040001A4
@@ -292,7 +298,7 @@ _020D75C8: ; 0x020D75C8
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 	.balign 4
-_020D75DC: .word 0x021D55C0
+_020D75DC: .word cardi_common
 _020D75E0: .word 0x04100010
 _020D75E4: .word 0x040001A4
 
@@ -300,7 +306,7 @@ _020D75E4: .word 0x040001A4
 CARDi_TryReadCardDma:
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
-	ldr fp, _020D7748 ; =0x021D55C0
+	ldr fp, _020D7748 ; =cardi_common
 	mov r7, #0x0
 	ldr r9, [r11, #0x20]
 	mov r10, r0
@@ -352,7 +358,7 @@ _020D7694:
 	cmp r8, #0x0
 	movne r7, #0x1
 _020D76A4:
-	ldr r0, _020D7754 ; =0x02106A50
+	ldr r0, _020D7754 ; =UNK_02106A50
 	cmp r7, #0x0
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x60]
@@ -400,17 +406,17 @@ _020D7738:
 _020D7748: .word cardi_common
 _020D774C: .word 0x01FF8000
 _020D7750: .word 0x000001FF
-_020D7754: .word 0x02106A50
+_020D7754: .word UNK_02106A50
 _020D7758: .word CARDi_OnReadCard
 
 	arm_func_start CARDi_OnReadCard
 CARDi_OnReadCard: ; 0x020D775C
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
-	ldr r0, _020D7838 ; =0x021D55C0
+	ldr r0, _020D7838 ; =cardi_common
 	ldr r0, [r0, #0x28]
 	bl MI_StopDma
-	ldr r0, _020D7838 ; =0x021D55C0
+	ldr r0, _020D7838 ; =cardi_common
 	ldr r3, [r0, #0x1c]
 	ldr r2, [r0, #0x20]
 	ldr r1, [r0, #0x24]
@@ -425,7 +431,7 @@ CARDi_OnReadCard: ; 0x020D775C
 	bl OS_DisableIrqMask
 	mov r0, #0x80000
 	bl OS_ResetRequestIrqMask
-	ldr r7, _020D7838 ; =0x021D55C0
+	ldr r7, _020D7838 ; =cardi_common
 	bl CARDi_ReadRomIDCore
 	bl CARDi_CheckPulledOutCore
 _020D77B8: ; 0x020D77B8
@@ -465,12 +471,12 @@ _020D7828:
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020D7838: .word 0x021D55C0
+_020D7838: .word cardi_common
 
 	arm_func_start CARDi_SetCardDma
 CARDi_SetCardDma: ; 0x020D783C
 	stmdb sp!, {r4,lr}
-	ldr r4, _020D7884 ; =0x021D55C0
+	ldr r4, _020D7884 ; =cardi_common
 	ldr r1, _020D7888 ; =0x04100010
 	ldr r0, [r4, #0x28]
 	ldr r2, [r4, #0x20]
@@ -481,16 +487,16 @@ CARDi_SetCardDma: ; 0x020D783C
 	orr r0, r0, #0xb7000000
 	mov r1, r1, lsl #0x18
 	bl CARDi_SetRomOp
-	ldr r0, _020D788C ; =0x021D5C00
+	ldr r0, _020D788C ; =UNK_021D5C00
 	ldr r1, _020D7890 ; =0x040001A4
 	ldr r0, [r0, #0x4]
 	str r0, [r1, #0x0]
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020D7884: .word 0x021D55C0
+_020D7884: .word cardi_common
 _020D7888: .word 0x04100010
-_020D788C: .word 0x021D5C00
+_020D788C: .word UNK_021D5C00
 _020D7890: .word 0x040001A4
 
 	arm_func_start CARDi_SetRomOp
@@ -542,7 +548,7 @@ _020D7930: .word 0x040001AF
 CARDi_ReadFromCache:
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r5, _020D79C8 ; =0x021D55C0
+	ldr r5, _020D79C8 ; =cardi_common
 	mov r1, #0x200
 	ldr r3, [r5, #0x1c]
 	rsb r1, r1, #0x0
@@ -579,4 +585,4 @@ _020D79AC:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020D79C8: .word 0x021D55C0
+_020D79C8: .word cardi_common

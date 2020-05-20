@@ -1,6 +1,13 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020ED668
+	.extern UNK_020FFA38
+	.extern UNK_020ED64C
+	.extern UNK_020ED66C
+	.extern UNK_020ED670
+	.extern UNK_020ED6A4
+
 	.text
 
 	thumb_func_start FUN_02014BF4
@@ -48,11 +55,11 @@ FUN_02014C3C: ; 0x02014C3C
 	blo _02014C48
 	bl ErrorHandling
 _02014C48:
-	ldr r0, _02014C50 ; =0x020ED64C
+	ldr r0, _02014C50 ; =UNK_020ED64C
 	ldrb r0, [r0, r4]
 	pop {r4, pc}
 	nop
-_02014C50: .word 0x020ED64C
+_02014C50: .word UNK_020ED64C
 
 	thumb_func_start FUN_02014C54
 FUN_02014C54: ; 0x02014C54
@@ -359,7 +366,7 @@ _02014E7E:
 _02014E96:
 	add r6, r5, #0x0
 	add r4, r5, #0x0
-	ldr r7, _02014F04 ; =0x020ED6A4
+	ldr r7, _02014F04 ; =UNK_020ED6A4
 	add r6, #0xc
 	add r4, #0x44
 _02014EA0:
@@ -410,7 +417,7 @@ _02014EF8:
 	nop
 _02014EFC: .word 0x000001CD
 _02014F00: .word 0x000001CF
-_02014F04: .word 0x020ED6A4
+_02014F04: .word UNK_020ED6A4
 
 	thumb_func_start FUN_02014F08
 FUN_02014F08: ; 0x02014F08
@@ -465,7 +472,7 @@ _02014F3E:
 	mov r0, #0xc
 	add r1, r5, #0x0
 	mul r1, r0
-	ldr r0, _02014F7C ; =0x020ED668
+	ldr r0, _02014F7C ; =UNK_020ED668
 	ldr r0, [r0, r1]
 	str r0, [r4, #0x50]
 	add r0, r4, #0x0
@@ -480,7 +487,7 @@ _02014F68:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	nop
-_02014F7C: .word 0x020ED668
+_02014F7C: .word UNK_020ED668
 
 	thumb_func_start FUN_02014F80
 FUN_02014F80: ; 0x02014F80
@@ -1241,7 +1248,7 @@ FUN_0201551C: ; 0x0201551C
 	ldr r2, [sp, #0x4]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _0201554C ; =0x020FFA38
+	ldr r0, _0201554C ; =UNK_020FFA38
 	ldrsh r0, [r0, r1]
 	mul r0, r2
 	asr r1, r0, #0xc
@@ -1253,7 +1260,7 @@ FUN_0201551C: ; 0x0201551C
 	add sp, #0xc
 	pop {r3-r4, pc}
 	nop
-_0201554C: .word 0x020FFA38
+_0201554C: .word UNK_020FFA38
 
 	thumb_func_start FUN_02015550
 FUN_02015550: ; 0x02015550
@@ -1270,7 +1277,7 @@ FUN_02015550: ; 0x02015550
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015584 ; =0x020FFA38
+	ldr r1, _02015584 ; =UNK_020FFA38
 	ldrsh r1, [r1, r2]
 	mul r1, r0
 	add r0, sp, #0x0
@@ -1282,7 +1289,7 @@ FUN_02015550: ; 0x02015550
 	add sp, #0xc
 	pop {r3-r4, pc}
 	nop
-_02015584: .word 0x020FFA38
+_02015584: .word UNK_020FFA38
 
 	thumb_func_start FUN_02015588
 FUN_02015588: ; 0x02015588
@@ -1869,13 +1876,13 @@ FUN_0201598C: ; 0x0201598C
 	bl FUN_02014F94
 	mov r0, #0xc
 	mul r0, r6
-	ldr r1, _02015A28 ; =0x020ED66C
+	ldr r1, _02015A28 ; =UNK_020ED66C
 	str r0, [sp, #0x0]
 	ldr r0, [r1, r0]
 	mov r4, #0x0
 	cmp r0, #0x0
 	ble _020159E2
-	ldr r1, _02015A2C ; =0x020ED668
+	ldr r1, _02015A2C ; =UNK_020ED668
 	ldr r0, [sp, #0x0]
 	add r6, r1, r0
 	ldr r0, [sp, #0x4]
@@ -1892,7 +1899,7 @@ _020159CC:
 	cmp r4, r0
 	blt _020159CC
 _020159E2:
-	ldr r1, _02015A30 ; =0x020ED670
+	ldr r1, _02015A30 ; =UNK_020ED670
 	ldr r0, [sp, #0x0]
 	add r2, r5, #0x0
 	ldr r0, [r1, r0]
@@ -1928,9 +1935,9 @@ _02015A14:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4
-_02015A28: .word 0x020ED66C
-_02015A2C: .word 0x020ED668
-_02015A30: .word 0x020ED670
+_02015A28: .word UNK_020ED66C
+_02015A2C: .word UNK_020ED668
+_02015A30: .word UNK_020ED670
 
 	thumb_func_start FUN_02015A34
 FUN_02015A34: ; 0x02015A34
@@ -1962,7 +1969,7 @@ _02015A5C: ; jump table (using 16-bit offset)
 _02015A64:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015AE8 ; =0x020FFA38
+	ldr r0, _02015AE8 ; =UNK_020FFA38
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -1975,7 +1982,7 @@ _02015A78:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015AE8 ; =0x020FFA38
+	ldr r1, _02015AE8 ; =UNK_020FFA38
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -1986,7 +1993,7 @@ _02015A78:
 _02015A90:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015AE8 ; =0x020FFA38
+	ldr r0, _02015AE8 ; =UNK_020FFA38
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2000,7 +2007,7 @@ _02015AA6:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015AE8 ; =0x020FFA38
+	ldr r1, _02015AE8 ; =UNK_020FFA38
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2031,7 +2038,7 @@ _02015AC4:
 _02015AE6:
 	pop {r4, pc}
 	.balign 4
-_02015AE8: .word 0x020FFA38
+_02015AE8: .word UNK_020FFA38
 
 	thumb_func_start FUN_02015AEC
 FUN_02015AEC: ; 0x02015AEC
@@ -2065,7 +2072,7 @@ _02015B1A: ; jump table (using 16-bit offset)
 _02015B22:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015BA8 ; =0x020FFA38
+	ldr r0, _02015BA8 ; =UNK_020FFA38
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2078,7 +2085,7 @@ _02015B36:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015BA8 ; =0x020FFA38
+	ldr r1, _02015BA8 ; =UNK_020FFA38
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2089,7 +2096,7 @@ _02015B36:
 _02015B4E:
 	asr r0, r1, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02015BA8 ; =0x020FFA38
+	ldr r0, _02015BA8 ; =UNK_020FFA38
 	ldr r2, [r4, #0xc]
 	ldrsh r0, [r0, r1]
 	mul r0, r2
@@ -2103,7 +2110,7 @@ _02015B64:
 	lsl r1, r1, #0x1
 	add r1, r1, #0x1
 	lsl r2, r1, #0x1
-	ldr r1, _02015BA8 ; =0x020FFA38
+	ldr r1, _02015BA8 ; =UNK_020FFA38
 	ldr r0, [r4, #0xc]
 	ldrsh r1, [r1, r2]
 	mul r1, r0
@@ -2134,7 +2141,7 @@ _02015B82:
 _02015BA4:
 	pop {r4, pc}
 	nop
-_02015BA8: .word 0x020FFA38
+_02015BA8: .word UNK_020FFA38
 
 	thumb_func_start FUN_02015BAC
 FUN_02015BAC: ; 0x02015BAC

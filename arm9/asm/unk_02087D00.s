@@ -1,6 +1,15 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FD15C
+	.extern UNK_020F96DC
+	.extern UNK_020FD154
+	.extern UNK_020FD158
+	.extern UNK_020FA6E8
+	.extern UNK_020FD16C
+	.extern UNK_020FD17C
+	.extern UNK_020FD17D
+
 	.text
 
 	thumb_func_start FUN_02087D00
@@ -308,7 +317,7 @@ _02087F4C:
 FUN_02087F50: ; 0x02087F50
 	push {r4, lr}
 	add r4, r0, #0x0
-	ldr r0, _02087F64 ; =0x020FD15C
+	ldr r0, _02087F64 ; =UNK_020FD15C
 	ldr r1, [r4, #0xc]
 	ldr r2, [r4, #0x0]
 	bl FUN_02006234
@@ -316,7 +325,7 @@ FUN_02087F50: ; 0x02087F50
 	mov r0, #0x1
 	pop {r4, pc}
 	.balign 4
-_02087F64: .word 0x020FD15C
+_02087F64: .word UNK_020FD15C
 
 	thumb_func_start FUN_02087F68
 FUN_02087F68: ; 0x02087F68
@@ -363,7 +372,7 @@ _02087F86:
 	add r1, r4, #0x0
 	ldr r0, [r0, #0x18]
 	str r0, [r4, #0xc]
-	ldr r0, _02087FD0 ; =0x020F96DC
+	ldr r0, _02087FD0 ; =UNK_020F96DC
 	ldr r2, [r5, #0x0]
 	bl FUN_02006234
 	str r0, [r5, #0x14]
@@ -371,7 +380,7 @@ _02087F86:
 	mov r0, #0x2
 	pop {r3-r5, pc}
 	.balign 4
-_02087FD0: .word 0x020F96DC
+_02087FD0: .word UNK_020F96DC
 
 	thumb_func_start FUN_02087FD4
 FUN_02087FD4: ; 0x02087FD4
@@ -419,14 +428,14 @@ _02087FFE:
 	mov r0, #0x1
 	str r0, [r4, #0x2c]
 	str r1, [r4, #0x28]
-	ldr r1, _02088054 ; =0x020FD158
+	ldr r1, _02088054 ; =UNK_020FD158
 	add r0, r4, #0x0
 	bl FUN_0207B000
 	ldr r1, [r5, #0xc]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0xc]
 	bl FUN_0207C2A4
-	ldr r0, _02088058 ; =0x020FA6E8
+	ldr r0, _02088058 ; =UNK_020FA6E8
 	ldr r2, [r5, #0x0]
 	add r1, r7, #0x0
 	bl FUN_02006234
@@ -435,8 +444,8 @@ _02087FFE:
 	mov r0, #0x3
 	pop {r3-r7, pc}
 	.balign 4
-_02088054: .word 0x020FD158
-_02088058: .word 0x020FA6E8
+_02088054: .word UNK_020FD158
+_02088058: .word UNK_020FA6E8
 
 	thumb_func_start FUN_0208805C
 FUN_0208805C: ; 0x0208805C
@@ -514,7 +523,7 @@ FUN_020880A0: ; 0x020880A0
 	ldr r0, [r0, #0x18]
 	bl FUN_02025084
 	strb r0, [r4, #0xb]
-	ldr r0, _02088108 ; =0x020FD16C
+	ldr r0, _02088108 ; =UNK_020FD16C
 	ldr r2, [r5, #0x0]
 	add r1, r4, #0x0
 	bl FUN_02006234
@@ -523,7 +532,7 @@ FUN_020880A0: ; 0x020880A0
 	mov r0, #0x5
 	pop {r3-r5, pc}
 	.balign 4
-_02088108: .word 0x020FD16C
+_02088108: .word UNK_020FD16C
 
 	thumb_func_start FUN_0208810C
 FUN_0208810C: ; 0x0208810C
@@ -582,14 +591,14 @@ FUN_02088130: ; 0x02088130
 	mov r0, #0x1
 	str r0, [r4, #0x2c]
 	str r1, [r4, #0x28]
-	ldr r1, _020881A4 ; =0x020FD154
+	ldr r1, _020881A4 ; =UNK_020FD154
 	add r0, r4, #0x0
 	bl FUN_0207B000
 	ldr r1, [r5, #0xc]
 	add r0, r4, #0x0
 	ldr r1, [r1, #0xc]
 	bl FUN_0207C2A4
-	ldr r0, _020881A8 ; =0x020FA6E8
+	ldr r0, _020881A8 ; =UNK_020FA6E8
 	ldr r2, [r5, #0x0]
 	add r1, r4, #0x0
 	bl FUN_02006234
@@ -598,8 +607,8 @@ FUN_02088130: ; 0x02088130
 	mov r0, #0x7
 	pop {r4-r6, pc}
 	nop
-_020881A4: .word 0x020FD154
-_020881A8: .word 0x020FA6E8
+_020881A4: .word UNK_020FD154
+_020881A8: .word UNK_020FA6E8
 
 	thumb_func_start FUN_020881AC
 FUN_020881AC: ; 0x020881AC
@@ -625,9 +634,9 @@ FUN_020881D0: ; 0x020881D0
 	push {r3-r5, lr}
 	sub sp, #0x8
 	lsl r2, r1, #0x1
-	ldr r1, _02088214 ; =0x020FD17C
+	ldr r1, _02088214 ; =UNK_020FD17C
 	ldrb r4, [r1, r2]
-	ldr r1, _02088218 ; =0x020FD17D
+	ldr r1, _02088218 ; =UNK_020FD17D
 	ldrb r5, [r1, r2]
 	cmp r4, #0x5
 	bne _020881E8
@@ -658,8 +667,8 @@ _0208820C:
 	add sp, #0x8
 	pop {r3-r5, pc}
 	nop
-_02088214: .word 0x020FD17C
-_02088218: .word 0x020FD17D
+_02088214: .word UNK_020FD17C
+_02088218: .word UNK_020FD17D
 
 	thumb_func_start FUN_0208821C
 FUN_0208821C: ; 0x0208821C
@@ -670,10 +679,10 @@ FUN_0208821C: ; 0x0208821C
 	add r0, r6, #0x0
 	bl FUN_02068854
 	lsl r1, r0, #0x1
-	ldr r0, _02088310 ; =0x020FD17C
+	ldr r0, _02088310 ; =UNK_020FD17C
 	ldrb r0, [r0, r1]
 	str r0, [sp, #0x4]
-	ldr r0, _02088314 ; =0x020FD17D
+	ldr r0, _02088314 ; =UNK_020FD17D
 	ldrb r0, [r0, r1]
 	add r1, sp, #0x10
 	str r0, [sp, #0x0]
@@ -780,7 +789,7 @@ _0208830C:
 	add sp, #0x30
 	pop {r3-r7, pc}
 	.balign 4
-_02088310: .word 0x020FD17C
-_02088314: .word 0x020FD17D
+_02088310: .word UNK_020FD17C
+_02088314: .word UNK_020FD17D
 _02088318: .word 0x3F8CCCCD
 _0208831C: .word 0x3F666666

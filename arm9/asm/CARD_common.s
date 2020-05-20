@@ -1,6 +1,11 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern cardi_common
+	.extern UNK_021D5560
+	.extern UNK_021D555C
+	.extern UNK_021D5BE0
+
     .text
 
 	arm_func_start CARD_UnlockBackup
@@ -43,29 +48,29 @@ CARD_LockRom: ; 0x020D66E0
 
 	arm_func_start CARD_GetResultCode
 CARD_GetResultCode: ; 0x020D6700
-	ldr r0, _020D6710 ; =0x021D55C0
+	ldr r0, _020D6710 ; =cardi_common
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020D6710: .word 0x021D55C0
+_020D6710: .word cardi_common
 
 ;CARDi_TryWaitAsync?
 	arm_func_start FUN_020D6714
 FUN_020D6714: ; 0x020D6714
-	ldr r0, _020D672C ; =0x021D55C0
+	ldr r0, _020D672C ; =cardi_common
 	ldr r0, [r0, #0x114]
 	ands r0, r0, #0x4
 	moveq r0, #0x1
 	movne r0, #0x0
 	bx lr
 	.balign 4
-_020D672C: .word 0x021D55C0
+_020D672C: .word cardi_common
 
 	arm_func_start CARDi_WaitAsync
 CARDi_WaitAsync: ; 0x020D6730
 	stmdb sp!, {r4-r6,lr}
-	ldr r6, _020D6788 ; =0x021D55C0
+	ldr r6, _020D6788 ; =cardi_common
 	bl OS_DisableInterrupts
 	ldr r1, [r6, #0x114]
 	mov r5, r0
@@ -90,15 +95,15 @@ _020D676C: ; 0x020D676C
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020D6788: .word 0x021D55C0
+_020D6788: .word cardi_common
 
 	arm_func_start CARD_Enable
 CARD_Enable: ; 0x020D678C
-	ldr r1, _020D6798 ; =0x021D555C
+	ldr r1, _020D6798 ; =UNK_021D555C
 	str r0, [r1, #0x0]
 	bx lr
 	.balign 4
-_020D6798: .word 0x021D555C
+_020D6798: .word UNK_021D555C
 
 	arm_func_start CARD_CheckEnabled
 CARD_CheckEnabled: ; 0x020D679C
@@ -117,18 +122,18 @@ _020D67A8: ; 0x020D67A8
 
 	arm_func_start CARD_IsEnabled
 CARD_IsEnabled:
-	ldr r0, _020D67D4 ; =0x021D555C
+	ldr r0, _020D67D4 ; =UNK_021D555C
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020D67D4: .word 0x021D555C
+_020D67D4: .word UNK_021D555C
 
 	arm_func_start CARDi_InitCommon
 CARDi_InitCommon: ; 0x020D67D8
 	stmdb sp!, {r4,lr}
 	sub sp, sp, #0x8
-	ldr r4, _020D68B8 ; =0x021D55C0
-	ldr r1, _020D68BC ; =0x021D5560
+	ldr r4, _020D68B8 ; =cardi_common
+	ldr r1, _020D68BC ; =UNK_021D5560
 	mvn r2, #0x2
 	mov r0, #0x0
 	str r2, [r4, #0x8]
@@ -137,7 +142,7 @@ CARDi_InitCommon: ; 0x020D67D8
 	str r0, [r4, #0x18]
 	str r1, [r4, #0x0]
 	bl MIi_CpuClearFast
-	ldr r0, _020D68BC ; =0x021D5560
+	ldr r0, _020D68BC ; =UNK_021D5560
 	mov r1, #0x60
 	bl DC_FlushRange
 	ldr r0, _020D68C0 ; =0x027FFC40
@@ -162,7 +167,7 @@ _020D6834:
 	str r0, [sp, #0x0]
 	ldr r12, [r4, #0x108]
 	ldr r1, _020D68CC ; =CARDi_TaskThread
-	ldr r3, _020D68D0 ; =0x021D5BE0
+	ldr r3, _020D68D0 ; =UNK_021D5BE0
 	add r0, r4, #0x44
 	str r12, [sp, #0x4]
 	bl OS_CreateThread
@@ -183,20 +188,20 @@ _020D6834:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020D68B8: .word 0x021D55C0
-_020D68BC: .word 0x021D5560
+_020D68B8: .word cardi_common
+_020D68BC: .word UNK_021D5560
 _020D68C0: .word 0x027FFC40
 _020D68C4: .word 0x027FFE00
 _020D68C8: .word 0x027FFA80
 _020D68CC: .word CARDi_TaskThread
-_020D68D0: .word 0x021D5BE0
+_020D68D0: .word UNK_021D5BE0
 _020D68D4: .word CARDi_OnFifoRecv
 
 	arm_func_start CARDi_UnlockResource
 CARDi_UnlockResource: ; 0x020D68D8
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
-	ldr r5, _020D6978 ; =0x021D55C0
+	ldr r5, _020D6978 ; =cardi_common
 	mov r7, r0
 	mov r6, r1
 	bl OS_DisableInterrupts
@@ -239,13 +244,13 @@ _020D6958:
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020D6978: .word 0x021D55C0
+_020D6978: .word cardi_common
 
 	arm_func_start CARDi_LockResource
 CARDi_LockResource: ; 0x020D697C
 	stmdb sp!, {r4-r9,lr}
 	sub sp, sp, #0x4
-	ldr r5, _020D6A14 ; =0x021D55C0
+	ldr r5, _020D6A14 ; =cardi_common
 	mov r7, r0
 	mov r6, r1
 	bl OS_DisableInterrupts
@@ -286,13 +291,13 @@ _020D69E8:
 	ldmia sp!, {r4-r9,lr}
 	bx lr
 	.balign 4
-_020D6A14: .word 0x021D55C0
+_020D6A14: .word cardi_common
 
 	arm_func_start CARDi_SetTask
 CARDi_SetTask: ; 0x020D6A18
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r4, _020D6A5C ; =0x021D55C0
+	ldr r4, _020D6A5C ; =cardi_common
 	mov r5, r0
 	ldr r1, [r4, #0x108]
 	add r0, r4, #0x44
@@ -308,4 +313,4 @@ CARDi_SetTask: ; 0x020D6A18
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020D6A5C: .word 0x021D55C0
+_020D6A5C: .word cardi_common

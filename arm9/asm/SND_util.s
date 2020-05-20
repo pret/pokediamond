@@ -1,6 +1,8 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_02103CAC
+
     .text
 
 	arm_func_start SND_CalcChannelVolume
@@ -13,7 +15,7 @@ SND_CalcChannelVolume: ; 0x020CF6F4
 	movgt r0, #0x0
 _020CF70C:
 	ldr r1, _020CF760 ; =0x000002D3
-	ldr r2, _020CF764 ; =0x02103CAC
+	ldr r2, _020CF764 ; =UNK_02103CAC
 	add r3, r0, r1
 	mvn r1, #0xef
 	cmp r0, r1
@@ -36,4 +38,4 @@ _020CF74C:
 	.balign 4
 _020CF75C: .word 0xFFFFFD2D
 _020CF760: .word 0x000002D3
-_020CF764: .word 0x02103CAC
+_020CF764: .word UNK_02103CAC

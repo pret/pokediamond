@@ -1,6 +1,10 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_02107078
+	.extern UNK_02104780
+	.extern UNK_02107070
+
 	.text
 
 	thumb_func_start FUN_02003B98
@@ -23,7 +27,7 @@ FUN_02003B98: ; 0x02003B98
 	str r0, [r1, #0x0]
 	add r2, r4, #0x0
 	add r2, #0x90
-	ldr r1, _02003C04 ; =0x02104780
+	ldr r1, _02003C04 ; =UNK_02104780
 	ldr r2, [r2, #0x0]
 	add r0, r4, #0x0
 	mov r3, #0x0
@@ -36,7 +40,7 @@ FUN_02003B98: ; 0x02003B98
 	bl FUN_02004088
 	add r0, r4, #0x0
 	bl FUN_020040A4
-	ldr r0, _02003C08 ; =0x02107070
+	ldr r0, _02003C08 ; =UNK_02107070
 	mov r1, #0x0
 	str r1, [r0, #0x4]
 	ldr r0, _02003C0C ; =0x000BCD4C
@@ -48,8 +52,8 @@ FUN_02003B98: ; 0x02003B98
 	pop {r4-r6, pc}
 	nop
 _02003C00: .word 0x000BBC00
-_02003C04: .word 0x02104780
-_02003C08: .word 0x02107070
+_02003C04: .word UNK_02104780
+_02003C08: .word UNK_02107070
 _02003C0C: .word 0x000BCD4C
 
 	thumb_func_start FUN_02003C10
@@ -80,7 +84,7 @@ FUN_02003C40: ; 0x02003C40
 	push {r4, lr}
 	bl FUN_02003D30
 	add r4, r0, #0x0
-	ldr r0, _02003CDC ; =0x02107070
+	ldr r0, _02003CDC ; =UNK_02107070
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x6
 	bhi _02003CD8
@@ -147,7 +151,7 @@ _02003CB0:
 _02003CD8:
 	pop {r4, pc}
 	nop
-_02003CDC: .word 0x02107070
+_02003CDC: .word UNK_02107070
 _02003CE0: .word 0x000BCD0E
 _02003CE4: .word 0x000BCD08
 
@@ -159,12 +163,12 @@ FUN_02003CE8: ; 0x02003CE8
 	ldr r1, _02003CFC ; =0x000BCCFC
 	mov r2, #0x0
 	strh r2, [r0, r1]
-	ldr r0, _02003D00 ; =0x02107070
+	ldr r0, _02003D00 ; =UNK_02107070
 	str r4, [r0, #0x0]
 	pop {r4, pc}
 	.balign 4
 _02003CFC: .word 0x000BCCFC
-_02003D00: .word 0x02107070
+_02003D00: .word UNK_02107070
 
 	thumb_func_start FUN_02003D04
 FUN_02003D04: ; 0x02003D04
@@ -192,10 +196,10 @@ _02003D2C: .word 0x000BCD12
 
 	thumb_func_start FUN_02003D30
 FUN_02003D30: ; 0x02003D30
-	ldr r0, _02003D34 ; =0x02107078
+	ldr r0, _02003D34 ; =UNK_02107078
 	bx lr
 	.balign 4
-_02003D34: .word 0x02107078
+_02003D34: .word UNK_02107078
 
 	thumb_func_start FUN_02003D38
 FUN_02003D38: ; 0x02003D38

@@ -1,6 +1,14 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FF49C
+	.extern gUnk021C4918
+	.extern UNK_021C8C58
+	.extern UNK_020FF4AC
+	.extern UNK_020FF4A4
+	.extern UNK_020FF4BC
+	.extern UNK_020FF4D8
+
 	.text
 
 	thumb_func_start FUN_0208A998
@@ -23,7 +31,7 @@ _0208A9B4: .word MI_WaitDma
 FUN_0208A9B8: ; 0x0208A9B8
 	push {r4-r7, lr}
 	sub sp, #0x24
-	ldr r0, _0208ABC8 ; =0x021C8C58
+	ldr r0, _0208ABC8 ; =UNK_021C8C58
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x1
 	bne _0208A9C6
@@ -42,7 +50,7 @@ _0208A9C6:
 	mov r0, #0x0
 	bl OS_SetArenaLo
 	mov r1, #0x1
-	ldr r0, _0208ABCC ; =0x020FF4A4
+	ldr r0, _0208ABCC ; =UNK_020FF4A4
 	add r2, r1, #0x0
 	mov r3, #0x0
 	bl FUN_020166C8
@@ -80,7 +88,7 @@ _0208A9C6:
 	mov r0, #0x4
 	mov r1, #0x8
 	bl FUN_0201669C
-	ldr r0, _0208ABDC ; =0x021C4918
+	ldr r0, _0208ABDC ; =gUnk021C4918
 	mov r1, #0x0
 	strb r1, [r0, #0x5]
 	bl FUN_0201E7A0
@@ -98,16 +106,16 @@ _0208A9C6:
 	ldr r1, [r2, #0x0]
 	and r0, r1
 	str r0, [r2, #0x0]
-	ldr r0, _0208ABEC ; =0x020FF4D8
+	ldr r0, _0208ABEC ; =UNK_020FF4D8
 	bl FUN_0201E66C
 	mov r0, #0x0
 	bl FUN_02016B94
 	str r0, [sp, #0x10]
-	ldr r0, _0208ABF0 ; =0x020FF4AC
+	ldr r0, _0208ABF0 ; =UNK_020FF4AC
 	bl FUN_02016BBC
 	mov r1, #0x0
 	ldr r0, [sp, #0x10]
-	ldr r2, _0208ABF4 ; =0x020FF4BC
+	ldr r2, _0208ABF4 ; =UNK_020FF4BC
 	add r3, r1, #0x0
 	bl FUN_02016C18
 	ldr r0, [sp, #0x10]
@@ -148,7 +156,7 @@ _0208A9C6:
 	add r4, r0, #0x0
 	bl FUN_0201BD5C
 	ldr r0, [sp, #0x10]
-	ldr r2, _0208AC00 ; =0x020FF49C
+	ldr r2, _0208AC00 ; =UNK_020FF49C
 	add r1, sp, #0x14
 	bl FUN_02019150
 	mov r0, #0xd0
@@ -240,21 +248,21 @@ _0208ABC4:
 	add sp, #0x24
 	pop {r4-r7, pc}
 	.balign 4
-_0208ABC8: .word 0x021C8C58
-_0208ABCC: .word 0x020FF4A4
+_0208ABC8: .word UNK_021C8C58
+_0208ABCC: .word UNK_020FF4A4
 _0208ABD0: .word FUN_0208A998
 _0208ABD4: .word 0xFFFFE0FF
 _0208ABD8: .word 0x04001000
-_0208ABDC: .word 0x021C4918
+_0208ABDC: .word gUnk021C4918
 _0208ABE0: .word 0x04000050
 _0208ABE4: .word 0x04001050
 _0208ABE8: .word 0xFFFF1FFF
-_0208ABEC: .word 0x020FF4D8
-_0208ABF0: .word 0x020FF4AC
-_0208ABF4: .word 0x020FF4BC
+_0208ABEC: .word UNK_020FF4D8
+_0208ABF0: .word UNK_020FF4AC
+_0208ABF4: .word UNK_020FF4BC
 _0208ABF8: .word 0x000001F7
 _0208ABFC: .word 0x00006C21
-_0208AC00: .word 0x020FF49C
+_0208AC00: .word UNK_020FF49C
 _0208AC04: .word 0x04000130
 _0208AC08: .word 0x027FFFA8
 _0208AC0C: .word 0x00002FFF

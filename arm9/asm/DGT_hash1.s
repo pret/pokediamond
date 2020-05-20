@@ -1,6 +1,10 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern Unk_02106900
+	.extern Unk_0210683C
+	.extern Unk_02106840
+
     .text
 
 	arm_func_start ProcessBlock
@@ -12,7 +16,7 @@ ProcessBlock: ; 0x020D2798
 	ldr r4, [r0, #0x4]
 	ldr lr, [r0, #0x8]
 	ldr r12, [r0, #0xc]
-	ldr r2, _020D2B78 ; =0x02106900
+	ldr r2, _020D2B78 ; =Unk_02106900
 	mov r8, r3
 	mov r7, #0x0
 _020D27C0:
@@ -71,7 +75,7 @@ _020D27C0:
 	add r7, r7, #0x1
 	cmp r7, #0x4
 	blt _020D27C0
-	ldr r6, _020D2B7C ; =0x02106840
+	ldr r6, _020D2B7C ; =Unk_02106840
 	mov r1, #0x0
 _020D28A4:
 	mvn r7, r12
@@ -258,8 +262,8 @@ _020D2A60:
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 	.balign 4
-_020D2B78: .word Unk_02106900 ; = 0x02106900
-_020D2B7C: .word Unk_02106840 ; = 0x02106840
+_020D2B78: .word Unk_02106900 ; = Unk_02106900
+_020D2B7C: .word Unk_02106840 ; = Unk_02106840
 
 	arm_func_start DGT_Hash1GetDigest_R
 DGT_Hash1GetDigest_R: ; 0x020D2B80
@@ -270,7 +274,7 @@ DGT_Hash1GetDigest_R: ; 0x020D2B80
 	ldr r3, [r6, #0x10]
 	mov r7, r0
 	mov r4, r1, lsl #0x3
-	ldr r1, _020D2C40 ; =0x0210683C
+	ldr r1, _020D2C40 ; =Unk_0210683C
 	mov r0, r6
 	mov r2, #0x1
 	orr r4, r4, r3, lsr #0x1d
@@ -314,7 +318,7 @@ _020D2C04:
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020D2C40: .word Unk_0210683C ; = 0x0210683C
+_020D2C40: .word Unk_0210683C ; = Unk_0210683C
 
 	arm_func_start DGT_Hash1SetSource
 DGT_Hash1SetSource: ; 0x020D2C44

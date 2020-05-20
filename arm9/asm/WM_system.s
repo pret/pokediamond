@@ -1,6 +1,15 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D5E2C
+	.extern UNK_021D5E78
+	.extern UNK_021D5EC0
+	.extern UNK_021D5E8C
+	.extern UNK_021D5E9C
+	.extern UNK_021D5E50
+	.extern UNK_021D5E28
+	.extern UNK_021D5E30
+
     .text
 
 	arm_func_start WMi_GetMPReadyAIDs
@@ -8,7 +17,7 @@ WMi_GetMPReadyAIDs: ; 0x020D7DE0
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	bl OS_DisableInterrupts
-	ldr r1, _020D7E30 ; =0x021D5E2C
+	ldr r1, _020D7E30 ; =UNK_021D5E2C
 	mov r4, r0
 	ldr r0, [r1, #0x0]
 	cmp r0, #0x0
@@ -27,13 +36,13 @@ _020D7E18:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020D7E30: .word 0x021D5E2C
+_020D7E30: .word UNK_021D5E2C
 
 	arm_func_start WM_GetConnectedAIDs
 WM_GetConnectedAIDs: ; 0x020D7E34
 	stmdb sp!, {r4,lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020D7E64 ; =0x021D5E2C
+	ldr r1, _020D7E64 ; =UNK_021D5E2C
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
 	ldrne r4, [r1, #0x14c]
@@ -44,13 +53,13 @@ WM_GetConnectedAIDs: ; 0x020D7E34
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020D7E64: .word 0x021D5E2C
+_020D7E64: .word UNK_021D5E2C
 
 	arm_func_start WM_GetAID
 WM_GetAID: ; 0x020D7E68
 	stmdb sp!, {r4,lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020D7E98 ; =0x021D5E2C
+	ldr r1, _020D7E98 ; =UNK_021D5E2C
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
 	addne r1, r1, #0x100
@@ -61,7 +70,7 @@ WM_GetAID: ; 0x020D7E68
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020D7E98: .word 0x021D5E2C
+_020D7E98: .word UNK_021D5E2C
 
 	arm_func_start WMi_GetStatusAddress
 WMi_GetStatusAddress: ; 0x020D7E9C
@@ -71,14 +80,14 @@ WMi_GetStatusAddress: ; 0x020D7E9C
 _020D7EA8: ; 0x020D7EA8
 	cmp r0, #0x0
 	movne r0, #0x0
-	ldreq r0, _020D7EC8 ; =0x021D5E2C
+	ldreq r0, _020D7EC8 ; =UNK_021D5E2C
 	ldreq r0, [r0, #0x0]
 	ldreq r0, [r0, #0x4]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D7EC8: .word 0x021D5E2C
+_020D7EC8: .word UNK_021D5E2C
 
 	arm_func_start WmClearFifoRecvFlag
 WmClearFifoRecvFlag: ; 0x020D7ECC
@@ -95,7 +104,7 @@ _020D7EE4: .word 0x027FFF96
 WmReceiveFifo: ; 0x020D7EE8
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0xc
-	ldr r0, _020D82B0 ; =0x021D5E2C
+	ldr r0, _020D82B0 ; =UNK_021D5E2C
 	cmp r2, #0x0
 	ldr r8, [r0, #0x0]
 	mov r10, r1
@@ -212,7 +221,7 @@ _020D8088:
 	beq _020D80B8
 	mov r0, r10
 	blx r1
-	ldr r0, _020D82B8 ; =0x021D5E28
+	ldr r0, _020D82B8 ; =UNK_021D5E28
 	ldrh r0, [r0, #0x0]
 	cmp r0, #0x0
 	addeq sp, sp, #0xc
@@ -270,12 +279,12 @@ _020D8148:
 	add r3, r8, #0x100
 	andne r0, r1, r0
 	strne r0, [r8, #0x14c]
-	ldr r0, _020D82BC ; =0x021D5E78
+	ldr r0, _020D82BC ; =UNK_021D5E78
 	mov r1, #0x0
 	mov r2, #0x44
 	strh r5, [r3, #0x50]
 	bl MI_CpuFill8
-	ldr r3, _020D82BC ; =0x021D5E78
+	ldr r3, _020D82BC ; =UNK_021D5E78
 	mov r1, #0x0
 	mov r2, #0x82
 	strh r2, [r3, #0x0]
@@ -291,31 +300,31 @@ _020D8148:
 	strh r1, [r3, #0x22]
 	strh r2, [r3, #0x1a]
 	ldr r0, [sp, #0x0]
-	ldr r1, _020D82C4 ; =0x021D5E8C
+	ldr r1, _020D82C4 ; =UNK_021D5E8C
 	mov r2, #0x6
 	strh r4, [r3, #0x3c]
 	bl MI_CpuCopy8
 _020D81D8: ; 0x020D81D8
 	cmp r11, #0x0
 	beq _020D81F4
-	ldr r1, _020D82C8 ; =0x021D5E9C
+	ldr r1, _020D82C8 ; =UNK_021D5E9C
 	mov r0, r11
 	mov r2, #0x18
 	bl MIi_CpuCopy16
 	b _020D8204
 _020D81F4:
-	ldr r1, _020D82C8 ; =0x021D5E9C
+	ldr r1, _020D82C8 ; =UNK_021D5E9C
 	mov r0, #0x0
 	mov r2, #0x18
 	bl MIi_CpuClear16
 _020D8204:
 	cmp r5, #0x0
 	ldreq r1, [sp, #0x4]
-	ldr r0, _020D82BC ; =0x021D5E78
+	ldr r0, _020D82BC ; =UNK_021D5E78
 	movne r1, r9
 	cmp r5, #0x0
 	ldrne r9, [sp, #0x4]
-	ldr r5, _020D82BC ; =0x021D5E78
+	ldr r5, _020D82BC ; =UNK_021D5E78
 	strh r1, [r0, #0x40]
 	mov r4, #0x0
 	strh r9, [r5, #0x42]
@@ -356,13 +365,13 @@ _020D8268:
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 	.balign 4
-_020D82B0: .word 0x021D5E2C
+_020D82B0: .word UNK_021D5E2C
 _020D82B4: .word 0x0000FFF5
-_020D82B8: .word 0x021D5E28
-_020D82BC: .word 0x021D5E78
+_020D82B8: .word UNK_021D5E28
+_020D82BC: .word UNK_021D5E78
 _020D82C0: .word 0x0000FFFF
-_020D82C4: .word 0x021D5E8C
-_020D82C8: .word 0x021D5E9C
+_020D82C4: .word UNK_021D5E8C
+_020D82C8: .word UNK_021D5E9C
 
 	arm_func_start WMi_CheckStateEx
 WMi_CheckStateEx:
@@ -376,12 +385,12 @@ _020D82DC: ; 0x020D82DC
 	ldmneia sp!, {lr}
 	addne sp, sp, #0x10
 	bxne lr
-	ldr r0, _020D8370 ; =0x021D5E2C
+	ldr r0, _020D8370 ; =UNK_021D5E2C
 	mov r1, #0x2
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
 	bl DC_InvalidateRange
-	ldr r0, _020D8370 ; =0x021D5E2C
+	ldr r0, _020D8370 ; =UNK_021D5E2C
 	add r1, sp, #0x8
 	ldr r2, [r0, #0x0]
 	ldr r0, [sp, #0x8]
@@ -410,7 +419,7 @@ _020D8340:
 	add sp, sp, #0x10
 	bx lr
 	.balign 4
-_020D8370: .word 0x021D5E2C
+_020D8370: .word UNK_021D5E2C
 
 	arm_func_start WMi_CheckIdle
 WMi_CheckIdle:
@@ -422,12 +431,12 @@ _020D8380: ; 0x020D8380
 	addne sp, sp, #0x4
 	ldmneia sp!, {lr}
 	bxne lr
-	ldr r0, _020D83CC ; =0x021D5E2C
+	ldr r0, _020D83CC ; =UNK_021D5E2C
 	mov r1, #0x2
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
 	bl DC_InvalidateRange
-	ldr r0, _020D83CC ; =0x021D5E2C
+	ldr r0, _020D83CC ; =UNK_021D5E2C
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x4]
 	ldrh r0, [r0, #0x0]
@@ -438,26 +447,26 @@ _020D8380: ; 0x020D8380
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D83CC: .word 0x021D5E2C
+_020D83CC: .word UNK_021D5E2C
 
 	arm_func_start WMi_CheckInitialized
 WMi_CheckInitialized:
-	ldr r0, _020D83E8 ; =0x021D5E28
+	ldr r0, _020D83E8 ; =UNK_021D5E28
 	ldrh r0, [r0, #0x0]
 	cmp r0, #0x0
 	movne r0, #0x0
 	moveq r0, #0x3
 	bx lr
 	.balign 4
-_020D83E8: .word 0x021D5E28
+_020D83E8: .word UNK_021D5E28
 
 	arm_func_start WMi_GetSystemWork
 WMi_GetSystemWork: ; 0x020D83EC
-	ldr r0, _020D83F8 ; =0x021D5E2C
+	ldr r0, _020D83F8 ; =UNK_021D5E2C
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020D83F8: .word 0x021D5E2C
+_020D83F8: .word UNK_021D5E2C
 
 	arm_func_start WMi_SendCommandDirect
 WMi_SendCommandDirect:
@@ -481,7 +490,7 @@ WMi_SendCommandDirect:
 	mov r2, #0x0
 	bl PXI_SendWordByFifo
 	mov r4, r0
-	ldr r0, _020D8470 ; =0x021D5E30
+	ldr r0, _020D8470 ; =UNK_021D5E30
 	mov r1, r5
 	mov r2, #0x1
 	bl OS_SendMessage
@@ -492,7 +501,7 @@ _020D845C: ; 0x020D845C
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020D8470: .word 0x021D5E30
+_020D8470: .word UNK_021D5E30
 
 	arm_func_start WMi_SendCommand
 WMi_SendCommand:
@@ -532,7 +541,7 @@ _020D84DC:
 	mov r2, #0x0
 	bl PXI_SendWordByFifo
 	mov r4, r0
-	ldr r0, _020D8528 ; =0x021D5E30
+	ldr r0, _020D8528 ; =UNK_021D5E30
 	mov r1, r5
 	mov r2, #0x1
 	bl OS_SendMessage
@@ -545,13 +554,13 @@ _020D850C: ; 0x020D850C
 	add sp, sp, #0x10
 	bx lr
 	.balign 4
-_020D8528: .word 0x021D5E30
+_020D8528: .word UNK_021D5E30
 
 	arm_func_start WmGetCommandBuffer4Arm7
 WmGetCommandBuffer4Arm7: ; 0x020D852C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r0, _020D859C ; =0x021D5E30
+	ldr r0, _020D859C ; =UNK_021D5E30
 	add r1, sp, #0x0
 	mov r2, #0x0
 	bl OS_ReceiveMessage
@@ -571,7 +580,7 @@ _020D8544: ; 0x020D8544
 	movne r0, r1
 	ldmneia sp!, {lr}
 	bxne lr
-	ldr r0, _020D859C ; =0x021D5E30
+	ldr r0, _020D859C ; =UNK_021D5E30
 	mov r2, #0x1
 	bl OS_JamMessage
 _020D858C: ; 0x020D858C
@@ -580,17 +589,17 @@ _020D858C: ; 0x020D858C
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D859C: .word 0x021D5E30
+_020D859C: .word UNK_021D5E30
 
 	arm_func_start WMi_SetCallbackTable
 WMi_SetCallbackTable: ; 0x020D85A0
-	ldr r2, _020D85B4 ; =0x021D5E2C
+	ldr r2, _020D85B4 ; =UNK_021D5E2C
 	ldr r2, [r2, #0x0]
 	add r0, r2, r0, lsl #0x2
 	str r1, [r0, #0x18]
 	bx lr
 	.balign 4
-_020D85B4: .word 0x021D5E2C
+_020D85B4: .word UNK_021D5E2C
 
 	arm_func_start WM_Finish
 WM_Finish:
@@ -618,9 +627,9 @@ _020D85F0: ; 0x020D85F0
 	mov r0, #0xa
 	mov r1, #0x0
 	bl PXI_SetFifoRecvCallback
-	ldr r2, _020D8634 ; =0x021D5E2C
+	ldr r2, _020D8634 ; =UNK_021D5E2C
 	mov r3, #0x0
-	ldr r1, _020D8638 ; =0x021D5E28
+	ldr r1, _020D8638 ; =UNK_021D5E28
 	mov r0, r4
 	str r3, [r2, #0x0]
 	strh r3, [r1, #0x0]
@@ -630,8 +639,8 @@ _020D8628: ; 0x020D8628
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020D8634: .word 0x021D5E2C
-_020D8638: .word 0x021D5E28
+_020D8634: .word UNK_021D5E2C
+_020D8638: .word UNK_021D5E28
 
 	arm_func_start WmInitCore
 WmInitCore:
@@ -640,7 +649,7 @@ WmInitCore:
 	mov r5, r1
 	mov r7, r2
 	bl OS_DisableInterrupts
-	ldr r1, _020D881C ; =0x021D5E28
+	ldr r1, _020D881C ; =UNK_021D5E28
 	mov r4, r0
 	ldrh r1, [r1, #0x0]
 	cmp r1, #0x0
@@ -692,7 +701,7 @@ _020D86E8:
 	mov r3, r7
 	mov r2, #0x0
 	bl MI_DmaFill32
-	ldr r0, _020D8820 ; =0x021D5E2C
+	ldr r0, _020D8820 ; =UNK_021D5E2C
 	add r1, r6, #0x200
 	str r6, [r0, #0x0]
 	str r1, [r6, #0x0]
@@ -709,7 +718,7 @@ _020D86E8:
 	add r0, r0, #0x100
 	str r0, [r1, #0x10]
 	bl WmClearFifoRecvFlag
-	ldr r1, _020D8820 ; =0x021D5E2C
+	ldr r1, _020D8820 ; =UNK_021D5E2C
 	mov r3, #0x0
 	ldr r0, [r1, #0x0]
 	strh r5, [r0, #0x14]
@@ -729,13 +738,13 @@ _020D8774:
 	str r2, [r0, #0x10c]
 	cmp r3, #0x10
 	blt _020D8774
-	ldr r0, _020D8824 ; =0x021D5E30
-	ldr r1, _020D8828 ; =0x021D5E50
+	ldr r0, _020D8824 ; =UNK_021D5E30
+	ldr r1, _020D8828 ; =UNK_021D5E50
 	mov r2, #0xa
 	bl OS_InitMessageQueue
-	ldr sb, _020D882C ; =0x021D5EC0
+	ldr sb, _020D882C ; =UNK_021D5EC0
 	mov r10, #0x0
-	ldr r6, _020D8824 ; =0x021D5E30
+	ldr r6, _020D8824 ; =UNK_021D5E30
 	mov r8, #0x8000
 	mov r7, #0x2
 	mov r5, #0x1
@@ -755,7 +764,7 @@ _020D87C0:
 	ldr r1, _020D8830 ; =WmReceiveFifo
 	mov r0, #0xa
 	bl PXI_SetFifoRecvCallback
-	ldr r1, _020D881C ; =0x021D5E28
+	ldr r1, _020D881C ; =UNK_021D5E28
 	mov r2, #0x1
 	mov r0, r4
 	strh r2, [r1, #0x0]
@@ -765,11 +774,11 @@ _020D8810: ; 0x020D8810
 	ldmia sp!, {r4-r10,lr}
 	bx lr
 	.balign 4
-_020D881C: .word 0x021D5E28
-_020D8820: .word 0x021D5E2C
-_020D8824: .word 0x021D5E30
-_020D8828: .word 0x021D5E50
-_020D882C: .word 0x021D5EC0
+_020D881C: .word UNK_021D5E28
+_020D8820: .word UNK_021D5E2C
+_020D8824: .word UNK_021D5E30
+_020D8828: .word UNK_021D5E50
+_020D882C: .word UNK_021D5EC0
 _020D8830: .word WmReceiveFifo
 
 	arm_func_start WM_Init
@@ -780,7 +789,7 @@ WM_Init:
 	bl WmInitCore
 _020D8844: ; 0x020D8844
 	cmp r0, #0x0
-	ldreq r1, _020D8864 ; =0x021D5E2C
+	ldreq r1, _020D8864 ; =UNK_021D5E2C
 	moveq r2, #0x0
 	ldreq r1, [r1, #0x0]
 	streqh r2, [r1, #0x16]
@@ -788,4 +797,4 @@ _020D8844: ; 0x020D8844
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D8864: .word 0x021D5E2C
+_020D8864: .word UNK_021D5E2C

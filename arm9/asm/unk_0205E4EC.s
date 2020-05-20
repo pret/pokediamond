@@ -1,6 +1,12 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F7388
+	.extern UNK_020F73A4
+	.extern UNK_020F7398
+	.extern UNK_020F7390
+	.extern UNK_020F7380
+
 	.text
 
 	thumb_func_start FUN_0205E4EC
@@ -37,7 +43,7 @@ FUN_0205E518: ; 0x0205E518
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl FUN_020588B8
-	ldr r6, _0205E54C ; =0x020F7388
+	ldr r6, _0205E54C ; =UNK_020F7388
 _0205E538:
 	ldrb r2, [r4, #0x0]
 	add r0, r5, #0x0
@@ -50,7 +56,7 @@ _0205E538:
 _0205E548:
 	pop {r4-r6, pc}
 	nop
-_0205E54C: .word 0x020F7388
+_0205E54C: .word UNK_020F7388
 
 	thumb_func_start FUN_0205E550
 FUN_0205E550: ; 0x0205E550
@@ -303,7 +309,7 @@ FUN_0205E728: ; 0x0205E728
 	bl FUN_0205E854
 	cmp r0, #0x0
 	beq _0205E750
-	ldr r6, _0205E754 ; =0x020F7390
+	ldr r6, _0205E754 ; =UNK_020F7390
 _0205E740:
 	ldrb r2, [r4, #0x0]
 	add r0, r5, #0x0
@@ -316,7 +322,7 @@ _0205E740:
 _0205E750:
 	pop {r4-r6, pc}
 	nop
-_0205E754: .word 0x020F7390
+_0205E754: .word UNK_020F7390
 
 	thumb_func_start FUN_0205E758
 FUN_0205E758: ; 0x0205E758
@@ -649,7 +655,7 @@ FUN_0205E9C8: ; 0x0205E9C8
 	add r0, r4, #0x0
 	lsl r1, r1, #0x14
 	bl FUN_02058410
-	ldr r5, _0205EA0C ; =0x020F7398
+	ldr r5, _0205EA0C ; =UNK_020F7398
 	add r3, sp, #0x0
 	ldmia r5!, {r0-r1}
 	add r2, r3, #0x0
@@ -662,7 +668,7 @@ FUN_0205E9C8: ; 0x0205E9C8
 	add sp, #0xc
 	pop {r4-r5, pc}
 	nop
-_0205EA0C: .word 0x020F7398
+_0205EA0C: .word UNK_020F7398
 
 	thumb_func_start FUN_0205EA10
 FUN_0205EA10: ; 0x0205EA10
@@ -701,7 +707,7 @@ FUN_0205EA40: ; 0x0205EA40
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl FUN_020585B0
-	ldr r6, _0205EA60 ; =0x020F7380
+	ldr r6, _0205EA60 ; =UNK_020F7380
 	add r4, r0, #0x0
 _0205EA4C:
 	ldrb r2, [r4, #0x0]
@@ -714,7 +720,7 @@ _0205EA4C:
 	beq _0205EA4C
 	pop {r4-r6, pc}
 	nop
-_0205EA60: .word 0x020F7380
+_0205EA60: .word UNK_020F7380
 
 	thumb_func_start FUN_0205EA64
 FUN_0205EA64: ; 0x0205EA64
@@ -740,7 +746,7 @@ FUN_0205EA74: ; 0x0205EA74
 	ldrb r0, [r5, #0x2]
 	cmp r0, #0x0
 	bne _0205EAA6
-	ldr r5, _0205EAAC ; =0x020F73A4
+	ldr r5, _0205EAAC ; =UNK_020F73A4
 	add r3, sp, #0x0
 	ldmia r5!, {r0-r1}
 	add r2, r3, #0x0
@@ -754,7 +760,7 @@ _0205EAA6:
 	add sp, #0xc
 	pop {r4-r5, pc}
 	nop
-_0205EAAC: .word 0x020F73A4
+_0205EAAC: .word UNK_020F73A4
 
 	thumb_func_start FUN_0205EAB0
 FUN_0205EAB0: ; 0x0205EAB0

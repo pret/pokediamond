@@ -1,6 +1,15 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D6B14
+	.extern UNK_021D6B28
+	.extern UNK_021D6B20
+	.extern UNK_021D6B0C
+	.extern UNK_021D6B3C
+	.extern UNK_021D6B10
+	.extern UNK_021D6B38
+	.extern UNK_021D6B44
+
     .text
 
 	arm_func_start CTRDG_WriteAndVerifyAgbFlashAsync
@@ -37,14 +46,14 @@ CTRDG_VerifyAgbFlash:
 CTRDG_WriteAgbFlashSector:
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r2, _020DBF90 ; =0x021D6B14
+	ldr r2, _020DBF90 ; =UNK_021D6B14
 	ldr r2, [r2, #0x0]
 	blx r2
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020DBF90: .word 0x021D6B14
+_020DBF90: .word UNK_021D6B14
 
 	arm_func_start CTRDG_ReadAgbFlash
 CTRDG_ReadAgbFlash: ; 0x020DBF94
@@ -112,7 +121,7 @@ CTRDGi_VerifyAgbFlashCore: ; 0x020DC04C
 	stmia r4!, {r0-r3}
 	ldmia r5!, {r0-r3}
 	stmia r4!, {r0-r3}
-	ldr r0, _020DC128 ; =0x021D6B0C
+	ldr r0, _020DC128 ; =UNK_021D6B0C
 	ldr r1, [r5, #0x0]
 	ldrh r0, [r0, #0x0]
 	str r1, [r4, #0x0]
@@ -121,7 +130,7 @@ CTRDGi_VerifyAgbFlashCore: ; 0x020DC04C
 	ldr r4, [sp, #0x18]
 	bl OS_LockCartridge
 	ldr r3, _020DC12C ; =0x04000204
-	ldr r0, _020DC130 ; =0x021D6B20
+	ldr r0, _020DC130 ; =UNK_021D6B20
 	ldrh r2, [r3, #0x0]
 	ldrh r1, [r3, #0x0]
 	and r7, r2, #0x3
@@ -139,7 +148,7 @@ CTRDGi_VerifyAgbFlashCore: ; 0x020DC04C
 	mov r0, r0, lsl #0x10
 	mov r6, r0, lsr #0x10
 _020DC0D4:
-	ldr r1, _020DC130 ; =0x021D6B20
+	ldr r1, _020DC130 ; =UNK_021D6B20
 	mov r0, r5
 	ldr r1, [r1, #0x0]
 	mov r2, r4
@@ -148,7 +157,7 @@ _020DC0D4:
 	add r1, r1, #0xa000000
 	bl CTRDGi_VerifyFlashSectorCore
 	ldr r3, _020DC12C ; =0x04000204
-	ldr r1, _020DC128 ; =0x021D6B0C
+	ldr r1, _020DC128 ; =UNK_021D6B0C
 	ldrh r2, [r3, #0x0]
 	mov r4, r0
 	bic r0, r2, #0x3
@@ -161,9 +170,9 @@ _020DC0D4:
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020DC128: .word 0x021D6B0C
+_020DC128: .word UNK_021D6B0C
 _020DC12C: .word 0x04000204
-_020DC130: .word 0x021D6B20
+_020DC130: .word UNK_021D6B20
 
 	arm_func_start CTRDGi_VerifyFlashSectorCore
 CTRDGi_VerifyFlashSectorCore: ; 0x020DC134
@@ -193,7 +202,7 @@ CTRDGi_ReadAgbFlashCore: ; 0x020DC168
 	stmia r4!, {r0-r3}
 	ldmia r5!, {r0-r3}
 	stmia r4!, {r0-r3}
-	ldr r0, _020DC25C ; =0x021D6B0C
+	ldr r0, _020DC25C ; =UNK_021D6B0C
 	ldr r1, [r5, #0x0]
 	ldrh r0, [r0, #0x0]
 	str r1, [r4, #0x0]
@@ -203,7 +212,7 @@ CTRDGi_ReadAgbFlashCore: ; 0x020DC168
 	ldr r4, [sp, #0x18]
 	bl OS_LockCartridge
 	ldr r3, _020DC260 ; =0x04000204
-	ldr r0, _020DC264 ; =0x021D6B20
+	ldr r0, _020DC264 ; =UNK_021D6B20
 	ldrh r2, [r3, #0x0]
 	ldrh r1, [r3, #0x0]
 	and r8, r2, #0x3
@@ -221,7 +230,7 @@ CTRDGi_ReadAgbFlashCore: ; 0x020DC168
 	mov r0, r0, lsl #0x10
 	mov r7, r0, lsr #0x10
 _020DC1F4:
-	ldr r0, _020DC264 ; =0x021D6B20
+	ldr r0, _020DC264 ; =UNK_021D6B20
 	cmp r4, #0x0
 	ldr r0, [r0, #0x0]
 	sub r4, r4, #0x1
@@ -238,7 +247,7 @@ _020DC218:
 	bne _020DC218
 _020DC22C:
 	ldr r2, _020DC260 ; =0x04000204
-	ldr r0, _020DC25C ; =0x021D6B0C
+	ldr r0, _020DC25C ; =UNK_021D6B0C
 	ldrh r1, [r2, #0x0]
 	bic r1, r1, #0x3
 	orr r1, r1, r8
@@ -250,9 +259,9 @@ _020DC22C:
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020DC25C: .word 0x021D6B0C
+_020DC25C: .word UNK_021D6B0C
 _020DC260: .word 0x04000204
-_020DC264: .word 0x021D6B20
+_020DC264: .word UNK_021D6B20
 
 	arm_func_start CTRDGi_PollingSR1MCOMMON
 CTRDGi_PollingSR1MCOMMON: ; 0x020DC268
@@ -262,7 +271,7 @@ CTRDGi_PollingSR1MCOMMON: ; 0x020DC268
 	mov r6, r2
 	mov r5, #0x0
 	bl StartFlashTimer
-	ldr r4, _020DC318 ; =0x021D6B10
+	ldr r4, _020DC318 ; =UNK_021D6B10
 _020DC284:
 	bl CheckFlashTimer
 	mov r0, r7
@@ -307,7 +316,7 @@ _020DC304: ; 0x020DC304
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020DC318: .word 0x021D6B10
+_020DC318: .word UNK_021D6B10
 _020DC31C: .word 0x0A005555
 
 	arm_func_start CTRDGi_PollingSR512kCOMMON
@@ -318,7 +327,7 @@ CTRDGi_PollingSR512kCOMMON: ; 0x020DC320
 	mov r7, r2
 	mov r6, #0x0
 	bl StartFlashTimer
-	ldr r5, _020DC3A8 ; =0x021D6B10
+	ldr r5, _020DC3A8 ; =UNK_021D6B10
 _020DC33C:
 	mov r0, r8
 	bl CTRDGi_ReadSrFunc
@@ -332,7 +341,7 @@ _020DC33C:
 _020DC360: ; 0x020DC360
 	cmp r7, r0
 	beq _020DC390
-	ldr r0, _020DC3AC ; =0x021D6B20
+	ldr r0, _020DC3AC ; =UNK_021D6B20
 	ldr r0, [r0, #0x0]
 	ldrh r0, [r0, #0x18]
 	cmp r0, #0xc2
@@ -351,8 +360,8 @@ _020DC394: ; 0x020DC394
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020DC3A8: .word 0x021D6B10
-_020DC3AC: .word 0x021D6B20
+_020DC3A8: .word UNK_021D6B10
+_020DC3AC: .word UNK_021D6B20
 _020DC3B0: .word 0x0A005555
 
 	arm_func_start CTRDGi_ReadSrFunc
@@ -365,7 +374,7 @@ CheckFlashTimer: ; 0x020DC3BC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl OS_GetTick
-	ldr r3, _020DC420 ; =0x021D6B44
+	ldr r3, _020DC420 ; =UNK_021D6B44
 	ldr r2, _020DC424 ; =0x000082EA
 	ldr r12, [r3, #0x0]
 	ldr r3, [r3, #0x4]
@@ -376,49 +385,49 @@ CheckFlashTimer: ; 0x020DC3BC
 	mov r0, r12, lsl #0x6
 	mov r3, #0x0
 	bl _ll_udiv
-	ldr r2, _020DC428 ; =0x021D6B3C
+	ldr r2, _020DC428 ; =UNK_021D6B3C
 	ldr r3, [r2, #0x4]
 	ldr r2, [r2, #0x0]
 	cmp r3, r1
 	cmpeq r2, r0
-	ldrls r0, _020DC42C ; =0x021D6B10
+	ldrls r0, _020DC42C ; =UNK_021D6B10
 	movls r1, #0x1
 	strlsh r1, [r0, #0x0]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020DC420: .word 0x021D6B44
+_020DC420: .word UNK_021D6B44
 _020DC424: .word 0x000082EA
-_020DC428: .word 0x021D6B3C
-_020DC42C: .word 0x021D6B10
+_020DC428: .word UNK_021D6B3C
+_020DC42C: .word UNK_021D6B10
 
 	arm_func_start StartFlashTimer
 StartFlashTimer: ; 0x020DC430
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020DC47C ; =0x021D6B28
-	ldr r2, _020DC480 ; =0x021D6B10
+	ldr r1, _020DC47C ; =UNK_021D6B28
+	ldr r2, _020DC480 ; =UNK_021D6B10
 	mov r3, #0x0
 	ldr r1, [r1, #0x0]
 	strh r3, [r2, #0x0]
 	mov r0, r0, lsl #0x1
 	ldrh r1, [r1, r0]
-	ldr r0, _020DC484 ; =0x021D6B3C
+	ldr r0, _020DC484 ; =UNK_021D6B3C
 	str r1, [r0, #0x0]
 	str r3, [r0, #0x4]
 	bl OS_GetTick
-	ldr r2, _020DC488 ; =0x021D6B44
+	ldr r2, _020DC488 ; =UNK_021D6B44
 	str r0, [r2, #0x0]
 	str r1, [r2, #0x4]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020DC47C: .word 0x021D6B28
-_020DC480: .word 0x021D6B10
-_020DC484: .word 0x021D6B3C
-_020DC488: .word 0x021D6B44
+_020DC47C: .word UNK_021D6B28
+_020DC480: .word UNK_021D6B10
+_020DC484: .word UNK_021D6B3C
+_020DC488: .word UNK_021D6B44
 
 	arm_func_start CTRDGi_ReadFlashID
 CTRDGi_ReadFlashID: ; 0x020DC48C
@@ -427,7 +436,7 @@ CTRDGi_ReadFlashID: ; 0x020DC48C
 	ldr r5, _020DC590 ; =0x04000208
 	mov r0, #0x0
 	ldrh r2, [r5, #0x0]
-	ldr r1, _020DC594 ; =0x021D6B38
+	ldr r1, _020DC594 ; =UNK_021D6B38
 	ldr r4, _020DC598 ; =0x0A005555
 	strh r0, [r5, #0x0]
 	str r2, [r1, #0x0]
@@ -442,7 +451,7 @@ CTRDGi_ReadFlashID: ; 0x020DC48C
 	ldr r1, [r1, #0x0]
 	strh r1, [r5, #0x0]
 	bl StartFlashTimer
-	ldr r4, _020DC5A0 ; =0x021D6B10
+	ldr r4, _020DC5A0 ; =UNK_021D6B10
 	ldrh r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _020DC4FC
@@ -461,7 +470,7 @@ _020DC4FC:
 	orr r4, r0, r4, lsr #0x10
 	ldrh r2, [r12, #0x0]
 	mov r0, #0x0
-	ldr r1, _020DC594 ; =0x021D6B38
+	ldr r1, _020DC594 ; =UNK_021D6B38
 	strh r0, [r12, #0x0]
 	ldr r5, _020DC598 ; =0x0A005555
 	str r2, [r1, #0x0]
@@ -477,7 +486,7 @@ _020DC4FC:
 	ldr r1, [r1, #0x0]
 	strh r1, [r12, #0x0]
 	bl StartFlashTimer
-	ldr r5, _020DC5A0 ; =0x021D6B10
+	ldr r5, _020DC5A0 ; =UNK_021D6B10
 	ldrh r0, [r5, #0x0]
 	cmp r0, #0x0
 	bne _020DC580
@@ -493,10 +502,10 @@ _020DC580:
 	bx lr
 	.balign 4
 _020DC590: .word 0x04000208
-_020DC594: .word 0x021D6B38
+_020DC594: .word UNK_021D6B38
 _020DC598: .word 0x0A005555
 _020DC59C: .word 0x0A002AAA
-_020DC5A0: .word 0x021D6B10
+_020DC5A0: .word UNK_021D6B10
 _020DC5A4: .word 0x0A000001
 
 	arm_func_start CTRDGi_SetFlashBankMx

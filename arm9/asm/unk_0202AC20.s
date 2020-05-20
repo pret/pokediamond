@@ -1,6 +1,8 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_021C59D4
+
 	.text
 
 	thumb_func_start FUN_0202AC20
@@ -493,21 +495,21 @@ _0202AF6C: .word 0x000007FF
 	thumb_func_start FUN_0202AF70
 FUN_0202AF70: ; 0x0202AF70
 	push {r3, lr}
-	ldr r1, _0202AF84 ; =0x021C59D4
+	ldr r1, _0202AF84 ; =UNK_021C59D4
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
 	bne _0202AF82
 	bl FUN_0202251C
-	ldr r1, _0202AF84 ; =0x021C59D4
+	ldr r1, _0202AF84 ; =UNK_021C59D4
 	str r0, [r1, #0x0]
 _0202AF82:
 	pop {r3, pc}
 	.balign 4
-_0202AF84: .word 0x021C59D4
+_0202AF84: .word UNK_021C59D4
 
 	thumb_func_start FUN_0202AF88
 FUN_0202AF88: ; 0x0202AF88
-	ldr r0, _0202AF98 ; =0x021C59D4
+	ldr r0, _0202AF98 ; =UNK_021C59D4
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
 	beq _0202AF94
@@ -516,12 +518,12 @@ FUN_0202AF88: ; 0x0202AF88
 _0202AF94:
 	bx lr
 	nop
-_0202AF98: .word 0x021C59D4
+_0202AF98: .word UNK_021C59D4
 
 	thumb_func_start FUN_0202AF9C
 FUN_0202AF9C: ; 0x0202AF9C
 	push {r3-r5, lr}
-	ldr r4, _0202AFBC ; =0x021C59D4
+	ldr r4, _0202AFBC ; =UNK_021C59D4
 	mov r5, #0x0
 _0202AFA2:
 	ldr r0, [r4, #0x0]
@@ -538,7 +540,7 @@ _0202AFB2:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_0202AFBC: .word 0x021C59D4
+_0202AFBC: .word UNK_021C59D4
 
 	thumb_func_start FUN_0202AFC0
 FUN_0202AFC0: ; 0x0202AFC0
@@ -553,13 +555,13 @@ _0202AFCA:
 	blt _0202AFD4
 	bl ErrorHandling
 _0202AFD4:
-	ldr r0, _0202AFF8 ; =0x021C59D4
+	ldr r0, _0202AFF8 ; =UNK_021C59D4
 	sub r1, r4, #0x1
 	ldr r0, [r0, #0x0]
 	bl FUN_0202AE28
 	cmp r0, #0x1
 	bne _0202AFF4
-	ldr r0, _0202AFF8 ; =0x021C59D4
+	ldr r0, _0202AFF8 ; =UNK_021C59D4
 	sub r1, r4, #0x1
 	ldr r0, [r0, #0x0]
 	bl FUN_0202AC2C
@@ -571,13 +573,13 @@ _0202AFF4:
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
-_0202AFF8: .word 0x021C59D4
+_0202AFF8: .word UNK_021C59D4
 
 	thumb_func_start FUN_0202AFFC
 FUN_0202AFFC: ; 0x0202AFFC
 	cmp r0, #0x0
 	beq _0202B016
-	ldr r1, _0202B01C ; =0x021C59D4
+	ldr r1, _0202B01C ; =UNK_021C59D4
 	ldr r2, [r1, #0x0]
 	mov r1, #0x13
 	lsl r1, r1, #0x4
@@ -592,15 +594,15 @@ _0202B016:
 	mov r0, #0x0
 	bx lr
 	nop
-_0202B01C: .word 0x021C59D4
+_0202B01C: .word UNK_021C59D4
 
 	thumb_func_start FUN_0202B020
 FUN_0202B020: ; 0x0202B020
 	add r1, r0, #0x0
-	ldr r0, _0202B02C ; =0x021C59D4
+	ldr r0, _0202B02C ; =UNK_021C59D4
 	ldr r3, _0202B030 ; =FUN_0202AD94
 	ldr r0, [r0, #0x0]
 	bx r3
 	nop
-_0202B02C: .word 0x021C59D4
+_0202B02C: .word UNK_021C59D4
 _0202B030: .word FUN_0202AD94

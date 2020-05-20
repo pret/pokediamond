@@ -1,32 +1,36 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D548C
+	.extern UNK_021D5470
+	.extern UNK_021D5474
+
     .text
 
 	arm_func_start TP_CheckError
 TP_CheckError: ; 0x020D36C4
-	ldr r1, _020D36D4 ; =0x021D5474
+	ldr r1, _020D36D4 ; =UNK_021D5474
 	ldrh r1, [r1, #0x34]
 	and r0, r1, r0
 	bx lr
 	.balign 4
-_020D36D4: .word 0x021D5474
+_020D36D4: .word UNK_021D5474
 
 	arm_func_start TP_WaitBusy
 TP_WaitBusy: ; 0x020D36D8
-	ldr r1, _020D36EC ; =0x021D5474
+	ldr r1, _020D36EC ; =UNK_021D5474
 _020D36DC:
 	ldrh r2, [r1, #0x36]
 	ands r2, r2, r0
 	bne _020D36DC
 	bx lr
 	.balign 4
-_020D36EC: .word 0x021D5474
+_020D36EC: .word UNK_021D5474
 
 	arm_func_start TP_GetCalibratedPoint
 TP_GetCalibratedPoint: ; 0x020D36F0
 	stmdb sp!, {r4-r6,lr}
-	ldr r2, _020D3818 ; =0x021D5474
+	ldr r2, _020D3818 ; =UNK_021D5474
 	ldrh r2, [r2, #0x30]
 	cmp r2, #0x0
 	bne _020D372C
@@ -42,7 +46,7 @@ TP_GetCalibratedPoint: ; 0x020D36F0
 	bx lr
 _020D372C:
 	ldrh r3, [r1, #0x4]
-	ldr r2, _020D381C ; =0x021D548C
+	ldr r2, _020D381C ; =UNK_021D548C
 	strh r3, [r0, #0x4]
 	ldrh r3, [r1, #0x6]
 	strh r3, [r0, #0x6]
@@ -102,8 +106,8 @@ _020D37B4:
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020D3818: .word 0x021D5474
-_020D381C: .word 0x021D548C
+_020D3818: .word UNK_021D5474
+_020D381C: .word UNK_021D548C
 
 	arm_func_start TP_CalcCalibrateParam
 TP_CalcCalibrateParam:
@@ -283,18 +287,18 @@ _020D3A8C: .word 0x040002A0
 
 	arm_func_start TP_GetLatestIndexInAuto
 TP_GetLatestIndexInAuto: ; 0x020D3A90
-	ldr r0, _020D3A9C ; =0x021D5474
+	ldr r0, _020D3A9C ; =UNK_021D5474
 	ldrh r0, [r0, #0xc]
 	bx lr
 	.balign 4
-_020D3A9C: .word 0x021D5474
+_020D3A9C: .word UNK_021D5474
 
 	arm_func_start TP_GetLatestRawPointInAuto
 TP_GetLatestRawPointInAuto: ; 0x020D3AA0
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r1, #0x3
-	ldr lr, _020D3C10 ; =0x021D5474
+	ldr lr, _020D3C10 ; =UNK_021D5474
 	strh r1, [r0, #0x6]
 	ldrh r1, [lr, #0xe]
 	ldrh r3, [lr, #0xc]
@@ -304,7 +308,7 @@ TP_GetLatestRawPointInAuto: ; 0x020D3AA0
 	cmp r1, #0x1
 	bne _020D3B0C
 _020D3AD0:
-	ldr r1, _020D3C10 ; =0x021D5474
+	ldr r1, _020D3C10 ; =UNK_021D5474
 	mov r2, r3, lsl #0x3
 	ldr r1, [r1, #0x10]
 	add sp, sp, #0x4
@@ -392,7 +396,7 @@ _020D3BFC:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020D3C10: .word 0x021D5474
+_020D3C10: .word UNK_021D5474
 
 	arm_func_start TP_RequestAutoSamplingStopAsync
 TP_RequestAutoSamplingStopAsync: ; 0x020D3C14
@@ -438,12 +442,12 @@ _020D3C84:
 	ldmia sp!, {r4, lr}
 	bx lr
 _020D3CB0: .word 0x03000200
-_020D3CB4: .word 0x021D5474
+_020D3CB4: .word UNK_021D5474
 
 	arm_func_start TP_RequestAutoSamplingStartAsync
 TP_RequestAutoSamplingStartAsync: ; 0x020D3CB8
 	stmdb sp!, {r4-r6,lr}
-	ldr r4, _020D3DC0 ; =0x021D5474
+	ldr r4, _020D3DC0 ; =UNK_021D5474
 	mov r5, r1
 	mov r12, #0x0
 	mov r6, r0
@@ -513,7 +517,7 @@ _020D3D94:
 	bl OS_RestoreInterrupts
 	ldmia sp!, {r4-r6, lr}
 	bx lr
-_020D3DC0: .word 0x021D5474
+_020D3DC0: .word UNK_021D5474
 _020D3DC4: .word 0x02000100
 _020D3DC8: .word 0x01010000
 
@@ -523,7 +527,7 @@ TP_WaitRawResult: ; 0x020D3DCC
 	mov r4, r0
 	mov r0, #0x1
 	bl TP_WaitBusy
-	ldr r1, _020D3E20 ; =0x021D5474
+	ldr r1, _020D3E20 ; =UNK_021D5474
 	ldrh r0, [r1, #0x34]
 	ands r0, r0, #0x1
 	movne r0, #0x1
@@ -541,7 +545,7 @@ TP_WaitRawResult: ; 0x020D3DCC
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020D3E20: .word 0x021D5474
+_020D3E20: .word UNK_021D5474
 
 	arm_func_start TP_RequestSamplingAsync
 TP_RequestSamplingAsync: ; 0x020D3E24
@@ -586,14 +590,14 @@ _020D3E94:
 	bl OS_RestoreInterrupts
 	ldmia sp!, {r4, lr}
 	bx lr
-_20D3EC0: .word 0x021D5474
+_20D3EC0: .word UNK_021D5474
 
 	arm_func_start TP_SetCalibrateParam
 TP_SetCalibrateParam: ; 0x020D3EC4
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	movs r4, r0
-	ldreq r0, _020D3FF8 ; =0x021D5474
+	ldreq r0, _020D3FF8 ; =UNK_021D5474
 	moveq r1, #0x0
 	streqh r1, [r0, #0x30]
 	addeq sp, sp, #0x4
@@ -613,7 +617,7 @@ TP_SetCalibrateParam: ; 0x020D3EC4
 	str lr, [r1, #0x0]
 	str r12, [r1, #0x4]
 	ldrsh r2, [r4, #0x0]
-	ldr r1, _020D3FF8 ; =0x021D5474
+	ldr r1, _020D3FF8 ; =UNK_021D5474
 	str r2, [r1, #0x18]
 	ldrsh r2, [r4, #0x4]
 	str r2, [r1, #0x1c]
@@ -622,12 +626,12 @@ _020D3F30:
 	ands r1, r1, #0x8000
 	bne _020D3F30
 	ldr r2, _020D4008 ; =0x040002A0
-	ldr r1, _020D3FF8 ; =0x021D5474
+	ldr r1, _020D3FF8 ; =UNK_021D5474
 	ldr r2, [r2, #0x0]
 	str r2, [r1, #0x20]
 	b _020D3F64
 _020D3F50:
-	ldr r1, _020D3FF8 ; =0x021D5474
+	ldr r1, _020D3FF8 ; =UNK_021D5474
 	mov r2, #0x0
 	str r2, [r1, #0x18]
 	str r2, [r1, #0x1c]
@@ -646,7 +650,7 @@ _020D3F64:
 	str r5, [r1, #0x0]
 	str lr, [r1, #0x4]
 	ldrsh r2, [r4, #0x2]
-	ldr r1, _020D3FF8 ; =0x021D5474
+	ldr r1, _020D3FF8 ; =UNK_021D5474
 	str r2, [r1, #0x24]
 	ldrsh r2, [r4, #0x6]
 	str r2, [r1, #0x28]
@@ -655,26 +659,26 @@ _020D3FA8:
 	ands r1, r1, #0x8000
 	bne _020D3FA8
 	ldr r2, _020D4008 ; =0x040002A0
-	ldr r1, _020D3FF8 ; =0x021D5474
+	ldr r1, _020D3FF8 ; =UNK_021D5474
 	ldr r2, [r2, #0x0]
 	str r2, [r1, #0x2c]
 	b _020D3FDC
 _020D3FC8:
-	ldr r1, _020D3FF8 ; =0x021D5474
+	ldr r1, _020D3FF8 ; =UNK_021D5474
 	mov r2, #0x0
 	str r2, [r1, #0x24]
 	str r2, [r1, #0x28]
 	str r2, [r1, #0x2c]
 _020D3FDC:
 	bl OS_RestoreInterrupts
-	ldr r0, _020D3FF8 ; =0x021D5474
+	ldr r0, _020D3FF8 ; =UNK_021D5474
 	mov r1, #0x1
 	strh r1, [r0, #0x30]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020D3FF8: .word 0x021D5474
+_020D3FF8: .word UNK_021D5474
 _020D3FFC: .word 0x04000280
 _020D4000: .word 0x04000290
 _020D4004: .word 0x04000298
@@ -734,7 +738,7 @@ _020D40B4: .word 0x027FFC80
 TP_Init: ; 0x020D40B8
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r0, _020D413C ; =0x021D5470
+	ldr r0, _020D413C ; =UNK_021D5470
 	ldrh r1, [r0, #0x0]
 	cmp r1, #0x0
 	addne sp, sp, #0x4
@@ -743,7 +747,7 @@ TP_Init: ; 0x020D40B8
 	mov r1, #0x1
 	strh r1, [r0, #0x0]
 	bl PXI_Init
-	ldr r0, _020D4140 ; =0x021D5474
+	ldr r0, _020D4140 ; =UNK_021D5474
 	mov r1, #0x0
 	strh r1, [r0, #0x32]
 	strh r1, [r0, #0x36]
@@ -767,8 +771,8 @@ _020D411C:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,lr}
 	bx lr
-_020D413C: .word 0x021D5470 ; initial$7594
-_020D4140: .word 0x021D5474 ; tpState
+_020D413C: .word UNK_021D5470 ; initial$7594
+_020D4140: .word UNK_021D5474 ; tpState
 _020D4144: .word TPi_TpCallback
 
 	arm_func_start TPi_TpCallback
@@ -782,7 +786,7 @@ TPi_TpCallback: ; 0x020D4148
 	cmp r2, #0x0
 	mov r0, r0, lsr #0x10
 	beq _020D41AC
-	ldr r1, _020D43FC ; =0x021D5474
+	ldr r1, _020D43FC ; =UNK_021D5474
 	mov r2, #0x1
 	ldrh r4, [r1, #0x34]
 	ldr r3, [r1, #0x0]
@@ -801,7 +805,7 @@ TPi_TpCallback: ; 0x020D4148
 _020D41AC:
 	cmp r0, #0x10
 	bne _020D427C
-	ldr r1, _020D43FC ; =0x021D5474
+	ldr r1, _020D43FC ; =UNK_021D5474
 	ldrh r3, [r1, #0xc]
 	ldrh r2, [r1, #0x14]
 	add r3, r3, #0x1
@@ -811,7 +815,7 @@ _020D41AC:
 	movcs r2, #0x0
 	strcsh r2, [r1, #0xc]
 	ldr r1, _020D4400 ; =0x027FFFAA
-	ldr r2, _020D43FC ; =0x021D5474
+	ldr r2, _020D43FC ; =UNK_021D5474
 	ldrh r3, [r1, #0x0]
 	ldr r1, _020D4404 ; =0x027FFFAC
 	ldrh r12, [r2, #0xc]
@@ -959,6 +963,6 @@ _020D43EC:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020D43FC: .word 0x021D5474
+_020D43FC: .word UNK_021D5474
 _020D4400: .word 0x027FFFAA
 _020D4404: .word 0x027FFFAC

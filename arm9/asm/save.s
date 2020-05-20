@@ -1,6 +1,12 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020EE700
+	.extern UNK_020EE6D8
+	.extern UNK_020EE6E0
+	.extern UNK_021C59C8
+	.extern UNK_020EE6DC
+
 	.text
 
 	thumb_func_start FUN_0202254C
@@ -14,7 +20,7 @@ FUN_0202254C: ; 0x0202254C
 	mov r0, #0x0
 	add r1, r4, #0x0
 	bl MIi_CpuClearFast
-	ldr r0, _020225E4 ; =0x021C59C8
+	ldr r0, _020225E4 ; =UNK_021C59C8
 	str r4, [r0, #0x0]
 	bl FUN_02023570
 	str r0, [r4, #0x0]
@@ -75,7 +81,7 @@ _020225DA:
 	pop {r4, pc}
 	nop
 _020225E0: .word 0x000204A8
-_020225E4: .word 0x021C59C8
+_020225E4: .word UNK_021C59C8
 _020225E8: .word 0x00001021
 _020225EC: .word 0x00020224
 _020225F0: .word 0x00020464
@@ -84,17 +90,17 @@ _020225F4: .word 0x00020218
 	thumb_func_start FUN_020225F8
 FUN_020225F8: ; 0x020225F8
 	push {r3, lr}
-	ldr r0, _0202260C ; =0x021C59C8
+	ldr r0, _0202260C ; =UNK_021C59C8
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	bne _02022606
 	bl ErrorHandling
 _02022606:
-	ldr r0, _0202260C ; =0x021C59C8
+	ldr r0, _0202260C ; =UNK_021C59C8
 	ldr r0, [r0, #0x0]
 	pop {r3, pc}
 	.balign 4
-_0202260C: .word 0x021C59C8
+_0202260C: .word UNK_021C59C8
 
 	thumb_func_start FUN_02022610
 FUN_02022610: ; 0x02022610
@@ -397,13 +403,13 @@ FUN_0202282C: ; 0x0202282C
 
 	thumb_func_start FUN_02022830
 FUN_02022830: ; 0x02022830
-	ldr r0, _0202283C ; =0x021C59C8
+	ldr r0, _0202283C ; =UNK_021C59C8
 	mov r1, #0x1
 	ldr r0, [r0, #0x0]
 	str r1, [r0, #0xc]
 	bx lr
 	nop
-_0202283C: .word 0x021C59C8
+_0202283C: .word UNK_021C59C8
 
 	thumb_func_start FUN_02022840
 FUN_02022840: ; 0x02022840
@@ -1553,8 +1559,8 @@ _020230A8: .word 0x00020464
 FUN_020230AC: ; 0x020230AC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	ldr r0, _020230DC ; =0x020EE6DC
-	ldr r4, _020230E0 ; =0x020EE700
+	ldr r0, _020230DC ; =UNK_020EE6DC
+	ldr r4, _020230E0 ; =UNK_020EE700
 	ldr r0, [r0, #0x0]
 	cmp r5, r0
 	blt _020230BE
@@ -1575,16 +1581,16 @@ _020230BE:
 	add r0, r0, r1
 	pop {r3-r5, pc}
 	nop
-_020230DC: .word 0x020EE6DC
-_020230E0: .word 0x020EE700
+_020230DC: .word UNK_020EE6DC
+_020230E0: .word UNK_020EE700
 
 	thumb_func_start FUN_020230E4
 FUN_020230E4: ; 0x020230E4
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
-	ldr r0, _02023158 ; =0x020EE6DC
-	ldr r4, _0202315C ; =0x020EE700
+	ldr r0, _02023158 ; =UNK_020EE6DC
+	ldr r4, _0202315C ; =UNK_020EE700
 	ldr r0, [r0, #0x0]
 	mov r7, #0x0
 	str r0, [sp, #0x0]
@@ -1642,8 +1648,8 @@ _02023154:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4
-_02023158: .word 0x020EE6DC
-_0202315C: .word 0x020EE700
+_02023158: .word UNK_020EE6DC
+_0202315C: .word UNK_020EE700
 
 	thumb_func_start FUN_02023160
 FUN_02023160: ; 0x02023160
@@ -1655,7 +1661,7 @@ FUN_02023160: ; 0x02023160
 	mov r12, r0
 	add r3, r0, #0x0
 	add r6, r0, #0x0
-	ldr r0, _020231EC ; =0x020EE6DC
+	ldr r0, _020231EC ; =UNK_020EE6DC
 	ldr r4, [sp, #0x0]
 	ldr r7, [r0, #0x0]
 	add r5, r1, #0x0
@@ -1721,7 +1727,7 @@ _020231E6:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
-_020231EC: .word 0x020EE6DC
+_020231EC: .word UNK_020EE6DC
 _020231F0: .word 0x00000FFF
 
 	thumb_func_start FUN_020231F4
@@ -1734,9 +1740,9 @@ FUN_020231F4: ; 0x020231F4
 	mov r0, #0x0
 	add r1, r6, #0x0
 	lsl r2, r2, #0x10
-	ldr r4, _02023240 ; =0x020EE700
+	ldr r4, _02023240 ; =UNK_020EE700
 	bl MIi_CpuClearFast
-	ldr r0, _02023244 ; =0x020EE6DC
+	ldr r0, _02023244 ; =UNK_020EE6DC
 	mov r7, #0x0
 	ldr r0, [r0, #0x0]
 	str r0, [sp, #0x0]
@@ -1764,8 +1770,8 @@ _0202323A:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
-_02023240: .word 0x020EE700
-_02023244: .word 0x020EE6DC
+_02023240: .word UNK_020EE700
+_02023244: .word UNK_020EE6DC
 
 	thumb_func_start FUN_02023248
 FUN_02023248: ; 0x02023248
@@ -1843,13 +1849,13 @@ FUN_020232BC: ; 0x020232BC
 	add r5, r1, #0x0
 	add r6, r2, #0x0
 	bl FUN_02016444
-	ldr r0, _020233FC ; =0x020EE6D8
+	ldr r0, _020233FC ; =UNK_020EE6D8
 	ldr r0, [r0, #0x0]
 	cmp r5, r0
 	blt _020232D8
 	bl ErrorHandling
 _020232D8:
-	ldr r1, _02023400 ; =0x020EE6E0
+	ldr r1, _02023400 ; =UNK_020EE6E0
 	lsl r0, r5, #0x4
 	add r4, r1, r0
 	ldr r0, [r1, r0]
@@ -1983,8 +1989,8 @@ _020233F0:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4
-_020233FC: .word 0x020EE6D8
-_02023400: .word 0x020EE6E0
+_020233FC: .word UNK_020EE6D8
+_02023400: .word UNK_020EE6E0
 _02023404: .word 0x000204A0
 
 	thumb_func_start FUN_02023408
@@ -1992,7 +1998,7 @@ FUN_02023408: ; 0x02023408
 	push {r4-r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0x0
-	ldr r0, _02023564 ; =0x020EE6D8
+	ldr r0, _02023564 ; =UNK_020EE6D8
 	add r7, r2, #0x0
 	ldr r0, [r0, #0x0]
 	add r6, r1, #0x0
@@ -2001,7 +2007,7 @@ FUN_02023408: ; 0x02023408
 	blt _02023420
 	bl ErrorHandling
 _02023420:
-	ldr r1, _02023568 ; =0x020EE6E0
+	ldr r1, _02023568 ; =UNK_020EE6E0
 	lsl r0, r7, #0x4
 	add r4, r1, r0
 	ldr r0, [r1, r0]
@@ -2155,8 +2161,8 @@ _0202354C:
 	add sp, #0x14
 	pop {r4-r7, pc}
 	nop
-_02023564: .word 0x020EE6D8
-_02023568: .word 0x020EE6E0
+_02023564: .word UNK_020EE6D8
+_02023568: .word UNK_020EE6E0
 _0202356C: .word 0x000204A0
 
 	thumb_func_start FUN_02023570
@@ -2262,7 +2268,7 @@ _02023608:
 	bl OS_ReleaseLockID
 	cmp r5, #0x0
 	bne _02023652
-	ldr r0, _02023658 ; =0x021C59C8
+	ldr r0, _02023658 ; =UNK_021C59C8
 	ldr r0, [r0, #0x0]
 	bl FUN_02016A18
 	mov r0, #0x1
@@ -2272,16 +2278,16 @@ _02023652:
 	add sp, #0x14
 	pop {r4-r7, pc}
 	.balign 4
-_02023658: .word 0x021C59C8
+_02023658: .word UNK_021C59C8
 
 	thumb_func_start FUN_0202365C
 FUN_0202365C: ; 0x0202365C
-	ldr r0, _02023664 ; =0x021C59C8
+	ldr r0, _02023664 ; =UNK_021C59C8
 	mov r1, #0x1
 	str r1, [r0, #0x4]
 	bx lr
 	.balign 4
-_02023664: .word 0x021C59C8
+_02023664: .word UNK_021C59C8
 
 	thumb_func_start FUN_02023668
 FUN_02023668: ; 0x02023668
@@ -2319,7 +2325,7 @@ _02023684:
 	mov r1, #0x1
 	bl FUN_02023740
 _020236B2:
-	ldr r0, _020236DC ; =0x021C59C8
+	ldr r0, _020236DC ; =UNK_021C59C8
 	mov r1, #0x0
 	str r1, [r0, #0x4]
 	str r1, [sp, #0x0]
@@ -2340,14 +2346,14 @@ _020236B2:
 	add sp, #0x18
 	pop {r3-r7, pc}
 	.balign 4
-_020236DC: .word 0x021C59C8
+_020236DC: .word UNK_021C59C8
 _020236E0: .word FUN_0202365C
 
 	thumb_func_start FUN_020236E4
 FUN_020236E4: ; 0x020236E4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	ldr r0, _0202373C ; =0x021C59C8
+	ldr r0, _0202373C ; =UNK_021C59C8
 	add r4, r1, #0x0
 	ldr r0, [r0, #0x4]
 	cmp r0, #0x1
@@ -2390,7 +2396,7 @@ _02023738:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_0202373C: .word 0x021C59C8
+_0202373C: .word UNK_021C59C8
 
 	thumb_func_start FUN_02023740
 FUN_02023740: ; 0x02023740
@@ -2403,7 +2409,7 @@ FUN_02023740: ; 0x02023740
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	bl OS_ReleaseLockID
-	ldr r0, _02023768 ; =0x021C59C8
+	ldr r0, _02023768 ; =UNK_021C59C8
 	ldr r0, [r0, #0x0]
 	bl FUN_02016A18
 	mov r0, #0x1
@@ -2411,4 +2417,4 @@ FUN_02023740: ; 0x02023740
 	bl FUN_0208A0B8
 	pop {r3-r5, pc}
 	.balign 4
-_02023768: .word 0x021C59C8
+_02023768: .word UNK_021C59C8

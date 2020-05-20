@@ -1,6 +1,10 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020ECE6C
+	.extern UNK_020ECE64
+	.extern UNK_020ECE6E
+
 	.text
 
 	thumb_func_start FUN_0200AA80
@@ -1450,7 +1454,7 @@ FUN_0200B59C: ; 0x0200B59C
 	add r0, r4, #0x0
 	bl FUN_02015CE0
 	add r4, r0, #0x0
-	ldr r2, _0200B620 ; =0x020ECE64
+	ldr r2, _0200B620 ; =UNK_020ECE64
 	lsl r3, r6, #0x1
 	ldrh r2, [r2, r3]
 	ldr r3, [r5, #0x4]
@@ -1497,7 +1501,7 @@ _0200B5EE:
 _0200B61E:
 	pop {r3-r7, pc}
 	.balign 4
-_0200B620: .word 0x020ECE64
+_0200B620: .word UNK_020ECE64
 _0200B624: .word 0x0000017E
 
 	thumb_func_start FUN_0200B628
@@ -1975,7 +1979,7 @@ FUN_0200B9A8: ; 0x0200B9A8
 	push {r3-r5, lr}
 	sub sp, #0x18
 	add r4, r0, #0x0
-	ldr r0, _0200B9E4 ; =0x020ECE6E
+	ldr r0, _0200B9E4 ; =UNK_020ECE6E
 	lsl r5, r1, #0x2
 	ldrh r1, [r0, r5]
 	lsl r3, r3, #0x10
@@ -1993,7 +1997,7 @@ FUN_0200B9A8: ; 0x0200B9A8
 	ldr r1, [r4, #0x4]
 	add r0, r2, #0x0
 	ldr r2, [r1, #0x14]
-	ldr r1, _0200B9E8 ; =0x020ECE6C
+	ldr r1, _0200B9E8 ; =UNK_020ECE6C
 	ldrh r1, [r1, r5]
 	add r1, r2, r1
 	mov r2, #0x0
@@ -2002,8 +2006,8 @@ FUN_0200B9A8: ; 0x0200B9A8
 	add sp, #0x18
 	pop {r3-r5, pc}
 	.balign 4
-_0200B9E4: .word 0x020ECE6E
-_0200B9E8: .word 0x020ECE6C
+_0200B9E4: .word UNK_020ECE6E
+_0200B9E8: .word UNK_020ECE6C
 
 	thumb_func_start FUN_0200B9EC
 FUN_0200B9EC: ; 0x0200B9EC

@@ -1,6 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020ECBA8
+	.extern UNK_020ECBB0
+	.extern UNK_020ECB98
+	.extern UNK_020ECBA0
+
 	.text
 
 	thumb_func_start FUN_0200687C
@@ -164,7 +169,7 @@ _0200699C: ; jump table (using 16-bit offset)
 _020069AC:
 	bl GX_BeginLoadBGExtPltt
 	ldr r0, [sp, #0x8]
-	ldr r3, _02006A30 ; =0x020ECBB0
+	ldr r3, _02006A30 ; =UNK_020ECBB0
 	lsl r4, r4, #0x2
 	ldr r0, [r0, #0xc]
 	ldr r3, [r3, r4]
@@ -176,7 +181,7 @@ _020069AC:
 _020069C6:
 	bl GXS_BeginLoadBGExtPltt
 	ldr r0, [sp, #0x8]
-	ldr r3, _02006A30 ; =0x020ECBB0
+	ldr r3, _02006A30 ; =UNK_020ECBB0
 	lsl r4, r4, #0x2
 	ldr r0, [r0, #0xc]
 	ldr r3, [r3, r4]
@@ -188,7 +193,7 @@ _020069C6:
 _020069E0:
 	bl GX_BeginLoadOBJExtPltt
 	ldr r0, [sp, #0x8]
-	ldr r3, _02006A30 ; =0x020ECBB0
+	ldr r3, _02006A30 ; =UNK_020ECBB0
 	lsl r4, r4, #0x2
 	ldr r0, [r0, #0xc]
 	ldr r3, [r3, r4]
@@ -200,7 +205,7 @@ _020069E0:
 _020069FA:
 	bl GXS_BeginLoadOBJExtPltt
 	ldr r0, [sp, #0x8]
-	ldr r3, _02006A30 ; =0x020ECBB0
+	ldr r3, _02006A30 ; =UNK_020ECBB0
 	lsl r4, r4, #0x2
 	ldr r0, [r0, #0xc]
 	ldr r3, [r3, r4]
@@ -211,7 +216,7 @@ _020069FA:
 	b _02006A24
 _02006A14:
 	ldr r0, [sp, #0x8]
-	ldr r3, _02006A30 ; =0x020ECBB0
+	ldr r3, _02006A30 ; =UNK_020ECBB0
 	lsl r4, r4, #0x2
 	ldr r0, [r0, #0xc]
 	ldr r3, [r3, r4]
@@ -225,7 +230,7 @@ _02006A2A:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	nop
-_02006A30: .word 0x020ECBB0
+_02006A30: .word UNK_020ECBB0
 
 	thumb_func_start FUN_02006A34
 FUN_02006A34: ; 0x02006A34
@@ -255,7 +260,7 @@ _02006A60:
 	ldr r0, [r0, #0x14]
 	bl DC_FlushRange
 	ldr r0, [sp, #0x4]
-	ldr r3, _02006A88 ; =0x020ECBA0
+	ldr r3, _02006A88 ; =UNK_020ECBA0
 	lsl r5, r5, #0x2
 	ldr r0, [r0, #0x14]
 	ldr r3, [r3, r5]
@@ -270,7 +275,7 @@ _02006A80:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
-_02006A88: .word 0x020ECBA0
+_02006A88: .word UNK_020ECBA0
 
 	thumb_func_start FUN_02006A8C
 FUN_02006A8C: ; 0x02006A8C
@@ -338,7 +343,7 @@ FUN_02006AE4: ; 0x02006AE4
 	ldr r0, [sp, #0x4]
 	str r1, [r0, #0x10]
 _02006B0E:
-	ldr r4, _02006B34 ; =0x020ECBA8
+	ldr r4, _02006B34 ; =UNK_020ECBA8
 	lsl r5, r5, #0x2
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x20]
@@ -357,7 +362,7 @@ _02006B28:
 	pop {r4-r6, pc}
 	nop
 _02006B30: .word 0x00000000
-_02006B34: .word 0x020ECBA8
+_02006B34: .word UNK_020ECBA8
 
 	thumb_func_start FUN_02006B38
 FUN_02006B38: ; 0x02006B38
@@ -404,7 +409,7 @@ _02006B7C:
 	str r1, [r0, #0x8]
 _02006B88:
 	lsl r6, r5, #0x2
-	ldr r5, _02006BAC ; =0x020ECB98
+	ldr r5, _02006BAC ; =UNK_020ECB98
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x20]
 	ldr r2, [sp, #0x1c]
@@ -420,7 +425,7 @@ _02006B9E:
 	nop
 _02006BA4: .word 0x00300010
 _02006BA8: .word 0x04001000
-_02006BAC: .word 0x020ECB98
+_02006BAC: .word UNK_020ECB98
 
 	thumb_func_start FUN_02006BB0
 FUN_02006BB0: ; 0x02006BB0

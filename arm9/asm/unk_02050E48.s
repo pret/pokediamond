@@ -1,6 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F5880
+	.extern UNK_020F96DC
+	.extern gUnknown21C48B8
+	.extern UNK_020FA6E8
+
 	.text
 
 	thumb_func_start FUN_02050E48
@@ -49,10 +54,10 @@ FUN_02050E48: ; 0x02050E48
 	add r0, r6, #0x0
 	bl FUN_0202A918
 	str r0, [r4, #0x20]
-	ldr r1, _02050ECC ; =0x020F5880
+	ldr r1, _02050ECC ; =UNK_020F5880
 	add r0, r4, #0x0
 	bl FUN_0207B000
-	ldr r1, _02050ED0 ; =0x020FA6E8
+	ldr r1, _02050ED0 ; =UNK_020FA6E8
 	add r0, r5, #0x0
 	add r2, r4, #0x0
 	bl FUN_020373D4
@@ -60,8 +65,8 @@ FUN_02050E48: ; 0x02050E48
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
-_02050ECC: .word 0x020F5880
-_02050ED0: .word 0x020FA6E8
+_02050ECC: .word UNK_020F5880
+_02050ED0: .word UNK_020FA6E8
 
 	thumb_func_start FUN_02050ED4
 FUN_02050ED4: ; 0x02050ED4
@@ -175,13 +180,13 @@ _02050FA2:
 	cmp r2, #0x6
 	blt _02050FA2
 	ldr r0, [r5, #0x24]
-	ldr r1, _02050FC4 ; =0x020F96DC
+	ldr r1, _02050FC4 ; =UNK_020F96DC
 	add r2, r4, #0x0
 	bl FUN_020373D4
 	str r4, [r5, #0x4]
 	pop {r3-r5, pc}
 	nop
-_02050FC4: .word 0x020F96DC
+_02050FC4: .word UNK_020F96DC
 
 	thumb_func_start FUN_02050FC8
 FUN_02050FC8: ; 0x02050FC8
@@ -419,7 +424,7 @@ _0205116A:
 	blx r2
 	b _020517B8
 _0205118A:
-	ldr r0, _020514A4 ; =0x021C48B8
+	ldr r0, _020514A4 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #0x2
 	tst r0, r1
@@ -813,7 +818,7 @@ _0205148E:
 	str r0, [r4, #0x34]
 	b _020517B8
 	.balign 4
-_020514A4: .word 0x021C48B8
+_020514A4: .word gUnknown21C48B8
 _020514A8:
 	add r0, r4, #0x0
 	bl FUN_02051A80
@@ -1891,7 +1896,7 @@ FUN_02051D54: ; 0x02051D54
 	push {r4, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
-	ldr r0, _02051E1C ; =0x021C48B8
+	ldr r0, _02051E1C ; =gUnknown21C48B8
 	mov r1, #0x40
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -1991,7 +1996,7 @@ _02051DE0:
 	add sp, #0x8
 	pop {r4, pc}
 	nop
-_02051E1C: .word 0x021C48B8
+_02051E1C: .word gUnknown21C48B8
 _02051E20: .word 0x000005DC
 
 	thumb_func_start FUN_02051E24
@@ -2176,7 +2181,7 @@ _02051F7C:
 	bl FUN_020546C8
 	cmp r0, #0x0
 	beq _0205203A
-	ldr r0, _02052040 ; =0x021C48B8
+	ldr r0, _02052040 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -2259,7 +2264,7 @@ _0205203A:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_02052040: .word 0x021C48B8
+_02052040: .word gUnknown21C48B8
 
 	thumb_func_start FUN_02052044
 FUN_02052044: ; 0x02052044

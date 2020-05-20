@@ -1,13 +1,15 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern cardi_common
+
     .text
 
 	arm_func_start CARDi_IdentifyBackupCore
 CARDi_IdentifyBackupCore: ; 0x020D6A60
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r1, _020D6D60 ; =0x021D55C0
+	ldr r1, _020D6D60 ; =cardi_common
 	mov r5, r0
 	ldr r4, [r1, #0x0]
 	mov r1, #0x0
@@ -206,7 +208,7 @@ _020D6D38:
 	mov r1, #0x0
 	str r1, [r4, #0x4]
 	str r1, [r4, #0x18]
-	ldr r0, _020D6D60 ; =0x021D55C0
+	ldr r0, _020D6D60 ; =cardi_common
 	mov r1, #0x3
 	ldr r0, [r0, #0x0]
 	str r1, [r0, #0x0]
@@ -214,7 +216,7 @@ _020D6D38:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020D6D60: .word 0x021D55C0
+_020D6D60: .word cardi_common
 _020D6D64: .word 0x00001388
 _020D6D68: .word 0x00000BB8
 _020D6D6C: .word 0x00004268

@@ -1,6 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FD708
+	.extern UNK_020FD718
+	.extern UNK_020FD6F4
+	.extern UNK_020FD6F8
+
 	.text
 
 	thumb_func_start FUN_02088AAC
@@ -54,7 +59,7 @@ _02088AF6:
 FUN_02088AFC: ; 0x02088AFC
 	push {r3-r5, lr}
 	sub sp, #0x10
-	ldr r5, _02088B24 ; =0x020FD708
+	ldr r5, _02088B24 ; =UNK_020FD708
 	add r3, sp, #0x0
 	add r4, r0, #0x0
 	add r2, r3, #0x0
@@ -71,7 +76,7 @@ FUN_02088AFC: ; 0x02088AFC
 	add sp, #0x10
 	pop {r3-r5, pc}
 	nop
-_02088B24: .word 0x020FD708
+_02088B24: .word UNK_020FD708
 
 	thumb_func_start FUN_02088B28
 FUN_02088B28: ; 0x02088B28
@@ -102,7 +107,7 @@ FUN_02088B48: ; 0x02088B48
 FUN_02088B4C: ; 0x02088B4C
 	push {r3-r5, lr}
 	sub sp, #0x10
-	ldr r3, _02088BA0 ; =0x020FD6F8
+	ldr r3, _02088BA0 ; =UNK_020FD6F8
 	add r2, sp, #0x0
 	add r5, r0, #0x0
 	ldmia r3!, {r0-r1}
@@ -110,7 +115,7 @@ FUN_02088B4C: ; 0x02088B4C
 	ldmia r3!, {r0-r1}
 	stmia r2!, {r0-r1}
 	ldr r0, [r5, #0x10]
-	ldr r1, _02088BA4 ; =0x020FD6F4
+	ldr r1, _02088BA4 ; =UNK_020FD6F4
 	ldr r0, [r0, #0x14]
 	ldr r2, [r5, #0x0]
 	bl FUN_0206EFEC
@@ -142,8 +147,8 @@ _02088B7C:
 	add sp, #0x10
 	pop {r3-r5, pc}
 	.balign 4
-_02088BA0: .word 0x020FD6F8
-_02088BA4: .word 0x020FD6F4
+_02088BA0: .word UNK_020FD6F8
+_02088BA4: .word UNK_020FD6F4
 
 	thumb_func_start FUN_02088BA8
 FUN_02088BA8: ; 0x02088BA8
@@ -224,7 +229,7 @@ FUN_02088C3C: ; 0x02088C3C
 	sub sp, #0x18
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x10]
-	ldr r3, _02088CD8 ; =0x020FD718
+	ldr r3, _02088CD8 ; =UNK_020FD718
 	ldr r0, [r0, #0x14]
 	add r2, sp, #0x8
 	str r0, [sp, #0x0]
@@ -292,7 +297,7 @@ _02088C9A:
 	add sp, #0x18
 	pop {r3-r7, pc}
 	nop
-_02088CD8: .word 0x020FD718
+_02088CD8: .word UNK_020FD718
 
 	thumb_func_start FUN_02088CDC
 FUN_02088CDC: ; 0x02088CDC

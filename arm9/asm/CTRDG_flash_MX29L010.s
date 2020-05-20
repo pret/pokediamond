@@ -1,6 +1,12 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D6B20
+	.extern UNK_021D6B24
+	.extern UNK_021D6B0C
+	.extern UNK_021D6B38
+	.extern UNK_021D6B08
+
     .text
 
 	arm_func_start CTRDGi_WriteFlashSectorAsyncMX
@@ -96,7 +102,7 @@ CTRDGi_WriteFlashSectorCoreMX: ; 0x020DD3D0
 	stmia r4!, {r0-r3}
 	ldmia r5!, {r0-r3}
 	stmia r4!, {r0-r3}
-	ldr r0, _020DD540 ; =0x021D6B20
+	ldr r0, _020DD540 ; =UNK_021D6B20
 	ldr r1, [r5, #0x0]
 	ldr r0, [r0, #0x0]
 	str r1, [r4, #0x0]
@@ -114,11 +120,11 @@ CTRDGi_WriteFlashSectorCoreMX: ; 0x020DD3D0
 	addne sp, sp, #0x28
 	ldmneia sp!, {r4-r8,lr}
 	bxne lr
-	ldr r0, _020DD548 ; =0x021D6B0C
+	ldr r0, _020DD548 ; =UNK_021D6B0C
 	ldrh r0, [r0, #0x0]
 	bl OS_LockCartridge
 	ldr r7, _020DD54C ; =0x04000204
-	ldr r0, _020DD540 ; =0x021D6B20
+	ldr r0, _020DD540 ; =UNK_021D6B20
 	ldrh r3, [r7, #0x0]
 	ldr r2, [r0, #0x0]
 	ldrh r1, [r7, #0x0]
@@ -130,12 +136,12 @@ CTRDGi_WriteFlashSectorCoreMX: ; 0x020DD3D0
 	strh r1, [r7, #0x0]
 	and r7, r3, #0x3
 	bl CTRDGi_SetFlashBankMx
-	ldr r0, _020DD540 ; =0x021D6B20
+	ldr r0, _020DD540 ; =UNK_021D6B20
 	and r1, r5, #0xf
 	ldr r3, [r0, #0x0]
 	mov r0, r1, lsl #0x10
 	ldr r2, [r3, #0x4]
-	ldr r8, _020DD550 ; =0x021D6B08
+	ldr r8, _020DD550 ; =UNK_021D6B08
 	ldr r1, _020DD554 ; =0x04000208
 	strh r2, [r8, #0x0]
 	ldrh r3, [r3, #0x8]
@@ -145,7 +151,7 @@ CTRDGi_WriteFlashSectorCoreMX: ; 0x020DD3D0
 	mov r3, r5, lsl r3
 	strh r0, [r1, #0x0]
 	ldrh r1, [r8, #0x0]
-	ldr r0, _020DD558 ; =0x021D6B38
+	ldr r0, _020DD558 ; =UNK_021D6B38
 	add r5, r3, #0xa000000
 	str r2, [r0, #0x0]
 	cmp r1, #0x0
@@ -166,13 +172,13 @@ _020DD4C8:
 	bne _020DD4C8
 _020DD4FC:
 	ldr r3, _020DD554 ; =0x04000208
-	ldr r0, _020DD558 ; =0x021D6B38
+	ldr r0, _020DD558 ; =UNK_021D6B38
 	ldrh r1, [r3, #0x0]
 	ldr r0, [r0, #0x0]
 	ldr r2, _020DD54C ; =0x04000204
 	strh r0, [r3, #0x0]
 	ldrh r1, [r2, #0x0]
-	ldr r0, _020DD548 ; =0x021D6B0C
+	ldr r0, _020DD548 ; =UNK_021D6B0C
 	bic r1, r1, #0x3
 	orr r1, r1, r7
 	strh r1, [r2, #0x0]
@@ -183,13 +189,13 @@ _020DD4FC:
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020DD540: .word 0x021D6B20
+_020DD540: .word UNK_021D6B20
 _020DD544: .word 0x000080FF
-_020DD548: .word 0x021D6B0C
+_020DD548: .word UNK_021D6B0C
 _020DD54C: .word 0x04000204
-_020DD550: .word 0x021D6B08
+_020DD550: .word UNK_021D6B08
 _020DD554: .word 0x04000208
-_020DD558: .word 0x021D6B38
+_020DD558: .word UNK_021D6B38
 
 	arm_func_start CTRDGi_ProgramFlashByteMX
 CTRDGi_ProgramFlashByteMX: ; 0x020DD55C
@@ -205,7 +211,7 @@ CTRDGi_ProgramFlashByteMX: ; 0x020DD55C
 	mov r0, #0xa0
 	strb r0, [r12, #0x0]
 	ldrb r2, [lr, #0x0]
-	ldr r3, _020DD5B8 ; =0x021D6B24
+	ldr r3, _020DD5B8 ; =UNK_021D6B24
 	mov r0, #0x1
 	strb r2, [r1, #0x0]
 	ldrb r2, [lr, #0x0]
@@ -217,7 +223,7 @@ CTRDGi_ProgramFlashByteMX: ; 0x020DD55C
 	.balign 4
 _020DD5B0: .word 0x0A005555
 _020DD5B4: .word 0x0A002AAA
-_020DD5B8: .word 0x021D6B24
+_020DD5B8: .word UNK_021D6B24
 
 	arm_func_start CTRDGi_EraseFlashSectorCoreMX
 CTRDGi_EraseFlashSectorCoreMX: ; 0x020DD5BC
@@ -229,7 +235,7 @@ CTRDGi_EraseFlashSectorCoreMX: ; 0x020DD5BC
 	stmia r4!, {r0-r3}
 	ldmia r5!, {r0-r3}
 	stmia r4!, {r0-r3}
-	ldr r0, _020DD748 ; =0x021D6B20
+	ldr r0, _020DD748 ; =UNK_021D6B20
 	ldr r1, [r5, #0x0]
 	ldr r0, [r0, #0x0]
 	str r1, [r4, #0x0]
@@ -240,11 +246,11 @@ CTRDGi_EraseFlashSectorCoreMX: ; 0x020DD5BC
 	ldrhs r0, _020DD74C ; =0x000080FF
 	ldmcsia sp!, {r4-r11,lr}
 	bxcs lr
-	ldr r0, _020DD750 ; =0x021D6B0C
+	ldr r0, _020DD750 ; =UNK_021D6B0C
 	ldrh r0, [r0, #0x0]
 	bl OS_LockCartridge
 	ldr r5, _020DD754 ; =0x04000204
-	ldr r0, _020DD748 ; =0x021D6B20
+	ldr r0, _020DD748 ; =UNK_021D6B20
 	ldrh r3, [r5, #0x0]
 	ldr r2, [r0, #0x0]
 	ldrh r1, [r5, #0x0]
@@ -272,10 +278,10 @@ CTRDGi_EraseFlashSectorCoreMX: ; 0x020DD5BC
 	mov r4, #0x30
 	str r0, [sp, #0xc]
 _020DD684:
-	ldr r0, _020DD748 ; =0x021D6B20
+	ldr r0, _020DD748 ; =UNK_021D6B20
 	ldrh r12, [r8, #0x0]
 	ldr r0, [r0, #0x0]
-	ldr r3, _020DD75C ; =0x021D6B38
+	ldr r3, _020DD75C ; =UNK_021D6B38
 	ldrh r1, [r0, #0x8]
 	ldr r0, [sp, #0x8]
 	ldr r2, [sp, #0xc]
@@ -294,10 +300,10 @@ _020DD684:
 	strb r6, [r3, #0x0]
 	strb r4, [r1, #0x0]
 	ldrh r3, [r8, #0x0]
-	ldr r3, _020DD75C ; =0x021D6B38
+	ldr r3, _020DD75C ; =UNK_021D6B38
 	ldr r3, [r3, #0x0]
 	strh r3, [r8, #0x0]
-	ldr r3, _020DD768 ; =0x021D6B24
+	ldr r3, _020DD768 ; =UNK_021D6B24
 	ldr r3, [r3, #0x0]
 	blx r3
 	str r0, [sp, #0x4]
@@ -310,7 +316,7 @@ _020DD684:
 	beq _020DD684
 _020DD714:
 	ldr r2, _020DD754 ; =0x04000204
-	ldr r1, _020DD750 ; =0x021D6B0C
+	ldr r1, _020DD750 ; =UNK_021D6B0C
 	ldrh r0, [r2, #0x0]
 	bic r3, r0, #0x3
 	ldr r0, [sp, #0x0]
@@ -323,25 +329,25 @@ _020DD714:
 	ldmia sp!, {r4-r11,lr}
 	bx lr
 	.balign 4
-_020DD748: .word 0x021D6B20
+_020DD748: .word UNK_021D6B20
 _020DD74C: .word 0x000080FF
-_020DD750: .word 0x021D6B0C
+_020DD750: .word UNK_021D6B0C
 _020DD754: .word 0x04000204
 _020DD758: .word 0x04000208
-_020DD75C: .word 0x021D6B38
+_020DD75C: .word UNK_021D6B38
 _020DD760: .word 0x0A005555
 _020DD764: .word 0x0A002AAA
-_020DD768: .word 0x021D6B24
+_020DD768: .word UNK_021D6B24
 
 	arm_func_start CTRDGi_EraseFlashChipCoreMX
 CTRDGi_EraseFlashChipCoreMX: ; 0x020DD76C
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r0, _020DD848 ; =0x021D6B0C
+	ldr r0, _020DD848 ; =UNK_021D6B0C
 	ldrh r0, [r0, #0x0]
 	bl OS_LockCartridge
 	ldr r4, _020DD84C ; =0x04000204
-	ldr r0, _020DD850 ; =0x021D6B20
+	ldr r0, _020DD850 ; =UNK_021D6B20
 	ldrh r3, [r4, #0x0]
 	ldr r0, [r0, #0x0]
 	ldrh r1, [r4, #0x0]
@@ -352,7 +358,7 @@ CTRDGi_EraseFlashChipCoreMX: ; 0x020DD76C
 	strh r1, [r4, #0x0]
 	ldrh r4, [r0, #0x0]
 	mov r2, #0x0
-	ldr r1, _020DD858 ; =0x021D6B38
+	ldr r1, _020DD858 ; =UNK_021D6B38
 	strh r2, [r0, #0x0]
 	ldr lr, _020DD85C ; =0x0A005555
 	str r4, [r1, #0x0]
@@ -369,7 +375,7 @@ CTRDGi_EraseFlashChipCoreMX: ; 0x020DD76C
 	strb r2, [lr, #0x0]
 	ldrh r2, [r0, #0x0]
 	ldr r2, [r1, #0x0]
-	ldr r1, _020DD864 ; =0x021D6B24
+	ldr r1, _020DD864 ; =UNK_021D6B24
 	strh r2, [r0, #0x0]
 	ldr r4, [r1, #0x0]
 	mov r0, #0x3
@@ -378,7 +384,7 @@ CTRDGi_EraseFlashChipCoreMX: ; 0x020DD76C
 	and r5, r3, #0x3
 	blx r4
 	ldr r3, _020DD84C ; =0x04000204
-	ldr r1, _020DD848 ; =0x021D6B0C
+	ldr r1, _020DD848 ; =UNK_021D6B0C
 	ldrh r2, [r3, #0x0]
 	mov r4, r0
 	bic r0, r2, #0x3
@@ -391,11 +397,11 @@ CTRDGi_EraseFlashChipCoreMX: ; 0x020DD76C
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020DD848: .word 0x021D6B0C
+_020DD848: .word UNK_021D6B0C
 _020DD84C: .word 0x04000204
-_020DD850: .word 0x021D6B20
+_020DD850: .word UNK_021D6B20
 _020DD854: .word 0x04000208
-_020DD858: .word 0x021D6B38
+_020DD858: .word UNK_021D6B38
 _020DD85C: .word 0x0A005555
 _020DD860: .word 0x0A002AAA
-_020DD864: .word 0x021D6B24
+_020DD864: .word UNK_021D6B24
