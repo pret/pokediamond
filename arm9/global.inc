@@ -6733,3 +6733,7 @@
 .extern FUN_020736F4
 .extern FUN_02073AB8
 .extern FUN_02073CB4
+.extern FUN_02085644
+.extern FUN_02074340
+.extern FUN_02084810
+.extern FUN_02084DD0

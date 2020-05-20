@@ -380,6 +380,9 @@ SECTIONS {
 		unk_02072548.o (.text)
 		unk_02073710.o (.text)
 		unk_02073DA8.o (.text)
+		unk_0207550C.o (.text)
+		unk_020772F0.o (.text)
+		unk_020799E8.o (.text)
 		/* Third-party libraries */
 		unk_0208AC14.o (.text)
 		FUN_020910A4.o (.text)
