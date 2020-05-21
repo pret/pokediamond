@@ -5,12 +5,21 @@
 #ifndef POKEDIAMOND_OS_SPINLOCK_H
 #define POKEDIAMOND_OS_SPINLOCK_H
 
+#include "types.h"
+#include "syscall.h"
+
 typedef volatile struct OSLockWord {
     u32 lockFlag;
     u16 ownerID;
     u16 extension;
 } OSLockWord;
 
+static inline void OSi_WaitByLoop()
+{
+    SVC_WaitByLoop(0x1000 / 4);
+}
+
+void OS_InitLock();
 s32 OS_GetLockID(void);
 
 #endif //POKEDIAMOND_OS_SPINLOCK_H
