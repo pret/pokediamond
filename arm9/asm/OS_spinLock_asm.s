@@ -1,6 +1,5 @@
     .include "asm/macros.inc"
     .include "global.inc"
-	.extern isInitialized
 
     .text
 
@@ -147,13 +146,13 @@ _020CA204: .word OSi_FreeCartridgeBus
 
 	arm_func_start OS_LockCartridge
 OS_LockCartridge: ; 0x020CA208
-	ldr ip, _020CA21C ; =FUN_020CA358
+	ldr ip, _020CA21C ; =OSi_DoLockByWord
 	ldr r1, _020CA220 ; =0x027FFFE8
 	ldr r2, _020CA224 ; =OSi_AllocateCartridgeBus
 	mov r3, #0x1
 	bx r12
 	.balign 4
-_020CA21C: .word FUN_020CA358
+_020CA21C: .word OSi_DoLockByWord
 _020CA220: .word 0x027FFFE8
 _020CA224: .word OSi_AllocateCartridgeBus
 
@@ -252,33 +251,8 @@ _020CA338:
 
 	arm_func_start OS_TryLockByWord
 OS_TryLockByWord: ; 0x020CA348
-	ldr ip, _020CA354 ; =FUN_020CA358
+	ldr ip, _020CA354 ; =OSi_DoLockByWord
 	mov r3, #0x0
 	bx r12
 	.balign 4
-_020CA354: .word FUN_020CA358
-
-	arm_func_start FUN_020CA358
-FUN_020CA358: ; 0x020CA358
-	stmdb sp!, {r4-r8,lr}
-	mov r8, r0
-	mov r7, r1
-	mov r6, r2
-	mov r5, r3
-	bl OSi_DoTryLockByWord
-	cmp r0, #0x0
-	ldmleia sp!, {r4-r8,lr}
-	bxle lr
-	mov r4, #0x400
-_020CA380:
-	mov r0, r4
-	bl SVC_WaitByLoop
-	mov r0, r8
-	mov r1, r7
-	mov r2, r6
-	mov r3, r5
-	bl OSi_DoTryLockByWord
-	cmp r0, #0x0
-	bgt _020CA380
-	ldmia sp!, {r4-r8,lr}
-	bx lr
+_020CA354: .word OSi_DoLockByWord

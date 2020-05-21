@@ -20,6 +20,8 @@ static inline void OSi_WaitByLoop()
 }
 
 void OS_InitLock();
+s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void),
+        BOOL disableFiq);
 s32 OS_GetLockID(void);
 
 #endif //POKEDIAMOND_OS_SPINLOCK_H

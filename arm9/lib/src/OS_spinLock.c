@@ -10,6 +10,8 @@
 extern void OS_TryLockByWord(u16 param1, OSLockWord* lockp, void* func);
 extern void OS_UnlockByWord(u16 param1, OSLockWord* lockp, void* func);
 extern void MIi_CpuClear32(u32 param1, void * addr, u32 length); //not too sure about names
+extern s32 OSi_DoTryLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void),
+                               BOOL disableFiq);
 
 ARM_FUNC void OS_InitLock()
 {
@@ -43,4 +45,15 @@ ARM_FUNC void OS_InitLock()
 
     OS_UnlockByWord(0x7e, lockp, NULL);
     OS_TryLockByWord(0x7f, lockp, NULL);
+}
+
+ARM_FUNC s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void), //should be static
+                                     BOOL disableFiq)
+{
+    s32 lastLockFlag;
+    while ((lastLockFlag = OSi_DoTryLockByWord(lockId, lockp, ctrlFuncp, disableFiq)) > 0) {
+        OSi_WaitByLoop();
+    }
+
+    return lastLockFlag;
 }
