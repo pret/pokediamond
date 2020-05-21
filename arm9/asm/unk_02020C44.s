@@ -1,6 +1,11 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_021064B8
+	.extern UNK_021064C0
+	.extern UNK_021064C4
+	.extern UNK_021064BC
+
 	.text
 
 	thumb_func_start FUN_02020C44
@@ -483,7 +488,7 @@ _02020FA4:
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	beq _02020FB8
-	ldr r1, _02020FE8 ; =0x021064BC
+	ldr r1, _02020FE8 ; =UNK_021064BC
 	ldr r1, [r1, #0x0]
 	blx r1
 	cmp r0, #0x0
@@ -493,7 +498,7 @@ _02020FB8:
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
 	beq _02020FCC
-	ldr r1, _02020FE8 ; =0x021064BC
+	ldr r1, _02020FE8 ; =UNK_021064BC
 	ldr r1, [r1, #0x0]
 	blx r1
 	cmp r0, #0x0
@@ -503,7 +508,7 @@ _02020FCC:
 	ldr r0, [r4, #0xc]
 	cmp r0, #0x0
 	beq _02020FE0
-	ldr r1, _02020FEC ; =0x021064C4
+	ldr r1, _02020FEC ; =UNK_021064C4
 	ldr r1, [r1, #0x0]
 	blx r1
 	cmp r0, #0x0
@@ -514,8 +519,8 @@ _02020FE0:
 	bl FUN_0202120C
 	pop {r3-r5, pc}
 	.balign 4
-_02020FE8: .word 0x021064BC
-_02020FEC: .word 0x021064C4
+_02020FE8: .word UNK_021064BC
+_02020FEC: .word UNK_021064C4
 
 	thumb_func_start FUN_02020FF0
 FUN_02020FF0: ; 0x02020FF0
@@ -874,7 +879,7 @@ FUN_02021248: ; 0x02021248
 	add r4, r0, #0x0
 	cmp r7, #0x0
 	beq _0202127E
-	ldr r3, _020212B0 ; =0x021064B8
+	ldr r3, _020212B0 ; =UNK_021064B8
 	mov r1, #0x0
 	ldr r3, [r3, #0x0]
 	add r0, r7, #0x0
@@ -885,7 +890,7 @@ FUN_02021248: ; 0x02021248
 _0202127E:
 	cmp r6, #0x0
 	beq _02021292
-	ldr r3, _020212B0 ; =0x021064B8
+	ldr r3, _020212B0 ; =UNK_021064B8
 	add r0, r6, #0x0
 	ldr r3, [r3, #0x0]
 	mov r1, #0x1
@@ -896,7 +901,7 @@ _0202127E:
 _02021292:
 	cmp r4, #0x0
 	beq _020212AC
-	ldr r3, _020212B4 ; =0x021064C0
+	ldr r3, _020212B4 ; =UNK_021064C0
 	mov r1, #0x2
 	ldrh r2, [r5, #0x20]
 	lsl r1, r1, #0xe
@@ -911,8 +916,8 @@ _020212AC:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
-_020212B0: .word 0x021064B8
-_020212B4: .word 0x021064C0
+_020212B0: .word UNK_021064B8
+_020212B4: .word UNK_021064C0
 
 	thumb_func_start FUN_020212B8
 FUN_020212B8: ; 0x020212B8

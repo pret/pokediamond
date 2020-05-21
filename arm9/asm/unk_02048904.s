@@ -1,6 +1,10 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F46D8
+	.extern UNK_020F46E0
+	.extern gUnk021C4918
+
 	.text
 
 	thumb_func_start FUN_02048904
@@ -132,11 +136,11 @@ _020489EA:
 	ldr r0, [r0, #0x0]
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x1c
-	ldr r0, _020489F8 ; =0x021C4918
+	ldr r0, _020489F8 ; =gUnk021C4918
 	strb r1, [r0, #0x5]
 	pop {r4, pc}
 	.balign 4
-_020489F8: .word 0x021C4918
+_020489F8: .word gUnk021C4918
 
 	thumb_func_start FUN_020489FC
 FUN_020489FC: ; 0x020489FC
@@ -357,7 +361,7 @@ _02048BD8:
 	bl ErrorHandling
 _02048BE2:
 	ldr r0, [r4, #0x6c]
-	ldr r1, _02048C28 ; =0x020F46E0
+	ldr r1, _02048C28 ; =UNK_020F46E0
 	lsl r0, r0, #0x3
 	add r0, r1, r0
 	str r0, [r4, #0x70]
@@ -390,7 +394,7 @@ _02048BE2:
 _02048C24:
 	pop {r4, pc}
 	nop
-_02048C28: .word 0x020F46E0
+_02048C28: .word UNK_020F46E0
 
 	thumb_func_start FUN_02048C2C
 FUN_02048C2C: ; 0x02048C2C
@@ -2024,7 +2028,7 @@ _020498DC:
 	mov r3, #0xb
 	str r3, [sp, #0x0]
 	ldr r0, [r5, #0x8]
-	ldr r1, _02049ABC ; =0x020F46D8
+	ldr r1, _02049ABC ; =UNK_020F46D8
 	ldr r2, _02049AB8 ; =0x000003D9
 	bl FUN_02002198
 	str r0, [r4, #0x3c]
@@ -2227,7 +2231,7 @@ _02049AB2:
 	pop {r4-r6, pc}
 	.balign 4
 _02049AB8: .word 0x000003D9
-_02049ABC: .word 0x020F46D8
+_02049ABC: .word UNK_020F46D8
 _02049AC0: .word 0x000007F2
 _02049AC4: .word 0x000007D5
 _02049AC8: .word SDK_OVERLAY_MODULE_18_ID

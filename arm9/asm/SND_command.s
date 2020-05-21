@@ -1,6 +1,22 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_021D3880
+	.extern UNK_021D5360
+	.extern UNK_021D383C
+	.extern UNK_021D3854
+	.extern UNK_021D3844
+	.extern UNK_021D3B00
+	.extern UNK_021D384C
+	.extern UNK_021D3858
+	.extern UNK_021D3840
+	.extern UNK_021D3850
+	.extern UNK_021D385C
+	.extern UNK_021D4B00
+	.extern UNK_021D3848
+	.extern UNK_021D3838
+	.extern UNK_021D52E8
+
     .text
 
 	arm_func_start IsCommandAvailable
@@ -29,7 +45,7 @@ _020CECD0: .word 0x04FFF200
 AllocCommand: ; 0x020CECD4
 	stmdb sp!, {r4,lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020CED24 ; =0x021D3838
+	ldr r1, _020CED24 ; =UNK_021D3838
 	ldr r4, [r1, #0x0]
 	cmp r4, #0x0
 	bne _020CECFC
@@ -42,7 +58,7 @@ _020CECFC:
 	ldr r2, [r4, #0x0]
 	str r2, [r1, #0x0]
 	cmp r2, #0x0
-	ldreq r1, _020CED28 ; =0x021D3848
+	ldreq r1, _020CED28 ; =UNK_021D3848
 	moveq r2, #0x0
 	streq r2, [r1, #0x0]
 	bl OS_RestoreInterrupts
@@ -50,8 +66,8 @@ _020CECFC:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CED24: .word 0x021D3838
-_020CED28: .word 0x021D3848
+_020CED24: .word UNK_021D3838
+_020CED28: .word UNK_021D3848
 
 	arm_func_start RequestCommandProc
 RequestCommandProc: ; 0x020CED2C
@@ -133,7 +149,7 @@ SND_CountWaitingCommand: ; 0x020CEDFC
 SND_CountReservedCommand: ; 0x020CEE1C
 	stmdb sp!, {r4,lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020CEE58 ; =0x021D3840
+	ldr r1, _020CEE58 ; =UNK_021D3840
 	mov r4, #0x0
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
@@ -149,13 +165,13 @@ _020CEE48:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CEE58: .word 0x021D3840
+_020CEE58: .word UNK_021D3840
 
 	arm_func_start SND_CountFreeCommand
 SND_CountFreeCommand: ; 0x020CEE5C
 	stmdb sp!, {r4,lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020CEE98 ; =0x021D3838
+	ldr r1, _020CEE98 ; =UNK_021D3838
 	mov r4, #0x0
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
@@ -171,14 +187,14 @@ _020CEE88:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CEE98: .word 0x021D3838
+_020CEE98: .word UNK_021D3838
 
 	arm_func_start SND_IsFinishedCommandTag
 SND_IsFinishedCommandTag:
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl OS_DisableInterrupts
-	ldr r1, _020CEEEC ; =0x021D383C
+	ldr r1, _020CEEEC ; =UNK_021D383C
 	ldr r1, [r1, #0x0]
 	cmp r4, r1
 	bls _020CEECC
@@ -198,27 +214,27 @@ _020CEEDC:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CEEEC: .word 0x021D383C
+_020CEEEC: .word UNK_021D383C
 
 	arm_func_start SND_GetCurrentCommandTag
 SND_GetCurrentCommandTag: ; 0x020CEEF0
 	stmdb sp!, {r4,lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020CEF24 ; =0x021D3840
+	ldr r1, _020CEF24 ; =UNK_021D3840
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
-	ldreq r1, _020CEF28 ; =0x021D383C
+	ldreq r1, _020CEF28 ; =UNK_021D383C
 	ldreq r4, [r1, #0x0]
-	ldrne r1, _020CEF2C ; =0x021D3858
+	ldrne r1, _020CEF2C ; =UNK_021D3858
 	ldrne r4, [r1, #0x0]
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CEF24: .word 0x021D3840
-_020CEF28: .word 0x021D383C
-_020CEF2C: .word 0x021D3858
+_020CEF24: .word UNK_021D3840
+_020CEF28: .word UNK_021D383C
+_020CEF2C: .word UNK_021D3858
 
 	arm_func_start SND_WaitForCommandProc
 SND_WaitForCommandProc: ; 0x020CEF30
@@ -268,7 +284,7 @@ SND_FlushCommand: ; 0x020CEFC0
 	sub sp, sp, #0x4
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _020CF164 ; =0x021D3840
+	ldr r1, _020CF164 ; =UNK_021D3840
 	mov r4, r0
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x0
@@ -279,7 +295,7 @@ SND_FlushCommand: ; 0x020CEFC0
 	ldmia sp!, {r4-r9,lr}
 	bx lr
 _020CEFF8:
-	ldr r1, _020CF168 ; =0x021D3854
+	ldr r1, _020CF168 ; =UNK_021D3854
 	ldr r1, [r1, #0x0]
 	cmp r1, #0x8
 	blt _020CF03C
@@ -293,15 +309,15 @@ _020CEFF8:
 _020CF024:
 	mov r0, #0x1
 	bl SND_RecvCommandReply
-	ldr r0, _020CF168 ; =0x021D3854
+	ldr r0, _020CF168 ; =UNK_021D3854
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x8
 	bge _020CF024
 _020CF03C:
-	ldr r0, _020CF16C ; =0x021D3B00
+	ldr r0, _020CF16C ; =UNK_021D3B00
 	mov r1, #0x1800
 	bl DC_FlushRange
-	ldr r1, _020CF164 ; =0x021D3840
+	ldr r1, _020CF164 ; =UNK_021D3840
 	mov r0, #0x7
 	ldr r1, [r1, #0x0]
 	mov r2, #0x0
@@ -377,23 +393,23 @@ _020CF0EC:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r9, lr}
 	bx lr
-_020CF164: .word 0x021D3840
-_020CF168: .word 0x021D3854
-_020CF16C: .word 0x021D3B00
-_020CF170: .word 0x021D3850
-_020CF174: .word 0x021D385C
-_020CF178: .word 0x021D3858
-_020CF17C: .word 0x021D3844
+_020CF164: .word UNK_021D3840
+_020CF168: .word UNK_021D3854
+_020CF16C: .word UNK_021D3B00
+_020CF170: .word UNK_021D3850
+_020CF174: .word UNK_021D385C
+_020CF178: .word UNK_021D3858
+_020CF17C: .word UNK_021D3844
 
 	arm_func_start SND_PushCommand
 SND_PushCommand: ; 0x020CF180
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl OS_DisableInterrupts
-	ldr r2, _020CF1C0 ; =0x021D3844
+	ldr r2, _020CF1C0 ; =UNK_021D3844
 	ldr r1, [r2, #0x0]
 	cmp r1, #0x0
-	ldreq r1, _020CF1C4 ; =0x021D3840
+	ldreq r1, _020CF1C4 ; =UNK_021D3840
 	streq r4, [r2, #0x0]
 	streq r4, [r1, #0x0]
 	strne r4, [r1, #0x0]
@@ -404,8 +420,8 @@ SND_PushCommand: ; 0x020CF180
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020CF1C0: .word 0x021D3844
-_020CF1C4: .word 0x021D3840
+_020CF1C0: .word UNK_021D3844
+_020CF1C4: .word UNK_021D3840
 
 	arm_func_start SND_AllocCommand
 SND_AllocCommand:
@@ -463,7 +479,7 @@ SND_RecvCommandReply: ; 0x020CF264
 	ands r0, r4, #0x1
 	beq _020CF2C0
 	bl SNDi_GetFinishedCommandTag
-	ldr r4, _020CF380 ; =0x021D383C
+	ldr r4, _020CF380 ; =UNK_021D383C
 	ldr r1, [r4, #0x0]
 	cmp r1, r0
 	bne _020CF2E8
@@ -482,7 +498,7 @@ _020CF294:
 	b _020CF2E8
 _020CF2C0:
 	bl SNDi_GetFinishedCommandTag
-	ldr r1, _020CF380 ; =0x021D383C
+	ldr r1, _020CF380 ; =UNK_021D383C
 	ldr r1, [r1, #0x0]
 	cmp r1, r0
 	bne _020CF2E8
@@ -493,8 +509,8 @@ _020CF2DC:
 	ldmia sp!, {r4-r6, lr}
 	bx lr
 _020CF2E8:
-	ldr r0, _020CF384 ; =0x021D384C
-	ldr r2, _020CF388 ; =0x021D385C
+	ldr r0, _020CF384 ; =UNK_021D384C
+	ldr r2, _020CF388 ; =UNK_021D385C
 	ldr r3, [r0, #0x0]
 	add r1, r3, #0x1
 	ldr r4, [r2, r3, lsl #0x2]
@@ -512,16 +528,16 @@ _020CF31C:
 	cmp r0, #0x0
 	bne _020CF31C
 _020CF32C:
-	ldr r0, _020CF38C ; =0x021D3848
-	ldr r3, _020CF390 ; =0x021D3854
+	ldr r0, _020CF38C ; =UNK_021D3848
+	ldr r3, _020CF390 ; =UNK_021D3854
 	ldr r0, [r0, #0x0]
-	ldr r2, _020CF380 ; =0x021D383C
+	ldr r2, _020CF380 ; =UNK_021D383C
 	cmp r0, #0x0
 	strne r4, [r0, #0x0]
-	ldreq r0, _020CF394 ; =0x021D3838
+	ldreq r0, _020CF394 ; =UNK_021D3838
 	ldr lr, [r3, #0x0]
 	streq r4, [r0, #0x0]
-	ldr ip, _020CF38C ; =0x021D3848
+	ldr ip, _020CF38C ; =UNK_021D3848
 	sub r6, lr, #0x1
 	ldr r0, [r2, #0x0]
 	str r1, [r12, #0x0]
@@ -534,20 +550,20 @@ _020CF32C:
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020CF380: .word 0x021D383C
-_020CF384: .word 0x021D384C
-_020CF388: .word 0x021D385C
-_020CF38C: .word 0x021D3848
-_020CF390: .word 0x021D3854
-_020CF394: .word 0x021D3838
+_020CF380: .word UNK_021D383C
+_020CF384: .word UNK_021D384C
+_020CF388: .word UNK_021D385C
+_020CF38C: .word UNK_021D3848
+_020CF390: .word UNK_021D3854
+_020CF394: .word UNK_021D3838
 
 	arm_func_start SND_CommandInit
 SND_CommandInit: ; 0x020CF398
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x4
 	bl InitPXI
-	ldr r3, _020CF478 ; =0x021D3B00
-	ldr r0, _020CF47C ; =0x021D3838
+	ldr r3, _020CF478 ; =UNK_021D3B00
+	ldr r0, _020CF47C ; =UNK_021D3838
 	mov r4, #0x0
 	str r3, [r0, #0x0]
 	mov r1, r3
@@ -558,20 +574,20 @@ _020CF3BC:
 	cmp r4, #0xff
 	str r2, [r3], #0x18
 	blt _020CF3BC
-	ldr r7, _020CF480 ; =0x021D4B00
+	ldr r7, _020CF480 ; =UNK_021D4B00
 	mov r10, #0x0
-	ldr r5, _020CF484 ; =0x021D3840
-	ldr r4, _020CF488 ; =0x021D3844
-	ldr lr, _020CF48C ; =0x021D3854
-	ldr ip, _020CF490 ; =0x021D384C
-	ldr r3, _020CF494 ; =0x021D3850
-	ldr r1, _020CF498 ; =0x021D383C
-	ldr sb, _020CF49C ; =0x021D52E8
-	ldr r6, _020CF4A0 ; =0x021D3848
-	ldr r2, _020CF4A4 ; =0x021D3858
+	ldr r5, _020CF484 ; =UNK_021D3840
+	ldr r4, _020CF488 ; =UNK_021D3844
+	ldr lr, _020CF48C ; =UNK_021D3854
+	ldr ip, _020CF490 ; =UNK_021D384C
+	ldr r3, _020CF494 ; =UNK_021D3850
+	ldr r1, _020CF498 ; =UNK_021D383C
+	ldr sb, _020CF49C ; =UNK_021D52E8
+	ldr r6, _020CF4A0 ; =UNK_021D3848
+	ldr r2, _020CF4A4 ; =UNK_021D3858
 	mov r8, #0x1
-	ldr r0, _020CF4A8 ; =0x021D3880
-	ldr fp, _020CF4AC ; =0x021D5360
+	ldr r0, _020CF4A8 ; =UNK_021D3880
+	ldr fp, _020CF4AC ; =UNK_021D5360
 	str r9, [r6, #0x0]
 	str r10, [r7, #0x7e8]
 	str r10, [r5, #0x0]
@@ -601,17 +617,17 @@ _020CF43C:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r11, lr}
 	bx lr
-_020CF478: .word 0x021D3B00
-_020CF47C: .word 0x021D3838
-_020CF480: .word 0x021D4B00
-_020CF484: .word 0x021D3840
-_020CF488: .word 0x021D3844
-_020CF48C: .word 0x021D3854
-_020CF490: .word 0x021D384C
-_020CF494: .word 0x021D3850
-_020CF498: .word 0x021D383C
-_020CF49C: .word 0x021D52E8
-_020CF4A0: .word 0x021D3848
-_020CF4A4: .word 0x021D3858
-_020CF4A8: .word 0x021D3880
-_020CF4AC: .word 0x021D5360
+_020CF478: .word UNK_021D3B00
+_020CF47C: .word UNK_021D3838
+_020CF480: .word UNK_021D4B00
+_020CF484: .word UNK_021D3840
+_020CF488: .word UNK_021D3844
+_020CF48C: .word UNK_021D3854
+_020CF490: .word UNK_021D384C
+_020CF494: .word UNK_021D3850
+_020CF498: .word UNK_021D383C
+_020CF49C: .word UNK_021D52E8
+_020CF4A0: .word UNK_021D3848
+_020CF4A4: .word UNK_021D3858
+_020CF4A8: .word UNK_021D3880
+_020CF4AC: .word UNK_021D5360

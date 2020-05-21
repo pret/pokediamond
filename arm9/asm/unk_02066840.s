@@ -1,6 +1,9 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020ECAC4
+	.extern UNK_020ECAC0
+
 	.text
 
 	thumb_func_start FUN_02066840
@@ -33,12 +36,12 @@ FUN_02066840: ; 0x02066840
 	add r1, r7, #0x0
 	add r1, #0xbc
 	str r0, [r1, #0x0]
-	ldr r0, _02066970 ; =0x020ECAC0
+	ldr r0, _02066970 ; =UNK_020ECAC0
 	ldrb r1, [r0, #0x0]
 	add r0, r7, #0x0
 	add r0, #0xb8
 	strb r1, [r0, #0x0]
-	ldr r0, _02066974 ; =0x020ECAC4
+	ldr r0, _02066974 ; =UNK_020ECAC4
 	ldrb r1, [r0, #0x0]
 	add r0, r7, #0x0
 	add r0, #0xb9
@@ -141,5 +144,5 @@ _0206696C:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
-_02066970: .word 0x020ECAC0
-_02066974: .word 0x020ECAC4
+_02066970: .word UNK_020ECAC0
+_02066974: .word UNK_020ECAC4

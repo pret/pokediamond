@@ -1,13 +1,17 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D6B54
+	.extern UNK_021D6F78
+	.extern UNK_021D6B50
+
 	.text
 
 	arm_func_start CTRDGi_SetTask
 CTRDGi_SetTask: ; 0x020DD9FC
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
-	ldr r3, _020DDAA8 ; =0x021D6B50
+	ldr r3, _020DDAA8 ; =UNK_021D6B50
 	mov r7, r0
 	mov r4, r1
 	mov r6, r2
@@ -18,7 +22,7 @@ _020DDA1C: ; 0x020DDA1C
 	bne _020DDA28
 	bl OS_Terminate
 _020DDA28:
-	ldr r0, _020DDAAC ; =0x021D6B54
+	ldr r0, _020DDAAC ; =UNK_021D6B54
 	ldrb r0, [r0, #0x22]
 	cmp r0, #0x0
 	beq _020DDA3C
@@ -31,11 +35,11 @@ _020DDA3C:
 	add r1, r5, #0xc4
 	cmp r7, r1
 	mov r4, r0
-	ldreq r0, _020DDAA8 ; =0x021D6B50
+	ldreq r0, _020DDAA8 ; =UNK_021D6B50
 	str r6, [r7, #0x4]
 	moveq r1, #0x0
 	streq r1, [r0, #0x0]
-	ldr ip, _020DDAAC ; =0x021D6B54
+	ldr ip, _020DDAAC ; =UNK_021D6B54
 	ldmia r7!, {r0-r3}
 	mov r6, r12
 	stmia r12!, {r0-r3}
@@ -52,15 +56,15 @@ _020DDA3C:
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020DDAA8: .word 0x021D6B50
-_020DDAAC: .word 0x021D6B54
+_020DDAA8: .word UNK_021D6B50
+_020DDAAC: .word UNK_021D6B54
 
 	arm_func_start CTRDGi_TaskThread
 CTRDGi_TaskThread: ; 0x020DDAB0
 	stmdb sp!, {r4-r10,lr}
 	sub sp, sp, #0x28
-	ldr r6, _020DDB94 ; =0x021D6B54
-	ldr r5, _020DDB98 ; =0x021D6B50
+	ldr r6, _020DDB94 ; =UNK_021D6B54
+	ldr r5, _020DDB98 ; =UNK_021D6B50
 	mov r4, r0
 	add r9, sp, #0x0
 	mov r8, #0x0
@@ -121,8 +125,8 @@ _020DDB84:
 	ldmia sp!, {r4-r10,lr}
 	bx lr
 	.balign 4
-_020DDB94: .word 0x021D6B54
-_020DDB98: .word 0x021D6B50
+_020DDB94: .word UNK_021D6B54
+_020DDB98: .word UNK_021D6B50
 
 	arm_func_start CTRDGi_InitTaskInfo
 CTRDGi_InitTaskInfo:
@@ -135,14 +139,14 @@ _020DDBAC: .word MI_CpuFill8
 
 	arm_func_start CTRDGi_IsTaskAvailable
 CTRDGi_IsTaskAvailable:
-	ldr r0, _020DDBC8 ; =0x021D6B50
+	ldr r0, _020DDBC8 ; =UNK_021D6B50
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	movne r0, #0x1
 	moveq r0, #0x0
 	bx lr
 	.balign 4
-_020DDBC8: .word 0x021D6B50
+_020DDBC8: .word UNK_021D6B50
 
 	arm_func_start CTRDGi_InitTaskThread
 CTRDGi_InitTaskThread: ; 0x020DDBCC
@@ -150,7 +154,7 @@ CTRDGi_InitTaskThread: ; 0x020DDBCC
 	sub sp, sp, #0xc
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _020DDC4C ; =0x021D6B50
+	ldr r1, _020DDC4C ; =UNK_021D6B50
 	mov r4, r0
 	ldr r0, [r1, #0x0]
 	cmp r0, #0x0
@@ -158,14 +162,14 @@ CTRDGi_InitTaskThread: ; 0x020DDBCC
 	add r0, r5, #0xc4
 	str r5, [r1, #0x0]
 	bl CTRDGi_InitTaskInfo
-	ldr r0, _020DDC50 ; =0x021D6B54
+	ldr r0, _020DDC50 ; =UNK_021D6B54
 	bl CTRDGi_InitTaskInfo
 _020DDC04: ; 0x020DDC04
 	mov r0, #0x0
 	str r0, [r5, #0xc0]
 	mov r2, #0x400
 	ldr r1, _020DDC54 ; =CTRDGi_TaskThread
-	ldr r3, _020DDC58 ; =0x021D6F78
+	ldr r3, _020DDC58 ; =UNK_021D6F78
 	mov r0, r5
 	str r2, [sp, #0x0]
 	mov r2, #0x14
@@ -181,7 +185,7 @@ _020DDC38:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020DDC4C: .word 0x021D6B50
-_020DDC50: .word 0x021D6B54
+_020DDC4C: .word UNK_021D6B50
+_020DDC50: .word UNK_021D6B54
 _020DDC54: .word CTRDGi_TaskThread
-_020DDC58: .word 0x021D6F78
+_020DDC58: .word UNK_021D6F78

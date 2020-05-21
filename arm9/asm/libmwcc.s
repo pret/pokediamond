@@ -1,5 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
+	.extern UNK_021D74A8
+
 	.section .text
 	.balign 4, 0
 
@@ -756,7 +758,7 @@ _020EA580:
 _020EA58C:
 	ldr r2, _020EA5AC ; =0x7FF80000
 	orr r1, r1, r2
-	ldr r3, _020EA5B0 ; =0x021D74A8
+	ldr r3, _020EA5B0 ; =UNK_021D74A8
 	mov r4, #0x21
 	str r4, [r3, #0x0]
 	ldmia sp!, {r4-r6,lr}
@@ -764,7 +766,7 @@ _020EA58C:
 	.balign 4
 _020EA5A8: .word 0x7FF00000
 _020EA5AC: .word 0x7FF80000
-_020EA5B0: .word 0x021D74A8
+_020EA5B0: .word UNK_021D74A8
 
 	arm_func_start _drsb
 _drsb: ; 0x020EA5B4

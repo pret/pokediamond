@@ -1,26 +1,29 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D54B0
+	.extern UNK_021D54AC
+
 	.text
 
 	arm_func_start MicWaitBusy
 MicWaitBusy: ; 0x020D4408
-	ldr ip, _020D441C ; =0x021D54B0
+	ldr ip, _020D441C ; =UNK_021D54B0
 _020D440C:
 	ldr r0, [r12, #0x0]
 	cmp r0, #0x1
 	beq _020D440C
 	bx lr
 	.balign 4
-_020D441C: .word 0x021D54B0
+_020D441C: .word UNK_021D54B0
 
 	arm_func_start MicGetResultCallback
 MicGetResultCallback: ; 0x020D4420
-	ldr r1, _020D442C ; =0x021D54B0
+	ldr r1, _020D442C ; =UNK_021D54B0
 	str r0, [r1, #0xc]
 	bx lr
 	.balign 4
-_020D442C: .word 0x021D54B0
+_020D442C: .word UNK_021D54B0
 
 	arm_func_start MicStopAutoSampling
 MicStopAutoSampling:
@@ -142,8 +145,8 @@ MicCommonCallback: ; 0x020D45C8
 	mov r4, r1
 	cmp r2, #0x0
 	beq _020D4610
-	ldr r0, _020D4700 ; =0x021D54B0
-	ldr r2, _020D4700 ; =0x021D54B0
+	ldr r0, _020D4700 ; =UNK_021D54B0
+	ldr r2, _020D4700 ; =UNK_021D54B0
 	ldr r1, [r0, #0x0]
 	ldr r12, [r2, #0x4]
 	cmp r1, #0x0
@@ -192,7 +195,7 @@ _020D4670:
 _020D4674:
 	cmp r2, #0x51
 	bne _020D46A0
-	ldr r1, _020D4700 ; =0x021D54B0
+	ldr r1, _020D4700 ; =UNK_021D54B0
 	ldr r2, [r1, #0x10]
 	cmp r2, #0x0
 	ldmeqia sp!, {r4,lr}
@@ -204,19 +207,19 @@ _020D4674:
 _020D46A0:
 	cmp r2, #0x40
 	bne _020D46C0
-	ldr r1, _020D4700 ; =0x021D54B0
+	ldr r1, _020D4700 ; =UNK_021D54B0
 	ldr r2, [r1, #0x18]
 	cmp r2, #0x0
 	ldrne r1, _020D4704 ; =0x027FFF94
 	ldrneh r1, [r1, #0x0]
 	strneh r1, [r2, #0x0]
 _020D46C0:
-	ldr r1, _020D4700 ; =0x021D54B0
+	ldr r1, _020D4700 ; =UNK_021D54B0
 	ldr r2, [r1, #0x0]
 	cmp r2, #0x0
 	movne r2, #0x0
 	strne r2, [r1, #0x0]
-	ldr r2, _020D4700 ; =0x021D54B0
+	ldr r2, _020D4700 ; =UNK_021D54B0
 	ldr r4, [r2, #0x4]
 	cmp r4, #0x0
 	ldmeqia sp!, {r4,lr}
@@ -228,7 +231,7 @@ _020D46C0:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020D4700: .word 0x021D54B0
+_020D4700: .word UNK_021D54B0
 _020D4704: .word 0x027FFF94
 
 	arm_func_start MIC_GetLastSamplingAddress
@@ -246,20 +249,20 @@ MIC_StopAutoSampling: ; 0x020D4718
 	ldr r0, _020D4754 ; =MicGetResultCallback
 	mov r1, #0x0
 	bl MIC_StopAutoSamplingAsync
-	ldr r1, _020D4758 ; =0x021D54B0
+	ldr r1, _020D4758 ; =UNK_021D54B0
 	cmp r0, #0x0
 	str r0, [r1, #0xc]
 	bne _020D4740
 	bl MicWaitBusy
 _020D4740:
-	ldr r0, _020D4758 ; =0x021D54B0
+	ldr r0, _020D4758 ; =UNK_021D54B0
 	ldr r0, [r0, #0xc]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
 _020D4754: .word MicGetResultCallback
-_020D4758: .word 0x021D54B0
+_020D4758: .word UNK_021D54B0
 
 	arm_func_start MIC_StopAutoSamplingAsync
 MIC_StopAutoSamplingAsync: ; 0x020D475C
@@ -268,7 +271,7 @@ MIC_StopAutoSamplingAsync: ; 0x020D475C
 	mov r5, r0
 	mov r4, r1
 	bl OS_DisableInterrupts
-	ldr r1, _020D47C8 ; =0x021D54B0
+	ldr r1, _020D47C8 ; =UNK_021D54B0
 	ldr r2, [r1, #0x0]
 	cmp r2, #0x0
 	beq _020D4794
@@ -281,7 +284,7 @@ _020D4794:
 	mov r2, #0x1
 	str r2, [r1, #0x0]
 	bl OS_RestoreInterrupts
-	ldr r0, _020D47C8 ; =0x021D54B0
+	ldr r0, _020D47C8 ; =UNK_021D54B0
 	str r5, [r0, #0x4]
 	str r4, [r0, #0x8]
 	bl MicStopAutoSampling
@@ -292,7 +295,7 @@ _020D47B0:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5, lr}
 	bx lr
-_020D47C8: .word 0x021D54B0
+_020D47C8: .word UNK_021D54B0
 
 	arm_func_start MIC_StartAutoSampling
 MIC_StartAutoSampling: ; 0x020D47CC
@@ -301,20 +304,20 @@ MIC_StartAutoSampling: ; 0x020D47CC
 	ldr r1, _020D4808 ; =MicGetResultCallback
 	mov r2, #0x0
 	bl MIC_StartAutoSamplingAsync
-	ldr r1, _020D480C ; =0x021D54B0
+	ldr r1, _020D480C ; =UNK_021D54B0
 	cmp r0, #0x0
 	str r0, [r1, #0xc]
 	bne _020D47F4
 	bl MicWaitBusy
 _020D47F4:
-	ldr r0, _020D480C ; =0x021D54B0
+	ldr r0, _020D480C ; =UNK_021D54B0
 	ldr r0, [r0, #0xc]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
 _020D4808: .word MicGetResultCallback
-_020D480C: .word 0x021D54B0
+_020D480C: .word UNK_021D54B0
 
 	arm_func_start MIC_StartAutoSamplingAsync
 MIC_StartAutoSamplingAsync: ; 0x020D4810
@@ -419,7 +422,7 @@ _020D4928:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,lr}
 	bx lr
-_020D497C: .word 0x021D54B0
+_020D497C: .word UNK_021D54B0
 
 	arm_func_start MIC_DoSamplingAsync
 MIC_DoSamplingAsync: ; 0x020D4980
@@ -485,19 +488,19 @@ _020D4A1C:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r7,lr}
 	bx lr
-_020D4A58: .word 0x021D54B0
+_020D4A58: .word UNK_021D54B0
 
 	arm_func_start MIC_Init
 MIC_Init: ; 0x020D4A5C
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r1, _020D4AD8 ; =0x021D54AC
+	ldr r1, _020D4AD8 ; =UNK_021D54AC
 	ldrh r0, [r1, #0x0]
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r5,lr}
 	bxne lr
-	ldr r0, _020D4ADC ; =0x021D54B0
+	ldr r0, _020D4ADC ; =UNK_021D54B0
 	mov r2, #0x0
 	mov r3, #0x1
 	strh r3, [r1, #0x0]
@@ -522,7 +525,7 @@ _020D4AAC:
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5, lr}
 	bx lr
-_020D4AD8: .word 0x021D54AC
-_020D4ADC: .word 0x021D54B0
+_020D4AD8: .word UNK_021D54AC
+_020D4ADC: .word UNK_021D54B0
 _020D4AE0: .word 0x027FFF90
 _020D4AE4: .word MicCommonCallback

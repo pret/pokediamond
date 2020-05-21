@@ -1,6 +1,9 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_02105CD8
+	.extern UNK_020EEA7C
+
 	.text
 
 	thumb_func_start FUN_02029FB0
@@ -84,7 +87,7 @@ FUN_0202A028: ; 0x0202A028
 	push {r3, lr}
 	cmp r0, #0x2c
 	bge _0202A03E
-	ldr r1, _0202A05C ; =0x02105CD8
+	ldr r1, _0202A05C ; =UNK_02105CD8
 	ldrb r0, [r1, r0]
 	cmp r0, #0x0
 	beq _0202A03A
@@ -96,7 +99,7 @@ _0202A03A:
 _0202A03E:
 	cmp r0, #0x79
 	bge _0202A052
-	ldr r1, _0202A05C ; =0x02105CD8
+	ldr r1, _0202A05C ; =UNK_02105CD8
 	ldrb r0, [r1, r0]
 	cmp r0, #0x0
 	beq _0202A04E
@@ -110,7 +113,7 @@ _0202A052:
 	mov r0, #0x0
 	pop {r3, pc}
 	nop
-_0202A05C: .word 0x02105CD8
+_0202A05C: .word UNK_02105CD8
 _0202A060: .word 0x3B9AC9FF
 _0202A064: .word 0x000F423F
 _0202A068: .word 0x0000FFFF
@@ -119,11 +122,11 @@ _0202A06C: .word 0x0000270F
 	thumb_func_start FUN_0202A070
 FUN_0202A070: ; 0x0202A070
 	lsl r1, r0, #0x1
-	ldr r0, _0202A078 ; =0x020EEA7C
+	ldr r0, _0202A078 ; =UNK_020EEA7C
 	ldrh r0, [r0, r1]
 	bx lr
 	.balign 4
-_0202A078: .word 0x020EEA7C
+_0202A078: .word UNK_020EEA7C
 
 	thumb_func_start FUN_0202A07C
 FUN_0202A07C: ; 0x0202A07C

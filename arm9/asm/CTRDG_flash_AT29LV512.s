@@ -1,6 +1,14 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_0210400C
+	.extern UNK_021D6B20
+	.extern UNK_021D6B24
+	.extern UNK_021D6B0C
+	.extern UNK_021D6B38
+	.extern UNK_02104048
+	.extern UNK_021D6B08
+
     .text
 
 	arm_func_start CTRDGi_WriteFlashSectorAsyncAT
@@ -162,16 +170,16 @@ CTRDGi_WriteFlash4KBCoreAT: ; 0x020DC780
 	ldrhs r0, _020DC85C ; =0x000080FF
 	ldmcsia sp!, {r4-r9,lr}
 	bxcs lr
-	ldr r1, _020DC860 ; =0x0210400C
+	ldr r1, _020DC860 ; =UNK_0210400C
 	mov r0, r0, lsl #0x15
 	ldr r1, [r1, #0x24]
-	ldr r4, _020DC864 ; =0x021D6B08
+	ldr r4, _020DC864 ; =UNK_021D6B08
 	mov r8, r0, lsr #0x10
 	strh r1, [r4, #0x0]
 	ldrh r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _020DC84C
-	ldr r0, _020DC868 ; =0x02104048
+	ldr r0, _020DC868 ; =UNK_02104048
 	ldr r6, [r0, #0x24]
 	mov r5, #0x2
 _020DC7F4:
@@ -206,9 +214,9 @@ _020DC84C:
 	bx lr
 	.balign 4
 _020DC85C: .word 0x000080FF
-_020DC860: .word 0x0210400C
-_020DC864: .word 0x021D6B08
-_020DC868: .word 0x02104048
+_020DC860: .word UNK_0210400C
+_020DC864: .word UNK_021D6B08
+_020DC868: .word UNK_02104048
 
 	arm_func_start CTRDGi_WriteFlashSectorCoreAT
 CTRDGi_WriteFlashSectorCoreAT: ; 0x020DC86C
@@ -220,19 +228,19 @@ CTRDGi_WriteFlashSectorCoreAT: ; 0x020DC86C
 	stmia r4!, {r0-r3}
 	ldmia r5!, {r0-r3}
 	stmia r4!, {r0-r3}
-	ldr r0, _020DC984 ; =0x021D6B0C
+	ldr r0, _020DC984 ; =UNK_021D6B0C
 	ldr r1, [r5, #0x0]
 	ldrh r0, [r0, #0x0]
 	str r1, [r4, #0x0]
 	ldr r4, [sp, #0xc]
 	bl OS_LockCartridge
 	ldr r5, _020DC988 ; =0x04000204
-	ldr r1, _020DC98C ; =0x021D6B20
+	ldr r1, _020DC98C ; =UNK_021D6B20
 	ldrh r0, [r5, #0x0]
 	ldr r1, [r1, #0x0]
 	ldrh r2, [r5, #0x0]
 	ldr r3, [r1, #0x10]
-	ldr r1, _020DC990 ; =0x02104048
+	ldr r1, _020DC990 ; =UNK_02104048
 	bic r2, r2, #0x3
 	orr r2, r2, r3
 	strh r2, [r5, #0x0]
@@ -263,7 +271,7 @@ _020DC91C:
 	bne _020DC91C
 _020DC92C:
 	ldr ip, _020DC994 ; =0x04000208
-	ldr r3, _020DC9A0 ; =0x021D6B24
+	ldr r3, _020DC9A0 ; =UNK_021D6B24
 	ldrh r0, [r12, #0x0]
 	sub r1, r1, #0x1
 	mov r0, #0x1
@@ -272,7 +280,7 @@ _020DC92C:
 	ldr r3, [r3, #0x0]
 	blx r3
 	ldr r3, _020DC988 ; =0x04000204
-	ldr r1, _020DC984 ; =0x021D6B0C
+	ldr r1, _020DC984 ; =UNK_021D6B0C
 	ldrh r2, [r3, #0x0]
 	mov r4, r0
 	bic r0, r2, #0x3
@@ -285,14 +293,14 @@ _020DC92C:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020DC984: .word 0x021D6B0C
+_020DC984: .word UNK_021D6B0C
 _020DC988: .word 0x04000204
-_020DC98C: .word 0x021D6B20
-_020DC990: .word 0x02104048
+_020DC98C: .word UNK_021D6B20
+_020DC990: .word UNK_02104048
 _020DC994: .word 0x04000208
 _020DC998: .word 0x0A005555
 _020DC99C: .word 0x0A002AAA
-_020DC9A0: .word 0x021D6B24
+_020DC9A0: .word UNK_021D6B24
 
 	arm_func_start CTRDGi_EraseFlash4KBCoreAT
 CTRDGi_EraseFlash4KBCoreAT: ; 0x020DC9A4
@@ -358,9 +366,9 @@ CTRDGi_EraseFlashSectorCoreAT: ; 0x020DCA58
 	ldmia r5!, {r0-r3}
 	stmia r4!, {r0-r3}
 	ldr r0, [r5, #0x0]
-	ldr r1, _020DCB80 ; =0x02104048
+	ldr r1, _020DCB80 ; =UNK_02104048
 	str r0, [r4, #0x0]
-	ldr r0, _020DCB84 ; =0x021D6B0C
+	ldr r0, _020DCB84 ; =UNK_021D6B0C
 	ldrh r2, [sp, #0x20]
 	ldrh r1, [r1, #0x28]
 	ldrh r0, [r0, #0x0]
@@ -368,7 +376,7 @@ CTRDGi_EraseFlashSectorCoreAT: ; 0x020DCA58
 	add r5, r1, #0xa000000
 	bl OS_LockCartridge
 	ldr r4, _020DCB88 ; =0x04000204
-	ldr r1, _020DCB8C ; =0x021D6B20
+	ldr r1, _020DCB8C ; =UNK_021D6B20
 	ldrh r0, [r4, #0x0]
 	ldr r2, [r1, #0x0]
 	ldrh r1, [r4, #0x0]
@@ -388,7 +396,7 @@ CTRDGi_EraseFlashSectorCoreAT: ; 0x020DCA58
 	strb r3, [r1, #0x0]
 	mov r3, #0xa0
 	strb r3, [r4, #0x0]
-	ldr r1, _020DCB80 ; =0x02104048
+	ldr r1, _020DCB80 ; =UNK_02104048
 	and r4, r0, #0x3
 	ldr r1, [r1, #0x24]
 	cmp r1, #0x0
@@ -400,7 +408,7 @@ _020DCB0C:
 	bne _020DCB0C
 _020DCB18:
 	ldr ip, _020DCB90 ; =0x04000208
-	ldr r3, _020DCB9C ; =0x021D6B24
+	ldr r3, _020DCB9C ; =UNK_021D6B24
 	ldrh r0, [r12, #0x0]
 	sub r1, r5, #0x1
 	strh r2, [r12, #0x0]
@@ -417,7 +425,7 @@ _020DCB18:
 	bic r1, r1, #0x3
 	movne r5, r0, lsr #0x10
 	orr r1, r1, r4
-	ldr r0, _020DCB84 ; =0x021D6B0C
+	ldr r0, _020DCB84 ; =UNK_021D6B0C
 	strh r1, [r2, #0x0]
 	ldrh r0, [r0, #0x0]
 	bl OS_UnlockCartridge2
@@ -426,24 +434,24 @@ _020DCB18:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020DCB80: .word 0x02104048
-_020DCB84: .word 0x021D6B0C
+_020DCB80: .word UNK_02104048
+_020DCB84: .word UNK_021D6B0C
 _020DCB88: .word 0x04000204
-_020DCB8C: .word 0x021D6B20
+_020DCB8C: .word UNK_021D6B20
 _020DCB90: .word 0x04000208
 _020DCB94: .word 0x0A005555
 _020DCB98: .word 0x0A002AAA
-_020DCB9C: .word 0x021D6B24
+_020DCB9C: .word UNK_021D6B24
 
 	arm_func_start CTRDGi_EraseFlashChipCoreAT
 CTRDGi_EraseFlashChipCoreAT: ; 0x020DCBA0
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r0, _020DCC7C ; =0x021D6B0C
+	ldr r0, _020DCC7C ; =UNK_021D6B0C
 	ldrh r0, [r0, #0x0]
 	bl OS_LockCartridge
 	ldr r4, _020DCC80 ; =0x04000204
-	ldr r0, _020DCC84 ; =0x021D6B20
+	ldr r0, _020DCC84 ; =UNK_021D6B20
 	ldrh r3, [r4, #0x0]
 	ldr r0, [r0, #0x0]
 	ldrh r1, [r4, #0x0]
@@ -454,7 +462,7 @@ CTRDGi_EraseFlashChipCoreAT: ; 0x020DCBA0
 	strh r1, [r4, #0x0]
 	ldrh r4, [r0, #0x0]
 	mov r2, #0x0
-	ldr r1, _020DCC8C ; =0x021D6B38
+	ldr r1, _020DCC8C ; =UNK_021D6B38
 	strh r2, [r0, #0x0]
 	ldr lr, _020DCC90 ; =0x0A005555
 	str r4, [r1, #0x0]
@@ -471,7 +479,7 @@ CTRDGi_EraseFlashChipCoreAT: ; 0x020DCBA0
 	strb r2, [lr, #0x0]
 	ldrh r2, [r0, #0x0]
 	ldr r2, [r1, #0x0]
-	ldr r1, _020DCC98 ; =0x021D6B24
+	ldr r1, _020DCC98 ; =UNK_021D6B24
 	strh r2, [r0, #0x0]
 	ldr r4, [r1, #0x0]
 	mov r0, #0x3
@@ -480,7 +488,7 @@ CTRDGi_EraseFlashChipCoreAT: ; 0x020DCBA0
 	and r5, r3, #0x3
 	blx r4
 	ldr r3, _020DCC80 ; =0x04000204
-	ldr r1, _020DCC7C ; =0x021D6B0C
+	ldr r1, _020DCC7C ; =UNK_021D6B0C
 	ldrh r2, [r3, #0x0]
 	mov r4, r0
 	bic r0, r2, #0x3
@@ -493,11 +501,11 @@ CTRDGi_EraseFlashChipCoreAT: ; 0x020DCBA0
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020DCC7C: .word 0x021D6B0C
+_020DCC7C: .word UNK_021D6B0C
 _020DCC80: .word 0x04000204
-_020DCC84: .word 0x021D6B20
+_020DCC84: .word UNK_021D6B20
 _020DCC88: .word 0x04000208
-_020DCC8C: .word 0x021D6B38
+_020DCC8C: .word UNK_021D6B38
 _020DCC90: .word 0x0A005555
 _020DCC94: .word 0x0A002AAA
-_020DCC98: .word 0x021D6B24
+_020DCC98: .word UNK_021D6B24

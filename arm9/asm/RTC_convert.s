@@ -1,6 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_02106A20
+	.extern UNK_02106A1C
+
 	.text
 
 	arm_func_start RTC_GetDayOfWeek
@@ -202,7 +205,7 @@ _020D64D0:
 _020D6514:
 	sub r1, r1, #0x1
 _020D6518:
-	ldr r3, _020D6574 ; =0x02106A20
+	ldr r3, _020D6574 ; =UNK_02106A20
 	mov r4, #0xb
 _020D6520:
 	ldr r2, [r3, r4, lsl #0x2]
@@ -228,7 +231,7 @@ _020D6564: .word 0x92492493
 _020D6568: .word 0x00000007
 _020D656C: .word 0x0000016D
 _020D6570: .word 0x0000016E
-_020D6574: .word 0x02106A20
+_020D6574: .word UNK_02106A20
 
 	arm_func_start RTC_ConvertDateTimeToSecond
 RTC_ConvertDateTimeToSecond: ; 0x020D6578
@@ -301,7 +304,7 @@ _020D665C:
 	mvn r0, #0x0
 	bx lr
 _020D6664:
-	ldr r0, _020D6698 ; =0x02106A1C
+	ldr r0, _020D6698 ; =UNK_02106A1C
 	sub r1, r1, #0x1
 	ldr r0, [r0, r2, lsl #0x2]
 	cmp r2, #0x3
@@ -316,5 +319,5 @@ _020D6684:
 	add r0, r0, r1, lsr #0x2
 	bx lr
 	.balign 4
-_020D6698: .word 0x02106A1C
+_020D6698: .word UNK_02106A1C
 _020D669C: .word 0x0000016D

@@ -1,11 +1,14 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FD13C
+	.extern UNK_020FD120
+
 	.text
 
 	thumb_func_start FUN_02087A1C
 FUN_02087A1C: ; 0x02087A1C
-	ldr r3, _02087A34 ; =0x020FD13C
+	ldr r3, _02087A34 ; =UNK_020FD13C
 	mov r2, #0x0
 _02087A20:
 	ldrb r1, [r3, #0x0]
@@ -19,7 +22,7 @@ _02087A2E:
 	add r0, r2, #0x0
 	bx lr
 	nop
-_02087A34: .word 0x020FD13C
+_02087A34: .word UNK_020FD13C
 
 	thumb_func_start FUN_02087A38
 FUN_02087A38: ; 0x02087A38
@@ -29,15 +32,15 @@ FUN_02087A38: ; 0x02087A38
 	blt _02087A44
 	bl ErrorHandling
 _02087A44:
-	ldr r0, _02087A4C ; =0x020FD13C
+	ldr r0, _02087A4C ; =UNK_020FD13C
 	ldrb r0, [r0, r4]
 	pop {r4, pc}
 	nop
-_02087A4C: .word 0x020FD13C
+_02087A4C: .word UNK_020FD13C
 
 	thumb_func_start FUN_02087A50
 FUN_02087A50: ; 0x02087A50
-	ldr r3, _02087A68 ; =0x020FD120
+	ldr r3, _02087A68 ; =UNK_020FD120
 	mov r2, #0x0
 _02087A54:
 	ldrh r1, [r3, #0x0]
@@ -51,4 +54,4 @@ _02087A62:
 	add r0, r2, #0x0
 	bx lr
 	nop
-_02087A68: .word 0x020FD120
+_02087A68: .word UNK_020FD120

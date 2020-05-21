@@ -1,6 +1,9 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020EDF50
+	.extern UNK_020FFA38
+
 	.text
 
 	thumb_func_start FUN_0201C7A0
@@ -398,7 +401,7 @@ FUN_0201CAA8: ; 0x0201CAA8
 	sub sp, #0x24
 	add r4, r1, #0x0
 	ldr r1, [r4, #0x0]
-	ldr r3, _0201CB1C ; =0x020FFA38
+	ldr r3, _0201CB1C ; =UNK_020FFA38
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	asr r1, r1, #0x4
@@ -411,7 +414,7 @@ FUN_0201CAA8: ; 0x0201CAA8
 	add r5, r0, #0x0
 	bl MTX_RotX33_
 	ldr r0, [r4, #0x4]
-	ldr r3, _0201CB1C ; =0x020FFA38
+	ldr r3, _0201CB1C ; =UNK_020FFA38
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	asr r0, r0, #0x4
@@ -428,7 +431,7 @@ FUN_0201CAA8: ; 0x0201CAA8
 	add r2, r5, #0x0
 	bl MTX_Concat33
 	ldr r0, [r4, #0x8]
-	ldr r3, _0201CB1C ; =0x020FFA38
+	ldr r3, _0201CB1C ; =UNK_020FFA38
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	asr r0, r0, #0x4
@@ -447,7 +450,7 @@ FUN_0201CAA8: ; 0x0201CAA8
 	add sp, #0x24
 	pop {r4-r5, pc}
 	nop
-_0201CB1C: .word 0x020FFA38
+_0201CB1C: .word UNK_020FFA38
 
 	thumb_func_start FUN_0201CB20
 FUN_0201CB20: ; 0x0201CB20
@@ -456,7 +459,7 @@ FUN_0201CB20: ; 0x0201CB20
 	add r6, r1, #0x0
 	add r5, r2, #0x0
 	lsl r1, r6, #0x2
-	ldr r2, _0201CB78 ; =0x020EDF50
+	ldr r2, _0201CB78 ; =UNK_020EDF50
 	add r6, #0x5a
 	add r4, r3, #0x0
 	lsl r3, r6, #0x2
@@ -465,7 +468,7 @@ FUN_0201CB20: ; 0x0201CB20
 	add r7, r0, #0x0
 	bl MTX_RotX33_
 	lsl r1, r5, #0x2
-	ldr r3, _0201CB78 ; =0x020EDF50
+	ldr r3, _0201CB78 ; =UNK_020EDF50
 	add r5, #0x5a
 	lsl r2, r5, #0x2
 	ldr r1, [r3, r1]
@@ -477,7 +480,7 @@ FUN_0201CB20: ; 0x0201CB20
 	add r2, r7, #0x0
 	bl MTX_Concat33
 	lsl r1, r4, #0x2
-	ldr r3, _0201CB78 ; =0x020EDF50
+	ldr r3, _0201CB78 ; =UNK_020EDF50
 	add r4, #0x5a
 	lsl r2, r4, #0x2
 	ldr r1, [r3, r1]
@@ -491,7 +494,7 @@ FUN_0201CB20: ; 0x0201CB20
 	add sp, #0x24
 	pop {r4-r7, pc}
 	.balign 4
-_0201CB78: .word 0x020EDF50
+_0201CB78: .word UNK_020EDF50
 
 	thumb_func_start FUN_0201CB7C
 FUN_0201CB7C: ; 0x0201CB7C
@@ -501,7 +504,7 @@ FUN_0201CB7C: ; 0x0201CB7C
 	lsl r2, r0, #0x1
 	add r6, r1, #0x0
 	lsl r0, r2, #0x1
-	ldr r1, _0201CBE8 ; =0x020FFA38
+	ldr r1, _0201CBE8 ; =UNK_020FFA38
 	add r2, r2, #0x1
 	lsl r2, r2, #0x1
 	ldrsh r0, [r1, r0]
@@ -547,4 +550,4 @@ FUN_0201CB7C: ; 0x0201CB7C
 	str r1, [r5, #0x0]
 	pop {r3-r7, pc}
 	.balign 4
-_0201CBE8: .word 0x020FFA38
+_0201CBE8: .word UNK_020FFA38

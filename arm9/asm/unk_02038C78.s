@@ -1,6 +1,9 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F34DC
+	.extern UNK_020F2DB4
+
 	.text
 
 	thumb_func_start FUN_02038C78
@@ -296,7 +299,7 @@ FUN_02038EB0: ; 0x02038EB0
 	bne _02038EC6
 	bl ErrorHandling
 _02038EC6:
-	ldr r2, _02038EE4 ; =0x020F34DC
+	ldr r2, _02038EE4 ; =UNK_020F34DC
 	ldr r1, _02038EE8 ; =gScriptCmdTable
 	ldr r2, [r2, #0x0]
 	add r0, r4, #0x0
@@ -309,7 +312,7 @@ _02038EC6:
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
 	nop
-_02038EE4: .word 0x020F34DC
+_02038EE4: .word UNK_020F34DC
 _02038EE8: .word gScriptCmdTable
 
 	thumb_func_start FUN_02038EEC
@@ -1349,7 +1352,7 @@ FUN_020396A4: ; 0x020396A4
 	thumb_func_start FUN_020396B0
 FUN_020396B0: ; 0x020396B0
 	push {r4, lr}
-	ldr r4, _020396E4 ; =0x020F2DB4
+	ldr r4, _020396E4 ; =UNK_020F2DB4
 	bl FUN_020396A4
 	lsl r0, r0, #0x18
 	lsr r3, r0, #0x18
@@ -1375,7 +1378,7 @@ _020396DA:
 	ldrb r0, [r0, #0x3]
 	pop {r4, pc}
 	nop
-_020396E4: .word 0x020F2DB4
+_020396E4: .word UNK_020F2DB4
 
 	thumb_func_start FUN_020396E8
 FUN_020396E8: ; 0x020396E8
@@ -1396,7 +1399,7 @@ FUN_020396E8: ; 0x020396E8
 	add r0, r5, #0x0
 	bl FUN_020396A4
 	lsl r0, r0, #0x18
-	ldr r2, _02039750 ; =0x020F2DB4
+	ldr r2, _02039750 ; =UNK_020F2DB4
 	lsr r3, r0, #0x18
 	mov r1, #0x0
 _02039718:
@@ -1415,10 +1418,10 @@ _02039726:
 	pop {r3-r7, pc}
 _02039732:
 	lsl r0, r1, #0x3
-	ldr r1, _02039750 ; =0x020F2DB4
+	ldr r1, _02039750 ; =UNK_020F2DB4
 	ldrh r1, [r1, r0]
 	strh r1, [r7, #0x0]
-	ldr r1, _02039750 ; =0x020F2DB4
+	ldr r1, _02039750 ; =UNK_020F2DB4
 	add r0, r1, r0
 	ldrb r0, [r0, #0x2]
 	strh r0, [r6, #0x0]
@@ -1428,7 +1431,7 @@ _02039732:
 	mov r0, #0x1
 	pop {r3-r7, pc}
 	nop
-_02039750: .word 0x020F2DB4
+_02039750: .word UNK_020F2DB4
 
 	thumb_func_start FUN_02039754
 FUN_02039754: ; 0x02039754

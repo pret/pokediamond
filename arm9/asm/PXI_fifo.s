@@ -1,6 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D5364
+	.extern UNK_021D5368
+
 	.text
 
 	arm_func_start PXIi_HandlerRecvFifoNotEmpty
@@ -8,7 +11,7 @@ PXIi_HandlerRecvFifoNotEmpty: ; 0x020CFBBC
 	stmdb sp!, {r4-r10,lr}
 	sub sp, sp, #0x8
 	ldr sl, _020CFCD4 ; =0x04000184
-	ldr r5, _020CFCD8 ; =0x021D5368
+	ldr r5, _020CFCD8 ; =UNK_021D5368
 	ldr r4, _020CFCDC ; =0x04000188
 	mov r7, #0x4100000
 	mov r6, #0x0
@@ -82,7 +85,7 @@ _020CFCC8:
 	ldmia sp!, {r4-r10, lr}
 	bx lr
 _020CFCD4: .word 0x04000184
-_020CFCD8: .word 0x021D5368
+_020CFCD8: .word UNK_021D5368
 _020CFCDC: .word 0x04000188
 
 	arm_func_start PXI_SendWordByFifo
@@ -156,7 +159,7 @@ PXI_SetFifoRecvCallback: ; 0x020CFDBC
 	mov r4, r0
 	mov r5, r1
 	bl OS_DisableInterrupts
-	ldr r1, _020CFE20 ; =0x021D5368
+	ldr r1, _020CFE20 ; =UNK_021D5368
 	cmp r5, #0x0
 	str r5, [r1, r4, lsl #0x2]
 	beq _020CFDF8
@@ -179,7 +182,7 @@ _020CFE10:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020CFE20: .word 0x021D5368
+_020CFE20: .word UNK_021D5368
 _020CFE24: .word 0x027FFC00
 
 	arm_func_start PXI_InitFifo
@@ -187,7 +190,7 @@ PXI_InitFifo: ; 0x020CFE28
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	bl OS_DisableInterrupts
-	ldr r1, _020CFF18 ; =0x021D5364
+	ldr r1, _020CFF18 ; =UNK_021D5364
 	mov r4, r0
 	ldrh r0, [r1, #0x0]
 	cmp r0, #0x0
@@ -197,7 +200,7 @@ PXI_InitFifo: ; 0x020CFE28
 	strh r2, [r1, #0x0]
 	mov r2, #0x0
 	str r2, [r0, #0x388]
-	ldr r0, _020CFF20 ; =0x021D5368
+	ldr r0, _020CFF20 ; =UNK_021D5368
 	mov r1, r2
 _020CFE64:
 	str r1, [r0, r2, lsl #0x2]
@@ -251,9 +254,9 @@ _020CFF04:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020CFF18: .word 0x021D5364
+_020CFF18: .word UNK_021D5364
 _020CFF1C: .word 0x027FFC00
-_020CFF20: .word 0x021D5368
+_020CFF20: .word UNK_021D5368
 _020CFF24: .word 0x0000C408
 _020CFF28: .word 0x04000184
 _020CFF2C: .word PXIi_HandlerRecvFifoNotEmpty

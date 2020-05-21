@@ -1,47 +1,58 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D54DC
+	.extern UNK_021D54E0
+	.extern UNK_021D54D0
+	.extern UNK_021D54D4
+	.extern UNK_021D54F4
+	.extern UNK_021D54CC
+	.extern UNK_021D5510
+	.extern UNK_021D54E4
+	.extern UNK_021D54D8
+	.extern UNK_021D550C
+
 	.text
 
 	arm_func_start PM_DeletePostSleepCallback
 PM_DeletePostSleepCallback: ; 0x020D4AE8
 	ldr ip, _020D4AF8 ; =0x020D4B78
 	mov r1, r0
-	ldr r0, _020D4AFC ; =0x021D54E0
+	ldr r0, _020D4AFC ; =UNK_021D54E0
 	bx r12
 	.balign 4
 _020D4AF8: .word 0x020D4B78
-_020D4AFC: .word 0x021D54E0
+_020D4AFC: .word UNK_021D54E0
 
 	arm_func_start PM_DeletePreSleepCallback
 PM_DeletePreSleepCallback: ; 0x020D4B00
 	ldr ip, _020D4B10 ; =0x020D4B78
 	mov r1, r0
-	ldr r0, _020D4B14 ; =0x021D54D8
+	ldr r0, _020D4B14 ; =UNK_021D54D8
 	bx r12
 	.balign 4
 _020D4B10: .word 0x020D4B78
-_020D4B14: .word 0x021D54D8
+_020D4B14: .word UNK_021D54D8
 
 	arm_func_start PM_AppendPostSleepCallback
 PM_AppendPostSleepCallback: ; 0x020D4B18
 	ldr ip, _020D4B28 ; =PMi_AppendList
 	mov r1, r0
-	ldr r0, _020D4B2C ; =0x021D54E0
+	ldr r0, _020D4B2C ; =UNK_021D54E0
 	bx r12
 	.balign 4
 _020D4B28: .word PMi_AppendList
-_020D4B2C: .word 0x021D54E0
+_020D4B2C: .word UNK_021D54E0
 
 	arm_func_start PM_PrependPreSleepCallback
 PM_PrependPreSleepCallback: ; 0x020D4B30
 	ldr ip, _020D4B40 ; =PMi_PrependList
 	mov r1, r0
-	ldr r0, _020D4B44 ; =0x021D54D8
+	ldr r0, _020D4B44 ; =UNK_021D54D8
 	bx r12
 	.balign 4
 _020D4B40: .word PMi_PrependList
-_020D4B44: .word 0x021D54D8
+_020D4B44: .word UNK_021D54D8
 
 	arm_func_start PMi_ExecuteList
 PMi_ExecuteList: ; 0x020D4B48
@@ -154,7 +165,7 @@ _020D4C70:
 	mov r0, #0x0
 	ldmia sp!, {r4-r6,lr}
 	bx lr
-_020D4CA4: .word 0x021D54E4
+_020D4CA4: .word UNK_021D54E4
 _020D4CA8: .word 0x03006700
 
 	arm_func_start PMi_SendLEDPatternCommand
@@ -199,7 +210,7 @@ _020D4CFC:
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 _020D4D34: .word 0x03006600
-_020D4D38: .word 0x021D54E4
+_020D4D38: .word UNK_021D54E4
 
 	arm_func_start PM_GetLCDPower
 PM_GetLCDPower: ; 0x020D4D3C
@@ -235,7 +246,7 @@ PMi_SetLCDPower: ; 0x020D4D78
 	cmp r2, #0x0
 	bne _020D4DC0
 	ldr r2, _020D4E5C ; =0x027FFC3C
-	ldr r0, _020D4E60 ; =0x021D54DC
+	ldr r0, _020D4E60 ; =UNK_021D54DC
 	ldr r2, [r2, #0x0]
 	ldr r0, [r0, #0x0]
 	sub r0, r2, r0
@@ -267,7 +278,7 @@ _020D4E00:
 	ldr lr, _020D4E64 ; =0x04000304
 	ldr r2, _020D4E5C ; =0x027FFC3C
 	ldrh r12, [lr, #0x0]
-	ldr r0, _020D4E60 ; =0x021D54DC
+	ldr r0, _020D4E60 ; =UNK_021D54DC
 	cmp r1, #0x0
 	bic r12, r12, #0x1
 	strh r12, [lr, #0x0]
@@ -291,14 +302,14 @@ _020D4E4C:
 	bx lr
 	.balign 4
 _020D4E5C: .word 0x027FFC3C
-_020D4E60: .word 0x021D54DC
+_020D4E60: .word UNK_021D54DC
 _020D4E64: .word 0x04000304
 
 	arm_func_start PM_GoSleepMode
 PM_GoSleepMode: ; 0x020D4E68
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0x1c
-	ldr r3, _020D5084 ; =0x021D54D8
+	ldr r3, _020D5084 ; =UNK_021D54D8
 	mov r10, r0
 	ldr r0, [r3, #0x0]
 	mov r9, r1
@@ -443,7 +454,7 @@ _020D506C:
 	add sp, sp, #0x1C
 	ldmia sp!, {r4-r11, lr}
 	bx lr
-_020D5084: .word 0x021D54D8
+_020D5084: .word UNK_021D54D8
 _020D5088: .word 0x04000208
 _020D508C: .word 0x003FFFFF
 _020D5090: .word 0x027FFC40
@@ -451,7 +462,7 @@ _020D5094: .word 0x04001000
 _020D5098: .word 0x027FFC3C
 _020D509C: .word 0x00996A00
 _020D50A0: .word 0x04000214
-_020D50A4: .word 0x021D54E0
+_020D50A4: .word UNK_021D54E0
 
 
 	arm_func_start PMi_SendPxiData
@@ -759,7 +770,7 @@ _020D5434: ; 0x020D5434
 	ldmeqia sp!, {r4-r7,lr}
 	bxeq lr
 	ldr r0, _020D5488 ; =0x02006400
-	ldr r1, _020D548C ; =0x021D54E4
+	ldr r1, _020D548C ; =UNK_021D54E4
 	and r2, r7, #0xff
 	orr r0, r2, r0
 	str r6, [r1, #0x4]
@@ -777,7 +788,7 @@ _020D5478: ; 0x020D5478
 	bx lr
 	.balign 4
 _020D5488: .word 0x02006400
-_020D548C: .word 0x021D54E4
+_020D548C: .word UNK_021D54E4
 _020D5490: .word 0x0000FFFF
 _020D5494: .word 0x01010000
 
@@ -815,13 +826,13 @@ _020D54EC: ; 0x020D54EC
 	moveq r0, #0x1
 	ldmeqia sp!, {r4-r8,lr}
 	bxeq lr
-	ldr ip, _020D553C ; =0x021D550C
-	ldr r1, _020D5540 ; =0x021D54E4
+	ldr ip, _020D553C ; =UNK_021D550C
+	ldr r1, _020D5540 ; =UNK_021D54E4
 	ldr r0, _020D5544 ; =0x03006500
 	and r2, r7, #0xff
 	mov lr, r7, lsl #0x3
 	mov r8, #0x0
-	ldr r3, _020D5548 ; =0x021D5510
+	ldr r3, _020D5548 ; =UNK_021D5510
 	strh r8, [r12, lr]
 	orr r0, r2, r0
 	str r5, [r1, #0x4]
@@ -832,10 +843,10 @@ _020D54EC: ; 0x020D54EC
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020D553C: .word 0x021D550C
-_020D5540: .word 0x021D54E4
+_020D553C: .word UNK_021D550C
+_020D5540: .word UNK_021D54E4
 _020D5544: .word 0x03006500
-_020D5548: .word 0x021D5510
+_020D5548: .word UNK_021D5510
 
 	arm_func_start PM_SendUtilityCommandAsync
 PM_SendUtilityCommandAsync: ; 0x020D554C
@@ -850,7 +861,7 @@ _020D5560: ; 0x020D5560
 	ldmeqia sp!, {r4-r6,lr}
 	bxeq lr
 	mov r2, r4, lsr #0x10
-	ldr r1, _020D55B0 ; =0x021D54E4
+	ldr r1, _020D55B0 ; =UNK_021D54E4
 	ldr r0, _020D55B4 ; =0x02006300
 	and r2, r2, #0xff
 	orr r0, r2, r0
@@ -867,7 +878,7 @@ _020D55A4: ; 0x020D55A4
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 	.balign 4
-_020D55B0: .word 0x021D54E4
+_020D55B0: .word UNK_021D54E4
 _020D55B4: .word 0x02006300
 _020D55B8: .word 0x0000FFFF
 _020D55BC: .word 0x01010000
@@ -885,18 +896,18 @@ _020D55D4: ; 0x020D55D4
 	moveq r0, #0x1
 	ldmeqia sp!, {r4-r5,lr}
 	bxeq lr
-	ldr r1, _020D5660 ; =0x021D54D0
+	ldr r1, _020D5660 ; =UNK_021D54D0
 	mov r2, #0x0
 	ldr r0, _020D5664 ; =0x03006000
 	str r2, [r1, #0x0]
 	bl PMi_SendPxiData
-	ldr r1, _020D5660 ; =0x021D54D0
+	ldr r1, _020D5660 ; =UNK_021D54D0
 _020D5600:
 	ldr r0, [r1, #0x0]
 	cmp r0, #0x0
 	beq _020D5600
 	mov r0, #0x0
-	ldr ip, _020D5668 ; =0x021D54D4
+	ldr ip, _020D5668 ; =UNK_021D54D4
 	str r0, [r1, #0x0]
 	mov r2, r0
 	mov r3, r0
@@ -918,9 +929,9 @@ _020D5650: ; 0x020D5650
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020D5660: .word 0x021D54D0
+_020D5660: .word UNK_021D54D0
 _020D5664: .word 0x03006000
-_020D5668: .word 0x021D54D4
+_020D5668: .word UNK_021D54D4
 _020D566C: .word 0x02006100
 _020D5670: .word 0x0000FFFF
 _020D5674: .word 0x01010000
@@ -947,7 +958,7 @@ _020D569C:
 	blo _020D56FC
 	cmp r2, #0x74
 	bhi _020D56FC
-	ldr r1, _020D5750 ; =0x021D5510
+	ldr r1, _020D5750 ; =UNK_021D5510
 	sub r2, r2, #0x70
 	and r0, r0, #0xff
 	ldr r1, [r1, r2, lsl #0x3]
@@ -956,25 +967,25 @@ _020D569C:
 	cmp r1, #0x0
 	strneh r0, [r1, #0x0]
 	mov r1, r2, lsl #0x3
-	ldr r0, _020D5754 ; =0x021D550C
+	ldr r0, _020D5754 ; =UNK_021D550C
 	mov r2, #0x1
 	strh r2, [r0, r1]
 	mov r0, #0x0
 	b _020D5740
 _020D56FC:
 	cmp r2, #0x60
-	ldreq r1, _020D5758 ; =0x021D54D0
+	ldreq r1, _020D5758 ; =UNK_021D54D0
 	moveq r2, #0x1
 	streq r2, [r1, #0x0]
 	beq _020D5740
 	cmp r2, #0x62
-	ldreq r1, _020D575C ; =0x021D54D4
+	ldreq r1, _020D575C ; =UNK_021D54D4
 	moveq r2, #0x1
 	streq r2, [r1, #0x0]
 	beq _020D5740
 	cmp r2, #0x67
 	bne _020D5740
-	ldr r1, _020D5760 ; =0x021D54E4
+	ldr r1, _020D5760 ; =UNK_021D54E4
 	ldr r1, [r1, #0xc]
 	cmp r1, #0x0
 	strne r0, [r1, #0x0]
@@ -985,23 +996,23 @@ _020D5740:
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D5750: .word 0x021D5510
-_020D5754: .word 0x021D550C
-_020D5758: .word 0x021D54D0
-_020D575C: .word 0x021D54D4
-_020D5760: .word 0x021D54E4
+_020D5750: .word UNK_021D5510
+_020D5754: .word UNK_021D550C
+_020D5758: .word UNK_021D54D0
+_020D575C: .word UNK_021D54D4
+_020D5760: .word UNK_021D54E4
 
 	arm_func_start PM_Init
 PM_Init: ; 0x020D5764
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
-	ldr r1, _020D580C ; =0x021D54CC
+	ldr r1, _020D580C ; =UNK_021D54CC
 	ldrh r0, [r1, #0x0]
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r5,lr}
 	bxne lr
-	ldr r0, _020D5810 ; =0x021D54E4
+	ldr r0, _020D5810 ; =UNK_021D54E4
 	mov r2, #0x0
 	mov r3, #0x1
 	strh r3, [r1, #0x0]
@@ -1021,7 +1032,7 @@ _020D57B4: ; 0x020D57B4
 	mov r0, #0x8
 	bl PXI_SetFifoRecvCallback
 	mov r3, #0x0
-	ldr r0, _020D5818 ; =0x021D550C
+	ldr r0, _020D5818 ; =UNK_021D550C
 	mov r2, r3
 _020D57D4:
 	mov r1, r3, lsl #0x3
@@ -1029,29 +1040,29 @@ _020D57D4:
 	strh r2, [r0, r1]
 	cmp r3, #0x5
 	blt _020D57D4
-	ldr r0, _020D581C ; =0x021D54F4
+	ldr r0, _020D581C ; =UNK_021D54F4
 	bl OS_InitMutex
 	ldr r1, _020D5820 ; =0x027FFC3C
-	ldr r0, _020D5824 ; =0x021D54DC
+	ldr r0, _020D5824 ; =UNK_021D54DC
 	ldr r1, [r1, #0x0]
 	str r1, [r0, #0x0]
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020D580C: .word 0x021D54CC
-_020D5810: .word 0x021D54E4
+_020D580C: .word UNK_021D54CC
+_020D5810: .word UNK_021D54E4
 _020D5814: .word PMi_CommonCallback
-_020D5818: .word 0x021D550C
-_020D581C: .word 0x021D54F4
+_020D5818: .word UNK_021D550C
+_020D581C: .word UNK_021D54F4
 _020D5820: .word 0x027FFC3C
-_020D5824: .word 0x021D54DC
+_020D5824: .word UNK_021D54DC
 
 	arm_func_start PMi_CallCallbackAndUnlock
 PMi_CallCallbackAndUnlock: ; 0x020D5828
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r2, _020D5878 ; =0x021D54E4
+	ldr r2, _020D5878 ; =UNK_021D54E4
 	ldr r1, [r2, #0x0]
 	ldr r12, [r2, #0x4]
 	cmp r1, #0x0
@@ -1062,7 +1073,7 @@ PMi_CallCallbackAndUnlock: ; 0x020D5828
 	ldr r1, [r2, #0x8]
 	ldmeqia sp!, {lr}
 	bxeq lr
-	ldr r2, _020D5878 ; =0x021D54E4
+	ldr r2, _020D5878 ; =UNK_021D54E4
 	mov r3, #0x0
 	str r3, [r2, #0x4]
 	blx r12
@@ -1070,7 +1081,7 @@ PMi_CallCallbackAndUnlock: ; 0x020D5828
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D5878: .word 0x021D54E4
+_020D5878: .word UNK_021D54E4
 
 	arm_func_start PMi_DummyCallback
 PMi_DummyCallback: ; 0x020D587C
@@ -1080,7 +1091,7 @@ PMi_DummyCallback: ; 0x020D587C
 	arm_func_start PMi_WaitBusy
 PMi_WaitBusy:
 	stmdb sp!, {r4,lr}
-	ldr r4, _020D58C0 ; =0x021D54E4
+	ldr r4, _020D58C0 ; =UNK_021D54E4
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,lr}
@@ -1097,14 +1108,14 @@ _020D58AC:
 	ldmia sp!, {r4,lr}
 	bx lr
 	.balign 4
-_020D58C0: .word 0x021D54E4
+_020D58C0: .word UNK_021D54E4
 
 	arm_func_start PMi_Lock
 PMi_Lock:
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl OS_DisableInterrupts
-	ldr r1, _020D5910 ; =0x021D54E4
+	ldr r1, _020D5910 ; =UNK_021D54E4
 	ldr r2, [r1, #0x0]
 	cmp r2, #0x0
 	beq _020D58F4
@@ -1122,4 +1133,4 @@ _020D58F4:
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D5910: .word 0x021D54E4
+_020D5910: .word UNK_021D54E4

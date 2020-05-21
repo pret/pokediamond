@@ -1,6 +1,15 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F5C04
+	.extern UNK_02105ED0
+	.extern UNK_02105F80
+	.extern UNK_020FFA38
+	.extern UNK_020F5C08
+	.extern UNK_02105F64
+	.extern UNK_02105EC8
+	.extern UNK_02105F48
+
 	.text
 
 	thumb_func_start FUN_02053750
@@ -716,28 +725,28 @@ _02053CB0: ; jump table (using 16-bit offset)
 	.short _02053CD4 - _02053CB0 - 2; case 2
 	.short _02053CE2 - _02053CB0 - 2; case 3
 _02053CB8:
-	ldr r2, _02053CF8 ; =0x020F5C04
+	ldr r2, _02053CF8 ; =UNK_020F5C04
 	ldr r0, _02053CFC ; =FUN_02053750
 	ldrb r2, [r2, r3]
 	add r1, r4, #0x0
 	bl FUN_02053D0C
 	b _02053CEE
 _02053CC6:
-	ldr r2, _02053CF8 ; =0x020F5C04
+	ldr r2, _02053CF8 ; =UNK_020F5C04
 	ldr r0, _02053D00 ; =FUN_020538B8
 	ldrb r2, [r2, r3]
 	add r1, r4, #0x0
 	bl FUN_02053D0C
 	b _02053CEE
 _02053CD4:
-	ldr r2, _02053CF8 ; =0x020F5C04
+	ldr r2, _02053CF8 ; =UNK_020F5C04
 	ldr r0, _02053D04 ; =FUN_020539F8
 	ldrb r2, [r2, r3]
 	add r1, r4, #0x0
 	bl FUN_02053D0C
 	b _02053CEE
 _02053CE2:
-	ldr r2, _02053CF8 ; =0x020F5C04
+	ldr r2, _02053CF8 ; =UNK_020F5C04
 	ldr r0, _02053D08 ; =FUN_02053B38
 	ldrb r2, [r2, r3]
 	add r1, r4, #0x0
@@ -749,7 +758,7 @@ _02053CEE:
 	str r4, [r0, #0x0]
 	pop {r3-r5, pc}
 	.balign 4
-_02053CF8: .word 0x020F5C04
+_02053CF8: .word UNK_020F5C04
 _02053CFC: .word FUN_02053750
 _02053D00: .word FUN_020538B8
 _02053D04: .word FUN_020539F8
@@ -849,7 +858,7 @@ _02053DA2:
 	add r1, r5, #0x0
 	lsl r0, r0, #0x2
 	str r0, [sp, #0x14]
-	ldr r3, _02053E78 ; =0x02105EC8
+	ldr r3, _02053E78 ; =UNK_02105EC8
 	ldr r2, [sp, #0x14]
 	ldr r0, [r5, #0x8]
 	ldr r2, [r3, r2]
@@ -874,7 +883,7 @@ _02053DDA:
 	cmp r6, r0
 	blt _02053DDA
 _02053DF0:
-	ldr r3, _02053E7C ; =0x02105ED0
+	ldr r3, _02053E7C ; =UNK_02105ED0
 	ldr r2, [sp, #0x14]
 	add r1, r5, #0x0
 	ldr r0, [r5, #0xc]
@@ -901,12 +910,12 @@ _02053E0E:
 	blt _02053E0E
 _02053E24:
 	ldr r0, [r5, #0x10]
-	ldr r2, _02053E80 ; =0x02105F48
+	ldr r2, _02053E80 ; =UNK_02105F48
 	mov r1, #0x0
 	bl FUN_02053E8C
 	str r0, [r5, #0x28]
 	ldr r0, [r5, #0x14]
-	ldr r2, _02053E84 ; =0x02105F64
+	ldr r2, _02053E84 ; =UNK_02105F64
 	mov r1, #0x0
 	bl FUN_02053E8C
 	str r0, [r5, #0x2c]
@@ -914,7 +923,7 @@ _02053E24:
 	bl FUN_02009B44
 	ldr r0, [r5, #0x1c]
 	bl FUN_02009DAC
-	ldr r1, _02053E88 ; =0x02105F80
+	ldr r1, _02053E88 ; =UNK_02105F80
 	mov r0, #0x4
 	bl FUN_020161A4
 	ldr r1, [r5, #0x10]
@@ -935,11 +944,11 @@ _02053E24:
 	add sp, #0x18
 	pop {r3-r7, pc}
 	nop
-_02053E78: .word 0x02105EC8
-_02053E7C: .word 0x02105ED0
-_02053E80: .word 0x02105F48
-_02053E84: .word 0x02105F64
-_02053E88: .word 0x02105F80
+_02053E78: .word UNK_02105EC8
+_02053E7C: .word UNK_02105ED0
+_02053E80: .word UNK_02105F48
+_02053E84: .word UNK_02105F64
+_02053E88: .word UNK_02105F80
 
 	thumb_func_start FUN_02053E8C
 FUN_02053E8C: ; 0x02053E8C
@@ -1150,7 +1159,7 @@ FUN_02054008: ; 0x02054008
 	ldr r0, [r2, #0x0]
 	add r2, sp, #0x14
 	str r0, [r3, #0x0]
-	ldr r3, _0205406C ; =0x020F5C08
+	ldr r3, _0205406C ; =UNK_020F5C08
 	ldmia r3!, {r0-r1}
 	stmia r2!, {r0-r1}
 	ldr r0, [r3, #0x0]
@@ -1170,7 +1179,7 @@ _02054064:
 	add sp, #0x30
 	pop {r3-r7, pc}
 	nop
-_0205406C: .word 0x020F5C08
+_0205406C: .word UNK_020F5C08
 
 	thumb_func_start FUN_02054070
 FUN_02054070: ; 0x02054070
@@ -1262,7 +1271,7 @@ FUN_020540E8: ; 0x020540E8
 	ldr r1, [sp, #0x4]
 	asr r0, r0, #0x4
 	lsl r5, r0, #0x2
-	ldr r0, _02054164 ; =0x020FFA38
+	ldr r0, _02054164 ; =UNK_020FFA38
 	ldrsh r5, [r0, r5]
 	asr r0, r5, #0x1f
 	lsr r6, r5, #0x10
@@ -1305,7 +1314,7 @@ _0205415E:
 	add sp, #0xc
 	pop {r3-r6, pc}
 	.balign 4
-_02054164: .word 0x020FFA38
+_02054164: .word UNK_020FFA38
 
 	thumb_func_start FUN_02054168
 FUN_02054168: ; 0x02054168
@@ -1743,7 +1752,7 @@ _0205447E:
 	ldr r6, [sp, #0x4]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02054500 ; =0x020FFA38
+	ldr r0, _02054500 ; =UNK_020FFA38
 	ldrsh r0, [r0, r1]
 	asr r3, r0, #0x1f
 	lsr r1, r0, #0xf
@@ -1793,7 +1802,7 @@ _020544F8:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	nop
-_02054500: .word 0x020FFA38
+_02054500: .word UNK_020FFA38
 _02054504: .word 0x00000666
 
 	thumb_func_start FUN_02054508

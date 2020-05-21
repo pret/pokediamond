@@ -1,6 +1,11 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020EE9A4
+	.extern UNK_020EE964
+	.extern UNK_020EE9A8
+	.extern UNK_020EE96A
+
 	.text
 
 	thumb_func_start FUN_02028980
@@ -2218,7 +2223,7 @@ _020298EE:
 	add r7, r0, #0x0
 	lsl r0, r7, #0x10
 	lsr r0, r0, #0x10
-	ldr r5, _0202995C ; =0x020EE9A4
+	ldr r5, _0202995C ; =UNK_020EE9A4
 	mov r4, #0x0
 	str r0, [sp, #0x8]
 _02029900:
@@ -2265,17 +2270,17 @@ _02029952:
 	pop {r4-r7, pc}
 	nop
 _02029958: .word 0x0000019E
-_0202995C: .word 0x020EE9A4
+_0202995C: .word UNK_020EE9A4
 
 	thumb_func_start FUN_02029960
 FUN_02029960: ; 0x02029960
-	ldr r3, _02029980 ; =0x020EE9A4
+	ldr r3, _02029980 ; =UNK_020EE9A4
 	mov r2, #0x0
 _02029964:
 	ldr r1, [r3, #0x0]
 	cmp r0, r1
 	bne _02029972
-	ldr r0, _02029984 ; =0x020EE9A8
+	ldr r0, _02029984 ; =UNK_020EE9A8
 	lsl r1, r2, #0x3
 	ldr r0, [r0, r1]
 	bx lr
@@ -2287,13 +2292,13 @@ _02029972:
 	mov r0, #0x0
 	bx lr
 	nop
-_02029980: .word 0x020EE9A4
-_02029984: .word 0x020EE9A8
+_02029980: .word UNK_020EE9A4
+_02029984: .word UNK_020EE9A8
 
 	thumb_func_start FUN_02029988
 FUN_02029988: ; 0x02029988
 	push {r3-r5, lr}
-	ldr r2, _020299B8 ; =0x020EE964
+	ldr r2, _020299B8 ; =UNK_020EE964
 	mov r4, #0x0
 _0202998E:
 	lsl r3, r4, #0x3
@@ -2301,7 +2306,7 @@ _0202998E:
 	ldrh r5, [r5, #0x4]
 	cmp r1, r5
 	bne _020299A8
-	ldr r1, _020299BC ; =0x020EE96A
+	ldr r1, _020299BC ; =UNK_020EE96A
 	ldrh r1, [r1, r3]
 	bl FUN_020239D0
 	cmp r0, #0x0
@@ -2318,8 +2323,8 @@ _020299B2:
 	mov r0, #0xff
 	pop {r3-r5, pc}
 	nop
-_020299B8: .word 0x020EE964
-_020299BC: .word 0x020EE96A
+_020299B8: .word UNK_020EE964
+_020299BC: .word UNK_020EE96A
 
 	thumb_func_start FUN_020299C0
 FUN_020299C0: ; 0x020299C0
@@ -2389,7 +2394,7 @@ _02029A32:
 
 	thumb_func_start FUN_02029A48
 FUN_02029A48: ; 0x02029A48
-	ldr r2, _02029A7C ; =0x020EE964
+	ldr r2, _02029A7C ; =UNK_020EE964
 	mov r3, #0x0
 _02029A4C:
 	lsl r1, r3, #0x3
@@ -2420,5 +2425,5 @@ _02029A78:
 	mov r0, #0xa
 	bx lr
 	.balign 4
-_02029A7C: .word 0x020EE964
+_02029A7C: .word UNK_020EE964
 _02029A80: .word 0x00000105

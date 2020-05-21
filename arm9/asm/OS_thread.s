@@ -1,6 +1,10 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_021D349C
+	.extern OSi_LauncherThread
+	.extern OSi_SystemCallbackInSwitchThread
+
     .text
 
 	arm_func_start OS_IsThreadAvailable
@@ -624,7 +628,7 @@ OS_InitThread: ; 0x020CB684
 	ldmneia sp!, {r4-r6,lr}
 	bxne lr
 	ldr ip, _020CB7A8 ; =0x00000000
-	ldr r1, _020CB7AC ; =0x021D3568
+	ldr r1, _020CB7AC ; =OSi_LauncherThread
 	mov lr, #0x0
 	ldr r0, _020CB7B0 ; =OSi_ThreadInfo
 	mov r6, #0x1
@@ -645,11 +649,11 @@ OS_InitThread: ; 0x020CB684
 	subgt r0, r1, r0
 	subgt r4, r0, r12
 	ldr r1, _020CB7B8 ; =0x027E0000
-	ldr r5, _020CB7C0 ; =0x021D349C
+	ldr r5, _020CB7C0 ; =UNK_021D349C
 	ldr r2, _020CB7C4 ; =OSi_CurrentThreadPtr
 	ldr r0, _020CB7BC ; =0x00000400
 	str r5, [r2, #0x0]
-	ldr r2, _020CB7AC ; =0x021D3568
+	ldr r2, _020CB7AC ; =OSi_LauncherThread
 	add r1, r1, #0x3f80
 	str r6, [r3, #0x0]
 	sub r3, r1, r0
@@ -746,7 +750,7 @@ _020CB864:
 	ldmneia sp!, {r4-r6,lr}
 	bxne lr
 _020CB870:
-	ldr r0, _020CB8C8 ; =0x021D348C
+	ldr r0, _020CB8C8 ; =OSi_SystemCallbackInSwitchThread
 	ldr r2, [r0, #0x0]
 	cmp r2, #0x0
 	beq _020CB88C

@@ -1,6 +1,15 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FB3AC
+	.extern UNK_020FB4AC
+	.extern UNK_020FB394
+	.extern UNK_020FB3FC
+	.extern UNK_020FB3CC
+	.extern UNK_020FB46C
+	.extern UNK_020FB42C
+	.extern UNK_020FB38C
+
 	.text
 
 	thumb_func_start FUN_0207D5BC
@@ -10,7 +19,7 @@ FUN_0207D5BC: ; 0x0207D5BC
 	mov r5, #0x0
 	add r4, r7, #0x4
 _0207D5C4:
-	ldr r2, _0207D600 ; =0x020FB4AC
+	ldr r2, _0207D600 ; =UNK_020FB4AC
 	lsl r6, r5, #0x4
 	lsl r3, r5, #0x3
 	ldr r0, [r7, #0x0]
@@ -35,7 +44,7 @@ _0207D5C4:
 	bl FUN_0207D8A0
 	pop {r3-r7, pc}
 	.balign 4
-_0207D600: .word 0x020FB4AC
+_0207D600: .word UNK_020FB4AC
 
 	thumb_func_start FUN_0207D604
 FUN_0207D604: ; 0x0207D604
@@ -64,42 +73,42 @@ _0207D62C:
 	mov r0, #0x92
 	mov r1, #0x6
 	lsl r0, r0, #0x2
-	ldr r5, _0207D6DC ; =0x020FB3FC
+	ldr r5, _0207D6DC ; =UNK_020FB3FC
 	str r1, [r4, r0]
 	b _0207D692
 _0207D638:
 	mov r0, #0x92
 	mov r1, #0x1
 	lsl r0, r0, #0x2
-	ldr r5, _0207D6E0 ; =0x020FB38C
+	ldr r5, _0207D6E0 ; =UNK_020FB38C
 	str r1, [r4, r0]
 	b _0207D692
 _0207D644:
 	mov r0, #0x92
 	mov r1, #0x8
 	lsl r0, r0, #0x2
-	ldr r5, _0207D6E4 ; =0x020FB42C
+	ldr r5, _0207D6E4 ; =UNK_020FB42C
 	str r1, [r4, r0]
 	b _0207D692
 _0207D650:
 	mov r0, #0x92
 	mov r1, #0x8
 	lsl r0, r0, #0x2
-	ldr r5, _0207D6E8 ; =0x020FB46C
+	ldr r5, _0207D6E8 ; =UNK_020FB46C
 	str r1, [r4, r0]
 	b _0207D692
 _0207D65C:
 	mov r0, #0x92
 	mov r1, #0x6
 	lsl r0, r0, #0x2
-	ldr r5, _0207D6EC ; =0x020FB3CC
+	ldr r5, _0207D6EC ; =UNK_020FB3CC
 	str r1, [r4, r0]
 	b _0207D692
 _0207D668:
 	mov r0, #0x92
 	mov r1, #0x4
 	lsl r0, r0, #0x2
-	ldr r5, _0207D6F0 ; =0x020FB3AC
+	ldr r5, _0207D6F0 ; =UNK_020FB3AC
 	str r1, [r4, r0]
 	b _0207D692
 _0207D674:
@@ -115,7 +124,7 @@ _0207D684:
 	mov r0, #0x92
 	mov r1, #0x3
 	lsl r0, r0, #0x2
-	ldr r5, _0207D6F4 ; =0x020FB394
+	ldr r5, _0207D6F4 ; =UNK_020FB394
 	str r1, [r4, r0]
 	b _0207D692
 _0207D690:
@@ -157,13 +166,13 @@ _0207D6D4:
 	pop {r3-r7, pc}
 	nop
 _0207D6D8: .word 0x0000068C
-_0207D6DC: .word 0x020FB3FC
-_0207D6E0: .word 0x020FB38C
-_0207D6E4: .word 0x020FB42C
-_0207D6E8: .word 0x020FB46C
-_0207D6EC: .word 0x020FB3CC
-_0207D6F0: .word 0x020FB3AC
-_0207D6F4: .word 0x020FB394
+_0207D6DC: .word UNK_020FB3FC
+_0207D6E0: .word UNK_020FB38C
+_0207D6E4: .word UNK_020FB42C
+_0207D6E8: .word UNK_020FB46C
+_0207D6EC: .word UNK_020FB3CC
+_0207D6F0: .word UNK_020FB3AC
+_0207D6F4: .word UNK_020FB394
 
 	thumb_func_start FUN_0207D6F8
 FUN_0207D6F8: ; 0x0207D6F8

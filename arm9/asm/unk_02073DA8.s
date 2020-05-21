@@ -1,16 +1,19 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern gUnknown21C48B8
+	.extern UNK_020F9CAC
+
 	.text
 
 	thumb_func_start FUN_02073DA8
 FUN_02073DA8: ; 0x02073DA8
 	lsl r1, r0, #0x2
-	ldr r0, _02073DB0 ; =0x020F9CAC
+	ldr r0, _02073DB0 ; =UNK_020F9CAC
 	ldr r0, [r0, r1]
 	bx lr
 	.balign 4
-_02073DB0: .word 0x020F9CAC
+_02073DB0: .word UNK_020F9CAC
 
 	thumb_func_start FUN_02073DB4
 FUN_02073DB4: ; 0x02073DB4
@@ -325,7 +328,7 @@ FUN_0207405C: ; 0x0207405C
 	bl FUN_0201BD70
 	cmp r0, #0x0
 	bne _0207409A
-	ldr r0, _020740A4 ; =0x021C48B8
+	ldr r0, _020740A4 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -350,7 +353,7 @@ _0207409A:
 	pop {r4, pc}
 	nop
 _020740A0: .word 0x00000B24
-_020740A4: .word 0x021C48B8
+_020740A4: .word gUnknown21C48B8
 _020740A8: .word 0x000005C8
 
 	thumb_func_start FUN_020740AC
@@ -682,7 +685,7 @@ _02074368: .word 0x000005C8
 FUN_0207436C: ; 0x0207436C
 	push {r4, lr}
 	add r4, r0, #0x0
-	ldr r0, _020743A4 ; =0x021C48B8
+	ldr r0, _020743A4 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -706,7 +709,7 @@ _0207439E:
 	mov r0, #0x10
 	pop {r4, pc}
 	nop
-_020743A4: .word 0x021C48B8
+_020743A4: .word gUnknown21C48B8
 _020743A8: .word 0x000005C8
 
 	thumb_func_start FUN_020743AC
@@ -2153,7 +2156,7 @@ _02074F68: .word 0x00000B22
 FUN_02074F6C: ; 0x02074F6C
 	push {r4, lr}
 	add r4, r0, #0x0
-	ldr r0, _02074FA4 ; =0x021C48B8
+	ldr r0, _02074FA4 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2177,7 +2180,7 @@ _02074F9E:
 	mov r0, #0x13
 	pop {r4, pc}
 	nop
-_02074FA4: .word 0x021C48B8
+_02074FA4: .word gUnknown21C48B8
 _02074FA8: .word 0x000005C8
 
 	thumb_func_start FUN_02074FAC
@@ -2837,7 +2840,7 @@ _020754CC: .word 0x00000B2A
 FUN_020754D0: ; 0x020754D0
 	push {r4, lr}
 	add r4, r0, #0x0
-	ldr r0, _02075504 ; =0x021C48B8
+	ldr r0, _02075504 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r1, r0
@@ -2859,5 +2862,5 @@ FUN_020754D0: ; 0x020754D0
 _02075500:
 	pop {r4, pc}
 	nop
-_02075504: .word 0x021C48B8
+_02075504: .word gUnknown21C48B8
 _02075508: .word 0x000005C8

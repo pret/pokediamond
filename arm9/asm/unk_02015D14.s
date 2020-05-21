@@ -1,6 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020ED734
+
 	.text
 
 	thumb_func_start FUN_02015D14
@@ -95,7 +97,7 @@ _02015D9E:
 	sub r0, r0, #0x1
 	str r0, [sp, #0xc]
 	beq _02015E18
-	ldr r1, _02015E28 ; =0x020ED734
+	ldr r1, _02015E28 ; =UNK_020ED734
 	lsl r0, r2, #0x1
 	ldr r5, [sp, #0x4]
 	add r7, r1, r0
@@ -167,5 +169,5 @@ _02015E18:
 	add sp, #0x10
 	pop {r3-r7, pc}
 	nop
-_02015E28: .word 0x020ED734
+_02015E28: .word UNK_020ED734
 _02015E2C: .word 0x0000FFFF

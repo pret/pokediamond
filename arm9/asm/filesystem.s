@@ -1,6 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_021058A0
+
 	.text
 
 	thumb_func_start ReadNARCFile
@@ -225,14 +227,14 @@ LoadFromNARC: ; 0x020064F0
 	sub sp, #0x4
 	mov r3, #0x0
 	lsl r4, r1, #0x2
-	ldr r1, _02006508 ; =0x021058A0
+	ldr r1, _02006508 ; =UNK_021058A0
 	str r3, [sp, #0x0]
 	ldr r1, [r1, r4]
 	bl ReadNARCFile
 	add sp, #0x4
 	pop {r3-r4, pc}
 	nop
-_02006508: .word 0x021058A0
+_02006508: .word UNK_021058A0
 
 	thumb_func_start LoadFromNarc_2
 LoadFromNarc_2: ; 0x0200650C
@@ -241,14 +243,14 @@ LoadFromNarc_2: ; 0x0200650C
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	lsl r4, r0, #0x2
-	ldr r0, _02006524 ; =0x021058A0
+	ldr r0, _02006524 ; =UNK_021058A0
 	str r3, [sp, #0x4]
 	ldr r0, [r0, r4]
 	bl LoadFileIntoMemory
 	add sp, #0x8
 	pop {r4, pc}
 	.balign 4
-_02006524: .word 0x021058A0
+_02006524: .word UNK_021058A0
 
 	thumb_func_start FUN_02006528
 FUN_02006528: ; 0x02006528
@@ -259,13 +261,13 @@ FUN_02006528: ; 0x02006528
 	mov r4, #0x1
 	str r4, [sp, #0x4]
 	lsl r4, r0, #0x2
-	ldr r0, _02006544 ; =0x021058A0
+	ldr r0, _02006544 ; =UNK_021058A0
 	ldr r0, [r0, r4]
 	bl LoadFileIntoMemory
 	add sp, #0x8
 	pop {r4, pc}
 	nop
-_02006544: .word 0x021058A0
+_02006544: .word UNK_021058A0
 
 	thumb_func_start FUN_02006548
 FUN_02006548: ; 0x02006548
@@ -274,13 +276,13 @@ FUN_02006548: ; 0x02006548
 	ldr r4, [sp, #0x10]
 	str r4, [sp, #0x0]
 	lsl r4, r1, #0x2
-	ldr r1, _02006560 ; =0x021058A0
+	ldr r1, _02006560 ; =UNK_021058A0
 	ldr r1, [r1, r4]
 	bl ReadNARCFile
 	add sp, #0x4
 	pop {r3-r4, pc}
 	nop
-_02006560: .word 0x021058A0
+_02006560: .word UNK_021058A0
 
 	thumb_func_start FUN_02006564
 FUN_02006564: ; 0x02006564
@@ -291,13 +293,13 @@ FUN_02006564: ; 0x02006564
 	mov r4, #0x0
 	str r4, [sp, #0x4]
 	lsl r4, r0, #0x2
-	ldr r0, _02006580 ; =0x021058A0
+	ldr r0, _02006580 ; =UNK_021058A0
 	ldr r0, [r0, r4]
 	bl LoadFileIntoMemory
 	add sp, #0x8
 	pop {r4, pc}
 	nop
-_02006580: .word 0x021058A0
+_02006580: .word UNK_021058A0
 
 	thumb_func_start FUN_02006584
 FUN_02006584: ; 0x02006584
@@ -308,13 +310,13 @@ FUN_02006584: ; 0x02006584
 	mov r4, #0x1
 	str r4, [sp, #0x4]
 	lsl r4, r0, #0x2
-	ldr r0, _020065A0 ; =0x021058A0
+	ldr r0, _020065A0 ; =UNK_021058A0
 	ldr r0, [r0, r4]
 	bl LoadFileIntoMemory
 	add sp, #0x8
 	pop {r4, pc}
 	nop
-_020065A0: .word 0x021058A0
+_020065A0: .word UNK_021058A0
 
 	thumb_func_start LoadFromNARC_7
 LoadFromNARC_7: ; 0x020065A4
@@ -330,7 +332,7 @@ LoadFromNARC_7: ; 0x020065A4
 	strh r1, [r0, #0x0]
 	add r0, sp, #0x10
 	bl FS_InitFile
-	ldr r1, _0200666C ; =0x021058A0
+	ldr r1, _0200666C ; =UNK_021058A0
 	lsl r2, r4, #0x2
 	ldr r1, [r1, r2]
 	add r0, sp, #0x10
@@ -405,7 +407,7 @@ _02006664:
 	add sp, #0x58
 	pop {r3-r7, pc}
 	nop
-_0200666C: .word 0x021058A0
+_0200666C: .word UNK_021058A0
 
 	thumb_func_start FUN_02006670
 FUN_02006670: ; 0x02006670
@@ -419,7 +421,7 @@ FUN_02006670: ; 0x02006670
 	mov r1, #0x0
 	str r1, [r4, #0x48]
 	bl FS_InitFile
-	ldr r1, _020066F0 ; =0x021058A0
+	ldr r1, _020066F0 ; =UNK_021058A0
 	lsl r2, r5, #0x2
 	ldr r1, [r1, r2]
 	add r0, r4, #0x0
@@ -465,7 +467,7 @@ _020066EC:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_020066F0: .word 0x021058A0
+_020066F0: .word UNK_021058A0
 
 	thumb_func_start FUN_020066F4
 FUN_020066F4: ; 0x020066F4

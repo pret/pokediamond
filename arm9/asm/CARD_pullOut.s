@@ -1,6 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D5E20
+	.extern UNK_021D5E24
+
 	.text
 
 	arm_func_start CARDi_SendtoPxi
@@ -106,11 +109,11 @@ _020D7D14: .word 0x000A3A47
 
 	arm_func_start CARD_IsPulledOut
 CARD_IsPulledOut: ; 0x020D7D18
-	ldr r0, _020D7D24 ; =0x021D5E20
+	ldr r0, _020D7D24 ; =UNK_021D5E20
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020D7D24: .word 0x021D5E20
+_020D7D24: .word UNK_021D5E20
 
 	arm_func_start CARDi_PulledOutCallback
 CARDi_PulledOutCallback: ; 0x020D7D28
@@ -119,13 +122,13 @@ CARDi_PulledOutCallback: ; 0x020D7D28
 	and r0, r1, #0x3f
 	cmp r0, #0x11
 	bne _020D7D90
-	ldr r2, _020D7DA0 ; =0x021D5E20
+	ldr r2, _020D7DA0 ; =UNK_021D5E20
 	ldr r0, [r2, #0x0]
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {lr}
 	bxne lr
-	ldr r1, _020D7DA4 ; =0x021D5E24
+	ldr r1, _020D7DA4 ; =UNK_021D5E24
 	mov r0, #0x1
 	ldr r1, [r1, #0x0]
 	str r0, [r2, #0x0]
@@ -147,8 +150,8 @@ _020D7D90:
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D7DA0: .word 0x021D5E20
-_020D7DA4: .word 0x021D5E24
+_020D7DA0: .word UNK_021D5E20
+_020D7DA4: .word UNK_021D5E24
 
 	arm_func_start CARD_InitPulledOutCallback
 CARD_InitPulledOutCallback: ; 0x020D7DA8
@@ -158,7 +161,7 @@ CARD_InitPulledOutCallback: ; 0x020D7DA8
 	ldr r1, _020D7DD8 ; =CARDi_PulledOutCallback
 	mov r0, #0xe
 	bl PXI_SetFifoRecvCallback
-	ldr r0, _020D7DDC ; =0x021D5E24
+	ldr r0, _020D7DDC ; =UNK_021D5E24
 	mov r1, #0x0
 	str r1, [r0, #0x0]
 	add sp, sp, #0x4
@@ -166,4 +169,4 @@ CARD_InitPulledOutCallback: ; 0x020D7DA8
 	bx lr
 	.balign 4
 _020D7DD8: .word CARDi_PulledOutCallback
-_020D7DDC: .word 0x021D5E24
+_020D7DDC: .word UNK_021D5E24

@@ -1,6 +1,13 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F70F8
+	.extern UNK_020F70D8
+	.extern UNK_020F7148
+	.extern UNK_020F70E8
+	.extern UNK_020F7178
+	.extern UNK_020F7118
+
 	.text
 
 	thumb_func_start FUN_0205BEF8
@@ -38,13 +45,13 @@ FUN_0205BF24: ; 0x0205BF24
 	bl FUN_02058488
 	add r1, r0, #0x0
 	lsl r2, r1, #0x2
-	ldr r1, _0205BF3C ; =0x020F7118
+	ldr r1, _0205BF3C ; =UNK_020F7118
 	add r0, r4, #0x0
 	ldr r1, [r1, r2]
 	blx r1
 	pop {r4, pc}
 	nop
-_0205BF3C: .word 0x020F7118
+_0205BF3C: .word UNK_020F7118
 
 	thumb_func_start FUN_0205BF40
 FUN_0205BF40: ; 0x0205BF40
@@ -53,13 +60,13 @@ FUN_0205BF40: ; 0x0205BF40
 	bl FUN_02058488
 	add r1, r0, #0x0
 	lsl r2, r1, #0x2
-	ldr r1, _0205BF58 ; =0x020F7148
+	ldr r1, _0205BF58 ; =UNK_020F7148
 	add r0, r4, #0x0
 	ldr r1, [r1, r2]
 	blx r1
 	pop {r4, pc}
 	nop
-_0205BF58: .word 0x020F7148
+_0205BF58: .word UNK_020F7148
 
 	thumb_func_start FUN_0205BF5C
 FUN_0205BF5C: ; 0x0205BF5C
@@ -68,13 +75,13 @@ FUN_0205BF5C: ; 0x0205BF5C
 	bl FUN_02058488
 	add r1, r0, #0x0
 	lsl r2, r1, #0x2
-	ldr r1, _0205BF74 ; =0x020F7178
+	ldr r1, _0205BF74 ; =UNK_020F7178
 	add r0, r4, #0x0
 	ldr r1, [r1, r2]
 	blx r1
 	pop {r4, pc}
 	nop
-_0205BF74: .word 0x020F7178
+_0205BF74: .word UNK_020F7178
 
 	thumb_func_start FUN_0205BF78
 FUN_0205BF78: ; 0x0205BF78
@@ -248,7 +255,7 @@ _0205C09E: ; jump table (using 16-bit offset)
 	.short _0205C0FA - _0205C09E - 2; case 2
 	.short _0205C110 - _0205C09E - 2; case 3
 _0205C0A6:
-	ldr r3, _0205C164 ; =0x020F70D8
+	ldr r3, _0205C164 ; =UNK_020F70D8
 	add r2, sp, #0x10
 	ldmia r3!, {r0-r1}
 	stmia r2!, {r0-r1}
@@ -265,7 +272,7 @@ _0205C0A6:
 	add r0, r0, #0x1
 	strb r0, [r4, #0x1]
 _0205C0C8:
-	ldr r6, _0205C168 ; =0x020F70E8
+	ldr r6, _0205C168 ; =UNK_020F70E8
 	add r3, sp, #0x0
 	add r2, r3, #0x0
 	ldmia r6!, {r0-r1}
@@ -346,8 +353,8 @@ _0205C15E:
 	add sp, #0x20
 	pop {r4-r6, pc}
 	.balign 4
-_0205C164: .word 0x020F70D8
-_0205C168: .word 0x020F70E8
+_0205C164: .word UNK_020F70D8
+_0205C168: .word UNK_020F70E8
 
 	thumb_func_start FUN_0205C16C
 FUN_0205C16C: ; 0x0205C16C
@@ -445,7 +452,7 @@ _0205C210:
 FUN_0205C214: ; 0x0205C214
 	push {r3-r7, lr}
 	sub sp, #0x20
-	ldr r3, _0205C330 ; =0x020F70F8
+	ldr r3, _0205C330 ; =UNK_020F70F8
 	add r2, sp, #0x0
 	add r7, r0, #0x0
 	ldmia r3!, {r0-r1}
@@ -592,4 +599,4 @@ _0205C32A:
 	add sp, #0x20
 	pop {r3-r7, pc}
 	.balign 4
-_0205C330: .word 0x020F70F8
+_0205C330: .word UNK_020F70F8

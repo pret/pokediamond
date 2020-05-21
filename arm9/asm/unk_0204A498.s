@@ -1,6 +1,9 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F4710
+	.extern UNK_020F4708
+
 	.text
 
 	thumb_func_start FUN_0204A498
@@ -275,21 +278,21 @@ FUN_0204A690: ; 0x0204A690
 	push {r3, lr}
 	cmp r1, #0x0
 	bne _0204A69C
-	ldr r1, _0204A6AC ; =0x020F4708
+	ldr r1, _0204A6AC ; =UNK_020F4708
 	str r1, [r0, #0x0]
 	pop {r3, pc}
 _0204A69C:
 	cmp r1, #0x1
 	bne _0204A6A6
-	ldr r1, _0204A6B0 ; =0x020F4710
+	ldr r1, _0204A6B0 ; =UNK_020F4710
 	str r1, [r0, #0x0]
 	pop {r3, pc}
 _0204A6A6:
 	bl ErrorHandling
 	pop {r3, pc}
 	.balign 4
-_0204A6AC: .word 0x020F4708
-_0204A6B0: .word 0x020F4710
+_0204A6AC: .word UNK_020F4708
+_0204A6B0: .word UNK_020F4710
 
 	thumb_func_start FUN_0204A6B4
 FUN_0204A6B4: ; 0x0204A6B4

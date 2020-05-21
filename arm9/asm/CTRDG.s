@@ -1,6 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D6940
+	.extern UNK_021D6944
+
     .text
 
 	arm_func_start CTRDG_CheckEnabled
@@ -30,7 +33,7 @@ CTRDG_Enable: ; 0x020DB15C
 	sub sp, sp, #0x4
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _020DB1AC ; =0x021D6940
+	ldr r1, _020DB1AC ; =UNK_021D6940
 	mov r4, r0
 	str r5, [r1, #0x0]
 	bl CTRDG_IsOptionCartridge
@@ -49,15 +52,15 @@ _020DB198:
 	ldmia sp!, {r4-r5,lr}
 	bx lr
 	.balign 4
-_020DB1AC: .word 0x021D6940
+_020DB1AC: .word UNK_021D6940
 
 	arm_func_start CTRDG_IsEnabled
 CTRDG_IsEnabled:
-	ldr r0, _020DB1BC ; =0x021D6940
+	ldr r0, _020DB1BC ; =UNK_021D6940
 	ldr r0, [r0, #0x0]
 	bx lr
 	.balign 4
-_020DB1BC: .word 0x021D6940
+_020DB1BC: .word UNK_021D6940
 
 	arm_func_start CTRDGi_AccessCommon
 CTRDGi_AccessCommon: ; 0x020DB1C0
@@ -75,7 +78,7 @@ _020DB1DC: ; 0x020DB1DC
 	ldmeqia sp!, {r4-r7,lr}
 	bxeq lr
 	bl CTRDG_CheckEnabled
-	ldr r0, _020DB2BC ; =0x021D6944
+	ldr r0, _020DB2BC ; =UNK_021D6944
 	ldrh r0, [r0, #0x2]
 	bl OS_LockCartridge
 	cmp r4, #0x21
@@ -123,7 +126,7 @@ _020DB280:
 _020DB290:
 	strb r6, [r7, #0x0]
 _020DB294:
-	ldr r0, _020DB2BC ; =0x021D6944
+	ldr r0, _020DB2BC ; =UNK_021D6944
 	ldrh r0, [r0, #0x2]
 	bl OS_UnlockCartridge
 	bl CTRDG_IsExisting
@@ -135,7 +138,7 @@ _020DB2A4: ; 0x020DB2A4
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020DB2BC: .word 0x021D6944
+_020DB2BC: .word UNK_021D6944
 
 	arm_func_start CTRDG_Read32
 CTRDG_Read32: ; 0x020DB2C0
@@ -163,7 +166,7 @@ _020DB2F4: ; 0x020DB2F4
 	ldmeqia sp!, {r4-r7,lr}
 	bxeq lr
 	bl CTRDG_CheckEnabled
-	ldr r0, _020DB42C ; =0x021D6944
+	ldr r0, _020DB42C ; =UNK_021D6944
 	ldrh r0, [r0, #0x2]
 	bl OS_LockCartridge
 	ldr r0, [sp, #0x18]
@@ -236,7 +239,7 @@ _020DB3F0:
 	strb r0, [r5], #0x1
 	blo _020DB3F0
 _020DB404:
-	ldr r0, _020DB42C ; =0x021D6944
+	ldr r0, _020DB42C ; =UNK_021D6944
 	ldrh r0, [r0, #0x2]
 	bl OS_UnlockCartridge
 	bl CTRDG_IsExisting
@@ -248,7 +251,7 @@ _020DB414: ; 0x020DB414
 	ldmia sp!, {r4-r7,lr}
 	bx lr
 	.balign 4
-_020DB42C: .word 0x021D6944
+_020DB42C: .word UNK_021D6944
 
 	arm_func_start CTRDG_CpuCopy32
 CTRDG_CpuCopy32: ; 0x020DB430
@@ -458,7 +461,7 @@ CTRDG_IsExisting:
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,lr}
 	bxeq lr
-	ldr r0, _020DB7A0 ; =0x021D6944
+	ldr r0, _020DB7A0 ; =UNK_021D6944
 	add r1, sp, #0x0
 	ldrh r0, [r0, #0x2]
 	bl CTRDGi_LockByProcessor
@@ -502,7 +505,7 @@ _020DB75C:
 _020DB770:
 	add r0, sp, #0x8
 	bl CTRDGi_RestoreAccessCycle
-	ldr r0, _020DB7A0 ; =0x021D6944
+	ldr r0, _020DB7A0 ; =UNK_021D6944
 	add r1, sp, #0x0
 	ldrh r0, [r0, #0x2]
 	bl CTRDGi_UnlockByProcessor
@@ -513,7 +516,7 @@ _020DB770:
 	.balign 4
 _020DB798: .word 0x027FFC30
 _020DB79C: .word 0x0000FFFF
-_020DB7A0: .word 0x021D6944
+_020DB7A0: .word UNK_021D6944
 _020DB7A4: .word 0x0801FFFE
 
 	arm_func_start CTRDG_IsPulledOut
@@ -661,18 +664,18 @@ _020DB928:
 CTRDGi_InitCommon: ; 0x020DB938
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020DB970 ; =0x021D6944
+	ldr r1, _020DB970 ; =UNK_021D6944
 	mov r3, #0x0
 	ldr r2, _020DB974 ; =0x05000001
 	add r0, sp, #0x0
 	str r3, [sp, #0x0]
 	bl FUN_020002FE
 	bl OS_GetLockID
-	ldr r1, _020DB970 ; =0x021D6944
+	ldr r1, _020DB970 ; =UNK_021D6944
 	strh r0, [r1, #0x2]
 	add sp, sp, #0x4
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020DB970: .word 0x021D6944
+_020DB970: .word UNK_021D6944
 _020DB974: .word 0x05000001

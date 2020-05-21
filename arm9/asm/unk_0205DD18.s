@@ -1,6 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F7374
+
 	.text
 
 	thumb_func_start FUN_0205DD18
@@ -67,7 +69,7 @@ FUN_0205DD80: ; 0x0205DD80
 	push {r4-r7, lr}
 	sub sp, #0x2c
 	str r1, [sp, #0x10]
-	ldr r1, _0205DECC ; =0x020F7374
+	ldr r1, _0205DECC ; =UNK_020F7374
 	str r2, [sp, #0x14]
 	ldrb r2, [r1, #0x4]
 	str r0, [sp, #0xc]
@@ -229,7 +231,7 @@ _0205DEC4:
 	add sp, #0x2c
 	pop {r4-r7, pc}
 	.balign 4
-_0205DECC: .word 0x020F7374
+_0205DECC: .word UNK_020F7374
 _0205DED0: .word 0x0000FFFF
 
 	thumb_func_start FUN_0205DED4
@@ -770,7 +772,7 @@ _0205E29C:
 FUN_0205E2A0: ; 0x0205E2A0
 	push {r3-r7, lr}
 	sub sp, #0x8
-	ldr r3, _0205E308 ; =0x020F7374
+	ldr r3, _0205E308 ; =UNK_020F7374
 	add r5, r0, #0x0
 	ldrb r4, [r3, #0x0]
 	add r2, sp, #0x0
@@ -821,7 +823,7 @@ _0205E300:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
-_0205E308: .word 0x020F7374
+_0205E308: .word UNK_020F7374
 
 	thumb_func_start FUN_0205E30C
 FUN_0205E30C: ; 0x0205E30C

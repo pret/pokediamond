@@ -1,6 +1,10 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F46B0
+	.extern UNK_020F4684
+	.extern UNK_020F4694
+
 	.text
 
 	thumb_func_start FUN_020484A8
@@ -327,20 +331,20 @@ FUN_02048764: ; 0x02048764
 	add r1, #0x1c
 	add r0, r1, #0x0
 	bl FUN_0201901C
-	ldr r0, _020487D4 ; =0x020F46B0
+	ldr r0, _020487D4 ; =UNK_020F46B0
 	bl FUN_0201E66C
 	ldr r2, _020487D8 ; =0x04000304
 	ldrh r1, [r2, #0x0]
 	lsr r0, r2, #0xb
 	orr r0, r1
 	strh r0, [r2, #0x0]
-	ldr r0, _020487DC ; =0x020F4684
+	ldr r0, _020487DC ; =UNK_020F4684
 	bl FUN_02016BBC
 	mov r0, #0x3
 	mov r1, #0x0
 	bl FUN_02017FE4
 	ldr r0, [r4, #0x8]
-	ldr r2, _020487E0 ; =0x020F4694
+	ldr r2, _020487E0 ; =UNK_020F4694
 	mov r1, #0x3
 	mov r3, #0x0
 	bl FUN_02016C18
@@ -366,10 +370,10 @@ FUN_02048764: ; 0x02048764
 	add sp, #0x10
 	pop {r4, pc}
 	nop
-_020487D4: .word 0x020F46B0
+_020487D4: .word UNK_020F46B0
 _020487D8: .word 0x04000304
-_020487DC: .word 0x020F4684
-_020487E0: .word 0x020F4694
+_020487DC: .word UNK_020F4684
+_020487E0: .word UNK_020F4694
 
 	thumb_func_start FUN_020487E4
 FUN_020487E4: ; 0x020487E4

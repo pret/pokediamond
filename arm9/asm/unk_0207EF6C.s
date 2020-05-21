@@ -1,6 +1,26 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FB64C
+	.extern UNK_020FB5CC
+	.extern UNK_020FB6E6
+	.extern UNK_020FB5D8
+	.extern UNK_020FB620
+	.extern UNK_020FB5EA
+	.extern UNK_020FB5FC
+	.extern UNK_020FB60E
+	.extern UNK_020FB668
+	.extern UNK_020FB644
+	.extern UNK_020FB656
+	.extern UNK_020FB67A
+	.extern UNK_020FB6B0
+	.extern UNK_020FB632
+	.extern UNK_020FB69E
+	.extern UNK_020FB6D4
+	.extern UNK_020FB68C
+	.extern UNK_020FB6C2
+	.extern UNK_020FB60C
+
 	.text
 
 	thumb_func_start FUN_0207EF6C
@@ -141,7 +161,7 @@ FUN_0207F068: ; 0x0207F068
 FUN_0207F098: ; 0x0207F098
 	push {r3-r4, lr}
 	sub sp, #0x1c
-	ldr r3, _0207F100 ; =0x020FB5CC
+	ldr r3, _0207F100 ; =UNK_020FB5CC
 	add r4, r0, #0x0
 	ldmia r3!, {r0-r1}
 	add r2, sp, #0x10
@@ -186,7 +206,7 @@ FUN_0207F098: ; 0x0207F098
 	add sp, #0x1c
 	pop {r3-r4, pc}
 	nop
-_0207F100: .word 0x020FB5CC
+_0207F100: .word UNK_020FB5CC
 _0207F104: .word 0x000005C1
 
 	thumb_func_start FUN_0207F108
@@ -409,7 +429,7 @@ FUN_0207F2A0: ; 0x0207F2A0
 	beq _0207F2AE
 	b _0207F41A
 _0207F2AE:
-	ldr r7, _0207F424 ; =0x020FB60C
+	ldr r7, _0207F424 ; =UNK_020FB60C
 	add r3, sp, #0x0
 	ldrh r1, [r7, #0x8]
 	strh r1, [r3, #0x12]
@@ -454,7 +474,7 @@ _0207F2AE:
 	add r2, #0x16
 	strh r6, [r0, r2]
 	ldrh r2, [r7, #0x3e]
-	ldr r6, _0207F428 ; =0x020FB64C
+	ldr r6, _0207F428 ; =UNK_020FB64C
 	add r7, r1, #0x0
 	strh r2, [r3, #0xc]
 	ldrh r2, [r6, #0x0]
@@ -544,7 +564,7 @@ _0207F2AE:
 	add r4, r1, #0x0
 	add r4, #0x46
 	strh r2, [r0, r4]
-	ldr r2, _0207F42C ; =0x020FB68C
+	ldr r2, _0207F42C ; =UNK_020FB68C
 	ldrh r4, [r2, #0x2a]
 	strh r4, [r3, #0x0]
 	ldrh r4, [r2, #0x2c]
@@ -595,9 +615,9 @@ _0207F41A:
 	pop {r3-r7, pc}
 	nop
 _0207F420: .word 0x0000068C
-_0207F424: .word 0x020FB60C
-_0207F428: .word 0x020FB64C
-_0207F42C: .word 0x020FB68C
+_0207F424: .word UNK_020FB60C
+_0207F428: .word UNK_020FB64C
+_0207F42C: .word UNK_020FB68C
 
 	thumb_func_start FUN_0207F430
 FUN_0207F430: ; 0x0207F430
@@ -808,24 +828,24 @@ FUN_0207F608: ; 0x0207F608
 	mov r1, #0xe7
 	lsl r1, r1, #0x2
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F7D4 ; =0x020FB5D8
+	ldr r0, _0207F7D4 ; =UNK_020FB5D8
 	add r1, r5, r1
 	bl FUN_0207F430
 	ldr r2, _0207F7D8 ; =0x00000296
 	ldr r1, _0207F7DC ; =0x000003A2
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F7E0 ; =0x020FB5EA
+	ldr r0, _0207F7E0 ; =UNK_020FB5EA
 	add r1, r5, r1
 	bl FUN_0207F430
 	ldr r2, _0207F7E4 ; =0x00000297
 	ldr r1, _0207F7E8 ; =0x000003AE
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F7EC ; =0x020FB5FC
+	ldr r0, _0207F7EC ; =UNK_020FB5FC
 	add r1, r5, r1
 	bl FUN_0207F430
 	mov r1, #0xea
 	lsl r1, r1, #0x2
-	ldr r0, _0207F7F0 ; =0x020FB60E
+	ldr r0, _0207F7F0 ; =UNK_020FB60E
 	add r1, r5, r1
 	mov r2, #0x0
 	bl FUN_0207F430
@@ -833,17 +853,17 @@ FUN_0207F608: ; 0x0207F608
 	mov r1, #0xed
 	lsl r1, r1, #0x2
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F7F8 ; =0x020FB620
+	ldr r0, _0207F7F8 ; =UNK_020FB620
 	add r1, r5, r1
 	bl FUN_0207F430
 	ldr r2, _0207F7D0 ; =0x00000295
 	ldr r1, _0207F7FC ; =0x000003BA
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F800 ; =0x020FB632
+	ldr r0, _0207F800 ; =UNK_020FB632
 	add r1, r5, r1
 	bl FUN_0207F430
 	ldr r1, _0207F804 ; =0x000003C6
-	ldr r0, _0207F808 ; =0x020FB644
+	ldr r0, _0207F808 ; =UNK_020FB644
 	add r1, r5, r1
 	mov r2, #0x0
 	bl FUN_0207F430
@@ -852,25 +872,25 @@ FUN_0207F608: ; 0x0207F608
 	mov r1, #0xf
 	lsl r1, r1, #0x6
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F80C ; =0x020FB656
+	ldr r0, _0207F80C ; =UNK_020FB656
 	add r1, r5, r1
 	bl FUN_0207F430
 	ldr r2, _0207F7F4 ; =0x00000299
 	mov r1, #0xf3
 	lsl r1, r1, #0x2
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F810 ; =0x020FB668
+	ldr r0, _0207F810 ; =UNK_020FB668
 	add r1, r5, r1
 	bl FUN_0207F430
 	ldr r1, _0207F814 ; =0x000003D2
-	ldr r0, _0207F818 ; =0x020FB67A
+	ldr r0, _0207F818 ; =UNK_020FB67A
 	add r1, r5, r1
 	mov r2, #0x0
 	bl FUN_0207F430
 	ldr r2, _0207F7E4 ; =0x00000297
 	ldr r1, _0207F81C ; =0x000003DE
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F820 ; =0x020FB68C
+	ldr r0, _0207F820 ; =UNK_020FB68C
 	add r1, r5, r1
 	bl FUN_0207F430
 	mov r2, #0xa6
@@ -878,25 +898,25 @@ FUN_0207F608: ; 0x0207F608
 	mov r1, #0xf6
 	lsl r1, r1, #0x2
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F824 ; =0x020FB69E
+	ldr r0, _0207F824 ; =UNK_020FB69E
 	add r1, r5, r1
 	bl FUN_0207F430
 	mov r1, #0xf9
 	lsl r1, r1, #0x2
-	ldr r0, _0207F828 ; =0x020FB6B0
+	ldr r0, _0207F828 ; =UNK_020FB6B0
 	add r1, r5, r1
 	mov r2, #0x0
 	bl FUN_0207F430
 	ldr r2, _0207F7D8 ; =0x00000296
 	ldr r1, _0207F82C ; =0x000003EA
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F830 ; =0x020FB6C2
+	ldr r0, _0207F830 ; =UNK_020FB6C2
 	add r1, r5, r1
 	bl FUN_0207F430
 	ldr r2, _0207F7E4 ; =0x00000297
 	ldr r1, _0207F834 ; =0x000003F6
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F838 ; =0x020FB6D4
+	ldr r0, _0207F838 ; =UNK_020FB6D4
 	add r1, r5, r1
 	bl FUN_0207F430
 	mov r2, #0xa6
@@ -904,7 +924,7 @@ FUN_0207F608: ; 0x0207F608
 	mov r1, #0x3f
 	lsl r1, r1, #0x4
 	ldrb r2, [r5, r2]
-	ldr r0, _0207F83C ; =0x020FB6E6
+	ldr r0, _0207F83C ; =UNK_020FB6E6
 	add r1, r5, r1
 	bl FUN_0207F430
 	mov r0, #0x0
@@ -1012,33 +1032,33 @@ _0207F756:
 	pop {r3-r7, pc}
 	.balign 4
 _0207F7D0: .word 0x00000295
-_0207F7D4: .word 0x020FB5D8
+_0207F7D4: .word UNK_020FB5D8
 _0207F7D8: .word 0x00000296
 _0207F7DC: .word 0x000003A2
-_0207F7E0: .word 0x020FB5EA
+_0207F7E0: .word UNK_020FB5EA
 _0207F7E4: .word 0x00000297
 _0207F7E8: .word 0x000003AE
-_0207F7EC: .word 0x020FB5FC
-_0207F7F0: .word 0x020FB60E
+_0207F7EC: .word UNK_020FB5FC
+_0207F7F0: .word UNK_020FB60E
 _0207F7F4: .word 0x00000299
-_0207F7F8: .word 0x020FB620
+_0207F7F8: .word UNK_020FB620
 _0207F7FC: .word 0x000003BA
-_0207F800: .word 0x020FB632
+_0207F800: .word UNK_020FB632
 _0207F804: .word 0x000003C6
-_0207F808: .word 0x020FB644
-_0207F80C: .word 0x020FB656
-_0207F810: .word 0x020FB668
+_0207F808: .word UNK_020FB644
+_0207F80C: .word UNK_020FB656
+_0207F810: .word UNK_020FB668
 _0207F814: .word 0x000003D2
-_0207F818: .word 0x020FB67A
+_0207F818: .word UNK_020FB67A
 _0207F81C: .word 0x000003DE
-_0207F820: .word 0x020FB68C
-_0207F824: .word 0x020FB69E
-_0207F828: .word 0x020FB6B0
+_0207F820: .word UNK_020FB68C
+_0207F824: .word UNK_020FB69E
+_0207F828: .word UNK_020FB6B0
 _0207F82C: .word 0x000003EA
-_0207F830: .word 0x020FB6C2
+_0207F830: .word UNK_020FB6C2
 _0207F834: .word 0x000003F6
-_0207F838: .word 0x020FB6D4
-_0207F83C: .word 0x020FB6E6
+_0207F838: .word UNK_020FB6D4
+_0207F83C: .word UNK_020FB6E6
 
 	thumb_func_start FUN_0207F840
 FUN_0207F840: ; 0x0207F840

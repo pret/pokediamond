@@ -1,6 +1,12 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FB788
+	.extern UNK_020FB78E
+	.extern UNK_020FB792
+	.extern UNK_020FB78C
+	.extern UNK_020FB790
+
 	.text
 
 	thumb_func_start FUN_0207FC5C
@@ -22,48 +28,48 @@ _0207FC6C: ; jump table (using 16-bit offset)
 _0207FC76:
 	mov r1, #0xc
 	mul r1, r0
-	ldr r0, _0207FCAC ; =0x020FB788
+	ldr r0, _0207FCAC ; =UNK_020FB788
 	ldr r0, [r0, r1]
 	bx lr
 _0207FC80:
 	mov r1, #0xc
 	mul r1, r0
-	ldr r0, _0207FCB0 ; =0x020FB78C
+	ldr r0, _0207FCB0 ; =UNK_020FB78C
 	ldrh r0, [r0, r1]
 	bx lr
 _0207FC8A:
 	mov r1, #0xc
 	mul r1, r0
-	ldr r0, _0207FCB4 ; =0x020FB78E
+	ldr r0, _0207FCB4 ; =UNK_020FB78E
 	ldrh r0, [r0, r1]
 	bx lr
 _0207FC94:
 	mov r1, #0xc
 	mul r1, r0
-	ldr r0, _0207FCB8 ; =0x020FB790
+	ldr r0, _0207FCB8 ; =UNK_020FB790
 	ldrh r0, [r0, r1]
 	bx lr
 _0207FC9E:
 	mov r1, #0xc
 	mul r1, r0
-	ldr r0, _0207FCBC ; =0x020FB792
+	ldr r0, _0207FCBC ; =UNK_020FB792
 	ldrh r0, [r0, r1]
 	bx lr
 _0207FCA8:
 	mov r0, #0x0
 	bx lr
 	.balign 4
-_0207FCAC: .word 0x020FB788
-_0207FCB0: .word 0x020FB78C
-_0207FCB4: .word 0x020FB78E
-_0207FCB8: .word 0x020FB790
-_0207FCBC: .word 0x020FB792
+_0207FCAC: .word UNK_020FB788
+_0207FCB0: .word UNK_020FB78C
+_0207FCB4: .word UNK_020FB78E
+_0207FCB8: .word UNK_020FB790
+_0207FCBC: .word UNK_020FB792
 
 	thumb_func_start FUN_0207FCC0
 FUN_0207FCC0: ; 0x0207FCC0
 	mov r2, #0xc
 	mul r2, r1
-	ldr r1, _0207FCDC ; =0x020FB792
+	ldr r1, _0207FCDC ; =UNK_020FB792
 	ldrh r2, [r1, r2]
 	mov r1, #0x2
 	lsl r1, r1, #0xe
@@ -77,13 +83,13 @@ _0207FCD8:
 	add r0, r2, #0x0
 	bx lr
 	.balign 4
-_0207FCDC: .word 0x020FB792
+_0207FCDC: .word UNK_020FB792
 
 	thumb_func_start FUN_0207FCE0
 FUN_0207FCE0: ; 0x0207FCE0
 	mov r1, #0xc
 	mul r1, r0
-	ldr r0, _0207FCFC ; =0x020FB792
+	ldr r0, _0207FCFC ; =UNK_020FB792
 	ldrh r1, [r0, r1]
 	mov r0, #0x2
 	lsl r0, r0, #0xe
@@ -96,4 +102,4 @@ _0207FCF6:
 	mov r0, #0xff
 	bx lr
 	nop
-_0207FCFC: .word 0x020FB792
+_0207FCFC: .word UNK_020FB792

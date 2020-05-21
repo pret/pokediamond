@@ -1,6 +1,10 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FF2FC
+	.extern UNK_020FDDF0
+	.extern UNK_020FE17C
+
 	.text
 
 	thumb_func_start FUN_02088F0C
@@ -55,7 +59,7 @@ FUN_02088F60: ; 0x02088F60
 	add r7, r0, #0x0
 	str r0, [sp, #0x8]
 	add r0, #0x68
-	ldr r5, _02088F9C ; =0x020FE17C
+	ldr r5, _02088F9C ; =UNK_020FE17C
 	str r4, [sp, #0x4]
 	str r0, [sp, #0x8]
 _02088F74:
@@ -80,7 +84,7 @@ _02088F74:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
-_02088F9C: .word 0x020FE17C
+_02088F9C: .word UNK_020FE17C
 
 	thumb_func_start FUN_02088FA0
 FUN_02088FA0: ; 0x02088FA0
@@ -384,7 +388,7 @@ FUN_020891D0: ; 0x020891D0
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	mov r4, #0x0
-	ldr r6, _0208920C ; =0x020FDDF0
+	ldr r6, _0208920C ; =UNK_020FDDF0
 	str r4, [sp, #0x0]
 	add r5, r7, #0x0
 _020891DC:
@@ -411,7 +415,7 @@ _020891DC:
 	blo _020891DC
 	pop {r3-r7, pc}
 	nop
-_0208920C: .word 0x020FDDF0
+_0208920C: .word UNK_020FDDF0
 _02089210: .word 0x00000C84
 _02089214: .word 0x00000C18
 
@@ -610,8 +614,8 @@ _02089364: .word 0x0000FFFF
 FUN_02089368: ; 0x02089368
 	push {r3-r6}
 	mov r1, #0x0
-	ldr r2, _0208938C ; =0x020FF2FC
-	ldr r5, _02089390 ; =0x020FE17C
+	ldr r2, _0208938C ; =UNK_020FF2FC
+	ldr r5, _02089390 ; =UNK_020FE17C
 	add r0, r1, #0x0
 	mov r3, #0xc
 _02089374:
@@ -628,21 +632,21 @@ _02089374:
 	pop {r3-r6}
 	bx lr
 	.balign 4
-_0208938C: .word 0x020FF2FC
-_02089390: .word 0x020FE17C
+_0208938C: .word UNK_020FF2FC
+_02089390: .word UNK_020FE17C
 
 	thumb_func_start FUN_02089394
 FUN_02089394: ; 0x02089394
 	push {r4-r7}
 	mov r2, #0x0
-	ldr r3, _020893D8 ; =0x020FF2FC
+	ldr r3, _020893D8 ; =UNK_020FF2FC
 	add r1, r2, #0x0
 _0208939C:
 	ldrb r5, [r3, #0x0]
 	mov r4, #0xc
 	add r6, r5, #0x0
 	mul r6, r4
-	ldr r4, _020893DC ; =0x020FE17C
+	ldr r4, _020893DC ; =UNK_020FE17C
 	add r5, r4, r6
 	ldr r7, [r5, #0x8]
 	mov r6, #0x0
@@ -672,5 +676,5 @@ _020893C8:
 	pop {r4-r7}
 	bx lr
 	.balign 4
-_020893D8: .word 0x020FF2FC
-_020893DC: .word 0x020FE17C
+_020893D8: .word UNK_020FF2FC
+_020893DC: .word UNK_020FE17C

@@ -1,6 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F8010
+
 	.text
 
 	thumb_func_start FUN_0206ABC4
@@ -303,11 +305,11 @@ _0206ADFC: .word LoadFromNARC
 
 	thumb_func_start FUN_0206AE00
 FUN_0206AE00: ; 0x0206AE00
-	ldr r1, _0206AE08 ; =0x020F8010
+	ldr r1, _0206AE08 ; =UNK_020F8010
 	ldrb r0, [r1, r0]
 	bx lr
 	nop
-_0206AE08: .word 0x020F8010
+_0206AE08: .word UNK_020F8010
 
 	thumb_func_start FUN_0206AE0C
 FUN_0206AE0C: ; 0x0206AE0C

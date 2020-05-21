@@ -1,6 +1,8 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern cardi_common
+
     .text
 
 	arm_func_start CARDi_Request
@@ -111,7 +113,7 @@ _020D7B08:
 CARDi_TaskThread: ; 0x020D7B20
 	stmdb sp!, {r4-r7,lr}
 	sub sp, sp, #0x4
-	ldr r5, _020D7B78 ; =0x021D55C0
+	ldr r5, _020D7B78 ; =cardi_common
 	mov r6, #0x0
 	add r7, r5, #0x44
 _020D7B34:
@@ -135,7 +137,7 @@ _020D7B60:
 	blx r1
 	b _020D7B34
 	.balign 4
-_020D7B78: .word 0x021D55C0
+_020D7B78: .word cardi_common
 
 	arm_func_start CARDi_OnFifoRecv
 CARDi_OnFifoRecv: ; 0x020D7B7C
@@ -149,7 +151,7 @@ CARDi_OnFifoRecv: ; 0x020D7B7C
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {lr}
 	bxeq lr
-	ldr r1, _020D7BC8 ; =0x021D55C0
+	ldr r1, _020D7BC8 ; =cardi_common
 	ldr r0, [r1, #0x114]
 	bic r0, r0, #0x20
 	str r0, [r1, #0x114]
@@ -159,4 +161,4 @@ CARDi_OnFifoRecv: ; 0x020D7B7C
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D7BC8: .word 0x021D55C0
+_020D7BC8: .word cardi_common

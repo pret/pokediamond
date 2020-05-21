@@ -1,6 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020ECD4C
+	.extern UNK_02105AE8
+	.extern UNK_020ECBD0
+	.extern UNK_020FFA38
+
 	.text
 
 	thumb_func_start FUN_02006D98
@@ -195,7 +200,7 @@ FUN_02006ED4: ; 0x02006ED4
 	ldr r0, [sp, #0x18]
 	add r4, r5, #0x0
 	str r0, [sp, #0x14]
-	ldr r0, _02007254 ; =0x020ECD4C
+	ldr r0, _02007254 ; =UNK_020ECD4C
 	str r0, [sp, #0x1c]
 _02006F30:
 	ldr r0, [r4, #0x0]
@@ -274,7 +279,7 @@ _02006F7E:
 	ldrh r0, [r4, #0x38]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02007268 ; =0x020FFA38
+	ldr r0, _02007268 ; =UNK_020FFA38
 	add r2, r0, r1
 	ldrsh r0, [r0, r1]
 	mov r1, #0x2
@@ -283,7 +288,7 @@ _02006F7E:
 	ldrh r0, [r4, #0x3a]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02007268 ; =0x020FFA38
+	ldr r0, _02007268 ; =UNK_020FFA38
 	add r2, r0, r1
 	ldrsh r0, [r0, r1]
 	mov r1, #0x2
@@ -292,7 +297,7 @@ _02006F7E:
 	ldrh r0, [r4, #0x3c]
 	asr r0, r0, #0x4
 	lsl r1, r0, #0x2
-	ldr r0, _02007268 ; =0x020FFA38
+	ldr r0, _02007268 ; =UNK_020FFA38
 	add r2, r0, r1
 	ldrsh r0, [r0, r1]
 	mov r1, #0x2
@@ -604,21 +609,21 @@ _02007242:
 	add r0, r4, #0x0
 	add r0, #0x6c
 	ldrh r0, [r0, #0x0]
-	ldr r2, _02007278 ; =0x020ECBD0
-	ldr r6, _02007278 ; =0x020ECBD0
+	ldr r2, _02007278 ; =UNK_020ECBD0
+	ldr r6, _02007278 ; =UNK_020ECBD0
 	b _0200727C
 	nop
 _02007250: .word 0x04000444
-_02007254: .word 0x020ECD4C
+_02007254: .word UNK_020ECD4C
 _02007258: .word 0x000002E3
 _0200725C: .word 0x04000454
 _02007260: .word 0x040004AC
 _02007264: .word 0x04000470
-_02007268: .word 0x020FFA38
+_02007268: .word UNK_020FFA38
 _0200726C: .word 0x040004C0
 _02007270: .word 0x00004210
 _02007274: .word 0x040004A4
-_02007278: .word 0x020ECBD0
+_02007278: .word UNK_020ECBD0
 _0200727C:
 	lsl r0, r0, #0x19
 	lsr r0, r0, #0x1e
@@ -3775,7 +3780,7 @@ FUN_02008904: ; 0x02008904
 	mov lr, r0
 	mov r0, #0x0
 	mov r12, r0
-	ldr r0, _02008A50 ; =0x02105AE8
+	ldr r0, _02008A50 ; =UNK_02105AE8
 	str r1, [sp, #0x0]
 	str r2, [sp, #0x4]
 	str r0, [sp, #0x10]
@@ -3862,7 +3867,7 @@ _02008992:
 	beq _02008A4A
 	mov r0, #0x0
 	str r0, [sp, #0x8]
-	ldr r0, _02008A50 ; =0x02105AE8
+	ldr r0, _02008A50 ; =UNK_02105AE8
 	str r0, [sp, #0x18]
 _020089BA:
 	ldr r0, [sp, #0x18]
@@ -3945,7 +3950,7 @@ _02008A4A:
 	add sp, #0x1c
 	pop {r4-r7, pc}
 	nop
-_02008A50: .word 0x02105AE8
+_02008A50: .word UNK_02105AE8
 
 	thumb_func_start FUN_02008A54
 FUN_02008A54: ; 0x02008A54

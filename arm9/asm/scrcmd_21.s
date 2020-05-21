@@ -1,6 +1,8 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F4574
+
 	.text
 
 	thumb_func_start FUN_020453F4
@@ -163,7 +165,7 @@ FUN_0204552C: ; 0x0204552C
 	ldr r0, [r0, #0x0]
 	bl FUN_020394B8
 	mov r4, #0x0
-	ldr r7, _02045578 ; =0x020F4574
+	ldr r7, _02045578 ; =UNK_020F4574
 	str r0, [sp, #0x0]
 	add r5, r4, #0x0
 _02045548:
@@ -190,7 +192,7 @@ _02045564:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	nop
-_02045578: .word 0x020F4574
+_02045578: .word UNK_020F4574
 
 	thumb_func_start FUN_0204557C
 FUN_0204557C: ; 0x0204557C

@@ -1,13 +1,16 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern Unk_02106A04
+	.extern Unk_02106A00
+
     .text
 
 	arm_func_start DGT_Hash2CalcHmac
 DGT_Hash2CalcHmac: ; 0x020D2D78
 	stmdb sp!, {r4-r8,lr}
 	sub sp, sp, #0xa0
-	ldr lr, _020D2E00 ; =0x02106A04
+	ldr lr, _020D2E00 ; =Unk_02106A04
 	add r12, sp, #0x1c
 	mov r8, r0
 	mov r7, r1
@@ -40,7 +43,7 @@ DGT_Hash2CalcHmac: ; 0x020D2D78
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020D2E00: .word Unk_02106A04 ; = 0x02106A04
+_020D2E00: .word Unk_02106A04 ; = Unk_02106A04
 _020D2E04: .word DGT_Hash2Reset
 _020D2E08: .word DGT_Hash2SetSource
 _020D2E0C: .word DGT_Hash2GetDigest
@@ -85,7 +88,7 @@ _020D2E88:
 	cmp r0, #0x10
 	blt _020D2E88
 _020D2E98:
-	ldr r1, _020D3008 ; =0x02106A00
+	ldr r1, _020D3008 ; =Unk_02106A00
 	ldr r0, [sp, #0x10]
 	ldr r3, [r1, #0x0]
 	mov r1, r5
@@ -105,7 +108,7 @@ _020D2ED0:
 	ldr r0, [sp, #0x10]
 	mov r1, r5
 	ldr r2, [r0, #0x14]
-	ldr r3, _020D3008 ; =0x02106A00
+	ldr r3, _020D3008 ; =Unk_02106A00
 	strb r2, [r4, #0x3f]
 	mov r0, r2, lsr #0x8
 	strb r0, [r4, #0x3e]
@@ -181,7 +184,7 @@ _020D2ED0:
 	add sp, sp, #0x10
 	bx lr
 	.balign 4
-_020D3008: .word Unk_02106A00 ; = 0x02106A00
+_020D3008: .word Unk_02106A00 ; = Unk_02106A00
 
 	arm_func_start DGT_Hash2SetSource
 DGT_Hash2SetSource: ; 0x020D300C
@@ -213,7 +216,7 @@ DGT_Hash2SetSource: ; 0x020D300C
 	mov r2, r4
 	add r1, r5, r1
 	bl MI_CpuCopy8
-	ldr r1, _020D3164 ; =0x02106A00
+	ldr r1, _020D3164 ; =Unk_02106A00
 	mov r0, r8
 	ldr r3, [r1, #0x0]
 	mov r1, r5
@@ -241,7 +244,7 @@ _020D30CC:
 	sub r6, r6, r4
 	ands r0, r7, #0x3
 	bne _020D3104
-	ldr r1, _020D3164 ; =0x02106A00
+	ldr r1, _020D3164 ; =Unk_02106A00
 	mov r0, r8
 	ldr r3, [r1, #0x0]
 	mov r1, r7
@@ -254,7 +257,7 @@ _020D3104:
 	mov r1, r5
 	mov r2, #0x40
 	bl MI_CpuCopy8
-	ldr r1, _020D3164 ; =0x02106A00
+	ldr r1, _020D3164 ; =Unk_02106A00
 	mov r0, r8
 	ldr r3, [r1, #0x0]
 	mov r1, r5
@@ -276,7 +279,7 @@ _020D313C:
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020D3164: .word Unk_02106A00 ; = 0x02106A00
+_020D3164: .word Unk_02106A00 ; = Unk_02106A00
 
 	arm_func_start DGT_Hash2Reset
 DGT_Hash2Reset: ; 0x020D3168

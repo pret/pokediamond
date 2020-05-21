@@ -1,6 +1,19 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F6754
+	.extern UNK_020F693C
+	.extern UNK_020F6670
+	.extern UNK_020F68EC
+	.extern UNK_020F6964
+	.extern UNK_020F66CC
+	.extern UNK_020F6984
+	.extern UNK_020F6724
+	.extern UNK_020F69BC
+	.extern UNK_020F6928
+	.extern UNK_020F6900
+	.extern UNK_020F68D8
+
 	.text
 
 	thumb_func_start FUN_02059F04
@@ -12,7 +25,7 @@ FUN_02059F04: ; 0x02059F04
 	bl FUN_0205858C
 	add r4, r0, #0x0
 	mov r1, #0x0
-	ldr r0, _02059F30 ; =0x020F693C
+	ldr r0, _02059F30 ; =UNK_020F693C
 	mvn r1, r1
 	bl FUN_0205AAB0
 	strh r0, [r4, #0x2]
@@ -24,7 +37,7 @@ FUN_02059F04: ; 0x02059F04
 	bl FUN_02058848
 	pop {r4-r6, pc}
 	.balign 4
-_02059F30: .word 0x020F693C
+_02059F30: .word UNK_020F693C
 
 	thumb_func_start FUN_02059F34
 FUN_02059F34: ; 0x02059F34
@@ -144,7 +157,7 @@ _02059FE0:
 	ldrsh r0, [r4, r0]
 	cmp r0, #0x0
 	bgt _0205A010
-	ldr r0, _0205A018 ; =0x020F693C
+	ldr r0, _0205A018 ; =UNK_020F693C
 	add r1, r2, #0x0
 	bl FUN_0205AAB0
 	strh r0, [r4, #0x2]
@@ -160,7 +173,7 @@ _0205A010:
 	bl FUN_02059C60
 	pop {r3-r5, pc}
 	.balign 4
-_0205A018: .word 0x020F693C
+_0205A018: .word UNK_020F693C
 
 	thumb_func_start FUN_0205A01C
 FUN_0205A01C: ; 0x0205A01C
@@ -262,7 +275,7 @@ _0205A0CA:
 	cmp r0, #0x0
 	beq _0205A16E
 	mov r1, #0x0
-	ldr r0, _0205A170 ; =0x020F693C
+	ldr r0, _0205A170 ; =UNK_020F693C
 	mvn r1, r1
 	bl FUN_0205AAB0
 	strh r0, [r4, #0x2]
@@ -336,7 +349,7 @@ _0205A15A:
 _0205A16E:
 	pop {r4-r6, pc}
 	.balign 4
-_0205A170: .word 0x020F693C
+_0205A170: .word UNK_020F693C
 
 	thumb_func_start FUN_0205A174
 FUN_0205A174: ; 0x0205A174
@@ -624,7 +637,7 @@ FUN_0205A37C: ; 0x0205A37C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl FUN_020585B0
-	ldr r6, _0205A39C ; =0x020F6754
+	ldr r6, _0205A39C ; =UNK_020F6754
 	add r4, r0, #0x0
 	mov r7, #0x2
 _0205A38A:
@@ -638,7 +651,7 @@ _0205A38A:
 	beq _0205A38A
 	pop {r3-r7, pc}
 	.balign 4
-_0205A39C: .word 0x020F6754
+_0205A39C: .word UNK_020F6754
 
 	thumb_func_start FUN_0205A3A0
 FUN_0205A3A0: ; 0x0205A3A0
@@ -721,7 +734,7 @@ _0205A422:
 FUN_0205A42C: ; 0x0205A42C
 	push {r3-r7, lr}
 	sub sp, #0x28
-	ldr r3, _0205A4BC ; =0x020F68D8
+	ldr r3, _0205A4BC ; =UNK_020F68D8
 	add r2, sp, #0x14
 	add r7, r0, #0x0
 	add r6, r1, #0x0
@@ -731,7 +744,7 @@ FUN_0205A42C: ; 0x0205A42C
 	ldmia r3!, {r0-r1}
 	stmia r2!, {r0-r1}
 	ldr r0, [r3, #0x0]
-	ldr r4, _0205A4C0 ; =0x020F68EC
+	ldr r4, _0205A4C0 ; =UNK_020F68EC
 	str r0, [r2, #0x0]
 	add r3, sp, #0x0
 	ldmia r4!, {r0-r1}
@@ -793,8 +806,8 @@ _0205A4A6:
 	add sp, #0x28
 	pop {r3-r7, pc}
 	nop
-_0205A4BC: .word 0x020F68D8
-_0205A4C0: .word 0x020F68EC
+_0205A4BC: .word UNK_020F68D8
+_0205A4C0: .word UNK_020F68EC
 
 	thumb_func_start FUN_0205A4C4
 FUN_0205A4C4: ; 0x0205A4C4
@@ -809,7 +822,7 @@ FUN_0205A4D0: ; 0x0205A4D0
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl FUN_020585B0
-	ldr r6, _0205A4F0 ; =0x020F6724
+	ldr r6, _0205A4F0 ; =UNK_020F6724
 	add r4, r0, #0x0
 	mov r7, #0x2
 _0205A4DE:
@@ -823,7 +836,7 @@ _0205A4DE:
 	beq _0205A4DE
 	pop {r3-r7, pc}
 	.balign 4
-_0205A4F0: .word 0x020F6724
+_0205A4F0: .word UNK_020F6724
 
 	thumb_func_start FUN_0205A4F4
 FUN_0205A4F4: ; 0x0205A4F4
@@ -878,7 +891,7 @@ _0205A53E:
 FUN_0205A548: ; 0x0205A548
 	push {r3-r7, lr}
 	sub sp, #0x28
-	ldr r3, _0205A5F4 ; =0x020F6900
+	ldr r3, _0205A5F4 ; =UNK_020F6900
 	add r2, sp, #0x14
 	add r7, r0, #0x0
 	add r6, r1, #0x0
@@ -888,7 +901,7 @@ FUN_0205A548: ; 0x0205A548
 	ldmia r3!, {r0-r1}
 	stmia r2!, {r0-r1}
 	ldr r0, [r3, #0x0]
-	ldr r3, _0205A5F8 ; =0x020F6928
+	ldr r3, _0205A5F8 ; =UNK_020F6928
 	str r0, [r2, #0x0]
 	add r2, sp, #0x0
 	ldmia r3!, {r0-r1}
@@ -962,8 +975,8 @@ _0205A5E8:
 	add sp, #0x28
 	pop {r3-r7, pc}
 	nop
-_0205A5F4: .word 0x020F6900
-_0205A5F8: .word 0x020F6928
+_0205A5F4: .word UNK_020F6900
+_0205A5F8: .word UNK_020F6928
 
 	thumb_func_start FUN_0205A5FC
 FUN_0205A5FC: ; 0x0205A5FC
@@ -987,7 +1000,7 @@ FUN_0205A61C: ; 0x0205A61C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl FUN_020585B0
-	ldr r6, _0205A63C ; =0x020F66CC
+	ldr r6, _0205A63C ; =UNK_020F66CC
 	add r4, r0, #0x0
 	mov r7, #0x0
 _0205A62A:
@@ -1001,7 +1014,7 @@ _0205A62A:
 	beq _0205A62A
 	pop {r3-r7, pc}
 	.balign 4
-_0205A63C: .word 0x020F66CC
+_0205A63C: .word UNK_020F66CC
 
 	thumb_func_start FUN_0205A640
 FUN_0205A640: ; 0x0205A640
@@ -1414,7 +1427,7 @@ FUN_0205A91C: ; 0x0205A91C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl FUN_020585B0
-	ldr r6, _0205A93C ; =0x020F6670
+	ldr r6, _0205A93C ; =UNK_020F6670
 	add r4, r0, #0x0
 	mov r7, #0x0
 _0205A92A:
@@ -1428,7 +1441,7 @@ _0205A92A:
 	beq _0205A92A
 	pop {r3-r7, pc}
 	.balign 4
-_0205A93C: .word 0x020F6670
+_0205A93C: .word UNK_020F6670
 
 	thumb_func_start FUN_0205A940
 FUN_0205A940: ; 0x0205A940
@@ -1649,7 +1662,7 @@ FUN_0205AAD4: ; 0x0205AAD4
 	thumb_func_start FUN_0205AAFC
 FUN_0205AAFC: ; 0x0205AAFC
 	push {r3, lr}
-	ldr r1, _0205AB1C ; =0x020F69BC
+	ldr r1, _0205AB1C ; =UNK_020F69BC
 	mov r2, #0x0
 _0205AB02:
 	cmp r2, r0
@@ -1665,7 +1678,7 @@ _0205AB0A:
 	mov r0, #0x0
 	pop {r3, pc}
 	nop
-_0205AB1C: .word 0x020F69BC
+_0205AB1C: .word UNK_020F69BC
 
 	thumb_func_start FUN_0205AB20
 FUN_0205AB20: ; 0x0205AB20
@@ -1694,7 +1707,7 @@ _0205AB50:
 	add r0, r5, #0x0
 	mov r4, #0x0
 	bl FUN_02058480
-	ldr r1, _0205ABE8 ; =0x020F6984
+	ldr r1, _0205ABE8 ; =UNK_020F6984
 _0205AB5A:
 	lsl r2, r4, #0x2
 	ldr r2, [r1, r2]
@@ -1763,7 +1776,7 @@ _0205ABE2:
 	mvn r0, r0
 	pop {r3-r7, pc}
 	.balign 4
-_0205ABE8: .word 0x020F6984
+_0205ABE8: .word UNK_020F6984
 
 	thumb_func_start FUN_0205ABEC
 FUN_0205ABEC: ; 0x0205ABEC
@@ -1934,7 +1947,7 @@ FUN_0205AD0C: ; 0x0205AD0C
 	mov r4, #0x0
 	add r6, r0, #0x0
 	add r1, r4, #0x0
-	ldr r0, _0205AD84 ; =0x020F6964
+	ldr r0, _0205AD84 ; =UNK_020F6964
 	mov r2, #0x1
 	b _0205AD26
 _0205AD22:
@@ -1966,7 +1979,7 @@ _0205AD3E:
 	ldrsb r0, [r5, r0]
 	lsl r1, r1, #0x2
 	lsl r2, r0, #0x4
-	ldr r0, _0205AD84 ; =0x020F6964
+	ldr r0, _0205AD84 ; =UNK_020F6964
 	add r0, r0, r2
 	ldr r4, [r1, r0]
 	add r0, r7, #0x0
@@ -1988,7 +2001,7 @@ _0205AD6E:
 	bl FUN_02058410
 	pop {r3-r7, pc}
 	nop
-_0205AD84: .word 0x020F6964
+_0205AD84: .word UNK_020F6964
 
 	thumb_func_start FUN_0205AD88
 FUN_0205AD88: ; 0x0205AD88

@@ -1,6 +1,10 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020EE6A0
+	.extern UNK_020EE67C
+	.extern UNK_020EE690
+
 	.text
 
 	thumb_func_start FUN_02021934
@@ -287,11 +291,11 @@ _02021B32:
 	ldr r0, [sp, #0x20]
 	cmp r0, #0x0
 	bne _02021B48
-	ldr r0, _02021C20 ; =0x020EE67C
+	ldr r0, _02021C20 ; =UNK_020EE67C
 	str r0, [sp, #0x4]
 	b _02021B4C
 _02021B48:
-	ldr r0, _02021C24 ; =0x020EE690
+	ldr r0, _02021C24 ; =UNK_020EE690
 	str r0, [sp, #0x4]
 _02021B4C:
 	add r0, r5, #0x0
@@ -318,7 +322,7 @@ _02021B68:
 _02021B74:
 	ldr r0, [sp, #0x0]
 	lsl r1, r0, #0x2
-	ldr r0, _02021C2C ; =0x020EE6A0
+	ldr r0, _02021C2C ; =UNK_020EE6A0
 	ldr r4, [r0, r1]
 	cmp r4, #0x0
 	beq _02021C06
@@ -412,10 +416,10 @@ _02021C14:
 	pop {r3-r7, pc}
 	.balign 4
 _02021C1C: .word 0xB6F8D2EC
-_02021C20: .word 0x020EE67C
-_02021C24: .word 0x020EE690
+_02021C20: .word UNK_020EE67C
+_02021C24: .word UNK_020EE690
 _02021C28: .word 0x000001BE
-_02021C2C: .word 0x020EE6A0
+_02021C2C: .word UNK_020EE6A0
 _02021C30: .word 0x000001E2
 _02021C34: .word 0x0000FFFF
 

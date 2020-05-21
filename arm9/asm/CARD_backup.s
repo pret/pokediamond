@@ -1,6 +1,9 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern cardi_common
+	.extern OSi_ThreadInfo
+
     .text
 
 	arm_func_start CARD_CancelBackupAsync
@@ -8,7 +11,7 @@ CARD_CancelBackupAsync: ; 0x020D6D7C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl OS_DisableInterrupts
-	ldr r1, _020D6DA8 ; =0x021D55C0
+	ldr r1, _020D6DA8 ; =cardi_common
 	ldr r2, [r1, #0x114]
 	orr r2, r2, #0x40
 	str r2, [r1, #0x114]
@@ -17,7 +20,7 @@ CARD_CancelBackupAsync: ; 0x020D6D7C
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020D6DA8: .word 0x021D55C0
+_020D6DA8: .word cardi_common
 
 	arm_func_start CARD_TryWaitBackupAsync
 CARD_TryWaitBackupAsync: ; 0x020D6DAC
@@ -41,7 +44,7 @@ CARD_IdentifyBackup: ; 0x020D6DC4
 	sub sp, sp, #0x4
 	mov r5, r0
 	ldr r0, _020D6F00 ; =_SDK_NintendoBackup
-	ldr r7, _020D6F04 ; =0x021D55C0
+	ldr r7, _020D6F04 ; =cardi_common
 	bl OSi_ReferSymbol
 _020D6DDC: ; 0x020D6DDC
 	cmp r5, #0x0
@@ -72,8 +75,8 @@ _020D6E18:
 	bl OS_RestoreInterrupts
 	mov r0, r5
 	bl CARDi_IdentifyBackupCore
-	ldr r0, _020D6F08 ; =0x021D3498
-	ldr r1, _020D6F04 ; =0x021D55C0
+	ldr r0, _020D6F08 ; =OSi_ThreadInfo
+	ldr r1, _020D6F04 ; =cardi_common
 	ldr r2, [r0, #0x4]
 	mov r0, r7
 	str r2, [r1, #0x104]
@@ -126,23 +129,23 @@ _020D6EE0:
 	bx lr
 	.balign 4
 _020D6F00: .word _SDK_NintendoBackup
-_020D6F04: .word 0x021D55C0
-_020D6F08: .word 0x021D3498
+_020D6F04: .word cardi_common
+_020D6F08: .word OSi_ThreadInfo
 
 	arm_func_start CARD_GetBackupSectorSize
 CARD_GetBackupSectorSize: ; 0x020D6F0C
-	ldr r0, _020D6F1C ; =0x021D55C0
+	ldr r0, _020D6F1C ; =cardi_common
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x1c]
 	bx lr
 	.balign 4
-_020D6F1C: .word 0x021D55C0
+_020D6F1C: .word cardi_common
 
 	arm_func_start CARDi_RequestStreamCommand
 CARDi_RequestStreamCommand: ; 0x020D6F20
 	stmdb sp!, {r4-r10,lr}
 	mov r10, r0
-	ldr r6, _020D7004 ; =0x021D55C0
+	ldr r6, _020D7004 ; =cardi_common
 	ldr r0, _020D7008 ; =_SDK_NintendoBackup
 	mov r9, r1
 	mov r8, r2
@@ -187,8 +190,8 @@ _020D6F6C:
 	ldmia sp!, {r4-r10,lr}
 	bx lr
 _020D6FD0:
-	ldr r0, _020D7010 ; =0x021D3498
-	ldr r1, _020D7004 ; =0x021D55C0
+	ldr r0, _020D7010 ; =OSi_ThreadInfo
+	ldr r1, _020D7004 ; =cardi_common
 	ldr r2, [r0, #0x4]
 	mov r0, r6
 	str r2, [r1, #0x104]
@@ -202,10 +205,10 @@ _020D6FE8: ; 0x020D6FE8
 	ldmia sp!, {r4-r10,lr}
 	bx lr
 	.balign 4
-_020D7004: .word 0x021D55C0
+_020D7004: .word cardi_common
 _020D7008: .word _SDK_NintendoBackup
 _020D700C: .word CARDi_RequestStreamCommandCore
-_020D7010: .word 0x021D3498
+_020D7010: .word OSi_ThreadInfo
 
 	arm_func_start CARDi_RequestStreamCommandCore
 CARDi_RequestStreamCommandCore:

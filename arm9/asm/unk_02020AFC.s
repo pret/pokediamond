@@ -1,12 +1,14 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_021C59B0
+
 	.text
 
 	thumb_func_start FUN_02020AFC
 FUN_02020AFC: ; 0x02020AFC
 	push {r3, lr}
-	ldr r0, _02020B24 ; =0x021C59B0
+	ldr r0, _02020B24 ; =UNK_021C59B0
 	mov r2, #0x0
 	str r2, [r0, #0x4]
 	str r2, [r0, #0x8]
@@ -24,13 +26,13 @@ FUN_02020AFC: ; 0x02020AFC
 	bl OS_EnableIrqMask
 	pop {r3, pc}
 	.balign 4
-_02020B24: .word 0x021C59B0
+_02020B24: .word UNK_021C59B0
 _02020B28: .word 0x0400010E
 _02020B2C: .word FUN_02020B30
 
 	thumb_func_start FUN_02020B30
 FUN_02020B30: ; 0x02020B30
-	ldr r0, _02020B68 ; =0x021C59B0
+	ldr r0, _02020B68 ; =UNK_021C59B0
 	mov r3, #0x0
 	ldr r1, [r0, #0x4]
 	ldr r2, [r0, #0x8]
@@ -59,7 +61,7 @@ _02020B54:
 	ldr r1, _02020B7C ; =FUN_02020B30
 	bx r3
 	nop
-_02020B68: .word 0x021C59B0
+_02020B68: .word UNK_021C59B0
 _02020B6C: .word 0x0400010E
 _02020B70: .word 0x027E0000
 _02020B74: .word 0x00003FF8
@@ -76,7 +78,7 @@ FUN_02020B80: ; 0x02020B80
 	ldrh r1, [r1, #0x0]
 	ldr r2, _02020BE8 ; =0x0000FFFF
 	strh r1, [r3, #0x0]
-	ldr r1, _02020BEC ; =0x021C59B0
+	ldr r1, _02020BEC ; =UNK_021C59B0
 	ldr r5, [r1, #0x4]
 	ldr r4, [r1, #0x8]
 	mov r1, #0x0
@@ -120,7 +122,7 @@ _02020BC4:
 	.balign 4
 _02020BE4: .word 0x0400010C
 _02020BE8: .word 0x0000FFFF
-_02020BEC: .word 0x021C59B0
+_02020BEC: .word UNK_021C59B0
 _02020BF0: .word 0x04000214
 
 	thumb_func_start FUN_02020BF4

@@ -31,6 +31,10 @@ OS_IRQTable: ; 027E0000 ;10b6a0
 	.section .bss
 	.space 0x20
 
+	.extern UNK_021D3420
+	.extern OSi_IrqCallbackInfoIndex
+	.extern UNK_021D3424
+
     .section .text
 
 	arm_func_start OSi_IrqTimer3
@@ -104,7 +108,7 @@ OSi_IrqCallback: ; 0x020C9D0C
 	mov r1, #0xc
 	mul r4, r0, r1
 	ldr r2, _020C9D94 ; =OSi_IrqCallbackInfo
-	ldr r3, _020C9D98 ; =0x02106818
+	ldr r3, _020C9D98 ; =OSi_IrqCallbackInfoIndex
 	mov r0, r0, lsl #0x1
 	ldr r1, [r2, r4]
 	ldrh r3, [r3, r0]
@@ -114,12 +118,12 @@ OSi_IrqCallback: ; 0x020C9D0C
 	cmp r1, #0x0
 	mov r5, r5, lsl r3
 	beq _020C9D54
-	ldr r0, _020C9D9C ; =0x021D3424
+	ldr r0, _020C9D9C ; =UNK_021D3424
 	ldr r0, [r0, r4]
 	blx r1
 _020C9D54:
 	ldr r0, _020C9DA0 ; =0x027E0000
-	ldr r1, _020C9DA4 ; =0x021D3420
+	ldr r1, _020C9DA4 ; =UNK_021D3420
 	add r0, r0, #0x3000
 	ldr r2, [r0, #0xff8]
 	orr r2, r2, r5

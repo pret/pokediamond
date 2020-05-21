@@ -1,6 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020F83D0
+	.extern UNK_020F843C
+	.extern UNK_020F83D4
+	.extern UNK_020F83E0
+
 	.text
 
 	thumb_func_start FUN_0206E0F0
@@ -11,12 +16,12 @@ FUN_0206E0F0: ; 0x0206E0F0
 	blo _0206E0FC
 	bl ErrorHandling
 _0206E0FC:
-	ldr r0, _0206E104 ; =0x020F83E0
+	ldr r0, _0206E104 ; =UNK_020F83E0
 	lsl r1, r4, #0x2
 	ldr r0, [r0, r1]
 	pop {r4, pc}
 	.balign 4
-_0206E104: .word 0x020F83E0
+_0206E104: .word UNK_020F83E0
 
 	thumb_func_start FUN_0206E108
 FUN_0206E108: ; 0x0206E108
@@ -41,11 +46,11 @@ FUN_0206E114: ; 0x0206E114
 	blo _0206E120
 	bl ErrorHandling
 _0206E120:
-	ldr r0, _0206E128 ; =0x020F843C
+	ldr r0, _0206E128 ; =UNK_020F843C
 	ldrb r0, [r0, r4]
 	pop {r4, pc}
 	nop
-_0206E128: .word 0x020F843C
+_0206E128: .word UNK_020F843C
 
 	thumb_func_start FUN_0206E12C
 FUN_0206E12C: ; 0x0206E12C
@@ -233,12 +238,12 @@ FUN_0206E278: ; 0x0206E278
 	blo _0206E284
 	bl ErrorHandling
 _0206E284:
-	ldr r0, _0206E28C ; =0x020F83D4
+	ldr r0, _0206E28C ; =UNK_020F83D4
 	lsl r1, r4, #0x2
 	ldr r0, [r0, r1]
 	pop {r4, pc}
 	.balign 4
-_0206E28C: .word 0x020F83D4
+_0206E28C: .word UNK_020F83D4
 
 	thumb_func_start FUN_0206E290
 FUN_0206E290: ; 0x0206E290
@@ -248,11 +253,11 @@ FUN_0206E290: ; 0x0206E290
 	blo _0206E29C
 	bl ErrorHandling
 _0206E29C:
-	ldr r0, _0206E2A4 ; =0x020F83D0
+	ldr r0, _0206E2A4 ; =UNK_020F83D0
 	ldrb r0, [r0, r4]
 	pop {r4, pc}
 	nop
-_0206E2A4: .word 0x020F83D0
+_0206E2A4: .word UNK_020F83D0
 
 	thumb_func_start FUN_0206E2A8
 FUN_0206E2A8: ; 0x0206E2A8

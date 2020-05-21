@@ -1,13 +1,15 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D5300
+
     .text
 
 	arm_func_start SNDi_CallAlarmHandler
 SNDi_CallAlarmHandler: ; 0x020CF4B0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r3, _020CF50C ; =0x021D5300
+	ldr r3, _020CF50C ; =UNK_021D5300
 	and r2, r0, #0xff
 	mov r1, #0xc
 	mla r3, r2, r1, r3
@@ -29,13 +31,13 @@ SNDi_CallAlarmHandler: ; 0x020CF4B0
 	ldmia sp!, {lr}
 	bx lr
 	.balign 4
-_020CF50C: .word 0x021D5300
+_020CF50C: .word UNK_021D5300
 
 	arm_func_start SNDi_SetAlarmHandler
 SNDi_SetAlarmHandler:
 	mov r3, #0xc
 	mul r3, r0, r3
-	ldr r0, _020CF53C ; =0x021D5300
+	ldr r0, _020CF53C ; =UNK_021D5300
 	str r1, [r0, r3]
 	add r1, r0, r3
 	str r2, [r1, #0x4]
@@ -45,11 +47,11 @@ SNDi_SetAlarmHandler:
 	ldrb r0, [r1, #0x8]
 	bx lr
 	.balign 4
-_020CF53C: .word 0x021D5300
+_020CF53C: .word UNK_021D5300
 
 	arm_func_start SNDi_IncAlarmId
 SNDi_IncAlarmId: ; 0x020CF540
-	ldr r2, _020CF55C ; =0x021D5300
+	ldr r2, _020CF55C ; =UNK_021D5300
 	mov r1, #0xc
 	mla r1, r0, r1, r2
 	ldrb r0, [r1, #0x8]
@@ -57,11 +59,11 @@ SNDi_IncAlarmId: ; 0x020CF540
 	strb r0, [r1, #0x8]
 	bx lr
 	.balign 4
-_020CF55C: .word 0x021D5300
+_020CF55C: .word UNK_021D5300
 
 	arm_func_start SND_AlarmInit
 SND_AlarmInit: ; 0x020CF560
-	ldr r1, _020CF58C ; =0x021D5300
+	ldr r1, _020CF58C ; =UNK_021D5300
 	mov r2, #0x0
 	mov r0, r2
 _020CF56C:
@@ -74,4 +76,4 @@ _020CF56C:
 	blt _020CF56C
 	bx lr
 	.balign 4
-_020CF58C: .word 0x021D5300
+_020CF58C: .word UNK_021D5300

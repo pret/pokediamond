@@ -1,6 +1,10 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_021D6B08
+	.extern UNK_021D6B20
+	.extern UNK_021D6B0C
+
     .text
 
 	arm_func_start CTRDGi_WriteFlashSectorAsyncMX5
@@ -42,7 +46,7 @@ CTRDGi_WriteFlashSectorCoreMX5: ; 0x020DD8C0
 	stmia r4!, {r0-r3}
 	ldmia r5!, {r0-r3}
 	stmia r4!, {r0-r3}
-	ldr r0, _020DD9E8 ; =0x021D6B20
+	ldr r0, _020DD9E8 ; =UNK_021D6B20
 	ldr r1, [r5, #0x0]
 	ldr r0, [r0, #0x0]
 	str r1, [r4, #0x0]
@@ -60,16 +64,16 @@ CTRDGi_WriteFlashSectorCoreMX5: ; 0x020DD8C0
 	addne sp, sp, #0x28
 	ldmneia sp!, {r4-r8,lr}
 	bxne lr
-	ldr r0, _020DD9F0 ; =0x021D6B0C
+	ldr r0, _020DD9F0 ; =UNK_021D6B0C
 	ldrh r0, [r0, #0x0]
 	bl OS_LockCartridge
 	ldr r7, _020DD9F4 ; =0x04000204
-	ldr r0, _020DD9E8 ; =0x021D6B20
+	ldr r0, _020DD9E8 ; =UNK_021D6B20
 	ldrh r3, [r7, #0x0]
 	ldr r2, [r0, #0x0]
 	ldrh r1, [r7, #0x0]
 	ldr r2, [r2, #0x10]
-	ldr r8, _020DD9F8 ; =0x021D6B08
+	ldr r8, _020DD9F8 ; =UNK_021D6B08
 	bic r1, r1, #0x3
 	orr r1, r1, r2
 	strh r1, [r7, #0x0]
@@ -99,7 +103,7 @@ _020DD984:
 	bne _020DD984
 _020DD9B8:
 	ldr r2, _020DD9F4 ; =0x04000204
-	ldr r0, _020DD9F0 ; =0x021D6B0C
+	ldr r0, _020DD9F0 ; =UNK_021D6B0C
 	ldrh r1, [r2, #0x0]
 	bic r1, r1, #0x3
 	orr r1, r1, r7
@@ -111,8 +115,8 @@ _020DD9B8:
 	ldmia sp!, {r4-r8,lr}
 	bx lr
 	.balign 4
-_020DD9E8: .word 0x021D6B20
+_020DD9E8: .word UNK_021D6B20
 _020DD9EC: .word 0x000080FF
-_020DD9F0: .word 0x021D6B0C
+_020DD9F0: .word UNK_021D6B0C
 _020DD9F4: .word 0x04000204
-_020DD9F8: .word 0x021D6B08
+_020DD9F8: .word UNK_021D6B08
