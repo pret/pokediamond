@@ -3126,3 +3126,18 @@ MOD04_021D8D04: ; 0x021D8D04
 	.align 2, 0
 _021D8D10: .word 0x0220FBC8
 _021D8D14: .word 0x000034FC
+
+	.section .rodata
+	; 0x0220BAC0
+	.byte 0x0D, 0x0D, 0x0D
+
+	.section .data
+	; 0x0220BEA0
+	.balign 4
+	.asciz "pokemondpds"
+	.balign 4
+	.asciz "1vTlwb"
+
+	.section .bss
+	; 0x0220FBC0
+	.space 0x8a8
