@@ -61,8 +61,6 @@ S_OBJS = $(S_FILES:%.s=$(BUILD_DIR)/%.o)
 O_FILES := $(C_OBJS) $(CXX_OBJS) $(S_OBJS)
 
 # Overlay modules
-# FIXME: lcf doesn't like this
-# BIN_FILES := $(wildcard files/*.__AT_*)
 OVERLAYS :=   \
 	MODULE_00 \
     MODULE_01 \
@@ -247,7 +245,6 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
 # TODO: Move out to lib/Makefile
 build/lib/src/%.o: MWCCVERSION = 1.2/sp2p3
-build/src/FUN_020910A4.o: MWCCVERSION = 1.2/sp2p3
 
 ####################### Everything Else ######################
 
@@ -300,8 +297,6 @@ baserom.%: ;
 %.inc: ;
 
 $(BIN_FILES): ;
-
-$(BUILD_DIR)/data/icon.o: graphics/icon.4bpp graphics/icon.gbapal
 
 ### Debug Print ###
 

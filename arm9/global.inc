@@ -4799,8 +4799,8 @@
 .extern FUN_0208B4A0
 .extern FUN_02090CC8
 .extern FUN_02090DB8
-.extern FUN_0209105C
-.extern FUN_020910A4
+.extern CallCustomDestructor
+.extern CallCustomAllocator
 .extern FUN_020910EC
 .extern FUN_0209521C
 .extern FUN_020952AC
@@ -6704,7 +6704,7 @@
 .extern ScriptReadHalfword
 .extern ScriptReadWord
 .extern ScriptReturn
-.extern SetCustomAllocator
+.extern SetCustomAllocatorAndDestructor
 .extern SetupBytecodeScript
 .extern SetupNativeScript
 .extern StopScript

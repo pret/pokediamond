@@ -1836,7 +1836,7 @@ FUN_02092788: ; 0x02092788
 	ldmeqia sp!, {r4,lr}
 	bxeq lr
 	mov r0, r4
-	bl FUN_0209105C
+	bl CallCustomDestructor
 	ldmia sp!, {r4,lr}
 	bx lr
 
@@ -1869,7 +1869,7 @@ FUN_020927E4: ; 0x020927E4
 	ldmeqia sp!, {r4,lr}
 	bxeq lr
 	mov r0, r4
-	bl FUN_0209105C
+	bl CallCustomDestructor
 	ldmia sp!, {r4,lr}
 	bx lr
 
@@ -1896,7 +1896,7 @@ _02092850: ; 0x02092850
 FUN_02092860: ; 0x02092860
 	stmdb sp!, {r4,lr}
 	mov r0, #0x50
-	bl FUN_020910A4
+	bl CallCustomAllocator
 	movs r4, r0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,lr}
@@ -4645,7 +4645,7 @@ FUN_02094EBC:
 	bxne lr
 	add r0, r4, #0x1
 	mov r0, r0, lsl #0x2
-	bl FUN_020910A4
+	bl CallCustomAllocator
 	movs r6, r0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,lr}
@@ -4659,7 +4659,7 @@ FUN_02094EBC:
 	bl MI_CpuCopy8
 _02094F20: ; 0x02094F20
 	ldr r0, [r5, #0x0]
-	bl FUN_0209105C
+	bl CallCustomDestructor
 _02094F28:
 	str r6, [r5, #0x0]
 	str r4, [r5, #0x8]
@@ -4686,7 +4686,7 @@ _02094F4C:
 	ldmeqia sp!, {r4-r6,lr}
 	bxeq lr
 	mov r0, r6
-	bl FUN_0209105C
+	bl CallCustomDestructor
 	ldmia sp!, {r4-r6,lr}
 	bx lr
 
@@ -4708,7 +4708,7 @@ _02094F98: ; 0x02094F98
 FUN_02094FAC: ; 0x02094FAC
 	stmdb sp!, {r4,lr}
 	mov r0, #0x110
-	bl FUN_020910A4
+	bl CallCustomAllocator
 	movs r4, r0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,lr}
@@ -4725,7 +4725,7 @@ FUN_02094FE0: ; 0x02094FE0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	mov r0, #0x14
-	bl FUN_020910A4
+	bl CallCustomAllocator
 _02094FF0: ; 0x02094FF0
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
@@ -4824,7 +4824,7 @@ FUN_0209510C:
 	ldr r1, [r4, #0x10]
 	ands r1, r1, #0x2
 	bne _02095138
-	bl FUN_0209105C
+	bl CallCustomDestructor
 _02095138:
 	ldr r0, [r4, #0x10]
 	orr r0, r0, #0x8000
@@ -4834,7 +4834,7 @@ _02095138:
 	ldmeqia sp!, {r4,lr}
 	bxeq lr
 	mov r0, r4
-	bl FUN_0209105C
+	bl CallCustomDestructor
 	ldmia sp!, {r4,lr}
 	bx lr
 
