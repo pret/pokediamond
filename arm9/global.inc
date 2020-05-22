@@ -6436,6 +6436,7 @@
 .extern OS_TryLockCard
 .extern OS_TryLockCartridge
 .extern OS_TryLockMutex
+.extern OS_UnlockByWord
 .extern OS_UnlockCard
 .extern OS_UnlockCartridge
 .extern OS_UnlockCartridge2
@@ -6450,6 +6451,7 @@
 .extern OSi_DebuggerHandler
 .extern OSi_DoLockByWord
 .extern OSi_DoResetSystem
+.extern OSi_DoTryLockByWord
 .extern OSi_DoUnlockByWord
 .extern OSi_EnterDmaCallback
 .extern OSi_EnterTimerCallback

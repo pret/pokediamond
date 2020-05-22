@@ -8,10 +8,10 @@
 #include "consts.h"
 #include "MI_exMemory.h"
 
-extern void OS_UnlockByWord(u16 param1, OSLockWord* lockp, void* func);
 extern void MIi_CpuClear32(u32 param1, void * addr, u32 length); //not too sure about names
 extern s32 OSi_DoTryLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void),
                                BOOL disableFiq);
+extern u32 MI_SwapWord(u32 data, volatile u32* destp);
 
 ARM_FUNC void OS_InitLock()
 {
@@ -43,7 +43,7 @@ ARM_FUNC void OS_InitLock()
 
     MIi_SetCartridgeProcessor(MI_PROCESSOR_ARM7);
 
-    OS_UnlockByWord(0x7e, lockp, NULL);
+    (void)OS_UnlockByWord(0x7e, lockp, NULL);
     (void)OS_TryLockByWord(0x7f, lockp, NULL);
 }
 
@@ -80,11 +80,44 @@ ARM_FUNC s32 OSi_DoUnlockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp)
     lockp->lockFlag = 0;
     if (disableFIQ)
     {
-        OS_RestoreInterrupts_IrqAndFiq(lastIntrMode);
+        (void)OS_RestoreInterrupts_IrqAndFiq(lastIntrMode);
     }
     else
     {
-        OS_RestoreInterrupts(lastIntrMode);
+        (void)OS_RestoreInterrupts(lastIntrMode);
     }
     return 0;
+}
+
+ARM_FUNC s32 OS_UnlockByWord(u16 lockID, OSLockWord* lockp, void (*ctrlFuncp) (void))
+{
+    return OSi_DoUnlockByWord(lockID, lockp, ctrlFuncp, FALSE);
+}
+
+ARM_FUNC s32 OSi_DoTryLockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void),
+        BOOL disableFiq)
+{
+    OSIntrMode lastIntrMode = (disableFiq) ? OS_DisableInterrupts_IrqAndFiq() : OS_DisableInterrupts();
+
+    s32 lastLockFlag = (s32)MI_SwapWord(lockID, &lockp->lockFlag);
+
+    if (!lastLockFlag)
+    {
+        if (ctrlFuncp)
+        {
+            ctrlFuncp();
+        }
+        lockp->ownerID = lockID;
+    }
+
+    if (disableFiq)
+    {
+        (void)OS_RestoreInterrupts_IrqAndFiq(lastIntrMode);
+    }
+    else
+    {
+        (void)OS_RestoreInterrupts(lastIntrMode);
+    }
+
+    return lastLockFlag;
 }
