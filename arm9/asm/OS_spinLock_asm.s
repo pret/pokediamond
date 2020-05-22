@@ -134,13 +134,13 @@ _020CA1E4: .word OSi_AllocateCartridgeBus
 
 	arm_func_start OS_UnlockCartridge2
 OS_UnlockCartridge2: ; 0x020CA1E8
-	ldr ip, _020CA1FC ; =FUN_020CA2B8
+	ldr ip, _020CA1FC ; =OSi_DoUnlockByWord
 	ldr r1, _020CA200 ; =0x027FFFE8
 	ldr r2, _020CA204 ; =OSi_FreeCartridgeBus
 	mov r3, #0x1
 	bx r12
 	.balign 4
-_020CA1FC: .word FUN_020CA2B8
+_020CA1FC: .word OSi_DoUnlockByWord
 _020CA200: .word 0x027FFFE8
 _020CA204: .word OSi_FreeCartridgeBus
 
@@ -199,60 +199,8 @@ _020CA298:
 
 	arm_func_start OS_UnlockByWord
 OS_UnlockByWord: ; 0x020CA2A8
-	ldr ip, _020CA2B4 ; =FUN_020CA2B8
+	ldr ip, _020CA2B4 ; =OSi_DoUnlockByWord
 	mov r3, #0x0
 	bx r12
 	.balign 4
-_020CA2B4: .word FUN_020CA2B8
-
-	arm_func_start FUN_020CA2B8
-FUN_020CA2B8: ; 0x020CA2B8
-	stmdb sp!, {r4-r7,lr}
-	sub sp, sp, #0x4
-	mov r7, r1
-	ldrh r1, [r7, #0x4]
-	mov r6, r2
-	mov r5, r3
-	cmp r0, r1
-	addne sp, sp, #0x4
-	mvnne r0, #0x1
-	ldmneia sp!, {r4-r7,lr}
-	bxne lr
-	cmp r5, #0x0
-	beq _020CA2F8
-	bl OS_DisableInterrupts_IrqAndFiq
-	mov r4, r0
-	b _020CA300
-_020CA2F8:
-	bl OS_DisableInterrupts
-	mov r4, r0
-_020CA300:
-	mov r0, #0x0
-	strh r0, [r7, #0x4]
-	cmp r6, #0x0
-	beq _020CA314
-	blx r6
-_020CA314:
-	mov r0, #0x0
-	str r0, [r7, #0x0]
-	cmp r5, #0x0
-	beq _020CA330
-	mov r0, r4
-	bl OS_RestoreInterrupts_IrqAndFiq
-	b _020CA338
-_020CA330:
-	mov r0, r4
-	bl OS_RestoreInterrupts
-_020CA338:
-	mov r0, #0x0
-	add sp, sp, #0x4
-	ldmia sp!, {r4-r7,lr}
-	bx lr
-
-	arm_func_start OS_TryLockByWord
-OS_TryLockByWord: ; 0x020CA348
-	ldr ip, _020CA354 ; =OSi_DoLockByWord
-	mov r3, #0x0
-	bx r12
-	.balign 4
-_020CA354: .word OSi_DoLockByWord
+_020CA2B4: .word OSi_DoUnlockByWord
