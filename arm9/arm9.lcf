@@ -548,6 +548,19 @@ SECTIONS {
 		/* MWCC library */
 		libmwcc.o (.text)
 
+		. = ALIGN(4);
+		/* Exception */
+		libc.o (.exception)
+		libmwcc.o (.exception)
+
+		. = ALIGN(4);
+	SDK_STATIC_ETABLE_START = .;
+		EXCEPTION
+	SDK_STATIC_ETABLE_END = .;
+
+		. = ALIGN(4);
+		// * (.init)
+		. = ALIGN(4);
 		/* Text data */
 		rom2.o (.rodata)
 		string_util.o (.rodata)
@@ -560,6 +573,11 @@ SECTIONS {
 		FS_overlay.o (.rodata)
 		rom2_3.o (.rodata)
 		libmwcc.o (.rodata)
+		. = ALIGN(4);
+
+		SDK_STATIC_SINIT_START = .;
+		WRITEW 0;
+		SDK_STATIC_SINIT_END = .;
 		. = ALIGN(32);
 		SDK_STATIC_TEXT_END = .;
 
