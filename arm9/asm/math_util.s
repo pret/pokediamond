@@ -1,16 +1,21 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_02105BAC
-	.extern UNK_021C56C8
-	.extern UNK_021C5348
+	.section .bss
+
+	.global gLCRNG_State
+gLCRNG_State: ; 0x021C4D48
+	.space 4
+
+	.global gMTRNG_State
+gMTRNG_State: ; 0x021C4D4C
+	.space 624 * 4
+
+	.extern UNK_020EDC7E
 	.extern UNK_020EDF50
-	.extern UNK_021C4D4C
-	.extern UNK_021C4D50
 	.extern UNK_020FFA38
 	.extern UNK_02105BA8
-	.extern UNK_020EDC7E
-	.extern UNK_021C4D48
+	.extern UNK_02105BAC
 
 	.text
 
@@ -108,23 +113,23 @@ _0201B9D0: .word UNK_020EDF50
 
 	thumb_func_start getseed_LC
 getseed_LC: ; 0x0201B9D4
-	ldr r0, _0201B9DC ; =UNK_021C4D48
+	ldr r0, _0201B9DC ; =gLCRNG_State
 	ldr r0, [r0, #0x0]
 	bx lr
 	nop
-_0201B9DC: .word UNK_021C4D48
+_0201B9DC: .word gLCRNG_State
 
 	thumb_func_start seedr_LC
 seedr_LC: ; 0x0201B9E0
-	ldr r1, _0201B9E8 ; =UNK_021C4D48
+	ldr r1, _0201B9E8 ; =gLCRNG_State
 	str r0, [r1, #0x0]
 	bx lr
 	nop
-_0201B9E8: .word UNK_021C4D48
+_0201B9E8: .word gLCRNG_State
 
 	thumb_func_start rand_LC
 rand_LC: ; 0x0201B9EC
-	ldr r1, _0201BA04 ; =UNK_021C4D48
+	ldr r1, _0201BA04 ; =gLCRNG_State
 	ldr r0, _0201BA08 ; =0x41C64E6D
 	ldr r2, [r1, #0x0]
 	add r3, r2, #0x0
@@ -137,7 +142,7 @@ rand_LC: ; 0x0201B9EC
 	lsr r0, r0, #0x10
 	bx lr
 	.balign 4
-_0201BA04: .word UNK_021C4D48
+_0201BA04: .word gLCRNG_State
 _0201BA08: .word 0x41C64E6D
 _0201BA0C: .word 0x00006073
 
@@ -153,13 +158,13 @@ _0201BA18: .word 0x6C078965
 	thumb_func_start seedr_MT
 seedr_MT: ; 0x0201BA1C
 	push {r4-r5}
-	ldr r1, _0201BA50 ; =UNK_021C4D48
+	ldr r1, _0201BA50 ; =gLCRNG_State
 	mov r4, #0x27
 	str r0, [r1, #0x4]
 	ldr r1, _0201BA54 ; =UNK_02105BA8
 	mov r0, #0x1
 	str r0, [r1, #0x0]
-	ldr r1, _0201BA58 ; =UNK_021C4D50
+	ldr r1, _0201BA58 ; =gMTRNG_State + 4
 	ldr r3, _0201BA5C ; =0x6C078965
 	lsl r4, r4, #0x4
 _0201BA30:
@@ -179,9 +184,9 @@ _0201BA30:
 	pop {r4-r5}
 	bx lr
 	nop
-_0201BA50: .word UNK_021C4D48
+_0201BA50: .word gLCRNG_State
 _0201BA54: .word UNK_02105BA8
-_0201BA58: .word UNK_021C4D50
+_0201BA58: .word gMTRNG_State + 4
 _0201BA5C: .word 0x6C078965
 
 	thumb_func_start rand_MT
@@ -199,7 +204,7 @@ rand_MT: ; 0x0201BA60
 	ldr r0, _0201BB48 ; =0x00001571
 	bl seedr_MT
 _0201BA7A:
-	ldr r4, _0201BB4C ; =UNK_021C4D4C
+	ldr r4, _0201BB4C ; =gMTRNG_State
 	ldr r1, _0201BB50 ; =UNK_02105BAC
 	ldr r5, _0201BB54 ; =0x7FFFFFFF
 	ldr r6, _0201BB58 ; =0x00000634
@@ -226,7 +231,7 @@ _0201BA84:
 	ldr r1, _0201BB5C ; =0x0000026F
 	cmp r0, r1
 	bge _0201BAE4
-	ldr r2, _0201BB4C ; =UNK_021C4D4C
+	ldr r2, _0201BB4C ; =gMTRNG_State
 	lsl r1, r0, #0x2
 	add r1, r2, r1
 	mov r2, #0xe3
@@ -255,19 +260,19 @@ _0201BABC:
 	cmp r0, r3
 	blt _0201BABC
 _0201BAE4:
-	ldr r2, _0201BB60 ; =UNK_021C56C8
+	ldr r2, _0201BB60 ; =gMTRNG_State + 607 * 4
 	mov r0, #0x2
 	ldr r1, [r2, #0x40]
 	lsl r0, r0, #0x1e
 	add r3, r1, #0x0
-	ldr r1, _0201BB64 ; =UNK_021C4D48
+	ldr r1, _0201BB64 ; =gLCRNG_State
 	and r3, r0
 	ldr r1, [r1, #0x4]
 	sub r0, r0, #0x1
 	and r0, r1
 	add r4, r3, #0x0
 	orr r4, r0
-	ldr r0, _0201BB68 ; =UNK_021C5348
+	ldr r0, _0201BB68 ; =gMTRNG_State + 383 * 4
 	ldr r1, [r0, #0x34]
 	lsr r0, r4, #0x1
 	add r3, r1, #0x0
@@ -286,7 +291,7 @@ _0201BB18:
 	ldr r2, [r0, #0x0]
 	add r1, r2, #0x1
 	str r1, [r0, #0x0]
-	ldr r0, _0201BB4C ; =UNK_021C4D4C
+	ldr r0, _0201BB4C ; =gMTRNG_State
 	lsl r1, r2, #0x2
 	ldr r1, [r0, r1]
 	lsr r0, r1, #0xb
@@ -307,14 +312,14 @@ _0201BB18:
 	.balign 4
 _0201BB44: .word UNK_02105BA8
 _0201BB48: .word 0x00001571
-_0201BB4C: .word UNK_021C4D4C
+_0201BB4C: .word gMTRNG_State
 _0201BB50: .word UNK_02105BAC
 _0201BB54: .word 0x7FFFFFFF
 _0201BB58: .word 0x00000634
 _0201BB5C: .word 0x0000026F
-_0201BB60: .word UNK_021C56C8
-_0201BB64: .word UNK_021C4D48
-_0201BB68: .word UNK_021C5348
+_0201BB60: .word gMTRNG_State + 607 * 4
+_0201BB64: .word gLCRNG_State
+_0201BB68: .word gMTRNG_State + 383 * 4
 _0201BB6C: .word 0x9D2C5680
 _0201BB70: .word 0xEFC60000
 
