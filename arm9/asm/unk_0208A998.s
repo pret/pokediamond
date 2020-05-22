@@ -2,12 +2,17 @@
     .include "global.inc"
 
 	.extern UNK_020FF49C
-	.extern gUnk021C4918
-	.extern UNK_021C8C58
-	.extern UNK_020FF4AC
 	.extern UNK_020FF4A4
+	.extern UNK_020FF4AC
 	.extern UNK_020FF4BC
 	.extern UNK_020FF4D8
+	.extern gUnk021C4918
+
+	.section .bss
+
+	.global UNK_021C8C58
+UNK_021C8C58: ; 0x021C8C58
+	.space 0x4
 
 	.text
 

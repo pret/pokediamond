@@ -2,16 +2,24 @@
     .include "global.inc"
 
 	.extern gGameLanguage
-	.extern UNK_021C5AC0
+	.extern gGameVersion
 	.extern UNK_020F7F16
 	.extern UNK_020F7F93
 	.extern UNK_020F7ED4
 	.extern UNK_020F7ECC
-	.extern gGameVersion
 	.extern UNK_02105FC8
 	.extern UNK_020F7EF2
 	.extern UNK_020F7ECE
-	.extern UNK_021C5AC4
+
+	.section .bss
+
+	.global UNK_021C5AC0
+UNK_021C5AC0: ; 0x021C5AC0
+	.space 0x4
+
+	.global UNK_021C5AC4
+UNK_021C5AC4: ; 0x021C5AC4
+	.space 0x190
 
 	.text
 

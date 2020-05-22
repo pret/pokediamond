@@ -1,29 +1,37 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020F5984
+	.extern UNK_020F588C
 	.extern UNK_020F5894
-	.extern UNK_020F5900
-	.extern UNK_020F5A44
-	.extern UNK_020F59C4
-	.extern UNK_020F59A4
 	.extern UNK_020F589C
+	.extern UNK_020F58A4
+	.extern UNK_020F58AC
+	.extern UNK_020F58B4
 	.extern UNK_020F58C4
+	.extern UNK_020F58D4
+	.extern UNK_020F58E8
+	.extern UNK_020F5900
+	.extern UNK_020F5918
+	.extern UNK_020F5930
+	.extern UNK_020F5948
+	.extern UNK_020F5964
+	.extern UNK_020F5984
+	.extern UNK_020F59A4
+	.extern UNK_020F59C4
 	.extern UNK_020F59DC
 	.extern UNK_020F5A14
-	.extern UNK_020F58AC
-	.extern UNK_020F5948
-	.extern UNK_020F5930
+	.extern UNK_020F5A44
 	.extern UNK_020F5A74
-	.extern UNK_020F58A4
-	.extern UNK_020F58D4
-	.extern UNK_020F588C
-	.extern UNK_020F5964
-	.extern UNK_020F58B4
-	.extern UNK_021C5A7C
-	.extern UNK_020F5918
-	.extern UNK_020F58E8
-	.extern UNK_021C5A70
+
+	.section .bss
+
+	.global UNK_021C5A70
+UNK_021C5A70: ; 0x021C5A70
+	.space 0xc
+
+	.global UNK_021C5A7C
+UNK_021C5A7C: ; 0x021C5A7C
+	.space 0x40
 
 	.text
 

@@ -1,38 +1,42 @@
     .include "asm/macros.inc"
     .include "global.inc"
-
-	.extern UNK_020F9FA0
-	.extern UNK_021C48F8
-	.extern UNK_020FA0A0
-	.extern UNK_020F9D30
-	.extern UNK_020FA17C
-	.extern UNK_020FA1DC
-	.extern UNK_020FA12C
-	.extern UNK_020F9D40
-	.extern gUnknown21C48B8
-	.extern UNK_020FA158
-	.extern UNK_020F9D6C
-	.extern UNK_020FA1A6
-	.extern UNK_020FA064
-	.extern UNK_021C5C54
-	.extern UNK_020FA1D8
-	.extern UNK_020FA224
-	.extern UNK_020FA40E
-	.extern UNK_020F9EC0
-	.extern UNK_020FA1A4
-	.extern UNK_020F9DFC
 	.extern UNK_020F9D28
-	.extern UNK_02106058
-	.extern UNK_020F9D38
-	.extern UNK_020FA17E
-	.extern UNK_020FA264
-	.extern UNK_0210606C
-	.extern UNK_020F9D5C
-	.extern UNK_020F9D4C
-	.extern gUnk021C4918
 	.extern UNK_020F9D2C
-	.extern UNK_020FA1D4
+	.extern UNK_020F9D30
+	.extern UNK_020F9D38
+	.extern UNK_020F9D40
+	.extern UNK_020F9D4C
+	.extern UNK_020F9D5C
+	.extern UNK_020F9D6C
+	.extern UNK_020F9DFC
+	.extern UNK_020F9EC0
+	.extern UNK_020F9FA0
+	.extern UNK_020FA064
+	.extern UNK_020FA0A0
+	.extern UNK_020FA12C
 	.extern UNK_020FA154
+	.extern UNK_020FA158
+	.extern UNK_020FA17C
+	.extern UNK_020FA17E
+	.extern UNK_020FA1A4
+	.extern UNK_020FA1A6
+	.extern UNK_020FA1D4
+	.extern UNK_020FA1D8
+	.extern UNK_020FA1DC
+	.extern UNK_020FA224
+	.extern UNK_020FA264
+	.extern UNK_020FA40E
+	.extern UNK_02106058
+	.extern UNK_0210606C
+	.extern UNK_021C48F8
+	.extern gUnk021C4918
+	.extern gUnknown21C48B8
+
+	.section .bss
+
+	.global UNK_021C5C54
+UNK_021C5C54: ; 0x021C5C54
+	.space 0x4
 
 	.text
 

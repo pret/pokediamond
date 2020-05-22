@@ -3,9 +3,14 @@
 
 	.extern UNK_02105D74
 	.extern UNK_02105D88
-	.extern UNK_02105DA8
-	.extern UNK_021C5A04
 	.extern UNK_02105D98
+	.extern UNK_02105DA8
+
+	.section .bss
+
+	.global UNK_021C5A04
+UNK_021C5A04: ; 0x021C5A04
+	.space 0x4
 
 	.text
 
