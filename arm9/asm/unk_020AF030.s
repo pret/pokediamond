@@ -574,7 +574,6 @@ _020AF418:
 	addeq sp, sp, #0x10
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020AF438: ; 0x020AF438
 	ldr r2, [sp, #0x8]
 	mov r1, #0x0
 	str r2, [r4, #0x0]
@@ -881,7 +880,6 @@ _020AF85C:
 	cmp r3, #0x0
 	addeq sp, sp, #0x30
 	ldmeqia sp!, {r4-r6,pc}
-_020AF86C: ; 0x020AF86C
 	ldr r0, _020AF888 ; =UNK_021CCD6C
 	ldr r1, _020AF890 ; =UNK_021CCD74
 	add r2, r4, #0x20000
@@ -949,7 +947,6 @@ FUN_020AF91C: ; 0x020AF91C
 	addcs sp, sp, #0x4
 	movcs r0, #0x0
 	ldmcsia sp!, {r4-r5,pc}
-_020AF94C: ; 0x020AF94C
 	cmp r4, #0x0
 	beq _020AF96C
 	ldr r0, _020AF9B4 ; =UNK_021CCD70
@@ -969,7 +966,6 @@ _020AF980:
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r5,pc}
-_020AF990: ; 0x020AF990
 	ldr r1, [sp, #0x0]
 	ldr r0, _020AF9C0 ; =0x0000FFFF
 	mov r2, r5, lsr #0x4
@@ -1058,7 +1054,6 @@ FUN_020AFA80: ; 0x020AFA80
 	mov r2, r12, lsl #0x3
 	mov r3, r3, lsl #0x3
 	bl FUN_020AF334
-_020AFAB4: ; 0x020AFAB4
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
@@ -1082,7 +1077,6 @@ FUN_020AFAD4: ; 0x020AFAD4
 	addcs sp, sp, #0x8
 	movcs r0, #0x0
 	ldmcsia sp!, {r4,pc}
-_020AFB00: ; 0x020AFB00
 	cmp r1, #0x0
 	beq _020AFB50
 	mov r12, #0x8
@@ -1116,7 +1110,6 @@ _020AFB6C:
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020AFB7C: ; 0x020AFB7C
 	ldr r1, [sp, #0x4]
 	ldr r0, _020AFBA4 ; =0x0000FFFF
 	mov r2, r4, lsr #0x3
@@ -1139,10 +1132,8 @@ FUN_020AFBA8: ; 0x020AFBA8
 	str r1, [r12, #0xc]
 	str r2, [r12, #0x10]
 	bl FUN_020AFA30
-_020AFBC4: ; 0x020AFBC4
 	cmp r4, #0x0
 	ldmeqia sp!, {r4,pc}
-_020AFBCC: ; 0x020AFBCC
 	ldr r3, _020AFBEC ; =FUN_020AFAD4
 	ldr r1, _020AFBF0 ; =UNK_021064C0
 	ldr r2, _020AFBF4 ; =FUN_020AFA80
@@ -1225,7 +1216,6 @@ _020AFCCC:
 	cmp r1, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r9,pc}
-_020AFCDC: ; 0x020AFCDC
 	add r1, r1, r0
 	str r1, [r0, #0x14]
 	ldr r1, [r0, #0x14]
@@ -1238,7 +1228,6 @@ _020AFCDC: ; 0x020AFCDC
 	cmp r0, #0x0
 	addls sp, sp, #0x4
 	ldmlsia sp!, {r4-r9,pc}
-_020AFD0C: ; 0x020AFD0C
 	mov r0, r12
 	mov r6, r12
 _020AFD14:
@@ -1300,7 +1289,6 @@ FUN_020AFDA0: ; 0x020AFDA0
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
-_020AFDC8: ; 0x020AFDC8
 	add r0, r4, #0x8
 	bl FUN_020AFC1C
 	add r0, r4, #0x8
@@ -1352,7 +1340,6 @@ _020AFE6C:
 	ldr r0, [r5, #0x14]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020AFE78: ; 0x020AFE78
 	add r0, r0, r5
 	str r0, [r5, #0x14]
 	ldr r0, [r5, #0x14]
@@ -1385,7 +1372,6 @@ FUN_020AFEB8: ; 0x020AFEB8
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
-_020AFEE0: ; 0x020AFEE0
 	add r0, r4, #0x8
 	bl FUN_020AFDE8
 	add r0, r4, #0x8
@@ -1455,7 +1441,6 @@ _020AFFA8:
 	ldr r1, [r0, #0x10]
 	cmp r1, #0x0
 	ldmeqia sp!, {r4,pc}
-_020AFFB4: ; 0x020AFFB4
 	add r1, r1, r0
 	str r1, [r0, #0x10]
 	ldr r0, [r0, #0x10]
@@ -1482,7 +1467,6 @@ FUN_020AFFD8: ; 0x020AFFD8
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
-_020B0000: ; 0x020B0000
 	add r0, r4, #0x8
 	bl FUN_020AFF4C
 	add r0, r4, #0x8
@@ -1512,7 +1496,6 @@ FUN_020B0030: ; 0x020B0030
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
-_020B0058: ; 0x020B0058
 	add r0, r4, #0x8
 	bl FUN_020B0020
 	add r0, r4, #0x8
@@ -1542,7 +1525,6 @@ FUN_020B0088: ; 0x020B0088
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
-_020B00B0: ; 0x020B00B0
 	add r0, r4, #0x8
 	bl FUN_020B0078
 	add r0, r4, #0x8
@@ -1579,7 +1561,6 @@ FUN_020B00F0: ; 0x020B00F0
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
-_020B0118: ; 0x020B0118
 	add r0, r4, #0x8
 	bl FUN_020B00E0
 	add r0, r4, #0x8
@@ -1602,7 +1583,6 @@ FUN_020B0138: ; 0x020B0138
 	addeq sp, sp, #0x4
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r5,pc}
-_020B0160: ; 0x020B0160
 	add r0, r4, #0x8
 	bl FUN_020B00D0
 	add r0, r4, #0x8
@@ -1619,7 +1599,6 @@ FUN_020B0180: ; 0x020B0180
 	mov r4, r1
 	ldr r1, _020B01AC ; =0x5343524E
 	bl FUN_020B01F8
-_020B0190: ; 0x020B0190
 	cmp r0, #0x0
 	addne r0, r0, #0x8
 	strne r0, [r4, #0x0]
@@ -1882,7 +1861,6 @@ FUN_020B04C0:
 	str r1, [r4, #0x14]
 	str r1, [r4, #0x18]
 	ldmia sp!, {r4,pc}
-_020B04FC: ; 0x020B04FC
 	ldr r1, [r0, #0x18]
 	ldr r2, [r0, #0x0]
 	ldr r0, [r1, #0xc]
@@ -1896,7 +1874,6 @@ FUN_020B0518:
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl FUN_020B06EC
-_020B0524: ; 0x020B0524
 	cmp r0, #0x0
 	movne r1, #0x0
 	strne r1, [r4, #0xc]
@@ -1911,7 +1888,6 @@ FUN_020B0534:
 	cmp r0, #0x1
 	movne r0, r7
 	ldmneia sp!, {r4-r8,pc}
-_020B0550: ; 0x020B0550
 	ldr r2, [r8, #0x10]
 	mov r0, #0x800
 	smull r3, r1, r2, r1
@@ -2118,7 +2094,6 @@ _020B0800:
 	cmp r2, r0
 	strhi r0, [r4, #0x0]
 	ldmhiia sp!, {r4,pc}
-_020B0824: ; 0x020B0824
 	cmp r2, r1
 	strcc r1, [r4, #0x0]
 	ldmia sp!, {r4,pc}
@@ -2261,7 +2236,6 @@ FUN_020B09B4: ; 0x020B09B4
 	mov r1, r6
 	mov r7, r2, lsr #0x10
 	bl DC_FlushRange
-_020B0A0C: ; 0x020B0A0C
 	cmp r5, #0x0
 	beq _020B0A20
 	cmp r5, #0x1
@@ -2326,7 +2300,6 @@ _020B0AC8:
 _020B0AEC:
 	cmp r3, #0x0
 	ldmeqia sp!, {r4-r10,pc}
-_020B0AF4: ; 0x020B0AF4
 	ldr r0, [r7, #0x0]
 	ldr r2, _020B0BA8 ; =UNK_021CCDA0
 	mov r1, #0x540
@@ -2345,7 +2318,6 @@ _020B0AF4: ; 0x020B0AF4
 	mov r7, r2, lsr #0x10
 	mov r6, #0x0
 	ldmeqia sp!, {r4-r10,pc}
-_020B0B3C: ; 0x020B0B3C
 	mov r4, #0x2
 _020B0B40:
 	mov r2, r4
@@ -2800,7 +2772,6 @@ _020B112C:
 	mla r5, r7, r2, r11
 	mla r4, r7, r6, r0
 	bl DC_FlushRange
-_020B114C: ; 0x020B114C
 	cmp r8, #0x0
 	beq _020B11E0
 	cmp r8, #0x1
@@ -2883,7 +2854,6 @@ FUN_020B1240: ; 0x020B1240
 	mov r1, r4
 	mov r6, r3
 	bl DC_FlushRange
-_020B126C: ; 0x020B126C
 	cmp r7, #0x0
 	beq _020B1300
 	cmp r7, #0x1
@@ -2955,7 +2925,6 @@ FUN_020B1340: ; 0x020B1340
 	mov r5, r2
 	mov r4, r3
 	bl DC_FlushRange
-_020B1364: ; 0x020B1364
 	cmp r5, #0x0
 	ldr r0, [r7, #0x8]
 	beq _020B13B8
@@ -3146,7 +3115,6 @@ _020B1590:
 	ldr r0, [r7, #0x14]
 	ldr r1, [r7, #0x10]
 	bl DC_FlushRange
-_020B159C: ; 0x020B159C
 	cmp r5, #0x0
 	beq _020B15B8
 	cmp r5, #0x1
@@ -3340,7 +3308,6 @@ _020B17D0:
 	ldr r0, [r7, #0x14]
 	ldr r1, [r7, #0x10]
 	bl DC_FlushRange
-_020B17DC: ; 0x020B17DC
 	cmp r5, #0x0
 	beq _020B17F8
 	cmp r5, #0x1
@@ -3884,10 +3851,8 @@ FUN_020B1EA4: ; 0x020B1EA4
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl FUN_020B0518
-_020B1EB0: ; 0x020B1EB0
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020B1EB8: ; 0x020B1EB8
 	mov r0, r4
 	bl FUN_020B1FC4
 	ldmia sp!, {r4,pc}
@@ -3897,10 +3862,8 @@ FUN_020B1EC4: ; 0x020B1EC4
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl FUN_020B0534
-_020B1ED0: ; 0x020B1ED0
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020B1ED8: ; 0x020B1ED8
 	mov r0, r4
 	bl FUN_020B1FC4
 	ldmia sp!, {r4,pc}
@@ -3980,7 +3943,6 @@ FUN_020B1FC4: ; 0x020B1FC4
 	cmp r1, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,pc}
-_020B1FE4: ; 0x020B1FE4
 	bl FUN_020B06E0
 	mov r4, r0
 	ldr r7, [r5, #0x30]
@@ -3994,7 +3956,6 @@ _020B1FE4: ; 0x020B1FE4
 	mov r1, #0x1
 	and r6, r2, #0xff
 	bl FUN_020B1A68
-_020B2018: ; 0x020B2018
 	cmp r6, #0x0
 	beq _020B2068
 	cmp r6, #0x2
@@ -4024,7 +3985,6 @@ _020B2068:
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,pc}
-_020B2084: ; 0x020B2084
 	ldr r1, [r5, #0x34]
 	mvn r0, #0x0
 	cmp r1, r0
@@ -4033,7 +3993,6 @@ _020B2084: ; 0x020B2084
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,pc}
-_020B20A4: ; 0x020B20A4
 	ldrh r1, [r4, #0x0]
 	ldr r2, [r2, #0x4]
 	ldr r0, [r5, #0x34]
@@ -4087,7 +4046,6 @@ _020B210C:
 _020B215C:
 	ldr r0, [sp, #0x0]
 	bl FUN_020B04C0
-_020B2164: ; 0x020B2164
 	ldr r0, [sp, #0x0]
 	ldr r3, [sp, #0x38]
 	ldr r2, [sp, #0x0]
@@ -4095,7 +4053,6 @@ _020B2164: ; 0x020B2164
 	mov r1, #0x1
 	str r3, [r2, #0x40]
 	bl FUN_020B1A68
-_020B2180: ; 0x020B2180
 	ldr r0, [sp, #0x0]
 	mov r1, #0x0
 	strh r1, [r0, #0x2c]
@@ -4108,11 +4065,9 @@ FUN_020B2194: ; 0x020B2194
 	sub sp, sp, #0x4
 	mov r7, r0
 	bl FUN_020B0518
-_020B21A4: ; 0x020B21A4
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,pc}
-_020B21B0: ; 0x020B21B0
 	mov r0, r7
 	bl FUN_020B06E0
 	mov r4, r0
@@ -4126,7 +4081,6 @@ _020B21B0: ; 0x020B21B0
 	and r5, r1, #0xff
 	mov r1, #0x1
 	bl FUN_020B1A68
-_020B21E4: ; 0x020B21E4
 	cmp r5, #0x0
 	beq _020B2234
 	cmp r5, #0x2
@@ -4165,7 +4119,6 @@ FUN_020B224C: ; 0x020B224C
 	mov r6, r1
 	ldrh r5, [r2, #0x4]
 	bl FUN_020B0534
-_020B2268: ; 0x020B2268
 	cmp r0, #0x0
 	beq _020B2318
 	ldrh r1, [r4, #0x2c]
@@ -4184,7 +4137,6 @@ _020B2268: ; 0x020B2268
 	and r6, r1, #0xff
 	mov r1, #0x1
 	bl FUN_020B1A68
-_020B22B0: ; 0x020B22B0
 	cmp r6, #0x0
 	beq _020B2300
 	cmp r6, #0x2
@@ -4234,7 +4186,6 @@ FUN_020B232C: ; 0x020B232C
 	mov r5, #0x0
 	cmp r0, #0x0
 	ldmlsia sp!, {r4-r8,pc}
-_020B235C: ; 0x020B235C
 	mov r8, #0x58
 _020B2360:
 	mla r0, r5, r8, r4
@@ -4255,7 +4206,6 @@ _020B238C:
 	mov r5, #0x0
 	cmp r0, #0x0
 	ldmlsia sp!, {r4-r8,pc}
-_020B23A4: ; 0x020B23A4
 	mov r8, #0x28
 _020B23A8:
 	mul r0, r5, r8
@@ -4318,7 +4268,6 @@ FUN_020B242C: ; 0x020B242C
 	and r5, r1, #0xff
 	mov r1, #0x1
 	bl FUN_020B1A68
-_020B2478: ; 0x020B2478
 	cmp r5, #0x0
 	beq _020B24C8
 	cmp r5, #0x2
@@ -4382,7 +4331,6 @@ _020B2544:
 	cmp r0, #0x0
 	addls sp, sp, #0x14
 	ldmlsia sp!, {r4-r11,pc}
-_020B2558: ; 0x020B2558
 	str r5, [sp, #0x4]
 	mov r11, #0x1
 _020B2560:
@@ -4426,7 +4374,6 @@ _020B25D8:
 _020B25F0:
 	mov r0, r6
 	bl FUN_020B0408
-_020B25F8: ; 0x020B25F8
 	cmp r0, #0x0
 	beq _020B261C
 	mov r0, r9
@@ -4461,7 +4408,6 @@ _020B2654:
 	ldr r11, [r0, #0xc]
 	addls sp, sp, #0x14
 	ldmlsia sp!, {r4-r11,pc}
-_020B2670: ; 0x020B2670
 	mov r0, #0x1
 	str r4, [sp, #0xc]
 	str r0, [sp, #0x8]
@@ -4503,7 +4449,6 @@ _020B26E4:
 _020B2700:
 	mov r0, r6
 	bl FUN_020B0408
-_020B2708: ; 0x020B2708
 	cmp r0, #0x0
 	beq _020B272C
 	mov r0, r9
@@ -4920,7 +4865,6 @@ _020B2CA4:
 	movge r0, #0x0
 	cmp r0, #0x0
 	ldmeqia sp!, {r4-r10,pc}
-_020B2CC4: ; 0x020B2CC4
 	ldr r0, _020B2D7C ; =UNK_021CDD68
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
@@ -4999,13 +4943,11 @@ _020B2DBC:
 	ldr r0, [r0, #0x0]
 	ldrsh r5, [r4, #0x50]
 	bl FUN_020B4F88
-_020B2DE0: ; 0x020B2DE0
 	cmp r0, #0x0
 	ldr r0, _020B2E70 ; =UNK_021CDD6C
 	rsbne r5, r5, #0x0
 	ldr r0, [r0, #0x0]
 	bl FUN_020B4F74
-_020B2DF4: ; 0x020B2DF4
 	cmp r0, #0x0
 	rsbne r6, r6, #0x0
 	mov r0, r5, lsl #0xc
@@ -5079,7 +5021,6 @@ _020B2ED0:
 	cmp r0, #0x0
 	beq _020B2FD8
 	bl FUN_020B4948
-_020B2EF4: ; 0x020B2EF4
 	str r0, [sp, #0x0]
 	mov r0, r6
 	bl FUN_020B497C
@@ -5109,13 +5050,11 @@ _020B2F28:
 	ldr r0, [r0, #0x0]
 	ldrsh r10, [r10, #0x2]
 	bl FUN_020B4F88
-_020B2F64: ; 0x020B2F64
 	cmp r0, #0x0
 	ldr r0, _020B3178 ; =UNK_021CDD6C
 	rsbne r10, r10, #0x0
 	ldr r0, [r0, #0x0]
 	bl FUN_020B4F74
-_020B2F78: ; 0x020B2F78
 	cmp r0, #0x0
 	rsbne r4, r4, #0x0
 	mov r2, r11
@@ -5137,7 +5076,6 @@ _020B2F78: ; 0x020B2F78
 _020B2FC0:
 	mov r0, #0x0
 	bl FUN_020B497C
-_020B2FC8: ; 0x020B2FC8
 	ldr r0, [sp, #0x0]
 	bl FUN_020B4958
 	bl FUN_020B4968
@@ -5166,13 +5104,11 @@ _020B2FF4:
 	ldr r0, [r0, #0x0]
 	ldrsh r10, [r10, #0x2]
 	bl FUN_020B4F88
-_020B3030: ; 0x020B3030
 	cmp r0, #0x0
 	ldr r0, _020B3178 ; =UNK_021CDD6C
 	rsbne r10, r10, #0x0
 	ldr r0, [r0, #0x0]
 	bl FUN_020B4F74
-_020B3044: ; 0x020B3044
 	cmp r0, #0x0
 	rsbne r4, r4, #0x0
 	ldr r2, [sp, #0x4]
@@ -5211,7 +5147,6 @@ _020B309C:
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x80]
 	bl FUN_020B4958
-_020B30D4: ; 0x020B30D4
 	ldr r0, [r5, #0x0]
 	mov r4, #0x0
 	ldrh r0, [r0, #0x0]
@@ -5243,7 +5178,6 @@ _020B312C:
 	cmp r0, #0x0
 	addls sp, sp, #0xc
 	ldmlsia sp!, {r4-r11,pc}
-_020B3144: ; 0x020B3144
 	mov r6, #0x28
 _020B3148:
 	mla r0, r4, r6, r7
@@ -5281,7 +5215,6 @@ FUN_020B317C: ; 0x020B317C
 	bl FUN_020B4958
 	mov r0, r5
 	bl FUN_020B3554
-_020B31C4: ; 0x020B31C4
 	mov r0, #0x0
 	bl FUN_020B497C
 	mov r0, r4
@@ -5490,7 +5423,6 @@ FUN_020B3474: ; 0x020B3474
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,pc}
-_020B3490: ; 0x020B3490
 	ldr r4, [r5, #0x0]
 	bl FUN_020B2B58
 	ldrh r0, [r5, #0x1e]
@@ -5501,13 +5433,11 @@ _020B3490: ; 0x020B3490
 	ldr r0, [r0, #0x0]
 	ldrsh r6, [r5, #0x18]
 	bl FUN_020B4F88
-_020B34B8: ; 0x020B34B8
 	cmp r0, #0x0
 	ldr r0, _020B354C ; =UNK_021CDD6C
 	rsbne r6, r6, #0x0
 	ldr r0, [r0, #0x0]
 	bl FUN_020B4F74
-_020B34CC: ; 0x020B34CC
 	cmp r0, #0x0
 	rsbne r7, r7, #0x0
 	mov r0, r6, lsl #0xc
@@ -5587,13 +5517,11 @@ _020B35C0:
 	ldr r0, [r0, #0x0]
 	ldrsh r6, [r5, #0x44]
 	bl FUN_020B4F88
-_020B35E4: ; 0x020B35E4
 	cmp r0, #0x0
 	ldr r0, _020B36B8 ; =UNK_021CDD6C
 	rsbne r6, r6, #0x0
 	ldr r0, [r0, #0x0]
 	bl FUN_020B4F74
-_020B35F8: ; 0x020B35F8
 	cmp r0, #0x0
 	rsbne r7, r7, #0x0
 	mov r0, r6, lsl #0xc
@@ -5805,7 +5733,6 @@ _020B38EC:
 	cmp r9, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r11,pc}
-_020B38F8: ; 0x020B38F8
 	ldr r4, _020B3B6C ; =UNK_021CDD70
 	ldr fp, _020B3B78 ; =UNK_021CDEF4
 	mov r7, #0x0
@@ -5870,7 +5797,6 @@ _020B397C:
 	b _020B3A04
 _020B39E4:
 	bl FUN_020B4010
-_020B39E8: ; 0x020B39E8
 	ldr r0, [r4, #0x0]
 	mov r0, r0, lsl #0x10
 	mov r1, r0, lsr #0xd
@@ -6001,7 +5927,6 @@ FUN_020B3B90: ; 0x020B3B90
 	cmp r2, #0x0
 	addeq sp, sp, #0x8
 	ldmeqia sp!, {r4-r6,pc}
-_020B3BBC: ; 0x020B3BBC
 	ldr r2, _020B3C28 ; =UNK_021CDD68
 	ldr r2, [r2, #0x0]
 	cmp r2, #0x0
@@ -6048,7 +5973,6 @@ FUN_020B3C40: ; 0x020B3C40
 	mov r6, r1
 	mov r5, r2
 	bl FUN_020B278C
-_020B3C60: ; 0x020B3C60
 	cmp r0, #0x0
 	beq _020B3C90
 	ldrh r1, [r4, #0x4]
@@ -6143,7 +6067,6 @@ _020B3DA4:
 	cmp r2, #0x0
 	addeq sp, sp, #0x8
 	ldmeqia sp!, {r4-r6,pc}
-_020B3DC0: ; 0x020B3DC0
 	ldr r2, _020B3E30 ; =UNK_021CDD68
 	ldr r2, [r2, #0x0]
 	cmp r2, #0x0
@@ -6191,7 +6114,6 @@ FUN_020B3E48: ; 0x020B3E48
 	ldr r3, [r1, #0x3c]
 	cmp r3, #0x0
 	ldmeqia sp!, {r4,pc}
-_020B3E68: ; 0x020B3E68
 	ldr r3, _020B3EC8 ; =UNK_021CDD68
 	ldr r3, [r3, #0x0]
 	cmp r3, #0x0
@@ -6265,14 +6187,12 @@ _020B3F54:
 	moveq r0, #0x0
 	streq r0, [r6, #0x30]
 	ldmeqia sp!, {r4-r6,pc}
-_020B3F74: ; 0x020B3F74
 	mov r0, #0x1
 	str r0, [r6, #0x30]
 _020B3F7C:
 	ldr r0, [r4, #0x38]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020B3F88: ; 0x020B3F88
 	ldr r0, _020B3FF8 ; =UNK_021CDD68
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
@@ -6329,7 +6249,6 @@ _020B4044:
 	cmp r2, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020B4050: ; 0x020B4050
 	ldr r0, _020B415C ; =UNK_021CDD60
 	mov r2, #0x10
 	ldrh r4, [r0, #0x0]
@@ -6382,7 +6301,6 @@ _020B40E4:
 	movs lr, r0, lsr #0x10
 	addmi sp, sp, #0x4
 	ldmmiia sp!, {r4-r5,pc}
-_020B411C: ; 0x020B411C
 	ldr r3, _020B4158 ; =UNK_021CDDF4
 	mov r0, #0x3
 _020B4124:
@@ -6392,7 +6310,6 @@ _020B4124:
 	cmp r5, r1
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r5,pc}
-_020B413C: ; 0x020B413C
 	strh r0, [r2, #0x4]
 	strh r4, [r3, r12]
 	subs lr, lr, #0x1
@@ -6548,7 +6465,6 @@ FUN_020B4358: ; 0x020B4358
 	mla r4, r0, r1, r2
 	mov r0, r4
 	bl FUN_020B10CC
-_020B4374: ; 0x020B4374
 	mov r0, #0x0
 	str r0, [r4, #0xc]
 	str r0, [r4, #0x10]
@@ -6617,7 +6533,6 @@ FUN_020B442C: ; 0x020B442C
 	cmp r0, #0x0
 	addls sp, sp, #0x14
 	ldmlsia sp!, {r4-r11,pc}
-_020B4450: ; 0x020B4450
 	ldr r0, [sp, #0x0]
 	mov r5, #0x1
 	str r0, [sp, #0x4]
@@ -6711,7 +6626,6 @@ FUN_020B4568: ; 0x020B4568
 	str r7, [r3, #0x0]
 	str r6, [r1, #0x0]
 	ldmeqia sp!, {r4-r7,pc}
-_020B459C: ; 0x020B459C
 	mov r4, r5
 _020B45A0:
 	mov r0, r7
@@ -6749,7 +6663,6 @@ FUN_020B45F0: ; 0x020B45F0
 	mov r6, r2
 	mov r5, r3
 	bl FUN_020B10CC
-_020B461C: ; 0x020B461C
 	mvn r0, #0x0
 	cmp r7, r0
 	beq _020B4638
@@ -6946,7 +6859,6 @@ _020B47C0:
 	cmp r0, #0x0
 	addeq sp, sp, #0x1c
 	ldmeqia sp!, {r4-r7,pc}
-_020B48F4: ; 0x020B48F4
 	ldr r1, _020B4924 ; =UNK_021CED10
 	ldr r0, _020B4944 ; =UNK_02106590
 	ldr r2, [r1, #0x0]
@@ -7176,7 +7088,6 @@ FUN_020B4BF4: ; 0x020B4BF4
 	ldr r0, [r5, #0x10]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020B4C18: ; 0x020B4C18
 	mov r0, #0x1
 	str r0, [r3, #0x30]
 	ldr r3, [r5, #0x18]
@@ -7229,7 +7140,6 @@ _020B4CB8:
 	ldr r2, [r5, #0x1c]
 	cmp r2, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020B4CC4: ; 0x020B4CC4
 	ldr r0, _020B4CD8 ; =UNK_021CED14
 	mov r1, r6
 	ldr r0, [r0, #0x0]
@@ -7250,7 +7160,6 @@ FUN_020B4CDC:
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020B4D04: ; 0x020B4D04
 	mov r0, #0x1
 	str r0, [r2, #0x30]
 	ldr r2, [r4, #0x18]
@@ -7291,7 +7200,6 @@ _020B4D74:
 	cmp r2, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020B4D84: ; 0x020B4D84
 	ldr r0, _020B4D9C ; =UNK_021CED14
 	mov r1, r5
 	ldr r0, [r0, #0x0]
@@ -7365,7 +7273,6 @@ FUN_020B4E0C: ; 0x020B4E0C
 	ldr r5, [r0, #0x8]
 	mov r0, r5
 	bl FUN_020B19FC
-_020B4E80: ; 0x020B4E80
 	cmp r0, #0x0
 	moveq r0, #0x0
 	beq _020B4E98
@@ -7380,7 +7287,6 @@ _020B4E98:
 	ldr r5, [r0, #0xc]
 	mov r0, r5
 	bl FUN_020B19A8
-_020B4EB4: ; 0x020B4EB4
 	cmp r0, #0x0
 	moveq r0, #0x0
 	beq _020B4ECC
@@ -7396,7 +7302,6 @@ _020B4ED8:
 	mov r1, r5
 	mov r0, r4
 	bl FUN_020B19FC
-_020B4EE8: ; 0x020B4EE8
 	cmp r0, #0x0
 	moveq r1, #0x0
 	beq _020B4F14
@@ -7553,7 +7458,6 @@ FUN_020B5090: ; 0x020B5090
 	mov r8, #0x0
 	cmp r1, #0x0
 	ldmlsia sp!, {r4-r10,pc}
-_020B50B8: ; 0x020B50B8
 	mov r6, #0x1
 	mov r4, #0x6
 _020B50C0:
@@ -7619,7 +7523,6 @@ FUN_020B515C: ; 0x020B515C
 	ldr r1, _020B53A8 ; =0xC000C000
 	and r4, r2, r1
 	bl FUN_020B4F88
-_020B519C: ; 0x020B519C
 	cmp r0, #0x0
 	beq _020B51F4
 	ldr r0, [r7, #0x0]
@@ -7658,7 +7561,6 @@ _020B5218:
 	ldr r0, [r0, #0x0]
 	mov r6, r1, asr #0x10
 	bl FUN_020B4F74
-_020B522C: ; 0x020B522C
 	cmp r0, #0x0
 	beq _020B527C
 	and r1, r4, #0xc000
@@ -7805,7 +7707,6 @@ _020B5438:
 	cmp r1, #0x0
 	addls sp, sp, #0x44
 	ldmlsia sp!, {r4-r11,pc}
-_020B5450: ; 0x020B5450
 	mov r0, #0x1
 	ldr r4, _020B57B0 ; =UNK_021CED14
 	str r8, [sp, #0x14]
@@ -7955,7 +7856,6 @@ _020B5600:
 	str r0, [r7, #0x0]
 	ldr r0, [r4, #0x0]
 	bl FUN_020B4F88
-_020B5684: ; 0x020B5684
 	cmp r0, #0x0
 	beq _020B56D4
 	and r1, r5, #0xc000
@@ -7979,7 +7879,6 @@ _020B5684: ; 0x020B5684
 _020B56D4:
 	ldr r0, [r4, #0x0]
 	bl FUN_020B4F74
-_020B56DC: ; 0x020B56DC
 	cmp r0, #0x0
 	beq _020B5714
 	and r1, r5, #0xc000
@@ -8020,7 +7919,6 @@ _020B5750:
 	cmp r0, #0x1
 	addne sp, sp, #0x44
 	ldmneia sp!, {r4-r11,pc}
-_020B5774: ; 0x020B5774
 	ldr r3, [r10, #0x24]
 	cmp r3, #0x0
 	beq _020B5790
@@ -8767,7 +8665,6 @@ FUN_020B61DC: ; 0x020B61DC
 	mov r6, #0x0
 	cmp r2, #0x0
 	ldmleia sp!, {r4-r8,pc}
-_020B61FC: ; 0x020B61FC
 	mov lr, r3, lsl #0x1
 	mov r12, r6
 _020B6204:
@@ -9045,7 +8942,6 @@ _020B6528:
 	str r0, [sp, #0x34]
 	addge sp, sp, #0x54
 	ldmgeia sp!, {r4-r11,pc}
-_020B65DC: ; 0x020B65DC
 	mov r4, #0x0
 	mov r11, #0x8
 _020B65E4:
@@ -9180,7 +9076,6 @@ _020B673C:
 	cmp r1, r0
 	addge sp, sp, #0x3c
 	ldmgeia sp!, {r4-r11,pc}
-_020B67D8: ; 0x020B67D8
 	mov r5, #0x0
 	mov r4, #0x8
 _020B67E0:
@@ -9286,16 +9181,13 @@ FUN_020B6908: ; 0x020B6908
 	mov r5, r5, asr #0x3
 	addeq sp, sp, #0x4c
 	ldmeqia sp!, {r4-r11,pc}
-_020B6958: ; 0x020B6958
 	adds r3, r2, r4
 	addmi sp, sp, #0x4c
 	ldmmiia sp!, {r4-r11,pc}
-_020B6964: ; 0x020B6964
 	ldr r2, [sp, #0xc]
 	adds r2, r2, r9
 	addmi sp, sp, #0x4c
 	ldmmiia sp!, {r4-r11,pc}
-_020B6974: ; 0x020B6974
 	ldr r10, [sp, #0x8]
 	add r3, r3, #0x7
 	cmp r10, #0x0
@@ -9319,11 +9211,9 @@ _020B6974: ; 0x020B6974
 	addmi sp, sp, #0x4c
 	sub r3, r11, r10
 	ldmmiia sp!, {r4-r11,pc}
-_020B69D0: ; 0x020B69D0
 	cmp r3, #0x0
 	addlt sp, sp, #0x4c
 	ldmltia sp!, {r4-r11,pc}
-_020B69DC: ; 0x020B69DC
 	ldr r2, [sp, #0x8]
 	ldr r6, [r0, #0x0]
 	cmp r2, #0x0
@@ -9429,15 +9319,12 @@ FUN_020B6B10: ; 0x020B6B10
 	ldr lr, [r0, #0x0]
 	ldrb r3, [r6, #0x1]
 	ldmeqia sp!, {r4-r11,pc}
-_020B6B68: ; 0x020B6B68
 	adds r6, r10, r4
 	addmi sp, sp, #0x2c
 	ldmmiia sp!, {r4-r11,pc}
-_020B6B74: ; 0x020B6B74
 	adds r2, r9, r3
 	addmi sp, sp, #0x2c
 	ldmmiia sp!, {r4-r11,pc}
-_020B6B80: ; 0x020B6B80
 	cmp r10, #0x0
 	movle r11, #0x0
 	add r6, r6, #0x7
@@ -9456,11 +9343,9 @@ _020B6B80: ; 0x020B6B80
 	addmi sp, sp, #0x2c
 	sub r2, r2, r12
 	ldmmiia sp!, {r4-r11,pc}
-_020B6BC8: ; 0x020B6BC8
 	cmp r2, #0x0
 	addlt sp, sp, #0x2c
 	ldmltia sp!, {r4-r11,pc}
-_020B6BD4: ; 0x020B6BD4
 	ldr r6, [r0, #0x10]
 	cmp r10, #0x0
 	sub r8, r6, r7
@@ -9495,7 +9380,6 @@ _020B6BD4: ; 0x020B6BD4
 	str r0, [sp, #0x1c]
 	addle sp, sp, #0x2c
 	ldmleia sp!, {r4-r11,pc}
-_020B6C5C: ; 0x020B6C5C
 	add r4, sp, #0x4
 _020B6C60:
 	mov r8, r10
@@ -9573,7 +9457,6 @@ FUN_020B6CAC: ; 0x020B6CAC
 	cmp r1, r0
 	addcs sp, sp, #0x34
 	ldmcsia sp!, {r4-r11,pc}
-_020B6D78: ; 0x020B6D78
 	mov r0, #0x0
 	add r9, sp, #0x24
 	mov r4, #0xf
@@ -9600,7 +9483,6 @@ _020B6DCC:
 	mov r0, r9
 	mov r1, r6
 	bl FUN_020B76B0
-_020B6DD8: ; 0x020B6DD8
 	cmp r0, #0x0
 	mvnne r1, r4, lsl r8
 	addne r0, r7, r0
@@ -9632,7 +9514,6 @@ _020B6E24:
 	cmp r1, r0
 	addcs sp, sp, #0x34
 	ldmcsia sp!, {r4-r11,pc}
-_020B6E4C: ; 0x020B6E4C
 	mov r0, #0x0
 	mov r4, #0xff
 	str r0, [sp, #0x20]
@@ -9651,7 +9532,6 @@ _020B6E58:
 	strb r0, [sp, #0x31]
 	add r0, sp, #0x2c
 	bl FUN_020B76B0
-_020B6E90: ; 0x020B6E90
 	ldr r0, [sp, #0x0]
 	cmp r0, r10
 	mov r5, r0
@@ -9660,7 +9540,6 @@ _020B6EA0:
 	add r0, sp, #0x2c
 	mov r1, r6
 	bl FUN_020B76B0
-_020B6EAC: ; 0x020B6EAC
 	cmp r0, #0x0
 	beq _020B6EDC
 	cmp r5, #0x20
@@ -9852,7 +9731,6 @@ _020B7118:
 	str r5, [sp, #0x28]
 	str r4, [sp, #0x2c]
 	b _020B7080
-_020B715C: ; 0x020B715C
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r11,pc}
 	.balign 4
@@ -9975,7 +9853,6 @@ FUN_020B72C4: ; 0x020B72C4
 	add r6, r5, r4
 	addeq sp, sp, #0x14
 	ldmeqia sp!, {r4-r11,pc}
-_020B730C: ; 0x020B730C
 	add r0, r7, #0x1
 	ldr r1, [sp, #0x3c]
 	add r0, r0, r0, lsr #0x1f
@@ -9993,7 +9870,6 @@ _020B732C:
 	ldr r2, [sp, #0xc]
 	mov r3, r4
 	bl FUN_020B5BC8
-_020B734C: ; 0x020B734C
 	sub r0, r7, r0
 	add r1, r9, r0
 	b _020B7388
@@ -10065,7 +9941,6 @@ _020B743C:
 	cmp r1, #0x0
 	addeq sp, sp, #0xc
 	ldmeqia sp!, {r4-r11,pc}
-_020B744C: ; 0x020B744C
 	cmp r0, #0xa
 	ldreq r1, [sp, #0x8]
 	ldr r0, [sp, #0x34]
@@ -10083,7 +9958,6 @@ FUN_020B7468: ; 0x020B7468
 	add r2, r0, r2
 	cmp r3, #0x0
 	ldmleia sp!, {r4-r6,pc}
-_020B7484: ; 0x020B7484
 	ldr r3, _020B7548 ; =0x46494E46
 	ldr ip, _020B754C ; =0x43574448
 	ldr r4, _020B7550 ; =0x434D4150
@@ -10228,12 +10102,10 @@ _020B7654:
 	ldr r1, _020B76AC ; =0x46494E46
 	mov r0, r6
 	bl FUN_020B01F8
-_020B7668: ; 0x020B7668
 	cmp r0, #0x0
 	moveq r0, #0x0
 	streq r0, [r5, #0x0]
 	ldmeqia sp!, {r4-r6,pc}
-_020B7678: ; 0x020B7678
 	add r0, r0, #0x8
 	str r0, [r5, #0x0]
 	cmp r4, #0x0
@@ -10299,7 +10171,6 @@ FUN_020B772C: ; 0x020B772C
 	cmp r0, #0x0
 	addls sp, sp, #0x4
 	ldmlsia sp!, {r4-r7,pc}
-_020B774C: ; 0x020B774C
 	add r4, r6, #0x8
 _020B7750:
 	ldrh r0, [r6, #0xe]
@@ -10418,7 +10289,6 @@ _020B7898:
 	mov r0, r9
 	mov r2, r10
 	bl FUN_020B7910
-_020B78EC: ; 0x020B78EC
 	b _020B78F4
 _020B78F0:
 	mov r6, r4
@@ -10541,7 +10411,6 @@ _020B7A40:
 	mov r0, r9
 	mov r2, r10
 	bl FUN_020B7B40
-_020B7A90: ; 0x020B7A90
 	b _020B7A98
 _020B7A94:
 	mov r11, r4
@@ -10709,7 +10578,6 @@ _020B7C90:
 	orr r0, r0, #0x1
 	strh r0, [r5, #0x32]
 	ldmeqia sp!, {r4-r5,pc}
-_020B7CCC: ; 0x020B7CCC
 	bl GX_EndLoadTexPltt
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
@@ -10797,7 +10665,6 @@ _020B7DDC:
 	cmp r8, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r9,pc}
-_020B7DE8: ; 0x020B7DE8
 	bl GX_EndLoadTex
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r9,pc}
@@ -10833,19 +10700,16 @@ FUN_020B7E28: ; 0x020B7E28
 	add r0, r5, #0x8
 	mov r4, r1
 	bl FUN_020B7E88
-_020B7E40: ; 0x020B7E40
 	cmp r0, #0x0
 	bne _020B7E74
 	mov r1, r4
 	add r0, r5, #0x10
 	bl FUN_020B7E88
-_020B7E54: ; 0x020B7E54
 	cmp r0, #0x0
 	bne _020B7E74
 	mov r1, r4
 	add r0, r5, #0x18
 	bl FUN_020B7E88
-_020B7E68: ; 0x020B7E68
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
@@ -10940,7 +10804,6 @@ FUN_020B7F88: ; 0x020B7F88
 	cmp r1, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020B7F9C: ; 0x020B7F9C
 	mov r3, #0x1
 	mov r4, #0x0
 _020B7FA4:
@@ -11072,7 +10935,6 @@ FUN_020B8110: ; 0x020B8110
 	cmp r6, #0x0
 	addls sp, sp, #0x4
 	ldmlsia sp!, {r4-r7,pc}
-_020B8150: ; 0x020B8150
 	ldrb r7, [r1, #0x0]
 	ldr r4, _020B81A8 ; =UNK_021065B8
 _020B8158:
@@ -11511,7 +11373,6 @@ FUN_020B86B0: ; 0x020B86B0
 	addne sp, sp, #0x5c
 	movne r0, #0x0
 	ldmneia sp!, {r4-r11,pc}
-_020B86EC: ; 0x020B86EC
 	ldr r3, [r9, #0xc]
 	and r2, r4, #0xff
 	blx r3
@@ -11539,7 +11400,6 @@ _020B8714:
 	addeq sp, sp, #0x5c
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r11,pc}
-_020B8750: ; 0x020B8750
 	cmp r3, #0x1
 	bne _020B877C
 	add r0, r1, r8, lsl #0x1
@@ -11556,7 +11416,6 @@ _020B877C:
 	mov r0, #0x0
 	mov r2, #0x58
 	bl MIi_CpuClearFast
-_020B878C: ; 0x020B878C
 	mvn r0, #0x0
 	str r0, [r10, #0x0]
 	add r5, sp, #0x0
@@ -11602,7 +11461,6 @@ _020B87F0:
 	mov r2, r6
 	and r3, r3, #0x10
 	bl FUN_020B8998
-_020B8838: ; 0x020B8838
 	ldr r0, [sp, #0x0]
 	ands r0, r0, #0x4
 	bne _020B8898
@@ -11940,7 +11798,6 @@ _020B8CE0:
 _020B8D04:
 	mov r0, r4
 	bl G3X_GetClipMtx
-_020B8D0C: ; 0x020B8D0C
 	cmp r0, #0x0
 	bne _020B8D04
 	ldr r1, _020B8DEC ; =0x04000448
@@ -12491,7 +12348,6 @@ _020B9500:
 _020B9508:
 	mov r0, r6
 	bl G3X_GetClipMtx
-_020B9510: ; 0x020B9510
 	cmp r0, #0x0
 	bne _020B9508
 	ldr r1, [sp, #0x14]
@@ -12599,7 +12455,6 @@ _020B9538:
 _020B96AC:
 	mov r0, r5
 	bl G3X_GetVectorMtx
-_020B96B4: ; 0x020B96B4
 	cmp r0, #0x0
 	bne _020B96AC
 _020B96BC:
@@ -12827,7 +12682,6 @@ _020B99C4:
 _020B99F8:
 	mov r0, r4
 	bl G3X_GetClipMtx
-_020B9A00: ; 0x020B9A00
 	cmp r0, #0x0
 	bne _020B99F8
 	ldr r0, _020B9C3C ; =UNK_021CED18
@@ -12861,7 +12715,6 @@ _020B9A5C:
 	ldr r1, [sp, #0x40]
 	str r1, [r6, #0x8]
 	bl VEC_Mag
-_020B9A7C: ; 0x020B9A7C
 	str r0, [r11, #0x0]
 	add r0, sp, #0x18
 	bl VEC_Mag
@@ -13081,7 +12934,6 @@ _020B9D50:
 _020B9D84:
 	mov r0, r10
 	bl G3X_GetClipMtx
-_020B9D8C: ; 0x020B9D8C
 	cmp r0, #0x0
 	bne _020B9D84
 	ldr r0, _020B9F68 ; =UNK_021CED18
@@ -13115,7 +12967,6 @@ _020B9DE8:
 	ldr r1, [sp, #0x40]
 	str r1, [r5, #0x8]
 	bl VEC_Mag
-_020B9E08: ; 0x020B9E08
 	str r0, [r4, #0x0]
 	add r0, sp, #0x18
 	bl VEC_Mag
@@ -13604,7 +13455,6 @@ _020BA4B8:
 _020BA4E8:
 	cmp r4, #0x3
 	ldmneia sp!, {r4-r6,pc}
-_020BA4F0: ; 0x020BA4F0
 	ldr r1, [r6, #0x8]
 	mov r0, r6
 	bic r1, r1, #0x40
@@ -13922,7 +13772,6 @@ _020BA900:
 	ldr r3, [r4, #0x14]
 	str r3, [sp, #0x18]
 	bl FUN_020BB1C0
-_020BA984: ; 0x020BA984
 	ldr r0, [r4, #0x0]
 	ands r0, r0, #0x18
 	beq _020BA9AC
@@ -13938,7 +13787,6 @@ _020BA9AC:
 	cmp r5, #0x3
 	addne sp, sp, #0x20
 	ldmneia sp!, {r4-r8,pc}
-_020BA9B8: ; 0x020BA9B8
 	ldr r1, [r8, #0x8]
 	mov r0, r8
 	bic r1, r1, #0x40
@@ -14222,7 +14070,6 @@ FUN_020BAD74:
 	cmp r1, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020BAD88: ; 0x020BAD88
 	mov r3, #0x1
 	mov r4, #0x0
 _020BAD90:
@@ -14344,7 +14191,6 @@ _020BAEE0:
 _020BAF44:
 	mov r0, r5
 	bl FUN_020BAF6C
-_020BAF4C: ; 0x020BAF4C
 	ldr r0, [r4, #0x0]
 	bic r0, r0, #0x1
 	str r0, [r4, #0x0]
@@ -14413,7 +14259,6 @@ _020BAFF8:
 	ands r0, r0, #0x1f0000
 	addeq sp, sp, #0x6c
 	ldmeqia sp!, {r4-r7,pc}
-_020BB034: ; 0x020BB034
 	ldr r0, _020BB1B4 ; =0x00293130
 	str r0, [sp, #0x0]
 	ldr r0, [r4, #0x4]
@@ -14504,7 +14349,6 @@ _020BB150:
 	cmp r3, #0x1000
 	addeq sp, sp, #0x6c
 	ldmeqia sp!, {r4-r7,pc}
-_020BB190: ; 0x020BB190
 	add r1, sp, #0x60
 	mov r0, #0x1b
 	mov r2, #0x3
@@ -14544,7 +14388,6 @@ FUN_020BB1C0:
 	add r0, r0, r2, lsl #0x2
 	str r6, [r0, #0x4]
 	ldmeqia sp!, {r4-r6,pc}
-_020BB21C: ; 0x020BB21C
 	ldr r2, [r3, #0x0]
 	mov r0, r5
 	ldr r1, [r2], #0x4
@@ -14942,7 +14785,6 @@ _020BB77C:
 	bne _020BB7A4
 	mov r0, r5
 	bl FUN_020BC13C
-_020BB794: ; 0x020BB794
 	cmp r4, #0x0
 	beq _020BB7A4
 	mov r1, r4
@@ -15008,7 +14850,6 @@ FUN_020BB824: ; 0x020BB824
 _020BB860:
 	mov r0, r4
 	bl G3X_GetClipMtx
-_020BB868: ; 0x020BB868
 	cmp r0, #0x0
 	bne _020BB860
 	add r0, sp, #0x0
@@ -15020,7 +14861,6 @@ _020BB87C:
 _020BB884:
 	mov r0, r5
 	bl G3X_GetVectorMtx
-_020BB88C: ; 0x020BB88C
 	cmp r0, #0x0
 	bne _020BB884
 _020BB894:
@@ -15628,7 +15468,6 @@ FUN_020BC02C: ; 0x020BC02C
 	cmp r4, #0x0
 	add r12, r0, r3
 	ldmlsia sp!, {r4-r6,pc}
-_020BC048: ; 0x020BC048
 	mvn r3, r2
 	add r0, r12, #0x4
 _020BC050:
@@ -15659,7 +15498,6 @@ FUN_020BC094: ; 0x020BC094
 	cmp r4, #0x0
 	add r12, r0, r3
 	ldmlsia sp!, {r4-r6,pc}
-_020BC0B0: ; 0x020BC0B0
 	mvn r3, r2
 	add r0, r12, #0x4
 _020BC0B8:
@@ -16127,11 +15965,9 @@ _020BC6F0:
 	mov r1, r5
 	mov r2, r4
 	bl FUN_020BC500
-_020BC718: ; 0x020BC718
 	cmp r0, #0x0
 	addeq sp, sp, #0x48
 	ldmeqia sp!, {r4-r10,pc}
-_020BC724: ; 0x020BC724
 	ldr r9, [r6, #0x14]
 	ldr r5, [r6, #0x4]
 	ldr r4, [r6, #0x10]
@@ -16254,7 +16090,6 @@ _020BC800:
 	add r0, r6, #0xc
 	mov r1, r0
 	bl VEC_Normalize
-_020BC8F8: ; 0x020BC8F8
 	cmp r7, #0x0
 	bne _020BC968
 	ldr r3, [sp, #0x18]
@@ -16403,7 +16238,6 @@ _020BCA44:
 	add r0, r6, #0xc
 	mov r1, r0
 	bl VEC_Normalize
-_020BCB2C: ; 0x020BCB2C
 	cmp r7, #0x0
 	bne _020BCB7C
 	ldr r1, [sp, #0x18]
@@ -16499,7 +16333,6 @@ _020BCBE8:
 	add r0, r6, #0xc
 	mov r1, r0
 	bl VEC_Normalize
-_020BCC98: ; 0x020BCC98
 	cmp r7, #0x0
 	bne _020BCCE4
 	ldr r2, [r6, #0x18]
@@ -16550,11 +16383,9 @@ _020BCD40:
 	mov r1, r5
 	mov r2, r4
 	bl FUN_020BC500
-_020BCD58: ; 0x020BCD58
 	cmp r0, #0x0
 	addeq sp, sp, #0x4c
 	ldmeqia sp!, {r4-r9,pc}
-_020BCD64: ; 0x020BCD64
 	ldr r12, [r6, #0x14]
 	ldr r5, [r6, #0x4]
 	ldr r8, [r6, #0x0]
@@ -16613,7 +16444,6 @@ _020BCE08:
 	addeq sp, sp, #0x4
 	streq r1, [r0, #0x4]
 	ldmeqia sp!, {r4-r7,pc}
-_020BCE38: ; 0x020BCE38
 	mov r1, r5, lsl #0x2
 	ldrsh r2, [r6, r1]
 	add r1, r6, r5, lsl #0x2
@@ -16805,7 +16635,6 @@ _020BD0D0:
 	addeq sp, sp, #0x4
 	streq r1, [r0, #0x4]
 	ldmeqia sp!, {r4-r5,pc}
-_020BD0F0: ; 0x020BD0F0
 	mov r2, r1, lsl #0x2
 	ldrsh r2, [r3, r2]
 	add r1, r3, r1, lsl #0x2
@@ -17193,7 +17022,6 @@ _020BD628:
 	add r1, r9, r1
 	add r2, r9, r2
 	bl FUN_020BC500
-_020BD644: ; 0x020BD644
 	cmp r0, #0x0
 	beq _020BD6A0
 	ldr r12, [r7, #0x3c]
@@ -17632,7 +17460,6 @@ FUN_020BDC0C: ; 0x020BDC0C
 	cmp r0, #0x0
 	addls sp, sp, #0x4
 	ldmlsia sp!, {r4-r9,pc}
-_020BDC60: ; 0x020BDC60
 	mov r6, r7
 	add r5, r8, #0x8
 	add r4, r4, #0x4
@@ -17644,7 +17471,6 @@ _020BDC6C:
 	add r1, r2, r1
 	add r1, r1, r6
 	bl FUN_020BC14C
-_020BDC88: ; 0x020BDC88
 	cmp r0, #0x0
 	orrge r1, r7, #0x100
 	addge r0, r9, r0, lsl #0x1
@@ -17881,7 +17707,6 @@ FUN_020BDF84: ; 0x020BDF84
 	cmp r0, #0x0
 	addls sp, sp, #0x4
 	ldmlsia sp!, {r4-r9,pc}
-_020BDFD8: ; 0x020BDFD8
 	mov r6, r7
 	add r5, r8, #0x8
 	add r4, r4, #0x4
@@ -17893,7 +17718,6 @@ _020BDFE4:
 	add r1, r2, r1
 	add r1, r1, r6
 	bl FUN_020BC14C
-_020BE000: ; 0x020BE000
 	cmp r0, #0x0
 	orrge r1, r7, #0x100
 	addge r0, r9, r0, lsl #0x1
@@ -17932,7 +17756,6 @@ FUN_020BE030: ; 0x020BE030
 	ldr r2, [r5, #0x24]
 	mov r3, r7
 	bl FUN_020BE238
-_020BE088: ; 0x020BE088
 	cmp r9, #0x0
 	bne _020BE09C
 	cmp r0, #0x0
@@ -18155,7 +17978,6 @@ FUN_020BE334: ; 0x020BE334
 	cmp r1, #0xff
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,pc}
-_020BE394: ; 0x020BE394
 	mov r0, r5
 	bl FUN_020BC4A8
 	mov r1, r0
@@ -18277,7 +18099,6 @@ FUN_020BE4F0: ; 0x020BE4F0
 	cmp r0, #0x0
 	addls sp, sp, #0x4
 	ldmlsia sp!, {r4-r9,pc}
-_020BE548: ; 0x020BE548
 	mov r6, r7
 	add r5, r8, #0xc
 	add r4, r4, #0x4
@@ -18289,7 +18110,6 @@ _020BE554:
 	add r1, r2, r1
 	add r1, r1, r6
 	bl FUN_020BC14C
-_020BE570: ; 0x020BE570
 	cmp r0, #0x0
 	orrge r1, r7, #0x100
 	addge r0, r9, r0, lsl #0x1
@@ -18400,7 +18220,6 @@ _020BE6C4:
 	ldr r0, [r4, #0x0]
 	ands r0, r0, #0x1
 	ldmneia sp!, {r4,pc}
-_020BE6D0: ; 0x020BE6D0
 	add r1, r4, #0x4
 	mov r0, #0x1b
 	mov r2, #0x3
@@ -18968,7 +18787,6 @@ _020BEEE8:
 	ands r0, r0, #0x1
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r5,pc}
-_020BEEF8: ; 0x020BEEF8
 	add r1, r5, #0x4
 	mov r0, #0x1b
 	mov r2, #0x3
@@ -19321,7 +19139,6 @@ _020BF404:
 	ands r0, r0, #0x1
 	addne sp, sp, #0x10
 	ldmneia sp!, {r4-r6,pc}
-_020BF414: ; 0x020BF414
 	add r1, r6, #0x4
 	mov r0, #0x1b
 	mov r2, #0x3
@@ -20233,7 +20050,6 @@ _020C0138: .word FUN_020C187C
 FUN_020C013C: ; 0x020C013C
 	stmdb sp!, {r4,lr}
 	bl FUN_020C18F8
-_020C0144: ; 0x020C0144
 	mov r0, #0x0
 	mov r1, r0
 	mov r2, r0
@@ -20269,13 +20085,11 @@ FUN_020C01A0: ; 0x020C01A0
 _020C01A8:
 	mov r0, r4
 	bl SND_RecvCommandReply
-_020C01B0: ; 0x020C01B0
 	cmp r0, #0x0
 	bne _020C01A8
 	bl FUN_020C0BA0
 	bl FUN_020C1D9C
 	bl FUN_020C3C88
-_020C01C4: ; 0x020C01C4
 	mov r0, #0x0
 	bl SND_FlushCommand
 	ldmia sp!, {r4,pc}
@@ -20402,7 +20216,6 @@ FUN_020C0340:
 	stmdb sp!, {r4,lr}
 	movs r4, r0
 	ldmeqia sp!, {r4,pc}
-_020C034C: ; 0x020C034C
 	mov r1, #0x0
 	bl SND_UnlockChannel
 	ldr r0, _020C036C ; =UNK_021D1CB8
@@ -20420,13 +20233,11 @@ FUN_020C0370:
 	movs r4, r0
 	moveq r0, #0x1
 	ldmeqia sp!, {r4,pc}
-_020C0380: ; 0x020C0380
 	ldr r1, _020C03B4 ; =UNK_021D1CB8
 	ldr r1, [r1, #0x0]
 	ands r1, r4, r1
 	movne r0, #0x0
 	ldmneia sp!, {r4,pc}
-_020C0394: ; 0x020C0394
 	mov r1, #0x0
 	bl SND_LockChannel
 	ldr r1, _020C03B4 ; =UNK_021D1CB8
@@ -20446,17 +20257,14 @@ FUN_020C03B8: ; 0x020C03B8
 	cmp r0, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C03D0: ; 0x020C03D0
 	ldr r0, [r4, #0xc]
 	cmp r0, #0x0
 	bne _020C03F8
 	ldr r0, [r4, #0x10]
 	bl SND_IsFinishedCommandTag
-_020C03E4: ; 0x020C03E4
 	cmp r0, #0x0
 	moveq r0, #0x1
 	ldmeqia sp!, {r4,pc}
-_020C03F0: ; 0x020C03F0
 	mov r0, #0x1
 	str r0, [r4, #0xc]
 _020C03F8:
@@ -20495,7 +20303,6 @@ FUN_020C044C: ; 0x020C044C
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020C046C: ; 0x020C046C
 	ldr r2, [r5, #0x4]
 	ldr r0, _020C04D4 ; =0xD87F8000
 	mov r3, r2, asr #0x1f
@@ -20550,7 +20357,6 @@ FUN_020C0510: ; 0x020C0510
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C0524: ; 0x020C0524
 	ldr r0, [r4, #0x0]
 	mov r2, #0x1
 	mov r1, #0x0
@@ -20558,7 +20364,6 @@ _020C0524: ; 0x020C0524
 	mov r2, r1
 	mov r3, r1
 	bl SND_StopTimer
-_020C0540: ; 0x020C0540
 	mov r0, #0x0
 	str r0, [r4, #0x8]
 	ldmia sp!, {r4,pc}
@@ -20660,11 +20465,9 @@ FUN_020C0688: ; 0x020C0688
 	mov r0, #0x1
 	mov r0, r0, lsl r4
 	bl FUN_020C0370
-_020C069C: ; 0x020C069C
 	cmp r0, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C06A8: ; 0x020C06A8
 	mov r0, #0x14
 	mul r0, r4, r0
 	ldr r2, _020C06C8 ; =UNK_021D1CBC
@@ -20687,7 +20490,6 @@ FUN_020C06CC: ; 0x020C06CC
 	mov r0, r4
 	mov r1, r6
 	bl FUN_020ADAB0
-_020C06F0: ; 0x020C06F0
 	mov r0, #0x0
 	str r0, [r6, #0x4]
 _020C06F8:
@@ -20714,14 +20516,12 @@ FUN_020C072C: ; 0x020C072C
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C0740: ; 0x020C0740
 	bl FUN_020C2A7C
 	ldr r1, [r4, #0xc]
 	cmp r1, #0x0
 	movne r0, #0x0
 	strne r0, [r1, #0x8]
 	ldmneia sp!, {r4,pc}
-_020C0758: ; 0x020C0758
 	ldr r1, [r4, #0x10]
 	ldr r2, _020C0778 ; =UNK_021D2254
 	mov r0, #0x24
@@ -20747,7 +20547,6 @@ FUN_020C077C: ; 0x020C077C
 	mov r1, r4
 	mov r0, r5
 	bl FUN_020ADAB0
-_020C07AC: ; 0x020C07AC
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	ldr r1, [r4, #0x8]
@@ -20766,7 +20565,6 @@ _020C07D8:
 	ldr r0, _020C0804 ; =UNK_021D1DFC
 	mov r1, r4
 	bl FUN_020ADBE8
-_020C07F0: ; 0x020C07F0
 	mov r0, #0x0
 	strb r0, [r4, #0x2c]
 	add sp, sp, #0x4
@@ -20794,7 +20592,6 @@ FUN_020C0808: ; 0x020C0808
 	addlt sp, sp, #0x4
 	movlt r0, #0x0
 	ldmltia sp!, {r4-r5,pc}
-_020C084C: ; 0x020C084C
 	bl FUN_020C087C
 _020C0850:
 	ldr r0, _020C0874 ; =UNK_021D1DFC
@@ -20919,7 +20716,6 @@ FUN_020C09B0: ; 0x020C09B0
 	movs r4, r0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C09DC: ; 0x020C09DC
 	mov r1, r4
 	add r0, r5, #0xc
 	bl FUN_020ADAB0
@@ -20940,12 +20736,10 @@ FUN_020C0A04: ; 0x020C0A04
 	mov r4, r1
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020C0A1C: ; 0x020C0A1C
 	ldrb r0, [r5, #0x2e]
 	cmp r4, r0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020C0A2C: ; 0x020C0A2C
 	ldrb r0, [r5, #0x3c]
 	bl SND_PauseSeq
 	strb r4, [r5, #0x2e]
@@ -20958,11 +20752,9 @@ FUN_020C0A40: ; 0x020C0A40
 	movs r4, r0
 	mov r2, r1
 	ldmeqia sp!, {r4,pc}
-_020C0A50: ; 0x020C0A50
 	ldrb r1, [r4, #0x2c]
 	cmp r1, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C0A5C: ; 0x020C0A5C
 	cmp r2, #0x0
 	bne _020C0A6C
 	bl FUN_020C087C
@@ -21033,18 +20825,15 @@ _020C0B20:
 	mov r0, r6
 	mov r1, #0x0
 	bl FUN_020ADA98
-_020C0B3C: ; 0x020C0B3C
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r7,pc}
-_020C0B4C: ; 0x020C0B4C
 	ldrb r1, [r0, #0x3d]
 	cmp r7, r1
 	addlt sp, sp, #0x4
 	movlt r0, #0x0
 	ldmltia sp!, {r4-r7,pc}
-_020C0B60: ; 0x020C0B60
 	bl FUN_020C087C
 _020C0B64:
 	mov r0, r7
@@ -21053,7 +20842,6 @@ _020C0B64:
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r7,pc}
-_020C0B7C: ; 0x020C0B7C
 	mov r0, r6
 	mov r1, r5
 	bl FUN_020C0910
@@ -21070,7 +20858,6 @@ FUN_020C0BA0: ; 0x020C0BA0
 	stmdb sp!, {r4-r11,lr}
 	sub sp, sp, #0xc
 	bl SND_GetPlayerStatus
-_020C0BAC: ; 0x020C0BAC
 	str r0, [sp, #0x0]
 	ldr r0, _020C0D14 ; =UNK_021D1E08
 	mov r1, #0x0
@@ -21078,7 +20865,6 @@ _020C0BAC: ; 0x020C0BAC
 	movs r10, r0
 	addeq sp, sp, #0xc
 	ldmeqia sp!, {r4-r11,pc}
-_020C0BC8: ; 0x020C0BC8
 	mov r0, #0x8000
 	rsb r0, r0, #0x0
 	ldr r4, _020C0D18 ; =UNK_02103BAC
@@ -21095,7 +20881,6 @@ _020C0BE0:
 	bne _020C0C0C
 	ldr r0, [r10, #0x30]
 	bl SND_IsFinishedCommandTag
-_020C0C04: ; 0x020C0C04
 	cmp r0, #0x0
 	strneb r5, [r10, #0x2d]
 _020C0C0C:
@@ -21153,7 +20938,6 @@ _020C0CC4:
 	bne _020C0CE8
 	add r0, r10, #0x1c
 	bl FUN_020C3DDC
-_020C0CD8: ; 0x020C0CD8
 	cmp r0, #0x0
 	beq _020C0CE8
 	mov r0, r10
@@ -21493,7 +21277,6 @@ FUN_020C10B4:
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C10EC: ; 0x020C10EC
 	mov r2, #0x0
 	str r2, [r4, #0xc]
 	str r6, [r4, #0x10]
@@ -21501,12 +21284,10 @@ _020C10EC: ; 0x020C10EC
 	add r0, r4, #0x14
 	str r2, [r4, #0x8]
 	bl FUN_020C2A94
-_020C1108: ; 0x020C1108
 	cmp r0, #0x0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C1118: ; 0x020C1118
 	ldr r2, _020C1144 ; =UNK_021D2254
 	mov r1, #0x24
 	mla r2, r6, r1, r2
@@ -21561,7 +21342,6 @@ FUN_020C1198: ; 0x020C1198
 	mov r0, r0, lsl #0x1e
 	movs r0, r0, asr #0x1f
 	ldmeqia sp!, {r4-r6,pc}
-_020C11B0: ; 0x020C11B0
 	ldr r0, [r4, #0x38]
 	cmp r0, #0x0
 	beq _020C11E8
@@ -21594,7 +21374,6 @@ FUN_020C1208: ; 0x020C1208
 	mov r1, r1, lsl #0x1e
 	movs r1, r1, asr #0x1f
 	ldmeqia sp!, {r4,pc}
-_020C121C: ; 0x020C121C
 	ldr r2, [r0, #0x40]
 	mov r3, #0x1
 	mov r1, #0x0
@@ -21729,7 +21508,6 @@ FUN_020C13C4: ; 0x020C13C4
 	mov r5, #0x0
 	cmp r0, #0x0
 	ldmleia sp!, {r4-r8,pc}
-_020C13E0: ; 0x020C13E0
 	ldr r4, _020C142C ; =UNK_021D2724
 	mov r8, #0x1
 _020C13E8:
@@ -21781,7 +21559,6 @@ FUN_020C1458: ; 0x020C1458
 	mov r0, r0, lsl #0x1e
 	movs r0, r0, asr #0x1f
 	ldmneia sp!, {r4,pc}
-_020C148C: ; 0x020C148C
 	add r0, r4, #0x8
 	bl PM_PrependPreSleepCallback
 	add r0, r4, #0x14
@@ -21832,7 +21609,6 @@ _020C14E0:
 	addlt sp, sp, #0x24
 	movlt r0, #0x0
 	ldmltia sp!, {r4-r11,pc}
-_020C1544: ; 0x020C1544
 	ldr r0, [r10, #0x48]
 	mov r8, #0x0
 	cmp r0, #0x0
@@ -21920,9 +21696,7 @@ FUN_020C1674: ; 0x020C1674
 	ldr r0, [r4, #0x44]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C1688: ; 0x020C1688
 	bl FUN_020C0340
-_020C168C: ; 0x020C168C
 	mov r0, #0x0
 	str r0, [r4, #0x44]
 	str r0, [r4, #0x48]
@@ -21950,7 +21724,6 @@ _020C16BC:
 _020C16DC:
 	mov r0, r4
 	bl FUN_020C0370
-_020C16E4: ; 0x020C16E4
 	cmp r0, #0x0
 	moveq r0, #0x0
 	strne r5, [r6, #0x48]
@@ -22072,7 +21845,6 @@ FUN_020C187C: ; 0x020C187C
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C1890: ; 0x020C1890
 	mov r0, #0x0
 	str r0, [r4, #0x1c]
 	ldr r1, [r4, #0xc]
@@ -22108,7 +21880,6 @@ FUN_020C18F8:
 	ldr r0, [r3, #0x0]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C190C: ; 0x020C190C
 	ldr r1, [r3, #0x2c]
 	cmp r1, #0x0
 	movge r0, #0x1
@@ -22137,7 +21908,6 @@ FUN_020C1950: ; 0x020C1950
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,pc}
-_020C196C: ; 0x020C196C
 	ldr r1, [r4, #0x2c]
 	mov r3, #0x0
 	cmp r1, #0x0
@@ -22150,7 +21920,6 @@ _020C196C: ; 0x020C196C
 	ldr r1, [r4, #0x28]
 	moveq r2, #0x0
 	bl SND_StopTimer
-_020C199C: ; 0x020C199C
 	cmp r7, #0x0
 	beq _020C19DC
 	bl SND_GetCurrentCommandTag
@@ -22166,7 +21935,6 @@ _020C19C4:
 	mov r1, r5
 	mov r2, r5
 	bl OS_ReceiveMessage
-_020C19D4: ; 0x020C19D4
 	cmp r0, #0x0
 	bne _020C19C4
 _020C19DC:
@@ -22277,7 +22045,6 @@ _020C1B00:
 _020C1B58:
 	mov r0, #0x3
 	bl FUN_020C031C
-_020C1B60: ; 0x020C1B60
 	cmp r0, #0x0
 	bne _020C1B84
 	cmp r6, #0x0
@@ -22291,7 +22058,6 @@ _020C1B78:
 _020C1B84:
 	mov r0, #0xa
 	bl FUN_020C0370
-_020C1B8C: ; 0x020C1B8C
 	cmp r0, #0x0
 	bne _020C1BB8
 	cmp r6, #0x0
@@ -22331,7 +22097,6 @@ _020C1BB8:
 	mov r0, #0x0
 	mov r3, r7
 	bl SND_SetupCapture
-_020C1C20: ; 0x020C1C20
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r7, [sp, #0x4]
@@ -22357,7 +22122,6 @@ _020C1C20: ; 0x020C1C20
 	mov r3, r7
 	mov r0, #0x1
 	bl SND_SetupCapture
-_020C1C84: ; 0x020C1C84
 	cmp r6, #0x0
 	blt _020C1CA8
 	ldr r2, [sp, #0x30]
@@ -22422,7 +22186,6 @@ _020C1CC8:
 	mov r1, r8, lsl #0x8
 	mov r2, #0x1
 	bl FUN_020C3E40
-_020C1D7C: ; 0x020C1D7C
 	mov r0, #0x0
 	str r0, [r4, #0x4c]
 	mov r0, #0x1
@@ -22442,12 +22205,10 @@ FUN_020C1D9C: ; 0x020C1D9C
 	cmp r0, #0x0
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020C1DB8: ; 0x020C1DB8
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r5,pc}
-_020C1DC8: ; 0x020C1DC8
 	add r4, r5, #0x3c
 	mov r0, r4
 	bl FUN_020C3DF4
@@ -22456,7 +22217,6 @@ _020C1DC8: ; 0x020C1DC8
 	beq _020C1DFC
 	mov r0, r4
 	bl FUN_020C3DDC
-_020C1DE8: ; 0x020C1DE8
 	cmp r0, #0x0
 	beq _020C1DFC
 	bl FUN_020C1950
@@ -22470,7 +22230,6 @@ _020C1DFC:
 	cmp r4, r1
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r5,pc}
-_020C1E18: ; 0x020C1E18
 	ldr r0, [r5, #0x24]
 	mov r1, r4
 	mov r2, #0x0
@@ -22535,7 +22294,6 @@ FUN_020C1EA4: ; 0x020C1EA4
 	addne sp, sp, #0x2c
 	movne r0, #0x0
 	ldmneia sp!, {r4-r7,pc}
-_020C1ED8: ; 0x020C1ED8
 	mov r1, r5
 	mov r2, r4
 	mov r0, #0x0
@@ -22577,11 +22335,9 @@ FUN_020C1F54: ; 0x020C1F54
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C1F6C: ; 0x020C1F6C
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	ldmneia sp!, {r4,pc}
-_020C1F78: ; 0x020C1F78
 	cmp r2, #0x0
 	bne _020C1F88
 	bl FUN_020C1950
@@ -22635,7 +22391,6 @@ FUN_020C1FF0: ; 0x020C1FF0
 	addne sp, sp, #0x2c
 	movne r0, #0x0
 	ldmneia sp!, {r4-r7,pc}
-_020C2028: ; 0x020C2028
 	mov r1, r5
 	mov r2, r4
 	mov r0, #0x0
@@ -22722,7 +22477,6 @@ FUN_020C2104:
 	cmp r0, r1
 	mvncs r0, #0x0
 	ldmcsia sp!, {r4-r6,pc}
-_020C212C: ; 0x020C212C
 	add r1, r2, #0xc
 	add r1, r1, r0, lsl #0x4
 	ldr r0, [r1, #0x4]
@@ -22734,11 +22488,9 @@ _020C212C: ; 0x020C212C
 	add r1, r1, r3
 	mov r2, #0x0
 	bl FS_SeekFile
-_020C2158: ; 0x020C2158
 	cmp r0, #0x0
 	mvneq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C2164: ; 0x020C2164
 	mov r1, r6
 	mov r2, r5
 	add r0, r4, #0x34
@@ -22940,7 +22692,6 @@ FUN_020C23FC: ; 0x020C23FC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl FUN_020C2398
-_020C2408: ; 0x020C2408
 	cmp r0, #0x0
 	moveq r0, #0x0
 	addne r0, r0, #0x4
@@ -23032,12 +22783,10 @@ FUN_020C250C:
 	mov r2, r1
 	add r0, r6, #0x34
 	bl FS_SeekFile
-_020C2530: ; 0x020C2530
 	cmp r0, #0x0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C2540: ; 0x020C2540
 	mov r1, r6
 	add r0, r6, #0x34
 	mov r2, #0x30
@@ -23046,7 +22795,6 @@ _020C2540: ; 0x020C2540
 	addne sp, sp, #0x8
 	movne r0, #0x0
 	ldmneia sp!, {r4-r6,pc}
-_020C2560: ; 0x020C2560
 	cmp r5, #0x0
 	beq _020C26E0
 	mov r0, #0x0
@@ -23062,17 +22810,14 @@ _020C2560: ; 0x020C2560
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C259C: ; 0x020C259C
 	ldr r1, [r6, #0x18]
 	add r0, r6, #0x34
 	mov r2, #0x0
 	bl FS_SeekFile
-_020C25AC: ; 0x020C25AC
 	cmp r0, #0x0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C25BC: ; 0x020C25BC
 	ldr r1, [r6, #0x8c]
 	ldr r2, [r6, #0x1c]
 	add r0, r6, #0x34
@@ -23082,7 +22827,6 @@ _020C25BC: ; 0x020C25BC
 	addne sp, sp, #0x8
 	movne r0, #0x0
 	ldmneia sp!, {r4-r6,pc}
-_020C25E0: ; 0x020C25E0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r1, [r6, #0x24]
@@ -23096,17 +22840,14 @@ _020C25E0: ; 0x020C25E0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C2614: ; 0x020C2614
 	ldr r1, [r6, #0x20]
 	add r0, r6, #0x34
 	mov r2, #0x0
 	bl FS_SeekFile
-_020C2624: ; 0x020C2624
 	cmp r0, #0x0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C2634: ; 0x020C2634
 	ldr r1, [r6, #0x84]
 	ldr r2, [r6, #0x24]
 	add r0, r6, #0x34
@@ -23116,7 +22857,6 @@ _020C2634: ; 0x020C2634
 	addne sp, sp, #0x8
 	movne r0, #0x0
 	ldmneia sp!, {r4-r6,pc}
-_020C2658: ; 0x020C2658
 	cmp r4, #0x0
 	beq _020C26E0
 	ldr r1, [r6, #0x14]
@@ -23134,17 +22874,14 @@ _020C2658: ; 0x020C2658
 	addeq sp, sp, #0x8
 	moveq r0, r4
 	ldmeqia sp!, {r4-r6,pc}
-_020C269C: ; 0x020C269C
 	ldr r1, [r6, #0x10]
 	add r0, r6, #0x34
 	mov r2, r4
 	bl FS_SeekFile
-_020C26AC: ; 0x020C26AC
 	cmp r0, #0x0
 	addeq sp, sp, #0x8
 	moveq r0, r4
 	ldmeqia sp!, {r4-r6,pc}
-_020C26BC: ; 0x020C26BC
 	ldr r1, [r6, #0x88]
 	ldr r2, [r6, #0x14]
 	add r0, r6, #0x34
@@ -23175,27 +22912,22 @@ FUN_020C26F8: ; 0x020C26F8
 	mov r4, r3
 	str r12, [r6, #0x88]
 	bl FS_ConvertPathToFileID
-_020C2720: ; 0x020C2720
 	cmp r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C2728: ; 0x020C2728
 	add r0, r6, #0x34
 	bl FS_InitFile
 	add r1, r6, #0x7c
 	add r0, r6, #0x34
 	ldmia r1, {r1-r2}
 	bl FS_OpenFileFast
-_020C2740: ; 0x020C2740
 	cmp r0, #0x0
 	ldmeqia sp!, {r4-r6,pc}
-_020C2748: ; 0x020C2748
 	mov r3, #0x1
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
 	str r3, [r6, #0x30]
 	bl FUN_020C250C
-_020C2760: ; 0x020C2760
 	cmp r0, #0x0
 	ldrne r0, _020C2770 ; =UNK_021D28C0
 	strne r6, [r0, #0x0]
@@ -23227,7 +22959,6 @@ FUN_020C2794:
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r5,pc}
-_020C27C0: ; 0x020C27C0
 	bl FUN_020C2818
 	mov r1, r4
 	add r0, r5, #0x4
@@ -23248,7 +22979,6 @@ FUN_020C27DC:
 	mov r0, r5
 	str r4, [r5, #0x0]
 	bl FUN_020C2794
-_020C2804: ; 0x020C2804
 	cmp r0, #0x0
 	movne r0, #0x1
 	moveq r0, #0x0
@@ -23318,7 +23048,6 @@ _020C28D8:
 	ldr r0, [r10, #0x0]
 	mov r1, r9
 	bl FUN_020AE554
-_020C28E4: ; 0x020C28E4
 	cmp r6, #0x0
 	beq _020C28F0
 	bl FUN_020C2774
@@ -23338,23 +23067,18 @@ FUN_020C290C: ; 0x020C290C
 	ldrh r1, [r4, #0xc]
 	ldr r0, [r4, #0x0]
 	bl FUN_020AE5B0
-_020C2920: ; 0x020C2920
 	cmp r0, #0x0
 	mvneq r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C292C: ; 0x020C292C
 	mov r0, r4
 	bl FUN_020C2794
-_020C2934: ; 0x020C2934
 	cmp r0, #0x0
 	ldrneh r0, [r4, #0xc]
 	subne r0, r0, #0x1
 	ldmneia sp!, {r4,pc}
-_020C2944: ; 0x020C2944
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
 	bl FUN_020AE554
-_020C2950: ; 0x020C2950
 	mvn r0, #0x0
 	ldmia sp!, {r4,pc}
 
@@ -23374,7 +23098,6 @@ FUN_020C2958: ; 0x020C2958
 	movs r4, r0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r8,pc}
-_020C2990: ; 0x020C2990
 	add r0, r8, #0x4
 	mov r1, #0x0
 	bl FUN_020ADA84
@@ -23436,7 +23159,6 @@ _020C2A58:
 	ldr r0, [r8, #0x0]
 	mov r1, #0x3
 	bl FUN_020AE600
-_020C2A64: ; 0x020C2A64
 	cmp r5, #0x0
 	beq _020C2A70
 	bl FUN_020C2774
@@ -23450,7 +23172,6 @@ FUN_020C2A7C: ; 0x020C2A7C
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl FUN_020C29C0
-_020C2A88: ; 0x020C2A88
 	ldr r0, [r4, #0x0]
 	bl thunk_FUN_020adc8c_2
 	ldmia sp!, {r4,pc}
@@ -23466,13 +23187,11 @@ FUN_020C2A94:
 	addhi sp, sp, #0x4
 	movhi r0, #0x0
 	ldmhiia sp!, {r4-r5,pc}
-_020C2AB8: ; 0x020C2AB8
 	sub r1, r0, r5
 	cmp r1, #0x10
 	addcc sp, sp, #0x4
 	movcc r0, #0x0
 	ldmccia sp!, {r4-r5,pc}
-_020C2ACC: ; 0x020C2ACC
 	add r0, r5, #0x10
 	sub r1, r1, #0x10
 	mov r2, #0x0
@@ -23481,19 +23200,15 @@ _020C2ACC: ; 0x020C2ACC
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r5,pc}
-_020C2AEC: ; 0x020C2AEC
 	mov r0, r5
 	mov r1, r4
 	bl FUN_020C27DC
-_020C2AF8: ; 0x020C2AF8
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	movne r0, r5
 	ldmneia sp!, {r4-r5,pc}
-_020C2B08: ; 0x020C2B08
 	mov r0, r4
 	bl thunk_FUN_020adc8c_2
-_020C2B10: ; 0x020C2B10
 	mov r0, #0x0
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,pc}
@@ -23518,11 +23233,9 @@ FUN_020C2B1C:
 	addeq sp, sp, #0x20
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r10,pc}
-_020C2B64: ; 0x020C2B64
 	add r1, sp, #0x10
 	mov r0, r7
 	bl SND_GetNextInstData
-_020C2B70: ; 0x020C2B70
 	cmp r0, #0x0
 	beq _020C2BD4
 	add r10, sp, #0x10
@@ -23539,7 +23252,6 @@ _020C2B80:
 	mov r2, r5
 	mov r3, r4
 	bl FUN_020C2BE0
-_020C2BAC: ; 0x020C2BAC
 	cmp r0, #0x0
 	addeq sp, sp, #0x20
 	moveq r0, #0x0
@@ -23549,7 +23261,6 @@ _020C2BBC:
 	mov r1, r10
 	mov r2, r9
 	bl SND_GetNextInstData
-_020C2BCC: ; 0x020C2BCC
 	cmp r0, #0x0
 	bne _020C2B80
 _020C2BD4:
@@ -23566,12 +23277,10 @@ FUN_020C2BE0:
 	mov r5, r2
 	mov r4, r3
 	bl SND_GetWaveDataAddress
-_020C2BFC: ; 0x020C2BFC
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	movne r0, #0x1
 	ldmneia sp!, {r4-r9,pc}
-_020C2C0C: ; 0x020C2C0C
 	mov r0, r7
 	bl SND_GetWaveDataCount
 	ldr r1, [r7, #0x38]
@@ -23587,7 +23296,6 @@ _020C2C0C: ; 0x020C2C0C
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r9,pc}
-_020C2C48: ; 0x020C2C48
 	ldr r2, _020C2CBC ; =FUN_020C2CC0
 	mov r0, r4
 	mov r3, r7
@@ -23598,18 +23306,15 @@ _020C2C48: ; 0x020C2C48
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r9,pc}
-_020C2C70: ; 0x020C2C70
 	mov r0, r5
 	mov r1, r4
 	mov r2, r9
 	mov r3, r8
 	bl FUN_020C2104
-_020C2C84: ; 0x020C2C84
 	cmp r9, r0
 	addne sp, sp, #0x4
 	movne r0, #0x0
 	ldmneia sp!, {r4-r9,pc}
-_020C2C94: ; 0x020C2C94
 	mov r0, r4
 	mov r1, r9
 	bl DC_StoreRange
@@ -23634,7 +23339,6 @@ FUN_020C2CC0: ; 0x020C2CC0
 	mov r0, r5
 	mov r1, r4
 	bl SND_GetWaveDataAddress
-_020C2CE4: ; 0x020C2CE4
 	cmp r7, r0
 	bne _020C2CFC
 	mov r0, r5
@@ -23717,7 +23421,6 @@ FUN_020C2DD0: ; 0x020C2DD0
 	mov r6, r2
 	addeq sp, sp, #0x4
 	ldmeqia sp!, {r4-r7,pc}
-_020C2DEC: ; 0x020C2DEC
 	bl OS_DisableInterrupts
 	mov r4, r0
 	mov r0, r5
@@ -23725,7 +23428,6 @@ _020C2DEC: ; 0x020C2DEC
 	mov r5, r0
 	mov r0, r6
 	bl FUN_020C20DC
-_020C2E08: ; 0x020C2E08
 	cmp r7, r0
 	bne _020C2E1C
 	mov r0, r6
@@ -23758,7 +23460,6 @@ FUN_020C2E34: ; 0x020C2E34
 	addne sp, sp, #0x4
 	movne r0, #0x0
 	ldmneia sp!, {r4-r9,pc}
-_020C2E78: ; 0x020C2E78
 	ldr r0, _020C2F4C ; =UNK_021D28C4
 	cmp r8, #0x0
 	ldr r0, [r0, #0x38]
@@ -23768,7 +23469,6 @@ _020C2E78: ; 0x020C2E78
 	add r5, r0, #0x3c
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r9,pc}
-_020C2E9C: ; 0x020C2E9C
 	cmp r7, #0x0
 	moveq r3, #0x0
 	beq _020C2EB0
@@ -23784,7 +23484,6 @@ _020C2EB0:
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r9,pc}
-_020C2ED4: ; 0x020C2ED4
 	mov r0, r9
 	mov r1, r6
 	add r2, r4, #0x3c
@@ -23795,7 +23494,6 @@ _020C2ED4: ; 0x020C2ED4
 	addne sp, sp, #0x4
 	movne r0, #0x0
 	ldmneia sp!, {r4-r9,pc}
-_020C2EFC: ; 0x020C2EFC
 	ldr r1, [r6, #0x38]
 	add r0, r6, #0x3c
 	mov r2, r4
@@ -23808,7 +23506,6 @@ _020C2EFC: ; 0x020C2EFC
 	mov r0, r6
 	mov r1, r5
 	bl DC_StoreRange
-_020C2F2C: ; 0x020C2F2C
 	cmp r7, #0x0
 	beq _020C2F40
 	mov r0, r9
@@ -23979,13 +23676,11 @@ FUN_020C3134: ; 0x020C3134
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r8,pc}
-_020C3160: ; 0x020C3160
 	ldr r0, [sp, #0x20]
 	cmp r0, #0x0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r8,pc}
-_020C3174: ; 0x020C3174
 	mov r2, r7
 	mov r3, r6
 	add r1, r5, #0x20
@@ -23995,18 +23690,15 @@ _020C3174: ; 0x020C3174
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r8,pc}
-_020C3198: ; 0x020C3198
 	mov r0, r8
 	mov r1, r4
 	mov r2, r5
 	mov r3, #0x0
 	bl FUN_020C2104
-_020C31AC: ; 0x020C31AC
 	cmp r5, r0
 	addne sp, sp, #0x8
 	movne r0, #0x0
 	ldmneia sp!, {r4-r8,pc}
-_020C31BC: ; 0x020C31BC
 	mov r0, r4
 	mov r1, r5
 	bl DC_StoreRange
@@ -24021,11 +23713,9 @@ FUN_020C31D4:
 	mov r5, r2
 	mov r4, r3
 	bl FUN_020C226C
-_020C31E8: ; 0x020C31E8
 	cmp r0, #0x0
 	moveq r0, #0x5
 	ldmeqia sp!, {r4-r6,pc}
-_020C31F4: ; 0x020C31F4
 	ands r1, r6, #0x4
 	beq _020C324C
 	ldrb r1, [r0, #0x3]
@@ -24074,7 +23764,6 @@ FUN_020C3270:
 	addeq sp, sp, #0xc
 	moveq r0, #0x4
 	ldmeqia sp!, {r4-r11,pc}
-_020C3298: ; 0x020C3298
 	ands r0, r10, #0x2
 	beq _020C32C4
 	ldr r0, [r8, #0x0]
@@ -24104,7 +23793,6 @@ _020C32D8:
 	addeq sp, sp, #0xc
 	moveq r0, #0x5
 	ldmeqia sp!, {r4-r11,pc}
-_020C3300: ; 0x020C3300
 	add r0, sp, #0x4
 	str r0, [sp, #0x0]
 	add r0, r8, r6, lsl #0x1
@@ -24113,11 +23801,9 @@ _020C3300: ; 0x020C3300
 	mov r2, r9
 	mov r3, r11
 	bl FUN_020C31D4
-_020C3320: ; 0x020C3320
 	cmp r0, #0x0
 	addne sp, sp, #0xc
 	ldmneia sp!, {r4-r11,pc}
-_020C332C: ; 0x020C332C
 	ldrb r0, [r4, #0x3]
 	ands r0, r0, #0x1
 	beq _020C3370
@@ -24131,7 +23817,6 @@ _020C332C: ; 0x020C332C
 	mov r2, r6
 	mov r3, r3, lsr #0x8
 	bl FUN_020C2B1C
-_020C3360: ; 0x020C3360
 	cmp r0, #0x0
 	addeq sp, sp, #0xc
 	moveq r0, #0x9
@@ -24165,18 +23850,15 @@ FUN_020C33B8:
 	mov r5, r2
 	mov r4, r3
 	bl FUN_020C2334
-_020C33CC: ; 0x020C33CC
 	cmp r0, #0x0
 	moveq r0, #0x3
 	ldmeqia sp!, {r4-r6,pc}
-_020C33D8: ; 0x020C33D8
 	ands r1, r6, #0x8
 	beq _020C3400
 	ldr r0, [r0, #0x0]
 	mov r1, r5
 	mov r2, r4
 	bl FUN_020C3044
-_020C33F0: ; 0x020C33F0
 	cmp r0, #0x0
 	bne _020C3408
 	mov r0, #0x7
@@ -24203,7 +23885,6 @@ FUN_020C341C:
 	addeq sp, sp, #0x4
 	moveq r0, #0x2
 	ldmeqia sp!, {r4-r7,pc}
-_020C3444: ; 0x020C3444
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldrh r0, [r4, #0x4]
@@ -24211,18 +23892,15 @@ _020C3444: ; 0x020C3444
 	mov r2, r6
 	mov r3, r5
 	bl FUN_020C3270
-_020C3460: ; 0x020C3460
 	cmp r0, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r7,pc}
-_020C346C: ; 0x020C346C
 	ands r0, r7, #0x1
 	beq _020C3498
 	ldr r0, [r4, #0x0]
 	mov r1, r6
 	mov r2, r5
 	bl FUN_020C30BC
-_020C3484: ; 0x020C3484
 	cmp r0, #0x0
 	bne _020C34A0
 	add sp, sp, #0x4
@@ -24249,7 +23927,6 @@ FUN_020C34B8:
 	addeq sp, sp, #0xc
 	moveq r0, #0x1
 	ldmeqia sp!, {r4-r11,pc}
-_020C34D8: ; 0x020C34D8
 	ldr r0, [r8, #0x0]
 	mov r7, #0x0
 	cmp r0, #0x0
@@ -24280,7 +23957,6 @@ _020C3520:
 	mov r2, r9
 	mov r3, r4
 	bl FUN_020C341C
-_020C3538: ; 0x020C3538
 	cmp r0, #0x0
 	beq _020C35C0
 	add sp, sp, #0xc
@@ -24292,7 +23968,6 @@ _020C3548:
 	mov r2, r9
 	mov r3, r4
 	bl FUN_020C33B8
-_020C3560: ; 0x020C3560
 	cmp r0, #0x0
 	beq _020C35C0
 	add sp, sp, #0xc
@@ -24304,7 +23979,6 @@ _020C3570:
 	mov r2, r9
 	mov r3, r4
 	bl FUN_020C3270
-_020C3588: ; 0x020C3588
 	cmp r0, #0x0
 	beq _020C35C0
 	add sp, sp, #0xc
@@ -24317,7 +23991,6 @@ _020C3598:
 	ldr r0, [r6, #0x4]
 	mov r3, r4
 	bl FUN_020C31D4
-_020C35B4: ; 0x020C35B4
 	cmp r0, #0x0
 	addne sp, sp, #0xc
 	ldmneia sp!, {r4-r11,pc}
@@ -24340,7 +24013,6 @@ FUN_020C35E0: ; 0x020C35E0
 	mov r3, #0x1
 	str r12, [sp, #0x0]
 	bl FUN_020C341C
-_020C35F8: ; 0x020C35F8
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
@@ -24357,7 +24029,6 @@ FUN_020C360C: ; 0x020C360C
 	mov r3, #0x1
 	str r12, [sp, #0x0]
 	bl FUN_020C31D4
-_020C362C: ; 0x020C362C
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
@@ -24374,7 +24045,6 @@ FUN_020C3640: ; 0x020C3640
 	mov r3, #0x1
 	str r12, [sp, #0x0]
 	bl FUN_020C3270
-_020C3660: ; 0x020C3660
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
@@ -24391,7 +24061,6 @@ FUN_020C3674: ; 0x020C3674
 	mov r3, #0x1
 	str r12, [sp, #0x0]
 	bl FUN_020C341C
-_020C3694: ; 0x020C3694
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
@@ -24403,7 +24072,6 @@ FUN_020C36A8: ; 0x020C36A8
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	bl FUN_020C34B8
-_020C36B4: ; 0x020C36B4
 	cmp r0, #0x0
 	moveq r0, #0x1
 	movne r0, #0x0
@@ -24424,7 +24092,6 @@ FUN_020C36C8: ; 0x020C36C8
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r8,pc}
-_020C36F8: ; 0x020C36F8
 	mov r0, r8
 	mov r1, r5
 	bl FUN_020C09B0
@@ -24435,7 +24102,6 @@ _020C36F8: ; 0x020C36F8
 	mov r3, #0x0
 	str r12, [sp, #0x0]
 	bl FUN_020C3270
-_020C3720: ; 0x020C3720
 	cmp r0, #0x0
 	beq _020C373C
 	mov r0, r5
@@ -24479,7 +24145,6 @@ FUN_020C378C: ; 0x020C378C
 	addeq sp, sp, #0x10
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r8,pc}
-_020C37BC: ; 0x020C37BC
 	mov r0, r7
 	mov r1, r4
 	bl FUN_020C09B0
@@ -24491,7 +24156,6 @@ _020C37BC: ; 0x020C37BC
 	mov r3, #0x0
 	str r12, [sp, #0x0]
 	bl FUN_020C3270
-_020C37E8: ; 0x020C37E8
 	cmp r0, #0x0
 	beq _020C3804
 	mov r0, r4
@@ -24507,7 +24171,6 @@ _020C3804:
 	mov r3, #0x0
 	str r12, [sp, #0x0]
 	bl FUN_020C341C
-_020C3820: ; 0x020C3820
 	cmp r0, #0x0
 	beq _020C383C
 	mov r0, r4
@@ -24545,27 +24208,22 @@ FUN_020C3888: ; 0x020C3888
 	mov r0, r6
 	mov r5, r2
 	bl FUN_020C2334
-_020C38A4: ; 0x020C38A4
 	cmp r0, #0x0
 	addeq sp, sp, #0x14
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r7,pc}
-_020C38B4: ; 0x020C38B4
 	ldr r0, [r0, #0x0]
 	bl FUN_020C20DC
 	movs r4, r0
 	addeq sp, sp, #0x14
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r7,pc}
-_020C38CC: ; 0x020C38CC
 	mov r1, r5
 	bl FUN_020C3D9C
-_020C38D4: ; 0x020C38D4
 	cmp r0, #0x0
 	addeq sp, sp, #0x14
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r7,pc}
-_020C38E4: ; 0x020C38E4
 	str r0, [sp, #0x0]
 	str r4, [sp, #0x4]
 	str r6, [sp, #0x8]
@@ -24588,12 +24246,10 @@ FUN_020C3910: ; 0x020C3910
 	mov r5, r2
 	mov r4, r3
 	bl FUN_020C2398
-_020C3930: ; 0x020C3930
 	cmp r0, #0x0
 	addeq sp, sp, #0xc
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r7,pc}
-_020C3940: ; 0x020C3940
 	cmp r4, #0x0
 	ldrltb r4, [r0, #0x8]
 	cmp r5, #0x0
@@ -24619,12 +24275,10 @@ FUN_020C3980: ; 0x020C3980
 	mov r5, r0
 	mov r0, r4
 	bl FUN_020C2398
-_020C3998: ; 0x020C3998
 	cmp r0, #0x0
 	addeq sp, sp, #0xc
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r5,pc}
-_020C39A8: ; 0x020C39A8
 	str r0, [sp, #0x0]
 	str r4, [sp, #0x4]
 	ldrb r1, [r0, #0x9]
@@ -24667,11 +24321,9 @@ _020C3A2C:
 	mov r0, r5
 	mov r1, r6
 	bl FUN_020C10B4
-_020C3A3C: ; 0x020C3A3C
 	cmp r0, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r8,pc}
-_020C3A48: ; 0x020C3A48
 	ldrb r0, [r4, #0x0]
 	add r8, r8, #0x1
 	cmp r8, r0
@@ -24760,7 +24412,6 @@ FUN_020C3B4C: ; 0x020C3B4C
 	mov r1, r1, lsl #0x1f
 	movs r1, r1, asr #0x1f
 	ldmeqia sp!, {r4,pc}
-_020C3B64: ; 0x020C3B64
 	bl FUN_020C3B10
 	ldr r1, [r4, #0x164]
 	mov r0, r4
@@ -24820,7 +24471,6 @@ _020C3C10:
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x0
 	ldmeqia sp!, {r4,pc}
-_020C3C30: ; 0x020C3C30
 	ldr r0, _020C3C48 ; =0x000004C8
 	add r0, r1, r0
 	bl OS_UnlockMutex
@@ -24911,7 +24561,6 @@ _020C3D54:
 	beq _020C3D7C
 	add r0, r5, #0xe8
 	bl FUN_020C3DDC
-_020C3D6C: ; 0x020C3D6C
 	cmp r0, #0x0
 	beq _020C3D7C
 	mov r0, r5
@@ -24972,13 +24621,11 @@ FUN_020C3E0C:
 	cmp r2, r1
 	ldrge r0, [r0, #0x4]
 	ldmgeia sp!, {r4,pc}
-_020C3E24: ; 0x020C3E24
 	ldr r4, [r0, #0x0]
 	ldr r0, [r0, #0x4]
 	sub r0, r0, r4
 	mul r0, r2, r0
 	bl _s32_div_f
-_020C3E38: ; 0x020C3E38
 	add r0, r4, r0
 	ldmia sp!, {r4,pc}
 
@@ -24989,7 +24636,6 @@ FUN_020C3E40:
 	mov r5, r1
 	mov r4, r2
 	bl FUN_020C3E0C
-_020C3E54: ; 0x020C3E54
 	str r0, [r6, #0x0]
 	str r5, [r6, #0x4]
 	str r4, [r6, #0xc]

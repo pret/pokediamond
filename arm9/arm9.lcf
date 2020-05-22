@@ -564,6 +564,7 @@ SECTIONS {
 		SDK_STATIC_TEXT_END = .;
 
 		SDK_STATIC_DATA_START = .;
+		unk_02003B98.o (.data)
 		rom2_3.o (.data)
 		FS_command.o (.data)
 		FS_command_default.o (.data)
@@ -579,8 +580,14 @@ SECTIONS {
 
 	.arm9.bss :
 	{
-		/* ALIGNALL(4); . = ALIGN(32); */
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_STATIC_BSS_START = .;
+		GFLIB_sysctl.o (.bss)
+		unk_020023C0.o (.bss)
+		unk_02002C14.o (.bss)
+		unk_02003B98.o (.bss)
+		unk_020040F4.o (.bss)
+		poke_overlay.o (.bss)
 		bss.o (.bss)
 		custom_allocator.o (.bss)
 		bss_2.o (.bss)
@@ -590,7 +597,7 @@ SECTIONS {
 		FS_file.o (.bss)
 		FS_rom.o (.bss)
 		bss_4.o (.bss)
-		/* . = ALIGN(32); */
+		. = ALIGN(32);
 		SDK_STATIC_BSS_END = .;
 		SDK_STATIC_BSS_SIZE = SDK_STATIC_BSS_END - SDK_STATIC_BSS_START;
 	} >> arm9

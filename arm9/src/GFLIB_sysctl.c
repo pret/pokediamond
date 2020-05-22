@@ -11,6 +11,8 @@
 
 extern struct Unk21C48B8 gUnknown21C48B8;
 
+struct Unk2106FA0 gBacklightTop;
+
 extern BOOL FUN_02006234(struct Unk21DBE18 *, s32 *, int);
 extern BOOL FUN_02006290(int);
 extern void FUN_02006260(int);

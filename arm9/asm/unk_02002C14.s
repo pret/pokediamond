@@ -1,6 +1,16 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.section .bss
+
+	.global UNK_02106FC8
+UNK_02106FC8: ; 0x02106FC8
+	.space 0x4
+
+	.global UNK_02106FCC
+UNK_02106FCC: ; 0x02106FCC
+	.space 0xa4
+
 	.extern UNK_020ECB6A
 	.extern UNK_020ECB65
 	.extern UNK_020ECB69
@@ -8,8 +18,6 @@
 	.extern UNK_020ECB56
 	.extern UNK_020ECB64
 	.extern UNK_020ECB54
-	.extern UNK_02106FCC
-	.extern UNK_02106FC8
 	.extern UNK_020ECB6B
 	.extern UNK_020ECB68
 	.extern UNK_020ECB66
