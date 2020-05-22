@@ -562,7 +562,8 @@ SECTIONS {
 		// * (.init)
 		. = ALIGN(4);
 		/* Text data */
-		rom2.o (.rodata)
+		main.o (.rodata)
+		unk_02001B80.o (.rodata)
 		string_util.o (.rodata)
 		rom2_2.o (.rodata)
 		FS_command.o (.rodata)

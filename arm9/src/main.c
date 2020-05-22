@@ -52,6 +52,9 @@ extern struct Unk21DBE18 MOD52_UNK_021D76C8;
 
 extern u8 SDK_STATIC_BSS_START[];
 
+const enum GameVersion gGameVersion = VERSION_DIAMOND;
+const enum GameLanguage gGameLanguage = LANGUAGE_ENGLISH;
+
 THUMB_FUNC void NitroMain(void)
 {
     InitSystemForTheGame();

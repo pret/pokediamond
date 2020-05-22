@@ -13,7 +13,7 @@
 	.extern UNK_020EED78
 	.extern UNK_020EEDBE
 	.extern UNK_020EED54
-	.extern UNK_020ECAC0
+	.extern gGameVersion
 	.extern UNK_020EEDC0
 	.extern UNK_020EEDD0
 	.extern UNK_020EEDC6
@@ -68,7 +68,7 @@ FUN_0203474C: ; 0x0203474C
 	ldrh r0, [r0, r1]
 	cmp r0, #0x16
 	bne _02034768
-	ldr r1, _02034770 ; =UNK_020ECAC0
+	ldr r1, _02034770 ; =gGameVersion
 	ldrb r1, [r1, #0x0]
 	cmp r1, #0xb
 	bne _02034768
@@ -77,7 +77,7 @@ _02034768:
 	pop {r3, pc}
 	nop
 _0203476C: .word UNK_020EEDBE
-_02034770: .word UNK_020ECAC0
+_02034770: .word gGameVersion
 
 	thumb_func_start FUN_02034774
 FUN_02034774: ; 0x02034774

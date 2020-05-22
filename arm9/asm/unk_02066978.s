@@ -1,13 +1,13 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020ECAC4
+	.extern gGameLanguage
 	.extern UNK_021C5AC0
 	.extern UNK_020F7F16
 	.extern UNK_020F7F93
 	.extern UNK_020F7ED4
 	.extern UNK_020F7ECC
-	.extern UNK_020ECAC0
+	.extern gGameVersion
 	.extern UNK_02105FC8
 	.extern UNK_020F7EF2
 	.extern UNK_020F7ECE
@@ -329,7 +329,7 @@ _02066BDE:
 	mov r1, #0x7
 	add r2, sp, #0x3c
 	bl FUN_02067960
-	ldr r2, _02066D88 ; =UNK_020ECAC4
+	ldr r2, _02066D88 ; =gGameLanguage
 	add r0, r5, #0x0
 	mov r1, #0xc
 	bl FUN_02067960
@@ -361,7 +361,7 @@ _02066BDE:
 	mov r1, #0x9b
 	add r2, sp, #0x28
 	bl FUN_02067960
-	ldr r2, _02066D8C ; =UNK_020ECAC0
+	ldr r2, _02066D8C ; =gGameVersion
 	add r0, r5, #0x0
 	mov r1, #0x79
 	bl FUN_02067960
@@ -509,8 +509,8 @@ _02066D5A:
 	bx r3
 	.balign 4
 _02066D84: .word 0xFFFF0000
-_02066D88: .word UNK_020ECAC4
-_02066D8C: .word UNK_020ECAC0
+_02066D88: .word gGameLanguage
+_02066D8C: .word gGameVersion
 
 	thumb_func_start FUN_02066D90
 FUN_02066D90: ; 0x02066D90
@@ -7391,7 +7391,7 @@ FUN_0206A054: ; 0x0206A054
 	str r2, [sp, #0x0]
 	mov r2, #0x0
 	bl FUN_020808AC
-	ldr r2, _0206A090 ; =UNK_020ECAC0
+	ldr r2, _0206A090 ; =gGameVersion
 	add r0, r4, #0x0
 	mov r1, #0x79
 	bl FUN_02067960
@@ -7409,7 +7409,7 @@ FUN_0206A054: ; 0x0206A054
 	add sp, #0x10
 	bx r3
 	nop
-_0206A090: .word UNK_020ECAC0
+_0206A090: .word gGameVersion
 
 	thumb_func_start FUN_0206A094
 FUN_0206A094: ; 0x0206A094
