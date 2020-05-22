@@ -1,12 +1,44 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020ED4E4
-	.extern UNK_020ED4F0
-	.extern UNK_020ED4FC
-	.extern UNK_020ED508
-	.extern UNK_020ED548
 	.extern UNK_021CED64
+
+	.section .rodata
+
+	.global UNK_020ED4E4
+UNK_020ED4E4: ; 0x020ED4E4
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_020ED4F0
+UNK_020ED4F0: ; 0x020ED4F0
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_020ED4FC
+UNK_020ED4FC: ; 0x020ED4FC
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00
+
+	.global UNK_020ED508
+UNK_020ED508: ; 0x020ED508
+	.word FUN_02012ECC
+	.word FUN_02012EF8
+	.word FUN_02012F24
+	.word FUN_02012F50
+	.word FUN_02012F7C
+	.word FUN_02012FA8
+	.word FUN_02012FD4
+	.word FUN_02013000
+	.word FUN_0201302C
+	.word FUN_02013058
+	.word FUN_02013084
+	.word FUN_020130B0
+	.word FUN_020130DC
+	.word FUN_02013108
+	.word FUN_02013134
+	.word FUN_02013160
+
+	.global UNK_020ED548
+UNK_020ED548: ; 0x020ED548
+	.byte 0x1F, 0x01, 0xFF, 0xFF
 
 	.section .bss
 

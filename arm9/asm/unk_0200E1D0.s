@@ -1,7 +1,52 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020ECEF4
+	.section .rodata
+
+	.global UNK_020ECEF4
+UNK_020ECEF4: ; 0x020ECEF4
+	.word FUN_0200E850
+	.word FUN_0200E86C
+	.word FUN_0200E88C
+	.word FUN_0200E8C8
+	.word FUN_0200E900
+	.word FUN_0200E93C
+	.word FUN_0200E974
+	.word FUN_0200E9A0
+	.word FUN_0200E9CC
+	.word FUN_0200EA08
+	.word FUN_0200EA40
+	.word FUN_0200EA7C
+	.word FUN_0200EAB4
+	.word FUN_0200EAE0
+	.word FUN_0200EB0C
+	.word FUN_0200EB40
+	.word FUN_0200EB70
+	.word FUN_0200EB9C
+	.word FUN_0200EBC8
+	.word FUN_0200EBF4
+	.word FUN_0200EC20
+	.word FUN_0200EC4C
+	.word FUN_0200EC78
+	.word FUN_0200ECA4
+	.word FUN_0200ECD0
+	.word FUN_0200ECFC
+	.word FUN_0200ED28
+	.word FUN_0200ED54
+	.word FUN_0200ED80
+	.word FUN_0200EDD4
+	.word FUN_0200EE24
+	.word FUN_0200EE60
+	.word FUN_0200EE98
+	.word FUN_0200EED8
+	.word FUN_0200EF14
+	.word FUN_0200EF54
+	.word FUN_0200EF90
+	.word FUN_0200EFBC
+	.word FUN_0200EFE8
+	.word FUN_0200F014
+	.word FUN_0200F040
+	.word FUN_0200F07C
 
 	.section .bss
 

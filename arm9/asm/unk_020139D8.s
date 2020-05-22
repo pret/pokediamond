@@ -1,12 +1,100 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020ED5B5
-	.extern UNK_020ED5F0
-	.extern UNK_020ED5C0
-	.extern UNK_020ED5D6
-	.extern UNK_020ED5EC
-	.extern UNK_020ED5B4
+	.section .rodata
+
+	.global UNK_020ED580
+UNK_020ED580: ; 0x020ED580
+	.byte 0xC0, 0x04, 0xF0, 0x04
+
+	.global UNK_020ED584
+UNK_020ED584: ; 0x020ED584
+	.byte 0x4E, 0x02, 0xD2, 0x03
+
+	.global UNK_020ED588
+UNK_020ED588: ; 0x020ED588
+	.byte 0xBB, 0x04, 0x00, 0x05
+
+	.global UNK_020ED58C
+UNK_020ED58C: ; 0x020ED58C
+	.byte 0x41, 0x04, 0x99, 0x05
+
+	.global UNK_020ED590
+UNK_020ED590: ; 0x020ED590
+	.byte 0x2C, 0x04, 0x9D, 0x05
+
+	.global UNK_020ED594
+UNK_020ED594: ; 0x020ED594
+	.byte 0x7A, 0x04, 0x8D, 0x04
+
+	.global UNK_020ED598
+UNK_020ED598: ; 0x020ED598
+	.byte 0xB6, 0x04, 0x05, 0x05
+
+	.global UNK_020ED59C
+UNK_020ED59C: ; 0x020ED59C
+	.byte 0xFC, 0x04, 0x96, 0x05
+
+	.global UNK_020ED5A0
+UNK_020ED5A0: ; 0x020ED5A0
+	.byte 0x8F, 0x04, 0x97, 0x04
+
+	.global UNK_020ED5A4
+UNK_020ED5A4: ; 0x020ED5A4
+	.byte 0xB0, 0x04, 0xFF, 0x04
+
+	.global UNK_020ED5A8
+UNK_020ED5A8: ; 0x020ED5A8
+	.byte 0xA7, 0x04, 0xE1, 0x04
+
+	.global UNK_020ED5AC
+UNK_020ED5AC: ; 0x020ED5AC
+	.byte 0x79, 0x04, 0x98, 0x04, 0x9B, 0x04, 0x9C, 0x04
+
+	.global UNK_020ED5B4
+UNK_020ED5B4: ; 0x020ED5B4
+	.byte 0x01
+
+	.global UNK_020ED5B5
+UNK_020ED5B5: ; 0x020ED5B5
+	.byte 0x00, 0x02, 0x01, 0x03, 0x02, 0x04, 0x03, 0x05, 0x04, 0x07, 0x05
+
+	.global UNK_020ED5C0
+UNK_020ED5C0: ; 0x020ED5C0
+	.byte 0x6A, 0x01, 0x4D, 0x02, 0x35, 0x02, 0x29, 0x02, 0x84, 0x01, 0x85, 0x01, 0x86, 0x01, 0x87, 0x01
+	.byte 0x88, 0x01, 0x89, 0x01, 0x8A, 0x01
+
+	.global UNK_020ED5D6
+UNK_020ED5D6: ; 0x020ED5D6
+	.byte 0xF0, 0x01, 0xD4, 0x01, 0x12, 0x00, 0x7C, 0x00, 0x26, 0x00, 0x26, 0x00, 0x6B, 0x00, 0x68, 0x00
+	.byte 0x2F, 0x00, 0x20, 0x00, 0x17, 0x00
+
+	.global UNK_020ED5EC
+UNK_020ED5EC: ; 0x020ED5EC
+	.word UNK_020ED58C
+	.byte 2
+	.word UNK_020ED580
+	.byte 2
+	.word UNK_020ED5A8
+	.byte 2
+	.word UNK_020ED5AC
+	.byte 4
+	.word UNK_020ED5A0
+	.byte 2
+	.word UNK_020ED59C
+	.byte 2
+	.word UNK_020ED588
+	.byte 2
+	.word UNK_020ED584
+	.byte 2
+	.word UNK_020ED590
+	.byte 2
+	.word UNK_020ED5A4
+	.byte 2
+	.word UNK_020ED598
+	.byte 2
+	.word UNK_020ED594
+	.byte 2
 
 	.text
 
@@ -363,7 +451,7 @@ _02013C3A:
 	ldrh r1, [r6, #0x0]
 	cmp r0, r1
 	bne _02013C4C
-	ldr r0, _02013C68 ; =UNK_020ED5F0
+	ldr r0, _02013C68 ; =UNK_020ED5EC + 4
 	lsl r1, r3, #0x3
 	ldr r0, [r0, r1]
 	sub r0, r0, #0x1
@@ -384,7 +472,7 @@ _02013C54:
 	bx lr
 	nop
 _02013C64: .word UNK_020ED5EC
-_02013C68: .word UNK_020ED5F0
+_02013C68: .word UNK_020ED5EC + 4
 
 	thumb_func_start FUN_02013C6C
 FUN_02013C6C: ; 0x02013C6C
@@ -402,7 +490,7 @@ _02013C7E:
 	ldrh r1, [r4, #0x0]
 	cmp r0, r1
 	bne _02013CB4
-	ldr r2, _02013CCC ; =UNK_020ED5F0
+	ldr r2, _02013CCC ; =UNK_020ED5EC + 4
 	lsl r1, r7, #0x3
 	ldr r2, [r2, r1]
 	mov r0, #0x0
@@ -441,5 +529,5 @@ _02013CBC:
 	pop {r3-r7, pc}
 	nop
 _02013CC8: .word UNK_020ED5EC
-_02013CCC: .word UNK_020ED5F0
+_02013CCC: .word UNK_020ED5EC + 4
 _02013CD0: .word 0x0000FFFF
