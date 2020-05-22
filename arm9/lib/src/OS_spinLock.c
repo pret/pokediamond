@@ -11,7 +11,7 @@
 extern void MIi_CpuClear32(u32 param1, void * addr, u32 length); //not too sure about names
 extern u32 MI_SwapWord(u32 data, volatile u32* destp);
 
-ARM_FUNC void OS_InitLock()
+ARM_FUNC void OS_InitLock(void)
 {
     static BOOL isInitialized = FALSE;
 
@@ -135,12 +135,83 @@ ARM_FUNC s32 OS_TryLockCartridge(u16 lockID)
     return OSi_DoTryLockByWord(lockID, (OSLockWord *)HW_CTRDG_LOCK_BUF, OSi_AllocateCartridgeBus, TRUE);
 }
 
-ARM_FUNC void OSi_AllocateCartridgeBus()
+ARM_FUNC void OSi_AllocateCartridgeBus(void)
 {
     MIi_SetCartridgeProcessor(MI_PROCESSOR_ARM9);
 }
 
-ARM_FUNC void OSi_FreeCartridgeBus()
+ARM_FUNC void OSi_FreeCartridgeBus(void)
 {
     MIi_SetCartridgeProcessor(MI_PROCESSOR_ARM7);
+}
+
+ARM_FUNC s32 OS_TryLockCard(u16 lockID)
+{
+    return OS_TryLockByWord(lockID, (OSLockWord *)HW_CARD_LOCK_BUF, OSi_AllocateCardBus);
+}
+
+ARM_FUNC s32 OS_UnlockCard(u16 lockID)
+{
+    return OS_UnlockByWord(lockID, (OSLockWord *)HW_CARD_LOCK_BUF, OSi_FreeCardBus);
+}
+
+ARM_FUNC void OSi_AllocateCardBus(void)
+{
+    MIi_SetCardProcessor(MI_PROCESSOR_ARM9);
+}
+
+ARM_FUNC void OSi_FreeCardBus(void)
+{
+    MIi_SetCardProcessor(MI_PROCESSOR_ARM7);
+}
+
+ARM_FUNC u16 OS_ReadOwnerOfLockWord(OSLockWord * lock)
+{
+    return lock->ownerID;
+}
+
+ARM_FUNC asm s32 OS_UnLockCartridge(u16 lockID)
+{
+    ldr r1, =OS_UnlockCartridge
+    bx r1
+}
+
+ARM_FUNC asm s32 OS_GetLockID(void)
+{
+    ldr r3, =HW_LOCK_ID_FLAG_MAIN
+    ldr r1, [r3, #0x0]
+    clz r2, r1
+    cmp r2, #0x20
+    movne r0, #0x40
+    bne _020CA0D4
+    add r3, r3, #0x4
+    ldr r1, [r3, #0x0]
+    clz r2, r1
+    cmp r2, #0x20
+    ldr r0, =0xFFFFFFFD
+    bxeq lr
+    mov r0, #0x60
+_020CA0D4:
+    add r0, r0, r2
+    mov r1, #0x80000000
+    mov r1, r1, lsr r2
+    ldr r2, [r3, #0x0]
+    bic r2, r2, r1
+    str r2, [r3, #0x0]
+    bx lr
+}
+
+ARM_FUNC asm void OS_ReleaseLockID(register u16 lockID)
+{
+    ldr r3, =HW_LOCK_ID_FLAG_MAIN
+    cmp r0, #0x60
+    addpl r3, r3, #0x4
+    subpl r0, r0, #0x60
+    submi r0, r0, #0x40
+    mov r1, #0x80000000
+    mov r1, r1, lsr r0
+    ldr r2, [r3, #0x0]
+    orr r2, r2, r1
+    str r2, [r3, #0x0]
+    bx lr
 }
