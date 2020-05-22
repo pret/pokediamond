@@ -164,7 +164,7 @@ _020DC0D4:
 	orr r0, r0, r7
 	strh r0, [r3, #0x0]
 	ldrh r0, [r1, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, r4
 	add sp, sp, #0x24
 	ldmia sp!, {r4-r7,lr}
@@ -253,7 +253,7 @@ _020DC22C:
 	orr r1, r1, r8
 	strh r1, [r2, #0x0]
 	ldrh r0, [r0, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, #0x0
 	add sp, sp, #0x28
 	ldmia sp!, {r4-r8,lr}

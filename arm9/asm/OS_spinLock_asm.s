@@ -3,12 +3,12 @@
 
     .text
 
-	arm_func_start OS_UnlockCartridge
-OS_UnlockCartridge: ; 0x020CA094
-	ldr r1, _020CA09C ; =OS_UnlockCartridge2
+	arm_func_start OS_UnLockCartridge
+OS_UnLockCartridge: ; 0x020CA094
+	ldr r1, _020CA09C ; =OS_UnlockCartridge
 	bx r1
 	.balign 4
-_020CA09C: .word OS_UnlockCartridge2
+_020CA09C: .word OS_UnlockCartridge
 
 	arm_func_start OS_GetLockID
 OS_GetLockID: ; 0x020CA0A0
@@ -99,59 +99,3 @@ OS_TryLockCard: ; 0x020CA17C
 _020CA18C: .word OS_TryLockByWord
 _020CA190: .word 0x027FFFE0
 _020CA194: .word OSi_AllocateCardBus
-
-	arm_func_start OSi_FreeCartridgeBus
-OSi_FreeCartridgeBus: ; 0x020CA198
-	ldr r1, _020CA1AC ; =0x04000204
-	ldrh r0, [r1, #0x0]
-	orr r0, r0, #0x80
-	strh r0, [r1, #0x0]
-	bx lr
-	.balign 4
-_020CA1AC: .word 0x04000204
-
-	arm_func_start OSi_AllocateCartridgeBus
-OSi_AllocateCartridgeBus: ; 0x020CA1B0
-	ldr r1, _020CA1C4 ; =0x04000204
-	ldrh r0, [r1, #0x0]
-	bic r0, r0, #0x80
-	strh r0, [r1, #0x0]
-	bx lr
-	.balign 4
-_020CA1C4: .word 0x04000204
-
-	arm_func_start OS_TryLockCartridge
-OS_TryLockCartridge: ; 0x020CA1C8
-	ldr ip, _020CA1DC ; =OSi_DoTryLockByWord
-	ldr r1, _020CA1E0 ; =0x027FFFE8
-	ldr r2, _020CA1E4 ; =OSi_AllocateCartridgeBus
-	mov r3, #0x1
-	bx r12
-	.balign 4
-_020CA1DC: .word OSi_DoTryLockByWord
-_020CA1E0: .word 0x027FFFE8
-_020CA1E4: .word OSi_AllocateCartridgeBus
-
-	arm_func_start OS_UnlockCartridge2
-OS_UnlockCartridge2: ; 0x020CA1E8
-	ldr ip, _020CA1FC ; =OSi_DoUnlockByWord
-	ldr r1, _020CA200 ; =0x027FFFE8
-	ldr r2, _020CA204 ; =OSi_FreeCartridgeBus
-	mov r3, #0x1
-	bx r12
-	.balign 4
-_020CA1FC: .word OSi_DoUnlockByWord
-_020CA200: .word 0x027FFFE8
-_020CA204: .word OSi_FreeCartridgeBus
-
-	arm_func_start OS_LockCartridge
-OS_LockCartridge: ; 0x020CA208
-	ldr ip, _020CA21C ; =OSi_DoLockByWord
-	ldr r1, _020CA220 ; =0x027FFFE8
-	ldr r2, _020CA224 ; =OSi_AllocateCartridgeBus
-	mov r3, #0x1
-	bx r12
-	.balign 4
-_020CA21C: .word OSi_DoLockByWord
-_020CA220: .word 0x027FFFE8
-_020CA224: .word OSi_AllocateCartridgeBus

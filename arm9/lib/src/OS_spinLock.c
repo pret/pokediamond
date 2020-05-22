@@ -9,8 +9,6 @@
 #include "MI_exMemory.h"
 
 extern void MIi_CpuClear32(u32 param1, void * addr, u32 length); //not too sure about names
-extern s32 OSi_DoTryLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void),
-                               BOOL disableFiq);
 extern u32 MI_SwapWord(u32 data, volatile u32* destp);
 
 ARM_FUNC void OS_InitLock()
@@ -120,4 +118,29 @@ ARM_FUNC s32 OSi_DoTryLockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp
     }
 
     return lastLockFlag;
+}
+
+ARM_FUNC s32 OS_LockCartridge(u16 lockID)
+{
+    return OSi_DoLockByWord(lockID, (OSLockWord *)HW_CTRDG_LOCK_BUF, OSi_AllocateCartridgeBus, TRUE);
+}
+
+ARM_FUNC s32 OS_UnlockCartridge(u16 lockID)
+{
+    return OSi_DoUnlockByWord(lockID, (OSLockWord *)HW_CTRDG_LOCK_BUF, OSi_FreeCartridgeBus, TRUE);
+}
+
+ARM_FUNC s32 OS_TryLockCartridge(u16 lockID)
+{
+    return OSi_DoTryLockByWord(lockID, (OSLockWord *)HW_CTRDG_LOCK_BUF, OSi_AllocateCartridgeBus, TRUE);
+}
+
+ARM_FUNC void OSi_AllocateCartridgeBus()
+{
+    MIi_SetCartridgeProcessor(MI_PROCESSOR_ARM9);
+}
+
+ARM_FUNC void OSi_FreeCartridgeBus()
+{
+    MIi_SetCartridgeProcessor(MI_PROCESSOR_ARM7);
 }

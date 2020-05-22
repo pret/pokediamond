@@ -6438,8 +6438,8 @@
 .extern OS_TryLockMutex
 .extern OS_UnlockByWord
 .extern OS_UnlockCard
+.extern OS_UnLockCartridge
 .extern OS_UnlockCartridge
-.extern OS_UnlockCartridge2
 .extern OS_UnlockMutex
 .extern OS_WaitIrq
 .extern OS_WaitVBlankIntr

@@ -54,7 +54,7 @@ CTRDG_IdentifyAgbBackup: ; 0x020DBD50
 	strh r1, [r2, #0x0]
 	ldrh r0, [r0, #0x0]
 	ldreq r5, _020DBEEC ; =UNK_02103FE8
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	ldr r2, [r5, #0x0]
 	mov r0, #0x1
 	ldrh r1, [r2, #0x38]
