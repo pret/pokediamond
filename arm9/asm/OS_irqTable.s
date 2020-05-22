@@ -1,6 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	; pragma section DTCM begin
     .section .dtcm
 	.balign 16, 0
 	.global OS_IRQTable
@@ -28,12 +29,12 @@ OS_IRQTable: ; 027E0000 ;10b6a0
 	.word OS_IrqDummy
 	.word OS_IrqDummy
 
-	.section .bss
-	.space 0x20
+	; pragma section DTCM end
 
-	.extern UNK_021D3420
-	.extern OSi_IrqCallbackInfoIndex
-	.extern UNK_021D3424
+	.section .bss
+	.global OSi_IrqCallbackInfo
+OSi_IrqCallbackInfo: ; 0x021D341C
+	.space 0x60
 
     .section .text
 
@@ -118,12 +119,12 @@ OSi_IrqCallback: ; 0x020C9D0C
 	cmp r1, #0x0
 	mov r5, r5, lsl r3
 	beq _020C9D54
-	ldr r0, _020C9D9C ; =UNK_021D3424
+	ldr r0, _020C9D9C ; =OSi_IrqCallbackInfo + 8
 	ldr r0, [r0, r4]
 	blx r1
 _020C9D54:
-	ldr r0, _020C9DA0 ; =0x027E0000
-	ldr r1, _020C9DA4 ; =UNK_021D3420
+	ldr r0, _020C9DA0 ; =SDK_AUTOLOAD_DTCM_START
+	ldr r1, _020C9DA4 ; =OSi_IrqCallbackInfo + 4
 	add r0, r0, #0x3000
 	ldr r2, [r0, #0xff8]
 	orr r2, r2, r5

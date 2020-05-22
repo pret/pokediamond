@@ -585,6 +585,9 @@ SECTIONS {
 		SDK_STATIC_DATA_START = .;
 		unk_02003B98.o (.data)
 		rom2_3.o (.data)
+		GX.o (.data)
+		OS_irqHandler.o (.data)
+		OS_emulator.o (.data)
 		FS_command.o (.data)
 		FS_command_default.o (.data)
 		FS_archive.o (.data)
@@ -652,7 +655,16 @@ SECTIONS {
 		unk_0208A998.o (.bss)
 		unk_0208AC14.o (.bss)
 		custom_allocator.o (.bss)
-		bss_2.o (.bss)
+		unk_020910EC.o (.bss)
+		unk_020AF030.o (.bss)
+		GX.o (.bss)
+		GX_state.o (.bss)
+		GX_load2d.o (.bss)
+		GX_load3d.o (.bss)
+		OS_irqTable.o (.bss)
+		OS_spinLock.o (.bss)
+		OS_thread.o (.bss)
+		OS_arena.o (.bss)
 		OS_alloc.o (.bss)
 		bss_3.o (.bss)
 		FS_archive.o (.bss)
@@ -691,8 +703,8 @@ SECTIONS {
 	.DTCM : {
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.START = .;
-		OS_irqTable.o (.dtcm)
 		OS_irqHandler.o (.dtcm)
+		OS_irqTable.o (.dtcm)
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.END = .;
 		SDK_AUTOLOAD.DTCM.SIZE = SDK_AUTOLOAD.DTCM.END - SDK_AUTOLOAD.DTCM.START;
@@ -703,7 +715,8 @@ SECTIONS {
 	{
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.BSS_START = .;
-		OS_irqTable.o (.bss)
+		OS_irqHandler.o (.bss)
+		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.BSS_END = .;
 		SDK_AUTOLOAD.DTCM.BSS_SIZE = SDK_AUTOLOAD.DTCM.BSS_END - SDK_AUTOLOAD.DTCM.BSS_START;
 	} >> DTCM

@@ -1,204 +1,608 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_021C8CD0
-	.extern UNK_020FF598
-	.extern UNK_021C8EC8
-	.extern UNK_021062A0
-	.extern UNK_021C8EF8
-	.extern UNK_021CA6FC
-	.extern UNK_021CB850
-	.extern UNK_021CA874
-	.extern UNK_021C8EA8
-	.extern UNK_021CB89C
-	.extern UNK_021C8EF0
-	.extern UNK_021C8EB4
-	.extern UNK_021CB81C
-	.extern UNK_021CA8C8
-	.extern UNK_021C8D6C
-	.extern UNK_021C8EDC
-	.extern UNK_021CA8BC
-	.extern UNK_021C8ED0
-	.extern UNK_020FF580
-	.extern UNK_021C9520
-	.extern UNK_020FF6B4
-	.extern UNK_021CA87C
-	.extern UNK_021C8F14
-	.extern UNK_021C8C8E
-	.extern UNK_021064B8
-	.extern UNK_021C8F08
-	.extern UNK_02106244
-	.extern UNK_020FF5BC
-	.extern UNK_021064D0
-	.extern UNK_020FF518
-	.extern UNK_021CA8D4
-	.extern UNK_020FF6BC
-	.extern UNK_021C8F0C
-	.extern UNK_02106278
-	.extern UNK_021CB898
-	.extern UNK_021CCD48
-	.extern UNK_021C903C
-	.extern UNK_021064C0
-	.extern UNK_021C8CA0
-	.extern UNK_021C924A
-	.extern UNK_020FF5B8
-	.extern UNK_021CAAA4
-	.extern UNK_021062A4
-	.extern UNK_021064BC
-	.extern UNK_021062AC
-	.extern UNK_021C8D3C
-	.extern UNK_021CCD3C
-	.extern UNK_021C8C84
-	.extern UNK_021CB818
-	.extern UNK_021CB870
-	.extern UNK_021C8F24
-	.extern UNK_021064FC
-	.extern UNK_021CA8E8
-	.extern UNK_020FF50C
-	.extern UNK_021C8F10
-	.extern UNK_021061C0
-	.extern UNK_021064C8
-	.extern UNK_021CA6FB
-	.extern UNK_021CB7FC
-	.extern UNK_021CB7EC
-	.extern UNK_021061DC
-	.extern UNK_021C8CC4
-	.extern UNK_021C8C78
-	.extern UNK_02106230
-	.extern UNK_021C8EC0
-	.extern UNK_021061C4
-	.extern UNK_0210642D
-	.extern UNK_020FF788
-	.extern UNK_021C8ED4
-	.extern UNK_0210646C
-	.extern UNK_021CA6E8
-	.extern UNK_021CCD14
-	.extern UNK_021C8EAC
-	.extern UNK_021C8EE4
-	.extern UNK_021C8C89
-	.extern UNK_021CCD58
-	.extern UNK_020FF574
-	.extern UNK_0210632C
-	.extern UNK_021C8F78
-	.extern UNK_02106498
-	.extern UNK_021C8CC8
-	.extern UNK_021C8DA4
-	.extern UNK_021CA8D0
-	.extern UNK_021CA8C0
-	.extern UNK_021C8D08
-	.extern UNK_021C8D30
-	.extern UNK_021CCD1C
-	.extern UNK_021C8EEC
-	.extern UNK_021C8EFC
-	.extern UNK_02106490
-	.extern UNK_020FF5D4
-	.extern UNK_021CA870
-	.extern UNK_021CA8DC
-	.extern UNK_02106224
-	.extern UNK_021CB8A0
-	.extern UNK_021CB868
-	.extern UNK_021CCD20
-	.extern UNK_021C8ED8
-	.extern UNK_021C8D38
-	.extern UNK_021CB890
-	.extern UNK_021C8CC0
-	.extern UNK_021C8EB8
-	.extern UNK_020FF578
-	.extern UNK_021C8EF4
-	.extern UNK_021C8C7C
-	.extern UNK_021064C4
-	.extern UNK_020FF590
-	.extern UNK_021C8C80
-	.extern UNK_020FF7CC
-	.extern UNK_021C8D28
-	.extern UNK_021C8D40
-	.extern UNK_020FF688
-	.extern UNK_021CB880
-	.extern UNK_021CB8A4
-	.extern UNK_021064E4
-	.extern UNK_021C8EE8
-	.extern UNK_021C9220
-	.extern UNK_02106298
-	.extern UNK_021CA8CC
-	.extern UNK_021CB7E0
-	.extern UNK_021CB7D8
-	.extern UNK_020FF5C4
-	.extern UNK_021CA8B4
-	.extern UNK_021CB86C
-	.extern UNK_021C93A0
-	.extern UNK_021CB824
-	.extern UNK_021CA8B0
-	.extern UNK_021CA8A0
 	.extern OSi_ThreadInfo
-	.extern UNK_020FF689
-	.extern UNK_021CB838
-	.extern UNK_021CCD38
-	.extern UNK_02106170
-	.extern UNK_0210621C
-	.extern UNK_02106218
-	.extern UNK_021C8C8A
-	.extern UNK_021CA8D8
-	.extern UNK_021C8D04
-	.extern UNK_021CB808
-	.extern UNK_021C8F5E
-	.extern UNK_020FF7D4
-	.extern UNK_021C8C90
-	.extern UNK_021C8F1C
-	.extern UNK_021CB874
-	.extern UNK_021C8F04
-	.extern UNK_021CA6E4
-	.extern UNK_021CBD14
-	.extern UNK_021CB8BC
-	.extern UNK_021C8D4C
-	.extern UNK_021CB7DC
-	.extern UNK_021C8FD8
-	.extern UNK_02106470
-	.extern UNK_020FF524
-	.extern UNK_0210620C
-	.extern UNK_020FF6AC
-	.extern UNK_020FF694
-	.extern UNK_021CB814
-	.extern UNK_021C8ECC
-	.extern UNK_021CB878
-	.extern UNK_021062EC
-	.extern UNK_021C8EB0
-	.extern UNK_021CA86C
-	.extern UNK_021C8F82
-	.extern UNK_0210642C
-	.extern UNK_021CB8D4
-	.extern UNK_021CA8C4
-	.extern UNK_021C9160
-	.extern UNK_021CA89C
-	.extern UNK_021CB87C
-	.extern UNK_021C8CCC
-	.extern UNK_021062A8
-	.extern UNK_021CA6E0
 	.extern UNK_020FF500
-	.extern UNK_021C8D34
-	.extern UNK_021C8CD4
-	.extern UNK_021061F4
-	.extern UNK_021064A8
-	.extern UNK_021C8D44
-	.extern UNK_021C9EE0
-	.extern UNK_021C8EBC
-	.extern UNK_021CAF00
-	.extern UNK_0210618C
-	.extern UNK_021C90A0
+	.extern UNK_020FF50C
+	.extern UNK_020FF518
+	.extern UNK_020FF524
+	.extern UNK_020FF574
+	.extern UNK_020FF578
+	.extern UNK_020FF580
+	.extern UNK_020FF590
+	.extern UNK_020FF598
+	.extern UNK_020FF5B8
+	.extern UNK_020FF5BC
+	.extern UNK_020FF5C4
+	.extern UNK_020FF5D4
+	.extern UNK_020FF688
+	.extern UNK_020FF689
+	.extern UNK_020FF694
+	.extern UNK_020FF6AC
+	.extern UNK_020FF6B4
+	.extern UNK_020FF6BC
 	.extern UNK_020FF700
-	.extern UNK_021C8EC4
-	.extern UNK_0210619C
-	.extern UNK_0210623C
-	.extern UNK_021C8D5C
-	.extern UNK_02106290
-	.extern UNK_021CA8B8
-	.extern UNK_021CB7F0
-	.extern UNK_02106514
-	.extern UNK_021CB894
-	.extern UNK_021CCD4C
-	.extern UNK_021CCD18
-	.extern UNK_021C8F00
-	.extern UNK_021C8EE0
 	.extern UNK_020FF744
+	.extern UNK_020FF788
+	.extern UNK_020FF7CC
+	.extern UNK_020FF7D4
+	.extern UNK_02106170
+	.extern UNK_0210618C
+	.extern UNK_0210619C
+	.extern UNK_021061C0
+	.extern UNK_021061C4
+	.extern UNK_021061DC
+	.extern UNK_021061F4
+	.extern UNK_0210620C
+	.extern UNK_02106218
+	.extern UNK_0210621C
+	.extern UNK_02106224
+	.extern UNK_02106230
+	.extern UNK_0210623C
+	.extern UNK_02106244
+	.extern UNK_02106278
+	.extern UNK_02106290
+	.extern UNK_02106298
+	.extern UNK_021062A0
+	.extern UNK_021062A4
+	.extern UNK_021062A8
+	.extern UNK_021062AC
+	.extern UNK_021062EC
+	.extern UNK_0210632C
+	.extern UNK_0210642C
+	.extern UNK_0210642D
+	.extern UNK_0210646C
+	.extern UNK_02106470
+	.extern UNK_02106490
+	.extern UNK_02106498
+	.extern UNK_021064A8
+	.extern UNK_021064B8
+	.extern UNK_021064BC
+	.extern UNK_021064C0
+	.extern UNK_021064C4
+	.extern UNK_021064C8
+	.extern UNK_021064D0
+	.extern UNK_021064E4
+	.extern UNK_021064FC
+	.extern UNK_02106514
+
+	.section .bss
+
+	.global UNK_021C8C78
+UNK_021C8C78: ; 0x021C8C78
+	.space 0x4
+
+	.global UNK_021C8C7C
+UNK_021C8C7C: ; 0x021C8C7C
+	.space 0x4
+
+	.global UNK_021C8C80
+UNK_021C8C80: ; 0x021C8C80
+	.space 0x4
+
+	.global UNK_021C8C84
+UNK_021C8C84: ; 0x021C8C84
+	.space 0x5
+
+	.global UNK_021C8C89
+UNK_021C8C89: ; 0x021C8C89
+	.space 0x1
+
+	.global UNK_021C8C8A
+UNK_021C8C8A: ; 0x021C8C8A
+	.space 0x4
+
+	.global UNK_021C8C8E
+UNK_021C8C8E: ; 0x021C8C8E
+	.space 0x2
+
+	.global UNK_021C8C90
+UNK_021C8C90: ; 0x021C8C90
+	.space 0x10
+
+	.global UNK_021C8CA0
+UNK_021C8CA0: ; 0x021C8CA0
+	.space 0x20
+
+	.global UNK_021C8CC0
+UNK_021C8CC0: ; 0x021C8CC0
+	.space 0x4
+
+	.global UNK_021C8CC4
+UNK_021C8CC4: ; 0x021C8CC4
+	.space 0x4
+
+	.global UNK_021C8CC8
+UNK_021C8CC8: ; 0x021C8CC8
+	.space 0x4
+
+	.global UNK_021C8CCC
+UNK_021C8CCC: ; 0x021C8CCC
+	.space 0x4
+
+	.global UNK_021C8CD0
+UNK_021C8CD0: ; 0x021C8CD0
+	.space 0x4
+
+	.global UNK_021C8CD4
+UNK_021C8CD4: ; 0x021C8CD4
+	.space 0x30
+
+	.global UNK_021C8D04
+UNK_021C8D04: ; 0x021C8D04
+	.space 0x4
+
+	.global UNK_021C8D08
+UNK_021C8D08: ; 0x021C8D08
+	.space 0x20
+
+	.global UNK_021C8D28
+UNK_021C8D28: ; 0x021C8D28
+	.space 0x8
+
+	.global UNK_021C8D30
+UNK_021C8D30: ; 0x021C8D30
+	.space 0x4
+
+	.global UNK_021C8D34
+UNK_021C8D34: ; 0x021C8D34
+	.space 0x4
+
+	.global UNK_021C8D38
+UNK_021C8D38: ; 0x021C8D38
+	.space 0x4
+
+	.global UNK_021C8D3C
+UNK_021C8D3C: ; 0x021C8D3C
+	.space 0x4
+
+	.global UNK_021C8D40
+UNK_021C8D40: ; 0x021C8D40
+	.space 0x4
+
+	.global UNK_021C8D44
+UNK_021C8D44: ; 0x021C8D44
+	.space 0x8
+
+	.global UNK_021C8D4C
+UNK_021C8D4C: ; 0x021C8D4C
+	.space 0x10
+
+	.global UNK_021C8D5C
+UNK_021C8D5C: ; 0x021C8D5C
+	.space 0x10
+
+	.global UNK_021C8D6C
+UNK_021C8D6C: ; 0x021C8D6C
+	.space 0x38
+
+	.global UNK_021C8DA4
+UNK_021C8DA4: ; 0x021C8DA4
+	.space 0x104
+
+	.global UNK_021C8EA8
+UNK_021C8EA8: ; 0x021C8EA8
+	.space 0x4
+
+	.global UNK_021C8EAC
+UNK_021C8EAC: ; 0x021C8EAC
+	.space 0x4
+
+	.global UNK_021C8EB0
+UNK_021C8EB0: ; 0x021C8EB0
+	.space 0x4
+
+	.global UNK_021C8EB4
+UNK_021C8EB4: ; 0x021C8EB4
+	.space 0x4
+
+	.global UNK_021C8EB8
+UNK_021C8EB8: ; 0x021C8EB8
+	.space 0x4
+
+	.global UNK_021C8EBC
+UNK_021C8EBC: ; 0x021C8EBC
+	.space 0x4
+
+	.global UNK_021C8EC0
+UNK_021C8EC0: ; 0x021C8EC0
+	.space 0x4
+
+	.global UNK_021C8EC4
+UNK_021C8EC4: ; 0x021C8EC4
+	.space 0x4
+
+	.global UNK_021C8EC8
+UNK_021C8EC8: ; 0x021C8EC8
+	.space 0x4
+
+	.global UNK_021C8ECC
+UNK_021C8ECC: ; 0x021C8ECC
+	.space 0x4
+
+	.global UNK_021C8ED0
+UNK_021C8ED0: ; 0x021C8ED0
+	.space 0x4
+
+	.global UNK_021C8ED4
+UNK_021C8ED4: ; 0x021C8ED4
+	.space 0x4
+
+	.global UNK_021C8ED8
+UNK_021C8ED8: ; 0x021C8ED8
+	.space 0x4
+
+	.global UNK_021C8EDC
+UNK_021C8EDC: ; 0x021C8EDC
+	.space 0x4
+
+	.global UNK_021C8EE0
+UNK_021C8EE0: ; 0x021C8EE0
+	.space 0x4
+
+	.global UNK_021C8EE4
+UNK_021C8EE4: ; 0x021C8EE4
+	.space 0x4
+
+	.global UNK_021C8EE8
+UNK_021C8EE8: ; 0x021C8EE8
+	.space 0x4
+
+	.global UNK_021C8EEC
+UNK_021C8EEC: ; 0x021C8EEC
+	.space 0x4
+
+	.global UNK_021C8EF0
+UNK_021C8EF0: ; 0x021C8EF0
+	.space 0x4
+
+	.global UNK_021C8EF4
+UNK_021C8EF4: ; 0x021C8EF4
+	.space 0x4
+
+	.global UNK_021C8EF8
+UNK_021C8EF8: ; 0x021C8EF8
+	.space 0x4
+
+	.global UNK_021C8EFC
+UNK_021C8EFC: ; 0x021C8EFC
+	.space 0x4
+
+	.global UNK_021C8F00
+UNK_021C8F00: ; 0x021C8F00
+	.space 0x4
+
+	.global UNK_021C8F04
+UNK_021C8F04: ; 0x021C8F04
+	.space 0x4
+
+	.global UNK_021C8F08
+UNK_021C8F08: ; 0x021C8F08
+	.space 0x4
+
+	.global UNK_021C8F0C
+UNK_021C8F0C: ; 0x021C8F0C
+	.space 0x4
+
+	.global UNK_021C8F10
+UNK_021C8F10: ; 0x021C8F10
+	.space 0x4
+
+	.global UNK_021C8F14
+UNK_021C8F14: ; 0x021C8F14
+	.space 0x8
+
+	.global UNK_021C8F1C
+UNK_021C8F1C: ; 0x021C8F1C
+	.space 0x8
+
+	.global UNK_021C8F24
+UNK_021C8F24: ; 0x021C8F24
+	.space 0x3a
+
+	.global UNK_021C8F5E
+UNK_021C8F5E: ; 0x021C8F5E
+	.space 0x1a
+
+	.global UNK_021C8F78
+UNK_021C8F78: ; 0x021C8F78
+	.space 0xa
+
+	.global UNK_021C8F82
+UNK_021C8F82: ; 0x021C8F82
+	.space 0x56
+
+	.global UNK_021C8FD8
+UNK_021C8FD8: ; 0x021C8FD8
+	.space 0x64
+
+	.global UNK_021C903C
+UNK_021C903C: ; 0x021C903C
+	.space 0x64
+
+	.global UNK_021C90A0
+UNK_021C90A0: ; 0x021C90A0
+	.space 0xc0
+
+	.global UNK_021C9160
+UNK_021C9160: ; 0x021C9160
+	.space 0xc0
+
+	.global UNK_021C9220
+UNK_021C9220: ; 0x021C9220
+	.space 0x2a
+
+	.global UNK_021C924A
+UNK_021C924A: ; 0x021C924A
+	.space 0x156
+
+	.global UNK_021C93A0
+UNK_021C93A0: ; 0x021C93A0
+	.space 0x180
+
+	.global UNK_021C9520
+UNK_021C9520: ; 0x021C9520
+	.space 0x9c0
+
+	.global UNK_021C9EE0
+UNK_021C9EE0: ; 0x021C9EE0
+	.space 0x800
+
+	.global UNK_021CA6E0
+UNK_021CA6E0: ; 0x021CA6E0
+	.space 0x4
+
+	.global UNK_021CA6E4
+UNK_021CA6E4: ; 0x021CA6E4
+	.space 0x4
+
+	.global UNK_021CA6E8
+UNK_021CA6E8: ; 0x021CA6E8
+	.space 0x13
+
+	.global UNK_021CA6FB
+UNK_021CA6FB: ; 0x021CA6FB
+	.space 0x1
+
+	.global UNK_021CA6FC
+UNK_021CA6FC: ; 0x021CA6FC
+	.space 0x170
+
+	.global UNK_021CA86C
+UNK_021CA86C: ; 0x021CA86C
+	.space 0x4
+
+	.global UNK_021CA870
+UNK_021CA870: ; 0x021CA870
+	.space 0x4
+
+	.global UNK_021CA874
+UNK_021CA874: ; 0x021CA874
+	.space 0x8
+
+	.global UNK_021CA87C
+UNK_021CA87C: ; 0x021CA87C
+	.space 0x20
+
+	.global UNK_021CA89C
+UNK_021CA89C: ; 0x021CA89C
+	.space 0x4
+
+	.global UNK_021CA8A0
+UNK_021CA8A0: ; 0x021CA8A0
+	.space 0x10
+
+	.global UNK_021CA8B0
+UNK_021CA8B0: ; 0x021CA8B0
+	.space 0x4
+
+	.global UNK_021CA8B4
+UNK_021CA8B4: ; 0x021CA8B4
+	.space 0x4
+
+	.global UNK_021CA8B8
+UNK_021CA8B8: ; 0x021CA8B8
+	.space 0x4
+
+	.global UNK_021CA8BC
+UNK_021CA8BC: ; 0x021CA8BC
+	.space 0x4
+
+	.global UNK_021CA8C0
+UNK_021CA8C0: ; 0x021CA8C0
+	.space 0x4
+
+	.global UNK_021CA8C4
+UNK_021CA8C4: ; 0x021CA8C4
+	.space 0x4
+
+	.global UNK_021CA8C8
+UNK_021CA8C8: ; 0x021CA8C8
+	.space 0x4
+
+	.global UNK_021CA8CC
+UNK_021CA8CC: ; 0x021CA8CC
+	.space 0x4
+
+	.global UNK_021CA8D0
+UNK_021CA8D0: ; 0x021CA8D0
+	.space 0x4
+
+	.global UNK_021CA8D4
+UNK_021CA8D4: ; 0x021CA8D4
+	.space 0x4
+
+	.global UNK_021CA8D8
+UNK_021CA8D8: ; 0x021CA8D8
+	.space 0x4
+
+	.global UNK_021CA8DC
+UNK_021CA8DC: ; 0x021CA8DC
+	.space 0xc
+
+	.global UNK_021CA8E8
+UNK_021CA8E8: ; 0x021CA8E8
+	.space 0x1bc
+
+	.global UNK_021CAAA4
+UNK_021CAAA4: ; 0x021CAAA4
+	.space 0x45c
+
+	.global UNK_021CAF00
+UNK_021CAF00: ; 0x021CAF00
+	.space 0x8d8
+
+	.global UNK_021CB7D8
+UNK_021CB7D8: ; 0x021CB7D8
+	.space 0x4
+
+	.global UNK_021CB7DC
+UNK_021CB7DC: ; 0x021CB7DC
+	.space 0x4
+
+	.global UNK_021CB7E0
+UNK_021CB7E0: ; 0x021CB7E0
+	.space 0xc
+
+	.global UNK_021CB7EC
+UNK_021CB7EC: ; 0x021CB7EC
+	.space 0x4
+
+	.global UNK_021CB7F0
+UNK_021CB7F0: ; 0x021CB7F0
+	.space 0xc
+
+	.global UNK_021CB7FC
+UNK_021CB7FC: ; 0x021CB7FC
+	.space 0xc
+
+	.global UNK_021CB808
+UNK_021CB808: ; 0x021CB808
+	.space 0xc
+
+	.global UNK_021CB814
+UNK_021CB814: ; 0x021CB814
+	.space 0x4
+
+	.global UNK_021CB818
+UNK_021CB818: ; 0x021CB818
+	.space 0x4
+
+	.global UNK_021CB81C
+UNK_021CB81C: ; 0x021CB81C
+	.space 0x8
+
+	.global UNK_021CB824
+UNK_021CB824: ; 0x021CB824
+	.space 0x14
+
+	.global UNK_021CB838
+UNK_021CB838: ; 0x021CB838
+	.space 0x18
+
+	.global UNK_021CB850
+UNK_021CB850: ; 0x021CB850
+	.space 0x18
+
+	.global UNK_021CB868
+UNK_021CB868: ; 0x021CB868
+	.space 0x4
+
+	.global UNK_021CB86C
+UNK_021CB86C: ; 0x021CB86C
+	.space 0x4
+
+	.global UNK_021CB870
+UNK_021CB870: ; 0x021CB870
+	.space 0x4
+
+	.global UNK_021CB874
+UNK_021CB874: ; 0x021CB874
+	.space 0x4
+
+	.global UNK_021CB878
+UNK_021CB878: ; 0x021CB878
+	.space 0x4
+
+	.global UNK_021CB87C
+UNK_021CB87C: ; 0x021CB87C
+	.space 0x4
+
+	.global UNK_021CB880
+UNK_021CB880: ; 0x021CB880
+	.space 0x10
+
+	.global UNK_021CB890
+UNK_021CB890: ; 0x021CB890
+	.space 0x4
+
+	.global UNK_021CB894
+UNK_021CB894: ; 0x021CB894
+	.space 0x4
+
+	.global UNK_021CB898
+UNK_021CB898: ; 0x021CB898
+	.space 0x4
+
+	.global UNK_021CB89C
+UNK_021CB89C: ; 0x021CB89C
+	.space 0x4
+
+	.global UNK_021CB8A0
+UNK_021CB8A0: ; 0x021CB8A0
+	.space 0x4
+
+	.global UNK_021CB8A4
+UNK_021CB8A4: ; 0x021CB8A4
+	.space 0x18
+
+	.global UNK_021CB8BC
+UNK_021CB8BC: ; 0x021CB8BC
+	.space 0x18
+
+	.global UNK_021CB8D4
+UNK_021CB8D4: ; 0x021CB8D4
+	.space 0x440
+
+	.global UNK_021CBD14
+UNK_021CBD14: ; 0x021CBD14
+	.space 0x1000
+
+	.global UNK_021CCD14
+UNK_021CCD14: ; 0x021CCD14
+	.space 0x4
+
+	.global UNK_021CCD18
+UNK_021CCD18: ; 0x021CCD18
+	.space 0x4
+
+	.global UNK_021CCD1C
+UNK_021CCD1C: ; 0x021CCD1C
+	.space 0x4
+
+	.global UNK_021CCD20
+UNK_021CCD20: ; 0x021CCD20
+	.space 0x18
+
+	.global UNK_021CCD38
+UNK_021CCD38: ; 0x021CCD38
+	.space 0x4
+
+	.global UNK_021CCD3C
+UNK_021CCD3C: ; 0x021CCD3C
+	.space 0xc
+
+	.global UNK_021CCD48
+UNK_021CCD48: ; 0x021CCD48
+	.space 0x4
+
+	.global UNK_021CCD4C
+UNK_021CCD4C: ; 0x021CCD4C
+	.space 0xc
+
+	.global UNK_021CCD58
+UNK_021CCD58: ; 0x021CCD58
+	.space 0x14
 
 	.text
 

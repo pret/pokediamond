@@ -4,13 +4,13 @@
 
 extern u32 GXi_DmaId;
 
-extern s32 sSubOBJExtPltt;
-extern s32 sBGExtPltt;
-extern u32 sBGExtPlttLCDCBlk;
-extern u32 sBGExtPlttLCDCOffset;
-extern s32 sOBJExtPltt;
-extern u32 sOBJExtPlttLCDCBlk;
-extern s32 sSubBGExtPltt;
+static s32 sBGExtPltt = 0;
+static u32 sBGExtPlttLCDCBlk = 0;
+static u32 sBGExtPlttLCDCOffset = 0;
+static s32 sOBJExtPltt = 0;
+static u32 sOBJExtPlttLCDCBlk = 0;
+static s32 sSubBGExtPltt = 0;
+static s32 sSubOBJExtPltt = 0;
 
 
 static inline void *_GX_OBJ_PTR(){
