@@ -1,6 +1,24 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.section .bss
+
+	.global OSi_UseVAlarm
+OSi_UseVAlarm: ; 0x021D37C8
+	.space 0x4
+
+	.global OSi_PreviousVCount
+OSi_PreviousVCount: ; 0x021D37CC
+	.space 0x4
+
+	.global OSi_VFrameCount
+OSi_VFrameCount: ; 0x021D37D0
+	.space 0x4
+
+	.global OSi_VAlarmQueue
+OSi_VAlarmQueue: ; 0x021D37D4
+	.space 0x8
+
     .text
 
 	arm_func_start OS_InitVAlarm
