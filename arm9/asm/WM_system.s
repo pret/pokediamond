@@ -1,14 +1,39 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_021D5E2C
-	.extern UNK_021D5E78
-	.extern UNK_021D5EC0
-	.extern UNK_021D5E8C
-	.extern UNK_021D5E9C
-	.extern UNK_021D5E50
-	.extern UNK_021D5E28
-	.extern UNK_021D5E30
+	.section .bss
+
+	.global UNK_021D5E28
+UNK_021D5E28: ; 0x021D5E28
+	.space 0x4
+
+	.global UNK_021D5E2C
+UNK_021D5E2C: ; 0x021D5E2C
+	.space 0x4
+
+	.global UNK_021D5E30
+UNK_021D5E30: ; 0x021D5E30
+	.space 0x20
+
+	.global UNK_021D5E50
+UNK_021D5E50: ; 0x021D5E50
+	.space 0x28
+
+	.global UNK_021D5E78
+UNK_021D5E78: ; 0x021D5E78
+	.space 0x14
+
+	.global UNK_021D5E8C
+UNK_021D5E8C: ; 0x021D5E8C
+	.space 0x10
+
+	.global UNK_021D5E9C
+UNK_021D5E9C: ; 0x021D5E9C
+	.space 0x24
+
+	.global UNK_021D5EC0
+UNK_021D5EC0: ; 0x021D5EC0
+	.space 0xa00
 
     .text
 

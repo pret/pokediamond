@@ -1,79 +1,120 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.extern UNK_02106B3C
-	.extern UNK_02106AA4
-	.extern UNK_02106F58
-	.extern UNK_02106E10
-	.extern UNK_02106F18
-	.extern UNK_02106DA0
-	.extern UNK_02106B74
-	.extern UNK_02106E88
-	.extern UNK_02106DF0
-	.extern UNK_02106E38
-	.extern UNK_021D7118
-	.extern UNK_021D74AC
-	.extern UNK_02106E40
-	.extern UNK_02106F50
-	.extern UNK_02104754
-	.extern UNK_02106F54
-	.extern UNK_02104434
-	.extern UNK_0210430C
-	.extern UNK_021D6F88
-	.extern UNK_021D7088
-	.extern UNK_02106A58
-	.extern UNK_02106F38
-	.extern UNK_02106E44
-	.extern UNK_0210440C
-	.extern UNK_02106DDC
-	.extern UNK_0210420C
-	.extern UNK_02106E48
-	.extern UNK_02106DD4
-	.extern UNK_02104764
-	.extern UNK_02106B78
-	.extern UNK_021D74A8
-	.extern UNK_02106DBC
-	.extern UNK_02106F28
-	.extern UNK_02106AF0
-	.extern UNK_02106DFC
-	.extern UNK_02106F4C
-	.extern UNK_02106DE0
-	.extern UNK_02106F10
-	.extern UNK_021D70D0
-	.extern UNK_02106DB0
-	.extern UNK_02106F48
 	.extern OSi_ThreadInfo
-	.extern UNK_021D70AC
-	.extern UNK_02104439
-	.extern UNK_02106DA8
-	.extern UNK_02106E30
-	.extern UNK_02104744
-	.extern UNK_02106F3C
-	.extern UNK_02106DD0
-	.extern UNK_02106DE4
-	.extern UNK_02106F2C
-	.extern UNK_02106DD8
-	.extern UNK_021D7178
-	.extern UNK_02106F44
-	.extern UNK_02106DC8
-	.extern UNK_02106F34
-	.extern UNK_02106DB8
-	.extern UNK_02106DC0
-	.extern UNK_02106F5C
-	.extern UNK_02106EE0
-	.extern UNK_02106B7C
-	.extern UNK_02106EB8
-	.extern UNK_02106E24
-	.extern UNK_02106F30
-	.extern UNK_02106C98
-	.extern UNK_02106E08
-	.extern UNK_021D6F78
-	.extern UNK_02106E18
-	.extern UNK_02106F40
-	.extern UNK_02106EF8
-	.extern UNK_02106F20
-	.extern UNK_02106F08
+	.extern UNK_0210420C
 	.extern UNK_0210428C
+	.extern UNK_0210430C
+	.extern UNK_0210440C
+	.extern UNK_02104434
+	.extern UNK_02104439
 	.extern UNK_02104544
+	.extern UNK_02104744
+	.extern UNK_02104754
+	.extern UNK_02104764
+	.extern UNK_02106A58
+	.extern UNK_02106AA4
+	.extern UNK_02106AF0
+	.extern UNK_02106B3C
+	.extern UNK_02106B74
+	.extern UNK_02106B78
+	.extern UNK_02106B7C
+	.extern UNK_02106C98
+	.extern UNK_02106DA0
+	.extern UNK_02106DA8
+	.extern UNK_02106DB0
+	.extern UNK_02106DB8
+	.extern UNK_02106DBC
+	.extern UNK_02106DC0
+	.extern UNK_02106DC8
+	.extern UNK_02106DD0
+	.extern UNK_02106DD4
+	.extern UNK_02106DD8
+	.extern UNK_02106DDC
+	.extern UNK_02106DE0
+	.extern UNK_02106DE4
+	.extern UNK_02106DF0
+	.extern UNK_02106DFC
+	.extern UNK_02106E08
+	.extern UNK_02106E10
+	.extern UNK_02106E18
+	.extern UNK_02106E24
+	.extern UNK_02106E30
+	.extern UNK_02106E38
+	.extern UNK_02106E40
+	.extern UNK_02106E44
+	.extern UNK_02106E48
+	.extern UNK_02106E88
+	.extern UNK_02106EB8
+	.extern UNK_02106EE0
+	.extern UNK_02106EF8
+	.extern UNK_02106F08
+	.extern UNK_02106F10
+	.extern UNK_02106F18
+	.extern UNK_02106F20
+	.extern UNK_02106F28
+	.extern UNK_02106F2C
+	.extern UNK_02106F30
+	.extern UNK_02106F34
+	.extern UNK_02106F38
+	.extern UNK_02106F3C
+	.extern UNK_02106F40
+	.extern UNK_02106F44
+	.extern UNK_02106F48
+	.extern UNK_02106F4C
+	.extern UNK_02106F50
+	.extern UNK_02106F54
+	.extern UNK_02106F58
+	.extern UNK_02106F5C
+
+	.section .bss
+
+	.global UNK_021D6F78
+UNK_021D6F78: ; 0x021D6F78
+	.space 0x10
+
+	.global UNK_021D6F88
+UNK_021D6F88: ; 0x021D6F88
+	.space 0x100
+
+	.global UNK_021D7088
+UNK_021D7088: ; 0x021D7088
+	.space 0x24
+
+	.global UNK_021D70AC
+UNK_021D70AC: ; 0x021D70AC
+	.space 0x24
+
+	.global UNK_021D70D0
+UNK_021D70D0: ; 0x021D70D0
+	.space 0x48
+
+	.global UNK_021D7118
+UNK_021D7118: ; 0x021D7118
+	.space 0x60
+
+	.global UNK_021D7178
+UNK_021D7178: ; 0x021D7178
+	.space 0x30
+
+	.global UNK_021D71A8
+UNK_021D71A8: ; 0x021D71A8
+	.space 0x100
+
+	.global UNK_021D72A8
+UNK_021D72A8: ; 0x021D72A8
+	.space 0x100
+
+	.global UNK_021D73A8
+UNK_021D73A8: ; 0x021D73A8
+	.space 0x100
+
+	.global UNK_021D74A8
+UNK_021D74A8: ; 0x021D74A8
+	.space 0x4
+
+	.global UNK_021D74AC
+UNK_021D74AC: ; 0x021D74AC
+	.space 0x1c
 
 	.section .text
 	.balign 4, 0

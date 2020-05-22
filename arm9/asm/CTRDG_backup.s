@@ -8,13 +8,18 @@
 	.extern UNK_021D6B1C
 	.extern UNK_021D6B24
 	.extern UNK_021D6B20
-	.extern UNK_021D6B4C
 	.extern UNK_021D6B0C
 	.extern UNK_02103FE4
 	.extern UNK_02103FF4
 	.extern UNK_021D6B34
 	.extern UNK_021D6B2C
 	.extern UNK_021D6B18
+
+	.section .bss
+
+	.global UNK_021D6B4C
+UNK_021D6B4C: ; 0x021D6B4C
+	.space 0x4
 
     .text
 

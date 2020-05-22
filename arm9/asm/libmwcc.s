@@ -2,6 +2,12 @@
 	.include "global.inc"
 	.extern UNK_021D74A8
 
+	.section .bss
+
+	.global __global_destructor_chain
+__global_destructor_chain: ; 0x021D74C8
+	.space 0x18
+
 	.section .text
 	.balign 4, 0
 

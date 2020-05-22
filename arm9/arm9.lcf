@@ -682,7 +682,22 @@ SECTIONS {
 		FS_archive.o (.bss)
 		FS_file.o (.bss)
 		FS_rom.o (.bss)
-		bss_4.o (.bss)
+		SPI_tp.o (.bss)
+		SPI_mic.o (.bss)
+		SPI_pm.o (.bss)
+		RTC_external.o (.bss)
+		CARD_common.o (.bss)
+		CARD_rom.o (.bss)
+		CARD_pullOut.o (.bss)
+		WM_system.o (.bss)
+		WM_etc.o (.bss)
+		CTRDG.o (.bss)
+		CTRDG_proc.o (.bss)
+		CTRDG_flash_common.o (.bss)
+		CTRDG_backup.o (.bss)
+		CTRDG_task.o (.bss)
+		libc.o (.bss)
+		libmwcc.o (.bss)
 		. = ALIGN(32);
 		SDK_STATIC_BSS_END = .;
 		SDK_STATIC_BSS_SIZE = SDK_STATIC_BSS_END - SDK_STATIC_BSS_START;
