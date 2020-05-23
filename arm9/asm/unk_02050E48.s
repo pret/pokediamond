@@ -1,10 +1,15 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020F5880
 	.extern UNK_020F96DC
 	.extern gUnknown21C48B8
 	.extern UNK_020FA6E8
+
+	.section .rodata
+
+	.global UNK_020F5880
+UNK_020F5880: ; 0x020F5880
+	.byte 0x00, 0x01, 0x02, 0x04, 0x03, 0x05, 0x06, 0x07, 0x08, 0x00, 0x00, 0x00
 
 	.text
 

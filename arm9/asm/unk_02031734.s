@@ -2,14 +2,24 @@
     .include "global.inc"
 
 	.extern gUnk021C4918
-	.extern UNK_020EEC48
-	.extern UNK_020EEC50
-	.extern UNK_020EEC5C
 	.extern UNK_02105D5C
 	.extern UNK_02105D64
 	.extern UNK_02105D65
 	.extern UNK_02105D6C
 	.extern UNK_02105D6D
+
+	.section .rodata
+	.global UNK_020EEC48
+UNK_020EEC48: ; 0x020EEC48
+	.word FUN_02032B84, 0x00000000
+
+	.global UNK_020EEC50
+UNK_020EEC50: ; 0x020EEC50
+	.word FUN_0203213C, FUN_02032138, 0x00000000
+
+	.global UNK_020EEC5C
+UNK_020EEC5C: ; 0x020EEC5C
+	.word FUN_02032234, FUN_0203234C, 0x00000000
 
 	.section .bss
 

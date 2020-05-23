@@ -1,6 +1,31 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+	.extern UNK_020EEC80
+    .extern UNK_020EEC78
+    .extern UNK_020EEC70
+    .extern UNK_020EEC68
+    .extern UNK_020EEC88
+	.extern UNK_020F40A6
+	.extern UNK_020F40B4
+	.extern UNK_020F40AC
+	.extern UNK_020F40BC
+	.extern UNK_020F40C6
+	.extern UNK_020F40F8
+	.extern UNK_020F40DA
+	.extern UNK_020F40E4
+	.extern UNK_020F41E6
+	.extern UNK_020F41FE
+	.extern UNK_020F41D4
+	.extern UNK_020F4126
+	.extern UNK_020F4182
+	.extern UNK_020F4134
+	.extern UNK_020F40EE
+	.extern UNK_020F40D0
+	.extern UNK_020F4102
+	.extern UNK_020F40A0
+	.extern UNK_020F41C2
+
 	/* rom2.s TODO: Disassemble */
 
 	.section .rodata
@@ -1292,11 +1317,11 @@ UNK_02105D6D: ; 0x02105D6D
 
 	.global UNK_02105D74
 UNK_02105D74: ; 0x02105D74
-	.word 0x020EEC80
-	.word 0x020EEC78
-	.word 0x020EEC70
-	.word 0x020EEC68
-	.word 0x020EEC88
+	.word UNK_020EEC80
+	.word UNK_020EEC78
+	.word UNK_020EEC70
+	.word UNK_020EEC68
+	.word UNK_020EEC88
 
 	.global UNK_02105D88
 UNK_02105D88: ; 0x02105D88
@@ -1355,25 +1380,25 @@ UNK_02105DF4: ; 0x02105DF4
 
 	.global UNK_02105E10
 UNK_02105E10: ; 0x02105E10
-	.word 0x020F40A6
-	.word 0x020F40B4
-	.word 0x020F40AC
-	.word 0x020F40BC
-	.word 0x020F40C6
-	.word 0x020F40F8
-	.word 0x020F40DA
-	.word 0x020F40E4
-	.word 0x020F41E6
-	.word 0x020F41FE
-	.word 0x020F41D4
-	.word 0x020F4126
-	.word 0x020F4182
-	.word 0x020F4134
-	.word 0x020F40EE
-	.word 0x020F40D0
-	.word 0x020F4102
-	.word 0x020F40A0
-	.word 0x020F41C2
+	.word UNK_020F40A6
+	.word UNK_020F40B4
+	.word UNK_020F40AC
+	.word UNK_020F40BC
+	.word UNK_020F40C6
+	.word UNK_020F40F8
+	.word UNK_020F40DA
+	.word UNK_020F40E4
+	.word UNK_020F41E6
+	.word UNK_020F41FE
+	.word UNK_020F41D4
+	.word UNK_020F4126
+	.word UNK_020F4182
+	.word UNK_020F4134
+	.word UNK_020F40EE
+	.word UNK_020F40D0
+	.word UNK_020F4102
+	.word UNK_020F40A0
+	.word UNK_020F41C2
 
 	.global UNK_02105E5C
 UNK_02105E5C: ; 0x02105E5C
