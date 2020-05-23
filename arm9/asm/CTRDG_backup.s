@@ -1,7 +1,31 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_02103FE8
+	.extern CTRDGi_EraseFlash4KBAT
+	.extern CTRDGi_EraseFlash4KBAsyncAT
+	.extern CTRDGi_EraseFlashChipAT
+	.extern CTRDGi_EraseFlashChipAsyncAT
+	.extern CTRDGi_EraseFlashChipAsyncLE
+	.extern CTRDGi_EraseFlashChipAsyncMX
+	.extern CTRDGi_EraseFlashChipLE
+	.extern CTRDGi_EraseFlashChipMX
+	.extern CTRDGi_EraseFlashSectorAT
+	.extern CTRDGi_EraseFlashSectorAsyncAT
+	.extern CTRDGi_EraseFlashSectorAsyncLE
+	.extern CTRDGi_EraseFlashSectorAsyncMX
+	.extern CTRDGi_EraseFlashSectorMX
+	.extern CTRDGi_PollingSR1MCOMMON
+	.extern CTRDGi_PollingSR512kCOMMON
+	.extern CTRDGi_WriteFlash4KBAT
+	.extern CTRDGi_WriteFlash4KBAsyncAT
+	.extern CTRDGi_WriteFlashSectorAT
+	.extern CTRDGi_WriteFlashSectorAsyncAT
+	.extern CTRDGi_WriteFlashSectorAsyncLE
+	.extern CTRDGi_WriteFlashSectorAsyncMX
+	.extern CTRDGi_WriteFlashSectorLE
+	.extern CTRDGi_WriteFlashSectorMX
+	.extern CTRDGi_WriteFlashSectorAsyncMX5
+	.extern CTRDGi_WriteFlashSectorMX5
 	.extern UNK_021D6B14
 	.extern UNK_021D6B30
 	.extern UNK_021D6B28
@@ -9,11 +33,152 @@
 	.extern UNK_021D6B24
 	.extern UNK_021D6B20
 	.extern UNK_021D6B0C
-	.extern UNK_02103FE4
-	.extern UNK_02103FF4
 	.extern UNK_021D6B34
 	.extern UNK_021D6B2C
 	.extern UNK_021D6B18
+
+	.section .rodata
+
+	.global UNK_02103FE4
+UNK_02103FE4: ; 0x02103FE4
+	.byte 0x14, 0x00, 0x00, 0x00
+
+	.global UNK_02103FE8
+UNK_02103FE8: ; 0x02103FE8
+	.word UNK_02104150
+	.word UNK_0210408C
+	.word UNK_0210418C
+
+	.global UNK_02103FF4
+UNK_02103FF4: ; 0x02103FF4
+	.word UNK_0210410C
+	.word UNK_0210400C
+	.word UNK_021041D0
+	.word UNK_021040D0
+
+	.global UNK_02104004
+UNK_02104004: ; 0x02104004
+	.byte 0x0A, 0x00, 0x28, 0x00, 0x00, 0x00, 0x28, 0x00
+
+	.global UNK_0210400C
+UNK_0210400C: ; 0x0210400C
+	.word CTRDGi_WriteFlash4KBAT
+	.word CTRDGi_EraseFlashChipAT
+	.word CTRDGi_EraseFlash4KBAT
+	.word CTRDGi_WriteFlash4KBAsyncAT
+	.word CTRDGi_EraseFlashChipAsyncAT
+	.word CTRDGi_EraseFlash4KBAsyncAT
+	.word CTRDGi_PollingSR512kCOMMON
+	.word UNK_02104004
+	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x3D, 0x00
+
+	.global UNK_02104048
+UNK_02104048: ; 0x02104048
+	.word CTRDGi_WriteFlashSectorAT
+	.word CTRDGi_EraseFlashChipAT
+	.word CTRDGi_EraseFlashSectorAT
+	.word CTRDGi_WriteFlashSectorAsyncAT
+	.word CTRDGi_EraseFlashChipAsyncAT
+	.word CTRDGi_EraseFlashSectorAsyncAT
+	.word CTRDGi_PollingSR512kCOMMON
+	.word UNK_02104004
+	.byte 0x00, 0x00, 0x01, 0x00, 0x80, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x3D, 0x00
+
+	.global UNK_02104084
+UNK_02104084: ; 0x02104084
+	.byte 0x0A, 0x00, 0x0A, 0x00, 0xD0, 0x07, 0x88, 0x13
+
+	.global UNK_0210408C
+UNK_0210408C: ; 0x0210408C
+	.word CTRDGi_WriteFlashSectorMX
+	.word CTRDGi_EraseFlashChipMX
+	.word CTRDGi_EraseFlashSectorMX
+	.word CTRDGi_WriteFlashSectorAsyncMX
+	.word CTRDGi_EraseFlashChipAsyncMX
+	.word CTRDGi_EraseFlashSectorAsyncMX
+	.word CTRDGi_PollingSR1MCOMMON
+	.word UNK_02104084
+	.byte 0x00, 0x00, 0x02, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x62, 0x00, 0x13, 0x00
+
+	.global UNK_021040C8
+UNK_021040C8: ; 0x021040C8
+	.byte 0x0A, 0x00, 0x0A, 0x00, 0x28, 0x00, 0xC8, 0x00
+
+	.global UNK_021040D0
+UNK_021040D0: ; 0x021040D0
+	.word CTRDGi_WriteFlashSectorLE
+	.word CTRDGi_EraseFlashChipLE
+	.word CTRDGi_EraseFlashSectorLE
+	.word CTRDGi_WriteFlashSectorAsyncLE
+	.word CTRDGi_EraseFlashChipAsyncLE
+	.word CTRDGi_EraseFlashSectorAsyncLE
+	.word CTRDGi_PollingSR512kCOMMON
+	.word UNK_021040C8
+	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0210410C
+UNK_0210410C: ; 0x0210410C
+	.word CTRDGi_WriteFlashSectorLE
+	.word CTRDGi_EraseFlashChipLE
+	.word CTRDGi_EraseFlashSectorLE
+	.word CTRDGi_WriteFlashSectorAsyncLE
+	.word CTRDGi_EraseFlashChipAsyncLE
+	.word CTRDGi_EraseFlashSectorAsyncLE
+	.word CTRDGi_PollingSR512kCOMMON
+	.word UNK_021040C8
+	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xBF, 0x00, 0xD4, 0x00
+
+	.global UNK_02104148
+UNK_02104148: ; 0x02104148
+	.byte 0x0A, 0x00, 0x0A, 0x00, 0xD0, 0x07, 0xD0, 0x07
+
+	.global UNK_02104150
+UNK_02104150: ; 0x02104150
+	.word CTRDGi_WriteFlashSectorMX
+	.word CTRDGi_EraseFlashChipMX
+	.word CTRDGi_EraseFlashSectorMX
+	.word CTRDGi_WriteFlashSectorAsyncMX
+	.word CTRDGi_EraseFlashChipAsyncMX
+	.word CTRDGi_EraseFlashSectorAsyncMX
+	.word CTRDGi_PollingSR1MCOMMON
+	.word UNK_02104148
+	.byte 0x00, 0x00, 0x02, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0xC2, 0x00, 0x09, 0x00
+
+	.global UNK_0210418C
+UNK_0210418C: ; 0x0210418C
+	.word CTRDGi_WriteFlashSectorMX
+	.word CTRDGi_EraseFlashChipMX
+	.word CTRDGi_EraseFlashSectorMX
+	.word CTRDGi_WriteFlashSectorAsyncMX
+	.word CTRDGi_EraseFlashChipAsyncMX
+	.word CTRDGi_EraseFlashSectorAsyncMX
+	.word CTRDGi_PollingSR1MCOMMON
+	.word UNK_02104148
+	.byte 0x00, 0x00, 0x02, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_021041C8
+UNK_021041C8: ; 0x021041C8
+	.byte 0x0A, 0x00, 0x0A, 0x00, 0xF4, 0x01, 0xF4, 0x01
+
+	.global UNK_021041D0
+UNK_021041D0: ; 0x021041D0
+	.word CTRDGi_WriteFlashSectorMX5
+	.word CTRDGi_EraseFlashChipLE
+	.word CTRDGi_EraseFlashSectorLE
+	.word CTRDGi_WriteFlashSectorAsyncMX5
+	.word CTRDGi_EraseFlashChipAsyncLE
+	.word CTRDGi_EraseFlashSectorAsyncLE
+	.word CTRDGi_PollingSR512kCOMMON
+	.word UNK_021041C8
+	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x10, 0x00, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x32, 0x00, 0x1B, 0x00
 
 	.section .bss
 

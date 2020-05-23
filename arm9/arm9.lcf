@@ -716,7 +716,8 @@ SECTIONS {
 		FS_file.o (.rodata)
 		FS_rom.o (.rodata)
 		FS_overlay.o (.rodata)
-		rom2_3.o (.rodata)
+		CTRDG_backup.o (.rodata)
+		libc.o (.rodata)
 		libmwcc.o (.rodata)
 		. = ALIGN(4);
 
