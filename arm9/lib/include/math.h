@@ -1,7 +1,8 @@
-#ifndef GUARD_LIBMATH_H
-#define GUARD_LIBMATH_H
+#ifndef GUARD_MATH_H
+#define GUARD_MATH_H
 
-#include "MATH.h"
+#include "dgt.h"
+#include "MATH_pop.h"
 #include "MATH_crc.h"
 #include "MATH_dgt.h"
 

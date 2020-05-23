@@ -1,5 +1,5 @@
 #include "global.h"
-#include "MATH.h"
+#include "MATH_pop.h"
 
 ARM_FUNC u8 MATH_CountPopulation(u32 x) {
     x -= (x >> 1) & 0x55555555;

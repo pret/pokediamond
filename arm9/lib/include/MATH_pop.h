@@ -1,5 +1,5 @@
-#ifndef GUARD_MATH_H
-#define GUARD_MATH_H
+#ifndef GUARD_MATH_POP_H
+#define GUARD_MATH_POP_H
 
 #include "types.h"
 

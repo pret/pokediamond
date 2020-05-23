@@ -27,4 +27,11 @@ struct DGTHash2Context {
     int Corrupted;
 };
 
+void DGT_Hash1Reset(struct DGTHash1Context *context);
+void DGT_Hash1SetSource(struct DGTHash1Context *context, u8 *input, u32 length);
+void DGT_Hash1GetDigest_R(u8 *digest, struct DGTHash1Context *context);
+void DGT_Hash2Reset(struct DGTHash2Context *context);
+void DGT_Hash2SetSource(struct DGTHash2Context *context, u8 *input, u32 length);
+void DGT_Hash2GetDigest(struct DGTHash2Context *context, u8 *digest);
+
 #endif
