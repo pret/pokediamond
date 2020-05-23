@@ -539,7 +539,7 @@ SECTIONS {
 		CTRDG_flash_MX29L010.o (.text)
 		CTRDG_flash_MX29L512.o (.text)
 		CTRDG_task.o (.text)
-		MATH.o (.text)
+		MATH_pop.o (.text)
 		MATH_dgt.o (.text)
 		MATH_crc.o (.text)
 		STD_string.o (.text)
