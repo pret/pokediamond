@@ -1,6 +1,12 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.section .rodata
+
+	.global UNK_020FD144
+UNK_020FD144: ; 0x020FD144
+	.word MOD59_021D74E0, MOD59_021D7564, MOD59_021D76C0, SDK_OVERLAY_MODULE_59_ID
+
 	.text
 
 	thumb_func_start FUN_02087A6C

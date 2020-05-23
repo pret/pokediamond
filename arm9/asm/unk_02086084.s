@@ -2,7 +2,12 @@
     .include "global.inc"
 
 	.extern UNK_020FA5FC
-	.extern UNK_020FCE14
+
+	.section .rodata
+
+	.global UNK_020FCE14
+UNK_020FCE14: ; 0x020FCE14
+	.word FUN_02086084, FUN_02086168, FUN_020861DC, 0xFFFFFFFF
 
 	.text
 
