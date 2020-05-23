@@ -1,7 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020FD6E4
+	.section .rodata
+
+	.global UNK_020FD6E4
+UNK_020FD6E4: ; 0x020FD6E4
+	.word FUN_020889B0, FUN_02088A00, FUN_02088A78, 0xFFFFFFFF
 
 	.text
 

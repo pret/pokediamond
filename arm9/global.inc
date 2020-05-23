@@ -7704,3 +7704,15 @@
 .extern wcstombs
 .extern wctomb
 .extern wmemcpy
+.extern MOD75_021E6BA0
+.extern MOD75_021E6D6C
+.extern MOD75_021E6F00
+.extern MOD73_021D74F0
+.extern MOD73_021D758C
+.extern MOD73_021D7640
+.extern MOD68_021D74E0
+.extern MOD68_021D75D8
+.extern MOD68_021D762C
+.extern FUN_020889B0
+.extern FUN_02088A00
+.extern FUN_02088A78

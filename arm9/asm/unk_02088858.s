@@ -1,6 +1,12 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.section .rodata
+
+	.global UNK_020FD6D4
+UNK_020FD6D4: ; 0x020FD6D4
+	.word FUN_020888DC, 0x00000000, 0x00000000, 0xFFFFFFFF
+
 	.text
 
 	thumb_func_start FUN_02088858

@@ -4,24 +4,51 @@
 
 extern u32 GXi_DmaId;
 
-struct _TexStartAddrTable
+static u32 sTexLCDCBlk1 = 0;
+static u32 sSzTexBlk1 = 0;
+static u32 sTexLCDCBlk2 = 0;
+static s32 sTex = 0;
+
+static const struct
 {
     u16     blk1;                      // 12 bit shift
     u16     blk2;                      // 12 bit shift
     u16     szBlk1;                    // 12 bit shift
+} sTexStartAddrTable[16] = {
+    {0, 0, 0},
+    {0x06800000 >> 12, 0, 0},
+    {0x06820000 >> 12, 0, 0},
+    {0x06800000 >> 12, 0, 0},
+    {0x06840000 >> 12, 0, 0},
+    {0x06800000 >> 12, 0x06840000 >> 12, 0x00020000 >> 12},
+    {0x06820000 >> 12, 0, 0},
+    {0x06800000 >> 12, 0, 0},
+    {0x06860000 >> 12, 0, 0},
+    {0x06800000 >> 12, 0x06860000 >> 12, 0x00020000 >> 12},
+    {0x06820000 >> 12, 0x06860000 >> 12, 0x00020000 >> 12},
+    {0x06800000 >> 12, 0x06860000 >> 12, 0x00040000 >> 12},
+    {0x06840000 >> 12, 0, 0},
+    {0x06800000 >> 12, 0x06840000 >> 12, 0x00020000 >> 12},
+    {0x06820000 >> 12, 0, 0},
+    {0x06800000 >> 12, 0, 0},
 };
-extern const struct _TexStartAddrTable sTexStartAddrTable[16];
 
-extern const u16 sTexPlttStartAddrTable[8];
-
-static u32 sTexLCDCBlk2 = 0;
-static s32 sTex = 0;
-static u32 sClrImgLCDCBlk = 0;
 static s32 sTexPltt = 0;
 static u32 sTexPlttLCDCBlk = 0;
-static u32 sTexLCDCBlk1 = 0;
+
+static const u16 sTexPlttStartAddrTable[8] = {
+    0,
+    0x06880000 >> 12,
+    0x06890000 >> 12,
+    0x06880000 >> 12,
+    0x06894000 >> 12,
+    0,
+    0x06890000 >> 12,
+    0x06880000 >> 12
+};
+
 static s32 sClrImg = 0;
-static u32 sSzTexBlk1 = 0;
+static u32 sClrImgLCDCBlk = 0;
 
 ARM_FUNC void GX_BeginLoadTex(){
     u32 temp = GX_ResetBankForTex();
