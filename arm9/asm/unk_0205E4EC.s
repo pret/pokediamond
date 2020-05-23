@@ -1,11 +1,27 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020F7388
-	.extern UNK_020F73A4
-	.extern UNK_020F7398
-	.extern UNK_020F7390
-	.extern UNK_020F7380
+	.section .rodata
+
+	.global UNK_020F7380
+UNK_020F7380: ; 0x020F7380
+	.word FUN_0205EAB0, FUN_0205EAE0
+
+	.global UNK_020F7388
+UNK_020F7388: ; 0x020F7388
+	.word FUN_0205E554, FUN_0205E598
+
+	.global UNK_020F7390
+UNK_020F7390: ; 0x020F7390
+	.word FUN_0205E768, FUN_0205E7A4
+
+	.global UNK_020F7398
+UNK_020F7398: ; 0x020F7398
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFE, 0xFF, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_020F73A4
+UNK_020F73A4: ; 0x020F73A4
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFE, 0xFF, 0x00, 0x00, 0x00, 0x00
 
 	.text
 
