@@ -760,16 +760,16 @@ ARM_FUNC s32 OS_VSNPrintf(s8 *buffer, s32 bufsz, const s8 *format, void *args)
         else
         {
             enum {
-                blank = 1,
-                plus = 2,
-                sharp = 4,
-                minus = 10,
-                zero = 20,
-                l1 = 40,
-                h1 = 100,
-                l2 = 200,
-                h2 = 400,
-                usigned = 10000,
+                blank = 000001,
+                plus = 000002,
+                sharp = 000004,
+                minus = 000010,
+                zero = 000020,
+                l1 = 000040,
+                h1 = 000100,
+                l2 = 000200,
+                h2 = 000400,
+                usigned = 010000,
                 end
             };
             s32 flag = 0, width = 0, precision = -1, radix = 10;
