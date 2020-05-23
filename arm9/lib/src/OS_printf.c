@@ -1,12 +1,12 @@
 #include "global.h"
 #include "OS_printf.h"
 
-struct printfStr
+typedef struct printfStr
 {
     s32 spaceLeft;
     s8 *stringEnd;
     s8 *stringStart;
-};
+} printfStr;
 
 void string_put_char(struct printfStr *dest, s8 value);
 void string_fill_char(struct printfStr *dest, s8 value, s32 count);
@@ -722,525 +722,420 @@ ARM_FUNC s32 OS_SNPrintf(s8 *buffer, s32 bufsz, const s8 *format, ...)
 
 #ifdef NONMATCHING
 
-struct Unk
-{
-    s32 unk00;
-    s32 unk04;
-    s32 unk08;
-    s32 unk0C;
-    s32 unk10;
-    s32 unk14;
-    s32 unk18;
-    s32 unk1C;
-    s32 unk20;
-    s32 unk24;
-    s32 unk28;
-    s32 unk2C;
-    s32 unk30;
-    s32 unk34;
-    s8 unk38;
-    s8 unk39;
-    s8 unk3A;
-    // not sure about this struct's size or even if it's a single struct
-};
-
 #define va_arg(list, ty) *(ty *)((u32 *)(list = (void *)((u32 *)(list) + 1)) - 1)
 #define va_arg_64(list, sgn) *((sgn##64 *)(list = (void *)((sgn##64 *)(list) + 1)) - 1)
 
 ARM_FUNC s32 OS_VSNPrintf(s8 *buffer, s32 bufsz, const s8 *format, void *args)
 {
-    struct printfStr str;
-    struct Unk unk;
+    s8 buf[24];
+    s32 n_buf;
+    s8 prefix[2];
+    s32 n_prefix;
+
+    const s8 *s = format;
+
+    printfStr str;
     str.spaceLeft = bufsz;
     str.stringStart = buffer;
     str.stringEnd = buffer;
 
-    if (*format != 0)
+    while (*s)
     {
-        // these assignments are likely wrong
-        unk.unk04 = 0;
-        unk.unk0C = 10;
-        unk.unk1C = 32;
-        unk.unk20 = 48;
-        unk.unk08 = 0;
-        unk.unk10 = 87;
-        unk.unk14 = 8;
-        unk.unk18 = 55;
-        unk.unk24 = 16;
-        unk.unk28 = 1;
-        unk.unk34 = 43;
-        unk.unk30 = 45;
-        unk.unk2C = 2;
-        
-
-        do
+        // matches:
+        // binary range        (hex range) [dec range]
+        // 1000 0001-1001 1111 (0x81-0x9F) [129-159]
+        // 1110 0000-1111 1100 (0xE0-0xFC) [224-252]
+        if ((u32)(((u8)*s ^ 0x20) - 0xa1) < 0x3c)
         {
-            s8 c = *format;
-            u32 x = (u8)c;
-
-            // matches:
-            // binary range        (hex range) [dec range]
-            // 1000 0001-1001 1111 (0x81-0x9F) [129-159]
-            // 1110 0000-1111 1100 (0xE0-0xFC) [224-252]
-            if ((x ^ 0x20) - 0xa1 < 0x3c)
+            string_put_char(&str, *s++);
+            if (*s)
             {
-                string_put_char(&str, c);
-                c = *(++format);
-                if (c != 0)
-                {
-                    format++;
-                    string_put_char(&str, c);
-                }
+                string_put_char(&str, *s++);
             }
-            else if (c != '%')
+        }
+        else if (*s != '%')
+        {
+            string_put_char(&str, *s++);
+        }
+        else
+        {
+            enum {
+                blank = 1,
+                plus = 2,
+                sharp = 4,
+                minus = 10,
+                zero = 20,
+                l1 = 40,
+                h1 = 100,
+                l2 = 200,
+                h2 = 400,
+                usigned = 10000,
+                end
+            };
+            s32 flag = 0, width = 0, precision = -1, radix = 10;
+            s8 hex = 'a' - 10;
+            const s8 *p_start = s;
+            for (;;)
             {
-                format++;
-                string_put_char(&str, c);
+                switch (*++s)
+                {
+                case '+':
+                    if (s[-1] != ' ')
+                        break;
+                    flag |= plus;
+                    continue;
+                case ' ':
+                    flag |= blank;
+                    continue;
+                case '-':
+                    flag |= minus;
+                    continue;
+                case '0':
+                    flag |= zero;
+                    continue;
+                }
+                break;
+            }
+            if (*s == '*')
+            {
+                ++s, width = va_arg(args, s32);
+                if (width < 0)
+                {
+                    width = -width, flag |= minus;
+                }
             }
             else
             {
-                s32 flags = unk.unk04;
-                s32 r5 = unk.unk08;
-                s32 r2 = unk.unk0C;
-                s32 r0 = unk.unk10;
-                s32 r10 = flags;
-                const s8 *r3 = format;
-                s8 r4;
-                while (1)
+                while ((*s >= '0') && (*s <= '9'))
                 {
-                    r4 = *(++format);
-                    switch (r4)
-                    {
-                    case '+':
-                        c = *(format - 1);
-                        if (c == ' ')
-                            goto post_padding;
-                        flags |= 0x2;
-                        break;
-                    case ' ':
-                        flags |= 0x1;
-                        break;
-                    case '-':
-                        flags |= 0x8;
-                        break;
-                    case '0':
-                        flags |= 0x10;
-                        break;
-                    default:
-                        goto post_padding;
-                    }
+                    width = (width * 10) + *s++ - '0';
                 }
-            post_padding:
-                if (r4 == '*')
+            }
+
+            if (*s == '.')
+            {
+                ++s, precision = 0;
+                if (*s == '*')
                 {
-                    u32 v = va_arg(args, u32);
-                    format++;
-                    if (v < 0)
+                    ++s, precision = va_arg(args, s32);
+                    if (precision < 0)
                     {
-                        r10 = -r10;
-                        flags |= 0x8;
+                        precision = -1;
                     }
                 }
                 else
                 {
-                    for (c = *format; c >= '0' && c <= '9'; c = *format)
+                    while ((*s >= '0') && (*s <= '9'))
                     {
-                        s8 d = *(format++);
-                        r10 = (r10 * 10 + d) - '0';
+                        precision = (precision * 10) + *s++ - '0';
                     }
                 }
+            }
 
-                c = *format;
-                if (c == '.')
-                {
-                    c = *(++format);
-                    r5 = unk.unk04;
-                    if (c == '*')
-                    {
-                        u32 v = va_arg(args, u32);
-                        format++;
-                        if (v < 0)
-                        {
-                            r5 = unk.unk08;
-                        }
-                    }
-                    for (c = *format; c >= '0' && c <= '9'; c = *format)
-                    {
-                        s8 d = *(format++);
-                        r5 = (r5 * 10 + d) - '0';
-                    }
+            switch (*s)
+            {
+            case 'h':
+                if (*++s != 'h') {
+                    flag |= h1;
                 }
+                else {
+                    ++s, flag |= h2;
+                }
+                break;
+            case 'l':
+                if (*++s != 'l') {
+                    flag |= l1;
+                }
+                else {
+                    ++s, flag |= l2;
+                }
+                break;
+            }
 
-                c = *format;
-                switch (c)
+            switch (*s)
+            {
+            case 'd':
+            case 'i':
+                goto put_int;
+            case 'o':
+                radix = 8;
+                flag |= usigned;
+                goto put_int;
+            case 'u':
+                flag |= usigned;
+                goto put_int;
+            case 'X':
+                hex = 'A' - 10;
+                goto put_hex;
+            case 'x':
+                goto put_hex;
+            case 'p':
+                flag |= sharp;
+                precision = 8;
+                goto put_hex;
+            case 'c':
+                if (precision >= 0)
+                    goto put_invalid;
                 {
-                case 'h':
-                    c = *format++;
-                    if (c != 'h')
+                    s32 v = va_arg(args, s32);
+                    width -= 1;
+                    if (flag & minus)
                     {
-                        flags |= 0x40;
-                        format++;
-                        flags |= 0x100;
+                        string_put_char(&str, (s8)v);
+                        string_fill_char(&str, ' ', width);
                     }
-                    break;
-                case 'l':
-                    c = *format++;
-                    if (c != 'l')
+                    else
                     {
-                        flags |= 0x20;
-                        format++;
-                        flags |= 0x80;
+                        s8 pad = (s8)((flag & zero) ? '0' : ' ');
+                        string_fill_char(&str, pad, width);
+                        string_put_char(&str, (s8)v);
                     }
-                    break;
+                    ++s;
                 }
+                break;
+            case 's':
+            {
+                s32 n_bufs = 0;
+                const s8 *p_bufs = va_arg(args, const s8 *);
+                if (precision < 0)
+                {
+                    while (p_bufs[n_bufs])
+                    {
+                        ++n_bufs;
+                    }
+                }
+                else
+                {
+                    while (n_bufs < precision && p_bufs[n_bufs])
+                    {
+                        ++n_bufs;
+                    }
+                }
+                width -= n_bufs;
+                if (flag & minus)
+                {
+                    string_put_string(&str, p_bufs, n_bufs);
+                    string_fill_char(&str, ' ', width);
+                }
+                else
+                {
+                    s8 pad = (s8)((flag & zero) ? '0' : ' ');
+                    string_fill_char(&str, pad, width);
+                    string_put_string(&str, p_bufs, n_bufs);
+                }
+                ++s;
+            }
+            break;
+            case 'n':
+            {
+                s32 count = str.stringEnd - str.stringStart;
+                if (!(flag & h2))
+                {
+                    if (flag & h1)
+                    {
+                        *va_arg(args, s16 *) = (s16)count;
+                    }
+                    else if (flag & l2)
+                    {
+                        *va_arg(args, u64 *) = (u64)count;
+                    }
+                    else
+                    {
+                        *va_arg(args, s32 *) = count;
+                    }
+                }
+                ++format;
+            }
+            case '%':
+                if (p_start + 1 != s)
+                    goto put_invalid;
+                string_put_char(&str, *s++);
+                break;
 
-                c = *format;
-                switch (c)
+            default:
+                goto put_invalid;
+
+            put_invalid:
+                string_put_string(&str, p_start, s - p_start);
+                break;
+
+            put_hex:
+                radix = 16;
+                flag |= usigned;
+            put_int:
+            {
+                u64 value = 0;
+                n_prefix = 0;
+                if (flag & minus)
                 {
-                case 'o':
-                    r2 = unk.unk14;
-                    flags |= 0x1000;
-                    break;
-                case 'u':
-                    flags |= 0x1000;
-                    break;
-                case 'X':
-                    r0 = unk.unk18;
-                    goto case_x;
-                case 'p':
-                    flags |= 0x4;
-                    r5 = unk.unk14;
-                case 'c':
-                    if ((s32)r5 < 0)
-                    {
-                        r0 = flags & 0x8;
-                        u32 v = va_arg(args, u32);
-                        if (r0)
-                        {
-                            string_put_char(&str, (s8)v);
-                            string_fill_char(&str, (s8)unk.unk1C, r10 - 1);
-                        }
-                        else
-                        {
-                            r0 = flags & 0x10;
-                            if (r0)
-                                r0 = unk.unk20;
-                            else
-                                r0 = unk.unk1C;
-                            string_fill_char(&str, (s8)r0, r10 - 1);
-                            string_put_char(&str, (s8)v);
-                        }
-                        format++;
-                    }
-                    break;
-                case 's':
-                {
-                    s8 *v = *(((s8 **)args)++);
-                    s32 count = unk.unk04;
-                    if (r5 < 0)
-                    {
-                        while (v[count] != 0)
-                        {
-                            count++;
-                        }
-                    }
-                    else
-                    {
-                        while (count < r5 && v[count] != 0)
-                        {
-                            count++;
-                        }
-                    }
-                    r0 = flags & 0x8;
-                    r10 = r10 - count;
-                    if (r0)
-                    {
-                        string_put_string(&str, v, count);
-                        string_fill_char(&str, (s8)unk.unk1C, r10);
-                    }
-                    else
-                    {
-                        r0 = flags & 0x10;
-                        if (r0)
-                            r0 = unk.unk20;
-                        else
-                            r0 = unk.unk1C;
-                        string_fill_char(&str, (s8)r0, r10 - 1);
-                        string_put_string(&str, v, count);
-                    }
-                    format++;
-                    break;
+                    flag &= ~zero;
                 }
-                case 'n':
+                if (precision >= 0)
                 {
-                    r0 = flags & 0x100;
-                    s32 count = str.stringEnd - str.stringStart;
-                    if (!r0)
-                    {
-                        if (flags & 0x40)
-                        {
-                            s16 *v = va_arg(args, s16 *);
-                            *v = (s16)count;
-                        }
-                        else if (flags & 0x80)
-                        {
-                            s64 *v = va_arg(args, s64 *);
-                            *v = count;
-                        }
-                        else
-                        {
-                            s64 *v = va_arg(args, s64 *);
-                            *v = count;
-                        }
-                    }
-                    format++;
+                    flag &= ~zero;
                 }
-                case '%':
-                    if (r3 + 1 == format)
+                else
+                {
+                    precision = 1;
+                }
+                if (flag & usigned)
+                {
+                    if (flag & h2)
                     {
-                        format++;
-                        string_put_char(&str, c);
-                        break;
+                        value = va_arg(args, u8);
+                    }
+                    else if (flag & h1)
+                    {
+                        value = va_arg(args, u16);
+                    }
+                    else if (flag & l2)
+                    {
+                        value = va_arg_64(args, u);
                     }
                     else
                     {
-                        string_put_string(&str, r3, format - r3);
-                        break;
+                        value = va_arg(args, u32);
                     }
-                case 'x':
-                case_x:
-                    r2 = unk.unk24;
-                    flags |= 0x1000;
-                case 'd':
-                case 'i':
-                    if (flags & 0x8)
+                    flag &= ~(plus | blank);
+                    if (flag & sharp)
                     {
-                        flags = flags & ~0x10;
-                    }
-                    if (r5 >= 0)
-                    {
-                        flags = flags & ~0x10;
-                    }
-                    else
-                    {
-                        r5 = unk.unk28;
-                    }
-                    s32 r7 = unk.unk04;
-                    u64 value;
-                    if (flags & 0x1000)
-                    {
-                        if (flags & 0x100)
+                        if (radix == 16)
                         {
-                            value = va_arg(args, u8);
-                        }
-                        else if (flags & 0x40)
-                        {
-                            value = va_arg(args, u16);
-                        }
-                        else if (flags & 0x80)
-                        {
-                            value = va_arg_64(args, u);
-                        }
-                        else
-                        {
-                            value = va_arg(args, u32);
-                        }
-                        flags = flags & ~0x3;
-                        if (flags & 0x4)
-                        {
-                            if (r2 == 0x10)
+                            if (value != 0)
                             {
-                                if (value != 0)
-                                {
-                                    s32 something = unk.unk20;
-                                    s32 somethingElse = unk.unk2C;
-                                    unk.unk39 = (s8)something;
-                                    unk.unk38 = (s8)(something + 0x21);
-                                    // 0x21 could be 'a'-'A'+1
-                                }
+                                prefix[0] = (s8)(hex + (10 - 'x' - 'a'));
+                                prefix[1] = '0';
+                                n_prefix = 2;
                             }
-                            else
+                        }
+                        else
+                        {
+                            if (radix == 8)
                             {
-                                if (r2 == 0x8)
-                                {
-                                    s32 something = unk.unk20;
-                                    r7 = unk.unk28;
-                                    unk.unk38 = (s8)(something);
-                                }
+                                prefix[0] = '0';
+                                n_prefix = 1;
                             }
                         }
                     }
-                    else
-                    {
-                        if (flags & 0x100)
-                        {
-                            s32 x = (s32)va_arg(args, s8);
-                            value = (u64)x;
-                        }
-                        else if (flags & 0x40)
-                        {
-                            s32 x = (s32)va_arg(args, s16);
-                            value = (u64)x;
-                        }
-                        else if (flags & 0x80)
-                        {
-                            s64 dWord = va_arg_64(args, s);
-                            value = (u64)dWord;
-                        }
-                        else
-                        {
-                            s32 x = va_arg(args, s32);
-                            value = (u64)value;
-                        }
+                }
+                else {
+                    if (flag & h2) {
+                        value = va_arg(args, s8);
+                    } else if (flag & h1) {
+                        value = va_arg(args, s16);
+                    } else if (flag & l2) {
+                        value = va_arg_64(args, u);
+                    } else {
+                        value = va_arg(args, s32);
+                    }
 
-                        if (value & 0x8000000000000000)
-                        {
-                            unk.unk38 = (s8)unk.unk30;
-                            value = ~value + 1;
-                            r7 = unk.unk28;
-                        }
-                        else
-                        {
-                            if (value || r5)
-                            {
-                                if (flags & 0x2)
-                                {
-                                    r7 = unk.unk28;
-                                    unk.unk38 = (s8)unk.unk34;
-                                }
-                                else if (flags & 0x1)
-                                {
-                                    r7 = unk.unk28;
-                                    unk.unk38 = (s8)unk.unk1C;
-                                }
+                    if ((value >> 32) & 0x80000000) {
+                        value = ~value + 1;
+                        prefix[0] = '-';
+                        n_prefix = 1;
+                    } else {
+                        if (value || precision) {
+                            if (flag & plus) {
+                                prefix[0] = '+';
+                                n_prefix = 1;
+                            } else if (flag & blank) {
+                                prefix[0] = ' ';
+                                n_prefix = 1;
                             }
                         }
-                        s32 r8 = flags;
-                        switch (r2)
-                        {
+                    }
+                    n_buf = 0;
+                    switch (radix) {
                         case 8:
-                            while (value != 0)
-                            {
-                                u32 octDig = ((u32)value & 0x7) + '0';
-                                s8 *p = &unk.unk3A;
-                                p[r8] = (s8)octDig;
-                                value = value >> 3;
-                                r8++;
+                            while (value != 0) {
+                                s32 octDig = (s32) (value & 0x7);
+                                value >>= 3;
+                                buf[n_buf++] = (s8) (octDig + '0');
                             }
                             break;
                         case 10:
-                            if (value >> 32 == 0)
-                            {
-                                u32 v = (u32)value;
-                                while (v)
-                                {
+                            if (value >> 32 == 0) {
+                                u32 v = (u32) value;
+                                while (v) {
                                     u32 div10 = v / 10;
-                                    u32 dig = v - div10;
+                                    s32 dig = (s32) (v - (div10 * 10));
                                     v = div10;
-                                    s8 *p = &unk.unk3A;
-                                    p[r8] = (s8)dig;
-                                    r8++;
+                                    buf[n_buf++] = (s8) (dig + '0');
                                 }
-                            }
-                            else
-                            {
-                                while (value)
-                                {
+                            } else {
+                                while (value) {
                                     u64 div10 = value / 10;
-                                    u32 dig = (u32)(value - div10);
+                                    s32 dig = (s32) (value - (div10 * 10));
                                     value = div10;
-                                    s8 *p = &unk.unk3A;
-                                    p[r8] = (s8)dig;
-                                    r8++;
+                                    buf[n_buf++] = (s8) (dig + '0');
                                 }
                             }
                             break;
                         case 16:
-                            while (value != 0)
-                            {
-                                u32 hexDig = ((u32)value & 0xf);
-                                value = value >> 4;
-                                if (hexDig < 10)
-                                    hexDig = hexDig + '0';
-                                else
-                                    hexDig = hexDig + r0;
-                                s8 *p = &unk.unk3A;
-                                p[r8] = (s8)hexDig;
-                                r8++;
+                            while (value != 0) {
+                                s32 hexDig = (s32) (value & 0xf);
+                                value >>= 4;
+                                buf[n_buf++] = (s8) ((hexDig < 10) ? (hexDig + '0') : (hexDig + hex));
                             }
                             break;
-                        }
-                        if (r7 > 0)
-                        {
-                            if (unk.unk38 == '0')
-                            {
-                                s8 *p = &unk.unk3A;
-                                p[r8] = (s8)unk.unk20;
-                                r7 = flags;
-                                r8++;
-                            }
-                            r5 = r5 - r8;
-                            if (flags & 0x10)
-                            {
-                                if (r5 < r10 - r8 - r7)
-                                {
-                                    r5 = r10 - r8 - r7;
-                                }
-                            }
-                            if (r5 > 0)
-                            {
-                                r10 = r10 - r5;
-                            }
-
-                            r10 = r10 - (r7 + r8);
-                            flags = flags & 0x8;
-                            if (!flags)
-                            {
-                                string_fill_char(&str, (s8)unk.unk1C, r10);
-                            }
-                            s8 *x = &unk.unk38 + r7;
-                            while (r7 > 0)
-                            {
-                                s8 ch = *(x--);
-                                r7--;
-                                string_put_char(&str, ch);
-                            }
-                            string_fill_char(&str, (s8)unk.unk20, r5);
-                            x = &unk.unk3A + r8;
-                            while (r8 > 0)
-                            {
-                                s8 ch = *(x--);
-                                r8--;
-                                string_put_char(&str, ch);
-                            }
-                            if (flags)
-                            {
-                                string_fill_char(&str, (s8)unk.unk1C, r10);
-                            }
+                    }
+                    if (n_prefix > 0) {
+                        if (prefix[0] == '0') {
+                            n_prefix = 0;
+                            buf[n_buf++] = '0';
                         }
                     }
-                    format++;
-                    break;
                 }
-                if (str.spaceLeft != 0)
-                {
-                    *str.stringEnd = 0;
+                    goto put_to_stream;
+
+                    put_to_stream:
+                    {
+                        s32 n_pad = (s32)(precision - n_buf);
+                        if (flag & zero)
+                        {
+                            if (n_pad < width - n_buf - n_prefix)
+                            {
+                                n_pad = (s32)(width - n_buf - n_prefix);
+                            }
+                        }
+                        if (n_pad > 0)
+                        {
+                            width -= n_pad;
+                        }
+
+                        width -= n_prefix + n_buf;
+                        if (!(flag & minus))
+                        {
+                            string_fill_char(&str, ' ', width);
+                        }
+                        while (n_prefix > 0)
+                        {
+                            string_put_char(&str, prefix[--n_prefix]);
+                        }
+                        string_fill_char(&str, '0', n_pad);
+                        while (n_buf > 0)
+                        {
+                            string_put_char(&str, buf[--n_buf]);
+                        }
+                        if (flag & minus)
+                        {
+                            string_fill_char(&str, ' ', width);
+                        }
+                        ++s;
+                    }
                 }
-                else if (unk.unk00 != 0)
-                {
-                    *(str.stringStart + unk.unk00 - 1) = 0;
-                }
+                break;
             }
-        } while (*format != 0);
+        }
     }
 
-    if (str.spaceLeft != 0)
+    if (str.spaceLeft > 0)
     {
-        *str.stringEnd = 0;
+        *str.stringEnd = '\0';
     }
-    else if (unk.unk00 != 0)
+    else if (bufsz > 0)
     {
-        str.stringStart[unk.unk00] = 0;
+        str.stringStart[bufsz - 1] = '\0';
     }
     return str.stringEnd - str.stringStart;
 }
