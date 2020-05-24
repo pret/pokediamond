@@ -3450,7 +3450,7 @@ FUN_020B04A8: ; 0x020B04A8
 	bx lr
 
 	arm_func_start FUN_020B04C0
-FUN_020B04C0:
+FUN_020B04C0: ; 0x020B04C0
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	add r0, r4, #0x1c
@@ -3466,6 +3466,9 @@ FUN_020B04C0:
 	str r1, [r4, #0x14]
 	str r1, [r4, #0x18]
 	ldmia sp!, {r4,pc}
+
+	arm_func_start FUN_020B04FC
+FUN_020B04FC: ; 0x020B04FC
 	ldr r1, [r0, #0x18]
 	ldr r2, [r0, #0x0]
 	ldr r0, [r1, #0xc]

@@ -67,13 +67,13 @@ FUN_02037334: ; 0x02037334
 	push {r3, lr}
 	bl FUN_020374B0
 	ldr r0, _02037348 ; =SDK_OVERLAY_MODULE_63_ID
-	ldr r1, _0203734C ; =0x021DBAB8
+	ldr r1, _0203734C ; =UNK63_021DBAB8
 	bl FUN_02000E7C
 	mov r0, #0x1
 	pop {r3, pc}
 	nop
 _02037348: .word SDK_OVERLAY_MODULE_63_ID
-_0203734C: .word 0x021DBAB8
+_0203734C: .word UNK63_021DBAB8
 
 	thumb_func_start LoadOverlay_MODULE_05
 LoadOverlay_MODULE_05: ; 0x02037350
@@ -99,7 +99,7 @@ _0203736C:
 	ldr r0, [r4, #0x0]
 	mov r2, #0xb
 	str r1, [r0, #0x8]
-	ldr r0, _02037390 ; =0x021F64C8
+	ldr r0, _02037390 ; =UNK05_021F64C8
 	add r1, r4, #0x0
 	bl FUN_02006234
 	ldr r1, [r4, #0x0]
@@ -107,7 +107,7 @@ _0203736C:
 	pop {r4, pc}
 	.balign 4
 _0203738C: .word SDK_OVERLAY_MODULE_05_ID
-_02037390: .word 0x021F64C8
+_02037390: .word UNK05_021F64C8
 
 	thumb_func_start FUN_02037394
 FUN_02037394: ; 0x02037394

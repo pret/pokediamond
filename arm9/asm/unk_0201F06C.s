@@ -2530,12 +2530,12 @@ _02020222:
 
 	thumb_func_start FUN_0202022C
 FUN_0202022C: ; 0x0202022C
-	ldr r3, _02020234 ; =0x020B04FC
+	ldr r3, _02020234 ; =FUN_020B04FC
 	add r0, #0x40
 	add r0, #0x8
 	bx r3
 	.balign 4
-_02020234: .word 0x020B04FC
+_02020234: .word FUN_020B04FC
 
 	thumb_func_start FUN_02020238
 FUN_02020238: ; 0x02020238

@@ -284,7 +284,7 @@ _0205C54C:
 _0205C550:
 	sub r2, r0, #0x1
 	mov r0, #0xc
-	ldr r3, _0205C594 ; =0x021F9194
+	ldr r3, _0205C594 ; =UNK05_021F9194
 	mul r0, r2
 	add r2, r3, r0
 	cmp r1, #0x5
@@ -321,4 +321,4 @@ _0205C588:
 	pop {r3, pc}
 	.balign 4
 _0205C590: .word 0x0000FFFF
-_0205C594: .word 0x021F9194
+_0205C594: .word UNK05_021F9194
