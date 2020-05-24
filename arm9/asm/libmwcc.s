@@ -2,6 +2,12 @@
 	.include "global.inc"
 	.extern UNK_021D74A8
 
+	.section .bss
+
+	.global __global_destructor_chain
+__global_destructor_chain: ; 0x021D74C8
+	.space 0x18
+
 	.section .text
 	.balign 4, 0
 
@@ -3102,15 +3108,11 @@ __close_console: ; 0x020EC68C
 	mov r0, #0x0
 	bx lr
 
-	.section .rodata
-__static_initializers:
-	.word 0
-
-	.section .text
+	.extern SDK_STATIC_SINIT_START
 	arm_func_start __call_static_initializers
 __call_static_initializers: ; 0x020EC694
 	stmdb sp!, {r4,lr}
-	ldr r4, _020EC6BC ; =__static_initializers
+	ldr r4, _020EC6BC ; =SDK_STATIC_SINIT_START
 	b _020EC6A8
 _020EC6A0:
 	blx r0
@@ -3122,7 +3124,7 @@ _020EC6A8:
 	bne _020EC6A0
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020EC6BC: .word __static_initializers
+_020EC6BC: .word SDK_STATIC_SINIT_START
 
 	arm_func_start __destroy_global_chain
 __destroy_global_chain: ; 0x020EC6C0
@@ -3153,3 +3155,21 @@ _ExitProcess: ; 0x020EC704
 	bx r12
 	.balign 4
 _020EC70C: .word sys_exit
+
+	.section .exception
+	.word 0x00200100
+	.word __read_console
+	.short 81
+	.word 0x00300F00
+	.word __write_console
+	.short 53
+	.word 0x00200700
+	.word __call_static_initializers
+	.short 45
+	.word 0x00100100
+	.word __destroy_global_chain
+	.short 69
+	.word 0x00200300
+	.word _ExitProcess
+	.short 13
+	.word 0x00000000

@@ -5,7 +5,12 @@
 	.extern UNK_021D5BE0
 	.extern cardi_common
 	.extern UNK_02106A50
-	.extern UNK_021D5C00
+
+	.section .bss
+
+	.global UNK_021D5C00
+UNK_021D5C00: ; 0x021D5C00
+	.space 0x220
 
     .text
 

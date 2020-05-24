@@ -1,6 +1,20 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.section .bss
+
+	.global OSi_UseTick
+OSi_UseTick: ; 0x021D37AC
+	.space 0x4
+
+	.global OSi_NeedResetTimer
+OSi_NeedResetTimer: ; 0x021D37B0
+	.space 0x4
+
+	.global OSi_TickCounter
+OSi_TickCounter: ; 0x021D37B4
+	.space 0x8
+
     .text
 
 	arm_func_start OS_GetTickLo

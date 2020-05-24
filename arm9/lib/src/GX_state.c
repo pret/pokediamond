@@ -2,7 +2,7 @@
 #include "main.h"
 #include "GX.h"
 
-extern struct GX_State gGXState;
+struct GX_State gGXState;
 
 ARM_FUNC void GX_InitGXState(){
     gGXState.lcdc = 0x0;

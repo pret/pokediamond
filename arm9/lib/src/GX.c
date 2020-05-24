@@ -2,10 +2,11 @@
 #include "main.h"
 #include "GX.h"
 
-extern u16 GXi_VRamLockId;
-extern u16 sDispMode;
-extern u32 GXi_DmaId;
-extern u16 sIsDispOn;
+u32 GXi_DmaId = 3;
+vu16 GXi_VRamLockId = 0;
+
+static u16 sDispMode = 0;
+static u16 sIsDispOn = TRUE;
 
 ARM_FUNC void GX_Init(){
     reg_GX_POWCNT |= 0x8000;

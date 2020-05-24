@@ -50,6 +50,10 @@ extern void FUN_02016464(void);
 extern struct Unk21DBE18 MOD63_UNK_021DBE18; 
 extern struct Unk21DBE18 MOD52_UNK_021D76C8;
 
+extern u8 SDK_STATIC_BSS_START[];
+
+const enum GameVersion gGameVersion = VERSION_DIAMOND;
+const enum GameLanguage gGameLanguage = LANGUAGE_ENGLISH;
 
 THUMB_FUNC void NitroMain(void)
 {
@@ -58,7 +62,7 @@ THUMB_FUNC void NitroMain(void)
     FUN_020163BC();
     FUN_02016438(0);
 
-    PM_GetBackLight(&gBacklightTop_2.unk0, NULL);
+    PM_GetBackLight((PMBackLightSwitch *)SDK_STATIC_BSS_START, NULL);
 
     FUN_02022294();
     FUN_0201259C();

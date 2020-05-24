@@ -1,6 +1,10 @@
     .include "asm/macros.inc"
     .include "global.inc"
-	.extern isInitialized
+
+	.section .bss
+	.global isInitialized
+isInitialized: ; 0x021D347C
+	.space 0x4
 
     .text
 

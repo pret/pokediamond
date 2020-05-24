@@ -8,7 +8,7 @@ struct LoadedOverlay {
     BOOL active;
 };
 
-extern struct LoadedOverlay gLoadedOverlays[3][8];
+static struct LoadedOverlay gLoadedOverlays[3][8];
 
 struct LoadedOverlay* GetLoadedOverlaysInRegion(int);
 BOOL GetOverlayRamBounds(FSOverlayID, void**, void**);

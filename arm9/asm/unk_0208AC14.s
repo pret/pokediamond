@@ -1,17 +1,34 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_021C8C6C
-	.extern UNK_021C8C68
-	.extern UNK_02106168
-	.extern UNK_021C8C60
-	.extern UNK_021064C0
 	.extern UNK_020FFA38
-	.extern UNK_021C8C5C
-	.extern UNK_02106160
-	.extern UNK_021064B8
-	.extern UNK_021C8C64
 	.extern UNK_02106158
+	.extern UNK_02106160
+	.extern UNK_02106168
+	.extern UNK_021064B8
+	.extern UNK_021064C0
+
+	.section .bss
+
+	.global UNK_021C8C5C
+UNK_021C8C5C: ; 0x021C8C5C
+	.space 0x4
+
+	.global UNK_021C8C60
+UNK_021C8C60: ; 0x021C8C60
+	.space 0x4
+
+	.global UNK_021C8C64
+UNK_021C8C64: ; 0x021C8C64
+	.space 0x4
+
+	.global UNK_021C8C68
+UNK_021C8C68: ; 0x021C8C68
+	.space 0x4
+
+	.global UNK_021C8C6C
+UNK_021C8C6C: ; 0x021C8C6C
+	.space 0x4
 
 	.text
 
@@ -102,7 +119,6 @@ FUN_0208ACEC: ; 0x0208ACEC
 	add r1, r1, r6, lsl #0x5
 	mov r4, r0
 	bl FUN_0208C138
-_0208AD3C: ; 0x0208AD3C
 	cmp r5, #0x0
 	beq _0208AD4C
 	mov r0, r4
@@ -697,7 +713,6 @@ FUN_0208B4A0: ; 0x0208B4A0
 	mov r9, r0
 	mov r1, #0x0
 	bl MI_CpuFill8
-_0208B594: ; 0x0208B594
 	cmp r7, #0x0
 	mov r10, #0x0
 	ble _0208B5C0
@@ -719,7 +734,6 @@ _0208B5C0:
 	mov r1, #0x0
 	mov r8, r0
 	bl MI_CpuFill8
-_0208B5E0: ; 0x0208B5E0
 	cmp r6, #0x0
 	mov r7, #0x0
 	ble _0208B60C
@@ -792,7 +806,6 @@ FUN_0208B6A0: ; 0x0208B6A0
 	movs r2, r2, lsr #0x1f
 	beq _0208B6F8
 	bl FUN_0208B71C
-_0208B6CC: ; 0x0208B6CC
 	ldr r0, [r5, #0x0]
 	mov r0, r0, lsl #0x9
 	movs r0, r0, lsr #0x1f
@@ -903,7 +916,6 @@ FUN_0208B804: ; 0x0208B804
 	ldrb r1, [r5, #0x47]
 	mla r0, r1, r0, r2
 	bl FUN_0208C408
-_0208B830: ; 0x0208B830
 	ldr r0, [r5, #0x0]
 	mov r0, r0, lsl #0x1a
 	mov r0, r0, lsr #0x1e
@@ -1000,7 +1012,6 @@ _0208B95C:
 	ldrh r0, [r9, #0x4c]
 	ldrb r1, [r9, #0x80]
 	bl _s32_div_f
-_0208B968: ; 0x0208B968
 	cmp r1, #0x0
 	bne _0208B9A4
 	ldr r1, [r9, #0x24]
@@ -1225,7 +1236,6 @@ _0208BBA0:
 	mov r0, r0, asr #0xc
 	ldrb r1, [r1, #0xe]
 	bl _s32_div_f
-_0208BCC0: ; 0x0208BCC0
 	cmp r1, #0x0
 	bne _0208BCD8
 	mov r0, r4
@@ -1988,7 +1998,6 @@ _0208C79C:
 	str r0, [sp, #0x2c]
 	ldr r0, [r5, #0x44]
 	bl G3_LoadMtx43
-_0208C80C: ; 0x0208C80C
 	add r0, sp, #0x0
 	bl G3_MultMtx43
 	b _0208C8BC
@@ -2032,7 +2041,6 @@ _0208C818:
 	str r3, [r0, #0x0]
 	ldr r0, [r5, #0x44]
 	bl G3_MultMtx43
-_0208C8B4: ; 0x0208C8B4
 	add r0, sp, #0x0
 	bl G3_MultMtx43
 _0208C8BC:
@@ -2291,7 +2299,6 @@ _0208CC18:
 	str r0, [sp, #0x2c]
 	ldr r0, [r5, #0x44]
 	bl G3_LoadMtx43
-_0208CC88: ; 0x0208CC88
 	add r0, sp, #0x0
 	bl G3_MultMtx43
 	b _0208CD38
@@ -2335,7 +2342,6 @@ _0208CC94:
 	str r3, [r0, #0x0]
 	ldr r0, [r5, #0x44]
 	bl G3_MultMtx43
-_0208CD30: ; 0x0208CD30
 	add r0, sp, #0x0
 	bl G3_MultMtx43
 _0208CD38:
@@ -2517,7 +2523,6 @@ _0208CF70:
 	str r0, [sp, #0x2c]
 	ldr r0, [r5, #0x44]
 	bl G3_LoadMtx43
-_0208CFE0: ; 0x0208CFE0
 	add r0, sp, #0x0
 	bl G3_MultMtx43
 	b _0208D090
@@ -2561,7 +2566,6 @@ _0208CFEC:
 	str r3, [r0, #0x0]
 	ldr r0, [r5, #0x44]
 	bl G3_MultMtx43
-_0208D088: ; 0x0208D088
 	add r0, sp, #0x0
 	bl G3_MultMtx43
 _0208D090:
@@ -2741,7 +2745,6 @@ _0208D2C0:
 	str r0, [sp, #0x2c]
 	ldr r0, [r5, #0x44]
 	bl G3_LoadMtx43
-_0208D330: ; 0x0208D330
 	add r0, sp, #0x0
 	bl G3_MultMtx43
 	b _0208D3E0
@@ -2785,7 +2788,6 @@ _0208D33C:
 	str r3, [r0, #0x0]
 	ldr r0, [r5, #0x44]
 	bl G3_MultMtx43
-_0208D3D8: ; 0x0208D3D8
 	add r0, sp, #0x0
 	bl G3_MultMtx43
 _0208D3E0:
@@ -4750,7 +4752,6 @@ _0208F13C:
 	add r0, r9, #0x8
 	mov r1, r7
 	bl FUN_02090AA4
-_0208F160: ; 0x0208F160
 	ldr r0, [r8, #0x0]
 	mov r0, r0, lsl #0x1c
 	mov r0, r0, lsr #0x1c
@@ -4947,7 +4948,6 @@ _0208F328:
 _0208F428:
 	add r0, sp, #0x70
 	bl FUN_02090AF4
-_0208F430: ; 0x0208F430
 	ldr r0, [r6, #0x0]
 	ldr r3, [sp, #0x70]
 	mla r1, r0, r4, r5
@@ -5009,7 +5009,6 @@ _0208F4E4:
 	add r1, r7, #0x8
 	str r2, [sp, #0x7c]
 	bl VEC_DotProduct
-_0208F520: ; 0x0208F520
 	cmp r0, #0x0
 	bgt _0208F54C
 	ldr r0, [r7, #0x8]
@@ -5064,7 +5063,6 @@ _0208F5B4:
 	add r1, r7, #0x8
 	str r2, [sp, #0x88]
 	bl VEC_DotProduct
-_0208F5F0: ; 0x0208F5F0
 	cmp r0, #0x0
 	bge _0208F61C
 	ldr r0, [r7, #0x8]
@@ -5179,7 +5177,6 @@ _0208F720:
 _0208F7A4:
 	add r0, r7, #0x14
 	bl FUN_02090AF4
-_0208F7AC: ; 0x0208F7AC
 	ldr r0, [r6, #0x0]
 	mov r3, #0x800
 	mla r2, r0, r4, r5
@@ -5586,7 +5583,6 @@ FUN_0208FDA8: ; 0x0208FDA8
 	add r0, r4, #0x84
 	add r1, r4, #0x8a
 	bl VEC_Fx16CrossProduct
-_0208FDCC: ; 0x0208FDCC
 	add r0, sp, #0x0
 	mov r1, r0
 	bl VEC_Fx16Normalize
@@ -6116,7 +6112,6 @@ FUN_02090540: ; 0x02090540
 	sub r0, r0, r5
 	mul r0, r2, r0
 	bl _s32_div_f
-_02090574: ; 0x02090574
 	add r0, r5, r0
 	add sp, sp, #0x4
 	strh r0, [r4, #0x34]
@@ -6136,7 +6131,6 @@ _02090588:
 	sub r0, r5, r0
 	mul r0, r2, r0
 	bl _s32_div_f
-_020905BC: ; 0x020905BC
 	add r0, r5, r0
 	strh r0, [r4, #0x34]
 	add sp, sp, #0x4
@@ -6368,7 +6362,6 @@ FUN_020908DC: ; 0x020908DC
 	ldrh r1, [r5, #0x6]
 	mov r4, r2
 	bl _s32_div_f
-_020908F8: ; 0x020908F8
 	cmp r1, #0x0
 	addne sp, sp, #0x4
 	ldmneia sp!, {r4-r5,lr}
@@ -6660,7 +6653,6 @@ FUN_02090CC8: ; 0x02090CC8
 	mov r0, #0xf
 	mov r1, #0x1
 	bl PXI_IsCallbackReady
-_02090CE4: ; 0x02090CE4
 	cmp r0, #0x0
 	moveq r0, #0x2
 	ldmeqia sp!, {r4-r6,lr}
@@ -6679,7 +6671,6 @@ _02090D1C:
 	mov r0, #0xf
 	mov r1, #0x0
 	bl PXI_IsCallbackReady
-_02090D28: ; 0x02090D28
 	cmp r0, #0x0
 	bne _02090D3C
 	ldr r1, _02090DAC ; =FUN_02090BBC
@@ -6698,7 +6689,6 @@ _02090D3C:
 	mov r2, #0x0
 	str r5, [r3, #0x0]
 	bl PXI_SendWordByFifo
-_02090D6C: ; 0x02090D6C
 	cmp r0, #0x0
 	bge _02090D94
 	ldr r1, _02090DA8 ; =UNK_021C8C6C
@@ -6731,7 +6721,6 @@ FUN_02090DB8: ; 0x02090DB8
 	mov r0, #0xf
 	mov r1, #0x1
 	bl PXI_IsCallbackReady
-_02090DD8: ; 0x02090DD8
 	cmp r0, #0x0
 	moveq r0, #0x2
 	ldmeqia sp!, {r4-r8,lr}
@@ -6784,7 +6773,6 @@ _02090E84:
 	mov r0, #0x4
 	ldrh r1, [r1, #0x0]
 	bl OSi_TryLockVram
-_02090E94: ; 0x02090E94
 	cmp r0, #0x0
 	bne _02090EB0
 	mov r0, r4
@@ -6805,7 +6793,6 @@ _02090ECC:
 	mov r0, #0x8
 	ldrh r1, [r1, #0x0]
 	bl OSi_TryLockVram
-_02090EDC: ; 0x02090EDC
 	cmp r0, #0x0
 	bne _02090EF8
 	mov r0, r4
@@ -6826,7 +6813,6 @@ _02090F14:
 	mov r0, #0xc
 	ldrh r1, [r1, #0x0]
 	bl OSi_TryLockVram
-_02090F24: ; 0x02090F24
 	cmp r0, #0x0
 	bne _02090F40
 	mov r0, r4
@@ -6854,7 +6840,6 @@ _02090F78:
 	mov r0, #0xf
 	mov r1, #0x0
 	bl PXI_IsCallbackReady
-_02090F84: ; 0x02090F84
 	cmp r0, #0x0
 	bne _02090F98
 	ldr r1, _02091034 ; =FUN_02090BBC
@@ -6873,7 +6858,6 @@ _02090F98:
 	mov r2, #0x0
 	str r5, [r3, #0x0]
 	bl PXI_SendWordByFifo
-_02090FC8: ; 0x02090FC8
 	cmp r0, #0x0
 	bge _0209100C
 	ldr r0, _02091028 ; =UNK_021C8C64

@@ -1,15 +1,86 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021C46B8
-	.extern UNK_020ECEF4
-	.extern UNK_021C4740
-	.extern UNK_021C46F8
-	.extern UNK_021C4728
-	.extern UNK_021C47F4
-	.extern UNK_021C46C8
-	.extern UNK_021C46B4
-	.extern UNK_021C46BC
+	.section .rodata
+
+	.global UNK_020ECEF4
+UNK_020ECEF4: ; 0x020ECEF4
+	.word FUN_0200E850
+	.word FUN_0200E86C
+	.word FUN_0200E88C
+	.word FUN_0200E8C8
+	.word FUN_0200E900
+	.word FUN_0200E93C
+	.word FUN_0200E974
+	.word FUN_0200E9A0
+	.word FUN_0200E9CC
+	.word FUN_0200EA08
+	.word FUN_0200EA40
+	.word FUN_0200EA7C
+	.word FUN_0200EAB4
+	.word FUN_0200EAE0
+	.word FUN_0200EB0C
+	.word FUN_0200EB40
+	.word FUN_0200EB70
+	.word FUN_0200EB9C
+	.word FUN_0200EBC8
+	.word FUN_0200EBF4
+	.word FUN_0200EC20
+	.word FUN_0200EC4C
+	.word FUN_0200EC78
+	.word FUN_0200ECA4
+	.word FUN_0200ECD0
+	.word FUN_0200ECFC
+	.word FUN_0200ED28
+	.word FUN_0200ED54
+	.word FUN_0200ED80
+	.word FUN_0200EDD4
+	.word FUN_0200EE24
+	.word FUN_0200EE60
+	.word FUN_0200EE98
+	.word FUN_0200EED8
+	.word FUN_0200EF14
+	.word FUN_0200EF54
+	.word FUN_0200EF90
+	.word FUN_0200EFBC
+	.word FUN_0200EFE8
+	.word FUN_0200F014
+	.word FUN_0200F040
+	.word FUN_0200F07C
+
+	.section .bss
+
+	.global UNK_021C46B4
+UNK_021C46B4: ; 0x021C46B4
+	.space 0x4
+
+	.global UNK_021C46B8
+UNK_021C46B8: ; 0x021C46B8
+	.space 0x4
+
+	.global UNK_021C46BC
+UNK_021C46BC: ; 0x021C46BC
+	.space 0xc
+
+	.global UNK_021C46C8
+UNK_021C46C8: ; 0x021C46C8
+	.space 0x30
+
+	.global UNK_021C46F8
+UNK_021C46F8: ; 0x021C46F8
+	.space 0x30
+
+	.global UNK_021C4728
+UNK_021C4728: ; 0x021C4728
+	.space 0x18
+
+	.global UNK_021C4740
+UNK_021C4740: ; 0x021C4740
+	.space 0xb4
+
+	.global UNK_021C47F4
+UNK_021C47F4: ; 0x021C47F4
+	.space 0x14
 
 	.text
 

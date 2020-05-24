@@ -1,8 +1,14 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
+	.section .bss
 
-	.extern UNK_021D5364
-	.extern UNK_021D5368
+	.global UNK_021D5364
+UNK_021D5364: ; 0x021D5364
+	.space 0x4
+
+	.global UNK_021D5368
+UNK_021D5368: ; 0x021D5368
+	.space 0x80
 
 	.text
 

@@ -7,8 +7,9 @@
 #include "OS_protectionRegion.h"
 #include "OS_emulator.h"
 
-extern BOOL OSi_MainExArenaEnabled;
-extern BOOL OSi_Initialized;  // TODO: located at 0x021d36f0
+static BOOL OSi_Initialized = FALSE;
+static BOOL OSi_MainExArenaEnabled = FALSE;
+
 void SDK_MAIN_ARENA_LO(); // TODO: technically this should be defined in the lcf
 extern void SDK_SECTION_ARENA_EX_START(); // TODO: technically this should be defined in the lcf
 extern void SDK_SECTION_ARENA_ITCM_START(); // TODO: technically this should be defined in the lcf

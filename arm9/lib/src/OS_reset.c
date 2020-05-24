@@ -8,8 +8,9 @@
 #include "OS_terminate_proc.h"
 #include "OS_interrupt.h"
 
-extern u16 OSi_IsInitReset;
-extern vu16 OSi_IsResetOccurred;
+static u16 OSi_IsInitReset = 0;
+vu16 OSi_IsResetOccurred = 0;
+
 extern void PXI_Init();
 extern u32 PXI_IsCallbackReady(u32 param1, u32 param2);
 extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);

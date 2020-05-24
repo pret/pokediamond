@@ -3,7 +3,12 @@
 
 	.extern UNK_02105D58
 	.extern gUnknown21C48B8
-	.extern UNK_021C59F4
+
+	.section .bss
+
+	.global UNK_021C59F4
+UNK_021C59F4: ; 0x021C59F4
+	.space 0x8
 
 	.text
 

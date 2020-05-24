@@ -1,9 +1,20 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_021C3DE0
-	.extern UNK_020ECB8C
-	.extern UNK_021C3DD8
+	.section .bss
+	.global UNK_021C3DD8
+UNK_021C3DD8: ; 0x021C3DD8
+	.space 0x8
+
+	.global UNK_021C3DE0
+UNK_021C3DE0: ; 0x021C3DE0
+	.space 0x7d0
+
+	.section .rodata
+
+	.global UNK_020ECB8C
+UNK_020ECB8C: ; 0x020ECB8C
+	.byte 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 	.text
 

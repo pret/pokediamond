@@ -1,13 +1,47 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020EDB30
-	.extern UNK_020EDB68
-	.extern UNK_020EDB44
-	.extern UNK_020EDB5C
-	.extern UNK_020EDB38
-	.extern UNK_020EDB74
-	.extern UNK_020EDB50
+	.section .rodata
+
+	.global UNK_020EDB30
+UNK_020EDB30: ; 0x020EDB30
+	.byte 0x10, 0x20, 0x20, 0x20, 0x20, 0x20, 0x00, 0x00
+
+	.global UNK_020EDB38
+UNK_020EDB38: ; 0x020EDB38
+	.word FUN_020192D4
+	.word FUN_02019358
+	.word FUN_020192D4
+
+	.global UNK_020EDB44
+UNK_020EDB44: ; 0x020EDB44
+	.word FUN_020195D0
+	.word FUN_0201960C
+	.word FUN_020195D0
+
+	.global UNK_020EDB50
+UNK_020EDB50: ; 0x020EDB50
+	.word FUN_020195A8
+	.word FUN_020195E4
+	.word FUN_020195A8
+
+	.global UNK_020EDB5C
+UNK_020EDB5C: ; 0x020EDB5C
+	.word FUN_020194C8
+	.word FUN_0201951C
+	.word FUN_020194C8
+
+	.global UNK_020EDB68
+UNK_020EDB68: ; 0x020EDB68
+	.word FUN_0201949C
+	.word FUN_020194E0
+	.word FUN_0201949C
+
+	.global UNK_020EDB74
+UNK_020EDB74: ; 0x020EDB74
+	.word FUN_020193B4
+	.word FUN_02019444
+	.word FUN_020193B4
 
 	.text
 

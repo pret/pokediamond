@@ -1,7 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020F7630
+	.section .rodata
+
+	.global UNK_020F7630
+UNK_020F7630: ; 0x020F7630
+	.word MOD81_02237E40, MOD81_02238064, MOD81_02238004, SDK_OVERLAY_MODULE_81_ID
 
 	.text
 

@@ -1,7 +1,11 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020ED72C
+	.section .rodata
+
+	.global UNK_020ED72C
+UNK_020ED72C: ; 0x020ED72C
+	.byte 0x00, 0x00, 0xD0, 0x07, 0xB8, 0x0B, 0x00, 0x00
 
 	.text
 

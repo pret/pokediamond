@@ -1,6 +1,24 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.section .bss
+
+	.global OSi_UserExceptionHandler
+OSi_UserExceptionHandler: ; 0x021D371C
+	.space 0x4
+
+	.global OSi_UserExceptionHandlerArg
+OSi_UserExceptionHandlerArg: ; 0x021D3720
+	.space 0x4
+
+	.global OSi_DebuggerHandler
+OSi_DebuggerHandler: ; 0x021D3724
+	.space 0x4
+
+	.global OSi_ExContext
+OSi_ExContext: ; 0x021D3728
+	.space 0x80
+
     .text
 
 	arm_func_start OSi_ExceptionHandler

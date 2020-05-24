@@ -1,8 +1,15 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020F7430
-	.extern UNK_020F7436
+	.section .rodata
+
+	.global UNK_020F7430
+UNK_020F7430: ; 0x020F7430
+	.byte 0x09, 0x12, 0x12, 0x11, 0x23, 0x11
+
+	.global UNK_020F7436
+UNK_020F7436: ; 0x020F7436
+	.byte 0x08, 0x02, 0x29, 0x02, 0x12, 0x03, 0x28, 0x10, 0x00, 0x00
 
 	.text
 
