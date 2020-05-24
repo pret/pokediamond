@@ -7163,12 +7163,14 @@
 .extern OS_SleepThread
 .extern OS_SpinWait
 .extern OS_Terminate
+.extern OS_TryLockByWord
 .extern OS_TryLockCard
 .extern OS_TryLockCartridge
 .extern OS_TryLockMutex
+.extern OS_UnlockByWord
 .extern OS_UnlockCard
+.extern OS_UnLockCartridge
 .extern OS_UnlockCartridge
-.extern OS_UnlockCartridge2
 .extern OS_UnlockMutex
 .extern OS_WaitIrq
 .extern OS_WaitVBlankIntr
@@ -7178,7 +7180,10 @@
 .extern OSi_AlarmQueue
 .extern OSi_CurrentThreadPtr
 .extern OSi_DebuggerHandler
+.extern OSi_DoLockByWord
 .extern OSi_DoResetSystem
+.extern OSi_DoTryLockByWord
+.extern OSi_DoUnlockByWord
 .extern OSi_EnterDmaCallback
 .extern OSi_EnterTimerCallback
 .extern OSi_ExContext

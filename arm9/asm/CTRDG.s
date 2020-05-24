@@ -135,7 +135,7 @@ _020DB290:
 _020DB294:
 	ldr r0, _020DB2BC ; =UNK_021D6944
 	ldrh r0, [r0, #0x2]
-	bl OS_UnlockCartridge
+	bl OS_UnLockCartridge
 	bl CTRDG_IsExisting
 _020DB2A4: ; 0x020DB2A4
 	cmp r0, #0x0
@@ -248,7 +248,7 @@ _020DB3F0:
 _020DB404:
 	ldr r0, _020DB42C ; =UNK_021D6944
 	ldrh r0, [r0, #0x2]
-	bl OS_UnlockCartridge
+	bl OS_UnLockCartridge
 	bl CTRDG_IsExisting
 _020DB414: ; 0x020DB414
 	cmp r0, #0x0
@@ -362,7 +362,7 @@ CTRDGi_UnlockByProcessor: ; 0x020DB568
 	ldr r1, [r4, #0x0]
 	cmp r1, #0x0
 	bne _020DB580
-	bl OS_UnlockCartridge
+	bl OS_UnLockCartridge
 _020DB580:
 	ldr r0, [r4, #0x4]
 	bl OS_RestoreInterrupts
