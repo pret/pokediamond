@@ -7,6 +7,6 @@
 
 #include "consts.h"
 
-u32 OS_GetDTCMAddress();
+u32 OS_GetDTCMAddress(void);
 
 #endif //POKEDIAMOND_OS_TCM_H

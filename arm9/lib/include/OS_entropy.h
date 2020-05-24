@@ -17,9 +17,9 @@ typedef struct NVRAMConfig{
 
 extern vu64 OSi_TickCounter;
 
-extern u16 OS_GetTickLo();
+extern u16 OS_GetTickLo(void);
 
-static inline s32 GX_GetVCount()
+static inline s32 GX_GetVCount(void)
 {
     return reg_GX_VCOUNT;
 }

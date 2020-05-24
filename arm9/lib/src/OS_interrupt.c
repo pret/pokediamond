@@ -11,7 +11,7 @@
 
 extern OSThreadQueue OSi_IrqThreadQueue;
 
-ARM_FUNC void OS_InitIrqTable() {
+ARM_FUNC void OS_InitIrqTable(void) {
     OS_InitThreadQueue(&OSi_IrqThreadQueue);
 }
 

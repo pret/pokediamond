@@ -26,6 +26,6 @@
 #include "OS_reset.h"
 #include "OS_spinLock.h"
 
-void OS_Init();
+void OS_Init(void);
 
 #endif //POKEDIAMOND_OS_INIT_H

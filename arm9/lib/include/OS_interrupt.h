@@ -21,7 +21,7 @@ typedef u32 OSIrqMask;
 extern OSIrqFunction OS_IRQTable[];
 extern OSIrqCallbackInfo OSi_IrqCallbackInfo[8];
 
-void OS_InitIrqTable();
+void OS_InitIrqTable(void);
 void OS_SetIrqFunction(OSIrqMask intrBit, OSIrqFunction function);
 OSIrqFunction OS_GetIrqFunction(OSIrqMask intrBit);
 void OSi_EnterDmaCallback(u32 dmaNo, void (*callback) (void *), void *arg);

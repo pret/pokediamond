@@ -5,15 +5,15 @@
 #include "function_target.h"
 #include "OS_init.h"
 
-extern void PXI_Init();
-extern void OS_InitException();
-extern void MI_Init();
-extern void OS_InitVAlarm();
-extern void OSi_InitVramExclusive();
-extern void OS_InitThread();
-extern void CTRDG_Init();
-extern void CARD_Init();
-extern void PM_Init();
+extern void PXI_Init(void);
+extern void OS_InitException(void);
+extern void MI_Init(void);
+extern void OS_InitVAlarm(void);
+extern void OSi_InitVramExclusive(void);
+extern void OS_InitThread(void);
+extern void CTRDG_Init(void);
+extern void CARD_Init(void);
+extern void PM_Init(void);
 
 ARM_FUNC void OS_Init(void) {
     OS_InitArena();
