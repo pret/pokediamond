@@ -1047,7 +1047,7 @@ _0222DE86:
 	ldr r1, _0222E0F8 ; =0x00002218
 	ldr r2, [r4, #0x50]
 	ldr r1, [r4, r1]
-	bl MOD70_0222F480
+	bl MOD71_0222F480
 	ldr r0, [r4, #0x50]
 	add r0, r0, #1
 	str r0, [r4, #0x50]
@@ -1618,7 +1618,7 @@ _0222E33C:
 	add r4, #0x88
 	ldr r2, [r4]
 	mov r1, #0x17
-	bl MOD70_0222F440
+	bl MOD71_0222F440
 	mov r0, #1
 	add sp, #4
 	pop {r3, r4, pc}
@@ -3664,8 +3664,8 @@ MOD70_0222F42C: ; 0x0222F42C
 	.align 2, 0
 	thumb_func_end MOD70_0222F42C
 
-	thumb_func_start MOD70_0222F440
-MOD70_0222F440: ; 0x0222F440
+	thumb_func_start MOD71_0222F440
+MOD71_0222F440: ; 0x0222F440
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	ldr r0, _0222F470 ; =0x000036A0
@@ -3691,7 +3691,7 @@ _0222F46C:
 	pop {r4, r5, r6, pc}
 	nop
 _0222F470: .word 0x000036A0
-	thumb_func_end MOD70_0222F440
+	thumb_func_end MOD71_0222F440
 
 	thumb_func_start MOD70_0222F474
 MOD70_0222F474: ; 0x0222F474
@@ -3703,8 +3703,8 @@ MOD70_0222F474: ; 0x0222F474
 	.align 2, 0
 	thumb_func_end MOD70_0222F474
 
-	thumb_func_start MOD70_0222F480
-MOD70_0222F480: ; 0x0222F480
+	thumb_func_start MOD71_0222F480
+MOD71_0222F480: ; 0x0222F480
 	push {r3, r4, r5, lr}
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -3723,7 +3723,7 @@ MOD70_0222F480: ; 0x0222F480
 	bl FUN_02030A78
 _0222F4A6:
 	pop {r3, r4, r5, pc}
-	thumb_func_end MOD70_0222F480
+	thumb_func_end MOD71_0222F480
 
 	thumb_func_start MOD70_0222F4A8
 MOD70_0222F4A8: ; 0x0222F4A8
@@ -4038,7 +4038,7 @@ _0222F6EE:
 	add r0, r4, #0
 	mov r1, #0x18
 	mov r2, #1
-	bl MOD70_0222F440
+	bl MOD71_0222F440
 	ldr r1, _0222F780 ; =MOD70_0222FD9C
 	ldr r0, _0222F784 ; =0x00002214
 	str r1, [r4, r0]
@@ -5149,7 +5149,7 @@ MOD70_02230020: ; 0x02230020
 	add r0, r4, #0
 	mov r1, #0x18
 	mov r2, #2
-	bl MOD70_0222F440
+	bl MOD71_0222F440
 	ldr r1, _02230074 ; =MOD70_0223007C
 	ldr r0, _02230078 ; =0x00002214
 	str r1, [r4, r0]
@@ -5805,7 +5805,7 @@ _0223056E:
 	str r1, [r4, r0]
 	add r0, r4, #0
 	mov r1, #0x18
-	bl MOD70_0222F440
+	bl MOD71_0222F440
 	mov r0, #1
 	str r0, [r4, #0x5c]
 	b _02230632
@@ -5816,7 +5816,7 @@ _022305D4:
 	str r1, [r4, r0]
 	add r0, r4, #0
 	mov r1, #0x18
-	bl MOD70_0222F440
+	bl MOD71_0222F440
 	b _02230632
 _022305E6:
 	ldr r1, _0223064C ; =MOD70_02230650
@@ -5854,7 +5854,7 @@ _022305EE:
 	str r1, [r4, r0]
 	add r0, r4, #0
 	mov r1, #0x18
-	bl MOD70_0222F440
+	bl MOD71_0222F440
 _02230632:
 	mov r0, #0
 	add sp, #0x10
@@ -5960,7 +5960,7 @@ _022306CA:
 	str r1, [r4, r0]
 	add r0, r4, #0
 	mov r1, #0x18
-	bl MOD70_0222F440
+	bl MOD71_0222F440
 	mov r0, #1
 	str r0, [r4, #0x5c]
 	b _02230758
@@ -5995,7 +5995,7 @@ _02230714:
 	str r1, [r4, r0]
 	add r0, r4, #0
 	mov r1, #0x18
-	bl MOD70_0222F440
+	bl MOD71_0222F440
 _02230758:
 	mov r0, #0
 	add sp, #0x10
