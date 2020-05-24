@@ -1,10 +1,26 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .section .dtcm
+	.section .data
+
+	.global OSi_IrqCallbackInfoIndex
+OSi_IrqCallbackInfoIndex: ; 0x02106818
+	.short  8
+	.short  9
+	.short 10
+	.short 11
+	.short  3
+	.short  4
+	.short  5
+	.short  6
+
+	; pragma section DTCM begin
+    .section .bss
     .balign 16, 0
     .global OSi_IrqThreadQueue
 OSi_IrqThreadQueue: ; 027E0060
+	.space 4
+	; pragma section DTCM end
 
 	.section .text
 

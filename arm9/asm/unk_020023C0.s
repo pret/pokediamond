@@ -1,10 +1,20 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_02106FC4
+	.section .bss
+
 	.extern UNK_021C48F8
-	.extern UNK_020ECB50
 	.extern gUnknown21C48B8
+
+	.global UNK_02106FC4
+UNK_02106FC4: ; 0x02106FC4
+	.space 0x4
+
+	.section .rodata
+
+	.global UNK_020ECB50
+UNK_020ECB50: ; 0x020ECB50
+	.byte 0x00, 0x01, 0x02, 0x01
 
 	.text
 

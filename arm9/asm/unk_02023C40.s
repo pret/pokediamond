@@ -1,7 +1,12 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020EE942
+	.section .rodata
+
+	.global UNK_020EE940
+UNK_020EE940: ; 0x020EE940
+	.short 0x01EA, 0x0097, 0x00F9, 0x00FA, 0x00FB, 0x0181, 0x0182, 0x01E9
+	.short 0x01EA, 0x01EB, 0x01EC, 0x01ED
 
 	.text
 
@@ -1034,7 +1039,7 @@ _0202433C:
 FUN_02024340: ; 0x02024340
 	push {r4-r5}
 	mov r3, #0x0
-	ldr r5, _02024360 ; =UNK_020EE942
+	ldr r5, _02024360 ; =UNK_020EE940 + 2
 	mov r4, #0x1
 	add r1, r3, #0x0
 _0202434A:
@@ -1051,7 +1056,7 @@ _02024352:
 	pop {r4-r5}
 	bx lr
 	.balign 4
-_02024360: .word UNK_020EE942
+_02024360: .word UNK_020EE940 + 2
 
 	thumb_func_start FUN_02024364
 FUN_02024364: ; 0x02024364

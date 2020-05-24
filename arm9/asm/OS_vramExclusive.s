@@ -1,6 +1,16 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.section .bss
+
+	.global OSi_vramExclusive
+OSi_vramExclusive: ; 0x021D37E4
+	.space 0x4
+
+	.global OSi_vramLockId
+OSi_vramLockId: ; 0x021D37E8
+	.space 0x14
+
     .text
 
 	arm_func_start OsCountZeroBits

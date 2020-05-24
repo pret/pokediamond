@@ -1,7 +1,11 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020EE6D4
+	.section .rodata
+
+	.global UNK_020EE6D4
+UNK_020EE6D4: ; 0x020EE6D4
+	.asciz "rom"
 
 	.text
 

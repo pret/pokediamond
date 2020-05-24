@@ -1,15 +1,41 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_021D6954
-	.extern UNK_021D6950
 	.extern UNK_021D6944
-	.extern UNK_021D6A20
-	.extern UNK_021D6958
-	.extern UNK_021D6964
-	.extern UNK_021D694C
-	.extern UNK_021D6948
-	.extern UNK_021D6960
+
+	.section .bss
+
+	.global UNK_021D6948
+UNK_021D6948: ; 0x021D6948
+	.space 0x4
+
+	.global UNK_021D694C
+UNK_021D694C: ; 0x021D694C
+	.space 0x4
+
+	.global UNK_021D6950
+UNK_021D6950: ; 0x021D6950
+	.space 0x4
+
+	.global UNK_021D6954
+UNK_021D6954: ; 0x021D6954
+	.space 0x4
+
+	.global UNK_021D6958
+UNK_021D6958: ; 0x021D6958
+	.space 0x8
+
+	.global UNK_021D6960
+UNK_021D6960: ; 0x021D6960
+	.space 0x4
+
+	.global UNK_021D6964
+UNK_021D6964: ; 0x021D6964
+	.space 0xbc
+
+	.global UNK_021D6A20
+UNK_021D6A20: ; 0x021D6A20
+	.space 0xe8
 
     .text
 

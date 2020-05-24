@@ -1,8 +1,13 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_021C5A08
 	.extern gUnknown21C48B8
+
+	.section .bss
+
+	.global UNK_021C5A08
+UNK_021C5A08: ; 0x021C5A08
+	.space 0x4
 
 	.text
 

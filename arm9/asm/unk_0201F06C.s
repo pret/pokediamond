@@ -1,15 +1,28 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.section .rodata
+
+	.global UNK_020EE658
+UNK_020EE658: ; 0x020EE658
+	.byte 0x75, 0x07, 0x02, 0x02, 0x19, 0x06, 0x02, 0x02
+
+	.global UNK_020EE660
+UNK_020EE660: ; 0x020EE660
+	.byte 0x85, 0x07, 0x02, 0x02, 0x79, 0x07, 0x02, 0x02
+
+	.extern UNK_020FFA38
 	.extern UNK_02105BBC
 	.extern UNK_021064C0
-	.extern UNK_020EE660
-	.extern UNK_021C59A8
-	.extern UNK_020FFA38
-	.extern UNK_020EE658
 	.extern UNK_021064B8
-	.extern UNK_021064C4
 	.extern UNK_021064BC
+	.extern UNK_021064C4
+
+	.section .bss
+
+	.global UNK_021C59A8
+UNK_021C59A8: ; 0x021C59A8
+	.space 0x8
 
 	.text
 

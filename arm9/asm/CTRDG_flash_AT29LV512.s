@@ -56,7 +56,7 @@ CTRDGi_WriteFlashSectorAT: ; 0x020DC634
 	bx lr
 
 	arm_func_start CTRDGi_EraseFlashSectorAT
-CTRDGi_EraseFlashSectorAT:
+CTRDGi_EraseFlashSectorAT: ; 0x020DC660
 	stmdb sp!, {lr}
 	sub sp, sp, #0x24
 	strh r0, [sp, #0x20]

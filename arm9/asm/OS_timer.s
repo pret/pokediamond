@@ -1,6 +1,12 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.section .bss
+
+	.global OSi_TimerReserved
+OSi_TimerReserved: ; 0x021D37A8
+	.space 0x4
+
     .text
 
 	arm_func_start OSi_SetTimerReserved

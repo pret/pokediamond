@@ -5,7 +5,7 @@
 #include "OS_emulator.h"
 #include "function_target.h"
 
-extern u32 OSi_ConsoleTypeCache; //todo fix bss
+u32 OSi_ConsoleTypeCache = -1u; //todo fix bss
 
 ARM_FUNC BOOL OS_IsRunOnEmulator() {
     return FALSE;

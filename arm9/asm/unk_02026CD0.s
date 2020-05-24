@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020ECAC4
+	.extern gGameLanguage
 
 	.text
 
@@ -877,7 +877,7 @@ _020272EC:
 _020272F4:
 	ldr r0, _02027308 ; =0x00002345
 	str r0, [r4, #0x0]
-	ldr r0, _0202730C ; =UNK_020ECAC4
+	ldr r0, _0202730C ; =gGameLanguage
 	add r4, #0x71
 	ldrb r0, [r0, #0x0]
 	strb r0, [r4, #0x0]
@@ -885,7 +885,7 @@ _020272F4:
 	nop
 _02027304: .word 0x00001234
 _02027308: .word 0x00002345
-_0202730C: .word UNK_020ECAC4
+_0202730C: .word gGameLanguage
 
 	thumb_func_start FUN_02027310
 FUN_02027310: ; 0x02027310

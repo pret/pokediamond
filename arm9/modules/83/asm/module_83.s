@@ -22657,7 +22657,7 @@ _02238652:
 	bl CTRDG_Enable
 	ldr r0, _022386C0 ; =MOD83_02238608
 	ldr r1, _022386C4 ; =FUN_02016A18
-	bl SetCustomAllocator
+	bl SetCustomAllocatorAndDestructor
 	ldr r1, _022386B8 ; =0x000004A8
 	ldr r3, _022386C8 ; =0x0223A6B4
 	add r0, r7, #0

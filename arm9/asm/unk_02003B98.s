@@ -1,9 +1,20 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_02107078
-	.extern UNK_02104780
-	.extern UNK_02107070
+	.section .data
+	; 0x02104780
+	.global UNK_02104780
+UNK_02104780: ; 0x02104780
+	.asciz "data/sound/sound_data.sdat"
+
+	.section .bss
+	.global UNK_02107070
+UNK_02107070: ; 0x02107070
+	.space 0x8
+
+	.global UNK_02107078
+UNK_02107078: ; 0x02107078
+	.space 0xbcd60
 
 	.text
 

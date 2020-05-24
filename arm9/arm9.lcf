@@ -122,7 +122,7 @@ SECTIONS {
 		crt0.o (.rodata)
 		* (.version)
 		main.o (.text)
-		FUN_02000DE4.o (.text)
+		GFLIB_sysctl.o (.text)
 		unk_020010A8.o (.text)
 		unk_02001B80.o (.text)
 		string_util.o (.text)
@@ -429,7 +429,7 @@ SECTIONS {
 		unk_0208A998.o (.text)
 		/* Third-party libraries */
 		unk_0208AC14.o (.text)
-		FUN_020910A4.o (.text)
+		custom_allocator.o (.text)
 		unk_020910EC.o (.text)
 		unk_020AF030.o (.text)
 		/* Nitro SDK */
@@ -548,23 +548,191 @@ SECTIONS {
 		/* MWCC library */
 		libmwcc.o (.text)
 
+		. = ALIGN(4);
+		/* Exception */
+		libc.o (.exception)
+		libmwcc.o (.exception)
+
+		. = ALIGN(4);
+	SDK_STATIC_ETABLE_START = .;
+		EXCEPTION
+	SDK_STATIC_ETABLE_END = .;
+
+		. = ALIGN(4);
+		// * (.init)
+		. = ALIGN(4);
 		/* Text data */
-		rom2.o (.rodata)
+		main.o (.rodata)
+		unk_02001B80.o (.rodata)
 		string_util.o (.rodata)
-		rom2_2.o (.rodata)
+		unk_020023C0.o (.rodata)
+		unk_02002C14.o (.rodata)
+		unk_020040F4.o (.rodata)
+		unk_02006864.o (.rodata)
+		unk_02006D98.o (.rodata)
+		unk_0200AA80.o (.rodata)
+		unk_0200CABC.o (.rodata)
+		unk_0200E1D0.o (.rodata)
+		unk_0200E850.o (.rodata)
+		unk_02011744.o (.rodata)
+		unk_02012CC8.o (.rodata)
+		unk_02013724.o (.rodata)
+		unk_020139D8.o (.rodata)
+		unk_02014BF4.o (.rodata)
+		unk_02015CC0.o (.rodata)
+		unk_02015D14.o (.rodata)
+		unk_02015EA0.o (.rodata)
+		unk_02016B94.o (.rodata)
+		math_util.o (.rodata)
+		unk_0201F06C.o (.rodata)
+		unk_02021590.o (.rodata)
+		unk_02021934.o (.rodata)
+		unk_02021FF8.o (.rodata)
+		unk_02022450.o (.rodata)
+		save.o (.rodata)
+		unk_02023C40.o (.rodata)
+		unk_02025954.o (.rodata)
+		unk_02028980.o (.rodata)
+		unk_02029FB0.o (.rodata)
+		unk_0202B870.o (.rodata)
+		unk_0202D858.o (.rodata)
+		unk_0202D8D0.o (.rodata)
+		unk_0202E29C.o (.rodata)
+		unk_02031734.o (.rodata)
+		unk_02033B68.o (.rodata)
+		unk_02033F50.o (.rodata)
+		unk_02034188.o (.rodata)
+		unk_02034710.o (.rodata)
+		unk_02034FE4.o (.rodata)
+		unk_02035068.o (.rodata)
+		unk_020377B0.o (.rodata)
+		unk_020377F0.o (.rodata)
+		unk_02038C78.o (.rodata)
+		scrcmd.o (.rodata)
+		scrcmd_2.o (.rodata)
+		scrcmd_9.o (.rodata)
+		scrcmd_10.o (.rodata)
+		scrcmd_12.o (.rodata)
+		scrcmd_17.o (.rodata)
+		scrcmd_19.o (.rodata)
+		scrcmd_20.o (.rodata)
+		scrcmd_21.o (.rodata)
+		unk_02047500.o (.rodata)
+		unk_020476CC.o (.rodata)
+		unk_02048120.o (.rodata)
+		unk_020484A8.o (.rodata)
+		unk_02048904.o (.rodata)
+		unk_0204A498.o (.rodata)
+		unk_0204AB0C.o (.rodata)
+		unk_0204B34C.o (.rodata)
+		unk_0204BE14.o (.rodata)
+		unk_0204C1B4.o (.rodata)
+		unk_0204CA80.o (.rodata)
+		unk_0204CB20.o (.rodata)
+		unk_0204FBA8.o (.rodata)
+		unk_02050E48.o (.rodata)
+		unk_020520AC.o (.rodata)
+		unk_0205363C.o (.rodata)
+		unk_02053750.o (.rodata)
+		unk_0205478C.o (.rodata)
+		unk_02054C14.o (.rodata)
+		unk_020557F4.o (.rodata)
+		unk_02058EE8.o (.rodata)
+		unk_0205BEF8.o (.rodata)
+		unk_0205C598.o (.rodata)
+		unk_0205CDB4.o (.rodata)
+		unk_0205CE48.o (.rodata)
+		unk_0205DD18.o (.rodata)
+		unk_0205E4EC.o (.rodata)
+		unk_0205EB38.o (.rodata)
+		unk_0205F314.o (.rodata)
+		unk_0205F7A0.o (.rodata)
+		unk_0205FA2C.o (.rodata)
+		unk_020603B0.o (.rodata)
+		unk_020606B0.o (.rodata)
+		unk_020607D4.o (.rodata)
+		unk_02060CCC.o (.rodata)
+		unk_020625EC.o (.rodata)
+		unk_02063948.o (.rodata)
+		unk_020647A4.o (.rodata)
+		unk_02064CA8.o (.rodata)
+		unk_020653EC.o (.rodata)
+		unk_02066978.o (.rodata)
+		unk_0206ABC4.o (.rodata)
+		unk_0206B688.o (.rodata)
+		unk_0206BF90.o (.rodata)
+		unk_0206C700.o (.rodata)
+		unk_0206E0F0.o (.rodata)
+		unk_0206E5B4.o (.rodata)
+		unk_0206F1F0.o (.rodata)
+		unk_0206F3FC.o (.rodata)
+		unk_02072548.o (.rodata)
+		unk_02073710.o (.rodata)
+		unk_02073DA8.o (.rodata)
+		unk_020772F0.o (.rodata)
+		unk_020799E8.o (.rodata)
+		unk_02079C70.o (.rodata)
+		unk_0207C328.o (.rodata)
+		unk_0207D5BC.o (.rodata)
+		unk_0207EF6C.o (.rodata)
+		unk_0207F95C.o (.rodata)
+		unk_0207FC5C.o (.rodata)
+		unk_0207FD00.o (.rodata)
+		unk_02080C38.o (.rodata)
+		unk_020828BC.o (.rodata)
+		unk_020834D0.o (.rodata)
+		unk_02083B84.o (.rodata)
+		unk_02083D48.o (.rodata)
+		unk_02084098.o (.rodata)
+		unk_020842D0.o (.rodata)
+		unk_020854E0.o (.rodata)
+		unk_020859C0.o (.rodata)
+		unk_02086084.o (.rodata)
+		unk_02086414.o (.rodata)
+		unk_02086FA8.o (.rodata)
+		unk_02087A1C.o (.rodata)
+		unk_02087A6C.o (.rodata)
+		unk_02087D00.o (.rodata)
+		unk_02088320.o (.rodata)
+		unk_02088814.o (.rodata)
+		unk_02088858.o (.rodata)
+		unk_0208890C.o (.rodata)
+		unk_02088AAC.o (.rodata)
+		unk_02088D1C.o (.rodata)
+		unk_02088F0C.o (.rodata)
+		unk_02089498.o (.rodata)
+		unk_02089960.o (.rodata)
+		unk_02089D90.o (.rodata)
+		unk_02089F24.o (.rodata)
+		unk_0208A998.o (.rodata)
+		unk_020910EC.o (.rodata)
+		unk_020AF030.o (.rodata)
+		FX_atan.o (.rodata)
+		GX_load3d.o (.rodata)
+		SND_util.o (.rodata)
 		FS_command.o (.rodata)
 		FS_command_default.o (.rodata)
 		FS_archive.o (.rodata)
 		FS_file.o (.rodata)
 		FS_rom.o (.rodata)
 		FS_overlay.o (.rodata)
-		rom2_3.o (.rodata)
+		CTRDG_backup.o (.rodata)
+		libc.o (.rodata)
 		libmwcc.o (.rodata)
+		. = ALIGN(4);
+
+		SDK_STATIC_SINIT_START = .;
+		WRITEW 0;
+		SDK_STATIC_SINIT_END = .;
 		. = ALIGN(32);
 		SDK_STATIC_TEXT_END = .;
 
 		SDK_STATIC_DATA_START = .;
+		unk_02003B98.o (.data)
 		rom2_3.o (.data)
+		GX.o (.data)
+		OS_irqHandler.o (.data)
+		OS_emulator.o (.data)
 		FS_command.o (.data)
 		FS_command_default.o (.data)
 		FS_archive.o (.data)
@@ -579,20 +747,103 @@ SECTIONS {
 
 	.arm9.bss :
 	{
-		/* ALIGNALL(4); . = ALIGN(32); */
+		ALIGNALL(4); . = ALIGN(32);
 		SDK_STATIC_BSS_START = .;
-		bss.o (.bss)
-		FUN_020910A4.o (.bss)
-		bss_2.o (.bss)
+		GFLIB_sysctl.o (.bss)
+		unk_020023C0.o (.bss)
+		unk_02002C14.o (.bss)
+		unk_02003B98.o (.bss)
+		unk_020040F4.o (.bss)
+		poke_overlay.o (.bss)
+		unk_02009EAC.o (.bss)
+		unk_0200E1D0.o (.bss)
+		unk_02011744.o (.bss)
+		unk_02012CC8.o (.bss)
+		unk_02015E30.o (.bss)
+		unk_02015EA0.o (.bss)
+		unk_020166C8.o (.bss)
+		unk_0201B1A8.o (.bss)
+		math_util.o (.bss)
+		unk_0201BCBC.o (.bss)
+		unk_0201C24C.o (.bss)
+		unk_0201CC08.o (.bss)
+		unk_0201D040.o (.bss)
+		unk_0201E00C.o (.bss)
+		unk_0201E66C.o (.bss)
+		unk_0201E7D8.o (.bss)
+		unk_0201F06C.o (.bss)
+		unk_02020AFC.o (.bss)
+		unk_02022294.o (.bss)
+		save.o (.bss)
+		unk_020286F8.o (.bss)
+		unk_0202AC20.o (.bss)
+		unk_0202C198.o (.bss)
+		unk_0202D8D0.o (.bss)
+		unk_0202DB14.o (.bss)
+		unk_0202E29C.o (.bss)
+		unk_0202F150.o (.bss)
+		unk_02031480.o (.bss)
+		unk_02031734.o (.bss)
+		unk_02033B68.o (.bss)
+		unk_020372D4.o (.bss)
+		scrcmd.o (.bss)
+		scrcmd_5.o (.bss)
+		unk_02046294.o (.bss)
+		unk_0204B9EC.o (.bss)
+		unk_0204CB20.o (.bss)
+		unk_0204FBA8.o (.bss)
+		unk_020520AC.o (.bss)
+		unk_02052EE8.o (.bss)
+		unk_02066978.o (.bss)
+		unk_020772F0.o (.bss)
+		unk_020893E0.o (.bss)
+		unk_0208A998.o (.bss)
+		unk_0208AC14.o (.bss)
+		custom_allocator.o (.bss)
+		unk_020910EC.o (.bss)
+		unk_020AF030.o (.bss)
+		GX.o (.bss)
+		GX_state.o (.bss)
+		GX_load2d.o (.bss)
+		GX_load3d.o (.bss)
+		OS_irqTable.o (.bss)
 		OS_spinLock.o (.bss)
-		bss_2_2.o (.bss)
+		OS_thread.o (.bss)
+		OS_arena.o (.bss)
 		OS_alloc.o (.bss)
-		bss_3.o (.bss)
+		OS_exception.o (.bss)
+		OS_timer.o (.bss)
+		OS_tick.o (.bss)
+		OS_alarm.o (.bss)
+		OS_valarm.o (.bss)
+		OS_reset.o (.bss)
+		OS_vramExclusive.o (.bss)
+		MI_dma_gxcommand.o (.bss)
+		SND_main.o (.bss)
+		SND_command.o (.bss)
+		SND_alarm.o (.bss)
+		SND_work.o (.bss)
+		PXI_fifo.o (.bss)
 		FS_archive.o (.bss)
 		FS_file.o (.bss)
 		FS_rom.o (.bss)
-		bss_4.o (.bss)
-		/* . = ALIGN(32); */
+		SPI_tp.o (.bss)
+		SPI_mic.o (.bss)
+		SPI_pm.o (.bss)
+		RTC_external.o (.bss)
+		CARD_common.o (.bss)
+		CARD_rom.o (.bss)
+		CARD_pullOut.o (.bss)
+		WM_system.o (.bss)
+		WM_etc.o (.bss)
+		CTRDG.o (.bss)
+		CTRDG_proc.o (.bss)
+		CTRDG_flash_common.o (.bss)
+		CTRDG_backup.o (.bss)
+		CTRDG_task.o (.bss)
+		libc.o (.bss)
+		libmwcc.o (.bss)
+		. = ALIGN(32);
 		SDK_STATIC_BSS_END = .;
 		SDK_STATIC_BSS_SIZE = SDK_STATIC_BSS_END - SDK_STATIC_BSS_START;
 	} >> arm9
@@ -624,8 +875,8 @@ SECTIONS {
 	.DTCM : {
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.START = .;
-		OS_irqTable.o (.dtcm)
 		OS_irqHandler.o (.dtcm)
+		OS_irqTable.o (.dtcm)
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.END = .;
 		SDK_AUTOLOAD.DTCM.SIZE = SDK_AUTOLOAD.DTCM.END - SDK_AUTOLOAD.DTCM.START;
@@ -636,7 +887,8 @@ SECTIONS {
 	{
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.BSS_START = .;
-		OS_irqTable.o (.bss)
+		OS_irqHandler.o (.bss)
+		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.BSS_END = .;
 		SDK_AUTOLOAD.DTCM.BSS_SIZE = SDK_AUTOLOAD.DTCM.BSS_END - SDK_AUTOLOAD.DTCM.BSS_START;
 	} >> DTCM
@@ -693,17 +945,10 @@ SECTIONS {
 		SDK_OVERLAY_MODULE_00_ID =  0;
 		SDK_OVERLAY.MODULE_00.ID =  0;
 		SDK_OVERLAY.MODULE_00.START = .;
-		module_00_dummy.o (.text)
-		module_00_dummy.o (.rodata)
-		module_00_dummy.o (.init)
 		SDK_OVERLAY.MODULE_00.SINIT_START = .;
-		module_00_dummy.o (.ctor)
-		module_00_dummy.o (.sinit)
 		WRITEW 0;
 		SDK_OVERLAY.MODULE_00.SINIT_END = .;
 		. = ALIGN(32);
-		module_00_dummy.o (.sdata)
-		module_00_dummy.o (.data)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_00.END = .;
 		SDK_OVERLAY.MODULE_00.SIZE = SDK_OVERLAY.MODULE_00.END - SDK_OVERLAY.MODULE_00.START;
@@ -712,8 +957,6 @@ SECTIONS {
 	{
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_00.BSS_START = .;
-		module_00_dummy.o (.bss)
-		module_00_dummy.o (.sbss)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_00.BSS_END = .;
 		SDK_OVERLAY.MODULE_00.BSS_SIZE = SDK_OVERLAY.MODULE_00.BSS_END - SDK_OVERLAY.MODULE_00.BSS_START;
@@ -757,16 +1000,10 @@ SECTIONS {
 		SDK_OVERLAY_MODULE_02_ID =  2;
 		SDK_OVERLAY.MODULE_02.ID =  2;
 		SDK_OVERLAY.MODULE_02.START = .;
-		module_02_dummy.o (.text)
-		module_02_dummy.o (.rodata)
 		SDK_OVERLAY.MODULE_02.SINIT_START = .;
-		module_02_dummy.o (.ctor)
-		module_02_dummy.o (.sinit)
 		WRITEW 0;
 		SDK_OVERLAY.MODULE_02.SINIT_END = .;
 		. = ALIGN(32);
-		module_02_dummy.o (.sdata)
-		module_02_dummy.o (.data)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_02.END = .;
 		SDK_OVERLAY.MODULE_02.SIZE = SDK_OVERLAY.MODULE_02.END - SDK_OVERLAY.MODULE_02.START;
@@ -775,8 +1012,6 @@ SECTIONS {
 	{
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_02.BSS_START = .;
-		module_02_dummy.o (.bss)
-		module_02_dummy.o (.sbss)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_02.BSS_END = .;
 		SDK_OVERLAY.MODULE_02.BSS_SIZE = SDK_OVERLAY.MODULE_02.BSS_END - SDK_OVERLAY.MODULE_02.BSS_START;
@@ -788,17 +1023,10 @@ SECTIONS {
 		SDK_OVERLAY_MODULE_03_ID =  3;
 		SDK_OVERLAY.MODULE_03.ID =  3;
 		SDK_OVERLAY.MODULE_03.START = .;
-		module_03_dummy.o (.text)
-		module_03_dummy.o (.rodata)
-		module_03_dummy.o (.init)
 		SDK_OVERLAY.MODULE_03.SINIT_START = .;
-		module_03_dummy.o (.ctor)
-		module_03_dummy.o (.sinit)
 		WRITEW 0;
 		SDK_OVERLAY.MODULE_03.SINIT_END = .;
 		. = ALIGN(32);
-		module_03_dummy.o (.sdata)
-		module_03_dummy.o (.data)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_03.END = .;
 		SDK_OVERLAY.MODULE_03.SIZE = SDK_OVERLAY.MODULE_03.END - SDK_OVERLAY.MODULE_03.START;
@@ -807,8 +1035,6 @@ SECTIONS {
 	{
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_03.BSS_START = .;
-		module_03_dummy.o (.bss)
-		module_03_dummy.o (.sbss)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_03.BSS_END = .;
 		SDK_OVERLAY.MODULE_03.BSS_SIZE = SDK_OVERLAY.MODULE_03.BSS_END - SDK_OVERLAY.MODULE_03.BSS_START;
@@ -1023,17 +1249,10 @@ SECTIONS {
 		SDK_OVERLAY_MODULE_10_ID = 10;
 		SDK_OVERLAY.MODULE_10.ID = 10;
 		SDK_OVERLAY.MODULE_10.START = .;
-		module_10_dummy.o (.text)
-		module_10_dummy.o (.rodata)
-		module_10_dummy.o (.init)
 		SDK_OVERLAY.MODULE_10.SINIT_START = .;
-		module_10_dummy.o (.ctor)
-		module_10_dummy.o (.sinit)
 		WRITEW 0;
 		SDK_OVERLAY.MODULE_10.SINIT_END = .;
 		. = ALIGN(32);
-		module_10_dummy.o (.sdata)
-		module_10_dummy.o (.data)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_10.END = .;
 		SDK_OVERLAY.MODULE_10.SIZE = SDK_OVERLAY.MODULE_10.END - SDK_OVERLAY.MODULE_10.START;
@@ -1043,8 +1262,6 @@ SECTIONS {
 	{
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_10.BSS_START = .;
-		module_10_dummy.o (.bss)
-		module_10_dummy.o (.sbss)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_10.BSS_END = .;
 		SDK_OVERLAY.MODULE_10.BSS_SIZE = SDK_OVERLAY.MODULE_10.BSS_END - SDK_OVERLAY.MODULE_10.BSS_START;
@@ -3092,17 +3309,10 @@ SECTIONS {
 		SDK_OVERLAY_MODULE_72_ID = 72;
 		SDK_OVERLAY.MODULE_72.ID = 72;
 		SDK_OVERLAY.MODULE_72.START = .;
-		module_72_dummy.o (.text)
-		module_72_dummy.o (.rodata)
-		module_72_dummy.o (.init)
 		SDK_OVERLAY.MODULE_72.SINIT_START = .;
-		module_72_dummy.o (.ctor)
-		module_72_dummy.o (.sinit)
 		WRITEW 0;
 		SDK_OVERLAY.MODULE_72.SINIT_END = .;
 		. = ALIGN(32);
-		module_72_dummy.o (.sdata)
-		module_72_dummy.o (.data)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_72.END = .;
 		SDK_OVERLAY.MODULE_72.SIZE = SDK_OVERLAY.MODULE_72.END - SDK_OVERLAY.MODULE_72.START;
@@ -3112,8 +3322,6 @@ SECTIONS {
 	{
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_OVERLAY.MODULE_72.BSS_START = .;
-		module_72_dummy.o (.bss)
-		module_72_dummy.o (.sbss)
 		. = ALIGN(32);
 		SDK_OVERLAY.MODULE_72.BSS_END = .;
 		SDK_OVERLAY.MODULE_72.BSS_SIZE = SDK_OVERLAY.MODULE_72.BSS_END - SDK_OVERLAY.MODULE_72.BSS_START;

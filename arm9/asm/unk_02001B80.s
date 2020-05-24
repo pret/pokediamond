@@ -1,8 +1,14 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020ECAC8
 	.extern gUnknown21C48B8
+
+	.section .rodata
+
+	.balign 4, 0
+	.global UNK_020ECAC8
+UNK_020ECAC8: ; 0x020ECAC8
+	.incbin "graphics/unk_020ECAC8.4bpp"
 
 	.text
 

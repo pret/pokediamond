@@ -1,16 +1,47 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_021D54DC
-	.extern UNK_021D54E0
-	.extern UNK_021D54D0
-	.extern UNK_021D54D4
-	.extern UNK_021D54F4
-	.extern UNK_021D54CC
-	.extern UNK_021D5510
-	.extern UNK_021D54E4
-	.extern UNK_021D54D8
-	.extern UNK_021D550C
+	.section .bss
+
+	.global UNK_021D54CC
+UNK_021D54CC: ; 0x021D54CC
+	.space 0x4
+
+	.global UNK_021D54D0
+UNK_021D54D0: ; 0x021D54D0
+	.space 0x4
+
+	.global UNK_021D54D4
+UNK_021D54D4: ; 0x021D54D4
+	.space 0x4
+
+	.global UNK_021D54D8
+UNK_021D54D8: ; 0x021D54D8
+	.space 0x4
+
+	.global UNK_021D54DC
+UNK_021D54DC: ; 0x021D54DC
+	.space 0x4
+
+	.global UNK_021D54E0
+UNK_021D54E0: ; 0x021D54E0
+	.space 0x4
+
+	.global UNK_021D54E4
+UNK_021D54E4: ; 0x021D54E4
+	.space 0x10
+
+	.global UNK_021D54F4
+UNK_021D54F4: ; 0x021D54F4
+	.space 0x18
+
+	.global UNK_021D550C
+UNK_021D550C: ; 0x021D550C
+	.space 0x4
+
+	.global UNK_021D5510
+UNK_021D5510: ; 0x021D5510
+	.space 0x24
 
 	.text
 

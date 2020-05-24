@@ -55,6 +55,13 @@ typedef s64 fx64c;
 
 #define FX_MUL_FX32_FX64C(a, b)      ((fx32)((((a) * (b) + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT)))
 
+#define FX_FX16_TO_F32(x) ((f32)((x) / (f32)(1 << FX16_SHIFT)))
+#define FX_F32_TO_FX16(x) ((fx16)(((x) > 0) ? \
+                                     (fx16)((x) * (1 << FX16_INT_SHIFT) + 0.5f ) : \
+                                     (fx16)((x) * (1 << FX16_INT_SHIFT) - 0.5f )))
+
+#define FX16_CONST(x) FX_F32_TO_FX16(x)
+
 struct Vecx32
 {
     fx32 x;

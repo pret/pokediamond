@@ -1,10 +1,23 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern cardi_common
-	.extern UNK_021D5560
-	.extern UNK_021D555C
-	.extern UNK_021D5BE0
+	.section .bss
+
+	.global UNK_021D555C
+UNK_021D555C: ; 0x021D555C
+	.space 0x4
+
+	.global UNK_021D5560
+UNK_021D5560: ; 0x021D5560
+	.space 0x60
+
+	.global cardi_common
+cardi_common: ; 0x021D55C0
+	.space 0x620
+
+	.global UNK_021D5BE0
+UNK_021D5BE0: ; 0x021D5BE0
+	.space 0x20
 
     .text
 

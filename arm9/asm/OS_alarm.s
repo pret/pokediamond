@@ -1,6 +1,16 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
+	.section .bss
+
+	.global OSi_UseAlarm
+OSi_UseAlarm: ; 0x021D37BC
+	.space 0x4
+
+	.global OSi_AlarmQueue
+OSi_AlarmQueue: ; 0x021D37C0
+	.space 0x8
+
     .text
 
 	arm_func_start OSi_AlarmHandler
