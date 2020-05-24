@@ -1,22 +1,27 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.section .rodata
-
-	.global UNK_020EE658
-UNK_020EE658: ; 0x020EE658
-	.byte 0x75, 0x07, 0x02, 0x02, 0x19, 0x06, 0x02, 0x02
-
-	.global UNK_020EE660
-UNK_020EE660: ; 0x020EE660
-	.byte 0x85, 0x07, 0x02, 0x02, 0x79, 0x07, 0x02, 0x02
-
 	.extern UNK_020FFA38
-	.extern UNK_02105BBC
 	.extern UNK_021064C0
 	.extern UNK_021064B8
 	.extern UNK_021064BC
 	.extern UNK_021064C4
+
+	.section .rodata
+
+	.global UNK_020EE658
+UNK_020EE658: ; 0x020EE658
+	.word FUN_02020774, FUN_02020618
+
+	.global UNK_020EE660
+UNK_020EE660: ; 0x020EE660
+	.word FUN_02020784, FUN_02020778
+
+	.section .data
+
+	.global UNK_02105BBC
+UNK_02105BBC: ; 0x02105BBC
+	.asciz "data/clact_default.NANR"
 
 	.section .bss
 

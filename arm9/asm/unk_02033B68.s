@@ -1,11 +1,6 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_02105D74
-	.extern UNK_02105D88
-	.extern UNK_02105D98
-	.extern UNK_02105DA8
-
 	.section .rodata
 
 	.global UNK_020EEC68
@@ -28,6 +23,31 @@ UNK_020EEC80: ; 0x020EEC80
 UNK_020EEC88: ; 0x020EEC88
 	.byte 0xF0, 0x01, 0x14, 0x00, 0xF4, 0x01, 0x14, 0x00, 0xF8, 0x01, 0x14, 0x00, 0xFC, 0x01, 0x14, 0x00
 	.byte 0xFF, 0xFF, 0x00, 0x00
+
+	.section .data
+
+	.balign 4
+	.global UNK_02105D74
+UNK_02105D74: ; 0x02105D74
+	.word UNK_020EEC80
+	.word UNK_020EEC78
+	.word UNK_020EEC70
+	.word UNK_020EEC68
+	.word UNK_020EEC88
+
+	.global UNK_02105D88
+UNK_02105D88: ; 0x02105D88
+	.asciz "data/wm.NCLR"
+
+	.balign 4, 0
+	.global UNK_02105D98
+UNK_02105D98: ; 0x02105D98
+	.asciz "data/wifi.NCGR"
+
+	.balign 4, 0
+	.global UNK_02105DA8
+UNK_02105DA8: ; 0x02105DA8
+	.asciz "data/wm.NCGR"
 
 	.section .bss
 

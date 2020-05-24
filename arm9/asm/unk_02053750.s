@@ -2,12 +2,6 @@
     .include "global.inc"
 
 	.extern UNK_020FFA38
-	.extern UNK_02105EC8
-	.extern UNK_02105ED0
-	.extern UNK_02105F48
-	.extern UNK_02105F64
-	.extern UNK_02105F80
-
 	.section .rodata
 
 	.global UNK_020F5C04
@@ -17,6 +11,53 @@ UNK_020F5C04: ; 0x020F5C04
 	.global UNK_020F5C08
 UNK_020F5C08: ; 0x020F5C08
 	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
+
+	.section .data
+
+	.global UNK_02105EC8
+UNK_02105EC8: ; 0x02105EC8
+	.word UNK_02105EF4
+	.word UNK_02105F2C
+
+	.global UNK_02105ED0
+UNK_02105ED0: ; 0x02105ED0
+	.word UNK_02105ED8
+	.word UNK_02105F10
+
+	.balign 4, 0
+	.global UNK_02105ED8
+UNK_02105ED8: ; 0x02105ED8
+	.asciz "data/uground_pltt.resdat"
+
+	.balign 4, 0
+	.global UNK_02105EF4
+UNK_02105EF4: ; 0x02105EF4
+	.asciz "data/uground_char.resdat"
+
+	.balign 4, 0
+	.global UNK_02105F10
+UNK_02105F10: ; 0x02105F10
+	.asciz "data/uground_pltt2.resdat"
+
+	.balign 4, 0
+	.global UNK_02105F2C
+UNK_02105F2C: ; 0x02105F2C
+	.asciz "data/uground_char2.resdat"
+
+	.balign 4, 0
+	.global UNK_02105F48
+UNK_02105F48: ; 0x02105F48
+	.asciz "data/uground_cell.resdat"
+
+	.balign 4, 0
+	.global UNK_02105F64
+UNK_02105F64: ; 0x02105F64
+	.asciz "data/uground_cellanm.resdat"
+
+	.balign 4, 0
+	.global UNK_02105F80
+UNK_02105F80: ; 0x02105F80
+	.asciz "data/uground_clact.cldat"
 
 	.text
 

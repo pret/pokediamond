@@ -1,8 +1,6 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_02106058
-	.extern UNK_0210606C
 	.extern UNK_021C48F8
 	.extern gUnk021C4918
 	.extern gUnknown21C48B8
@@ -325,6 +323,44 @@ UNK_020FA40E: ; 0x020FA40E
 	.global UNK_020FA5FC
 UNK_020FA5FC: ; 0x020FA5FC
 	.word FUN_020772E8, FUN_020774EC, FUN_02077894, 0xFFFFFFFF
+
+	.section .data
+
+	.global UNK_02106058
+UNK_02106058: ; 0x02106058
+	.word UNK_020F9DAA
+	.word UNK_020F9DAA
+	.word UNK_020F9DAA
+	.word UNK_020F9DAA
+	.word UNK_020F9DC4
+
+	.global UNK_0210606C
+UNK_0210606C: ; 0x0210606C
+	.word UNK_020F9E6C
+	.word UNK_020F9E88
+	.word UNK_020F9EA4
+	.word UNK_020F9E18
+	.word UNK_020F9E50
+	.word UNK_020F9EDC
+	.word UNK_020F9EF8
+	.word UNK_020FA048
+	.word UNK_020F9F4C
+	.word UNK_020FA010
+	.word UNK_020F9F84
+	.word UNK_020F9FBC
+	.word UNK_020F9FD8
+	.word UNK_020F9FF4
+	.word UNK_020FA02C
+	.word UNK_020F9F68
+	.word UNK_020F9DDE
+	.word UNK_020F9F30
+	.word UNK_020F9F14
+	.word UNK_020F9E34
+	.word UNK_020FA0C0
+	.word UNK_020FA0E4
+	.word UNK_020FA108
+	.word UNK_020FA108
+	.word UNK_020FA108
 
 	.section .bss
 
