@@ -196,7 +196,7 @@
 .extern FUN_02003B98
 .extern FUN_02003C10
 .extern FUN_02003CE8
-.extern FUN_02003D30
+.extern GetSoundDataPointer
 .extern FUN_02003D38
 .extern FUN_02003F3C
 .extern FUN_02003F64

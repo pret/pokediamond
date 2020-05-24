@@ -24510,6 +24510,10 @@ _020C26F4: .word FUN_020C209C
 
 	arm_func_start FUN_020C26F8
 FUN_020C26F8: ; 0x020C26F8
+	; r0: &sSoundDataBuffer
+	; r1: char* filename
+	; r2: (&sSoundDataBuffer)->unk_0090
+	; r3: 0
 	stmdb sp!, {r4-r6,lr}
 	mov r6, r0
 	mov r12, #0x0
