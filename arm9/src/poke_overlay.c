@@ -3,20 +3,7 @@
 #include "FS_file.h"
 #include "poke_overlay.h"
 
-struct LoadedOverlay {
-    FSOverlayID id;
-    BOOL active;
-};
-
 static struct LoadedOverlay gLoadedOverlays[3][8];
-
-struct LoadedOverlay* GetLoadedOverlaysInRegion(int);
-BOOL GetOverlayRamBounds(FSOverlayID, void**, void**);
-BOOL CanOverlayBeLoaded(FSOverlayID);
-int GetOverlayLoadDestination(FSOverlayID);
-BOOL LoadOverlayNormal(MIProcessor, FSOverlayID);
-BOOL LoadOverlayNoInit(MIProcessor, FSOverlayID);
-BOOL LoadOverlayNoInitAsync(MIProcessor, FSOverlayID);
 
 THUMB_FUNC void FreeOverlayAllocation(struct LoadedOverlay * loaded)
 {
@@ -41,7 +28,7 @@ THUMB_FUNC void UnloadOverlayByID(FSOverlayID id)
     }
 }
 
-THUMB_FUNC int GetOverlayLoadDestination(FSOverlayID id)
+THUMB_FUNC s32 GetOverlayLoadDestination(FSOverlayID id)
 {
     FSOverlayInfo info;
     u8 *end;
@@ -59,7 +46,7 @@ THUMB_FUNC int GetOverlayLoadDestination(FSOverlayID id)
     return OVERLAY_LOAD_WRAM;
 }
 
-THUMB_FUNC BOOL HandleLoadOverlay(FSOverlayID id, int a1)
+THUMB_FUNC BOOL HandleLoadOverlay(FSOverlayID id, s32 a1)
 {
     u32 sp0 = FS_DMA_NOT_USE;
     struct LoadedOverlay *r3;
@@ -140,7 +127,7 @@ THUMB_FUNC BOOL CanOverlayBeLoaded(FSOverlayID id)
     return TRUE;
 }
 
-THUMB_FUNC struct LoadedOverlay* GetLoadedOverlaysInRegion(int a0)
+THUMB_FUNC struct LoadedOverlay* GetLoadedOverlaysInRegion(s32 a0)
 {
     switch (a0)
     {

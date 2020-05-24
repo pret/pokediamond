@@ -68,11 +68,14 @@ struct UnkStruct_021C4918 {
     u8 unk6;
     u8 unk7;
     u8 unk8;
+    u8 padding[3];
 };
 
 extern struct UnkStruct_021C4918 gUnk021C4918;
 
 extern struct Unk2106FA0 gBacklightTop;
 extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
+
+void NitroMain(void);
 
 #endif //GUARD_MAIN_H

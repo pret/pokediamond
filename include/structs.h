@@ -17,11 +17,13 @@ struct UnkStruct_021C59C8_Sub20224 {
 
 struct UnkStruct_021C59C8_Sub_20464 {
     u8 unk_0;
+    u8 padding[3];
     int unk_4;
     int unk_8;
     u8 unk_C;
     u8 unk_D;
     u8 unk_E;
+    u8 padding2;
 };
 
 struct UnkStruct_021C59C8 {

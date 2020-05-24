@@ -112,6 +112,7 @@ typedef struct {
     u8 friendship;
     u8 ability;
     u8 circleMarking:1, triangleMarking:1, squareMarking:1, heartMarking:1, starMarking:1, diamondMarking:1;
+    u8 padding;
     OriginLanguage originLanguage;
     u8 hpEV;
     u8 atkEV;
@@ -179,9 +180,11 @@ typedef struct {
     u8 pokerus;
     u8 pokeball;
     u8 flags;
+    u8 padding[3];
     EncounterType encounterType;
     u8 HGSS_Pokeball;
     u8 HGSS_Performance;
+    u8 padding2[2];
 } PokemonDataBlockD;
 
 typedef union {

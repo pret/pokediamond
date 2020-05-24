@@ -10,7 +10,6 @@ FS_EXTERN_OVERLAY(MODULE_63);
 
 extern struct Unk21C48B8 gUnknown21C48B8;
 
-extern void OS_WaitIrq();
 extern void FUN_02016438(s32);
 extern void InitSystemForTheGame(void);
 extern void InitGraphicMemory(void);
