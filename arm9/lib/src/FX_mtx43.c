@@ -2,6 +2,8 @@
 #include "main.h"
 #include "fx.h"
 
+void MI_Copy48B(void *src, void *dst);
+
 
 ARM_FUNC void MTX_ScaleApply43(struct Mtx43 *mtx, struct Mtx43 *dst, fx32 x, fx32 y, fx32 z){
     //this works because matrices are indexed columns first
@@ -21,21 +23,21 @@ ARM_FUNC fx32 MTX_Inverse43(struct Mtx43 *mtx, struct Mtx43 *inv){
     else
         dst = inv;
     //subdeterminants
-    det0 = ((fx64)mtx->_[4] * mtx->_[8] - (fx64)mtx->_[5] * mtx->_[7] + (fx64)(1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT;
-    det1 = ((fx64)mtx->_[3] * mtx->_[8] - (fx64)mtx->_[5] * mtx->_[6] + (fx64)(1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT;
-    det2 = ((fx64)mtx->_[3] * mtx->_[7] - (fx64)mtx->_[4] * mtx->_[6] + (fx64)(1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT;
+    det0 = (fx32)(((fx64)mtx->_[4] * mtx->_[8] - (fx64)mtx->_[5] * mtx->_[7] + (fx64)(1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT);
+    det1 = (fx32)(((fx64)mtx->_[3] * mtx->_[8] - (fx64)mtx->_[5] * mtx->_[6] + (fx64)(1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT);
+    det2 = (fx32)(((fx64)mtx->_[3] * mtx->_[7] - (fx64)mtx->_[4] * mtx->_[6] + (fx64)(1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT);
     //matrix determinant
-    det = ((fx64)mtx->_[0] * det0 - (fx64)mtx->_[1] * det1 + (fx64)mtx->_[2] * det2 + (fx64)(1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT;
+    det = (fx32)(((fx64)mtx->_[0] * det0 - (fx64)mtx->_[1] * det1 + (fx64)mtx->_[2] * det2 + (fx64)(1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT);
 
     if (det == 0)
         return -1; //not invertible
 
     FX_InvAsync(det);
 
-    var0 = ((fx64)mtx->_[1] * mtx->_[8] - (fx64)mtx->_[7] * mtx->_[2]) >> FX32_INT_SHIFT;
-    var1 = ((fx64)mtx->_[1] * mtx->_[5] - (fx64)mtx->_[4] * mtx->_[2]) >> FX32_INT_SHIFT;
-    var2 = ((fx64)mtx->_[0] * mtx->_[8] - (fx64)mtx->_[6] * mtx->_[2]) >> FX32_INT_SHIFT;
-    var3 = ((fx64)mtx->_[0] * mtx->_[5] - (fx64)mtx->_[3] * mtx->_[2]) >> FX32_INT_SHIFT;
+    var0 = (fx32)(((fx64)mtx->_[1] * mtx->_[8] - (fx64)mtx->_[7] * mtx->_[2]) >> FX32_INT_SHIFT);
+    var1 = (fx32)(((fx64)mtx->_[1] * mtx->_[5] - (fx64)mtx->_[4] * mtx->_[2]) >> FX32_INT_SHIFT);
+    var2 = (fx32)(((fx64)mtx->_[0] * mtx->_[8] - (fx64)mtx->_[6] * mtx->_[2]) >> FX32_INT_SHIFT);
+    var3 = (fx32)(((fx64)mtx->_[0] * mtx->_[5] - (fx64)mtx->_[3] * mtx->_[2]) >> FX32_INT_SHIFT);
 
     fx32 ret = FX_GetDivResult();
     dst->_[0] =  (fx32)(((fx64)ret * det0) >> FX32_INT_SHIFT);
@@ -73,36 +75,36 @@ ARM_FUNC void MTX_Concat43(struct Mtx43 *a, struct Mtx43 *b, struct Mtx43 *c){
     a0 = a->_[0];
     a1 = a->_[1];
     a2 = a->_[2];
-    dst->_[0] =  (((fx64)a0  * b->_[0] + (fx64)a1  * b->_[3] + (fx64)a2  * b->_[6] ) >> FX32_INT_SHIFT);
-    dst->_[1] =  (((fx64)a0  * b->_[1] + (fx64)a1  * b->_[4] + (fx64)a2  * b->_[7] ) >> FX32_INT_SHIFT);
+    dst->_[0] =  (fx32)(((fx64)a0  * b->_[0] + (fx64)a1  * b->_[3] + (fx64)a2  * b->_[6] ) >> FX32_INT_SHIFT);
+    dst->_[1] =  (fx32)(((fx64)a0  * b->_[1] + (fx64)a1  * b->_[4] + (fx64)a2  * b->_[7] ) >> FX32_INT_SHIFT);
     b0 = b->_[2];
     b1 = b->_[5];
     b2 = b->_[8];
-    dst->_[2] =  (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2  * b2) >> FX32_INT_SHIFT);
+    dst->_[2] =  (fx32)(((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2  * b2) >> FX32_INT_SHIFT);
     a0 = a->_[3];
     a1 = a->_[4];
     a2 = a->_[5];
-    dst->_[5] =  (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2  * b2) >> FX32_INT_SHIFT);
-    dst->_[4] =  (((fx64)a0  * b->_[1] + (fx64)a1  * b->_[4] + (fx64)a2  * b->_[7] ) >> FX32_INT_SHIFT);
+    dst->_[5] =  (fx32)(((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2  * b2) >> FX32_INT_SHIFT);
+    dst->_[4] =  (fx32)(((fx64)a0  * b->_[1] + (fx64)a1  * b->_[4] + (fx64)a2  * b->_[7] ) >> FX32_INT_SHIFT);
     b0 = b->_[0];
     b1 = b->_[3];
     b2 = b->_[6];
-    dst->_[3] =  (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2  * b2) >> FX32_INT_SHIFT);
+    dst->_[3] =  (fx32)(((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2  * b2) >> FX32_INT_SHIFT);
     a0 = a->_[6];
     a1 = a->_[7];
     a2 = a->_[8];
-    dst->_[6] =  (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2 * b2) >> FX32_INT_SHIFT);
-    dst->_[7] =  (((fx64)a0  * b->_[1] + (fx64)a1  * b->_[4] + (fx64)a2 * b->_[7] ) >> FX32_INT_SHIFT);
+    dst->_[6] =  (fx32)(((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2 * b2) >> FX32_INT_SHIFT);
+    dst->_[7] =  (fx32)(((fx64)a0  * b->_[1] + (fx64)a1  * b->_[4] + (fx64)a2 * b->_[7] ) >> FX32_INT_SHIFT);
     b0 = b->_[2];
     b1 = b->_[5];
     b2 = b->_[8];
-    dst->_[8] = (((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2 * b2) >> FX32_INT_SHIFT);
+    dst->_[8] = (fx32)(((fx64)a0  * b0 + (fx64)a1  * b1 + (fx64)a2 * b2) >> FX32_INT_SHIFT);
     a0 = a->_[9];
     a1 = a->_[10];
     a2 = a->_[11];
-    dst->_[11] = ((((fx64)a0 * b0 + (fx64)a1 * b1 + (fx64)a2 * b2) >> FX32_INT_SHIFT) + b->_[11]);
-    dst->_[10] = ((((fx64)a0 * b->_[1] + (fx64)a1 * b->_[4] + (fx64)a2 * b->_[7]) >> FX32_INT_SHIFT) + b->_[10]);
-    dst->_[9] = ((((fx64)a0 * b->_[0] + (fx64)a1 * b->_[3] + (fx64)a2 * b->_[6]) >> FX32_INT_SHIFT) + b->_[9]);
+    dst->_[11] = (fx32)((((fx64)a0 * b0 + (fx64)a1 * b1 + (fx64)a2 * b2) >> FX32_INT_SHIFT) + b->_[11]);
+    dst->_[10] = (fx32)((((fx64)a0 * b->_[1] + (fx64)a1 * b->_[4] + (fx64)a2 * b->_[7]) >> FX32_INT_SHIFT) + b->_[10]);
+    dst->_[9] = (fx32)((((fx64)a0 * b->_[0] + (fx64)a1 * b->_[3] + (fx64)a2 * b->_[6]) >> FX32_INT_SHIFT) + b->_[9]);
     if (dst == &temp)
         *c = temp;
 }
@@ -112,11 +114,11 @@ ARM_FUNC void MTX_MultVec43(struct Vecx32 *vec, struct Mtx43 *mtx, struct Vecx32
     x = vec->x;
     y = vec->y;
     z = vec->z;
-    dst->x = ((fx64)x * mtx->_[0] + (fx64)y * mtx->_[3] + (fx64)z * mtx->_[6]) >> FX32_INT_SHIFT;
+    dst->x = (fx32)(((fx64)x * mtx->_[0] + (fx64)y * mtx->_[3] + (fx64)z * mtx->_[6]) >> FX32_INT_SHIFT);
     dst->x += mtx->_[9];
-    dst->y = ((fx64)x * mtx->_[1] + (fx64)y * mtx->_[4] + (fx64)z * mtx->_[7]) >> FX32_INT_SHIFT;
+    dst->y = (fx32)(((fx64)x * mtx->_[1] + (fx64)y * mtx->_[4] + (fx64)z * mtx->_[7]) >> FX32_INT_SHIFT);
     dst->y += mtx->_[10];
-    dst->z = ((fx64)x * mtx->_[2] + (fx64)y * mtx->_[5] + (fx64)z * mtx->_[8]) >> FX32_INT_SHIFT;
+    dst->z = (fx32)(((fx64)x * mtx->_[2] + (fx64)y * mtx->_[5] + (fx64)z * mtx->_[8]) >> FX32_INT_SHIFT);
     dst->z += mtx->_[11];
 }
 

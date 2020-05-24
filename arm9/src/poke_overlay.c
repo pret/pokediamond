@@ -1,6 +1,7 @@
 #include "global.h"
 #include "nitro.h"
 #include "FS_file.h"
+#include "FS_rom.h"
 #include "poke_overlay.h"
 
 static struct LoadedOverlay gLoadedOverlays[3][8];

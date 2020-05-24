@@ -174,16 +174,21 @@ typedef struct FSFile
 }
 FSFile;
 
-u32 FS_SetDefaultDMA(u32 dma_no); // returns the previous selection
+void FS_Init(u32 default_dma_no);
+BOOL FS_IsAvailable(void);
 void FS_InitFile(FSFile * p_file);
-BOOL FS_WaitAsync(FSFile * p_file);
+static BOOL FSi_FindPath(FSFile * p_dir, const char * path, FSFileID * p_file_id, FSDirPos * p_dir_pos);
+int FSi_ReadFileCore(FSFile * p_file, void * dst, s32 len, BOOL async);
+BOOL FS_ConvertPathToFileID(FSFileID * p_file_id, const char * path);
 BOOL FS_OpenFileDirect(FSFile * p_file, FSArchive * p_arc, u32 image_top, u32 image_bottom, u32 file_index);
-int FS_ReadFile(FSFile * p_file, void * dst, s32 len);
-int FS_ReadFileAsync(FSFile * p_file, void * dst, s32 len);
-BOOL FS_OpenFile(FSFile * p_file, const char * path);
 BOOL FS_OpenFileFast(FSFile * p_file, FSFileID file_id);
+BOOL FS_OpenFile(FSFile * p_file, const char * path);
 BOOL FS_CloseFile(FSFile * p_file);
+BOOL FS_WaitAsync(FSFile * p_file);
+int FS_ReadFileAsync(FSFile * p_file, void * dst, s32 len);
+int FS_ReadFile(FSFile * p_file, void * dst, s32 len);
 BOOL FS_SeekFile(FSFile * p_file, int offset, FSSeekFileMode origin);
+BOOL FS_ChangeDir(const char * path);
 
 static inline u32 const FS_GetFileImageTop(volatile const FSFile * p_file) {
     return p_file->prop.file.top;
