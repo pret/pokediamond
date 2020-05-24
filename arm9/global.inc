@@ -110,7 +110,7 @@
 .extern FSi_SendCommand
 .extern FSi_TranslateCommand
 .extern FUNRTC_Init
-.extern FUN_020002FE
+.extern SVC_CpuSet
 .extern FUN_02000DF4
 .extern FUN_02000E7C
 .extern FUN_02000EE8

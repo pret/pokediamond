@@ -676,7 +676,7 @@ CTRDGi_InitCommon: ; 0x020DB938
 	ldr r2, _020DB974 ; =0x05000001
 	add r0, sp, #0x0
 	str r3, [sp, #0x0]
-	bl FUN_020002FE
+	bl SVC_CpuSet
 	bl OS_GetLockID
 	ldr r1, _020DB970 ; =UNK_021D6944
 	strh r0, [r1, #0x2]
