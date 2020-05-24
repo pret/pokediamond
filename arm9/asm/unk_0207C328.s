@@ -1,12 +1,6 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-    .extern UNK_021060F8
-    .extern UNK_021060E4
-    .extern UNK_0210610C
-    .extern UNK_02106124
-    .extern UNK_021060D0
-
 	.section .rodata
 
 	.global UNK_020FA6F8
@@ -246,6 +240,30 @@ UNK_020FA784: ; 0x020FA784
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
 	.section .data
+
+	.global UNK_021060D0
+UNK_021060D0: ; 0x021060D0
+	.asciz "data/pst_h.cldat"
+
+	.balign 4, 0
+	.global UNK_021060E4
+UNK_021060E4: ; 0x021060E4
+	.asciz "data/pst_pal.resdat"
+
+	.balign 4, 0
+	.global UNK_021060F8
+UNK_021060F8: ; 0x021060F8
+	.asciz "data/pst_chr.resdat"
+
+	.balign 4, 0
+	.global UNK_0210610C
+UNK_0210610C: ; 0x0210610C
+	.asciz "data/pst_cell.resdat"
+
+	.balign 4, 0
+	.global UNK_02106124
+UNK_02106124: ; 0x02106124
+	.asciz "data/pst_canm.resdat"
 
 	.text
 
