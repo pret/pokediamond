@@ -11,15 +11,15 @@
 static u16 OSi_IsInitReset = 0;
 vu16 OSi_IsResetOccurred = 0;
 
-extern void PXI_Init();
+extern void PXI_Init(void);
 extern u32 PXI_IsCallbackReady(u32 param1, u32 param2);
 extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
 extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 extern void CARD_LockRom(u16 lockId);
 extern void MI_StopDma(u32 dma);
-extern void OSi_DoResetSystem(); //in itcm, should technically be in this file
+extern void OSi_DoResetSystem(void); //in itcm, should technically be in this file
 
-ARM_FUNC void OS_InitReset() {
+ARM_FUNC void OS_InitReset(void) {
     if (OSi_IsInitReset) {
         return;
     }
