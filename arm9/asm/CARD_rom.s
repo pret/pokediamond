@@ -4,7 +4,12 @@
 	.extern OSi_ThreadInfo
 	.extern UNK_021D5BE0
 	.extern cardi_common
-	.extern UNK_02106A50
+
+	.section .data
+
+	.global UNK_02106A50
+UNK_02106A50: ; 0x02106A50
+	.word 0x027FFE00
 
 	.section .bss
 

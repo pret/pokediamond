@@ -1,8 +1,29 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_02106A20
 	.extern UNK_02106A1C
+	.extern UNK_02106A20
+
+	.section .data
+
+	.global UNK_02106A1C
+UNK_02106A1C: ; 0x02106A1C
+	.word 0
+
+	.global UNK_02106A20
+UNK_02106A20: ; 0x02106A20
+	.word   0 ; Jan
+	.word  31 ; Feb
+	.word  59 ; Mar
+	.word  90 ; Apr
+	.word 120 ; May
+	.word 151 ; Jun
+	.word 181 ; Jul
+	.word 212 ; Aug
+	.word 243 ; Sep
+	.word 273 ; Oct
+	.word 304 ; Nov
+	.word 334 ; Dec
 
 	.text
 

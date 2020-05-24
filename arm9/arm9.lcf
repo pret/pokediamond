@@ -770,7 +770,15 @@ SECTIONS {
 		FS_file.o (.data)
 		FS_rom.o (.data)
 		FS_overlay.o (.data)
-		rom2_4.o (.data)
+		DGT_hash1.o (.data)
+		DGT_hash2.o (.data)
+		RTC_convert.o (.data)
+		CARD_rom.o (.data)
+		WM_sync.o (.data)
+		libc.o (.data)
+		SDK_OVERLAY_DIGEST = .;
+		SDK_OVERLAY_DIGEST_END = .;
+		. = ALIGN(32);
 		SDK_STATIC_DATA_END = .;
 		SDK_STATIC_END = .;
 		SDK_STATIC_SIZE = SDK_STATIC_END - SDK_STATIC_START;

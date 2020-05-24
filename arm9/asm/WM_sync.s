@@ -1,7 +1,11 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_02106A54
+	.section .data
+
+	.global UNK_02106A54
+UNK_02106A54: ; 0x02106A54
+	.word 0x00010000
 
     .text
 
