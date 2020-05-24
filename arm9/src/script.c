@@ -1,7 +1,5 @@
 #include "script.h"
 
-u16 ScriptReadHalfword(struct ScriptContext *ctx);
-
 THUMB_FUNC void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, void *cmdTableEnd)
 {
     u32 i;

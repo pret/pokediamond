@@ -51,7 +51,7 @@ struct Unk21C48B8
     s32 unk20;
     s32 unk24;
     s32 unk28;
-    s32 unk2C;
+    u32 unk2C;
     s32 unk30;
     s32 unk34;
     s32 unk38;

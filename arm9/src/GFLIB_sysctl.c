@@ -1,4 +1,4 @@
-#include "global.h"
+#include "GFLIB_sysctl.h"
 #include "SPI_pm.h"
 #include "OS_interrupt.h"
 #include "OS_system.h"
@@ -6,30 +6,22 @@
 #include "CARD_pullOut.h"
 #include "CTRDG_common.h"
 #include "PAD_pad.h"
-#include "main.h"
 #include "poke_overlay.h"
-
-extern struct Unk21C48B8 gUnknown21C48B8;
-
-struct Unk2106FA0 gBacklightTop;
 
 extern BOOL FUN_02006234(struct Unk21DBE18 *, s32 *, int);
 extern BOOL FUN_02006290(int);
 extern void FUN_02006260(int);
 extern BOOL FUN_02033678(void);
-extern int FUN_020335B8(void);
+extern u32 FUN_020335B8(void);
 extern BOOL FUN_0202FB80(void);
 extern void FUN_02000FE8(void);
 extern void FUN_02016464(void);
 
-void FUN_02000F4C(int arg0, int arg1);
-void FUN_02000FE8(void);
-
 THUMB_FUNC void FUN_02000DF4(void)
 {
-    gBacklightTop.unk8 = -1;
+    gBacklightTop.unk8 = (FSOverlayID)-1;
     gBacklightTop.unkC = 0;
-    gBacklightTop.unk10 = -1; // overlay invalid
+    gBacklightTop.unk10 = (FSOverlayID)-1; // overlay invalid
     gBacklightTop.unk14 = NULL;
 }
 
@@ -84,7 +76,7 @@ THUMB_FUNC void FUN_02000EC8(u32 parameter)
 
 THUMB_FUNC void FUN_02000EE8(void)
 {
-    int r1 = FUN_020335B8();
+    u32 r1 = FUN_020335B8();
     switch (r1)
     {
     case 1:
@@ -123,7 +115,7 @@ THUMB_FUNC void DoSoftReset(u32 parameter)
 
 extern void FUN_02033F70(int, int, int);
 
-THUMB_FUNC void FUN_02000F4C(int arg0, int arg1)
+THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
 {
     if (arg1 == 3)
     {
@@ -150,17 +142,17 @@ THUMB_FUNC void FUN_02000F4C(int arg0, int arg1)
 }
 
 extern void FUN_0201265C(struct Unk21C4818 *, struct Unk21C4828 *);
-extern void seedr_MT(int);
-extern void seedr_LC(int);
+extern void seedr_MT(u32);
+extern void seedr_LC(u32);
 
-void InitializeMainRNG(void)
+THUMB_FUNC void InitializeMainRNG(void)
 {
     struct Unk21C4818 spC;
     struct Unk21C4828 sp0;
     FUN_0201265C(&spC, &sp0);
     {
-        int r4 = gUnknown21C48B8.unk2C;
-        int r5 = ((sp0.unk4 + sp0.unk8) << 24) + (spC.unk0 + ((256 * spC.unk4 * spC.unk8) << 16) + (sp0.unk0 << 16));
+        u32 r4 = gUnknown21C48B8.unk2C;
+        u32 r5 = ((sp0.unk4 + sp0.unk8) << 24) + (spC.unk0 + ((256 * spC.unk4 * spC.unk8) << 16) + (sp0.unk0 << 16));
         seedr_MT(r4 + r5);
         seedr_LC(r4 + r5);
     }
@@ -169,7 +161,7 @@ void InitializeMainRNG(void)
 extern void FUN_0201CE04(void);
 extern void FUN_0201CDD0(void);
 
-void FUN_02000FE8(void)
+THUMB_FUNC void FUN_02000FE8(void)
 {
     PMBackLightSwitch top, bottom;
     if (PAD_DetectFold())
