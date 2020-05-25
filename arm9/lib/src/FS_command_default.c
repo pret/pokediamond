@@ -1,27 +1,10 @@
 #include "nitro.h"
 #include "FS_file.h"
 #include "FS_command.h"
-#include "FS_archive.h"
 #include "MI_byteAccess.h"
 #include "MI_memory.h"
 #include "FSi_util.h"
-
-typedef struct
-{
-    FSArchive *arc;
-    u32 pos;
-}
-FSiSyncReadParam;
-
-ARM_FUNC FSResult FSi_ReadFileCommand(FSFile * p_file);
-ARM_FUNC FSResult FSi_WriteFileCommand(FSFile * p_file);
-ARM_FUNC FSResult FSi_SeekDirCommand(FSFile * p_file);
-ARM_FUNC FSResult FSi_ReadDirCommand(FSFile * p_file);
-ARM_FUNC FSResult FSi_FindPathCommand(FSFile * p_file);
-ARM_FUNC FSResult FSi_GetPathCommand(FSFile * p_file);
-ARM_FUNC FSResult FSi_OpenFileFastCommand(FSFile * p_file);
-ARM_FUNC FSResult FSi_OpenFileDirectCommand(FSFile * p_file);
-ARM_FUNC FSResult FSi_CloseFileCommand(FSFile * p_file);
+#include "FS_command_default.h"
 
 FSResult (*const fsi_default_command[])(FSFile *) = {
     [FS_COMMAND_READFILE]       = FSi_ReadFileCommand,
@@ -41,8 +24,8 @@ ARM_FUNC u32 FSi_StrNICmp(const char * str1, const char * str2, u32 len)
     int i;
     for (i = 0; i < len; i++)
     {
-        u32 c = MI_ReadByte(str1 + i) - 'A';
-        u32 d = MI_ReadByte(str2 + i) - 'A';
+        u32 c = (u32)(MI_ReadByte(str1 + i) - 'A');
+        u32 d = (u32)(MI_ReadByte(str2 + i) - 'A');
         if (c <= 'Z' - 'A')
             c += 'a' - 'A';
         if (d <= 'Z' - 'A')
@@ -69,7 +52,7 @@ ARM_FUNC FSResult FSi_ReadTable(FSiSyncReadParam * p, void * dst, u32 len)
         OSIntrMode bak_psr = OS_DisableInterrupts();
         while (FSi_IsArchiveSync(p_arc))
             OS_SleepThread(&p_arc->sync_q);
-        OS_RestoreInterrupts(bak_psr);
+        (void)OS_RestoreInterrupts(bak_psr);
         ret = p_arc->list.next->error;
     }
         break;
@@ -216,7 +199,7 @@ ARM_FUNC FSResult FSi_FindPathCommand(FSFile *p_dir)
             else if ((name_len == 2) & (MI_ReadByte(path + 1) == '.'))
             {
                 if (p_dir->prop.dir.pos.own_id != 0)
-                    FSi_SeekDirDirect(p_dir, p_dir->prop.dir.parent);
+                    (void)FSi_SeekDirDirect(p_dir, p_dir->prop.dir.parent);
                 path += 2;
                 continue;
             }
@@ -300,7 +283,7 @@ ARM_FUNC FSResult FSi_GetPathCommand(FSFile *p_file)
             dir_id = INVALID_ID;
             do
             {
-                FSi_SeekDirDirect(&tmp, pos);
+                (void)FSi_SeekDirDirect(&tmp, pos);
                 if (!pos)
                     num_dir = tmp.prop.dir.parent;
                 tmp.arg.readdir.p_entry = &entry;
@@ -337,10 +320,10 @@ ARM_FUNC FSResult FSi_GetPathCommand(FSFile *p_file)
         id = dir_id;
         if (id != 0)
         {
-            FSi_SeekDirDirect(&tmp, id);
+            (void)FSi_SeekDirDirect(&tmp, id);
             do
             {
-                FSi_SeekDirDirect(&tmp, tmp.prop.dir.parent);
+                (void)FSi_SeekDirDirect(&tmp, tmp.prop.dir.parent);
                 tmp.arg.readdir.p_entry = &entry;
                 tmp.arg.readdir.skip_string = TRUE;
                 while (FSi_TranslateCommand(&tmp, FS_COMMAND_READDIR) == FS_RESULT_SUCCESS)
@@ -378,7 +361,7 @@ ARM_FUNC FSResult FSi_GetPathCommand(FSFile *p_file)
         MI_CpuCopy8(":/", dst + pos, 2);
         pos += 2;
         id = dir_id;
-        FSi_SeekDirDirect(&tmp, id);
+        (void)FSi_SeekDirDirect(&tmp, id);
         if (file_id != INVALID_ID)
         {
             tmp.arg.readdir.p_entry = &entry;
@@ -401,7 +384,7 @@ ARM_FUNC FSResult FSi_GetPathCommand(FSFile *p_file)
         {
             do
             {
-                FSi_SeekDirDirect(&tmp, tmp.prop.dir.parent);
+                (void)FSi_SeekDirDirect(&tmp, tmp.prop.dir.parent);
                 tmp.arg.readdir.p_entry = &entry;
                 tmp.arg.readdir.skip_string = FALSE;
                 MI_WriteByte(dst + total - 1, '/');
@@ -464,5 +447,6 @@ ARM_FUNC FSResult FSi_OpenFileDirectCommand(FSFile * p_file)
 
 ARM_FUNC FSResult FSi_CloseFileCommand(FSFile * p_file)
 {
+#pragma unused (p_file)
     return FS_RESULT_SUCCESS;
 }
