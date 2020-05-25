@@ -2415,7 +2415,7 @@ MOD04_021DAF18: ; 0x021DAF18
 	streq r1, [r0, #0x20]
 	addeq sp, sp, #0xc
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	bl FUN_0209CB44
+	bl CPS_SocUse
 	add r0, sl, #0x1000
 	ldr r0, [r0, #0x12c]
 	cmp r0, #1
@@ -2440,15 +2440,15 @@ _021DAFC8:
 	ldrh r1, [r0, #0x30]
 	mov r2, r4
 	mov r0, #0
-	bl FUN_0209CB78
-	bl FUN_0209C934
+	bl CPS_SocPingMode
+	bl CPS_TcpConnect
 	cmp r0, #0
 	beq _021DB004
 	add r0, sl, #0x1000
 	mov r1, #3
 	str r1, [r0, #0x20]
-	bl FUN_0209CB24
-	bl FUN_0209CC10
+	bl CPS_SocRelease
+	bl CPS_SocUnRegister
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021DB004:
@@ -2458,14 +2458,14 @@ _021DB004:
 	bl strlen
 	mov r1, r0
 	mov r0, r4
-	bl FUN_0209C030
+	bl CPS_SocWrite
 	cmp r0, #0
 	str r0, [sp, #8]
 	addle r0, sl, #0x1000
 	movle r1, #5
 	strle r1, [r0, #0x20]
 	ble _021DB20C
-	bl FUN_0209BF4C
+	bl CPS_SocGetChar
 	mov r0, sl
 	bl MOD04_021DB3B8
 	cmp r0, #0
@@ -2493,7 +2493,7 @@ _021DB088:
 	moveq r1, #5
 	streq r1, [r0, #0x20]
 	beq _021DB20C
-	bl FUN_0209BF9C
+	bl CPS_SocGetLength
 	str r0, [sp, #8]
 	cmp r0, #0
 	blt _021DB1E8
@@ -2503,7 +2503,7 @@ _021DB088:
 	mov r6, r0
 	add r0, sp, #8
 	mov r8, r1
-	bl FUN_0209C638
+	bl CPS_SocRead
 	cmp r0, #0
 	beq _021DB1E8
 	ldr r2, [r7, #8]
@@ -2541,11 +2541,11 @@ _021DB150:
 	ldr r0, [sp, #8]
 	cmp r0, sb
 	bls _021DB164
-	bl FUN_0209C52C
+	bl CPS_SocConsume
 	b _021DB1E8
 _021DB164:
 	mov r0, sb
-	bl FUN_0209C52C
+	bl CPS_SocConsume
 _021DB16C:
 	add r0, sl, #0x1000
 	ldr r1, [r0, #0xa2c]
@@ -2580,20 +2580,20 @@ _021DB188:
 	str r1, [r0, #0x20]
 	b _021DB20C
 _021DB1E8:
-	bl FUN_0209C840
-	bl FUN_0209C7AC
-	bl FUN_0209CB24
-	bl FUN_0209CC10
+	bl CPS_TcpShutdown
+	bl CPS_TcpClose
+	bl CPS_SocRelease
+	bl CPS_SocUnRegister
 	add r0, sl, #0x1000
 	mov r1, #8
 	str r1, [r0, #0x20]
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021DB20C:
-	bl FUN_0209C840
-	bl FUN_0209C7AC
-	bl FUN_0209CB24
-	bl FUN_0209CC10
+	bl CPS_TcpShutdown
+	bl CPS_TcpClose
+	bl CPS_SocRelease
+	bl CPS_SocUnRegister
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
@@ -2704,7 +2704,7 @@ MOD04_021DB35C: ; 0x021DB35C
 	ldr r2, [r1, #0x9cc]
 	add r0, r4, r0
 	str r2, [r1, #0x180]
-	bl FUN_0209CC28
+	bl CPS_SocRegister
 	ldmia sp!, {r4, pc}
 	.align 2, 0
 _021DB3AC: .word 0x00001134

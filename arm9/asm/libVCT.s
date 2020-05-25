@@ -5505,8 +5505,8 @@ _020A8628:
 _020A863C: .word UNK_021CA870
 _020A8640: .word UNK_021CA874
 
-	arm_func_start FUN_020A8644
-FUN_020A8644:
+	arm_func_start WCM_SendDCFData
+WCM_SendDCFData:
 	stmdb sp!, {r4-r8,lr}
 	mov r8, r0
 	mov r7, r1
