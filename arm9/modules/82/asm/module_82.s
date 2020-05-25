@@ -596,7 +596,7 @@ _0222DA18:
 	mvn r0, r0
 	cmp r4, r0
 	beq _0222DA30
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #9
 	beq _0222DA2C
 	mov r4, #5

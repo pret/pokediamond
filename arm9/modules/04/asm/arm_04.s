@@ -1442,7 +1442,7 @@ _021DA180:
 	mov r1, #0xe
 	bl OS_SNPrintf
 	add r0, sp, #0x14
-	bl FUN_020A87E0
+	bl WCM_GetApEssid
 	mov r5, r0
 	mov r1, #0x20
 	bl DC_InvalidateRange
@@ -5473,7 +5473,7 @@ _021DDA4C:
 	cmp r0, #3
 	bge _021DDAB0
 	add r0, sp, #0
-	bl FUN_020A87E0
+	bl WCM_GetApEssid
 	mov r5, r0
 	mov r1, #0x20
 	bl DC_InvalidateRange
@@ -5686,7 +5686,7 @@ _021DDD28:
 	cmp r0, #0
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #9
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
@@ -21692,7 +21692,7 @@ MOD04_021EBA28: ; 0x021EBA28
 	cmp r0, #4
 	bne _021EBAA8
 	mov r0, #0
-	bl FUN_020A87E0
+	bl WCM_GetApEssid
 	mov r4, r0
 	mov r1, #0x20
 	bl DC_InvalidateRange
@@ -21928,7 +21928,7 @@ MOD04_021EBC60: ; 0x021EBC60
 	ldr r0, _021EBE14 ; =0x02210E4C
 	mov r1, #0x2300
 	ldr r0, [r0]
-	bl FUN_020A7E80
+	bl WCM_Init
 	cmp r0, #1
 	beq _021EBDF4
 	cmp r0, #4
@@ -22664,7 +22664,7 @@ _021EC7AC: .word 0x00000D0C
 MOD04_021EC7B0: ; 0x021EC7B0
 	stmdb sp!, {r4, r5, r6, lr}
 	mov r6, r0
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	ldrb r2, [r6, #0xd13]
 	add r3, r6, #0x470
 	mov r1, #0xc0
@@ -22731,7 +22731,7 @@ _021EC898:
 	mov r0, r5
 	add r1, r6, r1
 	orr r2, r4, r2
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	b _021EC8E0
 _021EC8BC:
 	cmp r0, #9
@@ -22878,7 +22878,7 @@ _021ECA8C:
 MOD04_021ECA98: ; 0x021ECA98
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #0xc
 	addls pc, pc, r0, lsl #2
 	b _021ECB2C
@@ -22901,19 +22901,19 @@ _021ECAE4:
 	mov r0, #1
 	ldmfd sp!, {pc}
 _021ECAF0:
-	bl FUN_020A7E0C
+	bl WCM_Finish
 	b _021ECB2C
 _021ECAF8:
-	bl FUN_020A7AC8
+	bl WCM_CleanupAsync
 	b _021ECB2C
 _021ECB00:
-	bl FUN_020A7820
+	bl WCM_EndSearchAsync
 	b _021ECB2C
 _021ECB08:
-	bl FUN_020A7488
+	bl WCM_DisconnectAsync
 	b _021ECB2C
 _021ECB10:
-	bl FUN_020A722C
+	bl WCM_TerminateAsync
 	b _021ECB2C
 _021ECB18:
 	mov r0, #0
@@ -23463,7 +23463,7 @@ MOD04_021ED218: ; 0x021ED218
 	bl MOD04_021EB798
 	mov r4, r0
 	mov r5, #9
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #0xc
 	addls pc, pc, r0, lsl #2
 	b _021ED2F0
@@ -23503,13 +23503,13 @@ _021ED2A4:
 	bl MOD04_021ED8D4
 	b _021ED2F0
 _021ED2C0:
-	bl FUN_020A7820
+	bl WCM_EndSearchAsync
 	b _021ED2F0
 _021ED2C8:
-	bl FUN_020A7488
+	bl WCM_DisconnectAsync
 	b _021ED2F0
 _021ED2D0:
-	bl FUN_020A722C
+	bl WCM_TerminateAsync
 	mov r0, #4
 	bl MOD04_021EB6F4
 	mov r5, #0x11
@@ -23532,7 +23532,7 @@ MOD04_021ED2FC: ; 0x021ED2FC
 	movgt r2, #0xc
 	ldr r2, [ip, r2, lsl #2]
 	orr r2, r3, r2
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
@@ -23623,7 +23623,7 @@ _021ED410:
 	ldmloia sp!, {r4, r5, pc}
 _021ED448:
 	strb r2, [r5, #0xd13]
-	bl FUN_020A7820
+	bl WCM_EndSearchAsync
 	cmp r0, #1
 	strneb r4, [r5, #0xd0e]
 	movne r4, #7
@@ -24080,7 +24080,7 @@ MOD04_021EDA70: ; 0x021EDA70
 	mov r5, r0
 	bl MOD04_021EB720
 	mov r4, r0
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r4, #2
 	bne _021EDAB0
 	cmp r0, #3
@@ -24137,7 +24137,7 @@ _021EDB38:
 MOD04_021EDB44: ; 0x021EDB44
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #0x10
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	mov r4, r0
 	mov r0, #0x10
 	bl MOD04_021EB798
@@ -24152,7 +24152,7 @@ MOD04_021EDB44: ; 0x021EDB44
 	bl MOD04_021ED17C
 	ldr r1, _021EDBC8 ; =MOD04_021EC44C
 	add r0, sp, #0
-	bl FUN_020A7BD4
+	bl WCM_StartupAsync
 	cmp r0, #1
 	beq _021EDB9C
 	cmp r0, #4
@@ -24476,7 +24476,7 @@ MOD04_021EDFBC: ; 0x021EDFBC
 	mov r0, #0x10
 	bl MOD04_021EB798
 	mov r4, r0
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #9
 	bne _021EE064
 	sub r0, r5, #0xa
