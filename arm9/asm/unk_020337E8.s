@@ -13,7 +13,7 @@ FUN_020337E8: ; 0x020337E8
 	add r0, #0x1f
 	mov r1, #0x1f
 	bic r0, r1
-	bl FUN_02096B14
+	bl DWC_Init
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02016A18
@@ -26,14 +26,14 @@ FUN_0203380C: ; 0x0203380C
 	push {r4, lr}
 	bl FUN_02028228
 	add r4, r0, #0x0
-	bl FUN_02096FB0
+	bl DWC_CheckUserData
 	cmp r0, #0x0
 	bne _0203382A
 	ldr r1, _0203382C ; =0x4144414A
 	add r0, r4, #0x0
-	bl thunk_FUN_02097190
+	bl DWC_CreateUserData
 	add r0, r4, #0x0
-	bl thunk_FUN_02096e4c
+	bl DWC_ClearDirtyFlag
 _0203382A:
 	pop {r4, pc}
 	.balign 4
@@ -46,10 +46,10 @@ FUN_02033830: ; 0x02033830
 	bl FUN_02028228
 	add r4, r0, #0x0
 	add r1, sp, #0x0
-	bl FUN_02096CCC
+	bl DWC_CreateExchangeToken
 	add r0, r4, #0x0
 	add r1, sp, #0x0
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	add sp, #0xc
 	pop {r3-r4, pc}
 
@@ -59,11 +59,11 @@ FUN_0203384C: ; 0x0203384C
 	bl FUN_020286EC
 	bl FUN_02028228
 	add r4, r0, #0x0
-	bl FUN_02096F80
+	bl DWC_CheckHasProfile
 	cmp r0, #0x0
 	beq _0203386E
 	add r0, r4, #0x0
-	bl FUN_02096F18
+	bl DWC_CheckValidConsole
 	cmp r0, #0x0
 	beq _0203386E
 	mov r0, #0x1

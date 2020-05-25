@@ -18661,7 +18661,7 @@ _022369CC:
 	bl FUN_02023830
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_02096D68
+	bl DWC_CreateFriendKey
 	add r3, r0, #0
 	add r2, r1, #0
 	add r0, r6, #0

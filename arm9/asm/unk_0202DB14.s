@@ -198,7 +198,7 @@ FUN_0202DBE0: ; 0x0202DBE0
 	ldr r1, [r1, #0x0]
 	add r1, #0x48
 	add r1, r1, r5
-	bl FUN_02096CCC
+	bl DWC_CreateExchangeToken
 	ldr r0, _0202DCD8 ; =UNK_021C59E4
 	mov r1, #0x0
 	ldr r0, [r0, #0x0]

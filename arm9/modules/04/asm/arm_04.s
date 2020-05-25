@@ -457,7 +457,7 @@ _021D9378:
 _021D93AC:
 	add r0, r5, #0x1f
 	bic r0, r0, #0x1f
-	bl FUN_02096760
+	bl DWCi_AUTH_MakeWiFiID
 	ldr r0, _021D940C ; =0x0220BF98
 	mov r1, r5
 	mov r2, #0
@@ -718,7 +718,7 @@ MOD04_021D96EC: ; 0x021D96EC
 	cmp r4, #1
 	bne _021D9758
 	ldr r0, _021D97EC ; =0x0221046C
-	bl FUN_02095EC8
+	bl DWCi_BM_GetWiFiInfo
 _021D9758:
 	ldr r0, _021D97E8 ; =0x02210468
 	ldr r2, _021D97F0 ; =0x000011CC
@@ -1482,7 +1482,7 @@ MOD04_021DA238: ; 0x021DA238
 	sub sp, sp, #0x18
 	mov r4, r0
 	add r0, sp, #0
-	bl FUN_02095EC8
+	bl DWCi_BM_GetWiFiInfo
 	add r1, sp, #0
 	mov r0, r4
 	bl MOD04_021D9F78
@@ -3343,7 +3343,7 @@ _021DBCB4:
 	ldr r0, [r4]
 	bl MOD04_021DAE4C
 	add r0, sp, #0x68
-	bl FUN_02095EC8
+	bl DWCi_BM_GetWiFiInfo
 	ldr r2, [sp, #0x68]
 	ldr r1, [sp, #0x6c]
 	mov r0, #0
@@ -8747,7 +8747,7 @@ MOD04_021E0628: ; 0x021E0628
 	ldr r1, [r2, #0xc]
 	add r2, sp, #8
 	add r0, r0, #4
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 	ldr r1, _021E07D0 ; =0x00000705
 	add r2, sp, #8
 	mov r0, r5
@@ -8791,7 +8791,7 @@ _021E0704:
 	ldr r1, [r2, #0xc]
 	add r2, sp, #0x1d
 	add r0, r0, #4
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 	add r1, sp, #0x1d
 	add r0, r4, #0x8e
 	bl strcmp
@@ -8802,13 +8802,13 @@ _021E0704:
 	ldr r0, [r0]
 	ldr r1, [r0, #0xc]
 	add r0, r0, #0x3c
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 	ldr r0, _021E07CC ; =0x022106C8
 	ldr r2, [r4, #4]
 	ldr r1, [r0]
 	ldr r0, [r1, #0x1c]
 	add r1, r1, #0x3c
-	bl FUN_02096EC0
+	bl DWCi_Acc_SetLoginIdToUserData
 	mov r0, r5
 	bl MOD04_021F0D54
 	ldr r0, _021E07CC ; =0x022106C8
@@ -8876,7 +8876,7 @@ MOD04_021E07E4: ; 0x021E07E4
 	str r2, [r1, #0x24]
 	ldr r0, [r0]
 	ldr r0, [r0, #0x1c]
-	bl FUN_0209702C
+	bl DWCi_Acc_IsAuthentic
 	cmp r0, #0
 	beq _021E0898
 	ldr r0, _021E09DC ; =0x022106C8
@@ -9002,7 +9002,7 @@ MOD04_021E0A00: ; 0x021E0A00
 	str r5, [r2]
 	str r4, [r1]
 	ldr r0, [r0, #0x1c]
-	bl FUN_0209702C
+	bl DWCi_Acc_IsAuthentic
 	cmp r0, #0
 	beq _021E0A68
 	ldr r0, _021E0BB8 ; =0x022106C8
@@ -9011,20 +9011,20 @@ MOD04_021E0A00: ; 0x021E0A00
 	add r2, r1, #0x248
 	ldr r1, [r0, #0x24]
 	add r0, r0, #0x10
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 	b _021E0B1C
 _021E0A68:
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r0, [r0]
 	add r0, r0, #0x3c
-	bl FUN_0209703C
+	bl DWCi_Acc_IsValidLoginId
 	cmp r0, #0
 	bne _021E0AD0
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r0, [r0]
 	ldr r0, [r0, #0x1c]
 	add r0, r0, #4
-	bl FUN_0209705C
+	bl DWCi_Acc_CheckConsoleUserId
 	cmp r0, #0
 	beq _021E0ABC
 	ldr r0, _021E0BB8 ; =0x022106C8
@@ -9039,7 +9039,7 @@ _021E0ABC:
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r0, [r0]
 	add r0, r0, #0x3c
-	bl FUN_020970CC
+	bl DWCi_Acc_CreateTempLoginId
 	b _021E0B04
 _021E0AD0:
 	bl OS_GetTick
@@ -9054,14 +9054,14 @@ _021E0AD0:
 	ldr r3, [r3]
 	adc r1, r4, #0
 	add r0, r3, #0x3c
-	bl FUN_02097508
+	bl DWCi_Acc_SetPlayerId
 _021E0B04:
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r2, [r0]
 	ldr r1, [r2, #0xc]
 	add r0, r2, #0x3c
 	add r2, r2, #0x248
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 _021E0B1C:
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r0, [r0]
@@ -9534,7 +9534,7 @@ MOD04_021E110C: ; 0x021E110C
 _021E115C:
 	ldr r0, [r2, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #1
 	bne _021E11C8
 	bl MOD04_021E0F00
@@ -9542,7 +9542,7 @@ _021E115C:
 	add r2, sp, #8
 	ldr r1, [r1, #0x18]
 	add r1, r1, r7
-	bl FUN_02096C78
+	bl DWC_LoginIdToUserName
 	add r0, sp, #8
 	add r1, sl, #0x8e
 	bl strcmp
@@ -9552,31 +9552,31 @@ _021E115C:
 	ldr r1, [sl, #4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 	mov r8, r5
 	b _021E125C
 _021E11C8:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #3
 	beq _021E11F8
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #2
 	bne _021E125C
 _021E11F8:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #1
 	streq fp, [sp]
 	beq _021E125C
@@ -9585,18 +9585,18 @@ _021E11F8:
 	ldr r1, [r4]
 	ldr r1, [r1, #0x18]
 	add r1, r1, r7
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r6, r0
 	bne _021E125C
 	ldr r0, [r4]
 	mov r1, r6
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 	ldr r8, [sp, #4]
 _021E125C:
 	ldr r2, [r4]
@@ -9650,7 +9650,7 @@ MOD04_021E12B8: ; 0x021E12B8
 _021E1304:
 	ldr r0, [r1, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #1
 	bne _021E136C
 	bl MOD04_021E0F00
@@ -9658,7 +9658,7 @@ _021E1304:
 	add r2, sp, #4
 	ldr r1, [r1, #0x18]
 	add r1, r1, r7
-	bl FUN_02096C78
+	bl DWC_LoginIdToUserName
 	ldr r1, [sp]
 	add r0, sp, #4
 	bl strcmp
@@ -9671,20 +9671,20 @@ _021E1304:
 	ldr r1, [sb, #4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	mov fp, r5
 	b _021E13CC
 _021E136C:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #3
 	beq _021E139C
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #2
 	bne _021E13CC
 _021E139C:
@@ -9693,7 +9693,7 @@ _021E139C:
 	ldr r1, [r4]
 	ldr r1, [r1, #0x18]
 	add r1, r1, r7
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r6, r0
 	bne _021E13CC
 	mov r0, sl
@@ -9742,7 +9742,7 @@ MOD04_021E1414: ; 0x021E1414
 	ldr r0, [r1]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r6
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #0
 	beq _021E15FC
 	ldr r7, _021E1670 ; =0x022106D0
@@ -9813,12 +9813,12 @@ _021E1548:
 	ldr r1, [r1]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r6
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	ldr r0, _021E1670 ; =0x022106D0
 	ldr r0, [r0]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r6
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 	mov r0, r8
 	bl MOD04_021E1DA4
 	ldr r0, _021E1670 ; =0x022106D0
@@ -9871,7 +9871,7 @@ _021E1618:
 	ldr r1, [r1, #0x18]
 	mov r0, #0xc
 	mla r0, r8, r0, r1
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
@@ -9951,7 +9951,7 @@ _021E1720:
 _021E172C:
 	bl MOD04_021E0F00
 	mov r1, r5
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	mov r5, r0
 	cmp r5, #0
 	ble _021E176C
@@ -10042,23 +10042,23 @@ _021E1858:
 	cmp sb, r0
 	bne _021E18CC
 	mov r0, r6
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #2
 	bne _021E1894
 	mov r0, r4
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #3
 	bne _021E1894
 	mov r0, r5
 	mov r1, sb
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 _021E1894:
 	mov r0, r4
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #0
 	beq _021E18AC
 	mov r0, r5
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 _021E18AC:
 	mov r0, fp
 	mov r1, r7
@@ -10105,12 +10105,12 @@ _021E1920:
 	bne _021E199C
 	mov r0, #0xc
 	mla r0, r6, r0, r7
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #0
 	beq _021E1974
 	mov r0, #0xc
 	mla r0, r4, r0, r7
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #0
 	bne _021E1974
 	mov r0, r7
@@ -10232,15 +10232,15 @@ _021E1AD8:
 	bne _021E1B24
 	mul sl, r4, r7
 	add r0, r6, sl
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #0
 	bne _021E1B30
 	add sl, r6, sl
 	ldr r1, [sp, #0x38]
 	mov r0, sl
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	mov r0, sl
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 	ldr r0, [r8]
 	strb sb, [r0, #0x1d]
 	b _021E1B30
@@ -10312,7 +10312,7 @@ _021E1C08:
 	ldr r1, [sl]
 	ldrb r2, [r1, #0x1c]
 	mla r1, r2, r8, r6
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r0, sb
 	bne _021E1C9C
 	bl MOD04_021E0F00
@@ -10322,7 +10322,7 @@ _021E1C08:
 	add r2, sp, #0x20
 	ldrb r3, [r3, #0x1c]
 	mla r1, r3, r1, r6
-	bl FUN_02096C78
+	bl DWC_LoginIdToUserName
 	ldr r0, _021E1CC4 ; =0x022106D0
 	mov r1, #0
 	ldr r4, [r0]
@@ -10585,7 +10585,7 @@ MOD04_021E1F84: ; 0x021E1F84
 	bl MOD04_021E0F00
 	mov r1, #0xc
 	mla r1, r5, r1, r4
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r0, #0
 	beq _021E1FD4
 	mvn r1, #0
@@ -15142,7 +15142,7 @@ _021E5E50:
 	ldrb r2, [r2, #0x304]
 	mov r0, fp
 	mla r1, r2, r1, r3
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	movs sl, r0
 	beq _021E5DB4
 	mvn r0, #0
@@ -15159,7 +15159,7 @@ _021E5E50:
 	add r1, fp, r1
 	ldrb r1, [r1, #0x304]
 	mla r0, r1, r0, r2
-	bl FUN_02097000
+	bl DWCi_Acc_IsValidFriendData
 	cmp r0, #0
 	beq _021E5DB4
 	mov r6, r7
@@ -21924,7 +21924,7 @@ MOD04_021EBC60: ; 0x021EBC60
 	and r1, r1, #3
 	orr r1, r2, r1, lsl #4
 	strb r1, [r0, #0xd0c]
-	bl FUN_02095FA8
+	bl DWCi_BM_GetApInfo
 	ldr r0, _021EBE14 ; =0x02210E4C
 	mov r1, #0x2300
 	ldr r0, [r0]
@@ -53611,7 +53611,7 @@ MOD04_022071C0: ; 0x022071C0
 	mov r1, #0x14
 	bl MOD04_022083B4
 	add r0, sp, #0
-	bl FUN_02095EC8
+	bl DWCi_BM_GetWiFiInfo
 	ldr r1, [sp]
 	ldr r2, [sp, #4]
 	mov r0, #0

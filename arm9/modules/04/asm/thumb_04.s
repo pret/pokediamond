@@ -159,7 +159,7 @@ _021D7608:
 	ldr r1, [r0]
 	ldr r0, _021D7658 ; =0x00001EF0
 	ldr r0, [r1, r0]
-	bl FUN_02096F80
+	bl DWC_CheckHasProfile
 	cmp r0, #0
 	bne _021D762C
 	mov r0, #1
@@ -169,7 +169,7 @@ _021D762C:
 	ldr r1, [r0]
 	ldr r0, _021D7658 ; =0x00001EF0
 	ldr r0, [r1, r0]
-	bl FUN_02096F18
+	bl DWC_CheckValidConsole
 	cmp r0, #0
 	beq _021D7640
 	mov r0, #0
@@ -719,14 +719,14 @@ MOD04_021D7A7C: ; 0x021D7A7C
 	ldr r1, [r0]
 	ldr r0, _021D7AFC ; =0x00001EF0
 	ldr r0, [r1, r0]
-	bl FUN_02096EB4
+	bl DWC_CheckDirtyFlag
 	cmp r0, #0
 	beq _021D7AB0
 	ldr r0, _021D7AF8 ; =0x0220FBC0
 	ldr r1, [r0]
 	ldr r0, _021D7AFC ; =0x00001EF0
 	ldr r0, [r1, r0]
-	bl thunk_FUN_02096e4c
+	bl DWC_ClearDirtyFlag
 	ldr r0, _021D7AF8 ; =0x0220FBC0
 	ldr r1, [r0]
 	mov r0, #0x1f
@@ -1979,7 +1979,7 @@ _021D8400:
 	lsl r1, r1, #8
 	ldr r0, [r0, r1]
 	add r0, r0, r4
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #0
 	beq _021D844A
 	mov r0, #0x11
@@ -2192,7 +2192,7 @@ MOD04_021D85B4: ; 0x021D85B4
 	ldr r1, [r0]
 	ldr r0, _021D8618 ; =0x00001EF0
 	ldr r0, [r1, r0]
-	bl FUN_02096F80
+	bl DWC_CheckHasProfile
 	cmp r0, #0
 	bne _021D85D8
 	ldr r0, _021D8614 ; =0x0220FBC0
@@ -2200,7 +2200,7 @@ MOD04_021D85B4: ; 0x021D85B4
 	ldr r0, _021D8618 ; =0x00001EF0
 	ldr r0, [r1, r0]
 	add r1, sp, #0xc
-	bl FUN_02096CCC
+	bl DWC_CreateExchangeToken
 	b _021D85E6
 _021D85D8:
 	ldr r0, _021D8614 ; =0x0220FBC0
@@ -2208,7 +2208,7 @@ _021D85D8:
 	ldr r0, _021D8618 ; =0x00001EF0
 	ldr r0, [r1, r0]
 	add r1, sp, #0
-	bl FUN_02096CCC
+	bl DWC_CreateExchangeToken
 _021D85E6:
 	mov r4, #0
 	mov r7, #0x11
@@ -2221,11 +2221,11 @@ _021D85F0:
 	lsl r0, r0, #8
 	ldr r0, [r1, r0]
 	add r0, r0, r5
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	ldr r0, [r6]
 	ldr r0, [r0, r7]
 	add r0, r0, r5
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	add r4, r4, #1
 	add r5, #0xc
 	cmp r4, #0x20
