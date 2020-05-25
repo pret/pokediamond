@@ -3,6 +3,7 @@
 //
 
 #include "function_target.h"
+#include "OS_protectionUnit.h"
 
 ARM_FUNC asm void OS_EnableProtectionUnit(void)
 {

@@ -67,7 +67,7 @@ BOOL FS_LoadOverlay(MIProcessor target, FSOverlayID id);
 BOOL FS_UnloadOverlay(MIProcessor target, FSOverlayID id);
 
 #if defined(__cplusplus)
-};
+}
 #endif
 
 #endif //NITRO_FS_OVERLAY_H_

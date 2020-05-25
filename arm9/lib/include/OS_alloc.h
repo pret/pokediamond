@@ -32,7 +32,10 @@ typedef struct {
     HeapDesc* heapArray;
 } OSHeapInfo;
 
-void OS_FreeToHeap(OSArenaId id, OSHeapHandle heap, void *ptr);
+Cell* DLAddFront(Cell* list, Cell* cell);
+Cell* DLExtract(Cell* list, Cell* cell);
+Cell *DLInsert(Cell *original, Cell *inserted);
 void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size);
+void OS_FreeToHeap(OSArenaId id, OSHeapHandle heap, void *ptr);
 
 #endif //POKEDIAMOND_OS_ALLOC_H
