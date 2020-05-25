@@ -121,8 +121,8 @@ SECTIONS {
 		crt0.o (.text)
 		crt0.o (.rodata)
 		* (.version)
+		OBJECT(NitroMain,*)
 		main.o (.text)
-		GFLIB_sysctl.o (.text)
 		unk_020010A8.o (.text)
 		unk_02001B80.o (.text)
 		string_util.o (.text)
@@ -788,7 +788,7 @@ SECTIONS {
 	{
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_STATIC_BSS_START = .;
-		GFLIB_sysctl.o (.bss)
+		main.o (.bss)
 		unk_020023C0.o (.bss)
 		unk_02002C14.o (.bss)
 		unk_02003B98.o (.bss)
