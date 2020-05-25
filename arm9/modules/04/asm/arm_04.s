@@ -2432,9 +2432,9 @@ MOD04_021DAF18: ; 0x021DAF18
 	str r1, [r6, #0x800]
 	mov r1, #0xb
 	str r6, [r8, #0xc]
-	bl FUN_020A3688
+	bl CPS_SetRootCa
 	mov r0, #1
-	bl FUN_020A02EC
+	bl CPS_SetSsl
 _021DAFC8:
 	add r0, sl, #0x1100
 	ldrh r1, [r0, #0x30]
@@ -2725,7 +2725,7 @@ MOD04_021DB3B8: ; 0x021DB3B8
 	ldr r0, _021DB438 ; =0x000019D0
 	mov r1, #0x20
 	add r0, r4, r0
-	bl FUN_020A136C
+	bl CPS_SslAddRandomSeed
 _021DB3EC:
 	ldr r0, _021DB43C ; =0x00001BF4
 	add r0, r4, r0
@@ -5830,7 +5830,7 @@ MOD04_021DDEE0: ; 0x021DDEE0
 	str r6, [r1]
 	bl MOD04_021DDE7C
 	mov r0, r4
-	bl FUN_020A374C
+	bl CPS_SetSslHandshakePriority
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
 _021DDF3C: .word 0x02210518
@@ -56998,7 +56998,7 @@ MOD04_02209F5C: ; 0x02209F5C
 	bl OS_GetLowEntropyData
 	ldr r0, _02209F80 ; =0x02211A24
 	mov r1, #0x20
-	bl FUN_020A136C
+	bl CPS_SslAddRandomSeed
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
