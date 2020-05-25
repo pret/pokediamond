@@ -10,7 +10,7 @@ ARM_FUNC void FSi_ReleaseCommand(FSFile * p_file, FSResult ret)
     p_file->stat &= ~(FS_FILE_STATUS_CANCEL | FS_FILE_STATUS_BUSY | FS_FILE_STATUS_SYNC | FS_FILE_STATUS_ASYNC | FS_FILE_STATUS_OPERATING);
     p_file->error = ret;
     OS_WakeupThread(p_file->queue);
-    OS_RestoreInterrupts(bak_psr);
+    (void)OS_RestoreInterrupts(bak_psr);
 }
 
 ARM_FUNC FSResult FSi_TranslateCommand(FSFile *p_file, FSCommandType command)
@@ -58,7 +58,7 @@ ARM_FUNC FSResult FSi_TranslateCommand(FSFile *p_file, FSCommandType command)
             while (FSi_IsArchiveSync(p_arc))
                 OS_SleepThread(&p_arc->sync_q);
             ret = p_file->error;
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
         }
     }
     else if (!FS_IsFileSyncMode(p_file))

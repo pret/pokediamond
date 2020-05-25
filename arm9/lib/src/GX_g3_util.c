@@ -11,7 +11,7 @@ ARM_FUNC void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near,
     fovcot = FX_Div(fovcos, fovsin);
     if (scale != 0x1000) //!= 1.0
         fovcot = (fovcot * scale) / 0x1000;
-    reg_CP_DIV_NUMER = (s64)fovcot << 0x20;
+    reg_CP_DIV_NUMER = (u64)((s64)fovcot << 0x20);
     reg_CP_DIV_DENOM = (u32)ratio;
     if (load)
     {
@@ -38,12 +38,12 @@ ARM_FUNC void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near,
     reg_CP_DIV_DENOM = (u32)(near - far);
     if (load)
     {
-        *reg_ptr = temp1;
+        *reg_ptr = (vu32)temp1;
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
-        *reg_ptr = fovcot;
+        *reg_ptr = (vu32)fovcot;
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
@@ -57,15 +57,15 @@ ARM_FUNC void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near,
     temp0 = FX_GetDivResultFx64c();
     if (scale != 0x1000)
         temp0 = (temp0 * scale) / 0x1000;
-    temp1 = ((far + near) * temp0 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
-    temp2 = (((fx32)(((fx64)(near << 1) * far + (1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT)) * temp0 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
+    temp1 = (fx32)(((far + near) * temp0 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT);
+    temp2 = (fx32)((((fx32)(((fx64)(near << 1) * far + (1 << (FX32_INT_SHIFT - 1))) >> FX32_INT_SHIFT)) * temp0 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT);
     if (load)
     {
-        *reg_ptr = temp1;
-        *reg_ptr = -scale;
+        *reg_ptr = (vu32)temp1;
+        *reg_ptr = (vu32)(-scale);
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
-        *reg_ptr = temp2;
+        *reg_ptr = (vu32)temp2;
         *reg_ptr = 0x0;
     }
     if (mtx)
@@ -104,10 +104,10 @@ ARM_FUNC void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 nea
     reg_CP_DIV_DENOM = (u32)(top - bottom);
     if (scale != 0x1000)
         temp1 = (temp1 * scale) / 0x1000;
-    temp0 = (0x2000 * temp1 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
+    temp0 = (fx32)((0x2000 * temp1 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT);
     if (load)
     {
-        *reg_ptr = temp0;
+        *reg_ptr = (vu32)temp0;
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
@@ -122,10 +122,10 @@ ARM_FUNC void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 nea
     reg_CP_DIV_DENOM = (u32)(near - far);
     if (scale != 0x1000)
         temp2 = (temp2 * scale) / 0x1000;
-    temp0 = (0x2000 * temp2 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
+    temp0 = (fx32)((0x2000 * temp2 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT);
     if (load)
     {
-        *reg_ptr = temp0;
+        *reg_ptr = (vu32)temp0;
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
         *reg_ptr = 0x0;
@@ -138,25 +138,25 @@ ARM_FUNC void G3i_OrthoW_(fx32 top, fx32 bottom, fx32 left, fx32 right, fx32 nea
     temp3 = FX_GetDivResultFx64c();
     if (scale != 0x1000)
         temp3 = (temp3 * scale) / 0x1000;
-    temp0 = (0x2000 * temp3 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
+    temp0 = (fx32)((0x2000 * temp3 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT);
     if (load)
     {
-        *reg_ptr = temp0;
+        *reg_ptr = (vu32)temp0;
         *reg_ptr = 0x0;
     }
     if (mtx)
     {
         mtx->_[10] = temp0;
     }
-    temp0 = ((-(right + left)) * temp1 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
-    temp4 = ((-(top + bottom)) * temp2 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
-    temp5 = ((far + near) * temp3 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT;
+    temp0 = (fx32)(((-(right + left)) * temp1 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT);
+    temp4 = (fx32)(((-(top + bottom)) * temp2 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT);
+    temp5 = (fx32)(((far + near) * temp3 + ((fx64)1 << (FX64C_INT_SHIFT - 1))) >> FX64C_INT_SHIFT);
     if (load)
     {
-        *reg_ptr = temp0;
-        *reg_ptr = temp4;
-        *reg_ptr = temp5;
-        *reg_ptr = scale;
+        *reg_ptr = (vu32)temp0;
+        *reg_ptr = (vu32)temp4;
+        *reg_ptr = (vu32)temp5;
+        *reg_ptr = (vu32)scale;
     }
     if (mtx)
     {
@@ -181,24 +181,24 @@ ARM_FUNC void G3i_LookAt_(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *c, 
     {
         reg_G3_MTX_MODE = 0x2;
         reg_ptr = (vu32 *)&reg_G3_MTX_LOAD_4x3;
-        *reg_ptr = temp1.x;
-        *reg_ptr = temp2.x;
-        *reg_ptr = temp.x;
-        *reg_ptr = temp1.y;
-        *reg_ptr = temp2.y;
-        *reg_ptr = temp.y;
-        *reg_ptr = temp1.z;
-        *reg_ptr = temp2.z;
-        *reg_ptr = temp.z;
+        *reg_ptr = (vu32)temp1.x;
+        *reg_ptr = (vu32)temp2.x;
+        *reg_ptr = (vu32)temp.x;
+        *reg_ptr = (vu32)temp1.y;
+        *reg_ptr = (vu32)temp2.y;
+        *reg_ptr = (vu32)temp.y;
+        *reg_ptr = (vu32)temp1.z;
+        *reg_ptr = (vu32)temp2.z;
+        *reg_ptr = (vu32)temp.z;
     }
     c1 = -VEC_DotProduct(a, &temp1);
     c2 = -VEC_DotProduct(a, &temp2);
     c3 = -VEC_DotProduct(a, &temp);
     if (load)
     {
-        *reg_ptr = c1;
-        *reg_ptr = c2;
-        *reg_ptr = c3;
+        *reg_ptr = (vu32)c1;
+        *reg_ptr = (vu32)c2;
+        *reg_ptr = (vu32)c3;
     }
     if (mtx)
     {
@@ -224,35 +224,35 @@ ARM_FUNC void G3_RotX(fx32 sinphi, fx32 cosphi){
     *reg_ptr = 0x0;
     *reg_ptr = 0x0;
     *reg_ptr = 0x0;
-    *reg_ptr = cosphi;
-    *reg_ptr = sinphi;
+    *reg_ptr = (vu32)cosphi;
+    *reg_ptr = (vu32)sinphi;
     *reg_ptr = 0x0;
-    *reg_ptr = -sinphi;
-    *reg_ptr = cosphi;
+    *reg_ptr = (vu32)(-sinphi);
+    *reg_ptr = (vu32)cosphi;
 }
 
 ARM_FUNC void G3_RotY(fx32 sinphi, fx32 cosphi){
     vu32 *reg_ptr;
     reg_ptr = (vu32 *)&reg_G3_MTX_MULT_3x3;
-    *reg_ptr = cosphi;
+    *reg_ptr = (vu32)cosphi;
     *reg_ptr = 0x0;
-    *reg_ptr = -sinphi;
+    *reg_ptr = (vu32)(-sinphi);
     *reg_ptr = 0x0;
     *reg_ptr = 0x1000;
     *reg_ptr = 0x0;
-    *reg_ptr = sinphi;
+    *reg_ptr = (vu32)sinphi;
     *reg_ptr = 0x0;
-    *reg_ptr = cosphi;
+    *reg_ptr = (vu32)cosphi;
 }
 
 ARM_FUNC void G3_RotZ(fx32 sinphi, fx32 cosphi){
     vu32 *reg_ptr;
     reg_ptr = (vu32 *)&reg_G3_MTX_MULT_3x3;
-    *reg_ptr = cosphi;
-    *reg_ptr = sinphi;
+    *reg_ptr = (vu32)cosphi;
+    *reg_ptr = (vu32)sinphi;
     *reg_ptr = 0x0;
-    *reg_ptr = -sinphi;
-    *reg_ptr = cosphi;
+    *reg_ptr = (vu32)(-sinphi);
+    *reg_ptr = (vu32)cosphi;
     *reg_ptr = 0x0;
     *reg_ptr = 0x0;
     *reg_ptr = 0x0;

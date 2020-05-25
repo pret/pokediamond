@@ -43,8 +43,8 @@ ARM_FUNC void OS_InitArena(void) {
 }
 
 ARM_FUNC void OS_InitArenaEx(void) {
-    OS_SetArenaHi(2, OS_GetInitArenaHi(OS_ARENA_MAINEX));
-    OS_SetArenaLo(2, OS_GetInitArenaLo(OS_ARENA_MAINEX));
+    OS_SetArenaHi(OS_ARENA_MAINEX, OS_GetInitArenaHi(OS_ARENA_MAINEX));
+    OS_SetArenaLo(OS_ARENA_MAINEX, OS_GetInitArenaLo(OS_ARENA_MAINEX));
 
     if (!OSi_MainExArenaEnabled || (OS_GetConsoleType() & OS_CONSOLE_SIZE_MASK) == OS_CONSOLE_SIZE_4MB) {
         OS_SetProtectionRegion(1, HW_MAIN_MEM, 4MB);

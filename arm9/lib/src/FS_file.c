@@ -90,23 +90,23 @@ static BOOL FSi_FindPath(FSFile * p_dir, const char * path, FSFileID * p_file_id
 
 ARM_FUNC int FSi_ReadFileCore(FSFile * p_file, void * dst, s32 len, BOOL async)
 {
-    const s32 pos = p_file->prop.file.pos;
-    const s32 rest = p_file->prop.file.bottom - pos;
-    const u32 org = len;
+    const s32 pos = (s32)p_file->prop.file.pos;
+    const s32 rest = (s32)(p_file->prop.file.bottom - pos);
+    const u32 org = (u32)len;
     if (len > rest)
         len = rest;
     if (len < 0)
         len = 0;
     p_file->arg.readfile.dst = dst;
     p_file->arg.readfile.len_org = org;
-    p_file->arg.readfile.len = len;
+    p_file->arg.readfile.len = (u32)len;
     if (!async)
         p_file->stat |= FS_FILE_STATUS_SYNC;
-    FSi_SendCommand(p_file, FS_COMMAND_READFILE);
+    (void)FSi_SendCommand(p_file, FS_COMMAND_READFILE);
     if (!async)
     {
         if (FS_WaitAsync(p_file))
-            len = p_file->prop.file.pos - pos;
+            len = (s32)(p_file->prop.file.pos - pos);
         else
             len = -1;
     }
@@ -206,7 +206,7 @@ ARM_FUNC int FS_ReadFile(FSFile * p_file, void * dst, s32 len)
     return FSi_ReadFileCore(p_file, dst, len, FALSE);
 }
 
-ARM_FUNC BOOL FS_SeekFile(FSFile * p_file, int offset, FSSeekFileMode origin)
+ARM_FUNC BOOL FS_SeekFile(FSFile * p_file, s32 offset, FSSeekFileMode origin)
 {
     switch (origin)
     {
@@ -226,7 +226,7 @@ ARM_FUNC BOOL FS_SeekFile(FSFile * p_file, int offset, FSSeekFileMode origin)
         offset = (s32)p_file->prop.file.top;
     if (offset > (s32)p_file->prop.file.bottom)
         offset = (s32)p_file->prop.file.bottom;
-    p_file->prop.file.pos = offset;
+    p_file->prop.file.pos = (u32)offset;
     return TRUE;
 }
 
