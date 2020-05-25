@@ -2,12 +2,6 @@
     .include "global.inc"
 
 	.extern gUnk021C4918
-	.extern UNK_02105D5C
-	.extern UNK_02105D64
-	.extern UNK_02105D65
-	.extern UNK_02105D6C
-	.extern UNK_02105D6D
-
 	.section .rodata
 	.global UNK_020EEC48
 UNK_020EEC48: ; 0x020EEC48
@@ -20,6 +14,23 @@ UNK_020EEC50: ; 0x020EEC50
 	.global UNK_020EEC5C
 UNK_020EEC5C: ; 0x020EEC5C
 	.word FUN_02032234, FUN_0203234C, 0x00000000
+
+	.section .data
+
+	.balign 4
+	.global UNK_02105D5C
+UNK_02105D5C: ; 0x02105D5C
+	.asciz "FREAK"
+
+	.balign 4
+	.global UNK_02105D64
+UNK_02105D64: ; 0x02105D64
+	.asciz " FULL"
+
+	.balign 4
+	.global UNK_02105D6C
+UNK_02105D6C: ; 0x02105D6C
+	.asciz " GAME"
 
 	.section .bss
 
@@ -2562,7 +2573,7 @@ _02032AE8: .word UNK_02105D64
 FUN_02032AEC: ; 0x02032AEC
 	push {r3-r5, lr}
 	mov r4, #0x1
-	ldr r5, _02032B5C ; =UNK_02105D6D
+	ldr r5, _02032B5C ; =UNK_02105D6C + 1
 	add r3, r4, #0x0
 _02032AF4:
 	ldrb r1, [r5, #0x0]
@@ -2591,7 +2602,7 @@ _02032B08:
 	pop {r3-r5, pc}
 _02032B22:
 	mov r4, #0x1
-	ldr r3, _02032B64 ; =UNK_02105D65
+	ldr r3, _02032B64 ; =UNK_02105D64 + 1
 	add r5, r4, #0x0
 _02032B28:
 	ldrb r1, [r3, #0x0]
@@ -2622,9 +2633,9 @@ _02032B3C:
 _02032B58:
 	pop {r3-r5, pc}
 	nop
-_02032B5C: .word UNK_02105D6D
+_02032B5C: .word UNK_02105D6C + 1
 _02032B60: .word UNK_021C5A00
-_02032B64: .word UNK_02105D65
+_02032B64: .word UNK_02105D64 + 1
 
 	thumb_func_start FUN_02032B68
 FUN_02032B68: ; 0x02032B68

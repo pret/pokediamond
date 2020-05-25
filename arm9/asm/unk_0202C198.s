@@ -1,7 +1,12 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_02105D54
+	.section .data
+
+	.balign 4, 0
+	.global UNK_02105D54
+UNK_02105D54: ; 0x02105D54
+	.asciz "DP"
 
 	.section .bss
 

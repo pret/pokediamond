@@ -1355,7 +1355,7 @@ FUN_02057F18: ; 0x02057F18
 	lsl r1, r1, #0xc
 	cmp r0, r1
 	bne _02057F2C
-	ldr r5, _02057F7C ; =0x021F9080
+	ldr r5, _02057F7C ; =UNK05_021F9080
 	b _02057F32
 _02057F2C:
 	bl FUN_02058D4C
@@ -1388,7 +1388,7 @@ _02057F32:
 	bl FUN_020586D4
 	pop {r3-r5, pc}
 	nop
-_02057F7C: .word 0x021F9080
+_02057F7C: .word UNK05_021F9080
 
 	thumb_func_start FUN_02057F80
 FUN_02057F80: ; 0x02057F80
@@ -3782,7 +3782,7 @@ FUN_02058D48: ; 0x02058D48
 	thumb_func_start FUN_02058D4C
 FUN_02058D4C: ; 0x02058D4C
 	push {r3, lr}
-	ldr r3, _02058D6C ; =0x021F9494
+	ldr r3, _02058D6C ; =UNK05_021F9494
 	ldr r1, _02058D70 ; =0x0000FFFF
 _02058D52:
 	ldr r2, [r3, #0x0]
@@ -3799,7 +3799,7 @@ _02058D5C:
 	mov r0, #0x0
 	pop {r3, pc}
 	.balign 4
-_02058D6C: .word 0x021F9494
+_02058D6C: .word UNK05_021F9494
 _02058D70: .word 0x0000FFFF
 
 	thumb_func_start FUN_02058D74

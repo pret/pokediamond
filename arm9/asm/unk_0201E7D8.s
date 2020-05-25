@@ -5,10 +5,15 @@
 	.extern UNK_021CEF64
 	.extern UNK_021CED20
 	.extern UNK_020FFA38
-	.extern UNK_02105BB8
 	.extern UNK_021CEF58
 	.extern UNK_021CEF70
 	.extern UNK_021CED64
+
+	.section .data
+
+	.global UNK_02105BB8
+UNK_02105BB8: ; 0x02105BB8
+	.byte 0x01, 0x00, 0x00, 0x00
 
 	.section .bss
 

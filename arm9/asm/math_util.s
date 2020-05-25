@@ -1,6 +1,8 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
+	.extern UNK_020FFA38
+
 	.section .rodata
 
 	.global UNK_020EDB80
@@ -187,6 +189,16 @@ UNK_020EDF50: ; 0x020EDF50
 	.word 0x00000FEA, 0x00000FF0, 0x00000FF6, 0x00000FFA
 	.word 0x00000FFE, 0x00000FFF
 
+	.section .data
+
+	.global UNK_02105BA8
+UNK_02105BA8: ; 0x02105BA8
+	.byte 0x71, 0x02, 0x00, 0x00
+
+	.global UNK_02105BAC
+UNK_02105BAC: ; 0x02105BAC
+	.byte 0x00, 0x00, 0x00, 0x00, 0xDF, 0xB0, 0x08, 0x99
+
 	.section .bss
 
 	.global gLCRNG_State
@@ -196,10 +208,6 @@ gLCRNG_State: ; 0x021C4D48
 	.global gMTRNG_State
 gMTRNG_State: ; 0x021C4D4C
 	.space 624 * 4
-
-	.extern UNK_020FFA38
-	.extern UNK_02105BA8
-	.extern UNK_02105BAC
 
 	.text
 
