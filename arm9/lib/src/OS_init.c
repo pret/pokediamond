@@ -6,7 +6,6 @@
 #include "OS_init.h"
 
 extern void PXI_Init();
-extern void OS_InitLock();
 extern void OS_InitException();
 extern void MI_Init();
 extern void OS_InitVAlarm();

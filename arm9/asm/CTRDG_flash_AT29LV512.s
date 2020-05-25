@@ -287,7 +287,7 @@ _020DC92C:
 	orr r0, r0, r5
 	strh r0, [r3, #0x0]
 	ldrh r0, [r1, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, r4
 	add sp, sp, #0x24
 	ldmia sp!, {r4-r5,lr}
@@ -428,7 +428,7 @@ _020DCB18:
 	ldr r0, _020DCB84 ; =UNK_021D6B0C
 	strh r1, [r2, #0x0]
 	ldrh r0, [r0, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, r5
 	add sp, sp, #0x24
 	ldmia sp!, {r4-r5,lr}
@@ -495,7 +495,7 @@ CTRDGi_EraseFlashChipCoreAT: ; 0x020DCBA0
 	orr r0, r0, r5
 	strh r0, [r3, #0x0]
 	ldrh r0, [r1, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, r4
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,lr}
