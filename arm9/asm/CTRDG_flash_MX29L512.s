@@ -109,7 +109,7 @@ _020DD9B8:
 	orr r1, r1, r7
 	strh r1, [r2, #0x0]
 	ldrh r0, [r0, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, r6
 	add sp, sp, #0x28
 	ldmia sp!, {r4-r8,lr}

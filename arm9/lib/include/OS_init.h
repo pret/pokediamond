@@ -23,6 +23,7 @@
 #include "OS_terminate_proc.h"
 #include "OS_interrupt.h"
 #include "OS_reset.h"
+#include "OS_spinLock.h"
 
 void OS_Init();
 

@@ -5,12 +5,41 @@
 #ifndef POKEDIAMOND_OS_SPINLOCK_H
 #define POKEDIAMOND_OS_SPINLOCK_H
 
+#include "types.h"
+#include "syscall.h"
+
 typedef volatile struct OSLockWord {
     u32 lockFlag;
     u16 ownerID;
     u16 extension;
 } OSLockWord;
 
+static inline void OSi_WaitByLoop(void)
+{
+    SVC_WaitByLoop(0x1000 / 4);
+}
+
+void OS_InitLock(void);
+s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void),
+        BOOL disableFiq);
+s32 OS_TryLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void));
+s32 OSi_DoUnlockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void),
+        BOOL disableFIQ);
+s32 OS_UnlockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void));
+s32 OSi_DoTryLockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void),
+        BOOL disableFiq);
+s32 OS_LockCartridge(u16 lockID);
+s32 OS_UnlockCartridge(u16 lockID);
+s32 OS_TryLockCartridge(u16 lockID);
+void OSi_AllocateCartridgeBus(void);
+void OSi_FreeCartridgeBus(void);
+s32 OS_TryLockCard(u16 lockID);
+s32 OS_UnlockCard(u16 lockID);
+void OSi_AllocateCardBus(void);
+void OSi_FreeCardBus(void);
+u16 OS_ReadOwnerOfLockWord(OSLockWord * lock);
+s32 OS_UnLockCartridge(u16 lockID);
 s32 OS_GetLockID(void);
+void OS_ReleaseLockID(register u16 lockID);
 
 #endif //POKEDIAMOND_OS_SPINLOCK_H

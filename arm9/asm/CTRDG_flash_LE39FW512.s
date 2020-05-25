@@ -122,7 +122,7 @@ CTRDGi_VerifyFlashErase: ; 0x020DCD94
 	orr r1, r1, r6
 	strh r1, [r2, #0x0]
 	ldrh r0, [r0, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, r4
 	ldmia sp!, {r4-r6,lr}
 	bx lr
@@ -267,7 +267,7 @@ _020DCFD4:
 	orr r1, r1, r5
 	strh r1, [r2, #0x0]
 	ldrh r0, [r0, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, r8
 	add sp, sp, #0x24
 	ldmia sp!, {r4-r9,lr}
@@ -379,7 +379,7 @@ CTRDGi_EraseFlashSectorCoreLE: ; 0x020DD098
 	orr r0, r0, r5
 	strh r0, [r3, #0x0]
 	ldrh r0, [r1, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, r4
 	add sp, sp, #0x28
 	ldmia sp!, {r4-r6,lr}
@@ -447,7 +447,7 @@ CTRDGi_EraseFlashChipCoreLE: ; 0x020DD1DC
 	orr r0, r0, r5
 	strh r0, [r3, #0x0]
 	ldrh r0, [r1, #0x0]
-	bl OS_UnlockCartridge2
+	bl OS_UnlockCartridge
 	mov r0, r4
 	add sp, sp, #0x4
 	ldmia sp!, {r4-r5,lr}
