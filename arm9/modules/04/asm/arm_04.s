@@ -1411,7 +1411,7 @@ _021DA104:
 	bl OS_SNPrintf
 	bl OS_DisableInterrupts
 	mov sb, r0
-	bl FUN_020A8850
+	bl WCM_GetApMacAddress
 	mov r8, r0
 	mov r1, #6
 	bl DC_InvalidateRange
@@ -5451,7 +5451,7 @@ MOD04_021DD9DC: ; 0x021DD9DC
 	str r0, [r4]
 	bl OS_DisableInterrupts
 	mov r6, r0
-	bl FUN_020A8850
+	bl WCM_GetApMacAddress
 	mov r5, r0
 	mov r1, #6
 	bl DC_InvalidateRange
@@ -17170,7 +17170,7 @@ MOD04_021E7B04: ; 0x021E7B04
 	mov r5, r4
 	b _021E7C48
 _021E7BC0:
-	bl FUN_0209A60C
+	bl SOC_GetHostID
 	mov r0, r0, lsl #0x10
 	ldr r1, _021E7DEC ; =0x0000FFFF
 	ldr r2, _021E7DF0 ; =0x0000A8C0
@@ -17220,7 +17220,7 @@ _021E7C48:
 	str r8, [r0, #0x19c]
 	b _021E7D00
 _021E7C74:
-	bl FUN_0209A60C
+	bl SOC_GetHostID
 	str r0, [sp, #8]
 	bl MOD04_021E26E4
 	ldr r0, [r0, #4]
@@ -21677,7 +21677,7 @@ MOD04_021EBA28: ; 0x021EBA28
 	blo _021EBAB0
 	cmp r0, #0x10
 	bhi _021EBAB0
-	bl FUN_020A8850
+	bl WCM_GetApMacAddress
 	mov r4, r0
 	mov r1, #6
 	bl DC_InvalidateRange
@@ -22854,12 +22854,12 @@ _021ECA44:
 MOD04_021ECA4C: ; 0x021ECA4C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_02099A94
+	bl SOCL_CalmDown
 	cmp r0, #0
 	addne sp, sp, #4
 	movne r0, #0
 	ldmneia sp!, {pc}
-	bl THUNK_FUN_02099BC8
+	bl SOC_Cleanup
 	cmp r0, #0
 	beq _021ECA80
 	mvn r1, #0x26
@@ -24207,7 +24207,7 @@ MOD04_021EDBCC: ; 0x021EDBCC
 	str r0, [sp, #4]
 	add r0, sp, #0
 	add r1, sp, #4
-	bl FUN_0209A594
+	bl SOC_GetResolver
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 
@@ -24318,12 +24318,12 @@ _021EDDB8: .word 0x0220BB2C
 MOD04_021EDDBC: ; 0x021EDDBC
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_02099A94
+	bl SOCL_CalmDown
 	cmp r0, #0
 	addne sp, sp, #4
 	movne r0, #0xb
 	ldmneia sp!, {pc}
-	bl THUNK_FUN_02099BC8
+	bl SOC_Cleanup
 	cmp r0, #0
 	beq _021EDDF0
 	mvn r1, #0x26
@@ -24401,7 +24401,7 @@ MOD04_021EDE90: ; 0x021EDE90
 MOD04_021EDEC8: ; 0x021EDEC8
 	stmdb sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0209A60C
+	bl SOC_GetHostID
 	cmp r0, #0
 	beq _021EDF00
 	mov r0, r4
@@ -24456,7 +24456,7 @@ MOD04_021EDF58: ; 0x021EDF58
 	mov r2, #4
 	mov r0, r4
 	str r2, [r1]
-	bl FUN_0209A2C0
+	bl SOC_Startup
 	cmp r0, #0
 	moveq r0, #0xc
 	ldmeqia sp!, {r4, r5, r6, pc}
@@ -25236,7 +25236,7 @@ MOD04_021EE9E0: ; 0x021EE9E0
 	cmp r1, r0
 	bne _021EEA58
 	mov r0, r5
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	addeq sp, sp, #4
 	moveq r0, #0
@@ -26554,7 +26554,7 @@ MOD04_021EFB38: ; 0x021EFB38
 	stmdb sp!, {lr}
 	sub sp, sp, #4
 	add r1, sp, #0
-	bl FUN_0209A224
+	bl SOC_InetAtoN
 	cmp r0, #0
 	mvneq r0, #0
 	ldrne r0, [sp]
@@ -26569,7 +26569,7 @@ MOD04_021EFB5C: ; 0x021EFB5C
 	ldr r2, [r4]
 	mov r5, r1
 	strb r2, [r5]
-	bl FUN_0209A650
+	bl SOC_GetSockName
 	ldrb r2, [r5]
 	mvn r1, #0
 	str r2, [r4]
@@ -26619,7 +26619,7 @@ _021EFBE8:
 	add ip, sp, #4
 	strb lr, [sp, #4]
 	str ip, [sp]
-	bl FUN_0209A7D0
+	bl SOC_SendTo
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #0x10
@@ -26629,7 +26629,7 @@ _021EFBE8:
 MOD04_021EFC24: ; 0x021EFC24
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_0209A858
+	bl SOC_Send
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26644,7 +26644,7 @@ MOD04_021EFC40: ; 0x021EFC40
 	ldr ip, [r4]
 	strb ip, [r5]
 	str r5, [sp]
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	ldrb r2, [r5]
 	mvn r1, #0
 	str r2, [r4]
@@ -26656,7 +26656,7 @@ MOD04_021EFC40: ; 0x021EFC40
 MOD04_021EFC78: ; 0x021EFC78
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_0209A91C
+	bl SOC_Read
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26670,7 +26670,7 @@ MOD04_021EFC94: ; 0x021EFC94
 	ldr r2, [r4]
 	mov r5, r1
 	strb r2, [r5]
-	bl FUN_0209A504
+	bl SOC_Accept
 	ldrb r2, [r5]
 	mvn r1, #0
 	str r2, [r4]
@@ -26682,7 +26682,7 @@ MOD04_021EFC94: ; 0x021EFC94
 MOD04_021EFCC8: ; 0x021EFCC8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_0209A588
+	bl SOC_Listen
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26703,7 +26703,7 @@ _021EFCF4:
 	bne _021EFCF4
 	add r1, sp, #0
 	strb r2, [sp]
-	bl FUN_0209A944
+	bl SOC_Connect
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #8
@@ -26729,7 +26729,7 @@ _021EFD4C:
 	bne _021EFD4C
 	add r1, sp, #0
 	strb r2, [sp]
-	bl FUN_0209A9A4
+	bl SOC_Bind
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #8
@@ -26739,7 +26739,7 @@ _021EFD4C:
 MOD04_021EFD80: ; 0x021EFD80
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl thunk_FUN_020995dc
+	bl SOC_Shutdown
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26749,7 +26749,7 @@ MOD04_021EFD80: ; 0x021EFD80
 MOD04_021EFD9C: ; 0x021EFD9C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26759,7 +26759,7 @@ MOD04_021EFD9C: ; 0x021EFD9C
 MOD04_021EFDB8: ; 0x021EFDB8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_0209A9D0
+	bl SOC_Socket
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26829,9 +26829,9 @@ MOD04_021EFE70: ; 0x021EFE70
 	strh r3, [r1, #0xa]
 	str r2, [r1, #0xc]
 	str r3, [r0]
-	bl FUN_02099C78
+	bl SOCL_GetHostID
 	ldr r1, _021EFEF8 ; =0x02210F50
-	bl FUN_0209A174
+	bl SOC_U32to4U8
 	ldr r2, _021EFEF8 ; =0x02210F50
 	ldr r0, [r2]
 	cmp r0, #0
@@ -26904,7 +26904,7 @@ MOD04_021EFF5C: ; 0x021EFF5C
 	add r0, sp, #0
 	mov r1, #1
 	strh r2, [sp, #6]
-	bl FUN_0209A0AC
+	bl SOC_Poll
 	cmp r0, #0
 	addlt sp, sp, #8
 	mvnlt r0, #0
@@ -27050,13 +27050,13 @@ MOD04_021F017C: ; 0x021F017C
 	mov r1, #3
 	mov r2, #0
 	mov r5, r0
-	bl FUN_0209A4B4
+	bl SOC_Fcntl
 	cmp r4, #0
 	bicne r2, r0, #4
 	orreq r2, r0, #4
 	mov r0, r5
 	mov r1, #4
-	bl FUN_0209A4B4
+	bl SOC_Fcntl
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -32277,7 +32277,7 @@ _021F4AD0:
 	ldmia sp!, {r4, r5, r6, pc}
 _021F4B0C:
 	ldr r0, _021F4C30 ; =0x0220DD90
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	bne _021F4B48
 	ldr r2, _021F4C34 ; =0x0220E144
@@ -39046,7 +39046,7 @@ _021FAB54:
 	ldmia sp!, {r4, r5, r6, pc}
 _021FAB90:
 	ldr r0, _021FACA8 ; =0x0220E860
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	bne _021FABCC
 	ldr r2, _021FACAC ; =0x0220EBC4
@@ -45132,7 +45132,7 @@ _021FFE40:
 	cmp r5, r0
 	bne _021FFE84
 	mov r0, r8
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	addeq sp, sp, #0x104
 	moveq r0, #0
@@ -45176,7 +45176,7 @@ _021FFEE0:
 	beq _021FFF18
 	add r0, sp, #0
 	ldmia r0, {r0}
-	bl FUN_0209A27C
+	bl SOC_InetNtoA
 	mov r2, r0
 	ldr r1, _021FFF6C ; =0x0220F008
 	mov r0, r5
@@ -45186,7 +45186,7 @@ _021FFEE0:
 _021FFF18:
 	add r0, sp, #0
 	ldmia r0, {r0}
-	bl FUN_0209A27C
+	bl SOC_InetNtoA
 	mov r2, r0
 	ldr r1, _021FFF70 ; =0x0220F010
 	mov r0, r5
@@ -45879,7 +45879,7 @@ MOD04_022008A0: ; 0x022008A0
 	cmp r0, r1
 	ldmneia sp!, {r4, pc}
 	mov r0, r4
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	moveq r0, #0
 	ldrne r0, [r0, #0xc]
@@ -46381,7 +46381,7 @@ _02200F8C:
 	bl MOD04_022021C0
 	add r0, r5, r8, lsl #2
 	ldmia r0, {r0}
-	bl FUN_0209A27C
+	bl SOC_InetNtoA
 	mov r1, r0
 	mov r0, r6
 	bl MOD04_022021C0
@@ -47603,7 +47603,7 @@ _022020D0:
 	cmp r0, #0
 	beq _0220211C
 	mov r0, r7
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	movs r4, r0
 	addeq sp, sp, #4
 	moveq r0, #0
@@ -52308,7 +52308,7 @@ _02206038:
 	cmp r0, r1
 	bne _022060A4
 	add r0, sp, #8
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	addeq sp, sp, #0x88
 	moveq r0, #2
@@ -56591,12 +56591,12 @@ MOD04_022099C0: ; 0x022099C0
 	moveq r2, #7
 	add r6, r0, r2
 	mov r0, r6
-	bl FUN_0209A224
+	bl SOC_InetAtoN
 	cmp r0, #0
 	ldrne r0, [sp]
 	bne _02209A54
 	mov r0, r6
-	bl FUN_02099D88
+	bl SOCL_Resolve
 	cmp r0, #0
 	addeq sp, sp, #8
 	moveq r0, #0
@@ -56837,7 +56837,7 @@ MOD04_02209D40: ; 0x02209D40
 	ldmltia sp!, {pc}
 	mov r0, r1
 	mov r1, #2
-	bl thunk_FUN_020995dc
+	bl SOC_Shutdown
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 
@@ -56849,7 +56849,7 @@ MOD04_02209D68: ; 0x02209D68
 	mov r1, r2
 	mov r2, r3
 	ldr r3, [sp, #8]
-	bl FUN_0209A858
+	bl SOC_Send
 	cmp r0, #0
 	ldmgeia sp!, {r4, pc}
 	ldr r1, [r4, #4]
@@ -56872,7 +56872,7 @@ MOD04_02209DB4: ; 0x02209DB4
 	mov r1, r2
 	mov r2, r3
 	ldr r3, [sp, #8]
-	bl FUN_0209A91C
+	bl SOC_Read
 	cmp r0, #0
 	ldmgeia sp!, {r4, pc}
 	ldr r1, [r4, #4]
@@ -56907,7 +56907,7 @@ MOD04_02209E00: ; 0x02209E00
 	strb lr, [sp, #1]
 	strh r3, [sp, #2]
 	str r2, [sp, #4]
-	bl FUN_0209A944
+	bl SOC_Connect
 	cmp r0, #0
 	bge _02209E6C
 	ldr r0, [r4, #4]
@@ -56928,7 +56928,7 @@ MOD04_02209E7C: ; 0x02209E7C
 	stmdb sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r1
 	mov r0, r8
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	cmp r0, #0
 	ldmneia sp!, {r4, r5, r6, r7, r8, pc}
 	mov r7, #0
@@ -56942,7 +56942,7 @@ _02209EA8:
 	add r7, r7, #0x1f4
 _02209EB4:
 	mov r0, r8
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	cmp r0, r5
 	ldmneia sp!, {r4, r5, r6, r7, r8, pc}
 	cmp r7, r4
@@ -56959,7 +56959,7 @@ MOD04_02209ED4: ; 0x02209ED4
 	mov r0, #2
 	mov r1, #1
 	mov r2, #0
-	bl FUN_0209A9D0
+	bl SOC_Socket
 	movs r4, r0
 	bmi _02209F4C
 	ldr r0, [r5, #8]
@@ -56977,11 +56977,11 @@ MOD04_02209ED4: ; 0x02209ED4
 	ldr r1, [r5, #0x20]
 	str r2, [r1, #0x810]
 	ldr r1, [r5, #0x20]
-	bl FUN_0209AAD0
+	bl SOCL_EnableSsl
 	cmp r0, #0
 	bge _02209F4C
 	mov r0, r4
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	mvn r4, #0
 _02209F4C:
 	mov r0, r4

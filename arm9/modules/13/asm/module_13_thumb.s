@@ -215,7 +215,7 @@ MOD13_02217440: ; 0x02217440
 	ldr r4, [sp, #0x10]
 	strb r5, [r4]
 	str r4, [sp]
-	bl FUN_0209A7D0
+	bl SOC_SendTo
 	add sp, #4
 	pop {r4, r5}
 	pop {r3}
@@ -250,7 +250,7 @@ MOD13_02217458: ; 0x02217458
 	add r0, sp, #0
 	mov r1, #1
 	add r3, r4, #0
-	bl FUN_0209A0AC
+	bl SOC_Poll
 	add sp, #8
 	pop {r4, r5, r6}
 	pop {r3}
@@ -267,7 +267,7 @@ MOD13_022174A4: ; 0x022174A4
 	ldr r4, [sp, #0x10]
 	strb r5, [r4]
 	str r4, [sp]
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	add sp, #4
 	pop {r4, r5}
 	pop {r3}
@@ -323,7 +323,7 @@ _022174FA:
 MOD13_02217504: ; 0x02217504
 	push {lr}
 	sub sp, #4
-	bl THUNK_FUN_02099BC8
+	bl SOC_Cleanup
 	cmp r0, #0
 	bge _0221751A
 	mov r0, #0
@@ -363,7 +363,7 @@ MOD13_02217530: ; 0x02217530
 	ldr r1, _0221758C ; =0x0223F7C8
 	str r0, [r1, #0x18]
 	add r0, r1, #0
-	bl FUN_0209A2C0
+	bl SOC_Startup
 	cmp r0, #0
 	bge _0221756A
 	mov r0, #0
@@ -10807,7 +10807,7 @@ _0221C6FC:
 	mov r0, #2
 	lsl r1, r0, #0
 	ldr r2, [sp, #0x10]
-	bl FUN_0209A9D0
+	bl SOC_Socket
 	add r4, r0, #0
 	cmp r4, #0
 	bge _0221C716
@@ -10831,7 +10831,7 @@ _0221C716:
 	ldr r1, [sp, #0x18]
 	str r1, [sp, #0x48]
 	add r1, sp, #0x44
-	bl FUN_0209A9A4
+	bl SOC_Bind
 	str r0, [sp, #4]
 	cmp r0, #0
 	bge _0221C746
@@ -10851,7 +10851,7 @@ _0221C74C:
 	cmp r0, r1
 	blo _0221C768
 	add r0, r4, #0
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	ldr r0, [sp, #0x1c]
 	str r0, [sp, #4]
 	mov r0, #1
@@ -10870,7 +10870,7 @@ _0221C768:
 	ldr r1, _0221C9F8 ; =0x022427E4
 	ldr r2, _0221C9FC ; =0x00000800
 	mov r3, #4
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	cmp r0, #0
 	bgt _0221C78C
 	b _0221CA3C
@@ -10916,7 +10916,7 @@ _0221C7D8:
 	cmp r0, r1
 	blo _0221C7F4
 	add r0, r4, #0
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	ldr r0, [sp, #0x20]
 	str r0, [sp, #4]
 	mov r0, #1
@@ -10929,7 +10929,7 @@ _0221C7F4:
 	ldr r1, _0221C9F8 ; =0x022427E4
 	ldr r2, _0221C9FC ; =0x00000800
 	mov r3, #4
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	cmp r0, #0
 	ble _0221C86A
 	ldr r0, _0221C9F8 ; =0x022427E4
@@ -11042,7 +11042,7 @@ _0221C8DE:
 	ldr r1, _0221C9F8 ; =0x022427E4
 	ldr r2, _0221C9FC ; =0x00000800
 	mov r3, #4
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	cmp r0, #0
 	ble _0221C932
 	ldr r0, _0221C9F8 ; =0x022427E4
@@ -11090,7 +11090,7 @@ _0221C932:
 	cmp r0, #0xa
 	blt _0221C95A
 	add r0, r4, #0
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	ldr r0, [sp, #0x14]
 	str r0, [sp, #4]
 	mov r0, #1
@@ -11197,7 +11197,7 @@ _0221CA4C:
 	cmp r4, #0
 	beq _0221CA56
 	add r0, r4, #0
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 _0221CA56:
 	ldr r0, _0221CA70 ; =0x02241AC0
 	ldr r0, [r0]
@@ -12531,9 +12531,9 @@ MOD13_0221D414: ; 0x0221D414
 	str r0, [sp, #8]
 	ldr r0, _0221D454 ; =0x000001E6
 	strh r0, [r1, #2]
-	bl FUN_02099C78
+	bl SOCL_GetHostID
 	add r1, sp, #0xc
-	bl FUN_0209A174
+	bl SOC_U32to4U8
 	str r4, [sp]
 	add r0, r5, #0
 	add r1, sp, #4
@@ -12555,7 +12555,7 @@ MOD13_0221D458: ; 0x0221D458
 	add r1, r3, #0
 	ldr r2, [sp, #8]
 	mov r3, #0
-	bl FUN_0209A7D0
+	bl SOC_SendTo
 	cmp r0, #0
 	bge _0221D470
 	mov r0, #3
@@ -13228,7 +13228,7 @@ _0221D982:
 	beq _0221D992
 	mov r1, #0
 	str r1, [r0]
-	bl THUNK_FUN_02099BC8
+	bl SOC_Cleanup
 _0221D992:
 	pop {r4, r5, r6}
 	pop {r3}
@@ -13379,7 +13379,7 @@ _0221DA9A:
 	ldr r0, _0221DAE8 ; =0x02241AD0
 	str r1, [r0]
 	ldr r0, _0221DAEC ; =0x0223F8D4
-	bl FUN_0209A2C0
+	bl SOC_Startup
 	cmp r0, #0
 	bge _0221DABC
 	mov r0, #1

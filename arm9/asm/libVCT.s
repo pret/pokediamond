@@ -5619,8 +5619,8 @@ _020A87B0: .word FUN_020A85F0
 _020A87B4: .word UNK_021CA874
 _020A87B8: .word UNK_021CA870
 
-	arm_func_start FUN_020A87BC
-FUN_020A87BC: ; 0x020A87BC
+	arm_func_start WCM_SetRecvDCFCallback
+WCM_SetRecvDCFCallback: ; 0x020A87BC
 	stmdb sp!, {r4,lr}
 	mov r4, r0
 	bl OS_DisableInterrupts
@@ -5665,8 +5665,8 @@ _020A8830:
 	.balign 4
 _020A884C: .word 0x0000214C
 
-	arm_func_start FUN_020A8850
-FUN_020A8850:
+	arm_func_start WCM_GetApMacAddress
+WCM_GetApMacAddress:
 	stmdb sp!, {r4-r5,lr}
 	sub sp, sp, #0x4
 	mov r5, #0x0

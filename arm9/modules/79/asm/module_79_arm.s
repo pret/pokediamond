@@ -4723,7 +4723,7 @@ _022164D4:
 	cmp r1, r0
 	bne _02216524
 	mov r0, r5
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	moveq r0, #1
 	streq r0, [r4, #0xfc]
