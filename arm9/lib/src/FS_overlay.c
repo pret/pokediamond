@@ -67,16 +67,16 @@ ARM_FUNC BOOL FSi_LoadOverlayInfoCore(FSOverlayInfo * p_ovi, MIProcessor target,
         return FALSE;
     if (FS_ReadFile(file, p_ovi, sizeof(FSOverlayInfoHeader)) != sizeof(FSOverlayInfoHeader))
     {
-        FS_CloseFile(file);
+        (void)FS_CloseFile(file);
         return FALSE;
     }
-    FS_CloseFile(file);
+    (void)FS_CloseFile(file);
     p_ovi->target = target;
     if (!FS_OpenFileFast(file, FS_GetOverlayFileID(p_ovi)))
         return FALSE;
     p_ovi->file_pos.offset = FS_GetFileImageTop(file);
     p_ovi->file_pos.length = FS_GetLength(file);
-    FS_CloseFile(file);
+    (void)FS_CloseFile(file);
     return TRUE;
 }
 
@@ -96,7 +96,7 @@ ARM_FUNC BOOL FS_LoadOverlayInfo(FSOverlayInfo * p_ovi, MIProcessor target, FSOv
             return FALSE;
         p_ovi->file_pos.offset = FS_GetFileImageTop(file);
         p_ovi->file_pos.length = FS_GetLength(file);
-        FS_CloseFile(file);
+        (void)FS_CloseFile(file);
         return TRUE;
     }
     else
@@ -114,11 +114,11 @@ ARM_FUNC BOOL FS_LoadOverlayImageAsync(FSOverlayInfo * p_ovi, FSFile * p_file)
         return FALSE;
     else
     {
-        s32 size = FSi_GetOverlayBinarySize(p_ovi);
+        s32 size = (s32)FSi_GetOverlayBinarySize(p_ovi);
         FS_ClearOverlayImage(p_ovi);
         if (FS_ReadFileAsync(p_file, FS_GetOverlayAddress(p_ovi), size) != size)
         {
-            FS_CloseFile(p_file);
+            (void)FS_CloseFile(p_file);
             return FALSE;
         }
         return TRUE;
@@ -133,14 +133,14 @@ ARM_FUNC BOOL FS_LoadOverlayImage(FSOverlayInfo * p_ovi)
         return FALSE;
     else
     {
-        s32 size = FSi_GetOverlayBinarySize(p_ovi);
+        s32 size = (s32)FSi_GetOverlayBinarySize(p_ovi);
         FS_ClearOverlayImage(p_ovi);
         if (FS_ReadFile(file, FS_GetOverlayAddress(p_ovi), size) != size)
         {
-            FS_CloseFile(file);
+            (void)FS_CloseFile(file);
             return FALSE;
         }
-        FS_CloseFile(file);
+        (void)FS_CloseFile(file);
         return TRUE;
     }
 }
@@ -168,9 +168,9 @@ static const u8 fsi_def_digest_key[64] = {
 };
 
 static const void *fsi_digest_key_ptr = fsi_def_digest_key;
-static int fsi_digest_key_len = sizeof(fsi_def_digest_key);
+static u32 fsi_digest_key_len = sizeof(fsi_def_digest_key);
 
-ARM_FUNC BOOL FSi_CompareDigest(const u8 *spec_digest, void *src, int len)
+ARM_FUNC BOOL FSi_CompareDigest(const u8 *spec_digest, void *src, u32 len)
 {
     int i;
     u8 digest[FS_OVERLAY_DIGEST_SIZE];
@@ -203,7 +203,7 @@ ARM_FUNC void FS_StartOverlay(FSOverlayInfo * p_ovi)
             if (p_ovi->header.id < odt_max)
             {
                 const u8 * spec_digest = SDK_OVERLAY_DIGEST + FS_OVERLAY_DIGEST_SIZE * p_ovi->header.id;
-                ret = FSi_CompareDigest(spec_digest, p_ovi->header.ram_address, (int)rare_size);
+                ret = FSi_CompareDigest(spec_digest, p_ovi->header.ram_address, rare_size);
             }
         }
         if (!ret)
@@ -276,7 +276,7 @@ ARM_FUNC void FS_EndOverlay(FSOverlayInfo *p_ovi)
                 }
                 p = next;
             }
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
         }
 
         if (!head)

@@ -42,7 +42,7 @@ since the vector is assumed to be normalized, are used
 */
 ARM_FUNC void G3B_Normal(struct GXDLInfo * displaylist, fx16 x, fx16 y, fx16 z){
     *(u32 *)displaylist->curr_cmd = 0x21;
-    *displaylist->curr_param = ((x >> 3) & 0x3FF) | (((y >> 3) & 0x3FF) << 0xA) | (((z >> 3) & 0x3FF) << 0x14) ;
+    *displaylist->curr_param = (u32)(((x >> 3) & 0x3FF) | (((y >> 3) & 0x3FF) << 0xA) | (((z >> 3) & 0x3FF) << 0x14));
     displaylist->curr_cmd = (u8 *)displaylist->curr_param + 0x4;
     displaylist->curr_param = (u32 *)displaylist->curr_cmd + 1;
 }

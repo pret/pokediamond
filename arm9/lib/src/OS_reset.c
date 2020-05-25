@@ -55,7 +55,7 @@ ARM_FUNC void OS_ResetSystem(u32 parameter) {
     MI_StopDma(2);
     MI_StopDma(3);
     (void)OS_SetIrqMask(0x40000);
-    OS_ResetRequestIrqMask((u32)~0);
+    (void)OS_ResetRequestIrqMask((u32)~0);
     *(u32 *)HW_RESET_PARAMETER_BUF = parameter;
     OSi_SendToPxi(OS_PXI_COMMAND_RESET);
     OSi_DoResetSystem(); //oh boy this is in itcm, that's gonna be fun to deal with Kappa
