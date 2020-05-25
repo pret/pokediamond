@@ -809,7 +809,7 @@ FUN_02004704: ; 0x02004704
 FUN_02004724: ; 0x02004724
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	bl FUN_020051AC
 	add r0, r4, #0x0
 	bl FUN_0200521C
@@ -828,7 +828,7 @@ FUN_02004738: ; 0x02004738
 FUN_02004748: ; 0x02004748
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	cmp r4, #0x7
 	blt _02004762
 	bl ErrorHandling
@@ -1089,7 +1089,7 @@ _02004918: .word MIC_StartAutoSampling
 	thumb_func_start FUN_0200491C
 FUN_0200491C: ; 0x0200491C
 	push {r3, lr}
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	bl MIC_StopAutoSampling
 	pop {r3, pc}
 
@@ -1103,7 +1103,7 @@ FUN_02004928: ; 0x02004928
 FUN_02004930: ; 0x02004930
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	mov r0, #0xf
 	bl FUN_02003D38
 	add r6, r0, #0x0
@@ -1144,7 +1144,7 @@ _0200497C:
 FUN_02004984: ; 0x02004984
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	mov r0, #0xf
 	bl FUN_02003D38
 	add r6, r0, #0x0
@@ -1208,7 +1208,7 @@ _020049FE:
 FUN_02004A04: ; 0x02004A04
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	mov r0, #0xf
 	bl FUN_02003D38
 	add r6, r0, #0x0
@@ -1364,7 +1364,7 @@ FUN_02004B30: ; 0x02004B30
 	str r1, [sp, #0x0]
 	str r2, [sp, #0x4]
 	add r5, r3, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	mov r0, #0x21
 	bl FUN_02003D38
 	add r4, r0, #0x0
@@ -1491,7 +1491,7 @@ _02004C36:
 FUN_02004C3C: ; 0x02004C3C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	mov r0, #0xe
 	bl FUN_02003D38
 	add r4, r0, #0x0
@@ -1528,7 +1528,7 @@ FUN_02004C80: ; 0x02004C80
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	mov r0, #0x3
 	bl FUN_02003D38
 	mov r1, #0x1
@@ -1559,7 +1559,7 @@ _02004CB0: .word FUN_020C1FA4
 FUN_02004CB4: ; 0x02004CB4
 	push {r3-r4, lr}
 	sub sp, #0xc
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	mov r0, #0x4
 	bl FUN_02003D38
 	mov r1, #0x0

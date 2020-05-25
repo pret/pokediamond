@@ -286,7 +286,7 @@ _0201B6AE:
 	ldr r0, [r1, #0x0]
 	bx r3
 	.balign 4
-_0201B6C0: .word 0x0201B54D
+_0201B6C0: .word FUN_0201B54C
 
 	thumb_func_start FUN_0201B6C4
 FUN_0201B6C4: ; 0x0201B6C4

@@ -616,7 +616,7 @@ FUN_0204C644: ; 0x0204C644
 _0204C668:
 	bl MOD05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C688 ; =0x021DB1D1
+	ldr r1, _0204C688 ; =MOD05_021DB1D0
 	add r0, r5, #0x0
 	bl FUN_0204640C
 	ldr r0, [r4, #0x4]
@@ -630,7 +630,7 @@ _0204C682:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_0204C688: .word 0x021DB1D1
+_0204C688: .word MOD05_021DB1D0
 
 	thumb_func_start FUN_0204C68C
 FUN_0204C68C: ; 0x0204C68C
@@ -652,7 +652,7 @@ FUN_0204C68C: ; 0x0204C68C
 _0204C6B0:
 	bl MOD05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C6D0 ; =0x021DB145
+	ldr r1, _0204C6D0 ; =MOD05_021DB144
 	add r0, r5, #0x0
 	bl FUN_0204640C
 	ldr r0, [r4, #0x4]
@@ -666,7 +666,7 @@ _0204C6CA:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_0204C6D0: .word 0x021DB145
+_0204C6D0: .word MOD05_021DB144
 
 	thumb_func_start FUN_0204C6D4
 FUN_0204C6D4: ; 0x0204C6D4
@@ -716,7 +716,7 @@ _0204C700:
 _0204C736:
 	bl MOD05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C79C ; =0x021DB251
+	ldr r1, _0204C79C ; =MOD05_021DB250
 	add r0, r6, #0x0
 	bl FUN_0204640C
 	mov r0, #0x3
@@ -760,7 +760,7 @@ _0204C798:
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	.balign 4
-_0204C79C: .word 0x021DB251
+_0204C79C: .word MOD05_021DB250
 
 	thumb_func_start FUN_0204C7A0
 FUN_0204C7A0: ; 0x0204C7A0
@@ -806,7 +806,7 @@ _0204C7BE:
 _0204C7FE:
 	bl MOD05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C820 ; =0x021DB381
+	ldr r1, _0204C820 ; =MOD05_021DB380
 	add r0, r6, #0x0
 	bl FUN_0204640C
 	ldr r0, [r4, #0x4]
@@ -821,7 +821,7 @@ _0204C818:
 	pop {r3-r7, pc}
 	.balign 4
 _0204C81C: .word FUN_0204C6D4
-_0204C820: .word 0x021DB381
+_0204C820: .word MOD05_021DB380
 
 	thumb_func_start FUN_0204C824
 FUN_0204C824: ; 0x0204C824
@@ -981,7 +981,7 @@ FUN_0204C93C: ; 0x0204C93C
 _0204C960:
 	bl MOD05_021DB030
 	add r2, r0, #0x0
-	ldr r1, _0204C980 ; =0x021DB041
+	ldr r1, _0204C980 ; =MOD05_021DB040
 	add r0, r5, #0x0
 	bl FUN_0204640C
 	ldr r0, [r4, #0x4]
@@ -995,7 +995,7 @@ _0204C97A:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_0204C980: .word 0x021DB041
+_0204C980: .word MOD05_021DB040
 
 	thumb_func_start FUN_0204C984
 FUN_0204C984: ; 0x0204C984

@@ -1,7 +1,6 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_02105D58
 	.extern gUnknown21C48B8
 
 	.section .bss
@@ -9,6 +8,12 @@
 	.global UNK_021C59F4
 UNK_021C59F4: ; 0x021C59F4
 	.space 0x8
+
+	.section .data
+
+	.global UNK_02105D58
+UNK_02105D58: ; 0x02105D58
+	.byte 4, 4
 
 	.text
 

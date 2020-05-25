@@ -1690,12 +1690,12 @@ _0204963E:
 	mov r1, #0x4
 	bl MOD06_0224C8C8
 	add r2, r0, #0x0
-	ldr r1, _02049654 ; =0x0224C8E9
+	ldr r1, _02049654 ; =MOD06_0224C8E8
 	add r0, r5, #0x0
 	bl FUN_0204640C
 	pop {r4-r6, pc}
 	.balign 4
-_02049654: .word 0x0224C8E9
+_02049654: .word MOD06_0224C8E8
 
 	thumb_func_start FUN_02049658
 FUN_02049658: ; 0x02049658

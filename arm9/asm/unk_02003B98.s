@@ -12,8 +12,68 @@ UNK_02104780: ; 0x02104780
 UNK_02107070: ; 0x02107070
 	.space 0x8
 
-	.global UNK_02107078
-UNK_02107078: ; 0x02107078
+	.global sSoundDataBuffer
+sSoundDataBuffer: ; 0x02107078
+	; 00: SDATHeader
+	;   - 00: char magic[4]
+	;   - 04: u16 byte_order
+	;   - 06: u16 version
+	;   - 08: u32 filesize
+	;   - 0C: u16 header size
+	;   - 0E: u16 section count
+	;   - 10: u32 symb_offset
+	;   - 14: u32 symb_size
+	;   - 18: u32 info_offset
+	;   - 1C: u32 info_size
+	;   - 20: u32 fat_offset
+	;   - 24: u32 fat_size
+	;   - 28: u32 file_offset
+	;   - 2c: u32 file_size
+	; 30: u32
+	; 34: FSFile
+	; 7C: FSFileID
+	; 84: u32
+	; 88: u32
+	; 8C: u32
+	; 90: u32
+	; 94: u8[0xBBB6C]
+	; BBC00: u8[0x94]
+	; BBC94: u8[0x24]
+	; BBCB8: u32
+	; BBCBC: u32
+	; BBCC0: u8[0x20]
+	; BBCE0: u8[0x1000]
+	; BCCE0: u8[0x1C]
+	; BCCFC: u16
+	; BCCFE: u16
+	; BCD00: u32
+	; BCD10: u8
+	; BCD11: u8
+	; BCD12: u16
+	; BCD14: u8
+    ; BCD15: u8
+    ; BCD16: u8
+    ; BCD17: u8
+    ; BCD18: u8
+    ; BCD19: u8
+    ; BCD1A: u8
+    ; BCD1B: u8
+    ; BCD1C: u32
+    ; BCD20: u32
+    ; BCD24: u32
+    ; BCD28: u32
+    ; BCD2C: u32
+    ; BCD30: u32
+    ; BCD34: u32
+    ; BCD38: u32
+    ; BCD3C: u32
+    ; BCD40: u64
+    ; BCD48: u32
+	; BCD4C: u32
+	; BCD50: u32
+	; BCD54: u32
+	; BCD58: u32
+	; BCD5C: u32
 	.space 0xbcd60
 
 	.text
@@ -23,7 +83,7 @@ FUN_02003B98: ; 0x02003B98
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r6, r1, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r4, r0, #0x0
 	bl FUN_020C01D0
 	bl FUN_020040C8
@@ -70,7 +130,7 @@ _02003C0C: .word 0x000BCD4C
 	thumb_func_start FUN_02003C10
 FUN_02003C10: ; 0x02003C10
 	push {r4, lr}
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r4, r0, #0x0
 	bl FUN_02003D04
 	cmp r0, #0x0
@@ -93,7 +153,7 @@ _02003C3C: .word 0x000BCD00
 	thumb_func_start FUN_02003C40
 FUN_02003C40: ; 0x02003C40
 	push {r4, lr}
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r4, r0, #0x0
 	ldr r0, _02003CDC ; =UNK_02107070
 	ldr r0, [r0, #0x0]
@@ -170,7 +230,7 @@ _02003CE4: .word 0x000BCD08
 FUN_02003CE8: ; 0x02003CE8
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	ldr r1, _02003CFC ; =0x000BCCFC
 	mov r2, #0x0
 	strh r2, [r0, r1]
@@ -184,7 +244,7 @@ _02003D00: .word UNK_02107070
 	thumb_func_start FUN_02003D04
 FUN_02003D04: ; 0x02003D04
 	push {r4, lr}
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r4, r0, #0x0
 	mov r0, #0x2
 	bl FUN_020048BC
@@ -205,18 +265,18 @@ _02003D26:
 	nop
 _02003D2C: .word 0x000BCD12
 
-	thumb_func_start FUN_02003D30
-FUN_02003D30: ; 0x02003D30
-	ldr r0, _02003D34 ; =UNK_02107078
+	thumb_func_start GetSoundDataPointer
+GetSoundDataPointer: ; 0x02003D30
+	ldr r0, _02003D34 ; =sSoundDataBuffer
 	bx lr
 	.balign 4
-_02003D34: .word UNK_02107078
+_02003D34: .word sSoundDataBuffer
 
 	thumb_func_start FUN_02003D38
 FUN_02003D38: ; 0x02003D38
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	cmp r4, #0x27
 	bls _02003D46
 	b _02003E92
@@ -478,7 +538,7 @@ _02003F38: .word 0x000BCD5C
 FUN_02003F3C: ; 0x02003F3C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r0, #0x90
 	ldr r0, [r0, #0x0]
 	bl FUN_020C290C
@@ -500,7 +560,7 @@ _02003F60:
 FUN_02003F64: ; 0x02003F64
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r0, #0x90
 	ldr r0, [r0, #0x0]
 	add r1, r4, #0x0
@@ -511,7 +571,7 @@ FUN_02003F64: ; 0x02003F64
 FUN_02003F78: ; 0x02003F78
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r1, r0, #0x0
 	add r1, #0x90
 	ldr r1, [r1, #0x0]
@@ -524,7 +584,7 @@ FUN_02003F78: ; 0x02003F78
 FUN_02003F90: ; 0x02003F90
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r1, r0, #0x0
 	add r1, #0x90
 	ldr r1, [r1, #0x0]
@@ -538,7 +598,7 @@ FUN_02003FA8: ; 0x02003FA8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r2, r0, #0x0
 	add r2, #0x90
 	ldr r2, [r2, #0x0]
@@ -552,7 +612,7 @@ FUN_02003FA8: ; 0x02003FA8
 FUN_02003FC4: ; 0x02003FC4
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r1, r0, #0x0
 	add r1, #0x90
 	ldr r1, [r1, #0x0]
@@ -565,7 +625,7 @@ FUN_02003FC4: ; 0x02003FC4
 FUN_02003FDC: ; 0x02003FDC
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r1, r0, #0x0
 	add r1, #0x90
 	ldr r1, [r1, #0x0]
@@ -578,7 +638,7 @@ FUN_02003FDC: ; 0x02003FDC
 FUN_02003FF4: ; 0x02003FF4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_02003D30
+	bl GetSoundDataPointer
 	add r4, r0, #0x0
 	cmp r5, #0x9
 	blt _02004008

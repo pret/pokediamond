@@ -20,8 +20,8 @@ SVC_Sqrt: ; 0x0200019E
 
 .incbin "baserom.nds", 0x41A2, 0x15C
 
-	non_word_aligned_thumb_func_start FUN_020002FE
-FUN_020002FE: ; 0x020002FE
+	non_word_aligned_thumb_func_start SVC_CpuSet
+SVC_CpuSet: ; 0x020002FE
 	swi 11
 	bx lr
 

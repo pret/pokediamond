@@ -1,10 +1,6 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_02105DEC
-	.extern UNK_02105E10
-	.extern UNK_02105DF4
-
 	.section .rodata
 
 	.global UNK_020F40A0
@@ -130,6 +126,46 @@ UNK_020F4218: ; 0x020F4218
 	.byte 0x1C, 0x00, 0x03, 0x00, 0x12, 0x00, 0x01, 0x00, 0x16, 0x00, 0x01, 0x00, 0x15, 0x00, 0x02, 0x00
 	.byte 0x13, 0x00, 0x02, 0x00, 0x14, 0x00, 0x02, 0x00, 0x1B, 0x00, 0x04, 0x00, 0x4E, 0x00, 0x02, 0x00
 	.byte 0x4F, 0x00, 0x02, 0x00, 0x4C, 0x00, 0x03, 0x00, 0x4D, 0x00, 0x04, 0x00
+
+	.section .data
+
+	.balign 4, 0
+	.global UNK_02105DEC
+UNK_02105DEC: ; 0x02105DEC
+	.word UNK_020F410C
+	.word UNK_020F4118
+
+	.global UNK_02105DF4
+UNK_02105DF4: ; 0x02105DF4
+	.word UNK_020F4192
+	.word UNK_020F4142
+	.word UNK_020F4162
+	.word UNK_020F4172
+	.word UNK_020F41A2
+	.word UNK_020F4152
+	.word UNK_020F41B2
+
+	.global UNK_02105E10
+UNK_02105E10: ; 0x02105E10
+	.word UNK_020F40A6
+	.word UNK_020F40B4
+	.word UNK_020F40AC
+	.word UNK_020F40BC
+	.word UNK_020F40C6
+	.word UNK_020F40F8
+	.word UNK_020F40DA
+	.word UNK_020F40E4
+	.word UNK_020F41E6
+	.word UNK_020F41FE
+	.word UNK_020F41D4
+	.word UNK_020F4126
+	.word UNK_020F4182
+	.word UNK_020F4134
+	.word UNK_020F40EE
+	.word UNK_020F40D0
+	.word UNK_020F4102
+	.word UNK_020F40A0
+	.word UNK_020F41C2
 
 	.text
 

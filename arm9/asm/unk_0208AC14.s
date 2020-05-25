@@ -2,11 +2,23 @@
 	.include "global.inc"
 
 	.extern UNK_020FFA38
-	.extern UNK_02106158
-	.extern UNK_02106160
-	.extern UNK_02106168
 	.extern UNK_021064B8
 	.extern UNK_021064C0
+
+	.section .data
+	.global UNK_02106158
+UNK_02106158: ; 0x02106158
+	.word FUN_0208ECA0
+	.word FUN_0208EBE4
+
+	.global UNK_02106160
+UNK_02106160: ; 0x02106160
+	.word FUN_0208EAF8
+	.word FUN_0208EB38
+
+	.global UNK_02106168
+UNK_02106168: ; 0x02106168
+	.byte 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00
 
 	.section .bss
 
