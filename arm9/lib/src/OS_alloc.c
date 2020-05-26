@@ -94,7 +94,7 @@ ARM_FUNC void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size) {
     OSIntrMode enabled = OS_DisableInterrupts();
     heapInfo = OSiHeapInfo[id];
     if (!heapInfo) {
-        OS_RestoreInterrupts(enabled);
+        (void)OS_RestoreInterrupts(enabled);
         return NULL;
     }
 
@@ -114,7 +114,7 @@ ARM_FUNC void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size) {
     }
 
     if (cell == NULL) {
-        OS_RestoreInterrupts(enabled);
+        (void)OS_RestoreInterrupts(enabled);
         return NULL;
     }
 
@@ -143,7 +143,7 @@ ARM_FUNC void* OS_AllocFromHeap(OSArenaId id, OSHeapHandle heap, u32 size) {
 
     hd->allocated = DLAddFront(hd->allocated, cell);
 
-    OS_RestoreInterrupts(enabled);
+    (void)OS_RestoreInterrupts(enabled);
     return (void *)((char *)cell + HEADERSIZE);
 }
 
@@ -165,5 +165,5 @@ ARM_FUNC void OS_FreeToHeap(OSArenaId id, OSHeapHandle heap, void* ptr) {
     hd->allocated = DLExtract(hd->allocated, cell);
     hd->free = DLInsert(hd->free, cell);
 
-    OS_RestoreInterrupts(enabled);
+    (void)OS_RestoreInterrupts(enabled);
 }

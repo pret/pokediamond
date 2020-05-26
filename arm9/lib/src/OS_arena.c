@@ -17,7 +17,7 @@ extern void SDK_SECTION_ARENA_DTCM_START(); // TODO: technically this should be 
 extern void SDK_IRQ_STACKSIZE(); // TODO: technically this should be defined in the lcf
 extern void SDK_SYS_STACKSIZE(); // TODO: technically this should be defined in the lcf
 
-ARM_FUNC void OS_InitArena() {
+ARM_FUNC void OS_InitArena(void) {
     if (OSi_Initialized) {
         return;
     }
@@ -42,9 +42,9 @@ ARM_FUNC void OS_InitArena() {
     OS_SetArenaLo(OS_ARENA_WRAM_MAIN, OS_GetInitArenaLo(OS_ARENA_WRAM_MAIN));
 }
 
-ARM_FUNC void OS_InitArenaEx() {
-    OS_SetArenaHi(2, OS_GetInitArenaHi(OS_ARENA_MAINEX));
-    OS_SetArenaLo(2, OS_GetInitArenaLo(OS_ARENA_MAINEX));
+ARM_FUNC void OS_InitArenaEx(void) {
+    OS_SetArenaHi(OS_ARENA_MAINEX, OS_GetInitArenaHi(OS_ARENA_MAINEX));
+    OS_SetArenaLo(OS_ARENA_MAINEX, OS_GetInitArenaLo(OS_ARENA_MAINEX));
 
     if (!OSi_MainExArenaEnabled || (OS_GetConsoleType() & OS_CONSOLE_SIZE_MASK) == OS_CONSOLE_SIZE_4MB) {
         OS_SetProtectionRegion(1, HW_MAIN_MEM, 4MB);
@@ -73,22 +73,22 @@ ARM_FUNC void* OS_GetInitArenaHi(OSArenaId id) {
         case OS_ARENA_ITCM:
             return (void *)HW_ITCM_ARENA_HI_DEFAULT;
         case OS_ARENA_DTCM:
-            u32 irqStackLo = (u32)HW_DTCM_IRQ_STACK_END - (s32)SDK_IRQ_STACKSIZE;
+        {
+            u32 irqStackLo = (u32) HW_DTCM_IRQ_STACK_END - (s32) SDK_IRQ_STACKSIZE;
             u32 sysStackLo;
 
-            if (!(s32)SDK_SYS_STACKSIZE) {
+            if (!(s32) SDK_SYS_STACKSIZE) {
                 sysStackLo = HW_DTCM;
-                if (sysStackLo < (u32)SDK_SECTION_ARENA_DTCM_START) {
-                    sysStackLo = (u32)SDK_SECTION_ARENA_DTCM_START;
+                if (sysStackLo < (u32) SDK_SECTION_ARENA_DTCM_START) {
+                    sysStackLo = (u32) SDK_SECTION_ARENA_DTCM_START;
                 }
+            } else if ((s32) SDK_SYS_STACKSIZE < 0) {
+                sysStackLo = (u32) SDK_SECTION_ARENA_DTCM_START - (s32) SDK_SYS_STACKSIZE;
+            } else {
+                sysStackLo = irqStackLo - (s32) SDK_SYS_STACKSIZE;
             }
-            else if ((s32)SDK_SYS_STACKSIZE < 0) {
-                sysStackLo = (u32)SDK_SECTION_ARENA_DTCM_START - (s32)SDK_SYS_STACKSIZE;
-            }
-            else {
-                sysStackLo = irqStackLo - (s32)SDK_SYS_STACKSIZE;
-            }
-            return (void*)sysStackLo;
+            return (void *) sysStackLo;
+        }
         case OS_ARENA_SHARED:
             return (void *)HW_SHARED_ARENA_HI_DEFAULT;
         case OS_ARENA_WRAM_MAIN:

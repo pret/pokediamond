@@ -1,4 +1,4 @@
-#include "global.h"
+#include "string_util.h"
 
 #define EOS 0xFFFF
 #define NON_DIGIT 0xE2
@@ -124,23 +124,17 @@ THUMB_FUNC u16 *StringFillEOS(u16 *dest, u32 num)
     return StringFill(dest, EOS, num);
 }
 
-enum PrintingMode {
-    NORMAL,
-    PAD_SPACE,
-    PAD_ZEROES
-};
-
 THUMB_FUNC u16 *ConvertUIntToDecimalString(u16 *dest, u32 value, enum PrintingMode mode, u32 n)
 {
-    for (u32 x = gPowersOfTen[n - 1]; x != 0; x = x / 10) {
-        u16 res = value / x;
+    for (u32 x = (u32)gPowersOfTen[n - 1]; x != 0; x = x / 10) {
+        u16 res = (u16)(value / x);
         value = value - x * res;
         if (mode == PAD_ZEROES) {
-            *dest = res >= 10 ? NON_DIGIT : gDigitTable[res];
+            *dest = res >= 10 ? (u16)NON_DIGIT : gDigitTable[res];
             dest++;
         } else if (res != 0 || x == 1) {
             mode = PAD_ZEROES;
-            *dest = res >= 10 ? NON_DIGIT : gDigitTable[res];
+            *dest = res >= 10 ? (u16)NON_DIGIT : gDigitTable[res];
             dest++;
         } else if (mode == PAD_SPACE) {
             *dest = 1;

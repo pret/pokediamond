@@ -52,10 +52,10 @@ static u32 sClrImgLCDCBlk = 0;
 
 ARM_FUNC void GX_BeginLoadTex(){
     u32 temp = GX_ResetBankForTex();
-    sTex = temp;
-    sTexLCDCBlk1 = sTexStartAddrTable[temp].blk1 << 0xC;
-    sTexLCDCBlk2 = sTexStartAddrTable[temp].blk2 << 0xC;
-    sSzTexBlk1 = sTexStartAddrTable[temp].szBlk1 << 0xC;
+    sTex = (s32)temp;
+    sTexLCDCBlk1 = (u32)(sTexStartAddrTable[temp].blk1 << 0xC);
+    sTexLCDCBlk2 = (u32)(sTexStartAddrTable[temp].blk2 << 0xC);
+    sSzTexBlk1 = (u32)(sTexStartAddrTable[temp].szBlk1 << 0xC);
 }
 
 ARM_FUNC void GX_LoadTex(void *src, u32 offset, u32 size){
@@ -97,9 +97,9 @@ ARM_FUNC void GX_EndLoadTex(){
 }
 
 ARM_FUNC void GX_BeginLoadTexPltt(){
-    s32 temp = GX_ResetBankForTexPltt();
+    s32 temp = (s32)GX_ResetBankForTexPltt();
     sTexPltt = temp;
-    sTexPlttLCDCBlk = sTexPlttStartAddrTable[temp >> 4] << 0xC;
+    sTexPlttLCDCBlk = (u32)(sTexPlttStartAddrTable[temp >> 4] << 0xC);
 }
 
 ARM_FUNC void GX_LoadTexPltt(void *src, u32 offset, u32 size){
@@ -114,8 +114,8 @@ ARM_FUNC void GX_EndLoadTexPltt(){
 }
 
 ARM_FUNC void GX_BeginLoadClearImage(){
-    s32 temp = GX_ResetBankForClearImage();
-    sClrImg = temp;
+    u32 temp = GX_ResetBankForClearImage();
+    sClrImg = (s32)temp;
     switch (temp)
     {
     case 2:

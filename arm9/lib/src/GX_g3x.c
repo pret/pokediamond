@@ -4,6 +4,8 @@
 
 extern u32 GXi_DmaId;
 
+void MI_Copy36B(void *src, void *dst);
+
 ARM_FUNC asm void GXi_NopClearFifo128_(void *reg){
     mov r1, #0x0
 	mov r2, #0x0
@@ -47,15 +49,15 @@ ARM_FUNC asm void GXi_NopClearFifo128_(void *reg){
 ARM_FUNC void G3X_Init(){
     G3X_ClearFifo();
     reg_G3_END_VTXS = 0x0;
-    while (reg_G3X_GXSTAT & 0x8000000); //wait for geometry engine to not be busy
+    while (reg_G3X_GXSTAT & 0x8000000) {} //wait for geometry engine to not be busy
     reg_G3X_DISP3DCNT = 0x0;
     reg_G3X_GXSTAT = 0x0;
     reg_G2_BG0OFS = 0x0;
     reg_G3X_DISP3DCNT |= 0x2000;
     reg_G3X_DISP3DCNT |= 0x1000;
     reg_G3X_DISP3DCNT &= ~0x3002;
-    reg_G3X_DISP3DCNT = reg_G3X_DISP3DCNT & ~0x3000 | 0x10;
-    reg_G3X_DISP3DCNT = reg_G3X_DISP3DCNT & (u16)~0x3004;
+    reg_G3X_DISP3DCNT = (u16)(reg_G3X_DISP3DCNT & ~0x3000 | 0x10);
+    reg_G3X_DISP3DCNT = (u16)(reg_G3X_DISP3DCNT & (u16)~0x3004);
     reg_G3X_GXSTAT |= 0x8000;
     reg_G3X_GXSTAT = reg_G3X_GXSTAT & ~0xC0000000 | 0x80000000;
     G3X_InitMtxStack();
@@ -72,7 +74,7 @@ ARM_FUNC void G3X_Init(){
 }
 
 ARM_FUNC void G3X_ResetMtxStack(){
-    while (reg_G3X_GXSTAT & 0x8000000);
+    while (reg_G3X_GXSTAT & 0x8000000) {}
     reg_G3X_GXSTAT |= 0x8000;
     reg_G3X_DISP3DCNT |= 0x2000;
     reg_G3X_DISP3DCNT |= 0x1000;
@@ -84,14 +86,14 @@ ARM_FUNC void G3X_ResetMtxStack(){
 
 ARM_FUNC void G3X_ClearFifo(){
     GXi_NopClearFifo128_((void *)&reg_G3X_GXFIFO);
-    while (reg_G3X_GXSTAT & 0x8000000);
+    while (reg_G3X_GXSTAT & 0x8000000) {}
 }
 
 ARM_FUNC void G3X_InitMtxStack(){
     u32 PV_level, PJ_level;
     reg_G3X_GXSTAT |= 0x8000;
-    while (G3X_GetMtxStackLevelPV(&PV_level));
-    while (G3X_GetMtxStackLevelPJ(&PJ_level));
+    while (G3X_GetMtxStackLevelPV(&PV_level)) {}
+    while (G3X_GetMtxStackLevelPJ(&PJ_level)) {}
     reg_G3_MTX_MODE = 0x3;
     reg_G3_MTX_IDENTITY = 0x0;
     reg_G3_MTX_MODE = 0x0;
@@ -108,8 +110,8 @@ ARM_FUNC void G3X_InitMtxStack(){
 ARM_FUNC void G3X_ResetMtxStack_2(){
     u32 PV_level, PJ_level;
     reg_G3X_GXSTAT |= 0x8000;
-    while (G3X_GetMtxStackLevelPV(&PV_level));
-    while (G3X_GetMtxStackLevelPJ(&PJ_level));
+    while (G3X_GetMtxStackLevelPV(&PV_level)) {}
+    while (G3X_GetMtxStackLevelPJ(&PJ_level)) {}
     reg_G3_MTX_MODE = 0x3;
     reg_G3_MTX_IDENTITY = 0x0;
     reg_G3_MTX_MODE = 0x0;
@@ -127,20 +129,20 @@ ARM_FUNC void G3X_ResetMtxStack_2(){
 ARM_FUNC void G3X_SetFog(u32 enable, u32 alphamode, u32 depth, s32 offset){
     if (enable)
     {
-        reg_G3X_FOG_OFFSET = offset;
-        reg_G3X_DISP3DCNT = (reg_G3X_DISP3DCNT &~0x3f40) | (((depth << 0x8)|  (alphamode << 0x6)|0x80 ));
+        reg_G3X_FOG_OFFSET = (u16)offset;
+        reg_G3X_DISP3DCNT = (u16)((reg_G3X_DISP3DCNT &~0x3f40) | (((depth << 0x8)|  (alphamode << 0x6)|0x80 )));
 
     }
     else
     {
-        reg_G3X_DISP3DCNT = reg_G3X_DISP3DCNT & (u16)~0x3080;
+        reg_G3X_DISP3DCNT = (u16)(reg_G3X_DISP3DCNT & (u16)~0x3080);
     }
 }
 
 ARM_FUNC u32 G3X_GetClipMtx(struct Mtx44 *dst){
     if (reg_G3X_GXSTAT & 0x8000000)
     {
-        return -1;
+        return (u32)-1;
     }
     else
     {
@@ -152,7 +154,7 @@ ARM_FUNC u32 G3X_GetClipMtx(struct Mtx44 *dst){
 ARM_FUNC u32 G3X_GetVectorMtx(struct Mtx33 *dst){
     if (reg_G3X_GXSTAT & 0x8000000)
     {
-        return -1;
+        return (u32)-1;
     }
     else
     {
@@ -174,7 +176,7 @@ ARM_FUNC void G3X_SetClearColor(u32 col, u32 alpha, u32 depth, u32 polygon_id, u
     if (enable_fog)
         temp |= 0x8000;
     reg_G3X_CLEAR_COLOR = temp;
-    reg_G3X_CLEAR_DEPTH = depth;
+    reg_G3X_CLEAR_DEPTH = (u16)depth;
 }
 
 ARM_FUNC void G3X_InitTable(){
@@ -197,7 +199,7 @@ ARM_FUNC void G3X_InitTable(){
 ARM_FUNC u32 G3X_GetMtxStackLevelPV(u32 *level){
     if (reg_G3X_GXSTAT & 0x4000)
     {
-        return -1;
+        return (u32)-1;
     }
     else
     {
@@ -209,7 +211,7 @@ ARM_FUNC u32 G3X_GetMtxStackLevelPV(u32 *level){
 ARM_FUNC u32 G3X_GetMtxStackLevelPJ(u32 *level){
     if (reg_G3X_GXSTAT & 0x4000)
     {
-        return -1;
+        return (u32)-1;
     }
     else
     {
@@ -221,7 +223,7 @@ ARM_FUNC u32 G3X_GetMtxStackLevelPJ(u32 *level){
 ARM_FUNC u32 G3X_GetBoxTestResult(u32 *result){
     if (reg_G3X_GXSTAT & 0x1)
     {
-        return -1;
+        return (u32)-1;
     }
     else
     {

@@ -26,15 +26,15 @@ typedef enum {
 } OSIntrMode;
 ENUMS_ALWAYS_INT_RESET
 
-OSIntrMode OS_EnableInterrupts();
-OSIntrMode OS_DisableInterrupts();
+OSIntrMode OS_EnableInterrupts(void);
+OSIntrMode OS_DisableInterrupts(void);
 OSIntrMode OS_RestoreInterrupts(OSIntrMode state);
-OSIntrMode OS_DisableInterrupts_IrqAndFiq();
+OSIntrMode OS_DisableInterrupts_IrqAndFiq(void);
 OSIntrMode OS_RestoreInterrupts_IrqAndFiq(OSIntrMode state);
-OSIntrMode OS_GetCpsrIrq();
-OSProcMode OS_GetProcMode();
-void OS_SpinWait();
-void OS_WaitVBlankIntr();
+OSIntrMode OS_GetCpsrIrq(void);
+OSProcMode OS_GetProcMode(void);
+void OS_SpinWait(void);
+void OS_WaitVBlankIntr(void);
 void OS_WaitIrq(BOOL, u32);
 
 #endif //POKEDIAMOND_OS_SYSTEM_H

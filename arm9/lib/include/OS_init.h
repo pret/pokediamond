@@ -15,6 +15,7 @@
 #include "OS_mutex.h"
 #include "OS_thread.h"
 #include "OS_protectionRegion.h"
+#include "OS_protectionUnit.h"
 #include "OS_entropy.h"
 #include "OS_emulator.h"
 #include "OS_arena.h"
@@ -25,6 +26,6 @@
 #include "OS_reset.h"
 #include "OS_spinLock.h"
 
-void OS_Init();
+void OS_Init(void);
 
 #endif //POKEDIAMOND_OS_INIT_H

@@ -28,7 +28,7 @@ ARM_FUNC void GX_VRAMCNT_SetLCDC_(u32 mask){
 
 ARM_FUNC void GX_SetBankForBG(s32 bg){
     gGXState.lcdc = (u16)(~bg & (gGXState.lcdc | gGXState.bg));
-    gGXState.bg = bg;
+    gGXState.bg = (u16)bg;
     switch (bg)
     {
     case 8:
@@ -101,7 +101,7 @@ ARM_FUNC void GX_SetBankForBG(s32 bg){
 
 ARM_FUNC void GX_SetBankForOBJ(s32 obj){
     gGXState.lcdc = (u16)(~obj & (gGXState.lcdc | gGXState.obj));
-    gGXState.obj = obj;
+    gGXState.obj = (u16)obj;
     switch (obj)
     {
     case 3:
@@ -140,7 +140,7 @@ ARM_FUNC void GX_SetBankForOBJ(s32 obj){
 
 ARM_FUNC void GX_SetBankForBGExtPltt(s32 bgextpltt){
     gGXState.lcdc = (u16)(~bgextpltt & (gGXState.lcdc | gGXState.bgExtPltt));
-    gGXState.bgExtPltt = bgextpltt;
+    gGXState.bgExtPltt = (u16)bgextpltt;
     switch (bgextpltt)
     {
     case 0x10:
@@ -166,7 +166,7 @@ ARM_FUNC void GX_SetBankForBGExtPltt(s32 bgextpltt){
 
 ARM_FUNC void GX_SetBankForOBJExtPltt(s32 objextpltt){
     gGXState.lcdc = (u16)(~objextpltt & (gGXState.lcdc | gGXState.objExtPltt));
-    gGXState.objExtPltt = objextpltt;
+    gGXState.objExtPltt = (u16)objextpltt;
     switch (objextpltt)
     {
     case 32:
@@ -186,14 +186,14 @@ ARM_FUNC void GX_SetBankForOBJExtPltt(s32 objextpltt){
 
 ARM_FUNC void GX_SetBankForTex(s32 tex){
     gGXState.lcdc = (u16)(~tex & (gGXState.lcdc | gGXState.tex));
-    gGXState.tex = tex;
+    gGXState.tex = (u16)tex;
     if (tex == 0)
     {
         reg_G3X_DISP3DCNT &= 0x0000CFFE;
     }
     else
     {
-        reg_G3X_DISP3DCNT = (reg_G3X_DISP3DCNT & ~0x3000) | 0x1;
+        reg_G3X_DISP3DCNT = (u16)((reg_G3X_DISP3DCNT & ~0x3000) | 0x1);
         switch (tex)
         {
         case 5:
@@ -249,7 +249,7 @@ ARM_FUNC void GX_SetBankForTex(s32 tex){
 
 ARM_FUNC void GX_SetBankForTexPltt(s32 texpltt){
     gGXState.lcdc = (u16)(~texpltt & (gGXState.lcdc | gGXState.texPltt));
-    gGXState.texPltt = texpltt;
+    gGXState.texPltt = (u16)texpltt;
     switch (texpltt)
     {
     case 0: //needed to match
@@ -275,7 +275,7 @@ ARM_FUNC void GX_SetBankForTexPltt(s32 texpltt){
 
 ARM_FUNC void GX_SetBankForClearImage(s32 clearimage){
     gGXState.lcdc = (u16)(~clearimage & (gGXState.lcdc | gGXState.clrImg));
-    gGXState.clrImg = clearimage;
+    gGXState.clrImg = (u16)clearimage;
     switch (clearimage)
     {
     case 3:
@@ -306,7 +306,7 @@ ARM_FUNC void GX_SetBankForClearImage(s32 clearimage){
 
 ARM_FUNC void GX_SetBankForARM7(s32 arm7){
     gGXState.lcdc = (u16)(~arm7 & (gGXState.lcdc | gGXState.arm7));
-    gGXState.arm7 = arm7;
+    gGXState.arm7 = (u16)arm7;
     switch (arm7)
     {
     case 0: //needed to match
@@ -326,12 +326,12 @@ ARM_FUNC void GX_SetBankForARM7(s32 arm7){
 
 ARM_FUNC void GX_SetBankForLCDC(s32 lcdc){
     gGXState.lcdc |= lcdc;
-    GX_VRAMCNT_SetLCDC_(lcdc);
+    GX_VRAMCNT_SetLCDC_((u32)lcdc);
 }
 
 ARM_FUNC void GX_SetBankForSubBG(s32 subbg){
     gGXState.lcdc = (u16)(~subbg & (gGXState.lcdc | gGXState.sub_bg));
-    gGXState.sub_bg = subbg;
+    gGXState.sub_bg = (u16)subbg;
     switch (subbg)
     {
     case 0: //needed to match
@@ -350,7 +350,7 @@ ARM_FUNC void GX_SetBankForSubBG(s32 subbg){
 
 ARM_FUNC void GX_SetBankForSubOBJ(s32 subobj){
     gGXState.lcdc = (u16)(~subobj & (gGXState.lcdc | gGXState.sub_obj));
-    gGXState.sub_obj = subobj;
+    gGXState.sub_obj = (u16)subobj;
     switch (subobj)
     {
     case 8:
@@ -367,7 +367,7 @@ ARM_FUNC void GX_SetBankForSubOBJ(s32 subobj){
 
 ARM_FUNC void GX_SetBankForSubBGExtPltt(s32 subbgextpltt){
     gGXState.lcdc = (u16)(~subbgextpltt & (gGXState.lcdc | gGXState.sub_bgExtPltt));
-    gGXState.sub_bgExtPltt = subbgextpltt;
+    gGXState.sub_bgExtPltt = (u16)subbgextpltt;
     switch (subbgextpltt)
     {
         case 128:
@@ -383,7 +383,7 @@ ARM_FUNC void GX_SetBankForSubBGExtPltt(s32 subbgextpltt){
 
 ARM_FUNC void GX_SetBankForSubOBJExtPltt(s32 subobjextpltt){
     gGXState.lcdc = (u16)(~subobjextpltt & (gGXState.lcdc | gGXState.sub_objExtPltt));
-    gGXState.sub_objExtPltt = subobjextpltt;
+    gGXState.sub_objExtPltt = (u16)subobjextpltt;
     switch (subobjextpltt)
     {
         case 256:

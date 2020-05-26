@@ -3,10 +3,10 @@
 #include "fx.h"
 
 ARM_FUNC void MTX_ScaleApply22(struct Mtx22 *mtx, struct Mtx22 *dst, fx32 x, fx32 y){
-    dst->_[0] = ((fx64)x * mtx->_[0]) >> FX32_INT_SHIFT;
-    dst->_[1] = ((fx64)x * mtx->_[1]) >> FX32_INT_SHIFT;
-    dst->_[2] = ((fx64)y * mtx->_[2]) >> FX32_INT_SHIFT;
-    dst->_[3] = ((fx64)y * mtx->_[3]) >> FX32_INT_SHIFT;
+    dst->_[0] = (fx32)(((fx64)x * mtx->_[0]) >> FX32_INT_SHIFT);
+    dst->_[1] = (fx32)(((fx64)x * mtx->_[1]) >> FX32_INT_SHIFT);
+    dst->_[2] = (fx32)(((fx64)y * mtx->_[2]) >> FX32_INT_SHIFT);
+    dst->_[3] = (fx32)(((fx64)y * mtx->_[3]) >> FX32_INT_SHIFT);
 }
 
 ARM_FUNC asm void MTX_Identity22_(struct Mtx22 *mtx){

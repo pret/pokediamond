@@ -14,7 +14,7 @@ extern "C" {
 #include "mmap.h"
 
 #ifdef __cplusplus
-};
+}
 #endif
 
 #endif //POKEDIAMOND_NITRO_H

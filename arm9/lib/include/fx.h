@@ -142,7 +142,7 @@ void MTX_RotY44_(struct Mtx44 *mtx, fx32 sinphi, fx32 cosphi);
 void MTX_RotZ44_(struct Mtx44 *mtx, fx32 sinphi, fx32 cosphi);
 
 //Mtx43
-void MTX_ScaleApply33(struct Mtx33 *mtx, struct Mtx33 *dst, fx32 x, fx32 y, fx32 z);
+void MTX_ScaleApply43(struct Mtx43 *mtx, struct Mtx43 *dst, fx32 x, fx32 y, fx32 z);
 fx32 MTX_Inverse43(struct Mtx43 *mtx, struct Mtx43 *inv);
 void MTX_Concat43(struct Mtx43 *a, struct Mtx43 *b, struct Mtx43 *c);
 void MTX_MultVec43(struct Vecx32 *vec, struct Mtx43 *mtx, struct Vecx32 *dst);

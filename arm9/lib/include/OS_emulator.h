@@ -7,7 +7,7 @@
 
 #include "consts.h"
 
-BOOL OS_IsRunOnEmulator();
-u32 OS_GetConsoleType();
+BOOL OS_IsRunOnEmulator(void);
+u32 OS_GetConsoleType(void);
 
 #endif //POKEDIAMOND_OS_EMULATOR_H
