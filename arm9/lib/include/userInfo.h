@@ -3,90 +3,90 @@
 
 typedef struct NVRAMConfigDate
 {
-    u8 month;
-    u8 day;
-} NVRAMConfigDate;
+    u8 month; //0x00
+    u8 day; //0x01
+} NVRAMConfigDate; //0x2
 
 typedef struct NVRAMConfigNickname
 {
-    u16 str[10];
-    u8 length;
-    u8 rsv;
-} NVRAMConfigNickname;
+    u16 str[10]; //0x00
+    u8 length; //0x14
+    u8 rsv; //0x15
+} NVRAMConfigNickname; //0x16
 
 typedef struct NVRAMConfigComment
 {
-    u16 str[26];
-    u8 length;
-    u8 rsv;
-} NVRAMConfigComment;
+    u16 str[26]; //0x00
+    u8 length; //0x34
+    u8 rsv; //0x35
+} NVRAMConfigComment; //0x36
 
 typedef struct NVRAMConfigOwnerInfo
 {
-    u8 favouriteColour:4;
-    u8 rsv:4;
-    NVRAMConfigDate birthday;
-    u8 pad;
-    NVRAMConfigNickname nickname;
-    NVRAMConfigComment comment;
-} NVRAMConfigOwnerInfo;
+    u8 favouriteColour:4; //0x00 (1-4)
+    u8 rsv:4; //0x00 (5-8)
+    NVRAMConfigDate birthday; //0x01
+    u8 pad; //0x03
+    NVRAMConfigNickname nickname; //0x04
+    NVRAMConfigComment comment; //0x1a
+} NVRAMConfigOwnerInfo; //0x50
 
 typedef struct NVRAMConfigAlarm
 {
-    u8 hour;
-    u8 minute;
-    u8 second;
-    u8 pad;
-    u16 enableWeek:7;
-    u16 alarmOn:1;
-    u16 rsv:8;
-} NVRAMConfigAlarm;
+    u8 hour; //0x00
+    u8 minute; //0x01
+    u8 second; //0x02
+    u8 pad; //0x03
+    u16 enableWeek:7; //0x04 (1-7)
+    u16 alarmOn:1; //0x04 (8)
+    u16 rsv:8; //0x04 (9-16)
+} NVRAMConfigAlarm; //0x06
 
 typedef struct NVRAMConfigTpCalibData
 {
-    u16 raw_x1;
-    u16 raw_y1;
-    u8 dx1;
-    u8 dy1;
-    u16 raw_x2;
-    u16 raw_y2;
-    u8 dx2;
-    u8 dy2;
-} NVRAMConfigTpCalibData;
+    u16 raw_x1; //0x00
+    u16 raw_y1; //0x02
+    u8 dx1; //0x04
+    u8 dy1; //0x05
+    u16 raw_x2; //0x06
+    u16 raw_y2; //0x08
+    u8 dx2; //0x0a
+    u8 dy2; //0x0b
+} NVRAMConfigTpCalibData; //0x0c
 
 typedef struct NVRAMConfigOption
 {
-    u16 language:3;
-    u16 agbLcd:1;
-    u16 detectPullOutCardFlag:1;
-    u16 detectPullOutCtrdgFlag:1;
-    u16 autoBootFlag:1;
-    u16 rsv:4;
-    u16 input_favouriteColour:1;
-    u16 input_tp:1;
-    u16 input_language:1;
-    u16 input_rtc:1;
-    u16 input_nickname:1;
-    u8 timeZone;
-    u8 rtcClockAdjust;
-    s64 rtcOffset;
-} NVRAMConfigOption;
+    u16 language:3; //0x00 (1-3)
+    u16 agbLcd:1; //0x00 (4)
+    u16 detectPullOutCardFlag:1; //0x00 (5)
+    u16 detectPullOutCtrdgFlag:1; //0x00 (6)
+    u16 autoBootFlag:1; //0x00 (7)
+    u16 rsv:4; //0x00 (8-11)
+    u16 input_favouriteColour:1; //0x00 (12)
+    u16 input_tp:1; //0x00 (13)
+    u16 input_language:1; //0x00 (14)
+    u16 input_rtc:1; //0x00 (15)
+    u16 input_nickname:1; //0x00 (16)
+    u8 timeZone; //0x02
+    u8 rtcClockAdjust; //0x03
+    s64 rtcOffset; //0x04
+} NVRAMConfigOption; //0xc
 
 typedef struct NVRAMConfigData
 {
-    u8 version;
-    u8 pad;
-    NVRAMConfigOwnerInfo owner;
-    NVRAMConfigAlarm alarm;
-    NVRAMConfigTpCalibData tp;
-    NVRAMConfigOption option;
-} NVRAMConfigData;
+    u8 version; //0x00
+    u8 pad; //0x01
+    NVRAMConfigOwnerInfo owner; //0x02
+    NVRAMConfigAlarm alarm; //0x52
+    NVRAMConfigTpCalibData tp; //0x58
+    NVRAMConfigOption option; //0x64
+} NVRAMConfigData; //0x70
 
 typedef struct NVRAMConfig
 {
-    NVRAMConfigData ncd;
-    u16 saveCount;
-    u16 crc16;
-} NVRAMConfig;
+    NVRAMConfigData ncd; // 0x0
+    u16 saveCount; //0x70
+    u16 crc16; //0x72
+} NVRAMConfig; //0x74
 
 #endif //POKEDIAMOND_USERINFO_H
