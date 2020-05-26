@@ -12,8 +12,7 @@ using namespace std;
 struct Glob : public vector<char const *> {
     glob_t glob_result;
 public:
-    void glob(string const & pattern) {
-        clear();
+    Glob(string const & pattern) {
         int result = ::glob(pattern.c_str(), GLOB_TILDE | GLOB_BRACE, NULL, &glob_result);
         if (result) {
             stringstream ss;
@@ -21,9 +20,6 @@ public:
             throw runtime_error(ss.str());
         }
         assign(glob_result.gl_pathv, glob_result.gl_pathv + glob_result.gl_pathc);
-    }
-    Glob(string const & pattern) {
-        glob(pattern);
     };
     void operator~() {
         globfree(&glob_result);
