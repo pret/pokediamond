@@ -9,3 +9,6 @@ file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c" "*.cpp")
 
 add_executable(PokeDiamond ${SOURCES})
 target_include_directories(PokeDiamond PRIVATE include include-mw arm9/lib/include)
+
+add_executable(calcrom scratch.cpp)
+target_include_directories(calcrom PRIVATE /usr/local/include)
