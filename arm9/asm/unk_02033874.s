@@ -23,7 +23,7 @@ FUN_02033874: ; 0x02033874
 	mvn r1, r1
 	str r1, [r0, #0x0]
 	add r0, r5, #0x0
-	bl FUN_0209700C
+	bl DWC_IsValidFriendData
 	cmp r0, #0x0
 	bne _020338AE
 	add sp, #0x8
@@ -34,7 +34,7 @@ _020338AE:
 _020338B0:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_02096B78
+	bl DWC_IsEqualFriendData
 	cmp r0, #0x0
 	beq _020338C6
 	ldr r0, [sp, #0x0]
@@ -45,16 +45,16 @@ _020338B0:
 _020338C6:
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r0, #0x0
 	ble _020338F4
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	ldr r1, [sp, #0x4]
 	cmp r1, r0
 	bne _020338F4
@@ -69,7 +69,7 @@ _020338F4:
 	cmp r0, #0x0
 	bge _0203390A
 	add r0, r4, #0x0
-	bl FUN_0209700C
+	bl DWC_IsValidFriendData
 	cmp r0, #0x0
 	bne _0203390A
 	ldr r0, [sp, #0x0]
@@ -102,7 +102,7 @@ FUN_02033918: ; 0x02033918
 	ldr r1, [sp, #0x0]
 	ldr r2, [sp, #0x4]
 	add r0, r7, #0x0
-	bl FUN_020973B4
+	bl DWC_CheckFriendKey
 	cmp r0, #0x0
 	bne _02033950
 	add sp, #0x18
@@ -112,10 +112,10 @@ _02033950:
 	ldr r1, [sp, #0x0]
 	ldr r2, [sp, #0x4]
 	add r0, sp, #0xc
-	bl FUN_02096D2C
+	bl DWC_CreateFriendKeyToken
 	add r0, r7, #0x0
 	add r1, sp, #0xc
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r0, #0x0
 	bgt _0203396C
 	add sp, #0x18
@@ -129,11 +129,11 @@ _0203396C:
 _02033974:
 	add r0, r7, #0x0
 	add r1, sp, #0xc
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	str r0, [sp, #0x8]
 	add r0, r7, #0x0
 	add r1, r5, #0x0
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	ldr r1, [sp, #0x8]
 	cmp r1, r0
 	bne _02033994
@@ -146,7 +146,7 @@ _02033994:
 	cmp r0, #0x0
 	bge _020339A6
 	add r0, r5, #0x0
-	bl FUN_0209700C
+	bl DWC_IsValidFriendData
 	cmp r0, #0x0
 	bne _020339A6
 	str r4, [r6, #0x0]

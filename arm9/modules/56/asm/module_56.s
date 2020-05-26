@@ -1539,7 +1539,7 @@ _02212A9A:
 	bl MOD56_022128A4
 	ldr r0, [r5]
 	bl FUN_02028228
-	bl FUN_02096F80
+	bl DWC_CheckHasProfile
 	cmp r0, #0
 	bne _02212AFA
 	mov r0, #0
@@ -1577,7 +1577,7 @@ _02212A9A:
 _02212AFA:
 	ldr r0, [r5]
 	bl FUN_02028228
-	bl FUN_02096F18
+	bl DWC_CheckValidConsole
 	cmp r0, #0
 	bne _02212B1A
 	add r0, r5, #0

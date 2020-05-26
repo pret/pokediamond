@@ -630,7 +630,6 @@ __exit: ; 0x020DE1BC
 	stmdb sp!, {r3-r5,lr}
 	ldr r0, _020DE2CC ; =UNK_021D70D0
 	bl OS_TryLockMutex
-_020DE1C8: ; 0x020DE1C8
 	cmp r0, #0x0
 	bne _020DE1F4
 	ldr r0, _020DE2D0 ; =OSi_ThreadInfo
@@ -746,7 +745,6 @@ _020DE31C:
 	cmp r1, #0x1
 	bne _020DE35C
 	bl fflush
-_020DE354: ; 0x020DE354
 	cmp r0, #0x0
 	movne r4, r9
 _020DE35C:
@@ -780,7 +778,6 @@ _020DE3A8:
 	movs r1, r1, lsr #0x1d
 	beq _020DE3C4
 	bl fflush
-_020DE3BC: ; 0x020DE3BC
 	cmp r0, #0x0
 	movne r4, r9
 _020DE3C4:
@@ -870,7 +867,6 @@ __load_buffer:
 	strne r1, [r6, #0x0]
 	cmp r0, #0x0
 	ldmneia sp!, {r4-r6,pc}
-_020DE4C8: ; 0x020DE4C8
 	ldr r1, [r4, #0x18]
 	ldr r0, [r4, #0x28]
 	add r0, r1, r0
@@ -915,7 +911,6 @@ _020DE538:
 	strne r1, [r4, #0x0]
 	cmp r0, #0x0
 	ldmneia sp!, {r3-r5,pc}
-_020DE564: ; 0x020DE564
 	ldr r1, [r5, #0x18]
 	ldr r0, [r5, #0x28]
 	add r0, r1, r0
@@ -923,7 +918,6 @@ _020DE564: ; 0x020DE564
 _020DE574:
 	mov r0, r5
 	bl __prep_buffer
-_020DE57C: ; 0x020DE57C
 	mov r0, #0x0
 	ldmia sp!, {r3-r5,pc}
 
@@ -943,7 +937,6 @@ fread: ; 0x020DE584
 	add r0, r5, r4
 	mov r8, r2
 	bl OS_TryLockMutex
-_020DE5BC: ; 0x020DE5BC
 	cmp r0, #0x0
 	bne _020DE5E8
 	ldr r0, _020DE684 ; =OSi_ThreadInfo
@@ -1014,7 +1007,6 @@ __fread: ; 0x020DE690
 	mov r1, #0x0
 	mov r4, r2
 	bl fwide
-_020DE6B4: ; 0x020DE6B4
 	cmp r0, #0x0
 	bne _020DE6C8
 	mov r0, r7
@@ -1075,7 +1067,6 @@ _020DE778:
 	tst r0, #0x1
 	beq _020DE7B0
 	bl __flush_line_buffered_output_files
-_020DE790: ; 0x020DE790
 	cmp r0, #0x0
 	beq _020DE7B0
 	mov r0, #0x1
@@ -1154,7 +1145,6 @@ _020DE890:
 	mov r1, r10
 	mov r2, r10
 	bl __load_buffer
-_020DE8AC: ; 0x020DE8AC
 	cmp r0, #0x0
 	beq _020DE8E4
 	cmp r0, #0x1
@@ -1205,7 +1195,6 @@ _020DE938:
 	mov r2, #0x1
 	str r4, [r7, #0x20]
 	bl __load_buffer
-_020DE968: ; 0x020DE968
 	cmp r0, #0x0
 	beq _020DE9A4
 	cmp r0, #0x1
@@ -1229,7 +1218,6 @@ _020DE9A4:
 	str r10, [r7, #0x20]
 	add r5, r5, r1
 	bl __prep_buffer
-_020DE9BC: ; 0x020DE9BC
 	mov r0, #0x0
 	str r0, [r7, #0x28]
 _020DE9C4:
@@ -1250,7 +1238,6 @@ __fwrite:
 	mov r1, #0x0
 	mov r4, r2
 	bl fwide
-_020DE9FC: ; 0x020DE9FC
 	cmp r0, #0x0
 	bne _020DEA10
 	mov r0, r9
@@ -1373,7 +1360,6 @@ _020DEBB4:
 	mov r0, r9
 	mov r1, #0x0
 	bl __flush_buffer
-_020DEBC0: ; 0x020DEBC0
 	cmp r0, #0x0
 	beq _020DEBDC
 	mov r0, #0x1
@@ -1401,7 +1387,6 @@ _020DEBF0:
 	mov r0, r9
 	str r2, [r9, #0x24]
 	bl __flush_buffer
-_020DEC24: ; 0x020DEC24
 	cmp r0, #0x0
 	ldreq r0, [sp, #0x4]
 	addeq r6, r6, r0
@@ -1415,7 +1400,6 @@ _020DEC44:
 	mov r0, r9
 	str r7, [r9, #0x20]
 	bl __prep_buffer
-_020DEC54: ; 0x020DEC54
 	mov r0, #0x0
 	str r0, [r9, #0x28]
 _020DEC5C:
@@ -1437,13 +1421,11 @@ fclose: ; 0x020DEC88
 	movs r5, r0
 	mvneq r0, #0x0
 	ldmeqia sp!, {r3-r5,pc}
-_020DEC98: ; 0x020DEC98
 	ldr r1, [r5, #0x4]
 	mov r1, r1, lsl #0x16
 	movs r1, r1, lsr #0x1d
 	moveq r0, #0x0
 	ldmeqia sp!, {r3-r5,pc}
-_020DECAC: ; 0x020DECAC
 	bl fflush
 	mov r4, r0
 	ldr r0, [r5, #0x0]
@@ -1459,7 +1441,6 @@ _020DECAC: ; 0x020DECAC
 	movs r1, r1, lsr #0x1f
 	subne r0, r2, #0x1
 	ldmneia sp!, {r3-r5,pc}
-_020DECE8: ; 0x020DECE8
 	cmp r4, #0x0
 	cmpeq r0, #0x0
 	movne r2, #0x1
@@ -1490,7 +1471,6 @@ _020DED34:
 	cmp r0, #0x1
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020DED48: ; 0x020DED48
 	ldr r0, [r4, #0x8]
 	mov r1, r0, lsl #0x1d
 	mov r1, r1, lsr #0x1d
@@ -1517,7 +1497,6 @@ _020DEDA0:
 	mov r0, r4
 	mov r1, #0x0
 	bl __flush_buffer
-_020DEDAC: ; 0x020DEDAC
 	cmp r0, #0x0
 	mov r0, #0x0
 	beq _020DEDCC
@@ -1593,7 +1572,6 @@ _020DEE98:
 	ldr r5, _020DEF6C ; =UNK_021D70D0
 	add r0, r5, r4
 	bl OS_TryLockMutex
-_020DEEAC: ; 0x020DEEAC
 	cmp r0, #0x0
 	bne _020DEED8
 	ldr r0, _020DEF70 ; =OSi_ThreadInfo
@@ -1681,7 +1659,6 @@ _020DEFC8:
 	bne _020DF018
 	mov r1, #0x0
 	bl __flush_buffer
-_020DEFE4: ; 0x020DEFE4
 	cmp r0, #0x0
 	beq _020DF018
 	mov r0, #0x1
@@ -1812,7 +1789,6 @@ _020DF1A4:
 	ldr r5, _020DF280 ; =UNK_021D70D0
 	add r0, r5, r4
 	bl OS_TryLockMutex
-_020DF1B8: ; 0x020DF1B8
 	cmp r0, #0x0
 	bne _020DF1E4
 	ldr r0, _020DF284 ; =OSi_ThreadInfo
@@ -1881,7 +1857,6 @@ rewind: ; 0x020DF290
 	mov r2, r1
 	strb r1, [r4, #0xd]
 	bl fseek
-_020DF2A8: ; 0x020DF2A8
 	mov r0, #0x0
 	strb r0, [r4, #0xd]
 	ldmia sp!, {r4,pc}
@@ -1955,7 +1930,6 @@ _020DF368:
 	mov r1, r7
 	mov r2, r5
 	bl mbtowc
-_020DF384: ; 0x020DF384
 	cmp r0, #0x0
 	add r8, r8, #0x2
 	addgt r7, r7, r0
@@ -1985,7 +1959,6 @@ wcstombs:
 	mov r7, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r3-r9,pc}
-_020DF3E0: ; 0x020DF3E0
 	add r6, sp, #0x0
 _020DF3E4:
 	ldrh r1, [r9, #0x0]
@@ -2416,19 +2389,12 @@ _020DF920:
 	subs r0, r3, #0x41
 	addpl pc, pc, r0, lsl #0x2
 	b _020DFB68
-_020DF94C: ; 0x020DF94C
 	b _020DFA5C
-_020DF950: ; 0x020DF950
 	b _020DFB68
-_020DF954: ; 0x020DF954
 	b _020DFB68
-_020DF958: ; 0x020DF958
 	b _020DFB68
-_020DF95C: ; 0x020DF95C
 	b _020DFAA4
-_020DF960: ; 0x020DF960
 	b _020DFA24
-_020DF964: ; 0x020DF964
 	b _020DFA94
 _020DF968:
 	cmp r3, #0x58
@@ -3325,7 +3291,6 @@ _020E05C0:
 	ldrb lr, [r0, #0x4]
 	cmp r1, lr
 	ldmgeia sp!, {r4,pc}
-_020E05CC: ; 0x020E05CC
 	add r12, r0, #0x5
 	add r2, r12, r1
 	add r2, r2, #0x1
@@ -3991,19 +3956,12 @@ _020E0ED4:
 	subs r0, r1, #0x41
 	addpl pc, pc, r0, lsl #0x2
 	b _020E0F28
-_020E0F0C: ; 0x020E0F0C
 	b _020E12A4
-_020E0F10: ; 0x020E0F10
 	b _020E148C
-_020E0F14: ; 0x020E0F14
 	b _020E148C
-_020E0F18: ; 0x020E0F18
 	b _020E148C
-_020E0F1C: ; 0x020E0F1C
 	b _020E123C
-_020E0F20: ; 0x020E0F20
 	b _020E123C
-_020E0F24: ; 0x020E0F24
 	b _020E123C
 _020E0F28:
 	cmp r1, #0x25
@@ -4019,41 +3977,23 @@ _020E0F40:
 	subs r0, r1, #0x64
 	addpl pc, pc, r0, lsl #0x2
 	b _020E0F9C
-_020E0F54: ; 0x020E0F54
 	b _020E0FC0
-_020E0F58: ; 0x020E0F58
 	b _020E123C
-_020E0F5C: ; 0x020E0F5C
 	b _020E123C
-_020E0F60: ; 0x020E0F60
 	b _020E123C
-_020E0F64: ; 0x020E0F64
 	b _020E148C
-_020E0F68: ; 0x020E0F68
 	b _020E0FC0
-_020E0F6C: ; 0x020E0F6C
 	b _020E148C
-_020E0F70: ; 0x020E0F70
 	b _020E148C
-_020E0F74: ; 0x020E0F74
 	b _020E148C
-_020E0F78: ; 0x020E0F78
 	b _020E148C
-_020E0F7C: ; 0x020E0F7C
 	b _020E13CC
-_020E0F80: ; 0x020E0F80
 	b _020E1100
-_020E0F84: ; 0x020E0F84
 	b _020E148C
-_020E0F88: ; 0x020E0F88
 	b _020E148C
-_020E0F8C: ; 0x020E0F8C
 	b _020E148C
-_020E0F90: ; 0x020E0F90
 	b _020E130C
-_020E0F94: ; 0x020E0F94
 	b _020E148C
-_020E0F98: ; 0x020E0F98
 	b _020E1100
 _020E0F9C:
 	cmp r1, #0x63
@@ -4313,7 +4253,6 @@ _020E130C:
 	cmp r1, #0x0
 	ldreq r1, _020E163C ; =UNK_02106DD8
 	bl wcstombs
-_020E133C: ; 0x020E133C
 	cmp r0, #0x0
 	blt _020E148C
 	add r7, sp, #0x2c
@@ -4346,7 +4285,6 @@ _020E1390:
 	mov r2, r6
 	mov r1, #0x0
 	bl memchr
-_020E13B0: ; 0x020E13B0
 	cmp r0, #0x0
 	subne r6, r0, r7
 	b _020E14D8
@@ -4554,7 +4492,6 @@ __FileWrite: ; 0x020E1644
 	mov r1, #0x1
 	mov r4, r2
 	bl __fwrite
-_020E1660: ; 0x020E1660
 	cmp r4, r0
 	movne r5, #0x0
 	mov r0, r5
@@ -4587,7 +4524,6 @@ printf: ; 0x020E16B4
 	ldr r0, _020E17B4 ; =UNK_02106AA4
 	mvn r1, #0x0
 	bl fwide
-_020E16C8: ; 0x020E16C8
 	cmp r0, #0x0
 	mvnge r0, #0x0
 	ldmgeia sp!, {r4,lr}
@@ -4595,7 +4531,6 @@ _020E16C8: ; 0x020E16C8
 	bxge lr
 	ldr r0, _020E17B8 ; =UNK_021D7118
 	bl OS_TryLockMutex
-_020E16E4: ; 0x020E16E4
 	cmp r0, #0x0
 	bne _020E1710
 	ldr r0, _020E17BC ; =OSi_ThreadInfo
@@ -4673,17 +4608,14 @@ vsnprintf: ; 0x020E17CC
 	str r4, [sp, #0x4]
 	str r12, [sp, #0x8]
 	bl __pformatter
-_020E17F8: ; 0x020E17F8
 	cmp r5, #0x0
 	addeq sp, sp, #0xc
 	ldmeqia sp!, {r4-r5,pc}
-_020E1804: ; 0x020E1804
 	cmp r0, r4
 	movcc r1, #0x0
 	addcc sp, sp, #0xc
 	strccb r1, [r5, r0]
 	ldmccia sp!, {r4-r5,pc}
-_020E1818: ; 0x020E1818
 	cmp r4, #0x0
 	addne r1, r5, r4
 	movne r2, #0x0
@@ -4731,7 +4663,6 @@ qsort: ; 0x020E1888
 	mov r7, r3
 	addcc sp, sp, #0x10
 	ldmccia sp!, {r3-r11,pc}
-_020E18AC: ; 0x020E18AC
 	mov r0, r9, lsr #0x1
 	add r11, r0, #0x1
 	sub r0, r11, #0x1
@@ -4774,7 +4705,6 @@ _020E1934:
 	cmp r9, #0x1
 	addeq sp, sp, #0x10
 	ldmeqia sp!, {r3-r11,pc}
-_020E1944: ; 0x020E1944
 	ldr r0, [sp, #0x8]
 	sub r0, r0, r8
 	str r0, [sp, #0x8]
@@ -4820,7 +4750,6 @@ _020E19D8:
 	cmp r9, r4, lsl #0x1
 	bhs _020E196C
 	b _020E18E0
-_020E19E4: ; 0x020E19E4
 	add sp, sp, #0x10
 	ldmia sp!, {r3-r11,pc}
 
@@ -5014,19 +4943,12 @@ _020E1C3C:
 	subs r1, r0, #0x41
 	addpl pc, pc, r1, lsl #0x2
 	b _020E1EF0
-_020E1C68: ; 0x020E1C68
 	b _020E1D1C
-_020E1C6C: ; 0x020E1C6C
 	b _020E1EF0
-_020E1C70: ; 0x020E1C70
 	b _020E1EF0
-_020E1C74: ; 0x020E1C74
 	b _020E1EF0
-_020E1C78: ; 0x020E1C78
 	b _020E1D1C
-_020E1C7C: ; 0x020E1C7C
 	b _020E1D1C
-_020E1C80: ; 0x020E1C80
 	b _020E1D1C
 _020E1C84:
 	cmp r0, #0x58
@@ -5410,19 +5332,12 @@ _020E2158:
 	subs r0, r1, #0x41
 	addpl pc, pc, r0, lsl #0x2
 	b _020E2198
-_020E217C: ; 0x020E217C
 	b _020E2600
-_020E2180: ; 0x020E2180
 	b _020E2C3C
-_020E2184: ; 0x020E2184
 	b _020E2C3C
-_020E2188: ; 0x020E2188
 	b _020E2C3C
-_020E218C: ; 0x020E218C
 	b _020E2600
-_020E2190: ; 0x020E2190
 	b _020E2600
-_020E2194: ; 0x020E2194
 	b _020E2600
 _020E2198:
 	cmp r1, #0x25
@@ -5438,49 +5353,27 @@ _020E21B0:
 	subs r0, r1, #0x63
 	addpl pc, pc, r0, lsl #0x2
 	b _020E221C
-_020E21C4: ; 0x020E21C4
 	b _020E26C4
-_020E21C8: ; 0x020E21C8
 	b _020E2230
-_020E21CC: ; 0x020E21CC
 	b _020E2600
-_020E21D0: ; 0x020E21D0
 	b _020E2600
-_020E21D4: ; 0x020E21D4
 	b _020E2600
-_020E21D8: ; 0x020E21D8
 	b _020E2C3C
-_020E21DC: ; 0x020E21DC
 	b _020E2238
-_020E21E0: ; 0x020E21E0
 	b _020E2C3C
-_020E21E4: ; 0x020E21E4
 	b _020E2C3C
-_020E21E8: ; 0x020E21E8
 	b _020E2C3C
-_020E21EC: ; 0x020E21EC
 	b _020E2C3C
-_020E21F0: ; 0x020E21F0
 	b _020E2BC8
-_020E21F4: ; 0x020E21F4
 	b _020E242C
-_020E21F8: ; 0x020E21F8
 	b _020E2C3C
-_020E21FC: ; 0x020E21FC
 	b _020E2C3C
-_020E2200: ; 0x020E2200
 	b _020E2C3C
-_020E2204: ; 0x020E2204
 	b _020E2908
-_020E2208: ; 0x020E2208
 	b _020E2C3C
-_020E220C: ; 0x020E220C
 	b _020E2434
-_020E2210: ; 0x020E2210
 	b _020E2C3C
-_020E2214: ; 0x020E2214
 	b _020E2C3C
-_020E2218: ; 0x020E2218
 	b _020E243C
 _020E221C:
 	cmp r1, #0x61
@@ -5814,7 +5707,6 @@ _020E261C:
 	ldr r0, _020E2C78 ; =UNK_02106B78
 	ldr r0, [r0, #0x0]
 	bl _f2d
-_020E2660: ; 0x020E2660
 	b _020E2668
 _020E2664:
 	add r4, r4, r2
@@ -5831,7 +5723,6 @@ _020E2668:
 	b _020E26A0
 _020E2690:
 	bl _d2f
-_020E2694: ; 0x020E2694
 	str r0, [r5, #0x0]
 	b _020E26A0
 _020E269C:
@@ -6371,7 +6262,6 @@ _020E2D94:
 _020E2D9C:
 	ldr r0, _020E2E98 ; =UNK_021D7178
 	bl OS_TryLockMutex
-_020E2DA4: ; 0x020E2DA4
 	cmp r0, #0x0
 	bne _020E2DD0
 	ldr r0, _020E2E9C ; =OSi_ThreadInfo
@@ -6472,7 +6362,6 @@ strcpy: ; 0x020E2EC8
 	strb r3, [r0, #0x0]
 	cmp r3, #0x0
 	ldmeqia sp!, {r3-r5,pc}
-_020E2EF8: ; 0x020E2EF8
 	rsbs r4, r4, #0x3
 	beq _020E2F18
 _020E2F00:
@@ -6480,7 +6369,6 @@ _020E2F00:
 	cmp r3, #0x0
 	strb r3, [r2, #0x1]!
 	ldmeqia sp!, {r3-r5,pc}
-_020E2F10: ; 0x020E2F10
 	subs r4, r4, #0x1
 	bne _020E2F00
 _020E2F18:
@@ -6535,7 +6423,6 @@ _020E2FA0:
 	bne _020E2FD4
 	subs r2, r2, #0x1
 	ldmeqia sp!, {r3,pc}
-_020E2FC0: ; 0x020E2FC0
 	mov r1, #0x0
 _020E2FC4:
 	strb r1, [lr], #0x1
@@ -6598,7 +6485,6 @@ strcmp: ; 0x020E3060
 	subs r3, r2, r3
 	movne r0, r3
 	ldmneia sp!, {r4,pc}
-_020E3078: ; 0x020E3078
 	and r4, r0, #0x3
 	and r3, r1, #0x3
 	cmp r3, r4
@@ -6608,7 +6494,6 @@ _020E3078: ; 0x020E3078
 	cmp r2, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020E309C: ; 0x020E309C
 	rsbs r4, r4, #0x3
 	beq _020E30CC
 _020E30A4:
@@ -6617,11 +6502,9 @@ _020E30A4:
 	subs r2, r3, r2
 	movne r0, r2
 	ldmneia sp!, {r4,pc}
-_020E30B8: ; 0x020E30B8
 	cmp r3, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4,pc}
-_020E30C4: ; 0x020E30C4
 	subs r4, r4, #0x1
 	bne _020E30A4
 _020E30CC:
@@ -6667,7 +6550,6 @@ _020E3148:
 	subs r2, r3, r2
 	movne r0, r2
 	ldmneia sp!, {r4,pc}
-_020E315C: ; 0x020E315C
 	cmp r3, #0x0
 	bne _020E3148
 	mov r0, #0x0
@@ -6777,7 +6659,6 @@ strstr: ; 0x020E32A4
 	ldrneb r2, [r1, #0x0]
 	cmpne r2, #0x0
 	ldmeqia sp!, {r4,pc}
-_020E32B8: ; 0x020E32B8
 	ldrb r3, [r0, #0x0]
 	add r4, r0, #0x1
 	cmp r3, #0x0
@@ -6888,23 +6769,14 @@ _020E3418:
 	cmp r5, #0x0
 	addge pc, pc, r5, lsl #0x2
 	b _020E4104
-_020E3444: ; 0x020E3444
 	b _020E4104
-_020E3448: ; 0x020E3448
 	b _020E34D4
-_020E344C: ; 0x020E344C
 	b _020E38B8
-_020E3450: ; 0x020E3450
 	b _020E4104
-_020E3454: ; 0x020E3454
 	b _020E3968
-_020E3458: ; 0x020E3458
 	b _020E4104
-_020E345C: ; 0x020E345C
 	b _020E4104
-_020E3460: ; 0x020E3460
 	b _020E4104
-_020E3464: ; 0x020E3464
 	b _020E3990
 _020E3468:
 	cmp r5, #0x10
@@ -7219,7 +7091,6 @@ _020E3854:
 	mov r3, r1
 	mov r1, r0
 	bl _dsub
-_020E3884: ; 0x020E3884
 	b _020E388C
 _020E3888:
 	bl nan
@@ -7533,23 +7404,14 @@ _020E3C98:
 	cmp r10, #0x0
 	addge pc, pc, r10, lsl #0x2
 	b _020E4104
-_020E3CB8: ; 0x020E3CB8
 	b _020E4104
-_020E3CBC: ; 0x020E3CBC
 	b _020E3D0C
-_020E3CC0: ; 0x020E3CC0
 	b _020E3D5C
-_020E3CC4: ; 0x020E3CC4
 	b _020E4104
-_020E3CC8: ; 0x020E3CC8
 	b _020E3D84
-_020E3CCC: ; 0x020E3CCC
 	b _020E4104
-_020E3CD0: ; 0x020E3CD0
 	b _020E4104
-_020E3CD4: ; 0x020E3CD4
 	b _020E4104
-_020E3CD8: ; 0x020E3CD8
 	b _020E3E94
 _020E3CDC:
 	cmp r10, #0x10
@@ -7951,14 +7813,12 @@ _020E423C:
 	addne sp, sp, #0xa8
 	movne r1, r0
 	ldmneia sp!, {r3-r11,pc}
-_020E4264: ; 0x020E4264
 	ldr r0, [sp, #0x28]
 	cmp r0, #0x0
 	ldreq r1, _020E4310 ; =UNK_02106B7C
 	addeq sp, sp, #0xa8
 	ldmeqia r1, {r0-r1}
 	ldmeqia sp!, {r3-r11,pc}
-_020E427C: ; 0x020E427C
 	ldr r1, _020E4310 ; =UNK_02106B7C
 	mov r0, #0x0
 	ldmia r1, {r2-r3}
@@ -8289,23 +8149,14 @@ _020E4710:
 	cmp r4, #0x0
 	addge pc, pc, r4, lsl #0x2
 	b _020E49C8
-_020E4724: ; 0x020E4724
 	b _020E49C8
-_020E4728: ; 0x020E4728
 	b _020E4754
-_020E472C: ; 0x020E472C
 	b _020E4800
-_020E4730: ; 0x020E4730
 	b _020E49C8
-_020E4734: ; 0x020E4734
 	b _020E483C
-_020E4738: ; 0x020E4738
 	b _020E49C8
-_020E473C: ; 0x020E473C
 	b _020E49C8
-_020E4740: ; 0x020E4740
 	b _020E49C8
-_020E4744: ; 0x020E4744
 	b _020E487C
 _020E4748:
 	cmp r4, #0x10
@@ -8594,23 +8445,14 @@ _020E4B0C:
 	cmp r4, #0x0
 	addge pc, pc, r4, lsl #0x2
 	b _020E4E08
-_020E4B20: ; 0x020E4B20
 	b _020E4E08
-_020E4B24: ; 0x020E4B24
 	b _020E4B50
-_020E4B28: ; 0x020E4B28
 	b _020E4BFC
-_020E4B2C: ; 0x020E4B2C
 	b _020E4E08
-_020E4B30: ; 0x020E4B30
 	b _020E4C38
-_020E4B34: ; 0x020E4B34
 	b _020E4E08
-_020E4B38: ; 0x020E4B38
 	b _020E4E08
-_020E4B3C: ; 0x020E4B3C
 	b _020E4E08
-_020E4B40: ; 0x020E4B40
 	b _020E4C78
 _020E4B44:
 	cmp r4, #0x10
@@ -8873,7 +8715,6 @@ strtoul: ; 0x020E4E80
 	sub r1, lr, #0x80000001
 	str r12, [sp, #0x8]
 	bl __strtoul
-_020E4EC8: ; 0x020E4EC8
 	cmp r4, #0x0
 	ldrne r1, [sp, #0x1c]
 	addne r1, r5, r1
@@ -8917,7 +8758,6 @@ strtold2: ; 0x020E4F18
 	sub r1, lr, #0x80000001
 	str r12, [sp, #0x8]
 	bl __strtoul
-_020E4F60: ; 0x020E4F60
 	cmp r4, #0x0
 	ldrne r1, [sp, #0x1c]
 	addne r1, r5, r1
@@ -9265,19 +9105,12 @@ _020E53A8:
 	subs r0, r3, #0x41
 	addpl pc, pc, r0, lsl #0x2
 	b _020E55EC
-_020E53D4: ; 0x020E53D4
 	b _020E54E0
-_020E53D8: ; 0x020E53D8
 	b _020E55EC
-_020E53DC: ; 0x020E53DC
 	b _020E55EC
-_020E53E0: ; 0x020E53E0
 	b _020E55EC
-_020E53E4: ; 0x020E53E4
 	b _020E5528
-_020E53E8: ; 0x020E53E8
 	b _020E54A8
-_020E53EC: ; 0x020E53EC
 	b _020E5518
 _020E53F0:
 	cmp r3, #0x58
@@ -10097,7 +9930,6 @@ _020E5F0C:
 	ldrb lr, [r0, #0x4]
 	cmp r1, lr
 	ldmgeia sp!, {r4,pc}
-_020E5F18: ; 0x020E5F18
 	add r12, r0, #0x5
 	add r2, r12, r1
 	add r2, r2, #0x1
@@ -10690,19 +10522,12 @@ _020E6710:
 	subs r0, r1, #0x41
 	addpl pc, pc, r0, lsl #0x2
 	b _020E6768
-_020E674C: ; 0x020E674C
 	b _020E6AEC
-_020E6750: ; 0x020E6750
 	b _020E6D90
-_020E6754: ; 0x020E6754
 	b _020E6D90
-_020E6758: ; 0x020E6758
 	b _020E6D90
-_020E675C: ; 0x020E675C
 	b _020E6A7C
-_020E6760: ; 0x020E6760
 	b _020E6A7C
-_020E6764: ; 0x020E6764
 	b _020E6A7C
 _020E6768:
 	cmp r1, #0x25
@@ -10718,41 +10543,23 @@ _020E6780:
 	subs r0, r1, #0x64
 	addpl pc, pc, r0, lsl #0x2
 	b _020E67DC
-_020E6794: ; 0x020E6794
 	b _020E6804
-_020E6798: ; 0x020E6798
 	b _020E6A7C
-_020E679C: ; 0x020E679C
 	b _020E6A7C
-_020E67A0: ; 0x020E67A0
 	b _020E6A7C
-_020E67A4: ; 0x020E67A4
 	b _020E6D90
-_020E67A8: ; 0x020E67A8
 	b _020E6804
-_020E67AC: ; 0x020E67AC
 	b _020E6D90
-_020E67B0: ; 0x020E67B0
 	b _020E6D90
-_020E67B4: ; 0x020E67B4
 	b _020E6D90
-_020E67B8: ; 0x020E67B8
 	b _020E6D90
-_020E67BC: ; 0x020E67BC
 	b _020E6C98
-_020E67C0: ; 0x020E67C0
 	b _020E6940
-_020E67C4: ; 0x020E67C4
 	b _020E6D90
-_020E67C8: ; 0x020E67C8
 	b _020E6D90
-_020E67CC: ; 0x020E67CC
 	b _020E6D90
-_020E67D0: ; 0x020E67D0
 	b _020E6B5C
-_020E67D4: ; 0x020E67D4
 	b _020E6D90
-_020E67D8: ; 0x020E67D8
 	b _020E6940
 _020E67DC:
 	cmp r1, #0x63
@@ -11034,7 +10841,6 @@ _020E6BB0:
 	mov r2, r7
 	mov r1, #0x0
 	bl wmemchr
-_020E6BD0: ; 0x020E6BD0
 	cmp r0, #0x0
 	beq _020E6DDC
 	sub r0, r0, r6
@@ -11074,7 +10880,6 @@ _020E6C40:
 	mov r2, r6
 	mov r1, #0x0
 	bl memchr
-_020E6C60: ; 0x020E6C60
 	cmp r0, #0x0
 	subne r6, r0, r5
 	b _020E6C78
@@ -11340,11 +11145,9 @@ vswprintf: ; 0x020E6FAC
 	str r4, [sp, #0x4]
 	str r12, [sp, #0x8]
 	bl __wpformatter
-_020E6FD8: ; 0x020E6FD8
 	cmp r0, #0x0
 	addlt sp, sp, #0xc
 	ldmltia sp!, {r4-r5,pc}
-_020E6FE4: ; 0x020E6FE4
 	cmp r0, r4
 	bhs _020E7000
 	mov r1, r0, lsl #0x1
@@ -12061,7 +11864,6 @@ _020E7794:
 	mov r2, r4
 	mov r3, r10
 	bl _dadd
-_020E7A6C: ; 0x020E7A6C
 	mov r0, #0x0
 	ldr r3, _020E76B0 ; =0x40080000
 	mov r2, r0
@@ -12109,7 +11911,6 @@ _020E7A6C: ; 0x020E7A6C
 	mov r2, r9
 	mov r3, r11
 	bl _dadd
-_020E7B28: ; 0x020E7B28
 	mov r0, #0x0
 	mov r2, r4
 	mov r3, r10
@@ -12860,7 +12661,6 @@ _020E85EC:
 _020E8620:
 	strb r1, [r12], #-0x1
 	b _020E85EC
-_020E8628: ; 0x020E8628
 	bx lr
 
 	arm_func_start __rounddec
@@ -12870,16 +12670,13 @@ __rounddec: ; 0x020E862C
 	mov r5, r0
 	cmp r4, #0x0
 	ldmleia sp!, {r3-r5,pc}
-_020E8640: ; 0x020E8640
 	ldrb r2, [r5, #0x4]
 	cmp r4, r2
 	ldmgeia sp!, {r3-r5,pc}
-_020E864C: ; 0x020E864C
 	bl __must_round
 	strb r4, [r5, #0x4]
 	cmp r0, #0x0
 	ldmltia sp!, {r3-r5,pc}
-_020E865C: ; 0x020E865C
 	mov r0, r5
 	mov r1, r4
 	bl __dorounddecup
@@ -13027,12 +12824,10 @@ _020E8850:
 	addcs sp, sp, #0x40
 	strb r3, [r0, #0x4]
 	ldmcsia sp!, {r3-r11,pc}
-_020E8860: ; 0x020E8860
 	ldrb r1, [r6, #0x0]
 	cmp r1, #0x5
 	addcc sp, sp, #0x40
 	ldmccia sp!, {r3-r11,pc}
-_020E8870: ; 0x020E8870
 	bne _020E88A8
 	add r2, r6, #0x1
 	cmp r2, r7
@@ -13081,10 +12876,8 @@ _020E88F8:
 	ldrsb r2, [r1, #0x0]
 	cmp r2, #0x0
 	ldmeqia sp!, {r3,pc}
-_020E8908: ; 0x020E8908
 	cmp r2, #0x5
 	ldmltia sp!, {r3,pc}
-_020E8910: ; 0x020E8910
 	bgt _020E894C
 	ldrsb r2, [r1, #0x1]
 	add r1, r1, #0x1
@@ -13348,7 +13141,6 @@ _020E8BE4:
 	tst r4, #0x1
 	addeq sp, sp, #0x4c
 	ldmeqia sp!, {r4-r5,pc}
-_020E8C14: ; 0x020E8C14
 	add r3, sp, #0x0
 	mov r12, r5
 	mov r2, #0x9
@@ -13444,7 +13236,6 @@ _020E8D4C:
 	cmp r3, r2
 	movne r0, #0x0
 	ldmneia sp!, {r4,pc}
-_020E8D68: ; 0x020E8D68
 	add r12, r12, #0x1
 	cmp r12, lr
 	blt _020E8D4C
@@ -13460,7 +13251,6 @@ _020E8D88:
 	cmp r1, #0x0
 	movne r0, #0x0
 	ldmneia sp!, {r4,pc}
-_020E8D9C: ; 0x020E8D9C
 	ldrb r1, [r0, #0x4]
 	add r12, r12, #0x1
 	cmp r12, r1
@@ -13488,7 +13278,6 @@ _020E8DE0:
 	cmp r2, #0x0
 	moveq r0, #0x0
 	ldmeqia sp!, {r3-r5,pc}
-_020E8DF0: ; 0x020E8DF0
 	ldrsh r3, [r1, #0x2]
 	ldrsh r2, [r0, #0x2]
 	cmp r2, r3
@@ -13509,11 +13298,9 @@ _020E8E20:
 	cmp r2, r3
 	movcc r0, #0x1
 	ldmccia sp!, {r3-r5,pc}
-_020E8E3C: ; 0x020E8E3C
 	cmp r3, r2
 	movcc r0, #0x0
 	ldmccia sp!, {r3-r5,pc}
-_020E8E48: ; 0x020E8E48
 	add r12, r12, #0x1
 	cmp r12, lr
 	blt _020E8E20
@@ -13528,7 +13315,6 @@ _020E8E64:
 	cmp r0, #0x0
 	movne r0, #0x1
 	ldmneia sp!, {r3-r5,pc}
-_020E8E78: ; 0x020E8E78
 	ldrb r0, [r1, #0x4]
 	add r12, r12, #0x1
 	cmp r12, r0
@@ -13560,7 +13346,6 @@ _020E8EA8:
 	ldrb r1, [r2, #0x5]
 	cmp r1, #0x0
 	ldmeqia sp!, {r3-r7,pc}
-_020E8EDC: ; 0x020E8EDC
 	ldrb r7, [r0, #0x4]
 	ldrb r3, [r2, #0x4]
 	ldrsh r4, [r0, #0x2]
@@ -13748,7 +13533,6 @@ __num2dec_internal:
 	mov r0, r8
 	mov r1, r6
 	bl __signbitf
-_020E9160: ; 0x020E9160
 	cmp r0, #0x0
 	movne r1, #0x1
 	moveq r1, #0x0
@@ -13851,7 +13635,6 @@ __num2dec_internal2: ; 0x020E92C0
 	ldrb r0, [r4, #0x5]
 	cmp r0, #0x9
 	ldmhiia sp!, {r3-r5,pc}
-_020E92E0: ; 0x020E92E0
 	cmp r5, #0x20
 	movgt r5, #0x20
 	mov r0, r4
@@ -14002,7 +13785,6 @@ _020E94C8:
 	add r0, sp, #0xb0
 	add r1, sp, #0xd6
 	bl __less_dec
-_020E94FC: ; 0x020E94FC
 	cmp r0, #0x0
 	beq _020E9538
 	ldrsb r0, [r4, #0x0]
@@ -14061,7 +13843,6 @@ _020E9594:
 	mov r0, r4
 	mov r1, r9
 	bl _dadd
-_020E95D4: ; 0x020E95D4
 	cmp r6, #0x0
 	mov r6, r0
 	mov r10, r1
@@ -14135,13 +13916,11 @@ _020E96C0:
 	add r0, sp, #0x8a
 	add r1, sp, #0xd6
 	bl __equals_dec
-_020E96E4: ; 0x020E96E4
 	cmp r0, #0x0
 	bne _020E9934
 	add r0, sp, #0x8a
 	add r1, sp, #0xd6
 	bl __less_dec
-_020E96F8: ; 0x020E96F8
 	cmp r0, #0x0
 	movne r5, #0x1
 	ldr r1, [sp, #0x8]
@@ -14174,13 +13953,11 @@ _020E975C:
 	ldr r2, [sp, #0x4]
 	add r0, sp, #0x64
 	bl __num2dec_internal
-_020E976C: ; 0x020E976C
 	cmp r5, #0x0
 	beq _020E9788
 	add r0, sp, #0x64
 	add r1, sp, #0xd6
 	bl __less_dec
-_020E9780: ; 0x020E9780
 	cmp r0, #0x0
 	beq _020E98AC
 _020E9788:
@@ -14189,7 +13966,6 @@ _020E9788:
 	add r0, sp, #0xd6
 	add r1, sp, #0x64
 	bl __less_dec
-_020E979C: ; 0x020E979C
 	cmp r0, #0x0
 	bne _020E9864
 	add r3, sp, #0x8a
@@ -14275,7 +14051,6 @@ _020E98AC:
 	add r0, sp, #0x3e
 	add r1, sp, #0x18
 	bl __equals_dec
-_020E98D8: ; 0x020E98D8
 	cmp r0, #0x0
 	beq _020E9910
 	ldr r1, [sp, #0x8]
@@ -14294,7 +14069,6 @@ _020E9910:
 	add r0, sp, #0x3e
 	add r1, sp, #0x18
 	bl __less_dec
-_020E991C: ; 0x020E991C
 	cmp r0, #0x0
 	bne _020E9934
 	ldr r1, [sp, #0x0]
@@ -14448,10 +14222,8 @@ _020E9B0C:
 	cmp r12, r2
 	mvncc r0, #0x0
 	ldmccia sp!, {r3,pc}
-_020E9B1C: ; 0x020E9B1C
 	movhi r0, #0x1
 	ldmhiia sp!, {r3,pc}
-_020E9B24: ; 0x020E9B24
 	cmp r12, #0x0
 	bne _020E9AD8
 	mov r0, #0x0
