@@ -1,5 +1,4 @@
 #include "FS_archive.h"
-#include "FS_file.h"
 #include "FS_command.h"
 #include "FSi_util.h"
 #include "MI_memory.h"
@@ -45,6 +44,7 @@ ARM_FUNC FSResult FSi_WriteMemCallback(struct FSArchive * p_arc, const void * sr
 
 ARM_FUNC FSResult FSi_ReadMemoryCore(FSArchive * p_arc, void * dest, u32 pos, u32 size)
 {
+#pragma unused(p_arc)
     MI_CpuCopy8((const void *)pos, dest, size);
     return FS_RESULT_SUCCESS;
 }
@@ -77,21 +77,21 @@ ARM_FUNC FSFile * FSi_NextCommand(FSArchive * p_arc)
             const BOOL is_start = !FSi_IsArchiveRunning(p_arc);
             if (is_start)
                 p_arc->flag |= FS_ARCHIVE_FLAG_RUNNING;
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
             if (is_start)
             {
                 if ((p_arc->proc_flag & FS_ARCHIVE_PROC_ACTIVATE) != 0)
-                    (*p_arc->proc) (p_file, FS_COMMAND_ACTIVATE);
+                    (void)((*p_arc->proc) (p_file, FS_COMMAND_ACTIVATE));
             }
             bak_psr = OS_DisableInterrupts();
             p_file->stat |= FS_FILE_STATUS_OPERATING;
             if (FS_IsFileSyncMode(p_file))
             {
                 OS_WakeupThread(p_file->queue);
-                OS_RestoreInterrupts(bak_psr);
+                (void)OS_RestoreInterrupts(bak_psr);
                 return NULL;
             }
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
             return p_file;
         }
     }
@@ -103,7 +103,7 @@ ARM_FUNC FSFile * FSi_NextCommand(FSArchive * p_arc)
             FSFile tmp;
             FS_InitFile(&tmp);
             tmp.arc = p_arc;
-            (*p_arc->proc)(&tmp, FS_COMMAND_IDLE);
+            (void)((*p_arc->proc)(&tmp, FS_COMMAND_IDLE));
         }
     }
     if (FSi_IsArchiveSuspending(p_arc))
@@ -112,7 +112,7 @@ ARM_FUNC FSFile * FSi_NextCommand(FSArchive * p_arc)
         p_arc->flag |= FS_ARCHIVE_FLAG_SUSPEND;
         OS_WakeupThread(&p_arc->stat_q);
     }
-    OS_RestoreInterrupts(bak_psr);
+    (void)OS_RestoreInterrupts(bak_psr);
     return NULL;
 }
 
@@ -126,11 +126,11 @@ ARM_FUNC void FSi_ExecuteAsyncCommand(FSFile * p_file)
         if (FS_IsFileSyncMode(p_file))
         {
             OS_WakeupThread(p_file->queue);
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
             break;
         }
         p_file->stat |= FS_FILE_STATUS_ASYNC;
-        OS_RestoreInterrupts(bak_psr);
+        (void)OS_RestoreInterrupts(bak_psr);
         if (FSi_TranslateCommand(p_file, p_file->command) == FS_RESULT_PROC_ASYNC)
             break;
         p_file = FSi_NextCommand(p_arc);
@@ -160,7 +160,7 @@ ARM_FUNC BOOL FSi_SendCommand(FSFile * p_file, FSCommandType command)
         if (FSi_IsArchiveUnloading(p_arc))
         {
             FSi_ReleaseCommand(p_file, FS_RESULT_CANCELLED);
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
             return FALSE;
         }
         if ((bit & FS_ARCHIVE_PROC_SYNC) != 0)
@@ -169,22 +169,22 @@ ARM_FUNC BOOL FSi_SendCommand(FSFile * p_file, FSCommandType command)
         if (!FS_IsArchiveSuspended(p_arc) && !FSi_IsArchiveRunning(p_arc))
         {
             p_arc->flag |= FS_ARCHIVE_FLAG_RUNNING;
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
             if ((p_arc->proc_flag & FS_ARCHIVE_PROC_ACTIVATE))
-                (*p_arc->proc)(p_file, FS_COMMAND_ACTIVATE);
+                (void)((*p_arc->proc)(p_file, FS_COMMAND_ACTIVATE));
             bak_psr = OS_DisableInterrupts();
             p_file->stat |= FS_FILE_STATUS_OPERATING;
             if (!FS_IsFileSyncMode(p_file))
             {
-                OS_RestoreInterrupts(bak_psr);
+                (void)OS_RestoreInterrupts(bak_psr);
                 FSi_ExecuteAsyncCommand(p_file);
                 return TRUE;
             }
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
         }
         else if (!FS_IsFileSyncMode(p_file))
         {
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
             return TRUE;
         }
         else
@@ -193,7 +193,7 @@ ARM_FUNC BOOL FSi_SendCommand(FSFile * p_file, FSCommandType command)
             {
                 OS_SleepThread(p_file->queue);
             } while (!(p_file->stat & FS_FILE_STATUS_OPERATING));
-            OS_RestoreInterrupts(bak_psr);
+            (void)OS_RestoreInterrupts(bak_psr);
         }
     }
     return FSi_ExecuteSyncCommand(p_file);
@@ -213,7 +213,7 @@ ARM_FUNC FSArchive * const FS_FindArchive(const char * name, int name_len)
     FSArchive * p_arc = arc_list;
     while (p_arc && (p_arc->name.pack != pack))
         p_arc = p_arc->next;
-    OS_RestoreInterrupts(bak_psr);
+    (void)OS_RestoreInterrupts(bak_psr);
     return p_arc;
 }
 
@@ -243,7 +243,7 @@ ARM_FUNC BOOL FS_RegisterArchiveName(FSArchive * p_arc, const char * name, int n
         p_arc->flag |= FS_ARCHIVE_FLAG_REGISTER;
         ret = TRUE;
     }
-    OS_RestoreInterrupts(bak_psr);
+    (void)OS_RestoreInterrupts(bak_psr);
     return ret;
 }
 
@@ -266,7 +266,7 @@ ARM_FUNC void FS_ReleaseArchiveName(FSArchive * p_arc)
             current_dir_pos.index = 0;
             current_dir_pos.own_id = 0;
         }
-        OS_RestoreInterrupts(bak_psr);
+        (void)OS_RestoreInterrupts(bak_psr);
     }
 }
 
@@ -305,7 +305,7 @@ ARM_FUNC BOOL FS_UnloadArchive(FSArchive * p_arc)
             }
             p_arc->list.next = NULL;
             if (bak_state)
-                FS_ResumeArchive(p_arc);
+                (void)FS_ResumeArchive(p_arc);
         }
         p_arc->base = 0;
         p_arc->fat = 0;
@@ -315,7 +315,7 @@ ARM_FUNC BOOL FS_UnloadArchive(FSArchive * p_arc)
         p_arc->fat_bak = p_arc->fnt_bak = 0;
         p_arc->flag &= ~(FS_ARCHIVE_FLAG_CANCELING | FS_ARCHIVE_FLAG_LOADED | FS_ARCHIVE_FLAG_UNLOADING);
     }
-    OS_RestoreInterrupts(bak_psr);
+    (void)OS_RestoreInterrupts(bak_psr);
     return TRUE;
 }
 
@@ -333,7 +333,7 @@ ARM_FUNC u32 FS_LoadArchiveTables(FSArchive *p_arc, void *p_mem, u32 max_size)
             {
                 MI_CpuFill8(p_cache, 0x00, p_arc->fat_size);
             }
-            FS_CloseFile(&tmp);
+            (void)FS_CloseFile(&tmp);
         }
         p_arc->fat = (u32)p_cache;
         p_cache += p_arc->fat_size;
@@ -343,7 +343,7 @@ ARM_FUNC u32 FS_LoadArchiveTables(FSArchive *p_arc, void *p_mem, u32 max_size)
             {
                 MI_CpuFill8(p_cache, 0x00, p_arc->fnt_size);
             }
-            FS_CloseFile(&tmp);
+            (void)FS_CloseFile(&tmp);
         }
         p_arc->fnt = (u32)p_cache;
         p_arc->load_mem = p_mem;
@@ -369,7 +369,7 @@ ARM_FUNC void * FS_UnloadArchiveTables(FSArchive * p_arc)
             p_arc->table_func = p_arc->read_func;
         }
         if (bak_stat)
-            FS_ResumeArchive(p_arc);
+            (void)FS_ResumeArchive(p_arc);
     }
     return ret;
 }
@@ -392,7 +392,7 @@ ARM_FUNC BOOL FS_SuspendArchive(FSArchive * p_arc)
             p_arc->flag |= FS_ARCHIVE_FLAG_SUSPEND;
         }
     }
-    OS_RestoreInterrupts(bak_psr);
+    (void)OS_RestoreInterrupts(bak_psr);
     return bak_stat;
 }
 
@@ -406,7 +406,7 @@ ARM_FUNC BOOL FS_ResumeArchive(FSArchive * p_arc)
         p_arc->flag &= ~FS_ARCHIVE_FLAG_SUSPEND;
         p_target = FSi_NextCommand(p_arc);
     }
-    OS_RestoreInterrupts(bak_psr);
+    (void)OS_RestoreInterrupts(bak_psr);
     if (p_target)
         FSi_ExecuteAsyncCommand(p_target);
     return bak_stat;

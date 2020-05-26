@@ -135,7 +135,7 @@ ARM_FUNC void GXS_LoadBG3Char(void *src, u32 offset, u32 size){
 }
 
 ARM_FUNC void GX_BeginLoadBGExtPltt(){
-    sBGExtPltt = GX_ResetBankForBGExtPltt();
+    sBGExtPltt = (s32)GX_ResetBankForBGExtPltt();
     switch (sBGExtPltt)
     {
     case 0: //needed to match
@@ -169,7 +169,7 @@ ARM_FUNC void GX_EndLoadBGExtPltt(){
 }
 
 ARM_FUNC void GX_BeginLoadOBJExtPltt(){
-    sOBJExtPltt = GX_ResetBankForOBJExtPltt();
+    sOBJExtPltt = (s32)GX_ResetBankForOBJExtPltt();
     switch (sOBJExtPltt)
     {
     case 0: //needed to match
@@ -195,7 +195,7 @@ ARM_FUNC void GX_EndLoadOBJExtPltt(){
 }
 
 ARM_FUNC void GXS_BeginLoadBGExtPltt(){
-    sSubBGExtPltt = FUN_020C6034();
+    sSubBGExtPltt = (s32)FUN_020C6034();
 }
 
 ARM_FUNC void GXS_LoadBGExtPltt(void *src, u32 offset, u32 size){
@@ -209,7 +209,7 @@ ARM_FUNC void GXS_EndLoadBGExtPltt(){
 }
 
 ARM_FUNC void GXS_BeginLoadOBJExtPltt(){
-    sSubOBJExtPltt = GX_ResetBankForSubOBJ();
+    sSubOBJExtPltt = (s32)GX_ResetBankForSubOBJ();
 }
 
 ARM_FUNC void GXS_LoadOBJExtPltt(void *src, u32 offset, u32 size){

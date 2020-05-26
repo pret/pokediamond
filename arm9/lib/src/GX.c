@@ -10,10 +10,10 @@ static u16 sIsDispOn = TRUE;
 
 ARM_FUNC void GX_Init(){
     reg_GX_POWCNT |= 0x8000;
-    reg_GX_POWCNT = (reg_GX_POWCNT & ~0x20E) | 0x20E;
-    reg_GX_POWCNT = reg_GX_POWCNT | 0x1;
+    reg_GX_POWCNT = (u16)((reg_GX_POWCNT & ~0x20E) | 0x20E);
+    reg_GX_POWCNT = (u16)(reg_GX_POWCNT | 0x1);
     GX_InitGXState();
-    u32 temp;
+    s32 temp;
     while (GXi_VRamLockId == 0)
     {
         temp = OS_GetLockID();
@@ -21,7 +21,7 @@ ARM_FUNC void GX_Init(){
         {
             OS_Terminate();
         }
-        GXi_VRamLockId = temp;
+        GXi_VRamLockId = (vu16)temp;
     }
     reg_GX_DISPSTAT = 0x0;
     reg_GX_DISPCNT = 0x0;
@@ -48,7 +48,7 @@ ARM_FUNC void GX_Init(){
 }
 
 ARM_FUNC u32 GX_HBlankIntr(u32 enable){
-    u32 temp = reg_GX_DISPSTAT & 0x10;
+    u32 temp = (u32)(reg_GX_DISPSTAT & 0x10);
     if (enable)
     {
         reg_GX_DISPSTAT |= 0x10;
@@ -61,7 +61,7 @@ ARM_FUNC u32 GX_HBlankIntr(u32 enable){
 }
 
 ARM_FUNC u32 GX_VBlankIntr(u32 enable){
-    u32 temp = reg_GX_DISPSTAT & 0x8;
+    u32 temp = (u32)(reg_GX_DISPSTAT & 0x8);
     if (enable)
     {
         reg_GX_DISPSTAT |= 0x8;
@@ -76,7 +76,7 @@ ARM_FUNC u32 GX_VBlankIntr(u32 enable){
 ARM_FUNC void GX_DispOff(){
     u32 temp = reg_GX_DISPCNT;
     sIsDispOn = 0x0;
-    sDispMode = (temp & 0x30000) >> 0x10;
+    sDispMode = (u16)((temp & 0x30000) >> 0x10);
     reg_GX_DISPCNT = temp & ~0x30000;
 }
 
@@ -94,7 +94,7 @@ ARM_FUNC void GX_DispOn(){
 
 ARM_FUNC void GX_SetGraphicsMode(u32 mode1, u32 mode2, u32 mode3){
     u32 temp2 = reg_GX_DISPCNT;
-    sDispMode = mode1;
+    sDispMode = (u16)mode1;
     if (!sIsDispOn)
         mode1 = 0;
     reg_GX_DISPCNT = (mode2 | ((temp2 & 0xFFF0FFF0) | (mode1 << 0x10))) | (mode3 << 0x3);
@@ -113,10 +113,10 @@ ARM_FUNC void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness){
     }
     else if (brightness > 0)
     {
-        *dst = 0x4000 | brightness;
+        *dst = (u16)(0x4000 | brightness);
     }
     else
     {
-        *dst = 0x8000 | -brightness;
+        *dst = (u16)(0x8000 | -brightness);
     }
 }

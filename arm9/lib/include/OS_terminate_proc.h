@@ -5,7 +5,7 @@
 #ifndef POKEDIAMOND_OS_TERMINATE_PROC_H
 #define POKEDIAMOND_OS_TERMINATE_PROC_H
 
-void OS_Terminate();
-void OS_Halt();
+void OS_Terminate(void);
+void OS_Halt(void);
 
 #endif //POKEDIAMOND_OS_TERMINATE_PROC_H

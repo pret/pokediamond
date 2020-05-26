@@ -141,11 +141,11 @@ ARM_FUNC u16 FX_Atan(fx32 x){
         {
             x = FX_Inv(x);
             fx16 y = FX_AtanTable_[x >> 5];
-            return 0x4000 - y;
+            return (u16)(0x4000 - y);
         }
         else if (x < 0x1000)
         {
-            return FX_AtanTable_[x >> 5];
+            return (u16)FX_AtanTable_[x >> 5];
         }
         else
         {
@@ -158,21 +158,20 @@ ARM_FUNC u16 FX_Atan(fx32 x){
         {
             x = FX_Inv(-x);
             fx16 y = FX_AtanTable_[x >> 5];
-            return y - 0x4000;
+            return (u16)(y - 0x4000);
         }
         else if (x > -0x1000)
         {
-            return -FX_AtanTable_[-x >> 5];
+            return (u16)(-FX_AtanTable_[-x >> 5]);
         }
         else
         {
-            return -0x2000;
+            return (u16)(-0x2000);
         }
     }
 }
 
 ARM_FUNC u16 FX_Atan2(fx32 x, fx32 y){
-    fx32 result;
     u32 positive, bias, denominator, numerator;
     if (x > 0)
     {
@@ -180,15 +179,15 @@ ARM_FUNC u16 FX_Atan2(fx32 x, fx32 y){
         {
             if (y > x)
             {
-                numerator = x;
-                denominator = y;
+                numerator = (u32)x;
+                denominator = (u32)y;
                 bias = 0;
                 positive = TRUE;
             }
             else if (y < x)
             {
-                numerator = y;
-                denominator = x;
+                numerator = (u32)y;
+                denominator = (u32)x;
                 bias = 0x4000;
                 positive = FALSE;
             }
@@ -202,15 +201,15 @@ ARM_FUNC u16 FX_Atan2(fx32 x, fx32 y){
             y = -y;
             if (y < x)
             {
-                numerator = y;
-                denominator = x;
+                numerator = (u32)y;
+                denominator = (u32)x;
                 bias = 0x4000;
                 positive = TRUE;
             }
             else if (y > x)
             {
-                numerator = x;
-                denominator = y;
+                numerator = (u32)x;
+                denominator = (u32)y;
                 bias = 0x8000;
                 positive = FALSE;
             }
@@ -232,16 +231,16 @@ ARM_FUNC u16 FX_Atan2(fx32 x, fx32 y){
             y = -y;
             if (y > x)
             {
-                numerator = x;
-                denominator = y;
-                bias = -0x8000;
+                numerator = (u32)x;
+                denominator = (u32)y;
+                bias = (u32)(-0x8000);
                 positive = TRUE;
             }
             else if (y < x)
             {
-                numerator = y;
-                denominator = x;
-                bias = -0x4000;
+                numerator = (u32)y;
+                denominator = (u32)x;
+                bias = (u32)(-0x4000);
                 positive = FALSE;
             }
             else
@@ -253,15 +252,15 @@ ARM_FUNC u16 FX_Atan2(fx32 x, fx32 y){
         {
             if (y < x)
             {
-                numerator = y;
-                denominator = x;
-                bias = -0x4000;
+                numerator = (u32)y;
+                denominator = (u32)x;
+                bias = (u32)(-0x4000);
                 positive = TRUE;
             }
             else if (y > x)
             {
-                numerator = x;
-                denominator = y;
+                numerator = (u32)x;
+                denominator = (u32)y;
                 bias = 0x0;
                 positive = FALSE;
             }
@@ -285,7 +284,7 @@ ARM_FUNC u16 FX_Atan2(fx32 x, fx32 y){
     if (denominator == 0x0)
         return 0x0;
     if (positive)
-        return bias + FX_AtanTable_[FX_Div(numerator, denominator) >> 5];
+        return (u16)(bias + FX_AtanTable_[FX_Div((fx32)numerator, (fx32)denominator) >> 5]);
     else
-        return bias - FX_AtanTable_[FX_Div(numerator, denominator) >> 5];
+        return (u16)(bias - FX_AtanTable_[FX_Div((fx32)numerator, (fx32)denominator) >> 5]);
 }

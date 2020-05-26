@@ -1,7 +1,5 @@
 #include "global.h"
-
-typedef void * (* AllocFunc)(u32 size);
-typedef void (* FreeFunc)(void * ptr);
+#include "custom_allocator.h"
 
 static FreeFunc sDestructor;
 static AllocFunc sAllocator;

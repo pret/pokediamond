@@ -51,7 +51,7 @@ struct Unk21C48B8
     s32 unk20;
     s32 unk24;
     s32 unk28;
-    s32 unk2C;
+    u32 unk2C;
     s32 unk30;
     s32 unk34;
     s32 unk38;
@@ -68,11 +68,27 @@ struct UnkStruct_021C4918 {
     u8 unk6;
     u8 unk7;
     u8 unk8;
+    u8 padding[3];
 };
 
 extern struct UnkStruct_021C4918 gUnk021C4918;
 
 extern struct Unk2106FA0 gBacklightTop;
 extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referenced twice in the constant pool...
+
+void NitroMain(void);
+
+extern struct Unk21C48B8 gUnknown21C48B8;
+
+void FUN_02000DF4(void);
+void FUN_02000E0C(void);
+void FUN_02000E7C(FSOverlayID id, struct Unk21DBE18 * arg1);
+void FUN_02000E9C(void);
+void FUN_02000EC8(u32 parameter);
+void FUN_02000EE8(void);
+void DoSoftReset(u32 parameter);
+void FUN_02000F4C(u32 arg0, u32 arg1);
+void InitializeMainRNG(void);
+void FUN_02000FE8(void);
 
 #endif //GUARD_MAIN_H

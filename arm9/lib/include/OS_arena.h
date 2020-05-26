@@ -27,8 +27,8 @@ typedef struct {
     u8 padding[2];
 } OSArenaInfo;
 
-void OS_InitArena();
-void OS_InitArenaEx();
+void OS_InitArena(void);
+void OS_InitArenaEx(void);
 void* OS_GetArenaHi(OSArenaId id);
 void* OS_GetArenaLo(OSArenaId id);
 void* OS_GetInitArenaHi(OSArenaId id);

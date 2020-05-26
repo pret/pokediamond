@@ -1,6 +1,8 @@
 #ifndef _SCRIPT_H_
 #define _SCRIPT_H_
 
+#include "global.h"
+
 struct ScriptContext;
 
 typedef u8 (*ScrCmdFunc)(struct ScriptContext *);
@@ -22,6 +24,18 @@ struct ScriptContext
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
 
+void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, void *cmdTableEnd);
+u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr);
+void SetupNativeScript(struct ScriptContext *ctx, u8 (*ptr)(struct ScriptContext *));
+void StopScript(struct ScriptContext *ctx);
+void FUN_02038B6C(struct ScriptContext *ctx, s32 r1);
+u8 RunScriptCommand(struct ScriptContext *ctx);
+u8 ScriptPush(struct ScriptContext *ctx, const u8 *ptr);
+const u8 *ScriptPop(struct ScriptContext *ctx);
+void ScriptJump(struct ScriptContext *ctx, const u8 *ptr);
+u8 ScriptCall(struct ScriptContext *ctx, const u8 *ptr);
+void ScriptReturn(struct ScriptContext *ctx);
 u16 ScriptReadHalfword(struct ScriptContext *ctx);
+u32 ScriptReadWord(struct ScriptContext *ctx);
 
 #endif // _SCRIPT_H_

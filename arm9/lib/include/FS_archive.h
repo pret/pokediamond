@@ -146,8 +146,6 @@ typedef struct FSArchive
     u32 proc_flag;
 } FSArchive;
 
-FSArchive * const FS_FindArchive(const char * path, int offset);
-
 static inline BOOL FS_IsArchiveLoaded(volatile const FSArchive * p_arc)
 {
     return (p_arc->flag & FS_ARCHIVE_FLAG_LOADED) ? TRUE : FALSE;
@@ -198,15 +196,25 @@ static inline BOOL FS_IsArchiveTableLoaded(volatile const FSArchive * p_arc)
     return (p_arc->flag & FS_ARCHIVE_FLAG_TABLE_LOAD) ? TRUE : FALSE;
 }
 
-BOOL FSi_SendCommand(struct FSFile * file, FSCommandType command);
+u32 FSi_GetPackedName(const char * name, int name_len);
+FSResult FSi_ReadMemCallback(struct FSArchive * p_arc, void * dest, u32 pos, u32 size);
+FSResult FSi_WriteMemCallback(struct FSArchive * p_arc, const void * src, u32 pos, u32 size);
+FSResult FSi_ReadMemoryCore(struct FSArchive * p_arc, void * dest, u32 pos, u32 size);
+struct FSFile * FSi_NextCommand(struct FSArchive * p_arc);
+void FSi_ExecuteAsyncCommand(struct FSFile * p_file);
 BOOL FSi_ExecuteSyncCommand(struct FSFile * file);
-BOOL FS_SuspendArchive(FSArchive * p_arc);
-BOOL FS_ResumeArchive(FSArchive * p_arc);
-void FS_NotifyArchiveAsyncEnd(FSArchive *p_arc, FSResult ret);
-BOOL FS_RegisterArchiveName(FSArchive * p_arc, const char * name, int name_len);
-void FS_InitArchive(FSArchive * p_arc);
+BOOL FSi_SendCommand(struct FSFile * file, FSCommandType command);
+void FS_InitArchive(struct FSArchive * p_arc);
+struct FSArchive * const FS_FindArchive(const char * path, int offset);
+BOOL FS_RegisterArchiveName(struct FSArchive * p_arc, const char * name, int name_len);
+void FS_ReleaseArchiveName(struct FSArchive * p_arc);
+BOOL FS_LoadArchive(struct FSArchive * p_arc, u32 base, u32 fat, u32 fat_size, u32 fnt, u32 fnt_size, FS_ARCHIVE_READ_FUNC read_func, FS_ARCHIVE_WRITE_FUNC write_func);
+BOOL FS_UnloadArchive(struct FSArchive * p_arc);
+u32 FS_LoadArchiveTables(struct FSArchive *p_arc, void *p_mem, u32 max_size);
+void * FS_UnloadArchiveTables(struct FSArchive * p_arc);
+BOOL FS_SuspendArchive(struct FSArchive * p_arc);
+BOOL FS_ResumeArchive(struct FSArchive * p_arc);
 void FS_SetArchiveProc(struct FSArchive * p_arc, FS_ARCHIVE_PROC_FUNC proc, u32 flags);
-BOOL FS_LoadArchive(FSArchive * p_arc, u32 base, u32 fat, u32 fat_size, u32 fnt, u32 fnt_size, FS_ARCHIVE_READ_FUNC read_func, FS_ARCHIVE_WRITE_FUNC write_func);
-u32 FS_LoadArchiveTables(FSArchive *p_arc, void *p_mem, u32 max_size);
+void FS_NotifyArchiveAsyncEnd(struct FSArchive *p_arc, FSResult ret);
 
 #endif //NITRO_FS_ARCHIVE_H_

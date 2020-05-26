@@ -52,20 +52,22 @@ static inline u32 const FS_GetOverlayTotalSize(FSOverlayInfo *p_ovi)
     return p_ovi->header.ram_size + p_ovi->header.bss_size;
 }
 
+u32 FSi_GetOverlayBinarySize(FSOverlayInfo * p_ovi);
+void FS_ClearOverlayImage(FSOverlayInfo * p_ovi);
+FSFileID FS_GetOverlayFileID(FSOverlayInfo * p_ovi);
+BOOL FSi_LoadOverlayInfoCore(FSOverlayInfo * p_ovi, MIProcessor target, FSOverlayID id, FSArchive * arc, u32 offset_arm9, u32 len_arm9, u32 offset_arm7, u32 len_arm7);
 BOOL FS_LoadOverlayInfo(FSOverlayInfo *p_ovi, MIProcessor target, FSOverlayID id);
-
+BOOL FS_LoadOverlayImageAsync(FSOverlayInfo *p_ovi, FSFile *p_file);
+BOOL FS_LoadOverlayImage(FSOverlayInfo *p_ovi);
+BOOL FSi_CompareDigest(const u8 *spec_digest, void *src, u32 len);
+void FS_StartOverlay(FSOverlayInfo *p_ovi);
+void FS_EndOverlay(FSOverlayInfo *p_ovi);
+BOOL FS_UnloadOverlayImage(FSOverlayInfo * p_ovi);
 BOOL FS_LoadOverlay(MIProcessor target, FSOverlayID id);
-
 BOOL FS_UnloadOverlay(MIProcessor target, FSOverlayID id);
 
-BOOL FS_LoadOverlayImage(FSOverlayInfo *p_ovi);
-
-void FS_StartOverlay(FSOverlayInfo *p_ovi);
-
-BOOL FS_LoadOverlayImageAsync(FSOverlayInfo *p_ovi, FSFile *p_file);
-
 #if defined(__cplusplus)
-};
+}
 #endif
 
 #endif //NITRO_FS_OVERLAY_H_
