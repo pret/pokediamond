@@ -5530,9 +5530,9 @@
 .extern WCM_CountApList
 .extern WCM_ClearApList
 .extern WCM_GetApEssid
-.extern FUN_020A8BA4
-.extern FUN_020A8BB0
-.extern FUN_020A8BBC
+.extern MD5Final
+.extern MD5Update
+.extern MD5Init
 .extern FUN_020AA760
 .extern FUN_020AA770
 .extern FUN_020AA7A0
@@ -5545,10 +5545,10 @@
 .extern FUN_020ACC84
 .extern FUN_020ACD54
 .extern FUN_020AD144
-.extern FUN_020AD834
-.extern FUN_020AD8A8
-.extern FUN_020AD904
-.extern FUN_020AD93C
+.extern VCT_HandleData
+.extern VCT_Main
+.extern VCT_Cleanup
+.extern VCT_Init
 .extern FUN_020ADA84
 .extern FUN_020ADA98
 .extern FUN_020ADAB0

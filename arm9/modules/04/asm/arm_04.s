@@ -26272,14 +26272,14 @@ MOD04_021EF794: ; 0x021EF794
 	add r0, sp, #0x10
 	mov r5, r1
 	mov r4, r2
-	bl FUN_020A8BBC
+	bl MD5Init
 	add r0, sp, #0x10
 	mov r1, r6
 	mov r2, r5
-	bl FUN_020A8BB0
+	bl MD5Update
 	add r0, sp, #0
 	add r1, sp, #0x10
-	bl FUN_020A8BA4
+	bl MD5Final
 	add r0, sp, #0
 	mov r1, r4
 	bl MOD04_021EF7E0

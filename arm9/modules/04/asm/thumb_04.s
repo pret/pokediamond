@@ -2673,7 +2673,7 @@ _021D8976:
 	ldr r0, _021D8A3C ; =0x0220FBC8
 	str r4, [r0, #0xc]
 	str r5, [r0, #0x10]
-	bl FUN_020AD8A8
+	bl VCT_Main
 	ldr r4, _021D8A3C ; =0x0220FBC8
 	ldr r0, _021D8A44 ; =0x0000411A
 	ldr r1, [r4, #8]
@@ -2682,7 +2682,7 @@ _021D8976:
 	add r6, r0, #0
 	add r5, r0, #0
 _021D898E:
-	bl FUN_020AD8A8
+	bl VCT_Main
 	ldr r0, [r4, #8]
 	sub r0, r0, r6
 	str r0, [r4, #8]
@@ -2791,7 +2791,7 @@ MOD04_021D8A54: ; 0x021D8A54
 _021D8A62:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
-	bl FUN_020AD834
+	bl VCT_HandleData
 	cmp r0, #0
 	beq _021D8A72
 	mov r0, #1
@@ -2946,7 +2946,7 @@ _021D8ACA:
 	lsl r0, r0, #6
 	str r0, [sp, #0x28]
 	add r0, sp, #0x14
-	bl FUN_020AD93C
+	bl VCT_Init
 	cmp r0, #0
 	ldr r0, _021D8BCC ; =0x0220FBC8
 	add r2, r5, #0
@@ -3058,7 +3058,7 @@ MOD04_021D8C6C: ; 0x021D8C6C
 	ldr r0, _021D8CC4 ; =0x00003504
 	add r0, r1, r0
 	bl FUN_020C1674
-	bl FUN_020AD904
+	bl VCT_Cleanup
 	ldr r1, _021D8CBC ; =0x0220FBC8
 	mov r0, #0x35
 	ldr r2, [r1, #4]
