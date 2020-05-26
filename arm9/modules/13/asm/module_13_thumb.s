@@ -215,7 +215,7 @@ MOD13_02217440: ; 0x02217440
 	ldr r4, [sp, #0x10]
 	strb r5, [r4]
 	str r4, [sp]
-	bl FUN_0209A7D0
+	bl SOC_SendTo
 	add sp, #4
 	pop {r4, r5}
 	pop {r3}
@@ -250,7 +250,7 @@ MOD13_02217458: ; 0x02217458
 	add r0, sp, #0
 	mov r1, #1
 	add r3, r4, #0
-	bl FUN_0209A0AC
+	bl SOC_Poll
 	add sp, #8
 	pop {r4, r5, r6}
 	pop {r3}
@@ -267,7 +267,7 @@ MOD13_022174A4: ; 0x022174A4
 	ldr r4, [sp, #0x10]
 	strb r5, [r4]
 	str r4, [sp]
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	add sp, #4
 	pop {r4, r5}
 	pop {r3}
@@ -323,7 +323,7 @@ _022174FA:
 MOD13_02217504: ; 0x02217504
 	push {lr}
 	sub sp, #4
-	bl THUNK_FUN_02099BC8
+	bl SOC_Cleanup
 	cmp r0, #0
 	bge _0221751A
 	mov r0, #0
@@ -363,7 +363,7 @@ MOD13_02217530: ; 0x02217530
 	ldr r1, _0221758C ; =0x0223F7C8
 	str r0, [r1, #0x18]
 	add r0, r1, #0
-	bl FUN_0209A2C0
+	bl SOC_Startup
 	cmp r0, #0
 	bge _0221756A
 	mov r0, #0
@@ -4941,7 +4941,7 @@ _0221994E:
 	ldr r2, [sp, #4]
 	ldr r2, [r2, #0x28]
 	bl MI_CpuCopy8
-	bl FUN_020A84D8
+	bl WCM_ClearApList
 	mov r0, #0
 	ldr r1, [sp, #4]
 	add r1, r1, #4
@@ -5769,7 +5769,7 @@ MOD13_02219F54: ; 0x02219F54
 	ldr r0, _0221A030 ; =0x02241A60
 	ldr r0, [r0]
 	ldr r1, _0221A044 ; =0x00002300
-	bl FUN_020A7E80
+	bl WCM_Init
 	cmp r0, #0
 	beq _02219FD4
 	add r0, r4, #0
@@ -5791,7 +5791,7 @@ _02219FDA:
 	ldr r0, _0221A02C ; =0x02241A68
 	ldr r0, [r0]
 	ldr r1, _0221A048 ; =MOD13_0221A3CC
-	bl FUN_020A7BD4
+	bl WCM_StartupAsync
 	cmp r0, #3
 	beq _0221A000
 	add r0, r4, #0
@@ -5886,7 +5886,7 @@ _0221A0A8:
 	ldr r1, [r1]
 	ldr r2, _0221A0EC ; =0x02241A6C
 	ldr r2, [r2]
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	cmp r0, #3
 	bne _0221A0DA
 	mov r1, #8
@@ -5922,7 +5922,7 @@ MOD13_0221A0FC: ; 0x0221A0FC
 	ldr r0, [r0]
 	cmp r0, #3
 	bne _0221A136
-	bl FUN_020A7AC8
+	bl WCM_CleanupAsync
 	cmp r0, #3
 	beq _0221A122
 	add r0, r4, #0
@@ -5973,7 +5973,7 @@ MOD13_0221A164: ; 0x0221A164
 	ldr r0, [r0]
 	cmp r0, #7
 	bne _0221A190
-	bl FUN_020A7488
+	bl WCM_DisconnectAsync
 	cmp r0, #3
 	bne _0221A190
 	mov r1, #4
@@ -6007,7 +6007,7 @@ MOD13_0221A1A4: ; 0x0221A1A4
 	mov r0, #0
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	bne _0221A1D6
 	mov r1, #4
@@ -6121,7 +6121,7 @@ _0221A27C:
 	ldr r1, [r1]
 	ldr r2, _0221A2DC ; =0x02241A64
 	ldr r2, [r2]
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	bne _0221A2CC
 	mov r1, #6
@@ -6173,8 +6173,8 @@ MOD13_0221A2FC: ; 0x0221A2FC
 	add r5, r0, #0
 	add r7, r1, #0
 	mov r0, #1
-	bl FUN_020A83D0
-	bl FUN_020A846C
+	bl WCM_LockApList
+	bl WCM_CountApList
 	add r6, r0, #0
 	cmp r6, #0
 	ble _0221A336
@@ -6186,7 +6186,7 @@ _0221A31A:
 	bge _0221A336
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_020A8358
+	bl WCM_PointApList
 	add r1, r5, #0
 	mov r2, #0xc0
 	bl MIi_CpuCopy32
@@ -6196,7 +6196,7 @@ _0221A31A:
 	blt _0221A31A
 _0221A336:
 	mov r0, #0
-	bl FUN_020A83D0
+	bl WCM_LockApList
 	add r0, r6, #0
 	add sp, #4
 	pop {r4, r5, r6, r7}
@@ -6233,7 +6233,7 @@ _0221A374:
 	mov r0, #0
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	beq _0221A3B8
 	mov r0, #0
@@ -6241,7 +6241,7 @@ _0221A374:
 	pop {r3}
 	bx r3
 _0221A38A:
-	bl FUN_020A7488
+	bl WCM_DisconnectAsync
 	cmp r0, #3
 	beq _0221A3B8
 	mov r0, #0
@@ -6252,7 +6252,7 @@ _0221A39A:
 	ldr r0, _0221A3C4 ; =0x02241A68
 	ldr r0, [r0]
 	ldr r1, _0221A3C8 ; =MOD13_0221A3CC
-	bl FUN_020A7BD4
+	bl WCM_StartupAsync
 	cmp r0, #3
 	beq _0221A3B8
 	mov r0, #0
@@ -6335,7 +6335,7 @@ _0221A426:
 	ldr r1, [r1]
 	ldr r2, _0221A768 ; =0x02241A64
 	ldr r2, [r2]
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	bne _0221A440
 	b _0221A750
@@ -6366,7 +6366,7 @@ _0221A462:
 	ldr r1, [r1]
 	ldr r2, _0221A774 ; =0x02241A6C
 	ldr r2, [r2]
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	cmp r0, #3
 	bne _0221A478
 	b _0221A750
@@ -6510,7 +6510,7 @@ _0221A55E:
 	ldr r1, [r1]
 	ldr r2, _0221A768 ; =0x02241A64
 	ldr r2, [r2]
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	bne _0221A578
 	b _0221A750
@@ -6533,7 +6533,7 @@ _0221A588:
 _0221A594:
 	cmp r2, #2
 	bne _0221A5BE
-	bl FUN_020A7AC8
+	bl WCM_CleanupAsync
 	cmp r0, #3
 	bne _0221A5A2
 	b _0221A750
@@ -6564,7 +6564,7 @@ _0221A5C4:
 	ldr r1, [r1]
 	ldr r2, _0221A774 ; =0x02241A6C
 	ldr r2, [r2]
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	cmp r0, #3
 	bne _0221A5DA
 	b _0221A750
@@ -6630,7 +6630,7 @@ _0221A638:
 	ldr r1, [r1]
 	ldr r2, _0221A768 ; =0x02241A64
 	ldr r2, [r2]
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	beq _0221A750
 	mov r1, #3
@@ -6649,7 +6649,7 @@ _0221A638:
 _0221A66A:
 	cmp r2, #2
 	bne _0221A690
-	bl FUN_020A7AC8
+	bl WCM_CleanupAsync
 	cmp r0, #3
 	beq _0221A750
 	mov r1, #3
@@ -6674,7 +6674,7 @@ _0221A690:
 	ldr r1, [r1]
 	ldr r2, _0221A774 ; =0x02241A6C
 	ldr r2, [r2]
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	cmp r0, #3
 	beq _0221A750
 	mov r1, #3
@@ -6718,7 +6718,7 @@ _0221A6E4:
 	ldr r0, [r0]
 	cmp r0, #2
 	bne _0221A750
-	bl FUN_020A7E0C
+	bl WCM_Finish
 	mov r1, #0
 	ldr r0, _0221A758 ; =0x02241A78
 	str r1, [r0]
@@ -10807,7 +10807,7 @@ _0221C6FC:
 	mov r0, #2
 	lsl r1, r0, #0
 	ldr r2, [sp, #0x10]
-	bl FUN_0209A9D0
+	bl SOC_Socket
 	add r4, r0, #0
 	cmp r4, #0
 	bge _0221C716
@@ -10831,7 +10831,7 @@ _0221C716:
 	ldr r1, [sp, #0x18]
 	str r1, [sp, #0x48]
 	add r1, sp, #0x44
-	bl FUN_0209A9A4
+	bl SOC_Bind
 	str r0, [sp, #4]
 	cmp r0, #0
 	bge _0221C746
@@ -10851,7 +10851,7 @@ _0221C74C:
 	cmp r0, r1
 	blo _0221C768
 	add r0, r4, #0
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	ldr r0, [sp, #0x1c]
 	str r0, [sp, #4]
 	mov r0, #1
@@ -10870,7 +10870,7 @@ _0221C768:
 	ldr r1, _0221C9F8 ; =0x022427E4
 	ldr r2, _0221C9FC ; =0x00000800
 	mov r3, #4
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	cmp r0, #0
 	bgt _0221C78C
 	b _0221CA3C
@@ -10916,7 +10916,7 @@ _0221C7D8:
 	cmp r0, r1
 	blo _0221C7F4
 	add r0, r4, #0
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	ldr r0, [sp, #0x20]
 	str r0, [sp, #4]
 	mov r0, #1
@@ -10929,7 +10929,7 @@ _0221C7F4:
 	ldr r1, _0221C9F8 ; =0x022427E4
 	ldr r2, _0221C9FC ; =0x00000800
 	mov r3, #4
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	cmp r0, #0
 	ble _0221C86A
 	ldr r0, _0221C9F8 ; =0x022427E4
@@ -11042,7 +11042,7 @@ _0221C8DE:
 	ldr r1, _0221C9F8 ; =0x022427E4
 	ldr r2, _0221C9FC ; =0x00000800
 	mov r3, #4
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	cmp r0, #0
 	ble _0221C932
 	ldr r0, _0221C9F8 ; =0x022427E4
@@ -11090,7 +11090,7 @@ _0221C932:
 	cmp r0, #0xa
 	blt _0221C95A
 	add r0, r4, #0
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	ldr r0, [sp, #0x14]
 	str r0, [sp, #4]
 	mov r0, #1
@@ -11197,7 +11197,7 @@ _0221CA4C:
 	cmp r4, #0
 	beq _0221CA56
 	add r0, r4, #0
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 _0221CA56:
 	ldr r0, _0221CA70 ; =0x02241AC0
 	ldr r0, [r0]
@@ -12531,9 +12531,9 @@ MOD13_0221D414: ; 0x0221D414
 	str r0, [sp, #8]
 	ldr r0, _0221D454 ; =0x000001E6
 	strh r0, [r1, #2]
-	bl FUN_02099C78
+	bl SOCL_GetHostID
 	add r1, sp, #0xc
-	bl FUN_0209A174
+	bl SOC_U32to4U8
 	str r4, [sp]
 	add r0, r5, #0
 	add r1, sp, #4
@@ -12555,7 +12555,7 @@ MOD13_0221D458: ; 0x0221D458
 	add r1, r3, #0
 	ldr r2, [sp, #8]
 	mov r3, #0
-	bl FUN_0209A7D0
+	bl SOC_SendTo
 	cmp r0, #0
 	bge _0221D470
 	mov r0, #3
@@ -13228,7 +13228,7 @@ _0221D982:
 	beq _0221D992
 	mov r1, #0
 	str r1, [r0]
-	bl THUNK_FUN_02099BC8
+	bl SOC_Cleanup
 _0221D992:
 	pop {r4, r5, r6}
 	pop {r3}
@@ -13379,7 +13379,7 @@ _0221DA9A:
 	ldr r0, _0221DAE8 ; =0x02241AD0
 	str r1, [r0]
 	ldr r0, _0221DAEC ; =0x0223F8D4
-	bl FUN_0209A2C0
+	bl SOC_Startup
 	cmp r0, #0
 	bge _0221DABC
 	mov r0, #1
@@ -13768,7 +13768,7 @@ MOD13_0221DD4C: ; 0x0221DD4C
 	ldr r0, _0221DE28 ; =0x02241AEC
 	ldr r0, [r0]
 	ldr r1, _0221DE3C ; =0x00002300
-	bl FUN_020A7E80
+	bl WCM_Init
 	cmp r0, #0
 	beq _0221DDCC
 	add r0, r4, #0
@@ -13790,7 +13790,7 @@ _0221DDD2:
 	ldr r0, _0221DE24 ; =0x02241AB8
 	ldr r0, [r0]
 	ldr r1, _0221DE40 ; =MOD13_0221E178
-	bl FUN_020A7BD4
+	bl WCM_StartupAsync
 	cmp r0, #3
 	beq _0221DDF8
 	add r0, r4, #0
@@ -13885,7 +13885,7 @@ _0221DEA0:
 	ldr r1, [r1]
 	ldr r2, _0221DEE4 ; =0x02241B08
 	ldr r2, [r2]
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	cmp r0, #3
 	bne _0221DED2
 	mov r1, #8
@@ -13921,7 +13921,7 @@ MOD13_0221DEF4: ; 0x0221DEF4
 	ldr r0, [r0]
 	cmp r0, #3
 	bne _0221DF2E
-	bl FUN_020A7AC8
+	bl WCM_CleanupAsync
 	cmp r0, #3
 	beq _0221DF1A
 	add r0, r4, #0
@@ -13972,7 +13972,7 @@ MOD13_0221DF5C: ; 0x0221DF5C
 	ldr r0, [r0]
 	cmp r0, #7
 	bne _0221DF88
-	bl FUN_020A7488
+	bl WCM_DisconnectAsync
 	cmp r0, #3
 	bne _0221DF88
 	mov r1, #4
@@ -14081,7 +14081,7 @@ _0221E02A:
 	ldr r1, [r1]
 	ldr r2, _0221E088 ; =0x02241B10
 	ldr r2, [r2]
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	bne _0221E078
 	mov r1, #6
@@ -14133,8 +14133,8 @@ MOD13_0221E0A8: ; 0x0221E0A8
 	add r5, r0, #0
 	add r7, r1, #0
 	mov r0, #1
-	bl FUN_020A83D0
-	bl FUN_020A846C
+	bl WCM_LockApList
+	bl WCM_CountApList
 	add r6, r0, #0
 	cmp r6, #0
 	ble _0221E0E2
@@ -14146,7 +14146,7 @@ _0221E0C6:
 	bge _0221E0E2
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_020A8358
+	bl WCM_PointApList
 	add r1, r5, #0
 	mov r2, #0xc0
 	bl MIi_CpuCopy32
@@ -14156,7 +14156,7 @@ _0221E0C6:
 	blt _0221E0C6
 _0221E0E2:
 	mov r0, #0
-	bl FUN_020A83D0
+	bl WCM_LockApList
 	add r0, r6, #0
 	add sp, #4
 	pop {r4, r5, r6, r7}
@@ -14193,7 +14193,7 @@ _0221E120:
 	mov r0, #0
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	beq _0221E164
 	mov r0, #0
@@ -14201,7 +14201,7 @@ _0221E120:
 	pop {r3}
 	bx r3
 _0221E136:
-	bl FUN_020A7488
+	bl WCM_DisconnectAsync
 	cmp r0, #3
 	beq _0221E164
 	mov r0, #0
@@ -14212,7 +14212,7 @@ _0221E146:
 	ldr r0, _0221E170 ; =0x02241AB8
 	ldr r0, [r0]
 	ldr r1, _0221E174 ; =MOD13_0221E178
-	bl FUN_020A7BD4
+	bl WCM_StartupAsync
 	cmp r0, #3
 	beq _0221E164
 	mov r0, #0
@@ -14297,7 +14297,7 @@ _0221E1D6:
 	ldr r1, [r1]
 	ldr r2, _0221E528 ; =0x02241B10
 	ldr r2, [r2]
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	bne _0221E1F0
 	b _0221E556
@@ -14328,7 +14328,7 @@ _0221E212:
 	ldr r1, [r1]
 	ldr r2, _0221E534 ; =0x02241B08
 	ldr r2, [r2]
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	cmp r0, #3
 	bne _0221E228
 	b _0221E556
@@ -14472,7 +14472,7 @@ _0221E30E:
 	ldr r1, [r1]
 	ldr r2, _0221E528 ; =0x02241B10
 	ldr r2, [r2]
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	bne _0221E328
 	b _0221E556
@@ -14495,7 +14495,7 @@ _0221E338:
 _0221E344:
 	cmp r2, #2
 	bne _0221E36E
-	bl FUN_020A7AC8
+	bl WCM_CleanupAsync
 	cmp r0, #3
 	bne _0221E352
 	b _0221E556
@@ -14526,7 +14526,7 @@ _0221E374:
 	ldr r1, [r1]
 	ldr r2, _0221E534 ; =0x02241B08
 	ldr r2, [r2]
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	cmp r0, #3
 	bne _0221E38A
 	b _0221E556
@@ -14592,7 +14592,7 @@ _0221E3E8:
 	ldr r1, [r1]
 	ldr r2, _0221E528 ; =0x02241B10
 	ldr r2, [r2]
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	cmp r0, #3
 	bne _0221E402
 	b _0221E556
@@ -14615,7 +14615,7 @@ _0221E412:
 _0221E41E:
 	cmp r2, #2
 	bne _0221E448
-	bl FUN_020A7AC8
+	bl WCM_CleanupAsync
 	cmp r0, #3
 	bne _0221E42C
 	b _0221E556
@@ -14644,7 +14644,7 @@ _0221E448:
 	ldr r1, [r1]
 	ldr r2, _0221E534 ; =0x02241B08
 	ldr r2, [r2]
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	cmp r0, #3
 	beq _0221E556
 	mov r1, #3
@@ -14690,7 +14690,7 @@ _0221E4A0:
 	ldr r0, [r0]
 	cmp r0, #2
 	bne _0221E556
-	bl FUN_020A7E0C
+	bl WCM_Finish
 	mov r1, #0
 	ldr r0, _0221E518 ; =0x02241ADC
 	str r1, [r0]

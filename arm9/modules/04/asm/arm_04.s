@@ -457,7 +457,7 @@ _021D9378:
 _021D93AC:
 	add r0, r5, #0x1f
 	bic r0, r0, #0x1f
-	bl FUN_02096760
+	bl DWCi_AUTH_MakeWiFiID
 	ldr r0, _021D940C ; =0x0220BF98
 	mov r1, r5
 	mov r2, #0
@@ -718,7 +718,7 @@ MOD04_021D96EC: ; 0x021D96EC
 	cmp r4, #1
 	bne _021D9758
 	ldr r0, _021D97EC ; =0x0221046C
-	bl FUN_02095EC8
+	bl DWCi_BM_GetWiFiInfo
 _021D9758:
 	ldr r0, _021D97E8 ; =0x02210468
 	ldr r2, _021D97F0 ; =0x000011CC
@@ -1411,7 +1411,7 @@ _021DA104:
 	bl OS_SNPrintf
 	bl OS_DisableInterrupts
 	mov sb, r0
-	bl FUN_020A8850
+	bl WCM_GetApMacAddress
 	mov r8, r0
 	mov r1, #6
 	bl DC_InvalidateRange
@@ -1442,7 +1442,7 @@ _021DA180:
 	mov r1, #0xe
 	bl OS_SNPrintf
 	add r0, sp, #0x14
-	bl FUN_020A87E0
+	bl WCM_GetApEssid
 	mov r5, r0
 	mov r1, #0x20
 	bl DC_InvalidateRange
@@ -1482,7 +1482,7 @@ MOD04_021DA238: ; 0x021DA238
 	sub sp, sp, #0x18
 	mov r4, r0
 	add r0, sp, #0
-	bl FUN_02095EC8
+	bl DWCi_BM_GetWiFiInfo
 	add r1, sp, #0
 	mov r0, r4
 	bl MOD04_021D9F78
@@ -2415,7 +2415,7 @@ MOD04_021DAF18: ; 0x021DAF18
 	streq r1, [r0, #0x20]
 	addeq sp, sp, #0xc
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	bl FUN_0209CB44
+	bl CPS_SocUse
 	add r0, sl, #0x1000
 	ldr r0, [r0, #0x12c]
 	cmp r0, #1
@@ -2432,23 +2432,23 @@ MOD04_021DAF18: ; 0x021DAF18
 	str r1, [r6, #0x800]
 	mov r1, #0xb
 	str r6, [r8, #0xc]
-	bl FUN_020A3688
+	bl CPS_SetRootCa
 	mov r0, #1
-	bl FUN_020A02EC
+	bl CPS_SetSsl
 _021DAFC8:
 	add r0, sl, #0x1100
 	ldrh r1, [r0, #0x30]
 	mov r2, r4
 	mov r0, #0
-	bl FUN_0209CB78
-	bl FUN_0209C934
+	bl CPS_SocPingMode
+	bl CPS_TcpConnect
 	cmp r0, #0
 	beq _021DB004
 	add r0, sl, #0x1000
 	mov r1, #3
 	str r1, [r0, #0x20]
-	bl FUN_0209CB24
-	bl FUN_0209CC10
+	bl CPS_SocRelease
+	bl CPS_SocUnRegister
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021DB004:
@@ -2458,14 +2458,14 @@ _021DB004:
 	bl strlen
 	mov r1, r0
 	mov r0, r4
-	bl FUN_0209C030
+	bl CPS_SocWrite
 	cmp r0, #0
 	str r0, [sp, #8]
 	addle r0, sl, #0x1000
 	movle r1, #5
 	strle r1, [r0, #0x20]
 	ble _021DB20C
-	bl FUN_0209BF4C
+	bl CPS_SocGetChar
 	mov r0, sl
 	bl MOD04_021DB3B8
 	cmp r0, #0
@@ -2493,7 +2493,7 @@ _021DB088:
 	moveq r1, #5
 	streq r1, [r0, #0x20]
 	beq _021DB20C
-	bl FUN_0209BF9C
+	bl CPS_SocGetLength
 	str r0, [sp, #8]
 	cmp r0, #0
 	blt _021DB1E8
@@ -2503,7 +2503,7 @@ _021DB088:
 	mov r6, r0
 	add r0, sp, #8
 	mov r8, r1
-	bl FUN_0209C638
+	bl CPS_SocRead
 	cmp r0, #0
 	beq _021DB1E8
 	ldr r2, [r7, #8]
@@ -2541,11 +2541,11 @@ _021DB150:
 	ldr r0, [sp, #8]
 	cmp r0, sb
 	bls _021DB164
-	bl FUN_0209C52C
+	bl CPS_SocConsume
 	b _021DB1E8
 _021DB164:
 	mov r0, sb
-	bl FUN_0209C52C
+	bl CPS_SocConsume
 _021DB16C:
 	add r0, sl, #0x1000
 	ldr r1, [r0, #0xa2c]
@@ -2580,20 +2580,20 @@ _021DB188:
 	str r1, [r0, #0x20]
 	b _021DB20C
 _021DB1E8:
-	bl FUN_0209C840
-	bl FUN_0209C7AC
-	bl FUN_0209CB24
-	bl FUN_0209CC10
+	bl CPS_TcpShutdown
+	bl CPS_TcpClose
+	bl CPS_SocRelease
+	bl CPS_SocUnRegister
 	add r0, sl, #0x1000
 	mov r1, #8
 	str r1, [r0, #0x20]
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021DB20C:
-	bl FUN_0209C840
-	bl FUN_0209C7AC
-	bl FUN_0209CB24
-	bl FUN_0209CC10
+	bl CPS_TcpShutdown
+	bl CPS_TcpClose
+	bl CPS_SocRelease
+	bl CPS_SocUnRegister
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
@@ -2704,7 +2704,7 @@ MOD04_021DB35C: ; 0x021DB35C
 	ldr r2, [r1, #0x9cc]
 	add r0, r4, r0
 	str r2, [r1, #0x180]
-	bl FUN_0209CC28
+	bl CPS_SocRegister
 	ldmia sp!, {r4, pc}
 	.align 2, 0
 _021DB3AC: .word 0x00001134
@@ -2725,7 +2725,7 @@ MOD04_021DB3B8: ; 0x021DB3B8
 	ldr r0, _021DB438 ; =0x000019D0
 	mov r1, #0x20
 	add r0, r4, r0
-	bl FUN_020A136C
+	bl CPS_SslAddRandomSeed
 _021DB3EC:
 	ldr r0, _021DB43C ; =0x00001BF4
 	add r0, r4, r0
@@ -3343,7 +3343,7 @@ _021DBCB4:
 	ldr r0, [r4]
 	bl MOD04_021DAE4C
 	add r0, sp, #0x68
-	bl FUN_02095EC8
+	bl DWCi_BM_GetWiFiInfo
 	ldr r2, [sp, #0x68]
 	ldr r1, [sp, #0x6c]
 	mov r0, #0
@@ -5451,7 +5451,7 @@ MOD04_021DD9DC: ; 0x021DD9DC
 	str r0, [r4]
 	bl OS_DisableInterrupts
 	mov r6, r0
-	bl FUN_020A8850
+	bl WCM_GetApMacAddress
 	mov r5, r0
 	mov r1, #6
 	bl DC_InvalidateRange
@@ -5473,7 +5473,7 @@ _021DDA4C:
 	cmp r0, #3
 	bge _021DDAB0
 	add r0, sp, #0
-	bl FUN_020A87E0
+	bl WCM_GetApEssid
 	mov r5, r0
 	mov r1, #0x20
 	bl DC_InvalidateRange
@@ -5686,7 +5686,7 @@ _021DDD28:
 	cmp r0, #0
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #9
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
@@ -5830,7 +5830,7 @@ MOD04_021DDEE0: ; 0x021DDEE0
 	str r6, [r1]
 	bl MOD04_021DDE7C
 	mov r0, r4
-	bl FUN_020A374C
+	bl CPS_SetSslHandshakePriority
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
 _021DDF3C: .word 0x02210518
@@ -8747,7 +8747,7 @@ MOD04_021E0628: ; 0x021E0628
 	ldr r1, [r2, #0xc]
 	add r2, sp, #8
 	add r0, r0, #4
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 	ldr r1, _021E07D0 ; =0x00000705
 	add r2, sp, #8
 	mov r0, r5
@@ -8791,7 +8791,7 @@ _021E0704:
 	ldr r1, [r2, #0xc]
 	add r2, sp, #0x1d
 	add r0, r0, #4
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 	add r1, sp, #0x1d
 	add r0, r4, #0x8e
 	bl strcmp
@@ -8802,13 +8802,13 @@ _021E0704:
 	ldr r0, [r0]
 	ldr r1, [r0, #0xc]
 	add r0, r0, #0x3c
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 	ldr r0, _021E07CC ; =0x022106C8
 	ldr r2, [r4, #4]
 	ldr r1, [r0]
 	ldr r0, [r1, #0x1c]
 	add r1, r1, #0x3c
-	bl FUN_02096EC0
+	bl DWCi_Acc_SetLoginIdToUserData
 	mov r0, r5
 	bl MOD04_021F0D54
 	ldr r0, _021E07CC ; =0x022106C8
@@ -8876,7 +8876,7 @@ MOD04_021E07E4: ; 0x021E07E4
 	str r2, [r1, #0x24]
 	ldr r0, [r0]
 	ldr r0, [r0, #0x1c]
-	bl FUN_0209702C
+	bl DWCi_Acc_IsAuthentic
 	cmp r0, #0
 	beq _021E0898
 	ldr r0, _021E09DC ; =0x022106C8
@@ -9002,7 +9002,7 @@ MOD04_021E0A00: ; 0x021E0A00
 	str r5, [r2]
 	str r4, [r1]
 	ldr r0, [r0, #0x1c]
-	bl FUN_0209702C
+	bl DWCi_Acc_IsAuthentic
 	cmp r0, #0
 	beq _021E0A68
 	ldr r0, _021E0BB8 ; =0x022106C8
@@ -9011,20 +9011,20 @@ MOD04_021E0A00: ; 0x021E0A00
 	add r2, r1, #0x248
 	ldr r1, [r0, #0x24]
 	add r0, r0, #0x10
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 	b _021E0B1C
 _021E0A68:
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r0, [r0]
 	add r0, r0, #0x3c
-	bl FUN_0209703C
+	bl DWCi_Acc_IsValidLoginId
 	cmp r0, #0
 	bne _021E0AD0
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r0, [r0]
 	ldr r0, [r0, #0x1c]
 	add r0, r0, #4
-	bl FUN_0209705C
+	bl DWCi_Acc_CheckConsoleUserId
 	cmp r0, #0
 	beq _021E0ABC
 	ldr r0, _021E0BB8 ; =0x022106C8
@@ -9039,7 +9039,7 @@ _021E0ABC:
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r0, [r0]
 	add r0, r0, #0x3c
-	bl FUN_020970CC
+	bl DWCi_Acc_CreateTempLoginId
 	b _021E0B04
 _021E0AD0:
 	bl OS_GetTick
@@ -9054,14 +9054,14 @@ _021E0AD0:
 	ldr r3, [r3]
 	adc r1, r4, #0
 	add r0, r3, #0x3c
-	bl FUN_02097508
+	bl DWCi_Acc_SetPlayerId
 _021E0B04:
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r2, [r0]
 	ldr r1, [r2, #0xc]
 	add r0, r2, #0x3c
 	add r2, r2, #0x248
-	bl FUN_02097218
+	bl DWCi_Acc_LoginIdToUserName
 _021E0B1C:
 	ldr r0, _021E0BB8 ; =0x022106C8
 	ldr r0, [r0]
@@ -9534,7 +9534,7 @@ MOD04_021E110C: ; 0x021E110C
 _021E115C:
 	ldr r0, [r2, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #1
 	bne _021E11C8
 	bl MOD04_021E0F00
@@ -9542,7 +9542,7 @@ _021E115C:
 	add r2, sp, #8
 	ldr r1, [r1, #0x18]
 	add r1, r1, r7
-	bl FUN_02096C78
+	bl DWC_LoginIdToUserName
 	add r0, sp, #8
 	add r1, sl, #0x8e
 	bl strcmp
@@ -9552,31 +9552,31 @@ _021E115C:
 	ldr r1, [sl, #4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 	mov r8, r5
 	b _021E125C
 _021E11C8:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #3
 	beq _021E11F8
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #2
 	bne _021E125C
 _021E11F8:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #1
 	streq fp, [sp]
 	beq _021E125C
@@ -9585,18 +9585,18 @@ _021E11F8:
 	ldr r1, [r4]
 	ldr r1, [r1, #0x18]
 	add r1, r1, r7
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r6, r0
 	bne _021E125C
 	ldr r0, [r4]
 	mov r1, r6
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 	ldr r8, [sp, #4]
 _021E125C:
 	ldr r2, [r4]
@@ -9650,7 +9650,7 @@ MOD04_021E12B8: ; 0x021E12B8
 _021E1304:
 	ldr r0, [r1, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #1
 	bne _021E136C
 	bl MOD04_021E0F00
@@ -9658,7 +9658,7 @@ _021E1304:
 	add r2, sp, #4
 	ldr r1, [r1, #0x18]
 	add r1, r1, r7
-	bl FUN_02096C78
+	bl DWC_LoginIdToUserName
 	ldr r1, [sp]
 	add r0, sp, #4
 	bl strcmp
@@ -9671,20 +9671,20 @@ _021E1304:
 	ldr r1, [sb, #4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	mov fp, r5
 	b _021E13CC
 _021E136C:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #3
 	beq _021E139C
 	ldr r0, [r4]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r7
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #2
 	bne _021E13CC
 _021E139C:
@@ -9693,7 +9693,7 @@ _021E139C:
 	ldr r1, [r4]
 	ldr r1, [r1, #0x18]
 	add r1, r1, r7
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r6, r0
 	bne _021E13CC
 	mov r0, sl
@@ -9742,7 +9742,7 @@ MOD04_021E1414: ; 0x021E1414
 	ldr r0, [r1]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r6
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #0
 	beq _021E15FC
 	ldr r7, _021E1670 ; =0x022106D0
@@ -9813,12 +9813,12 @@ _021E1548:
 	ldr r1, [r1]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r6
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	ldr r0, _021E1670 ; =0x022106D0
 	ldr r0, [r0]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r6
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 	mov r0, r8
 	bl MOD04_021E1DA4
 	ldr r0, _021E1670 ; =0x022106D0
@@ -9871,7 +9871,7 @@ _021E1618:
 	ldr r1, [r1, #0x18]
 	mov r0, #0xc
 	mla r0, r8, r0, r1
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
@@ -9951,7 +9951,7 @@ _021E1720:
 _021E172C:
 	bl MOD04_021E0F00
 	mov r1, r5
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	mov r5, r0
 	cmp r5, #0
 	ble _021E176C
@@ -10042,23 +10042,23 @@ _021E1858:
 	cmp sb, r0
 	bne _021E18CC
 	mov r0, r6
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #2
 	bne _021E1894
 	mov r0, r4
-	bl FUN_02097484
+	bl DWC_GetFriendDataType
 	cmp r0, #3
 	bne _021E1894
 	mov r0, r5
 	mov r1, sb
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 _021E1894:
 	mov r0, r4
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #0
 	beq _021E18AC
 	mov r0, r5
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 _021E18AC:
 	mov r0, fp
 	mov r1, r7
@@ -10105,12 +10105,12 @@ _021E1920:
 	bne _021E199C
 	mov r0, #0xc
 	mla r0, r6, r0, r7
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #0
 	beq _021E1974
 	mov r0, #0xc
 	mla r0, r4, r0, r7
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #0
 	bne _021E1974
 	mov r0, r7
@@ -10232,15 +10232,15 @@ _021E1AD8:
 	bne _021E1B24
 	mul sl, r4, r7
 	add r0, r6, sl
-	bl FUN_02097490
+	bl DWC_IsBuddyFriendData
 	cmp r0, #0
 	bne _021E1B30
 	add sl, r6, sl
 	ldr r1, [sp, #0x38]
 	mov r0, sl
-	bl FUN_02096C90
+	bl DWC_SetGsProfileId
 	mov r0, sl
-	bl FUN_02097414
+	bl DWCi_SetBuddyFriendData
 	ldr r0, [r8]
 	strb sb, [r0, #0x1d]
 	b _021E1B30
@@ -10312,7 +10312,7 @@ _021E1C08:
 	ldr r1, [sl]
 	ldrb r2, [r1, #0x1c]
 	mla r1, r2, r8, r6
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r0, sb
 	bne _021E1C9C
 	bl MOD04_021E0F00
@@ -10322,7 +10322,7 @@ _021E1C08:
 	add r2, sp, #0x20
 	ldrb r3, [r3, #0x1c]
 	mla r1, r3, r1, r6
-	bl FUN_02096C78
+	bl DWC_LoginIdToUserName
 	ldr r0, _021E1CC4 ; =0x022106D0
 	mov r1, #0
 	ldr r4, [r0]
@@ -10585,7 +10585,7 @@ MOD04_021E1F84: ; 0x021E1F84
 	bl MOD04_021E0F00
 	mov r1, #0xc
 	mla r1, r5, r1, r4
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	cmp r0, #0
 	beq _021E1FD4
 	mvn r1, #0
@@ -15142,7 +15142,7 @@ _021E5E50:
 	ldrb r2, [r2, #0x304]
 	mov r0, fp
 	mla r1, r2, r1, r3
-	bl FUN_02096DA0
+	bl DWC_GetGsProfileId
 	movs sl, r0
 	beq _021E5DB4
 	mvn r0, #0
@@ -15159,7 +15159,7 @@ _021E5E50:
 	add r1, fp, r1
 	ldrb r1, [r1, #0x304]
 	mla r0, r1, r0, r2
-	bl FUN_02097000
+	bl DWCi_Acc_IsValidFriendData
 	cmp r0, #0
 	beq _021E5DB4
 	mov r6, r7
@@ -17170,7 +17170,7 @@ MOD04_021E7B04: ; 0x021E7B04
 	mov r5, r4
 	b _021E7C48
 _021E7BC0:
-	bl FUN_0209A60C
+	bl SOC_GetHostID
 	mov r0, r0, lsl #0x10
 	ldr r1, _021E7DEC ; =0x0000FFFF
 	ldr r2, _021E7DF0 ; =0x0000A8C0
@@ -17220,7 +17220,7 @@ _021E7C48:
 	str r8, [r0, #0x19c]
 	b _021E7D00
 _021E7C74:
-	bl FUN_0209A60C
+	bl SOC_GetHostID
 	str r0, [sp, #8]
 	bl MOD04_021E26E4
 	ldr r0, [r0, #4]
@@ -21677,7 +21677,7 @@ MOD04_021EBA28: ; 0x021EBA28
 	blo _021EBAB0
 	cmp r0, #0x10
 	bhi _021EBAB0
-	bl FUN_020A8850
+	bl WCM_GetApMacAddress
 	mov r4, r0
 	mov r1, #6
 	bl DC_InvalidateRange
@@ -21692,7 +21692,7 @@ MOD04_021EBA28: ; 0x021EBA28
 	cmp r0, #4
 	bne _021EBAA8
 	mov r0, #0
-	bl FUN_020A87E0
+	bl WCM_GetApEssid
 	mov r4, r0
 	mov r1, #0x20
 	bl DC_InvalidateRange
@@ -21924,11 +21924,11 @@ MOD04_021EBC60: ; 0x021EBC60
 	and r1, r1, #3
 	orr r1, r2, r1, lsl #4
 	strb r1, [r0, #0xd0c]
-	bl FUN_02095FA8
+	bl DWCi_BM_GetApInfo
 	ldr r0, _021EBE14 ; =0x02210E4C
 	mov r1, #0x2300
 	ldr r0, [r0]
-	bl FUN_020A7E80
+	bl WCM_Init
 	cmp r0, #1
 	beq _021EBDF4
 	cmp r0, #4
@@ -22664,7 +22664,7 @@ _021EC7AC: .word 0x00000D0C
 MOD04_021EC7B0: ; 0x021EC7B0
 	stmdb sp!, {r4, r5, r6, lr}
 	mov r6, r0
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	ldrb r2, [r6, #0xd13]
 	add r3, r6, #0x470
 	mov r1, #0xc0
@@ -22731,7 +22731,7 @@ _021EC898:
 	mov r0, r5
 	add r1, r6, r1
 	orr r2, r4, r2
-	bl FUN_020A75C0
+	bl WCM_ConnectAsync
 	b _021EC8E0
 _021EC8BC:
 	cmp r0, #9
@@ -22854,12 +22854,12 @@ _021ECA44:
 MOD04_021ECA4C: ; 0x021ECA4C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_02099A94
+	bl SOCL_CalmDown
 	cmp r0, #0
 	addne sp, sp, #4
 	movne r0, #0
 	ldmneia sp!, {pc}
-	bl THUNK_FUN_02099BC8
+	bl SOC_Cleanup
 	cmp r0, #0
 	beq _021ECA80
 	mvn r1, #0x26
@@ -22878,7 +22878,7 @@ _021ECA8C:
 MOD04_021ECA98: ; 0x021ECA98
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #0xc
 	addls pc, pc, r0, lsl #2
 	b _021ECB2C
@@ -22901,19 +22901,19 @@ _021ECAE4:
 	mov r0, #1
 	ldmfd sp!, {pc}
 _021ECAF0:
-	bl FUN_020A7E0C
+	bl WCM_Finish
 	b _021ECB2C
 _021ECAF8:
-	bl FUN_020A7AC8
+	bl WCM_CleanupAsync
 	b _021ECB2C
 _021ECB00:
-	bl FUN_020A7820
+	bl WCM_EndSearchAsync
 	b _021ECB2C
 _021ECB08:
-	bl FUN_020A7488
+	bl WCM_DisconnectAsync
 	b _021ECB2C
 _021ECB10:
-	bl FUN_020A722C
+	bl WCM_TerminateAsync
 	b _021ECB2C
 _021ECB18:
 	mov r0, #0
@@ -23463,7 +23463,7 @@ MOD04_021ED218: ; 0x021ED218
 	bl MOD04_021EB798
 	mov r4, r0
 	mov r5, #9
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #0xc
 	addls pc, pc, r0, lsl #2
 	b _021ED2F0
@@ -23503,13 +23503,13 @@ _021ED2A4:
 	bl MOD04_021ED8D4
 	b _021ED2F0
 _021ED2C0:
-	bl FUN_020A7820
+	bl WCM_EndSearchAsync
 	b _021ED2F0
 _021ED2C8:
-	bl FUN_020A7488
+	bl WCM_DisconnectAsync
 	b _021ED2F0
 _021ED2D0:
-	bl FUN_020A722C
+	bl WCM_TerminateAsync
 	mov r0, #4
 	bl MOD04_021EB6F4
 	mov r5, #0x11
@@ -23532,7 +23532,7 @@ MOD04_021ED2FC: ; 0x021ED2FC
 	movgt r2, #0xc
 	ldr r2, [ip, r2, lsl #2]
 	orr r2, r3, r2
-	bl FUN_020A7A90
+	bl WCM_SearchAsync
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
@@ -23623,7 +23623,7 @@ _021ED410:
 	ldmloia sp!, {r4, r5, pc}
 _021ED448:
 	strb r2, [r5, #0xd13]
-	bl FUN_020A7820
+	bl WCM_EndSearchAsync
 	cmp r0, #1
 	strneb r4, [r5, #0xd0e]
 	movne r4, #7
@@ -24080,7 +24080,7 @@ MOD04_021EDA70: ; 0x021EDA70
 	mov r5, r0
 	bl MOD04_021EB720
 	mov r4, r0
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r4, #2
 	bne _021EDAB0
 	cmp r0, #3
@@ -24137,7 +24137,7 @@ _021EDB38:
 MOD04_021EDB44: ; 0x021EDB44
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #0x10
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	mov r4, r0
 	mov r0, #0x10
 	bl MOD04_021EB798
@@ -24152,7 +24152,7 @@ MOD04_021EDB44: ; 0x021EDB44
 	bl MOD04_021ED17C
 	ldr r1, _021EDBC8 ; =MOD04_021EC44C
 	add r0, sp, #0
-	bl FUN_020A7BD4
+	bl WCM_StartupAsync
 	cmp r0, #1
 	beq _021EDB9C
 	cmp r0, #4
@@ -24207,7 +24207,7 @@ MOD04_021EDBCC: ; 0x021EDBCC
 	str r0, [sp, #4]
 	add r0, sp, #0
 	add r1, sp, #4
-	bl FUN_0209A594
+	bl SOC_GetResolver
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 
@@ -24318,12 +24318,12 @@ _021EDDB8: .word 0x0220BB2C
 MOD04_021EDDBC: ; 0x021EDDBC
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_02099A94
+	bl SOCL_CalmDown
 	cmp r0, #0
 	addne sp, sp, #4
 	movne r0, #0xb
 	ldmneia sp!, {pc}
-	bl THUNK_FUN_02099BC8
+	bl SOC_Cleanup
 	cmp r0, #0
 	beq _021EDDF0
 	mvn r1, #0x26
@@ -24401,7 +24401,7 @@ MOD04_021EDE90: ; 0x021EDE90
 MOD04_021EDEC8: ; 0x021EDEC8
 	stmdb sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0209A60C
+	bl SOC_GetHostID
 	cmp r0, #0
 	beq _021EDF00
 	mov r0, r4
@@ -24456,7 +24456,7 @@ MOD04_021EDF58: ; 0x021EDF58
 	mov r2, #4
 	mov r0, r4
 	str r2, [r1]
-	bl FUN_0209A2C0
+	bl SOC_Startup
 	cmp r0, #0
 	moveq r0, #0xc
 	ldmeqia sp!, {r4, r5, r6, pc}
@@ -24476,7 +24476,7 @@ MOD04_021EDFBC: ; 0x021EDFBC
 	mov r0, #0x10
 	bl MOD04_021EB798
 	mov r4, r0
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #9
 	bne _021EE064
 	sub r0, r5, #0xa
@@ -25236,7 +25236,7 @@ MOD04_021EE9E0: ; 0x021EE9E0
 	cmp r1, r0
 	bne _021EEA58
 	mov r0, r5
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	addeq sp, sp, #4
 	moveq r0, #0
@@ -26272,14 +26272,14 @@ MOD04_021EF794: ; 0x021EF794
 	add r0, sp, #0x10
 	mov r5, r1
 	mov r4, r2
-	bl FUN_020A8BBC
+	bl MD5Init
 	add r0, sp, #0x10
 	mov r1, r6
 	mov r2, r5
-	bl FUN_020A8BB0
+	bl MD5Update
 	add r0, sp, #0
 	add r1, sp, #0x10
-	bl FUN_020A8BA4
+	bl MD5Final
 	add r0, sp, #0
 	mov r1, r4
 	bl MOD04_021EF7E0
@@ -26554,7 +26554,7 @@ MOD04_021EFB38: ; 0x021EFB38
 	stmdb sp!, {lr}
 	sub sp, sp, #4
 	add r1, sp, #0
-	bl FUN_0209A224
+	bl SOC_InetAtoN
 	cmp r0, #0
 	mvneq r0, #0
 	ldrne r0, [sp]
@@ -26569,7 +26569,7 @@ MOD04_021EFB5C: ; 0x021EFB5C
 	ldr r2, [r4]
 	mov r5, r1
 	strb r2, [r5]
-	bl FUN_0209A650
+	bl SOC_GetSockName
 	ldrb r2, [r5]
 	mvn r1, #0
 	str r2, [r4]
@@ -26619,7 +26619,7 @@ _021EFBE8:
 	add ip, sp, #4
 	strb lr, [sp, #4]
 	str ip, [sp]
-	bl FUN_0209A7D0
+	bl SOC_SendTo
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #0x10
@@ -26629,7 +26629,7 @@ _021EFBE8:
 MOD04_021EFC24: ; 0x021EFC24
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_0209A858
+	bl SOC_Send
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26644,7 +26644,7 @@ MOD04_021EFC40: ; 0x021EFC40
 	ldr ip, [r4]
 	strb ip, [r5]
 	str r5, [sp]
-	bl FUN_0209A880
+	bl SOC_RecvFrom
 	ldrb r2, [r5]
 	mvn r1, #0
 	str r2, [r4]
@@ -26656,7 +26656,7 @@ MOD04_021EFC40: ; 0x021EFC40
 MOD04_021EFC78: ; 0x021EFC78
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_0209A91C
+	bl SOC_Read
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26670,7 +26670,7 @@ MOD04_021EFC94: ; 0x021EFC94
 	ldr r2, [r4]
 	mov r5, r1
 	strb r2, [r5]
-	bl FUN_0209A504
+	bl SOC_Accept
 	ldrb r2, [r5]
 	mvn r1, #0
 	str r2, [r4]
@@ -26682,7 +26682,7 @@ MOD04_021EFC94: ; 0x021EFC94
 MOD04_021EFCC8: ; 0x021EFCC8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_0209A588
+	bl SOC_Listen
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26703,7 +26703,7 @@ _021EFCF4:
 	bne _021EFCF4
 	add r1, sp, #0
 	strb r2, [sp]
-	bl FUN_0209A944
+	bl SOC_Connect
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #8
@@ -26729,7 +26729,7 @@ _021EFD4C:
 	bne _021EFD4C
 	add r1, sp, #0
 	strb r2, [sp]
-	bl FUN_0209A9A4
+	bl SOC_Bind
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #8
@@ -26739,7 +26739,7 @@ _021EFD4C:
 MOD04_021EFD80: ; 0x021EFD80
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl thunk_FUN_020995dc
+	bl SOC_Shutdown
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26749,7 +26749,7 @@ MOD04_021EFD80: ; 0x021EFD80
 MOD04_021EFD9C: ; 0x021EFD9C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26759,7 +26759,7 @@ MOD04_021EFD9C: ; 0x021EFD9C
 MOD04_021EFDB8: ; 0x021EFDB8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	bl FUN_0209A9D0
+	bl SOC_Socket
 	mvn r1, #0
 	bl MOD04_021EFDD4
 	add sp, sp, #4
@@ -26829,9 +26829,9 @@ MOD04_021EFE70: ; 0x021EFE70
 	strh r3, [r1, #0xa]
 	str r2, [r1, #0xc]
 	str r3, [r0]
-	bl FUN_02099C78
+	bl SOCL_GetHostID
 	ldr r1, _021EFEF8 ; =0x02210F50
-	bl FUN_0209A174
+	bl SOC_U32to4U8
 	ldr r2, _021EFEF8 ; =0x02210F50
 	ldr r0, [r2]
 	cmp r0, #0
@@ -26904,7 +26904,7 @@ MOD04_021EFF5C: ; 0x021EFF5C
 	add r0, sp, #0
 	mov r1, #1
 	strh r2, [sp, #6]
-	bl FUN_0209A0AC
+	bl SOC_Poll
 	cmp r0, #0
 	addlt sp, sp, #8
 	mvnlt r0, #0
@@ -27050,13 +27050,13 @@ MOD04_021F017C: ; 0x021F017C
 	mov r1, #3
 	mov r2, #0
 	mov r5, r0
-	bl FUN_0209A4B4
+	bl SOC_Fcntl
 	cmp r4, #0
 	bicne r2, r0, #4
 	orreq r2, r0, #4
 	mov r0, r5
 	mov r1, #4
-	bl FUN_0209A4B4
+	bl SOC_Fcntl
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -32277,7 +32277,7 @@ _021F4AD0:
 	ldmia sp!, {r4, r5, r6, pc}
 _021F4B0C:
 	ldr r0, _021F4C30 ; =0x0220DD90
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	bne _021F4B48
 	ldr r2, _021F4C34 ; =0x0220E144
@@ -39046,7 +39046,7 @@ _021FAB54:
 	ldmia sp!, {r4, r5, r6, pc}
 _021FAB90:
 	ldr r0, _021FACA8 ; =0x0220E860
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	bne _021FABCC
 	ldr r2, _021FACAC ; =0x0220EBC4
@@ -45132,7 +45132,7 @@ _021FFE40:
 	cmp r5, r0
 	bne _021FFE84
 	mov r0, r8
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	addeq sp, sp, #0x104
 	moveq r0, #0
@@ -45176,7 +45176,7 @@ _021FFEE0:
 	beq _021FFF18
 	add r0, sp, #0
 	ldmia r0, {r0}
-	bl FUN_0209A27C
+	bl SOC_InetNtoA
 	mov r2, r0
 	ldr r1, _021FFF6C ; =0x0220F008
 	mov r0, r5
@@ -45186,7 +45186,7 @@ _021FFEE0:
 _021FFF18:
 	add r0, sp, #0
 	ldmia r0, {r0}
-	bl FUN_0209A27C
+	bl SOC_InetNtoA
 	mov r2, r0
 	ldr r1, _021FFF70 ; =0x0220F010
 	mov r0, r5
@@ -45879,7 +45879,7 @@ MOD04_022008A0: ; 0x022008A0
 	cmp r0, r1
 	ldmneia sp!, {r4, pc}
 	mov r0, r4
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	moveq r0, #0
 	ldrne r0, [r0, #0xc]
@@ -46381,7 +46381,7 @@ _02200F8C:
 	bl MOD04_022021C0
 	add r0, r5, r8, lsl #2
 	ldmia r0, {r0}
-	bl FUN_0209A27C
+	bl SOC_InetNtoA
 	mov r1, r0
 	mov r0, r6
 	bl MOD04_022021C0
@@ -47603,7 +47603,7 @@ _022020D0:
 	cmp r0, #0
 	beq _0220211C
 	mov r0, r7
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	movs r4, r0
 	addeq sp, sp, #4
 	moveq r0, #0
@@ -52308,7 +52308,7 @@ _02206038:
 	cmp r0, r1
 	bne _022060A4
 	add r0, sp, #8
-	bl FUN_0209A6EC
+	bl SOC_GetHostByAddr
 	cmp r0, #0
 	addeq sp, sp, #0x88
 	moveq r0, #2
@@ -53611,7 +53611,7 @@ MOD04_022071C0: ; 0x022071C0
 	mov r1, #0x14
 	bl MOD04_022083B4
 	add r0, sp, #0
-	bl FUN_02095EC8
+	bl DWCi_BM_GetWiFiInfo
 	ldr r1, [sp]
 	ldr r2, [sp, #4]
 	mov r0, #0
@@ -56591,12 +56591,12 @@ MOD04_022099C0: ; 0x022099C0
 	moveq r2, #7
 	add r6, r0, r2
 	mov r0, r6
-	bl FUN_0209A224
+	bl SOC_InetAtoN
 	cmp r0, #0
 	ldrne r0, [sp]
 	bne _02209A54
 	mov r0, r6
-	bl FUN_02099D88
+	bl SOCL_Resolve
 	cmp r0, #0
 	addeq sp, sp, #8
 	moveq r0, #0
@@ -56837,7 +56837,7 @@ MOD04_02209D40: ; 0x02209D40
 	ldmltia sp!, {pc}
 	mov r0, r1
 	mov r1, #2
-	bl thunk_FUN_020995dc
+	bl SOC_Shutdown
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 
@@ -56849,7 +56849,7 @@ MOD04_02209D68: ; 0x02209D68
 	mov r1, r2
 	mov r2, r3
 	ldr r3, [sp, #8]
-	bl FUN_0209A858
+	bl SOC_Send
 	cmp r0, #0
 	ldmgeia sp!, {r4, pc}
 	ldr r1, [r4, #4]
@@ -56872,7 +56872,7 @@ MOD04_02209DB4: ; 0x02209DB4
 	mov r1, r2
 	mov r2, r3
 	ldr r3, [sp, #8]
-	bl FUN_0209A91C
+	bl SOC_Read
 	cmp r0, #0
 	ldmgeia sp!, {r4, pc}
 	ldr r1, [r4, #4]
@@ -56907,7 +56907,7 @@ MOD04_02209E00: ; 0x02209E00
 	strb lr, [sp, #1]
 	strh r3, [sp, #2]
 	str r2, [sp, #4]
-	bl FUN_0209A944
+	bl SOC_Connect
 	cmp r0, #0
 	bge _02209E6C
 	ldr r0, [r4, #4]
@@ -56928,7 +56928,7 @@ MOD04_02209E7C: ; 0x02209E7C
 	stmdb sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r1
 	mov r0, r8
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	cmp r0, #0
 	ldmneia sp!, {r4, r5, r6, r7, r8, pc}
 	mov r7, #0
@@ -56942,7 +56942,7 @@ _02209EA8:
 	add r7, r7, #0x1f4
 _02209EB4:
 	mov r0, r8
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	cmp r0, r5
 	ldmneia sp!, {r4, r5, r6, r7, r8, pc}
 	cmp r7, r4
@@ -56959,7 +56959,7 @@ MOD04_02209ED4: ; 0x02209ED4
 	mov r0, #2
 	mov r1, #1
 	mov r2, #0
-	bl FUN_0209A9D0
+	bl SOC_Socket
 	movs r4, r0
 	bmi _02209F4C
 	ldr r0, [r5, #8]
@@ -56977,11 +56977,11 @@ MOD04_02209ED4: ; 0x02209ED4
 	ldr r1, [r5, #0x20]
 	str r2, [r1, #0x810]
 	ldr r1, [r5, #0x20]
-	bl FUN_0209AAD0
+	bl SOCL_EnableSsl
 	cmp r0, #0
 	bge _02209F4C
 	mov r0, r4
-	bl thunk_FUN_0209996c
+	bl SOC_Close
 	mvn r4, #0
 _02209F4C:
 	mov r0, r4
@@ -56998,7 +56998,7 @@ MOD04_02209F5C: ; 0x02209F5C
 	bl OS_GetLowEntropyData
 	ldr r0, _02209F80 ; =0x02211A24
 	mov r1, #0x20
-	bl FUN_020A136C
+	bl CPS_SslAddRandomSeed
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0

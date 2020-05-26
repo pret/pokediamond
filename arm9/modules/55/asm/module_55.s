@@ -2086,7 +2086,7 @@ _021D85B2:
 	ldr r0, [sp, #4]
 	add r6, r1, #0
 	bl FUN_02028228
-	bl FUN_02096D68
+	bl DWC_CreateFriendKey
 	eor r1, r6
 	eor r0, r7
 	orr r0, r1
@@ -3492,7 +3492,7 @@ MOD55_021D90D8: ; 0x021D90D8
 	ldrb r1, [r1, #0x18]
 	sub r1, r1, #1
 	bl FUN_0202838C
-	bl FUN_02096E24
+	bl DWC_GetFriendKey
 	str r1, [sp, #4]
 	add r4, r0, #0
 	ldr r0, [sp, #4]
@@ -3557,7 +3557,7 @@ MOD55_021D9184: ; 0x021D9184
 	add r7, r1, #0
 	bl FUN_020286EC
 	bl FUN_02028228
-	bl FUN_02096D68
+	bl DWC_CreateFriendKey
 	add r6, r0, #0
 	add r4, r1, #0
 	ldr r0, [r5, #4]
@@ -5538,7 +5538,7 @@ MOD55_021DA224: ; 0x021DA224
 	bl FUN_02028228
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_020973B4
+	bl DWC_CheckFriendKey
 	cmp r0, #0
 	bne _021DA24C
 	mov r0, #0
@@ -5562,7 +5562,7 @@ _021DA262:
 	bl FUN_0202838C
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_02096D2C
+	bl DWC_CreateFriendKeyToken
 _021DA276:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}

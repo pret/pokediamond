@@ -1,6 +1,9 @@
 dist: bionic
 sudo: false
 language: c
+env:
+    global:
+        - LM_LICENSE_FILE="$TRAVIS_BUILD_DIR/tools/mwccarm/license.dat"
 addons:
     apt:
         packages:
@@ -24,8 +27,10 @@ install:
     - mv NITRO\ SDK\ v3.0/include/nitro/specfiles/ARM9-TS.lcf.template arm9
 
 script:
-    - export LM_LICENSE_FILE="$(pwd)/tools/mwccarm/license.dat"
     - make
 
 notifications:
   email: false
+
+after_success:
+    - .travis/calcrom/webhook.sh

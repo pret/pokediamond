@@ -596,7 +596,7 @@ _0222DA18:
 	mvn r0, r0
 	cmp r4, r0
 	beq _0222DA30
-	bl FUN_020A71F8
+	bl WCM_GetPhase
 	cmp r0, #9
 	beq _0222DA2C
 	mov r4, #5
@@ -2282,7 +2282,7 @@ _0222E7C2:
 	add r4, r0, #0
 	ldr r0, [r5]
 	ldr r0, [r0, #0x14]
-	bl FUN_02096D68
+	bl DWC_CreateFriendKey
 	add r3, r0, #0
 	add r2, r1, #0
 	add r0, r4, #0
