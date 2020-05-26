@@ -1,3 +1,19 @@
+/*
+ * CALCROM.CPP
+ * © PikalaxALT 2020
+ *
+ * Simple C++ executable to measure the completion rate of Pokémon Diamond
+ * reverse engineering (decompilation).
+ *
+ * Requirements:
+ *  - Must have C++11 compliant compiler.
+ *  - MacOS X: Must provide elf.h on the include (-I) path.
+ *  - Must be placed in ".travis/calcrom/".
+ *
+ * Changelog:
+ *  - 1.0 (26 May 2020): Initial implementation
+ */
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -13,10 +29,10 @@ struct Glob : public vector<char const *> {
     glob_t glob_result;
 public:
     Glob(string const & pattern) {
-        int result = ::glob(pattern.c_str(), GLOB_TILDE | GLOB_BRACE, NULL, &glob_result);
+        int result = glob(pattern.c_str(), GLOB_TILDE | GLOB_BRACE, NULL, &glob_result);
         if (result) {
             stringstream ss;
-            ss << "Glob::glob(" << pattern << ") failed with error " << result << endl;
+            ss << "Glob(" << pattern << ") failed with error " << result << endl;
             throw runtime_error(ss.str());
         }
         assign(glob_result.gl_pathv, glob_result.gl_pathv + glob_result.gl_pathc);
@@ -30,8 +46,7 @@ int main()
 {
     fstream elf;
     Elf32_Ehdr ehdr;
-    Elf32_Shdr shdr_buf;
-    vector<Elf32_Shdr> shdr(0);
+    vector<Elf32_Shdr> shdr;
 
     // Accumulate sizes
     //        src   asm
@@ -59,6 +74,7 @@ int main()
         elf.seekg(ehdr.e_shoff);
         shdr.resize(ehdr.e_shnum);
         elf.read((char *)shdr.data(), ehdr.e_shnum * ehdr.e_shentsize);
+
         // Read .shstrtab
         if (shstrsz < shdr[ehdr.e_shstrndx].sh_size) {
             shstrtab = (char *)realloc(shstrtab, shdr[ehdr.e_shstrndx].sh_size);
@@ -67,6 +83,8 @@ int main()
         elf.seekg(shdr[ehdr.e_shstrndx].sh_offset);
         elf.read(shstrtab, shdr[ehdr.e_shstrndx].sh_size);
         elf.close();
+
+        // Analyze sections
         for (Elf32_Shdr & hdr : shdr) {
             string shname = shstrtab + hdr.sh_name;
             bool is_text = (shname == ".text" || shname == ".init");
