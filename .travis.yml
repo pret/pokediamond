@@ -33,4 +33,4 @@ notifications:
   email: false
 
 after_success:
-    - .travis/calcrom/webhook.sh
+    - .travis/calcrom/webhook.sh pokediamond
