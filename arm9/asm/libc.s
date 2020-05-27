@@ -2,61 +2,6 @@
 	.include "global.inc"
 	.extern OSi_ThreadInfo
 
-	.extern UNK_02106A58
-	.extern UNK_02106AA4
-	.extern UNK_02106AF0
-	.extern UNK_02106B3C
-	.extern UNK_02106B74
-	.extern UNK_02106B78
-	.extern UNK_02106B7C
-	.extern UNK_02106C98
-	.extern UNK_02106DA0
-	.extern UNK_02106DA8
-	.extern UNK_02106DB0
-	.extern UNK_02106DB8
-	.extern UNK_02106DBC
-	.extern UNK_02106DC0
-	.extern UNK_02106DC8
-	.extern UNK_02106DD0
-	.extern UNK_02106DD4
-	.extern UNK_02106DD8
-	.extern UNK_02106DDC
-	.extern UNK_02106DE0
-	.extern UNK_02106DE4
-	.extern UNK_02106DF0
-	.extern UNK_02106DFC
-	.extern UNK_02106E08
-	.extern UNK_02106E10
-	.extern UNK_02106E18
-	.extern UNK_02106E24
-	.extern UNK_02106E30
-	.extern UNK_02106E38
-	.extern UNK_02106E40
-	.extern UNK_02106E44
-	.extern UNK_02106E48
-	.extern UNK_02106E88
-	.extern UNK_02106EB8
-	.extern UNK_02106EE0
-	.extern UNK_02106EF8
-	.extern UNK_02106F08
-	.extern UNK_02106F10
-	.extern UNK_02106F18
-	.extern UNK_02106F20
-	.extern UNK_02106F28
-	.extern UNK_02106F2C
-	.extern UNK_02106F30
-	.extern UNK_02106F34
-	.extern UNK_02106F38
-	.extern UNK_02106F3C
-	.extern UNK_02106F40
-	.extern UNK_02106F44
-	.extern UNK_02106F48
-	.extern UNK_02106F4C
-	.extern UNK_02106F50
-	.extern UNK_02106F54
-	.extern UNK_02106F58
-	.extern UNK_02106F5C
-
 	.section .rodata
 
 	.global UNK_0210420C
@@ -229,15 +174,15 @@ UNK_02106B3C: ; 0x02106B3C
 	.balign 4, 0
 	.global UNK_02106B74
 UNK_02106B74: ; 0x02106B74
-	.byte 0x00, 0x00, 0x80, 0x7F
+	.word 0x7F800000 ; inf
 
 	.global UNK_02106B78
 UNK_02106B78: ; 0x02106B78
-	.byte 0xFF, 0xFF, 0xFF, 0x7F
+	.word 0x7FFFFFFF ; nan
 
 	.global UNK_02106B7C
 UNK_02106B7C: ; 0x02106B7C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF0, 0x7F
+	.word 0x00000000, 0x7FF00000 ; 1.06047983e-314
 
 	.global UNK_02106B84
 UNK_02106B84: ; 0x02106B84
