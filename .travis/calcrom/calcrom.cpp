@@ -11,10 +11,12 @@
  *  - Must be placed in ".travis/calcrom/".
  *
  * Changelog:
- *  - 1.0.0 (26 May 2020):
+ *  - 0.1.0 (26 May 2020):
  *      Initial implementation
- *  - 1.0.1 (26 May 2020):
+ *  - 0.1.1 (26 May 2020):
  *      Allow program to be run from wherever
+ *    0.1.2 (27 May 2020):
+ *      Extra security on ELF header
  */
 
 #include <iostream>
@@ -74,7 +76,10 @@ int main(int argc, char ** argv)
         fname_s = fname_s.replace(fname_s.rfind('.'), 4, ".o");
         elf.open(fname_s, ios_base::in | ios_base::binary);
         elf.read((char *)&ehdr, sizeof(ehdr));
-        if (memcmp(ehdr.e_ident, ELFMAG, SELFMAG) != 0) {
+        if (memcmp(ehdr.e_ident, ELFMAG, SELFMAG) != 0
+         || ehdr.e_ehsize != sizeof(Elf32_Ehdr)
+         || ehdr.e_shentsize != sizeof(Elf32_Shdr))
+        {
             elf.close();
             stringstream ss;
             ss << "Error validating " << fname_s << " as an ELF file" << endl;
