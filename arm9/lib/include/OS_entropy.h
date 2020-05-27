@@ -6,14 +6,9 @@
 #define POKEDIAMOND_OS_ENTROPY_H
 
 #include "consts.h"
+#include "userInfo.h"
 
 void OS_GetLowEntropyData(u32 * arr);
-
-typedef struct NVRAMConfig{
-    u8 ncd[110]; // todo: typeof NVRAMConfigData
-    u16 saveCount;
-    u16 rc16;
-} NVRAMConfig;
 
 extern vu64 OSi_TickCounter;
 

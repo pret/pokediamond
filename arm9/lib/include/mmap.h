@@ -98,7 +98,7 @@ typedef struct {
     u16     mmem_checker_subp;         // 3fa-3fb:   2bytes MainMomory Size Checker for Sub processor
     u8      padding4[2];               // 3fc-3fd: (2bytes)
     u16     command_area;              // 3fe-3ff:   2bytes Command Area
-} OSSystemWork;
+} OSSystemWork; //0x027FFC00
 
 #define OS_GetSystemWork()      ((OSSystemWork *)HW_MAIN_MEM_SYSTEM)
 

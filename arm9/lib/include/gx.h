@@ -2,6 +2,7 @@
 #define GUARD_GX_H
 
 #include "fx.h"
+#include "MI_memory.h"
 
 //temporary while other files aren't decompiled
 
@@ -14,7 +15,6 @@ void MI_Copy64B(void *src, void *dst);
 void MI_WaitDma(u32);
 void MI_DmaCopy32Async(u32, const void *, void *, u32, void *, void *);
 void MI_DmaCopy16(u32 unk, const void *src, void *dst, u32 size);
-void MIi_CpuCopy16(const void *src, void *dst, u32 size);
 void MI_DmaCopy32(u32 unk, const void *src, void *dst, u32 size);
 void MIi_CpuCopy32(const void *src, void *dst, u32 size);
 void OSi_UnlockVram(u16, u16);
