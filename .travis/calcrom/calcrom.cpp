@@ -11,7 +11,10 @@
  *  - Must be placed in ".travis/calcrom/".
  *
  * Changelog:
- *  - 1.0 (26 May 2020): Initial implementation
+ *  - 1.0.0 (26 May 2020):
+ *      Initial implementation
+ *  - 1.0.1 (26 May 2020):
+ *      Allow program to be run from wherever
  */
 
 #include <iostream>
@@ -42,11 +45,17 @@ public:
     }
 };
 
-int main()
+int main(int argc, char ** argv)
 {
     fstream elf;
     Elf32_Ehdr ehdr;
     vector<Elf32_Shdr> shdr;
+    stringstream pattern;
+
+    if (argc < 2) {
+        cout << "usage: calcrom PROJECT_DIR" << endl;
+        throw invalid_argument("missing required argument: PROJECT_DIR\n");
+    }
 
     // Accumulate sizes
     //        src   asm
@@ -55,7 +64,8 @@ int main()
     unsigned sizes[2][2] = {{0, 0}, {0, 0}};
     char * shstrtab = NULL;
     size_t shstrsz = 0;
-    for (char const * & fname : Glob("../../arm9/{src,asm,lib/{src,asm},modules/*/{src,asm}}/*.{c,s,cpp}"))
+    pattern << argv[1] << "/arm9/{src,asm,lib/{src,asm},modules/*/{src,asm}}/*.{c,s,cpp}";
+    for (char const * & fname : Glob(pattern.str()))
     {
         string fname_s(fname);
         string ext = fname_s.substr(fname_s.rfind('.'), 4);
