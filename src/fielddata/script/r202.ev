@@ -1,0 +1,489 @@
+//====================================================================
+//						r202
+//					フィールド・ロード202
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r202.h"
+	.include	"../eventdata/zone_r202evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r202_flag_change
+_EVENT_DATA		ev_r202_boy2
+_EVENT_DATA		ev_r202_sign1
+_EVENT_DATA		ev_r202_sign2
+_EVENT_DATA		ev_r202_sign3
+_EVENT_DATA		pos_r202_support
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r202_flag_change:
+	//WKOBJCHRにサポートのキャラコードをセットする
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,r202_male_flag_change_01	//サポート女
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,r202_female_flag_change_01	//サポート男
+	_END
+
+r202_male_flag_change_01:	//サポート女
+	_LDVAL			OBJCHRWORK0,HEROINE
+	_END
+
+r202_female_flag_change_01:	//サポート男
+	_LDVAL			OBJCHRWORK0,HERO
+	_END
+
+
+/********************************************************************/
+/*							少年２									*/
+/********************************************************************/
+ev_r202_boy2:
+	_EASY_OBJ_MSG	msg_r202_boy2_01
+	_END
+
+/********************************************************************/
+/*							道路標識								*/
+/********************************************************************/
+ev_r202_sign1:
+	_EASY_BOARD_MSG	msg_r202_sign1_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							道路標識								*/
+/********************************************************************/
+ev_r202_sign2:
+	_EASY_BOARD_MSG	msg_r202_sign2_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							掲示板									*/
+/********************************************************************/
+ev_r202_sign3:
+	_EASY_INFOBOARD_MSG	msg_r202_sign3_01,BOARD_TYPE_INFO,0
+	_END
+
+
+/********************************************************************/
+/*						サポート（POS)								*/
+/********************************************************************/
+#define POS_R202_SUPPORT_Z1	(825)
+#define POS_R202_SUPPORT_Z2	(826)
+#define POS_R202_SUPPORT_Z3	(827)
+#define POS_R202_SUPPORT_Z4	(828)
+#define POS_R202_SUPPORT_Z5	(829)
+
+pos_r202_support:
+	_EVENT_START
+
+	//サポート	"！"アニメ　
+	_OBJ_ANIME		R202_SUPPORT,anm_01_r202_support_00
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_01_r202_player_00
+	_OBJ_ANIME_WAIT
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z1,pos_r202_support_z01
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z2,pos_r202_support_z02
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z3,pos_r202_support_z03
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z4,pos_r202_support_z04
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z5,pos_r202_support_z05
+	_END
+
+//--------------------------------------------------------------------
+//サポート	近づいてくる
+//--------------------------------------------------------------------
+pos_r202_support_z01:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_02_common
+
+pos_r202_support_z02:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_02_common
+
+pos_r202_support_z03:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_03
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_02_common
+
+pos_r202_support_z04:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_04
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_02_common
+
+pos_r202_support_z05:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_05
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_02_common
+
+//共通処理
+pos_r202_support_02_common:
+	//冒険ノートをゲットするまではストッパーになる
+	_IF_FLAGOFF_JUMP	FE_BOUKENNOOTO_GET,pos_r202_support_stop
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,r202_support_male_01	//サポート女
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,r202_support_female_01	//サポート男
+	_END
+
+//--------------------------------------------------------------------
+//サポート女
+//--------------------------------------------------------------------
+r202_support_male_01:
+	_CHG_COMMON_SCR SCRID_THE_BOY_GIRL_PLAY					/*サポート曲再生*/
+
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_r202_heroine_05
+	_JUMP			r202_01_support_common_01
+
+//--------------------------------------------------------------------
+//サポート男
+//--------------------------------------------------------------------
+r202_support_female_01:
+	_CHG_COMMON_SCR SCRID_THE_BOY_GIRL_PLAY					/*サポート曲再生*/
+
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_r202_hero_05
+	_JUMP			r202_01_support_common_01
+
+//--------------------------------------------------------------------
+//共通
+//--------------------------------------------------------------------
+r202_01_support_common_01:
+	_TALK_CLOSE
+
+	//草に移動
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_58
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r202_player_58
+	_OBJ_ANIME_WAIT
+
+	//捕獲デモ呼び出し
+	_CAPTURE_BTL_SET
+	
+	/*主人公の方を向く*/
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_60
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,r202_support_male_02	//サポート女
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,r202_support_female_02	//サポート男
+	_END
+
+//--------------------------------------------------------------------
+//サポート女
+//--------------------------------------------------------------------
+r202_support_male_02:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_r202_heroine_02
+	_JUMP			r202_01_support_common_02
+
+//--------------------------------------------------------------------
+//サポート男
+//--------------------------------------------------------------------
+r202_support_female_02:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_r202_hero_02
+	_JUMP			r202_01_support_common_02
+
+//--------------------------------------------------------------------
+//共通
+//--------------------------------------------------------------------
+r202_01_support_common_02:
+
+	/*SCWK_TEMP0,1を書き換えているので注意！*/
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_MONSUTAABOORU
+	_LDVAL			SCWK_TEMP1,5
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,r202_support_male_03	//サポート女
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,r202_support_female_03	//サポート男
+	_END
+
+//--------------------------------------------------------------------
+//サポート女
+//--------------------------------------------------------------------
+r202_support_male_03:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_r202_heroine_03
+	_JUMP			r202_01_support_common_03
+
+//--------------------------------------------------------------------
+//サポート男
+//--------------------------------------------------------------------
+r202_support_female_03:
+	_TALK_KEYWAIT	msg_r202_hero_03
+	_JUMP			r202_01_support_common_03
+
+//--------------------------------------------------------------------
+//共通
+//--------------------------------------------------------------------
+r202_01_support_common_03:
+	_TALK_CLOSE
+
+	//サポート退場
+	_OBJ_ANIME		R202_SUPPORT,anm_03_r202_support_01
+	_OBJ_ANIME_WAIT
+
+	//サポートを消す
+	_OBJ_DEL		R202_SUPPORT
+
+	//サポートイベント終了
+	_LDVAL			WK_SCENE_R202,1
+
+	_EVENT_END
+	_END
+
+//====================================================================
+//冒険ノートをゲットするまではストッパーになる
+//====================================================================
+pos_r202_support_stop:
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,r202_support_male_50	//サポート女
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,r202_support_female_50	//サポート男
+	_END
+
+//--------------------------------------------------------------------
+//サポート女
+//--------------------------------------------------------------------
+r202_support_male_50:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_IF_FLAGOFF_CALL	FE_R202_SUPPORT_TALK,r202_support_male_50_off
+	_IF_FLAGON_CALL		FE_R202_SUPPORT_TALK,r202_support_male_50_on
+	_JUMP			r202_01_support_common_50
+
+r202_support_male_50_off:
+	_TALK_KEYWAIT	msg_r202_heroine_01
+	_RET
+
+r202_support_male_50_on:
+	_TALK_KEYWAIT	msg_r202_heroine_04
+	_RET
+
+//--------------------------------------------------------------------
+//サポート男
+//--------------------------------------------------------------------
+r202_support_female_50:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_IF_FLAGOFF_CALL	FE_R202_SUPPORT_TALK,r202_support_female_50_off
+	_IF_FLAGON_CALL		FE_R202_SUPPORT_TALK,r202_support_female_50_on
+	_JUMP			r202_01_support_common_50
+
+r202_support_female_50_off:
+	_TALK_KEYWAIT	msg_r202_hero_01
+	_RET
+
+r202_support_female_50_on:
+	_TALK_KEYWAIT	msg_r202_hero_04
+	_RET
+
+//--------------------------------------------------------------------
+//共通
+//--------------------------------------------------------------------
+r202_01_support_common_50:
+	_TALK_CLOSE
+
+	//主人公の位置情報取得
+	//_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z1,pos_r202_support_z51
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z2,pos_r202_support_z52
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z3,pos_r202_support_z53
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z4,pos_r202_support_z54
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R202_SUPPORT_Z5,pos_r202_support_z55
+	_END
+
+//--------------------------------------------------------------------
+//サポート	元の位置に戻る
+//--------------------------------------------------------------------
+pos_r202_support_z51:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_51
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r202_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_12_common
+
+pos_r202_support_z52:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_52
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r202_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_12_common
+
+pos_r202_support_z53:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_53
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r202_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_12_common
+
+pos_r202_support_z54:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_54
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r202_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_12_common
+
+pos_r202_support_z55:
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_55
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r202_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r202_support_12_common
+
+//共通処理
+pos_r202_support_12_common:
+
+	/*右に向きなおす*/
+	_OBJ_ANIME		R202_SUPPORT,anm_r202_support_500
+	_OBJ_ANIME_WAIT
+
+	_FLAG_SET		FE_R202_SUPPORT_TALK
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//サポート	"！"
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_01_r202_support_00
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	近寄り
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r202_support_01
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r202_support_02
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r202_support_03
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r202_support_04
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r202_support_05
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	元の場所に戻る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r202_support_51
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r202_support_52
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r202_support_53
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r202_support_54
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r202_support_55
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	右に向きなおす
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r202_support_500
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	草に移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r202_support_58
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	主人公の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r202_support_60
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート退場
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_03_r202_support_01
+	_ANIME_DATA	AC_WALK_L_8F,12
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	サポートの方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_01_r202_player_00
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	１歩後退
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r202_player_01
+	_ANIME_DATA	AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	草に移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r202_player_58
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/********************************************************************/

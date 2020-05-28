@@ -1,0 +1,11 @@
+.cvsignore
+*.nsbtx
+*.nsbtp
+*.nsbmd
+*_itpcv.dat
+arc_result.txt
+arc_result_fe.txt
+mmodel.narc
+mmodel.naix
+fldeff.narc
+fldeff.naix

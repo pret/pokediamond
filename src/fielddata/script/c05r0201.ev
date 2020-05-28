@@ -1,0 +1,177 @@
+//====================================================================
+//								c05r0201
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c05r0201.h"
+	//.include	"../eventdata/zone_c05r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c05r0201_gentleman
+_EVENT_DATA		ev_c05r0201_woman2
+_EVENT_DATA		ev_c05r0201_koduck
+_EVENT_DATA		ev_c05r0201_maril
+_EVENT_DATA		ev_c05r0201_pippi
+_EVENT_DATA		ev_c05r0201_flag_change
+_EVENT_DATA_END
+
+/********************************************************************/
+//			FLAG_CHANGE_LABEL
+/********************************************************************/
+ev_c05r0201_flag_change:
+	_TV_INTERVIEWER_CHECK	4, LOCALWORK0
+	_IFVAL_JUMP			LOCALWORK0,EQ,0, ev_c05r0301_flagchange_vanish
+
+	_FLAG_RESET			FV_TV_INTERVIEW_04
+	_END
+
+ev_c05r0301_flagchange_vanish:
+	_FLAG_SET			FV_TV_INTERVIEW_04
+	_END
+
+/********************************************************************/
+/*							紳士		　							*/
+/********************************************************************/
+ev_c05r0201_gentleman:
+	_TALK_OBJ_START
+
+	//アイテムもらっている
+	_IF_FLAGON_JUMP	FE_C05R0201_ITEM_GET,ev_c05r0201_gentleman_02
+
+	_TALK_KEYWAIT	msg_c05r0201_gentleman_01
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_POFINKEESU
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c05r0201_gentleman_01_item_event_fail
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C05R0201_ITEM_GET
+
+	_TALKMSG	msg_c05r0201_gentleman_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_OBJ_END
+	_END
+
+ev_c05r0201_gentleman_02:
+	//ワザマシンをくれた後メッセージ
+	_TALKMSG	msg_c05r0201_gentleman_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c05r0201_gentleman_01_item_event_fail:
+	//アイテム取得失敗イベント
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*						お洒落姉さん	　							*/
+/********************************************************************/
+ev_c05r0201_woman2:
+	_TALK_OBJ_START
+
+	//先頭ポケモン番号(タマゴを除く）を取得
+	_FRONT_POKEMON	SCWK_PARAM0
+
+	_NICK_NAME		0,SCWK_PARAM0
+	_TALKMSG	msg_c05r0201_woman2_01
+
+	_GET_NATSUKI	SCWK_ANSWER,SCWK_PARAM0
+	_IFVAL_JUMP		SCWK_ANSWER,GE,255,	ev_c05r0201_woman2_02
+	_IFVAL_JUMP		SCWK_ANSWER,GE,200,	ev_c05r0201_woman2_03
+	_IFVAL_JUMP		SCWK_ANSWER,GE,150,	ev_c05r0201_woman2_04
+	_IFVAL_JUMP		SCWK_ANSWER,GE,100,	ev_c05r0201_woman2_05
+	_IFVAL_JUMP		SCWK_ANSWER,GE, 50,	ev_c05r0201_woman2_06
+	_IFVAL_JUMP		SCWK_ANSWER,GE,  1,	ev_c05r0201_woman2_07
+	_JUMP								ev_c05r0201_woman2_08
+
+
+	_END
+
+ev_c05r0201_woman2_02:
+	_TALKMSG	msg_c05r0201_woman2_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c05r0201_woman2_03:
+	_TALKMSG	msg_c05r0201_woman2_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c05r0201_woman2_04:
+	_TALKMSG	msg_c05r0201_woman2_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c05r0201_woman2_05:
+	_TALKMSG	msg_c05r0201_woman2_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c05r0201_woman2_06:
+	_TALKMSG	msg_c05r0201_woman2_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c05r0201_woman2_07:
+	_TALKMSG	msg_c05r0201_woman2_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c05r0201_woman2_08:
+	_TALKMSG	msg_c05r0201_woman2_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*						コダック		　							*/
+/********************************************************************/
+ev_c05r0201_koduck:
+	_EASY_VOICE_MSG	msg_c05r0201_koduck_01,MONSNO_KODAKKU,0
+	_END
+
+/********************************************************************/
+/*						マリル			　							*/
+/********************************************************************/
+ev_c05r0201_maril:
+	_EASY_VOICE_MSG	msg_c05r0201_maril_01,MONSNO_MIMITTO,0
+	_END
+
+/********************************************************************/
+/*						ピッピ			　							*/
+/********************************************************************/
+ev_c05r0201_pippi:
+	_EASY_VOICE_MSG	msg_c05r0201_pippi_01,MONSNO_PIPPI,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

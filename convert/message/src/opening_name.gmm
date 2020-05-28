@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="matsumiya" host="DFS5V61X" date="2006-07-13T11:02:31"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+		<list entry="4" r="FF" g="80" b="C0" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="ピンク" english="ピンク" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="237"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="179"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="224"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="..\font\font_talk.nftr"/>
+				<list entry="1" file="..\font\font_system.nftr"/>
+				<list entry="2" file="..\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="32" top="102" right="648" bottom="730" maximized="no" rayout="Vertical2">
+		<comment-input left="647" top="551" right="994" bottom="703" visible="yes"/>
+		<tag-palette left="601" top="133" right="948" bottom="531" visible="no"/>
+		<band id="0" index="0" style="0000" width="608"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="441"/>
+		<band id="3" index="3" style="0000" width="608"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_opening_name_01" text-color="#ff0000,,,#ff0000,,#ff0000,,,,,,">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ダイヤ</language>
+	</row>
+
+	<row id="msg_opening_name_02">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">サトシ</language>
+	</row>
+
+	<row id="msg_opening_name_03">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ケン</language>
+	</row>
+
+	<row id="msg_opening_name_04">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">シゲキ</language>
+	</row>
+
+	<row id="msg_opening_name_05">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ジャック</language>
+	</row>
+
+	<row id="msg_opening_name_06">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ジャン</language>
+	</row>
+
+	<row id="msg_opening_name_07">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ジョン</language>
+	</row>
+
+	<row id="msg_opening_name_08">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">カモン</language>
+	</row>
+
+	<row id="msg_opening_name_09">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">タカシ</language>
+	</row>
+
+	<row id="msg_opening_name_10">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">テツオ</language>
+	</row>
+
+	<row id="msg_opening_name_11">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">トオル</language>
+	</row>
+
+	<row id="msg_opening_name_12">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ヒロキ</language>
+	</row>
+
+	<row id="msg_opening_name_13">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">マサオ</language>
+	</row>
+
+	<row id="msg_opening_name_14">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">タカオ</language>
+	</row>
+
+	<row id="msg_opening_name_15">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">タケヒロ</language>
+	</row>
+
+	<row id="msg_opening_name_16">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ケイ</language>
+	</row>
+
+	<row id="msg_opening_name_17">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ヒトシ</language>
+	</row>
+
+	<row id="msg_opening_name_18">
+		<comment>ダイヤモンドver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ヒロアキ</language>
+	</row>
+
+	<row id="msg_opening_name_19">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ダイヤ</language>
+	</row>
+
+	<row id="msg_opening_name_20">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">キヨミ</language>
+	</row>
+
+	<row id="msg_opening_name_21">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">サトコ</language>
+	</row>
+
+	<row id="msg_opening_name_22">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">チホ</language>
+	</row>
+
+	<row id="msg_opening_name_23">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">キョウコ</language>
+	</row>
+
+	<row id="msg_opening_name_24">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">マキコ</language>
+	</row>
+
+	<row id="msg_opening_name_25">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ミキコ</language>
+	</row>
+
+	<row id="msg_opening_name_26">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ミチコ</language>
+	</row>
+
+	<row id="msg_opening_name_27">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ジュンコ</language>
+	</row>
+
+	<row id="msg_opening_name_28">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">チナミ</language>
+	</row>
+
+	<row id="msg_opening_name_29">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">リエ</language>
+	</row>
+
+	<row id="msg_opening_name_30">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">セツコ</language>
+	</row>
+
+	<row id="msg_opening_name_31">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ユキコ</language>
+	</row>
+
+	<row id="msg_opening_name_32">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">マミナ</language>
+	</row>
+
+	<row id="msg_opening_name_33">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ノリコ</language>
+	</row>
+
+	<row id="msg_opening_name_34">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ヒサエ</language>
+	</row>
+
+	<row id="msg_opening_name_35">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">モモコ</language>
+	</row>
+
+	<row id="msg_opening_name_36">
+		<comment>ダイヤモンドver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ミスズ</language>
+	</row>
+
+	<row id="msg_opening_name_37">
+		<comment>ダイヤモンドver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">じぶんできめる</language>
+	</row>
+
+	<row id="msg_opening_name_38">
+		<comment>ダイヤモンドver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">ジュン</language>
+	</row>
+
+	<row id="msg_opening_name_39">
+		<comment>ダイヤモンドver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">シゲル</language>
+	</row>
+
+	<row id="msg_opening_name_40">
+		<comment>ダイヤモンドver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">コウジ</language>
+	</row>
+
+	<row id="msg_opening_name_41">
+		<comment>ダイヤモンドver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">トシノブ</language>
+	</row>
+
+	<row id="msg_opening_name_42">
+		<comment>ダイヤモンドver
+ライバル未入力時</comment>
+		<language name="日本語" font=" 1:font_system">パール</language>
+	</row>
+
+	<row id="msg_opening_name_43">
+		<comment>ダイヤモンドver
+サポート♂</comment>
+		<language name="日本語" font=" 1:font_system">コウキ</language>
+	</row>
+
+	<row id="msg_opening_name_44">
+		<comment>ダイヤモンドver
+サポート♀</comment>
+		<language name="日本語" font=" 1:font_system">ヒカリ</language>
+	</row>
+
+	<row id="msg_opening_name_45" text-color="#ff0000,,,#ff0000,,#ff0000,,,,,,">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">パール</language>
+	</row>
+
+	<row id="msg_opening_name_46">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">サトシ</language>
+	</row>
+
+	<row id="msg_opening_name_47">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ケン</language>
+	</row>
+
+	<row id="msg_opening_name_48">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">シゲキ</language>
+	</row>
+
+	<row id="msg_opening_name_49">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ジャック</language>
+	</row>
+
+	<row id="msg_opening_name_50">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ジャン</language>
+	</row>
+
+	<row id="msg_opening_name_51">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ジョン</language>
+	</row>
+
+	<row id="msg_opening_name_52">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">カモン</language>
+	</row>
+
+	<row id="msg_opening_name_53">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">タカシ</language>
+	</row>
+
+	<row id="msg_opening_name_54">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">テツオ</language>
+	</row>
+
+	<row id="msg_opening_name_55">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">トオル</language>
+	</row>
+
+	<row id="msg_opening_name_56">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ヒロキ</language>
+	</row>
+
+	<row id="msg_opening_name_57">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">マサオ</language>
+	</row>
+
+	<row id="msg_opening_name_58">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">タカオ</language>
+	</row>
+
+	<row id="msg_opening_name_59">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">タケヒロ</language>
+	</row>
+
+	<row id="msg_opening_name_60">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ケイ</language>
+	</row>
+
+	<row id="msg_opening_name_61">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ヒトシ</language>
+	</row>
+
+	<row id="msg_opening_name_62">
+		<comment>パールver
+主人公♂名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ヒロアキ</language>
+	</row>
+
+	<row id="msg_opening_name_63">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">パール</language>
+	</row>
+
+	<row id="msg_opening_name_64">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">キヨミ</language>
+	</row>
+
+	<row id="msg_opening_name_65">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">サトコ</language>
+	</row>
+
+	<row id="msg_opening_name_66">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">チホ</language>
+	</row>
+
+	<row id="msg_opening_name_67">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">キョウコ</language>
+	</row>
+
+	<row id="msg_opening_name_68">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">マキコ</language>
+	</row>
+
+	<row id="msg_opening_name_69">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ミキコ</language>
+	</row>
+
+	<row id="msg_opening_name_70">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ミチコ</language>
+	</row>
+
+	<row id="msg_opening_name_71">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ジュンコ</language>
+	</row>
+
+	<row id="msg_opening_name_72">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">チナミ</language>
+	</row>
+
+	<row id="msg_opening_name_73">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">リエ</language>
+	</row>
+
+	<row id="msg_opening_name_74">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">セツコ</language>
+	</row>
+
+	<row id="msg_opening_name_75">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ユキコ</language>
+	</row>
+
+	<row id="msg_opening_name_76">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">マミナ</language>
+	</row>
+
+	<row id="msg_opening_name_77">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ノリコ</language>
+	</row>
+
+	<row id="msg_opening_name_78">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ヒサエ</language>
+	</row>
+
+	<row id="msg_opening_name_79">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">モモコ</language>
+	</row>
+
+	<row id="msg_opening_name_80">
+		<comment>パールver
+主人公♀名前未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ミスズ</language>
+	</row>
+
+	<row id="msg_opening_name_81">
+		<comment>パールver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">じぶんできめる</language>
+	</row>
+
+	<row id="msg_opening_name_82">
+		<comment>パールver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">アキト</language>
+	</row>
+
+	<row id="msg_opening_name_83">
+		<comment>パールver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">ヒサシ</language>
+	</row>
+
+	<row id="msg_opening_name_84">
+		<comment>パールver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">ソウスケ</language>
+	</row>
+
+	<row id="msg_opening_name_85">
+		<comment>パールver
+ライバル名前選択時</comment>
+		<language name="日本語" font=" 1:font_system">ノゾム</language>
+	</row>
+
+	<row id="msg_opening_name_86">
+		<comment>パールver
+ライバル未入力時</comment>
+		<language name="日本語" font=" 1:font_system">ダイヤ</language>
+	</row>
+
+	<row id="msg_opening_name_87">
+		<comment>パールver
+サポート♂</comment>
+		<language name="日本語" font=" 1:font_system">コウキ</language>
+	</row>
+
+	<row id="msg_opening_name_88">
+		<comment>パールver
+サポート♀</comment>
+		<language name="日本語" font=" 1:font_system">ヒカリ</language>
+	</row>
+
+	<row id="msg_opening_rival_dia_01" text-color="#ff0000,,,#ff0000,,#ff0000,,,,,,">
+		<language name="日本語" font=" 1:font_system">パール</language>
+	</row>
+
+	<row id="msg_opening_rival_pearl_01" text-color="#ff0000,,,#ff0000,,#ff0000,,,,,,">
+		<language name="日本語" font=" 1:font_system">ダイヤ</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

@@ -1,0 +1,61 @@
+//====================================================================
+//						シティ０１
+//					コトブキビル２　４Ｆ
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0504.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01r0504_woman2
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*							お洒落姉さん　							*/
+/********************************************************************/
+ev_c01r0504_woman2:
+	_TALK_OBJ_START
+
+	_IF_FLAGON_JUMP		FE_C01R0504_ITEM_GET,ev_c01r0504_woman2_02
+
+	_TALK_KEYWAIT	msg_c01r0504_woman2_01
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_KIAINOHATIMAKI
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c01r0504_woman2_item_event_fail
+
+	_FLAG_SET		FE_C01R0504_ITEM_GET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アイテム入手後
+ev_c01r0504_woman2_02:
+	_TALKMSG	msg_c01r0504_woman2_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アイテム入手失敗
+ev_c01r0504_woman2_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

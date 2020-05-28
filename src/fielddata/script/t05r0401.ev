@@ -1,0 +1,52 @@
+//====================================================================
+//								t05r0401
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t05r0401.h"
+	//.include	"../eventdata/zone_t05r0401evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t05r0401_fighter
+_EVENT_DATA		ev_t05r0401_gonbe
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						　	格闘家									*/
+/********************************************************************/
+ev_t05r0401_fighter:
+	_TALK_OBJ_START
+	//「ポケモンリスト」を取得済みかチェック
+	_POKETCH_CHECK	POKETCH_APPID_AWATCH,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t05r0401_fighter_02
+
+	_TALK_KEYWAIT		msg_t05r0401_fighter_01
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_AWATCH
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_t05r0401_fighter_02:
+	_TALKMSG		msg_t05r0401_fighter_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							ゴンベ									*/
+/********************************************************************/
+ev_t05r0401_gonbe:
+	_EASY_VOICE_MSG	msg_t05r0401_gonbe_01,MONSNO_KORAKKII,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

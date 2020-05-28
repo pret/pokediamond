@@ -1,0 +1,14 @@
+#ifndef _C10R0101_DEF_H_
+#define _C10R0101_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_C10R0101_VETERAN		(1)
+#define	SCRID_C10R0101_SHOP		(2)
+#define	SCRID_C10R0101_FIX_SHOP		(3)
+#define	SCRID_C10R0101_RIVAL		(4)
+#define	SCRID_C10R0101_FLAG_CHANGE		(5)
+#define	SCRID_C10R0101_WOMAN3		(6)
+#define	SCRID_C10R0101_PCWOMAN1		(7)
+#define	SCRID_C10R0101_DATA_MAX		(7)		//最大数
+
+#endif //_C10R0101_DEF_H_

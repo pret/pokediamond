@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="gotou" host="W00083" date="2006-07-22T12:58:29"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+			<tag entry="01" japanese="文字表示ウェイト" english="文字表示ウェイト" view="EP" length="0" line="1">
+				<parameter number="0" japanese="フレーム数" english="フレーム数" type="int16"/>
+				<comment language="japanese">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+				<comment language="english">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="106"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="315"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="214"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="327" top="139" right="1032" bottom="767" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="578" right="1024" bottom="730" visible="yes"/>
+		<tag-palette left="803" top="169" right="1150" bottom="567" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="697"/>
+		<band id="3" index="3" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="SEAL_NAME_000">
+		<language name="日本語" font=" 1:font_system" width="216">　</language>
+	</row>
+
+	<row id="SEAL_NAME_001">
+		<language name="日本語" font=" 1:font_system" width="216">ハートシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_002">
+		<language name="日本語" font=" 1:font_system" width="216">ハートシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_003">
+		<language name="日本語" font=" 1:font_system" width="216">ハートシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_004">
+		<language name="日本語" font=" 1:font_system" width="216">ハートシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_005">
+		<language name="日本語" font=" 1:font_system" width="216">ハートシールＥ</language>
+	</row>
+
+	<row id="SEAL_NAME_006">
+		<language name="日本語" font=" 1:font_system" width="216">ハートシールＦ</language>
+	</row>
+
+	<row id="SEAL_NAME_007">
+		<language name="日本語" font=" 1:font_system" width="216">スターシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_008">
+		<language name="日本語" font=" 1:font_system" width="216">スターシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_009">
+		<language name="日本語" font=" 1:font_system" width="216">スターシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_010">
+		<language name="日本語" font=" 1:font_system" width="216">スターシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_011">
+		<language name="日本語" font=" 1:font_system" width="216">スターシールＥ</language>
+	</row>
+
+	<row id="SEAL_NAME_012">
+		<language name="日本語" font=" 1:font_system" width="216">スターシールＦ</language>
+	</row>
+
+	<row id="SEAL_NAME_013">
+		<language name="日本語" font=" 1:font_system" width="216">ラインシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_014">
+		<language name="日本語" font=" 1:font_system" width="216">ラインシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_015">
+		<language name="日本語" font=" 1:font_system" width="216">ラインシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_016">
+		<language name="日本語" font=" 1:font_system" width="216">スモークシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_017">
+		<language name="日本語" font=" 1:font_system" width="216">スモークシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_018">
+		<language name="日本語" font=" 1:font_system" width="216">スモークシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_019">
+		<language name="日本語" font=" 1:font_system" width="216">スモークシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_020">
+		<language name="日本語" font=" 1:font_system" width="216">エレキシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_021">
+		<language name="日本語" font=" 1:font_system" width="216">エレキシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_022">
+		<language name="日本語" font=" 1:font_system" width="216">エレキシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_023">
+		<language name="日本語" font=" 1:font_system" width="216">エレキシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_024">
+		<language name="日本語" font=" 1:font_system" width="216">バブルシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_025">
+		<language name="日本語" font=" 1:font_system" width="216">バブルシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_026">
+		<language name="日本語" font=" 1:font_system" width="216">バブルシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_027">
+		<language name="日本語" font=" 1:font_system" width="216">バブルシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_028">
+		<language name="日本語" font=" 1:font_system" width="216">ファイアシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_029">
+		<language name="日本語" font=" 1:font_system" width="216">ファイアシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_030">
+		<language name="日本語" font=" 1:font_system" width="216">ファイアシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_031">
+		<language name="日本語" font=" 1:font_system" width="216">ファイアシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_032">
+		<language name="日本語" font=" 1:font_system" width="216">パーティシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_033">
+		<language name="日本語" font=" 1:font_system" width="216">パーティシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_034">
+		<language name="日本語" font=" 1:font_system" width="216">パーティシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_035">
+		<language name="日本語" font=" 1:font_system" width="216">パーティシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_036">
+		<language name="日本語" font=" 1:font_system" width="216">フラワーシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_037">
+		<language name="日本語" font=" 1:font_system" width="216">フラワーシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_038">
+		<language name="日本語" font=" 1:font_system" width="216">フラワーシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_039">
+		<language name="日本語" font=" 1:font_system" width="216">フラワーシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_040">
+		<language name="日本語" font=" 1:font_system" width="216">フラワーシールＥ</language>
+	</row>
+
+	<row id="SEAL_NAME_041">
+		<language name="日本語" font=" 1:font_system" width="216">フラワーシールＦ</language>
+	</row>
+
+	<row id="SEAL_NAME_042">
+		<language name="日本語" font=" 1:font_system" width="216">ソングシールＡ</language>
+	</row>
+
+	<row id="SEAL_NAME_043">
+		<language name="日本語" font=" 1:font_system" width="216">ソングシールＢ</language>
+	</row>
+
+	<row id="SEAL_NAME_044">
+		<language name="日本語" font=" 1:font_system" width="216">ソングシールＣ</language>
+	</row>
+
+	<row id="SEAL_NAME_045">
+		<language name="日本語" font=" 1:font_system" width="216">ソングシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_046">
+		<language name="日本語" font=" 1:font_system" width="216">ソングシールＥ</language>
+	</row>
+
+	<row id="SEAL_NAME_047">
+		<language name="日本語" font=" 1:font_system" width="216">ソングシールＦ</language>
+	</row>
+
+	<row id="SEAL_NAME_048">
+		<language name="日本語" font=" 1:font_system" width="216">ソングシールＧ</language>
+	</row>
+
+	<row id="SEAL_NAME_049">
+		<language name="日本語" font=" 1:font_system" width="216">Ａシール</language>
+	</row>
+
+	<row id="SEAL_NAME_050">
+		<language name="日本語" font=" 1:font_system" width="216">Ｂシール</language>
+	</row>
+
+	<row id="SEAL_NAME_051">
+		<language name="日本語" font=" 1:font_system" width="216">Ｃシール</language>
+	</row>
+
+	<row id="SEAL_NAME_052">
+		<language name="日本語" font=" 1:font_system" width="216">Ｄシール</language>
+	</row>
+
+	<row id="SEAL_NAME_053">
+		<language name="日本語" font=" 1:font_system" width="216">Ｅシール</language>
+	</row>
+
+	<row id="SEAL_NAME_054">
+		<language name="日本語" font=" 1:font_system" width="216">Ｆシール</language>
+	</row>
+
+	<row id="SEAL_NAME_055">
+		<language name="日本語" font=" 1:font_system" width="216">Ｇシール</language>
+	</row>
+
+	<row id="SEAL_NAME_056">
+		<language name="日本語" font=" 1:font_system" width="216">Ｈシール</language>
+	</row>
+
+	<row id="SEAL_NAME_057">
+		<language name="日本語" font=" 1:font_system" width="216">Ｉシール</language>
+	</row>
+
+	<row id="SEAL_NAME_058">
+		<language name="日本語" font=" 1:font_system" width="216">Ｊシール</language>
+	</row>
+
+	<row id="SEAL_NAME_059">
+		<language name="日本語" font=" 1:font_system" width="216">Ｋシール</language>
+	</row>
+
+	<row id="SEAL_NAME_060">
+		<language name="日本語" font=" 1:font_system" width="216">Ｌシール</language>
+	</row>
+
+	<row id="SEAL_NAME_061">
+		<language name="日本語" font=" 1:font_system" width="216">Ｍシール</language>
+	</row>
+
+	<row id="SEAL_NAME_062">
+		<language name="日本語" font=" 1:font_system" width="216">Ｎシール</language>
+	</row>
+
+	<row id="SEAL_NAME_063">
+		<language name="日本語" font=" 1:font_system" width="216">Ｏシール</language>
+	</row>
+
+	<row id="SEAL_NAME_064">
+		<language name="日本語" font=" 1:font_system" width="216">Ｐシール</language>
+	</row>
+
+	<row id="SEAL_NAME_065">
+		<language name="日本語" font=" 1:font_system" width="216">Ｑシール</language>
+	</row>
+
+	<row id="SEAL_NAME_066">
+		<language name="日本語" font=" 1:font_system" width="216">Ｒシール</language>
+	</row>
+
+	<row id="SEAL_NAME_067">
+		<language name="日本語" font=" 1:font_system" width="216">Ｓシール</language>
+	</row>
+
+	<row id="SEAL_NAME_068">
+		<language name="日本語" font=" 1:font_system" width="216">Ｔシール</language>
+	</row>
+
+	<row id="SEAL_NAME_069">
+		<language name="日本語" font=" 1:font_system" width="216">Ｕシール</language>
+	</row>
+
+	<row id="SEAL_NAME_070">
+		<language name="日本語" font=" 1:font_system" width="216">Ｖシール</language>
+	</row>
+
+	<row id="SEAL_NAME_071">
+		<language name="日本語" font=" 1:font_system" width="216">Ｗシール</language>
+	</row>
+
+	<row id="SEAL_NAME_072">
+		<language name="日本語" font=" 1:font_system" width="216">Ｘシール</language>
+	</row>
+
+	<row id="SEAL_NAME_073">
+		<language name="日本語" font=" 1:font_system" width="216">Ｙシール</language>
+	</row>
+
+	<row id="SEAL_NAME_074">
+		<language name="日本語" font=" 1:font_system" width="216">Ｚシール</language>
+	</row>
+
+	<row id="SEAL_NAME_075">
+		<language name="日本語" font=" 1:font_system" width="216">びっくりシール</language>
+	</row>
+
+	<row id="SEAL_NAME_076">
+		<language name="日本語" font=" 1:font_system" width="216">はてなシール</language>
+	</row>
+
+	<row id="SEAL_NAME_015_2">
+		<language name="日本語" font=" 1:font_system" width="216">ラインシールＤ</language>
+	</row>
+
+	<row id="SEAL_NAME_077">
+		<language name="日本語" font=" 1:font_system" width="216">リキッドシール</language>
+	</row>
+
+	<row id="SEAL_NAME_078">
+		<language name="日本語" font=" 1:font_system" width="216">ばくはつシール</language>
+	</row>
+
+	<row id="SEAL_NAME_079">
+		<language name="日本語" font=" 1:font_system" width="216">キラキラシール</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

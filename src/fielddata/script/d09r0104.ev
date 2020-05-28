@@ -1,0 +1,427 @@
+//====================================================================
+//								d09r0104
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d09r0104.h"
+	.include	"../eventdata/zone_d09r0104evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d09r0104_seven4_01
+_EVENT_DATA		ev_d09r0104_seven4_03
+_EVENT_DATA		ev_d09r0104_seven4_04
+_EVENT_DATA		ev_d09r0104_flag_change
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d09r0104_flag_change:
+
+	/*５人衆イベントをクリアしていなかったらイベントが再度起きるようにする！*/
+	_IF_FLAGOFF_JUMP	FE_SEVEN4_CLEAR,ev_d09r0104_flag_change_retry
+	_END
+
+/*５人衆イベントをクリアしていなかったらイベントが再度起きるようにする！*/
+ev_d09r0104_flag_change_retry:
+	_LDVAL			WK_SCENE_D09R0104,0
+	_END
+
+
+/********************************************************************/
+/*							仲間になる								*/
+/********************************************************************/
+#define POS_D09R0104_SEVEN4_Z1	(55)
+#define POS_D09R0104_SEVEN4_Z2	(56)
+#define POS_D09R0104_SEVEN4_Z3	(57)
+#define POS_D09R0104_SEVEN4_Z4	(58)
+#define POS_D09R0104_SEVEN4_Z5	(59)
+#define POS_D09R0104_SEVEN4_Z6	(60)
+
+ev_d09r0104_seven4_01:
+	_EVENT_START
+
+	_BICYCLE_REQ		0	/*強制的に自転車から降りるようにする*/
+
+	/*左を向く*/
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_20
+	_OBJ_ANIME_WAIT
+
+	/*主人公の位置情報取得*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z1,pos_d09r0104_seven4_z01
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z2,pos_d09r0104_seven4_z02
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z3,pos_d09r0104_seven4_z03
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z4,pos_d09r0104_seven4_z04
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z5,pos_d09r0104_seven4_z05
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z6,pos_d09r0104_seven4_z06
+	_END
+
+/*近づいてくる*/
+pos_d09r0104_seven4_z01:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_21
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_01
+
+pos_d09r0104_seven4_z02:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_22
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_01
+
+pos_d09r0104_seven4_z03:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_23
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_01
+
+pos_d09r0104_seven4_z04:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_24
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_01
+
+pos_d09r0104_seven4_z05:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_25
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_01
+
+pos_d09r0104_seven4_z06:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_26
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_01
+
+common_d09r0104_seven4_01:
+	/*会話しているかで分岐*/
+	_PLAYER_NAME		0
+	_IF_FLAGOFF_CALL	FE_D09R0104_SEVEN4_TALK,ev_d09r0104_seven4_01_talk_off
+	_IF_FLAGON_CALL		FE_D09R0104_SEVEN4_TALK,ev_d09r0104_seven4_01_talk_on
+
+	_PLAYER_NAME	0
+	_ME_PLAY		SEQ_GONIN
+	_TALKMSG		msg_d09r0104_pair_01
+	_ME_WAIT
+
+	_FLAG_SET		FE_D09R0104_SEVEN4_TALK
+	_LDVAL			WK_SCENE_D09R0104,1
+
+	_TALKMSG		msg_d09r0104_pair_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	/*連れ歩き開始*/
+	_LDVAL			SYS_WORK_PAIR_TRAINER_ID,BTFIVE3_01
+	_SYS_FLAG_PAIR_SET
+	_MOVE_CODE_CHANGE	D09R0104_SEVEN3,MV_PAIR
+
+	_EVENT_END
+	_END
+
+ev_d09r0104_seven4_01_talk_off:
+	_TALK_KEYWAIT	msg_d09r0104_seven4_01
+	_RET
+
+ev_d09r0104_seven4_01_talk_on:
+	_TALK_KEYWAIT	msg_d09r0104_seven4_02
+	_RET
+
+//--------------------------------------------------------------------
+//５人衆	左を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_seven4_20
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_seven4_21
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_22
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_23
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_24
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_25
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_26
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*							別れる									*/
+/********************************************************************/
+ev_d09r0104_seven4_03:
+	_EVENT_START
+
+	/*向き合う*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d09r0104_player_10
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_100
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d09r0104_seven4_03
+	_TALK_CLOSE
+
+	_LDVAL			WK_SCENE_D09R0104,0
+
+	/*連れ歩き終了*/
+	_SYS_FLAG_PAIR_RESET
+	_MOVE_CODE_CHANGE	D09R0104_SEVEN3,MV_UP
+
+	/*主人公の位置情報取得*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z1,pos_d09r0104_seven4_z11
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z2,pos_d09r0104_seven4_z12
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z3,pos_d09r0104_seven4_z13
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z4,pos_d09r0104_seven4_z14
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z5,pos_d09r0104_seven4_z15
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D09R0104_SEVEN4_Z6,pos_d09r0104_seven4_z16
+	_END
+
+/*元の位置へ戻る*/
+pos_d09r0104_seven4_z11:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_31
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_31
+
+pos_d09r0104_seven4_z12:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_32
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_31
+
+pos_d09r0104_seven4_z13:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_33
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_31
+
+pos_d09r0104_seven4_z14:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_34
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_31
+
+pos_d09r0104_seven4_z15:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_35
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_31
+
+pos_d09r0104_seven4_z16:
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_36
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_31
+
+common_d09r0104_seven4_31:
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_player_10
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	一歩上に移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_seven4_11
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	元の位置に戻る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_seven4_31
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_32
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_33
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_34
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_35
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_36
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	主人公の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_seven4_100
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ゴール									*/
+/********************************************************************/
+#define POS_D09R0104_SEVEN4_X1	(51)
+#define POS_D09R0104_SEVEN4_X2	(52)
+#define POS_D09R0104_SEVEN4_X3	(53)
+#define POS_D09R0104_SEVEN4_X4	(54)
+
+ev_d09r0104_seven4_04:
+	_EVENT_START
+
+	/*連れ歩き終了*/
+	_SYS_FLAG_PAIR_RESET
+	_MOVE_CODE_CHANGE	D09R0104_SEVEN3,MV_UP
+
+	/*向き合う*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d09r0104_player_100
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_41
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d09r0104_seven4_04
+	_TALK_CLOSE
+
+	/*主人公の位置情報取得*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_D09R0104_SEVEN4_X1,pos_d09r0104_seven4_x01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_D09R0104_SEVEN4_X2,pos_d09r0104_seven4_x02
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_D09R0104_SEVEN4_X3,pos_d09r0104_seven4_x03
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_D09R0104_SEVEN4_X4,pos_d09r0104_seven4_x04
+	_END
+
+/*出口へ去っていく*/
+pos_d09r0104_seven4_x01:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d09r0104_player_120
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_120
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_04
+
+pos_d09r0104_seven4_x02:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d09r0104_player_120
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_121
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_04
+
+pos_d09r0104_seven4_x03:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d09r0104_player_120
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_122
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_04
+
+pos_d09r0104_seven4_x04:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d09r0104_player_121
+	_OBJ_ANIME		D09R0104_SEVEN3,anm_d09r0104_seven4_123
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d09r0104_seven4_04
+
+/*共通処理*/
+common_d09r0104_seven4_04:
+	_OBJ_DEL		D09R0104_SEVEN3
+
+	/*５人衆イベントクリア*/
+	_FLAG_SET		FE_SEVEN4_CLEAR
+
+	_LDVAL			WK_SCENE_D09R0104,2
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_player_100
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_player_120
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_player_121
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_seven4_41
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	出口へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d09r0104_seven4_120
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_121
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_122
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d09r0104_seven4_123
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+

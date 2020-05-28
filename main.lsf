@@ -1,0 +1,684 @@
+#----------------------------------------------------------------------------
+#
+#  Nitro LCF SPEC FILE
+#
+#----------------------------------------------------------------------------
+
+Static main
+{
+	Address		$(ADDRESS_MAIN)
+	Object		$(OBJS_STATIC)
+	Library		$(LLIBS) $(GLIBS) $(CW_LIBS)
+
+#	スタックサイズ　IRQスタックサイズ
+#	(省略時にはスタックサイズは0(最大限度まで確保)、IRQ スタックサイズは 0x400 バイト)
+#	StackSize	0 0x800
+}
+
+Autoload ITCM
+{
+	Address		0x01ff8000
+	Object		* (.itcm)
+}
+
+Autoload DTCM
+{
+	Address		$(ADDRESS_DTCM)
+	Object		* (.dtcm)
+}
+
+
+#----------------------------------------------------------------------------
+#  オーバーレイ設定
+#----------------------------------------------------------------------------
+#ここから下はoverlaytool.rbで自動生成されています
+
+Overlay test_first
+{
+	After	main
+	Object	$(OBJDIR)/test_overlay.o
+}
+
+Overlay test_second
+{
+	After	main
+	Object	$(OBJDIR)/test_overlay2.o
+}
+
+Overlay test_second_abc
+{
+	After	test_second
+	Object	$(OBJDIR)/test_overlay3.o \
+		$(OBJDIR)/test_overlay4.o
+}
+
+Overlay test_itcm
+{
+	After	ITCM
+	Object	$(OBJDIR)/test_overlay_itcm.o
+}
+
+Overlay ol_wifi
+{
+	After	main
+	Object	$(OBJDIR)/dwc_rap.o \
+		$(OBJDIR)/dwc_rapcommon.o \
+		$(OBJDIR)/vchat.o
+	Library	libdwcauth.a \
+	libdwcbase.a \
+	libdwcac.a \
+	libdwcgscommon.a \
+	libdwcgsgp.a \
+	libdwcgsgstats.a \
+	libdwcgsgt2.a \
+	libdwcgsnatneg.a \
+	libdwcgsqr2.a \
+	libdwcgsserverbrowsing.a
+}
+
+Overlay fieldmap
+{
+	After	main
+	Object	$(OBJDIR)/fieldmap.o \
+		$(OBJDIR)/fieldmap_func.o \
+		$(OBJDIR)/d_zonename.o \
+		$(OBJDIR)/fld_debug.o \
+		$(OBJDIR)/field_clact.o \
+		$(OBJDIR)/camera_move_test.o \
+		$(OBJDIR)/field_3d_anime.o \
+		$(OBJDIR)/field_3d_anime_ev.o \
+		$(OBJDIR)/field_light.o \
+		$(OBJDIR)/mat_shp.o \
+		$(OBJDIR)/fog_sys.o \
+		$(OBJDIR)/field_glb_state.o \
+		$(OBJDIR)/encount_set.o \
+		$(OBJDIR)/field_camera.o \
+		$(OBJDIR)/field_subscreen.o \
+		$(OBJDIR)/field_anime.o \
+		$(OBJDIR)/weather_sys.o \
+		$(OBJDIR)/ev_win.o \
+		$(OBJDIR)/guinness_win.o \
+		$(OBJDIR)/ev_trainer.o \
+		$(OBJDIR)/place_name.o \
+		$(OBJDIR)/ev_poketch.o \
+		$(OBJDIR)/encount_effect.o \
+		$(OBJDIR)/eoa.o \
+		$(OBJDIR)/tr_card_setup.o \
+		$(OBJDIR)/field_effect.o \
+		$(OBJDIR)/fldeff_shadow.o \
+		$(OBJDIR)/fldeff_trap.o \
+		$(OBJDIR)/fldeff_hole.o \
+		$(OBJDIR)/fldeff_dirtrap.o \
+		$(OBJDIR)/fldeff_flag.o \
+		$(OBJDIR)/fldeff_exclamation.o \
+		$(OBJDIR)/fldeff_ok.o \
+		$(OBJDIR)/fldeff_dbgornament.o \
+		$(OBJDIR)/player_event.o \
+		$(OBJDIR)/fldeff_grass.o \
+		$(OBJDIR)/fldeff_gyoe.o \
+		$(OBJDIR)/fldeff_reflect.o \
+		$(OBJDIR)/field_skill.o \
+		$(OBJDIR)/fldeff_elight.o \
+		$(OBJDIR)/map3d_object.o \
+		$(OBJDIR)/fldeff_footmark.o \
+		$(OBJDIR)/fldeff_splash.o \
+		$(OBJDIR)/fldeff_board.o \
+		$(OBJDIR)/board.o \
+		$(OBJDIR)/report.o \
+		$(OBJDIR)/fd_shop.o \
+		$(OBJDIR)/motion_bl.o \
+		$(OBJDIR)/fld_motion_bl.o \
+		$(OBJDIR)/ecnt_tomo.o \
+		$(OBJDIR)/sodateya.o \
+		$(OBJDIR)/fldeff_seed.o \
+		$(OBJDIR)/fldeff_snowball.o \
+		$(OBJDIR)/fldeff_redframe.o \
+		$(OBJDIR)/fldeff_arrow.o \
+		$(OBJDIR)/div_map.o \
+		$(OBJDIR)/fldeff_namipoke.o \
+		$(OBJDIR)/field_poketch.o \
+		$(OBJDIR)/fldeff_rockride.o \
+		$(OBJDIR)/comm_direct_counter.o \
+		$(OBJDIR)/gym.o \
+		$(OBJDIR)/floor_touch.o \
+		$(OBJDIR)/ug_base_layout.o \
+		$(OBJDIR)/ug_base.o \
+		$(OBJDIR)/ug_base_bmp.o \
+		$(OBJDIR)/fldeff_ripple.o \
+		$(OBJDIR)/fieldobj_drawdata.o \
+		$(OBJDIR)/fieldobj_draw_0.o \
+		$(OBJDIR)/fieldobj_draw.o \
+		$(OBJDIR)/quick_sand.o \
+		$(OBJDIR)/ookisa.o \
+		$(OBJDIR)/fieldmap_mem.o \
+		$(OBJDIR)/fld_mailbox.o \
+		$(OBJDIR)/height_check.o \
+		$(OBJDIR)/height_load.o \
+		$(OBJDIR)/height_ex.o \
+		$(OBJDIR)/union_board.o \
+		$(OBJDIR)/wifi_earth.o \
+		$(OBJDIR)/d_ohno.o \
+		$(OBJDIR)/d_tomoya.o \
+		$(OBJDIR)/d_nohara.o \
+		$(OBJDIR)/debug_saito.o
+}
+
+Overlay bc_common
+{
+	After	ol_wifi
+	Object	$(OBJDIR)/wazatype_panel.o \
+		$(OBJDIR)/we_sys.o \
+		$(OBJDIR)/battle_particle.o \
+		$(OBJDIR)/d_particle.o \
+		$(OBJDIR)/wp_tbl.o \
+		$(OBJDIR)/wp_callback.o \
+		$(OBJDIR)/wpcb_operator.o \
+		$(OBJDIR)/wpcb_field.o \
+		$(OBJDIR)/wpcb_camera.o \
+		$(OBJDIR)/wpcb_debug.o \
+		$(OBJDIR)/wazatool.o \
+		$(OBJDIR)/west_sp.o \
+		$(OBJDIR)/wsp_sample.o \
+		$(OBJDIR)/wsp_tool.o \
+		$(OBJDIR)/wsp_goto.o \
+		$(OBJDIR)/wsp_goto2.o \
+		$(OBJDIR)/wsp_100.o \
+		$(OBJDIR)/wsp_200.o \
+		$(OBJDIR)/wsp_300.o \
+		$(OBJDIR)/wsp_400.o \
+		$(OBJDIR)/wsp_tomoya.o \
+		$(OBJDIR)/wsp_status.o \
+		$(OBJDIR)/wsp_steff.o \
+		$(OBJDIR)/we_tool.o \
+		$(OBJDIR)/d_we.o \
+		$(OBJDIR)/smptm_statuseffect.o \
+		$(OBJDIR)/ball_effect.o \
+		$(OBJDIR)/ec_eff.o \
+		$(OBJDIR)/d_tool.o
+}
+
+Overlay battle
+{
+	After	bc_common
+	Object	$(OBJDIR)/fight.o \
+		$(OBJDIR)/fight_tool.o \
+		$(OBJDIR)/skill_intp.o \
+		$(OBJDIR)/server.o \
+		$(OBJDIR)/server_tool.o \
+		$(OBJDIR)/client.o \
+		$(OBJDIR)/client_tool.o \
+		$(OBJDIR)/scio.o \
+		$(OBJDIR)/gauge.o \
+		$(OBJDIR)/ground.o \
+		$(OBJDIR)/battle_input.o \
+		$(OBJDIR)/battle_cursor.o \
+		$(OBJDIR)/font_obj.o \
+		$(OBJDIR)/shinka.o \
+		$(OBJDIR)/b_plist_main.o \
+		$(OBJDIR)/b_plist_bmp.o \
+		$(OBJDIR)/b_plist_obj.o \
+		$(OBJDIR)/b_plist_anm.o \
+		$(OBJDIR)/b_bag_main.o \
+		$(OBJDIR)/b_bag_bmp.o \
+		$(OBJDIR)/b_bag_item.o \
+		$(OBJDIR)/b_bag_obj.o \
+		$(OBJDIR)/b_bag_anm.o \
+		$(OBJDIR)/b_app_tool.o
+}
+
+Overlay contest
+{
+	After	bc_common
+	Object	$(OBJDIR)/actin.o \
+		$(OBJDIR)/visual.o \
+		$(OBJDIR)/dance.o \
+		$(OBJDIR)/adv_tool.o \
+		$(OBJDIR)/actin_input.o \
+		$(OBJDIR)/aci_tool.o \
+		$(OBJDIR)/actin_tool.o \
+		$(OBJDIR)/actin_calc.o \
+		$(OBJDIR)/actin_order.o \
+		$(OBJDIR)/actin_waza.o \
+		$(OBJDIR)/visual_tool.o \
+		$(OBJDIR)/visual_order.o \
+		$(OBJDIR)/dance_input.o \
+		$(OBJDIR)/dance_tool.o \
+		$(OBJDIR)/dance_order.o \
+		$(OBJDIR)/contype_icon.o \
+		$(OBJDIR)/contest_order.o \
+		$(OBJDIR)/con_result.o \
+		$(OBJDIR)/res_tool.o \
+		$(OBJDIR)/res_order.o
+}
+
+Overlay ol_wifiutil
+{
+	After	ol_wifi
+	Object	$(OBJDIR)/dwc_raputility.o \
+		$(OBJDIR)/dwc_test.o
+	Library	libdwcutil.a
+}
+
+Overlay overlay_box
+{
+	After	main
+	Object	$(OBJDIR)/box.o \
+		$(OBJDIR)/box_reel.o \
+		$(OBJDIR)/boxv.o \
+		$(OBJDIR)/boxv_tray.o \
+		$(OBJDIR)/boxv_cursor.o \
+		$(OBJDIR)/boxv_icon.o \
+		$(OBJDIR)/boxv_button.o \
+		$(OBJDIR)/boxv_status.o \
+		$(OBJDIR)/boxv_msg.o \
+		$(OBJDIR)/boxv_exwin.o \
+		$(OBJDIR)/boxv_party.o \
+		$(OBJDIR)/boxv_reel.o \
+		$(OBJDIR)/boxv_itemicon.o \
+		$(OBJDIR)/boxv_compare.o \
+		$(OBJDIR)/boxmenu.o
+}
+
+Overlay overlay_pmsi
+{
+	After	main
+	Object	$(OBJDIR)/pms_input.o \
+		$(OBJDIR)/pms_input_data.o \
+		$(OBJDIR)/pms_input_view.o \
+		$(OBJDIR)/pmsiv_edit.o \
+		$(OBJDIR)/pmsiv_button.o \
+		$(OBJDIR)/pmsiv_category.o \
+		$(OBJDIR)/pmsiv_wordwin.o \
+		$(OBJDIR)/pmsiv_sub.o \
+		$(OBJDIR)/pmsiv_tool.o \
+		$(OBJDIR)/pmsi_initial_data.o
+}
+
+Overlay ol_zukan
+{
+	After	main
+	Object	$(OBJDIR)/zkn_sys.o \
+		$(OBJDIR)/pokefoot.o \
+		$(OBJDIR)/zkn_drawglb.o \
+		$(OBJDIR)/zkn_glbdata.o \
+		$(OBJDIR)/zkn_proc_sys.o \
+		$(OBJDIR)/zkn_event.o \
+		$(OBJDIR)/zkn_event_aplchg.o \
+		$(OBJDIR)/zkn_fontoam.o \
+		$(OBJDIR)/zkn_cursor.o \
+		$(OBJDIR)/zkn_encount_draw.o \
+		$(OBJDIR)/zkn_world_text_sys.o \
+		$(OBJDIR)/zkn_range_data.o \
+		$(OBJDIR)/zkn_pokelist.o \
+		$(OBJDIR)/zkn_pokelist_sub.o \
+		$(OBJDIR)/zkn_sortsearch.o \
+		$(OBJDIR)/zkn_sortsearch_sub.o \
+		$(OBJDIR)/zkn_range.o \
+		$(OBJDIR)/zkn_range_sub.o \
+		$(OBJDIR)/zkn_zukan.o \
+		$(OBJDIR)/zkn_zukan_graver.o \
+		$(OBJDIR)/zkn_zukan_textver.o \
+		$(OBJDIR)/zkn_zukan_sub.o \
+		$(OBJDIR)/zkn_zukan_common.o \
+		$(OBJDIR)/zkn_sound.o \
+		$(OBJDIR)/zkn_sound_sub.o \
+		$(OBJDIR)/zkn_big.o \
+		$(OBJDIR)/zkn_big_sub.o \
+		$(OBJDIR)/zkn_big_weight.o \
+		$(OBJDIR)/zkn_big_debug_sub.o \
+		$(OBJDIR)/zkn_zukan_graver_sub.o \
+		$(OBJDIR)/zkn_fight_text.o
+}
+
+Overlay ol_imageclip
+{
+	After	main
+	Object	$(OBJDIR)/imc_accessorie.o \
+		$(OBJDIR)/imc_drawsys.o \
+		$(OBJDIR)/imc_sys.o \
+		$(OBJDIR)/imc_right_box.o \
+		$(OBJDIR)/imc_left_box.o \
+		$(OBJDIR)/imc_hand.o \
+		$(OBJDIR)/imc_item_buff.o \
+		$(OBJDIR)/imc_acce_hand.o \
+		$(OBJDIR)/imc_poke_obj.o \
+		$(OBJDIR)/imc_obj_list.o \
+		$(OBJDIR)/imc_obj_list_func.o \
+		$(OBJDIR)/imc_bg.o \
+		$(OBJDIR)/imc_button.o \
+		$(OBJDIR)/imc_subwin.o \
+		$(OBJDIR)/imc_rbox_player.o \
+		$(OBJDIR)/imc_playsys.o
+}
+
+Overlay ol_underground
+{
+	After	fieldmap
+	Object	$(OBJDIR)/ug_dig_fossil.o \
+		$(OBJDIR)/ug_dig_stone.o \
+		$(OBJDIR)/ug_manager.o \
+		$(OBJDIR)/ug_trap.o \
+		$(OBJDIR)/ug_radar.o \
+		$(OBJDIR)/comm_player_condition.o \
+		$(OBJDIR)/ug_secretbase.o \
+		$(OBJDIR)/ug_talk.o \
+		$(OBJDIR)/ug_bag.o \
+		$(OBJDIR)/ug_pc.o \
+		$(OBJDIR)/ug_shop.o \
+		$(OBJDIR)/ug_record.o \
+		$(OBJDIR)/ug_message.o \
+		$(OBJDIR)/ug_trapshopdata.o
+}
+
+Overlay ol_before_poketch
+{
+	After	fieldmap
+	Object	$(OBJDIR)/before_poketch.o
+}
+
+Overlay ol_poketch
+{
+	After	fieldmap
+	Object	$(OBJDIR)/poketch_c.o \
+		$(OBJDIR)/poketch_v.o \
+		$(OBJDIR)/poketch_v_tool.o \
+		$(OBJDIR)/poketch_act.o \
+		$(OBJDIR)/poketch_button.o
+}
+
+Overlay poketch_app_dwatch
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a00c.o \
+		$(OBJDIR)/poketch_a00v.o
+}
+
+Overlay poketch_app_stopwatch
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a01c.o \
+		$(OBJDIR)/poketch_a01v.o
+}
+
+Overlay poketch_app_calc
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a02c.o \
+		$(OBJDIR)/poketch_a02v.o \
+		$(OBJDIR)/poketch_realnum.o
+}
+
+Overlay poketch_app_memo
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a03c.o \
+		$(OBJDIR)/poketch_a03v.o
+}
+
+Overlay poketch_app_awatch
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a04c.o \
+		$(OBJDIR)/poketch_a04v.o
+}
+
+Overlay poketch_app_dotart
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a05c.o \
+		$(OBJDIR)/poketch_a05v.o
+}
+
+Overlay poketch_app_simple_pokelist
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a06c.o \
+		$(OBJDIR)/poketch_a06v.o
+}
+
+Overlay poketch_app_natsuki_checker
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a07c.o \
+		$(OBJDIR)/poketch_a07v.o
+}
+
+Overlay poketch_app_dowsing
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a08c.o \
+		$(OBJDIR)/poketch_a08v.o
+}
+
+Overlay poketch_app_counter
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a09c.o \
+		$(OBJDIR)/poketch_a09v.o
+}
+
+Overlay poketch_app_pedometer
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a10c.o \
+		$(OBJDIR)/poketch_a10v.o
+}
+
+Overlay poketch_app_backlight
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a11c.o \
+		$(OBJDIR)/poketch_a11v.o
+}
+
+Overlay poketch_app_dummy_monitor
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a12c.o \
+		$(OBJDIR)/poketch_a12v.o
+}
+
+Overlay poketch_app_trainer_launcher
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a13c.o \
+		$(OBJDIR)/poketch_a13v.o
+}
+
+Overlay poketch_app_sodateya_camera
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a15c.o \
+		$(OBJDIR)/poketch_a15v.o
+}
+
+Overlay poketch_app_roulette
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a16c.o \
+		$(OBJDIR)/poketch_a16v.o
+}
+
+Overlay poketch_app_cointoss
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a17c.o \
+		$(OBJDIR)/poketch_a17v.o
+}
+
+Overlay poketch_app_wazaeff
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a18c.o \
+		$(OBJDIR)/poketch_a18v.o
+}
+
+Overlay poketch_app_love_tester
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a19c.o \
+		$(OBJDIR)/poketch_a19v.o
+}
+
+Overlay poketch_app_alarm
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a20c.o \
+		$(OBJDIR)/poketch_a20v.o
+}
+
+Overlay poketch_app_kitchen
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a21c.o \
+		$(OBJDIR)/poketch_a21v.o
+}
+
+Overlay poketch_app_mark_map
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a22c.o \
+		$(OBJDIR)/poketch_a22v.o
+}
+
+Overlay poketch_app_seed_map
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a23c.o \
+		$(OBJDIR)/poketch_a23v.o
+}
+
+Overlay poketch_app_color_changer
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a24c.o \
+		$(OBJDIR)/poketch_a24v.o
+}
+
+Overlay poketch_app_calendar
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a25c.o \
+		$(OBJDIR)/poketch_a25v.o
+}
+
+Overlay poketch_app_radio
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a26c.o \
+		$(OBJDIR)/poketch_a26v.o
+}
+
+Overlay poketch_app_comm_search
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a27c.o \
+		$(OBJDIR)/poketch_a27v.o
+}
+
+Overlay poketch_app_dummy
+{
+	After	ol_poketch
+	Object	$(OBJDIR)/poketch_a49c.o \
+		$(OBJDIR)/poketch_a49v.o
+}
+
+Overlay d_startmenu
+{
+	After	main
+	Object	$(OBJDIR)/d_startmenu.o
+}
+
+Overlay oekaki_board
+{
+	After	main
+	Object	$(OBJDIR)/oekaki.o
+}
+
+Overlay record_corner
+{
+	After	main
+	Object	$(OBJDIR)/record_corner.o
+}
+
+Overlay trainer_card
+{
+	After	main
+	Object	$(OBJDIR)/trainer_card.o \
+		$(OBJDIR)/trcard_bmp.o \
+		$(OBJDIR)/trcard_obj.o \
+		$(OBJDIR)/trcard_snd.o
+}
+
+Overlay opening
+{
+	After	main
+	Object	$(OBJDIR)/opening.o \
+		$(OBJDIR)/opening_bmp.o \
+		$(OBJDIR)/opening_obj.o
+}
+
+Overlay config
+{
+	After	main
+	Object	$(OBJDIR)/config_tool.o
+}
+
+Overlay mailview
+{
+	After	main
+	Object	$(OBJDIR)/mailview.o
+}
+
+Overlay title
+{
+	After	main
+	Object	$(OBJDIR)/title.o
+}
+
+Overlay ev_pokeselect
+{
+	After	main
+	Object	$(OBJDIR)/ev_poke_select.o
+}
+
+Overlay porutocase
+{
+	After	main
+	Object	$(OBJDIR)/porucase.o \
+		$(OBJDIR)/porucase_bmp.o \
+		$(OBJDIR)/poru_act.o \
+		$(OBJDIR)/porudemo.o \
+		$(OBJDIR)/poru_3d.o
+}
+
+Overlay townmap
+{
+	After	main
+	Object	$(OBJDIR)/townmap.o \
+		$(OBJDIR)/tmap_nrm.o \
+		$(OBJDIR)/tmap_act.o
+}
+
+Overlay fnote
+{
+	After	main
+	Object	$(OBJDIR)/fnote_main.o \
+		$(OBJDIR)/fnote_bmp.o
+}
+
+Overlay nuts_tag
+{
+	After	main
+	Object	$(OBJDIR)/nuts_tag.o
+}
+
+Overlay title_debug
+{
+	After	main
+	Object	$(OBJDIR)/snd_test.o \
+		$(OBJDIR)/d_title.o \
+		$(OBJDIR)/poke_test.o \
+		$(OBJDIR)/tr_test.o
+}
+

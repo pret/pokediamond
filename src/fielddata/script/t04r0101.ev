@@ -1,0 +1,70 @@
+//====================================================================
+//						t04r0101.gmm
+//					フィールド・タウン０４
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t04r0101.h"
+	.include	"../eventdata/zone_t04r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA ev_t04r0101_flag_change
+_EVENT_DATA ev_t04r0101_sunglasses
+_EVENT_DATA ev_t04r0101_poster
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_t04r0101_flag_change:
+	/*サングラス出現*/
+	_IF_FLAGON_CALL	FE_SODATEYA_AZUKE,ev_t04r0101_flag_change_02
+
+	_END
+
+/*サングラス出現*/
+ev_t04r0101_flag_change_02:
+	_FLAG_RESET		FV_T04R0101_SUNGLASSES
+	_RET
+
+
+/********************************************************************/
+/*						サングラス　								*/
+/********************************************************************/
+ev_t04r0101_sunglasses:
+	_TALK_OBJ_START
+
+	//そだてやカメラを取得済みかチェック
+	_POKETCH_CHECK	POKETCH_APPID_SODATEYA_CAMERA,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t04r0101_sunglasses_02
+
+	_TALK_KEYWAIT	msg_t04r0101_sunglasses_01
+	
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_SODATEYA_CAMERA
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アプリ取得後
+ev_t04r0101_sunglasses_02:
+	_TALKMSG		msg_t04r0101_sunglasses_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//壁紙話し掛け
+ev_t04r0101_poster:
+	_EASY_MSG		msg_t04r0101_poster_01
+	_END
+/********************************************************************/
+/********************************************************************/

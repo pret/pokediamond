@@ -1,0 +1,24 @@
+/box.c/1.139/Tue Aug  1 08:24:08 2006//TVER20060816
+/box_arc.h/1.36/Sun Jun 25 10:52:54 2006//TVER20060816
+/box_common.h/1.63/Tue Aug  1 09:00:54 2006//TVER20060816
+/box_reel.c/1.7/Thu Jun 29 17:31:48 2006//TVER20060816
+/box_reel.h/1.3/Fri Jun 23 13:47:30 2006//TVER20060816
+/box_sound_def.h/1.10/Wed May 31 08:22:29 2006//TVER20060816
+/box_view.h/1.75/Sun Jul 30 11:06:22 2006//TVER20060816
+/boxdefine.h/1.1/Wed Sep 14 11:07:25 2005//TVER20060816
+/boxmenu.c/1.13/Wed Jul  5 06:54:55 2006//TVER20060816
+/boxmenu.h/1.5/Thu Mar 23 07:11:37 2006//TVER20060816
+/boxv.c/1.76/Sun Jul 30 11:06:22 2006//TVER20060816
+/boxv_button.c/1.4/Tue Mar 28 07:43:56 2006//TVER20060816
+/boxv_compare.c/1.14/Sun Jul 30 11:06:22 2006//TVER20060816
+/boxv_cursor.c/1.50/Sun Jul 30 11:06:22 2006//TVER20060816
+/boxv_exwin.c/1.21/Thu Jul 27 03:24:13 2006//TVER20060816
+/boxv_icon.c/1.21/Sun Jul 30 11:06:22 2006//TVER20060816
+/boxv_itemicon.c/1.9/Sun Jul 30 11:06:22 2006//TVER20060816
+/boxv_msg.c/1.16/Fri Jun 30 06:42:41 2006//TVER20060816
+/boxv_party.c/1.19/Sun Jul 30 11:06:22 2006//TVER20060816
+/boxv_reel.c/1.7/Thu Jul  6 09:44:15 2006//TVER20060816
+/boxv_status.c/1.37/Fri Jul 14 09:44:28 2006//TVER20060816
+/boxv_sublcd.c/1.11/Fri Jun 16 04:02:48 2006//TVER20060816
+/boxv_tray.c/1.47/Sun Jul 30 11:06:22 2006//TVER20060816
+D

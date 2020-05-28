@@ -1,0 +1,29 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: encdata_ex.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-08-04T21:32:25
+ *****************************************************************************/
+
+#ifndef NARC_ENCDATA_EX_NAIX_
+#define NARC_ENCDATA_EX_NAIX_
+
+enum {
+	NARC_encdata_ex_fish_bin = 0,
+	NARC_encdata_ex_fishing_point_bin = 1,
+	NARC_encdata_ex_honey_dia_nrm_bin = 2,
+	NARC_encdata_ex_honey_dia_rare_bin = 3,
+	NARC_encdata_ex_honey_dia_s_rare_bin = 4,
+	NARC_encdata_ex_honey_perl_nrm_bin = 5,
+	NARC_encdata_ex_honey_perl_rare_bin = 6,
+	NARC_encdata_ex_honey_perl_s_rare_bin = 7,
+	NARC_encdata_ex_mnt_af_bin = 8,
+	NARC_encdata_ex_safari_af_bin = 9,
+	NARC_encdata_ex_safari_bef_bin = 10,
+	NARC_encdata_ex_safari_scope_bin = 11
+};
+
+/* NARC_ENCDATA_EX_NAIX_ */
+#endif

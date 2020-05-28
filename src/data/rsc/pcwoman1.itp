@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-05-22T17:11:39" source="17fieldobj.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="69"
+	tool_start_frame="0"
+	tool_end_frame="68"
+	compress_material="off" material_size="1 1"
+/>
+
+<tex_pattern_list_data image_size="17" palette_size="1">
+	<image_name index="0" name="pcwoman1.1"/>
+	<image_name index="1" name="pcwoman1.10"/>
+	<image_name index="2" name="pcwoman1.11"/>
+	<image_name index="3" name="pcwoman1.12"/>
+	<image_name index="4" name="pcwoman1.13"/>
+	<image_name index="5" name="pcwoman1.14"/>
+	<image_name index="6" name="pcwoman1.15"/>
+	<image_name index="7" name="pcwoman1.16"/>
+	<image_name index="8" name="pcwoman1.17"/>
+	<image_name index="9" name="pcwoman1.2"/>
+	<image_name index="10" name="pcwoman1.3"/>
+	<image_name index="11" name="pcwoman1.4"/>
+	<image_name index="12" name="pcwoman1.5"/>
+	<image_name index="13" name="pcwoman1.6"/>
+	<image_name index="14" name="pcwoman1.7"/>
+	<image_name index="15" name="pcwoman1.8"/>
+	<image_name index="16" name="pcwoman1.9"/>
+	<palette_name index="0" name="pcwoman1"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="17">
+		0 4 8 12 16 20 24 28 32 36
+		40 44 48 52 56 60 64
+	</frame_idx>
+	<image_idx size="17">
+		0 9 10 11 12 13 14 15 16 1
+		2 3 4 5 6 7 8
+	</image_idx>
+	<palette_idx size="17">
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="1">
+	<tex_pattern_anm index="0" material_name="obj" data_size="17" data_head="0"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

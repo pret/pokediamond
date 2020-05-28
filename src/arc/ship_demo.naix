@@ -1,0 +1,37 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: ship_demo.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-22T16:50:53
+ *****************************************************************************/
+
+#ifndef NARC_SHIP_DEMO_NAIX_
+#define NARC_SHIP_DEMO_NAIX_
+
+enum {
+	NARC_ship_demo_c_demo_D_nsbca = 0,
+	NARC_ship_demo_c_demo_D_nsbma = 1,
+	NARC_ship_demo_c_demo_D_nsbmd = 2,
+	NARC_ship_demo_c_demo_D_nsbta = 3,
+	NARC_ship_demo_c_demo_D_nsbtp = 4,
+	NARC_ship_demo_c_demo_L_nsbca = 5,
+	NARC_ship_demo_c_demo_L_nsbma = 6,
+	NARC_ship_demo_c_demo_L_nsbmd = 7,
+	NARC_ship_demo_c_demo_L_nsbta = 8,
+	NARC_ship_demo_c_demo_L_nsbtp = 9,
+	NARC_ship_demo_c_demo_R_nsbca = 10,
+	NARC_ship_demo_c_demo_R_nsbma = 11,
+	NARC_ship_demo_c_demo_R_nsbmd = 12,
+	NARC_ship_demo_c_demo_R_nsbta = 13,
+	NARC_ship_demo_c_demo_R_nsbtp = 14,
+	NARC_ship_demo_c_demo_U_nsbca = 15,
+	NARC_ship_demo_c_demo_U_nsbma = 16,
+	NARC_ship_demo_c_demo_U_nsbmd = 17,
+	NARC_ship_demo_c_demo_U_nsbta = 18,
+	NARC_ship_demo_c_demo_U_nsbtp = 19
+};
+
+/* NARC_SHIP_DEMO_NAIX_ */
+#endif

@@ -1,0 +1,113 @@
+//====================================================================
+//								c08gym0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c08gym0101.h"
+	//.include	"../eventdata/zone_c08gym0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c08gym0101_flag_change
+_EVENT_DATA		pos_c08gym0101_rot01
+_EVENT_DATA		ev_c08gym0101_advice
+_EVENT_DATA		ev_c08gym0101_statue
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						フラグチェンジ								*/
+//			マップ遷移タイミングで一度のみ呼ばれる
+/********************************************************************/
+ev_c08gym0101_flag_change:
+	_LDVAL	LOCALWORK0,0		//ワーク初期化
+	_INIT_ELEC_GYM		ELEC_GYM_ROOM1		//1つ目の部屋
+	_END
+
+/********************************************************************/
+/*							posイベント								*/
+/********************************************************************/
+pos_c08gym0101_rot01:
+	_ROTATE_ELEC_GYM_GEAR	ROTATE_GEAR_PLUS90		//ギア回転　+90°
+	_END
+	
+/********************************************************************/
+/*							アドバイス								*/
+/********************************************************************/
+ev_c08gym0101_advice:
+	_TALK_OBJ_START
+
+	//ナギサバッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C08,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c08gym0101_advice_02
+
+	//クリア前
+	_TALKMSG		msg_c08gym0101_sunglasses_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c08gym0101_advice_02:
+	//クリア後
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c08gym0101_sunglasses_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							看板									*/
+/********************************************************************/
+ev_c08gym0101_statue:
+	_TALK_START
+
+	//ナギサバッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C08,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c08gym0101_statue_02
+
+	//看板　クリア前
+	_TALKMSG		msg_c08gym0101_statue_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_c08gym0101_statue_02:
+
+	/*ポケモンリーグでライバルに勝利していたら*/
+	_IFVAL_JUMP		WK_SCENE_C10R0101,GE,1,ev_c08gym0101_statue_03
+
+	//看板　クリア後
+	_PLAYER_NAME	0		//主人公が先に挑戦しているのでセット
+	_RIVAL_NAME		1
+	_TALKMSG		msg_c08gym0101_statue_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/*ポケモンリーグでライバルに勝利していたら*/
+ev_c08gym0101_statue_03:
+	_PLAYER_NAME	0		//主人公が先に挑戦しているのでセット
+	_RIVAL_NAME		1
+	_TALKMSG		msg_c08gym0101_statue_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+
+
+
+/********************************************************************/
+/********************************************************************/

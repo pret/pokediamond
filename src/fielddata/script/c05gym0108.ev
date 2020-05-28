@@ -1,0 +1,63 @@
+//====================================================================
+//						c05gym0108.gmm
+//					シティ０５・gym0108
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c05gym0108.h"
+
+//ローカルワークの使用状況
+//ゴーストジム内にあるリフトに対して、
+//ローカルワーク0（LOCALWORK0）
+//を使用します
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA ev_c05gym0108_flag_change
+_EVENT_DATA pos_c05gym0108_lift
+_EVENT_DATA ev_c05gym0108_ans
+_EVENT_DATA ev_c05gym0108_question
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						フラグチェンジ								*/
+//			マップ遷移タイミングで一度のみ呼ばれる
+/********************************************************************/
+ev_c05gym0108_flag_change:
+	_INIT_GHOST_GYM
+	_END
+	
+pos_c05gym0108_lift:
+	_MOVE_GHOST_GYM_LIFT			//リフト移動
+	_END
+
+ev_c05gym0108_ans:
+	_EVENT_START
+	//_SE_PLAY	SEQ_SE_DP_PINPON
+	_SE_PLAY	SEQ_SE_DP_UG_020
+	_TALKMSG	msg_c05gym0108_sign1_02	//「正解です」看板
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+	
+ev_c05gym0108_question:
+	_TALK_START
+	_TALKMSG		msg_c05gym0108_sign1_01
+
+	//音色を変えた方がいいかも？
+	//ジムのBGMに近い旋律があるかも？
+	//_SE_PLAY		SEQ_SE_DP_MAZYO2
+	_SE_PLAY		SEQ_SE_DP_MAZYO4
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+

@@ -1,0 +1,19 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: .\pt_debug\debug_particle.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-28T16:05:40
+ *****************************************************************************/
+
+#ifndef NARC___PT_DEBUG_DEBUG_PARTICLE_NAIX_
+#define NARC___PT_DEBUG_DEBUG_PARTICLE_NAIX_
+
+enum {
+	NARC___pt_debug_debug_particle_dummy_spa = 0,
+	NARC___pt_debug_debug_particle_debug_spa = 1
+};
+
+/* NARC___PT_DEBUG_DEBUG_PARTICLE_NAIX_ */
+#endif

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="sogabe" host="W00086" date="2005-09-02T15:24:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="NUTSNAME_000">
+		<language name="日本語">クラボ</language>
+	</row>
+
+	<row id="NUTSNAME_001">
+		<language name="日本語">カゴ</language>
+	</row>
+
+	<row id="NUTSNAME_002">
+		<language name="日本語">モモン</language>
+	</row>
+
+	<row id="NUTSNAME_003">
+		<language name="日本語">チーゴ</language>
+	</row>
+
+	<row id="NUTSNAME_004">
+		<language name="日本語">ナナシ</language>
+	</row>
+
+	<row id="NUTSNAME_005">
+		<language name="日本語">ヒメリ</language>
+	</row>
+
+	<row id="NUTSNAME_006">
+		<language name="日本語">オレン</language>
+	</row>
+
+	<row id="NUTSNAME_007">
+		<language name="日本語">キー</language>
+	</row>
+
+	<row id="NUTSNAME_008">
+		<language name="日本語">ラム</language>
+	</row>
+
+	<row id="NUTSNAME_009">
+		<language name="日本語">オボン</language>
+	</row>
+
+	<row id="NUTSNAME_010">
+		<language name="日本語">フィラ</language>
+	</row>
+
+	<row id="NUTSNAME_011">
+		<language name="日本語">ウイ</language>
+	</row>
+
+	<row id="NUTSNAME_012">
+		<language name="日本語">マゴ</language>
+	</row>
+
+	<row id="NUTSNAME_013">
+		<language name="日本語">バンジ</language>
+	</row>
+
+	<row id="NUTSNAME_014">
+		<language name="日本語">イア</language>
+	</row>
+
+	<row id="NUTSNAME_015">
+		<language name="日本語">ズリ</language>
+	</row>
+
+	<row id="NUTSNAME_016">
+		<language name="日本語">ブリー</language>
+	</row>
+
+	<row id="NUTSNAME_017">
+		<language name="日本語">ナナ</language>
+	</row>
+
+	<row id="NUTSNAME_018">
+		<language name="日本語">セシナ</language>
+	</row>
+
+	<row id="NUTSNAME_019">
+		<language name="日本語">パイル</language>
+	</row>
+
+	<row id="NUTSNAME_020">
+		<language name="日本語">ザロク</language>
+	</row>
+
+	<row id="NUTSNAME_021">
+		<language name="日本語">ネコブ</language>
+	</row>
+
+	<row id="NUTSNAME_022">
+		<language name="日本語">タポル</language>
+	</row>
+
+	<row id="NUTSNAME_023">
+		<language name="日本語">ロメ</language>
+	</row>
+
+	<row id="NUTSNAME_024">
+		<language name="日本語">ウブ</language>
+	</row>
+
+	<row id="NUTSNAME_025">
+		<language name="日本語">マトマ</language>
+	</row>
+
+	<row id="NUTSNAME_026">
+		<language name="日本語">モコシ</language>
+	</row>
+
+	<row id="NUTSNAME_027">
+		<language name="日本語">ゴス</language>
+	</row>
+
+	<row id="NUTSNAME_028">
+		<language name="日本語">ラブタ</language>
+	</row>
+
+	<row id="NUTSNAME_029">
+		<language name="日本語">ノメル</language>
+	</row>
+
+	<row id="NUTSNAME_030">
+		<language name="日本語">ノワキ</language>
+	</row>
+
+	<row id="NUTSNAME_031">
+		<language name="日本語">シーヤ</language>
+	</row>
+
+	<row id="NUTSNAME_032">
+		<language name="日本語">カイス</language>
+	</row>
+
+	<row id="NUTSNAME_033">
+		<language name="日本語">ドリ</language>
+	</row>
+
+	<row id="NUTSNAME_034">
+		<language name="日本語">ベリブ</language>
+	</row>
+
+	<row id="NUTSNAME_035">
+		<language name="日本語">オッカ</language>
+	</row>
+
+	<row id="NUTSNAME_036">
+		<language name="日本語">イトケ</language>
+	</row>
+
+	<row id="NUTSNAME_037">
+		<language name="日本語">ソクノ</language>
+	</row>
+
+	<row id="NUTSNAME_038">
+		<language name="日本語">リンド</language>
+	</row>
+
+	<row id="NUTSNAME_039">
+		<language name="日本語">ヤチェ</language>
+	</row>
+
+	<row id="NUTSNAME_040">
+		<language name="日本語">ヨプ</language>
+	</row>
+
+	<row id="NUTSNAME_041">
+		<language name="日本語">ビアー</language>
+	</row>
+
+	<row id="NUTSNAME_042">
+		<language name="日本語">シュカ</language>
+	</row>
+
+	<row id="NUTSNAME_043">
+		<language name="日本語">バコウ</language>
+	</row>
+
+	<row id="NUTSNAME_044">
+		<language name="日本語">ウタン</language>
+	</row>
+
+	<row id="NUTSNAME_045">
+		<language name="日本語">タンガ</language>
+	</row>
+
+	<row id="NUTSNAME_046">
+		<language name="日本語">ヨロギ</language>
+	</row>
+
+	<row id="NUTSNAME_047">
+		<language name="日本語">カシブ</language>
+	</row>
+
+	<row id="NUTSNAME_048">
+		<language name="日本語">ハバン</language>
+	</row>
+
+	<row id="NUTSNAME_049">
+		<language name="日本語">ナモ</language>
+	</row>
+
+	<row id="NUTSNAME_050">
+		<language name="日本語">リリバ</language>
+	</row>
+
+	<row id="NUTSNAME_051">
+		<language name="日本語">ホズ</language>
+	</row>
+
+	<row id="NUTSNAME_052">
+		<language name="日本語">チイラ</language>
+	</row>
+
+	<row id="NUTSNAME_053">
+		<language name="日本語">リュガ</language>
+	</row>
+
+	<row id="NUTSNAME_054">
+		<language name="日本語">カムラ</language>
+	</row>
+
+	<row id="NUTSNAME_055">
+		<language name="日本語">ヤタピ</language>
+	</row>
+
+	<row id="NUTSNAME_056">
+		<language name="日本語">ズア</language>
+	</row>
+
+	<row id="NUTSNAME_057">
+		<language name="日本語">サン</language>
+	</row>
+
+	<row id="NUTSNAME_058">
+		<language name="日本語">スター</language>
+	</row>
+
+	<row id="NUTSNAME_059">
+		<language name="日本語">ナゾ</language>
+	</row>
+
+	<row id="NUTSNAME_060">
+		<language name="日本語">ミクル</language>
+	</row>
+
+	<row id="NUTSNAME_061">
+		<language name="日本語">イバン</language>
+	</row>
+
+	<row id="NUTSNAME_062">
+		<language name="日本語">ジャポ</language>
+	</row>
+
+	<row id="NUTSNAME_063">
+		<language name="日本語">レンブ</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

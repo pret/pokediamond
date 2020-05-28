@@ -1,0 +1,16 @@
+/comm_command.h////*///
+/comm_def.h////*///
+/comm_info.h////*///
+/comm_message.h////*///
+/comm_mp.h////*///
+/comm_recv.h////*///
+/comm_save.h////*///
+/comm_state.h////*///
+/comm_system.h////*///
+/comm_tool.h////*///
+/comm_wifihistory.h////*///
+/communication.h////*///
+/wm_icon.h////*///
+/wpb.h////*///
+/wpbpokemon.h////*///
+/wpbutil.h////*///

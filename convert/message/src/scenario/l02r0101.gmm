@@ -1,0 +1,2913 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="matsumiya" host="DFS5V61X" date="2006-08-04T16:16:44"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="34" japanese="コンテスト名称" english="コンテスト名称" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+				<comment language="english">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+			</tag>
+			<tag entry="35" japanese="コンテストランク" english="コンテストランク" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">○○○○ランク
+「ランク」も含む</comment>
+				<comment language="english">○○○○ランク
+「ランク」も含む</comment>
+			</tag>
+			<tag entry="36" japanese="国名" english="国名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる国名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる国名</comment>
+			</tag>
+			<tag entry="37" japanese="地域名" english="地域名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる地域名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる地域名</comment>
+			</tag>
+			<tag entry="38" japanese="風船の名前" english="風船の名前" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">すれ違い通信でつかう風船の名前</comment>
+				<comment language="english">すれ違い通信でつかう風船の名前</comment>
+			</tag>
+			<tag entry="39" japanese="リボンの名前" english="リボンの名前" view="EP" width="168" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">リボンの名前</comment>
+				<comment language="english">リボンの名前</comment>
+			</tag>
+			<tag entry="40" japanese="イメージクリップ背景" english="イメージクリップ背景" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+			<tag entry="01" japanese="文字表示ウェイト" english="文字表示ウェイト" view="EP" length="0" line="1">
+				<parameter number="0" japanese="フレーム数" english="フレーム数" type="int16"/>
+				<comment language="japanese">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+				<comment language="english">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+			</tag>
+			<tag entry="02" japanese="コールバック引数" english="コールバック引数" view="EP" length="0" line="1">
+				<parameter number="0" japanese="引数" english="引数" type="int16"/>
+				<comment language="japanese">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+				<comment language="english">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+			</tag>
+			<tag entry="03" japanese="文字表示位置X" english="文字表示位置X" view="EP" length="0" line="1">
+				<parameter number="0" japanese="X位置" english="X位置" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+			<tag entry="04" japanese="文字表示位置Y" english="文字表示位置Y" view="EP" length="0" line="1">
+				<parameter number="0" japanese="表示位置Y" english="表示位置Y" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="159"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="3" width="274"/>
+		<erase position="-1" width="100"/>
+		<attribute japanese="キャラ" english="キャラ" type="string" default="" position="1" width="100">
+		</attribute>
+		<language japanese="日本語" english="日本語">
+			<message position="2" width="214"/>
+			<font default=" 0:font_talk" position="4" width="100">
+				<list entry="0" file="Q:/msgdata/font/font_talk.nftr"/>
+				<list entry="1" file="Q:/msgdata/font/font_system.nftr"/>
+				<list entry="2" file="Q:/msgdata/font/font_button.nftr"/>
+			</font>
+			<size position="5" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="6" width="100"/>
+			<line position="7" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="32" top="104" right="604" bottom="686" maximized="no" rayout="Vertical2">
+		<comment-input left="683" top="578" right="1024" bottom="709" visible="yes"/>
+		<tag-palette left="677" top="180" right="1024" bottom="578" visible="yes"/>
+		<band id="0" index="0" style="0000" width="564"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="272"/>
+		<band id="3" index="3" style="0000" width="123"/>
+		<band id="4" index="4" style="0000" width="591"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_l02r0101_waiter_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>♂
+営業時間内</comment>
+		<attribute name="キャラ">ウェーター</attribute>
+		<language name="日本語" width="216">こちらの　レストランでは
+おしょくじ　だけでなく▽
+ポケモンしょうぶも▽
+おたのしみ　いただいております</language>
+	</row>
+
+	<row id="msg_l02r0101_waiter_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>♂
+営業時間外
+
+メッセージ表示後、主人公押し出される処理</comment>
+		<language name="日本語" width="216">もうしわけございません
+ほんじつは　おわりで　ございます▽
+また　いらしてくださいまし▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0100a_01">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">絵描き</attribute>
+		<language name="日本語" width="216">カンパイの　まえに
+ひとしょうぶ したいところだけど……▼
+ポケモンが　たりない　みたいだね</language>
+	</row>
+
+	<row id="msg_l02r0101_0100b_01">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">お洒落姉さん</attribute>
+		<language name="日本語" width="216">わたしたちと　たたかうなら
+もっと　ポケモン　もってきてね</language>
+	</row>
+
+	<row id="msg_l02r0101_0101a_01">
+		<comment>♂：０１：乾杯
+ポケモン２匹以上のとき
+
+振り向かずにしゃべる
+　・まだ戦っていない → 0101a_03
+　・すでに戦っている → 終了</comment>
+		<attribute name="キャラ">絵描き</attribute>
+		<language name="日本語" width="216">あなたほどの　うつくしいひとが
+モデルに　なってくれたら▽
+ものすごい　けっさくが　できますよ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0101a_02">
+		<comment>♂：０１：乾杯
+戦闘の前2
+
+主人公の方を向いてしゃべる
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">なんです？　しょうぶですか？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0101a_03">
+		<language name="日本語" width="216">あなたほどの　うつくしいひとが
+モデルに　なってくれたら▽
+ものすごい　けっさくが　できますよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0101a_04">
+		<comment>♂：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">しょうぶには　まけちゃったけど
+あなたの　えにもかけない▽
+うつくしさに……　カンパイ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0101b_01">
+		<comment>♀：０１：乾杯
+ポケモン２匹以上のとき
+
+振り向かずにしゃべる
+　・まだ戦っていない → 0101b_03
+　・すでに戦っている → 終了</comment>
+		<attribute name="キャラ">お洒落姉さん</attribute>
+		<language name="日本語" width="216">モデルに　なってくれたら
+このレストランで　ごちそうする▼
+なーんて　いわれて　ついてきたけど
+まだ　まよってるのよねー▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0101b_02">
+		<comment>♀：０１：乾杯
+戦闘の前2
+
+主人公の方を向いてしゃべる
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">まよったときは
+ポケモンしょうぶで　きめましょう！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0101b_03">
+		<language name="日本語" width="216">モデルに　なってくれたら
+このレストランで　ごちそうする▼
+なーんて　いわれて　ついてきたけど
+まだ　まよってるのよねー</language>
+	</row>
+
+	<row id="msg_l02r0101_0101b_04">
+		<comment>♀：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">モデルに　なると　きめたら
+しょくよくが　でてきたわ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0102a_01">
+		<comment>♂：０２：オードブル
+ポケモン２匹以上のとき
+
+振り向かずにしゃべる
+　・まだ戦っていない → 0102a_03
+　・すでに戦っている → 終了</comment>
+		<attribute name="キャラ">絵描き</attribute>
+		<language name="日本語" width="216">げいじゅつの　ためには
+おかねも　おしまない……▼
+とはいえ　たかそうな　りょうりだなあ▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0102a_02">
+		<comment>♂：０２：オードブル
+戦闘の前2
+
+主人公の方を向いてしゃべる
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">なあに？　きみも　たべたいの？▼
+あ　そうじゃなくて
+ポケモンの　しょうぶか！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0102a_03">
+		<language name="日本語" width="216">げいじゅつの　ためには
+おかねも　おしまない……▼
+とはいえ　たかそうな　りょうりだなあ</language>
+	</row>
+
+	<row id="msg_l02r0101_0102a_04">
+		<comment>♂：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">オードブルが　さめちゃった……</language>
+	</row>
+
+	<row id="msg_l02r0101_0102b_01">
+		<comment>♀：０２：オードブル
+ポケモン２匹以上のとき
+
+振り向かずにしゃべる
+　・まだ戦っていない → 0102b_03
+　・すでに戦っている → 終了</comment>
+		<attribute name="キャラ">お洒落姉さん</attribute>
+		<language name="日本語" width="216">オードブルが　おいしいからって
+いまから　はりきって　たべてたら▼
+メインディッシュが　くるまえに
+おなか　いっぱいに　なっちゃうわね▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0102b_02">
+		<comment>♀：０２：オードブル
+戦闘の前2
+
+主人公の方を向いてしゃべる
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">かるく　ひとしょうぶして
+おなかを　すかせたいんだけど▽
+あなた　つきあってみる？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0102b_03">
+		<language name="日本語" width="216">オードブルが　おいしいからって
+いまから　はりきって　たべてたら▼
+メインディッシュが　くるまえに
+おなか　いっぱいに　なっちゃうわね</language>
+	</row>
+
+	<row id="msg_l02r0101_0102b_04">
+		<comment>♀：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">これは　さめてるんじゃなくて
+こういうふうに　つめたく▽
+ひやしてある　おりょうり　なのよね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0103a_01">
+		<comment>♂：０３：メインディッシュ
+ポケモン２匹以上のとき
+
+振り向かずにしゃべる
+　・まだ戦っていない → 0103a_03
+　・すでに戦っている → 終了</comment>
+		<attribute name="キャラ">絵描き</attribute>
+		<language name="日本語" width="216">りょうりの　かち　というのは
+おいしさ　だけではなく▼
+いろどりや　もりつけかた　などの
+みためも　じゅうよう　なんだそうです▼
+つまり　すばらしい　りょうりは
+めいがにも　にている　というわけ……▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0103a_02">
+		<comment>♂：０３：メインディッシュ
+戦闘の前2
+
+主人公の方を向いてしゃべる
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">そして　ポケモンしょうぶにも
+ぼくは　うつくしさを　もとめたいね！▼
+きみも　そう　おもうでしょ？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0103a_03">
+		<language name="日本語" width="216">りょうりの　かち　というのは
+おいしさ　だけではなく▼
+いろどりや　もりつけかた　などの
+みためも　じゅうよう　なんだそうです▼
+つまり　すばらしい　りょうりは
+めいがにも　にている　というわけ……</language>
+	</row>
+
+	<row id="msg_l02r0101_0103a_04">
+		<comment>♂：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">このみせの　りょうりは
+おいしいだけでなく　ヘルシーなので▼
+ボディーラインも　くずれないんです</language>
+	</row>
+
+	<row id="msg_l02r0101_0103b_01">
+		<comment>♀：０３：メインディッシュ
+ポケモン２匹以上のとき
+
+振り向かずにしゃべる
+　・まだ戦っていない → 0103b_03
+　・すでに戦っている → 終了</comment>
+		<attribute name="キャラ">お洒落姉さん</attribute>
+		<language name="日本語" width="216">きょうの　メインディッシュ
+さいこうに　おいしーい！▼
+こんな　おいしいもの　たべられるなら
+また　いつでも　モデルになるわ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0103b_02">
+		<comment>♀：０３：メインディッシュ
+戦闘の前2
+
+主人公の方を向いてしゃべる
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">たべてる　ばっかりじゃ
+もうしわけないから▽
+ポケモンの　しょうぶにも▽
+きょうりょく　させてもらうわ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0103b_03">
+		<language name="日本語" width="216">きょうの　メインディッシュ
+さいこうに　おいしーい！▼
+こんな　おいしいもの　たべられるなら
+また　いつでも　モデルになるわ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0103b_04">
+		<comment>♀：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">むかしの　えの　モデルさんって
+みんな　ふっくら　してるのよね▼
+だから　わたしも
+たいじゅうを　きにせず　たべるわ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0200a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">ゴージャス兄さん</attribute>
+		<language name="日本語" width="216">ぼくらと　しょうぶ　するなら
+もっと　ポケモン　つれておいで！</language>
+	</row>
+
+	<row id="msg_l02r0101_0200b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">ゴージャス姉さん</attribute>
+		<language name="日本語" width="216">わたしたちと　たたかうなら
+ポケモン　２ひきいじょう　いるわね</language>
+	</row>
+
+	<row id="msg_l02r0101_0201a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0201a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ゴージャス兄さん</attribute>
+		<language name="日本語" width="216">じつは　ここの　シェフって
+ぼくの　パパ　なんだよねー▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0201a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">なんだい？　ポケモンしょうぶ？
+ふふふ　ぼくに　かてるかなー！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0201a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">じつは　ここの　シェフって
+ぼくの　パパ　なんだよねー</language>
+	</row>
+
+	<row id="msg_l02r0101_0201a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">しょうぶには　まけちゃったけど
+ぼくたちの　みらいに　カンパイ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0201b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0201b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ゴージャス姉さん</attribute>
+		<language name="日本語" width="216">まあ！　あなたの　パパが
+こちらの　シェフ　でしたの？▼
+それは　すごいですわねー▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0201b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">かれには　ないしょだけど
+レストランと　ホテルの　オーナーは▽
+わたしの　おとうさま　なのよね……▼
+あ　そんなことより
+ちょっと　しょうぶ　してみます？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0201b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">まあ！　あなたの　おとうさまが
+こちらの　シェフ　でしたの？▼
+それは　すごいですわねー</language>
+	</row>
+
+	<row id="msg_l02r0101_0201b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">レストランの　うりあげが
+あがることを　いのって　カンパイ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0202a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0202a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ゴージャス兄さん</attribute>
+		<language name="日本語" width="216">さすがは　ぼくの　パパだ！
+この　オードブル　さいこう！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0202a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">……もしかして
+ポケモンしょうぶの　もうしこみ？▼
+いいとも！　ぼくは　ことわらないよ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0202a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">さすがは　ぼくの　パパだ！
+この　オードブル　さいこう！</language>
+	</row>
+
+	<row id="msg_l02r0101_0202a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">これで　おちついて
+りょうりを　あじわえる　ってものさ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0202b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0202b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ゴージャス姉さん</attribute>
+		<language name="日本語" width="216">うん！　このあじなら
+ホテルの　ディナーにも　だせるわ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0202b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">この　レストランの　オーナーが
+わたしの　おとうさまだ　ってこと▽
+かれには　ないしょに　してね！▼
+そのかわり　ポケモンの
+おあいてをして　さしあげますから！</language>
+	</row>
+
+	<row id="msg_l02r0101_0202b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">うん！　このあじなら
+ホテルの　ディナーにも　だせるわ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0202b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">かれも　がんばったけれど
+あなたのほうが　うわてでしたわ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0203a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0203a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ゴージャス兄さん</attribute>
+		<language name="日本語" width="216">ふふふ　かのじょ
+パパの　りょうりを　たべて▽
+うっとり　してるぞ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0203a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">きぶんが　いいから　きみと
+ポケモンしょうぶ　してあげるよ！▼
+きみも　そのつもりで　きたんだろ？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0203a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">ふふふ　かのじょ
+パパの　りょうりを　たべて▽
+うっとり　してるぞ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0203a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">ぼくの　ポケモンの　うでまえは
+まだまだ　だね……▼
+パパの　りょうり　みたいには
+いかないや……</language>
+	</row>
+
+	<row id="msg_l02r0101_0203b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0203b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ゴージャス姉さん</attribute>
+		<language name="日本語" width="216">このあじ！　おとうさまと
+せかいじゅうの　レストランを▼
+たべあるいて　まわったときの　ことを
+おもいだすわ……！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0203b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">おいしいものを　たべて
+きもちが　たかぶっているの！▼
+わたしたちと
+ポケモンしょうぶ　しましょう！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0203b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">このあじ！　おとうさまと
+せかいじゅうの　レストランを▼
+たべあるいて　まわったときの　ことを
+おもいだすわ……！</language>
+	</row>
+
+	<row id="msg_l02r0101_0203b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">あなたの　おとうさまが
+つくる　おりょうりには▼
+ひとを　げんきにする
+ちからが　あるみたいだわ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0300a_01">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">紳士</attribute>
+		<language name="日本語" width="216">わたしら　あいてに
+うでだめしを　するつもりなら▼
+せめて　もう１ひき
+ポケモンを　つれておいでなさい</language>
+	</row>
+
+	<row id="msg_l02r0101_0300b_01">
+		<comment>♀：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">淑女</attribute>
+		<language name="日本語" width="216">あらまあ　わたしたちと
+ポケモンしょうぶを　してくださるの？▼
+でもねえ　１ひきだけじゃ
+わたしたちとは　たたかえないのよ</language>
+	</row>
+
+	<row id="msg_l02r0101_0301a_01">
+		<comment>♂：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0301a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">紳士</attribute>
+		<language name="日本語" width="216">これからも　まだまだ　つづく
+われわれの　じんせいに　カンパイ▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0301a_02">
+		<comment>♂：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">しごとを　リタイアした　いま
+こうして　つまと　おいしいものを▽
+たべあるくのが　たのしみ　なんです▼
+きみは　ポケモンしょうぶが
+いちばんの　たのしみ　みたいですね？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0301a_03">
+		<language name="日本語" width="216">これからも　まだまだ　つづく
+われわれの　じんせいに　カンパイ</language>
+	</row>
+
+	<row id="msg_l02r0101_0301a_04">
+		<comment>♂：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">さあ　きをとりなおして
+このあとの　しょくじを　たのしもう</language>
+	</row>
+
+	<row id="msg_l02r0101_0301b_01">
+		<comment>♀：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0301b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">淑女</attribute>
+		<language name="日本語" width="216">けんこうと　ふくしと
+おいしいものに　カンパイ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0301b_02">
+		<comment>♀：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">しょくぜんに　カンパイ　すると
+さらに　しょくよくが　わくのよね▼
+で　それはそれとして
+あなたは　しょうぶが　したいのね？</language>
+	</row>
+
+	<row id="msg_l02r0101_0301b_03">
+		<language name="日本語" width="216">けんこうと　ふくしと
+おいしいものに　カンパイ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0301b_04">
+		<comment>♀：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">おいしい　レストランと
+たのしい　ポケモンしょうぶ……▼
+なんて　ゆたかな　じんせいでしょう！</language>
+	</row>
+
+	<row id="msg_l02r0101_0302a_01">
+		<comment>♂：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0302a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">紳士</attribute>
+		<language name="日本語" width="216">むむむ！▼
+これは　かるく　ひをとおしただけ
+のように　みせておきながら▽
+じつは　かなり　てがこんでいる！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0302a_02">
+		<comment>♂：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">わたしほどの　グルメになると
+りょうりを　みただけで▽
+おいしいかどうかが　わかるのですよ▼
+そんな　わたしと　たたかいます？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0302a_03">
+		<language name="日本語" width="216">むむむ！▼
+これは　かるく　ひをとおしただけ
+のように　みせておきながら▽
+じつは　かなり　てがこんでいる！</language>
+	</row>
+
+	<row id="msg_l02r0101_0302a_04">
+		<comment>♂：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">さあ　きをとりなおして
+つぎに　でてくる　りょうりを▽
+たのしむことに　しましょう！</language>
+	</row>
+
+	<row id="msg_l02r0101_0302b_01">
+		<comment>♀：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0302b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">淑女</attribute>
+		<language name="日本語" width="216">この　オードブルの　おあじは
+きょうの　メインディッシュの▽
+すばらしさを　よかんさせてくれるわ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0302b_02">
+		<comment>♀：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">もう　メインディッシュが
+きちゃったのかと　おもったら……▼
+あなた　トレーナーさんね？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0302b_03">
+		<language name="日本語" width="216">この　オードブルの　おあじは
+きょうの　メインディッシュの▽
+すばらしさを　よかんさせてくれるわ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0302b_04">
+		<comment>♀：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">たいへん　すばらしい
+オードブル　でしたわ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0303a_01">
+		<comment>♂：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0303a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">紳士</attribute>
+		<language name="日本語" width="216">んーむむ！▼
+ぜつみょうな　フランベの　ぐあいで
+ふくいくたる　かおりが▽
+くちのなか　いっぱいに　ひろがって！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0303a_02">
+		<comment>♂：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">しょくじちゅうに
+しょうぶの　おもうしこみ　ですか？▽
+おわかいのに　なんと　ねっしんな！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0303a_03">
+		<language name="日本語" width="216">んーむむ！▼
+ぜつみょうな　フランベの　ぐあいで
+ふくいくたる　かおりが▽
+くちのなか　いっぱいに　ひろがって！</language>
+	</row>
+
+	<row id="msg_l02r0101_0303a_04">
+		<comment>♂：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">りょうりも　しょうぶも
+たいへん　まんぞく　いたしましたよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0303b_01">
+		<comment>♀：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0303b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">淑女</attribute>
+		<language name="日本語" width="216">……！　かかっている　ソースは
+クラボのみ　を　すりつぶした▽
+ホウエンふう　ピリからソース！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0303b_02">
+		<comment>♀：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">あなたも　ひとくち　たべる？▼
+……　……　……
+あ　そうじゃなくて　ポケモンね？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0303b_03">
+		<language name="日本語" width="216">……！　かかっている　ソースは
+クラボのみ　を　すりつぶした▽
+ホウエンふう　ピリからソース！</language>
+	</row>
+
+	<row id="msg_l02r0101_0303b_04">
+		<comment>♀：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">ポケモンも　いいけれど
+わたしは　やっぱり　おいしいものを▽
+たべるのが　いちばんだわ</language>
+	</row>
+
+	<row id="msg_l02r0101_0400a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">太った兄さん</attribute>
+		<language name="日本語" width="216">えっとねえ……
+ぼくたちと　しょうぶ　するつもりなら▼
+せめて　ポケモン　２ひきぐらい
+もってきてくれないと　ねえ？</language>
+	</row>
+
+	<row id="msg_l02r0101_0400b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">姉さん</attribute>
+		<language name="日本語" width="216">あらー　ごめんなさいね
+ポケモン　２ひき　もってきてくれたら▼
+たたかって　あげられるんだけど</language>
+	</row>
+
+	<row id="msg_l02r0101_0401a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0401a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">太った兄さん</attribute>
+		<language name="日本語" width="216">エルさん　えっと　あの　その
+きょうは　きてくれて　ありがとう……▼
+とりあえず　カンパイ　しましょうか▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0401a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">ぼくが　いきつけの
+ポケモングッズの　おみせのコ　なんだ▼
+さいこうに　ハッピーな
+ぼくらと　しょうぶ　しちゃう？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0401a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">エルさん　えっと　あの　その
+きょうは　きてくれて　ありがとう……▼
+とりあえず　カンパイ　しましょうか</language>
+	</row>
+
+	<row id="msg_l02r0101_0401a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">しょうぶに　まけちゃって
+エルさん　がっかり　してない？</language>
+	</row>
+
+	<row id="msg_l02r0101_0401b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0401b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">姉さん</attribute>
+		<language name="日本語" width="216">ふふ……　タムさんって
+おみせで　みかけるときとは　ちがって▽
+あんがい　シャイ　なんですね▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0401b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">わたし　だいすきな　ポケモンに
+いつも　かこまれていたいから▽
+ポケモンの　おみせで　はたらいてるの▼
+もちろん　ポケモンの　うでまえだって
+なかなかのものよ　ためしてみる？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0401b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">ふふ……　タムさんって
+おみせで　みかけるときとは　ちがって▽
+あんがい　シャイ　なんですね</language>
+	</row>
+
+	<row id="msg_l02r0101_0401b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">わたしってね　かちまけには
+あんまり　こだわらないのよ▼
+だって　ポケモンが　すきだから
+いっしょに　いるんだもん！</language>
+	</row>
+
+	<row id="msg_l02r0101_0402a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0402a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">太った兄さん</attribute>
+		<language name="日本語" width="216">エルさんと　デートしたこと
+ポケモンなかまに　しられたら▼
+ぼくのこと　うらむだろうなあ……▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0402a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">きみも　エルさんの　ファン？</language>
+	</row>
+
+	<row id="msg_l02r0101_0402a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">エルさんと　デートしたこと
+ポケモンなかまに　しられたら▼
+ぼくのこと　うらむだろうなあ……</language>
+	</row>
+
+	<row id="msg_l02r0101_0402a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">エルさんの　えがおに　みとれて
+オードブルの　あじが▽
+さっぱり　わかりません！</language>
+	</row>
+
+	<row id="msg_l02r0101_0402b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0402b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">姉さん</attribute>
+		<language name="日本語" width="216">えっ　デートだなんて　そんな▼
+あの……　タムさんは
+たいせつな　おきゃくさまですから……▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0402b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">と　いいながらも
+なんとなーく　きになっちゃって▽
+おさそいを　オッケーした　わたし▼
+ゆれる　おとめごころを
+ポケモンに　たくして　たたかうわ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0402b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">えっ　デートだなんて　そんな▼
+あの……　タムさんは
+たいせつな　おきゃくさまですから……</language>
+	</row>
+
+	<row id="msg_l02r0101_0402b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">ポケモンを　すきなひとに
+わるいひとは　いないって　ホントね▼
+あなたも　そして　タムさんも！</language>
+	</row>
+
+	<row id="msg_l02r0101_0403a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0403a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">太った兄さん</attribute>
+		<language name="日本語" width="216">さあ　りょうりが　きましたよ！
+えんりょなく　たべてください▼
+きょうは　ぼくが
+ごちそう　させてもらいますからね！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0403a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">きみを　たおして
+しょうきん　もらっちゃうよ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0403a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">さあ　りょうりが　きましたよ！
+えんりょなく　たべてください▼
+きょうは　ぼくが
+ごちそう　させてもらいますからね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0403a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">しょうきんを　はらったら
+サイフが　からっぽ……▼
+あ　いや！　ヘソクリが　ありますから
+しんぱいは　いりませんよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0403b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0403b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">姉さん</attribute>
+		<language name="日本語" width="216">タムさんって　ぶきようだけど
+すごく　いっしょうけんめいな　ひとね▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0403b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">このひとと　くめば
+ちょっと　おもしろい　たたかいが▽
+できそうな　きがしない？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0403b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">タムさんって　ぶきようだけど
+すごく　いっしょうけんめいな　ひとね</language>
+	</row>
+
+	<row id="msg_l02r0101_0403b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">おりょうりも　おいしかったし
+しょうぶも　たのしかったから▼
+ふたりで　はんぶんずつ　だしましょ？</language>
+	</row>
+
+	<row id="msg_l02r0101_0500a_01">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">少年</attribute>
+		<language name="日本語" width="216">ポケモン　２ひき　いれば
+おかあさんと　いっしょに▽
+しょうぶ　してあげるよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0500b_01">
+		<comment>♀：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">おばさん</attribute>
+		<language name="日本語" width="216">じまんの　むすこと　いっしょに
+おあいて　してあげるから▽
+もっと　ポケモン　もってらっしゃいね</language>
+	</row>
+
+	<row id="msg_l02r0101_0501a_01">
+		<comment>♂：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0501a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">少年</attribute>
+		<language name="日本語" width="216">えーと　なんにしようかなあ
+ジュースと　アイスと　ケーキと▽
+それから　それから……▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0501a_02">
+		<comment>♂：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">あ　トレーナーさんだ！▼
+おいしいもの　たべるまえに
+ぼくたちと　ポケモン　する？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0501a_03">
+		<language name="日本語" width="216">えーと　なんにしようかなあ
+ジュースと　アイスと　ケーキと▽
+それから　それから……</language>
+	</row>
+
+	<row id="msg_l02r0101_0501a_04">
+		<comment>♂：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">ねえねえ　おとなのひとって
+ごはんのまえに　カンパイ　するけど▼
+あれって　なんの　いみがあるの？</language>
+	</row>
+
+	<row id="msg_l02r0101_0501b_01">
+		<comment>♀：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0501b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">おばさん</attribute>
+		<language name="日本語" width="216">さあ　きょうは　テストで
+いいせいせきを　とった　ごほうびよ▽
+なんでも　すきなもの　たべなさい▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0501b_02">
+		<comment>♀：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">あのね　うちのコったら
+おべんきょうも　できるけど▽
+ポケモン　つかうのも　じょうずなのよ▼
+あなた　ちょうせんしてみる？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0501b_03">
+		<language name="日本語" width="216">さあ　きょうは　テストで
+いいせいせきを　とった　ごほうびよ▽
+なんでも　すきなもの　たべなさい</language>
+	</row>
+
+	<row id="msg_l02r0101_0501b_04">
+		<comment>♀：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">さっ　ヨシノブちゃんが　また
+テストで　１００てん　とれますように▽
+カンパーイ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0502a_01">
+		<comment>♂：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0502a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">少年</attribute>
+		<language name="日本語" width="216">うわ！　おかずが
+ひとさらずつ　じゅんばんに　でてくる！▼
+うちの　ごはんと　ぜんぜん　ちがう！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0502a_02">
+		<comment>♂：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">ごはん　たべながらでも
+べんきょうしてる　ぼく　だもん▽
+ポケモンしょうぶも　いつでもこいさ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0502a_03">
+		<language name="日本語" width="216">うわ！　おかずが
+ひとさらずつ　じゅんばんに　でてくる！▼
+うちの　ごはんと　ぜんぜん　ちがう！</language>
+	</row>
+
+	<row id="msg_l02r0101_0502a_04">
+		<comment>♂：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">じゃあ　ぼくらは
+おいしいもの　たべるから　またね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0502b_01">
+		<comment>♀：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0502b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">おばさん</attribute>
+		<language name="日本語" width="216">この　おみせの　おりょうりは
+とても　おいしいって　ひょうばんなの▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0502b_02">
+		<comment>♀：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">まあ　こんなときに　ポケモン？▼
+でも　いいわよ
+わたしも　きらいじゃないほうだし▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0502b_03">
+		<language name="日本語" width="216">この　おみせの　おりょうりは
+とても　おいしいって　ひょうばんなの</language>
+	</row>
+
+	<row id="msg_l02r0101_0502b_04">
+		<comment>♀：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">うちのコに　きちょうな
+たいけんを　させてくれて　ありがとね</language>
+	</row>
+
+	<row id="msg_l02r0101_0503a_01">
+		<comment>♂：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0503a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">少年</attribute>
+		<language name="日本語" width="216">おとうさんと　おかあさんは
+こどもに　ないしょで▼
+いつも　こんな　おいしいものを
+たべてるのかなー？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0503a_02">
+		<comment>♂：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">でも　いいんだ！▼
+ぼくは　おいしいものを　たべるより
+ポケモンで　しょうぶ　するほうが▽
+だんぜん　たのしいもん！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0503a_03">
+		<language name="日本語" width="216">おとうさんと　おかあさんは
+こどもに　ないしょで▼
+いつも　こんな　おいしいものを
+たべてるのかなー？</language>
+	</row>
+
+	<row id="msg_l02r0101_0503a_04">
+		<comment>♂：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">おかあさん　これと　おんなじの
+うちでも　つくってよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0503b_01">
+		<comment>♀：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0503b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">おばさん</attribute>
+		<language name="日本語" width="216">きょうは　とくべつ　なのよ
+ヨシノブちゃんの　せいせきがいいから▽
+とくべつな　ごちそうなのよ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0503b_02">
+		<comment>♀：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">え？　ポケモンしょうぶ？▼
+そうね　やってみましょうか▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0503b_03">
+		<language name="日本語" width="216">きょうは　とくべつ　なのよ
+ヨシノブちゃんの　せいせきがいいから▽
+とくべつな　ごちそうなのよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0503b_04">
+		<comment>♀：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">えーと　デザートは　まだかしら</language>
+	</row>
+
+	<row id="msg_l02r0101_0600a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">ベテラントレーナー</attribute>
+		<language name="日本語" width="216">わたしらは　いつも　ふたりで
+ポケモンしょうぶを　してるんだ</language>
+	</row>
+
+	<row id="msg_l02r0101_0600b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">少女</attribute>
+		<language name="日本語" width="216">パパと　あいてしてあげるから
+たくさん　ポケモン　つれてきてね</language>
+	</row>
+
+	<row id="msg_l02r0101_0601a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0601a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ベテラントレーナー</attribute>
+		<language name="日本語" width="216">はい　じゃあ　ママの
+ぶじを　ねがって　カンパーイ▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0601a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">つまが　しゅっさんで
+にゅういんちゅう　なので▽
+むすめと　しょくじに　きたんだよ▼
+しょくじの　まえに
+ちょっと　ひとしょうぶ　するかい？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0601a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">はい　じゃあ　ママの
+ぶじを　ねがって　カンパーイ</language>
+	</row>
+
+	<row id="msg_l02r0101_0601a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">かぞくが　ふえたら
+おうちが　もっと　にぎやかに　なるね</language>
+	</row>
+
+	<row id="msg_l02r0101_0601b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0601b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">少女</attribute>
+		<language name="日本語" width="216">うまれる　あかちゃん
+おとこのこかな？　おんなのこかな？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0601b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">おとこのこなら　おとうとで
+おんなのこなら　いもうと　だよね▼
+あたし　おねえちゃんに　なるから
+ポケモンも　つよく　ならなきゃ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0601b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">うまれる　あかちゃん
+おとこのこかな？　おんなのこかな？</language>
+	</row>
+
+	<row id="msg_l02r0101_0601b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">あかちゃんも　ポケモンみたいに
+ピャーって　なくんだよね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0602a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0602a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ベテラントレーナー</attribute>
+		<language name="日本語" width="216">うわっ　すごいなあ
+オードブルなのに　こんなに　ごうか！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0602a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">じぶんで　りょうり　するのは
+あんまり　とくいじゃないけど▼
+ポケモンしょうぶには
+ちょっと　じしんが　あるんだよ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0602a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">うわっ　すごいなあ
+オードブルなのに　こんなに　ごうか！</language>
+	</row>
+
+	<row id="msg_l02r0101_0602a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">まけた　くやしさは
+おいしい　おりょうりを　たべて▽
+わすれてしまおうね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0602b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0602b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">少女</attribute>
+		<language name="日本語" width="216">わー！　きれいな　おりょうり！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0602b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">パパが　おりょうり　ヘタだから
+そとで　おいしいもの　たべられるの！▼
+あなたは　このおみせに
+ポケモンしょうぶ　しにきたの？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0602b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">わー！　きれいな　おりょうり！</language>
+	</row>
+
+	<row id="msg_l02r0101_0602b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">あれも　これも
+たべたことないもの　ばっかり！</language>
+	</row>
+
+	<row id="msg_l02r0101_0603a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0603a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ベテラントレーナー</attribute>
+		<language name="日本語" width="216">ほら　メインディッシュだぞ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0603a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">なんだい？
+わたしたちと　しょうぶするかい？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0603a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">ほら　メインディッシュだぞ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0603a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">うまれてくる　あかちゃんも
+リナみたいに　やさしいこだと　いいね</language>
+	</row>
+
+	<row id="msg_l02r0101_0603b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0603b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">少女</attribute>
+		<language name="日本語" width="216">ここの　おりょうり
+ママにも　たべさせて　あげたいな……▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0603b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">あたしの　ポケモン
+ママから　もらったやつなの！▼
+どれぐらい　つよいか　ためしてみる？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0603b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">ここの　おりょうり
+ママにも　たべさせて　あげたいな……</language>
+	</row>
+
+	<row id="msg_l02r0101_0603b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">こんどは　みんなで　こようね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0700a_01">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">カメラマン</attribute>
+		<language name="日本語" width="216">うん　なんだい？
+きみも　テレビに　でたいのかい？▼
+あー　ポケモンしょうぶか！▼
+ぼくらと　しょうぶ　するなら
+２ひきいじょう　つれてこないとね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0700b_01">
+		<comment>♀：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">レポーター</attribute>
+		<language name="日本語" width="216">わるいけど　サインなら
+しゅうろくが　おわってからね！▼
+ポケモンしょうぶなら
+２ひきいじょう　つれてきてからね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0701a_01">
+		<comment>♂：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0701a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">カメラマン</attribute>
+		<language name="日本語" width="216">じゃあ　まず　さいしょは
+カメラテストも　かねて▽
+ドリンクを　さつえい　しましょう！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0701a_02">
+		<comment>♂：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">ん？　こんなときに
+ポケモンしょうぶの　おさそいかい？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0701a_03">
+		<language name="日本語" width="216">じゃあ　まず　さいしょは
+カメラテストも　かねて▽
+ドリンクを　さつえい　しましょう！</language>
+	</row>
+
+	<row id="msg_l02r0101_0701a_04">
+		<comment>♂：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">あー　ドリンクが
+すっかり　ぬるくなっちゃったね</language>
+	</row>
+
+	<row id="msg_l02r0101_0701b_01">
+		<comment>♀：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0701b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">レポーター</attribute>
+		<language name="日本語" width="216">ほんじつの　ドリンクは
+あさいちばんに　つんだ　モモンの▽
+フレッシュジュース　だそうです！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0701b_02">
+		<comment>♀：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">えっ？　ポケモン？▼
+じゃあ　ほんばんが　はじまるまえに
+サクッと　しょうぶ　しちゃいましょ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0701b_03">
+		<language name="日本語" width="216">ほんじつの　ドリンクは
+あさいちばんに　つんだ　モモンの▽
+フレッシュジュース　だそうです！</language>
+	</row>
+
+	<row id="msg_l02r0101_0701b_04">
+		<comment>♀：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">もういっかい　リハーサルする？▼
+「えー　こちらが　あさいちばんに
+　しぼった　モモンのジュースで……」</language>
+	</row>
+
+	<row id="msg_l02r0101_0702a_01">
+		<comment>♂：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0702a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">カメラマン</attribute>
+		<language name="日本語" width="216">へえ　たしかに　これは
+おいしそうな　オードブルだな！▼
+もっと　みずみずしく　みせたいから
+だれか　きりふき　もってきて！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0702a_02">
+		<comment>♂：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">ありがとう　はやいね……▼
+って　きりふき　じゃなくて
+ポケモンしょうぶかよ！▼
+まあ　なんだって　いいさ
+ぼくは　うけてたつよ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0702a_03">
+		<language name="日本語" width="216">へえ　たしかに　これは
+おいしそうな　オードブルだな！▼
+もっと　みずみずしく　みせたいから
+だれか　きりふき　もってきて！</language>
+	</row>
+
+	<row id="msg_l02r0101_0702a_04">
+		<comment>♂：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">たべものの　さつえい　ってのは
+なにかと　むずかしいんだよね</language>
+	</row>
+
+	<row id="msg_l02r0101_0702b_01">
+		<comment>♀：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0702b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">レポーター</attribute>
+		<language name="日本語" width="216">これは　みためも　すばらしいわ
+カメラさん　もっと　アップで！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0702b_02">
+		<comment>♀：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">しゅざいちゅうに
+はなしかけないで　ちょうだい！▼
+いや　ちょっとまって▼
+しゅざいちゅうに　トレーナーが
+らんにゅう　してくる……▽
+これは　おもしろい　ハプニングだわ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0702b_03">
+		<language name="日本語" width="216">これは　みためも　すばらしいわ
+カメラさん　もっと　アップで！</language>
+	</row>
+
+	<row id="msg_l02r0101_0702b_04">
+		<comment>♀：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">ナベちゃん　いい？▼
+あたしが　パクッと　たべたら
+くちもとを　アップで　おさえてね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0703a_01">
+		<comment>♂：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0703a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">カメラマン</attribute>
+		<language name="日本語" width="216">これが　メインディッシュか！▼
+はやいとこ　さつえいを　すませて
+おれも　たべたいよ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0703a_02">
+		<comment>♂：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">さっきから　チョロチョロして
+さつえいの　ジャマしてるの　きみか？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0703a_03">
+		<language name="日本語" width="216">これが　メインディッシュか！▼
+はやいとこ　さつえいを　すませて
+おれも　たべたいよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0703a_04">
+		<comment>♂：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">あー　しょうぶ　してるあいだに
+すっかり　さめちゃったなあ……</language>
+	</row>
+
+	<row id="msg_l02r0101_0703b_01">
+		<comment>♀：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0703b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">レポーター</attribute>
+		<language name="日本語" width="216">パクッ！▼
+んーー　これは……
+あっさり　しながらも　ふくよかで……▽
+やがて　くちのなかで　とろけて……▽
+あとをひくけれど　しつこくはなく……▽
+あまからず　にがからず……▽
+もう　ことばに　できません！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0703b_02">
+		<comment>♀：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">ものを　たべながら
+セリフ　いうのって　むずかしいわー▼
+でも　しゅざいちゅうに
+ポケモンしょうぶなら　できるわよ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0703b_03">
+		<language name="日本語" width="216">パクッ！▼
+んーー　これは……
+あっさり　しながらも　ふくよかで……▽
+やがて　くちのなかで　とろけて……▽
+あとをひくけれど　しつこくはなく……▽
+あまからず　にがからず……▽
+もう　ことばに　できません！</language>
+	</row>
+
+	<row id="msg_l02r0101_0703b_04">
+		<comment>♀：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">グルメレポートの　しごとに
+たいせつなのは　なにか　しってる？▼
+それは……　ボキャブラリーよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0800a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">ゴージャス兄さん</attribute>
+		<language name="日本語" width="216">いいかい？　ふくすうの
+トレーナーと　たいせん　するときは▽
+２ひきいじょう　ポケモンが　いるんだ▼
+もっと　ポケモン　つれてきたら
+あいてを　してあげるよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0800b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">お洒落姉さん</attribute>
+		<language name="日本語" width="216">わたしたちと　たたかうなら
+もっと　ポケモン　もってなくちゃね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0801a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0801a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ゴージャス兄さん</attribute>
+		<language name="日本語" width="216">きょうも　おおもうけ！
+こううんの　めがみに　カンパイ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0801a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">かのじょが　いっしょにいると
+ふしぎに　ツキまくるんだよね▼
+こううんのなみに　ノってる
+ぼくに　ちょうせん　してみるかい？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0801a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">きょうも　おおもうけ！
+こううんの　めがみに　カンパイ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0801a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">このまけは　つぎのカケで
+とりかえせば　いいさ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0801b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0801b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">お洒落姉さん</attribute>
+		<language name="日本語" width="216">きゃー　すごーい！
+ひゃっぱつひゃくちゅう　なのー！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0801b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">かれったら　すっごく
+ギャンブルが　つよいのよー！▼
+うんのいいひとって　ポケモンでも
+しょうぶづよいのよ！▼
+あなた……　ためしてみる？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0801b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">きゃー　すごーい！
+ひゃっぱつひゃくちゅう　なのー！</language>
+	</row>
+
+	<row id="msg_l02r0101_0801b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">ひとつまけても　つぎに
+ドーンと　とりかえせば　いいのよね！</language>
+	</row>
+
+	<row id="msg_l02r0101_0802a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0802a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ゴージャス兄さん</attribute>
+		<language name="日本語" width="216">テクニックなんて　ひつようない
+あいての　こころを　よむのさ！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0802a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">こころ　というのは　そのひとが
+どう　おもっているか　じゃないんだ▽
+どう　おもわれたがっているか　だよ▼
+きみは……　つよいトレーナーだと
+ぼくに　おもわれたいかい？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0802a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">テクニックなんて　ひつようない
+あいての　こころを　よむのさ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0802a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">あの　トレーナーさんには
+なんか　まけるきが　したんだよねー</language>
+	</row>
+
+	<row id="msg_l02r0101_0802b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0802b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">お洒落姉さん</attribute>
+		<language name="日本語" width="216">うっそー　すごーい！
+どうして　わかっちゃうのかしらー！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0802b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">かれったら　わたしが
+さみしがりや　だっていうことも▽
+ピタリと　あてちゃうの！▼
+かれとなら　まけるきが　しないわ
+しょうぶ　してみる？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0802b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">うっそー　すごーい！
+どうして　わかっちゃうのかしらー！</language>
+	</row>
+
+	<row id="msg_l02r0101_0802b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">じぶんが　まけそうな　ことを
+よそう　していたなんて　さすがだわ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0803a_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0803a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ゴージャス兄さん</attribute>
+		<language name="日本語" width="216">ごうかな　りょうりを　たべて
+つぎの　しょうぶへの▽
+いよくを　たかめるとしよう！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0803a_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">にんげん　というのは
+ふたつの　タイプに　わけられる▼
+ここぞ　というときに
+しょうぶにでるか　でないか　だ！▼
+きみは　しょうぶに　でるんだろう？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0803a_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">ごうかな　りょうりを　たべて
+つぎの　しょうぶへの▽
+いよくを　たかめるとしよう！</language>
+	</row>
+
+	<row id="msg_l02r0101_0803a_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♂：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">よちのうりょくが　あれば
+ギャンブルには　ゆうりだろうけど▼
+さすがに　それはないよね</language>
+	</row>
+
+	<row id="msg_l02r0101_0803b_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0803b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">お洒落姉さん</attribute>
+		<language name="日本語" width="216">どうして　そんなに
+ピタリと　あてられるのかしら……▼
+もしかして　よちのうりょく？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0803b_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">かれには　ふしぎな　ちからが
+あるとしか　おもえないのよね▼
+そんな　すごいひとと　コンビなのよ
+それでも　あなた　たたかうき？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0803b_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<language name="日本語" width="216">どうして　そんなに
+ピタリと　あてられるのかしら……▼
+もしかして　よちのうりょく？</language>
+	</row>
+
+	<row id="msg_l02r0101_0803b_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,,,,,,">
+		<comment>♀：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">よちのうりょく　じゃなければ
+まさか　みらいから　きたとか？</language>
+	</row>
+
+	<row id="msg_l02r0101_0900a_01">
+		<comment>♂：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">助手♂</attribute>
+		<language name="日本語" width="216">われわれと　たたかうのなら
+ポケモン　１ひきじゃ　たりませんよ！</language>
+	</row>
+
+	<row id="msg_l02r0101_0900b_01">
+		<comment>♀：００：すべての状況で共通
+ポケモン１匹しか持っておらず、
+まだ戦っていないとき
+
+主人公の方を向いてしゃべる</comment>
+		<attribute name="キャラ">ブリーダー♀</attribute>
+		<language name="日本語" width="216">あのね　ポケモンを
+２ひきいじょう　もってきてくれたら▽
+おあいて　してあげるわね</language>
+	</row>
+
+	<row id="msg_l02r0101_0901a_01">
+		<comment>♂：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0901a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">助手♂</attribute>
+		<language name="日本語" width="216">ふうむ　このドリンクは
+かなり　どぎつい　いろを　しているが▼
+わたしの　ぶんせきによれば
+すべて　てんねんそざいで　できとるな▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0901a_02">
+		<comment>♂：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">きみは　なんだ？▼
+……　……　……
+……ああ　トレーナーさんか▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0901a_03">
+		<language name="日本語" width="216">ふうむ　このドリンクは
+かなり　どぎつい　いろを　しているが▼
+わたしの　ぶんせきによれば
+すべて　てんねんそざいで　できとるな</language>
+	</row>
+
+	<row id="msg_l02r0101_0901a_04">
+		<comment>♂：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">ま　しょうぶのことは　ともかく
+カンパイを　するとしよう</language>
+	</row>
+
+	<row id="msg_l02r0101_0901b_01">
+		<comment>♀：０１：乾杯
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0901b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ブリーダー♀</attribute>
+		<language name="日本語" width="216">んもう　あなたったら！▼
+せっかく　おしょくじに　きてるのに
+ざいりょうを　ぶんせき　するのは▽
+やめてちょうだい！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0901b_02">
+		<comment>♀：０１：乾杯
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">あら　トレーナーさん？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0901b_03">
+		<language name="日本語" width="216">んもう　あなたったら！▼
+せっかく　おしょくじに　きてるのに
+ざいりょうを　ぶんせき　するのは▽
+やめてちょうだい！</language>
+	</row>
+
+	<row id="msg_l02r0101_0901b_04">
+		<comment>♀：０１：乾杯
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">カンパーイ！▼
+のんでも　あじを　ぶんせきしたり
+しないでちょうだいね</language>
+	</row>
+
+	<row id="msg_l02r0101_0902a_01">
+		<comment>♂：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0902a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">助手♂</attribute>
+		<language name="日本語" width="216">ほほう　このオードブルは
+しょくもつせんいが　２０パーセント▽
+てつぶんが　５パーセント▽
+タンパクしつが　３５パーセント……▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0902a_02">
+		<comment>♂：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">なんだい？　じぶんの　ちからを
+ぶんせき　してほしいのかい？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0902a_03">
+		<language name="日本語" width="216">ほほう　このオードブルは
+しょくもつせんいが　２０パーセント▽
+てつぶんが　５パーセント▽
+タンパクしつが　３５パーセント……</language>
+	</row>
+
+	<row id="msg_l02r0101_0902a_04">
+		<comment>♂：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">あいまいなものを　ぶんせきし
+こうせいようそを　ていぎすると▽
+わたしは　あんしんが　えられるのだよ</language>
+	</row>
+
+	<row id="msg_l02r0101_0902b_01">
+		<comment>♀：０２：オードブル
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0902b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ブリーダー♀</attribute>
+		<language name="日本語" width="216">ほんとにもう　あなたったら！▼
+おしょくじに　きたときぐらい
+けんきゅうのことは▽
+かんがえないで　くださいな！▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0902b_02">
+		<comment>♀：０２：オードブル
+戦闘前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">こんな　けんきゅう　ねっしんな
+おっとに　あきれる　わたしですが▽
+しょうぶなど　してみます？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0902b_03">
+		<language name="日本語" width="216">ほんとにもう　あなたったら！▼
+おしょくじに　きたときぐらい
+けんきゅうのことは▽
+かんがえないで　くださいな！</language>
+	</row>
+
+	<row id="msg_l02r0101_0902b_04">
+		<comment>♀：０２：オードブル
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">わたしは　わからないものは
+わからないままに　しておいたほうが▽
+いいような　きがするわ……</language>
+	</row>
+
+	<row id="msg_l02r0101_0903a_01">
+		<comment>♂：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0903a_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">助手♂</attribute>
+		<language name="日本語" width="216">そろそろ　メインディッシュが
+くるころ　なんだが……▼
+コンロの　かりょくが　よわくて
+ちょうりに　じかんが　かかるのか？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0903a_02">
+		<comment>♂：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">そこの　きみ！
+ヒマつぶしに　つきあってくれないか？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0903a_03">
+		<language name="日本語" width="216">そろそろ　メインディッシュが
+くるころ　なんだが……▼
+コンロの　かりょくが　よわくて
+ちょうりに　じかんが　かかるのか？</language>
+	</row>
+
+	<row id="msg_l02r0101_0903a_04">
+		<comment>♂：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">しょうぶ　している　あいだに
+りょうりが　はこばれて　きたが……▼
+こりゃ　カロリーが　たかそうだな</language>
+	</row>
+
+	<row id="msg_l02r0101_0903b_01">
+		<comment>♀：０３：メインディッシュ
+ポケモン２匹以上のとき
+戦闘前１
+
+振り向かずにしゃべって、
+　・まだ戦っていないなら → msg_l02r0101_0903b_02
+　・すでに戦っているなら → 終了</comment>
+		<attribute name="キャラ">ブリーダー♀</attribute>
+		<language name="日本語" width="216">りょうりが　おそいからって
+セカセカしても　しかたないわ▼
+こんなときのために
+ポケモンを　もってきたんでしょ？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0903b_02">
+		<comment>♀：０３：メインディッシュ
+戦闘の前２
+
+主人公の方を向いてしゃべって、
+はい／いいえの選択肢を表示
+　・は　い → 戦闘へ
+　・いいえ → 終了</comment>
+		<language name="日本語" width="216">あら　ちょうど　よかった！▼
+そこの　あなた
+わたしたちと　しょうぶ　してみない？▼</language>
+	</row>
+
+	<row id="msg_l02r0101_0903b_03">
+		<language name="日本語" width="216">りょうりが　おそいからって
+セカセカしても　しかたないわ▼
+こんなときのために
+ポケモンを　もってきたんでしょ？</language>
+	</row>
+
+	<row id="msg_l02r0101_0903b_04">
+		<comment>♀：０３：メインディッシュ
+戦闘の後
+
+振り向かずにしゃべる</comment>
+		<language name="日本語" width="216">とりすぎた　カロリーは
+また　ポケモンしょうぶで▽
+しょうひ　すれば　いいのよ！</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

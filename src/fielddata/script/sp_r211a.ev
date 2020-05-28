@@ -1,0 +1,7 @@
+//051213
+//dmy
+.text
+
+.include	"scr_seq_def.h"
+
+_SP_EVENT_DATA_END

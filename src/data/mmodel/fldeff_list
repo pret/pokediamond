@@ -1,0 +1,153 @@
+#============================================================================
+#	アーカイブデータfldeff.narc　連結対象ファイル定義
+#============================================================================
+#----------------------------------------------------------------------------
+#	フィールドエフェクト　itpアニメーションデータ定義　参照先 ../rsc/
+#----------------------------------------------------------------------------
+G3D_FE_ANMITP = ripple.itp \
+			numa_ripple.itp \
+			ug_ef_smoke.itp \
+			ug_ef_drill.itp \
+			ug_ef_gflash.itp \
+			gym06_o1.itp
+			
+#----------------------------------------------------------------------------
+#	フィールドエフェクト　itpコンバートアニメーションデータ定義　参照先 ../rsc/
+#----------------------------------------------------------------------------
+G3D_FE_ANMITPCV = kusaeff.itp \
+			e_kusaeff1.itp \
+			e_kusaeff2.itp \
+			e_kusaeff3.itp \
+			shibuki.itp \
+			hero_kemu.itp \
+			lgrass_ani1.itp \
+			ngrass_ani1.itp \
+			gym04_eff.itp \
+			n_shibuki.itp \
+			nin_kemu.itp \
+			seed_kira.itp
+			
+#----------------------------------------------------------------------------
+#	フィールドエフェクト　モデリング定義　参照先 ../rsc/
+#----------------------------------------------------------------------------
+G3D_FE_MDL = ripple.imd \
+			numa_ripple.imd \
+			kage.imd \
+			red_mark.imd \
+			blue_mark.imd \
+			mirror.imd \
+			t_yaji.imd \
+			h_flag.imd \
+			ug_exclamation.imd \
+			ug_ok.imd \
+			hole.imd \
+			ug_strap_01.imd \
+			ug_strap_02.imd \
+			ug_strap_03.imd \
+			ug_strap_04.imd \
+			ug_strap_05.imd \
+			ug_strap_06.imd \
+			ug_strap_07.imd \
+			ug_strap_08.imd \
+			ug_strap_09.imd \
+			ug_strap_10.imd \
+			ug_strap_11.imd \
+			ug_strap_12.imd \
+			ug_strap_13.imd \
+			ug_strap_14.imd \
+			ug_strap_15.imd \
+			ug_strap_16.imd \
+			ug_strap_17.imd \
+			ug_strap_18.imd \
+			ug_strap_19.imd \
+			ug_strap_20.imd \
+			ug_strap_21.imd \
+			ug_strap_22.imd \
+			ug_strap_23.imd \
+			ug_strap_24.imd \
+			ug_strap_25.imd \
+			ug_strap_26.imd \
+			ug_strap_27.imd \
+			ug_strap_28.imd \
+			ug_strap_29.imd \
+			ug_strap_30.imd \
+			ug_strap_31.imd \
+			ug_strap_32.imd \
+			ug_ef_smoke.imd \
+			f_mark_u.imd \
+			f_mark_d.imd \
+			f_mark_l.imd \
+			f_mark_r.imd \
+			c_mark_u.imd \
+			c_mark_l.imd \
+			c_mark_ul.imd \
+			c_mark_ur.imd \
+			c_mark_dl.imd \
+			c_mark_dr.imd \
+			board_a.imd \
+			board_b.imd \
+			board_c.imd \
+			board_d.imd \
+			board_e.imd \
+			board_f.imd \
+			seed_ground01.imd \
+			seed_ground02.imd \
+			seed_ground03.imd \
+			gym06_o1.imd \
+			book.imd \
+			h_exit.imd \
+			sea_ride.imd \
+			rock_ride.imd \
+			kusaeff.imd \
+			e_kusaeff1.imd \
+			sisen_ef.imd \
+			shibuki.imd \
+			red_waku.imd \
+			hero_kemu.imd \
+			lgrass_ani1.imd \
+			ngrass_ani1.imd \
+			ug_ef_drill.imd \
+			ug_ef_gflash.imd \
+			nf_mark_u.imd \
+			nf_mark_d.imd \
+			nf_mark_l.imd \
+			nf_mark_r.imd \
+			nc_mark_u.imd \
+			nc_mark_l.imd \
+			nc_mark_ul.imd \
+			nc_mark_ur.imd \
+			nc_mark_dl.imd \
+			nc_mark_dr.imd \
+			nin_hide_s.imd \
+			nin_hide_b.imd \
+			nin_hide_g.imd \
+			nin_hide_k.imd \
+			nin_kemu.imd \
+			saisen_ef.imd \
+			seed_kira.imd \
+			door2.imd
+			
+#----------------------------------------------------------------------------
+#	フィールドエフェクト　テクスチャ定義　参照先 ../rsc/
+#----------------------------------------------------------------------------
+G3D_FE_TEX =  kusaeff.imd \
+			e_kusaeff1.imd \
+			e_kusaeff2.imd \
+			e_kusaeff3.imd \
+			sisen_ef.imd \
+			shibuki.imd \
+			red_waku.imd \
+			hero_kemu.imd \
+			lgrass_ani1.imd \
+			ngrass_ani1.imd \
+			gym04_eff.imd \
+			n_shibuki.imd \
+			nin_kemu.imd \
+			saisen_ef.imd \
+			seed_kira.imd
+			
+#----------------------------------------------------------------------------
+#	フィールドエフェクト　変換不要データ定義　参照先 /mmodel/
+#----------------------------------------------------------------------------
+G3D_FE_NONCV =
+

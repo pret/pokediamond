@@ -1,0 +1,4 @@
+.cvsignore
+*.bin
+*.elf
+*.N**R

@@ -1,0 +1,37 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: titledemo.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-19T17:11:36
+ *****************************************************************************/
+
+#ifndef NARC_TITLEDEMO_NAIX_
+#define NARC_TITLEDEMO_NAIX_
+
+enum {
+	NARC_titledemo_logo_NSCR = 0,
+	NARC_titledemo_logo_d_NCGR = 1,
+	NARC_titledemo_logo_d_NCLR = 2,
+	NARC_titledemo_logo_p_NCGR = 3,
+	NARC_titledemo_logo_p_NCLR = 4,
+	NARC_titledemo_title_air_nsbmd = 5,
+	NARC_titledemo_title_iar_nsbmd = 6,
+	NARC_titledemo_title_back_m_NCGR = 7,
+	NARC_titledemo_title_back_m_NSCR = 8,
+	NARC_titledemo_title_back_m_d_NCLR = 9,
+	NARC_titledemo_title_back_m_p_NCLR = 10,
+	NARC_titledemo_title_back_s_NCGR = 11,
+	NARC_titledemo_title_back_s_NSCR = 12,
+	NARC_titledemo_title_back_s_d_NCLR = 13,
+	NARC_titledemo_title_back_s_p_NCLR = 14,
+	NARC_titledemo_title_cpright_NCGR = 15,
+	NARC_titledemo_title_cpright_NCLR = 16,
+	NARC_titledemo_title_cpright_NSCR = 17,
+	NARC_titledemo_title_air_nsbta = 18,
+	NARC_titledemo_title_iar_nsbta = 19
+};
+
+/* NARC_TITLEDEMO_NAIX_ */
+#endif

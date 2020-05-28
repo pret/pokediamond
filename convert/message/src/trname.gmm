@@ -1,0 +1,3494 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="sogabe" host="W00086" date="2005-09-02T15:24:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="TR_NONE">
+		<language name="日本語">ー</language>
+	</row>
+
+	<row id="TR_TANPAN_01">
+		<language name="日本語">ユウタ</language>
+	</row>
+
+	<row id="TR_TANPAN_02">
+		<language name="日本語">カツミ</language>
+	</row>
+
+	<row id="TR_MINI_01">
+		<language name="日本語">ルミ</language>
+	</row>
+
+	<row id="TR_TANPAN_03">
+		<language name="日本語">トモキ</language>
+	</row>
+
+	<row id="TR_CAMPB_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMPB_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PICNICG_01">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_PICNICG_02">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_TANPAN_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_TANPAN_05">
+		<language name="日本語">テルキ</language>
+	</row>
+
+	<row id="TR_MINI_02">
+		<language name="日本語">メイ</language>
+	</row>
+
+	<row id="TR_MINI_03">
+		<language name="日本語">ナオ</language>
+	</row>
+
+	<row id="TR_MUSHI_01">
+		<language name="日本語">ダイスケ</language>
+	</row>
+
+	<row id="TR_AROMA_01">
+		<language name="日本語">カオリ</language>
+	</row>
+
+	<row id="TR_FUTAGO_01">
+		<language name="日本語">サラとサリ</language>
+	</row>
+
+	<row id="TR_CAMPB_03">
+		<language name="日本語">ヨシキ</language>
+	</row>
+
+	<row id="TR_PICNICG_03">
+		<language name="日本語">コエダ</language>
+	</row>
+
+	<row id="TR_MOUNT_01">
+		<language name="日本語">カツト</language>
+	</row>
+
+	<row id="TR_MOUNT_02">
+		<language name="日本語">ガンジ</language>
+	</row>
+
+	<row id="TR_BATTLEG_01">
+		<language name="日本語">チナツ</language>
+	</row>
+
+	<row id="TR_AROMA_02">
+		<language name="日本語">チエ</language>
+	</row>
+
+	<row id="TR_FISHING_01">
+		<language name="日本語">ユキハル</language>
+	</row>
+
+	<row id="TR_FISHING_02">
+		<language name="日本語">タカマサ</language>
+	</row>
+
+	<row id="TR_FISHING_03">
+		<language name="日本語">シンサク</language>
+	</row>
+
+	<row id="TR_CYCLINGM_01">
+		<language name="日本語">ハヤオ</language>
+	</row>
+
+	<row id="TR_CYCLINGM_02">
+		<language name="日本語">トモミチ</language>
+	</row>
+
+	<row id="TR_CYCLINGM_03">
+		<language name="日本語">リンジ</language>
+	</row>
+
+	<row id="TR_CYCLINGM_04">
+		<language name="日本語">シュン</language>
+	</row>
+
+	<row id="TR_CYCLINGW_01">
+		<language name="日本語">ルリカ</language>
+	</row>
+
+	<row id="TR_CYCLINGW_02">
+		<language name="日本語">カナエ</language>
+	</row>
+
+	<row id="TR_CYCLINGW_03">
+		<language name="日本語">チホミ</language>
+	</row>
+
+	<row id="TR_CYCLINGW_04">
+		<language name="日本語">フミナ</language>
+	</row>
+
+	<row id="TR_TANPAN_06">
+		<language name="日本語">ヤスノリ</language>
+	</row>
+
+	<row id="TR_CAMPB_04">
+		<language name="日本語">ヒロミチ</language>
+	</row>
+
+	<row id="TR_PICNICG_04">
+		<language name="日本語">ミサキ</language>
+	</row>
+
+	<row id="TR_MOUNT_03">
+		<language name="日本語">スミオ</language>
+	</row>
+
+	<row id="TR_MOUNT_04">
+		<language name="日本語">ケイジ</language>
+	</row>
+
+	<row id="TR_BATTLEG_02">
+		<language name="日本語">サリナ</language>
+	</row>
+
+	<row id="TR_MOUNT_05">
+		<language name="日本語">イツクニ</language>
+	</row>
+
+	<row id="TR_MOUNT_06">
+		<language name="日本語">クマオ</language>
+	</row>
+
+	<row id="TR_MOUNT_07">
+		<language name="日本語">アツオ</language>
+	</row>
+
+	<row id="TR_KARATE_01">
+		<language name="日本語">ゴウタ</language>
+	</row>
+
+	<row id="TR_FISHING_04">
+		<language name="日本語">テルマサ</language>
+	</row>
+
+	<row id="TR_AROMA_03">
+		<language name="日本語">テイコ</language>
+	</row>
+
+	<row id="TR_ARTIST_01">
+		<language name="日本語">モトフミ</language>
+	</row>
+
+	<row id="TR_BREEDERM_01">
+		<language name="日本語">ハルキ</language>
+	</row>
+
+	<row id="TR_BREEDERW_01">
+		<language name="日本語">マフユ</language>
+	</row>
+
+	<row id="TR_COWGIRL_01">
+		<language name="日本語">アニー</language>
+	</row>
+
+	<row id="TR_JOGGER_01">
+		<language name="日本語">フウタ</language>
+	</row>
+
+	<row id="TR_DAISUKIM_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_DAISUKIW_01">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_TANPAN_07">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_01">
+		<language name="日本語">チヒロ</language>
+	</row>
+
+	<row id="TR_FISHING_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_LOVELOVE_01">
+		<language name="日本語">リクとミサ</language>
+	</row>
+
+	<row id="TR_BREEDERM_02">
+		<language name="日本語">ナオヤ</language>
+	</row>
+
+	<row id="TR_BREEDERW_02">
+		<language name="日本語">コハル</language>
+	</row>
+
+	<row id="TR_COWGIRL_02">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_JOGGER_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_DAISUKIM_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_DAISUKIW_02">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_ELITEM_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_ELITEW_01">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_WAITRESS_01">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_FUTAGO_02">
+		<language name="日本語">マヤとルイ</language>
+	</row>
+
+	<row id="TR_ELITEM_02">
+		<language name="日本語">ジュンヤ</language>
+	</row>
+
+	<row id="TR_ELITEW_02">
+		<language name="日本語">スズカ</language>
+	</row>
+
+	<row id="TR_VETERAN_01">
+		<language name="日本語">テンマ</language>
+	</row>
+
+	<row id="TR_KARATE_02">
+		<language name="日本語">カツヤ</language>
+	</row>
+
+	<row id="TR_SHINOBI_01">
+		<language name="日本語">ヤスアキ</language>
+	</row>
+
+	<row id="TR_SHINOBI_02">
+		<language name="日本語">ケンキチ</language>
+	</row>
+
+	<row id="TR_SHINOBI_03">
+		<language name="日本語">テッペイ</language>
+	</row>
+
+	<row id="TR_DRAGON_01">
+		<language name="日本語">リュウヘイ</language>
+	</row>
+
+	<row id="TR_BIRD_01">
+		<language name="日本語">ミソラ</language>
+	</row>
+
+	<row id="TR_DOUBLETEAM_01">
+		<language name="日本語">ガクとシノ</language>
+	</row>
+
+	<row id="TR_BIRD_02">
+		<language name="日本語">フウコ</language>
+	</row>
+
+	<row id="TR_BATTLEG_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SHINOBI_04">
+		<language name="日本語">コタロウ</language>
+	</row>
+
+	<row id="TR_KARATE_03">
+		<language name="日本語">ユウサク</language>
+	</row>
+
+	<row id="TR_SHINOBI_05">
+		<language name="日本語">カツノリ</language>
+	</row>
+
+	<row id="TR_BIRD_03">
+		<language name="日本語">ミヤビ</language>
+	</row>
+
+	<row id="TR_PRINCE_01">
+		<language name="日本語">ユウスケ</language>
+	</row>
+
+	<row id="TR_PRINCESS_01">
+		<language name="日本語">ユリカ</language>
+	</row>
+
+	<row id="TR_GENTLE_01">
+		<language name="日本語">サダミツ</language>
+	</row>
+
+	<row id="TR_MADAM_01">
+		<language name="日本語">ヨシノ</language>
+	</row>
+
+	<row id="TR_SISTER_01">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_COLLECTOR_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_POLICE_01">
+		<language name="日本語">モリツグ</language>
+	</row>
+
+	<row id="TR_POLICE_02">
+		<language name="日本語">シュウヘイ</language>
+	</row>
+
+	<row id="TR_POLICE_03">
+		<language name="日本語">ケースケ</language>
+	</row>
+
+	<row id="TR_FISHING_06">
+		<language name="日本語">テルヒコ</language>
+	</row>
+
+	<row id="TR_FISHING_07">
+		<language name="日本語">ノリカズ</language>
+	</row>
+
+	<row id="TR_FISHING_08">
+		<language name="日本語">トモユキ</language>
+	</row>
+
+	<row id="TR_RANGERM_01">
+		<language name="日本語">ヨシノリ</language>
+	</row>
+
+	<row id="TR_RANGERM_02">
+		<language name="日本語">エイジ</language>
+	</row>
+
+	<row id="TR_RANGERW_01">
+		<language name="日本語">スズネ</language>
+	</row>
+
+	<row id="TR_RANGERW_02">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_02">
+		<language name="日本語">ツトム</language>
+	</row>
+
+	<row id="TR_TANPAN_08">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_TANPAN_09">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_POLICE_04">
+		<language name="日本語">エイタロウ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_01">
+		<language name="日本語">エイサク</language>
+	</row>
+
+	<row id="TR_SWIMMERM_02">
+		<language name="日本語">キョウジ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_01">
+		<language name="日本語">ナオミ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_02">
+		<language name="日本語">エリコ</language>
+	</row>
+
+	<row id="TR_UKIWAB_01">
+		<language name="日本語">スグル</language>
+	</row>
+
+	<row id="TR_UKIWAG_01">
+		<language name="日本語">マツリ</language>
+	</row>
+
+	<row id="TR_BATTLEG_04">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SAILOR_01">
+		<language name="日本語">ヨウヘイ</language>
+	</row>
+
+	<row id="TR_FISHING_09">
+		<language name="日本語">タカフミ</language>
+	</row>
+
+	<row id="TR_ANEOTOUTO_01">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_ISEKI_01">
+		<language name="日本語">ケイゴ</language>
+	</row>
+
+	<row id="TR_ISEKI_02">
+		<language name="日本語">モリアキ</language>
+	</row>
+
+	<row id="TR_MOUNT_08">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_VETERAN_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMPB_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PICNICG_05">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_ESPM_01">
+		<language name="日本語">マモル</language>
+	</row>
+
+	<row id="TR_ESPW_01">
+		<language name="日本語">カナミ</language>
+	</row>
+
+	<row id="TR_GAMBLER_01">
+		<language name="日本語">マキト</language>
+	</row>
+
+	<row id="TR_GUITARIST_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GAMBLER_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SISTER_02">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SISTER_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_KARATE_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_KARATE_05">
+		<language name="日本語">ヨウスケ</language>
+	</row>
+
+	<row id="TR_KARATE_06">
+		<language name="日本語">ケンサク</language>
+	</row>
+
+	<row id="TR_KARATE_07">
+		<language name="日本語">グンジ</language>
+	</row>
+
+	<row id="TR_JOGGER_03">
+		<language name="日本語">マサヤ</language>
+	</row>
+
+	<row id="TR_BIRD_04">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_COLDELITEM_01">
+		<language name="日本語">ユウマ</language>
+	</row>
+
+	<row id="TR_COLDELITEM_02">
+		<language name="日本語">ヒロユキ</language>
+	</row>
+
+	<row id="TR_COLDELITEW_01">
+		<language name="日本語">ナオコ</language>
+	</row>
+
+	<row id="TR_COLDELITEW_02">
+		<language name="日本語">マドカ</language>
+	</row>
+
+	<row id="TR_SKIERM_01">
+		<language name="日本語">フジヤ</language>
+	</row>
+
+	<row id="TR_SKIERM_02">
+		<language name="日本語">タカヒコ</language>
+	</row>
+
+	<row id="TR_SKIERW_01">
+		<language name="日本語">ナツキ</language>
+	</row>
+
+	<row id="TR_SKIERW_02">
+		<language name="日本語">アイミ</language>
+	</row>
+
+	<row id="TR_COLDELITEM_03">
+		<language name="日本語">ミキト</language>
+	</row>
+
+	<row id="TR_COLDELITEW_03">
+		<language name="日本語">シズル</language>
+	</row>
+
+	<row id="TR_SKIERM_03">
+		<language name="日本語">センタロウ</language>
+	</row>
+
+	<row id="TR_SKIERM_04">
+		<language name="日本語">ノブオ</language>
+	</row>
+
+	<row id="TR_SKIERW_03">
+		<language name="日本語">ユウコ</language>
+	</row>
+
+	<row id="TR_SKIERW_04">
+		<language name="日本語">ヒヅキ</language>
+	</row>
+
+	<row id="TR_SHINOBI_06">
+		<language name="日本語">ヒロノブ</language>
+	</row>
+
+	<row id="TR_SHINOBI_07">
+		<language name="日本語">カズヒト</language>
+	</row>
+
+	<row id="TR_KARATE_08">
+		<language name="日本語">トウシ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_04">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_FISHING_10">
+		<language name="日本語">ユタカ</language>
+	</row>
+
+	<row id="TR_FISHING_11">
+		<language name="日本語">センジ</language>
+	</row>
+
+	<row id="TR_ANEOTOUTO_02">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_SWIMMERM_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_06">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_05">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_07">
+		<language name="日本語">キョウタ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_08">
+		<language name="日本語">モグル</language>
+	</row>
+
+	<row id="TR_SWIMMERM_09">
+		<language name="日本語">ツキオ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_06">
+		<language name="日本語">ユカリ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_07">
+		<language name="日本語">シホミ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_08">
+		<language name="日本語">ヒロミ</language>
+	</row>
+
+	<row id="TR_ANEOTOUTO_03">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_SWIMMERM_10">
+		<language name="日本語">リキオ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_09">
+		<language name="日本語">ミナミ</language>
+	</row>
+
+	<row id="TR_FISHING_12">
+		<language name="日本語">マサヒロ</language>
+	</row>
+
+	<row id="TR_ISEKI_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_ELITEM_03">
+		<language name="日本語">アキラ</language>
+	</row>
+
+	<row id="TR_ELITEW_03">
+		<language name="日本語">ホノカ</language>
+	</row>
+
+	<row id="TR_FISHING_13">
+		<language name="日本語">ユキオ</language>
+	</row>
+
+	<row id="TR_FISHING_14">
+		<language name="日本語">タツオ</language>
+	</row>
+
+	<row id="TR_FISHING_15">
+		<language name="日本語">マサシ</language>
+	</row>
+
+	<row id="TR_FISHING_16">
+		<language name="日本語">マツオ</language>
+	</row>
+
+	<row id="TR_HEADS_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_HEADS_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GUITARIST_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PIERROT_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SAILOR_02">
+		<language name="日本語">ユウシ</language>
+	</row>
+
+	<row id="TR_ARTIST_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_LOVELOVE_02">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_SWIMMERM_11">
+		<language name="日本語">ミナト</language>
+	</row>
+
+	<row id="TR_SWIMMERM_12">
+		<language name="日本語">アキヒト</language>
+	</row>
+
+	<row id="TR_SWIMMERM_13">
+		<language name="日本語">テルユキ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_14">
+		<language name="日本語">レンサク</language>
+	</row>
+
+	<row id="TR_SWIMMERM_15">
+		<language name="日本語">スイヘイ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_16">
+		<language name="日本語">ヒデノリ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_10">
+		<language name="日本語">リリカ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_11">
+		<language name="日本語">ケイコ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_12">
+		<language name="日本語">キミカ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_13">
+		<language name="日本語">マリエ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_14">
+		<language name="日本語">コヨミ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_15">
+		<language name="日本語">タマキ</language>
+	</row>
+
+	<row id="TR_WORKER_01">
+		<language name="日本語">カンジ</language>
+	</row>
+
+	<row id="TR_WORKER_02">
+		<language name="日本語">ゲンタ</language>
+	</row>
+
+	<row id="TR_WORKER_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_MUSHI_02">
+		<language name="日本語">ヨウタ</language>
+	</row>
+
+	<row id="TR_MUSHI_03">
+		<language name="日本語">シンゴ</language>
+	</row>
+
+	<row id="TR_MUSHI_04">
+		<language name="日本語">ミチオ</language>
+	</row>
+
+	<row id="TR_MINI_04">
+		<language name="日本語">カナコ</language>
+	</row>
+
+	<row id="TR_ESPM_02">
+		<language name="日本語">アキフミ</language>
+	</row>
+
+	<row id="TR_ESPW_02">
+		<language name="日本語">ヨリコ</language>
+	</row>
+
+	<row id="TR_LOVELOVE_03">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_WORKER_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WORKER_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WORKER_06">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_COLDELITEM_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_COLDELITEM_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_COLDELITEW_04">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_COLDELITEW_05">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_VETERAN_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_VETERAN_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_ESPM_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_ESPW_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_DRAGON_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SAILOR_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SCHOOLB_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SCHOOLG_01">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_LOVELOVE_04">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_ELITEM_04">
+		<language name="日本語">ゴウ</language>
+	</row>
+
+	<row id="TR_ELITEM_05">
+		<language name="日本語">マイト</language>
+	</row>
+
+	<row id="TR_ELITEW_04">
+		<language name="日本語">ミコト</language>
+	</row>
+
+	<row id="TR_ELITEW_05">
+		<language name="日本語">アスカ</language>
+	</row>
+
+	<row id="TR_VETERAN_05">
+		<language name="日本語">トウマ</language>
+	</row>
+
+	<row id="TR_VETERAN_06">
+		<language name="日本語">ゴウマ</language>
+	</row>
+
+	<row id="TR_DRAGON_03">
+		<language name="日本語">タツマ</language>
+	</row>
+
+	<row id="TR_DRAGON_04">
+		<language name="日本語">リュウジ</language>
+	</row>
+
+	<row id="TR_KARATE_09">
+		<language name="日本語">ケンスケ</language>
+	</row>
+
+	<row id="TR_BIRD_05">
+		<language name="日本語">テツコ</language>
+	</row>
+
+	<row id="TR_ESPM_04">
+		<language name="日本語">レイジ</language>
+	</row>
+
+	<row id="TR_ESPW_04">
+		<language name="日本語">セリカ</language>
+	</row>
+
+	<row id="TR_DOUBLETEAM_02">
+		<language name="日本語">タツとミナ</language>
+	</row>
+
+	<row id="TR_DOUBLETEAM_03">
+		<language name="日本語">ジンとアヤ</language>
+	</row>
+
+	<row id="TR_TANPAN_10">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_MINI_05">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_VETERAN_07">
+		<language name="日本語">ダイキ</language>
+	</row>
+
+	<row id="TR_FISHING_17">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SAILOR_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SISTER_04">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_TANPAN_11">
+		<language name="日本語">シンスケ</language>
+	</row>
+
+	<row id="TR_TANPAN_12">
+		<language name="日本語">コウタ</language>
+	</row>
+
+	<row id="TR_LEADER1_01">
+		<language name="日本語">ヒョウタ</language>
+	</row>
+
+	<row id="TR_RIVAL_01">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_02">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_03">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_LEADER7_01">
+		<language name="日本語">トウガン</language>
+	</row>
+
+	<row id="TR_ELITEW_06">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_CAMPB_06">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMPB_07">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMPB_08">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMPB_09">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WORKER_07">
+		<language name="日本語">テツオミ</language>
+	</row>
+
+	<row id="TR_WORKER_08">
+		<language name="日本語">カネオ</language>
+	</row>
+
+	<row id="TR_KARATE_10">
+		<language name="日本語">ダンジ</language>
+	</row>
+
+	<row id="TR_AROMA_04">
+		<language name="日本語">マナエ</language>
+	</row>
+
+	<row id="TR_AROMA_05">
+		<language name="日本語">ユキノ</language>
+	</row>
+
+	<row id="TR_BIGFOUR1_01">
+		<language name="日本語">リョウ</language>
+	</row>
+
+	<row id="TR_BIGFOUR2_01">
+		<language name="日本語">キクノ</language>
+	</row>
+
+	<row id="TR_BIGFOUR3_01">
+		<language name="日本語">オーバ</language>
+	</row>
+
+	<row id="TR_BIGFOUR4_01">
+		<language name="日本語">ゴヨウ</language>
+	</row>
+
+	<row id="TR_CAMPB_10">
+		<language name="日本語">ハジメ</language>
+	</row>
+
+	<row id="TR_CAMPB_11">
+		<language name="日本語">シンイチ</language>
+	</row>
+
+	<row id="TR_CHAMPION_01">
+		<language name="日本語">シロナ</language>
+	</row>
+
+	<row id="TR_COLDELITEM_06">
+		<language name="日本語">ヒョウ</language>
+	</row>
+
+	<row id="TR_COLDELITEM_07">
+		<language name="日本語">ヒデキ</language>
+	</row>
+
+	<row id="TR_COLDELITEW_06">
+		<language name="日本語">トキコ</language>
+	</row>
+
+	<row id="TR_COLDELITEW_07">
+		<language name="日本語">レイミ</language>
+	</row>
+
+	<row id="TR_COLLECTOR_02">
+		<language name="日本語">ヨシミ</language>
+	</row>
+
+	<row id="TR_COLLECTOR_03">
+		<language name="日本語">レンジ</language>
+	</row>
+
+	<row id="TR_COLLECTOR_04">
+		<language name="日本語">ヒロム</language>
+	</row>
+
+	<row id="TR_COLLECTOR_05">
+		<language name="日本語">アキオ</language>
+	</row>
+
+	<row id="TR_COLLECTOR_06">
+		<language name="日本語">ミキオ</language>
+	</row>
+
+	<row id="TR_DRAGON_05">
+		<language name="日本語">タツキ</language>
+	</row>
+
+	<row id="TR_ELITEM_06">
+		<language name="日本語">カツマサ</language>
+	</row>
+
+	<row id="TR_ELITEM_07">
+		<language name="日本語">タクミ</language>
+	</row>
+
+	<row id="TR_ELITEM_08">
+		<language name="日本語">レイト</language>
+	</row>
+
+	<row id="TR_ELITEM_09">
+		<language name="日本語">ショウマ</language>
+	</row>
+
+	<row id="TR_ELITEM_10">
+		<language name="日本語">ハルノブ</language>
+	</row>
+
+	<row id="TR_ELITEW_07">
+		<language name="日本語">マユコ</language>
+	</row>
+
+	<row id="TR_ELITEW_08">
+		<language name="日本語">ユウカ</language>
+	</row>
+
+	<row id="TR_ELITEW_09">
+		<language name="日本語">ナズナ</language>
+	</row>
+
+	<row id="TR_ELITEW_10">
+		<language name="日本語">ヒトミ</language>
+	</row>
+
+	<row id="TR_ELITEW_11">
+		<language name="日本語">エリナ</language>
+	</row>
+
+	<row id="TR_ESPM_05">
+		<language name="日本語">ヨウマ</language>
+	</row>
+
+	<row id="TR_ESPW_05">
+		<language name="日本語">ジョンイ</language>
+	</row>
+
+	<row id="TR_FAMILY_01">
+		<language name="日本語">ニナとボブ</language>
+	</row>
+
+	<row id="TR_FARMER_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_FARMER_02">
+		<language name="日本語">ザック</language>
+	</row>
+
+	<row id="TR_FISHING_18">
+		<language name="日本語">ヒサオ</language>
+	</row>
+
+	<row id="TR_FUTAGO_03">
+		<language name="日本語">リカとミカ</language>
+	</row>
+
+	<row id="TR_GINGALEADER1_01">
+		<language name="日本語">マーズ</language>
+	</row>
+
+	<row id="TR_GINGAM_01">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_02">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_03">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_04">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GUITARIST_03">
+		<language name="日本語">ジョニー</language>
+	</row>
+
+	<row id="TR_GUITARIST_04">
+		<language name="日本語">ミック</language>
+	</row>
+
+	<row id="TR_GUITARIST_05">
+		<language name="日本語">ゲイリー</language>
+	</row>
+
+	<row id="TR_GUITARIST_06">
+		<language name="日本語">マイク</language>
+	</row>
+
+	<row id="TR_ISEKI_04">
+		<language name="日本語">イサジ</language>
+	</row>
+
+	<row id="TR_ISEKI_05">
+		<language name="日本語">シゲオ</language>
+	</row>
+
+	<row id="TR_JOGGER_04">
+		<language name="日本語">セイジ</language>
+	</row>
+
+	<row id="TR_JOGGER_05">
+		<language name="日本語">スバル</language>
+	</row>
+
+	<row id="TR_JOGGER_06">
+		<language name="日本語">カケル</language>
+	</row>
+
+	<row id="TR_KARATE_11">
+		<language name="日本語">イチロウ</language>
+	</row>
+
+	<row id="TR_KARATE_12">
+		<language name="日本語">ジロウ</language>
+	</row>
+
+	<row id="TR_KARATE_13">
+		<language name="日本語">サブロウ</language>
+	</row>
+
+	<row id="TR_KARATE_14">
+		<language name="日本語">シロウ</language>
+	</row>
+
+	<row id="TR_KARATE_15">
+		<language name="日本語">タダシ</language>
+	</row>
+
+	<row id="TR_KARATE_16">
+		<language name="日本語">タイト</language>
+	</row>
+
+	<row id="TR_LEADER2_01">
+		<language name="日本語">ナタネ</language>
+	</row>
+
+	<row id="TR_LEADER3_01">
+		<language name="日本語">マキシ</language>
+	</row>
+
+	<row id="TR_LEADER4_01">
+		<language name="日本語">スモモ</language>
+	</row>
+
+	<row id="TR_LEADER5_01">
+		<language name="日本語">メリッサ</language>
+	</row>
+
+	<row id="TR_LEADER6_01">
+		<language name="日本語">スズナ</language>
+	</row>
+
+	<row id="TR_LEADER8_01">
+		<language name="日本語">デンジ</language>
+	</row>
+
+	<row id="TR_MINI_06">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_MINI_07">
+		<language name="日本語">チカ</language>
+	</row>
+
+	<row id="TR_MINI_08">
+		<language name="日本語">サユリ</language>
+	</row>
+
+	<row id="TR_MINI_09">
+		<language name="日本語">リサ</language>
+	</row>
+
+	<row id="TR_MINI_10">
+		<language name="日本語">ナミエ</language>
+	</row>
+
+	<row id="TR_MOUNT_09">
+		<language name="日本語">ノボル</language>
+	</row>
+
+	<row id="TR_PARASOL_01">
+		<language name="日本語">シズエ</language>
+	</row>
+
+	<row id="TR_PARASOL_02">
+		<language name="日本語">ワカナ</language>
+	</row>
+
+	<row id="TR_PICNICG_06">
+		<language name="日本語">サチコ</language>
+	</row>
+
+	<row id="TR_PICNICG_07">
+		<language name="日本語">アサミ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_02">
+		<language name="日本語">チマリ</language>
+	</row>
+
+	<row id="TR_POLICE_05">
+		<language name="日本語">マサヨシ</language>
+	</row>
+
+	<row id="TR_POLICE_06">
+		<language name="日本語">セイタロウ</language>
+	</row>
+
+	<row id="TR_PRINCE_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PRINCE_03">
+		<language name="日本語">マサヒコ</language>
+	</row>
+
+	<row id="TR_PRINCESS_02">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SAILOR_05">
+		<language name="日本語">ユウジロウ</language>
+	</row>
+
+	<row id="TR_SAILOR_06">
+		<language name="日本語">ケンゴ</language>
+	</row>
+
+	<row id="TR_SAILOR_07">
+		<language name="日本語">ユウゾウ</language>
+	</row>
+
+	<row id="TR_SCHOOLB_02">
+		<language name="日本語">ガクト</language>
+	</row>
+
+	<row id="TR_SCHOOLB_03">
+		<language name="日本語">トヨフミ</language>
+	</row>
+
+	<row id="TR_SCHOOLB_04">
+		<language name="日本語">ナオト</language>
+	</row>
+
+	<row id="TR_SCHOOLG_02">
+		<language name="日本語">ユミカ</language>
+	</row>
+
+	<row id="TR_SCHOOLG_03">
+		<language name="日本語">ユリエ</language>
+	</row>
+
+	<row id="TR_SCHOOLG_04">
+		<language name="日本語">チサト</language>
+	</row>
+
+	<row id="TR_SISTER_05">
+		<language name="日本語">ルミコ</language>
+	</row>
+
+	<row id="TR_SISTER_06">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SISTER_07">
+		<language name="日本語">ヨウコ</language>
+	</row>
+
+	<row id="TR_SKIERM_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SKIERW_05">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_17">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_18">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_16">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_17">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_TANPAN_13">
+		<language name="日本語">マサル</language>
+	</row>
+
+	<row id="TR_TANPAN_14">
+		<language name="日本語">ミツオ</language>
+	</row>
+
+	<row id="TR_TANPAN_15">
+		<language name="日本語">テルヤ</language>
+	</row>
+
+	<row id="TR_UKIWAB_02">
+		<language name="日本語">シンタロウ</language>
+	</row>
+
+	<row id="TR_UKIWAB_03">
+		<language name="日本語">トモオ</language>
+	</row>
+
+	<row id="TR_UKIWAG_02">
+		<language name="日本語">チユミ</language>
+	</row>
+
+	<row id="TR_UKIWAG_03">
+		<language name="日本語">アユミ</language>
+	</row>
+
+	<row id="TR_VETERAN_08">
+		<language name="日本語">ゴロウマル</language>
+	</row>
+
+	<row id="TR_WAITER_01">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WAITER_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WAITER_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WAITRESS_02">
+		<language name="日本語">アンナ</language>
+	</row>
+
+	<row id="TR_WORKER_09">
+		<language name="日本語">キンジ</language>
+	</row>
+
+	<row id="TR_INTERVIEW_01">
+		<language name="日本語">ユミとタク</language>
+	</row>
+
+	<row id="TR_CAMERAMAN_01">
+		<language name="日本語">タケオ</language>
+	</row>
+
+	<row id="TR_REPORTER_01">
+		<language name="日本語">アキコ</language>
+	</row>
+
+	<row id="TR_IDOL_01">
+		<language name="日本語">リエコ</language>
+	</row>
+
+	<row id="TR_BATTLEG_05">
+		<language name="日本語">キリカ</language>
+	</row>
+
+	<row id="TR_BIRD_06">
+		<language name="日本語">タカコ</language>
+	</row>
+
+	<row id="TR_BREEDERM_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_BREEDERW_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_CAMERAMAN_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMPB_12">
+		<language name="日本語">コウヘイ</language>
+	</row>
+
+	<row id="TR_CAMPB_13">
+		<language name="日本語">セイギ</language>
+	</row>
+
+	<row id="TR_CAMPB_14">
+		<language name="日本語">アツシ</language>
+	</row>
+
+	<row id="TR_CAMPB_15">
+		<language name="日本語">ヨウ</language>
+	</row>
+
+	<row id="TR_COLLECTOR_07">
+		<language name="日本語">クリオ</language>
+	</row>
+
+	<row id="TR_COLLECTOR_08">
+		<language name="日本語">トミオ</language>
+	</row>
+
+	<row id="TR_COLLECTOR_09">
+		<language name="日本語">ノリオ</language>
+	</row>
+
+	<row id="TR_DAISUKIM_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_DAISUKIW_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_DRAGON_06">
+		<language name="日本語">カズマ</language>
+	</row>
+
+	<row id="TR_ELITEM_11">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_ELITEM_12">
+		<language name="日本語">カツヨシ</language>
+	</row>
+
+	<row id="TR_ELITEM_13">
+		<language name="日本語">タケフミ</language>
+	</row>
+
+	<row id="TR_ELITEM_14">
+		<language name="日本語">ヒビキ</language>
+	</row>
+
+	<row id="TR_ELITEW_12">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_ELITEW_13">
+		<language name="日本語">レイナ</language>
+	</row>
+
+	<row id="TR_ELITEW_14">
+		<language name="日本語">アヤノ</language>
+	</row>
+
+	<row id="TR_ELITEW_15">
+		<language name="日本語">モモカ</language>
+	</row>
+
+	<row id="TR_ESPM_06">
+		<language name="日本語">マキヤ</language>
+	</row>
+
+	<row id="TR_ESPM_07">
+		<language name="日本語">ツカサ</language>
+	</row>
+
+	<row id="TR_ESPM_08">
+		<language name="日本語">フミヤ</language>
+	</row>
+
+	<row id="TR_ESPW_06">
+		<language name="日本語">リョウコ</language>
+	</row>
+
+	<row id="TR_ESPW_07">
+		<language name="日本語">ナツミ</language>
+	</row>
+
+	<row id="TR_ESPW_08">
+		<language name="日本語">アコ</language>
+	</row>
+
+	<row id="TR_FISHING_19">
+		<language name="日本語">コウスケ</language>
+	</row>
+
+	<row id="TR_GENTLE_02">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GINGALBOSS_01">
+		<language name="日本語">アカギ</language>
+	</row>
+
+	<row id="TR_GINGALBOSS_02">
+		<language name="日本語">アカギ</language>
+	</row>
+
+	<row id="TR_GINGALEADER1_02">
+		<language name="日本語">マーズ</language>
+	</row>
+
+	<row id="TR_GINGALEADER2_01">
+		<language name="日本語">ジュピター</language>
+	</row>
+
+	<row id="TR_GINGALEADER2_02">
+		<language name="日本語">ジュピター</language>
+	</row>
+
+	<row id="TR_GINGALEADER3_01">
+		<language name="日本語">サターン</language>
+	</row>
+
+	<row id="TR_GINGALEADER3_02">
+		<language name="日本語">サターン</language>
+	</row>
+
+	<row id="TR_GINGAM_05">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_06">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_07">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_08">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_09">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_10">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_11">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_12">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_13">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_14">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_15">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_01">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_02">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_03">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_04">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_05">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_06">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_07">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_08">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_09">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_10">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GUITARIST_07">
+		<language name="日本語">ポール</language>
+	</row>
+
+	<row id="TR_GUITARIST_08">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GUITARIST_09">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GUITARIST_10">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GUITARIST_11">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GUITARIST_12">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_IDOL_02">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_IDOL_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_IDOL_04">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_IDOL_05">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_ISEKI_06">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_ISEKI_07">
+		<language name="日本語">トキオ</language>
+	</row>
+
+	<row id="TR_ISEKI_08">
+		<language name="日本語">トウジ</language>
+	</row>
+
+	<row id="TR_KARATE_17">
+		<language name="日本語">ユウダイ</language>
+	</row>
+
+	<row id="TR_KARATE_18">
+		<language name="日本語">タケノリ</language>
+	</row>
+
+	<row id="TR_KARATE_19">
+		<language name="日本語">テツ</language>
+	</row>
+
+	<row id="TR_KARATE_20">
+		<language name="日本語">タカ</language>
+	</row>
+
+	<row id="TR_MADAM_02">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_MINI_11">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_MINI_12">
+		<language name="日本語">ミユキ</language>
+	</row>
+
+	<row id="TR_MOUNT_10">
+		<language name="日本語">ドウジ</language>
+	</row>
+
+	<row id="TR_MOUNT_11">
+		<language name="日本語">カツオ</language>
+	</row>
+
+	<row id="TR_MOUNT_12">
+		<language name="日本語">カンタロウ</language>
+	</row>
+
+	<row id="TR_MOUNT_13">
+		<language name="日本語">タツミ</language>
+	</row>
+
+	<row id="TR_MOUNT_14">
+		<language name="日本語">モリオ</language>
+	</row>
+
+	<row id="TR_PICNICG_08">
+		<language name="日本語">サヤ</language>
+	</row>
+
+	<row id="TR_PICNICG_09">
+		<language name="日本語">ナルミ</language>
+	</row>
+
+	<row id="TR_PICNICG_10">
+		<language name="日本語">エミ</language>
+	</row>
+
+	<row id="TR_PICNICG_11">
+		<language name="日本語">ハルナ</language>
+	</row>
+
+	<row id="TR_PIERROT_02">
+		<language name="日本語">チャック</language>
+	</row>
+
+	<row id="TR_PIERROT_03">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PIERROT_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PIERROT_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PIERROT_06">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_03">
+		<language name="日本語">マナミ</language>
+	</row>
+
+	<row id="TR_POLICE_07">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PRINCE_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PRINCE_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PRINCESS_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_RIVAL_04">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_05">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_06">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_07">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_08">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_09">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_10">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_11">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_12">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_13">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_14">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_15">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_SAILOR_08">
+		<language name="日本語">タツヒコ</language>
+	</row>
+
+	<row id="TR_SAILOR_09">
+		<language name="日本語">ノブアキ</language>
+	</row>
+
+	<row id="TR_SCHOOLB_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SCHOOLG_05">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_06">
+		<language name="日本語">トシアキ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_07">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SHINOBI_08">
+		<language name="日本語">ヒロマサ</language>
+	</row>
+
+	<row id="TR_SHINOBI_09">
+		<language name="日本語">マサユキ</language>
+	</row>
+
+	<row id="TR_SHINOBI_10">
+		<language name="日本語">ユウイチ</language>
+	</row>
+
+	<row id="TR_SISTER_08">
+		<language name="日本語">アケミ</language>
+	</row>
+
+	<row id="TR_SISTER_09">
+		<language name="日本語">ノリカ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_19">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_18">
+		<language name="日本語">フミエ</language>
+	</row>
+
+	<row id="TR_TANPAN_16">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_TANPAN_17">
+		<language name="日本語">ユウト</language>
+	</row>
+
+	<row id="TR_UKIWAB_04">
+		<language name="日本語">クウタ</language>
+	</row>
+
+	<row id="TR_UKIWAG_04">
+		<language name="日本語">ウキエ</language>
+	</row>
+
+	<row id="TR_VETERAN_09">
+		<language name="日本語">モキチ</language>
+	</row>
+
+	<row id="TR_VETERAN_10">
+		<language name="日本語">イッケイ</language>
+	</row>
+
+	<row id="TR_WAITER_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WORKER_10">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WORKER_11">
+		<language name="日本語">テツジ</language>
+	</row>
+
+	<row id="TR_WORKER_12">
+		<language name="日本語">ミチテル</language>
+	</row>
+
+	<row id="TR_WORKER_13">
+		<language name="日本語">ヤスオ</language>
+	</row>
+
+	<row id="TR_WORKER_14">
+		<language name="日本語">トモヒコ</language>
+	</row>
+
+	<row id="TR_GINGAM_16">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_17">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_18">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_19">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_20">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_21">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_22">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_23">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_24">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_25">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_26">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_27">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_28">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_29">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_30">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_11">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_12">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_13">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_14">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_15">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAW_16">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGALEADER1_03">
+		<language name="日本語">マーズ</language>
+	</row>
+
+	<row id="TR_HEADS_03">
+		<language name="日本語">ヒロト</language>
+	</row>
+
+	<row id="TR_DAISUKIM_04">
+		<language name="日本語">トヨジ</language>
+	</row>
+
+	<row id="TR_DAISUKIW_04">
+		<language name="日本語">ケサコ</language>
+	</row>
+
+	<row id="TR_TANPAN_18">
+		<language name="日本語">カズキ</language>
+	</row>
+
+	<row id="TR_FAMILY_02">
+		<language name="日本語">ベスとジム</language>
+	</row>
+
+	<row id="TR_LOVELOVE_05">
+		<language name="日本語">カツとエリ</language>
+	</row>
+
+	<row id="TR_AROMA_06">
+		<language name="日本語">エル</language>
+	</row>
+
+	<row id="TR_ARTIST_03">
+		<language name="日本語">タリ</language>
+	</row>
+
+	<row id="TR_BREEDERW_04">
+		<language name="日本語">ワコ</language>
+	</row>
+
+	<row id="TR_CAMERAMAN_03">
+		<language name="日本語">ナベ</language>
+	</row>
+
+	<row id="TR_COLLECTOR_10">
+		<language name="日本語">タム</language>
+	</row>
+
+	<row id="TR_DAISUKIW_05">
+		<language name="日本語">セツ</language>
+	</row>
+
+	<row id="TR_GAMBLER_03">
+		<language name="日本語">ラス</language>
+	</row>
+
+	<row id="TR_GENTLE_03">
+		<language name="日本語">アル</language>
+	</row>
+
+	<row id="TR_MADAM_03">
+		<language name="日本語">ベベ</language>
+	</row>
+
+	<row id="TR_MINI_13">
+		<language name="日本語">リナ</language>
+	</row>
+
+	<row id="TR_PRINCE_06">
+		<language name="日本語">リオ</language>
+	</row>
+
+	<row id="TR_PRINCESS_04">
+		<language name="日本語">ココ</language>
+	</row>
+
+	<row id="TR_REPORTER_02">
+		<language name="日本語">マチ</language>
+	</row>
+
+	<row id="TR_SCHOOLB_06">
+		<language name="日本語">ヨシノブ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_08">
+		<language name="日本語">イタル</language>
+	</row>
+
+	<row id="TR_SISTER_10">
+		<language name="日本語">サオリ</language>
+	</row>
+
+	<row id="TR_SISTER_11">
+		<language name="日本語">ルゥ</language>
+	</row>
+
+	<row id="TR_VETERAN_11">
+		<language name="日本語">モク</language>
+	</row>
+
+	<row id="TR_ISEKI_09">
+		<language name="日本語">フユキ</language>
+	</row>
+
+	<row id="TR_BIRD_07">
+		<language name="日本語">マイナ</language>
+	</row>
+
+	<row id="TR_BIRD_08">
+		<language name="日本語">チサコ</language>
+	</row>
+
+	<row id="TR_BIRD_09">
+		<language name="日本語">ソノコ</language>
+	</row>
+
+	<row id="TR_DRAGON_07">
+		<language name="日本語">レツ</language>
+	</row>
+
+	<row id="TR_DRAGON_08">
+		<language name="日本語">タケル</language>
+	</row>
+
+	<row id="TR_DRAGON_09">
+		<language name="日本語">ソウマ</language>
+	</row>
+
+	<row id="TR_DRAGON_10">
+		<language name="日本語">ケイスケ</language>
+	</row>
+
+	<row id="TR_DRAGON_11">
+		<language name="日本語">マサフミ</language>
+	</row>
+
+	<row id="TR_DRAGON_12">
+		<language name="日本語">ユウリ</language>
+	</row>
+
+	<row id="TR_ELITEM_15">
+		<language name="日本語">ショウイチ</language>
+	</row>
+
+	<row id="TR_ELITEM_16">
+		<language name="日本語">クニオ</language>
+	</row>
+
+	<row id="TR_ELITEM_17">
+		<language name="日本語">ナオキ</language>
+	</row>
+
+	<row id="TR_ELITEM_18">
+		<language name="日本語">バトラー</language>
+	</row>
+
+	<row id="TR_ELITEM_19">
+		<language name="日本語">ミツハル</language>
+	</row>
+
+	<row id="TR_ELITEM_20">
+		<language name="日本語">マナブ</language>
+	</row>
+
+	<row id="TR_ELITEM_21">
+		<language name="日本語">マコト</language>
+	</row>
+
+	<row id="TR_ELITEM_22">
+		<language name="日本語">ユウヤ</language>
+	</row>
+
+	<row id="TR_ELITEM_23">
+		<language name="日本語">ヒデユキ</language>
+	</row>
+
+	<row id="TR_ELITEM_24">
+		<language name="日本語">エイイチ</language>
+	</row>
+
+	<row id="TR_ELITEW_16">
+		<language name="日本語">ショウコ</language>
+	</row>
+
+	<row id="TR_ELITEW_17">
+		<language name="日本語">トシエ</language>
+	</row>
+
+	<row id="TR_ELITEW_18">
+		<language name="日本語">ダイアン</language>
+	</row>
+
+	<row id="TR_ELITEW_19">
+		<language name="日本語">ミワコ</language>
+	</row>
+
+	<row id="TR_ELITEW_20">
+		<language name="日本語">サツキ</language>
+	</row>
+
+	<row id="TR_ELITEW_21">
+		<language name="日本語">チトセ</language>
+	</row>
+
+	<row id="TR_ELITEW_22">
+		<language name="日本語">レイコ</language>
+	</row>
+
+	<row id="TR_ELITEW_23">
+		<language name="日本語">シノブ</language>
+	</row>
+
+	<row id="TR_ELITEW_24">
+		<language name="日本語">ミサト</language>
+	</row>
+
+	<row id="TR_ELITEW_25">
+		<language name="日本語">コトミ</language>
+	</row>
+
+	<row id="TR_ESPM_09">
+		<language name="日本語">シュウ</language>
+	</row>
+
+	<row id="TR_ESPM_10">
+		<language name="日本語">ユウ</language>
+	</row>
+
+	<row id="TR_ESPW_09">
+		<language name="日本語">フウカ</language>
+	</row>
+
+	<row id="TR_ESPW_10">
+		<language name="日本語">ナナ</language>
+	</row>
+
+	<row id="TR_KARATE_21">
+		<language name="日本語">フミヒト</language>
+	</row>
+
+	<row id="TR_KARATE_22">
+		<language name="日本語">ケイタ</language>
+	</row>
+
+	<row id="TR_KARATE_23">
+		<language name="日本語">リキト</language>
+	</row>
+
+	<row id="TR_KARATE_24">
+		<language name="日本語">タクマ</language>
+	</row>
+
+	<row id="TR_RANGERM_03">
+		<language name="日本語">マキオ</language>
+	</row>
+
+	<row id="TR_RANGERM_04">
+		<language name="日本語">ケンジ</language>
+	</row>
+
+	<row id="TR_RANGERM_05">
+		<language name="日本語">ユキト</language>
+	</row>
+
+	<row id="TR_RANGERW_03">
+		<language name="日本語">アリナ</language>
+	</row>
+
+	<row id="TR_RANGERW_04">
+		<language name="日本語">アキヨ</language>
+	</row>
+
+	<row id="TR_RANGERW_05">
+		<language name="日本語">ユッコ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_20">
+		<language name="日本語">ミナオ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_21">
+		<language name="日本語">タイゾウ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_22">
+		<language name="日本語">サンペイ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_23">
+		<language name="日本語">セイイチ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_19">
+		<language name="日本語">チカコ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_20">
+		<language name="日本語">トモコ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_21">
+		<language name="日本語">ナツコ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_22">
+		<language name="日本語">ミキ</language>
+	</row>
+
+	<row id="TR_VETERAN_12">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_VETERAN_13">
+		<language name="日本語">トモゾウ</language>
+	</row>
+
+	<row id="TR_RIVAL_16">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_BTFIVE1_01">
+		<language name="日本語">モミ</language>
+	</row>
+
+	<row id="TR_BTFIVE2_01">
+		<language name="日本語">ゲン</language>
+	</row>
+
+	<row id="TR_BTFIVE3_01">
+		<language name="日本語">マイ</language>
+	</row>
+
+	<row id="TR_BTFIVE4_01">
+		<language name="日本語">バク</language>
+	</row>
+
+	<row id="TR_BTFIVE5_01">
+		<language name="日本語">ミル</language>
+	</row>
+
+	<row id="TR_HERO_01">
+		<language name="日本語">コウキ</language>
+	</row>
+
+	<row id="TR_HERO_02">
+		<language name="日本語">コウキ</language>
+	</row>
+
+	<row id="TR_HERO_03">
+		<language name="日本語">コウキ</language>
+	</row>
+
+	<row id="TR_HEROINE_01">
+		<language name="日本語">ヒカリ</language>
+	</row>
+
+	<row id="TR_HEROINE_02">
+		<language name="日本語">ヒカリ</language>
+	</row>
+
+	<row id="TR_HEROINE_03">
+		<language name="日本語">ヒカリ</language>
+	</row>
+
+	<row id="TR_RIVAL_17">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_18">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_HERO_06">
+		<language name="日本語">コウキ</language>
+	</row>
+
+	<row id="TR_HERO_04">
+		<language name="日本語">コウキ</language>
+	</row>
+
+	<row id="TR_HERO_05">
+		<language name="日本語">コウキ</language>
+	</row>
+
+	<row id="TR_HEROINE_06">
+		<language name="日本語">ヒカリ</language>
+	</row>
+
+	<row id="TR_HEROINE_04">
+		<language name="日本語">ヒカリ</language>
+	</row>
+
+	<row id="TR_HEROINE_05">
+		<language name="日本語">ヒカリ</language>
+	</row>
+
+	<row id="TR_AROMA_07">
+		<language name="日本語">チエ</language>
+	</row>
+
+	<row id="TR_AROMA_08">
+		<language name="日本語">チエ</language>
+	</row>
+
+	<row id="TR_AROMA_09">
+		<language name="日本語">チエ</language>
+	</row>
+
+	<row id="TR_ARTIST_04">
+		<language name="日本語">モトフミ</language>
+	</row>
+
+	<row id="TR_ARTIST_05">
+		<language name="日本語">モトフミ</language>
+	</row>
+
+	<row id="TR_ARTIST_06">
+		<language name="日本語">モトフミ</language>
+	</row>
+
+	<row id="TR_BATTLEG_06">
+		<language name="日本語">サリナ</language>
+	</row>
+
+	<row id="TR_BATTLEG_07">
+		<language name="日本語">サリナ</language>
+	</row>
+
+	<row id="TR_BATTLEG_08">
+		<language name="日本語">サリナ</language>
+	</row>
+
+	<row id="TR_BIRD_10">
+		<language name="日本語">ミソラ</language>
+	</row>
+
+	<row id="TR_BIRD_11">
+		<language name="日本語">ミソラ</language>
+	</row>
+
+	<row id="TR_BIRD_12">
+		<language name="日本語">マイナ</language>
+	</row>
+
+	<row id="TR_BREEDERM_04">
+		<language name="日本語">ハルキ</language>
+	</row>
+
+	<row id="TR_BREEDERM_05">
+		<language name="日本語">ハルキ</language>
+	</row>
+
+	<row id="TR_BREEDERM_06">
+		<language name="日本語">ハルキ</language>
+	</row>
+
+	<row id="TR_BREEDERW_05">
+		<language name="日本語">マフユ</language>
+	</row>
+
+	<row id="TR_BREEDERW_06">
+		<language name="日本語">マフユ</language>
+	</row>
+
+	<row id="TR_BREEDERW_07">
+		<language name="日本語">マフユ</language>
+	</row>
+
+	<row id="TR_CAMPB_16">
+		<language name="日本語">コウヘイ</language>
+	</row>
+
+	<row id="TR_CAMPB_17">
+		<language name="日本語">コウヘイ</language>
+	</row>
+
+	<row id="TR_CAMPB_18">
+		<language name="日本語">コウヘイ</language>
+	</row>
+
+	<row id="TR_COLDELITEM_08">
+		<language name="日本語">ミキト</language>
+	</row>
+
+	<row id="TR_COLDELITEW_08">
+		<language name="日本語">シズル</language>
+	</row>
+
+	<row id="TR_COLLECTOR_11">
+		<language name="日本語">ヒロム</language>
+	</row>
+
+	<row id="TR_COWGIRL_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_COWGIRL_04">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_CYCLINGM_05">
+		<language name="日本語">リンジ</language>
+	</row>
+
+	<row id="TR_CYCLINGM_06">
+		<language name="日本語">リンジ</language>
+	</row>
+
+	<row id="TR_CYCLINGM_07">
+		<language name="日本語">リンジ</language>
+	</row>
+
+	<row id="TR_CYCLINGW_05">
+		<language name="日本語">チホミ</language>
+	</row>
+
+	<row id="TR_CYCLINGW_06">
+		<language name="日本語">チホミ</language>
+	</row>
+
+	<row id="TR_CYCLINGW_07">
+		<language name="日本語">チホミ</language>
+	</row>
+
+	<row id="TR_DRAGON_13">
+		<language name="日本語">リュウヘイ</language>
+	</row>
+
+	<row id="TR_DRAGON_14">
+		<language name="日本語">リュウヘイ</language>
+	</row>
+
+	<row id="TR_DRAGON_15">
+		<language name="日本語">タツキ</language>
+	</row>
+
+	<row id="TR_DRAGON_16">
+		<language name="日本語">レツ</language>
+	</row>
+
+	<row id="TR_ELITEM_25">
+		<language name="日本語">アキラ</language>
+	</row>
+
+	<row id="TR_ELITEM_26">
+		<language name="日本語">カツマサ</language>
+	</row>
+
+	<row id="TR_ELITEM_27">
+		<language name="日本語">カツマサ</language>
+	</row>
+
+	<row id="TR_ELITEM_28">
+		<language name="日本語">ショウイチ</language>
+	</row>
+
+	<row id="TR_ELITEM_29">
+		<language name="日本語">クニオ</language>
+	</row>
+
+	<row id="TR_ELITEW_26">
+		<language name="日本語">ホノカ</language>
+	</row>
+
+	<row id="TR_ELITEW_27">
+		<language name="日本語">エリナ</language>
+	</row>
+
+	<row id="TR_ELITEW_28">
+		<language name="日本語">エリナ</language>
+	</row>
+
+	<row id="TR_ELITEW_29">
+		<language name="日本語">ショウコ</language>
+	</row>
+
+	<row id="TR_ELITEW_30">
+		<language name="日本語">トシエ</language>
+	</row>
+
+	<row id="TR_ESPM_11">
+		<language name="日本語">マモル</language>
+	</row>
+
+	<row id="TR_ESPM_12">
+		<language name="日本語">マモル</language>
+	</row>
+
+	<row id="TR_ESPM_13">
+		<language name="日本語">ヨウマ</language>
+	</row>
+
+	<row id="TR_ESPM_14">
+		<language name="日本語">シュウ</language>
+	</row>
+
+	<row id="TR_ESPW_11">
+		<language name="日本語">カナミ</language>
+	</row>
+
+	<row id="TR_ESPW_12">
+		<language name="日本語">カナミ</language>
+	</row>
+
+	<row id="TR_ESPW_13">
+		<language name="日本語">ジョンイ</language>
+	</row>
+
+	<row id="TR_ESPW_14">
+		<language name="日本語">フウカ</language>
+	</row>
+
+	<row id="TR_FARMER_03">
+		<language name="日本語">ザック</language>
+	</row>
+
+	<row id="TR_FARMER_04">
+		<language name="日本語">ザック</language>
+	</row>
+
+	<row id="TR_FISHING_20">
+		<language name="日本語">タカマサ</language>
+	</row>
+
+	<row id="TR_FISHING_21">
+		<language name="日本語">タカマサ</language>
+	</row>
+
+	<row id="TR_FISHING_22">
+		<language name="日本語">ユタカ</language>
+	</row>
+
+	<row id="TR_FISHING_23">
+		<language name="日本語">タツオ</language>
+	</row>
+
+	<row id="TR_FUTAGO_04">
+		<language name="日本語">マヤとルイ</language>
+	</row>
+
+	<row id="TR_FUTAGO_05">
+		<language name="日本語">マヤとルイ</language>
+	</row>
+
+	<row id="TR_GAMBLER_04">
+		<language name="日本語">マキト</language>
+	</row>
+
+	<row id="TR_GAMBLER_05">
+		<language name="日本語">マキト</language>
+	</row>
+
+	<row id="TR_GENTLE_04">
+		<language name="日本語">サダミツ</language>
+	</row>
+
+	<row id="TR_GENTLE_05">
+		<language name="日本語">サダミツ</language>
+	</row>
+
+	<row id="TR_GENTLE_06">
+		<language name="日本語">サダミツ</language>
+	</row>
+
+	<row id="TR_GUITARIST_14">
+		<language name="日本語">ジョニー</language>
+	</row>
+
+	<row id="TR_ISEKI_10">
+		<language name="日本語">トキオ</language>
+	</row>
+
+	<row id="TR_ISEKI_11">
+		<language name="日本語">トキオ</language>
+	</row>
+
+	<row id="TR_JOGGER_07">
+		<language name="日本語">スバル</language>
+	</row>
+
+	<row id="TR_JOGGER_08">
+		<language name="日本語">スバル</language>
+	</row>
+
+	<row id="TR_KARATE_25">
+		<language name="日本語">ダンジ</language>
+	</row>
+
+	<row id="TR_KARATE_26">
+		<language name="日本語">フミヒト</language>
+	</row>
+
+	<row id="TR_MADAM_04">
+		<language name="日本語">ヨシノ</language>
+	</row>
+
+	<row id="TR_MADAM_05">
+		<language name="日本語">ヨシノ</language>
+	</row>
+
+	<row id="TR_MINI_14">
+		<language name="日本語">メイ</language>
+	</row>
+
+	<row id="TR_MINI_15">
+		<language name="日本語">メイ</language>
+	</row>
+
+	<row id="TR_MINI_16">
+		<language name="日本語">メイ</language>
+	</row>
+
+	<row id="TR_MINI_17">
+		<language name="日本語">チカ</language>
+	</row>
+
+	<row id="TR_MINI_18">
+		<language name="日本語">チカ</language>
+	</row>
+
+	<row id="TR_MINI_19">
+		<language name="日本語">チカ</language>
+	</row>
+
+	<row id="TR_MOUNT_15">
+		<language name="日本語">ドウジ</language>
+	</row>
+
+	<row id="TR_MOUNT_16">
+		<language name="日本語">ドウジ</language>
+	</row>
+
+	<row id="TR_MOUNT_17">
+		<language name="日本語">ドウジ</language>
+	</row>
+
+	<row id="TR_MUSHI_05">
+		<language name="日本語">ダイスケ</language>
+	</row>
+
+	<row id="TR_MUSHI_06">
+		<language name="日本語">ダイスケ</language>
+	</row>
+
+	<row id="TR_MUSHI_07">
+		<language name="日本語">ダイスケ</language>
+	</row>
+
+	<row id="TR_PARASOL_03">
+		<language name="日本語">シズエ</language>
+	</row>
+
+	<row id="TR_PARASOL_04">
+		<language name="日本語">シズエ</language>
+	</row>
+
+	<row id="TR_PARASOL_05">
+		<language name="日本語">シズエ</language>
+	</row>
+
+	<row id="TR_PICNICG_12">
+		<language name="日本語">サヤ</language>
+	</row>
+
+	<row id="TR_PICNICG_13">
+		<language name="日本語">サヤ</language>
+	</row>
+
+	<row id="TR_PICNICG_14">
+		<language name="日本語">サヤ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_04">
+		<language name="日本語">チヒロ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_05">
+		<language name="日本語">チヒロ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_06">
+		<language name="日本語">チヒロ</language>
+	</row>
+
+	<row id="TR_POLICE_09">
+		<language name="日本語">マサヨシ</language>
+	</row>
+
+	<row id="TR_POLICE_10">
+		<language name="日本語">マサヨシ</language>
+	</row>
+
+	<row id="TR_POLICE_11">
+		<language name="日本語">マサヨシ</language>
+	</row>
+
+	<row id="TR_PRINCE_07">
+		<language name="日本語">マサヒコ</language>
+	</row>
+
+	<row id="TR_PRINCE_08">
+		<language name="日本語">マサヒコ</language>
+	</row>
+
+	<row id="TR_PRINCESS_05">
+		<language name="日本語">ユリカ</language>
+	</row>
+
+	<row id="TR_PRINCESS_06">
+		<language name="日本語">ユリカ</language>
+	</row>
+
+	<row id="TR_PRINCESS_07">
+		<language name="日本語">ユリカ</language>
+	</row>
+
+	<row id="TR_RANGERM_06">
+		<language name="日本語">ヨシノリ</language>
+	</row>
+
+	<row id="TR_RANGERM_07">
+		<language name="日本語">ヨシノリ</language>
+	</row>
+
+	<row id="TR_RANGERM_08">
+		<language name="日本語">ヨシノリ</language>
+	</row>
+
+	<row id="TR_RANGERM_09">
+		<language name="日本語">マキオ</language>
+	</row>
+
+	<row id="TR_RANGERW_06">
+		<language name="日本語">スズネ</language>
+	</row>
+
+	<row id="TR_RANGERW_07">
+		<language name="日本語">スズネ</language>
+	</row>
+
+	<row id="TR_RANGERW_08">
+		<language name="日本語">スズネ</language>
+	</row>
+
+	<row id="TR_RANGERW_09">
+		<language name="日本語">アリナ</language>
+	</row>
+
+	<row id="TR_SAILOR_10">
+		<language name="日本語">ユウジロウ</language>
+	</row>
+
+	<row id="TR_SAILOR_11">
+		<language name="日本語">ユウジロウ</language>
+	</row>
+
+	<row id="TR_SAILOR_12">
+		<language name="日本語">タツヒコ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_09">
+		<language name="日本語">トシアキ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_10">
+		<language name="日本語">トシアキ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_11">
+		<language name="日本語">トシアキ</language>
+	</row>
+
+	<row id="TR_SHINOBI_11">
+		<language name="日本語">コタロウ</language>
+	</row>
+
+	<row id="TR_SHINOBI_12">
+		<language name="日本語">コタロウ</language>
+	</row>
+
+	<row id="TR_SHINOBI_13">
+		<language name="日本語">コタロウ</language>
+	</row>
+
+	<row id="TR_SISTER_12">
+		<language name="日本語">ルミコ</language>
+	</row>
+
+	<row id="TR_SISTER_13">
+		<language name="日本語">ルミコ</language>
+	</row>
+
+	<row id="TR_SKIERM_06">
+		<language name="日本語">タカヒコ</language>
+	</row>
+
+	<row id="TR_SKIERM_07">
+		<language name="日本語">タカヒコ</language>
+	</row>
+
+	<row id="TR_SKIERM_08">
+		<language name="日本語">ノブオ</language>
+	</row>
+
+	<row id="TR_SKIERM_09">
+		<language name="日本語">ノブオ</language>
+	</row>
+
+	<row id="TR_SKIERW_06">
+		<language name="日本語">アイミ</language>
+	</row>
+
+	<row id="TR_SKIERW_07">
+		<language name="日本語">アイミ</language>
+	</row>
+
+	<row id="TR_SKIERW_08">
+		<language name="日本語">ヒヅキ</language>
+	</row>
+
+	<row id="TR_SKIERW_09">
+		<language name="日本語">ヒヅキ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_24">
+		<language name="日本語">ミナト</language>
+	</row>
+
+	<row id="TR_SWIMMERM_25">
+		<language name="日本語">テルユキ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_26">
+		<language name="日本語">ミナオ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_23">
+		<language name="日本語">リリカ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_24">
+		<language name="日本語">マリエ</language>
+	</row>
+
+	<row id="TR_SWIMMERW_25">
+		<language name="日本語">チカコ</language>
+	</row>
+
+	<row id="TR_TANPAN_19">
+		<language name="日本語">ユウタ</language>
+	</row>
+
+	<row id="TR_TANPAN_20">
+		<language name="日本語">ユウタ</language>
+	</row>
+
+	<row id="TR_TANPAN_21">
+		<language name="日本語">ユウタ</language>
+	</row>
+
+	<row id="TR_TANPAN_22">
+		<language name="日本語">マサル</language>
+	</row>
+
+	<row id="TR_TANPAN_23">
+		<language name="日本語">マサル</language>
+	</row>
+
+	<row id="TR_TANPAN_24">
+		<language name="日本語">マサル</language>
+	</row>
+
+	<row id="TR_UKIWAB_05">
+		<language name="日本語">スグル</language>
+	</row>
+
+	<row id="TR_UKIWAB_06">
+		<language name="日本語">スグル</language>
+	</row>
+
+	<row id="TR_UKIWAG_05">
+		<language name="日本語">マツリ</language>
+	</row>
+
+	<row id="TR_VETERAN_14">
+		<language name="日本語">テンマ</language>
+	</row>
+
+	<row id="TR_UKIWAG_06">
+		<language name="日本語">マツリ</language>
+	</row>
+
+	<row id="TR_VETERAN_15">
+		<language name="日本語">テンマ</language>
+	</row>
+
+	<row id="TR_VETERAN_16">
+		<language name="日本語">ゴロウマル</language>
+	</row>
+
+	<row id="TR_VETERAN_17">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMERAMAN_04">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMERAMAN_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMERAMAN_06">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMERAMAN_07">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_CAMERAMAN_08">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GUITARIST_13">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GUITARIST_15">
+		<language name="日本語">ポール</language>
+	</row>
+
+	<row id="TR_GUITARIST_16">
+		<language name="日本語">ポール</language>
+	</row>
+
+	<row id="TR_GUITARIST_17">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GUITARIST_18">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_GUITARIST_19">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_IDOL_06">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_IDOL_07">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_IDOL_08">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_IDOL_09">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_IDOL_10">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_INTERVIEW_02">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_INTERVIEW_03">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_INTERVIEW_04">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_INTERVIEW_05">
+		<language name="日本語">サトとハル</language>
+	</row>
+
+	<row id="TR_PIERROT_07">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PIERROT_08">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PIERROT_09">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PIERROT_10">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_PIERROT_11">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_07">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_08">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_09">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_10">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_POLICE_08">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_REPORTER_03">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_REPORTER_04">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_REPORTER_05">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_REPORTER_06">
+		<language name="日本語">ハルカ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_12">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_SWIMMERM_27">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WAITER_05">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_WORKER_15">
+		<language name="日本語">サトシ</language>
+	</row>
+
+	<row id="TR_TANPAN_25">
+		<language name="日本語">リュウタ</language>
+	</row>
+
+	<row id="TR_MINI_20">
+		<language name="日本語">サキコ</language>
+	</row>
+
+	<row id="TR_TANPAN_26">
+		<language name="日本語">ダイチ</language>
+	</row>
+
+	<row id="TR_TANPAN_27">
+		<language name="日本語">リュウタ</language>
+	</row>
+
+	<row id="TR_MINI_21">
+		<language name="日本語">サキコ</language>
+	</row>
+
+	<row id="TR_TANPAN_28">
+		<language name="日本語">ダイチ</language>
+	</row>
+
+	<row id="TR_TANPAN_29">
+		<language name="日本語">リュウタ</language>
+	</row>
+
+	<row id="TR_MINI_22">
+		<language name="日本語">サキコ</language>
+	</row>
+
+	<row id="TR_TANPAN_30">
+		<language name="日本語">ダイチ</language>
+	</row>
+
+	<row id="TR_KUROTUGU_01">
+		<language name="日本語">クロツグ</language>
+	</row>
+
+	<row id="TR_COLDELITEM_09">
+		<language name="日本語">ヨシオ</language>
+	</row>
+
+	<row id="TR_COLDELITEW_09">
+		<language name="日本語">ミズホ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_13">
+		<language name="日本語">アズマ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_14">
+		<language name="日本語">シュウジ</language>
+	</row>
+
+	<row id="TR_SCIENTIST_15">
+		<language name="日本語">ツネオ</language>
+	</row>
+
+	<row id="TR_POKEGIRL_11">
+		<language name="日本語">アヤカ</language>
+	</row>
+
+	<row id="TR_GINGAM_31">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_32">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_33">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_34">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_RIVAL_19">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_20">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_21">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_22">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_23">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_RIVAL_24">
+		<language name="日本語">パール</language>
+	</row>
+
+	<row id="TR_GINGAM_35">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_WORKER_16">
+		<language name="日本語">イサオ</language>
+	</row>
+
+	<row id="TR_WORKER_17">
+		<language name="日本語">シュウイチ</language>
+	</row>
+
+	<row id="TR_WORKER_18">
+		<language name="日本語">シゲミチ</language>
+	</row>
+
+	<row id="TR_GINGAM_36">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_37">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+	<row id="TR_GINGAM_38">
+		<language name="日本語">したっぱ</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

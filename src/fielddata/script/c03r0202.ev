@@ -1,0 +1,96 @@
+//====================================================================
+//						シティ０３
+//					クロガネビル２　２Ｆ
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c03r0202.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c03r0202_man2
+_EVENT_DATA		ev_c03r0202_woman1
+_EVENT_DATA		ev_c03r0202_bigman
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						ツッパリ兄さん　　							*/
+/********************************************************************/
+ev_c03r0202_man2:
+	_EASY_OBJ_MSG	msg_c03r0202_man2_01
+	_END
+
+/********************************************************************/
+/*							姉さん	　　							*/
+/********************************************************************/
+ev_c03r0202_woman1:
+	_EASY_OBJ_MSG	msg_c03r0202_woman1_01
+	_END
+
+/********************************************************************/
+/*							太った兄さん　							*/
+/********************************************************************/
+ev_c03r0202_bigman:
+	_TALK_OBJ_START
+
+	//既にアイテムを貰った
+	_IF_FLAGON_JUMP		FE_C03R0202_ITEM_GET,ev_c03r0202_bigman_03
+
+	//ズバッドを持っていない
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_ZUBATTO
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c03r0202_bigman_01
+
+	_TALK_KEYWAIT	msg_c03r0202_bigman_02
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_HIIRUBOORU
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c03r0202_bigman_item_event_fail
+
+	_FLAG_SET		FE_C03R0202_ITEM_GET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c03r0202_bigman_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+
+	/******************************************/
+	//
+	//共通スクリプトがラストかの判定ができない
+	//
+	/******************************************/
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ズバットがいないとき
+ev_c03r0202_bigman_01:
+	_TALK_KEYWAIT	msg_c03r0202_bigman_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//ヒートボールを貰った後
+ev_c03r0202_bigman_03:
+	_TALK_KEYWAIT	msg_c03r0202_bigman_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

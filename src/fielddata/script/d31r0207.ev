@@ -1,0 +1,634 @@
+//====================================================================
+//								d31r0207
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d31r0207.h"
+	.include	"../eventdata/zone_d31r0207evc.h"
+	.include	"../../../include/poketool/monsno.h"
+	.include	"../../../src/fielddata/base_goods/goods_id_def.h"
+	.include	"../../../src/field/b_tower_scr_def.h"
+#if 0
+#define PM_DEBUG
+	.include	"../../../src/field/b_tower_deb.h"
+#endif
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_tower_salon_ask_exit_01
+_EVENT_DATA		ev_tower_salon_seven1_01
+_EVENT_DATA		ev_tower_salon_seven2_01
+_EVENT_DATA		ev_tower_salon_seven3_01
+_EVENT_DATA		ev_tower_salon_seven4_01
+_EVENT_DATA		ev_tower_salon_seven5_01
+_EVENT_DATA		ev_d31r0207_flag_change
+_EVENT_DATA		ev_d31r0207_obj_change
+_EVENT_DATA		ev_tower_salon_enter
+_EVENT_DATA		ev_tower_salon_select
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d31r0207_flag_change:
+	//seven1:モミ　チェック
+ev_d31r0207_flag_seven1_check:
+	_IF_FLAGOFF_JUMP	FE_SEVEN1_CLEAR,ev_d31r0207_flag_seven1_on
+	_IFVAL_JUMP		WK_SCENE_D31R0207,NE,2,ev_d31r0207_flag_seven1_off
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_OBJ,LOCALWORK9	
+	_IFVAL_JUMP		LOCALWORK9,EQ,0,ev_d31r0207_flag_seven1_on
+ev_d31r0207_flag_seven1_off:
+	_FLAG_RESET		FV_D31R0207_SEVEN1
+	
+	//seven2:ミル　チェック
+ev_d31r0207_flag_seven2_check:
+	_IF_FLAGOFF_JUMP	FE_SEVEN2_CLEAR,ev_d31r0207_flag_seven2_on
+	_IFVAL_JUMP		WK_SCENE_D31R0207,NE,2,ev_d31r0207_flag_seven2_off
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_OBJ,LOCALWORK9	
+	_IFVAL_JUMP		LOCALWORK9,EQ,1,ev_d31r0207_flag_seven2_on
+ev_d31r0207_flag_seven2_off:
+	_FLAG_RESET		FV_D31R0207_SEVEN2
+
+	//seven3:ゲン　チェック
+ev_d31r0207_flag_seven3_check:
+	_IF_FLAGOFF_JUMP	FE_SEVEN3_CLEAR,ev_d31r0207_flag_seven3_on
+	_IFVAL_JUMP		WK_SCENE_D31R0207,NE,2,ev_d31r0207_flag_seven3_off
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_OBJ,LOCALWORK9	
+	_IFVAL_JUMP		LOCALWORK9,EQ,2,ev_d31r0207_flag_seven3_on
+ev_d31r0207_flag_seven3_off:
+	_FLAG_RESET		FV_D31R0207_SEVEN3
+	
+	//seven4:マイ　チェック
+ev_d31r0207_flag_seven4_check:
+	_IF_FLAGOFF_JUMP	FE_SEVEN4_CLEAR,ev_d31r0207_flag_seven4_on
+	_IFVAL_JUMP		WK_SCENE_D31R0207,NE,2,ev_d31r0207_flag_seven4_off
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_OBJ,LOCALWORK9	
+	_IFVAL_JUMP		LOCALWORK9,EQ,3,ev_d31r0207_flag_seven4_on
+ev_d31r0207_flag_seven4_off:
+	_FLAG_RESET		FV_D31R0207_SEVEN4
+	
+	//seven5:バク　チェック
+ev_d31r0207_flag_seven5_check:
+	_IF_FLAGOFF_JUMP	FE_SEVEN5_CLEAR,ev_d31r0207_flag_seven5_on
+	_IFVAL_JUMP		WK_SCENE_D31R0207,NE,2,ev_d31r0207_flag_seven5_off
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_OBJ,LOCALWORK9	
+	_IFVAL_JUMP		LOCALWORK9,EQ,4,ev_d31r0207_flag_seven5_on
+ev_d31r0207_flag_seven5_off:
+	_FLAG_RESET		FV_D31R0207_SEVEN5
+
+ev_d31r0207_flag_seven_check_end:
+	_END
+
+
+ev_d31r0207_flag_seven1_on:
+	_FLAG_SET		FV_D31R0207_SEVEN1
+	_JUMP			ev_d31r0207_flag_seven2_check
+	_END
+ev_d31r0207_flag_seven2_on:
+	_FLAG_SET		FV_D31R0207_SEVEN2
+	_JUMP			ev_d31r0207_flag_seven3_check
+	_END
+ev_d31r0207_flag_seven3_on:
+	_FLAG_SET		FV_D31R0207_SEVEN3
+	_JUMP			ev_d31r0207_flag_seven4_check
+	_END
+ev_d31r0207_flag_seven4_on:
+	_FLAG_SET		FV_D31R0207_SEVEN4
+	_JUMP			ev_d31r0207_flag_seven5_check
+	_END
+ev_d31r0207_flag_seven5_on:
+	_FLAG_SET		FV_D31R0207_SEVEN5
+	_JUMP			ev_d31r0207_flag_seven_check_end
+	_END
+
+ev_d31r0207_obj_change:
+	_IFVAL_CALL		WK_SCENE_D31R0207,EQ,1,ev_d31r0207_obj_hero_set
+	_IFVAL_JUMP		WK_SCENE_D31R0207,EQ,2,ev_d31r0207_obj_pcwoman2_set
+	_END
+
+ev_d31r0207_obj_hero_set:
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	_RET
+	
+ev_d31r0207_obj_pcwoman2_set:
+	_OBJ_POS_CHANGE	D31R0207_PCWOMAN2,8,0,3,DIR_DOWN
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+
+/********************************************************************/
+/* サロンに入ってきたときの処理										*/
+/********************************************************************/
+ev_tower_salon_enter:
+	_EVENT_START
+	_LDVAL			WK_SCENE_D31R0207,0
+	_CALL			ev_tower_salon_comanm_player_in
+	_TALK_KEYWAIT	msg_tower_85
+	_TALK_CLOSE
+	//5人衆抽選
+	_BTOWER_TOOLS	BTWR_SUB_CHOICE_BTL_SEVEN,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+
+#ifdef BTOWER_AUTO_DEB
+deb_auto_salon_01:
+	//５人衆ランダム選択
+	_GET_RND			SCWK_ANSWER,5
+	_LDVAL				SCWK_PARAM0,D31R0207_SEVEN1
+	_ADD_WK				SCWK_PARAM0,SCWK_ANSWER
+
+	//選んだ５人衆セット
+	_BTOWER_TOOLS		BTWR_SUB_SET_PARTNER_NO,SCWK_ANSWER,BTWR_NULL_PARAM
+	//OBJ消す
+	_OBJ_DEL			SCWK_PARAM0
+	//一旦場面転換
+	_LDVAL				WK_SCENE_D31R0207,2
+	_MAP_CHANGE			ZONE_ID_D31R0207,0,8,4,DIR_UP
+#endif
+	_EVENT_END
+	_END
+
+/********************************************************************/
+/* 受付お姉さん話し掛け											*/
+/********************************************************************/
+ev_tower_salon_ask_exit_01:
+	_TALK_OBJ_START
+	//まだ選んでない
+	_PLAYER_NAME		0
+	_TALKMSG			msg_tower_86
+	_YES_NO_WIN			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_salon_exit
+	_TALK_KEYWAIT		msg_tower_85
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//挑戦を止める
+ev_tower_salon_exit:
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	//受け付けに戻る
+	_LDVAL				WK_SCENE_D31R0201,3
+	_MAP_CHANGE			ZONE_ID_D31R0201,0,7,6,DIR_UP
+	_END
+
+
+//パートナーを選んだ
+ev_tower_salon_select:
+	_EVENT_START
+	//シーンワークリセット
+	_LDVAL				WK_SCENE_D31R0207,0
+	_TALK_KEYWAIT		msg_tower_87
+	_TALK_CLOSE
+	_CALL				ev_tower_salon_comanm_player_out
+	//マルチ通路～ルームへ
+	_LDVAL				WK_SCENE_D31R0202,2
+	_MAP_CHANGE			ZONE_ID_D31R0202,0,SB_EV_PLAYER_SX,SB_EV_PLAYER_SY,DIR_UP
+	_EVENT_END
+	_END
+
+
+/********************************************************************/
+/* ５人衆話し掛け													*/
+/********************************************************************/
+//共有
+ev_tower_salon_common_pokedata:
+	_BTOWER_SEVEN_POKE_GET	LOCALWORK9,0,SCWK_TEMP0,SCWK_TEMP1
+	_POKEMON_NAME_EXTRA	0,SCWK_TEMP0,PM_MALE,FALSE
+	_WAZA_NAME			1,SCWK_TEMP1
+	_BTOWER_SEVEN_POKE_GET	LOCALWORK9,1,SCWK_TEMP0,SCWK_TEMP1
+	_POKEMON_NAME_EXTRA	2,SCWK_TEMP0,PM_MALE,FALSE
+	_WAZA_NAME			3,SCWK_TEMP1
+	_RET
+
+//モミ
+ev_tower_salon_seven1_01:
+	_TALK_OBJ_START
+	_IFVAL_JUMP		WK_SCENE_D31R0207,EQ,2,ev_tower_salon_seven1_no
+	_LDVAL			LOCALWORK9,0
+	_CALL			ev_tower_salon_common_pokedata
+	_TALKMSG		msg_tower_seven7b_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_salon_seven1_yes
+
+ev_tower_salon_seven1_no:
+	_TALKMSG		msg_tower_seven7b_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_tower_salon_seven1_yes:
+	//パートナーNoセット
+	_BTOWER_TOOLS	BTWR_SUB_SET_PARTNER_NO,LOCALWORK9,BTWR_NULL_PARAM
+	_LDVAL			WK_SCENE_D31R0207,2
+	_TALK_KEYWAIT	msg_tower_seven7b_03
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_OBJ_PAUSE		D31R0207_SEVEN1
+	_JUMP			ev_tower_salon_comanm_seven1
+	_END
+
+//ミル
+ev_tower_salon_seven2_01:
+	_TALK_OBJ_START
+	_IFVAL_JUMP		WK_SCENE_D31R0207,EQ,2,ev_tower_salon_seven2_no
+	_LDVAL			LOCALWORK9,1
+	_CALL			ev_tower_salon_common_pokedata
+	_PLAYER_NAME	4
+	_TALKMSG		msg_tower_seven7e_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_salon_seven2_yes
+
+ev_tower_salon_seven2_no:
+	_TALKMSG		msg_tower_seven7e_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_tower_salon_seven2_yes:
+	//パートナーNoセット
+	_BTOWER_TOOLS		BTWR_SUB_SET_PARTNER_NO,LOCALWORK9,BTWR_NULL_PARAM
+	_LDVAL			WK_SCENE_D31R0207,2
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_tower_seven7e_03
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_OBJ_PAUSE		D31R0207_SEVEN2
+	_JUMP			ev_tower_salon_comanm_seven2
+	_END
+
+//ゲン
+ev_tower_salon_seven3_01:
+	_TALK_OBJ_START
+	_IFVAL_JUMP		WK_SCENE_D31R0207,EQ,2,ev_tower_salon_seven3_no
+	_LDVAL			LOCALWORK9,2
+	_CALL			ev_tower_salon_common_pokedata
+	_TALKMSG		msg_tower_seven7a_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_salon_seven3_yes
+
+ev_tower_salon_seven3_no:
+	_TALKMSG		msg_tower_seven7a_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_tower_salon_seven3_yes:
+	//パートナーNoセット
+	_BTOWER_TOOLS		BTWR_SUB_SET_PARTNER_NO,LOCALWORK9,BTWR_NULL_PARAM
+	_LDVAL			WK_SCENE_D31R0207,2
+	_TALK_KEYWAIT	msg_tower_seven7a_03
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_OBJ_PAUSE		D31R0207_SEVEN3
+	_JUMP			ev_tower_salon_comanm_seven3
+	_END
+
+//マイ
+ev_tower_salon_seven4_01:
+	_TALK_OBJ_START
+	_IFVAL_JUMP		WK_SCENE_D31R0207,EQ,2,ev_tower_salon_seven4_no
+	_LDVAL			LOCALWORK9,3
+	_CALL			ev_tower_salon_common_pokedata
+	_TALKMSG		msg_tower_seven7d_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_salon_seven4_yes
+
+ev_tower_salon_seven4_no:
+	_TALKMSG		msg_tower_seven7d_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_tower_salon_seven4_yes:
+	//パートナーNoセット
+	_BTOWER_TOOLS		BTWR_SUB_SET_PARTNER_NO,LOCALWORK9,BTWR_NULL_PARAM
+	_LDVAL			WK_SCENE_D31R0207,2
+	_TALK_KEYWAIT	msg_tower_seven7d_03
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_OBJ_PAUSE		D31R0207_SEVEN4
+	_JUMP			ev_tower_salon_comanm_seven4
+	_END
+
+//バク
+ev_tower_salon_seven5_01:
+	_TALK_OBJ_START
+	_IFVAL_JUMP		WK_SCENE_D31R0207,EQ,2,ev_tower_salon_seven5_no
+	_LDVAL			LOCALWORK9,4
+	_CALL			ev_tower_salon_common_pokedata
+	_TALKMSG		msg_tower_seven7c_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_salon_seven5_yes
+
+ev_tower_salon_seven5_no:
+	_TALKMSG		msg_tower_seven7c_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_tower_salon_seven5_yes:
+	//パートナーNoセット
+	_BTOWER_TOOLS		BTWR_SUB_SET_PARTNER_NO,LOCALWORK9,BTWR_NULL_PARAM
+	_LDVAL			WK_SCENE_D31R0207,2
+	_TALK_KEYWAIT	msg_tower_seven7c_03
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_OBJ_PAUSE		D31R0207_SEVEN5
+	_JUMP			ev_tower_salon_comanm_seven5
+	_END
+
+ev_tower_salon_comanm_door_open:
+	//エレベータドアopen
+	_SET_UP_DOOR_ANIME	0,0,8,2,77
+	_SEQ_OPEN_DOOR	77
+	_WAIT_3D_ANIME	77
+	_RET
+
+ev_tower_salon_comanm_door_close:
+	_SEQ_CLOSE_DOOR	77	//ドア閉める
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_FREE_3D_ANIME	77	//ドアアニメ解放
+	_RET
+
+/********************************************************************/
+/* 自機/お姉さんアニメ												*/
+/********************************************************************/
+ev_tower_salon_comanm_player_in:
+	_CALL		ev_tower_salon_comanm_door_open
+	_OBJ_ANIME	D31R0207_PCWOMAN2,anm_d31r0207_pcwoman2_in01
+	_OBJ_ANIME_WAIT
+	_OBJ_VISIBLE	FLDOBJ_ID_PLAYER
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0207_player_01
+	_OBJ_ANIME_WAIT
+	_CALL		ev_tower_salon_comanm_door_close
+	_OBJ_ANIME	D31R0207_PCWOMAN2,anm_d31r0207_pcwoman2_in02
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0207_player_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_tower_salon_comanm_player_out:
+	_CALL		ev_tower_salon_comanm_door_open
+	_OBJ_ANIME	D31R0207_PCWOMAN2,anm_d31r0207_pcwoman2_out
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0207_player_out
+	_OBJ_ANIME_WAIT
+	_CALL		ev_tower_salon_comanm_door_close
+	_RET
+
+/********************************************************************/
+/* ５人衆アニメ														*/
+/********************************************************************/
+//共有
+ev_tower_salon_comanm_seven_out:
+	_OBJ_ANIME			LOCALWORK0,anm_d31r0207_seven_out01
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME			D31R0207_PCWOMAN2,anm_d31r0207_pcwoman2_seven_out01
+	_OBJ_ANIME_WAIT
+	_CALL				ev_tower_salon_comanm_door_open
+	_OBJ_ANIME			LOCALWORK0,anm_d31r0207_seven_out02
+	_OBJ_ANIME_WAIT
+	_CALL				ev_tower_salon_comanm_door_close
+	_OBJ_ANIME			D31R0207_PCWOMAN2,anm_d31r0207_pcwoman2_seven_out02
+	_OBJ_ANIME_WAIT
+	//一旦場面転換
+	_MAP_CHANGE			ZONE_ID_D31R0207,0,8,4,DIR_UP
+	_TALK_OBJ_END
+	_END
+
+//モミ
+ev_tower_salon_comanm_seven1:
+	_LDVAL				LOCALWORK0,D31R0207_SEVEN1
+	_PLAYER_POS_GET		SCWK_PARAM0,SCWK_PARAM1
+	_IFVAL_JUMP			SCWK_PARAM0,EQ,12,ev_tower_salon_anm_seven1_01
+	_JUMP				ev_tower_salon_anm_seven1_02
+	_END
+ev_tower_salon_anm_seven1_01:
+	_OBJ_ANIME			D31R0207_SEVEN1,anm_d31r0207_seven1_01
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+ev_tower_salon_anm_seven1_02:
+	_OBJ_ANIME			D31R0207_SEVEN1,anm_d31r0207_seven1_02
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+
+//ミル
+ev_tower_salon_comanm_seven2:
+	_LDVAL				LOCALWORK0,D31R0207_SEVEN2
+	_PLAYER_POS_GET		SCWK_PARAM0,SCWK_PARAM1
+	_IFVAL_JUMP			SCWK_PARAM0,EQ,4,ev_tower_salon_anm_seven2_01
+	_JUMP				ev_tower_salon_anm_seven2_02
+	_END
+ev_tower_salon_anm_seven2_01:
+	_OBJ_ANIME			D31R0207_SEVEN2,anm_d31r0207_seven2_01
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+ev_tower_salon_anm_seven2_02:
+	_OBJ_ANIME			D31R0207_SEVEN2,anm_d31r0207_seven2_02
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+
+//ゲン
+ev_tower_salon_comanm_seven3:
+	_LDVAL				LOCALWORK0,D31R0207_SEVEN3
+	_PLAYER_POS_GET		SCWK_PARAM0,SCWK_PARAM1
+	_IFVAL_JUMP			SCWK_PARAM1,EQ,7,ev_tower_salon_anm_seven3_01
+	_JUMP				ev_tower_salon_anm_seven3_02
+	_END
+ev_tower_salon_anm_seven3_01:
+	_OBJ_ANIME			D31R0207_SEVEN3,anm_d31r0207_seven3_01
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+ev_tower_salon_anm_seven3_02:
+	_OBJ_ANIME			D31R0207_SEVEN3,anm_d31r0207_seven3_02
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+
+//マイ
+ev_tower_salon_comanm_seven4:
+	_LDVAL				LOCALWORK0,D31R0207_SEVEN4
+	_PLAYER_POS_GET		SCWK_PARAM0,SCWK_PARAM1
+	_IFVAL_JUMP			SCWK_PARAM1,EQ,9,ev_tower_salon_anm_seven4_01
+	_JUMP				ev_tower_salon_anm_seven4_02
+	_END
+ev_tower_salon_anm_seven4_01:
+	_OBJ_ANIME			D31R0207_SEVEN4,anm_d31r0207_seven4_01
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+ev_tower_salon_anm_seven4_02:
+	_OBJ_ANIME			D31R0207_SEVEN4,anm_d31r0207_seven4_02
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+
+//バク
+ev_tower_salon_comanm_seven5:
+	_LDVAL				LOCALWORK0,D31R0207_SEVEN5
+	_PLAYER_POS_GET		SCWK_PARAM0,SCWK_PARAM1
+	_IFVAL_JUMP			SCWK_PARAM0,EQ,8,ev_tower_salon_anm_seven5_01
+	_JUMP				ev_tower_salon_anm_seven5_02
+	_END
+ev_tower_salon_anm_seven5_01:
+	_OBJ_ANIME			D31R0207_SEVEN5,anm_d31r0207_seven5_01
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+ev_tower_salon_anm_seven5_02:
+	_OBJ_ANIME			D31R0207_SEVEN5,anm_d31r0207_seven5_02
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_tower_salon_comanm_seven_out
+	_END
+
+//--------------------------------------------
+//自機入場
+//--------------------------------------------
+_ANIME_LABEL	anm_d31r0207_player_01
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_player_02
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_pcwoman2_in01
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_pcwoman2_in02
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_pcwoman2_seven_out01
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_pcwoman2_seven_out02
+	_ANIME_DATA	AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+	
+_ANIME_LABEL	anm_d31r0207_player_out
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_pcwoman2_out
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------
+//seven:共有
+//--------------------------------------------
+_ANIME_LABEL	anm_d31r0207_seven_out01
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_seven_out02
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------
+//seven1:モミ pat1
+//--------------------------------------------
+_ANIME_LABEL	anm_d31r0207_seven1_01
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_L_4F,3
+	_ANIME_DATA	AC_WALK_U_4F,7
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_seven1_02
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,1
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	AC_WALK_U_4F,5
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------
+//seven2:ミル pat1
+//--------------------------------------------
+_ANIME_LABEL	anm_d31r0207_seven2_01
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	AC_WALK_R_4F,3
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_seven2_02
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	AC_WALK_R_4F,4
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------
+//seven3:ゲン pat1
+//--------------------------------------------
+_ANIME_LABEL	anm_d31r0207_seven3_01
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,4
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_seven3_02
+	_ANIME_DATA	AC_WALK_U_4F,4
+	_ANIME_DATA	AC_WALK_L_4F,3
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------
+//seven4:マイ pat1
+//--------------------------------------------
+_ANIME_LABEL	anm_d31r0207_seven4_01
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,4
+	_ANIME_DATA	AC_WALK_U_4F,7
+	_ANIME_DATA	AC_WALK_R_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_seven4_02
+	_ANIME_DATA	AC_WALK_U_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,4
+	_ANIME_DATA	AC_WALK_U_4F,5
+	_ANIME_DATA	AC_WALK_R_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------
+//seven5:バク pat1
+//--------------------------------------------
+_ANIME_LABEL	anm_d31r0207_seven5_01
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,5
+	_ANIME_DATA	AC_WALK_R_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0207_seven5_02
+	_ANIME_DATA	AC_WALK_R_4F,3
+	_ANIME_DATA	AC_WALK_U_4F,5
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	ACMD_END,0

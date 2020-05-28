@@ -1,0 +1,41 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: plist_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-13T15:18:37
+ *****************************************************************************/
+
+#ifndef NARC_PLIST_GRA_NAIX_
+#define NARC_PLIST_GRA_NAIX_
+
+enum {
+	NARC_plist_gra_list_ball_NANR = 0,
+	NARC_plist_gra_list_ball_NCER = 1,
+	NARC_plist_gra_list_ball_NCGR = 2,
+	NARC_plist_gra_list_but_NCGR = 3,
+	NARC_plist_gra_list_but_NCLR = 4,
+	NARC_plist_gra_list_cursor_NANR = 5,
+	NARC_plist_gra_list_cursor_NCER = 6,
+	NARC_plist_gra_list_cursor_NCGR = 7,
+	NARC_plist_gra_list_obj_NCLR = 8,
+	NARC_plist_gra_list_sel_NANR = 9,
+	NARC_plist_gra_list_sel_NCER = 10,
+	NARC_plist_gra_list_sel_NCGR = 11,
+	NARC_plist_gra_list_sub_NCGR = 12,
+	NARC_plist_gra_list_sub_NCLR = 13,
+	NARC_plist_gra_list_sub_NSCR = 14,
+	NARC_plist_gra_p_list_NCGR = 15,
+	NARC_plist_gra_p_list_NCLR = 16,
+	NARC_plist_gra_p_list_NSCR = 17,
+	NARC_plist_gra_item_icon_NANR = 18,
+	NARC_plist_gra_item_icon_NCER = 19,
+	NARC_plist_gra_item_icon_NCGR = 20,
+	NARC_plist_gra_item_icon_NCLR = 21,
+	NARC_plist_gra_list_plate_NSCR = 22,
+	NARC_plist_gra_list_but_ef_NCLR = 23
+};
+
+/* NARC_PLIST_GRA_NAIX_ */
+#endif

@@ -1,0 +1,18 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: trtbl.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-20T15:10:07
+ *****************************************************************************/
+
+#ifndef NARC_TRTBL_NAIX_
+#define NARC_TRTBL_NAIX_
+
+enum {
+	NARC_trtbl_trtbl_bin = 0
+};
+
+/* NARC_TRTBL_NAIX_ */
+#endif

@@ -1,0 +1,107 @@
+//====================================================================
+//						t01r0101.gmm
+//						ライバルの家１Ｆ
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t01r0101.h"
+	.include	"../eventdata/zone_t01r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t01r0101_rivalmama
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						　ライバル母親								*/
+/********************************************************************/
+ev_t01r0101_rivalmama:
+	_TALK_OBJ_START
+
+	//図鑑入手していたら
+	_IF_FLAGON_JUMP	FE_ZUKAN_GET,ev_t01r0101_rivalmama_zukan
+
+	//ポケモン入手していたら
+	_IFVAL_JUMP		WK_SCENE_D27R0101,GE,1,ev_t01r0101_rivalmama_poke_get
+
+	//一度会話した
+	_IF_FLAGON_JUMP	FE_T01R0101_RIVALMAMA_TALK,ev_t01r0101_rivalmama_talk
+
+	//２階のライバルと会話した後
+	_IF_FLAGON_JUMP	FE_T01R0102_RIVAL_TALK,ev_t01r0101_rivalmama_rivaltalk
+
+	/*性別分岐*/
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t01r0101_rivalmama_male	//主人公男
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t01r0101_rivalmama_female	//主人公女
+	_END
+
+/*主人公男*/
+t01r0101_rivalmama_male:
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_TALKMSG		msg_t01r0101_rivalmama_01
+	_JUMP			common_t01r0101_rivalmama_01
+
+/*主人公女*/
+t01r0101_rivalmama_female:
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_TALKMSG		msg_t01r0101_rivalmama_04
+	_JUMP			common_t01r0101_rivalmama_01
+
+/*共通処理*/
+common_t01r0101_rivalmama_01:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ポケモン入手していたら
+ev_t01r0101_rivalmama_poke_get:
+	_RIVAL_NAME		1
+	_TALKMSG		msg_t01r0101_rivalmama_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//一度会話した
+ev_t01r0101_rivalmama_talk:
+	_RIVAL_NAME		1
+	_TALKMSG		msg_t01r0101_rivalmama_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//２階のライバルと会話した後
+ev_t01r0101_rivalmama_rivaltalk:
+	//一度会話した
+	_FLAG_SET		FE_T01R0101_RIVALMAMA_TALK
+
+	_RIVAL_NAME		1
+	_TALKMSG		msg_t01r0101_rivalmama_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//図鑑入手していたら
+ev_t01r0101_rivalmama_zukan:
+	_RIVAL_NAME		1
+	_TALKMSG		msg_t01r0101_rivalmama_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+

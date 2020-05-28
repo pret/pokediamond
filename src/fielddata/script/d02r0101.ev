@@ -1,0 +1,367 @@
+//====================================================================
+//								d02r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d02r0101.h"
+	.include	"../eventdata/zone_d02r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d02r0101_flag_change
+_EVENT_DATA		ev_d02r0101_gingam_a
+_EVENT_DATA		ev_d02r0101_gingam_a_02
+_EVENT_DATA		ev_d02r0101_gingaleader1
+_EVENT_DATA		ev_d02r0101_assistantm
+_EVENT_DATA		ev_d02r0101_babygirl1
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d02r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D02R0101	//到着
+
+	/*発電所イベントをクリアしていたら*/
+	_IFVAL_JUMP	WK_SCENE_R205A,GE,2,ev_d02r0101_flag_change_02
+	_END
+
+/*発電所イベントをクリアしていたら位置変更*/
+ev_d02r0101_flag_change_02:
+	_SXY_POS_CHANGE	D02R0101_BABYGIRL1,21,5
+	_SXY_DIR_CHANGE	D02R0101_BABYGIRL1,DIR_LEFT
+	_SXY_MV_CHANGE	D02R0101_BABYGIRL1,MV_LEFT
+
+	_SXY_POS_CHANGE	D02R0101_ASSISTANTM_01,18,4
+	_SXY_DIR_CHANGE	D02R0101_ASSISTANTM_01,DIR_DOWN
+	_SXY_MV_CHANGE	D02R0101_ASSISTANTM_01,MV_DOWN
+	_END
+
+
+/********************************************************************/
+/*							ギンガ団(SP)							*/
+/********************************************************************/
+ev_d02r0101_gingam_a:
+	_EVENT_START
+
+	_TALK_KEYWAIT	msg_d02r0101_gingam_a_01
+	_TALK_CLOSE
+
+	//画面外に移動する
+	_OBJ_ANIME		D02R0101_GINGAM_A,anm_d02r0101_gingam_a_01
+	_OBJ_ANIME_WAIT
+
+	_OBJ_DEL		D02R0101_GINGAM_A
+
+	_LDVAL			WK_SCENE_D02R0101,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ギンガ団	画面外へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d02r0101_gingam_a_01
+	_ANIME_DATA	AC_WALK_L_4F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ギンガ団(会話)							*/
+/********************************************************************/
+ev_d02r0101_gingam_a_02:
+	_EASY_OBJ_MSG	msg_d02r0101_gingam_a_02
+	_END
+
+
+/********************************************************************/
+/*						ギンガ団リーダー(POS)						*/
+/********************************************************************/
+#define POS_D02R0101_GINGALEADER1_Z1	(6)
+#define POS_D02R0101_GINGALEADER1_Z2	(7)
+
+ev_d02r0101_gingaleader1:
+	_EVENT_START
+
+	/*座標で分岐*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D02R0101_GINGALEADER1_Z1,pos_d02r0101_gingaleader1_z01
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D02R0101_GINGALEADER1_Z2,pos_d02r0101_gingaleader1_z02
+	_END
+
+//--------------------------------------------------------------------
+//近づいてくる
+//--------------------------------------------------------------------
+pos_d02r0101_gingaleader1_z01:
+	_OBJ_ANIME		D02R0101_GINGALEADER1,anm_d02r0101_gingaleader1_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d02r0101_gingaleader1_02
+	_END
+
+pos_d02r0101_gingaleader1_z02:
+	_OBJ_ANIME		D02R0101_GINGALEADER1,anm_d02r0101_gingaleader1_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d02r0101_gingaleader1_02
+	_END
+
+/*共通処理*/
+common_d02r0101_gingaleader1_02:
+	_TALK_KEYWAIT	msg_d02r0101_gingaleader1_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GINGALEADER1_01,0
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d02r0101_common_battle_lose
+
+	_TALK_KEYWAIT	msg_d02r0101_gingaleader1_02
+	_TALK_CLOSE
+
+	//画面暗転、ギンガ団消す
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_OBJ_DEL		D02R0101_GINGALEADER1
+	_OBJ_DEL		D02R0101_GINGAM_A_02
+	_OBJ_DEL		TR_GINGAM_03
+	_OBJ_DEL		TR_GINGAM_04
+	_FLAG_SET		FV_D02R0101_GINGA_ALL		//ギンガ団全て消す
+	_FLAG_SET		FV_R205A_GINGAM
+	_LDVAL			WK_SCENE_R205A,2
+	_FLAG_SET		TMFLG_D02_FUUSEN			//フーセンは、イベント終了日にはでないのでその判定用
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	/*研究員近づいてくる*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D02R0101_GINGALEADER1_Z1,pos_d02r0101_gingaleader1_z21
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D02R0101_GINGALEADER1_Z2,pos_d02r0101_gingaleader1_z22
+	_END
+
+//--------------------------------------------------------------------
+//近づいてくる
+//--------------------------------------------------------------------
+pos_d02r0101_gingaleader1_z21:
+	_OBJ_ANIME		D02R0101_ASSISTANTM_01,anm_d02r0101_assistantm_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d02r0101_gingaleader1_22
+	_END
+
+pos_d02r0101_gingaleader1_z22:
+	_OBJ_ANIME		D02R0101_ASSISTANTM_01,anm_d02r0101_assistantm_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d02r0101_gingaleader1_22
+	_END
+
+common_d02r0101_gingaleader1_22:
+	_TALK_KEYWAIT	msg_d02r0101_assistantm_01
+	_TALK_CLOSE
+
+	_FLAG_SET		FV_R205A_BABYGIRL1
+	_FLAG_RESET		FV_D02R0101_BABYGIRL1
+	_SXY_MV_CHANGE	D02R0101_BABYGIRL1,MV_LEFT
+	_OBJ_ADD		D02R0101_BABYGIRL1
+	_OBJ_PAUSE		D02R0101_BABYGIRL1
+
+	/*座標で分岐*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D02R0101_GINGALEADER1_Z1,pos_d02r0101_gingaleader1_z11
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D02R0101_GINGALEADER1_Z2,pos_d02r0101_gingaleader1_z12
+	_END
+
+//--------------------------------------------------------------------
+//近づいてくる
+//--------------------------------------------------------------------
+pos_d02r0101_gingaleader1_z11:
+	_OBJ_ANIME		D02R0101_BABYGIRL1,anm_d02r0101_babygirl1_01
+	_OBJ_ANIME		D02R0101_ASSISTANTM_01,anm_d02r0101_assistantm_11
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d02r0101_gingaleader1_12
+	_END
+
+pos_d02r0101_gingaleader1_z12:
+	_OBJ_ANIME		D02R0101_BABYGIRL1,anm_d02r0101_babygirl1_02
+	_OBJ_ANIME		D02R0101_ASSISTANTM_01,anm_d02r0101_assistantm_12
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d02r0101_gingaleader1_12
+	_END
+
+common_d02r0101_gingaleader1_12:
+	_TALK_KEYWAIT	msg_d02r0101_babygirl1_01
+	_TALK_CLOSE
+
+	/*座標で分岐*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D02R0101_GINGALEADER1_Z1,pos_d02r0101_gingaleader1_z31
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_D02R0101_GINGALEADER1_Z2,pos_d02r0101_gingaleader1_z32
+	_END
+
+//--------------------------------------------------------------------
+//くんくん
+//--------------------------------------------------------------------
+pos_d02r0101_gingaleader1_z31:
+	_OBJ_ANIME		D02R0101_ASSISTANTM_01,anm_d02r0101_assistantm_100
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d02r0101_gingaleader1_32
+	_END
+
+pos_d02r0101_gingaleader1_z32:
+	_OBJ_ANIME		D02R0101_ASSISTANTM_01,anm_d02r0101_assistantm_101
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d02r0101_gingaleader1_32
+	_END
+
+common_d02r0101_gingaleader1_32:
+	_TALK_KEYWAIT	msg_d02r0101_assistantm_02
+
+	_TALK_KEYWAIT	msg_d02r0101_babygirl1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_LDVAL			WK_SCENE_D02R0101,2
+	_FLAG_SET		SYS_FLAG_BGM_D02
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_d02r0101_common_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//少女	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d02r0101_babygirl1_01
+	_ANIME_DATA	AC_WALK_R_4F,4
+	_ANIME_DATA	AC_WALK_U_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,6
+	_ANIME_DATA	AC_STAY_WALK_U_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d02r0101_babygirl1_02
+	_ANIME_DATA	AC_WALK_R_4F,4
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	AC_WALK_R_4F,6
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//助手	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d02r0101_assistantm_01
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d02r0101_assistantm_02
+	_ANIME_DATA	AC_WALK_D_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//助手	娘の方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d02r0101_assistantm_11
+	_ANIME_DATA	AC_WAIT_8F,6
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d02r0101_assistantm_12
+	_ANIME_DATA	AC_WAIT_8F,6
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//助手	くんくん
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d02r0101_assistantm_100
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d02r0101_assistantm_101
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団リーダー	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d02r0101_gingaleader1_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d02r0101_gingaleader1_02
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*								助手								*/
+/********************************************************************/
+ev_d02r0101_assistantm:
+	_TALK_OBJ_START
+
+	/*マップアウト後*/
+	_IFVAL_JUMP		WK_SCENE_D02R0101,GE,3,ev_d02r0101_assistantm_02
+
+	_TALKMSG		msg_d02r0101_assistantm_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*マップアウト後*/
+ev_d02r0101_assistantm_02:
+	_TALKMSG		msg_d02r0101_assistantm_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*								娘									*/
+/********************************************************************/
+ev_d02r0101_babygirl1:
+	_TALK_OBJ_START
+
+	/*マップアウト後*/
+	_IFVAL_JUMP		WK_SCENE_D02R0101,GE,3,ev_d02r0101_babygirl1_02
+
+	_TALKMSG		msg_d02r0101_babygirl1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*マップアウト後*/
+ev_d02r0101_babygirl1_02:
+	_TALKMSG		msg_d02r0101_babygirl1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+

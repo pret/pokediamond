@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-05-19T18:47:33"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="NNS_3DMaterialEditor" version="2.7.0.20050228"/>
+</head>
+
+<body>
+
+<original_create user="kanako_eo" host="W00107" date="2006-05-18T15:37:12" source="new_h0515.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="2"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="0"
+	tex_matrix_mode="maya"
+	compress_node="none" node_size="1 1"
+	compress_material="off" material_size="1 1"
+	output_texture="all"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="2" xyz="-2.000000 0.000000 -0.500000" whd="4.000000 5.000000 0.000000"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="clock01"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="clock01"
+		path="C:/mayadata/room/room_btex/clock01.tga"
+	>
+		<bitmap size="64">
+			0000 0000 0000 0000 7000 7777 7777 0007
+			5700 4444 4444 0075 4570 2644 4463 0754
+			4470 1226 6231 0744 4470 3322 3323 0744
+			6470 3332 3332 0746 2470 2331 7333 0742
+			3470 3231 7233 0742 6470 3323 2223 0746
+			4470 3222 2222 0744 4470 7226 6227 0744
+			4570 2644 4462 0754 5700 4444 4444 0075
+			7000 7777 7777 0007 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="clock01" color_size="8">
+		5af6 4a31 6ed5 7f35 377f 2e97 46fa 18c6
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="clock01_mat"
+		light0="off" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="0 0 0"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 -0.500000"
+		volume_max="2.000000 5.000000 -0.500000"
+		volume_r="5.408447"
+		mtx_prim_size="1"
+		nrm_flag="off" clr_flag="on" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 16.000000"/>
+					<clr rgb="16 16 17"/>
+					<pos_s xyz="-2.000000 0.000000 -0.500000"/>
+					<tex st="16.000000 16.000000"/>
+					<pos_xy xy="2.000000 0.000000"/>
+					<tex st="16.000000 0.000000"/>
+					<clr rgb="31 31 31"/>
+					<pos_xy xy="2.000000 5.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-2.000000 5.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="clock01" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 -0.500000"
+		volume_max="2.000000 5.000000 -0.500000"
+		volume_r="5.408447"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+<ex_nns_3dme>
+	<ex_model_info scene_name="デフォルトシーン" disp_pos="0.000000 60.000000"/>
+	<ex_tex_image_array size="1">
+		<ex_tex_image index="0" disp_pos="0.000000 300.000000"/>
+	</ex_tex_image_array>
+	<ex_tex_palette_array size="1">
+		<ex_tex_palette index="0" disp_pos="0.000000 360.000000"/>
+	</ex_tex_palette_array>
+	<ex_material_array size="1">
+		<ex_material index="0" disp_pos="0.000000 240.000000"/>
+	</ex_material_array>
+	<ex_polygon_array size="1">
+		<ex_polygon index="0" disp_pos="0.000000 180.000000"/>
+	</ex_polygon_array>
+	<ex_node_array size="1">
+		<ex_node index="0" disp_pos="0.000000 120.000000"/>
+	</ex_node_array>
+</ex_nns_3dme>
+
+</body>
+
+</imd>

@@ -1,0 +1,8 @@
+*.bin
+sp_*_def.h
+scr_seq.naix
+scr_seq.narc
+arc_result.txt
+temp.s
+make.exe.stackdump
+tmp2.bat

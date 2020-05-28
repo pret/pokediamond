@@ -1,0 +1,293 @@
+//====================================================================
+//								d29r0102
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d29r0102.h"
+	.include	"../eventdata/zone_d29r0102evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d29r0102_after_rival
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_d29r0102_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*						ライバル(強制)								*/
+/********************************************************************/
+#define POS_D29R0102_HERO_X1	(14)
+#define POS_D29R0102_HERO_X2	(15)
+
+ev_d29r0102_after_rival:
+	_EVENT_START
+
+	//カメラ移動
+	//博士を中心に移動する
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_VANISH_DUMMY_OBJ_ADD	SCWK_TEMP0,SCWK_TEMP1
+
+	//ダミーOBJを動かす
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d29r0102_dummy_01
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*「ちくしょう！」*/
+	_OBJ_ANIME		D29R0102_RIVAL,anm_d29r0102_rival_100
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_d29r0102_rival_01
+	_TALK_CLOSE
+
+	_OBJ_ANIME		D29R0102_GKANBU2,anm_d29r0102_gkanbu2_100
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d29r0102_gkanbu2_01
+	_TALK_CLOSE
+
+	/*主人公の方に近づいてくる*/
+	/*ダミーOBJも合わせて動く*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D29R0102_HERO_X1,pos_d29r0102_hero_x1
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D29R0102_HERO_X2,pos_d29r0102_hero_x2
+
+	//カメラ移動
+	//ダミーOBJ削除
+	_VANISH_DUMMY_OBJ_DEL
+
+	_TALK_KEYWAIT	msg_d29r0102_gkanbu2_02
+	_TALK_CLOSE
+
+	/*去っていく*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D29R0102_HERO_X1,pos_d29r0102_hero_x21
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D29R0102_HERO_X2,pos_d29r0102_hero_x22
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		D29R0102_GKANBU2
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+
+	/*ライバルに近づいてくる*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D29R0102_HERO_X1,pos_d29r0102_hero_x11
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D29R0102_HERO_X2,pos_d29r0102_hero_x12
+
+	/*主人公を見る*/
+	_OBJ_ANIME		D29R0102_RIVAL,anm_d29r0102_rival_101
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_d29r0102_rival_02
+	_TALK_CLOSE
+
+	/*湖の方を見る*/
+	_OBJ_ANIME		D29R0102_RIVAL,anm_d29r0102_rival_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d29r0102_rival_03
+	_TALK_CLOSE
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	/*主人公を見る*/
+	_OBJ_ANIME		D29R0102_RIVAL,anm_d29r0102_rival_101
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d29r0102_rival_04
+	_TALK_CLOSE
+
+	/*画面外に退場*/
+	_OBJ_ANIME		D29R0102_RIVAL,anm_d29r0102_rival_02
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d29r0102_player_100
+	_OBJ_ANIME_WAIT
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		D29R0102_RIVAL
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+
+	_FLAG_SET		SYS_FLAG_BGM_D29
+	_FLAG_RESET		FV_C07_GINGAM_3
+	_FLAG_SET		FV_L03_GINGAM
+	_LDVAL			WK_SCENE_D29R0102,2
+
+	/*研究所に博士戻る*/
+	_FLAG_RESET		FV_T02R0101_DOCTOR
+
+	/*博士とサポートをL01から削除*/
+	_FLAG_SET		FV_D27R0101_SUPPORT
+	_FLAG_SET		FV_D27R0101_DOCTOR
+	_FLAG_SET		FV_D27R0102_SUPPORT
+	_FLAG_SET		FV_D27R0102_DOCTOR
+
+	/*ニュース状態を解除*/
+	_FLAG_RESET		FE_L02_NEWS
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//幹部	近づいてくる
+//ダミーOBJも合わせて動く
+//--------------------------------------------------------------------
+pos_d29r0102_hero_x1:
+	_OBJ_ANIME		D29R0102_GKANBU2,anm_d29r0102_gkanbu2_01
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d29r0102_dummy_02
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d29r0102_player_01_2
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_d29r0102_hero_x2:
+	_OBJ_ANIME		D29R0102_GKANBU2,anm_d29r0102_gkanbu2_01_2
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d29r0102_dummy_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//幹部	さっていく
+//--------------------------------------------------------------------
+pos_d29r0102_hero_x21:
+	_OBJ_ANIME		D29R0102_GKANBU2,anm_d29r0102_gkanbu2_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_d29r0102_hero_x22:
+	_OBJ_ANIME		D29R0102_GKANBU2,anm_d29r0102_gkanbu2_02_2
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//ライバルに近づいてくる
+//--------------------------------------------------------------------
+pos_d29r0102_hero_x11:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d29r0102_player_01
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_d29r0102_hero_x12:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d29r0102_player_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	ライバルに近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_player_01
+	_ANIME_DATA	AC_WALK_U_8F,5
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d29r0102_player_02
+	_ANIME_DATA	AC_WALK_U_8F,5
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	幹部の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_player_01_2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_player_100
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	ちきしょう
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_rival_100
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	主人公の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_rival_101
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	湖の方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_rival_01
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	画面外に退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_rival_02
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団幹部	ふふん
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_gkanbu2_100
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団幹部	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_gkanbu2_01
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d29r0102_gkanbu2_01_2
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団幹部	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_gkanbu2_02
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d29r0102_gkanbu2_02_2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ダミーOBJ	カメラを移動させる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_dummy_01
+	_ANIME_DATA	AC_WALK_U_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ダミーOBJ	カメラ戻す
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d29r0102_dummy_02
+	_ANIME_DATA	AC_WALK_D_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+

@@ -1,0 +1,19 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: we_sub.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2005-12-19T17:56:03
+ *****************************************************************************/
+
+#ifndef NARC_WE_SUB_NAIX_
+#define NARC_WE_SUB_NAIX_
+
+enum {
+	NARC_we_sub_we_s000_s = 0,
+	NARC_we_sub_we_s001_s = 1
+};
+
+/* NARC_WE_SUB_NAIX_ */
+#endif

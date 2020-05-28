@@ -1,0 +1,71 @@
+//====================================================================
+//								r227r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r227r0101.h"
+	//.include	"../eventdata/zone_r227r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r227r0101_oldwoman1
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_r227r0101_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_r227r0101_oldwoman1:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_r227r0101_oldwoman1_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_r227r0101_oldwoman1
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_r227r0101_oldwoman1
+	_END
+
+/*「はい」*/
+yes_r227r0101_oldwoman1:
+	_TALK_KEYWAIT	msg_r227r0101_oldwoman1_02
+	_TALK_CLOSE
+
+	/*回復処理*/
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_ME_PLAY		SEQ_ASA
+	_ME_WAIT
+	_PC_KAIFUKU
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALKMSG		msg_r227r0101_oldwoman1_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_r227r0101_oldwoman1
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_r227r0101_oldwoman1
+	_END
+
+/*「いいえ」*/
+no_r227r0101_oldwoman1:
+	_TALKMSG		msg_r227r0101_oldwoman1_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+

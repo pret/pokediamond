@@ -1,0 +1,172 @@
+/**
+	@file	fld_numinput.dat
+	@biref	デバッグメニュー　数値入力データリスト
+	@author	Miyuki Iwasawa
+	@date	06.06.12
+*/
+
+/**
+ *	数値入力用の見出し文字列指定、paramは0からの連番
+ *	Debug_NumInput_Listと並びをそろえておく必要あり！
+ */
+static const GMM_MENU_PARAM Debug_NumInputG_Tower[] = {
+ {dni_rec_renshou_max01,	0},	
+ {dni_rec_renshou_now01,	1},	
+ {dni_tower_try01,		2},	
+ {dni_tower_stage01,	3},	
+ {dni_rec_renshou_max02,	4},	
+ {dni_rec_renshou_now02,	5},	
+ {dni_tower_try02,		6},	
+ {dni_tower_stage02,	7},	
+ {dni_rec_renshou_max03,	8},	
+ {dni_rec_renshou_now03,	9},	
+ {dni_tower_try03,		10},	
+ {dni_tower_stage03,	11},	
+ {dni_rec_renshou_max04,	12},	
+ {dni_rec_renshou_now04,	13},	
+ {dni_tower_try04,		14},	
+ {dni_tower_stage04,	15},	
+ {dni_rec_renshou_max05,	16},	
+ {dni_rec_renshou_now05,	17},	
+ {dni_tower_try05,		18},	
+ {dni_tower_stage05,	19},	
+ {dni_rec_tower_entry,		20},	
+ {dni_rec_tower_win,		21},	
+ {dni_tower_wifi_rank,		22},	
+ //↑ここまでバトルタワー
+ 
+};	
+static const DEBUG_NUMINPUT_LIST Debug_NumInputL_Tower[] = {
+ {0,9999,	RECID_RENSHOU_SINGLE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,	RECID_RENSHOU_SINGLE_CNT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,1,		BTWR_SFLAG_SINGLE_RECORD,DNumInput_TowerChallengeSet,DNumInput_TowerChallengeGet},
+ {0,9999,	0,DNumInput_TowerStageSet,DNumInput_TowerStageGet},
+ {0,9999,	RECID_RENSHOU_DOUBLE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,	RECID_RENSHOU_DOUBLE_CNT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,1,		BTWR_SFLAG_DOUBLE_RECORD,DNumInput_TowerChallengeSet,DNumInput_TowerChallengeGet},
+ {0,9999,	1,DNumInput_TowerStageSet,DNumInput_TowerStageGet},
+ {0,9999,	RECID_RENSHOU_MULTI,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,	RECID_RENSHOU_MULTI_CNT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,1,		BTWR_SFLAG_MULTI_RECORD,DNumInput_TowerChallengeSet,DNumInput_TowerChallengeGet},
+ {0,9999,	2,DNumInput_TowerStageSet,DNumInput_TowerStageGet},
+ {0,9999,	RECID_RENSHOU_COMM_MULTI,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,	RECID_RENSHOU_COMM_MULTI_CNT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,1,		BTWR_SFLAG_CMULTI_RECORD,DNumInput_TowerChallengeSet,DNumInput_TowerChallengeGet},
+ {0,9999,	3,DNumInput_TowerStageSet,DNumInput_TowerStageGet},
+ {0,9999,	RECID_RENSHOU_WIFI,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,	RECID_RENSHOU_WIFI_CNT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,1,		BTWR_SFLAG_WIFI_RECORD,DNumInput_TowerChallengeSet,DNumInput_TowerChallengeGet},
+ {0,9999,	4,DNumInput_TowerStageSet,DNumInput_TowerStageGet},
+ {0,99999,RECID_BTOWER_CHALLENGE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,99999,RECID_BTOWER_WIN,DNumInput_RecordSet,DNumInput_RecordGet},
+ {1,10,		0,DNumInput_TowerWifiRankSet,DNumInput_TowerWifiRankGet},
+ //↑ここまでバトルタワー
+};
+
+////////////////////////////////////////////////////////////////////////
+/**
+	@brief	システムフラグ系リスト
+*/
+/////////////////////////////////////////////////////////////////////////
+static const GMM_MENU_PARAM Debug_NumInputG_SysFlag[] = {
+ {dni_arrive_cload,		0},	
+ {dni_arrive_c10,		1},	
+ {dni_svflag_seven1_clear,	2},	
+ {dni_svflag_seven2_clear,	3},	
+ {dni_svflag_seven3_clear,	4},	
+ {dni_svflag_seven4_clear,	5},	
+ {dni_svflag_seven5_clear,	6},	
+};
+static const DEBUG_NUMINPUT_LIST Debug_NumInputL_SysFlag[] = {
+ {0,1,FLAG_ARRIVE_CHAMPLEAGUE+SYS_FLAG_ARRIVE_START,DNumInput_SysFlagSet,DNumInput_SysFlagGet},
+ {0,1,FLAG_ARRIVE_C10+SYS_FLAG_ARRIVE_START,DNumInput_SysFlagSet,DNumInput_SysFlagGet},
+ {0,1,FE_SEVEN1_CLEAR,DNumInput_SysFlagSet,DNumInput_SysFlagGet},
+ {0,1,FE_SEVEN2_CLEAR,DNumInput_SysFlagSet,DNumInput_SysFlagGet},
+ {0,1,FE_SEVEN3_CLEAR,DNumInput_SysFlagSet,DNumInput_SysFlagGet},
+ {0,1,FE_SEVEN4_CLEAR,DNumInput_SysFlagSet,DNumInput_SysFlagGet},
+ {0,1,FE_SEVEN5_CLEAR,DNumInput_SysFlagSet,DNumInput_SysFlagGet},
+};
+
+////////////////////////////////////////////////////////////////////////
+/**
+	@brief	レコードカウント系リスト
+*/
+/////////////////////////////////////////////////////////////////////////
+static const GMM_MENU_PARAM Debug_NumInputG_Record[] = {
+ {dni_label_record,		BMPLIST_RABEL},
+ {dni_rec_01,	0},	
+ {dni_rec_02,	1},	
+ {dni_rec_03,	2},	
+ {dni_label_rec_contest,		BMPLIST_RABEL},
+ {dni_rec_04,	3},	
+ {dni_rec_05,	4},	
+ {dni_rec_06,	5},	
+ {dni_rec_07,	6},	
+ {dni_rec_08,	7},	
+ {dni_label_rec_battle,		BMPLIST_RABEL},
+ {dni_rec_09,	8},	
+ {dni_rec_10,	9},	
+ {dni_rec_11,	10},	
+ {dni_rec_12,	11},	
+ {dni_rec_13,	12},	
+ {dni_rec_14,	13},	
+ {dni_rec_15,	14},	
+ {dni_rec_16,	15},	
+ {dni_rec_17,	16},	
+ {dni_rec_18,	17},	
+ {dni_rec_19,	18},	
+ {dni_rec_20,	19},	
+ {dni_rec_21,	20},	
+ {dni_rec_22,	21},	
+ {dni_rec_23,	22},	
+ {dni_rec_24,	23},	
+ {dni_rec_25,	24},	
+ {dni_label_rec_else,		BMPLIST_RABEL},
+ {dni_rec_26,	25},	
+ {dni_rec_27,	26},	
+ {dni_rec_28,	27},	
+ {dni_rec_29,	28},	
+ {dni_rec_30,	29},	
+ {dni_rec_31,	30},	
+ {dni_rec_32,	31},	
+ {dni_rec_33,	32},	
+ {dni_rec_34,	33},	
+ {dni_rec_35,	34},	
+};
+static const DEBUG_NUMINPUT_LIST Debug_NumInputL_Record[] = {
+ {0,999999999,RECID_SHOPPING_MONEY,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_SLOT_FEAVER,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_WALK_COUNT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_CONTEST_ENTRY,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_CONTEST_COMM_ENTRY,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_CONTEST_GPX,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_CONTEST_COMM_GPX,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,65535,RECID_CONTEST_RIBBON_GET,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_WAZA_ZIBAKU,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_WAZA_DAIBAKUHATU,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_WAZA_MUKOU,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_TEMOTI_KIZETU,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_TEMOTI_MAKIZOE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_NIGERU_SIPPAI,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_NIGERARETA,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999,RECID_CAPTURE_POKE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_COMM_TRADE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_COMM_BTL_WIN,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_COMM_BTL_LOSE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_COMM_BTL_DRAW,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_WIFI_TRADE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_WIFI_BTL_WIN,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_WIFI_BTL_LOSE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_WIFI_BTL_DRAW,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999,RECID_KILL_POKE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_DENDOU_CNT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_FISHING_FAILURE,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999,RECID_FISHING_SUCCESS,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_NUTS_PLANT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_BTL_ENCOUNT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_BTL_TRAINER,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999,RECID_TAMAGO_HATCHING,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_SODATEYA_CNT,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,999999999,RECID_POKE_EVOLUTION,DNumInput_RecordSet,DNumInput_RecordGet},
+ {0,9999,RECID_WAZA_HANERU,DNumInput_RecordSet,DNumInput_RecordGet},
+};

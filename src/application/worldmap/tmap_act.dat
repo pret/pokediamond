@@ -1,0 +1,44 @@
+/**
+	@file	tmap_act.dat
+	@brief	タウンマップアクター定数定義ファイル
+	@author	Miyuki Iwasawa
+	@date	06.04.01
+*/
+
+#ifndef __D_TMAP_ACT_D__
+#define __D_TMAP_ACT_D__
+
+typedef enum{
+ TMAP_ACTID_SBTN,
+ TMAP_ACTID_MCUR,
+ TMAP_ACTID_HERO,
+ TMAP_ACTID_FOOT,
+ TMAP_ACTID_TVIEW
+}TMAP_ACTID;
+
+typedef enum{
+ TMAP_APAL_SBTN
+}TMAP_ACTPAL_SID;
+typedef enum{
+ TMAP_APAL_MCUR = 0,
+ TMAP_APAL_HERO = 1,
+ TMAP_APAL_FOOT = 2,
+ TMAP_APAL_NTOWN = 5,
+ TMAP_APAL_TTOWN,
+ TMAP_APAL_CTOWN,
+ TMAP_APAL_A1TOWN,
+ TMAP_APAL_A2TOWN,
+}TMAP_ACTPAL_ID;
+
+#define TMAP_ACT_TANMF (16)
+
+///アクターソフトウェアプライオリティ
+#define TMAP_SPRI_FOOT	(2)
+#define TMAP_SPRI_HERO	(1)
+#define TMAP_SPRI_CUR	(0)
+#define TMAP_SPRI_BTN	(0)
+#define TMAP_SPRI_TOWN	(10)
+
+#endif	//__D_TMAP_ACT_D__
+
+

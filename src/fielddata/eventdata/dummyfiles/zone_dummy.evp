@@ -1,0 +1,13 @@
+//==================================================
+//	POSEventデータ convert from
+//	このファイルは手作業で作ったダミーファイルです
+//==================================================
+
+#include "evptype.h"
+
+const u32 PosEv_zone_DUMMY_num = 0;
+
+#if 0
+const POS_EVENT_DATA PosEv_zone_DUMMY[0] = {
+};
+#endif

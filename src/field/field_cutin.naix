@@ -1,0 +1,36 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: field_cutin.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-22T17:54:44
+ *****************************************************************************/
+
+#ifndef NARC_FIELD_CUTIN_NAIX_
+#define NARC_FIELD_CUTIN_NAIX_
+
+enum {
+	NARC_field_cutin_hidenbg01_NCGR = 0,
+	NARC_field_cutin_hidenbg01_NSCR = 1,
+	NARC_field_cutin_hidenbg_NCLR = 2,
+	NARC_field_cutin_dp_boy01_NCLR = 3,
+	NARC_field_cutin_heroine_NCLR = 4,
+	NARC_field_cutin_poke_oam_NCGR = 5,
+	NARC_field_cutin_poke_oam_NCER = 6,
+	NARC_field_cutin_hidenbird_NCGR = 7,
+	NARC_field_cutin_hidenbird_NCER = 8,
+	NARC_field_cutin_hidenbird_NANR = 9,
+	NARC_field_cutin_hidenlight_NCGR = 10,
+	NARC_field_cutin_hidenlight_NCER = 11,
+	NARC_field_cutin_hidenlight_NANR = 12,
+	NARC_field_cutin_hidenhero_NCGR = 13,
+	NARC_field_cutin_hidenhero_NCER = 14,
+	NARC_field_cutin_hidenhero_NANR = 15,
+	NARC_field_cutin_hidenheroine_NCGR = 16,
+	NARC_field_cutin_hidenheroine_NCER = 17,
+	NARC_field_cutin_hidenheroine_NANR = 18
+};
+
+/* NARC_FIELD_CUTIN_NAIX_ */
+#endif

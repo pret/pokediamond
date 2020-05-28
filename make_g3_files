@@ -1,0 +1,28 @@
+#----IMD定義はモデリング＋テクスチャが必要なIMDファイルを書き込む
+G3D_IMD =	$(DATASRC)/crystal.imd \
+			$(DATASRC)/ug_base_cur.imd
+			
+#----IMT定義はモデリングデータだけ取り出したいIMDファイルを書き込む（なのでG3D_IMDと名前が重なってはいけない）
+G3D_IMT =
+
+#----IMT定義はテクスチャデータだけ取り出したいIMDファイルを書き込む
+G3D_TX_IMD =	$(DATASRC)/minimum.imd \
+			$(DATASRC)/minirhana.imd \
+			$(DATASRC)/miniasasea.imd \
+			$(DATASRC)/minihamabe.imd \
+			$(DATASRC)/miniasahamabe.imd \
+			$(DATASRC)/t3_fl_b.imd \
+			$(DATASRC)/t3_fl_p.imd \
+			$(DATASRC)/t3_fl_r.imd \
+			$(DATASRC)/t3_fl_y.imd \
+			$(DATASRC)/dun_sea.imd \
+			$(DATASRC)/lake_anim.imd
+
+G3D_ICA =	$(DATASRC)/fs_kanban.ica \
+			$(DATASRC)/pc.ica
+
+G3D_IVA =
+
+G3D_ITP =
+			
+G3D_ITA =

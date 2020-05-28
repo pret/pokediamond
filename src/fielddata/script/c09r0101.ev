@@ -1,0 +1,140 @@
+//====================================================================
+//								c09r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c09r0101.h"
+	//.include	"../eventdata/zone_c09r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c09r0101_man3
+_EVENT_DATA		ev_c09r0101_woman2
+_EVENT_DATA_END
+
+/********************************************************************/
+/*						トレーナー兄さん							*/
+/********************************************************************/
+ev_c09r0101_man3:
+	_TALK_OBJ_START
+
+	//交換済み
+	_IF_FLAGON_JUMP	FE_C09R0101_POKE_CHG,ev_c09r0101_man3_02
+
+	_TALKMSG	msg_c09r0101_man3_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//交換済み
+ev_c09r0101_man3_02:
+	_TALKMSG	msg_c09r0101_man3_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							ゲーム交換								*/
+//
+//	SCWK_TEMP0	手持ち位置
+//	SCWK_TEMP1	手持ち位置のポケモンナンバー
+//
+/********************************************************************/
+ev_c09r0101_woman2:
+	_TALK_OBJ_START
+
+	//交換済み
+	_IF_FLAGON_JUMP	FE_C09R0101_POKE_CHG,ev_pokechange_c09r0101_woman2_end
+
+	_TALKMSG		msg_c09r0101_woman2_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_pokechange_c09r0101_woman2_yes_01
+	_JUMP			ev_pokechange_c09r0101_woman2_no_01
+
+//「はい」
+ev_pokechange_c09r0101_woman2_yes_01:
+	_TALK_CLOSE
+
+	//ポケモン選択
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_NPC_TRADE_POKELIST_SET_PROC
+	//選択したポケモンの並び番号取得
+	_POKELIST_GET_RESULT	SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルされた？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0xff,ev_pokechange_c09r0101_woman2_no_01
+
+	/*開放必要なので忘れずに！*/
+	_FLD_TRADE_ALLOC	FLD_TRADE_GHOST
+
+	/*手持ちナンバー退避*/
+	_LDWK				SCWK_TEMP0,SCWK_ANSWER
+
+	/*手持ちナンバーから、ポケモンナンバー取得*/
+	_TEMOTI_MONSNO		SCWK_TEMP0,SCWK_TEMP1
+
+	/*要求されているポケモンナンバーを取得*/
+	_FLD_TRADE_CHG_MONSNO	SCWK_ANSWER
+
+	/*要求されているポケモンを選択したかチェック*/
+	//_IFVAL_JUMP	SCWK_TEMP1,NE,SCWK_ANSWER,ev_pokechange_c09r0101_woman2_different
+	_IFWK_JUMP		SCWK_TEMP1,NE,SCWK_ANSWER,ev_pokechange_c09r0101_woman2_different
+
+	/*ポケモン交換デモ*/
+	_FLD_TRADE_EVENT	SCWK_TEMP0
+
+	/*開放*/
+	_FLD_TRADE_DEL
+
+	_FLAG_SET		FE_C09R0101_POKE_CHG
+
+	_TALKMSG	msg_c09r0101_woman2_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//違うポケモン
+ev_pokechange_c09r0101_woman2_different:
+	/*開放*/
+	_FLD_TRADE_DEL
+
+	_TALKMSG	msg_c09r0101_woman2_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「いいえ」
+ev_pokechange_c09r0101_woman2_no_01:
+	_TALKMSG	msg_c09r0101_woman2_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//交換終了後
+ev_pokechange_c09r0101_woman2_end:
+	_TALKMSG	msg_c09r0101_woman2_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

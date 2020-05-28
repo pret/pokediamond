@@ -1,0 +1,18 @@
+SRCS	=\
+	wesub_000.s	\
+	wesub_001.s	\
+	wesub_002.s	\
+	wesub_003.s	\
+	wesub_004.s	\
+	wesub_005.s	\
+	wesub_006.s	\
+	wesub_007.s	\
+	wesub_008.s	\
+	wesub_009.s	\
+	wesub_010.s	\
+	wesub_011.s	\
+	wesub_012.s	\
+	wesub_013.s	\
+	wesub_014.s	\
+	wesub_015.s	\
+	wesub_016.s	

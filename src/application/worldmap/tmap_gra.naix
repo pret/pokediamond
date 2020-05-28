@@ -1,0 +1,47 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: tmap_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-12T21:32:50
+ *****************************************************************************/
+
+#ifndef NARC_TMAP_GRA_NAIX_
+#define NARC_TMAP_GRA_NAIX_
+
+enum {
+	NARC_tmap_gra_tmap01_nclr = 0,
+	NARC_tmap_gra_tmap02_nclr = 1,
+	NARC_tmap_gra_tmap01_obj_nclr = 2,
+	NARC_tmap_gra_tmap02_obj_nclr = 3,
+	NARC_tmap_gra_tmap02_ac_btn_ncgr = 4,
+	NARC_tmap_gra_tmap02_ac_btn_ncer = 5,
+	NARC_tmap_gra_tmap02_ac_btn_nanr = 6,
+	NARC_tmap_gra_tmap01_ac_cur_ncgr = 7,
+	NARC_tmap_gra_tmap01_ac_cur_ncer = 8,
+	NARC_tmap_gra_tmap01_ac_cur_nanr = 9,
+	NARC_tmap_gra_tmap01_ac_hero_ncgr = 10,
+	NARC_tmap_gra_tmap01_ac_hero_ncer = 11,
+	NARC_tmap_gra_tmap01_ac_hero_nanr = 12,
+	NARC_tmap_gra_tmap01_ac_foot_ncgr = 13,
+	NARC_tmap_gra_tmap01_ac_foot_ncer = 14,
+	NARC_tmap_gra_tmap01_ac_foot_nanr = 15,
+	NARC_tmap_gra_tmap01_ac_town_ncgr = 16,
+	NARC_tmap_gra_tmap01_ac_town_ncer = 17,
+	NARC_tmap_gra_tmap01_ac_town_nanr = 18,
+	NARC_tmap_gra_tmap01_ncgr = 19,
+	NARC_tmap_gra_tmap02_ncgr = 20,
+	NARC_tmap_gra_tmap02_sw_ncgr = 21,
+	NARC_tmap_gra_tmap01_back_nscr = 22,
+	NARC_tmap_gra_tmap01_dis_nscr = 23,
+	NARC_tmap_gra_tmap01_mload_nscr = 24,
+	NARC_tmap_gra_tmap02_dm_nscr = 25,
+	NARC_tmap_gra_tmap02_dr_nscr = 26,
+	NARC_tmap_gra_tmap02_dswm_nscr = 27,
+	NARC_tmap_gra_tmap02_sw_nscr = 28,
+	NARC_tmap_gra_tmap02_dis_nscr = 29
+};
+
+/* NARC_TMAP_GRA_NAIX_ */
+#endif

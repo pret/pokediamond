@@ -1,0 +1,210 @@
+//====================================================================
+//						r210br0101.gmm
+//						ドラゴンタイプ技教えの家
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r210br0101.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r210br0101_flag_change
+_EVENT_DATA		ev_r210br0101_dragon
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r210br0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_R210BR0101	//到着
+	_END
+
+
+/********************************************************************/
+/*							和風ばあさん							*/
+/********************************************************************/
+#define	DRAGON_TYPE			(16)
+
+ev_r210br0101_dragon:
+	_TALK_OBJ_START
+
+	//２回目以降
+	_IF_FLAGON_JUMP		FE_R210BR0101_DRAGON_TALK,ev_r210br0101_dragon_02
+
+	_FLAG_SET			FE_R210BR0101_DRAGON_TALK
+
+	_TALKMSG		msg_r210br0101_dragon_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r210br0101_dragon_03
+	_JUMP			ev_r210b_dragon_chk_01
+
+
+ev_r210br0101_dragon_02:
+	_TALKMSG		msg_r210br0101_dragon_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r210br0101_dragon_03
+	_JUMP			ev_r210b_dragon_chk_01
+
+
+//いいえ
+ev_r210br0101_dragon_03:
+	_TALKMSG		msg_r210br0101_dragon_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//覚えられるポケモンがいない
+ev_r210br0101_dragon_04:
+	_TALKMSG		msg_r210br0101_dragon_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//覚えられないポケモン
+ev_r210br0101_dragon_06:
+	_TALKMSG		msg_r210br0101_dragon_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//タマゴ
+ev_r210br0101_dragon_07:
+	_TALKMSG		msg_r210br0101_dragon_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//習得済み
+ev_r210br0101_dragon_08:
+	_WAZA_NAME	0,WAZANO_RYUUSEIGUN
+	_TALKMSG		msg_r210br0101_dragon_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//なついていない
+ev_r210br0101_dragon_16:
+	_TALKMSG		msg_r210br0101_dragon_16
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//ドラゴンタイプがいるかチェック
+ev_r210b_dragon_chk_01:
+
+	//ポケモン総数取得（1～6)
+	_GET_POKE_COUNT		LOCALWORK0
+
+ev_r210b_dragon_chk_loop:
+	_SUB_WK				LOCALWORK0,1
+
+	_TEMOTI_MONSNO		LOCALWORK0,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_r210b_dragon_chk_skip1		//0=タマゴ
+
+	//ドラゴンタイプ？
+	_TEMOTI_POKE_TYPE	SCWK_TEMP0,SCWK_TEMP1,LOCALWORK0
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,DRAGON_TYPE,ev_r210br0101_dragon_waza_on_chk	//既に覚えているかのチェックへ
+	_IFVAL_JUMP			SCWK_TEMP1,EQ,DRAGON_TYPE,ev_r210br0101_dragon_waza_on_chk	//既に覚えているかのチェックへ
+	_JUMP				ev_r210b_dragon_chk_skip1
+
+ev_r210br0101_dragon_waza_on_chk:
+	_CHK_POKE_WAZA		SCWK_ANSWER,WAZANO_RYUUSEIGUN,LOCALWORK0
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_r210br0101_dragon_05	//覚えていないときはポケモン選択へ
+
+ev_r210b_dragon_chk_skip1:
+	_IFVAL_JUMP			LOCALWORK0,NE,0,ev_r210b_dragon_chk_loop
+	_JUMP			ev_r210br0101_dragon_04
+
+
+
+//ポケモン選択へ
+ev_r210br0101_dragon_05:
+	_TALK_KEYWAIT		msg_r210br0101_dragon_05
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//ポケモン選択
+	_POKELIST_SET_PROC
+	//選択したポケモンの並び番号取得
+	_POKELIST_GET_RESULT	SCWK_PARAM0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP		SCWK_PARAM0,EQ,0xff,ev_r210br0101_dragon_03	//キャンセルされた
+
+	//手持ちー＞ポケモン番号変換　同時にタマゴチェックも行っています。
+	_TEMOTI_MONSNO	SCWK_PARAM0,SCWK_PARAM1
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,0,ev_r210br0101_dragon_07	//タマゴ
+
+	//おぼれられるポケモンかチェック RET:SCWK_ANSWER SCWK_TEMP0,SCWK_TEMP1使用
+	_CALL			ev_r210br0101_dragon_poke_chk_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r210br0101_dragon_06	//覚えられないポケモン
+
+	//習得済み？　SCWK_PARAM0,SCWK_PARAM2 -> SCWK_ANSWERへ結果
+	_CHK_POKE_WAZA	SCWK_ANSWER,WAZANO_RYUUSEIGUN,SCWK_PARAM0
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r210br0101_dragon_08	//習得済み
+
+	_GET_NATSUKI	SCWK_ANSWER,SCWK_PARAM0
+	_IFVAL_JUMP		SCWK_ANSWER,LT,255,ev_r210br0101_dragon_16	//なつき度が足りない
+
+	//ワザセット
+	_LDVAL			SCWK_PARAM3,WAZANO_RYUUSEIGUN
+	_JUMP			ev_r210br0101_dragon_common_01
+
+//取得チェック共通１
+ev_r210br0101_dragon_common_01:
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_NORMAL_WAZALIST_SET_PROC		SCWK_PARAM0,WAZANO_RYUUSEIGUN
+
+	//選択したポケモンの並び番号取得
+	_NORMAL_WAZALIST_GET_RESULT		SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルされた？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0xff,ev_r210br0101_dragon_03
+
+	_TALKMSG		msg_r210br0101_dragon_17
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+
+//おぼれられるポケモンかチェック RET:SCWK_ANSWER SCWK_TEMP0,SCWK_TEMP1使用
+ev_r210br0101_dragon_poke_chk_02:
+	_TEMOTI_POKE_TYPE	SCWK_TEMP0,SCWK_TEMP1,SCWK_PARAM0
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,DRAGON_TYPE,ev_r210br0101_dragon_poke_chk_02_ok
+	_IFVAL_JUMP			SCWK_TEMP1,EQ,DRAGON_TYPE,ev_r210br0101_dragon_poke_chk_02_ok
+	_LDVAL			SCWK_ANSWER,0
+	_RET
+
+ev_r210br0101_dragon_poke_chk_02_ok:
+	_LDVAL			SCWK_ANSWER,1
+	_RET
+
+/********************************************************************/
+/********************************************************************/

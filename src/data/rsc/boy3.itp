@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.4.2">
+
+<head>
+	<create user="s_ohta" host="W00081" date="2004-12-13T19:08:56" source="boy1.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.0.1 NNS_Export" version="1.4.2"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="129"
+	tool_start_frame="0"
+	tool_end_frame="128"
+	compress_material="off" material_size="1 1"
+/>
+
+<tex_pattern_list_data image_size="16" palette_size="1">
+	<image_name index="0" name="boy3.1"/>
+	<image_name index="1" name="boy3.10"/>
+	<image_name index="2" name="boy3.11"/>
+	<image_name index="3" name="boy3.12"/>
+	<image_name index="4" name="boy3.13"/>
+	<image_name index="5" name="boy3.14"/>
+	<image_name index="6" name="boy3.15"/>
+	<image_name index="7" name="boy3.16"/>
+	<image_name index="8" name="boy3.2"/>
+	<image_name index="9" name="boy3.3"/>
+	<image_name index="10" name="boy3.4"/>
+	<image_name index="11" name="boy3.5"/>
+	<image_name index="12" name="boy3.6"/>
+	<image_name index="13" name="boy3.7"/>
+	<image_name index="14" name="boy3.8"/>
+	<image_name index="15" name="boy3.9"/>
+	<palette_name index="0" name="boy3"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="16">
+		0 8 16 24 32 40 48 56 64 72
+		80 88 96 104 112 120 
+	</frame_idx>
+	<image_idx size="16">
+		0 8 9 10 11 12 13 14 15 1
+		2 3 4 5 6 7 
+	</image_idx>
+	<palette_idx size="16">
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="1">
+	<tex_pattern_anm index="0" material_name="lambert2" data_size="16" data_head="0"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

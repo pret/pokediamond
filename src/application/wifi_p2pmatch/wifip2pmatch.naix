@@ -1,0 +1,28 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: wifip2pmatch.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-22T17:10:21
+ *****************************************************************************/
+
+#ifndef NARC_WIFIP2PMATCH_NAIX_
+#define NARC_WIFIP2PMATCH_NAIX_
+
+enum {
+	NARC_wifip2pmatch_conect_NANR = 0,
+	NARC_wifip2pmatch_conect_NCER = 1,
+	NARC_wifip2pmatch_conect_NCGR = 2,
+	NARC_wifip2pmatch_conect_NCLR = 3,
+	NARC_wifip2pmatch_conect_01_NSCR = 4,
+	NARC_wifip2pmatch_conect_02_NSCR = 5,
+	NARC_wifip2pmatch_conect_03_NSCR = 6,
+	NARC_wifip2pmatch_conect_obj_NCGR = 7,
+	NARC_wifip2pmatch_conect_obj_NCLR = 8,
+	NARC_wifip2pmatch_conect_s_NCGR = 9,
+	NARC_wifip2pmatch_conect_s_NSCR = 10
+};
+
+/* NARC_WIFIP2PMATCH_NAIX_ */
+#endif

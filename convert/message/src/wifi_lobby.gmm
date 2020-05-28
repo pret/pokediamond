@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="kawachimaru" host="W00089" date="2006-07-26T13:14:51"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="34" japanese="コンテスト名称" english="コンテスト名称" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+				<comment language="english">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+			</tag>
+			<tag entry="35" japanese="コンテストランク" english="コンテストランク" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">○○○○ランク
+「ランク」も含む</comment>
+				<comment language="english">○○○○ランク
+「ランク」も含む</comment>
+			</tag>
+			<tag entry="36" japanese="国名" english="国名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる国名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる国名</comment>
+			</tag>
+			<tag entry="37" japanese="地域名" english="地域名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる地域名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる地域名</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+			<tag entry="102" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="141"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="210"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="216"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="-60" top="116" right="440" bottom="729" maximized="no" rayout="Vertical2">
+		<comment-input left="453" top="448" right="800" bottom="600" visible="no"/>
+		<tag-palette left="520" top="15" right="1024" bottom="496" visible="yes"/>
+		<band id="0" index="0" style="0000" width="492"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="325"/>
+		<band id="3" index="3" style="0000" width="591"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_wifilobby_001">
+		<comment>Wi-Fi接続開始の確認メッセージ</comment>
+		<language name="日本語" width="216">ＷｉーＦｉせつぞくを　かいしします</language>
+	</row>
+
+	<row id="msg_wifilobby_002">
+		<comment>WI-FIコネクションに接続処理中の
+メッセージ</comment>
+		<language name="日本語" width="216">ＷｉーＦｉコネクションに　せつぞくして
+います。　しばらく　おまちください</language>
+	</row>
+
+	<row id="msg_wifilobby_003">
+		<comment>対戦相手募集中の友達を
+選択したときのメッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんは　たいせんあいてを
+ぼしゅうちゅう　です</language>
+	</row>
+
+	<row id="msg_wifilobby_004">
+		<comment>交換相手募集中の友達を
+選択したときのメッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんは　こうかんあいてを
+ぼしゅうちゅう　です</language>
+	</row>
+
+	<row id="msg_wifilobby_005">
+		<comment>待機中の友達を
+選択したときのメッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんは
+たいきちゅう　です</language>
+	</row>
+
+	<row id="msg_wifilobby_006">
+		<comment>自分で相手を募集するときの
+メッセージ</comment>
+		<language name="日本語" width="216">どの　あいてを　ぼしゅう　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_007">
+		<comment>募集中に中断するときの
+メッセージ</comment>
+		<language name="日本語" width="216">ぼしゅうを　ちゅうだん　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_008">
+		<comment>自分が相手を募集中に
+応募してきた友達がいたときの
+メッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんから
+おうぼが　ありました！</language>
+	</row>
+
+	<row id="msg_wifilobby_009">
+		<comment>Wi-Fi接続を終了する項目を
+選択したときのメッセージ</comment>
+		<language name="日本語" width="216">ＷｉーＦｉせつぞくを
+しゅうりょう　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_010">
+		<comment>終了処理中、セーブしているときの
+メッセージ</comment>
+		<language name="日本語" width="216">レポートを　かいています
+でんげんを　きらないでください</language>
+	</row>
+
+	<row id="msg_wifilobby_011">
+		<comment>自分が待機中に
+友達がボイスチャットを申し込んできた
+ときのメッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんが　ボイスチャットを
+もうしこんで　きました！</language>
+	</row>
+
+	<row id="msg_wifilobby_012">
+		<comment>申し込んだ相手に先客がいた場合の
+メッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんは
+とりこみちゅうの　ようです……</language>
+	</row>
+
+	<row id="msg_wifilobby_013">
+		<comment>未知のバージョンと接続しようとして
+条件があわなかったときの
+警告メッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんとは
+せつぞくすることが　できません</language>
+	</row>
+
+	<row id="msg_wifilobby_014">
+		<comment>相手に申し込み中の
+メッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんに
+もうしこみちゅう　です……</language>
+	</row>
+
+	<row id="msg_wifilobby_015">
+		<comment>申し込みをした相手の反応がないまま
+タイムアウトしたときのメッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんの
+はんのうが　ありませんでした……</language>
+	</row>
+
+	<row id="msg_wifilobby_016">
+		<comment>相手がボイスチャットを終了したときの
+メッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんが　ボイスチャットを
+しゅうりょう　しました</language>
+	</row>
+
+	<row id="msg_wifilobby_017">
+		<comment>自分からボイスチャットを終了するときの
+メッセージ</comment>
+		<language name="日本語" width="216">ボイスチャットを
+しゅうりょう　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_018">
+		<comment>Wi-Fiコネクションに接続するときのタイトル</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ＷｉーＦｉコネクションに　せつぞく</language>
+	</row>
+
+	<row id="msg_wifilobby_019">
+		<comment>接続後のタイトル</comment>
+		<language name="日本語" font=" 1:font_system" width="216">せつぞくちゅうの　ともだち</language>
+	</row>
+
+	<row id="msg_wifilobby_020">
+		<comment>はい・いいえの選択項目</comment>
+		<language name="日本語" font=" 1:font_system" width="216">はい</language>
+	</row>
+
+	<row id="msg_wifilobby_021">
+		<comment>はい・いいえの選択項目</comment>
+		<language name="日本語" font=" 1:font_system" width="216">いいえ</language>
+	</row>
+
+	<row id="msg_wifilobby_022">
+		<comment>Lv.50で対戦するときの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="216">Ｌｖ．５０たいせん</language>
+	</row>
+
+	<row id="msg_wifilobby_023">
+		<comment>Lv.100で対戦するときの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="216">Ｌｖ．１００たいせん</language>
+	</row>
+
+	<row id="msg_wifilobby_024">
+		<comment>対戦中の状態表示項目</comment>
+		<language name="日本語" font=" 1:font_system" width="216">たいせんちゅう</language>
+	</row>
+
+	<row id="msg_wifilobby_025">
+		<comment>こうかんするときの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="216">こうかん</language>
+	</row>
+
+	<row id="msg_wifilobby_026">
+		<comment>交換中の状態表示項目</comment>
+		<language name="日本語" font=" 1:font_system" width="216">こうかんちゅう</language>
+	</row>
+
+	<row id="msg_wifilobby_027">
+		<comment>ボイスチャットの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ボイスチャット</language>
+	</row>
+
+	<row id="msg_wifilobby_028">
+		<comment>なんらかの相手を募集するときの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あいてを　ぼしゅうする</language>
+	</row>
+
+	<row id="msg_wifilobby_029">
+		<comment>Wi-Fi接続を切断するための項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ＷｉーＦｉせつぞくを　やめる</language>
+	</row>
+
+	<row id="msg_wifilobby_030">
+		<comment>募集中の友達に申し込むときの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="216">もうしこむ</language>
+	</row>
+
+	<row id="msg_wifilobby_031">
+		<comment>友達の記録を見るときの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="216">きろくを　みる</language>
+	</row>
+
+	<row id="msg_wifilobby_032">
+		<comment>項目選択をキャンセルするときの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_wifilobby_033">
+		<comment>記録をみるときの友達名表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:03:トレーナー名:0]</language>
+	</row>
+
+	<row id="msg_wifilobby_034">
+		<comment>記録を見るときの所属グループ表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">グループ　[1:03:トレーナー名:0]</language>
+	</row>
+
+	<row id="msg_wifilobby_035">
+		<comment>記録を見るときの対戦成績項目表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">たいせんせいせき</language>
+	</row>
+
+	<row id="msg_wifilobby_036">
+		<comment>記録を見るときの対戦成績（勝ち数）表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">かち　[1:35:数字４桁:0]</language>
+	</row>
+
+	<row id="msg_wifilobby_037">
+		<comment>記録を見るときの対戦成績（負け数）表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">まけ　[1:35:数字４桁:0]</language>
+	</row>
+
+	<row id="msg_wifilobby_038">
+		<comment>記録を見るときのポケモン交換項目表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンこうかん</language>
+	</row>
+
+	<row id="msg_wifilobby_039">
+		<comment>記録を見るときの交換回数表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:35:数字４桁:0]かい</language>
+	</row>
+
+	<row id="msg_wifilobby_040">
+		<comment>記録を見るときの
+最後に遊んだ日付項目名表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">さいごにあそんだひづけ</language>
+	</row>
+
+	<row id="msg_wifilobby_041">
+		<comment>記録を見るときの
+最後に遊んだ日付表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:35:数字４桁:0]／[1:33:数字２桁:1]／[1:33:数字２桁:2]</language>
+	</row>
+
+	<row id="msg_wifilobby_042">
+		<comment>記録を見るときの説明メッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんとの　きろくです</language>
+	</row>
+
+	<row id="msg_wifilobby_043">
+		<comment>友達が申し込みをしてきたときに
+接続準備をしている状態のメッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さん　が
+もうしこみを　してきました！</language>
+	</row>
+
+	<row id="msg_wifilobby_044">
+		<comment>対戦終了後、同じ相手と続けて
+対戦するかどうかを確認するときの
+メッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんと　もういちど
+たいせんを　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_045">
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんと　もういちど
+こうかんを　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_046">
+		<language name="日本語" width="216">たいきちゅう</language>
+	</row>
+
+	<row id="msg_wifilobby_047">
+		<language name="日本語" width="216">せつだん　する</language>
+	</row>
+
+	<row id="msg_wifilobby_048">
+		<comment>対戦中の友達を
+選択したときのメッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんは　たいせんちゅう　です</language>
+	</row>
+
+	<row id="msg_wifilobby_049">
+		<comment>交換中の友達を
+選択したときのメッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんは　こうかんちゅう　です</language>
+	</row>
+
+	<row id="msg_wifilobby_050">
+		<comment>VCT中の友達を
+選択したときのメッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]さんは
+ボイスチャットちゅう　です</language>
+	</row>
+
+	<row id="msg_wifilobby_051">
+		<language name="日本語" width="216">でんげんを　きって　ＷｉーＦｉせっていを
+おこない　ますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_052">
+		<language name="日本語" width="216">もういちど　ＷｉーＦｉコネクションに
+せつぞく　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_053">
+		<comment>交換を募集、応募しようとしたときに
+てもちポケモンが1匹だったときの
+警告メッセージ</comment>
+		<language name="日本語" width="216">こうかん　するには　ポケモンが
+２ひき　いじょう　ひつよう　です！</language>
+	</row>
+
+	<row id="msg_wifilobby_054">
+		<language name="日本語" width="216">ボイスチャットを　ＯＮしました▼</language>
+	</row>
+
+	<row id="msg_wifilobby_055">
+		<language name="日本語" width="216">ボイスチャットを　ＯＦＦしました▼</language>
+	</row>
+
+	<row id="msg_wifilobby_056">
+		<comment>定義に無い募集や対戦状態
+だった場合の表示</comment>
+		<language name="日本語" width="216">？？？</language>
+	</row>
+
+	<row id="msg_wifilobby_057">
+		<language name="日本語" width="216">シングルバトル</language>
+	</row>
+
+	<row id="msg_wifilobby_058">
+		<language name="日本語" width="216">ダブルバトル</language>
+	</row>
+
+	<row id="msg_wifilobby_059">
+		<language name="日本語" width="216">フリー　シングル</language>
+	</row>
+
+	<row id="msg_wifilobby_060">
+		<language name="日本語" width="216">Ｌｖ．５０　シングル</language>
+	</row>
+
+	<row id="msg_wifilobby_061">
+		<language name="日本語" width="216">Ｌｖ．１００　シングル</language>
+	</row>
+
+	<row id="msg_wifilobby_062">
+		<language name="日本語" width="216">フリー　ダブル</language>
+	</row>
+
+	<row id="msg_wifilobby_063">
+		<language name="日本語" width="216">Ｌｖ．５０　ダブル</language>
+	</row>
+
+	<row id="msg_wifilobby_064">
+		<language name="日本語" width="216">Ｌｖ．１００　ダブル</language>
+	</row>
+
+	<row id="msg_wifilobby_065">
+		<comment>対戦終了後、
+相手が再戦を選ばなかったときの
+メッセージ</comment>
+		<language name="日本語" width="216">あいてが　つうしんたいせんを
+しゅうりょう　しました</language>
+	</row>
+
+	<row id="msg_wifilobby_066">
+		<comment>対戦に入る前の暗転時に表示する
+待機メッセージ</comment>
+		<language name="日本語" width="216">つうしん　たいきちゅう　です
+しばらく　おまち　ください　……</language>
+	</row>
+
+	<row id="msg_wifilobby_067">
+		<comment>手持ちが１匹の状態で
+ダブルバトルを募集、応募しようとしたときの
+警告メッセージ</comment>
+		<language name="日本語" width="216">てもちポケモンが　１ひき　なので
+ダブルバトルを　あそべません！</language>
+	</row>
+
+	<row id="msg_wifilobby_068">
+		<comment>相手に、申し込み中に中断するときの
+確認メッセージ</comment>
+		<language name="日本語" width="216">もうしこみを　ちゅうだん　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_069">
+		<language name="日本語" width="216">この　ともだちと　あそぶ　あいだは
+ボイスチャットが　ＯＮに　なります▼
+この　ともだちの　ぼしゅうに
+おうぼ　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_070">
+		<language name="日本語" width="216">この　ともだちと　あそぶ　あいだは
+ボイスチャットが　ＯＦＦに　なります▼
+この　ともだちの　ぼしゅうに
+おうぼ　しますか？</language>
+	</row>
+
+	<row id="msg_wifilobby_071">
+		<language name="日本語" width="216">もうしこみを
+ちゅうだん　しました</language>
+	</row>
+
+	<row id="msg_wifilobby_072">
+		<comment>自分、もしくは相手がありえないポケモン
+ありえない道具をもっていた場合の
+警告メッセージ</comment>
+		<language name="日本語" width="216">この　ともだちの　ぼしゅうには
+おうぼ　することが　できません！</language>
+	</row>
+
+	<row id="msg_wifilobby_073">
+		<comment>相手の再対戦の返答を待っているときの
+メッセージ</comment>
+		<language name="日本語" width="216">あいての　せんたくを　まっています
+しばらく　おまち　ください</language>
+	</row>
+
+	<row id="msg_wifilobby_074">
+		<language name="日本語" width="216">たいせん　こうかんの　ときの
+ＢＧＭを　ＯＦＦに　しました▼</language>
+	</row>
+
+	<row id="msg_wifilobby_075">
+		<language name="日本語" width="216">たいせん　こうかんの　ときの
+ＢＧＭを　ＯＮに　しました▼</language>
+	</row>
+
+	<row id="msg_wifilobby_test_001" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>テスト用</comment>
+		<language name="日本語" width="216">つうしんエラーが　はっせいしました
+[1:36:数字５桁:0]</language>
+	</row>
+
+	<row id="msg_wifilobby_test_002" back-color="#808080,,,,,,#808080,#808080,,#808080,#808080,">
+		<comment>テスト用</comment>
+		<language name="日本語" width="216">ちえんONになります▼</language>
+	</row>
+
+	<row id="msg_wifilobby_test_003" back-color="#808080,,,,,,#808080,#808080,,#808080,#808080,">
+		<comment>テスト用</comment>
+		<language name="日本語" width="216">ちえんOFF＝つうじょうになります▼</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

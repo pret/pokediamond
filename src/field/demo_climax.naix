@@ -1,0 +1,37 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: demo_climax.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-20T19:27:23
+ *****************************************************************************/
+
+#ifndef NARC_DEMO_CLIMAX_NAIX_
+#define NARC_DEMO_CLIMAX_NAIX_
+
+enum {
+	NARC_demo_climax_aritama_nsbmd = 0,
+	NARC_demo_climax_aritama_nsbta = 1,
+	NARC_demo_climax_aritama_nsbca = 2,
+	NARC_demo_climax_aritama_nsbma = 3,
+	NARC_demo_climax_ring_h_nsbmd = 4,
+	NARC_demo_climax_ring_m_nsbmd = 5,
+	NARC_demo_climax_ring_t_nsbmd = 6,
+	NARC_demo_climax_kurotama_nsbmd = 7,
+	NARC_demo_climax_kurotama_nsbca = 8,
+	NARC_demo_climax_kurotama_nsbma = 9,
+	NARC_demo_climax_kurotama_nsbta = 10,
+	NARC_demo_climax_kurotama_nsbva = 11,
+	NARC_demo_climax_ginga_nsbmd = 12,
+	NARC_demo_climax_ginga_nsbca = 13,
+	NARC_demo_climax_ginga_nsbma = 14,
+	NARC_demo_climax_ari_start_nsbmd = 15,
+	NARC_demo_climax_ari_start_nsbca = 16,
+	NARC_demo_climax_ari_start_nsbma = 17,
+	NARC_demo_climax_ari_start_nsbta = 18,
+	NARC_demo_climax_ari_start_nsbva = 19
+};
+
+/* NARC_DEMO_CLIMAX_NAIX_ */
+#endif

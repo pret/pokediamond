@@ -1,0 +1,20 @@
+//==================================================
+//	BGEventデータ convert from
+//	このファイルは手作業で作ったダミーファイルです
+//==================================================
+
+#include "evbtype.h"
+
+const u32 BGTALK_zone_DUMMY_num = 0;
+
+#if 0
+const BG_TALK_DATA BGTALK_zone_DUMMY[1] = {
+ {
+	SCRID_DUMMY_SIGN1_01,
+	0,
+	169,820,
+	3,
+	4,
+ },
+};
+#endif

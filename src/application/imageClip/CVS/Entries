@@ -1,0 +1,19 @@
+/imc_acce_hand.c/1.34/Tue Aug  8 07:08:38 2006//TVER20060816
+/imc_accessorie.c/1.12/Fri Jul  7 02:46:15 2006//TVER20060816
+/imc_bg.c/1.7/Thu Mar 23 08:17:58 2006//TVER20060816
+/imc_button.c/1.32/Thu Aug 10 03:26:11 2006//TVER20060816
+/imc_calc.h/1.1/Tue Jul  4 07:29:13 2006//TVER20060816
+/imc_drawsys.c/1.43/Tue Aug  1 02:27:12 2006//TVER20060816
+/imc_hand.c/1.2/Wed Oct 12 06:15:58 2005//TVER20060816
+/imc_item_buff.c/1.1/Sat Mar 25 08:34:37 2006//TVER20060816
+/imc_left_box.c/1.25/Fri Jun  9 07:33:32 2006//TVER20060816
+/imc_obj_list.c/1.6/Tue Apr 25 08:03:37 2006//TVER20060816
+/imc_obj_list_func.c/1.6/Tue Apr 25 11:34:17 2006//TVER20060816
+/imc_playsys.c/1.21/Thu Aug 10 14:47:59 2006//TVER20060816
+/imc_poke_obj.c/1.25/Wed Aug  9 16:04:13 2006//TVER20060816
+/imc_preview.c/1.8/Wed Jul  5 09:16:48 2006//TVER20060816
+/imc_rbox_player.c/1.2/Fri Jan  6 06:57:40 2006//TVER20060816
+/imc_right_box.c/1.19/Fri Jul  7 02:46:15 2006//TVER20060816
+/imc_subwin.c/1.23/Wed Jul 19 12:37:37 2006//TVER20060816
+/imc_sys.c/1.105/Tue Aug  1 08:06:14 2006//TVER20060816
+D

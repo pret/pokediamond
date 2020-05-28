@@ -1,0 +1,120 @@
+//====================================================================
+//								c06r0301
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c06r0301.h"
+	//.include	"../eventdata/zone_c06r0301evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c06r0301_oldman
+_EVENT_DATA		ev_c06r0301_minomutti_item_get
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_c06r0301_flag_change:
+//	_END
+
+/********************************************************************/
+/*				老人												*/
+/********************************************************************/
+ev_c06r0301_oldman:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_c06r0301_oldman2_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*			ミノムッチアイテム取得		麦わら少年												*/
+/********************************************************************/
+ev_c06r0301_minomutti_item_get:
+	_TALK_OBJ_START
+
+	// もうイベント終了しているかチェック
+	_IF_FLAGON_JUMP FE_C06R0301_ITEM_GET,ev_minomutti_item_get_end
+	
+	//ミノムッチもってる？
+	_TALK_KEYWAIT		msg_c06r0301_boy3_01
+
+	//持ってるかチェック
+	_CHECKMINOMUCHICOMP	SCWK_ANSWER
+
+	//　そろってないか
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_minomutti_no_get
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_minomutti_no_comp
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_minomutti_no_comp
+
+	// アイテムやるよ！
+	_TALK_KEYWAIT		msg_c06r0301_boy3_04
+
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_KYOUSEIGIPUSU
+	_LDVAL			SCWK_TEMP1,1
+
+	// アイテムやれるかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+
+	// アイテム保存できるか
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_minomutti_item_noget
+	
+	// アイテム登録
+	_FLAG_SET FE_C06R0301_ITEM_GET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_JUMP	ev_minomutti_item_get_end
+	_END
+
+// ミノムッチもっていない
+ev_minomutti_no_get:
+	_TALKMSG		msg_c06r0301_boy3_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_OBJ_END
+	_END
+
+// そろっていない
+ev_minomutti_no_comp:
+	_TALKMSG		msg_c06r0301_boy3_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_OBJ_END
+	_END
+
+// アイテムもてない
+ev_minomutti_item_noget:
+	_TALKMSG		msg_c06r0301_boy3_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_OBJ_END
+	_END
+
+// 終わり文
+ev_minomutti_item_get_end:
+	// 終わり文
+	_TALKMSG		msg_c06r0301_boy3_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_OBJ_END
+	_END

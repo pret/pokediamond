@@ -1,0 +1,47 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_t04r0101evc.h"
+
+const u32 FObj_zone_t04r0101_num = 2;
+
+const _TAG_FIELD_OBJ_H FObj_zone_t04r0101[2] =
+{
+	{
+		SODATEYA_OLDWOMAN2,
+		OLDWOMAN1,
+		0,
+		0,
+		0,
+		SCRID_SODATEYA_W,
+		1,
+		0,
+		0,
+		0,
+		1,
+		0,
+		9,
+		4,
+		0*0x1000,
+	},
+
+	{
+		T04R0101_SUNGLASSES,
+		SUNGLASSES,
+		0,
+		0,
+		FV_T04R0101_SUNGLASSES,
+		SCRID_T04R0101_SUNGLASSES,
+		3,
+		0,
+		0,
+		0,
+		1,
+		0,
+		4,
+		9,
+		0*0x1000,
+	},
+};

@@ -1,0 +1,210 @@
+//====================================================================
+//								c10r0112
+//
+//	LOCALWORK3	強制イベント発動
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c10r0112.h"
+	.include	"../eventdata/zone_c10r0112evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c10r0112_dendou_before
+_EVENT_DATA		ev_c10r0112_champ
+_EVENT_DATA_END
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_c10r0112_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c10r0112_champ:
+ev_c10r0112_dendou_before:
+	_EVENT_START
+
+	/*自動で進む*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0112_player_00
+	_OBJ_ANIME_WAIT
+
+	/*チャンピオン近寄り*/
+	_SXY_POS_CHANGE	C10R0112_CHAMP,6,14
+	_FLAG_RESET		FV_C10R0112_CHAMP
+	_OBJ_ADD		C10R0112_CHAMP
+	_OBJ_PAUSE		C10R0112_CHAMP
+	_OBJ_ANIME		C10R0112_CHAMP,anm_c10r0112_champ_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0112_player_100
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c10r0112_champion_01
+	_TALK_CLOSE
+
+	/*博士登場*/
+	_SXY_POS_CHANGE	C10R0112_DOCTOR,4,14
+	_FLAG_RESET		FV_C10R0112_DOCTOR
+	_OBJ_ADD		C10R0112_DOCTOR
+	_OBJ_PAUSE		C10R0112_DOCTOR
+	_OBJ_ANIME		C10R0112_DOCTOR,anm_c10r0112_doctor_01
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0112_player_20
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c10r0112_doctor_01
+	_TALK_CLOSE
+
+	/*「！」*/
+	_OBJ_ANIME		C10R0112_CHAMP,anm_c10r0112_champ_02
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c10r0112_champion_02
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c10r0112_doctor_02
+
+	/*話す*/
+	_OBJ_ANIME		C10R0112_CHAMP,anm_c10r0112_champ_30
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c10r0112_champion_03
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c10r0112_dendou_male
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c10r0112_dendou_female
+	_END
+	
+c10r0112_dendou_male:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c10r0112_champion_04
+	_JUMP			common_c10r0112_dendou
+
+c10r0112_dendou_female:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c10r0112_champion_05
+	_JUMP			common_c10r0112_dendou
+
+/*共通処理*/
+common_c10r0112_dendou:
+	_TALK_KEYWAIT	msg_c10r0112_champion_06
+	_TALK_CLOSE
+
+	/*殿堂部屋へ*/
+	_OBJ_ANIME		C10R0112_CHAMP,anm_c10r0112_champ_20
+	_OBJ_ANIME		C10R0112_DOCTOR,anm_c10r0112_doctor_20
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0112_player_01
+	_OBJ_ANIME_WAIT
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_MAP_CHANGE		ZONE_ID_C10R0113,0,8,15,DIR_UP
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//博士	近寄り
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_doctor_01
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	殿堂部屋へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_doctor_20
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	近寄り
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_champ_01
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	ビックリ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_champ_02
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	話す
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_champ_30
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	殿堂部屋へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_champ_20
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	進む
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_player_00
+	_ANIME_DATA	AC_WALK_U_8F,17
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	振り向き
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_player_100
+	_ANIME_DATA	AC_WAIT_8F,6
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	右
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_player_10
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	左
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_player_20
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	殿堂部屋へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0112_player_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,6
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/********************************************************************/

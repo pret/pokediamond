@@ -1,0 +1,25 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: wifi_earth.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-08T23:08:22
+ *****************************************************************************/
+
+#ifndef NARC_WIFI_EARTH_NAIX_
+#define NARC_WIFI_EARTH_NAIX_
+
+enum {
+	NARC_wifi_earth_wifi_earth_nsbmd = 0,
+	NARC_wifi_earth_earth_mark_r_nsbmd = 1,
+	NARC_wifi_earth_earth_mark_g_nsbmd = 2,
+	NARC_wifi_earth_earth_mark_b_nsbmd = 3,
+	NARC_wifi_earth_earth_mark_y_nsbmd = 4,
+	NARC_wifi_earth_earth_bg_NCGR = 5,
+	NARC_wifi_earth_earth_bg_NCLR = 6,
+	NARC_wifi_earth_earth_bg_NSCR = 7
+};
+
+/* NARC_WIFI_EARTH_NAIX_ */
+#endif

@@ -1,0 +1,108 @@
+//====================================================================
+//						t03r0101.gmm
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t03r0101.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t03r0101_woman1
+_EVENT_DATA		ev_t03r0101_girl1
+_EVENT_DATA		ev_t03r0101_woman2
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						　女性										*/
+/********************************************************************/
+ev_t03r0101_woman1:
+	_TALK_OBJ_START
+
+	//1日フラグチェック
+	_IF_FLAGON_JUMP	TMFLG_T03R0101_SEED_PRESENT,ev_t03r0101_woman1_02
+
+	_TALK_KEYWAIT	msg_t03r0101_woman1_01
+
+	//アイテム名、個数をセット
+	_GET_RND		SCWK_TEMP0,5					//木の実クラボ～ナナシ(149～153)
+	_ADD_WK			SCWK_TEMP0,(ITEM_KURABONOMI)
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_t03r0101_woman1_item_event_fail
+
+	//1日フラグセット
+	_FLAG_SET		TMFLG_T03R0101_SEED_PRESENT
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_t03r0101_woman1_02:
+	//きずぐすりをくれた後メッセージ
+	_TALKMSG	msg_t03r0101_woman1_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_t03r0101_woman1_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*					花屋できのみ、ジョウロ入手						*/
+/********************************************************************/
+ev_t03r0101_girl1:
+	_TALK_OBJ_START
+
+	//すでに入手していたら
+	_IF_FLAGON_JUMP	FE_FLOWER_ITEM_GET,ev_t03_t03r0101_02
+
+	_TALK_KEYWAIT	msg_t03r0101_girl1_01
+
+	//じょうろ
+	_LDVAL			SCWK_TEMP0,ITEM_KODAKKUZYOURO
+	_LDVAL			SCWK_TEMP1,1
+
+	_FLAG_SET		FE_FLOWER_ITEM_GET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//すでに入手している
+ev_t03_t03r0101_02:
+	_TALKMSG	msg_t03r0101_girl1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+//		アクセサリーショップ
+/********************************************************************/
+ev_t03r0101_woman2:
+	_TALK_OBJ_START
+
+	_ACCE_SHOP_CALL
+
+	_TALK_OBJ_END
+	_END

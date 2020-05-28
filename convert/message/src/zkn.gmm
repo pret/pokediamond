@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="matsushima" host="W00112" date="2006-07-25T20:58:45"/>
+	<generator name="MessageEditor" version="4.9.2.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="248"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="179"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="235"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="L:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="L:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="L:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="82" top="76" right="787" bottom="704" maximized="no" rayout="Vertical2">
+		<comment-input left="647" top="551" right="994" bottom="703" visible="no"/>
+		<tag-palette left="601" top="133" right="948" bottom="531" visible="no"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="697"/>
+		<band id="3" index="3" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="ZNK_POKELIST_00">
+		<language name="日本語" font=" 1:font_system" width="72">みつけたかず</language>
+	</row>
+
+	<row id="ZNK_POKELIST_01">
+		<language name="日本語" font=" 1:font_system" width="84">つかまえたかず</language>
+	</row>
+
+	<row id="ZNK_POKELIST_BUTTON_00">
+		<language name="日本語" font=" 2:font_button" width="56">リストを
+もどす</language>
+	</row>
+
+	<row id="ZNK_POKELIST_BUTTON_01">
+		<comment>未使用</comment>
+		<language name="日本語" font=" 2:font_button" width="56">リストの
+はじめへ</language>
+	</row>
+
+	<row id="ZNK_POKELIST_BUTTON_02">
+		<comment>未使用</comment>
+		<language name="日本語" font=" 2:font_button" width="56">リストの
+さいごへ</language>
+	</row>
+
+	<row id="ZNK_POKELIST_BUTTON_03">
+		<language name="日本語" font=" 2:font_button" width="70">ずかんを
+きりかえる</language>
+	</row>
+
+	<row id="ZNK_POKELIST_BUTTON_04">
+		<comment>未使用</comment>
+		<language name="日本語" font=" 2:font_button" width="70">ポケモンを
+ならべる</language>
+	</row>
+
+	<row id="ZNK_POKELIST_BUTTON_05">
+		<comment>未使用</comment>
+		<language name="日本語" font=" 2:font_button" width="70">ポケモンを
+さがす</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_00">
+		<language name="日本語" font=" 1:font_system" width="48">ポケモン</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_01">
+		<language name="日本語" font=" 1:font_system" width="36">たかさ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_02">
+		<language name="日本語" font=" 1:font_system" width="48">おもさ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_03">
+		<language name="日本語" font=" 1:font_system" width="12">ｍ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_04">
+		<language name="日本語" font=" 1:font_system" width="24">ｋｇ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_GRAPH_00">
+		<comment>ポケモンのグラフィックバリエーション
+説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="72">オスのすがた</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_GRAPH_01">
+		<comment>ポケモンのグラフィックバリエーション
+説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="72">メスのすがた</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_GRAPH_02">
+		<comment>ポケモンのグラフィックバリエーション
+説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="72">にしのうみ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_GRAPH_03">
+		<comment>ポケモンのグラフィックバリエーション
+説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="72">ひがしのうみ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_GRAPH_04">
+		<comment>ポケモンのグラフィックバリエーション
+説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="72">くさきのミノ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_GRAPH_05">
+		<comment>ポケモンのグラフィックバリエーション
+説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="72">すなちのミノ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_GRAPH_06">
+		<comment>ポケモンのグラフィックバリエーション
+説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="72">ゴミのミノ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_GRAPH_07">
+		<comment>アンノーンのグラフィックバリエーション
+説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="72">あるすがた</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_GRAPH_08">
+		<comment>グラフィックバリエーションの無いときに
+使われる</comment>
+		<language name="日本語" font=" 1:font_system" width="72">　</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_TEXT_00">
+		<comment>異言語図鑑の説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="108">えいごのずかん</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_TEXT_01">
+		<comment>異言語図鑑の説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="108">フランスごのずかん</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_TEXT_02">
+		<comment>異言語図鑑の説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="108">ドイツごのずかん</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_TEXT_03">
+		<comment>異言語図鑑の説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="108">イタリアごのずかん</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_TEXT_04">
+		<comment>異言語図鑑の説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="108">スペインごのずかん</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_TEXT_05">
+		<comment>異言語図鑑の説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="42">Pokémon</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_TEXT_06">
+		<comment>異言語図鑑の説明テキスト</comment>
+		<language name="日本語" font=" 1:font_system" width="36">ページ</language>
+	</row>
+
+	<row id="ZNK_BUTTON_00">
+		<comment>タッチスクリーン画面切り替え用ボタン</comment>
+		<language name="日本語" font=" 2:font_button" width="56">ずかんをみる</language>
+	</row>
+
+	<row id="ZNK_BUTTON_01">
+		<comment>タッチスクリーン画面切り替え用ボタン</comment>
+		<language name="日本語" font=" 2:font_button" width="56">ぶんぷ</language>
+	</row>
+
+	<row id="ZNK_BUTTON_02">
+		<comment>タッチスクリーン画面切り替え用ボタン</comment>
+		<language name="日本語" font=" 2:font_button" width="56">なきごえ</language>
+	</row>
+
+	<row id="ZNK_BUTTON_03">
+		<comment>タッチスクリーン画面切り替え用ボタン</comment>
+		<language name="日本語" font=" 2:font_button" width="56">おおきさ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_BUTTON_00">
+		<language name="日本語" font=" 2:font_button" width="56">ＮＥＸＴ</language>
+	</row>
+
+	<row id="ZNK_ZUKAN_BUTTON_01">
+		<language name="日本語" font=" 2:font_button" width="56">ＢＡＣＫ</language>
+	</row>
+
+	<row id="ZNK_RANGE_00">
+		<language name="日本語" font=" 1:font_system" width="108">せいそくち　ふめい</language>
+	</row>
+
+	<row id="ZNK_RANGE_01">
+		<comment>時間帯用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">あさ</language>
+	</row>
+
+	<row id="ZNK_RANGE_02">
+		<comment>時間帯用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">ひる</language>
+	</row>
+
+	<row id="ZNK_RANGE_03">
+		<comment>時間帯用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">よる</language>
+	</row>
+
+	<row id="ZNK_RANGE_04">
+		<comment>時間帯用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">よる</language>
+	</row>
+
+	<row id="ZNK_RANGE_05">
+		<comment>時間帯用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">しんや</language>
+	</row>
+
+	<row id="ZNK_SOUND_BUTTON_00">
+		<comment>なきごえ操作パネル用</comment>
+		<language name="日本語" font=" 2:font_button" width="36">コーラス</language>
+	</row>
+
+	<row id="ZNK_SOUND_BUTTON_01">
+		<comment>なきごえ操作パネル用</comment>
+		<language name="日本語" font=" 2:font_button" width="36">パン</language>
+	</row>
+
+	<row id="ZNK_BIG_00">
+		<language name="日本語" font=" 1:font_system" width="72">たかさくらべ</language>
+	</row>
+
+	<row id="ZNK_BIG_01">
+		<language name="日本語" font=" 1:font_system" width="72">おもさくらべ</language>
+	</row>
+
+	<row id="ZNK_BIG_BUTTON_00">
+		<comment>タッチスクリーン画面用</comment>
+		<language name="日本語" font=" 2:font_button" width="84">たかさくらべ</language>
+	</row>
+
+	<row id="ZNK_BIG_BUTTON_01">
+		<comment>タッチスクリーン画面用</comment>
+		<language name="日本語" font=" 2:font_button" width="84">おもさくらべ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_00">
+		<comment>検索ソート項目</comment>
+		<language name="日本語" font=" 1:font_system" width="36">なまえ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_01">
+		<comment>検索ソート項目</comment>
+		<language name="日本語" font=" 1:font_system" width="36">タイプ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_02">
+		<comment>検索ソート項目</comment>
+		<language name="日本語" font=" 1:font_system" width="36">かたち</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_03">
+		<comment>検索ソート項目</comment>
+		<language name="日本語" font=" 1:font_system" width="36">ならび</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_04">
+		<comment>検索ソート実行ボタン用</comment>
+		<language name="日本語" font=" 1:font_system" width="36">けってい</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_05">
+		<language name="日本語" font=" 1:font_system" width="36">やめる</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_00">
+		<comment>指定しない場合用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">ー</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_01">
+		<comment>なまえ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">あいうえお</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_02">
+		<comment>なまえ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">かきくけこ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_03">
+		<comment>なまえ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">さしすせそ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_04">
+		<comment>なまえ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">たちつてと</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_05">
+		<comment>なまえ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">なにぬねの</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_06">
+		<comment>なまえ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">はひふへほ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_07">
+		<comment>なまえ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">まみむめも</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_08">
+		<comment>なまえ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">やゆよ　わ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_09">
+		<comment>なまえ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="60">らりるれろ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_NAME_10">
+		<comment>なまえ検索用（未使用）</comment>
+		<language name="日本語" font=" 1:font_system" width="60">わ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_00">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">ノーマル</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_01">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">ほのお</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_02">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">みず</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_03">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">でんき</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_04">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">くさ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_05">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">こおり</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_06">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">かくとう</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_07">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">どく</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_08">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">じめん</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_09">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">ひこう</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_10">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">エスパー</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_11">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">むし</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_12">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">いわ</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_13">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">ゴースト</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_14">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">ドラゴン</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_15">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">あく</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TYPE_16">
+		<comment>タイプ検索用</comment>
+		<language name="日本語" font=" 1:font_system" width="48">はがね</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_SORT_00">
+		<comment>並べ替え用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">ばんごう</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_SORT_01">
+		<comment>並べ替え用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">ごじゅうおん</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_SORT_02">
+		<comment>並べ替え用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">おもい</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_SORT_03">
+		<comment>並べ替え用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">かるい</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_SORT_04">
+		<comment>並べ替え用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">たかい</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_SORT_05">
+		<comment>並べ替え用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">ひくい</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TEXT_00">
+		<comment>説明メッセージ</comment>
+		<language name="日本語" width="216">なまえの　さいしょの　もじを
+してい　します。</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TEXT_01">
+		<comment>説明メッセージ</comment>
+		<language name="日本語" width="216">タイプを　してい　します。</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TEXT_02">
+		<comment>説明メッセージ</comment>
+		<language name="日本語" width="216">からだの　かたちを　してい　します。</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TEXT_03">
+		<comment>説明メッセージ</comment>
+		<language name="日本語" width="216">ずかんの　ならびを　してい　します。</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TEXT_04">
+		<comment>説明メッセージ</comment>
+		<language name="日本語" width="216">じょうけんに　あう　ポケモンを
+さがします。</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TEXT_05">
+		<comment>説明メッセージ</comment>
+		<language name="日本語" width="216">けんさくを　ちゅうし　します。</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_TEXT_06">
+		<comment>説明メッセージ</comment>
+		<language name="日本語" width="216">じょうけんを　みたす　ポケモンが
+みつかりませんでした…</language>
+	</row>
+
+	<row id="ZNK_SORTSEARCH_MSG_00">
+		<language name="日本語" font=" 1:font_system" width="84">けんさくちゅう</language>
+	</row>
+
+	<row id="ZNK_HEIGHT_00">
+		<comment>男の子主人公の身長</comment>
+		<language name="日本語" font=" 1:font_system" width="84">１．４５</language>
+	</row>
+
+	<row id="ZNK_HEIGHT_01">
+		<comment>女の子主人公の身長</comment>
+		<language name="日本語" font=" 1:font_system" width="84">１．４０</language>
+	</row>
+
+	<row id="ZNK_WEIGHT_00">
+		<comment>男の子主人公の体重</comment>
+		<language name="日本語" font=" 1:font_system" width="84">３８．０</language>
+	</row>
+
+	<row id="ZNK_WEIGHT_01">
+		<comment>女の子主人公の体重</comment>
+		<language name="日本語" font=" 1:font_system" width="84">３４．０</language>
+	</row>
+
+	<row id="ZNK_UNKNOWN_00">
+		<comment>未確認ポケモンの名前</comment>
+		<language name="日本語" font=" 1:font_system" width="84">ーーーーー</language>
+	</row>
+
+	<row id="ZNK_SHAPE_00">
+		<comment>雌雄のグラフィックバリエーション</comment>
+		<language name="日本語" font=" 2:font_button" width="108">べつのすがたをみる</language>
+	</row>
+
+	<row id="ZNK_TITLE_00">
+		<comment>各画面タイトル</comment>
+		<language name="日本語" font=" 1:font_system" width="48">せつめい</language>
+	</row>
+
+	<row id="ZNK_TITLE_01">
+		<comment>各画面タイトル</comment>
+		<language name="日本語" font=" 1:font_system" width="48">ぶんぷ</language>
+	</row>
+
+	<row id="ZNK_TITLE_02">
+		<comment>各画面タイトル</comment>
+		<language name="日本語" font=" 1:font_system" width="48">なきごえ</language>
+	</row>
+
+	<row id="ZNK_TITLE_03">
+		<comment>各画面タイトル</comment>
+		<language name="日本語" font=" 1:font_system" width="48">おおきさ</language>
+	</row>
+
+	<row id="ZNK_TITLE_04">
+		<comment>各画面タイトル</comment>
+		<language name="日本語" font=" 1:font_system" width="48">すがた</language>
+	</row>
+
+	<row id="ZNK_BACK_00">
+		<comment>操作説明</comment>
+		<language name="日本語" font=" 1:font_system" width="84">おわる</language>
+	</row>
+
+	<row id="ZNK_BACK_01">
+		<comment>操作説明</comment>
+		<language name="日本語" font=" 1:font_system" width="84">もどる</language>
+	</row>
+
+	<row id="ZNK_SORT_NUM">
+		<comment>操作説明</comment>
+		<language name="日本語" font=" 1:font_system" width="84">みつかったかず</language>
+	</row>
+
+	<row id="ZKN_POKEGET_00">
+		<comment>ポケモン捕獲後の図鑑画面</comment>
+		<language name="日本語" font=" 1:font_system" width="84">ポケモンずかんの　とうろく　かんりょう！</language>
+	</row>
+
+	<row id="ZKN_DNA_00" back-color="#ffff00,,,,,#ffff00,,,,,,">
+		<comment>デオキシスのフォルム用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">ノーマル</language>
+	</row>
+
+	<row id="ZKN_DNA_01" back-color="#ffff00,,,,,#ffff00,,,,,,">
+		<comment>デオキシスのフォルム用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">アタック</language>
+	</row>
+
+	<row id="ZKN_DNA_02" back-color="#ffff00,,,,,#ffff00,,,,,,">
+		<comment>デオキシスのフォルム用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">ディフェンス</language>
+	</row>
+
+	<row id="ZKN_DNA_03" back-color="#ffff00,,,,,#ffff00,,,,,,">
+		<comment>デオキシスのフォルム用</comment>
+		<language name="日本語" font=" 1:font_system" width="72">スピード</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

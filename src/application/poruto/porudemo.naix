@@ -1,0 +1,23 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: porudemo.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-22T19:33:52
+ *****************************************************************************/
+
+#ifndef NARC_PORUDEMO_NAIX_
+#define NARC_PORUDEMO_NAIX_
+
+enum {
+	NARC_porudemo_poru_demo_nclr = 0,
+	NARC_porudemo_poru_demo2_nclr = 1,
+	NARC_porudemo_poru_demo_ncgr = 2,
+	NARC_porudemo_poru_demo2_ncgr = 3,
+	NARC_porudemo_poru_demo_nscr = 4,
+	NARC_porudemo_poru_demo2_nscr = 5
+};
+
+/* NARC_PORUDEMO_NAIX_ */
+#endif

@@ -1,0 +1,87 @@
+//====================================================================
+//								c05r0103
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c05r0103.h"
+	//.include	"../eventdata/zone_c05r0103evc.h"
+	.include	"../eventdata/zone_c05r0101evd.h"
+	.include	"../eventdata/zone_c05r0102evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c05r0103_elevator
+_EVENT_DATA_END
+
+
+/********************************************************************/
+//						エレベーターガール
+/********************************************************************/
+ev_c05r0103_elevator:
+	_EVENT_START
+
+	/*乗り込む*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c05r0103_player_elevator_on
+	_OBJ_ANIME_WAIT	
+
+	//特殊接続先から、現在のフロアナンバーを取得
+	_ELEVATOR_FLOOR_GET	WK_ELEVATOR_FLOOR
+
+	_SWITCH			WK_ELEVATOR_FLOOR
+	_CASE_JUMP		FLOOR_C05R0103_1F,case2_c05r0103_elevator_01
+	_CASE_JUMP		FLOOR_C05R0103_2F,case3_c05r0103_elevator_01
+	_END
+
+//--------------------------------------------------------------------
+//	選んだフロアによって分岐
+//--------------------------------------------------------------------
+case2_c05r0103_elevator_01:
+	_LDVAL			SCWK_TEMP0,DIR_UP
+	_CALL			common_01_c05_r0103
+	_MAP_CHANGE		ZONE_ID_C05R0102,0,18,3,DIR_DOWN
+	_END
+
+case3_c05r0103_elevator_01:
+	_LDVAL			SCWK_TEMP0,DIR_DOWN
+	_CALL			common_01_c05_r0103
+	_MAP_CHANGE		ZONE_ID_C05R0101,0,18,3,DIR_DOWN
+	_END
+
+//--------------------------------------------------------------------
+//	エレベータ演出
+//--------------------------------------------------------------------
+common_01_c05_r0103:
+	//選択音の終了待ち
+	_SE_WAIT		SEQ_SE_DP_SELECT
+	_ELEVATOR_ANM	SCWK_TEMP0,C05R0103_ELEVATOR_LOOP
+
+	/*降りる*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c05r0103_player_elevator_off
+	_OBJ_ANIME_WAIT	
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	乗り込む
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r0103_player_elevator_on
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	降りる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r0103_player_elevator_off
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+

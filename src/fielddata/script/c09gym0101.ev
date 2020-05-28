@@ -1,0 +1,211 @@
+//====================================================================
+//								c09gym0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c09gym0101.h"
+	//.include	"../eventdata/zone_c09gym0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c09gym0101_flag_change
+_EVENT_DATA		ev_c09gym0101_leader
+_EVENT_DATA		ev_c09gym0101_advice
+_EVENT_DATA		ev_c09gym0101_statue
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c09gym0101_flag_change:
+	//神殿前イベントが終了していたら
+	_IF_FLAGON_JUMP	FE_C09_GYMLEADER_DEL,ev_c09gym0101_flag_change_gymleader
+	_END
+
+//神殿前イベントが終了していたら
+ev_c09gym0101_flag_change_gymleader:
+	_FLAG_SET		FV_C09_GYMLEADER
+	_END
+
+
+/********************************************************************/
+/*							ジムリーダー							*/
+/********************************************************************/
+ev_c09gym0101_leader:
+	_TALK_OBJ_START
+
+	//クロガネバッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C09,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c09gym0101_leader_badge_get
+
+	/*冒険ノートデータ作成*/
+	_FNOTE_DATA_MAKE	FNOTE_ID_GYMBEFORE,ZONE_ID_C09GYM0101,0,0,0
+
+	//ようこそ！　ポケモンジムへ▼
+	_TALK_KEYWAIT	msg_c09gym0101_leader_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	LEADER6_01,0
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c09gym0101_common_battle_lose
+
+	//この　バッジを　きみに　わたそう！
+	_TALK_KEYWAIT	msg_c09gym0101_leader_02
+
+	//(メッセージを分けないとMEを鳴らすタイミングがおかしいかも？)
+
+	//ジムバッジを　もらった！
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c09gym0101_leader_03
+	_ME_PLAY		SEQ_BADGE
+	_ME_WAIT
+
+	//バッジを貰った状態へ
+	_SYS_FLAG_BADGE_SET	BADGE_ID_C09
+	_ADD_SCORE		SCORE_ID_GYM_LEADER_WIN
+	_TRAINER_FLAG_SET	COLDELITEM_06
+	_TRAINER_FLAG_SET	COLDELITEM_07
+	_TRAINER_FLAG_SET	COLDELITEM_09
+	_TRAINER_FLAG_SET	COLDELITEW_06
+	_TRAINER_FLAG_SET	COLDELITEW_07
+	_TRAINER_FLAG_SET	COLDELITEW_09
+
+	/*冒険ノートデータ作成*/
+	_FNOTE_DATA_MAKE	FNOTE_ID_GYMAFTER,ZONE_ID_C09GYM0101,LEADER6_01,0,0
+
+	/*トバリのギンガ団を消す*/
+	_FLAG_SET		FV_C07_GINGAM
+
+	_TALK_KEYWAIT	msg_c09gym0101_leader_04
+
+	_JUMP			ev_c09gym0101_leader_item_get
+
+//--------------------------------------------------------------------
+//技マシン入手
+//
+//	SCWK_TEMP0	アイテムナンバー
+//	SCWK_TEMP1	個数
+//--------------------------------------------------------------------
+ev_c09gym0101_leader_item_get:
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN72
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム入手出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c09gym0101_leader_item_get_fail	//失敗
+
+	//アイテム入手成功
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C09_GYM_ITEM_GET
+
+	_ITEM_NAME		0,SCWK_TEMP0
+	_ITEM_WAZA_NAME		1,SCWK_TEMP0
+	_TALKMSG		msg_c09gym0101_leader_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//入手失敗
+//--------------------------------------------------------------------
+ev_c09gym0101_leader_item_get_fail:
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//バッジゲット済み
+//--------------------------------------------------------------------
+ev_c09gym0101_leader_badge_get:
+
+	//技マシン入手していなかったら
+	_IF_FLAGOFF_JUMP	FE_C09_GYM_ITEM_GET,ev_c09gym0101_leader_item_get
+
+	_TALKMSG		msg_c09gym0101_leader_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							共通敗北処理							*/
+/********************************************************************/
+ev_c09gym0101_common_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							アドバイス								*/
+/********************************************************************/
+ev_c09gym0101_advice:
+	_TALK_OBJ_START
+
+	//バッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C09,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c09gym0101_advice_02
+
+	//クリア前
+	_TALKMSG		msg_c09gym0101_sunglaases_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c09gym0101_advice_02:
+	//クリア後
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c09gym0101_sunglaases_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							看板									*/
+/********************************************************************/
+ev_c09gym0101_statue:
+	_TALK_START
+
+	//バッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C09,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c09gym0101_statue_02
+
+	//看板　クリア前
+	_RIVAL_NAME		0
+	_RIVAL_NAME		1
+	_TALKMSG		msg_c09gym0101_statue_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//看板　クリア後
+ev_c09gym0101_statue_02:
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_RIVAL_NAME		2
+	_TALKMSG		msg_c09gym0101_statue_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

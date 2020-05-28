@@ -1,0 +1,337 @@
+//====================================================================
+//								t04r0301
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t04r0301.h"
+	//.include	"../eventdata/zone_t04r0301evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t04r0301_sunglasses
+_EVENT_DATA		ev_t04r0301_man1
+_EVENT_DATA		ev_t04r0301_ball_guide_01
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							サングラス								*/
+/********************************************************************/
+ev_t04r0301_sunglasses:
+	_TALK_OBJ_START
+
+	//ご褒美アイテムを預けたまま
+	_IF_FLAGON_JUMP	FE_T04R0301_ITEM_DEPOSIT,ev_t04r0301_sunglasses_item_chk
+
+	//今日の依頼終了
+	_IF_FLAGON_JUMP	TMFLG_T04R0301_NEWS_END,ev_t04r0301_sunglasses_11
+
+	//初回
+	_IF_FLAGOFF_JUMP	FE_T04R0301_SUNGLASSES_TALK,ev_t04r0301_sunglasses_01
+
+	//2回目以降の依頼前
+	_IFVAL_JUMP		WK_SCENE_NEWS_MONSNO,EQ,0,ev_t04r0301_sunglasses_02
+
+	//2回目以降の依頼後
+	_JUMP				ev_t04r0301_sunglasses_04
+
+//初回
+ev_t04r0301_sunglasses_01:
+	_FLAG_SET		FE_T04R0301_SUNGLASSES_TALK
+
+	_TALK_KEYWAIT		msg_t04r0301_sunglasses_01
+	_JUMP			ev_t04r0301_sunglasses_03
+
+//2回目以降の依頼前
+ev_t04r0301_sunglasses_02:
+	_TALK_KEYWAIT		msg_t04r0301_sunglasses_02
+	_JUMP			ev_t04r0301_sunglasses_03
+
+//依頼のポケモンセット
+ev_t04r0301_sunglasses_03:
+	//つれてくるポケモン番号取得
+	_GET_NEWS_POKE_NO		SCWK_ANSWER
+
+	//連れてくるポケモン番号を保存
+	_LDWK	WK_SCENE_NEWS_MONSNO,SCWK_ANSWER
+
+	//残りの日数セット
+	_NEWS_COUNT_SET		1
+
+	_POKEMON_NAME_EXTRA	0,WK_SCENE_NEWS_MONSNO,0,0
+
+	_TALKMSG		msg_t04r0301_sunglasses_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//2回目以降の依頼後
+ev_t04r0301_sunglasses_04:
+	_TALK_KEYWAIT		msg_t04r0301_sunglasses_04
+
+	//残り日数チェック
+	_NEWS_COUNT_CHK		SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_t04r0301_sunglasses_10		//期限超過
+
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,WK_SCENE_NEWS_MONSNO
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,FALSE,ev_t04r0301_sunglasses_09		//手持ちに目的のポケモンがいなかった
+	_JUMP				ev_t04r0301_sunglasses_05
+
+//依頼されたポケモンを連れている
+ev_t04r0301_sunglasses_05:
+	_POKEMON_NAME_EXTRA	0,WK_SCENE_NEWS_MONSNO,0,0
+	_TALK_KEYWAIT		msg_t04r0301_sunglasses_05
+
+	_GET_RND		SCWK_ANSWER,12
+	_IFVAL_CALL		SCWK_ANSWER,EQ,0,ev_t04r0301_item_01_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,ev_t04r0301_item_02_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,2,ev_t04r0301_item_03_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,3,ev_t04r0301_item_04_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,4,ev_t04r0301_item_05_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,5,ev_t04r0301_item_06_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,6,ev_t04r0301_item_07_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,7,ev_t04r0301_item_08_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,8,ev_t04r0301_item_09_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,9,ev_t04r0301_item_10_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,10,ev_t04r0301_item_11_set
+	_IFVAL_CALL		SCWK_ANSWER,EQ,11,ev_t04r0301_item_12_set
+
+	_LDVAL			SCWK_TEMP1,3
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,NE,0,ev_t04r0301_sunglasses_06
+
+
+	//今日の依頼終了
+	_FLAG_SET		TMFLG_T04R0301_NEWS_END
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_t04r0301_sunglasses_07
+	_END
+
+
+//アイテム１セット
+ev_t04r0301_item_01_set:
+	_LDVAL			SCWK_TEMP0,ITEM_HAIPAABOORU
+	_RET
+
+//アイテム２セット
+ev_t04r0301_item_02_set:
+	_LDVAL			SCWK_TEMP0,ITEM_SUUPAABOORU
+	_RET
+
+//アイテム３セット
+ev_t04r0301_item_03_set:
+	_LDVAL			SCWK_TEMP0,ITEM_MONSUTAABOORU
+	_RET
+
+//アイテム４セット
+ev_t04r0301_item_04_set:
+	_LDVAL			SCWK_TEMP0,ITEM_NETTOBOORU
+	_RET
+
+//アイテム５セット
+ev_t04r0301_item_05_set:
+	_LDVAL			SCWK_TEMP0,ITEM_DAIBUBOORU
+	_RET
+
+//アイテム６セット
+ev_t04r0301_item_06_set:
+	_LDVAL			SCWK_TEMP0,ITEM_NESUTOBOORU
+	_RET
+
+//アイテム７セット
+ev_t04r0301_item_07_set:
+	_LDVAL			SCWK_TEMP0,ITEM_RIPIITOBOORU
+	_RET
+
+//アイテム８セット
+ev_t04r0301_item_08_set:
+	_LDVAL			SCWK_TEMP0,ITEM_TAIMAABOORU
+	_RET
+
+//アイテム９セット
+ev_t04r0301_item_09_set:
+	_LDVAL			SCWK_TEMP0,ITEM_GOOZYASUBOORU
+	_RET
+
+//アイテム１０セット
+ev_t04r0301_item_10_set:
+	_LDVAL			SCWK_TEMP0,ITEM_DAAKUBOORU
+	_RET
+
+//アイテム１１セット
+ev_t04r0301_item_11_set:
+	_LDVAL			SCWK_TEMP0,ITEM_HIIRUBOORU
+	_RET
+
+//アイテム１２セット
+ev_t04r0301_item_12_set:
+	_LDVAL			SCWK_TEMP0,ITEM_KUIKKUBOORU
+	_RET
+
+//アイテムを貰える
+ev_t04r0301_sunglasses_06:
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	//アイテムを預けていない状態へ
+	_FLAG_RESET		FE_T04R0301_ITEM_DEPOSIT
+
+	//連れてくるポケモン番号をクリア = 依頼前状態
+	_LDVAL			WK_SCENE_NEWS_MONSNO,0
+
+	//今日の依頼終了
+	_FLAG_SET		TMFLG_T04R0301_NEWS_END
+
+	_TALKMSG		msg_t04r0301_sunglasses_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//ご褒美アイテムを預けたまま
+ev_t04r0301_sunglasses_item_chk:
+
+	//アイテム名、個数をセット
+	_LDWK			SCWK_TEMP0,WK_SCENE_T04R0301_RE_ITEM
+	_LDVAL			SCWK_TEMP1,3
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_t04r0301_sunglasses_07
+	_IFVAL_JUMP		SCWK_ANSWER,NE,0,ev_t04r0301_sunglasses_08
+	_END
+
+//アイテムを預ける
+ev_t04r0301_sunglasses_07:
+	_LDWK			WK_SCENE_T04R0301_RE_ITEM,SCWK_TEMP0		//預けるアイテム番号セット
+	_FLAG_SET		FE_T04R0301_ITEM_DEPOSIT
+
+	_TALKMSG		msg_t04r0301_sunglasses_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アイテムを貰える
+ev_t04r0301_sunglasses_08:
+	_TALK_KEYWAIT		msg_t04r0301_sunglasses_08
+
+	//アイテムを預けていない状態へ
+	_FLAG_RESET		FE_T04R0301_ITEM_DEPOSIT
+
+	//連れてくるポケモン番号をクリア = 依頼前状態
+	_LDVAL			WK_SCENE_NEWS_MONSNO,0
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//期限前でポケモンまだがいない
+ev_t04r0301_sunglasses_09:
+	_POKEMON_NAME_EXTRA	0,WK_SCENE_NEWS_MONSNO,0,0
+	_NEWS_COUNT_CHK		SCWK_ANSWER
+	_NUMBER_NAME	1,SCWK_ANSWER
+
+	_TALKMSG		msg_t04r0301_sunglasses_09
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//期限後
+ev_t04r0301_sunglasses_10:
+	_TALKMSG		msg_t04r0301_sunglasses_10
+
+	//連れてくるポケモン番号をクリア = 依頼前状態
+	_LDVAL			WK_SCENE_NEWS_MONSNO,0
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//依頼終了後（その日1日）
+ev_t04r0301_sunglasses_11:
+	_TALKMSG		msg_t04r0301_sunglasses_11
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+
+/********************************************************************/
+/*							兄さん									*/
+/********************************************************************/
+ev_t04r0301_man1:
+	_EASY_OBJ_MSG		msg_t04r0301_man1_01
+	_END
+
+
+/********************************************************************/
+/*					ボールガイド（PC）								*/
+/********************************************************************/
+ev_t04r0301_ball_guide_01:
+	_TALK_START
+	
+	_TALKMSG		msg_ball_guide_01
+	_TALKMSG		msg_ball_guide_02
+
+	_BMPMENU_INIT		18,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST16	msg_press_01,0
+	_BMPMENU_MAKE_LIST16	msg_press_02,1
+	_BMPMENU_MAKE_LIST16	msg_press_03,2
+	_BMPMENU_MAKE_LIST16	msg_press_04,3
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_press_paso_00		//ダークボール
+	_CASE_JUMP		1,ev_press_paso_01		//ヒールボール
+	_CASE_JUMP		2,ev_press_paso_02		//クイックボール
+	_JUMP			ev_press_paso_cancel		//終了へ
+	_END
+
+/* ダークボール */
+ev_press_paso_00:
+	_TALKMSG		msg_ball_guide_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/* ヒールボール */
+ev_press_paso_01:
+	_TALKMSG		msg_ball_guide_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/* クイックボール */
+ev_press_paso_02:
+	_TALKMSG		msg_ball_guide_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/* やめる */
+ev_press_paso_cancel:
+	_TALK_CLOSE
+	_TALK_END
+	_END

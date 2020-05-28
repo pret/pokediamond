@@ -1,0 +1,11 @@
+/.cvsignore////*///
+/contest_bg.lst////*///
+/contest_bg.narc////*///
+/contest_bg_def.h////*///
+/contest_bg_enum.h////*///
+/contest_obj.lst////*///
+/contest_obj.narc////*///
+/contest_obj_def.h////*///
+/contest_obj_enum.h////*///
+/etd.exe////*///
+/makefile////*///

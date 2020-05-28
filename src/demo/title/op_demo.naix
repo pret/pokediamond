@@ -1,0 +1,88 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: op_demo.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-11T21:45:48
+ *****************************************************************************/
+
+#ifndef NARC_OP_DEMO_NAIX_
+#define NARC_OP_DEMO_NAIX_
+
+enum {
+	NARC_op_demo_cp_light_NCLR = 0,
+	NARC_op_demo_cp_light_NCGR = 1,
+	NARC_op_demo_cp_light_NSCR = 2,
+	NARC_op_demo_op_demoBG_obj_NCLR = 3,
+	NARC_op_demo_op_demoBG0_obj_NCGR = 4,
+	NARC_op_demo_op_demoBG0_obj_NCER = 5,
+	NARC_op_demo_op_demoBG0_obj_NANR = 6,
+	NARC_op_demo_P_logo01_NCLR = 7,
+	NARC_op_demo_P_logo01_NCGR = 8,
+	NARC_op_demo_p_logo01_NSCR = 9,
+	NARC_op_demo_d_logo01_NCLR = 10,
+	NARC_op_demo_d_logo01_NCGR = 11,
+	NARC_op_demo_d_logo01_NSCR = 12,
+	NARC_op_demo_g_logo_NCLR = 13,
+	NARC_op_demo_g_logo_NCGR = 14,
+	NARC_op_demo_g_logo_NSCR = 15,
+	NARC_op_demo_g_logo2_NCLR = 16,
+	NARC_op_demo_g_logo2_NCGR = 17,
+	NARC_op_demo_op_demoBG0_NCLR = 18,
+	NARC_op_demo_op_demoBG0_logo_NCGR = 19,
+	NARC_op_demo_op_demoBG0_logo_m_NSCR = 20,
+	NARC_op_demo_op_demoBG0_logo_s_NSCR = 21,
+	NARC_op_demo_op_demoBG0_logo_back_NSCR = 22,
+	NARC_op_demo_op_demoBG1_NCLR = 23,
+	NARC_op_demo_op_demoBG1_sky_NSCR = 24,
+	NARC_op_demo_op_demoBG1_town_NSCR = 25,
+	NARC_op_demo_op_demoBG2_btl_NSCR = 26,
+	NARC_op_demo_op_demoBG1_NCGR = 27,
+	NARC_op_demo_op_demoBG2_btl_NCGR = 28,
+	NARC_op_demo_op_demoBG2_btl1_NCLR = 29,
+	NARC_op_demo_op_demoBG2_btl2_NCLR = 30,
+	NARC_op_demo_op_demoBG2_btl3_NCLR = 31,
+	NARC_op_demo_op_demoBG2_btl4_NCLR = 32,
+	NARC_op_demo_title_hero_NCLR = 33,
+	NARC_op_demo_title_heroine_NCLR = 34,
+	NARC_op_demo_title_rivel_NCLR = 35,
+	NARC_op_demo_title_bird_NCLR = 36,
+	NARC_op_demo_logo_kira_NCLR = 37,
+	NARC_op_demo_title_hero_NCGR = 38,
+	NARC_op_demo_title_heroine_NCGR = 39,
+	NARC_op_demo_title_rivel_NCGR = 40,
+	NARC_op_demo_title_bird_NCGR = 41,
+	NARC_op_demo_logo_kira_NCGR = 42,
+	NARC_op_demo_title_hero_NCER = 43,
+	NARC_op_demo_title_heroine_NCER = 44,
+	NARC_op_demo_title_rivel_NCER = 45,
+	NARC_op_demo_title_bird_NCER = 46,
+	NARC_op_demo_logo_kira_NCER = 47,
+	NARC_op_demo_title_hero_NANR = 48,
+	NARC_op_demo_title_heroine_NANR = 49,
+	NARC_op_demo_title_rivel_NANR = 50,
+	NARC_op_demo_title_bird_NANR = 51,
+	NARC_op_demo_logo_kira_NANR = 52,
+	NARC_op_demo_op_demoBG3_NCLR = 53,
+	NARC_op_demo_op_demoBG_cloud_NCGR = 54,
+	NARC_op_demo_op_demoBG_cloud_m_NCGR = 55,
+	NARC_op_demo_op_demoBG3_tengan_NCGR = 56,
+	NARC_op_demo_op_demoBG3_lake_NCGR = 57,
+	NARC_op_demo_op_demoBG3_thunder_NCGR = 58,
+	NARC_op_demo_op_demoBG3_cloud_NSCR = 59,
+	NARC_op_demo_op_demoBG3_cloud_m_NSCR = 60,
+	NARC_op_demo_op_demoBG3_tengan_NSCR = 61,
+	NARC_op_demo_op_demoBG3_lake_NSCR = 62,
+	NARC_op_demo_op_demoBG3_thunder_NSCR = 63,
+	NARC_op_demo_titlemap05_20_nsbmd = 64,
+	NARC_op_demo_titlemap05_21_nsbmd = 65,
+	NARC_op_demo_titlemap06_20_nsbmd = 66,
+	NARC_op_demo_titlemap06_19_nsbmd = 67,
+	NARC_op_demo_titlemap06_18_nsbmd = 68,
+	NARC_op_demo_titlemap06_17_nsbmd = 69,
+	NARC_op_demo_titlemap_texset_nsbtx = 70
+};
+
+/* NARC_OP_DEMO_NAIX_ */
+#endif

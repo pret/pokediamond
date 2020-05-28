@@ -1,0 +1,28 @@
+//====================================================================
+//							sp_c05r1101
+//
+//	＜特殊スクリプトファイルを分ける理由＞
+//	特殊スクリプトはゾーン切り替えした時にロードする必要がある
+//	常にもっておかないといけないので、容量削減のために分けている
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"c05r1101_def.h"
+	.include	"con_reception_def.h"
+
+//--------------------------------------------------------------------
+//							特殊スクリプト
+//--------------------------------------------------------------------
+_FLAG_CHANGE_LABEL		SCRID_C05R1101_FLAG_CHANGE
+_SCENE_CHANGE_LABEL		sp_c05r1101_tbl
+_SP_EVENT_DATA_END
+
+sp_c05r1101_tbl:
+	//ワーク、比較する値、スクリプトID
+	_SCENE_CHANGE_DATA	WK_SCENE_COMM_ID,SCR_COMM_ID_CONTEST,SCRID_CONNECT_CONTEST_RETURN
+	_SCENE_CHANGE_DATA	WK_SCENE_C05R1101_JUDGE,0,SCRID_C05R1101_JUDGE
+	_SCENE_CHANGE_END
+
+

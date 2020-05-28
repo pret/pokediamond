@@ -1,0 +1,65 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: intro.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-11T18:42:56
+ *****************************************************************************/
+
+#ifndef NARC_INTRO_NAIX_
+#define NARC_INTRO_NAIX_
+
+enum {
+	NARC_intro_back_m_NCGR = 0,
+	NARC_intro_back_m_d_NCLR = 1,
+	NARC_intro_back_m_p_NCLR = 2,
+	NARC_intro_back_m_null_NSCR = 3,
+	NARC_intro_back_m_t1_NSCR = 4,
+	NARC_intro_back_m_t2_NSCR = 5,
+	NARC_intro_back_m_t3_NSCR = 6,
+	NARC_intro_back_m_g_NSCR = 7,
+	NARC_intro_hero_0_NCGR = 8,
+	NARC_intro_hero_1_NCGR = 9,
+	NARC_intro_hero_2_NCGR = 10,
+	NARC_intro_hero_3_NCGR = 11,
+	NARC_intro_hero_NCLR = 12,
+	NARC_intro_heroine_0_NCGR = 13,
+	NARC_intro_heroine_1_NCGR = 14,
+	NARC_intro_heroine_2_NCGR = 15,
+	NARC_intro_heroine_3_NCGR = 16,
+	NARC_intro_heroine_NCLR = 17,
+	NARC_intro_doctor_NCGR = 18,
+	NARC_intro_doctor_NCLR = 19,
+	NARC_intro_rival_NCGR = 20,
+	NARC_intro_rival_NCLR = 21,
+	NARC_intro_back_m_ppl_NSCR = 22,
+	NARC_intro_back_s_NCGR = 23,
+	NARC_intro_back_s_d_NCLR = 24,
+	NARC_intro_back_s_p_NCLR = 25,
+	NARC_intro_back_s_null_NSCR = 26,
+	NARC_intro_back_s_guide_NSCR = 27,
+	NARC_intro_back_s_yn_NSCR = 28,
+	NARC_intro_back_s_ball_NSCR = 29,
+	NARC_intro_ball_button_0_NCGR = 30,
+	NARC_intro_ball_button_1_NCGR = 31,
+	NARC_intro_ball_button_2_NCGR = 32,
+	NARC_intro_square_button_0_NCGR = 33,
+	NARC_intro_square_button_1_NCGR = 34,
+	NARC_intro_square_button_2_NCGR = 35,
+	NARC_intro_square_button_3_NCGR = 36,
+	NARC_intro_button_s_yn_NSCR = 37,
+	NARC_intro_button_s_ball_NSCR = 38,
+	NARC_intro_button_s_NCLR = 39,
+	NARC_intro_hero_m1_NCGR = 40,
+	NARC_intro_hero_m2_NCGR = 41,
+	NARC_intro_hero_m3_NCGR = 42,
+	NARC_intro_hero_m4_NCGR = 43,
+	NARC_intro_heroine_m1_NCGR = 44,
+	NARC_intro_heroine_m2_NCGR = 45,
+	NARC_intro_heroine_m3_NCGR = 46,
+	NARC_intro_heroine_m4_NCGR = 47
+};
+
+/* NARC_INTRO_NAIX_ */
+#endif

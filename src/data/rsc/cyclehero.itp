@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-04-01T19:13:26" source="cyclehero_ine.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="97"
+	tool_start_frame="0"
+	tool_end_frame="96"
+	compress_material="off" material_size="1 1"
+/>
+
+<tex_pattern_list_data image_size="24" palette_size="1">
+	<image_name index="0" name="cyclehero.1"/>
+	<image_name index="1" name="cyclehero.10"/>
+	<image_name index="2" name="cyclehero.11"/>
+	<image_name index="3" name="cyclehero.12"/>
+	<image_name index="4" name="cyclehero.13"/>
+	<image_name index="5" name="cyclehero.14"/>
+	<image_name index="6" name="cyclehero.15"/>
+	<image_name index="7" name="cyclehero.16"/>
+	<image_name index="8" name="cyclehero.17"/>
+	<image_name index="9" name="cyclehero.18"/>
+	<image_name index="10" name="cyclehero.19"/>
+	<image_name index="11" name="cyclehero.2"/>
+	<image_name index="12" name="cyclehero.20"/>
+	<image_name index="13" name="cyclehero.21"/>
+	<image_name index="14" name="cyclehero.22"/>
+	<image_name index="15" name="cyclehero.23"/>
+	<image_name index="16" name="cyclehero.24"/>
+	<image_name index="17" name="cyclehero.3"/>
+	<image_name index="18" name="cyclehero.4"/>
+	<image_name index="19" name="cyclehero.5"/>
+	<image_name index="20" name="cyclehero.6"/>
+	<image_name index="21" name="cyclehero.7"/>
+	<image_name index="22" name="cyclehero.8"/>
+	<image_name index="23" name="cyclehero.9"/>
+	<palette_name index="0" name="cyclehero"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="24">
+		0 4 8 12 16 20 24 28 32 36
+		40 44 48 52 56 60 64 68 72 76
+		80 84 88 92
+	</frame_idx>
+	<image_idx size="24">
+		0 11 17 18 19 20 21 22 23 1
+		2 3 4 5 6 7 8 9 10 12
+		13 14 15 16
+	</image_idx>
+	<palette_idx size="24">
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="1">
+	<tex_pattern_anm index="0" material_name="obj" data_size="24" data_head="0"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

@@ -1,0 +1,55 @@
+
+//============================================================================
+/**
+ *
+ *@file		sub_083.s
+ *@brief	戦闘シーケンス
+ *			みちづれチェックあり気絶シーケンス
+ *@author	HisashiSogabe
+ *@data		2006.01.24
+ *
+ */
+//============================================================================
+	.text
+
+	.include	"waza_seq_def.h"
+
+SUB_083:
+	//みちづれフラグが立っているかチェック
+	IF_PSP			IF_FLAG_NBIT,SIDE_KIZETSU,ID_PSP_condition2,CONDITION2_MICHIDURE,NoMichidure
+	//味方には発動しない
+	SIDE_CHECK		SIDE_ATTACK,SIDE_KIZETSU,NoMichidure
+	//HP0（自爆系）には発動しない
+	IF_PSP			IF_FLAG_EQ,SIDE_ATTACK,ID_PSP_hp,0,NoMichidure
+	MESSAGE			MichidureM2MMsg,TAG_NICK_NICK,SIDE_KIZETSU,SIDE_ATTACK
+	//sp->kizetsu_clientを退避
+	VALUE_WORK		VAL_GET,BUF_PARA_KIZETSU_CLIENT,BUF_PARA_PUSH_CLIENT
+	//AttackClientのHPをダメージに
+	PSP_VALUE_WORK	VAL_GET,SIDE_ATTACK,ID_PSP_hp,BUF_PARA_HP_CALC_WORK
+	VALUE			VAL_MUL,BUF_PARA_HP_CALC_WORK,-1
+	//HP操作対象をAttackClientに
+	VALUE_WORK		VAL_SET,BUF_PARA_CLIENT_WORK,BUF_PARA_ATTACK_CLIENT
+	//ダメージエフェクトで点滅しないフラグを立てる
+	VALUE			VAL_BIT,BUF_PARA_SERVER_STATUS_FLAG,SERVER_STATUS_FLAG_NO_BLINK
+	GOSUB			SUB_SEQ_HP_CALC
+	KIZETSU_EFFECT
+	SERVER_WAIT
+	HP_GAUGE_OUT	SIDE_KIZETSU
+	MESSAGE			KizetsuMineMsg,TAG_NICK,SIDE_KIZETSU
+	SERVER_WAIT
+	WAIT			MSG_WAIT
+	//気絶カウントをカウントアップ
+	INC_RECORD		SIDE_KIZETSU,CLIENT_BOOT_TYPE_NOMINE,RECID_KILL_POKE
+	INC_RECORD		SIDE_KIZETSU,CLIENT_BOOT_TYPE_MINE,RECID_TEMOTI_KIZETU
+	//退避していたsp->kizetsu_clientを戻す
+	VALUE_WORK		VAL_GET,BUF_PARA_PUSH_CLIENT,BUF_PARA_KIZETSU_CLIENT
+NoMichidure:
+	ONNEN			NoOnnen
+	MESSAGE			OnnenDamageMineMsg,TAG_NICK_WAZA,SIDE_ATTACK,SIDE_WORK
+	SERVER_WAIT
+	WAIT			MSG_WAIT
+NoOnnen:
+	VALUE			VAL_BIT,BUF_PARA_SERVER_STATUS_FLAG2,SERVER_STATUS_FLAG2_NO_EXP_KIZETSU
+	GOSUB			SUB_SEQ_KIZETSU
+	VALUE			VAL_NBIT,BUF_PARA_SERVER_STATUS_FLAG2,SERVER_STATUS_FLAG2_NO_EXP_KIZETSU
+	SEQ_END

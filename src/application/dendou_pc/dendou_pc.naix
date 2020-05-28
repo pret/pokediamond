@@ -1,0 +1,20 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: dendou_pc.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-21T18:42:00
+ *****************************************************************************/
+
+#ifndef NARC_DENDOU_PC_NAIX_
+#define NARC_DENDOU_PC_NAIX_
+
+enum {
+	NARC_dendou_pc_base_lz_nscr = 0,
+	NARC_dendou_pc_base_lz_ncgr = 1,
+	NARC_dendou_pc_base_nclr = 2
+};
+
+/* NARC_DENDOU_PC_NAIX_ */
+#endif

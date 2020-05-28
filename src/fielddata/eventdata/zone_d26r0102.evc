@@ -1,0 +1,101 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_d26r0102evc.h"
+
+const u32 FObj_zone_d26r0102_num = 5;
+
+const _TAG_FIELD_OBJ_H FObj_zone_d26r0102[5] =
+{
+	{
+		D26R0102_FLD_ITEM_02,
+		MONATERBALL,
+		0,
+		0,
+		FV_FLD_ITEM_167,
+		SCRID_FLD_ITEM_167,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		48,
+		21,
+		0*0x1000,
+	},
+
+	{
+		TR_GINGAM_19,
+		GINGAM,
+		14,
+		1,
+		FV_D26R0107_GKANBU,
+		SCRID_GINGAM_19,
+		0,
+		3,
+		0,
+		0,
+		0,
+		0,
+		10,
+		6,
+		0*0x1000,
+	},
+
+	{
+		TR_GINGAM_22,
+		GINGAM,
+		7,
+		1,
+		FV_D26R0107_GKANBU,
+		SCRID_GINGAM_22,
+		0,
+		4,
+		0,
+		0,
+		0,
+		0,
+		21,
+		16,
+		0*0x1000,
+	},
+
+	{
+		TR_GINGAW_10,
+		GINGAW,
+		16,
+		1,
+		FV_D26R0107_GKANBU,
+		SCRID_GINGAW_10,
+		2,
+		4,
+		0,
+		0,
+		0,
+		0,
+		26,
+		16,
+		0*0x1000,
+	},
+
+	{
+		TR_SCIENTIST_13,
+		ASSISTANTM,
+		14,
+		1,
+		FV_D26R0107_GKANBU,
+		SCRID_SCIENTIST_13,
+		0,
+		2,
+		0,
+		0,
+		0,
+		0,
+		32,
+		6,
+		0*0x1000,
+	},
+};

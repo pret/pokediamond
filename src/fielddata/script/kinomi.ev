@@ -1,0 +1,432 @@
+//====================================================================
+//							きのみ
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_kinomi.h"
+	.include	"../../field/scr_kinomi.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_kinomi
+_EVENT_DATA		ev_kinomi_bag_kinomi
+_EVENT_DATA		ev_kinomi_bag_zyouro
+_EVENT_DATA		ev_kinomi_bag_compost
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*							きのみ									*/
+/********************************************************************/
+ev_kinomi:
+	_TALK_OBJ_START
+
+	_GET_SEED_TYPE	SCWK_PARAM0
+	_GET_SEED_COUNT	SCWK_PARAM1
+	//きのみの状態を見て遷移する
+	_GET_SEED_STATUS	SCWK_ANSWER
+	_SWITCH		SCWK_ANSWER
+	_CASE_JUMP	0, ev_kinomi_ground			//土があるだけ
+	_CASE_JUMP	1, ev_kinomi_ug				//きのみをうめてある
+	_CASE_JUMP	2, ev_kinomi_hutaba			//芽がでている
+	_CASE_JUMP	3, ev_kinomi_miki			//育ってきている
+	_CASE_JUMP	4, ev_kinomi_flower			//花が咲いている
+	_CASE_JUMP	5, ev_kinomi_fruits			//実が生っている
+	_JUMP		ev_kinomi_ground			//
+	_END
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+ev_kinomi_ug:
+
+	_CALL			sub_kinomi_zyouro_check
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_kinomi_ug_msg
+
+	//_NUTS_NAME		0,SCWK_PARAM0,SCWK_PARAM1
+	_ITEM_NAME		0, SCWK_PARAM0
+	_TALKMSG		mes_kinomi_02_01
+	_JUMP			ev_kinomi_zyouro
+
+ev_kinomi_ug_msg:
+	//_NUTS_NAME		0,SCWK_PARAM0,SCWK_PARAM1
+	_ITEM_NAME		0, SCWK_PARAM0
+	_TALKMSG		mes_kinomi_02_09
+	_LAST_KEYWAIT
+	_JUMP			ev_kinomi_cancel
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+ev_kinomi_hutaba:
+	_CALL			sub_kinomi_zyouro_check
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_kinomi_hutaba_msg
+
+	_NUTS_NAME		0,SCWK_PARAM0,SCWK_PARAM1
+	_TALKMSG		mes_kinomi_02_02
+	_JUMP			ev_kinomi_zyouro
+
+ev_kinomi_hutaba_msg:
+	_NUTS_NAME		0,SCWK_PARAM0,SCWK_PARAM1
+	_TALKMSG		mes_kinomi_02_10
+	_LAST_KEYWAIT
+	_JUMP			ev_kinomi_cancel
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+ev_kinomi_miki:
+	_CALL			sub_kinomi_zyouro_check
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_kinomi_miki_msg
+
+	_NUTS_NAME		0,SCWK_PARAM0,SCWK_PARAM1
+	_TALKMSG		mes_kinomi_02_03
+	_JUMP			ev_kinomi_zyouro
+
+ev_kinomi_miki_msg:
+	_NUTS_NAME		0,SCWK_PARAM0,SCWK_PARAM1
+	_TALKMSG		mes_kinomi_02_11
+	_LAST_KEYWAIT
+	_JUMP			ev_kinomi_cancel
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+ev_kinomi_flower:
+	_CALL			sub_kinomi_zyouro_check
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_kinomi_flower_msg
+
+	_NUTS_NAME		0,SCWK_PARAM0,SCWK_PARAM1
+	_TALKMSG		mes_kinomi_02_04
+	_JUMP			ev_kinomi_zyouro
+
+ev_kinomi_flower_msg:
+	_NUTS_NAME		0,SCWK_PARAM0,SCWK_PARAM1
+	_TALKMSG		mes_kinomi_02_12
+	_LAST_KEYWAIT
+	_JUMP			ev_kinomi_cancel
+//--------------------------------------------------------------------
+//	サブルーチン：水やりができるかどうか
+//--------------------------------------------------------------------
+sub_kinomi_zyouro_check:
+/*	↓↓↓異常時処理：方向が上以外の場合は状況メッセージのみで終わりにする */
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,NE,DIR_UP,sub_kinomi_zyouro_ng
+/*	↑↑↑異常時処理：方向が上以外の場合は状況メッセージのみで終わりにする */
+
+	_ITEM_CHK		ITEM_KODAKKUZYOURO,1, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE, sub_kinomi_zyouro_ng
+
+sub_kinomi_zyouro_ok:
+	_LDVAL			SCWK_ANSWER,1
+	_RET
+
+sub_kinomi_zyouro_ng:
+	_LDVAL			SCWK_ANSWER,0
+	_RET
+
+//--------------------------------------------------------------------
+//	サブルーチン：こやしをもっているかどうか
+//--------------------------------------------------------------------
+sub_kinomi_koyashi_check:
+	_ITEM_CHK	ITEM_SUKUSUKUKOYASI,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,sub_kinomi_koyashi_ok
+	_ITEM_CHK	ITEM_ZIMEZIMEKOYASI,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,sub_kinomi_koyashi_ok
+	_ITEM_CHK	ITEM_NAGANAGAKOYASI,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,sub_kinomi_koyashi_ok
+	_ITEM_CHK	ITEM_NEBANEBAKOYASI,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,sub_kinomi_koyashi_ok
+//sub_kinomi_koyashi_ng:
+	_LDVAL			SCWK_ANSWER,0
+	_RET
+sub_kinomi_koyashi_ok:
+	_LDVAL			SCWK_ANSWER,1
+	_RET
+
+//--------------------------------------------------------------------
+//じょうろで水を上げる
+//--------------------------------------------------------------------
+ev_kinomi_zyouro:
+//	_AB_KEYWAIT
+	_TALKMSG		mes_kinomi_02_05
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_kinomi_cancel
+
+	_TALK_CLOSE
+	/* みずやり処理の呼び出し */
+	_SET_SEED_WATER		SEEDWATER_CMD_START
+
+	_TALK_KEYWAIT	mes_kinomi_02_08
+	_LAST_KEYWAIT
+
+	/* みずやり処理終了、自機を元に戻す */
+	_SET_SEED_WATER		SEEDWATER_CMD_END
+
+	_JUMP			ev_kinomi_cancel
+
+//--------------------------------------------------------------------
+//きのみが生っている場合
+//--------------------------------------------------------------------
+ev_kinomi_fruits:
+	_ITEM_NAME		0,SCWK_PARAM0
+	_NUMBER_NAME	1,SCWK_PARAM1
+	_TALKMSG		mes_kinomi_03_01	//「～が～個できている！」
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_kinomi_not_take
+
+//きのみがバッグに入るかチェック
+	_ADD_ITEM_CHK	SCWK_PARAM0, SCWK_PARAM1, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_kinomi_cannot_take
+
+	_ITEM_NAME		0,SCWK_PARAM0
+	_NUMBER_NAME	1,SCWK_PARAM1
+	_TALKMSG		mes_kinomi_03_05	//「～を　～こ　とった！」
+	_ME_PLAY		SEQ_KINOMI
+	_ME_WAIT
+	_TAKE_SEED
+	_PLAYER_NAME	0
+	_ITEM_NAME		1,SCWK_PARAM0
+	_GET_POCKET_NO	SCWK_PARAM0, SCWK_ANSWER
+	_POCKET_NAME	3,SCWK_ANSWER
+	_TALKMSG		mes_kinomi_03_07	//「～は～を～に　しまった！ふかふかのつちに　もどった」
+	_LAST_KEYWAIT
+	_JUMP			ev_kinomi_cancel
+
+
+
+//バッグがいっぱい
+ev_kinomi_cannot_take:
+	_ITEM_NAME		0,SCWK_PARAM0
+	_TALK_KEYWAIT	mes_kinomi_03_06	//「バッグが　いっぱいだった　～を　あきらめた」
+	_LAST_KEYWAIT
+	_JUMP			ev_kinomi_cancel
+	
+
+//とらずにおいておく
+ev_kinomi_not_take:
+	_CALL			sub_kinomi_zyouro_check
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_kinomi_take_nothing
+	_JUMP			ev_kinomi_zyouro
+
+ev_kinomi_take_nothing:
+	_PLAYER_NAME	0
+	_ITEM_NAME		1,SCWK_PARAM0
+	_TALK_KEYWAIT	mes_kinomi_03_04	//「～は　～を　そのままに　しておいた」
+	_LAST_KEYWAIT
+	_JUMP			ev_kinomi_cancel
+
+
+//--------------------------------------------------------------------
+//土の場合
+//--------------------------------------------------------------------
+ev_kinomi_ground:
+	//肥料がまかれているかどうかをチェック
+	_GET_SEED_COMPOST	SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,0,ev_kinomi_plane
+
+	//肥料がまかれている：きのみをもっているかどうかチェック
+	_CHECK_POCKET	BAG_POKE_NUTS, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,	ev_kinomi_compost_msg
+
+	_GET_SEED_COMPOST	SCWK_ANSWER
+	_ITEM_NAME	0, SCWK_ANSWER
+	_TALK_KEYWAIT	mes_kinomi_01_02		//「～が　まいてある」
+
+	_JUMP		ev_kinomi_ask_set_seed		//きのみを植えるかどうかたずねる
+
+
+	//なにも手をつけていない、たんなる土
+ev_kinomi_plane:
+/*	↓↓↓暫定処理：方向が上以外の場合は状況メッセージのみで終わりにする */
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,NE,DIR_UP,ev_kinomi_plane_msg
+/*	↑↑↑暫定処理：方向が上以外の場合は状況メッセージのみで終わりにする */
+
+	//ひりょうをもっているかチェック
+	_CALL			sub_kinomi_koyashi_check
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1, ev_kinomi_check_compost_nuts
+
+	//肥料をもっていない：きのみをもっているかチェック
+	_CHECK_POCKET	BAG_POKE_NUTS, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,	ev_kinomi_plane_msg
+
+	_TALKMSG		mes_kinomi_01_01		//「ふかふかのつちだ」
+
+	_JUMP		ev_kinomi_ask_set_seed		//きのみを植えるかどうかたずねる
+
+	//肥料をもっているので、きのみももっているかチェック
+ev_kinomi_check_compost_nuts:
+	_TALKMSG		mes_kinomi_01_01		//「ふかふかのつちだ」
+
+	_CHECK_POCKET	BAG_POKE_NUTS,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_kinomi_compost_yesno
+	
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER
+	_BMPMENU_MAKE_LIST	mes_kinomi_01_03, 0		//「ひりょうをうめる」
+	_BMPMENU_MAKE_LIST	mes_kinomi_01_04, 1		//「きのみをまく」
+	_BMPMENU_MAKE_LIST	mes_kinomi_01_05, 2		//「やめる」
+//	_BMPMENU_MAKE_LIST	msg_ev_win_059, 0
+//	_BMPMENU_MAKE_LIST	msg_ev_win_060, 1
+//	_BMPMENU_MAKE_LIST	msg_ev_win_049, 2
+	_BMPMENU_START
+
+	_SWITCH		SCWK_ANSWER
+	_CASE_JUMP	0, ev_kinomi_select_compost
+	_CASE_JUMP	1, ev_kinomi_select_nuts
+	_CASE_JUMP	2, ev_kinomi_cancel
+	_JUMP		ev_kinomi_cancel
+
+
+
+//肥料をうめるかどうかを尋ねる
+ev_kinomi_compost_yesno:
+	_TALKMSG		mes_kinomi_01_06	//「ひりょうをうめますか？」
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_kinomi_select_compost
+	_JUMP		ev_kinomi_cancel		//おわり
+
+
+//ひりょうの選択
+ev_kinomi_select_compost:
+	_TALK_CLOSE					//会話ウィンドウを閉じる
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC	//フェードアウト
+	_WIPE_FADE_END_CHECK
+
+	_BAG_SET_PROC_NORMAL		//どうぐ選択呼出し
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC	//フェードアウト
+	_WIPE_FADE_END_CHECK
+
+	_BAG_GET_RESULT	SCWK_TEMP1	//選んだどうぐのNo.を受け取る
+
+	_SWITCH		SCWK_TEMP1
+	_CASE_JUMP	0,	ev_kinomi_end
+	_CASE_JUMP	ITEM_SUKUSUKUKOYASI,ev_kinomi_set_compost
+	_CASE_JUMP	ITEM_ZIMEZIMEKOYASI,ev_kinomi_set_compost
+	_CASE_JUMP	ITEM_NAGANAGAKOYASI,ev_kinomi_set_compost
+	_CASE_JUMP	ITEM_NEBANEBAKOYASI,ev_kinomi_set_compost
+	_JUMP	ev_kinomi_end
+
+ev_kinomi_set_compost:
+	_SUB_ITEM			SCWK_TEMP1,1,SCWK_TEMP0	//こやしをバッグから減らす
+	_SET_SEED_COMPOST	SCWK_TEMP1				//こやしをまく
+
+	_CHECK_POCKET		BAG_POKE_NUTS, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,FALSE,	ev_kinomi_set_compost_msg
+
+	//肥料を
+	_ITEM_NAME			0, SCWK_TEMP1
+	_TALK_KEYWAIT		mes_kinomi_01_12		//「～を　つちに　まきました！」
+	_JUMP				ev_kinomi_ask_set_seed
+
+ev_kinomi_set_compost_msg:
+	_ITEM_NAME			0, SCWK_TEMP1
+	_TALKMSG			mes_kinomi_01_16		//「～を　つちに　まきました！」
+	_LAST_KEYWAIT
+	_JUMP				ev_kinomi_cancel
+
+ev_kinomi_ask_set_seed:
+	_TALKMSG		mes_kinomi_01_09	//「きのみをうめますか？」
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_kinomi_cancel	//「いいえ」→おわり
+
+//ここで木の実を選択する
+ev_kinomi_select_nuts:
+	_TALK_CLOSE					//会話ウィンドウを閉じる
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC	//フェードアウト
+	_WIPE_FADE_END_CHECK
+
+	_BAG_SET_PROC_KINOMI		//どうぐ選択呼出し
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC	//フェードアウト
+	_WIPE_FADE_END_CHECK
+
+	_BAG_GET_RESULT	SCWK_ANSWER	//選んだどうぐのNo.を受け取る
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_kinomi_end
+
+	_ITEM_NAME	0, SCWK_ANSWER
+	_TALK_KEYWAIT	mes_kinomi_01_13		//「ふかふかの　つちに　～をうめた！」
+	_LAST_KEYWAIT
+	_SUB_ITEM	SCWK_ANSWER,1,SCWK_TEMP0	//きのみをバッグから減らす
+	_SET_SEED_NUTS	SCWK_ANSWER		//きのみを植える
+	_JUMP		ev_kinomi_cancel
+
+
+ev_kinomi_cancel:
+	_TALK_CLOSE
+
+ev_kinomi_end:
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+sub_kinomi_select_nuts:
+
+//--------------------------------------------------------------------
+//		たんなる土
+//--------------------------------------------------------------------
+ev_kinomi_plane_msg:
+	_TALKMSG			mes_kinomi_01_14		//「ふかふかのつちだ」
+	_LAST_KEYWAIT
+	_JUMP				ev_kinomi_cancel
+
+//--------------------------------------------------------------------
+//		こやしがまいてある土
+//--------------------------------------------------------------------
+ev_kinomi_compost_msg:
+	_GET_SEED_COMPOST	SCWK_ANSWER
+	_ITEM_NAME	0, SCWK_ANSWER
+	_TALKMSG			mes_kinomi_01_15		//「～がまいてある」
+	_LAST_KEYWAIT
+	_JUMP				ev_kinomi_cancel
+
+//--------------------------------------------------------------------
+//		きのみを植える：バッグから
+//--------------------------------------------------------------------
+ev_kinomi_bag_kinomi:
+	_TALK_OBJ_START
+	_ITEM_NAME	0, SCWK_PARAM0
+	_TALK_KEYWAIT	mes_kinomi_01_13		//「ふかふかの　つちに　～をうめた！」
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_SUB_ITEM	SCWK_PARAM0,1,SCWK_TEMP0	//きのみをバッグから減らす
+	_SET_SEED_NUTS	SCWK_PARAM0		//きのみを植える
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//		じょうろで水をあげる：バッグから
+//--------------------------------------------------------------------
+ev_kinomi_bag_zyouro:
+	_EVENT_START
+
+	/* みずやり処理の呼び出し */
+	_SET_SEED_WATER		SEEDWATER_CMD_START
+
+	_TALK_KEYWAIT	mes_kinomi_02_08
+	_LAST_KEYWAIT
+
+	/* みずやり処理終了、自機を元に戻す */
+	_SET_SEED_WATER		SEEDWATER_CMD_END
+
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//		こやしをうえる：バッグから
+//--------------------------------------------------------------------
+ev_kinomi_bag_compost:
+	_EVENT_START
+	_LDWK	SCWK_ANSWER,SCWK_PARAM0
+	_JUMP	ev_kinomi_set_compost
+
+

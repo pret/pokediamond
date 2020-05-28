@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="mori" host="W00101" date="2006-06-13T18:47:25"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+		<list entry="4" r="FF" g="80" b="C0" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="ピンク" english="ピンク" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="160"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="179"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="291"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="..\font\font_talk.nftr"/>
+				<list entry="1" file="..\font\font_system.nftr"/>
+				<list entry="2" file="..\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="52" top="66" right="757" bottom="694" maximized="no" rayout="Vertical2">
+		<comment-input left="647" top="551" right="994" bottom="703" visible="no"/>
+		<tag-palette left="574" top="154" right="921" bottom="552" visible="no"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="697"/>
+		<band id="3" index="3" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="mes_dstrade_01_01">
+		<comment>リスト画面の右下にあるやめるアイコン
+</comment>
+		<language name="日本語" font=" 1:font_system" width="48">やめる</language>
+	</row>
+
+	<row id="mes_dstrade_01_02">
+		<comment>画面上端左側のトレーナー名
+0：自分の名前</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:03:トレーナー名:0]</language>
+	</row>
+
+	<row id="mes_dstrade_01_03">
+		<comment>画面上端右側のトレーナー名
+１：相手の名前</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:03:トレーナー名:1]</language>
+	</row>
+
+	<row id="mes_dstrade_01_04">
+		<comment>左側のトレーナーの手持ち１番目
+2：１番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:2]</language>
+	</row>
+
+	<row id="mes_dstrade_01_05">
+		<comment>左側のトレーナーの手持ち２番目
+3：２番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:3]</language>
+	</row>
+
+	<row id="mes_dstrade_01_06">
+		<comment>左側のトレーナーの手持ち３番目
+4：３番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:4]</language>
+	</row>
+
+	<row id="mes_dstrade_01_07">
+		<comment>左側のトレーナーの手持ち４番目
+5：４番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:5]</language>
+	</row>
+
+	<row id="mes_dstrade_01_08">
+		<comment>左側のトレーナーの手持ち５番目
+6：５番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:6]</language>
+	</row>
+
+	<row id="mes_dstrade_01_09">
+		<comment>左側のトレーナーの手持ち６番目
+7：６番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:7]</language>
+	</row>
+
+	<row id="mes_dstrade_01_10">
+		<comment>右側のトレーナーの手持ち１番目
+8：１番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:8]</language>
+	</row>
+
+	<row id="mes_dstrade_01_11">
+		<comment>右側のトレーナーの手持ち２番目
+9：２番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:9]</language>
+	</row>
+
+	<row id="mes_dstrade_01_12">
+		<comment>右側のトレーナーの手持ち３番目
+10：３番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:10]</language>
+	</row>
+
+	<row id="mes_dstrade_01_13">
+		<comment>右側のトレーナーの手持ち４番目
+11：４番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:11]</language>
+	</row>
+
+	<row id="mes_dstrade_01_14">
+		<comment>右側のトレーナーの手持ち５番目
+12：５番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:12]</language>
+	</row>
+
+	<row id="mes_dstrade_01_15">
+		<comment>右側のトレーナーの手持ち６番目
+13：６番目のポケモンニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:13]</language>
+	</row>
+
+	<row id="mes_dstrade_02_01">
+		<comment>１行ウインドウメッセージ
+初期状態</comment>
+		<language name="日本語" width="160">ポケモンを　えらんでください</language>
+	</row>
+
+	<row id="mes_dstrade_02_02">
+		<comment>２行ウインドウメッセージ
+ポケモンを選んでＡボタンを押した
+0：選択ポケモンのニックネーム</comment>
+		<language name="日本語" width="104" line="2">[1:01:ニックネーム:0]を
+どうしますか？</language>
+	</row>
+
+	<row id="mes_dstrade_03_01">
+		<comment>選択肢：ステータス画面へ</comment>
+		<language name="日本語" width="84">つよさをみる</language>
+	</row>
+
+	<row id="mes_dstrade_03_02">
+		<comment>選択肢：交換を行う</comment>
+		<language name="日本語" width="84">こうかんにだす</language>
+	</row>
+
+	<row id="mes_dstrade_03_03">
+		<comment>選択肢：１つ前に戻る</comment>
+		<language name="日本語" width="84">もどる</language>
+	</row>
+
+	<row id="mes_dstrade_04_01" back-color="#ff8080,,,#ff8080,,#ff8080,,,,,,">
+		<comment>２行メッセージ
+通信待機中</comment>
+		<language name="日本語" width="216" line="2">つうしん　たいきちゅう！
+しばらく　おまちください</language>
+	</row>
+
+	<row id="mes_dstrade_04_02">
+		<comment>２行メッセージ
+交換する？
+0：自分のポケモンニックネーム
+1：相手のポケモンニックネーム</comment>
+		<language name="日本語" width="216" line="2">[1:01:ニックネーム:0]と　[1:01:ニックネーム:1]を
+こうかん　しますか？</language>
+	</row>
+
+	<row id="mes_dstrade_04_02_01">
+		<comment>「交換する？」の選択肢：はい
+</comment>
+		<language name="日本語" width="36">はい</language>
+	</row>
+
+	<row id="mes_dstrade_04_02_02">
+		<comment>「交換する？」の選択肢：いいえ
+</comment>
+		<language name="日本語" width="36">いいえ</language>
+	</row>
+
+	<row id="mes_dstrade_04_03">
+		<comment>２行メッセージ
+「交換する？」の選択肢：いいえを実行
+</comment>
+		<language name="日本語" width="216" line="2">こうかんは
+キャンセル　されました</language>
+	</row>
+
+	<row id="mes_dstrade_04_04">
+		<comment>２行メッセージ
+右下の「やめる」でＡボタン</comment>
+		<language name="日本語" width="216" line="2">こうかんを　やめますか？</language>
+	</row>
+
+	<row id="mes_dstrade_04_05">
+		<comment>「やめる？」の選択肢：はい
+</comment>
+		<language name="日本語" width="36">はい</language>
+	</row>
+
+	<row id="mes_dstrade_04_06">
+		<comment>「やめる？」の選択肢：いいえ
+</comment>
+		<language name="日本語" width="36">いいえ</language>
+	</row>
+
+	<row id="mes_dstrade_04_07" back-color="#ff8080,,,#ff8080,,#ff8080,,,,,,">
+		<comment>２行メッセージ
+「やめる？」の選択肢：はい実行後
+相手の終了待ち
+</comment>
+		<language name="日本語" width="216" line="2">ともだちの　しゅうりょうを
+まっています……</language>
+	</row>
+
+	<row id="mes_dstrade_04_08">
+		<comment>２行メッセージ
+「やめる？」の選択肢：はい実行後
+相手が交換を選んだ</comment>
+		<language name="日本語" width="216" line="2">ともだちは　ポケモンの
+こうかんを　したいようです！</language>
+	</row>
+
+	<row id="mes_dstrade_04_09">
+		<comment>２行メッセージ
+通信交換デモの送信メッセージ１
+0：送るポケモンニックネーム
+1：相手トレーナー名</comment>
+		<language name="日本語" width="216" line="2">[1:01:ニックネーム:0]を
+[1:03:トレーナー名:1]へ　おくります！</language>
+	</row>
+
+	<row id="mes_dstrade_04_10">
+		<comment>２行メッセージ
+通信交換デモの送信ッセージ２
+0：相手に送るポケモンニックネーム
+</comment>
+		<language name="日本語" width="216">バイバイ！　[1:01:ニックネーム:0]！</language>
+	</row>
+
+	<row id="mes_dstrade_04_11">
+		<comment>２行メッセージ
+通信交換デモの受信メッセージ１
+0：送られてきたポケモンニックネーム
+1：相手トレーナー名
+</comment>
+		<language name="日本語" width="216" line="2">[1:03:トレーナー名:1]から
+[1:01:ニックネーム:0]が　おくられてきた！</language>
+	</row>
+
+	<row id="mes_dstrade_04_12">
+		<comment>２行メッセージ
+通信交換デモの受信メッセージ２
+0：送られてきたポケモンニックネーム
+</comment>
+		<language name="日本語" width="216" line="2">[1:01:ニックネーム:0]を
+かわいがって　あげてね！</language>
+	</row>
+
+	<row id="mes_dstrade_04_13">
+		<comment>２行メッセージ
+手持ちに戦闘できるポケモンがいなくなるとき
+
+</comment>
+		<language name="日本語" width="216" line="2">そのポケモンを　こうかんすると
+ぼうけん　できなくなっちゃうよ！</language>
+	</row>
+
+	<row id="mes_dstrade_04_14">
+		<comment>２行メッセージ
+オートセーブ中のメッセージ
+</comment>
+		<language name="日本語" width="216" line="2">セーブしています
+でんげんを　きらないで　ください</language>
+	</row>
+
+	<row id="mes_dstrade_04_15" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>ボールカスタムがあるときに
+外す/外さないの選択メッセージ</comment>
+		<language name="日本語" width="216" line="2">ボールカプセルが　はずれますが
+よろしいですか？</language>
+	</row>
+
+	<row id="mes_dstrade_05_01">
+		<comment>下画面共通
+選択したポケモンの性別表示♂</comment>
+		<language name="日本語" width="8">♂</language>
+	</row>
+
+	<row id="mes_dstrade_05_02">
+		<comment>下画面共通
+選択したポケモンの性別表示♀</comment>
+		<language name="日本語" width="8">♀</language>
+	</row>
+
+	<row id="mes_dstrade_05_03">
+		<comment>下画面共通
+項目名：レベル</comment>
+		<language name="日本語" width="36">Ｌｖ．</language>
+	</row>
+
+	<row id="mes_dstrade_05_05">
+		<comment>下画面共通
+項目名：もちもの</comment>
+		<language name="日本語" width="48">もちもの</language>
+	</row>
+
+	<row id="mes_dstrade_05_07">
+		<comment>下画面左側
+カーソルが指す自分のポケモンニックネーム
+0：対象ポケモンニックネーム</comment>
+		<language name="日本語" width="60">[1:01:ニックネーム:0]</language>
+	</row>
+
+	<row id="mes_dstrade_05_08">
+		<comment>下画面左側：レベル数
+1：カーソルが指す自分のポケモンのレベル数３桁</comment>
+		<language name="日本語" width="24">[1:34:数字３桁:1]</language>
+	</row>
+
+	<row id="mes_dstrade_05_09">
+		<comment>下画面左側：どうぐ名
+2：カーソルが指す自分のポケモンのもちもの名</comment>
+		<language name="日本語" width="96">[1:08:どうぐ名:2]</language>
+	</row>
+
+	<row id="mes_dstrade_05_10">
+		<comment>下画面左側
+カーソルが指す相手のポケモンニックネーム
+3：対象ポケモンニックネーム</comment>
+		<language name="日本語" width="60">[1:01:ニックネーム:3]</language>
+	</row>
+
+	<row id="mes_dstrade_05_11">
+		<comment>下画面左側：レベル数
+4：カーソルが指す相手のポケモンのレベル数３桁</comment>
+		<language name="日本語" width="24">[1:34:数字３桁:4]</language>
+	</row>
+
+	<row id="mes_dstrade_05_12">
+		<comment>下画面左側：どうぐ名
+5：カーソルが指す相手のポケモンのもちもの名</comment>
+		<language name="日本語" width="96">[1:08:どうぐ名:5]</language>
+	</row>
+
+	<row id="mes_dstrade_05_13">
+		<comment>持ち物がないときの表記</comment>
+		<language name="日本語" width="96">なし</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

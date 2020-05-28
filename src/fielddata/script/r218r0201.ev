@@ -1,0 +1,144 @@
+//====================================================================
+//						r218r0201.gmm
+//							r0201
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r218r0201.h"
+	.include	"../eventdata/zone_r218r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r218r0201_policeman
+_EVENT_DATA		pos_r218r0201_zukan
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						　助手♂									*/
+/********************************************************************/
+#define	POS_R218R0201_ASSISTANTM_01			(6)
+#define	POS_R218R0201_ASSISTANTM_02			(7)
+
+pos_r218r0201_zukan:
+	_EVENT_START
+
+	//助手近寄りアニメ
+	_CALL			r218r0201_assistantm_anime_01
+
+	_PLAYER_NAME		0
+	_SUPPORT_NAME		1
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r218r0201_assistantm_01	//男
+	_JUMP							ev_r218r0201_assistantm_02	//女
+
+//男
+ev_r218r0201_assistantm_01:
+	_TALK_KEYWAIT		msg_r218r0201_assistantm_01
+	_JUMP				ev_r218r0201_assistantm_03
+
+//女
+ev_r218r0201_assistantm_02:
+	_TALK_KEYWAIT		msg_r218r0201_assistantm_02
+	_JUMP				ev_r218r0201_assistantm_03
+
+//パワーアップ
+ev_r218r0201_assistantm_03:
+	_TALK_KEYWAIT			msg_r218r0201_assistantm_03
+	_TALK_CLOSE
+
+	//図鑑パワーアップ♂♀追加
+	_ZUKAN_SEX_VER_UP
+
+	//助手遠ざかる
+	_CALL			r218r0201_assistantm_anime_02
+
+	_FLAG_SET			FV_R218R0201_ASSISTANTM
+	_OBJ_DEL			R218R0201_ASSI
+
+	_LDVAL				WK_SCENE_R218R0201_ZUKAN,1
+
+	_EVENT_END
+	_END
+
+
+//助手近寄りアニメ
+r218r0201_assistantm_anime_01:
+	//プレイヤーの位置算出
+	_PLAYER_POS_GET	SCWK_TEMP1,SCWK_TEMP2
+	_IFVAL_JUMP		SCWK_TEMP2,EQ,POS_R218R0201_ASSISTANTM_01,r218r0201_assistant_move_in_01
+	_JUMP													r218r0201_assistant_move_in_02
+
+r218r0201_assistant_move_in_01:
+	_OBJ_ANIME		R218R0201_ASSI,anm_r218r0201_assistantm_in_01
+	_OBJ_ANIME_WAIT
+	_RET
+
+r218r0201_assistant_move_in_02:
+	_OBJ_ANIME		R218R0201_ASSI,anm_r218r0201_assistantm_in_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+//助手立ち去りアニメ
+r218r0201_assistantm_anime_02:
+	//プレイヤーの位置算出
+	_PLAYER_POS_GET	SCWK_TEMP1,SCWK_TEMP2
+	_IFVAL_JUMP		SCWK_TEMP2,EQ,POS_R218R0201_ASSISTANTM_01,r218r0201_assistant_move_out_01
+	_JUMP													r218r0201_assistant_move_out_02
+
+r218r0201_assistant_move_out_01:
+	_OBJ_ANIME		R218R0201_ASSI,anm_r218r0201_assistantm_out_01
+	_OBJ_ANIME_WAIT
+	_RET
+
+r218r0201_assistant_move_out_02:
+	_OBJ_ANIME		R218R0201_ASSI,anm_r218r0201_assistantm_out_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+//====================================================================
+//
+//		anime
+//
+//====================================================================
+//アシスタント近寄る
+_ANIME_LABEL anm_r218r0201_assistantm_in_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r218r0201_assistantm_in_02
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//アシスタント去る
+_ANIME_LABEL anm_r218r0201_assistantm_out_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_r218r0201_assistantm_out_02
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*							おまわりさん							*/
+/********************************************************************/
+ev_r218r0201_policeman:
+	_EASY_OBJ_MSG	msg_r218r0201_policeman_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

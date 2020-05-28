@@ -1,0 +1,275 @@
+//====================================================================
+//								c01r0208
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0208.h"
+	.include	"../eventdata/zone_c01r0208evc.h"
+	.include	"../eventdata/zone_c01r0204evd.h"
+	.include	"../eventdata/zone_c01r0203evd.h"
+	.include	"../eventdata/zone_c01r0202evd.h"
+	.include	"../eventdata/zone_c01r0201evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01r0208_counterw
+_EVENT_DATA_END
+
+
+/********************************************************************/
+//						エレベーターガール
+/********************************************************************/
+ev_c01r0208_counterw:
+	_TALK_OBJ_START
+
+	//特殊接続先から、現在のフロアナンバーを取得
+	_ELEVATOR_FLOOR_GET	WK_ELEVATOR_FLOOR
+
+	//「○かい」文字列セット
+	_SWITCH			WK_ELEVATOR_FLOOR
+	_CASE_JUMP		FLOOR_C01R0208_4F,case4_c01r0208_elevator_01
+	_CASE_JUMP		FLOOR_C01R0208_3F,case3_c01r0208_elevator_01
+	_CASE_JUMP		FLOOR_C01R0208_2F,case2_c01r0208_elevator_01
+	_CASE_JUMP		FLOOR_C01R0208_1F,case1_c01r0208_elevator_01
+	_END
+
+//--------------------------------------------------------------------
+//「○かい」文字列セット
+//--------------------------------------------------------------------
+case4_c01r0208_elevator_01:
+	_NUMBER_NAME	0,4
+	_JUMP			ev_c01r0208_elevator_02
+	_END
+
+case3_c01r0208_elevator_01:
+	_NUMBER_NAME	0,3
+	_JUMP			ev_c01r0208_elevator_02
+	_END
+
+case2_c01r0208_elevator_01:
+	_NUMBER_NAME	0,2
+	_JUMP			ev_c01r0208_elevator_02
+	_END
+
+case1_c01r0208_elevator_01:
+	_NUMBER_NAME	0,1
+	_JUMP			ev_c01r0208_elevator_02
+	_END
+
+//--------------------------------------------------------------------
+//	現在のフロアを出す
+//--------------------------------------------------------------------
+ev_c01r0208_elevator_02:
+	_ELEVATOR_FLOOR_WRITE	20,1,WK_ELEVATOR_FLOOR
+
+	//「なんかいへいきますか？」
+	_TALKMSG		msg_c01r0208_counterw_01
+	
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_116,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_115,1
+	_BMPMENU_MAKE_LIST	msg_ev_win_114,2
+	_BMPMENU_MAKE_LIST	msg_ev_win_113,3
+	_BMPMENU_MAKE_LIST	msg_ev_win_121,4
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,case1_c01r0208_elevator_02
+	_CASE_JUMP		1,case2_c01r0208_elevator_02
+	_CASE_JUMP		2,case3_c01r0208_elevator_02
+	_CASE_JUMP		3,case4_c01r0208_elevator_02
+	_JUMP			cancel_c01r0208_elevator_01
+	_END
+
+//--------------------------------------------------------------------
+//	選んだフロアによって分岐
+//--------------------------------------------------------------------
+case4_c01r0208_elevator_02:
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	//特殊接続先から、現在のフロアナンバーを取得
+	_ELEVATOR_FLOOR_GET	WK_ELEVATOR_FLOOR
+
+	/*特殊接続先をセット*/
+	_SP_LOCATION_SET	ZONE_ID_C01R0201,C01R0201_DOOR01,18,2,DIR_DOWN
+
+	/*同じ階を選択しているかチェック*/
+	_IFVAL_JUMP		WK_ELEVATOR_FLOOR,EQ,FLOOR_C01R0208_1F,end_c01r0208_elevator_01
+
+	/*ここを判別しないとダメ*/
+	_IFVAL_CALL		WK_ELEVATOR_FLOOR,GT,FLOOR_C01R0208_1F,common_c01r0208_elevator_dir_up
+	_IFVAL_CALL		WK_ELEVATOR_FLOOR,LT,FLOOR_C01R0208_1F,common_c01r0208_elevator_dir_down
+
+	_CALL			common_c01r0208_01
+
+	//移動した階を代入
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_C01R0208_1F
+
+	_JUMP			ev_c01r0208_elevator_03
+	_END
+
+case3_c01r0208_elevator_02:
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	//特殊接続先から、現在のフロアナンバーを取得
+	_ELEVATOR_FLOOR_GET	WK_ELEVATOR_FLOOR
+
+	/*特殊接続先をセット*/
+	_SP_LOCATION_SET	ZONE_ID_C01R0202,C01R0202_DOOR01,18,2,DIR_DOWN
+
+	/*同じ階を選択しているかチェック*/
+	_IFVAL_JUMP		WK_ELEVATOR_FLOOR,EQ,FLOOR_C01R0208_2F,end_c01r0208_elevator_01
+
+	/*ここを判別しないとダメ*/
+	_IFVAL_CALL		WK_ELEVATOR_FLOOR,GT,FLOOR_C01R0208_2F,common_c01r0208_elevator_dir_up
+	_IFVAL_CALL		WK_ELEVATOR_FLOOR,LT,FLOOR_C01R0208_2F,common_c01r0208_elevator_dir_down
+
+	_CALL			common_c01r0208_01
+
+	//移動した階を代入
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_C01R0208_2F
+
+	_JUMP			ev_c01r0208_elevator_03
+	_END
+
+case2_c01r0208_elevator_02:
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	//特殊接続先から、現在のフロアナンバーを取得
+	_ELEVATOR_FLOOR_GET	WK_ELEVATOR_FLOOR
+
+	/*特殊接続先をセット*/
+	_SP_LOCATION_SET	ZONE_ID_C01R0203,C01R0203_DOOR03,18,2,DIR_DOWN
+
+	/*同じ階を選択しているかチェック*/
+	_IFVAL_JUMP		WK_ELEVATOR_FLOOR,EQ,FLOOR_C01R0208_3F,end_c01r0208_elevator_01
+
+	/*ここを判別しないとダメ*/
+	_IFVAL_CALL		WK_ELEVATOR_FLOOR,GT,FLOOR_C01R0208_3F,common_c01r0208_elevator_dir_up
+	_IFVAL_CALL		WK_ELEVATOR_FLOOR,LT,FLOOR_C01R0208_3F,common_c01r0208_elevator_dir_down
+
+	_CALL			common_c01r0208_01
+
+	//移動した階を代入
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_C01R0208_3F
+
+	_JUMP			ev_c01r0208_elevator_03
+	_END
+
+case1_c01r0208_elevator_02:
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	//特殊接続先から、現在のフロアナンバーを取得
+	_ELEVATOR_FLOOR_GET	WK_ELEVATOR_FLOOR
+
+	/*特殊接続先をセット*/
+	_SP_LOCATION_SET	ZONE_ID_C01R0204,C01R0204_DOOR01,18,2,DIR_DOWN
+
+	/*同じ階を選択しているかチェック*/
+	_IFVAL_JUMP		WK_ELEVATOR_FLOOR,EQ,FLOOR_C01R0208_4F,end_c01r0208_elevator_01
+
+	/*ここを判別しないとダメ*/
+	_IFVAL_CALL		WK_ELEVATOR_FLOOR,GT,FLOOR_C01R0208_4F,common_c01r0208_elevator_dir_up
+	_IFVAL_CALL		WK_ELEVATOR_FLOOR,LT,FLOOR_C01R0208_4F,common_c01r0208_elevator_dir_down
+
+	_CALL			common_c01r0208_01
+
+	//移動した階を代入
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_C01R0208_4F
+
+	_JUMP			ev_c01r0208_elevator_03
+	_END
+
+/*行き先方向をセット*/
+common_c01r0208_elevator_dir_up:
+	_TALK_KEYWAIT	msg_c01r0208_counterw_03
+	_LDVAL			SCWK_TEMP0,DIR_UP
+	_RET
+
+common_c01r0208_elevator_dir_down:
+	_TALK_KEYWAIT	msg_c01r0208_counterw_04
+	_LDVAL			SCWK_TEMP0,DIR_DOWN
+	_RET
+
+//--------------------------------------------------------------------
+//	エレベータ演出
+//--------------------------------------------------------------------
+common_c01r0208_01:
+	//移動演出の前に現在のフロアウィンドウを削除
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_NOTHING
+
+	_TALK_CLOSE
+
+	//エレベータガールが下を向く
+	_OBJ_ANIME	C01R0208_WOMAN6_01,anm_c01r0208_turn_d
+	_OBJ_ANIME_WAIT
+
+	//選択音の終了待ち
+	_SE_WAIT		SEQ_SE_DP_SELECT
+	_ELEVATOR_ANM	SCWK_TEMP0,C01R0208_ELEVATOR_LOOP
+
+	_RET
+
+//--------------------------------------------------------------------
+//	エレベータ演出後、終了
+//--------------------------------------------------------------------
+ev_c01r0208_elevator_03:
+	_TALKMSG		msg_c01r0208_counterw_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//	同じ階を選択して終了
+//--------------------------------------------------------------------
+end_c01r0208_elevator_01:
+	//移動演出の前に現在のフロアウィンドウを削除
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_NOTHING
+
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	_TALKMSG		msg_c01r0208_counterw_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//	やめる
+//--------------------------------------------------------------------
+cancel_c01r0208_elevator_01:
+	//移動演出の前に現在のフロアウィンドウを削除
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_NOTHING
+
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	_TALKMSG		msg_c01r0208_counterw_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01r0208_turn_d
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+
+

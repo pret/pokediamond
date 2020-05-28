@@ -1,0 +1,147 @@
+//====================================================================
+//								c07r0401
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c07r0401.h"
+	//.include	"../eventdata/zone_c07r0401evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c07r0401_woman6
+_EVENT_DATA		ev_c07r0401_man2
+_EVENT_DATA		ev_c07r0401_oldman2
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							受付嬢		　							*/
+/********************************************************************/
+ev_c07r0401_woman6:
+	_TALK_OBJ_START
+
+	_LDVAL	LOCALWORK1,19	//リスト上限値代入
+
+	_TALK_KEYWAIT	msg_c07r0401_woman6_01
+
+	_COIN_WIN_WRITE		21,1
+
+	_JUMP		ev_c07r0401_woman6_02
+
+//
+ev_c07r0401_woman6_02:
+	_TALK_KEYWAIT	msg_c07r0401_woman6_02
+
+	_CALL			ev_exchange_menu_write
+
+	//キャンセルが選ばれていたら終わる
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,EV_WIN_B_CANCEL,ev_coingift_end
+	_IFWK_JUMP		SCWK_ANSWER,EQ,LOCALWORK1,ev_coingift_end
+
+	_GET_COIN_GIFT	SCWK_ANSWER,SCWK_PARAM0,SCWK_PARAM1
+
+	//？でよろしいですか？
+	_IFVAL_CALL		SCWK_PARAM0,LT,ITEM_WAZAMASIN01,ev_exchange_item_select_check01
+	_IFVAL_CALL		SCWK_PARAM0,GE,ITEM_WAZAMASIN01,ev_exchange_item_select_check02	//ワザマシンは以降は大切なアイテムしかないのでOK
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c07r0401_woman6_02	//いいえのときは戻る形へ変更(060630森本さん要望)
+
+	_COMP_WK_COIN	SCWK_ANSWER,SCWK_PARAM1
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c07r0401_woman6_05	//コインが足らない
+
+	//バッグに入るか？
+	_ADD_ITEM_CHK	SCWK_PARAM0,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c07r0401_woman6_06	//バッグに空きがない
+
+	_TALK_KEYWAIT	msg_c07r0401_woman6_04
+
+	_ADD_ITEM		SCWK_PARAM0,1,SCWK_ANSWER
+
+	_SUB_WK_COIN	SCWK_PARAM1
+	_COIN_WRITE
+
+	_SE_PLAY		SEQ_SE_DP_REGI
+	_SE_WAIT		SEQ_SE_DP_REGI
+
+	_JUMP		ev_c07r0401_woman6_02
+
+
+//いいえorCancel
+ev_coingift_end:
+	_TALKMSG	msg_c07r0401_woman6_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_COIN_WIN_DEL
+
+	_TALK_OBJ_END
+	_END
+
+//ポケットがいっぱい
+ev_c07r0401_woman6_06:
+	_ITEM_NAME	0,SCWK_PARAM0
+	_TALKMSG	msg_c07r0401_woman6_06
+	_JUMP		ev_c07r0401_woman6_02
+
+//コインが足らない
+ev_c07r0401_woman6_05:
+	_TALKMSG	msg_c07r0401_woman6_05
+	_JUMP		ev_c07r0401_woman6_02
+
+//選んだアイテムの確認メッセージ
+ev_exchange_item_select_check01:
+	_ITEM_NAME		0,SCWK_PARAM0
+	_TALKMSG		msg_c07r0401_woman6_03
+	_RET
+ev_exchange_item_select_check02:
+	_ITEM_NAME			0,SCWK_PARAM0
+	_ITEM_WAZA_NAME		1,SCWK_PARAM0
+	_TALKMSG		msg_c07r0401_woman6_08
+	_RET
+
+
+//交換アイテムメニューリスト描画 LOCALWORK0にリストIDを代入して呼ぶ
+ev_exchange_menu_write:
+	_LDVAL	SCWK_REG0,0
+	_LDVAL	SCWK_REG1,0
+	_BMPLIST_INIT	1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+
+ev_exchange_menu_make_start:
+	_GET_COIN_GIFT			SCWK_REG0,SCWK_PARAM0,SCWK_PARAM1
+	_ITEM_NAME				0,SCWK_PARAM0
+	_NUMBER_NAME_EX			1,SCWK_PARAM1,1,5
+	_BMPLIST_MAKE_LIST		msg_exchange_01,EV_WIN_TALK_MSG_NONE,SCWK_REG0
+	_ADD_WK					SCWK_REG0,1
+	_IFWK_JUMP				SCWK_REG0,LT,LOCALWORK1,ev_exchange_menu_make_start
+
+ev_exchange_menu_make_end:
+	//やめるを追加
+	_BMPLIST_MAKE_LIST		msg_exchange_02,EV_WIN_TALK_MSG_NONE,SCWK_REG0
+	//bmpリストスタート
+	_BMPLIST_START
+	_RET
+
+
+
+/********************************************************************/
+/*							不良		　							*/
+/********************************************************************/
+ev_c07r0401_man2:
+	_EASY_OBJ_MSG	msg_c07r0401_man2_01
+	_END
+
+/********************************************************************/
+/*						洋風爺さん		　							*/
+/********************************************************************/
+ev_c07r0401_oldman2:
+	_EASY_OBJ_MSG	msg_c07r0401_oldman2_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

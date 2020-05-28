@@ -1,0 +1,11 @@
+#ifndef _C05GYM0108_DEF_H_
+#define _C05GYM0108_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_C05GYM0108_FLAG_CHANGE		(1)
+#define	SCRID_POS_C05GYM0108_LIFT		(2)
+#define	SCRID_C05GYM0108_ANS		(3)
+#define	SCRID_C05GYM0108_QUESTION		(4)
+#define	SCRID_C05GYM0108_DATA_MAX		(4)		//最大数
+
+#endif //_C05GYM0108_DEF_H_

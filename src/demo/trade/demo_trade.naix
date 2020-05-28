@@ -1,0 +1,45 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: demo_trade.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-26T12:08:42
+ *****************************************************************************/
+
+#ifndef NARC_DEMO_TRADE_NAIX_
+#define NARC_DEMO_TRADE_NAIX_
+
+enum {
+	NARC_demo_trade_scene1_ds_lz_nscr = 0,
+	NARC_demo_trade_scene5_ds_lz_nscr = 1,
+	NARC_demo_trade_ds_lz_ncgr = 2,
+	NARC_demo_trade_ds_nclr = 3,
+	NARC_demo_trade_wave_lz_nscr = 4,
+	NARC_demo_trade_wave_lz_ncgr = 5,
+	NARC_demo_trade_wave_nclr = 6,
+	NARC_demo_trade_trade01_lz_ncer = 7,
+	NARC_demo_trade_trade01_lz_nanr = 8,
+	NARC_demo_trade_trade_obj01_lz_ncgr = 9,
+	NARC_demo_trade_trade_obj01_nclr = 10,
+	NARC_demo_trade_trade02_lz_ncer = 11,
+	NARC_demo_trade_trade02_lz_nanr = 12,
+	NARC_demo_trade_trade_obj02_lz_ncgr = 13,
+	NARC_demo_trade_trade_obj02_nclr = 14,
+	NARC_demo_trade_sky_lz_nscr = 15,
+	NARC_demo_trade_sky_lz_ncgr = 16,
+	NARC_demo_trade_sky_nclr = 17,
+	NARC_demo_trade_cross_lz_nscr = 18,
+	NARC_demo_trade_cross_lz_ncgr = 19,
+	NARC_demo_trade_cross_nclr = 20,
+	NARC_demo_trade_dark_lz_nscr = 21,
+	NARC_demo_trade_dark_lz_ncgr = 22,
+	NARC_demo_trade_dark_nclr = 23,
+	NARC_demo_trade_tube_lz_nscr = 24,
+	NARC_demo_trade_tube_lz_ncgr = 25,
+	NARC_demo_trade_tube_nclr = 26,
+	NARC_demo_trade_trade_psel_nsbmd = 27
+};
+
+/* NARC_DEMO_TRADE_NAIX_ */
+#endif

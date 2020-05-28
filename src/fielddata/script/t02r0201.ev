@@ -1,0 +1,139 @@
+//====================================================================
+//						t02r0201.gmm
+//						　r0201
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t02r0201.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+
+_EVENT_DATA		ev_t02r0201_oldman1a
+_EVENT_DATA		ev_t02r0201_babygirl
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						老人										*/
+/********************************************************************/
+ev_t02r0201_oldman1a:
+	_TALK_OBJ_START
+	
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t02r0201_oldman1a_02
+
+	_TALKMSG		msg_t02r0201_oldman1a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*全国図鑑になっていたら*/
+ev_t02r0201_oldman1a_02:
+	_TALKMSG		msg_t02r0201_oldman1a_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						サポート妹									*/
+/********************************************************************/
+ev_t02r0201_babygirl:
+	_TALK_OBJ_START
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t02r0201_babygirl_02
+
+	_JUMP			ev_t02r0201_babygirl_90
+
+ev_t02r0201_babygirl_90:
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02r0201_player_male_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t02r0201_player_female_01
+	_END
+
+t02r0201_player_male_01:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t02r0201_babygirl_01
+	_JUMP			common_t02r0201_player_01
+
+t02r0201_player_female_01:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t02r0201_babygirl_02
+	_JUMP			common_t02r0201_player_01
+
+/*共通処理*/
+common_t02r0201_player_01:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+/*全国図鑑になっていたら*/
+//--------------------------------------------------------------------
+ev_t02r0201_babygirl_02:
+
+	/*ゲームクリアしていなかったら*/
+	_IF_FLAGOFF_JUMP	SYS_FLAG_GAME_CLEAR,ev_t02r0201_babygirl_90
+
+	/*すでに大量発生していたら*/
+	_IF_FLAGON_JUMP	FE_GENERATE_START,ev_t02r0201_babygirl_02_start
+
+	_FLAG_SET		FE_GENERATE_START
+
+	/*大量発生開始*/
+	_START_GENERATE
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t02r0201_babygirl_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+/*すでに大量発生していたら*/
+//--------------------------------------------------------------------
+ev_t02r0201_babygirl_02_start:
+	_PLAYER_NAME	0
+
+	_GENERATE_INFO_GET	LOCALWORK1,LOCALWORK0
+	_ZONE_NAME		1,LOCALWORK1
+
+	_POKEMON_NAME_EXTRA	2,LOCALWORK0,PM_MALE,TRUE
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02r0201_player_male_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t02r0201_player_female_02
+	_END
+
+t02r0201_player_male_02:
+	_TALKMSG		msg_t02r0201_babygirl_04
+	_JUMP			common_t02r0201_player_02
+
+t02r0201_player_female_02:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t02r0201_babygirl_05
+	_JUMP			common_t02r0201_player_02
+
+/*共通処理*/
+common_t02r0201_player_02:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+
+

@@ -1,0 +1,16 @@
+.cvsignore
+*.txt
+*.csv
+fish
+fish_point
+honey_dia_nrm
+honey_dia_rare
+honey_dia_s_rare
+honey_perl_nrm
+honey_perl_rare
+honey_perl_s_rare
+mnt_af
+mnt_bef
+safari_af
+safari_bef
+

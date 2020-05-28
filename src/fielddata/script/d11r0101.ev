@@ -1,0 +1,1034 @@
+//====================================================================
+//								d11r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d11r0101.h"
+	.include	"../eventdata/zone_d11r0101evc.h"
+
+	.include	"../../field/scr_tv.h"
+
+
+//============================================================================================
+//		連れ歩き公園用テレビコマンド
+//		※ここでしか使用しないのでscr_seq_def.hでなくここで定義
+//============================================================================================
+//-----------------------------------------------------------------------------
+/**
+ * テレビトピック・連れ歩き公園インタビュー初期化
+ */
+//-----------------------------------------------------------------------------
+	.macro	_TV_ENTRY_PARKINFO_INIT		wk
+	.short	EV_SEQ_TV_ENTRY_PARKINFO
+	.short	TV_ENTRYPARK_CMD_INIT
+	.short	\wk
+	.endm
+
+//-----------------------------------------------------------------------------
+//テレビトピック・連れ歩き公園インタビュー・どうぐ登録
+//-----------------------------------------------------------------------------
+	.macro	_TV_ENTRY_PARKINFO_ITEM		wk
+	.short	EV_SEQ_TV_ENTRY_PARKINFO
+	.short	TV_ENTRYPARK_CMD_ITEM
+	.short	\wk
+	.endm
+
+//-----------------------------------------------------------------------------
+//テレビトピック・連れ歩き公園インタビュー・アクセサリ登録
+//-----------------------------------------------------------------------------
+	.macro	_TV_ENTRY_PARKINFO_ACCE		wk
+	.short	EV_SEQ_TV_ENTRY_PARKINFO
+	.short	TV_ENTRYPARK_CMD_ACCE
+	.short	\wk
+	.endm
+
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d11r0101_flag_change
+_EVENT_DATA		pos_d11r0101_info_01
+_EVENT_DATA		pos_d11r0101_info_02
+_EVENT_DATA		pos_d11r0101_info_03
+_EVENT_DATA		pos_d11r0101_info_04
+_EVENT_DATA		ev_d11r0101_pikachu
+_EVENT_DATA		ev_d11r0101_atyamo
+_EVENT_DATA		ev_d11r0101_pippi
+_EVENT_DATA		ev_d11r0101_kodakku
+_EVENT_DATA		ev_d11r0101_patirissu
+_EVENT_DATA		ev_d11r0101_huusen
+_EVENT_DATA		ev_d11r0101_mimitto
+_EVENT_DATA		ev_d11r0101_korakkii
+_EVENT_DATA		ev_d11r0101_purin
+_EVENT_DATA		ev_d11r0101_eneko
+_EVENT_DATA		ev_d11r0101_kinokoko
+_EVENT_DATA		ev_d11r0101_info_girl_01
+_EVENT_DATA		ev_d11r0101_info_girl_02
+_EVENT_DATA		ev_d11r0101_man1
+_EVENT_DATA		ev_d11r0101_balloon
+_EVENT_DATA		ev_d11r0101_woman1
+_EVENT_DATA		ev_d11r0101_kolucky
+_EVENT_DATA		ev_d11r0101_bigman
+_EVENT_DATA		ev_d11r0101_pikachub
+_EVENT_DATA		ev_d11r0101_babygirl1
+_EVENT_DATA		ev_d11r0101_pippib
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d11r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D11R0101	//到着
+
+	/*ふれあい広場*/
+	_FLAG_SET		FV_D11R0101_PIKACHU
+	_FLAG_SET		FV_D11R0101_ATYAMO
+	_FLAG_SET		FV_D11R0101_PIPPI
+	_FLAG_SET		FV_D11R0101_KODAKKU
+	_FLAG_SET		FV_D11R0101_PATIRISSU
+	_FLAG_SET		FV_D11R0101_HUUSEN
+	_FLAG_SET		FV_D11R0101_MIMITTO
+	_FLAG_SET		FV_D11R0101_KORAKII
+	_FLAG_SET		FV_D11R0101_PURIN
+	_FLAG_SET		FV_D11R0101_ENEKO
+	_FLAG_SET		FV_D11R0101_KINOKOKO
+	_END
+
+
+/********************************************************************/
+/*						入ったとき									*/
+/*		SCWK_PARAM0		選んだポケモンナンバー						*/
+/*		SCWK_PARAM1		入った入り口（左:1、右2）					*/
+/*		SCWK_PARAM2		オブジェ番号								*/
+/*																	*/
+/*																	*/
+/********************************************************************/
+pos_d11r0101_info_01:
+	_EVENT_START
+
+	_LDVAL			SCWK_PARAM1,1		//左ゲート
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d11r0101_player_turn_left
+	_OBJ_ANIME_WAIT
+	_JUMP			ev_d11r0101_info_01
+
+pos_d11r0101_info_03:
+	_EVENT_START
+
+	_LDVAL			SCWK_PARAM1,2		//右ゲート
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d11r0101_player_turn_right
+	_OBJ_ANIME_WAIT
+	_JUMP			ev_d11r0101_info_01
+
+
+
+ev_d11r0101_info_01:
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d11r0101_info_zunkoku_zukan_mode_mons_check
+	_JUMP							ev_d11r0101_info_shinou_zukan_mode_mons_check
+
+//全国図鑑モード前
+ev_d11r0101_info_shinou_zukan_mode_mons_check:
+	_LDVAL				LOCALWORK0,0		//モード０（シンオウ）
+
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_PIKATYUU
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_PIPPI
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_KODAKKU
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_PATIRISSU
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_HUUSEN
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_MIMITTO
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_KORAKKII
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	
+	_TALK_KEYWAIT		msg_d11r0101_info_01
+	_TALK_CLOSE
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d11r0101_player_down
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+
+//全国図鑑モード後
+ev_d11r0101_info_zunkoku_zukan_mode_mons_check:
+	_LDVAL				LOCALWORK0,1		//モード1（全国）
+
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_PIKATYUU
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_PIPPI
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_KODAKKU
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_PATIRISSU
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_HUUSEN
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_MIMITTO
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_KORAKKII
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_PURIN
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_ATYAMO
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_ENEKO
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_KINOKOKO
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,ev_d11r0101_info_03
+	
+	_TALK_KEYWAIT		msg_d11r0101_info_02
+	_TALK_CLOSE
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d11r0101_player_down
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+//-----------------------------------------------------------
+
+ev_d11r0101_info_03:
+	//手持ちポケモンサーチ用		0=先頭
+	_LDVAL				LOCALWORK10,0
+
+	//ポケモン数ゲット
+	_GET_POKE_COUNT		LOCALWORK11
+
+	//連れ歩けるポケモンの何番目か
+	_LDVAL				LOCALWORK12,0
+d11r0101_ture_loop:
+
+	_TEMOTI_MONSNO	LOCALWORK10,SCWK_ANSWER		//0==tamago
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,d11r0101_ture_skip_01
+
+	_IFVAL_CALL		LOCALWORK0,EQ,0,d11r0101_shinou_ture_check
+	_IFVAL_CALL		LOCALWORK0,EQ,1,d11r0101_zenkoku_ture_check
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,d11r0101_ture_skip_01
+
+	_NICK_NAME		0,LOCALWORK10
+
+	_IFVAL_JUMP		LOCALWORK12,EQ,0,d11r0101_ture_first
+	_JUMP							d11r0101_ture_other
+
+d11r0101_ture_first:
+	_ADD_WK			LOCALWORK12,1
+
+	_TALKMSG		msg_d11r0101_info_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d11r0101_info_13			//はい
+	_JUMP							d11r0101_ture_skip_01			//いいえ
+
+d11r0101_ture_other:
+	_ADD_WK			LOCALWORK12,1
+
+	_TALKMSG		msg_d11r0101_info_04
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d11r0101_info_13			//はい
+	_JUMP							d11r0101_ture_skip_01			//いいえ
+
+d11r0101_ture_skip_01:
+	_ADD_WK			LOCALWORK10,1
+	_SUB_WK			LOCALWORK11,1
+	_IFVAL_JUMP		LOCALWORK11,NE,0,d11r0101_ture_loop	//手持ちポケモン数分サーチ
+
+	//該当を全て表示した
+
+	_TALK_KEYWAIT		msg_d11r0101_info_05
+	_TALK_CLOSE
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d11r0101_player_down
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+
+//-----------------------------------------------------------
+//連れて行けるポケモンかチェック
+//IN LOCALWORK10 == 手持ち番号
+//OUT SCWK_ANSWER == 0:該当せず 1:該当する
+
+d11r0101_shinou_ture_check:
+	_TEMOTI_MONSNO	LOCALWORK10,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_PIKATYUU,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_PIPPI,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_KODAKKU,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_PATIRISSU,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_HUUSEN,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_MIMITTO,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_KORAKKII,d11r0101_shinou_ture_check_hit
+	_LDVAL		SCWK_ANSWER,0
+	_RET
+
+d11r0101_shinou_ture_check_hit:
+	_LDVAL		SCWK_ANSWER,1
+	_RET
+
+d11r0101_zenkoku_ture_check:
+	_TEMOTI_MONSNO	LOCALWORK10,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_PIKATYUU,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_PIPPI,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_KODAKKU,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_PATIRISSU,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_HUUSEN,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_MIMITTO,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_KORAKKII,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_PURIN,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_ATYAMO,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_ENEKO,d11r0101_shinou_ture_check_hit
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,MONSNO_KINOKOKO,d11r0101_shinou_ture_check_hit
+	_LDVAL		SCWK_ANSWER,0
+	_RET
+
+d11r0101_zenkoku_ture_check_hit:
+	_LDVAL		SCWK_ANSWER,1
+	_RET
+
+//-----------------------------------------------------------
+
+//選択後
+ev_d11r0101_info_13:
+	_PC_KAIFUKU		//毒などの状態で連れ歩けるのは問題なので
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_LDWK			WK_SCENE_D11R0101_TNO,LOCALWORK10		//手持ち番号を保存（連れ歩きのニックネーム取得用）
+	_TEMOTI_MONSNO	LOCALWORK10,WK_SCENE_D11R0101_MONSNO	//モンスター番号に変換。ポケモン番号保存
+
+	_SWITCH		WK_SCENE_D11R0101_MONSNO
+	_CASE_JUMP		MONSNO_PIKATYUU,ev_d11r0101_info_select_pika
+	_CASE_JUMP		MONSNO_ATYAMO,ev_d11r0101_info_select_atyamo
+	_CASE_JUMP		MONSNO_PIPPI,ev_d11r0101_info_select_pippi
+	_CASE_JUMP		MONSNO_KODAKKU,ev_d11r0101_info_select_kodakku
+	_CASE_JUMP		MONSNO_PATIRISSU,ev_d11r0101_info_select_patirissu
+	_CASE_JUMP		MONSNO_HUUSEN,ev_d11r0101_info_select_huusen
+	_CASE_JUMP		MONSNO_MIMITTO,ev_d11r0101_info_select_mimitto
+	_CASE_JUMP		MONSNO_KORAKKII,ev_d11r0101_info_select_korakkii
+	_CASE_JUMP		MONSNO_PURIN,ev_d11r0101_info_select_purin
+	_CASE_JUMP		MONSNO_ENEKO,ev_d11r0101_info_select_eneko
+	_CASE_JUMP		MONSNO_KINOKOKO,ev_d11r0101_info_select_kinokoko
+
+	//※念のための処理（通常ここにくることはありえません）
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_END
+
+/*ピカチュウ選択時*/
+ev_d11r0101_info_select_pika:
+	_LDVAL			SCWK_PARAM2,D11R0101_PIKACHU
+	_FLAG_RESET		FV_D11R0101_PIKACHU
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*アチャモ選択時*/
+ev_d11r0101_info_select_atyamo:
+	_LDVAL			SCWK_PARAM2,D11R0101_ATYAMO
+	_FLAG_RESET		FV_D11R0101_ATYAMO
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*ピッピ選択時*/
+ev_d11r0101_info_select_pippi:
+	_LDVAL			SCWK_PARAM2,D11R0101_PIPPI
+	_FLAG_RESET		FV_D11R0101_PIPPI
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*コダック選択時*/
+ev_d11r0101_info_select_kodakku:
+	_LDVAL			SCWK_PARAM2,D11R0101_KODAKKU
+	_FLAG_RESET		FV_D11R0101_KODAKKU
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*パチリッス選択時*/
+ev_d11r0101_info_select_patirissu:
+	_LDVAL			SCWK_PARAM2,D11R0101_PATIRISSU
+	_FLAG_RESET		FV_D11R0101_PATIRISSU
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*フーセン選択時*/
+ev_d11r0101_info_select_huusen:
+	_LDVAL			SCWK_PARAM2,D11R0101_HUUSEN
+	_FLAG_RESET		FV_D11R0101_HUUSEN
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*ミミット選択時*/
+ev_d11r0101_info_select_mimitto:
+	_LDVAL			SCWK_PARAM2,D11R0101_MIMITTO
+	_FLAG_RESET		FV_D11R0101_MIMITTO
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*コラッキー選択時*/
+ev_d11r0101_info_select_korakkii:
+	_LDVAL			SCWK_PARAM2,D11R0101_KORAKII
+	_FLAG_RESET		FV_D11R0101_KORAKII
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*プリン選択時*/
+ev_d11r0101_info_select_purin:
+	_LDVAL			SCWK_PARAM2,D11R0101_PURIN
+	_FLAG_RESET		FV_D11R0101_PURIN
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*エネコ選択時*/
+ev_d11r0101_info_select_eneko:
+	_LDVAL			SCWK_PARAM2,D11R0101_ENEKO
+	_FLAG_RESET		FV_D11R0101_ENEKO
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+/*キノココ選択時*/
+ev_d11r0101_info_select_kinokoko:
+	_LDVAL			SCWK_PARAM2,D11R0101_KINOKOKO
+	_FLAG_RESET		FV_D11R0101_KINOKOKO
+	_JUMP			ev_d11r0101_gate_in_common_01
+
+
+ev_d11r0101_gate_in_common_01:
+	_OBJ_ADD		SCWK_PARAM2
+
+	_IFVAL_CALL		SCWK_PARAM1,EQ,1,ev_d11r0101_left_gate_01
+	_IFVAL_CALL		SCWK_PARAM1,EQ,2,ev_d11r0101_right_gate_01
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_LDVAL			WK_SCENE_D11R0101,1
+
+	//歩数カウントクリア
+	_NATURAL_PARK_WALK_COUNT_CLEAR
+
+	//プレゼント番号セット
+	_CALL			ev_d11r0101_mons_present_no_set
+
+	//連れ歩き公園用テレビトピック生成
+	_TV_ENTRY_PARKINFO_INIT		WK_SCENE_D11R0101_TNO
+	_TALK_KEYWAIT		msg_d11r0101_info_13
+	_TALK_CLOSE
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d11r0101_player_up
+	_OBJ_ANIME		SCWK_PARAM2,anm_d11r0101_player_up
+	_OBJ_ANIME_WAIT
+
+
+	_SYS_FLAG_PAIR_SET
+	_MOVE_CODE_CHANGE	SCWK_PARAM2,MV_PAIR
+
+	_EVENT_END
+	_END
+
+
+//左ゲート
+ev_d11r0101_left_gate_01:
+	_OBJ_POS_CHANGE	SCWK_PARAM2,12,2,47,DIR_LEFT
+	_RET
+
+//右ゲート
+ev_d11r0101_right_gate_01:
+	_OBJ_POS_CHANGE	SCWK_PARAM2,51,2,47,DIR_RIGHT
+	_RET
+
+
+ev_d11r0101_info_05:
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_KEYWAIT		msg_d11r0101_info_05
+	_TALK_CLOSE
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d11r0101_player_down
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+
+/********************************************************************/
+/*						戻ったとき(02,04共通）						*/
+/********************************************************************/
+pos_d11r0101_info_02:
+pos_d11r0101_info_04:
+	_EVENT_START
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_SYS_FLAG_PAIR_RESET
+
+	_SWITCH			WK_SCENE_D11R0101_MONSNO
+	_CASE_JUMP		MONSNO_PIKATYUU,ev_d11r0101_info_02_select_pika
+	_CASE_JUMP		MONSNO_ATYAMO,ev_d11r0101_info_02_select_atyamo
+	_CASE_JUMP		MONSNO_PIPPI,ev_d11r0101_info_02_select_pippi
+	_CASE_JUMP		MONSNO_KODAKKU,ev_d11r0101_info_02_select_kodakku
+	_CASE_JUMP		MONSNO_PATIRISSU,ev_d11r0101_info_02_select_patirissu
+	_CASE_JUMP		MONSNO_HUUSEN,ev_d11r0101_info_02_select_huusen
+	_CASE_JUMP		MONSNO_MIMITTO,ev_d11r0101_info_02_select_mimitto
+	_CASE_JUMP		MONSNO_KORAKKII,ev_d11r0101_info_02_select_korakii
+	_CASE_JUMP		MONSNO_PURIN,ev_d11r0101_info_02_select_purin
+	_CASE_JUMP		MONSNO_ENEKO,ev_d11r0101_info_02_select_eneko
+	_CASE_JUMP		MONSNO_KINOKOKO,ev_d11r0101_info_02_select_kinokoko
+	_END
+
+ev_d11r0101_info_02_select_pika:
+	_OBJ_DEL		D11R0101_PIKACHU
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_atyamo:
+	_OBJ_DEL		D11R0101_ATYAMO
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_pippi:
+	_OBJ_DEL	D11R0101_PIPPI
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_kodakku:
+	_OBJ_DEL	D11R0101_KODAKKU
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_patirissu:
+	_OBJ_DEL	D11R0101_PATIRISSU
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_huusen:
+	_OBJ_DEL	D11R0101_HUUSEN
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_mimitto:
+	_OBJ_DEL	D11R0101_MIMITTO
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_korakii:
+	_OBJ_DEL	D11R0101_KORAKII
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_purin:
+	_OBJ_DEL	D11R0101_PURIN
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_eneko:
+	_OBJ_DEL	D11R0101_ENEKO
+	_JUMP			common_pos_d11r0101_info_02
+
+ev_d11r0101_info_02_select_kinokoko:
+	_OBJ_DEL	D11R0101_KINOKOKO
+	_JUMP			common_pos_d11r0101_info_02
+
+
+
+common_pos_d11r0101_info_02:
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_LDVAL			WK_SCENE_D11R0101,0
+
+	_TALK_KEYWAIT		msg_d11r0101_info_06
+	_TALK_CLOSE
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d11r0101_player_down
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+
+//====================================================================
+//
+//		anime
+//
+//====================================================================
+//受付のほうへ向く
+_ANIME_LABEL anm_d11r0101_player_turn_left
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//受付のほうへ向く
+_ANIME_LABEL anm_d11r0101_player_turn_right
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+//下へ移動
+_ANIME_LABEL anm_d11r0101_player_down
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//上へ移動
+_ANIME_LABEL anm_d11r0101_player_up
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//主人公の下へ左を向いた状態で
+_ANIME_LABEL anm_d11r0101_poke_move_01
+	_ANIME_DATA	AC_WALK_D_1F,2
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*				各ポケモンに話しかけたとき							*/
+/********************************************************************/
+ev_d11r0101_pikachu:
+ev_d11r0101_atyamo:
+ev_d11r0101_pippi:
+ev_d11r0101_kodakku:
+ev_d11r0101_patirissu:
+ev_d11r0101_huusen:
+ev_d11r0101_mimitto:
+ev_d11r0101_korakkii:
+ev_d11r0101_purin:
+ev_d11r0101_eneko:
+ev_d11r0101_kinokoko:
+
+	_TALK_OBJ_START
+
+	/*ニックネームセット*/
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	/*歩数チェック*/	
+	_NATURAL_PARK_WALK_COUNT_GET	SCWK_ANSWER
+	/*200歩以上*/
+	_IFVAL_JUMP		SCWK_ANSWER,GE,200,ev_d11r0101_mons_common_present
+	_JUMP			ev_d11r0101_pokemon_rnd_mes_check
+
+/*ランダムでメッセージを流す*/
+ev_d11r0101_pokemon_rnd_mes_check:
+
+	_GET_RND SCWK_ANSWER,9
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d11r0101_pokemon_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d11r0101_pokemon_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_d11r0101_pokemon_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,3,ev_d11r0101_pokemon_04
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,4,ev_d11r0101_pokemon_05
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,5,ev_d11r0101_pokemon_06
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_d11r0101_pokemon_07
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,7,ev_d11r0101_pokemon_08
+	_JUMP							ev_d11r0101_pokemon_09
+
+/********************************************************************/
+/*						プレゼントセット							*/
+/********************************************************************/
+
+
+/********************************************************************/
+/*					プレゼント番号セット							*/
+/********************************************************************/
+//プレゼントをもらえるとき
+//片方が持ち物一杯で貰えないとき用に、両方のアイテムを算出しています。
+ev_d11r0101_mons_present_no_set:
+	//80%:アクセサリー 20%:きのみ	>	カテゴリーをセット
+	_GET_RND SCWK_ANSWER,5
+	_IFVAL_CALL		SCWK_ANSWER,EQ,0,	ev_d11r0101_cat_kinomi
+	_IFVAL_CALL		SCWK_ANSWER,NE,0,	ev_d11r0101_cat_accessory
+
+	//もらえるアクセサリー番号取得
+	_NATURAL_PARK_ACCESSORY_NO_GET		WK_SCENE_D11R0101_PRESENT_ACCE_NO,WK_SCENE_D11R0101_MONSNO
+
+	//もらえる木の実番号取得
+	_JUMP								ev_d11r0101_present_kinomi
+
+
+//プレゼントはきのみ
+ev_d11r0101_cat_kinomi:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT,0
+	_RET
+
+	//プレゼントはアクセサリー
+ev_d11r0101_cat_accessory:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT,1
+	_RET
+
+
+ev_d11r0101_present_kinomi:
+	_GET_RND SCWK_ANSWER,100
+
+	_IFVAL_JUMP		SCWK_ANSWER,LT,(20),					ev_d11r0101_present_kinomi_gosu
+	_IFVAL_JUMP		SCWK_ANSWER,LT,(20+15),					ev_d11r0101_present_kinomi_mokoshi
+	_IFVAL_JUMP		SCWK_ANSWER,LT,(20+15+15),				ev_d11r0101_present_kinomi_rabuta
+	_IFVAL_JUMP		SCWK_ANSWER,LT,(20+15+15+15),			ev_d11r0101_present_kinomi_nomeru
+	_IFVAL_JUMP		SCWK_ANSWER,LT,(20+15+15+15+7),			ev_d11r0101_present_kinomi_nowaki
+	_IFVAL_JUMP		SCWK_ANSWER,LT,(20+15+15+15+7+7),		ev_d11r0101_present_kinomi_siiya
+	_IFVAL_JUMP		SCWK_ANSWER,LT,(20+15+15+15+7+7+7),		ev_d11r0101_present_kinomi_kaisu
+	_IFVAL_JUMP		SCWK_ANSWER,LT,(20+15+15+15+7+7+7+7),	ev_d11r0101_present_kinomi_dori
+	_JUMP													ev_d11r0101_present_kinomi_beribu
+
+//アイテム名セット
+ev_d11r0101_present_kinomi_gosu:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT_KINOMI_NO,ITEM_GOSUNOMI
+	_RET
+
+ev_d11r0101_present_kinomi_mokoshi:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT_KINOMI_NO,ITEM_MOKOSINOMI
+	_RET
+
+ev_d11r0101_present_kinomi_rabuta:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT_KINOMI_NO,ITEM_RABUTANOMI
+	_RET
+
+ev_d11r0101_present_kinomi_nomeru:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT_KINOMI_NO,ITEM_NOMERUNOMI
+	_RET
+
+ev_d11r0101_present_kinomi_nowaki:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT_KINOMI_NO,ITEM_NOWAKINOMI
+	_RET
+
+ev_d11r0101_present_kinomi_siiya:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT_KINOMI_NO,ITEM_SIIYANOMI
+	_RET
+
+ev_d11r0101_present_kinomi_kaisu:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT_KINOMI_NO,ITEM_KAISUNOMI
+	_RET
+
+ev_d11r0101_present_kinomi_dori:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT_KINOMI_NO,ITEM_DORINOMI
+	_RET
+
+ev_d11r0101_present_kinomi_beribu:
+	_LDVAL			WK_SCENE_D11R0101_PRESENT_KINOMI_NO,ITEM_BERIBUNOMI
+	_RET
+
+
+/********************************************************************/
+/*						プレゼントセット							*/
+/********************************************************************/
+//プレゼントをもらう
+ev_d11r0101_mons_common_present:
+	//種類をセット（きのみorアクセサリー)
+	_LDWK			SCWK_PARAM0,WK_SCENE_D11R0101_PRESENT
+
+	//歩数カウントクリア
+	_NATURAL_PARK_WALK_COUNT_CLEAR
+
+	//次のプレゼント番号セット(※WK_SCENE...PRESENT,WK....PRESENT_NOが初期化されます）
+	_CALL			ev_d11r0101_mons_present_no_set
+
+	_IFVAL_JUMP		SCWK_PARAM0,EQ,0,	ev_d11r0101_present_kinomi_set
+	_JUMP								ev_d11r0101_present_accessory_set
+
+//きのみ取得
+ev_d11r0101_present_kinomi_set:
+	//アイテム番号、個数セット
+	_LDWK			SCWK_TEMP0,WK_SCENE_D11R0101_PRESENT_KINOMI_NO
+	_LDVAL			SCWK_TEMP1,1
+
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d11r0101_present_second_acce
+
+ev_d11r0101_present_kinomi_set_02:
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALK_KEYWAIT		msg_d11r0101_pokemon_10
+	_VOICE_WAIT
+
+	//連れ歩き公園用テレビトピック更新・アイテム
+	_TV_ENTRY_PARKINFO_ITEM		SCWK_TEMP0
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//第二候補チェック
+ev_d11r0101_present_second_acce:
+	//アイテム番号、個数セット
+	_LDWK			SCWK_TEMP0,WK_SCENE_D11R0101_PRESENT_ACCE_NO
+	_LDVAL			SCWK_TEMP1,1
+
+	_IMC_ACCE_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_d11r0101_pokemon_rnd_mes_check		//アイテムが貰えないときはノーマルメッセージへ
+
+	_JUMP			ev_d11r0101_present_accessory_set_02
+
+
+//アクセサリー取得
+ev_d11r0101_present_accessory_set:
+	//アイテム番号、個数セット
+	_LDWK			SCWK_TEMP0,WK_SCENE_D11R0101_PRESENT_ACCE_NO
+	_LDVAL			SCWK_TEMP1,1
+
+	_IMC_ACCE_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,FALSE,ev_d11r0101_present_second_kinomi
+
+ev_d11r0101_present_accessory_set_02:
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALK_KEYWAIT		msg_d11r0101_pokemon_10
+	_VOICE_WAIT
+
+	//連れ歩き公園用テレビトピック更新・アイテム
+	_TV_ENTRY_PARKINFO_ACCE		SCWK_TEMP0
+	//アクセサリー取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ACCE_EVENT
+	_TALK_CLOSE
+	
+	_TALK_OBJ_END
+	_END
+
+//第二候補チェック
+ev_d11r0101_present_second_kinomi:
+	//アイテム番号、個数セット
+	_LDWK			SCWK_TEMP0,WK_SCENE_D11R0101_PRESENT_KINOMI_NO
+	_LDVAL			SCWK_TEMP1,1
+
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d11r0101_pokemon_rnd_mes_check		//アイテムが貰えないときはノーマルメッセージへ
+
+	_JUMP			ev_d11r0101_present_kinomi_set_02
+
+//------------------------------------------------------
+
+ev_d11r0101_pokemon_01:
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALKMSG		msg_d11r0101_pokemon_01
+	_VOICE_WAIT
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d11r0101_pokemon_02:
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALKMSG		msg_d11r0101_pokemon_02
+	_VOICE_WAIT
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d11r0101_pokemon_03:
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALKMSG		msg_d11r0101_pokemon_03
+	_VOICE_WAIT
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d11r0101_pokemon_04:
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALKMSG		msg_d11r0101_pokemon_04
+	_VOICE_WAIT
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d11r0101_pokemon_05:
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALKMSG		msg_d11r0101_pokemon_05
+	_VOICE_WAIT
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d11r0101_pokemon_06:
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALKMSG		msg_d11r0101_pokemon_06
+	_VOICE_WAIT
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d11r0101_pokemon_07:
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALKMSG		msg_d11r0101_pokemon_07
+	_VOICE_WAIT
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d11r0101_pokemon_08:
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALKMSG		msg_d11r0101_pokemon_08
+	_VOICE_WAIT
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d11r0101_pokemon_09:
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+
+	_VOICE_PLAY WK_SCENE_D11R0101_MONSNO,0
+	_TALKMSG		msg_d11r0101_pokemon_09
+	_VOICE_WAIT
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*						受付嬢左									*/
+/********************************************************************/
+/********************************************************************/
+/*						受付嬢右									*/
+/********************************************************************/
+ev_d11r0101_info_girl_01:
+	_LDVAL			LOCALWORK10,0		//左
+	_JUMP			ev_d11r0101_info_girl_common_01
+
+ev_d11r0101_info_girl_02:
+	_LDVAL			LOCALWORK10,1		//右
+	_JUMP			ev_d11r0101_info_girl_common_01
+
+//左右共通部
+ev_d11r0101_info_girl_common_01:
+	_TALK_OBJ_START
+
+	//ニックネームセット
+	_NICK_NAME	0,WK_SCENE_D11R0101_TNO
+	_GET_RND SCWK_ANSWER,6
+
+	_IFVAL_CALL		SCWK_ANSWER,EQ,0,ev_d11r0101_info_mes_01
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,ev_d11r0101_info_mes_02
+	_IFVAL_CALL		SCWK_ANSWER,EQ,2,ev_d11r0101_info_mes_03
+	_IFVAL_CALL		SCWK_ANSWER,EQ,3,ev_d11r0101_info_mes_04
+	_IFVAL_CALL		SCWK_ANSWER,EQ,4,ev_d11r0101_info_mes_05
+	_IFVAL_CALL		SCWK_ANSWER,EQ,5,ev_d11r0101_info_mes_06
+
+	_IFVAL_JUMP		LOCALWORK10,EQ,0,ev_d11r0101_info_girl_01_end
+	_JUMP							ev_d11r0101_info_girl_02_end
+
+ev_d11r0101_info_mes_01:
+	_TALKMSG		msg_d11r0101_info_07
+	_RET
+
+ev_d11r0101_info_mes_02:
+	_TALKMSG		msg_d11r0101_info_08
+	_RET
+
+ev_d11r0101_info_mes_03:
+	_TALKMSG		msg_d11r0101_info_09
+	_RET
+
+ev_d11r0101_info_mes_04:
+	_TALKMSG		msg_d11r0101_info_10
+	_RET
+
+ev_d11r0101_info_mes_05:
+	_TALKMSG		msg_d11r0101_info_11
+	_RET
+
+ev_d11r0101_info_mes_06:
+	_TALKMSG		msg_d11r0101_info_12
+	_RET
+
+//元の向きへ
+ev_d11r0101_info_girl_01_end:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_OBJ_ANIME		D11R0101_INFO_GIRL_01,anm_d11r0101_info_girl_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_OBJ_END
+	_END
+
+ev_d11r0101_info_girl_02_end:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_OBJ_ANIME		D11R0101_INFO_GIRL_02,anm_d11r0101_info_girl_02
+	_OBJ_ANIME_WAIT
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//元の方向へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d11r0101_info_girl_01
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_d11r0101_info_girl_02
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*							兄さん									*/
+/********************************************************************/
+ev_d11r0101_man1:
+	_EASY_OBJ_MSG	msg_d11r0101_man1_01
+	_END
+
+/********************************************************************/
+/*							フーセン								*/
+/********************************************************************/
+ev_d11r0101_balloon:
+	_EASY_VOICE_MSG	msg_d11r0101_balloon_01,MONSNO_HUUSEN,0
+	_END
+
+/********************************************************************/
+/*							姉さん									*/
+/********************************************************************/
+ev_d11r0101_woman1:
+	_EASY_OBJ_MSG	msg_d11r0101_woman1_01
+	_END
+
+/********************************************************************/
+/*							コラッキー								*/
+/********************************************************************/
+ev_d11r0101_kolucky:
+	_EASY_OBJ_MSG	msg_d11r0101_kolucky_01	//※鳴き声ではない
+	_END
+
+/********************************************************************/
+/*							太った兄さん							*/
+/********************************************************************/
+ev_d11r0101_bigman:
+	_EASY_OBJ_MSG	msg_d11r0101_bigman_01
+	_END
+
+/********************************************************************/
+/*							ピカチュウ								*/
+/********************************************************************/
+ev_d11r0101_pikachub:
+	_EASY_VOICE_MSG	msg_d11r0101_pikachu_01,MONSNO_PIKATYUU,0
+	_END
+
+/********************************************************************/
+/*							女の子									*/
+/********************************************************************/
+ev_d11r0101_babygirl1:
+	_EASY_OBJ_MSG	msg_d11r0101_babygirl1_01
+	_END
+
+/********************************************************************/
+/*							ピッピ									*/
+/********************************************************************/
+ev_d11r0101_pippib:
+	_EASY_VOICE_MSG	msg_d11r0101_pippi_01,MONSNO_PIPPI,0
+	_END
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------

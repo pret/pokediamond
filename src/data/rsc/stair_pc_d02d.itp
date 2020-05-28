@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-03-24T20:49:08" source="stair_pc_d02d.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="20"
+	tool_start_frame="1"
+	tool_end_frame="20"
+	compress_material="on" material_size="3 3"
+/>
+
+<tex_pattern_list_data image_size="8" palette_size="8">
+	<image_name index="0" name="esca_up1.1"/>
+	<image_name index="1" name="esca_up1.2"/>
+	<image_name index="2" name="esca_up1.3"/>
+	<image_name index="3" name="esca_up1.4"/>
+	<image_name index="4" name="esca_up2.1"/>
+	<image_name index="5" name="esca_up2.2"/>
+	<image_name index="6" name="esca_up2.3"/>
+	<image_name index="7" name="esca_up2.4"/>
+	<palette_name index="0" name="esca_up1.1_pl"/>
+	<palette_name index="1" name="esca_up1.2_pl"/>
+	<palette_name index="2" name="esca_up1.3_pl"/>
+	<palette_name index="3" name="esca_up1.4_pl"/>
+	<palette_name index="4" name="esca_up2.1_pl"/>
+	<palette_name index="5" name="esca_up2.2_pl"/>
+	<palette_name index="6" name="esca_up2.3_pl"/>
+	<palette_name index="7" name="esca_up2.4_pl"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="8">
+		0 5 10 15 0 5 10 15
+	</frame_idx>
+	<image_idx size="8">
+		0 1 2 3 4 5 6 7
+	</image_idx>
+	<palette_idx size="8">
+		0 1 2 3 4 5 6 7
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="2">
+	<tex_pattern_anm index="0" material_name="esca_up1_d_" data_size="4" data_head="0"/>
+	<tex_pattern_anm index="1" material_name="esca_up2_d_" data_size="4" data_head="4"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

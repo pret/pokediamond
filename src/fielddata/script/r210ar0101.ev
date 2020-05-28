@@ -1,0 +1,125 @@
+//====================================================================
+//						r210ar0101.gmm
+//						喫茶店
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r210ar0101.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r210ar0101_flag_change
+_EVENT_DATA		ev_r210ar0101_farmer
+_EVENT_DATA		ev_r210ar0101_waitress
+_EVENT_DATA		ev_r210ar0101_oldman2
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r210ar0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_R210AR0101	//到着
+	_END
+
+
+/********************************************************************/
+/*							牧場おじさん							*/
+/********************************************************************/
+ev_r210ar0101_farmer:
+	_EASY_OBJ_MSG	msg_r210ar0101_farmer_01
+	_END
+
+/********************************************************************/
+/*							ウェートレス							*/
+/********************************************************************/
+ev_r210ar0101_waitress:
+	_TALK_OBJ_START
+
+	_GOLD_WIN_WRITE		20,2
+
+	_TALKMSG		msg_r210ar0101_waitress_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r210ar0101_waitress_05
+
+	_COMP_GOLD		SCWK_ANSWER,500
+	//お金が足りない?
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_r210ar0101_waitress_04
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_MOOMOOMIRUKU
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r210ar0101_waitress_03	//バッグがいっぱい
+
+	_SUB_GOLD		500
+	_GOLD_WRITE
+
+	_TALK_KEYWAIT	msg_r210ar0101_waitress_02
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+//バッグがいっぱい
+ev_r210ar0101_waitress_03:
+	_TALKMSG		msg_r210ar0101_waitress_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+//お金がない
+ev_r210ar0101_waitress_04:
+	_TALKMSG		msg_r210ar0101_waitress_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+//いいえ
+ev_r210ar0101_waitress_05:
+	_TALKMSG		msg_r210ar0101_waitress_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							洋風爺さん								*/
+/********************************************************************/
+ev_r210ar0101_oldman2:
+	_TALK_OBJ_START
+
+	//ひでんのくすり使用後
+	_IF_FLAGON_JUMP	FE_R210A_CLEAR,ev_r210ar0101_oldman2_02
+
+	_TALKMSG		msg_r210ar0101_oldman2_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ひでんのくすり使用後
+ev_r210ar0101_oldman2_02:
+	_TALKMSG		msg_r210ar0101_oldman2_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="s_ohta" host="W00081" date="2006-04-10T21:23:50" source="ug_troph_05.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="s_ohta" host="W00081" date="2006-04-10T21:23:50" source="ug_troph_05.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="1"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="0"
+	tex_matrix_mode="maya"
+	compress_node="none" node_size="1 1"
+	compress_material="off" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="2" xyz="-2.000000 0.296875 -2.568604" whd="4.000000 3.063965 2.571045"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="ug_troph_05"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="ug_troph_05"
+		path="C:/mayadata/ug/tex/ug_troph_05.tga"
+	>
+		<bitmap size="64">
+			0000 0000 0000 0000 0000 9990 0999 0000
+			9000 4449 9444 0009 2999 8884 4888 9996
+			4449 7788 8877 b334 2b49 7774 4777 b6b6
+			2b29 4444 8444 b6b6 6b29 3342 8882 b6b6
+			996b 3442 6882 b8bb 96bb 3429 b882 bb8b
+			6bb0 3bb6 6bb8 0bb6 bb00 6b0b b0b8 00bb
+			0000 3590 ab13 0000 0000 553b b155 000a
+			0000 13bb bb11 000a 0000 bbb0 abbb 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="ug_troph_05" color_size="16">
+		0b0e 42e0 5f70 6bb5 77da 4380 4eee 31ca
+		3e6c 318c 294a 18c6 7fff 7fff 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="obj"
+		light0="off" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="0 0 0"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="clamp clamp"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.493896 -5.137207"
+		volume_max="4.000000 6.622314 0.005127"
+		volume_r="9.286865"
+		mtx_prim_size="1"
+		nrm_flag="off" clr_flag="on" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 16.000000"/>
+					<clr rgb="31 31 31"/>
+					<pos_xyz xyz="-4.000000 0.493896 0.005127"/>
+					<tex st="16.000000 16.000000"/>
+					<pos_xy xy="4.000000 0.493896"/>
+					<tex st="16.000000 0.000000"/>
+					<pos_yz yz="6.622314 -5.137207"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-4.000000 6.622314"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pPlane1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.199951 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.493896 -5.137207"
+		volume_max="4.000000 6.622314 0.005127"
+		volume_r="9.286865"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

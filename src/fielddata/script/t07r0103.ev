@@ -1,0 +1,198 @@
+//====================================================================
+//								t07r0103
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t07r0103.h"
+	.include	"../eventdata/zone_t07r0103evc.h"
+	.include	"../eventdata/zone_t07r0101evd.h"
+	.include	"../eventdata/zone_t07r0102evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t07r0103_counterw
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_t07r0103_flag_change:
+//	_END
+
+
+/********************************************************************/
+//						エレベーターガール
+/********************************************************************/
+ev_t07r0103_counterw:
+	_TALK_OBJ_START
+
+	//特殊接続先から、現在のフロアナンバーを取得
+	_ELEVATOR_FLOOR_GET	WK_ELEVATOR_FLOOR
+
+	//「○かい」文字列セット
+	_SWITCH			WK_ELEVATOR_FLOOR
+	_CASE_JUMP		FLOOR_T07R0103_2F,case12_t07r0103_elevator_01
+	_CASE_JUMP		FLOOR_T07R0103_1F,case13_t07r0103_elevator_01
+	_END
+
+//--------------------------------------------------------------------
+//「○かい」文字列セット
+//--------------------------------------------------------------------
+case12_t07r0103_elevator_01:
+	_NUMBER_NAME	0,2
+	_JUMP			ev_t07r0103_elevator_02
+
+case13_t07r0103_elevator_01:
+	_NUMBER_NAME	0,1
+	_JUMP			ev_t07r0103_elevator_02
+
+//--------------------------------------------------------------------
+//	現在のフロアを出す
+//--------------------------------------------------------------------
+ev_t07r0103_elevator_02:
+	_ELEVATOR_FLOOR_WRITE	20,1,WK_ELEVATOR_FLOOR
+
+	//「なんかいへいきますか？」
+	_TALKMSG		msg_t07r0103_counterw_01
+	
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_114,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_113,1
+	_BMPMENU_MAKE_LIST	msg_ev_win_121,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,case2_t07r0103_elevator_01
+	_CASE_JUMP		1,case3_t07r0103_elevator_01
+	_JUMP			end_t07r0103_elevator_01
+
+//--------------------------------------------------------------------
+//	選んだフロアによって分岐
+//--------------------------------------------------------------------
+case2_t07r0103_elevator_01:
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	//特殊接続先から、現在のフロアナンバーを取得
+	_ELEVATOR_FLOOR_GET	WK_ELEVATOR_FLOOR
+
+	//_SP_LOCATION_SET	ZONE_ID_T07R0102,T07R0102_MAT01,18,2,DIR_DOWN
+	_SP_LOCATION_SET	ZONE_ID_T07R0102,T07R0102_DOOR01,18,2,DIR_DOWN
+
+	_IFVAL_JUMP		WK_ELEVATOR_FLOOR,EQ,FLOOR_T07R0103_2F,end_t07r0103_elevator_02
+
+	_LDVAL			SCWK_TEMP0,DIR_UP
+	_CALL			common_01_t07r0103
+
+	//移動した階を代入
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_T07R0103_2F
+
+	_JUMP			ev_t07r0103_elevator_03
+
+case3_t07r0103_elevator_01:
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	//特殊接続先から、現在のフロアナンバーを取得
+	_ELEVATOR_FLOOR_GET	WK_ELEVATOR_FLOOR
+
+	_SP_LOCATION_SET	ZONE_ID_T07R0101,T07R0101_MAT02,18,2,DIR_DOWN
+
+	_IFVAL_JUMP		WK_ELEVATOR_FLOOR,EQ,FLOOR_T07R0103_1F,end_t07r0103_elevator_02
+
+	_LDVAL			SCWK_TEMP0,DIR_DOWN
+	_CALL			common_01_t07r0103
+
+	//移動した階を代入
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_T07R0103_1F
+
+	_JUMP			ev_t07r0103_elevator_03
+
+//--------------------------------------------------------------------
+//	エレベータ演出
+//--------------------------------------------------------------------
+common_01_t07r0103:
+	//移動演出の前に現在のフロアウィンドウを削除
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_NOTHING
+
+	/*進行方向メッセージ表示*/
+	_IFVAL_CALL		SCWK_TEMP0,EQ,DIR_DOWN,ev_t07r0103_down_msg
+	_IFVAL_CALL		SCWK_TEMP0,EQ,DIR_UP,ev_t07r0103_up_msg
+
+	_TALK_CLOSE
+
+	//エレベータガールが下を向く
+	_OBJ_ANIME	T07R0103_COUNTERW_01,anm_t07r0103_turn_d
+	_OBJ_ANIME_WAIT
+
+	//選択音の終了待ち
+	_SE_WAIT		SEQ_SE_DP_SELECT
+	_ELEVATOR_ANM	SCWK_TEMP0,T07R0103_ELEVATOR_LOOP
+
+	_RET
+
+//--------------------------------------------------------------------
+/*進行方向メッセージ表示*/
+//--------------------------------------------------------------------
+ev_t07r0103_down_msg:
+	_TALK_KEYWAIT	msg_t07r0103_counterw_03
+	_RET
+
+ev_t07r0103_up_msg:
+	_TALK_KEYWAIT	msg_t07r0103_counterw_02
+	_RET
+
+//--------------------------------------------------------------------
+//	エレベータ演出後、終了
+//--------------------------------------------------------------------
+ev_t07r0103_elevator_03:
+	_TALKMSG		msg_t07r0103_counterw_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//	キャンセル終了
+//--------------------------------------------------------------------
+end_t07r0103_elevator_01:
+	//移動演出の前に現在のフロアウィンドウを削除
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_NOTHING
+
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「もう到着しております」*/
+end_t07r0103_elevator_02:
+	//移動演出の前に現在のフロアウィンドウを削除
+	_LDVAL			WK_ELEVATOR_FLOOR,FLOOR_NOTHING
+
+	//フロアウィンドウを消すウェイト
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	_TALKMSG		msg_t07r0103_counterw_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t07r0103_turn_d
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+

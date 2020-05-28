@@ -1,0 +1,165 @@
+//====================================================================
+//								d28r0103
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d28r0103.h"
+	.include	"../eventdata/zone_d28r0103evc.h"
+	.include	"../eventdata/zone_d28r0103evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d28r0103_flag_change
+_EVENT_DATA		ev_d28r0103_init_change
+_EVENT_DATA		ev_d28r0103_hai
+_EVENT_DATA		ev_d28r0103_gkanbu3
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d28r0103_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D28R0103	//到着
+
+	_IF_FLAGOFF_JUMP	FE_D05R0114_CLEAR,ev_d28r0103_door_exit_move_1
+	_IF_FLAGON_JUMP		FE_D05R0114_CLEAR,ev_d28r0103_door_exit_move_2
+	_END
+
+/*イア、エアと戦闘前はd28r0102には入れない！*/
+ev_d28r0103_door_exit_move_1:
+	_SXY_EXIT_POS_CHANGE	D28R0103_SP_MAT01,10,29
+	_END
+
+/*イア、エアと戦闘後はd28r0101には入れない！*/
+ev_d28r0103_door_exit_move_2:
+	_SXY_EXIT_POS_CHANGE	D28R0103_MAT01,10,29
+	_END
+
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d28r0103_init_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D28R0103	//到着
+
+	_IF_FLAGON_CALL	FE_INIT_CHANGE_OBJ_DEL,ev_d28r0103_init_change_obj_del
+
+	_IF_FLAGOFF_JUMP	FE_D05R0114_CLEAR,ev_d28r0103_door_exit_move_1
+	_IF_FLAGON_JUMP		FE_D05R0114_CLEAR,ev_d28r0103_door_exit_move_2
+	_END
+
+ev_d28r0103_init_change_obj_del:
+	_FLAG_SET		FV_D28R0103_HAI
+	_OBJ_DEL		D28R0103_HAI
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_RET
+
+
+/********************************************************************/
+/*								ハイ								*/
+/********************************************************************/
+ev_d28r0103_hai:
+	_TALK_OBJ_START
+
+	_VOICE_PLAY		MONSNO_HAI,0
+	_TALK_KEYWAIT	msg_d28r0103_sppoke3_01
+	_TALK_CLOSE
+
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	MONSNO_HAI,50
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+
+	_LOSE_CHECK			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d28r0103_legend_lose
+	
+	_SEACRET_POKE_RETRY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d28r0103_legend_capture_ng
+
+//ハイ捕まえたor倒した
+ev_d28r0103_legend_event_clear:
+	//クリアフラグon
+	_FLAG_SET			FE_D28R0103_LEGEND_CLEAR
+	_TALK_OBJ_END
+	_END
+
+//ハイ捕まえ損ねた
+ev_d28r0103_legend_capture_ng:
+	_TALKMSG			msg_d28r0103_sppoke3_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//全滅
+ev_d28r0103_legend_lose:
+	_NORMAL_LOSE	
+	_TALK_OBJ_END
+	_END
+/********************************************************************/
+/*							ギンガ団幹部							*/
+/********************************************************************/
+ev_d28r0103_gkanbu3:
+	_TALK_OBJ_START_TURN_NOT	/*振り向きなし*/
+
+	_TALK_KEYWAIT	msg_d28r0103_gkanbu3_01
+	_TALK_CLOSE
+
+	/*振り向き　ビックリ*/
+	_TURN_HERO_SITE
+	_OBJ_ANIME		D28R0103_GKANBU3,anm_d28r0103_gkanbu3_01
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_TALK_KEYWAIT	msg_d28r0103_gkanbu3_02
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GINGALEADER3_01,0
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d28r0103_battle_lose
+
+	_TALK_KEYWAIT	msg_d28r0103_gkanbu3_03
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//ギンガ団消す
+	_OBJ_DEL		D28R0103_GKANBU3
+	_FLAG_SET		FE_L02_GINGA_WIN
+
+	/*L01の湖*/
+	_FLAG_SET		SYS_FLAG_BGM_D28
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ギンガ団幹部	ビックリ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d28r0103_gkanbu3_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							共通敗北処理							*/
+/********************************************************************/
+ev_d28r0103_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+

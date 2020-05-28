@@ -1,0 +1,75 @@
+//====================================================================
+//								c09r0201
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c09r0201.h"
+	//.include	"../eventdata/zone_c09r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c09r0201_veteran
+_EVENT_DATA_END
+
+/********************************************************************/
+/*		簡易会話、難解言葉教え										*/
+/********************************************************************/
+ev_c09r0201_veteran:
+	_TALK_OBJ_START
+
+	//今日の難解言葉を既に教えてもらった
+	_IF_FLAGON_JUMP		TMFLG_C09R0201_NANKAI,ev_c09r0201_veteran_day_end
+
+	_NEW_NANKAI_WORD_COMPLETE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_c09r0201_veteran_nankai_complete	//既に全部覚えている
+	
+	_TALKMSG		msg_c09r0201_veteran_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c09r0201_veteran_cancel	//NO
+
+	_NEW_NANKAI_WORD_SET	SCWK_ANSWER,0		//難解言葉セット
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0xffff,ev_c09r0201_veteran_nankai_complete
+
+	_FLAG_SET		TMFLG_C09R0201_NANKAI	//1日フラグセット
+
+	_TALKMSG		msg_c09r0201_veteran_02
+	
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//本日はもう教わり済み
+ev_c09r0201_veteran_day_end:
+	_TALKMSG		msg_c09r0201_veteran_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+	
+//断った
+ev_c09r0201_veteran_cancel:
+	_TALKMSG		msg_c09r0201_veteran_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//全ての難解言葉を覚えている
+ev_c09r0201_veteran_nankai_complete:
+	_TALKMSG		msg_c09r0201_veteran_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

@@ -1,0 +1,97 @@
+
+//============================================================================
+/**
+ *
+ *@file		sub_153.s
+ *@brief	戦闘シーケンス
+ *			おいうちチェックシーケンス
+ *@author	HisashiSogabe
+ *@data		2006.02.10
+ *
+ */
+//============================================================================
+	.text
+
+	.include	"waza_seq_def.h"
+
+SUB_153:
+	GOSUB			SUB_SEQ_AD_PUSH
+SUB_153_LOOP:
+	OIUCHI_CHECK	SUB_153_END
+	//おいうち発動は、ダメージを２倍にする
+	VALUE			VAL_SET,BUF_PARA_DAMAGE_VALUE,20
+	CRITICAL_CHECK
+	DAMAGE_CALC
+	TYPE_CHECK
+	//AttackMsgが出るようにフラグを落とす
+	VALUE			VAL_NBIT,BUF_PARA_SERVER_STATUS_FLAG,SERVER_STATUS_FLAG_NO_ATTACK_MSG
+	//WazaEffectが出るようにフラグを落とす
+	VALUE			VAL_NBIT,BUF_PARA_SERVER_STATUS_FLAG,SERVER_STATUS_FLAG_NO_WAZA_EFFECT
+	ATTACK_MESSAGE
+	SERVER_WAIT
+	IF				IF_FLAG_BIT,BUF_PARA_WAZA_STATUS_FLAG,WAZA_STATUS_FLAG_HAZURE,OiuchiHazure
+	WAZA_EFFECT		SIDE_ATTACK
+	SERVER_WAIT
+	MIGAWARI_CHECK	SIDE_DEFENCE,Migawari
+
+Normal:
+	VALUE_WORK		VAL_SET,BUF_PARA_HP_CALC_WORK,BUF_PARA_DAMAGE
+	VALUE_WORK		VAL_SET,BUF_PARA_BUTSURI_OSTF_DAMAGE_D,BUF_PARA_DAMAGE
+	VALUE_WORK		VAL_SET,BUF_PARA_CLIENT_WORK,BUF_PARA_DEFENCE_CLIENT
+	GOSUB			SUB_SEQ_HP_CALC
+	GOSUB			SUB_SEQ_CRITICAL_HIT
+	GOSUB			SUB_SEQ_WAZA_STATUS_MSG
+	//気絶させたらおんねんチェックをする
+	IF_PSP			IF_FLAG_EQ,SIDE_DEFENCE,ID_PSP_hp,0,OnnenCheck
+	//技がヒットした時にチェックする特性をチェック
+	WAZA_HIT_TOKUSEI_CHECK	SUB_153_SOUBI_ITEM
+	GOSUB_WORK		BUF_PARA_TEMP_WORK
+
+SUB_153_SOUBI_ITEM:
+	//技がヒットした時にチェックする装備アイテムをチェック
+	WAZA_HIT_SOUBI_ITEM_CHECK	SUB_153_NEXT
+	GOSUB_WORK		BUF_PARA_TEMP_WORK
+
+	BRANCH			SUB_153_NEXT
+
+Migawari:
+	GOSUB			SUB_SEQ_MIGAWARI_HIT
+	BRANCH			SUB_153_NEXT
+
+OiuchiHazure:
+	WAIT			MSG_WAIT/2
+	GOSUB			SUB_SEQ_WAZA_NO_HIT
+
+SUB_153_NEXT:
+	//おいうちが発動するとAttackClient、DefenceClient、waza_no_nowが変わっているので、元に戻す
+	GOSUB			SUB_SEQ_AD_POP
+	VALUE_WORK		VAL_GET,BUF_PARA_WAZA_NO_TEMP,BUF_PARA_WAZA_NO_NOW
+	BRANCH			SUB_153_LOOP
+
+//おんねんチェック
+OnnenCheck:
+//	ONNEN			TokuseiCheck
+//	MESSAGE			OnnenDamageMineMsg,TAG_NICK_WAZA,SIDE_ATTACK,SIDE_WORK
+//	SERVER_WAIT
+//	WAIT			MSG_WAIT
+	GOSUB			SUB_SEQ_MICHIDURE_KIZETSU
+
+TokuseiCheck:
+	//技がヒットした時にチェックする特性をチェック（特性発動で気絶がありうるので、おんねんチェックのあとにする）
+	WAZA_HIT_TOKUSEI_CHECK	SoubiItemCheck
+	GOSUB_WORK		BUF_PARA_TEMP_WORK
+
+SoubiItemCheck:
+	//技がヒットした時にチェックする装備アイテムをチェック
+	WAZA_HIT_SOUBI_ITEM_CHECK	SUB_153_POP
+	GOSUB_WORK		BUF_PARA_TEMP_WORK
+
+SUB_153_POP:
+	//おいうちが発動するとAttackClient、DefenceClient、waza_no_nowが変わっているので、元に戻す
+	GOSUB			SUB_SEQ_AD_POP
+	VALUE_WORK		VAL_GET,BUF_PARA_WAZA_NO_TEMP,BUF_PARA_WAZA_NO_NOW
+
+SUB_153_END:
+	SEQ_END
+
+

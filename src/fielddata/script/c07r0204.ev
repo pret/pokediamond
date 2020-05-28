@@ -1,0 +1,153 @@
+//====================================================================
+//								c07r0204
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c07r0204.h"
+	//.include	"../eventdata/zone_c07r0204evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c07r0204_depart_01
+_EVENT_DATA		ev_c07r0204_babyboy1
+_EVENT_DATA		ev_c07r0204_middlewoman1
+_EVENT_DATA		ev_c07r0204_fix_shop_01
+_EVENT_DATA		ev_c07r0204_fix_shop_02
+_EVENT_DATA		ev_c07r0204_board
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0204_depart_01:
+	_TALK_OBJ_START
+
+	_REGULAR_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,c07r0204_regular_check
+
+	_TALKMSG		msg_c07r0204_depart_01
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_depart_menu_02,1					//おすすめは？
+	_BMPMENU_MAKE_LIST	msg_depart_menu_01,0					//なんでもない
+	_BMPMENU_START
+
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,1,ev_c07r0204_depart_04
+	_JUMP		ev_c07r0204_depart_03
+
+//常連
+c07r0204_regular_check:
+	_PLAYER_NAME	0
+
+	_TALKMSG		msg_c07r0204_depart_02
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_depart_menu_02,0					//おすすめは？
+	_BMPMENU_MAKE_LIST	msg_depart_menu_01,1					//なんでもない
+	_BMPMENU_START
+
+	_IFVAL_JUMP  SCWK_ANSWER,NE,0,ev_c07r0204_depart_03
+
+	_GET_RND SCWK_ANSWER,4
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,0,ev_c07r0204_depart_04
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,1,ev_c07r0204_depart_05
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,2,ev_c07r0204_depart_06
+	_JUMP		ev_c07r0204_depart_07
+
+//キャンセル
+ev_c07r0204_depart_03:
+	_TALKMSG		msg_c07r0204_depart_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//おすすめ１
+ev_c07r0204_depart_04:
+	_TALKMSG		msg_c07r0204_depart_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//おすすめ２
+ev_c07r0204_depart_05:
+	_TALKMSG		msg_c07r0204_depart_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//おすすめ３
+ev_c07r0204_depart_06:
+	_TALKMSG		msg_c07r0204_depart_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//おすすめ４
+ev_c07r0204_depart_07:
+	_TALKMSG		msg_c07r0204_depart_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0204_babyboy1:
+	_EASY_OBJ_MSG	msg_c07r0204_babyboy1_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0204_middlewoman1:
+	_EASY_OBJ_MSG	msg_c07r0204_middlewoman1_01
+	_END
+
+/********************************************************************/
+//					グッズ	品物固定の店員(OBJ名shopm)
+/********************************************************************/
+ev_c07r0204_fix_shop_01:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_FIX_GOODS_CALL		ID_SHOP_GOODS_C07_DEPT_04_01
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+//					グッズ	品物固定の店員(OBJ名shopm)
+/********************************************************************/
+ev_c07r0204_fix_shop_02:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_FIX_GOODS_CALL		ID_SHOP_GOODS_C07_DEPT_04_02
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							案内板									*/
+/********************************************************************/
+ev_c07r0204_board:
+	_EASY_MSG		msg_c07r0204_board_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

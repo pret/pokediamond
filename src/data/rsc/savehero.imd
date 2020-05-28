@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-04-05T18:02:10" source="savehero_ine.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="kanako_eo" host="W00107" date="2006-04-05T18:02:10" source="savehero_ine.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="3"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="0"
+	tex_matrix_mode="maya"
+	compress_node="none" node_size="1 1"
+	compress_material="off" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="3" xyz="-2.000000 0.000000 0.000000" whd="4.000000 4.000000 0.000000"/>
+
+<tex_image_array size="2">
+	<tex_image index="0" name="savehero.1"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="savehero"
+		path="C:/mayadata/obj/tex/savehero/savehero.1.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 1111 0111 0000 0000 0000
+			0000 0000 1100 2222 1222 0001 0000 0000
+			0000 0000 2230 2222 2222 0032 0000 0000
+			0000 0000 2224 2222 2222 0322 0000 0000
+			0000 4000 1222 1111 1111 3222 0000 0000
+			0000 4000 2152 2222 2222 4251 0000 0000
+			0000 4000 2256 2222 2222 4652 0000 0000
+			0000 0000 2267 2222 2222 0762 0000 0000
+			0000 3000 1184 2222 1222 3481 0000 0000
+			0000 4000 1149 2221 1122 4941 0000 0000
+			0000 4000 3739 1111 3111 4937 0000 0000
+			0000 0000 7934 3378 7873 0439 0000 0000
+			0000 0000 9940 9945 9549 0049 0000 0000
+			0000 0000 9300 aaaa 9aaa 0003 0000 0000
+			0000 0000 3400 9aa9 39aa 0004 0000 0000
+			0000 0000 b540 9934 b439 0045 0000 0000
+			0000 0000 b784 1217 b771 0339 0000 0000
+			0000 4000 43aa 7227 4777 3aa4 0000 0000
+			0000 4000 4499 8217 ccc7 4994 0000 0000
+			0000 0000 c444 dddc dddd 0444 0000 0000
+			0000 0000 4000 44cc 1144 0004 0000 0000
+			0000 0000 0000 0044 4400 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="1" name="savehero.2"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="savehero"
+		path="C:/mayadata/obj/tex/savehero/savehero.2.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 1111 0111 0000 0000 0000
+			0000 0000 1100 2222 1222 0001 0000 0000
+			0000 0000 2230 2222 2222 0032 0000 0000
+			0000 0000 2224 2222 2222 0422 0000 0000
+			0000 0000 2224 2222 2222 0422 0000 0000
+			0000 4000 1222 1111 1111 4222 0000 0000
+			0000 4000 2152 2222 2222 4251 0000 0000
+			0000 4000 2256 2222 2222 4652 0000 0000
+			0000 0000 2267 2222 2222 0762 0000 0000
+			0000 3000 1184 2222 1222 3481 0000 0000
+			0000 4000 1149 2221 1122 4941 0000 0000
+			0000 4000 3739 1111 3111 4937 0000 0000
+			0000 0000 7934 3378 7873 0439 0000 0000
+			0000 0000 9940 9945 9549 0049 0000 0000
+			0000 0000 3300 aaaa 3aaa 0033 0000 0000
+			0000 0000 6540 a934 4739 03aa 0000 0000
+			0000 0000 9940 7217 4477 0499 0000 0000
+			0000 0000 3aa4 7227 dd47 0044 0000 0000
+			0000 0000 3994 d21c dd4d 004d 0000 0000
+			0000 0000 c440 44cc 1177 0004 0000 0000
+			0000 0000 4000 0344 4400 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="savehero" color_size="16">
+		4ef8 1cf8 25be 210f 0000 7fbd 6f39 2107
+		6695 3e9b 5f5f 1e79 3189 6a2c 0000 0000
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="obj"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="0 0 0"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="clamp clamp"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_s xyz="-2.000000 0.000000 0.000000"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="2.000000 0.000000"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_xy xy="2.000000 4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-2.000000 4.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pPlane1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="on"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

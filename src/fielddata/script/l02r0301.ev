@@ -1,0 +1,125 @@
+//====================================================================
+//								l02r0301
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_l02r0301.h"
+	//.include	"../eventdata/zone_l02r0301evc.h"
+	.include	"../../../include/savedata/score_def.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_l02r0301_masuda
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*							増田部長								*/
+/********************************************************************/
+ev_l02r0301_masuda:
+	_TALK_OBJ_START
+
+	/*表彰を見てから部屋を出ていないとき*/
+	_IF_FLAGON_JUMP		FH_01,ev_l02r0301_masuda_04
+
+	//シンオウ図鑑完成チェック
+	_ZUKAN_CHK_SHINOU	SCWK_ANSWER
+	//シンオウ図鑑が完成していない
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0301_masuda_01
+
+	/*まだシンオウ版表彰されていない*/
+	_IF_FLAGOFF_JUMP		FE_RECONGNIZE_SHINOU,ev_l02r0301_masuda_02
+
+	//全国図鑑完成チェック
+	_ZUKAN_CHK_NATIONAL	SCWK_ANSWER
+	//全国図鑑が完成していない
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0301_masuda_02
+
+	/*全国表彰へ*/
+	_JUMP		ev_l02r0301_masuda_03
+
+//通常挨拶
+ev_l02r0301_masuda_01:
+	_TALKMSG		msg_l02r0301_masuda_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*シンオウ版表彰*/
+ev_l02r0301_masuda_02:
+	_IF_FLAGOFF_CALL	FE_RECONGNIZE_SHINOU,shinou_zukan_score_add
+
+	_FLAG_SET		FE_RECONGNIZE_SHINOU
+
+	_FLAG_SET		FH_01
+	_TALKMSG		msg_l02r0301_masuda_02
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	/*シンオウ版表彰呼び出し*/
+	_ZUKAN_RECONGNIZE_SHINOU
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_OBJ_END
+	_END
+
+/*全国版表彰*/
+ev_l02r0301_masuda_03:
+	_IF_FLAGOFF_CALL	FE_RECONGNIZE_NATIONAL,zenkoku_zukan_score_add
+
+	_FLAG_SET		FE_RECONGNIZE_NATIONAL
+
+	_FLAG_SET		FH_01
+	_TALKMSG		msg_l02r0301_masuda_03
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	/*全国版表彰呼び出し*/
+	_ZUKAN_RECONGNIZE_NATIONAL
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_OBJ_END
+	_END
+
+//評価後
+ev_l02r0301_masuda_04:
+	_TALKMSG		msg_l02r0301_masuda_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//シンオウ図鑑スコアを足す
+shinou_zukan_score_add:
+	_ADD_SCORE		SCORE_ID_COMMENDATION_A
+	_RET
+
+//全国図鑑スコアを足す
+zenkoku_zukan_score_add:
+	_ADD_SCORE		SCORE_ID_COMMENDATION_B
+	_RET
+
+/********************************************************************/
+/********************************************************************/

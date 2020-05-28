@@ -1,0 +1,14 @@
+#ifndef _D13R0101_DEF_H_
+#define _D13R0101_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_D13R0101_FLAG_CHANGE		(1)
+#define	SCRID_POS_D13R0101_GINGA		(2)
+#define	SCRID_D13R0101_GINGAM_A		(3)
+#define	SCRID_D13R0101_GINGAM_B		(4)
+#define	SCRID_D13R0101_MIDDLEMAN1		(5)
+#define	SCRID_D13R0101_SIGN1		(6)
+#define	SCRID_D13R0101_ITEM		(7)
+#define	SCRID_D13R0101_DATA_MAX		(7)		//最大数
+
+#endif //_D13R0101_DEF_H_

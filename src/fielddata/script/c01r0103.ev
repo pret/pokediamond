@@ -1,0 +1,494 @@
+//====================================================================
+//								c01r0103
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0103.h"
+	//.include	"../eventdata/zone_c01r0103evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01r0103_babyboy1
+_EVENT_DATA		ev_c01r0103_middlewoman1
+_EVENT_DATA		ev_c01r0103_oldwoman1
+_EVENT_DATA		ev_c01r0103_poketch_pc1
+_EVENT_DATA		ev_c01r0103_poketch_pc2
+_EVENT_DATA		ev_c01r0103_poketch_pc3
+_EVENT_DATA		ev_c01r0103_poketch_pc4
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							男の子		　							*/
+/********************************************************************/
+ev_c01r0103_babyboy1:
+	_EASY_OBJ_MSG	msg_c01r0103_babyboy1_01
+	_END
+
+/********************************************************************/
+/*							おばさん	　							*/
+/********************************************************************/
+ev_c01r0103_middlewoman1:
+	_EASY_OBJ_MSG	msg_c01r0103_middlewoman1_01
+	_END
+
+/********************************************************************/
+/*							和風婆さん	　							*/
+/********************************************************************/
+ev_c01r0103_oldwoman1:
+	_EASY_OBJ_MSG	msg_c01r0103_oldwoman1_01
+	_END
+
+/********************************************************************/
+/*							PC			　							*/
+/********************************************************************/
+ev_c01r0103_poketch_pc1:
+	_TALK_OBJ_START
+	
+	_TALKMSG			msg_poketch_pc1_01
+ev_c01r0103_poketch_pc1_return:
+	_TALKMSG			msg_poketch_pc1_02
+	
+	_BMPMENU_INIT		1,1,0,1,SCWK_TEMP0			//Bキャンセル有効
+
+	// ポケッチ取得しているか
+	_GET_POKETCH_FLAG	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0103_poketch_noget_pc1
+
+	_CALL				ev_c01r0103_poketch_pc1_menu0
+	_CALL				ev_c01r0103_poketch_pc1_menu1
+	_CALL				ev_c01r0103_poketch_pc1_menu2
+	_CALL				ev_c01r0103_poketch_pc1_menu3
+	_CALL				ev_c01r0103_poketch_pc1_menu4
+	_CALL				ev_c01r0103_poketch_pc1_menu5
+
+ev_c01r0103_poketch_noget_pc1:
+
+	_BMPMENU_MAKE_LIST16	msg_poketch_26,0			//やめる
+	_BMPMENU_START
+	
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,1,ev_c01r0103_poketch_pc1_talk0
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,2,ev_c01r0103_poketch_pc1_talk1
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,3,ev_c01r0103_poketch_pc1_talk2
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,4,ev_c01r0103_poketch_pc1_talk3
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,5,ev_c01r0103_poketch_pc1_talk4
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,6,ev_c01r0103_poketch_pc1_talk5
+	
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//デジタル時計
+ev_c01r0103_poketch_pc1_menu0:
+	_POKETCH_CHECK	POKETCH_APPID_DWATCH,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc1_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_01,1
+	_RET
+
+ev_c01r0103_poketch_pc1_talk0:
+	_TALKMSG			msg_poketch_guide_01
+	_JUMP				ev_c01r0103_poketch_pc1_return
+	
+//アナログ時計
+ev_c01r0103_poketch_pc1_menu1:
+	_POKETCH_CHECK	POKETCH_APPID_AWATCH,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc1_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_05,2
+	_RET
+
+ev_c01r0103_poketch_pc1_talk1:
+	_TALKMSG			msg_poketch_guide_02
+	_JUMP				ev_c01r0103_poketch_pc1_return
+
+//ストップウォッチ
+ev_c01r0103_poketch_pc1_menu2:
+	_POKETCH_CHECK	POKETCH_APPID_STOPWATCH,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc1_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_02,3
+	_RET
+
+ev_c01r0103_poketch_pc1_talk2:
+	_TALKMSG			msg_poketch_guide_04
+	_JUMP				ev_c01r0103_poketch_pc1_return
+
+//キッチンタイマー
+ev_c01r0103_poketch_pc1_menu3:
+	_POKETCH_CHECK	POKETCH_APPID_KITCHEN_TIMER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc1_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_18,4
+	_RET
+
+ev_c01r0103_poketch_pc1_talk3:
+	_TALKMSG			msg_poketch_guide_05
+	_JUMP				ev_c01r0103_poketch_pc1_return
+
+//アラーム時計
+ev_c01r0103_poketch_pc1_menu4:
+	_POKETCH_CHECK	POKETCH_APPID_ALARM_WATCH,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc1_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_17,5
+	_RET
+
+ev_c01r0103_poketch_pc1_talk4:
+	_TALKMSG			msg_poketch_guide_03
+	_JUMP				ev_c01r0103_poketch_pc1_return
+
+//カレンダー
+ev_c01r0103_poketch_pc1_menu5:
+	_POKETCH_CHECK	POKETCH_APPID_CALENDER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc1_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_22,6
+	_RET
+
+ev_c01r0103_poketch_pc1_talk5:
+	_TALKMSG			msg_poketch_guide_06
+	_JUMP				ev_c01r0103_poketch_pc1_return
+
+ev_c01r0103_poketch_pc1_menu_ret:
+	_RET
+
+/********************************************************************/
+/*							PC			　							*/
+/********************************************************************/
+ev_c01r0103_poketch_pc2:
+	_TALK_OBJ_START
+	
+	_TALKMSG			msg_poketch_pc2_01
+ev_c01r0103_poketch_pc2_return:
+	_TALKMSG			msg_poketch_pc2_02
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_TEMP0			//Bキャンセル有効
+
+	// ポケッチ取得しているか
+	_GET_POKETCH_FLAG	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0103_poketch_noget_pc2
+
+	_CALL				ev_c01r0103_poketch_pc2_menu0
+	_CALL				ev_c01r0103_poketch_pc2_menu1
+	_CALL				ev_c01r0103_poketch_pc2_menu2
+	_CALL				ev_c01r0103_poketch_pc2_menu3
+	_CALL				ev_c01r0103_poketch_pc2_menu4
+	_CALL				ev_c01r0103_poketch_pc2_menu5
+	_CALL				ev_c01r0103_poketch_pc2_menu6
+
+ev_c01r0103_poketch_noget_pc2:
+
+	_BMPMENU_MAKE_LIST16	msg_poketch_26,0			//やめる
+	_BMPMENU_START
+	
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,1,ev_c01r0103_poketch_pc2_talk0
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,2,ev_c01r0103_poketch_pc2_talk1
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,3,ev_c01r0103_poketch_pc2_talk2
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,4,ev_c01r0103_poketch_pc2_talk3
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,5,ev_c01r0103_poketch_pc2_talk4
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,6,ev_c01r0103_poketch_pc2_talk5
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,7,ev_c01r0103_poketch_pc2_talk6
+	
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//計算機
+ev_c01r0103_poketch_pc2_menu0:
+	_POKETCH_CHECK	POKETCH_APPID_CALC,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc2_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_03,1
+	_RET
+
+ev_c01r0103_poketch_pc2_talk0:
+	_TALKMSG			msg_poketch_guide_07
+	_JUMP				ev_c01r0103_poketch_pc2_return
+	
+//メモ用紙
+ev_c01r0103_poketch_pc2_menu1:
+	_POKETCH_CHECK	POKETCH_APPID_MEMO,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc2_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_04,2
+	_RET
+
+ev_c01r0103_poketch_pc2_talk1:
+	_TALKMSG			msg_poketch_guide_14
+	_JUMP				ev_c01r0103_poketch_pc2_return
+
+//なつきどチェッカー
+ev_c01r0103_poketch_pc2_menu2:
+	_POKETCH_CHECK	POKETCH_APPID_NATSUKI_CHECK,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc2_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_08,3
+	_RET
+
+ev_c01r0103_poketch_pc2_talk2:
+	_TALKMSG			msg_poketch_guide_09
+	_JUMP				ev_c01r0103_poketch_pc2_return
+
+//そだてやカメラ
+ev_c01r0103_poketch_pc2_menu3:
+	_POKETCH_CHECK	POKETCH_APPID_SODATEYA_CAMERA,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc2_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_12,4
+	_RET
+
+ev_c01r0103_poketch_pc2_talk3:
+	_TALKMSG			msg_poketch_guide_10
+	_JUMP				ev_c01r0103_poketch_pc2_return
+
+//ポケモンラブテスター
+ev_c01r0103_poketch_pc2_menu4:
+	_POKETCH_CHECK	POKETCH_APPID_LOVETESTER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc2_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_16,5
+	_RET
+
+ev_c01r0103_poketch_pc2_talk4:
+	_TALKMSG			msg_poketch_guide_11
+	_JUMP				ev_c01r0103_poketch_pc2_return
+
+//ポケモンヒストリー
+ev_c01r0103_poketch_pc2_menu5:
+	_POKETCH_CHECK	POKETCH_APPID_POKEMON_HISTORY,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc2_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_25,6
+	_RET
+
+ev_c01r0103_poketch_pc2_talk5:
+	_TALKMSG			msg_poketch_guide_12
+	_JUMP				ev_c01r0103_poketch_pc2_return
+
+//きのみサーチャー
+ev_c01r0103_poketch_pc2_menu6:
+	_POKETCH_CHECK	POKETCH_APPID_SEED_SEARCHER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc2_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_20,7
+	_RET
+
+ev_c01r0103_poketch_pc2_talk6:
+	_TALKMSG			msg_poketch_guide_13
+	_JUMP				ev_c01r0103_poketch_pc2_return
+
+ev_c01r0103_poketch_pc2_menu_ret:
+	_RET
+
+/********************************************************************/
+/*							PC			　							*/
+/********************************************************************/
+ev_c01r0103_poketch_pc3:
+	_TALK_OBJ_START
+	
+	_TALKMSG			msg_poketch_pc3_01
+ev_c01r0103_poketch_pc3_return:
+	_TALKMSG			msg_poketch_pc3_02
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_TEMP0			//Bキャンセル有効
+
+	// ポケッチ取得しているか
+	_GET_POKETCH_FLAG	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0103_poketch_noget_pc3
+
+	_CALL				ev_c01r0103_poketch_pc3_menu0
+	_CALL				ev_c01r0103_poketch_pc3_menu1
+	_CALL				ev_c01r0103_poketch_pc3_menu2
+	_CALL				ev_c01r0103_poketch_pc3_menu3
+	_CALL				ev_c01r0103_poketch_pc3_menu4
+	_CALL				ev_c01r0103_poketch_pc3_menu5
+
+ev_c01r0103_poketch_noget_pc3:
+
+	_BMPMENU_MAKE_LIST16	msg_poketch_26,0			//やめる
+	_BMPMENU_START
+	
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,1,ev_c01r0103_poketch_pc3_talk0
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,2,ev_c01r0103_poketch_pc3_talk1
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,3,ev_c01r0103_poketch_pc3_talk2
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,4,ev_c01r0103_poketch_pc3_talk3
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,5,ev_c01r0103_poketch_pc3_talk4
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,6,ev_c01r0103_poketch_pc3_talk5
+	
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ポケモンリスト
+ev_c01r0103_poketch_pc3_menu0:
+	_POKETCH_CHECK	POKETCH_APPID_POKELIST,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc3_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_07,1
+	_RET
+
+ev_c01r0103_poketch_pc3_talk0:
+	_TALKMSG			msg_poketch_guide_08
+	_JUMP				ev_c01r0103_poketch_pc3_return
+	
+//ドットアート
+ev_c01r0103_poketch_pc3_menu1:
+	_POKETCH_CHECK	POKETCH_APPID_DOTART,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc3_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_06,2
+	_RET
+
+ev_c01r0103_poketch_pc3_talk1:
+	_TALKMSG			msg_poketch_guide_15
+	_JUMP				ev_c01r0103_poketch_pc3_return
+
+//コイントス
+ev_c01r0103_poketch_pc3_menu2:
+	_POKETCH_CHECK	POKETCH_APPID_COINTOSS,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc3_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_14,3
+	_RET
+
+ev_c01r0103_poketch_pc3_talk2:
+	_TALKMSG			msg_poketch_guide_19
+	_JUMP				ev_c01r0103_poketch_pc3_return
+
+//ルーレット
+ev_c01r0103_poketch_pc3_menu3:
+	_POKETCH_CHECK	POKETCH_APPID_ROULETTE,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc3_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_13,4
+	_RET
+
+ev_c01r0103_poketch_pc3_talk3:
+	_TALKMSG			msg_poketch_guide_18
+	_JUMP				ev_c01r0103_poketch_pc3_return
+
+//カラーチェンジャー
+ev_c01r0103_poketch_pc3_menu4:
+	_POKETCH_CHECK	POKETCH_APPID_COLOR_CHANGER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc3_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_21,5
+	_RET
+
+ev_c01r0103_poketch_pc3_talk4:
+	_TALKMSG			msg_poketch_guide_16
+	_JUMP				ev_c01r0103_poketch_pc3_return
+
+//マップマーキング
+ev_c01r0103_poketch_pc3_menu5:
+	_POKETCH_CHECK	POKETCH_APPID_MAP_MARKING,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc3_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_19,6
+	_RET
+
+ev_c01r0103_poketch_pc3_talk5:
+	_TALKMSG			msg_poketch_guide_17
+	_JUMP				ev_c01r0103_poketch_pc3_return
+
+ev_c01r0103_poketch_pc3_menu_ret:
+	_RET
+
+/********************************************************************/
+/*							PC			　							*/
+/********************************************************************/
+ev_c01r0103_poketch_pc4:
+	_TALK_OBJ_START
+	
+	_TALKMSG			msg_poketch_pc4_01
+ev_c01r0103_poketch_pc4_return:
+	_TALKMSG			msg_poketch_pc4_02
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_TEMP0			//Bキャンセル有効
+
+	// ポケッチ取得しているか
+	_GET_POKETCH_FLAG	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0103_poketch_noget_pc4
+
+	_CALL				ev_c01r0103_poketch_pc4_menu0
+	_CALL				ev_c01r0103_poketch_pc4_menu1
+	_CALL				ev_c01r0103_poketch_pc4_menu2
+	_CALL				ev_c01r0103_poketch_pc4_menu3
+	_CALL				ev_c01r0103_poketch_pc4_menu4
+	_CALL				ev_c01r0103_poketch_pc4_menu5
+
+ev_c01r0103_poketch_noget_pc4:
+
+	_BMPMENU_MAKE_LIST16	msg_poketch_26,0			//やめる
+	_BMPMENU_START
+	
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,1,ev_c01r0103_poketch_pc4_talk0
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,2,ev_c01r0103_poketch_pc4_talk1
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,3,ev_c01r0103_poketch_pc4_talk2
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,4,ev_c01r0103_poketch_pc4_talk3
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,5,ev_c01r0103_poketch_pc4_talk4
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,6,ev_c01r0103_poketch_pc4_talk5
+	
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//まんぽけい
+ev_c01r0103_poketch_pc4_menu0:
+	_POKETCH_CHECK	POKETCH_APPID_PEDOMETER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc4_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_11,1
+	_RET
+
+ev_c01r0103_poketch_pc4_talk0:
+	_TALKMSG			msg_poketch_guide_20
+	_JUMP				ev_c01r0103_poketch_pc4_return
+	
+//カウンター
+ev_c01r0103_poketch_pc4_menu1:
+	_POKETCH_CHECK	POKETCH_APPID_COUNTER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc4_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_10,2
+	_RET
+
+ev_c01r0103_poketch_pc4_talk1:
+	_TALKMSG			msg_poketch_guide_22
+	_JUMP				ev_c01r0103_poketch_pc4_return
+
+//ポケモンカウンター
+ev_c01r0103_poketch_pc4_menu2:
+	_POKETCH_CHECK	POKETCH_APPID_POKEMON_COUNTER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc4_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_24,3
+	_RET
+
+ev_c01r0103_poketch_pc4_talk2:
+	_TALKMSG			msg_poketch_guide_23
+	_JUMP				ev_c01r0103_poketch_pc4_return
+
+//通信サーチャー
+ev_c01r0103_poketch_pc4_menu3:
+	_POKETCH_CHECK	POKETCH_APPID_COMM_SEARCHER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc4_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_23,4
+	_RET
+
+ev_c01r0103_poketch_pc4_talk3:
+	_TALKMSG			msg_poketch_guide_24
+	_JUMP				ev_c01r0103_poketch_pc4_return
+
+//技効果チェッカー
+ev_c01r0103_poketch_pc4_menu4:
+	_POKETCH_CHECK	POKETCH_APPID_WAZA_EFF_CHECK,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc4_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_15,5
+	_RET
+
+ev_c01r0103_poketch_pc4_talk4:
+	_TALKMSG			msg_poketch_guide_25
+	_JUMP				ev_c01r0103_poketch_pc4_return
+
+//ダウジングマシン
+ev_c01r0103_poketch_pc4_menu5:
+	_POKETCH_CHECK	POKETCH_APPID_DOWSING,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c01r0103_poketch_pc4_menu_ret
+	_BMPMENU_MAKE_LIST16	msg_poketch_09,6
+	_RET
+
+ev_c01r0103_poketch_pc4_talk5:
+	_TALKMSG			msg_poketch_guide_21
+	_JUMP				ev_c01r0103_poketch_pc4_return
+
+ev_c01r0103_poketch_pc4_menu_ret:
+	_RET
+
+/********************************************************************/
+/********************************************************************/

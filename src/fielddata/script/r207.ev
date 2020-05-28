@@ -1,0 +1,350 @@
+//====================================================================
+//						r207.gmm
+//					フィールド・ロード207
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r207.h"
+	.include	"../eventdata/zone_r207evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r207_flag_change
+_EVENT_DATA		pos_r207_support
+_EVENT_DATA		ev_r207_girl1a
+_EVENT_DATA		ev_r207_cyclem
+_EVENT_DATA		ev_r207_sign1
+_EVENT_DATA		ev_r207_sign2
+_EVENT_DATA		ev_r207_sign3
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r207_flag_change:
+	//WKOBJCHRにサポートのキャラコードをセットする
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,r207_male_flag_change_01	//サポート女
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,r207_female_flag_change_01	//サポート男
+	_END
+
+r207_male_flag_change_01:	//サポート女
+	_LDVAL			OBJCHRWORK0,HEROINE
+	_END
+
+r207_female_flag_change_01:	//サポート男
+	_LDVAL			OBJCHRWORK0,HERO
+	_END
+
+
+/********************************************************************/
+/*							サポート(POS)							*/
+/********************************************************************/
+#define POS_R207_SUPPORT_X1	(300)
+#define POS_R207_SUPPORT_X2	(301)
+#define POS_R207_SUPPORT_X3	(302)
+#define POS_R207_SUPPORT_X4	(303)
+#define POS_R207_SUPPORT_X5	(304)
+#define POS_R207_SUPPORT_X6	(305)
+#define POS_R207_SUPPORT_X7	(306)
+#define POS_R207_SUPPORT_X8	(307)
+
+pos_r207_support:
+	_EVENT_START
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R207_SUPPORT_X1,pos_r207_support_x01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R207_SUPPORT_X2,pos_r207_support_x02
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R207_SUPPORT_X3,pos_r207_support_x03
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R207_SUPPORT_X4,pos_r207_support_x04
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R207_SUPPORT_X5,pos_r207_support_x05
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R207_SUPPORT_X6,pos_r207_support_x06
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R207_SUPPORT_X7,pos_r207_support_x07
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R207_SUPPORT_X8,pos_r207_support_x08
+	_END
+
+//--------------------------------------------------------------------
+//サポート	近づいてくる
+//--------------------------------------------------------------------
+pos_r207_support_x01:
+	_SXY_POS_CHANGE	R207_SUPPORT,301,716
+	_CALL			common_r207_support_50
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r207_support_common
+
+pos_r207_support_x02:
+	_SXY_POS_CHANGE	R207_SUPPORT,302,716
+	_CALL			common_r207_support_50
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r207_support_common
+
+pos_r207_support_x03:
+	_SXY_POS_CHANGE	R207_SUPPORT,303,716
+	_CALL			common_r207_support_50
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r207_support_common
+
+pos_r207_support_x04:
+	_SXY_POS_CHANGE	R207_SUPPORT,304,716
+	_CALL			common_r207_support_50
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r207_support_common
+
+pos_r207_support_x05:
+	_SXY_POS_CHANGE	R207_SUPPORT,305,716
+	_CALL			common_r207_support_50
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r207_support_common
+
+pos_r207_support_x06:
+	_SXY_POS_CHANGE	R207_SUPPORT,304,716
+	_CALL			common_r207_support_50
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_02
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r207_support_common
+
+pos_r207_support_x07:
+	_SXY_POS_CHANGE	R207_SUPPORT,305,716
+	_CALL			common_r207_support_50
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_02
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r207_support_common
+
+pos_r207_support_x08:
+	_SXY_POS_CHANGE	R207_SUPPORT,306,716
+	_CALL			common_r207_support_50
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_02
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r207_support_common
+
+common_r207_support_50:
+	_FLAG_RESET		FV_R207_SUPPORT
+	_OBJ_ADD		R207_SUPPORT
+	_OBJ_PAUSE		R207_SUPPORT
+
+	_CHG_COMMON_SCR SCRID_THE_BOY_GIRL_PLAY				/*サポート曲再生*/
+
+	_RET
+
+//共通処理
+pos_r207_support_common:
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,r207_male_01	//サポート女
+	_JUMP			r207_female_01					//サポート男
+
+//サポート女
+r207_male_01:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_r207_heroine_01
+	_BMPLIST_INIT		24,13,0,0,SCWK_ANSWER		//Bキャンセル無効
+	_BMPLIST_MAKE_LIST	msg_ev_win_133,EV_WIN_TALK_MSG_NONE,0
+	_BMPLIST_MAKE_LIST	msg_ev_win_134,EV_WIN_TALK_MSG_NONE,1
+	_BMPLIST_START
+
+	_TALK_KEYWAIT	msg_r207_heroine_02
+
+	//バトルサーチャー入手
+	_CALL			r207_btl_searcher_get
+
+	_TALK_KEYWAIT	msg_r207_heroine_03
+
+	//ダウンジグマシン入手
+	_CALL			r207_dowsing_get
+
+	_TALK_KEYWAIT	msg_r207_heroine_04
+	_JUMP			common_r207_support_10
+
+//サポート男
+r207_female_01:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_r207_hero_01
+	_BMPLIST_INIT		24,13,0,0,SCWK_ANSWER		//Bキャンセル無効
+	_BMPLIST_MAKE_LIST	msg_ev_win_133,EV_WIN_TALK_MSG_NONE,0
+	_BMPLIST_MAKE_LIST	msg_ev_win_134,EV_WIN_TALK_MSG_NONE,1
+	_BMPLIST_START
+
+	_TALK_KEYWAIT	msg_r207_hero_02
+
+	//バトルサーチャー入手
+	_CALL			r207_btl_searcher_get
+
+	_TALK_KEYWAIT	msg_r207_hero_03
+
+	//ダウンジグマシン入手
+	_CALL			r207_dowsing_get
+
+	_TALK_KEYWAIT	msg_r207_hero_04
+	_JUMP			common_r207_support_10
+
+//バトルサーチャー入手
+r207_btl_searcher_get:
+	_FLAG_SET		SYS_FLAG_BS_LV1
+	_LDVAL			SCWK_TEMP0,ITEM_BATORUSAATYAA
+	_LDVAL			SCWK_TEMP1,1
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+	_RET
+
+//ダウンジグマシン入手
+r207_dowsing_get:
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_DOWSING
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_POKETCH_NAME	1,POKETCH_APPID_DOWSING
+	_RET
+
+//共通処理
+common_r207_support_10:
+	_TALK_CLOSE
+
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R207_SUPPORT_X1,pos_r207_support_back_x01
+	_JUMP			pos_r207_support_back
+
+//左端以外
+pos_r207_support_back:
+	/*画面上に移動*/
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_20
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_10
+	_OBJ_ANIME_WAIT
+	_JUMP			common_r207_support_11
+
+//左端のとき
+pos_r207_support_back_x01:
+	/*画面上に移動*/
+	_OBJ_ANIME		R207_SUPPORT,anm_r207_support_21
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r207_player_10
+	_OBJ_ANIME_WAIT
+	_JUMP			common_r207_support_11
+
+common_r207_support_11:
+	_OBJ_DEL		R207_SUPPORT
+
+	_CHG_COMMON_SCR SCRID_THE_BOY_GIRL_STOP				/*サポート曲停止*/
+
+	_LDVAL			WK_SCENE_R207,1
+	_LDVAL			WK_SCENE_C04_STOPPER_02,2		//ストッパー解除
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	サポートの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r207_player_01
+	_ANIME_DATA	AC_WAIT_8F,8
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r207_player_02
+	_ANIME_DATA	AC_WAIT_8F,8
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	サポート見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r207_player_10
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	画面下から近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r207_support_01
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r207_support_02
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	画面上に去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r207_support_20
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r207_support_21
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*							少女									*/
+/********************************************************************/
+ev_r207_girl1a:
+	_EASY_OBJ_MSG	msg_r207_girl1a_01
+	_END
+
+/********************************************************************/
+/*							自転車									*/
+/********************************************************************/
+ev_r207_cyclem:
+	_TALK_OBJ_START
+
+	/*自転車入手していたら*/
+	_IF_FLAGON_JUMP	FE_CYCLE_GET,ev_r207_cyclem_02
+
+	_TALKMSG		msg_r207_cyclem_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*自転車入手していたら*/
+ev_r207_cyclem_02:
+	_TALKMSG		msg_r207_cyclem_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							道看板									*/
+/********************************************************************/
+ev_r207_sign1:
+	_EASY_BOARD_MSG	msg_r207_sign1_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							道看板									*/
+/********************************************************************/
+ev_r207_sign2:
+	_EASY_BOARD_MSG	msg_r207_sign2_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							掲示板									*/
+/********************************************************************/
+ev_r207_sign3:
+	_EASY_INFOBOARD_MSG	msg_r207_sign3_01,BOARD_TYPE_INFO,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

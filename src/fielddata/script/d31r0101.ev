@@ -1,0 +1,181 @@
+//====================================================================
+//								d31r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d31r0101.h"
+	.include	"../eventdata/zone_d31r0101evc.h"
+	.include	"../../field/scr_btower.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d31r0101_bpgift_01
+_EVENT_DATA		ev_d31r0101_bpgift_02
+_EVENT_DATA		ev_d31r0101_gentleman_01
+_EVENT_DATA		ev_d31r0101_madam_01
+_EVENT_DATA		ev_d31r0101_badman1_01
+_EVENT_DATA		ev_d31r0101_girl1_01
+_EVENT_DATA		ev_d31r0101_clown_01
+_EVENT_DATA		ev_d31r0101_babygirl_01
+_EVENT_DATA		ev_d31r0101_oldwoman_01
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31r0101_bpgift_01:
+	_LDVAL	LOCALWORK0,0	//リストid代入
+	_LDVAL	LOCALWORK1,BP_GIFT_NUM01	//リスト上限値代入
+	_JUMP	ev_bpgift_start
+
+ev_d31r0101_bpgift_02:
+	_LDVAL	LOCALWORK0,1	//リストid代入
+	_LDVAL	LOCALWORK1,BP_GIFT_NUM02	//リスト上限値代入
+	_JUMP	ev_bpgift_start
+
+
+//アイテムリスト交換フロー
+ev_bpgift_start:
+	_TALK_OBJ_START
+
+	//バトルポイントウィンドウ描画
+	_BTL_POINT_WIN_WRITE	21,1
+	
+	//こちらでは～
+	_TALK_KEYWAIT	msg_hikikae_01
+
+	//どちらのアイテムを～
+ev_bpgift_item_select:
+	_TALKMSG		msg_hikikae_02
+	_CALL			ev_bpgift_menu_write
+//	_TALK_CLOSE
+
+	//キャンセルが選ばれていたら終わる
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,EV_WIN_B_CANCEL,ev_bpgift_end
+	_IFWK_JUMP		SCWK_ANSWER,EQ,LOCALWORK1,ev_bpgift_end
+
+	//欲しいアイテム決定(LOCALWORK3にindexを保存)
+	_LDWK			LOCALWORK3,SCWK_ANSWER
+	_GET_BP_GIFT	LOCALWORK0,LOCALWORK3,SCWK_PARAM0,SCWK_PARAM1
+	
+	//？でよろしいですか？
+	_IFVAL_CALL		LOCALWORK0,EQ,0,ev_bpgift_item_select_check01
+	_IFVAL_CALL		LOCALWORK0,EQ,1,ev_bpgift_item_select_check02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_bpgift_item_select	//キャンセル
+
+	//持っているbpが足りるか？
+	_COMP_BTL_POINT	SCWK_PARAM1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_bpgift_bp_ng	//bp足りない
+
+	//バッグに入るか？
+	_ADD_ITEM_CHK	SCWK_PARAM0,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_bpgift_bag_ng	//バッグに空きがない
+
+	//どうぞお受け取りください
+	_TALK_KEYWAIT	msg_hikikae_04
+
+	//アイテム追加
+	_ADD_ITEM		SCWK_PARAM0,1,SCWK_ANSWER
+	//bp減らす
+	_BTL_POINT_SUB	SCWK_PARAM1
+	//bpウィンドウ更新
+	_BTL_POINT_WRITE
+	_JUMP			ev_bpgift_item_select
+	
+ev_bpgift_end:
+	//ありがとうございました
+	_TALKMSG		msg_hikikae_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	//バトルポイントウィンドウ削除
+	_BTL_POINT_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+//選んだアイテムの確認メッセージ
+ev_bpgift_item_select_check01:
+	_ITEM_NAME		0,SCWK_PARAM0
+	_TALKMSG		msg_hikikae_03
+	_RET
+ev_bpgift_item_select_check02:
+	_ITEM_NAME			0,SCWK_PARAM0
+	_ITEM_WAZA_NAME		1,SCWK_PARAM0
+	_TALKMSG		msg_hikikae_08
+	_RET
+
+//bpが足りないときのメッセージ
+ev_bpgift_bp_ng:
+	_TALK_KEYWAIT	msg_hikikae_05
+	_JUMP			ev_bpgift_item_select
+
+//バッグが一杯の時のメッセージ
+ev_bpgift_bag_ng:
+	_ITEM_NAME		0,SCWK_PARAM0
+	_TALK_KEYWAIT	msg_hikikae_06
+	_JUMP			ev_bpgift_item_select
+
+//交換アイテムメニューリスト描画 LOCALWORK0にリストIDを代入して呼ぶ
+ev_bpgift_menu_write:
+	_LDVAL	SCWK_REG0,0
+	_LDVAL	SCWK_REG1,0
+	_BMPLIST_INIT	1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+
+ev_bpgift_menu_make_start:
+	_GET_BP_GIFT			LOCALWORK0,SCWK_REG0,SCWK_PARAM0,SCWK_PARAM1
+	_ITEM_NAME				0,SCWK_PARAM0
+	_NUMBER_NAME_EX			1,SCWK_PARAM1,1,3
+	_BMPLIST_MAKE_LIST		msg_bpgift_01,EV_WIN_TALK_MSG_NONE,SCWK_REG0
+	_ADD_WK					SCWK_REG0,1
+	_IFWK_JUMP				SCWK_REG0,LT,LOCALWORK1,ev_bpgift_menu_make_start
+
+ev_bpgift_menu_make_end:
+	//やめるを追加
+	_BMPLIST_MAKE_LIST		msg_bpgift_02,EV_WIN_TALK_MSG_NONE,SCWK_REG0
+	//bmpリストスタート
+	_BMPLIST_START
+	_RET
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+//紳士
+ev_d31r0101_gentleman_01:
+//	_BTL_POINT_ADD	500
+	_EASY_OBJ_MSG	msg_d31r0101_gentleman_01
+	_END
+//マダム
+ev_d31r0101_madam_01:
+	_EASY_OBJ_MSG	msg_d31r0101_madam_01
+	_END
+//スキンヘッド
+ev_d31r0101_badman1_01:
+	_EASY_OBJ_MSG	msg_d31r0101_badman1_01
+	_END
+//女の子
+ev_d31r0101_girl1_01:
+	_EASY_OBJ_MSG	msg_d31r0101_girl1_01
+	_END
+//ピエロ
+ev_d31r0101_clown_01:
+	_EASY_OBJ_MSG	msg_d31r0101_clown_01
+	_END
+	
+//幼女＆老婆
+ev_d31r0101_babygirl_01:
+ev_d31r0101_oldwoman_01:
+	_TALK_OBJ_START_TURN_NOT
+	_TALK_KEYWAIT	msg_d31r0101_babygirl_01
+	_TALK_KEYWAIT	msg_d31r0101_oldwoman_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+

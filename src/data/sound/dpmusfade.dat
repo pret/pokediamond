@@ -1,0 +1,16 @@
+//----------------------------------------------------
+//	トラックフェードデータ
+//----------------------------------------------------
+//注意！ マイナス1をして0～15トラックとして扱っている
+static const TRACK_FADE_DATA track_fade_tbl[] = {
+	{ SEQ_TOWN01,	7, 7, 8, 8 },
+	{ SEQ_TOWN02,	9, 9, TRACK_FADE_NONE, TRACK_FADE_NONE },
+	{ SEQ_TOWN03,	1, 4, 5, 8 },
+	{ SEQ_CITY01,	6, 6, 7, 7 },
+	{ SEQ_CITY02,	8, 9, TRACK_FADE_NONE, TRACK_FADE_NONE },
+	{ SEQ_CITY03,	3, 4, 6, 7 },
+	{ SEQ_ROAD_A,	8, 9, 7, 7 },
+	{ SEQ_ROAD_B,	6, 6, TRACK_FADE_NONE, TRACK_FADE_NONE },
+	{ SEQ_ROAD_D,	7, 9, 6, 6 },
+};
+#define TRACK_FADE_TBL_MAX ( NELEMS(track_fade_tbl) )

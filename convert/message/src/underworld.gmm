@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="ohmori" host="W00097" date="2006-07-30T16:19:04"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名" english="ポケット名" view="EP" width="144" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名</comment>
+				<comment language="english">バッグのポケット名</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="123"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="3" width="243"/>
+		<erase position="-1" width="100"/>
+		<attribute japanese="キャラ指定" english="キャラ指定" type="string" default="" position="1" width="100">
+		</attribute>
+		<language japanese="日本語" english="日本語">
+			<message position="2" width="221"/>
+			<font default=" 0:font_talk" position="4" width="100">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="-1" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="53" top="57" right="679" bottom="685" maximized="no" rayout="Vertical2">
+		<comment-input left="561" top="357" right="908" bottom="509" visible="yes"/>
+		<tag-palette left="521" top="59" right="1024" bottom="457" visible="no"/>
+		<band id="0" index="0" style="0000" width="451"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="464"/>
+		<band id="3" index="3" style="0000" width="152"/>
+		<band id="4" index="4" style="0000" width="618"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_underworld_01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・初回</comment>
+		<language name="日本語" width="216">こんにちは！
+なにか　よう？</language>
+	</row>
+
+	<row id="msg_underworld_02" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しない</comment>
+		<language name="日本語" width="216">あ！　[1:03:トレーナー名:0]
+なにか　よう？</language>
+	</row>
+
+	<row id="msg_underworld_03" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・相手は話しかけられない状態</comment>
+		<language name="日本語" width="216">……　……　……
+いまは　とりこみちゅうの　ようだ</language>
+	</row>
+
+	<row id="msg_underworld_04" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・msg_underworld_01、もしくは
+　msg_underworld_02での選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あいさつ</language>
+	</row>
+
+	<row id="msg_underworld_05" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・msg_underworld_01、もしくは
+　msg_underworld_02での選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">しつもん</language>
+	</row>
+
+	<row id="msg_underworld_06" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・msg_underworld_01、もしくは
+　msg_underworld_02での選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">グッズをあげる</language>
+	</row>
+
+	<row id="msg_underworld_07" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・msg_underworld_01、もしくは
+　msg_underworld_02での選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_underworld_08" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・あいさつ選択</comment>
+		<language name="日本語" width="216">トレーナーケースを
+みせて　くれるの？▼
+じゃあ　こっちの　トレーナーケースも
+みせて　あげるよ！</language>
+	</row>
+
+	<row id="msg_underworld_09" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・あいさつ選択
+・相手が承認しない</comment>
+		<language name="日本語" width="216">あれ？　トレーナーケースが
+みつからないな▼
+ごめん！
+また　こんどね</language>
+	</row>
+
+	<row id="msg_underworld_10" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・あいさつ選択
+・相手が承認した処理の後</comment>
+		<language name="日本語" width="216">ありがとう！
+これからも　よろしくね！▼</language>
+	</row>
+
+	<row id="msg_underworld_11" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・再度選択肢を表示</comment>
+		<language name="日本語" width="216">ほかにも　なにか　する？</language>
+	</row>
+
+	<row id="msg_underworld_12" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・どうぐをあげる選択
+　アイテムを選ばなかった</comment>
+		<language name="日本語" width="216">あ！
+また　こんどでも　いいよ</language>
+	</row>
+
+	<row id="msg_underworld_13" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・どうぐをあげる選択
+　アイテムを選んだ
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">え？
+[1:19:地下のどうぐの名前:2]を　くれるの？</language>
+	</row>
+
+	<row id="msg_underworld_14" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・どうぐをあげる選択
+　相手が受け取りを承諾しない
+　もしくは道具がいっぱい</comment>
+		<language name="日本語" width="216">ごめん！
+やっぱり　わるいよ▼
+また　こんどね！</language>
+	</row>
+
+	<row id="msg_underworld_15" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・どうぐをあげる選択
+　相手が受け取りを承諾
+
+0＝トレーナー名
+2＝道具名</comment>
+		<language name="日本語" width="216">ありがとう！▼
+[1:03:トレーナー名:0]に
+[1:19:地下のどうぐの名前:2]を　わたした！</language>
+	</row>
+
+	<row id="msg_underworld_16" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・やめる選択</comment>
+		<language name="日本語" width="216">じゃあ　またね！</language>
+	</row>
+
+	<row id="msg_underworld_17" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・相手が会話をやめた</comment>
+		<language name="日本語" width="216">ごめん！
+ようじが　あるから　またね！</language>
+	</row>
+
+	<row id="msg_underworld_18" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・目の前に玉がある
+2=アイテム名
+</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:2]　を
+てにいれた！</language>
+	</row>
+
+	<row id="msg_underworld_19" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・目の前に罠がある</comment>
+		<language name="日本語" width="216">めのまえに　[1:19:地下のどうぐの名前:3]
+が　しかけられていた！▼
+[1:03:トレーナー名:1]は　[1:19:地下のどうぐの名前:3]を
+かいじょ　した！</language>
+	</row>
+
+	<row id="msg_underworld_20" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・目の前に化石ポイントがある</comment>
+		<language name="日本語" width="216">かべが　すこし　もりあがっている
+ほってみますか？</language>
+	</row>
+
+	<row id="msg_underworld_23" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・アイテムがもてない</comment>
+		<language name="日本語" width="216">ざんねん！
+ふくろが　いっぱい　だ！</language>
+	</row>
+
+	<row id="msg_underworld_24" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・アイテムがもてない</comment>
+		<language name="日本語" width="216">ざんねん！
+ふくろが　いっぱい　だ！</language>
+	</row>
+
+	<row id="msg_underworld_25" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態
+・初回</comment>
+		<language name="日本語" width="216">こんにちは！</language>
+	</row>
+
+	<row id="msg_underworld_26" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しない</comment>
+		<language name="日本語" width="216">あ！　[1:03:トレーナー名:0]！
+こんにちは！</language>
+	</row>
+
+	<row id="msg_underworld_27" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態
+・あいさつしてきた
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">トレーナーケース　を
+みせて　あげるから▼
+きみの　トレーナーケースも
+みせて　くれない？</language>
+	</row>
+
+	<row id="msg_underworld_28" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態
+・msg_underworld_27で
+　いいえ選択
+・msg_underworld_25もしくは
+　msg_underworld_26での
+　返事待ち状態で、Ｂボタンを押したとき</comment>
+		<language name="日本語" width="216">あ　ようじが　あるの？
+わかった！　また　こんどね！</language>
+	</row>
+
+	<row id="msg_underworld_29" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態
+
+0＝トレーナー名</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]
+これからも　よろしくね</language>
+	</row>
+
+	<row id="msg_underworld_30" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態</comment>
+		<language name="日本語" width="216">あとは……</language>
+	</row>
+
+	<row id="msg_underworld_31" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態
+・道具をさしだしてきた
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">あ！　そうだ
+この　[1:19:地下のどうぐの名前:2]を　あげるよ！▼
+ぜひ　うけとって！</language>
+	</row>
+
+	<row id="msg_underworld_32" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態
+・msg_underworld_31で
+　いいえ選択</comment>
+		<language name="日本語" width="216">あれ？
+もう　もっていたかな？</language>
+	</row>
+
+	<row id="msg_underworld_33" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態
+・msg_underworld_31で
+　はい選択、だけど道具がいっぱい</comment>
+		<language name="日本語" width="216">あれ？
+それいじょう　もてない　みたいだね▼
+じゃあ　また　こんどね！</language>
+	</row>
+
+	<row id="msg_underworld_34" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態
+・msg_underworld_31で
+　はい選択、アイテム受け取り処理</comment>
+		<language name="日本語" width="216">じゃあ　あげる！
+だいじに　してね！▼
+[1:03:トレーナー名:0]から
+[1:19:地下のどうぐの名前:2]を　もらった！</language>
+	</row>
+
+	<row id="msg_underworld_35" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけられ状態
+・相手がやめるを選択</comment>
+		<language name="日本語" width="216">じゃあ　また　こんどね！</language>
+	</row>
+
+	<row id="msg_underworld_36" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地を作るメッセージ
+０：ドリル</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:3]　を　つかった！</language>
+	</row>
+
+	<row id="msg_underworld_37" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地を作るメッセージ
+穴を開けたあと</comment>
+		<language name="日本語" width="216">ちいさな　どうくつを
+はっけん！▼</language>
+	</row>
+
+	<row id="msg_underworld_38" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地を作るメッセージ
+まだ基地を持ってない場合
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">ここに　きちを　つくりますか？</language>
+	</row>
+
+	<row id="msg_underworld_39" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地を作るメッセージ
+基地を持っている場合
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">ここに　ひっこし　ますか？</language>
+	</row>
+
+	<row id="msg_underworld_391" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地を作るメッセージ
+通信切断を確認する
+あけておく
+しめるの選択肢</comment>
+		<language name="日本語" width="216">いりぐちを　あけて　おきますか？
+しめて　もようがえを　しますか？</language>
+	</row>
+
+	<row id="msg_underworld_392" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地を作るときの選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">いりぐちを　あけておく</language>
+	</row>
+
+	<row id="msg_underworld_393" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地を作るときの選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">しめて　もようがえする</language>
+	</row>
+
+	<row id="msg_underworld_40" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">きちの　いりぐちを　かくして
+なかに　はいった！</language>
+	</row>
+
+	<row id="msg_underworld_41" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地を作るメッセージ
+自分の基地に入る
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">じぶんの　きちだ！
+なかに　はいりますか？</language>
+	</row>
+
+	<row id="msg_underworld_42" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">いりぐちを　かくして
+もようがえを　おこないますか？</language>
+	</row>
+
+	<row id="msg_underworld_43" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">いりぐちを　かくして
+じぶんの　きちの　なかに　はいった！</language>
+	</row>
+
+	<row id="msg_underworld_44" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">じぶんの　きちの　なかに　はいった！</language>
+	</row>
+
+	<row id="msg_underworld_45" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>相手の基地に入る時のメッセージ
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">ちいさな　どうくつ　はっけん！
+なかに　はいりますか？</language>
+	</row>
+
+	<row id="msg_underworld_46" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">あなの　なかに　はいった！</language>
+	</row>
+
+	<row id="msg_underworld_47" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地から出るときのメッセージ
+通信を始める確認
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">いりぐちを　あけて
+きちから　でますか？</language>
+	</row>
+
+	<row id="msg_underworld_48" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地から出るときのメッセージ
+通信を始める確認
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">ＤＳワイヤレスつうしんを
+かいし　します</language>
+	</row>
+
+	<row id="msg_underworld_49" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">きちの　いりぐちを　あけました</language>
+	</row>
+
+	<row id="msg_underworld_50" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地から出るときのメッセージ
+模様替えせずに、基地から出るときのメッセージ
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">きちから　でますか？</language>
+	</row>
+
+	<row id="msg_underworld_51" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地から出るときのメッセージ
+親かその基地の持ち主が帰って、
+強制に出たときのメッセージ</comment>
+		<language name="日本語" width="216">じしん　だ！▼
+あぶないので
+つうろに　ひなん　した！</language>
+	</row>
+
+	<row id="msg_underworld_52" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地上に帰るメッセージ
+メニューから「ちじょうへ」をせんたくした
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">はいってきた　ばしょから
+ちじょうへ　もどりますか？</language>
+	</row>
+
+	<row id="msg_underworld_53" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地上に帰るメッセージ
+・はい／いいえの選択肢表示</comment>
+		<language name="日本語" width="216">ちじょうに　もどったあと　レポートを
+かきますが　よろしいですか？</language>
+	</row>
+
+	<row id="msg_underworld_54" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>ドリルを使えなかったときの
+メッセージ</comment>
+		<language name="日本語" width="216">そこでは　つかえません！</language>
+	</row>
+
+	<row id="msg_underworld_55" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>目の前が壁だったり、人だったときの
+設置不可メッセージ</comment>
+		<language name="日本語" width="216">そこに　おけません</language>
+	</row>
+
+	<row id="msg_underworld_56" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>ドリルを使ったが「いいえ」を選択した場合</comment>
+		<language name="日本語" width="216">あなを　ふさいだ</language>
+	</row>
+
+	<row id="msg_underworld_57" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地の中に誰かがいるときに、
+壁の前でドリルを使ったとき</comment>
+		<language name="日本語" width="216">きちの　なかに　だれかがいるので
+きちを　ひっこす　ことは　できません</language>
+	</row>
+
+	<row id="msg_underworld_58" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>タマや罠をうめたとき
+０＝うめた道具
+１＝タマの大きさ</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:0]　[1:33:数字２桁:1]を
+めのまえに　うめた！</language>
+	</row>
+
+	<row id="msg_underworld_59" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>ほかのものが埋まっていたとき</comment>
+		<language name="日本語" width="216">なにかが　うまっていたので
+おけなかった</language>
+	</row>
+
+	<row id="msg_underworld_60" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>壁に埋めようとしたとき</comment>
+		<language name="日本語" width="216">かべの　なかには　うめられません！</language>
+	</row>
+
+	<row id="msg_underworld_61" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">……　……　……　……　……</language>
+	</row>
+
+	<row id="msg_underworld_62" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>化石ゲームをはじめるときのメッセージ</comment>
+		<language name="日本語" width="216">かべのなかに　おおきな　はんのうを
+[1:32:数字１桁:0]つ　かくにん！</language>
+	</row>
+
+	<row id="msg_underworld_63" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>化石ゲームを失敗したときのメッセージ</comment>
+		<language name="日本語" width="216">かべが　くずれて　しまった！</language>
+	</row>
+
+	<row id="msg_underworld_64" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>化石ゲームを成功したときのメッセージ</comment>
+		<language name="日本語" width="216">すべての　かせきを　ほりだした！</language>
+	</row>
+
+	<row id="msg_underworld_65" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>化石ゲームで手持ちがいっぱいだったとき</comment>
+		<language name="日本語" width="216">ざんねん！
+ふくろが　いっぱいだ！</language>
+	</row>
+
+	<row id="msg_underworld_66" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>秘密基地の中で、地上へを選んだ時</comment>
+		<language name="日本語" width="216">きちの　なかから　ちじょうへ
+もどることは　できません！</language>
+	</row>
+
+	<row id="msg_underworld_67" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>誰かの秘密基地に入り、ハタをとるときのメッセージ
+このあと　はい、いいえ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]の
+ひみつきち　のようだ▼
+ハタを　とりますか？　</language>
+	</row>
+
+	<row id="msg_underworld_68" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地に入るときに、「扉をしめる」を選んだとき、
+基地に入った後でるメッセージ</comment>
+		<language name="日本語" width="216">きちを　つくるために
+いりぐちを　ふさいだ！</language>
+	</row>
+
+	<row id="msg_underworld_69" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>話しかけ状態
+・目の前に玉がある
+2=アイテム名
+1=タマの大きさ</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:2]　[1:33:数字２桁:1]を
+てにいれた！</language>
+	</row>
+
+	<row id="msg_underworld_70" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>トラップにかかったときに出るメッセージ
+時間送り</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:0]　を
+ふんで　しまった！</language>
+	</row>
+
+	<row id="msg_underworld_71" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>罠にはまった人を助けたときに出る
+メッセージ</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]を　たすけて　あげた！</language>
+	</row>
+
+	<row id="msg_underworld_72" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>化石を掘っている人に話しかけたときのメッセージ
+専用取り込み中メッセージ</comment>
+		<language name="日本語" width="216">いま　かせきを　ほっているんだけど▼
+もしかしたら
+ちかくに　あるかも　しれないから▽
+いっしょに　ほろうよ！</language>
+	</row>
+
+	<row id="msg_underworld_73" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地の中で、トラップを置こうとしたとき</comment>
+		<language name="日本語" width="216">きちの　なかでは
+トラップは　おけません</language>
+	</row>
+
+	<row id="msg_underworld_74" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地の中で、ドリルを使用したとき</comment>
+		<language name="日本語" width="216">きちの　なかでは
+あなを　ほれません！</language>
+	</row>
+
+	<row id="msg_underworld_75" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>タマを埋めたときに、大きくなっていた場合のメッセージ
+０：大きくなった大きさ
+大きさが変わらなかった場合は表示しません。</comment>
+		<language name="日本語" width="216">うめた　ときより
+[1:33:数字２桁:0]　おおきく　なっていた！</language>
+	</row>
+
+	<row id="msg_underworld_76" back-color=",,,#ff0000,,,#ff0000,,,,,,">
+		<comment>マイク系の罠にかかったときのメッセージ</comment>
+		<language name="日本語" width="216">トラップを　いきで　ふきとばせ！</language>
+	</row>
+
+	<row id="msg_underworld_77" back-color=",,,#ff0000,,,#ff0000,,,,,,">
+		<comment>タッチ系の罠にかかったときのメッセージ</comment>
+		<language name="日本語" width="216">トラップを　タッチで　とりのぞけ！</language>
+	</row>
+
+	<row id="msg_underworld_78" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>トラップを取ろうとしたが、バッグがいっぱいだったとき</comment>
+		<language name="日本語" width="216">トラップを　はっけん　したが　ふくろが
+いっぱいなので　そのままにした！</language>
+	</row>
+
+	<row id="msg_underworld_79" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>たからをバッグにしまったときのメッセージ</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:0]を　バッグの
+[FF:00:色:2]㌇[FF:00:色:0]どうぐポケットに　しまった！</language>
+	</row>
+
+	<row id="msg_underworld_80" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>たからをバッグにしまおうと思ったが、いっぱいだったとき</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:0]は　バッグが
+いっぱいなので　しまえなかった！</language>
+	</row>
+
+	<row id="msg_underworld_81" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>たからをバッグにしまったときのメッセージ（かいふく）</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:0]を　バッグの
+[FF:00:色:2]㌋[FF:00:色:0]かいふくポケットに　しまった！</language>
+	</row>
+
+	<row id="msg_underworld_82" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">[FF:00:色:2]㌋[FF:00:色:0]かいふくポケット</language>
+	</row>
+
+	<row id="msg_underworld_83" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>トラップを取ろうとしたが、バッグがいっぱいだったとき</comment>
+		<language name="日本語" width="216">タマを　はっけん　したが　ふくろが
+いっぱいなので　そのままにした！</language>
+	</row>
+
+	<row id="msg_underworld_84" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>基地の中で、タマを置こうとしたとき</comment>
+		<language name="日本語" width="216">きちの　なかでは
+タマは　うめられません</language>
+	</row>
+
+	<row id="msg_underworld_85" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>化石をはじめて掘ったときにでるメッセージ
+
+
+かべのなかに　おおきな　はんのうを
+[1:32:数字１桁:0]つ　かくにん！
+
+のあとに、表示されます。</comment>
+		<language name="日本語" width="216">……　……　……　……
+……　……　……　……▼
+おや？　たんけんセットの　なかに
+メモが　はさんで　あった▼
+「かせきの　ほりかた！▼
+たんけんセットに　ハンマーと
+ピッケルを　いれておいたのじゃ！▼
+これを　つかえば　かべに　うまっている
+たからを　タッチで　ほりだせるはずじゃ▼
+かべが　くずれるまえに　ほりだせば
+きっと　いいものが　てにはいるじゃろう▼
+おまえさん　なら　できる！
+ぐっどらっく　じゃ！</language>
+	</row>
+
+	<row id="msg_underworld_86" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>大切なものをあげようとしたときの、断りメッセージ
+msg_underworld_13　のかわりにでるメッセージ
+（フロー的には、１３にいくのと同じ）</comment>
+		<language name="日本語" width="216">そんな　たいせつなものは
+もらえないよ！</language>
+	</row>
+
+	<row id="msg_underworld_87" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>あげられない、受け取れない場合に、アイテムをあげたときに、
+言われるメッセージ
+msg_underworld_13　のかわりにでるメッセージ
+（フロー的には、１３にいくのと同じ）</comment>
+		<language name="日本語" width="216">ごめん　きょうは　きもちだけで　いいよ
+また　あしたね</language>
+	</row>
+
+	<row id="msg_underworld_88" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>秘密基地に入るのに、失敗したときのメッセージ</comment>
+		<language name="日本語" width="216">……　……　……▼
+かべが　くずれてきたので
+はいるのを　やめた</language>
+	</row>
+
+	<row id="UGTrapFind01" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">わなを　みつけだした！</language>
+	</row>
+
+	<row id="UGTrapFind02" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+わなを解除したとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　トラップを
+かいじょ　した！</language>
+	</row>
+
+	<row id="UGEnter" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+地下に入ってきたとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]は　ちかに　はいってきた</language>
+	</row>
+
+	<row id="UGTrapAdd" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　わなを　おいた</language>
+	</row>
+
+	<row id="UGTrapNone" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">なにかが　うまっている　…</language>
+	</row>
+
+	<row id="UGTrapAct" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　わなに　かかった</language>
+	</row>
+
+	<row id="UGBallGet" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+タマを手に入れたとき</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:2]を　てにいれた！</language>
+	</row>
+
+	<row id="UGBallPut" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:2]を　めのまえに　うめた！</language>
+	</row>
+
+	<row id="UGPutFailed" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">なにかが　うまっていたので　おけなかった</language>
+	</row>
+
+	<row id="UGUnConfused" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+わなから抜けたとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　トラップから　ぬけだした</language>
+	</row>
+
+	<row id="UGDecoyNatural" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+はじめからある罠にかかったとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　トラップに
+かかった！</language>
+	</row>
+
+	<row id="UGDecoy01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+誰かの仕掛けた罠にかかったとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　[1:03:トレーナー名:1]の
+トラップに　かかった！</language>
+	</row>
+
+	<row id="UGDecoy02" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">わなに　かかった！</language>
+	</row>
+
+	<row id="UGFixedPhrase01" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">こんにちは　[1:01:ニックネーム:0]！</language>
+	</row>
+
+	<row id="UGFixedPhrase02" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">さようなら　[1:01:ニックネーム:0]！</language>
+	</row>
+
+	<row id="UGSecretBaseIn01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+誰かの基地に入ったとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　[1:03:トレーナー名:1]の
+きちに　はいった</language>
+	</row>
+
+	<row id="UGFinishFossil" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+化石ゲームに入ったとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　かせきを　ほりだした！</language>
+	</row>
+
+	<row id="UGExitFossil" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">かせきを　ほるのを　やめた</language>
+	</row>
+
+	<row id="UGGetTreasure" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:2]を　てにいれた！</language>
+	</row>
+
+	<row id="UGGetflag01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+ハタを基地からとったとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　[1:03:トレーナー名:1]の
+ハタを　てにいれた！</language>
+	</row>
+
+	<row id="UGGetflag02" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+自分のハタを取り戻したとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　ハタを　とりかえした！</language>
+	</row>
+
+	<row id="UGGetflag03" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+誰かが持っていた旗を奪ったとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　[1:03:トレーナー名:1]の
+ハタを　うばった！</language>
+	</row>
+
+	<row id="UGtalk01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+誰かと誰かが話し始めたとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　[1:03:トレーナー名:1]と
+はなしを　した</language>
+	</row>
+
+	<row id="UGtalk02" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+誰かと、地下に初めからいるOBJが話したとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　だれかと
+はなしを　した</language>
+	</row>
+
+	<row id="UGpoint01" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は
+ポイント　[1:33:数字２桁:1]てん　かくとく！</language>
+	</row>
+
+	<row id="UGpoint02" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は
+ポイント　[1:33:数字２桁:1]てん　げんてん！</language>
+	</row>
+
+	<row id="UGreturn01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+地上に帰ったとき</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は
+かえっていった</language>
+	</row>
+
+	<row id="UGhelp01" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>レーダーログ：
+誰かを罠から解除してあげた場合</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]は　[1:03:トレーナー名:1]を
+たすけて　あげた！</language>
+	</row>
+
+	<row id="UGTrap_msg01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+かいわトラップ１「こんにちは！」</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]からの　あいず　だ！
+「こんにちは！　はじめまして！」</language>
+	</row>
+
+	<row id="UGTrap_msg02" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+かいわトラップ２「さよなら！」</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]からの　あいず　だ！
+「さようなら　ちじょうに　かえります！」</language>
+	</row>
+
+	<row id="UGTrap_msg03" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+かいわトラップ３「ユニオンにいきます！」</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]からの　あいず　だ！
+「ユニオンルームに　いこう！」</language>
+	</row>
+
+	<row id="UGTrap_msg04" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>レーダーログ：
+かいわトラップ４「こっちにきて！！」</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:0]からの　あいず　だ！
+「こっちに　おいで！」</language>
+	</row>
+
+	<row id="UGStartMenu01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下でのメニュー項目</comment>
+		<language name="日本語" width="216">トラップ</language>
+	</row>
+
+	<row id="UGStartMenu02" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下でのメニュー項目</comment>
+		<language name="日本語" width="216">タマ</language>
+	</row>
+
+	<row id="UGStartMenu03" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下でのメニュー項目</comment>
+		<language name="日本語" width="216">グッズ</language>
+	</row>
+
+	<row id="UGStartMenu04" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下でのメニュー項目</comment>
+		<language name="日本語" width="216">たから</language>
+	</row>
+
+	<row id="UGStartMenu05" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下でのメニュー項目</comment>
+		<language name="日本語" width="216">[1:01:ニックネーム:1]</language>
+	</row>
+
+	<row id="UGStartMenu06" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下でのメニュー項目</comment>
+		<language name="日本語" width="216">ちじょうへ</language>
+	</row>
+
+	<row id="UGStartMenu07" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下でのメニュー項目</comment>
+		<language name="日本語" width="216">とじる</language>
+	</row>
+
+	<row id="UGBallMenuDef" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>タマメニューで使用</comment>
+		<language name="日本語" width="216">[1:08:どうぐ名:2]　[1:33:数字２桁:6]</language>
+	</row>
+
+	<row id="mes_uw_item_06" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>フィールドメニューの道具画面：
+メッセージ：
+アイテムを選んだとき
+０：選んだアイテム名</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:2]　を
+どうしますか？</language>
+	</row>
+
+	<row id="mes_uw_item_07" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>フィールドメニューの道具画面：
+メッセージ：
+アイテムを捨てたとき
+０：選んだアイテム名</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:2]　を
+すてました</language>
+	</row>
+
+	<row id="mes_uw_item_08" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>フィールドメニューの道具画面：
+メッセージ：
+トラップを仕掛けたとき
+０：選んだアイテム名</comment>
+		<language name="日本語" width="216">[1:19:地下のどうぐの名前:3]　を
+めのまえに　しかけた！</language>
+	</row>
+
+	<row id="mes_uw_item_09" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>フィールドメニューの道具画面：
+アイテムを選んだ項目</comment>
+		<language name="日本語" width="216">すてる</language>
+	</row>
+
+	<row id="mes_uw_item_10" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>フィールドメニューの道具画面：
+アイテムを選んだ項目</comment>
+		<language name="日本語" width="216">やめる</language>
+	</row>
+
+	<row id="mes_uw_item_11" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>フィールドメニューの道具画面：
+アイテムを選んだ項目。トラップ、タマのみ</comment>
+		<language name="日本語" width="216">うめる</language>
+	</row>
+
+	<row id="mes_uw_item_12" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>フィールドメニューの道具画面：
+
+たからのみ出る項目。</comment>
+		<language name="日本語" width="216">バッグに　しまう</language>
+	</row>
+
+	<row id="msg_uw_ask_01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：はじめのメッセージ</comment>
+		<language name="日本語" width="216">え？
+なにを　ききたいの？</language>
+	</row>
+
+	<row id="msg_uw_ask_02" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+０：質問のジャンル</comment>
+		<language name="日本語" width="216">[1:1D:秘密会話質問項目:5]　かー
+そうだなぁ　……</language>
+	</row>
+
+	<row id="msg_uw_ask_03" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+</comment>
+		<language name="日本語" width="216">うん　これかな？▼
+じゃあ　きみ　だったら
+なにを　えらぶ？</language>
+	</row>
+
+	<row id="msg_uw_ask_04" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+相手が断った場合</comment>
+		<language name="日本語" width="216">うーん……
+ちょっと　えらべないな▼</language>
+	</row>
+
+	<row id="msg_uw_ask_05" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+０：相手の答えた答え
+１：自分の答えた答え</comment>
+		<language name="日本語" width="216">へー
+[1:1E:秘密会話質問の答え:5]　かぁ！▼
+じぶん　だったら
+[1:1E:秘密会話質問の答え:6]　かなー▼</language>
+	</row>
+
+	<row id="msg_uw_ask_06" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+選んだ答えが同じ場合</comment>
+		<language name="日本語" width="216">へー
+[1:1E:秘密会話質問の答え:5]　かぁ！▼
+じぶん　だったら
+[1:1E:秘密会話質問の答え:6]　かなー▼
+……　あ！
+おんなじ　だったね！▼</language>
+	</row>
+
+	<row id="msg_uw_ask_07" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：通信待機</comment>
+		<language name="日本語" width="216">なるほどー　……</language>
+	</row>
+
+	<row id="msg_uw_ask_08" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：</comment>
+		<language name="日本語" width="216">ねえ　すこし
+しつもん　して　いい？▼
+えーと……▼</language>
+	</row>
+
+	<row id="msg_uw_ask_09" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+０：相手がしてきた質問のジャンル</comment>
+		<language name="日本語" width="216">このなかで　[1:1D:秘密会話質問項目:5]
+って　どれかな？</language>
+	</row>
+
+	<row id="msg_uw_ask_10" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+答えなかった場合</comment>
+		<language name="日本語" width="216">あ！　むりして
+こたえなくても　いいからね▼</language>
+	</row>
+
+	<row id="msg_uw_ask_11" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+</comment>
+		<language name="日本語" width="216">きめた！？▼
+じゃあ　じぶん　だったら
+そうだなー　……</language>
+	</row>
+
+	<row id="msg_uw_ask_12" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+０：相手の質問の答え
+１：自分の答えた答え</comment>
+		<language name="日本語" width="216">[1:1E:秘密会話質問の答え:5]　かな？▼
+きみは　なにを
+えらんだの？▼
+……
+[1:1E:秘密会話質問の答え:6]　かぁ！▼</language>
+	</row>
+
+	<row id="msg_uw_ask_13" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+相手と答えが同じだった場合</comment>
+		<language name="日本語" width="216">[1:1E:秘密会話質問の答え:5]　かな？▼
+きみは　なにを
+えらんだの？▼
+……
+[1:1E:秘密会話質問の答え:6]　かぁ！▼
+あ！
+おんなじ　だったね！▼</language>
+	</row>
+
+	<row id="msg_uw_ask_14" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：通信待機</comment>
+		<language name="日本語" width="216">なるほどー　……</language>
+	</row>
+
+	<row id="msg_uw_ask_15" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：</comment>
+		<language name="日本語" width="216">こたえて　くれて
+ありがとう！▼
+これからも
+よろしくね！▼</language>
+	</row>
+
+	<row id="msg_uw_ask_16" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">あー
+しょうごうで　まけた……</language>
+	</row>
+
+	<row id="msg_uw_ask_17" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">あ！　しょうごうは　おなじだけど
+ちかポイントで　かった！</language>
+	</row>
+
+	<row id="msg_uw_ask_18" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">あ！　しょうごうは　おなじだけど
+ちかポイントで　まけた……</language>
+	</row>
+
+	<row id="msg_uw_ask_19" back-color=",,,#c0c0c0,,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語" width="216">あ！　しょうごうも
+ちかポイントも　おなじだね！</language>
+	</row>
+
+	<row id="msg_uw_ask_w01" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：はじめのメッセージ
+女性用</comment>
+		<language name="日本語" width="216">え？
+なにを　ききたいの？</language>
+	</row>
+
+	<row id="msg_uw_ask_w02" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+０：質問のジャンル
+女性用</comment>
+		<language name="日本語" width="216">[1:1D:秘密会話質問項目:5]　かー
+そうだなぁ　……</language>
+	</row>
+
+	<row id="msg_uw_ask_w03" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+女性用</comment>
+		<language name="日本語" width="216">うん　きめた！▼
+じゃあ　あなた　だったら
+なにを　えらぶの？</language>
+	</row>
+
+	<row id="msg_uw_ask_w04" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+相手が断った場合
+女性用</comment>
+		<language name="日本語" width="216">うーん……
+ちょっと　えらべないな▼</language>
+	</row>
+
+	<row id="msg_uw_ask_w05" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+０：相手の答えた答え
+１：自分の答えた答え
+女性用</comment>
+		<language name="日本語" width="216">ふーん！
+[1:1E:秘密会話質問の答え:5]　かぁ▼
+わたしは
+[1:1E:秘密会話質問の答え:6]　かなー▼</language>
+	</row>
+
+	<row id="msg_uw_ask_w06" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：
+選んだ答えが同じ場合
+女性用</comment>
+		<language name="日本語" width="216">ふーん！
+[1:1E:秘密会話質問の答え:5]　かぁ▼
+わたしは
+[1:1E:秘密会話質問の答え:6]　かなー▼
+……　あ！
+おんなじ　だったね！▼</language>
+	</row>
+
+	<row id="msg_uw_ask_w07" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：通信待機
+女性用</comment>
+		<language name="日本語" width="216">なるほどー　……</language>
+	</row>
+
+	<row id="msg_uw_ask_w08" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+女性用</comment>
+		<language name="日本語" width="216">ねえ　すこし
+しつもん　して　いい？▼
+えーと……▼</language>
+	</row>
+
+	<row id="msg_uw_ask_w09" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+０：相手がしてきた質問のジャンル
+女性用</comment>
+		<language name="日本語" width="216">このなかで　[1:1D:秘密会話質問項目:5]
+って　どれかな？</language>
+	</row>
+
+	<row id="msg_uw_ask_w10" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+答えなかった場合
+女性用</comment>
+		<language name="日本語" width="216">あ！　むりして
+こたえなくても　いいからね▼</language>
+	</row>
+
+	<row id="msg_uw_ask_w11" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+女性用</comment>
+		<language name="日本語" width="216">きめた！？▼
+じゃあ　わたし　だったら
+そうだなー　……</language>
+	</row>
+
+	<row id="msg_uw_ask_w12" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+０：相手の質問の答え
+１：自分の答えた答え
+女性用</comment>
+		<language name="日本語" width="216">[1:1E:秘密会話質問の答え:5]　かな？▼
+あなたは　なにを
+えらんだの？▼
+……
+[1:1E:秘密会話質問の答え:6]　かぁ！▼</language>
+	</row>
+
+	<row id="msg_uw_ask_w13" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+相手と答えが同じだった場合
+女性用</comment>
+		<language name="日本語" width="216">[1:1E:秘密会話質問の答え:5]　かな？▼
+あなたは　なにを
+えらんだの？▼
+……
+[1:1E:秘密会話質問の答え:6]　かぁ！▼
+あ！
+おんなじ　だったね！▼</language>
+	</row>
+
+	<row id="msg_uw_ask_w14" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけた場合：通信待機
+女性用</comment>
+		<language name="日本語" width="216">なるほどー　……</language>
+	</row>
+
+	<row id="msg_uw_ask_w15" back-color=",,,#ffff00,,,#ffff00,,,,,,">
+		<comment>地下会話での、質問メッセージ
+話しかけられた場合：
+女性用</comment>
+		<language name="日本語" width="216">こたえて　くれて
+ありがとう！▼
+これからも
+よろしくね！▼</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

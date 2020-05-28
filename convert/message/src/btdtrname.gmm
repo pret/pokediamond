@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="sogabe" host="W00086" date="2006-07-07T20:29:37"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="37" top="124" right="742" bottom="744" maximized="no" rayout="Vertical2">
+		<comment-input left="742" top="594" right="1089" bottom="744" visible="yes"/>
+		<tag-palette left="742" top="198" right="1089" bottom="594" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="BTD_TR_1">
+		<language name="日本語">イチロウタ</language>
+	</row>
+
+	<row id="BTD_TR_2">
+		<language name="日本語">ジロウマル</language>
+	</row>
+
+	<row id="BTD_TR_3">
+		<language name="日本語">サブロウタ</language>
+	</row>
+
+	<row id="BTD_TR_4">
+		<language name="日本語">ユー</language>
+	</row>
+
+	<row id="BTD_TR_5">
+		<language name="日本語">イブ</language>
+	</row>
+
+	<row id="BTD_TR_6">
+		<language name="日本語">ミユ</language>
+	</row>
+
+	<row id="BTD_TR_7">
+		<language name="日本語">ラー</language>
+	</row>
+
+	<row id="BTD_TR_8">
+		<language name="日本語">マカオ</language>
+	</row>
+
+	<row id="BTD_TR_9">
+		<language name="日本語">エリオット</language>
+	</row>
+
+	<row id="BTD_TR_10">
+		<language name="日本語">シモーヌ</language>
+	</row>
+
+	<row id="BTD_TR_11">
+		<language name="日本語">ガクコ</language>
+	</row>
+
+	<row id="BTD_TR_12">
+		<language name="日本語">セザンヌ</language>
+	</row>
+
+	<row id="BTD_TR_13">
+		<language name="日本語">タスケ</language>
+	</row>
+
+	<row id="BTD_TR_14">
+		<language name="日本語">コスケ</language>
+	</row>
+
+	<row id="BTD_TR_15">
+		<language name="日本語">ショウスケ</language>
+	</row>
+
+	<row id="BTD_TR_16">
+		<language name="日本語">キラリ</language>
+	</row>
+
+	<row id="BTD_TR_17">
+		<language name="日本語">カヨ</language>
+	</row>
+
+	<row id="BTD_TR_18">
+		<language name="日本語">ホタル</language>
+	</row>
+
+	<row id="BTD_TR_19">
+		<language name="日本語">マツノシン</language>
+	</row>
+
+	<row id="BTD_TR_20">
+		<language name="日本語">ノーマン</language>
+	</row>
+
+	<row id="BTD_TR_21">
+		<language name="日本語">ジージー</language>
+	</row>
+
+	<row id="BTD_TR_22">
+		<language name="日本語">バルト</language>
+	</row>
+
+	<row id="BTD_TR_23">
+		<language name="日本語">スジコ</language>
+	</row>
+
+	<row id="BTD_TR_24">
+		<language name="日本語">アケマツ</language>
+	</row>
+
+	<row id="BTD_TR_25">
+		<language name="日本語">マスジ</language>
+	</row>
+
+	<row id="BTD_TR_26">
+		<language name="日本語">シオノジョ</language>
+	</row>
+
+	<row id="BTD_TR_27">
+		<language name="日本語">カイコウ</language>
+	</row>
+
+	<row id="BTD_TR_28">
+		<language name="日本語">オタマ</language>
+	</row>
+
+	<row id="BTD_TR_29">
+		<language name="日本語">オカネ</language>
+	</row>
+
+	<row id="BTD_TR_30">
+		<language name="日本語">オトミ</language>
+	</row>
+
+	<row id="BTD_TR_31">
+		<language name="日本語">ジンゾウ</language>
+	</row>
+
+	<row id="BTD_TR_32">
+		<language name="日本語">ヨウゾウ</language>
+	</row>
+
+	<row id="BTD_TR_33">
+		<language name="日本語">ヤスミン</language>
+	</row>
+
+	<row id="BTD_TR_34">
+		<language name="日本語">コウメ</language>
+	</row>
+
+	<row id="BTD_TR_35">
+		<language name="日本語">コタケ</language>
+	</row>
+
+	<row id="BTD_TR_36">
+		<language name="日本語">コマツ</language>
+	</row>
+
+	<row id="BTD_TR_37">
+		<language name="日本語">トモチカ</language>
+	</row>
+
+	<row id="BTD_TR_38">
+		<language name="日本語">カネツグ</language>
+	</row>
+
+	<row id="BTD_TR_39">
+		<language name="日本語">アツモリ</language>
+	</row>
+
+	<row id="BTD_TR_40">
+		<language name="日本語">ネネ</language>
+	</row>
+
+	<row id="BTD_TR_41">
+		<language name="日本語">キキ</language>
+	</row>
+
+	<row id="BTD_TR_42">
+		<language name="日本語">ヤヤ</language>
+	</row>
+
+	<row id="BTD_TR_43">
+		<language name="日本語">モトキ</language>
+	</row>
+
+	<row id="BTD_TR_44">
+		<language name="日本語">フロイト</language>
+	</row>
+
+	<row id="BTD_TR_45">
+		<language name="日本語">ランマル</language>
+	</row>
+
+	<row id="BTD_TR_46">
+		<language name="日本語">フサ</language>
+	</row>
+
+	<row id="BTD_TR_47">
+		<language name="日本語">カキエ</language>
+	</row>
+
+	<row id="BTD_TR_48">
+		<language name="日本語">タエ</language>
+	</row>
+
+	<row id="BTD_TR_49">
+		<language name="日本語">サムソン</language>
+	</row>
+
+	<row id="BTD_TR_50">
+		<language name="日本語">ヨシヒト</language>
+	</row>
+
+	<row id="BTD_TR_51">
+		<language name="日本語">ヒデヨシ</language>
+	</row>
+
+	<row id="BTD_TR_52">
+		<language name="日本語">カナメ</language>
+	</row>
+
+	<row id="BTD_TR_53">
+		<language name="日本語">キザム</language>
+	</row>
+
+	<row id="BTD_TR_54">
+		<language name="日本語">ニコライ</language>
+	</row>
+
+	<row id="BTD_TR_55">
+		<language name="日本語">モモジ</language>
+	</row>
+
+	<row id="BTD_TR_56">
+		<language name="日本語">チヨジ</language>
+	</row>
+
+	<row id="BTD_TR_57">
+		<language name="日本語">アンジ</language>
+	</row>
+
+	<row id="BTD_TR_58">
+		<language name="日本語">ムネタツ</language>
+	</row>
+
+	<row id="BTD_TR_59">
+		<language name="日本語">ユメスケ</language>
+	</row>
+
+	<row id="BTD_TR_60">
+		<language name="日本語">イアン</language>
+	</row>
+
+	<row id="BTD_TR_61">
+		<language name="日本語">コウジー</language>
+	</row>
+
+	<row id="BTD_TR_62">
+		<language name="日本語">フミノリ</language>
+	</row>
+
+	<row id="BTD_TR_63">
+		<language name="日本語">タダノスケ</language>
+	</row>
+
+	<row id="BTD_TR_64">
+		<language name="日本語">ハルノ</language>
+	</row>
+
+	<row id="BTD_TR_65">
+		<language name="日本語">フユノ</language>
+	</row>
+
+	<row id="BTD_TR_66">
+		<language name="日本語">アキノ</language>
+	</row>
+
+	<row id="BTD_TR_67">
+		<language name="日本語">シマー</language>
+	</row>
+
+	<row id="BTD_TR_68">
+		<language name="日本語">カタセ</language>
+	</row>
+
+	<row id="BTD_TR_69">
+		<language name="日本語">ブロンディ</language>
+	</row>
+
+	<row id="BTD_TR_70">
+		<language name="日本語">エリサ</language>
+	</row>
+
+	<row id="BTD_TR_71">
+		<language name="日本語">ハマヨ</language>
+	</row>
+
+	<row id="BTD_TR_72">
+		<language name="日本語">ミミヨ</language>
+	</row>
+
+	<row id="BTD_TR_73">
+		<language name="日本語">コロク</language>
+	</row>
+
+	<row id="BTD_TR_74">
+		<language name="日本語">マグミ</language>
+	</row>
+
+	<row id="BTD_TR_75">
+		<language name="日本語">カゲカツ</language>
+	</row>
+
+	<row id="BTD_TR_76">
+		<language name="日本語">エツコ</language>
+	</row>
+
+	<row id="BTD_TR_77">
+		<language name="日本語">ニキータ</language>
+	</row>
+
+	<row id="BTD_TR_78">
+		<language name="日本語">ボン</language>
+	</row>
+
+	<row id="BTD_TR_79">
+		<language name="日本語">クリストフ</language>
+	</row>
+
+	<row id="BTD_TR_80">
+		<language name="日本語">ロブ</language>
+	</row>
+
+	<row id="BTD_TR_81">
+		<language name="日本語">チヨノフ</language>
+	</row>
+
+	<row id="BTD_TR_82">
+		<language name="日本語">カルロッタ</language>
+	</row>
+
+	<row id="BTD_TR_83">
+		<language name="日本語">イツカ</language>
+	</row>
+
+	<row id="BTD_TR_84">
+		<language name="日本語">カロリーヌ</language>
+	</row>
+
+	<row id="BTD_TR_85">
+		<language name="日本語">ケイスケ</language>
+	</row>
+
+	<row id="BTD_TR_86">
+		<language name="日本語">シンデン</language>
+	</row>
+
+	<row id="BTD_TR_87">
+		<language name="日本語">エミール</language>
+	</row>
+
+	<row id="BTD_TR_88">
+		<language name="日本語">ビクトル</language>
+	</row>
+
+	<row id="BTD_TR_89">
+		<language name="日本語">カザン</language>
+	</row>
+
+	<row id="BTD_TR_90">
+		<language name="日本語">クラウド</language>
+	</row>
+
+	<row id="BTD_TR_91">
+		<language name="日本語">ガンノスケ</language>
+	</row>
+
+	<row id="BTD_TR_92">
+		<language name="日本語">ミスヅ</language>
+	</row>
+
+	<row id="BTD_TR_93">
+		<language name="日本語">キクチヨ</language>
+	</row>
+
+	<row id="BTD_TR_94">
+		<language name="日本語">マイア</language>
+	</row>
+
+	<row id="BTD_TR_95">
+		<language name="日本語">ロベール</language>
+	</row>
+
+	<row id="BTD_TR_96">
+		<language name="日本語">アーノルド</language>
+	</row>
+
+	<row id="BTD_TR_97">
+		<language name="日本語">モウリュウ</language>
+	</row>
+
+	<row id="BTD_TR_98">
+		<language name="日本語">マイヅル</language>
+	</row>
+
+	<row id="BTD_TR_99">
+		<language name="日本語">トラコ</language>
+	</row>
+
+	<row id="BTD_TR_100">
+		<language name="日本語">アタミ</language>
+	</row>
+
+	<row id="BTD_TR_101">
+		<language name="日本語">ジクウ</language>
+	</row>
+
+	<row id="BTD_TR_102">
+		<language name="日本語">サイエン</language>
+	</row>
+
+	<row id="BTD_TR_103">
+		<language name="日本語">バーバレラ</language>
+	</row>
+
+	<row id="BTD_TR_104">
+		<language name="日本語">ネリミ</language>
+	</row>
+
+	<row id="BTD_TR_105">
+		<language name="日本語">ジンパチ</language>
+	</row>
+
+	<row id="BTD_TR_106">
+		<language name="日本語">キンヤ</language>
+	</row>
+
+	<row id="BTD_TR_107">
+		<language name="日本語">イクナ</language>
+	</row>
+
+	<row id="BTD_TR_108">
+		<language name="日本語">トメ</language>
+	</row>
+
+	<row id="BTD_TR_109">
+		<language name="日本語">トミイチ</language>
+	</row>
+
+	<row id="BTD_TR_110">
+		<language name="日本語">ハルト</language>
+	</row>
+
+	<row id="BTD_TR_111">
+		<language name="日本語">シャクソン</language>
+	</row>
+
+	<row id="BTD_TR_112">
+		<language name="日本語">サカメ</language>
+	</row>
+
+	<row id="BTD_TR_113">
+		<language name="日本語">サンダンス</language>
+	</row>
+
+	<row id="BTD_TR_114">
+		<language name="日本語">モンシロ</language>
+	</row>
+
+	<row id="BTD_TR_115">
+		<language name="日本語">ハヤット</language>
+	</row>
+
+	<row id="BTD_TR_116">
+		<language name="日本語">グラマン</language>
+	</row>
+
+	<row id="BTD_TR_117">
+		<language name="日本語">シュンスケ</language>
+	</row>
+
+	<row id="BTD_TR_118">
+		<language name="日本語">ラメ</language>
+	</row>
+
+	<row id="BTD_TR_119">
+		<language name="日本語">パンコール</language>
+	</row>
+
+	<row id="BTD_TR_120">
+		<language name="日本語">カメ</language>
+	</row>
+
+	<row id="BTD_TR_121">
+		<language name="日本語">カッペイ</language>
+	</row>
+
+	<row id="BTD_TR_122">
+		<language name="日本語">ナンペイ</language>
+	</row>
+
+	<row id="BTD_TR_123">
+		<language name="日本語">キンペイ</language>
+	</row>
+
+	<row id="BTD_TR_124">
+		<language name="日本語">ロロ</language>
+	</row>
+
+	<row id="BTD_TR_125">
+		<language name="日本語">タタミ</language>
+	</row>
+
+	<row id="BTD_TR_126">
+		<language name="日本語">ダミー</language>
+	</row>
+
+	<row id="BTD_TR_127">
+		<language name="日本語">キンサク</language>
+	</row>
+
+	<row id="BTD_TR_128">
+		<language name="日本語">ジュンサク</language>
+	</row>
+
+	<row id="BTD_TR_129">
+		<language name="日本語">ショウサク</language>
+	</row>
+
+	<row id="BTD_TR_130">
+		<language name="日本語">ココナ</language>
+	</row>
+
+	<row id="BTD_TR_131">
+		<language name="日本語">ユーナ</language>
+	</row>
+
+	<row id="BTD_TR_132">
+		<language name="日本語">ヨハンナ</language>
+	</row>
+
+	<row id="BTD_TR_133">
+		<language name="日本語">スケノシン</language>
+	</row>
+
+	<row id="BTD_TR_134">
+		<language name="日本語">ブルーノ</language>
+	</row>
+
+	<row id="BTD_TR_135">
+		<language name="日本語">サムオ</language>
+	</row>
+
+	<row id="BTD_TR_136">
+		<language name="日本語">バガン</language>
+	</row>
+
+	<row id="BTD_TR_137">
+		<language name="日本語">ステハチ</language>
+	</row>
+
+	<row id="BTD_TR_138">
+		<language name="日本語">ターケーシ</language>
+	</row>
+
+	<row id="BTD_TR_139">
+		<language name="日本語">アダム</language>
+	</row>
+
+	<row id="BTD_TR_140">
+		<language name="日本語">セリーヌ</language>
+	</row>
+
+	<row id="BTD_TR_141">
+		<language name="日本語">メルバ</language>
+	</row>
+
+	<row id="BTD_TR_142">
+		<language name="日本語">ブンシ</language>
+	</row>
+
+	<row id="BTD_TR_143">
+		<language name="日本語">トモノシン</language>
+	</row>
+
+	<row id="BTD_TR_144">
+		<language name="日本語">ポポ</language>
+	</row>
+
+	<row id="BTD_TR_145">
+		<language name="日本語">アグネス</language>
+	</row>
+
+	<row id="BTD_TR_146">
+		<language name="日本語">マエ</language>
+	</row>
+
+	<row id="BTD_TR_147">
+		<language name="日本語">カスガ</language>
+	</row>
+
+	<row id="BTD_TR_148">
+		<language name="日本語">ヤンカー</language>
+	</row>
+
+	<row id="BTD_TR_149">
+		<language name="日本語">モーリス</language>
+	</row>
+
+	<row id="BTD_TR_150">
+		<language name="日本語">キアーラ</language>
+	</row>
+
+	<row id="BTD_TR_151">
+		<language name="日本語">ジョディー</language>
+	</row>
+
+	<row id="BTD_TR_152">
+		<language name="日本語">クレハ</language>
+	</row>
+
+	<row id="BTD_TR_153">
+		<language name="日本語">ガン</language>
+	</row>
+
+	<row id="BTD_TR_154">
+		<language name="日本語">コトノナカ</language>
+	</row>
+
+	<row id="BTD_TR_155">
+		<language name="日本語">ハーマン</language>
+	</row>
+
+	<row id="BTD_TR_156">
+		<language name="日本語">シュンデイ</language>
+	</row>
+
+	<row id="BTD_TR_157">
+		<language name="日本語">ヤコフ</language>
+	</row>
+
+	<row id="BTD_TR_158">
+		<language name="日本語">レオニード</language>
+	</row>
+
+	<row id="BTD_TR_159">
+		<language name="日本語">ナヨ</language>
+	</row>
+
+	<row id="BTD_TR_160">
+		<language name="日本語">ライマー</language>
+	</row>
+
+	<row id="BTD_TR_161">
+		<language name="日本語">シロー</language>
+	</row>
+
+	<row id="BTD_TR_162">
+		<language name="日本語">ゴロー</language>
+	</row>
+
+	<row id="BTD_TR_163">
+		<language name="日本語">ヒルダ</language>
+	</row>
+
+	<row id="BTD_TR_164">
+		<language name="日本語">カネコ</language>
+	</row>
+
+	<row id="BTD_TR_165">
+		<language name="日本語">ベン</language>
+	</row>
+
+	<row id="BTD_TR_166">
+		<language name="日本語">ガク</language>
+	</row>
+
+	<row id="BTD_TR_167">
+		<language name="日本語">ジャニス</language>
+	</row>
+
+	<row id="BTD_TR_168">
+		<language name="日本語">ハルネ</language>
+	</row>
+
+	<row id="BTD_TR_169">
+		<language name="日本語">ゲラン</language>
+	</row>
+
+	<row id="BTD_TR_170">
+		<language name="日本語">サキョウ</language>
+	</row>
+
+	<row id="BTD_TR_171">
+		<language name="日本語">オトギ</language>
+	</row>
+
+	<row id="BTD_TR_172">
+		<language name="日本語">パシモン</language>
+	</row>
+
+	<row id="BTD_TR_173">
+		<language name="日本語">カルロ</language>
+	</row>
+
+	<row id="BTD_TR_174">
+		<language name="日本語">サマノスケ</language>
+	</row>
+
+	<row id="BTD_TR_175">
+		<language name="日本語">カゲツナ</language>
+	</row>
+
+	<row id="BTD_TR_176">
+		<language name="日本語">フェデリコ</language>
+	</row>
+
+	<row id="BTD_TR_177">
+		<language name="日本語">ファウスト</language>
+	</row>
+
+	<row id="BTD_TR_178">
+		<language name="日本語">チェルニー</language>
+	</row>
+
+	<row id="BTD_TR_179">
+		<language name="日本語">トコヨ</language>
+	</row>
+
+	<row id="BTD_TR_180">
+		<language name="日本語">ニュー</language>
+	</row>
+
+	<row id="BTD_TR_181">
+		<language name="日本語">コロンタ</language>
+	</row>
+
+	<row id="BTD_TR_182">
+		<language name="日本語">シリュウ</language>
+	</row>
+
+	<row id="BTD_TR_183">
+		<language name="日本語">レイヤ</language>
+	</row>
+
+	<row id="BTD_TR_184">
+		<language name="日本語">デリー</language>
+	</row>
+
+	<row id="BTD_TR_185">
+		<language name="日本語">アブラハム</language>
+	</row>
+
+	<row id="BTD_TR_186">
+		<language name="日本語">ヒナオ</language>
+	</row>
+
+	<row id="BTD_TR_187">
+		<language name="日本語">ユリウス</language>
+	</row>
+
+	<row id="BTD_TR_188">
+		<language name="日本語">ジョルジュ</language>
+	</row>
+
+	<row id="BTD_TR_189">
+		<language name="日本語">マルオ</language>
+	</row>
+
+	<row id="BTD_TR_190">
+		<language name="日本語">マル</language>
+	</row>
+
+	<row id="BTD_TR_191">
+		<language name="日本語">ボレロ</language>
+	</row>
+
+	<row id="BTD_TR_192">
+		<language name="日本語">タイザン</language>
+	</row>
+
+	<row id="BTD_TR_193">
+		<language name="日本語">グレゴリー</language>
+	</row>
+
+	<row id="BTD_TR_194">
+		<language name="日本語">セス</language>
+	</row>
+
+	<row id="BTD_TR_195">
+		<language name="日本語">ジモン</language>
+	</row>
+
+	<row id="BTD_TR_196">
+		<language name="日本語">アマデオ</language>
+	</row>
+
+	<row id="BTD_TR_197">
+		<language name="日本語">オミト</language>
+	</row>
+
+	<row id="BTD_TR_198">
+		<language name="日本語">タシマヤ</language>
+	</row>
+
+	<row id="BTD_TR_199">
+		<language name="日本語">ワラジ</language>
+	</row>
+
+	<row id="BTD_TR_200">
+		<language name="日本語">オンリ</language>
+	</row>
+
+	<row id="BTD_TR_201">
+		<language name="日本語">コレヤス</language>
+	</row>
+
+	<row id="BTD_TR_202">
+		<language name="日本語">サンスケ</language>
+	</row>
+
+	<row id="BTD_TR_203">
+		<language name="日本語">コトチヨ</language>
+	</row>
+
+	<row id="BTD_TR_204">
+		<language name="日本語">マリーナ</language>
+	</row>
+
+	<row id="BTD_TR_205">
+		<language name="日本語">ワホ</language>
+	</row>
+
+	<row id="BTD_TR_206">
+		<language name="日本語">リョウセイ</language>
+	</row>
+
+	<row id="BTD_TR_207">
+		<language name="日本語">モポ</language>
+	</row>
+
+	<row id="BTD_TR_208">
+		<language name="日本語">フランシス</language>
+	</row>
+
+	<row id="BTD_TR_209">
+		<language name="日本語">オニーロク</language>
+	</row>
+
+	<row id="BTD_TR_210">
+		<language name="日本語">ゴウジン</language>
+	</row>
+
+	<row id="BTD_TR_211">
+		<language name="日本語">アラキ</language>
+	</row>
+
+	<row id="BTD_TR_212">
+		<language name="日本語">ヤト</language>
+	</row>
+
+	<row id="BTD_TR_213">
+		<language name="日本語">ボブ</language>
+	</row>
+
+	<row id="BTD_TR_214">
+		<language name="日本語">ボブヒコ</language>
+	</row>
+
+	<row id="BTD_TR_215">
+		<language name="日本語">コマ</language>
+	</row>
+
+	<row id="BTD_TR_216">
+		<language name="日本語">テキサス</language>
+	</row>
+
+	<row id="BTD_TR_217">
+		<language name="日本語">アドロック</language>
+	</row>
+
+	<row id="BTD_TR_218">
+		<language name="日本語">フトシ</language>
+	</row>
+
+	<row id="BTD_TR_219">
+		<language name="日本語">コウガ</language>
+	</row>
+
+	<row id="BTD_TR_220">
+		<language name="日本語">ヒノエ</language>
+	</row>
+
+	<row id="BTD_TR_221">
+		<language name="日本語">サブ</language>
+	</row>
+
+	<row id="BTD_TR_222">
+		<language name="日本語">ナユタ</language>
+	</row>
+
+	<row id="BTD_TR_223">
+		<language name="日本語">ファナ</language>
+	</row>
+
+	<row id="BTD_TR_224">
+		<language name="日本語">ヘルガ</language>
+	</row>
+
+	<row id="BTD_TR_225">
+		<language name="日本語">アントン</language>
+	</row>
+
+	<row id="BTD_TR_226">
+		<language name="日本語">ゴヨウマツ</language>
+	</row>
+
+	<row id="BTD_TR_227">
+		<language name="日本語">スケキヨ</language>
+	</row>
+
+	<row id="BTD_TR_228">
+		<language name="日本語">コツル</language>
+	</row>
+
+	<row id="BTD_TR_229">
+		<language name="日本語">ビリー</language>
+	</row>
+
+	<row id="BTD_TR_230">
+		<language name="日本語">トゥビェン</language>
+	</row>
+
+	<row id="BTD_TR_231">
+		<language name="日本語">ゼンコ</language>
+	</row>
+
+	<row id="BTD_TR_232">
+		<language name="日本語">ケーニッヒ</language>
+	</row>
+
+	<row id="BTD_TR_233">
+		<language name="日本語">ゼノン</language>
+	</row>
+
+	<row id="BTD_TR_234">
+		<language name="日本語">セフィーロ</language>
+	</row>
+
+	<row id="BTD_TR_235">
+		<language name="日本語">エンマ</language>
+	</row>
+
+	<row id="BTD_TR_236">
+		<language name="日本語">タケトラ</language>
+	</row>
+
+	<row id="BTD_TR_237">
+		<language name="日本語">ヒメ</language>
+	</row>
+
+	<row id="BTD_TR_238">
+		<language name="日本語">スケ</language>
+	</row>
+
+	<row id="BTD_TR_239">
+		<language name="日本語">カンベエ</language>
+	</row>
+
+	<row id="BTD_TR_240">
+		<language name="日本語">ペドロ</language>
+	</row>
+
+	<row id="BTD_TR_241">
+		<language name="日本語">ヤン</language>
+	</row>
+
+	<row id="BTD_TR_242">
+		<language name="日本語">テフコ</language>
+	</row>
+
+	<row id="BTD_TR_243">
+		<language name="日本語">ノール</language>
+	</row>
+
+	<row id="BTD_TR_244">
+		<language name="日本語">チョウキチ</language>
+	</row>
+
+	<row id="BTD_TR_245">
+		<language name="日本語">ノノミ</language>
+	</row>
+
+	<row id="BTD_TR_246">
+		<language name="日本語">ヒコ</language>
+	</row>
+
+	<row id="BTD_TR_247">
+		<language name="日本語">アントニオ</language>
+	</row>
+
+	<row id="BTD_TR_248">
+		<language name="日本語">イケル</language>
+	</row>
+
+	<row id="BTD_TR_249">
+		<language name="日本語">コスズ</language>
+	</row>
+
+	<row id="BTD_TR_250">
+		<language name="日本語">サンレー</language>
+	</row>
+
+	<row id="BTD_TR_251">
+		<language name="日本語">ホーミー</language>
+	</row>
+
+	<row id="BTD_TR_252">
+		<language name="日本語">ヒデジ</language>
+	</row>
+
+	<row id="BTD_TR_253">
+		<language name="日本語">ジャネット</language>
+	</row>
+
+	<row id="BTD_TR_254">
+		<language name="日本語">ダユー</language>
+	</row>
+
+	<row id="BTD_TR_255">
+		<language name="日本語">ジャイルズ</language>
+	</row>
+
+	<row id="BTD_TR_256">
+		<language name="日本語">ジェローム</language>
+	</row>
+
+	<row id="BTD_TR_257">
+		<language name="日本語">エーミー</language>
+	</row>
+
+	<row id="BTD_TR_258">
+		<language name="日本語">ソフィー</language>
+	</row>
+
+	<row id="BTD_TR_259">
+		<language name="日本語">サクゾウ</language>
+	</row>
+
+	<row id="BTD_TR_260">
+		<language name="日本語">キング</language>
+	</row>
+
+	<row id="BTD_TR_261">
+		<language name="日本語">ピピン</language>
+	</row>
+
+	<row id="BTD_TR_262">
+		<language name="日本語">スゲコ</language>
+	</row>
+
+	<row id="BTD_TR_263">
+		<language name="日本語">トウベエ</language>
+	</row>
+
+	<row id="BTD_TR_264">
+		<language name="日本語">モモタロウ</language>
+	</row>
+
+	<row id="BTD_TR_265">
+		<language name="日本語">ナスオ</language>
+	</row>
+
+	<row id="BTD_TR_266">
+		<language name="日本語">タダオミ</language>
+	</row>
+
+	<row id="BTD_TR_267">
+		<language name="日本語">ニック</language>
+	</row>
+
+	<row id="BTD_TR_268">
+		<language name="日本語">ラジカント</language>
+	</row>
+
+	<row id="BTD_TR_269">
+		<language name="日本語">ドンタ</language>
+	</row>
+
+	<row id="BTD_TR_270">
+		<language name="日本語">モーロッソ</language>
+	</row>
+
+	<row id="BTD_TR_271">
+		<language name="日本語">ネンペイ</language>
+	</row>
+
+	<row id="BTD_TR_272">
+		<language name="日本語">イワベエ</language>
+	</row>
+
+	<row id="BTD_TR_273">
+		<language name="日本語">パクサ</language>
+	</row>
+
+	<row id="BTD_TR_274">
+		<language name="日本語">ゲンゴロウ</language>
+	</row>
+
+	<row id="BTD_TR_275">
+		<language name="日本語">タカジーン</language>
+	</row>
+
+	<row id="BTD_TR_276">
+		<language name="日本語">ムック</language>
+	</row>
+
+	<row id="BTD_TR_277">
+		<language name="日本語">アマポーラ</language>
+	</row>
+
+	<row id="BTD_TR_278">
+		<language name="日本語">シーゲル</language>
+	</row>
+
+	<row id="BTD_TR_279">
+		<language name="日本語">レポマン</language>
+	</row>
+
+	<row id="BTD_TR_280">
+		<language name="日本語">ナンコウ</language>
+	</row>
+
+	<row id="BTD_TR_281">
+		<language name="日本語">ネモ</language>
+	</row>
+
+	<row id="BTD_TR_282">
+		<language name="日本語">タネシゲ</language>
+	</row>
+
+	<row id="BTD_TR_283">
+		<language name="日本語">トドメキ</language>
+	</row>
+
+	<row id="BTD_TR_284">
+		<language name="日本語">ムネアゲ</language>
+	</row>
+
+	<row id="BTD_TR_285">
+		<language name="日本語">タマノシン</language>
+	</row>
+
+	<row id="BTD_TR_286">
+		<language name="日本語">ペル</language>
+	</row>
+
+	<row id="BTD_TR_287">
+		<language name="日本語">スタンリー</language>
+	</row>
+
+	<row id="BTD_TR_288">
+		<language name="日本語">タンジュウ</language>
+	</row>
+
+	<row id="BTD_TR_289">
+		<language name="日本語">ヘル</language>
+	</row>
+
+	<row id="BTD_TR_290">
+		<language name="日本語">トメゾウ</language>
+	</row>
+
+	<row id="BTD_TR_291">
+		<language name="日本語">ババール</language>
+	</row>
+
+	<row id="BTD_TR_292">
+		<language name="日本語">カケス</language>
+	</row>
+
+	<row id="BTD_TR_293">
+		<language name="日本語">カネモリ</language>
+	</row>
+
+	<row id="BTD_TR_294">
+		<language name="日本語">ナミダ</language>
+	</row>
+
+	<row id="BTD_TR_295">
+		<language name="日本語">シオミツ</language>
+	</row>
+
+	<row id="BTD_TR_296">
+		<language name="日本語">ヨシモリ</language>
+	</row>
+
+	<row id="BTD_TR_297">
+		<language name="日本語">カオルコ</language>
+	</row>
+
+	<row id="BTD_TR_298">
+		<language name="日本語">クルブシ</language>
+	</row>
+
+	<row id="BTD_TR_299">
+		<language name="日本語">パオ</language>
+	</row>
+
+	<row id="BTD_TR_300">
+		<language name="日本語">タマエ</language>
+	</row>
+
+	<row id="BTD_TR_301">
+		<language name="日本語">モミ</language>
+	</row>
+
+	<row id="BTD_TR_302">
+		<language name="日本語">ミル</language>
+	</row>
+
+	<row id="BTD_TR_303">
+		<language name="日本語">ゲン</language>
+	</row>
+
+	<row id="BTD_TR_304">
+		<language name="日本語">マイ</language>
+	</row>
+
+	<row id="BTD_TR_305">
+		<language name="日本語">バク</language>
+	</row>
+
+	<row id="BTD_TR_306">
+		<language name="日本語">クロツグ</language>
+	</row>
+
+	<row id="BTD_TR_307">
+		<language name="日本語">クロツグ</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

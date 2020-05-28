@@ -1,0 +1,31 @@
+//====================================================================
+//							sp_c04pc0102.gmm
+//
+//	＜特殊スクリプトファイルを分ける理由＞
+//	特殊スクリプトはゾーン切り替えした時にロードする必要がある
+//	常にもっておかないといけないので、容量削減のために分けている
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"c04pc0102_def.h"
+	.include	"connect_def.h"
+
+//--------------------------------------------------------------------
+//							特殊スクリプト
+//--------------------------------------------------------------------
+_OBJ_CHANGE_LABEL		SCRID_CONNECT_OBJ_CHANGE
+_SCENE_CHANGE_LABEL	sp_c04pc0102_tbl
+_SP_EVENT_DATA_END
+
+sp_c04pc0102_tbl:
+	//ワーク、比較する値、スクリプトID
+	_SCENE_CHANGE_DATA	WK_SCENE_COMM_ID,SCR_COMM_ID_BATTLE,SCRID_CONNECT_BATTLE_RETURN
+	_SCENE_CHANGE_DATA	WK_SCENE_COMM_ID,SCR_COMM_ID_UNION,SCRID_CONNECT_UNION_RETURN
+	_SCENE_CHANGE_DATA	WK_SCENE_COMM_ID,SCR_COMM_ID_RECORD,SCRID_CONNECT_RECORD_RETURN
+	_SCENE_CHANGE_DATA	WK_SCENE_COMM_ID,SCR_COMM_ID_WIFI,SCRID_CONNECT_WIFI_RETURN
+	_SCENE_CHANGE_END
+
+
+
+

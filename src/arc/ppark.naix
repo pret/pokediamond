@@ -1,0 +1,18 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: ppark.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-20T11:41:31
+ *****************************************************************************/
+
+#ifndef NARC_PPARK_NAIX_
+#define NARC_PPARK_NAIX_
+
+enum {
+	NARC_ppark_pokepark_bin = 0
+};
+
+/* NARC_PPARK_NAIX_ */
+#endif

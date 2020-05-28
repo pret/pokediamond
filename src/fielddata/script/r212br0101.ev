@@ -1,0 +1,418 @@
+//====================================================================
+//							r212br0101
+//						かけら＜－＞ワザマシン交換
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r212br0101.h"
+	//.include	"../eventdata/zone_r212br0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r212br0101_flag_change
+_EVENT_DATA		ev_r212br0101_girl1
+_EVENT_DATA		ev_r212br0101_woman2
+_EVENT_DATA		ev_r212br0101_poster
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r212br0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_R212BR0101	//到着
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_r212br0101_girl1:
+	_EASY_OBJ_MSG	msg_r212br0101_girl1_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+#define MSG_AKA		(msg_kakera_01)
+#define MSG_AO		(msg_kakera_02)
+#define MSG_KI		(msg_kakera_03)
+#define MSG_MI		(msg_kakera_04)
+#define MSG_YAMERU	(msg_ev_win_049)
+
+ev_r212br0101_woman2:
+	_TALK_OBJ_START
+
+	/*かけらをもっているかチェック*/
+	_CALL			r212br0101_kakera_chk
+
+	/*かけらをもっていない*/
+	_IFVAL_JUMP		SCWK_PARAM0,EQ,0,ev_r212br0101_kakera_nothing
+
+	/*かけらをもっている*/
+	_TALKMSG		msg_r212br0101_woman2_02
+
+	_SWITCH			SCWK_PARAM0
+	_CASE_JUMP		1,r212br0101_aka
+	_CASE_JUMP		2,r212br0101_ao
+	_CASE_JUMP		4,r212br0101_ki
+	_CASE_JUMP		8,r212br0101_mi
+
+	_CASE_JUMP		3,r212br0101_aka_ao
+	_CASE_JUMP		5,r212br0101_aka_ki
+	_CASE_JUMP		9,r212br0101_aka_mi
+
+	_CASE_JUMP		6,r212br0101_ao_ki
+	_CASE_JUMP		10,r212br0101_ao_mi
+
+	_CASE_JUMP		12,r212br0101_ki_mi
+
+	_CASE_JUMP		7,r212br0101_aka_ao_ki
+	_CASE_JUMP		11,r212br0101_aka_ao_mi
+	_CASE_JUMP		14,r212br0101_ao_ki_mi
+
+	//_CASE_JUMP	15,r212br0101_aka_ao_ki_mi
+	_JUMP			r212br0101_aka_ao_ki_mi
+	_END
+
+//--------------------------------------------------------------------
+/*メニュー*/
+//--------------------------------------------------------------------
+/*赤*/
+r212br0101_aka:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AKA,0
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,1
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_aka
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*青*/
+r212br0101_ao:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AO,0
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,1
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_ao
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*黄*/
+r212br0101_ki:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_KI,0
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,1
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_ki
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*緑*/
+r212br0101_mi:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_MI,0
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,1
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_mi
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*赤、青*/
+r212br0101_aka_ao:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AKA,0
+	_BMPMENU_MAKE_LIST	MSG_AO,1
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_aka
+	_CASE_JUMP		1,ev_r212br0101_ao
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*赤、黄*/
+r212br0101_aka_ki:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AKA,0
+	_BMPMENU_MAKE_LIST	MSG_KI,1
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_aka
+	_CASE_JUMP		1,ev_r212br0101_ki
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*赤、緑*/
+r212br0101_aka_mi:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AKA,0
+	_BMPMENU_MAKE_LIST	MSG_MI,1
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_aka
+	_CASE_JUMP		1,ev_r212br0101_mi
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*青、黄*/
+r212br0101_ao_ki:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AO,0
+	_BMPMENU_MAKE_LIST	MSG_KI,1
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_ao
+	_CASE_JUMP		1,ev_r212br0101_ki
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*青、緑*/
+r212br0101_ao_mi:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AO,0
+	_BMPMENU_MAKE_LIST	MSG_MI,1
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_ao
+	_CASE_JUMP		1,ev_r212br0101_mi
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*黄、緑*/
+r212br0101_ki_mi:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_KI,0
+	_BMPMENU_MAKE_LIST	MSG_MI,1
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_ki
+	_CASE_JUMP		1,ev_r212br0101_mi
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*赤、青、黄*/
+r212br0101_aka_ao_ki:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AKA,0
+	_BMPMENU_MAKE_LIST	MSG_AO,1
+	_BMPMENU_MAKE_LIST	MSG_KI,2
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,3
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_aka
+	_CASE_JUMP		1,ev_r212br0101_ao
+	_CASE_JUMP		2,ev_r212br0101_ki
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*赤、青、緑*/
+r212br0101_aka_ao_mi:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AKA,0
+	_BMPMENU_MAKE_LIST	MSG_AO,1
+	_BMPMENU_MAKE_LIST	MSG_MI,2
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,3
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_aka
+	_CASE_JUMP		1,ev_r212br0101_ao
+	_CASE_JUMP		2,ev_r212br0101_mi
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*青、黄、緑*/
+r212br0101_ao_ki_mi:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AO,0
+	_BMPMENU_MAKE_LIST	MSG_KI,1
+	_BMPMENU_MAKE_LIST	MSG_MI,2
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,3
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_ao
+	_CASE_JUMP		1,ev_r212br0101_ki
+	_CASE_JUMP		2,ev_r212br0101_mi
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+/*赤、青、黄、緑*/
+r212br0101_aka_ao_ki_mi:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	MSG_AKA,0
+	_BMPMENU_MAKE_LIST	MSG_AO,1
+	_BMPMENU_MAKE_LIST	MSG_KI,2
+	_BMPMENU_MAKE_LIST	MSG_MI,3
+	_BMPMENU_MAKE_LIST	MSG_YAMERU,4
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_r212br0101_aka
+	_CASE_JUMP		1,ev_r212br0101_ao
+	_CASE_JUMP		2,ev_r212br0101_ki
+	_CASE_JUMP		3,ev_r212br0101_mi
+	_JUMP			ev_r212br0101_yameru
+	_END
+
+//--------------------------------------------------------------------
+/*交換情報セット*/
+//--------------------------------------------------------------------
+/*赤いかけらと交換*/
+ev_r212br0101_aka:
+	_ITEM_NAME		0,ITEM_WAZAMASIN11
+	_ITEM_WAZA_NAME		1,ITEM_WAZAMASIN11
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN11
+	_LDVAL			SCWK_TEMP2,ITEM_AKAIKAKERA
+	_TALK_KEYWAIT	msg_r212br0101_woman2_03
+	_JUMP			common_r212br0101_woman2_01
+
+/*青いかけらと交換*/
+ev_r212br0101_ao:
+	_ITEM_NAME		0,ITEM_WAZAMASIN18
+	_ITEM_WAZA_NAME		1,ITEM_WAZAMASIN18
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN18
+	_LDVAL			SCWK_TEMP2,ITEM_AOIKAKERA
+	_TALK_KEYWAIT	msg_r212br0101_woman2_04
+	_JUMP			common_r212br0101_woman2_01
+
+/*黄いかけらと交換*/
+ev_r212br0101_ki:
+	_ITEM_NAME		0,ITEM_WAZAMASIN37
+	_ITEM_WAZA_NAME		1,ITEM_WAZAMASIN37
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN37
+	_LDVAL			SCWK_TEMP2,ITEM_KIIROIKAKERA
+	_TALK_KEYWAIT	msg_r212b0101_woman2_05
+	_JUMP			common_r212br0101_woman2_01
+
+/*緑のかけらと交換*/
+ev_r212br0101_mi:
+	_ITEM_NAME		0,ITEM_WAZAMASIN07
+	_ITEM_WAZA_NAME		1,ITEM_WAZAMASIN07
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN07
+	_LDVAL			SCWK_TEMP2,ITEM_MIDORINOKAKERA
+	_TALK_KEYWAIT	msg_r212br0101_woman2_06
+	_JUMP			common_r212br0101_woman2_01
+
+/*やめる*/
+ev_r212br0101_yameru:
+	_TALKMSG		msg_r212br0101_woman2_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*技マシン入手共通処理*/
+common_r212br0101_woman2_01:
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r212br0101_woman2_item_event_fail
+
+	/*かけらを減らす*/
+	_SUB_ITEM		SCWK_TEMP2,10,SCWK_ANSWER
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*アイテム入手失敗*/
+ev_r212br0101_woman2_item_event_fail:
+	_TALKMSG		msg_r212br0101_woman2_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+/*かけらをもっているかチェック*/
+//--------------------------------------------------------------------
+r212br0101_kakera_chk:
+	_LDVAL		SCWK_PARAM0,0
+
+	/*赤10個もっているか？*/
+	_ITEM_CHK	ITEM_AKAIKAKERA,10,SCWK_ANSWER
+	_IFVAL_CALL	SCWK_ANSWER,EQ,TRUE,ev_r212br0101_true_aka
+	
+	/*青10個もっているか？*/
+	_ITEM_CHK	ITEM_AOIKAKERA,10,SCWK_ANSWER
+	_IFVAL_CALL	SCWK_ANSWER,EQ,TRUE,ev_r212br0101_true_ao
+
+	/*黄10個もっているか？*/
+	_ITEM_CHK	ITEM_KIIROIKAKERA,10,SCWK_ANSWER
+	_IFVAL_CALL	SCWK_ANSWER,EQ,TRUE,ev_r212br0101_true_ki
+
+	/*緑10個もっているか？*/
+	_ITEM_CHK	ITEM_MIDORINOKAKERA,10,SCWK_ANSWER
+	_IFVAL_CALL	SCWK_ANSWER,EQ,TRUE,ev_r212br0101_true_mi
+
+	_RET
+
+ev_r212br0101_true_aka:
+	_ADD_WK		SCWK_PARAM0,1
+	_RET
+
+ev_r212br0101_true_ao:
+	_ADD_WK		SCWK_PARAM0,2
+	_RET
+
+ev_r212br0101_true_ki:
+	_ADD_WK		SCWK_PARAM0,4
+	_RET
+
+ev_r212br0101_true_mi:
+	_ADD_WK		SCWK_PARAM0,8
+	_RET
+
+//--------------------------------------------------------------------
+/*かけらをもっていない*/
+//--------------------------------------------------------------------
+ev_r212br0101_kakera_nothing:
+	_TALKMSG		msg_r212br0101_woman2_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							ポスター								*/
+/********************************************************************/
+ev_r212br0101_poster:
+	_EASY_MSG		msg_r212br0101_poster_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

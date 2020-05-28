@@ -1,0 +1,615 @@
+//====================================================================
+//								d31r0206
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d31r0206.h"
+	.include	"../eventdata/zone_d31r0206evc.h"
+	.include	"../../../src/field/b_tower_scr_def.h"
+#if 0
+#define PM_DEBUG
+	.include	"../../../src/field/b_tower_deb.h"
+#endif
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d31r0206_flag_change
+_EVENT_DATA		ev_d31r0206_obj_change
+_EVENT_DATA		ev_tower_roomd_common_entry
+_EVENT_DATA		ev_tower_roomd_common_continue
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d31r0206_flag_change:
+	_IFVAL_JUMP		WK_SCENE_D31R0206,EQ,0,ev_d31r0206_flag_change_end
+	_FLAG_SET		FV_D31R0206_TRAINER01
+	_FLAG_SET		FV_D31R0206_TRAINER02
+	/*
+	  通信の子の時は親子の左右位置をいれかえる
+	  カレントID取得関数は非接続時に呼ぶと0が返る
+	*/
+	_COMM_GET_CURRENT_ID	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,ev_d31r0206_flag_change_child
+	
+	/*非接続時と親のとき*/
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_MINE,LOCALWORK0
+	_LDWK			OBJCHRWORK0,LOCALWORK0
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_MINE2,LOCALWORK0
+	_LDWK			OBJCHRWORK1,LOCALWORK0
+ev_d31r0206_flag_change_end:
+	_END
+
+/*通信の子の時*/
+ev_d31r0206_flag_change_child:
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_MINE,LOCALWORK0
+	_LDWK			OBJCHRWORK1,LOCALWORK0
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_MINE2,LOCALWORK0
+	_LDWK			OBJCHRWORK0,LOCALWORK0
+	_END
+
+
+
+/*OBJチェンジラベル*/
+ev_d31r0206_obj_change:
+	_IFVAL_CALL		WK_SCENE_D31R0206,NE,0,ev_d31r0206_obj_player
+ev_d31r0206_obj_change_02:
+	_IFVAL_JUMP		WK_SCENE_D31R0206,EQ,3,ev_d31r0206_obj_pos_change_set
+
+ev_d31r0206_obj_char_set:
+	_END
+
+ev_d31r0206_obj_player:
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	//半マスずらす
+	_PLAYER_POS_OFFSET_SET	8,0,0
+	_RET
+
+ev_d31r0206_obj_pos_change_set:
+	_OBJ_POS_CHANGE	D31R0206_HERO,5,0,5,DIR_RIGHT
+	_OBJ_POS_CHANGE	D31R0206_PARTNER,5,0,6,DIR_RIGHT
+	_JUMP			ev_d31r0206_obj_char_set
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_tower_roomd_common_heal:
+	_TALK_KEYWAIT	msg_tower_81
+	_ME_PLAY		SEQ_ASA
+	_ME_WAIT
+
+	_PC_KAIFUKU
+	_RET
+
+//====================================================================
+/********************************************************************/
+/*	マルチ対戦部屋in	コモン										*/
+/********************************************************************/
+//====================================================================
+//部屋から退場して受け付けに戻る
+ev_tower_roomd_common_exit:
+	_BTOWER_TOOLS	BTWR_SUB_GET_PLAY_MODE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,BTWR_MODE_COMM_MULTI,ev_tower_roomd_sio_exit
+	//ウェイト
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	//受付戻りフラグセット
+	_LDVAL			WK_SCENE_D31R0201,1
+	_MAP_CHANGE		ZONE_ID_D31R0201,0,7,6,DIR_UP
+	_EVENT_END
+	_END
+
+//通信マルチ部屋から出て戻る
+ev_tower_roomd_sio_exit:
+	//ウェイト
+	_TIME_WAIT		30,SCWK_ANSWER
+	
+	//受付戻りフラグセット
+	_LDVAL			WK_SCENE_D31R0201,1
+	
+	//通信同期
+	_COMM_RESET
+	_COMM_SYNCHRONIZE	TOWER_COMM_MULTI_EXIT_WAIT
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	//通信同期
+	_COMM_RESET
+	_COMM_SYNCHRONIZE	TOWER_COMM_MULTI_SIO_END
+	//通信切断
+	_COMM_DIRECT_END
+	
+	_MAP_CHANGE_NONE_FADE		ZONE_ID_D31R0201,0,7,6,DIR_UP
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_EVENT_END
+	_END
+
+//初めて部屋に入場したとき
+ev_tower_roomd_common_entry:
+	_EVENT_START
+	_LDVAL			WK_SCENE_D31R0206,3
+
+	_CALL			ev_tower_roomd_comanm_in
+	
+	_BTOWER_TOOLS	BTWR_SUB_GET_PLAY_MODE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,BTWR_MODE_COMM_MULTI,ev_tower_roomd_siobtl_01
+	_JUMP			ev_tower_roomd_aibtl_01
+	_END
+
+//続きからで部屋に入場した時
+ev_tower_roomd_common_continue:
+	_EVENT_START
+	_LDVAL			WK_SCENE_D31R0206,3
+	
+	_CALL			ev_tower_roomd_comanm_in
+	_CALL			ev_tower_roomd_comanm_continue
+
+	//次は？人目の……
+	_JUMP			ev_tower_roomd_aibtl_02
+	_END
+
+/////////////////////////////////////////////
+//AIマルチバトル呼び出しコモン
+ev_tower_roomd_common_aibtl_call:
+	//抽選
+	_BTOWER_TOOLS		BTWR_SUB_CHOICE_BTL_PARTNER,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	//エネミー入場
+	_CALL				ev_tower_roomd_comanm_enein
+
+	//対戦前台詞
+	_CALL				ev_tower_roomd_comanm_ene1_msganm
+	_TALKMSG_BTOWER_APPEAR	0
+	_AB_KEYWAIT
+	_TALK_CLOSE
+	_CALL				ev_tower_roomd_comanm_ene2_msganm
+	_TALKMSG_BTOWER_APPEAR	1
+	_AB_KEYWAIT
+	_TALK_CLOSE
+	//互いに近づく
+	_CALL				ev_tower_roomd_comanm_btl_start
+
+	//バトル呼び出し
+	_BTOWER_TOOLS		BTWR_SUB_LOCAL_BTL_CALL,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_LDWK				SCWK_TEMP0,SCWK_ANSWER
+	_RET
+
+/////////////////////////////////////////////
+//SIOマルチバトル呼び出しコモン
+ev_tower_roomd_common_siobtl_call:
+	//抽選
+	_BTOWER_TOOLS		BTWR_SUB_CHOICE_BTL_PARTNER,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	//エネミー入場
+	_CALL				ev_tower_roomd_comanm_enein
+
+	//対戦前台詞
+	_CALL				ev_tower_roomd_comanm_ene1_msganm
+	_TALKMSG_BTOWER_APPEAR	0
+	_TIME_WAIT				30,SCWK_ANSWER
+	_TALK_CLOSE
+	_CALL				ev_tower_roomd_comanm_ene2_msganm
+	_TALKMSG_BTOWER_APPEAR	1
+	_TIME_WAIT				30,SCWK_ANSWER
+	_TALK_CLOSE
+	
+	//互いに近づく
+	_CALL				ev_tower_roomd_comanm_btl_start
+
+	//通信同期
+	_COMM_RESET
+	_COMM_SYNCHRONIZE	TOWER_COMM_MULTI_BATTLE_START
+	
+	//バトル呼び出し
+	_BTOWER_TOOLS		BTWR_SUB_LOCAL_BTL_CALL,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_LDWK				SCWK_TEMP0,SCWK_ANSWER
+	_RET
+
+//負けて戻るときの処理
+ev_tower_roomd_common_lose:
+	//敗戦パラメータセット
+	_BTOWER_TOOLS	BTWR_SUB_SET_LOSE_SCORE,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	//負けてたらLOCALWORk0に0を代入
+	_LDVAL			LOCALWORK0,0
+	_JUMP			ev_tower_roomd_common_exit
+	_END
+
+//クリアして戻るときの処理
+ev_tower_roomd_common_clear_ret:
+	//クリアパラメータセット
+	_BTOWER_TOOLS	BTWR_SUB_SET_CLEAR_SCORE,BTWR_NULL_PARAM,BTWR_NULL_PARAM	
+	//勝ってたらLOCALWORk0に1を代入
+	_LDVAL			LOCALWORK0,1
+	_JUMP			ev_tower_roomd_common_exit
+	_END
+
+//休むときの処理
+ev_tower_roomd_common_rest:
+	_LDVAL			WK_SCENE_D31R0201,2
+
+	//プレイデータセーブ
+	_BTOWER_TOOLS	BTWR_SUB_SAVE_REST_PLAY_DATA,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_BTOWER_WORK_RELEASE
+
+	_TALK_KEYWAIT	msg_tower_79
+	_ADD_WAITICON
+	_REPORT_SAVE	SCWK_ANSWER
+	_DEL_WAITICON
+	_SE_PLAY		SEQ_SE_DP_SAVE
+	_SE_WAIT		SEQ_SE_DP_SAVE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TALK_CLOSE
+
+	//リセットコマンド
+	_BTOWER_TOOLS	BTWR_TOOL_SYSTEM_RESET,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_END
+
+//リタイアするときの処理
+ev_tower_roomd_common_retire:
+	_JUMP			ev_tower_roomd_common_lose
+	_END
+
+//バトル勝利時パラメータセットコモン
+ev_tower_roomd_common_win_param:
+	//ラウンド数更新
+	_BTOWER_TOOLS	BTWR_SUB_INC_ROUND,BTWR_NULL_PARAM,SCWK_ANSWER
+	//クリアしてるかチェック
+	_BTOWER_TOOLS	BTWR_SUB_IS_CLEAR,BTWR_NULL_PARAM,SCWK_ANSWER
+	_RET
+
+//====================================================================
+/********************************************************************/
+/*	AIマルチ対戦													*/
+/********************************************************************/
+//====================================================================
+//AIマルチ対戦フロー
+ev_tower_roomd_aibtl_01:
+	_CALL				ev_tower_roomd_common_aibtl_call
+#ifndef BTOWER_AUTO_DEB
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,0,ev_tower_roomd_common_lose
+#endif
+	//勝った時の処理(クリアしてるかどうかをSCWK_ANSWERにかえす)
+	_CALL				ev_tower_roomd_common_win_param
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_tower_roomd_common_clear_ret
+
+	//エネミー退場
+	_CALL				ev_tower_roomd_comanm_eneout
+	//プレイヤー振り向き
+	_CALL				ev_tower_roomd_comanm_btl_end
+	//ポケモン回復
+	_CALL				ev_tower_roomd_common_heal
+
+//通常連戦 次は？人目の相手です
+ev_tower_roomd_aibtl_02:
+	_BTOWER_TOOLS		BTWR_SUB_GET_NOW_ROUND,BTWR_NULL_PARAM,SCWK_TEMP0
+	_NUMBER_NAME		0,SCWK_TEMP0
+	_TALKMSG			msg_tower_82
+
+	_BMPLIST_INIT		21,11,0,0,SCWK_ANSWER		//Bキャンセル無効
+	_BMPLIST_MAKE_LIST	msg_tower_choice_06,EV_WIN_TALK_MSG_NONE,0		//つづける
+	_BMPLIST_MAKE_LIST	msg_tower_choice_07,EV_WIN_TALK_MSG_NONE,1		//やすむ
+	_BMPLIST_MAKE_LIST	msg_tower_choice_08,EV_WIN_TALK_MSG_NONE,2		//リタイア
+	_BMPLIST_START
+	
+	_TALK_CLOSE
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_tower_roomd_ai_next	//つづける
+	_CASE_JUMP		1,ev_tower_roomd_is_ai_rest	//やすむ
+	_CASE_JUMP		2,ev_tower_roomd_is_ai_retire	//リタイア
+	_JUMP			ev_tower_roomd_ai_next		//つづける
+	_END
+
+//AIマルチ連戦つなぎ処理
+ev_tower_roomd_ai_next:
+	//案内嬢もとの位置へ
+	_CALL		ev_tower_roomd_comanm_guide_out
+	//バトル
+	_JUMP		ev_tower_roomd_aibtl_01
+	_END
+
+//AIマルチ中断して休むかどうか？
+ev_tower_roomd_is_ai_rest:
+	_TALKMSG		msg_tower_83
+	_YES_NO_WIN		SCWK_ANSWER
+
+	_TALK_CLOSE
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_roomd_common_rest
+	_JUMP			ev_tower_roomd_aibtl_02
+	_END
+
+//AIマルチリタイアするかどうか？
+ev_tower_roomd_is_ai_retire:
+	_TALKMSG		msg_tower_84
+	_YES_NO_WIN		SCWK_ANSWER
+
+	_TALK_CLOSE
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_roomd_common_retire
+	_JUMP			ev_tower_roomd_aibtl_02
+	_END
+
+
+ev_tower_roomd_siobtl_01:
+	_CALL			ev_tower_roomd_common_siobtl_call
+#ifndef BTOWER_AUTO_DEB
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,0,ev_tower_roomd_common_lose
+#endif
+	//勝った時の処理
+	_CALL			ev_tower_roomd_common_win_param
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_roomd_common_clear_ret
+
+	//エネミー退場
+	_CALL			ev_tower_roomd_comanm_eneout
+	//プレイヤー振り向き
+	_CALL			ev_tower_roomd_comanm_btl_end
+	//ポケモン回復
+	_CALL			ev_tower_roomd_common_heal
+
+//連戦
+ev_tower_roomd_siobtl_02:
+	_BTOWER_TOOLS		BTWR_SUB_GET_NOW_ROUND,BTWR_NULL_PARAM,SCWK_TEMP0
+	_NUMBER_NAME		0,SCWK_TEMP0
+	_TALKMSG			msg_tower_82
+
+	_BMPLIST_INIT		21,13,0,0,SCWK_ANSWER		//Bキャンセル無効
+	_BMPLIST_MAKE_LIST	msg_tower_choice_06,EV_WIN_TALK_MSG_NONE,0		//つづける
+	_BMPLIST_MAKE_LIST	msg_tower_choice_08,EV_WIN_TALK_MSG_NONE,1		//リタイア
+	_BMPLIST_START
+	
+	_TALK_CLOSE
+	_LDVAL				LOCALWORK0,0		//リタイアが選ばれると1になる
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_tower_roomd_is_sio_retire
+
+//続けるかどうかの選択(LOCALWORK0が1ならリタイア)
+ev_tower_roomd_siobtl_03:
+	//お友達の選択を待っています
+	_TALKMSG			msg_tower_114
+	//選択待ち通信同期
+	_COMM_RESET
+	_COMM_SYNCHRONIZE	TOWER_COMM_MULTI_NEXT_SELECT
+
+	//選択結果送信
+	_BTOWER_SEND_BUF	2,LOCALWORK0
+	//選択結果受信
+	_BTOWER_RECV_BUF	2,LOCALWORK0
+
+	_TALK_CLOSE
+	_SWITCH				LOCALWORK0	
+	_CASE_JUMP			1,ev_tower_roomd_sio_retire	//リタイア
+
+//連戦を選択
+	//案内嬢もとの位置へ
+	_CALL			ev_tower_roomd_comanm_guide_out
+	//バトル
+	_JUMP			ev_tower_roomd_siobtl_01
+	_END
+
+//本当にリタイアを選択するかどうか？
+ev_tower_roomd_is_sio_retire:
+	_TALKMSG		msg_tower_84
+	_YES_NO_WIN		SCWK_ANSWER
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_roomd_siobtl_02
+	//キャンセルが選ばれたのでLOCALWORK0に1を代入
+	_LDVAL			LOCALWORK0,1
+	_JUMP			ev_tower_roomd_siobtl_03
+	_END
+
+//本当にリタイア
+ev_tower_roomd_sio_retire:
+	_TALKMSG		msg_tower_113
+	//ウェイト
+	_TIME_WAIT		30,SCWK_ANSWER
+	_COMM_RESET
+	_COMM_SYNCHRONIZE	TOWER_COMM_MULTI_RETIRE_WAIT
+	_TALK_CLOSE
+	_JUMP			ev_tower_roomd_common_retire	//リタイア
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	バトルタワーマルチ対戦部屋アニメコモン						*/
+/********************************************************************/
+//====================================================================
+//自機とパートナー入場
+ev_tower_roomd_comanm_in:
+	_OBJ_ANIME	D31R0206_HERO,anm_d31r0206_player_01
+	_OBJ_ANIME	D31R0206_PARTNER,anm_d31r0206_partner_01
+	_OBJ_ANIME_WAIT
+	_RET
+
+//自機とパートナー/受け付け嬢　続きから始めたときの入場後
+ev_tower_roomd_comanm_continue:
+	_OBJ_ANIME	D31R0206_PCWOMAN2_01,anm_d31r0206_pcwoman2_01
+	_OBJ_ANIME	D31R0206_PCWOMAN2_02,anm_d31r0206_pcwoman2_01
+	_OBJ_ANIME	D31R0206_HERO,anm_d31r0206_player_05
+	_OBJ_ANIME	D31R0206_PARTNER,anm_d31r0206_player_05
+	_OBJ_ANIME_WAIT
+	_RET
+
+//エネミー入場
+ev_tower_roomd_comanm_enein:
+	//キャラ指定
+	_BTOWER_TOOLS	BTWR_SUB_GET_ENEMY_OBJ,0,SCWK_ANSWER
+	_LDWK			OBJCHRWORK2,SCWK_ANSWER
+	_BTOWER_TOOLS	BTWR_SUB_GET_ENEMY_OBJ,1,SCWK_ANSWER
+	_LDWK			OBJCHRWORK3,SCWK_ANSWER
+
+	//バニッシュフラグOFF
+	_FLAG_RESET		FV_D31R0206_TRAINER01
+	_FLAG_RESET		FV_D31R0206_TRAINER02
+	_OBJ_ADD		D31R0206_TRAINER01
+	_OBJ_ADD		D31R0206_TRAINER02
+	_OBJ_ANIME		D31R0206_TRAINER01,anm_d31r0206_enemy1_01	
+	_OBJ_ANIME		D31R0206_TRAINER02,anm_d31r0206_enemy2_01	
+	_OBJ_ANIME_WAIT
+	_RET
+
+//バトル前　互いに一歩近づく
+ev_tower_roomd_comanm_btl_start:
+	_OBJ_ANIME		D31R0206_HERO,anm_d31r0206_player_02
+	_OBJ_ANIME		D31R0206_PARTNER,anm_d31r0206_player_02
+	_OBJ_ANIME		D31R0206_TRAINER01,anm_d31r0206_enemy_02
+	_OBJ_ANIME		D31R0206_TRAINER02,anm_d31r0206_enemy_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+/*バトル前メッセージ表示時にその場足踏み*/
+ev_tower_roomd_comanm_ene1_msganm:
+	_OBJ_ANIME		D31R0206_TRAINER01,anm_d31r0206_enemy_03
+	_OBJ_ANIME_WAIT
+	_RET
+	
+ev_tower_roomd_comanm_ene2_msganm:
+	_OBJ_ANIME		D31R0206_TRAINER02,anm_d31r0206_enemy_03
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+//プレイヤー勝利後　エネミー退場
+ev_tower_roomd_comanm_eneout:
+	_OBJ_ANIME		D31R0206_TRAINER01,anm_d31r0206_enemy1_03
+	_OBJ_ANIME		D31R0206_TRAINER02,anm_d31r0206_enemy2_03
+	_OBJ_ANIME_WAIT
+	//バニッシュフラグON
+	_FLAG_SET		FV_D31R0206_TRAINER01
+	_FLAG_SET		FV_D31R0206_TRAINER02
+	_OBJ_DEL		D31R0206_TRAINER01
+	_OBJ_DEL		D31R0206_TRAINER02
+	_RET
+
+//プレイヤー勝利後　プレイヤー振り向き&案内嬢近づき
+ev_tower_roomd_comanm_btl_end:
+	_OBJ_ANIME		D31R0206_HERO,anm_d31r0206_player_03
+	_OBJ_ANIME		D31R0206_PARTNER,anm_d31r0206_player_03
+	_OBJ_ANIME		D31R0206_PCWOMAN2_01,anm_d31r0206_pcwoman2_01
+	_OBJ_ANIME		D31R0206_PCWOMAN2_02,anm_d31r0206_pcwoman2_01
+	_OBJ_ANIME_WAIT
+	_RET
+
+//回復後　プレイヤー振り向き＆案内嬢下がる
+ev_tower_roomd_comanm_guide_out:
+	_OBJ_ANIME		D31R0206_HERO,anm_d31r0206_player_04
+	_OBJ_ANIME		D31R0206_PARTNER,anm_d31r0206_player_04
+	_OBJ_ANIME		D31R0206_PCWOMAN2_01,anm_d31r0206_pcwoman2_02
+	_OBJ_ANIME		D31R0206_PCWOMAN2_02,anm_d31r0206_pcwoman2_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//自機/パートナー　初期位置へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_player_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d31r0206_partner_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//エネミー/エネミー２　初期位置へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_enemy1_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d31r0206_enemy2_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//自機/パートナー共通　対戦前に一歩前へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_player_02
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//エネミー共通　対戦前に一歩前へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_enemy_02
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*エネミー共通　対戦メッセージ表示時に足踏み*/
+_ANIME_LABEL	anm_d31r0206_enemy_03
+	_ANIME_DATA	AC_STAY_WALK_L_16F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//エネミー/エネミー２　敗戦後退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_enemy1_03
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d31r0206_enemy2_03
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//自機/パートナー　対戦勝利後　一歩引き振り向き
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_player_03
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//案内嬢　対戦勝利後　近づき
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_pcwoman2_01
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//自機/パートナー　回復後振り向き
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_player_04
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//案内嬢　回復後下がる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_pcwoman2_02
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//自機　続きから
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0206_player_05
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+

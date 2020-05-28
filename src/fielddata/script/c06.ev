@@ -1,0 +1,605 @@
+//====================================================================
+//					フィールド・シティ０６
+//						ノモセシティ
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c06.h"
+	.include	"../eventdata/zone_c06evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c06_flag_change
+_EVENT_DATA		ev_c06_bigman1
+_EVENT_DATA		ev_c06_assistantm
+_EVENT_DATA		ev_c06_picnicgirl
+_EVENT_DATA		ev_c06_woman2
+_EVENT_DATA		ev_c06_fighter
+_EVENT_DATA		ev_c06_man3
+_EVENT_DATA		ev_c06_maril
+_EVENT_DATA		ev_c06_gingam
+_EVENT_DATA		ev_c06_ambrella
+_EVENT_DATA		ev_c06_bigman1a
+_EVENT_DATA		ev_c06_man3a
+_EVENT_DATA		ev_c06_sign1
+_EVENT_DATA		ev_c06_sign2
+_EVENT_DATA		ev_c06_sign3
+_EVENT_DATA		ev_c06_sign4
+_EVENT_DATA_END
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c06_flag_change:
+	/*ギンガ団が一度逃げた後だったら*/
+	_IF_FLAGON_JUMP	FE_C06_GINGAM,ev_c06_flag_change_02
+	_END
+
+/*ギンガ団が一度逃げた後だったら*/
+ev_c06_flag_change_02:
+	_SXY_POS_CHANGE	C06_GINGAM,637,812
+	_SXY_DIR_CHANGE	C06_GINGAM,DIR_RIGHT
+	_SXY_MV_CHANGE	C06_GINGAM,MV_RIGHT
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c06_bigman1:
+	_EASY_OBJ_MSG	msg_c06_bigman1_01
+	_END
+
+/********************************************************************/
+/*							助手♂									*/
+/********************************************************************/
+ev_c06_assistantm:
+	_EASY_OBJ_MSG	msg_c06_assistantm_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c06_picnicgirl:
+	_EASY_OBJ_MSG	msg_c06_picnicgirl_01
+	_END
+
+/********************************************************************/
+/*								淑女								*/
+/********************************************************************/
+ev_c06_woman2:
+	_EASY_OBJ_MSG	msg_c06_woman2_01
+	_END
+
+/********************************************************************/
+/*								???									*/
+/********************************************************************/
+ev_c06_fighter:
+	_TALK_OBJ_START
+
+	//ノモセバッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C06,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c06_fighter_badge_get
+
+	_TALKMSG		msg_c06_fighter_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ノモセバッジ取得済み
+ev_c06_fighter_badge_get:
+	_TALKMSG		msg_c06_fighter_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*						パラソル姉さん								*/
+/********************************************************************/
+ev_c06_ambrella:
+	_TALK_OBJ_START
+
+	_IF_FLAGON_JUMP	FE_C06_ACCE_GET,ev_c06_ambrella_02
+
+	//SCWK_TEMP1　＜　アクセサリー番号
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+	_IFVAL_CALL			SCWK_ANSWER,EQ,MONSNO_NAETORU,ev_c06_ambrella_acce_no_1_set
+	_IFVAL_CALL			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,ev_c06_ambrella_acce_no_2_set
+	_IFVAL_CALL			SCWK_ANSWER,EQ,MONSNO_POTTYAMA,ev_c06_ambrella_acce_no_3_set
+	_ACCE_NAME		0,SCWK_TEMP0
+	_TALK_KEYWAIT	msg_c06_ambrella_01
+
+	//アクセサリー取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_LDVAL			SCWK_TEMP1,1
+	_CHG_COMMON_SCR	SCRID_ACCE_EVENT
+
+	_FLAG_SET		FE_C06_ACCE_GET
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c06_ambrella_02:
+	_TALKMSG		msg_c06_ambrella_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アクセサリー１
+ev_c06_ambrella_acce_no_1_set:
+	_LDVAL		SCWK_TEMP0,IMC_ACCE_OMEN01
+	_RET
+
+//アクセサリー２
+ev_c06_ambrella_acce_no_2_set:
+	_LDVAL		SCWK_TEMP0,IMC_ACCE_OMEN02
+	_RET
+
+//アクセサリー３
+ev_c06_ambrella_acce_no_3_set:
+	_LDVAL		SCWK_TEMP0,IMC_ACCE_OMEN00
+	_RET
+
+/********************************************************************/
+/*						太った兄さん								*/
+/********************************************************************/
+ev_c06_bigman1a:
+	_EASY_OBJ_MSG	msg_c06_bigman1a_01
+	_END
+
+
+/********************************************************************/
+/*						トレーナー兄さん							*/
+/********************************************************************/
+ev_c06_man3a:
+	_EASY_OBJ_MSG	msg_c06_man3a_01
+	_END
+
+
+/********************************************************************/
+/*						トレーナー兄さん							*/
+/********************************************************************/
+ev_c06_man3:
+	_EASY_OBJ_MSG	msg_c06_man3_01
+	_END
+
+
+/********************************************************************/
+/*					ピッピ（ラベルと違うので注意）					*/
+/********************************************************************/
+ev_c06_maril:
+	_EASY_VOICE_MSG	msg_c06_maril_01,MONSNO_PIPPI,0
+	_END
+
+
+/********************************************************************/
+/*							ギンガ団								*/
+/********************************************************************/
+ev_c06_gingam:
+	_TALK_OBJ_START_TURN_NOT
+
+	/*一度逃げた後*/
+	_IF_FLAGON_JUMP	FE_C06_GINGAM,ev_c06_gingam_03
+
+	/*トバリイベント後*/
+	_IF_FLAGON_JUMP	FE_C07_SUPPORT,ev_c06_gingam_02
+
+	_TALK_KEYWAIT	msg_c06_gingam_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+/*トバリイベント後*/
+//--------------------------------------------------------------------
+ev_c06_gingam_02:
+
+	/*ノモセバッチ取得していなかったら*/
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C06,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c06_gingam_02_2
+
+	/*上を向いたまま*/
+	_TALK_KEYWAIT	msg_c06_gingam_02
+
+	/*気づく*/
+	_TURN_HERO_SITE
+	_OBJ_ANIME		C06_GINGAM,anm_c06_gingam_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c06_gingam_03
+	_TALK_CLOSE
+
+	/*213番道路のほうへ移動*/
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_c06_gingam_left
+	_JUMP			ev_c06_gingam_dir
+	_END
+
+//--------------------------------------------------------------------
+/*ノモセバッチ取得していなかったら*/
+//--------------------------------------------------------------------
+ev_c06_gingam_02_2:
+	_TURN_HERO_SITE
+
+	_TALK_KEYWAIT	msg_c06_gingam_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c06_gingam_left:
+	_OBJ_ANIME		C06_GINGAM,anm_c06_gingam_10
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_03
+	_END
+
+ev_c06_gingam_dir:
+	_OBJ_ANIME		C06_GINGAM,anm_c06_gingam_11
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_03
+	_END
+
+/*共通処理*/
+common_c06_gingam_03:
+	_OBJ_POS_CHANGE	C06_GINGAM,637,1,812,DIR_RIGHT		/*座標を変更*/
+	_FLAG_SET		FE_C06_GINGAM						/*一度逃げた*/
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+/*一度逃げた後*/
+//--------------------------------------------------------------------
+ev_c06_gingam_03:
+	_TURN_HERO_SITE
+
+	_TALK_KEYWAIT	msg_c06_gingam_04
+	_TALK_CLOSE
+
+	/*213番道路へ移動*/
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_c06_gingam_left_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_RIGHT,ev_c06_gingam_right_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_UP,ev_c06_gingam_up_02
+	_JUMP			ev_c06_gingam_down_02
+	_END
+
+ev_c06_gingam_left_02:
+	_LDVAL			SCWK_TEMP3,DIR_LEFT
+	_OBJ_ANIME		C06_GINGAM,anm_c06_gingam_20
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06_player_20
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_04
+	_END
+
+ev_c06_gingam_right_02:
+	_LDVAL			SCWK_TEMP3,DIR_RIGHT
+	_OBJ_ANIME		C06_GINGAM,anm_c06_gingam_21
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_04
+	_END
+
+ev_c06_gingam_up_02:
+	_LDVAL			SCWK_TEMP3,DIR_UP
+	_OBJ_ANIME		C06_GINGAM,anm_c06_gingam_21
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06_player_23
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_04
+	_END
+
+ev_c06_gingam_down_02:
+	_LDVAL			SCWK_TEMP3,DIR_DOWN
+	_OBJ_ANIME		C06_GINGAM,anm_c06_gingam_21
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06_player_22
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_04
+	_END
+
+/*共通処理*/
+common_c06_gingam_04:
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		C06_GINGAM
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*ライバル登場*/
+	_FLAG_RESET		FV_C06_RIVAL
+	_OBJ_ADD		C06_RIVAL
+
+	_CHG_COMMON_SCR SCRID_THE_RIVAL_PLAY				/*ライバル曲再生*/
+
+	/*ライバル登場アニメを変更*/
+	_IFVAL_CALL		SCWK_TEMP3,EQ,DIR_LEFT,ev_c06_gingam_left_23
+	_IFVAL_CALL		SCWK_TEMP3,EQ,DIR_RIGHT,ev_c06_gingam_right_23
+	_IFVAL_CALL		SCWK_TEMP3,EQ,DIR_UP,ev_c06_gingam_up_23
+	_IFVAL_CALL		SCWK_TEMP3,EQ,DIR_DOWN,ev_c06_gingam_down_23
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06_player_11
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c06_rival_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_NAETORU,ev_c06_rival_02
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,ev_c06_rival_03
+	_JUMP												ev_c06_rival_01
+
+//------------------------------------------------
+//登場アニメ分岐
+//------------------------------------------------
+ev_c06_gingam_left_23:
+	_OBJ_ANIME		C06_RIVAL,anm_c06_rival_11
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_c06_gingam_right_23:
+	_OBJ_ANIME		C06_RIVAL,anm_c06_rival_11_2
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_c06_gingam_up_23:
+	_OBJ_ANIME		C06_RIVAL,anm_c06_rival_11_3
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_c06_gingam_down_23:
+	_OBJ_ANIME		C06_RIVAL,anm_c06_rival_11_4
+	_OBJ_ANIME_WAIT
+	_RET
+
+//------------------------------------------------
+//戦闘呼び出し
+//------------------------------------------------
+ev_c06_rival_01:
+	_TRAINER_BTL_SET	RIVAL_07,0
+	_JUMP			ev_c06_rival_btl_coomon
+	_END
+
+ev_c06_rival_02:
+	_TRAINER_BTL_SET	RIVAL_08,0
+	_JUMP			ev_c06_rival_btl_coomon
+	_END
+
+ev_c06_rival_03:
+	_TRAINER_BTL_SET	RIVAL_09,0
+	_JUMP			ev_c06_rival_btl_coomon
+	_END
+
+ev_c06_rival_btl_coomon:
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c06_rival_battle_lose
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c06_rival_02
+	_TALK_CLOSE
+	
+	/*213番道路へ移動*/
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_LEFT,ev_c06_gingam_left_03
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_RIGHT,ev_c06_gingam_right_03
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_UP,ev_c06_gingam_up_03
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_DOWN,ev_c06_gingam_down_03
+	_END
+
+ev_c06_gingam_left_03:
+	_OBJ_ANIME		C06_RIVAL,anm_c06_rival_30
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06_player_30
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_05
+	_END
+
+ev_c06_gingam_right_03:
+	_OBJ_ANIME		C06_RIVAL,anm_c06_rival_31
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06_player_31
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_05
+	_END
+
+ev_c06_gingam_up_03:
+	_OBJ_ANIME		C06_RIVAL,anm_c06_rival_32
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06_player_32
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_05
+	_END
+
+ev_c06_gingam_down_03:
+	_OBJ_ANIME		C06_RIVAL,anm_c06_rival_33
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06_player_33
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c06_gingam_05
+	_END
+
+common_c06_gingam_05:
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		C06_RIVAL
+	_FLAG_SET		FE_C06_GINGAM_2						/*二度逃げた*/
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_c06_rival_battle_lose:
+	_FLAG_RESET		FV_C06_GINGAM	/*再度イベントを起こした時の対処*/
+	_FLAG_SET		FV_C06_RIVAL	/*再度イベントを起こした時の対処*/
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	ライバルの方をみる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06_player_11
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ギンガ団の方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06_player_20
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_player_21
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_player_22
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_player_23
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ライバルの方をみる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06_player_30
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_player_31
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_player_32
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_player_33
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	主人公に近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06_rival_11
+	_ANIME_DATA	AC_WALK_R_4F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_rival_11_2
+	_ANIME_DATA	AC_WALK_R_4F,7
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_rival_11_3
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_rival_11_4
+	_ANIME_DATA	AC_WALK_U_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06_gingam_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	逃げていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06_gingam_10
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_gingam_11
+	_ANIME_DATA	AC_WALK_R_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	r213へ逃げていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06_gingam_20
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,2
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_gingam_21
+	_ANIME_DATA	AC_WALK_R_4F,2
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	r213へさる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06_rival_30
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,2
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_rival_31
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,4
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_rival_32
+	_ANIME_DATA	AC_WALK_U_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,3
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06_rival_33
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,3
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						タウンマップ								*/
+/********************************************************************/
+ev_c06_sign1:
+	_EASY_BOARD_MSG	msg_c06_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+/********************************************************************/
+/*							掲示板(ジム)							*/
+/********************************************************************/
+ev_c06_sign2:
+	_EASY_INFOBOARD_MSG	msg_c06_sign2_01,BOARD_TYPE_INFO,0
+	_END
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c06_sign3:
+	_EASY_BOARD_MSG	msg_c06_sign3_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c06_sign4:
+	_EASY_BOARD_MSG	msg_c06_sign4_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

@@ -1,0 +1,12 @@
+#ifndef _C08R0101_DEF_H_
+#define _C08R0101_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_C08R0101_WOMAN1		(1)
+#define	SCRID_C08R0101_SEAMAN		(2)
+#define	SCRID_C08R0101_SUNGLASSES		(3)
+#define	SCRID_C08R0101_MIDDLEMAN1		(4)
+#define	SCRID_C08R0101_FLAG_CHANGE		(5)
+#define	SCRID_C08R0101_DATA_MAX		(5)		//最大数
+
+#endif //_C08R0101_DEF_H_

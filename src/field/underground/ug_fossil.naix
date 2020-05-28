@@ -1,0 +1,20 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: ug_fossil.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-09T15:29:27
+ *****************************************************************************/
+
+#ifndef NARC_UG_FOSSIL_NAIX_
+#define NARC_UG_FOSSIL_NAIX_
+
+enum {
+	NARC_ug_fossil_kaseki_board_NCGR = 0,
+	NARC_ug_fossil_kaseki_board_NCLR = 1,
+	NARC_ug_fossil_kaseki_board_NSCR = 2
+};
+
+/* NARC_UG_FOSSIL_NAIX_ */
+#endif

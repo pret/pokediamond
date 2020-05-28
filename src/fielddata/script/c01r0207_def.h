@@ -1,0 +1,13 @@
+#ifndef _C01R0207_DEF_H_
+#define _C01R0207_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_GUINNESS_GROUP_BTL		(1)
+#define	SCRID_GUINNESS_GROUP_POKE		(2)
+#define	SCRID_GUINNESS_GROUP_CONTEST		(3)
+#define	SCRID_C01R0207_BOY2_01		(4)
+#define	SCRID_C01R0207_GIRL2_01		(5)
+#define	SCRID_C01R0207_STOP_01		(6)
+#define	SCRID_C01R0207_DATA_MAX		(6)		//最大数
+
+#endif //_C01R0207_DEF_H_

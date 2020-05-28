@@ -1,0 +1,287 @@
+//====================================================================
+//						r208r0101.gmm
+//						きのみじいさんの家
+// LOCALWORK0使用
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r208r0101.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r208r0101_flag_change
+_EVENT_DATA		ev_r208r0101_oldman2
+_EVENT_DATA		ev_r208r0101_babygirl1
+_EVENT_DATA		ev_r208r0101_woman1
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r208r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_R208R0101	//到着
+	_END
+
+
+/********************************************************************/
+/*							きのみじいさん							*/
+/********************************************************************/
+
+ev_r208r0101_oldman2:
+	_TALK_OBJ_START
+
+	//1日フラグチェック
+	_IF_FLAGON_JUMP	TMFLG_SEED_PRESENT,ev_r208r0101_oldman2_02
+
+	_TALK_KEYWAIT	msg_r208r0101_oldman2_01
+
+	//アイテム名、個数をセット
+	_GET_RND		SCWK_TEMP0,26						//No149(クラボ)-174
+	_ADD_WK			SCWK_TEMP0,(ITEM_KURABONOMI)
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r208r0101_oldman_01_item_event_fail
+
+	//1日フラグセット
+	_FLAG_SET		TMFLG_SEED_PRESENT
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r208r0101_oldman2_02:
+	//きずぐすりをくれた後メッセージ
+	_TALKMSG	msg_r208r0101_oldman2_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r208r0101_oldman_01_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							女の子									*/
+/*																	*/
+/********************************************************************/
+ev_r208r0101_babygirl1:
+	_TALK_OBJ_START
+
+	//追加直後
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,ev_r208r0101_babygirl1_04
+
+	//「きのみチェッカー」を取得済みかチェック
+	_POKETCH_CHECK	POKETCH_APPID_SEED_SEARCHER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r208r0101_babygirl1_05
+
+	_TALKMSG		msg_r208r0101_babygirl1_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r208r0101_babygirl1_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r208r0101_babygirl1_03
+	_END	
+
+//はい　「きのみチェッカー」を取得
+ev_r208r0101_babygirl1_02:
+	_TALK_KEYWAIT	msg_r208r0101_babygirl1_02
+
+	//家を出るまでONにするため
+	_LDVAL			LOCALWORK0,1
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_SEED_SEARCHER
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//いいえ
+ev_r208r0101_babygirl1_03:
+	_TALKMSG		msg_r208r0101_babygirl1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//追加直後
+ev_r208r0101_babygirl1_04:
+	_POKETCH_NAME	0,POKETCH_APPID_SEED_SEARCHER
+	_TALKMSG		msg_r208r0101_babygirl1_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//取得後
+ev_r208r0101_babygirl1_05:
+	_TALKMSG		msg_r208r0101_babygirl1_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							姉さん									*/
+/********************************************************************/
+#define SUKUSUKU_KOYASHI	0
+#define JIMEJIME_KOYASHI	1
+#define NAGANAGA_KOYASHI	2
+#define NEBANEBA_KOYASHI	3
+#define PRICE_SUKUSUKU	200
+#define PRICE_JIMEJIME	200
+#define PRICE_NAGANAGA	200
+#define PRICE_NEBANEBA	200
+
+
+ev_r208r0101_woman1:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_r208r0101_woman1_01
+
+	_GOLD_WIN_WRITE		20,2
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_koyashi_01,0					//
+	_BMPMENU_MAKE_LIST	msg_koyashi_02,1					//
+	_BMPMENU_MAKE_LIST	msg_koyashi_03,2					//
+	_BMPMENU_MAKE_LIST	msg_koyashi_04,3					//
+	_BMPMENU_MAKE_LIST	msg_koyashi_05,4					//やめる
+	_BMPMENU_START
+//	_TALK_CLOSE
+
+	//種類セット
+	_LDWK			SCWK_PARAM0,SCWK_ANSWER
+
+	_SWITCH			SCWK_PARAM0
+	_CASE_JUMP		0,koyashi_case_0
+	_CASE_JUMP		1,koyashi_case_1
+	_CASE_JUMP		2,koyashi_case_2
+	_CASE_JUMP		3,koyashi_case_3
+
+	//買わないときのメッセージ
+	_TALKMSG		msg_r208r0101_woman1_03
+	_JUMP			common_koyoashi_end
+
+//購入時の統一処理
+common_koyashi_buy_01:
+	//お金をチェック
+	_IFVAL_CALL		SCWK_PARAM0,EQ,SUKUSUKU_KOYASHI,comp_gold_koyashi_case_0
+	_IFVAL_CALL		SCWK_PARAM0,EQ,JIMEJIME_KOYASHI,comp_gold_koyashi_case_1
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NAGANAGA_KOYASHI,comp_gold_koyashi_case_2
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NEBANEBA_KOYASHI,comp_gold_koyashi_case_3
+
+	//お金が足りない?
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,common_koyashi_not_enough_money
+
+	//アイテムが取れるかチェック
+	_ADD_ITEM_CHK	SCWK_PARAM1,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,common_koyashi_fail_item
+
+	//お金を減らす（売買成立）
+	_IFVAL_CALL		SCWK_PARAM0,EQ,SUKUSUKU_KOYASHI,sub_gold_koyashi_case_0
+	_IFVAL_CALL		SCWK_PARAM0,EQ,JIMEJIME_KOYASHI,sub_gold_koyashi_case_1
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NAGANAGA_KOYASHI,sub_gold_koyashi_case_2
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NEBANEBA_KOYASHI,sub_gold_koyashi_case_3
+
+	_GOLD_WRITE
+	_SE_PLAY		SEQ_SE_DP_REGI
+
+	_ADD_ITEM		SCWK_PARAM1,1,SCWK_ANSWER
+
+	_ITEM_NAME	0,SCWK_PARAM1
+
+	//XXXを　かった
+	_TALK_KEYWAIT		msg_r208r0101_woman1_04
+
+	_TALKMSG		msg_r208r0101_woman1_02	
+	_JUMP			common_koyoashi_end
+
+//共通終了処理
+common_koyoashi_end:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+//バッグがいっぱいです。
+common_koyashi_fail_item:
+	_TALKMSG		msg_r208r0101_woman1_05
+	_JUMP			common_koyoashi_end
+
+//お金が足りません。
+common_koyashi_not_enough_money:
+	_TALKMSG		msg_r208r0101_woman1_06
+	_JUMP			common_koyoashi_end
+
+//アイテムナンバー等セット
+koyashi_case_0:
+	_LDVAL			SCWK_PARAM1,ITEM_SUKUSUKUKOYASI
+	_JUMP			common_koyashi_buy_01
+
+koyashi_case_1:
+	_LDVAL			SCWK_PARAM1,ITEM_ZIMEZIMEKOYASI
+	_JUMP			common_koyashi_buy_01
+
+koyashi_case_2:
+	_LDVAL			SCWK_PARAM1,ITEM_NAGANAGAKOYASI
+	_JUMP			common_koyashi_buy_01
+
+koyashi_case_3:
+	_LDVAL			SCWK_PARAM1,ITEM_NEBANEBAKOYASI
+	_JUMP			common_koyashi_buy_01
+
+//お金を比較
+comp_gold_koyashi_case_0:
+	_COMP_GOLD		SCWK_ANSWER,PRICE_SUKUSUKU
+	_RET
+
+comp_gold_koyashi_case_1:
+	_COMP_GOLD		SCWK_ANSWER,PRICE_JIMEJIME
+	_RET
+
+comp_gold_koyashi_case_2:
+	_COMP_GOLD		SCWK_ANSWER,PRICE_NAGANAGA
+	_RET
+
+comp_gold_koyashi_case_3:
+	_COMP_GOLD		SCWK_ANSWER,PRICE_NEBANEBA
+	_RET
+
+//お金を減らす
+sub_gold_koyashi_case_0:
+	_SUB_GOLD		PRICE_SUKUSUKU	
+	_RET
+
+sub_gold_koyashi_case_1:
+	_SUB_GOLD		PRICE_JIMEJIME	
+	_RET
+
+sub_gold_koyashi_case_2:
+	_SUB_GOLD		PRICE_NAGANAGA	
+	_RET
+
+sub_gold_koyashi_case_3:
+	_SUB_GOLD		PRICE_NEBANEBA	
+	_RET
+
+
+/********************************************************************/
+/********************************************************************/

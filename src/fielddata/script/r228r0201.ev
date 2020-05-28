@@ -1,0 +1,241 @@
+//====================================================================
+//								r228r0201
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r228r0201.h"
+	//.include	"../eventdata/zone_r228r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r228r0201_oldman1
+_EVENT_DATA		ev_r228r0201_poster
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							和風老人								*/
+/********************************************************************/
+ev_r228r0201_oldman1:
+	_TALK_OBJ_START
+
+	_IF_FLAGON_JUMP	FE_R228R0201_OLDMAN1_TALK,ev_r228r0201_oldman1_02
+
+	_FLAG_SET		FE_R228R0201_OLDMAN1_TALK
+
+	_TALKMSG		msg_r228r0201_oldman1_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r228r0201_oldman1_03
+	_JUMP							ev_r228r0201_oldman1_04
+
+ev_r228r0201_oldman1_02:
+	_TALKMSG		msg_r228r0201_oldman1_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r228r0201_oldman1_03
+	_JUMP							ev_r228r0201_oldman1_04
+
+ev_r228r0201_oldman1_03:
+	_TALK_KEYWAIT		msg_r228r0201_oldman1_03
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//ポケモン選択
+	_POKELIST_SET_PROC
+	//選択したポケモンの並び番号取得
+	_POKELIST_GET_RESULT	SCWK_PARAM0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP		SCWK_PARAM0,EQ,0xff,ev_r228r0201_oldman1_04	//キャンセルされた
+
+	//手持ちー＞ポケモン番号変換　同時にタマゴチェックも行っています。
+	_TEMOTI_MONSNO	SCWK_PARAM0,SCWK_PARAM1
+
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,0,ev_r228r0201_oldman1_07	//タマゴ
+
+	//種類チェック　SCWK_PARAM1 -> SCWK_ANSWERへ結果
+	_CALL			ev_r228r0201_oldman1_poke_chk_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r228r0201_oldman1_06	//覚えられない
+
+	//種類をPARAM2へ
+	_LDWK			SCWK_PARAM2,SCWK_ANSWER
+
+	//習得済み？　SCWK_PARAM0,SCWK_PARAM2 -> SCWK_ANSWERへ結果
+	_CALL			ev_r228r0201_oldman1_poke_chk_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r228r0201_oldman1_09	//習得済み
+
+	_GET_NATSUKI	SCWK_ANSWER,SCWK_PARAM0
+	_IFVAL_JUMP		SCWK_ANSWER,LT,255,ev_r228r0201_oldman1_08	//なつき度が足りない
+
+	//ポケモン名をバファ０へ（共通）
+	_POKEMON_NAME	0,SCWK_PARAM0
+
+	_IFVAL_JUMP		SCWK_PARAM2,EQ,1,ev_r228r0201_oldman1_10
+	_IFVAL_JUMP		SCWK_PARAM2,EQ,2,ev_r228r0201_oldman1_11
+	_JUMP							ev_r228r0201_oldman1_12
+
+//ブラストバーン
+ev_r228r0201_oldman1_10:
+	_TALKMSG		msg_r228r0201_oldman1_10
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r228r0201_oldman1_04
+
+	//ワザセット
+	_LDVAL			SCWK_PARAM3,WAZANO_BURASUTOBAAN
+	_JUMP			ev_r228r0201_oldman1_common_01
+
+//ハイドロカノン
+ev_r228r0201_oldman1_11:
+	_TALKMSG		msg_r228r0201_oldman1_11
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r228r0201_oldman1_04
+
+	//ワザセット
+	_LDVAL			SCWK_PARAM3,WAZANO_HAIDOROKANON
+	_JUMP			ev_r228r0201_oldman1_common_01
+
+//ハードプラント
+ev_r228r0201_oldman1_12:
+	_TALKMSG		msg_r228r0201_oldman1_12
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r228r0201_oldman1_04
+
+	//ワザセット
+	_LDVAL			SCWK_PARAM3,WAZANO_HAADOPURANTO
+	_JUMP			ev_r228r0201_oldman1_common_01
+
+//取得チェック共通１
+ev_r228r0201_oldman1_common_01:
+	_TALK_CLOSE
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_NORMAL_WAZALIST_SET_PROC		SCWK_PARAM0,SCWK_PARAM3
+
+	//選択したポケモンの並び番号取得
+	_NORMAL_WAZALIST_GET_RESULT		SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルされた？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0xff,ev_r228r0201_oldman1_04
+
+	_TALK_OBJ_END
+	_END
+
+
+/*選択したポケモンチェック　SCWK_PARAM1 -> SCWK_ANSWERへ結果*/
+/*0=覚えられないポケモン 1:炎が取得可能 2:水が取得可能 3:草が取得可能。*/
+ev_r228r0201_oldman1_poke_chk_01:
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_RIZAADON,ev_r228r0201_add_hi
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_BAKUHUUN,ev_r228r0201_add_hi
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_BASYAAMO,ev_r228r0201_add_hi
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_GOUKAZARU,ev_r228r0201_add_hi
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_KAMEKKUSU,ev_r228r0201_add_mizu
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_OODAIRU,ev_r228r0201_add_mizu
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_RAGURAAZI,ev_r228r0201_add_mizu
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_ENPERIO,ev_r228r0201_add_mizu
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_HUSIGIBANA,ev_r228r0201_add_kusa
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_MEGANIUMU,ev_r228r0201_add_kusa
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_ZYUKAIN,ev_r228r0201_add_kusa
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,MONSNO_MORIGAME,ev_r228r0201_add_kusa
+	_LDVAL			SCWK_ANSWER,0
+	_RET
+
+ev_r228r0201_add_hi:
+	_LDVAL			SCWK_ANSWER,1
+	_RET
+
+ev_r228r0201_add_mizu:
+	_LDVAL			SCWK_ANSWER,2
+	_RET
+
+ev_r228r0201_add_kusa:
+	_LDVAL			SCWK_ANSWER,3
+	_RET
+
+//---------------------------------------------------------------------
+
+//習得済み？　SCWK_PARAM0,SCWK_PARAM2 -> SCWK_ANSWERへ結果
+ev_r228r0201_oldman1_poke_chk_02:
+	_IFVAL_JUMP		SCWK_PARAM2,EQ,1,ev_r228r0201_learn_chk_hi
+	_IFVAL_JUMP		SCWK_PARAM2,EQ,2,ev_r228r0201_learn_chk_mizu
+	_JUMP							ev_r228r0201_learn_chk_kusa
+
+ev_r228r0201_learn_chk_hi:
+	_CHK_POKE_WAZA	SCWK_ANSWER,WAZANO_BURASUTOBAAN,SCWK_PARAM0
+	_RET
+
+ev_r228r0201_learn_chk_mizu:
+	_CHK_POKE_WAZA	SCWK_ANSWER,WAZANO_HAIDOROKANON,SCWK_PARAM0
+	_RET
+
+ev_r228r0201_learn_chk_kusa:
+	_CHK_POKE_WAZA	SCWK_ANSWER,WAZANO_HAADOPURANTO,SCWK_PARAM0
+	_RET
+
+
+//---------------------------------------------------------------------
+
+//いいえ
+ev_r228r0201_oldman1_04:
+	_TALKMSG		msg_r228r0201_oldman1_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//覚えられない
+ev_r228r0201_oldman1_06:
+	_TALKMSG		msg_r228r0201_oldman1_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//タマゴ
+ev_r228r0201_oldman1_07:
+	_TALKMSG		msg_r228r0201_oldman1_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//なつき度が足りない
+ev_r228r0201_oldman1_08:
+	_TALKMSG		msg_r228r0201_oldman1_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//習得済み
+ev_r228r0201_oldman1_09:
+	_TALKMSG		msg_r228r0201_oldman1_09
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							ポスター								*/
+/********************************************************************/
+ev_r228r0201_poster:
+	_EASY_MSG	msg_r228r0201_poster_01
+	_END
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------

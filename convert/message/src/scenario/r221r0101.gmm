@@ -1,0 +1,1255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="ohmori" host="W00097" date="2006-07-30T17:09:14"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="34" japanese="コンテスト名称" english="コンテスト名称" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+				<comment language="english">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+			</tag>
+			<tag entry="35" japanese="コンテストランク" english="コンテストランク" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">○○○○ランク
+「ランク」も含む</comment>
+				<comment language="english">○○○○ランク
+「ランク」も含む</comment>
+			</tag>
+			<tag entry="36" japanese="国名" english="国名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる国名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる国名</comment>
+			</tag>
+			<tag entry="37" japanese="地域名" english="地域名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる地域名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる地域名</comment>
+			</tag>
+			<tag entry="38" japanese="風船の名前" english="風船の名前" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">すれ違い通信でつかう風船の名前</comment>
+				<comment language="english">すれ違い通信でつかう風船の名前</comment>
+			</tag>
+			<tag entry="39" japanese="リボンの名前" english="リボンの名前" view="EP" width="168" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">リボンの名前</comment>
+				<comment language="english">リボンの名前</comment>
+			</tag>
+			<tag entry="40" japanese="イメージクリップ背景" english="イメージクリップ背景" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+			<tag entry="01" japanese="文字表示ウェイト" english="文字表示ウェイト" view="EP" length="0" line="1">
+				<parameter number="0" japanese="フレーム数" english="フレーム数" type="int16"/>
+				<comment language="japanese">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+				<comment language="english">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+			</tag>
+			<tag entry="02" japanese="コールバック引数" english="コールバック引数" view="EP" length="0" line="1">
+				<parameter number="0" japanese="引数" english="引数" type="int16"/>
+				<comment language="japanese">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+				<comment language="english">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+			</tag>
+			<tag entry="03" japanese="文字表示位置X" english="文字表示位置X" view="EP" length="0" line="1">
+				<parameter number="0" japanese="X位置" english="X位置" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+			<tag entry="04" japanese="文字表示位置Y" english="文字表示位置Y" view="EP" length="0" line="1">
+				<parameter number="0" japanese="表示位置Y" english="表示位置Y" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="166"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="3" width="338"/>
+		<erase position="-1" width="100"/>
+		<attribute japanese="キャラ指定" english="キャラ指定" type="string" default="" position="1" width="100">
+		</attribute>
+		<language japanese="日本語" english="日本語">
+			<message position="2" width="207"/>
+			<font default=" 0:font_talk" position="4" width="100">
+				<list entry="0" file="Q:/msgdata/font/font_talk.nftr"/>
+				<list entry="1" file="Q:/msgdata/font/font_system.nftr"/>
+				<list entry="2" file="Q:/msgdata/font/font_button.nftr"/>
+			</font>
+			<size position="-1" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="20" top="45" right="641" bottom="600" maximized="no" rayout="Vertical2">
+		<comment-input left="656" top="448" right="1003" bottom="600" visible="yes"/>
+		<tag-palette left="639" top="43" right="986" bottom="441" visible="yes"/>
+		<band id="0" index="0" style="0000" width="446"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="464"/>
+		<band id="3" index="3" style="0000" width="147"/>
+		<band id="4" index="4" style="0000" width="613"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_r221r0101_ookido_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>♂
+posを踏むとイベント発動
+
+主人公性別：♂
+続けてmsg_r221r0101_ookido_03表示</comment>
+		<attribute name="キャラ指定">オーキド博士</attribute>
+		<language name="日本語" width="216">オーキド『おお　[1:03:トレーナー名:0]くん
+ここだ　ここが　パルパークじゃよ！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_ookido_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>♂
+posを踏むとイベント発動
+
+主人公性別：♀
+続けてmsg_r221r0101_ookido_03表示</comment>
+		<language name="日本語" width="216">オーキド『おお　[1:03:トレーナー名:0]さん
+ここだ　ここが　パルパークじゃよ！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_ookido_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>♂
+
+メッセージ表示後、！マーク表示
+続けてmsg_r221r0101_ookido_04</comment>
+		<language name="日本語" width="216">ここには　ぜんこく　かくち……
+つまり　カントーや　ホウエンで▽
+つかまえた　ポケモンを▽
+つれてくることが　できる！▼
+そして　その　ポケモンたちを
+どれだけ　はやく　つかまえられるか▽
+きそう　ばしょでも　あるのじゃ！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_ookido_04" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>♂
+
+ポケッチソフトNo28「ポケモンカウンター」追加処理
+続けてmsg_r221r0101_ookido_05</comment>
+		<language name="日本語" width="216">そうじゃな
+わざわざ　きてくれたんじゃ！▽
+これを　プレゼントするかな▼
+ポケッチの
+ポケトレカウンター　じゃよ▼</language>
+	</row>
+
+	<row id="msg_r221r0101_ookido_05" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>♂
+
+メッセージ表示後、オーキド画面外に移動。
+画面外に消えると主人公、操作可能。
+オーキド博士、ハクタイに出現。</comment>
+		<language name="日本語" width="216">オーキド『わしは　しばらく
+ハクタイシティに　いるよ▼
+せっかく　きたんじゃ
+シンオウちほうの　ポケモンを▽
+しらべさせて　もらうよ！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_01">
+		<comment>♀
+
+続けてmsg_r221r0101_poketch_02
+※ここでのポケットソフト全種追加後は
+　最初からmsg_r221r0101_poketch_16</comment>
+		<attribute name="キャラ指定">？？？</attribute>
+		<language name="日本語" width="216">パルパーク　すてき！
+だって　ポケモンと　ひと▽
+どっちも　しんけん　なんですもの！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_02">
+		<comment>♀
+
+ここでのポケッチ取得状況で
+メッセージを続ける
+・「キッチンタイマー」追加前
+→msg_r221r0101_poketch_03
+・「キッチンタイマー」追加後～「カラーチェンジャー」追加前
+→msg_r221r0101_poketch_09
+・「カラーチェンジャー」追加後
+→msg_r221r0101_poketch_16</comment>
+		<language name="日本語" width="216">そうだ！　あなた　こんな　ポケモン
+もっていたら　みせてほしいな▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_03" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>♀
+
+ポケッチソフトNo21「アラームどけい」追加前
+ドゴームのヒント
+
+ドゴームを
+・連れている　→msg_r221r0101_poketch_04
+・連れていない→msg_r221r0101_poketch_15</comment>
+		<language name="日本語" width="216">えーっとね……▼
+あしを　ふみならして
+おおごえを　だしてる　ポケモン！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_04" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>♀
+
+ポケッチソフト「アラームどけい」追加処理</comment>
+		<language name="日本語" width="216">あら！　ドゴーム！　すてき！▼
+あたしも　ドゴームを　モチーフにした
+ポケッチアプリ　もってるの！▽
+みせてくれた　おれいに　あげるね！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_05" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>♀
+
+ポケッチソフト「アラームどけい」追加後
+ココから出るまで</comment>
+		<language name="日本語" width="216">アラームって　めざまし　だけでなくて
+みたい　テレビが　はじまるまえに▽
+セットしておくと　いい　かんじだよ！</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_06">
+		<comment>♀
+
+ポケッチソフトNo22「キッチンタイマー」追加前
+カビゴンのヒント
+
+カビゴンを
+・連れている　→msg_r221r0101_poketch_07
+・連れていない→msg_r221r0101_poketch_15</comment>
+		<language name="日本語" width="216">えーっとね……▼
+いつも　たべていて
+ねてばっかりの　ポケモン！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_07">
+		<comment>♀
+
+ポケッチソフト「キッチンタイマー」追加処理</comment>
+		<language name="日本語" width="216">あら！　カビゴン！　たべてそー！▼
+あたしも　カビゴンを　モチーフにした
+ポケッチアプリ　もってるの！▽
+みせてくれた　おれいに　あげるね！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_08">
+		<comment>♀
+
+ポケッチソフト「キッチンタイマー」追加後
+ココから出るまで</comment>
+		<language name="日本語" width="216">[1:18:ポケッチソフト名:0]が　あるだけで
+じぶんで　りょうり　したくならない？</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_09">
+		<comment>♀
+
+ポケッチソフトNo25「カラーチェンジャー」追加前
+カクレオンのヒント
+
+カクレオンを
+・連れている　→msg_r221r0101_poketch_10
+・連れていない→msg_r221r0101_poketch_15</comment>
+		<language name="日本語" width="216">えーっとね……▼
+なにかあると　からだの　いろが
+いろいろ　かわる　ポケモン！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_10">
+		<comment>♀
+
+ポケッチソフト「カラーチェンジャー」追加処理</comment>
+		<language name="日本語" width="216">あら！　カクレオン！　カラフル！▼
+あたしも　カクレオンを　あしらった
+ポケッチアプリ　もってるの！▽
+みせてくれた　おれいに　あげるね！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_11">
+		<comment>♀
+
+ポケッチソフト「カラーチェンジャー」追加後
+ココから出るまで</comment>
+		<language name="日本語" width="216">カラーを　かえることで
+きもちも　かわるんだから！</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_12" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>♀
+
+ポケッチソフトNo02「ストップウォッチ」追加前
+ビリリダマのヒント
+
+ビリリダマを
+・連れている　→msg_r221r0101_poketch_13
+・連れていない→msg_r221r0101_poketch_15</comment>
+		<language name="日本語" width="216">えーっとね……▼
+モンスターボールみたいで
+そうじゃない　ポケモン！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_13" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>♀
+
+ポケッチソフト「ストップウォッチ」追加処理</comment>
+		<language name="日本語" width="216">あら！　ビリリダマ！　しびれる！▼
+あたしも　ビリリダマを　あしらった
+ポケッチアプリ　もってるの！▽
+みせてくれた　おれいに　あげるね！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_14" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>♀
+
+ポケッチソフト「ストップウォッチ」追加後
+ココから出るまで</comment>
+		<language name="日本語" width="216">[1:18:ポケッチソフト名:0]って
+ついつい　１０びょうちょうどで▽
+とめたくなっちゃうのよね！</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_15">
+		<comment>♀
+
+ヒント後、ポケッチ追加の条件を満たしていない時用</comment>
+		<language name="日本語" width="216">なまえ　なんだったっけ……
+あーん　おもいだせないよ！</language>
+	</row>
+
+	<row id="msg_r221r0101_poketch_16">
+		<comment>♀
+
+※ここでのポケットソフト全種追加後</comment>
+		<language name="日本語" width="216">パルパーク　すてき！
+だって　ポケモンと　ひと▽
+どっちも　しんけん　なんですもの！▼
+あなたも　ちょうせん　するのかしら</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_01" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>管理人：カウンターの中にいる。（ゲートの右側）
+初めて話しかけたときのセリフ（主人公が男の子の場合）
+二度目以降の場合は、p_park_01_010からスタート
+
+バッファ０：主人公名
+
+メッセージ後に「はい・いいえ」の選択
+はい→msg_r221r0101_admin_03
+いいえ→msg_r221r0101_admin__09</comment>
+		<language name="日本語" width="216">ようこそ！
+ここは　パルパーク！▼
+いちりゅうの　ポケモントレーナーが
+その　ほかくテクニックを▽
+みせつける　ばしょ　なんだ▼
+……おや？▼
+きみは　もしかして
+[1:03:トレーナー名:0]くん　だね！▼
+ウワサには　きいているよ！
+ずいぶんな　すごうで　なんだって？▼
+きみにも　ぜひ　ほかくショーに
+さんか　して　もらいたいなあ</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_02" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>管理人：カウンターの中にいる。（ゲートの右側）
+初めて話しかけたときのセリフ（主人公が女の子の場合）
+二度目以降の場合は、p_park_01_011からスタート
+
+バッファ０：主人公名
+
+
+メッセージ後に「はい・いいえ」の選択
+はい→msg_r221r0101_admin_03
+いいえ→msg_r221r0101_admin_09</comment>
+		<language name="日本語" width="216">ようこそ！
+ここは　パルパーク！▼
+いちりゅうの　ポケモントレーナーが
+その　ほかくテクニックを▽
+みせつける　ばしょ　なんだ▼
+……おや？▼
+きみは　もしかして
+[1:03:トレーナー名:0]ちゃん　だね！▼
+ウワサには　きいているよ！
+ずいぶんな　すごうで　なんだって？▼
+きみにも　ぜひ　ほかくショーに
+さんか　して　もらいたいなあ</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_03" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>メッセージ表示後、選択肢表示
+きほんルーﾙ→msg_r221r0101_admin_04
+ほかくショー→msg_r221r0101_admin_05
+あずけかた１→msg_r221r0101_admin_06
+あずけかた２→msg_r221r0101_admin_07
+もうわかった！→msg_r221r0101_admin_08</comment>
+		<language name="日本語" width="216">そうか！　さんか　してくれるか！
+うれしいなあ▼
+じゃあ　さっそく
+パルパークの　ルールを▽
+せつめい　しよう！▼
+わたしが　つくった
+パルパーク　マニュアル　だ！▼
+どれを　せつめい　しようかな？</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_04" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>メッセージ表示後、選択肢表示
+きほんルーﾙ→msg_r221r0101_admin_04
+ほかくショー→msg_r221r0101_admin_05
+あずけかた１→msg_r221r0101_admin_06
+あずけかた２→msg_r221r0101_admin_07
+もうわかった！→msg_r221r0101_admin_08</comment>
+		<language name="日本語" width="216">『パルパーク　は
+きめられた　かずの　ボールで▼
+６ひきの　ポケモン　すべてを
+いかに　はやく　つかまえる　ことが▽
+できるかを　きそう　ばしょ　です▼
+つかまえる　ポケモン　は
+さんか　する　トレーナーに▽
+よういして　いただきます▼
+６ひきの　ポケモンを　あずけないと
+ほかくショーを　はじめる　ことが▽
+できないので　ちゅうい　してください▼
+……　ほかに　せつめい　するかい？</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_05" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>メッセージ表示後、選択肢表示
+きほんルーﾙ→msg_r221r0101_admin_04
+ほかくショー→msg_r221r0101_admin_05
+あずけかた１→msg_r221r0101_admin_06
+あずけかた２→msg_r221r0101_admin_07
+もうわかった！→msg_r221r0101_admin_08</comment>
+		<language name="日本語" width="216">『ほかくショーを　はじめるときに
+６コの　パークボールを▽
+おわたし　します▼
+このボールを　つかい
+６ひき　すべての　ポケモンを▽
+つかまえて　ください▼
+……　ほかに　せつめい　するかい？</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_06" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>メッセージ表示後、選択肢表示
+きほんルーﾙ→msg_r221r0101_admin_04
+ほかくショー→msg_r221r0101_admin_05
+あずけかた１→msg_r221r0101_admin_06
+あずけかた２→msg_r221r0101_admin_07
+もうわかった！→msg_r221r0101_admin_08</comment>
+		<language name="日本語" width="216">『カントー　や　ホウエン　から
+ポケモンを　つれてきて▽
+あずける　ことが　できます▼
+ＧＢＡカートリッジ　さしこみぐち　に
+ルビー　サファイア　ファイアレッド▽
+リーフグリーン　エメラルド　の▼
+いずれかの　カートリッジを　さして
+ＤＳの　でんげんを　いれると▼
+その　カートリッジで　つかまえた
+ポケモンを　つれてくる　ことが▽
+できます▼
+……　ほかに　せつめい　するかい？</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_07" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>メッセージ表示後、選択肢表示
+きほんルーﾙ→msg_r221r0101_admin_04
+ほかくショー→msg_r221r0101_admin_05
+あずけかた１→msg_r221r0101_admin_06
+あずけかた２→msg_r221r0101_admin_07
+もうわかった！→msg_r221r0101_admin_08</comment>
+		<language name="日本語" width="216">『シンオウで　つかまえた　ポケモンも
+あずける　ことが　できます▼
+くわしくは　となりの
+あずかり　たんとう　スタッフへ！▼
+……　ほかに　せつめい　するかい？</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_08" back-color="#ffff00,,,,,,#ffff00,,,,,,">
+		<comment>はい→あずけているポケモンの数をチェック
+　30匹あずけているなら（男の子の場合）→msg_r221r0101_admin_12
+　30匹あずけているなら（女の子の場合）→msg_r221r0101_admin_13
+　30匹あずけていないなら→msg_r221r0101_admin_14　
+いいえ→msg_r221r0101_admin_09
+ボックスに空きがない→msg_r221r0101_admin_17</comment>
+		<language name="日本語" width="216">じゃあ　これから　ほかくショーに
+さんか　するかい？</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_09" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>フィールドへ</comment>
+		<language name="日本語" width="216">そうかあ　ざんねんだなあ▼
+さんか　したく　なったら
+こえを　かけてくれよな！</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_10" back-color="#ffff00,,,,,,#ffff00,,,,,,">
+		<comment>二度目以降に話しかけた場合（主人公男の子のとき）
+
+さんか　する
+　30匹あずけているなら→msg_r221r0101_admin_12
+　30匹あずけていないなら→msg_r221r0101_admin_14
+せつめいを　きく→msg_r221r0101_admin_15
+やめる→msg_r221r0101_admin_09
+ボックスに空きがない→msg_r221r0101_admin_17
+０：主人公の名前</comment>
+		<language name="日本語" width="216">やあ！　[1:03:トレーナー名:0]くん！▼
+ほかくショーに
+さんか　しにきて　くれたのかい？</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_11" back-color="#ffff00,,,,,,#ffff00,,,,,,">
+		<comment>二度目以降に話しかけた場合（主人公女の子のとき）
+
+さんか　する
+　30匹あずけているなら→p_park_01_013
+　30匹あずけていないなら→p_park_01_014
+せつめいを　きく→p_park_015
+やめる→p_park_01_009
+ボックスに空きがない→msg_r221r0101_admin_17
+
+０：主人公の名前</comment>
+		<language name="日本語" width="216">やあ！　[1:03:トレーナー名:0]ちゃん！▼
+ほかくショーに
+さんか　しにきて　くれたのかい？</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_12" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>メッセージ後、ゲートを通ってパルパーク内へ
+主人公がオートで入っていく
+
+０：主人公の名前
+１：ランクの１位の名前
+２：最高得点</comment>
+		<language name="日本語" width="216">では　パークボールを　どうぞ！▼
+[1:03:トレーナー名:0]は　パークボールを
+６こ　うけとった！▼
+いまの　１いは　[1:03:トレーナー名:1]の
+きろく　[1:35:数字４桁:2]　てんだ！▼
+さあ！　[1:03:トレーナー名:0]くんの
+かれいな　ほかくテクニックを▽
+おきゃくさんに　みせて　あげて！！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_13" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>メッセージ後、ゲートを通ってパルパーク内へ
+主人公がオートで入っていく
+
+０：主人公の名前
+１：ランクの１位の名前
+２：最高得点</comment>
+		<language name="日本語" width="216">では　パークボールを　どうぞ！▼
+[1:03:トレーナー名:0]は　パークボールを
+６こ　うけとった！▼
+いまの　１いは　[1:03:トレーナー名:1]の
+きろく　[1:35:数字４桁:2]　てんだ！▼
+さあ！　[1:03:トレーナー名:0]ちゃんの
+かれいな　ほかくテクニックを▽
+おきゃくさんに　みせて　あげて！！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_14" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>フィールドへ</comment>
+		<language name="日本語" width="216">ありゃ……　ほかくショーを　するには
+ポケモンの　かずが　たりないね▼
+カントー　や　ホウエン　から
+つれてきた　ポケモンを▼
+６ひき　あずけてから
+また　きてね！</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_15" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>メッセージ表示後、選択肢表示
+きほんルーﾙ→msg_r221r0101_admin_04
+ほかくショー→msg_r221r0101_admin_05
+あずけかた１→msg_r221r0101_admin_06
+あずけかた２→msg_r221r0101_admin_07
+もうわかった！→msg_r221r0101_admin_08</comment>
+		<language name="日本語" width="216">じゃあ　わたしが　つくった
+パルパーク　マニュアルで▽
+せつめい　しよう！</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_16" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>リタイアして、戻ってきたとき
+会話終了</comment>
+		<language name="日本語" width="216">おつかれさまです！
+つぎは　がんばって　くださいね！▼
+あまった　ボールは　こちらで
+かいしゅうします▼
+こんどは　ぜったいに　６ひき
+つかまえて　くださいね！</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_17" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>ボックスがいっぱいで、引き取れないとき
+会話終了</comment>
+		<language name="日本語" width="216">おや？　ボックスに　ポケモンを
+６ひき　あずけられない　みたいだね▼
+それじゃあ　せっかく　つかまえても
+ひきとることが　できないな▼
+ボックスを　せいりしてから　またおいで</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_18" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>ポケモンを全部捕まえて、ゲートに戻ってきた場合
+
+
+０：ほかくポイント
+１：じかんポイント
+２：タイプポイント
+３：合計ポイント
+
+最高得点だったら　→msg_r221r0101_admin_19
+低かったら　→msg_r221r0101_admin_20</comment>
+		<language name="日本語" width="216">ポケモン　６ひき　ほかく！
+おめでとう！！▼
+みてくれた　みんなも　いまの
+ほかくショーを　みて　よろこんでるぞ！▼
+さて　こんかいの　ほかくショー
+きになる　てんすうは？▼
+……　……　……
+……　……　……▼
+ほかくポイント　[1:35:数字４桁:0]てん！▼
+じかんポイント　[1:35:数字４桁:1]てん！▼
+タイプポイント　[1:35:数字４桁:2]てん！▼
+ごうけいは▼
+……　……　……
+……　……　……▼
+[1:35:数字４桁:3]てん！！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_19" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>→msg_r221r0101_admin_25</comment>
+		<language name="日本語" width="216">おお！　これは　すごいきろくだ！
+おみごとです！！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_20" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>→msg_r221r0101_admin_25</comment>
+		<language name="日本語" width="216">うん！　まあまあの　きろくだな
+おみごとです！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_21" back-color="#ffff00,,,#ff0000,,,#ff0000,,,,,,">
+		<comment>「はい、いいえ」の選択
+はい→msg_r221r0101_admin_22
+いいえ→→msg_r221r0101_admin_26</comment>
+		<language name="日本語" width="216">つかまえた　ポケモンを
+ボックスに　いれていくかい？</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_22" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>捕獲したポケモンをボックスに入れる処理
+この後、共通レポート処理（強制）
+→msg_r221r0101_admin_24</comment>
+		<language name="日本語" width="216">うむ！
+ボックスに　いれておいたぞ！▼
+では　レポートに　かきこんでくれ！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_23" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>会話終了</comment>
+		<language name="日本語" width="216">そうか　ではまた　このポケモンで
+さらに　すごい　てんすうを▽
+きそってみるのも　いいかもしれないな！▼
+また　ポケモンを　つかまえたくなったら
+ちょうせん　しに　きてくれ！</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_24" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>会話終了</comment>
+		<language name="日本語" width="216">また　ポケモンを　つかまえたくなったら
+ちょうせん　しに　きてくれ！</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_25" back-color="#ffff00,,,,,,,,,,,,">
+		<comment>アイテム追加処理
+テーブルからもらえる景品を選ぶ。
+アイテムゲット処理
+（アイテムがいっぱいだったら、このメッセージを表示しない）
+→msg_r221r0101_admin_21</comment>
+		<language name="日本語" width="216">では　けいひん　として
+これを　プレゼント　しよう！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_admin_26" back-color="#ffff00,,,#ff0000,,,#ff0000,,,,,,">
+		<comment>「はい、いいえ」の選択
+はい→msg_r221r0101_admin_23
+いいえ→→msg_r221r0101_admin_21</comment>
+		<language name="日本語" width="216">じゃあ　おなじポケモンで
+もういちど　やるかい？</language>
+	</row>
+
+	<row id="msg_r221r0101_recieve_01" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>ポケモン預かり係員
+ゲート内の左側奥にいる
+パソコンの前で右を向いたら、すぐに話しかけられる位置
+
+パルパーク管理人と、まだ話したことがない状態で
+話しかけたときのセリフ
+
+使用しません</comment>
+		<language name="日本語" width="216">ようこそ！　パルパーク　へ！
+……　おや？▼
+きみは　パルパーク　は
+はじめて　なのかな？▼
+だったら　となりの　かんりにん　に
+はなしを　きくと　いいよ！</language>
+	</row>
+
+	<row id="msg_r221r0101_recieve_02" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>管理人に一度話しをしたあとに
+預かり係員に話しかけたときのセリフ
+一度、管理人と話をしないと、ポケモンを預けることができない
+
+メッセージ表示後、選択肢表示
+はい
+　ポケモンを６匹あずかっているなら→msg_r221r0101_recieve_03
+　ポケモンの預かりが６未満なら→msg_r221r0101_recieve_04
+いいえ→msg_r221r0101_recieve_05
+
+０：現在、預かっているポケモンの数（０～３０）
+
+使用しません</comment>
+		<language name="日本語" width="216">ようこそ！　パルパークへ！▼
+ほかくショーに　さんか　するなら
+ここで　ポケモンを　あずかるよ！▼
+げんざい　あずかっている　ポケモンは
+[1:33:数字２桁:0]ひき　です▼
+ポケモンを　あずけますか？</language>
+	</row>
+
+	<row id="msg_r221r0101_recieve_03" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>フィールドへ
+
+使用しません</comment>
+		<language name="日本語" width="216">ポケモンを　あずけるんだね！▼
+……　もう　３０ひきの　ポケモンを
+あずかっている　から▼
+これいじょうは　あずかる　ことが
+できないよ！▼
+ほかくショーで　ポケモンを
+つかまえてから　また　きてね！</language>
+	</row>
+
+	<row id="msg_r221r0101_recieve_04" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>てもちポケモン選択画面へ
+
+使用しません</comment>
+		<language name="日本語" width="216">ポケモンを　あずけるんだね！▼
+あずかった　ポケモンは
+ほかくショーで　つかまえる　までは▼
+かえすことが　できないから
+ちゅうい　してね！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_recieve_05" back-color="#404040,,,#404040,,#404040,#404040,,,,,,">
+		<comment>フィールドへ
+
+使用しません</comment>
+		<language name="日本語" width="216">ポケモンを　あずけるときには
+こえを　かけてくださいね！</language>
+	</row>
+
+	<row id="msg_r221r0101_girl1_01">
+		<comment>パーク受付２F女の子
+ほかくショーをする前のメッセージ</comment>
+		<language name="日本語" width="216">パパと　いっしょに　[1:03:トレーナー名:0]さんの
+ほかくショーを　みに　きたの▼
+はやく　はじまらないかなあ……</language>
+	</row>
+
+	<row id="msg_r221r0101_girl1_02">
+		<comment>パーク受付２Fの女の子
+ほかくショー成功後のメッセージ</comment>
+		<language name="日本語" width="216">きゃー　[1:03:トレーナー名:0]さん！！
+ほかくショー　とても　すごかった　です▼
+わたしも　[1:03:トレーナー名:0]さん　みたいな
+ポケモントレーナーを　めざします！！</language>
+	</row>
+
+	<row id="msg_r221r0101_girl1_03">
+		<comment>パーク受付２Fの女の子
+ほかくショー失敗後のメッセージ</comment>
+		<language name="日本語" width="216">あっ　[1:03:トレーナー名:0]さん
+つぎは　がんばって　くださいね</language>
+	</row>
+
+	<row id="msg_r221r0101_middleman1_01">
+		<comment>パーク受付２Fにいるおじさん
+女の子のパパ</comment>
+		<language name="日本語" width="216">むすめは　[1:03:トレーナー名:0]さん　の
+だいファン　でしてな……▼
+まいにちの　ように　ほかくショーを
+みに　いこうと　いうんですよ</language>
+	</row>
+
+	<row id="msg_r221r0101_boy2_01">
+		<comment>パーク受付２Fにいる少年
+ポケモンマニア</comment>
+		<language name="日本語" width="216">ここの　ウリは
+ほかくショー　だけじゃ　ないんだぜ！▼
+ほかくショーと　どうじに
+めずらしい　ポケモンたちも▽
+みられる　なんて……▼
+ちょー　こうふん　するよな！！</language>
+	</row>
+
+	<row id="msg_r221r0101_man1_01" back-color="#80ff80,,,#80ff80,,#80ff80,#80ff80,,,,,,">
+		<comment>パーク受付１Fにいる青年
+最高得点をいってくれる
+
+１：ランクの１位の名前
+２：最高得点</comment>
+		<language name="日本語" width="216">いまの　１いは　[1:03:トレーナー名:1]の
+きろく　[1:35:数字４桁:2]　てんだ！▽
+これを　こえることは　できるかな？</language>
+	</row>
+
+	<row id="msg_r221r0101_man1_02" back-color="#80ff80,,,#80ff80,,#80ff80,#80ff80,,,,,,">
+		<comment>パーク受付１Fにいる青年
+１・２０００点をこえてたら（１回のみ）
+
+No050「ふしぎなアメ」入手処理
+処理後msg_r221r0101_man1_03表示</comment>
+		<language name="日本語" width="216">おお！　２０００てんを　こえたか！
+じゃあ　これを　やろう！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_man1_03" back-color="#80ff80,,,#80ff80,,#80ff80,#80ff80,,,,,,">
+		<comment>パーク受付１Fにいる青年
+
+アイテム入手後</comment>
+		<language name="日本語" width="216">さらに　たかいてんを　めざして
+がんばってくれ！</language>
+	</row>
+
+	<row id="msg_r221r0101_man1_04" back-color="#80ff80,,,#80ff80,,#80ff80,#80ff80,,,,,,">
+		<comment>パーク受付１Fにいる青年
+２・２５００点をこえてたら（１回のみ）
+
+No092「きんのたま」入手処理
+処理後msg_r221r0101_man1_03表示</comment>
+		<language name="日本語" width="216">おお！　２５００てんを　こえたか！
+じゃあ　これを　やろう！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_man1_05" back-color="#80ff80,,,#80ff80,,#80ff80,#80ff80,,,,,,">
+		<comment>パーク受付１Fにいる青年
+３・３０００点をこえてたら（１回のみ）
+
+No053「ポイントマックス」入手処理
+処理後msg_r221r0101_man1_03表示</comment>
+		<language name="日本語" width="216">おお！　３０００てんを　こえたか！
+じゃあ　これを　やろう！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_man1_06" back-color="#80ff80,,,#80ff80,,#80ff80,#80ff80,,,,,,">
+		<comment>パーク受付１Fにいる青年
+４・３５００点をこえてたら（１回のみ）
+
+No001「マスターボール」入手処理
+処理後msg_r221r0101_man1_07表示</comment>
+		<language name="日本語" width="216">おお！　３５００てんを　こえたか！
+じゃあ　これを　やろう！▼</language>
+	</row>
+
+	<row id="msg_r221r0101_man1_07" back-color="#80ff80,,,#80ff80,,#80ff80,#80ff80,,,,,,">
+		<comment>パーク受付１Fにいる青年
+４・３５００点をこえてたら（１回のみ）</comment>
+		<language name="日本語" width="216">すばらしい　きろくだ！
+もう　いうことはない！</language>
+	</row>
+
+	<row id="msg_r221r0101_man1_08" back-color="#80ff80,,,#80ff80,,#80ff80,#80ff80,,,,,,">
+		<comment>▼アイテムがいっぱいだったら</comment>
+		<language name="日本語" width="216">バッグが　いっぱいだな
+また　くるといいよ</language>
+	</row>
+
+	<row id="msg_r221r0101_woman2_01">
+		<comment>パーク受付１Fにいるお姉さん
+攻略のヒントをくれる</comment>
+		<language name="日本語" width="216">めずらしい　ポケモンは
+なかなか　あらわれない　みたいだから▼
+まずは　ふつうの　ポケモンから
+ほかく　するのが　コツなのかしら</language>
+	</row>
+
+	<row id="msg_r221r0101_gorggeousw_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>パーク受付２Fにいるゴージャス姉さん
+・アクセサリーがもらえないときのメッセージ
+
+・ファイアレッドを挿していて「クラウン」入手前→02から開始
+・リーフグリーン挿していて「ティアラ」入手前→03から開始
+・サファイア挿していて背景「うみのそこ」入手前→04から開始
+・ルビー挿していて背景「ちてい」入手前→05から開始
+・エメラルド挿していて背景「てんくう」入手前→06から開始</comment>
+		<attribute name="キャラ指定">ゴージャス姉さん</attribute>
+		<language name="日本語" width="216">ほかくショー▼
+ああ　それは　ポケモンと
+ひととの　しんけんしょうぶ▼
+あたくし　とくに　カントーちほうや
+ホウエンちほうの　ポケモンが▽
+おきにいり　ですの▼
+とおい　ちほうって　ところに
+こころが　きゅんと　くるのですわ</language>
+	</row>
+
+	<row id="msg_r221r0101_gorggeousw_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>パーク受付２Fにいるゴージャス姉さん
+
+・ファイアレッドを挿しているときで「クラウン」入手前
+・メッセージ表示後にアクセサリー入手処理</comment>
+		<language name="日本語" width="216">きょうは　なんだか　ときめいて……▼
+あなたにも　この　おうかん……
+クラウンを　さしあげますわ▼
+といっても　ポケモンを　かざる
+アクセサリーですけど▼</language>
+	</row>
+
+	<row id="msg_r221r0101_gorggeousw_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>パーク受付２Fにいるゴージャス姉さん
+
+・リーフグリーン挿しているときで「ティアラ」入手前
+・メッセージ表示後にアクセサリー入手処理</comment>
+		<language name="日本語" width="216">きょうは　なんだか　ときめいて……▼
+あなたにも　この　ヘアアクセサリー……
+ティアラを　さしあげますわ▼
+といっても　ポケモンを　かざる
+アクセサリーですけど▼</language>
+	</row>
+
+	<row id="msg_r221r0101_gorggeousw_04" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>パーク受付２Fにいるゴージャス姉さん
+
+・サファイア挿しているときで背景「うみのそこ」入手前
+・メッセージ表示後に背景入手処理</comment>
+		<language name="日本語" width="216">きょうは　なんだか　ときめいて……▼
+あなたにも　この　はいけいの
+「うみのそこ」を　さしあげますわ▼
+アクセサリーを　つけるとき
+ぜひ　おつかいに　なってくださいまし▼</language>
+	</row>
+
+	<row id="msg_r221r0101_gorggeousw_05" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>パーク受付２Fにいるゴージャス姉さん
+
+・ルビー挿しているときで背景「ちてい」入手前
+・メッセージ表示後に背景入手処理</comment>
+		<language name="日本語" width="216">きょうは　なんだか　ときめいて……▼
+あなたにも　この　はいけいの
+「ちてい」を　さしあげますわ▼
+アクセサリーを　つけるとき
+ぜひ　おつかいに　なってくださいまし▼</language>
+	</row>
+
+	<row id="msg_r221r0101_gorggeousw_06" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>パーク受付２Fにいるゴージャス姉さん
+
+・エメラルド挿しているときで背景「てんくう」入手前
+・メッセージ表示後に背景入手処理</comment>
+		<language name="日本語" width="216">きょうは　なんだか　ときめいて……▼
+あなたにも　この　はいけいの
+「てんくう」を　さしあげますわ▼
+アクセサリーを　つけるとき
+ぜひ　おつかいに　なってくださいまし▼</language>
+	</row>
+
+	<row id="msg_r221r0101_gorggeousw_07" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>パーク受付２Fにいるゴージャス姉さん
+
+・アクセサリーか背景入手後、このマップから出るまで</comment>
+		<language name="日本語" width="216">ほかくショーも　あれば
+ポケモン　コンテストも　ある……▼
+なんて　すてき……
+シンオウちほうに　ときめきますわ</language>
+	</row>
+
+	<row id="msg_r221r0101_boy2a_01">
+		<comment>♂</comment>
+		<attribute name="キャラ指定">活発少年</attribute>
+		<language name="日本語" width="216">つよい　ポケモン　じゃなくて
+いろんな　しゅるいの　ポケモンを▽
+すばやく　つかまえられる▽
+トレーナーが　かっこいいよね！</language>
+	</row>
+
+	<row id="msg_r221r0101_girl2_01">
+		<comment>♀</comment>
+		<attribute name="キャラ指定">活発少女</attribute>
+		<language name="日本語" width="216">いろんな　タイプの　ポケモンを
+ただ　つかまえる　だけじゃなくて▽
+つかまえる　じゅんばんも　たいせつよ！</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

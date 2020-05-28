@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-05-11T21:41:07" source="nin_kemu.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="unno" host="W00106" date="2006-05-11T21:41:07" source="nin_kemu.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="3"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="3" xyz="-2.000000 0.000000 0.000000" whd="4.000000 4.000000 0.000000"/>
+
+<tex_image_array size="4">
+	<tex_image index="0" name="nin_kemu.1"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette4"
+		color0_mode="transparency"
+		palette_name="nin_kemu.1_pl"
+		path="C:/mayadata/hero_eff/tex/nin_kemu.1.tga"
+	>
+		<bitmap size="128">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 a000 000a 0000 0000 5800 0025 0000
+			0000 56a0 0295 0000 0000 5558 0955 0000
+			0000 5556 0955 0000 8000 5555 2955 0000
+			8000 5555 3a55 0000 6000 5555 fa96 0000
+			6000 9555 fe99 0000 6000 6555 bfa6 0000
+			a000 a955 bfea 0000 8000 ea55 bfff 0000
+			c000 faaa afff 0000 0000 feaf 2ffb 0000
+			0000 ffff 0bae 0000 0000 bff0 002b 0000
+			0000 fc00 000a 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="1" name="nin_kemu.2"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette4"
+		color0_mode="transparency"
+		palette_name="nin_kemu.2_pl"
+		path="C:/mayadata/hero_eff/tex/nin_kemu.2.tga"
+	>
+		<bitmap size="128">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 a000 002a 0000 0000 5800 0095 0000
+			0000 5680 0255 0000 0000 5560 0955 0000
+			0000 5558 0955 0000 0000 5556 2955 0000
+			0000 5556 3a55 0000 0000 5556 fa99 0000
+			0000 5556 faa6 0000 0000 a95a faaa 0000
+			0000 aaa8 feba 0000 0000 aeac 3ffe 0000
+			0000 bbb0 0fff 0000 0000 efc0 00ff 0000
+			0000 ff00 00ff 0000 0000 f000 003f 0000
+			0000 f000 000f 0000 0000 f000 000f 0000
+			0000 c000 0003 0000 0000 c000 0003 0000
+			0000 c000 0003 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="2" name="nin_kemu.3"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette4"
+		color0_mode="transparency"
+		palette_name="nin_kemu.3_pl"
+		path="C:/mayadata/hero_eff/tex/nin_kemu.3.tga"
+	>
+		<bitmap size="128">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 a000 00aa 0000
+			0000 5800 0255 0000 0000 5600 0955 0000
+			0000 5600 0955 0000 0000 5580 3955 0000
+			0000 5580 3999 0000 0000 55c0 3a66 0000
+			0000 56c0 3e99 0000 0000 ab00 0faa 0000
+			0000 ac00 0fbb 0000 0000 f000 03ee 0000
+			0000 c000 00fb 0000 0000 0000 003f 0000
+			0000 c000 000c 0000 0000 0000 0033 0000
+			0000 0000 000c 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="3" name="nin_kemu.4"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette4"
+		color0_mode="transparency"
+		palette_name="nin_kemu.4_pl"
+		path="C:/mayadata/hero_eff/tex/nin_kemu.4.tga"
+	>
+		<bitmap size="128">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 8000 002a 0000 0000 6000 0095 0000
+			0000 5800 0255 0000 0000 5800 0395 0000
+			0000 5800 0399 0000 0000 6000 00e6 0000
+			0000 0000 003a 0000 0000 8000 000c 0000
+			0000 0000 0032 0000 0000 0000 000c 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="4">
+	<tex_palette index="0" name="nin_kemu.1_pl" color_size="4">
+		679d 7fff 77bd 6f7b
+	</tex_palette>
+	<tex_palette index="1" name="nin_kemu.2_pl" color_size="4">
+		679d 7fff 77bd 6f7b
+	</tex_palette>
+	<tex_palette index="2" name="nin_kemu.3_pl" color_size="4">
+		679d 7fff 77bd 6f7b
+	</tex_palette>
+	<tex_palette index="3" name="nin_kemu.4_pl" color_size="4">
+		679d 7fff 77bd 6f7b
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="nin_kemu"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="25 25 25"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_s xyz="-2.000000 0.000000 0.000000"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="2.000000 0.000000"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_xy xy="2.000000 4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-2.000000 4.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pCube1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="on"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

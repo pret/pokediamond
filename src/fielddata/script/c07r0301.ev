@@ -1,0 +1,142 @@
+//====================================================================
+//								c07r0301
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c07r0301.h"
+	.include	"../eventdata/zone_c07r0301evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c07r0301_gingam
+_EVENT_DATA		ev_c07r0301_bar
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_c07r0301_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c07r0301_gingam:
+	_TALK_OBJ_START
+
+	/*テンガンざんイベント後*/
+	//_IFVAL_JUMP		WK_SCENE_D05R0114,GE,4,ev_c07r0301_gingam_03
+	_IF_FLAGON_JUMP	FE_D05R0114_CLEAR,ev_c07r0301_gingam_03
+
+	/*Ｌ０３イベント終了後*/
+	_IFVAL_JUMP		WK_SCENE_D29R0102,GE,2,ev_c07r0301_gingam_04
+
+	/*ミオ図書館イベント終了後*/
+	_IFVAL_JUMP		WK_SCENE_C02R0103,GE,2,ev_c07r0301_gingam_02
+
+	_TALKMSG		msg_c07r0301_gingam_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ミオ図書館イベント終了後*/
+ev_c07r0301_gingam_02:
+	_TALKMSG		msg_c07r0301_gingam_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*Ｌ０３イベント終了後*/
+ev_c07r0301_gingam_04:
+	_TALKMSG		msg_c07r0301_gingam_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*テンガンざんイベント後*/
+ev_c07r0301_gingam_03:
+	_TALKMSG		msg_c07r0301_gingam_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*								扉									*/
+/********************************************************************/
+ev_c07r0301_bar:
+	_TALK_OBJ_START
+
+	/*「そうこのカギ」をもっている？*/
+	_ITEM_CHK	ITEM_SOUKONOKAGI,1,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,TRUE,ev_c07r0301_bar_02
+	
+	_TALKMSG		msg_c07r0301_bar_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「そうこのカギ」をもっている？*/
+ev_c07r0301_bar_02:
+	_TALKMSG		msg_c07r0301_bar_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_c07r0301_bar
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c07r0301_bar
+	_END
+
+/*「はい」*/
+yes_c07r0301_bar:
+	_FLAG_SET		FE_C07R0301_OPEN
+
+	_SUB_ITEM		ITEM_SOUKONOKAGI,1,SCWK_ANSWER
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c07r0301_bar_03
+	_LAST_KEYWAIT
+
+	//扉開くふり
+	_SE_WAIT		SEQ_SE_DP_SELECT
+	_SE_PLAY		SE_AZITO_DOOR_OPEN
+	_OBJ_ANIME		C07R0301_BAR_01,anm_c07r0301_bar_01
+	_OBJ_ANIME		C07R0301_BAR_02,anm_c07r0301_bar_02
+	_OBJ_ANIME_WAIT
+
+	_OBJ_DEL		C07R0301_BAR_01
+	_OBJ_DEL		C07R0301_BAR_02
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「いいえ」終了*/
+no_c07r0301_bar:
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+	
+//--------------------------------------------------------------------
+//扉	開くふり
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c07r0301_bar_01
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c07r0301_bar_02
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+

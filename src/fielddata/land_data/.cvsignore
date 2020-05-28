@@ -1,0 +1,10 @@
+.cvsignore
+arc_result.txt
+dungeon_list.csv
+field_list.csv
+room_list.csv
+under_list.csv
+land_arc_list
+land_data.naix
+land_data.narc
+

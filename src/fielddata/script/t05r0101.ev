@@ -1,0 +1,126 @@
+//====================================================================
+//								t05r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t05r0101.h"
+	.include	"../eventdata/zone_t05r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA	 ev_t05r0101_oldman1
+_EVENT_DATA	 ev_t05r0101_oldwoman1
+_EVENT_DATA	 ev_t05r0101_girl1
+_EVENT_DATA	 ev_t05r0101_kakejiku
+_EVENT_DATA	 ev_t05r0101_flag_change
+_EVENT_DATA  ev_t05r0101_book1
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_t05r0101_flag_change:
+	_END
+
+
+/********************************************************************/
+/*							和風爺さん　　							*/
+/********************************************************************/
+ev_t05r0101_oldman1:
+	_EASY_OBJ_MSG	msg_t05r0101_oldman1_01
+	_END
+
+/********************************************************************/
+/*							和風婆さん　　							*/
+/********************************************************************/
+ev_t05r0101_oldwoman1:
+	_TALK_OBJ_START
+
+	/*テンガン山イベント後*/
+	//_IFVAL_JUMP		WK_SCENE_D05R0114,GE,4,ev_t05r0101_oldwoman1_03
+	_IF_FLAGON_JUMP		FE_D05R0114_CLEAR,ev_t05r0101_oldwoman1_03
+
+	//ヨスガバッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C05,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t05r0101_oldwoman1_02
+
+	_TALKMSG		msg_t05r0101_oldwoman1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*テンガン山イベント後*/
+ev_t05r0101_oldwoman1_03:
+	_TALK_KEYWAIT	msg_t05r0101_oldwoman1_02
+
+	_PM_VERSION_GET	SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,EQ,VERSION_DIAMOND,ev_t05r0101_oldwoman1_03_diamond
+	_IFVAL_CALL		SCWK_ANSWER,EQ,VERSION_PEARL,ev_t05r0101_oldwoman1_03_pearl
+
+	_POKE_WINDOW_DEL		/*ポケモンウィンドウ消去*/
+
+	_FLAG_SET		FE_T05R0101_OLDWOMAN1
+
+	_TALKMSG		msg_t05r0101_oldwoman1_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_t05r0101_oldwoman1_03_diamond:
+	/*図鑑見た状態にする*/
+
+	_POKE_WINDOW_PUT	MONSNO_EA,PM_MALE
+	_TALK_KEYWAIT		msg_t05r0101_oldwoman1_03
+	_RET
+
+
+ev_t05r0101_oldwoman1_03_pearl:
+	/*図鑑見た状態にする*/
+
+	_POKE_WINDOW_PUT	MONSNO_IA,PM_MALE
+	_TALK_KEYWAIT		msg_t05r0101_oldwoman1_04
+	_RET
+
+//ヨスガバッチ取得済み
+ev_t05r0101_oldwoman1_02:
+	_TALKMSG		msg_t05r0101_oldwoman1_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							少女		　							*/
+/********************************************************************/
+ev_t05r0101_girl1:
+	_EASY_OBJ_MSG	msg_t05r0101_girl1_01
+	_END
+
+/********************************************************************/
+/*							掛け軸		　							*/
+/********************************************************************/
+ev_t05r0101_kakejiku:
+	_EASY_MSG	msg_t05r0101_kakejiku_01
+	_END
+
+/********************************************************************/
+/*							本		　							*/
+/********************************************************************/
+ev_t05r0101_book1:
+	_PLAYER_NAME	0
+	_EASY_OBJ_MSG	msg_t05r0101_books_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

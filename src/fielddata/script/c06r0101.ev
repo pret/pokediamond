@@ -1,0 +1,322 @@
+//====================================================================
+//								c06r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c06r0101.h"
+	.include	"../eventdata/zone_c06r0101evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c06r0101_bringm
+_EVENT_DATA		pos_c06r0101_bringm
+_EVENT_DATA		ev_c06r0101_announce
+_EVENT_DATA		ev_c06r0101_safari_end
+_EVENT_DATA		ev_c06r0101_bringw
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							受付係員								*/
+/********************************************************************/
+//dummy(EVENT側で組み込まれていたのでそのまま。本来はSCRID_NULLに変更する）
+ev_c06r0101_bringm:
+	_END
+
+#define SAFARI_COST	(500)
+
+#define POS_C06R0101_ANIME_START_X1		(4)
+#define POS_C06R0101_ANIME_START_X2		(4+1)
+
+#define POS_SAFARI_START_X		(68)
+#define POS_SAFARI_START_Z		(116)
+
+pos_c06r0101_bringm:
+	_EVENT_START
+
+	//振り向き
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_c06r0101_player_turn_01
+	_OBJ_ANIME_WAIT
+
+	/*自機の位置*/
+	_PLAYER_POS_GET	LOCALWORK0,LOCALWORK1
+	/*カウンタから遠い位置にいたら、カウンタに近づく*/
+	_IFVAL_CALL		LOCALWORK0,EQ,5,ev_c06r0101_player_move
+
+	_GOLD_WIN_WRITE		20,2
+
+	_TALKMSG		msg_c06r0101_bringm_01_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,bringm_yes
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,bringm_no
+	_END
+
+//Yes
+bringm_yes:
+	//ボックスがいっぱいかどうか調べる
+	_COUNT_MONSBOX_SPACE	SCWK_ANSWER
+	_IFVAL_JUMP				SCWK_ANSWER,NE,0, bringm_check_money
+	//手持ちがいっぱいかどうか調べる
+	_GET_POKE_COUNT			SCWK_ANSWER
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,6, bringm_box_full
+
+
+bringm_check_money:
+	_TALKMSG		msg_c06r0101_bringm_01_02
+
+	//500円持っているかチェック
+	_COMP_GOLD		SCWK_ANSWER,SAFARI_COST
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,bringm_no_money
+
+	//500円引く
+	_SE_PLAY		SEQ_SE_DP_REGI
+	_SUB_GOLD		SAFARI_COST
+	_GOLD_WRITE
+
+	_TALKMSG		msg_c06r0101_bringm_01_03
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c06r0101_bringm_01_04
+
+
+	_TALKMSG		msg_c06r0101_bringm_01_05
+
+	_TALK_CLOSE
+
+	_GOLD_WIN_DEL
+
+	//現在位置（X)に合わせてアニメを変える
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C06R0101_ANIME_START_X1,pos_c06r0101_anime_start_01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C06R0101_ANIME_START_X2,pos_c06r0101_anime_start_02
+	_END
+
+pos_c06r0101_anime_start_01:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_c06r0101_player_go_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c06r0101_safari_start
+
+pos_c06r0101_anime_start_02:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_c06r0101_player_go_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c06r0101_safari_start
+
+pos_c06r0101_safari_start:
+
+	//サファリ始動
+	_LDVAL	WK_SCENE_SAFARI_ZONE,1
+	_SAFARI_START
+	//戻り先を覚えておく処理
+	_SP_LOCATION_SET	ZONE_ID_C06R0101,C06R0101_MAT03, 5,2, DIR_DOWN
+
+	//湿原へ遷移する処理
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_MAP_CHANGE		ZONE_ID_D06R0206,0,POS_SAFARI_START_X,POS_SAFARI_START_Z,DIR_UP
+
+	_END
+
+
+
+//500円が無いとき
+bringm_no_money:
+	_TALKMSG		msg_c06r0101_bringm_01_07
+	_TALK_CLOSE
+
+	_GOLD_WIN_DEL
+
+	//１歩下がる
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06r0101_player_back_01
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+//NO
+bringm_no:
+	_TALK_CLOSE
+
+	_GOLD_WIN_DEL
+
+	//１歩下がる
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_c06r0101_player_back_01
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+//手持ち、ボックスがいっぱい
+bringm_box_full:
+	_GOLD_WIN_DEL
+
+	_TALKMSG	msg_c06r0101_bringm_01_08
+	_TALK_CLOSE
+
+	//１歩下がる
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c06r0101_player_back_01
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+
+/*カウンターに近づく*/
+ev_c06r0101_player_move:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_c06r0101_player_move_01
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//--------------------------------------------------------------------
+//主人公	受付に近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06r0101_player_move_01
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//主人公	受付の向きへ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06r0101_player_turn_01
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+//--------------------------------------------------------------------
+//主人公	サファリへ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06r0101_player_go_01
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c06r0101_player_go_02
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+
+//--------------------------------------------------------------------
+//主人公	１歩下がる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06r0101_player_back_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+
+/********************************************************************/
+/*							アナウンス								*/
+/********************************************************************/
+ev_c06r0101_announce:
+	_EVENT_START
+	_TALKMSG		msg_c06r0101_bringm_02_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,announce_yes
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,announce_no
+	_END
+
+//はい
+announce_yes:
+	_TALKMSG		msg_c06r0101_bringm_02_02
+	_TALK_CLOSE
+
+	//受付へ戻る
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_c06r0101_player_to_counter_01
+	_OBJ_ANIME_WAIT
+
+	//通常処理へ戻す
+	_LDVAL	WK_SCENE_SAFARI_ZONE,0
+
+	_SAFARI_END
+
+	_EVENT_END
+	_END
+
+
+//いいえ
+announce_no:
+	_TALK_CLOSE
+	//湿原へ戻る
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_c06r0101_player_to_safari_01
+	_OBJ_ANIME_WAIT
+
+	//湿原へ戻す処理
+	_MAP_CHANGE		ZONE_ID_D06R0206,0,POS_SAFARI_START_X,POS_SAFARI_START_Z,DIR_UP
+
+	_END
+
+//--------------------------------------------------------------------
+//主人公	受付へ戻る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06r0101_player_to_counter_01
+	_ANIME_DATA	AC_WALK_D_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	湿原へ戻る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c06r0101_player_to_safari_01
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*						サファリからの帰還							*/
+/********************************************************************/
+ev_c06r0101_safari_end:
+	_EVENT_START
+
+	//_TIME_WAIT	30,SCWK_ANSWER	/**/
+
+	//受付へ戻る
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_c06r0101_player_to_counter_01
+	_OBJ_ANIME_WAIT
+
+	//通常処理へ戻す
+	_LDVAL	WK_SCENE_SAFARI_ZONE,0
+
+	_EVENT_END
+	_END
+
+/********************************************************************/
+/*							受付係員								*/
+/********************************************************************/
+ev_c06r0101_bringw:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_c06r0101_bringw_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,bringw_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,bringw_03
+	_END
+
+//Yes
+bringw_02:
+	_TALKMSG		msg_c06r0101_bringw_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//NO
+bringw_03:
+	_TALKMSG		msg_c06r0101_bringw_03
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

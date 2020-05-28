@@ -1,0 +1,3838 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="sogabe" host="W00086" date="2005-09-02T15:24:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="WAZAINFO_000">
+		<language name="日本語">ー
+ー
+ー
+ー
+ー</language>
+	</row>
+
+	<row id="WAZAINFO_001">
+		<language name="日本語">ながい　しっぽや
+てなどを　つかって
+あいてを　はたいて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_002">
+		<language name="日本語">するどい　チョップで
+あいてを　たたいて
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_003">
+		<language name="日本語">おうふく　ビンタで
+あいてを　たたいて
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_004">
+		<language name="日本語">どとうの　パンチで
+あいてを　なぐりつけて
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_005">
+		<language name="日本語">ちからを　こめた
+パンチで　あいてを
+こうげきする。
+
+</language>
+	</row>
+
+	<row id="WAZAINFO_006">
+		<language name="日本語">あいての　からだに
+こばんを　なげつけて
+こうげきする。
+せんとうの　あとで
+おかねが　もらえる。</language>
+	</row>
+
+	<row id="WAZAINFO_007">
+		<language name="日本語">ほのおを　こめた
+パンチで　あいてを
+こうげきする。
+やけど　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_008">
+		<language name="日本語">れいきを　こめた
+パンチで　あいてを
+こうげきする。
+こおり　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_009">
+		<language name="日本語">でんげきを　こめた
+パンチで　あいてを
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_010">
+		<language name="日本語">かたく　とがった
+するどい　ツメで
+あいてを　ひっかいて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_011">
+		<language name="日本語">おおきく　りっぱな
+ハサミを　つかって
+あいてを　はさんで
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_012">
+		<language name="日本語">おおきな　ハサミで
+あいてを　きりさいて
+こうげきする。
+あたれば　いちげきで
+ひんしに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_013">
+		<language name="日本語">かぜの　やいばを
+つくり　２ターンめに
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_014">
+		<language name="日本語">たたかいのまいを
+はげしく　おどって
+きあいを　たかめる。
+じぶんの　こうげきを
+ぐーんと　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_015">
+		<language name="日本語">カマや　ツメなどで
+あいてを　きりつけて
+こうげきする。
+ほそいき　なども
+きることも　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_016">
+		<language name="日本語">つばさで　おこした
+はげしい　かぜを
+あいてに　ぶつけて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_017">
+		<language name="日本語">おおきく　ひろげた
+りっぱな　つばさを
+あいてに　ぶつけて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_018">
+		<language name="日本語">あいてを　ふきとばして
+ひかえの　ポケモンを
+ひきずりだす。
+やせいの　ばあいは
+せんとうが　おわる。</language>
+	</row>
+
+	<row id="WAZAINFO_019">
+		<language name="日本語">１ターンめで　そらへ
+とび　２ターンめに
+こうげきする。
+しっている　まちに
+とぶことも　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_020">
+		<language name="日本語">ながい　からだや
+つるなどを　つかい
+２ー５ターンの　あいだ
+あいてを　しめつけて
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_021">
+		<language name="日本語">ながい　しっぽや
+つるなどを　つかい
+あいてを　たたきつけて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_022">
+		<language name="日本語">ムチのように　しなる　
+ほそながい　つるで
+あいてを　たたきつけて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_023">
+		<language name="日本語">おおきな　あしで
+あいてを　ふみつけて
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_024">
+		<language name="日本語">２ほんの　あしで
+あいてを　けとばして
+こうげきする。
+２かい　れんぞくで
+ダメージを　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_025">
+		<language name="日本語">ものすごい　ちからを
+こめた　キックで
+あいてを　けとばして
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_026">
+		<language name="日本語">たかい　ジャンプからの
+キックで　あいてを
+こうげきする。
+はずすと　じぶんが
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_027">
+		<language name="日本語">からだを　すばやく
+かいてん　させながら
+あいてを　けとばして
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_028">
+		<language name="日本語">あいての　かおに
+すなを　かけて　
+めいちゅうりつを　
+さげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_029">
+		<language name="日本語">あたまを　つきだして
+まっすぐ　つっこんで
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_030">
+		<language name="日本語">するどく　とがった
+つので　あいてを
+こうげきする。
+
+</language>
+	</row>
+
+	<row id="WAZAINFO_031">
+		<language name="日本語">つのや　くちばしで
+あいてを　つついて
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_032">
+		<language name="日本語">かいてんする　つのを
+あいてに　つきさして
+こうげきする。
+あたれば　いちげきで
+ひんしに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_033">
+		<language name="日本語">あいてに　むかって
+からだ　ぜんたいで
+ぶつかっていき
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_034">
+		<language name="日本語">からだ　ぜんたいで
+あいてに　のしかかり
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_035">
+		<language name="日本語">ながい　からだや
+つるなどを　つかって
+２ー５ターンの　あいだ
+あいてに　まきついて
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_036">
+		<language name="日本語">すごい　いきおいで
+あいてに　ぶつかって
+こうげきする。
+じぶんも　すこし
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_037">
+		<language name="日本語">２ー３ターンの　あいだ
+あばれまくって
+こうげきする。
+あばれた　あとは
+こんらん　する。</language>
+	</row>
+
+	<row id="WAZAINFO_038">
+		<language name="日本語">いのちを　かけて
+あいてに　とっしん
+こうげきする。
+じぶんも　かなり
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_039">
+		<language name="日本語">しっぽを　さゆうに
+かわいく　ふって
+ゆだんを　さそう。
+あいての　ぼうぎょを
+さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_040">
+		<language name="日本語">どくの　ある　ハリを
+あいてに　つきさして
+こうげきする。
+どく　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_041">
+		<language name="日本語">２ほんの　ハリを
+あいてに　つきさして
+こうげきする。
+２かい　れんぞくで
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_042">
+		<language name="日本語">するどい　ハリを
+あいてに　はっしゃして
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_043">
+		<language name="日本語">するどい　めつきで
+おびえさせて　あいての
+ぼうぎょを　さげる。
+
+</language>
+	</row>
+
+	<row id="WAZAINFO_044">
+		<language name="日本語">するどく　とがった
+はで　かみついて
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_045">
+		<language name="日本語">かわいい　なきごえを
+きかせて　きを　ひき
+ゆだんを　させて
+あいての　こうげきを
+さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_046">
+		<language name="日本語">あいてを　にがして
+ひかえの　ポケモンを
+ひきずりだす。
+やせいの　ばあいは
+せんとうが　おわる。</language>
+	</row>
+
+	<row id="WAZAINFO_047">
+		<language name="日本語">ここちよい　きれいな
+うたごえを　きかせて
+あいてを　ねむりの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_048">
+		<language name="日本語">とくしゅな　おんぱを
+からだから　はっして
+あいてを　こんらんの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_049">
+		<language name="日本語">しょうげきはを
+あいてに　ぶつけて
+こうげきする。
+２０の　ダメージを
+きまって　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_050">
+		<language name="日本語">あいての　うごきを
+とめて　ちょくぜんに
+だしていた　わざを
+しばらくの　あいだ
+つかえなく　する。</language>
+	</row>
+
+	<row id="WAZAINFO_051">
+		<language name="日本語">つよい　さんを
+あいてに　かけて
+こうげきする。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_052">
+		<language name="日本語">ちいさな　ほのおを
+あいてに　はっしゃして
+こうげきする。
+やけど　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_053">
+		<language name="日本語">はげしい　ほのおを
+あいてに　はっしゃして
+こうげきする。
+やけど　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_054">
+		<language name="日本語">しろいきりで
+からだを　おおう。
+５ターンの　あいだ
+あいてに　のうりょくを
+さげられなくなる。</language>
+	</row>
+
+	<row id="WAZAINFO_055">
+		<language name="日本語">みずを　いきおいよく
+あいてに　はっしゃして
+こうげきする。
+
+</language>
+	</row>
+
+	<row id="WAZAINFO_056">
+		<language name="日本語">たいりょうの　みずを
+はげしい　いきおいで
+あいてに　はっしゃして
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_057">
+		<language name="日本語">おおきな　なみで
+まわりに　いるものを
+すべて　こうげきする。
+みずの　うえも
+およいで　すすめる。</language>
+	</row>
+
+	<row id="WAZAINFO_058">
+		<language name="日本語">こごえる　ビームを
+あいてに　はっしゃして
+こうげきする。
+こおり　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_059">
+		<language name="日本語">はげしい　ふぶきを
+あいてに　ふきつけて
+こうげきする。
+こおり　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_060">
+		<language name="日本語">ふしぎな　こうせんを
+あいてに　はっしゃして
+こうげきする。
+あいてを　こんらん
+させることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_061">
+		<language name="日本語">あわを　いきおいよく
+あいてに　はっしゃして
+こうげきする。
+すばやさを　さげる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_062">
+		<language name="日本語">にじいろの　ビームを
+あいてに　はっしゃして
+こうげきする。
+こうげきを　さげる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_063">
+		<language name="日本語">つよい　こうせんを
+あいてに　はっしゃして
+こうげきする。
+つぎの　ターンは
+うごけなくなる。</language>
+	</row>
+
+	<row id="WAZAINFO_064">
+		<language name="日本語">するどく　とがった
+くちばしや　つので　
+あいてを　つついて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_065">
+		<language name="日本語">かいてん　しながら
+とがった　くちばしを
+あいてに　つきさして
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_066">
+		<language name="日本語">じめんに　じぶんごと
+あいてを　なげつけて
+こうげきする。
+じぶんも　すこし
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_067">
+		<language name="日本語">あしを　つよく　けり
+あいてを　ころばせて
+こうげきする。
+あいてが　おもいほど
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_068">
+		<language name="日本語">あいてから　うけた
+ぶつり　こうげきの
+ダメージを　２ばいに
+して　その　あいてに
+かえす。</language>
+	</row>
+
+	<row id="WAZAINFO_069">
+		<language name="日本語">いんりょくを　つかい
+なげとばす。
+じぶんの　レベルと
+おなじ　ダメージを
+あいてに　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_070">
+		<language name="日本語">こんしんの　ちからで
+あいてを　なぐりつけて
+こうげきする。
+おもい　いわを
+おすことも　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_071">
+		<language name="日本語">ようぶんを　すいとり
+こうげきする。
+あたえた　ダメージの
+はんぶんの　ＨＰを
+かいふくできる。</language>
+	</row>
+
+	<row id="WAZAINFO_072">
+		<language name="日本語">ようぶんを　すいとり
+こうげきする。
+あたえた　ダメージの
+はんぶんの　ＨＰを
+かいふくできる。</language>
+	</row>
+
+	<row id="WAZAINFO_073">
+		<language name="日本語">うえつけた　あいての
+ＨＰを　まいターン
+すこしだけ　すいとり
+じぶんの　ＨＰを
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_074">
+		<language name="日本語">からだを　いっきに
+おおきく　せいちょう　
+させて　じぶんの
+とくこうを　あげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_075">
+		<language name="日本語">はっぱを　とばして
+あいてを　きりつけて
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_076">
+		<language name="日本語">１ターンめに　ひかりを
+いっぱいに　あつめ
+２ターンめに　ひかりの
+たばを　はっしゃして
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_077">
+		<language name="日本語">どくの　ある　こなを
+たくさん　ふりまいて
+あいてを　どくの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_078">
+		<language name="日本語">しびれる　こなを
+たくさん　ふりまいて
+あいてを　まひの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_079">
+		<language name="日本語">ねむくなる　こなを
+たくさん　ふりまいて
+あいてを　ねむりの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_080">
+		<language name="日本語">２ー３ターンの　あいだ
+はなを　まきちらして
+こうげきする。
+まきちらした　あとは
+こんらんする。</language>
+	</row>
+
+	<row id="WAZAINFO_081">
+		<language name="日本語">くちから　ふきだした
+いとを　まきつけて
+あいての　すばやさを
+さげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_082">
+		<language name="日本語">しょうげきはを
+あいてに　ぶつけて
+こうげきする。
+４０の　ダメージを
+きまって　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_083">
+		<language name="日本語">はげしく　うずをまく
+ほのおの　なかに
+２ー５ターンの　あいだ
+あいてを　とじこめて
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_084">
+		<language name="日本語">でんきの　しげきを
+あいてに　あびせて
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_085">
+		<language name="日本語">つよい　でんげきを
+あいてに　あびせて
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_086">
+		<language name="日本語">よわい　でんげきを
+あびせる　ことで
+あいてを　まひの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_087">
+		<language name="日本語">はげしい　かみなりを
+あいてに　おとして
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_088">
+		<language name="日本語">ちいさな　いわを
+もちあげて　あいてに
+なげつけて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_089">
+		<language name="日本語">じしんの　しょうげきで
+まわりに　いるものを
+すべて　こうげきする。
+
+</language>
+	</row>
+
+	<row id="WAZAINFO_090">
+		<language name="日本語">じわれの　さけめに
+あいてを　おとして
+こうげきする。
+あたれば　いちげきで
+ひんしに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_091">
+		<language name="日本語">１ターンめに　もぐり
+２ターンめで　あいてを
+こうげきする。
+どうくつ　などから
+だっしゅつも　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_092">
+		<language name="日本語">あいてを　もうどくの
+じょうたいに　する。
+ターンが　すすむほど
+どくの　ダメージが
+ふえていく。</language>
+	</row>
+
+	<row id="WAZAINFO_093">
+		<language name="日本語">よわい　ねんりきを
+あいてに　おくって
+こうげきする。
+あいてを　こんらん
+させることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_094">
+		<language name="日本語">つよい　ねんりきを
+あいてに　おくって
+こうげきする。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_095">
+		<language name="日本語">ねむけを　さそう
+あんじを　かけて
+あいてを　ねむりの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_096">
+		<language name="日本語">ねむった　ちからを
+からだの　おくから
+ひきだして　じぶんの
+こうげきを　あげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_097">
+		<language name="日本語">ちからを　ぬいて
+からだを　かるくして
+こうそくで　うごく。
+じぶんの　すばやさを
+ぐーんと　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_098">
+		<language name="日本語">めにも　とまらない
+ものすごい　はやさで
+あいてに　つっこむ。
+かならず　せんせい
+こうげき　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_099">
+		<language name="日本語">わざを　だしたときに
+こうげきを　うけると
+いかりの　ちからで
+あたえる　ダメージが
+あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_100">
+		<language name="日本語">やせい　ポケモンとの
+せんとうを　やめる。
+さいごに　はいった
+ポケセンの　ある
+まちにも　いける。</language>
+	</row>
+
+	<row id="WAZAINFO_101">
+		<language name="日本語">まぼろしを　みせて
+じぶんの　レベルと
+おなじ　だけの
+ダメージを　あいてに
+あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_102">
+		<language name="日本語">あいてが　さいごに
+つかった　わざを
+せんとうの　あいだ
+じぶんの　わざに
+することが　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_103">
+		<language name="日本語">おもわず　みみを
+ふさぎたくなる
+いやなおとを　だして
+あいての　ぼうぎょを
+がくっと　さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_104">
+		<language name="日本語">すばやい　うごきで
+ぶんしんを　つくり
+あいてを　まどわせて
+かいひりつを　あげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_105">
+		<language name="日本語">さいぼうを　さいせい
+させて　じぶんの
+さいだい　ＨＰの
+はんぶんだけ　ＨＰを
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_106">
+		<language name="日本語">ぜんしんに　ちからを
+こめて　からだを
+かたくして　じぶんの
+ぼうぎょを　あげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_107">
+		<language name="日本語">からだを　ちぢめて
+ちいさく　みせて
+かいひりつを　あげる。
+
+</language>
+	</row>
+
+	<row id="WAZAINFO_108">
+		<language name="日本語">けむりや　スミなどを
+ふきかけて　あいての
+めいちゅうりつを
+さげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_109">
+		<language name="日本語">あやしい　ひかりを
+あいてに　みせて
+まどわせる。
+あいてを　こんらんの
+じょうたいに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_110">
+		<language name="日本語">からに　もぐりこんで
+みをまもり　じぶんの
+ぼうぎょを　あげる。
+
+</language>
+	</row>
+
+	<row id="WAZAINFO_111">
+		<language name="日本語">からだを　まるめて
+ちぢこまり　じぶんの
+ぼうぎょを　あげる。
+
+</language>
+	</row>
+
+	<row id="WAZAINFO_112">
+		<language name="日本語">がんじょうな　かべを
+つくって　じぶんの
+ぼうぎょを　ぐーんと
+あげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_113">
+		<language name="日本語">５ターンの　あいだ
+ふしぎな　かべで
+あいてから　うける
+とくしゅ　こうげきの
+ダメージを　よわめる。</language>
+	</row>
+
+	<row id="WAZAINFO_114">
+		<language name="日本語">くろいきりを　だして
+せんとうに　でている
+ポケモン　ぜんいんの
+のうりょく　へんかを
+もとに　もどす。</language>
+	</row>
+
+	<row id="WAZAINFO_115">
+		<language name="日本語">５ターンの　あいだ
+ふしぎな　かべで
+あいてから　うける
+ぶつり　こうげきの
+ダメージを　よわめる。</language>
+	</row>
+
+	<row id="WAZAINFO_116">
+		<language name="日本語">ふかく　いきを　すい
+きあいを　こめる。
+じぶんの　こうげきが
+きゅうしょに　あたる
+かくりつを　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_117">
+		<language name="日本語">２ターンの　あいだ
+こうげきに　たえて
+うけた　ダメージを
+２ばいに　して
+あいてに　かえす。</language>
+	</row>
+
+	<row id="WAZAINFO_118">
+		<language name="日本語">ゆびをふり　じぶんの
+のうを　しげきして
+すべての　わざの
+なかから　どれか
+１つを　くりだす。</language>
+	</row>
+
+	<row id="WAZAINFO_119">
+		<language name="日本語">あいての　つかった
+わざを　まねして
+じぶんも　おなじ
+わざを　つかう。
+</language>
+	</row>
+
+	<row id="WAZAINFO_120">
+		<language name="日本語">ばくはつを　おこして
+まわりに　いるものを
+すべて　こうげきする。
+つかった　あとに
+ひんしに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_121">
+		<language name="日本語">おおきな　タマゴを
+ちから　いっぱい
+あいてに　なげつけて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_122">
+		<language name="日本語">ながい　したで
+あいてを　なめまわして
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_123">
+		<language name="日本語">よごれた　ガスを
+あいてに　ふきつけて
+こうげきする。
+どく　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_124">
+		<language name="日本語">きたない　ヘドロを
+あいてに　なげつけて
+こうげきする。
+どく　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_125">
+		<language name="日本語">てに　もった　ホネで
+あいてを　なぐりつけて
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_126">
+		<language name="日本語">だいのじの　ほのおで
+あいてを　やきつくす。
+やけど　じょうたいに
+することが　ある。
+</language>
+	</row>
+
+	<row id="WAZAINFO_127">
+		<language name="日本語">すごい　いきおいで
+あいてに　つっこみ
+こうげきする。
+ながれおちる　たきも
+およいで　のぼれる。</language>
+	</row>
+
+	<row id="WAZAINFO_128">
+		<language name="日本語">とても　がんじょうな
+ぶあつい　からに
+２ー５ターンの　あいだ
+あいてを　はさんで
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_129">
+		<language name="日本語">ほしがたの　ひかりを　
+はっしゃして　あいてを
+こうげきする。
+こうげきは　かならず
+めいちゅう　する。</language>
+	</row>
+
+	<row id="WAZAINFO_130">
+		<language name="日本語">１ターンめに　
+あたまを　ひっこめて
+ぼうぎょを　あげる。
+２ターンめに　あいてを
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_131">
+		<language name="日本語">するどい　ハリを
+あいてに　はっしゃして
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_132">
+		<language name="日本語">しょくしゅや　ツタ
+などを　からみつけて
+こうげきする。
+あいての　すばやさを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_133">
+		<language name="日本語">あたまを　からにして
+いっしゅん　なにかを
+わすれる　ことで
+じぶんの　とくぼうを
+ぐーんと　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_134">
+		<language name="日本語">スプーンを　まげて
+ちゅういを　ひき
+あいての　ポケモンの
+めいちゅうりつを
+さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_135">
+		<language name="日本語">さいだい　ＨＰの
+はんぶん　じぶんの
+ＨＰを　かいふくする。
+なかまに　ＨＰを
+わけることも　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_136">
+		<language name="日本語">ジャンプからの
+ひざげりで　あいてを
+こうげきする。
+はずすと　じぶんが
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_137">
+		<language name="日本語">おなかの　もようで
+おびえさせて
+あいてを　まひの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_138">
+		<language name="日本語">ねている　あいての
+ゆめを　たべて
+こうげきする。
+ダメージの　はんぶん
+ＨＰを　かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_139">
+		<language name="日本語">どくガスを　あいての
+かおに　ふきかけて
+どくの　じょうたいに
+する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_140">
+		<language name="日本語">まるい　ものを
+あいてに　なげつけて
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_141">
+		<language name="日本語">ちを　すいとって
+こうげきする。
+あたえた　ダメージの
+はんぶんの　ＨＰを
+かいふくできる。</language>
+	</row>
+
+	<row id="WAZAINFO_142">
+		<language name="日本語">おそろしい　かおで
+キスを　せまる。
+キスした　あいてを
+ねむり　じょうたいに
+することが　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_143">
+		<language name="日本語">２ターンめに　あいてを
+こうげきする。
+たまに　ひるませる。
+きゅうしょに　あたる
+かくりつも　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_144">
+		<language name="日本語">あいての　ポケモンに
+へんしん　することで
+あいてと　まったく
+おなじ　わざが
+つかえる。</language>
+	</row>
+
+	<row id="WAZAINFO_145">
+		<language name="日本語">むすうの　あわを
+あいてに　ふきかけて
+こうげきする。
+あいての　すばやさを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_146">
+		<language name="日本語">リズミカルに
+パンチを　くりだして
+こうげきする。
+あいてを　こんらん
+させることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_147">
+		<language name="日本語">さいみん　こうかの
+ある　ほうしを
+パラパラと　ふりまき
+あいてを　ねむりの
+じょうたいに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_148">
+		<language name="日本語">ひかりで　あいての
+めいちゅうりつを
+さげる。
+くらい　どうくつも
+あかるく　てらせる。</language>
+	</row>
+
+	<row id="WAZAINFO_149">
+		<language name="日本語">ふしぎな　ねんぱを
+あいてに　はっしゃして
+こうげきする。
+つかう　たびに
+ダメージが　かわる。</language>
+	</row>
+
+	<row id="WAZAINFO_150">
+		<language name="日本語">こうげきも　せずに
+ピョン　ピョンと
+はねるだけで　なにも
+おこらない……。
+</language>
+	</row>
+
+	<row id="WAZAINFO_151">
+		<language name="日本語">さいぼうの　へんかで
+えきじょうに　なり
+じぶんの　ぼうぎょを
+ぐーんと　あげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_152">
+		<language name="日本語">おおきな　ハサミを
+あいてに　たたきつけて
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_153">
+		<language name="日本語">おおきな　ばくはつで
+まわりに　いるものを
+すべて　こうげきする。
+つかった　あとに
+ひんしに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_154">
+		<language name="日本語">ツメや　カマなどで
+あいてを　ひっかいて
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_155">
+		<language name="日本語">てに　もった　ホネを
+あいてに　なげつけて
+いきと　かえりで
+２かい　れんぞくで
+ダメージを　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_156">
+		<language name="日本語">２ターンの　あいだ
+ねむり　つづける。
+ＨＰと　からだの
+いじょうを　すべて
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_157">
+		<language name="日本語">おおきな　いわを
+はげしく　ぶつけて
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_158">
+		<language name="日本語">するどい　まえばで
+つよく　かみついて
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_159">
+		<language name="日本語">からだの　かどを
+ふやして　カクカクに
+なることで　じぶんの
+こうげきを　あげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_160">
+		<language name="日本語">じぶんの　タイプを
+おぼえている　わざの
+なかの　どれか　１つと
+おなじ　タイプにする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_161">
+		<language name="日本語">３つの　こうせんで
+こうげきする。
+まひか　やけどか
+こおりの　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_162">
+		<language name="日本語">するどい　まえばで
+はげしく　かみついて
+こうげきする。
+あいての　ＨＰは
+はんぶんに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_163">
+		<language name="日本語">ツメや　カマ　などで
+あいてを　きりさいて
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_164">
+		<language name="日本語">じぶんの　ＨＰを
+すこし　けずって
+ぶんしんを　だす。
+ぶんしんは　じぶんの
+みがわりに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_165">
+		<language name="日本語">ＰＰが　なくなると
+あがいて　あいてを
+こうげきする。
+じぶんも　すこし
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_166">
+		<language name="日本語">あいてが　つかった
+わざを　じぶんの
+ものに　する。
+１かい　つかうと
+スケッチは　きえる。</language>
+	</row>
+
+	<row id="WAZAINFO_167">
+		<language name="日本語">３かい　れんぞくで
+キックを　くりだして
+こうげきする。
+わざが　あたる　たびに
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_168">
+		<language name="日本語">こうげきと　どうじに
+どうぐを　ぬすむ。
+じぶんが　どうぐを
+もっている　ばあいは
+ぬすめない。</language>
+	</row>
+
+	<row id="WAZAINFO_169">
+		<language name="日本語">ネバネバした　ほそい
+いとを　グルグルと
+からませて　あいてを
+せんとうから
+にげられなく　する。</language>
+	</row>
+
+	<row id="WAZAINFO_170">
+		<language name="日本語">あいての　うごきを
+こころで　かんじて
+つぎの　こうげきが
+かならず　あたるように
+する。</language>
+	</row>
+
+	<row id="WAZAINFO_171">
+		<language name="日本語">ねむり　じょうたいの
+あいてに　あくむを
+みせて　まいターン
+すこしずつ　ＨＰを
+へらしていく。</language>
+	</row>
+
+	<row id="WAZAINFO_172">
+		<language name="日本語">ほのおを　まとい
+あいてに　とっしん
+こうげきする。
+やけど　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_173">
+		<language name="日本語">じぶんが　ねている
+ときに　ざつおんを
+だして　こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_174">
+		<language name="日本語">つかう　ポケモンが
+ゴーストタイプと
+それいがい　とでは
+こうかが　かわる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_175">
+		<language name="日本語">じたばた　あばれて
+こうげきする。
+じぶんの　ＨＰが
+すくないほど　わざの
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_176">
+		<language name="日本語">じぶんの　タイプを
+さいごに　うけた
+わざに　ていこう
+できる　タイプに
+へんか　させる。</language>
+	</row>
+
+	<row id="WAZAINFO_177">
+		<language name="日本語">くうきの　うずを
+はっしゃして
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_178">
+		<language name="日本語">わたのような
+フワフワの　ほうしを
+まとわり　つかせて
+あいての　すばやさを
+がくっと　さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_179">
+		<language name="日本語">ちからを　ふりしぼり
+こうげきする。
+じぶんの　ＨＰが
+すくないほど　わざの
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_180">
+		<language name="日本語">あいてが　さいごに
+つかった　わざに
+うらみを　いだいて
+そのわざの　ＰＰを
+４だけ　へらす。</language>
+	</row>
+
+	<row id="WAZAINFO_181">
+		<language name="日本語">つめたい　こなゆきを
+あいてに　ふきつけて
+こうげきする。
+こおり　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_182">
+		<language name="日本語">あいての　こうげきを
+まったく　うけない。
+れんぞくで　だすと
+しっぱい　しやすい。
+</language>
+	</row>
+
+	<row id="WAZAINFO_183">
+		<language name="日本語">めにも　とまらない
+ものすごい　はやさで
+パンチを　くりだす。
+かならず　せんせい
+こうげき　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_184">
+		<language name="日本語">おそろしい　かおで
+にらみ　おびえさせて
+あいての　すばやさを
+がくっと　さげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_185">
+		<language name="日本語">あいてに　ちかづき
+ゆだんした　すきを
+みて　なぐりつける。
+こうげきは　かならず
+めいちゅう　する。</language>
+	</row>
+
+	<row id="WAZAINFO_186">
+		<language name="日本語">てんしのように
+かわいく　キスして
+あいてを　こんらんの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_187">
+		<language name="日本語">じぶんの　ＨＰを
+さいだい　ＨＰの
+はんぶん　へらして
+じぶんの　こうげきを
+さいだいに　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_188">
+		<language name="日本語">きたない　ヘドロを
+あいてに　なげつけて
+こうげきする。
+どく　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_189">
+		<language name="日本語">あいての　かおなどに
+ドロを　なげつけて
+こうげきする。
+めいちゅうりつを
+さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_190">
+		<language name="日本語">あいての　かおなどに
+すみを　ふきかけて
+こうげきする。
+めいちゅうりつを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_191">
+		<language name="日本語">あいての　あしもとに
+まきびしを　しかける。
+こうたいで　でてきた
+あいての　ポケモンに
+ダメージを　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_192">
+		<language name="日本語">たいほうの　ような
+でんきを　はっしゃして
+こうげきする。
+あいてを　まひの
+じょうたいに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_193">
+		<language name="日本語">ゴーストタイプに
+こうかがない　わざや
+かいひりつの　たかい
+あいてに　こうげきが
+あたるように　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_194">
+		<language name="日本語">わざを　だしたあと
+こうげきを　うけて
+ひんしに　なったとき
+こうげき　あいても
+ひんしに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_195">
+		<language name="日本語">きいた　ポケモンは
+３ターン　たつと
+ひんしに　なる。
+こうたいすると
+こうかは　なくなる。</language>
+	</row>
+
+	<row id="WAZAINFO_196">
+		<language name="日本語">つめたい　れいきを
+あいてに　ふきつけて
+こうげきする。
+どうじに　あいての
+すばやさを　さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_197">
+		<language name="日本語">あいての　こうげきを
+まったく　うけない。
+れんぞくで　だすと
+しっぱい　しやすい。
+</language>
+	</row>
+
+	<row id="WAZAINFO_198">
+		<language name="日本語">かたい　ホネで
+あいてを　なぐりつけて
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_199">
+		<language name="日本語">しょうじゅんを
+しっかり　あわせて
+つぎの　こうげきが
+かならず　あいてに
+あたるように　する。</language>
+	</row>
+
+	<row id="WAZAINFO_200">
+		<language name="日本語">２ー３ターンの　あいだ
+あばれまくって
+こうげきする。
+あばれた　あとは
+こんらん　する。</language>
+	</row>
+
+	<row id="WAZAINFO_201">
+		<language name="日本語">５ターンの　あいだ
+すなあらしで　いわ
+じめん　はがねタイプ
+いがいの　ポケモンに
+ダメージを　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_202">
+		<language name="日本語">ようぶんを　すいとり
+こうげきする。
+あたえた　ダメージの
+はんぶんの　ＨＰを
+かいふく　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_203">
+		<language name="日本語">こうげきを　うけても
+ＨＰを　かならず
+１だけ　のこせる。
+れんぞくで　だすと
+しっぱい　しやすい。</language>
+	</row>
+
+	<row id="WAZAINFO_204">
+		<language name="日本語">かわいく　みつめて
+ゆだんを　さそい
+あいての　こうげきを
+がくっと　さげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_205">
+		<language name="日本語">５ターンの　あいだ
+ころがりつづけて
+こうげきする。
+わざが　あたる　たびに
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_206">
+		<language name="日本語">あいての　ＨＰが
+かならず　１だけ
+のこる　ように
+てかげん　して
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_207">
+		<language name="日本語">あいてを　おこらせて
+こんらん　させる。
+いかりで　あいての
+こうげきは　ぐーんと
+あがってしまう。</language>
+	</row>
+
+	<row id="WAZAINFO_208">
+		<language name="日本語">さいだい　ＨＰの
+はんぶん　じぶんの
+ＨＰを　かいふくする。
+なかまに　ＨＰを
+わけることも　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_209">
+		<language name="日本語">でんきを　まとい
+とっしんして
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_210">
+		<language name="日本語">カマや　ツメ　などで
+あいてを　きりつけて
+こうげきする。
+れんぞくで　あてると
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_211">
+		<language name="日本語">かたい　つばさを
+あいてに　たたきつけて
+こうげきする。
+じぶんの　ぼうぎょが
+あがることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_212">
+		<language name="日本語">すいこまれる　ような
+くろい　まなざしで
+じっと　みつめて
+あいてを　せんとうから
+にげられなく　する。</language>
+	</row>
+
+	<row id="WAZAINFO_213">
+		<language name="日本語">♂なら♀を　♀なら♂を
+ゆうわくして
+メロメロに　する。
+あいては　わざが
+だしにくく　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_214">
+		<language name="日本語">じぶんが　おぼえている
+わざの　うち　どれか
+１つを　くりだす。
+じぶんが　ねている
+ときだけ　つかえる。</language>
+	</row>
+
+	<row id="WAZAINFO_215">
+		<language name="日本語">ここちよい　すずの
+ねいろを　きかせて
+みかた　ぜんいんの
+じょうたい　いじょうを
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_216">
+		<language name="日本語">トレーナーの　ために
+ぜんりょくで　あいてを
+こうげきする。
+なついて　いるほど
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_217">
+		<language name="日本語">わなを　しかけた
+はこを　わたして
+こうげきする。
+ＨＰが　かいふくして
+しまうことも　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_218">
+		<language name="日本語">ふまんを　はらすため
+ぜんりょくで　あいてを
+こうげきする。
+なついて　いないほど
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_219">
+		<language name="日本語">５ターンの　あいだ
+ふしぎな　ちからに
+まもられて
+じょうたい　いじょうに
+ならなくなる。</language>
+	</row>
+
+	<row id="WAZAINFO_220">
+		<language name="日本語">じぶんの　ＨＰと
+あいての　ＨＰを
+あわせて　それを
+じぶんと　あいてで
+なかよく　わける。</language>
+	</row>
+
+	<row id="WAZAINFO_221">
+		<language name="日本語">しんぴの　ほのおで
+あいてを　やきつくして
+こうげきする。
+やけど　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_222">
+		<language name="日本語">じめんを　ゆらして
+まわりに　いるものを
+すべて　こうげきする。
+わざの　いりょくは
+いろいろ　かわる。</language>
+	</row>
+
+	<row id="WAZAINFO_223">
+		<language name="日本語">こんしんの　ちからで
+パンチを　くりだして
+こうげきする。
+あいてを　かならず
+こんらん　させる。</language>
+	</row>
+
+	<row id="WAZAINFO_224">
+		<language name="日本語">かたくて　りっぱな
+つので　おもいっきり
+あいてを　つきさして
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_225">
+		<language name="日本語">ものすごい　いきを
+あいてに　ふきつけて
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_226">
+		<language name="日本語">ひかえの　ポケモンと
+いれかわる。
+のうりょく　へんかは
+かわった　ポケモンが
+そのまま　うけつぐ。</language>
+	</row>
+
+	<row id="WAZAINFO_227">
+		<language name="日本語">あいてが　さいごに
+つかった　わざを
+２ー６ターンの　あいだ
+ずっと　ださせる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_228">
+		<language name="日本語">あいて　ポケモンが
+いれかわる　ときに
+わざを　だしていると
+２ばいの　いりょくで
+こうげき　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_229">
+		<language name="日本語">かいてん　こうげき。
+しめつける　まきつく
+やどりぎのタネ
+まきびし　なども
+ふきとばせる。</language>
+	</row>
+
+	<row id="WAZAINFO_230">
+		<language name="日本語">かおりで　あいての
+かいひりつを　さげる。
+くさむら　などで
+つかうと　ポケモンが
+よってくる。</language>
+	</row>
+
+	<row id="WAZAINFO_231">
+		<language name="日本語">かたい　しっぽで
+あいてを　たたきつけて
+こうげきする。
+あいての　ぼうぎょを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_232">
+		<language name="日本語">こうてつの　ツメで
+あいてを　きりさいて
+こうげきする。
+じぶんの　こうげきが
+あがることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_233">
+		<language name="日本語">あいてより　あとに
+こうげきする。
+そのかわり　じぶんの
+こうげきは　かならず
+めいちゅうする。</language>
+	</row>
+
+	<row id="WAZAINFO_234">
+		<language name="日本語">じぶんの　ＨＰを
+かいふくする。
+てんきに　よって
+かいふくの　りょうが　
+へんかする。</language>
+	</row>
+
+	<row id="WAZAINFO_235">
+		<language name="日本語">じぶんの　ＨＰを
+かいふくする。
+てんきに　よって
+かいふくの　りょうが　
+へんかする。</language>
+	</row>
+
+	<row id="WAZAINFO_236">
+		<language name="日本語">じぶんの　ＨＰを
+かいふくする。
+てんきに　よって
+かいふくの　りょうが　
+へんかする。</language>
+	</row>
+
+	<row id="WAZAINFO_237">
+		<language name="日本語">わざを　つかった
+ポケモンに　よって
+あいてに　あたえる
+わざの　タイプと
+いりょくが　かわる。</language>
+	</row>
+
+	<row id="WAZAINFO_238">
+		<language name="日本語">りょうて　チョップを
+あいてに　たたきつけて
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_239">
+		<language name="日本語">たつまきを　おこして
+あいてを　まきこみ
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_240">
+		<language name="日本語">５ターンの　あいだ
+あめを　ふらせて
+みずタイプの
+わざの　いりょくを
+あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_241">
+		<language name="日本語">５ターンの　あいだ
+ひざしを　つよくして
+ほのおタイプの
+わざの　いりょくを
+あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_242">
+		<language name="日本語">するどい　はで
+あいてを　かみくだいて
+こうげきする。
+あいての　ぼうぎょを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_243">
+		<language name="日本語">あいてから　うけた
+とくしゅ　こうげきの
+ダメージを
+２ばいに　して
+そのあいてに　かえす。</language>
+	</row>
+
+	<row id="WAZAINFO_244">
+		<language name="日本語">じぶんに　あんじを
+かけることで
+のうりょく　へんかの
+じょうたいを　あいてと　
+おなじにする。</language>
+	</row>
+
+	<row id="WAZAINFO_245">
+		<language name="日本語">めにも　とまらない
+はやさで　あいてに
+とっしんする。
+かならず　せんせい
+こうげき　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_246">
+		<language name="日本語">げんしの　ちからで
+こうげきする。
+じぶんの　すべての
+のうりょくが　
+あがることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_247">
+		<language name="日本語">くろいかげの
+かたまりを　なげつけて
+こうげきする。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_248">
+		<language name="日本語">わざを　つかった
+２ターン　あとに
+あいてに　ねんりきの
+かたまりを　おくって
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_249">
+		<language name="日本語">いわを　くだくような
+パンチで　あいてを
+こうげきする。
+ひびわれた　いわも
+こわせる。</language>
+	</row>
+
+	<row id="WAZAINFO_250">
+		<language name="日本語">はげしく　うずをまく
+みずの　なかに
+２ー５ターンの　あいだ
+あいてを　とじこめて
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_251">
+		<language name="日本語">みかた　ぜんいんで
+こうげきする。
+なかまの　ポケモンが
+おおいほど　わざの
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_252">
+		<language name="日本語">せんせい　こうげきで
+あいてを　ひるませる。
+せんとうに　でたら
+すぐに　ださないと
+せいこう　しない。</language>
+	</row>
+
+	<row id="WAZAINFO_253">
+		<language name="日本語">２ー５ターンの　あいだ
+さわいで　こうげき。
+そのあいだは　だれも
+ねむれなく　なる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_254">
+		<language name="日本語">ちからを　たくわえて
+じぶんの　ぼうぎょと
+とくぼうを　あげる。
+さいだい　３かいまで
+たくわえられる。</language>
+	</row>
+
+	<row id="WAZAINFO_255">
+		<language name="日本語">たくわえた　ちからを
+あいてに　ぶつけて
+こうげきする。
+たくわえて　いるほど
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_256">
+		<language name="日本語">たくわえた　ちからを
+のみこんで　じぶんの
+ＨＰを　かいふくする。
+たくわえて　いるほど
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_257">
+		<language name="日本語">あつい　いきを
+あいてに　ふきつけて
+こうげきする。
+やけど　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_258">
+		<language name="日本語">５ターンの　あいだ
+あられを　ふらして
+こおりタイプで　ない
+ポケモン　ぜんいんに　
+ダメージを　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_259">
+		<language name="日本語">いちゃもんを　つけて
+おなじ　わざを
+２かい　れんぞくで
+だせなくする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_260">
+		<language name="日本語">あいてを　おだてて
+こんらん　させる。
+どうじに　あいての
+とくこうも　あげて
+しまう。</language>
+	</row>
+
+	<row id="WAZAINFO_261">
+		<language name="日本語">ぶきみで　あやしい
+ほのおを　はなって
+あいてを　やけどの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_262">
+		<language name="日本語">じぶんは　ひんしに
+なるが　そのかわりに
+あいての　こうげきと
+とくこうを　がくっと
+さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_263">
+		<language name="日本語">じぶんが　どく　まひ
+やけど　じょうたいの
+とき　くりだすと
+わざの　いりょくが
+２ばいに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_264">
+		<language name="日本語">せいしんを　たかめて
+パンチを　くりだす。
+わざを　だす　までに
+こうげきを　うけると
+しっぱいする。</language>
+	</row>
+
+	<row id="WAZAINFO_265">
+		<language name="日本語">まひ　じょうたいの
+あいてには　いりょく
+２ばいに　なるが
+そのかわり　あいての
+まひが　なおる。</language>
+	</row>
+
+	<row id="WAZAINFO_266">
+		<language name="日本語">じぶんに　ちゅうもく
+させて　あいてからの
+こうげきを　すべて
+じぶんに　むけさせる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_267">
+		<language name="日本語">しぜんの　ちからで
+こうげきする。
+つかう　ばしょで
+でてくる　わざが
+へんかする。</language>
+	</row>
+
+	<row id="WAZAINFO_268">
+		<language name="日本語">つぎの　ターンに　だす
+でんきタイプの　わざの
+いりょくを　あげる。
+じぶんの　とくぼうも
+あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_269">
+		<language name="日本語">あいてを　おこらせる。
+２ー４ターンの　あいだ
+あいては　ダメージを
+あたえる　わざしか
+だせなくなる。</language>
+	</row>
+
+	<row id="WAZAINFO_270">
+		<language name="日本語">なかまを　たすける。
+てだすけ　された
+ポケモンの　わざの
+いりょくは　いつもより
+おおきくなる。</language>
+	</row>
+
+	<row id="WAZAINFO_271">
+		<language name="日本語">あいての　すきを
+ついて　じぶんと
+あいての　もちものを
+こうかんする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_272">
+		<language name="日本語">あいてに　なりきって
+じぶんも　あいてと
+おなじ　とくせいに
+へんかする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_273">
+		<language name="日本語">つぎの　ターンに
+じぶんの　ＨＰを
+さいだい　ＨＰの
+はんぶんだけ
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_274">
+		<language name="日本語">おおいそぎで　みかたの
+たすけを　かりて
+ひかえの　ポケモンが
+おぼえている　わざを
+どれか　１つ　つかう。</language>
+	</row>
+
+	<row id="WAZAINFO_275">
+		<language name="日本語">だいちに　ねを　はり
+まいターン　ＨＰを
+かいふくする。
+ねを　はっているので
+いれかえられない。</language>
+	</row>
+
+	<row id="WAZAINFO_276">
+		<language name="日本語">すごい　ちからを
+はっきして　あいてを
+こうげきする。
+じぶんの　こうげきと
+ぼうぎょが　さがる。</language>
+	</row>
+
+	<row id="WAZAINFO_277">
+		<language name="日本語">じょうたい　いじょうや
+のうりょくを　さげる
+わざ　やどりぎのタネ
+などを　だされたとき
+あいてに　はねかえす。</language>
+	</row>
+
+	<row id="WAZAINFO_278">
+		<language name="日本語">せんとうちゅうに
+つかって　なくなった
+じぶんの　もちものを
+さいせい　させて
+つかえるように　する。</language>
+	</row>
+
+	<row id="WAZAINFO_279">
+		<language name="日本語">あいてから　わざを
+うけていると　その
+あいてに　たいして
+あたえる　ダメージが
+２ばいに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_280">
+		<language name="日本語">かたい　こぶしなどで
+こうげきする。
+ひかりのかべや
+リフレクターも
+はかいできる。</language>
+	</row>
+
+	<row id="WAZAINFO_281">
+		<language name="日本語">おおきな　あくびで
+ねむけを　さそう。
+つぎの　ターンに
+あいてを　ねむりの
+じょうたいに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_282">
+		<language name="日本語">あいての　もちものを
+はたき　おとして
+せんとうが　おわるまで
+つかえなく　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_283">
+		<language name="日本語">あいての　ＨＰが
+じぶんの　ＨＰと
+おなじ　くらいに
+なるように　ダメージを
+あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_284">
+		<language name="日本語">いかりを　ばくはつ
+させて　こうげきする。
+じぶんの　ＨＰが
+すくないほど　わざの
+いりょくは　さがる。</language>
+	</row>
+
+	<row id="WAZAINFO_285">
+		<language name="日本語">ちょうのうりょくで
+じぶんの　とくせいと
+あいての　とくせいを
+いれかえる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_286">
+		<language name="日本語">あいてが　じぶんと
+おなじ　わざを
+おぼえていたら
+あいてだけ　そのわざを
+つかえなく　する。</language>
+	</row>
+
+	<row id="WAZAINFO_287">
+		<language name="日本語">からだを　やすめて
+じぶんが　おっている
+どく　まひ　やけどの
+じょうたい　いじょうを
+なおす。</language>
+	</row>
+
+	<row id="WAZAINFO_288">
+		<language name="日本語">あいての　わざで
+ひんしに　されたとき
+おんねんを　かけて
+そのわざの　ＰＰを
+０に　する。</language>
+	</row>
+
+	<row id="WAZAINFO_289">
+		<language name="日本語">あいてが　つかおうと
+した　かいふくわざや
+のうりょく　へんかの
+わざを　うばって
+じぶんに　つかう。</language>
+	</row>
+
+	<row id="WAZAINFO_290">
+		<language name="日本語">ひみつの　ちからで
+こうげきする。
+つかう　ばしょで
+ついかこうかが
+へんかする。</language>
+	</row>
+
+	<row id="WAZAINFO_291">
+		<language name="日本語">１ターンめで　ふかく
+もぐり　２ターンめ
+うきあがって　あいてを
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_292">
+		<language name="日本語">ひらいた　りょうてで
+あいてを　つっぱって
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_293">
+		<language name="日本語">みずべや　くさむら
+どうくつなど　いる
+ばしょに　あわせて
+じぶんの　タイプを
+かえる。</language>
+	</row>
+
+	<row id="WAZAINFO_294">
+		<language name="日本語">てんめつする　ひかりを
+ながめて　せいしんを
+とういつし　じぶんの
+とくこうを　ぐーんと
+あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_295">
+		<language name="日本語">まばゆい　ひかりを
+かいほうして
+こうげきする。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_296">
+		<language name="日本語">きりじょうの
+うもうで　つつみこみ
+こうげきする。
+あいての　とくこうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_297">
+		<language name="日本語">うもうを　ふりまいて
+こうげきする。
+からだに　からませて
+あいての　こうげきを
+がくっと　さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_298">
+		<language name="日本語">フラフラと　ダンスを
+おどって　まわりに
+いるものを　すべて
+こんらん　じょうたいに
+させる。</language>
+	</row>
+
+	<row id="WAZAINFO_299">
+		<language name="日本語">こうげきした　あいてを
+やけど　じょうたいに
+することが　ある。
+きゅうしょに　あたる
+かくりつも　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_300">
+		<language name="日本語">どろを　かぶって
+どろどろに　なる。
+じぶんが　いるあいだ
+でんきタイプの　わざを
+よわめる。</language>
+	</row>
+
+	<row id="WAZAINFO_301">
+		<language name="日本語">５ターンの　あいだ
+ころがりつづけて
+こうげきする。
+わざが　あたる　たびに
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_302">
+		<language name="日本語">トゲの　うでを
+はげしく　ふるって
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_303">
+		<language name="日本語">なまけて　やすむ。
+じぶんの　ＨＰを
+さいだい　ＨＰの
+はんぶんだけ
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_304">
+		<language name="日本語">うるさく　ひびく
+おおきな　しんどうを
+あいてに　あたえて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_305">
+		<language name="日本語">どくの　ある　キバで
+あいてに　かみついて
+こうげきする。
+もうどくを　おわせる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_306">
+		<language name="日本語">かたく　するどい
+ツメで　きりさいて
+こうげきする。
+あいての　ぼうぎょを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_307">
+		<language name="日本語">ばくはつの　ほのおで
+あいてを　やきつくして
+こうげきする。
+つぎの　ターンは
+うごけなく　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_308">
+		<language name="日本語">みずの　たいほうを
+あいてに　はっしゃして
+こうげきする。
+つぎの　ターンは
+うごけなく　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_309">
+		<language name="日本語">すいせいの　ごとく
+パンチを　くりだして
+こうげきする。
+じぶんの　こうげきが　
+あがることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_310">
+		<language name="日本語">おおきな　こえなどで
+ふいに　おどろかして
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_311">
+		<language name="日本語">つかった　ときの
+てんきに　よって
+わざの　タイプと
+いりょくが　かわる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_312">
+		<language name="日本語">ここちよい　やすらぐ
+かおりを　かがせて
+みかた　ぜんいんの
+じょうたい　いじょうを
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_313">
+		<language name="日本語">ないた　ふりをして
+なみだを　ながす。
+こまらせる　ことで
+あいての　とくぼうを
+がくっと　さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_314">
+		<language name="日本語">するどい　かぜで
+あいてを　きりつけて
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_315">
+		<language name="日本語">フルパワーで　あいてを
+こうげきする。
+つかうと　はんどうで
+じぶんの　とくこうが
+がくっと　さがる。</language>
+	</row>
+
+	<row id="WAZAINFO_316">
+		<language name="日本語">ゴーストタイプに
+こうかがない　わざや
+かいひりつの　たかい
+あいてに　こうげきが
+あたるように　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_317">
+		<language name="日本語">がんせきを　なげつけて
+こうげきする。
+あいての　うごきを
+ふうじることで
+すばやさを　さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_318">
+		<language name="日本語">かぜに　りんぷんを
+のせて　こうげきする。
+じぶんの　すべての
+のうりょくが　
+あがることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_319">
+		<language name="日本語">きんぞくを　こすって
+でるような　いやな
+おとを　きかせる。
+あいての　とくぼうを
+がくっと　さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_320">
+		<language name="日本語">ここちよい　ふえの
+ねいろを　きかせて
+あいてを　ねむりの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_321">
+		<language name="日本語">からだを　くすぐり
+わらわせる　ことで
+あいての　こうげきと
+ぼうぎょを　さげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_322">
+		<language name="日本語">うちゅう　から
+しんぴの　ちからを
+とりこむ　ことで
+じぶんの　ぼうぎょと
+とくぼうを　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_323">
+		<language name="日本語">しおを　ふきつけて
+こうげきする。
+じぶんの　ＨＰが
+すくないほど　わざの
+いりょくは　さがる。</language>
+	</row>
+
+	<row id="WAZAINFO_324">
+		<language name="日本語">ふしぎな　ひかりを
+はっしゃして
+こうげきする。
+あいてを　こんらん
+させることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_325">
+		<language name="日本語">かげに　まぎれて
+パンチを　くりだす。
+こうげきは　かならず
+めいちゅう　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_326">
+		<language name="日本語">みえない　ふしぎな
+ちからを　おくって
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_327">
+		<language name="日本語">そらに　むかうような
+たかい　アッパーで
+あいてを　つきあげて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_328">
+		<language name="日本語">はげしく　ふきあれる
+すなあらしの　なかに
+２ー５ターンの　あいだ
+あいてを　とじこめて
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_329">
+		<language name="日本語">ぜったいれいどの
+つめたさで　あいてを
+こうげきする。
+あたれば　いちげきで
+ひんしに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_330">
+		<language name="日本語">にごった　みずを
+あいてに　はっしゃして
+こうげきする。
+めいちゅうりつを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_331">
+		<language name="日本語">タネを　いきおいよく
+あいてに　はっしゃして
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_332">
+		<language name="日本語">すばやい　うごきで
+あいてを　ほんろうして
+きりつける。
+こうげきは　かならず
+めいちゅう　する。</language>
+	</row>
+
+	<row id="WAZAINFO_333">
+		<language name="日本語">するどい　つららを
+あいてに　はっしゃして
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_334">
+		<language name="日本語">ひふを　てつのように
+かたくする　ことで
+じぶんの　ぼうぎょを
+ぐーんと　あげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_335">
+		<language name="日本語">りょうてを　ひろげて
+たちはだかり　あいての
+にげみちを　ふさいで
+にげられなく　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_336">
+		<language name="日本語">おおごえで　ほえて
+きあいを　たかめ
+じぶんの　こうげきを
+あげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_337">
+		<language name="日本語">するどく　とがった
+きょだいな　ツメで
+あいてを　きりさいて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_338">
+		<language name="日本語">おおきな　じゅもくで
+あいてを　たたきつけて
+こうげきする。
+つぎの　ターンは
+うごけなく　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_339">
+		<language name="日本語">からだに　ちからを
+こめて　きんにくを
+ぶあつく　することで
+じぶんの　こうげきと
+ぼうぎょを　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_340">
+		<language name="日本語">そらたかく　とびはねて
+２ターンめに　あいてを
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_341">
+		<language name="日本語">どろの　かたまりを
+あいてに　なげつけて
+こうげきする。
+どうじに　あいての
+すばやさを　さげる。</language>
+	</row>
+
+	<row id="WAZAINFO_342">
+		<language name="日本語">しっぽで　たたく。
+どく　じょうたいに
+することが　あり
+きゅうしょに　あたる
+かくりつも　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_343">
+		<language name="日本語">かわいく　あまえながら
+あいてに　ちかづき
+もっている　どうぐを
+うばう。
+</language>
+	</row>
+
+	<row id="WAZAINFO_344">
+		<language name="日本語">でんきを　まとって
+あいてに　とっしん
+こうげきする。
+じぶんも　かなり
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_345">
+		<language name="日本語">あいてを　ついせきする
+ふしぎな　はっぱを
+まきちらす。
+こうげきは　かならず
+めいちゅう　する。</language>
+	</row>
+
+	<row id="WAZAINFO_346">
+		<language name="日本語">みずを　かぶって
+びしょびしょに　なる。
+じぶんが　いるあいだ
+ほのおタイプの
+わざを　よわめる。</language>
+	</row>
+
+	<row id="WAZAINFO_347">
+		<language name="日本語">しずかに　せいしんを
+とういつし　こころを
+しずめる　ことで
+じぶんの　とくこうと
+とくぼうを　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_348">
+		<language name="日本語">とがった　はっぱで
+あいてを　きりつけて
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_349">
+		<language name="日本語">しんぴてきで
+ちからづよい　まいを
+はげしく　おどる。
+じぶんの　こうげきと
+すばやさを　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_350">
+		<language name="日本語">かたい　がんせきを
+あいてに　はっしゃして
+こうげきする。
+２ー５かいの　あいだ
+れんぞくで　だす。</language>
+	</row>
+
+	<row id="WAZAINFO_351">
+		<language name="日本語">でんげきを　すばやく
+あいてに　あびせる。
+こうげきは　かならず
+めいちゅう　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_352">
+		<language name="日本語">みずの　しんどうを
+あいてに　あたえて
+こうげきする。
+あいてを　こんらん
+させることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_353">
+		<language name="日本語">わざを　つかった
+２ターン　あとに
+むすうの　ひかりの
+たばで　あいてを
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_354">
+		<language name="日本語">フルパワーで　あいてを
+こうげきする。
+つかうと　はんどうで
+じぶんの　とくこうが
+がくっと　さがる。</language>
+	</row>
+
+	<row id="WAZAINFO_355">
+		<language name="日本語">じめんに　おりて
+からだを　やすめる。
+さいだい　ＨＰの
+はんぶんだけ　ＨＰを
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_356">
+		<language name="日本語">５ターンの　あいだ
+じゅうりょくを　
+つよくして　ふゆうや
+そらへ　とぶ　わざを
+つかえなく　する。</language>
+	</row>
+
+	<row id="WAZAINFO_357">
+		<language name="日本語">あくタイプに
+こうかがない　わざや
+かいひりつの　たかい
+あいてに　こうげきが
+あたるように　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_358">
+		<language name="日本語">ねむり　じょうたいの
+あいてに　おおきな
+ダメージを　あたえる。　
+そのかわり　あいては
+ねむりから　さめる。</language>
+	</row>
+
+	<row id="WAZAINFO_359">
+		<language name="日本語">つよくて　おもい
+こぶしを　ふるって
+ダメージを　あたえる。　
+じぶんの　すばやさが
+さがる。</language>
+	</row>
+
+	<row id="WAZAINFO_360">
+		<language name="日本語">からだを　こうそくに
+かいてん　させて
+たいあたりする。
+あいてより　すばやさが
+おそいほど　つよい。</language>
+	</row>
+
+	<row id="WAZAINFO_361">
+		<language name="日本語">じぶんは　ひんしに
+なるが　ひかえから
+でてくる　ポケモンの
+じょうたい　いじょうと
+ＨＰを　かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_362">
+		<language name="日本語">あいてが　ＨＰの
+はんぶん　くらい
+きずを　おっていると
+わざの　いりょくが
+２ばいに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_363">
+		<language name="日本語">きのみから　ちからを
+もらい　こうげきする。
+もたせた　きのみで
+わざの　タイプと
+いりょくが　かわる。</language>
+	</row>
+
+	<row id="WAZAINFO_364">
+		<language name="日本語">まもるや　みきりを
+している　あいてに
+こうげきが　できる。
+まもりの　こうかを　
+かいじょ　させる。</language>
+	</row>
+
+	<row id="WAZAINFO_365">
+		<language name="日本語">くちばしで　こうげき。
+あいてが　きのみを
+もっている　とき
+ついばんで　きのみの
+こうかを　うけられる。</language>
+	</row>
+
+	<row id="WAZAINFO_366">
+		<language name="日本語">はげしく　ふきあれる
+かぜのうずを　つくり
+３ターンの　あいだ
+みかた　ぜんいんの
+すばやさを　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_367">
+		<language name="日本語">つぼおしで　からだを
+かっせいか　させる。
+のうりょくの　どれか
+ひとつを　ぐーんと
+あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_368">
+		<language name="日本語">わざを　だすまえに
+さいごに　うけた
+わざの　ダメージを
+おおきくして　だした
+あいてに　かえす。</language>
+	</row>
+
+	<row id="WAZAINFO_369">
+		<language name="日本語">こうげき　したあと
+ものすごい　スピードで
+もどってきて
+ひかえ　ポケモンと
+いれかわる。</language>
+	</row>
+
+	<row id="WAZAINFO_370">
+		<language name="日本語">まもりを　すてて
+あいての　ふところに
+とつげき　する。
+じぶんの　ぼうぎょと
+とくぼうが　さがる。</language>
+	</row>
+
+	<row id="WAZAINFO_371">
+		<language name="日本語">ためこんで　こうげき。
+あいてより　あとに
+こうげき　できると
+わざの　いりょくは
+２ばいに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_372">
+		<language name="日本語">そのターンに　あいてが
+すでに　ダメージを
+うけて　いたら
+わざの　いりょくは
+２ばいに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_373">
+		<language name="日本語">もたせた　どうぐを
+つかえなくする。
+トレーナーも　その
+ポケモンには　どうぐを
+つかえない。</language>
+	</row>
+
+	<row id="WAZAINFO_374">
+		<language name="日本語">もたせた　どうぐを
+すばやく　なげつけて
+こうげきする。
+どうぐで　いりょくと
+こうかが　かわる。</language>
+	</row>
+
+	<row id="WAZAINFO_375">
+		<language name="日本語">ちょうのうりょくで
+あんじを　かけて
+じぶんの　うけている
+じょうたい　いじょうを
+あいてに　うつす。</language>
+	</row>
+
+	<row id="WAZAINFO_376">
+		<language name="日本語">きりふだの　のこり
+ＰＰが　すくなければ
+すくないほど　わざの
+いりょくが　あがる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_377">
+		<language name="日本語">５ターンの　あいだ
+わざを　つかっての
+ＨＰの　かいふくを
+できなくする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_378">
+		<language name="日本語">つよく　しめあげて
+こうげきを　する。
+あいての　ＨＰが
+のこっている　ほど
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_379">
+		<language name="日本語">ちょうのうりょくで
+じぶんの　こうげきと
+ぼうぎょの　ちからを
+こうかんする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_380">
+		<language name="日本語">いえきを　あいての
+からだに　はきつける。
+ついた　いえきは
+あいての　とくせいの
+こうかを　けす。</language>
+	</row>
+
+	<row id="WAZAINFO_381">
+		<language name="日本語">てんに　むかって
+おいのりを　ささげ
+あいての　こうげきを
+きゅうしょに
+あたらなくする。</language>
+	</row>
+
+	<row id="WAZAINFO_382">
+		<language name="日本語">いりょくを　あげて
+あいてが　だそうとする
+わざを　さきにだす。
+さきに　だせないと
+しっぱい　する。</language>
+	</row>
+
+	<row id="WAZAINFO_383">
+		<language name="日本語">ちょくぜんに　でた
+わざを　まねして
+おなじ　わざを　だす。
+わざが　でていないと
+しっぱい　する。</language>
+	</row>
+
+	<row id="WAZAINFO_384">
+		<language name="日本語">ちょうのうりょくで
+じぶんと　あいての
+こうげきと　とくこうの
+のうりょく　へんかを
+いれかえる。</language>
+	</row>
+
+	<row id="WAZAINFO_385">
+		<language name="日本語">ちょうのうりょくで
+じぶんと　あいての
+ぼうぎょと　とくぼうの
+のうりょく　へんかを
+いれかえる。</language>
+	</row>
+
+	<row id="WAZAINFO_386">
+		<language name="日本語">のうりょく　へんかで
+あいてが　パワーアップ
+しているほど　わざの
+いりょくが　あがる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_387">
+		<language name="日本語">せんとうちゅうに
+おぼえている　わざを
+すべて　つかうと
+はじめて　だせる
+とっておきの　わざ。</language>
+	</row>
+
+	<row id="WAZAINFO_388">
+		<language name="日本語">こころを　なやませる
+タネを　うえつける。
+あいてを　ねむれなく
+して　とくせいを
+ふみんに　する。</language>
+	</row>
+
+	<row id="WAZAINFO_389">
+		<language name="日本語">あいてより　さきに
+こうげき　できる。
+あいてが　だすわざが
+こうげきわざ　でないと
+しっぱい　する。</language>
+	</row>
+
+	<row id="WAZAINFO_390">
+		<language name="日本語">あいての　あしもとに
+どくびしを　しかける。
+こうたいで　でてきた
+ポケモンに　どくを
+おわせる。</language>
+	</row>
+
+	<row id="WAZAINFO_391">
+		<language name="日本語">ちょうのうりょくで
+じぶんと　あいてに
+かかっている
+のうりょく　へんかを
+いれかえる。</language>
+	</row>
+
+	<row id="WAZAINFO_392">
+		<language name="日本語">からだの　まわりを
+みずで　つくった
+ベールで　おおう。
+まいターン　ＨＰを
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_393">
+		<language name="日本語">でんきで　つくった
+じりょくの　ちからで
+ちゅうに　うかぶ。
+５ターンの　あいだ
+ふゆう　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_394">
+		<language name="日本語">ほのおの　よろいを
+からだに　まとって
+とっしんする。
+じぶんも　かなり
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_395">
+		<language name="日本語">あいての　からだに
+しょうげきはを　あてて
+こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_396">
+		<language name="日本語">からだの　おくから
+はどうの　ちからを
+うちはなつ。
+こうげきは　かならず
+めいちゅう　する。</language>
+	</row>
+
+	<row id="WAZAINFO_397">
+		<language name="日本語">からだを　みがいて
+くうきの　ていこうを
+すくなくする。
+すばやさを　ぐーんと
+あげることが　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_398">
+		<language name="日本語">どくに　そまった
+しょくしゅや　うでで　
+あいてを　つきさす。
+どく　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_399">
+		<language name="日本語">からだから　あくいに
+みちた　おそろしい
+オーラを　はっする。
+あいてを　ひるませる
+ことがある。</language>
+	</row>
+
+	<row id="WAZAINFO_400">
+		<language name="日本語">いっしゅんの　すきを
+ついて　あいてを
+きりはらう。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_401">
+		<language name="日本語">はげしく　あれくるう
+あらなみの　ように
+おおきな　しっぽを　
+ふって　こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_402">
+		<language name="日本語">かたい　からを　もつ
+おおきな　タネを
+うえから　たたきつけて
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_403">
+		<language name="日本語">そらをも　きりさく
+くうきの　やいばで
+こうげきする。
+あいてを　ひるませる
+ことがある。</language>
+	</row>
+
+	<row id="WAZAINFO_404">
+		<language name="日本語">カマや　ツメを
+ハサミのように
+こうさ　させながら
+あいてを　きりさく。
+</language>
+	</row>
+
+	<row id="WAZAINFO_405">
+		<language name="日本語">はねの　しんどうで
+おんぱを　おこして
+こうげきする。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_406">
+		<language name="日本語">おおきな　くちから
+しょうげきはを
+まきおこして　あいてを
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_407">
+		<language name="日本語">すさまじい　さっきで
+いあつ　しながら
+たいあたりする。
+あいてを　ひるませる
+ことがある。</language>
+	</row>
+
+	<row id="WAZAINFO_408">
+		<language name="日本語">ほうせきの　ように
+きらめく　ひかりを
+はっしゃして　あいてを
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_409">
+		<language name="日本語">こぶしから　あいての
+ちからを　すいとる。
+あたえた　ダメージの
+はんぶんの　ＨＰを
+かいふくできる。</language>
+	</row>
+
+	<row id="WAZAINFO_410">
+		<language name="日本語">こぶしを　ふって
+しんくうの　なみを
+まきおこす。
+かならず　せんせい
+こうげき　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_411">
+		<language name="日本語">きあいを　たかめて
+こんしんの　ちからを
+ほうしゅつする。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_412">
+		<language name="日本語">しぜんから　いのちの
+ちからを　あつめて
+はっしゃする。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_413">
+		<language name="日本語">はねを　おりたたみ
+ていくう　ひこうで
+とつげきする。
+じぶんも　かなり
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_414">
+		<language name="日本語">あいての　あしもとへ
+だいちの　ちからを
+ほうしゅつする。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_415">
+		<language name="日本語">めにも　とまらぬ
+はやさで　じぶんと
+あいての　もちものを
+こうかんする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_416">
+		<language name="日本語">もてる　ちからを
+すべて　つかって
+とつげきする。
+つぎの　ターンは
+うごけなく　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_417">
+		<language name="日本語">わるいことを
+かんがえて　あたまを　
+かっせいか　させる。
+じぶんの　とくこうを
+ぐーんと　あげる。</language>
+	</row>
+
+	<row id="WAZAINFO_418">
+		<language name="日本語">だんがんの　ような
+はやくて　かたい
+パンチを　くりだす。
+かならず　せんせい
+こうげき　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_419">
+		<language name="日本語">あいてから　わざを
+うけていると　その
+あいてに　たいして
+わざの　いりょくが
+２ばいに　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_420">
+		<language name="日本語">こおりの　かたまりを
+いっしゅんで　つくり
+すばやく　はなつ。
+かならず　せんせい
+こうげき　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_421">
+		<language name="日本語">かげから　つくった
+するどい　ツメで
+あいてを　きりさく。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_422">
+		<language name="日本語">でんきを　ためた
+キバで　かみつく。
+あいてを　ひるませたり
+まひ　じょうたいに
+することが　ある。　</language>
+	</row>
+
+	<row id="WAZAINFO_423">
+		<language name="日本語">れいきを　ひめた
+キバで　かみつく。
+あいてを　ひるませたり
+こおり　じょうたいに
+することが　ある。　</language>
+	</row>
+
+	<row id="WAZAINFO_424">
+		<language name="日本語">ほのおを　まとった
+キバで　かみつく。
+あいてを　ひるませたり
+やけど　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_425">
+		<language name="日本語">かげを　のばして
+あいての　はいごから
+こうげきする。
+かならず　せんせい
+こうげき　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_426">
+		<language name="日本語">かたい　どろのたまを
+あいてに　はっしゃして
+こうげきする。
+めいちゅうりつを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_427">
+		<language name="日本語">じったいか　させた
+こころの　やいばで
+あいてを　きりさく。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_428">
+		<language name="日本語">しねんの　ちからを
+ひたいに　あつめて
+こうげきする。
+あいてを　ひるませる
+ことがある。</language>
+	</row>
+
+	<row id="WAZAINFO_429">
+		<language name="日本語">みがき　あげられた
+からだから　せんこうの
+ちからを　はなつ。
+めいちゅうりつを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_430">
+		<language name="日本語">からだの　ひかりを
+いってんに　あつめて
+ちからを　はなつ。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_431">
+		<language name="日本語">とっしん　こうげきで
+あいてを　こんらん
+させることが　ある。
+ごつごつした　かべを
+のぼることも　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_432">
+		<language name="日本語">しょうがいぶつを
+なくして　あいての
+かいひりつを　さげる。
+ふかいきり　などを
+けすことも　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_433">
+		<language name="日本語">まかふしぎな　
+くうかんを　つくる。
+５ターンの　あいだ
+おそい　ポケモンから
+こうどう　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_434">
+		<language name="日本語">てんくうから
+いんせきを　おとす。
+つかうと　はんどうで
+じぶんの　とくこうが
+がくっと　さがる。</language>
+	</row>
+
+	<row id="WAZAINFO_435">
+		<language name="日本語">まばゆい　でんげきで
+まわりに　いるものを
+すべて　こうげきする。
+まひ　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_436">
+		<language name="日本語">まっかな　ほのおで
+まわりに　いるものを
+すべて　こうげきする。
+やけど　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_437">
+		<language name="日本語">とがった　はっぱで
+あらしを　おこす。
+つかうと　はんどうで
+じぶんの　とくこうが
+がくっと　さがる。</language>
+	</row>
+
+	<row id="WAZAINFO_438">
+		<language name="日本語">つたや　しょくしゅを
+はげしく　ふるって
+あいてを　たたきつけ
+こうげきする。
+</language>
+	</row>
+
+	<row id="WAZAINFO_439">
+		<language name="日本語">きょだいな　いわを
+あいてに　はっしゃして
+こうげきする。
+つぎの　ターンは
+うごけなく　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_440">
+		<language name="日本語">あいてを　きりさく。
+どく　じょうたいに
+することが　あり
+きゅうしょに　あたる
+かくりつも　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_441">
+		<language name="日本語">きたない　ゴミを
+あいてに　ぶつけて
+こうげきする。
+どく　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_442">
+		<language name="日本語">はがねの　ような
+かたい　あたまで
+こうげきする。
+あいてを　ひるませる
+ことが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_443">
+		<language name="日本語">あいてに　すいつく
+はがねの　ばくだんを
+はっしゃする。
+こうげきは　かならず
+めいちゅう　する。</language>
+	</row>
+
+	<row id="WAZAINFO_444">
+		<language name="日本語">とがった　いわを
+あいてに　つきさして
+こうげきする。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_445">
+		<language name="日本語">♂なら♀を　♀なら♂を
+ゆうわくして
+あいての　とくこうを
+がくっと　さげる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_446">
+		<language name="日本語">あいての　まわりに
+むすうの　いわを
+うかべて　こうたいで
+でてきた　ポケモンに
+ダメージを　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_447">
+		<language name="日本語">くさを　からませて
+あいてを　ころばせる。
+あいてが　おもいほど
+いりょくが　あがる。
+</language>
+	</row>
+
+	<row id="WAZAINFO_448">
+		<language name="日本語">おぼえた　ことばで
+おんぱを　おこして
+こうげきする。
+あいてを　こんらん
+させることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_449">
+		<language name="日本語">むすうの　こうだんを
+ほうしゅつする。
+じぶんの　もつ
+プレートに　より
+タイプが　かわる。</language>
+	</row>
+
+	<row id="WAZAINFO_450">
+		<language name="日本語">かみついて　こうげき。
+あいてが　きのみを
+もっている　とき
+たべて　きのみの
+こうかを　うけられる。</language>
+	</row>
+
+	<row id="WAZAINFO_451">
+		<language name="日本語">でんげきの　たばを
+あいてに　はっしゃする。
+でんきを　ためこんで
+じぶんの　とくこうを
+あげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_452">
+		<language name="日本語">かたい　どうたいを
+あいてに　たたきつけて
+こうげきする。
+じぶんも　かなり
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_453">
+		<language name="日本語">めにも　とまらない
+ものすごい　はやさで
+あいてに　つっこむ。
+かならず　せんせい
+こうげき　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_454">
+		<language name="日本語">しもべを　よびだして
+あいてに　むかって
+こうげき　させる。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_455">
+		<language name="日本語">しもべを　よびだして
+じぶんの　からだに
+おおい　つかせる。
+じぶんの　ぼうぎょを
+あげることが　できる。</language>
+	</row>
+
+	<row id="WAZAINFO_456">
+		<language name="日本語">しもべを　よびだして
+きずを　なおす。
+さいだい　ＨＰの
+はんぶんだけ　ＨＰを
+かいふくする。</language>
+	</row>
+
+	<row id="WAZAINFO_457">
+		<language name="日本語">いのちを　かけて
+こんしんの　ちからで
+ずつきを　する。
+じぶんも　ものすごい
+ダメージを　うける。</language>
+	</row>
+
+	<row id="WAZAINFO_458">
+		<language name="日本語">しっぽなどを　つかい
+あいてを　たたいて
+こうげきする。
+２かい　れんぞくで
+ダメージを　あたえる。</language>
+	</row>
+
+	<row id="WAZAINFO_459">
+		<language name="日本語">じかんが　ゆがむほどの
+きょだいな　ちからを
+うちだして　こうげき。
+つぎの　ターンは
+うごけなく　なる。</language>
+	</row>
+
+	<row id="WAZAINFO_460">
+		<language name="日本語">まわりの　くうかんごと
+あいてを　ひきさき
+ダメージを　あたえる。
+きゅうしょに　あたる
+かくりつが　たかい。</language>
+	</row>
+
+	<row id="WAZAINFO_461">
+		<language name="日本語">じぶんは　ひんしに
+なるが　ひかえから
+でてくる　ポケモンの
+すべての　じょうたいを
+ぜんかいふく　する。</language>
+	</row>
+
+	<row id="WAZAINFO_462">
+		<language name="日本語">すさまじい　ちからで
+にぎり　つぶす。
+あいての　ＨＰが
+のこっている　ほど
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="WAZAINFO_463">
+		<language name="日本語">はげしく　もえたぎる
+ほのおの　なかに
+２ー５ターンの　あいだ
+あいてを　とじこめて
+こうげきする。</language>
+	</row>
+
+	<row id="WAZAINFO_464">
+		<language name="日本語">あんこくの　せかいに
+ひきずり　おとして
+あいてを　ねむりの
+じょうたいに　する。
+</language>
+	</row>
+
+	<row id="WAZAINFO_465">
+		<language name="日本語">からだの　なかから
+しょうげきはを
+はっせい　させる。
+あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_466">
+		<language name="日本語">みのけも　よだつ
+とっぷうを　おこす。
+じぶんの　すべての
+のうりょくが
+あがることが　ある。</language>
+	</row>
+
+	<row id="WAZAINFO_467">
+		<language name="日本語">１ターンめで　きえて
+２ターンめに　あいてを
+こうげきする。
+まもっていても　
+こうげきは　あたる。</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

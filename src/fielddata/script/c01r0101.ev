@@ -1,0 +1,225 @@
+//====================================================================
+//						シティ０１
+//					シティ・０１０１
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0101.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01r0101_middlem
+_EVENT_DATA		ev_c01r0101_assistantm
+_EVENT_DATA		ev_c01r0101_woman6
+_EVENT_DATA		ev_c01r0101_flag_change
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+//			FLAG_CHANGE_LABEL
+/********************************************************************/
+ev_c01r0101_flag_change:
+
+	// インタビュアーフラグが立っているか
+	_TV_INTERVIEWER_CHECK	06, LOCALWORK0
+	_IFVAL_JUMP			LOCALWORK0,EQ,0, ev_c01r0101_flagchange_vanish
+
+	// ポケッチ取得しているか
+	_IFVAL_JUMP			WK_SCENE_C01,LT,2, ev_c01r0101_flagchange_vanish
+
+	_FLAG_RESET			FV_TV_INTERVIEW_06
+	_END
+
+ev_c01r0101_flagchange_vanish:
+	_FLAG_SET			FV_TV_INTERVIEW_06
+	_END
+
+/********************************************************************/
+/*							おじさん	　							*/
+/********************************************************************/
+ev_c01r0101_middlem:
+	_TALK_OBJ_START
+
+	_TALK_KEYWAIT		msg_c01r0101_middlem_01
+
+	//バッジが０(条件１を満たさない）なら何もしない
+	_SYS_FLAG_BADGE_COUNT	SCWK_PARAM0
+	_IFVAL_JUMP		SCWK_PARAM0,EQ,0,ev_c01r0101_middlem_02
+
+	//「メモ」を取得済みかチェック
+	_POKETCH_CHECK	POKETCH_APPID_MEMO,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c01r0101_check_badge_count_1
+
+	//「マップマーキング」を取得済みかチェック
+	_POKETCH_CHECK	POKETCH_APPID_MAP_MARKING,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c01r0101_check_badge_count_3
+
+	//「つうしんサーチャー」を取得済みかチェック
+	_POKETCH_CHECK	POKETCH_APPID_COMM_SEARCHER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c01r0101_check_badge_count_5
+
+	//「わざ効果チェッカー」を取得済みかチェック
+	_POKETCH_CHECK	POKETCH_APPID_WAZA_EFF_CHECK,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c01r0101_check_badge_count_7
+
+	//ポケトレ入手済み(全チェック完了）
+	_ITEM_CHK		ITEM_POKETORE,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_c01r0101_middlem_15
+
+	//ポケトレ入手前(全チェック完了）
+	_JUMP			ev_c01r0101_middlem_14
+
+/*-----------------------------------------------*/
+//1個以上バッジを持っているかチェック
+ev_c01r0101_check_badge_count_1:
+	_SYS_FLAG_BADGE_COUNT	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,GE,1,ev_c01r0101_middlem_03
+	_JUMP		ev_c01r0101_middlem_02
+
+//3個以上バッジを持っているかチェック
+ev_c01r0101_check_badge_count_3:
+	_SYS_FLAG_BADGE_COUNT	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,GE,3,ev_c01r0101_middlem_06
+	_JUMP		ev_c01r0101_middlem_05
+
+
+//5個以上バッジを持っているかチェック
+ev_c01r0101_check_badge_count_5:
+	_SYS_FLAG_BADGE_COUNT	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,GE,5,ev_c01r0101_middlem_09
+	_JUMP		ev_c01r0101_middlem_08
+
+
+//7個以上バッジを持っているかチェック
+ev_c01r0101_check_badge_count_7:
+	_SYS_FLAG_BADGE_COUNT	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,GE,7,ev_c01r0101_middlem_12
+	_JUMP		ev_c01r0101_middlem_11
+
+/*-----------------------------------------------*/
+//「メモ」を取得
+ev_c01r0101_middlem_03:
+	_TALK_KEYWAIT		msg_c01r0101_middlem_03
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_MEMO
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+
+	_TALKMSG		msg_c01r0101_middlem_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「マップマーキング」を取得
+ev_c01r0101_middlem_06:
+	_TALK_KEYWAIT		msg_c01r0101_middlem_06
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_MAP_MARKING
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+
+	_TALKMSG		msg_c01r0101_middlem_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「つうしんサーチャー」を取得
+ev_c01r0101_middlem_09:
+	_TALK_KEYWAIT		msg_c01r0101_middlem_09
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_COMM_SEARCHER
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+
+	_TALKMSG		msg_c01r0101_middlem_10
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「つうしんサーチャー」を取得
+ev_c01r0101_middlem_12:
+	_TALK_KEYWAIT		msg_c01r0101_middlem_12
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_WAZA_EFF_CHECK
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+
+	_TALKMSG		msg_c01r0101_middlem_13
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*-----------------------------------------------*/
+
+//アプリが０のとき
+ev_c01r0101_middlem_02:
+	_TALKMSG		msg_c01r0101_middlem_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「ポケモンリスト」を取得後
+ev_c01r0101_middlem_05:
+	_TALKMSG		msg_c01r0101_middlem_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「マップマーキング」を取得後
+ev_c01r0101_middlem_08:
+	_TALKMSG		msg_c01r0101_middlem_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「つうしんサーチャー」を取得後
+ev_c01r0101_middlem_11:
+	_TALKMSG		msg_c01r0101_middlem_11
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ポケトレ入手前(全チェック完了）
+ev_c01r0101_middlem_14:
+	_TALKMSG		msg_c01r0101_middlem_14
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ポケトレ入手済み(全チェック完了）
+ev_c01r0101_middlem_15:
+	_TALKMSG		msg_c01r0101_middlem_15
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							　助手									*/
+/********************************************************************/
+ev_c01r0101_assistantm:
+	_EASY_OBJ_MSG	msg_c01r0101_assistantm_01
+	_END
+
+/********************************************************************/
+//						カンパニーで模擬戦闘
+/********************************************************************/
+ev_c01r0101_woman6:
+	_EASY_OBJ_MSG	msg_c01r0101_woman6_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

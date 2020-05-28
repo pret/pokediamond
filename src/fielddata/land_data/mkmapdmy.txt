@@ -1,0 +1,4 @@
+field_list.csv,map_tmpf,174,
+room_list.csv,map_tmpr,0,
+dungeon_list.csv,map_tmpd,0,
+under_list.csv,map_tmpu,0,

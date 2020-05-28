@@ -1,0 +1,18 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: tr_ai_seq.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-08-11T04:45:49
+ *****************************************************************************/
+
+#ifndef NARC_TR_AI_SEQ_NAIX_
+#define NARC_TR_AI_SEQ_NAIX_
+
+enum {
+	NARC_tr_ai_seq_tr_ai_seq_bin = 0
+};
+
+/* NARC_TR_AI_SEQ_NAIX_ */
+#endif

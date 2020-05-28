@@ -1,0 +1,26 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: btower.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-31T16:17:56
+ *****************************************************************************/
+
+#ifndef NARC_BTOWER_NAIX_
+#define NARC_BTOWER_NAIX_
+
+enum {
+	NARC_btower_btwr_oam_nclr = 0,
+	NARC_btower_btwr_oam_ncgr = 1,
+	NARC_btower_btwr_oam_ncer = 2,
+	NARC_btower_btwr_oam_nanr = 3,
+	NARC_btower_btwr_bg_nclr = 4,
+	NARC_btower_btwr_bg_ncgr = 5,
+	NARC_btower_btwr_bg01_nscr = 6,
+	NARC_btower_btwr_bg02_nscr = 7,
+	NARC_btower_btwr_bg03_nscr = 8
+};
+
+/* NARC_BTOWER_NAIX_ */
+#endif

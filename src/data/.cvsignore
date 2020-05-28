@@ -1,0 +1,7 @@
+.cvsignore
+*.nsbmd
+*.nsbmt
+*.nsbtp
+*.nsbtx
+*.nsbta
+*.nsbca

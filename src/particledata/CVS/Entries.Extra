@@ -1,0 +1,17 @@
+/.cvsignore////*///
+/Makefile////*///
+/con_dance.spa////*///
+/dance_finish_high.spa////*///
+/dance_finish_low.spa////*///
+/dance_succeed_high.spa////*///
+/dance_succeed_low.spa////*///
+/particledata.dat////*///
+/particledata.h////*///
+/particledata.lst////*///
+/title_scene1.spa////*///
+/title_scene2.spa////*///
+/vs_battle.spa////*///
+/w_001.h////*///
+/w_001.spa////*///
+/w_249.h////*///
+/w_249.spa////*///

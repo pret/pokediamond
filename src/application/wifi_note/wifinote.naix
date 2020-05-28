@@ -1,0 +1,29 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: wifinote.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-25T19:24:29
+ *****************************************************************************/
+
+#ifndef NARC_WIFINOTE_NAIX_
+#define NARC_WIFINOTE_NAIX_
+
+enum {
+	NARC_wifinote_techo_NANR = 0,
+	NARC_wifinote_techo_NCER = 1,
+	NARC_wifinote_techo_NCGR = 2,
+	NARC_wifinote_techo_NCLR = 3,
+	NARC_wifinote_techo_01_NSCR = 4,
+	NARC_wifinote_techo_02_NSCR = 5,
+	NARC_wifinote_techo_03_NSCR = 6,
+	NARC_wifinote_techo_04_NSCR = 7,
+	NARC_wifinote_techo_main_NSCR = 8,
+	NARC_wifinote_techo_obj_NCGR = 9,
+	NARC_wifinote_techo_sub_NCGR = 10,
+	NARC_wifinote_techo_sub_NSCR = 11
+};
+
+/* NARC_WIFINOTE_NAIX_ */
+#endif

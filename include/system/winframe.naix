@@ -1,0 +1,67 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: winframe.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-07T17:02:53
+ *****************************************************************************/
+
+#ifndef NARC_WINFRAME_NAIX_
+#define NARC_WINFRAME_NAIX_
+
+enum {
+	NARC_winframe_system_ncgr = 0,
+	NARC_winframe_fmenu_ncgr = 1,
+	NARC_winframe_talk_win00_ncgr = 2,
+	NARC_winframe_talk_win01_ncgr = 3,
+	NARC_winframe_talk_win02_ncgr = 4,
+	NARC_winframe_talk_win03_ncgr = 5,
+	NARC_winframe_talk_win04_ncgr = 6,
+	NARC_winframe_talk_win05_ncgr = 7,
+	NARC_winframe_talk_win06_ncgr = 8,
+	NARC_winframe_talk_win07_ncgr = 9,
+	NARC_winframe_talk_win08_ncgr = 10,
+	NARC_winframe_talk_win09_ncgr = 11,
+	NARC_winframe_talk_win10_ncgr = 12,
+	NARC_winframe_talk_win11_ncgr = 13,
+	NARC_winframe_talk_win12_ncgr = 14,
+	NARC_winframe_talk_win13_ncgr = 15,
+	NARC_winframe_talk_win14_ncgr = 16,
+	NARC_winframe_talk_win15_ncgr = 17,
+	NARC_winframe_talk_win16_ncgr = 18,
+	NARC_winframe_talk_win17_ncgr = 19,
+	NARC_winframe_talk_win18_ncgr = 20,
+	NARC_winframe_talk_win19_ncgr = 21,
+	NARC_winframe_win_cursol1_ncgr = 22,
+	NARC_winframe_win_cursol2_ncgr = 23,
+	NARC_winframe_system_nclr = 24,
+	NARC_winframe_talk_win00_nclr = 25,
+	NARC_winframe_talk_win01_nclr = 26,
+	NARC_winframe_talk_win02_nclr = 27,
+	NARC_winframe_talk_win03_nclr = 28,
+	NARC_winframe_talk_win04_nclr = 29,
+	NARC_winframe_talk_win05_nclr = 30,
+	NARC_winframe_talk_win06_nclr = 31,
+	NARC_winframe_talk_win07_nclr = 32,
+	NARC_winframe_talk_win08_nclr = 33,
+	NARC_winframe_talk_win09_nclr = 34,
+	NARC_winframe_talk_win10_nclr = 35,
+	NARC_winframe_talk_win11_nclr = 36,
+	NARC_winframe_talk_win12_nclr = 37,
+	NARC_winframe_talk_win13_nclr = 38,
+	NARC_winframe_talk_win14_nclr = 39,
+	NARC_winframe_talk_win15_nclr = 40,
+	NARC_winframe_talk_win16_nclr = 41,
+	NARC_winframe_talk_win17_nclr = 42,
+	NARC_winframe_talk_win18_nclr = 43,
+	NARC_winframe_talk_win19_nclr = 44,
+	NARC_winframe_ugmenu_win_nclr = 45,
+	NARC_winframe_poke_win_nanr = 46,
+	NARC_winframe_poke_win_ncer = 47,
+	NARC_winframe_poke_win_ncgr = 48,
+	NARC_winframe_poke_win_nclr = 49
+};
+
+/* NARC_WINFRAME_NAIX_ */
+#endif

@@ -1,0 +1,1009 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="Iwasawa" host="W00104" date="2006-05-09T12:23:45"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名" english="ポケット名" view="EP" width="144" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名</comment>
+				<comment language="english">バッグのポケット名</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="115"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="315"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="104"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="L:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="L:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="L:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="298" top="318" right="798" bottom="682" maximized="no" rayout="Vertical2">
+		<comment-input left="771" top="633" right="1118" bottom="785" visible="yes"/>
+		<tag-palette left="677" top="180" right="1024" bottom="578" visible="no"/>
+		<band id="0" index="0" style="0000" width="492"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="325"/>
+		<band id="3" index="3" style="0000" width="591"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_label_listjump1">
+		<comment>ラベル「ListJump」</comment>
+		<language name="日本語" font=" 1:font_system" width="64">ListJump1</language>
+	</row>
+
+	<row id="msg_label_listjump2">
+		<comment>ラベル「ListJump2」</comment>
+		<language name="日本語" font=" 1:font_system" width="64">ListJump2</language>
+	</row>
+
+	<row id="msg_label_listjump3">
+		<comment>ラベル「ListJump3」</comment>
+		<language name="日本語" font=" 1:font_system" width="64">ListJump3</language>
+	</row>
+
+	<row id="msg_label_listjump4">
+		<comment>ラベル「ListJump4」</comment>
+		<language name="日本語" font=" 1:font_system" width="64">ListJump4</language>
+	</row>
+
+	<row id="msg_label_listjump5">
+		<comment>ラベル「リーグ」</comment>
+		<language name="日本語" font=" 1:font_system" width="64">ポケリーグ</language>
+	</row>
+
+	<row id="msg_label_listjump6">
+		<comment>ラベル「ListJump5」</comment>
+		<language name="日本語" font=" 1:font_system" width="64">ListJump5</language>
+	</row>
+
+	<row id="msg_label_listjump_an">
+		<comment>ラベル「アンノーン」</comment>
+		<language name="日本語" font=" 1:font_system" width="64">アンノーン</language>
+	</row>
+
+	<row id="msg_label_listjump_gym">
+		<comment>ラベル「ジムリスト」</comment>
+		<language name="日本語" font=" 1:font_system" width="64">ジムリスト</language>
+	</row>
+
+	<row id="msg_exit_listjump">
+		<comment>コマンド「とじる」</comment>
+		<language name="日本語" font=" 1:font_system" width="64">とじる</language>
+	</row>
+
+	<row id="msg_buil01_00_00">
+		<comment>汎用ビル１</comment>
+		<language name="日本語" font=" 1:font_system" width="80">buil01-00-00</language>
+	</row>
+
+	<row id="msg_buil02_00_00">
+		<comment>汎用ビル２</comment>
+		<language name="日本語" font=" 1:font_system" width="80">buil02-00-00</language>
+	</row>
+
+	<row id="msg_buil03_00_00">
+		<comment>汎用ビル３</comment>
+		<language name="日本語" font=" 1:font_system" width="80">buil03-00-00</language>
+	</row>
+
+	<row id="msg_buil04_00_00">
+		<comment>汎用ビル４</comment>
+		<language name="日本語" font=" 1:font_system" width="80">buil04-00-00</language>
+	</row>
+
+	<row id="msg_buil05_00_00">
+		<comment>汎用ビル５</comment>
+		<language name="日本語" font=" 1:font_system" width="80">buil05-00-00</language>
+	</row>
+
+	<row id="msg_buil06_00_00">
+		<comment>汎用ビル６</comment>
+		<language name="日本語" font=" 1:font_system" width="80">buil06-00-00</language>
+	</row>
+
+	<row id="msg_buil07_00_00">
+		<comment>汎用ビル７</comment>
+		<language name="日本語" font=" 1:font_system" width="80">buil07-00-00</language>
+	</row>
+
+	<row id="msg_buil08_00_00">
+		<comment>汎用ビル８</comment>
+		<language name="日本語" font=" 1:font_system" width="80">buil08-00-00</language>
+	</row>
+
+	<row id="msg_love01_00_00">
+		<comment>大好きクラブ</comment>
+		<language name="日本語" font=" 1:font_system" width="80">love01-00-00</language>
+	</row>
+
+	<row id="msg_grow01_00_00">
+		<comment>育て屋</comment>
+		<language name="日本語" font=" 1:font_system" width="80">grow01-00-00</language>
+	</row>
+
+	<row id="msg_bike01_00_00">
+		<comment>自転車屋</comment>
+		<language name="日本語" font=" 1:font_system" width="80">bike01-00-00</language>
+	</row>
+
+	<row id="msg_scho01_00_00">
+		<comment>トレーナーズスクール</comment>
+		<language name="日本語" font=" 1:font_system" width="80">scho01-00-00</language>
+	</row>
+
+	<row id="msg_gate01_00_00">
+		<comment>ゲート縦</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gate01-00-00</language>
+	</row>
+
+	<row id="msg_gate02_00_00">
+		<comment>ゲート横</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gate02-00-00</language>
+	</row>
+
+	<row id="msg_gate03_00_00">
+		<comment>ゲートサイクリングロード</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gate03-00-00</language>
+	</row>
+
+	<row id="msg_d12r0101">
+		<comment>Ｄ１２ダンジョン</comment>
+		<language name="日本語" font=" 1:font_system" width="80">d12r0101</language>
+	</row>
+
+	<row id="msg_libra01_00_00">
+		<comment>図書館</comment>
+		<language name="日本語" font=" 1:font_system" width="80">libra01-00-00</language>
+	</row>
+
+	<row id="msg_libra02_00_00">
+		<comment>図書館２</comment>
+		<language name="日本語" font=" 1:font_system" width="80">libra02-00-00</language>
+	</row>
+
+	<row id="msg_libra03_00_00">
+		<comment>図書館３</comment>
+		<language name="日本語" font=" 1:font_system" width="80">libra03-00-00</language>
+	</row>
+
+	<row id="msg_wise01_00_00">
+		<comment>カンナギ長老の家</comment>
+		<language name="日本語" font=" 1:font_system" width="80">wise01-00-00</language>
+	</row>
+
+	<row id="msg_muse01_00_00">
+		<comment>炭鉱博物館</comment>
+		<language name="日本語" font=" 1:font_system" width="80">muse01-00-00</language>
+	</row>
+
+	<row id="msg_comp01_00_00">
+		<comment>？？？カンパニー</comment>
+		<language name="日本語" font=" 1:font_system" width="80">comp01-00-00</language>
+	</row>
+
+	<row id="msg_comp02_00_00">
+		<comment>？？？カンパニー</comment>
+		<language name="日本語" font=" 1:font_system" width="80">comp02-00-00</language>
+	</row>
+
+	<row id="msg_comp03_00_00">
+		<comment>？？？カンパニー</comment>
+		<language name="日本語" font=" 1:font_system" width="80">comp03-00-00</language>
+	</row>
+
+	<row id="msg_shouse01_00_00">
+		<comment>トバリ倉庫</comment>
+		<language name="日本語" font=" 1:font_system" width="80">shouse01-0-0</language>
+	</row>
+
+	<row id="msg_gym01_00_00">
+		<comment>ノモセ水ジム1-0</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym01-00-00</language>
+	</row>
+
+	<row id="msg_gym01_00_01">
+		<comment>ノモセ水ジム1-1</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym01-00-01</language>
+	</row>
+
+	<row id="msg_gym02_00_00">
+		<comment>ミオ鋼ジム</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym02-00-00</language>
+	</row>
+
+	<row id="msg_gym03_00_00">
+		<comment>くろがね岩ジム1-0</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym03-00-00</language>
+	</row>
+
+	<row id="msg_gym0401_00_00">
+		<comment>ハクタイ草ジム1-0</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym0401-00-00</language>
+	</row>
+
+	<row id="msg_gym0402_00_00">
+		<comment>ハクタイ草ジム2-0</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym0402-00-00</language>
+	</row>
+
+	<row id="msg_gym0501_00_00">
+		<comment>ヨスガゴーストジム1-0</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym0501-00-00</language>
+	</row>
+
+	<row id="msg_gym0502_00_00">
+		<comment>ヨスガゴーストジム2-0</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym0502-00-00</language>
+	</row>
+
+	<row id="msg_gym0503_00_00">
+		<comment>ヨスガゴーストジム3-0</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym0503-00-00</language>
+	</row>
+
+	<row id="msg_gym0504_00_00">
+		<comment>ヨスガゴーストジム4-0</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym0504-00-00</language>
+	</row>
+
+	<row id="msg_gym06_00_00">
+		<comment>キッサキ氷ジム</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym06-00-00</language>
+	</row>
+
+	<row id="msg_gym07_00_00">
+		<comment>トバリ格闘ジム</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym07-00-00</language>
+	</row>
+
+	<row id="msg_gym0801_00_00">
+		<comment>ナギサ電気ジム1</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym0801-00-00</language>
+	</row>
+
+	<row id="msg_gym0802_00_00">
+		<comment>ナギサ電気ジム2</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym0802-00-00</language>
+	</row>
+
+	<row id="msg_gym0803_00_00">
+		<comment>ナギサ電気ジム3</comment>
+		<language name="日本語" font=" 1:font_system" width="80">gym0803-00-00</language>
+	</row>
+
+	<row id="msg_t04r0101">
+		<comment>育て屋</comment>
+		<language name="日本語" font=" 1:font_system" width="80">そだてや</language>
+	</row>
+
+	<row id="msg_phouse01_00_00">
+		<comment>風力発電所</comment>
+		<language name="日本語" font=" 1:font_system" width="80">phouse01-00-00</language>
+	</row>
+
+	<row id="msg_hotel01_00_00">
+		<comment>リゾートホテルフロント</comment>
+		<language name="日本語" font=" 1:font_system" width="64">hotel01-00-00</language>
+	</row>
+
+	<row id="msg_hotel02_00_00">
+		<comment>リゾートホテル</comment>
+		<language name="日本語" font=" 1:font_system" width="64">hotel02-00-00</language>
+	</row>
+
+	<row id="msg_hotel03_00_00">
+		<comment>リゾートホテルレストラン</comment>
+		<language name="日本語" font=" 1:font_system" width="64">hotel03-00-00</language>
+	</row>
+
+	<row id="msg_depart01_00_00">
+		<comment>デパート１</comment>
+		<language name="日本語" font=" 1:font_system" width="64">depart01-00-00</language>
+	</row>
+
+	<row id="msg_depart02_00_00">
+		<comment>デパート2</comment>
+		<language name="日本語" font=" 1:font_system" width="64">depart02-00-00</language>
+	</row>
+
+	<row id="msg_depart03_00_00">
+		<comment>デパート3</comment>
+		<language name="日本語" font=" 1:font_system" width="64">depart03-00-00</language>
+	</row>
+
+	<row id="msg_depart04_00_00">
+		<comment>デパート4</comment>
+		<language name="日本語" font=" 1:font_system" width="64">depart04-00-00</language>
+	</row>
+
+	<row id="msg_depart05_00_00">
+		<comment>デパート5</comment>
+		<language name="日本語" font=" 1:font_system" width="64">depart05-00-00</language>
+	</row>
+
+	<row id="msg_cont01_00_00">
+		<comment>コンテスト会場ロビー</comment>
+		<language name="日本語" font=" 1:font_system" width="64">cont01-00-00</language>
+	</row>
+
+	<row id="msg_cont02_00_00">
+		<comment>コンテストメイン会場</comment>
+		<language name="日本語" font=" 1:font_system" width="64">cont02-00-00</language>
+	</row>
+
+	<row id="msg_dun2601_00_00">
+		<comment>ギンガ団本部１</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun2601-00-00</language>
+	</row>
+
+	<row id="msg_dun2602_00_00">
+		<comment>ギンガ団本部2</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun2602-00-00</language>
+	</row>
+
+	<row id="msg_dun2603_00_00">
+		<comment>ギンガ団本部3</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun2603-00-00</language>
+	</row>
+
+	<row id="msg_dun2604_00_00">
+		<comment>ギンガ団本部4</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun2604-00-00</language>
+	</row>
+
+	<row id="msg_dun2605_00_00">
+		<comment>ギンガ団本部5</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun2605-00-00</language>
+	</row>
+
+	<row id="msg_dun2606_00_00">
+		<comment>ギンガ団本部6</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun2606-00-00</language>
+	</row>
+
+	<row id="msg_tv01_00_00">
+		<comment>テレビ局１</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tv01-00-00</language>
+	</row>
+
+	<row id="msg_tv02_00_00">
+		<comment>テレビ局2</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tv02-00-00</language>
+	</row>
+
+	<row id="msg_tv03_00_00">
+		<comment>テレビ局3</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tv03-00-00</language>
+	</row>
+
+	<row id="msg_tv04_00_00">
+		<comment>テレビ局4</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tv04-00-00</language>
+	</row>
+
+	<row id="msg_tv05_00_00">
+		<comment>テレビ局5</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tv05-00-00</language>
+	</row>
+
+	<row id="msg_tv06_00_00">
+		<comment>テレビ局6</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tv06-00-00</language>
+	</row>
+
+	<row id="msg_fhouse01_00_00">
+		<comment>フラワーショップ</comment>
+		<language name="日本語" font=" 1:font_system" width="64">fhouse01-00-00</language>
+	</row>
+
+	<row id="msg_tower01_00_00">
+		<comment>バトルタワー１　ID:d31r0201</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tower01-00-00</language>
+	</row>
+
+	<row id="msg_tower02_00_00">
+		<comment>バトルタワー2　ID:d31r0202</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tower02-00-00</language>
+	</row>
+
+	<row id="msg_tower03_00_00">
+		<comment>バトルタワー3　ID:d31r0203</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tower03-00-00</language>
+	</row>
+
+	<row id="msg_tower04_00_00">
+		<comment>バトルタワー4　ID:d31r0204</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tower04-00-00</language>
+	</row>
+
+	<row id="msg_tower05_00_00">
+		<comment>バトルタワー5　ID:d31r0205</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tower05-00-00</language>
+	</row>
+
+	<row id="msg_tower06_00_00">
+		<comment>バトルタワー6　ID:d31r0206</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tower06-00-00</language>
+	</row>
+
+	<row id="msg_tower07_00_00">
+		<comment>バトルタワー7　ID:d31r0207</comment>
+		<language name="日本語" font=" 1:font_system" width="64">tower07-00-00</language>
+	</row>
+
+	<row id="msg_fac01_00_00">
+		<comment>バトルファクトリー　ID:d31r0101</comment>
+		<language name="日本語" font=" 1:font_system" width="64">fac01-00-00</language>
+	</row>
+
+	<row id="msg_fac02_00_00">
+		<comment>バトルファクトリー　ID:d31r0102</comment>
+		<language name="日本語" font=" 1:font_system" width="64">fac02-00-00</language>
+	</row>
+
+	<row id="msg_fac03_00_00">
+		<comment>バトルファクトリー　ID:d31r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="64">fac03-00-00</language>
+	</row>
+
+	<row id="msg_dun3101_00_00">
+		<comment>バトルパーク　ID:d31</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun3101-00-00</language>
+	</row>
+
+	<row id="msg_wifi01_00_00">
+		<comment>wifi建物　ID:c01r0601</comment>
+		<language name="日本語" font=" 1:font_system" width="64">wifi01-00-00</language>
+	</row>
+
+	<row id="msg_dun1101_00_00">
+		<comment>自然公園　ID:d11r0101</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun1101-00-00</language>
+	</row>
+
+	<row id="msg_dun0601_00_00">
+		<comment>湿原　ID:d06r0101</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0601-00-00</language>
+	</row>
+
+	<row id="msg_view01_00_00">
+		<comment>湿原ゲート1F　ID:c06r0101</comment>
+		<language name="日本語" font=" 1:font_system" width="64">view01-00-00</language>
+	</row>
+
+	<row id="msg_view02_00_00">
+		<comment>湿原ゲート1F　ID:c06r0102</comment>
+		<language name="日本語" font=" 1:font_system" width="64">view02-00-00</language>
+	</row>
+
+	<row id="msg_dun0514_00_00">
+		<comment>槍の神殿-ダイア　ID:d05r0114</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0514-00-00</language>
+	</row>
+
+	<row id="msg_dun0515_00_00">
+		<comment>槍の神殿-パール　ID:d05r0115</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0515-00-00</language>
+	</row>
+
+	<row id="msg_game01_00_00">
+		<comment>ゲームコーナー 　ID:c07r0101</comment>
+		<language name="日本語" font=" 1:font_system" width="64">game01-00-00</language>
+	</row>
+
+	<row id="msg_gift01_00_00">
+		<comment>けいひんこうかんしょ 　ID:c07r0401</comment>
+		<language name="日本語" font=" 1:font_system" width="64">gift01-00-00</language>
+	</row>
+
+	<row id="msg_dun0701_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0101</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0701-00-00</language>
+	</row>
+
+	<row id="msg_dun0702_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0102</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0702-00-00</language>
+	</row>
+
+	<row id="msg_dun0703_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0703-00-00</language>
+	</row>
+
+	<row id="msg_dun0704_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0104</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0704-00-00</language>
+	</row>
+
+	<row id="msg_dun0705_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0105</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0705-00-00</language>
+	</row>
+
+	<row id="msg_dun0706_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0106</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0706-00-00</language>
+	</row>
+
+	<row id="msg_dun0707_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0107</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0707-00-00</language>
+	</row>
+
+	<row id="msg_dun0708_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0108</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0708-00-00</language>
+	</row>
+
+	<row id="msg_dun0709_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0109</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0709-00-00</language>
+	</row>
+
+	<row id="msg_dun0710_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0110</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0710-00-00</language>
+	</row>
+
+	<row id="msg_dun0711_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0111</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0711-00-00</language>
+	</row>
+
+	<row id="msg_dun0712_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0112</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0712-00-00</language>
+	</row>
+
+	<row id="msg_dun0713_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0113</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0713-00-00</language>
+	</row>
+
+	<row id="msg_dun0714_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0114</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0714-00-00</language>
+	</row>
+
+	<row id="msg_dun0715_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0115</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0715-00-00</language>
+	</row>
+
+	<row id="msg_dun0716_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0116</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0716-00-00</language>
+	</row>
+
+	<row id="msg_dun0717_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0117</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0717-00-00</language>
+	</row>
+
+	<row id="msg_dun0718_00_00">
+		<comment>アンノーンダンジョン 　ID:d07r0118</comment>
+		<language name="日本語" font=" 1:font_system" width="64">dun0718-00-00</language>
+	</row>
+
+	<row id="msg_dun0901_00_00">
+		<comment>チャンピオンロード 　ID:d09r0101</comment>
+		<language name="日本語" font=" 1:font_system">dun0901-00-00</language>
+	</row>
+
+	<row id="msg_dun0902_00_00">
+		<comment>チャンピオンロード 　ID:d09r0102</comment>
+		<language name="日本語" font=" 1:font_system">dun0902-00-00</language>
+	</row>
+
+	<row id="msg_dun0903_00_00">
+		<comment>チャンピオンロード 　ID:d09r0103</comment>
+		<language name="日本語" font=" 1:font_system">dun0903-00-00</language>
+	</row>
+
+	<row id="msg_dun0904_00_00">
+		<comment>チャンピオンロード 　ID:d09r0104</comment>
+		<language name="日本語" font=" 1:font_system">dun0904-00-00</language>
+	</row>
+
+	<row id="msg_dun0905_00_00">
+		<comment>チャンピオンロード 　ID:d09r0105</comment>
+		<language name="日本語" font=" 1:font_system">dun0905-00-00</language>
+	</row>
+
+	<row id="msg_dun0906_00_00">
+		<comment>チャンピオンロード 　ID:d09r0106</comment>
+		<language name="日本語" font=" 1:font_system">dun0906-00-00</language>
+	</row>
+
+	<row id="msg_leag01_00_00">
+		<comment>ポケモリーグ受付 　ID:c10r0101</comment>
+		<language name="日本語" font=" 1:font_system">leag01-00-00</language>
+	</row>
+
+	<row id="msg_siten01_00_00">
+		<comment>してんのうの部屋１ 　ID:c10r0103</comment>
+		<language name="日本語" font=" 1:font_system">siten01-00-00</language>
+	</row>
+
+	<row id="msg_siten02_00_00">
+		<comment>してんのうの部屋２ 　ID:c10r0105</comment>
+		<language name="日本語" font=" 1:font_system">siten02-00-00</language>
+	</row>
+
+	<row id="msg_siten03_00_00">
+		<comment>してんのうの部屋３ 　ID:c10r0107</comment>
+		<language name="日本語" font=" 1:font_system">siten03-00-00</language>
+	</row>
+
+	<row id="msg_siten04_00_00">
+		<comment>してんのうの部屋４ 　ID:c10r0109</comment>
+		<language name="日本語" font=" 1:font_system">siten04-00-00</language>
+	</row>
+
+	<row id="msg_siten05_00_00">
+		<comment> 通路１　ID:c10r0102</comment>
+		<language name="日本語" font=" 1:font_system">siten05-00-00</language>
+	</row>
+
+	<row id="msg_siten06_00_00">
+		<comment> 通路２ 　ID:c10r0104</comment>
+		<language name="日本語" font=" 1:font_system">siten06-00-00</language>
+	</row>
+
+	<row id="msg_siten07_00_00">
+		<comment> 通路３ 　ID:c10r0110</comment>
+		<language name="日本語" font=" 1:font_system">siten07-00-00</language>
+	</row>
+
+	<row id="msg_champ01_00_00">
+		<comment>チャンピオンの部屋 　ID:c10r0111</comment>
+		<language name="日本語" font=" 1:font_system">champ01-00-00</language>
+	</row>
+
+	<row id="msg_dendou01_00_00">
+		<comment>殿堂入り通路 　ID:c10r0112</comment>
+		<language name="日本語" font=" 1:font_system">dendou01-00-00</language>
+	</row>
+
+	<row id="msg_dendou02_00_00">
+		<comment>殿堂入り部屋 　ID:c10r0113</comment>
+		<language name="日本語" font=" 1:font_system">dendou02-00-00</language>
+	</row>
+
+	<row id="msg_gate07_00_00">
+		<comment>サイクリングゲート大　ＩＤ：R206R0101
+</comment>
+		<language name="日本語" font=" 1:font_system">gate07-00-00</language>
+	</row>
+
+	<row id="msg_gate05_00_00">
+		<comment>ポケモンパークゲート　ＩＤ：R221R0101
+</comment>
+		<language name="日本語" font=" 1:font_system">gate05-00-00</language>
+	</row>
+
+	<row id="msg_dun1601_00_00">
+		<comment>火山１ ＩＤ：D16R0101
+
+</comment>
+		<language name="日本語" font=" 1:font_system">dun1601-00-00</language>
+	</row>
+
+	<row id="msg_dun1602_00_00">
+		<comment>火山２ ＩＤ：D16R0102
+
+</comment>
+		<language name="日本語" font=" 1:font_system">dun1602-00-00</language>
+	</row>
+
+	<row id="msg_dun1603_00_00">
+		<comment>火山３ ＩＤ：D16R0103
+
+</comment>
+		<language name="日本語" font=" 1:font_system">dun1603-00-00</language>
+	</row>
+
+	<row id="msg_dun0504_00_00">
+		<comment>Ｄ５外周　ＩＤ：D05R0104
+</comment>
+		<language name="日本語" font=" 1:font_system">dun0504-00-00</language>
+	</row>
+
+	<row id="msg_dun0505_00_00">
+		<comment>Ｄ５外周　ＩＤ：D05R0105</comment>
+		<language name="日本語" font=" 1:font_system">dun0505-00-00</language>
+	</row>
+
+	<row id="msg_dun2401_00_00">
+		<comment>鉱山１Ｆ　ＩＤ：D24R0101</comment>
+		<language name="日本語" font=" 1:font_system">dun2401-00-00</language>
+	</row>
+
+	<row id="msg_dun2402_00_00">
+		<comment>鉱山Ｂ１Ｆ　ＩＤ：D24R0102</comment>
+		<language name="日本語" font=" 1:font_system">dun2402-00-00</language>
+	</row>
+
+	<row id="msg_dun2403_00_00">
+		<comment>鉱山Ｂ２Ｆ　ＩＤ：D24R0103</comment>
+		<language name="日本語" font=" 1:font_system">dun2403-00-00</language>
+	</row>
+
+	<row id="msg_dun2404_00_00">
+		<comment>鉱山Ｂ３Ｆ　ＩＤ：D24R0104</comment>
+		<language name="日本語" font=" 1:font_system">dun2404-00-00</language>
+	</row>
+
+	<row id="msg_dun2405_00_00">
+		<comment>鉱山Ｂ４Ｆ　ＩＤ：D24R0105</comment>
+		<language name="日本語" font=" 1:font_system">dun2405-00-00</language>
+	</row>
+
+	<row id="msg_dun2406_00_00">
+		<comment>鉱山Ｂ５Ｆ　ＩＤ：D24R0106</comment>
+		<language name="日本語" font=" 1:font_system">dun2406-00-00</language>
+	</row>
+
+	<row id="msg_rich01_00_00">
+		<comment>屋敷　ＩＤ：R212AR0101</comment>
+		<language name="日本語" font=" 1:font_system">rich01-00-00</language>
+	</row>
+
+	<row id="msg_rich02_00_00">
+		<comment>屋敷　ＩＤ：R212AR0102</comment>
+		<language name="日本語" font=" 1:font_system">rich02-00-00</language>
+	</row>
+
+	<row id="msg_dun2301_00_00">
+		<comment>裏庭　ＩＤ：D23R0101
+</comment>
+		<language name="日本語" font=" 1:font_system">dun2301-00-00</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

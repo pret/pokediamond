@@ -1,0 +1,119 @@
+//========================================================================================
+//	技マシンのテーブル
+//	2002/03/15 by nakahiro
+//========================================================================================
+static const u16 MachineNo[] = {
+
+	// 技マシン
+	WAZANO_KIAIPANTI,			// No.01 : きあいパンチ
+	WAZANO_DORAGONKUROO,		// No.02 : ドラゴンクロー
+	WAZANO_MIZUNOHADOU,			// No.03 : みずのはどう
+	WAZANO_MEISOU,				// No.04 : めいそう
+	WAZANO_HOERU,				// No.05 : ほえる
+	WAZANO_DOKUDOKU,			// No.06 : どくどく
+	WAZANO_ARARE,				// No.07 : あられ
+	WAZANO_BIRUDOAPPU,			// No.08 : ビルドアップ
+	WAZANO_TANEMASINGAN,		// No.09 : タネマシンガン
+	WAZANO_MEZAMERUPAWAA,		// No.10 : めざめるパワー
+
+	WAZANO_NIHONBARE,			// No.11 : にほんばれ
+	WAZANO_TYOUHATU,			// No.12 : ちょうはつ
+	WAZANO_REITOUBIIMU,			// No.13 : れいとうビーム
+	WAZANO_HUBUKI,				// No.14 : ふぶき
+	WAZANO_HAKAIKOUSEN,			// No.15 : はかいこうせん
+	WAZANO_HIKARINOKABE,		// No.16 : ひかりのかべ
+	WAZANO_MAMORU,				// No.17 : まもる
+	WAZANO_AMAGOI,				// No.18 : あまごい
+	WAZANO_GIGADOREIN,			// No.19 : ギガドレイン
+	WAZANO_SINPINOMAMORI,		// No.20 : しんぴのまもり
+
+	WAZANO_YATUATARI,			// No.21 : やつあたり
+	WAZANO_SOORAABIIMU,			// No.22 : ソーラービーム
+	WAZANO_AIANTEERU,			// No.23 : アイアンテール
+	WAZANO_10MANBORUTO,			// No.24 : １０まんボルト
+	WAZANO_KAMINARI,			// No.25 : かみなり
+	WAZANO_ZISIN,				// No.26 : じしん
+	WAZANO_ONGAESI,				// No.27 : おんがえし
+	WAZANO_ANAWOHORU,			// No.28 : あなをほる
+	WAZANO_SAIKOKINESISU,		// No.29 : サイコキネシス
+	WAZANO_SYADOOBOORU,			// No.30 : シャドーボール
+
+	WAZANO_KAWARAWARI,			// No.31 : かわらわり
+	WAZANO_KAGEBUNSIN,			// No.32 : かげぶんしん
+	WAZANO_RIHUREKUTAA,			// No.33 : リフレクター
+	WAZANO_DENGEKIHA,			// No.34 : でんげきは
+	WAZANO_KAENHOUSYA,			// No.35 : かえんほうしゃ
+	WAZANO_HEDOROBAKUDAN,		// No.36 : ヘドロばくだん
+	WAZANO_SUNAARASI,			// No.37 : すなあらし
+	WAZANO_DAIMONZI,			// No.38 : だいもんじ
+	WAZANO_GANSEKIHUUZI,		// No.39 : がんせきふうじ
+	WAZANO_TUBAMEGAESI,			// No.40 : つばめがえし
+
+	WAZANO_ITYAMON,				// No.41 : いちゃもん
+	WAZANO_KARAGENKI,			// No.42 : からげんき
+	WAZANO_HIMITUNOTIKARA,		// No.43 : ひみつのちから
+	WAZANO_NEMURU,				// No.44 : ねむる
+	WAZANO_MEROMERO,			// No.45 : メロメロ
+	WAZANO_DOROBOU,				// No.46 : どろぼう
+	WAZANO_HAGANENOTUBASA,		// No.47 : はがねのつばさ
+	WAZANO_SUKIRUSUWAPPU,		// No.48 : スキルスワップ
+	WAZANO_YOKODORI,			// No.49 : よこどり
+	WAZANO_OOBAAHIITO,			// No.50 : オーバーヒート
+
+	WAZANO_HANEYASUME,			// No.51 : はねやすめ
+	WAZANO_KIAIDAMA,			// No.52 : きあいだま
+	WAZANO_ENAZIIBOORU,			// No.53 : エナジーボール
+	WAZANO_MINEUTI,				// No.54 : みねうち
+	WAZANO_SIOMIZU,				// No.55 : しおみず
+	WAZANO_NAGETUKERU,			// No.56 : なげつける
+	WAZANO_TYAAZIBIIMU,			// No.57 : チャージビーム
+	WAZANO_KORAERU,				// No.58 : こらえる
+	WAZANO_RYUUNOHADOU,			// No.59 : りゅうのはどう
+	WAZANO_DOREINPANTI,			// No.60 : ドレインパンチ
+
+	WAZANO_ONIBI,				// No.61 : おにび
+	WAZANO_GINIRONOKAZE,		// No.62 : ぎんいろのかぜ
+	WAZANO_SASIOSAE,			// No.63 : さしおさえ
+	WAZANO_DAIBAKUHATU,			// No.64 : だいばくはつ
+	WAZANO_SYADOOKUROO,			// No.65 : シャドークロー
+	WAZANO_SIPPEGAESI,			// No.66 : しっぺがえし
+	WAZANO_RISAIKURU,			// No.67 : リサイクル
+	WAZANO_GIGAINPAKUTO,		// No.68 : ギガインパクト
+	WAZANO_ROKKUKATTO,			// No.69 : ロックカット
+	WAZANO_HURASSYU,			// No.70 : フラッシュ
+
+	WAZANO_SUTOONEZI,			// No.71 : ストーンエッジ
+	WAZANO_YUKINADARE,			// No.72 : ゆきなだれ
+	WAZANO_DENZIHA,				// No.73 : でんじは
+	WAZANO_ZYAIROBOORU,			// No.74 : ジャイロボール
+	WAZANO_TURUGINOMAI,			// No.75 : つるぎのまい
+	WAZANO_SUTERUSUROKKU,		// No.76 : ステルスロック
+	WAZANO_ZIKOANZI,			// No.77 : じこあんじ
+	WAZANO_YUUWAKU,				// No.78 : ゆうわく
+	WAZANO_AKUNOHADOU,			// No.79 : あくのはどう
+	WAZANO_IWANADARE,			// No.80 : いわなだれ
+
+	WAZANO_SIZAAKUROSU,			// No.81 : シザークロス
+	WAZANO_NEGOTO,				// No.82 : ねごと
+	WAZANO_SIZENNOMEGUMI,		// No.83 : しぜんのめぐみ
+	WAZANO_DOKUDUKI,			// No.84 : どくづき
+	WAZANO_YUMEKUI,				// No.85 : ゆめくい
+	WAZANO_KUSAMUSUBI,			// No.86 : くさむすび
+	WAZANO_IBARU,				// No.87 : いばる
+	WAZANO_TUIBAMU,				// No.88 : ついばむ
+	WAZANO_TONBOGAERI,			// No.89 : とんぼがえり
+	WAZANO_MIGAWARI,			// No.90 : みがわり
+
+	WAZANO_RASUTAAKANON,		// No.91 : ラスターカノン
+	WAZANO_TORIKKURUUMU,		// No.92 : トリックルーム
+
+	// 秘伝マシン
+	WAZANO_IAIGIRI,				// Ex.01 : いあいぎり
+	WAZANO_SORAWOTOBU,			// Ex.02 : そらをとぶ
+	WAZANO_NAMINORI,			// Ex.03 : なみのり
+	WAZANO_KAIRIKI,				// Ex.04 : かいりき
+	WAZANO_KIRIBARAI,			// Ex.05 : きりばらい
+	WAZANO_IWAKUDAKI,			// Ex.06 : いわくだき
+	WAZANO_TAKINOBORI,			// Ex.07 : たきのぼり
+	WAZANO_ROKKUKURAIMU,		// Ex.08 : ロッククライム
+};

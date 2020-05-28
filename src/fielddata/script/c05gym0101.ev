@@ -1,0 +1,167 @@
+//====================================================================
+//						c05gym0101.gmm
+//					シティ０５・gym0101
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c05gym0101.h"
+
+//ローカルワークの使用状況
+//※flag_changeのタイミングでローカルワーク1（LOCALWORK1）を使用します
+//※ゴーストジム内にあるリフトに対して、ローカルワーク0（LOCALWORK0）を使用します
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA ev_c05gym0101_flag_change
+_EVENT_DATA	ev_c05gym0101_lift_event_off
+_EVENT_DATA pos_c05gym0101_lift
+_EVENT_DATA ev_c05gym0101_question
+_EVENT_DATA	ev_c05gym0101_advice
+_EVENT_DATA	ev_c05gym0101_statue
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						フラグチェンジ								*/
+//			マップ遷移タイミングで一度のみ呼ばれる
+/********************************************************************/
+ev_c05gym0101_flag_change:
+	_LDVAL	LOCALWORK0,0		//ワーク初期化
+	_INIT_GHOST_GYM
+
+	//posイベントの制御(下記フラグが成立している場合のみposイベントが発動)
+	_IF_FLAGOFF_JUMP	SYS_FLAG_T05_GINGA_EVENT,ev_c05gym0101_lift_event_off
+/**	
+	//posイベントの制御(トバリ、ノモセのジムバッジを持っている場合のみposイベントが発動)
+	
+	//トバリバッチ取得済みかチェック
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C07,LOCALWORK1
+	_IFVAL_JUMP	LOCALWORK1,EQ,0,ev_c05gym0101_lift_event_off	//持ってない
+	//ノモセバッチ取得済みかチェック
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C06,LOCALWORK1
+	_IFVAL_JUMP	LOCALWORK1,EQ,0,ev_c05gym0101_lift_event_off	//持ってない
+*/	//<<シナリオ変更下ので不要になりました	20060626
+
+	
+	_END
+
+ev_c05gym0101_lift_event_off:
+	//トバリ・ノモセバッジそろってないので、ジム挑戦不可（リフトposイベント発動しない）
+	_LDVAL	LOCALWORK0,1		//	0で発動なので1をセットして、発動しないようにする
+	_END
+
+/********************************************************************/
+/*							posイベント								*/
+/********************************************************************/
+pos_c05gym0101_lift:
+	_MOVE_GHOST_GYM_LIFT			//リフト移動
+	_END
+
+/********************************************************************/
+/*							問題表示								*/
+/********************************************************************/
+ev_c05gym0101_question:				//問題
+	_TALK_START
+	_TALKMSG		msg_c05gym0101_sign1_01
+
+	//音色を変えた方がいいかも？
+	//ジムのBGMに近い旋律があるかも？
+	//_SE_PLAY		SEQ_SE_DP_MAZYO2
+	_SE_PLAY		SEQ_SE_DP_MAZYO4
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							アドバイス								*/
+/********************************************************************/
+ev_c05gym0101_advice:
+	_TALK_OBJ_START
+
+	//カンナギでギンガ団ボスと会話していなかったら
+	_IF_FLAGOFF_JUMP	FE_T05_GINGABOSS_TALK,ev_c05gym0101_advice_03
+
+	//バッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C05,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c05gym0101_advice_02
+
+	//クリア前
+	_TALKMSG	msg_c05gym0101_sunglasses_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c05gym0101_advice_02:
+	//クリア後
+	_PLAYER_NAME	0
+	_TALKMSG	msg_c05gym0101_sunglasses_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//カンナギでギンガ団ボスと会話していなかったら
+ev_c05gym0101_advice_03:
+	//ジム挑戦不可の話を聞いていたら
+	_IF_FLAGON_JUMP	FE_C05GYM0101_SUNGLASSES_TALK,ev_c05gym0101_advice_04
+
+	//ジム挑戦不可
+	_FLAG_SET		FE_C05GYM0101_SUNGLASSES_TALK		//会話した
+	_TALKMSG		msg_c05gym0101_sunglasses_a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ジム挑戦不可の話を聞いていたら
+ev_c05gym0101_advice_04:
+	_TALKMSG		msg_c05gym0101_sunglasses_a_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							看板									*/
+/********************************************************************/
+ev_c05gym0101_statue:
+	_TALK_START
+
+	//バッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C05,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c05gym0101_statue_02
+
+	//看板　クリア前
+	_RIVAL_NAME		0
+	_RIVAL_NAME		1
+	_TALKMSG	msg_c05gym0101_statue_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//看板　クリア後
+ev_c05gym0101_statue_02:
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_RIVAL_NAME		2
+	_TALKMSG	msg_c05gym0101_statue_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

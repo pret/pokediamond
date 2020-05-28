@@ -1,0 +1,84 @@
+//====================================================================
+//								r213r0601
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r213r0601.h"
+	//.include	"../eventdata/zone_r213r0601evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r213r0601_gorggeousm
+_EVENT_DATA		ev_r213r0601_gorggeousw
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_r213r0601_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*						ゴージャス兄さん							*/
+/********************************************************************/
+ev_r213r0601_gorggeousm:
+	_TALK_OBJ_START
+
+	//「ポケモンリスト」を取得済みかチェック
+	_POKETCH_CHECK	POKETCH_APPID_COINTOSS,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,NE,0,ev_r213r0601_gorggeousm_02
+
+	_TALK_KEYWAIT		msg_r213r0601_gorggeousm_01
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_COINTOSS	
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r213r0601_gorggeousm_02:
+	_TALKMSG		msg_r213r0601_gorggeousm_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*						ゴージャス姉さん							*/
+/********************************************************************/
+ev_r213r0601_gorggeousw:
+	_TALK_OBJ_START
+
+	//アプリ入手後（クリア条件はなし）はメッセージ変化（060614松宮さん確認）
+	_POKETCH_CHECK	POKETCH_APPID_COINTOSS,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,NE,0,ev_r213r0601_gorggeousw_02
+
+	_JUMP			ev_r213r0601_gorggeousw_01
+
+ev_r213r0601_gorggeousw_01:
+	_TALKMSG		msg_r213r0601_gorggeousw_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r213r0601_gorggeousw_02:
+	_TALKMSG		msg_r213r0601_gorggeousw_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

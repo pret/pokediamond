@@ -1,0 +1,793 @@
+//====================================================================
+//							connect
+//						通信スクリプト
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_connect.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_connect_obj_change
+_EVENT_DATA		ev_connect_colosseum
+_EVENT_DATA		ev_connect_colosseum_battle_start
+_EVENT_DATA		ev_connect_union
+_EVENT_DATA		ev_connect_record
+_EVENT_DATA		ev_connect_contest
+_EVENT_DATA		ev_connect_colosseum_debug_oya
+_EVENT_DATA		ev_connect_colosseum_debug_ko
+_EVENT_DATA		ev_connect_contest_debug_oya
+_EVENT_DATA		ev_connect_contest_debug_ko
+_EVENT_DATA		ev_connect_wifi_p2p_match
+_EVENT_DATA		ev_connect_tsign
+_EVENT_DATA		ev_connect_battle_return
+_EVENT_DATA		ev_connect_union_return
+_EVENT_DATA		ev_connect_record_return
+_EVENT_DATA		ev_connect_wifi_return
+_EVENT_DATA		ev_connect_dame_tamago_msg
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						OBJ_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_connect_obj_change:
+	//通信部屋から出てくる時は主人公をバニッシュする
+	_IFVAL_CALL		WK_SCENE_COMM_ID,NE,SCR_COMM_ID_NOTHING,ev_connect_obj_change_vanish
+	_END
+
+//オープニング会場で主人公をバニッシュする
+ev_connect_obj_change_vanish:
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	_RET
+
+
+/********************************************************************/
+//
+/*					通信部屋から戻ってくる処理						*/
+//
+//	LOCALWORK0	カウンターX
+//	LOCALWORK1	カウンターZ
+//	LOCALWORK2	部屋のドアZ
+//
+/********************************************************************/
+ev_connect_record_return:
+ev_connect_wifi_return:
+ev_connect_battle_return:
+	_LDVAL			LOCALWORK0,13
+	_LDVAL			LOCALWORK1,5
+	_LDVAL			LOCALWORK2,2
+	_JUMP			common_connect_return
+	_END
+
+ev_connect_union_return:
+	_LDVAL			LOCALWORK0,8
+	_LDVAL			LOCALWORK1,5
+	_LDVAL			LOCALWORK2,2
+	_JUMP			common_connect_return
+	_END
+
+/*共通復帰処理*/
+common_connect_return:
+	_EVENT_START
+
+	//通信部屋のドアが開く
+	_SET_UP_DOOR_ANIME	0,0,LOCALWORK0,LOCALWORK2,77
+	_CALL			connect_door_open
+	_OBJ_VISIBLE	FLDOBJ_ID_PLAYER
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_connect_return_player_00
+	_OBJ_ANIME_WAIT
+	_CALL			connect_door_close
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_connect_return_player_01
+	_OBJ_ANIME_WAIT
+
+	//カウンター開く
+	_SET_UP_DOOR_ANIME	0,0,LOCALWORK0,LOCALWORK1,77
+	_CALL			connect_door_open
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_connect_return_player_02
+	_OBJ_ANIME_WAIT
+	_CALL			connect_door_close
+
+	_FLAG_RESET	SYS_FLAG_COMM_COUNTER			//通信カウンター通過フラグ(システム)
+	_LDVAL		WK_SCENE_COMM_ID,SCR_COMM_ID_NOTHING
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	ドアの方へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_connect_return_player_00
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_connect_return_player_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_connect_return_player_02
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//====================================================================
+//
+//							コロシアム
+//
+//	SCWK_TEMP0	バトルモード
+//	SCWK_TEMP1	バトルタイプ
+//====================================================================
+//#define DEBUG_CONNECT_WIN	//有効：すぐに通信を開始するデバック
+
+/********************************************************************/
+//
+/*								受付								*/
+//
+/********************************************************************/
+ev_connect_colosseum:
+	_TALK_OBJ_START
+
+	/*手持ちにダメタマゴがいるかチェック*/
+	_DAME_TAMAGO_CHK_ALL	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_connect_dame_tamago
+
+#ifdef DEBUG_CONNECT_WIN
+	_JUMP			debug_ev_connect_colosseum_menu_02
+	_END
+#endif
+
+	_TALK_KEYWAIT	msg_connect_colosseum_01
+	_JUMP			ev_connect_colosseum_menu_01
+	_END
+
+//選択01
+ev_connect_colosseum_menu_01:
+	_TALKMSG		msg_connect_colosseum_02
+
+	_BMPLIST_INIT		1,1,1,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPLIST_MAKE_LIST	msg_ev_win_140,EV_WIN_TALK_MSG_NONE,EV_WIN_LIST_LABEL	//ラベル
+	_BMPLIST_MAKE_LIST	msg_ev_win_007,EV_WIN_TALK_MSG_NONE,0
+	_BMPLIST_MAKE_LIST	msg_ev_win_008,EV_WIN_TALK_MSG_NONE,1
+	_BMPLIST_MAKE_LIST	msg_ev_win_009,EV_WIN_TALK_MSG_NONE,2
+	_BMPLIST_MAKE_LIST	msg_ev_win_141,EV_WIN_TALK_MSG_NONE,EV_WIN_LIST_LABEL	//ラベル
+	_BMPLIST_MAKE_LIST	msg_ev_win_010,EV_WIN_TALK_MSG_NONE,3
+	_BMPLIST_MAKE_LIST	msg_ev_win_011,EV_WIN_TALK_MSG_NONE,4
+	_BMPLIST_MAKE_LIST	msg_ev_win_012,EV_WIN_TALK_MSG_NONE,5
+	_BMPLIST_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_connect_colosseum_01		//ふたり	シングルバトル
+	_CASE_JUMP		1,ev_connect_colosseum_02		//			ダブルバトル
+	_CASE_JUMP		2,ev_connect_colosseum_03		//			ミックスバトル
+	_CASE_JUMP		3,ev_connect_colosseum_04		//よにん	マルチバトル
+	_CASE_JUMP		4,ev_connect_colosseum_guide	//説明へ
+	_JUMP			ev_connect_common_cancel
+	_END
+
+//「説明」
+ev_connect_colosseum_guide:
+	_TALK_KEYWAIT	msg_connect_colosseum_03
+	_JUMP			ev_connect_colosseum_menu_01	//選択01へ
+	_END
+
+//「やめる」終了
+ev_connect_common_cancel:
+	_TALK_KEYWAIT	msg_connect_rule_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//バトルモード選択した
+//--------------------------------------------------------------------
+ev_connect_colosseum_01:
+	_LDVAL			SCWK_TEMP0,COMM_MODE_BATTLE_SINGLE		//1vs1 バトル
+
+	/*ルールブックをつかう？*/
+//	_TALKMSG		msg_connect_rulebook_17
+//	_YES_NO_WIN		SCWK_ANSWER
+//	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_connect_colosseum_reguration
+	_JUMP			ev_connect_colosseum_reguration
+
+	_JUMP			ev_connect_colosseum_menu_03
+	_END
+
+ev_connect_colosseum_02:
+	_LDVAL			SCWK_TEMP0,COMM_MODE_BATTLE_DOUBLE		//1vs1 ダブルバトル
+// ポケモン数検査
+	_GET_POKE_COUNT2		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,2,ev_connect_colosseum_02_err
+	_JUMP           ev_connect_colosseum_reguration
+
+//検査不合格
+ev_connect_colosseum_02_err:
+	_TALKMSG        msg_connect_colosseum_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_connect_colosseum_03:
+	_LDVAL			SCWK_TEMP0,COMM_MODE_BATTLE_MIX_1ON1	//1vs1 ミックスバトル
+
+	_GET_POKE_COUNT2		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,3,ev_connect_colosseum_03_err
+	_JUMP           ev_connect_colosseum_menu_03
+
+//検査不合格
+ev_connect_colosseum_03_err:
+	_TALKMSG        msg_connect_colosseum_17
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_connect_colosseum_04:
+	_LDVAL			SCWK_TEMP0,COMM_MODE_BATTLE_MULTI		//2vs2 マルチバトル
+
+	_GET_POKE_COUNT2		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,3,ev_connect_colosseum_04_err
+	_JUMP           ev_connect_colosseum_menu_03
+
+//検査不合格
+ev_connect_colosseum_04_err:
+	_TALKMSG        msg_connect_colosseum_16
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ルールブック*/
+ev_connect_colosseum_reguration:
+	_REGULATION_LIST_CALL	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,REGULATION_RET_OK,ev_connect_colosseum_menu_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,REGULATION_RET_NONE,ev_connect_colosseum_menu_03
+	_JUMP			ev_connect_common_cancel
+	_END
+
+//選択03
+ev_connect_colosseum_menu_03:
+	_LDVAL			SCWK_TEMP1,COMM_REG_NORMAL
+	_JUMP			ev_connect_colosseum_menu_04
+	_END
+
+//--------------------------------------------------------------------
+//バトルタイプ選択した
+//--------------------------------------------------------------------
+ev_connect_colosseum_11:
+	_LDVAL			SCWK_TEMP1,COMM_REG_NORMAL
+	_JUMP			ev_connect_colosseum_menu_04
+	_END
+
+ev_connect_colosseum_12:
+	_LDVAL			SCWK_TEMP1,COMM_REG_FANCY
+	_JUMP			ev_connect_colosseum_menu_04
+	_END
+
+ev_connect_colosseum_13:
+	_LDVAL			SCWK_TEMP1,COMM_REG_YELLOW
+	_JUMP			ev_connect_colosseum_menu_04
+	_END
+
+ev_connect_colosseum_14:
+	_LDVAL			SCWK_TEMP1,COMM_REG_PEARL
+	_JUMP			ev_connect_colosseum_menu_04
+	_END
+
+ev_connect_colosseum_15:
+	_LDVAL			SCWK_TEMP1,COMM_REG_DIAMOND
+	_JUMP			ev_connect_colosseum_menu_04
+	_END
+
+//選択04
+ev_connect_colosseum_menu_04:
+	// 全ポケモン回復
+	_PC_KAIFUKU
+
+	//各種エラーチェック
+	//
+
+	//セーブしますか？(LOCALWORK0に結果が代入される)
+	_CHG_COMMON_SCR	SCRID_REPORT_CALL
+	_LDWK			SCWK_ANSWER,LOCALWORK0
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_connect_colosseum_menu_02	//成功
+	_JUMP			ev_connect_common_cancel		//終了へ
+
+/*
+	_TALKMSG		msg_connect_colosseum_10
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_connect_colosseum_menu_02
+	_JUMP			ev_connect_common_cancel		//終了へ
+*/
+	_END
+
+//--------------------------------------------------------------------
+//グループ、リーダー選択メニュー
+//--------------------------------------------------------------------
+ev_connect_colosseum_menu_02:
+	//バトルモード(２人、４人によって分岐)
+	_IFVAL_CALL		SCWK_TEMP0,EQ,COMM_MODE_BATTLE_SINGLE,	ev_connect_colosseum_num_2
+	_IFVAL_CALL		SCWK_TEMP0,EQ,COMM_MODE_BATTLE_DOUBLE,	ev_connect_colosseum_num_2
+	_IFVAL_CALL		SCWK_TEMP0,EQ,COMM_MODE_BATTLE_MIX_1ON1,ev_connect_colosseum_num_2
+	_IFVAL_CALL		SCWK_TEMP0,EQ,COMM_MODE_BATTLE_MULTI,	ev_connect_colosseum_num_4
+
+//デバックジャンプ用ラベル
+debug_ev_connect_colosseum_menu_02:
+	_BMPMENU_INIT		18,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_014,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_015,1
+	_BMPMENU_MAKE_LIST	msg_ev_win_006,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_connect_colosseum_21		//グループ
+	_CASE_JUMP		1,ev_connect_colosseum_22		//リーダー
+	_JUMP			ev_connect_common_cancel		//終了へ
+	_END
+
+//ふたり
+ev_connect_colosseum_num_2:
+	_TALKMSG		msg_connect_direct2_01
+	_RET
+
+//よにん
+ev_connect_colosseum_num_4:
+	_TALKMSG		msg_connect_direct4_01
+//	_TALKMSG		msg_connect_direct2_01
+	_RET
+
+//--------------------------------------------------------------------
+//グループ
+//--------------------------------------------------------------------
+ev_connect_colosseum_21:
+	//DSワイヤレス通信を始めますか？
+	_TALKMSG		msg_connect_common_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_connect_colosseum_menu_02
+
+	_TALK_CLOSE
+
+	//親機を選択するウィンドウを開く
+#ifdef DEBUG_CONNECT_WIN
+	_DEBUG_PARENT_WIN	SCWK_ANSWER
+#else
+	_SEL_PARENT_WIN	SCWK_TEMP0,SCWK_TEMP1,0,SCWK_ANSWER
+#endif
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_CANCEL,ev_connect_group_cancel	//キャンセル
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_ERROR,ev_connect_group_error		//エラー
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_DIFFER_REGULATION,ev_connect_group_differ  //レギュレーションが違っていた
+
+	//それ以外
+	_JUMP			ev_connect_colosseum_31										//成功
+	_END
+
+//キャンセル
+ev_connect_group_cancel:
+	_COMM_DIRECT_END
+	_JUMP			ev_connect_colosseum_menu_02
+	_END
+
+//エラー
+ev_connect_group_error:
+	_COMM_DIRECT_END
+	_TALK_KEYWAIT	msg_connect_rule_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//レギュレーションが違った
+ev_connect_group_differ:
+	_COMM_DIRECT_END
+	_TALK_KEYWAIT	msg_connect_rule_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//リーダー
+//--------------------------------------------------------------------
+ev_connect_colosseum_22:
+	//DSワイヤレス通信を始めますか？
+	_TALKMSG		msg_connect_common_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_connect_colosseum_menu_02
+
+	_TALK_CLOSE
+
+	//子機を選択するウィンドウを開く
+#ifdef DEBUG_CONNECT_WIN
+	_DEBUG_CHILD_WIN	SCWK_ANSWER
+#else
+	_SEL_CHILD_WIN	SCWK_TEMP0,SCWK_TEMP1,0,SCWK_ANSWER
+#endif
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_CANCEL,ev_connect_leader_cancel	//キャンセル
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_ERROR,ev_connect_leader_error	//エラー
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_DIFFER_REGULATION,ev_connect_leader_differ  //レギュレーションが違っていた
+
+	//それ以外
+	_JUMP			ev_connect_colosseum_31										//成功
+	_END
+
+//キャンセル
+ev_connect_leader_cancel:
+	_COMM_DIRECT_END
+	_JUMP			ev_connect_colosseum_menu_02
+	_END
+
+//エラー
+ev_connect_leader_error:
+	_COMM_DIRECT_END
+	_TALK_KEYWAIT	msg_connect_rule_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//レギュレーションが違った
+ev_connect_leader_differ:
+	_COMM_DIRECT_END
+	_TALK_KEYWAIT	msg_connect_rule_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//--------------------------------------------------------------------
+//成功
+//--------------------------------------------------------------------
+ev_connect_colosseum_31:
+	_LDVAL			WK_SCENE_COMM_ID,SCR_COMM_ID_BATTLE	/*通信受付IDセット*/
+	_FLAG_SET		SYS_FLAG_COMM_COUNTER				/*通信カウンター通過フラグ(システム)*/
+
+	//バトル開始
+
+	//_TALK_KEYWAIT	msg_connect_direct4_10
+	_TALKMSG_NOSKIP	msg_connect_direct4_10
+
+	/*キー待ち　ＯＲ　時間待ち*/
+	_AB_KEY_TIME_WAIT	45
+
+	//通信同期
+	_COMM_SYNCHRONIZE	DBC_TIM_BATTLE_ROOMIN
+
+	_TALK_CLOSE
+
+	//ドアアニメをセットアップ
+	_SET_UP_DOOR_ANIME	0,0,13,5,77
+	_CALL			connect_door_open
+
+	//主人公　ドアの方へ
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_01_connect_colosseum_player
+	_OBJ_ANIME_WAIT
+
+	/*ドアを閉める*/
+	_CALL			connect_door_close
+
+	//主人公　ドアの方へ
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_01_connect_colosseum_player_02
+	_OBJ_ANIME_WAIT
+
+	//ドアアニメをセットアップ
+	_SET_UP_DOOR_ANIME	0,0,13,2,77
+	_CALL			connect_door_open
+
+	//主人公　ドアの方へ
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_01_connect_colosseum_player_03
+	_OBJ_ANIME_WAIT
+
+	/*ドアを閉める*/
+	_CALL			connect_door_close
+
+	/*マルチバトルの時は、遷移するマップを変更する*/
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,COMM_MODE_BATTLE_MULTI,ev_connect_colosseum_num_4_map
+
+	/*マップ遷移先のX座標を自機のNET_IDで決定する*/
+	_COMM_GET_CURRENT_ID		SCWK_ANSWER
+	_ADD_WK						SCWK_ANSWER,7
+	_COLOSSEUM_MAP_CHANGE_IN	ZONE_ID_DIRECT2,0,SCWK_ANSWER,11,DIR_UP
+	_END
+
+/*マルチバトルの時は、遷移するマップを変更する*/
+ev_connect_colosseum_num_4_map:
+	/*マップ遷移先のX座標を自機のNET_IDで決定する*/
+	_COMM_GET_CURRENT_ID		SCWK_ANSWER
+	_ADD_WK						SCWK_ANSWER,6
+	_COLOSSEUM_MAP_CHANGE_IN	ZONE_ID_DIRECT4,0,SCWK_ANSWER,11,DIR_UP
+	_END
+
+connect_door_open:
+	_SEQ_OPEN_DOOR	77	//ドア開ける
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_RET
+
+connect_door_close:
+	_SEQ_CLOSE_DOOR	77	//ドア閉める
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_FREE_3D_ANIME	77	//ドアアニメ解放
+	_RET
+
+
+/********************************************************************/
+//
+//		大野さんの通信プログラムから呼ばれる(戦闘のみ)
+//
+/********************************************************************/
+ev_connect_colosseum_battle_start:
+	_DEBUG_SIO_ENCOUNT
+	
+	//戦闘終了後、もう一度通信歩き回りを開始
+	_COMM_DIRECT_ENTER_BTL_ROOM
+
+	_END
+
+//--------------------------------------------------------------------
+//主人公	ドアの方へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_01_connect_colosseum_player
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_01_connect_colosseum_player_02
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_01_connect_colosseum_player_03
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+
+//====================================================================
+//
+//							ユニオンルーム
+//
+//====================================================================
+
+/********************************************************************/
+//
+/*								受付								*/
+//
+/********************************************************************/
+ev_connect_union:
+	_TALK_OBJ_START
+
+	/*手持ちにダメタマゴがいるかチェック*/
+	_DAME_TAMAGO_CHK_ALL	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_connect_dame_tamago
+
+	_JUMP			ev_connect_union_menu_01
+	_END
+
+//選択01
+ev_connect_union_menu_01:
+	_TALKMSG		msg_connect_union_01
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_046,0			//はい
+	_BMPMENU_MAKE_LIST	msg_ev_win_047,1			//いいえ
+	_BMPMENU_MAKE_LIST	msg_ev_win_011,2			//説明
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_connect_union_01			//はい
+	_CASE_JUMP		1,ev_connect_common_cancel		//いいえ
+	_CASE_JUMP		2,ev_connect_union_menu_guide	//説明へ
+	_JUMP			ev_connect_common_cancel
+	_END
+
+//「説明」
+ev_connect_union_menu_guide:
+	_TALKMSG		msg_connect_union_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_connect_union_01
+	_JUMP			ev_connect_common_cancel		//終了へ
+	_END
+
+//セーブ
+ev_connect_union_01:
+	_LDVAL			SCWK_TEMP0,COMM_MODE_UNION		//ユニオンルーム
+	// 全ポケモン回復
+	_PC_KAIFUKU
+
+	//各種エラーチェック
+	//
+
+	//DSワイヤレス通信を始めますか？
+	_TALKMSG		msg_connect_common_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_connect_common_cancel
+
+	_LDVAL			WK_SCENE_COMM_ID,SCR_COMM_ID_UNION	/*通信受付IDセット*/
+	_FLAG_SET		SYS_FLAG_COMM_COUNTER				/*通信カウンター通過フラグ(システム)*/
+
+	//セーブしますか？(LOCALWORK0に結果が代入される)
+	_CHG_COMMON_SCR	SCRID_REPORT_CALL
+	_LDWK			SCWK_ANSWER,LOCALWORK0
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_connect_union_menu_03	//成功
+
+//ユニオンルームキャンセル
+ev_connect_union_cancel:
+	_LDVAL			WK_SCENE_COMM_ID,SCR_COMM_ID_NOTHING
+	_FLAG_RESET		SYS_FLAG_COMM_COUNTER
+
+	_JUMP			ev_connect_common_cancel
+
+//成功
+ev_connect_union_menu_03:
+	_LDVAL			WK_SCENE_COMM_ID,SCR_COMM_ID_UNION	/*通信受付IDセット*/
+	_FLAG_SET		SYS_FLAG_COMM_COUNTER				/*通信カウンター通過フラグ(システム)*/
+
+	_TALK_KEYWAIT	msg_connect_union_07
+	_TALK_CLOSE
+
+	//ドアアニメをセットアップ
+	_SET_UP_DOOR_ANIME	0,0,8,5,77
+	_CALL			connect_door_open
+
+	//主人公　ドアの方へ
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_01_connect_colosseum_player
+	_OBJ_ANIME_WAIT
+
+	/*ドアを閉める*/
+	_CALL			connect_door_close
+
+	//主人公　ドアの方へ
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_01_connect_colosseum_player_02
+	_OBJ_ANIME_WAIT
+
+	//ドアアニメをセットアップ
+	_SET_UP_DOOR_ANIME	0,0,8,2,77
+	_CALL			connect_door_open
+
+	//主人公　ドアの方へ
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_01_connect_colosseum_player_03
+	_OBJ_ANIME_WAIT
+
+	/*ドアを閉める*/
+	_CALL			connect_door_close
+
+	_TALK_OBJ_END
+	_UNION_MAP_CHANGE		//ユニオンルームへ移動中！
+	_END
+
+
+//====================================================================
+//							レコードコーナー
+//====================================================================
+ev_connect_record:
+	_END
+
+
+//====================================================================
+//							コンテスト
+//====================================================================
+ev_connect_contest:
+	_END
+
+
+/********************************************************************/
+/*							デバック								*/
+/********************************************************************/
+ev_connect_colosseum_debug_oya:
+	_END
+
+ev_connect_colosseum_debug_ko:
+	_END
+
+ev_connect_contest_debug_oya:
+	_END
+
+ev_connect_contest_debug_ko:
+	_END
+
+
+/********************************************************************/
+//
+/*				P2P対戦マッチングボード(デバック用)					*/
+//
+/********************************************************************/
+ev_connect_wifi_p2p_match:
+	_FINISH_MAP_PROC
+	_WIFI_P2P_MATCH_EVENT_CALL
+	_SET_MAP_PROC
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_END
+
+
+/********************************************************************/
+//
+/*						トレーナーサイン							*/
+//
+/********************************************************************/
+ev_connect_tsign:
+	_TALK_OBJ_START
+
+	_FLAG_SET		FE_CONNECT_TSIGN_TALK
+
+	_TALK_KEYWAIT	msg_connect_tsign_01
+	_JUMP			ev_connect_tsign_menu
+	_END
+
+ev_connect_tsign_menu:
+	_TALKMSG		msg_connect_tsign_02
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_046,0			//はい
+	_BMPMENU_MAKE_LIST	msg_ev_win_047,1			//いいえ
+	_BMPMENU_MAKE_LIST	msg_ev_win_011,2			//説明
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,yes_connect_tsign_01			//はい
+	_CASE_JUMP		1,no_connect_tsign_01			//いいえ
+	_CASE_JUMP		2,guide_connect_tsigh_01		//説明へ
+	_JUMP			no_connect_tsign_01				//いいえ
+	_END
+
+/*説明*/
+guide_connect_tsigh_01:
+	_TALK_KEYWAIT	msg_connect_tsign_04
+	_JUMP			ev_connect_tsign_menu
+	_END
+
+/*「はい」*/
+yes_connect_tsign_01:
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TSIGN_SET_PROC
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_JUMP			no_connect_tsign_01
+	_END
+
+/*「いいえ」*/
+no_connect_tsign_01:
+	_TALKMSG		msg_connect_tsign_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+//
+/*					手持ちにダメタマゴがいる時						*/
+//
+/********************************************************************/
+ev_connect_dame_tamago:
+	_CALL			ev_connect_dame_tamago_msg_sub
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*				ダメタマゴの警告メッセージ(共通呼び出しされる)　	*/
+/********************************************************************/
+ev_connect_dame_tamago_msg:
+	_CALL			ev_connect_dame_tamago_msg_sub
+	_CHG_LOCAL_SCR											//ローカルスクリプトに切り替え
+	_END
+	
+ev_connect_dame_tamago_msg_sub:
+	_TALKMSG		msg_connect_ng_01
+	_RET
+
+
+

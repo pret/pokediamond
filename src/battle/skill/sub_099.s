@@ -1,0 +1,69 @@
+
+//============================================================================
+/**
+ *
+ *@file		sub_099.s
+ *@brief	戦闘シーケンス
+ *			どくびし＆まきびし＆ステルスロックダメージチェック
+ *@author	HisashiSogabe
+ *@data		2006.01.27
+ *
+ */
+//============================================================================
+	.text
+
+	.include	"waza_seq_def.h"
+
+SUB_099:
+	//特性マジックガードは、すべてのダメージなし
+	TOKUSEI_CHECK	TOKUSEI_HAVE,SIDE_RESHUFFLE,TOKUSYU_MAZIKKUGAADO,SUB_099_END
+	//じゅうりょく中は、ひこうタイプチェックは無視
+	IF				IF_FLAG_BIT,BUF_PARA_FIELD_CONDITION,FIELD_CONDITION_JUURYOKU,SUB_099_START
+	//特性ふゆうは、まきびし、どくびしのダメージなし
+	TOKUSEI_CHECK	TOKUSEI_HAVE,SIDE_RESHUFFLE,TOKUSYU_HUYUU,SUB_099_NEXT2
+	//ひこうタイプは、まきびし、どくびしのダメージなし
+	IF_PSP			IF_FLAG_EQ,SIDE_RESHUFFLE,ID_PSP_type1,HIKOU_TYPE,SUB_099_NEXT2
+	IF_PSP			IF_FLAG_EQ,SIDE_RESHUFFLE,ID_PSP_type2,HIKOU_TYPE,SUB_099_NEXT2
+	//でんじふゆう中は、まきびし、どくびしのダメージなし
+	IF_PSP			IF_FLAG_BIT,SIDE_RESHUFFLE,ID_PSP_waza_kouka,WAZAKOUKA_DENZIHUYUU,SUB_099_NEXT2
+
+SUB_099_START:
+	//どくびしチェック
+	DOKUBISI_CHECK	SIDE_RESHUFFLE,SUB_099_NEXT
+	IF				IF_FLAG_EQ,BUF_PARA_CALC_WORK,2,Dokudoku
+	IF				IF_FLAG_EQ,BUF_PARA_CALC_WORK,1,Doku
+
+Remove:
+	MESSAGE			DokubisiNGMineMsg,TAG_NONE_DIR,SIDE_RESHUFFLE
+	SERVER_WAIT
+	WAIT			MSG_WAIT
+	BRANCH			SUB_099_NEXT
+Doku:
+	GOSUB			SUB_SEQ_DOKU
+	BRANCH			SUB_099_NEXT
+Dokudoku:
+	GOSUB			SUB_SEQ_DOKUDOKU
+SUB_099_NEXT:
+	//まきびしチェック
+	MAKIBISI_CHECK	SIDE_RESHUFFLE,SUB_099_NEXT2
+	//HP操作対象をReshuffleClientに
+	VALUE_WORK		VAL_SET,BUF_PARA_CLIENT_WORK,BUF_PARA_RESHUFFLE_CLIENT
+	//ダメージエフェクトで点滅しないフラグを立てる
+	VALUE			VAL_BIT,BUF_PARA_SERVER_STATUS_FLAG,SERVER_STATUS_FLAG_NO_BLINK
+	GOSUB			SUB_SEQ_HP_CALC
+	MESSAGE			MakibishiDamageMineMsg,TAG_NICK,SIDE_RESHUFFLE
+	SERVER_WAIT
+	WAIT			MSG_WAIT
+SUB_099_NEXT2:
+	//ステルスロックチェック
+	STEALTHROCK_CHECK	SIDE_RESHUFFLE,SUB_099_END
+	//HP操作対象をReshuffleClientに
+	VALUE_WORK		VAL_SET,BUF_PARA_CLIENT_WORK,BUF_PARA_RESHUFFLE_CLIENT
+	//ダメージエフェクトで点滅しないフラグを立てる
+	VALUE			VAL_BIT,BUF_PARA_SERVER_STATUS_FLAG,SERVER_STATUS_FLAG_NO_BLINK
+	GOSUB			SUB_SEQ_HP_CALC
+	MESSAGE			StealthrockDamageMineMsg,TAG_NICK,SIDE_RESHUFFLE
+	SERVER_WAIT
+	WAIT			MSG_WAIT
+SUB_099_END:
+	SEQ_END

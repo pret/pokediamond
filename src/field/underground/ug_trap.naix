@@ -1,0 +1,70 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: ug_trap.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-11T14:37:01
+ *****************************************************************************/
+
+#ifndef NARC_UG_TRAP_NAIX_
+#define NARC_UG_TRAP_NAIX_
+
+enum {
+	NARC_ug_trap_blossoms_NANR = 0,
+	NARC_ug_trap_blossoms_NCER = 1,
+	NARC_ug_trap_blossoms_NCGR = 2,
+	NARC_ug_trap_blossoms_NCLR = 3,
+	NARC_ug_trap_bubble_NANR = 4,
+	NARC_ug_trap_bubble_NCER = 5,
+	NARC_ug_trap_bubble_NCGR = 6,
+	NARC_ug_trap_bubble_NCLR = 7,
+	NARC_ug_trap_t_full_NSCR = 8,
+	NARC_ug_trap_t_kemuri_NCGR = 9,
+	NARC_ug_trap_t_kemuri_NCLR = 10,
+	NARC_ug_trap_t_kemuri_NSCR = 11,
+	NARC_ug_trap_tk2_NSCR = 12,
+	NARC_ug_trap_tk3_NSCR = 13,
+	NARC_ug_trap_tk4_NSCR = 14,
+	NARC_ug_trap_touchcircle_NANR = 15,
+	NARC_ug_trap_touchcircle_NCER = 16,
+	NARC_ug_trap_touchcircle_NCGR = 17,
+	NARC_ug_trap_touchcircle_NCLR = 18,
+	NARC_ug_trap_ug_ef_fire_NCLR = 19,
+	NARC_ug_trap_ug_ef_fire1_NANR = 20,
+	NARC_ug_trap_ug_ef_fire1_NCER = 21,
+	NARC_ug_trap_ug_ef_fire1_NCGR = 22,
+	NARC_ug_trap_ug_ef_fire2_NANR = 23,
+	NARC_ug_trap_ug_ef_fire2_NCER = 24,
+	NARC_ug_trap_ug_ef_fire2_NCGR = 25,
+	NARC_ug_trap_ug_ef_leaf_NANR = 26,
+	NARC_ug_trap_ug_ef_leaf_NCER = 27,
+	NARC_ug_trap_ug_ef_leaf_NCGR = 28,
+	NARC_ug_trap_ug_ef_leaf_NCLR = 29,
+	NARC_ug_trap_ug_ef_r1_NANR = 30,
+	NARC_ug_trap_ug_ef_r1_NCER = 31,
+	NARC_ug_trap_ug_ef_r1_NCGR = 32,
+	NARC_ug_trap_ug_ef_r2_NANR = 33,
+	NARC_ug_trap_ug_ef_r2_NCER = 34,
+	NARC_ug_trap_ug_ef_r2_NCGR = 35,
+	NARC_ug_trap_ug_ef_r3_NANR = 36,
+	NARC_ug_trap_ug_ef_r3_NCER = 37,
+	NARC_ug_trap_ug_ef_r3_NCGR = 38,
+	NARC_ug_trap_ug_ef_r4_NANR = 39,
+	NARC_ug_trap_ug_ef_r4_NCER = 40,
+	NARC_ug_trap_ug_ef_r4_NCGR = 41,
+	NARC_ug_trap_ug_ef_r5_NANR = 42,
+	NARC_ug_trap_ug_ef_r5_NCER = 43,
+	NARC_ug_trap_ug_ef_r5_NCGR = 44,
+	NARC_ug_trap_ug_ef_r6_NANR = 45,
+	NARC_ug_trap_ug_ef_r6_NCER = 46,
+	NARC_ug_trap_ug_ef_r6_NCGR = 47,
+	NARC_ug_trap_ug_ef_r7_NANR = 48,
+	NARC_ug_trap_ug_ef_r7_NCER = 49,
+	NARC_ug_trap_ug_ef_r7_NCGR = 50,
+	NARC_ug_trap_ug_ef_rock_NCLR = 51,
+	NARC_ug_trap_ug_menu_NCLR = 52
+};
+
+/* NARC_UG_TRAP_NAIX_ */
+#endif

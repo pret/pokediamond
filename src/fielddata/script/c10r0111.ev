@@ -1,0 +1,158 @@
+//====================================================================
+//								c10r0111
+//
+//	LOCALWORK0	リフト
+//	LOCALWORK3	強制イベント発動
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c10r0111.h"
+	.include	"../eventdata/zone_c10r0111evc.h"
+
+//ローカルワークの使用状況
+//マップ内にあるリフトに対して、
+//ローカルワーク0（LOCALWORK0）
+//を使用します
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c10r0111_flag_change
+_EVENT_DATA		ev_c10r0111_champ
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c10r0111_flag_change:
+	_INIT_FLD_LIFT
+	_END
+
+
+/********************************************************************/
+/*							チャンピオン							*/
+/********************************************************************/
+ev_c10r0111_champ:
+	//_EVENT_START
+
+	/*強制移動*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0111_player_00
+	_OBJ_ANIME_WAIT
+
+	_TRAINER_BGM_SET	CHAMPION_01					/*視線曲セット*/
+
+	/*殿堂入りデータがあるかどうかでメッセージ分岐*/
+	_IF_FLAGOFF_CALL	SYS_FLAG_GAME_CLEAR,ev_c10r0111_champ_msg1
+	_IF_FLAGON_CALL		SYS_FLAG_GAME_CLEAR,ev_c10r0111_champ_msg2
+
+	_TALK_CLOSE
+
+	_FLAG_SET			SYS_FLAG_BGM_C10	//リセット処理が必要！
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	CHAMPION_01,0
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c10r0111_common_battle_lose
+
+	_TALK_KEYWAIT		msg_c10r0111_champion_03
+
+	_FLAG_SET		FE_C10R0111_CHAMP_WIN
+
+	/*冒険ノートデータ作成*/
+	_FNOTE_DATA_MAKE	FNOTE_ID_CHAMPION,CHAMPION_01,0,0,0
+
+	_TALK_KEYWAIT		msg_c10r0111_champion_11
+	_TALK_CLOSE
+
+	/*リフトの上まで移動*/
+	_OBJ_ANIME		C10R0111_CHAMP,anm_c10r0111_champ_01
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0111_player_01
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		C10R0111_CHAMP,anm_c10r0111_champ_100
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_MOVE_FLD_LIFT
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	/*次の部屋へ*/
+	_FLAG_SET		FV_C10R0112_CHAMP
+	_FLAG_SET		FV_C10R0112_DOCTOR
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0111_player_02
+	_OBJ_ANIME_WAIT
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_MAP_CHANGE		ZONE_ID_C10R0112,0,5,23,DIR_UP
+
+	_EVENT_END
+	_END
+
+/*初挑戦*/
+ev_c10r0111_champ_msg1:
+	_TALK_KEYWAIT	msg_c10r0111_champion_01
+	_RET
+
+/*ゲームクリア後、再挑戦*/
+ev_c10r0111_champ_msg2:
+	_TALK_KEYWAIT	msg_c10r0111_champion_10
+	_RET
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_c10r0111_common_battle_lose:
+	_FLAG_RESET			SYS_FLAG_BGM_C10	//リセット処理が必要！
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	強制移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0111_player_00
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	リフトにのる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0111_player_01
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	次の部屋へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0111_player_02
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	道をあける
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0111_champ_01
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0111_champ_100
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+

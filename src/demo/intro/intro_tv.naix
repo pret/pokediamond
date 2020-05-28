@@ -1,0 +1,24 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: intro_tv.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-14T21:13:25
+ *****************************************************************************/
+
+#ifndef NARC_INTRO_TV_NAIX_
+#define NARC_INTRO_TV_NAIX_
+
+enum {
+	NARC_intro_tv_tv01_NCGR = 0,
+	NARC_intro_tv_tv02_NCGR = 1,
+	NARC_intro_tv_tv03_NCGR = 2,
+	NARC_intro_tv_tv01_NSCR = 3,
+	NARC_intro_tv_tv02_NSCR = 4,
+	NARC_intro_tv_tv03_NSCR = 5,
+	NARC_intro_tv_tv_NCLR = 6
+};
+
+/* NARC_INTRO_TV_NAIX_ */
+#endif

@@ -1,0 +1,228 @@
+//====================================================================
+/**						ふしぎなおくりもの配達員
+ * @file	haitatu.ev
+ * @brief	ふしぎなおくりもので受け取った物を受け取るための人物
+ * @author	tamada GAME FREAK inc.  --> k.ohno
+ * @date	2006.05.26
+ */
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_haitatu.h"
+
+#include "../../field/scr_postman.h"
+
+//--------------------------------------------------------------------
+//		スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_haitatu_flag_change
+_EVENT_DATA		ev_haitatu
+_EVENT_DATA_END
+
+/********************************************************************/
+//			ふしぎ配達員用マクロ定義
+/********************************************************************/
+//--------------------------------------------------------------------
+//	スクリプトコマンド：ふしぎ配達員初期化
+//--------------------------------------------------------------------
+	.macro	_MYSTERY_POSTMAN_INIT
+	.short	EV_SEQ_MYSTERY_POSTMAN
+	.short	POSTMAN_CMD_INIT
+	.endm
+
+//--------------------------------------------------------------------
+//	スクリプトコマンド：おくりものがあるかチェック
+//--------------------------------------------------------------------
+	.macro	_MYSTERY_PRESENT_CHECK	result
+	.short	EV_SEQ_MYSTERY_POSTMAN
+	.short	POSTMAN_CMD_PRESENT_CHECK
+	.short	\result
+	.endm
+
+//--------------------------------------------------------------------
+//	スクリプトコマンド：おくりものIDを取得
+//--------------------------------------------------------------------
+	.macro	_MYSTERY_GET_PRESENT_ID	id_work
+	.short	EV_SEQ_MYSTERY_POSTMAN
+	.short	POSTMAN_CMD_GET_PRESENT_ID
+	.short	\id_work
+	.endm
+
+//--------------------------------------------------------------------
+//	スクリプトコマンド：おくりものをうけとれるかチェック
+//--------------------------------------------------------------------
+	.macro	_MYSTERY_RECEIVE_CHECK ret_wk
+	.short	EV_SEQ_MYSTERY_POSTMAN
+	.short	POSTMAN_CMD_RECEIVE_CHECK
+	.short	\ret_wk
+	.endm
+
+//--------------------------------------------------------------------
+//	スクリプトコマンド：おくりものを受け取る
+//--------------------------------------------------------------------
+	.macro	_MYSTERY_RECEIVE_PRESENT
+	.short	EV_SEQ_MYSTERY_POSTMAN
+	.short	POSTMAN_CMD_RECEIVE_PRESENT
+	.endm
+
+//--------------------------------------------------------------------
+//	スクリプトコマンド：おくりものをうけとれないメッセージを取得
+//--------------------------------------------------------------------
+	.macro	_MYSTERY_DISABLE_MSG	arc_id, msg_id
+	.short	EV_SEQ_MYSTERY_POSTMAN
+	.short	POSTMAN_CMD_DISABLE_MSG
+	.short	\arc_id
+	.short	\msg_id
+	.endm
+
+//--------------------------------------------------------------------
+//	スクリプトコマンド：おくりものを受け取ったメッセージを取得
+//--------------------------------------------------------------------
+	.macro	_MYSTERY_ENABLE_MSG		arc_id, msg_id
+	.short	EV_SEQ_MYSTERY_POSTMAN
+	.short	POSTMAN_CMD_ENABLE_MSG
+	.short	\arc_id
+	.short	\msg_id
+	.endm
+
+//--------------------------------------------------------------------
+//	スクリプトコマンド：ふしぎ配達員終了処理
+//--------------------------------------------------------------------
+	.macro	_MYSTERY_POSTMAN_END
+	.short	EV_SEQ_MYSTERY_POSTMAN
+	.short	POSTMAN_CMD_END
+	.endm
+
+//--------------------------------------------------------------------
+//	スクリプトコマンド：ふしぎ配達員終了処理  セーブする
+//--------------------------------------------------------------------
+	.macro	_MYSTERY_POSTMAN_SAVE_END
+	.short	EV_SEQ_MYSTERY_POSTMAN
+	.short	POSTMAN_CMD_SAVE_END
+	.endm
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_haitatu_flag_change:
+	_MYSTERY_POSTMAN_INIT
+	_MYSTERY_PRESENT_CHECK	WK_SCENE_POSTMAN
+	_IFVAL_JUMP			WK_SCENE_POSTMAN,EQ,0,ev_haitatu_flag_off
+
+	//スロットにおくりものがあるので配達員を出現させる
+	_FLAG_RESET		FV_MYSTERY_POSTMAN
+	_MYSTERY_POSTMAN_END
+	_END
+
+ev_haitatu_flag_off:
+	//スロットにおくりものがないので配達員を出さない
+	_FLAG_SET		FV_MYSTERY_POSTMAN
+	_MYSTERY_POSTMAN_END
+	_END
+
+
+/********************************************************************/
+//				ふしぎなおくりもの配達員
+/********************************************************************/
+ev_haitatu:
+	_MYSTERY_POSTMAN_INIT
+	_TALK_OBJ_START
+	_MYSTERY_PRESENT_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_haitatu_no_contents
+
+	_GET_TIME_ZONE	SCWK_ANSWER
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		TIMEZONE_MORNING,	ev_haitatu_morning
+	_CASE_JUMP		TIMEZONE_NOON,		ev_haitatu_noon
+	_JUMP								ev_haitatu_night
+
+//おはようございます
+ev_haitatu_morning:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_haitatu_01
+	_JUMP			ev_haitatu_receive_check
+
+//こんにちは
+ev_haitatu_noon:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_haitatu_02
+	_JUMP			ev_haitatu_receive_check
+
+//こんばんは
+ev_haitatu_night:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_haitatu_03
+	_JUMP			ev_haitatu_receive_check
+
+ev_haitatu_receive_check:
+	//_MYSTERY_GET_PRESENT_ID		SCWK_TEMP0
+	_MYSTERY_RECEIVE_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_haitatu_disable
+
+//--------------------------------------------------------------------
+//うけとった！
+//--------------------------------------------------------------------
+ev_haitatu_get:
+	_ME_PLAY		SEQ_FANFA4
+
+	// 受け取ったのが何か話す
+	_MYSTERY_ENABLE_MSG		SCWK_TEMP1, SCWK_TEMP2
+	_TALKMSG_ARC			SCWK_TEMP1, SCWK_TEMP2
+
+	_ME_WAIT
+
+	_TALKMSG		msg_haitatu_18
+	_LAST_KEYWAIT
+
+	// 受け取る
+	_MYSTERY_RECEIVE_PRESENT
+
+	_JUMP			ev_haitatu_save_end
+
+
+//--------------------------------------------------------------------
+//うけとれない！
+//--------------------------------------------------------------------
+ev_haitatu_disable:
+	_MYSTERY_DISABLE_MSG	SCWK_TEMP1, SCWK_TEMP2
+	_TALKMSG_ARC			SCWK_TEMP1, SCWK_TEMP2
+	_LAST_KEYWAIT
+
+	_JUMP			ev_haitatu_end
+
+
+//--------------------------------------------------------------------
+//おあずかり　してる　にもつは
+//もう　ありません▼
+//またの　ごりようを
+//おまちして　おります"
+//--------------------------------------------------------------------
+ev_haitatu_no_contents:
+	_TALKMSG		msg_haitatu_04
+	_LAST_KEYWAIT
+	_JUMP			ev_haitatu_end
+
+
+
+
+//--------------------------------------------------------------------
+// セーブしないで終了
+//--------------------------------------------------------------------
+ev_haitatu_end:
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_MYSTERY_POSTMAN_END
+	_END
+
+//--------------------------------------------------------------------
+// セーブして終了
+//--------------------------------------------------------------------
+ev_haitatu_save_end:
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_MYSTERY_POSTMAN_SAVE_END
+	_END
+

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="fuchino" host="W00111" date="2006-05-31T20:11:26" source="seed01.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20050324"/>
+</head>
+
+<body>
+
+<original_create user="fuchino" host="W00111" date="2006-05-31T20:11:26" source="seed01.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20050324"/>
+
+<model_info
+	pos_scale="3"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="3" xyz="-1.000000 0.000000 0.000000" whd="2.000000 4.000000 0.000000"/>
+
+<tex_image_array size="2">
+	<tex_image index="0" name="seed05_c.1"
+		width="16" height="32" original_width="16" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="seed05_c.1_pl"
+		path="C:/mayadata/seed/tex/seed05_c.1.tga"
+	>
+		<bitmap size="128">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 a300 003a 0000 0000 6130 0316 0000
+			0000 6113 3116 0000 3000 1376 6731 0003
+			a000 7333 3337 000a 1300 3222 2223 0031
+			3a00 1216 6121 00a3 2a00 7323 3237 00a2
+			2230 6333 3336 0322 26a0 3222 2223 0a62
+			37a3 1211 1121 3a73 632a 7276 6727 a236
+			333a 6333 3336 a333 453a 3335 5333 a354
+			443a 2234 4322 a344 45aa 1135 5311 aa54
+			331a 6733 3376 a133 211a 3323 3233 a112
+			aaa0 223a a322 0aaa 0000 33a0 0a33 0000
+			0000 9aaa aaa9 0000 a000 a999 999a 000a
+			a000 9998 8999 000a 0000 8aaa aaa8 0000
+			0000 a000 000a 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="1" name="seed05_c.2"
+		width="16" height="32" original_width="16" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="seed05_c.2_pl"
+		path="C:/mayadata/seed/tex/seed05_c.2.tga"
+	>
+		<bitmap size="128">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 a300 003a 0000
+			0000 6130 0316 0000 0000 6113 3116 0000
+			0000 132a a231 0000 3000 1332 2331 0003
+			a000 3222 2223 000a a300 2217 7122 003a
+			2a00 1373 3731 00a2 3230 7332 2337 0323
+			21a0 3222 2223 0a12 37a0 2211 1122 0a73
+			3323 1377 7731 3233 321a 7333 3337 a123
+			532a 3354 4533 a235 432a 2344 4432 a234
+			53a0 1354 4531 0a35 323a 7733 3377 a323
+			221a 3332 2333 a122 a11a 2223 3222 a11a
+			0aa0 22aa aa22 0aa0 a000 aa99 99aa 000a
+			a000 9998 8999 000a 0000 8aaa aaa8 0000
+			0000 a000 000a 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="2">
+	<tex_palette index="0" name="seed05_c.1_pl" color_size="16">
+		7c1f 315c 1818 100e 135f 0a7b 2e9f 3a5b
+		3617 2533 1ce7 7fff 7fff 7fff 7fff 7fff
+	</tex_palette>
+	<tex_palette index="1" name="seed05_c.2_pl" color_size="16">
+		7c1f 315c 1818 100e 135f 0a7b 2e9f 3a5b
+		3617 2533 1ce7 7fff 7fff 7fff 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="seed01"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="0 0 0"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="clamp clamp"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-1.000000 0.000000 0.000000"
+		volume_max="1.000000 4.000000 0.000000"
+		volume_r="4.123047"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_s xyz="-1.000000 0.000000 0.000000"/>
+					<tex st="16.000000 32.000000"/>
+					<pos_xy xy="1.000000 0.000000"/>
+					<tex st="16.000000 0.000000"/>
+					<pos_xy xy="1.000000 4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-1.000000 4.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pCube1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="on"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-1.000000 0.000000 0.000000"
+		volume_max="1.000000 4.000000 0.000000"
+		volume_r="4.123047"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

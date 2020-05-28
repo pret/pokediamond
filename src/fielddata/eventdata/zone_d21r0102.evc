@@ -1,0 +1,65 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_d21r0102evc.h"
+
+const u32 FObj_zone_d21r0102_num = 3;
+
+const _TAG_FIELD_OBJ_H FObj_zone_d21r0102[3] =
+{
+	{
+		D21R0102_FLD_ITEM_01,
+		MONATERBALL,
+		0,
+		0,
+		FV_FLD_ITEM_42,
+		SCRID_FLD_ITEM_42,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		22,
+		9,
+		0*0x1000,
+	},
+
+	{
+		D21R0102_FLD_ITEM_02,
+		MONATERBALL,
+		0,
+		0,
+		FV_FLD_ITEM_40,
+		SCRID_FLD_ITEM_40,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		31,
+		16,
+		0*0x1000,
+	},
+
+	{
+		D21R0102_FLD_ITEM_03,
+		MONATERBALL,
+		0,
+		0,
+		FV_FLD_ITEM_41,
+		SCRID_FLD_ITEM_41,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		33,
+		8,
+		0*0x1000,
+	},
+};

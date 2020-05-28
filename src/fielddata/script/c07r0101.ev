@@ -1,0 +1,418 @@
+//====================================================================
+//								c07r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c07r0101.h"
+	//.include	"../eventdata/zone_c07r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c07r0101_slot01
+_EVENT_DATA		ev_c07r0101_slot02
+_EVENT_DATA		ev_c07r0101_slot03
+_EVENT_DATA		ev_c07r0101_slot04
+_EVENT_DATA		ev_c07r0101_slot05
+_EVENT_DATA		ev_c07r0101_slot06
+_EVENT_DATA		ev_c07r0101_slot07
+_EVENT_DATA		ev_c07r0101_slot08
+_EVENT_DATA		ev_c07r0101_slot09
+_EVENT_DATA		ev_c07r0101_slot10
+_EVENT_DATA		ev_c07r0101_slot11
+_EVENT_DATA		ev_c07r0101_slot12
+_EVENT_DATA		ev_c07r0101_coin
+_EVENT_DATA		ev_c07r0101_woman2
+_EVENT_DATA		ev_c07r0101_middleman1
+_EVENT_DATA		ev_c07r0101_bigman1
+_EVENT_DATA		ev_c07r0101_workman
+_EVENT_DATA		ev_c07r0101_woman1
+_EVENT_DATA		ev_c07r0101_man2
+_EVENT_DATA		ev_c07r0101_middleman1a
+_EVENT_DATA		ev_c07r0101_poster
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_c07r0101_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c07r0101_slot01:
+	_LDVAL		SCWK_TEMP0,	0
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot02:
+	_LDVAL		SCWK_TEMP0,	1
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot03:
+	_LDVAL		SCWK_TEMP0,	2
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot04:
+	_LDVAL		SCWK_TEMP0,	3
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot05:
+	_LDVAL		SCWK_TEMP0,	4
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot06:
+	_LDVAL		SCWK_TEMP0,	5
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot07:
+	_LDVAL		SCWK_TEMP0,	6
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot08:
+	_LDVAL		SCWK_TEMP0,	7
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot09:
+	_LDVAL		SCWK_TEMP0,	8
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot10:
+	_LDVAL		SCWK_TEMP0,	9
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot11:
+	_LDVAL		SCWK_TEMP0,	10
+	_JUMP		ev_c07r0101_slot_common
+ev_c07r0101_slot12:
+	_LDVAL		SCWK_TEMP0,	11
+	_JUMP		ev_c07r0101_slot_common
+
+
+ev_c07r0101_slot_common:
+	_TALK_START
+	_ITEM_CHK		ITEM_KOINKEESU,1, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_c07r0101_slot_no_case
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_FNOTE_DATA_MAKE	FNOTE_ID_GAMECORNER,0,0,0,0
+
+	/* ここにスロット本体が！ */
+	_SLOT_MACHINE	SCWK_TEMP0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TALK_END
+	_END
+
+ev_c07r0101_slot_no_case:
+	_TALKMSG		msg_c07r0101_game_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/********************************************************************/
+/*						受付嬢										*/
+/********************************************************************/
+ev_c07r0101_coin:
+	_TALK_OBJ_START
+	_TALK_KEYWAIT		msg_c07r0101_coin_01
+
+	//ケースを貰う前
+	_ITEM_CHK		ITEM_KOINKEESU,1, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_c07r0101_coin_02
+
+	//ご褒美を貰っていたら無条件で購入へ	
+	_IF_FLAGON_JUMP	FE_C07R0101_ITEM_GET,ev_c07r0101_coin_buy
+
+	//１０連荘前
+	_SLOT_RENTYAN_CHK SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c07r0101_coin_buy
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN64
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c07r0101_coin_buy	//できないときは
+	_JUMP			ev_c07r0101_coin_08
+
+ev_c07r0101_coin_02:
+	_TALKMSG		msg_c07r0101_coin_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//コイン購入処理
+ev_c07r0101_coin_buy:
+	_COIN_WIN_WRITE		20,2
+	_GOLD_WIN_WRITE		20,7
+
+ev_c07r0101_coin_03:
+	_TALKMSG		msg_c07r0101_coin_03
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_122,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_123,1
+	_BMPMENU_MAKE_LIST	msg_coin_01,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,case_50_add_coin_check
+	_CASE_JUMP		1,case_500_add_coin_check
+	_JUMP			ev_c07r0101_coin_07
+
+#define MENU1_GOLD_VALUE	(1000)
+#define MENU2_GOLD_VALUE	(10000)
+#define MENU1_COIN_VALUE	(50)
+#define MENU2_COIN_VALUE	(500)
+
+//50枚購入
+case_50_add_coin_check:
+	_COMP_GOLD		SCWK_ANSWER,MENU1_GOLD_VALUE
+	//お金が足りない?
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c07r0101_coin_05
+
+	_ADD_COIN_CHK	SCWK_ANSWER,MENU1_COIN_VALUE
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c07r0101_coin_06		//最大値よりオーバーする値
+
+	_SUB_GOLD			MENU1_GOLD_VALUE
+	_ADD_COIN			MENU1_COIN_VALUE
+
+	_COIN_WRITE
+	_GOLD_WRITE
+
+	_SE_PLAY		SEQ_SE_DP_REGI
+	_SE_WAIT		SEQ_SE_DP_REGI
+
+	_TALK_KEYWAIT		msg_c07r0101_coin_04
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_JUMP			ev_c07r0101_coin_03
+
+//500枚購入
+case_500_add_coin_check:
+	_COMP_GOLD		SCWK_ANSWER,MENU2_GOLD_VALUE
+	//お金が足りない?
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c07r0101_coin_05
+
+	_ADD_COIN_CHK	SCWK_ANSWER,MENU2_COIN_VALUE
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c07r0101_coin_06		//最大値よりオーバーする値
+
+	_SUB_GOLD			MENU2_GOLD_VALUE
+	_ADD_COIN			MENU2_COIN_VALUE
+
+	_COIN_WRITE
+	_GOLD_WRITE
+
+	_SE_PLAY		SEQ_SE_DP_REGI
+	_SE_WAIT		SEQ_SE_DP_REGI
+
+	_TALK_KEYWAIT		msg_c07r0101_coin_04
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_JUMP			ev_c07r0101_coin_03
+
+//お金が足りない
+ev_c07r0101_coin_05:
+	_TALKMSG		msg_c07r0101_coin_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_COIN_WIN_DEL
+	_GOLD_WIN_DEL
+	_TALK_END
+	_END
+
+//コインがいっぱいになってしまう
+ev_c07r0101_coin_06:
+	_TALKMSG		msg_c07r0101_coin_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_COIN_WIN_DEL
+	_GOLD_WIN_DEL
+	_TALK_END
+	_END
+
+
+//いらない
+ev_c07r0101_coin_07:
+	_TALKMSG		msg_c07r0101_coin_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_COIN_WIN_DEL
+	_GOLD_WIN_DEL
+	_TALK_END
+	_END
+
+//入手
+ev_c07r0101_coin_08:
+	_TALK_KEYWAIT		msg_c07r0101_coin_08
+
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C07R0101_ITEM_GET
+
+	_TALKMSG		msg_c07r0101_coin_09
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//もらえないとき
+ev_c07r0101_coin_10:
+	_TALKMSG		msg_c07r0101_coin_10
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c07r0101_woman2:
+	_EASY_OBJ_MSG		msg_c07r0101_woman2_01
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c07r0101_middleman1:
+	_TALK_OBJ_START
+
+	//ケースを貰う前
+	_ITEM_CHK		ITEM_KOINKEESU,1, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_c07r0101_middleman1_01
+
+	//コインを貰った後
+	_IF_FLAGON_JUMP		FE_C07R0101_MIDDLEMAN1_COIN_GET,ev_c07r0101_middleman1_03
+
+	_ADD_COIN_CHK	SCWK_ANSWER,20
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c07r0101_middleman1_03		//最大値よりオーバーする値
+
+	_FLAG_SET			FE_C07R0101_MIDDLEMAN1_COIN_GET
+
+	_ADD_COIN			20
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c07r0101_middleman1_02
+	_LAST_KEYWAIT
+
+	_SE_PLAY		SEQ_SE_DP_REGI
+	_SE_WAIT		SEQ_SE_DP_REGI
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c07r0101_middleman1_01:
+	_TALKMSG		msg_c07r0101_middleman1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c07r0101_middleman1_03:
+	_TALKMSG		msg_c07r0101_middleman1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c07r0101_bigman1:
+	_TALK_OBJ_START
+
+	//ケースを貰う前
+	_ITEM_CHK		ITEM_KOINKEESU,1, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_c07r0101_bigman1_01
+
+	//コインを貰った後
+	_IF_FLAGON_JUMP		FE_C07R0101_BIGMAN1_COIN_GET,ev_c07r0101_bigman1_03
+
+	_ADD_COIN_CHK	SCWK_ANSWER,50
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c07r0101_bigman1_03		//最大値よりオーバーする値
+
+	_FLAG_SET			FE_C07R0101_BIGMAN1_COIN_GET
+
+	_ADD_COIN			50
+
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c07r0101_bigman1_02
+	_LAST_KEYWAIT
+
+	_SE_PLAY		SEQ_SE_DP_REGI
+	_SE_WAIT		SEQ_SE_DP_REGI
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c07r0101_bigman1_01:
+	_TALKMSG		msg_c07r0101_bigman1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c07r0101_bigman1_03:
+	_TALKMSG		msg_c07r0101_bigman1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c07r0101_workman:
+	_EASY_OBJ_MSG		msg_c07r0101_workman_01
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c07r0101_woman1:
+	_EASY_OBJ_MSG		msg_c07r0101_woman1_01
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c07r0101_man2:
+	_EASY_OBJ_MSG		msg_c07r0101_man2_01
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c07r0101_middleman1a:
+	_EASY_OBJ_MSG		msg_c07r0101_middleman1a_01
+	_END
+
+/********************************************************************/
+/*							張り紙									*/
+/********************************************************************/
+ev_c07r0101_poster:
+	_IFVAL_JUMP		SYS_WORK_RENSYOU_COUNT,GT,999,ev_c07r0101_poster_max
+	_NUMBER_NAME	0,SYS_WORK_RENSYOU_COUNT
+	_EASY_MSG		msg_c07r0101_poster_01
+	_END
+
+ev_c07r0101_poster_max:
+	_NUMBER_NAME	0,999
+	_EASY_MSG		msg_c07r0101_poster_01
+	_END
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------

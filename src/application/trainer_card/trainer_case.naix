@@ -1,0 +1,76 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: trainer_case.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-21T18:39:28
+ *****************************************************************************/
+
+#ifndef NARC_TRAINER_CASE_NAIX_
+#define NARC_TRAINER_CASE_NAIX_
+
+enum {
+	NARC_trainer_case_card_0_NCLR = 0,
+	NARC_trainer_case_card_1_NCLR = 1,
+	NARC_trainer_case_card_2_NCLR = 2,
+	NARC_trainer_case_card_3_NCLR = 3,
+	NARC_trainer_case_card_4_NCLR = 4,
+	NARC_trainer_case_card_5_NCLR = 5,
+	NARC_trainer_case_card_6_NCLR = 6,
+	NARC_trainer_case_card_case_d_NCLR = 7,
+	NARC_trainer_case_card_case_p_NCLR = 8,
+	NARC_trainer_case_card_case_x_NCLR = 9,
+	NARC_trainer_case_card_futa_NCLR = 10,
+	NARC_trainer_case_card_badge_NCLR = 11,
+	NARC_trainer_case_card_badge2_NCLR = 12,
+	NARC_trainer_case_card_badge2_0_NCLR = 13,
+	NARC_trainer_case_card_badge2_1_NCLR = 14,
+	NARC_trainer_case_card_badge2_2_NCLR = 15,
+	NARC_trainer_case_card_badge2_3_NCLR = 16,
+	NARC_trainer_case_card_badge2_4_NCLR = 17,
+	NARC_trainer_case_card_badge2_5_NCLR = 18,
+	NARC_trainer_case_card_badge2_6_NCLR = 19,
+	NARC_trainer_case_card_badge2_7_NCLR = 20,
+	NARC_trainer_case_card_sign_NCLR = 21,
+	NARC_trainer_case_card_trainer_NCLR = 22,
+	NARC_trainer_case_card_NCGR = 23,
+	NARC_trainer_case_card_case_NCGR = 24,
+	NARC_trainer_case_card_case2_NCGR = 25,
+	NARC_trainer_case_card_futa_NCGR = 26,
+	NARC_trainer_case_card_trainer_NCGR = 27,
+	NARC_trainer_case_card_badge_NCGR = 28,
+	NARC_trainer_case_card_sign_NCGR = 29,
+	NARC_trainer_case_card_faca_NSCR = 30,
+	NARC_trainer_case_card_back_NSCR = 31,
+	NARC_trainer_case_card_case_NSCR = 32,
+	NARC_trainer_case_card_case2_NSCR = 33,
+	NARC_trainer_case_card_futa_NSCR = 34,
+	NARC_trainer_case_card_trainer01_NSCR = 35,
+	NARC_trainer_case_card_trainer02_NSCR = 36,
+	NARC_trainer_case_card_badge_NCER = 37,
+	NARC_trainer_case_card_sign_NCER = 38,
+	NARC_trainer_case_card_badge_NANR = 39,
+	NARC_trainer_case_card_sign_NANR = 40,
+	NARC_trainer_case_trdp_union_card_NCLR = 41,
+	NARC_trainer_case_card_test256_NSCR = 42,
+	NARC_trainer_case_trdp_battleg256_NCGR = 43,
+	NARC_trainer_case_trdp_cowgirl256_NCGR = 44,
+	NARC_trainer_case_trdp_elitem256_NCGR = 45,
+	NARC_trainer_case_trdp_elitew256_NCGR = 46,
+	NARC_trainer_case_trdp_espm256_NCGR = 47,
+	NARC_trainer_case_trdp_heads256_NCGR = 48,
+	NARC_trainer_case_trdp_idol256_NCGR = 49,
+	NARC_trainer_case_trdp_iseki256_NCGR = 50,
+	NARC_trainer_case_trdp_karate256_NCGR = 51,
+	NARC_trainer_case_trdp_madam256_NCGR = 52,
+	NARC_trainer_case_trdp_mini256_NCGR = 53,
+	NARC_trainer_case_trdp_mushi256_NCGR = 54,
+	NARC_trainer_case_trdp_prince256_NCGR = 55,
+	NARC_trainer_case_trdp_princess256_NCGR = 56,
+	NARC_trainer_case_trdp_schoolb256_NCGR = 57,
+	NARC_trainer_case_trdp_sister256_NCGR = 58
+};
+
+/* NARC_TRAINER_CASE_NAIX_ */
+#endif

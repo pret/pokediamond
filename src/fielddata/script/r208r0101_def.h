@@ -1,0 +1,11 @@
+#ifndef _R208R0101_DEF_H_
+#define _R208R0101_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_R208R0101_FLAG_CHANGE		(1)
+#define	SCRID_R208R0101_OLDMAN2		(2)
+#define	SCRID_R208R0101_BABYGIRL1		(3)
+#define	SCRID_R208R0101_WOMAN1		(4)
+#define	SCRID_R208R0101_DATA_MAX		(4)		//最大数
+
+#endif //_R208R0101_DEF_H_

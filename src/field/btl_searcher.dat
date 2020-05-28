@@ -1,0 +1,16 @@
+const BS_DATA BtlSearcherDataTbl[] = {
+	{
+		{
+		TANPAN_01,
+		TANPAN_08,
+		BS_DATA_DUMMY,
+		MINI_05,
+		CAMPB_04,
+		BS_DATA_END,
+		},
+		ZONE_ID_R202,
+	},
+};
+
+#define BS_DATA_MAX ( NELEMS(BtlSearcherDataTbl) )
+

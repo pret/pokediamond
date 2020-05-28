@@ -1,0 +1,24 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: underg_radar.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-15T18:57:00
+ *****************************************************************************/
+
+#ifndef NARC_UNDERG_RADAR_NAIX_
+#define NARC_UNDERG_RADAR_NAIX_
+
+enum {
+	NARC_underg_radar_ug_radar_NCLR = 0,
+	NARC_underg_radar_ug_radar_NCGR = 1,
+	NARC_underg_radar_ug_radar_NSCR = 2,
+	NARC_underg_radar_ug_radar_obj_NCLR = 3,
+	NARC_underg_radar_ug_radar_obj_NCGR = 4,
+	NARC_underg_radar_ug_radar_obj_NCER = 5,
+	NARC_underg_radar_ug_radar_obj_NANR = 6
+};
+
+/* NARC_UNDERG_RADAR_NAIX_ */
+#endif

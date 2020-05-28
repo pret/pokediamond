@@ -1,0 +1,164 @@
+//====================================================================
+//						r213.gmm
+//					フィールド・ロード213
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r213.h"
+	.include	"../eventdata/zone_r213evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r213_flag_change
+_EVENT_DATA		ev_r213_gingam
+_EVENT_DATA		ev_r213_fishing1
+_EVENT_DATA		ev_r213_woman2
+_EVENT_DATA		ev_r213_bigman
+_EVENT_DATA		ev_r213_sign1
+_EVENT_DATA		ev_r213_sign2
+_EVENT_DATA		ev_r213_sign3
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r213_flag_change:
+
+	/*ギンガ団逃げるイベント終了していなかったら*/
+	_IF_FLAGOFF_JUMP	FE_R213_GINGAM,ev_r213_flag_change_04
+	_END
+
+/*ノモセバッチ取得していたら*/
+ev_r213_flag_change_04:
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C06,LOCALWORK0
+	_IFVAL_JUMP			LOCALWORK0,EQ,1,ev_r213_flag_change_02
+	_END
+
+/*c06でギンガ団が二度逃げ出していたら*/
+ev_r213_flag_change_02:
+	_IF_FLAGON_JUMP	FE_C06_GINGAM_2,ev_r213_flag_change_03
+	_END
+
+/*ギンガ団出現*/
+ev_r213_flag_change_03:
+	_FLAG_RESET		FV_R213_GINGAM
+	_END
+
+
+/********************************************************************/
+/*							ギンガ団								*/
+/********************************************************************/
+ev_r213_gingam:
+	_TALK_OBJ_START_TURN_NOT
+
+	_TALK_KEYWAIT	msg_r213_gingam_01
+	_TALK_CLOSE
+	
+	/*気づく*/
+	_TURN_HERO_SITE
+	_OBJ_ANIME		R213_GINGAM,anm_r213_gingam_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_r213_gingam_02
+	_TALK_CLOSE
+
+	/*去っていく*/
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_DOWN,ev_r213_gingam_dir_down
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_RIGHT,ev_r213_gingam_dir_right
+	_END
+
+/*去っていく*/
+ev_r213_gingam_dir_down:
+	_OBJ_ANIME		R213_GINGAM,anm_r213_gingam_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_r213_gingam_dir
+
+ev_r213_gingam_dir_right:
+	_OBJ_ANIME		R213_GINGAM,anm_r213_gingam_04
+	_OBJ_ANIME_WAIT
+	_JUMP			common_r213_gingam_dir
+
+/*共通処理*/
+common_r213_gingam_dir:
+	_OBJ_DEL		R213_GINGAM
+	_FLAG_SET		FE_R213_GINGAM		/*L02へ逃げ出した*/
+	_FLAG_RESET		FV_L02_GINGAM_1
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ギンガ団	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r213_gingam_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r213_gingam_02
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	AC_WALK_R_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r213_gingam_04
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	AC_WALK_R_4F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							姉さん									*/
+/********************************************************************/
+ev_r213_woman2:
+	_EASY_OBJ_MSG	msg_r213_woman2_01
+	_END
+
+
+/********************************************************************/
+/*							太った兄さん							*/
+/********************************************************************/
+ev_r213_bigman:
+	_EASY_OBJ_MSG	msg_r213_bigman_01
+	_END
+
+
+/********************************************************************/
+/*							釣り人									*/
+/********************************************************************/
+ev_r213_fishing1:
+	_EASY_OBJ_MSG	msg_r213_fishing_01
+	_END
+
+/********************************************************************/
+/*							標識									*/
+/********************************************************************/
+ev_r213_sign1:
+	_EASY_BOARD_MSG	msg_r213_sign1_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_r213_sign2:
+	_EASY_BOARD_MSG	msg_r213_sign2_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_r213_sign3:
+	_EASY_BOARD_MSG	msg_r213_sign2_02,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

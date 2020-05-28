@@ -1,0 +1,176 @@
+//====================================================================
+//						d01r0102.gmm
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d01r0102.h"
+	.include	"../eventdata/zone_d01r0102evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d01r0102_leader
+_EVENT_DATA		ev_d01r0102_wanriky1
+_EVENT_DATA		ev_d01r0102_wanriky2
+_EVENT_DATA		ev_d01r0102_wanriky3
+_EVENT_DATA		ev_d01r0102_workman
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+//							クロガネ炭鉱
+/********************************************************************/
+#define POS_D01R0102_LEADER_Z1	(15)	//上
+#define POS_D01R0102_LEADER_Z2	(16)	//左右
+#define POS_D01R0102_LEADER_Z3	(17)	//下
+
+ev_d01r0102_leader:
+	_TALK_OBJ_START
+
+	_JUMP			ev_d01r0102_leader_right_00
+
+//--------------------------------------------------------------------
+//リーダー	岩を見る
+//--------------------------------------------------------------------
+ev_d01r0102_leader_left_00:
+	_OBJ_ANIME		D01R0102_LEADER,anm_01_d01r0102_leader_10
+	_OBJ_ANIME_WAIT
+	_JUMP			ev_d01r0102_leader_01_common_00
+
+ev_d01r0102_leader_right_00:
+	_OBJ_ANIME		D01R0102_LEADER,anm_01_d01r0102_leader_11
+	_OBJ_ANIME_WAIT
+	_JUMP			ev_d01r0102_leader_01_common_00
+
+//共通処理
+#define EV_HIDEN_IWAKUDAKI_OBJDEL_WAIT	(10)
+ev_d01r0102_leader_01_common_00:
+	_TALK_KEYWAIT	msg_d01r0102_leader_01
+	_TALK_CLOSE
+
+/*
+	//岩砕き使用
+	//演出未定
+	_SE_PLAY		SEQ_SE_DP_UG_008
+	_OBJ_DEL		D01R0102_BREAKROCK_01
+
+	_TIME_WAIT		50,SCWK_ANSWER
+*/
+
+	//岩砕き使用
+	_HIDENEFF_START 2,SCWK_TEMP1	// SCWK_TEMP1に1が入ったらエフェクト終了
+	_TIME_WAIT		EV_HIDEN_IWAKUDAKI_OBJDEL_WAIT,SCWK_ANSWER
+	_OBJ_DEL		D01R0102_BREAKROCK_01
+
+ev_d01r0102_leader_01_common_00_loop:// エフェクトが終わるまで待つ
+	_TIME_WAIT		1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_TEMP1,EQ,0, ev_d01r0102_leader_01_common_00_loop
+
+
+	//話しかけたOBJ限定
+	_TURN_HERO_SITE
+
+	_TALK_KEYWAIT	msg_d01r0102_leader_02
+	_TALK_CLOSE
+
+	_JUMP			ev_d01r0102_leader_right
+
+//--------------------------------------------------------------------
+//リーダー	去っていく
+//--------------------------------------------------------------------
+ev_d01r0102_leader_left:
+	_OBJ_ANIME		D01R0102_LEADER,anm_01_d01r0102_leader_01a
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_01_d01r0102_player_01a
+	_OBJ_ANIME_WAIT
+	_JUMP			ev_d01r0102_leader_01_common
+
+ev_d01r0102_leader_right:
+	_OBJ_ANIME		D01R0102_LEADER,anm_01_d01r0102_leader_01c
+	_OBJ_ANIME_WAIT
+	_JUMP			ev_d01r0102_leader_01_common
+
+//--------------------------------------------------------------------
+//終了処理
+//--------------------------------------------------------------------
+ev_d01r0102_leader_01_common:
+	_OBJ_DEL		D01R0102_LEADER
+
+	_FLAG_SET		FE_D01R0102_LEADER_TALK	//ジムリーダーと話した
+	_FLAG_SET		FV_C03_RIVAL			//C03のライバルを消す
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//リーダー	去る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_d01r0102_leader_01a
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,10
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_d01r0102_leader_01c
+	_ANIME_DATA	AC_WALK_R_8F,10
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//リーダー	左を向いて間をおく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_d01r0102_leader_10
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_d01r0102_leader_11
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_d01r0102_player_01a
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d01r0102_wanriky1:
+	_EASY_VOICE_MSG	msg_d01r0102_wanriky1_01,MONSNO_WANRIKII,0
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d01r0102_wanriky2:
+	_EASY_VOICE_MSG	msg_d01r0102_wanriky2_01,MONSNO_WANRIKII,0
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d01r0102_wanriky3:
+	_EASY_VOICE_MSG	msg_d01r0102_wanriky3_01,MONSNO_WANRIKII,0
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d01r0102_workman:
+	_EASY_OBJ_MSG	msg_d01r0102_workman_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

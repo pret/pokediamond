@@ -1,0 +1,25 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: unionroom.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-02-07T19:19:23
+ *****************************************************************************/
+
+#ifndef NARC_UNIONROOM_NAIX_
+#define NARC_UNIONROOM_NAIX_
+
+enum {
+	NARC_unionroom_unionbg_nclr = 0,
+	NARC_unionroom_unionobj_nclr = 1,
+	NARC_unionroom_unionbg_lz_ncgr = 2,
+	NARC_unionroom_unionbg1_lz_nscr = 3,
+	NARC_unionroom_unionbg1_base_lz_nscr = 4,
+	NARC_unionroom_unionobj_lz_ncgr = 5,
+	NARC_unionroom_unionobj_lz_ncer = 6,
+	NARC_unionroom_unionobj_lz_nanr = 7
+};
+
+/* NARC_UNIONROOM_NAIX_ */
+#endif

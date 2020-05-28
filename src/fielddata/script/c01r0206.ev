@@ -1,0 +1,69 @@
+//====================================================================
+//								c01r0206
+//						　ギネスホール　グローバル
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0206.h"
+	.include	"../eventdata/zone_c01r0206evc.h"
+	.include	"../../../src/field/fld_ranking.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_guinness_global_btl
+_EVENT_DATA		ev_guinness_global_poke
+_EVENT_DATA		ev_guinness_global_contest
+_EVENT_DATA		ev_c01r0206_woman3_01
+_EVENT_DATA		ev_c01r0206_bigman_01
+_EVENT_DATA		ev_c01r0206_fishing_01
+_EVENT_DATA		ev_c01r0206_stop_01
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_guinness_global_btl:
+	_TALK_START
+	_RANKING_VIEW	RANKING_GLB_BTL
+	_TALK_END
+	_END
+
+ev_guinness_global_poke:
+	_TALK_START
+	_RANKING_VIEW	RANKING_GLB_POKE
+	_TALK_END
+	_END
+
+ev_guinness_global_contest:
+	_TALK_START
+	_RANKING_VIEW	RANKING_GLB_CONTEST
+	_TALK_END
+	_END
+
+//トレーナー姉さん
+ev_c01r0206_woman3_01:
+	_EASY_OBJ_MSG	msg_c01r0206_woman3_01
+	_END
+
+//太った兄さん
+ev_c01r0206_bigman_01:
+	_EASY_OBJ_MSG	msg_c01r0206_bigman_01
+	_END
+
+//釣り人
+ev_c01r0206_fishing_01:
+	_EASY_OBJ_MSG	msg_c01r0206_fishing_01
+	_END
+
+//働くおじさん(タワー記録ストッパー)
+ev_c01r0206_stop_01:
+	_EASY_OBJ_MSG	msg_c01r0206_stop_01
+	_END

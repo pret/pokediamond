@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-05-24T20:00:58" source="r209s02.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="unno" host="W00106" date="2006-05-24T20:00:58" source="r209s02.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="2"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="3" xyz="-2.000000 0.125000 -0.250000" whd="4.000000 2.625000 2.750000"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="r209s02_a"
+		width="32" height="32" original_width="32" original_height="32"
+		format="a3i5"
+		palette_name="r209s02_a_pl"
+		path="C:/mayadata/r209s02/tex/r209s02_a.tga"
+	>
+		<bitmap size="512">
+			0606 0606 0606 0606 0606 0606 0606 0606
+			0606 0606 0606 0606 0606 0606 0606 0606
+			0606 0606 0606 0606 0606 0606 e206 e2e2
+			e0e2 06e0 0606 0606 0606 0606 0606 0606
+			0606 0606 0606 0606 e0e2 e0e0 ece2 ebec
+			ebeb e0eb 0606 0606 0606 0606 0606 0606
+			0606 0606 0606 e206 eaea e0ea ebec e7eb
+			ebe7 e0e4 e2e2 0606 0606 0606 0606 0606
+			0606 0606 0606 e3e0 e3e8 e1e3 e7e4 e7e7
+			e4e7 e7e0 ebe7 06e2 0606 0606 0606 0606
+			0606 0606 0606 e8e0 e3e8 e1e3 e4e4 e7e7
+			e4e4 e7e0 ebeb e0eb 0606 0606 0606 0606
+			0606 0606 e006 eae1 e3e3 e1e3 e7e7 e4e4
+			e4e4 e7e4 ebeb e0eb 0606 0606 0606 0606
+			0606 0606 e006 e8e3 e1e3 e1e1 e7e4 e4e7
+			e4e4 e2e2 ebe7 e7eb 06e0 0606 0606 0606
+			0606 0606 e3e0 e3e3 e1e1 e3e3 e2e2 e4e4
+			e4e4 e2e2 e7e2 e7eb e0e4 0606 0606 0606
+			0606 0606 e3e0 e3e3 e1e1 e3e3 e2e2 e2e2
+			e2e2 e2e2 e2e2 e7e2 e7e4 06e0 0606 0606
+			0606 e006 e3e3 e3e3 e1e1 e2e1 e2e2 e2e2
+			e2e2 e2e2 e5e2 e7e5 e7e4 60e0 0606 0606
+			0606 e006 e3e3 e2e3 ebec e0e7 e0e2 e0e0
+			e0e0 e2e2 eae5 e0e8 e4e4 e0e4 0660 0606
+			0606 e060 e3e3 ece0 ebec e0eb e0e0 e0e0
+			e0e0 e3e0 eaea e3e5 e4e0 e0e4 0660 0606
+			0606 6060 e0e1 ece9 ebeb e0eb e0e0 e0e0
+			e0e0 e3e0 e8ea e3e3 e0e3 e0e4 6060 0606
+			0606 6060 e7e0 e9e9 ebeb e0eb e0e0 e0e0
+			e0e0 e3e0 e8e8 e3e3 e0e3 e0e4 6060 0606
+			0606 6060 e7e0 e9e9 ebeb e2e7 ecec ebe7
+			e0eb e3e0 e5e8 e3e3 e1e3 60e0 6060 0660
+			6006 e260 e4e9 e7e9 e2e7 ebe2 ecec ebe7
+			ebeb e3e2 e5e5 e3e3 e1e3 e2e0 6060 0660
+			6006 e060 e4e9 e7e7 e4e4 e7e4 ebeb ebe7
+			e9eb e2e2 e3e3 e5e5 e1e3 e0e1 6060 0660
+			6006 e060 e9e9 e4e4 e4e4 e7e4 e7e7 e7e4
+			e9e7 e2e9 e5e3 e5e5 e1e3 e0e1 6060 0660
+			6006 e060 e9e9 e2e4 e2e2 e7e9 e7e7 e4e7
+			e9e4 e2e9 e5e3 e5e5 e1e3 e0e1 6060 0660
+			6006 e060 e9e7 e2e7 e9e2 e9e9 e7e7 e4e7
+			e9e4 e2e9 e3e3 e5e5 e1e3 e0e1 6060 0660
+			0606 6060 e7e0 e3e3 e9e2 e9e9 e9e9 e7e7
+			e4e4 e4e9 e2e2 e3e5 e1e3 e0e1 6060 0660
+			0606 6060 e260 e8ea e9e3 e9e9 e9e9 e7e4
+			e4e4 e4e4 e2e2 e3e3 e1e1 e0e1 6060 0660
+			0606 6060 e8e0 e8e8 e2e3 e9e7 e9e9 e7e4
+			e4e7 e4e4 e2e2 e3e1 e1e1 e0e2 6060 0660
+			0606 6006 e8e0 e3e8 e2e3 e7e7 e4e4 e7e4
+			e4e7 e2e4 e2e2 e7e7 e1e1 60e0 6060 0606
+			0606 6006 e060 e3e3 e2e3 e7e2 e4e4 e4e4
+			e4e7 e2e4 ebe2 ebeb e0e1 6060 6060 0606
+			0606 0606 6060 e0e0 60e0 e0e0 e4e0 e4e4
+			e4e4 e0e4 ebe2 ebec e0e7 6060 0660 0606
+			0606 0606 6006 6060 6060 6060 e060 e0e0
+			e0e0 60e0 e0e0 e7e7 e0e7 6060 0660 0606
+			0606 0606 0606 6060 6060 6060 6060 6060
+			6060 6060 6060 e0e0 60e0 6060 0606 0606
+			0606 0606 0606 0606 6060 6060 6060 6060
+			6060 6060 6060 6060 6060 0660 0606 0606
+			0606 0606 0606 0606 0606 0606 6060 6060
+			6060 6060 6060 6060 0660 0606 0606 0606
+			0606 0606 0606 0606 0606 0606 0606 0606
+			0606 0606 0606 0606 0606 0606 0606 0606
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="r209s02_a_pl" color_size="16">
+		2107 212c 2d6a 2d90 318b 3e14 3f0e 420f
+		4a77 5293 56fa 5ef6 6b59 7fff 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="r209s02_a"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="25 25 25"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.250000 -0.500000"
+		volume_max="4.000000 5.500000 5.000000"
+		volume_r="6.819092"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.722656 0.691406"/>
+					<pos_s xyz="-4.000000 0.250000 5.000000"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="4.000000 0.250000"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_yz yz="5.500000 -0.500000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-4.000000 5.500000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pCube1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.250000 -0.500000"
+		volume_max="4.000000 5.500000 5.000000"
+		volume_r="6.819092"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

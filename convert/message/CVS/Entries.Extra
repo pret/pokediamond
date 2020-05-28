@@ -1,0 +1,16 @@
+/.cvsignore////*///
+/idman.pl////*///
+/letter-order.dtd////*///
+/letter_order.pl////*///
+/makedepend.pl////*///
+/makefile////*///
+/makestrcode.pl////*///
+/msgconv.pl////*///
+/msgenc.exe////*///
+/naixcopy.pl////*///
+/pokemon_dp.xlor////*///
+/resource.pl////*///
+/tagcomm.pl////*///
+/template.gmm////*///
+/template.gmt////*///
+/tool.pl////*///

@@ -1,0 +1,83 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_d16r0103evc.h"
+
+const u32 FObj_zone_d16r0103_num = 4;
+
+const _TAG_FIELD_OBJ_H FObj_zone_d16r0103[4] =
+{
+	{
+		D16R0103_RIVAL,
+		RIVEL,
+		14,
+		0,
+		FV_D16R0103_RIVAL,
+		SCRID_NULL,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		7,
+		16,
+		0*0x1000,
+	},
+
+	{
+		D16R0103_HIIDORAN,
+		SPPOKE11,
+		15,
+		0,
+		FV_D16R0103_HIIDORAN,
+		SCRID_D16R0103_HIIDORAN,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		7,
+		6,
+		0*0x1000,
+	},
+
+	{
+		D16R0103_SEVEN2,
+		SEVEN4,
+		14,
+		0,
+		FV_D16R0103_SEVEN2,
+		SCRID_D16R0103_SEVEN2,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		7,
+		9,
+		0*0x1000,
+	},
+
+	{
+		D16R0103_KAZANNOOKIISI,
+		ROCK,
+		15,
+		0,
+		FV_D16R0103_KAZANNOOKIISI,
+		SCRID_NULL,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		7,
+		8,
+		0*0x1000,
+	},
+};

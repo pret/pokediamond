@@ -1,0 +1,141 @@
+//====================================================================
+//								d24r0201
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d24r0201.h"
+	.include	"../eventdata/zone_d24r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d24r0201_flag_change
+_EVENT_DATA		ev_d24r0201_leader
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d24r0201_flag_change:
+	/* 入手済みかチェック */
+	_IF_FLAGON_JUMP		FE_D24R0201_ITEM_GET, ev_d24r0201_end
+	
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,LOCALWORK0
+	_IFVAL_CALL		LOCALWORK0,EQ,1,ev_d24r0201_leader_flag_reset
+
+	_END
+
+/* すでに入手済みなら非表示 */
+ev_d24r0201_end:
+	
+	_FLAG_SET	FV_D24R0201_LEADER
+
+	_END
+	
+/*全国図鑑になっていたらリーダーを表示させる為、フラグリセット*/
+ev_d24r0201_leader_flag_reset:
+	
+	_FLAG_RESET		FV_D24R0201_LEADER
+	
+	_RET
+
+/********************************************************************/
+/*		メタルコート入手											*/
+/********************************************************************/
+// FE_D24R0201_ITEM_GET メタルコート番号
+ev_d24r0201_leader:
+
+	_TALK_OBJ_START
+	
+	/* メッセージ */
+	_TALK_KEYWAIT	msg_d24r0201_leader_01
+		
+	/* アイテム追加準備 */
+	_LDVAL			SCWK_TEMP0, ITEM_METARUKOOTO
+	_LDVAL			SCWK_TEMP1, 1
+	
+	/* アイテム追加判定 */
+	_ADD_ITEM_CHK	SCWK_TEMP0, SCWK_TEMP1, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER, EQ, FALSE, ev_d24r0201_item_event_fail
+	
+	/* アイテム追加 */
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_D24R0201_ITEM_GET
+	
+	/* メッセージ */
+	_TALK_KEYWAIT	msg_d24r0201_leader_02
+		
+	_TALK_CLOSE
+
+	/* 画面外へ */
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	_IFVAL_JUMP		SCWK_TEMP0, EQ, DIR_LEFT,	ev_d24r0201_move_left
+	_IFVAL_JUMP		SCWK_TEMP0, EQ, DIR_RIGHT,	ev_d24r0201_move_down
+	_IFVAL_JUMP		SCWK_TEMP0, EQ, DIR_UP,		ev_d24r0201_move_left
+	_IFVAL_JUMP		SCWK_TEMP0, EQ, DIR_DOWN,	ev_d24r0201_move_down
+	_END
+
+/* 入手失敗処理 */
+ev_d24r0201_item_event_fail:
+	
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	
+	_END
+
+/* 移動 */
+ev_d24r0201_move_left:
+
+	_OBJ_ANIME		D24R0201_LEDEAR7_01, anm_move_left
+	_OBJ_ANIME_WAIT	
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		D24R0201_LEDEAR7_01
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+	_SE_STOP		SEQ_SE_DP_KAIDAN2
+	
+	_TALK_OBJ_END
+	_END
+
+ev_d24r0201_move_down:
+
+	_OBJ_ANIME		D24R0201_LEDEAR7_01, anm_move_down
+	_OBJ_ANIME_WAIT	
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		D24R0201_LEDEAR7_01
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+	_SE_STOP		SEQ_SE_DP_KAIDAN2
+	
+	_TALK_OBJ_END
+	_END
+
+
+_ANIME_LABEL	anm_move_left
+
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,3
+
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_move_down
+	
+	_ANIME_DATA	AC_WALK_D_8F, 2
+	_ANIME_DATA	AC_WALK_L_8F, 1
+	_ANIME_DATA	AC_WALK_D_8F, 1
+	
+	_ANIME_DATA	ACMD_END, 0
+
+
+/********************************************************************/
+/********************************************************************/

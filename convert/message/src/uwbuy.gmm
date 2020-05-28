@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="matsumiya" host="DFS5V61X" date="2006-07-06T13:17:24"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名" english="ポケット名" view="EP" width="144" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名</comment>
+				<comment language="english">バッグのポケット名</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="125"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="179"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="291"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="25" top="45" right="730" bottom="673" maximized="no" rayout="Vertical2">
+		<comment-input left="647" top="551" right="994" bottom="703" visible="yes"/>
+		<tag-palette left="384" top="237" right="731" bottom="635" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="697"/>
+		<band id="3" index="3" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="mes_uw_buy_01" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+はじめのメッセージ</comment>
+		<language name="日本語">タマ　もってるか？
+もってたら　なんか　こうかんしてやるぞ！</language>
+	</row>
+
+	<row id="mes_uw_buy_02" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+買うものを選んだとき</comment>
+		<language name="日本語">じゃあ　[1:19:地下のどうぐの名前:2]と
+どの　タマを　こうかん　するんだ？</language>
+	</row>
+
+	<row id="mes_uw_buy_03" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+買い物成立</comment>
+		<language name="日本語">よし！
+じゃあ　これと　こうかんしよう！</language>
+	</row>
+
+	<row id="mes_uw_buy_04" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+荷物がいっぱい</comment>
+		<language name="日本語">なんだ
+てもちが　いっぱいじゃないか！</language>
+	</row>
+
+	<row id="mes_uw_buy_05" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+タマの種類が違う</comment>
+		<language name="日本語">タマの　しゅるいが
+ちがうぞ！</language>
+	</row>
+
+	<row id="mes_uw_buy_06" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+大きさが足りない</comment>
+		<language name="日本語">うーん
+タマの　おおきさが　たりないなぁ……</language>
+	</row>
+
+	<row id="mes_uw_buy_07_1" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+買い物成立後
+０：買ったアイテム</comment>
+		<language name="日本語">[1:19:地下のどうぐの名前:2]　を
+てにいれた</language>
+	</row>
+
+	<row id="mes_uw_buy_07_2" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ　タマ用：
+買い物成立後
+０：買ったアイテム</comment>
+		<language name="日本語">[1:19:地下のどうぐの名前:2]　[1:33:数字２桁:6]を
+てにいれた</language>
+	</row>
+
+	<row id="mes_uw_buy_08" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+買い物成立後、さらに会話</comment>
+		<language name="日本語">ほかに
+ようじは　あるか？</language>
+	</row>
+
+	<row id="mes_uw_buy_09" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+買い物終了</comment>
+		<language name="日本語">じゃあ　またな！</language>
+	</row>
+
+	<row id="mes_uw_buy_10" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+アイテムを売るとき
+０：売るアイテム
+１：もらえるタマ</comment>
+		<language name="日本語">[1:19:地下のどうぐの名前:2]　と
+[1:19:地下のどうぐの名前:4]　を　こうかんだな？</language>
+	</row>
+
+	<row id="mes_uw_buy_11" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+売り成立</comment>
+		<language name="日本語">よし！
+こうかん　だ！</language>
+	</row>
+
+	<row id="mes_uw_buy_12" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物メッセージ：
+売りで、タマがいっぱい</comment>
+		<language name="日本語">なんだ　てもちの　タマが
+いっぱいじゃ　ないか！</language>
+	</row>
+
+	<row id="mes_uw_buy_13" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+トラップ親父</comment>
+		<language name="日本語" font=" 1:font_system">トラップを　もらう</language>
+	</row>
+
+	<row id="mes_uw_buy_14" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+トラップ親父</comment>
+		<language name="日本語" font=" 1:font_system">トラップを　あげる</language>
+	</row>
+
+	<row id="mes_uw_buy_15" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+トラップ親父</comment>
+		<language name="日本語" font=" 1:font_system">やめる</language>
+	</row>
+
+	<row id="mes_uw_buy_16" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+グッズ親父</comment>
+		<language name="日本語" font=" 1:font_system">グッズを　もらう</language>
+	</row>
+
+	<row id="mes_uw_buy_17" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+グッズ親父</comment>
+		<language name="日本語" font=" 1:font_system">グッズを　あげる</language>
+	</row>
+
+	<row id="mes_uw_buy_18" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+グッズ親父</comment>
+		<language name="日本語" font=" 1:font_system">やめる</language>
+	</row>
+
+	<row id="mes_uw_buy_19" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+買い物時に、どのタマを出すか？
+リストの名前</comment>
+		<language name="日本語" font=" 1:font_system">てもちの
+　　タマ</language>
+	</row>
+
+	<row id="mes_uw_buy_20" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+売り時に、どのトラップをだすか？
+リストの名前</comment>
+		<language name="日本語" font=" 1:font_system">てもちの
+トラップ</language>
+	</row>
+
+	<row id="mes_uw_buy_21" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+売り時に、どのグッズをだすか？
+リストの名前</comment>
+		<language name="日本語" font=" 1:font_system">てもちの
+　グッズ</language>
+	</row>
+
+	<row id="mes_uw_buy_22" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+アイテムリストの最後</comment>
+		<language name="日本語" font=" 1:font_system">やめる</language>
+	</row>
+
+	<row id="mes_uw_buy_23" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+買い物時必要なタマ</comment>
+		<language name="日本語" font=" 1:font_system">ひつようなタマ</language>
+	</row>
+
+	<row id="mes_uw_buy_24" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+売るときにもらえるタマ</comment>
+		<language name="日本語" font=" 1:font_system">もらえるタマ</language>
+	</row>
+
+	<row id="mes_uw_buy_25" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>買い物項目：
+０：必要だったり、もらえたりするタマ</comment>
+		<language name="日本語" font=" 1:font_system">[1:19:地下のどうぐの名前:2] [1:33:数字２桁:6]</language>
+	</row>
+
+	<row id="mes_uw_buy_26" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>売ることができないグッズは25の代わりにこれを表示</comment>
+		<language name="日本語" font=" 1:font_system">うれません</language>
+	</row>
+
+	<row id="mes_uw_buy_27" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>たから交換親父メッセージ：
+はじめのメッセージ</comment>
+		<language name="日本語" font=" 1:font_system">たから　もってるか？
+もってたら　タマと　こうかんして　やるぞ</language>
+	</row>
+
+	<row id="mes_uw_buy_28" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>たから交換親父項目：
+・交換
+・やめる</comment>
+		<language name="日本語" font=" 1:font_system">たからを　あげる</language>
+	</row>
+
+	<row id="mes_uw_buy_29" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>たから交換親父項目：
+売り時に、どの宝をだすか？
+リストの名前</comment>
+		<language name="日本語" font=" 1:font_system">てもちの
+　たから</language>
+	</row>
+
+	<row id="mes_uw_find01_01" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">わし　ひみつきち　みつけじじい
+きみの　きちのばしょ　おしえようか？</language>
+	</row>
+
+	<row id="mes_uw_find01_02" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">そうか……
+しりたくなったら　またおいで</language>
+	</row>
+
+	<row id="mes_uw_find01_03" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">よし！　じゃあ　そのかわりに
+[1:19:地下のどうぐの名前:0]　を　ひとつ　もらおうかな！？</language>
+	</row>
+
+	<row id="mes_uw_find01_04" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">ん？　タマを　もってないのか……
+それじゃあ　おしえられんなぁ</language>
+	</row>
+
+	<row id="mes_uw_find01_05" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">よし！　いいだろう
+おしえてやるぞ！▼
+むむむ……！！</language>
+	</row>
+
+	<row id="mes_uw_find01_06" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">それは　[1:19:地下のどうぐの名前:0]　じゃ
+ないぞ！</language>
+	</row>
+
+	<row id="mes_uw_find01_07" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">おまえの　さがしている　かせきは！▼
+ここより　[1:1E:秘密会話質問の答え:0]に　[1:34:数字３桁:1]ほ！
+[1:1E:秘密会話質問の答え:2]に　[1:34:数字３桁:3]ほ！▽
+その　ばしょに　ある！</language>
+	</row>
+
+	<row id="mes_uw_find01_08" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">すまん　わからんかった……
+タマは　かえすぞ</language>
+	</row>
+
+	<row id="mes_uw_find01_09" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">みぎ</language>
+	</row>
+
+	<row id="mes_uw_find01_10" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">ひだり</language>
+	</row>
+
+	<row id="mes_uw_find01_11" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">うえ</language>
+	</row>
+
+	<row id="mes_uw_find01_12" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">した</language>
+	</row>
+
+	<row id="mes_uw_find02_01" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">わし　かせき　みつけじじい
+かせきの　ばしょを　おしえようか？</language>
+	</row>
+
+	<row id="mes_uw_find02_02" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">そうか……
+わからなくなったら　また　おいで</language>
+	</row>
+
+	<row id="mes_uw_find02_03" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">よし！　じゃあ　そのかわりに
+[1:19:地下のどうぐの名前:0]　を　ひとつ　もらおうかな！？</language>
+	</row>
+
+	<row id="mes_uw_find02_04" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">ん？　タマを　もってないのか……
+それじゃあ　おしえられんなぁ</language>
+	</row>
+
+	<row id="mes_uw_find02_05" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">よし！　いいだろう
+おしえてやるぞ！▼
+むむむ……！！</language>
+	</row>
+
+	<row id="mes_uw_find02_06" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">それは　[1:19:地下のどうぐの名前:0]　じゃ
+ないぞ！</language>
+	</row>
+
+	<row id="mes_uw_find02_07" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">おまえの　きちは！▼
+ここより　[1:1E:秘密会話質問の答え:0]に　[1:34:数字３桁:1]ほ！
+[1:1E:秘密会話質問の答え:2]に　[1:34:数字３桁:3]ほ！▽
+その　ばしょに　ある！</language>
+	</row>
+
+	<row id="mes_uw_find02_08" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">すまん　わからんかった……
+タマは　かえすぞ</language>
+	</row>
+
+	<row id="mes_uw_find02_09" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">みぎ</language>
+	</row>
+
+	<row id="mes_uw_find02_10" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">ひだり</language>
+	</row>
+
+	<row id="mes_uw_find02_11" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">うえ</language>
+	</row>
+
+	<row id="mes_uw_find02_12" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">した</language>
+	</row>
+
+	<row id="mes_uw_find03_01" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">わし　タマ　みつけじじい
+うめたまま　わからなくなった　タマは　ないかな？</language>
+	</row>
+
+	<row id="mes_uw_find03_02" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">そうか……
+わからなくなったら　また　おいで</language>
+	</row>
+
+	<row id="mes_uw_find03_03" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">よし！　じゃあ　そのかわりに
+[1:19:地下のどうぐの名前:0]　を　ひとつ　もらおうかな！？</language>
+	</row>
+
+	<row id="mes_uw_find03_04" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">ん？　タマを　もってないのか……
+それじゃあ　おしえられんなぁ</language>
+	</row>
+
+	<row id="mes_uw_find03_05" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">よし！　いいだろう
+おしえてやるぞ！▼
+むむむ……！！</language>
+	</row>
+
+	<row id="mes_uw_find03_06" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">それは　[1:19:地下のどうぐの名前:0]　じゃ
+ないぞ！</language>
+	</row>
+
+	<row id="mes_uw_find03_07" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">おまえの　さがしている　タマは！▼
+ここより　[1:1E:秘密会話質問の答え:0]に　[1:34:数字３桁:1]ほ！
+[1:1E:秘密会話質問の答え:2]に　[1:34:数字３桁:3]ほ！▽
+その　ばしょに　ある！</language>
+	</row>
+
+	<row id="mes_uw_find03_08" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">すまん　わからんかった……
+タマは　かえすぞ</language>
+	</row>
+
+	<row id="mes_uw_find03_09" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">みぎ</language>
+	</row>
+
+	<row id="mes_uw_find03_10" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">ひだり</language>
+	</row>
+
+	<row id="mes_uw_find03_11" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">うえ</language>
+	</row>
+
+	<row id="mes_uw_find03_12" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">した</language>
+	</row>
+
+	<row id="mes_uw_crash_01" back-color=",,,#808080,,#808080,,,,,,">
+		<comment>タマわりじじい：
+
+</comment>
+		<language name="日本語">わし　タマわりじじい
+２つに　わってほしい　タマは　あるかな？</language>
+	</row>
+
+	<row id="mes_uw_crash_02" back-color=",,,#808080,,#808080,,,,,,">
+		<comment>タマわりじじい：
+ことわる
+</comment>
+		<language name="日本語">わりたくなったら　またおいで</language>
+	</row>
+
+	<row id="mes_uw_crash_03" back-color=",,,#808080,,#808080,,,,,,">
+		<comment>タマ見つけじじい：
+割ってほしいタマの選択</comment>
+		<language name="日本語">お！　じゃあ　どのタマを
+わってほしい？</language>
+	</row>
+
+	<row id="mes_uw_crash_04" back-color=",,,#808080,,#808080,,,,,,">
+		<comment>タマ見つけじじい：
+たまをもってないとき</comment>
+		<language name="日本語">ん？　タマを　もってないのか……
+それじゃあ　わる　どころじゃ　ないな</language>
+	</row>
+
+	<row id="mes_uw_crash_05" back-color=",,,#808080,,#808080,,,,,,">
+		<comment>タマ見つけじじい：
+
+タマを渡した後
+０＝わたしたタマ
+１＝おおきさ</comment>
+		<language name="日本語">[1:19:地下のどうぐの名前:0]　[1:33:数字２桁:1]だな！
+じゃあ　わるぞ！▼
+むむむ……！！</language>
+	</row>
+
+	<row id="mes_uw_crash_06" back-color=",,,#808080,,#808080,,,,,,">
+		<comment>タマわりじじい：
+アイテムがいっぱいのとき</comment>
+		<language name="日本語">あー　タマが　おおいな
+すこし　タマを　へらしてから　またおいで</language>
+	</row>
+
+	<row id="mes_uw_crash_07" back-color=",,,#808080,,#808080,,,,,,">
+		<comment>タマ見つけじじい：
+
+タマをわった後
+０＝わたしたタマ
+１＝おおきさ</comment>
+		<language name="日本語">まっぷたつ　だ！
+[1:19:地下のどうぐの名前:0]　[1:33:数字２桁:1]　が　２つ　できたな！</language>
+	</row>
+
+	<row id="mes_uw_flag01_01" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">わし　ハタじじい▼
+ぬぬ！　わしに　であうとは
+ラッキーな　やつ！▽
+わしの　もっている　ハタが　ほしいか？</language>
+	</row>
+
+	<row id="mes_uw_flag01_02" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">そうか！
+よかった……</language>
+	</row>
+
+	<row id="mes_uw_flag01_03" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">もう　はたは　ないぞ！</language>
+	</row>
+
+	<row id="mes_uw_flag01_04" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">うむ！
+では　[1:19:地下のどうぐの名前:0]　と　こうかんだ！</language>
+	</row>
+
+	<row id="mes_uw_flag01_05" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">そうか……▼
+しかし　それは
+タマを　もってきたからの　はなしだ！</language>
+	</row>
+
+	<row id="mes_uw_flag01_06" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">そうか……▼
+しかし　それは
+きちを　つくってからの　はなしだ！
+</language>
+	</row>
+
+	<row id="mes_uw_flag01_07" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">よし！　いいだろう
+おまえに　このハタを　やろう！▼
+だいじに　じぶんの　きちまで
+もっていくがいい！</language>
+	</row>
+
+	<row id="mes_uw_flag01_08" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">それでは　ハタは
+やれんな！</language>
+	</row>
+
+	<row id="mes_uw_tama01_01" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">わし　タマそだてじじい▼
+おまえの　もっているタマを　
+ひとつ　でっかく　してやろうか？</language>
+	</row>
+
+	<row id="mes_uw_tama01_02" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">そうか……
+でっかく　なるのになぁ</language>
+	</row>
+
+	<row id="mes_uw_tama01_03" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">そのためには　[1:19:地下のどうぐの名前:0]が
+ひつようじゃが　もっとるか？</language>
+	</row>
+
+	<row id="mes_uw_tama01_04" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">ん？　タマを　もってないのか……
+それじゃあ　なんにも　できんなぁ</language>
+	</row>
+
+	<row id="mes_uw_tama01_05" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">それは　[1:19:地下のどうぐの名前:0]　じゃ
+ないなぁ</language>
+	</row>
+
+	<row id="mes_uw_tama01_06" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">うむうむ　じゃあ　どのタマを
+でっかく　したいんじゃ？</language>
+	</row>
+
+	<row id="mes_uw_tama01_07" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">それを　もらったら
+でっかくする　タマが　なくなるのぅ</language>
+	</row>
+
+	<row id="mes_uw_tama01_08" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">よし　いいだろう！
+[1:19:地下のどうぐの名前:0]を　でっかく　してやろう！▼
+むむむ……！！</language>
+	</row>
+
+	<row id="mes_uw_tama01_09" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">そのタマは　それいじょうは
+でっかく　ならんよ</language>
+	</row>
+
+	<row id="mes_uw_tama01_10" back-color=",,,#c0c0c0,,#c0c0c0,,,,,,">
+		<comment>使用しません</comment>
+		<language name="日本語">うむ！
+[1:19:地下のどうぐの名前:0]は
+[1:19:地下のどうぐの名前:1]　[1:33:数字２桁:2]まで▽
+でっかく　なったぞ！　よかったな！</language>
+	</row>
+
+	<row id="msg_uw_mount_01" back-color=",,,#ffff00,,#ffff00,,,,,,">
+		<comment>はじめて地下に来たときに、地下の説明を
+してくれるおじさん
+
+主人公の右側にいる
+
+↓
+
+「！」を出して左に振り向き、
+「お！
+　きみは？」という
+
+↓
+
+「じゃあな！
+　またどこかで　あおう！」
+のあと、おやじが画面上に上っていく
+
+↓
+
+おわり
+
+
+
+
+
+
+
+
+
+
+</comment>
+		<language name="日本語">ヒョウタ『あっ！　[1:03:トレーナー名:0]！
+もしかして　はじめて　ここにきた！？▼
+ようこそ！
+シンオウの　ちかつうろ　へ！▼
+え？　ここは
+どこかって？▽
+レーダーをみて　ピンと　こない？▼
+ここは　シンオウの　ちかにひろがる
+きょだいな　ちかつうろ　さ！▼
+え？　こんな　ひろい　ところで
+なにを　しているかって？▼
+うーん　むずかしい　しつもんだな
+なんたって　この　ちかつうろでは▽
+なんでも　できるって　かんじだし……▼
+たとえば　かせきを　ほったり
+じぶんの　ひみつきちを　つくったり▼
+それに　ともだちと　いっしょに
+あそべるのも　おもしろいしね▼
+くわしいことは　ハクタイの
+ちかおじさんに　きいてごらんよ▼
+じゃあね！
+また　どこかで　あおう！</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

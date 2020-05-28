@@ -1,0 +1,200 @@
+//============================================================================================
+//						tv_interview.ev
+//						テレビ用スクリプト・データ
+//============================================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+
+	.include	"../../../include/msgdata/msg_tv_interview.h"
+
+#include "../../field/scr_tv.h"
+
+//============================================================================================
+//============================================================================================
+//--------------------------------------------------------------------
+//					     スクリプト呼び出しテーブル
+//--------------------------------------------------------------------
+
+_EVENT_DATA		ev_tv_interview_01
+_EVENT_DATA		ev_tv_interview_02
+_EVENT_DATA		ev_tv_interview_03
+_EVENT_DATA		ev_tv_interview_04
+_EVENT_DATA		ev_tv_interview_05
+_EVENT_DATA		ev_tv_interview_06
+_EVENT_DATA		ev_tv_interview_07
+_EVENT_DATA		ev_tv_interview_08
+_EVENT_DATA		ev_tv_interview_09
+_EVENT_DATA		ev_tv_interview_10
+_EVENT_DATA		ev_tv_interview_11
+_EVENT_DATA		ev_tv_interview_12
+_EVENT_DATA		ev_tv_interview_13
+_EVENT_DATA_END						//終了
+
+
+//============================================================================================
+//============================================================================================
+//--------------------------------------------------------------------
+//	インタビューの導入メッセージを出す
+//--------------------------------------------------------------------
+	.macro	_TV_INTERVIEW_MSG	id, arc_id, msg_id
+	.short	EV_SEQ_TV_INTERVIEW
+	.short	\TV_INTERVIEW_CMD_GET_MSG
+	.short	\id
+	.short	\arc_id
+	.short	\msg_id
+	.endm
+
+//--------------------------------------------------------------------
+//	インタビュー結果登録処理呼び出し
+//--------------------------------------------------------------------
+	.macro	_TV_INTERVIEW_ENTRY	id, ans_wk1, ans_wk2
+	.short	EV_SEQ_TV_INTERVIEW
+	.short	\TV_INTERVIEW_CMD_SET_TOPIC
+	.short	\id
+	.short	\ans_wk1
+	.short	\ans_wk2
+	.endm
+
+//============================================================================================
+//
+//
+//			テレビ用コマンド定義
+//
+//
+//============================================================================================
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+ev_tv_interview_01:	//欠番
+	_LDVAL			SCWK_PARAM0, 1
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_02:
+	_LDVAL			SCWK_PARAM0, 2
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_03:	//欠番
+	_LDVAL			SCWK_PARAM0, 3
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_04:
+	_LDVAL			SCWK_PARAM0, 4
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_05:	//欠番
+	_LDVAL			SCWK_PARAM0, 5
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_06:
+	_LDVAL			SCWK_PARAM0, 6
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_07:
+	_LDVAL			SCWK_PARAM0, 7
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_08:	//欠番
+	_LDVAL			SCWK_PARAM0, 8
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_09:
+	_LDVAL			SCWK_PARAM0, 9
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_10:
+	_LDVAL			SCWK_PARAM0, 10
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_11:
+	_LDVAL			SCWK_PARAM0, 11
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_12:	//欠番
+	_LDVAL			SCWK_PARAM0, 12
+	_JUMP			ev_tv_interview_common
+ev_tv_interview_13:
+	_LDVAL			SCWK_PARAM0, 13
+	_JUMP			ev_tv_interview_common
+
+
+ev_tv_interview_common:
+	_TALK_OBJ_START
+
+	_TV_INTERVIEWER_CHECK	SCWK_PARAM0, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0, ev_tv_interview_after
+
+	_TALKMSG			msg_tv_interview_00_01
+	_YES_NO_WIN			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER, EQ, 0, ev_tv_interview_accept
+	_JUMP				ev_tv_interview_refuse
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+ev_tv_interview_accept:
+	_TV_INTERVIEW_MSG	SCWK_PARAM0, SCWK_TEMP0, SCWK_TEMP1
+	_TALKMSG_ARC		SCWK_TEMP0, SCWK_TEMP1
+
+	_IFVAL_JUMP			SCWK_PARAM0,EQ,10, ev_tv_interview_ask_poketype
+	_BLACK_OUT			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TALK_CLOSE
+
+	_PMS_INPUT_SINGLE	SCWK_ANSWER, SCWK_TEMP0, SCWK_TEMP1
+	_SET_MAP_PROC
+
+	_BLACK_IN			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP			SCWK_ANSWER, EQ, 0, ev_tv_interview_cancel
+
+	_TV_INTERVIEW_ENTRY	SCWK_PARAM0, SCWK_TEMP0, SCWK_TEMP1
+	_JUMP				ev_tv_interview_after
+
+
+//--------------------------------------------------------------------
+//	ポケモンタイプ１７択
+//--------------------------------------------------------------------
+ev_tv_interview_ask_poketype:
+	_BMPLIST_INIT_EX	1,1,0,1,SCWK_TEMP0
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type01, EV_WIN_TALK_MSG_NONE, 1
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type02, EV_WIN_TALK_MSG_NONE, 2
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type03, EV_WIN_TALK_MSG_NONE, 3
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type04, EV_WIN_TALK_MSG_NONE, 4
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type05, EV_WIN_TALK_MSG_NONE, 5
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type06, EV_WIN_TALK_MSG_NONE, 6
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type07, EV_WIN_TALK_MSG_NONE, 7
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type08, EV_WIN_TALK_MSG_NONE, 8
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type09, EV_WIN_TALK_MSG_NONE, 9
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type10, EV_WIN_TALK_MSG_NONE, 10
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type11, EV_WIN_TALK_MSG_NONE, 11
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type12, EV_WIN_TALK_MSG_NONE, 12
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type13, EV_WIN_TALK_MSG_NONE, 13
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type14, EV_WIN_TALK_MSG_NONE, 14
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type15, EV_WIN_TALK_MSG_NONE, 15
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type16, EV_WIN_TALK_MSG_NONE, 16
+	_BMPLIST_MAKE_LIST		msg_tv_interview_type17, EV_WIN_TALK_MSG_NONE, 17
+	_BMPLIST_START
+
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,EV_WIN_B_CANCEL, ev_tv_interview_cancel
+	_TV_INTERVIEW_ENTRY	SCWK_PARAM0, SCWK_TEMP0, SCWK_TEMP1
+	_JUMP				ev_tv_interview_after
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+ev_tv_interview_after:
+	_TALKMSG			msg_tv_interview_00_03
+	_LAST_KEYWAIT
+	_JUMP				ev_tv_interview_end
+
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+ev_tv_interview_refuse:
+ev_tv_interview_cancel:
+	_TALKMSG			msg_tv_interview_00_02
+	_LAST_KEYWAIT
+	_JUMP				ev_tv_interview_end
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+ev_tv_interview_end:
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+

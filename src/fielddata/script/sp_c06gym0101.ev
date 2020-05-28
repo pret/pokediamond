@@ -1,0 +1,9 @@
+.text
+
+.include	"scr_seq_def.h"
+
+.include	"c06gym0101_def.h"
+
+_FLAG_CHANGE_LABEL	SCRID_C06GYM0101_FLAG_CHANGE
+
+_SP_EVENT_DATA_END

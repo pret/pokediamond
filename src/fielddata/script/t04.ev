@@ -1,0 +1,172 @@
+//====================================================================
+//					フィールド・タウン０４
+//						ズイタウン
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t04.h"
+	.include	"../eventdata/zone_t04evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t04_farmer1
+_EVENT_DATA		ev_t04_cowgirl1
+_EVENT_DATA		ev_t04_babygirl1
+_EVENT_DATA		ev_t04_woman3
+_EVENT_DATA		ev_t04_sportsman
+_EVENT_DATA		ev_t04_explore
+_EVENT_DATA		ev_t04_sign1
+_EVENT_DATA		ev_t04_sign2
+_EVENT_DATA		ev_t04_sign3
+_EVENT_DATA		ev_t04_flag_change
+_EVENT_DATA		ev_t04_obj_change
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						　OBJ CHANGE								*/
+/********************************************************************/
+ev_t04_obj_change:
+	_END
+
+/********************************************************************/
+/*						　FLAG CHANGE								*/
+/********************************************************************/
+ev_t04_flag_change:
+	_FLAG_SET		FV_C05R0701_STOPPER		/*ストッパー解除*/
+
+	_SODATEYA_TAMAGO_CHK	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,NE,0,t04_sodateya_m_move
+	_END
+
+//じいさんの位置変更
+t04_sodateya_m_move:
+	_SXY_DIR_CHANGE	SODATEYA_M,DIR_RIGHT
+	_END
+
+
+/********************************************************************/
+/*						　牧場おじさん								*/
+/********************************************************************/
+ev_t04_farmer1:
+	_EASY_OBJ_MSG	msg_t04_farmer_01
+	_END
+
+/********************************************************************/
+/*						　牧場少女									*/
+/********************************************************************/
+ev_t04_cowgirl1:
+	_TALK_OBJ_START
+
+	/*ヨスガバッチ取得済み*/
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C05,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t04_cowgirl1_02
+
+	_TALK_KEYWAIT	msg_t04_cowgirl_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ヨスガバッチ取得済み*/
+ev_t04_cowgirl1_02:
+	_TALK_KEYWAIT	msg_t04_cowgirl_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						　女の子									*/
+/********************************************************************/
+ev_t04_babygirl1:
+	_EASY_OBJ_MSG	msg_t04_babygirl1_01
+	_END
+
+/********************************************************************/
+/*						　トレーナー姉さん							*/
+/********************************************************************/
+ev_t04_woman3:
+	_EASY_OBJ_MSG	msg_t04_woman3_01
+	_END
+
+/********************************************************************/
+/*						　スポーツマン								*/
+/********************************************************************/
+ev_t04_sportsman:
+	_EASY_OBJ_MSG	msg_t04_sportsman_01
+	_END
+
+/********************************************************************/
+/*							　探検家								*/
+/********************************************************************/
+ev_t04_explore:
+	_TALK_OBJ_START
+
+	//ポケモンヒストリーを取得済みかチェック
+	_POKETCH_CHECK	POKETCH_APPID_POKEMON_HISTORY,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t04_explore_03
+
+	//シンオウ図鑑上の数取得
+	_SHINOU_ZUKAN_SEE_NUM	SCWK_ANSWER
+
+	//50より少ないとき
+	_IFVAL_JUMP		SCWK_ANSWER,LT,50,ev_t04_explore_01
+
+	_TALK_KEYWAIT	msg_t04_explore_02
+	
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_POKEMON_HISTORY
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//50より少ないとき
+ev_t04_explore_01:
+	_TALKMSG		msg_t04_explore_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ポケモンヒストリー追加後
+ev_t04_explore_03:
+	_TALKMSG		msg_t04_explore_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							タウンマップ							*/
+/********************************************************************/
+ev_t04_sign1:
+	_EASY_BOARD_MSG	msg_t04_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+/********************************************************************/
+/*						　	POST	　　							*/
+/********************************************************************/
+ev_t04_sign2:
+	_EASY_BOARD_MSG	msg_t04_sign2_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*						　	POST	　　							*/
+/********************************************************************/
+ev_t04_sign3:
+	_EASY_BOARD_MSG	msg_t04_sign3_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

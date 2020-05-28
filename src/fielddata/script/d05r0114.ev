@@ -1,0 +1,1618 @@
+//====================================================================
+//								d05r0114
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d05r0114.h"
+	.include	"../eventdata/zone_d05r0114evc.h"
+
+	.include	"../../field/scr_climaxdemo.h"
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//		座標用定義
+//--------------------------------------------------------------------
+#define	IA_POS_X		31
+#define	IA_POS_Z		21
+
+#define	BOSS_POS_X		31
+#define	BOSS_POS_Z		28
+
+#define	BOSS_TALK_POS_X		30
+#define	BOSS_TALK_POS_Z		34
+
+#define	AREA_DOWN_OUT	8
+#define	AREA_UP_OUT		8
+
+#define	KANBU_BATTLE_L_POS_X	30
+#define	KANBU_BATTLE_M_POS_X	31
+#define	KANBU_BATTLE_R_POS_X	32
+#define	KANBU_BATTLE_POS_X	30
+#define	KANBU_BATTLE_POS_Z	32
+#define	KANBU_BATTLE_WIDTH	3
+
+#define SUPPORT_POS_Z0		KANBU_BATTLE_POS_Z
+#define DOCTOR_POS_Z0		KANBU_BATTLE_POS_Z
+#define	SUPPORT_POS_Z1		KANBU_BATTLE_POS_Z + AREA_DOWN_OUT
+#define	DOCTOR_POS_Z1		SUPPORT_POS_Z1
+
+//--------------------------------------------------------------------
+//		シーン定義
+//--------------------------------------------------------------------
+#define	SCENE_D05R0114_START			0
+#define	SCENE_D05R0114_SPPOKE_DEMO		1
+#define	SCENE_D05R0114_GINGA_BATTLE		2
+#define	SCENE_D05R0114_SPPOKE_BATTLE	3
+#define	SCENE_D05R0114_CLEAR			4
+#define	SCENE_D05R0114_SPPOKE_RETRY		5
+
+
+//--------------------------------------------------------------------
+//		トレーナーID定義
+//--------------------------------------------------------------------
+#define	BOSS_TRAINER_ID		GINGALBOSS_02
+#define	KANBU1_TRAINER_ID	GINGALEADER1_03
+#define	KANBU2_TRAINER_ID	GINGALEADER2_02
+#define	ZAKO1_TRAINER_ID	GINGAM_30
+#define	ZAKO2_TRAINER_ID	GINGAW_16
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d05r0114_flag_change
+_EVENT_DATA		ev_d05r0114_init_change
+_EVENT_DATA		pos_d05r0114_gingam
+_EVENT_DATA		pos_d05r0114_gingaboss
+_EVENT_DATA		pos_d05r0114_gingakanbu
+_EVENT_DATA		ev_d05r0114_gingam
+_EVENT_DATA		ev_d05r0114_support
+_EVENT_DATA		ev_d05r0114_doctor
+_EVENT_DATA		pos_d05r0114_ia_stop
+_EVENT_DATA		pos_d05r0114_ia_battle
+_EVENT_DATA		ev_d05r0114_gingakanbu1
+_EVENT_DATA		ev_d05r0114_gingakanbu2
+_EVENT_DATA		pos_d05r0114_kanbu_stop
+_EVENT_DATA		pos_d05r0114_sppoke_retry
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d05r0114_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D05R0114	//到着
+
+	_CALL		d05r0114_flag_change_scene
+
+	_CALL		sub_d05r0114_flag_change_mons
+
+	_CALL		sub_d05r0114_flag_change_itemball
+
+	_CALL		sub_d05r0114_flag_change_tenkainofue
+
+	//WKOBJCHRにサポートのキャラコードをセットする
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,d05r0114_male_flag_change_01	//サポート女
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,d05r0114_female_flag_change_01	//サポート男
+	_END
+
+d05r0114_male_flag_change_01:	//サポート女
+	_LDVAL			OBJCHRWORK0,HEROINE
+	_END
+
+d05r0114_female_flag_change_01:	//サポート男
+	_LDVAL			OBJCHRWORK0,HERO
+	_END
+
+//--------------------------------------------------------------------
+//OBJCHRWORK1にイア・エアどちらかをセットする
+//--------------------------------------------------------------------
+sub_d05r0114_flag_change_mons:
+	_LDVAL				OBJCHRWORK1,SPPOKE4		//ディアルガ（イア）
+
+	_PM_VERSION_GET		LOCALWORK0
+	_IFVAL_JUMP			LOCALWORK0,EQ,VERSION_DIAMOND, sub_d05r0114_flag_change_mons_ret
+
+	_LDVAL				OBJCHRWORK1,SPPOKE5		//パルキア（エア）
+sub_d05r0114_flag_change_mons_ret:
+	_RET
+
+//--------------------------------------------------------------------
+//	バージョンによって出現するたまを制限
+//--------------------------------------------------------------------
+sub_d05r0114_flag_change_itemball:
+	_PM_VERSION_GET		LOCALWORK0
+	_IFVAL_JUMP			LOCALWORK0,EQ,VERSION_DIAMOND, sub_d05r0114_flag_change_itemball_diamond
+
+	_FLAG_SET			FV_FLD_ITEM_37	//こんごうだま消去
+	_RET
+
+sub_d05r0114_flag_change_itemball_diamond:
+	_FLAG_SET			FV_FLD_ITEM_39	//しらたま消去
+	_RET
+
+//--------------------------------------------------------------------
+//	てんかいのふえのPOSを使えるようにするかどうかの設定
+//--------------------------------------------------------------------
+sub_d05r0114_flag_change_tenkainofue:
+/* てんかいのふえが使える条件 */
+	/*ゲームクリア？*/
+	_SYS_FLAG_GAME_CLEAR_GET	LOCALWORK0
+	_IFVAL_JUMP					LOCALWORK0,EQ,0, sub_d05r0114_flag_change_tenkainofue_end
+	/* 全国図鑑入手後？*/
+	_ZENKOKU_ZUKAN_FLAG			FLAG_MODE_GET, LOCALWORK0
+	_IFVAL_JUMP					LOCALWORK0,EQ,0, sub_d05r0114_flag_change_tenkainofue_end
+	/* てんかいのふえをもっている？*/
+	_ITEM_CHK					ITEM_TENKAINOHUE,1, LOCALWORK0
+	_IFVAL_JUMP					LOCALWORK0,EQ,0, sub_d05r0114_flag_change_tenkainofue_end
+	/* 配布用マジックナンバー正常？*/
+	_IS_HAIHU_EVENT_ENABLE		HAIHUEVENT_ID_D05, LOCALWORK0
+	_IFVAL_JUMP					LOCALWORK0,EQ,0, sub_d05r0114_flag_change_tenkainofue_end
+	/* アウス（アルセウス）を捕まえていない？*/
+	_IF_FLAGON_JUMP				FE_D05R0116_LEGEND_CLEAR, sub_d05r0114_flag_change_tenkainofue_end
+
+	_LDVAL						WK_SCENE_D05R0116, 1
+
+sub_d05r0114_flag_change_tenkainofue_end:
+	_RET
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+d05r0114_flag_change_scene:
+	_DEBUG_WATCH_WORK	WK_SCENE_D05R0114
+	_IFVAL_JUMP	WK_SCENE_D05R0114,EQ,SCENE_D05R0114_START,			d05r0114_flag_change_scene_00
+	_IFVAL_JUMP	WK_SCENE_D05R0114,EQ,SCENE_D05R0114_SPPOKE_DEMO,	d05r0114_flag_change_scene_01
+	_IFVAL_JUMP	WK_SCENE_D05R0114,EQ,SCENE_D05R0114_GINGA_BATTLE,	d05r0114_flag_change_scene_02
+	_IFVAL_JUMP	WK_SCENE_D05R0114,EQ,SCENE_D05R0114_SPPOKE_BATTLE,	d05r0114_flag_change_scene_03
+	_IFVAL_JUMP	WK_SCENE_D05R0114,EQ,SCENE_D05R0114_CLEAR,			d05r0114_flag_change_scene_04
+	_IFVAL_JUMP	WK_SCENE_D05R0114,EQ,SCENE_D05R0114_SPPOKE_RETRY,	d05r0114_flag_change_scene_05
+	_RET
+
+d05r0114_flag_change_scene_00:
+d05r0114_flag_change_scene_01:
+	_FLAG_SET	FV_D05R0114_SUPPORT
+	_FLAG_SET	FV_D05R0114_DOCTOR
+	_FLAG_SET	FV_D05R0114_RIVAL
+	_FLAG_SET	FV_D05R0114_POKE_L01
+	_FLAG_SET	FV_D05R0114_POKE_L02
+	_FLAG_SET	FV_D05R0114_POKE_L03
+	_RET
+d05r0114_flag_change_scene_02:
+	_RET
+d05r0114_flag_change_scene_03:
+	_SXY_POS_CHANGE		D05R0114_SUPPORT, 30, SUPPORT_POS_Z0
+	_SXY_POS_CHANGE		D05R0114_DOCTOR,  32, DOCTOR_POS_Z0
+	_RET
+
+d05r0114_flag_change_scene_04:
+	_FLAG_SET	FV_D05R0114_SUPPORT
+	_FLAG_SET	FV_D05R0114_DOCTOR
+	_FLAG_SET	FV_D05R0114_RIVAL
+
+	_RET
+
+d05r0114_flag_change_scene_05:
+	_FLAG_SET	FV_D05R0114_SUPPORT
+	_FLAG_SET	FV_D05R0114_DOCTOR
+	_FLAG_RESET			FV_D05R0114_SPPOKE_01
+	_RET
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d05r0114_init_change:
+	_IF_FLAGOFF_JUMP	FE_D05R0114_BLACKRING,ev_d05r0114_init_change_ia_check
+
+	_CLIMAX_DEMO	CLIMAX_DEMO_BLACKRING_START,LOCALWORK0
+
+ev_d05r0114_init_change_ia_check:
+	_IF_FLAGON_JUMP	FE_INIT_CHANGE_OBJ_DEL,ev_d05r0114_init_change_obj_del
+	_END
+
+ev_d05r0114_init_change_obj_del:
+	_FLAG_SET		FV_D05R0114_SPPOKE_01
+	_OBJ_DEL		D05R0114_SPPOKE_01
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_END
+
+
+//============================================================================================
+//
+//
+//
+//			ストーリーのスクリプト
+//
+//
+//
+//============================================================================================
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+	.macro		_LDVAL_VERSION	val1, val2
+	_LDVAL		SCWK_TEMP1, \val1
+	_LDVAL		SCWK_TEMP2, \val2
+	_CALL		sub_choice_verion
+	.endm
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+sub_choice_verion:
+	_PM_VERSION_GET		SCWK_ANSWER
+	_LDWK				SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,VERSION_DIAMOND,sub_choice_version_ret
+	_LDWK				SCWK_TEMP0,SCWK_TEMP2
+sub_choice_version_ret:
+	_RET
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+	.macro		_LDVAL_SEX		val1, val2
+	_LDVAL		SCWK_TEMP1, \val1
+	_LDVAL		SCWK_TEMP2, \val2
+	_CALL		sub_choice_sex
+	.endm
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+sub_choice_sex:
+	_GET_MY_SEX			SCWK_ANSWER
+	_LDWK				SCWK_TEMP0, SCWK_TEMP1
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,sub_choice_sex_ret
+	_LDWK				SCWK_TEMP0, SCWK_TEMP2
+sub_choice_sex_ret:
+	_RET
+
+//============================================================================================
+//
+//
+//		シーン０：ザコ戦まで
+//
+//
+//============================================================================================
+/********************************************************************/
+/*		ギンガ団ザコ:割り込んだ										*/
+/********************************************************************/
+pos_d05r0114_gingam:
+	_EVENT_START
+
+	_OBJ_ANIME		D05R0114_GINGAM_01, anm_d05r0114_look_gingam_01
+	_OBJ_ANIME		D05R0114_GINGAM_02, anm_d05r0114_look_gingam_02
+	_OBJ_ANIME_WAIT
+
+	_2VS2_BATTLE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,NE,0, ev_d04r0114_gingam_battle
+
+//ポケモンを2体持っていないのでダブルバトルできない
+//戦えない場合、一歩戻される
+pos_d05r0114_gingam_not_battle:
+	_TALKMSG		msg_d05r0114_gingam_02
+	_TALK_CLOSE
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d05r0114_return_player_01
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		D05R0114_GINGAM_01, anm_d05r0114_default_gingam_01
+	_OBJ_ANIME		D05R0114_GINGAM_02, anm_d05r0114_default_gingam_02
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+
+_ANIME_LABEL	anm_d05r0114_look_gingam_01
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_default_gingam_01
+	_ANIME_DATA AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_look_gingam_02
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_default_gingam_02
+	_ANIME_DATA AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+//一歩戻される
+_ANIME_LABEL	anm_d05r0114_return_player_01
+	_ANIME_DATA	AC_WAIT_4F,5
+	_ANIME_DATA AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+	
+/********************************************************************/
+/*		ギンガ団ザコ:話しかけ										*/
+/********************************************************************/
+ev_d05r0114_gingam:
+	//_EVENT_START
+	_TALK_OBJ_START
+
+	_IFVAL_JUMP	WK_SCENE_D05R0114,NE,SCENE_D05R0114_START,ev_d05r0114_gingam_battle_after
+
+	_2VS2_BATTLE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,0,ev_d05r0114_gingam_not_battle
+
+//ギンガ団ザコ対戦（ダブルバトル）へ
+ev_d04r0114_gingam_battle:
+	_TALKMSG		msg_d05r0114_gingam_01
+	_TALK_CLOSE
+
+	_TRAINER_BTL_SET	ZAKO1_TRAINER_ID, ZAKO2_TRAINER_ID
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d05r0114_gingam_battle_lose
+
+	_LDVAL			WK_SCENE_D05R0114,SCENE_D05R0114_SPPOKE_DEMO
+	_TALKMSG		msg_d05r0114_gingam_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//ポケモンを2体持っていないのでダブルバトルできない
+ev_d05r0114_gingam_not_battle:
+	_TALKMSG		msg_d05r0114_gingam_02
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//ギンガ団ザコに敗北した
+ev_d05r0114_gingam_battle_lose:
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+//ギンガ団ザコ勝利後
+ev_d05r0114_gingam_battle_after:
+	_TALKMSG		msg_d05r0114_gingam_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+
+//============================================================================================
+//
+//
+//		シーン１：ボスの台詞～イア（エア）召還まで
+//		SCENE_D05R0114_SPPOKE_DEMO
+//
+//============================================================================================
+/********************************************************************/
+/*		ギンガ団ボス:イア召還										*/
+/********************************************************************/
+pos_d05r0114_gingaboss:
+	_EVENT_START
+	_OBJ_INVISIBLE	D05R0114_SPPOKE_01
+	_OBJ_PAUSE_CLEAR D05R0114_SPPOKE_01		// イアの動さ一時停止は解除します tomoya
+//	_FLAG_RESET		FV_D05R0114_SPPOKE_01
+//	_OBJ_ADD		D05R0114_SPPOKE_01
+
+	//カメラ移動、ボス中心へ
+	_PLAYER_POS_GET			SCWK_PARAM0,SCWK_PARAM1
+	_VANISH_DUMMY_OBJ_ADD	SCWK_PARAM0,SCWK_PARAM1
+	_CALL				sub_d05r0114_camera_jiki2boss
+	//_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01
+	_OBJ_ANIME_WAIT
+
+	_LDVAL_VERSION		msg_d05r0114_gingaboss_01,msg_d05r0115_gingaboss_01
+	_TALKMSG_SP			SCWK_TEMP0
+	_TALK_CLOSE
+
+	_BGM_FADEOUT	0, 60
+
+	_OBJ_ANIME	D05R0114_GINGABOSS,anm_d05r0114_boss_01
+	_OBJ_ANIME_WAIT
+
+	//カメラ移動、イア中心へ
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_02
+	_OBJ_ANIME_WAIT
+
+	//黒い球からイア出現のデモ
+
+	//_BGM_STOP		SEQ_D_MOUNT2
+	//_BGM_PLAY		SEQ_THE_EVENT02
+
+	//サウンドロード
+	_SND_CLIMAX_DATA_LOAD
+
+	_CLIMAX_DEMO	CLIMAX_DEMO_LEGENDPOKE_START,SCWK_ANSWER
+	_TIME_WAIT		30*5 + 12, SCWK_ANSWER
+
+	/*サブ画面サウンドデータを消さないように、PLAYER_FIELDで再生するようにした！*/
+	_BGM_PLAY		SEQ_THE_EVENT02
+
+//	_TIME_WAIT		35*30, SCWK_ANSWER
+demo_loop:
+	_CLIMAX_DEMO	CLIMAX_DEMO_LEGENDPOKE_ENDCHK,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,demo_loop
+
+//	_CLIMAX_DEMO	CLIMAX_DEMO_LEGENDPOKE_ENDCHK,SCWK_ANSWER
+	_CLIMAX_DEMO	CLIMAX_DEMO_BLACKRING_START,SCWK_ANSWER
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_03
+	_OBJ_ANIME_WAIT
+
+	//赤い鎖どうする？
+	//イア登場デモ
+	_LDVAL_VERSION		msg_d05r0114_gingaboss_02, msg_d05r0115_gingaboss_02
+	_TALKMSG_SP			SCWK_TEMP0
+
+	_CTRL_BGM_FLAG_SET			//BGM固定の開始
+	_FLD_SCOPE_MODE_ON			//望遠鏡モード：フラグ更新禁止
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_VANISH_DUMMY_OBJ_DEL
+	_TALK_CLOSE
+	//画面切替：やりのはしら上空
+	_MAP_CHANGE_NONE_FADE		ZONE_ID_D05R0114,0,31,25,DIR_RIGHT
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	_CLIMAX_DEMO	CLIMAX_DEMO_ANTEGG_00,SCWK_ANSWER
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_BGM_PLAY			SEQ_THE_EVENT03
+	_WIPE_FADE_END_CHECK
+	_TIME_WAIT		90,SCWK_ANSWER
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	//画面切替：風力発電所
+	_MAP_CHANGE_NONE_FADE		ZONE_ID_D02,0,240,660,DIR_RIGHT
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	_CLIMAX_DEMO	CLIMAX_DEMO_ANTEGG_01,SCWK_ANSWER
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TIME_WAIT		90,SCWK_ANSWER
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	//画面切替：コンテスト会場
+	_MAP_CHANGE_NONE_FADE		ZONE_ID_C05,0,479,692,DIR_LEFT
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	_CLIMAX_DEMO	CLIMAX_DEMO_ANTEGG_02,SCWK_ANSWER
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TIME_WAIT		90,SCWK_ANSWER
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	//元のマップへ
+	/*黒い輪の表示をセット*/
+	_FLAG_SET		FE_D05R0114_BLACKRING
+	_MAP_CHANGE_NONE_FADE		ZONE_ID_D05R0114,0,SCWK_PARAM0,SCWK_PARAM1,DIR_UP
+	_OBJ_VISIBLE	FLDOBJ_ID_PLAYER
+	_VANISH_DUMMY_OBJ_ADD	SCWK_PARAM0,SCWK_PARAM1
+	_CALL				sub_d05r0114_camera_jiki2boss
+	_OBJ_ANIME_WAIT
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_CTRL_BGM_FLAG_RESET		//BGM固定の解除
+	_FLD_SCOPE_MODE_OFF			//望遠鏡モード：フラグ更新禁止の解除
+
+
+	_LDVAL_VERSION		msg_d05r0114_gingaboss_03,msg_d05r0115_gingaboss_03
+	_TALKMSG_SP			SCWK_TEMP0
+	_TALK_CLOSE
+
+	//カメラ移動、イア中心へ
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_02
+	_OBJ_ANIME_WAIT
+
+	_LDVAL_VERSION		MONSNO_IA, MONSNO_EA
+	_VOICE_PLAY			SCWK_TEMP0, 0
+	_LDVAL_VERSION		msg_d05r0114_sppoke4_01, msg_d05r0115_sppoke5_01
+	_TALKMSG_SP			SCWK_TEMP0
+	_VOICE_WAIT
+	_TALK_CLOSE
+
+	//カメラ移動、ボス中心へ
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_03
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG	msg_d05r0114_gingaboss_04
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_CALL				sub_d05r0114_camera_boss2jiki
+	_OBJ_ANIME_WAIT
+	_VANISH_DUMMY_OBJ_DEL
+
+	_LDVAL		WK_SCENE_D05R0114,SCENE_D05R0114_GINGA_BATTLE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d05r0114_boss_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA AC_STAY_WALK_U_4F,1
+	_ANIME_DATA ACMD_END,0
+
+
+//--------------------------------------------------------------------
+//		カメラ移動：自機からボスへ
+//--------------------------------------------------------------------
+sub_d05r0114_camera_jiki2boss:
+	_PLAYER_POS_GET		SCWK_TEMP0, SCWK_TEMP1
+	_SWITCH				SCWK_TEMP0
+	_CASE_JUMP			29, sub_d05r0114_jiki2boss_LL
+	_CASE_JUMP			30, sub_d05r0114_jiki2boss_L
+	_CASE_JUMP			31, sub_d05r0114_jiki2boss_M
+	_CASE_JUMP			32, sub_d05r0114_jiki2boss_R
+	_CASE_JUMP			33, sub_d05r0114_jiki2boss_RR
+	_RET
+sub_d05r0114_jiki2boss_LL:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_LL
+	_RET
+sub_d05r0114_jiki2boss_L:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_L
+	_RET
+sub_d05r0114_jiki2boss_M:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_M
+	_RET
+sub_d05r0114_jiki2boss_R:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_R
+	_RET
+sub_d05r0114_jiki2boss_RR:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_RR
+	_RET
+_ANIME_LABEL	anm_d05r0114_camera_01_LL
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA AC_WALK_R_8F,2
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d05r0114_camera_01_L
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_01_M
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_01_R
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_01_RR
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA AC_WALK_L_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//		カメラ移動：自機からボスへ
+//--------------------------------------------------------------------
+sub_d05r0114_camera_jiki2boss_fast:
+	_PLAYER_POS_GET		SCWK_TEMP0, SCWK_TEMP1
+	_SWITCH				SCWK_TEMP0
+	_CASE_JUMP			29, sub_d05r0114_jiki2boss_fast_LL
+	_CASE_JUMP			30, sub_d05r0114_jiki2boss_fast_L
+	_CASE_JUMP			31, sub_d05r0114_jiki2boss_fast_M
+	_CASE_JUMP			32, sub_d05r0114_jiki2boss_fast_R
+	_CASE_JUMP			33, sub_d05r0114_jiki2boss_fast_RR
+	_RET
+sub_d05r0114_jiki2boss_fast_LL:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_LL_fast
+	_RET
+sub_d05r0114_jiki2boss_fast_L:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_L_fast
+	_RET
+sub_d05r0114_jiki2boss_fast_M:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_M_fast
+	_RET
+sub_d05r0114_jiki2boss_fast_R:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_R_fast
+	_RET
+sub_d05r0114_jiki2boss_fast_RR:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_01_RR_fast
+	_RET
+_ANIME_LABEL	anm_d05r0114_camera_01_LL_fast
+	_ANIME_DATA AC_WALK_R_4F,2
+	_ANIME_DATA	AC_WALK_U_4F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_01_L_fast
+	_ANIME_DATA AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_01_M_fast
+	_ANIME_DATA	AC_WALK_U_4F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_01_R_fast
+	_ANIME_DATA AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,6
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d05r0114_camera_01_RR_fast
+	_ANIME_DATA AC_WALK_L_4F,2
+	_ANIME_DATA	AC_WALK_U_4F,6
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ダミーOBJ	カメラを移動させる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d05r0114_camera_02
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_03
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,7
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_04
+	_ANIME_DATA	AC_WALK_U_2F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_05
+	_ANIME_DATA	AC_WALK_D_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//		カメラ移動：ボスから自機へ
+//--------------------------------------------------------------------
+sub_d05r0114_camera_boss2jiki:
+	_PLAYER_POS_GET		SCWK_TEMP0, SCWK_TEMP1
+	_SWITCH				SCWK_TEMP0
+	_CASE_JUMP			29, sub_d05r0114_boss2jiki_LL
+	_CASE_JUMP			30, sub_d05r0114_boss2jiki_L
+	_CASE_JUMP			31, sub_d05r0114_boss2jiki_M
+	_CASE_JUMP			32, sub_d05r0114_boss2jiki_R
+	_CASE_JUMP			33, sub_d05r0114_boss2jiki_RR
+	_RET
+sub_d05r0114_boss2jiki_LL:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_05_LL
+	_RET
+sub_d05r0114_boss2jiki_L:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_05_L
+	_RET
+sub_d05r0114_boss2jiki_M:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_05_M
+	_RET
+sub_d05r0114_boss2jiki_R:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_05_R
+	_RET
+sub_d05r0114_boss2jiki_RR:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_05_RR
+	_RET
+_ANIME_LABEL	anm_d05r0114_camera_05_LL
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA AC_WALK_L_8F,2
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d05r0114_camera_05_L
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_05_M
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_05_R
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_05_RR
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA AC_WALK_R_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+
+//============================================================================================
+//
+//
+//		シーン２：
+//					ギンガ団幹部戦～
+//					銀河発生～
+//					レイ・アイ・ハイ登場、
+//					銀河消失、
+//					ボス戦
+//					サポート＆ナナカマド出現
+//
+//		SCENE_D05R0114_GINGA_BATTLE
+//
+//============================================================================================
+ev_d05r0114_gingakanbu1:
+	_EASY_OBJ_MSG		msg_d05r0114_gkanbu2_04
+	_END
+ev_d05r0114_gingakanbu2:
+	_EASY_OBJ_MSG		msg_d05r0114_gkanbu1_03
+	_END
+
+pos_d05r0114_kanbu_stop:
+	_EVENT_START
+	_TALKMSG			msg_d05r0114_gkanbu1_02
+	_TALK_CLOSE
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER, anm_d05r0114_kanbu_stop
+	_OBJ_ANIME_WAIT
+	_EVENT_END
+	_END
+
+_ANIME_LABEL	anm_d05r0114_kanbu_stop
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA AC_WALK_U_8F,1
+	_ANIME_DATA ACMD_END, 0
+
+/********************************************************************/
+/*		ギンガ団幹部:立ちはだかる									*/
+/********************************************************************/
+pos_d05r0114_gingakanbu:
+	_EVENT_START
+	_CALL	sub_d05r0114_gingakanbu_come
+	_TALKMSG	msg_d05r0114_gkanbu1_01
+	_TALKMSG	msg_d05r0114_gkanbu2_01
+	_TALK_CLOSE
+
+	//ライバル登場アニメ
+	_CALL	sub_d05r0114_rival_appear
+
+	_RIVAL_NAME	0
+	_TALKMSG	msg_d05r0114_rival_01
+	_TALKMSG	msg_d05r0114_gkanbu2_02
+	_TALK_CLOSE
+
+	//ギンガ団マース＆ジュピター	V.S.	主人公＆ライバル
+	_CALL			sub_d05r0114_get_rival_id
+	_TRAINER_MULTI_BTL_SET	SCWK_TEMP0, KANBU1_TRAINER_ID, KANBU2_TRAINER_ID
+	_TRAINER_LOSE_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0, ev_d05r0114_gingakanbu_lose
+
+//	_CALL		sub_d05r0114_gingakanbu_away
+
+	_CALL		sub_d05r0114_talk_rival
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALKMSG	msg_d05r0114_rival_02
+
+	//主人公の手持ちポケモン回復
+	_ME_PLAY		SEQ_ASA
+	_ME_WAIT
+	_PC_KAIFUKU
+
+	_TALKMSG	msg_d05r0114_rival_03
+
+	_TALKMSG	msg_d05r0114_rival_04
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	//ライバル退場アニメ
+	_OBJ_DIR_CHANGE		FLDOBJ_ID_PLAYER, DIR_DOWN
+	_OBJ_ANIME	D05R0114_RIVAL,anm_d05r0114_rival_go_out
+	_OBJ_ANIME_WAIT
+
+	_OBJ_DEL	D05R0114_RIVAL
+
+	//ここからさらにお話は続く…
+	_JUMP		ev_d05r0114_ai_hai_rei
+
+
+ev_d05r0114_gingakanbu_lose:
+	//全滅したらイア（エア）出現前からやり直し
+	_LDVAL			WK_SCENE_D05R0114,SCENE_D05R0114_SPPOKE_DEMO
+	//黒い輪を消す！
+	_FLAG_RESET		FE_D05R0114_BLACKRING
+
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+
+//--------------------------------------------------------------------
+//サブルーチン：ライバル出現
+//--------------------------------------------------------------------
+sub_d05r0114_rival_appear:
+	_FLAG_RESET	FV_D05R0114_RIVAL
+
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_SWITCH	SCWK_TEMP0
+	_CASE_JUMP	30,sub_d05r0114_rival_appear_01
+	_CASE_JUMP	31,sub_d05r0114_rival_appear_02
+	_CASE_JUMP	32,sub_d05r0114_rival_appear_03
+	_RET
+
+sub_d05r0114_rival_appear_01:
+	_SXY_POS_CHANGE	D05R0114_RIVAL, 31, KANBU_BATTLE_POS_Z + AREA_DOWN_OUT
+	_OBJ_ADD	D05R0114_RIVAL
+	_OBJ_ANIME	D05R0114_RIVAL,anm_d05r0114_rival_come
+	_OBJ_ANIME_WAIT
+	_OBJ_DIR_CHANGE	D05R0114_RIVAL, DIR_RIGHT
+	_RET
+
+sub_d05r0114_rival_appear_02:
+	_SXY_POS_CHANGE	D05R0114_RIVAL, 30, KANBU_BATTLE_POS_Z + AREA_DOWN_OUT
+	_OBJ_ADD	D05R0114_RIVAL
+	_OBJ_ANIME	D05R0114_RIVAL,anm_d05r0114_rival_come
+	_OBJ_ANIME_WAIT
+	_OBJ_DIR_CHANGE	D05R0114_RIVAL, DIR_LEFT
+	_RET
+
+sub_d05r0114_rival_appear_03:
+	_SXY_POS_CHANGE	D05R0114_RIVAL, 31, KANBU_BATTLE_POS_Z + AREA_DOWN_OUT
+	_OBJ_ADD	D05R0114_RIVAL
+	_OBJ_ANIME	D05R0114_RIVAL,anm_d05r0114_rival_come
+	_OBJ_ANIME_WAIT
+	_OBJ_DIR_CHANGE	D05R0114_RIVAL, DIR_LEFT
+	_RET
+
+//--------------------------------------------------------------------
+//	サブルーチン：ギンガ団幹部が近寄ってくるアニメ
+//--------------------------------------------------------------------
+sub_d05r0114_gingakanbu_come:
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_SWITCH	SCWK_TEMP0
+	_CASE_JUMP	30,	sub_d05r0114_gingakanbu_come_01
+	_CASE_JUMP	31,	sub_d05r0114_gingakanbu_come_02
+	_CASE_JUMP	32,	sub_d05r0114_gingakanbu_come_03
+	_RET
+
+sub_d05r0114_gingakanbu_come_01:
+	_OBJ_DIR_CHANGE		FLDOBJ_ID_PLAYER, DIR_LEFT
+	_OBJ_ANIME	D05R0114_GINGAKANBU_01,anm_d05r0114_kanbu01_come_01
+	_OBJ_ANIME	D05R0114_GINGAKANBU_02,anm_d05r0114_kanbu02_come_01
+	_OBJ_ANIME_WAIT
+	_RET
+sub_d05r0114_gingakanbu_come_02:
+	_OBJ_DIR_CHANGE		FLDOBJ_ID_PLAYER, DIR_RIGHT
+	_OBJ_ANIME	D05R0114_GINGAKANBU_01,anm_d05r0114_kanbu01_come_02
+	_OBJ_ANIME	D05R0114_GINGAKANBU_02,anm_d05r0114_kanbu02_come_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+sub_d05r0114_gingakanbu_come_03:
+	_OBJ_DIR_CHANGE		FLDOBJ_ID_PLAYER, DIR_RIGHT
+	_OBJ_ANIME	D05R0114_GINGAKANBU_01,anm_d05r0114_kanbu01_come_03
+	_OBJ_ANIME	D05R0114_GINGAKANBU_02,anm_d05r0114_kanbu02_come_03
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+_ANIME_LABEL	anm_d05r0114_kanbu01_come_01
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_kanbu02_come_01
+	_ANIME_DATA AC_WALK_L_8F,1
+	_ANIME_DATA ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_kanbu01_come_02
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_kanbu02_come_02
+	_ANIME_DATA AC_WALK_L_8F,1
+	_ANIME_DATA ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_kanbu01_come_03
+	_ANIME_DATA AC_WALK_R_8F,1
+	_ANIME_DATA ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_kanbu02_come_03
+	_ANIME_DATA AC_STAY_WALK_L_8F,1
+	_ANIME_DATA ACMD_END,0
+
+//--------------------------------------------------------------------
+//	サブルーチン：ライバルのトレーナーID取得
+//--------------------------------------------------------------------
+sub_d05r0114_get_rival_id:
+	_FIRST_POKE_NO_GET		SCWK_ANSWER
+	_LDVAL				SCWK_TEMP0, RIVAL_18
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_HIKOZARU, sub_d05r0114_get_rival_id_ret
+	_LDVAL				SCWK_TEMP0, RIVAL_17
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_NAETORU, sub_d05r0114_get_rival_id_ret
+	_LDVAL				SCWK_TEMP0, RIVAL_16
+sub_d05r0114_get_rival_id_ret:
+	_RET
+
+//--------------------------------------------------------------------
+//	サブルーチン：ライバルと向き合う
+//--------------------------------------------------------------------
+sub_d05r0114_talk_rival:
+	_PLAYER_POS_GET		SCWK_TEMP0,SCWK_TEMP1
+	_SWITCH				SCWK_TEMP0
+	_CASE_JUMP			30, sub_d05r0114_talk_rival_01
+	_CASE_JUMP			31, sub_d05r0114_talk_rival_02
+	_CASE_JUMP			32, sub_d05r0114_talk_rival_03
+	_RET
+
+sub_d05r0114_talk_rival_01:
+	_OBJ_DIR_CHANGE		FLDOBJ_ID_PLAYER, DIR_RIGHT
+	_OBJ_DIR_CHANGE		D05R0114_RIVAL,	DIR_LEFT
+	_RET
+
+sub_d05r0114_talk_rival_02:
+	_OBJ_DIR_CHANGE		FLDOBJ_ID_PLAYER, DIR_LEFT
+	_OBJ_DIR_CHANGE		D05R0114_RIVAL,	DIR_RIGHT
+	_RET
+
+sub_d05r0114_talk_rival_03:
+	_OBJ_DIR_CHANGE		FLDOBJ_ID_PLAYER, DIR_LEFT
+	_OBJ_DIR_CHANGE		D05R0114_RIVAL,	DIR_RIGHT
+	_RET
+
+//--------------------------------------------------------------------
+//	サブルーチン：ギンガ団幹部が脇へ下がる
+//--------------------------------------------------------------------
+sub_d05r0114_gingakanbu_away:
+	_OBJ_ANIME	D05R0114_GINGAKANBU_01,anm_d05r0114_kanbu01_away
+	_OBJ_ANIME	D05R0114_GINGAKANBU_02,anm_d05r0114_kanbu02_away
+	_OBJ_ANIME_WAIT
+	_RET
+
+_ANIME_LABEL	anm_d05r0114_kanbu01_away
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_L_16F,1
+	_ANIME_DATA AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_kanbu02_away
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_R_16F,1
+	_ANIME_DATA AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA ACMD_END,0
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d05r0114_rival_come
+	_ANIME_DATA	AC_WAIT_4F,2
+	_ANIME_DATA	AC_WALK_U_4F,AREA_DOWN_OUT
+	_ANIME_DATA ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_rival_go_out
+	_ANIME_DATA	AC_WALK_D_4F,AREA_DOWN_OUT
+	_ANIME_DATA ACMD_END,0
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
+/********************************************************************/
+/*		イア：ブラックホール出現									*/
+/********************************************************************/
+ev_d05r0114_ai_hai_rei:
+	_EVENT_START
+
+	_OBJ_DIR_CHANGE		FLDOBJ_ID_PLAYER, DIR_UP
+
+	_PLAYER_POS_GET			SCWK_TEMP0,SCWK_TEMP1
+	_VANISH_DUMMY_OBJ_ADD	SCWK_TEMP0,SCWK_TEMP1
+	_CALL			sub_d05r0114_jiki2ia		//カメラ移動：自機→イア（エア）へ
+
+	//黒い輪を終了
+	_CLIMAX_DEMO	CLIMAX_DEMO_BLACKRING_END, SCWK_ANSWER
+	_FLAG_RESET		FE_D05R0114_BLACKRING
+
+	//ブラックホール出現デモ
+	_CLIMAX_DEMO	CLIMAX_DEMO_GINGA_START, SCWK_ANSWER
+	_TIME_WAIT		30, SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_W025
+
+	_TIME_WAIT		90, SCWK_ANSWER
+
+	//ボス「おお！　○○」
+	_LDVAL_VERSION	msg_d05r0114_gingaboss_05, msg_d05r0115_gingaboss_05
+	_TALKMSG_SP		SCWK_TEMP0		
+	_TALK_CLOSE
+
+	_TIME_WAIT		60, SCWK_ANSWER
+
+	//_BGM_STOP		SEQ_D_MOUNT2
+	_BGM_PLAY		SEQ_D_RYAYHY
+
+	_TIME_WAIT		90, SCWK_ANSWER
+
+	//ボス「……なんだ！？」
+	_TALKMSG		msg_d05r0114_gingaboss_08
+
+	_TIME_WAIT		60, SCWK_ANSWER
+
+	_FLAG_RESET		FV_D05R0114_POKE_L01
+	_OBJ_ADD		D05R0114_POKE_L01
+	_VOICE_PLAY		MONSNO_REI,0
+	_TALKMSG		msg_d05r0114_sppoke1_01
+	_VOICE_WAIT
+
+	_FLAG_RESET		FV_D05R0114_POKE_L02
+	_OBJ_ADD		D05R0114_POKE_L02
+	_VOICE_PLAY		MONSNO_AI,0
+	_TALKMSG		msg_d05r0114_sppoke2_01
+	_VOICE_WAIT
+
+	_FLAG_RESET		FV_D05R0114_POKE_L03
+	_OBJ_ADD		D05R0114_POKE_L03
+	_VOICE_PLAY		MONSNO_HAI,0
+	_TALKMSG		msg_d05r0114_sppoke3_01
+	_VOICE_WAIT
+	_TALK_CLOSE
+
+	//ブラックホール消失デモ
+	_CLIMAX_DEMO	CLIMAX_DEMO_GINGA_ENDREQ,SCWK_ANSWER
+	_TIME_WAIT		30, SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_W060C
+demo_end_loop:
+	_CLIMAX_DEMO	CLIMAX_DEMO_GINGA_ENDCHK,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,demo_end_loop
+
+	_TIME_WAIT		60, SCWK_ANSWER
+	_OBJ_DEL		D05R0114_POKE_L01
+	_TIME_WAIT		30, SCWK_ANSWER
+	_OBJ_DEL		D05R0114_POKE_L03
+	_TIME_WAIT		30, SCWK_ANSWER
+	_OBJ_DEL		D05R0114_POKE_L02
+	_TIME_WAIT		30, SCWK_ANSWER
+	_CALL			sub_d05r0114_ia2jiki		//カメラ移動：イア（エア）→自機へ
+
+	_PLAYER_POS_GET		SCWK_TEMP0, SCWK_TEMP1
+	_SXY_POS_CHANGE		D05R0114_POKE_L02, SCWK_TEMP0, 31
+	_FLAG_RESET		FV_D05R0114_POKE_L02
+	_OBJ_ADD		D05R0114_POKE_L02
+	_VOICE_PLAY		MONSNO_AI,0
+	_VOICE_WAIT
+	_TIME_WAIT		60, SCWK_ANSWER
+	_OBJ_DEL		D05R0114_POKE_L02
+
+	//BGMをフェードアウト、無音に
+	_BGM_FADEOUT	0, 60
+	_TIME_WAIT		30, SCWK_ANSWER
+	_BGM_NOW_MAP_PLAY
+
+	//_OBJ_DEL		D05R0114_POKE_L01
+	//_OBJ_DEL		D05R0114_POKE_L03
+
+//	_CALL			sub_d05r0114_jiki2ia		//カメラ移動：自機→イア（エア）へ
+//	_TIME_WAIT		60, SCWK_ANSWER
+//	_CALL			sub_d05r0114_ia2jiki		//カメラ移動：イア（エア）→自機へ
+
+
+	_TALKMSG		msg_d05r0114_gingaboss_06
+	_AB_KEYWAIT
+	_TALK_CLOSE
+	//_BGM_STOP		SEQ_D_RYAYHY
+	_TRAINER_BTL_SET	BOSS_TRAINER_ID, 0
+	_TRAINER_LOSE_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d05r0114_boss_lose
+	_BGM_NOW_MAP_PLAY
+
+	_LDVAL_VERSION	msg_d05r0114_gingaboss_07, msg_d05r0115_gingaboss_07
+	_TALKMSG_SP		SCWK_TEMP0
+	//_TALKMSG		msg_d05r0114_gingaboss_07
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	//_FLAG_SET		FV_D05R0114_GINGAM
+	_OBJ_DEL		D05R0114_GINGAM_01
+	_OBJ_DEL		D05R0114_GINGAM_02
+	//_FLAG_SET		FV_D05R0114_GINGAKANBU
+	_OBJ_DEL		D05R0114_GINGAKANBU_01
+	_OBJ_DEL		D05R0114_GINGAKANBU_02
+	//_FLAG_SET		FV_D05R0114_GINGABOSS
+	_OBJ_DEL		D05R0114_GINGABOSS
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_FLAG_SET		SYS_FLAG_BGM_D26	//BGM切り替え
+
+		//サポート＆博士登場イベントへ
+	_JUMP			ev_d05r0114_boss_battle_end
+//	_LDVAL			WK_SCENE_D05R0114,SCENE_D05R0114_SPPOKE_BATTLE
+//	_EVENT_END
+//	_END
+
+ev_d05r0114_boss_lose:
+	//全滅したらイア（エア）出現前からやり直し
+	_LDVAL		WK_SCENE_D05R0114,SCENE_D05R0114_SPPOKE_DEMO
+
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+sub_d05r0114_jiki2ia:
+	_PLAYER_POS_GET		SCWK_TEMP0, SCWK_TEMP1
+	_SWITCH				SCWK_TEMP0
+	_CASE_JUMP			30, sub_d05r0114_jiki2ia_L
+	_CASE_JUMP			31, sub_d05r0114_jiki2ia_M
+	_CASE_JUMP			32, sub_d05r0114_jiki2ia_R
+	_RET
+sub_d05r0114_jiki2ia_L:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_07_L
+	_OBJ_ANIME_WAIT
+	_RET
+sub_d05r0114_jiki2ia_M:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_07_M
+	_OBJ_ANIME_WAIT
+	_RET
+sub_d05r0114_jiki2ia_R:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_07_R
+	_OBJ_ANIME_WAIT
+	_RET
+
+//主人公→イア中心へ
+_ANIME_LABEL	anm_d05r0114_camera_07_L
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,12
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_07_M
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,12
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_07_R
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,12
+	_ANIME_DATA	ACMD_END,0
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+sub_d05r0114_ia2jiki:
+	_PLAYER_POS_GET		SCWK_TEMP0, SCWK_TEMP1
+	_SWITCH				SCWK_TEMP0
+	_CASE_JUMP			30, sub_d05r0114_ia2jiki_L
+	_CASE_JUMP			31, sub_d05r0114_ia2jiki_M
+	_CASE_JUMP			32, sub_d05r0114_ia2jiki_R
+	_RET
+sub_d05r0114_ia2jiki_L:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_08_L
+	_OBJ_ANIME_WAIT
+	_RET
+sub_d05r0114_ia2jiki_M:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_08_M
+	_OBJ_ANIME_WAIT
+	_RET
+sub_d05r0114_ia2jiki_R:
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d05r0114_camera_08_R
+	_OBJ_ANIME_WAIT
+	_RET
+//イア→主人公中心へ
+_ANIME_LABEL	anm_d05r0114_camera_08_L
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_D_4F,12
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_08_M
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_WALK_D_4F,12
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_camera_08_R
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_D_4F,12
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*		ボス戦終了：サポート、博士駆けつける						*/
+/********************************************************************/
+ev_d05r0114_boss_battle_end:
+	//登場まで少し間をあける
+	_TIME_WAIT	90, SCWK_ANSWER
+
+	//サポート、博士OBJ出現
+	_CALL		sub_d05r0114_set_support
+	_FLAG_RESET	FV_D05R0114_SUPPORT
+	_OBJ_ADD	D05R0114_SUPPORT
+	_FLAG_RESET	FV_D05R0114_DOCTOR
+	_OBJ_ADD	D05R0114_DOCTOR
+	//駆けつけるアニメ
+	_OBJ_ANIME	D05R0114_SUPPORT, anm_d05r0114_support_01
+	_OBJ_ANIME	D05R0114_DOCTOR, anm_d05r0114_doctor_01
+	_OBJ_ANIME_WAIT
+	_OBJ_DIR_CHANGE	FLDOBJ_ID_PLAYER, DIR_DOWN
+	//博士せりふ
+	_PLAYER_NAME	0
+	//_TALKMSG		msg_d05r0114_doctor_04
+	_LDVAL_VERSION	msg_d05r0114_doctor_04, msg_d05r0114_doctor_05
+	_TALKMSG_SP		SCWK_TEMP0
+	_AB_KEYWAIT
+	//サポートせりふ
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_CALL			sub_d05r0114_support_msg
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_d05r0114_player_01
+	_OBJ_ANIME_WAIT
+
+	_LDVAL			WK_SCENE_D05R0114,SCENE_D05R0114_SPPOKE_BATTLE
+
+	_EVENT_END
+	_END
+
+sub_d05r0114_set_support:
+	_PLAYER_POS_GET		SCWK_TEMP0,SCWK_TEMP1
+	_SWITCH		SCWK_TEMP0
+	_CASE_JUMP	30,	sub_d05r0114_set_support_01
+	_CASE_JUMP	31,	sub_d05r0114_set_support_02
+	_CASE_JUMP	32,	sub_d05r0114_set_support_03
+	_RET
+sub_d05r0114_set_support_01:
+	_SXY_POS_CHANGE		D05R0114_SUPPORT, 30, SUPPORT_POS_Z1
+	_SXY_POS_CHANGE		D05R0114_DOCTOR,  31, DOCTOR_POS_Z1
+	_RET
+sub_d05r0114_set_support_02:
+	_SXY_POS_CHANGE		D05R0114_SUPPORT, 30, SUPPORT_POS_Z1
+	_SXY_POS_CHANGE		D05R0114_DOCTOR,  32, DOCTOR_POS_Z1
+	_RET
+sub_d05r0114_set_support_03:
+	_SXY_POS_CHANGE		D05R0114_SUPPORT, 31, SUPPORT_POS_Z1
+	_SXY_POS_CHANGE		D05R0114_DOCTOR,  32, DOCTOR_POS_Z1
+	_RET
+
+sub_d05r0114_support_msg:
+	_LDVAL_SEX		msg_d05r0114_hero_03, msg_d05r0114_heroine_03
+	_TALKMSG_SP		SCWK_TEMP0
+	_RET
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d05r0114_player_01
+	_ANIME_DATA		AC_WALK_U_8F, 2
+	_ANIME_DATA		ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_support_01
+	_ANIME_DATA		AC_WALK_U_8F, AREA_DOWN_OUT - 1
+	_ANIME_DATA		ACMD_END,0
+
+_ANIME_LABEL	anm_d05r0114_doctor_01
+	_ANIME_DATA		AC_WAIT_8F, 3
+	_ANIME_DATA		AC_WALK_U_8F, AREA_DOWN_OUT - 1
+	_ANIME_DATA		ACMD_END,0
+
+//============================================================================================
+//
+//
+//		シーン３：	イア（エア）対戦
+//
+//		SCENE_D05R0114_SPPOKE_BATTLE
+//============================================================================================
+/********************************************************************/
+/*		イア：対戦するまで抜けさせない								*/
+/********************************************************************/
+pos_d05r0114_ia_stop:
+	_EVENT_START
+	_PLAYER_NAME		0
+	_LDVAL_VERSION		msg_d05r0114_doctor_06, msg_d05r0114_doctor_06
+	_TALKMSG_SP			SCWK_TEMP0
+	_TALK_CLOSE
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER, anm_d05r0114_ia_stop
+	_OBJ_ANIME_WAIT
+	_EVENT_END
+	_END
+
+_ANIME_LABEL	anm_d05r0114_ia_stop
+	_ANIME_DATA	AC_WALK_U_4F, 1
+	_ANIME_DATA	ACMD_END, 0
+	
+/********************************************************************/
+/*		イア：近寄ると戦闘											*/
+/********************************************************************/
+pos_d05r0114_ia_battle:
+	_EVENT_START
+
+	_CALL			sub_d05r0114_approach
+	_OBJ_ANIME_WAIT
+
+	_LDVAL_VERSION		MONSNO_IA, MONSNO_EA
+	_VOICE_PLAY			SCWK_TEMP0, 0
+	_LDVAL_VERSION	msg_d05r0114_sppoke4_02, msg_d05r0115_sppoke5_02
+	_TALKMSG_SP		SCWK_TEMP0
+	_AB_KEYWAIT
+	_VOICE_WAIT
+	_TALK_CLOSE
+
+	_LDVAL_VERSION	MONSNO_IA, MONSNO_EA
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	SCWK_TEMP0, 47
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_LOSE_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,pos_d05r0114_ia_lose
+
+	_SEACRET_POKE_RETRY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d05r0114_ia_capture_ng
+
+	_FLAG_SET		FE_D05R0114_SPPOKE_GET
+
+	_JUMP			ev_d05r0114_ia_battle_after
+
+ev_d05r0114_ia_capture_ng:
+	_LDVAL_VERSION	msg_d05r0114_sppoke4_03, msg_d05r0115_sppoke5_03
+	_TALKMSG_SP		SCWK_TEMP0
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+
+ev_d05r0114_ia_battle_after:
+
+	//ナナカマド、サポートの位置調整
+	_CALL			sub_d05r0114_suport_pos
+	//ナナカマド出現、サポート出現
+	_OBJ_ANIME		D05R0114_DOCTOR,	anm_d05r0114_doctor_02
+	_OBJ_ANIME		D05R0114_SUPPORT,	anm_d05r0114_support_02
+	_OBJ_ANIME_WAIT
+	_OBJ_DIR_CHANGE	FLDOBJ_ID_PLAYER, DIR_DOWN
+
+	_PLAYER_NAME	1
+	_TALKMSG		msg_d05r0114_doctor_01
+	_PLAYER_NAME	1
+	_LDVAL_SEX		msg_d05r0114_hero_01, msg_d05r0114_heroine_01
+	_TALKMSG_SP		SCWK_TEMP0
+	_TALK_CLOSE
+
+ev_d05r0114_ia_win:
+	_PLAYER_POS_GET			SCWK_TEMP0,SCWK_TEMP1
+	_VANISH_DUMMY_OBJ_ADD	SCWK_TEMP0,SCWK_TEMP1
+	//サポートが主人公を連れて去る
+
+	_OBJ_ANIME		D05R0114_SUPPORT, anm_d05r0114_support_03
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		D05R0114_SUPPORT, anm_d05r0114_frameout
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_d05r0114_frameout
+	_OBJ_ANIME_WAIT
+
+	_OBJ_DIR_CHANGE	D05R0114_DOCTOR, DIR_DOWN
+	_TALKMSG		msg_d05r0114_doctor_02
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	/*画面暗転、入り口付近に飛ばして操作可能に*/
+	_MAP_CHANGE_NONE_FADE	ZONE_ID_D05R0114,0,31,52,DIR_DOWN
+
+	//ナナカマド＆サポートを入り口へ移動
+	_OBJ_POS_CHANGE		D05R0114_SUPPORT,32, 10, 51, DIR_DOWN
+	_OBJ_POS_CHANGE		D05R0114_DOCTOR, 30, 10, 51, DIR_DOWN
+
+	//アイ/ハイ/レイそれぞれ湖に出現
+	_FLAG_RESET		FV_D27R0103_AI
+	_FLAG_RESET		FV_D28R0103_HAI
+	_FLAG_RESET		FV_D29R0103_REI
+
+	//バトルサーチャーLv.3
+	_FLAG_SET		SYS_FLAG_BS_LV3
+	//ナギサシティのストッパー解除
+	_FLAG_SET		FV_R222_WORKMAN
+
+	/*アジトにサターン出現*/
+	_FLAG_RESET		FV_D26R0101_GKANBU
+
+	//やりのはしらイベントクリア！
+	_FLAG_SET		FE_D05R0114_CLEAR
+	_FLAG_SET		FV_D05R0112_GINGAW		/*ギンガ団消す*/
+
+	//ストッパーのしたっぱを消す
+	_FLAG_SET		FV_D05R0110_GINGAM
+
+	_LDVAL			WK_SCENE_D05R0114,SCENE_D05R0114_CLEAR
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_EVENT_END
+	_END
+
+pos_d05r0114_ia_lose:
+	_NORMAL_LOSE
+	_EVENT_END
+	_END
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+sub_d05r0114_approach:
+	_PLAYER_POS_GET		SCWK_TEMP0, SCWK_TEMP1
+	_SWITCH				SCWK_TEMP0
+	_CASE_JUMP			30, sub_d05r0114_approach_01
+	_CASE_JUMP			31, sub_d05r0114_approach_02
+	_CASE_JUMP			32, sub_d05r0114_approach_03
+	_RET
+
+sub_d05r0114_approach_01:
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER, anm_d05r0114_approach_01
+	_RET
+sub_d05r0114_approach_02:
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER, anm_d05r0114_approach_02
+	_RET
+sub_d05r0114_approach_03:
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER, anm_d05r0114_approach_03
+	_RET
+
+_ANIME_LABEL	anm_d05r0114_approach_01
+	_ANIME_DATA AC_WALK_R_8F,1
+	_ANIME_DATA AC_WALK_U_8F,4
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d05r0114_approach_02
+	_ANIME_DATA AC_WALK_U_8F,4
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d05r0114_approach_03
+	_ANIME_DATA AC_WALK_L_8F,1
+	_ANIME_DATA AC_WALK_U_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+sub_d05r0114_suport_pos:
+	_PLAYER_POS_GET		SCWK_TEMP0, SCWK_TEMP1
+	_ADD_WK				SCWK_TEMP1, AREA_DOWN_OUT
+	_SWITCH				SCWK_TEMP0
+	_CASE_JUMP			30, sub_d05r0114_suport_pos_01
+	_CASE_JUMP			31, sub_d05r0114_suport_pos_02
+	_CASE_JUMP			32, sub_d05r0114_suport_pos_03
+	_RET
+
+sub_d05r0114_suport_pos_01:
+	_OBJ_POS_CHANGE		D05R0114_SUPPORT,30, 10, SCWK_TEMP1, DIR_UP
+	_OBJ_POS_CHANGE		D05R0114_DOCTOR, 31, 10, SCWK_TEMP1, DIR_UP
+	_RET
+
+sub_d05r0114_suport_pos_02:
+	_OBJ_POS_CHANGE		D05R0114_SUPPORT,31, 10, SCWK_TEMP1, DIR_UP
+	_OBJ_POS_CHANGE		D05R0114_DOCTOR, 32, 10, SCWK_TEMP1, DIR_UP
+	_RET
+
+sub_d05r0114_suport_pos_03:
+	_OBJ_POS_CHANGE		D05R0114_SUPPORT,32, 10, SCWK_TEMP1, DIR_UP
+	_OBJ_POS_CHANGE		D05R0114_DOCTOR, 31, 10, SCWK_TEMP1, DIR_UP
+	_RET
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d05r0114_support_02
+	//_ANIME_DATA	AC_WALK_R_2F, 1
+	_ANIME_DATA AC_WALK_U_8F, 6
+	_ANIME_DATA	ACMD_END,	0
+
+_ANIME_LABEL	anm_d05r0114_doctor_02
+	_ANIME_DATA	AC_WAIT_2F,	1
+	_ANIME_DATA	AC_WALK_U_8F, 6
+	_ANIME_DATA	ACMD_END,	0
+
+_ANIME_LABEL	anm_d05r0114_support_03
+	_ANIME_DATA	AC_WALK_U_8F, 1
+	_ANIME_DATA ACMD_END, 0
+
+_ANIME_LABEL	anm_d05r0114_frameout
+	_ANIME_DATA	AC_WALK_D_8F, AREA_DOWN_OUT
+	_ANIME_DATA ACMD_END, 0
+
+/********************************************************************/
+/*		サポート（イベント終了後）									*/
+/********************************************************************/
+ev_d05r0114_support:
+	_IFVAL_JUMP		WK_SCENE_D05R0114,NE,SCENE_D05R0114_SPPOKE_BATTLE, ev_d05r0114_support_after
+
+	_TALK_OBJ_START
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_CALL			sub_d05r0114_support_msg
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d05r0114_support_after:
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d05r0114_support_female_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d05r0114_support_male_02
+	_END
+
+ev_d05r0114_support_male_02:
+	_EASY_OBJ_MSG	msg_d05r0114_hero_02
+	_END
+
+ev_d05r0114_support_female_02:
+	_EASY_OBJ_MSG	msg_d05r0114_heroine_02
+	_END
+
+/********************************************************************/
+/*		ナナカマド博士（イベント終了後）							*/
+/********************************************************************/
+ev_d05r0114_doctor:
+	_IFVAL_JUMP		WK_SCENE_D05R0114,NE,SCENE_D05R0114_SPPOKE_BATTLE, ev_d05r0114_doctor_after
+
+	_TALK_OBJ_START
+	_PLAYER_NAME	0
+	_LDVAL_VERSION	msg_d05r0114_doctor_04, msg_d05r0114_doctor_05
+	_TALKMSG_SP		SCWK_TEMP0
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_d05r0114_doctor_after:
+	_PLAYER_NAME	0
+	_EASY_OBJ_MSG	msg_d05r0114_doctor_03
+	_END
+
+//============================================================================================
+//
+//
+//		シーン４：イベント終了後
+//
+//
+//		SCENE_D05R0114_CLEAR
+//============================================================================================
+
+
+//============================================================================================
+//
+//
+//		シーン５：イア（エア）再戦
+//
+//
+//		SCENE_D05R0114_SPPOKE_RETRY
+//============================================================================================
+pos_d05r0114_sppoke_retry:
+	_EVENT_START
+
+	//正面へ移動
+	_CALL			sub_d05r0114_approach
+	_OBJ_ANIME_WAIT
+
+	//鳴き声
+	_LDVAL_VERSION		MONSNO_IA, MONSNO_EA
+	_VOICE_PLAY			SCWK_TEMP0, 0
+	_LDVAL_VERSION	msg_d05r0114_sppoke4_02, msg_d05r0115_sppoke5_02
+	_TALKMSG_SP		SCWK_TEMP0
+	_AB_KEYWAIT
+	_VOICE_WAIT
+	_TALK_CLOSE
+
+	//イア（エア）対戦
+	_LDVAL_VERSION	MONSNO_IA, MONSNO_EA
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	SCWK_TEMP0, 47
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+
+	_LOSE_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d05r0114_ia_retry_lose
+
+	//戦闘がすんだらシーンをクリア状態へ
+	_LDVAL			WK_SCENE_D05R0114, SCENE_D05R0114_CLEAR
+
+	_SEACRET_POKE_RETRY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d05r0114_ia_retry_ng
+
+	//捕まえた・倒した場合はイベント終了
+	_FLAG_SET		FE_D05R0114_SPPOKE_GET
+	_EVENT_END
+	_END
+
+ev_d05r0114_ia_retry_ng:
+	_LDVAL_VERSION	msg_d05r0114_sppoke4_03, msg_d05r0115_sppoke5_03
+	_TALKMSG_SP		SCWK_TEMP0
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+ev_d05r0114_ia_retry_lose:
+	_NORMAL_LOSE
+	_EVENT_END
+	_END
+
+

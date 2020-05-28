@@ -1,0 +1,249 @@
+//====================================================================
+//						固定ショップアイテムデータ
+//
+// 06.05.13 Satoshi Nohara
+//
+// ●fs_item.xlsをコンバートして出力しています
+//
+//====================================================================
+
+typedef u16 FS_ITEM_DATA;
+
+//コトブキシティ
+const FS_ITEM_DATA fs_item_c01_fs[] = {
+	ITEM_EAMEERU,
+	ITEM_HIIRUBOORU,
+	0xffff,
+};
+#define FS_ITEM_C01_FS_MAX	( NELEMS(fs_item_c01_fs) )
+
+//クロガネシティ
+const FS_ITEM_DATA fs_item_c03_fs[] = {
+	ITEM_TONNERUMEERU,
+	ITEM_HIIRUBOORU,
+	ITEM_NETTOBOORU,
+	0xffff,
+};
+#define FS_ITEM_C03_FS_MAX	( NELEMS(fs_item_c03_fs) )
+
+//ソノオタウン
+const FS_ITEM_DATA fs_item_t03_fs[] = {
+	ITEM_BURUUMUMEERU,
+	ITEM_HIIRUBOORU,
+	ITEM_NETTOBOORU,
+	0xffff,
+};
+#define FS_ITEM_T03_FS_MAX	( NELEMS(fs_item_t03_fs) )
+
+//ハクタイシティ
+const FS_ITEM_DATA fs_item_c04_fs[] = {
+	ITEM_EAMEERU,
+	ITEM_HIIRUBOORU,
+	ITEM_NETTOBOORU,
+	ITEM_NESUTOBOORU,
+	0xffff,
+};
+#define FS_ITEM_C04_FS_MAX	( NELEMS(fs_item_c04_fs) )
+
+//ハクタイシティ（漢方屋）
+const FS_ITEM_DATA fs_item_c04r0501[] = {
+	ITEM_BANNOUGONA,
+	ITEM_TIKARANOKONA,
+	ITEM_TIKARANONEKKO,
+	ITEM_HUKKATUSOU,
+	0xffff,
+};
+#define FS_ITEM_C04R0501_MAX	( NELEMS(fs_item_c04r0501) )
+
+//ヨスガシティ
+const FS_ITEM_DATA fs_item_c05_fs[] = {
+	ITEM_RABURABUMEERU,
+	ITEM_HIIRUBOORU,
+	ITEM_NETTOBOORU,
+	ITEM_NESUTOBOORU,
+	0xffff,
+};
+#define FS_ITEM_C05_FS_MAX	( NELEMS(fs_item_c05_fs) )
+
+//ズイタウン
+const FS_ITEM_DATA fs_item_t04_fs[] = {
+	ITEM_EAMEERU,
+	ITEM_NETTOBOORU,
+	ITEM_NESUTOBOORU,
+	ITEM_DAAKUBOORU,
+	0xffff,
+};
+#define FS_ITEM_T04_FS_MAX	( NELEMS(fs_item_t04_fs) )
+
+//ノモセシティ
+const FS_ITEM_DATA fs_item_c06_fs[] = {
+	ITEM_EAMEERU,
+	ITEM_NESUTOBOORU,
+	ITEM_DAAKUBOORU,
+	ITEM_KUIKKUBOORU,
+	0xffff,
+};
+#define FS_ITEM_C06_FS_MAX	( NELEMS(fs_item_c06_fs) )
+
+//トバリシティ（デパート１階左側）
+const FS_ITEM_DATA fs_item_c07_dept_01_01[] = {
+	ITEM_KIZUGUSURI,
+	ITEM_IIKIZUGUSURI,
+	ITEM_SUGOIKIZUGUSURI,
+	ITEM_MANTANNOKUSURI,
+	ITEM_GENKINOKAKERA,
+	ITEM_DOKUKESI,
+	ITEM_MAHINAOSI,
+	ITEM_YAKEDONAOSI,
+	ITEM_KOORINAOSI,
+	ITEM_NEMUKEZAMASI,
+	ITEM_NANDEMONAOSI,
+	0xffff,
+};
+#define FS_ITEM_C07_DEPT_01_01_MAX	( NELEMS(fs_item_c07_dept_01_01) )
+
+//トバリシティ（デパート１階右側）
+const FS_ITEM_DATA fs_item_c07_dept_01_02[] = {
+	ITEM_MONSUTAABOORU,
+	ITEM_SUUPAABOORU,
+	ITEM_HAIPAABOORU,
+	ITEM_ANANUKENOHIMO,
+	ITEM_PIPPININGYOU,
+	ITEM_MUSIYOKESUPUREE,
+	ITEM_SIRUBAASUPUREE,
+	ITEM_GOORUDOSUPUREE,
+	ITEM_GURASUMEERU,
+	ITEM_HUREIMUMEERU,
+	ITEM_BURUUMEERU,
+	ITEM_SUPEESUMEERU,
+	0xffff,
+};
+#define FS_ITEM_C07_DEPT_01_02_MAX	( NELEMS(fs_item_c07_dept_01_02) )
+
+//トバリシティ（デパート２階左側）
+const FS_ITEM_DATA fs_item_c07_dept_02_01[] = {
+	ITEM_SUPIIDAA,
+	ITEM_PURASUPAWAA,
+	ITEM_DHIFENDAA,
+	ITEM_EFEKUTOGAADO,
+	ITEM_KURITHIKATTAA,
+	ITEM_YOKUATAARU,
+	ITEM_SUPESYARUAPPU,
+	ITEM_SUPESYARUGAADO,
+	0xffff,
+};
+#define FS_ITEM_C07_DEPT_02_01_MAX	( NELEMS(fs_item_c07_dept_02_01) )
+
+//トバリシティ（デパート２階右側）
+const FS_ITEM_DATA fs_item_c07_dept_02_02[] = {
+	ITEM_TAURIN,
+	ITEM_BUROMUHEKISIN,
+	ITEM_RIZOTIUMU,
+	ITEM_KITOSAN,
+	ITEM_INDOMETASIN,
+	ITEM_MAKKUSUAPPU,
+	0xffff,
+};
+#define FS_ITEM_C07_DEPT_02_02_MAX	( NELEMS(fs_item_c07_dept_02_02) )
+
+//トバリシティ（デパート３階左側）
+const FS_ITEM_DATA fs_item_c07_dept_03_01[] = {
+	ITEM_WAZAMASIN83,
+	ITEM_WAZAMASIN17,
+	ITEM_WAZAMASIN54,
+	ITEM_WAZAMASIN20,
+	ITEM_WAZAMASIN33,
+	ITEM_WAZAMASIN16,
+	ITEM_WAZAMASIN70,
+	0xffff,
+};
+#define FS_ITEM_C07_DEPT_03_01_MAX	( NELEMS(fs_item_c07_dept_03_01) )
+
+//トバリシティ（デパート３階右側）
+const FS_ITEM_DATA fs_item_c07_dept_03_02[] = {
+	ITEM_WAZAMASIN38,
+	ITEM_WAZAMASIN25,
+	ITEM_WAZAMASIN14,
+	ITEM_WAZAMASIN22,
+	ITEM_WAZAMASIN52,
+	ITEM_WAZAMASIN15,
+	0xffff,
+};
+#define FS_ITEM_C07_DEPT_03_02_MAX	( NELEMS(fs_item_c07_dept_03_02) )
+
+//カンナギタウン
+const FS_ITEM_DATA fs_item_t05_fs[] = {
+	ITEM_EAMEERU,
+	ITEM_DAAKUBOORU,
+	ITEM_KUIKKUBOORU,
+	ITEM_TAIMAABOORU,
+	0xffff,
+};
+#define FS_ITEM_T05_FS_MAX	( NELEMS(fs_item_t05_fs) )
+
+//キッサキシティ
+const FS_ITEM_DATA fs_item_c09_fs[] = {
+	ITEM_BURIZAADOMEERU,
+	ITEM_DAAKUBOORU,
+	ITEM_KUIKKUBOORU,
+	ITEM_TAIMAABOORU,
+	0xffff,
+};
+#define FS_ITEM_C09_FS_MAX	( NELEMS(fs_item_c09_fs) )
+
+//ミオシティ
+const FS_ITEM_DATA fs_item_c02_fs[] = {
+	ITEM_EAMEERU,
+	ITEM_KUIKKUBOORU,
+	ITEM_TAIMAABOORU,
+	ITEM_RIPIITOBOORU,
+	0xffff,
+};
+#define FS_ITEM_C02_FS_MAX	( NELEMS(fs_item_c02_fs) )
+
+//ナギサシティ
+const FS_ITEM_DATA fs_item_c08_fs[] = {
+	ITEM_SUTIIRUMEERU,
+	ITEM_GOOZYASUBOORU,
+	0xffff,
+};
+#define FS_ITEM_C08_FS_MAX	( NELEMS(fs_item_c08_fs) )
+
+//ポケモンリーグ
+const FS_ITEM_DATA fs_item_pk_fs[] = {
+	ITEM_HIIRUBOORU,
+	ITEM_NETTOBOORU,
+	ITEM_NESUTOBOORU,
+	ITEM_DAAKUBOORU,
+	ITEM_KUIKKUBOORU,
+	ITEM_TAIMAABOORU,
+	ITEM_RIPIITOBOORU,
+	ITEM_GOOZYASUBOORU,
+	0xffff,
+};
+#define FS_ITEM_PK_FS_MAX	( NELEMS(fs_item_pk_fs) )
+
+//データテーブル
+const FS_ITEM_DATA* fs_item_data[] = {
+	fs_item_c01_fs,
+	fs_item_c03_fs,
+	fs_item_t03_fs,
+	fs_item_c04_fs,
+	fs_item_c04r0501,
+	fs_item_c05_fs,
+	fs_item_t04_fs,
+	fs_item_c06_fs,
+	fs_item_c07_dept_01_01,
+	fs_item_c07_dept_01_02,
+	fs_item_c07_dept_02_01,
+	fs_item_c07_dept_02_02,
+	fs_item_c07_dept_03_01,
+	fs_item_c07_dept_03_02,
+	fs_item_t05_fs,
+	fs_item_c09_fs,
+	fs_item_c02_fs,
+	fs_item_c08_fs,
+	fs_item_pk_fs,
+};
+#define FS_ITEM_DATA_MAX	( NELEMS(fs_item_data) )
+

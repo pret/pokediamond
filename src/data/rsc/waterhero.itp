@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-03-16T00:23:02" source="waterhero_ine.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="29"
+	tool_start_frame="0"
+	tool_end_frame="28"
+	compress_material="off" material_size="1 1"
+/>
+
+<tex_pattern_list_data image_size="7" palette_size="1">
+	<image_name index="0" name="waterhero.1"/>
+	<image_name index="1" name="waterhero.2"/>
+	<image_name index="2" name="waterhero.3"/>
+	<image_name index="3" name="waterhero.4"/>
+	<image_name index="4" name="waterhero.5"/>
+	<image_name index="5" name="waterhero.6"/>
+	<image_name index="6" name="waterhero.7"/>
+	<palette_name index="0" name="waterhero"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="7">
+		0 4 8 12 16 20 24
+	</frame_idx>
+	<image_idx size="7">
+		0 1 2 3 4 5 6
+	</image_idx>
+	<palette_idx size="7">
+		0 0 0 0 0 0 0
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="1">
+	<tex_pattern_anm index="0" material_name="obj" data_size="7" data_head="0"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

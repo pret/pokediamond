@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-06-15T17:23:01" source="r04_b1.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="15"
+	tool_start_frame="1"
+	tool_end_frame="15"
+	compress_material="on" material_size="1 1"
+/>
+
+<tex_pattern_list_data image_size="2" palette_size="2">
+	<image_name index="0" name="r04_b1.1"/>
+	<image_name index="1" name="r04_b1.2"/>
+	<palette_name index="0" name="r04_b1.1_pl"/>
+	<palette_name index="1" name="r04_b1.2_pl"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="2">
+		0 7
+	</frame_idx>
+	<image_idx size="2">
+		0 1
+	</image_idx>
+	<palette_idx size="2">
+		0 1
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="1">
+	<tex_pattern_anm index="0" material_name="r04_b1" data_size="2" data_head="0"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

@@ -1,0 +1,1658 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="shimoyamada" host="W00091" date="2006-07-14T12:58:22"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+			<tag entry="102" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="156"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="447"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="266"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="92" top="30" right="796" bottom="658" maximized="no" rayout="Vertical2">
+		<comment-input left="551" top="364" right="898" bottom="516" visible="no"/>
+		<tag-palette left="487" top="220" right="891" bottom="661" visible="no"/>
+		<band id="0" index="0" style="0000" width="529"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="696"/>
+		<band id="3" index="3" style="0000" width="696"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="mes_status_01_01">
+		<comment>対象ポケモンのニックネーム
+0：ニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:01:ニックネーム:0]</language>
+	</row>
+
+	<row id="mes_status_01_02">
+		<comment>対象ポケモンの性別マーク：雄</comment>
+		<language name="日本語" font=" 1:font_system" width="8">♂</language>
+	</row>
+
+	<row id="mes_status_01_03">
+		<comment>対象ポケモンの性別マーク：雌</comment>
+		<language name="日本語" font=" 1:font_system" width="8">♀</language>
+	</row>
+
+	<row id="mes_status_01_04">
+		<comment>対象ポケモンのレベル
+0：レベル数</comment>
+		<language name="日本語" font=" 1:font_system" width="24">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_01_05">
+		<comment>項目名：もちもの</comment>
+		<language name="日本語" font=" 1:font_system" width="48">もちもの</language>
+	</row>
+
+	<row id="mes_status_01_06">
+		<comment>対象ポケモンの持っている道具名
+0：道具名</comment>
+		<language name="日本語" font=" 1:font_system" width="96">[1:08:どうぐ名:0]</language>
+	</row>
+
+	<row id="mes_status_01_07">
+		<comment>もちものを持っていないときの表示</comment>
+		<language name="日本語" font=" 1:font_system" width="96">なし</language>
+	</row>
+
+	<row id="mes_status_02_01">
+		<comment>ポケモン情報ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="108">ポケモンじょうほう</language>
+	</row>
+
+	<row id="mes_status_02_02">
+		<comment>ポケモン情報ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="66">ずかんＮｏ．</language>
+	</row>
+
+	<row id="mes_status_02_03">
+		<comment>対象ポケモンの図鑑No.
+0：図鑑Ｎｏ．</comment>
+		<language name="日本語" font=" 1:font_system" width="24">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_02_04">
+		<comment>ポケモン情報ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="66">なまえ</language>
+	</row>
+
+	<row id="mes_status_02_05">
+		<comment>対象ポケモンのポケモン名
+0：ポケモン名</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:00:ポケモン名:0]</language>
+	</row>
+
+	<row id="mes_status_02_06">
+		<comment>ポケモン情報ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="36">タイプ</language>
+	</row>
+
+	<row id="mes_status_02_07">
+		<comment>ポケモン情報ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="36">おや</language>
+	</row>
+
+	<row id="mes_status_02_08">
+		<comment>対象ポケモンを捕獲した親名
+0：ニックネーム</comment>
+		<language name="日本語" font=" 1:font_system" width="60">[1:03:トレーナー名:0]</language>
+	</row>
+
+	<row id="mes_status_02_09">
+		<comment>ポケモン情報ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="40">ＩＤＮｏ．</language>
+	</row>
+
+	<row id="mes_status_02_10">
+		<comment>対象ポケモンの親ＩＤＮｏ．
+0：親ＩＤＮｏ．下５桁</comment>
+		<language name="日本語" font=" 1:font_system" width="40">[1:36:数字５桁:0]</language>
+	</row>
+
+	<row id="mes_status_02_11">
+		<comment>ポケモン情報ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="120">げんざいの　けいけんち</language>
+	</row>
+
+	<row id="mes_status_02_12">
+		<comment>対象ポケモンの経験値
+0：経験値</comment>
+		<language name="日本語" font=" 1:font_system" width="56">[1:38:数字７桁:0]</language>
+	</row>
+
+	<row id="mes_status_02_13">
+		<comment>ポケモン情報ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="96">つぎのレベルまで</language>
+	</row>
+
+	<row id="mes_status_02_14">
+		<comment>ポケモン情報ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="24">あと</language>
+	</row>
+
+	<row id="mes_status_02_15">
+		<comment>対象ポケモンのレベルアップに必要な経験値
+0：レベルアップまでの経験値</comment>
+		<language name="日本語" font=" 1:font_system" width="48">[1:37:数字６桁:0]</language>
+	</row>
+
+	<row id="mes_status_02_16">
+		<comment>全国図鑑ナンバーがオープンしていないときの図鑑ナンバーの表記</comment>
+		<language name="日本語" font=" 1:font_system" width="48">？？？</language>
+	</row>
+
+	<row id="mes_status_03_01">
+		<comment>トレーナーメモページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="84">トレーナーメモ</language>
+	</row>
+
+	<row id="mes_status_03_02_01">
+		<comment>メモの１行目：がんばりや</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]がんばりや[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_02">
+		<comment>メモの１行目：さみしがり</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]さみしがり[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_03">
+		<comment>メモの１行目：ゆうかん</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]ゆうかん[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_04">
+		<comment>メモの１行目：いじっぱり</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]いじっぱり[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_05">
+		<comment>メモの１行目：やんちゃ</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]やんちゃ[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_06">
+		<comment>メモの１行目：ずぶとい</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]ずぶとい[FF:00:色:0]　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_07">
+		<comment>メモの１行目：すなお</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]すなお[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_08">
+		<comment>メモの１行目：のんき</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]のんき[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_09">
+		<comment>メモの１行目：わんぱく</comment>
+		<language name="日本語" font=" 1:font_system" size="109" width="120">[FF:00:色:2]わんぱく[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_10">
+		<comment>メモの１行目：のうてんき</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]のうてんき[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_11">
+		<comment>メモの１行目：おくびょう</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]おくびょう[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_12">
+		<comment>メモの１行目：せっかち</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]せっかち[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_13">
+		<comment>メモの１行目：まじめ</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]まじめ[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_14">
+		<comment>メモの１行目：ようき</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]ようき[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_15">
+		<comment>メモの１行目：むじゃき</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]むじゃき[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_16">
+		<comment>メモの１行目：ひかえめ</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]ひかえめ[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_17">
+		<comment>メモの１行目：おっとり</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]おっとり[FF:00:色:0]した　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_18">
+		<comment>メモの１行目：れいせい</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]れいせい[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_19">
+		<comment>メモの１行目：てれや</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]てれや[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_20">
+		<comment>メモの１行目：うっかりや</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]うっかりや[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_21">
+		<comment>メモの１行目：おだやか</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]おだやか[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_22">
+		<comment>メモの１行目：おとなしい</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]おとなしい[FF:00:色:0]　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_23">
+		<comment>メモの１行目：なまいき</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]なまいき[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_24">
+		<comment>メモの１行目：しんちょう</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]しんちょう[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_02_25">
+		<comment>メモの１行目：きまぐれ</comment>
+		<language name="日本語" font=" 1:font_system" width="120">[FF:00:色:2]きまぐれ[FF:00:色:0]な　せいかく。</language>
+	</row>
+
+	<row id="mes_status_03_03_01_01">
+		<comment>メモの２行目から５行目その１－１：ゲーム内捕獲で親名＆ＩＤ一致
+
+0：出会った西暦下２桁
+1：出会った月
+2：出会った日
+3：出会ったレベル
+4：出会った場所</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+Ｌｖ．[1:34:数字３桁:3]のときに
+であった。</language>
+	</row>
+
+	<row id="mes_status_03_03_01_02">
+		<comment>メモの２行目から５行目その１－２：ゲーム内捕獲で親名＆ＩＤ不一致
+
+0：出会った西暦下２桁
+1：出会った月
+2：出会った日
+3：出会ったレベル
+4：出会った場所</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+Ｌｖ．[1:34:数字３桁:3]のときに
+であった　ようだ。</language>
+	</row>
+
+	<row id="mes_status_03_03_02_01">
+		<comment>メモの２行目から５行目その２：ゲーム内人物との交換
+
+0：出会った西暦下２桁
+1：出会った月
+2：出会った日
+3：出会ったレベル
+4：出会った場所</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+Ｌｖ．[1:34:数字３桁:3]のときに
+やってきた。</language>
+	</row>
+
+	<row id="mes_status_03_03_03_01">
+		<comment>メモの２行目から５行目その3－１：通信交換で取得タマゴを孵化で親名＆ＩＤ一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="6">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]で
+てにいれた　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえって　であった。</language>
+	</row>
+
+	<row id="mes_status_03_03_03_02">
+		<comment>メモの２行目から５行目その3－２：通信交換で取得タマゴを孵化で親名＆ＩＤ不一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="6">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]で
+てにいれた　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえり　であったようだ。</language>
+	</row>
+
+	<row id="mes_status_03_03_04_01">
+		<comment>メモの２行目から５行目その４－１：ゲーム内人物からの取得タマゴを孵化で親名＆ＩＤ一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所（育て屋などの特殊な場所）
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]から
+もらった　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえって　であった。</language>
+	</row>
+
+	<row id="mes_status_03_03_04_02">
+		<comment>メモの２行目から５行目その４－２：ゲーム内人物からの取得タマゴを孵化で親名＆ＩＤ不一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所（育て屋などの特殊な場所）
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]から
+もらった　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえり　であったようだ。</language>
+	</row>
+
+	<row id="mes_status_03_03_05_01">
+		<comment>メモの２行目から５行目その５－１：外部配布で親名＆ＩＤ一致
+
+0：出会った西暦下２桁
+1：出会った月
+2：出会った日
+3：出会ったレベル
+4：出会った場所</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+Ｌｖ．[1:34:数字３桁:3]のときに
+うんめいてきな
+であいをした。</language>
+	</row>
+
+	<row id="mes_status_03_03_05_02">
+		<comment>メモの２行目から５行目その５－２：外部配布で親名＆ＩＤ不一致
+
+0：出会った西暦下２桁
+1：出会った月
+2：出会った日
+3：出会ったレベル
+4：出会った場所</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+Ｌｖ．[1:34:数字３桁:3]のときに
+うんめいてきな
+であいをした　ようだ。</language>
+	</row>
+
+	<row id="mes_status_03_03_06_01">
+		<comment>メモの２行目から５行目その６－１：外部配布のタマゴ孵化で親名＆ＩＤ一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]で
+てにいれた　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえって　うんめいてきな
+であいをした。</language>
+	</row>
+
+	<row id="mes_status_03_03_06_02">
+		<comment>メモの２行目から５行目その６－１：外部配布のタマゴ孵化で親名＆ＩＤ不一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]で
+てにいれた　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえって　うんめいてきな
+であいをした　ようだ。</language>
+	</row>
+
+	<row id="mes_status_03_03_07_01">
+		<comment>メモの２行目から５行目その7－１：外部配布のタマゴ孵化で親名＆ＩＤ一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所
+■■■ポケモンレンジャーなどの外部ゲーム経由
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]から
+やってきた　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえって　うんめいてきな
+であいをした。</language>
+	</row>
+
+	<row id="mes_status_03_03_07_02">
+		<comment>メモの２行目から５行目その7－２：外部配布のタマゴ孵化で親名＆ＩＤ不一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所
+■■■ポケモンレンジャーなどの外部ゲーム経由</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]で
+てにいれた　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえって　うんめいてきな
+であいをした　ようだ。</language>
+	</row>
+
+	<row id="mes_status_03_03_08_01">
+		<comment>メモの２行目から５行目その８－１：外部配布タマゴを通信で取得して孵化で親名＆ＩＤ一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]で
+てにいれた　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえって　うんめいてきな
+であいをした。</language>
+	</row>
+
+	<row id="mes_status_03_03_08_02">
+		<comment>メモの２行目から５行目その８－２：外部配布タマゴを通信で取得して孵化で親名＆ＩＤ不一致
+0：孵った西暦下２桁
+1：孵った月
+2：孵った日
+3：孵ったマップ名
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]で
+てにいれた　タマゴが
+２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]で
+かえって　うんめいてきな
+であいをした　ようだ。</language>
+	</row>
+
+	<row id="mes_status_03_03_09_01">
+		<comment>メモの２行目から５行目その９－１：ポケパークでエンカウント
+
+0：エンカウントした西暦下２桁
+1：エンカウント月
+2：エンカウント日
+3：エンカウントしたレベル
+4：やってきたＲＯＭ名</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:0]ねん[1:33:数字２桁:1]がつ[1:33:数字２桁:2]にち
+Ｌｖ．[1:34:数字３桁:3]のとき
+[FF:00:色:2][1:04:マップ名:4][FF:00:色:0]から
+やってきた。</language>
+	</row>
+
+	<row id="mes_status_03_04_01">
+		<comment>メモ6行目
+辛い味好き</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">[FF:00:色:2]からい[FF:00:色:0]ものが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_04_02">
+		<comment>メモ6行目
+渋い味好き</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">[FF:00:色:2]しぶい[FF:00:色:0]ものが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_04_03">
+		<comment>メモ6行目
+甘い味好き</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">[FF:00:色:2]あまい[FF:00:色:0]ものが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_04_04">
+		<comment>メモ6行目
+苦い味好き</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">[FF:00:色:2]にがい[FF:00:色:0]ものが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_04_05">
+		<comment>メモ6行目
+酸っぱい味好き</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">[FF:00:色:2]すっぱい[FF:00:色:0]ものが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_04_06">
+		<comment>メモ6行目
+味の好き嫌いなし</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">なんでも　よくたべる。</language>
+	</row>
+
+	<row id="mes_status_03_05_01_00">
+		<comment>第２性格
+ＨＰが一番高い
+個性乱数余り：０</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">たべるのが　だいすき。</language>
+	</row>
+
+	<row id="mes_status_03_05_01_01">
+		<comment>第２性格
+ＨＰが一番高い
+個性乱数余り：１</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ひるねを　よくする。</language>
+	</row>
+
+	<row id="mes_status_03_05_01_02">
+		<comment>第２性格
+ＨＰが一番高い
+個性乱数余り：２</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">いねむりが　おおい。</language>
+	</row>
+
+	<row id="mes_status_03_05_01_03">
+		<comment>第２性格
+ＨＰが一番高い
+個性乱数余り：３</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ものを　よく　ちらかす。</language>
+	</row>
+
+	<row id="mes_status_03_05_01_04">
+		<comment>第２性格
+ＨＰが一番高い
+個性乱数余り：４</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">のんびりするのが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_05_02_00">
+		<comment>第２性格
+攻撃が一番高い
+個性乱数余り：０</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ちからが　じまん。</language>
+	</row>
+
+	<row id="mes_status_03_05_02_01">
+		<comment>第２性格
+攻撃が一番高い
+個性乱数余り：１</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">あばれることが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_05_02_02">
+		<comment>第２性格
+攻撃が一番高い
+個性乱数余り：２</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ちょっと　おこりっぽい。</language>
+	</row>
+
+	<row id="mes_status_03_05_02_03">
+		<comment>第２性格
+攻撃が一番高い
+個性乱数余り：３</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ケンカを　するのが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_05_02_04">
+		<comment>第２性格
+攻撃が一番高い
+個性乱数余り：４</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ちのけが　おおい。</language>
+	</row>
+
+	<row id="mes_status_03_05_03_00">
+		<comment>第２性格
+防御が一番高い
+個性乱数余り：０</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">からだが　じょうぶ。</language>
+	</row>
+
+	<row id="mes_status_03_05_03_01">
+		<comment>第２性格
+防御が一番高い
+個性乱数余り：１</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">うたれ　づよい。</language>
+	</row>
+
+	<row id="mes_status_03_05_03_02">
+		<comment>第２性格
+防御が一番高い
+個性乱数余り：２</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ねばり　づよい。</language>
+	</row>
+
+	<row id="mes_status_03_05_03_03">
+		<comment>第２性格
+防御が一番高い
+個性乱数余り：３</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">しんぼう　づよい。</language>
+	</row>
+
+	<row id="mes_status_03_05_03_04">
+		<comment>第２性格
+防御が一番高い
+個性乱数余り：４</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">がまん　づよい。</language>
+	</row>
+
+	<row id="mes_status_03_05_04_00">
+		<comment>第２性格
+素早さが一番高い
+個性乱数余り：０</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">かけっこが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_05_04_01">
+		<comment>第２性格
+素早さが一番高い
+個性乱数余り：１</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ものおとに　びんかん。</language>
+	</row>
+
+	<row id="mes_status_03_05_04_02">
+		<comment>第２性格
+素早さが一番高い
+個性乱数余り：２</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">おっちょこちょい。</language>
+	</row>
+
+	<row id="mes_status_03_05_04_03">
+		<comment>第２性格
+素早さが一番高い
+個性乱数余り：３</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">すこし　おちょうしもの。</language>
+	</row>
+
+	<row id="mes_status_03_05_04_04">
+		<comment>第２性格
+素早さが一番高い
+個性乱数余り：４</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">にげるのが　はやい。</language>
+	</row>
+
+	<row id="mes_status_03_05_05_00">
+		<comment>第２性格
+特攻が一番高い
+個性乱数余り：０</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">こうきしんが　つよい。</language>
+	</row>
+
+	<row id="mes_status_03_05_05_01">
+		<comment>第２性格
+特攻が一番高い
+個性乱数余り：１</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">イタズラが　すき。</language>
+	</row>
+
+	<row id="mes_status_03_05_05_02">
+		<comment>第２性格
+特攻が一番高い
+個性乱数余り：２</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ぬけめが　ない。</language>
+	</row>
+
+	<row id="mes_status_03_05_05_03">
+		<comment>第２性格
+特攻一番高い
+個性乱数余り：３</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">かんがえごとが　おおい。</language>
+	</row>
+
+	<row id="mes_status_03_05_05_04">
+		<comment>第２性格
+特攻一番高い
+個性乱数余り：４</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">とても　きちょうめん。</language>
+	</row>
+
+	<row id="mes_status_03_05_06_00">
+		<comment>第２性格
+特防が一番高い
+個性乱数余り：０</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">きが　つよい。</language>
+	</row>
+
+	<row id="mes_status_03_05_06_01">
+		<comment>第２性格
+特防が一番高い
+個性乱数余り：１</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ちょっぴり　みえっぱり。</language>
+	</row>
+
+	<row id="mes_status_03_05_06_02">
+		<comment>第２性格
+特防が一番高い
+個性乱数余り：２</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">まけんきが　つよい。</language>
+	</row>
+
+	<row id="mes_status_03_05_06_03">
+		<comment>第２性格
+特防一番高い
+個性乱数余り：３</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">まけずぎらい。</language>
+	</row>
+
+	<row id="mes_status_03_05_06_04">
+		<comment>第２性格
+特防一番高い
+個性乱数余り：４</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">ちょっぴり　ごうじょう。</language>
+	</row>
+
+	<row id="mes_status_03_T_01_01_01">
+		<comment>タマゴ用メモの１～５行目
+ゲーム内イベントで入手したタマゴ
+0：未使用
+1：未使用
+2：未使用
+3：未使用
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所（育て屋などの特殊マップ名表示）
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]から
+もらった　ふしぎな
+ポケモンの　タマゴ。
+</language>
+	</row>
+
+	<row id="mes_status_03_T_01_02_01">
+		<comment>タマゴ用メモの１～５行目
+通信交換で入手したタマゴ
+0：未使用
+1：未使用
+2：未使用
+3：未使用
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所（通信交換、ぐるぐる交換等の特殊マップ名表示）
+
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]で
+てにいれた　ふしぎな
+ポケモンの　タマゴ。
+</language>
+	</row>
+
+	<row id="mes_status_03_T_01_03_01">
+		<comment>タマゴ用メモの１～５行目
+外部イベントで入手したタマゴ
+0：未使用
+1：未使用
+2：未使用
+3：未使用
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所（ポケモンフェスタ等の特殊マップ名表示）
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:1][1:04:マップ名:8][FF:00:色:0]で
+てにいれた　とっても
+ふしぎな　ふしぎな
+ポケモンの　タマゴ。
+</language>
+	</row>
+
+	<row id="mes_status_03_T_01_04_01">
+		<comment>タマゴ用メモの１～５行目
+外部イベントで入手したタマゴ：ポケモンレンジャー用
+0：未使用
+1：未使用
+2：未使用
+3：未使用
+4：未使用
+5：タマゴをもらった西暦下２桁
+6：タマゴをもらった月
+7：タマゴをもらった日
+8：タマゴをもらった場所（特殊マップ名表示）
+</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">２０[1:33:数字２桁:5]ねん[1:33:数字２桁:6]がつ[1:33:数字２桁:7]にち
+[FF:00:色:2][1:04:マップ名:8][FF:00:色:0]から
+やってきた　とっても
+ふしぎな　ふしぎな
+ポケモンの　タマゴ。
+</language>
+	</row>
+
+	<row id="mes_status_03_T_02_01">
+		<comment>タマゴ６行目～９行目
+なつき度５以下</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">「タマゴのようす」
+なかから　おとが
+きこえてくる！
+もうすぐ　うまれそう！
+</language>
+	</row>
+
+	<row id="mes_status_03_T_02_02">
+		<comment>タマゴ６行目～９行目
+なつき度10以下</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">「タマゴのようす」
+ときどき　うごいている
+みたい。　うまれるまで
+もう　ちょっとかな？</language>
+	</row>
+
+	<row id="mes_status_03_T_02_03">
+		<comment>タマゴ６行目～９行目
+なつき度40以下</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">「タマゴのようす」
+なにが　うまれてくるのかな？
+うまれるまで　まだまだ
+じかんが　かかりそう。</language>
+	</row>
+
+	<row id="mes_status_03_T_02_04">
+		<comment>タマゴ６行目～９行目
+なつき度41以上</comment>
+		<language name="日本語" font=" 1:font_system" width="144" line="5">「タマゴのようす」
+この　タマゴは
+うまれるまで　かなり
+じかんが　かかりそう。</language>
+	</row>
+
+	<row id="mes_status_04_01">
+		<comment>ポケモン能力ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="108">ポケモンのうりょく</language>
+	</row>
+
+	<row id="mes_status_04_02">
+		<comment>ポケモン能力ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="24">ＨＰ</language>
+	</row>
+
+	<row id="mes_status_04_03">
+		<comment>ポケモン能力ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="48">こうげき</language>
+	</row>
+
+	<row id="mes_status_04_04">
+		<comment>ポケモン能力ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="48">ぼうぎょ</language>
+	</row>
+
+	<row id="mes_status_04_05">
+		<comment>ポケモン能力ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="48">とくこう</language>
+	</row>
+
+	<row id="mes_status_04_06">
+		<comment>ポケモン能力ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="48">とくぼう</language>
+	</row>
+
+	<row id="mes_status_04_07">
+		<comment>ポケモン能力ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="48">すばやさ</language>
+	</row>
+
+	<row id="mes_status_04_08">
+		<comment>ポケモン能力ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="48">とくせい</language>
+	</row>
+
+	<row id="mes_status_04_09">
+		<comment>対象ポケモンの現在ＨＰ値／最大ＨＰ値の間に入る区切りの／
+対象ポケモンの現在ＰＰ値／最大ＰＰ値の間に入る区切りの／</comment>
+		<language name="日本語" font=" 1:font_system" width="56">／</language>
+	</row>
+
+	<row id="mes_status_04_10">
+		<comment>対象ポケモンの最大ＨＰ
+0：最大ＨＰ</comment>
+		<language name="日本語" font=" 1:font_system" width="56">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_04_11">
+		<comment>対象ポケモンの現在ＨＰ値
+0：現在のＨＰ</comment>
+		<language name="日本語" font=" 1:font_system" width="56">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_04_12">
+		<comment>対象ポケモンの攻撃値
+0：攻撃値</comment>
+		<language name="日本語" font=" 1:font_system" width="24">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_04_13">
+		<comment>対象ポケモンの防御値
+0：防御値</comment>
+		<language name="日本語" font=" 1:font_system" width="48">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_04_14">
+		<comment>対象ポケモンの特攻値
+0：特攻値</comment>
+		<language name="日本語" font=" 1:font_system" width="48">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_04_15">
+		<comment>対象ポケモンの特防値
+0：特防値</comment>
+		<language name="日本語" font=" 1:font_system" width="48">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_04_16">
+		<comment>対象ポケモンの素早さ値
+0：素早さ値</comment>
+		<language name="日本語" font=" 1:font_system" width="48">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_04_17">
+		<comment>対象ポケモンの特性名
+0：特性名</comment>
+		<language name="日本語" font=" 1:font_system" width="84">[1:05:とくせい名:0]</language>
+	</row>
+
+	<row id="mes_status_05_01">
+		<comment>コンディションページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="84">コンディション</language>
+	</row>
+
+	<row id="mes_status_05_02">
+		<comment>コンディションページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="36">けづや</language>
+	</row>
+
+	<row id="mes_status_06_01">
+		<comment>戦う技ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="72">たたかうわざ</language>
+	</row>
+
+	<row id="mes_status_06_02">
+		<comment>戦う技ページの右上ガイドメッセージ</comment>
+		<language name="日本語" font=" 1:font_system" width="48">くわしく</language>
+	</row>
+
+	<row id="mes_status_06_03">
+		<comment>対象ポケモンの手持ち技１
+0：手持ち技１</comment>
+		<language name="日本語" font=" 1:font_system" width="84">[1:06:わざ名:0]</language>
+	</row>
+
+	<row id="mes_status_06_04">
+		<comment>対象ポケモンの手持ち技２
+0：手持ち技２</comment>
+		<language name="日本語" font=" 1:font_system" width="72">[1:06:わざ名:0]</language>
+	</row>
+
+	<row id="mes_status_06_05">
+		<comment>対象ポケモンの手持ち技３
+0：手持ち技３</comment>
+		<language name="日本語" font=" 1:font_system" width="72">[1:06:わざ名:0]</language>
+	</row>
+
+	<row id="mes_status_06_06">
+		<comment>対象ポケモンの手持ち技４
+0：手持ち技４</comment>
+		<language name="日本語" font=" 1:font_system" width="72">[1:06:わざ名:0]</language>
+	</row>
+
+	<row id="mes_status_06_07">
+		<comment>対象ポケモンの手持ち技５（技覚え処理）
+0：手持ち技５</comment>
+		<language name="日本語" font=" 1:font_system" width="72">[1:06:わざ名:0]</language>
+	</row>
+
+	<row id="mes_status_06_08">
+		<comment>戦う技ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="16">ＰＰ</language>
+	</row>
+
+	<row id="mes_status_06_09">
+		<comment>対象ポケモンの手持ち技１の現在のＰＰ
+0：現在のＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system" width="40">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_10">
+		<comment>対象ポケモンの手持ち技２の現在のＰＰ
+0：現在のＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system" width="40">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_11">
+		<comment>対象ポケモンの手持ち技３の現在のＰＰ
+0：現在のＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system" width="40">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_12">
+		<comment>対象ポケモンの手持ち技４の現在のＰＰ
+0：現在のＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system" width="40">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_13">
+		<comment>対象ポケモンの手持ち技５の現在のＰＰ（技覚え処理）
+0：現在のＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system" width="40">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_14">
+		<comment>対象ポケモンの手持ち技１の最大のＰＰ
+0：最大ＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_15">
+		<comment>対象ポケモンの手持ち技２の最大のＰＰ
+0：最大ＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_16">
+		<comment>対象ポケモンの手持ち技３の最大のＰＰ
+0：最大ＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_17">
+		<comment>対象ポケモンの手持ち技４の最大のＰＰ
+0：最大ＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_18">
+		<comment>対象ポケモンの手持ち技５の最大のＰＰ（技覚え処理）
+0：最大ＰＰ値</comment>
+		<language name="日本語" font=" 1:font_system">[1:33:数字２桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_19">
+		<comment>戦う技ページの技入れ替え処理の項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="36">もどる</language>
+	</row>
+
+	<row id="mes_status_06_20">
+		<comment>戦う技ページの技入れ替え処理の項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="48">いりょく</language>
+	</row>
+
+	<row id="mes_status_06_21">
+		<comment>戦う技ページの技入れ替え処理の項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="48">めいちゅう</language>
+	</row>
+
+	<row id="mes_status_06_22">
+		<comment>戦う技ページの技入れ替え処理の項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="48">ぶんるい</language>
+	</row>
+
+	<row id="mes_status_06_23">
+		<comment>選択している技の威力
+0：技の威力</comment>
+		<language name="日本語" font=" 1:font_system" width="24">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_24">
+		<comment>選択している技の命中率
+0：命中率</comment>
+		<language name="日本語" font=" 1:font_system" width="24">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_06_25">
+		<comment>画面右上戦う技ページの技入れ替え処理のガイドメッセージ</comment>
+		<language name="日本語" font=" 1:font_system" width="48">いれかえ</language>
+	</row>
+
+	<row id="mes_status_06_27">
+		<comment>技がないときのＰＰ値の表記</comment>
+		<language name="日本語" font=" 1:font_system" width="16">ーー</language>
+	</row>
+
+	<row id="mes_status_06_28">
+		<comment>威力or命中率がないときの表記</comment>
+		<language name="日本語" font=" 1:font_system" width="24">ーーー</language>
+	</row>
+
+	<row id="mes_status_06_29">
+		<comment>戦う技ページ
+技忘れ時のガイドメッセージ</comment>
+		<language name="日本語" font=" 1:font_system" width="48">けってい</language>
+	</row>
+
+	<row id="mes_status_06_30">
+		<comment>戦う技ページ
+レベルアップの技覚えで秘伝技を忘れさせようとするときの
+警告メッセージ</comment>
+		<language name="日本語" font=" 1:font_system" width="120" line="5">たいせつな　わざです。
+わすれさせる　ことは
+できません！</language>
+	</row>
+
+	<row id="mes_status_07_01">
+		<comment>コンテスト技ページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="84">コンテストわざ</language>
+	</row>
+
+	<row id="mes_status_07_02">
+		<comment>画面右上コンテスト技ページのガイドメッセージ</comment>
+		<language name="日本語" font=" 1:font_system" width="16">くわしく</language>
+	</row>
+
+	<row id="mes_status_07_03">
+		<comment>コンテスト技ページ
+技忘れ時のガイドメッセージ</comment>
+		<language name="日本語" font=" 1:font_system" width="16">けってい</language>
+	</row>
+
+	<row id="mes_status_07_04" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>コンテスト技ページ
+技詳細説明時の項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="96">アピールポイント</language>
+	</row>
+
+	<row id="mes_status_08_01">
+		<comment>画面右上戻るページのガイドメッセージ</comment>
+		<language name="日本語" font=" 1:font_system" width="36">もどる</language>
+	</row>
+
+	<row id="mes_status_08_02">
+		<comment>戻るページの項目名</comment>
+		<language name="日本語" font=" 1:font_system" width="60">もどります</language>
+	</row>
+
+	<row id="mes_status_09_01">
+		<comment>ポルトをあげる画面ガイドメッセージ
+Ａけってい</comment>
+		<language name="日本語" font=" 1:font_system" width="48">けってい</language>
+	</row>
+
+	<row id="mes_status_09_02">
+		<comment>ポルトをあげる画面ガイドメッセージ
+Ｂもどる</comment>
+		<language name="日本語" font=" 1:font_system" width="48">もどる</language>
+	</row>
+
+	<row id="mes_status_09_03">
+		<comment>ポルトをあげる画面ガイドメッセージ
+すきなたべもの</comment>
+		<language name="日本語" font=" 1:font_system" width="96">すきなたべもの</language>
+	</row>
+
+	<row id="mes_status_09_04">
+		<comment>ポルトをあげる画面ガイドメッセージ
+からいのがすき</comment>
+		<language name="日本語" font=" 1:font_system" width="96">[FF:00:色:2]からい[FF:00:色:0]のがすき</language>
+	</row>
+
+	<row id="mes_status_09_05">
+		<comment>ポルトをあげる画面ガイドメッセージ
+しぶいのがすき</comment>
+		<language name="日本語" font=" 1:font_system" width="96">[FF:00:色:2]しぶい[FF:00:色:0]のがすき</language>
+	</row>
+
+	<row id="mes_status_09_06">
+		<comment>ポルトをあげる画面ガイドメッセージ
+あまいのがすき</comment>
+		<language name="日本語" font=" 1:font_system" width="96">[FF:00:色:2]あまい[FF:00:色:0]のがすき</language>
+	</row>
+
+	<row id="mes_status_09_07">
+		<comment>ポルトをあげる画面ガイドメッセージ
+にがいのがすき</comment>
+		<language name="日本語" font=" 1:font_system" width="96">[FF:00:色:2]にがい[FF:00:色:0]のがすき</language>
+	</row>
+
+	<row id="mes_status_09_08">
+		<comment>ポルトをあげる画面ガイドメッセージ
+すっぱいのがすき</comment>
+		<language name="日本語" font=" 1:font_system" width="96">[FF:00:色:2]すっぱい[FF:00:色:0]のがすき</language>
+	</row>
+
+	<row id="mes_status_09_09">
+		<comment>ポルトをあげる画面ガイドメッセージ
+味の好き嫌いがない</comment>
+		<language name="日本語" font=" 1:font_system" width="96">すききらいなし</language>
+	</row>
+
+	<row id="mes_status_09_09_01">
+		<comment>ポルトをあげる画面の会話メッセージ
+かっこよさを上げた</comment>
+		<language name="日本語" width="216">かっこよさに　みがきが　かかった！</language>
+	</row>
+
+	<row id="mes_status_09_09_02">
+		<comment>ポルトをあげる画面の会話メッセージ
+たくましさを上げた</comment>
+		<language name="日本語" width="216">たくましさに　みがきが　かかった！</language>
+	</row>
+
+	<row id="mes_status_09_09_03">
+		<comment>ポルトをあげる画面の会話メッセージ
+うつしさを上げた</comment>
+		<language name="日本語" width="216">うつくしさに　みがきが　かかった！</language>
+	</row>
+
+	<row id="mes_status_09_09_04">
+		<comment>ポルトをあげる画面の会話メッセージ
+かわいさを上げた</comment>
+		<language name="日本語" width="216">かわいさに　みがきが　かかった！</language>
+	</row>
+
+	<row id="mes_status_09_09_05">
+		<comment>ポルトをあげる画面の会話メッセージ
+かしこさを上げた</comment>
+		<language name="日本語" width="216">かしこさに　みがきが　かかった！</language>
+	</row>
+
+	<row id="mes_status_09_09_06">
+		<comment>ポルトをあげる画面の会話メッセージ
+コンディションに変化なし</comment>
+		<language name="日本語" width="216">なにも　かわらなかった！</language>
+	</row>
+
+	<row id="mes_status_09_09_07">
+		<comment>ポルトをあげる画面の会話メッセージ
+けづやがＭＡＸのとき</comment>
+		<language name="日本語" width="216">もう　これいじょう　たべない　みたい</language>
+	</row>
+
+	<row id="mes_status_10_01" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>記念リボンページの項目名
+</comment>
+		<language name="日本語" width="84">きねんリボン</language>
+	</row>
+
+	<row id="mes_status_10_02" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>記念リボンページの右上ガイドメッセージ
+</comment>
+		<language name="日本語" width="48">くわしく</language>
+	</row>
+
+	<row id="mes_status_10_03" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>記念リボンページの右上ガイドメッセージ
+詳細ウインドウ表示中
+</comment>
+		<language name="日本語" width="36">もどる</language>
+	</row>
+
+	<row id="mes_status_10_04" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>記念リボンページ
+リボン数の見出し
+</comment>
+		<language name="日本語" width="84">もっているかず</language>
+	</row>
+
+	<row id="mes_status_10_05" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>記念リボンページ
+０：獲得済みリボン数
+</comment>
+		<language name="日本語" width="36">[1:34:数字３桁:0]こ</language>
+	</row>
+
+	<row id="mes_status_10_06" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>記念リボンページ詳細表示
+０：カーソルがさしているリボンのナンバー
+</comment>
+		<language name="日本語" width="32">[1:34:数字３桁:0]</language>
+	</row>
+
+	<row id="mes_status_10_07" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>記念リボンページ詳細表示
+０：獲得済みリボン数
+</comment>
+		<language name="日本語" width="12">／</language>
+	</row>
+
+	<row id="mes_status_10_08" back-color="#ffff00,,,#ffff00,,#ffff00,#ffff00,#ffff00,,#ffff00,#ffff00,">
+		<comment>記念リボンページ詳細表示
+０：獲得済みリボン数
+</comment>
+		<language name="日本語" width="32">[1:34:数字３桁:0]</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

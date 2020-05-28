@@ -1,0 +1,84 @@
+//====================================================================
+//								battle_room
+//
+//	direct2.ev
+//	LOCALWORK15		POSとして使用
+//
+//	●ev_check.cが独自なので、POSイベントは起動していない！
+//	　マットチェックでスクリプト起動している！
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_battle_room.h"
+	//.include	"../eventdata/zone_battle_roomevc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_battle_room_guide
+_EVENT_DATA		ev_battle_room_exit
+_EVENT_DATA		ev_battle_room_forceend
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_battle_room_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*							お姉さん								*/
+/********************************************************************/
+ev_battle_room_guide:
+	_EASY_OBJ_MSG	msg_battle_room_01_01
+	_END
+
+
+/********************************************************************/
+/*							出口									*/
+/********************************************************************/
+ev_battle_room_exit:
+	_EVENT_START
+
+	/*「終了しますか？」*/
+	_TALKMSG		msg_battle_room_03_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_battle_room_forceend
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_battle_room_exit
+	_END
+
+/*「はい」*/
+ev_battle_room_forceend:
+	/*ともだちコードを登録*/
+	_WIFI_AUTO_REG
+
+	/*「通信を終了します」*/
+	_TALK_KEYWAIT	msg_battle_room_03_04
+
+	//通信同期
+	_COMM_SYNCHRONIZE	DBC_TIM_BATTLE_EXIT
+
+	_TALK_CLOSE
+
+	_COMM_DIRECT_END_TIMING
+
+	_COLOSSEUM_MAP_CHANGE_OUT
+
+	_EVENT_END
+	_END
+
+/*「いいえ」*/
+no_battle_room_exit:
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+

@@ -1,0 +1,9 @@
+.cvsignore
+*.bin
+arc_result.txt
+area_data.naix
+area_list.txt
+area_table.txt
+build_xls_list.txt
+move_list.txt
+tex_imd_list.txt

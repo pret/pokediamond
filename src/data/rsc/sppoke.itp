@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-05-02T11:58:09" source="sppoke64.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="17"
+	tool_start_frame="0"
+	tool_end_frame="16"
+	compress_material="off" material_size="1 1"
+/>
+
+<tex_pattern_list_data image_size="2" palette_size="1">
+	<image_name index="0" name="sppoke4.1"/>
+	<image_name index="1" name="sppoke4.2"/>
+	<palette_name index="0" name="sppoke4"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="2">
+		0 8
+	</frame_idx>
+	<image_idx size="2">
+		0 1
+	</image_idx>
+	<palette_idx size="2">
+		0 0
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="1">
+	<tex_pattern_anm index="0" material_name="obj" data_size="2" data_head="0"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

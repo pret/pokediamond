@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="matsushima" host="W00112" date="2006-08-07T17:32:37"/>
+	<generator name="MessageEditor" version="4.9.2.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+		<list entry="4" r="FF" g="80" b="C0" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" length="10" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" length="7" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" length="7" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" length="9" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="ピンク" english="ピンク" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="141"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="137"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="258"/>
+			<font default=" 0:font_talk" position="3" width="76">
+				<list entry="0" file="L:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="L:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="L:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="86"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="86"/>
+			<line position="6" width="83"/>
+		</language>
+	</columns>
+
+	<dialog left="32" top="102" right="737" bottom="730" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="578" right="1024" bottom="730" visible="yes"/>
+		<tag-palette left="677" top="180" right="1024" bottom="578" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="697"/>
+		<band id="3" index="3" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="ZKN_COMMENT_02_000">
+		<comment>アーボ・英語</comment>
+		<language name="日本語" width="240">Moving silently and stealthily, it eats
+the eggs of birds, such as PIDGEY
+and SPEAROW, whole.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_001">
+		<comment>アーボ・フランス語</comment>
+		<language name="日本語" width="240">Il se déplace en silence pour dévorer des
+œufs de ROUCOOL ou de PIAFABEC.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_002">
+		<comment>アーボ・ドイツ語</comment>
+		<language name="日本語" width="240">Dieses POKéMON kann sich lautlos bewegen.
+Seine Nahrung sind die Eier von VOGEL-
+POKéMON.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_003">
+		<comment>アーボ・イタリア語</comment>
+		<language name="日本語" width="240">Si muove in modo silenzioso e furtivo.
+Si nutre di uova di uccelli come PIDGEY
+e SPEAROW, che ingoia intere.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_004">
+		<comment>アーボ・スペイン語</comment>
+		<language name="日本語" width="240">Es muy silencioso y cauteloso.
+Come huevos de pájaros como
+los de PIDGEY y SPEAROW.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_005">
+		<comment>ピカチュウ・英語</comment>
+		<language name="日本語" width="240">When several of these POKéMON gather,
+their electricity can build and cause
+lightning storms.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_006">
+		<comment>ピカチュウ・フランス語</comment>
+		<language name="日本語" width="240">Quand plusieurs de ces POKéMON
+se réunissent, ils provoquent de
+gigantesques orages.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_007">
+		<comment>ピカチュウ・ドイツ語</comment>
+		<language name="日本語" width="240">Wenn sich mehrere dieser POKéMON
+versammeln, kann ihre Energie Blitzgewitter
+erzeugen.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_008">
+		<comment>ピカチュウ・イタリア語</comment>
+		<language name="日本語" width="240">Quando vari POKéMON di questa specie si
+radunano, la loro energia può causare
+forti tempeste.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_009">
+		<comment>ピカチュウ・スペイン語</comment>
+		<language name="日本語" width="240">Cuando varios de estos POKéMON se juntan,
+su energía puede causar fuertes
+tormentas.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_010">
+		<comment>コダック・英語</comment>
+		<language name="日本語" width="240">While lulling its enemies with its vacant
+look, this wily POKéMON will use
+psychokinetic powers.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_011">
+		<comment>コダック・フランス語</comment>
+		<language name="日本語" width="240">Il distrait ses ennemis avec des grimaces
+débiles et les attaque ensuite avec ses
+pouvoirs psy.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_012">
+		<comment>コダック・ドイツ語</comment>
+		<language name="日本語" width="240">Dieses POKéMON lullt Gegner mit
+hypnotisierendem Blick ein, bevor es
+PSYKRAFT einsetzt.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_013">
+		<comment>コダック・イタリア語</comment>
+		<language name="日本語" width="240">Mentre calma il nemico con il suo sguardo
+vacuo, questo POKéMON astuto usa poteri
+psicocinetici.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_014">
+		<comment>コダック・スペイン語</comment>
+		<language name="日本語" width="240">Mientras calma al enemigo con su vacía
+mirada, este POKéMON usa poderes
+psicoquinéticos.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_015">
+		<comment>ポニータ・英語</comment>
+		<language name="日本語" width="240">Its body is light, and its legs are
+incredibly powerful. It can clear
+Ayers Rock in one leap.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_016">
+		<comment>ポニータ・フランス語</comment>
+		<language name="日本語" width="240">PONYTA est très léger mais ses pattes
+sont incroyablement puissantes. Il peut
+franchir des montagnes d&apos;un seul saut.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_017">
+		<comment>ポニータ・ドイツ語</comment>
+		<language name="日本語" width="240">Sein Körper ist leicht und seine Beine
+extrem kräftig. Es kommt mit einem
+Sprung über den Ayers Rock.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_018">
+		<comment>ポニータ・イタリア語</comment>
+		<language name="日本語" width="240">Ha un corpo leggero su zampe
+estremamente potenti. Con un salto,
+può oltrepassare Ayers Rock.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_019">
+		<comment>ポニータ・スペイン語</comment>
+		<language name="日本語" width="240">Tiene un cuerpo ligero, pero unas patas
+tremendamente fuertes. Es capaz de
+destrozar un peñón de una patada.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_020">
+		<comment>ヒトデマン・英語</comment>
+		<language name="日本語" width="240">It appears in large numbers by seashores.
+At night, its central core flashes with a
+red light.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_021">
+		<comment>ヒトデマン・フランス語</comment>
+		<language name="日本語" width="240">On peut voir des STARI en grand nombre
+près des côtes. La nuit, le centre de son
+corps clignote d&apos;une lumière rouge.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_022">
+		<comment>ヒトデマン・ドイツ語</comment>
+		<language name="日本語" width="240">Es taucht in großer Anzahl an Ufern auf.
+Nachts leuchtet der Kern in seiner Mitte
+rot auf.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_023">
+		<comment>ヒトデマン・イタリア語</comment>
+		<language name="日本語" width="240">Se ne trovano molti in riva al mare.
+Di notte, il nucleo al centro del corpo
+lampeggia di una luce rossa.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_024">
+		<comment>ヒトデマン・スペイン語</comment>
+		<language name="日本語" width="240">Suele aparecer en grupos en la orilla
+de la playa. Por la noche, el órgano
+central que tiene brilla con una luz roja.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_025">
+		<comment>コイキング・英語</comment>
+		<language name="日本語" width="240">In the distant past, it was somewhat
+stronger than the horribly weak
+descendants that exist today.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_026">
+		<comment>コイキング・フランス語</comment>
+		<language name="日本語" width="240">La puissance de cette créature a
+beaucoup régressé au fil des siècles.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_027">
+		<comment>コイキング・ドイツ語</comment>
+		<language name="日本語" width="240">Die urzeitlichen Vorfahren dieses POKéMON
+waren sehr viel stärker als ihre heutigen
+Nachkommen.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_028">
+		<comment>コイキング・イタリア語</comment>
+		<language name="日本語" width="240">Anticamente era molto più forte
+dell&apos;odierno discendente, che è
+debolissimo.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_029">
+		<comment>コイキング・スペイン語</comment>
+		<language name="日本語" width="240">En un pasado lejano, era más fuerte que
+sus horribles descendientes de hoy en
+día.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_030">
+		<comment>ソーナンス・英語</comment>
+		<language name="日本語" width="240">To keep its pitch-black tail hidden, it
+lives quietly in the darkness. It is never
+first to attack.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_031" back-color="#ffff00,,,,,#ffff00,,,,,,">
+		<comment>ソーナンス・フランス語</comment>
+		<language name="日本語" width="240">Pour cacher sa queue noire, il vit
+discrètement dans l&apos;obscurité.
+Il n&apos;attaque jamais le premier.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_032">
+		<comment>ソーナンス・ドイツ語</comment>
+		<language name="日本語" width="240">Es lebt in der Dunkelheit, um seinen
+schwarzen Schwanz zu verstecken. Es
+greift nie zuerst an.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_033">
+		<comment>ソーナンス・イタリア語</comment>
+		<language name="日本語" width="240">Vive rintanato nell&apos;oscurità per
+nascondere la coda nera come la pece.
+Non attacca mai per primo.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_034">
+		<comment>ソーナンス・スペイン語</comment>
+		<language name="日本語" width="240">Para mantener oculta la negra cola que
+tiene, vive en silencio en la oscuridad.
+Nunca ataca primero.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_035">
+		<comment>ヘラクロス・英語</comment>
+		<language name="日本語" width="240">Usually docile, but if disturbed while
+sipping honey, it chases off the intruder
+with its horn.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_036">
+		<comment>ヘラクロス・フランス語</comment>
+		<language name="日本語" width="240">Le plus souvent docile, il chasse les
+intrus avec sa corne s&apos;il est attaqué
+quand il mange du miel.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_037">
+		<comment>ヘラクロス・ドイツ語</comment>
+		<language name="日本語" width="240">Es ist ruhig. Wird es aber beim
+Honignaschen gestört, verjagt es den
+Störenfried mit seinem Horn.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_038">
+		<comment>ヘラクロス・イタリア語</comment>
+		<language name="日本語" width="240">È pacifico, ma se lo si disturba mentre
+gusta il miele scaccia l&apos;intruso con il suo
+corno.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_039">
+		<comment>ヘラクロス・スペイン語</comment>
+		<language name="日本語" width="240">Suele ser dócil, pero si se le molesta
+mientras succiona miel, perseguirá
+con su cuerno al intruso.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_040">
+		<comment>ニューラ・英語</comment>
+		<language name="日本語" width="240">Vicious in nature, it drives PIDGEY from
+their nests and feasts on the eggs that
+are left behind.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_041">
+		<comment>ニューラ・フランス語</comment>
+		<language name="日本語" width="240">De nature agressive, il chasse les
+ROUCOOL de leurs nids et dévore
+les œufs abandonnés.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_042">
+		<comment>ニューラ・ドイツ語</comment>
+		<language name="日本語" width="240">Es besitzt ein grausames Wesen. Es
+verjagt TAUBSIs von deren Nestern
+und labt sich an den Eiern.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_043">
+		<comment>ニューラ・イタリア語</comment>
+		<language name="日本語" width="240">Di spirito malevolo, spinge i PIDGEY a
+lasciare il proprio nido per poi avventarsi
+sulle uova incustodite.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_044">
+		<comment>ニューラ・スペイン語</comment>
+		<language name="日本語" width="240">Es malvado por naturaleza. Saca a los
+PIDGEY de sus nidos para devorar sus
+huevos.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_045">
+		<comment>ヒメグマ・英語</comment>
+		<language name="日本語" width="240">Before food becomes scarce in wintertime,
+its habit is to hoard food in many hidden
+locations.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_046" back-color="#ffff00,,,,,#ffff00,,,,,,">
+		<comment>ヒメグマ・フランス語</comment>
+		<language name="日本語" width="240">Il se fait des réserves de nourriture
+dans des cachettes avant l&apos;arrivée
+de l&apos;hiver.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_047">
+		<comment>ヒメグマ・ドイツ語</comment>
+		<language name="日本語" width="240">Steht der Winter vor der Türe, hortet es
+Nahrung an vielen verschiedenen nur ihm
+bekannten Orten.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_048">
+		<comment>ヒメグマ・イタリア語</comment>
+		<language name="日本語" width="240">Per prepararsi all&apos;inverno, è sua abitudine
+accumulare il cibo in diversi nascondigli.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_049">
+		<comment>ヒメグマ・スペイン語</comment>
+		<language name="日本語" width="240">Antes de que la comida escasee en
+invierno, tiene por costumbre ocultar
+comida en lugares secretos.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_050">
+		<comment>デルビル・英語</comment>
+		<language name="日本語" width="240">To corner prey, they check each other&apos;s
+location using barks that only they can
+understand.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_051">
+		<comment>デルビル・フランス語</comment>
+		<language name="日本語" width="240">Pour attraper leur proie, ils vérifient la
+position de chacun par des aboiements
+qu&apos;eux seuls comprennent.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_052">
+		<comment>デルビル・ドイツ語</comment>
+		<language name="日本語" width="240">Sie treiben ihre Beute in die Enge und
+orientieren sich dabei anhand ihres
+Bellens, das nur sie verstehen.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_053">
+		<comment>デルビル・イタリア語</comment>
+		<language name="日本語" width="240">Per circondare la preda, si coordinano
+comunicando con guaiti che solo
+loro possono decifrare.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_054">
+		<comment>デルビル・スペイン語</comment>
+		<language name="日本語" width="240">Para arrinconar a su presa, comprueban
+sus posiciones con ladridos que sólo ellos
+entienden.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_055">
+		<comment>キャモメ・英語</comment>
+		<language name="日本語" width="240">It rides upon ocean winds as if it were
+a glider. In the winter, it hides food
+around its nest.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_056">
+		<comment>キャモメ・フランス語</comment>
+		<language name="日本語" width="240">Il utilise les vents marins à la façon
+d&apos;un planeur. En hiver, il cache de la
+nourriture autour de son nid.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_057">
+		<comment>キャモメ・ドイツ語</comment>
+		<language name="日本語" width="240">Es reitet auf den Ozeanwinden, als
+ob es gleiten würde. Im Winter versteckt
+es Nahrung bei seinem Nest.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_058">
+		<comment>キャモメ・イタリア語</comment>
+		<language name="日本語" width="240">Vola sulle onde dell&apos;oceano come
+un deltaplano. D&apos;inverno, nasconde
+cibo vicino al nido.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_059">
+		<comment>キャモメ・スペイン語</comment>
+		<language name="日本語" width="240">Vuela y planea siguiendo la brisa
+oceánica. En invierno esconde comida
+cerca de su nido.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_060">
+		<comment>ナマケロ・英語</comment>
+		<language name="日本語" width="240">It sleeps for 20 hours every day. Making
+drowsy those that see it is one of
+its abilities.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_061">
+		<comment>ナマケロ・フランス語</comment>
+		<language name="日本語" width="240">PARECOOL dort 20 heures par jour.
+Il suffit de lui jeter un regard pour
+avoir envie de bâiller.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_062">
+		<comment>ナマケロ・ドイツ語</comment>
+		<language name="日本語" width="240">Es schläft 20 Stunden am Tag. Eine
+seiner Fähigkeiten liegt darin, diejenigen,
+denen es begegnet, schläfrig zu machen.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_063">
+		<comment>ナマケロ・イタリア語</comment>
+		<language name="日本語" width="240">Dorme 20 ore al giorno. Una delle sue
+abilità è far venire sonnolenza a chi lo
+osserva.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_064">
+		<comment>ナマケロ・スペイン語</comment>
+		<language name="日本語" width="240">Se pasa 20 horas al día durmiendo.
+Una de sus habilidades es hacer que
+le entre sueño al que tiene al lado.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_065">
+		<comment>ロゼリア・英語</comment>
+		<language name="日本語" width="240">Its flowers give off a relaxing fragrance.
+The stronger its aroma, the healthier
+the ROSELIA is.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_066">
+		<comment>ロゼリア・フランス語</comment>
+		<language name="日本語" width="240">Ses fleurs dégagent un parfum relaxant.
+Plus fort est cet arôme, et plus ROSELIA
+est en bonne santé.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_067">
+		<comment>ロゼリア・ドイツ語</comment>
+		<language name="日本語" width="240">Seine Blüte verströmt einen entspannenden
+Duft. Je stärker dieser Duft ist, desto
+gesünder ist ROSELIA.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_068">
+		<comment>ロゼリア・イタリア語</comment>
+		<language name="日本語" width="240">Dai suoi fiori si diffonde una fragranza
+rilassante. Più intenso è il profumo,
+più questo POKéMON è forte.</language>
+	</row>
+
+	<row id="ZKN_COMMENT_02_069">
+		<comment>ロゼリア・スペイン語</comment>
+		<language name="日本語" width="240">Las flores que tiene desprenden un aroma
+relajante. Cuanto más intenso, mejor es el
+estado de salud de ROSELIA.</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

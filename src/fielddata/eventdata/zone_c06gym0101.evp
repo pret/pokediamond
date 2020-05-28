@@ -1,0 +1,120 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evp]
+*/
+//============================================================================================
+
+const u32 PosEv_zone_c06gym0101_num = 10;
+
+const POS_EVENT_DATA PosEv_zone_c06gym0101[10] =
+{
+	{
+		SCRID_POS_C06GYM0101_BUTTON01,
+		3,
+		6,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK1,
+	},
+
+	{
+		SCRID_POS_C06GYM0101_BUTTON02,
+		19,
+		24,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK2,
+	},
+
+	{
+		SCRID_POS_C06GYM0101_BUTTON01,
+		9,
+		24,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK1,
+	},
+
+	{
+		SCRID_POS_C06GYM0101_BUTTON02,
+		17,
+		9,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK2,
+	},
+
+	{
+		SCRID_POS_C06GYM0101_BUTTON02,
+		10,
+		30,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK2,
+	},
+
+	{
+		SCRID_POS_C06GYM0101_BUTTON02,
+		19,
+		13,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK2,
+	},
+
+	{
+		SCRID_POS_C06GYM0101_BUTTON03,
+		9,
+		14,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK3,
+	},
+
+	{
+		SCRID_POS_C06GYM0101_BUTTON03,
+		23,
+		31,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK3,
+	},
+
+	{
+		SCRID_POS_C06GYM0101_BUTTON03,
+		19,
+		22,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK3,
+	},
+
+	{
+		SCRID_POS_C06GYM0101_BUTTON03,
+		3,
+		34,
+		1,
+		1,
+		0*0x1000,
+		0,
+		LOCALWORK3,
+	},
+};

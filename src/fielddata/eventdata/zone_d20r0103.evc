@@ -1,0 +1,47 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_d20r0103evc.h"
+
+const u32 FObj_zone_d20r0103_num = 2;
+
+const _TAG_FIELD_OBJ_H FObj_zone_d20r0103[2] =
+{
+	{
+		D20R0103_BREAKROCK_01,
+		BREAKROCK,
+		0,
+		0,
+		FH_OBJ00,
+		SCRID_HIDEN_IWAKUDAKI,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		4,
+		9,
+		0*0x1000,
+	},
+
+	{
+		D20R0103_BREAKROCK_02,
+		BREAKROCK,
+		0,
+		0,
+		FH_OBJ01,
+		SCRID_HIDEN_IWAKUDAKI,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		9,
+		12,
+		0*0x1000,
+	},
+};

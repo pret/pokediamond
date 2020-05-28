@@ -1,0 +1,188 @@
+#----------------------------------------------------------------------------
+#
+#	Makeの際に一緒にビルドされるサブディレクトリの指定
+#
+#	個人の環境でのみ動作してほしい場合は、以下の記法で追加してください。
+#	ifeq	($(USERNAME),そのユーザーの名前)
+#	SUBDIRS		+= 対象サブディレクトリのパス
+#	endif
+#----------------------------------------------------------------------------
+
+#SUBDIRS			=	src/fielddata/script
+
+#曽我部ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),sogabe)
+SUBDIRS_BEFORE	=	convert/message
+SUBDIRS_AFTER	=	src/battle/skill \
+					src/demo/shinka/data
+#					src/battle/tr_ai
+#					src/battle/graphic \
+#					src/poketool/trgra
+#					src/poketool/waza
+endif
+
+#松田ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),matsuda)
+SUBDIRS_BEFORE	= convert/message
+SUBDIRS_AFTER	= src/battle/graphic \
+				   src/wazaeffect \
+				   src/contest/graphic \
+				   src/contest/data \
+				   src/poketool/waza
+endif
+
+#ヒロ中村ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),hiroki_nakamura)
+SUBDIRS_BEFORE	= convert/message
+SUBDIRS_AFTER	= src/poketool/waza \
+				   src/contest/data
+endif
+
+#後藤ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),gotou)
+SUBDIRS_AFTER	= src/battle/graphic \
+				  src/wazaeffect \
+				  src/application/custom_ball/data \
+				  src/demo/egg/data
+endif
+
+#高橋友也ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),tomoya_takahashi)
+SUBDIRS_BEFORE	= src/data/clact_util/clact_check/ \
+				   src/application/zukanlist/zkn_data/zkn_encount_data \
+					convert/message
+SUBDIRS_AFTER	= src/contest/data \
+				src/fielddata/pokemon_trade \
+				src/poketool
+#				src/battle/graphic \
+#				src/wazaeffect
+endif
+
+#玉田ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),tamada)
+#SUBDIRS_AFTER	= src/data/mmodel
+#SUBDIRS_AFTER	= src/fielddata/eventdata
+endif
+
+#加賀谷ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),kagaya)
+#SUBDIRS_AFTER	= src/data/mmodel
+endif
+
+#太田(智)ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),tomo_ohta)
+#SUBDIRS_AFTER	= src/fielddata/eventdata
+endif
+
+#野原ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),nohara)
+SUBDIRS_AFTER	= src/fielddata/eventdata
+endif
+
+#高橋忠士ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),takahashi)
+SUBDIRS_AFTER	= src/fielddata/eventdata
+endif
+
+#中津井ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),nakatsui)
+SUBDIRS_AFTER	= src/fielddata/eventdata
+endif
+#大森ローカル環境用のSUBDIRS設定
+ifeq	($(USERNAME),ohmori)
+SUBDIRS_BEFORE	= convert/message
+SUBDIRS_AFTER	= src/fielddata/eventdata
+endif
+
+
+
+#田谷ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),taya)
+SUBDIRS_BEFORE	=	convert/message \
+			convert/pms
+
+endif
+
+#大野ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),ohno)
+SUBDIRS_BEFORE	= convert/message
+endif
+
+#下山田ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),shimoyamada)
+SUBDIRS_BEFORE	= convert/message
+SUBDIRS_AFTER	= src/poketool/waza \
+				  src/battle/tr_ai
+endif
+
+#松宮ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),matsumiya)
+SUBDIRS_BEFORE	= convert/message
+SUBDIRS_AFTER	= src/poketool/trmsg
+endif
+
+#西野ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),nishino)
+SUBDIRS_BEFORE	= convert/message
+SUBDIRS_AFTER	= src/poketool/personal \
+				  src/poketool/trainer
+endif
+
+#海野ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),unno)
+SUBDIRS_AFTER	= src/poketool/pokegra/other \
+				  src/poketool/pokegra \
+				  src/poketool/pokefoot
+endif
+
+#中村（宏）ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),hiro_nakamura)
+SUBDIRS_AFTER	= src/data/clact_util/clact_check/
+endif
+
+#江尾ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),kanako_eo)
+SUBDIRS_AFTER	= src/poketool/trgra
+endif
+
+#後藤（グラフィック）ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),hiroyuki_gotou)
+SUBDIRS_AFTER	= src/poketool/pokegra/other \
+				  src/poketool/pokegra \
+				  src/poketool/pokeanm
+endif
+
+#吉田（宏）ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),yoshida)
+SUBDIRS_AFTER	= src/poketool/pokegra/other \
+				  src/poketool/pokegra
+endif
+
+#藤原ローカル環境用のSUBDIR設定
+ifeq	($(USERNAME),fujiwara)
+SUBDIRS_AFTER	= src/poketool/pokegra/other \
+				  src/poketool/pokegra \
+				  src/poketool/pokeanm
+endif
+
+#大村ローカル環境用のSUBDIR設定
+#ifeq	($(USERNAME),ohmura)
+#SUBDIRS_AFTER	= src/poketool/pokegra
+#endif
+
+#三津原ローカル環境用のSUBDIR設定
+ifeq ($(USERNAME), mituhara)
+#SUBDIRS_AFTER	= src/fielddata/eventdata
+SUBDIRS_BEFORE	= convert/message
+NITRO_NO_OPT_G = 0
+#%/agbpokemon.o : CCFLAGS_OPT	= -Op -g
+#%/agbpokemon.o : CCFLAGS_OPT	= -O0 -g
+#%/agbpoke_tool.o : CCFLAGS_OPT	= -O0 -g
+endif
+
+#convert/message --> src/fielddata/script --> src/fielddata/eventdataの
+#順にサブディレクトリの処理が動かないと困るので、このように最後に
+#合成している。スクリプトの処理を全員のところで動かさなくてすむまでの
+#暫定処理
+SUBDIRS	=	$(SUBDIRS_BEFORE) src/data/mmodel src/fielddata/script $(SUBDIRS_AFTER) $(PARTICLEDATADIR) src/fielddata/land_data
+

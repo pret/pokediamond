@@ -1,0 +1,17 @@
+/.cvsignore////*///
+/wecell.lst////*///
+/wecell.narc////*///
+/wecell_def.h////*///
+/wecell_enum.h////*///
+/wecellanm.lst////*///
+/wecellanm.narc////*///
+/wecellanm_def.h////*///
+/wecellanm_enum.h////*///
+/wechar.lst////*///
+/wechar.narc////*///
+/wechar_def.h////*///
+/wechar_enum.h////*///
+/wepltt.lst////*///
+/wepltt.narc////*///
+/wepltt_def.h////*///
+/wepltt_enum.h////*///

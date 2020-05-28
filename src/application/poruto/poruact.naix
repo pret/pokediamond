@@ -1,0 +1,49 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: poruact.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-27T20:11:31
+ *****************************************************************************/
+
+#ifndef NARC_PORUACT_NAIX_
+#define NARC_PORUACT_NAIX_
+
+enum {
+	NARC_poruact_poru_act_ncgr = 0,
+	NARC_poruact_poru_act_ncer = 1,
+	NARC_poruact_poru_act_nanr = 2,
+	NARC_poruact_poru_001_nclr = 3,
+	NARC_poruact_poru_002_nclr = 4,
+	NARC_poruact_poru_003_nclr = 5,
+	NARC_poruact_poru_004_nclr = 6,
+	NARC_poruact_poru_005_nclr = 7,
+	NARC_poruact_poru_006_nclr = 8,
+	NARC_poruact_poru_007_nclr = 9,
+	NARC_poruact_poru_008_nclr = 10,
+	NARC_poruact_poru_009_nclr = 11,
+	NARC_poruact_poru_010_nclr = 12,
+	NARC_poruact_poru_011_nclr = 13,
+	NARC_poruact_poru_012_nclr = 14,
+	NARC_poruact_poru_013_nclr = 15,
+	NARC_poruact_poru_014_nclr = 16,
+	NARC_poruact_poru_015_nclr = 17,
+	NARC_poruact_poru_016_nclr = 18,
+	NARC_poruact_poru_017_nclr = 19,
+	NARC_poruact_poru_018_nclr = 20,
+	NARC_poruact_poru_019_nclr = 21,
+	NARC_poruact_poru_020_nclr = 22,
+	NARC_poruact_poru_021_nclr = 23,
+	NARC_poruact_poru_022_nclr = 24,
+	NARC_poruact_poru_023_nclr = 25,
+	NARC_poruact_poru_024_nclr = 26,
+	NARC_poruact_poru_025_nclr = 27,
+	NARC_poruact_poru_026_nclr = 28,
+	NARC_poruact_poru_027_nclr = 29,
+	NARC_poruact_poru_028_nclr = 30,
+	NARC_poruact_poru_029_nclr = 31
+};
+
+/* NARC_PORUACT_NAIX_ */
+#endif

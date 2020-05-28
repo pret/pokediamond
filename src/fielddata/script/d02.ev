@@ -1,0 +1,263 @@
+//====================================================================
+//							d02
+//						たにまのはつでんしょ
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d02.h"
+	.include	"../eventdata/zone_d02evc.h"
+	.include	"../eventdata/zone_d02evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d02_flag_change
+_EVENT_DATA		ev_d02_init_change
+_EVENT_DATA		ev_d02_gingam_a
+_EVENT_DATA		ev_d02_door
+_EVENT_DATA		ev_d02_sign1
+_EVENT_DATA		ev_d02_fuusen
+_EVENT_DATA		ev_d02_obj_change
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*					OBJ CHANGE										*/
+/********************************************************************/
+ev_d02_obj_change:
+	_END
+
+
+/********************************************************************/
+/*					FLAG CHANGE										*/
+/********************************************************************/
+ev_d02_flag_change:
+
+	//発電所イベントクリアしてマップアウトしたら
+	_IFVAL_CALL		WK_SCENE_D02R0101,EQ,2,ev_d02_flag_change_mapout
+
+	/*はつでんしょキーを使用していたら、扉BGの位置を移動*/
+	_IF_FLAGON_CALL		FE_D02_OPEN,ev_d02_door_bg_move
+
+	/*はつでんしょキーを使用していなかったら、扉EXITの位置を移動*/
+	_IF_FLAGOFF_CALL	FE_D02_OPEN,ev_d02_door_exit_move
+
+	//発電所イベントクリア前
+	_IFVAL_JUMP		WK_SCENE_R205A,LT,2,ev_d02_flag_change_fuusen_clear
+
+	//フーセンは、イベント終了日にはでない
+	_IF_FLAGON_JUMP		TMFLG_D02_FUUSEN,ev_d02_flag_change_fuusen_clear
+
+	//金曜かどうかチェック
+	_CHK_WEEK	LOCALWORK0
+	_IFVAL_JUMP	LOCALWORK0,NE,RTC_WEEK_FRIDAY,ev_d02_flag_change_fuusen_clear
+	_JUMP										ev_d02_flag_change_fuusen_set
+
+ev_d02_flag_change_fuusen_set:
+	_FLAG_RESET		FV_D02_FUUSEN
+	_END
+
+ev_d02_flag_change_fuusen_clear:
+	_FLAG_SET		FV_D02_FUUSEN
+	_END
+
+//発電所イベントクリアしてマップアウトしたら
+ev_d02_flag_change_mapout:
+	_LDVAL			WK_SCENE_D02R0101,3
+	_RET
+
+
+/********************************************************************/
+/*					INIT CHANGE										*/
+/********************************************************************/
+ev_d02_init_change:
+
+	/*はつでんしょキーを使用していたら、扉BGの位置を移動*/
+	_IF_FLAGON_CALL		FE_D02_OPEN,ev_d02_door_bg_move
+
+	/*はつでんしょキーを使用していなかったら、扉EXITの位置を移動*/
+	_IF_FLAGOFF_CALL	FE_D02_OPEN,ev_d02_door_exit_move
+
+	_IF_FLAGON_JUMP	FE_INIT_CHANGE_OBJ_DEL,ev_d02_init_change_obj_del
+	_END
+
+ev_d02_init_change_obj_del:
+	_FLAG_SET		FV_D02_FUUSEN
+	_OBJ_DEL		D02_FUUSEN
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_END
+
+/*はつでんしょキーを使用していたら、扉BGの位置を移動*/
+ev_d02_door_bg_move:
+	_SXY_BG_POS_CHANGE	1,243,650	/*BGはIDがないので、直値になっているので注意！*/
+	_RET
+
+/*はつでんしょキーを使用していなかったら、扉EXITの位置を移動*/
+ev_d02_door_exit_move:
+	_SXY_EXIT_POS_CHANGE	D02_DOOR01,243,650
+	_RET
+
+
+/********************************************************************/
+//						ギンガ団のストッパー
+/********************************************************************/
+ev_d02_gingam_a:
+	_TALK_OBJ_START
+
+	_TALK_KEYWAIT	msg_d02_gingam_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GINGAM_35,0
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d02_common_battle_lose
+
+	_TALK_KEYWAIT	msg_d02_gingam_02
+	_TALK_CLOSE
+
+	//発電所の方を向く
+	_OBJ_ANIME		D02_GINGAM_A,anm_d02_gingam_a_01
+	_OBJ_ANIME_WAIT
+
+	//ドアアニメをセットアップ
+	_SET_UP_DOOR_ANIME	7,20,19,14,77
+
+	//ドア開ける
+	_SEQ_OPEN_DOOR	77
+
+	//アニメ終了待ち
+	_WAIT_3D_ANIME	77
+
+	//発電所に入る
+	_OBJ_ANIME		D02_GINGAM_A,anm_d02_gingam_a_02
+	_OBJ_ANIME_WAIT
+
+	//ドア閉める
+	_SEQ_CLOSE_DOOR	77
+
+	//アニメ終了待ち
+	_WAIT_3D_ANIME	77
+
+	//ドアアニメ解放
+	_FREE_3D_ANIME	77
+
+	_TALK_KEYWAIT	msg_d02_door_01
+
+	_OBJ_DEL		D02_GINGAM_A
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_d02_common_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ギンガ団	扉を開ける
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d02_gingam_a_01
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	建物に入る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d02_gingam_a_02
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ドア									*/
+//
+//	発電所の前で直接道具を使った時も対応させたい
+/********************************************************************/
+ev_d02_door:
+	_TALK_START
+
+	//カギを持っている時
+	_IF_FLAGON_JUMP	FE_D13R0101_ITEM,ev_d02_door_key
+
+	//カギを持っていない時
+	_TALKMSG		msg_d02_door_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//カギを持っている時
+ev_d02_door_key:
+	_ITEM_NAME		0,ITEM_HATUDENSYOKII				//カギの名前
+	_TALKMSG		msg_d02_door_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d02_door_no		//「いいえ」
+
+	_FLAG_SET		FE_D02_OPEN
+
+	/*扉BGの位置を話せない位置へ*/
+	_CALL			ev_d02_door_bg_move
+
+	/*扉EXITの位置を通常の位置へ*/
+	_SXY_EXIT_POS_CHANGE	D02_DOOR01,243,654
+
+	_TALKMSG		msg_d02_door_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//「いいえ」
+ev_d02_door_no:
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_d02_sign1:
+	_EASY_BOARD_MSG	msg_d02_sign1_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*						フーセンポケモン							*/
+/********************************************************************/
+ev_d02_fuusen:
+	_TALK_OBJ_START
+
+	_VOICE_PLAY		MONSNO_HUUSEN,0
+	_TALK_KEYWAIT	msg_d02_balloon_01
+	_TALK_CLOSE
+	_VOICE_WAIT
+
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	MONSNO_HUUSEN,22
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+
+	_LOSE_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d02_fuusen_lose
+
+	_FLAG_SET		TMFLG_D02_FUUSEN
+
+	_TALK_OBJ_END
+	_END
+
+//全滅
+ev_d02_fuusen_lose:
+	_NORMAL_LOSE	
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

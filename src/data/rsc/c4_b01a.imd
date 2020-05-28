@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2005-11-15T12:03:12" source="c4_b01a.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="unno" host="W00106" date="2005-11-15T12:03:12" source="c4_b01a.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="4"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="4" xyz="-2.375000 0.093750 -2.000000" whd="4.750000 5.406250 3.500000"/>
+
+<material_array size="1">
+	<material index="0" name="c4_b01"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="20 20 20"
+		ambient="25 25 25"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="-1" tex_palette_idx="-1"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="50" polygon_size="15"
+		triangle_size="0" quad_size="15"
+		volume_min="-2.375000 0.093750 -2.000000"
+		volume_max="2.375000 5.500000 1.500000"
+		volume_r="6.315918"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="off"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="5">
+				<primitive index="0" type="quad_strip" vertex_size="8">
+					<mtx idx="0"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_s xyz="-2.375000 0.093750 1.500000"/>
+					<pos_xy xy="-0.750000 0.093750"/>
+					<pos_xy xy="-2.375000 5.500000"/>
+					<pos_xy xy="-0.750000 1.875000"/>
+					<pos_xy xy="2.375000 5.500000"/>
+					<pos_xy xy="0.750000 1.875000"/>
+					<pos_xy xy="2.375000 0.093750"/>
+					<pos_xy xy="0.750000 0.093750"/>
+				</primitive>
+				<primitive index="1" type="quad_strip" vertex_size="6">
+					<nrm xyz="0.998047 0.000000 0.000000"/>
+					<pos_xz xz="-0.750000 0.500000"/>
+					<pos_xy xy="-0.750000 1.875000"/>
+					<pos_yz yz="0.093750 1.375000"/>
+					<pos_xy xy="-0.750000 1.875000"/>
+					<pos_yz yz="0.093750 1.500000"/>
+					<pos_xy xy="-0.750000 1.875000"/>
+				</primitive>
+				<primitive index="2" type="quad_strip" vertex_size="6">
+					<nrm xyz="0.000000 -1.000000 0.000000"/>
+					<pos_xz xz="-0.750000 0.500000"/>
+					<pos_xy xy="0.750000 1.875000"/>
+					<pos_xz xz="-0.750000 1.375000"/>
+					<pos_xy xy="0.750000 1.875000"/>
+					<pos_xz xz="-0.750000 1.500000"/>
+					<pos_xy xy="0.750000 1.875000"/>
+				</primitive>
+				<primitive index="3" type="quad_strip" vertex_size="6">
+					<nrm xyz="-1.000000 0.000000 0.000000"/>
+					<pos_xz xz="0.750000 0.500000"/>
+					<pos_xy xy="0.750000 0.093750"/>
+					<pos_yz yz="1.875000 1.375000"/>
+					<pos_xy xy="0.750000 0.093750"/>
+					<pos_yz yz="1.875000 1.500000"/>
+					<pos_xy xy="0.750000 0.093750"/>
+				</primitive>
+				<primitive index="4" type="quads" vertex_size="24">
+					<nrm xyz="0.000000 0.998047 0.000000"/>
+					<pos_xz xz="-0.750000 1.375000"/>
+					<pos_xy xy="0.750000 0.093750"/>
+					<pos_xz xz="0.750000 0.500000"/>
+					<pos_xy xy="-0.750000 0.093750"/>
+					<nrm xyz="-1.000000 0.000000 0.000000"/>
+					<pos_xz xz="-2.375000 -2.000000"/>
+					<pos_xz xz="-2.375000 1.500000"/>
+					<pos_xy xy="-2.375000 5.500000"/>
+					<pos_xz xz="-2.375000 -2.000000"/>
+					<nrm xyz="0.998047 0.000000 0.000000"/>
+					<pos_s xyz="2.375000 0.093750 1.500000"/>
+					<pos_xz xz="2.375000 -2.000000"/>
+					<pos_xy xy="2.375000 5.500000"/>
+					<pos_xz xz="2.375000 1.500000"/>
+					<nrm xyz="0.000000 0.000000 -1.000000"/>
+					<pos_xz xz="-2.375000 -2.000000"/>
+					<pos_xy xy="2.375000 5.500000"/>
+					<pos_xy xy="2.375000 0.093750"/>
+					<pos_xy xy="-2.375000 0.093750"/>
+					<nrm xyz="0.000000 0.998047 0.000000"/>
+					<pos_yz yz="5.500000 1.500000"/>
+					<pos_xy xy="2.375000 5.500000"/>
+					<pos_xz xz="2.375000 -2.000000"/>
+					<pos_xy xy="-2.375000 5.500000"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_s xyz="-0.750000 0.093750 0.500000"/>
+					<pos_xy xy="0.750000 0.093750"/>
+					<pos_xy xy="0.750000 1.875000"/>
+					<pos_xy xy="-0.750000 1.875000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pCube1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="50" polygon_size="15"
+		triangle_size="0" quad_size="15"
+		volume_min="-2.375000 0.093750 -2.000000"
+		volume_max="2.375000 5.500000 1.500000"
+		volume_r="6.315918"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="50" polygon_size="15"
+	triangle_size="0" quad_size="15"/>
+
+</body>
+
+</imd>

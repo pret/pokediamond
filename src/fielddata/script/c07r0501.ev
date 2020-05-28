@@ -1,0 +1,168 @@
+//====================================================================
+//								c07r0501
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c07r0501.h"
+	.include	"../eventdata/zone_c07r0501evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c07r0501_clown
+_EVENT_DATA		ev_c07r0501_fighter
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							ピエロ		　							*/
+/********************************************************************/
+ev_c07r0501_clown:
+	_TALK_OBJ_START
+
+	//ケースを貰った後
+	_IF_FLAGON_JUMP		FE_COIN_CASE_GET,ev_c07r0501_clown_06
+
+	_TALK_KEYWAIT		msg_c07r0501_clown_01
+
+	_TALK_KEYWAIT		msg_c07r0501_clown_02
+	_TALK_CLOSE
+
+	_PLAYER_DIR_GET		SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,DIR_LEFT,	ev_c07r0501_dir_left
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,DIR_UP,		ev_c07r0501_dir_up
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,DIR_RIGHT,	ev_c07r0501_dir_right
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,DIR_DOWN,	ev_c07r0501_dir_down
+	_END
+
+//主人公左向き
+ev_c07r0501_dir_left:
+	_OBJ_ANIME		C07R0501_CLOWN,anm_c07r0501_clown_01_03
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_c07r0501_clown_03
+
+//主人公上向き
+ev_c07r0501_dir_up:
+	_OBJ_ANIME		C07R0501_CLOWN,anm_c07r0501_clown_01_04
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_c07r0501_clown_03
+
+//主人公右向き
+ev_c07r0501_dir_right:
+	_OBJ_ANIME		C07R0501_CLOWN,anm_c07r0501_clown_01_01
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_c07r0501_clown_03
+
+//主人公下向き
+ev_c07r0501_dir_down:
+	_OBJ_ANIME		C07R0501_CLOWN,anm_c07r0501_clown_01_02
+	_OBJ_ANIME_WAIT
+	_JUMP				ev_c07r0501_clown_03
+
+
+ev_c07r0501_clown_03:
+	_TALKMSG	msg_c07r0501_clown_03
+
+	_BMPMENU_INIT		1,1,0,0,SCWK_PARAM0			//Bキャンセル無効
+	_BMPMENU_MAKE_LIST	msg_ev_win_145,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_146,1
+	_BMPMENU_START
+
+	//左右どちらでも、５０％の確率でもらえる。
+	_GET_RND		SCWK_ANSWER,2
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c07r0501_clown_04
+
+	_TALKMSG		msg_c07r0501_clown_05
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_KOINKEESU
+	_LDVAL			SCWK_TEMP1,1
+
+	_FLAG_SET		FE_COIN_CASE_GET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//はずれ
+ev_c07r0501_clown_04:
+	_TALKMSG		msg_c07r0501_clown_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ケースを貰った後
+ev_c07r0501_clown_06:
+	_TALKMSG		msg_c07r0501_clown_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ピエロ一回転
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c07r0501_clown_01_01
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c07r0501_clown_01_02
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c07r0501_clown_01_03
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c07r0501_clown_01_04
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+
+/********************************************************************/
+/*							格闘家		　							*/
+/********************************************************************/
+ev_c07r0501_fighter:
+	_EASY_OBJ_MSG	msg_c07r0501_fighter_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

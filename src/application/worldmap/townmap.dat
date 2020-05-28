@@ -1,0 +1,83 @@
+/**
+	@file	townmap.dat
+	@brief	タウンマップモジュール　データ定義
+	@author	MiyukiIwasawa
+	@date	05.09.07
+*/
+
+///シーケンス定義
+#define	TMAP_SEQ_CONTINUE (0)
+#define	TMAP_SEQ_FINISH (1) 
+
+///パレットNO定義
+#define FONT_SYS_PAL (15)
+#define FONT_BUTTON_PAL	(14)
+
+///BGキャラクタNo定義
+#define TMAPM_MBG_CSIZ	(16)
+#define TMAPM_SBG_CSIZ	(64*12)
+
+///メイン3Dオブジェクト数定義
+#define TMAP_3DOBJ_MAX	(5)
+
+///<3Dアニメオブジェクト数定義
+#define TMAP_3DANM_MAX	(7)
+
+///3Dファイル名定義
+#define TMAP_MAIN3DOBJ_01 ("data/tmap_back.nsbmd")
+#define TMAP_MAIN3DOBJ_02 ("data/tmap_load.nsbmd")
+#define TMAP_MAIN3DOBJ_03 ("data/tmap_cur.nsbmd")
+#define TMAP_MAIN3DOBJ_03ANM ("data/tmap_cur.nsbtp")
+#define TMAP_MAIN3DOBJ_HERO ("data/tmap_hero.nsbmd")
+#define TMAP_MAIN3DOBJ_HEROANM ("data/tmap_hero.nsbtp")
+#define TMAP_MAIN3DOBJ_05 ("data/tmap_05.nsbmd")
+
+#define TMAP_3D_HERO	(3)
+#define TMAP_3D_CURSOR	(2)
+
+#define TMAP_POSDATA_MAX	(5)	///<ポジション記録データのログ数
+
+///マネージャーサイズ
+#define TMAP_PLTTMAN_WSIZE	(32)	///<管理ブロック数
+#define TMAP_PLTTMAN_MEMSIZE	(0x4000)	///<管理サイズ
+#define TMAP_TEXMAN_WSIZE	(16)	///<管理ブロック数
+#define TMAP_TEXMAN_MEMSIZE	(0x40000)	///<管理サイズ
+
+///カメラの画角等設定
+#if 0
+#define	TMAP_CAM_PERS	(FX_DEG_TO_IDX(FX32_CONST(15)))
+#define TMAP_CAM_CX	(FX32_CONST(60))		///<カメラPosX
+#define TMAP_CAM_CY	(FX32_CONST(212))		///<カメラPosY
+//#define TMAP_CAM_CZ	(FX32_CONST(72+56))	///<カメラPosZ
+#define TMAP_CAM_CZ	(FX32_CONST(72+1))	///<カメラPosZ
+#define TMAP_CAM_TX	(FX32_CONST(60))	///<ターゲットX
+#define TMAP_CAM_TY	(FX32_CONST(8))		///<ターゲットY
+#define TMAP_CAM_TZ	(FX32_CONST(72))	///<ターゲットZ
+#define TMAP_CAM_NEAR (FX32_CONST(100))	///<Nearクリップ座標
+#define TMAP_CAM_FAR (FX32_CONST(1000))	///<Farクリップ座標
+#else
+
+#define	TMAP_CAM_PERS	(FX_DEG_TO_IDX(FX32_CONST(5)))
+#define TMAP_CAM_CX	(FX32_CONST(58))		///<カメラPosX
+#define TMAP_CAM_CY	(FX32_CONST(658))		///<カメラPosY
+#define TMAP_CAM_CZ	(FX32_CONST(72))	///<カメラPosZ
+#define TMAP_CAM_TX	(FX32_CONST(58))	///<ターゲットX
+#define TMAP_CAM_TY	(FX32_CONST(8))		///<ターゲットY
+#define TMAP_CAM_TZ	(FX32_CONST(72))	///<ターゲットZ
+#define TMAP_CAM_NEAR (FX32_CONST(1))	///<Nearクリップ座標
+#define TMAP_CAM_FAR (FX32_CONST(1500))	///<Farクリップ座標
+#endif
+
+///ライト関連
+#define TMAP_MAIN_LIGHT	(1)	//メインライトNo
+#define TMAP_MLIGHT_FLAG	(GX_LIGHTMASK_1)	//メインライトフラグ
+#define TMAP_LIGHT1_COL		(GX_RGB(255,255,255))
+#define TMAP_LIGHT1_DIFF	(GX_RGB(255,255,255))
+#define TMAP_LIGHT1_AMB		(GX_RGB(255,255,255))
+#define TMAP_LIGHT1_SPEC	(GX_RGB(255,255,255))
+#define TMAP_LIGHT1_EMI		(GX_RGB(255,255,255))
+
+//===========================================================
+//ノーマルモード用定義
+//===========================================================
+

@@ -1,0 +1,43 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: pmsi.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-20T12:31:13
+ *****************************************************************************/
+
+#ifndef NARC_PMSI_NAIX_
+#define NARC_PMSI_NAIX_
+
+enum {
+	NARC_pmsi_bg_main0_lz_nscr = 0,
+	NARC_pmsi_bg_main0_lz_ncgr = 1,
+	NARC_pmsi_bg_main1_lz_nscr = 2,
+	NARC_pmsi_bg_main1_lz_ncgr = 3,
+	NARC_pmsi_bg_main3_lz_nscr = 4,
+	NARC_pmsi_bg_main3_lz_ncgr = 5,
+	NARC_pmsi_bg_main_nclr = 6,
+	NARC_pmsi_obj_main_lz_ncer = 7,
+	NARC_pmsi_obj_main_lz_nanr = 8,
+	NARC_pmsi_obj_main_lz_ncgr = 9,
+	NARC_pmsi_obj_main_nclr = 10,
+	NARC_pmsi_bg_sub_lz_nscr = 11,
+	NARC_pmsi_bg_sub_a1_lz_nscr = 12,
+	NARC_pmsi_bg_sub_a2_lz_nscr = 13,
+	NARC_pmsi_bg_sub_a3_lz_nscr = 14,
+	NARC_pmsi_bg_sub_a4_lz_nscr = 15,
+	NARC_pmsi_bg_sub_b1_lz_nscr = 16,
+	NARC_pmsi_bg_sub_b2_lz_nscr = 17,
+	NARC_pmsi_bg_sub_b3_lz_nscr = 18,
+	NARC_pmsi_bg_sub_b4_lz_nscr = 19,
+	NARC_pmsi_bg_sub_lz_ncgr = 20,
+	NARC_pmsi_bg_sub_nclr = 21,
+	NARC_pmsi_obj_sub_lz_ncer = 22,
+	NARC_pmsi_obj_sub_lz_nanr = 23,
+	NARC_pmsi_obj_sub_lz_ncgr = 24,
+	NARC_pmsi_obj_sub_nclr = 25
+};
+
+/* NARC_PMSI_NAIX_ */
+#endif

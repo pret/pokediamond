@@ -1,0 +1,21 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: fld_comact.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-21T21:40:46
+ *****************************************************************************/
+
+#ifndef NARC_FLD_COMACT_NAIX_
+#define NARC_FLD_COMACT_NAIX_
+
+enum {
+	NARC_fld_comact_fld_comact_nclr = 0,
+	NARC_fld_comact_fld_comact_ncgr = 1,
+	NARC_fld_comact_fld_comact_ncer = 2,
+	NARC_fld_comact_fld_comact_nanr = 3
+};
+
+/* NARC_FLD_COMACT_NAIX_ */
+#endif

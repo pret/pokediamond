@@ -1,0 +1,25 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: ug_anim.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-09T18:42:57
+ *****************************************************************************/
+
+#ifndef NARC_UG_ANIM_NAIX_
+#define NARC_UG_ANIM_NAIX_
+
+enum {
+	NARC_ug_anim_kaseki_board_NCLR = 0,
+	NARC_ug_anim_kaseki_hibi_NANR = 1,
+	NARC_ug_anim_kaseki_hibi_NCER = 2,
+	NARC_ug_anim_kaseki_hibi_NCGR = 3,
+	NARC_ug_anim_kaseki_obj_NANR = 4,
+	NARC_ug_anim_kaseki_obj_NCER = 5,
+	NARC_ug_anim_kaseki_obj_NCGR = 6,
+	NARC_ug_anim_kaseki_obj_NCLR = 7
+};
+
+/* NARC_UG_ANIM_NAIX_ */
+#endif

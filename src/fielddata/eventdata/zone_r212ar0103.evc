@@ -1,0 +1,83 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_r212ar0103evc.h"
+
+const u32 FObj_zone_r212ar0103_num = 4;
+
+const _TAG_FIELD_OBJ_H FObj_zone_r212ar0103[4] =
+{
+	{
+		R212AR0103_FLD_ITEM_01,
+		MONATERBALL,
+		0,
+		0,
+		FV_FLD_ITEM_57,
+		SCRID_FLD_ITEM_57,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		21,
+		3,
+		0*0x1000,
+	},
+
+	{
+		R212AR0103_RICH,
+		MIDDLEMAN2,
+		0,
+		0,
+		0,
+		SCRID_R212AR0103_RICH,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		16,
+		8,
+		0*0x1000,
+	},
+
+	{
+		R212AR0103_BUTLER,
+		OLDMAN2,
+		0,
+		0,
+		0,
+		SCRID_R212AR0103_BUTLER,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		15,
+		8,
+		0*0x1000,
+	},
+
+	{
+		R212AR0103_POLICEMAN_01,
+		POLICEMAN,
+		0,
+		0,
+		FV_R212AR0103_POLICEMAN,
+		SCRID_R212AR0103_POLICEMAN,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		17,
+		4,
+		0*0x1000,
+	},
+};

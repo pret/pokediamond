@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-05-30T21:35:29" source="koiking.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="33"
+	tool_start_frame="0"
+	tool_end_frame="32"
+	compress_material="off" material_size="1 1"
+/>
+
+<tex_pattern_list_data image_size="2" palette_size="1">
+	<image_name index="0" name="koiking.1"/>
+	<image_name index="1" name="koiking.2"/>
+	<palette_name index="0" name="koiking"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="3">
+		0 8 16
+	</frame_idx>
+	<image_idx size="3">
+		0 1 0
+	</image_idx>
+	<palette_idx size="3">
+		0 0 0
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="1">
+	<tex_pattern_anm index="0" material_name="obj" data_size="3" data_head="0"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

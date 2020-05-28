@@ -1,0 +1,1598 @@
+//====================================================================
+//								d31r0201
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d31r0201.h"
+	.include	"../../../include/msgdata/msg_connect.h"
+	.include	"../eventdata/zone_d31r0201evc.h"
+	.include	"../../../include/poketool/monsno.h"
+	.include	"../../../src/fielddata/base_goods/goods_id_def.h"
+	.include	"../../../src/field/b_tower_scr_def.h"
+	.include	"../../../include/application/wbtower_def.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+//#define DEB_AI_ONLY
+//#define DEB_DOUBLE_ONLY
+//#define DEB_PARENT_ONLY
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+//外部呼出し有り(entry)
+_EVENT_DATA		ev_tower_gate_local_01
+_EVENT_DATA		ev_tower_gate_multi_01
+_EVENT_DATA		ev_tower_gate_wifi_01
+
+//外部呼出し有り(return)
+_EVENT_DATA		ev_tower_ret_local_01
+_EVENT_DATA		ev_tower_continue_local_01
+_EVENT_DATA		ev_tower_gate_common_continue_ng
+
+//トロフィーをくれるお姉さん
+_EVENT_DATA		ev_tower_gate_prize_get
+
+//サロンからパートナーを選ばすに帰ったとき
+_EVENT_DATA		ev_tower_ret_cancel_01
+
+//バトルメッセージボーイとPC
+_EVENT_DATA		ev_d31r0201_btlmsg_boy_01
+_EVENT_DATA		ev_d31r0201_pc_score_single
+_EVENT_DATA		ev_d31r0201_pc_score_multi
+_EVENT_DATA		ev_d31r0201_pc_score_wifi
+_EVENT_DATA		ev_d31r0201_pc_score_leader
+
+//スタンドアローン
+_EVENT_DATA		ev_d31r0201_woman1
+_EVENT_DATA		ev_d31r0201_gorggeousm1a
+_EVENT_DATA		ev_d31r0201_idol
+_EVENT_DATA		ev_d31r0201_gorggeousm1b
+_EVENT_DATA		ev_d31r0201_pokemona
+_EVENT_DATA		ev_d31r0201_artist
+_EVENT_DATA		ev_d31r0201_boy1
+_EVENT_DATA		ev_d31r0201_pokemonb
+
+_EVENT_DATA		ev_d31r0201_flag_change
+_EVENT_DATA		ev_d31r0201_obj_change
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d31r0201_flag_change:
+	//ポケッチ復帰チェック
+	_IFVAL_CALL		WK_SCENE_D31R0201,EQ,1,ev_d31r0202_poketch_hook_reset
+	_IFVAL_CALL		WK_SCENE_D31R0201,EQ,3,ev_d31r0202_poketch_hook_reset
+	_IFVAL_CALL		WK_SCENE_D31R0201,EQ,255,ev_d31r0202_poketch_hook_reset
+	
+	/*prize getフラグがonならお姉さん表示*/
+	_BTOWER_PRIZEMAN_SET	LOCALWORK0	
+	_IFVAL_JUMP		LOCALWORK0,NE,0,ev_d31r0201_flag_prizeman_on
+	_FLAG_SET		FV_D31R0201_PRIZEMAN
+
+ev_d31r0201_flag_interviewer:
+	//インタビュアーが出現するかどうか？
+	_TV_INTERVIEWER_CHECK	2,LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,NE,0,ev_d31r0201_flag_interviewer_on
+	_FLAG_SET		FV_TV_INTERVIEW_02
+	_END
+
+//プライズお姉さん出現
+ev_d31r0201_flag_prizeman_on:
+	_FLAG_RESET		FV_D31R0201_PRIZEMAN
+	_JUMP			ev_d31r0201_flag_interviewer
+	_END
+//インタビュアー出現
+ev_d31r0201_flag_interviewer_on:
+	_FLAG_RESET		FV_TV_INTERVIEW_02
+	_END
+
+//ポケッチフックリセット
+ev_d31r0202_poketch_hook_reset:
+	_POKETCH_HOOK_RESET
+	_RET
+
+ev_d31r0201_obj_change:
+	//シーンによってお姉さんの向きを変える
+	_IFVAL_JUMP		WK_SCENE_D31R0201,NE,1,ev_d31r0201_obj_change_end
+	_BTOWER_PRIZEMAN_SET	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,NE,0,ev_d31r0201_obj_prizeman_dir_set
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,ev_d31r0201_obj_prizeman_dir_set
+	_IFVAL_JUMP		LOCALWORK0,EQ,2,ev_d31r0201_obj_prizeman_dir_set
+	_IFVAL_JUMP		LOCALWORK0,EQ,3,ev_d31r0201_obj_prizeman_dir_set
+ev_d31r0201_obj_change_end:
+	_END
+
+
+ev_d31r0201_obj_prizeman_dir_set:
+	_OBJ_DIR_CHANGE	D31R0201_PRIZEMAN,DIR_LEFT
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+///バトルタワー初期化モード
+//====================================================================
+/********************************************************************/
+/*	バトルタワー受付コモン											*/
+/********************************************************************/
+//====================================================================
+
+//ワーク確保コモン：new game
+ev_tower_gate_common_work_init_newgame:
+	_BTOWER_WORK_INIT	BTWR_PLAY_NEW,BTWR_MODE_DOUBLE
+	_RET
+
+//ワーク解放コモン
+ev_tower_gate_common_work_release:
+	_BTOWER_WORK_RELEASE
+	_RET
+
+//プレイデータクリアコモン
+ev_tower_gate_common_playdata_clear:
+	_BTOWER_TOOLS	BTWR_TOOL_CLEAR_PLAY_DATA,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_RET
+
+//new game時のシーンワーク初期化処理　コモン
+ev_tower_gate_common_newgame_sd_wkset:
+	_LDVAL			WK_SCENE_D31R0201,255	
+	_LDVAL			WK_SCENE_D31R0202,1	
+	_LDVAL			WK_SCENE_D31R0203,1	
+	_LDVAL			WK_SCENE_D31R0205,1	
+	_RET
+
+//new game時のシーンワーク初期化処理　マルチコモン
+ev_tower_gate_common_newgame_multi_wkset:
+	_LDVAL			WK_SCENE_D31R0201,255	
+	_LDVAL			WK_SCENE_D31R0202,3
+	_LDVAL			WK_SCENE_D31R0204,1	
+	_LDVAL			WK_SCENE_D31R0206,1	
+	_LDVAL			WK_SCENE_D31R0207,1	
+	_RET
+
+//continue時のシーンワーク初期化処理　コモン
+ev_tower_gate_common_continue_sd_wkset:
+	_LDVAL			WK_SCENE_D31R0201,255	
+	_LDVAL			WK_SCENE_D31R0202,1	
+	_LDVAL			WK_SCENE_D31R0203,1	
+	_LDVAL			WK_SCENE_D31R0205,2	
+	_RET
+
+//continue時のシーンワーク初期化処理　マルチコモン
+ev_tower_gate_common_continue_multi_wkset:
+	_LDVAL			WK_SCENE_D31R0201,255	
+	_LDVAL			WK_SCENE_D31R0202,2
+	_LDVAL			WK_SCENE_D31R0204,1	
+	_LDVAL			WK_SCENE_D31R0206,2	
+	_LDVAL			WK_SCENE_D31R0207,0	
+	_RET
+
+//プレイ終了時のシーンワーク初期化処理　コモン
+ev_tower_gate_common_playend_wkset:
+	_BTOWER_TOOLS	BTWR_TOOL_POP_NOW_LOCATION,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_CALL			ev_tower_gate_common_playdata_clear
+	_RET
+
+//ゲート出場時のシーンワーク処理　コモン
+ev_tower_gate_common_exit_wkset:
+	_LDVAL			WK_SCENE_D31R0201,0	
+	_LDVAL			WK_SCENE_D31R0202,0	
+	_LDVAL			WK_SCENE_D31R0203,0	
+	_LDVAL			WK_SCENE_D31R0204,0	
+	_LDVAL			WK_SCENE_D31R0205,0	
+	_LDVAL			WK_SCENE_D31R0206,0	
+	_LDVAL			WK_SCENE_D31R0207,0	
+	_RET
+
+//受け付けに戻ってきた直後のシーンステートクリア処理
+ev_tower_gate_common_return_stset:
+	_CALL			ev_tower_gate_common_exit_wkset
+	_BTOWER_TOOLS	BTWR_TOOL_POP_NOW_LOCATION,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_RET
+
+//===========================================
+//受付を抜ける共通処理
+//===========================================
+//Wifiの不正終了時処理
+ev_tower_gate_common_exit_wifi_ng:
+	_BTOWER_TOOLS	BTWR_TOOL_WIFI_RANK_DOWN,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit_play
+	/*ランクダウンメッセージ表示*/
+	_BTOWER_TOOLS	BTWR_TOOL_GET_WIFI_RANK,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK			SCWK_PARAM0,SCWK_ANSWER
+	_NUMBER_NAME	0,SCWK_PARAM0
+	_TALK_KEYWAIT	msg_tower_70
+	_JUMP			ev_tower_gate_common_exit_play
+	_END
+
+//レポートされていなかったときの終了コモン
+ev_tower_gate_common_continue_ng:
+	_EVENT_START
+	//お客様！
+	_TALK_KEYWAIT	msg_tower_20
+	//不正終了時のパラメータ処理
+	_BTOWER_TOOLS	BTWR_TOOL_SET_NG_SCORE,BTWR_NULL_PARAM,SCWK_ANSWER
+	//プレイしていたモードがWifiなら分岐
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,BTWR_MODE_WIFI,ev_tower_gate_common_exit_wifi_ng
+
+//プレイ終了時のコモン処理
+ev_tower_gate_common_exit_play:
+	_CALL			ev_tower_gate_common_playend_wkset
+//やめるを選択した時のコモンメッセージ
+ev_tower_gate_common_exit:
+	_TALKMSG		msg_tower_03
+	_LAST_KEYWAIT
+ev_tower_gate_common_exit_mclose:
+	_TALK_CLOSE
+ev_tower_gate_common_exit_direct:
+	_CALL			ev_tower_gate_common_work_release
+	_CALL			ev_tower_gate_common_exit_wkset
+	_EVENT_END
+	_END
+
+//===========================================
+//共通サブルーチン処理
+//===========================================
+//挑戦しますか？　シングル/ダブル/マルチコモン
+ev_tower_gate_common_cmenu01_set:
+	_BMPMENU_INIT		20,11,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_tower_choice_01,0	//ちょうせんする
+	_BMPMENU_MAKE_LIST	msg_tower_choice_02,1	//せつめいを聞く
+	_BMPMENU_MAKE_LIST	msg_tower_choice_03,2	//やめる
+	_BMPMENU_START
+	_RET
+
+//挑戦しますか？ WIFIデータナシコモン
+ev_tower_gate_common_cmenu02_set:
+	_BMPMENU_INIT		16,9,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_tower_choice_01,0	//ちょうせんする
+	_BMPMENU_MAKE_LIST	msg_tower_choice_11,1	//れきだいリーダー
+	_BMPMENU_MAKE_LIST	msg_tower_choice_02,2	//せつめいを聞く
+	_BMPMENU_MAKE_LIST	msg_tower_choice_03,3	//やめる
+	_BMPMENU_START
+	_RET
+
+//挑戦しますか？ WIFIデータ有りコモン
+ev_tower_gate_common_cmenu03_set:
+	_BMPMENU_INIT		12,7,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_tower_choice_01,0	//ちょうせんする
+	_BMPMENU_MAKE_LIST	msg_tower_choice_11,1	//れきだいリーダー
+	_BMPMENU_MAKE_LIST	msg_tower_choice_12,2	//前の部屋
+	_BMPMENU_MAKE_LIST	msg_tower_choice_02,3	//せつめいを聞く
+	_BMPMENU_MAKE_LIST	msg_tower_choice_03,4	//やめる
+	_BMPMENU_START
+	_RET
+
+//案内前のレポート　コモン
+ev_tower_gate_common_save:
+	//セーブしますか？(LOCALWORK0に結果が代入される)
+	_CHG_COMMON_SCR	SCRID_REPORT_CALL
+	_LDWK			SCWK_ANSWER,LOCALWORK0
+	_RET
+
+//強制レポート　コモン
+ev_tower_gate_common_auto_save:
+	_ADD_WAITICON
+	_REPORT_SAVE	SCWK_ANSWER
+	_DEL_WAITICON
+	_SE_PLAY			SEQ_SE_DP_SAVE
+	_SE_WAIT			SEQ_SE_DP_SAVE
+	_RET
+
+
+//通信切断処理コール
+ev_tower_gate_common_sioend:
+	_COMM_RESET
+	_COMM_SYNCHRONIZE	TOWER_COMM_MULTI_SIO_END
+	_COMM_DIRECT_END
+	_RET
+
+//エレベータに移動　コモン
+ev_tower_gate_common_move_ev:
+	_MAP_CHANGE		ZONE_ID_D31R0202,0,SB_EV_PLAYER_SX,SB_EV_PLAYER_SY,DIR_UP
+	_EVENT_END
+	_END
+
+//======================================================
+//参加ポケモンを選択する(SCWK_ANSWERに選択したかどうか返す)
+ev_tower_gate_common_select_poke:
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_CLOSE
+	//ポケモン選択呼び出し
+	_BTOWER_TOOLS	BTWR_SUB_SELECT_POKE,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	//フィールド復帰
+	_SET_MAP_PROC
+	
+	//選択されたポケモン取得
+	_BTOWER_TOOLS	BTWR_SUB_GET_ENTRY_POKE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_RET
+
+//同じポケモンが選ばれたとき
+ev_tower_gate_common_same_poke:
+	_TALK_KEYWAIT	msg_tower_10
+	_JUMP			ev_tower_gate_common_exit
+	_END
+
+//同じアイテムがあるとき
+ev_tower_gate_common_same_item:
+	_TALK_KEYWAIT	msg_tower_11
+	_JUMP			ev_tower_gate_common_exit
+	_END
+
+//======================================================
+//WIFI接続処理コモン LOCALWORK1にパラメータ代入
+ev_tower_gate_common_wifi_connect:
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_DPW_INIT_PROC	LOCALWORK0
+	_BTOWER_TOOLS	BTWR_TOOL_WIFI_CONNECT,LOCALWORK1,LOCALWORK0
+	_LDWK			LOCALWORK1,LOCALWORK0
+	_SET_MAP_PROC
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_LDWK			SCWK_ANSWER,LOCALWORK1
+	_RET
+
+//WIFI成績アップロード処理コモン(SCWK_ANSWERに正常終了したかどうか返す)
+ev_tower_gate_common_wifi_upload:
+	_TALK_CLOSE
+	
+	//WIFI接続処理コール
+	_LDVAL			LOCALWORK1,1
+	_CALL			ev_tower_gate_common_wifi_connect
+	_RET
+
+//WIFI成績をアップロードするかチェックして終了
+ev_tower_gate_common_wifi_upload_exit:
+	//未アップロードフラグON
+	_BTOWER_TOOLS	BTWR_TOOL_SET_WIFI_UPLOAD_FLAG,1,BTWR_NULL_PARAM
+
+	//シーンフラグ他クリア
+	_CALL			ev_tower_gate_common_playend_wkset
+
+	//成績をレポートに書き出す
+	_TALKMSG		msg_tower_57
+	_CALL			ev_tower_gate_common_auto_save
+
+	//アップロードするか？
+	_TALKMSG		msg_tower_58
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_gate_common_exit
+
+	//アップロード処理
+	_CALL			ev_tower_gate_common_wifi_upload
+	//アップロード成功or失敗チェック
+	_IFVAL_JUMP		SCWK_ANSWER,NE,WIFI_BTOWER_RESULT_SUCCESS,ev_tower_gate_common_exit
+
+	//アップロード成功
+	_TALK_KEYWAIT	msg_tower_61
+	_JUMP			ev_tower_gate_common_exit
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	シングル/ダブル受付												*/
+/********************************************************************/
+//====================================================================
+
+//受け付けに話しかけたとき
+ev_tower_gate_local_01:
+	_EVENT_START
+	_SE_PLAY		SEQ_SE_DP_SELECT
+	_BTOWER_WORK_CLEAR
+	_TALK_KEYWAIT	msg_tower_01
+
+ev_tower_gate_local_02:
+	_TALKMSG	msg_tower_02
+	_CALL	ev_tower_gate_common_cmenu01_set	
+
+	//SCWK_ANSERに選択結果が返る
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_tower_gate_local_03		//ちょうせんする
+	_CASE_JUMP		1,ev_tower_gate_exp01			//説明を聞く
+	_CASE_JUMP		2,ev_tower_gate_common_exit		//やめる
+	_JUMP			ev_tower_gate_common_exit
+	
+	_END
+
+//シングル・ダブル説明
+ev_tower_gate_exp01:
+	_TALK_KEYWAIT	msg_tower_04
+	_JUMP			ev_tower_gate_local_02
+	_END
+
+//シングル・ダブル選択
+ev_tower_gate_local_03:
+	_TALKMSG	msg_tower_05
+	_BMPMENU_INIT		20,11,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_007,0	//シングル
+	_BMPMENU_MAKE_LIST	msg_ev_win_008,1	//ダブル
+	_BMPMENU_MAKE_LIST	msg_ev_win_091,2	//やめる
+	_BMPMENU_START
+
+#ifdef DEB_DOUBLE_ONLY
+	_SWITCH				SCWK_ANSWER
+	_CASE_JUMP			1,ev_tower_gate_local_pchk_s	//シングルポケチェック
+	_CASE_JUMP			0,ev_tower_gate_local_pchk_d	//ダブルポケチェック
+	_CASE_JUMP			2,ev_tower_gate_common_exit		//やめる
+	_JUMP				ev_tower_gate_common_exit
+	_END
+#else
+	_SWITCH				SCWK_ANSWER
+	_CASE_JUMP			0,ev_tower_gate_local_pchk_s	//シングルポケチェック
+	_CASE_JUMP			1,ev_tower_gate_local_pchk_d	//ダブルポケチェック
+	_CASE_JUMP			2,ev_tower_gate_common_exit		//やめる
+	_JUMP				ev_tower_gate_common_exit
+	_END
+#endif
+
+//シングルポケモンチェック
+ev_tower_gate_local_pchk_s:
+	//ワーク確保&初期化
+	_BTOWER_WORK_INIT	BTWR_PLAY_NEW,BTWR_MODE_SINGLE
+
+ev_tower_gate_wifi_pchk_s:
+	//手持ちポケモンチェック
+	_BTOWER_TOOLS		BTWR_TOOL_CHK_ENTRY_POKE_NUM,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_tower_gate_local_pokesel
+	
+	//手持ちポケモンが足りない
+	_TALKMSG_NG_POKE_NAME	msg_tower_94,3,0,0
+	_JUMP				ev_tower_gate_common_exit_mclose
+	_END
+
+//ダブルポケモンチェック
+ev_tower_gate_local_pchk_d:
+	//ワーク確保&初期化
+	_BTOWER_WORK_INIT	BTWR_PLAY_NEW,BTWR_MODE_DOUBLE
+	//手持ちポケモンチェック
+	_BTOWER_TOOLS		BTWR_TOOL_CHK_ENTRY_POKE_NUM,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_tower_gate_local_pokesel
+	
+	//手持ちポケモンが足りない
+	_TALKMSG_NG_POKE_NAME	msg_tower_94,4,0,0
+	_JUMP				ev_tower_gate_common_exit_mclose
+	_END
+
+
+//ポケモン選択コモン
+ev_tower_gate_local_pokesel:
+	//それでは参加するポケモンを選んでください
+	_TALK_KEYWAIT		msg_tower_09
+	_CALL				ev_tower_gate_common_select_poke
+
+	//ポケモンを選んで帰ってきたかチェック
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit
+
+	//選択したポケモンチェック
+	_BTOWER_TOOLS		BTWR_SUB_CHK_ENTRY_POKE,BTWR_NULL_PARAM,SCWK_ANSWER
+
+	_SWITCH				SCWK_ANSWER
+	_CASE_JUMP			1,ev_tower_gate_common_same_poke	//同じポケモンがいる
+	_CASE_JUMP			2,ev_tower_gate_common_same_item	//同じアイテムがある
+
+	//WIFIモード時は特殊
+	_BTOWER_TOOLS		BTWR_SUB_GET_PLAY_MODE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,BTWR_MODE_WIFI,ev_tower_gate_wifi_entry
+
+//受付レポートコモン
+ev_tower_gate_local_savechk:
+	//ワークセット
+	_CALL				ev_tower_gate_common_newgame_sd_wkset
+	//現在位置Push
+	_BTOWER_TOOLS		BTWR_TOOL_PUSH_NOW_LOCATION,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	//回復
+	_PC_KAIFUKU
+
+	//セーブ
+	_CALL				ev_tower_gate_common_save
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit_play
+	
+	//トレーナー抽選
+	_BTOWER_TOOLS		BTWR_SUB_UPDATE_RANDOM,BTWR_NULL_PARAM,SCWK_ANSWER
+	_BTOWER_TOOLS		BTWR_SUB_BTL_TRAINER_SET,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	//それではバトルルームへご案内いたします
+	_TALKMSG			msg_tower_12
+	_AB_KEYWAIT
+
+ev_tower_gate_local_entry:
+	_TALK_CLOSE
+
+	//受付奥へ
+	_BTOWER_TOOLS	BTWR_SUB_GET_PLAY_MODE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		BTWR_MODE_WIFI,ev_tower_gate_comanm_in02
+	_CASE_JUMP		BTWR_MODE_RETRY,ev_tower_gate_comanm_in02
+	_CASE_JUMP		BTWR_MODE_MULTI,ev_tower_gate_comanm_in03
+	_CASE_JUMP		BTWR_MODE_COMM_MULTI,ev_tower_gate_comanm_in04
+	_JUMP			ev_tower_gate_comanm_in01
+
+	//マップ遷移
+ev_tower_gate_local_in:
+	_JUMP			ev_tower_gate_common_move_ev
+	_END	
+
+//WIFIデータDL
+ev_tower_gate_wifi_entry:
+	//通信セーブ
+	_CALL				ev_tower_gate_common_save
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit_play
+
+	//ゲームステータスをセットしておく
+	_CALL				ev_tower_gate_common_newgame_sd_wkset
+	_BTOWER_TOOLS		BTWR_TOOL_PUSH_NOW_LOCATION,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_PC_KAIFUKU
+	_TALK_CLOSE
+
+	//WIFI接続処理コール
+	_LDVAL				LOCALWORK1,0
+	_CALL				ev_tower_gate_common_wifi_connect
+	//失敗だったら抜ける
+	_IFVAL_JUMP			SCWK_ANSWER,NE,WIFI_BTOWER_RESULT_SUCCESS,ev_tower_gate_common_exit_play
+
+//WIFIモード時にすぐに始めて良いかチェック
+ev_tower_gate_wifi_entry_chk:
+	//今すぐご案内していいですか？
+	_TALKMSG		msg_tower_48
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_gate_local_entry
+
+	//レポートを書いて中断しますか？
+	_TALKMSG		msg_tower_49
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_gate_wifi_entry_chk
+
+	//中断処理
+	_LDVAL			WK_SCENE_D31R0201,2
+
+	//プレイデータセーブ
+	_BTOWER_TOOLS	BTWR_SUB_SAVE_REST_PLAY_DATA,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_BTOWER_WORK_RELEASE
+
+	_TALK_KEYWAIT	msg_tower_57
+	_CALL			ev_tower_gate_common_auto_save
+
+	_AB_KEY_TIME_WAIT	30
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TALK_CLOSE
+
+	//リセットコマンド
+	_BTOWER_TOOLS	BTWR_TOOL_SYSTEM_RESET,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_EVENT_END
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	WIFI受付														*/
+/********************************************************************/
+//====================================================================
+//受け付けに話しかけたとき(WiFiシングル)
+ev_tower_gate_wifi_01:
+	_EVENT_START
+	_SE_PLAY		SEQ_SE_DP_SELECT
+	_BTOWER_WORK_CLEAR
+
+//アップロードしていないデータがあるかチェック
+	_BTOWER_TOOLS	BTWR_TOOL_GET_WIFI_UPLOAD_FLAG,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_gate_wifi_reupload_01
+	_TALK_KEYWAIT	msg_tower_37
+
+//データアップロードから始まるとここから
+ev_tower_gate_wifi_01_01:
+
+ev_tower_gate_wifi_02:
+	//DLデータがあるかどうか？
+	_BTOWER_TOOLS	BTWR_TOOL_IS_PLAYER_DATA_ENABLE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_gate_wifi_existdata_01
+
+//DLデータがない時のメニュー処理
+ev_tower_gate_wifi_nodata_01:
+	_TALKMSG	msg_tower_38
+	_CALL	ev_tower_gate_common_cmenu02_set	
+
+	//SCWK_ANSERに選択結果が返る
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_tower_gate_wifi_1st			//ちょうせんする
+	_CASE_JUMP		1,ev_tower_gate_wifi_get_leader		//歴代リーダー取得
+	_CASE_JUMP		2,ev_tower_gate_exp_wifi		//説明を聞く
+	_CASE_JUMP		3,ev_tower_gate_common_exit		//やめる
+	_JUMP			ev_tower_gate_common_exit
+	
+	_END
+
+//DLデータがあるときのメニュー処理
+ev_tower_gate_wifi_existdata_01:
+	_TALKMSG	msg_tower_38
+	_CALL	ev_tower_gate_common_cmenu03_set	
+
+	//SCWK_ANSERに選択結果が返る
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_tower_gate_wifi_1st		//ちょうせんする
+	_CASE_JUMP		1,ev_tower_gate_wifi_get_leader	//歴代リーダー取得
+	_CASE_JUMP		2,ev_tower_gate_wifi_2nd		//DLデータに挑戦
+	_CASE_JUMP		3,ev_tower_gate_exp_wifi		//説明を聞く
+	_CASE_JUMP		4,ev_tower_gate_common_exit		//やめる
+	_JUMP			ev_tower_gate_common_exit
+	
+	_END
+
+//WIFI説明
+ev_tower_gate_exp_wifi:
+	_TALK_KEYWAIT	msg_tower_39
+	_JUMP			ev_tower_gate_wifi_02
+	_END
+
+/////////////////////////////////////////////
+//WIFI歴代リーダー取得
+ev_tower_gate_wifi_get_leader:
+	/*ゲーム共通レポート処理*/
+//	_TALKMSG		msg_tower_50
+	_CALL			ev_tower_gate_common_save
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit
+	_TALK_CLOSE
+
+	//WIFI接続処理コール
+	_LDVAL			LOCALWORK1,2
+	_CALL			ev_tower_gate_common_wifi_connect
+	//失敗なら抜ける
+	_IFVAL_JUMP		SCWK_ANSWER,NE,WIFI_BTOWER_RESULT_SUCCESS,ev_tower_gate_common_exit
+	
+	//リーダーデータを取得しました
+	_BTOWER_GET_LEADER_ROOMID	SCWK_TEMP0,SCWK_TEMP1
+	_NUMBER_NAME	0,SCWK_TEMP0	
+	_NUMBER_NAME_EX	1,SCWK_TEMP1,2,3
+	_TALK_KEYWAIT	msg_tower_53
+	_AB_KEYWAIT
+	_JUMP			ev_tower_gate_common_exit_mclose
+	_END
+
+//WIFI初回チャレンジ
+ev_tower_gate_wifi_1st:
+	//ワーク確保&初期化
+	_BTOWER_WORK_INIT	BTWR_PLAY_NEW,BTWR_MODE_WIFI
+
+	//ポケモンチェック以降はシングルと同じフロー
+	_JUMP			ev_tower_gate_wifi_pchk_s
+	_END
+
+////////////////////////////////////////
+//WIFI2回目以降チャレンジ
+ev_tower_gate_wifi_2nd:
+	//ワーク確保&初期化
+	_BTOWER_WORK_INIT	BTWR_PLAY_NEW,BTWR_MODE_RETRY
+
+	//ポケモンチェック以降はシングルと同じフロー
+	_JUMP			ev_tower_gate_wifi_pchk_s
+	_END
+
+//////////////////////////////////////
+//WIFI再アップロード処理
+ev_tower_gate_wifi_reupload_01:
+	_TALKMSG		msg_tower_62
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_gate_wifi_reupload_cancel
+	//アップロード処理
+	_CALL			ev_tower_gate_common_wifi_upload
+	_IFVAL_JUMP		SCWK_ANSWER,NE,WIFI_BTOWER_RESULT_SUCCESS,ev_tower_gate_common_exit
+	
+	//成績をWIFIコネクションに送りました
+	_TALK_KEYWAIT	msg_tower_61
+
+	//旦終了
+	_JUMP			ev_tower_gate_common_exit
+	_END
+
+//再アップロードキャンセル
+ev_tower_gate_wifi_reupload_cancel:
+	//共通処理へ戻る
+	_JUMP			ev_tower_gate_wifi_01_01
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	マルチ受付														*/
+/********************************************************************/
+//====================================================================
+//受け付けに話しかけたとき(マルチ/通信マルチ)
+ev_tower_gate_multi_01:
+	_EVENT_START
+	_SE_PLAY		SEQ_SE_DP_SELECT
+	_BTOWER_WORK_CLEAR
+	_TALK_KEYWAIT		msg_tower_21
+
+ev_tower_gate_multi_02:
+	_TALKMSG			msg_tower_22
+	_CALL				ev_tower_gate_common_cmenu01_set
+	
+	//SCWK_ANSERに選択結果が返る
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_tower_gate_multi_03		//ちょうせんする
+	_CASE_JUMP		1,ev_tower_gate_exp_multi		//説明を聞く
+	_CASE_JUMP		2,ev_tower_gate_common_exit		//やめる
+	_JUMP			ev_tower_gate_common_exit
+	_END
+
+//マルチ説明
+ev_tower_gate_exp_multi:
+	_TALK_KEYWAIT	msg_tower_24
+	_JUMP			ev_tower_gate_multi_02
+	_END
+
+//マルチ共通(挑戦する)
+ev_tower_gate_multi_03:
+	//ポケモンチェック
+	_BTOWER_TOOLS		BTWR_TOOL_CHK_ENTRY_POKE_NUM,2,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_tower_gate_multi_modesel
+	//手持ちポケモンが足りない
+	_TALKMSG_NG_POKE_NAME	msg_tower_94,2,0,0
+	_JUMP				ev_tower_gate_common_exit_mclose
+	_END
+
+//マルチプレイモード選択
+ev_tower_gate_multi_modesel:
+	_TALKMSG			msg_tower_27
+	_YES_NO_WIN			SCWK_ANSWER
+#ifdef DEB_AI_ONLY
+	_LDVAL				SCWK_ANSWER,0
+#endif
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_comm_multi01
+
+//AIマルチ
+ev_tower_gate_ai_multi01:
+	//ワーク確保&初期化
+	_BTOWER_WORK_INIT	BTWR_PLAY_NEW,BTWR_MODE_MULTI
+	_LDVAL				LOCALWORK1,0
+	_JUMP				ev_tower_gate_multi_04
+	_END
+
+//通信マルチ
+ev_tower_gate_comm_multi01:
+	//ワーク確保&初期化
+	_BTOWER_WORK_INIT	BTWR_PLAY_NEW,BTWR_MODE_COMM_MULTI
+	_LDVAL				LOCALWORK1,1
+	_JUMP				ev_tower_gate_multi_04
+	_END
+
+//共通ポケモン選択処理
+ev_tower_gate_multi_04:
+	//それでは参加するポケモンを選んでください
+	_TALK_KEYWAIT		msg_tower_09
+	_CALL				ev_tower_gate_common_select_poke
+	
+	//ポケモンを選んで帰ってきたかチェック
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit
+	//選択したポケモンチェック
+	_BTOWER_TOOLS		BTWR_SUB_CHK_ENTRY_POKE,BTWR_NULL_PARAM,SCWK_ANSWER
+
+	_SWITCH				SCWK_ANSWER
+	_CASE_JUMP			1,ev_tower_gate_common_same_poke	//同じポケモンがいる
+	_CASE_JUMP			2,ev_tower_gate_common_same_item	//同じアイテムがある
+	
+	//モード別処理
+	_IFVAL_JUMP			LOCALWORK1,EQ,1,ev_tower_gate_comm_multi02
+
+	//AIマルチならワークと戻り先セット
+	_CALL				ev_tower_gate_common_newgame_multi_wkset
+	_BTOWER_TOOLS		BTWR_TOOL_PUSH_NOW_LOCATION,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_PC_KAIFUKU
+	//セーブ
+	_CALL				ev_tower_gate_common_save
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit_play
+	
+	//トレーナー抽選
+	_BTOWER_TOOLS		BTWR_SUB_UPDATE_RANDOM,BTWR_NULL_PARAM,SCWK_ANSWER
+	_BTOWER_TOOLS		BTWR_SUB_BTL_TRAINER_SET,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	
+	//それではサロンへ
+	_TALK_KEYWAIT		msg_tower_36
+	_JUMP				ev_tower_gate_local_entry
+
+	//マップ遷移
+ev_tower_gate_local_aimulti_in:
+	_JUMP				ev_tower_gate_common_move_ev
+	_END
+
+//通信マルチ接続処理
+ev_tower_gate_comm_multi02:
+	//セーブ
+	_CALL				ev_tower_gate_common_save
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit_play
+
+	//親になるか子になるか？
+ev_tower_gate_comm_multi03:
+	_TALKMSG			msg_tower_28
+	
+	_BMPMENU_INIT		18,1,0,1,SCWK_ANSWER	//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_014,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_015,1
+	_BMPMENU_MAKE_LIST	msg_ev_win_006,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	//この下の0と1を入れ替えると、それぞれ親専用、子専用になります
+	//親用のexeと子用のexeを両方作って、二台でそれぞれ読み込んでいます iwasawa
+#ifdef DEB_PARENT_ONLY
+	_CASE_JUMP		1,ev_tower_gate_connect_group		//グループ
+	_CASE_JUMP		0,ev_tower_gate_connect_leader		//リーダー
+	_JUMP			ev_tower_gate_common_exit_play		//終了へ
+	_END
+#else
+	_CASE_JUMP		0,ev_tower_gate_connect_group		//グループ
+	_CASE_JUMP		1,ev_tower_gate_connect_leader		//リーダー
+	_JUMP			ev_tower_gate_common_exit_play		//終了へ
+	_END
+#endif	
+
+//グループに入る
+ev_tower_gate_connect_group:
+	//DSワイヤレス通信を始めますか？
+	_TALKMSG			msg_keikoku_01
+	_YES_NO_WIN			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_tower_gate_comm_multi03
+
+	_TALK_CLOSE
+
+	//親機を選択するウィンドウを開く
+	_SEL_PARENT_WIN	COMM_MODE_TOWER_MULTI,0,0,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_CANCEL,ev_tower_gate_connect_group_cancel //キャンセル
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_ERROR,ev_tower_gate_connect_group_error //エラー
+	//それ以外
+	_JUMP			ev_tower_gate_connect_pokechk	//成功
+	_END
+
+//グループキャンセル
+ev_tower_gate_connect_group_cancel:
+	_JUMP				ev_tower_gate_comm_multi03
+	_END
+
+//グループ通信エラー
+ev_tower_gate_connect_group_error:
+	_COMM_DIRECT_END
+	_JUMP				ev_tower_gate_comm_multi03
+	_END
+
+//リーダーになる
+ev_tower_gate_connect_leader:
+	//DSワイヤレス通信を始めますか？
+	_TALKMSG			msg_keikoku_01
+	_YES_NO_WIN			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_tower_gate_comm_multi03
+
+	_TALK_CLOSE
+
+	//子機を選択するウィンドウを開く
+	_SEL_CHILD_WIN	COMM_MODE_TOWER_MULTI,0,0,SCWK_ANSWER
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_CANCEL,ev_tower_gate_connect_leader_cancel//キャンセル
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_ERROR,ev_tower_gate_connect_leader_error  //エラー
+
+	//それ以外
+	_JUMP			ev_tower_gate_connect_pokechk		
+	_END
+
+//リーダーキャンセル
+ev_tower_gate_connect_leader_cancel:
+	_JUMP				ev_tower_gate_comm_multi03
+//	_COMM_DIRECT_END
+//	_JUMP				ev_tower_gate_common_exit_play	
+	_END
+
+//リーダー通信エラー
+ev_tower_gate_connect_leader_error:
+	_COMM_DIRECT_END
+	_JUMP				ev_tower_gate_comm_multi03
+	_END
+
+//互いのポケモンチェック
+ev_tower_gate_connect_pokechk:
+	//通信同期(お友達の選択を待っています)
+	_COMM_RESET
+	_COMM_SYNCHRONIZE	TOWER_COMM_MULTI_POKE_SELECT
+	
+	//お互いが選んだポケモンデータを交換
+	_BTOWER_SEND_BUF	0,BTWR_NULL_PARAM
+	_BTOWER_RECV_BUF	0,LOCALWORK0
+
+	_SWITCH				LOCALWORK0
+	_CASE_JUMP			1,ev_tower_gate_connect_poke_same01
+	_CASE_JUMP			2,ev_tower_gate_connect_poke_same02
+	_CASE_JUMP			3,ev_tower_gate_connect_poke_same03
+
+	_COMM_RESET
+	_COMM_SYNCHRONIZE		TOWER_COMM_MULTI_BTL_TRAINER_SET
+
+	//親でも子でもランダム更新
+	_BTOWER_TOOLS			BTWR_SUB_UPDATE_RANDOM,BTWR_NULL_PARAM,SCWK_TEMP0
+	//親機なら対戦トレーナー抽選
+	_COMM_GET_CURRENT_ID	SCWK_ANSWER
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,ev_tower_gate_connect_btl_trainer_set
+
+	//子機は親からデータを受け取る
+	_BTOWER_RECV_BUF	1,LOCALWORK0
+	
+//トレーナーデータがセットされたら通信同期して先へ
+ev_tower_gate_connect_sio_save:
+	//ワークセット
+	_CALL				ev_tower_gate_common_newgame_multi_wkset
+	//現在位置Push
+	_BTOWER_TOOLS		BTWR_TOOL_PUSH_NOW_LOCATION,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	_PC_KAIFUKU
+	//オートセーブ
+	_TALKMSG			msg_tower_75	//レポートを書いてます
+	_CALL				ev_tower_gate_common_auto_save
+	
+	//それではバトルルームへご案内
+	_TALKMSG			msg_tower_33
+	_TIME_WAIT			30,SCWK_ANSWER
+
+	//通信同期
+	_COMM_RESET
+	_COMM_SYNCHRONIZE	TOWER_COMM_MULTI_AUTO_SAVE
+	_JUMP				ev_tower_gate_local_entry
+
+	//マップ遷移
+ev_tower_gate_local_comm_multi_in:
+	_LDVAL				WK_SCENE_D31R0202,2
+	_JUMP				ev_tower_gate_common_move_ev
+	_END
+
+//ポケモンが一匹被っているとき(一匹目)
+ev_tower_gate_connect_poke_same01:
+	_CALL				ev_tower_gate_common_sioend
+	_BTOWER_TOOLS		BTWR_SUB_GET_SELPOKE_IDX,0,SCWK_ANSWER
+	_POKEMON_NAME		0,SCWK_ANSWER
+	_TALK_KEYWAIT		msg_tower_34
+	_JUMP				ev_tower_gate_common_exit_play
+	_END
+//ポケモンが一匹被っているとき(二匹目)
+ev_tower_gate_connect_poke_same02:
+	_CALL				ev_tower_gate_common_sioend
+	_BTOWER_TOOLS		BTWR_SUB_GET_SELPOKE_IDX,1,SCWK_ANSWER
+	_POKEMON_NAME		0,SCWK_ANSWER
+	_TALK_KEYWAIT		msg_tower_34
+	_JUMP				ev_tower_gate_common_exit_play
+	_END
+
+//ポケモンが二匹被っているとき
+ev_tower_gate_connect_poke_same03:
+	_CALL				ev_tower_gate_common_sioend
+	_BTOWER_TOOLS		BTWR_SUB_GET_SELPOKE_IDX,0,SCWK_ANSWER
+	_POKEMON_NAME		0,SCWK_ANSWER
+	_BTOWER_TOOLS		BTWR_SUB_GET_SELPOKE_IDX,1,SCWK_ANSWER
+	_POKEMON_NAME		1,SCWK_ANSWER
+	_TALK_KEYWAIT		msg_tower_35
+	_JUMP				ev_tower_gate_common_exit_play
+	_END
+
+//親機なら対戦トレーナーセット
+ev_tower_gate_connect_btl_trainer_set:
+	//トレーナー抽選
+	_BTOWER_TOOLS		BTWR_SUB_BTL_TRAINER_SET,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	//子機に選んだデータを送信
+	_BTOWER_SEND_BUF	1,BTWR_NULL_PARAM
+	_JUMP				ev_tower_gate_connect_sio_save
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	シングル/ダブル受付		return									*/
+/********************************************************************/
+//====================================================================
+//チャレンジキャンセルして戻ってきた
+ev_tower_ret_cancel_01:
+	_EVENT_START
+
+	//ステートクリア
+	_CALL			ev_tower_gate_common_return_stset
+	//デバッグエラー処理
+	_BTOWER_TOOLS	BTWR_DEB_IS_WORK_NULL,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_gate_common_exit
+	
+	_TALKMSG		msg_tower_57	//せいせきをレポートに
+	_CALL			ev_tower_gate_common_auto_save
+	
+	_JUMP			ev_tower_gate_common_exit_play
+	_END
+
+//Returnコモン
+ev_tower_ret_local_01:
+	_EVENT_START
+	//ステートクリア
+	_CALL			ev_tower_gate_common_return_stset
+
+	//デバッグエラー処理
+	_BTOWER_TOOLS	BTWR_DEB_IS_WORK_NULL,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_gate_common_exit
+
+	//クリアチェック
+	_BTOWER_TOOLS	BTWR_SUB_IS_CLEAR,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_ret_local_clear_01
+
+//負けたとき
+ev_tower_ret_local_lose_01:
+	_TALK_KEYWAIT	msg_tower_54	//おつかれさまでした
+	
+	//プレイモード取得
+	_BTOWER_TOOLS	BTWR_SUB_GET_PLAY_MODE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK			LOCALWORK0,SCWK_ANSWER
+
+	_SWITCH			LOCALWORK0
+	//リトライモードはこのあとすぐセーブ
+	_CASE_JUMP		BTWR_MODE_RETRY,ev_tower_lose_local_normal
+	//WIFIモードは専用処理
+	_CASE_JUMP		BTWR_MODE_WIFI,ev_tower_lose_local_wifi
+	//通信マルチは切断処理
+//	_IFVAL_CALL		LOCALWORK0,EQ,BTWR_MODE_COMM_MULTI,ev_tower_gate_common_sioend
+
+	//プライズフラグがONの場合はリボンをつける処理
+	_BTOWER_TOOLS	BTWR_SUB_RENSHOU_RIBBON_SET,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,ev_tower_lose_local_renshou
+
+ev_tower_lose_local_normal:
+	//負けたときの処理
+	_TALKMSG		msg_tower_57	//せいせきをレポートに
+	_CALL			ev_tower_gate_common_auto_save
+	_TALK_CLOSE
+	//SINGLEモードは専用処理
+	_IFVAL_JUMP		LOCALWORK0,EQ,BTWR_MODE_SINGLE,ev_tower_lose_local_single
+	_JUMP			ev_tower_gate_common_exit_play
+	_END
+
+//連勝リボン処理
+ev_tower_lose_local_renshou:
+	//ポケモンにリボンを
+	_TALK_KEYWAIT	msg_tower_92
+	_ME_PLAY		SEQ_FANFA1
+	_ME_WAIT
+	_RET
+
+////////////////////////////////////////
+//シングルチェック
+ev_tower_lose_local_single:
+	//トロフィーもらえるかチェック
+	_BTOWER_PRIZE_GET	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit_play
+	
+	//それではまたのご利用を……
+	_TALK_KEYWAIT		msg_tower_300
+	_TALK_CLOSE
+	//トロフィー授与チェック(受付から)
+	_LDWK				LOCALWORK2,SCWK_ANSWER
+	_LDVAL				LOCALWORK1,1
+	//自機振り向き
+	_CALL				ev_tower_gate_comanm_hero_right
+	_JUMP				ev_tower_gate_prize_check
+	_END
+
+////////////////////////////////////////
+//WIFIチェック
+ev_tower_lose_local_wifi:
+	//ランクダウンチェック
+	_BTOWER_TOOLS	BTWR_TOOL_WIFI_RANK_DOWN,BTWR_NULL_PARAM,SCWK_ANSWER
+	//ランクダウンチェック処理
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_tower_lose_wifi_rankdown
+	_JUMP			ev_tower_gate_common_wifi_upload_exit
+	_END
+
+//ランクダウン
+ev_tower_lose_wifi_rankdown:
+	//現在のランク取得
+	_BTOWER_TOOLS	BTWR_TOOL_GET_WIFI_RANK,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK			SCWK_PARAM0,SCWK_ANSWER
+	_NUMBER_NAME	0,SCWK_PARAM0
+	_TALK_KEYWAIT	msg_tower_70
+	_JUMP			ev_tower_gate_common_wifi_upload_exit
+	_END
+
+///////////////////////////////////////////////////
+//勝った時
+///////////////////////////////////////////////////
+//バトルポイント受け渡しコール
+ev_tower_clear_local_btp_get:
+	//おめでとうございます！
+	_TALK_KEYWAIT	msg_tower_13
+	
+	//バトルポイントを
+	_BTOWER_TOOLS	BTWR_SUB_ADD_BATTLE_POINT,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_PLAYER_NAME	0
+	_NUMBER_NAME	1,SCWK_TEMP0
+	_TALK_KEYWAIT	msg_tower_59
+	//ファンファーレ
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+	_RET
+
+//ローカルクリア共通処理
+ev_tower_ret_local_clear_01:
+	//プレイモード取得
+	_BTOWER_TOOLS	BTWR_SUB_GET_PLAY_MODE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK			LOCALWORK0,SCWK_ANSWER
+
+	//リトライモードは専用処理
+	_IFVAL_JUMP		LOCALWORK0,EQ,BTWR_MODE_RETRY,ev_tower_clear_local_retry
+	//シングルはシングル用のチェックを走らせる
+	_IFVAL_JUMP		LOCALWORK0,EQ,BTWR_MODE_SINGLE,ev_tower_clear_single_check
+	//WIFIはWIFI用の処理を走らせる
+	_IFVAL_JUMP		LOCALWORK0,EQ,BTWR_MODE_WIFI,ev_tower_clear_wifi_check
+	//通信マルチは切断処理
+//	_IFVAL_CALL		LOCALWORK0,EQ,BTWR_MODE_COMM_MULTI,ev_tower_gate_common_sioend
+
+	//連勝リボンを渡すかどうか？
+	_BTOWER_TOOLS	BTWR_SUB_RENSHOU_RIBBON_SET,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,NE,0,ev_tower_clear_local_renshou
+
+	//通常クリア
+	_CALL			ev_tower_clear_local_btp_get
+	
+	//クリア後セーブ
+ev_tower_clear_local_save:
+	//セーブ
+	_TALKMSG		msg_tower_15
+	_CALL			ev_tower_gate_common_auto_save
+	_TALK_CLOSE
+	_JUMP			ev_tower_gate_common_exit_play
+	_END
+
+////////////////////////////////
+//リトライモードの終了処理
+ev_tower_clear_local_retry:
+	_TALK_KEYWAIT	msg_tower_55
+	_JUMP			ev_tower_clear_local_save
+	_END
+
+////////////////////////////////
+//シングルモードの賞品チェック
+ev_tower_clear_single_check:
+	//リーダーに勝ったか？
+	_BTOWER_TOOLS	BTWR_SUB_GET_LEADER_CLEAR_FLAG,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_clear_single_btp_get
+
+//リーダーに勝った時共通処理
+ev_tower_clear_leader:
+	//バトルポイントセット
+	_BTOWER_TOOLS	BTWR_SUB_ADD_BATTLE_POINT,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK			LOCALWORK0,SCWK_ANSWER
+	//見事タワータイクーンを～バトルポイントを
+	_PLAYER_NAME	0
+	_NUMBER_NAME	1,LOCALWORK0
+	_TALK_KEYWAIT	msg_tower_14
+
+	//リボンセット
+	_BTOWER_TOOLS	BTWR_SUB_LEADER_RIBBON_SET,BTWR_NULL_PARAM,SCWK_ANSWER
+	//リボンを実際にあげたかどうか？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_clear_single_save
+
+	//記念にリボンを
+	_TALK_KEYWAIT	msg_d31r0201_goods_03
+	_ME_PLAY		SEQ_FANFA1
+	_ME_WAIT
+	_JUMP			ev_tower_clear_single_save
+	_END
+
+//シングルモードクリア処理共通
+ev_tower_clear_single_btp_get:
+	_CALL			ev_tower_clear_local_btp_get
+//シングルモードセーブ処理
+ev_tower_clear_single_save:
+	//セーブ
+	_TALKMSG		msg_tower_15
+	_CALL			ev_tower_gate_common_auto_save
+
+	//トロフィーをもらえるかどうか？
+	_BTOWER_PRIZE_GET	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_common_exit_play
+	
+	//それではまたのご利用を……
+	_TALK_KEYWAIT		msg_tower_300
+	_TALK_CLOSE
+	//トロフィー授与チェック(受付から)
+	_LDWK				LOCALWORK2,SCWK_ANSWER
+	_LDVAL				LOCALWORK1,1
+	//自機振り向き
+	_CALL				ev_tower_gate_comanm_hero_right
+	_JUMP				ev_tower_gate_prize_check
+	_END
+
+//連勝おめでとう処理
+ev_tower_clear_local_renshou:
+	//おめでとうございます！
+	_TALK_KEYWAIT	msg_tower_13
+
+	//バトルポイントを
+	_BTOWER_TOOLS	BTWR_SUB_ADD_BATTLE_POINT,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_PLAYER_NAME	0
+	_NUMBER_NAME	1,SCWK_TEMP0
+	_TALK_KEYWAIT	msg_tower_59
+	//ファンファーレ
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+
+	//ポケモンにリボンを
+	_TALK_KEYWAIT	msg_tower_92
+	_ME_PLAY		SEQ_FANFA1
+	_ME_WAIT
+
+	_JUMP			ev_tower_clear_local_save
+	_END
+
+//////////////////////////////////////
+//wifiチェック処理
+ev_tower_clear_wifi_check:
+	//おめでとうございます！
+	_TALK_KEYWAIT	msg_tower_13
+	
+	//バトルポイントを
+	_BTOWER_TOOLS	BTWR_SUB_ADD_BATTLE_POINT,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_PLAYER_NAME	0
+	_NUMBER_NAME	1,SCWK_TEMP0
+	_TALK_KEYWAIT	msg_tower_59
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+
+	//ランクアップするかどうか？
+	_BTOWER_TOOLS	BTWR_SUB_WIFI_RANK_UP,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_gate_common_wifi_upload_exit
+	
+//wifiランクアップおめでとう処理
+ev_tower_clear_wifi_runkup:
+	//現在のランク取得
+	_BTOWER_TOOLS	BTWR_TOOL_GET_WIFI_RANK,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK			LOCALWORK0,SCWK_ANSWER
+
+	//そして○○さんはランク？に
+	_PLAYER_NAME	0
+	_NUMBER_NAME	1,LOCALWORK0
+	_TALK_KEYWAIT	msg_tower_56
+	
+	//リボンがつくかチェック
+	_BTOWER_TOOLS	BTWR_SUB_RENSHOU_RIBBON_SET,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_tower_gate_common_wifi_upload_exit
+
+//WIFIリボンをあげます処理
+ev_tower_clear_wifi_ribbon_set:
+	//ポケモンにリボンを
+	_NUMBER_NAME	0,LOCALWORK0
+	_TALK_KEYWAIT	msg_tower_89
+	_ME_PLAY		SEQ_FANFA1
+	_ME_WAIT
+
+	_JUMP			ev_tower_gate_common_wifi_upload_exit
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	シングル/ダブル受付		continue								*/
+/********************************************************************/
+//====================================================================
+//再開時コモン
+ev_tower_continue_local_01:
+	_EVENT_START
+	//ステートクリア
+	_LDVAL				WK_SCENE_D31R0201,0
+
+	//セーブデータが有効かチェック
+	_BTOWER_TOOLS		BTWR_TOOL_IS_SAVE_DATA_ENABLE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_tower_gate_common_continue_ng
+
+	//有効だった(おまちしておりました！)
+	_TALK_KEYWAIT		msg_tower_17
+
+	//ワーク確保&初期化
+	_BTOWER_WORK_INIT	BTWR_PLAY_CONTINUE,BTWR_MODE_NULL
+	//プレイモード取得
+	_BTOWER_TOOLS		BTWR_SUB_GET_PLAY_MODE,BTWR_NULL_PARAM,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,BTWR_MODE_MULTI,ev_tower_continue_aimulti_01
+	
+	//シングル/ダブル/Wifi シーンワークセット
+	_CALL				ev_tower_gate_common_continue_sd_wkset	
+	//現在位置セーブ
+	_BTOWER_TOOLS		BTWR_TOOL_PUSH_NOW_LOCATION,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	//セーブ
+	_CALL				ev_tower_gate_common_auto_save
+	//それではバトルルームへ
+	_TALK_KEYWAIT		msg_tower_12
+	_AB_KEYWAIT
+	_JUMP				ev_tower_gate_local_entry
+	_END
+
+ev_tower_continue_aimulti_01:
+	//AIマルチ シーンワークセット
+	_CALL				ev_tower_gate_common_continue_multi_wkset	
+	//現在位置セーブ
+	_BTOWER_TOOLS		BTWR_TOOL_PUSH_NOW_LOCATION,BTWR_NULL_PARAM,BTWR_NULL_PARAM
+	//セーブ
+	_CALL				ev_tower_gate_common_auto_save
+	//パートナーOBJ指定
+	_BTOWER_TOOLS		BTWR_SUB_GET_PARTNER_NO,BTWR_NULL_PARAM,SCWK_ANSWER
+	_LDWK				LOCALWORK9,SCWK_ANSWER
+	//それではマルチバトルルームへ
+	_TALK_KEYWAIT		msg_tower_33
+	_AB_KEYWAIT
+	_JUMP				ev_tower_gate_local_entry
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	トロフィー取得													*/
+/********************************************************************/
+//====================================================================
+//トロフィー授与チェック終了(ゲーム終了処理込み)
+ev_tower_common_single_play_exit:
+	_CALL		ev_tower_gate_common_playend_wkset
+	_JUMP		ev_tower_gate_common_exit_mclose
+	_END
+
+//トロフィー授与チェック(話し掛け)
+ev_tower_gate_prize_get:
+	_TALK_OBJ_START
+	_LDVAL		LOCALWORK1,0
+	_BTOWER_PRIZE_GET	LOCALWORK2
+
+ev_tower_gate_prize_check:
+	_SWITCH		LOCALWORK2
+	_CASE_JUMP	1,ev_tower_gate_prize_get20
+	_CASE_JUMP	2,ev_tower_gate_prize_get50
+	_CASE_JUMP	3,ev_tower_gate_prize_get100
+	_CASE_JUMP	4,ev_tower_gate_prize_goods_full
+	//もらえない
+	_TALK_KEYWAIT	msg_tower_16
+ev_tower_gate_prize_get_end:
+	_AB_KEYWAIT
+	_IFVAL_JUMP		LOCALWORK1,EQ,1,ev_tower_common_single_play_exit
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//グッズがいっぱいでもらえない
+ev_tower_gate_prize_goods_full:
+	_TALK_KEYWAIT	msg_d31r0201_goods_05
+	_JUMP			ev_tower_gate_prize_get_end
+	_END
+
+//20連勝
+ev_tower_gate_prize_get20:
+	_NUMBER_NAME	0,20
+	_LDVAL			SCWK_TEMP0,BTWR_GOODS_COPPER
+	_JUMP			ev_tower_gate_prize_get_common
+	_END
+
+//50連勝
+ev_tower_gate_prize_get50:
+	_NUMBER_NAME	0,50
+	_LDVAL			SCWK_TEMP0,BTWR_GOODS_SILVER
+	_JUMP			ev_tower_gate_prize_get_common
+	_END
+
+//100連勝
+ev_tower_gate_prize_get100:
+	_NUMBER_NAME	0,100
+	_LDVAL			SCWK_TEMP0,BTWR_GOODS_GOLD
+	_JUMP			ev_tower_gate_prize_get_common
+	_END
+
+//共通
+ev_tower_gate_prize_get_common:
+	_TALK_KEYWAIT	msg_d31r0201_goods_04
+
+	_LDVAL			SCWK_TEMP1,1
+	_CHG_COMMON_SCR	SCRID_GOODS_EVENT_KEYWAIT
+	
+	_TALK_KEYWAIT	msg_tower_16
+	_JUMP			ev_tower_gate_prize_get_end
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	バトルメッセージ少年											*/
+/********************************************************************/
+//====================================================================
+ev_d31r0201_btlmsg_boy_01:
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	スコアモニタ													*/
+/********************************************************************/
+//====================================================================
+ev_pc_score_common_call:
+	_TALK_START
+	_BLACK_OUT			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_BTOWER_APP_CALL	SCWK_PARAM0,SCWK_PARAM1
+	_SET_MAP_PROC
+
+	_BLACK_IN			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TALK_END
+	_RET
+
+ev_d31r0201_pc_score_single:
+	_LDVAL	SCWK_PARAM0,0
+	_LDVAL	SCWK_PARAM1,0
+	_CALL	ev_pc_score_common_call
+	_END
+ev_d31r0201_pc_score_multi:
+	_LDVAL	SCWK_PARAM0,0
+	_LDVAL	SCWK_PARAM1,1
+	_CALL	ev_pc_score_common_call
+	_END
+ev_d31r0201_pc_score_wifi:
+	_LDVAL	SCWK_PARAM0,0
+	_LDVAL	SCWK_PARAM1,2
+	_CALL	ev_pc_score_common_call
+	_END
+ev_d31r0201_pc_score_leader:
+	_BTOWER_IS_LEADER_EXIST	SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,0,ev_pc_score_leader_ng
+	_LDVAL	SCWK_PARAM0,1
+	_LDVAL	SCWK_PARAM1,0
+	_CALL	ev_pc_score_common_call
+	_END
+
+//リーダーデータがない
+ev_pc_score_leader_ng:
+	_TALK_KEYWAIT	msg_seiseki_01
+	_TALK_CLOSE
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	バトルタワー受付アニメコモン									*/
+/********************************************************************/
+//====================================================================
+ev_tower_gate_comanm_in:
+	_OBJ_ANIME	LOCALWORK2,anm_d31r0201_pcwoman2_01
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0201_player_01
+	_OBJ_ANIME_WAIT
+	//エレベータドアopen
+	_SET_UP_DOOR_ANIME	0,0,LOCALWORK3,2,77
+	_SEQ_OPEN_DOOR	77
+	_WAIT_3D_ANIME	77
+	_OBJ_ANIME	LOCALWORK2,anm_d31r0201_pcwoman2_01_01
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0201_player_01_01
+	_OBJ_ANIME_WAIT
+	_SEQ_CLOSE_DOOR	77	//ドア閉める
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_FREE_3D_ANIME	77	//ドアアニメ解放
+	_RET
+
+ev_tower_gate_comanm_in01:
+	_LDVAL		LOCALWORK2,D31R0201_PCWOMAN2_01
+	_LDVAL		LOCALWORK3,11
+	_CALL		ev_tower_gate_comanm_in
+	_JUMP		ev_tower_gate_local_in
+	_END	
+
+ev_tower_gate_comanm_in02:
+	_LDVAL		LOCALWORK2,D31R0201_PCWOMAN2_03
+	_LDVAL		LOCALWORK3,15
+	_CALL		ev_tower_gate_comanm_in
+	_JUMP		ev_tower_gate_local_in
+	_END
+
+ev_tower_gate_comanm_in03:
+	_LDVAL		LOCALWORK2,D31R0201_PCWOMAN2_02
+	_LDVAL		LOCALWORK3,7
+	_CALL		ev_tower_gate_comanm_in
+	_JUMP		ev_tower_gate_local_aimulti_in
+	_END
+
+ev_tower_gate_comanm_in04:
+	_LDVAL		LOCALWORK2,D31R0201_PCWOMAN2_02
+	_LDVAL		LOCALWORK3,7
+	_CALL		ev_tower_gate_comanm_in
+	_JUMP		ev_tower_gate_local_comm_multi_in
+	_END
+
+ev_tower_gate_comanm_hero_right:
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0201_player_dir_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//受け付け嬢　ゲート奥へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0201_pcwoman2_01
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0201_pcwoman2_01_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//自機　ゲート奥へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0201_player_01
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0201_player_01_01
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//自機 右振り向き　
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0201_player_dir_right
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/* トレーナー女														*/
+/********************************************************************/
+ev_d31r0201_woman1:
+	_EASY_OBJ_MSG	msg_d31r0201_woman1_01
+	_END
+
+/********************************************************************/
+/* お坊ちゃま														*/
+/********************************************************************/
+ev_d31r0201_gorggeousm1a:
+	_EASY_OBJ_MSG	msg_d31r0201_gorggeousm1a_01
+	_END
+
+/********************************************************************/
+/*  アイドル																*/
+/********************************************************************/
+ev_d31r0201_idol:
+	_EASY_OBJ_MSG	msg_d31r0201_idol_01
+	_END
+
+/********************************************************************/
+/*  お坊ちゃま２													*/
+/********************************************************************/
+ev_d31r0201_gorggeousm1b:
+	_EASY_OBJ_MSG	msg_d31r0201_gorggeousm1b_01
+	_END
+
+/********************************************************************/
+/* ピカチュウ														*/
+/********************************************************************/
+ev_d31r0201_pokemona:
+	_EASY_OBJ_MSG	msg_d31r0201_pokemona_01
+	_END
+
+/********************************************************************/
+/* 芸術家															*/
+/********************************************************************/
+ev_d31r0201_artist:
+	_EASY_OBJ_MSG	msg_d31r0201_artist_01
+	_END
+
+/********************************************************************/
+/* 男の子															*/
+/********************************************************************/
+ev_d31r0201_boy1:
+	_EASY_OBJ_MSG	msg_d31r0201_boy1_01
+	_END
+
+/********************************************************************/
+/* ピカチュウ														*/
+/********************************************************************/
+ev_d31r0201_pokemonb:
+	_EASY_VOICE_MSG	msg_d31r0201_pokemonb_01,MONSNO_PIKATYUU,0
+	_END
+

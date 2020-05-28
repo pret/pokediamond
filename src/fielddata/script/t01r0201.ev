@@ -1,0 +1,1020 @@
+//====================================================================
+//						t01r0201.gmm
+//						主人公の家１Ｆ
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t01r0201.h"
+	.include	"../eventdata/zone_t01r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t01r0201_flag_change
+_EVENT_DATA		ev_t01r0201_mama_first
+_EVENT_DATA		ev_t01r0201_mama_bag
+_EVENT_DATA		ev_t01r0201_mama
+_EVENT_DATA		pos_t01r0201_mama
+_EVENT_DATA		ev_t01r0201_rivalmama
+_EVENT_DATA		ev_t01r0201_tv
+_EVENT_DATA		ev_t01r0201_freezer
+_EVENT_DATA		ev_t01r0201_sink
+_EVENT_DATA		ev_t01r0201_counter
+_EVENT_DATA		ev_t01r0201_mama_game_clear
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_t01r0201_flag_change:
+	/*シューズをもらう時のママの向きを変更*/
+	_IFVAL_CALL		WK_SCENE_T01R0201,EQ,3,ev_t01r0201_flag_change_mama_dir
+
+	/*冒険ノートを入手していたら、ライバルママを削除*/
+	_IF_FLAGON_CALL	FE_BOUKENNOOTO_GET,ev_t01r0201_flag_change_rivalmama_del
+	_END
+
+/*シューズをもらう時のママの向きを変更*/
+ev_t01r0201_flag_change_mama_dir:
+	_SXY_POS_CHANGE	T01R0201_MAMA,2,4
+	_SXY_DIR_CHANGE	T01R0201_MAMA,DIR_UP
+	_SXY_MV_CHANGE	T01R0201_MAMA,MV_UP
+	_RET
+
+/*冒険ノートを入手していたら、ライバルママを削除*/
+ev_t01r0201_flag_change_rivalmama_del:
+	_FLAG_SET		FV_T01R0201_RIVALMAMA
+	_RET
+
+
+/********************************************************************/
+/*					　主人公母親と最初の会話						*/
+/********************************************************************/
+ev_t01r0201_mama_first:
+	_EVENT_START
+
+	//近づいてくる
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_t01r0201_player_first_01
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_first_01
+	_OBJ_ANIME_WAIT
+
+	//一度会話した
+	_FLAG_SET		FE_T01R0201_MAMA_TALK
+
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_TALKMSG		msg_t01r0201_mama_01
+	_TALK_CLOSE
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	//元の位置へ
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_first_02
+	_OBJ_ANIME_WAIT
+
+	_LDVAL			WK_SCENE_T01R0201,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	ママの方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_first_01
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ママ	主人公に近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_first_01
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ママ	元の位置へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_first_02
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*	　主人公母親とゲームクリア後の会話(一度のみ発生に変更06.07.30)	*/
+/********************************************************************/
+ev_t01r0201_mama_game_clear:
+	_EVENT_START
+
+	_LDVAL			WK_SCENE_T01R0201_GAME_CLEAR,2
+
+	_IF_FLAGON_JUMP	FE_T01R0201_GAMECLEAR_KISSAKI,ev_t01r0201_mama_game_clear_end
+	_IF_FLAGOFF_JUMP	FE_T01R0201_GAMECLEAR_ZUKAN,ev_t01r0201_mama_game_clear_event_ok
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_t01r0201_mama_game_clear_end	//図鑑トークが終わっているけど、まだ全国図鑑を持っていない
+ev_t01r0201_mama_game_clear_event_ok:
+	//近づいてくる
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_t01r0201_player_game_clear_first_01
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_game_clear_first_01
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,ev_t01r0201_mama_game_clear_kissaki
+	_IFVAL_CALL		SCWK_ANSWER,EQ,0,ev_t01r0201_mama_game_clear_zukan
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	
+ev_t01r0201_mama_game_clear_end:
+	_EVENT_END
+	_END
+
+//全国図鑑を持っている時の会話
+ev_t01r0201_mama_game_clear_kissaki:
+	_FLAG_SET		FE_T01R0201_GAMECLEAR_KISSAKI	//会話したフラグセット
+	_TALKMSG		msg_t01r0201_mama_25
+	_RET
+
+//全国図鑑を持っていない時の会話
+ev_t01r0201_mama_game_clear_zukan:
+	_FLAG_SET		FE_T01R0201_GAMECLEAR_ZUKAN	//会話したフラグセット
+	_TALKMSG		msg_t01r0201_mama_27
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	ママの方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_game_clear_first_01
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ママ	主人公に近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_game_clear_first_01
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						　主人公母親(シューズ入手)					*/
+/********************************************************************/
+ev_t01r0201_mama_bag:
+	_EVENT_START
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	/*キッチンでお仕事*/
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_80
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_80
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_t01r0201_mama_05
+	_TALK_CLOSE
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t01r0201_mama_06
+
+	//シューズ追加
+	_SYS_FLAG_SHOES_SET
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t01r0201_mama_07
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+
+	_TALKMSG		msg_t01r0201_mama_08
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+
+	_LDVAL			WK_SCENE_T01R0201,4
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//母親	キッチンでお仕事
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_80
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	話をする
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_80
+	_ANIME_DATA	AC_WAIT_8F,4
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,4
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						　主人公母親								*/
+/********************************************************************/
+ev_t01r0201_mama:
+	_TALK_OBJ_START
+
+	//冒険ノート入手後に外から戻ってきたら回復
+	_IFVAL_JUMP		WK_SCENE_T01R0201,GE,7,ev_t01r0201_mama_heal_10
+
+	//冒険ノート入手後に外に出るまで
+	_IFVAL_JUMP		WK_SCENE_T01R0201,EQ,6,ev_t01r0201_mama_boukennooto_after
+
+	//図鑑入手していたら
+	_IF_FLAGON_JUMP	FE_ZUKAN_GET,ev_t01r0201_mama_zukan
+
+	//シューズをもらっていて、一度外に出ていたら回復
+	_IFVAL_JUMP		WK_SCENE_T01R0201,GE,5,ev_t01r0201_mama_heal_09
+
+	//シューズをもらっていたら
+	_IFVAL_JUMP		WK_SCENE_T01R0201,GE,4,ev_t01r0201_mama_bag_after
+
+	//ポケモン入手していたら
+	//_IFVAL_JUMP		WK_SCENE_D27R0101,GE,1,ev_t01r0201_mama_poke_get
+
+	//ママとのPOS会話終了していて、再度話しかけ
+	_IF_FLAGON_JUMP	FE_T01R0201_MAMA_TALK2,ev_t01r0201_mama_pos_talk2
+
+	//ママとのPOS会話終了していたら
+	_IFVAL_JUMP		WK_SCENE_T01R0201,GE,2,ev_t01r0201_mama_pos_talk
+
+	//一度会話していたら
+	_IF_FLAGON_JUMP	FE_T01R0201_MAMA_TALK,ev_t01r0201_mama_talk
+
+	//一度会話した
+	_FLAG_SET		FE_T01R0201_MAMA_TALK
+
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+
+	_TALKMSG		msg_t01r0201_mama_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*初回ゲームクリア*/
+ev_t01r0201_mama_game_clear_first:
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_TALKMSG		msg_t01r0201_mama_25
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//図鑑入手後に外に出るまで
+//--------------------------------------------------------------------
+ev_t01r0201_mama_boukennooto_after:
+	_PLAYER_NAME	0
+
+	_TALKMSG		msg_t01r0201_mama_26
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//図鑑入手していたら
+//
+//SCWK_TEMP3	主人公の初期方向
+//--------------------------------------------------------------------
+ev_t01r0201_mama_zukan:
+	_CALL			ev_t01r0201_mama_heal
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t01r0201_mama_12
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_BOUKENNOOTO
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	//冒険ノート開始データセット
+	_FNOTE_START_SET
+
+	_TALK_KEYWAIT	msg_t01r0201_mama_13
+
+	_PLAYER_DIR_GET	SCWK_TEMP3
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_DOWN,ev_t01r0201_mama_zukan_dir_down
+	_JUMP			ev_t01r0201_mama_zukan_dir
+	_END
+	
+//下を向く
+ev_t01r0201_mama_zukan_dir_down:
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_19
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_mama_zukan_dir
+	_END
+
+//上を向く
+ev_t01r0201_mama_zukan_dir:
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_20
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_mama_zukan_dir
+	_END
+
+common_t01r0201_mama_zukan_dir:
+	_TALK_KEYWAIT	msg_t01r0201_mama_14
+
+	_TURN_HERO_SITE
+	//_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_21
+	//_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t01r0201_mama_15
+	_TALK_CLOSE
+
+	/*ライバル母登場*/
+	_SE_PLAY		SEQ_SE_DP_DOOR_OPEN
+	_FLAG_RESET		FV_T01R0201_RIVALMAMA
+	_OBJ_ADD		T01R0201_RIVALMAMA
+	_SE_WAIT		SEQ_SE_DP_DOOR_OPEN
+
+	/*母「！」*/
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_50
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_50
+	_OBJ_ANIME_WAIT
+
+	/*ライバル母近づく*/
+	_OBJ_ANIME		T01R0201_RIVALMAMA,anm_t01r0201_rivalmama_50
+	_OBJ_ANIME_WAIT
+
+	/*主人公をライバル母の方に向かせる*/
+	_IFVAL_CALL		SCWK_TEMP3,EQ,DIR_UP,ev_t01r0201_raivalmama_dir_left_02
+	//_IFVAL_CALL	SCWK_TEMP3,EQ,DIR_LEFT,ev_t01r0201_raivalmama_dir_left_02
+
+	_RIVAL_NAME		1
+	_TALK_KEYWAIT	msg_t01r0201_rivalmama_01
+
+	/*母　その場動き*/
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_55
+	_OBJ_ANIME_WAIT
+	_TALK_KEYWAIT	msg_t01r0201_mama_21
+
+	_RIVAL_NAME		1
+	_TALK_KEYWAIT	msg_t01r0201_rivalmama_02
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t01r0201_mama_22
+
+	/*主人公	母の方を向く*/
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_UP,ev_t01r0201_mama_zukan_dir_up_01
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_DOWN,ev_t01r0201_mama_zukan_dir_down_01
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_LEFT,ev_t01r0201_mama_zukan_dir_left_01
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_RIGHT,ev_t01r0201_mama_zukan_dir_right_01
+	_END
+
+/*主人公をライバル母の方に向かせる*/
+ev_t01r0201_raivalmama_dir_left_02:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_70
+	_OBJ_ANIME_WAIT
+	_RET
+
+/*主人公	母の方を向く*/
+ev_t01r0201_mama_zukan_dir_up_01:
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_51
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_60
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_mama_zukan_dir_02
+	_END
+
+ev_t01r0201_mama_zukan_dir_down_01:
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_52
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_61
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_mama_zukan_dir_02
+	_END
+
+ev_t01r0201_mama_zukan_dir_left_01:
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_53
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_62
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_mama_zukan_dir_02
+	_END
+
+ev_t01r0201_mama_zukan_dir_right_01:
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_54
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_63
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_mama_zukan_dir_02
+	_END
+
+common_t01r0201_mama_zukan_dir_02:
+	_TALK_KEYWAIT	msg_t01r0201_mama_23
+	_TALK_CLOSE
+
+	/*ライバル母、主人公に近づく*/
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_UP,ev_t01r0201_rivalmama_zukan_dir_up
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_DOWN,ev_t01r0201_rivalmama_zukan_dir_down
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_LEFT,ev_t01r0201_rivalmama_zukan_dir_left
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_RIGHT,ev_t01r0201_rivalmama_zukan_dir_right
+	_END
+
+/*ライバル母、主人公に近づく*/
+ev_t01r0201_rivalmama_zukan_dir_up:
+	_OBJ_ANIME		T01R0201_RIVALMAMA,anm_t01r0201_rivalmama_52
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_52
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_rivalmama_zukan_dir
+	_END
+
+ev_t01r0201_rivalmama_zukan_dir_down:
+	_OBJ_ANIME		T01R0201_RIVALMAMA,anm_t01r0201_rivalmama_53
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_53
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_rivalmama_zukan_dir
+	_END
+
+ev_t01r0201_rivalmama_zukan_dir_left:
+	_OBJ_ANIME		T01R0201_RIVALMAMA,anm_t01r0201_rivalmama_54
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_54
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_rivalmama_zukan_dir
+	_END
+
+ev_t01r0201_rivalmama_zukan_dir_right:
+	_OBJ_ANIME		T01R0201_RIVALMAMA,anm_t01r0201_rivalmama_55
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_55
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_rivalmama_zukan_dir
+	_END
+
+common_t01r0201_rivalmama_zukan_dir:
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t01r0201_player_male	/*主人公男*/
+	_JUMP			t01r0201_player_female					/*主人公女*/
+	_END
+
+/*主人公男*/
+t01r0201_player_male:
+	_TALK_KEYWAIT	msg_t01r0201_rivalmama_03
+	_JUMP			common_t01r0201_player
+	_END
+
+/*主人公女*/
+t01r0201_player_female:
+	_TALK_KEYWAIT	msg_t01r0201_rivalmama_04
+	_JUMP			common_t01r0201_player
+	_END
+
+/*共通処理*/
+common_t01r0201_player:
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_OTODOKEMONO
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	_FLAG_SET		FE_BOUKENNOOTO_GET
+
+	_TALK_KEYWAIT	msg_t01r0201_mama_16
+
+	_RIVAL_NAME		1
+	_TALK_KEYWAIT	msg_t01r0201_rivalmama_05
+	_TALK_CLOSE
+
+	/*ライバルママ退出*/
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_UP,ev_t01r0201_rivalmama_del_up
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_DOWN,ev_t01r0201_rivalmama_del_down
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_LEFT,ev_t01r0201_rivalmama_del_left
+	_IFVAL_JUMP		SCWK_TEMP3,EQ,DIR_RIGHT,ev_t01r0201_rivalmama_del_right
+	_END
+
+/*ライバルママ退出*/
+ev_t01r0201_rivalmama_del_up:
+	_OBJ_ANIME		T01R0201_RIVALMAMA,anm_t01r0201_rivalmama_82
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_82
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_rivalmama_del_dir
+	_END
+
+ev_t01r0201_rivalmama_del_down:
+	_OBJ_ANIME		T01R0201_RIVALMAMA,anm_t01r0201_rivalmama_83
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_83
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_83
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_rivalmama_del_dir
+	_END
+
+ev_t01r0201_rivalmama_del_left:
+	_OBJ_ANIME		T01R0201_RIVALMAMA,anm_t01r0201_rivalmama_84
+	//_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_84
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_84
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_rivalmama_del_dir
+	_END
+
+ev_t01r0201_rivalmama_del_right:
+	_OBJ_ANIME		T01R0201_RIVALMAMA,anm_t01r0201_rivalmama_85
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t01r0201_player_85
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_rivalmama_del_dir
+	_END
+
+common_t01r0201_rivalmama_del_dir:
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		T01R0201_RIVALMAMA
+	_LDVAL			WK_SCENE_T01R0201,6
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//シューズをもらっていて、一度外に出ていたら回復
+//--------------------------------------------------------------------
+ev_t01r0201_mama_heal:
+	_PLAYER_NAME	0
+
+	/*時間帯によって分岐*/
+	_GET_TIME_ZONE	SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,EQ,TIMEZONE_MORNING,ev_t01r0201_mama_morning
+	_IFVAL_CALL		SCWK_ANSWER,EQ,TIMEZONE_NOON,ev_t01r0201_mama_noon
+	_IFVAL_CALL		SCWK_ANSWER,EQ,TIMEZONE_EVENING,ev_t01r0201_mama_evening
+	_IFVAL_CALL		SCWK_ANSWER,EQ,TIMEZONE_NIGHT,ev_t01r0201_mama_night
+	_IFVAL_CALL		SCWK_ANSWER,EQ,TIMEZONE_MIDNIGHT,ev_t01r0201_mama_midnight
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_ME_PLAY		SEQ_ASA
+	_ME_WAIT
+	_PC_KAIFUKU
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_RET
+
+/*時間帯回復メッセージ*/
+ev_t01r0201_mama_morning:
+	_TALK_KEYWAIT	msg_t01r0201_mama_10
+	_RET
+
+ev_t01r0201_mama_noon:
+	_TALK_KEYWAIT	msg_t01r0201_mama_18
+	_RET
+
+ev_t01r0201_mama_evening:
+	_TALK_KEYWAIT	msg_t01r0201_mama_18
+	_RET
+
+ev_t01r0201_mama_night:
+	_TALK_KEYWAIT	msg_t01r0201_mama_19
+	_RET
+
+ev_t01r0201_mama_midnight:
+	_TALK_KEYWAIT	msg_t01r0201_mama_20
+	_RET
+
+//--------------------------------------------------------------------
+//シューズをもらっていたら
+//--------------------------------------------------------------------
+ev_t01r0201_mama_bag_after:
+	_TALKMSG		msg_t01r0201_mama_09
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ポケモン入手していたら
+//--------------------------------------------------------------------
+ev_t01r0201_mama_poke_get:
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_t01r0201_mama_05
+	_TALK_CLOSE
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t01r0201_mama_06
+
+	//メニューに「バッグ」を追加する
+	_SYS_FLAG_BAG_SET
+	_ADD_ITEM		ITEM_KIZUGUSURI,1,SCWK_ANSWER	//キズぐすりを1ついれておく
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t01r0201_mama_07
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+
+	_TALKMSG		msg_t01r0201_mama_08
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+
+	_LDVAL			WK_SCENE_T01R0201,4
+
+	_TALK_OBJ_END
+	_END
+
+//ママとのPOS会話終了していて、再度話しかけ
+ev_t01r0201_mama_pos_talk2:
+	_RIVAL_NAME		0
+	_TALKMSG		msg_t01r0201_mama_04
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ママとのPOS会話終了していたら
+ev_t01r0201_mama_pos_talk:
+	_FLAG_SET		FE_T01R0201_MAMA_TALK2
+
+	_PLAYER_NAME		0
+	_TALKMSG		msg_t01r0201_mama_24
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//一度会話していたら
+ev_t01r0201_mama_talk:
+	_RIVAL_NAME		0
+	_TALKMSG		msg_t01r0201_mama_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//シューズをもらっていて、一度外に出ていたら回復
+ev_t01r0201_mama_heal_09:
+	_CALL			ev_t01r0201_mama_heal
+
+	_TALK_OBJ_END
+	_END
+
+//冒険ノート入手後に外から戻ってきたら回復
+ev_t01r0201_mama_heal_10:
+	_CALL			ev_t01r0201_mama_heal
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//母親	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_19
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//母親	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_20
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//母親	左を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_21
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//母親	ライバル母に気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_50
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//母親	その場動き
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_55
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//母親	主人公の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_51
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_mama_52
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_mama_53
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_mama_54
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//母親	退出したライバル母をみる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_83
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_mama_84
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル母親	ちかづく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_rivalmama_50
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル母親	主人公の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_rivalmama_52
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_rivalmama_53
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_rivalmama_54
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_rivalmama_55
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル母親	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_rivalmama_82
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_rivalmama_83
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_rivalmama_84
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_rivalmama_85
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_50
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	登場したライバル母の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_70
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	母の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_60
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_player_61
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_player_62
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_player_63
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ライバル母の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_52
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_player_53
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_player_54
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_player_55
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	退出ライバル母の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_82
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_player_83
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_player_84
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t01r0201_player_85
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						主人公母親ＰＯＳ							*/
+/********************************************************************/
+pos_t01r0201_mama:
+	_EVENT_START
+	_JUMP			pos_t01r0201_mama_01_a
+	_END
+
+//ママ近づいてくる
+pos_t01r0201_mama_01_a:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_t01r0201_player_01_01
+	_OBJ_ANIME		T01R0201_MAMA,anm_t01r0201_mama_01_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_t01r0201_mama
+	_END
+
+//共通処理
+common_t01r0201_mama:
+	//ママ会話終了
+	_LDVAL			WK_SCENE_T01R0201,2
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t01r0201_mama_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	ママの方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_01_01
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ママの方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_player_01_02
+	_ANIME_DATA	AC_WAIT_4F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//母親	主人公に近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_01_01
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	//_ANIME_DATA	AC_WALK_L_8F,1
+	//_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//母親	主人公に近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t01r0201_mama_01_02
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						　ライバル母親								*/
+/********************************************************************/
+ev_t01r0201_rivalmama:
+	_RIVAL_NAME		1
+	_EASY_OBJ_MSG	msg_t01r0201_rivalmama_05
+	_END
+
+
+/********************************************************************/
+/*					　			ＴＶ								*/
+/********************************************************************/
+ev_t01r0201_tv:
+	/*時間帯によって分岐*/
+	_GET_TIME_ZONE	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TIMEZONE_MORNING,ev_t01r0201_tv_morning
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TIMEZONE_NOON,ev_t01r0201_tv_noon
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TIMEZONE_EVENING,ev_t01r0201_tv_evening
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TIMEZONE_NIGHT,ev_t01r0201_tv_night
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TIMEZONE_MIDNIGHT,ev_t01r0201_tv_midnight
+	_END
+	
+ev_t01r0201_tv_morning:
+	_EASY_MSG		msg_t01r0201_tv_01
+	_END
+	
+ev_t01r0201_tv_noon:
+ev_t01r0201_tv_evening:
+	_EASY_MSG		msg_t01r0201_tv_02
+	_END
+
+ev_t01r0201_tv_night:
+ev_t01r0201_tv_midnight:
+	_EASY_MSG		msg_t01r0201_tv_03
+	_END
+
+
+/********************************************************************/
+/*					　		冷蔵庫									*/
+/********************************************************************/
+ev_t01r0201_freezer:
+	_EASY_MSG		msg_t01r0201_freezer_01
+	_END
+
+
+/********************************************************************/
+/*					　		シンク									*/
+/********************************************************************/
+ev_t01r0201_sink:
+	_EASY_MSG		msg_t01r0201_sink_01
+	_END
+
+
+/********************************************************************/
+/*					　		カウンタ									*/
+/********************************************************************/
+ev_t01r0201_counter:
+	_EASY_MSG		msg_t01r0201_counter_01
+	_END
+
+

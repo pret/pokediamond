@@ -1,0 +1,26 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: oekaki.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-02-13T16:15:17
+ *****************************************************************************/
+
+#ifndef NARC_OEKAKI_NAIX_
+#define NARC_OEKAKI_NAIX_
+
+enum {
+	NARC_oekaki_oekaki_m_nclr = 0,
+	NARC_oekaki_oekaki_s_nclr = 1,
+	NARC_oekaki_mainbg_lz_ncgr = 2,
+	NARC_oekaki_subbg_lz_ncgr = 3,
+	NARC_oekaki_mainbg_lz_nscr = 4,
+	NARC_oekaki_subbg_lz_nscr = 5,
+	NARC_oekaki_obj_lz_ncgr = 6,
+	NARC_oekaki_obj_lz_ncer = 7,
+	NARC_oekaki_obj_lz_nanr = 8
+};
+
+/* NARC_OEKAKI_NAIX_ */
+#endif

@@ -1,0 +1,141 @@
+//====================================================================
+//								r213r0501
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r213r0501.h"
+	//.include	"../eventdata/zone_r213r0501evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r213r0501_clown
+_EVENT_DATA		ev_r213r0501_mystery
+_EVENT_DATA		ev_r213r0501_man2
+_EVENT_DATA_END
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_r213r0501_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_r213r0501_clown:
+	_TALK_OBJ_START
+
+	/*すでにアイテム入手していたら*/
+	_IF_FLAGON_JUMP	FE_WAZAMASIN92_GET,ev_r213r0501_clown_02
+
+	_TALK_KEYWAIT	msg_r213r0501_clown_01
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN92
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r213r0501_clown_item_event_fail
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	_FLAG_SET		FE_WAZAMASIN92_GET
+	_JUMP			ev_r213r0501_clown_02
+
+/*すでにアイテム入手していたら*/
+ev_r213r0501_clown_02:
+	_TALKMSG		msg_r213r0501_clown_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*アイテム入手失敗*/
+ev_r213r0501_clown_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						ミステリアス								*/
+/********************************************************************/
+ev_r213r0501_mystery:
+	_TALK_OBJ_START
+
+	//会話している
+	_IF_FLAGON_JUMP		FE_R213R0501_MYSTERY_TALK,ev_r213r0501_mystery_06
+
+	_FLAG_SET		FE_R213R0501_MYSTERY_TALK
+
+	_TALK_KEYWAIT	msg_r213r0501_mystery_01
+
+	_GET_RND		SCWK_ANSWER,10
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r213r0501_mystery_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r213r0501_mystery_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_r213r0501_mystery_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,3,ev_r213r0501_mystery_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,4,ev_r213r0501_mystery_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,5,ev_r213r0501_mystery_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_r213r0501_mystery_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,7,ev_r213r0501_mystery_04
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,8,ev_r213r0501_mystery_04
+	_JUMP							ev_r213r0501_mystery_05
+
+ev_r213r0501_mystery_02:
+	_TALKMSG		msg_r213r0501_mystery_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r213r0501_mystery_03:
+	_TALKMSG		msg_r213r0501_mystery_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r213r0501_mystery_04:
+	_TALKMSG		msg_r213r0501_mystery_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r213r0501_mystery_05:
+	_TALKMSG		msg_r213r0501_mystery_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//会話している
+ev_r213r0501_mystery_06:
+	_TALKMSG		msg_r213r0501_mystery_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*						ツッパリ兄さん								*/
+/********************************************************************/
+ev_r213r0501_man2:
+	_EASY_OBJ_MSG	msg_r213r0501_man2_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

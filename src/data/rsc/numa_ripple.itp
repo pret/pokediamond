@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-04-26T13:26:31" source="numa_ripple.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="12"
+	tool_start_frame="1"
+	tool_end_frame="12"
+	compress_material="on" material_size="1 1"
+/>
+
+<tex_pattern_list_data image_size="4" palette_size="4">
+	<image_name index="0" name="n_ripple.1"/>
+	<image_name index="1" name="n_ripple.2"/>
+	<image_name index="2" name="n_ripple.3"/>
+	<image_name index="3" name="n_ripple.4"/>
+	<palette_name index="0" name="n_ripple.1_pl"/>
+	<palette_name index="1" name="n_ripple.2_pl"/>
+	<palette_name index="2" name="n_ripple.3_pl"/>
+	<palette_name index="3" name="n_ripple.4_pl"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="4">
+		0 3 6 9
+	</frame_idx>
+	<image_idx size="4">
+		0 1 2 3
+	</image_idx>
+	<palette_idx size="4">
+		0 1 2 3
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="1">
+	<tex_pattern_anm index="0" material_name="n_ripple" data_size="4" data_head="0"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

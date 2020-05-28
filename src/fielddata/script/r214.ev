@@ -1,0 +1,80 @@
+//====================================================================
+//						r214.gmm
+//					フィールド・ロード214
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r214.h"
+	.include	"../eventdata/zone_r214evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r214_sign1
+_EVENT_DATA		ev_r214_sign2
+_EVENT_DATA		ev_r214_flag_change
+_EVENT_DATA		ev_r214_init_change
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r214_init_change:
+	_ANOON_SEE_NUM	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,GE,ANOON_SEE_NUM_2,ev_r214_door_exit_move_2
+	_IFVAL_JUMP		LOCALWORK0,GE,ANOON_SEE_NUM_1,ev_r214_door_exit_move_1
+	_IFVAL_JUMP		LOCALWORK0,LT,ANOON_SEE_NUM_1,ev_r214_door_exit_move_0
+	_END
+
+/*アンノーンの種類が26種類以上 2段階目が入れる*/
+ev_r214_door_exit_move_2:
+	_SXY_EXIT_POS_CHANGE	R214_DOOR01,710,670
+	_SXY_EXIT_POS_CHANGE	R214_SP_MAT01,710,670
+	_END
+
+/*アンノーンの種類が10種類以上 1段階目が入れる*/
+ev_r214_door_exit_move_1:
+	_SXY_EXIT_POS_CHANGE	R214_DOOR01,710,670
+	_SXY_EXIT_POS_CHANGE	R214_SP_MAT02,710,670
+	_END
+
+/*アンノーンの種類が10種類未満 初期段階が入れる*/
+ev_r214_door_exit_move_0:
+	_SXY_EXIT_POS_CHANGE	R214_SP_MAT01,710,670
+	_SXY_EXIT_POS_CHANGE	R214_SP_MAT02,710,670
+	_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r214_flag_change:
+	_ANOON_SEE_NUM	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,GE,ANOON_SEE_NUM_2,ev_r214_door_exit_move_2
+	_IFVAL_JUMP		LOCALWORK0,GE,ANOON_SEE_NUM_1,ev_r214_door_exit_move_1
+	_IFVAL_JUMP		LOCALWORK0,LT,ANOON_SEE_NUM_1,ev_r214_door_exit_move_0
+	_END
+
+
+/********************************************************************/
+/*							道看板									*/
+/********************************************************************/
+ev_r214_sign1:
+	_EASY_BOARD_MSG	msg_r214_sign1_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							道看板									*/
+/********************************************************************/
+ev_r214_sign2:
+	_EASY_BOARD_MSG	msg_r214_sign2_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

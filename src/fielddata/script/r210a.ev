@@ -1,0 +1,353 @@
+//====================================================================
+//						r210a.gmm
+//					フィールド・ロード210a
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r210a.h"
+	.include	"../eventdata/zone_r210aevc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r210a_stopper
+_EVENT_DATA		ev_r210a_cowgirl1
+_EVENT_DATA		ev_r210a_woman3
+_EVENT_DATA		ev_r210a_sign1
+_EVENT_DATA		ev_r210a_sign2
+_EVENT_DATA		ev_r210a_jogger4
+_EVENT_DATA		ev_r210a_flag_change
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r210a_flag_change:
+	/*時間帯によって分岐*/
+	_GET_TIME_ZONE	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_MORNING,ev_r210a_fc_morning
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_NOON,ev_r210a_fc_noon
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_EVENING,ev_r210a_fc_evening
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_NIGHT,ev_r210a_fc_night
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_MIDNIGHT,ev_r210a_fc_midnight
+	_END
+	
+ev_r210a_fc_morning:
+	_FLAG_RESET		FV_R210A_JOGGER4_TR
+	_FLAG_SET		FV_R210A_JOGGER4_NPC
+	_END
+
+ev_r210a_fc_noon:
+ev_r210a_fc_evening:
+ev_r210a_fc_night:
+ev_r210a_fc_midnight:
+	_FLAG_RESET		FV_R210A_JOGGER4_NPC
+	_FLAG_SET		FV_R210A_JOGGER4_TR
+	_END
+
+
+/********************************************************************/
+/*							ストッパー								*/
+/********************************************************************/
+#define POS_R210A_CHAMP_X1	(560)
+#define POS_R210A_CHAMP_X2	(561)
+
+ev_r210a_stopper:
+	_TALK_OBJ_START
+
+	/*アイテム「ひでんのくすり」をもっている時*/
+	_ITEM_CHK		ITEM_HIDENNOKUSURI,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r210a_stopper_hiden
+
+	_TALKMSG		msg_r210a_stopper_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r210a_stopper_hiden:
+	_TALKMSG		msg_r210a_stopper_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_r210a_stopper_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_r210a_stopper_01
+	_END
+
+/*「いいえ」*/
+no_r210a_stopper_01:
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「はい」*/
+yes_r210a_stopper_01:
+	_PLAYER_NAME	0
+	_ITEM_NAME	1,ITEM_HIDENNOKUSURI
+	_TALK_KEYWAIT	msg_r210a_stopper_03
+	_TALK_CLOSE
+	_VOICE_PLAY		MONSNO_KODAKKU,0
+	_VOICE_WAIT
+
+	/*！*/
+	_OBJ_ANIME		R210A_STOPPER_1,anm_r210a_stopper_1_00
+	_OBJ_ANIME		R210A_STOPPER_2,anm_r210a_stopper_1_00
+	_OBJ_ANIME		R210A_STOPPER_3,anm_r210a_stopper_1_00
+	_OBJ_ANIME		R210A_STOPPER_4,anm_r210a_stopper_1_00
+	_OBJ_ANIME_WAIT
+
+	/*去っていく*/
+	_OBJ_ANIME		R210A_STOPPER_1,anm_r210a_stopper_1_01
+	_OBJ_ANIME		R210A_STOPPER_2,anm_r210a_stopper_2_01
+	_OBJ_ANIME		R210A_STOPPER_3,anm_r210a_stopper_3_01
+	_OBJ_ANIME		R210A_STOPPER_4,anm_r210a_stopper_4_01
+	_OBJ_ANIME_WAIT
+
+	/*画面上部に移動*/
+	_OBJ_DEL		R210A_STOPPER_1
+	_OBJ_DEL		R210A_STOPPER_2
+	_OBJ_DEL		R210A_STOPPER_3
+	_OBJ_DEL		R210A_STOPPER_4
+
+	_TIME_WAIT		45,SCWK_ANSWER
+
+	/*チャンピオン登場*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_R210A_CHAMP_X1,ev_r210a_champ_pos_x1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_R210A_CHAMP_X2,ev_r210a_champ_pos_x2
+	_END
+
+ev_r210a_champ_pos_x1:
+	_SXY_POS_CHANGE	R210A_CHAMP,POS_R210A_CHAMP_X1,596
+	_SXY_MV_CHANGE	R210A_CHAMP,MV_UP
+	_JUMP			common_r210a_champ_pos
+
+ev_r210a_champ_pos_x2:
+	_SXY_POS_CHANGE	R210A_CHAMP,POS_R210A_CHAMP_X2,596
+	_SXY_MV_CHANGE	R210A_CHAMP,MV_UP
+	_JUMP			common_r210a_champ_pos
+
+common_r210a_champ_pos:
+	_FLAG_RESET		FV_R210A_CHAMP
+	_OBJ_ADD		R210A_CHAMP
+	_OBJ_PAUSE		R210A_CHAMP
+	_OBJ_ANIME		R210A_CHAMP,anm_r210a_champ_01
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r210a_player_01
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG		msg_r210a_chanpion_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_r210a_chanpion_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_r210a_chanpion_01
+	_END
+
+//「いいえ」
+no_r210a_chanpion_01:
+	_TALKMSG		msg_r210a_chanpion_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_r210a_chanpion_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_r210a_chanpion_01
+	_END
+
+//「はい」
+yes_r210a_chanpion_01:
+	//アイテム入手「おまもり」
+	_LDVAL			SCWK_TEMP0,ITEM_KODAINOOMAMORI
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム入手成功
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	_TALK_KEYWAIT	msg_r210a_chanpion_02
+	_TALK_CLOSE
+
+	//チャンピオン去る
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_R210A_CHAMP_X1,ev_r210a_champ_pos_x1_2
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_R210A_CHAMP_X2,ev_r210a_champ_pos_x2_2
+	_END
+
+ev_r210a_champ_pos_x1_2:
+	_OBJ_ANIME		R210A_CHAMP,anm_r210a_champ_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_r210a_champ_pos_2
+
+ev_r210a_champ_pos_x2_2:
+	_OBJ_ANIME		R210A_CHAMP,anm_r210a_champ_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_r210a_champ_pos_2
+
+common_r210a_champ_pos_2:
+	_OBJ_DEL		R210A_CHAMP
+	_FLAG_SET		FE_R210A_CLEAR
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//コダック	退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r210a_stopper_1_00
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r210a_stopper_1_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,8				//10
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r210a_stopper_2_01
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,2
+	_ANIME_DATA	AC_WAIT_8F,6				//10
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r210a_stopper_3_01
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1		
+	_ANIME_DATA	AC_WALK_U_4F,2				//
+	_ANIME_DATA	AC_WAIT_8F,2				//10
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1		
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_R_4F,3
+	_ANIME_DATA	AC_WALK_U_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r210a_stopper_4_01
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WAIT_8F,8				//10
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	登場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r210a_champ_01
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	去る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r210a_champ_02
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r210a_champ_03
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	きづく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r210a_player_01
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r210a_player_02
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r210a_player_03
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							牧場少女								*/
+/********************************************************************/
+ev_r210a_cowgirl1:
+	_EASY_OBJ_MSG	msg_r210a_cowgirl_01
+	_END
+
+
+/********************************************************************/
+/*						トレーナー姉さん							*/
+/********************************************************************/
+ev_r210a_woman3:
+	_TALK_OBJ_START
+
+	/*すでにアイテム入手していたら*/
+	_IF_FLAGON_JUMP	FE_WAZAMASIN51_GET,ev_r210a_woman3_02
+
+	_TALK_KEYWAIT	msg_r210a_woman3_01
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN51
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r210a_woman3_item_event_fail
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	_FLAG_SET		FE_WAZAMASIN51_GET
+	_JUMP			ev_r210a_woman3_02
+
+/*すでにアイテム入手していたら*/
+ev_r210a_woman3_02:
+	_TALKMSG		msg_r210a_woman3_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*アイテム入手失敗*/
+ev_r210a_woman3_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_r210a_sign1:
+	_EASY_BOARD_MSG	msg_r210a_sign1_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*							標識									*/
+/********************************************************************/
+ev_r210a_sign2:
+	_EASY_BOARD_MSG	msg_r210a_sign2_01,BOARD_TYPE_ROAD,0
+	_END
+
+
+/********************************************************************/
+/*							ジョギング								*/
+/********************************************************************/
+ev_r210a_jogger4:
+	_EASY_OBJ_MSG	msg_r210a_jogger_04_01
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

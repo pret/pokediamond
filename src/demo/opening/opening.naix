@@ -1,0 +1,38 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: opening.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-26T12:47:45
+ *****************************************************************************/
+
+#ifndef NARC_OPENING_NAIX_
+#define NARC_OPENING_NAIX_
+
+enum {
+	NARC_opening_op_character01_NSCR = 0,
+	NARC_opening_op_character02_NSCR = 1,
+	NARC_opening_op_demo_NCGR = 2,
+	NARC_opening_op_demo01_NSCR = 3,
+	NARC_opening_op_demo02_NSCR = 4,
+	NARC_opening_op_demo_d_NCLR = 5,
+	NARC_opening_op_demo_p_NCLR = 6,
+	NARC_opening_op_hakase_NANR = 7,
+	NARC_opening_op_hakase_NCER = 8,
+	NARC_opening_op_hakase_NCLR = 9,
+	NARC_opening_op_rival_NANR = 10,
+	NARC_opening_op_rival_NCER = 11,
+	NARC_opening_op_rival_NCLR = 12,
+	NARC_opening_op_tutorial_NCGR = 13,
+	NARC_opening_op_tutorial_NCLR = 14,
+	NARC_opening_op_tutorial0_NSCR = 15,
+	NARC_opening_op_tutorial1_NSCR = 16,
+	NARC_opening_op_tutorial2_NSCR = 17,
+	NARC_opening_op_tutorial3_NSCR = 18,
+	NARC_opening_op_tutorial4_NSCR = 19,
+	NARC_opening_op_tutorial5_NSCR = 20
+};
+
+/* NARC_OPENING_NAIX_ */
+#endif

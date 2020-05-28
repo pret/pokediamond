@@ -1,0 +1,28 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: menu_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-20T13:48:34
+ *****************************************************************************/
+
+#ifndef NARC_MENU_GRA_NAIX_
+#define NARC_MENU_GRA_NAIX_
+
+enum {
+	NARC_menu_gra_fmenu_cur_NANR = 0,
+	NARC_menu_gra_fmenu_cur_NCER = 1,
+	NARC_menu_gra_fmenu_cur_NCGR = 2,
+	NARC_menu_gra_fmenu_obj_NANR = 3,
+	NARC_menu_gra_fmenu_obj_NCER = 4,
+	NARC_menu_gra_fmenu_obj_NCLR = 5,
+	NARC_menu_gra_fmenu_obj_NCGR = 6,
+	NARC_menu_gra_ugmenu_obj_NANR = 7,
+	NARC_menu_gra_ugmenu_obj_NCER = 8,
+	NARC_menu_gra_ugmenu_obj_NCLR = 9,
+	NARC_menu_gra_ugmenu_obj_NCGR = 10
+};
+
+/* NARC_MENU_GRA_NAIX_ */
+#endif

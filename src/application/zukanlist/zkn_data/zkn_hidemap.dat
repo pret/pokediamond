@@ -1,0 +1,33 @@
+/* ZONE_ID_D15 のフィールド分布ID */
+static const u16 ZKN_FLD_ZONE_ID_D15_IDTBL[] = {
+	0xffff,
+};
+/* ZONE_ID_D15 のダンジョン分布ID */
+static const u16 ZKN_DAN_ZONE_ID_D15_IDTBL[] = {
+	0xffff,
+};
+/* ZONE_ID_D18 のフィールド分布ID */
+static const u16 ZKN_FLD_ZONE_ID_D18_IDTBL[] = {
+	0xffff,
+};
+/* ZONE_ID_D18 のダンジョン分布ID */
+static const u16 ZKN_DAN_ZONE_ID_D18_IDTBL[] = {
+	0xffff,
+};
+/* ZONE_ID_D30 のフィールド分布ID */
+static const u16 ZKN_FLD_ZONE_ID_D30_IDTBL[] = {
+	0xffff,
+};
+/* ZONE_ID_D30 のダンジョン分布ID */
+static const u16 ZKN_DAN_ZONE_ID_D30_IDTBL[] = {
+	0xffff,
+};
+/* ZONE_ID_L04 のフィールド分布ID */
+static const u16 ZKN_FLD_ZONE_ID_L04_IDTBL[] = {
+	0xffff,
+};
+/* ZONE_ID_L04 のダンジョン分布ID */
+static const u16 ZKN_DAN_ZONE_ID_L04_IDTBL[] = {
+	10,
+	0xffff,
+};

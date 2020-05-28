@@ -1,0 +1,6 @@
+/.cvsignore////*///
+/makefile////*///
+/trdata.h////*///
+/trdata.narc////*///
+/trmsg.h////*///
+/trpoke.narc////*///

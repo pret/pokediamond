@@ -1,0 +1,793 @@
+//====================================================================
+//					フィールド・タウン０２
+//						マサゴタウン
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t02.h"
+	.include	"../eventdata/zone_t02evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t02_flag_change
+_EVENT_DATA		pos_t02_support
+_EVENT_DATA		ev_t02_support
+_EVENT_DATA		ev_t02_boy1
+_EVENT_DATA		ev_t02_man1
+_EVENT_DATA		ev_t02_woman1
+_EVENT_DATA		ev_t02_girl
+_EVENT_DATA		ev_t02_sign1
+_EVENT_DATA		ev_t02_sign2
+_EVENT_DATA		ev_t02_sign3
+_EVENT_DATA		ev_t02_fssign
+_EVENT_DATA		ev_t02_pcsign
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_t02_flag_change:
+	//サポートの教えイベントの配置に変更
+	_IFVAL_CALL		WK_SCENE_T02,EQ,1,sxy_chg_t02_support
+
+	//WKOBJCHRにサポートのキャラコードをセットする
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,t02_male_flag_change_01	//サポート女
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,t02_female_flag_change_01	//サポート男
+	_END
+
+//サポートの教えイベントの配置に変更
+sxy_chg_t02_support:
+	_SXY_POS_CHANGE	T02_SUPPORT,168,845
+	_SXY_DIR_CHANGE	T02_SUPPORT,DIR_UP
+	_SXY_MV_CHANGE	T02_SUPPORT,MV_UP
+	_RET
+
+t02_male_flag_change_01:	//サポート女
+	_LDVAL			OBJCHRWORK0,HEROINE
+	_END
+
+t02_female_flag_change_01:	//サポート男
+	_LDVAL			OBJCHRWORK0,HERO
+	_END
+
+
+/********************************************************************/
+/*						サポート（POS)								*/
+/********************************************************************/
+#define POS_T02_SUPPORT_Z1	(843)
+#define POS_T02_SUPPORT_Z2	(844)
+#define POS_T02_SUPPORT_Z3	(845)
+#define POS_T02_SUPPORT_Z4	(846)
+#define POS_T02_SUPPORT_Z5	(847)
+#define POS_T02_SUPPORT_Z6	(848)
+
+pos_t02_support:
+	_EVENT_START
+
+	//サポート気づく！
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_50
+	_OBJ_ANIME_WAIT
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z1,pos_t02_support_a1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z2,pos_t02_support_b1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z3,pos_t02_support_c1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z4,pos_t02_support_d1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z5,pos_t02_support_e1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z6,pos_t02_support_f1
+	_END
+
+//--------------------------------------------------------------------
+//サポート	近寄る
+//--------------------------------------------------------------------
+pos_t02_support_a1:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_02_t02_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common
+
+pos_t02_support_b1:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common
+
+pos_t02_support_c1:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_03
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common
+
+pos_t02_support_d1:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_04
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_02_t02_player_04
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common
+
+pos_t02_support_e1:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_05
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_02_t02_player_05
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common
+
+pos_t02_support_f1:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_06
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_02_t02_player_06
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common
+	_END
+
+//--------------------------------------------------------------------
+//共通処理
+//--------------------------------------------------------------------
+pos_t02_support_10_common:
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02_support_male_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t02_support_female_01
+	_END
+
+t02_support_male_01:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_t02_heroine_01
+	_JUMP			t02_01_support_common_01
+
+t02_support_female_01:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_t02_hero_01
+	_JUMP			t02_01_support_common_01
+
+t02_01_support_common_01:
+	_TALK_CLOSE
+
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z1,pos_t02_support_a2
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z2,pos_t02_support_b2
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z3,pos_t02_support_c2
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z4,pos_t02_support_d2
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z5,pos_t02_support_e2
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_T02_SUPPORT_Z6,pos_t02_support_f2
+	_END
+
+//--------------------------------------------------------------------
+//研究所まで主人公を連れて行く
+//--------------------------------------------------------------------
+pos_t02_support_a2:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_11
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_03_t02_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common_02
+
+pos_t02_support_b2:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_12
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_03_t02_player_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common_02
+
+pos_t02_support_c2:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_13
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_03_t02_player_03
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common_02
+
+pos_t02_support_d2:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_14
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_03_t02_player_04
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common_02
+
+pos_t02_support_e2:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_15
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_03_t02_player_05
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common_02
+
+pos_t02_support_f2:
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_16
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_03_t02_player_06
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t02_support_10_common_02
+
+//--------------------------------------------------------------------
+//ドアを開ける
+//--------------------------------------------------------------------
+pos_t02_support_10_common_02:
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02_support_male_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t02_support_female_02
+	_END
+
+t02_support_male_02:
+	_TALK_KEYWAIT	msg_t02_heroine_02
+	_JUMP			t02_01_support_common_02
+
+t02_support_female_02:
+	_TALK_KEYWAIT	msg_t02_hero_02
+	_JUMP			t02_01_support_common_02
+
+t02_01_support_common_02:
+	//ドアアニメをセットアップ
+	_SET_UP_DOOR_ANIME	5,26,8,10,77
+
+	//ドア開ける
+	_SEQ_OPEN_DOOR	77
+
+	//アニメ終了待ち
+	_WAIT_3D_ANIME	77
+
+	//ライバル登場
+	_FLAG_RESET		FV_T02_RIVAL
+	_OBJ_ADD		T02_RIVAL
+	_OBJ_ANIME		T02_RIVAL,anm_t02_rival_01
+	_OBJ_ANIME_WAIT
+
+	//ライバル　主人公とぶつかる
+	_OBJ_ANIME		T02_RIVAL,anm_t02_rival_02
+	_OBJ_ANIME_WAIT
+
+	//「ドン」
+	_SE_PLAY		SEQ_SE_DP_WALL_HIT2
+	_TALKMSG		msg_t02_rival_01
+
+	//ライバル	ビックリマークアニメ
+	_OBJ_ANIME		T02_RIVAL,anm_t02_rival_03
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_t02_rival_02
+	_TALK_CLOSE
+
+	//ライバルr202の方へ
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02_player_24
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_24
+	_OBJ_ANIME		T02_RIVAL,anm_t02_rival_04
+	_OBJ_ANIME_WAIT
+
+	_OBJ_DEL		T02_RIVAL
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02_support_male_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t02_support_female_03
+	_END
+
+t02_support_male_03:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_t02_heroine_03
+	_JUMP			t02_01_support_common_03
+	_END
+
+t02_support_female_03:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_t02_hero_03
+	_JUMP			t02_01_support_common_03
+
+t02_01_support_common_03:
+	_TALK_CLOSE
+
+	//部屋に入るアニメ
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_21
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_04_t02_player_11
+	_OBJ_ANIME_WAIT
+
+	//ドア閉める
+	_SEQ_CLOSE_DOOR	77
+
+	//アニメ終了待ち
+	_WAIT_3D_ANIME	77
+
+	//ドアアニメ解放
+	_FREE_3D_ANIME	77
+
+	//サポート消す
+	_OBJ_DEL		T02_SUPPORT
+
+	//POS終了
+	_LDVAL			WK_SCENE_T02,1
+
+	_MAP_CHANGE		ZONE_ID_T02R0101,0,7,15,DIR_UP
+	_END
+
+//--------------------------------------------------------------------
+//サポート	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_50
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	近寄り
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_01
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_02
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_03
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_04
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_05
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_06
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	研究所へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_11
+	_ANIME_DATA	AC_WALK_R_8F,5
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_12
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_13
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_14
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_15
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,5
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_t02_support_16
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,5
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	研究所に入る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_21
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	ライバルの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_24
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	連れられ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_02_t02_player_01
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_02_t02_player_02
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_02_t02_player_03
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_02_t02_player_04
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_02_t02_player_05
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_02_t02_player_06
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	研究所へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_03_t02_player_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_03_t02_player_02
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_03_t02_player_03
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_03_t02_player_04
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_03_t02_player_05
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_03_t02_player_06
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	研究所に入る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_04_t02_player_11
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ライバルの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_player_24
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	登場
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_rival_01
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	主人公にぶつかる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_rival_02
+	_ANIME_DATA	AC_STAY_WALK_D_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	びっくり
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_rival_03
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	R202へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_rival_04
+	_ANIME_DATA	AC_WALK_R_4F,2
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,7
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						サポート(研究所後)							*/
+/********************************************************************/
+ev_t02_support:
+	_EVENT_START
+
+	//サポート近寄りアニメ　
+	_OBJ_ANIME		T02_SUPPORT,anm_02_t02_support_01
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02_support_male_51
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t02_support_female_51
+	_END
+
+t02_support_male_51:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_t02_heroine_04
+	_JUMP			t02_01_support_common_05
+
+t02_support_female_51:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_t02_hero_04
+	_JUMP			t02_01_support_common_05
+
+t02_01_support_common_05:
+	_TALK_CLOSE
+
+	_CHG_COMMON_SCR SCRID_TSURETEKE_PLAY				/*つれてけ曲再生*/
+
+	//PCへ移動
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_60
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02_player_60
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02_support_male_52
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t02_support_female_52
+	_END
+
+t02_support_male_52:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_t02_heroine_05
+	_JUMP			t02_01_support_common_06
+
+t02_support_female_52:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_t02_hero_05
+	_JUMP			t02_01_support_common_06
+
+t02_01_support_common_06:
+	_TALK_CLOSE
+
+	//FSへ移動
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_70
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02_player_70
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02_support_male_53
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t02_support_female_53
+	_END
+
+t02_support_male_53:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t02_heroine_06
+	_JUMP			t02_01_support_common_07
+
+t02_support_female_53:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t02_hero_06
+	_JUMP			t02_01_support_common_07
+
+t02_01_support_common_07:
+	_TALK_CLOSE
+
+	//振り向く
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_79
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02_player_80
+	_OBJ_ANIME_WAIT
+
+	//サポート「！」
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_80
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02_support_male_54
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,t02_support_female_54
+	_END
+
+t02_support_male_54:
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_t02_heroine_07
+	_JUMP			t02_01_support_common_08
+
+t02_support_female_54:
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_t02_hero_07
+	_JUMP			t02_01_support_common_08
+
+t02_01_support_common_08:
+	_TALK_CLOSE
+
+	//サポート退場
+	_OBJ_ANIME		T02_SUPPORT,anm_t02_support_85
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02_player_85
+	_OBJ_ANIME_WAIT
+
+	_CHG_COMMON_SCR SCRID_TSURETEKE_STOP				/*つれてけ曲停止*/
+
+	//サポートを消す
+	_OBJ_DEL		T02_SUPPORT
+
+	//サポートイベント終了
+	_LDVAL			WK_SCENE_T02,2
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	PCへ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_player_60
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,9
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	FSへ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_player_70
+	_ANIME_DATA	AC_WALK_R_8F,10
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	サポートの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_player_80
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	サポート見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_player_85
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	近寄り
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_02_t02_support_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	PCへ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_60
+	_ANIME_DATA	AC_WALK_R_8F,10
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	FSへ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_70
+	_ANIME_DATA	AC_WALK_R_8F,10
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	振り向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_79
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	！
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_80
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート退場
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_t02_support_85
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,5
+	_ANIME_DATA	AC_WALK_U_8F,10
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*								少年								*/
+/********************************************************************/
+ev_t02_boy1:
+	_EASY_OBJ_MSG	msg_t02_boy1_01
+	_END
+
+
+/********************************************************************/
+/*								青年								*/
+/********************************************************************/
+ev_t02_man1:
+	_EASY_OBJ_MSG	msg_t02_man1_01
+	_END
+
+
+/********************************************************************/
+/*						　		女性								*/
+/********************************************************************/
+ev_t02_woman1:
+	_EASY_OBJ_MSG	msg_t02_woman1_01
+	_END
+
+
+/********************************************************************/
+/*							　	少女								*/
+/********************************************************************/
+ev_t02_girl:
+	_EASY_OBJ_MSG	msg_t02_girl_01
+	_END
+
+
+/********************************************************************/
+/*							タウンマップ							*/
+/********************************************************************/
+ev_t02_sign1:
+	_EASY_BOARD_MSG	msg_t02_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_t02_sign2:
+	_EASY_BOARD_MSG	msg_t02_sign2_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_t02_sign3:
+	_SUPPORT_NAME	0
+	_EASY_BOARD_MSG	msg_t02_sign3_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*							施設：FS								*/
+/********************************************************************/
+ev_t02_fssign:
+	_EASY_BOARD_MSG	msg_t02_fssign_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*							施設：PC								*/
+/********************************************************************/
+ev_t02_pcsign:
+	_EASY_BOARD_MSG	msg_t02_pcsign_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

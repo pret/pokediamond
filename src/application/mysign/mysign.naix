@@ -1,0 +1,27 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: mysign.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-07T13:39:11
+ *****************************************************************************/
+
+#ifndef NARC_MYSIGN_NAIX_
+#define NARC_MYSIGN_NAIX_
+
+enum {
+	NARC_mysign_mysign_m_nclr = 0,
+	NARC_mysign_mysign_m_obj_nclr = 1,
+	NARC_mysign_mysign_s_nclr = 2,
+	NARC_mysign_mainbg_lz_ncgr = 3,
+	NARC_mysign_subbg_lz_ncgr = 4,
+	NARC_mysign_mainbg_lz_nscr = 5,
+	NARC_mysign_subbg_lz_nscr = 6,
+	NARC_mysign_obj_lz_ncgr = 7,
+	NARC_mysign_obj_lz_ncer = 8,
+	NARC_mysign_obj_lz_nanr = 9
+};
+
+/* NARC_MYSIGN_NAIX_ */
+#endif

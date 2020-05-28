@@ -1,0 +1,125 @@
+//====================================================================
+//								l03
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_l03.h"
+	.include	"../eventdata/zone_l03evc.h"
+	.include	"../eventdata/zone_l03evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_l03_flag_change
+_EVENT_DATA		ev_l03_init_change
+_EVENT_DATA		ev_l03_gingam1
+_EVENT_DATA		ev_l03_gingam2
+_EVENT_DATA		ev_l03_sign1
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_l03_init_change:
+	_IF_FLAGOFF_JUMP	FE_D27R0102_GKANBU_WIN,ev_l03_door_exit_move_1
+	_IF_FLAGON_JUMP		FE_D27R0102_GKANBU_WIN,ev_l03_door_exit_move_2
+	_END
+
+/*L01でギンガ団と戦闘前はd29r0102には入れない！*/
+ev_l03_door_exit_move_1:
+	_SXY_EXIT_POS_CHANGE	L03_SP_MAT01,310,235
+	_SXY_EXIT_POS_CHANGE	L03_SP_MAT02,311,235
+	_END
+
+/*L01でギンガ団と戦闘後はd29r0101には入れない！*/
+ev_l03_door_exit_move_2:
+	_SXY_EXIT_POS_CHANGE	L03_DOOR01,310,235
+	_SXY_EXIT_POS_CHANGE	L03_DOOR02,311,235
+	_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_l03_flag_change:
+
+	/*キッサキバッチ取得済み*/
+	_SYS_FLAG_BADGE_GET		BADGE_ID_C09,LOCALWORK0
+	_IFVAL_CALL				LOCALWORK0,EQ,1,ev_l03_gingam1_pos_chg
+
+	_IF_FLAGOFF_JUMP	FE_D27R0102_GKANBU_WIN,ev_l03_door_exit_move_1
+	_IF_FLAGON_JUMP		FE_D27R0102_GKANBU_WIN,ev_l03_door_exit_move_2
+	_END
+
+/*キッサキバッチ取得済み*/
+ev_l03_gingam1_pos_chg:
+	_SXY_POS_CHANGE		L03_GINGAM_01,312,240
+	_SXY_POS_CHANGE		L03_GINGAM_02,308,242
+	_RET
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_l03_gingam1:
+	_TALK_OBJ_START
+
+	/*キッサキバッチ取得済み*/
+	_SYS_FLAG_BADGE_GET		BADGE_ID_C09,SCWK_ANSWER
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,1,ev_l03_gingam1_badge_get
+
+	_TALKMSG		msg_l03_gingam1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*キッサキバッチ取得済み*/
+ev_l03_gingam1_badge_get:
+	_TALKMSG		msg_l03_gingam1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_l03_gingam2:
+	_TALK_OBJ_START
+
+	/*キッサキバッチ取得済み*/
+	_SYS_FLAG_BADGE_GET		BADGE_ID_C09,SCWK_ANSWER
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,1,ev_l03_gingam2_badge_get
+
+	_TALKMSG		msg_l03_gingam2_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*キッサキバッチ取得済み*/
+ev_l03_gingam2_badge_get:
+	_TALKMSG		msg_l03_gingam2_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							標識									*/
+/********************************************************************/
+ev_l03_sign1:
+	_EASY_BOARD_MSG	msg_l03_sign1_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

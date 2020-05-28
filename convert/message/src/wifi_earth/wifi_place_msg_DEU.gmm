@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="watanabe" host="W00100" date="2006-04-25T20:41:59"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="223" top="358" right="928" bottom="986" maximized="no" rayout="Vertical2">
+		<comment-input left="928" top="834" right="1275" bottom="986" visible="yes"/>
+		<tag-palette left="928" top="436" right="1275" bottom="834" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="556"/>
+		<band id="3" index="3" style="0000" width="139"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="DEU00">
+		<language name="日本語">なし</language>
+	</row>
+
+	<row id="DEU01">
+		<language name="日本語">バーデン＝ビュルテンベルク</language>
+	</row>
+
+	<row id="DEU02">
+		<language name="日本語">バイエルン</language>
+	</row>
+
+	<row id="DEU03">
+		<language name="日本語">ベルリン</language>
+	</row>
+
+	<row id="DEU04">
+		<language name="日本語">ブランデンブルク</language>
+	</row>
+
+	<row id="DEU05">
+		<language name="日本語">ブレーメン</language>
+	</row>
+
+	<row id="DEU06">
+		<language name="日本語">ハンブルク</language>
+	</row>
+
+	<row id="DEU07">
+		<language name="日本語">ヘッセン</language>
+	</row>
+
+	<row id="DEU08">
+		<language name="日本語">メクレンブルク・フォアポメルン</language>
+	</row>
+
+	<row id="DEU09">
+		<language name="日本語">ニーダーザクセン</language>
+	</row>
+
+	<row id="DEU10">
+		<language name="日本語">ノルトライン・ベストファーレン</language>
+	</row>
+
+	<row id="DEU11">
+		<language name="日本語">ラインラント・プファルツ</language>
+	</row>
+
+	<row id="DEU12">
+		<language name="日本語">ザールラント</language>
+	</row>
+
+	<row id="DEU13">
+		<language name="日本語">ザクセン</language>
+	</row>
+
+	<row id="DEU14">
+		<language name="日本語">ザクセン・アンハルト</language>
+	</row>
+
+	<row id="DEU15">
+		<language name="日本語">シュレスビヒ・ホルシュタイン</language>
+	</row>
+
+	<row id="DEU16">
+		<language name="日本語">チューリンゲン</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

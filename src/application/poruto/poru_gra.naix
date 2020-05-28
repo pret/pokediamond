@@ -1,0 +1,29 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: poru_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-12T13:50:39
+ *****************************************************************************/
+
+#ifndef NARC_PORU_GRA_NAIX_
+#define NARC_PORU_GRA_NAIX_
+
+enum {
+	NARC_poru_gra_poru_bg_nclr = 0,
+	NARC_poru_gra_poru_oam_nclr = 1,
+	NARC_poru_gra_poru_bg_main_ncgr = 2,
+	NARC_poru_gra_poru_bg_sub_ncgr = 3,
+	NARC_poru_gra_poru_oam_main_ncgr = 4,
+	NARC_poru_gra_poru_oam_sub_ncgr = 5,
+	NARC_poru_gra_poru_oam_main_ncer = 6,
+	NARC_poru_gra_poru_oam_main_nanr = 7,
+	NARC_poru_gra_poru_oam_sub_ncer = 8,
+	NARC_poru_gra_poru_oam_sub_nanr = 9,
+	NARC_poru_gra_poru_bg_main_nscr = 10,
+	NARC_poru_gra_poru_bg_sub_nscr = 11
+};
+
+/* NARC_PORU_GRA_NAIX_ */
+#endif

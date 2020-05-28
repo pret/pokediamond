@@ -1,0 +1,468 @@
+;-----------------------------------------------------------------------------
+;		BASIC  セクション
+;-----------------------------------------------------------------------------
+
+000 : ADPCM,		"reverscyn_16.aif",	c3,127,127,127,126	;
+001 : DRUM_SET,	_DRUM_SET1
+
+002 : KEY_SPLIT,	_STY_PIANO
+003 : KEY_SPLIT,	_LOW_PIANO
+
+004 : KEY_SPLIT,	_ELPIANO1
+005 : KEY_SPLIT,	_ELPIANO2
+
+006 : DRUM_SET,		_DRUM_SET2
+007 : KEY_SPLIT,	_CLAVI
+;008 : DRUM_SET,	_DRUM_SET3
+
+009 : KEY_SPLIT,	_GLOCKEN
+;010 : ADPCM,		"synpiano_c2_16.aif",	c3,127,127,127,116	;
+;010 : KEY_SPLIT,	_SYN_PIANO
+011 : KEY_SPLIT,	_VIBRAPHONE
+012 : KEY_SPLIT,	_MARIMBA
+013 : KEY_SPLIT,	_XYLOPHONE
+014 : KEY_SPLIT,	_TUB_BELL
+
+017 : KEY_SPLIT,	_ORG1
+018 : KEY_SPLIT,	_ORG2
+019 : ADPCM,		 "org5_c3_16.aif",	cn4,127,122,122,120	;
+
+021 : KEY_SPLIT,	_ACCORD
+022 : ADPCM,		"harmonica_c3_16.aif",	c4,116,90,110,120	;
+
+024 : KEY_SPLIT,	_AC_GT
+025 : ADPCM,		 "bluesgt_a2_16.aif",	a3,127,10,120,116	;
+;026 : KEY_SPLIT,	_BANJO
+027 : KEY_SPLIT,	_CL_GT
+
+029 : KEY_SPLIT,	_DIS_GT
+030 : KEY_SPLIT,	_POWER_GT
+
+032 : KEY_SPLIT,	_AC_BASS
+033 : ADPCM,		"sting_bass_e1_16.aif",	 e1,127, 60,  1,116	;
+034 : ADPCM,		"pickbass_e1_16.aif",	 e1,127, 60,  1,116	;
+035 : ADPCM,		"fretlessbass_d1_16.aif",d2,127,127,127,118	;
+036 : ADPCM,		"slapbass_g1_16.aif",  	 g1,127,127,127,112	;
+037 : ADPCM,		"slapbass_c1_16.aif", 	 c2,127,127,127,114	;
+038 : ADPCM,		"synbass1_c2_16.aif",	 c2,127,125,127,118	;
+039 : ADPCM,		"synbass2_c1_16.aif",	 c2,127,127,127,112	;
+040 : KEY_SPLIT,	_VIOLIN
+041 : ADPCM,		"oct_g3_16.aif",	g4,127,110, 127,115	;
+
+045 : KEY_SPLIT,	_PIZ
+046 : KEY_SPLIT,	_HARP
+047 : KEY_SPLIT,	_TIMPA
+048 : KEY_SPLIT,	_STRINGS
+049 : ADPCM,		"octlow_cs2_16.aif",	cs4,127,120,127,118	;
+050 : ADPCM,		"octlowbra_b2_16.aif",	b3,127,120, 127,110	;
+
+
+051 : KEY_SPLIT,	_MEROTIM
+;=============================================================================
+;	SE　常駐音色
+;
+;	色々な場所で使いそうなので以下の音色を常駐にしています
+;	SEQ_SE_DP_KON
+;	SEQ_SE_DP_BOX01
+;	SEQ_SE_DP_BOX02
+;	SEQ_SE_DP_BOWA2
+;	SEQ_SE_DP_KAIFUKU
+;
+;	音色ごとの増えた容量
+;	008		0
+;	031		0
+;	042		0
+;	043		2356
+;	044		1432
+;	052		0
+;	053		3612
+;	054		2068
+;	067		0
+;	069		0
+;	072		0
+;
+008 : NOISE,			,110,127, 60,120;カード
+031 : PSG,		DUTY_4_8,	,126,100,40,127	;パソコン起動、毒
+042 : PSG,			DUTY_4_8,		,127,50,0,125	;kaifuku
+043 : ADPCM,		"kaze_13.aif",			,99,99,99,110	;
+044 : ADPCM,		"explosion.aif",		,99,10,0,80		;
+052 : PSG,			DUTY_4_8,		,127,70,0,110	;kon
+053 : ADPCM,		"psg_plus_c4.aif",		,127,70,0,120	;kon
+054 : ADPCM,		"bubble_13.aif",		,125,127,127,127;box01
+067 : PSG,			DUTY_4_8,		,124,100,80,110	;
+069 : NOISE,						,125,100, 0,120	;win_open
+072 : PSG,			DUTY_4_8,			,124,100,80,120	;瀕死(リリースは長くしてはダメ！)
+;=============================================================================
+
+
+055 : ADPCM,		"octhit_c2_16.aif",	c3,127,120,127,112	;
+056 : KEY_SPLIT,	_TRUMPET
+057 : KEY_SPLIT,	_TROMBONE
+058 : KEY_SPLIT,	_TUBA
+059 : KEY_SPLIT,	_TRUMPET2
+060 : KEY_SPLIT,	_F_HORN
+061 : KEY_SPLIT,	_MERO_DISGT					;メロDIS_GT
+
+
+062 : PSG,		DUTY_2_8,	,124,100,80,110	;オルガンぽい81より丸い
+063 : PSG,		DUTY_1_8,	,124,100,80,110	;高音ペンペン低音深い
+
+064 : ADPCM,		"synbass_c1_16.aif",	c2,127,125,127,114	;
+065 : ADPCM,		 "altosax_c3_16.aif",	c4,127,117,126,118	;
+066 : KEY_SPLIT,	_AC_BASS2
+
+068 : ADPCM,		 "oboe_c3_16.aif",	c4,127,100, 90,114	;
+
+070 : PSG,		DUTY_2_8,	, 90,127,80,110	;立ち上がり滑らか
+
+071 : ADPCM,		 "sy_clarinet_c3_16.aif",c4,127,100,100,114	;
+
+073 : KEY_SPLIT,	_FLUTE
+074 : ADPCM,		"woodpat_c4_16.aif",	c6,120,90,70,122	;
+
+
+078 : KEY_SPLIT,	_WHISTLE
+;079 : ADPCM,		"b_bell_c5_16.aif",	c6,127,127,127,122	;
+
+
+;-----------------------------------------------------------------------------
+;			侍スプリット設定
+;-----------------------------------------------------------------------------
+@KEY_SPLIT
+
+_STY_PIANO =
+
+g2  :  ADPCM, "sty_piano_g1_16.aif",	gn2,	127,  75,   1, 110		; piano1 c2
+a3  :  ADPCM, "sty_piano_c2_16.aif",	cn3,	127,  75,   1, 110		; piano1 c2
+e4  :  ADPCM, "sty_piano_c3_16.aif",	cn4,	127,  75,   1, 116		; piano1 c2
+b4  :  ADPCM, "sty_piano_g3_16.aif",	gn4,	127,  80,   1, 116		; piano1 c2
+e5  :  ADPCM, "sty_piano_c4_16.aif",	cn5,	127,  85,   1, 116		; piano1 c2
+b5  :  ADPCM, "sty_piano_f4_16.aif",	fn5,	127,  90,   1, 116		; piano1 c2
+e6  :  ADPCM, "sty_piano_c5_16.aif",	cn6,	127,  90,   1, 116		; piano1 c2
+127 :  ADPCM, "sty_piano_c6_16.aif",	cn7,	127,  90,   1, 116		; piano1 c2
+
+_LOW_PIANO =
+fs1  :  ADPCM, "sty_piano_c0_16.aif",	cn1,	127,  75,   1, 108		;
+127 :  ADPCM, "sty_piano_c1_16.aif",	cn2,	127,  75,   1, 110		;
+
+_ELPIANO1 =
+fs3  : ADPCM, "el_pia_c3_22.aif",	cn4,	127, 100,   0, 125		;
+127  : ADPCM, "el_pia_c4_22.aif",	cn5,	127, 100,   0, 125		;
+
+_ELPIANO2 =
+g3  : ADPCM,  "el_pia2_c3_22.aif",	cn4,	127,  80,   0, 116		;
+127  : ADPCM, "el_pia2_c4_22.aif",	cn5,	127,  80,   0, 116		;
+
+_CLAVI =
+g2  :  ADPCM, "clavi_c1_16.aif",	cn2,	127,  75,   1, 126		;
+a3  :  ADPCM, "clavi_c2_16.aif",	cn3,	127,  75,   1, 126		;
+127 :  ADPCM, "clavi_c3_16.aif",	cn4,	127,  75,   1, 126		;
+
+_GLOCKEN =
+127  : ADPCM, "glocken_c6_16.aif",	cn7,	127,  90,   0, 116		;
+
+_VIBRAPHONE =
+b2  : ADPCM, "vibra_c1_16.aif",		cn2,	127,  90,   0, 118		;
+b3  : ADPCM, "vibra_c2_16.aif",		cn3,	127,  90,   0, 118		;
+b4  : ADPCM, "vibra_c3_16.aif",		cn4,	127,  90,   0, 116		;
+b5  : ADPCM, "vibra_c4_16.aif",		cn5,	127,  90,   0, 116		;
+b6  : ADPCM, "vibra_c5_16.aif",		cn6,	127,  90,   0, 116		;
+127 : ADPCM, "vibra_c6_16.aif", 	cn7,	127,  90,   0, 116		;
+
+_MARIMBA =
+b4  : ADPCM, "marin_c3_16.aif",		cn4,	127,  90,   0, 114		;
+b5  : ADPCM, "marin_c4_16.aif",		cn5,	127,  90,   0, 114		;
+127  : ADPCM, "marin_c5_16.aif",	cn6,	127,  90,   0, 114		;
+
+_XYLOPHONE =
+c3  : ADPCM, "xylphone_c2_16.aif",	cn3,	127,  80,  40, 118		; elpiano1 c3
+f4  : ADPCM, "xylphone_c3_16.aif",	cn4,	127,  80,  40, 118		; elpiano1 c4
+e5  : ADPCM, "xylphone_c4_16.aif",	cn5,	127,  80,  60, 118		; elpiano1 c6
+e6  : ADPCM, "xylphone_c5_16.aif",	cn6,	127,  80,  60, 118		; elpiano1 c6
+127 : ADPCM, "xylphone_c6_16.aif",	cn7,	127,  90,  40, 118		; elpiano1 c6
+
+_TUB_BELL =
+fs4  : ADPCM, "tub_bell_c3_16.aif",	cn3,	127,  80,   0, 110		; piano1 c2
+fs5  : ADPCM, "tub_bell_c4_16.aif",	cn4,	127,  80,   0, 110		; piano1 c2
+fs6  : ADPCM, "tub_bell_c5_16.aif",	cn5,	127,  80,   0, 110		; piano1 c2
+127  : ADPCM, "tub_bell_c6_16.aif",	cn6,	127,  80,   0, 110		; piano1 c2
+
+_ORG1 =
+b3  : ADPCM, "org1_c2_16.aif",		cn3,	127, 127, 127, 116		;
+f5  : ADPCM, "org1_c3_16.aif",		cn4,	127, 120, 120, 116		;
+f6  : ADPCM, "org1_c4_16.aif",		cn5,	127, 127, 127, 116		;
+127 : ADPCM, "org1_c5_16.aif",		cn6,	127, 127, 127, 116		;
+
+_ORG2 =
+b3  : ADPCM, "org4_c3_16.aif",		cn4,	127, 127, 127, 116		;
+127 : ADPCM, "org4_c4_16.aif",		cn5,	127, 127, 127, 116		;
+
+_ACCORD =
+b1  : ADPCM, "accordion_c1_16.aif",	cn2,	127, 127, 127, 118		;
+b2  : ADPCM, "accordion_c2_16.aif",	cn3,	127, 127, 127, 118		;
+b3  : ADPCM, "accordion_c3_16.aif",	cn4,	120, 120, 117, 118		;
+127  : ADPCM, "accordion_c4_16.aif",	cn5,	118, 120, 110, 118		;
+
+_AC_GT =
+a2  : ADPCM, "acgt_e1_16.aif",		e2,	127,  30,  90, 116		;
+a3  : ADPCM, "acgt_e2_16.aif",		e3,	127,  30,  90, 116		;
+a4  : ADPCM, "acgt_e3_16.aif",		e4,	127,  30,  90, 116		;
+127 : ADPCM, "acgt_e4_16.aif",		e5,	127,  30,  90, 116		;
+
+_CL_GT =
+b2  : ADPCM, "clean_gt_c1_16.aif",	cn2,	127,  90,   0, 120		;
+b3  : ADPCM, "clean_gt_c2_16.aif",	cn3,	127,  90,   0, 120		;
+127 : ADPCM, "clean_gt_c3_16.aif",	cn4,	127,  90,   0, 120		;
+
+_DIS_GT =
+b2  : ADPCM, "disgt_e1_16.aif",		e2,	127,  30,   1, 126		;
+c4  : ADPCM, "disgt_c2_16.aif",		c3,	127,  30,   1, 126		;
+c5  : ADPCM, "disgt_e3_16.aif",		e4,	127,  30,   1, 126		;
+g5  : ADPCM, "disgt_e4_16.aif",		e5,	127,  30,   1, 126		;
+127 : ADPCM, "disgt_b4_16.aif",		b5,	127,  30,   1, 126		;
+
+_POWER_GT =
+g2  : ADPCM, "power_gt_e1_16.aif",	e2,	127,  60,  90, 126		;
+d3  : ADPCM, "power_gt_b1_16.aif",	b2,	127,  60,  90, 126		;
+127 : ADPCM, "power_gt_e2_16.aif",	e3,	127,  60,  90, 126		;
+
+_AC_BASS =
+as1  : ADPCM, "woodbass_g1_16.aif",	g1,	127,  60,   1, 118		;
+b2   : ADPCM, "woodbass_gs2_16.aif",	gs2,	127,  60,   1, 120		;
+127  : ADPCM, "woodbass_d3_16.aif",	d3,	127,  60,   1, 120		;
+
+_AC_BASS2 =
+as1  : ADPCM, "woodbass_g1_16.aif",	g1,	127,  127, 127, 118		;
+b2   : ADPCM, "woodbass_gs2_16.aif",	gs2,	127,  127, 127, 120		;
+127  : ADPCM, "woodbass_d3_16.aif",	d3,	127,  127, 127, 120		;
+
+_VIOLIN =
+b2  : ADPCM, "violin_c1_16.aif",	c2,	120, 100, 127, 116		;
+a4  : ADPCM, "violin_c3_16.aif",	c4,	120,  90, 127, 116		;violin(c4)
+;b3  : ADPCM, "violin_c3_16.aif",	c4,	120,  90, 127, 116		;violin(c4)
+e6  : ADPCM, "violin_c4_16.aif",	c5,	116,  90,  86, 116		;violin(c5)
+127 : ADPCM, "violin_c5_16.aif",	c6,	110,  90,  70, 116		;violin(c5)
+
+_PIZ =
+b4    : ADPCM, "pic_g4_16.aif",		g4,	127, 110, 100, 118		;
+127   : ADPCM, "pic_g5_16.aif",		g5,	127, 114, 100, 119		;4
+
+_HARP =
+b4   : ADPCM, "harp_c3_16.aif",		c4,	127,  80,   1, 116		;
+b5   : ADPCM, "harp_c4_16.aif",		c5,	127,  90,   1, 116		;
+b6   : ADPCM, "harp_c5_16.aif",		c6,	127, 100,   1, 116		;
+127  : ADPCM, "harp_c6_16.aif",		c7,	127, 110,   1, 118		;
+
+_TIMPA =
+c3   : ADPCM, "timpany_e_16.aif",	es2,	127,  80,   1, 116		;
+127  : ADPCM, "timpany_as_16.aif",	as2,	127,  80,   1, 116		;
+
+_STRINGS =
+g2  : ADPCM, "strings_c1_16.aif",	c2,	127, 100, 120, 116		;
+f3  : ADPCM, "strings_c2_16.aif",	c3,	127, 105, 110, 116		; strings(c4)
+a4  : ADPCM, "strings_c3_16.aif",	c4,	122, 110, 100, 116		; strings(c4)
+127 : ADPCM, "strings_c4_16.aif",	c5,	122, 115,  90, 116		; strings(c5)
+
+_MEROTIM =
+c3: ADPCM,		"merotim_c2_16.aif",	c3,127, 70,   1,115	;
+127: ADPCM,		"merotim_c3_16.aif",	c4,127, 70,   1,115	;
+
+_TRUMPET =
+e4   : ADPCM, "tp_cs3_16.aif",		cs4,	127, 100,  80, 116		; trumpet(c3)
+c6   : ADPCM, "tp_cs4_16.aif",		cs5,	127, 100,  80, 116		; trumpet(c4)
+127  : ADPCM, "tp_b4_16.aif",		b5,	127, 110,  80, 116		; trumpet(c5)
+
+_TROMBONE =
+e3   : ADPCM, "trombone_c2_16.aif",	c3,	127, 100,  100, 116		; tro
+d4   : ADPCM, "trombone_c3_16.aif",	c4,	127, 100,  100, 116		; tro
+127   : ADPCM, "trombone_c4_16.aif",	c5,	127, 100,  100, 116		; tro
+
+_TRUMPET2 =
+e4   : ADPCM, "tp_cs3_16.aif",		cs4,	127, 100,  110, 116		; trumpet(c3)
+c6   : ADPCM, "tp_cs4_16.aif",		cs5,	127, 100,  110, 116		; trumpet(c4)
+127  : ADPCM, "tp_b4_16.aif",		b5,	127, 110,  110, 116		; trumpet(c5)
+
+_TUBA =
+g1 : ADPCM, "tuba_c1_22.aif",		cn2,	127, 127, 126, 118		; tuba(c1)
+127: ADPCM, "tuba_c2_22.aif",		cn3,	127, 127, 126, 118		; tuba(c2)
+
+_MERO_DISGT =
+b2  : ADPCM, "dis_gt_c1_16.aif",	c2,	127,  90, 127, 120		;
+c4  : ADPCM, "dis_gt_c2_16.aif",	c3,	127,  90, 127, 120		;
+c5  : ADPCM, "dis_gt_c3_16.aif",	c4,	127,  90, 127, 120		;
+127  : ADPCM, "dis_gt_c4_16.aif",	c5,	127,  90, 127, 120		;
+
+_F_HORN =
+g3  : ADPCM, "f_horn_c2_16.aif",	c3,	115, 117, 118, 116		; horn(c3)
+127 : ADPCM, "f_horn_c4_16.aif",	c5,	127, 117, 127, 116		; horn(c4)
+
+_FLUTE =
+c5   : ADPCM, "flute_c4_16.aif",	c5,	127,  90, 100, 118		;
+f6   : ADPCM, "flute_c5_16.aif",	c6,	127,  90,  90, 118		;
+127  : ADPCM, "flute_c6_16.aif",	c7,	127,  90,  67, 118		;
+
+_WHISTLE =
+127    : ADPCM, "whistle_c5_16.aif",	c6,	127,  90,  70, 118		;
+
+
+;-----------------------------------------------------------------------------
+;			ドラム設定
+;-----------------------------------------------------------------------------
+@DRUM_SET
+;------------------------------------------------------------------
+_DRUM_SET1 =
+;------------------------------------------------------------------
+;ds1 :ADPCM,  "oct_sne_16.aif",		,127,127,118,125	;
+en1 :ADPCM,  "sne1_roop.aif",		,127,  0,110,125	;
+fn1 :ADPCM,  "handclup1.aif",		,127,127,120,125	;
+fs1 :ADPCM,  "sne2_loop.aif",		,127,  0,110,125	;
+gn1 :ADPCM, "reverscyn_16.aif",		, 03,127,127,126	;
+gs1 :ADPCM,  "bass2.aif",		,127,127,120,125	;
+an1 :ADPCM,  "bassdr1.aif",		,127,127,120,125	;
+as1 :ADPCM,  "808snare_16.aif",		,127,116,  0,124,64	;808スネア
+bn1 :ADPCM,  "bassdr2_16.aif",		,127,127,127,127,64	;
+
+cn2 :ADPCM,  "bassdr1_16.aif",		,127,127,127,120,64	;
+cs2 :ADPCM,  "rim1_roop.aif",		cn2,127,116,  0,126,58	;スネア普通
+dn2 :ADPCM,  "oct_snare_16.aif",	,127,127,127,127,64	;
+ds2 :ADPCM,  "handclap_16.aif",		,127,127,120,125,70	;
+en2 :ADPCM,  "power_snare_16.aif",	,127,114, 90,127,64	;スネアパワー
+f2  :ADPCM,  "tom1_16.aif",		f3,127,127,127,125,30	;フロアタム
+fs2 :ADPCM,  "closed_hihat_16.aif",	,127,127,120,125,80	;
+g2  :ADPCM,  "tom1_16.aif",		d3,127,127,127,125,40	;TOM
+gs2 :ADPCM,  "pedalhight.aif",		,127,127,122,126,80	;
+a2  :ADPCM,  "tom1_16.aif",		,127,127,127,125,50	;TOM
+as2 :ADPCM,  "open_hihat_16.aif",	,127,102,  0,127,80 	;
+b2  :ADPCM,  "tom1_16.aif",		f2,127,127,127,125,100  ;TOM
+c3  :ADPCM,  "tom1_16.aif",		c2,127,127,127,125,107	;TOM
+
+cs3 :ADPCM,  "cymbal1_16.aif",		e3,127,90,  0,114,64	;
+d3  :ADPCM,  "tom1_16.aif",		c2,127,127,127,126,117	;TOM
+ds3 :ADPCM,  "ridecynbal.aif",		f3,127,70,  0,114,30	;
+e3  :ADPCM,  "china_cynbal.aif",	f3,127,70,  0,110,20	;
+f3  :ADPCM,  "ridecap.aif",		f3,127,70,  0,106,30	;
+fs3 :ADPCM,  "tambourine_16.aif",	,127,127,127,125,58	;
+g3  :ADPCM,  "splash.aif",		,127,70,  0,110,84	;
+gs3 :ADPCM,  "cawbell_16.aif",		,127,127,127,120,110	;
+a3  :ADPCM,  "cymbal1_16.aif",		,127,70,  0,114,36	;
+as3 :ADPCM,  "cymbal1_16.aif",		a3,127,70,  0,114,102	;
+b3  :ADPCM,  "ridecynbal.aif",		b3,127,70,  0,114,86	;
+c4  :ADPCM,  "bongo_16.aif",		,127,127,127,120,90	;
+cs4 :ADPCM,  "bongo_16.aif",		e4,127,127,127,120,90	;
+d4  :ADPCM,  "mute_conga_16.aif",	,127,127,127,120,20	;
+ds4 :ADPCM,  "high_conga_16.aif",	,127,127,127,120,24	;
+e4  :ADPCM,  "high_conga_16.aif",	g4,127,127,127,120,26	;
+f4  :ADPCM,  "africa_dr_16.aif",	,127,127,127,120,26	;
+fs4  :ADPCM,  "africa_dr_16.aif",	,127,127,127,120,101	;
+g4  :ADPCM,  "cabassa_16.aif",		,127,100, 90,120,26	;
+gs4  :ADPCM,  "mute_conga_16.aif",	,127,127,127,120,100	;
+an4 :ADPCM,  "high_conga_16.aif",	,127,127,127,120, 98	;
+as4  :ADPCM,  "high_conga_16.aif",	g4,127,127,127,120,102	;
+b4  :ADPCM,  "india_per_16.aif",	,127,127,127,126,25	;
+
+c5  :ADPCM,  "dragon_dr_16.aif",	,127,127,127,126,112	;
+cs5 :ADPCM,  "dragon_dr_16.aif",	e5,127,127,127,126,100	;
+d5  :ADPCM,  "dragon_dr_16.aif",	g5,127,127,127,126,34	;
+ds5 :ADPCM,  "dragon_dr_16.aif",	b5,127,127,127,126,22	;
+e5  :ADPCM,  "woodblock_16.aif",	f5,127,127,127,120,34	;
+f5  :ADPCM,  "woodblock_16.aif",	a5,127,127,127,120,90	;
+fs5 :ADPCM,  "woodblock_16.aif",	c6,127,127,127,127,20	;
+g5  :ADPCM,  "woodblock_16.aif",	g5,127,127,127,127,107	;
+gs5 :ADPCM,  "triangle_16.aif",		,127,120,  0,127,44	;
+a5  :ADPCM,   "triangle_16.aif",	,127, 80,  0,118,44	;
+as5 :ADPCM,  "sheiker.aif",		,127,100, 84,124,90	;
+b5  :ADPCM,  "jinglebell_16.aif",	,127,127,127,110,94	;
+
+c6  :ADPCM,  "africa_dr_16.aif",	d5,127,127,127,120,26	;
+cs6 :ADPCM,  "africa_dr_16.aif",	g6,127,127,127,120,101	;
+d6  :ADPCM,  "africa_dr_16.aif",	a5,127,127,127,120,101	;
+
+ds6 :ADPCM,  "castanet_22.aif",		,127,127,127,120,20	;
+e6  :ADPCM,  "kaaroop_16.aif",		,127,  0,110,100,20	;
+
+;------------------------------------------------------------------
+_DRUM_SET2 =
+;------------------------------------------------------------------
+;ds1 :ADPCM,  "oct_sne_16.aif",		,127,127,118,125,64	;
+ds1 :ADPCM, "reverscyn_16.aif",		, 03,127,127,126	;
+en1 :ADPCM,  "bassdr2_16.aif",		,127,127,127,127,64	;
+fn1 :ADPCM,  "bassdr1_16.aif",		,127,127,127,120,64	;
+
+fs1 :ADPCM,  "oct_snare_16.aif",	,127,127,127,127,64	;
+gn1 :ADPCM,  "handclap_16.aif",		,127,127,120,125,70	;
+gs1 :ADPCM,  "power_snare_16.aif",	,127,114, 90,127,64	;スネアパワー
+an1 :ADPCM,  "bassdr1.aif",		,127,127,120,125	;
+as1 :ADPCM,  "808snare_16.aif",		,127,116,  0,124,58	;808スネア
+bn1 :ADPCM,  "bass2.aif",		,127,127,120,125	;
+
+cn2 :ADPCM,  "bassdr1.aif",		,127,127,120,125	;
+cs2 :ADPCM,  "rim1_roop.aif",		,127,  0,110,126	;
+dn2 :ADPCM,  "sne1_roop.aif",		,127,  0,110,125	;
+ds2 :ADPCM,  "handclup1.aif",		,127,127,120,125	;
+en2 :ADPCM,  "sne2_loop.aif",		,127,  0,110,125	;
+
+f2  :ADPCM,  "tom_16.aif",		f3,127,127,127,125,30	;フロアタム
+fs2 :ADPCM,  "closehight_16.aif",	,127,127,120,125,82	;
+g2  :ADPCM,  "tom_16.aif",		d3,127,127,127,125,40	;TOM
+gs2 :ADPCM,  "pedalhight.aif",		,127,127,120,125,82	;
+a2  :ADPCM,  "tom_16.aif",		,127,127,127,125,50	;TOM
+as2 :ADPCM,  "openhight.aif",		,125,110,  0,125,82	;
+b2  :ADPCM,  "tom_16.aif",		f2,127,127,127,125,90   ;TOM
+
+c3  :ADPCM,  "tom_16.aif",		c2,127,127,127,125,100	;TOM
+cs3 :ADPCM,  "cymbal1_16.aif",		e3,127,90,  0,114,64	;
+d3  :ADPCM,  "tom_16.aif",		c2,127,127,127,126,110	;TOM
+ds3 :ADPCM,  "ridecynbal.aif",		f3,127,70,  0,114,30	;
+e3  :ADPCM,  "china_cynbal.aif",	f3,127,70,  0,110,20	;
+f3  :ADPCM,  "ridecap.aif",		f3,127,70,  0,106,30	;
+fs3 :ADPCM,  "tambourine_16.aif",	,127,127,127,125,58	;
+g3  :ADPCM,  "splash.aif",		a3,127,70,  0,110,84	;
+gs3 :ADPCM,  "cawbell_16.aif",		,127,127,127,120,110	;
+a3  :ADPCM,  "cymbal1_16.aif",		,127,70,  0,114,36	;
+as3 :ADPCM,  "cymbal1_16.aif",		a3,127,70,  0,114,102	;
+b3  :ADPCM,  "ridecynbal.aif",		b3,127,70,  0,114,86	;
+c4  :ADPCM,  "bongo_16.aif",		,127,127,127,120,90	;
+cs4 :ADPCM,  "bongo_16.aif",		e4,127,127,127,120,90	;
+d4  :ADPCM,  "mute_conga_16.aif",	,127,127,127,120,20	;
+ds4 :ADPCM,  "high_conga_16.aif",	,127,127,127,120,24	;
+e4  :ADPCM,  "high_conga_16.aif",	g4,127,127,127,120,26	;
+f4  :ADPCM,  "africa_dr_16.aif",	,127,127,127,120,26	;
+fs4  :ADPCM,  "africa_dr_16.aif",	,127,127,127,120,101	;
+g4  :ADPCM,  "cabassa_16.aif",		,127,100, 90,120,26	;
+gs4  :ADPCM,  "mute_conga_16.aif",	,127,127,127,120,100	;
+an4 :ADPCM,  "high_conga_16.aif",	,127,127,127,120, 98	;
+as4  :ADPCM,  "high_conga_16.aif",	g4,127,127,127,120,102	;
+b4  :ADPCM,  "india_per_16.aif",	,127,127,127,126,25	;
+
+c5  :ADPCM,  "dragon_dr_16.aif",	,127,127,127,126,112	;
+cs5  :ADPCM,  "dragon_dr_16.aif",	e5,127,127,127,126,100	;
+d5  :ADPCM,  "dragon_dr_16.aif",	g5,127,127,127,126,34	;
+ds5  :ADPCM,  "dragon_dr_16.aif",	b5,127,127,127,126,22	;
+e5  :ADPCM,  "woodblock_16.aif",	f5,127,127,127,120,34	;
+f5  :ADPCM,  "woodblock_16.aif",	a5,127,127,127,120,90	;
+
+gs5 :ADPCM,  "triangle_16.aif",		,127,120,  0,127,44	;
+a5  :ADPCM,   "triangle_16.aif",	,127, 80,  0,118,44	;
+as5 :ADPCM,  "sheiker.aif",		,127,100, 84,124,90	;
+b5  :ADPCM,  "jinglebell_16.aif",	,127,127,127,110,94	;
+
+ds6 :ADPCM,  "castanet_22.aif",		,127,127,127,120,94	;
+
+;------------------------------------------------------------------
+;_DRUM_SET3 =
+;------------------------------------------------------------------
+;bn1 :ADPCM,  "bass2.aif",		,127,127,127,125	;
+;cn2 :ADPCM,  "bassdr1.aif",		,127,127,127,125	;
+
+;cs2 :ADPCM,  "rim1_roop.aif",		,127,120,  0,126	;
+;dn2 :ADPCM,  "sne1_roop.aif",		,127,120,  0,127	;
+;ds2 :ADPCM,  "handclup1.aif",		,127,127,127,125	;
+;en2 :ADPCM,  "sne2_loop.aif",		,127,116,  0,126	;
+
+;fs2 :ADPCM,  "closehight_16.aif",	,127,127,127,125	;
+;gs2 :ADPCM,  "pedalhight.aif",		,127,110,  0,125	;
+;as2 :ADPCM,  "openhight.aif",		,127,114,  0,125	;
+
+;------------------------------------------------------------------
+
+

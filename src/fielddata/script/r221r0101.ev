@@ -1,0 +1,964 @@
+//====================================================================
+//								r221r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r221r0101.h"
+	.include	"../eventdata/zone_r221r0101evc.h"
+	.include	"../../field/scr_pokepark.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//#define	POKEPARK_EASY_CLEAR
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r221r0101_flag_change
+_EVENT_DATA		ev_r221r0101_admin
+_EVENT_DATA		ev_r221r0101_comeback
+_EVENT_DATA		ev_r221r0101_recieve
+_EVENT_DATA		ev_r221r0101_girl1
+_EVENT_DATA		ev_r221r0101_middleman1
+_EVENT_DATA		ev_r221r0101_boy2
+_EVENT_DATA		ev_r221r0101_woman2
+_EVENT_DATA		ev_r221r0101_man1
+_EVENT_DATA		ev_r221r0101_ookido
+_EVENT_DATA		ev_r221r0101_poketch
+_EVENT_DATA		ev_r221r0101_retire
+_EVENT_DATA		ev_r221r0101_gorggeousw
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r221r0101_flag_change:
+
+	_FLAG_RESET		SYS_FLAG_BGM_D10	/*ゾーンBGMを取得するとSEQ_SILENCE_DUNGEONになる*/
+
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_R221R0101	//到着
+	_IFVAL_JUMP				WK_SCENE_D10R0101,NE,0, ev_r221r0101_flag_change_01
+	_END
+
+ev_r221r0101_flag_change_01:
+	_SXY_POS_CHANGE		R221R0101_ADMIN, 8, 9
+	_SXY_DIR_CHANGE		R221R0101_ADMIN, DIR_LEFT
+	_END
+
+
+
+//-----------------------------------------------------------------------------
+//	サブルーチン：ハイスコア情報セット
+//-----------------------------------------------------------------------------
+sub_r221r0101_set_record:
+	_IFVAL_JUMP		WK_SCENE_POKE_PARK,EQ,2000, sub_r221r0101_set_rival_record
+	_PLAYER_NAME	1
+	_NUMBER_NAME	2,WK_SCENE_POKE_PARK
+	_RET
+
+sub_r221r0101_set_rival_record:
+	_RIVAL_NAME		1
+	_NUMBER_NAME	2,WK_SCENE_POKE_PARK
+	_RET
+
+/********************************************************************/
+/*							管理者									*/
+/********************************************************************/
+ev_r221r0101_admin:
+	_TALK_OBJ_START
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,	ev_r221r0101_admin_01	//男用メッセージ
+	_JUMP								ev_r221r0101_admin_02	//女用メッセージ
+
+//男の子用
+ev_r221r0101_admin_01:
+	//既に会話をしている
+	_IF_FLAGON_JUMP		FE_P_PARK_ADMIN,ev_r221r0101_admin_10
+
+	//１回会話した状態
+	_FLAG_SET		FE_P_PARK_ADMIN
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_r221r0101_admin_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r221r0101_admin_first_explain
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r221r0101_admin_cancel
+	_END
+
+//女の子用
+ev_r221r0101_admin_02:
+	//既に会話をしている
+	_IF_FLAGON_JUMP		FE_P_PARK_ADMIN,ev_r221r0101_admin_11
+
+	//１回会話した状態
+	_FLAG_SET		FE_P_PARK_ADMIN
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_r221r0101_admin_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r221r0101_admin_first_explain
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r221r0101_admin_cancel
+	_END
+
+ev_r221r0101_admin_first_explain:
+	_TALKMSG		msg_r221r0101_admin_03
+	_JUMP			ev_r221r0101_admin_explain_menu
+
+ev_r221r0101_admin_04:
+	_TALKMSG		msg_r221r0101_admin_04
+	_JUMP			ev_r221r0101_admin_explain_menu
+
+ev_r221r0101_admin_05:
+	_TALKMSG		msg_r221r0101_admin_05
+	_JUMP			ev_r221r0101_admin_explain_menu
+
+ev_r221r0101_admin_06:
+	_TALKMSG		msg_r221r0101_admin_06
+	_JUMP			ev_r221r0101_admin_explain_menu
+
+
+//説明選択
+ev_r221r0101_admin_explain_menu:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_p_park_01,0					//きほんルール
+	_BMPMENU_MAKE_LIST	msg_p_park_02,1					//ほかくショー
+	_BMPMENU_MAKE_LIST	msg_p_park_03,2					//あずけかた１
+	_BMPMENU_MAKE_LIST	msg_p_park_05,4					//もうわかった！
+	_BMPMENU_START
+
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,0,ev_r221r0101_admin_04
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,1,ev_r221r0101_admin_05
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,2,ev_r221r0101_admin_06
+	_JUMP				ev_r221r0101_admin_ask_entry
+
+//ショーにさんかする？
+ev_r221r0101_admin_ask_entry:
+	_TALKMSG		msg_r221r0101_admin_08
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r221r0101_admin_cancel		//いいえ
+
+
+ev_r221r0101_admin_check_entry:
+	_LDVAL	SCWK_ANSWER,0 //関数待ちなのでクリアしておく
+	_COUNT_MONSBOX_SPACE		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,6, ev_r221r0101_admin_box_full		//ボックスがいっぱい
+
+	_LDVAL	SCWK_ANSWER,0 //関数待ちなのでクリアしておく
+	//預けているポケモン数チェック
+	_POKEPARK_DEPOSIT_COUNT		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r221r0101_admin_not_enougth		//必要な数
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,	ev_r221r0101_admin_12	//男用メッセージ
+	_JUMP								ev_r221r0101_admin_13	//女用メッセージ
+
+//終了
+//「そうかあ　ざんねんだなあ
+ev_r221r0101_admin_cancel:
+	_TALKMSG		msg_r221r0101_admin_09
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//既に会話をしている
+ev_r221r0101_admin_10:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_r221r0101_admin_10
+	_JUMP			ev_r221r0101_admin_command_menu
+
+//既に会話をしている
+ev_r221r0101_admin_11:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_r221r0101_admin_11
+	_JUMP			ev_r221r0101_admin_command_menu
+
+//３択（参加、説明、やめる）
+ev_r221r0101_admin_command_menu:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_p_park_06,0					//さんか　する
+	_BMPMENU_MAKE_LIST	msg_p_park_07,1					//せつめいを　きく
+	_BMPMENU_MAKE_LIST	msg_p_park_08,2					//やめる
+	_BMPMENU_START
+
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,0,ev_r221r0101_admin_check_entry
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,1,ev_r221r0101_admin_explain
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,2,ev_r221r0101_admin_cancel
+	_JUMP				ev_r221r0101_admin_cancel
+
+//ポケパークへ
+ev_r221r0101_admin_12:
+	_CALL				sub_r221r0101_set_record
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT		msg_r221r0101_admin_12
+	_TALK_CLOSE
+	_JUMP				ev_r221r0101_go_poke_park	
+
+ev_r221r0101_admin_13:
+	_CALL				sub_r221r0101_set_record
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT		msg_r221r0101_admin_13
+	_TALK_CLOSE
+	_JUMP				ev_r221r0101_go_poke_park	
+
+
+//
+ev_r221r0101_go_poke_park:
+
+//ゲートが開く　スクリプトコマンド呼び出し
+
+	//ゲートへ
+	_OBJ_ANIME		R221R0101_ADMIN, anm_r221r0101_admin_01
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r221r0101_player_01
+	_OBJ_ANIME_WAIT
+
+	//ポケパーク中へ
+
+//ポケパーク用設定
+
+//飛び先はあとで決定されます　以下は適当はマップ＆値です
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_MAP_CHANGE		ZONE_ID_D10R0101,0,24,47,DIR_UP
+
+#ifdef	POKEPARK_EASY_CLEAR
+	_LDVAL	WK_SCENE_D10R0101, 1
+	_POKEPARK_CONTROL		POKEPARK_MODE_END
+	_MAP_CHANGE		ZONE_ID_R221R0101,0, 7,7, DIR_DOWN
+#endif
+
+	_TALK_OBJ_END
+	_END
+
+//AGBから必要なポケモンを持ってきていない
+ev_r221r0101_admin_not_enougth:
+	_TALKMSG		msg_r221r0101_admin_14
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//説明
+ev_r221r0101_admin_explain:
+	_TALKMSG		msg_r221r0101_admin_15
+	_JUMP			ev_r221r0101_admin_explain_menu
+
+//ボックスの空きが足りない
+ev_r221r0101_admin_box_full:
+	_TALKMSG		msg_r221r0101_admin_17
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r221r0101_admin_01
+	_ANIME_DATA	AC_STAY_WALK_U_4F,1
+	_ANIME_DATA AC_WALK_U_8F,2
+	_ANIME_DATA AC_WALK_R_8F,1
+	_ANIME_DATA AC_STAY_WALK_L_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公　アニメ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r221r0101_player_01
+	_ANIME_DATA	AC_WALK_U_8F,5
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*					主人公がパークから戻ってくる処理				*/
+/********************************************************************/
+ev_r221r0101_retire:
+	_EVENT_START
+	_LDVAL			WK_SCENE_D10R0101, 0		//ポケパークゲーム状態クリア
+
+	//_TIME_WAIT	15,SCWK_ANSWER	/**/
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r221r0101_player_02
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		R221R0101_ADMIN, anm_r221r0101_admin_02
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+
+ev_r221r0101_comeback:
+	_EVENT_START
+	_LDVAL			WK_SCENE_D10R0101, 0		//ポケパークゲーム状態クリア
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r221r0101_player_03
+	_OBJ_ANIME_WAIT
+
+	_POKEPARK_GET_SCORE		POKEPARK_SCORE_CAPTURE, SCWK_ANSWER
+	_NUMBER_NAME	0, SCWK_ANSWER
+	_POKEPARK_GET_SCORE		POKEPARK_SCORE_TIME,	SCWK_ANSWER
+	_NUMBER_NAME	1, SCWK_ANSWER
+	_POKEPARK_GET_SCORE		POKEPARK_SCORE_TYPE,	SCWK_ANSWER
+	_NUMBER_NAME	2, SCWK_ANSWER
+	_POKEPARK_GET_SCORE		POKEPARK_SCORE_TOTAL,	SCWK_ANSWER
+	_NUMBER_NAME	3, SCWK_ANSWER
+	_TALKMSG		msg_r221r0101_admin_18
+
+	_POKEPARK_GET_SCORE		POKEPARK_SCORE_TOTAL,	SCWK_ANSWER
+	_IFWK_JUMP		SCWK_ANSWER,GT,WK_SCENE_POKE_PARK, ev_r221r0101_check_rival_record
+
+	_TALKMSG		msg_r221r0101_admin_20
+
+	/*持ち物いっぱいじゃなかったらアイテムもらう*/
+	_CALL	ev_r221r0101_get_item
+
+	_JUMP			ev_r221r0101_ask_takemons
+
+
+ev_r221r0101_check_rival_record:
+	_TALKMSG		msg_r221r0101_admin_19
+
+	/*持ち物いっぱいじゃなかったらアイテムもらう*/
+	_CALL	ev_r221r0101_get_item
+
+	/*記録更新*/
+	_POKEPARK_GET_SCORE		POKEPARK_SCORE_TOTAL, WK_SCENE_POKE_PARK
+	_JUMP			ev_r221r0101_ask_takemons
+
+
+//ポケモンをもらうか？たずねる
+ev_r221r0101_ask_takemons:
+	_TALKMSG		msg_r221r0101_admin_21
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_r221r0101_takemons
+
+	_TALKMSG		msg_r221r0101_admin_26
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_r221r0101_not_takemons
+	_JUMP			ev_r221r0101_ask_takemons
+
+
+ev_r221r0101_not_takemons:
+	_TALKMSG		msg_r221r0101_admin_23
+	_AB_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_r221r0101_success_exit
+
+//ポケモンをもらう
+ev_r221r0101_takemons:
+	_POKEPARK_TRANS_MONS
+	_TALKMSG		msg_r221r0101_admin_22
+	_TALKMSG		msg_r221r0101_admin_24
+	_AB_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_r221r0101_success_exit
+
+
+ev_r221r0101_success_exit:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_r221r0101_player_04
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		R221R0101_ADMIN, anm_r221r0101_admin_02
+	_OBJ_ANIME_WAIT
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r221r0101_admin_02
+	_ANIME_DATA AC_WALK_L_8F,1
+	_ANIME_DATA AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公戻ってくる　アニメ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r221r0101_player_02
+	_ANIME_DATA	AC_WALK_D_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r221r0101_player_03
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r221r0101_player_04
+	_ANIME_DATA	AC_WALK_D_8F,4
+	_ANIME_DATA	ACMD_END,0
+		
+
+/********************************************************************/
+/*							預かり係員								*/
+/********************************************************************/
+ev_r221r0101_recieve:
+	_EASY_OBJ_MSG	msg_r221r0101_man1_01
+	_END
+
+/********************************************************************/
+/*							少女									*/
+/********************************************************************/
+ev_r221r0101_girl1:
+	_TALK_OBJ_START
+	_PLAYER_NAME	0
+
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,2,ev_r221r0101_girl1_03
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_r221r0101_girl1_02
+	_JUMP	ev_r221r0101_girl1_01
+	
+ev_r221r0101_girl1_01:
+	_TALKMSG		msg_r221r0101_girl1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r221r0101_girl1_02:
+	_TALKMSG		msg_r221r0101_girl1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r221r0101_girl1_03:
+	_TALKMSG		msg_r221r0101_girl1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							中年									*/
+/********************************************************************/
+ev_r221r0101_middleman1:
+	_PLAYER_NAME	0
+	_EASY_OBJ_MSG	msg_r221r0101_middleman1_01
+	_END
+
+/********************************************************************/
+/*							マニア									*/
+/********************************************************************/
+ev_r221r0101_boy2:
+	_EASY_OBJ_MSG	msg_r221r0101_boy2_01
+	_END
+
+/********************************************************************/
+/*							お姉さん								*/
+/********************************************************************/
+ev_r221r0101_woman2:
+	_EASY_OBJ_MSG	msg_r221r0101_woman2_01
+	_END
+
+/********************************************************************/
+/*							青年									*/
+/********************************************************************/
+ev_r221r0101_man1:
+	_CALL				sub_r221r0101_set_record
+	_EASY_OBJ_MSG	msg_r221r0101_man1_01
+	_END
+
+/********************************************************************/
+/*						POS(オーキド博士)							*/
+/********************************************************************/
+ev_r221r0101_ookido:
+	_EVENT_START
+
+	//このイベント後、ハクタイシティにオーキド出現
+	_FLAG_RESET		FV_C04R0601_OOKIDO
+	_LDVAL			WK_SCENE_POKE_PARK,2000		//ハイスコア設定
+
+	_OBJ_ANIME		R221R0101_OOKIDO,anm_r221r0101_ookido_01
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		LOCALWORK0
+	_PLAYER_NAME	0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,	ev_r221r0101_ookido_01_male	//男用メッセージ
+	_JUMP								ev_r221r0101_ookido_01_famale	//女用メッセージ
+
+ev_r221r0101_ookido_01_male:	//男用メッセージ
+	_TALK_KEYWAIT		msg_r221r0101_ookido_01
+	_JUMP			ev_r221r0101_ookido_01_03
+
+ev_r221r0101_ookido_01_famale: //女用メッセージ
+	_TALK_KEYWAIT		msg_r221r0101_ookido_02
+	_JUMP			ev_r221r0101_ookido_01_03
+
+ev_r221r0101_ookido_01_03:
+	_TALK_KEYWAIT		msg_r221r0101_ookido_03
+	_TALK_CLOSE
+
+	//"!"
+	_OBJ_ANIME		R221R0101_OOKIDO,anm_r221r0101_ookido_gyoe
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT		msg_r221r0101_ookido_04
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_POKEMON_COUNTER
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+
+	_TALK_KEYWAIT		msg_r221r0101_ookido_05
+	_TALK_CLOSE
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	//オーキド退場
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r221r0101_player_back
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		R221R0101_OOKIDO,anm_r221r0101_ookido_out
+	_OBJ_ANIME_WAIT
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		R221R0101_OOKIDO
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+
+	//POS無効化
+	_LDVAL			WK_SCENE_R221R0101,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//オーキド　アニメ
+//--------------------------------------------------------------------
+//オーキド近寄る
+_ANIME_LABEL	anm_r221r0101_ookido_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+//オーキドびっくり
+_ANIME_LABEL	anm_r221r0101_ookido_gyoe
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//オーキド退場
+_ANIME_LABEL	anm_r221r0101_ookido_out
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//主人公が退く
+_ANIME_LABEL	anm_r221r0101_player_back
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ポケッチをくれる人						*/
+/*					※LOCALWORK10使用	このファイル内で使用禁止	*/
+/********************************************************************/
+ev_r221r0101_poketch:
+	_TALK_OBJ_START
+
+	//各アプリを貰った直後用メッセージへ
+	_IFVAL_JUMP		LOCALWORK10,EQ,1,ev_r221r0101_poketch_08
+	_IFVAL_JUMP		LOCALWORK10,EQ,2,ev_r221r0101_poketch_11
+
+	//ここで全アプリ取得後かチェック
+	_POKETCH_CHECK	POKETCH_APPID_COLOR_CHANGER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r221r0101_poketch_16
+
+	_TALK_KEYWAIT		msg_r221r0101_poketch_01
+
+	_TALK_KEYWAIT		msg_r221r0101_poketch_02
+
+	//キッチンタイマーがあるなら、カラーチェンジャー追加チェックへ
+	_POKETCH_CHECK	POKETCH_APPID_KITCHEN_TIMER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r221r0101_poketch_09
+
+	_TALK_KEYWAIT		msg_r221r0101_poketch_06
+
+	//カビゴンがいるかチェック
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_KABIGON
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_r221r0101_poketch_15
+
+	_TALK_KEYWAIT		msg_r221r0101_poketch_07
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_KITCHEN_TIMER
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+
+	_LDVAL			LOCALWORK10,1
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//カラーチェンジャー追加チェックへ
+ev_r221r0101_poketch_09:
+	_TALK_KEYWAIT		msg_r221r0101_poketch_09
+
+	//カクレオンがいるかチェック
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,MONSNO_KAKUREON
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_r221r0101_poketch_15
+
+	_TALK_KEYWAIT		msg_r221r0101_poketch_10
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_COLOR_CHANGER
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+
+	_LDVAL			LOCALWORK10,2
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アプリを貰った直後
+ev_r221r0101_poketch_08:
+	_POKETCH_NAME	0,POKETCH_APPID_KITCHEN_TIMER
+	_TALKMSG		msg_r221r0101_poketch_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アプリを貰った直後
+ev_r221r0101_poketch_11:
+	_POKETCH_NAME	0,POKETCH_APPID_COLOR_CHANGER
+	_TALKMSG		msg_r221r0101_poketch_11
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//条件を満たしていない
+ev_r221r0101_poketch_15:
+	_TALKMSG		msg_r221r0101_poketch_15
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ここで全アプリ取得後
+ev_r221r0101_poketch_16:
+	_TALKMSG		msg_r221r0101_poketch_16
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						ゴージャスお姉さん							*/
+/*	**** LOCALWORK9を使用します　他のところでの使用禁止 ****		*/
+/********************************************************************/
+ev_r221r0101_gorggeousw:
+	_TALK_OBJ_START
+
+	// フロアを1度出たかチェック
+	_IFVAL_JUMP	LOCALWORK9,EQ,1,ev_r221r0101_gorggeousw_end_text
+
+	// ささっているAGBカートリッジバージョン取得
+	_AGB_CARTRIDGE_VER_GET SCWK_ANSWER
+
+	// バージョンによる分岐
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,VERSION_RED,		ev_r221r0101_gorggeousw_abg_red
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,VERSION_GREEN,	ev_r221r0101_gorggeousw_abg_green
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,VERSION_SAPPHIRE,ev_r221r0101_gorggeousw_abg_sapphire
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,VERSION_RUBY,	ev_r221r0101_gorggeousw_abg_ruby
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,VERSION_EMERALD,	ev_r221r0101_gorggeousw_abg_emerald
+
+	// 不明なカートリッジ数が帰ってきたら
+	// 何ももらえないテキスト
+	_JUMP	ev_r221r0101_gorggeousw_no_item_get
+	_END
+
+/* 何ももらえないテキスト */
+ev_r221r0101_gorggeousw_no_item_get:
+	_TALKMSG		msg_r221r0101_gorggeousw_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_OBJ_END
+	_END
+
+/* そのフロワ内で入手済み */
+ev_r221r0101_gorggeousw_end_text:
+	_TALKMSG		msg_r221r0101_gorggeousw_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/* ファイヤーレッド */
+ev_r221r0101_gorggeousw_abg_red:
+
+	_LDVAL	SCWK_TEMP0,IMC_ACCE_CROWN00
+	_LDVAL	SCWK_TEMP1,1
+
+	// すでに取得しているかチェック
+	_IMC_ACCE_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,0,ev_r221r0101_gorggeousw_no_item_get
+
+	_TALKMSG		msg_r221r0101_gorggeousw_02
+	_JUMP	ev_r221r0101_gorggeousw_item_get
+	_END
+
+/* リーフグリーン */
+ev_r221r0101_gorggeousw_abg_green:
+
+	_LDVAL	SCWK_TEMP0,IMC_ACCE_TIARA00
+	_LDVAL	SCWK_TEMP1,1
+
+	// すでに取得しているかチェック
+	_IMC_ACCE_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,0,ev_r221r0101_gorggeousw_no_item_get
+
+	_TALKMSG		msg_r221r0101_gorggeousw_03
+	_JUMP	ev_r221r0101_gorggeousw_item_get
+	_END
+
+/* サファイヤ */
+ev_r221r0101_gorggeousw_abg_sapphire:
+
+	_LDVAL	SCWK_TEMP0,IMC_BG_RIGHT_14
+
+	// すでに取得しているかチェック
+	_IMC_BG_ITEM_CHK	SCWK_TEMP0,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_r221r0101_gorggeousw_no_item_get
+
+	_TALKMSG		msg_r221r0101_gorggeousw_04
+	_JUMP	ev_r221r0101_gorggeousw_bg_get
+	_END
+
+/* ルビー */
+ev_r221r0101_gorggeousw_abg_ruby:
+
+	_LDVAL	SCWK_TEMP0,IMC_BG_RIGHT_15
+
+	// すでに取得しているかチェック
+	_IMC_BG_ITEM_CHK	SCWK_TEMP0,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_r221r0101_gorggeousw_no_item_get
+
+	_TALKMSG		msg_r221r0101_gorggeousw_05
+	_JUMP	ev_r221r0101_gorggeousw_bg_get
+	_END
+
+/* エメラルド */
+ev_r221r0101_gorggeousw_abg_emerald:
+
+	_LDVAL	SCWK_TEMP0,IMC_BG_RIGHT_16
+
+	// すでに取得しているかチェック
+	_IMC_BG_ITEM_CHK	SCWK_TEMP0,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_r221r0101_gorggeousw_no_item_get
+
+	_TALKMSG		msg_r221r0101_gorggeousw_06
+	_JUMP	ev_r221r0101_gorggeousw_bg_get
+	_END
+
+/* アクセサリ入手処理 */
+ev_r221r0101_gorggeousw_item_get:
+
+	// アクセサリ設定イベント
+	// TEMP0：アクセサリナンバー	TEMP1：個数
+	_CHG_COMMON_SCR	SCRID_ACCE_EVENT
+
+	_LDVAL	LOCALWORK9,1	// アイテム1度入手
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/* 背景入手処理 */
+ev_r221r0101_gorggeousw_bg_get:
+
+	// 背景設定イベント
+	// TEMP0：アクセサリナンバー	TEMP1：個数
+	_CHG_COMMON_SCR	SCRID_IMC_BG_GETEVENT
+
+	_LDVAL	LOCALWORK9,1	// 背景1度入手
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+
+/********************************************************************/
+/********************************************************************/
+/*ポイントによるアイテム取得関連*/
+/*--テンポラリの使用--*/
+/*--SCWK_TEMP2=アイテムナンバー、SCWK_TEMP3=チェック結果--*/
+
+#define POKE_PARK_POINT_TYPE1	(3000)
+#define POKE_PARK_POINT_TYPE2	(3300)
+#define POKE_PARK_POINT_TYPE3	(3500)
+#define POKE_PARK_POINT_TYPE4	(10000)
+
+#define PARK_ITEM_TYPE1_NUM	(8)
+#define PARK_ITEM_TYPE2_NUM	(5)
+#define PARK_ITEM_TYPE3_NUM	(7)
+#define PARK_ITEM_TYPE4_NUM	(6)
+
+ev_r221r0101_get_item:
+	/*ポイントによってアイテム取得*/
+	_POKEPARK_GET_SCORE		POKEPARK_SCORE_TOTAL,	SCWK_ANSWER
+	/*0～2999*/
+	_IFVAL_CALL		SCWK_ANSWER,LT,POKE_PARK_POINT_TYPE1, ev_r221r0101_item_type1
+	/*3000～3299*/
+	_IFVAL_CALL		SCWK_ANSWER,LT,POKE_PARK_POINT_TYPE2, ev_r221r0101_item_type2
+	/*3300～3499*/
+	_IFVAL_CALL		SCWK_ANSWER,LT,POKE_PARK_POINT_TYPE3, ev_r221r0101_item_type3
+	/*3500～9999*/
+	_IFVAL_CALL		SCWK_ANSWER,LT,POKE_PARK_POINT_TYPE4, ev_r221r0101_item_type4
+	_RET
+
+ev_r221r0101_item_type1:
+	/*アイテムランダム選出(TEMP2に乱数結果を入れた後、アイテムナンバーを入れる)*/
+	_GET_RND SCWK_TEMP2,PARK_ITEM_TYPE1_NUM	/*0～7*/
+	_IFVAL_CALL	SCWK_TEMP2,EQ,0,item_kurabo
+	_IFVAL_CALL	SCWK_TEMP2,EQ,1,item_kago
+	_IFVAL_CALL	SCWK_TEMP2,EQ,2,item_momon
+	_IFVAL_CALL	SCWK_TEMP2,EQ,3,item_tiigo
+	_IFVAL_CALL	SCWK_TEMP2,EQ,4,item_nanasi
+	_IFVAL_CALL	SCWK_TEMP2,EQ,5,item_himeri
+	_IFVAL_CALL	SCWK_TEMP2,EQ,6,item_oren
+	_IFVAL_CALL	SCWK_TEMP2,EQ,7,item_kii
+
+	_CALL	ev_r221r0101_item_check
+	_RET
+	
+ev_r221r0101_item_type2:
+	_GET_RND SCWK_TEMP2,PARK_ITEM_TYPE2_NUM	/*0～4*/
+	_IFVAL_CALL	SCWK_TEMP2,EQ,0,item_fira
+	_IFVAL_CALL	SCWK_TEMP2,EQ,1,item_ui
+	_IFVAL_CALL	SCWK_TEMP2,EQ,2,item_mago
+	_IFVAL_CALL	SCWK_TEMP2,EQ,3,item_banzi
+	_IFVAL_CALL	SCWK_TEMP2,EQ,4,item_ia
+
+	_CALL	ev_r221r0101_item_check
+	_RET
+	
+ev_r221r0101_item_type3:
+	_GET_RND SCWK_TEMP2,PARK_ITEM_TYPE3_NUM	/*0～6*/
+	_IFVAL_CALL	SCWK_TEMP2,EQ,0,item_zuri
+	_IFVAL_CALL	SCWK_TEMP2,EQ,1,item_burii
+	_IFVAL_CALL	SCWK_TEMP2,EQ,2,item_nana
+	_IFVAL_CALL	SCWK_TEMP2,EQ,3,item_sesina
+	_IFVAL_CALL	SCWK_TEMP2,EQ,4,item_pairu
+	_IFVAL_CALL	SCWK_TEMP2,EQ,5,item_ramu
+	_IFVAL_CALL	SCWK_TEMP2,EQ,6,item_obon
+
+	_CALL	ev_r221r0101_item_check
+	_RET
+	
+ev_r221r0101_item_type4:
+	_GET_RND SCWK_TEMP2,PARK_ITEM_TYPE4_NUM	/*0～5*/
+	_IFVAL_CALL	SCWK_TEMP2,EQ,0,item_zaroku
+	_IFVAL_CALL	SCWK_TEMP2,EQ,1,item_nekobu
+	_IFVAL_CALL	SCWK_TEMP2,EQ,2,item_taporu
+	_IFVAL_CALL	SCWK_TEMP2,EQ,3,item_rome
+	_IFVAL_CALL	SCWK_TEMP2,EQ,4,item_ubu
+	_IFVAL_CALL	SCWK_TEMP2,EQ,5,item_matoma
+
+	_CALL	ev_r221r0101_item_check
+	_RET
+	
+ev_r221r0101_item_check:
+	/*持ち物がいっぱいかをチェック(SCWK_TEMP2=アイテムナンバー、SCWK_TEMP3=チェック結果)*/
+	_ADD_ITEM_CHK	SCWK_TEMP2,1,SCWK_TEMP3
+	_IFVAL_CALL		SCWK_TEMP3,NE,0,ev_r221r0101_item_add
+	/*SCWK_ANSWERにPOKE_PARK_POINT_TYPE4をいれて、他のアイテム算出コールを呼ばないようにする*/
+	_LDVAL			SCWK_ANSWER,POKE_PARK_POINT_TYPE4
+	_RET
+	
+ev_r221r0101_item_add:
+	/*メッセージ：景品として～*/
+	_TALKMSG		msg_r221r0101_admin_25
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_LDWK			SCWK_TEMP0, SCWK_TEMP2
+	_LDVAL			SCWK_TEMP1, 1
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+	_RET
+
+/*アイテムをワーク(TEMP2)にセット*/	
+item_kurabo:
+	_LDVAL			SCWK_TEMP2, ITEM_KURABONOMI
+	_RET
+item_kago:
+	_LDVAL			SCWK_TEMP2, ITEM_KAGONOMI
+	_RET
+item_momon:
+	_LDVAL			SCWK_TEMP2, ITEM_MOMONNOMI
+	_RET
+item_tiigo:
+	_LDVAL			SCWK_TEMP2, ITEM_TIIGONOMI
+	_RET
+item_nanasi:
+	_LDVAL			SCWK_TEMP2, ITEM_NANASINOMI
+	_RET
+item_himeri:
+	_LDVAL			SCWK_TEMP2, ITEM_HIMERINOMI
+	_RET
+item_oren:
+	_LDVAL			SCWK_TEMP2, ITEM_ORENNOMI
+	_RET
+item_kii:
+	_LDVAL			SCWK_TEMP2, ITEM_KIINOMI
+	_RET
+	
+item_fira:
+	_LDVAL			SCWK_TEMP2, ITEM_FIRANOMI
+	_RET
+item_ui:
+	_LDVAL			SCWK_TEMP2, ITEM_UINOMI
+	_RET
+item_mago:
+	_LDVAL			SCWK_TEMP2, ITEM_MAGONOMI
+	_RET
+item_banzi:
+	_LDVAL			SCWK_TEMP2, ITEM_BANZINOMI
+	_RET
+item_ia:
+	_LDVAL			SCWK_TEMP2, ITEM_IANOMI
+	_RET
+
+item_zuri:
+	_LDVAL			SCWK_TEMP2, ITEM_ZURINOMI
+	_RET
+item_burii:
+	_LDVAL			SCWK_TEMP2, ITEM_BURIINOMI
+	_RET
+item_nana:
+	_LDVAL			SCWK_TEMP2, ITEM_NANANOMI
+	_RET
+item_sesina:
+	_LDVAL			SCWK_TEMP2, ITEM_SESINANOMI
+	_RET
+item_pairu:
+	_LDVAL			SCWK_TEMP2, ITEM_PAIRUNOMI
+	_RET
+item_ramu:
+	_LDVAL			SCWK_TEMP2, ITEM_RAMUNOMI
+	_RET
+item_obon:
+	_LDVAL			SCWK_TEMP2, ITEM_OBONNOMI
+	_RET
+
+item_zaroku:
+	_LDVAL			SCWK_TEMP2, ITEM_ZAROKUNOMI
+	_RET
+item_nekobu:
+	_LDVAL			SCWK_TEMP2, ITEM_NEKOBUNOMI
+	_RET
+item_taporu:
+	_LDVAL			SCWK_TEMP2, ITEM_TAPORUNOMI
+	_RET
+item_rome:
+	_LDVAL			SCWK_TEMP2, ITEM_ROMENOMI
+	_RET
+item_ubu:
+	_LDVAL			SCWK_TEMP2, ITEM_UBUNOMI
+	_RET
+item_matoma:
+	_LDVAL			SCWK_TEMP2, ITEM_MATOMANOMI
+	_RET

@@ -1,0 +1,154 @@
+//====================================================================
+//								d17r0104
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d17r0104.h"
+	.include	"../eventdata/zone_d17r0104evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d17r0104_init_change
+_EVENT_DATA		ev_d17r0104_legend_01
+_EVENT_DATA		ev_d17r0104_item_01
+_EVENT_DATA		ev_d17r0104_record_01
+_EVENT_DATA		ev_d17r0104_flag_change
+_EVENT_DATA_END
+
+
+ev_d17r0104_flag_change:
+	_IF_FLAGOFF_CALL	FE_D17R0104_LEGEND_CLEAR,ev_d17r0104_flag_itemball_hide
+	_END
+
+ev_d17r0104_flag_itemball_hide:
+	_FLAG_SET	FV_D17R0104_ITEM
+	_RET
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d17r0104_init_change:
+	_IF_FLAGON_JUMP	FE_INIT_CHANGE_OBJ_DEL,ev_d17r0104_init_change_obj_del
+	_END
+
+ev_d17r0104_init_change_obj_del:
+	_FLAG_SET		FV_D17R0104_LEGEND
+	_OBJ_DEL		D17R0104_LEGEND_01
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_END
+
+
+/********************************************************************/
+/*	キマイランイベント開始											*/
+/********************************************************************/
+ev_d17r0104_legend_01:
+	_EVENT_START
+	_SE_PLAY		SEQ_SE_DP_SELECT
+	_SE_WAIT		SEQ_SE_DP_SELECT
+
+	_VOICE_PLAY		MONSNO_KIMAIRAN,0
+	_TALK_KEYWAIT	msg_d17r0104_sppoke10_01
+	_TALK_CLOSE
+
+	//戦闘開始
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	MONSNO_KIMAIRAN,70
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+
+	_LOSE_CHECK			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d17r0104_legend_lose
+
+	_SEACRET_POKE_RETRY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d17r0104_legend_capture_ng
+
+//キマイラン捕まえたor倒した
+ev_d17r0104_legend_event_clear:
+	//クリアフラグon
+	_FLAG_SET		FE_D17R0104_LEGEND_CLEAR
+	_FLAG_SET		FV_D17R0104_LEGEND
+	/*次来たらご褒美アイテムがある*/
+	_FLAG_RESET		FV_D17R0104_ITEM
+	_EVENT_END
+	_END
+
+/*キマイラン逃した*/
+ev_d17r0104_legend_capture_ng:
+	_TALKMSG		msg_d17r0104_sppoke10_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	/*逃した場合、次来たらいる*/
+	_FLAG_RESET		FV_D17R0104_LEGEND
+	_EVENT_END
+	_END
+
+/*全滅*/
+ev_d17r0104_legend_lose:
+	_NORMAL_LOSE	
+	/*逃した場合、次来たらいる*/
+	_FLAG_RESET		FV_D17R0104_LEGEND
+	_EVENT_END
+	_END
+
+/********************************************************************/
+/*	アイテム取得イベント開始										*/
+/********************************************************************/
+ev_d17r0104_item_01:
+	_TALK_START
+	_IFVAL_JUMP		WK_D17SYSTEM_PATH_MAP,EQ,3,ev_d17r0104_item_get01
+	_IFVAL_JUMP		WK_D17SYSTEM_PATH_MAP,LT,15,ev_d17r0104_item_get02
+	//ほしのすな
+	_LDVAL			SCWK_TEMP0,ITEM_HOSINOSUNA
+
+ev_d17r0104_item_decide:
+	/*数代入*/
+	_LDVAL			SCWK_TEMP1,1
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d17r0104_item_get_failed
+
+	//アイテムゲット SCWK_TEMP0にアイテムNo,SCWK_TEMP1に個数代入して呼び出す
+//	_CHG_COMMON_SCR	SCRID_ITEM_EVENTKEYWAIT	/*▼あり*/
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT	/*▼なし*/
+	_TALK_CLOSE
+
+	//アイテムOBJ隠す
+	_OBJ_DEL	D17R0104_ITEM
+	//次ぎ来たらもう一度出るようにしておく
+	_FLAG_RESET	FV_D17R0104_ITEM
+	_TALK_END
+	_END
+
+ev_d17r0104_item_get01:
+	_LDVAL			SCWK_TEMP0,ITEM_REIKAINONUNO	//霊界の布
+	_JUMP			ev_d17r0104_item_decide
+
+ev_d17r0104_item_get02:
+	_LDVAL			SCWK_TEMP0,ITEM_KITYOUNAHONE	//きちょうな骨
+	_JUMP			ev_d17r0104_item_decide
+
+/*バックがいっぱい*/
+ev_d17r0104_item_get_failed:
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL	/*ざんねん　バックがいっぱいだ*/
+	_TALK_CLOSE
+	_TALK_END
+	_END
+/********************************************************************/
+/*	レコード参照イベント開始										*/
+/********************************************************************/
+ev_d17r0104_record_01:
+	_TALK_START
+	_TALKMSG		msg_d17r0104_record_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

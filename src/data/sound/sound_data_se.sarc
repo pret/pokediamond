@@ -1,0 +1,970 @@
+;===============================================================================================
+;
+;	NITRO-Composer
+;
+;	ポケットモンスター　ダイヤモンド・パール
+;
+;	サウンドアーカイブ定義ファイル(SE)
+;
+;	05.06.09 satoshi nohara
+;
+;	"★"検索	波形アーカイブ、バンクなどの項目の先頭
+;	"●"検索	SEの先頭
+;
+;===============================================================================================
+
+
+;===============================================================================================
+;	★Wave Archive
+;	波形アーカイブ(複数の波形データをまとめたもの)
+;
+;	label
+;	filetype
+;	filename
+;
+;	AUTOと書いてあると、.swlsは自動で生成される
+;
+;	bankデータで使用している波形データをまとめたファイルが.swlsファイルに出力される
+;
+;	例
+;	BANK_NARIGANE	: TEXT, "narigane.bnk",	WAVE_ARC_NARIGANE
+;	narigane.bnk内に記述してある波形データをまとめたものが、
+;	WAVE_ARC_NARIGANEが指す、narigane.swlsに出力される
+;===============================================================================================
+@WAVEARC
+ @PATH "swar"
+;-----------------------------------------------------------------------------------------------
+;●SE(1500-
+;-----------------------------------------------------------------------------------------------
+WAVE_ARC_SE_FIELD = SE_START		: AUTO, "se_field.swls"			;フィールド
+WAVE_ARC_SE_BATTLE					: AUTO, "se_battle.swls"		;バトル
+WAVE_ARC_SE_BAG						: AUTO, "se_bag.swls"			;バッグ
+WAVE_ARC_SE_CLIMAX					: AUTO, "se_climax.swls"		;クライマックス
+WAVE_ARC_SE_SHINKA					: AUTO, "se_shinka.swls"		;進化
+WAVE_ARC_SE_NAMEIN					: AUTO, "se_namein.swls"		;名前入力
+WAVE_ARC_SE_IMAGE					: AUTO, "se_image.swls"			;イメージクリップ
+WAVE_ARC_SE_ZUKAN					: AUTO, "se_zukan.swls"			;図鑑
+WAVE_ARC_SE_CONTEST					: AUTO, "se_contest.swls"		;コンテスト
+WAVE_ARC_SE_TOWNMAP					: AUTO, "se_townmap.swls"		;タウンマップ
+WAVE_ARC_SE_TRCARD					: AUTO, "se_trcard.swls"		;トレーナーカード
+WAVE_ARC_SE_POKELIST				: AUTO, "se_pokelist.swls"		;ポケモンリスト
+WAVE_ARC_SE_DIG						: AUTO, "se_dig.swls"			;化石掘り
+WAVE_ARC_SE_CUSTOM					: AUTO, "se_custom.swls"		;カスタムボール
+WAVE_ARC_SE_TRADE					: AUTO, "se_trade.swls"			;交換デモ
+WAVE_ARC_SE_NUTMIXER				: AUTO, "se_nutmixer.swls"		;料理
+WAVE_ARC_SE_TRAIN					: AUTO, "se_train.swls"			;モロッコ号(湿原)
+WAVE_ARC_SE_SHIP					: AUTO, "se_ship.swls"			;船
+WAVE_ARC_SE_SLOT					: AUTO, "se_slot.swls"			;スロット
+;WAVE_ARC_SE_TEST					: AUTO, "se_test.swls"
+;WAVE_ARC_SE_TEST2					: AUTO, "se_test2.swls"
+;WAVE_ARC_SE_TEST3					: AUTO, "se_test3.swls"
+
+
+;===============================================================================================
+;	★Bank
+;	バンクデータの登録
+;
+;	label
+;	filetype
+;	filename
+;	wavearc0(バンク定義ファイルの中で波形データを使っていない場合は省略可)
+;	wavearc1(バンク定義ファイルの中で波形データを使っていない場合は省略可)
+;	wavearc2(バンク定義ファイルの中で波形データを使っていない場合は省略可)
+;	wavearc3(バンク定義ファイルの中で波形データを使っていない場合は省略可)
+;===============================================================================================
+@BANK
+ @PATH "bnk" 
+;-----------------------------------------------------------------------------------------------
+;●SE(1500-
+;-----------------------------------------------------------------------------------------------
+BANK_SE_FIELD = SE_START	: TEXT, "se_field.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_FIELD
+BANK_SE_BATTLE				: TEXT, "se_battle.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_BATTLE
+BANK_SE_BAG					: TEXT, "se_bag.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_BAG
+BANK_SE_CLIMAX				: TEXT, "se_climax.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_CLIMAX
+BANK_SE_SHINKA				: TEXT, "se_shinka.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_SHINKA
+BANK_SE_NAMEIN				: TEXT, "se_namein.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_NAMEIN
+BANK_SE_IMAGE				: TEXT, "se_image.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_IMAGE
+BANK_SE_ZUKAN				: TEXT, "se_zukan.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_ZUKAN
+BANK_SE_CONTEST				: TEXT, "se_contest.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_CONTEST
+BANK_SE_TOWNMAP				: TEXT, "se_townmap.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_TOWNMAP
+BANK_SE_TRCARD				: TEXT, "se_trcard.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_TRCARD
+BANK_SE_POKELIST			: TEXT, "se_pokelist.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_NAMEIN
+BANK_SE_DIG					: TEXT, "se_dig.bnk"	,	WAVE_ARC_BASIC,WAVE_ARC_SE_DIG
+BANK_SE_CUSTOM				: TEXT, "se_custom.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_CUSTOM
+BANK_SE_TRADE				: TEXT, "se_trade.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_TRADE
+BANK_SE_NUTMIXER			: TEXT, "se_nutmixer.bnk",	WAVE_ARC_BASIC,WAVE_ARC_SE_NUTMIXER
+BANK_SE_TRAIN				: TEXT, "se_train.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_TRAIN
+BANK_SE_SHIP				: TEXT, "se_ship.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_SHIP
+BANK_SE_SLOT				: TEXT, "se_slot.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_SLOT
+;BANK_SE_TEST				: TEXT, "se_test.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_TEST
+;BANK_SE_TEST2				: TEXT, "se_test2.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_TEST2
+;BANK_SE_TEST3				: TEXT, "se_test3.bnk",		WAVE_ARC_BASIC,WAVE_ARC_SE_TEST3
+
+
+;===============================================================================================
+;	★Sequence
+;	シーケンスデータ登録(SMFの登録)
+;
+;	label
+;	filetype
+;	filename
+;	bank
+;	volume
+;	channelPrio
+;	playerPrio
+;	playerNo
+;
+;	PLAYER_BGMは、プレイヤーの指定をしている
+;	0-31の数字でもよい。詳しくは「サウンドアーカイブマニュアル」
+;===============================================================================================
+@SEQ
+ @PATH "mid"
+;-----------------------------------------------------------------------------------------------
+;●SE(1500-
+;　sound_common.sarcに書いてある"SE_CH_PRI_???"、"SE_PL_PRI" を使用する！
+;-----------------------------------------------------------------------------------------------
+
+;-----------------------------------------------------------------------------------------------
+;どのシーンでも使用可能(BANK_BASIC)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_SELECT = SE_START: SMF, "se_dp_select.mid",	BANK_BASIC, 52,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DECIDE		: SMF, "se_dp_decide.mid",		BANK_BASIC, 80,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+;SEQ_SE_DP_TALK			: SMF, "se_dp_talk.mid",		BANK_BASIC, 110,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_TALK2			: SMF, "se_dp_talk2.mid",		BANK_BASIC, 88, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_SELECT11		: SMF, "se_dp_select11.mid",	BANK_BASIC, 110,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_SELECT78		: SMF, "se_dp_select78.mid",	BANK_BASIC, 120,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_SELECT5		: SMF, "se_dp_select5.mid",		BANK_BASIC, 95, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_PIRORIRO		: SMF, "se_dp_piroriro.mid",	BANK_BASIC, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_PIRORIRO2		: SMF, "se_dp_piroriro2.mid",	BANK_BASIC, 110,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_BUTTON9		: SMF, "se_dp_button9.mid",		BANK_BASIC, 110,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_BUTTON3		: SMF, "se_dp_button3.mid",		BANK_BASIC, 125,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_KON			: SMF, "se_dp_kon.mid",			BANK_BASIC, 80, SE_CH_PRI_HALF,SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KON2			: SMF, "se_dp_kon2.mid",		BANK_BASIC, 80, SE_CH_PRI_HALF,SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KON3			: SMF, "se_dp_kon3.mid",		BANK_BASIC, 80, SE_CH_PRI_HALF,SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KON4			: SMF, "se_dp_kon4.mid",		BANK_BASIC, 80, SE_CH_PRI_HALF,SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BOX01			: SMF, "se_dp_box01.mid",		BANK_BASIC, 115,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BOX02			: SMF, "se_dp_box02.mid",		BANK_BASIC, 115,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KAIFUKU		: SMF, "se_dp_kaifuku.mid",		BANK_BASIC, 54,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_ZUKAN02		: SMF, "se_dp_zukan02.mid",		BANK_BASIC, 100,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_OPEN2			: SMF, "se_dp_open2.mid",		BANK_BASIC, 110,SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CLOSE2		: SMF, "se_dp_close2.mid",		BANK_BASIC, 110,SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_025			: SMF, "se_dp_025.mid",			BANK_BASIC, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PINPON		: SMF, "se_dp_pinpon.mid",		BANK_BASIC, 88, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CUSTOM06		: SMF, "se_dp_custom06.mid",	BANK_BASIC, 88,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BOX03			: SMF, "se_dp_box03.mid",		BANK_BASIC, 115, SE_CH_PRI_L80,SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_START			: SMF, "se_dp_start.mid",		BANK_BASIC, 115, SE_CH_PRI_L80,SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SELECT_SLOT	: SMF, "se_dp_select.mid",		BANK_BASIC, 72,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;スロット用に音量を上げている
+
+;-----------------------------------------------------------------------------------------------
+;●BANK_BASICで作成する
+;必要なグループに追加するようにする！
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_CARD10		: SMF, "se_dp_card10.mid",		BANK_BASIC,110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_KATI			: SMF, "se_dp_kati.mid",		BANK_BASIC, 127, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;注意！別シンボルとしても使用しているデータ
+SEQ_SE_DP_CON_014		: SMF, "se_dp_kati.mid",		BANK_BASIC,110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_4;注意！別シンボルとしても使用しているデータ
+SEQ_SE_DP_W025			: SMF, "se_dp_w025.mid",		BANK_BASIC, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W060C			: SMF, "se_dp_w060c.mid",		BANK_BASIC, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W062			: SMF, "se_dp_w062.mid",		BANK_BASIC, 117, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W080			: SMF, "se_dp_w080.mid",		BANK_BASIC, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_WIN_OPEN		: SMF, "se_dp_win_open.mid",	BANK_BASIC, 38,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BOWA			: SMF, "se_dp_bowa.mid",		BANK_BASIC, 50, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_Z_SEARCH		: SMF, "se_dp_z_search.mid",	BANK_BASIC, 110,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CARD2			: SMF, "se_dp_card2.mid",		BANK_BASIC, 110, SE_CH_PRI_L80,	 SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;●メイン画面
+;フィールド(BANK_SE_FIELD)
+;-----------------------------------------------------------------------------------------------
+;フィールド上
+SEQ_SE_DP_WALL_HIT		: SMF, "se_dp_wall_hit.mid",	BANK_SE_FIELD, 30,  SE_CH_PRI_LOW,	SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_WALL_HIT2		: SMF, "se_dp_wall_hit2.mid",	BANK_SE_FIELD, 55,  SE_CH_PRI_LOW,	SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_KAIDAN2		: SMF, "se_dp_kaidan.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_KAIDAN3		: SMF, "se_dp_kaidan3.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DOOR			: SMF, "se_dp_door.mid",		BANK_SE_FIELD, 127,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DOOR_OPEN		: SMF, "se_dp_door_open.mid",	BANK_SE_FIELD, 115,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DOOR_CLOSE	: SMF, "se_dp_door_close.mid",	BANK_SE_FIELD, 112,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DOOR_CLOSE2	: SMF, "se_dp_door_close2.mid",	BANK_SE_FIELD, 115,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DOOR10		: SMF, "se_dp_door10.mid",		BANK_SE_FIELD, 30,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_DOOR10C		: SMF, "se_dp_door10c.mid",		BANK_SE_FIELD, 60,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_WIN_OPEN2		: SMF, "se_dp_win_open2.mid",	BANK_SE_FIELD, 110, SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_WIN_OPEN3		: SMF, "se_dp_win_open3.mid",	BANK_SE_FIELD, 110,  SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DANSA			: SMF, "se_dp_dansa.mid",		BANK_SE_FIELD, 55,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PC_ON			: SMF, "se_dp_pc_on.mid",		BANK_SE_FIELD, 70,  SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PC_LOGIN		: SMF, "se_dp_pc_login.mid",	BANK_SE_FIELD, 70,  SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PC_LOGOFF		: SMF, "se_dp_pc_logoff.mid",	BANK_SE_FIELD, 70,  SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DENDOU		: SMF, "se_dp_dendou.mid",		BANK_SE_FIELD, 95,  SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DOKU2			: SMF, "se_dp_doku2.mid",		BANK_SE_FIELD, 100,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_ELEBETA		: SMF, "se_dp_elebeta.mid",		BANK_SE_FIELD, 110,	SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_ELEBETA2		: SMF, "se_dp_elebeta2.mid",	BANK_SE_FIELD, 100,	SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_ELEBETA3		: SMF, "se_dp_elebeta3.mid",	BANK_SE_FIELD, 100,	SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_ELEBETA4		: SMF, "se_dp_elebeta4.mid",	BANK_SE_FIELD, 120,	SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_ESUKA			: SMF, "se_dp_esuka.mid",		BANK_SE_FIELD, 110,	SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_TV_NOISE		: SMF, "se_dp_tv_noise.mid",	BANK_SE_FIELD, 110,	SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_JIHANKI		: SMF, "se_dp_jihanki.mid",		BANK_SE_FIELD, 122,	SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_JITENSYA		: SMF, "se_dp_jitensya.mid",	BANK_SE_FIELD, 78,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_GEAR			: SMF, "se_dp_gear.mid",		BANK_SE_FIELD, 70,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KI_GASYAN		: SMF, "se_dp_ki_gasyan.mid",	BANK_SE_FIELD, 110,	SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SAVE			: SMF, "se_dp_save.mid",		BANK_SE_FIELD, 85,  SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_CALL01		: SMF, "se_dp_call01.mid",		BANK_SE_FIELD, 90,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_GEAR2			: SMF, "se_dp_gear2.mid",		BANK_SE_FIELD, 50,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SELECT8		: SMF, "se_dp_select8.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DORIRU		: SMF, "se_dp_doriru.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_YUKIASHI		: SMF, "se_dp_yukiashi.mid",	BANK_SE_FIELD, 78, SE_CH_PRI_L40,	SE_PL_PRI_LOW, PLAYER_SE_1;PL_PRIを下げた
+SEQ_SE_DP_UG_005		: SMF, "se_dp_ug_005.mid",		BANK_SE_FIELD, 60,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_006		: SMF, "se_dp_ug_006.mid",		BANK_SE_FIELD, 55,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_007		: SMF, "se_dp_ug_007.mid",		BANK_SE_FIELD, 105, SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_008		: SMF, "se_dp_ug_008.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_020		: SMF, "se_dp_ug_020.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_021		: SMF, "se_dp_ug_021.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_022		: SMF, "se_dp_ug_022.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_023		: SMF, "se_dp_ug_023.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_024		: SMF, "se_dp_ug_024.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_025		: SMF, "se_dp_ug_025.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_026		: SMF, "se_dp_ug_026.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_027		: SMF, "se_dp_ug_027.mid",		BANK_SE_FIELD, 88, SE_CH_PRI_HALF,	SE_PL_PRI, PLAYER_SE_1;SEQ_SE_DP_172と同じ
+;SEQ_SE_DP_MACHINE		: SMF, "se_dp_machine.mid",		BANK_SE_FIELD, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_MACHINE2		: SMF, "se_dp_machine2.mid",	BANK_SE_FIELD, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DENSI15		: SMF, "se_dp_densi15.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DENSI16		: SMF, "se_dp_densi16.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DENSI20		: SMF, "se_dp_densi20.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PYUU			: SMF, "se_dp_pyuu.mid",		BANK_SE_FIELD, 87,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PYUU2			: SMF, "se_dp_pyuu2.mid",		BANK_SE_FIELD, 90,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SUTYA			: SMF, "se_dp_sutya.mid",		BANK_SE_FIELD, 78,	SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_GYURU			: SMF, "se_dp_gyuru.mid",		BANK_SE_FIELD, 90,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_OPEN7			: SMF, "se_dp_open7.mid",		BANK_SE_FIELD, 127,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CLOSE7		: SMF, "se_dp_close7.mid",		BANK_SE_FIELD, 127,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_ZIZIZI		: SMF, "se_dp_zizizi.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_MAZYO2		: SMF, "se_dp_mazyo2.mid",		BANK_SE_FIELD, 88,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_MAZYO4		: SMF, "se_dp_mazyo4.mid",		BANK_SE_FIELD, 110,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BAG_004		: SMF, "se_dp_bag_004.mid",		BANK_SE_FIELD, 60, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_T_AME			: SMF, "se_dp_t_ame.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_L20, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_T_KOAME		: SMF, "se_dp_t_koame.mid",		BANK_SE_FIELD, 105, SE_CH_PRI_L20, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_T_OOAME		: SMF, "se_dp_t_ooame.mid",		BANK_SE_FIELD, 115, SE_CH_PRI_L20, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_T_KAMI		: SMF, "se_dp_t_kami.mid",		BANK_SE_FIELD, 105, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_2;注意！PLAYERテスト中
+SEQ_SE_DP_T_KAMI2		: SMF, "se_dp_t_kami2.mid",		BANK_SE_FIELD, 105, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_2;注意！PLAYERテスト中
+SEQ_SE_DP_HAMARU		: SMF, "se_dp_hamaru.mid",		BANK_SE_FIELD, 90, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_GAGAGA		: SMF, "se_dp_gagaga.mid",		BANK_SE_FIELD, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_F017			: SMF, "se_dp_f017.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_FOOT0_0		: SMF, "se_dp_foot0_0.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_1;駆け足
+;SEQ_SE_DP_FOOT0_1		: SMF, "se_dp_foot0_1.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_1;駆け足
+SEQ_SE_DP_FOOT3_0		: SMF, "se_dp_foot3_0.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI_LOW, PLAYER_SE_1;水系PL_PRI下げた
+SEQ_SE_DP_FOOT3_1		: SMF, "se_dp_foot3_1.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI_LOW, PLAYER_SE_1;水系PL_PRI下げた
+SEQ_SE_DP_CON_016		: SMF, "se_dp_con_016.mid",		BANK_SE_FIELD,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_REGI			: SMF, "se_dp_regi.mid",		BANK_SE_FIELD,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_F007		: SMF, "se_dp_con_f007.mid",	BANK_SE_FIELD, 70,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_CON_015		: SMF, "se_dp_con_015t.mid",	BANK_SE_FIELD,80,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;中身はcon_015tなので注意！
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SEQ_SE_DP_SUTYA2		: SMF, "se_dp_sutya.mid",		BANK_SE_FIELD,33,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;注意！別シンボルとしても使用しているデータ
+SEQ_SE_DP_FW230			: SMF, "se_dp_fw230.mid",		BANK_SE_FIELD, 108, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW019			: SMF, "se_dp_fw019.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW088			: SMF, "se_dp_fw088.mid",		BANK_SE_FIELD, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW015			: SMF, "se_dp_fw015.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FBRADE		: SMF, "se_dp_fbrade.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW463			: SMF, "se_dp_fw463.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_TELE			: SMF, "se_dp_tele.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_TELE2			: SMF, "se_dp_tele2.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW104			: SMF, "se_dp_fw104.mid",		BANK_SE_FIELD, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;注意！別シンボルとしても使用しているデータ
+SEQ_SE_DP_ZUPO			: SMF, "se_dp_zupo.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_ZUPO2			: SMF, "se_dp_zupo2.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KUSA			: SMF, "se_dp_kusa.mid",		BANK_SE_FIELD, 108, SE_CH_PRI_HALF, SE_PL_PRI_LOW, PLAYER_SE_1;PL_PRI下げた
+SEQ_SE_DP_SUNA			: SMF, "se_dp_suna.mid",		BANK_SE_FIELD, 83, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_MARSH_WALK	: SMF, "se_dp_marsh_walk.mid",	BANK_SE_FIELD, 109, SE_CH_PRI_HALF, SE_PL_PRI_LOW, PLAYER_SE_1;PL_PRI下げた
+SEQ_SE_DP_DANSA4		: SMF, "se_dp_dansa4.mid",		BANK_SE_FIELD, 55,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DANSA5		: SMF, "se_dp_dansa5.mid",		BANK_SE_FIELD, 55,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_F209			: SMF, "se_dp_f209.mid",		BANK_SE_FIELD, 90, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SUBERU		: SMF, "se_dp_suberu.mid",		BANK_SE_FIELD, 100,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW056			: SMF, "se_dp_fw056.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW291			: SMF, "se_dp_fw291.mid",		BANK_SE_FIELD, 122, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW089			: SMF, "se_dp_fw089.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW452			: SMF, "se_dp_fw452.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW466			: SMF, "se_dp_fw466.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_F007			: SMF, "se_dp_f007.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;ループ
+SEQ_SE_DP_FAWA			: SMF, "se_dp_fawa.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;ループ
+SEQ_SE_DP_FPASA2		: SMF, "se_dp_fpasa2.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_FW367			: SMF, "se_dp_fw367.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;未使用
+;-----------------------------------------------------------------------------------------------
+;SEQ_SE_DP_BEYON		: SMF, "se_dp_beyon.mid",		BANK_SE_FIELD, 50,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_PYUN			: SMF, "se_dp_pyun.mid",		BANK_SE_FIELD, 67,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_FOOT1_0		: SMF, "se_dp_foot1_0.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_1;草
+;SEQ_SE_DP_FOOT1_1		: SMF, "se_dp_foot1_1.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_1;草
+;SEQ_SE_DP_FOOT2_0		: SMF, "se_dp_foot2_0.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_1;砂浜
+;SEQ_SE_DP_FOOT2_1		: SMF, "se_dp_foot2_1.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_1;砂浜
+;SEQ_SE_DP_FOOT4_0		: SMF, "se_dp_foot4_0.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_1;長い草
+;SEQ_SE_DP_FOOT4_1		: SMF, "se_dp_foot4_1.mid",		BANK_SE_FIELD, 50, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_1;長い草
+;SEQ_SE_DP_TOREEYE		: SMF, "se_dp_toreeye.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1	;
+;SEQ_SE_DP_BS			: SMF, "se_dp_bs.mid",			BANK_SE_FIELD, 70, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1	;
+;SEQ_SE_DP_DOKU			: SMF, "se_dp_doku.mid",		BANK_SE_FIELD, 100,	SE_CH_PRI_L80,	SE_PL_PRI, PLAYER_SE_1;
+
+
+;-----------------------------------------------------------------------------------------------
+;-----------------------------------------------------------------------------------------------
+;ポケッチ
+SEQ_SE_DP_POKETCH_003	: SMF, "se_dp_poketch_003.mid",	BANK_SE_FIELD, 120, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_004	: SMF, "se_dp_poketch_004.mid",	BANK_SE_FIELD, 65,  SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_005	: SMF, "se_dp_poketch_005.mid",	BANK_SE_FIELD, 90,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_006	: SMF, "se_dp_poketch_006.mid",	BANK_SE_FIELD, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_007	: SMF, "se_dp_poketch_007.mid",	BANK_SE_FIELD, 80,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_009	: SMF, "se_dp_poketch_009.mid",	BANK_SE_FIELD, 53,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_010	: SMF, "se_dp_poketch_010.mid",	BANK_SE_FIELD, 70,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_011	: SMF, "se_dp_poketch_011.mid",	BANK_SE_FIELD, 53,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_012	: SMF, "se_dp_poketch_012.mid",	BANK_SE_FIELD, 50,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_013	: SMF, "se_dp_poketch_013.mid",	BANK_SE_FIELD, 50,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_POKETCH_014	: SMF, "se_dp_poketch_014.mid",	BANK_SE_FIELD, 50,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_BEEP			: SMF, "se_dp_beep2.mid",		BANK_SE_FIELD, 80,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI01		: SMF, "se_dp_densi01.mid",		BANK_SE_FIELD, 115, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI02		: SMF, "se_dp_densi02.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI04		: SMF, "se_dp_densi04.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI05		: SMF, "se_dp_densi05.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI07		: SMF, "se_dp_densi07.mid",		BANK_SE_FIELD, 120, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI08		: SMF, "se_dp_densi08.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI09		: SMF, "se_dp_densi09.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI10		: SMF, "se_dp_densi10.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI11		: SMF, "se_dp_densi11.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI12		: SMF, "se_dp_densi12.mid",		BANK_SE_FIELD, 100, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+
+;-----------------------------------------------------------------------------------------------
+;-----------------------------------------------------------------------------------------------
+;その他
+SEQ_SE_DP_KASYA			: SMF, "se_dp_kasya.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1	;
+;SEQ_SE_DP_KIRA			: SMF, "se_dp_kira.mid",		BANK_SE_FIELD, 67,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1	;
+SEQ_SE_DP_PASO2			: SMF, "se_dp_paso2.mid",		BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1	;
+SEQ_SE_DP_TATA			: SMF, "se_dp_tata.mid",		BANK_SE_FIELD, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1	;
+SEQ_SE_DP_UP			: SMF, "se_dp_up.mid",			BANK_SE_FIELD, 84,	SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_1	;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;イメージクリップ(BANK_SE_IMAGE)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_PASO			: SMF, "se_dp_paso.mid",		BANK_SE_IMAGE, 110,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SYARAAN		: SMF, "se_dp_syaraan.mid",		BANK_SE_IMAGE, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_TARARARAN		: SMF, "se_dp_tarararan.mid",	BANK_SE_IMAGE, 98,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_MAZYO			: SMF, "se_dp_mazyo.mid",		BANK_SE_IMAGE, 88,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_MAZYO2		: SMF, "se_dp_mazyo2.mid",		BANK_SE_IMAGE, 88,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_MAZYO3		: SMF, "se_dp_mazyo3.mid",		BANK_SE_IMAGE, 98,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_HYUN			: SMF, "se_dp_hyun.mid",		BANK_SE_IMAGE, 98,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_HYUN2			: SMF, "se_dp_hyun2.mid",		BANK_SE_IMAGE, 98,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_017		: SMF, "se_dp_con_017.mid",		BANK_SE_IMAGE,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;図鑑(BANK_SE_ZUKAN)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_BUTTON01		: SMF, "se_dp_button01.mid",	BANK_SE_ZUKAN, 115,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_Z_PAGE		: SMF, "se_dp_z_page.mid",		BANK_SE_ZUKAN, 110,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_Z_SCROLL		: SMF, "se_dp_z_scroll.mid",	BANK_SE_ZUKAN, 60,  SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_JOURO			: SMF, "se_dp_jouro.mid",		BANK_SE_FIELD, 89,  SE_CH_PRI_L20, SE_PL_PRI, PLAYER_SE_2;ナンバーをずらさないためにここに挿入
+SEQ_SE_DP_PIKO			: SMF, "se_dp_piko.mid",		BANK_SE_ZUKAN, 100,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PIKO2			: SMF, "se_dp_piko2.mid",		BANK_SE_ZUKAN, 100,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_ZUKAN01		: SMF, "se_dp_zukan01.mid",		BANK_SE_ZUKAN, 100,	SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DENSI06		: SMF, "se_dp_densi06.mid",		BANK_SE_ZUKAN, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_DENSI17		: SMF, "se_dp_densi17.mid",		BANK_SE_ZUKAN, 120, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;注意！PLAYERテスト中
+SEQ_SE_DP_DENSI18		: SMF, "se_dp_densi18.mid",		BANK_SE_ZUKAN, 120, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;注意！PLAYERテスト中
+SEQ_SE_DP_DENSI19		: SMF, "se_dp_densi19.mid",		BANK_SE_ZUKAN, 120, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;注意！PLAYERテスト中
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;タウンマップ(BANK_SE_TOWNMAP)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_MEKURU		: SMF, "se_dp_mekuru.mid",		BANK_SE_TOWNMAP, 127, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_MEKURU2		: SMF, "se_dp_mekuru2.mid",		BANK_SE_TOWNMAP, 127, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_MEKURU3		: SMF, "se_dp_mekuru3.mid",		BANK_SE_TOWNMAP, 127, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;トレーナーカード(BANK_SE_TRCARD)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_MIGAKU01		: SMF, "se_dp_migaku01.mid",	BANK_SE_TRCARD, 68, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_MIGAKU02		: SMF, "se_dp_migaku02.mid",	BANK_SE_TRCARD, 68, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;注意！プレイヤーテスト中
+SEQ_SE_DP_BADGE_C		: SMF, "se_dp_badge_c.mid",		BANK_SE_TRCARD, 123, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CARD3			: SMF, "se_dp_card3.mid",		BANK_SE_TRCARD, 110, SE_CH_PRI_L80,	 SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CARD5			: SMF, "se_dp_card5.mid",		BANK_SE_TRCARD, 115, SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CARD6			: SMF, "se_dp_card6.mid",		BANK_SE_TRCARD, 110, SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_2;注意！プレイヤーテスト中
+SEQ_SE_DP_CARD9			: SMF, "se_dp_card9.mid",		BANK_SE_TRCARD, 100, SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_2;注意！プレイヤーテスト中
+SEQ_SE_DP_CARD11		: SMF, "se_dp_card11.mid",		BANK_SE_TRCARD, 127, SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_1;
+
+;;;;;;;;;;;;;テストちゅう
+SEQ_SE_DP_KYU01			: SMF, "se_dp_kyu01.mid",		BANK_SE_TRCARD, 120, SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_KYU02			: SMF, "se_dp_kyu02.mid",		BANK_SE_TRCARD, 120, SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_KYU03		: SMF, "se_dp_kyu03.mid",		BANK_SE_TRCARD, 120, SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_1;
+
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;名前入力・ポケモンステータス(BANK_SE_NAMEIN)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_NAMEIN_01		: SMF, "se_dp_namein_01.mid",	BANK_BASIC, 100, SE_CH_PRI_L60, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_GASHIN02		: SMF, "se_dp_gashin02.mid",	BANK_SE_NAMEIN, 60,  SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SYU01			: SMF, "se_dp_syu01.mid",		BANK_SE_NAMEIN, 127, SE_CH_PRI_HIGH, SE_PL_PRI, PLAYER_SE_1;ポケモンステータスでこのプライオリティが必要
+SEQ_SE_DP_SYU02			: SMF, "se_dp_syu02.mid",		BANK_SE_NAMEIN, 125, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SYU03			: SMF, "se_dp_syu03.mid",		BANK_SE_NAMEIN, 125, SE_CH_PRI_L60, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DECIDE2		: SMF, "se_dp_box02.mid",		BANK_SE_NAMEIN, 100,  SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;ポケモンリスト(BANK_SE_POKELIST)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_POKELIST_001	: SMF, "se_dp_pokelist_001.mid",BANK_SE_POKELIST, 113, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;化石掘り(BANK_SE_DIG)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_UG_001	: SMF, "se_dp_ug_001.mid",			BANK_SE_DIG, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_002	: SMF, "se_dp_ug_002.mid",			BANK_SE_DIG, 125,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_003	: SMF, "se_dp_ug_003.mid",			BANK_SE_DIG, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_UG_004	: SMF, "se_dp_ug_004.mid",			BANK_SE_DIG, 120,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KIRAKIRA3	: SMF, "se_dp_kirakira3.mid",		BANK_SE_DIG, 100, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_KIRAKIRA	: SMF, "se_dp_kirakira.mid",		BANK_SE_DIG, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_KIRAKIRA4	: SMF, "se_dp_kirakira4.mid",		BANK_SE_DIG, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+
+;-----------------------------------------------------------------------------------------------
+;●メイン画面
+;交換デモ(BANK_SE_TRADE)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_KOUKAN01	: SMF, "se_dp_koukan01.mid",		BANK_SE_TRADE, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKAN03	: SMF, "se_dp_koukan03.mid",		BANK_SE_TRADE, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKAN04	: SMF, "se_dp_koukan04.mid",		BANK_SE_TRADE, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKAN05	: SMF, "se_dp_koukan05.mid",		BANK_SE_TRADE, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKAN06	: SMF, "se_dp_koukan06.mid",		BANK_SE_TRADE, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKAN07	: SMF, "se_dp_koukan07.mid",		BANK_SE_TRADE, 100,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKAN08	: SMF, "se_dp_koukan08.mid",		BANK_SE_TRADE, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKAN09	: SMF, "se_dp_koukan09.mid",		BANK_SE_TRADE, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKAN10	: SMF, "se_dp_koukan10.mid",		BANK_SE_TRADE, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;●メイン画面
+;料理(BANK_SE_NUTMIXER)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_NM01		: SMF, "se_dp_nm01.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM02		: SMF, "se_dp_nm02.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_NM03		: SMF, "se_dp_nm03.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_NM03_2	: SMF, "se_dp_nm03_2.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_NM04		: SMF, "se_dp_nm04.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM04_2	: SMF, "se_dp_nm04_2.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM04_3	: SMF, "se_dp_nm04_3.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM05		: SMF, "se_dp_nm05.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_NM07		: SMF, "se_dp_nm07.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM07_2	: SMF, "se_dp_nm07_2.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM08		: SMF, "se_dp_nm08.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_NM09		: SMF, "se_dp_nm09.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM10		: SMF, "se_dp_nm10.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM10_2	: SMF, "se_dp_nm10_2.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM11		: SMF, "se_dp_nm11.mid",			BANK_SE_NUTMIXER, 127,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_NM12		: SMF, "se_dp_nm12.mid",			BANK_SE_NUTMIXER, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM12_2	: SMF, "se_dp_nm12_2.mid",			BANK_SE_NUTMIXER, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM13		: SMF, "se_dp_nm13.mid",			BANK_SE_NUTMIXER, 120,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NM14		: SMF, "se_dp_nm14.mid",			BANK_SE_NUTMIXER, 80,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;カスタムボール(BANK_SE_CUSTOM)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_CUSTOM01	: SMF, "se_dp_custom01.mid",		BANK_BASIC, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CUSTOM02	: SMF, "se_dp_custom02.mid",		BANK_SE_CUSTOM, 100,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CUSTOM05	: SMF, "se_dp_custom05.mid",		BANK_SE_CUSTOM, 120,SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;バッグ・最初のポケモン選択(BANK_SE_BAG)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_BAG_006		: SMF, "se_dp_bag_006.mid",		BANK_SE_BAG, 96, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BAG_011		: SMF, "se_dp_bag_011.mid",		BANK_SE_BAG, 60, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BAG_020		: SMF, "se_dp_bag_020.mid",		BANK_SE_BAG, 127,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BAG_030		: SMF, "se_dp_bag_030.mid",		BANK_SE_BAG, 100,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_BAG_031		: SMF, "se_dp_bag_031.mid",		BANK_SE_BAG, 110,SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_GASA01		: SMF, "se_dp_gasa01.mid",		BANK_SE_BAG, 127,SE_CH_PRI_HALF,SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_GASA02		: SMF, "se_dp_gasa02.mid",		BANK_SE_BAG, 127,SE_CH_PRI_HALF,SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_GASA03		: SMF, "se_dp_gasa03.mid",		BANK_SE_BAG, 127,SE_CH_PRI_HALF,SE_PL_PRI, PLAYER_SE_2;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;進化(BANK_SE_SHINKA)
+;-----------------------------------------------------------------------------------------------
+;SEQ_SE_DP_SHINKA_01		: SMF, "se_dp_w025.mid",		BANK_SE_SHINKA, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;注意！別シンボルとしても使用しているデータ
+;SEQ_SE_DP_SHINKA_02		: SMF, "se_dp_w060c.mid",		BANK_SE_SHINKA, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;注意！別シンボルとしても使用しているデータ
+;SEQ_SE_DP_SHINKA_03		: SMF, "se_dp_w062.mid",		BANK_SE_SHINKA, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;注意！別シンボルとしても使用しているデータ
+;SEQ_SE_DP_SHINKA_04		: SMF, "se_dp_w080.mid",		BANK_SE_SHINKA, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;注意！別シンボルとしても使用しているデータ
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面
+;スロット(BANK_SE_SLOT)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_CARD7			: SMF, "se_dp_card7.mid",		BANK_SE_SLOT, 110, SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SLOT01		: SMF, "se_dp_bowa2.mid",		BANK_SE_SLOT, 115, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;注意！別シンボルとしても使用しているデータ
+SEQ_SE_DP_SLOT02		: SMF, "se_dp_suikomu.mid",		BANK_SE_SLOT, 127, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;注意！別シンボルとしても使用しているデータ
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面(フィールド上で追加ロードする)
+;クライマックス(BANK_SE_CLIMAX)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_CLIMAX01		: SMF, "se_dp_climax01.mid",	BANK_SE_FIELD, 95, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CLIMAX03		: SMF, "se_dp_w460.mid",		BANK_SE_CLIMAX, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CLIMAX06		: SMF, "se_dp_climax06.mid",	BANK_SE_FIELD, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CLIMAX09		: SMF, "se_dp_w379.mid",		BANK_SE_CLIMAX, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_CLIMAX10		: SMF, "se_dp_climax10.mid",	BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CLIMAX12		: SMF, "se_dp_205.mid",			BANK_SE_CLIMAX, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_CLIMAX15		: SMF, "se_dp_climax15.mid",	BANK_SE_FIELD, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面(フィールド上で追加ロードする)
+;モロッコ号デモ(BANK_SE_TRAIN)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_TRAIN02		: SMF, "se_dp_train02.mid",		BANK_SE_TRAIN, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_TRAIN03		: SMF, "se_dp_train03.mid",		BANK_SE_TRAIN, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_TRAIN04		: SMF, "se_dp_train04.mid",		BANK_SE_TRAIN, 115, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面(フィールド上で追加ロードする)
+;船デモ(BANK_SE_SHIP)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_SHIP01		: SMF, "se_dp_ship01.mid",		BANK_SE_SHIP, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SHIP02		: SMF, "se_dp_ship02.mid",		BANK_SE_SHIP, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SHIP03		: SMF, "se_dp_ship03.mid",		BANK_SE_FIELD, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+
+;-----------------------------------------------------------------------------------------------
+;▲サブ画面(コンテストは基本バトルを使用するのでサブにしている)
+;コンテスト(BANK_SE_CONTEST)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_CON_001		: SMF, "se_dp_con_001.mid",		BANK_BASIC, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_002		: SMF, "se_dp_con_002.mid",		BANK_BASIC, 105, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_003		: SMF, "se_dp_con_003.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_004		: SMF, "se_dp_con_004.mid",		BANK_BASIC, 102, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_005		: SMF, "se_dp_con_005.mid",		BANK_SE_BATTLE, 106, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_006		: SMF, "se_dp_con_006.mid",		BANK_SE_CONTEST, 68,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_007		: SMF, "se_dp_con_007.mid",		BANK_SE_BATTLE, 70,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;注意！別シンボルとしても使用しているデータ
+SEQ_SE_DP_CON_009		: SMF, "se_dp_con_009.mid",		BANK_SE_CONTEST,127,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_010		: SMF, "se_dp_con_010.mid",		BANK_SE_CONTEST,127,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_011		: SMF, "se_dp_con_011.mid",		BANK_SE_CONTEST,127,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_012		: SMF, "se_dp_con_012.mid",		BANK_SE_CONTEST,127,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_013		: SMF, "se_dp_con_013.mid",		BANK_SE_CONTEST,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_018		: SMF, "se_dp_con_018.mid",		BANK_SE_CONTEST,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_019		: SMF, "se_dp_con_019.mid",		BANK_BASIC,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_CON_020		: SMF, "se_dp_con_020.mid",		BANK_SE_CONTEST,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_021		: SMF, "se_dp_con_021.mid",		BANK_SE_BATTLE,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_CON_022		: SMF, "se_dp_con_022.mid",		BANK_SE_BATTLE,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_CON_023		: SMF, "se_dp_con_023.mid",		BANK_SE_BATTLE,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_CON_024		: SMF, "se_dp_con_024.mid",		BANK_BASIC,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_CON_026		: SMF, "se_dp_con_026.mid",		BANK_BASIC,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+;SEQ_SE_DP_CON_027		: SMF, "se_dp_con_027.mid",		BANK_SE_CONTEST,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_4;
+SEQ_SE_DP_CON_027_2		: SMF, "se_dp_con_027_2.mid",	BANK_SE_BATTLE,95,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_4;
+SEQ_SE_DP_CON_027_3		: SMF, "se_dp_con_027_3.mid",	BANK_SE_BATTLE,122,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_4;
+SEQ_SE_DP_CON_028		: SMF, "se_dp_con_028.mid",		BANK_SE_BATTLE,110,  SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_4;
+SEQ_SE_DP_CON_029		: SMF, "se_dp_con_029.mid",		BANK_SE_BATTLE,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_030		: SMF, "se_dp_con_030.mid",		BANK_SE_BATTLE,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_CON_031		: SMF, "se_dp_con_031.mid",		BANK_BASIC,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_032		: SMF, "se_dp_con_032.mid",		BANK_SE_BATTLE,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_CON_033		: SMF, "se_dp_con_033.mid",		BANK_BASIC,127,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_CON_034		: SMF, "se_dp_con_034.mid",		BANK_SE_BATTLE,110,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+
+;-----------------------------------------------------------------------------------------------
+;●メイン画面
+;バトル(BANK_SE_BATTLE)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_KOUKA_H		: SMF, "se_dp_kouka_h.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKA_L		: SMF, "se_dp_kouka_l.mid",		BANK_SE_BATTLE, 103, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KOUKA_M		: SMF, "se_dp_kouka_m.mid",		BANK_SE_BATTLE, 115, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NIGERU2		: SMF, "se_dp_nigeru2.mid",		BANK_SE_BATTLE, 57, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NIGERU		: SMF, "se_dp_nigeru.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_POKE_DEAD		: SMF, "se_dp_poke_dead.mid",	BANK_SE_BATTLE, 90,  SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_POKE_DEAD2	: SMF, "se_dp_poke_dead2.mid",	BANK_SE_BATTLE, 90,  SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_POKE_DEAD3	: SMF, "se_dp_poke_dead3.mid",	BANK_SE_BATTLE, 90,  SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_HINSI			: SMF, "se_dp_hinsi.mid",		BANK_SE_BATTLE, 90, SE_CH_PRI_L40, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_SUIKOMU		: SMF, "se_dp_suikomu.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_2;注意！別シンボルとしても使用しているデータ
+SEQ_SE_DP_BOWA2			: SMF, "se_dp_bowa2.mid",		BANK_SE_BATTLE, 115, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;注意！別シンボルとしても使用しているデータ
+SEQ_SE_DP_BOWA3			: SMF, "se_dp_bowa3.mid",		BANK_SE_BATTLE, 115, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BOWA4			: SMF, "se_dp_bowa4.mid",		BANK_SE_BATTLE, 115, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_GETTING		: SMF, "se_dp_getting.mid",		BANK_SE_BATTLE,127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NAGERU		: SMF, "se_dp_nageru.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_EXP			: SMF, "se_dp_exp.mid",			BANK_SE_BATTLE, 90,	 SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_EXPMAX		: SMF, "se_dp_expmax.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_EXPMAX2		: SMF, "se_dp_expmax2.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SLIDEIN		: SMF, "se_dp_slidein.mid",		BANK_SE_BATTLE, 115, SE_CH_PRI_L80, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BT_001		: SMF, "se_dp_bt_001.mid",		BANK_SE_BATTLE, 90, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_REAPOKE		: SMF, "se_dp_reapoke.mid",		BANK_SE_BATTLE, 109, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_TB_START		: SMF, "se_dp_tb_start.mid",	BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_TB_KON		: SMF, "se_dp_tb_kon.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_TB_KARA		: SMF, "se_dp_tb_kara.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_EGG01			: SMF, "se_dp_egg01.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;------------------------
+;VSデモ
+;------------------------
+SEQ_SE_DP_VSDEMO01		: SMF, "se_dp_vsdemo01.mid",	BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_VSDEMO02		: SMF, "se_dp_vsdemo02.mid",	BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_VSDEMO03		: SMF, "se_dp_vsdemo03.mid",	BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_VSDEMO04		: SMF, "se_dp_vsdemo04.mid",	BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_VSDEMO05		: SMF, "se_dp_vsdemo05.mid",	BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_VSDEMO06		: SMF, "se_dp_vsdemo06.mid",	BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_VSDEMO07		: SMF, "se_dp_vsdemo07.mid",	BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+;------------------------
+;攻撃音			PLAYER1
+;能力アップ		PLAYER1
+;動き音			PLAYER2
+;ループ音		PLAYER3
+;------------------------
+SEQ_SE_DP_000			: SMF, "se_dp_000.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_001			: SMF, "se_dp_001.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_003			: SMF, "se_dp_003.mid",			BANK_SE_BATTLE, 115, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_007			: SMF, "se_dp_007.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_020			: SMF, "se_dp_020.mid",			BANK_SE_BATTLE, 124, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_021			: SMF, "se_dp_021.mid",			BANK_SE_BATTLE, 115, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_023			: SMF, "se_dp_023.mid",			BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_030			: SMF, "se_dp_030.mid",			BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_030C			: SMF, "se_dp_030c.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_031			: SMF, "se_dp_031.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_032			: SMF, "se_dp_032.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_040			: SMF, "se_dp_040.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_041			: SMF, "se_dp_041.mid",			BANK_SE_BATTLE, 48,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_050			: SMF, "se_dp_050.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_051			: SMF, "se_dp_051.mid",			BANK_SE_BATTLE, 60,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_052			: SMF, "se_dp_052.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_053			: SMF, "se_dp_053.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;能力
+SEQ_SE_DP_060			: SMF, "se_dp_060.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_061			: SMF, "se_dp_061.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_080			: SMF, "se_dp_080.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_081			: SMF, "se_dp_081.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_100			: SMF, "se_dp_100.mid",			BANK_SE_BATTLE, 80, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_110			: SMF, "se_dp_110.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_111			: SMF, "se_dp_111.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_112			: SMF, "se_dp_112.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_130			: SMF, "se_dp_130.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_131			: SMF, "se_dp_131.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_140			: SMF, "se_dp_140.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_141			: SMF, "se_dp_141.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_143			: SMF, "se_dp_143.mid",			BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_145			: SMF, "se_dp_145.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_146			: SMF, "se_dp_146.mid",			BANK_SE_BATTLE, 105, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;能力
+SEQ_SE_DP_150			: SMF, "se_dp_150.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_151			: SMF, "se_dp_151.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_152			: SMF, "se_dp_152.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_153			: SMF, "se_dp_153.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_154			: SMF, "se_dp_154.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_155			: SMF, "se_dp_155.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_160			: SMF, "se_dp_160.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_161			: SMF, "se_dp_161.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_162			: SMF, "se_dp_162.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_163			: SMF, "se_dp_163.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_164			: SMF, "se_dp_164.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_165			: SMF, "se_dp_165.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_166			: SMF, "se_dp_166.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_170			: SMF, "se_dp_170.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_171			: SMF, "se_dp_171.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_172			: SMF, "se_dp_172.mid",			BANK_SE_BATTLE, 90,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;SEQ_SE_DP_UG_027と同じ
+SEQ_SE_DP_180			: SMF, "se_dp_180.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_181			: SMF, "se_dp_181.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_182			: SMF, "se_dp_182.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_183			: SMF, "se_dp_183.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_184			: SMF, "se_dp_184.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_185			: SMF, "se_dp_185.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_186			: SMF, "se_dp_186.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_187			: SMF, "se_dp_187.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+SEQ_SE_DP_200			: SMF, "se_dp_200.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_201			: SMF, "se_dp_201.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_202			: SMF, "se_dp_202.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_203			: SMF, "se_dp_203.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_204			: SMF, "se_dp_204.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_205			: SMF, "se_dp_205.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_206			: SMF, "se_dp_206.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_207			: SMF, "se_dp_207.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_208			: SMF, "se_dp_208.mid",			BANK_SE_BATTLE, 122, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_209			: SMF, "se_dp_209.mid",			BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_210			: SMF, "se_dp_210.mid",			BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_211			: SMF, "se_dp_211.mid",			BANK_SE_BATTLE, 105, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_212			: SMF, "se_dp_212.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_213			: SMF, "se_dp_213.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_214			: SMF, "se_dp_214.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_280			: SMF, "se_dp_280.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_281			: SMF, "se_dp_281.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_282			: SMF, "se_dp_282.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+SEQ_SE_DP_290			: SMF, "se_dp_290.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_291			: SMF, "se_dp_291.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_293			: SMF, "se_dp_293.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_300			: SMF, "se_dp_300.mid",			BANK_SE_BATTLE, 97, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+SEQ_SE_DP_350			: SMF, "se_dp_350.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_351			: SMF, "se_dp_351.mid",			BANK_SE_BATTLE, 88, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_400			: SMF, "se_dp_400.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_401			: SMF, "se_dp_401.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_402			: SMF, "se_dp_402.mid",			BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_480			: SMF, "se_dp_480.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;未使用
+;-----------------------------------------------------------------------------------------------
+;SEQ_SE_DP_002			: SMF, "se_dp_002.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_022			: SMF, "se_dp_022.mid",			BANK_SE_BATTLE, 105, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_024			: SMF, "se_dp_024.mid",			BANK_SE_BATTLE, 115, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+;SEQ_SE_DP_026			: SMF, "se_dp_026.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_292			: SMF, "se_dp_292.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_292B			: SMF, "se_dp_292.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_294			: SMF, "se_dp_294.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_295			: SMF, "se_dp_295.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_296			: SMF, "se_dp_296.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_297			: SMF, "se_dp_297.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_298			: SMF, "se_dp_298.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_299			: SMF, "se_dp_299.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_301			: SMF, "se_dp_301.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_302			: SMF, "se_dp_302.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_303			: SMF, "se_dp_303.mid",			BANK_SE_TEST, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+;-----------------------------------------------------------------------------------------------
+;攻撃音				PLAYER1
+;能力アップ			PLAYER1
+;動き音				PLAYER2
+;ループ、画面全体音	PLAYER3
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_DP_W003			: SMF, "se_dp_w003.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W004			: SMF, "se_dp_w004.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W006			: SMF, "se_dp_w006.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W007			: SMF, "se_dp_w007.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W010			: SMF, "se_dp_w010.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W011			: SMF, "se_dp_w011.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W013			: SMF, "se_dp_w013.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W013B			: SMF, "se_dp_w013b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W014			: SMF, "se_dp_w014.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W015			: SMF, "se_dp_w015.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W016			: SMF, "se_dp_w016.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;ループ
+SEQ_SE_DP_W016B			: SMF, "se_dp_w016b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W017			: SMF, "se_dp_w017.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W019			: SMF, "se_dp_w019.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W020			: SMF, "se_dp_w020.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W020B			: SMF, "se_dp_w020b.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W025B			: SMF, "se_dp_w025B.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W025C			: SMF, "se_dp_w025c.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W026			: SMF, "se_dp_w026.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W028			: SMF, "se_dp_w028.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W028B			: SMF, "se_dp_w028b.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W029			: SMF, "se_dp_w029.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_W030			: SMF, "se_dp_w030.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W036			: SMF, "se_dp_w036.mid",		BANK_SE_BATTLE, 98, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;能力
+SEQ_SE_DP_W039			: SMF, "se_dp_w039.mid",		BANK_SE_BATTLE, 108, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W040			: SMF, "se_dp_w040.mid",		BANK_SE_BATTLE, 108, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W043			: SMF, "se_dp_w043.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_W043B			: SMF, "se_dp_w043b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W043C			: SMF, "se_dp_w043c.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W043D			: SMF, "se_dp_w043d.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W044			: SMF, "se_dp_w044.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W047			: SMF, "se_dp_w047.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W048			: SMF, "se_dp_w048.mid",		BANK_SE_BATTLE, 124, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W052			: SMF, "se_dp_w052.mid",		BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W053			: SMF, "se_dp_w053.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W053B			: SMF, "se_dp_w053b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W054			: SMF, "se_dp_w054.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W055			: SMF, "se_dp_w055.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W056			: SMF, "se_dp_w056.mid",		BANK_SE_BATTLE, 122, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W056B			: SMF, "se_dp_w056b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W057			: SMF, "se_dp_w057.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W057B			: SMF, "se_dp_w057b.mid",		BANK_SE_BATTLE, 122, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W059			: SMF, "se_dp_w059.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;ループ
+SEQ_SE_DP_W059B			: SMF, "se_dp_w059b.mid",		BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W060			: SMF, "se_dp_w060.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W062D			: SMF, "se_dp_w062d.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W060B			: SMF, "se_dp_w060b.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W063			: SMF, "se_dp_w063.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W063B			: SMF, "se_dp_w063b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W063C			: SMF, "se_dp_w063c.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W070			: SMF, "se_dp_w070.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W071			: SMF, "se_dp_w071.mid",		BANK_SE_BATTLE, 80,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W071B			: SMF, "se_dp_w071b.mid",		BANK_SE_BATTLE, 90,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W076			: SMF, "se_dp_w076.mid",		BANK_SE_BATTLE, 80,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W076B			: SMF, "se_dp_w076b.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W077			: SMF, "se_dp_w077.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W077B			: SMF, "se_dp_w077b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W080B			: SMF, "se_dp_w080b.mid",		BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W080C			: SMF, "se_dp_w080c.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W081			: SMF, "se_dp_w081.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W081B			: SMF, "se_dp_w081b.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W082			: SMF, "se_dp_w082.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W082B			: SMF, "se_dp_w082b.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W082C			: SMF, "se_dp_w082c.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W085			: SMF, "se_dp_w085.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W085B			: SMF, "se_dp_w085b.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W085C			: SMF, "se_dp_w085c.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W086			: SMF, "se_dp_w086.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W088			: SMF, "se_dp_w088.mid",		BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W089			: SMF, "se_dp_w089.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_W089B			: SMF, "se_dp_w089b.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W090			: SMF, "se_dp_w090.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W091			: SMF, "se_dp_w091.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W092			: SMF, "se_dp_w092.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W092B			: SMF, "se_dp_w092b.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W092D			: SMF, "se_dp_w092d.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W100			: SMF, "se_dp_w100.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W100B			: SMF, "se_dp_w100b.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W103			: SMF, "se_dp_w103.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W104			: SMF, "se_dp_w104.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W107			: SMF, "se_dp_w107.mid",		BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W109			: SMF, "se_dp_w109.mid",		BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W109B			: SMF, "se_dp_w109b.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W112			: SMF, "se_dp_w112.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W112B			: SMF, "se_dp_w112b.mid",		BANK_SE_BATTLE, 48, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W114			: SMF, "se_dp_w114.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W115			: SMF, "se_dp_w115.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W118			: SMF, "se_dp_w118.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W118B			: SMF, "se_dp_w118b.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W120			: SMF, "se_dp_w120.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W122			: SMF, "se_dp_w122.mid",		BANK_SE_BATTLE, 118, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W127			: SMF, "se_dp_w127.mid",		BANK_SE_BATTLE, 83,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W129			: SMF, "se_dp_w129.mid",		BANK_SE_BATTLE, 83,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W145			: SMF, "se_dp_w145.mid",		BANK_SE_BATTLE, 112, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W145B			: SMF, "se_dp_w145b.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W145C			: SMF, "se_dp_w145c.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_W145D			: SMF, "se_dp_w145d.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_W146			: SMF, "se_dp_w146.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W151			: SMF, "se_dp_w151.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W152			: SMF, "se_dp_w152.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W153			: SMF, "se_dp_w153.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W155			: SMF, "se_dp_w155.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W161			: SMF, "se_dp_w161.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W161B			: SMF, "se_dp_w161b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W166			: SMF, "se_dp_w166.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W171			: SMF, "se_dp_w171.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W172			: SMF, "se_dp_w172.mid",		BANK_SE_BATTLE, 105,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W172B			: SMF, "se_dp_w172b.mid",		BANK_SE_BATTLE, 120,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W173			: SMF, "se_dp_w173.mid",		BANK_SE_BATTLE, 95,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W173B			: SMF, "se_dp_w173b.mid",		BANK_SE_BATTLE, 127,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W173C			: SMF, "se_dp_w173c.mid",		BANK_SE_BATTLE, 127,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W179			: SMF, "se_dp_w179.mid",		BANK_SE_BATTLE, 95,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;能力
+SEQ_SE_DP_W185			: SMF, "se_dp_w185.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W187			: SMF, "se_dp_w187.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W195			: SMF, "se_dp_w195.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+;SEQ_SE_DP_W195B		: SMF, "se_dp_w195b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W196			: SMF, "se_dp_w196.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W197			: SMF, "se_dp_w197.mid",		BANK_SE_BATTLE, 95,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W199			: SMF, "se_dp_w199.mid",		BANK_SE_BATTLE, 95,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W201			: SMF, "se_dp_w201.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W202			: SMF, "se_dp_w202.mid",		BANK_SE_BATTLE, 112, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W202B			: SMF, "se_dp_w202b.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;(動きではないが、タネマシンガンのためにPLAYER変更)
+SEQ_SE_DP_W204			: SMF, "se_dp_w204.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W207			: SMF, "se_dp_w207.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W207B			: SMF, "se_dp_w207b.mid",		BANK_SE_BATTLE, 113, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W207C			: SMF, "se_dp_w207c.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W207D			: SMF, "se_dp_w207d.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W208			: SMF, "se_dp_w208.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W209			: SMF, "se_dp_w209.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W213			: SMF, "se_dp_w213.mid",		BANK_SE_BATTLE, 123, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W215			: SMF, "se_dp_w215.mid",		BANK_SE_BATTLE, 93, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W221B			: SMF, "se_dp_w221b.mid",		BANK_SE_BATTLE, 115, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W227			: SMF, "se_dp_w227.mid",		BANK_SE_BATTLE, 120,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W227B			: SMF, "se_dp_w227B.mid",		BANK_SE_BATTLE, 88,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;動き
+SEQ_SE_DP_W230			: SMF, "se_dp_w230.mid",		BANK_SE_BATTLE, 108, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W231			: SMF, "se_dp_w231.mid",		BANK_SE_BATTLE, 108, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W233			: SMF, "se_dp_w233.mid",		BANK_SE_BATTLE, 108, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W233B			: SMF, "se_dp_w233b.mid",		BANK_SE_BATTLE, 108, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W234			: SMF, "se_dp_w234.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W236			: SMF, "se_dp_w236.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W239			: SMF, "se_dp_w239.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W240			: SMF, "se_dp_w240.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W250			: SMF, "se_dp_w250.mid",		BANK_SE_BATTLE, 95,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W253			: SMF, "se_dp_w253.mid",		BANK_SE_BATTLE, 80,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W255			: SMF, "se_dp_w255.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W255B			: SMF, "se_dp_w255b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W255E			: SMF, "se_dp_w255e.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W255F			: SMF, "se_dp_w255f.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W257			: SMF, "se_dp_w257.mid",		BANK_SE_BATTLE, 95,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W258			: SMF, "se_dp_w258.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W260			: SMF, "se_dp_w260.mid",		BANK_SE_BATTLE, 65,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W278			: SMF, "se_dp_w278.mid",		BANK_SE_BATTLE, 90,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W280			: SMF, "se_dp_w280.mid",		BANK_SE_BATTLE, 108, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W280B			: SMF, "se_dp_w280b.mid",		BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W281			: SMF, "se_dp_w281.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W287B			: SMF, "se_dp_w287b.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;能力
+SEQ_SE_DP_W287			: SMF, "se_dp_w287.mid",		BANK_SE_BATTLE, 95,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;能力
+SEQ_SE_DP_W291			: SMF, "se_dp_w291.mid",		BANK_SE_BATTLE, 122, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W298			: SMF, "se_dp_w298.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W320			: SMF, "se_dp_w320.mid",		BANK_SE_BATTLE, 105, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W322			: SMF, "se_dp_w322.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W327			: SMF, "se_dp_w327.mid",		BANK_SE_BATTLE, 122, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W356			: SMF, "se_dp_w356.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W360			: SMF, "se_dp_w360.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W360B			: SMF, "se_dp_w360b.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W360C			: SMF, "se_dp_w360c.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W361			: SMF, "se_dp_w361.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W362			: SMF, "se_dp_w362.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W363			: SMF, "se_dp_w363.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W367			: SMF, "se_dp_w367.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W368			: SMF, "se_dp_w368.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W373			: SMF, "se_dp_w373.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W374			: SMF, "se_dp_w374.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W375			: SMF, "se_dp_w375.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W376			: SMF, "se_dp_w376.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_W376B			: SMF, "se_dp_w376b.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_W377			: SMF, "se_dp_w377.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W379			: SMF, "se_dp_w379.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_2;
+SEQ_SE_DP_W380			: SMF, "se_dp_w380.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W381			: SMF, "se_dp_w381.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W383			: SMF, "se_dp_w383.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W387			: SMF, "se_dp_w387.mid",		BANK_SE_BATTLE, 102, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W392			: SMF, "se_dp_w392.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W399			: SMF, "se_dp_w399.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W405			: SMF, "se_dp_w405.mid",		BANK_SE_BATTLE, 114, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W408			: SMF, "se_dp_w408.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W411			: SMF, "se_dp_w411.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W412			: SMF, "se_dp_w412.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W413			: SMF, "se_dp_w413.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W419			: SMF, "se_dp_w419.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_3;
+SEQ_SE_DP_W426			: SMF, "se_dp_w426.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W428			: SMF, "se_dp_w428.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W434			: SMF, "se_dp_w434.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W436			: SMF, "se_dp_w436.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W443B			: SMF, "se_dp_w443b.mid",		BANK_SE_BATTLE, 88, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W452			: SMF, "se_dp_w452.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W456			: SMF, "se_dp_w456.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W459			: SMF, "se_dp_w459.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W460			: SMF, "se_dp_w460.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W461			: SMF, "se_dp_w461.mid",		BANK_SE_BATTLE, 62, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W462			: SMF, "se_dp_w462.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W463			: SMF, "se_dp_w463.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W464			: SMF, "se_dp_w464.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W465			: SMF, "se_dp_w465.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W466			: SMF, "se_dp_w466.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_W467			: SMF, "se_dp_w467.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SUIRYU		: SMF, "se_dp_suiryu.mid",		BANK_SE_BATTLE, 105, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KIRAKIRA2		: SMF, "se_dp_kirakira2.mid",	BANK_SE_BATTLE, 80,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BAN			: SMF, "se_dp_ban.mid",			BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BASABASA		: SMF, "se_dp_basabasa.mid",	BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_SHUSHU		: SMF, "se_dp_shushu.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;能力
+SEQ_SE_DP_KAMI			: SMF, "se_dp_kami.mid",		BANK_SE_BATTLE, 118, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KAMI2			: SMF, "se_dp_kami2.mid",		BANK_SE_BATTLE, 125, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BASI			: SMF, "se_dp_basi.mid",		BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_AWA			: SMF, "se_dp_awa.mid",			BANK_SE_BATTLE, 127, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_NAMI			: SMF, "se_dp_nami.mid",		BANK_SE_BATTLE, 92,  SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_HURU			: SMF, "se_dp_huru.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_HURU2			: SMF, "se_dp_huru2.mid",		BANK_SE_BATTLE, 115, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KAZE			: SMF, "se_dp_kaze.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KAZE2			: SMF, "se_dp_kaze2.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_MUCHI			: SMF, "se_dp_muchi.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BRADE			: SMF, "se_dp_brade.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_BFBRADE		: SMF, "se_dp_bfbrade.mid",		BANK_SE_BATTLE, 110, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PASA			: SMF, "se_dp_pasa.mid",		BANK_SE_BATTLE, 100, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PASA2			: SMF, "se_dp_pasa2.mid",		BANK_SE_BATTLE, 70,  SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_PASA3			: SMF, "se_dp_pasa3.mid",		BANK_SE_BATTLE, 82,  SE_CH_PRI_L80,  SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_KIRAN			: SMF, "se_dp_kiran.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_GASHIN		: SMF, "se_dp_gashin.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+SEQ_SE_DP_DODON			: SMF, "se_dp_dodon.mid",		BANK_SE_BATTLE, 120, SE_CH_PRI_HALF, SE_PL_PRI, PLAYER_SE_1;
+
+
+;------------------------↓未調整
+;SEQ_SE_DAUGI			: SMF, "se_daugi.mid",		BANK_SE_FIELD, 70, 64, 64, PLAYER_SE_1	;
+;SEQ_SE_PC_ON			: SMF, "se_pc_on.mid",		BANK_SE_FIELD, 70, 64, 64, PLAYER_SE_1	;
+;SEQ_SE_PIN				: SMF, "se_pin.mid",		BANK_SE_FIELD, 70, 64, 64, PLAYER_SE_1	;
+;SEQ_SE_PN_OFF			: SMF, "se_pn_off.mid",		BANK_SE_FIELD, 70, 64, 64, PLAYER_SE_1	;
+;SEQ_SE_PN_ON			: SMF, "se_pn_on.mid",		BANK_SE_FIELD, 70, 64, 64, PLAYER_SE_1	;
+;SEQ_SE_RG_EXCELLENT		: SMF, "se_rg_excellent.mid",		BANK_SE_FIELD, 70, 64, 64, PLAYER_SE_1	;
+;SEQ_SE_RG_HELP_CL		: SMF, "se_rg_help_cl.mid",		BANK_SE_FIELD, 70, 64, 64, PLAYER_SE_1	;
+;SEQ_SE_RG_HELP_OP		: SMF, "se_rg_help_op.mid",		BANK_SE_FIELD, 70, 64, 64, PLAYER_SE_1	;
+;-----------------------------------------------------------------------------------------------
+;●終了ナンバー(サウンドテストで使用する)
+;-----------------------------------------------------------------------------------------------
+SEQ_SE_END				: TEXT, "pm_voice.smft",	BANK_BASIC, 0, 0, 0, 0; 
+
+
+

@@ -1,0 +1,343 @@
+//====================================================================
+//								pair_scr
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_pair_scr.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_pair_r201_rival
+_EVENT_DATA		ev_pair_l01_rival
+_EVENT_DATA		ev_pair_d03r0101_seven1
+_EVENT_DATA		ev_pair_d16r0102_seven5
+_EVENT_DATA		ev_pair_d21r0101_seven2
+_EVENT_DATA		ev_pair_d09r0104_seven4
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						ライバル(R201)								*/
+/********************************************************************/
+ev_pair_r201_rival:
+	_TALK_OBJ_START
+
+	//一歩移動したかチェック
+	_SYS_FLAG_ONE_STEP_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_pair_r201_rival_one_step
+
+	_IFVAL_JUMP		WK_SCENE_PAIR_R201_RIVAL,GE,5,ev_pair_r201_rival_05
+	_IFVAL_JUMP		WK_SCENE_PAIR_R201_RIVAL,EQ,4,ev_pair_r201_rival_04
+	_IFVAL_JUMP		WK_SCENE_PAIR_R201_RIVAL,EQ,3,ev_pair_r201_rival_03
+	_IFVAL_JUMP		WK_SCENE_PAIR_R201_RIVAL,EQ,2,ev_pair_r201_rival_02
+	_IFVAL_JUMP		WK_SCENE_PAIR_R201_RIVAL,EQ,1,ev_pair_r201_rival_01
+
+	_RIVAL_NAME		0
+	_TALKMSG		msg_pair_rival_a_01
+	_LAST_KEYWAIT
+	_JUMP			ev_pair_r201_rival_common
+	_END
+
+//一歩移動していない
+ev_pair_r201_rival_one_step:
+	_RIVAL_NAME		0
+	_TALKMSG		msg_r201_rival_a_07
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_pair_r201_rival_05:
+	//最後なのでワークをインクリメントしない！
+	_RIVAL_NAME		0
+	_TALKMSG		msg_pair_rival_a_06
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_pair_r201_rival_04:
+	_RIVAL_NAME		0
+	_TALKMSG		msg_pair_rival_a_05
+	_LAST_KEYWAIT									//注意！
+	_JUMP			ev_pair_r201_rival_common
+	_END
+
+ev_pair_r201_rival_03:
+	_RIVAL_NAME		0
+	_TALKMSG		msg_pair_rival_a_04
+	_LAST_KEYWAIT									//注意！
+	_JUMP			ev_pair_r201_rival_common
+	_END
+
+ev_pair_r201_rival_02:
+	_RIVAL_NAME		0
+	_TALKMSG		msg_pair_rival_a_03
+	_LAST_KEYWAIT									//注意！
+	_JUMP			ev_pair_r201_rival_common
+	_END
+
+ev_pair_r201_rival_01:
+	_RIVAL_NAME		0
+	_TALKMSG		msg_pair_rival_a_02
+	_LAST_KEYWAIT									//注意！
+	_JUMP			ev_pair_r201_rival_common
+	_END
+
+//共通終了
+ev_pair_r201_rival_common:
+	_ADD_WK			WK_SCENE_PAIR_R201_RIVAL,1
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						ライバル(L01)								*/
+/********************************************************************/
+ev_pair_l01_rival:
+	_TALK_OBJ_START
+
+	_IFVAL_JUMP		WK_SCENE_PAIR_L01_RIVAL,GE,2,ev_pair_l01_rival_02
+	_IFVAL_JUMP		WK_SCENE_PAIR_L01_RIVAL,EQ,1,ev_pair_l01_rival_01
+
+	_RIVAL_NAME		0
+	_TALKMSG	msg_pair_rival_b_01
+	_JUMP			ev_pair_l01_rival_common
+	_END
+
+ev_pair_l01_rival_02:
+	//最後なのでワークをインクリメントしない！
+	_RIVAL_NAME		0
+	_TALKMSG		msg_pair_rival_b_03
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_pair_l01_rival_01:
+	_RIVAL_NAME		0
+	_TALKMSG	msg_pair_rival_b_02
+	_JUMP			ev_pair_l01_rival_common
+	_END
+
+//共通処理
+ev_pair_l01_rival_common:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_ADD_WK			WK_SCENE_PAIR_L01_RIVAL,1
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						5人衆(d03r0101)								*/
+/********************************************************************/
+ev_pair_d03r0101_seven1:
+	_TALK_OBJ_START
+
+	_IFVAL_JUMP		WK_SCENE_PAIR_D03R0101_SEVEN1,GE,2,ev_pair_d03r0101_seven1_02
+	_IFVAL_JUMP		WK_SCENE_PAIR_D03R0101_SEVEN1,EQ,1,ev_pair_d03r0101_seven1_01
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_pair_seven1_04
+	_JUMP			ev_pair_d03r0101_seven1_common
+	_END
+
+ev_pair_d03r0101_seven1_01:
+	_TALKMSG		msg_pair_seven1_05
+	_JUMP			ev_pair_d03r0101_seven1_common
+	_END
+
+ev_pair_d03r0101_seven1_02:
+	//最後なのでワークをインクリメントしない！
+	_PLAYER_NAME	0
+	_TALKMSG		msg_pair_seven1_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//共通処理
+ev_pair_d03r0101_seven1_common:
+	_ADD_WK			WK_SCENE_PAIR_D03R0101_SEVEN1,1
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						５人衆(d16r0102)							*/
+/********************************************************************/
+ev_pair_d16r0102_seven5:
+	_TALK_OBJ_START
+
+	_IFVAL_JUMP		WK_SCENE_PAIR_D16R0102_SEVEN5,GE,3,ev_pair_d16r0102_seven5_03
+	_IFVAL_JUMP		WK_SCENE_PAIR_D16R0102_SEVEN5,EQ,2,ev_pair_d16r0102_seven5_02
+	_IFVAL_JUMP		WK_SCENE_PAIR_D16R0102_SEVEN5,EQ,1,ev_pair_d16r0102_seven5_01
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_pair_seven5_03
+	_JUMP			ev_pair_d16r0102_seven5_common
+	_END
+
+ev_pair_d16r0102_seven5_01:
+	_TALKMSG		msg_pair_seven5_04
+	_JUMP			ev_pair_d16r0102_seven5_common
+	_END
+
+ev_pair_d16r0102_seven5_02:
+	_TALKMSG		msg_pair_seven5_05
+	_JUMP			ev_pair_d16r0102_seven5_common
+	_END
+
+ev_pair_d16r0102_seven5_03:
+	//最後なのでワークをインクリメントしない！
+	_TALKMSG		msg_pair_seven5_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//共通処理
+ev_pair_d16r0102_seven5_common:
+	_ADD_WK			WK_SCENE_PAIR_D16R0102_SEVEN5,1
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						５人衆(d21r0101)							*/
+/********************************************************************/
+ev_pair_d21r0101_seven2:
+	_TALK_OBJ_START
+
+	_IFVAL_JUMP		WK_SCENE_PAIR_D21R0101_SEVEN2,GE,2,ev_pair_d21r0101_seven2_02
+	_IFVAL_JUMP		WK_SCENE_PAIR_D21R0101_SEVEN2,EQ,1,ev_pair_d21r0101_seven2_01
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_pair_seven2_04
+	_JUMP			ev_pair_d21r0101_seven2_common
+	_END
+
+ev_pair_d21r0101_seven2_01:
+	_TALKMSG		msg_pair_seven2_05
+	_JUMP			ev_pair_d21r0101_seven2_common
+	_END
+
+ev_pair_d21r0101_seven2_02:
+	//最後なのでワークをインクリメントしない！
+	_PLAYER_NAME	0
+	_TALKMSG		msg_pair_seven2_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//共通処理
+ev_pair_d21r0101_seven2_common:
+	_ADD_WK			WK_SCENE_PAIR_D21R0101_SEVEN2,1
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						５人衆(d24r0105)							*/
+/********************************************************************/
+
+/*ポケモン入手イベントがあり、d24r0105.gmmからメッセージを引っ張る必要があるので、*/
+/*d24r0105.ev,gmmにデータと処理を移動した*/
+
+ev_pair_d24r0105_seven3:
+#if 0
+	_TALK_OBJ_START
+
+	_IFVAL_JUMP		WK_SCENE_PAIR_D24R0105_SEVEN3,GE,4,ev_pair_d24r0105_seven3_03
+	_IFVAL_JUMP		WK_SCENE_PAIR_D24R0105_SEVEN3,EQ,3,ev_pair_d24r0105_seven3_03
+	_IFVAL_JUMP		WK_SCENE_PAIR_D24R0105_SEVEN3,EQ,2,ev_pair_d24r0105_seven3_02
+	_IFVAL_JUMP		WK_SCENE_PAIR_D24R0105_SEVEN3,EQ,1,ev_pair_d24r0105_seven3_01
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_pair_seven3_03
+	_JUMP			ev_pair_d24r0105_seven3_common
+	_END
+
+ev_pair_d24r0105_seven3_01:
+	_TALKMSG		msg_pair_seven3_04
+	_JUMP			ev_pair_d24r0105_seven3_common
+	_END
+
+ev_pair_d24r0105_seven3_02:
+	_TALKMSG		msg_pair_seven3_05
+	_JUMP			ev_pair_d24r0105_seven3_common
+	_END
+
+ev_pair_d24r0105_seven3_03:
+	_TALKMSG		msg_pair_seven3_06
+	_JUMP			ev_pair_d24r0105_seven3_common
+	_END
+
+ev_pair_d24r0105_seven3_04:
+	//最後なのでワークをインクリメントしない！
+	_TALKMSG		msg_pair_seven3_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//共通処理
+ev_pair_d24r0105_seven3_common:
+	_ADD_WK			WK_SCENE_PAIR_D24R0105_SEVEN3,1
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+#endif
+	_END
+
+
+/********************************************************************/
+/*						５人衆(d09r0104)							*/
+/********************************************************************/
+ev_pair_d09r0104_seven4:
+	_TALK_OBJ_START
+
+	_IFVAL_JUMP		WK_SCENE_PAIR_D09R0104_SEVEN4,GE,1,ev_pair_d09r0104_seven4_01
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_pair_seven4_05
+	_JUMP			ev_pair_d09r0104_seven4_common
+	_END
+
+ev_pair_d09r0104_seven4_01:
+	//最後なのでワークをインクリメントしない！
+	_TALKMSG		msg_pair_seven4_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//共通処理
+ev_pair_d09r0104_seven4_common:
+	_ADD_WK			WK_SCENE_PAIR_D09R0104_SEVEN4,1
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+

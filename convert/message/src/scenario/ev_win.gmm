@@ -1,0 +1,1879 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="matsumiya" host="DFS5V61X" date="2006-07-26T16:37:40"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="34" japanese="コンテスト名称" english="コンテスト名称" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+				<comment language="english">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+			</tag>
+			<tag entry="35" japanese="コンテストランク" english="コンテストランク" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">○○○○ランク
+「ランク」も含む</comment>
+				<comment language="english">○○○○ランク
+「ランク」も含む</comment>
+			</tag>
+			<tag entry="36" japanese="国名" english="国名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる国名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる国名</comment>
+			</tag>
+			<tag entry="37" japanese="地域名" english="地域名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる地域名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる地域名</comment>
+			</tag>
+			<tag entry="38" japanese="風船の名前" english="風船の名前" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">すれ違い通信でつかう風船の名前</comment>
+				<comment language="english">すれ違い通信でつかう風船の名前</comment>
+			</tag>
+			<tag entry="39" japanese="リボンの名前" english="リボンの名前" view="EP" width="168" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">リボンの名前</comment>
+				<comment language="english">リボンの名前</comment>
+			</tag>
+			<tag entry="40" japanese="イメージクリップ背景" english="イメージクリップ背景" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+			<tag entry="01" japanese="文字表示ウェイト" english="文字表示ウェイト" view="EP" length="0" line="1">
+				<parameter number="0" japanese="フレーム数" english="フレーム数" type="int16"/>
+				<comment language="japanese">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+				<comment language="english">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+			</tag>
+			<tag entry="02" japanese="コールバック引数" english="コールバック引数" view="EP" length="0" line="1">
+				<parameter number="0" japanese="引数" english="引数" type="int16"/>
+				<comment language="japanese">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+				<comment language="english">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+			</tag>
+			<tag entry="03" japanese="文字表示位置X" english="文字表示位置X" view="EP" length="0" line="1">
+				<parameter number="0" japanese="X位置" english="X位置" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+			<tag entry="04" japanese="文字表示位置Y" english="文字表示位置Y" view="EP" length="0" line="1">
+				<parameter number="0" japanese="表示位置Y" english="表示位置Y" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="125"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="3" width="243"/>
+		<erase position="-1" width="100"/>
+		<attribute japanese="キャラ指定" english="キャラ指定" type="string" default="" position="1" width="100">
+		</attribute>
+		<language japanese="日本語" english="日本語">
+			<message position="2" width="249"/>
+			<font default=" 0:font_talk" position="4" width="100">
+				<list entry="0" file="..\font\font_talk.nftr"/>
+				<list entry="1" file="..\font\font_system.nftr"/>
+				<list entry="2" file="..\font\font_button.nftr"/>
+			</font>
+			<size position="-1" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="172" top="133" right="734" bottom="710" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="566" right="1024" bottom="718" visible="no"/>
+		<tag-palette left="485" top="253" right="1024" bottom="651" visible="yes"/>
+		<band id="0" index="0" style="0000" width="554"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="238"/>
+		<band id="3" index="3" style="0000" width="147"/>
+		<band id="4" index="4" style="0000" width="591"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_ev_win_001">
+		<comment>c01r0701
+msg_c01r0101_board_02表示後</comment>
+		<attribute name="キャラ指定">黒板用</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">どく</language>
+	</row>
+
+	<row id="msg_ev_win_002">
+		<comment>c01r0701
+msg_c01r0101_board_02表示後</comment>
+		<attribute name="キャラ指定">黒板用</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">まひ</language>
+	</row>
+
+	<row id="msg_ev_win_003">
+		<comment>c01r0701
+msg_c01r0101_board_02表示後</comment>
+		<attribute name="キャラ指定">黒板用</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ねむり</language>
+	</row>
+
+	<row id="msg_ev_win_004">
+		<comment>c01r0701
+msg_c01r0101_board_02表示後</comment>
+		<attribute name="キャラ指定">黒板用</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">やけど</language>
+	</row>
+
+	<row id="msg_ev_win_005">
+		<comment>c01r0701
+msg_c01r0101_board_02表示後</comment>
+		<attribute name="キャラ指定">黒板用</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">こおり</language>
+	</row>
+
+	<row id="msg_ev_win_006">
+		<comment>c01r0701
+msg_c01r0101_board_02表示後</comment>
+		<attribute name="キャラ指定">黒板用</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_007">
+		<comment>ポケモンセンター２Ｆ</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">シングルバトル</language>
+	</row>
+
+	<row id="msg_ev_win_008">
+		<comment>ポケモンセンター２Ｆ</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ダブルバトル</language>
+	</row>
+
+	<row id="msg_ev_win_009">
+		<comment>ポケモンセンター２Ｆ</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ミックスバトル</language>
+	</row>
+
+	<row id="msg_ev_win_010">
+		<comment>ポケモンセンター２Ｆ</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">マルチバトル</language>
+	</row>
+
+	<row id="msg_ev_win_011">
+		<comment>ポケモンセンター２Ｆ</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">せつめいをきく</language>
+	</row>
+
+	<row id="msg_ev_win_012">
+		<comment>ポケモンセンター２Ｆ</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_013">
+		<comment>ポケモンセンター２Ｆ</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">もどる</language>
+	</row>
+
+	<row id="msg_ev_win_014">
+		<comment>ポケモンセンター２Ｆ</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">グループにはいる</language>
+	</row>
+
+	<row id="msg_ev_win_015">
+		<comment>ポケモンセンター２Ｆ</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">リーダーになる</language>
+	</row>
+
+	<row id="msg_ev_win_016">
+		<comment>エレベーター</comment>
+		<attribute name="キャラ指定">エレベーター</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">げんざいの　フロア</language>
+	</row>
+
+	<row id="msg_ev_win_017">
+		<comment>エレベーター
+０＝今の階層</comment>
+		<attribute name="キャラ指定">エレベーター</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">[1:32:数字１桁:0]かい</language>
+	</row>
+
+	<row id="msg_ev_win_018">
+		<comment>コンテスト受付
+・コンディション</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">かっこよさ</language>
+	</row>
+
+	<row id="msg_ev_win_019">
+		<comment>コンテスト受付
+・コンディション</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">うつくしさ</language>
+	</row>
+
+	<row id="msg_ev_win_020">
+		<comment>コンテスト受付
+・コンディション</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">かわいさ</language>
+	</row>
+
+	<row id="msg_ev_win_021">
+		<comment>コンテスト受付
+・コンディション</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">たくましさ</language>
+	</row>
+
+	<row id="msg_ev_win_022">
+		<comment>コンテスト受付
+・コンディション</comment>
+		<attribute name="キャラ指定">受付嬢</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">かしこさ</language>
+	</row>
+
+	<row id="msg_ev_win_027" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,,,,,,">
+		<comment>ユニオンルーム仮</comment>
+		<language name="日本語" font=" 1:font_system" width="216">こうかん</language>
+	</row>
+
+	<row id="msg_ev_win_028">
+		<comment>ユニオンルーム仮</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_029">
+		<comment>ルールブック
+・デフォルトルールその１</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ファンシーカップ</language>
+	</row>
+
+	<row id="msg_ev_win_030">
+		<comment>ルールブック
+・デフォルトルールその２</comment>
+		<language name="日本語" font=" 1:font_system" width="216">イエローカップ</language>
+	</row>
+
+	<row id="msg_ev_win_031">
+		<comment>ルールブック
+・デフォルトルールその３</comment>
+		<language name="日本語" font=" 1:font_system" width="216">リトルカップ</language>
+	</row>
+
+	<row id="msg_ev_win_032">
+		<comment>ルールブック
+・デフォルトルールその４</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ミドルカップ</language>
+	</row>
+
+	<row id="msg_ev_win_033">
+		<comment>ルールブック
+・デフォルトルールその５</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ヘビーカップ</language>
+	</row>
+
+	<row id="msg_ev_win_034">
+		<comment>ルールブック
+・プレイヤー作成ルールその１</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:1A:カップ名:0]カップ</language>
+	</row>
+
+	<row id="msg_ev_win_035">
+		<comment>ルールブック
+・プレイヤー作成ルールその２</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:1A:カップ名:1]カップ</language>
+	</row>
+
+	<row id="msg_ev_win_036">
+		<comment>ルールブック
+・プレイヤー作成ルールその３</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:1A:カップ名:2]カップ</language>
+	</row>
+
+	<row id="msg_ev_win_037">
+		<comment>ルールブック
+・プレイヤー作成ルールその４</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:1A:カップ名:3]カップ</language>
+	</row>
+
+	<row id="msg_ev_win_038">
+		<comment>ルールブック
+・プレイヤー作成ルールその５</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:1A:カップ名:4]カップ</language>
+	</row>
+
+	<row id="msg_ev_win_039">
+		<comment>パソコン起動時
+・フラグ成立前</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あずかりシステム</language>
+	</row>
+
+	<row id="msg_ev_win_040">
+		<comment>パソコン起動時</comment>
+		<language name="日本語" font=" 1:font_system" width="216">でんどういり</language>
+	</row>
+
+	<row id="msg_ev_win_041">
+		<comment>パソコン起動時</comment>
+		<language name="日本語" font=" 1:font_system" width="216">スイッチをきる</language>
+	</row>
+
+	<row id="msg_ev_win_042">
+		<comment>コロシアム受付</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ふつうに　たいせん</language>
+	</row>
+
+	<row id="msg_ev_win_043">
+		<comment>コロシアム受付</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ルールブックをつかう</language>
+	</row>
+
+	<row id="msg_ev_win_044">
+		<comment>コロシアム受付</comment>
+		<language name="日本語" font=" 1:font_system" width="216">けってい</language>
+	</row>
+
+	<row id="msg_ev_win_045">
+		<comment>コロシアム受付</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ルールをみる</language>
+	</row>
+
+	<row id="msg_ev_win_046" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>各種</comment>
+		<language name="日本語" font=" 1:font_system" width="216">はい</language>
+	</row>
+
+	<row id="msg_ev_win_047" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>各種</comment>
+		<language name="日本語" font=" 1:font_system" width="216">いいえ</language>
+	</row>
+
+	<row id="msg_ev_win_048" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>exit</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_049" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ｃａｎｃｅｌ</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_050">
+		<comment>ポケモンタイプ</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ほのお</language>
+	</row>
+
+	<row id="msg_ev_win_051">
+		<comment>ポケモンタイプ</comment>
+		<language name="日本語" font=" 1:font_system" width="216">みず</language>
+	</row>
+
+	<row id="msg_ev_win_052">
+		<comment>ポケモンタイプ</comment>
+		<language name="日本語" font=" 1:font_system" width="216">くさ</language>
+	</row>
+
+	<row id="msg_ev_win_053">
+		<comment>ユニオンイベント</comment>
+		<language name="日本語" font=" 1:font_system" width="216">カード</language>
+	</row>
+
+	<row id="msg_ev_win_054" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,,,,,,">
+		<comment>ユニオンイベント</comment>
+		<language name="日本語" font=" 1:font_system" width="216">たいせん</language>
+	</row>
+
+	<row id="msg_ev_win_055">
+		<comment>ユニオンルームのトレーナー選択肢１</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:03:トレーナー名:0]</language>
+	</row>
+
+	<row id="msg_ev_win_056">
+		<comment>ユニオンルームのトレーナー選択肢２</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:03:トレーナー名:1]</language>
+	</row>
+
+	<row id="msg_ev_win_057">
+		<comment>ユニオンルームのトレーナー選択肢３</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:03:トレーナー名:2]</language>
+	</row>
+
+	<row id="msg_ev_win_058">
+		<comment>ユニオンルームのトレーナー選択肢４</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:03:トレーナー名:3]</language>
+	</row>
+
+	<row id="msg_ev_win_059">
+		<comment>きのみで使用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ひりょうをまく</language>
+	</row>
+
+	<row id="msg_ev_win_060">
+		<comment>きのみで使用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">きのみをうめる</language>
+	</row>
+
+	<row id="msg_ev_win_064" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,,,,,,">
+		<comment>ユニオンルームのメニュー</comment>
+		<language name="日本語" font=" 1:font_system" width="216">おえかき</language>
+	</row>
+
+	<row id="msg_ev_win_065" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,,,,,,">
+		<comment>スペース</comment>
+		<language name="日本語" font=" 1:font_system" width="216">　</language>
+	</row>
+
+	<row id="msg_ev_win_066">
+		<comment>パソコンメニュー
+・ボックスメニュー表示</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">だれかのパソコン</language>
+	</row>
+
+	<row id="msg_ev_win_066_miz">
+		<comment>パソコンメニュー
+・ボックスメニュー表示</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ミズキのパソコン</language>
+	</row>
+
+	<row id="msg_ev_win_067">
+		<comment>パソコンメニュー
+・0＝主人公名
+　自分のパソコンメニュー表示</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">[1:03:トレーナー名:0]のパソコン</language>
+	</row>
+
+	<row id="msg_ev_win_068">
+		<comment>パソコンメニュー</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">でんどういり</language>
+	</row>
+
+	<row id="msg_ev_win_069">
+		<comment>パソコンメニュー：全国図鑑入手後
+ナナカマドのパソコンと置き換わる</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">オーキドのパソコン</language>
+	</row>
+
+	<row id="msg_ev_win_069_nana" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,,,,,,">
+		<comment>パソコンメニュー
+・図鑑評価</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ナナカマドのパソコン</language>
+	</row>
+
+	<row id="msg_ev_win_070">
+		<comment>パソコンメニュー</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">スイッチを　きる</language>
+	</row>
+
+	<row id="msg_ev_win_071">
+		<comment>ボックスメニュー
+・ボックスあずける画面へ
+・説明ウインドウ開く</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンを　あずける</language>
+	</row>
+
+	<row id="msg_ev_win_072">
+		<comment>ボックスメニュー
+・ボックスつれていく画面へ
+・説明ウインドウ開く</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンを　つれていく</language>
+	</row>
+
+	<row id="msg_ev_win_073">
+		<comment>ボックスメニュー
+・ボックス整理画面へ
+・説明ウインドウ開く</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ボックスを　せいりする</language>
+	</row>
+
+	<row id="msg_ev_win_074">
+		<comment>ボックスメニュー
+・もちもの整理画面へ
+・説明ウインドウ開く</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">もちものを　せいりする</language>
+	</row>
+
+	<row id="msg_ev_win_075">
+		<comment>ボックスメニュー
+・つよさくらべ画面へ
+・説明ウインドウ開く</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">つよさ　くらべ</language>
+	</row>
+
+	<row id="msg_ev_win_076">
+		<comment>ボックスメニュー
+・パソコンメニュー表示
+・説明ウインドウ開く</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">さようなら</language>
+	</row>
+
+	<row id="msg_ev_win_077">
+		<comment>自分のパソコンメニュー表示
+・メールチェック
+　メールある→メールボックスリスト表示
+　メールない→msg_pc_mailcheck_01
+・説明ウインドウ開く</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">メールボックス</language>
+	</row>
+
+	<row id="msg_ev_win_078" back-color=",,,,,,#ff0000,,,,,,">
+		<comment>自分のパソコンメニュー表示
+・カスタムカプセルメニュー表示
+・説明ウインドウ開く</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ボールカプセル</language>
+	</row>
+
+	<row id="msg_ev_win_079">
+		<comment>自分のパソコンメニュー表示
+・パソコンメニュー表示
+・説明ウインドウ開く</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">せつぞくを　きる</language>
+	</row>
+
+	<row id="msg_ev_win_071_set">
+		<comment>msg_ev_win_071選択時のメッセージ</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">てもちの　ポケモンを
+ボックスに　あずけることが　できます</language>
+	</row>
+
+	<row id="msg_ev_win_072_set">
+		<comment>msg_ev_win_072選択時のメッセージ</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ボックスに　あずけている　ポケモンを
+てもちに　くわえることが　できます</language>
+	</row>
+
+	<row id="msg_ev_win_073_set">
+		<comment>msg_ev_win_073選択時のメッセージ</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ボックスに　あずけている　ポケモンや
+てもちのポケモンを　せいり　できます</language>
+	</row>
+
+	<row id="msg_ev_win_074_set">
+		<comment>msg_ev_win_074選択時のメッセージ</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンが　もっている　どうぐを
+せいり　できます</language>
+	</row>
+
+	<row id="msg_ev_win_075_set">
+		<comment>msg_ev_win_075選択時のメッセージ</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">てもちや　ボックスの　ポケモンの
+つよさを　くらべることが　できます</language>
+	</row>
+
+	<row id="msg_ev_win_076_set">
+		<comment>msg_ev_win_076選択時のメッセージ</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンあずかりシステム　への
+つうしんを　せつだん　します</language>
+	</row>
+
+	<row id="msg_ev_win_077_set">
+		<comment>msg_ev_win_077選択時のメッセージ</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">メールを　２０つう　まで
+ほぞん　することが　できます</language>
+	</row>
+
+	<row id="msg_ev_win_078_set" back-color=",,,,,,#ff0000,,,,,,">
+		<comment>msg_ev_win_078選択時のメッセージ</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ボールカプセルの
+セットや　へんしゅうが　できます</language>
+	</row>
+
+	<row id="msg_ev_win_079_set">
+		<comment>msg_ev_win_079選択時のメッセージ</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">じぶんのパソコン　への　つうしんを
+せつだん　します</language>
+	</row>
+
+	<row id="msg_ev_win_080">
+		<comment>メールボックスリスト</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_081">
+		<comment>メールメニュー</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ないようを　よむ</language>
+	</row>
+
+	<row id="msg_ev_win_082">
+		<comment>メールメニュー
+→</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">バッグに　もどす</language>
+	</row>
+
+	<row id="msg_ev_win_083">
+		<comment>メールメニュー</comment>
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンに　もたせる</language>
+	</row>
+
+	<row id="msg_ev_win_084">
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">あずける</language>
+	</row>
+
+	<row id="msg_ev_win_085">
+		<attribute name="キャラ指定">パソコン</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">とりだす</language>
+	</row>
+
+	<row id="msg_ev_win_086">
+		<comment>大湿原クイック号（呼び出し機）</comment>
+		<attribute name="キャラ指定">呼び出し機</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">エリア１</language>
+	</row>
+
+	<row id="msg_ev_win_087">
+		<comment>大湿原クイック号（呼び出し機）</comment>
+		<attribute name="キャラ指定">呼び出し機</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">エリア２</language>
+	</row>
+
+	<row id="msg_ev_win_088">
+		<comment>大湿原クイック号（呼び出し機）</comment>
+		<attribute name="キャラ指定">呼び出し機</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">エリア３</language>
+	</row>
+
+	<row id="msg_ev_win_089">
+		<comment>con_reception
+「さんかする」で参加</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">さんかする</language>
+	</row>
+
+	<row id="msg_ev_win_090">
+		<comment>con_reception
+「せつめいをきく」で詳細画面へ</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">せつめいをきく</language>
+	</row>
+
+	<row id="msg_ev_win_091">
+		<comment>con_reception
+「やめる」で「またのさんかをおまちしております」へ以降</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_092">
+		<comment>con_reception
+「やめる」を選択後、表示
+その後、通常画面へ</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">またのさんかを
+おまちしております</language>
+	</row>
+
+	<row id="msg_ev_win_093">
+		<comment>con_reception
+「コンテストのきほん」で詳細画面へ</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">コンテストのきほん</language>
+	</row>
+
+	<row id="msg_ev_win_094">
+		<comment>con_reception
+かっこよさ等の説明へ</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">コンテストのしゅるい</language>
+	</row>
+
+	<row id="msg_ev_win_095">
+		<comment>con_reception
+ノーマルランク等の説明へ</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ランクについて</language>
+	</row>
+
+	<row id="msg_ev_win_096">
+		<comment>con_reception
+「さんかする」の画面に戻ります</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">もどる</language>
+	</row>
+
+	<row id="msg_ev_win_097">
+		<comment>con_reception
+コンテスト基本説明</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">コンテストとは？</language>
+	</row>
+
+	<row id="msg_ev_win_098">
+		<comment>con_reception
+ビジュアル部門説明</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ビジュアルぶもん</language>
+	</row>
+
+	<row id="msg_ev_win_099">
+		<comment>con_reception
+ダンス部門説明</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ダンスぶもん</language>
+	</row>
+
+	<row id="msg_ev_win_100">
+		<comment>con_reception
+演技力部門説明</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">えんぎぶもん</language>
+	</row>
+
+	<row id="msg_ev_win_101">
+		<comment>con_reception
+「コンテストのきほん」の画面に戻ります</comment>
+		<attribute name="キャラ指定">コンテスト：ロビー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">もどる</language>
+	</row>
+
+	<row id="msg_ev_win_102">
+		<comment>con_reception
+ノーマルランク選択</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ノーマルランク</language>
+	</row>
+
+	<row id="msg_ev_win_103">
+		<comment>con_reception
+スーパーランク選択</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">グレートランク</language>
+	</row>
+
+	<row id="msg_ev_win_104">
+		<comment>con_reception
+ハイパーランク選択</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ウルトラランク</language>
+	</row>
+
+	<row id="msg_ev_win_105">
+		<comment>con_reception
+マスターランク選択</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">マスターランク</language>
+	</row>
+
+	<row id="msg_ev_win_106">
+		<comment>con_reception
+「やめる」で「またのさんかをおまちしております」へ以降</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_107">
+		<comment>con_reception
+かっこよさコンテスト選択</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">かっこよさコンテスト</language>
+	</row>
+
+	<row id="msg_ev_win_108">
+		<comment>con_reception
+うつくしさコンテスト選択</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">うつくしさコンテスト</language>
+	</row>
+
+	<row id="msg_ev_win_109">
+		<comment>con_reception
+かわいさコンテスト選択</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">かわいさコンテスト</language>
+	</row>
+
+	<row id="msg_ev_win_110">
+		<comment>con_reception
+かしこさコンテスト選択</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">かしこさコンテスト</language>
+	</row>
+
+	<row id="msg_ev_win_111">
+		<comment>con_reception
+たくましさコンテスト選択</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">たくましさコンテスト</language>
+	</row>
+
+	<row id="msg_ev_win_112">
+		<comment>con_reception
+「やめる」で「またのさんかをおまちしております」へ以降</comment>
+		<attribute name="キャラ指定">コンテスト：受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_113">
+		<attribute name="キャラ指定">エレベータ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">１かい</language>
+	</row>
+
+	<row id="msg_ev_win_114">
+		<attribute name="キャラ指定">エレベータ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">２かい</language>
+	</row>
+
+	<row id="msg_ev_win_115">
+		<attribute name="キャラ指定">エレベータ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">３かい</language>
+	</row>
+
+	<row id="msg_ev_win_116">
+		<attribute name="キャラ指定">エレベータ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">４かい</language>
+	</row>
+
+	<row id="msg_ev_win_117">
+		<attribute name="キャラ指定">エレベータ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">５かい</language>
+	</row>
+
+	<row id="msg_ev_win_118">
+		<attribute name="キャラ指定">エレベータ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ちか１かい</language>
+	</row>
+
+	<row id="msg_ev_win_119">
+		<attribute name="キャラ指定">エレベータ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ちか２かい</language>
+	</row>
+
+	<row id="msg_ev_win_120">
+		<attribute name="キャラ指定">エレベータ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">てんぼうしつ</language>
+	</row>
+
+	<row id="msg_ev_win_121">
+		<attribute name="キャラ指定">エレベータ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_122">
+		<comment>コイン購入時の選択肢</comment>
+		<attribute name="キャラ指定">ゲームコーナー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">５０まい[2:03:文字表示位置X:60]１０００円　　　</language>
+	</row>
+
+	<row id="msg_ev_win_123">
+		<comment>コイン購入時の選択肢</comment>
+		<attribute name="キャラ指定">ゲームコーナー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">５００まい[2:03:文字表示位置X:60]１００００円　　</language>
+	</row>
+
+	<row id="msg_coin_01">
+		<comment>コイン購入時の選択肢</comment>
+		<attribute name="キャラ指定">ゲームコーナー</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">いらない　</language>
+	</row>
+
+	<row id="msg_ev_win_124" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<attribute name="キャラ指定">ＧＴＣ受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">せつめいを　きく</language>
+	</row>
+
+	<row id="msg_ev_win_125" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<attribute name="キャラ指定">ＧＴＣ受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">こうかんを　する</language>
+	</row>
+
+	<row id="msg_ev_win_126" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<attribute name="キャラ指定">ＧＴＣ受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_127" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<attribute name="キャラ指定">ＧＴＣ受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンをあずけるって？</language>
+	</row>
+
+	<row id="msg_ev_win_128" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<attribute name="キャラ指定">ＧＴＣ受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンをさがすって？</language>
+	</row>
+
+	<row id="msg_ev_win_129" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<attribute name="キャラ指定">ＧＴＣ受付</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">もうわかった！</language>
+	</row>
+
+	<row id="msg_ev_win_130">
+		<language name="日本語" font=" 1:font_system" width="216">[1:00:ポケモン名:0][1:02:ポケモン分類:2][2:03:文字表示位置X:90]Ｌｖ．[1:34:数字３桁:1]</language>
+	</row>
+
+	<row id="msg_ev_win_131">
+		<language name="日本語" font=" 1:font_system" width="216">[1:00:ポケモン名:0][1:02:ポケモン分類:2][2:03:文字表示位置X:90]Ｌｖ．[1:34:数字３桁:1]</language>
+	</row>
+
+	<row id="msg_ev_win_132">
+		<language name="日本語" font=" 1:font_system" width="216">やめる　　　　　　　　　　　　　</language>
+	</row>
+
+	<row id="msg_ev_win_133">
+		<language name="日本語" font=" 1:font_system" width="216">みぎ</language>
+	</row>
+
+	<row id="msg_ev_win_134">
+		<language name="日本語" font=" 1:font_system" width="216">ひだり</language>
+	</row>
+
+	<row id="msg_ev_win_135" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ユニオンルームのメニュー</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ぐるぐる</language>
+	</row>
+
+	<row id="msg_ev_win_136" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ユニオンルームのメニュー</comment>
+		<language name="日本語" font=" 1:font_system" width="216">レコード</language>
+	</row>
+
+	<row id="msg_tower_choice_01">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ちょうせんする</language>
+	</row>
+
+	<row id="msg_tower_choice_02">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">せつめいをきく</language>
+	</row>
+
+	<row id="msg_tower_choice_03">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_tower_choice_04">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">シングル</language>
+	</row>
+
+	<row id="msg_tower_choice_05">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ダブル</language>
+	</row>
+
+	<row id="msg_tower_choice_06">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">つづける</language>
+	</row>
+
+	<row id="msg_tower_choice_07">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やすむ</language>
+	</row>
+
+	<row id="msg_tower_choice_08">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">リタイア</language>
+	</row>
+
+	<row id="msg_tower_choice_09">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">リーダーになる</language>
+	</row>
+
+	<row id="msg_tower_choice_10">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">グループにはいる</language>
+	</row>
+
+	<row id="msg_tower_choice_11">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">れきだいリーダーをみる</language>
+	</row>
+
+	<row id="msg_tower_choice_12">
+		<comment>●バトルタワー選択肢</comment>
+		<language name="日本語" font=" 1:font_system" width="216">まえのへやに　ちょうせんする</language>
+	</row>
+
+	<row id="msg_ev_win_137" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモンセンター地下</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ともだちを　とうろくするには？</language>
+	</row>
+
+	<row id="msg_ev_win_138" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモンセンター地下</comment>
+		<language name="日本語" font=" 1:font_system" width="216">もう　わかった！</language>
+	</row>
+
+	<row id="msg_ev_win_139" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモンセンター地下</comment>
+		<language name="日本語" font=" 1:font_system" width="216">もういっかい　おしえて！</language>
+	</row>
+
+	<row id="msg_kaseki_01">
+		<comment>カセキ復元メニュー</comment>
+		<attribute name="キャラ指定">ひみつのコハク</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ひみつのコハク</language>
+	</row>
+
+	<row id="msg_kaseki_02">
+		<comment>カセキ復元メニュー</comment>
+		<attribute name="キャラ指定">かいのカセキ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">かいのカセキ</language>
+	</row>
+
+	<row id="msg_kaseki_03">
+		<comment>カセキ復元メニュー</comment>
+		<attribute name="キャラ指定">こうらのカセキ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">こうらのカセキ</language>
+	</row>
+
+	<row id="msg_kaseki_04">
+		<comment>カセキ復元メニュー</comment>
+		<attribute name="キャラ指定">ねっこのカセキ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ねっこのカセキ</language>
+	</row>
+
+	<row id="msg_kaseki_05">
+		<comment>カセキ復元メニュー</comment>
+		<attribute name="キャラ指定">ツメのカセキ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ツメのカセキ</language>
+	</row>
+
+	<row id="msg_kaseki_06">
+		<comment>カセキ復元メニュー</comment>
+		<attribute name="キャラ指定">たてのカセキ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">たてのカセキ</language>
+	</row>
+
+	<row id="msg_kaseki_07">
+		<comment>カセキ復元メニュー</comment>
+		<attribute name="キャラ指定">ずがいのカセキ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">ずがいのカセキ</language>
+	</row>
+
+	<row id="msg_ev_win_140" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>msg_connect_colosseum_02用
+※選択肢ではありません</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ふたりで　たいせん</language>
+	</row>
+
+	<row id="msg_ev_win_141" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>msg_connect_colosseum_02用
+※選択肢ではありません</comment>
+		<language name="日本語" font=" 1:font_system" width="216">４にんで　たいせん</language>
+	</row>
+
+	<row id="msg_ev_win_142">
+		<attribute name="キャラ指定">ユニオンルーム</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">あいさつ</language>
+	</row>
+
+	<row id="msg_ev_win_143">
+		<attribute name="キャラ指定">ユニオンルーム</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">おはなしする</language>
+	</row>
+
+	<row id="msg_ev_win_144">
+		<attribute name="キャラ指定">ユニオンルーム</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">チャット</language>
+	</row>
+
+	<row id="msg_exchange_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>景品交換所</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:08:どうぐ名:0][2:03:文字表示位置X:96][1:36:数字５桁:1]</language>
+	</row>
+
+	<row id="msg_exchange_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>景品交換所</comment>
+		<language name="日本語" font=" 1:font_system" width="216">いらない　　　　　　　　　　　　</language>
+	</row>
+
+	<row id="msg_gift1_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>景品交換所</comment>
+		<language name="日本語" font=" 1:font_system" width="216">わざマシン２４　　　４０００まい　</language>
+	</row>
+
+	<row id="msg_gift1_04" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>景品交換所</comment>
+		<language name="日本語" font=" 1:font_system" width="216">わざマシン３０　　　４５００まい　</language>
+	</row>
+
+	<row id="msg_gift1_05" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>景品交換所</comment>
+		<language name="日本語" font=" 1:font_system" width="216">わざマシン３５　　　４０００まい　</language>
+	</row>
+
+	<row id="msg_gift1_06" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>景品交換所</comment>
+		<language name="日本語" font=" 1:font_system" width="216">いらない</language>
+	</row>
+
+	<row id="msg_ev_win_145">
+		<comment>ピエロ</comment>
+		<language name="日本語" font=" 1:font_system" width="216">みぎ</language>
+	</row>
+
+	<row id="msg_ev_win_146">
+		<comment>ピエロ</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ひだり</language>
+	</row>
+
+	<row id="msg_ev_win_147" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>コンテスト用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ビジュアル</language>
+	</row>
+
+	<row id="msg_ev_win_148" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>コンテスト用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ダンス</language>
+	</row>
+
+	<row id="msg_ev_win_149" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>コンテスト用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">えんぎ</language>
+	</row>
+
+	<row id="msg_ev_win_150" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>コンテスト用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">れんしゅうって？</language>
+	</row>
+
+	<row id="msg_ev_win_151">
+		<comment>c04r0801：地下ハウス用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ハタ</language>
+	</row>
+
+	<row id="msg_ev_win_152">
+		<comment>c04r0801：地下ハウス用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">タマ</language>
+	</row>
+
+	<row id="msg_ev_win_153">
+		<comment>c04r0801：地下ハウス用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">トラップ</language>
+	</row>
+
+	<row id="msg_ev_win_154">
+		<comment>c04r0801：地下ハウス用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">グッズ</language>
+	</row>
+
+	<row id="msg_ev_win_155">
+		<comment>c04r0801：地下ハウス用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">たから</language>
+	</row>
+
+	<row id="msg_ev_win_156" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>バトルタワー・挑戦メニュー用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">まえのへやに　ちょうせんする</language>
+	</row>
+
+	<row id="msg_ev_win_157">
+		<comment>大湿原クイック号用</comment>
+		<attribute name="キャラ指定">サファリ電車</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">エリア１</language>
+	</row>
+
+	<row id="msg_ev_win_158">
+		<comment>大湿原クイック号用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">エリア２</language>
+	</row>
+
+	<row id="msg_ev_win_159">
+		<comment>大湿原クイック号用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">エリア３</language>
+	</row>
+
+	<row id="msg_ev_win_160">
+		<comment>大湿原クイック号用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">エリア４</language>
+	</row>
+
+	<row id="msg_ev_win_161">
+		<comment>大湿原クイック号用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">エリア５</language>
+	</row>
+
+	<row id="msg_ev_win_162">
+		<comment>大湿原クイック号用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">エリア６</language>
+	</row>
+
+	<row id="msg_ev_win_163">
+		<comment>大湿原クイック号用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ev_win_164" back-color="#808080,,,#808080,,#808080,#808080,,,,,,">
+		<comment>２１２番道路・わざマシン交換用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あかいかけら</language>
+	</row>
+
+	<row id="msg_ev_win_165" back-color="#808080,,,#808080,,#808080,#808080,,,,,,">
+		<comment>２１２番道路・わざマシン交換用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あおいかけら</language>
+	</row>
+
+	<row id="msg_ev_win_166" back-color="#808080,,,#808080,,#808080,#808080,,,,,,">
+		<comment>２１２番道路・わざマシン交換用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">きいろいかけら</language>
+	</row>
+
+	<row id="msg_ev_win_167" back-color="#808080,,,#808080,,#808080,#808080,,,,,,">
+		<comment>２１２番道路・わざマシン交換用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">みどりのかけら</language>
+	</row>
+
+	<row id="msg_ev_win_168" back-color="#ffff80,,,,,,,,,,,,">
+		<comment>所持コイン表示ウィンドウ用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:36:数字５桁:0]まい</language>
+	</row>
+
+	<row id="msg_p_park_01">
+		<comment>ポケパーク用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">きほんルール</language>
+	</row>
+
+	<row id="msg_p_park_02">
+		<comment>ポケパーク用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ほかくショー</language>
+	</row>
+
+	<row id="msg_p_park_03">
+		<comment>ポケパーク用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あずけかた</language>
+	</row>
+
+	<row id="msg_p_park_04">
+		<comment>ポケパーク用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あずけかた２</language>
+	</row>
+
+	<row id="msg_p_park_05">
+		<comment>ポケパーク用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">もうわかった！</language>
+	</row>
+
+	<row id="msg_p_park_06">
+		<comment>ポケパーク用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">さんか　する</language>
+	</row>
+
+	<row id="msg_p_park_07">
+		<comment>ポケパーク用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">せつめいを　きく</language>
+	</row>
+
+	<row id="msg_p_park_08">
+		<comment>ポケパーク用</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_f_park_01">
+		<comment>ふれあい広場</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンをえらぶ</language>
+	</row>
+
+	<row id="msg_f_park_02">
+		<comment>ふれあい広場</comment>
+		<language name="日本語" font=" 1:font_system" width="216">せつめい</language>
+	</row>
+
+	<row id="msg_f_park_03">
+		<comment>ふれあい広場</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_kakera_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>r212br0101民家</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あかいかけら</language>
+	</row>
+
+	<row id="msg_kakera_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>r212br0101民家</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あおいかけら</language>
+	</row>
+
+	<row id="msg_kakera_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>r212br0101民家</comment>
+		<language name="日本語" font=" 1:font_system" width="216">きいろいかけら</language>
+	</row>
+
+	<row id="msg_kakera_04" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>r212br0101民家</comment>
+		<language name="日本語" font=" 1:font_system" width="216">みどりのかけら</language>
+	</row>
+
+	<row id="msg_ship_01">
+		<comment>ｃ02からの船の行き先
+・d24</comment>
+		<language name="日本語" font=" 1:font_system" width="216">こうてつじま</language>
+	</row>
+
+	<row id="msg_ship_02">
+		<comment>ｃ02からの船の行き先
+・d15/仮称</comment>
+		<language name="日本語" font=" 1:font_system" width="216">まんげつじま</language>
+	</row>
+
+	<row id="msg_ship_03">
+		<comment>ｃ02からの船の行き先
+・d30/仮称</comment>
+		<language name="日本語" font=" 1:font_system" width="216">しんげつじま</language>
+	</row>
+
+	<row id="msg_ship_04">
+		<comment>ｃ09からの船の行き先</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ファイトエリア</language>
+	</row>
+
+	<row id="msg_ship_05">
+		<comment>ｃ11からの船の行き先</comment>
+		<language name="日本語" font=" 1:font_system" width="216">キッサキシティ</language>
+	</row>
+
+	<row id="msg_ship_06">
+		<comment>船の行き先選択でキャンセル時</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_vm_01">
+		<language name="日本語" font=" 1:font_system" width="216">おいしいみず[2:03:文字表示位置X:80]２００円</language>
+	</row>
+
+	<row id="msg_vm_02">
+		<language name="日本語" font=" 1:font_system" width="216">サイコソーダ[2:03:文字表示位置X:80]３００円</language>
+	</row>
+
+	<row id="msg_vm_03">
+		<language name="日本語" font=" 1:font_system" width="216">ミックスオレ[2:03:文字表示位置X:80]３５０円</language>
+	</row>
+
+	<row id="msg_vm_04">
+		<language name="日本語" font=" 1:font_system" width="216">いらない　　　　　　　　　</language>
+	</row>
+
+	<row id="msg_koyashi_01">
+		<language name="日本語" font=" 1:font_system" width="216">すくすくこやし[2:03:文字表示位置X:90]２００円</language>
+	</row>
+
+	<row id="msg_koyashi_02">
+		<language name="日本語" font=" 1:font_system" width="216">じめじめこやし[2:03:文字表示位置X:90]２００円</language>
+	</row>
+
+	<row id="msg_koyashi_03">
+		<language name="日本語" font=" 1:font_system" width="216">ながながこやし[2:03:文字表示位置X:90]２００円</language>
+	</row>
+
+	<row id="msg_koyashi_04">
+		<language name="日本語" font=" 1:font_system" width="216">ねばねばこやし[2:03:文字表示位置X:90]２００円</language>
+	</row>
+
+	<row id="msg_koyashi_05">
+		<language name="日本語" font=" 1:font_system" width="216">やめる　　　　　　　　　　　　</language>
+	</row>
+
+	<row id="msg_depart_menu_01">
+		<comment>デパートの受付</comment>
+		<language name="日本語" font=" 1:font_system" width="216">なんでもない</language>
+	</row>
+
+	<row id="msg_depart_menu_02">
+		<comment>デパートの受付</comment>
+		<language name="日本語" font=" 1:font_system" width="216">おすすめは？</language>
+	</row>
+
+	<row id="msg_bpgift_00">
+		<comment>ＢＰ交換 0:所持ＢＰ(0-9999)</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:35:数字４桁:0]ＢＰ</language>
+	</row>
+
+	<row id="msg_bpgift_01">
+		<comment>ＢＰ交換 0:アイテム名 1:必要BP&lt;1-160&gt;</comment>
+		<language name="日本語" font=" 1:font_system" width="216">[1:08:どうぐ名:0][2:03:文字表示位置X:96][1:34:数字３桁:1]ＢＰ</language>
+	</row>
+
+	<row id="msg_bpgift_02">
+		<comment>ＢＰの交換 ＊本文のあとのスペース文字列でウィンドウ幅を調整している</comment>
+		<language name="日本語" font=" 1:font_system" width="216">いらない　　　　　　　　　　　　</language>
+	</row>
+
+	<row id="msg_poketch_01" text-color="#ff0000,,,,,,,,,,,,">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">デジタルどけい</language>
+	</row>
+
+	<row id="msg_poketch_02">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ストップウォッチ</language>
+	</row>
+
+	<row id="msg_poketch_03">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">けいさんき</language>
+	</row>
+
+	<row id="msg_poketch_04">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">メモようし</language>
+	</row>
+
+	<row id="msg_poketch_05">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">アナログどけい</language>
+	</row>
+
+	<row id="msg_poketch_06">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ドットアート</language>
+	</row>
+
+	<row id="msg_poketch_07">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンリスト</language>
+	</row>
+
+	<row id="msg_poketch_08">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">なつきチェッカー</language>
+	</row>
+
+	<row id="msg_poketch_09">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ダウジングマシン</language>
+	</row>
+
+	<row id="msg_poketch_10">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">カウンター</language>
+	</row>
+
+	<row id="msg_poketch_11">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ほすうカウンター</language>
+	</row>
+
+	<row id="msg_poketch_12" text-color="#ff0000,,,,,,,,,,,,">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">そだてやチェッカー</language>
+	</row>
+
+	<row id="msg_poketch_13">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ルーレット</language>
+	</row>
+
+	<row id="msg_poketch_14">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">コイントス</language>
+	</row>
+
+	<row id="msg_poketch_15">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">わざこうかチェッカー</language>
+	</row>
+
+	<row id="msg_poketch_16" text-color="#ff0000,,,,,,,,,,,,">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あいしょうチェッカー</language>
+	</row>
+
+	<row id="msg_poketch_17">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">アラームどけい</language>
+	</row>
+
+	<row id="msg_poketch_18">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">キッチンタイマー</language>
+	</row>
+
+	<row id="msg_poketch_19">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">マーキングマップ</language>
+	</row>
+
+	<row id="msg_poketch_20">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">きのみサーチャー</language>
+	</row>
+
+	<row id="msg_poketch_21">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">カラーチェンジャー</language>
+	</row>
+
+	<row id="msg_poketch_22">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">カレンダー</language>
+	</row>
+
+	<row id="msg_poketch_23">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">つうしんサーチャー</language>
+	</row>
+
+	<row id="msg_poketch_24">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ポケトレカウンター</language>
+	</row>
+
+	<row id="msg_poketch_25">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ポケモンヒストリー</language>
+	</row>
+
+	<row id="msg_poketch_26">
+		<comment>c01r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_library_01">
+		<comment>c02r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">その１</language>
+	</row>
+
+	<row id="msg_library_02">
+		<comment>c02r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">その２</language>
+	</row>
+
+	<row id="msg_library_03">
+		<comment>c02r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">その３</language>
+	</row>
+
+	<row id="msg_library_04">
+		<comment>c02r0103</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_press_01">
+		<comment>t04r0301</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ダークボール</language>
+	</row>
+
+	<row id="msg_press_02">
+		<comment>t04r0301</comment>
+		<language name="日本語" font=" 1:font_system" width="216">ヒールボール</language>
+	</row>
+
+	<row id="msg_press_03">
+		<comment>t04r0301</comment>
+		<language name="日本語" font=" 1:font_system" width="216">クイックボール</language>
+	</row>
+
+	<row id="msg_press_04">
+		<comment>t04r0301</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<row id="msg_ginga_pc_01" text-color="#ff0000,,,#ff0000,,#ff0000,,,,,,,">
+		<comment>d26r0104</comment>
+		<attribute name="キャラ指定">ギンガ団アジトＰＣ</attribute>
+		<language name="日本語" font=" 1:font_system" width="216">うちゅうのはじまり</language>
+	</row>
+
+	<row id="msg_ginga_pc_02" text-color="#ff0000,,,#ff0000,,#ff0000,,,,,,,">
+		<comment>d26r0104</comment>
+		<language name="日本語" font=" 1:font_system" width="216">しんわのポケモン</language>
+	</row>
+
+	<row id="msg_ginga_pc_03" text-color="#ff0000,,,#ff0000,,#ff0000,,,,,,,">
+		<comment>d26r0104</comment>
+		<language name="日本語" font=" 1:font_system" width="216">あかいくさり</language>
+	</row>
+
+	<row id="msg_ginga_pc_04" text-color="#ff0000,,,,,,,,,,,,">
+		<comment>d26r0104</comment>
+		<language name="日本語" font=" 1:font_system" width="216">やめる</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

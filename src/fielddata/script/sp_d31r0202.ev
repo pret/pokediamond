@@ -1,0 +1,29 @@
+//====================================================================
+//							sp_d31r0202
+//
+//	＜特殊スクリプトファイルを分ける理由＞
+//	特殊スクリプトはゾーン切り替えした時にロードする必要がある
+//	常にもっておかないといけないので、容量削減のために分けている
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"d31r0202_def.h"
+
+//--------------------------------------------------------------------
+//							特殊スクリプト
+//--------------------------------------------------------------------
+_FLAG_CHANGE_LABEL	SCRID_D31R0202_FLAG_CHANGE
+_SCENE_CHANGE_LABEL	sp_d31r0202_tbl
+_SP_EVENT_DATA_END
+
+sp_d31r0202_tbl:
+	//シングル通路
+	_SCENE_CHANGE_DATA	WK_SCENE_D31R0202,1,SCRID_TOWER_EV_TO_WAYS
+	//マルチ通路
+	_SCENE_CHANGE_DATA	WK_SCENE_D31R0202,2,SCRID_TOWER_EV_TO_WAYD
+	//サロン
+	_SCENE_CHANGE_DATA	WK_SCENE_D31R0202,3,SCRID_TOWER_EV_TO_SALON
+	_SCENE_CHANGE_END
+

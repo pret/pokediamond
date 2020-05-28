@@ -1,0 +1,670 @@
+//====================================================================
+//						safari.ev
+//						サファリ用スクリプト・データ
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+
+	.include	"../../../include/msgdata/msg_safari.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_safari_flag_change
+_EVENT_DATA		ev_safari_announce_time
+_EVENT_DATA		ev_safari_announce_ball
+_EVENT_DATA		ev_safari_train_area01
+_EVENT_DATA		ev_safari_train_area02
+_EVENT_DATA		ev_safari_train_area03
+_EVENT_DATA		ev_safari_train_area04
+_EVENT_DATA		ev_safari_train_area05
+_EVENT_DATA		ev_safari_train_area06
+_EVENT_DATA		ev_safari_end_gate
+_EVENT_DATA		ev_safari_call_train
+_EVENT_DATA		ev_safari_ride_train
+_EVENT_DATA		ev_safari_train_bound_for_pos1
+_EVENT_DATA		ev_safari_train_bound_for_pos2
+_EVENT_DATA		ev_safari_train_bound_for_pos3
+_EVENT_DATA		ev_safari_train_go_area1
+_EVENT_DATA		ev_safari_train_go_area2
+_EVENT_DATA		ev_safari_train_go_area3
+_EVENT_DATA		ev_safari_train_go_area4
+_EVENT_DATA		ev_safari_train_go_area5
+_EVENT_DATA		ev_safari_train_go_area6
+_EVENT_DATA		ev_safari_retire
+_EVENT_DATA		ev_safari_announce_box_full
+_EVENT_DATA_END						//終了
+
+
+//----------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
+//====================================================================
+//
+//		サファリフラグチェンジ
+//
+//====================================================================
+ev_safari_flag_change:
+	/*サファリ電車の初期化*/
+	_INIT_SAFARI_TRAIN
+	_END
+
+//====================================================================
+//
+//		サファリ終了：時間ぎれ
+//
+//====================================================================
+ev_safari_announce_time:
+	_EVENT_START
+	_SE_PLAY	SEQ_SE_DP_PINPON
+	_TALKMSG	msg_safari_announce_01
+	_AB_KEYWAIT
+	_TALK_CLOSE
+	_MAP_CHANGE		ZONE_ID_C06R0101,0,5,2,DIR_DOWN
+	_LDVAL			WK_SCENE_SAFARI_ZONE,2
+	_SAFARI_END
+	_EVENT_END
+	_END
+
+//====================================================================
+//
+//		サファリ終了：捕獲成功でボールなくなった
+//
+//====================================================================
+ev_safari_end_gate:
+	_EVENT_START
+//	_SE_PLAY	SEQ_SE_DP_DECIDE
+//	_TALKMSG	msg_safari_announce_02
+//	_AB_KEYWAIT
+//	_TALK_CLOSE
+//	_MAP_CHANGE		ZONE_ID_C06R0101,0,5,2,DIR_DOWN
+	_LDVAL			WK_SCENE_SAFARI_ZONE,2
+	_SAFARI_END
+	_EVENT_END
+	_END
+
+//====================================================================
+//
+//		サファリ終了：捕獲失敗でボールなくなった
+//
+//====================================================================
+ev_safari_announce_ball:
+	_EVENT_START
+	_SE_PLAY	SEQ_SE_DP_PINPON
+	_TALKMSG	msg_safari_announce_02
+	_AB_KEYWAIT
+	_TALK_CLOSE
+	_MAP_CHANGE		ZONE_ID_C06R0101,0,5,2,DIR_DOWN
+	_LDVAL			WK_SCENE_SAFARI_ZONE,2
+	_SAFARI_END
+	_EVENT_END
+	_END
+
+//====================================================================
+//
+//		サファリ終了：手持ち、ボックスがいっぱいになった
+//
+//====================================================================
+ev_safari_announce_box_full:
+	_EVENT_START
+	_SE_PLAY	SEQ_SE_DP_PINPON
+	_TALKMSG	msg_safari_announce_03
+	_AB_KEYWAIT
+	_TALK_CLOSE
+	_MAP_CHANGE		ZONE_ID_C06R0101,0,5,2,DIR_DOWN
+	_LDVAL			WK_SCENE_SAFARI_ZONE,2
+	_SAFARI_END
+	_EVENT_END
+	_END
+
+
+//====================================================================
+//
+//		サファリリタイア
+//
+//====================================================================
+ev_safari_retire:
+	_EVENT_START
+	_TALKMSG		msg_safari_retire_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_TALK_CLOSE
+	_IFVAL_JUMP		SCWK_ANSWER,NE,0,ev_safari_retire_cancel
+
+	_MAP_CHANGE		ZONE_ID_C06R0101,0,5,2,DIR_DOWN
+	_LDVAL			WK_SCENE_SAFARI_ZONE,2
+	_SAFARI_END
+	_EVENT_END
+	_END
+
+ev_safari_retire_cancel:
+	_EVENT_END
+	_END
+
+//====================================================================
+//
+//		サファリ電車エリア1（左上）
+//
+//====================================================================
+ev_safari_train_area01:
+	_EVENT_START
+	
+	_TALKMSG	msg_safari_yobidashi_01	//どこへ行きますか？
+	/*行き先選択*/
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_159,0					//エリア3
+	_BMPMENU_MAKE_LIST	msg_ev_win_160,1					//エリア4
+	_BMPMENU_MAKE_LIST	msg_ev_win_161,2					//エリア5
+	_BMPMENU_MAKE_LIST	msg_ev_win_162,3					//エリア6
+	_BMPMENU_MAKE_LIST	msg_ev_win_163,4					//やめる
+	_BMPMENU_START
+	_TALK_CLOSE
+
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,4,ev_safari_train_end
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,EV_WIN_B_CANCEL,ev_safari_train_end
+
+	/*電車をコールする必要があるかをチェック*/
+	_CHECK_SAFARI_TRAIN	TRAIN_POS_1, SCWK_TEMP0
+	/*電車コール用にTEMP1に現在位置をセットしとく*/
+	_LDVAL		SCWK_TEMP1,TRAIN_POS_1
+	/*必要があれば電車コール*/
+	_IFVAL_CALL SCWK_TEMP0,EQ,TRAIN_DIF_POS, ev_safari_call_train
+	/*自機の高さ取得を無効*/
+	_PLAYER_HEGIHT_VALID	0
+	/*電車に乗る*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0, ev_safari_train_in_r3			//エリア3（左に降りるので右に3歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,1, ev_safari_train_in_r4			//エリア4（右に降りるので右に4歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,2, ev_safari_train_in_r3			//エリア5（左に降りるので右に3歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,3, ev_safari_train_in_r4			//エリア6（右に降りるので右に4歩）
+	/*アンサーワークを見て分岐*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0,ev_safari_train_go_area3		//エリア3
+	_IFVAL_CALL SCWK_ANSWER,EQ,1,ev_safari_train_go_area4		//エリア4
+	_IFVAL_CALL SCWK_ANSWER,EQ,2,ev_safari_train_go_area5		//エリア5
+	_IFVAL_CALL SCWK_ANSWER,EQ,3,ev_safari_train_go_area6		//エリア6
+	/*自機の高さ取得を有効*/
+	_PLAYER_HEGIHT_VALID	1
+	
+	_EVENT_END
+	_END
+
+
+//====================================================================
+//
+//		サファリ電車エリア2（右上）
+//
+//====================================================================
+ev_safari_train_area02:
+	_EVENT_START
+	
+	_TALKMSG	msg_safari_yobidashi_01	//どこへ行きますか？
+	/*行き先選択*/
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_159,0					//エリア3
+	_BMPMENU_MAKE_LIST	msg_ev_win_160,1					//エリア4
+	_BMPMENU_MAKE_LIST	msg_ev_win_161,2					//エリア5
+	_BMPMENU_MAKE_LIST	msg_ev_win_162,3					//エリア6
+	_BMPMENU_MAKE_LIST	msg_ev_win_163,4					//やめる
+	_BMPMENU_START
+	_TALK_CLOSE
+	
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,4,ev_safari_train_end
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,EV_WIN_B_CANCEL,ev_safari_train_end
+
+	/*電車をコールする必要があるかをチェック*/
+	_CHECK_SAFARI_TRAIN	TRAIN_POS_1, SCWK_TEMP0
+	/*電車コール用にTEMP1に現在位置をセットしとく*/
+	_LDVAL		SCWK_TEMP1,TRAIN_POS_1
+	/*必要があれば電車コール*/
+	_IFVAL_CALL SCWK_TEMP0,EQ,TRAIN_DIF_POS, ev_safari_call_train
+	/*自機の高さ取得を無効*/
+	_PLAYER_HEGIHT_VALID	0
+	/*電車に乗る*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0, ev_safari_train_in_l4			//エリア3（左に降りるので左に4歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,1, ev_safari_train_in_l3			//エリア4（右に降りるので左に3歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,2, ev_safari_train_in_l4			//エリア5（左に降りるので左に4歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,3, ev_safari_train_in_l3			//エリア6（右に降りるので左に3歩）
+	/*アンサーワークを見て分岐*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0,ev_safari_train_go_area3		//エリア3
+	_IFVAL_CALL SCWK_ANSWER,EQ,1,ev_safari_train_go_area4		//エリア4
+	_IFVAL_CALL SCWK_ANSWER,EQ,2,ev_safari_train_go_area5		//エリア5
+	_IFVAL_CALL SCWK_ANSWER,EQ,3,ev_safari_train_go_area6		//エリア6
+	/*自機の高さ取得を有効*/
+	_PLAYER_HEGIHT_VALID	1
+	
+	_EVENT_END
+	_END
+
+
+//====================================================================
+//
+//		サファリ電車エリア3（左中）
+//
+//====================================================================
+ev_safari_train_area03:
+	_EVENT_START
+	
+	_TALKMSG	msg_safari_yobidashi_01	//どこへ行きますか？
+	/*行き先選択*/
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_157,0					//エリア1
+	_BMPMENU_MAKE_LIST	msg_ev_win_158,1					//エリア2
+	_BMPMENU_MAKE_LIST	msg_ev_win_161,2					//エリア5
+	_BMPMENU_MAKE_LIST	msg_ev_win_162,3					//エリア6
+	_BMPMENU_MAKE_LIST	msg_ev_win_163,4					//やめる
+	_BMPMENU_START
+	_TALK_CLOSE
+	
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,4,ev_safari_train_end
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,EV_WIN_B_CANCEL,ev_safari_train_end
+
+	/*電車をコールする必要があるかをチェック*/
+	_CHECK_SAFARI_TRAIN	TRAIN_POS_2, SCWK_TEMP0
+	/*電車コール用にTEMP1に現在位置をセットしとく*/
+	_LDVAL		SCWK_TEMP1,TRAIN_POS_2
+	/*必要があれば電車コール*/
+	_IFVAL_CALL SCWK_TEMP0,EQ,TRAIN_DIF_POS, ev_safari_call_train
+	/*自機の高さ取得を無効*/
+	_PLAYER_HEGIHT_VALID	0
+	/*電車に乗る*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0, ev_safari_train_in_r3			//エリア1（左に降りるので右に3歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,1, ev_safari_train_in_r4			//エリア2（右に降りるので右に4歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,2, ev_safari_train_in_r3			//エリア5（左に降りるので右に3歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,3, ev_safari_train_in_r4			//エリア6（右に降りるので右に4歩）
+	/*アンサーワークを見て分岐*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0,ev_safari_train_go_area1		//エリア1
+	_IFVAL_CALL SCWK_ANSWER,EQ,1,ev_safari_train_go_area2		//エリア2
+	_IFVAL_CALL SCWK_ANSWER,EQ,2,ev_safari_train_go_area5		//エリア5
+	_IFVAL_CALL SCWK_ANSWER,EQ,3,ev_safari_train_go_area6		//エリア6
+	/*自機の高さ取得を有効*/
+	_PLAYER_HEGIHT_VALID	1
+	
+	_EVENT_END
+	_END
+	
+//====================================================================
+//
+//		サファリ電車エリア4（右中）
+//
+//====================================================================
+ev_safari_train_area04:
+	_EVENT_START
+
+	_TALKMSG	msg_safari_yobidashi_01	//どこへ行きますか？
+	/*行き先選択*/
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_157,0					//エリア1
+	_BMPMENU_MAKE_LIST	msg_ev_win_158,1					//エリア2
+	_BMPMENU_MAKE_LIST	msg_ev_win_161,2					//エリア5
+	_BMPMENU_MAKE_LIST	msg_ev_win_162,3					//エリア6
+	_BMPMENU_MAKE_LIST	msg_ev_win_163,4					//やめる
+	_BMPMENU_START
+	_TALK_CLOSE
+	
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,4,ev_safari_train_end
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,EV_WIN_B_CANCEL,ev_safari_train_end
+
+	/*電車をコールする必要があるかをチェック*/
+	_CHECK_SAFARI_TRAIN	TRAIN_POS_2, SCWK_TEMP0
+	/*電車コール用にTEMP1に現在位置をセットしとく*/
+	_LDVAL		SCWK_TEMP1,TRAIN_POS_2
+	/*必要があれば電車コール*/
+	_IFVAL_CALL SCWK_TEMP0,EQ,TRAIN_DIF_POS, ev_safari_call_train
+	/*自機の高さ取得を無効*/
+	_PLAYER_HEGIHT_VALID	0
+	/*電車に乗る*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0, ev_safari_train_in_l4			//エリア1（左に降りるので左に4歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,1, ev_safari_train_in_l3			//エリア2（右に降りるので左に3歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,2, ev_safari_train_in_l4			//エリア5（左に降りるので左に4歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,3, ev_safari_train_in_l3			//エリア6（右に降りるので左に3歩）
+	/*アンサーワークを見て分岐*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0,ev_safari_train_go_area1		//エリア1
+	_IFVAL_CALL SCWK_ANSWER,EQ,1,ev_safari_train_go_area2		//エリア2
+	_IFVAL_CALL SCWK_ANSWER,EQ,2,ev_safari_train_go_area5		//エリア5
+	_IFVAL_CALL SCWK_ANSWER,EQ,3,ev_safari_train_go_area6		//エリア6
+	/*自機の高さ取得を有効*/
+	_PLAYER_HEGIHT_VALID	1
+	
+	_EVENT_END
+	_END
+
+//====================================================================
+//
+//		サファリ電車エリア5（左下）
+//
+//====================================================================
+ev_safari_train_area05:
+	_EVENT_START
+	
+	_TALKMSG	msg_safari_yobidashi_01	//どこへ行きますか？
+	/*行き先選択*/
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_157,0					//エリア1
+	_BMPMENU_MAKE_LIST	msg_ev_win_158,1					//エリア2
+	_BMPMENU_MAKE_LIST	msg_ev_win_159,2					//エリア3
+	_BMPMENU_MAKE_LIST	msg_ev_win_160,3					//エリア4
+	_BMPMENU_MAKE_LIST	msg_ev_win_163,4					//やめる
+	_BMPMENU_START
+	_TALK_CLOSE
+	
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,4,ev_safari_train_end
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,EV_WIN_B_CANCEL,ev_safari_train_end
+
+	/*電車をコールする必要があるかをチェック*/
+	_CHECK_SAFARI_TRAIN	TRAIN_POS_3, SCWK_TEMP0
+	/*電車コール用にTEMP1に現在位置をセットしとく*/
+	_LDVAL		SCWK_TEMP1,TRAIN_POS_3
+	/*必要があれば電車コール*/
+	_IFVAL_CALL SCWK_TEMP0,EQ,TRAIN_DIF_POS, ev_safari_call_train
+	/*自機の高さ取得を無効*/
+	_PLAYER_HEGIHT_VALID	0
+	/*電車に乗る*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0, ev_safari_train_in_r3			//エリア1（左に降りるので右に3歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,1, ev_safari_train_in_r4			//エリア2（右に降りるので右に4歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,2, ev_safari_train_in_r3			//エリア3（左に降りるので右に3歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,3, ev_safari_train_in_r4			//エリア4（右に降りるので右に4歩）
+	/*アンサーワークを見て分岐*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0,ev_safari_train_go_area1		//エリア1
+	_IFVAL_CALL SCWK_ANSWER,EQ,1,ev_safari_train_go_area2		//エリア2
+	_IFVAL_CALL SCWK_ANSWER,EQ,2,ev_safari_train_go_area3		//エリア3
+	_IFVAL_CALL SCWK_ANSWER,EQ,3,ev_safari_train_go_area4		//エリア4
+	/*自機の高さ取得を有効*/
+	_PLAYER_HEGIHT_VALID	1
+	
+	_EVENT_END
+	_END
+
+//====================================================================
+//
+//		サファリ電車エリア6（右下）
+//
+//====================================================================
+ev_safari_train_area06:
+	_EVENT_START
+
+	_TALKMSG	msg_safari_yobidashi_01	//どこへ行きますか？
+	/*行き先選択*/
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_157,0					//エリア1
+	_BMPMENU_MAKE_LIST	msg_ev_win_158,1					//エリア2
+	_BMPMENU_MAKE_LIST	msg_ev_win_159,2					//エリア3
+	_BMPMENU_MAKE_LIST	msg_ev_win_160,3					//エリア4
+	_BMPMENU_MAKE_LIST	msg_ev_win_163,4					//やめる
+	_BMPMENU_START
+	_TALK_CLOSE
+	
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,4,ev_safari_train_end
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,EV_WIN_B_CANCEL,ev_safari_train_end
+
+	/*電車をコールする必要があるかをチェック*/
+	_CHECK_SAFARI_TRAIN	TRAIN_POS_3, SCWK_TEMP0
+	/*電車コール用にTEMP1に現在位置をセットしとく*/
+	_LDVAL		SCWK_TEMP1,TRAIN_POS_3
+	/*必要があれば電車コール*/
+	_IFVAL_CALL SCWK_TEMP0,EQ,TRAIN_DIF_POS, ev_safari_call_train
+	/*自機の高さ取得を無効*/
+	_PLAYER_HEGIHT_VALID	0
+	/*電車に乗る*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0, ev_safari_train_in_l4			//エリア1（左に降りるので左に4歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,1, ev_safari_train_in_l3			//エリア2（右に降りるので左に3歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,2, ev_safari_train_in_l4			//エリア3（左に降りるので左に4歩）
+	_IFVAL_CALL SCWK_ANSWER,EQ,3, ev_safari_train_in_l3			//エリア4（右に降りるので左に3歩）
+	/*アンサーワークを見て分岐*/
+	_IFVAL_CALL SCWK_ANSWER,EQ,0,ev_safari_train_go_area1		//エリア1
+	_IFVAL_CALL SCWK_ANSWER,EQ,1,ev_safari_train_go_area2		//エリア2
+	_IFVAL_CALL SCWK_ANSWER,EQ,2,ev_safari_train_go_area3		//エリア3
+	_IFVAL_CALL SCWK_ANSWER,EQ,3,ev_safari_train_go_area4		//エリア4
+	/*自機の高さ取得を有効*/
+	_PLAYER_HEGIHT_VALID	1
+
+	_EVENT_END
+	_END
+
+//====================================================================
+//
+//		電車呼ぶ
+//
+//====================================================================
+ev_safari_call_train:
+	_MOVE_SAFARI_TRAIN	SCWK_TEMP1, MOVE_TYPE_CALL
+	_RET
+
+//====================================================================
+//
+//		電車乗って移動
+//
+//====================================================================
+ev_safari_ride_train:
+	_MOVE_SAFARI_TRAIN	SCWK_TEMP2, MOVE_TYPE_RIDE
+	_RET
+
+//====================================================================
+//
+//		電車行き先が一番上
+//
+//====================================================================
+ev_safari_train_bound_for_pos1:
+	_LDVAL		SCWK_TEMP2,TRAIN_POS_1
+	_CALL		ev_safari_ride_train
+	_RET
+
+//====================================================================
+//
+//		電車行き先が真ん中
+//
+//====================================================================
+ev_safari_train_bound_for_pos2:
+	_LDVAL		SCWK_TEMP2,TRAIN_POS_2
+	_CALL		ev_safari_ride_train
+	_RET
+	
+//====================================================================
+//
+//		電車行き先が一番下
+//
+//====================================================================
+ev_safari_train_bound_for_pos3:
+	_LDVAL		SCWK_TEMP2,TRAIN_POS_3
+	_CALL		ev_safari_ride_train
+	_RET
+
+//====================================================================
+//
+//		電車行き先がエリア1
+//
+//====================================================================
+ev_safari_train_go_area1:
+	_CALL	ev_safari_train_bound_for_pos1
+	/*降りる*/
+	_CALL	ev_safari_train_out_l
+	_RET
+
+//====================================================================
+//
+//		電車行き先がエリア2
+//
+//====================================================================
+ev_safari_train_go_area2:
+	_CALL	ev_safari_train_bound_for_pos1
+	/*降りる*/
+	_CALL	ev_safari_train_out_r
+	_RET
+
+//====================================================================
+//
+//		電車行き先がエリア3
+//
+//====================================================================
+ev_safari_train_go_area3:
+	_CALL	ev_safari_train_bound_for_pos2
+	/*降りる*/
+	_CALL	ev_safari_train_out_l
+	_RET
+
+//====================================================================
+//
+//		電車行き先がエリア4
+//
+//====================================================================
+ev_safari_train_go_area4:
+	_CALL	ev_safari_train_bound_for_pos2
+	/*降りる*/
+	_CALL	ev_safari_train_out_r
+	_RET
+
+//====================================================================
+//
+//		電車行き先がエリア5
+//
+//====================================================================
+ev_safari_train_go_area5:
+	_CALL	ev_safari_train_bound_for_pos3
+	/*降りる*/
+	_CALL	ev_safari_train_out_l
+	_RET
+
+//====================================================================
+//
+//		電車行き先がエリア6
+//
+//====================================================================
+ev_safari_train_go_area6:
+	_CALL	ev_safari_train_bound_for_pos3
+	/*降りる*/
+	_CALL	ev_safari_train_out_r
+	_RET
+	
+//====================================================================
+//
+//		電車処理終わり
+//
+//====================================================================
+ev_safari_train_end:
+	_PLAYER_NAME	0
+	_TALKMSG	msg_safari_yobidashi_02	//乗らなかった
+	_LAST_KEYWAIT
+	_TALK_CLOSE	
+	_EVENT_END
+	_END
+
+//====================================================================
+//
+//		電車に乗る（右に3歩）
+//
+//====================================================================
+ev_safari_train_in_r3:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_safari_player_right3wk_in
+	_OBJ_ANIME_WAIT
+	_RET
+
+//====================================================================
+//
+//		電車に乗る（右に4歩）
+//
+//====================================================================
+ev_safari_train_in_r4:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_safari_player_right4wk_in
+	_OBJ_ANIME_WAIT
+	_RET
+
+//====================================================================
+//
+//		電車に乗る（左に3歩）
+//
+//====================================================================
+ev_safari_train_in_l3:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_safari_player_left3wk_in
+	_OBJ_ANIME_WAIT
+	_RET
+
+//====================================================================
+//
+//		電車に乗る（左に4歩）
+//
+//====================================================================
+ev_safari_train_in_l4:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_safari_player_left4wk_in
+	_OBJ_ANIME_WAIT
+	_RET
+
+//====================================================================
+//
+//		電車から降りる（右）
+//
+//====================================================================
+ev_safari_train_out_r:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_safari_player_right3wk_out
+	_OBJ_ANIME_WAIT
+	_RET
+
+//====================================================================
+//
+//		電車から降りる（左）
+//
+//====================================================================
+ev_safari_train_out_l:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_safari_player_left3wk_out
+	_OBJ_ANIME_WAIT
+	_RET
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//アニメーション
+
+//====================================================================
+//
+//		右に3歩 その後バニッシュ
+//
+//====================================================================
+_ANIME_LABEL anm_safari_player_right3wk_in
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//====================================================================
+//
+//		右に4歩 その後バニッシュ
+//
+//====================================================================
+_ANIME_LABEL anm_safari_player_right4wk_in
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//====================================================================
+//
+//		左に3歩その後バニッシュ
+//
+//====================================================================
+_ANIME_LABEL anm_safari_player_left3wk_in
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+	
+//====================================================================
+//
+//		左に4歩その後バニッシュ
+//
+//====================================================================
+_ANIME_LABEL anm_safari_player_left4wk_in
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//====================================================================
+//
+//		バニッシュ解除　その後右に3歩
+//
+//====================================================================
+_ANIME_LABEL anm_safari_player_right3wk_out
+	_ANIME_DATA	AC_VANISH_OFF,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+//====================================================================
+//
+//		バニッシュ解除　その後右に3歩
+//
+//====================================================================
+_ANIME_LABEL anm_safari_player_left3wk_out
+	_ANIME_DATA	AC_VANISH_OFF,1
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	ACMD_END,0

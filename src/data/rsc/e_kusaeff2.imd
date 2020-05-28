@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-07-11T22:22:37" source="e_kusaeff2_2.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+</head>
+
+<body>
+
+<original_create user="kanako_eo" host="W00107" date="2006-07-11T22:22:37" source="e_kusaeff2_2.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+
+<model_info
+	pos_scale="1"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="0"
+	tex_matrix_mode="maya"
+	compress_node="none" node_size="1 1"
+	compress_material="off" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="2" xyz="-2.000000 0.250000 -2.000000" whd="4.000000 0.000000 4.000000"/>
+
+<tex_image_array size="4">
+	<tex_image index="0" name="e_kusaeff2.1"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="e_kusaeff"
+		path="C:/mayadata/e_kusaeff/e_kusaefftex/e_kusaeff2/e_kusaeff2.1.tga"
+	>
+		<bitmap size="64">
+			0000 8000 0007 0000 0000 7800 0077 0000
+			0000 7800 0077 0800 0888 7700 0077 7780
+			7776 7708 8067 7778 7760 7687 7466 0777
+			7660 6477 7746 0677 6600 8766 6668 0046
+			0000 6460 4646 0054 8000 7668 8466 0008
+			7800 7767 7467 0077 7770 7746 6487 0777
+			6776 7744 4587 6776 4660 7655 0568 0660
+			0000 6500 0056 0000 0000 5000 0005 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="1" name="e_kusaeff2.2"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="e_kusaeff"
+		path="C:/mayadata/e_kusaeff/e_kusaefftex/e_kusaeff2/e_kusaeff2.2.tga"
+	>
+		<bitmap size="64">
+			0000 7800 0000 0000 0000 7780 0007 0000
+			0000 7780 0007 0078 0000 7770 8067 0777
+			7880 8700 8068 0778 7777 8688 8848 0678
+			7776 6888 8864 0047 7660 6887 4688 0054
+			0000 4660 5488 0055 0000 7688 8466 0078
+			8000 7677 4767 6777 7000 7477 5877 6777
+			7700 7467 5877 0664 6600 6044 5687 0000
+			0000 5000 0566 0000 0000 0000 0055 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="2" name="e_kusaeff2.3"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="e_kusaeff"
+		path="C:/mayadata/e_kusaeff/e_kusaefftex/e_kusaeff2/e_kusaeff2.3.tga"
+	>
+		<bitmap size="64">
+			0000 8000 0007 0000 0000 7800 0077 0000
+			0000 9800 0079 0990 9888 9709 0079 7999
+			9776 7799 8067 7799 7760 7699 7996 0777
+			7660 6477 7996 0677 6600 8766 6668 0046
+			0000 6460 4646 0054 8000 7668 8466 0008
+			7800 7767 7467 0077 7770 7746 6487 0777
+			6776 7744 4587 6776 4660 7655 0568 0660
+			0000 6500 0056 0000 0000 5000 0005 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="3" name="e_kusaeff2.4"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="e_kusaeff"
+		path="C:/mayadata/e_kusaeff/e_kusaefftex/e_kusaeff2/e_kusaeff2.4.tga"
+	>
+		<bitmap size="64">
+			9000 0009 0067 0000 9000 7009 0677 0000
+			8870 7090 9977 0000 7770 7008 9977 0000
+			7760 6687 0097 0990 7990 6677 7766 9998
+			6999 4676 7666 9977 0099 6460 7646 0477
+			8000 6668 6664 0046 6800 7666 8846 0077
+			7760 7766 7747 0077 7776 7746 6477 0777
+			4770 8774 4058 0666 5000 8865 0056 0000
+			0000 6650 0005 0000 0000 5500 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="e_kusaeff" color_size="16">
+		3e18 3f82 2ea2 4bea 21a5 2a46 0284 06e6
+		1f6d 4bf9 3758 4f7f 7fff 7fff 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="obj"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="0 0 0"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="clamp clamp"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.500000 -4.000000"
+		volume_max="4.000000 0.500000 4.000000"
+		volume_r="5.678955"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 16.000000"/>
+					<nrm xyz="0.000000 0.998047 0.000000"/>
+					<pos_s xyz="-4.000000 0.500000 4.000000"/>
+					<tex st="16.000000 16.000000"/>
+					<pos_xy xy="4.000000 0.500000"/>
+					<tex st="16.000000 0.000000"/>
+					<pos_xz xz="4.000000 -4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-4.000000 0.500000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pPlane2" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.500000 -4.000000"
+		volume_max="4.000000 0.500000 4.000000"
+		volume_r="5.678955"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

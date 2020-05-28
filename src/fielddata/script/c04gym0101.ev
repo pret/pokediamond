@@ -1,0 +1,112 @@
+//====================================================================
+//						c04gym0101.gmm
+//						シティ０４・ジム
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c04gym0101.h"
+	.include	"../eventdata/zone_c04gym0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c04gym0101_leader
+_EVENT_DATA		ev_c04gym0101_advice
+_EVENT_DATA		ev_c04gym0101_statue
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*							ジムリーダー							*/
+/********************************************************************/
+ev_c04gym0101_leader:
+	_TALK_OBJ_START
+
+	_TALK_KEYWAIT	msg_c04gym0101_leader_01
+	_TALK_CLOSE
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*ジム内へ移動*/
+	_OBJ_ANIME		C04GYM0101_LEADER,anm_c04gym0101_leader_00
+	_OBJ_ANIME_WAIT
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		C04GYM0101_LEADER
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//リーダー	ジム内へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c04gym0101_leader_00
+	_ANIME_DATA	AC_STAY_WALK_U_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							アドバイス								*/
+/********************************************************************/
+ev_c04gym0101_advice:
+	_TALK_OBJ_START
+
+	//ハクタイバッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C04,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c04gym0101_advice_02
+
+	//クリア前
+	_TALKMSG		msg_c04gym0101_sunglasses_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c04gym0101_advice_02:
+	//クリア後
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c04gym0101_sunglasses_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							看板									*/
+/********************************************************************/
+ev_c04gym0101_statue:
+	_TALK_START
+
+	//ハクタイバッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C04,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_c04gym0101_statue_02
+
+	//看板　クリア前
+	_RIVAL_NAME		0
+	_RIVAL_NAME		1
+	_TALKMSG		msg_c04gym0101_statue_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_c04gym0101_statue_02:
+	//看板　クリア後
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_RIVAL_NAME		2
+	_TALKMSG		msg_c04gym0101_statue_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

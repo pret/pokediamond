@@ -1,0 +1,117 @@
+//====================================================================
+//								d20r0106
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d20r0106.h"
+	.include	"../../../include/poketool/monsno.h"
+	.include	"../eventdata/zone_d20r0106evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d20r0106_init_change
+_EVENT_DATA		ev_d20r0106_legend_01
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d20r0106_init_change:
+	_IF_FLAGON_JUMP	FE_INIT_CHANGE_OBJ_DEL,ev_d20r0106_init_change_obj_del
+	_END
+
+ev_d20r0106_init_change_obj_del:
+	_FLAG_SET		FV_D20R0106_LEGEND
+	_OBJ_DEL		D20R0106_LEGEND_01
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_END
+
+
+/********************************************************************/
+/*	 レジキングイベント開始											*/
+/********************************************************************/
+ev_d20r0106_legend_01:
+	_EVENT_START
+	_SE_PLAY		SEQ_SE_DP_SELECT
+	_SE_WAIT		SEQ_SE_DP_SELECT
+
+	//既に解放済みならいきなり戦闘
+	_IF_FLAGON_JUMP	FE_D20R0106_LEGEND_UNSEAL,ev_d20r0106_legend_unseal_01
+
+	//まだ解放してない
+ev_d20r0106_legend_seal_01:
+	//手持ちにレジアイス・ロック・スチルがいるかどうかチェック
+	_D20R0106_LEGEND_IS_UNSEAL	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d20r0106_legend_unseal_ng
+	//解放
+	_FLAG_SET		FE_D20R0106_LEGEND_UNSEAL
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_d20r0106_sppoke12_02
+	_TALK_CLOSE
+	//解放演出
+	_OBJ_PAUSE_CLEAR	D20R0106_LEGEND_01
+	_FLDOBJ_SHAKE_ANM	D20R0106_LEGEND_01,8,90,3,0
+	_OBJ_PAUSE			D20R0106_LEGEND_01
+	_JUMP			ev_d20r0106_legend_unseal_01
+	_END
+
+//解放条件が揃っていない
+ev_d20r0106_legend_unseal_ng:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_d20r0106_sppoke12_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//レジキング解放
+ev_d20r0106_legend_unseal_01:
+	//ズッ、ズッ
+	_TALK_KEYWAIT	msg_d20r0106_sppoke12_03
+	_TALK_CLOSE
+	//レジ鳴き声
+	_VOICE_PLAY MONSNO_REZIKINGU,0
+	_VOICE_WAIT
+
+	//戦闘開始
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	MONSNO_REZIKINGU,70
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+
+	_LOSE_CHECK			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d20r0106_legend_lose
+	_SEACRET_POKE_RETRY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d20r0106_legend_capture_ng
+
+//レジキング捕まえたor倒した
+ev_d20r0106_legend_event_clear:
+	//クリアフラグon
+	_FLAG_SET			FE_D20R0106_LEGEND_CLEAR
+	_EVENT_END
+	_END
+
+//レジキング逃した
+ev_d20r0106_legend_capture_ng:
+	_TALKMSG			msg_d20r0106_sppoke12_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//全滅
+ev_d20r0106_legend_lose:
+	_NORMAL_LOSE	
+	_EVENT_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

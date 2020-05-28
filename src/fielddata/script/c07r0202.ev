@@ -1,0 +1,203 @@
+//====================================================================
+//								c07r0202
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c07r0202.h"
+	//.include	"../eventdata/zone_c07r0202evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c07r0202_depart
+_EVENT_DATA		ev_c07r0202_gorggeousw
+_EVENT_DATA		ev_c07r0202_boy3
+_EVENT_DATA		ev_c07r0202_shopm
+_EVENT_DATA		ev_c07r0202_fix_shop_01
+_EVENT_DATA		ev_c07r0202_fix_shop_02
+_EVENT_DATA		ev_c07r0202_board
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							　受付嬢								*/
+/********************************************************************/
+ev_c07r0202_depart:
+	_TALK_OBJ_START
+
+	_REGULAR_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,TRUE,c07r0202_regular_check
+
+	_TALKMSG		msg_c07r0202_depart_01
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_depart_menu_02,1					//おすすめは？
+	_BMPMENU_MAKE_LIST	msg_depart_menu_01,0					//なんでもない
+	_BMPMENU_START
+
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,1,ev_c07r0202_depart_04
+	_JUMP		ev_c07r0202_depart_03
+
+//常連
+c07r0202_regular_check:
+	_PLAYER_NAME	0
+
+	_TALKMSG		msg_c07r0202_depart_02
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_depart_menu_02,0					//おすすめは？
+	_BMPMENU_MAKE_LIST	msg_depart_menu_01,1					//なんでもない
+	_BMPMENU_START
+
+	_IFVAL_JUMP  SCWK_ANSWER,NE,0,ev_c07r0202_depart_03
+
+	_GET_RND SCWK_ANSWER,4
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,0,ev_c07r0202_depart_04
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,1,ev_c07r0202_depart_05
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,2,ev_c07r0202_depart_06
+	_JUMP		ev_c07r0202_depart_07
+
+//キャンセル
+ev_c07r0202_depart_03:
+	_TALKMSG		msg_c07r0202_depart_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//おすすめ１
+ev_c07r0202_depart_04:
+	_TALKMSG		msg_c07r0202_depart_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//おすすめ２
+ev_c07r0202_depart_05:
+	_TALKMSG		msg_c07r0202_depart_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//おすすめ３
+ev_c07r0202_depart_06:
+	_TALKMSG		msg_c07r0202_depart_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//おすすめ４
+ev_c07r0202_depart_07:
+	_TALKMSG		msg_c07r0202_depart_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							　お嬢様								*/
+/********************************************************************/
+ev_c07r0202_gorggeousw:
+	_EASY_OBJ_MSG	msg_c07r0202_gorggeousw_01
+	_END
+
+/********************************************************************/
+/*							　麦わら少年							*/
+/********************************************************************/
+ev_c07r0202_boy3:
+	_EASY_OBJ_MSG	msg_c07r0202_boy3_01
+	_END
+
+/********************************************************************/
+/*							　	店員								*/
+/********************************************************************/
+ev_c07r0202_shopm:
+	_TALK_OBJ_START
+
+	/*ポケッチソフト”カウンター”を取得済みかチェック*/
+	_POKETCH_CHECK	POKETCH_APPID_COUNTER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c07r0202_shoopm_03
+
+	_TALKMSG		msg_c07r0202_shopm_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c07r0202_shoopm_04
+
+	_TALK_KEYWAIT	msg_c07r0202_shopm_02
+	
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_COUNTER
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//カウンター取得後
+ev_c07r0202_shoopm_03:
+	_TALKMSG		msg_c07r0202_shopm_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//NO
+ev_c07r0202_shoopm_04:
+	_TALKMSG		msg_c07r0202_shopm_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0202_shopm_01:
+	_EASY_OBJ_MSG	msg_c07r0202_shopm_01
+	_END
+
+
+/********************************************************************/
+//						品物固定の店員(OBJ名shopm)
+/********************************************************************/
+ev_c07r0202_fix_shop_01:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_FIX_SHOP_CALL		ID_SHOP_ITEM_C07_DEPT_02_01
+
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+//						品物固定の店員(OBJ名shopm)
+/********************************************************************/
+ev_c07r0202_fix_shop_02:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_FIX_SHOP_CALL		ID_SHOP_ITEM_C07_DEPT_02_02
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							案内板									*/
+/********************************************************************/
+ev_c07r0202_board:
+	_EASY_MSG		msg_c07r0202_board_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

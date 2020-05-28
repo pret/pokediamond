@@ -1,0 +1,29 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_direct2evc.h"
+
+const u32 FObj_zone_direct2_num = 1;
+
+const _TAG_FIELD_OBJ_H FObj_zone_direct2[1] =
+{
+	{
+		DIRECT2_OBJ,
+		WAITRESS,
+		16,
+		0,
+		0,
+		SCRID_BATTLE_ROOM_GUIDE,
+		2,
+		0,
+		0,
+		0,
+		0,
+		0,
+		12,
+		4,
+		0*0x1000,
+	},
+};

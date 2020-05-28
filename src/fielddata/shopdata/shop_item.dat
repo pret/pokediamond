@@ -1,0 +1,32 @@
+//====================================================================
+//						変動ショップアイテムデータ
+//
+// 06.03.06 Satoshi Nohara
+//
+// ●shop_item.xlsをコンバートして出力しています
+//
+//====================================================================
+
+const SHOP_ITEM_DATA shop_item_data[] = {
+	//アイテムナンバー		段階
+	{ ITEM_MONSUTAABOORU,		1 },
+	{ ITEM_SUUPAABOORU,		3 },
+	{ ITEM_HAIPAABOORU,		4 },
+	{ ITEM_KIZUGUSURI,		1 },
+	{ ITEM_IIKIZUGUSURI,		2 },
+	{ ITEM_SUGOIKIZUGUSURI,		4 },
+	{ ITEM_MANTANNOKUSURI,		5 },
+	{ ITEM_KAIHUKUNOKUSURI,		6 },
+	{ ITEM_GENKINOKAKERA,		3 },
+	{ ITEM_DOKUKESI,		1 },
+	{ ITEM_MAHINAOSI,		1 },
+	{ ITEM_NEMUKEZAMASI,		2 },
+	{ ITEM_YAKEDONAOSI,		2 },
+	{ ITEM_KOORINAOSI,		2 },
+	{ ITEM_NANDEMONAOSI,		4 },
+	{ ITEM_ANANUKENOHIMO,		2 },
+	{ ITEM_MUSIYOKESUPUREE,		2 },
+	{ ITEM_SIRUBAASUPUREE,		3 },
+	{ ITEM_GOORUDOSUPUREE,		4 },
+};
+#define SHOP_ITEM_DATA_MAX	( NELEMS(shop_item_data) )

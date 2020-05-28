@@ -1,0 +1,2882 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="HiroyukiNakamura" host="W00086" date="2005-11-30T18:22:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="ITEMEQUIP_000">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMEQUIP_001">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_002">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_003">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_004">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_005">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_006">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_007">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_008">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_009">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_010">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_011">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_012">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_013">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_014">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_015">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_016">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_017">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_018">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_019">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_020">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_021">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_022">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_023">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_024">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_025">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_026">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_027">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_028">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_029">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_030">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_031">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_032">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_033">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_034">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_035">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_036">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_037">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_038">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_039">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_040">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_041">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_042">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_043">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_044">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_045">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_046">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_047">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_048">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_049">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_050">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_051">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_052">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_053">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_054">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_055">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_056">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_057">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_058">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_059">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_060">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_061">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_062">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_063">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_064">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_065">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_066">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_067">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_068">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_069">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_070">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_071">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_072">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_073">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_074">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_075">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_076">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_077">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_078">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_079">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_080">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_081">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_082">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_083">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_084">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_085">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_086">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_087">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_088">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_089">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_090">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_091">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_092">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_093">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_094">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_095">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_096">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_097">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_098">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_099">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_100">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_101">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_102">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_103">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_104">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_105">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_106">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_107">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_108">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_109">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_110">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_111">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_112">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_113">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_114">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_115">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_116">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_117">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_118">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_119">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_120">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_121">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_122">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_123">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_124">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_125">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_126">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_127">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_128">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_129">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_130">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_131">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_132">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_133">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_134">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_135">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_136">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_137">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_138">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_139">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_140">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_141">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_142">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_143">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_144">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_145">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_146">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_147">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_148">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_149">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_150">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_151">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_152">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_153">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_154">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_155">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_156">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_157">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_158">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_159">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_160">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_161">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_162">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_163">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_164">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_165">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_166">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_167">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_168">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_169">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_170">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_171">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_172">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_173">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_174">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_175">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_176">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_177">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_178">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_179">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_180">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_181">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_182">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_183">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_184">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_185">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_186">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_187">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_188">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_189">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_190">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_191">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_192">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_193">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_194">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_195">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_196">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_197">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_198">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_199">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_200">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_201">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_202">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_203">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_204">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_205">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_206">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_207">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_208">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_209">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_210">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_211">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_212">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_213">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_214">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_215">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_216">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_217">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_218">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_219">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_220">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_221">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_222">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_223">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_224">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_225">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_226">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_227">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_228">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_229">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_230">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_231">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_232">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_233">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_234">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_235">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_236">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_237">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_238">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_239">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_240">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_241">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_242">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_243">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_244">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_245">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_246">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_247">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_248">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_249">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_250">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_251">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_252">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_253">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_254">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_255">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_256">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_257">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_258">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_259">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_260">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_261">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_262">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_263">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_264">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_265">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_266">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_267">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_268">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_269">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_270">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_271">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_272">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_273">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_274">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_275">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_276">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_277">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_278">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_279">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_280">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_281">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_282">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_283">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_284">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_285">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_286">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_287">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_288">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_289">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_290">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_291">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_292">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_293">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_294">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_295">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_296">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_297">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_298">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_299">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_300">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_301">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_302">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_303">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_304">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_305">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_306">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_307">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_308">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_309">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_310">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_311">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_312">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_313">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_314">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_315">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_316">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_317">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_318">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_319">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_320">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_321">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_322">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_323">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_324">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_325">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_326">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_327">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_328">
+		<language name="日本語">264　きあいパンチ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_329">
+		<language name="日本語">337　ドラゴンクロー　
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_330">
+		<language name="日本語">352　みずのはどう
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_331">
+		<language name="日本語">347　めいそう
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_332">
+		<language name="日本語">046　ほえる
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_333">
+		<language name="日本語">092　どくどく
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_334">
+		<language name="日本語">258　あられ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_335">
+		<language name="日本語">339　ビルドアップ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_336">
+		<language name="日本語">331　タネマシンガン
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_337">
+		<language name="日本語">237　めざめるパワー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_338">
+		<language name="日本語">241　にほんばれ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_339">
+		<language name="日本語">269　ちょうはつ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_340">
+		<language name="日本語">058　れいとうビーム
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_341">
+		<language name="日本語">059　ふぶき
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_342">
+		<language name="日本語">063　はかいこうせん
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_343">
+		<language name="日本語">113　ひかりのかべ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_344">
+		<language name="日本語">182　まもる
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_345">
+		<language name="日本語">240　あまごい
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_346">
+		<language name="日本語">202　ギガドレイン
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_347">
+		<language name="日本語">219　しんぴのまもり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_348">
+		<language name="日本語">218　やつあたり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_349">
+		<language name="日本語">076　ソーラービーム
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_350">
+		<language name="日本語">231　アイアンテール
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_351">
+		<language name="日本語">085　１０まんボルト
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_352">
+		<language name="日本語">087　かみなり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_353">
+		<language name="日本語">089　じしん
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_354">
+		<language name="日本語">216　おんがえし
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_355">
+		<language name="日本語">091　あなをほる
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_356">
+		<language name="日本語">094　サイコキネシス
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_357">
+		<language name="日本語">247　シャドーボール
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_358">
+		<language name="日本語">280　かわらわり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_359">
+		<language name="日本語">104　かげぶんしん
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_360">
+		<language name="日本語">115　リフレクター
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_361">
+		<language name="日本語">351　でんげきは
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_362">
+		<language name="日本語">053　かえんほうしゃ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_363">
+		<language name="日本語">188　ヘドロばくだん
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_364">
+		<language name="日本語">201　すなあらし
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_365">
+		<language name="日本語">126　だいもんじ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_366">
+		<language name="日本語">317　がんせきふうじ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_367">
+		<language name="日本語">332　つばめがえし
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_368">
+		<language name="日本語">259　いちゃもん
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_369">
+		<language name="日本語">263　からげんき
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_370">
+		<language name="日本語">290　ひみつのちから
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_371">
+		<language name="日本語">156　ねむる
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_372">
+		<language name="日本語">213　メロメロ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_373">
+		<language name="日本語">168　どろぼう
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_374">
+		<language name="日本語">211　はがねのつばさ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_375">
+		<language name="日本語">285　スキルスワップ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_376">
+		<language name="日本語">289　よこどり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_377">
+		<language name="日本語">315　オーバーヒート
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_378">
+		<language name="日本語">355　はねやすめ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_379">
+		<language name="日本語">411　きあいだま
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_380">
+		<language name="日本語">412　エナジーボール
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_381">
+		<language name="日本語">206　みねうち
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_382">
+		<language name="日本語">362　しおみず
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_383">
+		<language name="日本語">374　なげつける
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_384">
+		<language name="日本語">453　チャージビーム
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_385">
+		<language name="日本語">203　こらえる
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_386">
+		<language name="日本語">406　りゅうのはどう
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_387">
+		<language name="日本語">409　ドレインパンチ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_388">
+		<language name="日本語">261　おにび
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_389">
+		<language name="日本語">318　ぎんいろのかぜ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_390">
+		<language name="日本語">373　さしおさえ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_391">
+		<language name="日本語">153　だいばくはつ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_392">
+		<language name="日本語">421　シャドークロー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_393">
+		<language name="日本語">371　しっぺがえし
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_394">
+		<language name="日本語">278　リサイクル
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_395">
+		<language name="日本語">416　ギガインパクト
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_396">
+		<language name="日本語">397　ロックカット
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_397">
+		<language name="日本語">148　フラッシュ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_398">
+		<language name="日本語">446　ストーンエッジ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_399">
+		<language name="日本語">419　ゆきなだれ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_400">
+		<language name="日本語">086　でんじは
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_401">
+		<language name="日本語">360　ジャイロボール
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_402">
+		<language name="日本語">014　つるぎのまい
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_403">
+		<language name="日本語">448　ステルスロック
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_404">
+		<language name="日本語">244　じこあんじ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_405">
+		<language name="日本語">447　ゆうわく
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_406">
+		<language name="日本語">399　あくのはどう
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_407">
+		<language name="日本語">157　いわなだれ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_408">
+		<language name="日本語">404　シザークロス
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_409">
+		<language name="日本語">214　ねごと
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_410">
+		<language name="日本語">363　しぜんのめぐみ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_411">
+		<language name="日本語">398　どくづき
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_412">
+		<language name="日本語">138　ゆめくい
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_413">
+		<language name="日本語">449　くさむすび
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_414">
+		<language name="日本語">207　いばる
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_415">
+		<language name="日本語">365　ついばむ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_416">
+		<language name="日本語">369　とんぼがえり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_417">
+		<language name="日本語">164　みがわり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_418">
+		<language name="日本語">430　ラスターカノン
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_419">
+		<language name="日本語">433　トリックルーム
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_420">
+		<language name="日本語">015　いあいぎり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_421">
+		<language name="日本語">019　そらをとぶ
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_422">
+		<language name="日本語">057　なみのり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_423">
+		<language name="日本語">070　かいりき
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_424">
+		<language name="日本語">432　きりばらい
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_425">
+		<language name="日本語">249　いわくだき
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_426">
+		<language name="日本語">127　たきのぼり
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_427">
+		<language name="日本語">431　ロッククライム
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_428">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_429">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_430">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_431">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_432">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_433">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_434">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_435">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_436">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_437">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_438">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_439">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_440">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_441">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_442">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_443">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_444">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_445">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_446">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_447">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_448">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_449">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_450">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_451">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_452">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_453">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_454">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_455">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_456">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_457">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_458">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_459">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_460">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_461">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_462">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_463">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+	<row id="ITEMEQUIP_464">
+		<language name="日本語">ー
+
+</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

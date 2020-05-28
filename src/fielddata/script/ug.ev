@@ -1,0 +1,363 @@
+//====================================================================
+//							ug.gmm
+//
+//	注意！
+//
+//	メッセージのラベルについて
+//
+//	ugではなく、「uw」
+//	msgではなく、「mes」
+//
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_uwbuy.h"
+	//.include	"../../../include/msgdata/msg_ug.h"
+	.include	"../../field/underground/ug_def.h"
+	.include	"../eventdata/zone_ugevc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_ug_flag_change
+_EVENT_DATA		ev_ug_obj_change
+_EVENT_DATA		ev_ug_trap_shop
+_EVENT_DATA		ev_ug_item_shop
+_EVENT_DATA		ev_ug_treasure_shop
+_EVENT_DATA		ev_ug_first
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_ug_flag_change:
+	_UG_MAN_SHOP_NPC_RAND_PLACE
+
+	//アイテム、トラップ屋さんの位置を調整
+	_SXY_POS_CHANGE		UG_ITEM_SHOP_01,72,104
+	_SXY_POS_CHANGE		UG_ITEM_SHOP_02,424,87
+	_SXY_POS_CHANGE		UG_ITEM_SHOP_03,200,185
+	_SXY_POS_CHANGE		UG_ITEM_SHOP_04,335,264
+	_SXY_POS_CHANGE		UG_ITEM_SHOP_05,175,279
+	_SXY_POS_CHANGE		UG_ITEM_SHOP_06,424,439
+	_SXY_POS_CHANGE		UG_ITEM_SHOP_07,87,456
+	_SXY_POS_CHANGE		UG_ITEM_SHOP_08,311,358
+
+	_SXY_POS_CHANGE		UG_TRAP_SHOP_01,232,87
+	_SXY_POS_CHANGE		UG_TRAP_SHOP_02,328,151
+	_SXY_POS_CHANGE		UG_TRAP_SHOP_03,232,215
+	_SXY_POS_CHANGE		UG_TRAP_SHOP_04,232,298
+	_SXY_POS_CHANGE		UG_TRAP_SHOP_05,279,328
+	_SXY_POS_CHANGE		UG_TRAP_SHOP_06,279,456
+	_SXY_POS_CHANGE		UG_TRAP_SHOP_07,183,392
+	_SXY_POS_CHANGE		UG_TRAP_SHOP_08,279,245
+
+	_SXY_POS_CHANGE		UG_TREASURE_SHOP_01,40,471
+	_SXY_POS_CHANGE		UG_TREASURE_SHOP_02,471,72
+	_SXY_POS_CHANGE		UG_TREASURE_SHOP_03,471,471
+	_SXY_POS_CHANGE		UG_TREASURE_SHOP_04,40,72
+
+	//初回イベントの座標セット
+	//_IFVAL_JUMP		WK_SCENE_UG,EQ,0,ev_ug_first_pos_set
+
+	_END
+
+//初回イベントの座標セット
+//ev_ug_first_pos_set:
+	//_PLAYER_POS_GET	LOCALWORK0,LOCALWORK1
+	//_SXY_POS_CHANGE	UG_MOUNT,LOCALWORK0,LOCALWORK1
+	//_SXY_POS_CHANGE	UG_MOUNT,20,20
+	//_END
+
+
+/********************************************************************/
+/*						OBJ_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_ug_obj_change:
+	//初回イベントの座標セット
+	_IFVAL_JUMP		WK_SCENE_UG,EQ,0,ev_ug_first_pos_set
+
+	_END
+
+//初回イベントの座標セット
+ev_ug_first_pos_set:
+	_PLAYER_POS_GET	LOCALWORK0,LOCALWORK1
+	//_SXY_POS_CHANGE	UG_MOUNT,LOCALWORK0,LOCALWORK1
+	//_SXY_POS_CHANGE	UG_MOUNT,20,20
+	_ADD_WK			LOCALWORK0,1		//主人公の右側に配置
+	_OBJ_POS_CHANGE	UG_MOUNT,LOCALWORK0,1,LOCALWORK1,DIR_DOWN
+	_END
+
+
+/********************************************************************/
+/*						トラップショップ							*/
+//
+//	SCWK_TEMP0	メニュー選択の結果
+/********************************************************************/
+ev_ug_trap_shop:
+	//「なんか　かっていくか？」
+	_UG_SHOP_TALK_START		mes_uw_buy_01			//会話開始
+	_JUMP			ev_ug_trap_shop_next
+	_END
+
+ev_ug_trap_shop_next:
+	_UG_SHOP_MENU_INIT		UG_SHOP_TRAP,SCWK_ANSWER//トラップ
+
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER			//退避
+
+	//結果で分岐
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP      UG_SHOP_CARAT_SMALL,ev_ug_shop_bag_small
+	_CASE_JUMP		UG_SHOP_BAG_FULL,ev_ug_shop_bag_full
+	_CASE_JUMP		UG_SHOP_MISS_SELECT,ev_ug_shop_miss_select
+	_CASE_JUMP		UG_SHOP_CANCEL,ev_ug_shop_cancel
+	_JUMP			ev_ug_shop_others_trap
+	_END
+
+// 選択したタマの大きさが足りない
+ev_ug_shop_bag_small:
+	//「"うーんおおきさが　たりないなぁ……"」
+	_UG_SHOP_TALK_START		mes_uw_buy_06			//会話開始
+	_JUMP			ev_ug_trap_shop_ret
+	_END
+
+
+//バッグがいっぱい
+ev_ug_shop_bag_full:
+	//「てもちが　いっぱいじゃないか！」
+	_UG_SHOP_TALK_START		mes_uw_buy_04			//会話開始
+	_JUMP			ev_ug_trap_shop_ret
+	_END
+
+//選択したタマが異なる
+ev_ug_shop_miss_select:
+	//「タマの　しゅるいが　ちがうぞ！」
+	_UG_SHOP_TALK_START		mes_uw_buy_05			//会話開始
+	_JUMP			ev_ug_trap_shop_ret
+	_END
+
+//キャンセル
+ev_ug_shop_cancel:
+	//「じゃあ　またな！」
+	_UG_SHOP_TALK_START		mes_uw_buy_09			//会話開始
+	_JUMP			ev_ug_shop_common
+	_END
+
+// もう一度メニューに行く
+ev_ug_trap_shop_ret:
+	_AB_KEYWAIT
+	_UG_SHOP_TALK_START		mes_uw_buy_08			//会話開始
+	_JUMP			ev_ug_trap_shop_next
+	_END
+
+
+//トラップナンバー
+ev_ug_shop_others_trap:
+	_AB_KEYWAIT
+	_JUMP			ev_ug_trap_shop_ret
+	_END
+
+//共通終了
+ev_ug_shop_common:
+	_AB_KEYWAIT
+	_UG_SHOP_TALK_END
+	_END
+
+
+/********************************************************************/
+/*						アイテムショップ							*/
+//
+//	SCWK_TEMP0	メニュー選択の結果
+/********************************************************************/
+ev_ug_item_shop:
+	//「なんか　かっていくか？」
+	_UG_SHOP_TALK_START		mes_uw_buy_01			//会話開始
+	_JUMP			ev_ug_item_shop_next
+	_END
+
+ev_ug_item_shop_next:
+	_UG_SHOP_MENU_INIT	UG_SHOP_GOODS,SCWK_ANSWER	//アイテム
+
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER			//退避
+
+	//結果で分岐
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP      UG_SHOP_CARAT_SMALL,ev_ug_item_shop_bag_small
+	_CASE_JUMP		UG_SHOP_BAG_FULL,ev_ug_item_shop_bag_full
+	_CASE_JUMP		UG_SHOP_MISS_SELECT,ev_ug_item_shop_miss_select
+	_CASE_JUMP		UG_SHOP_CANCEL,ev_ug_shop_cancel
+	_JUMP			ev_ug_shop_others_item
+	_END
+
+//バッグがいっぱい
+ev_ug_item_shop_bag_full:
+	//「てもちが　いっぱいじゃないか！」
+	_UG_SHOP_TALK_START		mes_uw_buy_04			//会話開始
+	_JUMP			ev_ug_item_shop_ret
+	_END
+
+//選択したタマが異なる
+ev_ug_item_shop_miss_select:
+	//「タマの　しゅるいが　ちがうぞ！」
+	_UG_SHOP_TALK_START		mes_uw_buy_05			//会話開始
+	_JUMP			ev_ug_item_shop_ret
+	_END
+
+// 選択したタマの大きさが足りない
+ev_ug_item_shop_bag_small:
+	//「"うーんおおきさが　たりないなぁ……"」
+	_UG_SHOP_TALK_START		mes_uw_buy_06			//会話開始
+	_JUMP			ev_ug_item_shop_ret
+	_END
+
+//アイテムナンバー
+ev_ug_shop_others_item:
+	_AB_KEYWAIT
+	_JUMP			ev_ug_item_shop_ret
+	_END
+
+
+// もう一度メニューに行く
+ev_ug_item_shop_ret:
+	_AB_KEYWAIT
+	_UG_SHOP_TALK_START		mes_uw_buy_08			//会話開始
+	_JUMP			ev_ug_item_shop_next
+	_END
+
+/********************************************************************/
+/*							宝ショップ								*/
+//
+//	SCWK_TEMP0	メニュー選択の結果
+/********************************************************************/
+ev_ug_treasure_shop:
+	//「なんか　かっていくか？」
+	_UG_SHOP_TALK_START		mes_uw_buy_27			//会話開始
+	_JUMP			ev_ug_treasure_shop_next
+	_END
+
+ev_ug_treasure_shop_next:
+	_UG_SHOP_MENU_INIT	UG_SHOP_TREASURE,SCWK_ANSWER	//宝
+
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER			//退避
+
+	//結果で分岐
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		UG_SHOP_BAG_FULL,ev_ug_treasure_shop_bag_full
+	_CASE_JUMP		UG_SHOP_CANCEL,ev_ug_shop_cancel
+	_JUMP			ev_ug_shop_others_treasure
+	_END
+
+//バッグがいっぱい
+ev_ug_treasure_shop_bag_full:
+	//「てもちが　いっぱいじゃないか！」
+	_UG_SHOP_TALK_START		mes_uw_buy_04			//会話開始
+	_JUMP			ev_ug_treasure_shop_ret
+	_END
+
+//アイテムナンバー
+ev_ug_shop_others_treasure:
+	_AB_KEYWAIT
+	_JUMP			ev_ug_treasure_shop_ret
+	_END
+
+
+// もう一度メニューに行く
+ev_ug_treasure_shop_ret:
+	_AB_KEYWAIT
+	_UG_SHOP_TALK_START		mes_uw_buy_08			//会話開始
+	_JUMP			ev_ug_treasure_shop_next
+	_END
+
+
+/********************************************************************/
+/*							初回イベント							*/
+/********************************************************************/
+ev_ug_first:
+	//_EVENT_START
+
+	//山男「！」
+	_OBJ_ANIME		UG_MOUNT,anm_ug_mount_00
+	//_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_ug_player_00
+	_OBJ_ANIME_WAIT
+
+	//主人公右を向く
+	_COMM_PLAYER_SET_DIR	DIR_RIGHT
+
+	//_TALK_KEYWAIT	msg_uw_mount_01
+	//_TALK_CLOSE
+	//_UG_SHOP_TALK_START		mes_uw_buy_01			//会話開始
+	_UG_SHOP_TALK_START		msg_uw_mount_01			//会話開始
+	_AB_KEYWAIT
+	_UG_SHOP_TALK_END
+
+	//去っていく
+	_OBJ_ANIME		UG_MOUNT,anm_ug_mount_01
+	_OBJ_ANIME_WAIT
+
+	_SE_PLAY		SE_UG_CHG_UP
+	_OBJ_ANIME		UG_MOUNT,anm_ug_mount_02
+	_OBJ_ANIME_WAIT
+
+	_OBJ_DEL		UG_MOUNT
+
+	_LDVAL			WK_SCENE_UG,1
+	_FLAG_SET		SYS_FLAG_UG_FIRST
+
+	//_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	右を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_ug_player_00
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//山男	「！」
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_ug_mount_00
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//山男	去っていく1
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_ug_mount_01
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//山男	去っていく2
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_ug_mount_02
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_1F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_1F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_1F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WARP_UP,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+

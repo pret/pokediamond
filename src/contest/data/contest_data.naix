@@ -1,0 +1,32 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: contest_data.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-08-08T20:43:25
+ *****************************************************************************/
+
+#ifndef NARC_CONTEST_DATA_NAIX_
+#define NARC_CONTEST_DATA_NAIX_
+
+enum {
+	NARC_contest_data_breeder_bin = 0,
+	NARC_contest_data_judge_bin = 1,
+	NARC_contest_data_con_clip_bin = 2,
+	NARC_contest_data_imc_acce_score00_bin = 3,
+	NARC_contest_data_imc_acce_score01_bin = 4,
+	NARC_contest_data_imc_acce_score02_bin = 5,
+	NARC_contest_data_imc_acce_score03_bin = 6,
+	NARC_contest_data_imc_acce_score04_bin = 7,
+	NARC_contest_data_imc_acce_score05_bin = 8,
+	NARC_contest_data_imc_acce_score06_bin = 9,
+	NARC_contest_data_imc_acce_score07_bin = 10,
+	NARC_contest_data_imc_acce_score08_bin = 11,
+	NARC_contest_data_imc_acce_score09_bin = 12,
+	NARC_contest_data_imc_acce_score10_bin = 13,
+	NARC_contest_data_imc_acce_score11_bin = 14
+};
+
+/* NARC_CONTEST_DATA_NAIX_ */
+#endif

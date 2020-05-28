@@ -1,0 +1,344 @@
+//====================================================================
+//						r224
+//					フィールド・ロード224
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r224.h"
+	.include	"../../../include/itemtool/itemsym.h"
+	.include	"../eventdata/zone_r224evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r224_flag_change
+_EVENT_DATA		ev_r224_obj_change
+_EVENT_DATA		ev_r224_stone_01
+_EVENT_DATA		ev_r224_legend_event_01
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r224_flag_change:
+	//エウリス石碑イベントクリア？
+	_IF_FLAGON_JUMP				FE_R224_EVENT_CLEAR,ev_r224_flag_change_end
+	//ゲームクリア？
+	_SYS_FLAG_GAME_CLEAR_GET	LOCALWORK0	
+	_IFVAL_JUMP					LOCALWORK0,EQ,0,ev_r224_flag_change_end
+	//全国図鑑入手？
+	_ZENKOKU_ZUKAN_FLAG			FLAG_MODE_GET,LOCALWORK0
+	_IFVAL_JUMP					LOCALWORK0,EQ,0,ev_r224_flag_change_end
+	//配布アイテム「オーキドの手紙」所持？
+	_ITEM_CHK					ITEM_OOKIDONOTEGAMI,1,LOCALWORK0
+	_IFVAL_JUMP					LOCALWORK0,EQ,0,ev_r224_flag_change_end
+	//配布イベントオーキドの手紙有効？
+	_IS_HAIHU_EVENT_ENABLE		HAIHUEVENT_ID_D18,LOCALWORK0
+	_IFVAL_JUMP					LOCALWORK0,EQ,0,ev_r224_flag_change_end
+
+	/*エウリス石碑イベントのオーキドを表示*/
+	_FLAG_RESET		FV_R224_OOKIDO
+ev_r224_flag_change_end:
+	_END
+
+ev_r224_obj_change:
+	//エウリス石碑イベントクリア？
+	_IF_FLAGON_JUMP	FE_R224_EVENT_CLEAR,ev_r224_obj_change_end
+	_IFVAL_CALL		WK_SCENE_R224,EQ,1,ev_r224_obj_ookido_turn
+ev_r224_obj_change_end:
+	_END
+
+//オーキドの向きを変える
+ev_r224_obj_ookido_turn:
+	_OBJ_DIR_CHANGE	R224_OOKIDO_01,DIR_UP
+	_RET
+	
+/********************************************************************/
+/*	石碑話し掛け													*/
+/********************************************************************/
+ev_r224_stone_01:
+	_TALK_OBJ_START
+	_IF_FLAGON_JUMP	FE_R224_EVENT_CLEAR,ev_r224_stone_ev_clear
+	//ピカピカ
+	_TALKMSG		msg_r224_stele_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r224_stone_ev_clear:
+	_MONUMENT_NAME	1
+	_TALKMSG		msg_r224_stele_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*	エウリスイベント開始											*/
+/********************************************************************/
+ev_r224_legend_event_01:
+	_TALK_OBJ_START
+	//イベントクリアしたかチェック
+	_IF_FLAGON_JUMP	FE_R224_EVENT_CLEAR,ev_r224_ookido_event_clear
+
+	//まだクリアしてない
+	//イベント中フラグ
+	_LDVAL			WK_SCENE_R224,1
+
+	_PLAYER_NAME	0
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r224_ookido_msg_girl
+	//男の子
+	_TALK_KEYWAIT	msg_r224_ookido_01
+
+	//自機石碑の正面へ移動開始
+ev_r224_ookido_move_start_01:
+	_TALK_CLOSE
+	_CALL			ev_r224_comanm_player_move01
+	
+	//移動終了＆説明開始
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_r224_ookido_03
+	_TALK_CLOSE
+
+//入力開始
+ev_r224_monument_name_input:
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_NAMEIN_MONUMENT	SCWK_ANSWER
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	//入力があったかどうか？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r224_monument_name_input_ng
+	
+	//本当に良いのじゃな？
+	_PLAYER_NAME	0
+	_MONUMENT_NAME	1
+	_TALKMSG		msg_r224_ookido_04
+	_YES_NO_WIN		SCWK_ANSWER
+	_TALK_CLOSE
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r224_monument_name_input
+
+	//入力終了。2人で石碑の方を向く
+	_CALL			ev_r224_comanm_turn_stone
+
+	//ウェイト
+	_TIME_WAIT		15,SCWK_ANSWER
+	//D18解放
+	_BGM_FADEOUT	BGM_VOL_MIN,10
+	_WHITE_OUT		SCR_WIPE_DIV,6
+	_WIPE_FADE_END_CHECK
+	//フラグOn
+	_HIDEMAP_STATE_CHG		HIDEMAP_ID_D18,1
+	_MAP_CHANGE_NONE_FADE	ZONE_ID_R224,0,908,492,DIR_UP
+	//ウェイト
+	_TIME_WAIT		15,SCWK_ANSWER
+	_WHITE_IN		SCR_WIPE_DIV,6
+	_WIPE_FADE_END_CHECK
+
+	_CALL			ev_r224_comanm_legend_in
+	
+	//オーキド自機振り向き
+	_TALK_KEYWAIT	msg_r224_ookido_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	//BMP復活
+	_BGM_FADEIN		10
+
+	//クリアフラグon
+	_FLAG_SET		FE_R224_EVENT_CLEAR
+	//次来たらオーキドはもういない
+	_FLAG_SET		FV_R224_OOKIDO
+	//イベント中フラグ落とす
+	_LDVAL			WK_SCENE_R224,0
+	_TALK_OBJ_END
+	_END
+
+//女の子用メッセージ
+ev_r224_ookido_msg_girl:
+	_TALK_KEYWAIT	msg_r224_ookido_02
+	_JUMP			ev_r224_ookido_move_start_01
+
+//石碑になにも入力しなかったとき
+ev_r224_monument_name_input_ng:
+	_TALK_KEYWAIT	msg_r224_ookido_06
+	_TALK_CLOSE
+	_JUMP			ev_r224_monument_name_input
+
+//オーキドクリア後メッセージ
+ev_r224_ookido_event_clear:
+	_EASY_OBJ_MSG	msg_r224_ookido_05
+	_END
+	
+/********************************************************************/
+/*						アニメーション各種							*/
+/********************************************************************/
+ev_r224_comanm_player_move01:
+	//自機位置チェック
+	_PLAYER_POS_GET		SCWK_PARAM0,SCWK_PARAM1
+	_SWITCH				SCWK_PARAM0
+	_CASE_JUMP			909,ev_r224_comanm_player_move01_01
+	_CASE_JUMP			910,ev_r224_comanm_player_move01_02
+	
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER,anm_player_walk00
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_r224_comanm_player_move01_01:
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER,anm_player_walk01
+	_OBJ_ANIME			R224_OOKIDO_01,anm_ookido_turn01
+	_OBJ_ANIME_WAIT
+	_RET
+ev_r224_comanm_player_move01_02:
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER,anm_player_walk02
+	_OBJ_ANIME			R224_OOKIDO_01,anm_ookido_turn02
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_r224_comanm_turn_stone:
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER,anm_com_turn_up
+	_OBJ_ANIME			R224_OOKIDO_01,anm_com_turn_up
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_r224_comanm_legend_in:
+	//オーキド・自機きょろきょろ
+	_OBJ_ANIME			R224_OOKIDO_01,anm_com_turn_ookido
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER,anm_com_turn_player
+	//エウリス登場
+	_OBJ_ANIME			R224_SPPOKE_01,anm_legend_in01
+	_OBJ_ANIME_WAIT
+	_VOICE_PLAY			MONSNO_EURISU,0
+	_VOICE_WAIT
+	//オーキド気づく
+	_OBJ_ANIME			R224_OOKIDO_01,anm_com_turn_right
+	_OBJ_ANIME			R224_SPPOKE_01,anm_com_turn_left
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER,anm_com_turn_right2
+	_OBJ_ANIME_WAIT
+	//エウリス去る
+	_OBJ_ANIME			R224_SPPOKE_01,anm_legend_out01
+	_OBJ_ANIME_WAIT
+	//エウリス消す
+	_FLAG_SET			FV_R224_LEGEND
+	_OBJ_DEL			R224_SPPOKE_01
+	_VOICE_PLAY			MONSNO_EURISU,0
+	_VOICE_WAIT
+	//オーキド自機の方を向く
+	_OBJ_ANIME			R224_OOKIDO_01,anm_com_turn_left2
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------
+//自機石碑前へ
+//--------------------------------------------
+_ANIME_LABEL	anm_player_walk00
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_player_walk01
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_player_walk02
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+//--------------------------------------------
+//自機石碑前へ　オーキド追随
+//--------------------------------------------
+_ANIME_LABEL	anm_ookido_turn01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_ookido_turn02
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_com_turn_up
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_com_turn_right
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_com_turn_right2
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_com_turn_left
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_com_turn_left2
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+//きょろきょろ
+_ANIME_LABEL	anm_com_turn_player
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_com_turn_ookido
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+//--------------------------------------------
+//エウリス出現
+//--------------------------------------------
+_ANIME_LABEL	anm_legend_in01
+	_ANIME_DATA	AC_WALK_D_8F,12
+	_ANIME_DATA	ACMD_END,0
+	
+_ANIME_LABEL	anm_legend_out01
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_16F,1
+//	_ANIME_DATA	AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_U_6F,12
+//	_ANIME_DATA	AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/********************************************************************/

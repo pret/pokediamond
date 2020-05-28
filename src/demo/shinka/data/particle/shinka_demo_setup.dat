@@ -1,0 +1,7 @@
+//---- コンバータ：SPAConv.exe  Version 1.11
+
+const char * const shinka_demo_setup_tbl[] = {
+	"data/particle/shinka_demo.spa",	//0
+	"data/particle/shinka_demo_dmy.spa",	//1
+};
+

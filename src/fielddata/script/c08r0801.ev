@@ -1,0 +1,157 @@
+//====================================================================
+//								c08r0801
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c08r0801.h"
+	.include	"../eventdata/zone_c08r0801evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c08r0801_seaman
+_EVENT_DATA		ev_c08r0801_boy2
+_EVENT_DATA		ev_c08r0801_telescope1
+_EVENT_DATA		ev_c08r0801_leader
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							船乗り									*/
+/********************************************************************/
+ev_c08r0801_seaman:
+	_EASY_OBJ_MSG		msg_c08r0801_seaman_01
+	_END
+
+/********************************************************************/
+/*							活発少年								*/
+/********************************************************************/
+ev_c08r0801_boy2:
+	_EASY_OBJ_MSG		msg_c08r0801_boy2_01
+	_END
+
+/********************************************************************/
+/********************************************************************/
+ev_c08r0801_telescope1:
+	_TALK_START
+	
+	_PLAYER_NAME	0
+	_TALKMSG	msg_c08r0801_telescope_01	
+	_TALK_CLOSE
+
+	// カメラ設定
+	_C08R0801SCOPECAMERASET
+
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							ジムリーダー							*/
+/********************************************************************/
+ev_c08r0801_leader:
+	_TALK_OBJ_START
+
+	_TALK_KEYWAIT		msg_c08r0801_leader_01
+
+	_TALK_KEYWAIT		msg_c08r0801_leader_02
+
+	_TALK_KEYWAIT		msg_c08r0801_leader_03
+	_TALK_CLOSE
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*向きによってアニメをかえる*/
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_UP,ev_c08r0801_leader_dir_up
+	//_IFVAL_JUMP	SCWK_ANSWER,EQ,DIR_DOWN,ev_c08r0801_leader_dir_down
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_c08r0801_leader_dir_left
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_RIGHT,ev_c08r0801_leader_dir_right
+	_END
+
+/*エレベータに乗り込む*/
+ev_c08r0801_leader_dir_up:
+	_OBJ_ANIME		C08R0801_LEADER,anm_c08r0801_leader_03
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c08r0801_player_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c08r0801_leader_01
+
+ev_c08r0801_leader_dir_left:
+	_OBJ_ANIME		C08R0801_LEADER,anm_c08r0801_leader_04
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c08r0801_player_04
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c08r0801_leader_01
+
+ev_c08r0801_leader_dir_right:
+	_OBJ_ANIME		C08R0801_LEADER,anm_c08r0801_leader_04
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c08r0801_leader_01
+
+common_c08r0801_leader_01:
+
+	_SET_UP_DOOR_ANIME	0,0,6,9,77
+	_SEQ_OPEN_DOOR	77						//ドア開ける
+	_WAIT_3D_ANIME	77						//アニメ終了待ち
+
+	_OBJ_ANIME		C08R0801_LEADER,anm_c08r0801_leader_05
+	_OBJ_ANIME_WAIT
+
+	_SEQ_CLOSE_DOOR	77						//ドア閉める
+	_WAIT_3D_ANIME	77						//アニメ終了待ち
+	_FREE_3D_ANIME	77						//ドアアニメ解放
+
+	_OBJ_DEL		C08R0801_LEADER
+	_FLAG_SET		FE_C08R0801_TALK
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//リーダー	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08r0801_leader_03
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c08r0801_leader_04
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,5
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//リーダー	エレベータにのる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08r0801_leader_05
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08r0801_player_03
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c08r0801_player_04
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/********************************************************************/

@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="ohmori" host="W00097" date="2006-07-18T19:20:47"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名" english="ポケット名" view="EP" width="144" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名</comment>
+				<comment language="english">バッグのポケット名</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="106"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="146"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="214"/>
+			<font default=" 0:font_talk" position="3" width="90">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="84"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="69"/>
+			<line position="6" width="81"/>
+		</language>
+	</columns>
+
+	<dialog left="27" top="124" right="732" bottom="752" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="249" right="1024" bottom="401" visible="yes"/>
+		<tag-palette left="622" top="38" right="1003" bottom="436" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="697"/>
+		<band id="3" index="3" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="UGTrap00">
+		<comment>dummy data</comment>
+		<language name="日本語" width="216">とじる</language>
+	</row>
+
+	<row id="UGTrap01">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">いどうトラップ↑</language>
+	</row>
+
+	<row id="UGTrap02">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">いどうトラップ→</language>
+	</row>
+
+	<row id="UGTrap03">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">いどうトラップ↓</language>
+	</row>
+
+	<row id="UGTrap04">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">いどうトラップ←</language>
+	</row>
+
+	<row id="UGTrap05">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">とばしトラップ↑</language>
+	</row>
+
+	<row id="UGTrap06">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">とばしトラップ→</language>
+	</row>
+
+	<row id="UGTrap07">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">とばしトラップ↓</language>
+	</row>
+
+	<row id="UGTrap08">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">とばしトラップ←</language>
+	</row>
+
+	<row id="UGTrap09" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">ワープトラップ</language>
+	</row>
+
+	<row id="UGTrap10" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">テレポートトラップ</language>
+	</row>
+
+	<row id="UGTrap11">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">あなトラップ</language>
+	</row>
+
+	<row id="UGTrap12">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">おおあなトラップ</language>
+	</row>
+
+	<row id="UGTrap13">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">はんてんトラップ</language>
+	</row>
+
+	<row id="UGTrap14">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">こんらんトラップ</language>
+	</row>
+
+	<row id="UGTrap15" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">はしりトラップ</language>
+	</row>
+
+	<row id="UGTrap16" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">きえるトラップ</language>
+	</row>
+
+	<row id="UGTrap17" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">おそいトラップ</language>
+	</row>
+
+	<row id="UGTrap18">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">けむりトラップ</language>
+	</row>
+
+	<row id="UGTrap19">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">えんまくトラップ</language>
+	</row>
+
+	<row id="UGTrap20">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">いわトラップ</language>
+	</row>
+
+	<row id="UGTrap21">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">らくせきトラップ</language>
+	</row>
+
+	<row id="UGTrap22">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">あわトラップ</language>
+	</row>
+
+	<row id="UGTrap23">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">バブルトラップ</language>
+	</row>
+
+	<row id="UGTrap24" back-color=",,,#ff0000,,#ff0000,,,,,,">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">あいずトラップ１</language>
+	</row>
+
+	<row id="UGTrap25" back-color=",,,#ff0000,,#ff0000,,,,,,">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">あいずトラップ２</language>
+	</row>
+
+	<row id="UGTrap26" back-color=",,,#ff0000,,#ff0000,,,,,,">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">あいずトラップ３</language>
+	</row>
+
+	<row id="UGTrap27" back-color=",,,#ff0000,,#ff0000,,,,,,">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">あいずトラップ４</language>
+	</row>
+
+	<row id="UGTrap28">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">このはトラップ</language>
+	</row>
+
+	<row id="UGTrap29">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">はなびらトラップ</language>
+	</row>
+
+	<row id="UGTrap30">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">ひのこトラップ</language>
+	</row>
+
+	<row id="UGTrap31">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">ほのおトラップ</language>
+	</row>
+
+	<row id="UGTrap32">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">レーダートラップ</language>
+	</row>
+
+	<row id="UGTrap33">
+		<comment>トラップ名</comment>
+		<language name="日本語" width="216">あなほりドリル</language>
+	</row>
+
+	<row id="UGTrapMenuEnd">
+		<comment>とじるコマンド</comment>
+		<language name="日本語" width="216">とじる</language>
+	</row>
+
+	<row id="UGTrap_e01" back-color="#ffff80,,,,,,,,,,,">
+		<comment>いどうトラップ↑説明文</comment>
+		<language name="日本語" width="216">うえに　のると　うえに　むかって
+とんでいってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e02" back-color="#ffff80,,,,,,,,,,,">
+		<comment>いどうトラップ→説明文</comment>
+		<language name="日本語" width="216">うえに　のると　みぎに　むかって
+とんでいってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e03" back-color="#ffff80,,,,,,,,,,,">
+		<comment>いどうトラップ↓説明文</comment>
+		<language name="日本語" width="216">うえに　のると　したに　むかって
+とんでいってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e04" back-color="#ffff80,,,,,,,,,,,">
+		<comment>いどうトラップ←説明文</comment>
+		<language name="日本語" width="216">うえに　のると　ひだりに　むかって
+とんでいってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e05" back-color="#ffff80,,,,,,,,,,,">
+		<comment>とばしトラップ↑説明文</comment>
+		<language name="日本語" width="216">うえに　のると　うえに　むかって
+かなり　とんでいってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e06" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<language name="日本語" width="216">うえに　のると　みぎに　むかって
+かなり　とんでいってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e07" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>とばしトラップ↓説明文</comment>
+		<language name="日本語" width="216">うえに　のると　したに　むかって
+かなり　とんでいってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e08" back-color="#ffff80,,,,,,,,,,,">
+		<comment>とばしトラップ←説明文</comment>
+		<language name="日本語" width="216">うえに　のると　ひだりに　むかって
+かなり　とんでいってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e09" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>ワープトラップ説明文</comment>
+		<language name="日本語" width="216">うえに　のると　どこか　とおくに
+とばされてしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e10" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>テレポートトラップ説明文</comment>
+		<language name="日本語" width="216">うえに　のると　はるか　かなたに
+とばされてしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e11" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あなトラップ説明文</comment>
+		<language name="日本語" width="216">おおきな　おとしあなで
+うごきを　とめてしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e12" back-color="#ffff80,,,,,,,,,,,">
+		<comment>おおあなトラップ説明文</comment>
+		<language name="日本語" width="216">とても　おおきな　おとしあなで
+うごきを　とめてしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e13" back-color="#ffff80,,,,,,,,,,,">
+		<comment>はんてんトラップ説明文</comment>
+		<language name="日本語" width="216">うえにのると　うごきが　はんたいに
+なってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e14" back-color="#ffff80,,,,,,,,,,,">
+		<comment>こんらんトラップ説明文</comment>
+		<language name="日本語" width="216">うえにのると　おもいどおりに
+うごくことが　できなくなる　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e15" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>はしりトラップ説明文</comment>
+		<language name="日本語" width="216">うえにのると　とまることが　できず
+はしってしまう　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e16" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>きえるトラップ説明文</comment>
+		<language name="日本語" width="216">うえに　のると　すがたが　きえて
+だれからも　みつからなくなる　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e17" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>おそいトラップ説明文</comment>
+		<language name="日本語" width="216">うえに　のると　しばらくのあいだ
+あしが　おそくなる　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e18" back-color="#ffff80,,,,,,,,,,,">
+		<comment>けむりトラップ説明文</comment>
+		<language name="日本語" width="216">けむりで　なにも　みえなくなる　トラップ
+こすると　みえるように　なっていく</language>
+	</row>
+
+	<row id="UGTrap_e19" back-color="#ffff80,,,,,,,,,,,">
+		<comment>えんまくトラップ説明文</comment>
+		<language name="日本語" width="216">たいりょうの　けむりがでる　トラップ
+こすると　みえるように　なっていく</language>
+	</row>
+
+	<row id="UGTrap_e20" back-color="#ffff80,,,,,,,,,,,">
+		<comment>いわトラップ説明文</comment>
+		<language name="日本語" width="216">いわで　うごけなくなる　トラップ
+いわを　こわすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGTrap_e21" back-color="#ffff80,,,,,,,,,,,">
+		<comment>らくせきトラップ説明文</comment>
+		<language name="日本語" width="216">おおきな　いわがでる　トラップ
+いわを　こわすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGTrap_e22" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あわトラップ説明文</comment>
+		<language name="日本語" width="216">あわで　うごけなくなる　トラップ
+あわを　わると　うごけるようになる</language>
+	</row>
+
+	<row id="UGTrap_e23" back-color="#ffff80,,,,,,,,,,,">
+		<comment>バブルトラップ説明文</comment>
+		<language name="日本語" width="216">たくさんの　あわがでる　トラップ
+あわを　わると　うごけるようになる</language>
+	</row>
+
+	<row id="UGTrap_e24" back-color="#ffff80,,,,,#ff0000,,,,,,">
+		<comment>あいずトラップ１説明文</comment>
+		<language name="日本語" width="216">ふむと　ちかにいる　みんなに
+あいさつの　あいずを　おくれる</language>
+	</row>
+
+	<row id="UGTrap_e25" back-color="#ffff80,,,,,#ff0000,,,,,,">
+		<comment>あいずトラップ２説明文</comment>
+		<language name="日本語" width="216">ふむと　ちかにいる　みんなに
+さよならの　あいずを　おくれる</language>
+	</row>
+
+	<row id="UGTrap_e26" back-color="#ffff80,,,,,#ff0000,,,,,,">
+		<comment>あいずトラップ３説明文</comment>
+		<language name="日本語" width="216">ふむと　ちかにいる　みんなに　ユニオン
+ルーム　にいく　と　あいずを　おくれる</language>
+	</row>
+
+	<row id="UGTrap_e27" back-color="#ffff80,,,,,#ff0000,,,,,,">
+		<comment>あいずトラップ４説明文</comment>
+		<language name="日本語" width="216">ふむと　ちかにいる　みんなに
+こっちにきて　と　あいずを　おくれる</language>
+	</row>
+
+	<row id="UGTrap_e28" back-color="#ffff80,,,,,,,,,,,">
+		<comment>このはトラップ説明文</comment>
+		<language name="日本語" width="216">このは　で　うごけなくなる　トラップ
+ふきとばすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGTrap_e29" back-color="#ffff80,,,,,,,,,,,">
+		<comment>はなびらトラップ説明文</comment>
+		<language name="日本語" width="216">たくさんの　はなびら　がでる　トラップ
+ふきとばすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGTrap_e30" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ひのこトラップ説明文</comment>
+		<language name="日本語" width="216">ひのこで　うごけなくなる　トラップ
+ふきとばすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGTrap_e31" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ほのおトラップ説明文</comment>
+		<language name="日本語" width="216">おおきな　ほのおが　ふきでる　トラップ
+ふきとばすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGTrap_e32" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>レーダートラップ説明文</comment>
+		<language name="日本語" width="216">うえに　のると　しばらくの　あいだ
+レーダーが　つかえなくなる　トラップ</language>
+	</row>
+
+	<row id="UGTrap_e33" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ドリル説明文</comment>
+		<language name="日本語" width="216">かべに　あなをあけて　ひみつきちを
+つくれる　つかいきりの　ドリル</language>
+	</row>
+
+	<row id="UGTrap_e34" back-color="#ffff80,,,,,,,,,,,">
+		<comment>もどるの説明文</comment>
+		<language name="日本語" width="216">ふくろ　を　とじます</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

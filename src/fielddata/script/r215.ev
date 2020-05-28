@@ -1,0 +1,147 @@
+//====================================================================
+//						r215.gmm
+//					フィールド・ロード215
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r215.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r215_bigman
+_EVENT_DATA		ev_r215_fighter
+_EVENT_DATA		ev_r215_sign1
+_EVENT_DATA		ev_r215_sign2
+_EVENT_DATA		ev_r215_jogger3
+_EVENT_DATA		ev_r215_jogger5
+_EVENT_DATA		ev_r215_flag_change
+_EVENT_DATA		ev_r215_sign3
+_EVENT_DATA_END						//終了
+
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r215_flag_change:
+	/*時間帯によって分岐*/
+	_GET_TIME_ZONE	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_MORNING,ev_r215_fc_morning
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_NOON,ev_r215_fc_noon
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_EVENING,ev_r215_fc_evening
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_NIGHT,ev_r215_fc_night
+	_IFVAL_JUMP		LOCALWORK0,EQ,TIMEZONE_MIDNIGHT,ev_r215_fc_midnight
+	_END
+	
+ev_r215_fc_morning:
+	_FLAG_RESET		FV_R215_JOGGER3_TR
+	_FLAG_RESET		FV_R215_JOGGER5_TR
+	_FLAG_SET		FV_R215_JOGGER3_NPC
+	_FLAG_SET		FV_R215_JOGGER5_NPC
+	_END
+
+ev_r215_fc_noon:
+ev_r215_fc_evening:
+ev_r215_fc_night:
+ev_r215_fc_midnight:
+	_FLAG_RESET		FV_R215_JOGGER3_NPC
+	_FLAG_RESET		FV_R215_JOGGER5_NPC
+	_FLAG_SET		FV_R215_JOGGER3_TR
+	_FLAG_SET		FV_R215_JOGGER5_TR
+	_END
+
+
+
+/********************************************************************/
+/*							太ったお兄さん							*/
+/********************************************************************/
+ev_r215_bigman:
+	_EASY_OBJ_MSG	msg_r215_bigman_01
+	_END
+
+
+/********************************************************************/
+/*							格闘家									*/
+/********************************************************************/
+ev_r215_fighter:
+	_TALK_OBJ_START
+
+	/*すでにアイテム入手していたら*/
+	_IF_FLAGON_JUMP	FE_WAZAMASIN66_GET,ev_r215_fighter_02
+
+	_TALK_KEYWAIT	msg_r215_fighter_01
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN66
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r215_fighter_item_event_fail
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_WAZAMASIN66_GET
+	_JUMP			ev_r215_fighter_02
+
+/*すでにアイテム入手していたら*/
+ev_r215_fighter_02:
+	_TALKMSG		msg_r215_fighter_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*アイテム入手失敗*/
+ev_r215_fighter_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							道看板									*/
+/********************************************************************/
+ev_r215_sign1:
+	_EASY_BOARD_MSG	msg_r215_sign1_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							道看板									*/
+/********************************************************************/
+ev_r215_sign2:
+	_EASY_BOARD_MSG	msg_r215_sign2_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							おとくな掲示板							*/
+/********************************************************************/
+ev_r215_sign3:
+	_EASY_INFOBOARD_MSG	msg_r215_sign3_01,BOARD_TYPE_INFO,0
+	_END
+
+/********************************************************************/
+/*							ジョギング								*/
+/********************************************************************/
+ev_r215_jogger3:
+	_EASY_OBJ_MSG	msg_r215_jogger_03_01
+	_END
+
+/********************************************************************/
+/*							ジョギング								*/
+/********************************************************************/
+ev_r215_jogger5:
+	_EASY_OBJ_MSG	msg_r215_jogger_05_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

@@ -1,0 +1,18 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: pokeanm.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-14T22:16:34
+ *****************************************************************************/
+
+#ifndef NARC_POKEANM_NAIX_
+#define NARC_POKEANM_NAIX_
+
+enum {
+	NARC_pokeanm_pokeanm_dat = 0
+};
+
+/* NARC_POKEANM_NAIX_ */
+#endif

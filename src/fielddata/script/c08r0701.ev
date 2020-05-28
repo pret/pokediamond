@@ -1,0 +1,148 @@
+//====================================================================
+//								c08r0701
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c08r0701.h"
+	.include	"../../../include/battle/chr_def.h"
+	//.include	"../eventdata/zone_c08r0701evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c08r0701_assistantm
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							　助手♂								*/
+/********************************************************************/
+ev_c08r0701_assistantm:
+	_TALK_OBJ_START
+
+	//一度会話した
+	_IFVAL_JUMP		WK_SCENE_C08R0701,GE,1,ev_c08r0701_assistantm_next
+
+	_LDVAL		WK_SCENE_C08R0701,1
+
+	_TALKMSG		msg_c08r0701_assistantm_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//一度会話した
+ev_c08r0701_assistantm_next:
+
+	//ここでの全てのアプリを貰った
+	_POKETCH_CHECK	POKETCH_APPID_ROULETTE,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c08r0701_assistantm_08
+
+	//ルーレット取得チェックへ
+	_POKETCH_CHECK	POKETCH_APPID_DOTART,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c08r0701_assistantm_04
+
+	//ドットアート取得チェックへ
+	_POKETCH_CHECK	POKETCH_APPID_CALENDER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c08r0701_assistantm_03
+
+	//カレンダー取得チェックへ
+	_JUMP			ev_c08r0701_assistantm_02
+
+
+//カレンダー取得チェック
+ev_c08r0701_assistantm_02:
+	//まじめな性格のポケモンがいる？
+	_CHK_POKE_SEIKAKU_ALL SCWK_PARAM0,CHR_MAZIME
+	_IFVAL_JUMP		SCWK_PARAM0,NE,0xff,ev_c08r0701_assistantm_05
+
+	_TALKMSG		msg_c08r0701_assistantm_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ドットアート取得チェック
+ev_c08r0701_assistantm_03:
+	//むじゃきな性格のポケモンがいる？
+	_CHK_POKE_SEIKAKU_ALL SCWK_PARAM0,CHR_MUZYAKI
+	_IFVAL_JUMP		SCWK_PARAM0,NE,0xff,ev_c08r0701_assistantm_06
+
+	_TALKMSG		msg_c08r0701_assistantm_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ルーレット取得チェック
+ev_c08r0701_assistantm_04:
+	//きまぐれな性格のポケモンがいる？
+	_CHK_POKE_SEIKAKU_ALL SCWK_PARAM0,CHR_KIMAGURE
+	_IFVAL_JUMP		SCWK_PARAM0,NE,0xff,ev_c08r0701_assistantm_07
+
+	_TALKMSG		msg_c08r0701_assistantm_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//カレンダー取得
+ev_c08r0701_assistantm_05:
+	_TEMOTI_MONSNO	SCWK_PARAM0,SCWK_PARAM1
+	_POKEMON_NAME	0,SCWK_PARAM0
+
+	_TALK_KEYWAIT		msg_c08r0701_assistantm_05
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_CALENDER
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ドットアート取得
+ev_c08r0701_assistantm_06:
+	_TEMOTI_MONSNO	SCWK_PARAM0,SCWK_PARAM1
+	_POKEMON_NAME	0,SCWK_PARAM0
+
+	_TALK_KEYWAIT		msg_c08r0701_assistantm_06
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_DOTART
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ルーレット取得
+ev_c08r0701_assistantm_07:
+	_TEMOTI_MONSNO	SCWK_PARAM0,SCWK_PARAM1
+	_POKEMON_NAME	0,SCWK_PARAM0
+
+	_TALK_KEYWAIT		msg_c08r0701_assistantm_07
+
+	_LDVAL			SCWK_TEMP0,POKETCH_APPID_ROULETTE
+	_CHG_COMMON_SCR	SCRID_POKETCH_SOFT_GET
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*すべて入手済み*/
+ev_c08r0701_assistantm_08:
+	_TALKMSG		msg_c08r0701_assistantm_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

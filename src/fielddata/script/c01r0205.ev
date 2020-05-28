@@ -1,0 +1,654 @@
+//====================================================================
+//								c01r0205
+//
+//	LOCALWORK1	ZONE切り替わりフラグ	初めての呼び出し:0  ２回目以降:1
+//	LOCALWORK2	手持ちのポケモンの位置
+//	SCWK_TEMP0	テレビクリップ　タイトル
+//	SCWK_TEMP1	テレビクリップ　セーブ有無
+//	SCWK_TEMP2	プレイヤーの向いている方向
+//	SCWK_TEMP3	クリップ　開始時の　リファレンスの有無
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0205.h"
+	.include	"../eventdata/zone_c01r0205evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01r0205_clip
+_EVENT_DATA		ev_c01r0205_clip_prev_00
+_EVENT_DATA		ev_c01r0205_clip_prev_01
+_EVENT_DATA		ev_c01r0205_clip_prev_02
+_EVENT_DATA		ev_c01r0205_clip_prev_03
+_EVENT_DATA		ev_c01r0205_clip_prev_04
+_EVENT_DATA		ev_c01r0205_clip_prev_05
+_EVENT_DATA		ev_c01r0205_clip_prev_06
+_EVENT_DATA		ev_c01r0205_clip_prev_07
+_EVENT_DATA		ev_c01r0205_clip_prev_08
+_EVENT_DATA		ev_c01r0205_clip_prev_09
+_EVENT_DATA		ev_c01r0205_clip_prev_10
+_EVENT_DATA		ev_c01r0205_man1
+_EVENT_DATA		ev_c01r0205_babygirl1
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*							山男									*/
+/********************************************************************/
+ev_c01r0205_clip:
+	_TALK_OBJ_START
+
+	// リファレンスなしで初期化
+	_LDVAL			SCWK_TEMP3,0
+
+	//本当の１度目
+	_IF_FLAGOFF_CALL	FE_IMAGE_CLIP,first_c01r0205_mount
+
+	// 1度目
+	_IFVAL_JUMP		LOCALWORK1,EQ,0,zone_first_c01r0205_mount
+	// ２度目以降
+	_IFVAL_JUMP		LOCALWORK1,EQ,1,zone_second_c01r0205_mount
+	_END
+
+//一度目
+first_c01r0205_mount:
+	// リファレンスあり
+	_LDVAL			SCWK_TEMP3,1
+	_RET
+
+// このゾーン内初めて
+zone_first_c01r0205_mount:
+	_TALKMSG		msg_c01r0205_clip_01
+	_JUMP			ev_clip_menu01
+
+// ２度目
+zone_second_c01r0205_mount:
+	_TALKMSG		msg_c01r0205_clip_09	
+	_JUMP			ev_clip_menu01
+
+yes_c01r0205_mount:
+	_TALKMSG		msg_c01r0205_clip_04
+
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_c01r0205_010
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c01r0205_010
+	_END
+
+yes_c01r0205_010:
+	_TALKMSG		msg_c01r0205_clip_07
+
+	// 質問を説明後の分岐
+	_JUMP ev_clip_menu02
+
+/*共通メニュー*/
+ev_clip_menu01:
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_c01r0205_mount
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c01r0205_mount
+	_END
+
+// 手持ちのポケモン数を見て　分岐
+ev_clip_menu02:
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,no_c01r0205_010
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c01r0205_mount
+	_END
+
+
+/********************************************************************/
+//手持ちの数で分岐
+/********************************************************************/
+no_c01r0205_010:
+	_GET_POKE_COUNT	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c01r0205_poke_count_1
+	_IFVAL_JUMP		SCWK_ANSWER,NE,1,c01r0205_poke_count_6
+	_END
+
+/*手持ち１匹*/
+c01r0205_poke_count_1:
+	_LDVAL			LOCALWORK2,0
+	_JUMP			c01r0205_image_clip
+
+/*手持ち１匹以外*/
+c01r0205_poke_count_6:
+	_TALKMSG	msg_c01r0205_clip_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_POKELIST_SET_PROC
+
+	//選択したポケモンの並び番号取得
+	_POKELIST_GET_RESULT	LOCALWORK2
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルチェック
+	_IFVAL_JUMP		LOCALWORK2,EQ,0xff,no_c01r0205_mount
+
+	//手持ちー＞ポケモン番号変換　同時にタマゴチェックも行っています。
+	_TEMOTI_MONSNO	LOCALWORK2,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,tamago_c01r0205_mount	//タマゴ
+
+	_JUMP			c01r0205_image_clip
+
+c01r0205_image_clip:
+	_TALK_KEYWAIT	msg_c01r0205_clip_06
+	_TALK_CLOSE
+
+	// 移動
+	_PLAYER_DIR_GET	SCWK_TEMP2
+	_IFVAL_JUMP		SCWK_TEMP2,EQ,DIR_UP,ev_mvoe_player_dir_up
+	_IFVAL_JUMP		SCWK_TEMP2,EQ,DIR_LEFT,ev_mvoe_player_dir_left
+	_IFVAL_JUMP		SCWK_TEMP2,EQ,DIR_RIGHT,ev_mvoe_player_dir_right
+	_END
+
+// 上を向いているとき
+ev_mvoe_player_dir_up:
+
+	_OBJ_ANIME		C01R0205_MOUNT,anm_yamaotoko_dir_up
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_dir_up
+	_OBJ_ANIME_WAIT
+
+
+	// イメージクリップ実行
+	_JUMP c01r0205_image_clip_do
+
+// 左を向いているとき
+ev_mvoe_player_dir_left:
+
+	_OBJ_ANIME		C01R0205_MOUNT,anm_yamaotoko_dir_left
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_dir_left
+	_OBJ_ANIME_WAIT
+
+	// イメージクリップ実行
+	_JUMP c01r0205_image_clip_do
+
+
+// 右を向いているとき
+ev_mvoe_player_dir_right:
+
+	_OBJ_ANIME		C01R0205_MOUNT,anm_yamaotoko_dir_right
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_dir_right
+	_OBJ_ANIME_WAIT
+
+	// イメージクリップ実行
+	_JUMP c01r0205_image_clip_do
+
+
+// イメージクリップ実行
+c01r0205_image_clip_do:
+
+	_FLAG_SET		FE_IMAGE_CLIP		// 確実にクリップをしたので次からはリファレンスはいらない
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//イメージクリップ
+	_IMAGE_CLIP_SET_PROC	LOCALWORK2,SCWK_TEMP1,SCWK_TEMP3
+	_SET_MAP_PROC
+
+	// 終わって戻ってくるアニメの準備
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_clip_after_init
+	_OBJ_ANIME_WAIT
+
+	// 実行後処理へ
+	// フェードイン
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	// それぞれのアニメ
+	_IFVAL_JUMP		SCWK_TEMP2,EQ,DIR_UP,	ev_remvoe_player_dir_up
+	_IFVAL_JUMP		SCWK_TEMP2,EQ,DIR_LEFT,	ev_remvoe_player_dir_left
+	_IFVAL_JUMP		SCWK_TEMP2,EQ,DIR_RIGHT,ev_remvoe_player_dir_right
+	_END
+
+// 上を向いていたとき
+ev_remvoe_player_dir_up:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_clip_after_move
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		C01R0205_MOUNT,anm_yamaotoko_clip_after_dir_up
+	_OBJ_ANIME_WAIT
+
+	_JUMP c01r0205_image_clip_title
+	
+// 左を向いていたとき
+ev_remvoe_player_dir_left:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_clip_after_move
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		C01R0205_MOUNT,anm_yamaotoko_clip_after_dir_left
+	_OBJ_ANIME_WAIT
+
+	_JUMP c01r0205_image_clip_title
+
+// 右を向いていたとき
+ev_remvoe_player_dir_right:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_clip_after_move
+	_OBJ_ANIME_WAIT
+	_OBJ_ANIME		C01R0205_MOUNT,anm_yamaotoko_clip_after_dir_right
+	_OBJ_ANIME_WAIT
+
+	_JUMP c01r0205_image_clip_title
+
+// タイトル入力
+c01r0205_image_clip_title:
+	// セーブしたかチェック
+	// セーブしていないときは分岐
+	_IFVAL_JUMP		SCWK_TEMP1,EQ,0,c01r0205_image_clip_no_save
+
+
+	// 1回ドレスアップした
+	_LDVAL			LOCALWORK1,1	// 次から２回目以降
+
+	_TALKMSG		msg_c01r0205_clip_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	// 簡易会話入力
+	_JUMP			img_pms_input
+
+no_c01r0205_mount:
+	_TALKMSG		msg_c01r0205_clip_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//たまごのとき
+tamago_c01r0205_mount:
+	_TALK_KEYWAIT		msg_c01r0205_clip_10
+	_JUMP			c01r0205_poke_count_6
+
+
+// タイトル入力　簡易会話入力
+// SCWK_TEMP0に簡易会話入力結果を入れます
+img_pms_input:
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_PMS_INPUT_SINGLE SCWK_ANSWER,SCWK_TEMP0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	// 記入なし
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,img_pms_input_err
+
+	// セーブ
+	_CLIP_TV_TITLE_SAVE	SCWK_TEMP0
+
+	// 簡易会話メッセージをバッファに格納
+	_PMS_BUF	0,SCWK_TEMP0	
+	_TALKMSG		msg_c01r0205_clip_11
+	_LAST_KEYWAIT
+
+	// 右を向く
+	_OBJ_ANIME		C01R0205_MOUNT,anm_yamaotoko_clip_turn_right
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG		msg_c01r0205_clip_15
+	_LAST_KEYWAIT
+	
+	_TALK_CLOSE
+
+	// 下を向く
+	_OBJ_ANIME		C01R0205_MOUNT,anm_yamaotoko_clip_turn_down
+	_OBJ_ANIME_WAIT
+	
+	_TALK_OBJ_END
+	_END
+
+// タイトル入力エラー
+// メッセージ後もう一度簡易会話入力
+img_pms_input_err:
+	_TALKMSG		msg_c01r0205_clip_12
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP	img_pms_input
+
+// イメージクリップセーブしなかったとき
+c01r0205_image_clip_no_save:
+	_TALKMSG		msg_c01r0205_clip_13
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+	
+
+//--------------------------------------------------------------------
+//主人公	ドアの方へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_player_dir_up
+	_ANIME_DATA	AC_WALK_U_16F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_player_dir_left
+	_ANIME_DATA	AC_WALK_L_16F,1
+	_ANIME_DATA	AC_WALK_U_16F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_player_dir_right
+	_ANIME_DATA	AC_WALK_R_16F,1
+	_ANIME_DATA	AC_WALK_U_16F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+//--------------------------------------------------------------------
+//主人公	ドアから戻ってくる	初期化
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_player_clip_after_init
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ドアから戻ってくる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_player_clip_after_move
+	_ANIME_DATA	AC_WALK_D_16F,2
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+
+
+//--------------------------------------------------------------------
+//山男　どく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_yamaotoko_dir_up
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_yamaotoko_dir_left
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_yamaotoko_dir_right
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//山男 元の位置に
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_yamaotoko_clip_after_dir_up
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_yamaotoko_clip_after_dir_left
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_yamaotoko_clip_after_dir_right
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+
+//--------------------------------------------------------------------
+//山男 右向いて元に戻る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_yamaotoko_clip_turn_right
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_yamaotoko_clip_turn_down
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+//-----------------------------------------------------------------------------
+/**
+ *		preview呼び出し
+ */
+//-----------------------------------------------------------------------------
+ev_c01r0205_clip_prev_00:
+	_TALK_START
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	0,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	0,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_01:
+	_TALK_START
+
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	1,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_02:
+	_TALK_START
+
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	2,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	2,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_03:
+	_TALK_START
+	
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	3,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	3,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_04:
+	_TALK_START
+	
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	4,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	4,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_05:
+	_TALK_START
+	
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	5,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	5,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_06:
+	_TALK_START
+	
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	6,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	6,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_07:
+	_TALK_START
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	7,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	7,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_08:
+	_TALK_START
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	8,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	8,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_09:
+	_TALK_START
+	
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	9,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	9,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_TALK_END
+	_END
+
+ev_c01r0205_clip_prev_10:
+	_TALK_START
+	
+	// セーブデータ有無チェック
+	_CLIP_TVSAVEDATA_CHECK	10,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,clip_prev_none
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_TV_SET_PROC	10,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_TALK_END
+	_END
+
+// ドレスアップデータが無いとき
+clip_prev_none:
+	_TALKMSG		msg_c01r0205_clip_gaku
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_END		// 終わる
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0205_man1:
+	_EASY_OBJ_MSG	msg_c01r0205_man1_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0205_babygirl1:
+	_EASY_OBJ_MSG	msg_c01r0205_babygirl1_01
+	_END
+
+

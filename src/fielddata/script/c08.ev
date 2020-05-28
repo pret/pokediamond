@@ -1,0 +1,560 @@
+//====================================================================
+//					フィールド・シティ０８
+//						ナギサシティ
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c08.h"
+	.include	"../eventdata/zone_c08evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c08_leader
+_EVENT_DATA		ev_c08_boy1
+_EVENT_DATA		ev_c08_seaman1a
+_EVENT_DATA		ev_c08_seaman1b
+_EVENT_DATA		ev_c08_workman
+_EVENT_DATA		ev_c08_middlewoman1
+_EVENT_DATA		ev_c08_woman1
+_EVENT_DATA		pos_c08_mikan
+_EVENT_DATA		ev_c08_mikan
+_EVENT_DATA		ev_c08_sign1
+_EVENT_DATA		ev_c08_sign2
+_EVENT_DATA		ev_c08_sign3
+_EVENT_DATA		ev_c08_sign4
+_EVENT_DATA		ev_c08_sign5
+_EVENT_DATA		ev_c08_sign6
+_EVENT_DATA		ev_c08_sign7
+_EVENT_DATA		ev_c08_fix_shop_01
+_EVENT_DATA		ev_c08_bigfour3
+_EVENT_DATA		ev_c08_flag_change
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c08_flag_change:
+	_IFVAL_JUMP		WK_SCENE_C08,EQ,0,ev_c08_flag_change_pos
+	_END
+
+ev_c08_flag_change_pos:
+	_SXY_POS_CHANGE	C08_LEADER,841,790
+	_SXY_MV_CHANGE	C08_LEADER,MV_LEFT
+	_SXY_DIR_CHANGE	C08_LEADER,DIR_LEFT
+	_END
+
+
+/********************************************************************/
+/*							ミカン(POS)								*/
+/********************************************************************/
+#define POS_C08_MIKAN_X1	(853)
+#define POS_C08_MIKAN_X2	(854)
+#define POS_C08_MIKAN_X3	(855)
+#define POS_C08_MIKAN_X4	(856)
+#define POS_C08_MIKAN_X5	(857)
+
+pos_c08_mikan:
+	_EVENT_START
+
+	_LDVAL			WK_SCENE_C08,2
+
+	/*気づく*/
+	_OBJ_ANIME		C08_MIKAN,anm_c08_mikan_00
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C08_MIKAN_X1,pos_c08_mikan_01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C08_MIKAN_X2,pos_c08_mikan_02
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C08_MIKAN_X3,pos_c08_mikan_03
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C08_MIKAN_X4,pos_c08_mikan_04
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C08_MIKAN_X5,pos_c08_mikan_05
+	_END
+
+//--------------------------------------------------------------------
+//ミカン	近づく
+//--------------------------------------------------------------------
+pos_c08_mikan_01:
+	_OBJ_ANIME		C08_MIKAN,anm_c08_mikan_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c08_mikan_common
+
+pos_c08_mikan_02:
+	_OBJ_ANIME		C08_MIKAN,anm_c08_mikan_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c08_mikan_common
+
+pos_c08_mikan_03:
+	_OBJ_ANIME		C08_MIKAN,anm_c08_mikan_03
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c08_mikan_common
+
+pos_c08_mikan_04:
+	_OBJ_ANIME		C08_MIKAN,anm_c08_mikan_04
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c08_mikan_common
+
+pos_c08_mikan_05:
+	_OBJ_ANIME		C08_MIKAN,anm_c08_mikan_05
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c08_mikan_common
+
+//--------------------------------------------------------------------
+//共通処理
+//--------------------------------------------------------------------
+pos_c08_mikan_common:
+	_FLAG_SET		FE_C08_MIKAN_TALK
+
+	_TALK_KEYWAIT	msg_c08_mikan_01
+
+	//ナギサバッチ取得していなかったら
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C08,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,0,pos_c08_mikan_badge_nothing
+
+	/*秘伝入手共通処理*/
+	_CALL			c08_mikan_hiden_get
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+	
+/*秘伝入手共通処理*/
+c08_mikan_hiden_get:
+	_TALK_KEYWAIT	msg_c08_mikan_03
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_HIDENMASIN07
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_HIDEN_08_GET
+
+	_TALKMSG		msg_c08_mikan_04
+	_RET
+
+/*ナギサバッチ取得していなかったら*/
+pos_c08_mikan_badge_nothing:
+	_TALKMSG		msg_c08_mikan_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ミカン	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08_mikan_00
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ミカン	隣接してくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08_mikan_01
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c08_mikan_02
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c08_mikan_03
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c08_mikan_04
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c08_mikan_05
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ミカン(会話)							*/
+/********************************************************************/
+ev_c08_mikan:
+	_TALK_OBJ_START
+
+	/*秘伝マシンを入手していたら*/
+	_IF_FLAGON_JUMP	FE_HIDEN_08_GET,ev_c08_mikan_hiden_get
+
+	_TALK_KEYWAIT	msg_c08_mikan_05
+
+	//ナギサバッチ取得していなかったら
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C08,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,0,ev_c08_mikan_badge_nothing
+
+	/*秘伝入手共通処理*/
+	_CALL			c08_mikan_hiden_get
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ナギサバッチ取得していなかったら*/
+ev_c08_mikan_badge_nothing:
+	_TALKMSG		msg_c08_mikan_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*秘伝マシンを入手していたら*/
+ev_c08_mikan_hiden_get:
+	_TALKMSG		msg_c08_mikan_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							ジムリーダー							*/
+/********************************************************************/
+#define POS_C08_LEADER_Z1	(790)
+#define POS_C08_LEADER_Z2	(791)
+
+ev_c08_leader:
+	_EVENT_START
+	
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C08_LEADER_Z1,pos_c08_leader_01
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C08_LEADER_Z2,pos_c08_leader_02
+	_END
+
+/*近づく*/
+pos_c08_leader_01:
+	_OBJ_ANIME		C08_LEADER,anm_c08_leader_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c08_leader
+
+pos_c08_leader_02:
+	_OBJ_ANIME		C08_LEADER,anm_c08_leader_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c08_leader
+
+common_c08_leader:
+	_TALK_KEYWAIT	msg_c08_bigfour3_01
+	_TALK_CLOSE
+
+	/*下を向く*/
+	_OBJ_ANIME		C08_LEADER,anm_c08_leader_10
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*左を向く*/
+	_OBJ_ANIME		C08_LEADER,anm_c08_leader_20
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c08_bigfour3_02
+	_TALK_CLOSE
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*去っていく*/
+	_OBJ_ANIME		C08_LEADER,anm_c08_leader_30
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C08_LEADER
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	/*再配置*/
+	_SXY_POS_CHANGE	C08_LEADER,845,748
+	_SXY_MV_CHANGE	C08_LEADER,MV_DOWN
+	_SXY_DIR_CHANGE	C08_LEADER,DIR_DOWN
+	_FLAG_RESET		FV_C08_LEADER
+	_OBJ_ADD		C08_LEADER
+
+	_LDVAL			WK_SCENE_C08,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ジムリーダー	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08_leader_01
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_L_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c08_leader_02
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_L_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ジムリーダー	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08_leader_10
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ジムリーダー	左を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08_leader_20
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ジムリーダー	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08_leader_30
+	_ANIME_DATA	AC_WALK_R_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							少年									*/
+/********************************************************************/
+ev_c08_boy1:
+	_EASY_OBJ_MSG	msg_c08_boy1_01
+	_END
+
+/********************************************************************/
+/*							船乗り									*/
+/********************************************************************/
+ev_c08_seaman1a:
+	_EASY_OBJ_MSG	msg_c08_seaman1a_01
+	_END
+
+/********************************************************************/
+/*							船乗り									*/
+/********************************************************************/
+ev_c08_seaman1b:
+	_EASY_OBJ_MSG	msg_c08_seaman1_01
+	_END
+
+/********************************************************************/
+/*							働くおじさん							*/
+/********************************************************************/
+ev_c08_workman:
+	_EASY_OBJ_MSG	msg_c08_workman_01
+	_END
+
+/********************************************************************/
+/*							おばさん								*/
+/********************************************************************/
+ev_c08_middlewoman1:
+	_EASY_OBJ_MSG	msg_c08_middlewoman1_01
+	_END
+
+/********************************************************************/
+/*							姉さん									*/
+/********************************************************************/
+ev_c08_woman1:
+	_EASY_OBJ_MSG	msg_c08_woman1_01
+	_END
+
+/********************************************************************/
+/*							タウンマップ							*/
+/********************************************************************/
+ev_c08_sign1:
+	_EASY_BOARD_MSG	msg_c08_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+/********************************************************************/
+/*							掲示板(ジム)							*/
+/********************************************************************/
+ev_c08_sign2:
+	_EASY_INFOBOARD_MSG	msg_c08_sign2_01,BOARD_TYPE_INFO,0
+	_END
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_c08_sign3:
+	_EASY_BOARD_MSG	msg_c08_sign3_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_c08_sign4:
+	_EASY_BOARD_MSG	msg_c08_sign4_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_c08_sign5:
+	_EASY_BOARD_MSG	msg_c08_sign5_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_c08_sign6:
+	_EASY_BOARD_MSG	msg_c08_sign6_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_c08_sign7:
+	_EASY_BOARD_MSG	msg_c08_sign7_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+//					シール	品物固定の店員(OBJ名shopm)
+/********************************************************************/
+ev_c08_fix_shop_01:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+
+	/*曜日ごとに品物がかわる*/
+	_CHK_WEEK		SCWK_ANSWER
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		RTC_WEEK_SUNDAY,ev_c08_fix_shop_01_0
+	_CASE_JUMP		RTC_WEEK_MONDAY,ev_c08_fix_shop_01_1
+	_CASE_JUMP		RTC_WEEK_TUESDAY,ev_c08_fix_shop_01_2
+	_CASE_JUMP		RTC_WEEK_WEDNESDAY,ev_c08_fix_shop_01_3
+	_CASE_JUMP		RTC_WEEK_THURSDAY,ev_c08_fix_shop_01_4
+	_CASE_JUMP		RTC_WEEK_FRIDAY,ev_c08_fix_shop_01_5
+	_CASE_JUMP		RTC_WEEK_SATURDAY,ev_c08_fix_shop_01_6
+	_END
+
+ev_c08_fix_shop_01_0:
+	_FIX_SEAL_CALL	ID_SHOP_SEAL_C08_MARKET_01
+	_JUMP			common_ev_c08_fix_shop_01
+	
+ev_c08_fix_shop_01_1:
+	_FIX_SEAL_CALL	ID_SHOP_SEAL_C08_MARKET_02
+	_JUMP			common_ev_c08_fix_shop_01
+	
+ev_c08_fix_shop_01_2:
+	_FIX_SEAL_CALL	ID_SHOP_SEAL_C08_MARKET_03
+	_JUMP			common_ev_c08_fix_shop_01
+	
+ev_c08_fix_shop_01_3:
+	_FIX_SEAL_CALL	ID_SHOP_SEAL_C08_MARKET_04
+	_JUMP			common_ev_c08_fix_shop_01
+	
+ev_c08_fix_shop_01_4:
+	_FIX_SEAL_CALL	ID_SHOP_SEAL_C08_MARKET_05
+	_JUMP			common_ev_c08_fix_shop_01
+	
+ev_c08_fix_shop_01_5:
+	_FIX_SEAL_CALL	ID_SHOP_SEAL_C08_MARKET_06
+	_JUMP			common_ev_c08_fix_shop_01
+	
+ev_c08_fix_shop_01_6:
+	_FIX_SEAL_CALL	ID_SHOP_SEAL_C08_MARKET_07
+	_JUMP			common_ev_c08_fix_shop_01
+	
+common_ev_c08_fix_shop_01:
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							四天王(会話)							*/
+/********************************************************************/
+ev_c08_bigfour3:
+	_TALK_OBJ_START
+	
+	/*灯台でジムリーダーと会話していたら*/
+	_IF_FLAGON_JUMP		FE_C08R0801_TALK,ev_c08_bigfour3_02
+
+	_TALKMSG		msg_c08_bigfour3_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*灯台でジムリーダーと会話していたら*/
+ev_c08_bigfour3_02:
+	_TALK_KEYWAIT	msg_c08_bigfour3_04
+	_TALK_CLOSE
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*向きによってアニメをかえる*/
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_UP,ev_c08_bigfour3_dir_up
+	//_IFVAL_JUMP	SCWK_ANSWER,EQ,DIR_DOWN,ev_c08_bigfour3_dir_down
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_c08_bigfour3_dir_left
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_RIGHT,ev_c08_bigfour3_dir_right
+	_END
+
+/*去っていく*/
+ev_c08_bigfour3_dir_up:
+	_OBJ_ANIME		C08_LEADER,anm_c08_bigfour3_03
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c08_player_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c08_bigfour3_01
+
+ev_c08_bigfour3_dir_left:
+	_OBJ_ANIME		C08_LEADER,anm_c08_bigfour3_04
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c08_player_04
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c08_bigfour3_01
+
+ev_c08_bigfour3_dir_right:
+	_OBJ_ANIME		C08_LEADER,anm_c08_bigfour3_04
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c08_player_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c08_bigfour3_01
+
+common_c08_bigfour3_01:
+	_OBJ_DEL		C08_LEADER
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//四天王	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08_bigfour3_03
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c08_bigfour3_04
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c08_player_03
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c08_player_04
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/********************************************************************/

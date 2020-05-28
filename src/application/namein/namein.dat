@@ -1,0 +1,415 @@
+// 上画面パーツ位置定義
+#define MAIN_FRAME_POSX		( 22 )
+#define MAIN_FRAME_POSY		( 56 )
+
+#define MAIN_BUTTON1_POSX	( 34  -MAIN_FRAME_POSX -8)
+#define MAIN_BUTTON2_POSX	( 58  -MAIN_FRAME_POSX -8)
+#define MAIN_BUTTON3_POSX	( 82  -MAIN_FRAME_POSX -8)
+#define MAIN_BUTTON4_POSX	( 106 -MAIN_FRAME_POSX -8)
+#define MAIN_BUTTON5_POSX	( 131 -MAIN_FRAME_POSX -8)
+#define MAIN_BUTTON6_POSX	( 166 -MAIN_FRAME_POSX -8)
+#define MAIN_BUTTON7_POSX	( 202 -MAIN_FRAME_POSX -4)
+
+#define MAIN_BUTTON_POSY	( 68 )
+
+#define FUNCBUTTON_FRAME_ACTNO	( 7 )
+
+// カーソル位置
+#define MAIN_CURSOR_POSX	(  26 )
+#define MAIN_CURSOR_POSY	( 111-20 )
+
+// カーソルアニメ定義
+#define NAMEIN_CURSOR_ANM_START	( 39 )
+
+static const main_button_info[][4]={
+	{MAIN_BUTTON1_POSX,MAIN_BUTTON_POSY, 3,  1,},// かな
+	{MAIN_BUTTON2_POSX,MAIN_BUTTON_POSY, 8,  1,},// カナ
+	{MAIN_BUTTON3_POSX,MAIN_BUTTON_POSY,13,  1,},// 英数字
+	{MAIN_BUTTON4_POSX,MAIN_BUTTON_POSY,18,  1,},// 記号
+	{MAIN_BUTTON5_POSX,MAIN_BUTTON_POSY,20,  1,},// あ→ぁ
+	{MAIN_BUTTON6_POSX,MAIN_BUTTON_POSY,23,  1,},// もどる
+	{MAIN_BUTTON7_POSX,MAIN_BUTTON_POSY,25,  1,},// おわる
+	{MAIN_FRAME_POSX,MAIN_FRAME_POSY,   37,  2,},// フレーム
+	{MAIN_CURSOR_POSX,MAIN_CURSOR_POSY, NAMEIN_CURSOR_ANM_START,  0,},// カーソル
+
+};
+
+// 下画面用ボタン位置定義
+#define SUB_BUTTON_POSX			(   3 )
+#define SUB_BUTTON_POSY			( 104 )
+
+#define SUB_BUTTON_WORD_POSX	(   93 )
+#define SUB_BUTTON_WORD_POSY	(  120 )
+
+#define SUB_BUTTON_EFFECT_X	( 128 )
+#define SUB_BUTTON_EFFECT_Y	( 100 )
+
+static const sub_button_info[][3]={
+	
+	{SUB_BUTTON_EFFECT_X,SUB_BUTTON_EFFECT_Y, 0,},
+	{SUB_BUTTON_WORD_POSX,SUB_BUTTON_WORD_POSY, 1,},
+};
+
+
+// 下画面ボタンに書ける文字列の最大数定義
+#define SUB_BUTTON_STRING_MAX	( 20 )
+
+// 文字パネルBMPWIN定義
+
+#define WORDPANEL_WIN_POSX		(  2 )
+#define WORDPANEL_WIN_POSY		(  1 )
+#define WORDPANEL_WIN_W			( 26 )
+#define WORDPANEL_WIN_H			( 12 )
+#define WORDPANEL_WIN_SIZE		( WORDPANEL_WIN_W*WORDPANEL_WIN_H )
+#define SUB_BUTTON_WORD_SIZE	( 2*2*3)
+
+#define WORDPANEL0_WIN_OFFSET	( 32*8 )
+#define WORDPANEL1_WIN_OFFSET	( WORDPANEL0_WIN_OFFSET+WORDPANEL_WIN_SIZE )
+#define NAMEINFO_WIN_OFFSET		( WORDPANEL1_WIN_OFFSET+WORDPANEL_WIN_SIZE )
+#define NAMERESULT_WIN_OFFSET	( NAMEINFO_WIN_OFFSET+NAMEINFO_WIN_SIZE )
+#define GROUP_TEXT_WIN_OFFSET	( NAMERESULT_WIN_OFFSET+NAME_RESULT_WIN_SIZE )
+
+#define SUB_LCD_WIN_START		 ( 120 )
+#define SUB_BUTTON_WORD_OFFSET   ( SUB_LCD_WIN_START )
+#define SUB_BUTTON_STRING_OFFSET ( SUB_BUTTON_WORD_OFFSET + SUB_BUTTON_WORD_SIZE )
+#define BOX_MESAGGE_WIN_OFFSET  (  SUB_BUTTON_STRING_OFFSET )
+
+//static const u16 ChangeWordStr[] = {ka_,ta_,ti_,wo_, spc_, ka_,e_,ru_,EOM_};
+
+// 下画面OBJ文字VRAM位置OFFSET
+#define SUB_WORD_BUTTON1_OFFSET	( 112 )
+#define SUB_WORD_BUTTON2_OFFSET	(  76 )
+#define SUB_WORD_BUTTON3_OFFSET	(  72 )
+
+
+//濁点・半濁点・スペース記号の文字コード（このソース内のみのコード。0xd001は文字コードと衝突しない値）
+#define NAMEIN_CODE				( 0xd001 )
+#define DAKU_					( NAMEIN_CODE   )		///< 「”」
+#define HANDAKU_				( NAMEIN_CODE+1 )		///< 「゜」
+#define SPACE_					( NAMEIN_CODE+2 )		///< 「[s]」
+#define SKIP_					( NAMEIN_CODE+3 )		///< 文字無し
+
+//機能ボタンのコード（このソース内のみのコード。0xe001は文字コードと衝突しない値）
+#define NAMEIN_BUTTON			( 0xe001 )
+#define NAMEIN_HIRA				( NAMEIN_BUTTON+1 )
+#define NAMEIN_KANA				( NAMEIN_BUTTON+2 )
+#define NAMEIN_ALPHA			( NAMEIN_BUTTON+3 )
+#define NAMEIN_KIGOU			( NAMEIN_BUTTON+4 )
+#define NAMEIN_KOMOJI			( NAMEIN_BUTTON+5 )
+#define NAMEIN_MODORU			( NAMEIN_BUTTON+6 )
+#define NAMEIN_OWARI			( NAMEIN_BUTTON+7 )
+
+
+// 文字パネル最上段列のボタン配置テーブル
+// ひらがな・カタカナ・ABCの時
+static const u16 str_func_b1[]={ 
+	NAMEIN_HIRA,
+
+	NAMEIN_KANA, 
+	NAMEIN_KANA,
+
+	NAMEIN_ALPHA, 
+	NAMEIN_KIGOU,
+	NAMEIN_KIGOU, 
+	
+
+	SKIP_,
+	SKIP_,
+	
+	NAMEIN_MODORU,
+	NAMEIN_MODORU,
+	NAMEIN_MODORU,
+	
+	NAMEIN_OWARI,
+	NAMEIN_OWARI
+};
+
+// フレンドコードの時
+static const u16 str_func_b3[]={ 
+	SKIP_,SKIP_, SKIP_,SKIP_, SKIP_,SKIP_, SKIP_,SKIP_,
+	NAMEIN_MODORU,NAMEIN_MODORU,NAMEIN_MODORU,NAMEIN_OWARI,NAMEIN_OWARI,};
+
+
+// 文字パネル最上段列のボタン配置アクセス用テーブル
+static const u16 *str_func_b[]={
+	str_func_b1,
+	str_func_b1,
+	str_func_b1,
+	str_func_b1,
+	str_func_b3,
+};
+
+#define FUNC_BUTTON_POS_Y	( 88 - 20 )
+static const u16 func_button_pos_tbl[]={
+	33-8,57-8,81-8,105-8,130-8,166-8,202-4,0,
+};
+
+
+static const u8 func_button_appear[]={
+	NAMEIN_CURSOR_ANM_START+1,	// ひら
+	NAMEIN_CURSOR_ANM_START+1,	// ヵナ
+	NAMEIN_CURSOR_ANM_START+1,	// ＡＢＣ
+	NAMEIN_CURSOR_ANM_START+1,	// きごう
+	NAMEIN_CURSOR_ANM_START+2,	// （こもじ）
+	NAMEIN_CURSOR_ANM_START+2,	// もどる
+	NAMEIN_CURSOR_ANM_START+2,	// おわる
+};
+
+
+// ひらがな列
+static const u16 str_namein_b01[] = { a_, ka_, sa_, ta_, na_, ha_, ma_, ya_,  ra_, wa_,  aa_, yya_, DAKU_,EOM_,};
+static const u16 str_namein_b02[] = { i_, ki_, si_, ti_, ni_, hi_, mi_, yu_,  ri_, wo_,  ii_, yyu_, HANDAKU_,EOM_,};
+static const u16 str_namein_b03[] = { u_, ku_, su_, tu_, nu_, hu_, mu_, yo_,  ru_, n_,   uu_, yyo_, bou_,EOM_,};
+static const u16 str_namein_b04[] = { e_, ke_, se_, te_, ne_, he_, me_, spc_, re_, spc_, ee_, ttu_, spc_,EOM_,};
+static const u16 str_namein_b05[] = { o_, ko_, so_, to_, no_, ho_, mo_, spc_, ro_, spc_, oo_, spc_, kten_,EOM_,};
+
+// カタカナ列
+static const u16 str_namein_b11[] = { A_, KA_, SA_, TA_, NA_, HA_, MA_, YA_,  RA_,  WA_, AA_, YYA_,DAKU_,    EOM_};
+static const u16 str_namein_b12[] = { I_, KI_, SI_, TI_, NI_, HI_, MI_, YU_,  RI_,  WO_, II_, YYU_,HANDAKU_, EOM_};
+static const u16 str_namein_b13[] = { U_, KU_, SU_, TU_, NU_, HU_, MU_, YO_,  RU_,  N_,  UU_, YYO_,bou_,     EOM_}; 
+static const u16 str_namein_b14[] = { E_, KE_, SE_, TE_, NE_, HE_, ME_, spc_, RE_, spc_, EE_, TTU_,spc_,     EOM_}; 
+static const u16 str_namein_b15[] = { O_, KO_, SO_, TO_, NO_, HO_, MO_, spc_, RO_, spc_, OO_, spc_,kten_,    EOM_,};
+
+
+// アルファベット列
+static const u16 str_namein_b21[] = {A__,B__,C__,D__,E__,F__,G__,H__,I__,J__,K__,L__,M__,   EOM_};
+static const u16 str_namein_b22[] = {N__,O__,P__,Q__,R__,S__,T__,U__,V__,W__,X__,Y__,Z__,   EOM_};
+static const u16 str_namein_b23[] = {a__,b__,c__,d__,e__,f__,g__,h__,i__,j__,k__,l__,m__,   EOM_};
+static const u16 str_namein_b24[] = {n__,o__,p__,q__,r__,s__,t__,u__,v__,w__,x__,y__,z__,   EOM_};
+static const u16 str_namein_b25[] = {n0_,n1_,n2_,n3_,n4_,n5_,n6_,n7_,n8_,n9_,period_,comma_,spc_,EOM_};
+
+// 記号列
+static const u16 str_namein_b31[] = 
+{   n0_,   n1_,   n2_,     n3_,     n4_, n5_,   n6_,   n7_,     n8_,     n9_, spc_,   gyoe_,    hate_, EOM_, };
+static const u16 str_namein_b32[] = 
+{   ten_, kten_, comma_, period_, tenten_, nakag_, wave_, colon_, semicolon_, sura_, spc_, osu_, mesu_,EOM_, };
+static const u16 str_namein_b33[] = 
+{  kako_, kakot_, kako2_, kakot2_, MaruKako__, MaruKakot__, Plus__, bou_, times_, divide_, equal_, percent_, atmark_,EOM_,};
+static const u16 str_namein_b34[] = 
+{  double_circle_, circle_, square_, triangle_, lozenge__,heart_,spade_, diamond_,club_, star_, note_,spc_,spc_, EOM_,};
+static const u16 str_namein_b35[] = 
+{  sun_,cloud_,rain_,snow_, org_face_normal_,org_face_smile_,org_face_cry_, org_face_angry_,org_sleep_,org_upper_,org_downer_,spc_,spc_,EOM_};
+
+  
+
+
+// 数字のみ列
+static const u16 str_namein_b41[] = {n0_,n1_,n2_, n3_,n4_,spc_, spc_,spc_,spc_,spc_,spc_, spc_, spc_,spc_,spc_,spc_,spc_,EOM_};
+static const u16 str_namein_b42[] = {n5_,n6_,n7_, n8_,n9_,spc_, spc_,spc_,spc_,spc_,spc_, spc_, spc_,spc_,spc_,spc_,spc_,EOM_};
+static const u16 str_namein_b43[] = {spc_,spc_,spc_,spc_,spc_, spc_, spc_,spc_,spc_,spc_,spc_, spc_, spc_,spc_,spc_,spc_,spc_,EOM_};
+
+const u16 *str_nametbl[][5]={
+	{
+		str_namein_b01,
+		str_namein_b02,
+		str_namein_b03,
+		str_namein_b04,
+		str_namein_b05,
+	},
+	{
+		str_namein_b11,
+		str_namein_b12,
+		str_namein_b13,
+		str_namein_b14,
+		str_namein_b15,
+	},
+	{
+		str_namein_b21,
+		str_namein_b22,
+		str_namein_b23,
+		str_namein_b24,
+		str_namein_b25,
+	},
+	{
+		str_namein_b31,
+		str_namein_b32,
+		str_namein_b33,
+		str_namein_b34,
+		str_namein_b35,
+	},
+	{
+		str_namein_b41,
+		str_namein_b42,
+		str_namein_b43,
+		str_namein_b43,
+		str_namein_b43,
+	},
+
+};
+
+#define BIGSMALL_WORD_START	(  0    )	// 小文字比較の開始位置
+#define BIGSMALL_WORD_NUM	( 46    )	// 小文字の数
+#define DAKU_WORD_START		( 42    )	// 濁音比較の開始位置
+#define DAKU_WORD_NUM		( 42+40 )	// 濁音の数
+#define HANDAKU_WORD_START	( 72    )	// 半濁音比較の開始位置
+#define HANDAKU_WORD_NUM	( 72+10 )	// 半濁音の数
+
+
+// 下画面ボタン用テーブル（変換文字候補テーブともいえる）
+static const u16 convert_tbl[][3]={
+
+	// 小文字列
+	{a_,spc_,aa_,},		// あ　ぁ
+	{i_,spc_,ii_,},		// い　ぃ
+	{u_,spc_,uu_,},		// う　ぅ
+	{e_,spc_,ee_,},		// え　ぇ
+	{o_,spc_,oo_,},		// お　ぉ
+	{A_,spc_,AA_,},		 // あ　ぁ
+	{I_,spc_,II_,},      // い　ぃ
+	{U_,spc_,UU_,},      // う　ぅ
+	{E_,spc_,EE_,},      // え　ぇ
+	{O_,spc_,OO_,},      // お　ぉ
+	{ya_,spc_,yya_,},	// や　ゃ
+	{yu_,spc_,yyu_,},	// ゆ　ゅ
+	{yo_,spc_,yyo_,},	// よ　ょ
+	{YA_,spc_,YYA_,},    // や　ゃ
+	{YU_,spc_,YYU_,},    // ゆ　ゅ
+	{YO_,spc_,YYO_,},    // よ　ょ
+	{A__,spc_,a__,},
+	{B__,spc_,b__,},
+	{C__,spc_,c__,},
+	{D__,spc_,d__,},
+	{E__,spc_,e__,},
+	{F__,spc_,f__,},
+	{G__,spc_,g__,},
+	{H__,spc_,h__,},
+	{I__,spc_,i__,},
+	{J__,spc_,j__,},
+	{K__,spc_,k__,},
+	{L__,spc_,l__,},
+	{M__,spc_,m__,},
+	{N__,spc_,n__,},
+	{O__,spc_,o__,},
+	{P__,spc_,p__,},
+	{Q__,spc_,q__,},
+	{R__,spc_,r__,},
+	{S__,spc_,s__,},
+	{T__,spc_,t__,},
+	{U__,spc_,u__,},
+	{V__,spc_,v__,},
+	{W__,spc_,w__,},
+	{X__,spc_,x__,},
+	{Y__,spc_,y__,},
+	{Z__,spc_,z__,},
+
+	//濁音・小文字列
+	{tu_,du_, ttu_,},	// つづっ		// 44
+	{TU_,DU_, TTU_,},     // つづっ		// 45
+
+	// 濁音列
+	{ka_,ga_,spc_,},	// かが　
+	{ki_,gi_,spc_,},	// きぎ　
+	{ku_,gu_,spc_,},	// くぐ　
+	{ke_,ge_,spc_,},	// けげ　
+	{ko_,go_,spc_,},	// こご　
+	{sa_,za_,spc_,},	// さざ
+	{si_,zi_,spc_,},	// しじ
+	{su_,zu_,spc_,},	// すず
+	{se_,ze_,spc_,},	// せぜ
+	{so_,zo_,spc_,},	// そぞ
+	{ta_,da_,spc_,},	// ただ
+	{ti_,di_,spc_,},	// ちぢ
+	{te_,de_,spc_,},	// てで
+	{to_,do_,spc_,},	// とど
+	{KA_,GA_,spc_,},     // かが　
+	{KI_,GI_,spc_,},     // きぎ　
+	{KU_,GU_,spc_,},     // くぐ　
+	{KE_,GE_,spc_,},     // けげ　
+	{KO_,GO_,spc_,},     // こご　
+	{SA_,ZA_,spc_,},     // さざ
+	{SI_,ZI_,spc_,},     // しじ
+	{SU_,ZU_,spc_,},     // すず
+	{SE_,ZE_,spc_,},     // せぜ
+	{SO_,ZO_,spc_,},     // そぞ
+	{TA_,DA_,spc_,},     // ただ
+	{TI_,DI_,spc_,},     // ちぢ
+	{TE_,DE_,spc_,},     // てで
+	{TO_,DO_,spc_,},     // とど	
+
+	// 濁音・半濁音列
+	{ha_,ba_,pa_,},		// はばぱ	// 74
+	{hi_,bi_,pi_,},		// ひびぴ
+	{hu_,bu_,pu_,},		// ふぶぷ
+	{he_,be_,pe_,},		// へべぺ
+	{ho_,bo_,po_,},		// ほぼぽ
+	{HA_,BA_,PA_,},      // はばぱ
+	{HI_,BI_,PI_,},      // ひびぴ
+	{HU_,BU_,PU_,},      // ふぶぷ
+	{HE_,BE_,PE_,},      // へべぺ
+	{HO_,BO_,PO_,},      // ほぼぽ	// 82
+
+};
+
+static const u16 extra_daku_tbl[][2]={
+	// 濁音
+	{ttu_,du_},
+	{TTU_,DU_},
+	{pa_,ba_,},
+	{pi_,bi_,},
+	{pu_,bu_,},
+	{pe_,be_,},
+	{po_,bo_,},
+	{PA_,BA_,},
+	{PI_,BI_,},
+	{PU_,BU_,},
+	{PE_,BE_,},
+	{PO_,BO_,},
+};
+
+static const u16 extra_handaku_tbl[][2]={
+	// 半濁音
+	{ba_,pa_},
+	{bi_,pi_},
+	{bu_,pu_},
+	{be_,pe_},
+	{bo_,po_},
+	{BA_,PA_},
+	{BI_,PI_},
+	{BU_,PU_},
+	{BE_,PE_},
+	{BO_,PO_},
+};
+
+
+// 下画面OAMキャラクターのVRAMのどの位置に文字が入っているかのオフセット
+static const int obj_word_offset[]={
+	SUB_WORD_BUTTON1_OFFSET,
+	SUB_WORD_BUTTON2_OFFSET,
+	SUB_WORD_BUTTON3_OFFSET,
+};
+
+// もうホントに渕野君がそういうパレット配置にしているからのデータ
+// 文字パネルの背景パレット指定（４枚分）
+static const u8 wordpanel_bg_col[4]={
+	4,7,0xd,0xa,
+};
+
+const u16 str_titleinfo0[]={a_,na_,ta_,no_,spc_,na_,ma_,e_,ha_,hate_,EOM_};
+const u16 str_titleinfo1[]={PO_,KE_,MO_,N_,no_,spc_,NI_,TTU_,KU_,NE_,bou_,MU_,ha_,hate_,EOM_,};
+const u16 str_titleinfo2[]={BO_,TTU_,KU_,SU_,no_,spc_,na_,ma_,e_,ha_,hate_,EOM_,};
+
+static const u16 *str_title[]={
+	str_titleinfo0,
+	str_titleinfo1,
+	str_titleinfo2,
+};
+
+static const RECT_HIT_TBL sub_button_hittbl[]={
+	{SUB_BUTTON_POSY,SUB_BUTTON_POSY+88,SUB_BUTTON_POSX,SUB_BUTTON_POSX+230},
+//	{SUB_BUTTON2_POSY-8,SUB_BUTTON2_POSY+40+8,SUB_BUTTON2_POSX-32,SUB_BUTTON2_POSX+40+24},
+//	{SUB_BUTTON3_POSY-8,SUB_BUTTON3_POSY+40+8,SUB_BUTTON3_POSX-32,SUB_BUTTON3_POSX+40+32},
+	{RECT_HIT_END,0,0,0},		// 終了データ
+};
+
+
+// 名前入力のタイトルの文字列を定義したテーブル
+static const int NameinTitleStrTable[]={
+	NAMEIN_MSG_TITLEINFO0,		// NAMEIN_MYNAME = 0,	// 自分の名前
+	NAMEIN_MSG_TITLEINFO1,      // NAMEIN_POKEMON,		// ポケモンの名前
+	NAMEIN_MSG_TITLEINFO2,      // NAMEIN_BOX,			// ボックスの名前
+	NAMEIN_MSG_TITLEINFO3,      // NAMEIN_RIVALNAME,	// ライバルネーム
+	NAMEIN_MSG_TITLEINFO4,      // NAMEIN_FRIENDCODE,	// ともだちコード
+	NAMEIN_MSG_TITLEINFO5,      // NAMEIN_RANDOMGROUP, // 乱数の種グループの名前
+	NAMEIN_MSG_TITLEINFO6,      // NAMEIN_STONE,		// 石碑(配布）
+	NAMEIN_MSG_TITLEINFO3,      // NAMEIN_FRIENDNAME,  // WIFIともだち手帳に書き込むともだちの名前
+};

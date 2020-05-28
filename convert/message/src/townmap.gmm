@@ -1,0 +1,1107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="tetsuji_ohta" host="W00090" date="2006-07-26T17:03:23"/>
+	<generator name="MessageEditor" version="4.9.2.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名" english="ポケット名" view="EP" width="144" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名</comment>
+				<comment language="english">バッグのポケット名</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="132"/>
+		<group default=" 0:デフォルト" position="7" width="65">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="292"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="235"/>
+			<font default=" 0:font_talk" position="3" width="96">
+				<list entry="0" file="..\font\font_talk.nftr"/>
+				<list entry="1" file="..\font\font_system.nftr"/>
+				<list entry="2" file="..\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="37"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="41"/>
+			<line position="6" width="32"/>
+		</language>
+	</columns>
+
+	<dialog left="490" top="99" right="1002" bottom="668" maximized="no" rayout="Vertical2">
+		<comment-input left="647" top="551" right="994" bottom="703" visible="no"/>
+		<tag-palette left="601" top="133" right="948" bottom="531" visible="no"/>
+		<band id="0" index="0" style="0000" width="504"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="337"/>
+		<band id="3" index="3" style="0000" width="504"/>
+		<band id="4" index="4" style="0000" width="591"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="mes_townmap_01_01">
+		<comment>「そらをとぶ」を使うで、飛び先を決めたときのメッセージ。
+</comment>
+		<language name="日本語" width="120">どこへ　とびますか？</language>
+	</row>
+
+	<row id="mes_townmap_02_01">
+		<comment>下画面の上部に表示する「ガイドマップ」のタイトル。</comment>
+		<language name="日本語" font=" 1:font_system" width="72">ガイドマップ</language>
+	</row>
+
+	<row id="mes_guide_r201_01_01">
+		<comment>２０１番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">みどりのはが　こんもりと　おいしげる
+きのかおり　ただよう　はやしの　こみち。</language>
+	</row>
+
+	<row id="mes_guide_r202_01_01">
+		<comment>２０２番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">まがりくねった　みちの　くさむらでは
+わかい　トレーナーたちが　うでをきそう。</language>
+	</row>
+
+	<row id="mes_guide_r203_01_01">
+		<comment>２０３番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">おおきなまちの　そばに　ありながら
+いまだ　しぜんのにおいが　のこるみち。</language>
+	</row>
+
+	<row id="mes_guide_r203_02_02">
+		<comment>２０３番道路のガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">どうくつを　ぬけていけば
+クロガネシティまでは　すぐそこ。</language>
+	</row>
+
+	<row id="mes_guide_r204_01_01">
+		<comment>２０４番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">いくつもの　いけと　こだちが　たちならぶ
+しぜんの　みりょくに　あふれたみち。</language>
+	</row>
+
+	<row id="mes_guide_r204_02_02">
+		<comment>２０４番道路のガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">たかだいを　くりぬいて　つくられた
+あれたぬけみちを　とおっていけば
+ソノオタウンまでは　あっというま。</language>
+	</row>
+
+	<row id="mes_guide_r205_01_01">
+		<comment>２０５番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">おおきな　いけには　はばのひろい
+はしが　かけられており　はしのうえでは
+つりびとたちが　のんびり　いとをたれる。</language>
+	</row>
+
+	<row id="mes_guide_r205_02_01">
+		<comment>２０５番道路のガイドメッセージ２－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">しずかに　ながれる　かわと
+きふくのある　ちけいが　ぼうけんの
+たのしさを　えんしゅつしている　みち。</language>
+	</row>
+
+	<row id="mes_guide_r205_02_02">
+		<comment>２０５番道路のガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ハクタイのもりの　いりぐちの　そばには
+つかれを　いやしてくれる　いえがある。</language>
+	</row>
+
+	<row id="mes_guide_r206_01_01">
+		<comment>２０６番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">アスファルトで　ほそうされた
+サイクリングロードは　じてんしゃを
+あいするものたちの　てんごく。</language>
+	</row>
+
+	<row id="mes_guide_r206_02_02">
+		<comment>２０６番道路のガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">サイクリングロードの　したには
+まよいのどうくつの　いりぐちが　みえる。</language>
+	</row>
+
+	<row id="mes_guide_r207_01_01">
+		<comment>２０７番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">デコボコした　いわはだが　あらあらしい
+テンガンざんの　ふもとの　みち。</language>
+	</row>
+
+	<row id="mes_guide_r208_01_01">
+		<comment>２０８番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">テンガンざんの　きりたった　いわはだと
+ふんわり　ひろがる　くさむらが
+たいしょうてきな　けしきをつくる　みち。</language>
+	</row>
+
+	<row id="mes_guide_r208_02_02">
+		<comment>２０８番道路のガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">しぜんと　ポケモンと　きのみを　あいする
+きのみじいさんの　すむいえが　ある。</language>
+	</row>
+
+	<row id="mes_guide_r209_01_01">
+		<comment>２０９番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ぞうきばやしと　くさむらの　あいだを
+ぬうように　ながれる　おがわが
+こころの　やすらぎを　かんじさせる。</language>
+	</row>
+
+	<row id="mes_guide_r209_01_02">
+		<comment>２０９番道路のガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ロストタワーは　いのちを　おえた
+ポケモンの　たましいが　ねむるばしょ。</language>
+	</row>
+
+	<row id="mes_guide_r210_01_01">
+		<comment>２１０番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">やまあいを　きりひらいて　つくられた
+だいしぜんの　けいこくには
+いつも　ふかいきりが　たちこめている。</language>
+	</row>
+
+	<row id="mes_guide_r210_03_02">
+		<comment>２１０番道路のガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ひとざと　はなれた　やまあいに
+タツばあさんのいえが　ひっそりと　たつ。</language>
+	</row>
+
+	<row id="mes_guide_r210_04_01">
+		<comment>２１０番道路のガイドメッセージ４－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">せのたかいくさが　いちめんに　おいしげり
+ふみこんだ　ものの　はなを　くすぐる。</language>
+	</row>
+
+	<row id="mes_guide_r210_05_02">
+		<comment>２１０番道路のガイドメッセージ５－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">はやしのなかに　たつ　カフェやまごや。
+しんせん　しぼりたての　ミルクがじまん。</language>
+	</row>
+
+	<row id="mes_guide_r211_01_01">
+		<comment>２１１番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">シンオウちほう　さいだいきゅうの
+けわしさを　ほこる　テンガンざんを
+りょうがわから　つらぬく　やまみち。</language>
+	</row>
+
+	<row id="mes_guide_r212_01_01">
+		<comment>２１２番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">どうろの　はんぶんちかくを　しめる
+こうだいな　しきちを
+たかい　へいが　ぐるりと　かこんでいる。</language>
+	</row>
+
+	<row id="mes_guide_r212_02_02">
+		<comment>２１２番道路のガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">へいの　むこうに　みえるのは
+ポケモンやしきと　いわれる　ごうてい。
+うらやまが　じまんのタネ　らしい。</language>
+	</row>
+
+	<row id="mes_guide_r212_04_01">
+		<comment>２１２番道路のガイドメッセージ４－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">いつでも　おおあめが　ふっているので
+みちは　あちこち　みずたまり　だらけ。
+トレーナーは　ずぶぬれで　たいへん。</language>
+	</row>
+
+	<row id="mes_guide_r212_06_02">
+		<comment>２１２番道路のガイドメッセージ６－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">あか　あお　きいろに　みどりのかけら
+いろいろなかけらを　わざマシンと
+こうかん　してくれる　いえ。</language>
+	</row>
+
+	<row id="mes_guide_r213_01_01">
+		<comment>２１３番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">おきあいの　いわが　ぼうはていと　なって
+はまべの　しずけさを　たもっている。
+たかだいに　たつのは　リゾートホテル。</language>
+	</row>
+
+	<row id="mes_guide_r213_01_02">
+		<comment>２１３番道路のガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">はまべの　ちいさないえには　フトマキさん
+つうしょう　あしあとはかせと　よばれる
+じんぶつが　ひとりで　すんでいる。</language>
+	</row>
+
+	<row id="mes_guide_r214_01_01">
+		<comment>２１４番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">トバリシティと　みずうみを　むすぶみちは
+よくいえば　しぜんのままの　すがた
+わるくいえば　あれほうだいの　のはら。</language>
+	</row>
+
+	<row id="mes_guide_r214_01_02">
+		<comment>２１４番道路のガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">やまはだには　いせきマニアが　あけた
+どうくつが　くちを　ひらいている。</language>
+	</row>
+
+	<row id="mes_guide_r215_01_01">
+		<comment>２１５番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">いつでも　おおあめが　ふりつづけている。
+ここに　あつまるのは　あめにも　まけない
+むてっぽうな　トレーナー　ばかり。</language>
+	</row>
+
+	<row id="mes_guide_r216_01_01">
+		<comment>２１６番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">テンガンざんから　のびる　やまみちは
+やまない　ゆきが　ぶあつく　ふりつもり
+みちゆくものの　あゆみを　にぶらせる。</language>
+	</row>
+
+	<row id="mes_guide_r217_01_01">
+		<comment>２１７番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">テンガンざんから　ふきおろす　ゆきが
+もうふぶきと　なって　おそいかかる。
+かくごをきめて　あしを　ふみいれよう。</language>
+	</row>
+
+	<row id="mes_guide_r218_01_01">
+		<comment>２１８番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ほんの　みじかい　みちながら
+ねっしんな　つりびとたちの　あいだでは
+かくれた　めいしょと　なっている。</language>
+	</row>
+
+	<row id="mes_guide_r219_01_01">
+		<comment>２１９番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">マサゴタウンから　あるいてきても
+たった　５びょうの　しろい　すなはま。
+うみから　ふく　かぜが　きもちいい。</language>
+	</row>
+
+	<row id="mes_guide_w220_01_01">
+		<comment>２２０番水道のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">おだやかな　かぜと　しおの　ながれは
+かいすいよくに　さいてきな　うみ。
+およぎつかれたら　なかすで　ひとやすみ。</language>
+	</row>
+
+	<row id="mes_guide_r221_01_01">
+		<comment>２２１番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">まばらな　ぞうきばやしの　あいだを
+まっすぐに　ぬける　みどりの　みち。</language>
+	</row>
+
+	<row id="mes_guide_r221_03_02">
+		<comment>２２１番道路のガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">みちの　つきあたりには　パルパークへの
+ゲートが　たっている。</language>
+	</row>
+
+	<row id="mes_guide_r222_01_01">
+		<comment>２２２番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">どうろぞいに　ひろがる　すなはまは
+いそづりに　チャレンジする　ひとびとの
+たのしそうな　すがたで　にぎわっている。</language>
+	</row>
+
+	<row id="mes_guide_r222_03_02">
+		<comment>２２２番道路のガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">このあたりには　つりずきの　おじさんや
+つったポケモンの　おおきさ　くらべを
+してくれる　おじさんの　いえがある。</language>
+	</row>
+
+	<row id="mes_guide_w223_01_01">
+		<comment>２２３番水道のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">すいめんに　つきでた　いわや　あさせが
+いくてを　はばむ　うみのみち。</language>
+	</row>
+
+	<row id="mes_guide_r224_01_01">
+		<comment>２２４番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">くさむらと　いわやま　うみと　あさせ
+まるで　シンオウちほう　ぜんたいを
+しゅくずに　したような　ばしょ。</language>
+	</row>
+
+	<row id="mes_guide_r225_01_01">
+		<comment>２２５番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">こうていさのある　ちけいを
+あがったり　おりたり　いそがしい　みち。</language>
+	</row>
+
+	<row id="mes_guide_w226_01_01">
+		<comment>２２６番水道のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">なみうちぎわまで　たかい　ぜっぺきが
+せまってくる　みちなき　みち。</language>
+	</row>
+
+	<row id="mes_guide_w226_03_02">
+		<comment>２２６番水道のガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">わんないに　うかぶ　ちいさな　しまには
+よそのくにの　ことばを　しゃべる
+ふしぎな　じんぶつが　すんでいる。</language>
+	</row>
+
+	<row id="mes_guide_r227_01_01">
+		<comment>２２７番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ふりそそぐ　かざんばいが　たびびとの
+しかいを　さまたげる　けわしい　みち。</language>
+	</row>
+
+	<row id="mes_guide_r228_01_01">
+		<comment>２２８番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">つよい　うみかぜに　あおられて
+よこなぐりの　すなあらしが　ふきあれる
+かこくな　みち。</language>
+	</row>
+
+	<row id="mes_guide_r229_01_01">
+		<comment>２２９番道路のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">しぜんの　なすままに　くさや　きが
+むきそくに　しげる　うみぞいの　みち。</language>
+	</row>
+
+	<row id="mes_guide_w230_01_01">
+		<comment>２３０番水道のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">よこにのびる　すいろの　とちゅうに
+くさばなの　おいしげる　しまが　ある。</language>
+	</row>
+
+	<row id="mes_guide_w231_01_01">
+		<comment>２３１番水道のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">かいじょうを　まっすぐ　のびる　みち。
+はなのらくえんに　つづいている。</language>
+	</row>
+
+	<row id="mes_guide_t1_01_01">
+		<comment>フタバタウンのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">わかばの　いぶきと　なにかの　はじまりを
+かんじさせる　ちいさな　まち。</language>
+	</row>
+
+	<row id="mes_guide_t1_01_02">
+		<comment>フタバタウンのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">じぶんの　いえと
+ともだちの　いえが　ある。</language>
+	</row>
+
+	<row id="mes_guide_t2_01_01">
+		<comment>マサゴタウンのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">はまべの　すぐそばに　あって
+しおかぜの　かおりただよう　すなのまち。</language>
+	</row>
+
+	<row id="mes_guide_t2_01_02">
+		<comment>マサゴタウンのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケモンの　けんきゅうに　いそしむ
+ナナカマドはかせの　けんきゅうじょが
+まちの　めじるし。</language>
+	</row>
+
+	<row id="mes_guide_t3_01_01">
+		<comment>ソノオタウンのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">さきほこる　はなのかおりに　つつまれた
+はなを　あいする　ひとびとの　まち。　</language>
+	</row>
+
+	<row id="mes_guide_t3_01_02">
+		<comment>ソノオタウンのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">はなのあぜみちを　すすんだ　さきには
+いちめんの　はなばたけが　ひろがる。</language>
+	</row>
+
+	<row id="mes_guide_t3_02_02">
+		<comment>ソノオタウンのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">まちの　ちゅうおうには
+フラワーショップ　いろとりどりが　ある。</language>
+	</row>
+
+	<row id="mes_guide_t4_01_01">
+		<comment>ズイタウンのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">おんだんな　きこうで　ひとも　ポケモンも
+のんびり　きままに　くらせる　まち。</language>
+	</row>
+
+	<row id="mes_guide_t4_01_02">
+		<comment>ズイタウンのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケモンの　そだてやさんと
+ポケモン　センターが　ある。</language>
+	</row>
+
+	<row id="mes_guide_t4_02_02">
+		<comment>ズイタウンのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">こだちの　あいだを　ぬけた　さきには
+ズイのいせきの　いりぐちが　ある。</language>
+	</row>
+
+	<row id="mes_guide_t5_01_01">
+		<comment>カンナギタウンのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">むかしの　くらしと　れきしを
+いまに　つたえる　ちいさな　まち。</language>
+	</row>
+
+	<row id="mes_guide_t5_01_02">
+		<comment>カンナギタウンのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">まちの　ちゅうおうには　いにしえの
+ほこらが　のこっている。</language>
+	</row>
+
+	<row id="mes_guide_t6_01_01">
+		<comment>タウン６のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケモンしょうぶに　あつく　もえる
+ものたちが　おのれを　きたえなおすために
+あつまってくる　まち。</language>
+	</row>
+
+	<row id="mes_guide_t7_01_01">
+		<comment>タウン７のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">しょうぶする　いがいにも　ポケモンの
+べつの　たのしみを　しっている
+ひとたちが　あつまってくる　まち。</language>
+	</row>
+
+	<row id="mes_guide_c1_01_01">
+		<comment>コトブキシティのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">シンオウちほうの　なかでも　とくに
+きんだいてきな　はってんを　とげている
+たくさんの　ひとびとが　いきかう　まち。</language>
+	</row>
+
+	<row id="mes_guide_c1_01_02">
+		<comment>コトブキシティのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケッチの　かいはつを　している
+ポケッチカンパニーが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c1_02_02">
+		<comment>コトブキシティのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">いろいろ　あそべる　テレビきょく
+テレビ　コトブキが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c1_03_02">
+		<comment>コトブキシティのガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">グローバル　トレード　ステーション
+ちぢめて　ＧＴＳが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c1_04_02">
+		<comment>コトブキシティのガイドメッセージ４－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケモンの　きそが　いろいろ　わかる
+トレーナーズ　スクールが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c2_01_01">
+		<comment>ミオシティのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">うんがで　ふたつに　ぶんだんされた
+いこくじょうちょ　あふれる　みなとまち。</language>
+	</row>
+
+	<row id="mes_guide_c2_01_02">
+		<comment>ミオシティのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ずのうを　はたらかせるなら　としょかん。
+にくたいを　うごかすなら　ジムへ。</language>
+	</row>
+
+	<row id="mes_guide_c2_02_02">
+		<comment>ミオシティのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ふなつきばの　さんばしには　いつも
+おおきな　ふねが　とまっている。</language>
+	</row>
+
+	<row id="mes_guide_c3_01_01">
+		<comment>クロガネシティのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">てんねん　しげんに　めぐまれた
+エネルギー　みなぎる　たんこうまち。</language>
+	</row>
+
+	<row id="mes_guide_c3_01_02">
+		<comment>クロガネシティのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">たんこうで　はたらく　ひとびとが
+ハードな　しごとの　あいまに
+いきぬきをする　ジムが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c3_02_02">
+		<comment>クロガネシティのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">たんこうに　かんするものが　てんじされた
+はくぶつかんが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c3_03_02">
+		<comment>クロガネシティのガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">いまも　きょだいな　せきたんが　ねむる
+クロガネたんこうの　いりぐちは　こちら。</language>
+	</row>
+
+	<row id="mes_guide_c4_01_01">
+		<comment>ハクタイシティのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">しだいに　わすれられつつある　れきしの
+おもかげが　かすかに　のこる　まち。</language>
+	</row>
+
+	<row id="mes_guide_c4_01_02">
+		<comment>ハクタイシティのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">あやしげな　ふんいきの　ビルや
+サイクル　ショップが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c4_02_02">
+		<comment>ハクタイシティのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">おおむかしの　ポケモンの　ぞうが
+まつられている。</language>
+	</row>
+
+	<row id="mes_guide_c4_03_02">
+		<comment>ハクタイシティのガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ひとの　でいりが　はげしい　まちには
+かかせない　ジムが　ここにも　ある。</language>
+	</row>
+
+	<row id="mes_guide_c5_01_01">
+		<comment>ヨスガシティのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ひとびとや　ポケモンが　あつまり
+しょうぎょうの　はってんと　ともに
+できあがった　ゆうこうの　まち。</language>
+	</row>
+
+	<row id="mes_guide_c5_01_02">
+		<comment>ヨスガシティのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケモンと　きままに　おさんぽ　できる
+ふれあいひろばの　いりぐちが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c5_02_02">
+		<comment>ヨスガシティのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケモンの　みために　こだわるなら
+コンテストかいじょうへ。
+つよさに　こだわるなら　ジムへ。</language>
+	</row>
+
+	<row id="mes_guide_c5_03_02">
+		<comment>ヨスガシティのガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">このまちが　ことなる　ぶんかを　もった
+ひとびとの　いきかうばしょ　であることを
+しょうちょうする　たてものが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c5_04_02">
+		<comment>ヨスガシティのガイドメッセージ４－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ふんすいや　ベンチ　だいすきクラブなど
+いこいのしせつも　じゅうじつ　している。</language>
+	</row>
+
+	<row id="mes_guide_c6_01_01">
+		<comment>ノモセシティのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">もともと　このとちに　ひろがっていた
+だいしつげんを　ほごするために
+しぜんと　かたちづくられていった　まち。</language>
+	</row>
+
+	<row id="mes_guide_c6_01_02">
+		<comment>ノモセシティのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">みずが　ほうふな　このとちには
+いかにも　それらしい　ジムが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c6_02_02">
+		<comment>ノモセシティのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">だいしつげんを　のぞむ　てんぼうだいと
+サファリゲームへの　ゲートが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c7_01_01">
+		<comment>トバリシティのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">けわしい　やまを　きりくずして
+つくられたため　ほかのとち　とは
+あまり　こうりゅうを　もたない　まち。</language>
+	</row>
+
+	<row id="mes_guide_c7_01_02">
+		<comment>トバリシティのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">さまざまな　ぶっしを　ほぞんするための
+そうこぐんが　たっている。
+かいものを　するなら　デパートも　ある。</language>
+	</row>
+
+	<row id="mes_guide_c7_02_02">
+		<comment>トバリシティのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">いちだんと　たかくなった　ところに
+たっているのは　ギンガだんの　ほんぶ。</language>
+	</row>
+
+	<row id="mes_guide_c7_03_02">
+		<comment>トバリシティのガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ゆうぎしせつに　ちからを　いれている
+このまちには　もちろん　ジムも　ある。</language>
+	</row>
+
+	<row id="mes_guide_c7_04_02">
+		<comment>トバリシティのガイドメッセージ４－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ゲームコーナーと　その　となりには
+けいひん　こうかんじょも　かんび。</language>
+	</row>
+
+	<row id="mes_guide_c8_01_01">
+		<comment>ナギサシティのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">みさきの　いりくんだ　ちけいを
+りようして　つくられた　みなとまち。
+りったいてきな　ほどうが　とくちょう。</language>
+	</row>
+
+	<row id="mes_guide_c8_01_02">
+		<comment>ナギサシティのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">たかだいの　うえには　ジムが　ある。
+すなはまには　にぎやかな　いちば。</language>
+	</row>
+
+	<row id="mes_guide_c8_04_02">
+		<comment>ナギサシティのガイドメッセージ４－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">シルベの　とうだいは　シンオウちほうに
+あかるいひかりを　なげかける。</language>
+	</row>
+
+	<row id="mes_guide_c9_01_01">
+		<comment>キッサキシティのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">たちならぶ　じゅもくも　たてものも
+ふりつもる　ゆきに　あつく　おおわれ
+いちめん　ぎんせかいとなった　まち。</language>
+	</row>
+
+	<row id="mes_guide_c9_01_02">
+		<comment>キッサキシティのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">まちの　ちゅうおうには　ジムが　たち
+おくには　キッサキしんでんが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c10_01_01">
+		<comment>ポケモンリーグのガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">トレーナーの　ちょうてんを　めざすものが
+ながく　けわしい　みちのりを
+のりこえて　あつまってくる　ばしょ。</language>
+	</row>
+
+	<row id="mes_guide_c10_01_02">
+		<comment>ポケモンリーグのガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケモンリーグへの　うけつけが　ある。
+すべてのジムを　せいはした　ものだけが
+はいることのできる　ばしょ。</language>
+	</row>
+
+	<row id="mes_guide_c10_02_02">
+		<comment>ポケモンリーグのガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケモンリーグへの　さいごの　かんもん
+チャンピオンロードが　ある。</language>
+	</row>
+
+	<row id="mes_guide_c11_01_01">
+		<comment>シティ１１のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">さんどの　ごはんより　ポケモンしょうぶが
+だいすきな　ひとびとが　やってくる
+とっても　ちいさな　みなとまち。</language>
+	</row>
+
+	<row id="mes_guide_c11_01_02">
+		<comment>シティ１１のガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">さんばしには　キッサキシティへの
+ふねが　ていはく　している。</language>
+	</row>
+
+	<row id="mes_guide_c11_02_02">
+		<comment>シティ１１のガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">バトルパークへの　ゲートが　ある。</language>
+	</row>
+
+	<row id="mes_guide_l1_01_01">
+		<comment>みずうみ１のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">みずに　めぐまれた　シンオウちほうを
+しょうちょうする　みずうみの　ひとつ。
+ふしぎな　でんせつが　あるという。</language>
+	</row>
+
+	<row id="mes_guide_l1_04_02">
+		<comment>みずうみ１のガイドメッセージ４－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ちゅうおうの　こじまから
+みずうみ　ないぶの　どうくつへ
+はいることが　できる。</language>
+	</row>
+
+	<row id="mes_guide_l2_01_01">
+		<comment>みずうみ２のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">みずに　めぐまれた　シンオウちほうを
+しょうちょうする　みずうみの　ひとつ。
+ふしぎな　でんせつが　あるという。</language>
+	</row>
+
+	<row id="mes_guide_l2_02_02">
+		<comment>みずうみ２のガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ちゅうおうの　こじまから
+みずうみ　ないぶの　どうくつへ
+はいることが　できる。</language>
+	</row>
+
+	<row id="mes_guide_l2_04_02">
+		<comment>みずうみ２のガイドメッセージ４－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">こはんの　たかだいに　たつ
+こうきゅう　レストラン。</language>
+	</row>
+
+	<row id="mes_guide_l3_01_01">
+		<comment>みずうみ３のガイドメッセージ３－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">みずに　めぐまれた　シンオウちほうを
+しょうちょうする　みずうみの　ひとつ。
+ふしぎな　でんせつが　あるという。</language>
+	</row>
+
+	<row id="mes_guide_l3_04_02">
+		<comment>みずうみ３のガイドメッセージ４－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ちゅうおうの　こじまから
+みずうみ　ないぶの　どうくつへ
+はいることが　できる。</language>
+	</row>
+
+	<row id="mes_guide_l4_01_01">
+		<comment>みずうみ４のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">かくされていた　だい４の　みずうみ。</language>
+	</row>
+
+	<row id="mes_guide_l4_03_02">
+		<comment>みずうみ４のガイドメッセージ３－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">みずうみの　そこには
+くうかんの　ねじれた　どうくつが　ある。</language>
+	</row>
+
+	<row id="mes_guide_d2_01_01">
+		<comment>「はつでんしょ」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">はつでんしょと　その　しゅうへんには
+いくつもの　ふうしゃが　たっている。</language>
+	</row>
+
+	<row id="mes_guide_d2_01_02">
+		<comment>「はつでんしょ」のガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">たにまを　ふきぬける　かぜの　ちからで
+ふうしゃを　まわし　そのエネルギーを
+りようして　はつでん　している。</language>
+	</row>
+
+	<row id="mes_guide_d3_01_01">
+		<comment>「ハクタイのもり」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ひんやりとした　くうきに　つつまれた
+もりのなかは　たちならぶ　こだちが
+てんねんの　めいろを　けいせいしている。</language>
+	</row>
+
+	<row id="mes_guide_d3_02_02">
+		<comment>「ハクタイのもり」のガイドメッセージ２－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">もりの　おくには　あるじを　うしなって
+あれはてた　ようかんが　たっている。</language>
+	</row>
+
+	<row id="mes_guide_d4_01_01">
+		<comment>「タタラせいてつじょ」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">もりをせにして　おおきな　せいてつじょが
+たっている。</language>
+	</row>
+
+	<row id="mes_guide_d4_01_02">
+		<comment>「タタラせいてつじょ」のガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">この　せいてつじょでは　テンガンざんから
+ほりだした　てっこうせきを　せいせいし
+きかいぶひんなどに　かこう　している。</language>
+	</row>
+
+	<row id="mes_guide_d5_01_01">
+		<comment>「てんがんざん」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">さんちょうは　いつも　ゆきに　おおわれ
+ないぶには　こうだいな　めいろが
+ひろがっている　しんせいな　やま。</language>
+	</row>
+
+	<row id="mes_guide_d5_09_02">
+		<comment>「てんがんざん」のガイドメッセージ９－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">やりのはしら　とよばれる
+こだいの　いせきが　ある。</language>
+	</row>
+
+	<row id="mes_guide_d15_01_01">
+		<comment>「Ｄ１５」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">とざされた　もりの　なかに　うかぶ
+ちいさな　みかづきの　みずたまり。</language>
+	</row>
+
+	<row id="mes_guide_d16_01_01">
+		<comment>「Ｄ１６」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">みずから　はきだした　かざんばいが
+あつく　ふりつもる
+けんろう　きょうこな　いわやま。</language>
+	</row>
+
+	<row id="mes_guide_d16_01_02">
+		<comment>「Ｄ１６」のガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">やまの　ないぶは　ふんかで　ながれでた
+ようがんの　すきまが
+きょだいな　どうくつと　なっている。</language>
+	</row>
+
+	<row id="mes_guide_d18_01_01">
+		<comment>「Ｄ１８」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">さきみだれる　はなで　うめつくされた
+さいはての　ちいさな　しま。</language>
+	</row>
+
+	<row id="mes_guide_d24_01_01">
+		<comment>「Ｄ２４」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ハクタイシティの　おきあいに　うかぶ
+ちいさな　こうざんの　しま。</language>
+	</row>
+
+	<row id="mes_guide_d24_01_02">
+		<comment>「Ｄ２４」のガイドメッセージ１－２。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">しまの　ないぶには　かつて　こうせきを
+ほりだしていた　ころの　なごりがある。</language>
+	</row>
+
+	<row id="mes_guide_d30_01_01">
+		<comment>「Ｄ３０」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">とざされた　もりの　なかに　うかぶ
+まるくて　ちいさな　みずたまり。</language>
+	</row>
+
+	<row id="mes_guide_d31_01_01">
+		<comment>「Ｄ３１」のガイドメッセージ１－１。</comment>
+		<language name="日本語" font=" 1:font_system" width="240" line="2">ポケモンしょうぶを　きわめる　ものたちが
+じまんのうでを　きそいあう　ばしょ
+バトルタワーが　ある。</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

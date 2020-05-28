@@ -1,0 +1,435 @@
+//====================================================================
+//								d26r0107
+//
+//	LOCALWORK2	話しかけ方向を保存
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d26r0107.h"
+	.include	"../eventdata/zone_d26r0107evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d26r0107_flag_change
+_EVENT_DATA		ev_d26r0107_obj_change
+_EVENT_DATA		ev_d26r0107_gkanbu
+_EVENT_DATA		ev_d26r0107_machine_a
+_EVENT_DATA		ev_d26r0107_machine_b
+_EVENT_DATA		ev_d26r0107_machine_c
+_EVENT_DATA		ev_d26r0107_parts_a
+_EVENT_DATA		ev_d26r0107_parts_b
+_EVENT_DATA		ev_d26r0107_parts_c
+_EVENT_DATA		ev_d26r0107_button
+_EVENT_DATA		ev_d26r0107_machine_a_obj
+_EVENT_DATA		ev_d26r0107_machine_b_obj
+_EVENT_DATA		ev_d26r0107_machine_c_obj
+_EVENT_DATA		pos_d26r0107_gkanbu
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d26r0107_flag_change:
+	/*救出していたら*/
+	_IF_FLAGON_JUMP	SYS_FLAG_REIAIHAI,ev_d26r0107_flag_change_pos
+	_END
+
+/*救出していたら*/
+ev_d26r0107_flag_change_pos:
+	_SXY_POS_CHANGE	D26R0107_GKANBU,9,6
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d26r0107_obj_change:
+	_SETUP_RAH_CYL
+	_END
+
+
+/********************************************************************/
+/*	SCWK_TEMP0　話しかけ方向										*/
+/********************************************************************/
+ev_d26r0107_gkanbu:
+	_TALK_OBJ_START
+
+	/*救出していたら*/
+	_IF_FLAGON_JUMP	SYS_FLAG_REIAIHAI,ev_d26r0107_gkanbu_machine
+
+	/*勝利していたら*/
+	_IF_FLAGON_JUMP	FE_D26R0107_GKANBU_WIN,ev_d26r0107_gkanbu_win
+
+	_TALK_KEYWAIT	msg_d26r0107_gkanbu_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GINGALEADER3_02,0
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d26r0107_common_battle_lose
+
+	_FLAG_SET		FE_D26R0107_GKANBU_WIN
+	//解放スイッチ押すまで部屋から出られないストッパー発動
+	_LDVAL			WK_SCENE_D26R0107,1
+
+	_TALK_KEYWAIT	msg_d26r0107_gkanbu_02
+	_TALK_CLOSE
+
+	/*ボタンの前からどく*/
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	_LDWK			LOCALWORK2,SCWK_TEMP0		/*退避*/
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_UP,ev_d26r0107_gkanbu_dir_up
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_LEFT,ev_d26r0107_gkanbu_dir_left
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_RIGHT,ev_d26r0107_gkanbu_dir_right
+	_END
+
+ev_d26r0107_gkanbu_dir_up:
+	_OBJ_ANIME		D26R0107_GKANBU,anm_d26r0107_gkanbu_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d26r0107_gkanbu
+
+ev_d26r0107_gkanbu_dir_left:
+	_OBJ_ANIME		D26R0107_GKANBU,anm_d26r0107_gkanbu_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d26r0107_gkanbu
+
+ev_d26r0107_gkanbu_dir_right:
+	_OBJ_ANIME		D26R0107_GKANBU,anm_d26r0107_gkanbu_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d26r0107_gkanbu
+
+/*共通処理*/
+common_d26r0107_gkanbu:
+	_TALK_OBJ_END
+	_END
+
+/*3匹開放後*/
+ev_d26r0107_gkanbu_machine:
+	_TALKMSG		msg_d26r0107_gkanbu_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*勝利していたら*/
+ev_d26r0107_gkanbu_win:
+	_TALKMSG		msg_d26r0107_gkanbu_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_d26r0107_common_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//かんぶ	ボタンの前からどく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d26r0107_gkanbu_01
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_d26r0107_gkanbu_02
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_d26r0107_gkanbu_03
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d26r0107_machine_a:
+	_TALK_START
+	
+	/*救出していたら*/
+	_IF_FLAGON_JUMP	SYS_FLAG_REIAIHAI,ev_d26r0107_machine_a_win
+
+	_TALKMSG		msg_d26r0107_machine_a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/*救出していたら*/
+ev_d26r0107_machine_a_win:
+	//_FLAG_SET		FE_D26R0107_MACHINE
+	_TALKMSG		msg_d26r0107_machine_a_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d26r0107_machine_b:
+	_TALK_START
+	
+	/*救出していたら*/
+	_IF_FLAGON_JUMP	SYS_FLAG_REIAIHAI,ev_d26r0107_machine_b_win
+
+	_TALKMSG		msg_d26r0107_machine_b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/*救出していたら*/
+ev_d26r0107_machine_b_win:
+	//_FLAG_SET		FE_D26R0107_MACHINE
+	_TALKMSG		msg_d26r0107_machine_b_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d26r0107_machine_c:
+	_TALK_START
+	
+	/*救出していたら*/
+	_IF_FLAGON_JUMP	SYS_FLAG_REIAIHAI,ev_d26r0107_machine_c_win
+
+	_TALKMSG		msg_d26r0107_machine_c_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/*救出していたら*/
+ev_d26r0107_machine_c_win:
+	//_FLAG_SET		FE_D26R0107_MACHINE
+	_TALKMSG		msg_d26r0107_machine_c_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d26r0107_parts_a:
+	_END
+
+ev_d26r0107_parts_b:
+	_END
+
+ev_d26r0107_parts_c:
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d26r0107_button:
+	_TALK_START
+
+	/*救出していたら*/
+	_IF_FLAGON_JUMP	SYS_FLAG_REIAIHAI,ev_d26r0107_button_02
+
+	_TALKMSG		msg_d26r0107_button_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_d26r0107_button
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_d26r0107_button
+	_END
+
+/*「はい」*/
+yes_d26r0107_button:
+	//解放スイッチ押すまで部屋から出られないストッパー解除
+	_LDVAL			WK_SCENE_D26R0107,0
+	
+	_SE_PLAY		SEQ_SE_DP_BUTTON3
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_d26r0107_button_02
+	_TALK_CLOSE
+
+	_FLAG_RESET		FV_D05R0112_GINGAW
+	_FLAG_SET		SYS_FLAG_REIAIHAI
+	//_SE_PLAY		SEQ_SE_DP_ELEBETA
+	//_SE_PLAY		SEQ_SE_DP_MACHINE2
+	_START_RAH_CYL
+	//_SE_STOP		SEQ_SE_DP_ELEBETA
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	/*ポケモン出てくる*/
+	_OBJ_ANIME		D26R0107_POKE1,anm_d26r0107_poke1_01
+	_OBJ_ANIME		D26R0107_POKE2,anm_d26r0107_poke2_01
+	_OBJ_ANIME		D26R0107_POKE3,anm_d26r0107_poke3_01
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		30,SCWK_ANSWER
+	_OBJ_DEL		D26R0107_POKE1
+	_OBJ_DEL		D26R0107_POKE2
+	_OBJ_DEL		D26R0107_POKE3
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	/*幹部の方を向く*/
+	_IFVAL_JUMP		LOCALWORK2,EQ,DIR_UP,ev_d26r0107_gkanbu_dir_up2
+	_IFVAL_JUMP		LOCALWORK2,EQ,DIR_LEFT,ev_d26r0107_gkanbu_dir_left2
+	_IFVAL_JUMP		LOCALWORK2,EQ,DIR_RIGHT,ev_d26r0107_gkanbu_dir_right2
+	_END
+
+ev_d26r0107_gkanbu_dir_up2:
+	_OBJ_ANIME		D26R0107_GKANBU,anm_d26r0107_gkanbu_31
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d26r0107_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d26r0107_gkanbu_02
+	_END
+
+ev_d26r0107_gkanbu_dir_left2:
+	_OBJ_ANIME		D26R0107_GKANBU,anm_d26r0107_gkanbu_32
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d26r0107_player_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d26r0107_gkanbu_02
+	_END
+
+ev_d26r0107_gkanbu_dir_right2:
+	_OBJ_ANIME		D26R0107_GKANBU,anm_d26r0107_gkanbu_31
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d26r0107_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d26r0107_gkanbu_02
+	_END
+
+/*共通処理*/
+common_d26r0107_gkanbu_02:
+
+	/*幹部*/
+	_TALK_KEYWAIT	msg_d26r0107_gkanbu_04
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_OBJ_DEL		D26R0107_GKANBU
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	/*テンガン山のストッパー削除*/
+	_FLAG_SET		FV_D05R0102_STOPPER
+
+	_TALK_END
+	_END
+
+/*「いいえ」*/
+no_d26r0107_button:
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/*救出していたら*/
+ev_d26r0107_button_02:
+	_TALKMSG		msg_d26r0107_button_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//--------------------------------------------------------------------
+//かんぶ	主人公の方をみる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d26r0107_gkanbu_31
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_d26r0107_gkanbu_32
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//レイアイハイ	出てくる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d26r0107_poke1_01
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//レイアイハイ	出てくる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d26r0107_poke2_01
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//レイアイハイ	出てくる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d26r0107_poke3_01
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	幹部の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d26r0107_player_01
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_d26r0107_player_02
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+
+/********************************************************************/
+/*		幹部戦後、解放スイッチ押すまで部屋から出れない				*/
+/********************************************************************/
+pos_d26r0107_gkanbu:
+	_EVENT_START
+	_TALK_KEYWAIT	msg_d26r0107_gkanbu_05
+	_TALK_CLOSE
+	//主人公一歩戻される
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d26r0107_player_exit_ng
+	_OBJ_ANIME_WAIT
+	_EVENT_END
+	_END
+
+_ANIME_LABEL anm_d26r0107_player_exit_ng
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*		ユクシー													*/
+/********************************************************************/
+ev_d26r0107_machine_a_obj:
+	_EASY_OBJ_MSG	msg_d26r0107_machine_a_01
+	_END
+
+/********************************************************************/
+/*		えむりっと													*/
+/********************************************************************/
+ev_d26r0107_machine_b_obj:
+	_EASY_OBJ_MSG	msg_d26r0107_machine_b_01
+	_END
+
+/********************************************************************/
+/*		アグノム													*/
+/********************************************************************/
+ev_d26r0107_machine_c_obj:
+	_EASY_OBJ_MSG	msg_d26r0107_machine_c_01
+	_END

@@ -1,0 +1,43 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: field_encounteffect.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-18T13:45:29
+ *****************************************************************************/
+
+#ifndef NARC_FIELD_ENCOUNTEFFECT_NAIX_
+#define NARC_FIELD_ENCOUNTEFFECT_NAIX_
+
+enum {
+	NARC_field_encounteffect_monsterball_NCLR = 0,
+	NARC_field_encounteffect_ginga_NCLR = 1,
+	NARC_field_encounteffect_monstaerball_oam_NCGR = 2,
+	NARC_field_encounteffect_monsterball_oam_NANR = 3,
+	NARC_field_encounteffect_monsterball_oam_NCER = 4,
+	NARC_field_encounteffect_monstarballbig_oam_NCGR = 5,
+	NARC_field_encounteffect_monsterballbig_oam_NANR = 6,
+	NARC_field_encounteffect_monsterballbig_oam_NCER = 7,
+	NARC_field_encounteffect_ginga_NCGR = 8,
+	NARC_field_encounteffect_ginga_NANR = 9,
+	NARC_field_encounteffect_ginga_NCER = 10,
+	NARC_field_encounteffect_cutin_gym00_NCLR = 11,
+	NARC_field_encounteffect_cutin_gym00_NCGR = 12,
+	NARC_field_encounteffect_cutin_gym00_NSCR = 13,
+	NARC_field_encounteffect_cutin_chanpion00_NCLR = 14,
+	NARC_field_encounteffect_cutin_chanpion00_NCGR = 15,
+	NARC_field_encounteffect_cutin_chanpion00_NCER = 16,
+	NARC_field_encounteffect_cutin_chanpion00_NANR = 17,
+	NARC_field_encounteffect_cutin_chanpion01_NCLR = 18,
+	NARC_field_encounteffect_cutin_chanpion02_NCLR = 19,
+	NARC_field_encounteffect_cutin_chanpion03_NCLR = 20,
+	NARC_field_encounteffect_cutin_chanpion04_NCLR = 21,
+	NARC_field_encounteffect_cutin_dummy_char00_NCLR = 22,
+	NARC_field_encounteffect_cutin_dummy_char00_NCGR = 23,
+	NARC_field_encounteffect_cutin_dummy_char00_NCER = 24,
+	NARC_field_encounteffect_cutin_dummy_char00_NANR = 25
+};
+
+/* NARC_FIELD_ENCOUNTEFFECT_NAIX_ */
+#endif

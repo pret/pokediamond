@@ -1,0 +1,16 @@
+//==================================================
+//	人物Eventデータ convert from
+//	このファイルは手作業で作ったダミーファイルです
+//==================================================
+
+#include "evctype.h"
+
+//#include "zone_DUMMYevc.h"
+
+const u32 FObj_zone_DUMMY_num = 0;
+
+#if 0
+const _TAG_FIELD_OBJ_H FObj_zone_DUMMY[0] = {
+};
+#endif
+

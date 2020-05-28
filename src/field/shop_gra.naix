@@ -1,0 +1,28 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: shop_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-13T16:13:17
+ *****************************************************************************/
+
+#ifndef NARC_SHOP_GRA_NAIX_
+#define NARC_SHOP_GRA_NAIX_
+
+enum {
+	NARC_shop_gra_shop_bg_NCGR = 0,
+	NARC_shop_gra_shop_bg_NCLR = 1,
+	NARC_shop_gra_shop_bg1_NSCR = 2,
+	NARC_shop_gra_shop_bg2_NSCR = 3,
+	NARC_shop_gra_shop_arw_NCGR = 4,
+	NARC_shop_gra_shop_arw_NCER = 5,
+	NARC_shop_gra_shop_arw_NANR = 6,
+	NARC_shop_gra_shop_sel_NCGR = 7,
+	NARC_shop_gra_shop_sel_NCER = 8,
+	NARC_shop_gra_shop_sel_NANR = 9,
+	NARC_shop_gra_shop_obj_NCLR = 10
+};
+
+/* NARC_SHOP_GRA_NAIX_ */
+#endif

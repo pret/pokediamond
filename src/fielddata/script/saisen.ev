@@ -1,0 +1,78 @@
+//====================================================================
+//								saisen
+//
+//	SCWK_ANSWER	結果を取得するワークとして使用
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_saisen.h"
+	//.include	"../eventdata/zone_saisenevc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_btl_searcher
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_saisen_flag_change:
+//	_END
+
+
+/********************************************************************/
+//						バトルサーチャー	
+/********************************************************************/
+ev_btl_searcher:
+	//_EVENT_START		/*呼んではダメ！グリッドに収まる動作が完了しないので！*/
+
+	_LDVAL			SCWK_ANSWER,0
+	_BTL_SEARCHER_EVENT_CALL	SCWK_ANSWER
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_ok_battery
+	_CASE_JUMP		1,ev_no_battery
+	_CASE_JUMP		2,ev_no_trainer
+	//_CASE_JUMP	3,ev_no_lottery
+	_JUMP			ev_no_lottery
+
+/*バッテリーが溜まっていて、画面内にトレーナーもいる*/
+ev_ok_battery:
+	//_JUMP			common_btl_searcher_end
+	_EVENT_END		/*ポーズしたOBJを再び動作させるために必要*/
+	_END
+
+/*バッテリーが溜まっていない*/
+ev_no_battery:
+	_TALK_KEYWAIT	mes_saisen_01_01
+	_JUMP			common_btl_searcher_end
+
+/*画面内にトレーナーがいない*/
+ev_no_trainer:
+	_TALK_KEYWAIT	mes_saisen_01_02
+	_JUMP			common_btl_searcher_end
+
+/*戦える(初戦、再戦)トレーナーに誰も当てはまらなかった*/
+ev_no_lottery:
+	_TIME_WAIT		30,SCWK_ANSWER
+	_TALK_KEYWAIT	mes_saisen_01_03
+	_JUMP			common_btl_searcher_end
+
+//--------------------------------------------------------------------
+/*共通終了処理*/
+//--------------------------------------------------------------------
+common_btl_searcher_end:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END		/*ポーズしたOBJを再び動作させるために必要*/
+	_END
+
+

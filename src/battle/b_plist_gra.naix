@@ -1,0 +1,45 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: b_plist_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-27T21:16:45
+ *****************************************************************************/
+
+#ifndef NARC_B_PLIST_GRA_NAIX_
+#define NARC_B_PLIST_GRA_NAIX_
+
+enum {
+	NARC_b_plist_gra_poke_sel_u_NSCR = 0,
+	NARC_b_plist_gra_poke_sel_t_NSCR = 1,
+	NARC_b_plist_gra_st_waza_sel_u_NSCR = 2,
+	NARC_b_plist_gra_st_waza_sel_t_NSCR = 3,
+	NARC_b_plist_gra_st_main_u_NSCR = 4,
+	NARC_b_plist_gra_st_main_t_NSCR = 5,
+	NARC_b_plist_gra_st_waza_main_u_NSCR = 6,
+	NARC_b_plist_gra_st_waza_main_t_NSCR = 7,
+	NARC_b_plist_gra_item_waza_u_NSCR = 8,
+	NARC_b_plist_gra_item_waza_t_NSCR = 9,
+	NARC_b_plist_gra_waza_delb_sel_u_NSCR = 10,
+	NARC_b_plist_gra_waza_delb_sel_t_NSCR = 11,
+	NARC_b_plist_gra_waza_delc_sel_u_NSCR = 12,
+	NARC_b_plist_gra_waza_delc_sel_t_NSCR = 13,
+	NARC_b_plist_gra_waza_delb_main_u_NSCR = 14,
+	NARC_b_plist_gra_waza_delb_main_t_NSCR = 15,
+	NARC_b_plist_gra_waza_delc_main_u_NSCR = 16,
+	NARC_b_plist_gra_waza_delc_main_t_NSCR = 17,
+	NARC_b_plist_gra_poke_chg_u_NSCR = 18,
+	NARC_b_plist_gra_poke_chg_t_NSCR = 19,
+	NARC_b_plist_gra_b_plist_anm_NSCR = 20,
+	NARC_b_plist_gra_b_plist_anm2_NSCR = 21,
+	NARC_b_plist_gra_b_plist_NCGR = 22,
+	NARC_b_plist_gra_b_plist_NCLR = 23,
+	NARC_b_plist_gra_b_plist_obj_NANR = 24,
+	NARC_b_plist_gra_b_plist_obj_NCER = 25,
+	NARC_b_plist_gra_b_plist_obj_NCGR = 26,
+	NARC_b_plist_gra_b_plist_obj_NCLR = 27
+};
+
+/* NARC_B_PLIST_GRA_NAIX_ */
+#endif

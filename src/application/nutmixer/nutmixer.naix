@@ -1,0 +1,65 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: nutmixer.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-04T21:34:29
+ *****************************************************************************/
+
+#ifndef NARC_NUTMIXER_NAIX_
+#define NARC_NUTMIXER_NAIX_
+
+enum {
+	NARC_nutmixer_cook_m_NCGR = 0,
+	NARC_nutmixer_cook_m_NCLR = 1,
+	NARC_nutmixer_cook_m1_NSCR = 2,
+	NARC_nutmixer_cook_m2_NSCR = 3,
+	NARC_nutmixer_cook_m2a_NSCR = 4,
+	NARC_nutmixer_cook_s_window_NCGR = 5,
+	NARC_nutmixer_cook_s_window_NCLR = 6,
+	NARC_nutmixer_cook_s_window_NSCR = 7,
+	NARC_nutmixer_cook_s_obj0_NCLR = 8,
+	NARC_nutmixer_cook_s_obj2_NCLR = 9,
+	NARC_nutmixer_cook_s_obj3_NCLR = 10,
+	NARC_nutmixer_cook_s_obj4_NCLR = 11,
+	NARC_nutmixer_cook_s_obj0_NANR = 12,
+	NARC_nutmixer_cook_s_obj0_NCER = 13,
+	NARC_nutmixer_cook_s_obj0_NCGR = 14,
+	NARC_nutmixer_cook_s_obj1_NANR = 15,
+	NARC_nutmixer_cook_s_obj1_NCER = 16,
+	NARC_nutmixer_cook_s_obj1_NCGR = 17,
+	NARC_nutmixer_cook_s_obj2_NANR = 18,
+	NARC_nutmixer_cook_s_obj2_NCER = 19,
+	NARC_nutmixer_cook_s_obj2_NCGR = 20,
+	NARC_nutmixer_cook_s_obj3_NANR = 21,
+	NARC_nutmixer_cook_s_obj3_NCER = 22,
+	NARC_nutmixer_cook_s_obj3_NCGR = 23,
+	NARC_nutmixer_cook_s_obj4_NANR = 24,
+	NARC_nutmixer_cook_s_obj4_NCER = 25,
+	NARC_nutmixer_cook_s_obj4_NCGR = 26,
+	NARC_nutmixer_cook_s_obj5_NANR = 27,
+	NARC_nutmixer_cook_s_obj5_NCER = 28,
+	NARC_nutmixer_cook_s_obj5_NCGR = 29,
+	NARC_nutmixer_cook_s_yaj_NANR = 30,
+	NARC_nutmixer_cook_s_yaj_NCER = 31,
+	NARC_nutmixer_cook_s_yazi_NCGR = 32,
+	NARC_nutmixer_cook_s_yazi_NCLR = 33,
+	NARC_nutmixer_cook_s_fire_NCBR = 34,
+	NARC_nutmixer_cook_s_fire1_NCLR = 35,
+	NARC_nutmixer_cook_s_fire2_NCLR = 36,
+	NARC_nutmixer_cook_s_fire3_NCLR = 37,
+	NARC_nutmixer_cook_s_nabe1_NCBR = 38,
+	NARC_nutmixer_cook_s_nabe1_NCLR = 39,
+	NARC_nutmixer_cook_s_nabe2_NCBR = 40,
+	NARC_nutmixer_cook_s_nabe2_NCLR = 41,
+	NARC_nutmixer_cook_s_soop1_NCBR = 42,
+	NARC_nutmixer_cook_s_soop1_NCLR = 43,
+	NARC_nutmixer_cook_s_soop2_NCBR = 44,
+	NARC_nutmixer_cook_s_soop2_NCLR = 45,
+	NARC_nutmixer_cook_s_soop3_NCBR = 46,
+	NARC_nutmixer_cook_s_soop3_NCLR = 47
+};
+
+/* NARC_NUTMIXER_NAIX_ */
+#endif

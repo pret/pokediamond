@@ -1,0 +1,15 @@
+/* system/clact_util*.cのROMヘッダー用定数 */
+enum{
+	// clact_utilソースで読み込むファイル用
+	// マルチセルファイル、マルチセルアニメファイルが無いときに指定する
+	n = 4294967295,		
+	// 各ヘッダーの終了コード
+	e = 4294967294,
+	// Vramタイプ
+	VRAM_MAIN = 1,
+	VRAM_SUB = 2,
+	VRAM_DOUBLE = 3,
+	// TRUE　FALSE
+	TRUE = 1,
+	FALSE = 0,
+};

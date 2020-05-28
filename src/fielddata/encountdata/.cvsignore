@@ -1,0 +1,5 @@
+.cvsignore
+*.txt
+*.c
+*.bin
+enc_data.narc

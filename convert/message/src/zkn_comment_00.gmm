@@ -1,0 +1,3314 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="tomoya_takahashi" host="W00109" date="2006-08-08T17:46:54"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="34" japanese="コンテスト名称" english="コンテスト名称" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+				<comment language="english">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+			</tag>
+			<tag entry="35" japanese="コンテストランク" english="コンテストランク" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">○○○○ランク
+「ランク」も含む</comment>
+				<comment language="english">○○○○ランク
+「ランク」も含む</comment>
+			</tag>
+			<tag entry="36" japanese="国名" english="国名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる国名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる国名</comment>
+			</tag>
+			<tag entry="37" japanese="地域名" english="地域名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる地域名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる地域名</comment>
+			</tag>
+			<tag entry="38" japanese="風船の名前" english="風船の名前" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">すれ違い通信でつかう風船の名前</comment>
+				<comment language="english">すれ違い通信でつかう風船の名前</comment>
+			</tag>
+			<tag entry="39" japanese="リボンの名前" english="リボンの名前" view="EP" width="168" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">リボンの名前</comment>
+				<comment language="english">リボンの名前</comment>
+			</tag>
+			<tag entry="40" japanese="イメージクリップ背景" english="イメージクリップ背景" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+			<tag entry="01" japanese="文字表示ウェイト" english="文字表示ウェイト" view="EP" length="0" line="1">
+				<parameter number="0" japanese="フレーム数" english="フレーム数" type="int16"/>
+				<comment language="japanese">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+				<comment language="english">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+			</tag>
+			<tag entry="02" japanese="コールバック引数" english="コールバック引数" view="EP" length="0" line="1">
+				<parameter number="0" japanese="引数" english="引数" type="int16"/>
+				<comment language="japanese">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+				<comment language="english">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+			</tag>
+			<tag entry="03" japanese="文字表示位置X" english="文字表示位置X" view="EP" length="0" line="1">
+				<parameter number="0" japanese="X位置" english="X位置" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+			<tag entry="04" japanese="文字表示位置Y" english="文字表示位置Y" view="EP" length="0" line="1">
+				<parameter number="0" japanese="表示位置Y" english="表示位置Y" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="106"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="315"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="214"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="32" top="102" right="737" bottom="730" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="578" right="1024" bottom="730" visible="yes"/>
+		<tag-palette left="677" top="180" right="1024" bottom="578" visible="yes"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="ZKN_COMMENT_00_000">
+		<language name="日本語"> </language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_001">
+		<language name="日本語">うまれてから　しばらくの　あいだは
+せなかの　タネから　えいようを
+もらって　おおきく　そだつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_002">
+		<language name="日本語">せなかの　つぼみが　ふくらみだすと
+あまい　においが　ただよいはじめる。
+たいりんの　はなが　さく　まえぶれ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_003">
+		<language name="日本語">あめの　ふった　よくじつは　せなかの
+はなの　かおりが　つよまる。かおりに
+さそわれ　ポケモンが　あつまる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_004">
+		<language name="日本語">ヒトカゲの　しっぽの　ほのおは
+いのちの　ともしび。げんきな　ときは
+ほのおも　ちからづよく　もえあがる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_005">
+		<language name="日本語">リザードが　くらす　いわやまを
+よなかに　みあげると　しっぽの
+ほのおが　ほしのように　みえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_006">
+		<language name="日本語">くるしい　たたかいを　けいけんした
+リザードンほど　ほのおの　おんどが
+たかくなると　いわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_007">
+		<language name="日本語">こうらに　とじこもり　みを　まもる。
+あいての　すきを　みのがさず
+みずを　ふきだして　はんげきする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_008">
+		<language name="日本語">いちまんねんの　じゅみょうを　もつと
+いわれている。ふさふさの　しっぽは
+ながいきの　シンボルとして　にんき。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_009">
+		<language name="日本語">こうらの　ロケットほうから　ふきだす
+すいりゅうは　ぶあつい　てっぱんも
+いっぱつで　つらぬく　はかいりょく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_010">
+		<language name="日本語">あかい　しょっかくから　においを
+だして　てきを　おいはらう。
+だっぴを　くりかえし　おおきくなる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_011">
+		<language name="日本語">こうてつのように　かたい　カラで
+やわらかい　なかみを　まもっている。
+しんかするまで　じっと　たえている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_012">
+		<language name="日本語">はなの　ミツが　だいこうぶつ。
+わずかな　かふんで　はなばたけの
+ばしょを　さがしだすことが　できる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_013">
+		<language name="日本語">まいにち　じぶんと　おなじ　おもさの
+はっぱを　たべる。あたまの　ハリで
+おそってきた　てきを　げきたい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_014">
+		<language name="日本語">てんてきに　みつからないように
+はっぱの　うらや　えだの　すきまに
+かくれて　しんかの　ときを　まつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_015">
+		<language name="日本語">こうそくで　とびまわり　どくバリで
+こうげきしたあと　すぐに　とびさる
+せんぽうが　とくいわざだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_016">
+		<language name="日本語">たたかいを　このまない　おとなしい
+せいかくだが　へたに　てを　だすと
+きょうれつに　はんげきされるぞ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_017">
+		<language name="日本語">ひろい　なわばりを　とびまわりながら
+えものを　さがす。はったつした
+あしの　ツメで　えものを　しとめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_018">
+		<language name="日本語">ピジョットが　ちからいっぱい
+はばたくと　たいぼくも　しなるほどの
+きょうふうを　まきおこす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_019">
+		<language name="日本語">どんな　ばしょにも　すみついて
+いきていける　せいめいりょく。
+けいかいしんが　とても　つよい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_020">
+		<language name="日本語">のびつづける　まえばを　けずるため
+かたい　ものを　かじる　しゅうせい。
+ブロックべいも　かじって　こわす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_021">
+		<language name="日本語">ちいさな　つばさを　いそがしく
+はばたかせて　とぶ。くさむらにいる
+えものを　くちばしで　さがしだす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_022">
+		<language name="日本語">おおきな　つばさで　１にちじゅう
+とびまわる　たいりょくの　もちぬし。
+するどい　くちばしで　たたかう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_023">
+		<language name="日本語">おとを　まったく　たてずに　くさちの
+なかを　すすむ。ゆだんしている
+えものに　はいごから　おそいかかる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_024">
+		<language name="日本語">おなかの　もようで　てきを　いかく。
+もように　おびえて　うごけなくなった
+すきに　からだで　しめつける。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_025">
+		<language name="日本語">もりの　なかで　なかまと　くらす。
+ほっぺたの　りょうがわにある
+でんきぶくろに　でんきを　ためる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_026">
+		<language name="日本語">からだの　でんきが　たまりすぎると
+こうげきてきな　きもちになる。
+しっぽから　でんきを　にがす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_027">
+		<language name="日本語">あめが　ほとんど　ふらない
+かんそうした　とちに　せいそく。
+からだを　まるめて　みを　まもる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_028">
+		<language name="日本語">からだを　まるめて　せなかから
+たいあたり。するどい　トゲトゲが
+おおきな　ダメージを　あたえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_029">
+		<language name="日本語">たたかいを　このまない　せいかく。
+どくバリから　ぶんぴつされる　どくは
+ひとしずくでも　いのちとりだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_030">
+		<language name="日本語">きけんを　かんじると　ぜんしんの
+トゲを　さかだてる。ニドリーノに
+くらべて　トゲの　そだちが　おそい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_031">
+		<language name="日本語">よろいのように　かたい　ウロコが
+ぜんしんを　つつむ。すあなの
+こどもを　いのちがけで　まもる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_032">
+		<language name="日本語">くさむらの　うえに　みみだけ　だして
+まわりの　けはいを　さぐる。
+もうどくの　ツノで　みを　まもる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_033">
+		<language name="日本語">きしょうが　あらい　ポケモン。
+あいてに　つきさした　しょうげきで
+ツノから　もうどくが　にじみでる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_034">
+		<language name="日本語">しっぽの　いちげきは　でんちゅうを
+まるで　マッチぼうのように
+まっぷたつに　へしおってしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_035">
+		<language name="日本語">あいくるしい　しぐさで　だいにんき。
+しずかな　やまおくで　なかまたちと
+くらしていると　かんがえられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_036">
+		<language name="日本語">めったに　すがたを　あらわさない。
+まんげつに　さそわれて　ひとけのない
+みずうみで　あそぶと　いわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_037">
+		<language name="日本語">ほのおの　たまを　あやつる。
+せいちょうすると　６ほんの　しっぽは
+さきが　わかれて　さらに　ふえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_038">
+		<language name="日本語">９ほんの　しっぽには　しんぴてきな
+ちからが　やどっていると　つたわる。
+１０００ねん　いきつづけるらしい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_039">
+		<language name="日本語">つぶらな　ひとみが　ゆれるとき
+だれもが　ねむくなってしまう
+こもりうたを　うたいはじめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_040">
+		<language name="日本語">キメこまやかな　たいもうは
+ごくじょうの　はだざわり。
+いきを　すいこんで　ふくらむ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_041">
+		<language name="日本語">くちから　だす　ちょうおんぱで
+りょうめが　なくても　まわりの
+しょうがいぶつを　さっちできる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_042">
+		<language name="日本語">ひとや　ポケモンの　けつえきが
+だいこうぶつ。くびすじの　けっかんを
+ねらい　よぞらを　とびまわる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_043">
+		<language name="日本語">ひるまは　ねっこの　あしを　じめんに
+うめて　うごかないことが　おおい。
+よる　あるきまわって　タネを　まく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_044">
+		<language name="日本語">くちから　たれている　ミツは
+２キロ　はなれていても　はなが
+まがるほど　もうれつに　くさい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_045">
+		<language name="日本語">はなびらの　おおきさは　せかいいち。
+ひどい　アレルギーを　ひきおこす
+どくかふんを　ばらまいて　あるく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_046">
+		<language name="日本語">とうちゅうかそうと　よばれる
+キノコを　せなかに　はやしている。
+パラスと　ともに　おおきく　そだつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_047">
+		<language name="日本語">からだよりも　おおきな　キノコが
+パラセクトを　あやつっている。
+どくの　ほうしを　ばらまく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_048">
+		<language name="日本語">ちいさな　めが　たくさん　あつまって
+おおきな　めに　なっている。
+よるになると　あかりに　あつまる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_049">
+		<language name="日本語">はばたいて　りんぷんを　まきちらす。
+りんぷんが　からだに　つくと　どくの
+せいぶんが　ひふに　しみこんでくる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_050">
+		<language name="日本語">ちちゅうで　くらしている　ポケモン。
+くらい　ちかに　いるため
+あかるい　たいようが　にがて。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_051">
+		<language name="日本語">３つの　あたまが　たがいちがいに
+うごいて　どんなに　かたい　ちそうも
+ちか１００キロまで　ほりすすむ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_052">
+		<language name="日本語">よなかに　こうどうする　しゅうせい。
+きらきら　ひかるものを　みつけると
+まけないくらい　ひとみが　かがやく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_053">
+		<language name="日本語">きぐらいが　たかい　ポケモン。
+マニアの　あいだでは　ひたいの
+ほうせきの　サイズが　わだいになる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_054">
+		<language name="日本語">ずつうが　はげしくなると　ふしぎな
+ちからを　つかうようになる。
+そのときの　ことは　おぼえていない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_055">
+		<language name="日本語">みずうみに　すむ　ポケモン。
+およぐ　スピードは　オリンピックの
+きんメダリストよりも　はやい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_056">
+		<language name="日本語">きのうえで　せいかつしている。
+むれの　１ぴきが　おこりはじめると
+ぜんいんが　いみもなく　あばれだす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_057">
+		<language name="日本語">しせんが　あっただけで　おこり
+にげだしたら　また　おこり
+たたきのめしても　まだ　おこる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_058">
+		<language name="日本語">ちゅうじつな　せいかくの　ポケモン。
+トレーナーの　めいれいが　あるまでは
+いっぽも　うごかない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_059">
+		<language name="日本語">いふうどうどうとした　すがたは
+ふるくから　ひとびとの　こころを
+とりこにしてきた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_060">
+		<language name="日本語">ないぞうが　すけて　みえるほど
+ひふが　うすい。はえたばかりの
+あしは　あるくことが　にがて。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_061">
+		<language name="日本語">おなかの　うずまきは　びみょうに
+うねっているので　みつめていると
+だんだん　ねむくなってしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_062">
+		<language name="日本語">きょうじんな　きんにくを　もつ。
+たいへいようを　やすむことなく
+およぎつづけることが　できるのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_063">
+		<language name="日本語">まいにち　１８じかん　ねむる。
+めざめている　ときも　すわったまま
+テレポートで　いどうする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_064">
+		<language name="日本語">ユンゲラーが　そばにいると　テレビに
+ふしぎな　かげが　うつる。それを
+みると　ふこうになると　いわれる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_065">
+		<language name="日本語">うまれてから　たいけんした　すべてを
+おぼえているほどの　きおくりょく。
+ちのうしすうは　５０００を　こえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_066">
+		<language name="日本語">ゴローンを　なんども　あげおろしして
+ぜんしんの　きんにくを　きたえる。
+あらゆる　かくとうぎを　つかう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_067">
+		<language name="日本語">ゴーリキーの　そこしれない　パワーは
+とても　きけんなので　ちからを
+せいぎょする　ベルトを　まいている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_068">
+		<language name="日本語">４ほんの　うでを　めにもとまらぬ
+はやさで　うごかし　２びょうかんに
+１０００ぱつの　パンチを　くりだす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_069">
+		<language name="日本語">こうおん　たしつの　とちを　このむ。
+ツルを　のばして　えものを　とらえる
+ときの　うごきは　とても　すばやい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_070">
+		<language name="日本語">しょくぶつに　そっくりな　ポケモン。
+ゆだんして　ちかよってきた　えものに
+どくのこなを　あびせて　つかまえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_071">
+		<language name="日本語">ミツのような　かおりの　えきたいを
+くちに　ためているが　それは
+なんでも　とかす　ようかいえきだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_072">
+		<language name="日本語">からだの　ほとんどが　すいぶん。
+すいしょうのような　めだまから
+ふしぎな　ビームを　はっしゃする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_073">
+		<language name="日本語">８０ほんの　しょくしゅを　もつ。
+えものを　からめとり　どくで
+よわるまで　ぜったいに　にがさない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_074">
+		<language name="日本語">やまみちに　おおく　せいそくする。
+からだの　はんぶんを　じめんに　うめ
+とざんしゃの　ようすを　みている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_075">
+		<language name="日本語">けわしい　がけの　ちゅうふくに
+いくつもの　よこあなを　みつけたら
+それは　ゴローンの　すみか。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_076">
+		<language name="日本語">１ねんに　１かい　だっぴする。
+がんせきのような　かたい　からだは
+ダイナマイトでも　きずつかない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_077">
+		<language name="日本語">うまれてから　１じかんも　すると
+ほのおの　たてがみや　しっぽが
+はえそろい　りっぱな　すがたになる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_078">
+		<language name="日本語">はしる　そくどは　じそく２４０キロ。
+たてがみの　ほのおが　はげしく　もえ
+やの　ように　かけぬける。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_079">
+		<language name="日本語">うごきは　のろいが　しっぽを　つかう
+つりが　とくい。どんかんなので
+しっぽを　かまれても　いたくない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_080">
+		<language name="日本語">ぼんやりしている　ヤドランだが
+シェルダーが　つよく　しっぽを
+かむとき　なにかが　ひらめくらしい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_081">
+		<language name="日本語">さゆうの　ユニットから　でんじはを
+だして　くうちゅうを　いどうする。
+でんきを　たべる　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_082">
+		<language name="日本語">３びきの　コイルが　じりょくで
+れんけつした　ポケモン。レアコイルが
+ふえると　じきあらしが　おこる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_083">
+		<language name="日本語">クキが　なくなると　いきていけない。
+だから　クキを　ねらう　あいてとは
+いのちがけで　たたかうのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_084">
+		<language name="日本語">２つの　あたまの　のうみそは
+テレパシーのような　ちからで
+きもちを　つうじあわせているらしい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_085">
+		<language name="日本語">しんかのときに　ドードーの　あたまの
+どちらかが　ぶんれつした　ちんしゅ。
+じそく　６０キロいじょうで　はしる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_086">
+		<language name="日本語">ひょうざんで　くらす　ポケモン。
+あたまの　とがった　でっぱりで
+こおりを　わって　うみを　およぐ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_087">
+		<language name="日本語">ぜんしんが　まっしろな　たいもうに
+おおわれているため　ゆきの　なかでは
+てんてきに　みつからないのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_088">
+		<language name="日本語">どぶがわの　ヘドロが　つきからの
+エックスせんを　あびて　うまれた。
+きたない　ばしょに　あらわれる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_089">
+		<language name="日本語">からだから　もうどくの　たいえきが
+しみでている。その　えきに　ふれた
+くさきは　あっというまに　かれる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_090">
+		<language name="日本語">２まいの　カラを　あけしめすることで
+うしろむきに　およぐ。どんなときでも
+おおきな　ベロは　だしっぱなし。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_091">
+		<language name="日本語">カラを　しっかりと　とじて　みを
+まもりながら　トゲを　とばして
+てきを　げきたいする　せんぽう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_092">
+		<language name="日本語">からだの　９５パーセントが
+ガスで　できている　ポケモン。
+きょうふうに　ふきとばされてしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_093">
+		<language name="日本語">どんな　ものでも　すりぬけられる。
+かべの　なかに　もぐりこんで
+あいての　ようすを　かんさつする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_094">
+		<language name="日本語">ものかげに　すがたを　かくす。
+ゲンガーの　ひそんでいる　へやは
+おんどが　５ど　さがると　いわれる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_095">
+		<language name="日本語">イワークが　ちちゅうを　ほりすすむと
+じなりが　きこえ　じめんが　ゆれる。
+いどうそくどは　じそく８０キロ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_096">
+		<language name="日本語">つきでた　はなを　ひくひくさせると
+みている　ユメが　わかるという。
+だいこうぶつは　たのしい　ユメだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_097">
+		<language name="日本語">ふりこを　めのまえで　ゆらされると
+たったいま　めざめたばかりの　ひとも
+３びょうごには　ねむってしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_098">
+		<language name="日本語">すなはまに　あなを　ほって　くらす。
+ハサミは　たたかいで　とれても
+また　はえてきて　もとどおり。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_099">
+		<language name="日本語">おおきいほうの　ハサミの　パワーは
+１まんばりき。しかし　おもすぎるため
+ねらいを　つけることが　にがてだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_100">
+		<language name="日本語">モンスターボールに　そっくり。
+まちがって　さわると　かんでんしたり
+ときには　ばくはつするので　きけん。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_101">
+		<language name="日本語">でんきエネルギーを　ためすぎて
+ぱんぱんに　ふくらんだ　マルマインが
+かぜに　ながされてくることが　ある。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_102">
+		<language name="日本語">テレパシーで　かいわをしているため
+タマタマを　ひきはなそうとしても
+すぐに　あつまって　６ぴきになる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_103">
+		<language name="日本語">あるく　ねったいうりんと　よばれる。
+おおきくなった　あたまの　ひとつが
+じめんに　おちると　タマタマになる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_104">
+		<language name="日本語">しにわかれた　ははおやを　おもいだし
+ないてしまうとき　あたまに　かぶった
+ホネが　からからと　おとを　たてる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_105">
+		<language name="日本語">うまれたときから　いつも　もっている
+ホネを　じざいに　つかいこなす。
+せいかくは　きょうぼうだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_106">
+		<language name="日本語">あしが　２ばいの　ながさに　のびる。
+はじめて　たたかう　あいては
+その　まあいの　ひろさに　おどろく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_107">
+		<language name="日本語">うでを　ねじりながら　くりだす
+パンチは　コンクリートも　ふんさい。
+３ぷん　たたかうと　ひとやすみする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_108">
+		<language name="日本語">ての　かわりに　しんちょうの　２ばい
+のびる　ベロを　つかう。べとべとの
+だえきが　なんでも　くっつけるのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_109">
+		<language name="日本語">くうきよりも　かるい　ガスを
+からだに　ためて　うかんでいる。
+ガスは　くさいうえに　ばくはつする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_110">
+		<language name="日本語">ゴミから　はっせいする　ガスを
+たべて　おおきくなる。ごくまれに
+３つごの　マタドガスが　みつかる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_111">
+		<language name="日本語">かたい　ひふで　おおわれた　からだ。
+たいあたりで　ビルも　たおす。
+ざんねんながら　あたまは　わるい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_112">
+		<language name="日本語">うしろあしで　たつようになり　のうが
+おおきくなった。ドリルの　ツノで
+いわを　くりぬき　トンネルを　ほる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_113">
+		<language name="日本語">しあわせを　はこぶと　いわれている。
+きずついた　ひとに　タマゴを
+わけてあげる　やさしい　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_114">
+		<language name="日本語">あおい　ツルに　おおわれている。
+ツルに　かくれている　かおを
+みたものは　まだ　いない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_115">
+		<language name="日本語">おなかの　ふくろで　こそだてをする。
+あんぜんな　ときだけ　こどもを
+ふくろから　だして　あそばせる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_116">
+		<language name="日本語">サンゴの　かげに　すみかを　つくる。
+きけんを　かんじると　くちから
+まっくろい　スミを　はいて　にげる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_117">
+		<language name="日本語">トゲが　てきから　みを　まもる。
+ひれや　ホネが　かんぽうやくの
+ざいりょうとして　ちょうほうされる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_118">
+		<language name="日本語">おびれを　ドレスのように　ゆらして
+ゆうがに　およぐ　すがたは
+まるで　すいちゅうの　じょおう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_119">
+		<language name="日本語">あたまの　ツノで　かわぞこにある
+いわを　くりぬいて　すを　つくる。
+タマゴを　いのちがけで　まもる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_120">
+		<language name="日本語">あかい　コアが　あるかぎり　からだが
+ちぎれても　すぐに　さいせいする。
+まよなか　コアが　てんめつする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_121">
+		<language name="日本語">からだの　ちゅうしんにある　あかい
+コアから　よぞらに　むかって
+なぞの　でんぱを　はっしんしている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_122">
+		<language name="日本語">パントマイムの　たつじん。
+みぶりてぶりで　つくった　カベは
+やがて　ほんものに　なるのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_123">
+		<language name="日本語">りょううでの　カマによる　こうげきを
+ふせぐことは　ふかのうに　ちかい。
+その　うごきは　まるで　ニンジャだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_124">
+		<language name="日本語">なきごえは　まるで　にんげんの
+ことばのように　きこえるが
+いみは　まったく　りかいできない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_125">
+		<language name="日本語">ていでんの　げんいんの　はんぶんは
+エレブーが　はつでんしょに　あらわれ
+でんきを　たべてしまった　ことだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_126">
+		<language name="日本語">かざんの　かこうで　うまれそだった。
+たいようと　おなじような　ほのおの
+ゆらめきが　ぜんしんを　おおう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_127">
+		<language name="日本語">２ほんの　ツノで　えものを　はさんで
+ちぎれるまで　はなさない。ちぎれない
+ときは　かなたまで　なげとばすのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_128">
+		<language name="日本語">えものに　ねらいを　さだめると
+いっちょくせんに　とっしんする。
+あらっぽい　せいかくで　ゆうめい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_129">
+		<language name="日本語">せかいいち　よわいと　いわれる
+コイキングが　なぜ　いきのこって
+いるのか　だれも　わからない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_130">
+		<language name="日本語">ひとたび　すがたを　あらわすと
+のやまの　すべてを　やきつくすまで
+いかりが　しずまらない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_131">
+		<language name="日本語">ひとや　ポケモンを　せなかに　のせて
+うみを　わたることが　だいすき。
+ひとの　ことばを　りかいできる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_132">
+		<language name="日本語">ぜんしんの　さいぼうを　くみかえて
+みたものの　かたち　そっくりに
+へんしんする　のうりょくを　もつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_133">
+		<language name="日本語">しんかのとき　すがたと　のうりょくが
+かわることで　きびしい　かんきょうに
+たいおうする　めずらしい　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_134">
+		<language name="日本語">すいちゅうでの　せいかつに　てきした
+からだに　しんかした。
+みずに　とけると　みえなくなる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_135">
+		<language name="日本語">１まんボルトの　でんきを　あやつる。
+ぜんしんの　たいもうが　さかだつと
+ハリのように　するどく　とがる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_136">
+		<language name="日本語">たいないに　ほのおぶくろを　もつ。
+たたかいが　はじまる　ちょくぜんには
+たいおんが　９００どまで　あがる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_137">
+		<language name="日本語">せかいで　はじめて　じんこうてきに
+つくりだされた　ポケモン。
+でんしくうかんを　いどうできる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_138">
+		<language name="日本語">げんだいの　すぐれた　かがくりょくで
+かせきから　ふっかつした　ポケモン。
+こだいの　うみを　およいでいた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_139">
+		<language name="日本語">らせんじょうの　カラが　おおきく
+なりすぎたことが　げんいんで
+ぜつめつしたと　かんがえられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_140">
+		<language name="日本語">３おくねんまえの　すなはまで
+くらしていたと　かんがえられている。
+かたい　カラが　みを　まもる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_141">
+		<language name="日本語">えものが　りくじょうせいかつを
+はじめたため　カブトプスも　りくに
+あがったと　かんがえられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_142">
+		<language name="日本語">きょうりゅうじだいの　おおぞらを
+とびまわっていた　ポケモン。
+のこぎりのような　キバを　もつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_143">
+		<language name="日本語">カビが　はえていても　くさっていても
+だいじょうぶ。カビゴンの　いぶくろは
+なんでも　しょうか　できるのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_144">
+		<language name="日本語">でんせつの　とりポケモン。
+くうきちゅうの　すいぶんを　こおらせ
+ふぶきを　つくりだすことが　できる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_145">
+		<language name="日本語">かみなりぐもの　なかに　いると
+いわれる　でんせつの　ポケモン。
+カミナリを　じざいに　あやつる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_146">
+		<language name="日本語">でんせつの　とりポケモンの　１ぴき。
+ファイヤーが　すがたを　みせると
+はるが　おとずれると　いわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_147">
+		<language name="日本語">もくげきしゃが　すくないために
+まぼろしのポケモンと　よばれていた。
+だっぴした　かわが　みつかっている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_148">
+		<language name="日本語">ぜんしんが　オーラに　つつまれるとき
+まわりの　てんきが　いっぺんする。
+うみや　みずうみに　すむという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_149">
+		<language name="日本語">ひろい　うみの　どこかに　すみかが
+あると　いわれている。なんぱした
+ふねを　りくまで　みちびいてくれる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_150">
+		<language name="日本語">ミュウの　いでんしを　くみかえて
+うみだされた。ポケモンで　いちばん
+きょうぼうな　こころを　もつという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_151">
+		<language name="日本語">あらゆる　わざを　つかうため
+ポケモンの　せんぞと　かんがえる
+がくしゃが　たくさん　いる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_152">
+		<language name="日本語">あたまの　はっぱで　まわりの
+おんどや　しつどを　さぐる。
+ひざしを　あびることが　だいすき。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_153">
+		<language name="日本語">くびまわりの　つぼみから　におう
+スパイシーな　かおりは
+かいだ　ひとを　げんきに　させる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_154">
+		<language name="日本語">メガニウムが　はきだす　いきには
+かれた　くさばなを　よみがえらせる
+ふしぎな　ちからが　ひめられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_155">
+		<language name="日本語">おくびょうな　せいかく。
+おどろくと　せなかの　ほのおが
+いちだんと　つよく　もえあがる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_156">
+		<language name="日本語">ほのおの　ねつで　あいてを　いかく。
+たたかう　たいせいになると
+ほのおの　いきおいが　ます。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_157">
+		<language name="日本語">ほのおの　ばくふうで　こうげき。
+しゃくねつの　ほのおで　かげろうを
+つくりだし　すがたを　かくす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_158">
+		<language name="日本語">はったつした　あごを　もち
+なんにでも　かみつく　しゅうせい。
+トレーナーも　ちゅういが　ひつよう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_159">
+		<language name="日本語">いちど　かみつくと　キバが
+ぬけるまで　ぜったいに　はなさない。
+ぬけた　キバは　すぐに　はえてくる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_160">
+		<language name="日本語">ふだんは　ゆっくりとした　うごきだが
+えものに　かみつくときは
+めにも　とまらない　スピードだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_161">
+		<language name="日本語">とても　しんけいしつな　せいかく。
+とおくまで　みわたせるように
+しっぽを　つかって　せのびをする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_162">
+		<language name="日本語">ははおやは　ほそながい　からだで
+こどもを　つつみこみ　ねむらせる。
+はやい　うごきで　てきを　おいこむ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_163">
+		<language name="日本語">いつも　いっぽんあしで　たっている。
+こうげきを　うけても　２ほんあしで
+ふんばるようなことは　しない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_164">
+		<language name="日本語">すこしの　ひかりが　あれば
+くらやみでも　みわけられる
+とくしゅな　めを　もつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_165">
+		<language name="日本語">むれを　つくらないと　ふあんで
+うごけなくなるほど　おくびょう。
+においで　きもちを　つたえあう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_166">
+		<language name="日本語">ほしあかりを　エネルギーにする。
+よぞらの　ほしの　かずが　ふえると
+せなかの　もようが　おおきくなる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_167">
+		<language name="日本語">ほそくて　じょうぶな　いとを
+はりめぐらして　わなを　しかける。
+えものが　かかるまで　じっと　まつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_168">
+		<language name="日本語">えものの　からだに　いとを　つけて
+わざと　にがす。いとを　たどれば
+なかまごと　つかまえられるからだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_169">
+		<language name="日本語">４まいの　はねで　より　しずかに
+より　はやく　とべるように　なった。
+よるになると　かつどうを　はじめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_170">
+		<language name="日本語">プラスと　マイナスの　でんきを
+しょくしゅの　さきから　ながす。
+てきを　かんでんさせてしまうのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_171">
+		<language name="日本語">しんかいを　およぐ　ランターンの
+あかりは　すいめんまで　とどく。
+しんかいのほし　と　よばれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_172">
+		<language name="日本語">ほっぺたの　でんきぶくろが
+まだ　ちいさいので
+でんきを　たくさん　ためられない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_173">
+		<language name="日本語">よぞらの　ほしに　にた　シルエット。
+ながれぼしに　のって　やってくると
+しんじられている　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_174">
+		<language name="日本語">やわらかく　だんりょくせいのある
+からだは　いちど　はずむと
+ぜんぜん　とまれなくなってしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_175">
+		<language name="日本語">カラの　なかに　たくさん　しあわせが
+つまっていて　やさしい　ひとに
+しあわせを　わけあたえるという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_176">
+		<language name="日本語">やさしい　ひとの　もとへ　あらわれて
+しあわせのこな　と　よばれる
+ひかる　うもうを　ふりまくと　いう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_177">
+		<language name="日本語">サボテンの　つぼみや　トゲを
+きように　よけながら　ついばむ。
+とびはねるようにして　いどうする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_178">
+		<language name="日本語">かこと　みらいを　みとおせる。
+まいにち　たいようの　うごきを
+みつづけている　ふしぎな　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_179">
+		<language name="日本語">ふわふわの　たいもうは　せいでんきが
+たまると　２ばいに　ふくらむ。
+さわると　かんでんしてしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_180">
+		<language name="日本語">たいもうに　ためた　でんきが
+まんたんになると　しっぽが　ひかる。
+ふれると　しびれる　けを　とばす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_181">
+		<language name="日本語">しっぽの　さきが　ひかりかがやく。
+むかしの　ひとたちは　その　あかりを
+つかって　あいずを　おくりあった。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_182">
+		<language name="日本語">おおあめの　きせつが　おわると
+あたたかい　ひざしに　さそわれた
+キレイハナが　おどりはじめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_183">
+		<language name="日本語">しっぽを　うきぶくろにして
+すいちゅうに　もぐる。
+かわぞこの　みずくさが　こうぶつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_184">
+		<language name="日本語">かわや　みずうみに　せいそくする。
+みずの　なかでは　からだの　いろと
+もようが　てきの　めを　あざむく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_185">
+		<language name="日本語">じゅもくの　ように　みえる　からだは
+じつは　いわや　いしに　ちかい。
+みずには　めっぽう　よわいのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_186">
+		<language name="日本語">ニョロトノを　リーダーに　グループが
+つくられる。ニョロトノの　なきごえが
+ニョロモたちを　したがわせる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_187">
+		<language name="日本語">かぜに　ながされて　ただよう。
+のやまに　ハネッコが　あつまりだすと
+はるが　おとずれると　いわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_188">
+		<language name="日本語">きおんが　たかくなると　はなひらく。
+そらに　うかんで　ひざしを
+いっぱい　あびようとする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_189">
+		<language name="日本語">きせつふうに　ながされて
+せかいを　いっしゅうしてしまう。
+とちゅうで　わたほうしを　ばらまく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_190">
+		<language name="日本語">てを　のばしても　とどかない　えだに
+はえる　くだものを　しっぽで　とる。
+ほんものの　うでよりも　きよう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_191">
+		<language name="日本語">あるあさ　とつぜん　ふってくる。
+なつが　さむかった　つぎの　としは
+かずが　ばくはつてきに　ふえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_192">
+		<language name="日本語">あたたかい　ひざしが　エネルギー。
+たいようを　おいかけて　いどうする
+しゅうせいで　しられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_193">
+		<language name="日本語">かおを　うごかさずに　３６０ど
+すべてを　みわたす　めを　もつので
+まうしろの　えものも　みのがさない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_194">
+		<language name="日本語">つめたい　みずの　なかで　くらす。
+みずぞこの　どろに　からだを
+はんぶん　うずめて　ねむる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_195">
+		<language name="日本語">のんびりとした　せいかく。
+かわぞこで　くちを　あけて　エサが
+とびこんでくるのを　ひたすら　まつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_196">
+		<language name="日本語">たいもうは　ビロードの　つやと
+はだざわり。サイコパワーを　つかう
+とき　ひたいの　たまが　かがやく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_197">
+		<language name="日本語">つきの　ひかりが　イーブイの
+いでんしを　へんかさせた。
+やみに　ひそみ　えものを　まつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_198">
+		<language name="日本語">よるに　その　すがたを　みかけると
+ふきつな　できごとが　おきると
+しんじられている　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_199">
+		<language name="日本語">シェルダーに　かまれたことによって
+ノーベルしょうを　じゅしょうした
+かがくしゃなみの　ちのうを　えた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_200">
+		<language name="日本語">まよなか　はいごから　ちかづき
+なきさけぶような　なきごえを　あげて
+おどろかせては　よろこぶ　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_201">
+		<language name="日本語">こだいぶんめいの　もじに　にている。
+もじが　さきか　アンノーンが　さきか
+せかいの　７ふしぎの　ひとつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_202">
+		<language name="日本語">くろい　しっぽを　ひっしになって
+かくすのは　しっぽに　ひみつがある
+しょうこだと　かんぐられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_203">
+		<language name="日本語">しっぽも　ちいさい　のうを　もつ。
+うしろから　しのびよる　あいてを
+かみついて　げきたいする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_204">
+		<language name="日本語">きのみに　そっくり。まちがわれて
+とりポケモンに　つつかれてしまうが
+かたい　カラで　まもられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_205">
+		<language name="日本語">こうてつの　カラで　まもられている。
+すきまから　めだまが　のぞいているが
+なかみの　しょうたいは　なぞのまま。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_206">
+		<language name="日本語">しっぽで　じめんを　ほって
+めいろのような　すあなを　つくる。
+はねで　すこしだけ　とべる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_207">
+		<language name="日本語">てあしの　まくで　かぜに　のって
+そらから　おそいかかる　せんぽう。
+えものの　かおを　ねらう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_208">
+		<language name="日本語">ちちゅうの　たかい　あつりょくと
+ねつで　きたえられた　からだは
+あらゆる　きんぞくよりも　かたい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_209">
+		<language name="日本語">ちいさな　ポケモンが　にげだすほどの
+こわいかおが　ぎゃくに　かわいいと
+じょせいに　にんきの　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_210">
+		<language name="日本語">かおに　にあわず　おくびょう。
+しかし　ひとたび　おこりはじめると
+おおきな　キバで　はんげきする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_211">
+		<language name="日本語">ぜんしんの　どくバリを
+しほうはっぽうに　うちだす。
+まるい　からだは　およぎが　にがて。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_212">
+		<language name="日本語">はがねの　からだを　もつ。
+めだまもようの　ついた　はさみを
+ふりあげて　あいてを　いかくする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_213">
+		<language name="日本語">こうらの　なかに　きのみを　ためる。
+そのうち　きのみは　はっこうして
+おいしい　ジュースに　なるのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_214">
+		<language name="日本語">こうぶつの　じゅえきを　もとめて
+もりに　あつまる。たくましい　ツノで
+あいてを　ぶんなげる　ちからもち。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_215">
+		<language name="日本語">すみかから　タマゴを　かすめとり
+たべてしまう。するどい　カギヅメが
+あいての　きゅうしょを　きりさく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_216">
+		<language name="日本語">あまい　ミツを　てのひらに
+しみこませて　いつも　なめている。
+ヒメグマによって　あじが　ちがう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_217">
+		<language name="日本語">なわばりにある　おいしい　きのみや
+くだものの　なる　き　には
+ツメで　きずあとを　つける。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_218">
+		<language name="日本語">ようがんで　できた　からだを　もつ。
+たえず　うごいていないと　からだが
+ひえて　かたまってしまうのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_219">
+		<language name="日本語">たいおんは　やく１まんど。
+マグマが　かたまって　できた　カラの
+すきまから　ほのおを　ふきだす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_220">
+		<language name="日本語">かれくさの　したに　はえた　キノコが
+だいこうぶつ。においで　キノコを
+さがすうちに　おんせんを　みつける。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_221">
+		<language name="日本語">ながい　たいもうで　おおわれていて
+めが　みえないが　びんかんな　はなを
+つかって　まわりの　ようすを　しる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_222">
+		<language name="日本語">みなみの　きれいな　うみには
+たくさんの　サニーゴが　いる。
+よごれた　うみでは　いきられない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_223">
+		<language name="日本語">くちから　みずを　はっしゃして
+そらを　とぶ　えものを　うちおとす
+ことから　この　なまえが　ついた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_224">
+		<language name="日本語">かいていの　いわかげや　あなを
+すみかにして　くらす。きゅうばんで
+えものに　すいつき　にがさない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_225">
+		<language name="日本語">しっぽで　えさを　つつんで　はこぶ。
+やまで　そうなんした　ひとに
+えさを　わけあたえる　しゅうせい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_226">
+		<language name="日本語">なみが　おだやかな　ときは
+おおうなばらを　とぶように　およぐ
+マンタインの　むれに　そうぐうする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_227">
+		<language name="日本語">てつのような　かたい　よろいに
+おおわれている。じそく３００キロの
+スピードで　おおぞらを　とびまわる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_228">
+		<language name="日本語">なきごえを　つかいわけて　きもちを
+つたえる。みごとな　れんけいプレーで
+えものを　おいこみ　しとめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_229">
+		<language name="日本語">ヘルガーの　ぶきみな　とおぼえは
+じごくから　しにがみが　よぶ　こえと
+むかしの　ひとは　そうぞうしていた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_230">
+		<language name="日本語">かいていどうくつに　すんでいる。
+キングドラが　みうごきすると
+きょだいな　うずしおが　うまれる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_231">
+		<language name="日本語">からだは　ちいさいが　ちからもち。
+おとなの　ひとを　かるがると
+せなかに　のせて　あるいてしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_232">
+		<language name="日本語">からだを　まるめて　かいてんしながら
+とっしんする　こうげき。いちげきで
+みんかを　ばらばらに　ふきとばす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_233">
+		<language name="日本語">わくせいかいはつようの　プログラムが
+インストールされている。しんくうの
+うちゅうでも　かつどうできるのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_234">
+		<language name="日本語">ツノを　みつめていると　わっかの
+ちゅうしんに　すいこまれそうな
+ふしぎな　きぶんに　なってしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_235">
+		<language name="日本語">しっぽを　ふでのように　つかって
+なわばりに　マークを　えがく。
+その　しゅるいは　５０００いじょう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_236">
+		<language name="日本語">けんかっぱやいことで　ゆうめい。
+じぶんよりも　おおきな　あいてに
+いどみかかるので　きずが　たえない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_237">
+		<language name="日本語">コマのように　かいてんしながら
+たたかう。えんしんりょくの　パワーで
+はかいりょくは　１０ばいだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_238">
+		<language name="日本語">なんでも　くちびるで　ふれてみて
+たしかめる。すきな　ものも　きらいな
+ものも　くちびるが　おぼえている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_239">
+		<language name="日本語">りょううでを　ぐるぐる　ふりまわして
+でんきを　はっせいさせる。しかし
+つくった　でんきは　ためておけない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_240">
+		<language name="日本語">たいおんは　やく６００ど。
+くちから　きいろい　ほのおを
+だしていれば　げんきな　しょうこ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_241">
+		<language name="日本語">ミルタンクの　ミルクを　のんで
+そだった　こどもは　けんこうで
+たくましい　おとなに　なるという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_242">
+		<language name="日本語">よわった　ポケモンを　なおるまで
+かんびょうする　やさしい　ポケモン。
+かなしい　きもちを　キャッチする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_243">
+		<language name="日本語">カミナリと　ともに　おちてきたと
+いわれている。せなかの　あまぐもから
+カミナリを　うちだすことが　できる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_244">
+		<language name="日本語">エンテイが　ほえると
+せかいの　どこかの　かざんが
+ふんかすると　いわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_245">
+		<language name="日本語">せかいじゅうを　かけめぐり
+よごれた　みずを　きよめている。
+きたかぜと　ともに　はしりさる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_246">
+		<language name="日本語">つちを　たべる　ポケモン。
+おおきな　やまを　たいらげると
+せいちょうのため　ねむりはじめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_247">
+		<language name="日本語">がんばんのような　かたい　からだ。
+あっしゅくした　ガスを　ふんしゃして
+まるで　ロケットのように　とびだす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_248">
+		<language name="日本語">バンギラスが　あばれると
+やまが　くずれ　かわが　うまるため
+ちずを　かきかえる　ことになる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_249">
+		<language name="日本語">ふかい　かいこうの　そこで　ねむる。
+ルギアが　はばたくと　４０にち
+あらしが　つづくと　いわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_250">
+		<language name="日本語">なないろの　つばさを　もつ。
+ホウオウを　みた　ものは　えいえんの
+しあわせが　やくそくされるという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_251">
+		<language name="日本語">じかんを　こえる　ちからを　つかう。
+へいわな　じだいにだけ
+すがたを　みせると　いわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_252">
+		<language name="日本語">あしの　うらには　ちいさな　トゲが
+たくさん　ついているので　カベや
+てんじょうを　あるくことが　できる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_253">
+		<language name="日本語">みつりんに　せいそくする。
+えだから　えだへ　とびうつりながら
+いどうして　えものに　せっきんする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_254">
+		<language name="日本語">うでに　はえた　はっぱは　たいぼくも
+すっぱり　きりたおす　きれあじ。
+みつりんの　たたかいでは　むてき。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_255">
+		<language name="日本語">たいないで　ほのおが　もえているので
+だきしめると　とても　あたたかい。
+１０００どの　ひのたまを　とばす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_256">
+		<language name="日本語">１びょうかんに　キックを　１０ぱつ
+くりだす　あしわざの　もちぬし。
+するどい　なきごえで　いかくする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_257">
+		<language name="日本語">てくびから　ふきだした　ほのおで
+こぶしを　つつみこんだ　パンチは
+あいてを　くろこげに　してしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_258">
+		<language name="日本語">あたまの　ひれで　みずの　ながれを
+かんじて　まわりの　ようすを　しる。
+いわを　もちあげる　ちからもち。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_259">
+		<language name="日本語">ぬかるんだ　あしばでも　しっかり
+あるける　じょうぶな　あしこし。
+どろに　からだを　うめて　ねむる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_260">
+		<language name="日本語">おおがたせんを　ひっぱって　およぐ
+パワーの　もちぬし。ふとい　うでの
+ひとふりで　あいてを　たたきのめす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_261">
+		<language name="日本語">しつこい　せいかくの　ポケモン。
+めをつけた　えものが　ヘトヘトに
+つかれるまで　おいかけまわす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_262">
+		<language name="日本語">むれで　えものを　おいつめる。
+すぐれた　トレーナーの　めいれいには
+ぜったいに　さからわない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_263">
+		<language name="日本語">ジグザグに　あるいて　くさかげや
+じめんに　うまっている　たからものを
+みつけるのが　とくいな　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_264">
+		<language name="日本語">じそく１００キロで　えものに
+おそいかかるが　まっすぐにしか
+はしれないので　しっぱいも　おおい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_265">
+		<language name="日本語">はっぱが　だいこうぶつ。
+ムックルに　おそわれたときは
+おしりの　トゲで　げきたいする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_266">
+		<language name="日本語">からだから　のびる　いとを　えだに
+まきつけて　おちないように　こてい。
+じっと　うごかずに　しんかを　まつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_267">
+		<language name="日本語">ほそながい　くちを　つきさして
+あいての　たいえきを　すいとる。
+こうげきてきな　せいかく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_268">
+		<language name="日本語">マユの　なかは　おんどが　たかい。
+そのなかで　ぜんしんの　さいぼうが
+しんかの　エネルギーを　つくりだす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_269">
+		<language name="日本語">やこうせいの　ポケモン。
+あかりに　さそわれた　ドクケイルが
+がいろじゅの　はを　くいちらかす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_270">
+		<language name="日本語">みずくさに　そっくりな　ポケモン。
+およげない　ポケモンを　はっぱに
+のせて　むこうぎしまで　はこぶ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_271">
+		<language name="日本語">つりびとを　みつけると
+すいちゅうから　つりいとを　ひっぱり
+ジャマして　よろこぶ　いたずらもの。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_272">
+		<language name="日本語">ようきな　おんがくを　きくと
+からだじゅうに　ちからが　みなぎり
+おどらずには　いられなくなるのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_273">
+		<language name="日本語">えだに　ぶらさがっていると
+きのみに　そっくり。ついばもうとした
+ポケモンを　おどろかせて　よろこぶ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_274">
+		<language name="日本語">コノハナが　かなでる　くさぶえの
+ねいろは　ひとを　ふあんにさせる。
+もりの　おくに　すんでいる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_275">
+		<language name="日本語">はっぱの　うちわを　あおぐと
+ふうそく３０メートルの　とっぷうが
+まきおこり　みんかを　ふきとばす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_276">
+		<language name="日本語">つよい　あいてにも　ゆうかんに
+たちむかう　こんじょうの　もちぬし。
+あたたかい　とちを　めざして　とぶ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_277">
+		<language name="日本語">じょうくうを　せんかいしながら
+えものを　さがし　まっさかさまに
+きゅうこうかして　つかまえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_278">
+		<language name="日本語">うみべの　だんがいぜっぺきに
+すを　つくる。じょうしょうきりゅうを
+りようして　おおぞらに　まいあがる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_279">
+		<language name="日本語">おおきな　クチバシを　うみに　いれて
+ひとすくいすると　エサが　たくさん
+はいっているという　すんぽうだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_280">
+		<language name="日本語">あたまの　ツノで　ひとの　きもちを
+かんじとる。あかるい　きぶんの
+ひとの　まえに　あらわれるという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_281">
+		<language name="日本語">トレーナーの　きもちを　びんかんに
+キャッチする　ちからを　もつ。
+たのしくなると　おどりはじめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_282">
+		<language name="日本語">いのちがけで　しんらいする
+トレーナーを　まもろうとする。
+みらいを　よちする　ちからを　もつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_283">
+		<language name="日本語">すいめんを　すべるように　あるく。
+あたまの　さきから　あまい　においを
+だして　えものを　さそう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_284">
+		<language name="日本語">めだまもようの　しょっかくを　もつ。
+４まいの　はねで　うかびあがり
+ぜんごさゆうに　うごくことができる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_285">
+		<language name="日本語">あたまの　てっぺんから　どくほうしを
+ふきだす。ほうしを　すいこむと
+からだの　ふしぶしが　いたくなる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_286">
+		<language name="日本語">みじかい　うでは　パンチを　だすとき
+ぐーんと　のびる。プロボクサー
+かおまけの　テクニックを　もつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_287">
+		<language name="日本語">１にちのうち　ほとんどの　じかんを
+ねころがって　すごす。その　ようすを
+みていると　ねむけに　おそわれる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_288">
+		<language name="日本語">しんぞうが　１０ばいの　テンポで
+こどう　しているため
+ひとときも　じっとしていられない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_289">
+		<language name="日本語">せかいいち　ぐうたらな　ポケモン。
+ねころがっているだけに　みえるが
+はんげきの　パワーを　ためている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_290">
+		<language name="日本語">じめんの　したで　せいちょうする。
+ほとんど　みえない　めの　かわりに
+しょっかくで　ようすを　さぐる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_291">
+		<language name="日本語">あまりに　こうそくで　うごくため
+すがたが　みえなくなる　ことがある。
+じゅえきに　あつまってくる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_292">
+		<language name="日本語">ぬけがらが　たましいを　やどした。
+せなかの　すきまから　のぞきこむと
+たましいを　すわれてしまうらしい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_293">
+		<language name="日本語">ふだんは　ささやくような　なきごえ。
+ふあんになると　ジェットきと　おなじ
+おんりょうで　なきつづける。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_294">
+		<language name="日本語">おおごえの　しょうげきはで
+トラックを　ひっくりかえしてしまう。
+あしを　ふみならして　パワーアップ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_295">
+		<language name="日本語">バクオングの　とおぼえは　１０キロ
+さきまで　とどく。からだじゅうの
+あなから　さまざまな　おとを　だす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_296">
+		<language name="日本語">ふとい　きのみきに　ぶつかって
+からだを　きたえる。すみかの　そばは
+へしおられた　きが　たくさんある。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_297">
+		<language name="日本語">からだの　おおきな　ポケモンたちと
+ちからくらべをすることが　だいすき。
+はりてで　トラックを　ふっとばす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_298">
+		<language name="日本語">おおきな　しっぽに　のって　はずむと
+ちじょうでは　はやく　いどうできる。
+みずべで　くらす　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_299">
+		<language name="日本語">はなが　じしゃくに　なっているので
+つねに　ほっきょくの　ほうがくに
+かおを　むけている　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_300">
+		<language name="日本語">うごくものを　つい　おってしまう。
+じぶんの　しっぽを　おいかけて
+おなじ　ばしょを　グルグル　まわる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_301">
+		<language name="日本語">うつくしい　けなみを　もち
+じょせいトレーナーに　だいにんき。
+きまった　すみかを　もたない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_302">
+		<language name="日本語">どうくつの　くらやみに　ひそむ。
+ほうせきを　たべているうちに
+めが　ほうせきに　なってしまった。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_303">
+		<language name="日本語">ツノが　へんけいして　できた
+おおあごが　あたまに　ついている。
+てっこつを　かみきってしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_304">
+		<language name="日本語">ふだんは　やまおくで　くらしているが
+おなかが　すくと　ふもとに　あらわれ
+せんろや　くるまを　たべてしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_305">
+		<language name="日本語">てっこうせきを　ほりだして　たべる。
+はがねの　からだを　ぶつけあって
+なわばりあらそいをする　しゅうせい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_306">
+		<language name="日本語">はがねの　ツノで　かたい　がんばんを
+つきくずしながら　しょくりょうの
+てつを　さがして　トンネルを　ほる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_307">
+		<language name="日本語">１にち　１こだけ　きのみを　たべる。
+くうふくに　たえることで
+こころが　とぎすまされていく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_308">
+		<language name="日本語">ヨガの　しゅぎょうによって
+だい６かんが　はったつした。
+ゆうがに　おどるような　みのこなし。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_309">
+		<language name="日本語">たいもうに　ためた　でんきを　つかい
+きんにくを　しげきすることで
+しゅんぱつりょくを　たかめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_310">
+		<language name="日本語">たてがみから　ほうでんしている。
+ずじょうに　かみなりぐもを　つくり
+いなずまを　おとして　こうげきする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_311">
+		<language name="日本語">ひばなの　ボンボンを　つくって
+なかまを　おうえんする。
+でんちゅうから　でんきを　すいとる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_312">
+		<language name="日本語">なかまを　おうえんする　しゅうせい。
+まけそうになると　からだから　だす
+ひばなの　かずが　どんどん　ふえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_313">
+		<language name="日本語">よるになると　おしりを　ひからせ
+なかまと　かいわする。イルミーゼの
+だす　あまい　かおりが　だいすき。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_314">
+		<language name="日本語">あまい　かおりで　バルビートを
+ゆうどうして　よぞらに
+ひかりの　サインを　えがく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_315">
+		<language name="日本語">きれいな　みずを　のんで　そだった
+ロゼリアは　いろあざやかな　はなを
+さかせる　ことで　しられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_316">
+		<language name="日本語">からだの　ほとんどが　いぶくろ。
+きょうりょくな　いえきで　のみこんだ
+ものを　たちまち　しょうかする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_317">
+		<language name="日本語">なんでも　まるのみしてしまう。
+けあなから　もうどくの　たいえきを
+ぶんぴつして　てきに　あびせかける。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_318">
+		<language name="日本語">なわばりに　はいってきた　あいてを
+しゅうだんで　こうげき。するどい
+キバは　ボートの　そこも　かみきる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_319">
+		<language name="日本語">てっぱんも　かみちぎる　キバを　もち
+およぐ　そくどは　じそく１２０キロ。　
+べつめいは　うみのギャング。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_320">
+		<language name="日本語">はれた　ひは　すなはまに　あがり
+ボールのように　はずんで　あそぶ。
+はなから　みずを　ふきあげる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_321">
+		<language name="日本語">いちばん　おおきい　ポケモン。
+いきつぎせずに　３０００メートルの
+ふかさまで　もぐることが　できる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_322">
+		<language name="日本語">しゃくねつの　マグマを　せなかの
+コブに　ためている。あめに　あたると
+マグマが　ひえて　うごきが　にぶる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_323">
+		<language name="日本語">せなかに　かざんを　もつ　ポケモン。
+たいないの　マグマが　ふえると
+ふるえた　あとに　だいばくはつする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_324">
+		<language name="日本語">こうらの　なかで　せきたんを　もやし
+エネルギーに　している。ピンチの
+ときは　くろい　ススを　ふきだす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_325">
+		<language name="日本語">しっぽを　バネのかわりに　いつも
+とびはねている。はねる　しんどうで
+しんぞうを　こどう　させているのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_326">
+		<language name="日本語">くろしんじゅで　サイコパワーを
+ぞうふくさせる。ふしぎな　ステップで
+あいての　こころを　あやつる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_327">
+		<language name="日本語">おなじ　ブチもようの　パッチールは
+いない。フラフラした　あしどりで
+あいての　ねらいを　はずす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_328">
+		<language name="日本語">さばくに　つくった　すりばちがたの
+あなの　そこで　えものが　はまって
+おちてくるのを　まちつづける。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_329">
+		<language name="日本語">はねを　はげしく　しんどうさせて
+ちょうおんぱを　だす。にんげんも
+ずつうを　おこすほど　きょうりょく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_330">
+		<language name="日本語">きょうれつな　ハネの　はばたきで
+すなあらしを　おこす。
+さばくのせいれい　と　よばれる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_331">
+		<language name="日本語">さばくに　せいそく。たいないに
+すいぶんを　ためることで　みずを
+のまずに　３０にちかん　いきられる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_332">
+		<language name="日本語">よるになると　かつどうを　はじめる。
+さばくの　あつさに　つかれはてた
+えものを　みつけだし　とらえるのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_333">
+		<language name="日本語">わたのような　つばさを　もつ。
+ひとの　あたまに　ちょこんと　のると
+わたの　ぼうしみたいに　みえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_334">
+		<language name="日本語">そらを　とぶ　すがたは
+まるで　わたぐものように　みえる。
+ソプラノの　こえで　ハミングする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_335">
+		<language name="日本語">なんせだいにも　わたって
+ハブネークと　たたかってきた。
+するどい　ツメが　さいだいの　ぶき。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_336">
+		<language name="日本語">せんぞだいだい　ザングースと
+たたかってきた。しっぽの　やいばを
+いわで　とぎ　たたかいに　そなえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_337">
+		<language name="日本語">まんげつの　よるになると　かっぱつに
+かつどうするため　つきの　みちかけと
+かんけいしていると　いわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_338">
+		<language name="日本語">たいようの　ぶんしんと　うわさされる
+しんしゅの　ポケモン。からだを
+かいてんさせて　ひかりを　はなつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_339">
+		<language name="日本語">ぜんしんが　ヌルヌルの　たいえきで
+おおわれているため　つかまっても
+ぬるりと　ぬけだすことが　できる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_340">
+		<language name="日本語">なわばり　いしきが　とても　つよい。
+しゅうい　５キロの　はんいで
+じしんを　おこし　げきたいする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_341">
+		<language name="日本語">どんな　かんきょうにも　てきおうする
+つよい　せいめいりょくの　もちぬし。
+はさんだ　えものは　はなさない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_342">
+		<language name="日本語">いけに　すむ　ほかの　ポケモンを
+ハサミで　つまみあげ　いけの　そとへ
+ほうりだしてしまう　あばれんぼう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_343">
+		<language name="日本語">いっぽんあしで　かいてんしながら
+いどうする。こだいの　いせきから
+みつかった　めずらしい　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_344">
+		<language name="日本語">こだいの　どろにんぎょうが
+かいこうせんを　あびたことで
+いのちが　やどり　ポケモンとなった。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_345">
+		<language name="日本語">およそ　１おくねんまえの　かいていで
+くらしていた　こだいの　ポケモン。
+かがくの　ちからで　ふっかつした。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_346">
+		<language name="日本語">あたたかい　うみの　あさせに　いる。
+しおが　ひくと　すなはまに　もぐった
+えものを　ほりだして　たべる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_347">
+		<language name="日本語">かせきから　ふっかつした　ポケモンの
+せんぞの　いっしゅ。うみで　くらし
+ツメで　えものを　つかまえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_348">
+		<language name="日本語">しんかして　ちじょうで　くらすように
+なった。ぜんしんが　がんじょうな
+よろいに　おおわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_349">
+		<language name="日本語">みすぼらしい　すがたで　ゆうめい。
+せいそくすうは　おおいが
+いっかしょに　あつまる　しゅうせい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_350">
+		<language name="日本語">ひとびとが　あらそいを　はじめると
+みずうみの　おくそこから　あらわれて
+すさんだ　こころを　いやすという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_351">
+		<language name="日本語">てんきによって　すがたが　かわる。
+みずの　ぶんしと　そっくりなことが
+さいきんになって　はっけんされた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_352">
+		<language name="日本語">からだの　いろを　じゆうに　かえる
+のうりょくを　もつ。おなかにある
+ギザギザもよう　だけは　かわらない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_353">
+		<language name="日本語">うらみの　かんじょうが　だいすき。
+うらみを　もつ　ひとが　すむ　いえの
+のきしたに　ずらりと　ぶらさがる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_354">
+		<language name="日本語">すてられた　ぬいぐるみに　おんねんが
+やどり　ポケモンになった。じぶんを
+すてた　こどもを　さがしている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_355">
+		<language name="日本語">どこまでも　えものを　おいつづける
+しゅうねんぶかい　せいかくだが
+あさひが　のぼると　あきらめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_356">
+		<language name="日本語">からだの　なかみは　くうどうに
+なっていて　のぞきこんだ　あいてを
+すいこんでしまうと　いわれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_357">
+		<language name="日本語">だいこうぶつの　くだものばかり
+たべていたら　じぶんの　くびに
+くだものが　できるようになった。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_358">
+		<language name="日本語">なきごえで　くうきを　しんどうさせ
+あいてを　ふきとばす。７しゅるいの
+こえで　なかまと　かいわする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_359">
+		<language name="日本語">さいがいの　よかんを　かんじとる。
+きけんを　しらせる　ときだけ
+ひとまえに　あらわれるという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_360">
+		<language name="日本語">なかまたちと　おしくらまんじゅうを
+やることで　がまんづよく　そだつ。
+あまい　くだものが　だいこうぶつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_361">
+		<language name="日本語">ユキワラシの　すみついた　いえは
+おかねもちになるという　いいつたえが
+ゆきぐにには　のこっている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_362">
+		<language name="日本語">くうきちゅうの　すいぶんを　こおらせ
+こおりの　そうこうで　からだを
+つつみこみ　みを　まもっている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_363">
+		<language name="日本語">りゅうひょうの　うえを　コロコロと
+ころがって　かいがんに　たどりつく。
+およぐには　ふべんな　たいけい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_364">
+		<language name="日本語">なんでも　はなの　うえで　まわす
+クセを　もつ。まわしながら　においや
+かんしょくを　おぼえるのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_365">
+		<language name="日本語">おおきな　こおりを　キバで　くだく。
+あつい　しぼうは　さむさだけでなく
+てきの　こうげきも　はねかえす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_366">
+		<language name="日本語">いっしょうに　１こだけ　つくる
+しんじゅは　サイコパワーを
+ぞうふくする　さようが　あるという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_367">
+		<language name="日本語">しんかいに　せいそくする　ポケモン。
+こざかなの　かたちをした　しっぽで
+えものを　おびきよせ　つかまえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_368">
+		<language name="日本語">うみの　そこで　くらしているが
+はるになると　からだの　ピンクいろが
+なぜか　あざやかに　いろづく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_369">
+		<language name="日本語">しんかいちょうさで　はっけんされた
+めずらしい　ポケモン。１おくねんの
+あいだ　すがたが　かわっていない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_370">
+		<language name="日本語">あたたかい　うみに　せいそくする。
+ラブカスを　みつけた　カップルは
+えいえんの　あいが　つづくという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_371">
+		<language name="日本語">おおぞらを　とぶことを　ゆめみて
+まいにち　とぶ　れんしゅうのために
+がけから　とびおりている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_372">
+		<language name="日本語">かたい　カラの　なかでは　さいぼうが
+へんかを　はじめている。しんかする
+しゅんかんに　カラが　はがれおちる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_373">
+		<language name="日本語">そらを　とぶことを　ねがいつづけた
+けっか　からだの　さいぼうが
+へんかして　つばさが　はえてきた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_374">
+		<language name="日本語">じりょくの　はちょうで　なかまと
+かいわする。むれになった　ダンバルは
+いっしみだれぬ　うごきを　する。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_375">
+		<language name="日本語">２ひきの　ダンバルが　がったいした。
+はがねの　ボディは　ジェットきと
+しょうとつしても　きずつかない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_376">
+		<language name="日本語">メタングが　がったいして　うまれた。
+４つの　のうを　もつ　メタグロスは
+スーパーコンピュータなみの　ちのう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_377">
+		<language name="日本語">ぜんしんが　いわで　できている。
+たたかいで　からだが　かけても
+いわを　くっつけて　なおしてしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_378">
+		<language name="日本語">ひょうがきに　できた　こおりで
+からだが　つくられている。マイナス
+２００どの　れいきを　あやつる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_379">
+		<language name="日本語">なんまんねんも　ちかの　あつりょくで
+きたえられた　きんぞくの　ボディは
+きずひとつ　つかない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_380">
+		<language name="日本語">ひかりを　くっせつさせる　うもうで
+ぜんしんを　つつみこみ　すがたを
+みえなくする　のうりょくを　もつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_381">
+		<language name="日本語">たかい　ちのうを　もつ　ポケモン。
+うでを　おりたたんで　とべば
+ジェットきを　おいこす　スピードだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_382">
+		<language name="日本語">おおあめを　ふらせる　のうりょくで
+うみを　ひろげたと　いわれている。
+かいこうの　そこで　ねむっていた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_383">
+		<language name="日本語">おおむかし　カイオーガとの　しとうの
+すえに　ちかマグマの　なかで
+ねむっていた　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_384">
+		<language name="日本語">くもより　はるかうえの　オゾンそうに
+せいそくしているため　ちじょうから
+すがたを　みることは　できない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_385">
+		<language name="日本語">１０００ねんかんで　７にちだけ
+めを　さまし　どんな　ねがいごとでも
+かなえる　ちからを　つかうという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_386">
+		<language name="日本語">いんせきに　ふちゃくしていた
+うちゅうウイルスの　ＤＮＡが
+へんいして　うまれた　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_387">
+		<language name="日本語">つちで　できた　せなかの　こうらは
+みずを　のむと　さらに　かたくなる。
+みずうみの　ほとりで　くらしている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_388">
+		<language name="日本語">もりの　なかの　みずべで　くらす。
+ひるまは　もりの　そとに　でて
+こうらの　きに　ひかりを　あてる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_389">
+		<language name="日本語">ちいさな　ポケモンたちが　あつまり
+うごかない　ドダイトスの　せなかで
+すづくりを　はじめることがある。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_390">
+		<language name="日本語">だんがいぜっぺきを　みがるに　のぼり
+いわやまの　うえで　せいかつする。
+ほのおを　けして　ねむる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_391">
+		<language name="日本語">しっぽの　ほのおを　ながく　のばして
+からだを　おおきく　みせることで
+おそってきた　てきを　こわがらせる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_392">
+		<language name="日本語">りょうて　りょうあしを　つかった
+とくしゅな　かくとうわざを　つかう。
+ほのおは　いっしょう　きえない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_393">
+		<language name="日本語">プライドが　たかく　ひとから
+たべものを　もらう　ことを　きらう。
+ながい　うぶげが　さむさを　ふせぐ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_394">
+		<language name="日本語">むれを　つくらずに　１ぴきで　いる。
+じぶんが　いちばん　えらいと　どの
+ポッタイシも　かんがえているようだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_395">
+		<language name="日本語">クチバシから　のびている　３ぼんの
+ツノは　つよさの　しょうちょう。
+リーダーが　いちばん　おおきい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_396">
+		<language name="日本語">たくさんの　むれで　こうどうする。
+からだは　ちいさいが　はばたく
+ちからは　ひじょうに　つよい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_397">
+		<language name="日本語">むしポケモンを　ねらって
+もりや　そうげんを　とびまわる。
+おおきな　むれで　こうどうする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_398">
+		<language name="日本語">どうもうな　せいかくの　ポケモン。
+じぶんよりも　からだの　おおきい
+あいてにも　かかんに　いどみかかる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_399">
+		<language name="日本語">なにごとにも　どうじない　ずぶとい
+しんけいの　もちぬし。みかけの
+わりには　きびんに　かつどうする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_400">
+		<language name="日本語">かわを　きのみきや　どろの　ダムで
+せきとめて　すみかを　つくる。
+はたらきものとして　しられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_401">
+		<language name="日本語">あたまを　ぜんごに　ゆすって
+しょっかくを　ぶつけあうことで
+もっきんのような　おとを　ならす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_402">
+		<language name="日本語">なくときは　ナイフのような　うでを
+むねの　まえで　こうささせる。
+そっきょうで　メロディを　つくる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_403">
+		<language name="日本語">きけんを　かんじると　ぜんしんの
+たいもうが　ひかる。あいてが　めを
+くらませている　あいだに　にげる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_404">
+		<language name="日本語">いっぱつで　きぜつさせるほどの
+でんりゅうを　ツメから　ながす。
+すうひきの　グループで　くらす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_405">
+		<language name="日本語">あらゆるものを　とうししてしまう
+めを　もつ。ものかげに　かくれた
+えものを　みつけて　とらえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_406">
+		<language name="日本語">ふゆの　あいだは　つぼみを　とざして
+さむさに　たえる。はるになると
+つぼみを　ひらき　かふんを　とばす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_407">
+		<language name="日本語">あまい　かおりで　おびきよせて
+りょううでの　はなたばの　なかに
+ある　トゲの　ムチで　しとめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_408">
+		<language name="日本語">およそ　１おくねんまえに
+こだいの　みつりんで　くらしていた。
+てつのように　かたい　ずがいこつ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_409">
+		<language name="日本語">きょうれつな　ずつきの　こうげきは
+どんなに　がんじょうな　ものでも
+いちげきで　ふんさいする　いりょく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_410">
+		<language name="日本語">およそ　１おくねんまえに
+みつりんで　くらしていた　ポケモン。
+かおの　ひふが　ひじょうに　かたい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_411">
+		<language name="日本語">しょうめんからの　こうげきは
+すべて　はねかえす。くさや　きのみを
+たべる　おとなしい　せいかく。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_412">
+		<language name="日本語">つめたい　こがらしを　ふせぐため
+こえだや　おちばを　ざいりょうに
+ミノを　つくり　からだを　おおう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_413">
+		<language name="日本語">ミノムッチから　しんかしたとき
+ミノが　からだの　いちぶに　なった。
+いっしょう　ミノを　ぬぐことはない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_414">
+		<language name="日本語">はなの　ミツが　だいすき。
+ミツハニーの　あつめた　ミツを
+よこどりして　たべてしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_415">
+		<language name="日本語">３びきが　ひとつになった　ポケモン。
+ビークインのために　せっせと
+はなの　あまい　ミツを　はこぶ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_416">
+		<language name="日本語">どうたいが　こどもたちの　すあなに
+なっている。ミツハニーの　あつめた
+ミツで　こどもたちを　そだてる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_417">
+		<language name="日本語">せいでんきが　たまって　パチパチする
+けだまを　だいこうぶつの　きのみと
+いっしょに　みきの　あなに　かくす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_418">
+		<language name="日本語">くびに　ある　うきぶくろに　くうきを
+ためると　うきわのように　ふくらむ。
+すいめんに　かおを　だして　うかぶ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_419">
+		<language name="日本語">はったつした　うきぶくろで　うかぶ。
+おぼれた　ひとを　きゅうじょする
+てつだいを　している　ポケモンだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_420">
+		<language name="日本語">しんかに　ひつような　えいようぶんが
+ちいさい　たまに　ためられている。
+とても　あまくて　おいしい　らしい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_421">
+		<language name="日本語">ひざしが　つよくなると　はなひらく。
+つぼみの　ときに　たえしのんだ
+うっぷんを　いっきに　はらすのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_422">
+		<language name="日本語">せいそくちにより　ちがった　かたちや
+いろを　している。シンオウちほうでは
+２しゅるいが　かくにんされている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_423">
+		<language name="日本語">ホネがなく　グニャグニャの　からだ。
+からだの　いちぶが　ちぎれても
+すぐに　さいせいされて　もとどおり。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_424">
+		<language name="日本語">２ほんの　しっぽで　きのみの　からを
+きように　むいて　たべる。ほんものの
+うでは　ほとんど　つかわなくなった。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_425">
+		<language name="日本語">ひとや　ポケモンの　たましいが
+かたまって　うまれた　ポケモン。
+ジメジメした　きせつが　だいすき。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_426">
+		<language name="日本語">ひるまは　ねぼけて　うかんでいるが
+ゆうがた　たいぐんで　とんでいく。
+いきさきは　だれも　しらない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_427">
+		<language name="日本語">まるめた　みみを　いきおいよく
+のばして　あいてに　たたきつける。
+おとなでも　とびあがるほど　いたい。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_428">
+		<language name="日本語">けいかいしんの　つよい　ポケモン。
+きけんを　かんじると　ふわふわした
+みみさきの　けで　からだを　つつむ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_429">
+		<language name="日本語">じゅもんのような　なきごえを　だして
+みみにした　あいてを
+ずつうや　げんかくで　くるしめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_430">
+		<language name="日本語">よるになると　かつどうを　はじめる。
+たくさんの　ヤミカラスを　ひきつれ
+むれを　つくることで　しられる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_431">
+		<language name="日本語">きにいらないと　ツメを　たてるが
+たまに　のどを　ならして　あまえる
+せいかくが　いちぶに　だいにんきだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_432">
+		<language name="日本語">ほかの　ポケモンの　すみかにも
+かまわず　はいりこんで　じぶんの
+ねばしょにしてしまう　ずうずうしさ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_433">
+		<language name="日本語">のどの　おくで　まるい　たまを
+ふるわせて　なきごえを　だす。
+ふわりと　はずんで　いどうする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_434">
+		<language name="日本語">おしりから　きょうれつに　くさい
+えきたいを　とばして　みを　まもる。
+においは　２４じかん　きえない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_435">
+		<language name="日本語">しっぽの　さきから　ひどい　においの
+えきたいを　とばして　こうげきする。
+ひきょりは　５０メートルいじょう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_436">
+		<language name="日本語">ふるい　おはかから　ドーミラーに
+そっくりな　どうぐが　ほりだされたが
+かんけいは　わかっていない。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_437">
+		<language name="日本語">２０００ねん　いじょう　ねむっていた
+ドータクンが　こうじげんばから
+ほりだされ　だいニュースに　なった。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_438">
+		<language name="日本語">いつも　ないているように　みえるが
+たいないの　すいぶんを　そとに
+だして　ちょうせつしているのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_439">
+		<language name="日本語">あいての　うごきを　モノマネする
+しゅうせい。まねを　された　あいては
+めが　はなせなくなる　という。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_440">
+		<language name="日本語">しろくて　まるいものが　だいすき。
+ラッキーの　まねをして　タマゴに
+そっくりな　いしを　かかえている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_441">
+		<language name="日本語">ひとの　ことばを　おぼえて　なく。
+なかまが　いっかしょに　あつまると
+みんな　おなじ　ことばを　おぼえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_442">
+		<language name="日本語">１０８この　たましいが　あつまって
+うまれた　ポケモン。かなめいしの
+ひびわれに　つながれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_443">
+		<language name="日本語">どうくつの　ちいさな　よこあなを
+ねぐらにする。えものが　ちかづくと
+すばやく　とびだして　つかまえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_444">
+		<language name="日本語">ガバイトの　ウロコから　つくった
+くすりが　ふじのやまいを　なおすと
+ふるくから　しんじられてきた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_445">
+		<language name="日本語">からだを　おりたたみ　つばさを
+のばすと　まるで　ジェットき。
+おんそくで　とぶことが　できる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_446">
+		<language name="日本語">１にち　１かい　たいじゅうと　おなじ
+りょうの　エサを　いっきに　たべる。
+ほとんど　かまずに　まるのみ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_447">
+		<language name="日本語">からだから　はっする　はどうは
+こわいとき　かなしいときに　つよまり
+ピンチを　なかまに　つたえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_448">
+		<language name="日本語">あらゆる　ものが　はっする　はどうを
+キャッチする　のうりょくを　もつ。
+ひとの　ことばを　りかいできる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_449">
+		<language name="日本語">かんそうした　とちで　くらす。
+あせの　かわりに　すなつぶを
+からだから　ぶんぴつする　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_450">
+		<language name="日本語">たいないに　ためた　すなを　からだの
+あなから　ふきあげて　きょだいな
+たつまきを　つくり　こうげきする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_451">
+		<language name="日本語">しっぽの　ツメで　えものを　はさみ
+どくを　おくりこむ。どくが　きくまで
+ぜったいに　はなさない　しゅうねん。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_452">
+		<language name="日本語">りょううでの　ツメは　じどうしゃを
+スクラップにする　はかいりょく。
+ツメの　さきから　どくを　だす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_453">
+		<language name="日本語">ほっぺたに　どくぶくろを　もつ。
+あいての　すきを　ついて　もうどくを
+にじませている　ゆびを　つきさす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_454">
+		<language name="日本語">こぶしの　トゲからは　かすりきずでも
+いのちを　おとすほどの　もうどくを
+ぶんぴつしている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_455">
+		<language name="日本語">あまい　においの　だえきで　えものを
+おびきよせ　おおあごで　がぶり。
+１にち　かけて　えものを　たべる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_456">
+		<language name="日本語">たいようを　いっぱいに　あびた
+おびれの　もようは　くらくなると
+あざやかな　いろで　ひかりだす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_457">
+		<language name="日本語">ふかい　うみの　そこで　くらす。
+４まいの　ひれの　もようを　ひからせ
+えものを　おびきよせる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_458">
+		<language name="日本語">２ほんの　しょっかくで　かいすいの
+びみょうな　うごきを　キャッチする。
+ひとなつっこい　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_459">
+		<language name="日本語">ゆきやまで　くらしている。
+めったに　であわない　にんげんを
+めずらしがって　ちかよってくる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_460">
+		<language name="日本語">まんねんゆきの　つもる　やまで
+くらし　ブリザードを　まきおこす。
+ゆきおとこの　しょうたいだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_461">
+		<language name="日本語">さむい　ちいきで　くらす　ポケモン。
+４、５ひきの　グループは　みごとな
+れんけいで　えものを　おいつめる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_462">
+		<language name="日本語">とくしゅな　じばの　えいきょうで
+レアコイルが　しんかした。３つの
+ユニットから　じりょくを　だす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_463">
+		<language name="日本語">ぐんぐん　のびる　ベロを　なんにでも
+まきつける。うかつに　ちかよると
+だえきで　べとべとに　されてしまう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_464">
+		<language name="日本語">いわを　てのひらの　あなに　つめて
+きんにくの　ちからで　はっしゃする。
+まれに　イシツブテを　とばす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_465">
+		<language name="日本語">しょくぶつの　ツルで　できた　うでを
+のばして　えものを　からめとる。
+うでを　たべられても　へっちゃら。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_466">
+		<language name="日本語">２ほんの　しっぽの　さきを　あいてに
+おしあてて　２まんボルトいじょうの
+でんりゅうを　ながして　こうげき。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_467">
+		<language name="日本語">うでの　さきから　せっし２０００どの
+ひのたまを　はっしゃする。
+かざんの　かこうを　すみかにする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_468">
+		<language name="日本語">もめごとの　おこる　ばしょには
+けっして　あらわれない。ちかごろは
+すがたを　みかけなくなった。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_469">
+		<language name="日本語">はばたいたときの　しょうげきはで
+あいての　からだの　うちがわに
+ちめいてきな　ダメージを　あたえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_470">
+		<language name="日本語">しょくぶつのように　こうごうせいを
+するため　リーフィアの　まわりは
+すんだ　くうきに　つつまれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_471">
+		<language name="日本語">ぜんしんの　たいもうを　こおらせて
+ハリのように　するどく　とがらせる。
+てきから　みを　まもる　しゅだん。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_472">
+		<language name="日本語">しっぽで　きのえだに　ぶらさがり
+えものを　かんさつする。すきを
+みて　じょうくうから　おそいかかる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_473">
+		<language name="日本語">こおりで　できた　りっぱな　キバ。
+ひょうがきが　おわり　あたたかく
+なったため　かずが　へってしまった。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_474">
+		<language name="日本語">より　すぐれた　ポケモンに　するため
+プログラムを　ついかしたが　なぜか
+おかしな　こうどうを　はじめた。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_475">
+		<language name="日本語">のびちぢみする　ひじの　かたなで
+たたかう。いあいの　めいしゅ。
+れいぎ　ただしい　ポケモン。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_476">
+		<language name="日本語">ぜんしんから　つよい　じりょくを
+だしている。３この　チビノーズと
+よばれる　ユニットを　あやつる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_477">
+		<language name="日本語">あたまの　アンテナで　れいかいからの
+でんぱを　じゅしん。しじを　うけて
+ひとを　れいかいへ　つれていくのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_478">
+		<language name="日本語">マイナス５０どの　れいきを　はいて
+あいてを　こおらせる。どうたいに
+みえる　ぶぶんは　じつは　くうどう。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_479">
+		<language name="日本語">プラズマで　できた　からだを　もつ。
+でんかせいひんに　もぐりこみ
+わるさを　することで　しられている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_480">
+		<language name="日本語">ちしきのかみ　と　よばれている。
+めを　あわせた　ものの　きおくを
+けしてしまう　ちからを　もつという。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_481">
+		<language name="日本語">かなしみの　くるしさと　よろこびの
+とうとさを　ひとびとに　おしえた。
+かんじょうのかみ　と　よばれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_482">
+		<language name="日本語">いしのかみ　と　よばれている。
+みずうみの　そこで　ねむりつづけ
+せかいの　バランスを　とっている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_483">
+		<language name="日本語">じかんを　あやつる　ちからを　もつ。
+シンオウちほうでは　かみさまと
+よばれ　しんわに　とうじょうする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_484">
+		<language name="日本語">くうかんを　ゆがめる　のうりょくを
+もち　シンオウちほうの　しんわでは
+かみさまとして　えがかれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_485">
+		<language name="日本語">かざんの　ほらあなに　せいそく。
+じゅうじの　ツメを　くいこませて
+カベや　てんじょうを　はいまわる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_486">
+		<language name="日本語">なわで　しばった　たいりくを
+ひっぱって　うごかしたという
+でんせつが　のこされている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_487">
+		<language name="日本語">このよの　うらがわにある　せかいに
+すんでいると　いわれる　ポケモン。
+こだいの　はかばに　あらわれる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_488">
+		<language name="日本語">ひこうするときは　ベールのような
+はねから　ひかる　りゅうしを　だす。
+みかづきのけしんと　よばれている。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_489">
+		<language name="日本語">あたたかい　うみに　すむ　ポケモン。
+あたまの　うきぶくろを　ふくらませて
+なみまを　ただよい　えさを　さがす。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_490">
+		<language name="日本語">つめたい　うみの　そこで　うまれた。
+じぶんが　うまれた　うみの　そこへ
+ながい　きょりを　およいで　かえる。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_491">
+		<language name="日本語">ひとびとを　ふかい　ねむりに　さそい
+ゆめを　みせる　のうりょくを　もつ。
+しんげつの　よるに　かつどうする。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_492">
+		<language name="日本語">はなばたけの　なかで　くらしているが
+からだを　まるめると　はなのように
+みえるため　だれも　きづかないのだ。</language>
+	</row>
+
+	<row id="ZKN_COMMENT_00_493">
+		<language name="日本語">１０００ぼんの　うでで
+うちゅうを　つくった　ポケモンとして
+しんわに　えがかれている。</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

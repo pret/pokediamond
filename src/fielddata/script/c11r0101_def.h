@@ -1,0 +1,14 @@
+#ifndef _C11R0101_DEF_H_
+#define _C11R0101_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_C11R0101_FIRST_ENTRY		(1)
+#define	SCRID_C11R0101_STAFF_A		(2)
+#define	SCRID_C11R0101_STAFF_B		(3)
+#define	SCRID_C11R0101_STAFF_C		(4)
+#define	SCRID_C11R0101_STAFF_D		(5)
+#define	SCRID_C11R0101_BIGMAN		(6)
+#define	SCRID_C11R0101_FLAG_CHANGE		(7)
+#define	SCRID_C11R0101_DATA_MAX		(7)		//最大数
+
+#endif //_C11R0101_DEF_H_

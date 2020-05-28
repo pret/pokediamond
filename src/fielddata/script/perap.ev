@@ -1,0 +1,124 @@
+//====================================================================
+//								perap
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_perap.h"
+	//.include	"../eventdata/zone_perapevc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_perap
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_perap_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*	SCWK_TEMP1	手持ちの位置										*/
+/********************************************************************/
+ev_perap:
+	_EVENT_START
+
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	/*プログラムでSCWK_PARAM0に手持ちの位置をセットしてもらっている*/
+	_LDWK			SCWK_TEMP1,SCWK_PARAM0
+	_POKE_WINDOW_PUT_PP		SCWK_PARAM0
+
+	/*すでにデータがあるかチェック*/
+	_PERAP_DATA_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_perap_exist_flag_on
+	
+	/*データない時*/
+	_JUMP			yes_perap_000
+	_END
+
+/*すでにデータがある時*/
+ev_perap_exist_flag_on:
+	_TALKMSG		perap_msg_00
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_perap_000
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_perap_000
+	_END
+
+/*ペラップに言葉を覚えさせる*/
+yes_perap_000:
+	_BGM_FADEOUT	BGM_VOL_PERAP,10
+
+	_TALKMSG		perap_msg_01
+
+	/*録音開始*/
+	_PERAP_REC_START	SCWK_ANSWER
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+
+	/*１秒*/
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_BGM_FADEIN		10
+	_TIME_WAIT		10,SCWK_ANSWER
+
+	/*録音開始失敗していたかチェック*/
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,FALSE,ev_perap_error
+
+	/*録音停止*/
+	_PERAP_REC_STOP
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	/*録音したデータをセーブ(コピー)*/
+	_PERAP_SAVE
+	_TIME_WAIT		1,SCWK_ANSWER
+
+	/*アニメ*/
+	_POKE_WINDOW_ANM
+
+	/*おしゃべりを持っているポケモンを探す*/
+	//_CHK_POKE_WAZA_GROUP	SCWK_ANSWER,WAZANO_OSYABERI
+	//_NICK_NAM		0,SCWK_ANSWER
+	_NICK_NAME		0,SCWK_TEMP1
+	_TALK_KEYWAIT	perap_msg_02
+
+	/*アニメ終了待ち*/
+	_POKE_WINDOW_ANM_WAIT	SCWK_ANSWER
+
+	_VOICE_PLAY		MONSNO_PERAPPU,0
+	_VOICE_WAIT
+
+	_JUMP			no_perap_000
+	_END
+
+/*共通終了*/
+no_perap_000:
+	_POKE_WINDOW_DEL		/*ポケモンウィンドウ消去*/
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+/*録音失敗*/
+ev_perap_error:
+	/*おしゃべりを持っているポケモンを探す*/
+	//_CHK_POKE_WAZA_GROUP	SCWK_ANSWER,WAZANO_OSYABERI
+	//_NICK_NAME		0,SCWK_ANSWER
+	_NICK_NAME		0,SCWK_TEMP1
+	_TALK_KEYWAIT	perap_msg_03
+
+	/*「やりなおしますか？」*/
+	_TALKMSG		perap_msg_04
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_perap_000
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_perap_000
+	_END
+
+

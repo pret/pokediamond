@@ -1,0 +1,156 @@
+//====================================================================
+//								d16r0101
+//
+//	イベントフラグ	FH_01
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d16r0101.h"
+	.include	"../eventdata/zone_d16r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d16r0101_flag_change
+_EVENT_DATA		ev_d16r0101_rival
+_EVENT_DATA		pos_d16r0101_rival
+_EVENT_DATA		ev_d16r0101_rival_game_clear
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d16r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D16R0101	//到着
+
+	/*ライバルと会話していたら削除*/
+	_IF_FLAGON_CALL	FE_D16R0101_RIVAL_TALK,ev_d16r0101_flag_change_rival
+
+	/*火山のおきいしイベント終了していたら*/
+	_IFVAL_JUMP		WK_SCENE_D16R0103,GE,1,ev_d16r0101_rival_game_clear_02
+
+	_END
+
+/*ライバル削除*/
+ev_d16r0101_flag_change_rival:
+	_FLAG_SET		FV_D16R0101_RIVAL
+	_RET
+
+/*火山のおきいしイベント終了していたら*/
+ev_d16r0101_rival_game_clear_02:
+
+	/*ライバル削除*/
+	_FLAG_SET		FV_D16R0101_RIVAL
+
+	/*バトルタワー前でのイベント終了していたら*/
+	_IFVAL_JUMP		WK_SCENE_D31,GE,1,ev_d16r0101_rival_game_clear_03
+	_END
+
+/*バトルタワー前でのイベント終了していたら*/
+ev_d16r0101_rival_game_clear_03:
+
+	//一致する曜日だけライバル登場する
+	_CHK_WEEK		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_MONDAY,ev_d16r0101_rival_geme_clear_04
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_TUESDAY,ev_d16r0101_rival_geme_clear_04
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_WEDNESDAY,ev_d16r0101_rival_geme_clear_04
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_THURSDAY,ev_d16r0101_rival_geme_clear_04
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_FRIDAY,ev_d16r0101_rival_geme_clear_04
+	_END
+
+ev_d16r0101_rival_geme_clear_04:
+	_FLAG_RESET		FV_D16R0101_RIVAL		/*ライバル登場*/
+	_END
+
+
+/********************************************************************/
+/*						ライバル(話しかけ)							*/
+/********************************************************************/
+ev_d16r0101_rival:
+	_TALK_OBJ_START
+
+	/*火山のおきいしイベント終了していたら*/
+	_IFVAL_JUMP		WK_SCENE_D16R0103,GE,1,ev_d16r0101_rival_game_clear
+
+	/*ライバルと会話していたら*/
+	_IF_FLAGON_JUMP	FE_D16R0101_RIVAL_TALK,ev_d16r0101_rival_02
+
+	_FLAG_SET		FE_D16R0101_RIVAL_TALK
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALKMSG		msg_d16r0101_rival_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ライバルと会話していたら*/
+ev_d16r0101_rival_02:
+	_RIVAL_NAME		0
+	_TALKMSG		msg_d16r0101_rival_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*ライバル(POS)(去っていく時のアニメが長くなってしまうため話しかけに変更)*/
+/********************************************************************/
+pos_d16r0101_rival:
+	_EVENT_START
+
+	/*気づく*/
+	_OBJ_ANIME		D16R0101_RIVAL,anm_d16r0101_rival_01
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_d16r0101_rival_01
+	_TALK_CLOSE
+
+	/*去っていく*/
+	_OBJ_ANIME		D16R0101_RIVAL,anm_d16r0101_rival_02
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		D16R0101_RIVAL
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0101_rival_01
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0101_rival_02
+	_ANIME_DATA	AC_WALK_D_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*ライバル(バトルタワー前イベント、ハードマウンテンの二つをクリア後)*/
+/********************************************************************/
+ev_d16r0101_rival_game_clear:
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALKMSG		msg_d16r0101_rival_a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+

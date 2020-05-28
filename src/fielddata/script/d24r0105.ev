@@ -1,0 +1,644 @@
+//====================================================================
+//								d24r0105
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d24r0105.h"
+	.include	"../../../include/msgdata/msg_place_name_tokusyu.h"
+	.include	"../eventdata/zone_d24r0105evc.h"
+
+//ローカルワークの使用状況
+//マップ内にあるリフトに対して、
+//ローカルワーク0（LOCALWORK0）
+//を使用します
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d24r0105_flag_change
+_EVENT_DATA		pos_d24r0105_lift
+_EVENT_DATA		ev_d24r0105_seven3_01
+_EVENT_DATA		ev_d24r0105_seven3_03
+_EVENT_DATA		ev_d24r0105_seven3_04
+_EVENT_DATA		ev_d24r0105_seven3_05
+_EVENT_DATA		ev_d24r0105_seven3_06
+_EVENT_DATA		ev_pair_d24r0105_seven3
+_EVENT_DATA		ev_d24r0105_gingam
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d24r0105_flag_change:
+	_INIT_FLD_LIFT
+
+	/*５人衆イベントをクリアしていなかったらイベントが再度起きるようにする！*/
+	_IF_FLAGOFF_JUMP		FE_SEVEN3_CLEAR,ev_d24r0105_flag_change_retry
+
+	_END
+
+/*５人衆イベントをクリアしていなかったらイベントが再度起きるようにする！*/
+ev_d24r0105_flag_change_retry:
+
+	/*タマゴがもらえずに、待機中だったら*/
+	_IFVAL_JUMP		WK_SCENE_D24R0105,EQ,2,ev_d24r0105_flag_change_egg_retry
+
+	_LDVAL			WK_SCENE_D24R0105,0
+	_END
+
+/*バトルタワーに移動していないが、タマゴをもらえる状態だったら*/
+ev_d24r0105_flag_change_egg_retry:
+	_SXY_POS_CHANGE		D24R0105_SEVEN2,19,41
+	_SXY_MV_CHANGE		D24R0105_SEVEN2,MV_RIGHT
+	_SXY_DIR_CHANGE		D24R0105_SEVEN2,DIR_RIGHT
+	_END
+
+pos_d24r0105_lift:
+	_MOVE_FLD_LIFT			//リフト移動
+	_END
+
+
+/********************************************************************/
+/*							仲間になる								*/
+/********************************************************************/
+#define	POS_D24R0105_SEVEN3_Z1	(2)
+#define	POS_D24R0105_SEVEN3_Z2	(3)
+
+ev_d24r0105_seven3_01:
+	_EVENT_START
+
+	_BICYCLE_REQ		0	/*強制的に自転車から降りるようにする*/
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_SEVEN3_Z1,pos_d24r0105_seven3_z1
+	_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_SEVEN3_Z2,pos_d24r0105_seven3_z2
+
+	/*会話しているかで分岐*/
+	_PLAYER_NAME		0
+	_IF_FLAGOFF_CALL	FE_D24R0105_SEVEN3_TALK,ev_d24r0105_seven3_01_talk_off
+	_IF_FLAGON_CALL		FE_D24R0105_SEVEN3_TALK,ev_d24r0105_seven3_01_talk_on
+
+	_PLAYER_NAME	0
+	_ME_PLAY		SEQ_GONIN
+	_TALKMSG		msg_d24r0105_pair_01
+	_ME_WAIT
+
+	_FLAG_SET		FE_D24R0105_SEVEN3_TALK
+	_LDVAL			WK_SCENE_D24R0105,1
+
+	_TALKMSG		msg_d24r0105_pair_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	/*連れ歩き開始*/
+	_LDVAL			SYS_WORK_PAIR_TRAINER_ID,BTFIVE2_01
+	_SYS_FLAG_PAIR_SET
+	_MOVE_CODE_CHANGE	D24R0105_SEVEN2,MV_PAIR
+
+	_EVENT_END
+	_END
+
+/*近づきアニメ*/
+pos_d24r0105_seven3_z1:
+	_OBJ_ANIME	D24R0105_SEVEN2,anm_d24r0105_seven3_100
+	_OBJ_ANIME_WAIT
+	_RET
+pos_d24r0105_seven3_z2:
+	_OBJ_ANIME	D24R0105_SEVEN2,anm_d24r0105_seven3_101
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_d24r0105_seven3_01_talk_off:
+	_TALK_KEYWAIT	msg_d24r0105_seven3_01
+	_RET
+
+ev_d24r0105_seven3_01_talk_on:
+	_TALK_KEYWAIT	msg_d24r0105_seven3_02
+	_RET
+
+
+/********************************************************************/
+/*							別れる									*/
+/********************************************************************/
+ev_d24r0105_seven3_03:
+	_EVENT_START
+
+	/*向き合う*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d24r0105_player_10
+	_OBJ_ANIME		D24R0105_SEVEN2,anm_d24r0105_seven_10
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d24r0105_seven3_03
+	_TALK_CLOSE
+
+	_LDVAL			WK_SCENE_D24R0105,0
+
+	/*連れ歩き終了*/
+	_SYS_FLAG_PAIR_RESET
+	_MOVE_CODE_CHANGE	D24R0105_SEVEN2,MV_LEFT
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_SEVEN3_Z1,pos_d24r0105_seven3_z11
+	_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_SEVEN3_Z2,pos_d24r0105_seven3_z12
+
+	_EVENT_END
+	_END
+
+/*分かれるアニメ*/
+pos_d24r0105_seven3_z11:
+	_OBJ_ANIME	D24R0105_SEVEN2,anm_d24r0105_seven3_110
+	_OBJ_ANIME_WAIT
+	_RET
+pos_d24r0105_seven3_z12:
+	_OBJ_ANIME	D24R0105_SEVEN2,anm_d24r0105_seven3_111
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_player_10
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_seven_10
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0	
+
+//--------------------------------------------------------------------
+//５人衆	一歩左に移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_11
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	近づきアニメ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_100
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_seven3_101
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	別れるアニメ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_110
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_seven3_111
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/********************************************************************/
+ev_d24r0105_seven3_04:
+	_END
+
+/********************************************************************/
+/*							ゴール(POS)								*/
+/********************************************************************/
+#define	POS_D24R0105_GOAL_Z1	(40)
+#define	POS_D24R0105_GOAL_Z2	(41)
+
+ev_d24r0105_gingam:
+	_EVENT_START
+
+	/*連れ歩き終了*/
+	_SYS_FLAG_PAIR_RESET
+	_MOVE_CODE_CHANGE	D24R0105_SEVEN2,MV_LEFT
+
+	/*ギンガ団の前へ*/
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_GOAL_Z1,pos_d24r0105_goal_z100
+	_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_GOAL_Z2,pos_d24r0105_goal_z200
+
+	//主人公の位置情報取得
+	//_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	//_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_GOAL_Z1,pos_d24r0105_goal_z1
+	//_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_GOAL_Z2,pos_d24r0105_goal_z2
+
+	_TALK_KEYWAIT	msg_d24r0105_seven3_04
+	_TALK_CLOSE
+
+	/*ギンガ団動く*/
+	_OBJ_ANIME		D24R0105_GINGAM1,anm_d24r0105_gingam1_01
+	_OBJ_ANIME_WAIT
+	_TALK_KEYWAIT	msg_d24r0105_gingam1_01
+	_TALK_CLOSE
+
+	/*ギンガ団動く*/
+	_OBJ_ANIME		D24R0105_GINGAM2,anm_d24r0105_gingam2_01
+	_OBJ_ANIME_WAIT
+	_TALK_KEYWAIT	msg_d24r0105_gingam2_01
+	_TALK_CLOSE
+
+	/*動く*/
+	_OBJ_ANIME		D24R0105_SEVEN2,anm_d24r0105_seven3_53
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_d24r0105_seven3_05
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_SYS_FLAG_PAIR_SET		/*戦闘タイプ分岐で必要*/
+	_TRAINER_BTL_SET	GINGAM_33,GINGAM_34
+	_SYS_FLAG_PAIR_RESET	/*必ず落とす*/
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d24r0105_common_battle_lose
+
+	/*向かい合う*/
+	_OBJ_ANIME		D24R0105_GINGAM1,anm_d24r0105_gingam1_02
+	_OBJ_ANIME_WAIT
+	_TALK_KEYWAIT	msg_d24r0105_gingam1_02
+	_TALK_CLOSE
+
+	/*動く*/
+	_OBJ_ANIME		D24R0105_GINGAM2,anm_d24r0105_gingam2_02
+	_OBJ_ANIME_WAIT
+	_TALK_KEYWAIT	msg_d24r0105_gingam2_02
+	_TALK_CLOSE
+
+	/*画面暗転*/
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_OBJ_DEL		D24R0105_GINGAM1
+	_OBJ_DEL		D24R0105_GINGAM2
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_GOAL_Z1,pos_d24r0105_goal_z11
+	_IFVAL_CALL	SCWK_TEMP1,EQ,POS_D24R0105_GOAL_Z2,pos_d24r0105_goal_z12
+
+	_CALL			d24r0105_seven3_menu
+
+	/*OBJ同士の当たり判定を操作する*/
+	_FIELDOBJ_BITSET_FELLOWHIT	D24R0105_SEVEN2,1
+
+	_EVENT_END
+	_END
+
+/*ギンガ団の前へ移動*/
+pos_d24r0105_goal_z100:
+	_OBJ_ANIME		D24R0105_SEVEN2,anm_d24r0105_seven3_150
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d24r0105_player_150
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_d24r0105_goal_z200:
+	_OBJ_ANIME		D24R0105_SEVEN2,anm_d24r0105_seven3_151
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d24r0105_player_151
+	_OBJ_ANIME_WAIT
+	_RET
+
+/*５人衆動く*/
+pos_d24r0105_goal_z1:
+	_OBJ_ANIME		D24R0105_SEVEN2,anm_d24r0105_seven3_50
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_d24r0105_goal_z2:
+	_OBJ_ANIME		D24R0105_SEVEN2,anm_d24r0105_seven3_51
+	_OBJ_ANIME_WAIT
+	_RET
+
+/*向かいあう*/
+pos_d24r0105_goal_z11:
+	_OBJ_ANIME		D24R0105_SEVEN2,anm_d24r0105_seven3_54
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d24r0105_player_54
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_d24r0105_goal_z12:
+	_OBJ_ANIME		D24R0105_SEVEN2,anm_d24r0105_seven3_55
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d24r0105_player_55
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//
+//	「CALL」から呼ばれる！
+//
+/*ポケモン入手に失敗した時、*/
+/*再度話しかけた時にもここのラベルが呼ばれるので注意する！*/
+//--------------------------------------------------------------------
+d24r0105_seven3_menu:
+	_TALKMSG		msg_d24r0105_seven3_06
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_d24r0105_seven3
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_d24r0105_seven3
+	_END
+
+yes_d24r0105_seven3:
+	/******************************/
+	/*ポケモン入手処理*/
+	/*手持ち6匹かチェック*/
+	/*空いているボックスに転送*/
+	/*ボックスもいっぱいかチェック*/
+	/*名前入力呼び出し*/
+	/******************************/
+
+	/*このイベントに関しては、手持ちが空いているときのみ、ルカをプレゼントしたい！*/
+
+	/*ポケモン数カウント*/
+	_GET_POKE_COUNT	SCWK_ANSWER
+
+	/*6匹いるので受け取れない*/
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_d24r0105_seven3_temoti_max
+
+	_TALK_KEYWAIT	msg_d24r0105_seven3_07
+
+	/*ポケモンとして追加*/
+	//_ADD_POKEMON	MONSNO_RUKA,5,0,SCWK_ANSWER
+
+	/*タマゴで追加(06/06/30)*/
+	_ADD_TAMAGO		MONSNO_RUKA,MAPNAME_GEN
+
+	_FLAG_SET		FV_D24R0105_SEVEN3
+	_FLAG_RESET		FE_D24R0105_SEVEN3_POKE_MAX
+
+	/*５人衆イベントクリア*/
+	_CALL			ev_d24r0105_seven3_clear
+
+	_TALKMSG		msg_d24r0105_seven3_10
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	/*画面外に消えるのが難しいので、マップアウト後に消えるように変更*/
+
+	_RET
+
+/*6体いるので受け取れない*/
+ev_d24r0105_seven3_temoti_max:
+	_FLAG_SET		FE_D24R0105_SEVEN3_POKE_MAX
+
+	/*５人衆イベントクリア*/
+	//_CALL			ev_d24r0105_seven3_clear
+	/*バトルタワーに出てくるかフラグはまだオンにしない！*/
+	_LDVAL			WK_SCENE_D24R0105,2
+
+	_TALKMSG		msg_d24r0105_seven3_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_RET
+
+/*「いいえ」*/
+no_d24r0105_seven3:
+	_TALK_KEYWAIT	msg_d24r0105_seven3_09
+	_JUMP			d24r0105_seven3_menu
+	_END
+
+/*５人衆イベントクリア*/
+ev_d24r0105_seven3_clear:
+	_FLAG_SET		FE_SEVEN3_CLEAR
+	_LDVAL			WK_SCENE_D24R0105,2
+	_RET
+
+/********************************************************************/
+/*							共通敗北処理							*/
+/********************************************************************/
+ev_d24r0105_common_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ギンガ団	動く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_gingam1_01
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_gingam2_01
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	向かい合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_gingam1_02
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_gingam2_02
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	一歩左へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_player_01
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	出口前へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	出口見てから、主人公を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_02
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	出口へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_03
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	ギンガ団の方へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_150
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_seven3_151
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_50
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_seven3_51
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	動く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_53
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	向かいあう
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_seven3_54
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_seven3_55
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	向かいあう
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_player_54
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_player_55
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ギンガ団の方へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d24r0105_player_150
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d24r0105_player_151
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							穴抜け									*/
+/********************************************************************/
+ev_d24r0105_seven3_05:
+	_END
+
+
+/********************************************************************/
+/*							穴を掘る								*/
+/********************************************************************/
+ev_d24r0105_seven3_06:
+	_END
+
+
+/********************************************************************/
+/*								会話								*/
+/********************************************************************/
+ev_pair_d24r0105_seven3:
+	_TALK_OBJ_START
+
+	/*ポケモン入手できなかったフラグが立っていたら*/
+	_IF_FLAGON_JUMP	FE_D24R0105_SEVEN3_POKE_MAX,d24r0105_seven3_menu_100
+
+	/*ゴールしていたら*/
+	//_IF_FLAGON_JUMP	FE_SEVEN3_CLEAR,d24r0105_seven3_clear
+	_IFVAL_JUMP		WK_SCENE_D24R0105,EQ,2,d24r0105_seven3_clear
+
+	_IFVAL_JUMP		WK_SCENE_PAIR_D24R0105_SEVEN3,GE,4,ev_pair_d24r0105_seven3_04
+	_IFVAL_JUMP		WK_SCENE_PAIR_D24R0105_SEVEN3,EQ,3,ev_pair_d24r0105_seven3_03
+	_IFVAL_JUMP		WK_SCENE_PAIR_D24R0105_SEVEN3,EQ,2,ev_pair_d24r0105_seven3_02
+	_IFVAL_JUMP		WK_SCENE_PAIR_D24R0105_SEVEN3,EQ,1,ev_pair_d24r0105_seven3_01
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_d24r0105_seven3_13
+	_JUMP			ev_pair_d24r0105_seven3_common
+	_END
+
+ev_pair_d24r0105_seven3_01:
+	_TALKMSG		msg_d24r0105_seven3_14
+	_JUMP			ev_pair_d24r0105_seven3_common
+	_END
+
+ev_pair_d24r0105_seven3_02:
+	_TALKMSG		msg_d24r0105_seven3_15
+	_JUMP			ev_pair_d24r0105_seven3_common
+	_END
+
+ev_pair_d24r0105_seven3_03:
+	_TALKMSG		msg_d24r0105_seven3_16
+	_JUMP			ev_pair_d24r0105_seven3_common
+	_END
+
+ev_pair_d24r0105_seven3_04:
+	//最後なのでワークをインクリメントしない！
+	_TALKMSG		msg_d24r0105_seven3_17
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//共通処理
+ev_pair_d24r0105_seven3_common:
+	_ADD_WK			WK_SCENE_PAIR_D24R0105_SEVEN3,1
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ポケモン入手できなかったフラグが立っていたら*/
+d24r0105_seven3_menu_100:
+	_CALL			d24r0105_seven3_menu
+
+	/*OBJ同士の当たり判定を操作する*/
+	_FIELDOBJ_BITSET_FELLOWHIT	D24R0105_SEVEN2,1
+
+	_TALK_OBJ_END
+	_END
+
+/*ゴールしていたら*/
+d24r0105_seven3_clear:
+	_TALKMSG		msg_d24r0105_seven3_10
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+

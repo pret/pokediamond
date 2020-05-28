@@ -1,0 +1,3030 @@
+//====================================================================
+//								l02r0101
+//						レストラン・ななつぼし
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_l02r0101.h"
+	.include	"../eventdata/zone_l02r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_l02r0101_waiter
+_EVENT_DATA		ev_l02r0101_flag_change
+_EVENT_DATA		ev_l02r0101_close
+_EVENT_DATA		ev_l02r0101_01a
+_EVENT_DATA		ev_l02r0101_01b
+_EVENT_DATA		ev_l02r0101_02a
+_EVENT_DATA		ev_l02r0101_02b
+_EVENT_DATA		ev_l02r0101_03a
+_EVENT_DATA		ev_l02r0101_03b
+_EVENT_DATA		ev_l02r0101_04a
+_EVENT_DATA		ev_l02r0101_04b
+_EVENT_DATA		ev_l02r0101_05a
+_EVENT_DATA		ev_l02r0101_05b
+_EVENT_DATA		ev_l02r0101_06a
+_EVENT_DATA		ev_l02r0101_06b
+_EVENT_DATA		ev_l02r0101_07a
+_EVENT_DATA		ev_l02r0101_07b
+_EVENT_DATA		ev_l02r0101_08a
+_EVENT_DATA		ev_l02r0101_08b
+_EVENT_DATA		ev_l02r0101_09a
+_EVENT_DATA		ev_l02r0101_09b
+_EVENT_DATA_END
+
+/********************************************************************/
+/********************************************************************/
+ev_l02r0101_obj_change:
+
+	_END
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_l02r0101_flag_change:
+	_ARRIVE_FLAG_SET	FLAG_ARRIVE_L02R0101	//到着
+
+
+	_GET_NOW_HOUR	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,LT,9,l02r0101_restrant_close
+	_IFVAL_JUMP		LOCALWORK0,GE,23,l02r0101_restrant_close
+
+	_IF_FLAGOFF_JUMP	TMFLG_L02R0101_INIT,l02r0101_restrant_open
+	_END
+
+l02r0101_restrant_close:
+	_FLAG_SET		FV_L02R0101_COUPLE1
+	_FLAG_SET		FV_L02R0101_COUPLE2
+	_FLAG_SET		FV_L02R0101_COUPLE3
+	_FLAG_SET		FV_L02R0101_COUPLE4
+	_FLAG_SET		FV_L02R0101_COUPLE5
+	_FLAG_SET		FV_L02R0101_COUPLE6
+	_FLAG_SET		FV_L02R0101_COUPLE7
+	_FLAG_SET		FV_L02R0101_COUPLE8
+	_FLAG_SET		FV_L02R0101_COUPLE9
+
+	_LDVAL			WK_SCENE_L02R0101_CLOSE,1
+
+	_END
+
+l02r0101_restrant_open:
+	_FLAG_SET		FV_L02R0101_COUPLE1
+	_FLAG_SET		FV_L02R0101_COUPLE2
+	_FLAG_SET		FV_L02R0101_COUPLE3
+	_FLAG_SET		FV_L02R0101_COUPLE4
+	_FLAG_SET		FV_L02R0101_COUPLE5
+	_FLAG_SET		FV_L02R0101_COUPLE6
+	_FLAG_SET		FV_L02R0101_COUPLE7
+	_FLAG_SET		FV_L02R0101_COUPLE8
+	_FLAG_SET		FV_L02R0101_COUPLE9
+
+
+	_TRAINER_FLAG_RESET ARTIST_03
+	_TRAINER_FLAG_RESET SISTER_11
+
+	_TRAINER_FLAG_RESET PRINCE_06
+	_TRAINER_FLAG_RESET PRINCESS_04
+
+	_TRAINER_FLAG_RESET GENTLE_03
+	_TRAINER_FLAG_RESET MADAM_03
+
+	_TRAINER_FLAG_RESET COLLECTOR_10
+	_TRAINER_FLAG_RESET AROMA_06
+
+	_TRAINER_FLAG_RESET SCHOOLB_06
+	_TRAINER_FLAG_RESET DAISUKIW_05
+
+	_TRAINER_FLAG_RESET VETERAN_11
+	_TRAINER_FLAG_RESET MINI_13
+
+	_TRAINER_FLAG_RESET CAMERAMAN_03
+	_TRAINER_FLAG_RESET REPORTER_02
+
+	_TRAINER_FLAG_RESET GAMBLER_03
+	_TRAINER_FLAG_RESET SISTER_10
+
+	_TRAINER_FLAG_RESET SCIENTIST_08
+	_TRAINER_FLAG_RESET BREEDERW_04
+
+	_LDVAL			WK_SCENE_L02R0101_CLOSE,0
+
+	_GET_RND		LOCALWORK1,1		//ダミー（_GET_RND_NEXTのタネをセットするため流用）
+	_LDVAL			LOCALWORK0,5
+	_LDVAL			LOCALWORK10,10000
+l02r0101_restrant_open_loop:
+	_GET_RND_NEXT	LOCALWORK1,9
+	_IFVAL_CALL		LOCALWORK1,EQ,0,l02r0101_couple_check_01
+	_IFVAL_CALL		LOCALWORK1,EQ,1,l02r0101_couple_check_02
+	_IFVAL_CALL		LOCALWORK1,EQ,2,l02r0101_couple_check_03
+	_IFVAL_CALL		LOCALWORK1,EQ,3,l02r0101_couple_check_04
+	_IFVAL_CALL		LOCALWORK1,EQ,4,l02r0101_couple_check_05
+	_IFVAL_CALL		LOCALWORK1,EQ,5,l02r0101_couple_check_06
+	_IFVAL_CALL		LOCALWORK1,EQ,6,l02r0101_couple_check_07
+	_IFVAL_CALL		LOCALWORK1,EQ,7,l02r0101_couple_check_08
+	_IFVAL_CALL		LOCALWORK1,EQ,8,l02r0101_couple_check_09
+
+	_SUB_WK			LOCALWORK10,1
+	_IFVAL_JUMP		LOCALWORK10,EQ,0,l02r0101_restrant_open_loop_cancel		//※永久ループ対策。通常必要なし
+
+	_IFVAL_JUMP		LOCALWORK0,NE,0,l02r0101_restrant_open_loop
+
+l02r0101_restrant_open_loop_cancel:
+
+	_FLAG_SET		TMFLG_L02R0101_INIT		//セット完了(翌日までこのまま）
+	_END
+
+//カップル１チェック
+l02r0101_couple_check_01:
+	_IF_FLAGOFF_JUMP	FV_L02R0101_COUPLE1,copuple_check_end
+	_FLAG_RESET			FV_L02R0101_COUPLE1
+	_GET_RND_NEXT		WK_SCENE_L02R0101_P01,3
+	_SUB_WK				LOCALWORK0,1
+	_RET
+
+//カップル２チェック
+l02r0101_couple_check_02:
+	_IF_FLAGOFF_JUMP	FV_L02R0101_COUPLE2,copuple_check_end
+	_FLAG_RESET			FV_L02R0101_COUPLE2
+	_GET_RND_NEXT		WK_SCENE_L02R0101_P02,3
+	_SUB_WK				LOCALWORK0,1
+	_RET
+
+//カップル３チェック
+l02r0101_couple_check_03:
+	_IF_FLAGOFF_JUMP	FV_L02R0101_COUPLE3,copuple_check_end
+	_FLAG_RESET			FV_L02R0101_COUPLE3
+	_GET_RND_NEXT		WK_SCENE_L02R0101_P03,3
+	_SUB_WK				LOCALWORK0,1
+	_RET
+
+//カップル４チェック
+l02r0101_couple_check_04:
+	_IF_FLAGOFF_JUMP	FV_L02R0101_COUPLE4,copuple_check_end
+	_FLAG_RESET			FV_L02R0101_COUPLE4
+	_GET_RND_NEXT		WK_SCENE_L02R0101_P04,3
+	_SUB_WK				LOCALWORK0,1
+	_RET
+
+//カップル５チェック
+l02r0101_couple_check_05:
+	_IF_FLAGOFF_JUMP	FV_L02R0101_COUPLE5,copuple_check_end
+	_FLAG_RESET			FV_L02R0101_COUPLE5
+	_GET_RND_NEXT		WK_SCENE_L02R0101_P05,3
+	_SUB_WK				LOCALWORK0,1
+	_RET
+
+//カップル６チェック
+l02r0101_couple_check_06:
+	_IF_FLAGOFF_JUMP	FV_L02R0101_COUPLE6,copuple_check_end
+	_FLAG_RESET			FV_L02R0101_COUPLE6
+	_GET_RND_NEXT		WK_SCENE_L02R0101_P06,3
+	_SUB_WK				LOCALWORK0,1
+	_RET
+
+//カップル７チェック
+l02r0101_couple_check_07:
+	_IF_FLAGOFF_JUMP	FV_L02R0101_COUPLE7,copuple_check_end
+	_FLAG_RESET			FV_L02R0101_COUPLE7
+	_GET_RND_NEXT		WK_SCENE_L02R0101_P07,3
+	_SUB_WK				LOCALWORK0,1
+	_RET
+
+//カップル８チェック
+l02r0101_couple_check_08:
+	_IF_FLAGOFF_JUMP	FV_L02R0101_COUPLE8,copuple_check_end
+	_FLAG_RESET			FV_L02R0101_COUPLE8
+	_GET_RND_NEXT		WK_SCENE_L02R0101_P08,3
+	_SUB_WK				LOCALWORK0,1
+	_RET
+
+//カップル９チェック
+l02r0101_couple_check_09:
+	_IF_FLAGOFF_JUMP	FV_L02R0101_COUPLE9,copuple_check_end
+	_FLAG_RESET			FV_L02R0101_COUPLE9
+	_GET_RND_NEXT		WK_SCENE_L02R0101_P09,3
+	_SUB_WK				LOCALWORK0,1
+	_RET
+
+copuple_check_end:
+	_RET
+
+/********************************************************************/
+/*					閉店時のウェーター								*/
+/********************************************************************/
+ev_l02r0101_close:
+	_EVENT_START
+
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		20,SCWK_ANSWER
+
+	_TALKMSG		msg_l02r0101_waiter_02
+	_TALK_CLOSE
+
+	_EVENT_END
+
+	_MAP_CHANGE		ZONE_ID_L02,0,706,791,DIR_DOWN
+	_END
+
+/********************************************************************/
+/********************************************************************/
+
+/********************************************************************/
+/*							ウェーター								*/
+/********************************************************************/
+ev_l02r0101_waiter:
+	_EASY_OBJ_MSG		msg_l02r0101_waiter_01
+	_END
+
+/********************************************************************/
+/*							カップル１								*/
+/********************************************************************/
+//男
+ev_l02r0101_01a:
+	_TALK_START
+	_TRAINER_FLAG_CHECK ARTIST_03
+	_IF_TR_FLAGON_JUMP ARTIST_03,ev_l02r0101_01a_after		//戦闘終了後の話しかけ
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_01a_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P01
+	_CASE_JUMP		0,ev_l02r0101_01a_before_01
+	_CASE_JUMP		1,ev_l02r0101_01a_before_02
+	_CASE_JUMP		2,ev_l02r0101_01a_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_01a_before_01:
+	_TALKMSG		msg_l02r0101_0101a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0101a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_01a_battle_start
+	_JUMP			ev_l02r0101_01a_cancel
+
+ev_l02r0101_01a_before_02:
+	_TALKMSG		msg_l02r0101_0102a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0102a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_01a_battle_start
+	_JUMP			ev_l02r0101_01a_cancel
+
+
+ev_l02r0101_01a_before_03:
+	_TALKMSG		msg_l02r0101_0103a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0103a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_01a_battle_start
+	_JUMP			ev_l02r0101_01a_cancel
+
+//戦闘開始
+ev_l02r0101_01a_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	ARTIST_03,SISTER_11
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET ARTIST_03
+	_TRAINER_FLAG_SET SISTER_11
+
+	_CALL			anime_l02r0101_01a_turn_right
+
+	_SWITCH			WK_SCENE_L02R0101_P01
+	_CASE_JUMP		0,ev_l02r0101_01a_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_01a_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_01a_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_01a_battle_after_01:
+	_TALKMSG		msg_l02r0101_0101a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_01a_battle_after_02:
+	_TALKMSG		msg_l02r0101_0102a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_01a_battle_after_03:
+	_TALKMSG		msg_l02r0101_0103a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_01a_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_01a_turn_right
+	_TALK_END
+	_END
+
+
+//戦闘終了後の話しかけ
+ev_l02r0101_01a_after:
+	_SWITCH			WK_SCENE_L02R0101_P01
+	_CASE_JUMP		0,ev_l02r0101_01a_after_01
+	_CASE_JUMP		1,ev_l02r0101_01a_after_02
+	_CASE_JUMP		2,ev_l02r0101_01a_after_03
+	_END
+
+ev_l02r0101_01a_after_01:
+	_TALKMSG		msg_l02r0101_0101a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_01a_after_02:
+	_TALKMSG		msg_l02r0101_0102a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_01a_after_03:
+	_TALKMSG		msg_l02r0101_0103a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_01a_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0100a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_01a_turn_right
+	_TALK_END
+	_END
+
+anime_l02r0101_01a_turn_right:
+	//元の向き（男は必ず右向き）へ
+	_OBJ_ANIME		TR_ARTIST_03,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+//女
+ev_l02r0101_01b:
+	_TALK_START
+	_TRAINER_FLAG_CHECK SISTER_11
+	_IF_TR_FLAGON_JUMP SISTER_11,ev_l02r0101_01b_after		//戦闘後
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_01b_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P01
+	_CASE_JUMP		0,ev_l02r0101_01b_before_01
+	_CASE_JUMP		1,ev_l02r0101_01b_before_02
+	_CASE_JUMP		2,ev_l02r0101_01b_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_01b_before_01:
+	_TALKMSG		msg_l02r0101_0101b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0101b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_01b_battle_start
+	_JUMP			ev_l02r0101_01b_cancel
+
+ev_l02r0101_01b_before_02:
+	_TALKMSG		msg_l02r0101_0102b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0102b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_01b_battle_start
+	_JUMP			ev_l02r0101_01b_cancel
+
+
+ev_l02r0101_01b_before_03:
+	_TALKMSG		msg_l02r0101_0103b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0103b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_01b_battle_start
+	_JUMP			ev_l02r0101_01b_cancel
+
+
+//戦闘開始
+ev_l02r0101_01b_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	ARTIST_03,SISTER_11
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET ARTIST_03
+	_TRAINER_FLAG_SET SISTER_11
+
+	_CALL			anime_l02r0101_01b_turn_left
+
+	_SWITCH			WK_SCENE_L02R0101_P01
+	_CASE_JUMP		0,ev_l02r0101_01b_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_01b_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_01b_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_01b_battle_after_01:
+	_TALKMSG		msg_l02r0101_0101b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_01b_battle_after_02:
+	_TALKMSG		msg_l02r0101_0102b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_01b_battle_after_03:
+	_TALKMSG		msg_l02r0101_0103b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_01b_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_01b_turn_left
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_01b_after:
+	_SWITCH			WK_SCENE_L02R0101_P01
+	_CASE_JUMP		0,ev_l02r0101_01b_after_01
+	_CASE_JUMP		1,ev_l02r0101_01b_after_02
+	_CASE_JUMP		2,ev_l02r0101_01b_after_03
+	_END
+
+ev_l02r0101_01b_after_01:
+	_TALKMSG		msg_l02r0101_0101b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_01b_after_02:
+	_TALKMSG		msg_l02r0101_0102b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_01b_after_03:
+	_TALKMSG		msg_l02r0101_0103b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_01b_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0100b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_01b_turn_left
+	_TALK_END
+	_END
+
+anime_l02r0101_01b_turn_left:
+	//元の向き（女は必ず右向き）へ
+	_OBJ_ANIME		TR_SISTER_11,anm_l02r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+/********************************************************************/
+/*							カップル２								*/
+/********************************************************************/
+//男
+ev_l02r0101_02a:
+	_TALK_START
+	_TRAINER_FLAG_CHECK PRINCE_06
+	_IF_TR_FLAGON_JUMP PRINCE_06,ev_l02r0101_02a_after		//戦闘終了後の話しかけ
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_02a_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P02
+	_CASE_JUMP		0,ev_l02r0101_02a_before_01
+	_CASE_JUMP		1,ev_l02r0101_02a_before_02
+	_CASE_JUMP		2,ev_l02r0101_02a_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_02a_before_01:
+	_TALKMSG		msg_l02r0101_0201a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0201a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_02a_battle_start
+	_JUMP			ev_l02r0101_02a_cancel
+
+ev_l02r0101_02a_before_02:
+	_TALKMSG		msg_l02r0101_0202a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0202a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_02a_battle_start
+	_JUMP			ev_l02r0101_02a_cancel
+
+
+ev_l02r0101_02a_before_03:
+	_TALKMSG		msg_l02r0101_0203a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0203a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_02a_battle_start
+	_JUMP			ev_l02r0101_02a_cancel
+
+//戦闘開始
+ev_l02r0101_02a_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	PRINCE_06,PRINCESS_04
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET PRINCE_06
+	_TRAINER_FLAG_SET PRINCESS_04
+
+	_CALL			anime_l02r0101_02a_turn_right
+
+	_SWITCH			WK_SCENE_L02R0101_P02
+	_CASE_JUMP		0,ev_l02r0101_02a_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_02a_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_02a_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_02a_battle_after_01:
+	_TALKMSG		msg_l02r0101_0201a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_02a_battle_after_02:
+	_TALKMSG		msg_l02r0101_0202a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_02a_battle_after_03:
+	_TALKMSG		msg_l02r0101_0203a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_02a_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_02a_turn_right
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_02a_after:
+	_SWITCH			WK_SCENE_L02R0101_P02
+	_CASE_JUMP		0,ev_l02r0101_02a_after_01
+	_CASE_JUMP		1,ev_l02r0101_02a_after_02
+	_CASE_JUMP		2,ev_l02r0101_02a_after_03
+	_END
+
+ev_l02r0101_02a_after_01:
+	_TALKMSG		msg_l02r0101_0201a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_02a_after_02:
+	_TALKMSG		msg_l02r0101_0202a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_02a_after_03:
+	_TALKMSG		msg_l02r0101_0203a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_02a_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0200a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_02a_turn_right
+	_TALK_END
+	_END
+
+anime_l02r0101_02a_turn_right:
+	//元の向き（男は必ず右向き）へ
+	_OBJ_ANIME		TR_PRINCE_06,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+//女
+ev_l02r0101_02b:
+	_TALK_START
+	_TRAINER_FLAG_CHECK PRINCESS_04
+	_IF_TR_FLAGON_JUMP PRINCESS_04,ev_l02r0101_02b_after		//戦闘後
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_02b_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P02
+	_CASE_JUMP		0,ev_l02r0101_02b_before_01
+	_CASE_JUMP		1,ev_l02r0101_02b_before_02
+	_CASE_JUMP		2,ev_l02r0101_02b_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_02b_before_01:
+	_TALKMSG		msg_l02r0101_0201b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0201b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_02b_battle_start
+	_JUMP			ev_l02r0101_02b_cancel
+
+ev_l02r0101_02b_before_02:
+	_TALKMSG		msg_l02r0101_0202b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0202b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_02b_battle_start
+	_JUMP			ev_l02r0101_02b_cancel
+
+
+ev_l02r0101_02b_before_03:
+	_TALKMSG		msg_l02r0101_0203b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0203b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_02b_battle_start
+	_JUMP			ev_l02r0101_02b_cancel
+
+//戦闘開始
+ev_l02r0101_02b_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	PRINCE_06,PRINCESS_04
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET PRINCE_06
+	_TRAINER_FLAG_SET PRINCESS_04
+
+	_CALL			anime_l02r0101_02b_turn_left
+
+	_SWITCH			WK_SCENE_L02R0101_P02
+	_CASE_JUMP		0,ev_l02r0101_02b_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_02b_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_02b_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_02b_battle_after_01:
+	_TALKMSG		msg_l02r0101_0201b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_02b_battle_after_02:
+	_TALKMSG		msg_l02r0101_0202b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_02b_battle_after_03:
+	_TALKMSG		msg_l02r0101_0203b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_02b_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_02b_turn_left
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_02b_after:
+	_SWITCH			WK_SCENE_L02R0101_P02
+	_CASE_JUMP		0,ev_l02r0101_02b_after_01
+	_CASE_JUMP		1,ev_l02r0101_02b_after_02
+	_CASE_JUMP		2,ev_l02r0101_02b_after_03
+	_END
+
+ev_l02r0101_02b_after_01:
+	_TALKMSG		msg_l02r0101_0201b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_02b_after_02:
+	_TALKMSG		msg_l02r0101_0202b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_02b_after_03:
+	_TALKMSG		msg_l02r0101_0203b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_02b_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0200b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_02b_turn_left
+	_TALK_END
+	_END
+
+anime_l02r0101_02b_turn_left:
+	//元の向き（女は必ず右向き）へ
+	_OBJ_ANIME		TR_PRINCESS_04,anm_l02r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+/********************************************************************/
+/*							カップル３								*/
+/********************************************************************/
+//男
+ev_l02r0101_03a:
+	_TALK_START
+	_TRAINER_FLAG_CHECK GENTLE_03
+	_IF_TR_FLAGON_JUMP GENTLE_03,ev_l02r0101_03a_after		//戦闘終了後の話しかけ
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_03a_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P03
+	_CASE_JUMP		0,ev_l02r0101_03a_before_01
+	_CASE_JUMP		1,ev_l02r0101_03a_before_02
+	_CASE_JUMP		2,ev_l02r0101_03a_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_03a_before_01:
+	_TALKMSG		msg_l02r0101_0301a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0301a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_03a_battle_start
+	_JUMP			ev_l02r0101_03a_cancel
+
+ev_l02r0101_03a_before_02:
+	_TALKMSG		msg_l02r0101_0302a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0302a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_03a_battle_start
+	_JUMP			ev_l02r0101_03a_cancel
+
+
+ev_l02r0101_03a_before_03:
+	_TALKMSG		msg_l02r0101_0303a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0303a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_03a_battle_start
+	_JUMP			ev_l02r0101_03a_cancel
+
+
+//戦闘開始
+ev_l02r0101_03a_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GENTLE_03,MADAM_03
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET GENTLE_03
+	_TRAINER_FLAG_SET MADAM_03
+
+	_CALL			anime_l02r0101_03a_turn_right
+
+	_SWITCH			WK_SCENE_L02R0101_P03
+	_CASE_JUMP		0,ev_l02r0101_03a_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_03a_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_03a_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_03a_battle_after_01:
+	_TALKMSG		msg_l02r0101_0301a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_03a_battle_after_02:
+	_TALKMSG		msg_l02r0101_0302a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_03a_battle_after_03:
+	_TALKMSG		msg_l02r0101_0303a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_03a_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_03a_turn_right
+	_TALK_END
+	_END
+
+
+//戦闘終了後の話しかけ
+ev_l02r0101_03a_after:
+	_SWITCH			WK_SCENE_L02R0101_P03
+	_CASE_JUMP		0,ev_l02r0101_03a_after_01
+	_CASE_JUMP		1,ev_l02r0101_03a_after_02
+	_CASE_JUMP		2,ev_l02r0101_03a_after_03
+	_END
+
+ev_l02r0101_03a_after_01:
+	_TALKMSG		msg_l02r0101_0301a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_03a_after_02:
+	_TALKMSG		msg_l02r0101_0302a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_03a_after_03:
+	_TALKMSG		msg_l02r0101_0303a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_03a_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0300a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_03a_turn_right
+	_TALK_END
+	_END
+
+anime_l02r0101_03a_turn_right:
+	//元の向き（男は必ず右向き）へ
+	_OBJ_ANIME		TR_GENTLE_03,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+//女
+ev_l02r0101_03b:
+	_TALK_START
+	_TRAINER_FLAG_CHECK MADAM_03
+	_IF_TR_FLAGON_JUMP MADAM_03,ev_l02r0101_03b_after		//戦闘後
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_03b_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P03
+	_CASE_JUMP		0,ev_l02r0101_03b_before_01
+	_CASE_JUMP		1,ev_l02r0101_03b_before_02
+	_CASE_JUMP		2,ev_l02r0101_03b_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_03b_before_01:
+	_TALKMSG		msg_l02r0101_0301b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0301b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_03b_battle_start
+	_JUMP			ev_l02r0101_03b_cancel
+
+ev_l02r0101_03b_before_02:
+	_TALKMSG		msg_l02r0101_0302b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0302b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_03b_battle_start
+	_JUMP			ev_l02r0101_03b_cancel
+
+
+ev_l02r0101_03b_before_03:
+	_TALKMSG		msg_l02r0101_0303b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0303b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_03b_battle_start
+	_JUMP			ev_l02r0101_03b_cancel
+
+
+//戦闘開始
+ev_l02r0101_03b_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GENTLE_03,MADAM_03
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET GENTLE_03
+	_TRAINER_FLAG_SET MADAM_03
+
+	_CALL			anime_l02r0101_03b_turn_left
+
+	_SWITCH			WK_SCENE_L02R0101_P03
+	_CASE_JUMP		0,ev_l02r0101_03b_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_03b_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_03b_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_03b_battle_after_01:
+	_TALKMSG		msg_l02r0101_0301b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_03b_battle_after_02:
+	_TALKMSG		msg_l02r0101_0302b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_03b_battle_after_03:
+	_TALKMSG		msg_l02r0101_0303b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_03b_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_03b_turn_left
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_03b_after:
+	_SWITCH			WK_SCENE_L02R0101_P03
+	_CASE_JUMP		0,ev_l02r0101_03b_after_01
+	_CASE_JUMP		1,ev_l02r0101_03b_after_02
+	_CASE_JUMP		2,ev_l02r0101_03b_after_03
+	_END
+
+ev_l02r0101_03b_after_01:
+	_TALKMSG		msg_l02r0101_0301b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_03b_after_02:
+	_TALKMSG		msg_l02r0101_0302b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_03b_after_03:
+	_TALKMSG		msg_l02r0101_0303b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_03b_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0300b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_03b_turn_left
+	_TALK_END
+	_END
+
+anime_l02r0101_03b_turn_left:
+	//元の向き（女は必ず右向き）へ
+	_OBJ_ANIME		TR_MADAM_03,anm_l02r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+/********************************************************************/
+/*							カップル４								*/
+/********************************************************************/
+
+//男
+ev_l02r0101_04a:
+	_TALK_START
+	_TRAINER_FLAG_CHECK COLLECTOR_10
+	_IF_TR_FLAGON_JUMP COLLECTOR_10,ev_l02r0101_04a_after		//戦闘終了後の話しかけ
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_04a_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P04
+	_CASE_JUMP		0,ev_l02r0101_04a_before_01
+	_CASE_JUMP		1,ev_l02r0101_04a_before_02
+	_CASE_JUMP		2,ev_l02r0101_04a_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_04a_before_01:
+	_TALKMSG		msg_l02r0101_0401a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0401a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_04a_battle_start
+	_JUMP			ev_l02r0101_04a_cancel
+
+ev_l02r0101_04a_before_02:
+	_TALKMSG		msg_l02r0101_0402a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0402a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_04a_battle_start
+	_JUMP			ev_l02r0101_04a_cancel
+
+
+ev_l02r0101_04a_before_03:
+	_TALKMSG		msg_l02r0101_0403a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0403a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_04a_battle_start
+	_JUMP			ev_l02r0101_04a_cancel
+
+
+//戦闘開始
+ev_l02r0101_04a_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	COLLECTOR_10,AROMA_06
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET COLLECTOR_10
+	_TRAINER_FLAG_SET AROMA_06
+
+	_CALL			anime_l02r0101_04a_turn_right
+
+	_SWITCH			WK_SCENE_L02R0101_P04
+	_CASE_JUMP		0,ev_l02r0101_04a_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_04a_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_04a_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_04a_battle_after_01:
+	_TALKMSG		msg_l02r0101_0401a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_04a_battle_after_02:
+	_TALKMSG		msg_l02r0101_0402a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_04a_battle_after_03:
+	_TALKMSG		msg_l02r0101_0403a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_04a_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_04a_turn_right
+	_TALK_END
+	_END
+
+
+//戦闘終了後の話しかけ
+ev_l02r0101_04a_after:
+	_SWITCH			WK_SCENE_L02R0101_P04
+	_CASE_JUMP		0,ev_l02r0101_04a_after_01
+	_CASE_JUMP		1,ev_l02r0101_04a_after_02
+	_CASE_JUMP		2,ev_l02r0101_04a_after_03
+	_END
+
+ev_l02r0101_04a_after_01:
+	_TALKMSG		msg_l02r0101_0401a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_04a_after_02:
+	_TALKMSG		msg_l02r0101_0402a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_04a_after_03:
+	_TALKMSG		msg_l02r0101_0403a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_04a_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0400a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_04a_turn_right
+	_TALK_END
+	_END
+
+anime_l02r0101_04a_turn_right:
+	//元の向き（男は必ず右向き）へ
+	_OBJ_ANIME		TR_COLLECTOR_10,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+//女
+ev_l02r0101_04b:
+	_TALK_START
+	_TRAINER_FLAG_CHECK AROMA_06
+	_IF_TR_FLAGON_JUMP AROMA_06,ev_l02r0101_04b_after		//戦闘後
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_04b_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P04
+	_CASE_JUMP		0,ev_l02r0101_04b_before_01
+	_CASE_JUMP		1,ev_l02r0101_04b_before_02
+	_CASE_JUMP		2,ev_l02r0101_04b_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_04b_before_01:
+	_TALKMSG		msg_l02r0101_0401b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0401b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_04b_battle_start
+	_JUMP			ev_l02r0101_04b_cancel
+
+ev_l02r0101_04b_before_02:
+	_TALKMSG		msg_l02r0101_0402b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0402b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_04b_battle_start
+	_JUMP			ev_l02r0101_04b_cancel
+
+
+ev_l02r0101_04b_before_03:
+	_TALKMSG		msg_l02r0101_0403b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0403b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_04b_battle_start
+	_JUMP			ev_l02r0101_04b_cancel
+
+
+//戦闘開始
+ev_l02r0101_04b_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	COLLECTOR_10,AROMA_06
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET COLLECTOR_10
+	_TRAINER_FLAG_SET AROMA_06
+
+	_CALL			anime_l02r0101_04b_turn_left
+
+	_SWITCH			WK_SCENE_L02R0101_P04
+	_CASE_JUMP		0,ev_l02r0101_04b_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_04b_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_04b_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_04b_battle_after_01:
+	_TALKMSG		msg_l02r0101_0401b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_04b_battle_after_02:
+	_TALKMSG		msg_l02r0101_0402b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_04b_battle_after_03:
+	_TALKMSG		msg_l02r0101_0403b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_04b_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_04b_turn_left
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_04b_after:
+	_SWITCH			WK_SCENE_L02R0101_P04
+	_CASE_JUMP		0,ev_l02r0101_04b_after_01
+	_CASE_JUMP		1,ev_l02r0101_04b_after_02
+	_CASE_JUMP		2,ev_l02r0101_04b_after_03
+	_END
+
+ev_l02r0101_04b_after_01:
+	_TALKMSG		msg_l02r0101_0401b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_04b_after_02:
+	_TALKMSG		msg_l02r0101_0402b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_04b_after_03:
+	_TALKMSG		msg_l02r0101_0403b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_04b_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0400b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_04b_turn_left
+	_TALK_END
+	_END
+
+anime_l02r0101_04b_turn_left:
+	//元の向き（女は必ず右向き）へ
+	_OBJ_ANIME		TR_AROMA_06,anm_l02r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+/********************************************************************/
+/*							カップル５								*/
+/********************************************************************/
+//男
+ev_l02r0101_05a:
+	_TALK_START
+	_TRAINER_FLAG_CHECK SCHOOLB_06
+	_IF_TR_FLAGON_JUMP SCHOOLB_06,ev_l02r0101_05a_after		//戦闘終了後の話しかけ
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_05a_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P05
+	_CASE_JUMP		0,ev_l02r0101_05a_before_01
+	_CASE_JUMP		1,ev_l02r0101_05a_before_02
+	_CASE_JUMP		2,ev_l02r0101_05a_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_05a_before_01:
+	_TALKMSG		msg_l02r0101_0501a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0501a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_05a_battle_start
+	_JUMP			ev_l02r0101_05a_cancel
+
+ev_l02r0101_05a_before_02:
+	_TALKMSG		msg_l02r0101_0502a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0502a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_05a_battle_start
+	_JUMP			ev_l02r0101_05a_cancel
+
+
+ev_l02r0101_05a_before_03:
+	_TALKMSG		msg_l02r0101_0503a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0503a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_05a_battle_start
+	_JUMP			ev_l02r0101_05a_cancel
+
+
+//戦闘開始
+ev_l02r0101_05a_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	SCHOOLB_06,DAISUKIW_05
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET SCHOOLB_06
+	_TRAINER_FLAG_SET DAISUKIW_05
+
+	_CALL			anime_l02r0101_05a_turn_right
+
+	_SWITCH			WK_SCENE_L02R0101_P05
+	_CASE_JUMP		0,ev_l02r0101_05a_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_05a_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_05a_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_05a_battle_after_01:
+	_TALKMSG		msg_l02r0101_0501a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_05a_battle_after_02:
+	_TALKMSG		msg_l02r0101_0502a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_05a_battle_after_03:
+	_TALKMSG		msg_l02r0101_0503a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_05a_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_05a_turn_right
+	_TALK_END
+	_END
+
+
+//戦闘終了後の話しかけ
+ev_l02r0101_05a_after:
+	_SWITCH			WK_SCENE_L02R0101_P05
+	_CASE_JUMP		0,ev_l02r0101_05a_after_01
+	_CASE_JUMP		1,ev_l02r0101_05a_after_02
+	_CASE_JUMP		2,ev_l02r0101_05a_after_03
+	_END
+
+ev_l02r0101_05a_after_01:
+	_TALKMSG		msg_l02r0101_0501a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_05a_after_02:
+	_TALKMSG		msg_l02r0101_0502a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_05a_after_03:
+	_TALKMSG		msg_l02r0101_0503a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_05a_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0500a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_05a_turn_right
+	_TALK_END
+	_END
+
+anime_l02r0101_05a_turn_right:
+	//元の向き（男は必ず右向き）へ
+	_OBJ_ANIME		TR_SCHOOLB_06,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+//女
+ev_l02r0101_05b:
+	_TALK_START
+	_TRAINER_FLAG_CHECK DAISUKIW_05
+	_IF_TR_FLAGON_JUMP DAISUKIW_05,ev_l02r0101_05b_after		//戦闘後
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_05b_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P05
+	_CASE_JUMP		0,ev_l02r0101_05b_before_01
+	_CASE_JUMP		1,ev_l02r0101_05b_before_02
+	_CASE_JUMP		2,ev_l02r0101_05b_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_05b_before_01:
+	_TALKMSG		msg_l02r0101_0501b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0501b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_05b_battle_start
+	_JUMP			ev_l02r0101_05b_cancel
+
+ev_l02r0101_05b_before_02:
+	_TALKMSG		msg_l02r0101_0502b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0502b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_05b_battle_start
+	_JUMP			ev_l02r0101_05b_cancel
+
+
+ev_l02r0101_05b_before_03:
+	_TALKMSG		msg_l02r0101_0503b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0503b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_05b_battle_start
+	_JUMP			ev_l02r0101_05b_cancel
+
+
+//戦闘開始
+ev_l02r0101_05b_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	SCHOOLB_06,DAISUKIW_05
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET SCHOOLB_06
+	_TRAINER_FLAG_SET DAISUKIW_05
+
+	_CALL			anime_l02r0101_05b_turn_left
+
+	_SWITCH			WK_SCENE_L02R0101_P05
+	_CASE_JUMP		0,ev_l02r0101_05b_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_05b_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_05b_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_05b_battle_after_01:
+	_TALKMSG		msg_l02r0101_0501b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_05b_battle_after_02:
+	_TALKMSG		msg_l02r0101_0502b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_05b_battle_after_03:
+	_TALKMSG		msg_l02r0101_0503b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_05b_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_05b_turn_left
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_05b_after:
+	_SWITCH			WK_SCENE_L02R0101_P05
+	_CASE_JUMP		0,ev_l02r0101_05b_after_01
+	_CASE_JUMP		1,ev_l02r0101_05b_after_02
+	_CASE_JUMP		2,ev_l02r0101_05b_after_03
+	_END
+
+ev_l02r0101_05b_after_01:
+	_TALKMSG		msg_l02r0101_0501b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_05b_after_02:
+	_TALKMSG		msg_l02r0101_0502b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_05b_after_03:
+	_TALKMSG		msg_l02r0101_0503b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_05b_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0500b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_05b_turn_left
+	_TALK_END
+	_END
+
+anime_l02r0101_05b_turn_left:
+	//元の向き（女は必ず右向き）へ
+	_OBJ_ANIME		TR_DAISUKIW_05,anm_l02r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+/********************************************************************/
+/*							カップル６								*/
+/********************************************************************/
+//男
+ev_l02r0101_06a:
+	_TALK_START
+	_TRAINER_FLAG_CHECK VETERAN_11
+	_IF_TR_FLAGON_JUMP VETERAN_11,ev_l02r0101_06a_after		//戦闘終了後の話しかけ
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_06a_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P06
+	_CASE_JUMP		0,ev_l02r0101_06a_before_01
+	_CASE_JUMP		1,ev_l02r0101_06a_before_02
+	_CASE_JUMP		2,ev_l02r0101_06a_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_06a_before_01:
+	_TALKMSG		msg_l02r0101_0601a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0601a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_06a_battle_start
+	_JUMP			ev_l02r0101_06a_cancel
+
+ev_l02r0101_06a_before_02:
+	_TALKMSG		msg_l02r0101_0602a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0602a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_06a_battle_start
+	_JUMP			ev_l02r0101_06a_cancel
+
+
+ev_l02r0101_06a_before_03:
+	_TALKMSG		msg_l02r0101_0603a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0603a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_06a_battle_start
+	_JUMP			ev_l02r0101_06a_cancel
+
+
+//戦闘開始
+ev_l02r0101_06a_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	VETERAN_11,MINI_13
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET VETERAN_11
+	_TRAINER_FLAG_SET MINI_13
+
+	_CALL			anime_l02r0101_06a_turn_right
+
+	_SWITCH			WK_SCENE_L02R0101_P06
+	_CASE_JUMP		0,ev_l02r0101_06a_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_06a_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_06a_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_06a_battle_after_01:
+	_TALKMSG		msg_l02r0101_0601a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_06a_battle_after_02:
+	_TALKMSG		msg_l02r0101_0602a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_06a_battle_after_03:
+	_TALKMSG		msg_l02r0101_0603a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_06a_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_06a_turn_right
+	_TALK_END
+	_END
+
+
+//戦闘終了後の話しかけ
+ev_l02r0101_06a_after:
+	_SWITCH			WK_SCENE_L02R0101_P06
+	_CASE_JUMP		0,ev_l02r0101_06a_after_01
+	_CASE_JUMP		1,ev_l02r0101_06a_after_02
+	_CASE_JUMP		2,ev_l02r0101_06a_after_03
+	_END
+
+ev_l02r0101_06a_after_01:
+	_TALKMSG		msg_l02r0101_0601a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_06a_after_02:
+	_TALKMSG		msg_l02r0101_0602a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_06a_after_03:
+	_TALKMSG		msg_l02r0101_0603a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_06a_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0600a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_06a_turn_right
+	_TALK_END
+	_END
+
+anime_l02r0101_06a_turn_right:
+	//元の向き（男は必ず右向き）へ
+	_OBJ_ANIME		TR_VETERAN_11,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+//女
+ev_l02r0101_06b:
+	_TALK_START
+	_TRAINER_FLAG_CHECK MINI_13
+	_IF_TR_FLAGON_JUMP MINI_13,ev_l02r0101_06b_after		//戦闘後
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_06b_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P06
+	_CASE_JUMP		0,ev_l02r0101_06b_before_01
+	_CASE_JUMP		1,ev_l02r0101_06b_before_02
+	_CASE_JUMP		2,ev_l02r0101_06b_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_06b_before_01:
+	_TALKMSG		msg_l02r0101_0601b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0601b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_06b_battle_start
+	_JUMP			ev_l02r0101_06b_cancel
+
+ev_l02r0101_06b_before_02:
+	_TALKMSG		msg_l02r0101_0602b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0602b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_06b_battle_start
+	_JUMP			ev_l02r0101_06b_cancel
+
+
+ev_l02r0101_06b_before_03:
+	_TALKMSG		msg_l02r0101_0603b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0603b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_06b_battle_start
+	_JUMP			ev_l02r0101_06b_cancel
+
+
+//戦闘開始
+ev_l02r0101_06b_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	VETERAN_11,MINI_13
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET VETERAN_11
+	_TRAINER_FLAG_SET MINI_13
+
+	_CALL			anime_l02r0101_06b_turn_left
+
+	_SWITCH			WK_SCENE_L02R0101_P06
+	_CASE_JUMP		0,ev_l02r0101_06b_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_06b_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_06b_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_06b_battle_after_01:
+	_TALKMSG		msg_l02r0101_0601b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_06b_battle_after_02:
+	_TALKMSG		msg_l02r0101_0602b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_06b_battle_after_03:
+	_TALKMSG		msg_l02r0101_0603b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_06b_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_06b_turn_left
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_06b_after:
+	_SWITCH			WK_SCENE_L02R0101_P06
+	_CASE_JUMP		0,ev_l02r0101_06b_after_01
+	_CASE_JUMP		1,ev_l02r0101_06b_after_02
+	_CASE_JUMP		2,ev_l02r0101_06b_after_03
+	_END
+
+ev_l02r0101_06b_after_01:
+	_TALKMSG		msg_l02r0101_0601b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_06b_after_02:
+	_TALKMSG		msg_l02r0101_0602b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_06b_after_03:
+	_TALKMSG		msg_l02r0101_0603b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_06b_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0600b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_06b_turn_left
+	_TALK_END
+	_END
+
+anime_l02r0101_06b_turn_left:
+	//元の向き（女は必ず右向き）へ
+	_OBJ_ANIME		TR_MINI_13,anm_l02r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+/********************************************************************/
+/*							カップル７								*/
+/********************************************************************/
+//男
+ev_l02r0101_07a:
+	_TALK_START
+	_TRAINER_FLAG_CHECK CAMERAMAN_03
+	_IF_TR_FLAGON_JUMP CAMERAMAN_03,ev_l02r0101_07a_after		//戦闘終了後の話しかけ
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_07a_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P07
+	_CASE_JUMP		0,ev_l02r0101_07a_before_01
+	_CASE_JUMP		1,ev_l02r0101_07a_before_02
+	_CASE_JUMP		2,ev_l02r0101_07a_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_07a_before_01:
+	_TALKMSG		msg_l02r0101_0701a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0701a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_07a_battle_start
+	_JUMP			ev_l02r0101_07a_cancel
+
+ev_l02r0101_07a_before_02:
+	_TALKMSG		msg_l02r0101_0702a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0702a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_07a_battle_start
+	_JUMP			ev_l02r0101_07a_cancel
+
+
+ev_l02r0101_07a_before_03:
+	_TALKMSG		msg_l02r0101_0703a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0703a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_07a_battle_start
+	_JUMP			ev_l02r0101_07a_cancel
+
+
+//戦闘開始
+ev_l02r0101_07a_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	CAMERAMAN_03,REPORTER_02
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET CAMERAMAN_03
+	_TRAINER_FLAG_SET REPORTER_02
+
+	_CALL			anime_l02r0101_07a_turn_right
+
+	_SWITCH			WK_SCENE_L02R0101_P07
+	_CASE_JUMP		0,ev_l02r0101_07a_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_07a_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_07a_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_07a_battle_after_01:
+	_TALKMSG		msg_l02r0101_0701a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_07a_battle_after_02:
+	_TALKMSG		msg_l02r0101_0702a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_07a_battle_after_03:
+	_TALKMSG		msg_l02r0101_0703a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_07a_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_07a_turn_right
+	_TALK_END
+	_END
+
+
+//戦闘終了後の話しかけ
+ev_l02r0101_07a_after:
+	_SWITCH			WK_SCENE_L02R0101_P07
+	_CASE_JUMP		0,ev_l02r0101_07a_after_01
+	_CASE_JUMP		1,ev_l02r0101_07a_after_02
+	_CASE_JUMP		2,ev_l02r0101_07a_after_03
+	_END
+
+ev_l02r0101_07a_after_01:
+	_TALKMSG		msg_l02r0101_0701a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_07a_after_02:
+	_TALKMSG		msg_l02r0101_0702a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_07a_after_03:
+	_TALKMSG		msg_l02r0101_0703a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_07a_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0700a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_07a_turn_right
+	_TALK_END
+	_END
+
+anime_l02r0101_07a_turn_right:
+	//元の向き（男は必ず右向き）へ
+	_OBJ_ANIME		TR_CAMERAMAN_03,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+//女
+ev_l02r0101_07b:
+	_TALK_START
+	_TRAINER_FLAG_CHECK REPORTER_02
+	_IF_TR_FLAGON_JUMP REPORTER_02,ev_l02r0101_07b_after		//戦闘後
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_07b_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P07
+	_CASE_JUMP		0,ev_l02r0101_07b_before_01
+	_CASE_JUMP		1,ev_l02r0101_07b_before_02
+	_CASE_JUMP		2,ev_l02r0101_07b_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_07b_before_01:
+	_TALKMSG		msg_l02r0101_0701b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0701b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_07b_battle_start
+	_JUMP			ev_l02r0101_07b_cancel
+
+ev_l02r0101_07b_before_02:
+	_TALKMSG		msg_l02r0101_0702b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0702b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_07b_battle_start
+	_JUMP			ev_l02r0101_07b_cancel
+
+
+ev_l02r0101_07b_before_03:
+	_TALKMSG		msg_l02r0101_0703b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0703b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_07b_battle_start
+	_JUMP			ev_l02r0101_07b_cancel
+
+
+//戦闘開始
+ev_l02r0101_07b_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	CAMERAMAN_03,REPORTER_02
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET CAMERAMAN_03
+	_TRAINER_FLAG_SET REPORTER_02
+
+	_CALL			anime_l02r0101_07b_turn_left
+
+	_SWITCH			WK_SCENE_L02R0101_P07
+	_CASE_JUMP		0,ev_l02r0101_07b_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_07b_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_07b_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_07b_battle_after_01:
+	_TALKMSG		msg_l02r0101_0701b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_07b_battle_after_02:
+	_TALKMSG		msg_l02r0101_0702b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_07b_battle_after_03:
+	_TALKMSG		msg_l02r0101_0703b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_07b_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_07b_turn_left
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_07b_after:
+	_SWITCH			WK_SCENE_L02R0101_P07
+	_CASE_JUMP		0,ev_l02r0101_07b_after_01
+	_CASE_JUMP		1,ev_l02r0101_07b_after_02
+	_CASE_JUMP		2,ev_l02r0101_07b_after_03
+	_END
+
+ev_l02r0101_07b_after_01:
+	_TALKMSG		msg_l02r0101_0701b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_07b_after_02:
+	_TALKMSG		msg_l02r0101_0702b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_07b_after_03:
+	_TALKMSG		msg_l02r0101_0703b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_07b_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0700b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_07b_turn_left
+	_TALK_END
+	_END
+
+anime_l02r0101_07b_turn_left:
+	//元の向き（女は必ず右向き）へ
+	_OBJ_ANIME		TR_REPORTER_02,anm_l02r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+/********************************************************************/
+/*							カップル８								*/
+/********************************************************************/
+//男
+ev_l02r0101_08a:
+	_TALK_START
+	_TRAINER_FLAG_CHECK GAMBLER_03
+	_IF_TR_FLAGON_JUMP GAMBLER_03,ev_l02r0101_08a_after		//戦闘終了後の話しかけ
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_08a_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P08
+	_CASE_JUMP		0,ev_l02r0101_08a_before_01
+	_CASE_JUMP		1,ev_l02r0101_08a_before_02
+	_CASE_JUMP		2,ev_l02r0101_08a_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_08a_before_01:
+	_TALKMSG		msg_l02r0101_0801a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0801a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_08a_battle_start
+	_JUMP			ev_l02r0101_08a_cancel
+
+ev_l02r0101_08a_before_02:
+	_TALKMSG		msg_l02r0101_0802a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0802a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_08a_battle_start
+	_JUMP			ev_l02r0101_08a_cancel
+
+
+ev_l02r0101_08a_before_03:
+	_TALKMSG		msg_l02r0101_0803a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0803a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_08a_battle_start
+	_JUMP			ev_l02r0101_08a_cancel
+
+
+//戦闘開始
+ev_l02r0101_08a_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GAMBLER_03,SISTER_10
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET GAMBLER_03
+	_TRAINER_FLAG_SET SISTER_10
+
+	_CALL			anime_l02r0101_08a_turn_right
+
+	_SWITCH			WK_SCENE_L02R0101_P08
+	_CASE_JUMP		0,ev_l02r0101_08a_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_08a_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_08a_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_08a_battle_after_01:
+	_TALKMSG		msg_l02r0101_0801a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_08a_battle_after_02:
+	_TALKMSG		msg_l02r0101_0802a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_08a_battle_after_03:
+	_TALKMSG		msg_l02r0101_0803a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_08a_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_08a_turn_right
+	_TALK_END
+	_END
+
+
+//戦闘終了後の話しかけ
+ev_l02r0101_08a_after:
+	_SWITCH			WK_SCENE_L02R0101_P08
+	_CASE_JUMP		0,ev_l02r0101_08a_after_01
+	_CASE_JUMP		1,ev_l02r0101_08a_after_02
+	_CASE_JUMP		2,ev_l02r0101_08a_after_03
+	_END
+
+ev_l02r0101_08a_after_01:
+	_TALKMSG		msg_l02r0101_0801a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_08a_after_02:
+	_TALKMSG		msg_l02r0101_0802a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_08a_after_03:
+	_TALKMSG		msg_l02r0101_0803a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_08a_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0800a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_08a_turn_right
+	_TALK_END
+	_END
+
+anime_l02r0101_08a_turn_right:
+	//元の向き（男は必ず右向き）へ
+	_OBJ_ANIME		TR_GAMBLER_03,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+//女
+ev_l02r0101_08b:
+	_TALK_START
+	_TRAINER_FLAG_CHECK SISTER_10
+	_IF_TR_FLAGON_JUMP SISTER_10,ev_l02r0101_08b_after		//戦闘後
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_08b_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P08
+	_CASE_JUMP		0,ev_l02r0101_08b_before_01
+	_CASE_JUMP		1,ev_l02r0101_08b_before_02
+	_CASE_JUMP		2,ev_l02r0101_08b_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_08b_before_01:
+	_TALKMSG		msg_l02r0101_0801b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0801b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_08b_battle_start
+	_JUMP			ev_l02r0101_08b_cancel
+
+ev_l02r0101_08b_before_02:
+	_TALKMSG		msg_l02r0101_0802b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0802b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_08b_battle_start
+	_JUMP			ev_l02r0101_08b_cancel
+
+
+ev_l02r0101_08b_before_03:
+	_TALKMSG		msg_l02r0101_0803b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0803b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_08b_battle_start
+	_JUMP			ev_l02r0101_08b_cancel
+
+
+//戦闘開始
+ev_l02r0101_08b_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GAMBLER_03,SISTER_10
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET GAMBLER_03
+	_TRAINER_FLAG_SET SISTER_10
+
+	_CALL			anime_l02r0101_08b_turn_left
+
+	_SWITCH			WK_SCENE_L02R0101_P08
+	_CASE_JUMP		0,ev_l02r0101_08b_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_08b_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_08b_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_08b_battle_after_01:
+	_TALKMSG		msg_l02r0101_0801b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_08b_battle_after_02:
+	_TALKMSG		msg_l02r0101_0802b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_08b_battle_after_03:
+	_TALKMSG		msg_l02r0101_0803b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_08b_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_08b_turn_left
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_08b_after:
+	_SWITCH			WK_SCENE_L02R0101_P08
+	_CASE_JUMP		0,ev_l02r0101_08b_after_01
+	_CASE_JUMP		1,ev_l02r0101_08b_after_02
+	_CASE_JUMP		2,ev_l02r0101_08b_after_03
+	_END
+
+ev_l02r0101_08b_after_01:
+	_TALKMSG		msg_l02r0101_0801b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_08b_after_02:
+	_TALKMSG		msg_l02r0101_0802b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_08b_after_03:
+	_TALKMSG		msg_l02r0101_0803b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_08b_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0800b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_08b_turn_left
+	_TALK_END
+	_END
+
+anime_l02r0101_08b_turn_left:
+	//元の向き（女は必ず右向き）へ
+	_OBJ_ANIME		TR_SISTER_10,anm_l02r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+/********************************************************************/
+/*							カップル９								*/
+/********************************************************************/
+//男
+ev_l02r0101_09a:
+	_TALK_START
+	_TRAINER_FLAG_CHECK SCIENTIST_08
+	_IF_TR_FLAGON_JUMP SCIENTIST_08,ev_l02r0101_09a_after		//戦闘終了後の話しかけ
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_09a_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P09
+	_CASE_JUMP		0,ev_l02r0101_09a_before_01
+	_CASE_JUMP		1,ev_l02r0101_09a_before_02
+	_CASE_JUMP		2,ev_l02r0101_09a_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_09a_before_01:
+	_TALKMSG		msg_l02r0101_0901a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0901a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_09a_battle_start
+	_JUMP			ev_l02r0101_09a_cancel
+
+ev_l02r0101_09a_before_02:
+	_TALKMSG		msg_l02r0101_0902a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0902a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_09a_battle_start
+	_JUMP			ev_l02r0101_09a_cancel
+
+
+ev_l02r0101_09a_before_03:
+	_TALKMSG		msg_l02r0101_0903a_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0903a_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_09a_battle_start
+	_JUMP			ev_l02r0101_09a_cancel
+
+
+//戦闘開始
+ev_l02r0101_09a_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	SCIENTIST_08,BREEDERW_04
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET SCIENTIST_08
+	_TRAINER_FLAG_SET BREEDERW_04
+
+	_CALL			anime_l02r0101_09a_turn_right
+
+	_SWITCH			WK_SCENE_L02R0101_P09
+	_CASE_JUMP		0,ev_l02r0101_09a_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_09a_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_09a_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_09a_battle_after_01:
+	_TALKMSG		msg_l02r0101_0901a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_09a_battle_after_02:
+	_TALKMSG		msg_l02r0101_0902a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_09a_battle_after_03:
+	_TALKMSG		msg_l02r0101_0903a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_09a_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_09a_turn_right
+	_TALK_END
+	_END
+
+
+//戦闘終了後の話しかけ
+ev_l02r0101_09a_after:
+	_SWITCH			WK_SCENE_L02R0101_P09
+	_CASE_JUMP		0,ev_l02r0101_09a_after_01
+	_CASE_JUMP		1,ev_l02r0101_09a_after_02
+	_CASE_JUMP		2,ev_l02r0101_09a_after_03
+	_END
+
+ev_l02r0101_09a_after_01:
+	_TALKMSG		msg_l02r0101_0901a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_09a_after_02:
+	_TALKMSG		msg_l02r0101_0902a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_09a_after_03:
+	_TALKMSG		msg_l02r0101_0903a_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_09a_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0900a_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_09a_turn_right
+	_TALK_END
+	_END
+
+anime_l02r0101_09a_turn_right:
+	//元の向き（男は必ず右向き）へ
+	_OBJ_ANIME		TR_SCIENTIST_08,anm_l02r0101_turn_right
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+
+//女
+ev_l02r0101_09b:
+	_TALK_START
+	_TRAINER_FLAG_CHECK BREEDERW_04
+	_IF_TR_FLAGON_JUMP BREEDERW_04,ev_l02r0101_09b_after		//戦闘後
+
+	//ポケモンが一匹のみ
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_l02r0101_09b_one_pokemon
+
+	_SWITCH			WK_SCENE_L02R0101_P09
+	_CASE_JUMP		0,ev_l02r0101_09b_before_01
+	_CASE_JUMP		1,ev_l02r0101_09b_before_02
+	_CASE_JUMP		2,ev_l02r0101_09b_before_03
+	_TALK_END
+	_END
+
+//戦闘前
+ev_l02r0101_09b_before_01:
+	_TALKMSG		msg_l02r0101_0901b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0901b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_09b_battle_start
+	_JUMP			ev_l02r0101_09b_cancel
+
+ev_l02r0101_09b_before_02:
+	_TALKMSG		msg_l02r0101_0902b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0902b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_09b_battle_start
+	_JUMP			ev_l02r0101_09b_cancel
+
+
+ev_l02r0101_09b_before_03:
+	_TALKMSG		msg_l02r0101_0903b_01
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0903b_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_l02r0101_09b_battle_start
+	_JUMP			ev_l02r0101_09b_cancel
+
+
+//戦闘開始
+ev_l02r0101_09b_battle_start:
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	SCIENTIST_08,BREEDERW_04
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02r0101_common_battle_lose
+
+	_TRAINER_FLAG_SET SCIENTIST_08
+	_TRAINER_FLAG_SET BREEDERW_04
+
+	_CALL			anime_l02r0101_09b_turn_left
+
+	_SWITCH			WK_SCENE_L02R0101_P09
+	_CASE_JUMP		0,ev_l02r0101_09b_battle_after_01
+	_CASE_JUMP		1,ev_l02r0101_09b_battle_after_02
+	_CASE_JUMP		2,ev_l02r0101_09b_battle_after_03
+	_TALK_END
+	_END
+
+ev_l02r0101_09b_battle_after_01:
+	_TALKMSG		msg_l02r0101_0901b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_09b_battle_after_02:
+	_TALKMSG		msg_l02r0101_0902b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_09b_battle_after_03:
+	_TALKMSG		msg_l02r0101_0903b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//戦闘キャンセル
+ev_l02r0101_09b_cancel:
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_09b_turn_left
+	_TALK_END
+	_END
+
+//戦闘終了後の話しかけ
+ev_l02r0101_09b_after:
+	_SWITCH			WK_SCENE_L02R0101_P09
+	_CASE_JUMP		0,ev_l02r0101_09b_after_01
+	_CASE_JUMP		1,ev_l02r0101_09b_after_02
+	_CASE_JUMP		2,ev_l02r0101_09b_after_03
+	_END
+
+ev_l02r0101_09b_after_01:
+	_TALKMSG		msg_l02r0101_0901b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_09b_after_02:
+	_TALKMSG		msg_l02r0101_0902b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_l02r0101_09b_after_03:
+	_TALKMSG		msg_l02r0101_0903b_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+//ポケモンが一匹のみ
+ev_l02r0101_09b_one_pokemon:
+
+	//主人公のほうを向く
+	_TURN_HERO_SITE
+
+	_TALKMSG		msg_l02r0101_0900b_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_CALL			anime_l02r0101_09b_turn_left
+	_TALK_END
+	_END
+
+anime_l02r0101_09b_turn_left:
+	//元の向き（女は必ず右向き）へ
+	_OBJ_ANIME		TR_BREEDERW_04,anm_l02r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+
+//--------------------------------------------------------------------
+//敗北処理 (全共通）
+//--------------------------------------------------------------------
+ev_l02r0101_common_battle_lose:
+	_TRAINER_LOSE
+	_TALK_END
+	_END
+
+//--------------------------------------------------------------------
+//		ANIME TABLE
+//--------------------------------------------------------------------
+//右向きへ
+_ANIME_LABEL anm_l02r0101_turn_right
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+//左向きへ
+_ANIME_LABEL anm_l02r0101_turn_left
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+

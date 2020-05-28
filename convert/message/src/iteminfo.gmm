@@ -1,0 +1,2882 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="HiroyukiNakamura" host="W00086" date="2005-11-30T18:22:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="ITEMINFO_000">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMINFO_001">
+		<language name="日本語">やせいの　ポケモンを　かならず
+つかまえることが　できる
+さいこう　せいのうの　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_002">
+		<language name="日本語">スーパーボールよりも　さらに
+ポケモンを　つかまえやすくなった
+すごく　せいのうのいい　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_003">
+		<language name="日本語">モンスターボールよりも　さらに
+ポケモンを　つかまえやすくなった
+すこし　せいのうのいい　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_004">
+		<language name="日本語">やせいの　ポケモンに　なげて
+つかまえる　ための　ボール。
+カプセルしきに　なっている。</language>
+	</row>
+
+	<row id="ITEMINFO_005">
+		<language name="日本語">だいしつげんの　なか　だけで
+つかう　とくべつな　ボール。
+めいさいがらに　なっている。</language>
+	</row>
+
+	<row id="ITEMINFO_006">
+		<language name="日本語">みずタイプと　むしタイプの
+ポケモンが　つかまえやすくなる
+ちょっと　かわった　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_007">
+		<language name="日本語">みずの　せかいで　くらしている
+ポケモンが　つかまえやすくなる
+ちょっと　かわった　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_008">
+		<language name="日本語">つかまえる　やせいの　ポケモンが
+よわいほど　つかまえやすくなる
+ちょっと　かわった　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_009">
+		<language name="日本語">つかまえたことの　ある
+ポケモンが　つかまえやすくなる
+ちょっと　かわった　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_010">
+		<language name="日本語">ターンすうが　かかれば　かかるほど
+ポケモンが　つかまえやすくなる
+ちょっと　かわった　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_011">
+		<language name="日本語">つかまえた　やせいポケモンが
+とても　なつきやすくなる
+いごこちの　いい　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_012">
+		<language name="日本語">なにかの　きねんの　しなとして
+とくべつに　つくられた
+ちょっと　めずらしい　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_013">
+		<language name="日本語">よるや　どうくつなど　くらいところで
+ポケモンが　つかまえやすくなる
+ちょっと　かわった　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_014">
+		<language name="日本語">つかまえた　ポケモンの　ＨＰと
+じょうたい　いじょうを　かいふくする
+ちょっと　やさしい　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_015">
+		<language name="日本語">せんとうが　はじまって　すぐに
+つかうと　つかまえやすくなる
+ちょっと　かわった　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_016">
+		<language name="日本語">なにかの　きねんの　しなとして
+とくべつに　つくられた
+かなり　めずらしい　ボール。</language>
+	</row>
+
+	<row id="ITEMINFO_017">
+		<language name="日本語">スプレーしきの　キズぐすり。
+ポケモン　１ひきの　ＨＰを
+２０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_018">
+		<language name="日本語">スプレーしきの　くすり。
+ポケモン　１ひきの　どくの
+じょうたいを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_019">
+		<language name="日本語">スプレーしきの　くすり。
+ポケモン　１ひきの　やけどの
+じょうたいを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_020">
+		<language name="日本語">スプレーしきの　くすり。
+ポケモン　１ひきの　こおりの
+じょうたいを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_021">
+		<language name="日本語">スプレーしきの　くすり。
+ポケモン　１ひきの　ねむりの
+じょうたいを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_022">
+		<language name="日本語">スプレーしきの　くすり。
+ポケモン　１ひきの　まひの
+じょうたいを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_023">
+		<language name="日本語">ポケモン　１ひきの　ＨＰと
+じょうたい　いじょうを　すべて
+かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_024">
+		<language name="日本語">スプレーしきの　キズぐすり。
+ポケモン　１ひきの　ＨＰを
+すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_025">
+		<language name="日本語">スプレーしきの　キズぐすり。
+ポケモン　１ひきの　ＨＰを
+２００だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_026">
+		<language name="日本語">スプレーしきの　キズぐすり。
+ポケモン　１ひきの　ＨＰを
+５０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_027">
+		<language name="日本語">スプレーしきの　くすり。
+ポケモン　１ひきの　じょうたいの
+いじょうを　すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_028">
+		<language name="日本語">ひんしに　なってしまった
+ポケモン　１ひきの　ＨＰを
+はんぶんまで　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_029">
+		<language name="日本語">ひんしに　なってしまった
+ポケモン　１ひきの　ＨＰを
+すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_030">
+		<language name="日本語">ミネラル　たっぷりの　みず。
+ポケモン　１ひきの　ＨＰを
+５０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_031">
+		<language name="日本語">シュワっと　はじける　ソーダ。
+ポケモン　１ひきの　ＨＰを
+６０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_032">
+		<language name="日本語">とても　あまい　ジュース。
+ポケモン　１ひきの　ＨＰを
+８０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_033">
+		<language name="日本語">えいよう　まんてんの　ミルク。
+ポケモン　１ひきの　ＨＰを
+１００だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_034">
+		<language name="日本語">とても　にがい　こなぐすり。
+ポケモン　１ひきの　ＨＰを
+５０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_035">
+		<language name="日本語">とても　にがい　ねっこ。
+ポケモン　１ひきの　ＨＰを
+２００だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_036">
+		<language name="日本語">とても　にがい　こなぐすり。
+ポケモン　１ひきの　じょうたいの
+いじょうを　すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_037">
+		<language name="日本語">とても　にがい　やくそう。
+ひんしの　ポケモン　１ひきの
+ＨＰを　すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_038">
+		<language name="日本語">ポケモンが　おぼえている
+わざのうち　１つの　ＰＰを
+１０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_039">
+		<language name="日本語">ポケモンが　おぼえている
+わざのうち　１つの　ＰＰを
+すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_040">
+		<language name="日本語">ポケモンが　おぼえている
+４つの　わざの　ＰＰを
+１０ずつ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_041">
+		<language name="日本語">ポケモンが　おぼえている
+４つの　わざの　ＰＰを
+すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_042">
+		<language name="日本語">フエンめいぶつの　せんべい。
+ポケモン　１ひきの　じょうたい
+いじょうを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_043">
+		<language name="日本語">きのみ　１００％の　ジュース。
+ポケモン　１ひきの　ＨＰを
+２０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_044">
+		<language name="日本語">ひんしに　なってしまった
+ポケモン　ぜんいんの　ＨＰを
+すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_045">
+		<language name="日本語">ポケモンの　えいようドリンク。
+ポケモン　１ひきの　ＨＰの
+きそポイントを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_046">
+		<language name="日本語">ポケモンの　えいようドリンク。
+ポケモン　１ひきの　こうげきの
+きそポイントを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_047">
+		<language name="日本語">ポケモンの　えいようドリンク。
+ポケモン　１ひきの　ぼうぎょの
+きそポイントを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_048">
+		<language name="日本語">ポケモンの　えいようドリンク。
+ポケモン　１ひきの　すばやさの
+きそポイントを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_049">
+		<language name="日本語">ポケモンの　えいようドリンク。
+ポケモン　１ひきの　とくこうの
+きそポイントを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_050">
+		<language name="日本語">エネルギーの　つまった　アメ。
+あたえると　ポケモン　１ひきの
+レベルが　１だけ　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_051">
+		<language name="日本語">ポケモンが　おぼえている
+わざのうち　１つの　ＰＰの
+さいだいちを　すこし　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_052">
+		<language name="日本語">ポケモンの　えいようドリンク。
+ポケモン　１ひきの　とくぼうの
+きそポイントを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_053">
+		<language name="日本語">おぼえている　わざのうち
+１つの　ＰＰの　さいだいちを
+さいこうまで　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_054">
+		<language name="日本語">ハクタイの　かくれた　めいぶつ。
+ポケモン　１ひきの　じょうたいの
+いじょうを　すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_055">
+		<language name="日本語">せんとうちゅう　５ターンの　あいだ
+みかたの　のうりょくを
+さげられなくする　どうぐ。</language>
+	</row>
+
+	<row id="ITEMINFO_056">
+		<language name="日本語">せんとうちゅう　きゅうしょに
+あたりやすくなる　どうぐ。
+ひっこめると　もとに　もどる。</language>
+	</row>
+
+	<row id="ITEMINFO_057">
+		<language name="日本語">せんとうちゅうの　ポケモンの
+こうげきを　あげる　どうぐ。
+ひっこめると　もとに　もどる。</language>
+	</row>
+
+	<row id="ITEMINFO_058">
+		<language name="日本語">せんとうちゅうの　ポケモンの
+ぼうぎょを　あげる　どうぐ。
+ひっこめると　もとに　もどる。</language>
+	</row>
+
+	<row id="ITEMINFO_059">
+		<language name="日本語">せんとうちゅうの　ポケモンの
+すばやさを　あげる　どうぐ。
+ひっこめると　もとに　もどる。</language>
+	</row>
+
+	<row id="ITEMINFO_060">
+		<language name="日本語">せんとうちゅうの　ポケモンの
+めいちゅうを　あげる　どうぐ。
+ひっこめると　もとに　もどる。</language>
+	</row>
+
+	<row id="ITEMINFO_061">
+		<language name="日本語">せんとうちゅうの　ポケモンの
+とくこうを　あげる　どうぐ。
+ひっこめると　もとに　もどる。</language>
+	</row>
+
+	<row id="ITEMINFO_062">
+		<language name="日本語">せんとうちゅうの　ポケモンの
+とくぼうを　あげる　どうぐ。
+ひっこめると　もとに　もどる。</language>
+	</row>
+
+	<row id="ITEMINFO_063">
+		<language name="日本語">ポケモンの　きを　ひかせる　どうぐ。
+やせいポケモンとの　せんとうから
+ぜったいに　にげられる。</language>
+	</row>
+
+	<row id="ITEMINFO_064">
+		<language name="日本語">ポケモンの　きを　ひかせる　どうぐ。
+やせいポケモンとの　せんとうから
+ぜったいに　にげられる。</language>
+	</row>
+
+	<row id="ITEMINFO_065">
+		<language name="日本語">ガラスせいの　あおい　ふえ。
+ポケモン　１ひきの　ねむりの
+じょうたいを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_066">
+		<language name="日本語">ガラスせいの　きいろい　ふえ。
+ポケモン　１ひきの　こんらんの
+じょうたいを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_067">
+		<language name="日本語">ガラスせいの　あかい　ふえ。
+ポケモン　１ひきの　メロメロの
+じょうたいを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_068">
+		<language name="日本語">ガラスせいの　くろい　ふえ。
+ふくと　やせいの　ポケモンが
+でて　きにくくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_069">
+		<language name="日本語">ガラスせいの　しろい　ふえ。
+ふくと　やせいの　ポケモンが
+でて　きやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_070">
+		<language name="日本語">あさせのほらあなの　なかで
+みつけた　きれいな　しお。
+ものすごく　しょっぱい。</language>
+	</row>
+
+	<row id="ITEMINFO_071">
+		<language name="日本語">あさせのほらあなの　なかで
+みつけた　きれいな　かいがら。
+あおと　しろの　しまもよう。</language>
+	</row>
+
+	<row id="ITEMINFO_072">
+		<language name="日本語">あかい　ちいさな　かけら。
+むかしに　つくられた　なにかの
+どうぐの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_073">
+		<language name="日本語">あおい　ちいさな　かけら。
+むかしに　つくられた　なにかの
+どうぐの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_074">
+		<language name="日本語">きいろい　ちいさな　かけら。
+むかしに　つくられた　なにかの
+どうぐの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_075">
+		<language name="日本語">みどりの　ちいさな　かけら。
+むかしに　つくられた　なにかの
+どうぐの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_076">
+		<language name="日本語">２００ぽ　すすむ　あいだ
+よわい　やせいの　ポケモンが
+まったく　でて　こなくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_077">
+		<language name="日本語">２５０ぽ　すすむ　あいだ
+よわい　やせいの　ポケモンが
+まったく　でて　こなくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_078">
+		<language name="日本語">ながくて　じょうぶな　ヒモ。
+どうくつや　ダンジョンから
+ぬけだすことが　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_079">
+		<language name="日本語">１００ぽ　すすむ　あいだ
+よわい　やせいの　ポケモンが
+まったく　でて　こなくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_080">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+たいようのように　あかい。</language>
+	</row>
+
+	<row id="ITEMINFO_081">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+よぞらのように　くろい。</language>
+	</row>
+
+	<row id="ITEMINFO_082">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+だいだいいろを　している。</language>
+	</row>
+
+	<row id="ITEMINFO_083">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+いなずまの　もようが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_084">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+すんだ　みずいろを　している。</language>
+	</row>
+
+	<row id="ITEMINFO_085">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+はっぱの　もようが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_086">
+		<language name="日本語">ちいさな　めずらしい　キノコ。
+いちぶの　マニアの　あいだでは
+けっこう　にんきが　たかい。</language>
+	</row>
+
+	<row id="ITEMINFO_087">
+		<language name="日本語">おおきな　めずらしい　キノコ。
+いちぶの　マニアの　あいだでは
+とても　にんきが　たかい。</language>
+	</row>
+
+	<row id="ITEMINFO_088">
+		<language name="日本語">きれいな　ぎんいろに　ひかる
+すこし　ちいさめの　しんじゅ。
+ショップで　やすく　うれる。</language>
+	</row>
+
+	<row id="ITEMINFO_089">
+		<language name="日本語">きれいな　ぎんいろに　ひかる
+かなり　おおつぶの　しんじゅ。
+ショップで　たかく　うれる。</language>
+	</row>
+
+	<row id="ITEMINFO_090">
+		<language name="日本語">てざわりが　サラサラの
+あかくて　きれいな　すな。
+ショップで　たかく　うれる。</language>
+	</row>
+
+	<row id="ITEMINFO_091">
+		<language name="日本語">キラキラと　あかく　ひかる
+きれいな　ほうせきの　かけら。
+ショップで　たかく　うれる。</language>
+	</row>
+
+	<row id="ITEMINFO_092">
+		<language name="日本語">キラキラと　きんいろに　ひかる
+じゅんきん　せいの　たま。
+ショップで　たかく　うれる。</language>
+	</row>
+
+	<row id="ITEMINFO_093">
+		<language name="日本語">きれいな　ハートの　かたちの
+とても　めずらしい　ウロコ。
+にじいろに　うすく　かがやく。</language>
+	</row>
+
+	<row id="ITEMINFO_094">
+		<language name="日本語">くさむらや　どうくつ　などで
+つかうと　あまいにおいに　さそわれて
+やせいポケモンが　あらわれる。</language>
+	</row>
+
+	<row id="ITEMINFO_095">
+		<language name="日本語">ふかふかのつちに　まいて　つかう。
+つちの　かわきが　はやくなるが
+きのみの　そだちも　はやくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_096">
+		<language name="日本語">ふかふかのつちに　まいて　つかう。
+つちの　かわきが　おそくなるが
+きのみの　そだちも　おそくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_097">
+		<language name="日本語">ふかふかのつちに　まいて　つかう。
+きのみが　おちるまでの　じかんが
+ふだんより　ながくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_098">
+		<language name="日本語">ふかふかのつちに　まいて　つかう。
+かれたあとに　あたらしい　めが
+でてくる　かいすうが　ふえる。</language>
+	</row>
+
+	<row id="ITEMINFO_099">
+		<language name="日本語">おおむかし　うみに　すんでいた
+こだい　ポケモンの　カセキ。
+ねっこの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_100">
+		<language name="日本語">おおむかし　うみに　すんでいた
+こだい　ポケモンの　カセキ。
+ツメの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_101">
+		<language name="日本語">おおむかし　うみに　すんでいた
+こだい　ポケモンの　カセキ。
+かいがらの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_102">
+		<language name="日本語">おおむかし　うみに　すんでいた
+こだい　ポケモンの　カセキ。
+こうらの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_103">
+		<language name="日本語">こだい　ポケモンの　いでんしが
+とじこめられている　コハク。
+あかみを　おびて　すけている。</language>
+	</row>
+
+	<row id="ITEMINFO_104">
+		<language name="日本語">おおむかし　ちじょうで　くらした
+こだい　ポケモンの　カセキ。
+えりかざりの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_105">
+		<language name="日本語">おおむかし　ちじょうで　くらした
+こだい　ポケモンの　カセキ。
+あたまの　いちぶ　らしい。</language>
+	</row>
+
+	<row id="ITEMINFO_106">
+		<language name="日本語">ポケモンこうこがくの　うえで
+とても　きちょうな　ホネ。
+ショップで　たかく　うれる。</language>
+	</row>
+
+	<row id="ITEMINFO_107">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+ひかりのように　まぶしい。</language>
+	</row>
+
+	<row id="ITEMINFO_108">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+やみのように　くらい。</language>
+	</row>
+
+	<row id="ITEMINFO_109">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+ひとみのように　まばゆい。</language>
+	</row>
+
+	<row id="ITEMINFO_110">
+		<language name="日本語">ある　とくていの　ポケモンを
+しんかさせる　ふしぎな　いし。
+たまのように　まるい。</language>
+	</row>
+
+	<row id="ITEMINFO_111">
+		<language name="日本語">これがないと　いしのとうが
+くずれてしまう　だいじないし。
+ときどき　いしから　こえがきこえる。</language>
+	</row>
+
+	<row id="ITEMINFO_112">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_113">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_114">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_115">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_116">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_117">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_118">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_119">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_120">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_121">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_122">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_123">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_124">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_125">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_126">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_127">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_128">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_129">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_130">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_131">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_132">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_133">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_134">
+		<language name="日本語">ー
+ー
+ー</language>
+	</row>
+
+	<row id="ITEMINFO_135">
+		<language name="日本語">ディアルガに　もたせると　ドラゴンと
+はがねタイプの　わざの　いりょくが
+あがる　ひかり　かがやく　たま。</language>
+	</row>
+
+	<row id="ITEMINFO_136">
+		<language name="日本語">パルキアに　もたせると　ドラゴンと
+みずタイプの　わざの　いりょくが
+あがる　うつくしく　かがやく　たま。</language>
+	</row>
+
+	<row id="ITEMINFO_137">
+		<language name="日本語">さわやかな　みどりの　そうげんが　
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_138">
+		<language name="日本語">まっかに　もえあがる　ほのおが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_139">
+		<language name="日本語">あおい　みずの　せかいが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_140">
+		<language name="日本語">きれいな　はなびら　もようが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_141">
+		<language name="日本語">うすぐらい　たんこうの　せかいが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_142">
+		<language name="日本語">かっこいい　きかいの　もようが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_143">
+		<language name="日本語">おおきな　ハートの　えがらが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_144">
+		<language name="日本語">さむそうな　ゆきの　せかいが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_145">
+		<language name="日本語">ゆうだいな　うちゅう　くうかんが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_146">
+		<language name="日本語">カラフルな　びんせんの　えがらが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_147">
+		<language name="日本語">あざやかな　にじいろ　もようが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_148">
+		<language name="日本語">かたそうな　レンガの　えがらが
+プリントされた　びんせん。
+ポケモンに　もたせて　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_149">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+まひを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_150">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+ねむりを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_151">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+どくを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_152">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+やけどを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_153">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+こおりを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_154">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+ＰＰを　１０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_155">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+ＨＰを　１０だけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_156">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+こんらんを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_157">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+じょうたい　いじょうを　かいふく。</language>
+	</row>
+
+	<row id="ITEMINFO_158">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかったり　もたせたりすると
+ＨＰを　すこしだけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_159">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+ピンチのとき　ＨＰを　かいふくするが
+こんらん　することも　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_160">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+ピンチのとき　ＨＰを　かいふくするが
+こんらん　することも　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_161">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+ピンチのとき　ＨＰを　かいふくするが
+こんらん　することも　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_162">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+ピンチのとき　ＨＰを　かいふくするが
+こんらん　することも　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_163">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+ピンチのとき　ＨＰを　かいふくするが
+こんらん　することも　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_164">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+ズリが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_165">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+ブリーが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_166">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+ナナが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_167">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+セシナが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_168">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+パイルが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_169">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかうと　なつくが　ＨＰの
+きそポイントが　さがる。</language>
+	</row>
+
+	<row id="ITEMINFO_170">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかうと　なつくが　こうげきの
+きそポイントが　さがる。</language>
+	</row>
+
+	<row id="ITEMINFO_171">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかうと　なつくが　ぼうぎょの
+きそポイントが　さがる。</language>
+	</row>
+
+	<row id="ITEMINFO_172">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかうと　なつくが　とくこうの
+きそポイントが　さがる。</language>
+	</row>
+
+	<row id="ITEMINFO_173">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかうと　なつくが　とくぼうの
+きそポイントが　さがる。</language>
+	</row>
+
+	<row id="ITEMINFO_174">
+		<language name="日本語">ポフィンの　ざいりょう。　ポケモンに
+つかうと　なつくが　すばやさの
+きそポイントが　さがる。</language>
+	</row>
+
+	<row id="ITEMINFO_175">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+モコシが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_176">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+ゴスが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_177">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+ラブタが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_178">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+ノメルが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_179">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+ノワキが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_180">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+シーヤが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_181">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+カイスが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_182">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+ドリが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_183">
+		<language name="日本語">ポフィンの　ざいりょう。
+ふかふかのつちに　うめると
+ベリブが　そだつ。</language>
+	</row>
+
+	<row id="ITEMINFO_184">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　ほのお　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_185">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　みず　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_186">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　でんき　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_187">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　くさ　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_188">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　こおり　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_189">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　かくとう　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_190">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　どく　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_191">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　じめん　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_192">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　ひこう　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_193">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　エスパー　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_194">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　むし　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_195">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　いわ　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_196">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　ゴースト　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_197">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　ドラゴン　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_198">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　あく　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_199">
+		<language name="日本語">ポフィンの　ざいりょう。　もたせると
+こうかばつぐんの　はがね　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_200">
+		<language name="日本語">ポフィンの　ざいりょう。　
+もたせると　ノーマル　わざを
+うけたとき　いりょくが　よわまる。</language>
+	</row>
+
+	<row id="ITEMINFO_201">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　ピンチのとき
+じぶんの　こうげきが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_202">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　ピンチのとき
+じぶんの　ぼうぎょが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_203">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　ピンチのとき
+じぶんの　すばやさが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_204">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　ピンチのとき
+じぶんの　とくこうが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_205">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　ピンチのとき
+じぶんの　とくぼうが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_206">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　ピンチのとき
+きゅうしょに　あたりやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_207">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　ピンチのとき　１つの
+のうりょくが　ぐーんと　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_208">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　こうかばつぐんの　わざを
+うけたとき　ＨＰを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_209">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　ピンチのとき　いちどだけ
+わざの　めいちゅうりつが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_210">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせると　ピンチのとき　いちどだけ
+こうどうが　はやくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_211">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせて　ぶつりわざを　うけたとき
+あいてにも　ダメージを　あたえる。</language>
+	</row>
+
+	<row id="ITEMINFO_212">
+		<language name="日本語">ポフィンの　ざいりょう。
+もたせて　とくしゅわざを　うけたとき
+あいてにも　ダメージを　あたえる。</language>
+	</row>
+
+	<row id="ITEMINFO_213">
+		<language name="日本語">キラキラ　ひかるこな。　もたせると
+ひかりが　あいてを　まどわして
+わざが　めいちゅう　しにくくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_214">
+		<language name="日本語">もたせた　ポケモンの　のうりょくが
+さがったとき　いちどだけ　もとの
+じょうたいに　もどす。</language>
+	</row>
+
+	<row id="ITEMINFO_215">
+		<language name="日本語">かたくて　おもい　ギプス。
+もたせると　すばやさは　さがるが
+ふつうより　つよく　そだちやすい。</language>
+	</row>
+
+	<row id="ITEMINFO_216">
+		<language name="日本語">もたせた　ポケモンは　せんとうに
+でなくても　けいけんちを
+わけてもらえる　べんりな　そうち。</language>
+	</row>
+
+	<row id="ITEMINFO_217">
+		<language name="日本語">かるくて　するどい　ツメ。
+もたせると　あいてより　さきに
+こうどう　できることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_218">
+		<language name="日本語">ここちよい　ねいろの　すず。
+もたせた　ポケモンは　こころが
+やすらぎ　なつきやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_219">
+		<language name="日本語">もたせた　ポケモンが　メロメロの
+じょうたいに　なったときに
+いちどだけ　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_220">
+		<language name="日本語">ちょっと　こだわった　ハチマキ。
+もたせると　こうげきは　あがるが
+おなじ　わざしか　だせなくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_221">
+		<language name="日本語">もたせると　こうげきして
+ダメージを　あたえたときに
+あいてを　　ひるませることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_222">
+		<language name="日本語">ぎんいろに　かがやく　こな。
+もたせると　むしタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_223">
+		<language name="日本語">もたせた　ポケモンが　いちどでも
+せんとうに　かおを　だすと
+おかねが　２ばい　もらえる。</language>
+	</row>
+
+	<row id="ITEMINFO_224">
+		<language name="日本語">いちばん　まえの　ポケモンに
+もたせると　やせいポケモンが
+でて　きにくくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_225">
+		<language name="日本語">ラティオス　または　ラティアスに
+もたせると　とくこうと　とくぼうが
+あがる　ふしぎな　たま。</language>
+	</row>
+
+	<row id="ITEMINFO_226">
+		<language name="日本語">パールルに　もたせると
+とくこうが　あがる　キバ。
+するどく　ぎんいろに　ひかる。</language>
+	</row>
+
+	<row id="ITEMINFO_227">
+		<language name="日本語">パールルに　もたせると
+とくぼうが　あがる　ウロコ。
+うすい　ピンクいろに　ひかる。</language>
+	</row>
+
+	<row id="ITEMINFO_228">
+		<language name="日本語">もたせた　ポケモンは　やせいの
+ポケモンとの　せんとうから
+ぜったいに　にげられる。</language>
+	</row>
+
+	<row id="ITEMINFO_229">
+		<language name="日本語">ポケモンに　もたせると
+そのあいだ　しんか　しなくなる
+ふしぎな　いし。</language>
+	</row>
+
+	<row id="ITEMINFO_230">
+		<language name="日本語">もたせると　ひんしに　なりそうな
+わざを　うけても　ＨＰを　１だけ
+のこして　たえることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_231">
+		<language name="日本語">しあわせが　つまった　タマゴ。
+もたせた　ポケモンは　もらえる
+けいけんちが　すこし　ふえる。</language>
+	</row>
+
+	<row id="ITEMINFO_232">
+		<language name="日本語">じゃくてんが　みえる　レンズ。
+もたせた　ポケモンの　わざが
+きゅうしょに　あたりやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_233">
+		<language name="日本語">とくしゅな　きんぞくの　まく。
+もたせると　はがねタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_234">
+		<language name="日本語">もたせると　ポケモンの　ＨＰが
+せんとうの　あいだ　すこしずつ
+かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_235">
+		<language name="日本語">かたくて　じょうぶな　ウロコ。
+ドラゴンタイプの　ポケモンが
+もっていることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_236">
+		<language name="日本語">ピカチュウに　もたせると
+こうげきと　とくこうの　いりょくが
+あがる　ふしぎな　たま。</language>
+	</row>
+
+	<row id="ITEMINFO_237">
+		<language name="日本語">さわると　サラサラする　すな。
+もたせると　じめんタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_238">
+		<language name="日本語">ぜったいに　われない　いし。
+もたせると　いわタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_239">
+		<language name="日本語">せいめいが　やどる　タネ。
+もたせると　くさタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_240">
+		<language name="日本語">あやしく　みえる　メガネ。
+もたせると　あくタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_241">
+		<language name="日本語">きが　ひきしまる　おび。
+もたせると　かくとうタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_242">
+		<language name="日本語">きょうりょくな　じしゃく。
+もたせると　でんきタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_243">
+		<language name="日本語">しずくの　かたちの　ほうせき。
+もたせると　みずタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_244">
+		<language name="日本語">ながく　とがった　くちばし。
+もたせると　ひこうタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_245">
+		<language name="日本語">どくのある　ちいさな　ハリ。
+もたせると　どくタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_246">
+		<language name="日本語">ねつを　よせつけない　こおり。
+もたせると　こおりタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_247">
+		<language name="日本語">あやしくて　ぶきみな　おふだ。
+もたせると　ゴーストタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_248">
+		<language name="日本語">ねんりきを　こめた　スプーン。
+もたせると　エスパータイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_249">
+		<language name="日本語">ものを　もやす　ねんりょう。
+もたせると　ほのおタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_250">
+		<language name="日本語">かたくて　するどい　キバ。
+もたせると　ドラゴンタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_251">
+		<language name="日本語">はだざわりの　よい　スカーフ。
+もたせると　ノーマルタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_252">
+		<language name="日本語">なかに　いろんな　じょうほうが
+つまった　とうめいの　きかい。
+シルフ　カンパニーせい。</language>
+	</row>
+
+	<row id="ITEMINFO_253">
+		<language name="日本語">もたせた　ポケモンが　こうげきして
+あいてに　ダメージを　あたえたとき
+ＨＰを　すこし　かいふく　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_254">
+		<language name="日本語">ふしぎな　かおりの　おこう。
+もたせると　みずタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_255">
+		<language name="日本語">もたせると　おこうの　ふしぎな
+かおりが　あいてを　まどわせて
+わざが　めいちゅう　しにくくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_256">
+		<language name="日本語">こううんを　よぶ　グローブ。
+ラッキーに　もたせると　わざが
+きゅうしょに　あたりやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_257">
+		<language name="日本語">メタモンに　もたせると　ぼうぎょが
+あがる　ふしぎなこな。
+とても　こまかくて　かたい。</language>
+	</row>
+
+	<row id="ITEMINFO_258">
+		<language name="日本語">なにかの　かたい　ホネ。
+カラカラ　または　ガラガラに
+もたせると　こうげきが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_259">
+		<language name="日本語">とても　ながくて　かたい　クキ。
+カモネギに　もたせると　わざが
+きゅうしょに　あたりやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_260">
+		<language name="日本語">もたせて　コンテストに　さんかすると
+その　ポケモンは　いつもより
+かっこよく　みられる。</language>
+	</row>
+
+	<row id="ITEMINFO_261">
+		<language name="日本語">もたせて　コンテストに　さんかすると
+その　ポケモンは　いつもより
+うつくしく　みられる。</language>
+	</row>
+
+	<row id="ITEMINFO_262">
+		<language name="日本語">もたせて　コンテストに　さんかすると
+その　ポケモンは　いつもより
+かわいく　みられる。</language>
+	</row>
+
+	<row id="ITEMINFO_263">
+		<language name="日本語">もたせて　コンテストに　さんかすると
+その　ポケモンは　いつもより
+かしこく　みられる。</language>
+	</row>
+
+	<row id="ITEMINFO_264">
+		<language name="日本語">もたせて　コンテストに　さんかすると
+その　ポケモンは　いつもより
+たくましく　みられる。</language>
+	</row>
+
+	<row id="ITEMINFO_265">
+		<language name="日本語">ものが　おおきく　みえる　レンズ。
+もたせると　わざの　めいちゅうりつが
+すこし　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_266">
+		<language name="日本語">ちからが　わいてくる　ハチマキ。
+もたせると　ぶつりわざの
+いりょくが　すこし　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_267">
+		<language name="日本語">ぶあつい　レンズの　ついた　メガネ。
+もたせると　とくしゅわざの
+いりょくが　すこし　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_268">
+		<language name="日本語">つかいこまれた　くろい　おび。
+もたせると　こうかばつぐんの　とき
+わざの　いりょくが　すこし　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_269">
+		<language name="日本語">もたせた　ポケモンが　ひかりのかべや
+リフレクターを　つかったとき
+いつもよりも　ながく　のこる。</language>
+	</row>
+
+	<row id="ITEMINFO_270">
+		<language name="日本語">もたせると　こうげきする　たびに
+ＨＰが　すこし　へってしまうが
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_271">
+		<language name="日本語">もたせた　ポケモンは　いちどだけ
+１ターンめに　ちからを　ためるわざを
+すぐに　つかうことが　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_272">
+		<language name="日本語">さわると　どくをだす　ふしぎなたま。
+もたせると　せんとうちゅうに
+もうどくの　じょうたいに　なる。</language>
+	</row>
+
+	<row id="ITEMINFO_273">
+		<language name="日本語">さわると　ねつをだす　ふしぎなたま。
+もたせると　せんとうちゅうに
+やけどの　じょうたいに　なる。</language>
+	</row>
+
+	<row id="ITEMINFO_274">
+		<language name="日本語">メタモンに　もたせると　すばやさが
+あがる　ふしぎなこな。
+とても　こまかくて　かたい。</language>
+	</row>
+
+	<row id="ITEMINFO_275">
+		<language name="日本語">もたせると　ＨＰが　まんたんのとき
+ひんしになりそうな　わざを　うけても　
+ＨＰ１で　いちどだけ　たえる。</language>
+	</row>
+
+	<row id="ITEMINFO_276">
+		<language name="日本語">もたせた　ポケモンが　あいてよりも
+こうどうするのが　おそいとき
+わざが　めいちゅう　しやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_277">
+		<language name="日本語">もたせると　おなじわざを　れんぞくで
+つかったとき　いりょくが　あがる。
+やめると　いりょくは　もどる。</language>
+	</row>
+
+	<row id="ITEMINFO_278">
+		<language name="日本語">もたせると　すばやさが　さがる。
+ひこうタイプや　ふゆう　ポケモンは
+じめんわざが　あたって　しまう。</language>
+	</row>
+
+	<row id="ITEMINFO_279">
+		<language name="日本語">とても　おもたい　なにかの　しっぽ。
+もたせると　いつもより　こうどうが
+おそくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_280">
+		<language name="日本語">ほそくて　ながい　まっかな　いと。
+もたせると　メロメロに　なったとき
+あいても　メロメロに　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_281">
+		<language name="日本語">もたせると　どくタイプの　ポケモンは
+すこしずつ　ＨＰを　かいふくする。
+それいがいは　ＨＰが　へってしまう。</language>
+	</row>
+
+	<row id="ITEMINFO_282">
+		<language name="日本語">もたせた　ポケモンが　あられを
+つかうと　いつもより　あられの
+じかんが　ながくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_283">
+		<language name="日本語">もたせた　ポケモンが　すなあらしを
+つかうと　いつもより　すなあらしの
+じかんが　ながくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_284">
+		<language name="日本語">もたせた　ポケモンが　にほんばれを
+つかうと　いつもより　はれの
+じかんが　ながくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_285">
+		<language name="日本語">もたせた　ポケモンが　あまごいを
+つかうと　いつもより　あめの
+じかんが　ながくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_286">
+		<language name="日本語">もたせると　しめつける　まきつくなど
+ダメージを　あたえつづける　わざの
+ターンすうが　ふえる。</language>
+	</row>
+
+	<row id="ITEMINFO_287">
+		<language name="日本語">ちょっと　こだわった　スカーフ。
+もたせると　すばやさは　あがるが
+おなじ　わざしか　だせなくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_288">
+		<language name="日本語">もたせると　まいターン　ダメージを
+うける。　じぶんに　ふれてきた
+あいてに　くっつく　ことも　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_289">
+		<language name="日本語">もたせると　すばやさが　さがるが
+ふつうよりも　ポケモンの　こうげきが
+たかく　そだちやすい。</language>
+	</row>
+
+	<row id="ITEMINFO_290">
+		<language name="日本語">もたせると　すばやさが　さがるが
+ふつうよりも　ポケモンの　ぼうぎょが
+たかく　そだちやすい。</language>
+	</row>
+
+	<row id="ITEMINFO_291">
+		<language name="日本語">もたせると　すばやさが　さがるが
+ふつうよりも　ポケモンの　とくこうが
+たかく　そだちやすい。</language>
+	</row>
+
+	<row id="ITEMINFO_292">
+		<language name="日本語">もたせると　すばやさが　さがるが
+ふつうよりも　ポケモンの　とくぼうが
+たかく　そだちやすい。</language>
+	</row>
+
+	<row id="ITEMINFO_293">
+		<language name="日本語">もたせると　すばやさが　さがるが
+ふつうよりも　ポケモンの　すばやさが
+たかく　そだちやすい。</language>
+	</row>
+
+	<row id="ITEMINFO_294">
+		<language name="日本語">もたせると　すばやさが　さがるが
+ふつうよりも　ポケモンの　ＨＰが
+たかく　そだちやすい。</language>
+	</row>
+
+	<row id="ITEMINFO_295">
+		<language name="日本語">じょうぶで　かたい　ぬけがら。
+もたせた　ポケモンは　ひかえの
+ポケモンと　かならず　いれかわれる。</language>
+	</row>
+
+	<row id="ITEMINFO_296">
+		<language name="日本語">もたせると　ＨＰを　すいとる　わざで
+いつもより　おおく　じぶんの　ＨＰを
+かいふくできる。</language>
+	</row>
+
+	<row id="ITEMINFO_297">
+		<language name="日本語">ちょっと　こだわった　メガネ。
+もたせると　とくこうは　あがるが
+おなじ　わざしか　だせなくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_298">
+		<language name="日本語">ほのおの　タイプの　せきばん。
+もたせると　ほのおタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_299">
+		<language name="日本語">みずの　タイプの　せきばん。
+もたせると　みずタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_300">
+		<language name="日本語">でんきの　タイプの　せきばん。
+もたせると　でんきタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_301">
+		<language name="日本語">くさの　タイプの　せきばん。
+もたせると　くさタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_302">
+		<language name="日本語">こおりの　タイプの　せきばん。
+もたせると　こおりタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_303">
+		<language name="日本語">かくとうの　タイプの　せきばん。
+もたせると　かくとうタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_304">
+		<language name="日本語">どくの　タイプの　せきばん。
+もたせると　どくタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_305">
+		<language name="日本語">じめんの　タイプの　せきばん。
+もたせると　じめんタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_306">
+		<language name="日本語">ひこうの　タイプの　せきばん。
+もたせると　ひこうタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_307">
+		<language name="日本語">エスパーの　タイプの　せきばん。
+もたせると　エスパータイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_308">
+		<language name="日本語">むしの　タイプの　せきばん。
+もたせると　むしタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_309">
+		<language name="日本語">いわの　タイプの　せきばん。
+もたせると　いわタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_310">
+		<language name="日本語">ゴーストの　タイプの　せきばん。
+もたせると　ゴーストタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_311">
+		<language name="日本語">ドラゴンの　タイプの　せきばん。
+もたせると　ドラゴンタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_312">
+		<language name="日本語">あくの　タイプの　せきばん。
+もたせると　あくタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_313">
+		<language name="日本語">はがねの　タイプの　せきばん。
+もたせると　はがねタイプの
+わざの　いりょくが　つよまる。</language>
+	</row>
+
+	<row id="ITEMINFO_314">
+		<language name="日本語">ふしぎな　かおりの　おこう。
+もたせると　エスパータイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_315">
+		<language name="日本語">ふしぎな　かおりの　おこう。
+もたせると　いわタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_316">
+		<language name="日本語">ふしぎな　かおりの　おこう。
+もたせた　ポケモンは　いつもより
+こうどうが　おそくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_317">
+		<language name="日本語">ふしぎな　かおりの　おこう。
+もたせると　みずタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_318">
+		<language name="日本語">ふしぎな　かおりの　おこう。
+もたせると　くさタイプの
+わざの　いりょくが　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_319">
+		<language name="日本語">もたせた　ポケモンが　いちどでも
+せんとうに　かおを　だすと
+おかねが　２ばい　もらえる。</language>
+	</row>
+
+	<row id="ITEMINFO_320">
+		<language name="日本語">いちばん　まえの　ポケモンに
+もたせると　やせいポケモンが
+でて　きにくくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_321">
+		<language name="日本語">なにかの　プロテクター。
+とても　かたくて　おもい。
+ある　ポケモンが　このんでいる。</language>
+	</row>
+
+	<row id="ITEMINFO_322">
+		<language name="日本語">とてつもない　でんきの　エネルギーが
+たくわえられている　はこ。
+ある　ポケモンが　このんでいる。</language>
+	</row>
+
+	<row id="ITEMINFO_323">
+		<language name="日本語">とてつもない　マグマの　エネルギーが
+たくわえられている　はこ。
+ある　ポケモンが　このんでいる。</language>
+	</row>
+
+	<row id="ITEMINFO_324">
+		<language name="日本語">なかに　あやしい　じょうほうが
+つまった　とうめいな　きかい。
+せいさくしゃは　ふめい。</language>
+	</row>
+
+	<row id="ITEMINFO_325">
+		<language name="日本語">おそろしく　つよい　れいりょくが
+こめられている　ぬの。
+ある　ポケモンが　このんでいる。</language>
+	</row>
+
+	<row id="ITEMINFO_326">
+		<language name="日本語">するどく　とがった　ツメ。
+もたせると　わざが　きゅうしょに
+あたりやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_327">
+		<language name="日本語">するどく　とがった　キバ。
+もたせると　ダメージを　あたえたとき
+ひるませることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_328">
+		<language name="日本語">せいしんを　たかめて　こうげきする。
+わざを　だすまえに　こうげきを
+うけると　しっぱいする。</language>
+	</row>
+
+	<row id="ITEMINFO_329">
+		<language name="日本語">するどく　とがった　きょだいな
+ツメで　ひっかいて　こうげきする。
+</language>
+	</row>
+
+	<row id="ITEMINFO_330">
+		<language name="日本語">みずの　しんどうを　あたえて
+こうげきする。　あいてを　こんらんの
+じょうたいに　することが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_331">
+		<language name="日本語">しずかに　せいしんを　とういつして
+こころを　しずめることで　じぶんの
+とくこうと　とくぼうを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_332">
+		<language name="日本語">あいてを　にがして　ひかえポケモンを
+ひきずりだす。　やせいポケモンなら
+せんとうは　おわる。</language>
+	</row>
+
+	<row id="ITEMINFO_333">
+		<language name="日本語">もうどくの　じょうたいに　する。
+ターンすうが　すすむほど　どくの
+ダメージりょうは　ふえる。</language>
+	</row>
+
+	<row id="ITEMINFO_334">
+		<language name="日本語">５ターンの　あいだ　あられを
+ふらして　こおりタイプ　いがいの
+ポケモンに　ダメージを　あたえる。</language>
+	</row>
+
+	<row id="ITEMINFO_335">
+		<language name="日本語">ちからを　こめて　きんにくを
+あつくする　ことで　じぶんの
+こうげきと　ぼうぎょを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_336">
+		<language name="日本語">タネを　いきおいよく　２ー５かい
+はっしゃして　こうげきする。
+</language>
+	</row>
+
+	<row id="ITEMINFO_337">
+		<language name="日本語">おぼえる　ポケモンの　かくされた
+のうりょくで　わざの　タイプと
+いりょくが　　かわる。</language>
+	</row>
+
+	<row id="ITEMINFO_338">
+		<language name="日本語">５ターンの　あいだ　ひざしを
+つよくして　ほのおタイプの
+わざの　いりょくを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_339">
+		<language name="日本語">あいてを　おこらせて　２ー４ターンの
+あいだ　ダメージを　あたえるわざ
+いがい　だせない　ようにする。</language>
+	</row>
+
+	<row id="ITEMINFO_340">
+		<language name="日本語">れいきの　ビームを　はっしゃして
+こうげきする。　あいてを　こおりの
+じょうたいに　することが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_341">
+		<language name="日本語">はげしい　ふぶきを　ぶつけて
+こうげきする。　あいてを　こおりの
+じょうたいに　することが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_342">
+		<language name="日本語">つよい　こうせんを　はっしゃする。
+つかった　つぎのターンは　はんどうで
+うごけなくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_343">
+		<language name="日本語">５ターンの　あいだ　ふしぎな　かべで
+あいてから　うける　とくしゅわざの
+ダメージを　よわめる。</language>
+	</row>
+
+	<row id="ITEMINFO_344">
+		<language name="日本語">こうげきを　まったく　うけない。
+わざを　れんぞくで　だすと　しっぱい
+しやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_345">
+		<language name="日本語">５ターンの　あいだ　あめを　ふらして
+みずタイプの　わざの　いりょくを
+あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_346">
+		<language name="日本語">ようぶんを　すいとり　こうげきする。
+あたえた　ダメージの　はんぶんの
+ＨＰを　かいふく　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_347">
+		<language name="日本語">ふしぎな　ちからに　まもられて
+どく　まひ　やけど　ねむりなどの
+じょうたい　いじょうに　ならない。</language>
+	</row>
+
+	<row id="ITEMINFO_348">
+		<language name="日本語">ふまんを　はらすために　ぜんりょくで
+こうげきする。　なついて　いないほど
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_349">
+		<language name="日本語">１ターンめに　ひかりを　あつめて
+２ターンめに　ひかりの　こうせんを
+はっしゃして　こうげきする。</language>
+	</row>
+
+	<row id="ITEMINFO_350">
+		<language name="日本語">かたいシッポで　こうげきする。
+ダメージを　あたえた　あいての
+ぼうぎょを　さげることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_351">
+		<language name="日本語">つよい　でんげきを　あびせて
+こうげきする。　あいてを　まひの
+じょうたいに　することが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_352">
+		<language name="日本語">はげしい　かみなりを　おとして
+こうげきする。　あいてを　まひの
+じょうたいに　することが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_353">
+		<language name="日本語">たたかっている　ポケモン　すべてに
+じしんの　しょうげきを　あたえて
+こうげきする。</language>
+	</row>
+
+	<row id="ITEMINFO_354">
+		<language name="日本語">トレーナーのために　ぜんりょくで
+こうげきする。　なついて　いるほど
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_355">
+		<language name="日本語">１ターンめに　もぐり　２ターンめで
+こうげきする。　どうくつで　つかうと
+そとに　だっしゅつ　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_356">
+		<language name="日本語">つよい　ねんりきを　おくって
+こうげきする。　あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_357">
+		<language name="日本語">くろいかげの　かたまりを　なげて
+こうげきする。　あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_358">
+		<language name="日本語">こぶしなどで　こうげきする。
+ひかりのかべや　リフレクターも
+はかいできる。</language>
+	</row>
+
+	<row id="ITEMINFO_359">
+		<language name="日本語">すばやい　うごきで　ぶんしんを
+つくる。　あいてを　まどわせることで
+かいひりつを　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_360">
+		<language name="日本語">５ターンの　あいだ　ふしぎな　かべで
+あいてから　うける　ぶつりわざの
+ダメージを　よわめる。</language>
+	</row>
+
+	<row id="ITEMINFO_361">
+		<language name="日本語">でんげきを　すばやく　あびせて
+こうげきする。　こうげきは　かならず
+めいちゅうする。</language>
+	</row>
+
+	<row id="ITEMINFO_362">
+		<language name="日本語">はげしい　ほのおを　はっしゃして
+こうげきする。　あいてを　やけどの
+じょうたいに　することが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_363">
+		<language name="日本語">きたない　ヘドロを　なげつける。
+あいてを　どくの　じょうたいに
+することが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_364">
+		<language name="日本語">５ターンの　あいだ　すなあらしで
+じめん　いわ　はがね　タイプいがいに
+ダメージを　あたえる。</language>
+	</row>
+
+	<row id="ITEMINFO_365">
+		<language name="日本語">だいのじの　ほのおで　すべてを
+やきつくす。　あいてを　やけどの
+じょうたいに　することが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_366">
+		<language name="日本語">いわを　なげつけ　こうげきする。
+おちた　いわが　うごきを　ふうじて
+あいての　すばやさを　さげる。</language>
+	</row>
+
+	<row id="ITEMINFO_367">
+		<language name="日本語">すばやい　うごきで　ほんろうする。
+こうげきは　かならず　あいてに
+めいちゅうする。</language>
+	</row>
+
+	<row id="ITEMINFO_368">
+		<language name="日本語">いちゃもんを　つけて　おなじわざを
+れんぞくで　だせない　ようにする。
+</language>
+	</row>
+
+	<row id="ITEMINFO_369">
+		<language name="日本語">どく　まひ　やけど　のじょうたいで
+わざを　だすと　２ばいの　いりょくで
+こうげき　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_370">
+		<language name="日本語">くさむらや　みずべ　どうくつ　など
+たたかう　ばしょによって　あたえる
+ついかこうかが　かわる。</language>
+	</row>
+
+	<row id="ITEMINFO_371">
+		<language name="日本語">２ターンの　あいだ　ねむりつづける。
+ＨＰと　からだの　いじょうを
+すべて　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_372">
+		<language name="日本語">♂なら♀を　♀なら♂を　ゆうわくして
+メロメロにする。　メロメロに　なった
+あいては　わざが　だしにくくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_373">
+		<language name="日本語">こうげきと　どうじに　もちものを
+ぬすむ。　じぶんに　もちものが
+あると　しっぱいする。</language>
+	</row>
+
+	<row id="ITEMINFO_374">
+		<language name="日本語">かたい　つばさを　おおきく　ひろげて
+たいあたりする。　じぶんの
+ぼうぎょを　あげることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_375">
+		<language name="日本語">ちょうのうりょくで　じぶんの
+とくせいと　あいての　とくせいを
+いれかえる。</language>
+	</row>
+
+	<row id="ITEMINFO_376">
+		<language name="日本語">あいてが　つかおうとする　かいふくや
+のうりょく　へんかの　わざを
+よこどりして　じぶんに　つかう。</language>
+	</row>
+
+	<row id="ITEMINFO_377">
+		<language name="日本語">フルパワーで　ほのおの　こうげき。
+つかったあと　じぶんの　とくこうは
+がくっと　さがる。</language>
+	</row>
+
+	<row id="ITEMINFO_378">
+		<language name="日本語">じめんにおりて　からだを　やすめる。
+さいだいＨＰの　はんぶんだけ
+ＨＰを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_379">
+		<language name="日本語">こんしんの　ちからで　こうげきする。
+あたった　あいての　とくぼうを
+さげることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_380">
+		<language name="日本語">いのちの　ちからを　あつめて　
+こうげきする。　あたった　あいての
+とくぼうを　さげることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_381">
+		<language name="日本語">てかげんして　こうげきする。
+こうげきした　あいての　ＨＰは
+かならず　１のこる。</language>
+	</row>
+
+	<row id="ITEMINFO_382">
+		<language name="日本語">あいての　ＨＰが　さいだいＨＰの
+はんぶんも　ないときに　つかうと
+わざの　いりょくは　２ばいに　なる。</language>
+	</row>
+
+	<row id="ITEMINFO_383">
+		<language name="日本語">どうぐを　なげつけて　こうげきする。
+なげる　もちものに　よって　わざの
+いりょくと　こうかは　かわる。</language>
+	</row>
+
+	<row id="ITEMINFO_384">
+		<language name="日本語">でんげきを　あびせて　こうげきする。
+のこった　でんきを　ためて　じぶんの
+とくこうを　あげることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_385">
+		<language name="日本語">こうげきを　うけても　ＨＰを　１だけ
+のこして　たえる。　れんぞくで
+だすと　しっぱい　しやすくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_386">
+		<language name="日本語">おおきな　くちから　しょうげきはを
+はなって　こうげきする。
+</language>
+	</row>
+
+	<row id="ITEMINFO_387">
+		<language name="日本語">こぶしから　あいての　ＨＰを　
+すいとり　あたえた　ダメージの
+はんぶん　ＨＰを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_388">
+		<language name="日本語">あおじろく　もえる　あやしげな
+ほのおを　はなつ。　あいてを
+やけどの　じょうたいに　する。</language>
+	</row>
+
+	<row id="ITEMINFO_389">
+		<language name="日本語">かぜに　りんぷんを　のせて
+こうげきする。　じぶんの　すべての
+のうりょくを　あげることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_390">
+		<language name="日本語">もたせた　どうぐを　つかえなくする。
+トレーナーも　その　ポケモンには
+どうぐを　つかうことが　できない。</language>
+	</row>
+
+	<row id="ITEMINFO_391">
+		<language name="日本語">おおきな　ばくはつを　おこして
+まわりを　まきこみ　こうげきする。
+つかったあと　ひんしに　なる。</language>
+	</row>
+
+	<row id="ITEMINFO_392">
+		<language name="日本語">かげで　つくった　するどいツメで
+きりさいて　こうげきする。
+きゅうしょに　あたりやすい。</language>
+	</row>
+
+	<row id="ITEMINFO_393">
+		<language name="日本語">ちからを　ためこみ　こうげきする。
+あいてより　あとに　だせると
+わざの　いりょくは　２ばいに　なる。</language>
+	</row>
+
+	<row id="ITEMINFO_394">
+		<language name="日本語">せんとうちゅうに　つかって
+なくなった　じぶんの　もちものを
+もういちど　つかえるように　する。</language>
+	</row>
+
+	<row id="ITEMINFO_395">
+		<language name="日本語">もてる　ちからの　すべてを　あつめて
+とつげきする。　つぎの　ターン
+はんどうで　うごけなくなる。</language>
+	</row>
+
+	<row id="ITEMINFO_396">
+		<language name="日本語">からだを　みがきあげて　くうきの
+ていこうを　すくなくする。
+すばやさを　ぐーんと　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_397">
+		<language name="日本語">あいての　めいちゅうりつを　さげる。
+くらい　どうくつを　あかるく
+てらすことも　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_398">
+		<language name="日本語">とがった　がんせきを　したから
+つきさして　こうげきする。
+きゅうしょに　あたりやすい。</language>
+	</row>
+
+	<row id="ITEMINFO_399">
+		<language name="日本語">わざを　だすまえに　こうげきを
+うけていたとき　その　あいてには
+いりょくが　２ばいに　なる。</language>
+	</row>
+
+	<row id="ITEMINFO_400">
+		<language name="日本語">よわい　でんきを　あびせることで
+あいてを　まひじょうたいに　する。
+</language>
+	</row>
+
+	<row id="ITEMINFO_401">
+		<language name="日本語">からだを　こうそくに　かいてん
+させて　たいあたりする。　あいてより
+おそいほど　いりょくは　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_402">
+		<language name="日本語">たたかいのまいを　はげしく　おどり
+きあいを　たかめる。　じぶんの
+こうげきを　ぐーんと　あげる。</language>
+	</row>
+
+	<row id="ITEMINFO_403">
+		<language name="日本語">あいての　まわりに　とがった　いわを
+うかべて　こうたいで　でてきた
+ポケモンに　ダメージを　あたえる。</language>
+	</row>
+
+	<row id="ITEMINFO_404">
+		<language name="日本語">じぶんに　あんじを　かけることで
+のうりょく　へんかの　じょうたいを
+あいてと　おなじにする。</language>
+	</row>
+
+	<row id="ITEMINFO_405">
+		<language name="日本語">♂なら♀を　♀なら♂を　ゆうわくして
+とくこうを　がくっと　さげる。
+</language>
+	</row>
+
+	<row id="ITEMINFO_406">
+		<language name="日本語">あくいに　みちた　おそろしい
+オーラを　はっして　こうげきする。
+あいてを　ひるませることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_407">
+		<language name="日本語">おおきな　がんせきを　なげつけて
+こうげきする。
+あいてを　ひるませることが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_408">
+		<language name="日本語">カマや　ツメを　ハサミのように
+こうさ　させながら　きりさいて
+こうげきする。</language>
+	</row>
+
+	<row id="ITEMINFO_409">
+		<language name="日本語">おぼえている　わざのうち　どれか
+１つを　くりだす。　じぶんが
+ねむっている　ときだけ　つかえる。</language>
+	</row>
+
+	<row id="ITEMINFO_410">
+		<language name="日本語">きのみから　ちからを　もらい
+こうげきする。　もたせた　きのみで
+いりょくと　タイプは　かわる。</language>
+	</row>
+
+	<row id="ITEMINFO_411">
+		<language name="日本語">どくに　そまった　しょくしゅや
+うでで　こうげきする。どくの
+じょうたいに　することが　ある。</language>
+	</row>
+
+	<row id="ITEMINFO_412">
+		<language name="日本語">ねている　あいての　ゆめを　たべて
+こうげきする。　あたえた　ダメージの
+はんぶん　ＨＰを　かいふくする。</language>
+	</row>
+
+	<row id="ITEMINFO_413">
+		<language name="日本語">くさを　からませて　ころばせる。
+あいてが　おもいほど　わざの
+いりょくは　あがる。</language>
+	</row>
+
+	<row id="ITEMINFO_414">
+		<language name="日本語">おこらせて　こんらんさせる。
+いかりで　あいての　こうげきは
+ぐーんと　あがってしまう。</language>
+	</row>
+
+	<row id="ITEMINFO_415">
+		<language name="日本語">くちばしで　こうげきする。
+あいてが　きのみを　もっているとき
+ついばんで　こうかを　うけられる。</language>
+	</row>
+
+	<row id="ITEMINFO_416">
+		<language name="日本語">あいてを　こうげきした　あとに
+ひかえの　ポケモンと　いれかわる。
+</language>
+	</row>
+
+	<row id="ITEMINFO_417">
+		<language name="日本語">じぶんの　ＨＰを　すこし　けずって
+ぶんしんを　だす。　じぶんの
+かわりに　こうげきを　うける。</language>
+	</row>
+
+	<row id="ITEMINFO_418">
+		<language name="日本語">からだの　ひかりを　いってんに
+あつめ　ひかりを　はなつ。　あいての
+とくぼうを　さげることがある。</language>
+	</row>
+
+	<row id="ITEMINFO_419">
+		<language name="日本語">まかふしぎな　くうかんを　つくる。
+５ターンの　あいだ　うごきの　おそい
+ポケモンから　こうげきできる。</language>
+	</row>
+
+	<row id="ITEMINFO_420">
+		<language name="日本語">カマや　ツメなどの　するどいもので
+きりつけて　こうげきする。
+ほそいきを　きることも　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_421">
+		<language name="日本語">１ターンめで　そらへ　とびあがって
+２ターンめで　こうげきする。
+しっているまちに　いどうも　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_422">
+		<language name="日本語">おおきな　なみを　おこして
+すべての　ポケモンを　こうげきする。
+みずのうえを　すすむことも　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_423">
+		<language name="日本語">こんしんの　ちからで　こうげきする。
+おもいいわを　おすことも　できる。
+</language>
+	</row>
+
+	<row id="ITEMINFO_424">
+		<language name="日本語">しょうがいぶつを　なくして　あいての
+かいひりつを　さげる。
+ふかいきりを　けすことも　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_425">
+		<language name="日本語">いわを　くだくような　パンチで
+こうげきする。　ひびわれた　いわを
+こわすことも　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_426">
+		<language name="日本語">たきを　さかのぼるような　すさまじい
+いきおいで　とっしん　こうげきする。
+たきを　のぼることも　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_427">
+		<language name="日本語">とっしん　こうげきで　こんらん
+させることが　ある。　ごつごつした
+いわを　のぼることも　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_428">
+		<language name="日本語">たんけんに　やくだつ　べんりな
+どうぐが　はいった　ふくろ。
+ちかつうろに　はいれる。</language>
+	</row>
+
+	<row id="ITEMINFO_429">
+		<language name="日本語">たんこうで　てにいれた
+たからものを　しまっておける
+おおきくて　じょうぶな　ふくろ。</language>
+	</row>
+
+	<row id="ITEMINFO_430">
+		<language name="日本語">たいせんの　ルールが　かかれている。
+つうしんたいせん　するとき
+ルールを　えらぶことが　できる。</language>
+	</row>
+
+	<row id="ITEMINFO_431">
+		<language name="日本語">くさむらに　かくれている　ポケモンを
+さがしだせる　どうぐ。
+あるくと　でんちが　たまる。</language>
+	</row>
+
+	<row id="ITEMINFO_432">
+		<language name="日本語">かちとった　バトルポイントの　かずを
+みることが　できる　カード。
+</language>
+	</row>
+
+	<row id="ITEMINFO_433">
+		<language name="日本語">これまでの　ぼうけんの　ようすが
+きろく　されている　ノート。
+</language>
+	</row>
+
+	<row id="ITEMINFO_434">
+		<language name="日本語">ボールカプセルに　はりつけられる
+シールが　はいった　いれもの。
+</language>
+	</row>
+
+	<row id="ITEMINFO_435">
+		<language name="日本語">いろとりどりの　アクセサリーを
+きれいにしまえる　すてきな　ケース。
+</language>
+	</row>
+
+	<row id="ITEMINFO_436">
+		<language name="日本語">シールが　１０まい　いれられる
+ちっちゃな　ふくろ。
+</language>
+	</row>
+
+	<row id="ITEMINFO_437">
+		<language name="日本語">ともだちを　とうろくしたり
+あそんだ　ことを　きろくする
+べんりな　てちょう。</language>
+	</row>
+
+	<row id="ITEMINFO_438">
+		<language name="日本語">たにまのはつでんしょの　とびらを
+あけしめする　おおきな　カギ。
+なぜか　ギンガだんが　もっていた。</language>
+	</row>
+
+	<row id="ITEMINFO_439">
+		<language name="日本語">カンナギタウンの　ちょうろうに
+とどける　おおむかしの　おまもり。
+ポケモンの　ホネで　つくられている。</language>
+	</row>
+
+	<row id="ITEMINFO_440">
+		<language name="日本語">ギンガだんアジトの　セキュリティを
+かいじょ　するための　カードキー。
+なくすと　おしおき　されるらしい。</language>
+	</row>
+
+	<row id="ITEMINFO_441">
+		<language name="日本語">シンオウちほうを　うみだした
+でんせつの　ポケモンを　つなぐと
+いわれる　しんわの　どうぐ。</language>
+	</row>
+
+	<row id="ITEMINFO_442">
+		<language name="日本語">いつでも　てがるに　みることが
+できる　べんりな　ちず。
+じぶんの　ばしょも　わかる。</language>
+	</row>
+
+	<row id="ITEMINFO_443">
+		<language name="日本語">たたかいたい　トレーナーを
+おしえてくれる　きかい。
+あるくと　でんちが　たまる。</language>
+	</row>
+
+	<row id="ITEMINFO_444">
+		<language name="日本語">ゲームコーナーで　てにいれた
+コインを　５００００まい　まで
+いれることが　できる　ケース。</language>
+	</row>
+
+	<row id="ITEMINFO_445">
+		<language name="日本語">ふるくて　ボロい　つりざお。
+みずの　ある　ばしょで　つかうと
+ポケモンが　つれる。</language>
+	</row>
+
+	<row id="ITEMINFO_446">
+		<language name="日本語">あたらしくて　いい　つりざお。
+みずの　ある　ばしょで　つかうと
+ポケモンが　つれる。</language>
+	</row>
+
+	<row id="ITEMINFO_447">
+		<language name="日本語">さいしんの　すごい　つりざお。
+みずの　ある　ばしょで　つかうと
+ポケモンが　つれる。</language>
+	</row>
+
+	<row id="ITEMINFO_448">
+		<language name="日本語">みずを　かける　どうぐ。
+ふかふかのつちに　うめた　きのみを
+すくすく　そだてる。</language>
+	</row>
+
+	<row id="ITEMINFO_449">
+		<language name="日本語">おりょうりで　つくった　ポフィンを
+ほぞんする　いれもの。
+</language>
+	</row>
+
+	<row id="ITEMINFO_450">
+		<language name="日本語">ランニングシューズ　よりも
+はやく　はしることが　できる
+おりたたみしきの　じてんしゃ。</language>
+	</row>
+
+	<row id="ITEMINFO_451">
+		<language name="日本語">みずうみの　ほとりにある
+こうきゅうホテルの　ルームキー。
+なぜか　よく　なくなってしまう。</language>
+	</row>
+
+	<row id="ITEMINFO_452">
+		<language name="日本語">オーキドはかせ　からの　てがみ。
+なかには　２２４ばんどうろに
+きてほしいと　かかれている。</language>
+	</row>
+
+	<row id="ITEMINFO_453">
+		<language name="日本語">つきのような　かがやきを　はなつ
+はね。　あくむを　ふりはらう　ちからを
+ひめていると　つたえられている。</language>
+	</row>
+
+	<row id="ITEMINFO_454">
+		<language name="日本語">ミオシティの　やどやに　はいれる
+カード。　なぜか　５０ねんほどまえの
+ひづけが　きざまれている。</language>
+	</row>
+
+	<row id="ITEMINFO_455">
+		<language name="日本語">このよの　ものとは　おもえない
+ねいろが　なりひびく　ふえ。　いつ
+だれが　つくったのか　わからない。</language>
+	</row>
+
+	<row id="ITEMINFO_456">
+		<language name="日本語">サント・アンヌごうに　のるとき
+ひつような　ふねの　チケット。
+ふねの　えが　かかれている。</language>
+	</row>
+
+	<row id="ITEMINFO_457">
+		<language name="日本語">もっていれば　ポケモンコンテストに
+さんか　することが　できる。
+きねんリボンが　かかれている。</language>
+	</row>
+
+	<row id="ITEMINFO_458">
+		<language name="日本語">しゃくねつの　マグマの　ねつでとけた
+がんせきが　かたまって　できたもの。
+なかに　マグマが　のこっている。</language>
+	</row>
+
+	<row id="ITEMINFO_459">
+		<language name="日本語">フタバタウンから　たびだった
+おさななじみに　わたすように
+たのまれた　おとどけもの。</language>
+	</row>
+
+	<row id="ITEMINFO_460">
+		<language name="日本語">ポケモンウォッチ　ちぢめて
+ポケッチを　もらうために　ひつような
+ひきかえけん。　３まい　ひつよう。</language>
+	</row>
+
+	<row id="ITEMINFO_461">
+		<language name="日本語">ポケモンウォッチ　ちぢめて
+ポケッチを　もらうために　ひつような
+ひきかえけん。　３まい　ひつよう。</language>
+	</row>
+
+	<row id="ITEMINFO_462">
+		<language name="日本語">ポケモンウォッチ　ちぢめて
+ポケッチを　もらうために　ひつような
+ひきかえけん。　３まい　ひつよう。</language>
+	</row>
+
+	<row id="ITEMINFO_463">
+		<language name="日本語">トバリシティの　はずれにある
+ギンガだんの　あやしい
+そうこに　はいるための　カギ。</language>
+	</row>
+
+	<row id="ITEMINFO_464">
+		<language name="日本語">タンバシティの　くすりやで　もらえる
+どんな　ポケモンでも　たちまち
+げんきになる　すごい　くすり。</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

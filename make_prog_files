@@ -1,0 +1,1275 @@
+GFLIBDIR			=	gflib
+SYSTEMDIR			=	system
+GAMESYSDIR			=	field
+FIELDDIR			=	field
+UNDERGROUNDDIR		=	field/underground
+BATTLEDIR			=	battle
+POKEDIR				=	poketool
+DEMODIR				=	demo
+COMMUNICATIONDIR	=	communication
+WAZAEFFECT			=	wazaeffect
+APPLICATIONDIR		=	application
+ITEMTOOLDIR			=	itemtool
+CONTESTDIR			=	contest
+SAVEDATADIR			=	savedata
+WIFIDIR				=	wifi
+POKEANIME			=	pokeanime
+DPWLIBDIR  		        =   libdpw
+FUSHIGI				=	fushigi
+
+
+DEBUGDIR			=	debug
+DEBUGDIR_TEST		=	field
+
+
+#システムプログラム（常駐）
+SYSTEMSRCS	=	$(SYSTEMDIR)\main.c \
+				$(SYSTEMDIR)\pm_version.c \
+				$(SYSTEMDIR)\bmp_list.c \
+				$(SYSTEMDIR)\bmp_menu.c \
+				$(SYSTEMDIR)\pm_str.c \
+				$(SYSTEMDIR)\pmfprint.c \
+				$(SYSTEMDIR)\fontproc.c \
+				$(SYSTEMDIR)\palanm.c \
+				$(SYSTEMDIR)\res_tex.c \
+				$(SYSTEMDIR)\get_text.c \
+				$(SYSTEMDIR)\snd_system.c \
+				$(SYSTEMDIR)\snd_tool.c \
+				$(SYSTEMDIR)\snd_play.c \
+				$(SYSTEMDIR)\snd_perap.c \
+				$(SYSTEMDIR)\pm_overlay.c \
+				$(SYSTEMDIR)\lib_pack.c \
+				$(SYSTEMDIR)\procsys.c \
+				$(SYSTEMDIR)\touchpanel_draw.c \
+				$(SYSTEMDIR)\arc_tool.c \
+				$(SYSTEMDIR)\arc_util.c \
+				$(SYSTEMDIR)\softsprite.c \
+				$(SYSTEMDIR)\clact_util.c \
+				$(SYSTEMDIR)\clact_util_res.c \
+				$(SYSTEMDIR)\clact_util_vram.c \
+				$(SYSTEMDIR)\render_oam.c \
+				$(SYSTEMDIR)\brightness.c \
+				$(SYSTEMDIR)\msgdata.c \
+				$(SYSTEMDIR)\msgdata_util.c \
+				$(SYSTEMDIR)\wordset.c \
+				$(SYSTEMDIR)\numfont.c \
+				$(SYSTEMDIR)\builddate.c \
+				$(SYSTEMDIR)\clact_tool.c \
+				$(SYSTEMDIR)\tcbman.c \
+				$(SYSTEMDIR)\window.c \
+				$(SYSTEMDIR)\wipe.c \
+				$(SYSTEMDIR)\wipe_sub.c \
+				$(SYSTEMDIR)\wipe_wnd.c \
+				$(SYSTEMDIR)\fontoam.c \
+				$(SYSTEMDIR)\gra_tool.c \
+				$(SYSTEMDIR)\pm_rtc.c \
+				$(SYSTEMDIR)\bmp_menu_list.c \
+				$(SYSTEMDIR)\laster.c \
+				$(SYSTEMDIR)\particle.c \
+				$(SYSTEMDIR)\bmp_cursor.c \
+				$(SYSTEMDIR)\pms_data.c \
+				$(SYSTEMDIR)\pms_word.c \
+				$(SYSTEMDIR)\swsprite.c \
+				$(SYSTEMDIR)\msg_ds_icon.c \
+				$(SYSTEMDIR)\poruto_name.c \
+				$(SYSTEMDIR)\touch_subwindow.c \
+				$(POKEANIME)\p_anm_sys.c \
+				$(SYSTEMDIR)\placename.c \
+				$(SYSTEMDIR)\agb_str.c \
+				$(SYSTEMDIR)\playtime_ctrl.c
+
+
+#通信プログラム（常駐）
+COMMUNICATIONSRCS = $(COMMUNICATIONDIR)\wh.c \
+					$(COMMUNICATIONDIR)\comm_ring_buff.c \
+					$(COMMUNICATIONDIR)\comm_queue.c \
+					$(COMMUNICATIONDIR)\comm_local.c \
+					$(COMMUNICATIONDIR)\comm_command.c \
+					$(COMMUNICATIONDIR)\comm_info.c \
+					$(COMMUNICATIONDIR)\comm_message.c \
+					$(COMMUNICATIONDIR)\comm_mp.c \
+					$(COMMUNICATIONDIR)\comm_system.c \
+					$(COMMUNICATIONDIR)\comm_tool.c \
+					$(COMMUNICATIONDIR)\comm_state.c \
+					$(COMMUNICATIONDIR)\comm_save.c \
+					$(COMMUNICATIONDIR)\comm_wifihistory.c \
+					$(WIFIDIR)\dwc_rapcommon.c \
+					$(WIFIDIR)\dwc_rapfriend.c \
+					$(COMMUNICATIONDIR)\wpb.c \
+					$(COMMUNICATIONDIR)\wpbutil.c \
+					$(COMMUNICATIONDIR)\wm_icon.c \
+					$(COMMUNICATIONDIR)\wpbpokemon.c \
+					$(COMMUNICATIONDIR)\com_error_warning_reset.c \
+					$(COMMUNICATIONDIR)\com_dwc_warning.c
+
+
+#GFライブラリ（常駐）
+GFLIBSRCS	=	$(GFLIBDIR)\system.c \
+				$(GFLIBDIR)\heapsys.c \
+				$(GFLIBDIR)\bg_system.c \
+				$(GFLIBDIR)\simple_3dgraphics.c \
+				$(GFLIBDIR)\tcb.c \
+				$(GFLIBDIR)\bounding_box.c \
+				$(GFLIBDIR)\fntsys.c \
+				$(GFLIBDIR)\calctool.c \
+				$(GFLIBDIR)\msg_print.c \
+				$(GFLIBDIR)\vram_transfer_manager.c \
+				$(GFLIBDIR)\vram_transfer_anm.c \
+				$(GFLIBDIR)\point_sel.c \
+				$(GFLIBDIR)\str_tool.c \
+				$(GFLIBDIR)\calc3d.c \
+				$(GFLIBDIR)\calc2d.c \
+				$(GFLIBDIR)\touchpanel_system.c \
+				$(GFLIBDIR)\char_manager.c \
+				$(GFLIBDIR)\pltt_manager.c \
+				$(GFLIBDIR)\display.c \
+				$(GFLIBDIR)\camera.c \
+				$(GFLIBDIR)\sleep.c \
+				$(GFLIBDIR)\blact.c \
+				$(GFLIBDIR)\clact.c \
+				$(GFLIBDIR)\touchpanel.c \
+				$(GFLIBDIR)\apptimer.c \
+				$(GFLIBDIR)\assert.c \
+				$(GFLIBDIR)\res_manager.c \
+				$(GFLIBDIR)\renderer_pack.c \
+				$(GFLIBDIR)\fontdata_man.c \
+				$(GFLIBDIR)\strbuf.c \
+				$(GFLIBDIR)\button_man.c \
+				$(GFLIBDIR)\texanm_sys.c \
+				$(GFLIBDIR)\gf_gx.c \
+				$(GFLIBDIR)\mdlanm.c \
+				$(GFLIBDIR)\mmap_get.c \
+				$(GFLIBDIR)\g3d_system.c \
+				$(GFLIBDIR)\debug_3d_draw_count.c \
+				$(GFLIBDIR)\rebooter.c
+
+#共通データアクセス（常駐）
+SAVEDATASRC	=	$(SAVEDATADIR)\savedata.c \
+				$(SAVEDATADIR)\saveload_system.c \
+				$(SAVEDATADIR)\system_data.c \
+				$(SAVEDATADIR)\player_data.c \
+				$(SAVEDATADIR)\mystatus.c \
+				$(SAVEDATADIR)\regulation.c \
+				$(SAVEDATADIR)\regulation_data.c \
+				$(SAVEDATADIR)\sodateyadata.c \
+				$(SAVEDATADIR)\zukanwork.c \
+				$(SAVEDATADIR)\misc.c \
+				$(SAVEDATADIR)\config.c \
+				$(SAVEDATADIR)\seedbed.c \
+				$(SAVEDATADIR)\gimmickwork.c \
+				$(SAVEDATADIR)\friendlist.c \
+				$(SAVEDATADIR)\mail.c \
+				$(SAVEDATADIR)\undergrounddata.c \
+				$(SAVEDATADIR)\imageclip_data.c \
+				$(SAVEDATADIR)\poruto.c \
+				$(SAVEDATADIR)\wifilist.c \
+				$(SAVEDATADIR)\randomgroup.c \
+				$(SAVEDATADIR)\honeytree_data.c \
+				$(SAVEDATADIR)\coin.c \
+				$(SAVEDATADIR)\fnote_mem.c \
+				$(SAVEDATADIR)\trainercard_data.c \
+				$(SAVEDATADIR)\wifihistory.c \
+				$(SAVEDATADIR)\custom_ball.c \
+				$(SAVEDATADIR)\playtime.c \
+				$(SAVEDATADIR)\perapvoice.c \
+				$(SAVEDATADIR)\record.c \
+				$(SAVEDATADIR)\b_tower.c \
+				$(SAVEDATADIR)\sp_ribbon.c \
+				$(SAVEDATADIR)\encount.c \
+				$(SAVEDATADIR)\worldtrade_data.c \
+				$(SAVEDATADIR)\fushigi_data.c \
+				$(SAVEDATADIR)\dendou_data.c \
+				$(SAVEDATADIR)\tv_work.c \
+				$(SAVEDATADIR)\guinness.c \
+				$(SAVEDATADIR)\pokepark_data.c \
+				$(SAVEDATADIR)\contest_savedata.c \
+				$(SAVEDATADIR)\get_poke.c
+
+
+#ゲームシステム（常駐）
+GAMESYSSRCS	=	$(GAMESYSDIR)\worldmap.c \
+				$(GAMESYSDIR)\zonedata.c \
+				$(GAMESYSDIR)\eventdata.c \
+				$(GAMESYSDIR)\situation.c \
+				$(GAMESYSDIR)\mapdata_warp.c \
+				$(GAMESYSDIR)\mapdata_weather.c \
+				$(GAMESYSDIR)\fld_menu.c \
+				$(GAMESYSDIR)\sxy.c \
+				$(GAMESYSDIR)\fieldsys.c \
+				$(GAMESYSDIR)\location.c \
+				$(GAMESYSDIR)\field_subproc.c \
+				$(GAMESYSDIR)\vm.c \
+				$(GAMESYSDIR)\script.c \
+				$(GAMESYSDIR)\scrcmd.c \
+				$(GAMESYSDIR)\scr_shop.c \
+				$(GAMESYSDIR)\scr_contest.c \
+				$(GAMESYSDIR)\scr_name.c \
+				$(GAMESYSDIR)\scr_pokelot.c \
+				$(GAMESYSDIR)\scr_sound.c \
+				$(GAMESYSDIR)\scr_trainer.c \
+				$(GAMESYSDIR)\scr_group.c \
+				$(GAMESYSDIR)\scr_tv.c \
+				$(GAMESYSDIR)\scr_btower.c \
+				$(GAMESYSDIR)\scr_kinomi.c \
+				$(GAMESYSDIR)\scr_postman.c \
+				$(GAMESYSDIR)\scr_pokepark.c \
+				$(GAMESYSDIR)\scr_coin.c \
+				$(GAMESYSDIR)\scr_gold.c \
+				$(GAMESYSDIR)\scr_sodateya.c \
+				$(GAMESYSDIR)\scr_n_park.c \
+				$(GAMESYSDIR)\scr_poke.c \
+				$(GAMESYSDIR)\scr_kaseki.c \
+				$(GAMESYSDIR)\scr_exchange.c \
+				$(GAMESYSDIR)\scr_sysflag.c \
+				$(GAMESYSDIR)\scr_item.c \
+				$(GAMESYSDIR)\scr_goods.c \
+				$(GAMESYSDIR)\scr_wazalist.c \
+				$(GAMESYSDIR)\scr_dprint.c \
+				$(FIELDDIR)\d_print.c \
+				$(GAMESYSDIR)\scr_nagisa_scope.c \
+				$(GAMESYSDIR)\eventflag.c \
+				$(GAMESYSDIR)\field_event.c \
+				$(GAMESYSDIR)\field_encount.c \
+				$(FIELDDIR)\fld_enceff_data.c \
+				$(GAMESYSDIR)\field_battle.c \
+				$(GAMESYSDIR)\ev_gameover.c \
+				$(GAMESYSDIR)\ev_gameclear.c \
+				$(GAMESYSDIR)\ev_mapchange.c \
+				$(GAMESYSDIR)\ev_pokemon.c \
+				$(GAMESYSDIR)\sp_attribute.c \
+				$(GAMESYSDIR)\map_tool.c \
+				$(GAMESYSDIR)\fld_bgm.c \
+				$(GAMESYSDIR)\townmap_footmark.c \
+				$(GAMESYSDIR)\eventcmd\ev_encounteffect.c \
+				$(GAMESYSDIR)\eventcmd\ev_fieldmap.c \
+				$(GAMESYSDIR)\ev_time.c \
+				$(GAMESYSDIR)\seedsys.c \
+				$(GAMESYSDIR)\pokepark_sys.c \
+				$(GAMESYSDIR)\poketch_data.c \
+				$(GAMESYSDIR)\map_jump.c \
+				$(GAMESYSDIR)\goods_data.c \
+								$(FIELDDIR)\comm_player.c \
+								$(FIELDDIR)\comm_field_state.c \
+								$(FIELDDIR)\comm_vsroom.c \
+								$(FIELDDIR)\comm_union.c \
+								$(FIELDDIR)\comm_union_view.c \
+								$(FIELDDIR)\union_beacon_tool.c \
+								$(FIELDDIR)\effect_uground.c \
+								$(FIELDDIR)\talk_msg.c \
+								$(FIELDDIR)\map_attr.c \
+								$(FIELDDIR)\scr_tool.c \
+								$(FIELDDIR)\player.c \
+								$(FIELDDIR)\player_move.c \
+								$(FIELDDIR)\fieldobj.c \
+								$(FIELDDIR)\fieldobj_movedata.c \
+								$(FIELDDIR)\fieldobj_move.c \
+								$(FIELDDIR)\fieldobj_move_0.c \
+								$(FIELDDIR)\fieldobj_acmd.c \
+								$(FIELDDIR)\fieldobj_debug.c \
+								$(FIELDDIR)\fieldobj_move_1.c \
+								$(FIELDDIR)\fieldobj_seed.c \
+								$(FIELDDIR)\ev_trainer.c \
+								$(FIELDDIR)\field_gimmick.c \
+								$(FIELDDIR)\itemuse.c \
+								$(FIELDDIR)\sway_grass_enc.c \
+								$(FIELDDIR)\fieldobj_move_2.c \
+								$(FIELDDIR)\fld_debst.c \
+								$(FIELDDIR)\fld_comact.c \
+								$(FIELDDIR)\sysflag.c \
+								$(FIELDDIR)\syswork.c \
+								$(FIELDDIR)\fld_tmap.c \
+								$(FIELDDIR)\b_tower_ev.c \
+								$(FIELDDIR)\safari_scope.c \
+								$(FIELDDIR)\tr_card_time.c \
+								$(FIELDDIR)\move_pokemon.c \
+								$(FIELDDIR)\field_trade_cmd.c \
+								$(FIELDDIR)\ship_demo_call.c \
+								$(FIELDDIR)\tv_topic.c \
+								$(FIELDDIR)\fld_ranking.c \
+								$(FIELDDIR)\fld_flg_init.c \
+								$(FIELDDIR)\field_flysky.c \
+								$(FIELDDIR)\field_skill.c \
+								$(FIELDDIR)\field_skill_prm.c \
+								$(FIELDDIR)\eoa.c \
+								$(FIELDDIR)\fld_lift.c \
+								$(FIELDDIR)\gym_init.c \
+								$(FIELDDIR)\safari_train_init.c \
+								$(FIELDDIR)\place_name_core.c \
+								$(FIELDDIR)\tr_card_setup.c \
+								$(FIELDDIR)\fld_mailbox.c \
+								$(FIELDDIR)\b_tower_wifi.c
+
+#デバッグプログラム（今のところ常駐）
+DEBUGSRCS	=	$(DEBUGDIR_TEST)\d_iwast.c \
+				$(DEBUGDIR_TEST)\d_tomo.c \
+				$(DEBUGDIR_TEST)\d_mori.c \
+				$(DEBUGDIR_TEST)\d_matsu.c \
+				$(DEBUGDIR_TEST)\d_goto.c \
+				$(DEBUGDIR_TEST)\d_taya.c \
+				$(DEBUGDIR_TEST)\d_tamada.c \
+				$(DEBUGDIR_TEST)\d_tetsu.c \
+				$(DEBUGDIR_TEST)\d_kaga.c \
+				$(DEBUGDIR_TEST)\d_tomoya_proc_chg.c \
+				$(DEBUGDIR)\d_fight.c
+
+#常駐プログラム
+SRCS		=	$(SYSTEMSRCS) \
+				$(GFLIBSRCS) \
+				$(SAVEDATASRC) \
+				$(COMMUNICATIONSRCS) \
+				$(GAMESYSSRCS) \
+				$(POKEDIR)\poke_tool.c \
+				$(POKEDIR)\waza_tool.c \
+				$(POKEDIR)\tr_tool.c \
+				$(POKEDIR)\boxdata\boxdata.c \
+				$(POKEDIR)\pokeicon.c \
+				$(POKEDIR)\pokeparty.c \
+				$(POKEDIR)\poke_number.c \
+				$(POKEDIR)\poke_regulation.c \
+				$(BATTLEDIR)\comm_command_battle.c \
+				$(DEMODIR)\shinka\shinka.c \
+				$(DEMODIR)\shinka\shinka_disp.c \
+				$(BATTLEDIR)\wazatype_icon.c \
+				$(APPLICATIONDIR)\bag\bag.c \
+				$(ITEMTOOLDIR)\item.c \
+				$(ITEMTOOLDIR)\myitem.c \
+				$(APPLICATIONDIR)\wifi_p2pmatch\wifi_p2pevent.c \
+				$(APPLICATIONDIR)\pokelist\pokelist.c \
+				$(APPLICATIONDIR)\pokelist\plist_bmp.c \
+				$(APPLICATIONDIR)\pokelist\plist_obj.c \
+				$(APPLICATIONDIR)\pokelist\plist_menu.c \
+				$(APPLICATIONDIR)\pokelist\plist_item.c \
+				$(APPLICATIONDIR)\namein\namein.c \
+				$(APPLICATIONDIR)\app_tool.c \
+				$(APPLICATIONDIR)\p_status\p_status.c \
+				$(APPLICATIONDIR)\p_status\pst_obj.c \
+				$(APPLICATIONDIR)\p_status\pst_bmp.c \
+				$(APPLICATIONDIR)\p_status\pst_3d.c \
+				$(APPLICATIONDIR)\p_status\pst_sub.c \
+				$(APPLICATIONDIR)\p_status\ribbon.c \
+				$(POKEDIR)\poke_memo.c \
+				$(CONTESTDIR)\contest.c \
+				$(CONTESTDIR)\con_tool.c \
+				$(CONTESTDIR)\comm_command_contest.c \
+				$(APPLICATIONDIR)\tradelist\comm_command_tradelist.c \
+				$(APPLICATIONDIR)\oekaki\comm_command_oekaki.c \
+				$(APPLICATIONDIR)\record\comm_command_record.c \
+				$(APPLICATIONDIR)\nutmixer\comm_command_nutmixer.c \
+				$(POKEDIR)\status_rcv.c \
+				$(APPLICATIONDIR)\nuts_tag\ntag_dat.c \
+				$(ITEMTOOLDIR)\nuts.c \
+				$(APPLICATIONDIR)\pms_input\pmsi_param.c \
+				$(APPLICATIONDIR)\mail\mailtool.c \
+				$(APPLICATIONDIR)\custom_ball\cb_sys.c \
+				$(DEMODIR)\egg\egg.c \
+				$(DEMODIR)\egg\egg_disp.c \
+				$(DEMODIR)\egg\egg_main.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_worldtext.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_world_text_data.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_height_gram.c \
+				$(DEMODIR)\opening\opening_call.c \
+				$(APPLICATIONDIR)\poruto\poru_tool.c \
+				$(APPLICATIONDIR)\poruto\poru_oam.c \
+				$(FIELDDIR)\comm_command_field.c \
+				$(WIFIDIR)\dwc_overlay.c \
+				$(FIELDDIR)\fld_nmixer.c \
+				$(APPLICATIONDIR)\nutmixer\nutmixer.c \
+				$(APPLICATIONDIR)\nutmixer\nmix_mseq.c \
+				$(APPLICATIONDIR)\wifi_earth\wifi_country.c \
+				$(APPLICATIONDIR)\waza_oshie\waza_oshie.c \
+				$(APPLICATIONDIR)\pms_input\pms_input_data.c \
+				$(FIELDDIR)\poketch\poketch_work.c \
+				$(APPLICATIONDIR)\backup\backup_erase.c \
+				$(APPLICATIONDIR)\backup\backup_load.c \
+				$(APPLICATIONDIR)\backup\backup_error.c \
+				$(APPLICATIONDIR)\backup\save_error_warning.c \
+				$(FIELDDIR)\fd_shop_sale.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_data_work.c \
+				$(FIELDDIR)\msgboy.c \
+				$(SYSTEMDIR)\assert_warning_reset.c \
+				$(DEBUGSRCS)
+
+
+#================================================
+# ここから下はオーバーレイプログラム定義
+#================================================
+# オーバーレイ用のソースコード定義の１行上に「#===>」とあるのは
+# オーバーレイツール用の特殊キーワードです。
+# この「#===>」の後ろにある文字列はオーバーレイする際のモジュールの
+# ターゲットを指しています。
+# 「main」というキーワードは常駐プログラム部分を指す予約語です。
+# 「main」の後ろにつくプログラム領域の名前は「SRCS_OVERLAY_????????」の
+# 「????????」の部分を小文字にして使用します。
+# 「SRCS_OVERLAY_POKETCH01」というソースコード群は「poketch01」という
+# オーバーレイIDになります
+#
+# これらの処理はoverlaytool.rbで行われています。
+# ■注意■ 
+# 1.このツールはフォルダ内のソースコード名取得は行っていません
+#   つまり、「$(DEBUGDIR)」のみ書いてこのフォルダの中のファイルを
+#   全てオーバーレイ扱いにするという処理は作成していません。
+#   ($(DEBUGDIR)/d_mori.c)というようにソースファイル名も指定する事を
+#   期待した動作をしています。
+# 2.オーバーレイ用のソースコード定義をオーバーレイIDに変換して使用する為、
+#   存在していないオーバーレイソースを先に「===>」で指定しないように
+#   してください（チェックはしています）
+#   一番初めのオーバーレイターゲット定義は「main」しか書けない事になります。
+# 3.ライブラリをオーバーレイする場合  #LIB=>	???.a  と書いてください
+#
+# --------------
+# ==> main
+# SRCS_OVERLY_FIRST = $(SRC)\test.c
+# 
+# ==> SRCS_OVERLY_FIRST
+# SRCS_OVERLY_SECOND = $(SRC)\test2.c
+# --------------
+# は書けますが、
+# 
+# --------------
+# ==> SRCS_OVERLY_SECOND
+# SRCS_OVERLY_FIRST = $(SRC)\test.c
+# 
+# ==> main
+# SRCS_OVERLY_SECOND = $(SRC)\test2.c
+# --------------
+# はFIRSTの下にSECONDがあるのに先にSECONDをターゲットに
+# しようとしているのでエラーになります。
+# 
+# 
+# 要望・質問は森にお願いします。
+# 
+
+#オーバーレイテスト１
+#===> main
+SRCS_OVERLAY_TEST_FIRST		= $(SYSTEMDIR)\test_overlay.c
+
+
+#オーバーレイテスト２
+#===> main
+SRCS_OVERLAY_TEST_SECOND	= $(SYSTEMDIR)/test_overlay2.c
+
+
+#オーバーレイテスト３
+#test_secondの後ろに配置するオーバーレイ
+#===> SRCS_OVERLAY_TEST_SECOND
+SRCS_OVERLAY_TEST_SECOND_ABC 	= $(SYSTEMDIR)/test_overlay3.c \
+				  $(SYSTEMDIR)/test_overlay4.c
+
+#===> ITCM
+SRCS_OVERLAY_TEST_ITCM		= $(SYSTEMDIR)\test_overlay_itcm.c
+
+#wifiプログラム
+#===> main
+#LIB=>					libdwcauth.a
+#LIB=>					libdwcbase.a
+#LIB=>					libdwcac.a
+#LIB=>					libdwcgscommon.a
+#LIB=>					libdwcgsgp.a
+#LIB=>					libdwcgsgstats.a
+#LIB=>					libdwcgsgt2.a
+#LIB=>					libdwcgsnatneg.a
+#LIB=>					libdwcgsqr2.a
+#LIB=>					libdwcgsserverbrowsing.a
+#LIB=>					libdwcnd.a
+#LIB=>					libdwcnhttp.a
+SRCS_OVERLAY_OL_WIFI		= $(WIFIDIR)\dwc_rap.c \
+								$(WIFIDIR)\vchat.c
+
+
+#フィールドプログラム（非常駐）
+#見極めるまで色々動くことになると思われる。
+#===> main
+SRCS_OVERLAY_FIELDMAP		= $(FIELDDIR)\fieldmap.c \
+								$(FIELDDIR)\fieldmap_func.c \
+								$(GAMESYSDIR)\ev_check.c \
+								$(FIELDDIR)\field_clact.c \
+								$(FIELDDIR)\camera_move_test.c \
+								$(FIELDDIR)\field_3d_anime.c \
+								$(FIELDDIR)\field_3d_anime_ev.c \
+								$(FIELDDIR)\field_light.c \
+								$(FIELDDIR)\mat_shp.c \
+								$(FIELDDIR)\fog_sys.c \
+								$(FIELDDIR)\field_glb_state.c \
+								$(FIELDDIR)\field_camera.c \
+								$(FIELDDIR)\field_subscreen.c \
+								$(FIELDDIR)\field_anime.c \
+								$(FIELDDIR)\weather_sys.c \
+								$(FIELDDIR)\btl_searcher.c \
+								$(FIELDDIR)\ev_win.c \
+								$(FIELDDIR)\scr_msg.c \
+								$(FIELDDIR)\place_name.c \
+								$(FIELDDIR)\ev_poketch.c \
+								$(FIELDDIR)\encount_effect.c \
+								$(FIELDDIR)\field_effect.c \
+								$(FIELDDIR)\fldeff_trap.c \
+								$(FIELDDIR)\fldeff_hole.c \
+								$(FIELDDIR)\fldeff_dirtrap.c \
+								$(FIELDDIR)\fldeff_flag.c \
+								$(FIELDDIR)\fldeff_exclamation.c \
+								$(FIELDDIR)\fldeff_ok.c \
+								$(FIELDDIR)\fldeff_trapsmog.c \
+								$(FIELDDIR)\fldeff_gflash.c \
+								$(FIELDDIR)\fldeff_drill.c \
+								$(FIELDDIR)\player_event.c \
+								$(FIELDDIR)\player_event_arrowmat.c \
+								$(FIELDDIR)\effect_warppoint.c \
+								$(FIELDDIR)\fldeff_gyoe.c \
+								$(FIELDDIR)\map3d_object.c \
+								$(FIELDDIR)\board.c \
+								$(FIELDDIR)\report.c \
+								$(FIELDDIR)\motion_bl.c \
+								$(FIELDDIR)\fld_motion_bl.c \
+								$(FIELDDIR)\ecnt_tomo.c \
+								$(FIELDDIR)\encount_effect_sub.c \
+								$(FIELDDIR)\sodateya.c \
+								$(FIELDDIR)\fldeff_redframe.c \
+								$(FIELDDIR)\fldeff_arrow.c \
+								$(FIELDDIR)\div_map.c \
+								$(FIELDDIR)\field_poketch.c \
+								$(FIELDDIR)\wifi_autoregist.c \
+								$(FIELDDIR)\floor_touch.c \
+								$(FIELDDIR)\fieldobj_drawdata.c \
+								$(FIELDDIR)\fieldobj_draw_0.c \
+								$(FIELDDIR)\fieldobj_draw_legendpoke.c \
+								$(FIELDDIR)\fieldobj_draw.c \
+								$(FIELDDIR)\fieldobj_blact.c \
+								$(FIELDDIR)\fieldobj_render.c \
+								$(FIELDDIR)\quick_sand.c \
+								$(FIELDDIR)\ookisa.c \
+								$(FIELDDIR)\fieldmap_mem.c \
+								$(FIELDDIR)\height\height_check.c \
+								$(FIELDDIR)\height\height_load.c \
+								$(FIELDDIR)\height\height_ex.c \
+								$(FIELDDIR)\d_zonename.c \
+								$(FIELDDIR)\fld_debug.c \
+								$(DEBUGDIR_TEST)\d_ohno.c \
+								$(DEBUGDIR_TEST)\d_tomoya.c \
+								$(DEBUGDIR_TEST)\debug_saito.c \
+								$(FIELDDIR)\field_hblank.c \
+								$(FIELDDIR)\poison_effect.c \
+								$(FIELDDIR)\mapresource.c \
+								$(FIELDDIR)\honey_tree_enc.c \
+								$(FIELDDIR)\field_3dobj.c \
+								$(FIELDDIR)\amaikaori_eff.c \
+								$(FIELDDIR)\localres.c \
+								$(FIELDDIR)\field_effect_data.c \
+								$(FIELDDIR)\ug_base_layout.c \
+								$(FIELDDIR)\field_fishing.c \
+								$(FIELDDIR)\ashiato.c \
+								$(FIELDDIR)\field_zoom.c \
+								$(FIELDDIR)\field_amaikaori.c \
+								$(FIELDDIR)\tv_debuginfo.c \
+								$(DEBUGDIR_TEST)\d_iwa.c
+
+
+#フィールドオーバーレイ領域その２
+#地下と並列の位置におかれる
+#===> SRCS_OVERLAY_FIELDMAP
+SRCS_OVERLAY_FIELDMAP_SUB	=	$(FIELDDIR)\field_demo.c \
+								$(FIELDDIR)\encount_set.c \
+								$(FIELDDIR)\fd_shop.c \
+								$(FIELDDIR)\comm_direct_counter.c \
+								$(FIELDDIR)\comm_regulation.c \
+								$(FIELDDIR)\gym.c \
+								$(FIELDDIR)\guinness_win.c \
+								$(FIELDDIR)\b_tower_scr.c \
+								$(FIELDDIR)\b_tower_fld.c \
+								$(FIELDDIR)\safari_scope_obj.c \
+								$(FIELDDIR)\safari_scope_calc.c \
+								$(FIELDDIR)\safari_train.c \
+								$(FIELDDIR)\safari_enc.c \
+								$(DEBUGDIR_TEST)\d_nakahiro.c \
+								$(DEBUGDIR_TEST)\d_nohara.c \
+								$(FIELDDIR)\scr_climaxdemo.c \
+								$(FIELDDIR)\sway_grass_hist.c \
+								$(FIELDDIR)\generate_zone.c \
+								$(FIELDDIR)\field_cutin.c \
+								$(FIELDDIR)\fld_move_poke.c \
+								$(FIELDDIR)\field_trade.c \
+								$(FIELDDIR)\tv_bcdata.c \
+								$(FIELDDIR)\tv_broadcast.c \
+								$(FIELDDIR)\tv_cm.c \
+								$(FIELDDIR)\calendar_enc.c \
+								$(FIELDDIR)\fldeff_shadow.c \
+								$(FIELDDIR)\fldeff_reflect.c \
+								$(FIELDDIR)\fldeff_footmark.c \
+								$(FIELDDIR)\fldeff_board.c \
+								$(FIELDDIR)\fldeff_seed.c \
+								$(FIELDDIR)\fldeff_snowball.c \
+								$(FIELDDIR)\fldeff_namipoke.c \
+								$(FIELDDIR)\fldeff_rockride.c \
+								$(FIELDDIR)\fldeff_ripple.c \
+								$(FIELDDIR)\fldeff_nripple.c \
+								$(FIELDDIR)\fldeff_grass.c \
+								$(FIELDDIR)\fldeff_splash.c \
+								$(FIELDDIR)\fldeff_kemuri.c \
+								$(FIELDDIR)\fldeff_lgrass.c \
+								$(FIELDDIR)\fldeff_ngrass.c \
+								$(FIELDDIR)\spray.c \
+								$(FIELDDIR)\pc_recover_anm.c \
+								$(FIELDDIR)\elevator_anm.c \
+								$(FIELDDIR)\paso_anm.c \
+								$(FIELDDIR)\field_ananuke.c \
+								$(FIELDDIR)\hill_back_poke.c \
+								$(FIELDDIR)\sp_fishing_enc.c \
+								$(FIELDDIR)\agb_slot_enc.c \
+								$(FIELDDIR)\fldeff_hide.c \
+								$(FIELDDIR)\scr_boxpwd.c \
+								$(FIELDDIR)\fldeff_hkemuri.c \
+								$(CONTESTDIR)\con_record.c \
+								$(FIELDDIR)\field_accessory_shop.c \
+								$(FIELDDIR)\dendou_ball_anm.c \
+								$(FIELDDIR)\rah_cylinder_anm.c \
+								$(FIELDDIR)\field_hideneff.c \
+								$(FIELDDIR)\scr_hideneff.c
+								
+									
+
+#VSデモ
+#===> SRCS_OVERLAY_OL_WIFI
+SRCS_OVERLAY_VS_DEMO		=	$(BATTLEDIR)\vs_demo.c
+
+#戦闘＆コンテスト共通
+#===> SRCS_OVERLAY_OL_WIFI
+SRCS_OVERLAY_BC_COMMON		= $(BATTLEDIR)\wazatype_panel.c \
+				$(WAZAEFFECT)\we_sys.c \
+				$(WAZAEFFECT)\battle_particle.c \
+				$(WAZAEFFECT)\d_particle.c \
+				$(WAZAEFFECT)\wp_tbl.c \
+				$(WAZAEFFECT)\wp_callback.c \
+				$(WAZAEFFECT)\wpcb_operator.c \
+				$(WAZAEFFECT)\wpcb_field.c \
+				$(WAZAEFFECT)\wpcb_camera.c \
+				$(WAZAEFFECT)\wpcb_debug.c \
+				$(WAZAEFFECT)\wazatool.c \
+				$(WAZAEFFECT)\west_sp.c \
+				$(WAZAEFFECT)\wsp_sample.c \
+				$(WAZAEFFECT)\wsp_tool.c \
+				$(WAZAEFFECT)\wsp_goto.c \
+				$(WAZAEFFECT)\wsp_goto2.c \
+				$(WAZAEFFECT)\wsp_100.c \
+				$(WAZAEFFECT)\wsp_200.c \
+				$(WAZAEFFECT)\wsp_300.c \
+				$(WAZAEFFECT)\wsp_400.c \
+				$(WAZAEFFECT)\wsp_tomoya.c \
+				$(WAZAEFFECT)\wsp_status.c \
+				$(WAZAEFFECT)\wsp_steff.c \
+				$(WAZAEFFECT)\we_tool.c \
+				$(WAZAEFFECT)\d_we.c \
+				$(WAZAEFFECT)\smptm_statuseffect.c \
+				$(WAZAEFFECT)\ball_effect.c \
+				$(WAZAEFFECT)\ball_effect_tool.c \
+				$(WAZAEFFECT)\ec_eff.c \
+				$(BATTLEDIR)\bc_common.c \
+				$(CONTESTDIR)\con_battle.c \
+				$(WAZAEFFECT)\d_tool.c
+
+#戦闘バッグ＆ポケモンリスト
+#===> SRCS_OVERLAY_OL_WIFI
+SRCS_OVERLAY_BATTLE_BAG_LIST	=	$(BATTLEDIR)\b_plist_main.c \
+									$(BATTLEDIR)\b_plist_bmp.c \
+									$(BATTLEDIR)\b_plist_obj.c \
+									$(BATTLEDIR)\b_plist_anm.c \
+									$(BATTLEDIR)\b_bag_main.c \
+									$(BATTLEDIR)\b_bag_bmp.c \
+									$(BATTLEDIR)\b_bag_item.c \
+									$(BATTLEDIR)\b_bag_obj.c \
+									$(BATTLEDIR)\b_bag_anm.c \
+									$(BATTLEDIR)\b_app_tool.c
+
+#デバッグ戦闘ツール
+#===> main
+SRCS_OVERLAY_DEBUG_FIGHT	= $(DEBUGDIR)\d_fight_tool.c
+
+#戦闘
+#===> SRCS_OVERLAY_BC_COMMON
+SRCS_OVERLAY_BATTLE		= $(BATTLEDIR)\fight.c \
+				$(BATTLEDIR)\fight_tool.c \
+				$(BATTLEDIR)\skill_intp.c \
+				$(BATTLEDIR)\server.c \
+				$(BATTLEDIR)\server_tool.c \
+				$(BATTLEDIR)\client.c \
+				$(BATTLEDIR)\client_tool.c \
+				$(BATTLEDIR)\client_eff.c \
+				$(BATTLEDIR)\scio.c \
+				$(BATTLEDIR)\gauge.c \
+				$(BATTLEDIR)\ground.c \
+				$(BATTLEDIR)\battle_input.c \
+				$(BATTLEDIR)\temoti_gauge.c \
+				$(BATTLEDIR)\battle_cursor.c \
+				$(BATTLEDIR)\finger_cursor.c \
+				$(DEBUGDIR)\d_battle.c
+
+#コンテスト
+#===> SRCS_OVERLAY_BC_COMMON
+SRCS_OVERLAY_CONTEST		= $(CONTESTDIR)\actin.c \
+				$(CONTESTDIR)\visual.c \
+				$(CONTESTDIR)\dance.c \
+				$(CONTESTDIR)\adv_tool.c \
+				$(CONTESTDIR)\actin_input.c \
+				$(CONTESTDIR)\aci_tool.c \
+				$(CONTESTDIR)\actin_tool.c \
+				$(CONTESTDIR)\actin_calc.c \
+				$(CONTESTDIR)\actin_order.c \
+				$(CONTESTDIR)\actin_waza.c \
+				$(CONTESTDIR)\actin_ai.c \
+				$(CONTESTDIR)\visual_tool.c \
+				$(CONTESTDIR)\visual_order.c \
+				$(CONTESTDIR)\dance_input.c \
+				$(CONTESTDIR)\dance_tool.c \
+				$(CONTESTDIR)\dance_order.c \
+				$(CONTESTDIR)\dance_ai.c \
+				$(CONTESTDIR)\contype_icon.c \
+				$(CONTESTDIR)\contest_order.c \
+				$(CONTESTDIR)\con_result.c \
+				$(CONTESTDIR)\res_tool.c \
+				$(CONTESTDIR)\res_order.c \
+				$(CONTESTDIR)\imc_acce_score.c \
+				$(CONTESTDIR)\contest_cursor.c \
+				$(CONTESTDIR)\dance_debug.c
+				
+
+
+#wifi設定画面
+#===> SRCS_OVERLAY_OL_WIFI
+#LIB=>					libmb.a     ##今後ここにくる予定
+#LIB=>					libdwcutil.a
+SRCS_OVERLAY_OL_WIFIUTIL	= $(WIFIDIR)\dwc_raputility.c \
+							$(WIFIDIR)\dwc_test.c
+
+# ボックス
+#===> main
+SRCS_OVERLAY_OVERLAY_BOX =	$(APPLICATIONDIR)\box\box.c \
+				$(APPLICATIONDIR)\box\box_reel.c \
+				$(APPLICATIONDIR)\box\boxv.c \
+				$(APPLICATIONDIR)\box\boxv_tray.c \
+				$(APPLICATIONDIR)\box\boxv_cursor.c \
+				$(APPLICATIONDIR)\box\boxv_icon.c \
+				$(APPLICATIONDIR)\box\boxv_button.c \
+				$(APPLICATIONDIR)\box\boxv_status.c \
+				$(APPLICATIONDIR)\box\boxv_msg.c \
+				$(APPLICATIONDIR)\box\boxv_exwin.c \
+				$(APPLICATIONDIR)\box\boxv_party.c \
+				$(APPLICATIONDIR)\box\boxv_reel.c \
+				$(APPLICATIONDIR)\box\boxv_itemicon.c \
+				$(APPLICATIONDIR)\box\boxv_compare.c \
+				$(APPLICATIONDIR)\box\boxmenu.c
+
+# 簡易会話
+#===> main
+SRCS_OVERLAY_OVERLAY_PMSI =	$(APPLICATIONDIR)\pms_input\pms_input.c \
+				$(APPLICATIONDIR)\pms_input\pms_input_view.c \
+				$(APPLICATIONDIR)\pms_input\pmsiv_edit.c  \
+				$(APPLICATIONDIR)\pms_input\pmsiv_button.c \
+				$(APPLICATIONDIR)\pms_input\pmsiv_category.c \
+				$(APPLICATIONDIR)\pms_input\pmsiv_wordwin.c  \
+				$(APPLICATIONDIR)\pms_input\pmsiv_sub.c \
+				$(APPLICATIONDIR)\pms_input\pmsiv_tool.c \
+				$(APPLICATIONDIR)\pms_input\pmsi_initial_data.c 
+
+
+# 図鑑
+#===> main
+SRCS_OVERLAY_OL_ZUKAN = $(APPLICATIONDIR)\zukanlist\zkn_sys.c \
+				$(POKEDIR)\pokefoot.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_drawglb.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_glbdata.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_proc_sys.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_event.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_event_aplchg.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_fontoam.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_cursor.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_encount_draw.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_world_text_sys.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_range_data.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_pokelist.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_pokelist_sub.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_sortsearch.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_sortsearch_sub.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_range.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_range_sub.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_zukan.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_zukan_graver.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_zukan_textver.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_zukan_sub.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_zukan_common.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_sound.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_sound_sub.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_big.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_big_sub.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_big_weight.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_big_debug_sub.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_zukan_graver_sub.c \
+				$(APPLICATIONDIR)\zukanlist\zkn_fight_text.c \
+				$(BATTLEDIR)\tr_ai.c \
+				$(BATTLEDIR)\tr_ai\tr_ai_seq.s
+
+
+
+# イメージクリップ
+#===> main
+SRCS_OVERLAY_OL_IMAGECLIP	= $(APPLICATIONDIR)\imageClip\imc_accessorie.c \
+				$(APPLICATIONDIR)\imageClip\imc_drawsys.c \
+				$(APPLICATIONDIR)\imageClip\imc_sys.c \
+				$(APPLICATIONDIR)\imageClip\imc_right_box.c \
+				$(APPLICATIONDIR)\imageClip\imc_left_box.c \
+				$(APPLICATIONDIR)\imageClip\imc_hand.c \
+				$(APPLICATIONDIR)\imageClip\imc_item_buff.c \
+				$(APPLICATIONDIR)\imageClip\imc_acce_hand.c \
+				$(APPLICATIONDIR)\imageClip\imc_poke_obj.c \
+				$(APPLICATIONDIR)\imageClip\imc_obj_list.c \
+				$(APPLICATIONDIR)\imageClip\imc_obj_list_func.c \
+				$(APPLICATIONDIR)\imageClip\imc_bg.c \
+				$(APPLICATIONDIR)\imageClip\imc_button.c \
+				$(APPLICATIONDIR)\imageClip\imc_subwin.c \
+				$(APPLICATIONDIR)\imageClip\imc_rbox_player.c \
+				$(APPLICATIONDIR)\imageClip\imc_playsys.c \
+				$(APPLICATIONDIR)\imageClip\imc_preview.c
+
+
+
+# 地下
+#===> SRCS_OVERLAY_FIELDMAP
+SRCS_OVERLAY_OL_UNDERGROUND 		 =  $(UNDERGROUNDDIR)\ug_dig_fossil.c \
+								$(UNDERGROUNDDIR)\ug_dig_stone.c \
+								$(UNDERGROUNDDIR)\ug_manager.c \
+								$(UNDERGROUNDDIR)\ug_trap.c \
+								$(UNDERGROUNDDIR)\ug_list.c \
+								$(FIELDDIR)\ug_radar.c \
+								$(FIELDDIR)\comm_player_condition.c \
+								$(UNDERGROUNDDIR)\ug_secretbase.c \
+								$(UNDERGROUNDDIR)\ug_talk.c \
+								$(UNDERGROUNDDIR)\ug_bag.c \
+								$(UNDERGROUNDDIR)\ug_pc.c \
+								$(UNDERGROUNDDIR)\ug_shop.c \
+								$(UNDERGROUNDDIR)\ug_record.c \
+								$(UNDERGROUNDDIR)\ug_message.c \
+								$(UNDERGROUNDDIR)\ug_trshopdata.c \
+								$(UNDERGROUNDDIR)\ug_trapshopdata.c \
+								$(UNDERGROUNDDIR)\ug_base_bmp.c \
+								$(UNDERGROUNDDIR)\ug_base.c
+								
+
+# ポケッチ取得以前の画面作成
+#===> SRCS_OVERLAY_FIELDMAP_SUB
+SRCS_OVERLAY_OL_BEFORE_POKETCH 		 = $(FIELDDIR)\poketch\before_poketch.c
+
+# ポケッチ
+#===> SRCS_OVERLAY_FIELDMAP_SUB
+SRCS_OVERLAY_OL_POKETCH 		 = $(FIELDDIR)\poketch\poketch_c.c \
+					   $(FIELDDIR)\poketch\poketch_v.c \
+					   $(FIELDDIR)\poketch\poketch_v_tool.c \
+					   $(FIELDDIR)\poketch\poketch_act.c \
+					   $(FIELDDIR)\poketch\poketch_button.c \
+					   $(FIELDDIR)\poketch\poketch_map.c
+
+# ポケッチアプリ：デジタル時計
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_DWATCH 	 = $(FIELDDIR)\poketch\poketch_a00c.c	\
+                                  	   $(FIELDDIR)\poketch\poketch_a00v.c
+
+# ポケッチアプリ：ストップウォッチ
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_STOPWATCH 	 = $(FIELDDIR)\poketch\poketch_a01c.c	\
+                                     	   $(FIELDDIR)\poketch\poketch_a01v.c
+
+# ポケッチアプリ：計算機
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_CALC 		 = $(FIELDDIR)\poketch\poketch_a02c.c	\
+                                           $(FIELDDIR)\poketch\poketch_a02v.c	\
+                                           $(FIELDDIR)\poketch\poketch_realnum.c
+# ポケッチアプリ：メモ用紙
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_MEMO		 = $(FIELDDIR)\poketch\poketch_a03c.c	\
+                                           $(FIELDDIR)\poketch\poketch_a03v.c
+
+# ポケッチアプリ：アナログ時計
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_AWATCH		 = $(FIELDDIR)\poketch\poketch_a04c.c	\
+                                           $(FIELDDIR)\poketch\poketch_a04v.c
+
+# ポケッチアプリ：ドットアート
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_DOTART		 = $(FIELDDIR)\poketch\poketch_a05c.c	\
+                                           $(FIELDDIR)\poketch\poketch_a05v.c
+
+# ポケッチアプリ：簡易ポケモンリスト
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_SIMPLE_POKELIST = $(FIELDDIR)\poketch\poketch_a06c.c	\
+                                           $(FIELDDIR)\poketch\poketch_a06v.c
+
+# ポケッチアプリ：なつきどチェッカー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_NATSUKI_CHECKER = $(FIELDDIR)\poketch\poketch_a07c.c	\
+                                           $(FIELDDIR)\poketch\poketch_a07v.c
+
+# ポケッチアプリ：ダウジングマシン
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_DOWSING	= $(FIELDDIR)\poketch\poketch_a08c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a08v.c
+
+# ポケッチアプリ：カウンター
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_COUNTER	= $(FIELDDIR)\poketch\poketch_a09c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a09v.c
+
+# ポケッチアプリ：万歩計
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_PEDOMETER	= $(FIELDDIR)\poketch\poketch_a10c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a10v.c
+
+# ポケッチアプリ：バックライトスイッチ
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_BACKLIGHT	= $(FIELDDIR)\poketch\poketch_a11c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a11v.c
+
+# ポケッチアプリ：ダミーモニター
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_DUMMY_MONITOR	= $(FIELDDIR)\poketch\poketch_a12c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a12v.c
+
+# ポケッチアプリ：トレーナーランチャー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_TRAINER_LAUNCHER = $(FIELDDIR)\poketch\poketch_a13c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a13v.c
+
+# ポケッチアプリ：そだてやカメラ
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_SODATEYA_CAMERA = $(FIELDDIR)\poketch\poketch_a15c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a15v.c
+
+# ポケッチアプリ：ルーレット
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_ROULETTE	= $(FIELDDIR)\poketch\poketch_a16c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a16v.c
+
+# ポケッチアプリ：コイントス
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_COINTOSS	= $(FIELDDIR)\poketch\poketch_a17c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a17v.c
+
+# ポケッチアプリ：わざ相性チェッカー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_WAZAEFF	= $(FIELDDIR)\poketch\poketch_a18c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a18v.c
+
+# ポケッチアプリ：ラブテスター
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_LOVE_TESTER	= $(FIELDDIR)\poketch\poketch_a19c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a19v.c
+
+# ポケッチアプリ：アラーム時計
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_ALARM		= $(FIELDDIR)\poketch\poketch_a20c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a20v.c
+
+# ポケッチアプリ：キッチンタイマー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_KITCHEN	= $(FIELDDIR)\poketch\poketch_a21c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a21v.c
+
+# ポケッチアプリ：マップマーキング
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_MARK_MAP	= $(FIELDDIR)\poketch\poketch_a22c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a22v.c
+
+# ポケッチアプリ：きのみサーチャー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_SEED_MAP	= $(FIELDDIR)\poketch\poketch_a23c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a23v.c
+
+# ポケッチアプリ：カラーチェンジャー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_COLOR_CHANGER	= $(FIELDDIR)\poketch\poketch_a24c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a24v.c
+
+# ポケッチアプリ：カレンダー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_CALENDAR	= $(FIELDDIR)\poketch\poketch_a25c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a25v.c
+
+# ポケッチアプリ：ラジオ
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_RADIO		= $(FIELDDIR)\poketch\poketch_a26c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a26v.c
+
+# ポケッチアプリ：つうしんサーチャー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_COMM_SEARCH	= $(FIELDDIR)\poketch\poketch_a27c.c	\
+                                          $(FIELDDIR)\poketch\poketch_a27v.c
+
+# ポケッチアプリ：ポケモンカウンター
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_POKEMON_COUNTER	= $(FIELDDIR)\poketch\poketch_a28c.c	\
+                                                  $(FIELDDIR)\poketch\poketch_a28v.c
+
+
+# ポケッチアプリ：ポケモンヒストリー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_POKEMON_HISTORY	= $(FIELDDIR)\poketch\poketch_a29c.c	\
+                                                  $(FIELDDIR)\poketch\poketch_a29v.c
+
+
+# ポケッチアプリ：ダミー
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_POKETCH_APP_DUMMY		 = $(FIELDDIR)\poketch\poketch_a49c.c	\
+                                           $(FIELDDIR)\poketch\poketch_a49v.c
+
+
+# ユニオン下画面
+#===> SRCS_OVERLAY_OL_POKETCH
+SRCS_OVERLAY_UNIONROOM_BOARD		 = $(FIELDDIR)\union_board.c
+
+#ゲーム開始処理
+#===> main
+SRCS_OVERLAY_GAMESTART		= $(SYSTEMDIR)\gamestart.c \
+								$(GAMESYSDIR)\game_init.c
+
+
+
+#お絵かきボード
+#===> main
+SRCS_OVERLAY_OEKAKI_BOARD		= $(APPLICATIONDIR)\oekaki\oekaki.c
+
+#レコードコーナー
+#===> main
+SRCS_OVERLAY_RECORD_CORNER		= $(APPLICATIONDIR)\record\record_corner.c \
+									$(SAVEDATADIR)\randomgroup_record.c \
+									$(SAVEDATADIR)\tvwork_record.c \
+									$(APPLICATIONDIR)\record\record_mix.c
+
+#WIFI友達手帳
+#===> main
+SRCS_OVERLAY_WIFI_NOTE		= $(APPLICATIONDIR)\wifi_note\wifi_note.c
+
+#WIFIP2Pマッチング
+#===> SRCS_OVERLAY_OL_WIFI
+SRCS_OVERLAY_WIFI_P2PMATCH		= $(APPLICATIONDIR)\wifi_p2pmatch\wifi_p2pmatch.c
+
+#トレーナーカード
+#===> main
+SRCS_OVERLAY_TRAINER_CARD		= $(APPLICATIONDIR)\trainer_card\trainer_card.c \
+				$(APPLICATIONDIR)\trainer_card\trcard_bmp.c \
+				$(APPLICATIONDIR)\trainer_card\trcard_obj.c \
+				$(APPLICATIONDIR)\trainer_card\trcard_snd.c
+
+#サイン画面
+#===> SRCS_OVERLAY_TRAINER_CARD
+SRCS_OVERLAY_MYSIGN			= $(APPLICATIONDIR)\mysign\mysign.c
+
+
+#オープニング
+#===> main
+SRCS_OVERLAY_OPENING		= $(DEMODIR)\opening\opening.c \
+				$(DEMODIR)\opening\opening_bmp.c \
+				$(DEMODIR)\opening\opening_obj.c \
+				$(DEMODIR)\intro\intro.c \
+				$(DEMODIR)\intro\intro_tv.c
+
+#コンフィグ
+#===> main
+SRCS_OVERLAY_CONFIG		= $(APPLICATIONDIR)\config\config_tool.c
+
+#メール描画
+#===> main
+SRCS_OVERLAY_MAILVIEW		= $(APPLICATIONDIR)\mail\mailview.c
+
+#カプセル
+#===> SRCS_OVERLAY_BC_COMMON
+SRCS_OVERLAY_CUSTOM_BALL	=	$(APPLICATIONDIR)\custom_ball\cb_seal.c \
+								$(APPLICATIONDIR)\custom_ball\cb_disp.c \
+								$(APPLICATIONDIR)\custom_ball\cb_main.c
+
+
+#タイトル画面
+#===> main
+SRCS_OVERLAY_TITLE		= $(DPTITLEDIR)title.c \
+						  $(DPTITLEDIR)opening_demo.c \
+						  $(DPTITLEDIR)opening_demo_obj.c \
+						  $(DPTITLEDIR)opening_kira_obj.c \
+						  $(DPTITLEDIR)op_poke_cutin.c
+
+
+#ポケモン選択画面
+#===> main
+SRCS_OVERLAY_EV_POKESELECT = $(DEMODIR)\ev_poke_select.c
+
+#ポルトケース
+#===> main
+SRCS_OVERLAY_PORUTOCASE		= $(APPLICATIONDIR)\poruto\porucase.c \
+			$(APPLICATIONDIR)\poruto\porucase_bmp.c \
+			$(APPLICATIONDIR)\poruto\poru_act.c \
+			$(APPLICATIONDIR)\poruto\porudemo.c \
+			$(APPLICATIONDIR)\poruto\poru_3d.c
+			 
+
+#タウンマップ
+#===> main
+SRCS_OVERLAY_TOWNMAP	= $(APPLICATIONDIR)\worldmap\townmap.c \
+			$(APPLICATIONDIR)\worldmap\tmap_nrm.c \
+			$(APPLICATIONDIR)\worldmap\tmap_act.c \
+			$(APPLICATIONDIR)\worldmap\tmap_sub.c
+			
+			
+			 
+#冒険ノート
+#===> main
+SRCS_OVERLAY_FNOTE		= $(APPLICATIONDIR)\f_note\fnote_main.c \
+			$(APPLICATIONDIR)\f_note\fnote_bmp.c
+
+#木の実タグ
+#===> main
+SRCS_OVERLAY_NUTS_TAG	= $(APPLICATIONDIR)\nuts_tag\nuts_tag.c
+
+
+#殿堂入りデモ
+#===> SRCS_OVERLAY_BC_COMMON
+SRCS_OVERLAY_DEMO_DENDOU =	$(DEMODIR)\dendou\demo_dendou.c
+
+
+#殿堂入りデータ画面
+#===> main
+SRCS_OVERLAY_DENDOU_PC =	$(APPLICATIONDIR)\dendou_pc\dendou_pc.c	\
+				$(APPLICATIONDIR)\dendou_pc\dendou_pc_view.c
+
+
+#交換リスト
+#===> SRCS_OVERLAY_BC_COMMON
+SRCS_OVERLAY_TRADELIST =	$(APPLICATIONDIR)\tradelist\tradelist.c \
+				$(APPLICATIONDIR)\tradelist\tradelist_bmp.c
+
+
+#タイトルデバッグ  メモリー削減の為ここに移動
+#===> main
+SRCS_OVERLAY_TITLE_DEBUG	= $(DEBUGDIR)\snd_test.c \
+				$(DEBUGDIR)\d_title.c \
+				$(DEBUGDIR)\d_person_menu.c \
+				$(DEBUGDIR)\d_rtcmenu.c \
+				$(DEBUGDIR)\poke_test.c \
+				$(DEBUGDIR)\tr_test.c
+
+#まぜまぜ
+#===> main
+SRCS_OVERLAY_NUTS_MIXER	= $(APPLICATIONDIR)\nutmixer\nmix_game.c \
+				$(APPLICATIONDIR)\nutmixer\nmix_res.c \
+				$(APPLICATIONDIR)\nutmixer\comm_command_nutmixer_func.c \
+				$(APPLICATIONDIR)\nutmixer\nutmix_comm_pack.c \
+				$(APPLICATIONDIR)\nutmixer\nmix_game_demo.c \
+				$(APPLICATIONDIR)\nutmixer\nmix_game_data.c
+
+#タワーアプリ(成績モニタ＆歴代リーダー)
+#===> main
+SRCS_OVERLAY_BTOWER_APP = $(APPLICATIONDIR)\btower\btwr_score.c
+
+#バッグ
+#===> SRCS_OVERLAY_OVERLAY_BOX
+SRCS_OVERLAY_FLD_BAG	= $(APPLICATIONDIR)\bag\bag_main.c \
+				$(APPLICATIONDIR)\bag\bag_bmp.c \
+				$(APPLICATIONDIR)\bag\bag_obj.c
+
+#技教え/思い出し
+#===> main
+SRCS_OVERLAY_WAZA_OSHIE	= $(APPLICATIONDIR)\waza_oshie\wo_main.c
+
+#WIFI地球儀
+#===> main
+SRCS_OVERLAY_WIFIEARTH	= $(APPLICATIONDIR)\wifi_earth\wifi_earth.c
+
+#船デモ
+#===> main
+SRCS_OVERLAY_SHIP_DEMO	=	$(FIELDDIR)\ship_demo.c
+
+#WIFI 世界 共通
+#===> SRCS_OVERLAY_OL_WIFI
+#LIB=>					libdwcgsghttp.a
+SRCS_OVERLAY_DPW_COMMON		= $(DPWLIBDIR)\dpwi_encrypt.c \
+				  $(DPWLIBDIR)\dpwi_session.c
+
+#WIFI世界交換
+#===> SRCS_OVERLAY_BC_COMMON
+SRCS_OVERLAY_WORLDTRADE		= $(DPWLIBDIR)\dpw_tr.c \
+				  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_title.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_mypoke.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_partner.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_search.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_box.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_deposit.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_upload.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_sublcd.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_status.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_demo.c \
+                                  $(APPLICATIONDIR)\wifi_worldtrade\worldtrade_enter.c
+
+
+#ポケモン交換デモ
+#===> SRCS_OVERLAY_WORLDTRADE
+SRCS_OVERLAY_DEMO_TRADE =	$(DEMODIR)\trade\demo_trade.c		\
+				$(DEMODIR)\trade\demo_trade_3d.c	\
+				$(DEMODIR)\trade\demo_trade_scene0.c	\
+				$(DEMODIR)\trade\demo_trade_scene1.c	\
+				$(DEMODIR)\trade\demo_trade_scene2.c	\
+				$(DEMODIR)\trade\demo_trade_scene3.c	\
+				$(DEMODIR)\trade\demo_trade_scene4.c	\
+				$(DEMODIR)\trade\demo_trade_scene5.c	\
+				$(DEMODIR)\trade\demo_trade_scene6.c
+
+
+#WIFI世界バトルタワー
+#===> SRCS_OVERLAY_BC_COMMON
+SRCS_OVERLAY_DPW_TOWER		= $(DPWLIBDIR)\dpw_bt.c \
+				  $(APPLICATIONDIR)\wifi_b_tower\wbtower.c \
+				  $(APPLICATIONDIR)\wifi_b_tower\wbtower_enter.c
+
+
+#スタートメニュー/ふしぎなできごと
+#===> SRCS_OVERLAY_BC_COMMON
+#LIB=>					libcrypto.a
+SRCS_OVERLAY_STARTMENU		= $(SYSTEMDIR)\startmenu.c \
+				  $(FUSHIGI)\pokemonranger.c \
+				  $(FUSHIGI)\comm_mystery_state.c \
+				  $(FUSHIGI)\comm_command_mystery.c \
+				  $(FUSHIGI)\comm_mystery_gift.c \
+				  $(FUSHIGI)\comm_mystery_card.c \
+				  $(FUSHIGI)\comm_mystery_func.c \
+				  $(COMMUNICATIONDIR)\mpcallback.c \
+				  $(COMMUNICATIONDIR)\mpconnect.c \
+				  $(COMMUNICATIONDIR)\mpdata.c \
+				  $(COMMUNICATIONDIR)\mpdebug.c \
+				  $(COMMUNICATIONDIR)\mprequest.c \
+				  $(FUSHIGI)\agbpokemon.c \
+				  $(FUSHIGI)\RSmapdata.c \
+				  $(FUSHIGI)\agbpoke_access.c \
+				  $(FUSHIGI)\agbpoke_util.c \
+				  $(FUSHIGI)\agbpoke_tool.c \
+				  $(FUSHIGI)\agbdownload.c \
+				  $(FUSHIGI)\mysterylib.c \
+				  $(FUSHIGI)\beacondownload.c \
+				  $(FUSHIGI)\wifi_mystery_gift.c \
+				  $(FUSHIGI)\exindexdata.c
+
+#エンディングデモ
+#===> main
+SRCS_OVERLAY_DEMO_ENDING =	$(DEMODIR)\ending\demo_ending.c \
+				$(DEMODIR)\ending\demo_ending_list.c \
+				$(DEMODIR)\ending\demo_ending_scene1.c \
+				$(DEMODIR)\ending\demo_ending_scene2.c \
+				$(DEMODIR)\ending\demo_ending_scene3.c \
+				$(DEMODIR)\ending\demo_ending_scene4.c \
+				$(DEMODIR)\ending\demo_ending_scene5.c \
+				$(DEMODIR)\ending\demo_ending_scene6.c \
+				$(DEMODIR)\ending\demo_ending_scene7.c
+
+#ミニゲーム　スロット
+#===> main
+SRCS_OVERLAY_SLOT = $(APPLICATIONDIR)\slot\slot.c \
+				$(APPLICATIONDIR)\slot\slot_main.c \
+				$(APPLICATIONDIR)\slot\slot_sub.c \
+				$(APPLICATIONDIR)\slot\slot_clact.c \
+				$(APPLICATIONDIR)\slot\slot_data.c
+				
+
+#表彰状
+#===> main
+SRCS_OVERLAY_SYOUJYOU = $(DEMODIR)\syoujyou\syoujyou.c
+

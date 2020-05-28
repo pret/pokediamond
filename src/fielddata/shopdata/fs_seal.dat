@@ -1,0 +1,114 @@
+//====================================================================
+//						固定シールアイテムデータ
+//
+// 06.05.29 Satoshi Nohara
+//
+// ●fs_seal.xlsをコンバートして出力しています
+//
+//====================================================================
+
+typedef u16 FS_SEAL_DATA;
+
+//Ｃ０８の市場　月曜日
+const FS_SEAL_DATA fs_seal_c08_market_01[] = {
+	SEAL_ID_HART01,
+	SEAL_ID_STAR02,
+	SEAL_ID_FIRE01,
+	SEAL_ID_ONPU01,
+	SEAL_ID_LINE03,
+	SEAL_ID_TUNDER02,
+	SEAL_ID_PAPER04,
+	0xffff,
+};
+#define FS_SEAL_C08_MARKET_01_MAX	( NELEMS(fs_seal_c08_market_01) )
+
+//火曜
+const FS_SEAL_DATA fs_seal_c08_market_02[] = {
+	SEAL_ID_HART02,
+	SEAL_ID_STAR03,
+	SEAL_ID_FIRE02,
+	SEAL_ID_HANA01,
+	SEAL_ID_ONPU02,
+	SEAL_ID_LINE04,
+	SEAL_ID_TUNDER03,
+	0xffff,
+};
+#define FS_SEAL_C08_MARKET_02_MAX	( NELEMS(fs_seal_c08_market_02) )
+
+//水曜
+const FS_SEAL_DATA fs_seal_c08_market_03[] = {
+	SEAL_ID_HART03,
+	SEAL_ID_STAR04,
+	SEAL_ID_FIRE03,
+	SEAL_ID_HANA02,
+	SEAL_ID_ONPU03,
+	SEAL_ID_KEMURI01,
+	SEAL_ID_TUNDER04,
+	0xffff,
+};
+#define FS_SEAL_C08_MARKET_03_MAX	( NELEMS(fs_seal_c08_market_03) )
+
+//木曜
+const FS_SEAL_DATA fs_seal_c08_market_04[] = {
+	SEAL_ID_HART04,
+	SEAL_ID_BALL01,
+	SEAL_ID_FIRE04,
+	SEAL_ID_HANA03,
+	SEAL_ID_ONPU04,
+	SEAL_ID_STAR05,
+	SEAL_ID_KEMURI02,
+	0xffff,
+};
+#define FS_SEAL_C08_MARKET_04_MAX	( NELEMS(fs_seal_c08_market_04) )
+
+//金曜
+const FS_SEAL_DATA fs_seal_c08_market_05[] = {
+	SEAL_ID_BALL02,
+	SEAL_ID_PAPER01,
+	SEAL_ID_HANA04,
+	SEAL_ID_ONPU05,
+	SEAL_ID_HART05,
+	SEAL_ID_STAR06,
+	SEAL_ID_KEMURI03,
+	0xffff,
+};
+#define FS_SEAL_C08_MARKET_05_MAX	( NELEMS(fs_seal_c08_market_05) )
+
+//土曜
+const FS_SEAL_DATA fs_seal_c08_market_06[] = {
+	SEAL_ID_BALL03,
+	SEAL_ID_PAPER02,
+	SEAL_ID_HANA05,
+	SEAL_ID_ONPU06,
+	SEAL_ID_HART06,
+	SEAL_ID_LINE01,
+	SEAL_ID_KEMURI04,
+	0xffff,
+};
+#define FS_SEAL_C08_MARKET_06_MAX	( NELEMS(fs_seal_c08_market_06) )
+
+//日曜
+const FS_SEAL_DATA fs_seal_c08_market_07[] = {
+	SEAL_ID_STAR01,
+	SEAL_ID_ONPU07,
+	SEAL_ID_BALL04,
+	SEAL_ID_HANA06,
+	SEAL_ID_LINE02,
+	SEAL_ID_TUNDER01,
+	SEAL_ID_PAPER03,
+	0xffff,
+};
+#define FS_SEAL_C08_MARKET_07_MAX	( NELEMS(fs_seal_c08_market_07) )
+
+//データテーブル
+const FS_SEAL_DATA* fs_seal_data[] = {
+	fs_seal_c08_market_01,
+	fs_seal_c08_market_02,
+	fs_seal_c08_market_03,
+	fs_seal_c08_market_04,
+	fs_seal_c08_market_05,
+	fs_seal_c08_market_06,
+	fs_seal_c08_market_07,
+};
+#define FS_SEAL_DATA_MAX	( NELEMS(fs_seal_data) )
+

@@ -1,0 +1,2328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="tomoya_takahashi" host="W00109" date="2006-08-08T17:46:59"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="34" japanese="コンテスト名称" english="コンテスト名称" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+				<comment language="english">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+			</tag>
+			<tag entry="35" japanese="コンテストランク" english="コンテストランク" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">○○○○ランク
+「ランク」も含む</comment>
+				<comment language="english">○○○○ランク
+「ランク」も含む</comment>
+			</tag>
+			<tag entry="36" japanese="国名" english="国名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる国名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる国名</comment>
+			</tag>
+			<tag entry="37" japanese="地域名" english="地域名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる地域名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる地域名</comment>
+			</tag>
+			<tag entry="38" japanese="風船の名前" english="風船の名前" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">すれ違い通信でつかう風船の名前</comment>
+				<comment language="english">すれ違い通信でつかう風船の名前</comment>
+			</tag>
+			<tag entry="39" japanese="リボンの名前" english="リボンの名前" view="EP" width="168" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">リボンの名前</comment>
+				<comment language="english">リボンの名前</comment>
+			</tag>
+			<tag entry="40" japanese="イメージクリップ背景" english="イメージクリップ背景" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+			<tag entry="01" japanese="文字表示ウェイト" english="文字表示ウェイト" view="EP" length="0" line="1">
+				<parameter number="0" japanese="フレーム数" english="フレーム数" type="int16"/>
+				<comment language="japanese">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+				<comment language="english">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+			</tag>
+			<tag entry="02" japanese="コールバック引数" english="コールバック引数" view="EP" length="0" line="1">
+				<parameter number="0" japanese="引数" english="引数" type="int16"/>
+				<comment language="japanese">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+				<comment language="english">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+			</tag>
+			<tag entry="03" japanese="文字表示位置X" english="文字表示位置X" view="EP" length="0" line="1">
+				<parameter number="0" japanese="X位置" english="X位置" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+			<tag entry="04" japanese="文字表示位置Y" english="文字表示位置Y" view="EP" length="0" line="1">
+				<parameter number="0" japanese="表示位置Y" english="表示位置Y" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="106"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="315"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="214"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="32" top="102" right="737" bottom="730" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="578" right="1024" bottom="730" visible="yes"/>
+		<tag-palette left="677" top="180" right="1024" bottom="578" visible="yes"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="ZKN_HEIGHT_000">
+		<language name="日本語">？？？.？ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_001">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_002">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_003">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_004">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_005">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_006">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_007">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_008">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_009">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_010">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_011">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_012">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_013">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_014">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_015">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_016">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_017">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_018">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_019">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_020">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_021">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_022">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_023">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_024">
+		<language name="日本語">　　３．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_025">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_026">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_027">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_028">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_029">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_030">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_031">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_032">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_033">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_034">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_035">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_036">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_037">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_038">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_039">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_040">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_041">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_042">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_043">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_044">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_045">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_046">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_047">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_048">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_049">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_050">
+		<language name="日本語">　　０．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_051">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_052">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_053">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_054">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_055">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_056">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_057">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_058">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_059">
+		<language name="日本語">　　１．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_060">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_061">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_062">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_063">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_064">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_065">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_066">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_067">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_068">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_069">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_070">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_071">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_072">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_073">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_074">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_075">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_076">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_077">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_078">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_079">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_080">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_081">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_082">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_083">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_084">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_085">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_086">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_087">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_088">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_089">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_090">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_091">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_092">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_093">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_094">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_095">
+		<language name="日本語">　　８．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_096">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_097">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_098">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_099">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_100">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_101">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_102">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_103">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_104">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_105">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_106">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_107">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_108">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_109">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_110">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_111">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_112">
+		<language name="日本語">　　１．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_113">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_114">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_115">
+		<language name="日本語">　　２．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_116">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_117">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_118">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_119">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_120">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_121">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_122">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_123">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_124">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_125">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_126">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_127">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_128">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_129">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_130">
+		<language name="日本語">　　６．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_131">
+		<language name="日本語">　　２．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_132">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_133">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_134">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_135">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_136">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_137">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_138">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_139">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_140">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_141">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_142">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_143">
+		<language name="日本語">　　２．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_144">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_145">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_146">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_147">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_148">
+		<language name="日本語">　　４．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_149">
+		<language name="日本語">　　２．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_150">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_151">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_152">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_153">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_154">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_155">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_156">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_157">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_158">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_159">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_160">
+		<language name="日本語">　　２．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_161">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_162">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_163">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_164">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_165">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_166">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_167">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_168">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_169">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_170">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_171">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_172">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_173">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_174">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_175">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_176">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_177">
+		<language name="日本語">　　０．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_178">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_179">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_180">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_181">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_182">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_183">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_184">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_185">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_186">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_187">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_188">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_189">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_190">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_191">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_192">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_193">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_194">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_195">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_196">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_197">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_198">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_199">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_200">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_201">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_202">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_203">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_204">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_205">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_206">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_207">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_208">
+		<language name="日本語">　　９．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_209">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_210">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_211">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_212">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_213">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_214">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_215">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_216">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_217">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_218">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_219">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_220">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_221">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_222">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_223">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_224">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_225">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_226">
+		<language name="日本語">　　２．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_227">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_228">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_229">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_230">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_231">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_232">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_233">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_234">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_235">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_236">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_237">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_238">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_239">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_240">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_241">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_242">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_243">
+		<language name="日本語">　　１．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_244">
+		<language name="日本語">　　２．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_245">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_246">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_247">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_248">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_249">
+		<language name="日本語">　　５．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_250">
+		<language name="日本語">　　３．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_251">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_252">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_253">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_254">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_255">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_256">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_257">
+		<language name="日本語">　　１．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_258">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_259">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_260">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_261">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_262">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_263">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_264">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_265">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_266">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_267">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_268">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_269">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_270">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_271">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_272">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_273">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_274">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_275">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_276">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_277">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_278">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_279">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_280">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_281">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_282">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_283">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_284">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_285">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_286">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_287">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_288">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_289">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_290">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_291">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_292">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_293">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_294">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_295">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_296">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_297">
+		<language name="日本語">　　２．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_298">
+		<language name="日本語">　　０．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_299">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_300">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_301">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_302">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_303">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_304">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_305">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_306">
+		<language name="日本語">　　２．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_307">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_308">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_309">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_310">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_311">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_312">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_313">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_314">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_315">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_316">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_317">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_318">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_319">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_320">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_321">
+		<language name="日本語">　１４．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_322">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_323">
+		<language name="日本語">　　１．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_324">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_325">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_326">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_327">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_328">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_329">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_330">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_331">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_332">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_333">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_334">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_335">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_336">
+		<language name="日本語">　　２．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_337">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_338">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_339">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_340">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_341">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_342">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_343">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_344">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_345">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_346">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_347">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_348">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_349">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_350">
+		<language name="日本語">　　６．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_351">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_352">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_353">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_354">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_355">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_356">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_357">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_358">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_359">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_360">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_361">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_362">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_363">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_364">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_365">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_366">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_367">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_368">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_369">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_370">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_371">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_372">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_373">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_374">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_375">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_376">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_377">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_378">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_379">
+		<language name="日本語">　　１．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_380">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_381">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_382">
+		<language name="日本語">　　４．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_383">
+		<language name="日本語">　　３．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_384">
+		<language name="日本語">　　７．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_385">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_386">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_387">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_388">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_389">
+		<language name="日本語">　　２．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_390">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_391">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_392">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_393">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_394">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_395">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_396">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_397">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_398">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_399">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_400">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_401">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_402">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_403">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_404">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_405">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_406">
+		<language name="日本語">　　０．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_407">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_408">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_409">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_410">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_411">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_412">
+		<language name="日本語">　　０．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_413">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_414">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_415">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_416">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_417">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_418">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_419">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_420">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_421">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_422">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_423">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_424">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_425">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_426">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_427">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_428">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_429">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_430">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_431">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_432">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_433">
+		<language name="日本語">　　０．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_434">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_435">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_436">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_437">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_438">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_439">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_440">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_441">
+		<language name="日本語">　　０．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_442">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_443">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_444">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_445">
+		<language name="日本語">　　１．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_446">
+		<language name="日本語">　　０．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_447">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_448">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_449">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_450">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_451">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_452">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_453">
+		<language name="日本語">　　０．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_454">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_455">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_456">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_457">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_458">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_459">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_460">
+		<language name="日本語">　　２．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_461">
+		<language name="日本語">　　１．１ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_462">
+		<language name="日本語">　　１．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_463">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_464">
+		<language name="日本語">　　２．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_465">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_466">
+		<language name="日本語">　　１．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_467">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_468">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_469">
+		<language name="日本語">　　１．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_470">
+		<language name="日本語">　　１．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_471">
+		<language name="日本語">　　０．８ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_472">
+		<language name="日本語">　　２．０ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_473">
+		<language name="日本語">　　２．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_474">
+		<language name="日本語">　　０．９ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_475">
+		<language name="日本語">　　１．６ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_476">
+		<language name="日本語">　　１．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_477">
+		<language name="日本語">　　２．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_478">
+		<language name="日本語">　　１．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_479">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_480">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_481">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_482">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_483">
+		<language name="日本語">　　５．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_484">
+		<language name="日本語">　　４．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_485">
+		<language name="日本語">　　１．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_486">
+		<language name="日本語">　　３．７ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_487">
+		<language name="日本語">　　４．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_488">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_489">
+		<language name="日本語">　　０．４ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_490">
+		<language name="日本語">　　０．３ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_491">
+		<language name="日本語">　　１．５ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_492">
+		<language name="日本語">　　０．２ｍ</language>
+	</row>
+
+	<row id="ZKN_HEIGHT_493">
+		<language name="日本語">　　３．２ｍ</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

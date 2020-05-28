@@ -1,0 +1,846 @@
+//====================================================================
+//							L1みずうみ
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d27r0101.h"
+	.include	"../eventdata/zone_d27r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d27r0101_flag_change
+_EVENT_DATA		ev_d27r0101_init_change
+_EVENT_DATA		ev_d27r0101_rival
+_EVENT_DATA		ev_d27r0101_doctor
+_EVENT_DATA		ev_d27r0101_support
+_EVENT_DATA		ev_d27r0101_l02_after
+_EVENT_DATA		ev_d27r0101_gkanbu
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d27r0101_flag_change:
+	//WKOBJCHRにサポートのキャラコードをセットする
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,d27r0101_male_flag_change_01	//サポート女
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,d27r0101_female_flag_change_01	//サポート男
+	_END
+
+d27r0101_male_flag_change_01:	//サポート女
+	_LDVAL			OBJCHRWORK0,HEROINE
+	_END
+
+d27r0101_female_flag_change_01:	//サポート男
+	_LDVAL			OBJCHRWORK0,HERO
+	_END
+
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d27r0101_init_change:
+	_IF_FLAGON_JUMP	FE_INIT_CHANGE_OBJ_DEL,ev_d27r0101_init_change_obj_del
+	_END
+
+//OBJを消す
+ev_d27r0101_init_change_obj_del:
+	_FLAG_SET		FV_D27R0101_POKE
+	_OBJ_DEL		D27R0101_POKE_01
+	_OBJ_DEL		D27R0101_POKE_02
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL	//必ずリセット！
+	_END
+
+
+/********************************************************************/
+/*						OBJ_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d27r0101_obj_change:
+	_END
+
+
+/********************************************************************/
+/*							ライバル								*/
+/********************************************************************/
+ev_d27r0101_rival:
+	_EVENT_START
+
+	_SYS_FLAG_PAIR_RESET
+
+	//一歩上に移動する
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_01_00
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0101_player_01_00
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_d27r0101_rival_01
+	_TALK_CLOSE
+
+	//カメラ移動
+	//博士を中心に移動する
+	_VANISH_DUMMY_OBJ_ADD	46,53
+
+	//ダミーOBJを動かす
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d27r0101_dummy_01
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,d27r0101_male_01	//サポート女
+	_JUMP			d27r0101_female_01					//サポート男
+	_END
+
+//サポート女
+d27r0101_male_01:
+	_TALK_KEYWAIT	msg_d27r0101_heroine_01
+	_JUMP			d27r0101_common_01
+	_END
+
+//サポート男
+d27r0101_female_01:
+	_TALK_KEYWAIT	msg_d27r0101_hero_01
+	_JUMP			d27r0101_common_01
+	_END
+
+//共通処理
+d27r0101_common_01:
+	_TALK_KEYWAIT	msg_d27r0101_doctor_01
+
+	//サポートの方を向く
+	_OBJ_ANIME		D27R0101_DOCTOR,anm_d27r0101_doctor_01_01
+	_OBJ_ANIME_WAIT
+
+	//「では　もどると　しよう」
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_d27r0101_doctor_02
+	_TALK_CLOSE
+
+	//博士 戻ろうとする
+	//サポート 博士の方を向く
+	_OBJ_ANIME		D27R0101_DOCTOR,anm_d27r0101_doctor_01_00
+	_OBJ_ANIME		D27R0101_SUPPORT,anm_d27r0101_support_01
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,d27r0101_male_02	//サポート女
+	_JUMP			d27r0101_female_02					//サポート男
+	_END
+
+//サポート女
+d27r0101_male_02:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_d27r0101_heroine_02
+	_JUMP			d27r0101_common_02
+	_END
+
+//サポート男
+d27r0101_female_02:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_d27r0101_hero_02
+	_JUMP			d27r0101_common_02
+	_END
+
+//共通処理
+d27r0101_common_02:
+	_TALK_KEYWAIT	msg_d27r0101_doctor_03
+	_TALK_CLOSE
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_FLAG_RESET		FV_D27R0101_KABAN
+	_OBJ_ADD		D27R0101_KABAN
+
+	//博士を先頭に移動
+	_OBJ_ANIME		D27R0101_DOCTOR,anm_d27r0101_doctor_11
+	_OBJ_ANIME		D27R0101_SUPPORT,anm_d27r0101_support_11
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_11
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0101_player_11
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_d27r0101_dummy_11
+	_OBJ_ANIME_WAIT
+
+	//カメラ移動
+	//ダミーOBJ削除
+	_VANISH_DUMMY_OBJ_DEL
+
+	_TALK_KEYWAIT	msg_d27r0101_doctor_04
+	_TALK_CLOSE
+
+	//博士先に退場
+	_OBJ_ANIME		D27R0101_DOCTOR,anm_d27r0101_doctor_33
+	_OBJ_ANIME_WAIT
+
+	//サポートキョロキョロ
+	_OBJ_ANIME		D27R0101_SUPPORT,anm_d27r0101_support_21
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,d27r0101_male_03	//サポート女
+	_JUMP			d27r0101_female_03					//サポート男
+	_END
+
+//サポート女
+d27r0101_male_03:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_d27r0101_heroine_03
+	_JUMP			d27r0101_common_03
+	_END
+
+//サポート男
+d27r0101_female_03:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_d27r0101_hero_03
+	_JUMP			d27r0101_common_03
+	_END
+
+//共通処理
+d27r0101_common_03:
+	_TALK_CLOSE
+
+	//サポート退場
+	_OBJ_ANIME		D27R0101_SUPPORT,anm_d27r0101_support_33
+	_OBJ_ANIME_WAIT
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		D27R0101_DOCTOR
+	_OBJ_DEL		D27R0101_SUPPORT
+
+	_TIME_WAIT		50,SCWK_ANSWER
+
+	//ライバル見える位置へ
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_30
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_d27r0101_rival_02
+	_TALK_CLOSE
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	//ライバル上を向く
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_31
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_d27r0101_rival_03
+	_TALK_CLOSE
+
+	/*ライバル　主人公の方を向く*/
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_99
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_TALK_KEYWAIT	msg_d27r0101_rival_99
+	_TALK_CLOSE
+
+	//所定の位置に移動
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_32
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0101_player_31
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d27r0101_rival_04
+	_TALK_CLOSE
+
+	_BGM_STOP		SEQ_D_LAKE				/*PLAYER_FIELDを停止*/
+	_BGM_PLAY		SEQ_THE_EVENT01			/*PLAYER_BGMで再生*/
+	/*この後戦闘に進む*/
+	/*フィールドは頭から再生*/
+
+	//野生ポケモン登場
+	//_SE_PLAY		SEQ_SE_DP_BASABASA		//羽音鳴らす(BATTLE用なので鳴らない)
+	_FLAG_RESET		FV_D27R0101_POKE
+	_OBJ_ADD		D27R0101_POKE_01
+	_OBJ_ADD		D27R0101_POKE_02
+	_SE_PLAY		SEQ_SE_DP_FW019
+	
+	//野生ポケモン近づいてくる
+	_OBJ_ANIME		D27R0101_POKE_01,anm_d27r0101_poke_01_01
+	_OBJ_ANIME		D27R0101_POKE_02,anm_d27r0101_poke_02_01
+	_OBJ_ANIME_WAIT
+
+	_VOICE_PLAY		MONSNO_MUKUDORI,0		//
+
+	//ポケモンの方を見る
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_39
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0101_player_39
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d27r0101_rival_05
+
+	//主人公の方を見る
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_34
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_d27r0101_rival_06
+	_TALK_CLOSE
+
+	//_SE_STOP		SEQ_SE_DP_BASABASA		//羽音止める
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//ポケモン選択画面に移行
+	_FIRST_POKE_SELECT_PROC
+	_FIRST_POKE_SELECT_SET_AND_DEL
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//ポケモン追加する！
+	_FIRST_POKE_NO_GET	SCWK_PARAM0
+	_ADD_POKEMON	SCWK_PARAM0,5,0,SCWK_ANSWER
+
+	//野生戦闘へ
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_FIRST_BTL_SET	MONSNO_MUKUDORI,2
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL	//必ずリセット！
+
+	//デバック用ポケモン選択
+	//_JUMP			d_ev_d27r0101_doctor_poke_sel			//デバック
+	_JUMP			d27r0101_common_10						//ノーマル
+	_END
+
+
+
+//共通処理
+d27r0101_common_10:
+	//向き合う
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_43
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0101_player_43
+	_OBJ_ANIME_WAIT
+
+	_PC_KAIFUKU		//全ポケモン回復：ポケセン回復と言う名前は混乱をまねくので変更？
+	_RIVAL_NAME		0
+	_FIRST_POKEMON_NAME	1		//主人公が選んだポケモン
+	_RIVAL_POKEMON_NAME	2		//ライバルが選んだポケモン
+	_TALK_KEYWAIT	msg_d27r0101_rival_13
+	_TALK_CLOSE
+
+	//サポート登場
+	_FLAG_RESET		FV_D27R0101_SUPPORT
+	_SXY_POS_CHANGE	D27R0101_SUPPORT,47,51
+	_OBJ_ADD		D27R0101_SUPPORT
+	_OBJ_PAUSE		D27R0101_SUPPORT
+
+	_CHG_COMMON_SCR SCRID_THE_BOY_GIRL_PLAY				/*サポート曲再生*/
+
+	_OBJ_ANIME		D27R0101_SUPPORT,anm_d27r0101_support_35
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_35
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0101_player_35
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,d27r0101_male_04	//サポート女
+	_JUMP			d27r0101_female_04					//サポート男
+
+//サポート女
+d27r0101_male_04:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_d27r0101_heroine_04
+	_TALK_CLOSE
+
+	//主人公とライバルを交互に見る
+	_OBJ_ANIME		D27R0101_SUPPORT,anm_d27r0101_support_40
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d27r0101_heroine_05
+	_JUMP			d27r0101_common_04
+
+//サポート男
+d27r0101_female_04:
+	_TALK_KEYWAIT	msg_d27r0101_hero_04
+	_TALK_CLOSE
+
+	//主人公とライバルを交互に見る
+	_OBJ_ANIME		D27R0101_SUPPORT,anm_d27r0101_support_40
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d27r0101_hero_05
+	_JUMP			d27r0101_common_04
+
+//共通処理
+d27r0101_common_04:
+	_TALK_CLOSE
+
+	_OBJ_ANIME		D27R0101_SUPPORT,anm_d27r0101_support_09
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		D27R0101_KABAN
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	//サポート退場
+	_OBJ_ANIME		D27R0101_SUPPORT,anm_d27r0101_support_10
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_41
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0101_player_41
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		D27R0101_SUPPORT
+
+	_CHG_COMMON_SCR SCRID_THE_BOY_GIRL_STOP			/*サポート曲停止*/
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_d27r0101_rival_14
+	_TALK_CLOSE
+	
+	//主人公と向き合う
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_42
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0101_player_42
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME		0
+	_TALK_KEYWAIT	msg_d27r0101_rival_15
+	_TALK_CLOSE
+
+	//R201に博士、サポートを出現
+	_FLAG_RESET		FV_R201_DOCTOR
+	_FLAG_RESET		FV_R201_SUPPORT
+	_LDVAL			WK_SCENE_D27R0101,1		//ポケモン入手した
+	_LDVAL			WK_SCENE_L01,2
+
+	_FLAG_RESET		FV_L01_RIVAL
+	_LDVAL			WK_SCENE_R201,2
+
+	//自宅シーンをセット
+	_LDVAL			WK_SCENE_T01R0201,3
+
+	//ライバル先導で湖から出る
+	_OBJ_ANIME		D27R0101_RIVAL,anm_d27r0101_rival_51
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0101_player_51
+	_OBJ_ANIME_WAIT
+
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_MAP_CHANGE		ZONE_ID_L01,0,81,842,DIR_DOWN
+
+	//_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ダミーOBJ	カメラを移動させる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_dummy_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ダミーOBJ	博士の動き
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_dummy_11
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	サポートの方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_doctor_01_01
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	戻ろうとする
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_doctor_01_00
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	先頭に移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_doctor_11
+	_ANIME_DATA	AC_WALK_D_8F,5
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_doctor_33
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	博士の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_support_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	バッグをもつ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_support_09
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	バッグをもって退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_support_10
+	_ANIME_DATA	AC_WALK_D_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	博士について移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_support_11
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,5
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	キョロキョロ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_support_21
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_STAY_WALK_L_4F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_support_33
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	登場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_support_35
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	主人公とライバルを交互に見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_support_40
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	一歩上へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_01_00
+	_ANIME_DATA	AC_WALK_U_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	博士に道をゆずる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_11
+	_ANIME_DATA	AC_WAIT_8F,10
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_30
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_31
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	主人公の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_99
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	カバンの方へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_32
+	_ANIME_DATA	AC_WALK_U_8F,5
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	ポケモンの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_33
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	ポケモンの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_39
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	主人公の方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_34
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	サポートに道をゆずる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_35
+	_ANIME_DATA	AC_WAIT_8F,7
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	サポートを見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_41
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	主人公と向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_42
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	主人公と向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_43
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	湖から出る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_rival_51
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	一歩上へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_01_00
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	博士に道をゆずる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_11
+	_ANIME_DATA	AC_WAIT_8F,10
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	カバンの方へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_31
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,5
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ポケモンの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_33
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	サポートを見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_35
+	_ANIME_DATA	AC_WAIT_8F,5
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ポケモンの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_39
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	サポートを見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_41
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ライバルの方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_42
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ライバルと向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_43
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	湖から出る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_player_51
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//野生ポケモン	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_poke_01_01
+	_ANIME_DATA	AC_WALK_U_4F,6
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//野生ポケモン	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0101_poke_02_01
+	_ANIME_DATA	AC_WALK_L_4F,7
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/*d27r0102から移動*/
+
+/********************************************************************/
+/*								博士								*/
+/********************************************************************/
+ev_d27r0101_doctor:
+	_TALK_OBJ_START
+
+	/*会話した*/
+	_IF_FLAGON_JUMP	FE_D27R0101_DOCTOR_TALK,ev_d27r0101_doctor_02
+
+	_FLAG_SET		FE_D27R0101_DOCTOR_TALK
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_d27r0101_doctor_a_01
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*会話した*/
+ev_d27r0101_doctor_02:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_d27r0101_doctor_a_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							サポート								*/
+/********************************************************************/
+ev_d27r0101_support:
+	_TALK_OBJ_START
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,d27r0101_male_11	//サポート女
+	_JUMP			d27r0101_female_11					//サポート男
+
+//サポート女
+d27r0101_male_11:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_d27r0101_heroine_a_01
+	_JUMP			common_d27r0101_support
+
+//サポート男
+d27r0101_female_11:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_d27r0101_hero_a_01
+	_JUMP			common_d27r0101_support
+
+common_d27r0101_support:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/
+ev_d27r0101_l02_after:
+	_END
+
+/********************************************************************/
+/********************************************************************/
+ev_d27r0101_gkanbu:
+	_END
+
+

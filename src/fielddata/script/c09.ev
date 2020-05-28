@@ -1,0 +1,389 @@
+//====================================================================
+//					フィールド・シティ０９
+//						キッサキシティ
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c09.h"
+	.include	"../eventdata/zone_c09evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c09_flag_change
+_EVENT_DATA		ev_c09_woman4a
+_EVENT_DATA		pos_c09_woman4a
+_EVENT_DATA		ev_c09_gymleader
+_EVENT_DATA		ev_c09_woman4
+_EVENT_DATA		ev_c09_girl4
+_EVENT_DATA		ev_c09_girl4a
+_EVENT_DATA		ev_c09_boy4
+_EVENT_DATA		ev_c09_seaman
+_EVENT_DATA		ev_c09_sign1
+_EVENT_DATA		ev_c09_sign2
+_EVENT_DATA		ev_c09_ship
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c09_flag_change:
+	/*ジムリーダーイベント終了していたら*/
+	_IFVAL_JUMP		WK_SCENE_C09,GE,1,ev_c09_flag_change_leader
+	_END
+
+/*ジムリーダーイベント終了していたら*/
+ev_c09_flag_change_leader:
+	_FLAG_SET		FV_C09_GYMLEADER	//ジムリーダー消す
+	_END
+
+
+/********************************************************************/
+/*						ストッパー(POS)								*/
+/********************************************************************/
+pos_c09_woman4a:
+	_EVENT_START
+
+	/*左を向く*/
+	_OBJ_ANIME		C09_WOMAN4_02,anm_c09_woman4a_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c09_woman4a_01
+	_TALK_CLOSE
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c09_woman4a_02_pos
+
+	_JUMP			pos_c09_woman4a_90
+	_END
+
+pos_c09_woman4a_90:
+	/*下を向く*/
+	_OBJ_ANIME		C09_WOMAN4_02,anm_c09_woman4a_02
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c09_player_02
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+/*全国図鑑になっていたら*/
+ev_c09_woman4a_02_pos:
+	/*ゲームクリアしていなかったら*/
+	_IF_FLAGOFF_JUMP	SYS_FLAG_GAME_CLEAR,pos_c09_woman4a_90
+
+	_JUMP			ev_c09_gymleader_pos
+
+//--------------------------------------------------------------------
+//ストッパー　とめる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c09_woman4a_01
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c09_woman4a_02
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公　引き返す
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c09_player_02
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						ストッパー(会話)							*/
+/********************************************************************/
+ev_c09_woman4a:
+	_TALK_OBJ_START
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c09_woman4a_02
+
+	_JUMP			ev_c09_woman4a_stopper_talk
+
+ev_c09_woman4a_stopper_talk:
+	_TALKMSG	msg_c09_woman4a_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//全国図鑑完成していたら
+ev_c09_woman4a_02:
+	/*ゲームクリアしていなかったら*/
+	_IF_FLAGOFF_JUMP	SYS_FLAG_GAME_CLEAR,ev_c09_woman4a_stopper_talk
+
+	/*ジムリーダーが通してくれるイベント終了していなかったら*/
+	_IFVAL_JUMP		WK_SCENE_C09,EQ,0,ev_c09_gymleader_talk
+
+	_TALKMSG		msg_c09_woman4a_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*ジムリーダーが通してくれるイベント*/
+/********************************************************************/
+ev_c09_gymleader_talk:
+	_TALK_KEYWAIT	msg_c09_woman4a_01
+	_TALK_CLOSE
+	_CALL			ev_c09_gymleader_pass
+	_TALK_OBJ_END
+	_END
+
+ev_c09_gymleader_pos:
+	_CALL			ev_c09_gymleader_pass
+	_EVENT_END
+	_END
+
+ev_c09_gymleader_pass:
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	/*ジムリーダー登場*/
+	_FLAG_RESET		FV_C09_GYMLEADER
+	_OBJ_ADD		C09_GYMLEDER_01
+	_OBJ_ANIME		C09_GYMLEDER_01,anm_c09_gymleader_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c09_gymleader_01
+	_TALK_CLOSE
+
+	/*主人公と向きあう*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c09_player_20
+	_OBJ_ANIME		C09_WOMAN4_02,anm_c09_woman4a_20
+	_OBJ_ANIME_WAIT
+
+	_LDVAL			WK_SCENE_C09,1
+
+	_TALKMSG		msg_c09_gymleader_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_RET
+
+//--------------------------------------------------------------------
+//ストッパー　振り向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c09_woman4a_20
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公　振り向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c09_player_20
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ジムリーダー　登場
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c09_gymleader_01
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						ジムリーダー(会話)							*/
+/********************************************************************/
+ev_c09_gymleader:
+	_EASY_OBJ_MSG	msg_c09_gymleader_02
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c09_woman4:
+	_EASY_OBJ_MSG	msg_c09_woman4_01
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c09_girl4:
+	_EASY_OBJ_MSG	msg_c09_girl4_01
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c09_girl4a:
+	_EASY_OBJ_MSG	msg_c09_girl4a_01
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c09_boy4:
+	_TALK_OBJ_START
+
+	/*ジムリーダーイベント終了していたら*/
+	_IFVAL_JUMP		WK_SCENE_C09,GE,1,ev_c09_boy4_02
+	
+	_TALKMSG		msg_c09_boy4_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ジムリーダーイベント終了していたら*/
+ev_c09_boy4_02:
+	_TALKMSG		msg_c09_boy4_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c09_seaman:
+	_EASY_OBJ_MSG	msg_c09_seaman1_01
+	_END
+
+
+/********************************************************************/
+/*							タウンマップ							*/
+/********************************************************************/
+ev_c09_sign1:
+	_EASY_BOARD_MSG	msg_c09_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+/********************************************************************/
+/*							掲示板(ジム)							*/
+/********************************************************************/
+ev_c09_sign2:
+	_EASY_INFOBOARD_MSG	msg_c09_sign2_01,BOARD_TYPE_INFO,0
+	_END
+
+
+#define BLOCK_SIZE	(32)
+/********************************************************************/
+/*						船の船員									*/
+/********************************************************************/
+ev_c09_ship:
+	_TALK_OBJ_START
+	
+	/*ゲームクリアしていなかったら*/
+	_IF_FLAGOFF_JUMP	SYS_FLAG_GAME_CLEAR,ev_c09_ship_04
+
+	/*06.07.26 ゲームクリアのみに条件を変更*/
+	/*全国図鑑になっていなかったら*/
+	//_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	//_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c09_ship_04
+
+	_TALKMSG		msg_c09_seaman_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,0,ev_c09_ship_in
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c09_ship		/*「いいえ」*/
+	_END
+
+/*ゲームクリアしていない*/
+/*全国図鑑になっていない*/
+ev_c09_ship_04:
+	_TALKMSG		msg_c09_seaman_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「いいえ」*/
+no_c09_ship:
+	_TALKMSG		msg_c09_seaman_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//====================================================================
+//
+//		ファイトエリア
+//
+//====================================================================
+ev_c09_ship_in:
+	_TALK_KEYWAIT	msg_c09_seaman_02
+	_TALK_CLOSE
+
+	/*船員船へ*/
+	_CALL	ev_c09_seaman02_ship_in
+	/*主人公船へ*/
+	_CALL	ev_c09_player_ship_in	/*主人公移動（下→消える）*/
+	/*船デモ*/
+	_CALL_SHIP_DEMO	SHIP_DIR_RIGHT,DIR_UP,ZONE_ID_C11,BLOCK_SIZE*19+15,BLOCK_SIZE*13+18
+	_TALK_OBJ_END
+	_END
+
+//====================================================================
+//
+//		船員船に入る
+//
+//====================================================================
+ev_c09_seaman02_ship_in:
+	_OBJ_ANIME		C09_SEAMAN_02,anm_c09_ship_seaman_02
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		C09_SEAMAN_02,anm_c09_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//====================================================================
+//
+//		主人公船に入る（下向き）
+//
+//====================================================================
+ev_c09_player_ship_in:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c09_ship_player
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c09_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//船員　船のほう向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c09_ship_seaman_02
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//船員・主人公　船に入る（消える）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c09_ship_vanish_in
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公　船に入る（下向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c09_ship_player
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/********************************************************************/

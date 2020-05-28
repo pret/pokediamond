@@ -1,0 +1,639 @@
+//====================================================================
+//								hiden
+//							秘伝技スクリプト
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_hiden.h"
+
+
+//BADGE_ID_C04　　// いあいぎり
+//BADGE_ID_C07　　// そらをとぶ
+//BADGE_ID_C05　　// なみのり
+//BADGE_ID_C02　　// かいりき
+//BADGE_ID_C06　　// きりばらい
+//BADGE_ID_C03　　// いわくだき
+//BADGE_ID_C08　　// たきのぼり
+//BADGE_ID_C09　　// ロッククライム
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_hiden_iaigiri
+_EVENT_DATA		ev_hiden_iwakudaki
+_EVENT_DATA		ev_hiden_kairiki
+_EVENT_DATA		ev_hiden_kabenobori
+_EVENT_DATA		ev_hiden_naminori
+_EVENT_DATA		ev_hiden_kiriharai
+_EVENT_DATA		ev_hiden_takinobori
+_EVENT_DATA		ev_hiden_sorawotobu
+_EVENT_DATA		ev_hiden_iaigiri_menu
+_EVENT_DATA		ev_hiden_iwakudaki_menu
+_EVENT_DATA		ev_hiden_kairiki_menu
+_EVENT_DATA		ev_hiden_kabenobori_menu
+_EVENT_DATA		ev_hiden_naminori_menu
+_EVENT_DATA		ev_hiden_takinobori_menu
+_EVENT_DATA		ev_hiden_kiribarai_menu
+_EVENT_DATA		ev_hiden_flash_menu
+
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+//
+/*							いあいぎり								*/
+//
+/********************************************************************/
+#define EV_HIDEN_IAIGIRI_OBJDEL_WAIT	(7)
+ev_hiden_iaigiri:
+	_TALK_OBJ_START
+
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_IAIGIRI
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6, ev_hiden_iaigiri_ng
+
+	_SYS_FLAG_BADGE_GET		BADGE_ID_C04, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_hiden_iaigiri_ng
+
+	_TALKMSG		msg_iai_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_hiden_iaigiri_02
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end
+	_END
+
+//秘伝わざもっていない場合
+ev_hiden_iaigiri_ng:
+	_TALKMSG		msg_iai_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end
+	_END
+
+ev_hiden_iaigiri_02:
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_IAIGIRI
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+
+	_NICK_NAME		0,SCWK_ANSWER
+	_TALK_KEYWAIT	msg_iai_02
+	_TALK_CLOSE
+
+	_CUTIN			SCWK_TEMP0
+	
+	_HIDENEFF_START 0,SCWK_TEMP1	// SCWK_TEMP1に1が入ったらエフェクト終了
+	_TIME_WAIT		EV_HIDEN_IAIGIRI_OBJDEL_WAIT,SCWK_ANSWER
+
+	_OBJ_DEL		SCWK_TARGET_OBJID
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_IAIGIRI,SCWK_TEMP0,0,0,0
+
+ev_hiden_iaigiri_02_eff_end_loop:// エフェクトが終わるまで待つ
+	_TIME_WAIT		1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_TEMP1,EQ,0, ev_hiden_iaigiri_02_eff_end_loop
+
+	_JUMP			ev_hiden_end
+	_END
+
+
+//メニューからの「いあいぎり」発動
+ev_hiden_iaigiri_menu:
+	_EVENT_START
+
+	_NICK_NAME		0, SCWK_PARAM0
+	_TALKMSG		msg_iai_02
+	_TALK_CLOSE
+
+	_CUTIN			SCWK_PARAM0
+
+	_HIDENEFF_START 0,SCWK_TEMP1	// SCWK_TEMP1に1が入ったらエフェクト終了
+	_TIME_WAIT		EV_HIDEN_IAIGIRI_OBJDEL_WAIT,SCWK_ANSWER
+
+	_OBJ_DEL		SCWK_TARGET_OBJID
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_IAIGIRI,SCWK_TEMP0,0,0,0
+
+ev_hiden_iaigiri_menu_eff_end_loop:// エフェクトが終わるまで待つ
+	_TIME_WAIT		1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_TEMP1,EQ,0, ev_hiden_iaigiri_menu_eff_end_loop
+	_EVENT_END
+	_END
+
+
+
+/********************************************************************/
+//
+/*							いわくだき								*/
+//
+/********************************************************************/
+#define EV_HIDEN_IWAKUDAKI_OBJDEL_WAIT	(10)
+ev_hiden_iwakudaki:
+	_TALK_OBJ_START
+
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_IWAKUDAKI
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6, ev_hiden_iwakudaki_ng
+
+	_SYS_FLAG_BADGE_GET		BADGE_ID_C03, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_hiden_iwakudaki_ng
+
+	_TALKMSG		msg_iwa_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_hiden_iwakudaki_02
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end
+	_END
+
+//秘伝わざもっていない場合
+ev_hiden_iwakudaki_ng:
+	_TALKMSG		msg_iwa_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end
+	_END
+
+ev_hiden_iwakudaki_02:
+//	_TALK_CLOSE
+
+	_NICK_NAME		0,SCWK_TEMP0
+	_TALK_KEYWAIT	msg_iwa_03
+	_TALK_CLOSE
+
+	_CUTIN			SCWK_TEMP0
+
+	_HIDENEFF_START 1,SCWK_TEMP1	// SCWK_TEMP1に1が入ったらエフェクト終了
+	_TIME_WAIT		EV_HIDEN_IWAKUDAKI_OBJDEL_WAIT,SCWK_ANSWER
+
+	_OBJ_DEL		SCWK_TARGET_OBJID
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_IWAKUDAKI,SCWK_TEMP0,0,0,0
+
+ev_hiden_iwakudaki_02_eff_end_loop:// エフェクトが終わるまで待つ
+	_TIME_WAIT		1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_TEMP1,EQ,0, ev_hiden_iwakudaki_02_eff_end_loop
+
+	_JUMP			ev_hiden_end
+	_END
+
+
+//メニューから「いわくだき」発動
+ev_hiden_iwakudaki_menu:
+	_EVENT_START
+
+	_NICK_NAME		0,SCWK_PARAM0
+	_TALK_KEYWAIT	msg_iwa_03
+	_TALK_CLOSE
+
+	_CUTIN			SCWK_PARAM0
+
+	_HIDENEFF_START 1,SCWK_TEMP1	// SCWK_TEMP1に1が入ったらエフェクト終了
+	_TIME_WAIT		EV_HIDEN_IWAKUDAKI_OBJDEL_WAIT,SCWK_ANSWER
+	_OBJ_DEL		SCWK_TARGET_OBJID
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_IWAKUDAKI,SCWK_TEMP0,0,0,0
+
+ev_hiden_iwakudaki_menu_eff_end_loop:// エフェクトが終わるまで待つ
+	_TIME_WAIT		1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_TEMP1,EQ,0, ev_hiden_iwakudaki_menu_eff_end_loop
+	_EVENT_END
+	_END
+
+	
+
+/********************************************************************/
+//
+/*							かいりき								*/
+//
+/********************************************************************/
+ev_hiden_kairiki:
+	_TALK_OBJ_START
+
+	_SYS_FLAG_KAIRIKI_GET	SCWK_ANSWER		//かいりきフラグチェック
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_hiden_kairiki_already
+
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_KAIRIKI
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_hiden_kairiki_ng
+
+	_SYS_FLAG_BADGE_GET		BADGE_ID_C02, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_hiden_kairiki_ng
+
+	_TALKMSG		msg_kairiki_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_hiden_kairiki_02
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end
+	_END
+
+//秘伝わざもっていない場合
+ev_hiden_kairiki_ng:
+	_TALKMSG		msg_kairiki_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end
+	_END
+
+ev_hiden_kairiki_02:
+	_SYS_FLAG_KAIRIKI_SET			//かいりきフラグセット
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_KAIRIKI
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_NICK_NAME		0,SCWK_ANSWER
+	//_TALK_KEYWAIT	msg_kairiki_02
+	_TALK_KEYWAIT	msg_kairiki_05
+
+	_CUTIN			SCWK_TEMP0
+
+	_TALK_CLOSE		/* カットインでMSG用BGがクリアされている対処 */
+	_TALKMSG		msg_kairiki_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_KAIRIKI,SCWK_TEMP0,0,0,0
+
+	_JUMP			ev_hiden_end
+	_END
+
+//すでにかいりきをつかっている場合
+ev_hiden_kairiki_already:
+	_TALKMSG		msg_kairiki_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end
+	_END
+
+//メニューから「かいりき」発動
+ev_hiden_kairiki_menu:
+	_EVENT_START
+
+	_SYS_FLAG_KAIRIKI_GET	SCWK_ANSWER		//かいりきフラグチェック
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_hiden_kairiki_already
+
+	_SYS_FLAG_KAIRIKI_SET			//かいりきフラグセット
+
+	_NICK_NAME		0,SCWK_PARAM0
+	_TALKMSG		msg_kairiki_05
+	_TALK_CLOSE
+
+	_CUTIN			SCWK_PARAM0
+
+	_TALKMSG		msg_kairiki_06
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_KAIRIKI,SCWK_TEMP0,0,0,0
+
+	_JUMP			ev_hiden_end_event
+
+/********************************************************************/
+//
+/*							壁のぼり								*/
+//
+/********************************************************************/
+ev_hiden_kabenobori:
+	_TALK_START
+
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_ROKKUKURAIMU
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6, ev_hiden_kabenobori_ng
+
+	_SYS_FLAG_BADGE_GET		BADGE_ID_C09, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_hiden_kabenobori_ng
+
+	_SYS_FLAG_PAIR_GET		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1, ev_hiden_kabenobori_pair_ng
+	_TALKMSG		msg_rock_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_hiden_kabenobori_02
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end_bg
+	_END
+
+//秘伝わざもっていない場合
+ev_hiden_kabenobori_ng:
+	_TALKMSG		msg_rock_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end_bg
+	_END
+
+ev_hiden_kabenobori_pair_ng:
+	_TALKMSG		msg_rock_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end_bg
+	_END
+
+
+ev_hiden_kabenobori_02:
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_ROKKUKURAIMU
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_NICK_NAME		0,SCWK_ANSWER
+	_TALK_KEYWAIT	msg_rock_02
+	_TALK_CLOSE
+
+	//_CUTIN			SCWK_TEMP0
+	_KABENOBORI		SCWK_TEMP0
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_ROCKCLIMB,SCWK_TEMP0,0,0,0
+
+	_JUMP			ev_hiden_end_bg
+	_END
+
+//メニューから「ロッククライム」（旧称かべのぼり）発動
+ev_hiden_kabenobori_menu:
+	_EVENT_START
+	_NICK_NAME		0,SCWK_PARAM0
+	_TALK_KEYWAIT	msg_rock_02
+	_TALK_CLOSE
+
+	//_CUTIN			SCWK_PARAM0
+	_KABENOBORI		SCWK_PARAM0
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_ROCKCLIMB,SCWK_TEMP0,0,0,0
+
+	_EVENT_END
+	_END
+
+/********************************************************************/
+//
+/*								波のり								*/
+//
+/********************************************************************/
+ev_hiden_naminori:
+	_TALK_START
+
+//	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_NAMINORI
+//	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_hiden_naminori_ng
+
+//	_SYS_FLAG_BADGE_GET		BADGE_ID_C05, SCWK_ANSWER
+//	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_hiden_naminori_ng
+
+	_SYS_FLAG_PAIR_GET		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1, ev_hiden_naminori_pair_ng
+	_TALKMSG		msg_naminori_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_hiden_naminori_02
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end_bg
+	_END
+
+//秘伝わざもっていない場合
+//ev_hiden_naminori_ng:
+//	_TALKMSG		msg_naminori_03
+//	_LAST_KEYWAIT
+//	_TALK_CLOSE
+//	_JUMP			ev_hiden_end_bg
+//	_END
+ev_hiden_naminori_pair_ng:
+	_TALKMSG		msg_naminori_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end_bg
+
+
+ev_hiden_naminori_02:
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_NAMINORI
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_NICK_NAME		0,SCWK_ANSWER
+	_TALK_KEYWAIT	msg_naminori_02
+	_TALK_CLOSE
+
+	//_CUTIN			SCWK_TEMP0
+	_NAMINORI		SCWK_TEMP0
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_NAMINORI,SCWK_TEMP0,0,0,0
+
+	_JUMP			ev_hiden_end_bg
+	_END
+
+//めにゅーから「なみのり」発動
+ev_hiden_naminori_menu:
+	_EVENT_START
+	_NICK_NAME		0,SCWK_PARAM0
+	_TALK_KEYWAIT	msg_naminori_02
+	_TALK_CLOSE
+
+	_OBJ_PAUSE_CLEAR	FLDOBJ_ID_PLAYER
+
+	_NAMINORI		SCWK_PARAM0
+
+	_OBJ_PAUSE			FLDOBJ_ID_PLAYER
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_NAMINORI,SCWK_TEMP0,0,0,0
+
+	_EVENT_END
+	_END
+
+/********************************************************************/
+//
+/*							きりはらい(きりばらい)					*/
+//
+/********************************************************************/
+ev_hiden_kiriharai:
+	_TALK_START
+
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_KIRIBARAI
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_hiden_kiriharai_ng
+
+//	_SYS_FLAG_BADGE_GET		BADGE_ID_C06, SCWK_ANSWER
+//	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_hiden_kiriharai_ng
+
+	_TALKMSG		msg_kiri_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_hiden_kiri_02
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end_bg
+	_END
+
+//秘伝わざもっていない場合
+ev_hiden_kiriharai_ng:
+	_TALKMSG		msg_kiri_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end_bg
+	_END
+
+ev_hiden_kiri_02:
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER, WAZANO_KIRIBARAI
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_NICK_NAME		0,SCWK_ANSWER
+	_TALK_KEYWAIT	msg_kiri_02
+	_TALK_CLOSE
+
+	_CUTIN			SCWK_TEMP0
+	//_KIRIBARAI
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_KIRIBARAI,SCWK_TEMP0,0,0,0
+
+	_JUMP			ev_hiden_end_bg
+	_END
+
+//メニューからの「きりばらい」発動
+ev_hiden_kiribarai_menu:
+	_EVENT_START
+	_NICK_NAME		0,SCWK_PARAM0
+	_TALKMSG		msg_kiri_02
+	_TALK_CLOSE
+
+	_CUTIN			SCWK_PARAM0
+
+	_SYS_FLAG_KIRIBARAI_SET
+	_SE_PLAY		SE_KIRIBARAI
+	_HIDEN_KIRIBARAI
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_KIRIBARAI,SCWK_TEMP0,0,0,0
+
+	_JUMP			ev_hiden_end_event
+
+/********************************************************************/
+//
+//						フラッシュ
+//
+/********************************************************************/
+ev_hiden_flash_menu:
+	_EVENT_START
+	_NICK_NAME		0,SCWK_PARAM0
+	_TALKMSG		msg_flash_01
+	_TALK_CLOSE
+
+	_CUTIN			SCWK_PARAM0
+
+	_SYS_FLAG_FLASH_SET
+	_HIDEN_FLASH
+	_TIME_WAIT		42, SCWK_ANSWER
+
+	_JUMP			ev_hiden_end_event
+
+/********************************************************************/
+//
+//							共通処理
+//
+/********************************************************************/
+//共通終了(OBJ)
+ev_hiden_end:
+	_TALK_OBJ_END
+	_END
+
+//共通終了(BG)
+ev_hiden_end_bg:
+	_TALK_END
+	_END
+
+//共通終了(EVENT)
+ev_hiden_end_event:
+	_EVENT_END
+	_END
+
+
+/********************************************************************/
+//
+/*							たきのぼり								*/
+//
+/********************************************************************/
+ev_hiden_takinobori:
+	_TALK_START
+
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER,WAZANO_TAKINOBORI
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_hiden_takinobori_ng
+
+	_SYS_FLAG_BADGE_GET		BADGE_ID_C08, SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_hiden_takinobori_ng
+
+	_TALKMSG		msg_taki_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_hiden_takinobori_02
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end_bg
+	_END
+
+//秘伝わざもっていない場合
+ev_hiden_takinobori_ng:
+	_TALKMSG		msg_taki_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_JUMP			ev_hiden_end_bg
+	_END
+
+ev_hiden_takinobori_02:
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER,WAZANO_TAKINOBORI
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_NICK_NAME		0,SCWK_ANSWER
+	_TALK_KEYWAIT	msg_taki_02
+	_TALK_CLOSE
+
+	//_CUTIN			SCWK_TEMP0
+	_TAKINOBORI		SCWK_TEMP0
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_TAKINOBORI,SCWK_TEMP0,0,0,0
+
+	_JUMP			ev_hiden_end_bg
+	_END
+
+//メニューから「たきのぼり」発動
+ev_hiden_takinobori_menu:
+	_EVENT_START
+	_NICK_NAME		0,SCWK_PARAM0
+	_TALK_KEYWAIT	msg_taki_02
+	_TALK_CLOSE
+
+
+	_OBJ_PAUSE_CLEAR	FLDOBJ_ID_PLAYER
+	//_CUTIN			SCWK_PARAM0
+	_TAKINOBORI		SCWK_PARAM0
+
+	_OBJ_PAUSE			FLDOBJ_ID_PLAYER
+
+	_GET_NOW_ZONE_ID	SCWK_TEMP0
+	_FNOTE_DATA_MAKE	FNOTE_ID_TAKINOBORI,SCWK_TEMP0,0,0,0
+
+	_EVENT_END
+	_END
+
+
+/********************************************************************/
+//
+/*							そらをとぶ								*/
+//
+/********************************************************************/
+ev_hiden_sorawotobu:
+#if 0
+	_EVENT_START
+
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER,WAZANO_SORAWOTOBU
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_hiden_sorawotobu_ng
+
+	/*使用*/
+	_CHK_POKE_WAZA_GROUP	SCWK_ANSWER,WAZANO_SORAWOTOBU
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+	_NICK_NAME		0,SCWK_ANSWER
+	_TALK_KEYWAIT	msg_taki_02
+	_TALK_CLOSE
+
+	/*カットイン*/
+	//_CUTIN			SCWK_TEMP0
+
+	/*そらをとぶ*/
+	//_SORAWOTOBU		SCWK_TEMP0
+
+	_JUMP			ev_hiden_end_event
+	_END
+
+//秘伝わざもっていない場合
+ev_hiden_sorawotobu_ng:
+	_JUMP			ev_hiden_end_event
+#endif
+	_END
+
+

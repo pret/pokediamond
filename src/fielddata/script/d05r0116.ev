@@ -1,0 +1,175 @@
+//====================================================================
+//								d05r0116
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d05r0116.h"
+	.include	"../eventdata/zone_d05r0116evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d05r0116_init_change
+_EVENT_DATA		pos_d05r0116_legend_01
+_EVENT_DATA		ev_d05r0116_flag_change
+_EVENT_DATA		ev_d05r0116_legend_01
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d05r0116_flag_change:
+	//エンカウントpos出現
+//	_LDVAL		WK_SCENE_D05R0116,1
+	_END
+
+ev_d05r0116_init_change:
+	_IF_FLAGON_JUMP	FE_INIT_CHANGE_OBJ_DEL,ev_d05r0116_init_change_obj_del
+	_END
+
+ev_d05r0116_init_change_obj_del:
+	_FLAG_SET		FV_D05R0116_LEGEND
+	_OBJ_DEL		D05R0116_LEGEND_01
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_END
+
+/********************************************************************/
+/*	アウスイベント開始											*/
+/********************************************************************/
+ev_d05r0116_legend_01:
+pos_d05r0116_legend_01:
+	_EVENT_START
+
+	//エンカウントシーンリセット(posフック)
+	_LDVAL			WK_SCENE_D05R0116,0
+
+	/*！マーク表示*/
+	_CALL			ev_d05r0116_anm_player_gyoe
+
+	//自機オート移動開始
+	_CALL			ev_d05r0116_anm_player_move
+	
+	//アウス鳴き声
+	_VOICE_PLAY		MONSNO_AUSU,0		
+	_VOICE_WAIT
+	
+	//自機オート移動開始2
+	_CALL			ev_d05r0116_anm_player_move2
+	
+	//アウスエンカウント
+	_VOICE_PLAY		MONSNO_AUSU,0		
+	_TALK_KEYWAIT	msg_d05r0116_sppoke6_01
+	_TALK_CLOSE
+
+	//戦闘開始
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	MONSNO_AUSU,80
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+
+	_LOSE_CHECK			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d05r0116_legend_lose
+	_HAIFU_POKE_RETRY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d05r0116_legend_capture_ng
+
+//アウス捕まえたor倒した
+ev_d05r0116_legend_event_clear:
+	//クリアフラグon
+	_FLAG_SET			FE_D05R0116_LEGEND_CLEAR
+	_EVENT_END
+	_END
+
+//アウス逃した
+ev_d05r0116_legend_capture_ng:
+	_TALKMSG			msg_d05r0116_sppoke6_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	//もう一回来たらいる
+	_FLAG_RESET			FV_D05R0116_LEGEND
+	_EVENT_END
+	_END
+
+//全滅
+ev_d05r0116_legend_lose:
+	//もう一回来たらいる
+	_FLAG_RESET			FV_D05R0116_LEGEND
+	_NORMAL_LOSE	
+	_EVENT_END
+	_END
+
+
+/********************************************************************/
+/*	自機！マーク表示アニメ											*/
+/********************************************************************/
+ev_d05r0116_anm_player_gyoe:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d05r0116_player_gyoe
+	_OBJ_ANIME_WAIT
+	_RET
+
+/*自機！マーク表示*/
+_ANIME_LABEL	anm_d05r0116_player_gyoe
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*	POS自機移動アニメ												*/
+/********************************************************************/
+ev_d05r0116_anm_player_move:
+	//X座標によってアニメ分岐
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+
+	_SWITCH			SCWK_TEMP0
+	_CASE_JUMP		30,ev_d05r0116_anm_player_move_l
+	_CASE_JUMP		31,ev_d05r0116_anm_player_move_m
+	_CASE_JUMP		32,ev_d05r0116_anm_player_move_r
+ev_d05r0116_anm_player_move_end:
+	_RET
+
+ev_d05r0116_anm_player_move_l:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d05r0116_player_move_l
+	_OBJ_ANIME_WAIT
+	_JUMP			ev_d05r0116_anm_player_move_end
+	_END
+ev_d05r0116_anm_player_move_m:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d05r0116_player_move_m
+	_OBJ_ANIME_WAIT
+	_JUMP			ev_d05r0116_anm_player_move_end
+	_END
+ev_d05r0116_anm_player_move_r:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d05r0116_player_move_r
+	_OBJ_ANIME_WAIT
+	_JUMP			ev_d05r0116_anm_player_move_end
+	_END
+
+ev_d05r0116_anm_player_move2:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d05r0116_player_move_c
+	_OBJ_ANIME_WAIT
+	_RET
+
+//自機移動パターン
+_ANIME_LABEL	anm_d05r0116_player_move_l
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_WALK_R_8F,1
+//	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d05r0116_player_move_m
+//	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d05r0116_player_move_r
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,1
+//	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_d05r0116_player_move_c
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0

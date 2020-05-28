@@ -1,0 +1,279 @@
+//====================================================================
+//								c10r0113
+//
+//	LOCALWORK3	強制イベント発動
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c10r0113.h"
+	.include	"../eventdata/zone_c10r0113evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c10r0113_dendou
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_c10r0113_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+#define SCR_C10R0113_FADE_SYNC	(SCR_WIPE_SYNC*3)
+
+ev_c10r0113_dendou:
+	_EVENT_START
+
+	/*上に移動*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0113_player_200
+	_OBJ_ANIME_WAIT
+
+	/*見渡す*/
+	_OBJ_ANIME		C10R0113_DOCTOR,anm_c10r0113_doctor_120
+	_OBJ_ANIME_WAIT
+
+	/*殿堂入り記録あるかでメッセージ分岐*/
+	_DENDOU_NUM_GET	SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,EQ,0,c10r0113_dendou_on
+	_IFVAL_CALL		SCWK_ANSWER,NE,0,c10r0113_dendou_off
+
+	_TALK_CLOSE
+
+	/*下を向く*/
+	_OBJ_ANIME		C10R0113_DOCTOR,anm_c10r0113_doctor_100
+	_OBJ_ANIME		C10R0113_CHAMP,anm_c10r0113_champ_100
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c10r0113_dendou_male
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c10r0113_dendou_female
+	_END
+	
+c10r0113_dendou_male:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c10r0113_champion_03
+	_JUMP			common_c10r0113_dendou
+
+c10r0113_dendou_female:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c10r0113_champion_04
+	_JUMP			common_c10r0113_dendou
+
+/*共通処理*/
+common_c10r0113_dendou:
+	_TALK_CLOSE
+
+	/*移動*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0113_player_01
+	_OBJ_ANIME		C10R0113_DOCTOR,anm_c10r0113_doctor_01
+	_OBJ_ANIME		C10R0113_CHAMP,anm_c10r0113_champ_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c10r0113_champion_05
+	_TALK_CLOSE
+
+	_FLAG_SET		SYS_FLAG_BS_LV4
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,c10r0113_zenkoku_zukan_open
+
+	/*ワークに初回をセット*/
+	_IFVAL_CALL		WK_SCENE_DENDOU,EQ,0,c10r0113_dendou_wk
+
+	/*殿堂ボールアニメ*/
+	_GET_POKE_COUNT		SCWK_ANSWER
+	_DENDOU_BALL_ANM	SCWK_ANSWER
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_C10R0113_FADE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_ADD_SCORE		SCORE_ID_DENDOU
+	_RECORD_INC		RECID_DENDOU_CNT
+
+	/*殿堂入り呼び出し前にフラグをセットする*/
+	_CALL			ev_c10r0113_game_clear_timing_flag_set
+
+	_DENDOU_SET_PROC								//殿堂呼び出し
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_EVENT_END
+	_END
+
+/*ワークに初回をセット*/
+c10r0113_dendou_wk:
+	_LDVAL			WK_SCENE_DENDOU,1
+	_RET
+
+/*全国図鑑になっていたら*/
+c10r0113_zenkoku_zukan_open:
+	/*L04マップがオープンする*/
+	_HIDEMAP_STATE_CHG		HIDEMAP_ID_L04,1
+	_RET
+
+/*殿堂入り記録あり*/
+c10r0113_dendou_on:
+	_TALK_KEYWAIT	msg_c10r0113_doctor_01
+	_TALK_KEYWAIT	msg_c10r0113_champion_01
+	_RET
+
+/*殿堂入り記録なし*/
+c10r0113_dendou_off:
+	_TALK_KEYWAIT	msg_c10r0113_doctor_02
+	_TALK_KEYWAIT	msg_c10r0113_champion_02
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	上に移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0113_player_200
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0113_player_01
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	見渡す
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0113_doctor_120
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0113_doctor_100
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0113_doctor_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0113_champ_100
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//チャンピオン	移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c10r0113_champ_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*				ゲームクリアした時のフラグ操作						*/
+/********************************************************************/
+ev_c10r0113_game_clear_timing_flag_set:
+
+	/*
+	 ゲームクリア時にまとめて処理するコマンドをここにまとめてます
+	*/
+
+	/*育て屋*/
+	_FLAG_RESET			FV_T04R0101_SUNGLASSES
+
+	_FLAG_RESET			SYS_FLAG_BGM_C10
+
+	//イア(エア)再戦
+	_IF_FLAGOFF_CALL	FE_D05R0114_SPPOKE_GET,ev_d05r0114_legend_retry_ok
+
+	//ヒードラン再戦
+	_IF_FLAGOFF_CALL	FE_D16R0103_LEGEND_CLEAR,ev_d16r0103_legend_retry_ok
+
+	//レジキング再戦
+	_IF_FLAGOFF_CALL	FE_D20R0106_LEGEND_CLEAR,ev_d20r0106_legend_retry_ok
+
+	//ハイ再戦
+	_IF_FLAGOFF_CALL	FE_D28R0103_LEGEND_CLEAR,ev_d28r0103_legend_retry_ok
+
+	//レイ再戦
+	_IF_FLAGOFF_CALL	FE_D29R0103_LEGEND_CLEAR,ev_d29r0103_legend_retry_ok
+
+	//主人公の家から再開する時のママとの会話発動キー
+	_IFVAL_CALL			WK_SCENE_T01R0201_GAME_CLEAR,EQ,0,ev_c10r0113_game_clear_t01r0201
+
+	/*T02のサポート*/
+	_FLAG_RESET			FV_T02_SUPPORT
+
+	_RET
+
+//--------------------------------------------------------------------
+//一度のみイベント発生に変更(06.07.30)
+//--------------------------------------------------------------------
+ev_c10r0113_game_clear_t01r0201:
+	_LDVAL				WK_SCENE_T01R0201_GAME_CLEAR,1
+	_RET
+
+//イア(エア)再戦OK
+ev_d05r0114_legend_retry_ok:
+	_LDVAL				WK_SCENE_D05R0114, 5	/* SCENE_D05R0114_SPPOKE_RETRY */
+	_DEBUG_WATCH_WORK	WK_SCENE_D05R0114
+	_FLAG_RESET			FV_D05R0114_SPPOKE_01
+	_RET
+
+//ヒードラン再戦OK
+ev_d16r0103_legend_retry_ok:
+	//解放フラグが立っていないときは、再戦状態にしない
+	_IF_FLAGOFF_JUMP	FE_D16R0103_LEGEND_UNSEAL,ev_d16r0103_legend_retry_ng
+	_FLAG_RESET			FV_D16R0103_HIIDORAN
+	//シーンが1だと再戦OK
+	_LDVAL				WK_SCENE_D16R0103,1
+ev_d16r0103_legend_retry_ng:
+	_RET
+
+//レジキング再戦OK
+ev_d20r0106_legend_retry_ok:
+	//全国図鑑フラグONでないとダメ
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d20r0106_legend_retry_ng
+	_FLAG_RESET			FV_D20R0106_LEGEND
+ev_d20r0106_legend_retry_ng:
+	_RET
+
+//ハイ再戦OK
+ev_d28r0103_legend_retry_ok:
+	_FLAG_RESET		FV_D28R0103_HAI
+	_RET
+
+//レイ再戦OK
+ev_d29r0103_legend_retry_ok:
+	_FLAG_RESET		FV_D29R0103_REI
+	_RET
+
+

@@ -1,0 +1,151 @@
+//====================================================================
+//								w226r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_w226r0101.h"
+	//.include	"../eventdata/zone_w226r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_w226r0101_flag_change
+_EVENT_DATA		ev_w226r0101_obj
+_EVENT_DATA		ev_w226r0101_poster
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_w226r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_W226R0101	//到着
+	_END
+
+
+/********************************************************************/
+/*																	*/
+//
+//	SCWK_TEMP0	手持ち位置
+//	SCWK_TEMP1	手持ち位置のポケモンナンバー
+//
+/********************************************************************/
+ev_w226r0101_obj:
+	_TALK_OBJ_START
+
+	//交換済み
+	_IF_FLAGON_JUMP	FE_W226R0101_POKE_CHG,ev_pokechange_w226r0101_obj_end
+
+	/*機能拡張していたら*/
+	_IF_FLAGON_JUMP	FE_W226R0101_ZUKAN,ev_w226r0101_obj_02
+
+	_TALK_KEYWAIT	msg_w226r0101_01_01
+	
+	_ZUKAN_TEXT_VER_UP
+	_FLAG_SET		FE_W226R0101_ZUKAN
+
+	_TALKMSG		msg_w226r0101_01_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*機能拡張していたら*/
+ev_w226r0101_obj_02:
+	_TALKMSG		msg_w226r0101_01_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_pokechange_w226r0101_obj_yes_01
+	_JUMP			ev_pokechange_w226r0101_obj_no_01
+
+//「はい」
+ev_pokechange_w226r0101_obj_yes_01:
+	_TALK_CLOSE
+
+	//ポケモン選択
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_NPC_TRADE_POKELIST_SET_PROC
+	//選択したポケモンの並び番号取得
+	_POKELIST_GET_RESULT	SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルされた？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0xff,ev_pokechange_w226r0101_obj_no_01
+
+	/*開放必要なので忘れずに！*/
+	_FLD_TRADE_ALLOC	FLD_TRADE_KOIKING
+
+	/*手持ちナンバー退避*/
+	_LDWK				SCWK_TEMP0,SCWK_ANSWER
+
+	/*手持ちナンバーから、ポケモンナンバー取得*/
+	_TEMOTI_MONSNO		SCWK_TEMP0,SCWK_TEMP1
+
+	/*要求されているポケモンナンバーを取得*/
+	_FLD_TRADE_CHG_MONSNO	SCWK_ANSWER
+
+	/*要求されているポケモンを選択したかチェック*/
+	_IFWK_JUMP		SCWK_TEMP1,NE,SCWK_ANSWER,ev_pokechange_w226r0101_obj_different
+
+	/*ポケモン交換デモ*/
+	_FLD_TRADE_EVENT	SCWK_TEMP0
+
+	/*開放*/
+	_FLD_TRADE_DEL
+
+	_FLAG_SET		FE_W226R0101_POKE_CHG
+
+	_TALKMSG	msg_w226r0101_01_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//違うポケモン
+ev_pokechange_w226r0101_obj_different:
+	/*開放*/
+	_FLD_TRADE_DEL
+
+	_TALKMSG	msg_w226r0101_01_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「いいえ」
+ev_pokechange_w226r0101_obj_no_01:
+	_TALKMSG	msg_w226r0101_01_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//交換終了後
+ev_pokechange_w226r0101_obj_end:
+	_TALKMSG	msg_w226r0101_01_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+//
+/********************************************************************/
+ev_w226r0101_poster:
+	_EASY_MSG		msg_w226r0101_02_01
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

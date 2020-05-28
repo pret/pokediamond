@@ -1,0 +1,8 @@
+/.cvsignore////*///
+/g3_texset////*///
+/g3list////*///
+/g3listmk.rb////*///
+/makefile////*///
+/map_tex_set.narc////*///
+/tex_list.txt////*///
+/texset_cmb.rb////*///

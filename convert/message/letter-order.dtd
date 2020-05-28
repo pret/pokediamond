@@ -1,0 +1,30 @@
+<!ELEMENT letter-order (head, body)>
+<!ATTLIST letter-order version CDATA #REQUIRED>
+
+	<!ELEMENT head (create | title | comment | generator)*>
+
+		<!ELEMENT create EMPTY>
+		<!ATTLIST create user CDATA #IMPLIED>
+		<!ATTLIST create host CDATA #IMPLIED>
+		<!ATTLIST create date CDATA #IMPLIED>
+		<!ATTLIST create source CDATA #IMPLIED>
+
+		<!ELEMENT title (#PCDATA)>
+
+		<!ELEMENT comment (#PCDATA)>
+
+		<!ELEMENT generator EMPTY>
+		<!ATTLIST generator name CDATA #REQUIRED>
+		<!ATTLIST generator version CDATA #REQUIRED>
+
+	<!ELEMENT body (area?, order+)>
+	
+		<!ELEMENT area EMPTY>
+		<!ATTLIST area width CDATA "16">
+		<!ATTLIST area height CDATA #IMPLIED>
+
+		<!ELEMENT order (#PCDATA | sp | null)*>
+
+			<!ELEMENT sp EMPTY>
+
+			<!ELEMENT null EMPTY>

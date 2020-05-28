@@ -1,0 +1,339 @@
+//====================================================================
+//						group.gmm
+//						グループ
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_group.h"
+	.include	"../eventdata/zone_c01evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+#include	"../../field/scr_group.h"
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+	.macro	_GROUP_EXIST_CHECK	gid, ret_wk
+	.short	EV_SEQ_GROUP
+	.short	GROUP_COMMAND_EXIST_CHECK
+	.short	\gid
+	.short	\ret_wk
+	.endm
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+	.macro	_GROUP_ENTRY_CHECK	gid, ret_wk
+	.short	EV_SEQ_GROUP
+	.short	GROUP_COMMAND_ENTRY_CHECK
+	.short	\gid
+	.short	\ret_wk
+	.endm
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+	.macro	_GROUP_NAME		gid, idx
+	.short	EV_SEQ_GROUP
+	.short	GROUP_COMMAND_GET_GROUP_NAME
+	.short	\gid
+	.short	\idx
+	.endm
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+	.macro	_GROUP_LEADER_NAME	gid, idx
+	.short	EV_SEQ_GROUP
+	.short	GROUP_COMMAND_GET_LEADER_NAME
+	.short	\gid
+	.short	\idx
+	.endm
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+	.macro	_GROUP_NAME_IN	wk
+	.short	EV_SEQ_GROUP
+	.short	GROUP_COMMAND_NAMEIN
+	.short	\wk
+	.endm
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+	.macro	_GROUP_ENTRY	wk
+	.short	EV_SEQ_GROUP
+	.short	GROUP_COMMAND_ENTRY
+	.short	\wk
+	.endm
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+	.macro	_GROUP_MAKE
+	.short	EV_SEQ_GROUP
+	.short	GROUP_COMMAND_MAKEGROUP
+	.endm
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_group
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						グループ加入（活発少年）					*/
+/********************************************************************/
+ev_group:
+	_TALK_OBJ_START
+
+	_GROUP_EXIST_CHECK	GROUP_ID_MYUSE, SCWK_ANSWER		//所属グループの有無
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_group_not_entry
+
+	//　やあ！ちょうしは…
+	//
+	_CALL		sub_group_select_check
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_group_3
+	_JUMP				ev_group_2
+
+ev_group_3:
+	_GROUP_LEADER_NAME	GROUP_ID_MYUSE,	0
+	_GROUP_NAME			GROUP_ID_MYUSE,	1
+	_TALKMSG			msg_group_01
+	_JUMP				ev_group_command_3
+
+ev_group_2:
+	_GROUP_LEADER_NAME	GROUP_ID_MYUSE,	0
+	_GROUP_NAME			GROUP_ID_MYUSE,	1
+	_TALKMSG			msg_group_11
+	_JUMP				ev_group_command_2
+
+
+/********************************************************************/
+/********************************************************************/
+ev_group_no_group:
+	_END
+
+ev_group_not_entry:
+	//　ねえねえとつぜんだけど…
+	_TALKMSG		msg_group_02
+
+ev_group_command:
+	_CALL		sub_group_select_check
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_group_command_3
+	_JUMP				ev_group_command_2
+
+ev_group_command_2:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_TEMP0
+	_BMPMENU_MAKE_LIST	msg_group_select_01, 1
+	_BMPMENU_MAKE_LIST	msg_group_select_03, 3
+	_BMPMENU_MAKE_LIST	msg_group_select_04, 4
+	_BMPMENU_START
+	_JUMP				ev_group_command_result_check
+
+ev_group_command_3:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_TEMP0
+	_BMPMENU_MAKE_LIST	msg_group_select_01, 1
+	_BMPMENU_MAKE_LIST	msg_group_select_02, 2
+	_BMPMENU_MAKE_LIST	msg_group_select_03, 3
+	_BMPMENU_MAKE_LIST	msg_group_select_04, 4
+	_BMPMENU_START
+
+ev_group_command_result_check:
+	_SWITCH		SCWK_TEMP0
+	_CASE_JUMP	1, ev_group_make_group_check
+	_CASE_JUMP	2, ev_group_select
+	_CASE_JUMP	3, ev_group_guide_msg
+	_CASE_JUMP	4, ev_group_cancel
+	_JUMP		ev_group_cancel
+
+
+sub_group_select_check:
+	_GROUP_EXIST_CHECK	GROUP_ID_MINE, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,sub_group_select_check0
+	_GROUP_ENTRY_CHECK	GROUP_ID_MINE, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,sub_group_select_check_ok
+
+sub_group_select_check0:
+	_GROUP_EXIST_CHECK	GROUP_ID_DATA0, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,sub_group_select_check1
+	_GROUP_ENTRY_CHECK	GROUP_ID_DATA0, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,sub_group_select_check_ok
+
+sub_group_select_check1:
+	_GROUP_EXIST_CHECK	GROUP_ID_DATA1, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,sub_group_select_check2
+	_GROUP_ENTRY_CHECK	GROUP_ID_DATA1, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,sub_group_select_check_ok
+
+sub_group_select_check2:
+	_GROUP_EXIST_CHECK	GROUP_ID_DATA2, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,sub_group_select_check3
+	_GROUP_ENTRY_CHECK	GROUP_ID_DATA2, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,sub_group_select_check_ok
+
+sub_group_select_check3:
+	_GROUP_EXIST_CHECK	GROUP_ID_DATA3, SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,sub_group_select_check_ng
+
+sub_group_select_check_ok:
+	_LDVAL				SCWK_ANSWER,	1
+	_RET
+
+sub_group_select_check_ng:
+	_LDVAL				SCWK_ANSWER,	0
+	_RET
+
+/********************************************************************/
+/********************************************************************/
+ev_group_make_group_check:
+	_GROUP_EXIST_CHECK	GROUP_ID_MINE,SCWK_ANSWER		//自分作成グループの有無
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_group_make_group
+
+	//　グループをつくるんだね！
+	//　まえに　つくった　グループは
+	//　なくなって　しまうけど　いい？
+	_TALKMSG			msg_group_05
+	_YES_NO_WIN			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,NE,0,ev_group_cancel
+
+ev_group_make_group:
+	//　ワクワク！　じゃあ
+	//　グループの　なまえ　かんがえて！
+	_TALKMSG			msg_group_06
+	_AB_KEYWAIT
+	_BLACK_OUT			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TALK_CLOSE
+
+	//名前入力
+	_GROUP_NAME_IN		SCWK_ANSWER
+	_BLACK_IN			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_group_cancel
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,2,ev_group_namein_same
+
+	_GROUP_MAKE				//グループ名以外のパラメータを設定
+	//　～グループだね！
+	//　うん　いい　なまえ！
+	//　リーダーは　～だからね！
+	//　なかまが　ふえると　いいね！
+	_GROUP_NAME			GROUP_ID_MINE,0
+	_GROUP_LEADER_NAME	GROUP_ID_MINE,1
+	_TALKMSG			msg_group_07
+	_LAST_KEYWAIT
+	_JUMP				ev_group_end
+
+ev_group_namein_same:
+	_TALKMSG		msg_group_13
+	_LAST_KEYWAIT
+	_JUMP			ev_group_end
+
+
+/********************************************************************/
+/********************************************************************/
+ev_group_select:
+	//　どのグループに　はいりたい？
+	_TALKMSG			msg_group_03
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_TEMP0
+
+ev_group_select_group_mine:
+	_GROUP_EXIST_CHECK	GROUP_ID_MINE,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0, ev_group_select_group_01
+	_GROUP_ENTRY_CHECK	GROUP_ID_MINE,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1, ev_group_select_group_01
+
+	_GROUP_NAME			GROUP_ID_MINE,0
+	_BMPMENU_MAKE_LIST	msg_group_select_05, GROUP_ID_MINE
+
+ev_group_select_group_01:
+	_GROUP_EXIST_CHECK	GROUP_ID_DATA0,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0, ev_group_select_group_02
+	_GROUP_ENTRY_CHECK	GROUP_ID_DATA0,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1, ev_group_select_group_02
+
+	_GROUP_NAME			GROUP_ID_DATA0,1
+	_BMPMENU_MAKE_LIST	msg_group_select_06, GROUP_ID_DATA0
+
+ev_group_select_group_02:
+	_GROUP_EXIST_CHECK	GROUP_ID_DATA1,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0, ev_group_select_group_03
+	_GROUP_ENTRY_CHECK	GROUP_ID_DATA1,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1, ev_group_select_group_03
+
+	_GROUP_NAME			GROUP_ID_DATA1,2
+	_BMPMENU_MAKE_LIST	msg_group_select_07, GROUP_ID_DATA1
+
+ev_group_select_group_03:
+	_GROUP_EXIST_CHECK	GROUP_ID_DATA2,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0, ev_group_select_group_04
+	_GROUP_ENTRY_CHECK	GROUP_ID_DATA2,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1, ev_group_select_group_04
+
+	_GROUP_NAME			GROUP_ID_DATA2,3
+	_BMPMENU_MAKE_LIST	msg_group_select_08, GROUP_ID_DATA2
+
+ev_group_select_group_04:
+	_GROUP_EXIST_CHECK	GROUP_ID_DATA3,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0, ev_group_select_group_05
+	_GROUP_ENTRY_CHECK	GROUP_ID_DATA3,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1, ev_group_select_group_05
+
+	_GROUP_NAME			GROUP_ID_DATA3,4
+	_BMPMENU_MAKE_LIST	msg_group_select_09, GROUP_ID_DATA3
+
+ev_group_select_group_05:
+	_BMPMENU_MAKE_LIST	msg_group_select_10, GROUP_ID_MAX
+	_BMPMENU_START
+
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,GROUP_ID_MAX, ev_group_cancel
+	_IFVAL_JUMP			SCWK_TEMP0,EQ,EV_WIN_B_CANCEL,ev_group_cancel
+
+ev_group_entry_check:
+	//　～グループだね！
+	//　～がリーダーだよ！
+	//　この　グループに　はいる？
+	_GROUP_NAME			SCWK_TEMP0, 0
+	_GROUP_LEADER_NAME	SCWK_TEMP0, 1
+	_TALKMSG			msg_group_08
+	_YES_NO_WIN			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,NE,0,ev_group_select
+
+
+	//グループに登録
+	_GROUP_ENTRY		SCWK_TEMP0
+
+	//　じゃ　～は　きょうから
+	//　～グループの　メンバーだ！
+	_PLAYER_NAME		0
+	_GROUP_NAME			SCWK_TEMP0, 1
+	_TALKMSG			msg_group_09
+	_LAST_KEYWAIT
+
+	_JUMP		ev_group_end
+	
+
+
+/********************************************************************/
+/********************************************************************/
+ev_group_guide_msg:
+	_TALKMSG		msg_group_10
+	_AB_KEYWAIT
+	_JUMP			ev_group_command
+
+
+/********************************************************************/
+/********************************************************************/
+ev_group_cancel:
+	_TALKMSG		msg_group_04
+	_LAST_KEYWAIT
+
+ev_group_end:
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+
+
+
+

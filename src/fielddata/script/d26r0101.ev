@@ -1,0 +1,212 @@
+//====================================================================
+//								d26r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d26r0101.h"
+	.include	"../eventdata/zone_d26r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d26r0101_flag_change
+_EVENT_DATA		ev_d26r0101_gingaw
+_EVENT_DATA		ev_d26r0101_gingam1
+_EVENT_DATA		ev_d26r0101_gingaw1
+_EVENT_DATA		ev_d26r0101_assistantm
+_EVENT_DATA		ev_d26r0101_door
+_EVENT_DATA		ev_d26r0101_paper1
+_EVENT_DATA		ev_d26r0101_gkanbu
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d26r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D26R0101	//到着
+	_END
+
+
+/********************************************************************/
+/*							ギンガ団								*/
+/********************************************************************/
+ev_d26r0101_gingaw:
+	_TALK_OBJ_START
+
+	/*テンガンザンクリア後*/
+	_IF_FLAGON_JUMP		FE_D05R0114_CLEAR,ev_d26r0101_gingaw_02
+
+	_TALKMSG			msg_d26r0101_gingaw_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*テンガンザンクリア後*/
+ev_d26r0101_gingaw_02:
+	_TALKMSG			msg_d26r0101_gingaw_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							ギンガ団								*/
+/********************************************************************/
+ev_d26r0101_gingam1:
+	_TALK_OBJ_START
+
+	/*テンガンザンクリア後*/
+	_IF_FLAGON_JUMP		FE_D05R0114_CLEAR,ev_d26r0101_gingam_02
+
+	_TALKMSG			msg_d26r0101_gingam1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*テンガンザンクリア後*/
+ev_d26r0101_gingam_02:
+	_TALKMSG			msg_d26r0101_gingam1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							ギンガ団								*/
+/********************************************************************/
+ev_d26r0101_gingaw1:
+	_TALK_OBJ_START
+
+	/*テンガンザンクリア後*/
+	_IF_FLAGON_JUMP		FE_D05R0114_CLEAR,ev_d26r0101_gingaw1_02
+
+	_TALKMSG			msg_d26r0101_gingaw1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*テンガンザンクリア後*/
+ev_d26r0101_gingaw1_02:
+	_TALKMSG			msg_d26r0101_gingaw1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							研究員									*/
+/********************************************************************/
+ev_d26r0101_assistantm:
+	_TALK_OBJ_START
+
+	/*テンガンザンクリア後*/
+	_IF_FLAGON_JUMP		FE_D05R0114_CLEAR,ev_d26r0101_assistantm_02
+
+	_TALKMSG			msg_d26r0101_assistantm_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*テンガンザンクリア後*/
+ev_d26r0101_assistantm_02:
+	_TALKMSG			msg_d26r0101_assistantm_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+
+/********************************************************************/
+/*							サターン								*/
+/********************************************************************/
+ev_d26r0101_gkanbu:
+	_EASY_OBJ_MSG		msg_d26r0107_gkanbu_01
+	_END
+
+
+/********************************************************************/
+/*								扉									*/
+/********************************************************************/
+ev_d26r0101_door:
+	_TALK_OBJ_START
+
+	/*「ギンガだんのカギ」をもっている？*/
+	_ITEM_CHK	ITEM_GINGADANNOKAGI,1,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,TRUE,ev_d26r0101_door_02
+	
+	_TALKMSG		msg_d26r0101_door_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「ギンガだんのカギ」をもっている？*/
+ev_d26r0101_door_02:
+	_TALKMSG		msg_d26r0101_door_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_d26r0101_door
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_d26r0101_door
+	_END
+
+/*「はい」*/
+yes_d26r0101_door:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_d26r0101_door_03
+	_LAST_KEYWAIT
+
+	//扉開くふり
+	_SE_WAIT		SEQ_SE_DP_SELECT
+	_SE_PLAY		SE_AZITO_DOOR_OPEN
+	_OBJ_ANIME		D26R0101_DOOR_01,anm_d26r0101_door_01
+	_OBJ_ANIME		D26R0101_DOOR_02,anm_d26r0101_door_02
+	_OBJ_ANIME_WAIT
+
+	_FLAG_SET		FV_D26R0101_DOOR
+	_OBJ_DEL		D26R0101_DOOR_01
+	_OBJ_DEL		D26R0101_DOOR_02
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「いいえ」終了*/
+no_d26r0101_door:
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+	
+//--------------------------------------------------------------------
+//扉	開くふり
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d26r0101_door_01
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d26r0101_door_02
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							張り紙									*/
+/********************************************************************/
+ev_d26r0101_paper1:
+	_EASY_MSG		msg_d26r0101_paper1_01
+	_END
+
+

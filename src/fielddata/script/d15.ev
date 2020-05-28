@@ -1,0 +1,192 @@
+//====================================================================
+//							d15
+//						まんげつじま
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d15.h"
+	.include	"../eventdata/zone_d15evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d15_flag_change
+_EVENT_DATA		ev_d15_ship
+_EVENT_DATA_END
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d15_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D15	//到着
+	_HIDEMAP_STATE_CHG		HIDEMAP_ID_D15, 1
+	_END
+
+#define BLOCK_SIZE	(32)
+
+/********************************************************************/
+/*						船の船員									*/
+/********************************************************************/
+ev_d15_ship:
+	_TALK_OBJ_START
+	/*話しかけ向きを取得*/
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	
+	//三日月の羽入手？
+	_ITEM_CHK		ITEM_MIKADUKINOHANE,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d15_ship_mikaduki
+	
+	_TALKMSG		msg_d15_seaman_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_TALK_CLOSE
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d15_ship_in
+	_JUMP			ev_d15_ship_end		//おわり
+
+//三日月の羽根を持っているときだけの特別メッセージ
+ev_d15_ship_mikaduki:
+	_TALKMSG		msg_d15_seaman_01
+	_TALK_CLOSE
+	_JUMP			ev_d15_ship_in
+	
+//====================================================================
+//
+//		ミオシティ
+//
+//====================================================================
+ev_d15_ship_in:
+	/*船員船へ*/
+	_CALL	ev_d15_seaman01_ship_in
+	/*主人公向きで分岐*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_DOWN,ev_d15_player_ship_in_d	/*主人公移動（下→右→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_RIGHT,ev_d15_player_ship_in_r	/*主人公移動（右→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_UP,ev_d15_player_ship_in_u	/*主人公移動（上→右→消える）*/
+	/*船デモ*/
+	_CALL_SHIP_DEMO	SHIP_DIR_DOWN,DIR_LEFT,ZONE_ID_C02,BLOCK_SIZE*1+12,BLOCK_SIZE*23+14
+	_TALK_OBJ_END
+	_END
+
+//====================================================================
+//
+//		船処理終わり
+//
+//====================================================================
+ev_d15_ship_end:
+	_TALKMSG		msg_d15_seaman_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//====================================================================
+//
+//		船員船に入る
+//
+//====================================================================
+ev_d15_seaman01_ship_in:
+	_OBJ_ANIME		D15_SEAMAN_01,anm_d15_ship_seaman_01
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		D15_SEAMAN_01,anm_d15_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+
+//====================================================================
+//
+//		主人公船に入る（下向き）
+//
+//====================================================================
+ev_d15_player_ship_in_d:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d15_ship_player_d
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d15_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//====================================================================
+//
+//		主人公船に入る（右向き）
+//
+//====================================================================
+ev_d15_player_ship_in_r:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d15_ship_player_r
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d15_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//====================================================================
+//
+//		主人公船に入る（上向き）
+//
+//====================================================================
+ev_d15_player_ship_in_u:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d15_ship_player_u
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d15_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//--------------------------------------------------------------------
+//船員　船のほう向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d15_ship_seaman_01
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//船員・主人公　船に入る（消える）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d15_ship_vanish_in
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公　船に入る（下向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d15_ship_player_d
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//主人公　船に入る（右向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d15_ship_player_r
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//主人公　船に入る（上向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d15_ship_player_u
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/********************************************************************/

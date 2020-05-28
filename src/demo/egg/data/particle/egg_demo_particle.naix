@@ -1,0 +1,19 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: .\particle\egg_demo_particle.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-29T11:15:21
+ *****************************************************************************/
+
+#ifndef NARC___PARTICLE_EGG_DEMO_PARTICLE_NAIX_
+#define NARC___PARTICLE_EGG_DEMO_PARTICLE_NAIX_
+
+enum {
+	NARC___particle_egg_demo_particle_egg_demo_normal_spa = 0,
+	NARC___particle_egg_demo_particle_egg_demo_special_spa = 1
+};
+
+/* NARC___PARTICLE_EGG_DEMO_PARTICLE_NAIX_ */
+#endif

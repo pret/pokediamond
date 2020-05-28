@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="sogabe" host="W00086" date="2006-07-29T23:11:44"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="132"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="190"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="159" top="193" right="864" bottom="813" maximized="no" rayout="Vertical2">
+		<comment-input left="933" top="573" right="1280" bottom="723" visible="yes"/>
+		<tag-palette left="933" top="177" right="1280" bottom="573" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="DB_ADD_STATUS_OFF">
+		<language name="日本語">わざ　ついか　こうか　かならず　オフ</language>
+	</row>
+
+	<row id="DB_ADD_STATUS_ON">
+		<language name="日本語">わざ　ついか　こうか　かならず　オン</language>
+	</row>
+
+	<row id="DB_TOKUSEI_OFF">
+		<language name="日本語">とくせい　はつどう　かならず　オフ</language>
+	</row>
+
+	<row id="DB_TOKUSEI_ON">
+		<language name="日本語">とくせい　はつどう　かならず　オン</language>
+	</row>
+
+	<row id="DB_SOUBI_OFF">
+		<language name="日本語">そうび　こうか　かならず　オフ</language>
+	</row>
+
+	<row id="DB_SOUBI_ON">
+		<language name="日本語">そうび　こうか　かならず　オン</language>
+	</row>
+
+	<row id="DB_DAMAGE_LOCK_OFF">
+		<language name="日本語">ダメージ　ランダム　なし　オフ</language>
+	</row>
+
+	<row id="DB_DAMAGE_LOCK_ON">
+		<language name="日本語">ダメージ　ランダム　なし　オン</language>
+	</row>
+
+	<row id="DB_RESHUFFLE_CONTROL_OFF">
+		<language name="日本語">ポケモン　いれかえ　せいぎょ　オフ</language>
+	</row>
+
+	<row id="DB_RESHUFFLE_CONTROL_ON">
+		<language name="日本語">ポケモン　いれかえ　せいぎょ　オン</language>
+	</row>
+
+	<row id="DB_OSYABERI_POWER0">
+		<language name="日本語">おしゃべりランクこてい　オフ</language>
+	</row>
+
+	<row id="DB_OSYABERI_POWER1">
+		<language name="日本語">おしゃべりランクこてい　１</language>
+	</row>
+
+	<row id="DB_OSYABERI_POWER2">
+		<language name="日本語">おしゃべりランクこてい　２</language>
+	</row>
+
+	<row id="DB_OSYABERI_POWER3">
+		<language name="日本語">おしゃべりランクこてい　３</language>
+	</row>
+
+	<row id="DB_CRITICAL_OFF">
+		<language name="日本語">きゅうしょ　かならず　オフ</language>
+	</row>
+
+	<row id="DB_CRITICAL_ON">
+		<language name="日本語">きゅうしょ　かならず　オン</language>
+	</row>
+
+	<row id="DB_YUBIHURU_OFF">
+		<language name="日本語">ゆびをふる　わざしてい　オフ</language>
+	</row>
+
+	<row id="DB_YUBIHURU_SET">
+		<language name="日本語">ゆびをふる　わざしてい　セット</language>
+	</row>
+
+	<row id="DB_YUBIHURU_RANGE">
+		<language name="日本語">ゆびをふる　わざしてい　はんい</language>
+	</row>
+
+	<row id="DB_REMAIN_HEAP">
+		<language name="日本語">のこり　メモリ</language>
+	</row>
+
+	<row id="DB_CURSOR">
+		<language name="日本語">→</language>
+	</row>
+
+	<row id="DB_CLIENT_TYPE_AA">
+		<language name="日本語">Ａ</language>
+	</row>
+
+	<row id="DB_CLIENT_TYPE_BB">
+		<language name="日本語">Ｂ</language>
+	</row>
+
+	<row id="DB_CLIENT_TYPE_A">
+		<language name="日本語">Ａ</language>
+	</row>
+
+	<row id="DB_CLIENT_TYPE_B">
+		<language name="日本語">Ｂ</language>
+	</row>
+
+	<row id="DB_CLIENT_TYPE_C">
+		<language name="日本語">Ｃ</language>
+	</row>
+
+	<row id="DB_CLIENT_TYPE_D">
+		<language name="日本語">Ｄ</language>
+	</row>
+
+	<row id="DB_STATUS_POW">
+		<language name="日本語">こうげき</language>
+	</row>
+
+	<row id="DB_STATUS_DEF">
+		<language name="日本語">ぼうぎょ</language>
+	</row>
+
+	<row id="DB_STATUS_AGI">
+		<language name="日本語">すばやさ</language>
+	</row>
+
+	<row id="DB_STATUS_SPEPOW">
+		<language name="日本語">とくこう</language>
+	</row>
+
+	<row id="DB_STATUS_SPEDEF">
+		<language name="日本語">とくぼう</language>
+	</row>
+
+	<row id="DB_STATUS_HIT">
+		<language name="日本語">めいちゅう</language>
+	</row>
+
+	<row id="DB_STATUS_AVOID">
+		<language name="日本語">かいひ</language>
+	</row>
+
+	<row id="DB_COMMAND">
+		<language name="日本語">コマンド</language>
+	</row>
+
+	<row id="DB_COMMAND_FIGHT">
+		<language name="日本語">たたかう</language>
+	</row>
+
+	<row id="DB_COMMAND_ITEM">
+		<language name="日本語">バッグ</language>
+	</row>
+
+	<row id="DB_COMMAND_POKEMON">
+		<language name="日本語">ポケモン</language>
+	</row>
+
+	<row id="DB_COMMAND_ESCAPE">
+		<language name="日本語">にげる</language>
+	</row>
+
+	<row id="DB_WAZA">
+		<language name="日本語">わざ</language>
+	</row>
+
+	<row id="DB_DIR">
+		<language name="日本語">あいて</language>
+	</row>
+
+	<row id="DB_ITEM">
+		<language name="日本語">アイテム</language>
+	</row>
+
+	<row id="DB_POKEMON">
+		<language name="日本語">ポケモン</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

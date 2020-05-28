@@ -1,0 +1,29 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: fontoam.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-17T18:55:01
+ *****************************************************************************/
+
+#ifndef NARC_FONTOAM_NAIX_
+#define NARC_FONTOAM_NAIX_
+
+enum {
+	NARC_fontoam_fontoam_8x8_NCER = 0,
+	NARC_fontoam_fontoam_8x4_NCER = 1,
+	NARC_fontoam_fontoam_4x8_NCER = 2,
+	NARC_fontoam_fontoam_4x4_NCER = 3,
+	NARC_fontoam_fontoam_4x2_NCER = 4,
+	NARC_fontoam_fontoam_4x1_NCER = 5,
+	NARC_fontoam_fontoam_2x4_NCER = 6,
+	NARC_fontoam_fontoam_2x2_NCER = 7,
+	NARC_fontoam_fontoam_2x1_NCER = 8,
+	NARC_fontoam_fontoam_1x4_NCER = 9,
+	NARC_fontoam_fontoam_1x2_NCER = 10,
+	NARC_fontoam_fontoam_1x1_NCER = 11
+};
+
+/* NARC_FONTOAM_NAIX_ */
+#endif

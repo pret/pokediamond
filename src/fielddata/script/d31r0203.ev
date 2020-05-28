@@ -1,0 +1,214 @@
+//====================================================================
+//								d31r0203
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+//	.include	"../../../include/msgdata/msg_d31r0203.h"
+	.include	"../eventdata/zone_d31r0203evc.h"
+	.include	"../../../include/poketool/monsno.h"
+	.include	"../../../src/field/b_tower_scr_def.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d31r0203_flag_change
+_EVENT_DATA		ev_d31r0203_obj_change
+_EVENT_DATA		ev_tower_ways_common
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d31r0203_flag_change:
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31r0203_obj_change:
+	_IFVAL_CALL		WK_SCENE_D31R0203,NE,0,ev_d31r0203_obj_player
+	_END
+
+ev_d31r0203_obj_player:
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	_RET
+
+//====================================================================
+/********************************************************************/
+/*	バトルシングル通路コモン										*/
+/********************************************************************/
+//====================================================================
+ev_tower_ways_common:
+	_EVENT_START
+	_CALL			ev_tower_ways_comanm_in
+	//どのゲートに入るかランダム
+	_GET_RND		SCWK_ANSWER,4
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		1,ev_tower_ways_comanm_move02
+	_CASE_JUMP		2,ev_tower_ways_comanm_move03
+	_CASE_JUMP		3,ev_tower_ways_comanm_move04
+	_JUMP			ev_tower_ways_comanm_move01
+
+ev_tower_ways_common_out:
+//	_CALL	ev_tower_ways_comanm_out
+	_MAP_CHANGE		ZONE_ID_D31R0205,0,SB_ROOMS_PLAYER_SX,SB_ROOMS_PLAYER_SY,DIR_UP
+	_EVENT_END
+	_END
+
+//====================================================================
+/********************************************************************/
+/*	バトルタワー　シングル通路アニメコモン							*/
+/********************************************************************/
+//====================================================================
+ev_tower_ways_comanm_in:
+	//エレベータドアopen
+	_SET_UP_DOOR_ANIME	0,0,2,2,77
+	_SEQ_OPEN_DOOR	77
+	_WAIT_3D_ANIME	77
+	_OBJ_ANIME	D31R0203_PCWOMAN2,anm_d31r0203_pcwoman2_in
+	_OBJ_ANIME_WAIT
+	_OBJ_VISIBLE	FLDOBJ_ID_PLAYER
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0203_player_in01
+	_OBJ_ANIME_WAIT
+	_SEQ_CLOSE_DOOR	77	//ドア閉める
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_FREE_3D_ANIME	77	//ドアアニメ解放	
+	_RET
+
+ev_tower_ways_comanm_out:
+	_OBJ_ANIME	D31R0203_PCWOMAN2,anm_d31r0203_pcwoman2_out
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0203_player_out
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_tower_ways_comanm_move01:
+	_OBJ_ANIME	D31R0203_PCWOMAN2,anm_d31r0203_pcwoman2_move01
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0203_player_move01
+	_OBJ_ANIME_WAIT
+	_JUMP		ev_tower_ways_common_out
+	_END
+
+ev_tower_ways_comanm_move02:
+	_OBJ_ANIME	D31R0203_PCWOMAN2,anm_d31r0203_pcwoman2_move02
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0203_player_move02
+	_OBJ_ANIME_WAIT
+	_JUMP		ev_tower_ways_common_out
+	_END
+ev_tower_ways_comanm_move03:
+	_OBJ_ANIME	D31R0203_PCWOMAN2,anm_d31r0203_pcwoman2_move03
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0203_player_move03
+	_OBJ_ANIME_WAIT
+	_JUMP		ev_tower_ways_common_out
+	_END
+ev_tower_ways_comanm_move04:
+	_OBJ_ANIME	D31R0203_PCWOMAN2,anm_d31r0203_pcwoman2_move04
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_d31r0203_player_move04
+	_OBJ_ANIME_WAIT
+	_JUMP		ev_tower_ways_common_out
+	_END
+
+//--------------------------------------------------------------------
+//受け付け嬢　In
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0203_pcwoman2_in
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//自機　In
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0203_player_in01
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//受け付け嬢　Out
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0203_pcwoman2_out
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//自機　Out
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0203_player_out
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WALK_U_2F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//共有　Move01
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0203_pcwoman2_move01
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0203_player_move01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//共有　Move02
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0203_pcwoman2_move02
+	_ANIME_DATA	AC_WALK_R_8F,8
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0203_player_move02
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,8
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//共有　Move03
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0203_pcwoman2_move03
+	_ANIME_DATA	AC_WALK_R_8F,12
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0203_player_move03
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,12
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+//--------------------------------------------------------------------
+//共有　Move04
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0203_pcwoman2_move04
+	_ANIME_DATA	AC_WALK_R_8F,16
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0203_player_move04
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,16
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+

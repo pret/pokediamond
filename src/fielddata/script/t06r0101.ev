@@ -1,0 +1,130 @@
+//====================================================================
+//								t06r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t06r0101.h"
+	.include	"../eventdata/zone_t06r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t06r0101_oldman1
+_EVENT_DATA		ev_t06r0101_seven2
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_t06r0101_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_t06r0101_oldman1:
+	_TALK_OBJ_START
+
+	/*ヒードランと遭遇後*/
+	_IF_FLAGON_JUMP	FE_HIIDORAN_SEE,ev_t06r0101_oldman1_03
+
+	/*「かざんのおきいし」入手後*/
+	_IF_FLAGON_JUMP	FE_KAZANNOOKIISI_GET,ev_t06r0101_oldman1_02
+
+	_TALKMSG		msg_t06r0101_oldman1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「かざんのおきいし」入手後*/
+ev_t06r0101_oldman1_02:
+	//火山の置石が本当にあったとは！
+	_TALKMSG		msg_t06r0101_oldman1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_OBJ_END
+	_END
+
+/*ヒードランと遭遇後*/
+ev_t06r0101_oldman1_03:
+	_TALKMSG		msg_t06r0101_oldman1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*			５人衆(火山置石入手後～話しかけるまで存在)				*/
+/********************************************************************/
+ev_t06r0101_seven2:
+	_TALK_OBJ_START
+
+	//この話を聞くとヒードラン出現
+	_FLAG_SET		FE_D16R0103_LEGEND_UNSEAL
+	
+	_TALK_KEYWAIT		msg_t06r0101_seven2_01
+	_TALK_CLOSE
+
+	/*外に出て行く*/
+	_PLAYER_POS_GET		SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL			SCWK_TEMP1,EQ,4,ev_t06r0101_seven2_out01
+	_IFVAL_CALL			SCWK_TEMP1,EQ,5,ev_t06r0101_seven2_out02
+	_OBJ_DEL			T06R0101_SEVEN2
+
+	//バクがバトルタワーに出現するようになる
+	_FLAG_SET			FE_SEVEN5_CLEAR
+	//この場所からバクはいなくなる
+	_FLAG_SET			FV_T06R0101_SEVEN2
+	_TALK_OBJ_END
+	_END
+
+ev_t06r0101_seven2_out01:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t06r0101_player_01
+	_OBJ_ANIME		T06R0101_SEVEN2,anm_t06r0101_seven2_01
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_t06r0101_seven2_out02:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t06r0101_player_02
+	_OBJ_ANIME		T06R0101_SEVEN2,anm_t06r0101_seven2_02
+	_OBJ_ANIME_WAIT
+	_RET
+//--------------------------------------------------------------------
+//主人公	５人衆見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t06r0101_player_01
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_t06r0101_player_02
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	出て行く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t06r0101_seven2_01
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_t06r0101_seven2_02
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+

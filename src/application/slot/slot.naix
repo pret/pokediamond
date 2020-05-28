@@ -1,0 +1,94 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: slot.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-22T16:55:56
+ *****************************************************************************/
+
+#ifndef NARC_SLOT_NAIX_
+#define NARC_SLOT_NAIX_
+
+enum {
+	NARC_slot_slot_machine_NCGR = 0,
+	NARC_slot_slot_machine_NSCR = 1,
+	NARC_slot_slot_mount_NCGR = 2,
+	NARC_slot_slot_mount_NCLR = 3,
+	NARC_slot_slot_mount_NSCR = 4,
+	NARC_slot_slot_mount_kurai_NCLR = 5,
+	NARC_slot_slot_mount_flash_NCLR = 6,
+	NARC_slot_slot_mount_flash_red_NCLR = 7,
+	NARC_slot_slot_bg_shadow_NCGR = 8,
+	NARC_slot_slot_bg_shadow_NSCR = 9,
+	NARC_slot_slotreel_NCLR = 10,
+	NARC_slot_slotreel_NCGR = 11,
+	NARC_slot_slotreel_NCER = 12,
+	NARC_slot_slotreel_NANR = 13,
+	NARC_slot_reel_7_NCGR = 14,
+	NARC_slot_reel_7_NCER = 15,
+	NARC_slot_reel_7_NANR = 16,
+	NARC_slot_reel_ginga_NCGR = 17,
+	NARC_slot_reel_ginga_NCER = 18,
+	NARC_slot_reel_ginga_NANR = 19,
+	NARC_slot_credit_font_NCLR = 20,
+	NARC_slot_credit_font_NCGR = 21,
+	NARC_slot_credit_font_NCER = 22,
+	NARC_slot_credit_font_NANR = 23,
+	NARC_slot_ball_mon_NCGR = 24,
+	NARC_slot_ball_mon_NCER = 25,
+	NARC_slot_ball_mon_NANR = 26,
+	NARC_slot_ball_mon_NCLR = 27,
+	NARC_slot_ball_sup_NCGR = 28,
+	NARC_slot_ball_sup_NCER = 29,
+	NARC_slot_ball_sup_NANR = 30,
+	NARC_slot_ball_sup_NCLR = 31,
+	NARC_slot_ball_hyp_NCGR = 32,
+	NARC_slot_ball_hyp_NCER = 33,
+	NARC_slot_ball_hyp_NANR = 34,
+	NARC_slot_ball_hyp_NCLR = 35,
+	NARC_slot_ball_saf_NCGR = 36,
+	NARC_slot_ball_saf_NCER = 37,
+	NARC_slot_ball_saf_NANR = 38,
+	NARC_slot_ball_saf_NCLR = 39,
+	NARC_slot_ball_pre_NCGR = 40,
+	NARC_slot_ball_pre_NCER = 41,
+	NARC_slot_ball_pre_NANR = 42,
+	NARC_slot_ball_pre_NCLR = 43,
+	NARC_slot_ball_eff_NCGR = 44,
+	NARC_slot_ball_eff_NCER = 45,
+	NARC_slot_ball_eff_NANR = 46,
+	NARC_slot_ball_eff_NCLR = 47,
+	NARC_slot_slot_pippi_NCGR = 48,
+	NARC_slot_slot_pippi_NCER = 49,
+	NARC_slot_slot_pippi_NANR = 50,
+	NARC_slot_slot_pippi_NCLR = 51,
+	NARC_slot_meta_pippi_NCGR = 52,
+	NARC_slot_meta_pippi_NCER = 53,
+	NARC_slot_meta_pippi_NANR = 54,
+	NARC_slot_pippi_rare_NCLR = 55,
+	NARC_slot_slot_pika_NCGR = 56,
+	NARC_slot_slot_pika_NCER = 57,
+	NARC_slot_slot_pika_NANR = 58,
+	NARC_slot_slot_pika_NCLR = 59,
+	NARC_slot_moon_font_NCGR = 60,
+	NARC_slot_moon_font_NCER = 61,
+	NARC_slot_moon_font_NANR = 62,
+	NARC_slot_moon_font_NCLR = 63,
+	NARC_slot_bonus_get_font_NCGR = 64,
+	NARC_slot_bonus_get_font_NCER = 65,
+	NARC_slot_bonus_get_font_NANR = 66,
+	NARC_slot_bonus_get_font_NCLR = 67,
+	NARC_slot_slot_bonus_NCGR = 68,
+	NARC_slot_slot_bonus_NCER = 69,
+	NARC_slot_slot_bonus_NANR = 70,
+	NARC_slot_slot_get_NCGR = 71,
+	NARC_slot_slot_get_NCER = 72,
+	NARC_slot_slot_get_NANR = 73,
+	NARC_slot_line1_flash_NCLR = 74,
+	NARC_slot_line2_flash_NCLR = 75,
+	NARC_slot_line3_flash_NCLR = 76
+};
+
+/* NARC_SLOT_NAIX_ */
+#endif

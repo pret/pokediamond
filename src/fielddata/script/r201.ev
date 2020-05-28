@@ -1,0 +1,738 @@
+//====================================================================
+//						r201
+//					フィールド・ロード201
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r201.h"
+	.include	"../eventdata/zone_r201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA ev_r201_flag_change
+_EVENT_DATA pos_r201_rival_02
+_EVENT_DATA pos_r201_rival_hutaba
+_EVENT_DATA pos_r201_stop
+_EVENT_DATA pos_r201_doctor
+_EVENT_DATA ev_r201_sign1
+_EVENT_DATA ev_r201_sign2
+_EVENT_DATA ev_r201_sign3
+_EVENT_DATA ev_r201_boy1
+_EVENT_DATA ev_r201_shopman
+_EVENT_DATA ev_r201_boy1a
+_EVENT_DATA ev_r201_girl1
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r201_flag_change:
+	//２重登録バグ対処(l01->R201->l01で、ライバルが2重になるのを防ぐ）
+	_IFVAL_CALL		WK_SCENE_R201,EQ,2,r201_rival_flag_change_01
+
+	//WKOBJCHRにサポートのキャラコードをセットする
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,r201_male_flag_change_01	//サポート女
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,r201_female_flag_change_01	//サポート男
+	_END
+
+r201_male_flag_change_01:	//サポート女
+	_LDVAL			OBJCHRWORK0,HEROINE
+	_END
+
+r201_female_flag_change_01:	//サポート男
+	_LDVAL			OBJCHRWORK0,HERO
+	_END
+
+
+r201_rival_flag_change_01:
+	_FLAG_SET		FV_L01_RIVAL
+	_RET
+
+
+/********************************************************************/
+/*						ライバルと合流POS							*/
+/********************************************************************/
+#define POS_R201_RIVAL_02_X1		(110)
+#define POS_R201_RIVAL_02_X2		(111)
+#define POS_R201_RIVAL_02_X3		(112)
+#define POS_R201_RIVAL_02_X4		(113)
+#define POS_R201_RIVAL_02_X5		(114)
+#define POS_R201_RIVAL_02_X6		(115)
+
+pos_r201_rival_02:
+	_EVENT_START
+
+	/*「！」*/
+	_OBJ_ANIME		R201_RIVAL,anm_r201_rival_00
+	_OBJ_ANIME_WAIT
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X1,pos_r201_rival_02_x01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X2,pos_r201_rival_02_x02
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X3,pos_r201_rival_02_x03
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X4,pos_r201_rival_02_x04
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X5,pos_r201_rival_02_x05
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X6,pos_r201_rival_02_x06
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	近づいてくる
+//--------------------------------------------------------------------
+//●画面外から近づいてくるなら、正面からアニメで全て対応できる
+//●その場にいて、姿が見えるなら、それぞれのアニメが必要
+pos_r201_rival_02_x01:
+	_OBJ_ANIME		R201_RIVAL,anm_r201_rival_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_rival_02_common
+
+pos_r201_rival_02_x02:
+	_OBJ_ANIME		R201_RIVAL,anm_r201_rival_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_rival_02_common
+
+pos_r201_rival_02_x03:
+	_OBJ_ANIME		R201_RIVAL,anm_r201_rival_03
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_rival_02_common
+
+pos_r201_rival_02_x04:
+pos_r201_rival_02_x05:
+pos_r201_rival_02_x06:
+	_OBJ_ANIME		R201_RIVAL,anm_r201_rival_04
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_rival_02_common
+
+//共通処理
+pos_r201_rival_02_common:
+	_RIVAL_NAME		0
+	_TALKMSG		msg_r201_rival_a_01
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+
+	//連れ歩き開始
+	_SYS_FLAG_ONE_STEP_SET
+	_SYS_FLAG_PAIR_SET
+	_MOVE_CODE_CHANGE	R201_RIVAL,MV_PAIR
+	_NOT_ZONE_DEL_SET	R201_RIVAL,TRUE
+	_FLAG_SET			FV_R201_RIVAL
+
+	_LDVAL			WK_SCENE_R201,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	！
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_rival_00
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_rival_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_rival_02
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_rival_03
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_rival_04
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						フタバタウンに戻さないPOS					*/
+/********************************************************************/
+pos_r201_rival_hutaba:
+	_EVENT_START
+
+	//向き合う
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r201_player_hutaba_02
+	_OBJ_ANIME		R201_RIVAL,anm_r201_rival_hutaba_x02
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_r201_rival_a_02
+	_TALK_CLOSE
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X1,pos_r201_rival_hutaba_x01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X2,pos_r201_rival_hutaba_x02
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X3,pos_r201_rival_hutaba_x03
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X4,pos_r201_rival_hutaba_x04
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X5,pos_r201_rival_hutaba_x05
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_R201_RIVAL_02_X6,pos_r201_rival_hutaba_x06
+	_END
+
+//--------------------------------------------------------------------
+//フタバタウンに戻さない
+//--------------------------------------------------------------------
+pos_r201_rival_hutaba_x01:
+pos_r201_rival_hutaba_x02:
+pos_r201_rival_hutaba_x03:
+pos_r201_rival_hutaba_x04:
+pos_r201_rival_hutaba_x05:
+pos_r201_rival_hutaba_x06:
+
+	_SYS_FLAG_PAIR_RESET
+	_MOVE_CODE_CHANGE	R201_RIVAL,MV_DOWN
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r201_player_hutaba_01
+	_OBJ_ANIME		R201_RIVAL,anm_r201_rival_hutaba_x01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_rival_hutaba_common
+
+//共通処理
+pos_r201_rival_hutaba_common:
+	_SYS_FLAG_PAIR_SET
+	_MOVE_CODE_CHANGE	R201_RIVAL,MV_PAIR
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	押し戻す
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_rival_hutaba_x01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	主人公を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_rival_hutaba_x02
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	押し戻される
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_player_hutaba_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ライバルを見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_player_hutaba_02
+	_ANIME_DATA	AC_STAY_WALK_U_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*					ポケモンもっていないストッパー					*/
+/********************************************************************/
+pos_r201_stop:
+	_EVENT_START
+
+	_PLAYER_NAME		0
+	_TALKMSG			msg_r201stop_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	戻される
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_rival_stop_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_rival_stop_02
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_rival_stop_03
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_rival_stop_04
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_rival_stop_05
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	戻される
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_player_stop_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_player_stop_02
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_player_stop_03
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_player_stop_04
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_player_stop_05
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							博士と会うPOS							*/
+/********************************************************************/
+#define POS_R201_DOCTOR_Z1	(853)
+#define POS_R201_DOCTOR_Z2	(854)
+#define POS_R201_DOCTOR_Z3	(855)
+#define POS_R201_DOCTOR_Z4	(856)
+#define POS_R201_DOCTOR_Z5	(857)
+#define POS_R201_DOCTOR_Z6	(858)
+#define POS_R201_DOCTOR_Z7	(859)
+#define POS_R201_DOCTOR_Z8	(860)
+
+#define SCR_R201_FADE_SYNC	(SCR_WIPE_SYNC*3)
+
+pos_r201_doctor:
+	_EVENT_START
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z1,pos_r201_doctor_z1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z2,pos_r201_doctor_z2
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z3,pos_r201_doctor_z3
+	_END
+
+//--------------------------------------------------------------------
+//博士近づいてくる
+//--------------------------------------------------------------------
+pos_r201_doctor_z1:
+	//ライバル「！」
+	_OBJ_ANIME		FLDOBJ_ID_PAIR,anm_r201_rival_50
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_00
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_r201_rival_b_04
+	_TALK_CLOSE
+
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_01
+	_OBJ_ANIME		R201_SUPPORT,anm_r201_support_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_doctor_common
+	_END
+
+pos_r201_doctor_z2:
+	//ライバル「！」
+	_OBJ_ANIME		FLDOBJ_ID_PAIR,anm_r201_rival_50
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_00
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_r201_rival_b_04
+	_TALK_CLOSE
+
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_02
+	_OBJ_ANIME		R201_SUPPORT,anm_r201_support_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_doctor_common
+
+pos_r201_doctor_z3:
+
+	/*主人公達の位置を調整する*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r201_player_90
+	_OBJ_ANIME		FLDOBJ_ID_PAIR,anm_r201_rival_90
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_00
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_r201_rival_b_04
+	_TALK_CLOSE
+
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_02
+	_OBJ_ANIME		R201_SUPPORT,anm_r201_support_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_doctor_common
+
+//共通処理
+pos_r201_doctor_common:
+	_SUPPORT_NAME		0
+	_FIRST_POKEMON_NAME	1		//主人公が選んだポケモン
+	_RIVAL_POKEMON_NAME	2		//ライバルが選んだポケモン
+
+	_TALK_KEYWAIT	msg_r201_doctor_b_01
+	_TALK_CLOSE
+
+	//サポートと向き合う
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_10
+	_OBJ_ANIME_WAIT
+
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_r201_doctor_b_02
+	_TALK_CLOSE
+
+	//主人公の位置情報取得
+	//_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z1,pos_r201_doctor_z21
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z2,pos_r201_doctor_z22
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z3,pos_r201_doctor_z23
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z4,pos_r201_doctor_z24
+	_END
+
+//--------------------------------------------------------------------
+//博士立ち去る
+//--------------------------------------------------------------------
+pos_r201_doctor_z21:
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_11
+	_OBJ_ANIME		R201_SUPPORT,anm_r201_support_21
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_doctor_common_21
+
+pos_r201_doctor_z22:
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_11
+	_OBJ_ANIME		R201_SUPPORT,anm_r201_support_22
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_doctor_common_21
+
+pos_r201_doctor_z23:
+pos_r201_doctor_z24:
+	_OBJ_ANIME		R201_DOCTOR,anm_r201_doctor_11
+	_OBJ_ANIME		R201_SUPPORT,anm_r201_support_22
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_doctor_common_21
+
+//共通処理
+pos_r201_doctor_common_21:
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,r201_male_doctor_01	//サポート女
+	_JUMP			r201_female_doctor_01					//サポート男
+
+//サポート女
+r201_male_doctor_01:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_r201_heroine_b_01
+	_TALK_CLOSE
+
+	//主人公の方を向く
+	_OBJ_ANIME		R201_SUPPORT,anm_r201_support_10
+	_OBJ_ANIME_WAIT
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_TALK_KEYWAIT	msg_r201_heroine_b_02
+	_JUMP			common_r201_doctor_10
+
+//サポート男
+r201_female_doctor_01:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_r201_hero_b_01
+	_TALK_CLOSE
+
+	//主人公の方を向く
+	_OBJ_ANIME		R201_SUPPORT,anm_r201_support_10
+	_OBJ_ANIME_WAIT
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_TALK_KEYWAIT	msg_r201_hero_b_02
+	_JUMP			common_r201_doctor_10
+
+//共通処理
+common_r201_doctor_10:
+	_TALK_CLOSE
+
+	//主人公の位置情報取得
+	//_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z1,pos_r201_doctor_z11
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z2,pos_r201_doctor_z12
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z3,pos_r201_doctor_z13
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R201_DOCTOR_Z4,pos_r201_doctor_z14
+	_END
+
+//--------------------------------------------------------------------
+//博士立ち去る
+//--------------------------------------------------------------------
+pos_r201_doctor_z11:
+pos_r201_doctor_z12:
+pos_r201_doctor_z13:
+pos_r201_doctor_z14:
+	_OBJ_ANIME		R201_SUPPORT,anm_r201_support_11
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r201_doctor_common_11
+
+//共通処理
+pos_r201_doctor_common_11:
+	_OBJ_DEL		R201_SUPPORT
+	_OBJ_DEL		R201_DOCTOR
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_r201_rival_b_05
+	_TALK_CLOSE
+
+	_LDVAL			WK_SCENE_R201,3
+	_NOT_ZONE_DEL_SET	FLDOBJ_ID_PAIR,FALSE
+
+	_SYS_FLAG_PAIR_RESET
+
+	_FLAG_SET		FV_R201_RIVAL
+	_FLAG_SET		FV_L01_RIVAL
+
+	_LDVAL			WK_SCENE_L01,4
+	_FLAG_SET		FV_D27R0101_RIVAL
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	//自宅へ移動
+	_BLACK_OUT	SCR_WIPE_DIV,SCR_R201_FADE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_MAP_CHANGE_NONE_FADE	ZONE_ID_T01R0201,0,2,6,DIR_UP
+
+	_BLACK_IN	SCR_WIPE_DIV,SCR_R201_FADE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//博士	サポートを見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_doctor_00
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_doctor_01
+	_ANIME_DATA	AC_WAIT_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_doctor_02
+	_ANIME_DATA	AC_WAIT_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	サポートと向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_doctor_10
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	去る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_doctor_11
+	_ANIME_DATA	AC_WALK_R_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	主人公の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_support_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	主人公の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_support_10
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	博士先にいってしまう
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_support_21
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_r201_support_22
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	博士の後を追う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_support_11
+	_ANIME_DATA	AC_WALK_R_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	！
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_rival_50
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	位置を調整
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_rival_90
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	位置を調整
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_r201_player_90
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							少年									*/
+/********************************************************************/
+ev_r201_boy1:
+	_EASY_OBJ_MSG	msg_r201_boy1_01
+	_END
+
+
+/********************************************************************/
+/*							少年									*/
+/********************************************************************/
+ev_r201_boy1a:
+	_EASY_OBJ_MSG	msg_r201_boy1a_01
+	_END
+
+
+/********************************************************************/
+/*							少女									*/
+/********************************************************************/
+ev_r201_girl1:
+	_TALK_OBJ_START
+
+	/*図鑑入手していたら*/
+	_IF_FLAGON_JUMP	FE_ZUKAN_GET,ev_r201_girl1_zukan
+
+	_TALKMSG		msg_r201_girl1_01
+	_JUMP			common_r201_girl1_end
+
+common_r201_girl1_end:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*図鑑入手していたら*/
+ev_r201_girl1_zukan:
+	_TALKMSG		msg_r201_girl1_02
+	_JUMP			common_r201_girl1_end
+
+
+/********************************************************************/
+/*							店員									*/
+/********************************************************************/
+ev_r201_shopman:
+	_TALK_OBJ_START
+
+	//既にきずぐすりをもらっている
+	_IF_FLAGON_JUMP	FE_R201_KIZUGUSURI_GET,ev_r201_shopman_02
+
+	_TALK_KEYWAIT	msg_r201_shopman_01
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_KIZUGUSURI
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r201_shopman_01_item_event_fail
+
+	_FLAG_SET		FE_R201_KIZUGUSURI_GET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r201_shopman_02:
+	//きずぐすりをくれた後メッセージ
+	_TALKMSG		msg_r201_shopman_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r201_shopman_01_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							道路標識								*/
+/********************************************************************/
+ev_r201_sign1:
+	_EASY_BOARD_MSG	msg_r201_sign1_01,BOARD_TYPE_ROAD,0
+	_END
+
+
+/********************************************************************/
+/*							道路標識								*/
+/********************************************************************/
+ev_r201_sign2:
+	_EASY_BOARD_MSG	msg_r201_sign2_01,BOARD_TYPE_ROAD,0
+	_END
+
+
+/********************************************************************/
+/*							掲示板　 								*/
+/********************************************************************/
+ev_r201_sign3:
+	_EASY_INFOBOARD_MSG	msg_r201_sign3_01,BOARD_TYPE_INFO,0
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

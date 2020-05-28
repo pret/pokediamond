@@ -1,0 +1,216 @@
+//====================================================================
+//						c04r0204.gmm
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c04r0204.h"
+	.include	"../eventdata/zone_c04r0204evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c04r0204_gkanbu1
+_EVENT_DATA		ev_c04r0204_pippi
+_EVENT_DATA		ev_c04r0204_gonbe
+_EVENT_DATA		ev_c04r0204_middlem
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*							ギンガ団								*/
+/********************************************************************/
+ev_c04r0204_gkanbu1:
+	_TALK_OBJ_START
+
+	/*おじさんも注目*/
+	_OBJ_ANIME		C04R0204_MIDDLEM,anm_c04r0204_middlem_40
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c04r0204_gkanbu1_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GINGALEADER2_01,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c04r0204_gkanbu1_battle_lose
+
+	_TALK_KEYWAIT	msg_c04r0204_gkanbu1_02
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//ギンガ団削除
+	_OBJ_DEL		C04R0204_GKANBU
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_UP,ev_c04r0204_gingam_dir_up
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_DOWN,ev_c04r0204_gingam_dir_down
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_LEFT,ev_c04r0204_gingam_dir_left
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_RIGHT,ev_c04r0204_gingam_dir_right
+	_END
+
+/*所定の位置へ*/
+ev_c04r0204_gingam_dir_up:
+	_OBJ_ANIME		C04R0204_MIDDLEM,anm_c04r0204_middlem_30
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c04r0204_player_30
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c04r0204_gingam_dir
+	_END
+
+ev_c04r0204_gingam_dir_down:
+	_OBJ_ANIME		C04R0204_MIDDLEM,anm_c04r0204_middlem_31
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c04r0204_player_31
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c04r0204_gingam_dir
+	_END
+
+ev_c04r0204_gingam_dir_left:
+	_OBJ_ANIME		C04R0204_MIDDLEM,anm_c04r0204_middlem_32
+	//_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_c04r0204_player_32
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c04r0204_gingam_dir
+	_END
+
+ev_c04r0204_gingam_dir_right:
+	_OBJ_ANIME		C04R0204_MIDDLEM,anm_c04r0204_middlem_33
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c04r0204_player_33
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c04r0204_gingam_dir
+	_END
+
+/*共通処理*/
+common_c04r0204_gingam_dir:
+	_TALK_KEYWAIT	msg_c04r0204_middlem_02
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_FLAG_SET		FV_C04_GINGA
+	_FLAG_SET		FE_C04R0204_WIN
+	_FLAG_RESET		FV_C04R0101_MIDDLEM		//自転車の人
+	//_FLAG_RESET	FV_C04R0101_POKE		//自転車のポケモン
+	_FLAG_RESET		FV_C04R0101_PIPPI		//自転車のポケモン
+	_FLAG_RESET		FV_C04PC0101_GONBE		//
+	_OBJ_DEL		C04R0204_MIDDLEM
+	_OBJ_DEL		C04R0204_PIPPI
+	_OBJ_DEL		C04R0204_GONBE
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_FLAG_SET		SYS_FLAG_BGM_C04
+
+	_TALK_OBJ_END
+	_END
+
+//敗北処理
+ev_c04r0204_gkanbu1_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//おじさん	幹部を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c04r0204_middlem_40
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//おじさん	ちかよる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c04r0204_middlem_30
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c04r0204_middlem_31
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c04r0204_middlem_32
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c04r0204_middlem_33
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	向きを合わせる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c04r0204_player_30
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c04r0204_player_31
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c04r0204_player_33
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ポケモン								*/
+/********************************************************************/
+ev_c04r0204_pippi:
+	_EASY_VOICE_MSG	msg_c04r0204_pippi_01,MONSNO_PIPPI,0
+	_END
+
+
+/********************************************************************/
+/*							ポケモン								*/
+/********************************************************************/
+ev_c04r0204_gonbe:
+	_EASY_VOICE_MSG	msg_c04r0204_gonbe_01,MONSNO_MIMITTO,0
+	_END
+
+
+/********************************************************************/
+/*							おじさん								*/
+/********************************************************************/
+ev_c04r0204_middlem:
+	_TALK_OBJ_START
+
+	//幹部に勝利していたら
+	_IF_FLAGON_JUMP	FE_C04R0204_WIN,ev_c04r0204_middlem_02
+
+	_TALKMSG		msg_c04r0204_middlem_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//幹部に勝利していたら
+ev_c04r0204_middlem_02:
+	_TALKMSG		msg_c04r0204_middlem_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+

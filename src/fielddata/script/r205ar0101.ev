@@ -1,0 +1,70 @@
+//====================================================================
+//						r205ar0101.gmm
+//							民家
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r205ar0101.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r205ar0101_middlewoman1
+_EVENT_DATA		ev_r205ar0101_seven1
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*							おばさん　　							*/
+/********************************************************************/
+ev_r205ar0101_middlewoman1:
+	_TALK_OBJ_START
+
+	_TALKMSG	msg_r205ar0101_middlewoman1_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,oldman1a_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,oldman1a_03
+	_END
+
+//Yes
+oldman1a_02:
+	_TALK_CLOSE
+
+//回復処理
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_ME_PLAY		SEQ_ASA
+	_ME_WAIT
+
+	_PC_KAIFUKU
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALKMSG	msg_r205ar0101_middlewoman1_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//NO
+oldman1a_03:
+	_TALKMSG	msg_r205ar0101_middlewoman1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							おばさん　　							*/
+/********************************************************************/
+ev_r205ar0101_seven1:
+	_EASY_OBJ_MSG	msg_r205ar0101_seven1_04
+	_END
+
+/********************************************************************/
+/********************************************************************/

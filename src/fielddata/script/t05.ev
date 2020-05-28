@@ -1,0 +1,407 @@
+//====================================================================
+//					フィールド・タウン０５
+//						カンナギタウン
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t05.h"
+	.include	"../eventdata/zone_t05evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t05_flag_change
+_EVENT_DATA		ev_t05_oldwoman
+_EVENT_DATA		pos_t05_oldwoman
+_EVENT_DATA		ev_t05_gingam
+_EVENT_DATA		ev_t05_gingaboss
+_EVENT_DATA		ev_t05_oldman1
+_EVENT_DATA		ev_t05_woman3
+_EVENT_DATA		ev_t05_babyboy1
+_EVENT_DATA		ev_t05_sign1
+_EVENT_DATA		ev_t05_wall_01
+_EVENT_DATA		ev_t05_wall_02
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_t05_flag_change:
+	_FLAG_SET		SYS_FLAG_BS_LV2
+	_END
+
+
+/********************************************************************/
+/*						　	ギンガ団								*/
+/********************************************************************/
+ev_t05_gingam:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_t05_gingam_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_t05_gingam_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_t05_gingam_01
+	_END
+
+//「いいえ」
+no_t05_gingam_01:
+	_TALKMSG		msg_t05_gingam_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「はい」
+yes_t05_gingam_01:
+	_TALK_KEYWAIT	msg_t05_gingam_02
+	_TALK_CLOSE
+
+	//戦闘へ
+	_TRAINER_BTL_SET	GINGAM_11,0
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_t05_gingam_battle_lose
+
+	_TALK_KEYWAIT	msg_t05_gingam_04
+	_TALK_CLOSE
+
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_UP,ev_t05_gingam_dir_up
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_t05_gingam_dir_left
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_RIGHT,ev_t05_gingam_dir_right
+	//_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_DOWN,ev_t05_gingam_dir_down
+	_END
+
+//画面外に退場する
+//ev_t05_gingam_dir_down:
+ev_t05_gingam_dir_up:
+	_OBJ_ANIME		T5_GINGAM,anm_t05_gingam_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t05_player_50
+	_OBJ_ANIME_WAIT
+
+	_CALL			common_t05_oldwoman
+
+	_OBJ_ANIME		T5_OLDWOMAN,anm_t05_oldwoman_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t05_player_01
+	_OBJ_ANIME_WAIT
+
+	_JUMP			common_t05_gingam_01
+
+ev_t05_gingam_dir_left:
+	_OBJ_ANIME		T5_GINGAM,anm_t05_gingam_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t05_player_51
+	_OBJ_ANIME_WAIT
+
+	_CALL			common_t05_oldwoman
+
+	_OBJ_ANIME		T5_OLDWOMAN,anm_t05_oldwoman_11
+	_OBJ_ANIME_WAIT
+
+	_JUMP			common_t05_gingam_01
+
+ev_t05_gingam_dir_right:
+	_OBJ_ANIME		T5_GINGAM,anm_t05_gingam_02
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t05_player_52
+	_OBJ_ANIME_WAIT
+
+	_CALL			common_t05_oldwoman
+
+	_OBJ_ANIME		T5_OLDWOMAN,anm_t05_oldwoman_12
+	_OBJ_ANIME_WAIT
+
+	_JUMP			common_t05_gingam_01
+
+/*共通処理*/
+common_t05_oldwoman:
+	_OBJ_DEL		T5_GINGAM
+
+	//長老が近づいてくる(位置を変更している)
+	_OBJ_DEL		T5_OLDWOMAN
+
+	_SXY_POS_CHANGE	T5_OLDWOMAN,466,531
+	_SXY_DIR_CHANGE	T5_OLDWOMAN,DIR_UP
+	_SXY_MV_CHANGE	T5_OLDWOMAN,MV_UP
+
+	_FLAG_RESET		FV_T05_OLDWOMAN
+	_OBJ_ADD		T5_OLDWOMAN
+	_OBJ_PAUSE		T5_OLDWOMAN
+	_RET
+
+common_t05_gingam_01:
+	_TALK_KEYWAIT	msg_t05_oldwoman_02
+
+	_PLAYER_NAME	0
+	_ITEM_NAME		1,ITEM_KODAINOOMAMORI
+	_ME_PLAY		SEQ_FANFA4
+	_TALKMSG		msg_t05_oldwoman_03
+	_ME_WAIT
+	_SUB_ITEM		ITEM_KODAINOOMAMORI,1,SCWK_ANSWER
+
+	_FLAG_SET		FE_T05_OLDWOMAN_TALK
+
+	_TALKMSG		msg_t05_oldwoman_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_t05_gingam_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ギンガ団	画面外へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_gingam_01
+	_ANIME_DATA	AC_WALK_L_4F,3
+	_ANIME_DATA	AC_WALK_D_4F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05_gingam_02
+	_ANIME_DATA	AC_WALK_D_4F,2
+	_ANIME_DATA	AC_WALK_L_4F,3
+	_ANIME_DATA	AC_WALK_D_4F,7
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//長老	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_oldwoman_01
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05_oldwoman_11
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05_oldwoman_12
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ギンガ団を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_player_50
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05_player_51
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05_player_52
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	長老を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_player_01
+	_ANIME_DATA	AC_WAIT_8F,8
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05_player_11
+	_ANIME_DATA	AC_WAIT_8F,8
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05_player_12
+	_ANIME_DATA	AC_WAIT_8F,9
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							長老(POS)								*/
+/********************************************************************/
+pos_t05_oldwoman:
+	_EVENT_START
+
+	/*主人公の方をむいて*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t05_player_00
+	_OBJ_ANIME		T5_OLDWOMAN,anm_t05_oldwoman_00
+	_OBJ_ANIME_WAIT
+
+	_CALL			common_ev_t05_oldwoman_first
+	_EVENT_END
+	_END
+
+common_ev_t05_oldwoman_first:
+	_LDVAL			WK_SCENE_T05_OLDWOMAN,1
+	_TALKMSG		msg_t05_oldwoman_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_RET
+
+//--------------------------------------------------------------------
+//長老	主人公の方をむいて
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_oldwoman_00
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	長老の方をむく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_player_00
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							長老									*/
+/********************************************************************/
+ev_t05_oldwoman:
+	_TALK_OBJ_START
+
+	//イベント後
+	_IF_FLAGON_JUMP	FE_T05_OLDWOMAN_TALK,ev_t05_oldwoman_02
+
+	_CALL			common_ev_t05_oldwoman_first
+	_TALK_OBJ_END
+	_END
+
+//イベント後
+ev_t05_oldwoman_02:
+	_TALKMSG		msg_t05_oldwoman_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*					ギンガボス(遺跡の中で壁画を調べて出てきた)			*/
+/********************************************************************/
+ev_t05_gingaboss:
+	_EVENT_START
+
+	/*ボスの方を向く*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t05_player_300
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_TALK_KEYWAIT	msg_t05_gingaboss_01
+	_TALK_CLOSE
+
+	/*隣接する*/
+	_OBJ_ANIME		T5_GINGABOSS,anm_t05_gingaboss_00
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_t05_gingaboss_02
+	_TALK_CLOSE
+
+	//画面外に退場する
+	_OBJ_ANIME		T5_GINGABOSS,anm_t05_gingaboss_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t05_player_301
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		T5_GINGABOSS
+
+	//会話した、ヨスガジムに挑戦できる
+	_FLAG_SET		FE_T05_GINGABOSS_TALK
+	_LDVAL			WK_SCENE_T05,2
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	ボスの方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_player_300
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ボスみおくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_player_301
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ボス	隣接する
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_gingaboss_00
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ボス	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05_gingaboss_01
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						　牧場おじさん								*/
+/********************************************************************/
+ev_t05_oldman1:
+	_EASY_OBJ_MSG	msg_t05_oldman1_01
+	_END
+
+
+/********************************************************************/
+/*						　	姉さん									*/
+/********************************************************************/
+ev_t05_woman3:
+	_EASY_OBJ_MSG	msg_t05_woman3_01
+	_END
+
+
+/********************************************************************/
+/*						　	男の子									*/
+/********************************************************************/
+ev_t05_babyboy1:
+	_EASY_OBJ_MSG	msg_t05_babyboy1_01
+	_END
+
+
+/********************************************************************/
+/*							タウンマップ							*/
+/********************************************************************/
+ev_t05_sign1:
+	_EASY_BOARD_MSG	msg_t05_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+
+/********************************************************************/
+/*							イアの壁画								*/
+/********************************************************************/
+ev_t05_wall_01:
+	_EASY_MSG		msg_t05_wall_01
+	_END
+
+
+/********************************************************************/
+/*							イアの壁画								*/
+/********************************************************************/
+ev_t05_wall_02:
+	_EASY_MSG		msg_t05_wall_02
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

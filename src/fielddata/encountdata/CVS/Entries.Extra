@@ -1,0 +1,12 @@
+/.cvsignore////*///
+/PMDencount.csv////*///
+/PMPencount.csv////*///
+/d_copy.bat////*///
+/d_enc_data.narc////*///
+/dummy.h////*///
+/enc_data.naix////*///
+/makefile////*///
+/msgcnv2.dic////*///
+/p_copy.bat////*///
+/p_enc_data.narc////*///
+/sourcefile.lst////*///

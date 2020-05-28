@@ -1,0 +1,82 @@
+//====================================================================
+//								r217r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r217r0101.h"
+	//.include	"../eventdata/zone_r217r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r217r0101_mount
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_r217r0101_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_r217r0101_mount:
+	_TALK_OBJ_START
+
+	/*すでにアイテム入手していたら*/
+	_IF_FLAGON_JUMP	FE_R217R0101_ITEM_GET,ev_r217r0101_mount_02
+
+	/*ロッククライムをもっているか*/
+	_ITEM_CHK		ITEM_HIDENMASIN08,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,yes_r217r0101_mount
+
+	_TALKMSG	msg_r217r0101_mount_01
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*すでにアイテム入手していたら*/
+ev_r217r0101_mount_02:
+	_TALKMSG		msg_r217r0101_mount_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ロッククライムをもっているか*/
+yes_r217r0101_mount:
+	_TALK_KEYWAIT	msg_r217r0101_mount_02
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_TURARANOPUREETO
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r217r0101_mount_item_event_fail
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	_FLAG_SET		FE_R217R0101_ITEM_GET
+	_JUMP			ev_r217r0101_mount_02
+
+/*アイテム入手失敗*/
+ev_r217r0101_mount_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="kei_hoshiba" host="D6DFPW1X" date="2006-05-26T19:06:53" source="riso_door.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+</head>
+
+<body>
+
+<original_create user="kei_hoshiba" host="D6DFPW1X" date="2006-05-26T19:06:53" source="riso_door.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+
+<model_info
+	pos_scale="2"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="2" xyz="-5.000000 0.000000 0.000000" whd="5.000000 7.500000 0.500000"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="riso_door"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="color"
+		palette_name="riso_door_pl"
+		path="S:/kei_hoshiba/Projects/Resort hotel/sourceimages/riso_door.tga"
+	>
+		<bitmap size="256">
+			4445 4444 4444 4444 4444 3334 3333 3333
+			4445 4444 4444 4444 4444 3334 3333 3333
+			4445 4444 4444 4444 4444 3334 3333 3333
+			3334 3333 3333 3333 3333 3333 3333 3445
+			4445 3334 3333 3333 4443 3334 4333 3445
+			4445 4434 3443 4344 4454 3334 4333 3445
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 5553 3445
+			4445 4434 3443 4344 4454 3334 4443 3445
+			2245 5533 5555 5555 4455 3334 4443 3445
+			1125 4430 4444 4444 4454 3334 4443 3445
+			0115 4430 4444 4444 4454 3334 4443 3445
+			0035 4433 4444 4444 4454 3334 4443 3445
+			3345 3334 3333 3333 4453 3334 4443 3445
+			4445 4434 3443 4344 4454 3334 3333 3444
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 4433 3445
+			4445 4434 3443 4344 4454 3334 4333 3445
+			4445 4434 3443 4344 4454 3334 4333 3445
+			4445 4434 3443 4344 4454 3334 4333 3445
+			4445 5554 5555 5555 4455 3334 4333 3445
+			5555 5555 5555 5555 5555 3335 3333 3445
+			4445 4444 4444 4444 4444 3334 3333 3443
+			4445 4444 4444 4444 4444 3334 3333 3333
+			3333 3333 3333 3333 3333 3333 3333 3333
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="riso_door_pl" color_size="8">
+		2612 2e97 4f3b 59c0 6601 6e42 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="lambert6"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="8"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="25 25 25"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="8" polygon_size="2"
+		triangle_size="0" quad_size="2"
+		volume_min="-5.000000 0.000000 0.000000"
+		volume_max="0.000000 7.500000 0.500000"
+		volume_r="9.027832"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="8">
+					<mtx idx="0"/>
+					<tex st="22.000000 32.000000"/>
+					<nrm xyz="0.998047 0.000000 0.000000"/>
+					<pos_s xyz="0.000000 0.000000 0.500000"/>
+					<tex st="64.000000 32.000000"/>
+					<pos_xz xz="0.000000 0.000000"/>
+					<tex st="64.000000 0.000000"/>
+					<pos_xy xy="0.000000 7.500000"/>
+					<tex st="22.000000 0.000000"/>
+					<pos_xz xz="0.000000 0.500000"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_xy xy="-5.000000 0.000000"/>
+					<tex st="22.000000 32.000000"/>
+					<pos_xy xy="0.000000 0.000000"/>
+					<tex st="22.000000 0.000000"/>
+					<pos_xy xy="0.000000 7.500000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-5.000000 7.500000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pCube2" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="8" polygon_size="2"
+		triangle_size="0" quad_size="2"
+		volume_min="-5.000000 0.000000 0.000000"
+		volume_max="0.000000 7.500000 0.500000"
+		volume_r="9.027832"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="8" polygon_size="2"
+	triangle_size="0" quad_size="2"/>
+
+</body>
+
+</imd>

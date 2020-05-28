@@ -1,0 +1,4 @@
+#include <nitro.h>
+#include <nnsys.h>
+#include "include/pm_version.h"
+#include "include/bugfix.h"

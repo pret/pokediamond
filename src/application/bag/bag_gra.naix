@@ -1,0 +1,56 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: bag_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-14T11:40:48
+ *****************************************************************************/
+
+#ifndef NARC_BAG_GRA_NAIX_
+#define NARC_BAG_GRA_NAIX_
+
+enum {
+	NARC_bag_gra_bag_01_NANR = 0,
+	NARC_bag_gra_bag_01_NCER = 1,
+	NARC_bag_gra_bag_01_NCGR = 2,
+	NARC_bag_gra_bag_01_NCLR = 3,
+	NARC_bag_gra_bag_arrow_NANR = 4,
+	NARC_bag_gra_bag_arrow_NCER = 5,
+	NARC_bag_gra_bag_arrow_NCGR = 6,
+	NARC_bag_gra_bag_bg_NCGR = 7,
+	NARC_bag_gra_bag_bg_NCLR = 8,
+	NARC_bag_gra_bag_bg0_NSCR = 9,
+	NARC_bag_gra_bag_bg1_NSCR = 10,
+	NARC_bag_gra_bag_bg_s_NCGR = 11,
+	NARC_bag_gra_bag_bg_s_NCLR = 12,
+	NARC_bag_gra_bag_bg_s0_NSCR = 13,
+	NARC_bag_gra_bag_button_NCLR = 14,
+	NARC_bag_gra_bag_button2_NCGR = 15,
+	NARC_bag_gra_bag_cursor_NCLR = 16,
+	NARC_bag_gra_bag_pocketlist_NCGR = 17,
+	NARC_bag_gra_bag_pocketlist_NCLR = 18,
+	NARC_bag_gra_bag_pokecur_NANR = 19,
+	NARC_bag_gra_bag_pokecur_NCER = 20,
+	NARC_bag_gra_bag_pokecur_NCGR = 21,
+	NARC_bag_gra_bag_selcur_NANR = 22,
+	NARC_bag_gra_bag_selcur_NCER = 23,
+	NARC_bag_gra_bag_selcur_NCGR = 24,
+	NARC_bag_gra_bag_selcur2_NANR = 25,
+	NARC_bag_gra_bag_selcur2_NCER = 26,
+	NARC_bag_gra_bag_selcur2_NCGR = 27,
+	NARC_bag_gra_button_ef_NANR = 28,
+	NARC_bag_gra_button_ef_NCER = 29,
+	NARC_bag_gra_button_ef_NCGR = 30,
+	NARC_bag_gra_button_ef_NCLR = 31,
+	NARC_bag_gra_bag_02_NANR = 32,
+	NARC_bag_gra_bag_02_NCER = 33,
+	NARC_bag_gra_bag_02_NCGR = 34,
+	NARC_bag_gra_bag_02_NCLR = 35,
+	NARC_bag_gra_bag_wheel_NSCR = 36,
+	NARC_bag_gra_bag_wheel_NCGR = 37,
+	NARC_bag_gra_listicon_NCGR = 38
+};
+
+/* NARC_BAG_GRA_NAIX_ */
+#endif

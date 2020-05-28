@@ -1,0 +1,26 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: vs_demo_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-25T20:12:47
+ *****************************************************************************/
+
+#ifndef NARC_VS_DEMO_GRA_NAIX_
+#define NARC_VS_DEMO_GRA_NAIX_
+
+enum {
+	NARC_vs_demo_gra_t_buttle_ncgr = 0,
+	NARC_vs_demo_gra_t_buttle_nclr = 1,
+	NARC_vs_demo_gra_t_buttle01_nscr = 2,
+	NARC_vs_demo_gra_t_buttle02_nscr = 3,
+	NARC_vs_demo_gra_t_buttle03_nscr = 4,
+	NARC_vs_demo_gra_t_buttle_font_ncgr = 5,
+	NARC_vs_demo_gra_t_battle_font_ncer = 6,
+	NARC_vs_demo_gra_t_battle_font_nanr = 7,
+	NARC_vs_demo_gra_t_buttle_font_nclr = 8
+};
+
+/* NARC_VS_DEMO_GRA_NAIX_ */
+#endif

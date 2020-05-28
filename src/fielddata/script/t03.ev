@@ -1,0 +1,273 @@
+//====================================================================
+//					フィールド・タウン０３
+/*						ソノオタウン								*/
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t03.h"
+	.include	"../eventdata/zone_t03evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t03_flag_change
+_EVENT_DATA		pos_t03_gingaboss
+_EVENT_DATA		ev_t03_gingam
+_EVENT_DATA		ev_t03_boy1
+_EVENT_DATA		ev_t03_girl1
+_EVENT_DATA		ev_t03_woman1
+_EVENT_DATA		ev_t03_oldwoman2
+_EVENT_DATA		ev_t03_campboy
+_EVENT_DATA		ev_t03_sign1
+_EVENT_DATA		ev_t03_sign2
+_EVENT_DATA		ev_t03_sign3
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						　FLAG CHANGE								*/
+/********************************************************************/
+ev_t03_flag_change:
+	_END
+
+/********************************************************************/
+/*						　ギンガ団									*/
+/********************************************************************/
+#define	POS_T03_GINGABOSS_X1	(170)
+#define	POS_T03_GINGABOSS_X2	(171)
+#define	POS_T03_GINGABOSS_X3	(172)
+
+pos_t03_gingaboss:
+	_EVENT_START
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_T03_GINGABOSS_X1,pos_t03_gingaboss_10_02_01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_T03_GINGABOSS_X2,pos_t03_gingaboss_10_02_02
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_T03_GINGABOSS_X3,pos_t03_gingaboss_10_02_03
+	_END
+
+pos_t03_gingaboss_10_02_01:
+	_OBJ_ANIME		T03_GINGABOSS,anm_01_t03_gingaboss_01a
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t03_gingaboss_20_common
+
+pos_t03_gingaboss_10_02_02:
+	_OBJ_ANIME		T03_GINGABOSS,anm_01_t03_gingaboss_01b
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t03_gingaboss_20_common
+
+pos_t03_gingaboss_10_02_03:
+	_OBJ_ANIME		T03_GINGABOSS,anm_01_t03_gingaboss_01c
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t03_gingaboss_20_common
+
+pos_t03_gingaboss_20_common:
+	_TALK_KEYWAIT	msg_t03_gingaboss_01
+
+	_TALK_KEYWAIT	msg_t03_gingaboss_02
+	_TALK_CLOSE
+
+	//r205(上に移動)
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_T03_GINGABOSS_X1,pos_t03_gingaboss_10_01_01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_T03_GINGABOSS_X2,pos_t03_gingaboss_10_01_02
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_T03_GINGABOSS_X3,pos_t03_gingaboss_10_01_03
+	_END
+
+//立ち去る
+pos_t03_gingaboss_10_01_01:
+	_OBJ_ANIME		T03_GINGABOSS,anm_01_t03_gingaboss_02a
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t03_gingaboss_10_common
+
+pos_t03_gingaboss_10_01_02:
+	_OBJ_ANIME		T03_GINGABOSS,anm_01_t03_gingaboss_02b
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t03_gingaboss_10_common
+
+pos_t03_gingaboss_10_01_03:
+	_OBJ_ANIME		T03_GINGABOSS,anm_01_t03_gingaboss_02c
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_t03_gingaboss_10_common
+
+pos_t03_gingaboss_10_common:
+	_OBJ_DEL		T03_GINGABOSS
+
+	_LDVAL			WK_SCENE_T03,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ギンガ団ボス	近寄り
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_t03_gingaboss_01a
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_t03_gingaboss_01b
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_t03_gingaboss_01c
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団ボス	立ち去り
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_t03_gingaboss_02a
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_t03_gingaboss_02b
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_t03_gingaboss_02c
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						　ギンガ団									*/
+/********************************************************************/
+ev_t03_gingam:
+	_TALK_OBJ_START_TURN_NOT	//振り向きなし
+
+	//話している方を動かす
+	_OBJ_ANIME		T03_GINGAM_A,anm_t03_gingam_a
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_t03_gingam_a_01
+	_TALK_CLOSE
+
+	//話している方を動かす
+	_OBJ_ANIME		T03_GINGAM_B,anm_t03_gingam_b
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG		msg_t03_gingam_b_01
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ギンガ団	その場歩き
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t03_gingam_a
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t03_gingam_b
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						　少年										*/
+/********************************************************************/
+ev_t03_boy1:
+	_TALK_OBJ_START
+
+	/*発電所イベント終了していたら*/
+	_IFVAL_JUMP		WK_SCENE_D02R0101,GE,2,ev_t03_boy1_02
+
+	_TALK_KEYWAIT	msg_t03_boy1_01
+
+	_OBJ_ANIME		T03_BOY1,anm_t03_boy1_01
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG		msg_t03_boy1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*発電所イベント終了していたら*/
+ev_t03_boy1_02:
+	_TALKMSG		msg_t03_boy1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//少年	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t03_boy1_01
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						　少女										*/
+/********************************************************************/
+ev_t03_girl1:
+	_EASY_OBJ_MSG	msg_t03_girl1_01
+	_END
+
+
+/********************************************************************/
+/*						　女性										*/
+/********************************************************************/
+ev_t03_woman1:
+	_EASY_OBJ_MSG	msg_t03_woman1_01
+	_END
+
+
+/********************************************************************/
+/*						　女性										*/
+/********************************************************************/
+ev_t03_oldwoman2:
+	_EASY_OBJ_MSG	msg_t03_oldwoman2_01
+	_END
+
+
+/********************************************************************/
+/*						　キャンプボーイ							*/
+/********************************************************************/
+ev_t03_campboy:
+	_EASY_OBJ_MSG	msg_t03_campboy_01
+	_END
+
+
+/********************************************************************/
+/*							タウンマップ							*/
+/********************************************************************/
+ev_t03_sign1:
+	_EASY_BOARD_MSG	msg_t03_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_t03_sign2:
+	_EASY_BOARD_MSG	msg_t03_sign2_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_t03_sign3:
+	_EASY_BOARD_MSG	msg_t03_sign3_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

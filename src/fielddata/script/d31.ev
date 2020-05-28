@@ -1,0 +1,386 @@
+//====================================================================
+//							d31
+//						バトルパーク
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d31.h"
+	.include	"../eventdata/zone_d31evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d31_towerboss
+_EVENT_DATA		ev_d31_rival
+_EVENT_DATA		ev_d31_sign1
+_EVENT_DATA		ev_d31_sign2
+_EVENT_DATA		ev_d31_woman3
+_EVENT_DATA		ev_d31_boy1
+_EVENT_DATA		ev_d31_oldwoman1
+_EVENT_DATA		ev_d31_assistantw
+_EVENT_DATA		ev_d31_middleman
+_EVENT_DATA		ev_d31_veteran
+_EVENT_DATA		ev_d31_man2
+_EVENT_DATA		ev_d31_fighter
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_d31_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+#define POS_D31_TOWERBOSS_X1	(23)
+#define POS_D31_TOWERBOSS_X2	(24)
+#define POS_D31_TOWERBOSS_X3	(25)
+#define POS_D31_TOWERBOSS_X4	(26)
+
+ev_d31_towerboss:
+	_EVENT_START
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X1,pos_d31_towerboss_1
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X2,pos_d31_towerboss_2
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X3,pos_d31_towerboss_3
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X4,pos_d31_towerboss_4
+
+	_FLAG_RESET	FV_D31_TOWERBOSS
+	_OBJ_ADD	D31_TOWERBOSS
+	_OBJ_PAUSE	D31_TOWERBOSS
+
+	/*ライバル父　主人公とぶつかる*/
+	_OBJ_ANIME		D31_TOWERBOSS,anm_d31_towerboss_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_01
+	_OBJ_ANIME_WAIT
+
+	//「ドン」
+	_SE_PLAY		SEQ_SE_DP_WALL_HIT2
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_d31_towerboss_01
+	_TALK_CLOSE
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	/*左右向いてから、下を向いて*/
+	_OBJ_ANIME		D31_TOWERBOSS,anm_d31_towerboss_02
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d31_towerboss_02
+	_TALK_CLOSE
+
+	/*上を向く*/
+	_OBJ_ANIME		D31_TOWERBOSS,anm_d31_towerboss_03
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d31_towerboss_03
+
+	/*「！」*/
+	_OBJ_ANIME		D31_TOWERBOSS,anm_d31_towerboss_30
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d31_towerboss_04
+	_TALK_CLOSE
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X1,pos_d31_towerboss_11
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X2,pos_d31_towerboss_12
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X3,pos_d31_towerboss_13
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X4,pos_d31_towerboss_14
+
+	_OBJ_DEL		D31_TOWERBOSS
+
+	/***********************************************/
+
+	_FLAG_RESET	FV_D31_RIVAL
+	_OBJ_ADD	D31_RIVAL
+	_OBJ_PAUSE	D31_RIVAL
+	
+	/*ライバル　主人公とぶつかる*/
+	_OBJ_ANIME		D31_RIVAL,anm_d31_towerboss_01			/*アニメ使いまわし*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_01		/*アニメ使いまわし*/
+	_OBJ_ANIME_WAIT
+
+	//「ドン」
+	_SE_PLAY		SEQ_SE_DP_WALL_HIT2
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_d31_rival_01
+	_TALK_CLOSE
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	/*かざんのおきいしイベントが終了しているか*/
+	_IFVAL_CALL		WK_SCENE_D16R0103,LT,1,ev_d31_rival_event_chk_msg1
+	_IFVAL_CALL		WK_SCENE_D16R0103,GE,1,ev_d31_rival_event_chk_msg2
+
+	_TALK_CLOSE
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X1,pos_d31_towerboss_21
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X2,pos_d31_towerboss_22
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X3,pos_d31_towerboss_23
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_D31_TOWERBOSS_X4,pos_d31_towerboss_24
+
+	_OBJ_DEL		D31_RIVAL
+	_LDVAL			WK_SCENE_D31,1
+
+	_EVENT_END
+	_END
+
+ev_d31_rival_event_chk_msg1:
+	_TALK_KEYWAIT	msg_d31_rival_02
+	_RET
+ev_d31_rival_event_chk_msg2:
+	_TALK_KEYWAIT	msg_d31_rival_03
+	_RET
+
+//--------------------------------------------------------------------
+//ライバル父	初期位置セット
+//--------------------------------------------------------------------
+pos_d31_towerboss_1:
+	_SXY_POS_CHANGE	D31_TOWERBOSS,POS_D31_TOWERBOSS_X1,41
+	_SXY_POS_CHANGE	D31_RIVAL,POS_D31_TOWERBOSS_X1,40
+	_RET
+pos_d31_towerboss_2:
+	_SXY_POS_CHANGE	D31_TOWERBOSS,POS_D31_TOWERBOSS_X2,41
+	_SXY_POS_CHANGE	D31_RIVAL,POS_D31_TOWERBOSS_X2,40
+	_RET
+pos_d31_towerboss_3:
+	_SXY_POS_CHANGE	D31_TOWERBOSS,POS_D31_TOWERBOSS_X3,41
+	_SXY_POS_CHANGE	D31_RIVAL,POS_D31_TOWERBOSS_X3,40
+	_RET
+pos_d31_towerboss_4:
+	_SXY_POS_CHANGE	D31_TOWERBOSS,POS_D31_TOWERBOSS_X4,41
+	_SXY_POS_CHANGE	D31_RIVAL,POS_D31_TOWERBOSS_X4,40
+	_RET
+
+//--------------------------------------------------------------------
+//ライバル父	立ち去りアニメ
+//--------------------------------------------------------------------
+pos_d31_towerboss_11:
+	_OBJ_ANIME		D31_TOWERBOSS,anm_d31_towerboss_40
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_40
+	_OBJ_ANIME_WAIT
+	_RET
+pos_d31_towerboss_12:
+	_OBJ_ANIME		D31_TOWERBOSS,anm_d31_towerboss_40
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_40
+	_OBJ_ANIME_WAIT
+	_RET
+pos_d31_towerboss_13:
+	_OBJ_ANIME		D31_TOWERBOSS,anm_d31_towerboss_41
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_41
+	_OBJ_ANIME_WAIT
+	_RET
+pos_d31_towerboss_14:
+	_OBJ_ANIME		D31_TOWERBOSS,anm_d31_towerboss_41
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_41
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//ライバル	立ち去りアニメ(アニメ使いまわし)
+//--------------------------------------------------------------------
+pos_d31_towerboss_21:
+	_OBJ_ANIME		D31_RIVAL,anm_d31_towerboss_40
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_40
+	_OBJ_ANIME_WAIT
+	_RET
+pos_d31_towerboss_22:
+	_OBJ_ANIME		D31_RIVAL,anm_d31_towerboss_40
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_40
+	_OBJ_ANIME_WAIT
+	_RET
+pos_d31_towerboss_23:
+	_OBJ_ANIME		D31_RIVAL,anm_d31_towerboss_41
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_41
+	_OBJ_ANIME_WAIT
+	_RET
+pos_d31_towerboss_24:
+	_OBJ_ANIME		D31_RIVAL,anm_d31_towerboss_41
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d31_player_41
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	ぶつかられる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d31_player_01
+	_ANIME_DATA	AC_WAIT_4F,7
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_U_4F,1
+	_ANIME_DATA	AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ライバル父を見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d31_player_40
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+	
+_ANIME_LABEL anm_d31_player_41
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル父	ぶつかる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d31_towerboss_01
+	_ANIME_DATA	AC_WALK_U_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル父	左右向いて下向いて
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d31_towerboss_02
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル父	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d31_towerboss_03
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル父	！
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d31_towerboss_30
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル父	上に移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_d31_towerboss_40
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_d31_towerboss_41
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31_rival:
+	_EASY_OBJ_MSG	msg_d31_rival_03
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31_woman3:
+	_TALK_OBJ_START_TURN_NOT
+	_TALKMSG		msg_d31_woman3_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31_boy1:
+	_TALK_OBJ_START_TURN_NOT
+	_TALKMSG		msg_d31_boy1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31_oldwoman1:
+	_EASY_OBJ_MSG	msg_d31_oldwoman1_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31_assistantw:
+	_EASY_MSG	msg_d31_assistantw_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31_middleman:
+	_EASY_OBJ_MSG	msg_d31_middleman_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31_veteran:
+	_EASY_OBJ_MSG	msg_d31_veteran_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31_man2:
+	_EASY_OBJ_MSG	msg_d31_man2_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d31_fighter:
+	_EASY_OBJ_MSG	msg_d31_fighter_01
+	_END
+
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_d31_sign1:
+	_EASY_BOARD_MSG	msg_d31_sign1_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*							施設看板								*/
+/********************************************************************/
+ev_d31_sign2:
+	_EASY_BOARD_MSG	msg_d31_sign1_02,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

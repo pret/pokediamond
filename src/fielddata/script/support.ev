@@ -1,0 +1,325 @@
+//====================================================================
+//								support
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_support.h"
+	//.include	"../eventdata/zone_supportevc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_support_game_clear
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_support_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*																	*/
+//	SCWK_TEMP0	男女
+/********************************************************************/
+ev_support_game_clear:
+	_TALK_OBJ_START
+
+	_GET_MY_SEX		SCWK_TEMP0
+
+	/*誕生日だったら*/
+	_BIRTH_DAY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,support_event_birthday
+
+	/*シンオウ図鑑完成してたら、全国図鑑チェックまで飛ばす*/
+	_ZUKAN_CHK_SHINOU	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_support_game_clear_chk_zenkoku
+	
+	/*カンナギ長老イベント前*/
+	_IF_FLAGOFF_JUMP	FE_T05R0101_OLDWOMAN1,support_event_02
+
+	/*イア･エア再戦不可なら、シンオウ未完成デフォルトイベントまで飛ばす*/
+	_IF_FLAGON_JUMP		FE_D05R0114_SPPOKE_GET,support_event_00
+	
+	/*イア・エア出現中か？(出現中でないならデフォルトイベント)*/
+	_IFVAL_JUMP			WK_SCENE_D05R0114,NE,5,support_event_00	/*SCENE_D05R0114_SPPOKE_RETRY*/
+
+	//出現中ならイアエア復活示唆イベントへ
+	_JUMP				support_event_01
+	
+ev_support_game_clear_chk_zenkoku:
+	/*全国図鑑になっていなかったら*/
+	_ZENKOKU_ZUKAN_FLAG		FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,support_event_03
+	
+	/*大量発生起動していなかったら*/
+	_IF_FLAGOFF_JUMP	FE_GENERATE_START,support_event_04
+
+	/*イーブイ入手していなかったら*/
+	_IF_FLAGOFF_JUMP	FE_C05R0901_POKEMON_GET,support_event_05
+
+	/*ポケトレ入手メッセージを３つ表示する*/
+	//_IF_FLAGOFF_JUMP	FE_SUPPORT_POKETORE_1,support_event_06
+	//_IF_FLAGOFF_JUMP	FE_SUPPORT_POKETORE_2,support_event_07
+	//_IF_FLAGOFF_JUMP	FE_SUPPORT_POKETORE_3,support_event_08
+
+	/*全国図鑑完成していたら*/
+	_ZUKAN_CHK_NATIONAL	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,support_event_10
+
+	/*条件を満たさない時*/
+	//_JUMP				support_event_09
+
+	/*ランダム　F,G,H,I*/
+	_JUMP				support_event_100
+	_END
+
+support_event_100:
+	_GET_RND		SCWK_ANSWER,4
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,support_event_06
+	_CASE_JUMP		1,support_event_07
+	_CASE_JUMP		2,support_event_08
+	_CASE_JUMP		3,support_event_09
+	_END
+
+//--------------------------------------------------------------------
+//	進行分岐
+//--------------------------------------------------------------------
+support_event_birthday:
+	/*誕生日*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_birthday		//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_birthday	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_10:
+	/*全国図鑑完成時 → J*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_10	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_10	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_09:
+	/*条件を満たさない時 → I*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_09	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_09	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_08:
+	_FLAG_SET		FE_SUPPORT_POKETORE_3
+	/*ポケトレその３ → H*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_08	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_08	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_07:
+	_FLAG_SET		FE_SUPPORT_POKETORE_2
+	/*ポケトレその２ → G*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_07	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_07	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_06:
+	_FLAG_SET		FE_SUPPORT_POKETORE_1
+	/*ポケトレその１ → F*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_06	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_06	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_05:
+	/*全国図鑑入手後(イーブイ入手前) → E*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_05	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_05	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_04:
+	/*全国図鑑入手後(大量発生起動前) → D*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_04	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_04	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_03:
+	/*全国図鑑入手前 → C*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_03	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_03	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_02:
+	/*シンオウ図鑑完成前(カンナギ長老イベント前) → B*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_02	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_02	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+support_event_01:
+	/*シンオウ図鑑完成前(イア・エア捕獲前) → A*/
+	_PLAYER_NAME	0
+	/*バージョンによって展開するポケモン名を変える*/
+	_PM_VERSION_GET		SCWK_ANSWER
+	_IFVAL_CALL			SCWK_ANSWER,EQ,VERSION_DIAMOND,sub_support_event_01_diamond
+	_IFVAL_CALL			SCWK_ANSWER,EQ,VERSION_PEARL,sub_support_event_01_pearl
+
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_01	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_01	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+sub_support_event_01_diamond:
+	_POKEMON_NAME_EXTRA	1,MONSNO_IA,0,0					/*ポケモン名*/
+	_RET
+sub_support_event_01_pearl:
+	_POKEMON_NAME_EXTRA	1,MONSNO_EA,0,0					/*ポケモン名*/
+	_RET
+
+support_event_00:
+	/*全国未入手＆イアエア捕獲済み＆カンナギ長老イベント済み*/
+	_PLAYER_NAME	0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,s_player_male_msg_00	//サポート女
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,s_player_female_msg_00	//サポート男
+	_JUMP			common_support_event_end
+	_END
+
+//--------------------------------------------------------------------
+//	共通終了
+//--------------------------------------------------------------------
+common_support_event_end:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//	男女メッセージ
+//--------------------------------------------------------------------
+s_player_male_msg_birthday:		//サポート女
+	_TALKMSG		msg_heroine_11
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_male_player_birthday
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_male_player_birthday
+	_END
+
+yes_male_player_birthday:
+	_TALKMSG		msg_heroine_12
+	_RET
+no_male_player_birthday:
+	_TALKMSG		msg_heroine_13
+	_RET
+
+s_player_female_msg_birthday:	//サポート男
+	_TALKMSG		msg_hero_11
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_female_player_birthday
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_female_player_birthday
+	_END
+
+yes_female_player_birthday:
+	_TALKMSG		msg_hero_12
+	_RET
+no_female_player_birthday:
+	_TALKMSG		msg_hero_13
+	_RET
+
+s_player_male_msg_00:	//サポート女
+	_TALKMSG		msg_heroine_14
+	_RET
+s_player_female_msg_00:	//サポート男
+	_TALKMSG		msg_hero_14
+	_RET
+
+s_player_male_msg_01:	//サポート女
+	_TALKMSG		msg_heroine_01
+	_RET
+s_player_female_msg_01:	//サポート男
+	_TALKMSG		msg_hero_01
+	_RET
+
+s_player_male_msg_02:	//サポート女
+	_TALKMSG		msg_heroine_02
+	_RET
+s_player_female_msg_02:	//サポート男
+	_TALKMSG		msg_hero_02
+	_RET
+
+s_player_male_msg_03:	//サポート女
+	_TALKMSG		msg_heroine_03
+	_RET
+s_player_female_msg_03:	//サポート男
+	_TALKMSG		msg_hero_03
+	_RET
+
+s_player_male_msg_04:	//サポート女
+	_TALKMSG		msg_heroine_04
+	_RET
+s_player_female_msg_04:	//サポート男
+	_TALKMSG		msg_hero_04
+	_RET
+
+s_player_male_msg_05:	//サポート女
+	_TALKMSG		msg_heroine_05
+	_RET
+s_player_female_msg_05:	//サポート男
+	_TALKMSG		msg_hero_05
+	_RET
+
+s_player_male_msg_06:	//サポート女
+	_TALKMSG		msg_heroine_06
+	_RET
+s_player_female_msg_06:	//サポート男
+	_TALKMSG		msg_hero_06
+	_RET
+
+s_player_male_msg_07:	//サポート女
+	_TALKMSG		msg_heroine_07
+	_RET
+s_player_female_msg_07:	//サポート男
+	_TALKMSG		msg_hero_07
+	_RET
+
+s_player_male_msg_08:	//サポート女
+	_TALKMSG		msg_heroine_08
+	_RET
+s_player_female_msg_08:	//サポート男
+	_TALKMSG		msg_hero_08
+	_RET
+
+s_player_male_msg_09:	//サポート女
+	_TALKMSG		msg_heroine_09
+	_RET
+s_player_female_msg_09:	//サポート男
+	_TALKMSG		msg_hero_09
+	_RET
+
+s_player_male_msg_10:	//サポート女
+	_TALKMSG		msg_heroine_10
+	_RET
+s_player_female_msg_10:	//サポート男
+	_TALKMSG		msg_hero_10
+	_RET
+
+

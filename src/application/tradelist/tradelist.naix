@@ -1,0 +1,30 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: TradeList.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-18T15:23:04
+ *****************************************************************************/
+
+#ifndef NARC_TRADELIST_NAIX_
+#define NARC_TRADELIST_NAIX_
+
+enum {
+	NARC_TradeList_DsTradeList_nclr = 0,
+	NARC_TradeList_chara_m_lz_ncgr = 1,
+	NARC_TradeList_chara_s_lz_ncgr = 2,
+	NARC_TradeList_main2_lz_nscr = 3,
+	NARC_TradeList_main3_lz_nscr = 4,
+	NARC_TradeList_sub2_lz_nscr = 5,
+	NARC_TradeList_sub3_lz_nscr = 6,
+	NARC_TradeList_obj_lz_ncgr = 7,
+	NARC_TradeList_obj_lz_ncer = 8,
+	NARC_TradeList_obj_lz_nanr = 9,
+	NARC_TradeList_obj_s_lz_ncgr = 10,
+	NARC_TradeList_obj_s_lz_ncer = 11,
+	NARC_TradeList_obj_s_lz_nanr = 12
+};
+
+/* NARC_TRADELIST_NAIX_ */
+#endif

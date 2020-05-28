@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="sogabe" host="W00086" date="2005-09-02T15:24:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="MSG_TRTYPE_BOY">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GIRL">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_TANPAN">
+		<language name="日本語">たんパンこぞう</language>
+	</row>
+
+	<row id="MSG_TRTYPE_MINI">
+		<language name="日本語">ミニスカート</language>
+	</row>
+
+	<row id="MSG_TRTYPE_CAMPB">
+		<language name="日本語">キャンプボーイ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_PICNICG">
+		<language name="日本語">ピクニックガール</language>
+	</row>
+
+	<row id="MSG_TRTYPE_MUSHI">
+		<language name="日本語">むしとりしょうねん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_AROMA">
+		<language name="日本語">アロマなおねえさん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_FUTAGO">
+		<language name="日本語">ふたごちゃん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_MOUNT">
+		<language name="日本語">やまおとこ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BATTLEG">
+		<language name="日本語">バトルガール</language>
+	</row>
+
+	<row id="MSG_TRTYPE_FISHING">
+		<language name="日本語">つりびと</language>
+	</row>
+
+	<row id="MSG_TRTYPE_CYCLINGM">
+		<language name="日本語">サイクリング</language>
+	</row>
+
+	<row id="MSG_TRTYPE_CYCLINGW">
+		<language name="日本語">サイクリング</language>
+	</row>
+
+	<row id="MSG_TRTYPE_KARATE">
+		<language name="日本語">からておう</language>
+	</row>
+
+	<row id="MSG_TRTYPE_ARTIST">
+		<language name="日本語">げいじゅつか</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BREEDERM">
+		<language name="日本語">ポケモンブリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BREEDERW">
+		<language name="日本語">ポケモンブリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_COWGIRL">
+		<language name="日本語">カウガール</language>
+	</row>
+
+	<row id="MSG_TRTYPE_JOGGER">
+		<language name="日本語">ジョギング</language>
+	</row>
+
+	<row id="MSG_TRTYPE_DAISUKIM">
+		<language name="日本語">だいすきクラブ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_DAISUKIW">
+		<language name="日本語">だいすきクラブ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_POKEGIRL">
+		<language name="日本語">ポケモンごっこ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_LOVELOVE">
+		<language name="日本語">ラブラブカップル</language>
+	</row>
+
+	<row id="MSG_TRTYPE_ELITEM">
+		<language name="日本語">エリートトレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_ELITEW">
+		<language name="日本語">エリートトレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_WAITRESS">
+		<language name="日本語">ウエートレス</language>
+	</row>
+
+	<row id="MSG_TRTYPE_VETERAN">
+		<language name="日本語">ベテラントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SHINOBI">
+		<language name="日本語">にんじゃごっこ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_DRAGON">
+		<language name="日本語">ドラゴンつかい</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BIRD">
+		<language name="日本語">とりつかい</language>
+	</row>
+
+	<row id="MSG_TRTYPE_DOUBLETEAM">
+		<language name="日本語">ダブルチーム</language>
+	</row>
+
+	<row id="MSG_TRTYPE_PRINCE">
+		<language name="日本語">おぼっちゃま</language>
+	</row>
+
+	<row id="MSG_TRTYPE_PRINCESS">
+		<language name="日本語">おじょうさま</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GENTLE">
+		<language name="日本語">ジェントルマン</language>
+	</row>
+
+	<row id="MSG_TRTYPE_MADAM">
+		<language name="日本語">マダム</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SISTER">
+		<language name="日本語">おとなのおねえさん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_COLLECTOR">
+		<language name="日本語">ポケモンコレクター</language>
+	</row>
+
+	<row id="MSG_TRTYPE_POLICE">
+		<language name="日本語">おまわりさん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_RANGERM">
+		<language name="日本語">ポケモンレンジャー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_RANGERW">
+		<language name="日本語">ポケモンレンジャー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SCIENTIST">
+		<language name="日本語">けんきゅういん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SWIMMERM">
+		<language name="日本語">かいパンやろう</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SWIMMERW">
+		<language name="日本語">ビキニのおねえさん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_UKIWAB">
+		<language name="日本語">うきわボーイ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_UKIWAG">
+		<language name="日本語">うきわガール</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SAILOR">
+		<language name="日本語">ふなのり</language>
+	</row>
+
+	<row id="MSG_TRTYPE_ANEOTOUTO">
+		<language name="日本語">うみきょうだい</language>
+	</row>
+
+	<row id="MSG_TRTYPE_ISEKI">
+		<language name="日本語">いせきマニア</language>
+	</row>
+
+	<row id="MSG_TRTYPE_ESPM">
+		<language name="日本語">サイキッカー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_ESPW">
+		<language name="日本語">サイキッカー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GAMBLER">
+		<language name="日本語">ギャンブラー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GUITARIST">
+		<language name="日本語">ギタリスト</language>
+	</row>
+
+	<row id="MSG_TRTYPE_COLDELITEM">
+		<language name="日本語">エリートトレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_COLDELITEW">
+		<language name="日本語">エリートトレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SKIERM">
+		<language name="日本語">スキーヤー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SKIERW">
+		<language name="日本語">スキーヤー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_HEADS">
+		<language name="日本語">スキンヘッズ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_PIERROT">
+		<language name="日本語">ピエロ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_WORKER">
+		<language name="日本語">さぎょういん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SCHOOLB">
+		<language name="日本語">じゅくがえり</language>
+	</row>
+
+	<row id="MSG_TRTYPE_SCHOOLG">
+		<language name="日本語">じゅくがえり</language>
+	</row>
+
+	<row id="MSG_TRTYPE_LEADER1">
+		<language name="日本語">ジムリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_RIVAL">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_LEADER7">
+		<language name="日本語">ジムリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BIGFOUR1">
+		<language name="日本語">してんのう</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BIGFOUR2">
+		<language name="日本語">してんのう</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BIGFOUR3">
+		<language name="日本語">してんのう</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BIGFOUR4">
+		<language name="日本語">してんのう</language>
+	</row>
+
+	<row id="MSG_TRTYPE_CHAMPION">
+		<language name="日本語">チャンピオン</language>
+	</row>
+
+	<row id="MSG_TRTYPE_FAMILY">
+		<language name="日本語">ぼくじょうおやこ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_FARMER">
+		<language name="日本語">ぼくじょうおじさん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GINGALEADER1">
+		<language name="日本語">ギンガだんかんぶ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GINGAM">
+		<language name="日本語">ギンガだん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_LEADER2">
+		<language name="日本語">ジムリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_LEADER3">
+		<language name="日本語">ジムリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_LEADER4">
+		<language name="日本語">ジムリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_LEADER5">
+		<language name="日本語">ジムリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_LEADER6">
+		<language name="日本語">ジムリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_LEADER8">
+		<language name="日本語">ジムリーダー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_PARASOL">
+		<language name="日本語">パラソルおねえさん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_WAITER">
+		<language name="日本語">ウエーター</language>
+	</row>
+
+	<row id="MSG_TRTYPE_INTERVIEW">
+		<language name="日本語">インタビュアー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_CAMERAMAN">
+		<language name="日本語">カメラマン</language>
+	</row>
+
+	<row id="MSG_TRTYPE_REPORTER">
+		<language name="日本語">レポーター</language>
+	</row>
+
+	<row id="MSG_TRTYPE_IDOL">
+		<language name="日本語">アイドル</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GINGALBOSS">
+		<language name="日本語">ギンガだんボス</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GINGALEADER2">
+		<language name="日本語">ギンガだんかんぶ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GINGALEADER3">
+		<language name="日本語">ギンガだんかんぶ</language>
+	</row>
+
+	<row id="MSG_TRTYPE_GINGAW">
+		<language name="日本語">ギンガだん</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BTFIVE1">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BTFIVE2">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BTFIVE3">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BTFIVE4">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_BTFIVE5">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_HERO">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_HEROINE">
+		<language name="日本語">ポケモントレーナー</language>
+	</row>
+
+	<row id="MSG_TRTYPE_KUROTUGU">
+		<language name="日本語">タワータイクーン</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

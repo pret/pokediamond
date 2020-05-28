@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-06-13T16:30:22" source="scope01.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="unno" host="W00106" date="2006-06-13T16:30:22" source="scope01.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="2"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="2" xyz="-4.000000 0.500000 -4.000000" whd="7.750000 4.500000 6.000000"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="scope"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="scope_pl"
+		path="C:/mayadata/obj4/tex/scope.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 1100 0001 1000 0011 0000 0000
+			0000 0000 ab10 0014 b100 014a 0000 0000
+			0000 0000 1110 1111 1111 0111 0000 0000
+			0000 0000 aa10 aaaa 5555 01b5 0000 0000
+			0000 0000 baa1 bbbb bbbb 14bb 0000 0000
+			0000 0000 baa1 bbbb bbbb 14bb 0000 0000
+			0000 0000 baa1 6bbb bbb6 14bb 0000 0000
+			0000 0000 baa1 66bb bb66 14bb 0000 0000
+			0000 0000 44a1 7744 4477 1444 0000 0000
+			0000 0000 1141 7741 1477 1411 0000 0000
+			0000 0000 2811 4412 8144 1122 0000 0000
+			0000 0000 2211 1112 2111 1122 0000 0000
+			0000 0000 4410 4114 4114 0144 0000 0000
+			0000 0000 1100 4101 1014 0011 0000 0000
+			0000 0000 0000 1100 0011 0000 0000 0000
+			0000 0000 0000 5100 0014 0000 0000 0000
+			0000 0000 0000 a100 0014 0000 0000 0000
+			0000 0000 0000 a110 0114 0000 0000 0000
+			0000 0000 0000 a193 3914 0000 0000 0000
+			0000 0000 3000 a199 9a14 0003 0000 0000
+			0000 0000 3400 1599 abb1 0043 0000 0000
+			0000 0000 1400 ba9a bbbb 0041 0000 0000
+			0000 0000 1400 a9a5 bbbb 0441 0000 0000
+			0000 0000 4400 aa51 1baa 0444 0000 0000
+			0000 0000 4400 5514 4155 0444 0000 0000
+			0000 0000 4000 1144 4411 0444 0000 0000
+			0000 0000 0000 4444 4444 0044 0000 0000
+			0000 0000 0000 4400 4444 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="scope_pl" color_size="16">
+		5600 2d4a 6ed0 31ac 3e0f 4e93 015f 00f6
+		7fff 739c 6739 4e73 7fff 7fff 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="scope01"
+		light0="off" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="0 0 0"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.500000 -4.000000"
+		volume_max="3.750000 5.000000 2.000000"
+		volume_r="7.549805"
+		mtx_prim_size="1"
+		nrm_flag="off" clr_flag="on" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<clr rgb="31 31 31"/>
+					<pos_s xyz="-4.000000 0.500000 2.000000"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="3.750000 0.500000"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_yz yz="5.000000 -4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-4.000000 5.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pCube1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.500000 -4.000000"
+		volume_max="3.750000 5.000000 2.000000"
+		volume_r="7.549805"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

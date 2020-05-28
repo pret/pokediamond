@@ -1,0 +1,119 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_d02evc.h"
+
+const u32 FObj_zone_d02_num = 6;
+
+const _TAG_FIELD_OBJ_H FObj_zone_d02[6] =
+{
+	{
+		D02_GINGAM_A,
+		GINGAM,
+		15,
+		0,
+		FV_D02_GINGAM_A,
+		SCRID_D02_GINGAM_A,
+		1,
+		3,
+		0,
+		0,
+		0,
+		0,
+		243,
+		655,
+		0*0x1000,
+	},
+
+	{
+		D02_SIGN1,
+		BOARD_C,
+		0,
+		0,
+		0,
+		SCRID_D02_SIGN1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		240,
+		659,
+		0*0x1000,
+	},
+
+	{
+		R205A_SIGN1,
+		BOARD_D,
+		0,
+		0,
+		ZONE_ID_R205A,
+		SP_SCRID_ALIES,
+		0,
+		2,
+		0,
+		0,
+		0,
+		0,
+		215,
+		659,
+		0*0x1000,
+	},
+
+	{
+		D02_FLD_ITEM_01,
+		MONATERBALL,
+		0,
+		0,
+		FV_FLD_ITEM_15,
+		SCRID_FLD_ITEM_15,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		242,
+		644,
+		0*0x1000,
+	},
+
+	{
+		D02_FUUSEN,
+		BALLOON,
+		0,
+		0,
+		FV_D02_FUUSEN,
+		SCRID_D02_FUUSEN,
+		1,
+		3,
+		0,
+		0,
+		0,
+		0,
+		241,
+		660,
+		0*0x1000,
+	},
+
+	{
+		D02_FLD_ITEM_02,
+		MONATERBALL,
+		0,
+		0,
+		FV_FLD_ITEM_252,
+		SCRID_FLD_ITEM_252,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		246,
+		660,
+		0*0x1000,
+	},
+};

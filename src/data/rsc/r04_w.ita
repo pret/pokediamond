@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<ita version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-02-01T15:52:46" source="r04_w.mb"/>
+	<title>Texture SRT Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<tex_srt_info
+	frame_size="121"
+	tool_start_frame="0"
+	tool_end_frame="120"
+	interpolation="frame"
+	tex_matrix_mode="maya"
+	compress_material="on" material_size="3 3"
+	frame_step_mode="1"
+	tolerance_tex_scale="0.100000"
+	tolerance_tex_rotate="0.100000"
+	tolerance_tex_translate="0.010000"
+/>
+
+<tex_scale_data size="1">
+	1.000000
+</tex_scale_data>
+
+<tex_rotate_data size="1">
+	0.000000
+</tex_rotate_data>
+
+<tex_translate_data size="121">
+	0.000000 -0.008301 -0.016602 -0.024902 -0.033447 -0.041748 -0.050049 -0.058350 -0.066650 -0.074951
+	-0.083252 -0.091553 -0.100098 -0.108398 -0.116699 -0.125000 -0.133301 -0.141602 -0.149902 -0.158447
+	-0.166748 -0.175049 -0.183350 -0.191650 -0.199951 -0.208252 -0.216553 -0.225098 -0.233398 -0.241699
+	-0.250000 -0.258301 -0.266602 -0.274902 -0.283447 -0.291748 -0.300049 -0.308350 -0.316650 -0.324951
+	-0.333252 -0.341553 -0.350098 -0.358398 -0.366699 -0.375000 -0.383301 -0.391602 -0.399902 -0.408447
+	-0.416748 -0.425049 -0.433350 -0.441650 -0.449951 -0.458252 -0.466553 -0.475098 -0.483398 -0.491699
+	-0.500000 -0.508301 -0.516602 -0.524902 -0.533447 -0.541748 -0.550049 -0.558350 -0.566650 -0.574951
+	-0.583252 -0.591553 -0.600098 -0.608398 -0.616699 -0.625000 -0.633301 -0.641602 -0.649902 -0.658447
+	-0.666748 -0.675049 -0.683350 -0.691650 -0.699951 -0.708252 -0.716553 -0.725098 -0.733398 -0.741699
+	-0.750000 -0.758301 -0.766602 -0.774902 -0.783447 -0.791748 -0.800049 -0.808350 -0.816650 -0.824951
+	-0.833252 -0.841553 -0.850098 -0.858398 -0.866699 -0.875000 -0.883301 -0.891602 -0.899902 -0.908447
+	-0.916748 -0.925049 -0.933350 -0.941650 -0.949951 -0.958252 -0.966553 -0.975098 -0.983398 -0.991699
+	-1.000000
+</tex_translate_data>
+
+<tex_srt_anm_array size="1">
+	<tex_srt_anm index="0" material_name="gym01_w_lm1">
+		<tex_scale_s frame_step="1" data_size="1" data_head="0"/>
+		<tex_scale_t frame_step="1" data_size="1" data_head="0"/>
+		<tex_rotate frame_step="1" data_size="1" data_head="0"/>
+		<tex_translate_s frame_step="1" data_size="121" data_head="0"/>
+		<tex_translate_t frame_step="1" data_size="121" data_head="0"/>
+	</tex_srt_anm>
+</tex_srt_anm_array>
+
+</body>
+
+</ita>

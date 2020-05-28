@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-06-02T11:29:01" source="koiking.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+</head>
+
+<body>
+
+<original_create user="kanako_eo" host="W00107" date="2006-06-02T11:29:01" source="koiking.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+
+<model_info
+	pos_scale="3"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="0"
+	tex_matrix_mode="maya"
+	compress_node="none" node_size="1 1"
+	compress_material="off" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="3" xyz="-2.000000 0.000000 0.000000" whd="4.000000 4.000000 0.000000"/>
+
+<tex_image_array size="2">
+	<tex_image index="0" name="koiking.1"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="koiking"
+		path="C:/mayadata/obj/tex/koiking/koiking.1.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0200 0000 0000 0000 0000 0000
+			0000 0000 2320 0000 0000 4000 0004 0000
+			0000 0000 3320 0022 0000 5400 0041 0000
+			0000 0000 3320 0236 0000 5400 0041 0000
+			0000 0000 3632 0263 0000 1540 0041 0000
+			0000 0000 4320 4444 0044 1540 0417 0000
+			0000 0000 5440 a559 4455 1540 0417 0000
+			0000 4000 5554 aa95 555a 5544 0411 0000
+			0000 5400 5155 5955 544a 5595 4111 0000
+			0000 5540 1415 4955 4114 5955 4115 0000
+			0000 5540 1115 1455 5411 9555 7775 0004
+			0000 5884 5155 1145 5591 9555 1155 0041
+			0000 8484 5555 1145 5591 4555 5554 0045
+			0000 4840 3358 1a55 5911 0455 4440 0004
+			0000 8940 5558 5553 5a59 0455 0000 0000
+			0000 4400 5555 5553 5aa9 0045 0000 0000
+			0000 6330 3444 9555 35a5 0466 0000 0000
+			0000 0003 4300 3444 3363 0043 0000 0000
+			0000 0000 0030 4000 4633 0004 0000 0000
+			0000 0000 0030 0000 0444 0000 0000 0000
+			0000 0000 0300 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="1" name="koiking.2"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="koiking"
+		path="C:/mayadata/obj/tex/koiking/koiking.2.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 2000 0002 0000 0000 0000
+			0000 0000 0000 3200 0002 0000 0000 0000
+			0000 0000 0000 3202 0002 0044 0000 0000
+			0000 0000 2000 3323 4022 0415 0000 0000
+			0000 0000 2000 3363 4232 0415 0000 0000
+			0000 0000 4444 6334 4233 4115 0000 0000
+			0000 4400 5555 4445 4023 7155 0044 0000
+			0000 5840 1555 9555 0444 1754 4411 0004
+			0000 8a40 4155 5551 4a59 1554 1771 0041
+			0000 8484 1155 5551 5aa9 5545 1117 0045
+			0000 8484 1555 5555 a559 5955 4555 0004
+			0000 5854 5335 4455 aa44 9955 0444 0000
+			0000 5543 3555 1445 4411 4555 0000 0000
+			3000 5540 3555 1145 1111 4554 0000 0000
+			3000 5400 5355 1195 4411 0455 0000 0000
+			3000 4000 5535 1955 5a99 0455 0000 0000
+			0300 0000 5534 9555 5a5a 0045 0000 0000
+			0000 0000 4430 5955 36aa 0004 0000 0000
+			0000 0000 0030 3344 6336 0043 0000 0000
+			0000 0000 0300 3400 4463 0004 0000 0000
+			0000 0000 0000 4000 0044 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="koiking" color_size="16">
+		5e69 7fbd 218c 2b7d 0000 25bd 2a33 5eb5
+		6edf 18cf 1935 0000 0000 0000 0000 0000
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="obj"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="0 0 0"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_s xyz="-2.000000 0.000000 0.000000"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="2.000000 0.000000"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_xy xy="2.000000 4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-2.000000 4.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pPlane1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="on"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

@@ -1,0 +1,33 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: move_model_list.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-18T20:13:39
+ *****************************************************************************/
+
+#ifndef NARC_MOVE_MODEL_LIST_NAIX_
+#define NARC_MOVE_MODEL_LIST_NAIX_
+
+enum {
+	NARC_move_model_list_mmlid_area01_bin = 0,
+	NARC_move_model_list_mmlid_area02_bin = 1,
+	NARC_move_model_list_mmlid_area03_bin = 2,
+	NARC_move_model_list_mmlid_area04_bin = 3,
+	NARC_move_model_list_mmlid_area05_bin = 4,
+	NARC_move_model_list_mmlid_area06_bin = 5,
+	NARC_move_model_list_mmlid_area07_bin = 6,
+	NARC_move_model_list_mmlid_area08_bin = 7,
+	NARC_move_model_list_mmlid_area09_bin = 8,
+	NARC_move_model_list_mmlid_area10_bin = 9,
+	NARC_move_model_list_mmlid_area11_bin = 10,
+	NARC_move_model_list_mmlid_area12_bin = 11,
+	NARC_move_model_list_mmlid_area13_bin = 12,
+	NARC_move_model_list_mmlid_area14_bin = 13,
+	NARC_move_model_list_mmlid_unionroom_bin = 14,
+	NARC_move_model_list_mmlid_noentry_bin = 15
+};
+
+/* NARC_MOVE_MODEL_LIST_NAIX_ */
+#endif

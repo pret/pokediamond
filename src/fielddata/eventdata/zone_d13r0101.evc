@@ -1,0 +1,119 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_d13r0101evc.h"
+
+const u32 FObj_zone_d13r0101_num = 6;
+
+const _TAG_FIELD_OBJ_H FObj_zone_d13r0101[6] =
+{
+	{
+		D13R0101_GINGAM_A,
+		GINGAM,
+		14,
+		0,
+		FV_D13R0101_GINGAM_A,
+		SCRID_D13R0101_GINGAM_A,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		12,
+		47,
+		0*0x1000,
+	},
+
+	{
+		D13R0101_GINGAM_B,
+		GINGAM,
+		14,
+		0,
+		FV_D13R0101_GINGAM_B,
+		SCRID_D13R0101_GINGAM_B,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		13,
+		47,
+		0*0x1000,
+	},
+
+	{
+		D13R0101_MIDDLEMAN1,
+		MIDDLEMAN1,
+		16,
+		0,
+		0,
+		SCRID_D13R0101_MIDDLEMAN1,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		12,
+		46,
+		0*0x1000,
+	},
+
+	{
+		D13R0101_ITEM,
+		MONATERBALL,
+		15,
+		0,
+		FV_D13R0101_ITEM,
+		SCRID_D13R0101_ITEM,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		13,
+		47,
+		0*0x1000,
+	},
+
+	{
+		D13R0101_FLD_ITEM_01,
+		MONATERBALL,
+		0,
+		0,
+		FV_FLD_ITEM_146,
+		SCRID_FLD_ITEM_146,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		14,
+		15,
+		0*0x1000,
+	},
+
+	{
+		D13R0101_FLD_ITEM_02,
+		MONATERBALL,
+		0,
+		0,
+		FV_FLD_ITEM_234,
+		SCRID_FLD_ITEM_234,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		46,
+		28,
+		0*0x1000,
+	},
+};

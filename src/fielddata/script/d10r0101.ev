@@ -1,0 +1,205 @@
+//====================================================================
+//								d10r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d10r0101.h"
+	.include	"../eventdata/zone_d10r0101evc.h"
+	.include	"../../field/scr_pokepark.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d10r0101_flag_change
+_EVENT_DATA		ev_d10r0101_start
+_EVENT_DATA		ev_d10r0101_finish
+_EVENT_DATA		ev_d10r0101_ask_retire
+_EVENT_DATA		pos_d10r0101_retire
+_EVENT_DATA		ev_d10r0101_admin
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d10r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D10R0101	//到着
+	_END
+
+
+/********************************************************************/
+//			ポケパークミニゲーム開始
+/********************************************************************/
+ev_d10r0101_start:
+	_TALK_START
+
+	_TALKMSG_ALLPUT		msg_p_park_announce_006
+	//_SE_PLAY		SEQ_SE_DP_DECIDE
+	_TIME_WAIT		30, SCWK_ANSWER
+	_TALKMSG_ALLPUT		msg_p_park_announce_007
+	_SE_PLAY		SEQ_SE_DP_DECIDE
+	_TIME_WAIT		30, SCWK_ANSWER
+	_TALKMSG_ALLPUT		msg_p_park_announce_008
+	_SE_PLAY		SEQ_SE_DP_DECIDE
+	_TIME_WAIT		30, SCWK_ANSWER
+	_TALKMSG_ALLPUT		msg_p_park_announce_009
+	_SE_PLAY		SEQ_SE_DP_DECIDE
+	_TIME_WAIT		30, SCWK_ANSWER
+	_TALKMSG_ALLPUT		msg_p_park_announce_010
+	_SE_PLAY		SEQ_SE_DP_CON_016
+	_TIME_WAIT		30, SCWK_ANSWER
+	_POKEPARK_CONTROL		POKEPARK_MODE_START
+	_LDVAL			WK_SCENE_D10R0101, 1
+	//_LAST_KEYWAIT
+
+	_FLAG_SET		SYS_FLAG_BGM_D10	/*ゾーンBGMを取得するとSEQ_D_SAFARIになる*/
+	_BGM_PLAY		SEQ_D_SAFARI
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+	_POKEPARK_CONTROL		POKEPARK_MODE_START
+	_LDVAL			WK_SCENE_D10R0101, 1
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/********************************************************************/
+//			６匹捕まえて終了
+/********************************************************************/
+ev_d10r0101_finish:
+	_TALK_START
+
+	_SE_PLAY	SEQ_SE_DP_PINPON
+	_PLAYER_NAME		0
+	_TALKMSG			msg_p_park_announce_002
+
+	_BGM_PLAY		SEQ_SILENCE_DUNGEON		/*無音にする*/
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_LDVAL	WK_SCENE_D10R0101, 1
+	_CALL				sub_d10r0101_return_gate
+	_END
+
+/********************************************************************/
+//			メニューから「リタイア」を選んだとき
+/********************************************************************/
+ev_d10r0101_ask_retire:
+	_TALK_START
+	//「リタイア　しますか？」
+	_TALKMSG		msg_p_park_announce_005
+	_YES_NO_WIN		SCWK_ANSWER
+	_TALK_CLOSE
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d10r0101_ask_retire_decide
+
+	_TALK_END
+	_END
+
+ev_d10r0101_ask_retire_decide:
+	_LDVAL	WK_SCENE_D10R0101, 2
+	_TALK_END
+	_CALL				sub_d10r0101_return_gate
+	_END
+
+/********************************************************************/
+//			POSイベント：ゲートに近づいたとき
+/********************************************************************/
+pos_d10r0101_retire:
+	_TALK_START
+	_CALL			ev_d10r0101_ask_sub
+	_TALK_CLOSE
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,pos_d10r0101_retire_end
+
+	_LDVAL	WK_SCENE_D10R0101, 2
+	_TALK_END
+	_CALL				sub_d10r0101_return_gate
+	_END
+
+pos_d10r0101_retire_end:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER, anm_d10r0101_get_back
+	_OBJ_ANIME_WAIT
+	_TALK_END
+	_END
+
+_ANIME_LABEL	anm_d10r0101_get_back
+	_ANIME_DATA		AC_WALK_U_8F,1
+	_ANIME_DATA		ACMD_END, 0
+
+/********************************************************************/
+//				係員
+/********************************************************************/
+ev_d10r0101_admin:
+	_TALK_OBJ_START
+	
+	_CALL			ev_d10r0101_ask_sub
+	_TALK_CLOSE
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_d10r0101_admin_end
+
+	_LDVAL	WK_SCENE_D10R0101, 2
+	_TALK_OBJ_END
+	_CALL				sub_d10r0101_return_gate
+	_END
+
+ev_d10r0101_admin_end:
+	_OBJ_ANIME		D10R0101_ADMIN_01, anm_d10r0101_turn_left
+	_OBJ_ANIME_WAIT
+	_TALK_OBJ_END
+	_END
+
+_ANIME_LABEL	anm_d10r0101_turn_left
+	_ANIME_DATA		AC_STAY_WALK_L_8F, 1
+	_ANIME_DATA		ACMD_END, 0
+
+//===================================================================
+//
+//===================================================================
+ev_d10r0101_ask_sub:
+	_TALKMSG		msg_p_park_admin_001
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0, ev_d10r0101_ask_sub_retire
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1, ev_d10r0101_ask_sub_retry_female
+
+//再開メッセージ、男の子
+ev_d10r0101_ask_sub_retry_male:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_p_park_admin_003
+	_LAST_KEYWAIT
+	_LDVAL			SCWK_ANSWER, 0
+	_RET
+
+//再開メッセージ、女の子
+ev_d10r0101_ask_sub_retry_female:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_p_park_admin_004
+	_LAST_KEYWAIT
+	_LDVAL			SCWK_ANSWER, 0
+	_RET
+
+
+//リタイアメッセージ
+ev_d10r0101_ask_sub_retire:
+	_TALKMSG		msg_p_park_admin_002
+	_LDVAL			SCWK_ANSWER, 1
+	_RET
+
+//===================================================================
+//===================================================================
+sub_d10r0101_return_gate:
+	_POKEPARK_CONTROL		POKEPARK_MODE_END
+	_MAP_CHANGE		ZONE_ID_R221R0101,0, 7,7, DIR_DOWN
+	_RET
+
+

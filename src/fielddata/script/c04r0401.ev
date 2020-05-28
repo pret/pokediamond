@@ -1,0 +1,165 @@
+//====================================================================
+//						c04r0401.gmm
+//					シティ０４・r0401
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c04r0401.h"
+	.include	"../eventdata/zone_c04r0401evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c04r0401_flag_change
+_EVENT_DATA		ev_c04r0401_shopm1
+_EVENT_DATA		ev_c04r0401_stopper
+_EVENT_DATA		ev_c04r0401_assistantm
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c04r0401_flag_change:
+
+	//学習装置入手済みなら助手を消す
+	_IF_FLAGON_CALL		FE_GAKUSYUUSOUCHI_GET,ev_c04r0401_flag_change_assistantm_del
+
+	/*自転車をもっているかでPOS設定を変更*/
+	_ITEM_CHK		ITEM_ZITENSYA,1,WK_SCENE_BICYCLE
+	_END
+
+//助手を出さない
+ev_c04r0401_flag_change_assistantm_del:
+	_FLAG_SET		FV_C04R0401_ASSISTANTM
+	_RET
+
+/********************************************************************/
+/*							店員　　								*/
+/********************************************************************/
+ev_c04r0401_shopm1:
+	_EASY_OBJ_MSG	msg_c04r0401_shopm1_02
+	_END
+
+
+/********************************************************************/
+/*						店員ストッパー　　							*/
+/********************************************************************/
+ev_c04r0401_stopper:
+	_EVENT_START
+
+	/*気づく*/
+	_OBJ_ANIME		C04R0401_SHOPM1,anm_c04r0401_shopm1_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c04r0401_shopm1_03
+	_TALK_CLOSE
+
+	/*押し戻される*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c04r0401_player_01
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ストッパー	！
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c04r0401_shopm1_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	押し戻される
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c04r0401_player_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							助手♂　　								*/
+/********************************************************************/
+ev_c04r0401_assistantm:
+	_TALK_OBJ_START
+
+	//学習装置入手済み
+	_IF_FLAGON_JUMP		FE_GAKUSYUUSOUCHI_GET,ev_c04r0401_assistantm_04
+
+	_PLAYER_NAME	0
+	_SUPPORT_NAME	1
+
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,ev_c04r0401_assistantm_01
+	_JUMP							ev_c04r0401_assistantm_02
+
+//男
+ev_c04r0401_assistantm_01:
+	_TALK_KEYWAIT	msg_c04r0401_assistantm_01
+	_JUMP			ev_c04r0401_assistantm_common_01
+
+//女
+ev_c04r0401_assistantm_02:
+	_TALK_KEYWAIT	msg_c04r0401_assistantm_02
+	_JUMP			ev_c04r0401_assistantm_common_01
+
+//見た数をチェック
+ev_c04r0401_assistantm_common_01:
+	_ZENKOKU_ZUKAN_SEE_NUM	SCWK_TEMP0		//※バグ対処の為、全国チェックへ変更060714松宮さん承認
+
+	//見た数をバッファへ
+	_NUMBER_NAME	1,SCWK_TEMP0
+
+	//３５匹未満
+	_IFVAL_JUMP		SCWK_TEMP0,LT,35,ev_c04r0401_assistantm_05
+
+	_TALK_KEYWAIT	msg_c04r0401_assistantm_03
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_GAKUSYUUSOUTI
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c04r0401_assistantm_item_event_fail
+
+	_FLAG_SET		FE_GAKUSYUUSOUCHI_GET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c04r0401_assistantm_item_event_fail:
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//学習装置入手済み
+ev_c04r0401_assistantm_04:
+	_TALKMSG		msg_c04r0401_assistantm_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ポケモン数が足りない
+ev_c04r0401_assistantm_05:
+	_TALKMSG		msg_c04r0401_assistantm_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

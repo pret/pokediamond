@@ -1,0 +1,29 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: syoujyou.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-10T15:08:21
+ *****************************************************************************/
+
+#ifndef NARC_SYOUJYOU_NAIX_
+#define NARC_SYOUJYOU_NAIX_
+
+enum {
+	NARC_syoujyou_dp_syoujyou_s_NCGR = 0,
+	NARC_syoujyou_dp_syoujyou_z_NCGR = 1,
+	NARC_syoujyou_syoujyou_s_bg_NCGR = 2,
+	NARC_syoujyou_syoujyou_z_bg_NCGR = 3,
+	NARC_syoujyou_dp_syoujyou_s_NCLR = 4,
+	NARC_syoujyou_dp_syoujyou_z_NCLR = 5,
+	NARC_syoujyou_syoujyou_s_bg_NCLR = 6,
+	NARC_syoujyou_syoujyou_z_bg_NCLR = 7,
+	NARC_syoujyou_dp_syoujyou_s_NSCR = 8,
+	NARC_syoujyou_dp_syoujyou_z_NSCR = 9,
+	NARC_syoujyou_syoujyou_s_bg_NSCR = 10,
+	NARC_syoujyou_syoujyou_z_bg_NSCR = 11
+};
+
+/* NARC_SYOUJYOU_NAIX_ */
+#endif

@@ -1,0 +1,424 @@
+//====================================================================
+//						シティ０１
+//					シティ・０６０１
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"connect_def.h"
+	.include	"../../../include/msgdata/msg_c01r0601.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01r0601_boy3a
+_EVENT_DATA		ev_c01r0601_middlewoman1a
+_EVENT_DATA		ev_gtc_01
+_EVENT_DATA		ev_gtc_02
+_EVENT_DATA		ev_gtc_03
+_EVENT_DATA		ev_gtc_04
+_EVENT_DATA		ev_gtc_05
+_EVENT_DATA		ev_gtc_06
+_EVENT_DATA		ev_gtc_07
+_EVENT_DATA		ev_gtc_return
+_EVENT_DATA		ev_c01r0601_obj_change
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						OBJ_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c01r0601_obj_change:
+	//通信部屋から出てくる時は主人公をバニッシュする
+	_IFVAL_CALL		WK_SCENE_COMM_ID,EQ,SCR_COMM_ID_GTC,ev_gtc_obj_change_vanish
+	_END
+
+//主人公をバニッシュする
+ev_gtc_obj_change_vanish:
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	_RET
+
+
+/********************************************************************/
+//
+/*					通信部屋から戻ってくる処理						*/
+//
+/********************************************************************/
+ev_gtc_return:
+	_EVENT_START
+	_CALL			ev_gtc_return_sub
+	_EVENT_END
+	_END
+	
+/*共通処理*/
+ev_gtc_return_sub:
+	//通信部屋のドアが開く
+	_SET_UP_DOOR_ANIME	0,0,12,2,77
+	_CALL			gtc_door_open
+	_OBJ_VISIBLE	FLDOBJ_ID_PLAYER
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_gtc_return_player_00
+	_OBJ_ANIME_WAIT
+	_CALL			gtc_door_close
+
+	//カウンター開く
+	_SET_UP_DOOR_ANIME	0,0,12,4,77
+	_CALL			gtc_door_open
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_gtc_return_player_02
+	_OBJ_ANIME_WAIT
+	_CALL			gtc_door_close
+
+	//_FLAG_RESET		SYS_FLAG_COMM_COUNTER					//通信カウンター通過フラグ(システム)
+	_LDVAL			WK_SCENE_COMM_ID,SCR_COMM_ID_NOTHING
+	_RET
+
+gtc_door_open:
+	_SEQ_OPEN_DOOR	77	//ドア開ける
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_RET
+
+gtc_door_close:
+	_SEQ_CLOSE_DOOR	77	//ドア閉める
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_FREE_3D_ANIME	77	//ドアアニメ解放
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	ドアから出てくる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_gtc_return_player_00
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_connect_return_player_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_gtc_return_player_02
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							麦わら少年								*/
+/********************************************************************/
+ev_c01r0601_boy3a:
+	_END
+
+/********************************************************************/
+/*							おばさん								*/
+/********************************************************************/
+ev_c01r0601_middlewoman1a:
+	_END
+
+
+/********************************************************************/
+/*							受付									*/
+/********************************************************************/
+ev_gtc_01:
+	_TALK_OBJ_START
+
+	/*手持ちにダメタマゴがいるかチェック*/
+	_DAME_TAMAGO_CHK_ALL	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_gtc_dame_tamago
+
+	/*すでに説明を受けていたら*/
+	_IF_FLAGON_JUMP	FE_GTC_GUIDE_TALK,ev_gtc_01_talk_after
+
+	_FLAG_SET		FE_GTC_GUIDE_TALK
+	_TALKMSG		msg_c01r0601_01_01
+	_JUMP			ev_gtc_01_menu01
+	_END
+
+//--------------------------------------------------------------------
+/*メニュー１*/
+//--------------------------------------------------------------------
+ev_gtc_01_menu01:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			/*Bキャンセル有効*/
+	_BMPMENU_MAKE_LIST	msg_ev_win_125,0			/*こうかんを　する*/
+	_BMPMENU_MAKE_LIST	msg_ev_win_124,1			/*せつめいを　きく*/
+	_BMPMENU_MAKE_LIST	msg_ev_win_126,2			/*やめる*/
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_gtc_01_menu01_02
+	_CASE_JUMP		1,ev_gtc_01_menu01_01
+	_CASE_JUMP		2,ev_gtc_01_menu01_03
+	_JUMP			ev_gtc_01_menu01_03
+	_END
+
+/*せつめいを　きく*/
+ev_gtc_01_menu01_01:
+	_TALKMSG		msg_c01r0601_01_03
+	_JUMP			ev_gtc_01_menu02
+	_END
+
+//--------------------------------------------------------------------
+/*メニュー２*/
+//--------------------------------------------------------------------
+ev_gtc_01_menu02:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			/*Bキャンセル有効*/
+	_BMPMENU_MAKE_LIST	msg_ev_win_127,0			/*ポケモンをあずけるって？*/
+	_BMPMENU_MAKE_LIST	msg_ev_win_128,1			/*ポケモンをさがすって？*/
+	_BMPMENU_MAKE_LIST	msg_ev_win_129,2			/*もうわかった！*/
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_gtc_01_menu02_01
+	_CASE_JUMP		1,ev_gtc_01_menu02_02
+	_CASE_JUMP		2,ev_gtc_01_menu02_03
+	_JUMP			ev_gtc_01_menu02_03
+	_END
+
+/*ポケモンをあずけるって？*/
+ev_gtc_01_menu02_01:
+	_TALKMSG		msg_c01r0601_01_04
+	_JUMP			ev_gtc_01_menu02
+	_END
+
+/*ポケモンをさがすって？*/
+ev_gtc_01_menu02_02:
+	_TALKMSG		msg_c01r0601_01_05
+	_JUMP			ev_gtc_01_menu02
+	_END
+
+/*もうわかった！*/
+ev_gtc_01_menu02_03:
+	_TALKMSG		msg_c01r0601_01_06
+	_JUMP			ev_gtc_01_menu01
+	_END
+
+//--------------------------------------------------------------------
+/*こうかんを　する*/
+//--------------------------------------------------------------------
+ev_gtc_01_menu01_02:
+
+	/*タマゴを除くポケモン数をチェック*/
+	_GET_POKE_COUNT2	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,2,ev_gtc_01_menu01_02_poke_num_err
+
+	_JUMP			ev_gtc_temoti_poke_check
+	_END
+
+/*タマゴを除くポケモン数が２匹未満なので入れない*/
+ev_gtc_01_menu01_02_poke_num_err:
+	_TALKMSG		msg_c01r0601_01_10
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_gtc_poke_check_ok:
+	//セーブしますか？(LOCALWORK0に結果が代入される)
+	_CHG_COMMON_SCR	SCRID_REPORT_CALL
+	_LDWK			SCWK_ANSWER,LOCALWORK0
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_gtc_01_menu01_03		/*失敗→終了へ*/
+
+	/*セーブ成功*/
+
+	/*全ポケモン回復*/
+	_PC_KAIFUKU
+
+	_LDVAL			WK_SCENE_COMM_ID,SCR_COMM_ID_GTC
+
+	_TALK_KEYWAIT	msg_c01r0601_01_08
+	_TALK_CLOSE
+
+	/*カウンターの前へ*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_gtc_go_player_40
+	_OBJ_ANIME_WAIT
+
+	//カウンター開く
+	_SET_UP_DOOR_ANIME	0,0,12,4,77
+	_CALL			gtc_door_open
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_gtc_go_player_52
+	_OBJ_ANIME_WAIT
+
+	_CALL			gtc_door_close
+
+#if 0
+
+	//testtttttttttttttt
+
+	//セーブしますか？(LOCALWORK0に結果が代入される)
+	_CHG_COMMON_SCR	SCRID_REPORT_CALL
+#endif
+
+	//通信部屋のドアが開く
+	_SET_UP_DOOR_ANIME	0,0,12,2,77
+	_CALL			gtc_door_open
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_gtc_go_player_50
+	_OBJ_ANIME_WAIT
+
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+
+	/*下向きにしておく*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_gtc_go_player_53
+	_OBJ_ANIME_WAIT
+
+	_CALL			gtc_door_close
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//_FLAG_SET		SYS_FLAG_COMM_COUNTER					//通信カウンター通過フラグ(システム)
+
+	_SAVE_FIELD_OBJ
+
+	/*WIFI接続し初回ID取得*/
+	_DPW_INIT_PROC	SCWK_ANSWER
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER						/*退避*/
+
+	/*世界交換呼び出し*/
+	_WORLDTRADE_SET_PROC	SCWK_TEMP0,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_gtc_init_error			/*エラー*/
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_CALL			ev_gtc_return_sub
+
+	_TALK_OBJ_END
+	_END
+
+/*エラー*/
+ev_gtc_init_error:
+	_SET_MAP_PROC
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_CALL			ev_gtc_return_sub
+
+	_JUMP			ev_gtc_01_menu01_03							//終了へ
+	_END
+
+//--------------------------------------------------------------------
+/*やめる*/
+//--------------------------------------------------------------------
+ev_gtc_01_menu01_03:
+	//_FLAG_RESET		SYS_FLAG_COMM_COUNTER						//通信カウンター通過フラグ(システム)
+	_LDVAL			WK_SCENE_COMM_ID,SCR_COMM_ID_NOTHING
+	_TALKMSG		msg_c01r0601_01_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*すでに説明を受けていたら*/
+ev_gtc_01_talk_after:
+	_TALKMSG		msg_c01r0601_01_02
+	_JUMP			ev_gtc_01_menu01
+	_END
+
+//--------------------------------------------------------------------
+/*手持ちに空きがあるかをチェック*/
+//--------------------------------------------------------------------
+ev_gtc_temoti_poke_check:
+	_GET_POKE_COUNT	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_gtc_box_poke_check
+
+	_JUMP			ev_gtc_poke_check_ok	/*空きがある*/
+	_END
+
+/*ボックスに空きがあるかをチェック*/
+ev_gtc_box_poke_check:
+	_COUNT_MONSBOX_SPACE	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_gtc_non_space
+
+	_JUMP			ev_gtc_poke_check_ok	/*空きがある*/
+	_END
+
+/*終了*/
+ev_gtc_non_space:
+	_TALKMSG		msg_c01r0601_01_09
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	GTCへ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_gtc_go_player_40
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_gtc_go_player_50
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_gtc_go_player_52
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_gtc_go_player_53
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+//
+/*					手持ちにダメタマゴがいる時						*/
+//
+/********************************************************************/
+ev_gtc_dame_tamago:
+	_CHG_COMMON_SCR	SCRID_CONNECT_DAME_TAMAGO_MSG
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							太った男								*/
+/********************************************************************/
+ev_gtc_02:
+	_EASY_OBJ_MSG	msg_c01r0601_02_01
+	_END
+
+
+/********************************************************************/
+/*							活発少年								*/
+/********************************************************************/
+ev_gtc_03:
+	_EASY_OBJ_MSG	msg_c01r0601_03_01
+	_END
+
+
+/********************************************************************/
+/*							兄さん									*/
+/********************************************************************/
+ev_gtc_04:
+	_EASY_OBJ_MSG	msg_c01r0601_04_01
+	_END
+
+
+/********************************************************************/
+/*							和風老人								*/
+/********************************************************************/
+ev_gtc_05:
+	_EASY_OBJ_MSG	msg_c01r0601_05_01
+	_END
+
+
+/********************************************************************/
+/*							ツッパリ兄さん							*/
+/********************************************************************/
+ev_gtc_06:
+	_EASY_OBJ_MSG	msg_c01r0601_06_01
+	_END
+
+
+/********************************************************************/
+/*							姉さん									*/
+/********************************************************************/
+ev_gtc_07:
+	_EASY_OBJ_MSG	msg_c01r0601_07_01
+	_END
+
+
+

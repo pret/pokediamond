@@ -1,0 +1,33 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: scr_msg.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2005-09-02T11:57:19
+ *****************************************************************************/
+
+#ifndef NARC_SCR_MSG_NAIX_
+#define NARC_SCR_MSG_NAIX_
+
+enum {
+	NARC_scr_msg_c01_dat = 0,
+	NARC_scr_msg_c01fs0101_dat = 1,
+	NARC_scr_msg_c01gym0101_dat = 2,
+	NARC_scr_msg_c01pc0101_dat = 3,
+	NARC_scr_msg_c01r0101_dat = 4,
+	NARC_scr_msg_c01r0201_dat = 5,
+	NARC_scr_msg_c01r0301_dat = 6,
+	NARC_scr_msg_c01r0401_dat = 7,
+	NARC_scr_msg_c01r0501_dat = 8,
+	NARC_scr_msg_c01r0601_dat = 9,
+	NARC_scr_msg_c01r0701_dat = 10,
+	NARC_scr_msg_c01r0901_dat = 11,
+	NARC_scr_msg_c01r1001_dat = 12,
+	NARC_scr_msg_common_scr_msg_dat = 13,
+	NARC_scr_msg_r202_dat = 14,
+	NARC_scr_msg_r203_dat = 15
+};
+
+/* NARC_SCR_MSG_NAIX_ */
+#endif

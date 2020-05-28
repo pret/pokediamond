@@ -1,0 +1,11 @@
+#ifndef _C01FS0101_DEF_H_
+#define _C01FS0101_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_C01FS0101_SHOP_01		(1)
+#define	SCRID_C01FS0101_FIX_SHOP		(2)
+#define	SCRID_C01FS0101_MAN2A		(3)
+#define	SCRID_C01FS0101_MIDDLEWOMAN1A		(4)
+#define	SCRID_C01FS0101_DATA_MAX		(4)		//最大数
+
+#endif //_C01FS0101_DEF_H_

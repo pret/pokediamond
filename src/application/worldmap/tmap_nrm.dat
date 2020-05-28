@@ -1,0 +1,286 @@
+/**
+	@file	tmap_nrm.dat
+	@brief	タウンマップモジュール　ノーマルモード用定義
+	@author	Miyuki Iwasawa
+	@date	05.11.09
+*/
+
+#define BUFLEN_BOARD_MSG	(BUFLEN_PLACE_NAME+12)
+#define TMAPN_BUFLEN_EXP1	(20*4*2)
+#define TMAPN_BUFLEN_EXP2	(20*3*2)
+#define TMAPN_BUFLEN_GUIDETAG	(8*2)
+#define TMAPN_BUFLEN_ZNW	(12*2)
+
+///ノーマルモード　シーケンス定義
+#define TM_N_KEYWAIT (0)
+#define TM_N_FADEIN	(1)
+#define TM_N_FADEINWAIT	(2)
+#define TM_N_FADEOUT (3)
+#define TM_N_FADEOUTWAIT (4)
+#define TM_N_CMOVE (5)
+
+///画面制御のフォーカス
+#define TMAPN_FORCUS_MAIN (0)
+#define TMAPN_FORCUS_SUB (1)
+
+///スクロール値制御
+#define TMAPN_BGS0X_MAX	(248)
+#define TMAPN_BGS0X_MIN	(8)
+#define TMAPN_BGS0Y_MAX	(304)
+#define TMAPN_BGS0Y_MIN	(72+8)
+
+///カーソル移動座標上限
+#define CMOVE_MINX	(2)
+#define CMOVE_MINZ	(7)
+#define CMOVE_MAXX	(27)
+#define CMOVE_MAXZ	(27)
+#define CMOVE_COUNT	(3)
+#define CMOVE_UNIT	(7)
+#define CMOVE_OFSX	(48-23)
+#define CMOVE_OFSZ	(6-40)
+#define	SUBSCR_MOVE_UNIT	(5)
+
+#define KEYS_CMOVE_PX	(0x01)
+#define KEYS_CMOVE_MX	(0x02)
+#define KEYS_CMOVE_PZ	(0x04)
+#define KEYS_CMOVE_MZ	(0x08)
+#define KEYS_SCHANGE	(0x10)
+#define KEYS_FREEZE		(0x80)
+
+#define KEY_RES_END		(0xFF)
+#define KEY_RES_NONE	(0x00)
+#define KEY_RES_IGNORE	(0x01)
+#define KEY_RES_CMOVE	(0x02)
+#define KEY_RES_SCHANGE	(0x03)
+
+#define CMOVE_KEYIN	(0x01)
+
+///View更新フラグ定義
+#define VIEW_NRM	(0x00)
+#define VIEW_CLEAR	(0x00)
+#define VIEW_UP		(0x01)
+#define VIEW_UPSUB	(0x02)
+
+
+//==================================================
+//BG描画関係
+//==================================================
+#define TMSCR_DSWMB_DPX	(13)	///<サブ画面タッチパネルボタン
+#define TMSCR_DSWMB_DPY	(10)
+#define TMSCR_DSWMB_DSX	(6)
+#define TMSCR_DSWMB_DSY	(7)
+#define TMSCR_DSWMB_SPX	(0)
+#define TMSCR_DSWMB_SPY	(0)
+#define TMSCR_DSWMB_DEX	(TMSCR_DSWMB_DPX+TMSCR_DSWMB_DSX)
+#define TMSCR_DSWMB_DEY	(TMSCR_DSWMB_DPY+TMSCR_DSWMB_DSY)
+
+#define TMSCR_DSWMG_DPX	(10)	///<サブ画面ガイド文ウィンドウ
+#define TMSCR_DSWMG_DPY	(0)
+#define TMSCR_DSWMG_DSX	(12)
+#define TMSCR_DSWMG_DSY	(2)
+#define TMSCR_DSWMG_SPX	(0)
+#define TMSCR_DSWMG_SPY	(7)
+
+//==================================================
+//配布マップBG関係
+//==================================================
+//D15
+#define HMAP01_MB_DPX	(5)	///<配布マップ1 バック
+#define HMAP01_MB_DPY	(0)
+#define HMAP01_MB_PX	(3)	
+#define HMAP01_MB_PY	(1)
+#define HMAP01_MB_SX	(2)
+#define HMAP01_MB_SY	(3)
+
+#define HMAP01_SB_DPX	(8)	///<配布マップ1 バック
+#define HMAP01_SB_DPY	(0)
+#define HMAP01_SB_PX	(3)	
+#define HMAP01_SB_PY	(16)
+#define HMAP01_SB_SX	(4)
+#define HMAP01_SB_SY	(4)
+
+#define HMAP01_ML_DPX	(5)	///<配布マップ1 ロード 
+#define HMAP01_ML_DPY	(3)
+#define HMAP01_ML_PX	(3)	
+#define HMAP01_ML_PY	(2)
+#define HMAP01_ML_SX	(2)
+#define HMAP01_ML_SY	(2)
+
+#define HMAP01_SL_DPX	(8)	///<配布マップ1 ロード
+#define HMAP01_SL_DPY	(4)
+#define HMAP01_SL_PX	(3)	
+#define HMAP01_SL_PY	(16)
+#define HMAP01_SL_SX	(4)
+#define HMAP01_SL_SY	(4)
+
+////////////////////////////////////////////////////
+//D30
+#define HMAP02_MB_DPX	(0)	///<配布マップ2 バック
+#define HMAP02_MB_DPY	(0)
+#define HMAP02_MB_PX	(6)	
+#define HMAP02_MB_PY	(1)
+#define HMAP02_MB_SX	(2)
+#define HMAP02_MB_SY	(3)
+
+#define HMAP02_SB_DPX	(0)	///<配布マップ2 バック
+#define HMAP02_SB_DPY	(0)
+#define HMAP02_SB_PX	(8)	
+#define HMAP02_SB_PY	(16)
+#define HMAP02_SB_SX	(4)
+#define HMAP02_SB_SY	(4)
+
+#define HMAP02_ML_DPX	(0)	///<配布マップ2 ロード 
+#define HMAP02_ML_DPY	(3)
+#define HMAP02_ML_PX	(6)	
+#define HMAP02_ML_PY	(2)
+#define HMAP02_ML_SX	(2)
+#define HMAP02_ML_SY	(2)
+
+#define HMAP02_SL_DPX	(0)	///<配布マップ2 バック
+#define HMAP02_SL_DPY	(4)
+#define HMAP02_SL_PX	(8)	
+#define HMAP02_SL_PY	(16)
+#define HMAP02_SL_SX	(4)
+#define HMAP02_SL_SY	(4)
+
+////////////////////////////////////////////////////
+//L4
+#define HMAP03_ML_DPX	(4)	///<配布マップ3 ロード 
+#define HMAP03_ML_DPY	(5)
+#define HMAP03_ML_PX	(22)	
+#define HMAP03_ML_PY	(13)
+#define HMAP03_ML_SX	(3)
+#define HMAP03_ML_SY	(3)
+
+#define HMAP03_SL_DPX	(8)	///<配布マップ3 ロード
+#define HMAP03_SL_DPY	(8)
+#define HMAP03_SL_PX	(48)	
+#define HMAP03_SL_PY	(42)
+#define HMAP03_SL_SX	(5)
+#define HMAP03_SL_SY	(6)
+
+//D18
+#define HMAP04_MB_DPX	(2)	///<配布マップ4 バック
+#define HMAP04_MB_DPY	(0)
+#define HMAP04_MB_PX	(26)	
+#define HMAP04_MB_PY	(0)
+#define HMAP04_MB_SX	(3)
+#define HMAP04_MB_SY	(3)
+
+#define HMAP04_SB_DPX	(4)	///<配布マップ4 バック
+#define HMAP04_SB_DPY	(0)
+#define HMAP04_SB_PX	(57)	
+#define HMAP04_SB_PY	(12)
+#define HMAP04_SB_SX	(4)
+#define HMAP04_SB_SY	(4)
+
+#define HMAP04_ML_DPX	(2)	///<配布マップ4 ロード 
+#define HMAP04_ML_DPY	(3)
+#define HMAP04_ML_PX	(27)	
+#define HMAP04_ML_PY	(0)
+#define HMAP04_ML_SX	(2)
+#define HMAP04_ML_SY	(9)
+
+#define HMAP04_SL_DPX	(4)	///<配布マップ4 ロード 
+#define HMAP04_SL_DPY	(4)
+#define HMAP04_SL_PX	(57)	
+#define HMAP04_SL_PY	(12)
+#define HMAP04_SL_SX	(4)
+#define HMAP04_SL_SY	(19)
+
+//==================================================
+//BMP Win関係
+//==================================================
+///ウィンドウBGエリア定義
+#define ZONEN_BGW_PX	(0)
+#define ZONEN_BGW_PY	(21)
+#define ZONEN_BGW_SX	(32)
+#define ZONEN_BGW_SY	(3)
+
+#define	BMPL_FONT_PAL	(14) 
+#define FONT_PAL	(15)
+
+#define ZONEN_BG_PX	(16)
+#define ZONEN_BG_PY	(21)
+#define ZONEN_BG_SX	(2)
+#define ZONEN_BG_SY	(3)
+
+
+///メイン画面地名表示用
+#define TMAPN_BMPCHAR_BASE	(1023)
+#define BMPL_M01_PX	(3)
+#define BMPL_M01_PY	(21)
+#define BMPL_M01_SX	(29)
+#define BMPL_M01_SY	(3)
+#define BMPL_M01_PAL	(FONT_PAL)
+#define BMPL_M01_CGX	(TMAPN_BMPCHAR_BASE-BMPL_M01_SX*BMPL_M01_SY)
+#define BMPL_M01_FRM	(GF_BGL_FRAME1_M)
+#define BMPL_M01_WINY	(6)
+
+#define BMPL_M01_WIDTH	(BMPL_M01_SX*8)
+#define BMPL_M01_NSX	(15*8+2)
+
+///メイン画面看板表示用
+#define BMPL_M02_PX	(0)
+#define BMPL_M02_PY	(0)
+#define BMPL_M02_SX	(32)
+#define BMPL_M02_SY	(4)
+#define BMPL_M02_PAL	(FONT_PAL)
+#define BMPL_M02_CGX	(BMPL_M01_CGX-BMPL_M02_SX*BMPL_M02_SY)
+#define BMPL_M02_FRM	(GF_BGL_FRAME1_M)
+
+// 看板ウィンドウ（サブ）
+#define TMAPN_S_BMPCHAR_BASE0 (1023)
+
+#define	BMPL_BOARD0_PX	( 9 )
+#define	BMPL_BOARD0_PY	( 3 )
+#define	BMPL_BOARD0_SX	( 21 )
+#define	BMPL_BOARD0_SY	( 4 )
+#define	BMPL_BOARD0_CGX	( TMAPN_S_BMPCHAR_BASE0-(BMPL_BOARD0_SX*BMPL_BOARD0_SY))
+#define	BMPL_BOARD_PAL	( FONT_PAL-1 )
+#define BMPL_BOARD_FRM	(GF_BGL_FRAME0_S)
+
+#define	BMPL_BOARD1_PX	( 2 )
+#define	BMPL_BOARD1_PY	( 3 )
+#define	BMPL_BOARD1_SX	( 28 )
+#define	BMPL_BOARD1_SY	( 4 )
+#define	BMPL_BOARD1_CGX	( BMPL_BOARD0_CGX-(BMPL_BOARD1_SX*BMPL_BOARD1_SY))
+
+//ブロック説明ウィンドウ(サブ)
+#define BMPL_BLOCK_PX	(1)
+#define BMPL_BLOCK_PY	(8)
+#define BMPL_BLOCK_SX	(28)
+#define BMPL_BLOCK_SY	(14)
+#define BMPL_BLOCK_PAL	(FONT_PAL-1)
+#define BMPL_BLOCK_CGX	(BMPL_BOARD1_CGX-(BMPL_BLOCK_SX*BMPL_BLOCK_SY))
+#define BMPL_BLOCK_FRM	(GF_BGL_FRAME0_S)
+
+//ガイドタグウィンドウ(サブ)
+#define BMPL_GUIDE_PX	(11)
+#define BMPL_GUIDE_PY	(0)
+#define BMPL_GUIDE_SX	(10)
+#define BMPL_GUIDE_SY	(2)
+#define BMPL_GUIDE_PAL	(FONT_PAL)
+#define BMPL_GUIDE_CGX	(BMPL_BLOCK_CGX-(BMPL_GUIDE_SX*BMPL_GUIDE_SY))
+#define BMPL_GUIDE_FRM	(GF_BGL_FRAME0_S)
+#define BMPL_GUIDE_NSX	(BMPL_GUIDE_SX*8)
+
+#define BMPW_BOARD_CGX	(BMPL_GUIDE_CGX-100)
+
+enum{
+	WIN_M01 = 0,
+	WIN_BOARD0,
+	WIN_BOARD1,
+	WIN_BLOCK,
+	WIN_GUIDE,
+	WIN_MAX,
+};
+
+///シーケンス
+enum{
+	TMAPJ_KEYWAIT = 0,
+	TMAPJ_SELINIT,
+	TMAPJ_SELECT,
+	TMAPJ_SELEND,
+};
+

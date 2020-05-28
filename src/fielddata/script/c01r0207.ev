@@ -1,0 +1,62 @@
+//====================================================================
+//								c01r0207
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0207.h"
+	.include	"../eventdata/zone_c01r0207evc.h"
+	.include	"../../../src/field/fld_ranking.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_guinness_group_btl
+_EVENT_DATA		ev_guinness_group_poke
+_EVENT_DATA		ev_guinness_group_contest
+_EVENT_DATA		ev_c01r0207_boy2_01
+_EVENT_DATA		ev_c01r0207_girl2_01
+_EVENT_DATA		ev_c01r0207_stop_01
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_guinness_group_btl:
+	_TALK_START
+	_RANKING_VIEW	RANKING_GRP_BTL
+	_TALK_END
+	_END
+
+ev_guinness_group_poke:
+	_TALK_START
+	_RANKING_VIEW	RANKING_GRP_POKE
+	_TALK_END
+	_END
+
+ev_guinness_group_contest:
+	_TALK_START
+	_RANKING_VIEW	RANKING_GRP_CONTEST
+	_TALK_END
+	_END
+
+//活発少年
+ev_c01r0207_boy2_01:
+	_EASY_OBJ_MSG	msg_c01r0207_boy2_01
+	_END
+
+//活発少女
+ev_c01r0207_girl2_01:
+	_EASY_OBJ_MSG	msg_c01r0207_girl2_01
+	_END
+
+//働くおじさん(タワー記録ストッパー)
+ev_c01r0207_stop_01:
+	_EASY_OBJ_MSG	msg_c01r0207_stop_01
+	_END

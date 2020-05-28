@@ -1,0 +1,98 @@
+//====================================================================
+//						t03r0301.gmm
+//						r0301
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t03r0301.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t03r0301_woman1
+_EVENT_DATA		ev_t03r0301_babygirl1
+_EVENT_DATA		ev_t03r0301_eneco
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*							姉さん									*/
+/********************************************************************/
+ev_t03r0301_woman1:
+	_EASY_OBJ_MSG	msg_t03r0301_woman1_01
+	_END
+
+/********************************************************************/
+/*							女の子									*/
+/********************************************************************/
+ev_t03r0301_babygirl1:
+	_TALK_OBJ_START
+
+	//すでにアイテムを入手しているか
+	_IF_FLAGON_JUMP	FE_T03R0301_ITEM_GET,ev_t03r0301_babygirl1_02
+
+	_TALKMSG		msg_t03r0301_babygirl1_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_t03r0301_babyrigl1
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_t03r0301_babyrigl1
+	_END
+
+/*「いいえ」*/
+no_t03r0301_babyrigl1:
+	_TALKMSG		msg_t03r0301_babygirl1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「はい」*/
+yes_t03r0301_babyrigl1:
+	_TALK_KEYWAIT	msg_t03r0301_babygirl1_02
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN88
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_t03r0301_babygirl1_item_event_fail
+
+	_FLAG_SET		FE_T03R0301_ITEM_GET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アイテム手後
+ev_t03r0301_babygirl1_02:
+	_TALKMSG		msg_t03r0301_babygirl1_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_t03r0301_babygirl1_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							ポケモン								*/
+/********************************************************************/
+ev_t03r0301_eneco:
+	_EASY_VOICE_MSG	msg_t03r0301_eneco_01,MONSNO_PIPPI,0
+	_END
+
+
+
+/********************************************************************/
+/********************************************************************/

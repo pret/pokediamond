@@ -1,0 +1,156 @@
+//====================================================================
+//								r221r0201
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r221r0201.h"
+	//.include	"../eventdata/zone_r221r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r221r0201_oldman1
+_EVENT_DATA		ev_r221r0201_poster
+_EVENT_DATA_END
+
+/********************************************************************/
+/*						　老人			　							*/
+/********************************************************************/
+ev_r221r0201_oldman1:
+	_TALK_OBJ_START
+
+	//預け状態
+	_IF_FLAGON_JUMP		FE_R221R0201_ITEM_KEEP,ev_r221r0201_oldman1_04
+
+	_IF_FLAGON_JUMP		TMFLG_R221R0201_ITEM_GET,ev_r221r0201_oldman1_05
+
+	_LEVEL_JIJII_NO SCWK_PARAM0			//今日のナンバーゲット
+	_NUMBER_NAME	0,SCWK_PARAM0
+
+	_GET_POKE_COUNT	SCWK_PARAM2		//ポケモン数ゲット
+	_LDVAL			SCWK_PARAM3,0		//先頭ー＞最後のきゃらまで
+
+ev_r221r0201_oldman1_loop:
+	_POKE_LEVEL_GET	SCWK_PARAM1,SCWK_PARAM3
+	_IFWK_JUMP		SCWK_PARAM0,EQ,SCWK_PARAM1,ev_r221r0201_oldman1_02	//あたり
+
+	_ADD_WK			SCWK_PARAM3,1
+	_SUB_WK			SCWK_PARAM2,1
+	_IFVAL_JUMP		SCWK_PARAM2,NE,0,ev_r221r0201_oldman1_loop
+	_JUMP			ev_r221r0201_oldman1_01	//はずれ
+	
+
+//あたりキャラがいるとき
+ev_r221r0201_oldman1_02:
+	//アイテム番号をSCWK_TEMP0へ
+	_IFVAL_CALL		WK_SCENE_R221R0201_ITEM_LOOP,EQ,0,ev_r221r0201_item_01_no_set
+	_IFVAL_CALL		WK_SCENE_R221R0201_ITEM_LOOP,EQ,1,ev_r221r0201_item_02_no_set
+	_IFVAL_CALL		WK_SCENE_R221R0201_ITEM_LOOP,EQ,2,ev_r221r0201_item_03_no_set
+
+	_POKEMON_NAME	1,SCWK_PARAM3
+	_ITEM_NAME		2,SCWK_TEMP0
+
+	_TALK_KEYWAIT		msg_r221r0201_oldman1_02
+
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r221r0201_oldman1_01
+
+	_JUMP			ev_r221r0201_oldman1_item_get_common_01
+
+//共通アイテム入手部分
+ev_r221r0201_oldman1_item_get_common_01:
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+
+	_FLAG_RESET	FE_R221R0201_ITEM_KEEP
+	_FLAG_SET	TMFLG_R221R0201_ITEM_GET
+
+	_ADD_WK		WK_SCENE_R221R0201_ITEM_LOOP,1
+	_IFVAL_JUMP	WK_SCENE_R221R0201_ITEM_LOOP,LT,3,ev_r221r0201_oldman1_item_get_common_02
+
+	//３のときは０へ（ループ）
+	_LDVAL		WK_SCENE_R221R0201_ITEM_LOOP,0
+
+ev_r221r0201_oldman1_item_get_common_02:
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r221r0201_item_01_no_set:
+	_LDVAL			SCWK_TEMP0,ITEM_KUROOBI
+	_RET
+
+ev_r221r0201_item_02_no_set:
+	_LDVAL			SCWK_TEMP0,ITEM_TATUZINNOOBI
+	_RET
+
+ev_r221r0201_item_03_no_set:
+	_LDVAL			SCWK_TEMP0,ITEM_KIAINOTASUKI
+	_RET
+
+//入手できず
+ev_r221r0201_oldman1_03:
+	_FLAG_SET		FE_R221R0201_ITEM_KEEP	//預け状態へ
+
+	_TALKMSG		msg_r221r0201_oldman1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アイテムを預けた状態
+ev_r221r0201_oldman1_04:
+	//アイテム番号をSCWK_TEMP0へ
+	_IFVAL_CALL		WK_SCENE_R221R0201_ITEM_LOOP,EQ,0,ev_r221r0201_item_01_no_set
+	_IFVAL_CALL		WK_SCENE_R221R0201_ITEM_LOOP,EQ,1,ev_r221r0201_item_02_no_set
+	_IFVAL_CALL		WK_SCENE_R221R0201_ITEM_LOOP,EQ,2,ev_r221r0201_item_03_no_set
+
+	_ITEM_NAME		2,SCWK_TEMP0
+
+	_TALK_KEYWAIT		msg_r221r0201_oldman1_04
+
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r221r0201_oldman1_03
+
+	_JUMP			ev_r221r0201_oldman1_item_get_common_01
+
+
+//外れ
+ev_r221r0201_oldman1_01:
+	_TALKMSG		msg_r221r0201_oldman1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アイテム入手後
+ev_r221r0201_oldman1_05:
+	_TALKMSG		msg_r221r0201_oldman1_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						　ポスター		　							*/
+/********************************************************************/
+ev_r221r0201_poster:
+	_EASY_MSG		msg_r221r0201_poster_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

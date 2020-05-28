@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-02-06T19:53:48" source="cycle_bike01.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="unno" host="W00106" date="2006-02-06T19:53:48" source="cycle_bike01.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="3"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="3" xyz="-2.000000 1.000000 -1.571289" whd="4.000000 3.063965 2.571045"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="c_bike01"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="c_bike01_pl"
+		path="C:/mayadata/c4_o01/tex/c_bike01.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 4440 0000 0000 0000 0000 0000
+			0000 0000 4540 0000 0000 0000 0000 0000
+			0000 0000 4b40 0000 0000 0000 0000 0000
+			0000 0000 4540 0000 0000 0000 0000 0000
+			0000 0000 b5b0 0000 bbb0 00bb 0000 0000
+			0000 0000 bbb0 b000 3aab 0b43 0000 0000
+			0000 0000 b5b0 3b0b 33aa 0b33 0000 0000
+			0000 0000 bbb0 2bb8 3333 0b23 0000 0000
+			0000 0000 bbbb bb89 222b 0b42 0000 0000
+			0000 bb00 0b88 b89b bbbb 00bb 0000 0000
+			0000 8bb0 bbb8 99b0 bbbb bbbb 0bbb 0000
+			0000 b43b bbbb 9b0b b4b9 bbbb bb34 0000
+			b000 77bb b777 bbbb 990b 777b bb77 000b
+			b000 457b 7544 3bbb b9bb bb99 b774 000b
+			b000 746b 6475 3bbb bbb3 99bb b64b 000b
+			0000 4a5b 6a44 4b0b b0b4 bb7a b674 0000
+			0000 a5bb b66a bb0b b0bb 5aab bb65 0000
+			0000 bbb1 bbbb 1111 1111 bbbb 1bbb 0000
+			0000 1110 1111 1111 1111 1111 0111 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="c_bike01_pl" color_size="16">
+		6393 3d8c 5ab5 737b 420f 4f7d 4af9 3633
+		0e3b 0cb7 7fff 0000 7fff 7fff 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="c_bike01"
+		light0="off" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="25 25 25"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 1.000000 -1.571045"
+		volume_max="2.000000 4.064209 1.000000"
+		volume_r="4.794434"
+		mtx_prim_size="1"
+		nrm_flag="off" clr_flag="on" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<clr rgb="31 31 31"/>
+					<pos_s xyz="-2.000000 1.000000 1.000000"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="2.000000 1.000000"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_yz yz="4.064209 -1.571045"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-2.000000 4.064209"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pCube1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 1.000000 -1.571045"
+		volume_max="2.000000 4.064209 1.000000"
+		volume_r="4.794434"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

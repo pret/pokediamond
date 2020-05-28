@@ -1,0 +1,35 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: ev_pokeselect.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-23T22:59:58
+ *****************************************************************************/
+
+#ifndef NARC_EV_POKESELECT_NAIX_
+#define NARC_EV_POKESELECT_NAIX_
+
+enum {
+	NARC_ev_pokeselect_psel_all_nsbca = 0,
+	NARC_ev_pokeselect_psel_all_nsbmd = 1,
+	NARC_ev_pokeselect_psel_mb_a_nsbca = 2,
+	NARC_ev_pokeselect_psel_mb_a_nsbmd = 3,
+	NARC_ev_pokeselect_psel_mb_b_nsbca = 4,
+	NARC_ev_pokeselect_psel_mb_b_nsbmd = 5,
+	NARC_ev_pokeselect_psel_mb_c_nsbca = 6,
+	NARC_ev_pokeselect_psel_mb_c_nsbmd = 7,
+	NARC_ev_pokeselect_psel_trunk_nsbmd = 8,
+	NARC_ev_pokeselect_pmsel_bg_nsbmd = 9,
+	NARC_ev_pokeselect_psel_cursol_NCGR = 10,
+	NARC_ev_pokeselect_psel_cursol_NCLR = 11,
+	NARC_ev_pokeselect_psel_cursol_NCER = 12,
+	NARC_ev_pokeselect_psel_cursol_NANR = 13,
+	NARC_ev_pokeselect_psel_circle_NCBR = 14,
+	NARC_ev_pokeselect_psel_circle_NCLR = 15,
+	NARC_ev_pokeselect_font_talk_NCLR = 16,
+	NARC_ev_pokeselect_font_system_NCLR = 17
+};
+
+/* NARC_EV_POKESELECT_NAIX_ */
+#endif

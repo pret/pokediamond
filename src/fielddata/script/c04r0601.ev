@@ -1,0 +1,80 @@
+//====================================================================
+//						c04r0601.gmm
+//					シティ０４・r0601
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"hyouka_scr_def.h"
+	.include	"../../../include/msgdata/msg_c04r0601.h"
+	.include	"../eventdata/zone_c04r0601evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c04r0601_ookido
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*							オーキド　　							*/
+/********************************************************************/
+ev_c04r0601_ookido:
+	_TALK_OBJ_START
+
+	/*アイテム入手していたら*/
+	_IF_FLAGON_JUMP	FE_C04R0601_ITEM_GET,ev_c04r0601_ookido_02
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c04r0601_ookido_01
+	_TALK_CLOSE
+
+	/*「！」*/
+	_OBJ_ANIME		C04R0601_OOKIDO,anm_c04r0601_ookido_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c04r0601_ookido_02
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_APPUGUREEDO
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c04r0601_ookido_item_event_fail
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C04R0601_ITEM_GET
+
+	_TALKMSG		msg_c04r0601_ookido_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*アイテム入手していたら*/
+ev_c04r0601_ookido_02:
+	_CHG_COMMON_SCR	SCRID_OOKIDO_ZUKAN_HYOUKA			/*図鑑評価*/
+	_END
+
+/*アイテム入手失敗*/
+ev_c04r0601_ookido_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//オーキド	「！」
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c04r0601_ookido_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+

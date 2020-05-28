@@ -1,0 +1,843 @@
+//====================================================================
+//							研究所
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"hyouka_scr_def.h"
+	.include	"../../../include/msgdata/msg_t02r0101.h"
+	.include	"../eventdata/zone_t02r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t02r0101_flag_change
+_EVENT_DATA		ev_t02r0101_doctor_zukan
+_EVENT_DATA		ev_t02r0101_doctor
+_EVENT_DATA		ev_t02r0101_support
+_EVENT_DATA		ev_t02r0101_assistm1
+_EVENT_DATA		ev_t02r0101_assistw1
+_EVENT_DATA		ev_t02r0101_oldwoman1
+_EVENT_DATA		ev_t02r0101_bookshelf1
+_EVENT_DATA		ev_t02r0101_bookshelf2
+_EVENT_DATA		ev_t02r0101_bookshelf3
+_EVENT_DATA		ev_t02r0101_bookshelf4
+_EVENT_DATA		ev_t02r0101_pc1
+_EVENT_DATA		ev_t02r0101_books1
+_EVENT_DATA		ev_t02r0101_freezer1
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_t02r0101_flag_change:
+	_END
+
+
+/********************************************************************/
+/*							博士									*/
+/********************************************************************/
+ev_t02r0101_doctor:
+	_TALK_OBJ_START
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t02r0101_doctor_zukan_zenkoku
+
+	/*ハクタイに未到着時は全国図鑑は開かないのでチェックをパス*/
+	_IF_FLAGOFF_JUMP	SYS_FLAG_ARRIVE_START+FLAG_ARRIVE_C04,ev_t02r0101_doctor_01
+	/*シンオウ図鑑完成しているかチェック*/
+	_ZUKAN_CHK_SHINOU	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_t02r0101_doctor_zukan_shinou_comp
+
+	/*サポートの教えイベント以降*/
+ev_t02r0101_doctor_01:
+	_IFVAL_JUMP		WK_SCENE_T02,GE,2,ev_t02r0101_doctor_zukan_hyouka
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t02r0101_doctor_13
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*サポートの教えイベント以降*/
+ev_t02r0101_doctor_zukan_hyouka:
+	_CHG_COMMON_SCR	SCRID_DOCTOR_ZUKAN_HYOUKA
+	_END
+
+
+/********************************************************************/
+/*							サポート								*/
+/********************************************************************/
+ev_t02r0101_support:
+	_END
+
+
+/********************************************************************/
+//						博士の図鑑入手イベント
+/********************************************************************/
+ev_t02r0101_doctor_zukan:
+	_EVENT_START
+
+	//移動
+	_OBJ_ANIME		T02R0101_SUPPORT,anm_01_t02r0101_support_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_01_t02r0101_player_01
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t02r0101_doctor_01
+
+	//博士話しかける
+	_OBJ_ANIME		T02R0101_DOCTOR,anm_01_t02r0101_doctor_01
+	_OBJ_ANIME_WAIT
+
+	_LDVAL	SCWK_TEMP0,0	//先頭（1匹しか居ないので）
+	_TEMOTI_MONSNO	SCWK_TEMP0,SCWK_ANSWER
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		MONSNO_NAETORU,ev_t02r0101_doctor_zukan_normal_poke
+	_CASE_JUMP		MONSNO_HIKOZARU,ev_t02r0101_doctor_zukan_normal_poke
+	_CASE_JUMP		MONSNO_POTTYAMA,ev_t02r0101_doctor_zukan_normal_poke
+	_JUMP							ev_t02r0101_doctor_zukan_evo_poke
+
+//進化後
+ev_t02r0101_doctor_zukan_normal_poke:
+	_TALK_KEYWAIT	msg_t02r0101_doctor_02
+	_JUMP			ev_t02r0101_doctor_zukan_common_01
+
+//進化前
+ev_t02r0101_doctor_zukan_evo_poke:
+	_TALK_KEYWAIT	msg_t02r0101_doctor_03
+	_JUMP			ev_t02r0101_doctor_zukan_common_01
+
+ev_t02r0101_doctor_zukan_common_01:
+	_POKEMON_NAME	0,0		//※シナリオ的に最初の1匹以外はありえないので手持ちから取得
+	_TALK_KEYWAIT	msg_t02r0101_doctor_04
+
+	//ニックネーム処理へ
+	_TALKMSG		msg_t02r0101_doctor_05
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t02r0101_doctor_poke_nick_name_after	//「いいえ」
+	_JUMP			ev_t02r0101_doctor_poke_nick_name_retry
+	_END
+
+/*ニックネーム処理*/
+ev_t02r0101_doctor_poke_nick_name_retry:
+	//名前入力結果取得ワークをクリア
+	_LDVAL			SCWK_ANSWER,0
+
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//名前入力
+	_NAMEIN_POKE	0,SCWK_ANSWER
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	/*ニックネーム確認*/
+	_TALKMSG		msg_t02r0101_doctor_14
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t02r0101_doctor_poke_nick_name_retry	//「いいえ」
+
+	/*ニックネームOK*/
+	_JUMP			ev_t02r0101_doctor_poke_nick_name_after
+	_END
+
+//ポケモンのニックネームつけた後
+ev_t02r0101_doctor_poke_nick_name_after:
+	_POKEMON_NAME	0,0		//※シナリオ的に最初の1匹以外はありえないので手持ちから取得
+	_RIVAL_NAME		1
+	_TALK_KEYWAIT	msg_t02r0101_doctor_06
+	_TALK_CLOSE
+
+	//サポート話しかける
+	_OBJ_ANIME		T02R0101_SUPPORT,anm_01_t02r0101_support_10
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_20		//注意(使いまわし！)
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02r0101_male_doctor_01	//サポート女
+	_JUMP			t02r0101_female_doctor_01					//サポート男
+	_END
+
+//サポート女
+t02r0101_male_doctor_01:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_t02r0101_heroine_01
+	_TALK_CLOSE
+
+	//少し動く
+	_OBJ_ANIME		T02R0101_SUPPORT,anm_t02r0101_support_10
+	_OBJ_ANIME_WAIT
+
+	_JUMP			common_t02r0101_support_10
+	_END
+
+//サポート男
+t02r0101_female_doctor_01:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_t02r0101_hero_01
+	_TALK_CLOSE
+
+	//少し動く
+	_OBJ_ANIME		T02R0101_SUPPORT,anm_t02r0101_support_10
+	_OBJ_ANIME_WAIT
+
+	_JUMP			common_t02r0101_support_10
+	_END
+
+//共通処理
+common_t02r0101_support_10:
+	_BGM_FADEOUT	0,40
+
+	//博士話しかける
+	_OBJ_ANIME		T02R0101_DOCTOR,anm_01_t02r0101_doctor_02
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_19		//注意(使いまわし！)
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		35,SCWK_ANSWER
+
+	_FLAG_SET		SYS_FLAG_BGM_T02
+	_BGM_PLAY		SEQ_OPENING2
+
+	_TALK_KEYWAIT	msg_t02r0101_doctor_07
+
+	_TALKMSG		msg_t02r0101_doctor_07_01
+	_YES_NO_WIN	SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_t02r0101_doctor_cancel_02		//「いいえ」
+	_JUMP			common_t02r0101_doctor_20
+	_END
+
+//「いいえ」
+ev_t02r0101_doctor_cancel_02:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t02r0101_doctor_08
+	_YES_NO_WIN	SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,1,ev_t02r0101_doctor_cancel_02		//「いいえ」
+	_JUMP			common_t02r0101_doctor_20
+	_END
+
+//--------------------------------------------------------------------
+//図鑑入手
+//--------------------------------------------------------------------
+common_t02r0101_doctor_20:
+	_TALK_KEYWAIT	msg_t02r0101_doctor_09
+
+	_SYS_FLAG_ZUKAN_SET
+	_FLAG_SET		FE_ZUKAN_GET	//イベント用フラグ(デバックスタートするとうまく動作しないので)
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t02r0101_doctor_10
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t02r0101_doctor_11
+	_TALK_CLOSE
+
+	//サポート話しかける
+	_OBJ_ANIME		T02R0101_SUPPORT,anm_01_t02r0101_support_11
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02r0101_male_support_20	//サポート女
+	_JUMP			t02r0101_female_support_20					//サポート男
+	_END
+
+//サポート女
+t02r0101_male_support_20:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_t02r0101_heroine_02
+
+	//主人公の方を向く
+	//_OBJ_ANIME		T02R0101_SUPPORT,anm_t02r0101_support_10
+	//_OBJ_ANIME_WAIT
+
+	_JUMP			common_t02r0101_support_30
+	_END
+
+//サポート男
+t02r0101_female_support_20:
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_t02r0101_hero_02
+
+	//主人公の方を向く
+	//_OBJ_ANIME		T02R0101_SUPPORT,anm_t02r0101_support_10
+	//_OBJ_ANIME_WAIT
+
+	_JUMP			common_t02r0101_support_30
+	_END
+
+//--------------------------------------------------------------------
+//図鑑入手後
+//--------------------------------------------------------------------
+common_t02r0101_support_30:
+	//_TALK_CLOSE
+	//_TIME_WAIT		15,SCWK_ANSWER
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t02r0101_doctor_12
+	_TALK_CLOSE
+
+	//サポート話しかける
+	_OBJ_ANIME		T02R0101_SUPPORT,anm_01_t02r0101_support_11
+	_OBJ_ANIME_WAIT
+
+	//サポートを見る
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_20
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,t02r0101_male_support_30	//サポート女
+	_JUMP			t02r0101_female_support_30					//サポート男
+	_END
+
+//サポート女
+t02r0101_male_support_30:
+	_PLAYER_NAME			0
+	_SUPPORT_POKEMON_NAME	1		//ポケモン名！
+	_TALK_KEYWAIT	msg_t02r0101_heroine_03
+	_JUMP			common_t02r0101_support_35
+	_END
+
+//サポート男
+t02r0101_female_support_30:
+	_PLAYER_NAME		0
+	_RIVAL_POKEMON_NAME	1		//ポケモン名！
+	_TALK_KEYWAIT	msg_t02r0101_hero_03
+	_JUMP			common_t02r0101_support_35
+	_END
+
+//共通処理
+common_t02r0101_support_35:
+	_TALK_CLOSE
+
+	//外へ行く
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_30
+	_OBJ_ANIME		T02R0101_SUPPORT,anm_t02r0101_support_30
+	_OBJ_ANIME_WAIT
+
+	_OBJ_DEL		T02R0101_SUPPORT
+
+	_FLAG_RESET		FV_T02_SUPPORT
+
+	_LDVAL			WK_SCENE_T02R0101,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//博士	話す
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_t02r0101_doctor_01
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	話す
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_t02r0101_doctor_02
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_t02r0101_support_01
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	話しかける
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_t02r0101_support_10
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	話しかける
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_t02r0101_support_11
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_t02r0101_player_01
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	博士を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_player_19
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	サポートを見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_player_20
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	サポートを見おくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_player_30
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	主人公の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_support_10
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	外へ行く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_support_30
+	_ANIME_DATA	AC_WALK_D_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							助手									*/
+/********************************************************************/
+ev_t02r0101_assistm1:
+	_TALK_OBJ_START
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t02r0101_assistm1_02
+
+	_SUPPORT_NAME	0
+	_TALKMSG		msg_t02r0101_assistm1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*全国図鑑になっていたら*/
+ev_t02r0101_assistm1_02:
+	_SUPPORT_NAME	0
+	_TALKMSG		msg_t02r0101_assistm1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							助手									*/
+/********************************************************************/
+ev_t02r0101_assistw1:
+	_TALK_OBJ_START
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t02r0101_assistw1_02
+
+	_TALKMSG		msg_t02r0101_assistw1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*全国図鑑になっていたら*/
+ev_t02r0101_assistw1_02:
+	_TALKMSG		msg_t02r0101_assistw1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							博士婦人								*/
+/********************************************************************/
+ev_t02r0101_oldwoman1:
+	_EASY_OBJ_MSG	msg_t02r0101_oldwoman1_01
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_t02r0101_bookshelf1:
+	_EASY_MSG		msg_t02r0101_bookshelf1_01
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_t02r0101_bookshelf2:
+	_EASY_MSG		msg_t02r0101_bookshelf2_01
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_t02r0101_bookshelf3:
+	_EASY_MSG		msg_t02r0101_bookshelf3_01
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_t02r0101_bookshelf4:
+	_EASY_MSG		msg_t02r0101_bookshelf4_01
+	_END
+
+
+/********************************************************************/
+/*							ＰＣ									*/
+/********************************************************************/
+ev_t02r0101_pc1:
+	_PLAYER_NAME		0
+	_EASY_MSG		msg_t02r0101_pc_01
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_t02r0101_books1:
+	_EASY_MSG		msg_t02r0101_books1_01
+	_END
+
+
+/********************************************************************/
+/*							冷蔵庫									*/
+/********************************************************************/
+ev_t02r0101_freezer1:
+	_EASY_MSG		msg_t02r0101_freezer_01
+	_END
+
+
+/********************************************************************/
+/*					シンオウ図鑑完成した							*/
+/********************************************************************/
+ev_t02r0101_doctor_zukan_shinou_comp:
+
+	/*PCで完成メッセージをきいていたら*/
+	_IF_FLAGON_JUMP	FE_PC_SHINOU_ZUKAN_COMP,ev_t02r0101_pc_shinou_zukan_comp_ok
+	_JUMP			ev_t02r0101_pc_shinou_zukan_comp_ng
+	_END
+
+//--------------------------------------------------------------------
+/*PCで完成メッセージをきいている*/
+//--------------------------------------------------------------------
+ev_t02r0101_pc_shinou_zukan_comp_ok:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t02r0101_doctor_a_01
+	_TALK_CLOSE
+	_JUMP			common_t02r0101_hyouka_ookido
+	_END
+
+//--------------------------------------------------------------------
+/*PCで完成メッセージをきいていない*/
+//--------------------------------------------------------------------
+ev_t02r0101_pc_shinou_zukan_comp_ng:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_hyouka_doctor_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_t02r0101_hyouka_doctor_cancel	//「いいえ」
+	_JUMP			yes_t02r0101_hyouka_doctor_20
+	_END
+
+/*「いいえ」*/
+no_t02r0101_hyouka_doctor_cancel:
+	_TALKMSG		msg_hyouka_doctor_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「はい」*/
+yes_t02r0101_hyouka_doctor_20:
+	_SHINOU_ZUKAN_SEE_NUM	SCWK_ANSWER					/*シンオウ図鑑　見つけた数を取得*/
+	_NUMBER_NAME	0,SCWK_ANSWER
+	_TALKMSG		msg_hyouka_doctor_02
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_hyouka_s09
+	_TALK_CLOSE
+	_JUMP			common_t02r0101_hyouka_ookido
+	_END
+
+/********************************************************************/
+/*オーキド登場*/
+//
+//	SCWK_TEMP3	話しかけ方向
+/********************************************************************/
+common_t02r0101_hyouka_ookido:
+
+	_PLAYER_DIR_GET	SCWK_TEMP3
+
+	/*初期配置をセットする*/
+	_IFVAL_CALL		SCWK_TEMP3,EQ,DIR_UP,ev_t02r0101_dir_up_100
+	_IFVAL_CALL		SCWK_TEMP3,EQ,DIR_DOWN,ev_t02r0101_dir_down_100
+	_IFVAL_CALL		SCWK_TEMP3,EQ,DIR_LEFT,ev_t02r0101_dir_left_100
+	_IFVAL_CALL		SCWK_TEMP3,EQ,DIR_RIGHT,ev_t02r0101_dir_right_100
+
+	/*オーキド博士が入ってくる*/
+	_FLAG_RESET		FV_T02R0101_OOKIDO
+	_OBJ_ADD		T02R0101_OOKIDO
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_110
+	_OBJ_ANIME		T02R0101_OOKIDO,anm_t02r0101_ookido_110
+	_OBJ_ANIME		T02R0101_DOCTOR,anm_t02r0101_doctor_110
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_t02r0101_ookido_a_01
+
+	_TALK_KEYWAIT	msg_t02r0101_doctor_a_02
+	_TALK_CLOSE
+
+	/*一度主人公を見てから、もう一度オーキドを見る*/
+	_OBJ_ANIME		T02R0101_DOCTOR,anm_t02r0101_doctor_120
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+	_TALK_KEYWAIT	msg_t02r0101_doctor_a_03
+	_TALK_CLOSE
+
+	/*オーキド主人公の前に移動*/
+	_OBJ_ANIME		T02R0101_OOKIDO,anm_t02r0101_ookido_120
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_120
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_t02r0101_ookido_a_02
+
+	/*ゲームクリアしていたら*/
+	_IF_FLAGON_CALL	SYS_FLAG_GAME_CLEAR,t02r0101_zenkoku_zukan_open
+
+	/*全国図鑑にパワーアップ*/
+	_FLAG_RESET		FV_D03R0101_LEADER
+	_FLAG_SET		FV_C11_STOP						/*ストッパー削除*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_SET,SCWK_ANSWER
+	_PLAYER_NAME	0
+	_ME_PLAY		SEQ_FANFA4
+	_TALKMSG		msg_t02r0101_ookido_a_03
+	_ME_WAIT
+
+	_TALK_KEYWAIT	msg_t02r0101_ookido_a_04
+
+	_TALK_KEYWAIT	msg_t02r0101_doctor_a_04
+
+	_TALK_KEYWAIT	msg_t02r0101_ookido_a_05
+
+	_PLAYER_NAME	0
+	_GET_MY_SEX		SCWK_TEMP0
+	_IFVAL_CALL		SCWK_TEMP0,EQ,0,zenkoku_zukan_t02r0101_male		//主人公男
+	_IFVAL_CALL		SCWK_TEMP0,EQ,1,zenkoku_zukan_t02r0101_female	//主人公女
+	_TALK_CLOSE
+
+	/*オーキド退場*/
+	_OBJ_ANIME		T02R0101_OOKIDO,anm_t02r0101_ookido_130
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		T02R0101_OOKIDO
+
+	_TALK_KEYWAIT	msg_t02r0101_doctor_a_05
+	_TALK_CLOSE
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*博士と向き合う*/
+	//_OBJ_ANIME	T02R0101_DOCTOR,anm_t02r0101_doctor_130
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_130
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t02r0101_doctor_a_06
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_POKETORE
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_TALKMSG		msg_t02r0101_doctor_a_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ゲームクリアしていたら*/
+t02r0101_zenkoku_zukan_open:
+	/*L04マップがオープンする*/
+	_HIDEMAP_STATE_CHG		HIDEMAP_ID_L04,1
+	_RET
+
+zenkoku_zukan_t02r0101_male:					//主人公男
+	_TALK_KEYWAIT	msg_t02r0101_ookido_a_06
+	_RET
+	
+zenkoku_zukan_t02r0101_female:					//主人公女
+	_TALK_KEYWAIT	msg_t02r0101_ookido_a_07
+	_RET
+
+//--------------------------------------------------------------------
+/*全国図鑑になっていたら*/
+//--------------------------------------------------------------------
+ev_t02r0101_doctor_zukan_zenkoku:
+	_TALKMSG		msg_t02r0101_doctor_a_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+/*初期配置セット*/
+//--------------------------------------------------------------------
+ev_t02r0101_dir_up_100:
+	_RET
+
+ev_t02r0101_dir_down_100:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_100
+	_OBJ_ANIME		T02R0101_DOCTOR,anm_t02r0101_doctor_100
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_t02r0101_dir_left_100:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_101
+	_OBJ_ANIME		T02R0101_DOCTOR,anm_t02r0101_doctor_100
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_t02r0101_dir_right_100:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t02r0101_player_102
+	_OBJ_ANIME		T02R0101_DOCTOR,anm_t02r0101_doctor_100
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//ナナカマド	下を向き気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_doctor_100
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ナナカマド	オーキドをみる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_doctor_110
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ナナカマド	主人公を見て、向きなおす
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_doctor_120
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ナナカマド	主人公のほうを向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_doctor_130
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	初期配置セット
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_player_100
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t02r0101_player_101
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t02r0101_player_102
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	オーキドを見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_player_110
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,5
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_player_120
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	博士と向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_player_130
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//オーキド	登場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_ookido_110
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//オーキド	主人公の前に移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_ookido_120
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//オーキド	退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t02r0101_ookido_130
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+
+

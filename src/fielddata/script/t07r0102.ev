@@ -1,0 +1,303 @@
+//====================================================================
+//								t07r0102
+//	※LOCALWORK10使用
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t07r0102.h"
+	.include	"../eventdata/zone_t07r0102evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t07r0102_woman6
+_EVENT_DATA		ev_t07r0102_woman6a
+_EVENT_DATA		ev_t07r0102_woman6b
+_EVENT_DATA		ev_t07r0102_woman6c
+_EVENT_DATA_END
+
+
+
+/********************************************************************/
+/*				先頭ポケモンをエステ(なつきUP)						*/
+/********************************************************************/
+ev_t07r0102_woman6:
+	_TALK_OBJ_START
+
+	//エステを既に受けた
+	_IF_FLAGON_JUMP		TMFLG_T07R0101_ESTHTIQUE,ev_t07r0102_woman6_10
+
+	//エステを既に受け、1日以上経っても部屋にいるとき
+	_IFVAL_JUMP			LOCALWORK10,EQ,1,ev_t07r0102_woman6_10
+
+	_PLAYER_NAME	0
+	_NICK_NAME	1,0
+
+	_TALKMSG		msg_t07r0102_woman6_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t07r0102_woman6_02	//NO
+	_JUMP							ev_t07r0102_woman6_03	//YES
+
+//いいえ
+ev_t07r0102_woman6_02:
+	_TALKMSG		msg_t07r0102_woman6_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//はい
+ev_t07r0102_woman6_03:
+	_TALK_KEYWAIT		msg_t07r0102_woman6_03
+	_TALK_CLOSE
+
+	//アニメ
+	_CALL				ev_t07r0102_anime_01
+
+	_JUMP							ev_t07r0102_woman6_04
+
+//エステ開始
+ev_t07r0102_woman6_04:
+	_TALK_KEYWAIT		msg_t07r0102_woman6_04
+
+	_GET_RND		SCWK_ANSWER,4
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_t07r0102_woman6_05
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_t07r0102_woman6_06
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_t07r0102_woman6_07
+	_JUMP							ev_t07r0102_woman6_08
+
+//エステ中１
+ev_t07r0102_woman6_05:
+	_TALK_KEYWAIT		msg_t07r0102_woman6_05
+	_JUMP			ev_t07r0102_woman6_09
+
+//エステ中２
+ev_t07r0102_woman6_06:
+	_TALK_KEYWAIT		msg_t07r0102_woman6_06
+	_JUMP			ev_t07r0102_woman6_09
+
+//エステ中３
+ev_t07r0102_woman6_07:
+	_TALK_KEYWAIT		msg_t07r0102_woman6_07
+	_JUMP			ev_t07r0102_woman6_09
+
+//エステ中４
+ev_t07r0102_woman6_08:
+	_TALK_KEYWAIT		msg_t07r0102_woman6_08
+	_JUMP			ev_t07r0102_woman6_09
+
+//終了
+ev_t07r0102_woman6_09:
+	_TALK_CLOSE
+
+	//_ME_PLAY		SEQ_FANFA1
+	_SE_PLAY		SEQ_SE_DP_FW367
+	_CALL			ev_t07r0102_natsuki_add	
+	_SE_WAIT		SEQ_SE_DP_FW367
+	//_ME_WAIT
+
+	_FLAG_SET		TMFLG_T07R0101_ESTHTIQUE
+
+	_LDVAL			LOCALWORK10,1				//部屋から出ない限りは、1日経ってもエステは受けられない
+
+	_OBJ_ANIME		T07R0102_WOMAN6B,anm_woman6b_move_02
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG		msg_t07r0102_woman6_09
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//エステを既に受けた
+ev_t07r0102_woman6_10:
+	_TALKMSG		msg_t07r0102_woman6_10
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//なつき度を＋する
+ev_t07r0102_natsuki_add:
+	_GET_RND		SCWK_ANSWER,100
+	_IFVAL_JUMP		SCWK_ANSWER,LT,5,ev_t07r0102_natsuki_add_30
+	_IFVAL_JUMP		SCWK_ANSWER,LT,5+25,ev_t07r0102_natsuki_add_10
+	_JUMP								ev_t07r0102_natsuki_add_5
+
+ev_t07r0102_natsuki_add_30:
+	_ADD_NATSUKI	30,0
+	_RET
+
+ev_t07r0102_natsuki_add_10:
+	_ADD_NATSUKI	10,0
+	_RET
+
+ev_t07r0102_natsuki_add_5:
+	_ADD_NATSUKI	5,0
+	_RET
+
+#define T07R0102_WOMAN6_POS_X	(12)
+#define T07R0102_WOMAN6_POS_Z	(5)
+
+//アニメ
+ev_t07r0102_anime_01:
+	//プレイヤーの位置算出
+	_PLAYER_POS_GET	SCWK_TEMP1,SCWK_TEMP2
+	_IFVAL_JUMP		SCWK_TEMP1,EQ,T07R0102_WOMAN6_POS_X-1,anm_call_player_to_seat_l
+	_IFVAL_JUMP		SCWK_TEMP1,EQ,T07R0102_WOMAN6_POS_X+1,anm_call_player_to_seat_r
+	_IFVAL_JUMP		SCWK_TEMP2,EQ,T07R0102_WOMAN6_POS_Z-1,anm_call_player_to_seat_u
+	_JUMP												anm_call_player_to_seat_d
+
+anm_call_player_to_seat_l:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_to_seat_l
+	_OBJ_ANIME		T07R0102_WOMAN6,anm_woman6_move_l
+	_OBJ_ANIME_WAIT
+	_JUMP			anm_call_3_woman_move
+
+anm_call_player_to_seat_r:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_to_seat_r
+	_OBJ_ANIME		T07R0102_WOMAN6,anm_woman6_move_r
+	_OBJ_ANIME_WAIT
+	_JUMP			anm_call_3_woman_move
+
+anm_call_player_to_seat_u:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_to_seat_u
+	_OBJ_ANIME		T07R0102_WOMAN6,anm_woman6_move_u
+	_OBJ_ANIME_WAIT
+	_JUMP			anm_call_3_woman_move
+
+anm_call_player_to_seat_d:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_player_to_seat_d
+	_OBJ_ANIME		T07R0102_WOMAN6,anm_woman6_move_d
+	_OBJ_ANIME_WAIT
+	_JUMP			anm_call_3_woman_move
+
+anm_call_3_woman_move:
+	_OBJ_ANIME		T07R0102_WOMAN6A,anm_woman6a_move
+	_OBJ_ANIME		T07R0102_WOMAN6B,anm_woman6b_move
+	_OBJ_ANIME		T07R0102_WOMAN6C,anm_woman6c_move
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//助手が誘導
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_woman6_move_l
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_woman6_move_r
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_woman6_move_u
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_woman6_move_d
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//プレイヤーが移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_player_to_seat_l
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_player_to_seat_r
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_player_to_seat_u
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_player_to_seat_d
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//3人の助手が近寄る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_woman6a_move
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_woman6b_move
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_woman6c_move
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//助手が1人だけ動く（プレイヤーを出すため）
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_woman6b_move_02
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_t07r0102_woman6a:
+	_EASY_OBJ_MSG	msg_t07r0102_woman6a_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_t07r0102_woman6b:
+	_EASY_OBJ_MSG	msg_t07r0102_woman6b_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_t07r0102_woman6c:
+	_EASY_OBJ_MSG	msg_t07r0102_woman6c_01
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

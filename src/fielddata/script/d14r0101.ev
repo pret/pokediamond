@@ -1,0 +1,127 @@
+//====================================================================
+//						d14r0101.gmm
+//					ダンジョン１４r0101
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d14r0101.h"
+	.include	"../eventdata/zone_d14r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d14r0101_flag_change
+_EVENT_DATA		ev_d14r0101_mount
+_EVENT_DATA		pos_d14r0101
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d14r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D14R0101	//到着
+	_END
+
+
+/********************************************************************/
+/*								山男								*/
+/********************************************************************/
+ev_d14r0101_mount:
+	_TALK_OBJ_START
+
+	//クロガネバッチ取得していなかったら
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C03,SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,0,ev_d14r0101_mount_02
+
+	//クロガネバッジ入手後
+	_TALKMSG	msg_d14r0101_mount_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//クロガネバッジ入手していなかったら
+ev_d14r0101_mount_02:
+	_IF_FLAGON_JUMP	FE_HIDEN_01_GET,ev_d14r0101_mount_03
+
+	_TALK_KEYWAIT	msg_d14r0101_mount_01
+
+	_LDVAL			SCWK_TEMP0,ITEM_HIDENMASIN06
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム入手成功
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_CALL			d14r0101_mount_flag_set
+
+	_JUMP			ev_d14r0101_mount_03
+
+//ひでんマシン入手後
+ev_d14r0101_mount_03:
+	_TALKMSG	msg_d14r0101_mount_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*共通フラグセット*/
+d14r0101_mount_flag_set:
+	_FLAG_SET		FE_HIDEN_01_GET
+	_LDVAL			WK_SCENE_D14R0101,2
+	_RET
+
+
+/********************************************************************/
+/*							山男(POS)								*/
+/********************************************************************/
+pos_d14r0101:
+	_EVENT_START
+
+	/*近づく*/
+	/*OBJ_IDがまちがってます。。*/
+	_OBJ_ANIME		D14R0101_MOUND_01,anm_d14r0101_mount_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d14r0101_player_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d14r0101_mount_01
+
+	_LDVAL			SCWK_TEMP0,ITEM_HIDENMASIN06
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム入手成功
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_CALL			d14r0101_mount_flag_set
+
+	_TALKMSG		msg_d14r0101_mount_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	振り向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d14r0101_player_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//山男	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d14r0101_mount_01
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/********************************************************************/

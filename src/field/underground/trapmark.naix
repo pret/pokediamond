@@ -1,0 +1,18 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: trapmark.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-19T18:39:34
+ *****************************************************************************/
+
+#ifndef NARC_TRAPMARK_NAIX_
+#define NARC_TRAPMARK_NAIX_
+
+enum {
+	NARC_trapmark_ug_radar_NCLR = 0
+};
+
+/* NARC_TRAPMARK_NAIX_ */
+#endif

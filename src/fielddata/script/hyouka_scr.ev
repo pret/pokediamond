@@ -1,0 +1,168 @@
+//====================================================================
+//								hyouka_scr
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_hyouka.h"
+	//.include	"../eventdata/zone_hyouka_screvc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_doctor_zukan_hyouka
+_EVENT_DATA		ev_pc_zukan_hyouka
+_EVENT_DATA		ev_ookido_zukan_hyouka
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_hyouka_scr_flag_change:
+//	_END
+
+
+/********************************************************************/
+//							ナナカマド図鑑評価
+//
+//	SCWK_TEMP0 = ポケモン数
+/********************************************************************/
+ev_doctor_zukan_hyouka:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_hyouka_doctor_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_doctor_zukan_hyouka
+	_JUMP			yes_doctor_zukan_hyouka
+	_END
+
+/*「いいえ」*/
+no_doctor_zukan_hyouka:
+	_TALKMSG		msg_hyouka_doctor_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_CHG_LOCAL_SCR										//ローカルスクリプトに切り替え
+	_END
+
+/*「はい」*/
+yes_doctor_zukan_hyouka:
+	_CALL			ev_zukan_shinou_mode				/*必ずシンオウ図鑑の評価*/
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_CHG_LOCAL_SCR										//ローカルスクリプトに切り替え
+	_END
+
+
+/********************************************************************/
+//							オーキド図鑑評価
+//
+//	SCWK_TEMP0 = ポケモン数
+/********************************************************************/
+ev_ookido_zukan_hyouka:
+	_PLAYER_NAME	0
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,EQ,0,ev_ookido_zukan_hyouka_male
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,ev_ookido_zukan_hyouka_female
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_ookido_zukan_hyouka
+	_JUMP			yes_ookido_zukan_hyouka
+	_END
+
+//男の子
+ev_ookido_zukan_hyouka_male:
+	_TALKMSG		msg_hyouka_ookido_04
+	_RET
+//女の子
+ev_ookido_zukan_hyouka_female:
+	_TALKMSG		msg_hyouka_ookido_07
+	_RET
+	
+/*「いいえ」*/
+no_ookido_zukan_hyouka:
+	_TALKMSG		msg_hyouka_ookido_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_CHG_LOCAL_SCR										//ローカルスクリプトに切り替え
+	_END
+
+/*「はい」*/
+yes_ookido_zukan_hyouka:
+	_CALL			ev_zukan_zenkoku_mode				/*必ず全国図鑑の評価*/
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_CHG_LOCAL_SCR										//ローカルスクリプトに切り替え
+	_END
+
+
+/********************************************************************/
+//						ＰＣ図鑑評価
+//
+//	SCWK_TEMP0 = ポケモン数
+/********************************************************************/
+ev_pc_zukan_hyouka:
+	_CALL			ev_pc_zukan_hyouka_sub
+	_CHG_LOCAL_SCR										//ローカルスクリプトに切り替え
+	_END
+
+ev_pc_zukan_hyouka_sub:
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_zukan_shinou_mode_sub
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_zukan_zenkoku_mode_sub
+	_END
+
+/*ＰＣ接続メッセージ*/
+ev_zukan_shinou_mode_sub:
+	_TALK_KEYWAIT	msg_pc_on_05
+	_JUMP			ev_zukan_shinou_mode
+
+ev_zukan_zenkoku_mode_sub:
+	_TALK_KEYWAIT	msg_pc_on_06
+	_JUMP			ev_zukan_zenkoku_mode
+
+/*必ずRETにすること*/
+ev_zukan_shinou_mode:
+	/*ハクタイ到着までは完成チェックしない*/
+	_IF_FLAGOFF_JUMP	SYS_FLAG_ARRIVE_START+FLAG_ARRIVE_C04,ev_zukan_shinou_mode_hyouka
+	/*シンオウ図鑑完成しているかチェック*/
+	_ZUKAN_CHK_SHINOU	SCWK_ANSWER
+	_IFVAL_CALL			SCWK_ANSWER,EQ,TRUE,ev_zukan_shinou_comp
+
+ev_zukan_shinou_mode_hyouka:
+	_SHINOU_ZUKAN_SEE_NUM	SCWK_TEMP0							//シンオウ図鑑　見つけた数を取得
+	_NUMBER_NAME		0,SCWK_TEMP0
+	_TALK_KEYWAIT		msg_hyouka_doctor_02
+
+	_GET_HYOUKA_MSGID	SCR_SHINOU_ZUKAN_MODE,SCWK_ANSWER		//図鑑評価メッセージID取得
+	_PLAYER_NAME		0
+	_TALKMSG_SP			SCWK_ANSWER
+	_AB_KEYWAIT
+	_RET
+
+/*シンオウ図鑑完成チェック*/
+ev_zukan_shinou_comp:
+	_FLAG_SET		FE_PC_SHINOU_ZUKAN_COMP						/*PCで完成メッセージを聞いた*/
+	_RET
+
+/*必ずRETにすること*/
+ev_zukan_zenkoku_mode:
+	_ZENKOKU_ZUKAN_GET_NUM	SCWK_TEMP0							//全国図鑑　捕まえた数を取得
+	_GET_MY_SEX			SCWK_TEMP1
+	_NUMBER_NAME		0,SCWK_TEMP0
+
+	_TALK_KEYWAIT		msg_hyouka_ookido_05
+
+	//評価メッセージ展開
+	_GET_HYOUKA_MSGID	SCR_ZENKOKU_ZUKAN_MODE,SCWK_ANSWER		//図鑑評価メッセージID取得
+	_PLAYER_NAME		0
+	_TALKMSG_SP			SCWK_ANSWER
+	_AB_KEYWAIT
+	_RET
+

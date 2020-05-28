@@ -1,0 +1,6 @@
+/.cvsignore////*///
+/boxpwd.pl////*///
+/gmmparse.pl////*///
+/makefile////*///
+/pmsconv.pl////*///
+/pwdlist.dat////*///

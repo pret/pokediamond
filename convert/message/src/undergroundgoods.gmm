@@ -1,0 +1,1791 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="ohmori" host="W00097" date="2006-07-18T19:20:42"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名" english="ポケット名" view="EP" width="144" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名</comment>
+				<comment language="english">バッグのポケット名</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="106"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="142"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="214"/>
+			<font default=" 0:font_talk" position="3" width="90">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="84"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="69"/>
+			<line position="6" width="81"/>
+		</language>
+	</columns>
+
+	<dialog left="72" top="61" right="777" bottom="689" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="578" right="1024" bottom="730" visible="yes"/>
+		<tag-palette left="616" top="253" right="997" bottom="651" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="697"/>
+		<band id="3" index="3" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="UGGoodsMenuEnd">
+		<comment>メニューを閉じるのに使用</comment>
+		<language name="日本語" width="216">とじる</language>
+	</row>
+
+	<row id="UGGoods001">
+		<comment>基礎。レベル1</comment>
+		<language name="日本語" width="216">パソコン</language>
+	</row>
+
+	<row id="UGGoods002">
+		<comment>基礎。レベル2</comment>
+		<language name="日本語" width="216">パソコン</language>
+	</row>
+
+	<row id="UGGoods003">
+		<comment>基礎。レベル3</comment>
+		<language name="日本語" width="216">パソコン</language>
+	</row>
+
+	<row id="UGGoods004">
+		<comment>基礎。レベル4</comment>
+		<language name="日本語" width="216">パソコン</language>
+	</row>
+
+	<row id="UGGoods005">
+		<comment>基礎。レベル５</comment>
+		<language name="日本語" width="216">パソコン</language>
+	</row>
+
+	<row id="UGGoods006">
+		<comment>基礎配置</comment>
+		<language name="日本語" width="216">おおきないわ</language>
+	</row>
+
+	<row id="UGGoods007">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">きいろクッション</language>
+	</row>
+
+	<row id="UGGoods008">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">あおクッション</language>
+	</row>
+
+	<row id="UGGoods009">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">きのイス</language>
+	</row>
+
+	<row id="UGGoods010">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">おおきなテーブル</language>
+	</row>
+
+	<row id="UGGoods011">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ふつうのテーブル</language>
+	</row>
+
+	<row id="UGGoods012">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ちいさいテーブル</language>
+	</row>
+
+	<row id="UGGoods013">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">たてながテーブル</language>
+	</row>
+
+	<row id="UGGoods014">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">よこながテーブル</language>
+	</row>
+
+	<row id="UGGoods015">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ポケセンテーブル</language>
+	</row>
+
+	<row id="UGGoods017">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">おおきいほんだな</language>
+	</row>
+
+	<row id="UGGoods018">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ちいさいほんだな</language>
+	</row>
+
+	<row id="UGGoods019">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">けんきゅうだな</language>
+	</row>
+
+	<row id="UGGoods020">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">じてんしゃだな</language>
+	</row>
+
+	<row id="UGGoods021">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ショップだな</language>
+	</row>
+
+	<row id="UGGoods022">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">しょうひんだな</language>
+	</row>
+
+	<row id="UGGoods023">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">しょっきだな</language>
+	</row>
+
+	<row id="UGGoods024">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">きのタンス</language>
+	</row>
+
+	<row id="UGGoods025">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ピンクのタンス</language>
+	</row>
+
+	<row id="UGGoods026">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">おおきなテレビ</language>
+	</row>
+
+	<row id="UGGoods027">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">れいぞうこ</language>
+	</row>
+
+	<row id="UGGoods028">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">きれいなシンク</language>
+	</row>
+
+	<row id="UGGoods029">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ふかふかベッド</language>
+	</row>
+
+	<row id="UGGoods030">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ごみばこ</language>
+	</row>
+
+	<row id="UGGoods031">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ダンボール</language>
+	</row>
+
+	<row id="UGGoods032">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">きばこ</language>
+	</row>
+
+	<row id="UGGoods033">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">コンテナ</language>
+	</row>
+
+	<row id="UGGoods034">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ドラムかん</language>
+	</row>
+
+	<row id="UGGoods035">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">おおいドラムかん</language>
+	</row>
+
+	<row id="UGGoods036">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">てっきん</language>
+	</row>
+
+	<row id="UGGoods037">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">うえき</language>
+	</row>
+
+	<row id="UGGoods038">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ポケセンフラワー</language>
+	</row>
+
+	<row id="UGGoods039">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">かいふくマシン</language>
+	</row>
+
+	<row id="UGGoods040">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">けんきゅうマシン</language>
+	</row>
+
+	<row id="UGGoods041">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">じっけんマシン</language>
+	</row>
+
+	<row id="UGGoods042">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ゲームき</language>
+	</row>
+
+	<row id="UGGoods043" back-color="#ff0000,,,,,,,,,,,">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">じどうはんばいき</language>
+	</row>
+
+	<row id="UGGoods045">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">あかいじてんしゃ</language>
+	</row>
+
+	<row id="UGGoods046">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">みどりじてんしゃ</language>
+	</row>
+
+	<row id="UGGoods047" back-color="#ff0000,,,,,,,,,,,">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">そうがんきょう</language>
+	</row>
+
+	<row id="UGGoods052">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ちきゅうぎ</language>
+	</row>
+
+	<row id="UGGoods053">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ジムのせきぞう</language>
+	</row>
+
+	<row id="UGGoods062">
+		<comment>迷路グッズ</comment>
+		<language name="日本語" width="216">あかいテント</language>
+	</row>
+
+	<row id="UGGoods063">
+		<comment>迷路グッズ</comment>
+		<language name="日本語" width="216">あおいテント</language>
+	</row>
+
+	<row id="UGGoods064">
+		<comment>迷路グッズ</comment>
+		<language name="日本語" width="216">とうめいテント</language>
+	</row>
+
+	<row id="UGGoods065">
+		<comment>迷路グッズ</comment>
+		<language name="日本語" width="216">めいろブロック１</language>
+	</row>
+
+	<row id="UGGoods066">
+		<comment>迷路グッズ</comment>
+		<language name="日本語" width="216">めいろブロック２</language>
+	</row>
+
+	<row id="UGGoods067">
+		<comment>迷路グッズ</comment>
+		<language name="日本語" width="216">めいろブロック３</language>
+	</row>
+
+	<row id="UGGoods068">
+		<comment>迷路グッズ</comment>
+		<language name="日本語" width="216">めいろブロック４</language>
+	</row>
+
+	<row id="UGGoods069">
+		<comment>迷路グッズ</comment>
+		<language name="日本語" width="216">めいろブロック５</language>
+	</row>
+
+	<row id="UGGoods072">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">あなそうち</language>
+	</row>
+
+	<row id="UGGoods073">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">おおあなそうち</language>
+	</row>
+
+	<row id="UGGoods079">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">けむりそうち</language>
+	</row>
+
+	<row id="UGGoods080">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">えんまくそうち</language>
+	</row>
+
+	<row id="UGGoods081">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">いわそうち</language>
+	</row>
+
+	<row id="UGGoods082">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">らくせきそうち</language>
+	</row>
+
+	<row id="UGGoods083">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">あわそうち</language>
+	</row>
+
+	<row id="UGGoods084">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">バブルそうち</language>
+	</row>
+
+	<row id="UGGoods085">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">あいずそうち１</language>
+	</row>
+
+	<row id="UGGoods086">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">あいずそうち２</language>
+	</row>
+
+	<row id="UGGoods087">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">あいずそうち３</language>
+	</row>
+
+	<row id="UGGoods088">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">あいずそうち４</language>
+	</row>
+
+	<row id="UGGoods089">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">このはそうち</language>
+	</row>
+
+	<row id="UGGoods090">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">はなびらそうち</language>
+	</row>
+
+	<row id="UGGoods091">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">ひのこそうち</language>
+	</row>
+
+	<row id="UGGoods092">
+		<comment>罠グッズ（ペラ１枚絵）</comment>
+		<language name="日本語" width="216">ほのおそうち</language>
+	</row>
+
+	<row id="UGGoods094">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">かわいいカップ</language>
+	</row>
+
+	<row id="UGGoods095">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">かっこいいカップ</language>
+	</row>
+
+	<row id="UGGoods096">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">うつくしいカップ</language>
+	</row>
+
+	<row id="UGGoods097">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">たくましいカップ</language>
+	</row>
+
+	<row id="UGGoods098">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">かしこいカップ</language>
+	</row>
+
+	<row id="UGGoods099">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">あおいすいしょう</language>
+	</row>
+
+	<row id="UGGoods100">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">ピンクすいしょう</language>
+	</row>
+
+	<row id="UGGoods101">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">あかいすいしょう</language>
+	</row>
+
+	<row id="UGGoods102">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">きいろすいしょう</language>
+	</row>
+
+	<row id="UGGoods103">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">きれいなほうせき</language>
+	</row>
+
+	<row id="UGGoods104">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">かがやくほうせき</language>
+	</row>
+
+	<row id="UGGoods105">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">しんぴのほうせき</language>
+	</row>
+
+	<row id="UGGoods106">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">きらめくほうせき</language>
+	</row>
+
+	<row id="UGGoods107">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">どうのトロフィ</language>
+	</row>
+
+	<row id="UGGoods108">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">ぎんのトロフィ</language>
+	</row>
+
+	<row id="UGGoods109">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">きんのトロフィ</language>
+	</row>
+
+	<row id="UGGoods110">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">すごいトロフィ</language>
+	</row>
+
+	<row id="UGGoods111">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">ボールのオブジェ</language>
+	</row>
+
+	<row id="UGGoods112">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">まんまるオブジェ</language>
+	</row>
+
+	<row id="UGGoods113">
+		<comment>トロフィ</comment>
+		<language name="日本語" width="216">とうめいオブジェ</language>
+	</row>
+
+	<row id="UGGoods114">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ヒトカゲドール</language>
+	</row>
+
+	<row id="UGGoods115">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">フシギダネドール</language>
+	</row>
+
+	<row id="UGGoods116">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ゼニガメドール</language>
+	</row>
+
+	<row id="UGGoods117">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ヒノアラシドール</language>
+	</row>
+
+	<row id="UGGoods118">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">チコリータドール</language>
+	</row>
+
+	<row id="UGGoods119">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ワニノコドール</language>
+	</row>
+
+	<row id="UGGoods120">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">アチャモドール</language>
+	</row>
+
+	<row id="UGGoods121">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">キモリドール</language>
+	</row>
+
+	<row id="UGGoods122">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ミズゴロウドール</language>
+	</row>
+
+	<row id="UGGoods123">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ヒコザルドール</language>
+	</row>
+
+	<row id="UGGoods124">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ナエトルドール</language>
+	</row>
+
+	<row id="UGGoods125">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ポッチャマドール</language>
+	</row>
+
+	<row id="UGGoods126">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ピカチュウドール</language>
+	</row>
+
+	<row id="UGGoods127">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">プラスルドール</language>
+	</row>
+
+	<row id="UGGoods128">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">マイナンドール</language>
+	</row>
+
+	<row id="UGGoods129">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ピッピドール</language>
+	</row>
+
+	<row id="UGGoods130">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">プリンドール</language>
+	</row>
+
+	<row id="UGGoods131">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ソーナンスドール</language>
+	</row>
+
+	<row id="UGGoods132">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ニャースドール</language>
+	</row>
+
+	<row id="UGGoods133">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">エネコドール</language>
+	</row>
+
+	<row id="UGGoods134">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ニャルマードール</language>
+	</row>
+
+	<row id="UGGoods135">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ミミロルドール</language>
+	</row>
+
+	<row id="UGGoods136">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">マニューラドール</language>
+	</row>
+
+	<row id="UGGoods137">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ゴンベドール</language>
+	</row>
+
+	<row id="UGGoods138">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ウソハチドール</language>
+	</row>
+
+	<row id="UGGoods139">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">マネネドール</language>
+	</row>
+
+	<row id="UGGoods140">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ルカリオドール</language>
+	</row>
+
+	<row id="UGGoods141">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">タマンタドール</language>
+	</row>
+
+	<row id="UGGoods142">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ブイゼルドール</language>
+	</row>
+
+	<row id="UGGoods143">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ペラップドール</language>
+	</row>
+
+	<row id="UGGoods144">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">マナフィドール</language>
+	</row>
+
+	<row id="UGGoods145">
+		<comment>おおきなぬいぐるみ</comment>
+		<language name="日本語" width="216">カビゴンドール</language>
+	</row>
+
+	<row id="UGGoods146">
+		<comment>おおきなぬいぐるみ</comment>
+		<language name="日本語" width="216">ホエルオードール</language>
+	</row>
+
+	<row id="UGGoods147">
+		<comment>おおきなぬいぐるみ</comment>
+		<language name="日本語" width="216">ジバコイルドール</language>
+	</row>
+
+	<row id="UGGoods148">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">フワンテドール</language>
+	</row>
+
+	<row id="UGGoods149">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">ピンプクドール</language>
+	</row>
+
+	<row id="UGGoods150">
+		<comment>ぬいぐるみ</comment>
+		<language name="日本語" width="216">パチリスドール</language>
+	</row>
+
+	<row id="UGGoods151" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<comment>欠番</comment>
+		<language name="日本語" width="216">ひみつきちのあな</language>
+	</row>
+
+	<row id="UGGoods152" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<comment>欠番</comment>
+		<language name="日本語" width="216">ひみつきちのあな</language>
+	</row>
+
+	<row id="UGGoods153" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<comment>欠番</comment>
+		<language name="日本語" width="216">ひみつきちのあな</language>
+	</row>
+
+	<row id="UGGoods154" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<comment>欠番</comment>
+		<language name="日本語" width="216">ひみつきちのあな</language>
+	</row>
+
+	<row id="UGGoods155" back-color="#ff0000,,,,,,,,,,,">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">よこながソファ</language>
+	</row>
+
+	<row id="UGGoods156" back-color="#ff0000,,,,,,,,,,,">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ぼんさい</language>
+	</row>
+
+	<row id="UGGoods157" back-color="#ff0000,,,,,,,,,,,">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">きれいなはな</language>
+	</row>
+
+	<row id="UGGoods158" back-color="#ff0000,,,,,,,,,,,">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">うつくしいはな</language>
+	</row>
+
+	<row id="UGGoods159" back-color="#ff0000,,,,,,,,,,,">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">かわいいはな</language>
+	</row>
+
+	<row id="UGGoods160" back-color="#ff0000,,,,,,,,,,,">
+		<comment>グッズ</comment>
+		<language name="日本語" width="216">ごうかなはな</language>
+	</row>
+
+	<row id="UGGoods_e001">
+		<comment>とじるの説明文</comment>
+		<language name="日本語" width="216">ふくろ　を　とじます</language>
+	</row>
+
+	<row id="UGGoods_e002" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<comment>ダミー</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="UGGoods_e003" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<comment>ダミー</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="UGGoods_e004" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<comment>ダミー</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="UGGoods_e005" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<comment>ダミー</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="UGGoods_e006" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<comment>ダミー</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="UGGoods_e007" back-color="#ffff80,,,,,,,,,,,">
+		<comment>きいろクッションの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+きいろい　クッション</language>
+	</row>
+
+	<row id="UGGoods_e008" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あおクッションの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+あおい　クッション</language>
+	</row>
+
+	<row id="UGGoods_e009" back-color="#ffff80,,,,,,,,,,,">
+		<comment>きのイスの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+きで　できた　ちいさい　イス</language>
+	</row>
+
+	<row id="UGGoods_e010" back-color="#ffff80,,,,,,,,,,,">
+		<comment>おおきなテーブルの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+とても　おおきな　テーブル</language>
+	</row>
+
+	<row id="UGGoods_e011" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ふつうのテーブルの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+ふつうの　テーブル</language>
+	</row>
+
+	<row id="UGGoods_e012" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ちいさなテーブルの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+とても　ちいさい　テーブル</language>
+	</row>
+
+	<row id="UGGoods_e013" back-color="#ffff80,,,,,,,,,,,">
+		<comment>たてながテーブルの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+たてに　ながい　テーブル</language>
+	</row>
+
+	<row id="UGGoods_e014" back-color="#ffff80,,,,,,,,,,,">
+		<comment>よこながテーブルの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+よこに　ながい　テーブル</language>
+	</row>
+
+	<row id="UGGoods_e015" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ポケセンテーブルの説明文</comment>
+		<language name="日本語" width="216">ポケモンセンターに　おかれている
+ガラスで　できた　テーブル</language>
+	</row>
+
+	<row id="UGGoods_e017" back-color="#ffff80,,,,,,,,,,,">
+		<comment>おおきいほんだなの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+おおきな　ほんだな</language>
+	</row>
+
+	<row id="UGGoods_e018" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ちいさいほんだなの説明文</comment>
+		<language name="日本語" width="216">ひみつきちに　おくことが　できる
+ちいさな　ほんだな</language>
+	</row>
+
+	<row id="UGGoods_e019" back-color="#ffff80,,,,,,,,,,,">
+		<comment>けんきゅうだなの説明文</comment>
+		<language name="日本語" width="216">いろんな　けんきゅうの　しょるいを
+いれるのに　さいてきな　たな</language>
+	</row>
+
+	<row id="UGGoods_e020" back-color="#ffff80,,,,,,,,,,,">
+		<comment>じてんしゃだなの説明文</comment>
+		<language name="日本語" width="216">じてんしゃや　に　おかれている
+こうぐの　はいった　たな</language>
+	</row>
+
+	<row id="UGGoods_e021" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ショップだなの説明文</comment>
+		<language name="日本語" width="216">フレンドリィショップに　おかれている
+たくさんの　しょうひんの　はいった　たな</language>
+	</row>
+
+	<row id="UGGoods_e022" back-color="#ffff80,,,,,,,,,,,">
+		<comment>しょうひんだなの説明文</comment>
+		<language name="日本語" width="216">フレンドリィショップに　おかれている
+いろんな　しょうひんの　はいった　たな</language>
+	</row>
+
+	<row id="UGGoods_e023" back-color="#ffff80,,,,,,,,,,,">
+		<comment>しょっきだなの説明文</comment>
+		<language name="日本語" width="216">いろんな　しょっきを　きちんと
+しまうことが　できる　たな</language>
+	</row>
+
+	<row id="UGGoods_e024" back-color="#ffff80,,,,,,,,,,,">
+		<comment>きのタンスの説明文</comment>
+		<language name="日本語" width="216">きで　できた　ふうかくのある　タンス</language>
+	</row>
+
+	<row id="UGGoods_e025" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ピンクのタンスの説明文</comment>
+		<language name="日本語" width="216">ピンクいろの　おしゃれな　タンス</language>
+	</row>
+
+	<row id="UGGoods_e026" back-color="#ffff80,,,,,,,,,,,">
+		<comment>テレビの説明文</comment>
+		<language name="日本語" width="216">とても　よくできた
+おおきな　おもちゃの　テレビ</language>
+	</row>
+
+	<row id="UGGoods_e027" back-color="#ffff80,,,,,,,,,,,">
+		<comment>れいぞうこの説明文</comment>
+		<language name="日本語" width="216">とても　よくできた
+おもちゃの　しろい　れいぞうこ</language>
+	</row>
+
+	<row id="UGGoods_e028" back-color="#ffff80,,,,,,,,,,,">
+		<comment>シンクの説明文</comment>
+		<language name="日本語" width="216">とても　よくできた
+おもちゃの　シンク</language>
+	</row>
+
+	<row id="UGGoods_e029" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ふかふかベッドの説明文</comment>
+		<language name="日本語" width="216">ここちよい　ゆめが　みられる
+とても　ふかふかな　ベッド</language>
+	</row>
+
+	<row id="UGGoods_e030" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ごみばこの説明文</comment>
+		<language name="日本語" width="216">まるい　かたちを　した
+みどりいろの　ごみばこ</language>
+	</row>
+
+	<row id="UGGoods_e031" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ダンボールの説明文</comment>
+		<language name="日本語" width="216">ちょっとしたものを　いれるのに
+べんりな　ちいさな　ダンボール</language>
+	</row>
+
+	<row id="UGGoods_e032" back-color="#ffff80,,,,,,,,,,,">
+		<comment>きばこの説明文</comment>
+		<language name="日本語" width="216">いろんなものが　はいっている
+おおきな　きばこ</language>
+	</row>
+
+	<row id="UGGoods_e033" back-color="#ffff80,,,,,,,,,,,">
+		<comment>コンテナの説明文</comment>
+		<language name="日本語" width="216">さまざまなものが　はいっている
+おおきな　コンテナ</language>
+	</row>
+
+	<row id="UGGoods_e034" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ドラムかんの説明文</comment>
+		<language name="日本語" width="216">こうじょうに　おかれている
+あかい　ドラムかん</language>
+	</row>
+
+	<row id="UGGoods_e035" back-color="#ffff80,,,,,,,,,,,">
+		<comment>おおいドラムかんの説明文</comment>
+		<language name="日本語" width="216">こうじょうに　おかれている
+たくさんの　ドラムかん</language>
+	</row>
+
+	<row id="UGGoods_e036" back-color="#ffff80,,,,,,,,,,,">
+		<comment>てっきんの説明文</comment>
+		<language name="日本語" width="216">こうじの　ときに　つかわれる
+あかい　てっきん</language>
+	</row>
+
+	<row id="UGGoods_e037" back-color="#ffff80,,,,,,,,,,,">
+		<comment>うえきの説明文</comment>
+		<language name="日本語" width="216">しぜんを　かんじさせる
+かんしょうよう　の　うえき</language>
+	</row>
+
+	<row id="UGGoods_e038" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ポケセンフラワーの説明文</comment>
+		<language name="日本語" width="216">ポケモンセンターに　おかれている
+ちいさな　はな</language>
+	</row>
+
+	<row id="UGGoods_e039" back-color="#ffff80,,,,,,,,,,,">
+		<comment>かいふくマシンの説明文</comment>
+		<language name="日本語" width="216">ポケモンセンターに　おかれている
+かいふくようの　マシン</language>
+	</row>
+
+	<row id="UGGoods_e040" back-color="#ffff80,,,,,,,,,,,">
+		<comment>けんきゅうマシンの説明文</comment>
+		<language name="日本語" width="216">ポケモンの　けんきゅうに　つかわれる
+ピカピカひかる　マシン</language>
+	</row>
+
+	<row id="UGGoods_e041" back-color="#ffff80,,,,,,,,,,,">
+		<comment>じっけんマシンの説明文</comment>
+		<language name="日本語" width="216">いろんな　じっけんに　つかわれる
+チカチカ　ひかる　マシン</language>
+	</row>
+
+	<row id="UGGoods_e042" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ゲームきの説明文</comment>
+		<language name="日本語" width="216">じぶんの　いえにも　おかれている
+さいしんの　ゲームマシン</language>
+	</row>
+
+	<row id="UGGoods_e043" back-color="#ffff80,,,,,,,,,,,">
+		<comment>じどうはんばいきの説明文</comment>
+		<language name="日本語" width="216">じっさいには　かうことが　できない
+おもちゃの　じどうはんばいき</language>
+	</row>
+
+	<row id="UGGoods_e045" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あかいじてんしゃの説明文</comment>
+		<language name="日本語" width="216">じてんしゃや　に　おかれている
+てんじよう　の　あかいじてんしゃ</language>
+	</row>
+
+	<row id="UGGoods_e046" back-color="#ffff80,,,,,,,,,,,">
+		<comment>みどりじてんしゃの説明文</comment>
+		<language name="日本語" width="216">じてんしゃや　に　おかれている
+てんじよう　の　みどりのじてんしゃ</language>
+	</row>
+
+	<row id="UGGoods_e047" back-color="#ffff80,,,,,,,,,,,">
+		<comment>そうがんきょうの説明文</comment>
+		<language name="日本語" width="216">とおくまで　みることが　できる
+そうがんきょうの　おきもの</language>
+	</row>
+
+	<row id="UGGoods_e052" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ちきゅうぎの説明文</comment>
+		<language name="日本語" width="216">いろんな　ばしょに　たくさんの
+ともだちが　いる　あかし</language>
+	</row>
+
+	<row id="UGGoods_e053" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ジムのせきぞうの説明文</comment>
+		<language name="日本語" width="216">ジムに　おかれている
+ポケモンの　せきぞう　</language>
+	</row>
+
+	<row id="UGGoods_e062" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あかいテントの説明文</comment>
+		<language name="日本語" width="216">なかに　はいることが　できる
+おおきな　あかい　テント</language>
+	</row>
+
+	<row id="UGGoods_e063" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あおいテントの説明文</comment>
+		<language name="日本語" width="216">なかに　はいることが　できる
+おおきな　あおい　テント</language>
+	</row>
+
+	<row id="UGGoods_e064" back-color="#ffff80,,,,,,,,,,,">
+		<comment>とうめいテントの説明文</comment>
+		<language name="日本語" width="216">なかに　はいることが　できる
+おおきな　とうめいの　テント</language>
+	</row>
+
+	<row id="UGGoods_e065" back-color="#ffff80,,,,,,,,,,,">
+		<comment>めいろブロック１の説明文</comment>
+		<language name="日本語" width="216">うえが　ふさがっている
+めいろを　つくる　ブロック</language>
+	</row>
+
+	<row id="UGGoods_e066" back-color="#ffff80,,,,,,,,,,,">
+		<comment>めいろブロック２の説明文</comment>
+		<language name="日本語" width="216">みぎが　ふさがっている
+めいろを　つくる　ブロック</language>
+	</row>
+
+	<row id="UGGoods_e067" back-color="#ffff80,,,,,,,,,,,">
+		<comment>めいろブロック３の説明文</comment>
+		<language name="日本語" width="216">したが　ふさがっている
+めいろを　つくる　ブロック</language>
+	</row>
+
+	<row id="UGGoods_e068" back-color="#ffff80,,,,,,,,,,,">
+		<comment>めいろブロック４の説明文</comment>
+		<language name="日本語" width="216">ひだりが　ふさがっている
+めいろを　つくる　ブロック</language>
+	</row>
+
+	<row id="UGGoods_e069" back-color="#ffff80,,,,,,,,,,,">
+		<comment>めいろブロック５の説明文</comment>
+		<language name="日本語" width="216">すべて　とおることが　できる
+めいろを　つくる　ブロック</language>
+	</row>
+
+	<row id="UGGoods_e072" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あなそうちの説明文</comment>
+		<language name="日本語" width="216">おおきな　おとしあなで
+うごきを　とめてしまう　そうち</language>
+	</row>
+
+	<row id="UGGoods_e073" back-color="#ffff80,,,,,,,,,,,">
+		<comment>おおあなそうちの説明文</comment>
+		<language name="日本語" width="216">とても　おおきな　おとしあなで
+うごきを　とめてしまう　そうち</language>
+	</row>
+
+	<row id="UGGoods_e079" back-color="#ffff80,,,,,,,,,,,">
+		<comment>けむりそうちの説明文</comment>
+		<language name="日本語" width="216">けむりで　なにも　みえなくなる　そうち
+こすると　みえるように　なっていく</language>
+	</row>
+
+	<row id="UGGoods_e080" back-color="#ffff80,,,,,,,,,,,">
+		<comment>えんまくそうちの説明文</comment>
+		<language name="日本語" width="216">たいりょうの　けむりがでる　そうち
+こすると　みえるように　なっていく</language>
+	</row>
+
+	<row id="UGGoods_e081" back-color="#ffff80,,,,,,,,,,,">
+		<comment>いわそうちの説明文</comment>
+		<language name="日本語" width="216">いわで　うごけなくなる　そうち
+いわを　こわすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGGoods_e082" back-color="#ffff80,,,,,,,,,,,">
+		<comment>らくせきそうちの説明文</comment>
+		<language name="日本語" width="216">おおきな　いわがでる　そうち
+いわを　こわすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGGoods_e083" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あわそうちの説明文</comment>
+		<language name="日本語" width="216">あわで　うごけなくなる　そうち
+あわを　わると　うごけるようになる</language>
+	</row>
+
+	<row id="UGGoods_e084" back-color="#ffff80,,,,,,,,,,,">
+		<comment>バブルそうちの説明文</comment>
+		<language name="日本語" width="216">たくさんの　あわがでる　そうち
+あわを　わると　うごけるようになる</language>
+	</row>
+
+	<row id="UGGoods_e085" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あいずそうち１の説明文</comment>
+		<language name="日本語" width="216">ふむと　ちかにいる　みんなに
+あいさつの　あいずを　おくれる　そうち</language>
+	</row>
+
+	<row id="UGGoods_e086" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あいずそうち２の説明文</comment>
+		<language name="日本語" width="216">ふむと　ちかにいる　みんなに
+さよならの　あいずを　おくれる　そうち</language>
+	</row>
+
+	<row id="UGGoods_e087" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あいずそうち３の説明文</comment>
+		<language name="日本語" width="216">ふむと　ちかにいる　みんなに　ユニオン
+ルーム　にいく　と　あいずを　おくれる</language>
+	</row>
+
+	<row id="UGGoods_e088" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あいずそうち４の説明文</comment>
+		<language name="日本語" width="216">ふむと　ちかにいる　みんなに
+こっちにきて　と　あいずを　おくれる</language>
+	</row>
+
+	<row id="UGGoods_e089" back-color="#ffff80,,,,,,,,,,,">
+		<comment>このはそうちの説明文</comment>
+		<language name="日本語" width="216">このは　で　うごけなくなる　そうち
+ふきとばすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGGoods_e090" back-color="#ffff80,,,,,,,,,,,">
+		<comment>はなびらそうちの説明文</comment>
+		<language name="日本語" width="216">たくさんの　はなびら　がでる　そうち
+ふきとばすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGGoods_e091" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ひのこそうちの説明文</comment>
+		<language name="日本語" width="216">ひのこで　うごけなくなる　そうち
+ふきとばすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGGoods_e092" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ほのおそうちの説明文</comment>
+		<language name="日本語" width="216">おおきな　ほのおがでる　そうち
+ふきとばすと　うごけるようになる</language>
+	</row>
+
+	<row id="UGGoods_e094" back-color="#ffff80,,,,,,,,,,,">
+		<comment>かわいいカップの説明文</comment>
+		<language name="日本語" width="216">ほんとうに　かわいい　ポケモンにだけ
+おくられる　カップ</language>
+	</row>
+
+	<row id="UGGoods_e095" back-color="#ffff80,,,,,,,,,,,">
+		<comment>かっこいいカップの説明文</comment>
+		<language name="日本語" width="216">すばらしく　かっこいい　ポケモンにだけ
+おくられる　カップ</language>
+	</row>
+
+	<row id="UGGoods_e096" back-color="#ffff80,,,,,,,,,,,">
+		<comment>うつくしいカップの説明文</comment>
+		<language name="日本語" width="216">さいこうに　うつくしい　ポケモンにだけ
+おくられる　カップ</language>
+	</row>
+
+	<row id="UGGoods_e097" back-color="#ffff80,,,,,,,,,,,">
+		<comment>たくましいカップの説明文</comment>
+		<language name="日本語" width="216">だれよりも　たくましい　ポケモンにだけ
+おくられる　カップ</language>
+	</row>
+
+	<row id="UGGoods_e098" back-color="#ffff80,,,,,,,,,,,">
+		<comment>かしこいカップの説明文</comment>
+		<language name="日本語" width="216">ばつぐんに　かしこい　ポケモンにだけ
+おくられる　カップ</language>
+	</row>
+
+	<row id="UGGoods_e099" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あおいすいしょうの説明文</comment>
+		<language name="日本語" width="216">しんせつな　ひとに　おくられる
+めずらしい　あおい　すいしょう</language>
+	</row>
+
+	<row id="UGGoods_e100" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ピンクすいしょうの説明文</comment>
+		<language name="日本語" width="216">やさしい　ひとに　おくられる
+めずらしい　ピンクの　すいしょう</language>
+	</row>
+
+	<row id="UGGoods_e101" back-color="#ffff80,,,,,,,,,,,">
+		<comment>あかいすいしょうの説明文</comment>
+		<language name="日本語" width="216">かんばりやな　ひとに　おくられる
+めずらしい　あかい　すいしょう</language>
+	</row>
+
+	<row id="UGGoods_e102" back-color="#ffff80,,,,,,,,,,,">
+		<comment>きいろすいしょうの説明文</comment>
+		<language name="日本語" width="216">じみちな　ひとに　おくられる
+めずらしい　きいろい　すいしょう</language>
+	</row>
+
+	<row id="UGGoods_e103" back-color="#ffff80,,,,,,,,,,,">
+		<comment>きれいなほうせきの説明文</comment>
+		<language name="日本語" width="216">うつくしく　カット　された
+きれいな　ほうせき</language>
+	</row>
+
+	<row id="UGGoods_e104" back-color="#ffff80,,,,,,,,,,,">
+		<comment>かがやくほうせきの説明文</comment>
+		<language name="日本語" width="216">かがみの　ように　みがかれた
+ひかりかがやく　ほうせき</language>
+	</row>
+
+	<row id="UGGoods_e105" back-color="#ffff80,,,,,,,,,,,">
+		<comment>しんぴのほうせきの説明文</comment>
+		<language name="日本語" width="216">なかなか　てにいれることが　できない
+しんぴてきな　ひかりをはなつ　ほうせき</language>
+	</row>
+
+	<row id="UGGoods_e106" back-color="#ffff80,,,,,,,,,,,">
+		<comment>きらめくほうせきの説明文</comment>
+		<language name="日本語" width="216">まぶしいほどに　きらめく
+とても　きちょうな　ほうせき</language>
+	</row>
+
+	<row id="UGGoods_e107" back-color="#ffff80,,,,,,,,,,,">
+		<comment>どうのトロフィの説明文</comment>
+		<language name="日本語" width="216">つよい　ポケモンにだけ　おくられる
+どうで　できた　トロフィ</language>
+	</row>
+
+	<row id="UGGoods_e108" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ぎんのトロフィの説明文</comment>
+		<language name="日本語" width="216">かなり　つよい　ポケモンにだけ
+おくられる　ぎんいろの　トロフィ</language>
+	</row>
+
+	<row id="UGGoods_e109" back-color="#ffff80,,,,,,,,,,,">
+		<comment>きんのトロフィの説明文</comment>
+		<language name="日本語" width="216">すばらしく　つよい　ポケモンにだけ
+おくられる　きんいろの　トロフィ</language>
+	</row>
+
+	<row id="UGGoods_e110" back-color="#ffff80,,,,,,,,,,,">
+		<comment>すごいトロフィの説明文</comment>
+		<language name="日本語" width="216">だれも　かてないほど　つよい　ポケモン
+にだけ　おくられる　すごい　トロフィ</language>
+	</row>
+
+	<row id="UGGoods_e111" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ボールのオブジェの説明文</comment>
+		<language name="日本語" width="216">モンスターボールの　かたちを　した
+きねんすべき　オブジェ</language>
+	</row>
+
+	<row id="UGGoods_e112" back-color="#ffff80,,,,,,,,,,,">
+		<comment>まんまるオブジェの説明文</comment>
+		<language name="日本語" width="216">なないろに　ひかる
+とても　きちょうな　まるい　オブジェ</language>
+	</row>
+
+	<row id="UGGoods_e113" back-color="#ffff80,,,,,,,,,,,">
+		<comment>とうめいオブジェの説明文</comment>
+		<language name="日本語" width="216">すきとおるほど　とうめい
+とても　きちょうな　オブジェ</language>
+	</row>
+
+	<row id="UGGoods_e114" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ヒトカゲドール</comment>
+		<language name="日本語" width="216">ヒトカゲの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e115" back-color="#ffff80,,,,,,,,,,,">
+		<comment>フシギダネドール</comment>
+		<language name="日本語" width="216">フシギダネの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e116" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ゼニガメドール</comment>
+		<language name="日本語" width="216">ゼニガメの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e117" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ヒノアラシドール</comment>
+		<language name="日本語" width="216">ヒノアラシの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e118" back-color="#ffff80,,,,,,,,,,,">
+		<comment>チコリータドール</comment>
+		<language name="日本語" width="216">チコリータの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e119" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ワニノコドール</comment>
+		<language name="日本語" width="216">ワニノコの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e120" back-color="#ffff80,,,,,,,,,,,">
+		<comment>アチャモドール</comment>
+		<language name="日本語" width="216">アチャモの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e121" back-color="#ffff80,,,,,,,,,,,">
+		<comment>キモリドール</comment>
+		<language name="日本語" width="216">キモリの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e122" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ミズゴロウドール</comment>
+		<language name="日本語" width="216">ミズゴロウの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e123" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ヒコザルドール</comment>
+		<language name="日本語" width="216">ヒコザルの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e124" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ナエトルドール</comment>
+		<language name="日本語" width="216">ナエトルの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e125" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ポッチャマドール</comment>
+		<language name="日本語" width="216">ポッチャマの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e126" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ピカチュウドール</comment>
+		<language name="日本語" width="216">ピカチュウの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e127" back-color="#ffff80,,,,,,,,,,,">
+		<comment>プラスルドール</comment>
+		<language name="日本語" width="216">プラスルの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e128" back-color="#ffff80,,,,,,,,,,,">
+		<comment>マイナンドール</comment>
+		<language name="日本語" width="216">マイナンの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e129" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ピッピドール</comment>
+		<language name="日本語" width="216">ピッピの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e130" back-color="#ffff80,,,,,,,,,,,">
+		<comment>プリンドール</comment>
+		<language name="日本語" width="216">プリンの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e131" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ソーナンスドール</comment>
+		<language name="日本語" width="216">ソーナンスの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e132" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ニャースドール</comment>
+		<language name="日本語" width="216">ニャースの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e133" back-color="#ffff80,,,,,,,,,,,">
+		<comment>エネコドール</comment>
+		<language name="日本語" width="216">エネコの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e134" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ニャルマードール</comment>
+		<language name="日本語" width="216">ニャルマーの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e135" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ミミロルドール</comment>
+		<language name="日本語" width="216">ミミロルの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e136" back-color="#ffff80,,,,,,,,,,,">
+		<comment>マニューラドール</comment>
+		<language name="日本語" width="216">マニューラの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e137" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ゴンベドール</comment>
+		<language name="日本語" width="216">ゴンベの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e138" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ウソハチドール</comment>
+		<language name="日本語" width="216">ウソハチの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e139" back-color="#ffff80,,,,,,,,,,,">
+		<comment>マネネドール</comment>
+		<language name="日本語" width="216">マネネの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e140" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ルカリオドール</comment>
+		<language name="日本語" width="216">ルカリオの　かたちを　した
+きちょうな　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e141" back-color="#ffff80,,,,,,,,,,,">
+		<comment>タマンタドール</comment>
+		<language name="日本語" width="216">タマンタの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e142" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ブイゼルドール</comment>
+		<language name="日本語" width="216">ブイゼルの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e143" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ペラップドール</comment>
+		<language name="日本語" width="216">ペラップの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e144" back-color="#ffff80,,,,,,,,,,,">
+		<comment>マナフィドール</comment>
+		<language name="日本語" width="216">マナフィの　かたちを　した
+きちょうな　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e145" back-color="#ffff80,,,,,,,,,,,">
+		<comment>カビゴンドール</comment>
+		<language name="日本語" width="216">カビゴンの　かたちを　した
+おおきな　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e146" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ホエルオードール</comment>
+		<language name="日本語" width="216">ホエルオーの　かたちを　した
+おおきな　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e147" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ジバコイルドール</comment>
+		<language name="日本語" width="216">ジバコイルの　かたちを　した
+おおきな　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e148" back-color="#ffff80,,,,,,,,,,,">
+		<comment>フワンテドール</comment>
+		<language name="日本語" width="216">フワンテの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e149" back-color="#ffff80,,,,,,,,,,,">
+		<comment>ピンプクドール</comment>
+		<language name="日本語" width="216">ピンプクの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e150" back-color="#ffff80,,,,,,,,,,,">
+		<comment>パチリスドール</comment>
+		<language name="日本語" width="216">パチリスの　かたちを　した
+かわいらしい　にんぎょう</language>
+	</row>
+
+	<row id="UGGoods_e151" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="UGGoods_e152" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="UGGoods_e153" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="UGGoods_e154" back-color="#808080,,,#808080,,#808080,,,,,,">
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="UGGoods_e155" back-color="#ff0000,,,,,,,,,,,">
+		<comment>よこながソファの説明文</comment>
+		<language name="日本語" width="216">ふたりまですわれる　あおいろの
+よこなが　ソファ</language>
+	</row>
+
+	<row id="UGGoods_e156" back-color="#ff0000,,,,,,,,,,,">
+		<comment>ぼんさいの説明文</comment>
+		<language name="日本語" width="216">しょくにんの　てによって　ていれ　された
+しぶい　ぼんさい</language>
+	</row>
+
+	<row id="UGGoods_e157" back-color="#ff0000,,,,,,,,,,,">
+		<comment>きれいなはなの説明文</comment>
+		<language name="日本語" width="216">とても　きれいな　はなが
+かざってある　うえきばち</language>
+	</row>
+
+	<row id="UGGoods_e158" back-color="#ff0000,,,,,,,,,,,">
+		<comment>うつくしいはなの説明文</comment>
+		<language name="日本語" width="216">とても　うつくしい　はなが
+かざってある　うえきばち</language>
+	</row>
+
+	<row id="UGGoods_e159" back-color="#ff0000,,,,,,,,,,,">
+		<comment>かわいいはなの説明文</comment>
+		<language name="日本語" width="216">とても　かわいい　はなが
+かざってある　うえきばち</language>
+	</row>
+
+	<row id="UGGoods_e160" back-color="#ff0000,,,,,,,,,,,">
+		<comment>ごうかなはなの説明文</comment>
+		<language name="日本語" width="216">いろんな　はなが　ごうかに
+かざられている　プランター</language>
+	</row>
+
+	<row id="UGGoods_edit01" back-color="#ff0000,,,,,#ff0000,,,,,,">
+		<comment>パソコン用の戻る項目</comment>
+		<language name="日本語" width="216">もどる</language>
+	</row>
+
+	<row id="UGGoods_edit02" back-color="#ff0000,,,,,#ff0000,,,,,,">
+		<comment>パソコン用の戻る項目の説明文</comment>
+		<language name="日本語" width="216">もどります</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

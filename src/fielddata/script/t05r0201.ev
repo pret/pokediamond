@@ -1,0 +1,187 @@
+//====================================================================
+//								t05r0201
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t05r0201.h"
+	//.include	"../eventdata/zone_t05r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t05r0201_woman1
+_EVENT_DATA		ev_t05r0201_shop
+_EVENT_DATA		ev_t05r0201_fix_shop
+_EVENT_DATA		ev_t05r0201_glasses
+_EVENT_DATA_END
+
+
+/********************************************************************/
+//							お姉さん
+/********************************************************************/
+ev_t05r0201_woman1:
+	_TALK_OBJ_START
+	_TALK_KEYWAIT		msg_t05r0201_woman1_01
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_SHOP_CALL		1
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+//							店員(OBJ名shopm)
+/********************************************************************/
+ev_t05r0201_shop:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_SHOP_CALL		1
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+//						品物固定の店員(OBJ名shopm)
+/********************************************************************/
+ev_t05r0201_fix_shop:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_FIX_SHOP_CALL		ID_SHOP_ITEM_T05_FS
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+//						サングラス
+/********************************************************************/
+ev_t05r0201_glasses:
+	_TALK_OBJ_START
+
+	_TALK_KEYWAIT		msg_t05r0201_glasses_01
+
+	_GET_NOW_HOUR	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,4,t05r0201_megane_03_check	//深夜０－３
+	_IFVAL_JUMP		SCWK_ANSWER,LT,10,t05r0201_megane_01_check	//朝４－９
+	_IFVAL_JUMP		SCWK_ANSWER,LT,20,t05r0201_megane_02_check	//昼、夕方１０－２０
+	_JUMP			t05r0201_megane_03_check					//深夜２０－２３	
+
+//めがね1
+t05r0201_megane_01_check:
+	_IF_FLAGON_JUMP		FE_T05R0201_MEGANE_01_GET,ev_t05r0201_glasses_06
+
+	_TALK_KEYWAIT		msg_t05r0201_glasses_02
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_KODAWARIMEGANE
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_t05r0201_glasses_09
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_T05R0201_MEGANE_01_GET
+
+	_TALK_KEYWAIT		msg_t05r0201_glasses_03
+
+	_JUMP			ev_t05r0201_glasses_06
+
+
+//めがね2
+t05r0201_megane_02_check:
+	_IF_FLAGON_JUMP		FE_T05R0201_MEGANE_02_GET,ev_t05r0201_glasses_07
+
+	_TALK_KEYWAIT		msg_t05r0201_glasses_02
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_KUROIMEGANE
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_t05r0201_glasses_09
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	_FLAG_SET		FE_T05R0201_MEGANE_02_GET
+
+	_TALK_KEYWAIT		msg_t05r0201_glasses_04
+
+	_JUMP			ev_t05r0201_glasses_07
+
+
+
+//めがね3
+t05r0201_megane_03_check:
+	_IF_FLAGON_JUMP		FE_T05R0201_MEGANE_03_GET,ev_t05r0201_glasses_08
+
+	_TALK_KEYWAIT		msg_t05r0201_glasses_02
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_MONOSIRIMEGANE
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_t05r0201_glasses_09
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	_FLAG_SET		FE_T05R0201_MEGANE_03_GET
+
+	_TALK_KEYWAIT		msg_t05r0201_glasses_05
+
+	_JUMP			ev_t05r0201_glasses_08
+
+
+
+
+//朝　メガネ入手後
+ev_t05r0201_glasses_06:
+	_TALKMSG		msg_t05r0201_glasses_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//昼　メガネ入手後
+ev_t05r0201_glasses_07:
+	_TALKMSG		msg_t05r0201_glasses_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//夜　メガネ入手後
+ev_t05r0201_glasses_08:
+	_TALKMSG		msg_t05r0201_glasses_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//バッグがいっぱい
+ev_t05r0201_glasses_09:
+	_TALKMSG		msg_t05r0201_glasses_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

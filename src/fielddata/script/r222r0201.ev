@@ -1,0 +1,149 @@
+//====================================================================
+//						r222r0201.gmm
+//						ポケモン大きさ測定
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r222r0201.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r222r0201_flag_change
+_EVENT_DATA		ev_r222r0201_hikaku
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_r222r0201_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_R222R0201	//到着
+	_END
+
+
+/********************************************************************/
+/*							釣り人									*/
+/*	SCWK_PARAM2 手持ちポケモン番号									*/
+/********************************************************************/
+#define OOKISA_MONS_NO		MONSNO_TEPPOUO				//比較するポケモン
+
+ev_r222r0201_hikaku:
+	_TALK_OBJ_START
+
+	//手持ちにXXXがいるかチェック
+	_TEMOTI_POKE_CHK	SCWK_ANSWER,OOKISA_MONS_NO
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,FALSE,ev_r222r0201_01
+
+	_TALK_KEYWAIT	msg_r222r0201_hikaku_02
+	_TALK_CLOSE
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	//ポケモン選択
+	_POKELIST_SET_PROC
+	//選択したポケモンの並び番号取得
+	_POKELIST_GET_RESULT	SCWK_PARAM2
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルされた
+	_IFVAL_JUMP		SCWK_PARAM2,EQ,0xff,ev_r222r0201_hikaku_cancel
+
+	//手持ち番号からポケモン番号へ変換 ※タマゴのときは強制で０へ
+	_TEMOTI_MONSNO	SCWK_PARAM2,SCWK_PARAM1
+
+	//XXXX以外を選択
+	_IFVAL_JUMP		SCWK_PARAM1,NE,OOKISA_MONS_NO,ev_r222r0201_hikaku_07
+
+	//手持ちの大きさとの比較
+	_OOKISA_RECORD_CHK		SCWK_ANSWER,SCWK_PARAM2
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r222r0201_hikaku_06		//更新できず
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r222r0201_hikaku_05		//同じ
+
+	_OOKISA_TEMOTI_SET_BUF	0,1,SCWK_PARAM2
+
+	_TALK_KEYWAIT	msg_r222r0201_hikaku_03
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_NETTOBOORU
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r222r0201_hikaku_08
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	//レコード更新
+	_OOKISA_RECORD_SET		SCWK_PARAM2
+
+	_TALKMSG	msg_r222r0201_hikaku_04
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//XXXがいない
+ev_r222r0201_01:
+	_TALKMSG	msg_r222r0201_hikaku_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//まったく同じ記録
+ev_r222r0201_hikaku_05:
+	_OOKISA_KIROKU_SET_BUF	0,1,OOKISA_MONS_NO
+
+	_TALKMSG	msg_r222r0201_hikaku_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//記録更新せず。※過去に記録更新している
+ev_r222r0201_hikaku_06:
+	_OOKISA_TEMOTI_SET_BUF	0,1,SCWK_PARAM2
+	_OOKISA_KIROKU_SET_BUF	2,3,OOKISA_MONS_NO
+
+	_TALKMSG	msg_r222r0201_hikaku_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//コイキング以外を選択
+ev_r222r0201_hikaku_07:
+	_TALKMSG	msg_r222r0201_hikaku_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アイテムいっぱい
+ev_r222r0201_hikaku_08:
+	_TALKMSG	msg_r222r0201_hikaku_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//キャンセル
+ev_r222r0201_hikaku_cancel:
+	_TALKMSG	msg_r222r0201_hikaku_09
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

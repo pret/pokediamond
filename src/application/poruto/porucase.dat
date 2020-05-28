@@ -1,0 +1,196 @@
+/**
+	@file	porucase.dat
+	@brief	ポルトケース　定数定義
+	@author	Miyuki Iwasawa
+	@date	06.03.15
+*/
+
+///タッチパネル座標
+#define TP_SX	(32)
+#define TP_SY	(14)
+#define TP_SPICY_NX	(16*8)
+#define TP_SPICY_NY	(6*8)
+#define TP_ASTR_NX	(24*8)
+#define TP_ASTR_NY	(12*8)
+#define TP_SWEET_NX	(21*8+2)
+#define TP_SWEET_NY	(20*8+2)
+#define TP_BITTER_NX	(11*8-2)
+#define TP_BITTER_NY	(20*8+4)
+#define TP_SOUR_NX	(8*8)
+#define TP_SOUR_NY	(12*8)
+#define TP_ALL_NX	(16*8)
+#define TP_ALL_NY	(14*8+4)
+
+
+typedef enum{
+ WIN_PLIST,
+// WIN_PLISTLV,
+ WIN_TASTE,
+ WIN_MSG,
+ WIN_MENU,
+ WIN_MYN,
+ WIN_EXPM,
+ WIN_EXPS,
+ WIN_SW01,
+ WIN_SW02,
+ WIN_SW03,
+ WIN_SW04,
+ WIN_SW05,
+ WIN_SW06,
+ WIN_MAX,
+};
+
+#define MSG_FRAME	(GF_BGL_FRAME1_M)
+#define PLIST_FRAME	(GF_BGL_FRAME2_M)
+#define SUB_FRAME	(GF_BGL_FRAME0_S)
+
+#define MSGFONT_PAL	(12)
+#define SYSFONT_PAL	(13)
+#define BTNFONT_PAL	(13)
+#define SWITCH_PAL	(5)
+#define PCASE_BMPCHAR_BASE	(1)
+
+///メニューウィンドウ
+#define BMPL_TALK_WIN_CGX	(PCASE_BMPCHAR_BASE)
+#define BMPL_MENU_WIN_CGX	(BMPL_TALK_WIN_CGX+TALK_WIN_CGX_SIZ)
+#define BMPL_TALK_WIN_FRM	(GF_BGL_FRAME1_M)
+#define BMPL_MENU_WIN_FRM	(GF_BGL_FRAME1_M)
+#define BMPL_TALK_WIN_PAL	(14)
+#define BMPL_MENU_WIN_PAL	(15)
+#define PCASE_BMPLCHAR_BASE	(BMPL_MENU_WIN_CGX+MENU_WIN_CGX_SIZ)
+
+///ポルトリストウィンドウ
+#define BMPL_PLIST_PX	(2)
+#define BMPL_PLIST_PY	(4)
+#define BMPL_PLIST_SX	(22)//(15)
+#define BMPL_PLIST_SY	(12)
+#define BMPL_PLIST_SIZ	(BMPL_PLIST_SX*BMPL_PLIST_SY)
+#define BMPL_PLIST_FRM	(PLIST_FRAME)
+#define BMPL_PLIST_PAL	(SYSFONT_PAL)
+#define BMPL_PLIST_CGX	(PCASE_BMPLCHAR_BASE)
+
+//ポルトリストレベルウィンドウ
+#define BMPL_PLISTLV_PX	(19)
+#define BMPL_PLISTLV_PY	(4)
+#define BMPL_PLISTLV_SX	(1)//(5)
+#define BMPL_PLISTLV_SY	(1)//(12)
+#define BMPL_PLISTLV_SIZ	(BMPL_PLISTLV_SX*BMPL_PLISTLV_SY)
+#define BMPL_PLISTLV_FRM	(PLIST_FRAME)
+#define BMPL_PLISTLV_PAL	(SYSFONT_PAL)
+#define BMPL_PLISTLV_CGX	(BMPL_PLIST_CGX+BMPL_PLIST_SIZ)
+
+///ポルトなめらかさウィンドウ
+#define BMPL_TASTE_PX	(11)
+#define BMPL_TASTE_PY	(20)
+#define BMPL_TASTE_SX	(10)
+#define BMPL_TASTE_SY	(2)
+#define BMPL_TASTE_SIZ	(BMPL_TASTE_SX*BMPL_TASTE_SY)
+#define BMPL_TASTE_FRM	(PLIST_FRAME)
+#define BMPL_TASTE_PAL	(SYSFONT_PAL)
+#define BMPL_TASTE_CGX	(BMPL_PLISTLV_CGX+BMPL_PLISTLV_SIZ)
+
+///ポルトメッセージウィンドウ
+#define BMPL_MSG_PX	(2)
+#define BMPL_MSG_PY	(19)
+#define BMPL_MSG_SX	(27)
+#define BMPL_MSG_SY	(4)
+#define BMPL_MSG_SIZ	(BMPL_MSG_SX*BMPL_MSG_SY)
+#define BMPL_MSG_FRM	(MSG_FRAME)
+#define BMPL_MSG_PAL	(MSGFONT_PAL)
+#define BMPL_MSG_CGX	(BMPL_TASTE_CGX+BMPL_TASTE_SIZ)
+
+///ポルト選択ウィンドウ
+#define BMPL_MSEL_PX	(26)
+#define BMPL_MSEL_PY	(17)
+#define BMPL_MSEL_SX	(5)
+#define BMPL_MSEL_SY	(6)
+#define BMPL_MSEL_SIZ	(BMPL_MSEL_SX*BMPL_MSEL_SY)
+#define BMPL_MSEL_FRM	(MSG_FRAME)
+#define BMPL_MSEL_PAL	(SYSFONT_PAL)
+#define BMPL_MSEL_CGX	(BMPL_MSG_CGX+BMPL_MSG_SIZ)
+
+///YNウィンドウ
+#define BMPL_MYN_PX	(26)
+#define BMPL_MYN_PY	(13)
+#define BMPL_MYN_SX	(5)
+#define BMPL_MYN_SY	(4)
+#define BMPL_MYN_SIZ	(BMPL_MYN_SX*BMPL_MYN_SY)
+#define BMPL_MYN_FRM	(MSG_FRAME)
+#define BMPL_MYN_PAL	(SYSFONT_PAL)
+#define BMPL_MYN_CGX	(BMPL_MSEL_CGX+BMPL_MSEL_SIZ)
+
+//メイン画面タイトルウィンドウ
+#define BMPL_EXPM_PX	(0)
+#define BMPL_EXPM_PY	(0)
+#define BMPL_EXPM_SX	(16)
+#define BMPL_EXPM_SY	(2)
+#define BMPL_EXPM_SIZ	(BMPL_EXPM_SX*BMPL_EXPM_SY)
+#define BMPL_EXPM_FRM	(MSG_FRAME)
+#define BMPL_EXPM_PAL	(SYSFONT_PAL)
+#define BMPL_EXPM_CGX	(BMPL_MYN_CGX+BMPL_MYN_SIZ)
+
+//サブ画面タイトルウィンドウ
+#define BMPL_EXPS_PX	(0)
+#define BMPL_EXPS_PY	(0)
+#define BMPL_EXPS_SX	(32)
+#define BMPL_EXPS_SY	(2)
+#define BMPL_EXPS_SIZ	(BMPL_EXPS_SX*BMPL_EXPS_SY)
+#define BMPL_EXPS_FRM	(SUB_FRAME)
+#define BMPL_EXPS_PAL	(SYSFONT_PAL)
+#define BMPL_EXPS_CGX	(PCASE_BMPCHAR_BASE)
+
+//スウィッチウィンドウ
+#define BMPL_SW01_PX	(12)
+#define BMPL_SW01_PY	(5)
+#define BMPL_SW01_SX	(8)
+#define BMPL_SW01_SY	(3)
+#define BMPL_SW01_SIZ	(BMPL_SW01_SX*BMPL_SW01_SY)
+#define BMPL_SW01_FRM	(SUB_FRAME)
+#define BMPL_SW01_PAL	(SWITCH_PAL)
+#define BMPL_SW01_CGX	(BMPL_EXPS_CGX+BMPL_EXPS_SIZ)
+
+#define BMPL_SW02_PX	(20)
+#define BMPL_SW02_PY	(11)
+#define BMPL_SW02_SX	(8)
+#define BMPL_SW02_SY	(3)
+#define BMPL_SW02_SIZ	(BMPL_SW02_SX*BMPL_SW02_SY)
+#define BMPL_SW02_FRM	(SUB_FRAME)
+#define BMPL_SW02_PAL	(SWITCH_PAL+1)
+#define BMPL_SW02_CGX	(BMPL_SW01_CGX+BMPL_SW01_SIZ)
+
+#define BMPL_SW03_PX	(17)
+#define BMPL_SW03_PY	(19)
+#define BMPL_SW03_SX	(8)
+#define BMPL_SW03_SY	(3)
+#define BMPL_SW03_SIZ	(BMPL_SW03_SX*BMPL_SW03_SY)
+#define BMPL_SW03_FRM	(SUB_FRAME)
+#define BMPL_SW03_PAL	(SWITCH_PAL+2)
+#define BMPL_SW03_CGX	(BMPL_SW02_CGX+BMPL_SW02_SIZ)
+
+#define BMPL_SW04_PX	(7)
+#define BMPL_SW04_PY	(19)
+#define BMPL_SW04_SX	(8)
+#define BMPL_SW04_SY	(3)
+#define BMPL_SW04_SIZ	(BMPL_SW04_SX*BMPL_SW04_SY)
+#define BMPL_SW04_FRM	(SUB_FRAME)
+#define BMPL_SW04_PAL	(SWITCH_PAL+3)
+#define BMPL_SW04_CGX	(BMPL_SW03_CGX+BMPL_SW03_SIZ)
+
+#define BMPL_SW05_PX	(4)
+#define BMPL_SW05_PY	(11)
+#define BMPL_SW05_SX	(8)
+#define BMPL_SW05_SY	(3)
+#define BMPL_SW05_SIZ	(BMPL_SW05_SX*BMPL_SW05_SY)
+#define BMPL_SW05_FRM	(SUB_FRAME)
+#define BMPL_SW05_PAL	(SWITCH_PAL+4)
+#define BMPL_SW05_CGX	(BMPL_SW04_CGX+BMPL_SW04_SIZ)
+
+#define BMPL_SW06_PX	(12)
+#define BMPL_SW06_PY	(13)
+#define BMPL_SW06_SX	(8)
+#define BMPL_SW06_SY	(3)
+#define BMPL_SW06_SIZ	(BMPL_SW06_SX*BMPL_SW06_SY)
+#define BMPL_SW06_FRM	(SUB_FRAME)
+#define BMPL_SW06_PAL	(SWITCH_PAL+5)
+#define BMPL_SW06_CGX	(BMPL_SW05_CGX+BMPL_SW05_SIZ)
+

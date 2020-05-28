@@ -1,0 +1,197 @@
+//====================================================================
+//						c02r0401.gmm
+//					シティ０２・r0401
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c02r0401.h"
+	.include	"../eventdata/zone_c02r0401evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c02r0401_flag_change
+_EVENT_DATA		ev_c02r0401_event_start
+_EVENT_DATA		ev_c02r0401_event_end
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c02r0401_flag_change:
+
+	_FLAG_SET		FV_C02R0401_EVENT
+
+	/*ダークイベント既にクリアしているか？*/
+	_IF_FLAGOFF_JUMP	FE_D30R0101_LEGEND_CLEAR,ev_c02r0401_flag_change_check0
+	_END
+
+/*まだダークイベントをクリアしていない*/
+ev_c02r0401_flag_change_check0:
+	/*ゲームクリアしているか*/
+	_IF_FLAGON_JUMP		SYS_FLAG_GAME_CLEAR,ev_c02r0401_flag_change_check1
+	_END
+
+/*ゲームクリアしているか*/
+ev_c02r0401_flag_change_check1:
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,LOCALWORK0
+	_IFVAL_JUMP			LOCALWORK0,EQ,1,ev_c02r0401_flag_change_check2
+	_END
+
+/*全国図鑑になっていたら*/
+ev_c02r0401_flag_change_check2:
+
+	/*メンバーズカードをもっているか？*/
+	_ITEM_CHK	ITEM_MENBAAZUKAADO,1,LOCALWORK0
+	_IFVAL_JUMP	LOCALWORK0,EQ,TRUE,ev_c02r0401_flag_change_check3
+	
+	_END
+
+/*メンバーズカードをもっている*/
+ev_c02r0401_flag_change_check3:
+	/*配布イベント「メンバーズカード」が有効か？*/
+	_IS_HAIHU_EVENT_ENABLE	HAIHUEVENT_ID_D30,LOCALWORK0
+	_IFVAL_JUMP				LOCALWORK0,EQ,1,ev_c02r0401_flag_change_check4
+	_END
+
+/*配布イベント「メンバーズカード」が有効だった*/
+ev_c02r0401_flag_change_check4:
+
+	/*クレセリア(ムーバス)少年を助けたか？*/
+	_IF_FLAGON_JUMP		FE_C02R0501_EVENT_CLEAR,ev_c02r0401_flag_change_check5
+	_END
+
+/*クレセリア(ムーバス)少年を助けた*/
+ev_c02r0401_flag_change_check5:
+	/*すでにイベント終了していたら*/
+	_IFVAL_JUMP			WK_SCENE_C02R0401,GE,2,ev_c02r0401_flag_change_check6
+
+	_FLAG_RESET			FV_C02R0401_EVENT
+	_LDVAL				WK_SCENE_C02R0401,1		/*イベント開始*/
+	_END
+
+/*すでにイベント終了していたら*/
+ev_c02r0401_flag_change_check6:
+	_END
+
+
+/********************************************************************/
+/*							ダーク開始								*/
+/********************************************************************/
+ev_c02r0401_event_start:
+	_EVENT_START
+
+	//一拍間をあける
+	_TIME_WAIT		30,SCWK_ANSWER
+	//…いらっしゃいませ
+	_TALK_KEYWAIT	msg_c02r0401_event_01
+	_TALK_CLOSE
+
+	/*誘導されてベッドの隣へ*/
+	_OBJ_ANIME		C02R0401_EVENT,anm_c02r0401_event_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02r0401_player_01
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c02r0401_event_02
+	_TALK_CLOSE
+
+	/*専用のSE？*/
+	_SE_PLAY		SEQ_SE_DP_MAZYO2
+
+	_FLAG_SET		FE_C02R0401_START
+	//帰って来たときはおじさん消えてる
+	_FLAG_SET		FV_C02R0401_EVENT
+	//帰ってきたとき用にシーンステータスを変えておく
+	_LDVAL			WK_SCENE_C02R0401,2
+
+	//二回フェードを繰り返し
+	_BLACK_OUT		SCR_WIPE_DIV,3
+	_WIPE_FADE_END_CHECK
+	_BLACK_IN		SCR_WIPE_DIV,3
+	_WIPE_FADE_END_CHECK
+	_BLACK_OUT		SCR_WIPE_DIV,3
+	_WIPE_FADE_END_CHECK
+	_BLACK_IN		SCR_WIPE_DIV,3
+	_WIPE_FADE_END_CHECK
+
+	//最後にゆっくりフェードアウト
+	_BLACK_OUT		SCR_WIPE_DIV,6
+	_WIPE_FADE_END_CHECK
+	
+	//4秒間暗いまま
+	_TIME_WAIT		120,SCWK_ANSWER
+
+	_MAP_CHANGE_NONE_FADE	ZONE_ID_D30,0,152,277,DIR_DOWN
+
+	_BLACK_IN		SCR_WIPE_DIV,6
+	_WIPE_FADE_END_CHECK
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	ベッドへ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c02r0401_player_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サングラス	ベッドへ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c02r0401_event_01
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ダーク終了								*/
+/********************************************************************/
+ev_c02r0401_event_end:
+	_EVENT_START
+
+	//シーンの状態をセットしておく
+	_CALL			ev_c02r0401_return_d30_scene
+	//エスケープロケーションを復帰させる
+	_SET_ESCAPE_LOCATION	ZONE_ID_C02,58,714
+
+	_ME_PLAY		SEQ_ASA
+	_ME_WAIT
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c02r0401_event_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//宿屋のシーンステータスをリセットする
+ev_c02r0401_return_d30_scene:
+	//イベントクリアしたかどうか？
+	_IF_FLAGON_JUMP	FE_D30R0101_LEGEND_CLEAR,ev_c02r0401_return_d30_clear
+	_LDVAL			WK_SCENE_C02R0401,0
+	_RET
+
+//d30ダークイベントクリア
+ev_c02r0401_return_d30_clear:
+	_LDVAL			WK_SCENE_C02R0401,3
+	_RET

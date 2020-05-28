@@ -1,0 +1,101 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_c04gym0102evc.h"
+
+const u32 FObj_zone_c04gym0102_num = 5;
+
+const _TAG_FIELD_OBJ_H FObj_zone_c04gym0102[5] =
+{
+	{
+		C04GYM0102_LEADER,
+		LEADER2,
+		15,
+		0,
+		FV_C04_GYM_LEADER,
+		SCRID_C04GYM0102_LEADER,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		15,
+		3,
+		0*0x1000,
+	},
+
+	{
+		C04GYM0102_TRAINER2,
+		WOMAN1,
+		15,
+		0,
+		FV_C04_GYM_TRAINER2,
+		SCRID_C04GYM0102_TRAINER2,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		9,
+		27,
+		0*0x1000,
+	},
+
+	{
+		C04GYM0102_TRAINER3,
+		WOMAN1,
+		15,
+		0,
+		FV_C04_GYM_TRAINER3,
+		SCRID_C04GYM0102_TRAINER3,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		22,
+		18,
+		0*0x1000,
+	},
+
+	{
+		C04GYM0102_TRAINER4,
+		WOMAN2,
+		15,
+		0,
+		FV_C04_GYM_TRAINER4,
+		SCRID_C04GYM0102_TRAINER4,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		20,
+		9,
+		0*0x1000,
+	},
+
+	{
+		C04GYM0102_TRAINER1,
+		GIRL1,
+		15,
+		0,
+		FV_C04_GYM_TRAINER1,
+		SCRID_C04GYM0102_TRAINER1,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		10,
+		13,
+		0*0x1000,
+	},
+};

@@ -1,0 +1,15 @@
+*.bin
+*.elf
+#*evb.c
+#*evc.c
+#*evd.c
+#*evp.c
+arc_result.txt
+#*evc.hをインクルード
+evc_id.h
+#*evd.hをインクルード
+evd_id.h
+#../script/*_def.hをインクルード
+script_id.h
+all_data.c
+all_data.d

@@ -1,0 +1,253 @@
+/**
+	@brief	バトルタワー　ダミーデータ定義
+*/
+
+#include "msgdata/msg_tower_trainer.h"
+//ポケモンデータ定義
+const B_TOWER_POKEMON b_tower_poke_data[] = {
+ {
+	MONSNO_HUSIGIDANE,0,ITEM_TABENOKOSI,	//フシギダネ、たべのこし
+	{22,75,235,76},	//つるのむち、はっぱカッター、こうごうせい、ソーラービーム
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{HU_,SI_,GI_,DA_,NE_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_HITOKAGE,0,ITEM_KAIGARANOSUZU,	//ヒトカゲ、かいがらのすず
+	{52,83,53,126},	//ひのこ、ほのおのうず、かえんほうしゃ、だいもんじ
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{HI_,TO_,KA_,GE_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_ZENIGAME,0,ITEM_SINPINOSIZUKU,	//ゼニガメ、しんぴのしずく
+	{55,57,352,56},	//みずでっぽう、なみのり、みずのはどう、ハイドロポンプ
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{ZE_,NI_,GA_,ME_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_SUTORAIKU,0,ITEM_OUZYANOSIRUSI,	//ストライク、おうじゃのしるし
+	{318,211,104,314},	//ぎんいろのかぜ、はがねのつばさ、かげぶんしん、エアカッター
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{SU_,TO_,RA_,I_,KU_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_TAMAZARASI,0,ITEM_TOKENAIKOORI,	//タマザラシ、とけないこおり
+	{301,352,258,189},	//アイスボール、みずのはどう、あられ、どろかけ
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{TA_,MA_,ZA_,RA_,SI_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_KOIRU,0,ITEM_NANASINOMI,	//コイル、ナナシのみ
+	{351,48,319,115},	//でんげきは、ちょうおんぱ、きんぞくおん、リフレクター
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{KO_,I_,RU_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_ENEKO,0,ITEM_SENSEINOTUME,	//エネコ、せんせいのつめ
+	{47,313,204,3},	//うたう、うそなき、あまえる、おうふくビンタ
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{E_,NE_,KO_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_MAKUNOSITA,0,ITEM_PINTORENZU,	//マクノシタ、ピントレンズ
+	{252,69,197,18},	//ねこだまし、ちきゅうなげ、みきり、ふきとばし
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{MA_,KU_,NO_,SI_,TA_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_ITOMARU,0,ITEM_TIIRANOMI,	//イトマル、チイラのみ
+	{324,101,169,184},	//シグナルビーム、ナイトヘッド、クモのす、こわいかお
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{I_,TO_,MA_,RU_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_SANDO,0,ITEM_YAWARAKAISUNA,	//サンド、やわらかいすな
+	{91,317,201,28},	//あなをほる、がんせきふうじ、すなあらし、すなかけ
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{SA_,N_,DO_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_SUBAME,0,ITEM_KAMURANOMI,	//スバメ、カムラのみ
+	{19,98,283,116},	//そらをとぶ、でんこうせっか、がむしゃら、きあいだめ
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{SU_,BA_,ME_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_TAMATAMA,0,ITEM_MOMONNOMI,	//タマタマ、モモンのみ
+	{93,246,73,113},	//ねんりき、げんしのちから、やどりぎのタネ、ひかりのかべ
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{TA_,MA_,TA_,MA_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_ISITUBUTE,0,ITEM_KIAINOHATIMAKI,	//イシツブテ、きあいのハチマキ
+	{222,350,70,182},	//マグニチュード、ロックブラスト、かいりき、まもる
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{I_,SI_,TU_,BU_,TE_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_MUUMA,0,ITEM_HIKARINOKONA,	//ムウマ、ひかりのこな
+	{220,247,109,86},	//いたみわけ、シャドーボール、あやしいひかり、でんじは
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{MU_,U_,MA_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_TATUBEI,0,ITEM_RAMUNOMI,	//タツベイ、ラムのみ
+	{225,29,280,184},	//りゅうのいぶき、ずつき、かわらわり、こわいかお
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{TA_,TU_,BE_,I_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_DERUBIRU,0,ITEM_MOKUTAN,	//デルビル、もくたん
+	{242,52,46,182},	//かみくだく、ひのこ、ほえる、まもる
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{DE_,RU_,BI_,RU_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+ {
+	MONSNO_KODORA,0,ITEM_OBONNOMI,	//コドラ、オボンのみ
+	{232,317,334,106},	//メタルクロー、がんせきふうじ、てっぺき、かたくなる
+	0x12345678,0x98765432,	//IDNo,per_rnd
+	31,31,31,31,31,31,0,	//hp,pow,def,agi,spepow,spedef,ngname_f
+	32,32,32,32,32,32,	//hp,pow,def,agi,spepow,spedef
+	0,0,0,0,	//ポイントアップ
+	0,0,255,	//country,tokusei,natukido
+	{KO_,DO_,RA_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_,EOM_},
+ },
+};
+
+//トレーナー
+const B_TOWER_TRAINER b_tower_trainer_data[] = {
+{
+	0x12345678,
+	TRTYPE_TANPAN,0,	//トレーナータイプ、ダミー
+	{DA_,MI_,bou_,n0_,n1_,EOM_,EOM_,EOM_},
+	{0xFFFF,mes_tower_tr_001_01,0,0},	//登場(ROMメッセージのフラグ、tower_trainer.gmmのメッセージID,ROMの場合0,ROMの場合0)
+	{0xFFFF,1,0,0},	//勝利
+	{0xFFFF,2,0,0},	//敗退
+ },
+{
+	0x12345678,
+	TRTYPE_MOUNT,0,	//トレーナータイプ、ダミー
+	{DA_,MI_,bou_,n0_,n2_,EOM_,EOM_,EOM_},
+	{0xFFFF,mes_tower_tr_002_01,0,0},	//登場(ROMメッセージのフラグ、tower_trainer.gmmのメッセージID,ROMの場合0,ROMの場合0)
+	{0xFFFF,1,0,0},	//勝利
+	{0xFFFF,2,0,0},	//敗退
+ },
+{
+	0x12345678,
+	TRTYPE_FISHING,0,	//トレーナータイプ、ダミー
+	{DA_,MI_,bou_,n0_,n3_,EOM_,EOM_,EOM_},
+	{0xFFFF,mes_tower_tr_003_01,0,0},	//登場(ROMメッセージのフラグ、tower_trainer.gmmのメッセージID,ROMの場合0,ROMの場合0)
+	{0xFFFF,1,0,0},	//勝利
+	{0xFFFF,2,0,0},	//敗退
+ },
+{
+	0x12345678,
+	TRTYPE_BIRD,0,	//トレーナータイプ、ダミー
+	{DA_,MI_,bou_,n0_,n4_,EOM_,EOM_,EOM_},
+	{0xFFFF,mes_tower_tr_004_01,0,0},	//登場(ROMメッセージのフラグ、tower_trainer.gmmのメッセージID,ROMの場合0,ROMの場合0)
+	{0xFFFF,1,0,0},	//勝利
+	{0xFFFF,2,0,0},	//敗退
+ },
+{
+	0x12345678,
+	TRTYPE_IDOL,0,	//トレーナータイプ、ダミー
+	{DA_,MI_,bou_,n0_,n5_,EOM_,EOM_,EOM_},
+	{0xFFFF,mes_tower_tr_005_01,0,0},	//登場(ROMメッセージのフラグ、tower_trainer.gmmのメッセージID,ROMの場合0,ROMの場合0)
+	{0xFFFF,1,0,0},	//勝利
+	{0xFFFF,2,0,0},	//敗退
+ },
+{
+	0x12345678,
+	TRTYPE_PARASOL,0,	//トレーナータイプ、ダミー
+	{DA_,MI_,bou_,n0_,n6_,EOM_,EOM_,EOM_},
+	{0xFFFF,mes_tower_tr_006_01,0,0},	//登場(ROMメッセージのフラグ、tower_trainer.gmmのメッセージID,ROMの場合0,ROMの場合0)
+	{0xFFFF,1,0,0},	//勝利
+	{0xFFFF,2,0,0},	//敗退
+ },
+{
+	0x12345678,
+	TRTYPE_DRAGON,0,	//トレーナータイプ、ダミー
+	{DA_,MI_,bou_,n0_,n7_,EOM_,EOM_,EOM_},
+	{0xFFFF,mes_tower_tr_007_01,0,0},	//登場(ROMメッセージのフラグ、tower_trainer.gmmのメッセージID,ROMの場合0,ROMの場合0)
+	{0xFFFF,1,0,0},	//勝利
+	{0xFFFF,2,0,0},	//敗退
+ },
+};
+
+typedef struct B_TOWER_DMYENEMY{
+	u16	obj_code;
+	u8	pokeno[4];
+}B_TOWER_DMYENEMY;
+
+static const B_TOWER_DMYENEMY b_tower_dmy_enemy[] = {
+ { BOY2,{0,1,2,3} },
+ { MOUNT,{2,3,4,5} },
+ { MAN1,{4,6,6,7} },
+ { MAN2,{6,7,8,9} },
+ { IDOL,{8,9,10,11} },
+ { WOMAN2,{11,12,13,14} },
+ { OLDMAN1,{13,14,15,16} },
+};

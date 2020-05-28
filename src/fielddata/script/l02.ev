@@ -1,0 +1,527 @@
+//====================================================================
+//								l02
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_l02.h"
+	.include	"../eventdata/zone_l02evc.h"
+	.include	"../eventdata/zone_l02evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_l02_flag_change
+_EVENT_DATA		ev_l02_init_change
+_EVENT_DATA		ev_l02_gingam_1
+_EVENT_DATA		ev_l02_champ
+_EVENT_DATA		ev_l02_gingam
+_EVENT_DATA		ev_l02_woman2
+_EVENT_DATA		ev_l02_gingam1
+_EVENT_DATA		ev_l02_sign1
+_EVENT_DATA		ev_l02_bigman
+_EVENT_DATA		pos_l02_bigman
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_l02_flag_change:
+	/*ギンガ団が一度逃げた後だったら*/
+	_IF_FLAGON_CALL	FE_L02_GINGAM,ev_l02_flag_change_02
+
+	_IF_FLAGON_CALL	FE_D05R0114_CLEAR,ev_l02_flag_change_d05r0114_clear
+	_IF_FLAGOFF_JUMP	FE_D05R0114_CLEAR,ev_l02_door_exit_move_1
+	_IF_FLAGON_JUMP		FE_D05R0114_CLEAR,ev_l02_door_exit_move_2
+	_END
+
+	_END
+
+/*ギンガ団が一度逃げた後だったら*/
+ev_l02_flag_change_02:
+	_SXY_POS_CHANGE	L02_GINGAM_1,723,769
+	_SXY_DIR_CHANGE	L02_GINGAM_1,DIR_UP
+	_SXY_MV_CHANGE	L02_GINGAM_1,MV_UP
+	_RET
+
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_l02_init_change:
+	_IF_FLAGOFF_JUMP	FE_D05R0114_CLEAR,ev_l02_door_exit_move_1
+	_IF_FLAGON_JUMP		FE_D05R0114_CLEAR,ev_l02_door_exit_move_2
+	_END
+
+/*槍の柱イベントクリア後ならよばれる*/
+ev_l02_flag_change_d05r0114_clear:
+	_FLAG_SET				FV_L02_BIGMAN
+	_LDVAL					WK_SCENE_L02_BIGMAN,1
+	_RET
+
+/*イア、エアと戦闘前はd28r0102には入れない！*/
+ev_l02_door_exit_move_1:
+	_SXY_EXIT_POS_CHANGE	L02_SP_MAT01,713,760
+	_SXY_EXIT_POS_CHANGE	L02_SP_MAT02,713,761
+	_END
+
+/*イア、エアと戦闘後はd28r0101には入れない！*/
+ev_l02_door_exit_move_2:
+	_SXY_EXIT_POS_CHANGE	L02_DOOR04,713,760
+	_SXY_EXIT_POS_CHANGE	L02_DOOR05,713,761
+	_END
+
+
+/********************************************************************/
+/*							ギンガ団								*/
+/********************************************************************/
+ev_l02_gingam_1:
+	_TALK_OBJ_START_TURN_NOT
+
+	/*一度逃げた後*/
+	_IF_FLAGON_JUMP	FE_L02_GINGAM,ev_l02_gingam_02
+
+	_TALK_KEYWAIT	msg_l02_gingam_1_01
+
+	/*気づく*/
+	_TURN_HERO_SITE
+	_OBJ_ANIME		L02_GINGAM_1,anm_l02_gingam_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_l02_gingam_1_02
+	_TALK_CLOSE
+
+	/*去っていく*/
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_DOWN,ev_l02_gingam_dir_down
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_UP,ev_l02_gingam_dir_up
+	_JUMP			ev_l02_gingam_dir
+
+/*去っていく*/
+ev_l02_gingam_dir_down:
+	_OBJ_ANIME		L02_GINGAM_1,anm_l02_gingam_02
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l02_player_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_l02_gingam_dir
+
+ev_l02_gingam_dir_up:
+	_OBJ_ANIME		L02_GINGAM_1,anm_l02_gingam_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_l02_gingam_dir
+
+ev_l02_gingam_dir:
+	_OBJ_ANIME		L02_GINGAM_1,anm_l02_gingam_03
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l02_player_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_l02_gingam_dir
+
+/*共通処理*/
+common_l02_gingam_dir:
+	//_OBJ_DEL		L02_GINGAM_1
+	_OBJ_POS_CHANGE	L02_GINGAM_1,723,1,769,DIR_UP		/*座標を変更*/
+	_FLAG_SET		FE_L02_GINGAM						/*一度逃げた*/
+	_TALK_OBJ_END
+	_END
+
+/*一度逃げた後*/
+ev_l02_gingam_02:
+	_TURN_HERO_SITE
+	_TALK_KEYWAIT	msg_l02_gingam_1_03
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	GINGAM_36,0
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_l02_common_battle_lose
+
+	_TALK_KEYWAIT	msg_l02_gingam_1_04
+	_TALK_CLOSE
+
+	/*ゆっくり上に移動*/
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_DOWN,ev_l02_gingam_dir_down_02
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_UP,ev_l02_gingam_dir_up_02
+	_JUMP			ev_l02_gingam_dir_02
+
+/*去っていく*/
+ev_l02_gingam_dir_down_02:
+	_OBJ_ANIME		L02_GINGAM_1,anm_l02_gingam_10
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l02_player_10
+	_OBJ_ANIME_WAIT
+	_JUMP			common_l02_gingam_dir_02
+
+ev_l02_gingam_dir_up_02:
+	_OBJ_ANIME		L02_GINGAM_1,anm_l02_gingam_11
+	_OBJ_ANIME_WAIT
+	_JUMP			common_l02_gingam_dir_02
+
+ev_l02_gingam_dir_02:
+	_OBJ_ANIME		L02_GINGAM_1,anm_l02_gingam_11
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l02_player_11
+	_OBJ_ANIME_WAIT
+	_JUMP			common_l02_gingam_dir_02
+
+/*共通処理*/
+common_l02_gingam_dir_02:
+	_OBJ_DEL		L02_GINGAM_1
+	_FLAG_RESET		FV_L02_CHAMP
+	_OBJ_ADD		L02_CHAMP
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//共通敗北処理
+//--------------------------------------------------------------------
+ev_l02_common_battle_lose:
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	みおくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l02_player_02
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_l02_player_03
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	みおくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l02_player_10
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_l02_player_11
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l02_gingam_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l02_gingam_02
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,11
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_l02_gingam_03
+	_ANIME_DATA	AC_WALK_U_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l02_gingam_10
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_16F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_l02_gingam_11
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_U_16F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							チャンピオン							*/
+/********************************************************************/
+ev_l02_champ:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_l02_chanpion_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_l02_chanpion_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_l02_chanpion_01
+	_END
+
+yes_l02_chanpion_01:
+	_TALK_KEYWAIT	msg_l02_chanpion_02
+	_JUMP			common_l02_champion_01
+
+no_l02_chanpion_01:
+	_TALK_KEYWAIT	msg_l02_chanpion_03
+	_JUMP			common_l02_champion_01
+
+common_l02_champion_01:
+	_TALK_KEYWAIT	msg_l02_chanpion_04
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_HIDENNOKUSURI
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	_TALK_KEYWAIT	msg_l02_chanpion_05
+	_TALK_CLOSE
+
+	/*チャンピオン去っていく*/
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,DIR_DOWN,ev_r213_gingam_dir_down
+	_JUMP			ev_r213_gingam_dir
+
+/*去っていく*/
+ev_r213_gingam_dir_down:
+	_OBJ_ANIME		L02_CHAMP,anm_l02_champ_03
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l02_player_100
+	_OBJ_ANIME_WAIT
+	_JUMP			common_l02_champ_dir
+
+ev_r213_gingam_dir:
+	_OBJ_ANIME		L02_CHAMP,anm_l02_champ_04
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l02_player_101
+	_OBJ_ANIME_WAIT
+	_JUMP			common_l02_champ_dir
+
+/*共通処理*/
+common_l02_champ_dir:
+	_OBJ_DEL		L02_CHAMP
+	_LDVAL			WK_SCENE_L02,2
+	_FLAG_SET		FE_L02_CHAMP
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//チャンピオン	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l02_champ_03
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_l02_champ_04
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	チャンピオンの方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l02_player_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	チャンピオンを見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l02_player_100
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_l02_player_101
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ギンガ団研究員							*/
+/********************************************************************/
+ev_l02_gingam:
+	_EASY_OBJ_MSG	msg_l02_gingam_01
+	_END
+ev_l02_gingam1:
+	_EASY_OBJ_MSG	msg_l02_gingam1_01
+	_END
+
+
+/********************************************************************/
+/*							おしゃれ姉さん							*/
+/********************************************************************/
+ev_l02_woman2:
+	_TALK_OBJ_START
+
+	_ITEM_CHK		ITEM_RUUMUKII,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_l02_woman2_02
+	
+	_TALK_KEYWAIT	msg_l02_woman2_01
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//確認
+ev_l02_woman2_02:
+	_TALK_KEYWAIT	msg_l02_woman2_02
+	_TALK_CLOSE
+
+	_SUB_ITEM		ITEM_RUUMUKII,1,SCWK_ANSWER
+
+	_OBJ_ANIME		L02_WOMAN2_01,anm_l02_woman2_in_01
+	_OBJ_ANIME_WAIT
+
+	//ドアアニメをセットアップ
+	_SET_UP_DOOR_ANIME	22,24,11,13,77
+
+	//ドア開ける
+	_SEQ_OPEN_DOOR	77
+
+	//アニメ終了待ち
+	_WAIT_3D_ANIME	77
+
+	_OBJ_ANIME		L02_WOMAN2_01,anm_l02_woman2_in_02
+	_OBJ_ANIME_WAIT
+
+	_OBJ_DEL		L02_WOMAN2_01
+
+	_SEQ_CLOSE_DOOR	77	//ドア閉める
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_FREE_3D_ANIME	77	//ドアアニメ解放
+
+	_FLAG_RESET		FV_L02R0201_WOMAN2	//イベントが終わり次第このフラグを立てる
+	_FLAG_SET		FV_L02_WOMAN2	//イベントが終わり次第このフラグを立てる
+
+	_TALK_OBJ_END
+	_END
+
+
+//--------------------------------------------------------------------
+//
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_l02_woman2_in_01
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+_ANIME_LABEL anm_l02_woman2_in_02
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+
+/********************************************************************/
+/*							レストラン看板							*/
+/********************************************************************/
+ev_l02_sign1:
+	_EASY_BOARD_MSG	msg_l02_sign_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*					ストッパー(119592,12616)　						*/
+/*				11592:12632-12664 を踏むと発動						*/
+/********************************************************************/
+//ストッパー兄さん話し掛け
+ev_l02_bigman:
+	_EASY_OBJ_MSG	msg_l02_bigman_02
+	_END
+
+#define L02_BIGMAN_02	(1)
+pos_l02_bigman:
+	_EVENT_START
+	//気づく
+	_OBJ_ANIME		L02_BIGMAN_01,anm_l02_bigman_gyoe
+	_OBJ_ANIME_WAIT
+	
+	_PLAYER_POS_GET	SCWK_PARAM0,SCWK_PARAM1
+	_IFVAL_CALL		SCWK_PARAM1,EQ,789,pos_l02_bigman_walk1_01	
+	_IFVAL_CALL		SCWK_PARAM1,EQ,790,pos_l02_bigman_walk2_01	
+	_IFVAL_CALL		SCWK_PARAM1,EQ,791,pos_l02_bigman_walk3_01	
+	_OBJ_ANIME		L02_BIGMAN_01,anm_l02_bigman_push
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l02_player_push_out
+	_OBJ_ANIME_WAIT
+	_TALK_KEYWAIT	msg_l02_bigman_01
+	_TALK_CLOSE
+
+	//お兄さんもとの位置へ
+	_IFVAL_CALL		SCWK_PARAM1,EQ,789,pos_l02_bigman_walk1_02	
+	_IFVAL_CALL		SCWK_PARAM1,EQ,790,pos_l02_bigman_walk2_02	
+	_IFVAL_CALL		SCWK_PARAM1,EQ,791,pos_l02_bigman_walk3_02	
+	_EVENT_END
+	_END
+
+pos_l02_bigman_walk1_01:
+	_OBJ_ANIME		L02_BIGMAN_01,anm_l02_bigman_walk1_01
+	_OBJ_ANIME_WAIT
+	_RET
+pos_l02_bigman_walk2_01:
+	_OBJ_ANIME		L02_BIGMAN_01,anm_l02_bigman_walk2_01
+	_OBJ_ANIME_WAIT
+	_RET
+pos_l02_bigman_walk3_01:
+	_OBJ_ANIME		L02_BIGMAN_01,anm_l02_bigman_walk3_01
+	_OBJ_ANIME_WAIT
+	_RET
+pos_l02_bigman_walk1_02:
+	_OBJ_ANIME		L02_BIGMAN_01,anm_l02_bigman_walk1_02
+	_OBJ_ANIME_WAIT
+	_RET
+pos_l02_bigman_walk2_02:
+	_OBJ_ANIME		L02_BIGMAN_01,anm_l02_bigman_walk2_02
+	_OBJ_ANIME_WAIT
+	_RET
+pos_l02_bigman_walk3_02:
+	_OBJ_ANIME		L02_BIGMAN_01,anm_l02_bigman_walk3_02
+	_OBJ_ANIME_WAIT
+	_RET
+
+_ANIME_LABEL anm_l02_bigman_gyoe
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_l02_bigman_walk1_01
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_l02_bigman_walk2_01
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_l02_bigman_walk3_01
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+//元の位置に戻る
+_ANIME_LABEL anm_l02_bigman_walk1_02
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL anm_l02_bigman_walk2_02
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL anm_l02_bigman_walk3_02
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+//主人公押し返す
+_ANIME_LABEL anm_l02_bigman_push
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//主人公押し返される
+_ANIME_LABEL anm_l02_player_push_out
+	_ANIME_DATA	AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA	ACMD_END,0
+	

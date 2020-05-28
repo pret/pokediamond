@@ -1,0 +1,104 @@
+//====================================================================
+//								c01r0202
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0202.h"
+	//.include	"../eventdata/zone_c01r0202evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01r0202_idol
+_EVENT_DATA		ev_c01r0202_sunglasses
+_EVENT_DATA		ev_c01r0202_flag_change
+_EVENT_DATA_END
+
+
+/********************************************************************/
+//			FLAG_CHANGE_LABEL
+/********************************************************************/
+ev_c01r0202_flag_change:
+	_TV_INTERVIEWER_CHECK	9, LOCALWORK0
+	_IFVAL_JUMP			LOCALWORK0,EQ,0, ev_c01r0202_flagchange_vanish
+
+	_FLAG_RESET			FV_TV_INTERVIEW_09
+	_END
+
+ev_c01r0202_flagchange_vanish:
+	_FLAG_SET			FV_TV_INTERVIEW_09
+	_END
+
+/********************************************************************/
+/*						アイドル									*/
+/********************************************************************/
+ev_c01r0202_idol:
+	_TALK_OBJ_START
+
+	_TALKMSG	msg_c01r0202_idol_01
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							サングラス								*/
+/********************************************************************/
+ev_c01r0202_sunglasses:
+	_TALK_OBJ_START
+
+	_IF_FLAGON_JUMP	FE_C01R0202_ACCE_GET,ev_c01r0202_sunglasses_02
+
+	//SCWK_TEMP1　＜　アクセサリー番号
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+	_IFVAL_CALL			SCWK_ANSWER,EQ,MONSNO_NAETORU,ev_c01r0202_sunglasses_acce_no_1_set
+	_IFVAL_CALL			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,ev_c01r0202_sunglasses_acce_no_2_set
+	_IFVAL_CALL			SCWK_ANSWER,EQ,MONSNO_POTTYAMA,ev_c01r0202_sunglasses_acce_no_3_set
+
+	_LDWK			WK_SCENE_C01R0202_GET_ACCE_NO,SCWK_TEMP0
+	_ACCE_NAME		0,SCWK_TEMP0
+	_TALK_KEYWAIT	msg_c01r0202_sunglasses_01
+
+	//アクセサリー取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_LDVAL			SCWK_TEMP1,1
+	_CHG_COMMON_SCR	SCRID_ACCE_EVENT
+
+	_FLAG_SET		FE_C01R0202_ACCE_GET
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c01r0202_sunglasses_02:
+	_ACCE_NAME		0,WK_SCENE_C01R0202_GET_ACCE_NO
+	_TALKMSG		msg_c01r0202_sunglasses_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アクセサリー１
+ev_c01r0202_sunglasses_acce_no_1_set:
+	_LDVAL		SCWK_TEMP0,IMC_ACCE_OMEN00
+	_RET
+
+//アクセサリー２
+ev_c01r0202_sunglasses_acce_no_2_set:
+	_LDVAL		SCWK_TEMP0,IMC_ACCE_OMEN01
+	_RET
+
+//アクセサリー３
+ev_c01r0202_sunglasses_acce_no_3_set:
+	_LDVAL		SCWK_TEMP0,IMC_ACCE_OMEN02
+	_RET
+
+/********************************************************************/
+/********************************************************************/

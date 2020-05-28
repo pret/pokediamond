@@ -1,0 +1,1014 @@
+//====================================================================
+//					フィールド・シティ０２
+//						ミオシティ
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c02.h"
+	.include	"../eventdata/zone_c02evc.h"
+	.include	"../eventdata/zone_c02evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c02_flag_change
+_EVENT_DATA		pos_c02_rival
+_EVENT_DATA		ev_c02_rival
+_EVENT_DATA		ev_c02_rival_gym_after
+_EVENT_DATA		ev_c02_doctor_l02_news
+_EVENT_DATA		ev_c02_doctor
+_EVENT_DATA		ev_c02_support
+_EVENT_DATA		ev_c02_bigman
+_EVENT_DATA		ev_c02_man1
+_EVENT_DATA		ev_c02_woman3
+_EVENT_DATA		ev_c02_girl1a
+_EVENT_DATA		ev_c02_koduck
+_EVENT_DATA		ev_c02_oldman2
+_EVENT_DATA		ev_c02_sign1
+_EVENT_DATA		ev_c02_sign2
+_EVENT_DATA		ev_c02_sign3
+_EVENT_DATA		ev_c02_sign4
+_EVENT_DATA		ev_c02_sign5
+_EVENT_DATA		ev_c02_sign6
+_EVENT_DATA		ev_c02_ship
+_EVENT_DATA		ev_c02_door
+_EVENT_DATA		ev_c02_seaman_event_a
+_EVENT_DATA		ev_c02_seaman_event_b
+_EVENT_DATA		ev_c02_init_change
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c02_flag_change:
+
+	/*ダーク波止場の宿屋イベント途中終了していたら*/
+	_IFVAL_CALL		WK_SCENE_C02R0401,EQ,2,ev_c04_flag_change_c02r0401_reset
+	/*ダークイベント終了していたら*/
+	_IFVAL_CALL		WK_SCENE_C02R0401,EQ,3,ev_c02_flag_change_seaman_pos
+
+	/*c02r0104の民家(波止場の宿)に入れるかどうかチェック*/
+	/*入ればLOCALWORK0に1,入れなければ0が返る*/
+	_CALL			ev_c02_check_c02r0401_entry
+	_IFVAL_CALL		LOCALWORK0,EQ,0,ev_c02_init_c02r0401_exit_change
+	_IFVAL_CALL		LOCALWORK0,EQ,1,ev_c02_flag_change_sppoke7_recover
+
+	//ライバルの位置を変更
+	_IFVAL_CALL		WK_SCENE_C02,EQ,1,ev_c02_flag_change_rival_pos
+	_IFVAL_CALL		WK_SCENE_C02,EQ,2,ev_c02_flag_change_rival_pos
+
+	//図書館後、博士、サポート、ライバルの位置を変更
+	_IFVAL_CALL		WK_SCENE_C02,EQ,4,ev_c02_flag_change_rival_pos_02
+
+	//博士、サポートを消す
+	_IFVAL_CALL		WK_SCENE_C02,EQ,5,ev_c02_flag_change_doctor_del
+
+	//WKOBJCHRにサポートのキャラコードをセットする
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,c02_male_flag_change_01		//サポート女
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,c02_female_flag_change_01	//サポート男
+	_END
+
+/*ダーク波止場の宿屋イベント途中終了していたら*/
+ev_c04_flag_change_c02r0401_reset:
+	_LDVAL			WK_SCENE_C02R0401,0
+	_RET
+	
+/*ダークイベント終了していたら*/
+ev_c02_flag_change_seaman_pos:
+	_SXY_POS_CHANGE	C02_SEAMAN_02,55,716
+	_SXY_DIR_CHANGE	C02_SEAMAN_02,DIR_RIGHT
+	_SXY_MV_CHANGE	C02_SEAMAN_02,MV_RIGHT
+	_RET
+
+//波止場の宿に入れる状態の時は、c02に来るたびにd30r0101のダークを復活させる
+ev_c02_flag_change_sppoke7_recover:
+	_FLAG_RESET		FV_D30R0101_SPPOKE7
+	_RET
+	
+//図書館後、博士、サポート、ライバルの位置を変更
+ev_c02_flag_change_rival_pos_02:
+	_SXY_POS_CHANGE	C02_RIVAL,37,721
+	_SXY_DIR_CHANGE	C02_RIVAL,DIR_DOWN
+	_SXY_MV_CHANGE	C02_RIVAL,MV_DOWN
+	_RET
+
+//ライバルの位置を変更
+ev_c02_flag_change_rival_pos:
+	_SXY_POS_CHANGE	C02_RIVAL,39,733
+	_SXY_DIR_CHANGE	C02_RIVAL,DIR_UP
+	_SXY_MV_CHANGE	C02_RIVAL,MV_UP
+	_RET
+
+c02_male_flag_change_01:	//サポート女
+	_LDVAL			OBJCHRWORK0,HEROINE
+	_END
+
+c02_female_flag_change_01:	//サポート男
+	_LDVAL			OBJCHRWORK0,HERO
+	_END
+
+/*博士、サポートを消す*/
+ev_c02_flag_change_doctor_del:
+	_FLAG_SET		FV_C02_DOCTOR
+	_FLAG_SET		FV_C02_SUPPORT
+	_LDVAL			WK_SCENE_C02,6
+	_RET
+
+
+/*波止場の宿に入れるかどうかをLOCALWORK0に返す*/
+ev_c02_check_c02r0401_entry:
+	/*ダークイベントを既にクリアしているとき*/
+	_IF_FLAGON_JUMP		FE_D30R0101_LEGEND_CLEAR,ev_c02_check_c02r0401_entry_ng
+
+	/*ゲームクリアしていない時*/
+	_IF_FLAGOFF_JUMP	SYS_FLAG_GAME_CLEAR,ev_c02_check_c02r0401_entry_ng
+	
+	/*全国図鑑入手していない時*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,LOCALWORK0
+	_IFVAL_JUMP			LOCALWORK0,EQ,0,ev_c02_check_c02r0401_entry_ng
+	
+	/*メンバーズカードをもっていない時*/
+	_ITEM_CHK	ITEM_MENBAAZUKAADO,1,LOCALWORK0
+	_IFVAL_JUMP	LOCALWORK0,EQ,FALSE,ev_c02_check_c02r0401_entry_ng
+	
+	/*メンバーズカードをもっているが配布フラグがない場合*/
+	_IS_HAIHU_EVENT_ENABLE	HAIHUEVENT_ID_D30,LOCALWORK0
+	_IFVAL_JUMP	LOCALWORK0,EQ,FALSE,ev_c02_check_c02r0401_entry_ng
+
+	/*ムーバス悪夢イベントをまだクリアしていない場合*/
+	_IF_FLAGOFF_JUMP	FE_C02R0501_EVENT_CLEAR,ev_c02_check_c02r0401_entry_ng
+
+	/*ここまで抜けてきたら入れる*/
+	_LDVAL		LOCALWORK0,1
+	_RET
+
+/*波止場の宿に入れない*/
+ev_c02_check_c02r0401_entry_ng:
+	_LDVAL		LOCALWORK0,0
+	_RET
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c02_init_change:
+	/*c02r0104の民家(波止場の宿)に入れるかどうかチェック*/
+	/*入ればLOCALWORK0に1,入れなければ0が返る*/
+	_CALL			ev_c02_check_c02r0401_entry
+	_IFVAL_CALL		LOCALWORK0,EQ,0,ev_c02_init_c02r0401_exit_change
+	_END
+
+/*波止場の家に入れないようにしておく処理*/
+ev_c02_init_c02r0401_exit_change:
+	_SXY_BG_POS_CHANGE	0,58,713		/*BGはIDがないので、直値になっているので注意！*/
+	_SXY_EXIT_POS_CHANGE	C02_DOOR07,59,712					/*入れないようにする*/
+	_RET
+
+/********************************************************************/
+/*						ライバル(POS)								*/
+/********************************************************************/
+#define POS_C02_RIVAL_Z1	(723)
+#define POS_C02_RIVAL_Z2	(724)
+#define POS_C02_RIVAL_Z3	(725)
+#define POS_C02_RIVAL_Z4	(726)
+#define POS_C02_RIVAL_Z5	(727)
+
+pos_c02_rival:
+	_EVENT_START
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C02_RIVAL_Z1,pos_c02_rival_z1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C02_RIVAL_Z2,pos_c02_rival_z2
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C02_RIVAL_Z3,pos_c02_rival_z3
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C02_RIVAL_Z4,pos_c02_rival_z4
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C02_RIVAL_Z5,pos_c02_rival_z5
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	近づく
+//--------------------------------------------------------------------
+pos_c02_rival_z1:
+	_SXY_POS_CHANGE	C02_RIVAL,38,POS_C02_RIVAL_Z1
+	_JUMP			pos_c02_rival_common
+
+pos_c02_rival_z2:
+	_SXY_POS_CHANGE	C02_RIVAL,38,POS_C02_RIVAL_Z2
+	_JUMP			pos_c02_rival_common
+
+pos_c02_rival_z3:
+	_SXY_POS_CHANGE	C02_RIVAL,38,POS_C02_RIVAL_Z3
+	_JUMP			pos_c02_rival_common
+
+pos_c02_rival_z4:
+	_SXY_POS_CHANGE	C02_RIVAL,38,POS_C02_RIVAL_Z4
+	_JUMP			pos_c02_rival_common
+
+pos_c02_rival_z5:
+	_SXY_POS_CHANGE	C02_RIVAL,38,POS_C02_RIVAL_Z5
+	_JUMP			pos_c02_rival_common
+
+//近づいてくる
+pos_c02_rival_common:
+	_SXY_MV_CHANGE	C02_RIVAL,MV_RIGHT
+	_FLAG_RESET		FV_C02_RIVAL
+	_OBJ_ADD		C02_RIVAL
+
+	_CHG_COMMON_SCR SCRID_THE_RIVAL_PLAY				/*ライバル曲再生*/
+
+	_OBJ_ANIME		C02_RIVAL,anm_c02_rival_01
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c02_rival_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_NAETORU,ev_c02_rival_02
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,ev_c02_rival_03
+	_JUMP												ev_c02_rival_01
+
+//戦闘呼び出し
+ev_c02_rival_01:
+	_TRAINER_BTL_SET	RIVAL_10,0
+	_JUMP				ev_c02_rival_btl_coomon
+
+ev_c02_rival_02:
+	_TRAINER_BTL_SET	RIVAL_11,0
+	_JUMP				ev_c02_rival_btl_coomon
+
+ev_c02_rival_03:
+	_TRAINER_BTL_SET	RIVAL_12,0
+	_JUMP				ev_c02_rival_btl_coomon
+
+ev_c02_rival_btl_coomon:
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c02_rival_battle_lose
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_c02_rival_02
+	_TALK_CLOSE
+
+	/*去っていく*/
+	_OBJ_ANIME		C02_RIVAL,anm_c02_rival_30
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C02_RIVAL
+
+	_LDVAL			WK_SCENE_C02,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_c02_rival_battle_lose:
+	_FLAG_SET		FV_C02_RIVAL	/*再度イベントを起こした時の対処*/
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_rival_01
+	_ANIME_DATA	AC_WALK_R_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_rival_30
+	_ANIME_DATA	AC_WALK_L_4F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+
+/********************************************************************/
+/*						ライバル(会話)								*/
+/********************************************************************/
+ev_c02_rival:
+	_EASY_OBJ_MSG	msg_c02_rival_02
+	_END
+
+
+/********************************************************************/
+/*					ジムクリア後のライバル							*/
+/********************************************************************/
+ev_c02_rival_gym_after:
+	_EVENT_START
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c02_rival_03
+	_TALK_CLOSE
+
+	/*ライバル　図書館へ移動*/
+	_OBJ_ANIME		C02_RIVAL,anm_c02_rival_02
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02_player_200
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C02_RIVAL
+
+	_LDVAL			WK_SCENE_C02,3
+	_LDVAL			WK_SCENE_C02R0103,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+/*ライバル	図書館へ移動*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_rival_02
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_L_4F,5
+	_ANIME_DATA	AC_WALK_U_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*主人公	ライバル見送る*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_player_200
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							図書館後の博士							*/
+/********************************************************************/
+ev_c02_doctor_l02_news:
+	_EVENT_START
+
+	/*博士はなす*/
+	_OBJ_ANIME		C02_DOCTOR,anm_c02_doctor_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c02_doctor_01
+	_TALK_CLOSE
+
+	/*一般市民　近づいてくる*/
+	_FLAG_RESET		FV_C02_SEAMAN
+	_OBJ_ADD		C02_SEAMAN
+	_OBJ_PAUSE		C02_SEAMAN
+	_OBJ_ANIME		C02_SEAMAN,anm_c02_seaman_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c02_seaman1_01
+	_TALK_CLOSE
+
+	/*一般市民　去っていく*/
+	_OBJ_ANIME		C02_SEAMAN,anm_c02_seaman_02
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C02_SEAMAN
+
+	/*ライバルふりかえる*/
+	_OBJ_ANIME		C02_RIVAL,anm_c02_rival_20
+	_OBJ_ANIME_WAIT
+
+	/*ライバル「じいさん！！・・・」*/
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_c02_rival_04
+	_TALK_CLOSE
+
+	/*ライバル　去っていく*/
+	_OBJ_ANIME		C02_RIVAL,anm_c02_rival_10
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C02_RIVAL
+
+	/*博士はなす*/
+	_OBJ_ANIME		C02_DOCTOR,anm_c02_doctor_21
+	_OBJ_ANIME_WAIT
+
+	/*博士「！！！・・・」*/
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c02_doctor_02
+	_TALK_CLOSE
+
+	/*サポート左向く*/
+	_OBJ_ANIME		C02_SUPPORT,anm_c02_support_21
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02_male_doctor_01		//サポート女
+	_JUMP			c02_female_doctor_01					//サポート男
+
+//サポート女
+c02_male_doctor_01:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c02_heroine_01
+	_JUMP			common_c02_doctor_10
+
+//サポート男
+c02_female_doctor_01:
+	_TALKMSG		msg_c02_hero_01
+	_JUMP			common_c02_doctor_10
+
+common_c02_doctor_10:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_LDVAL			WK_SCENE_C02,5
+
+	/*博士とサポートがL01に移動*/
+	_FLAG_RESET		FV_D27R0101_SUPPORT
+	_FLAG_RESET		FV_D27R0101_DOCTOR
+
+	/*ライバルがL02に移動*/
+	_FLAG_RESET		FV_D29R0101_RIVAL
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+/*サポート	左向く*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_support_21
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*博士	話す*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_doctor_01
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*博士	ライバル見て、主人公の方を見る*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_doctor_21
+	//_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*一般市民	近づいてくる*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_seaman_01
+	_ANIME_DATA	AC_WALK_L_4F,5
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*一般市民	去っていく*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_seaman_02
+	_ANIME_DATA	AC_WALK_D_4F,6
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*ライバル	ふりかえる*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_rival_20
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*ライバル	去っていく*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02_rival_10
+	_ANIME_DATA	AC_WALK_D_4F,3
+	_ANIME_DATA	AC_WALK_R_4F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*				図書館から出てきてイベント後の博士(会話)			*/
+/********************************************************************/
+ev_c02_doctor:
+	_EASY_OBJ_MSG	msg_c02_doctor_03
+	_END
+
+
+/********************************************************************/
+/*				図書館から出てきてイベント後のサポート(会話)		*/
+/********************************************************************/
+ev_c02_support:
+	_TALK_OBJ_START
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02_male_support_01	//サポート女
+	_JUMP			c02_female_support_01					//サポート男
+
+//サポート女
+c02_male_support_01:
+	_TALKMSG		msg_c02_heroine_02
+	_JUMP			common_c02_doctor_20
+
+//サポート男
+c02_female_support_01:
+	_TALKMSG		msg_c02_hero_02
+	_JUMP			common_c02_doctor_20
+
+common_c02_doctor_20:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						太ったお兄さん								*/
+/********************************************************************/
+ev_c02_bigman:
+	_TALK_OBJ_START
+
+	/*地震発生後～次のイベントが起きるまで*/
+	_IF_FLAGON_JUMP	FE_L02_NEWS,ev_c02_bigman_02
+
+	_TALKMSG		msg_c02_bigman_01
+	_JUMP			common_c02_l02_news_end
+
+/*地震発生後～次のイベントが起きるまで*/
+ev_c02_bigman_02:
+	_TALKMSG		msg_c02_bigman_02
+	_JUMP			common_c02_l02_news_end
+
+//共通終了処理
+common_c02_l02_news_end:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							青年									*/
+/********************************************************************/
+ev_c02_man1:
+	_TALK_OBJ_START
+
+	/*地震発生後～次のイベントが起きるまで*/
+	_IF_FLAGON_JUMP	FE_L02_NEWS,ev_c02_man1_02
+
+	_TALKMSG		msg_c02_man1_01
+	_JUMP			common_c02_l02_news_end
+
+/*地震発生後～次のイベントが起きるまで*/
+ev_c02_man1_02:
+	_TALKMSG		msg_c02_man1_02
+	_JUMP			common_c02_l02_news_end
+
+
+/********************************************************************/
+/*							女性									*/
+/********************************************************************/
+ev_c02_woman3:
+	_TALK_OBJ_START
+
+	/*地震発生後～次のイベントが起きるまで*/
+	_IF_FLAGON_JUMP	FE_L02_NEWS,ev_c02_woman3_02
+
+	_TALKMSG		msg_c02_woman3_01
+	_JUMP			common_c02_l02_news_end
+
+/*地震発生後～次のイベントが起きるまで*/
+ev_c02_woman3_02:
+	_TALKMSG		msg_c02_woman3_02
+	_JUMP			common_c02_l02_news_end
+
+
+/********************************************************************/
+/*							少女									*/
+/********************************************************************/
+ev_c02_girl1a:
+	_TALK_OBJ_START
+
+	/*地震発生後～次のイベントが起きるまで*/
+	_IF_FLAGON_JUMP	FE_L02_NEWS,ev_c02_girl1_02
+
+	_TALKMSG		msg_c02_girl1_01
+	_JUMP			common_c02_l02_news_end
+
+/*地震発生後～次のイベントが起きるまで*/
+ev_c02_girl1_02:
+	_TALKMSG		msg_c02_girl1_02
+	_JUMP			common_c02_l02_news_end
+
+
+/********************************************************************/
+/*							コダック								*/
+/********************************************************************/
+ev_c02_koduck:
+	_TALK_OBJ_START
+
+	/*地震発生後～次のイベントが起きるまで*/
+	_IF_FLAGON_JUMP	FE_L02_NEWS,ev_c02_koduck_02
+
+	_VOICE_PLAY		MONSNO_KODAKKU,0
+	_TALKMSG		msg_c02_koduck_01
+	_JUMP			common_c02_l02_news_end
+
+/*地震発生後～次のイベントが起きるまで*/
+ev_c02_koduck_02:
+	_VOICE_PLAY		MONSNO_KODAKKU,0
+	_TALKMSG		msg_c02_koduck_02
+	_JUMP			common_c02_l02_news_end
+
+
+/********************************************************************/
+/*							洋風爺さん								*/
+/********************************************************************/
+ev_c02_oldman2:
+	_TALK_OBJ_START
+
+	/*地震発生後～次のイベントが起きるまで*/
+	_IF_FLAGON_JUMP	FE_L02_NEWS,ev_c02_oldman2_02
+
+	_TALKMSG		msg_c02_oldman2_01
+	_JUMP			common_c02_l02_news_end
+
+/*地震発生後～次のイベントが起きるまで*/
+ev_c02_oldman2_02:
+	_TALKMSG		msg_c02_oldman2_02
+	_JUMP			common_c02_l02_news_end
+
+
+/********************************************************************/
+/*							タウンマップ							*/
+/********************************************************************/
+ev_c02_sign1:
+	_EASY_BOARD_MSG	msg_c02_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+
+/********************************************************************/
+/*							掲示板(ジム)							*/
+/********************************************************************/
+ev_c02_sign2:
+	_EASY_INFOBOARD_MSG	msg_c02_sign2_01,BOARD_TYPE_INFO,0
+	_END
+	
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c02_sign3:
+	_EASY_BOARD_MSG	msg_c02_sign3_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c02_sign4:
+	_EASY_BOARD_MSG	msg_c02_sign4_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c02_sign5:
+	_EASY_BOARD_MSG	msg_c02_sign5_01,BOARD_TYPE_POST,0
+	_END
+
+/********************************************************************/
+/*							掲示板									*/
+/********************************************************************/
+ev_c02_sign6:
+	/*c02r0104の民家(波止場の宿)に入れないとき*/
+	/*入ればLOCALWORK0に1,入れなければ0が返る*/
+	_CALL			ev_c02_check_c02r0401_entry
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,ev_c02_sign6_02
+
+	//入れるときだけの特別メッセージ
+	_EASY_INFOBOARD_MSG	msg_c02_sign6_02,BOARD_TYPE_INFO,0
+	_END
+
+/*メンバーズカードをもっていない時*/
+ev_c02_sign6_02:
+	_EASY_INFOBOARD_MSG	msg_c02_sign6_01,BOARD_TYPE_INFO,0
+	_END
+
+/********************************************************************/
+/*							ドア									*/
+/********************************************************************/
+ev_c02_door:
+	_EASY_MSG		msg_c02_door_01
+	_END
+
+
+#define BLOCK_SIZE	(32)
+
+/********************************************************************/
+/*						船の船員									*/
+/********************************************************************/
+ev_c02_ship:
+	_TALK_OBJ_START
+	/*話しかけ向きを取得*/
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	//船員振り向き
+	_TURN_HERO_SITE
+	
+	/*ムーバス悪夢イベント中なら*/
+	_IFVAL_JUMP			WK_SCENE_C02R0501,EQ,2,ev_c02_seaman_event_a
+	
+	_TALK_KEYWAIT		msg_c02_seaman_01
+	
+	/*メニュー*/
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ship_01,0					//こうてつじま
+
+	/*ムーバスイベント開始していたら*/
+	_IF_FLAGON_CALL	FE_D15_UNSEAL,ev_c02_ship_03
+
+	/*ダークイベント開始していたら*/
+	_IF_FLAGON_CALL	FE_C02R0401_START,ev_c02_ship_04
+
+	_BMPMENU_MAKE_LIST	msg_ship_06,4					//やめる
+	_BMPMENU_START
+	
+	/*選択詩を出す*/
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,0,ev_c02_ship_in1
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,1,ev_c02_ship_in2
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,2,ev_c02_ship_in3
+	_IFVAL_JUMP  SCWK_ANSWER,EQ,3,ev_c02_ship_end
+	_JUMP		ev_c02_ship_end							/*やめる・キャンセル*/
+	_END
+
+/*ダークイベント開始していたら*/
+ev_c02_ship_04:
+	_BMPMENU_MAKE_LIST	msg_ship_03,2					//しんげつじま
+	_RET
+
+/*ムーバスイベント開始していたら*/
+ev_c02_ship_03:
+	_BMPMENU_MAKE_LIST	msg_ship_02,1					//まんげつじま
+	_RET
+
+
+//====================================================================
+//
+//		こうてつじま
+//
+//====================================================================
+ev_c02_ship_in1:
+	/*船員船へ*/
+	_CALL	ev_c02_seaman02_ship_in
+	/*主人公向きで分岐*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_DOWN,ev_c02_player_ship_in_d	/*主人公移動（下→右→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_RIGHT,ev_c02_player_ship_in_r	/*主人公移動（右→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_UP,ev_c02_player_ship_in_u	/*主人公移動（上→右→消える）*/
+	/*船デモ*/
+	_CALL_SHIP_DEMO	SHIP_DIR_UP,DIR_RIGHT,ZONE_ID_D24,BLOCK_SIZE*3+4,BLOCK_SIZE*15+22
+	_TALK_OBJ_END
+	_END
+	
+//====================================================================
+//
+//		まんげつじま(ムーバス)
+//
+//====================================================================
+ev_c02_ship_in2:
+	/*船員船へ*/
+	_CALL	ev_c02_seaman02_ship_in
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_DOWN,ev_c02_player_ship_in_d	/*主人公移動（下→右→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_RIGHT,ev_c02_player_ship_in_r	/*主人公移動（右→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_UP,ev_c02_player_ship_in_u	/*主人公移動（上→右→消える）*/
+	/*船デモ*/
+	_CALL_SHIP_DEMO	SHIP_DIR_UP,DIR_LEFT,ZONE_ID_D15,BLOCK_SIZE*1+7,BLOCK_SIZE*8+21
+	_TALK_OBJ_END
+	_END
+
+//====================================================================
+//
+//		しんげつじま（ダーク）
+//
+//====================================================================
+ev_c02_ship_in3:
+	/*船員船へ*/
+	_CALL	ev_c02_seaman02_ship_in
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_DOWN,ev_c02_player_ship_in_d	/*主人公移動（下→右→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_RIGHT,ev_c02_player_ship_in_r	/*主人公移動（右→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_UP,ev_c02_player_ship_in_u	/*主人公移動（上→右→消える）*/
+	/*船デモ*/
+	_CALL_SHIP_DEMO	SHIP_DIR_UP,DIR_RIGHT,ZONE_ID_D30,BLOCK_SIZE*4+24,BLOCK_SIZE*8+21
+	_TALK_OBJ_END
+	_END
+
+//====================================================================
+//
+//		船処理終わり
+//
+//====================================================================
+ev_c02_ship_end:
+	//そうかい　気が向いたら
+	_TALK_KEYWAIT	msg_c02_seaman_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//====================================================================
+//
+//		船員船に入る
+//
+//====================================================================
+ev_c02_seaman02_ship_in:
+	//じゃ　いくぜ
+	_TALK_KEYWAIT	msg_c02_seaman_02
+	_TALK_CLOSE
+
+	_OBJ_ANIME		C02_SEAMAN_02,anm_c02_ship_seaman_02
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		C02_SEAMAN_02,anm_c02_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+
+//====================================================================
+//
+//		主人公船に入る（下向き）
+//
+//====================================================================
+ev_c02_player_ship_in_d:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02_ship_player_d
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//====================================================================
+//
+//		主人公船に入る（右向き）
+//
+//====================================================================
+ev_c02_player_ship_in_r:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02_ship_player_r
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//====================================================================
+//
+//		主人公船に入る（上向き）
+//
+//====================================================================
+ev_c02_player_ship_in_u:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02_ship_player_u
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//--------------------------------------------------------------------
+//船員　船のほう向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c02_ship_seaman_02
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//船員・主人公　船に入る（消える）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c02_ship_vanish_in
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公　船に入る（下向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c02_ship_player_d
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//主人公　船に入る（右向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c02_ship_player_r
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//主人公　船に入る（上向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c02_ship_player_u
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+		
+/********************************************************************/
+/*					悪夢イベント時の船員(会話)						*/
+/********************************************************************/
+
+/*ジャンプで呼ばれる*/
+ev_c02_seaman_event_a:
+	/*みかづきのはねを持っているとき*/
+	_ITEM_CHK		ITEM_MIKADUKINOHANE,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c02_seaman_a_02
+
+	_TALKMSG		msg_c02_seaman_a_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_c02_seaman_a_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c02_seaman_a_01
+	_END
+
+/*「はい」*/
+yes_c02_seaman_a_01:
+	_TALK_KEYWAIT	msg_c02_seaman_a_02
+	_TALK_CLOSE
+
+	/*乗船デモ*/
+	_JUMP			ev_c02_ship_in2
+
+/*「いいえ」*/
+no_c02_seaman_a_01:
+	_TALKMSG		msg_c02_seaman_a_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+/* みかづきの羽根を持っている状態では船はでない*/
+ev_c02_seaman_a_02:
+	_TALKMSG		msg_c02_seaman_a_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*					ダークイベント後の船員(強制)					*/
+/********************************************************************/
+ev_c02_seaman_event_b:
+	_EVENT_START
+
+	/*近づいてくる*/
+	_OBJ_ANIME		C02_SEAMAN_02,anm_c02_seaman_50
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c02_seaman_a_04
+	_TALK_CLOSE
+
+	/*去っていく*/
+	_OBJ_ANIME		C02_SEAMAN_02,anm_c02_seaman_51
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C02_SEAMAN_02
+
+	/*バニッシュフラグはついていないが、大丈夫なはず*/
+	_SXY_POS_CHANGE	C02_SEAMAN_02,45,750
+	_SXY_DIR_CHANGE	C02_SEAMAN_02,DIR_LEFT
+	_SXY_MV_CHANGE	C02_SEAMAN_02,MV_LEFT
+	_OBJ_ADD		C02_SEAMAN_02
+
+	_LDVAL		WK_SCENE_C02R0401,4
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//船員　近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c02_seaman_50
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//船員　去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c02_seaman_51
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/********************************************************************/

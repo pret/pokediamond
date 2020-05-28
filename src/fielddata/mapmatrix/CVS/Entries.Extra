@@ -1,0 +1,13 @@
+/.cvsignore////*///
+/MapMatrix.exe////*///
+/excel_conv.bat////*///
+/land_list_path////*///
+/listmk.rb////*///
+/make_land_list.rb////*///
+/makefile////*///
+/map_matrix.bat////*///
+/map_matrix.narc////*///
+/map_matrix.xls////*///
+/map_matrix_id.h////*///
+/out_of_range////*///
+/zone_id_path////*///

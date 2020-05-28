@@ -1,0 +1,714 @@
+//====================================================================
+//								c02r0103
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c02r0103.h"
+	.include	"../eventdata/zone_c02r0103evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c02r0103_flag_change
+_EVENT_DATA		ev_c02r0103_rival
+_EVENT_DATA		ev_c02r0103_assistantw
+_EVENT_DATA		ev_c02r0103_boy2
+_EVENT_DATA		ev_c02r0103_books1
+_EVENT_DATA		ev_c02r0103_books2
+_EVENT_DATA		ev_c02r0103_books3
+_EVENT_DATA		ev_c02r0103_books4
+_EVENT_DATA		ev_c02r0103_books5
+_EVENT_DATA		ev_c02r0103_books6
+_EVENT_DATA		ev_c02r0103_books7
+_EVENT_DATA		ev_c02r0103_poster
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c02r0103_flag_change:
+	//WKOBJCHRにサポートのキャラコードをセットする
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,c02r0103_male_flag_change_01	//サポート女
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,c02r0103_female_flag_change_01	//サポート男
+	_END
+
+c02r0103_male_flag_change_01:	//サポート女
+	_LDVAL			OBJCHRWORK0,HEROINE
+	_END
+
+c02r0103_female_flag_change_01:	//サポート男
+	_LDVAL			OBJCHRWORK0,HERO
+	_END
+
+
+/********************************************************************/
+/*							ライバル								*/
+/********************************************************************/
+ev_c02r0103_rival:
+	_EVENT_START
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c02r0103_rival_01
+	_TALK_CLOSE
+
+	//連れてけ曲にする？
+
+	//所定の位置に移動
+	_OBJ_ANIME		C02R0103_RIVAL,anm_c02r0103_rival_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02r0103_player_01
+	_OBJ_ANIME_WAIT
+
+	//カメラ移動
+	//中心に移動する
+	_PLAYER_POS_GET			SCWK_TEMP0,SCWK_TEMP1
+	_VANISH_DUMMY_OBJ_ADD	SCWK_TEMP0,SCWK_TEMP1
+
+	//ダミーOBJを動かす
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_c02r0103_dummy_01
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c02r0103_rival_02
+	_TALK_CLOSE
+
+	//ライバル立ち去ろうとする
+	_OBJ_ANIME		C02R0103_RIVAL,anm_c02r0103_rival_00
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c02r0103_doctor_01
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_c02r0103_rival_05
+	_TALK_CLOSE
+
+	//ライバル戻ってくる
+	_OBJ_ANIME		C02R0103_RIVAL,anm_c02r0103_rival_80
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		10,SCWK_ANSWER
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c02r0103_doctor_01a
+	_TALK_CLOSE
+
+	_OBJ_ANIME		C02R0103_DOCTOR,anm_c02r0103_doctor_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c02r0103_doctor_02
+	_TALK_CLOSE
+	
+	//主人公達の方を向く
+	_OBJ_ANIME		C02R0103_DOCTOR,anm_c02r0103_doctor_02
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c02r0103_doctor_03
+
+	//ライバル「なんだよ！・・・」
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_c02r0103_rival_03
+
+	//ナナカマド「おまえは・・・」
+	_TALK_KEYWAIT	msg_c02r0103_doctor_04
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02r0103_male_doctor_01	//サポート女
+	_JUMP			c02r0103_female_doctor_01					//サポート男
+	_END
+
+//サポート女
+c02r0103_male_doctor_01:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c02r0103_heroine_01
+	_JUMP			common_c02r0103_doctor_10
+	_END
+
+//サポート男
+c02r0103_female_doctor_01:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c02r0103_hero_01
+	_JUMP			common_c02r0103_doctor_10
+	_END
+
+//====================================================================
+/*サポートに頼む*/
+//====================================================================
+common_c02r0103_doctor_10:
+	/*ナナカマド「うむう！・・・」*/
+	_TALK_KEYWAIT	msg_c02r0103_doctor_05
+	_TALK_CLOSE
+
+	/*博士　サポートの前に移動*/
+	_OBJ_ANIME		C02R0103_DOCTOR,anm_c02r0103_doctor_03
+	_OBJ_ANIME		C02R0103_SUPPORT,anm_c02r0103_support_300
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02r0103_male_doctor_02	//サポート女
+	_JUMP			c02r0103_female_doctor_02					//サポート男
+	_END
+
+//サポート女
+c02r0103_male_doctor_02:
+	_TALK_KEYWAIT	msg_c02r0103_doctor_06
+
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_c02r0103_heroine_02
+	_JUMP			common_c02r0103_doctor_20
+	_END
+
+//サポート男
+c02r0103_female_doctor_02:
+	_TALK_KEYWAIT	msg_c02r0103_doctor_07
+
+	_SUPPORT_NAME	0
+	_TALK_KEYWAIT	msg_c02r0103_hero_02
+	_JUMP			common_c02r0103_doctor_20
+	_END
+
+//====================================================================
+/*ライバルに頼む*/
+//====================================================================
+common_c02r0103_doctor_20:
+	_TALK_CLOSE
+
+	/*博士　ライバルの前に移動*/
+	_OBJ_ANIME		C02R0103_DOCTOR,anm_c02r0103_doctor_04
+	_OBJ_ANIME		C02R0103_SUPPORT,anm_c02r0103_support_400
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_c02r0103_doctor_08
+	_TALK_CLOSE
+
+	_OBJ_ANIME		C02R0103_RIVAL,anm_c02r0103_rival_400
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c02r0103_rival_04
+	_TALK_CLOSE
+
+	_OBJ_ANIME		C02R0103_RIVAL,anm_c02r0103_rival_401
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c02r0103_doctor_09
+	_TALK_CLOSE
+
+	//地震発生！
+	_SE_WAIT		SEQ_SE_DP_SELECT
+	_ZISHIN			1
+
+	_TALK_KEYWAIT	msg_c02r0103_doctor_10
+	_TALK_CLOSE
+
+	/*主人公以外は画面外に退場*/
+	_OBJ_ANIME		C02R0103_SUPPORT,anm_c02r0103_support_01
+	_OBJ_ANIME		C02R0103_RIVAL,anm_c02r0103_rival_02
+	_OBJ_ANIME		C02R0103_DOCTOR,anm_c02r0103_doctor_06
+	_OBJ_ANIME		SCR_OBJID_DUMMY,anm_c02r0103_dummy_02	//ダミーOBJを動かす
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C02R0103_RIVAL
+	_OBJ_DEL		C02R0103_SUPPORT
+
+	//カメラ移動
+	//ダミーOBJ削除
+	_VANISH_DUMMY_OBJ_DEL
+
+	/*上を向く*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c02r0103_player_07
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c02r0103_doctor_11
+	_TALK_CLOSE
+
+	/*博士退場*/
+	_SE_STOP		SEQ_SE_DP_SELECT
+	_OBJ_ANIME		C02R0103_DOCTOR,anm_c02r0103_doctor_07
+	_OBJ_ANIME_WAIT
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		C02R0103_DOCTOR
+	_SE_STOP		SEQ_SE_DP_KAIDAN2
+
+	_LDVAL			WK_SCENE_C02,4
+	_LDVAL			WK_SCENE_C02R0103,2
+	_FLAG_SET		FE_L02_NEWS
+	_FLAG_SET		FV_L02_GINGAM			/*ストッパー削除*/
+	_FLAG_RESET		FV_C02_DOCTOR
+	_FLAG_RESET		FV_C02_SUPPORT
+	_FLAG_RESET		FV_C02_RIVAL
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_player_07
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	うろうろ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_doctor_01
+	_ANIME_DATA	AC_WALK_R_16F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	席につく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_doctor_02
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*博士	サポートの前に移動する*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_doctor_03
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*博士	ライバルの前に移動する*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_doctor_04
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*博士	外へ移動*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_doctor_06
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,5
+	_ANIME_DATA	AC_WALK_L_8F,5
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+/*博士	外へ移動*/
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_doctor_07
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	所定の位置へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_player_01
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ダミーOBJ	中心へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_dummy_01
+	_ANIME_DATA	AC_WALK_R_16F,3
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c02r0103_dummy_02
+	_ANIME_DATA	AC_WALK_L_16F,3
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	立ち去ろうとする
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_rival_00
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	席につく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_rival_80
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	所定の位置へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_rival_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	外へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_rival_02
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	AC_WALK_L_4F,4
+	_ANIME_DATA	AC_WALK_U_4F,2
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	てれる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_rival_400
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c02r0103_rival_401
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	外へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_support_01
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,5
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	博士の方を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_support_300
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	元の向きにする
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0103_support_400
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							助手♀									*/
+/********************************************************************/
+ev_c02r0103_assistantw:
+	_TALK_OBJ_START
+
+	/*地震発生後～次のイベントが起きるまで*/
+	_IF_FLAGON_JUMP	FE_L02_NEWS,ev_c02r0103_assistantw_02
+
+	_TALKMSG	msg_c02r0103_assistantw_01
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*地震発生後～次のイベントが起きるまで*/
+ev_c02r0103_assistantw_02:
+	_TALKMSG	msg_c02r0103_assistantw_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							活発少年								*/
+/********************************************************************/
+ev_c02r0103_boy2:
+	_TALK_OBJ_START
+
+	/*地震発生後～次のイベントが起きるまで*/
+	_IF_FLAGON_JUMP	FE_L02_NEWS,ev_c02r0103_boy2_02
+
+	_TALKMSG	msg_c02r0103_boy2_01
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*地震発生後～次のイベントが起きるまで*/
+ev_c02r0103_boy2_02:
+	_TALKMSG	msg_c02r0103_boy2_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_c02r0103_books1:
+	_TALK_START
+
+	_TALKMSG		msg_c02r0103_books1_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02r0103_books1_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books1_02
+	_END
+
+c02r0103_books1_02:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c02r0103_books1_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+c02r0103_books1_03:
+	_TALKMSG		msg_c02r0103_books1_03
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_c02r0103_books2:
+	_TALK_START
+
+	_TALKMSG		msg_c02r0103_books2_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02r0103_books2_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books2_02
+	_END
+
+c02r0103_books2_02:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c02r0103_books2_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+c02r0103_books2_03:
+	_TALKMSG		msg_c02r0103_books2_03
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_c02r0103_books3:
+	_TALK_START
+
+	_TALKMSG		msg_c02r0103_books3_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02r0103_books3_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books3_02
+	_END
+
+c02r0103_books3_02:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c02r0103_books3_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+c02r0103_books3_03:
+	_TALKMSG		msg_c02r0103_books3_03
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_c02r0103_books4:
+	_TALK_START
+
+	_TALKMSG		msg_c02r0103_books4_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02r0103_books4_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books4_02
+	_END
+
+c02r0103_books4_02:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c02r0103_books4_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+c02r0103_books4_03:
+	_TALKMSG		msg_c02r0103_books4_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books4_02
+	
+	_TALKMSG		msg_c02r0103_books4_04
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books4_02
+	
+	_TALKMSG		msg_c02r0103_books4_05
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_c02r0103_books5:
+	_TALK_START
+
+	_TALKMSG		msg_c02r0103_books5_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02r0103_books5_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books5_02
+	_END
+
+c02r0103_books5_02:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c02r0103_books5_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+c02r0103_books5_03:
+	_TALKMSG		msg_c02r0103_books5_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books5_02
+
+	_TALKMSG		msg_c02r0103_books5_04
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books5_02
+	
+	_TALKMSG		msg_c02r0103_books5_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_c02r0103_books6:
+	_TALK_START
+
+	_TALKMSG		msg_c02r0103_books6_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c02r0103_books6_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c02r0103_books6_02
+	_END
+
+c02r0103_books6_02:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c02r0103_books6_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+c02r0103_books6_03:
+	_TALKMSG		msg_c02r0103_books6_03
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_c02r0103_books7:
+	_TALK_START
+
+	_TALKMSG		msg_c02r0103_books7_01
+	_TALKMSG		msg_c02r0103_books7_02
+
+	_BMPMENU_INIT			1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST16	msg_library_01,0			//その１
+	_BMPMENU_MAKE_LIST16	msg_library_02,1			//その２
+	_BMPMENU_MAKE_LIST16	msg_library_03,2			//その３
+	_BMPMENU_MAKE_LIST16	msg_library_04,3			//やめる
+	_BMPMENU_START
+	
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,ev_c02r0103_books7_1
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,1,ev_c02r0103_books7_2
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,2,ev_c02r0103_books7_3
+	_JUMP					ev_c02r0103_books7_cancel
+	_END
+
+ev_c02r0103_books7_1:
+	_TALKMSG				msg_c02r0103_books7_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_c02r0103_books7_2:
+	_TALKMSG				msg_c02r0103_books7_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_c02r0103_books7_3:
+	_TALKMSG				msg_c02r0103_books7_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+ev_c02r0103_books7_cancel:
+	_PLAYER_NAME			0
+	_TALKMSG				msg_c02r0103_books7_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							本棚									*/
+/********************************************************************/
+ev_c02r0103_poster:
+	_EASY_MSG		msg_c02r0103_poster_01
+	_END
+
+

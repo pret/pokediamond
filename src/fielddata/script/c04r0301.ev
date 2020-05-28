@@ -1,0 +1,269 @@
+//====================================================================
+//						c04r0301
+//						姓名判断士
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c04r0301.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_namechange
+_EVENT_DATA		ev_c04r0301_babyboy1
+_EVENT_DATA		ev_c04r0301_middleman1
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+//							姓名判断士
+//
+//	SCWK_TEMP0	選んだポケモンの位置
+/********************************************************************/
+ev_namechange:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_namechange_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_namechange_yes_01
+	_JUMP			ev_namechange_no_01
+	_END
+
+//占う「はい」
+ev_namechange_yes_01:
+	_TALK_KEYWAIT		msg_namechange_02
+//	_TIME_WAIT		30,SCWK_ANSWER			//060720玉田さんから"_AB_KEYWAIT"に変更指示。松宮さんも了承
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	//ポケモン選択
+	_POKELIST_SET_PROC
+	//選択したポケモンの並び番号取得
+	_POKELIST_GET_RESULT	SCWK_ANSWER
+	_SET_MAP_PROC
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルされた？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0xff,ev_namechange_no_01
+
+	//計算用にANSを使用するので１へ保存
+	_LDWK			SCWK_TEMP1,SCWK_ANSWER
+
+	//選んだポケモンがタマゴだったかチェック（＋ポケモン番号へ変換）
+	_TEMOTI_MONSNO	SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_namechange_tamago
+
+	//選んだポケモンが他人のポケモンだった
+	_MONS_OWN_CHK	SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_namechange_other
+
+	//選んだ
+	_NICK_NAME		0,SCWK_TEMP1
+	_TALKMSG		msg_namechange_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_namechange_yes_02
+	_JUMP			ev_namechange_no_01
+	_END
+
+//「いいえ」
+ev_namechange_no_01:
+	_TALKMSG	msg_namechange_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//タマゴ
+ev_namechange_tamago:
+	_TALKMSG	msg_namechange_09
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//他人のポケモン
+ev_namechange_other:
+	_NICK_NAME		0,SCWK_TEMP1
+	_TALKMSG	msg_namechange_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//変更する「はい」
+ev_namechange_yes_02:
+	_TALK_KEYWAIT	msg_namechange_04
+//	_TIME_WAIT		30,SCWK_ANSWER			//060720玉田さんから"_AB_KEYWAIT"に変更指示。松宮さんも了承
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	//名前入力結果取得ワークをクリア
+	_LDVAL			SCWK_ANSWER,0
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//名前入力
+	_NAMEIN_POKE	SCWK_TEMP1,SCWK_ANSWER
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//何も入力していない、変更していない時
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_namechange_no_02
+
+	//変更した！
+	//テレビトピック「姓名判断」生成
+	_TV_ENTRY_WATCH_CHANGE_NAME		SCWK_TEMP1
+	_NICK_NAME		0,SCWK_TEMP1
+	_TALKMSG	msg_namechange_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//何も入力していない、変更していない時
+ev_namechange_no_02:
+	_NICK_NAME		0,SCWK_TEMP1
+	_TALKMSG	msg_namechange_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							少年									*/
+//
+//	SCWK_TEMP0	手持ち位置
+//	SCWK_TEMP1	手持ち位置のポケモンナンバー
+//
+/********************************************************************/
+ev_c04r0301_babyboy1:
+	_TALK_OBJ_START
+
+	//交換済み
+	_IF_FLAGON_JUMP	FE_C04R0301_POKE_CHG,ev_pokechange_c04r0301_babyboy1_end
+
+	_TALKMSG		msg_c04r0301_babyboy1_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_pokechange_c04r0301_babyboy1_yes_01
+	_JUMP			ev_pokechange_c04r0301_babyboy1_no_01
+	_END
+
+//「はい」
+ev_pokechange_c04r0301_babyboy1_yes_01:
+	_TALK_CLOSE
+
+	//ポケモン選択
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_NPC_TRADE_POKELIST_SET_PROC
+	//選択したポケモンの並び番号取得
+	_POKELIST_GET_RESULT	SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルされた？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0xff,ev_pokechange_c04r0301_babyboy1_no_01
+
+	/*開放必要なので忘れずに！*/
+	_FLD_TRADE_ALLOC	FLD_TRADE_PERAPPU
+
+	/*手持ちナンバー退避*/
+	_LDWK				SCWK_TEMP0,SCWK_ANSWER
+
+	/*手持ちナンバーから、ポケモンナンバー取得*/
+	_TEMOTI_MONSNO		SCWK_TEMP0,SCWK_TEMP1
+
+	/*要求されているポケモンナンバーを取得*/
+	_FLD_TRADE_CHG_MONSNO	SCWK_ANSWER
+
+	/*要求されているポケモンを選択したかチェック*/
+	//_IFVAL_JUMP	SCWK_TEMP1,NE,SCWK_ANSWER,ev_pokechange_c04r0301_babyboy1_different
+	_IFWK_JUMP		SCWK_TEMP1,NE,SCWK_ANSWER,ev_pokechange_c04r0301_babyboy1_different
+
+	/*ポケモン交換デモ*/
+	_FLD_TRADE_EVENT	SCWK_TEMP0
+
+	/*開放*/
+	_FLD_TRADE_DEL
+
+	_FLAG_SET		FE_C04R0301_POKE_CHG
+
+	_TALKMSG	msg_c04r0301_babyboy1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//違うポケモン
+ev_pokechange_c04r0301_babyboy1_different:
+	/*開放*/
+	_FLD_TRADE_DEL
+
+	_TALKMSG	msg_c04r0301_babyboy1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「いいえ」
+ev_pokechange_c04r0301_babyboy1_no_01:
+	_TALKMSG	msg_c04r0301_babyboy1_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//交換終了後
+ev_pokechange_c04r0301_babyboy1_end:
+	_TALKMSG	msg_c04r0301_babyboy1_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							和風爺さん								*/
+/********************************************************************/
+ev_c04r0301_middleman1:
+	_TALK_OBJ_START
+
+	/*時間帯によって分岐*/
+	_GET_TIME_ZONE	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TIMEZONE_MIDNIGHT,ev_c04r0301_middleman1_02
+	_JUMP			ev_c04r0301_middleman1_01
+	_END
+
+/*それ以外*/
+ev_c04r0301_middleman1_01:
+	_TALKMSG		msg_c04r0301_middleman1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*深夜*/
+ev_c04r0301_middleman1_02:
+	_TALKMSG		msg_c04r0301_middleman1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

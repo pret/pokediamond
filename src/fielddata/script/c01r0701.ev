@@ -1,0 +1,449 @@
+//====================================================================
+//							シティ０１
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0701.h"
+	.include	"../eventdata/zone_c01r0701evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01r0701_rival
+_EVENT_DATA		ev_c01r0701_woman3
+_EVENT_DATA		ev_c01r0701_babygirl1
+_EVENT_DATA		ev_c01r0701_boy2
+_EVENT_DATA		ev_c01r0701_boy2a
+_EVENT_DATA		ev_c01r0701_girl1
+_EVENT_DATA		ev_c01r0701_boy1
+_EVENT_DATA		ev_c01r0701_boy1b
+_EVENT_DATA		ev_c01r0701_trainer_boy
+_EVENT_DATA		ev_c01r0701_trainer_girl3
+_EVENT_DATA		ev_c01r0701_board
+_EVENT_DATA		ev_c01r0701_notebook
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0701_rival:
+	_TALK_OBJ_START
+
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_TALK_KEYWAIT	msg_c01r0701_rival_01
+
+	_ME_PLAY		SEQ_FANFA4
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c01r0701_rival_02
+	_ME_WAIT
+	_SUB_ITEM		ITEM_OTODOKEMONO,1,SCWK_ANSWER
+
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_TALK_KEYWAIT	msg_c01r0701_rival_03
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_TAUNMAPPU
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_RIVAL_NAME		1
+	_TALK_KEYWAIT	msg_c01r0701_rival_04
+	_TALK_CLOSE
+
+	//主人公の向き取得
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		DIR_UP,ev_c01r0701_player_dir_up
+	//_CASE_JUMP	DIR_DOWN,ev_c01r0701_player_dir_down
+	_CASE_JUMP		DIR_LEFT,ev_c01r0701_player_dir_left
+	_JUMP			ev_c01r0701_player_dir_right
+	_END
+
+/*ライバル去っていく*/
+ev_c01r0701_player_dir_up:
+	_OBJ_ANIME		C01R0701_RIVAL,anm_c01r0701_rival_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01r0701_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c01r0701_player_dir
+	_END
+
+ev_c01r0701_player_dir_left:
+	_OBJ_ANIME		C01R0701_RIVAL,anm_c01r0701_rival_03
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01r0701_player_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c01r0701_player_dir
+	_END
+
+ev_c01r0701_player_dir_right:
+	_OBJ_ANIME		C01R0701_RIVAL,anm_c01r0701_rival_03
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01r0701_player_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c01r0701_player_dir
+	_END
+
+/*共通処理*/
+common_c01r0701_player_dir:
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		C01R0701_RIVAL
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+
+	_LDVAL			WK_SCENE_C01_RIVAL,1
+	_FLAG_SET		FE_TOWNMAP_GET
+	_FLAG_RESET		FV_C01_POKETCH
+	_FLAG_RESET		FV_C01_CROWN
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c01r0701_rival_01
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_D_4F,8
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c01r0701_rival_03
+	_ANIME_DATA	AC_WALK_D_4F,4
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_D_4F,4
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c01r0701_player_01
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c01r0701_player_03
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0701_woman3:
+	_EASY_OBJ_MSG	msg_c01r0701_woman3_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0701_babygirl1:
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0701_boy2:
+	_EASY_OBJ_MSG	msg_c01r0701_boy2_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0701_boy2a:
+	_EASY_OBJ_MSG	msg_c01r0701_boy2a_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0701_girl1:
+	_EASY_OBJ_MSG	msg_c01r0701_girl1_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0701_boy1:
+	//_EASY_OBJ_MSG	msg_c01r0701_boy1_a_01
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c01r0701_boy1b:
+	//_EASY_OBJ_MSG	msg_c01r0701_boy1_b_01
+	_END
+
+
+/********************************************************************/
+/*							トレーナー								*/
+/********************************************************************/
+ev_c01r0701_trainer_boy:
+	_TALK_OBJ_START
+
+	/*アイテム入手後*/
+	_IF_FLAGON_JUMP	FE_C01R0701_ITEM_GET,ev_c01r0701_trainer_boy_after
+
+	/*すでに勝利しているとき*/
+	_IF_FLAGON_JUMP	FE_C01R0701_BOY_WIN,ev_c01r0701_trainer_boy_win
+
+	_TALKMSG		msg_c01r0701_trainer_boy_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_c01r0701_trainer_boy_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c01r0701_trainer_boy_01
+	_END
+
+yes_c01r0701_trainer_boy_01:
+	_TALK_KEYWAIT	msg_c01r0701_trainer_boy_02
+	_TALK_CLOSE
+
+	_TRAINER_BTL_SET	SCHOOLB_04,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0701_trainer_boy_battle_lose
+
+	_FLAG_SET		FE_C01R0701_BOY_WIN
+
+	/*勝利状況を見て分岐*/
+	_IF_FLAGON_JUMP		FE_C01R0701_GIRL_WIN,ev_c01r0701_trainer_boy_item_get
+	_IF_FLAGOFF_JUMP	FE_C01R0701_GIRL_WIN,ev_c01r0701_trainer_boy_item_nothing
+	_END
+
+/*一人しか勝利していないのでメッセージを表示*/
+ev_c01r0701_trainer_boy_item_nothing:
+	_TALK_KEYWAIT	msg_c01r0701_trainer_boy_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*二人に勝利しているので技マシンが入手できる*/
+ev_c01r0701_trainer_boy_item_get:
+	_TALK_KEYWAIT	msg_c01r0701_trainer_boy_05
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_WAZAMASIN10
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c01r0701_trainer_boy_item_event_fail
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C01R0701_ITEM_GET
+
+	_JUMP			ev_c01r0701_trainer_boy_after
+	_END
+	
+/*アイテム入手後*/
+ev_c01r0701_trainer_boy_after:
+	_TALKMSG		msg_c01r0701_trainer_boy_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*アイテム取得失敗*/
+ev_c01r0701_trainer_boy_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+
+	/******************************************/
+	//
+	//共通スクリプトがラストかの判定ができない
+	//
+	/******************************************/
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*すでに勝利しているとき*/
+ev_c01r0701_trainer_boy_win:
+
+	/*女トレーナーにも勝利していたら*/
+	_IF_FLAGON_JUMP		FE_C01R0701_GIRL_WIN,ev_c01r0701_trainer_boy_item_get
+
+	_TALKMSG		msg_c01r0701_trainer_boy_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「いいえ」*/
+no_c01r0701_trainer_boy_01:
+	_TALKMSG		msg_c01r0701_trainer_boy_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_c01r0701_trainer_boy_battle_lose:
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+/********************************************************************/
+/*							トレーナー								*/
+/********************************************************************/
+ev_c01r0701_trainer_girl3:
+	_TALK_OBJ_START
+
+	/*すでに勝利している*/
+	_IF_FLAGON_JUMP	FE_C01R0701_GIRL_WIN,ev_c01r0701_trainer_girl3_win
+
+	_TALKMSG		msg_c01r0701_trainer_girl3_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_c01r0701_trainer_girl3_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c01r0701_trainer_girl3_01
+	_END
+
+yes_c01r0701_trainer_girl3_01:
+	_TALK_KEYWAIT	msg_c01r0701_trainer_girl3_02
+	_TALK_CLOSE
+
+	_TRAINER_BTL_SET	SCHOOLG_04,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0701_trainer_girl3_battle_lose
+
+	_FLAG_SET		FE_C01R0701_GIRL_WIN
+
+	_IF_FLAGON_JUMP		FE_C01R0701_BOY_WIN,ev_c01r0701_trainer_girl3_item_get
+	_IF_FLAGOFF_JUMP	FE_C01R0701_BOY_WIN,ev_c01r0701_trainer_girl3_item_nothing
+	_END
+
+/*すでに勝利している*/
+ev_c01r0701_trainer_girl3_win:
+	_TALKMSG		msg_c01r0701_trainer_girl3_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「いいえ」*/
+no_c01r0701_trainer_girl3_01:
+	_TALKMSG		msg_c01r0701_trainer_girl3_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*一人しか勝利していないのでメッセージを表示*/
+ev_c01r0701_trainer_girl3_item_nothing:
+	_TALKMSG		msg_c01r0701_trainer_girl3_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*二人に勝利しているので技マシンが入手できる*/
+ev_c01r0701_trainer_girl3_item_get:
+
+	/*すでに技マシンを入手していたら*/
+	_IF_FLAGON_JUMP	FE_C01R0701_ITEM_GET,ev_c01r0701_trainer_girl3_item_nothing
+
+	_TALKMSG		msg_c01r0701_trainer_girl3_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_c01r0701_trainer_girl3_battle_lose:
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+
+/********************************************************************/
+/*								黒板								*/
+/********************************************************************/
+ev_c01r0701_board:
+	_TALK_START
+
+	_TALK_KEYWAIT	msg_c01r0701_board_01
+	_JUMP			ev_c01r0701_board_02
+	_END
+
+ev_c01r0701_board_02:
+	_TALKMSG		msg_c01r0701_board_02
+
+	//リスト
+	_BMPMENU_INIT		9,2,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_001,0			//どく
+	_BMPMENU_MAKE_LIST	msg_ev_win_002,1			//まひ
+	_BMPMENU_MAKE_LIST	msg_ev_win_003,2			//ねむり
+	_BMPMENU_MAKE_LIST	msg_ev_win_004,3			//やけど
+	_BMPMENU_MAKE_LIST	msg_ev_win_005,4			//ねむり
+	_BMPMENU_MAKE_LIST	msg_ev_win_006,5			//やめる
+	_BMPMENU_HV_START	2	//注意！　縦横選択
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_c01r0701_board_select_00	//
+	_CASE_JUMP		1,ev_c01r0701_board_select_01	//
+	_CASE_JUMP		2,ev_c01r0701_board_select_02	//
+	_CASE_JUMP		3,ev_c01r0701_board_select_03	//
+	_CASE_JUMP		4,ev_c01r0701_board_select_04	//
+	_JUMP			ev_c01r0701_board_select_05
+	_END
+
+ev_c01r0701_board_select_00:
+	_TALK_KEYWAIT	msg_c01r0701_board_03
+	_JUMP			ev_c01r0701_board_02
+	_END
+
+ev_c01r0701_board_select_01:
+	_TALK_KEYWAIT	msg_c01r0701_board_04
+	_JUMP			ev_c01r0701_board_02
+	_END
+
+ev_c01r0701_board_select_02:
+	_TALK_KEYWAIT	msg_c01r0701_board_05
+	_JUMP			ev_c01r0701_board_02
+	_END
+
+ev_c01r0701_board_select_03:
+	_TALK_KEYWAIT	msg_c01r0701_board_06
+	_JUMP			ev_c01r0701_board_02
+	_END
+
+ev_c01r0701_board_select_04:
+	_TALK_KEYWAIT	msg_c01r0701_board_07
+	_JUMP			ev_c01r0701_board_02
+	_END
+
+//終了
+ev_c01r0701_board_select_05:
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+
+/********************************************************************/
+/*							ノートブック							*/
+/********************************************************************/
+ev_c01r0701_notebook:
+	_EASY_MSG	msg_c01r0701_notebook_01
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

@@ -1,0 +1,248 @@
+//====================================================================
+//								c11r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c11r0101.h"
+	.include	"../eventdata/zone_c11r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c11r0101_first_entry
+_EVENT_DATA		ev_c11r0101_staff_a
+_EVENT_DATA		ev_c11r0101_staff_b
+_EVENT_DATA		ev_c11r0101_staff_c
+_EVENT_DATA		ev_c11r0101_staff_d
+_EVENT_DATA		ev_c11r0101_bigman
+_EVENT_DATA		ev_c11r0101_flag_change
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c11r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_C11R0101	//到着
+	_END
+
+
+/********************************************************************/
+/*			初めて入った時											*/
+/********************************************************************/
+ev_c11r0101_first_entry:
+	_EVENT_START
+	//シーンチェンジ
+	_LDVAL				WK_SCENE_C11R0101,1
+	//ギネスホールタワー記録ストッパーを外す
+	_FLAG_SET			FV_C01R0206_STOP
+	_FLAG_SET			FV_C01R0207_STOP
+	//スタッフ振り向き
+	_CALL				ev_c11r0101_anm_staff_turn_d
+	//ようこそ
+	_TALK_KEYWAIT		msg_c11r0101_staff_a_01
+	_TALK_CLOSE
+	
+	//自機移動
+	_CALL				ev_c11r0101_anm_player_move	
+
+	//ポイントカードを
+	_TALK_KEYWAIT		msg_c11r0101_staff_a_02
+	_LDVAL				SCWK_TEMP0,ITEM_POINTOKAADO
+	_LDVAL				SCWK_TEMP1,1
+	//アイテムゲット SCWK_TEMP0にアイテムNo,SCWK_TEMP1に個数代入して呼び出す
+	_CHG_COMMON_SCR		SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_TALK_KEYWAIT		msg_c11r0101_staff_a_03
+	_TALKMSG			msg_c11r0101_staff_all_end
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+/********************************************************************/
+/*			スタッフA(左真ん中:ルール説明)							*/
+/********************************************************************/
+ev_c11r0101_staff_a:
+	_TALK_OBJ_START
+	_TALK_KEYWAIT		msg_c11r0101_staff_a_04
+
+//メニュースタート
+ev_c11r0101_staff_a_menu:
+	_TALKMSG			msg_c11r0101_staff_a_05
+	_BMPMENU_INIT_EX	14,9,0,1,SCWK_ANSWER	//BキャンセルOK
+	_BMPMENU_MAKE_LIST	msg_staff_choice_02,0
+	_BMPMENU_MAKE_LIST	msg_staff_choice_04,1
+	_BMPMENU_MAKE_LIST	msg_staff_choice_05,2
+	_BMPMENU_MAKE_LIST	msg_staff_choice_01,3
+	_BMPMENU_START
+
+	_SWITCH				SCWK_ANSWER
+	_CASE_JUMP			0,ev_c11r0101_staff_a_01
+	_CASE_JUMP			1,ev_c11r0101_staff_a_02
+	_CASE_JUMP			2,ev_c11r0101_staff_a_03
+	
+	_TALKMSG			msg_c11r0101_staff_all_end
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//バトルパーク説明
+ev_c11r0101_staff_a_01:
+	_TALK_KEYWAIT		msg_c11r0101_staff_a_06
+	_JUMP				ev_c11r0101_staff_a_menu
+
+//ポイントひきかえコーナー説明
+ev_c11r0101_staff_a_02:
+	_TALK_KEYWAIT		msg_c11r0101_staff_a_08
+	_JUMP				ev_c11r0101_staff_a_menu
+
+//バトルタワー説明
+ev_c11r0101_staff_a_03:
+	_TALK_KEYWAIT		msg_c11r0101_staff_a_09
+	_JUMP				ev_c11r0101_staff_a_menu
+
+/********************************************************************/
+/*			スタッフB(左:ポイントカード説明)						*/
+/********************************************************************/
+ev_c11r0101_staff_b:
+	_TALK_OBJ_START
+	_TALK_KEYWAIT		msg_c11r0101_staff_b_01
+
+//メニュースタート
+ev_c11r0101_staff_b_menu:
+	_TALKMSG			msg_c11r0101_staff_b_02
+	_BMPMENU_INIT_EX	21,11,0,1,SCWK_ANSWER	//BキャンセルOK
+	_BMPMENU_MAKE_LIST	msg_staff_choice_06,0
+	_BMPMENU_MAKE_LIST	msg_staff_choice_07,1
+	_BMPMENU_MAKE_LIST	msg_staff_choice_01,2
+	_BMPMENU_START
+
+	_SWITCH				SCWK_ANSWER
+	_CASE_JUMP			0,ev_c11r0101_staff_b_01
+	_CASE_JUMP			1,ev_c11r0101_staff_b_02
+	_TALKMSG			msg_c11r0101_staff_all_end
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ポイントカード説明
+ev_c11r0101_staff_b_01:
+	_TALK_KEYWAIT		msg_c11r0101_staff_b_03
+	_JUMP				ev_c11r0101_staff_b_menu
+
+//BP説明
+ev_c11r0101_staff_b_02:
+	_TALK_KEYWAIT		msg_c11r0101_staff_b_04
+	_JUMP				ev_c11r0101_staff_b_menu
+
+/********************************************************************/
+/*			スタッフC(左:つれていけるポケモン説明)					*/
+/********************************************************************/
+ev_c11r0101_staff_c:
+	_TALK_OBJ_START
+	_TALK_KEYWAIT		msg_c11r0101_staff_c_01
+
+//メニュースタート
+ev_c11r0101_staff_c_menu:
+	_TALKMSG			msg_c11r0101_staff_c_02
+	_BMPMENU_INIT_EX	12,9,0,1,SCWK_ANSWER	//BキャンセルOK
+	_BMPMENU_MAKE_LIST	msg_staff_choice_08,0
+	_BMPMENU_MAKE_LIST	msg_staff_choice_09,1
+	_BMPMENU_MAKE_LIST	msg_staff_choice_10,2
+	_BMPMENU_MAKE_LIST	msg_staff_choice_01,3
+	_BMPMENU_START
+
+	_SWITCH				SCWK_ANSWER
+	_CASE_JUMP			0,ev_c11r0101_staff_c_01
+	_CASE_JUMP			1,ev_c11r0101_staff_c_02
+	_CASE_JUMP			2,ev_c11r0101_staff_c_03
+
+	_TALKMSG			msg_c11r0101_staff_all_end
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//レベル説明
+ev_c11r0101_staff_c_01:
+	_TALK_KEYWAIT		msg_c11r0101_staff_c_03
+	_JUMP				ev_c11r0101_staff_c_menu
+
+//参加ポケモン説明
+ev_c11r0101_staff_c_02:
+	_TALK_KEYWAIT		msg_c11r0101_staff_c_04
+	_JUMP				ev_c11r0101_staff_c_menu
+
+//持たせる道具説明
+ev_c11r0101_staff_c_03:
+	_TALK_KEYWAIT		msg_c11r0101_staff_c_05
+	_JUMP				ev_c11r0101_staff_c_menu
+
+
+/********************************************************************/
+/*			アニメ			　										*/
+/********************************************************************/
+ev_c11r0101_anm_staff_turn_d:
+	_OBJ_ANIME			C11R0101_STAFF_A,anm_c11r0101_turn_d
+	_OBJ_ANIME			C11R0101_STAFF_B,anm_c11r0101_turn_d
+	_OBJ_ANIME			C11R0101_STAFF_C,anm_c11r0101_turn_d
+	_OBJ_ANIME			C11R0101_STAFF_D_01,anm_c11r0101_turn_d
+	_OBJ_ANIME			C11R0101_STAFF_D_02,anm_c11r0101_turn_d
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_c11r0101_anm_player_move:
+	_OBJ_ANIME			C11R0101_STAFF_A,anm_c11r0101_turn_r
+	_OBJ_ANIME			C11R0101_STAFF_B,anm_c11r0101_turn_r
+	_OBJ_ANIME			C11R0101_STAFF_C,anm_c11r0101_turn_l
+	_OBJ_ANIME			C11R0101_STAFF_D_01,anm_c11r0101_turn_r
+	_OBJ_ANIME			C11R0101_STAFF_D_02,anm_c11r0101_turn_l
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER,anm_c11r0101_player_move
+	_OBJ_ANIME_WAIT
+	_RET
+
+//ターンD
+_ANIME_LABEL	anm_c11r0101_turn_d
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+//ターンR
+_ANIME_LABEL	anm_c11r0101_turn_r
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+//ターンL
+_ANIME_LABEL	anm_c11r0101_turn_l
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+//主人公部屋の中央へ
+_ANIME_LABEL	anm_c11r0101_player_move
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*			スタッフD(その他)　										*/
+/********************************************************************/
+ev_c11r0101_staff_d:
+	_EASY_OBJ_MSG	msg_c11r0101_staff_c
+	_END
+
+/********************************************************************/
+/*			太った男		　										*/
+/********************************************************************/
+ev_c11r0101_bigman:
+	_EASY_OBJ_MSG	msg_c11r0101_bigman_01
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

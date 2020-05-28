@@ -1,0 +1,36 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: wifi_earth_place.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-08-03T23:04:17
+ *****************************************************************************/
+
+#ifndef NARC_WIFI_EARTH_PLACE_NAIX_
+#define NARC_WIFI_EARTH_PLACE_NAIX_
+
+enum {
+	NARC_wifi_earth_place_place_pos_ARG_dat = 0,
+	NARC_wifi_earth_place_place_pos_AUS_dat = 1,
+	NARC_wifi_earth_place_place_pos_BRA_dat = 2,
+	NARC_wifi_earth_place_place_pos_CAN_dat = 3,
+	NARC_wifi_earth_place_place_pos_CHN_dat = 4,
+	NARC_wifi_earth_place_place_pos_DEU_dat = 5,
+	NARC_wifi_earth_place_place_pos_ESP_dat = 6,
+	NARC_wifi_earth_place_place_pos_FIN_dat = 7,
+	NARC_wifi_earth_place_place_pos_FRA_dat = 8,
+	NARC_wifi_earth_place_place_pos_GBR_dat = 9,
+	NARC_wifi_earth_place_place_pos_IND_dat = 10,
+	NARC_wifi_earth_place_place_pos_ITA_dat = 11,
+	NARC_wifi_earth_place_place_pos_JPN_dat = 12,
+	NARC_wifi_earth_place_place_pos_NOR_dat = 13,
+	NARC_wifi_earth_place_place_pos_POL_dat = 14,
+	NARC_wifi_earth_place_place_pos_RUS_dat = 15,
+	NARC_wifi_earth_place_place_pos_SWE_dat = 16,
+	NARC_wifi_earth_place_place_pos_USA_dat = 17,
+	NARC_wifi_earth_place_place_pos_wrd_dat = 18
+};
+
+/* NARC_WIFI_EARTH_PLACE_NAIX_ */
+#endif

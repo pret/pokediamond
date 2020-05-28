@@ -1,0 +1,88 @@
+//====================================================================
+//							d18
+//						はなのらくえん
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d18.h"
+	.include	"../eventdata/zone_d18evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d18_flag_change
+_EVENT_DATA		ev_d18_init_change
+_EVENT_DATA		ev_d18_legend_01
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d18_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D18	//到着
+	_END
+
+ev_d18_init_change:
+	_IF_FLAGON_JUMP	FE_INIT_CHANGE_OBJ_DEL,ev_d18_init_change_obj_del
+	_END
+
+ev_d18_init_change_obj_del:
+	_FLAG_SET		FV_D18_LEGEND
+	_OBJ_DEL		D18_LEGEND_01
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_END
+
+/********************************************************************/
+/*	エウリスイベント開始											*/
+/********************************************************************/
+ev_d18_legend_01:
+	_TALK_OBJ_START
+
+	_VOICE_PLAY		MONSNO_EURISU,0
+	_TALK_KEYWAIT	msg_d18_sppoke8_01
+	_TALK_CLOSE
+
+	//戦闘開始
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	MONSNO_EURISU,30
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	
+	_LOSE_CHECK			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d18_legend_lose
+
+	_HAIFU_POKE_RETRY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d18_legend_capture_ng
+
+//エウリス捕まえたor倒した
+ev_d18_legend_event_clear:
+	//クリアフラグon
+	_FLAG_SET			FE_D18_LEGEND_CLEAR
+	_TALK_OBJ_END
+	_END
+
+/*エウリス逃した*/
+ev_d18_legend_capture_ng:
+	_TALKMSG			msg_d18_sppoke8_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	/*もう一度来たら再戦可能*/
+	_FLAG_RESET			FV_D18_LEGEND
+	_TALK_OBJ_END
+	_END
+/*全滅*/
+ev_d18_legend_lose:
+	_NORMAL_LOSE	
+	/*もう一度来たら再戦可能*/
+	_FLAG_RESET			FV_D18_LEGEND
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

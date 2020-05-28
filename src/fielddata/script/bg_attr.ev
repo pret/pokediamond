@@ -1,0 +1,79 @@
+//====================================================================
+//						bg_attr
+//						共通・データ
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_bg_attr.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_little_rack1
+_EVENT_DATA		ev_little_rack2
+_EVENT_DATA		ev_rack1
+_EVENT_DATA		ev_rack2
+_EVENT_DATA		ev_trash_box
+_EVENT_DATA		ev_shop_rack1
+_EVENT_DATA		ev_shop_rack2
+_EVENT_DATA		ev_shop_rack3
+_EVENT_DATA		ev_tmap_bg
+_EVENT_DATA_END						//終了
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
+ev_little_rack1:
+	_EASY_MSG			bg_msg_book1_01
+	_END
+
+ev_little_rack2:
+	_EASY_MSG			bg_msg_book2_01
+	_END
+
+ev_rack1:
+	_EASY_MSG			bg_msg_bookrack1_01
+	_END
+
+ev_rack2:
+	_EASY_MSG			bg_msg_bookrack2_01
+	_END
+
+ev_trash_box:
+	_EASY_MSG			bg_msg_scrap_01
+	_END
+
+ev_shop_rack1:
+	_EASY_MSG			bg_msg_shoprack1_01
+	_END
+
+ev_shop_rack2:
+	_EASY_MSG			bg_msg_shoprack2_01
+	_END
+
+ev_shop_rack3:
+	_EASY_MSG			bg_msg_shoprack3_01
+	_END
+
+//タウンマップ
+ev_tmap_bg:
+	_TALK_START
+
+	_BLACK_OUT			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TMAP_BG_SET_PROC
+	_SET_MAP_PROC
+
+	_BLACK_IN			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_END
+	_END
+
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------

@@ -1,0 +1,626 @@
+//====================================================================
+//					フィールド・シティ１１
+//						ファイトエリア
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c11.h"
+	.include	"../eventdata/zone_c11evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c11_rival
+_EVENT_DATA		ev_c11_man3
+_EVENT_DATA		ev_c11_woman3
+_EVENT_DATA		ev_c11_man1
+_EVENT_DATA		ev_c11_babygirl1
+_EVENT_DATA		ev_c11_girl2
+_EVENT_DATA		ev_c11_seaman
+_EVENT_DATA		ev_c11_fishing
+_EVENT_DATA		ev_c11_sign1
+_EVENT_DATA		ev_c11_sign2
+_EVENT_DATA		ev_c11_sign3
+_EVENT_DATA		ev_c11_ship
+_EVENT_DATA		ev_c11_fighter1
+_EVENT_DATA		ev_c11_rival_game_clear
+_EVENT_DATA		ev_c11_flag_change
+_EVENT_DATA		ev_c11_stop_01
+_EVENT_DATA		ev_c11_stop_02
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c11_flag_change:
+	/*火山のおきいしイベント終了していたら*/
+	_IFVAL_JUMP		WK_SCENE_D16R0103,GE,1,ev_c11_rival_game_clear_02
+	_END
+
+/*火山のおきいしイベント終了していたら*/
+ev_c11_rival_game_clear_02:
+
+	/*ライバル削除*/
+	_FLAG_SET		FV_C11_RIVAL
+
+	/*バトルタワー前でのイベント終了していたら*/
+	_IFVAL_JUMP		WK_SCENE_D31,GE,1,ev_c11_rival_game_clear_03
+	_END
+
+/*バトルタワー前でのイベント終了していたら*/
+ev_c11_rival_game_clear_03:
+
+	//一致する曜日だけライバル登場する
+	_CHK_WEEK		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_SUNDAY,ev_c11_rival_geme_clear_04
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_SATURDAY,ev_c11_rival_geme_clear_04
+	_END
+
+ev_c11_rival_geme_clear_04:
+	_SXY_POS_CHANGE	C11_RIVAL,658,430
+	_SXY_MV_CHANGE	C11_RIVAL,MV_DOWN
+	_SXY_DIR_CHANGE	C11_RIVAL,DIR_DOWN
+	_FLAG_RESET		FV_C11_RIVAL		/*ライバル登場*/
+	_END
+
+
+/********************************************************************/
+/*					初めて町に到着した時の強制イベント				*/
+/********************************************************************/
+ev_c11_rival:
+	_EVENT_START
+
+	/*ライバル気づく*/
+	_OBJ_ANIME		C11_RIVAL,anm_c11_rival_00
+	_OBJ_ANIME_WAIT
+
+	/*主人公とライバル近づく*/
+	//_OBJ_ANIME	C11_RIVAL,anm_c11_rival_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_player_01
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c11_rival_01
+	_TALK_CLOSE
+	
+	/*５人衆近づく*/
+	_OBJ_ANIME		C11_SEVEN4,anm_c11_seven2_01
+	_OBJ_ANIME		C11_RIVAL,anm_c11_rival_02
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c11_seven2_01
+
+	/*ライバル　じたんだふむ*/
+	_OBJ_ANIME		C11_RIVAL,anm_c11_rival_03
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c11_rival_02
+	_TALK_CLOSE
+
+	/*ライバルバトルタワーの方へかけだす*/
+	_OBJ_ANIME		C11_RIVAL,anm_c11_rival_04
+	_OBJ_ANIME		C11_SEVEN4,anm_c11_seven2_02
+	//_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_player_02
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C11_RIVAL
+
+	/*ライバルの方を見ながら*/
+	_TALK_KEYWAIT	msg_c11_seven2_02
+	_TALK_CLOSE
+
+	/*主人公と向き合って*/
+	_OBJ_ANIME		C11_SEVEN4,anm_c11_seven2_03
+	//_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_player_03
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c11_seven2_03
+	_TALK_CLOSE
+
+	/*去っていく*/
+	_OBJ_ANIME		C11_SEVEN4,anm_c11_seven2_04
+	//_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_player_40
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C11_SEVEN4
+
+	_LDVAL			WK_SCENE_C11,1
+
+	_EVENT_END
+	_END
+	
+//--------------------------------------------------------------------
+//ライバル	！
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_rival_00
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_rival_01
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	５人衆を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_rival_02
+	_ANIME_DATA	AC_WAIT_8F,4
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	じたんだふむ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_rival_03
+	_ANIME_DATA	AC_STAY_WALK_R_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	かけだす
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_rival_04
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,2
+	//_ANIME_DATA	AC_WALK_U_4F,9
+	_ANIME_DATA	AC_WALK_U_4F,1
+	_ANIME_DATA	AC_WALK_R_4F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_player_01
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ライバルの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_player_02
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_STAY_WALK_U_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	５人衆と向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_player_03
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_player_40
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_seven2_01
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	ライバルの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_seven2_02
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	//_ANIME_DATA	AC_STAY_WALK_U_4F,1
+	_ANIME_DATA	AC_STAY_WALK_R_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	ライバルの方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_seven2_03
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c11_seven2_04
+	//_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	AC_WALK_R_8F,10
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_man3:
+	_EASY_OBJ_MSG	msg_c11_man3_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_woman3:
+	_EASY_OBJ_MSG	msg_c11_woman3_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_man1:
+	_EASY_OBJ_MSG	msg_c11_man1_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_babygirl1:
+	_EASY_OBJ_MSG	msg_c11_babygirl1_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_girl2:
+	_EASY_OBJ_MSG	msg_c11_girl2_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_fighter1:
+	_EASY_OBJ_MSG	msg_c11_fighter_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_seaman:
+	_EASY_OBJ_MSG 	msg_c11_seaman1_01
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_fishing:
+	_TALK_OBJ_START
+
+	_ITEM_NAME		0,ITEM_SUGOITURIZAO
+
+	_IF_FLAGON_JUMP	FE_SUGOITURIZAO_GET,ev_c11_fishing_05
+
+	_TALKMSG		msg_c11_fishing_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c11_fishing
+
+	_TALK_KEYWAIT	msg_c11_fishing_02
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_SUGOITURIZAO
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_SUGOITURIZAO_GET
+
+	_TALKMSG	msg_c11_fishing_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//いいえ
+no_c11_fishing:
+	_TALKMSG	msg_c11_fishing_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//アイテム入手後
+ev_c11_fishing_05:
+	_TALKMSG	msg_c11_fishing_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						　タウンマップ　　							*/
+/********************************************************************/
+ev_c11_sign1:
+	_EASY_BOARD_MSG	msg_c11_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+/********************************************************************/
+/*							道路標識								*/
+/********************************************************************/
+ev_c11_sign2:
+	_EASY_BOARD_MSG	msg_c11_sign2_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							道路標識								*/
+/********************************************************************/
+ev_c11_sign3:
+	_EASY_BOARD_MSG	msg_c11_sign3_01,BOARD_TYPE_ROAD,0
+	_END
+
+#define BLOCK_SIZE	(32)
+/********************************************************************/
+/*						船の船員									*/
+/********************************************************************/
+ev_c11_ship:
+	_TALK_OBJ_START
+	_TURN_HERO_SITE
+	/*話しかけ向きを取得*/
+	_PLAYER_DIR_GET	SCWK_TEMP0
+	
+	/*メニュー*/
+	_TALKMSG		msg_c11_seaman_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c11_ship_in
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c11_ship_end
+	_END
+
+//====================================================================
+//
+//		船処理終わり
+//
+//====================================================================
+ev_c11_ship_end:
+	_TALKMSG		msg_c11_seaman_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//====================================================================
+//
+//		キッサキシティ
+//
+//====================================================================
+ev_c11_ship_in:
+	_TALK_KEYWAIT	msg_c11_seaman_02
+	_TALK_CLOSE
+
+	/*船員船へ*/
+	_CALL	ev_c11_seaman02_ship_in
+	/*主人公向きで分岐*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_DOWN,ev_c11_player_ship_in_d	/*主人公移動（下→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_RIGHT,ev_c11_player_ship_in_r	/*主人公移動（右→下→消える）*/
+	_IFVAL_CALL	SCWK_TEMP0,EQ,DIR_LEFT,ev_c11_player_ship_in_l	/*主人公移動（左→下→消える）*/
+	/*船デモ*/
+	_CALL_SHIP_DEMO	SHIP_DIR_LEFT,DIR_UP,ZONE_ID_C09,BLOCK_SIZE*11+4,BLOCK_SIZE*7+22
+	_TALK_OBJ_END
+	_END
+
+ev_c11_seaman02_ship_in:
+	_OBJ_ANIME		C11_SEAMAN_02,anm_c11_ship_seaman_02
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		C11_SEAMAN_02,anm_c11_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+
+//====================================================================
+//
+//		主人公船に入る（下向き）
+//
+//====================================================================
+ev_c11_player_ship_in_d:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_ship_player_d
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//====================================================================
+//
+//		主人公船に入る（右向き）
+//
+//====================================================================
+ev_c11_player_ship_in_r:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_ship_player_r
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//====================================================================
+//
+//		主人公船に入る（左向き）
+//
+//====================================================================
+ev_c11_player_ship_in_l:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_ship_player_l
+	_OBJ_ANIME_WAIT
+	
+	/*入る音*/
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c11_ship_vanish_in
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//--------------------------------------------------------------------
+//船員　船のほう向く
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c11_ship_seaman_02
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//船員・主人公　船に入る（消える）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c11_ship_vanish_in
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公　船に入る（下向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c11_ship_player_d
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//主人公　船に入る（右向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c11_ship_player_r
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//主人公　船に入る（左向きのとき）
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c11_ship_player_l
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_15F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ライバル								*/
+/********************************************************************/
+#define RIVAL_LVUP_DENDOU_NUM	(20)
+
+ev_c11_rival_game_clear:
+	_TALK_OBJ_START
+
+	/*勝利していたら*/
+	_IF_FLAGON_JUMP	TMFLG_C11_RIVAL_BTL,ev_c11_rival_win
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c11_rival_a_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_NAETORU,ev_c11_rival_02
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,ev_c11_rival_03
+	_JUMP												ev_c11_rival_01
+
+//戦闘呼び出し
+ev_c11_rival_01:
+	_DENDOU_NUM_GET		SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,LT,RIVAL_LVUP_DENDOU_NUM,ev_c11_rival_01_lvup_before
+	_IFVAL_JUMP			SCWK_ANSWER,GE,RIVAL_LVUP_DENDOU_NUM,ev_c11_rival_01_lvup_after
+	_END
+
+ev_c11_rival_01_lvup_before:
+	_TRAINER_BTL_SET	RIVAL_19,0
+	_JUMP			ev_c11_rival_btl_coomon
+
+ev_c11_rival_01_lvup_after:
+	_TRAINER_BTL_SET	RIVAL_22,0
+	_JUMP			ev_c11_rival_btl_coomon
+
+//--------------------------------------------------------------------
+ev_c11_rival_02:
+	_DENDOU_NUM_GET		SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,LT,RIVAL_LVUP_DENDOU_NUM,ev_c11_rival_02_lvup_before
+	_IFVAL_JUMP			SCWK_ANSWER,GE,RIVAL_LVUP_DENDOU_NUM,ev_c11_rival_02_lvup_after
+	_END
+
+ev_c11_rival_02_lvup_before:
+	_TRAINER_BTL_SET	RIVAL_20,0
+	_JUMP			ev_c11_rival_btl_coomon
+
+ev_c11_rival_02_lvup_after:
+	_TRAINER_BTL_SET	RIVAL_23,0
+	_JUMP			ev_c11_rival_btl_coomon
+
+//--------------------------------------------------------------------
+ev_c11_rival_03:
+	_DENDOU_NUM_GET		SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,LT,RIVAL_LVUP_DENDOU_NUM,ev_c11_rival_03_lvup_before
+	_IFVAL_JUMP			SCWK_ANSWER,GE,RIVAL_LVUP_DENDOU_NUM,ev_c11_rival_03_lvup_after
+	_END
+
+ev_c11_rival_03_lvup_before:
+	_TRAINER_BTL_SET	RIVAL_21,0
+	_JUMP			ev_c11_rival_btl_coomon
+
+ev_c11_rival_03_lvup_after:
+	_TRAINER_BTL_SET	RIVAL_24,0
+	_JUMP			ev_c11_rival_btl_coomon
+
+//--------------------------------------------------------------------
+ev_c11_rival_btl_coomon:
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c11_rival_battle_lose
+
+	_FLAG_SET		TMFLG_C11_RIVAL_BTL
+	_JUMP			ev_c11_rival_win
+
+/*勝利していたら*/
+ev_c11_rival_win:
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALKMSG		msg_c11_rival_a_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_c11_rival_battle_lose:
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_stop_01:
+	_EASY_OBJ_MSG	msg_c11_stop_01
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c11_stop_02:
+	_EASY_OBJ_MSG	msg_c11_stop_02
+	_END
+
+

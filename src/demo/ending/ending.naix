@@ -1,0 +1,84 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: ending.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-06T11:46:31
+ *****************************************************************************/
+
+#ifndef NARC_ENDING_NAIX_
+#define NARC_ENDING_NAIX_
+
+enum {
+	NARC_ending_end_grand01_nsbmd = 0,
+	NARC_ending_end_grand02_nsbmd = 1,
+	NARC_ending_end_grand03_nsbmd = 2,
+	NARC_ending_end_grand01_nsbta = 3,
+	NARC_ending_endbg00_d_nscr = 4,
+	NARC_ending_endbg00_d_ncgr = 5,
+	NARC_ending_endbg00_u_nscr = 6,
+	NARC_ending_endbg00_u_ncgr = 7,
+	NARC_ending_endbg01_1d_nscr = 8,
+	NARC_ending_endbg01_1d_ncgr = 9,
+	NARC_ending_endbg01_1u_nscr = 10,
+	NARC_ending_endbg01_1u_ncgr = 11,
+	NARC_ending_endbg01_2d_nscr = 12,
+	NARC_ending_endbg01_2d_ncgr = 13,
+	NARC_ending_endbg01_2u_nscr = 14,
+	NARC_ending_endbg01_2u_ncgr = 15,
+	NARC_ending_endbg01_3d_nscr = 16,
+	NARC_ending_endbg01_3d_ncgr = 17,
+	NARC_ending_endbg01_3u_nscr = 18,
+	NARC_ending_endbg01_3u_ncgr = 19,
+	NARC_ending_endbg02_1d_nscr = 20,
+	NARC_ending_endbg02_1d_ncgr = 21,
+	NARC_ending_endbg02_1d_slit_nscr = 22,
+	NARC_ending_endbg02_1d_slit_ncgr = 23,
+	NARC_ending_endbg02_1u_nscr = 24,
+	NARC_ending_endbg02_1u_ncgr = 25,
+	NARC_ending_endbg02_1u_slit_nscr = 26,
+	NARC_ending_endbg02_1u_slit_ncgr = 27,
+	NARC_ending_endbg02_2d_nscr = 28,
+	NARC_ending_endbg02_2d_ncgr = 29,
+	NARC_ending_endbg02_2u_nscr = 30,
+	NARC_ending_endbg02_2u_ncgr = 31,
+	NARC_ending_endbg02_3d_nscr = 32,
+	NARC_ending_endbg02_3d_ncgr = 33,
+	NARC_ending_endbg_black_nscr = 34,
+	NARC_ending_endbg_black_ncgr = 35,
+	NARC_ending_endbg_cut_bag_nscr = 36,
+	NARC_ending_endbg_cut_bag_ncgr = 37,
+	NARC_ending_endbg_cut_bicycle_nscr = 38,
+	NARC_ending_endbg_cut_bicycle_ncgr = 39,
+	NARC_ending_endbg_cut_sneaker_nscr = 40,
+	NARC_ending_endbg_cut_sneaker_ncgr = 41,
+	NARC_ending_reserve_nscr = 42,
+	NARC_ending_reserve_ncgr = 43,
+	NARC_ending_reserve_nclr = 44,
+	NARC_ending_end_hero_m_ncer = 45,
+	NARC_ending_end_hero_m_nanr = 46,
+	NARC_ending_end_hero_m_ncgr = 47,
+	NARC_ending_end_hero_m_nclr = 48,
+	NARC_ending_end_hero_f_ncer = 49,
+	NARC_ending_end_hero_f_nanr = 50,
+	NARC_ending_end_hero_f_ncgr = 51,
+	NARC_ending_end_hero_f_nclr = 52,
+	NARC_ending_poke_circle_ncer = 53,
+	NARC_ending_poke_circle_nanr = 54,
+	NARC_ending_poke_circle_ncgr = 55,
+	NARC_ending_poke_circle_nclr = 56,
+	NARC_ending_endobj_01_ncer = 57,
+	NARC_ending_endobj_01_nanr = 58,
+	NARC_ending_endobj_01_ncgr = 59,
+	NARC_ending_endobj_01_nclr = 60,
+	NARC_ending_endobj_star_ncer = 61,
+	NARC_ending_endobj_star_nanr = 62,
+	NARC_ending_endobj_star_ncgr = 63,
+	NARC_ending_endobj_star_nclr = 64,
+	NARC_ending_endbg01_nclr = 65,
+	NARC_ending_font_nclr = 66
+};
+
+/* NARC_ENDING_NAIX_ */
+#endif

@@ -1,0 +1,245 @@
+//====================================================================
+//						r203
+//					フィールド・ロード203
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r203.h"
+	.include	"../eventdata/zone_r203evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r203_girl2
+_EVENT_DATA		ev_r203_sign1
+_EVENT_DATA		ev_r203_sign2
+_EVENT_DATA		ev_r203_sign3
+_EVENT_DATA		ev_r203_sign4
+_EVENT_DATA		pos_r203_rival
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*							少女	 								*/
+/********************************************************************/
+ev_r203_girl2:
+	_EASY_OBJ_MSG	msg_r203_girl2_01
+	_END
+
+
+/********************************************************************/
+/*							道路標識								*/
+/********************************************************************/
+ev_r203_sign1:
+	_EASY_BOARD_MSG	msg_r203_sign1_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							道路標識								*/
+/********************************************************************/
+ev_r203_sign2:
+	_EASY_BOARD_MSG	msg_r203_sign2_01,BOARD_TYPE_ROAD,0
+	_END
+
+/********************************************************************/
+/*							掲示板　 								*/
+/********************************************************************/
+ev_r203_sign3:
+	_EASY_INFOBOARD_MSG	msg_r203_sign3_01,BOARD_TYPE_INFO,0
+	_END
+
+/********************************************************************/
+/*							掲示板　 								*/
+/********************************************************************/
+ev_r203_sign4:
+	_EASY_INFOBOARD_MSG	msg_r203_sign4_01,BOARD_TYPE_INFO,0
+	_END
+
+
+/********************************************************************/
+//							R203(POS)
+//							ライバル
+/********************************************************************/
+#define POS_R203_RIVAL_Z	(757)
+pos_r203_rival:
+	_EVENT_START
+
+	_CHG_COMMON_SCR SCRID_THE_RIVAL_PLAY				/*ライバル曲再生*/
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R203_RIVAL_Z+0,pos_r203_rival_01_01
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R203_RIVAL_Z+1,pos_r203_rival_01_02
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R203_RIVAL_Z+2,pos_r203_rival_01_03
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R203_RIVAL_Z+3,pos_r203_rival_01_04
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	近づいてくる
+//--------------------------------------------------------------------
+pos_r203_rival_01_01:
+	_OBJ_ANIME		R203_RIVAL,anm_01_r203_rival_01a
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r203_rival_01_common
+
+pos_r203_rival_01_02:
+	_OBJ_ANIME		R203_RIVAL,anm_01_r203_rival_01b
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r203_rival_01_common
+
+pos_r203_rival_01_03:
+	_OBJ_ANIME		R203_RIVAL,anm_01_r203_rival_01c
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r203_rival_01_common
+
+pos_r203_rival_01_04:
+	_OBJ_ANIME		R203_RIVAL,anm_01_r203_rival_01d
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r203_rival_01_common
+
+//--------------------------------------------------------------------
+//共通処理
+//--------------------------------------------------------------------
+pos_r203_rival_01_common:
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_r203_rival_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_NAETORU,ev_r203_rival_02
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,ev_r203_rival_03
+	_JUMP												ev_r203_rival_01
+
+//戦闘呼び出し
+ev_r203_rival_01:
+	_TRAINER_BTL_SET	RIVAL_01,0
+	_JUMP			ev_r203_rival_btl_coomon
+
+ev_r203_rival_02:
+	_TRAINER_BTL_SET	RIVAL_02,0
+	_JUMP			ev_r203_rival_btl_coomon
+
+ev_r203_rival_03:
+	_TRAINER_BTL_SET	RIVAL_03,0
+	_JUMP			ev_r203_rival_btl_coomon
+
+ev_r203_rival_btl_coomon:
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_r203_rival_battle_lose
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_r203_rival_02
+	_TALK_CLOSE
+
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R203_RIVAL_Z+0,pos_r203_rival_01_11
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R203_RIVAL_Z+1,pos_r203_rival_01_12
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R203_RIVAL_Z+2,pos_r203_rival_01_13
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_R203_RIVAL_Z+3,pos_r203_rival_01_14
+	_END
+
+//--------------------------------------------------------------------
+//ライバルがクロガネ方面に去っていく
+//--------------------------------------------------------------------
+pos_r203_rival_01_11:
+	_OBJ_ANIME		R203_RIVAL,anm_01_r203_rival_02a
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r203_rival_11_common
+
+pos_r203_rival_01_12:
+	_OBJ_ANIME		R203_RIVAL,anm_01_r203_rival_02b
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r203_rival_11_common
+
+pos_r203_rival_01_13:
+	_OBJ_ANIME		R203_RIVAL,anm_01_r203_rival_02c
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r203_rival_11_common
+
+pos_r203_rival_01_14:
+	_OBJ_ANIME		R203_RIVAL,anm_01_r203_rival_02d
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_r203_rival_11_common
+
+//--------------------------------------------------------------------
+//イベント終了
+//--------------------------------------------------------------------
+pos_r203_rival_11_common:
+
+	//ライバル消す
+	_OBJ_DEL		R203_RIVAL
+
+	//POS終了
+	_LDVAL			WK_SCENE_R203,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_r203_rival_battle_lose:
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+
+//--------------------------------------------------------------------
+//ライバル	クロガネ方面に去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_r203_rival_02a
+	_ANIME_DATA	AC_WALK_R_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_r203_rival_02b
+	_ANIME_DATA	AC_WALK_R_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_r203_rival_02c
+	_ANIME_DATA	AC_WALK_R_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_r203_rival_02d
+	_ANIME_DATA	AC_WALK_R_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	近寄り
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_01_r203_rival_01a
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_L_4F,4
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_r203_rival_01b
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	AC_WALK_D_4F,1
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_r203_rival_01c
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	AC_WALK_D_4F,2
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_01_r203_rival_01d
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	AC_WALK_D_4F,3
+	_ANIME_DATA	AC_WALK_L_4F,2
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/********************************************************************/

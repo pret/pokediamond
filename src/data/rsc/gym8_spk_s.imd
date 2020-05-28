@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="kei_hoshiba" host="D6DFPW1X" date="2006-06-14T11:41:21" source="gym8_spk.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+</head>
+
+<body>
+
+<original_create user="kei_hoshiba" host="D6DFPW1X" date="2006-06-14T11:41:21" source="gym8_spk.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+
+<model_info
+	pos_scale="3"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="3" xyz="-3.734619 4.000000 -0.866211" whd="7.468994 1.000000 1.731934"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="gym8_sparc"
+		width="64" height="64" original_width="64" original_height="64"
+		format="palette4"
+		color0_mode="transparency"
+		palette_name="gym8_sparc_pl"
+		path="S:/kei_hoshiba/Projects/DenkiGym/sourceimages/gym8_sparc.tga"
+	>
+		<bitmap size="512">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0040 0000
+			0000 0000 0000 0000 0000 0000 0590 0000
+			0000 0000 0000 0000 0000 0000 1a64 0000
+			0000 0000 0000 0000 0000 0000 6564 0000
+			0000 0000 0000 0000 0000 0000 9064 0001
+			0000 0054 4000 0000 0000 0000 9019 0001
+			4000 05a9 9000 0001 0000 0150 4019 4016
+			9555 5a56 a500 0001 0000 46a5 0006 9569
+			aaaa a501 9a55 0001 4000 595a 0006 6a94
+			5555 5000 45aa 0006 9000 a405 0001 1540
+			0000 0000 0055 5559 9005 9001 0001 0000
+			0000 0000 0000 aaa4 641a 4000 0000 0000
+			0000 0000 0000 5550 1965 0000 0000 0000
+			0000 0000 0000 0000 1990 0000 0000 0000
+			0000 0000 0000 0000 0640 0000 0000 0000
+			0000 0000 0000 0000 0100 0000 0000 0000
+			0000 0000 0000 0000 1000 0000 0000 0000
+			4000 0000 0000 0000 6400 0000 0000 0000
+			9000 0001 0000 0000 6400 0000 0000 0000
+			a400 0001 0000 0000 6900 0000 0000 0000
+			a400 0001 0000 0000 6900 4000 0000 0000
+			9900 0001 0000 0000 a950 9001 4001 0555
+			5950 0006 0000 4000 aaa5 a401 9506 5aaa
+			5aa5 5406 0005 9400 95aa 6406 6a56 a555
+			056a a959 001a 6900 4055 6906 16aa 5000
+			0015 5aa4 0169 1a40 0000 1959 0155 0000
+			0000 0190 1694 0594 0000 1aa9 0000 0000
+			0000 0040 6a40 01a9 0000 1a54 0000 0000
+			0000 0000 a500 005a 0000 0640 0000 0000
+			0000 0000 5000 0005 0000 0100 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0004 0000 0000 0000 0000
+			0000 0000 0000 0019 0000 0000 0000 0000
+			0000 0000 0000 0019 0000 0000 0000 0000
+			0000 0000 0000 0069 0000 0000 0000 0000
+			0000 0000 4000 0066 1400 5000 0001 0000
+			0004 0000 9400 0066 6900 a400 1556 0140
+			0059 5555 6901 0195 9900 6955 6aa9 5690
+			55aa aaaa 1a56 0190 4640 1aaa 6554 a9a4
+			aa55 5555 05a9 0640 0640 0555 6400 5469
+			5500 0000 0054 1900 0190 0000 9000 0016
+			0000 0000 0000 6400 0064 0000 4000 0001
+			0000 0000 0000 9000 0019 0000 0000 0000
+			0000 0000 0000 4000 0006 0000 0000 0000
+			0000 0000 0000 4000 0006 0000 0000 0000
+			0000 0000 0000 0000 0001 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="gym8_sparc_pl" color_size="4">
+		0000 7fe0 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="tansi2:lambert18"
+		light0="off" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.250000"
+		tex_gen_mode="tex"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-3.734619 4.000000 -0.865967"
+		volume_max="3.734619 5.000000 0.865967"
+		volume_r="6.300537"
+		mtx_prim_size="1"
+		nrm_flag="off" clr_flag="on" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 64.000000"/>
+					<clr rgb="31 31 31"/>
+					<pos_xyz xyz="-3.734619 4.000000 0.865967"/>
+					<tex st="64.000000 64.000000"/>
+					<pos_xy xy="3.734619 4.000000"/>
+					<tex st="64.000000 48.000000"/>
+					<pos_yz yz="5.000000 -0.865967"/>
+					<tex st="0.000000 48.000000"/>
+					<pos_xy xy="-3.734619 5.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="polySurface2" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-3.734619 4.000000 -0.865967"
+		volume_max="3.734619 5.000000 0.865967"
+		volume_r="6.300537"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

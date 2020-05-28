@@ -1,0 +1,47 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_d26r0108evc.h"
+
+const u32 FObj_zone_d26r0108_num = 2;
+
+const _TAG_FIELD_OBJ_H FObj_zone_d26r0108[2] =
+{
+	{
+		D26R0108_ASSISTANTM_01,
+		ASSISTANTM,
+		3,
+		0,
+		FV_D26R0107_GKANBU,
+		SCRID_D26R0108_ASSISTANTM,
+		2,
+		0,
+		0,
+		0,
+		2,
+		0,
+		8,
+		13,
+		0*0x1000,
+	},
+
+	{
+		D26R0108_ASSISTANTW_01,
+		ASSISTANTW,
+		3,
+		0,
+		FV_D26R0107_GKANBU,
+		SCRID_D26R0108_ASSISTANTW,
+		2,
+		0,
+		0,
+		0,
+		0,
+		3,
+		36,
+		10,
+		0*0x1000,
+	},
+};

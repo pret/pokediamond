@@ -1,0 +1,123 @@
+//====================================================================
+//						c03pc0101.gmm
+//					シティ０３・ポケモンセンター
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c03pc0101.h"
+	.include	"../eventdata/zone_c03pc0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c03pc0101_pcwoman1
+_EVENT_DATA		ev_c03pc0101_babyboy1
+_EVENT_DATA		ev_c03pc0101_woman3
+_EVENT_DATA		ev_c03pc0101_mystery
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*						ポケセン回復受付　							*/
+/********************************************************************/
+ev_c03pc0101_pcwoman1:
+	_LDVAL			SCWK_TEMP3,C03PC0101_PCWOMAN1
+	_CHG_COMMON_SCR	SCRID_HEAL_P01
+	_END
+
+/********************************************************************/
+/*							男の子									*/
+/********************************************************************/
+ev_c03pc0101_babyboy1:
+	_EASY_OBJ_MSG	msg_c03pc0101_babyboy1_01
+	_END
+
+/********************************************************************/
+/*						トレーナー姉さん							*/
+/********************************************************************/
+ev_c03pc0101_woman3:
+	_EASY_OBJ_MSG	msg_c03pc0101_woman3_01
+	_END
+
+/********************************************************************/
+/*						ミステリアス								*/
+/********************************************************************/
+ev_c03pc0101_mystery:
+	_TALK_OBJ_START
+
+	//一度選択していたら
+	_IF_FLAGON_JUMP	FE_UNION_CHARACTER_SELECT,ev_union_character_select_02_02
+
+	_TALK_KEYWAIT	msg_character_select_01
+	_JUMP			ev_union_character_select_02
+
+//一度選択していたら
+ev_union_character_select_02_02:
+	//現在のトレーナータイプセット
+	_MY_TR_TYPE_NAME	0
+
+	_TALK_KEYWAIT	msg_character_select_06
+	_JUMP			ev_union_character_select_02
+
+ev_union_character_select_02:
+	//「どのトレーナーにしますか？」
+	_TALKMSG		msg_character_select_02
+
+	//4つの選択肢のトレーナーの名前をwordsetに格納する関数
+	_UNION_VIEW_TR_SEL_SET
+
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_055,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_056,1
+	_BMPMENU_MAKE_LIST	msg_ev_win_057,2
+	_BMPMENU_MAKE_LIST	msg_ev_win_058,3
+	_BMPMENU_MAKE_LIST	msg_ev_win_048,4
+	_BMPMENU_START
+
+	//退避
+	_LDWK			SCWK_TEMP0,SCWK_ANSWER
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		4,ev_union_character_select_end		//やめる
+	_CASE_CANCEL	ev_union_character_select_end		//Bキャンセル
+
+	//選択した1-4の数字をトレーナーの見た目番号に変換する関数 → メッセージID取得
+	_UNION_VIEW_TR_TYPE_MSG_GET	SCWK_TEMP0,SCWK_TEMP1
+
+	//トレーナータイプ名セット
+	_TR_TYPE_NAME	0,SCWK_TEMP1
+
+	//「いいですか？」
+	_TALKMSG		msg_character_select_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_union_character_select_03
+	_JUMP			ev_union_character_select_02		//戻る
+
+//やめる
+ev_union_character_select_end:
+	_TALKMSG	msg_character_select_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//変更
+ev_union_character_select_03:
+	_TALK_KEYWAIT	msg_character_select_04
+
+	_FLAG_SET		FE_UNION_CHARACTER_SELECT		//一度変更したフラグセット
+
+	//選択した1-4の数字をトレーナーの見た目番号に変換する関数
+	_UNION_VIEW_TR_TYPE_NO_GET	SCWK_TEMP0,SCWK_TEMP1
+
+	_UNION_VIEW_MY_STATUS_SET SCWK_TEMP1			//MyStatusに反映
+
+	_JUMP			ev_union_character_select_end
+
+
+/********************************************************************/
+/********************************************************************/

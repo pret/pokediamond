@@ -1,0 +1,18 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: pokezukan.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-12T20:38:52
+ *****************************************************************************/
+
+#ifndef NARC_POKEZUKAN_NAIX_
+#define NARC_POKEZUKAN_NAIX_
+
+enum {
+	NARC_pokezukan_pokezukan_bin = 0
+};
+
+/* NARC_POKEZUKAN_NAIX_ */
+#endif

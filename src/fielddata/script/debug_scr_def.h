@@ -1,0 +1,12 @@
+#ifndef _DEBUG_SCR_DEF_H_
+#define _DEBUG_SCR_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_DEBUG_UG_MOUNT_OFF		(9900)
+#define	SCRID_DEBUG_D27R0101_OFF		(9901)
+#define	SCRID_DEBUG_C07_SOUKONOKAGI		(9902)
+#define	SCRID_DEBUG_L01_L02_L03_LAKE		(9903)
+#define	SCRID_DEBUG_PC_UG		(9904)
+#define	SCRID_DEBUG_SCR_DATA_MAX		(5)		//最大数
+
+#endif //_DEBUG_SCR_DEF_H_

@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="tomo_ohta" host="ARMY" date="2006-07-05T22:57:34"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="80" b="00" a="FF"/>
+		<list entry="4" r="FF" g="80" b="C0" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" length="10" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" length="7" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" length="7" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" length="5" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" length="9" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="簡易会話単語" english="簡易会話単語" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="デフォルト" english="Black" value="FF:00:色:0"/>
+		<set japanese="カラー１" english="Red" value="FF:00:色:1"/>
+		<set japanese="カラー２" english="Green" value="FF:00:色:2"/>
+		<set japanese="カラー３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="カラー４" english="カラー４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="186"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="179"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="206"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="..\font\font_talk.nftr"/>
+				<list entry="1" file="..\font\font_system.nftr"/>
+				<list entry="2" file="..\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="32" top="102" right="737" bottom="730" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="537" right="1024" bottom="689" visible="no"/>
+		<tag-palette left="579" top="139" right="926" bottom="537" visible="no"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="697"/>
+		<band id="3" index="3" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_sodateya_oldman_01" text-color=",,,#ff0000,,,,,,,,">
+		<comment>育て屋じいさん
+
+キー待ちあり</comment>
+		<language name="日本語">わしは　そだてや　じいさんじゃ▼
+ここで　みんなの　だいじな
+ポケモンの　めんどうを　みておるよ▼
+なにか　そだてて　ほしければ
+ばあさんに　たのんで　おくれ</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_02">
+		<comment>育て屋じいさん</comment>
+		<language name="日本語">おお！　あんたか▼
+あずかっていた　ポケモンを
+そだてていたら……　なんと！▼
+ポケモンが　タマゴを
+もっておったんじゃ！▼
+どこから　もってきたか　わからんが
+あんたの　ポケモンが　もっていた▽
+タマゴ　なんじゃ▼
+やっぱり　ほしいじゃろ？</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_03">
+		<comment>育て屋じいさん
+
+0＝ポケモン名</comment>
+		<language name="日本語">おお　あんたか！　よくきたな
+[1:00:ポケモン名:0]は　げんきじゃぞ</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_04">
+		<comment>育て屋じいさん</comment>
+		<language name="日本語">それじゃ　わしが　もらおう
+ありがとよ</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_05">
+		<comment>育て屋じいさん</comment>
+		<language name="日本語">てもちが　いっぱいの　ようじゃな……▽
+てもちの　ポケモンを
+せいりしてから　またきなさい</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_06">
+		<comment>育て屋じいさん
+
+0＝主人公名</comment>
+		<language name="日本語">[1:03:トレーナー名:0]は　そだてや　じいさんから
+タマゴを　もらった！</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_07">
+		<comment>育て屋じいさん</comment>
+		<language name="日本語">だいじに　そだてなさいよ！</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_08" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>育て屋じいさん
+
+0＝ポケモン名
+1＝レコード交換の相手
+2＝ポケモン名</comment>
+		<language name="日本語">ところで　あんたの　[1:00:ポケモン名:0]じゃが▼
+なんか　[1:03:トレーナー名:1]とこの　[1:00:ポケモン名:2]と
+なかよく　あそんで　おったぞ▼
+しかも　なにやら　メールを
+もらっておった　ようじゃ</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_09" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>育て屋じいさん</comment>
+		<language name="日本語">ポケモンを　ひきとりたい　ときは
+ばあさんに　いって　おくれ</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_10">
+		<comment>育て屋じいさん
+
+0＝ポケモン名（１匹目）
+1＝ポケモン名（２匹目）</comment>
+		<language name="日本語">おお　あんたか！　よくきたな▼
+[1:00:ポケモン名:0]と
+[1:00:ポケモン名:1]は　げんきじゃぞ！▼</language>
+	</row>
+
+	<row id="msg_sodateya_oldman_11">
+		<comment>育て屋じいさん</comment>
+		<language name="日本語">わしが　もらってしまうぞ
+ほんとうは　ほしいんじゃろ？</language>
+	</row>
+
+	<row id="msg_sodateya_01" text-color=",,,#ff0000,,,,,,,,">
+		<comment>育て屋じいさん
+７０％の確率で生まれる
+キー待ちあり</comment>
+		<language name="日本語">２ひきの　なかは
+とっても　よいようじゃ！</language>
+	</row>
+
+	<row id="msg_sodateya_02" text-color=",,,#ff0000,,,,,,,,">
+		<comment>育て屋じいさん
+５０％の確率で生まれる
+キー待ちあり</comment>
+		<language name="日本語">２ひきの　なかは
+まずまずの　ようじゃ</language>
+	</row>
+
+	<row id="msg_sodateya_03" text-color=",,,#ff0000,,,,,,,,">
+		<comment>育て屋じいさん
+２０％の確率で生まれる
+キー待ちあり</comment>
+		<language name="日本語">２ひきの　なかは
+それほど　よくないがなあ</language>
+	</row>
+
+	<row id="msg_sodateya_04" text-color=",,,#ff0000,,,,,,,,">
+		<comment>育て屋じいさん
+０％の確率で生まれる
+キー待ちあり</comment>
+		<language name="日本語">２ひきは　おたがいに
+ちがう　ポケモンたちと▽
+あそんでおるがなあ……</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_01">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">わしは　そだてや　ばあさんじゃ▼
+おまえさんの　かわりに　ポケモンを
+そだてて　あげるよ▼
+なにか　そだてて　ほしいのかい？</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_02">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">どのこを　そだてて　みるかね？▼</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,#ff8080,#ff8080,">
+		<comment>育て屋ばあさん
+
+0＝ポケモン名
+
+２体を預けられる場合の
+先に表示されるコメント
+msg_sodateya_oldwoman_04へ続く</comment>
+		<language name="日本語">それでは　[1:00:ポケモン名:0]を
+しばらく　あずかるぞ▼
+てきとうに　じかんが
+たったら　またきなさい▼</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_04">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">２ひき　までなら　あずかれるけど
+もう　１ぴき　そだててみるかい？</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_05">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">おお！　じいさんが
+あんたを　さがして　おったぞ</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_06">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">そうかい
+それじゃ　また　きておくれ</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_07">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">おかねが　たりない　ようじゃのう……</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_08">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">もう　１ぴきも　ひきとるかい？</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_09">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">それじゃ　また　きておくれ</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_10">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">おお　あんたか！　よくきたな
+おまえさんの　ポケモンは　ゲンキじゃ▼</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_11">
+		<comment>育て屋ばあさん
+
+0＝ポケモン名
+1＝レベル</comment>
+		<language name="日本語">[1:00:ポケモン名:0]は　レベルで　いうと
+[1:33:数字２桁:1]くらい　そだって　おるぞ▼</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_12">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">てもちの　ポケモンがいっぱいじゃよ！
+ポケモンを　せいりしてから　きなさい</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_13" back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">どっちの　ポケモンを　ひきとるかい？</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_14">
+		<comment>育て屋ばあさん
+
+0＝ポケモン名
+1＝料金</comment>
+		<language name="日本語">[1:00:ポケモン名:0]を　ひきとるなら
+りょうきんは　[1:35:数字４桁:1]円　だよ</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_15">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">はいよ　たしかに！
+じゃあ　ポケモンを　つれていきなさい！▼</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_20" back-color="#ffffff,,,#ffffff,,#ffffff,#ffffff,#ffffff,,#ffffff,#ffffff,">
+		<comment>育て屋ばあさん
+
+0＝ポケモン名
+1＝主人公名</comment>
+		<language name="日本語">[1:03:トレーナー名:1]は　そだてや　ばあさんから
+[1:00:ポケモン名:0]を　ひきとった！▼</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_16">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">おや？　ポケモンが
+１ぴき　しか　いないようじゃね▼
+また　きなさいよ</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_17">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">ポケモンを　ひきとるかい？</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_18">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">その　ポケモンを　あずけると
+たたかえなく　なるぞ▼
+また　きなさいよ</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_19">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">おや？　おまえさん
+その　ポケモンを　あずけると▽
+ぜんぶで　ポケモンが　１ぴき　だけに▽
+なってしまう　みたいじゃな▼
+もっと　たくさん　つかまえてから
+きてみては　どうじゃ？</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_21" text-color="#000000,,,#000000,,#000000,,,,,," back-color="#808080,,,#808080,,#808080,#808080,#808080,,#808080,#808080,">
+		<comment>育て屋ばあさん</comment>
+		<language name="日本語">おやおや　おまえさん
+それは　タマゴ　じゃぞ！</language>
+	</row>
+
+	<row id="msg_sodateya_oldwoman_22" text-color="#000000,,,,,,,,,,," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,#ff8080,#ff8080,">
+		<comment>育て屋ばあさん
+
+0＝ポケモン名
+
+１体預けるときのコメント。
+キー待ちあり。</comment>
+		<language name="日本語">それでは　[1:00:ポケモン名:0]を
+しばらく　あずかるぞ▼
+てきとうに　じかんが
+たったら　またきなさい</language>
+	</row>
+
+	<row id="msg_sodateya_05">
+		<comment>タマゴが孵るとき</comment>
+		<language name="日本語">おや……？</language>
+	</row>
+
+	<row id="msg_sodateya_06">
+		<language name="日本語" font=" 1:font_system">ＬＶ[1:34:数字３桁:1]</language>
+	</row>
+
+	<row id="msg_sodateya_07">
+		<language name="日本語" font=" 1:font_system">[1:00:ポケモン名:0]♂</language>
+	</row>
+
+	<row id="msg_sodateya_08">
+		<language name="日本語" font=" 1:font_system">[1:00:ポケモン名:0]♀</language>
+	</row>
+
+	<row id="msg_sodateya_09">
+		<language name="日本語" font=" 1:font_system">[1:00:ポケモン名:0]</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

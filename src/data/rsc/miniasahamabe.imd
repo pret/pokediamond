@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-07-21T21:22:18" source="miniasahamabe.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="unno" host="W00106" date="2006-07-21T21:22:18" source="miniasahamabe.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="1"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="2" xyz="-2.000000 0.000000 -2.000000" whd="4.000000 0.000000 4.000000"/>
+
+<tex_image_array size="8">
+	<tex_image index="0" name="asahamabe.1"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asahamabe"
+		path="C:/mayadata/area0/tex/anime/asahamabe.1.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 1000 1111 aaa3 b9aa
+			0000 0000 1111 0000 1000 1111 aaa3 b99a
+			0000 1000 1111 0011 1100 1111 aaa3 bb9a
+			0000 1100 1111 1111 1111 1111 aaa3 bb9a
+			0000 1100 1111 1111 1111 3111 aaaa bb9a
+			0000 1110 1111 1111 1111 3111 aaaa bb9a
+			1000 1111 1111 1111 1111 3111 aaaa bb9a
+			1100 1111 1111 1333 1111 a333 aaaa b99a
+			1110 1111 3311 3aa3 3333 aaaa aaaa b9aa
+			1110 1111 aa31 aaaa aaaa aaaa aaaa b9aa
+			1110 1111 aaa3 aaaa aaaa aaaa aaaa b99a
+			1100 1111 aaa3 aaaa aaaa aaaa aaaa bb9a
+			1100 3111 aaa3 aaaa aaaa aaaa aaaa bb99
+			1000 3111 aaaa aaaa 999a 9999 99aa bbb9
+			1000 3111 aaaa 9aaa bb99 9bbb b999 bbbb
+			1000 1111 aaa3 99aa bbbb bbbb bbbb bbbb
+			bbbb 999b b999 bbbb bbbb 999b b999 bbbb
+			99bb aaa9 9aaa bb99 99bb aaa9 9aaa bb99
+			aa99 aaaa aaaa 99aa aa99 aaaa aaaa 99aa
+			aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+			aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+			aaaa 333a 3333 aaaa aaaa 333a 3333 aaaa
+			3aaa 1113 1111 aa33 3aaa 1113 1111 aa33
+			13aa 1111 1111 a311 13aa 1111 1111 a311
+			1133 1111 1111 3111 1133 1111 1111 3111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 0011 1000 1111 1111 0011 1000 1111
+			0111 0000 0000 1100 0111 0000 0000 1110
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="1" name="asahamabe.2"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asahamabe"
+		path="C:/mayadata/area0/tex/anime/asahamabe.2.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 1000 1111 aa31 b9aa
+			0000 0000 1111 0000 1000 1111 a511 b99a
+			0000 1000 1111 0011 1100 1111 a311 bb9a
+			0000 1100 1111 1111 1111 1111 a311 bb9a
+			0000 1100 1111 1111 1111 1111 a511 bb9a
+			0000 1110 1111 1111 1111 1111 aa31 bb9a
+			1000 1111 1111 1111 1111 1111 aa31 bb9a
+			1100 1111 1111 1111 1111 1111 aa53 b99a
+			1110 1111 1111 1111 1111 3111 aa53 b9aa
+			1110 1111 1111 3331 1113 5331 aaa5 b9aa
+			1110 1111 3111 a553 335a aaa5 aaaa b99a
+			1100 1111 3311 aaa5 aaaa aaaa aaaa bb9a
+			1100 1111 5311 aaaa aaaa aaaa aaaa bb99
+			1000 1111 a531 aaaa 999a 9999 99aa bbb9
+			1000 1111 a531 9aaa bb99 9bbb b999 bbbb
+			1000 1111 aa31 99aa bbbb bbbb bbbb bbbb
+			bbbb 999b b999 bbbb bbbb 999b b999 bbbb
+			99bb aaa9 9aaa bb99 99bb aaa9 9aaa bb99
+			aa99 aaaa aaaa 99aa aa99 aaaa aaaa 99aa
+			aaaa 555a a555 aaaa aaaa 555a a555 aaaa
+			5aaa 3335 5333 aaa5 5aaa 3335 5333 aaa5
+			355a 1113 3111 a553 355a 1113 3111 a553
+			1335 1111 1111 5331 1335 1111 1111 5331
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 0011 1000 1111 1111 0011 1000 1111
+			0111 0000 0000 1100 0111 0000 0000 1110
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="2" name="asahamabe.3"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asahamabe"
+		path="C:/mayadata/area0/tex/anime/asahamabe.3.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 1000 1111 5311 bacc
+			0000 0000 1111 0000 1000 1111 5311 baac
+			0000 1000 1111 0011 1100 1111 5311 bbac
+			0000 1100 1111 1111 1111 1111 5311 bbac
+			0000 1100 1111 1111 1111 1111 5311 bbac
+			0000 1110 1111 1111 1111 1111 5311 bb9c
+			1000 1111 1111 1111 1111 1111 5311 bb9c
+			1100 1111 1111 1111 1111 1111 c311 b99c
+			1110 1111 1111 1111 1111 1111 c531 b9ac
+			1110 1111 1111 1111 1111 1111 cc53 bbac
+			1110 1111 1111 3311 3333 3333 ccc5 bb95
+			1100 1111 1111 5533 5555 c555 cccc bb95
+			1100 1111 3111 cc55 cccc cccc 55cc bb99
+			1000 1111 3111 ccc5 aaac 999a 99aa bbb9
+			1000 1111 5311 accc bbaa 9bbb b999 bbbb
+			1000 1111 5311 aacc bbbb bbbb bbbb bbbb
+			bbbb 999b b999 bbbb bbbb 999b b999 bbbb
+			99bb ccc9 cccc bb99 99bb ccc9 9ccc bb99
+			cc99 3355 5533 99cc cc99 3355 5533 9acc
+			55cc 1133 3311 cc55 55cc 1133 3311 cc55
+			3355 1111 1111 5531 1355 1111 1111 5533
+			1133 1111 1111 1111 1111 1111 1111 3311
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 0011 1000 1111 1111 0011 1000 1111
+			0111 0000 0000 1100 0111 0000 0000 1110
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="3" name="asahamabe.4"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asahamabe"
+		path="C:/mayadata/area0/tex/anime/asahamabe.4.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 1000 1111 5881 b9a6
+			0000 0000 1111 0000 1000 1111 6381 b99a
+			0000 1000 1111 0011 1100 1111 c381 bb9a
+			0000 1100 1111 1111 1111 1111 c581 bb9a
+			0000 1100 1111 1111 1111 1111 c581 bb9a
+			0000 1110 1111 1111 1111 1111 c581 bb9a
+			1000 1111 1111 1111 1111 1111 c881 bb95
+			1100 1111 1111 1111 1111 1111 c388 b995
+			1110 1111 1111 1111 1111 8111 c388 b9a5
+			1110 1111 1111 8888 8888 8888 c538 b9a5
+			1110 1111 8811 3333 5338 3855 5c53 b99a
+			1100 1111 3811 5553 6cc5 cc66 a5cc bb9a
+			1100 1111 3381 cc55 aaac 55aa aa55 bb99
+			1000 1111 5381 55c5 999a 9999 99aa bbb9
+			1000 1111 5381 9a5c bb99 9bbb b999 bbbb
+			1000 1111 5881 995c bbbb bbbb bbbb bbbb
+			bbbb 999b b999 bbbb bbbb a99b b99a bbbb
+			99bb c55a 55cc bb9a 99bb c55a aa5c bb99
+			8a99 ccc5 cccc 95cc 5aa9 ccc5 5ccc 9aaa
+			c55a 855c 5588 cccc c555 885c c558 55cc
+			5ccc 8885 8888 5588 5ccc 8888 8888 ccc5
+			8855 1888 8811 8888 8855 1888 8811 5588
+			8888 1111 1111 8811 8888 1111 1111 8888
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 0011 1000 1111 1111 0011 1000 1111
+			0111 0000 0000 1100 0111 0000 0000 1110
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="4" name="asahamabe.5"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asahamabe"
+		path="C:/mayadata/area0/tex/anime/asahamabe.5.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 1000 1111 8764 b9a8
+			0000 0000 1111 0000 1000 1111 8764 b998
+			0000 1000 1111 0011 1100 1111 8754 bb98
+			0000 1100 1111 1111 1111 1111 8774 bb98
+			0000 1100 1111 1111 1111 1111 8774 bb98
+			0000 1110 1111 1111 1111 1111 8754 bb98
+			1000 1111 1111 1111 1111 1111 8764 bb98
+			1100 1111 1111 1111 1111 4111 8767 b998
+			1110 1111 1111 4441 4444 7444 8876 b9a8
+			1110 1111 4111 5774 7666 6657 8887 b9aa
+			1110 1111 7411 7767 7777 7777 8888 b99a
+			1100 1111 6741 8877 8888 8888 a888 bb9a
+			1100 1111 7541 8887 8888 8888 aaa8 bb99
+			1000 1111 7574 a888 999a 9999 99aa bbb9
+			1000 1111 8774 9a88 bb99 9bbb b999 bbbb
+			1000 1111 8754 99a8 bbbb bbbb bbbb bbbb
+			bbbb a99b b99a bbbb bbbb a99b b99a 9bbb
+			99bb 88aa a888 bb9a 99bb 88aa aa88 bb99
+			8a99 8888 8888 9aa8 8aa9 8888 8888 9aa8
+			8888 6688 8885 8888 8888 6888 8856 8888
+			8888 7786 5877 8888 8888 7588 6687 8885
+			6577 7777 7777 7757 7777 7755 7777 7755
+			4755 4444 4444 5777 4666 4444 4444 5544
+			4444 1111 1111 4444 4444 1111 1111 4444
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 0011 1000 1111 1111 0011 1000 1111
+			0111 0000 0000 1100 0111 0000 0000 1110
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="5" name="asahamabe.6"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asahamabe"
+		path="C:/mayadata/area0/tex/anime/asahamabe.6.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 1000 1111 8774 b9aa
+			0000 0000 1111 0000 1000 2111 8774 b99a
+			0000 1000 1111 0011 1100 2111 8774 bb9a
+			0000 1100 1111 1111 1111 2111 8774 bb9a
+			0000 1100 1111 1111 1111 4111 8774 bb9a
+			0000 1110 1111 1111 1111 2111 8774 bb9a
+			1000 1111 1111 1111 1111 2111 8774 bb9a
+			1100 1111 1111 1222 2221 4224 8774 b99a
+			1110 1111 4211 4444 4444 4444 8877 b9aa
+			1110 1111 4421 7774 7777 7777 8877 b9aa
+			1110 1111 7441 7777 7777 7777 a888 b99a
+			1100 2111 7744 8887 8888 8888 aa88 bb9a
+			1100 2111 7744 aa88 aaaa aaaa aaaa bb99
+			1000 2111 8774 aaa8 999a 9999 99aa bbb9
+			1000 1111 8774 9aaa bb99 9bbb b999 bbbb
+			1000 2111 8774 99aa bbbb bbbb bbbb bbbb
+			bbbb 999b b999 bbbb bbbb 999b b999 bbbb
+			99bb aaa9 9aaa bb99 99bb aaa9 9aaa bb99
+			aa99 aaaa aaaa 99aa aa99 aaaa aaaa 99aa
+			aaaa 888a a888 aaaa aaaa 888a a888 aaaa
+			8888 7788 8877 8888 8888 7788 8877 8888
+			7777 7777 7777 7777 7777 7777 7777 7777
+			7777 5444 4445 7777 7777 5444 4445 7777
+			4444 1554 5411 4445 4444 1122 2211 4444
+			2244 1111 1111 2211 2244 1111 1111 2211
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 0011 1000 1111 1111 0011 1000 1111
+			0111 0000 0000 1100 0111 0000 0000 1110
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="6" name="asahamabe.7"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asahamabe"
+		path="C:/mayadata/area0/tex/anime/asahamabe.7.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 1000 4111 aa87 b9aa
+			0000 0000 1111 0000 1000 4111 aa87 b99a
+			0000 1000 1111 0011 1100 4111 aa87 bb9a
+			0000 1100 1111 1111 1111 4111 aa87 bb9a
+			0000 1100 1111 1111 1111 4111 aa87 bb9a
+			0000 1110 1111 1111 1111 4111 aa87 bb9a
+			1000 1111 1111 1111 1111 4111 aa87 bb9a
+			1100 1111 1111 4441 4444 7444 aa87 b99a
+			1110 1111 4111 7774 7777 7777 aa88 b9aa
+			1110 1111 7441 8887 8888 8888 aaa8 b9aa
+			1110 1111 8741 aaa8 aaaa aaaa aaaa b99a
+			1100 1111 a874 aaaa aaaa aaaa aaaa bb9a
+			1100 1111 a874 aaaa aaaa aaaa aaaa bb99
+			1000 4111 aa84 aaaa 999a 9999 99aa bbb9
+			1000 4111 aa87 9aaa bb99 9bbb b999 bbbb
+			1000 4111 aa87 99aa bbbb bbbb bbbb bbbb
+			bbbb 999b b999 bbbb bbbb 999b b999 bbbb
+			99bb aaa9 9aaa bb99 99bb aaa9 9aaa bb99
+			aa99 aaaa aaaa 99aa aa99 aaaa aaaa 99aa
+			aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+			aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+			aaaa 7778 8777 aaaa aaaa 7778 8777 aaaa
+			7888 4447 7444 8887 7888 4447 7444 8887
+			4447 1144 4411 7444 4447 1144 4411 7444
+			1444 1111 1111 4441 1444 1111 1111 4441
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 0011 1000 1111 1111 0011 1000 1111
+			0111 0000 0000 1100 0111 0000 0000 1110
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="7" name="asahamabe.8"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asahamabe"
+		path="C:/mayadata/area0/tex/anime/asahamabe.8.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 1000 4111 aaaa b9aa
+			0000 0000 1111 0000 1000 4111 aaaa b99a
+			0000 1000 1111 0011 1100 a411 aaaa bb9a
+			0000 1100 1111 1111 1111 a411 aaaa bb9a
+			0000 1100 1111 1111 1111 a411 aaaa bb9a
+			0000 1110 1111 1111 1111 a411 aaaa bb9a
+			1000 1111 1111 1111 4411 a444 aaaa bb9a
+			1100 1111 4111 4444 aa44 aaaa aaaa b99a
+			1110 1111 a441 aaaa aaaa aaaa aaaa b9aa
+			1110 1111 aaa4 aaaa aaaa aaaa aaaa b9aa
+			1110 1111 aaa4 aaaa aaaa aaaa aaaa b99a
+			1100 4111 aaaa aaaa aaaa aaaa aaaa bb9a
+			1100 4111 aaaa aaaa aaaa aaaa aaaa bb99
+			1000 4111 aaaa aaaa 999a 9999 99aa bbb9
+			1000 4111 aaaa 9aaa bb99 9bbb b999 bbbb
+			1000 4111 aaaa 99aa bbbb bbbb bbbb bbbb
+			bbbb 999b b999 bbbb bbbb 999b b999 bbbb
+			99bb aaa9 9aaa bb99 99bb aaa9 9aaa bb99
+			aa99 aaaa aaaa 99aa aa99 aaaa aaaa 99aa
+			aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+			aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+			aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+			aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+			aaaa 447a a744 aaaa aaaa 447a a744 aaaa
+			47aa 1114 4111 aa74 47aa 1114 4111 aa74
+			1144 1111 1111 4411 1144 1111 1111 4411
+			1111 1111 1111 1111 1111 1111 1111 1111
+			1111 0011 1000 1111 1111 0011 1000 1111
+			0111 0000 0000 1100 0111 0000 0000 1110
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="asahamabe" color_size="16">
+		62b4 6af6 7758 7757 62f5 7799 7bdc 6317
+		6758 6b9c 677b 6bde 7fff 7fff 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="lambert4"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.000000 -4.000000"
+		volume_max="4.000000 0.000000 4.000000"
+		volume_r="5.656738"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.998047 0.000000"/>
+					<pos_s xyz="-4.000000 0.000000 4.000000"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="4.000000 0.000000"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_xz xz="4.000000 -4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-4.000000 0.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pPlane1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.000000 -4.000000"
+		volume_max="4.000000 0.000000 4.000000"
+		volume_r="5.656738"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

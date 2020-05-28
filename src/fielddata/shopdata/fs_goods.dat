@@ -1,0 +1,41 @@
+//====================================================================
+//						固定グッズアイテムデータ
+//
+// 06.05.13 Satoshi Nohara
+//
+// ●fs_goods.xlsをコンバートして出力しています
+//
+//====================================================================
+
+typedef u16 FS_GOODS_DATA;
+
+//トバリシティ（デパート４階左側）
+const FS_GOODS_DATA fs_goods_c07_dept_04_01[] = {
+	GOODS_CHAIR_PC01,
+	GOODS_SHELF05,
+	GOODS_TV01,
+	GOODS_REF01,
+	GOODS_SINK01,
+	0xffff,
+};
+#define FS_GOODS_C07_DEPT_04_01_MAX	( NELEMS(fs_goods_c07_dept_04_01) )
+
+//トバリシティ（デパート４階右側）
+const FS_GOODS_DATA fs_goods_c07_dept_04_02[] = {
+	GOODS_UG_POKE_24,
+	GOODS_UG_POKE_25,
+	GOODS_UG_POKE_26,
+	GOODS_UG_POKE_28,
+	GOODS_UG_POKE_29,
+	GOODS_UG_POKE_30,
+	0xffff,
+};
+#define FS_GOODS_C07_DEPT_04_02_MAX	( NELEMS(fs_goods_c07_dept_04_02) )
+
+//データテーブル
+const FS_GOODS_DATA* fs_goods_data[] = {
+	fs_goods_c07_dept_04_01,
+	fs_goods_c07_dept_04_02,
+};
+#define FS_GOODS_DATA_MAX	( NELEMS(fs_goods_data) )
+

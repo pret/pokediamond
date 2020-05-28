@@ -1,0 +1,55 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: worldtrade.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-18T20:04:51
+ *****************************************************************************/
+
+#ifndef NARC_WORLDTRADE_NAIX_
+#define NARC_WORLDTRADE_NAIX_
+
+enum {
+	NARC_worldtrade_conect_nclr = 0,
+	NARC_worldtrade_deposit_nclr = 1,
+	NARC_worldtrade_mybox_nclr = 2,
+	NARC_worldtrade_search_nclr = 3,
+	NARC_worldtrade_title_nclr = 4,
+	NARC_worldtrade_traderoom_nclr = 5,
+	NARC_worldtrade_wifi_snap_nclr = 6,
+	NARC_worldtrade_poke_view_nclr = 7,
+	NARC_worldtrade_hero_nclr = 8,
+	NARC_worldtrade_worldtrade_obj_nclr = 9,
+	NARC_worldtrade_conect_lz_ncgr = 10,
+	NARC_worldtrade_deposit_lz_ncgr = 11,
+	NARC_worldtrade_mybox_lz_ncgr = 12,
+	NARC_worldtrade_search_lz_ncgr = 13,
+	NARC_worldtrade_title_lz_ncgr = 14,
+	NARC_worldtrade_traderoom_lz_ncgr = 15,
+	NARC_worldtrade_wifi_snap_lz_ncgr = 16,
+	NARC_worldtrade_poke_view_lz_ncgr = 17,
+	NARC_worldtrade_worldtrade_obj_lz_ncgr = 18,
+	NARC_worldtrade_worldtrade_obj_lz_ncer = 19,
+	NARC_worldtrade_worldtrade_obj_lz_nanr = 20,
+	NARC_worldtrade_conect_01_lz_nscr = 21,
+	NARC_worldtrade_conect_02_lz_nscr = 22,
+	NARC_worldtrade_deposit_lz_nscr = 23,
+	NARC_worldtrade_mybox_lz_nscr = 24,
+	NARC_worldtrade_mypoke_lz_nscr = 25,
+	NARC_worldtrade_search_lz_nscr = 26,
+	NARC_worldtrade_searchpoke0_lz_nscr = 27,
+	NARC_worldtrade_searchpoke1_lz_nscr = 28,
+	NARC_worldtrade_title_base_lz_nscr = 29,
+	NARC_worldtrade_title_menu_lz_nscr = 30,
+	NARC_worldtrade_traderoom_lz_nscr = 31,
+	NARC_worldtrade_hero_lz_ncgr = 32,
+	NARC_worldtrade_worldtrade_obj_s_lz_ncer = 33,
+	NARC_worldtrade_worldtrade_obj_s_lz_nanr = 34,
+	NARC_worldtrade_btower_obj_lz_ncgr = 35,
+	NARC_worldtrade_btower_obj_lz_ncer = 36,
+	NARC_worldtrade_btower_obj_lz_nanr = 37
+};
+
+/* NARC_WORLDTRADE_NAIX_ */
+#endif

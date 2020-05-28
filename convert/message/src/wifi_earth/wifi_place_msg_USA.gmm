@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="watanabe" host="W00100" date="2006-04-25T21:02:37"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="131" top="358" right="836" bottom="986" maximized="no" rayout="Vertical2">
+		<comment-input left="836" top="834" right="1183" bottom="986" visible="yes"/>
+		<tag-palette left="836" top="436" right="1183" bottom="834" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="556"/>
+		<band id="3" index="3" style="0000" width="139"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="USA00">
+		<language name="日本語">なし</language>
+	</row>
+
+	<row id="USA01">
+		<language name="日本語">アラバマ</language>
+	</row>
+
+	<row id="USA02">
+		<language name="日本語">アラスカ</language>
+	</row>
+
+	<row id="USA03">
+		<language name="日本語">アリゾナ</language>
+	</row>
+
+	<row id="USA04">
+		<language name="日本語">アーカンソー</language>
+	</row>
+
+	<row id="USA05">
+		<language name="日本語">カリフォルニア</language>
+	</row>
+
+	<row id="USA06">
+		<language name="日本語">コロラド</language>
+	</row>
+
+	<row id="USA07">
+		<language name="日本語">コネチカット</language>
+	</row>
+
+	<row id="USA08">
+		<language name="日本語">デラウェア</language>
+	</row>
+
+	<row id="USA09">
+		<language name="日本語">フロリダ</language>
+	</row>
+
+	<row id="USA10">
+		<language name="日本語">ジョージア</language>
+	</row>
+
+	<row id="USA11">
+		<language name="日本語">ハワイ</language>
+	</row>
+
+	<row id="USA12">
+		<language name="日本語">アイダホ</language>
+	</row>
+
+	<row id="USA13">
+		<language name="日本語">イリノイ</language>
+	</row>
+
+	<row id="USA14">
+		<language name="日本語">インディアナ</language>
+	</row>
+
+	<row id="USA15">
+		<language name="日本語">アイオワ</language>
+	</row>
+
+	<row id="USA16">
+		<language name="日本語">カンザス</language>
+	</row>
+
+	<row id="USA17">
+		<language name="日本語">ケンタッキー</language>
+	</row>
+
+	<row id="USA18">
+		<language name="日本語">ルイジアナ</language>
+	</row>
+
+	<row id="USA19">
+		<language name="日本語">メイン</language>
+	</row>
+
+	<row id="USA20">
+		<language name="日本語">メリーランド</language>
+	</row>
+
+	<row id="USA21">
+		<language name="日本語">マサチューセッツ</language>
+	</row>
+
+	<row id="USA22">
+		<language name="日本語">ミシガン</language>
+	</row>
+
+	<row id="USA23">
+		<language name="日本語">ミネソタ</language>
+	</row>
+
+	<row id="USA24">
+		<language name="日本語">ミシシッピ</language>
+	</row>
+
+	<row id="USA25">
+		<language name="日本語">ミズーリ</language>
+	</row>
+
+	<row id="USA26">
+		<language name="日本語">モンタナ</language>
+	</row>
+
+	<row id="USA27">
+		<language name="日本語">ネブラスカ</language>
+	</row>
+
+	<row id="USA28">
+		<language name="日本語">ネバダ</language>
+	</row>
+
+	<row id="USA29">
+		<language name="日本語">ニューハンプシャー</language>
+	</row>
+
+	<row id="USA30">
+		<language name="日本語">ニュージャージー</language>
+	</row>
+
+	<row id="USA31">
+		<language name="日本語">ニューメキシコ</language>
+	</row>
+
+	<row id="USA32">
+		<language name="日本語">ニューヨーク</language>
+	</row>
+
+	<row id="USA33">
+		<language name="日本語">ノースカロライナ</language>
+	</row>
+
+	<row id="USA34">
+		<language name="日本語">ノースダコタ</language>
+	</row>
+
+	<row id="USA35">
+		<language name="日本語">オハイオ</language>
+	</row>
+
+	<row id="USA36">
+		<language name="日本語">オクラホマ</language>
+	</row>
+
+	<row id="USA37">
+		<language name="日本語">オレゴン</language>
+	</row>
+
+	<row id="USA38">
+		<language name="日本語">ペンシルバニア</language>
+	</row>
+
+	<row id="USA39">
+		<language name="日本語">ロードアイランド</language>
+	</row>
+
+	<row id="USA40">
+		<language name="日本語">サウスカロライナ</language>
+	</row>
+
+	<row id="USA41">
+		<language name="日本語">サウスダコタ</language>
+	</row>
+
+	<row id="USA42">
+		<language name="日本語">テネシー</language>
+	</row>
+
+	<row id="USA43">
+		<language name="日本語">テキサス</language>
+	</row>
+
+	<row id="USA44">
+		<language name="日本語">ユタ</language>
+	</row>
+
+	<row id="USA45">
+		<language name="日本語">バーモント</language>
+	</row>
+
+	<row id="USA46">
+		<language name="日本語">バージニア</language>
+	</row>
+
+	<row id="USA47">
+		<language name="日本語">ワシントン</language>
+	</row>
+
+	<row id="USA48">
+		<language name="日本語">ワシントンＤ．Ｃ．</language>
+	</row>
+
+	<row id="USA49">
+		<language name="日本語">ウェストバージニア</language>
+	</row>
+
+	<row id="USA50">
+		<language name="日本語">ウィスコンシン</language>
+	</row>
+
+	<row id="USA51">
+		<language name="日本語">ワイオミング</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

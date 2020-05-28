@@ -1,0 +1,754 @@
+//====================================================================
+//						シティ０１
+//					シティ・０２０１
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01r0201.h"
+	.include	"../eventdata/zone_c01r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01r0201_sunglasses_first
+_EVENT_DATA		ev_c01r0201_sunglasses
+_EVENT_DATA		ev_c01r0201_sunglasses_after
+_EVENT_DATA		ev_c01r0201_kuji
+_EVENT_DATA		ev_c01r0201_woman2
+_EVENT_DATA		ev_c01r0201_middleman2
+_EVENT_DATA		ev_c01r0201_crown
+_EVENT_DATA		ev_c01r0201_flag_change
+_EVENT_DATA		ev_c01r0201_sunday
+_EVENT_DATA		ev_c01r0201_monday
+_EVENT_DATA		ev_c01r0201_tuesday
+_EVENT_DATA		ev_c01r0201_wednesday
+_EVENT_DATA		ev_c01r0201_thursday
+_EVENT_DATA		ev_c01r0201_thursday2
+_EVENT_DATA		ev_c01r0201_friday
+_EVENT_DATA		ev_c01r0201_saturday
+_EVENT_DATA		ev_c01r0201_man3_01 
+_EVENT_DATA_END						//終了
+
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c01r0201_flag_change:
+	//1日1回対戦終了フラグがリセットされているなら、全員の対戦終了フラグをリセットする
+	_IF_FLAGON_JUMP		TMFLG_C01R0201_BATTLE_END,ev_c01r0201_fc_battle_skip
+	_TRAINER_FLAG_RESET	IDOL_01
+	_TRAINER_FLAG_RESET	REPORTER_01
+	_TRAINER_FLAG_RESET	CAMERAMAN_01
+	_TRAINER_FLAG_RESET	PIERROT_02
+	_TRAINER_FLAG_RESET	INTERVIEW_01
+//	_TRAINER_FLAG_RESET	INTERVIEW_01
+	_TRAINER_FLAG_RESET	POKEGIRL_03
+	_TRAINER_FLAG_RESET	GUITARIST_07
+ev_c01r0201_fc_battle_skip:
+
+	/*一度全員の姿を消すため非表示にする*/
+	_FLAG_SET	FV_C01R0201_SUNDAY
+	_FLAG_SET	FV_C01R0201_MONDAY
+	_FLAG_SET	FV_C01R0201_TUESDAY
+	_FLAG_SET	FV_C01R0201_WEDNESDAY
+	_FLAG_SET	FV_C01R0201_THURSDAY
+	_FLAG_SET	FV_C01R0201_THURSDAY2
+	_FLAG_SET	FV_C01R0201_FRIDAY
+	_FLAG_SET	FV_C01R0201_SATURDAY
+	/*一致する曜日のトレーナーだけ表示状態にする*/
+	_CHK_WEEK		LOCALWORK0
+#if 0	//flag_changeイベントでは_SWITCHは使えない!
+	_SWITCH			LOCALWORK0
+	_CASE_JUMP		RTC_WEEK_SUNDAY,ev_c01r0201_fc_sunday
+	_CASE_JUMP		RTC_WEEK_MONDAY,ev_c01r0201_fc_monday
+	_CASE_JUMP		RTC_WEEK_TUESDAY,ev_c01r0201_fc_tuesday
+	_CASE_JUMP		RTC_WEEK_WEDNESDAY,ev_c01r0201_fc_wednesday
+	_CASE_JUMP		RTC_WEEK_THURSDAY,ev_c01r0201_fc_thursday
+	_CASE_JUMP		RTC_WEEK_FRIDAY,ev_c01r0201_fc_friday
+	_CASE_JUMP		RTC_WEEK_SATURDAY,ev_c01r0201_fc_saturday
+#else
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_SUNDAY,ev_c01r0201_fc_sunday
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_MONDAY,ev_c01r0201_fc_monday
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_TUESDAY,ev_c01r0201_fc_tuesday
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_WEDNESDAY,ev_c01r0201_fc_wednesday
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_THURSDAY,ev_c01r0201_fc_thursday
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_FRIDAY,ev_c01r0201_fc_friday
+	_IFVAL_JUMP		LOCALWORK0,EQ,RTC_WEEK_SATURDAY,ev_c01r0201_fc_saturday
+#endif
+	_END
+
+ev_c01r0201_fc_sunday:
+	_FLAG_RESET		FV_C01R0201_SUNDAY
+	_END
+
+ev_c01r0201_fc_monday:
+	_FLAG_RESET		FV_C01R0201_MONDAY
+	_END
+
+ev_c01r0201_fc_tuesday:
+	_FLAG_RESET		FV_C01R0201_TUESDAY
+	_END
+
+ev_c01r0201_fc_wednesday:
+	_FLAG_RESET		FV_C01R0201_WEDNESDAY
+	_END
+
+ev_c01r0201_fc_thursday:
+	_FLAG_RESET		FV_C01R0201_THURSDAY
+	_FLAG_RESET		FV_C01R0201_THURSDAY2
+	_END
+
+ev_c01r0201_fc_friday:
+	_FLAG_RESET		FV_C01R0201_FRIDAY
+	_END
+
+ev_c01r0201_fc_saturday:
+	_FLAG_RESET		FV_C01R0201_SATURDAY
+	_END
+
+
+
+
+
+
+
+
+/********************************************************************/
+/*					サングラス強制イベント(初回)					*/
+/********************************************************************/
+ev_c01r0201_sunglasses_first:
+	_END
+
+/********************************************************************/
+/*						サングラスに話しかけ						*/
+/********************************************************************/
+ev_c01r0201_sunglasses:
+	_EASY_OBJ_MSG	msg_c01r0201_sunglasses_01
+	_END
+
+
+/********************************************************************/
+/*				サングラス強制イベント(ドレスアップ後)				*/
+/********************************************************************/
+ev_c01r0201_sunglasses_after:
+	_END
+
+
+/********************************************************************/
+/*						ポケモンくじ								*/
+/********************************************************************/
+ev_c01r0201_kuji:
+	_TALK_OBJ_START
+	//アイテムを預けている
+	_IFVAL_JUMP		WK_SCENE_KUJI_AZUKE_ITEM,NE,0,ev_c01r0201_kuji_14
+
+	//既にくじを引いた
+	_IF_FLAGON_JUMP		TMFLG_KUJI_DAY,ev_c01r0201_kuji_02
+
+	_TALKMSG	msg_c01r0201_kuji_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c01r0201_kuji_04
+	_JUMP			ev_c01r0201_kuji_03
+
+	
+//既にくじを引いた
+ev_c01r0201_kuji_02:
+	_TALKMSG		msg_c01r0201_kuji_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//いいえ
+ev_c01r0201_kuji_03:
+	_TALKMSG		msg_c01r0201_kuji_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//はい
+ev_c01r0201_kuji_04:
+	_FLAG_SET	TMFLG_KUJI_DAY
+
+	_TALK_KEYWAIT		msg_c01r0201_kuji_04
+
+	//くじ番号ゲット
+	_GET_KUJI_ATARI_NUM		SCWK_PARAM0
+
+	_NUMBER_NAME_EX	0,SCWK_PARAM0,2,5
+
+	_TALK_KEYWAIT		msg_c01r0201_kuji_05
+
+	//SCWK_PARAM1=当たったポケモン番号(0:外れ)、SCWK_PARAM2=合っている桁数
+	//,SCWK_PARAM3=あたりどちらか0:手持ち1:PC,  引数：SCWK_PARAM0(当選番号）
+	_KUJI_ATARI_CHK	SCWK_PARAM1,SCWK_PARAM2,SCWK_PARAM3,SCWK_PARAM0
+	_IFVAL_JUMP		SCWK_PARAM2,EQ,0,ev_c01r0201_kuji_08		//全てはずれ
+	_IFVAL_JUMP		SCWK_PARAM2,EQ,1,ev_c01r0201_kuji_acce_bg_check_01		//１つのみ(アクセサリーBG)
+
+	_IFVAL_JUMP		SCWK_PARAM3,EQ,0,	ev_c01r0201_kuji_06		//手持ちへ受け取り処理へ
+	_JUMP								ev_c01r0201_kuji_07		//PC受け取り処理へ
+
+
+//アクセサリーBGの場合のチェック(共通。07,08には飛ばない(松宮さん談)ので)
+ev_c01r0201_kuji_acce_bg_check_01:
+	_IF_FLAGON_JUMP	FE_KUJI_ACCE_GET,ev_c01r0201_kuji_08	//全てのアクセサリーが揃った場合はずれ
+
+	_LDVAL		SCWK_TEMP0,IMC_BG_RIGHT_01
+ev_c01r0201_kuji_acce_bg_check_loop:
+	_IMC_BG_ITEM_CHK	SCWK_TEMP0,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0201_kuji_acce_bg_check_02
+
+	_ADD_WK		SCWK_TEMP0,1
+	_IFVAL_JUMP			SCWK_TEMP0,LE,IMC_BG_RIGHT_13,ev_c01r0201_kuji_acce_bg_check_loop
+
+	//BGアクセサリー全部取得
+	_FLAG_SET		FE_KUJI_ACCE_GET
+
+	_JUMP		ev_c01r0201_kuji_08			//取れるBGアクセサリーが無い
+
+ev_c01r0201_kuji_acce_bg_check_02:
+	_TALK_KEYWAIT		msg_c01r0201_kuji_16
+
+	_IMC_BG_ADD_ITEM	SCWK_TEMP0
+
+	_TALKMSG		msg_c01r0201_kuji_17
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//ざんねん
+ev_c01r0201_kuji_08:
+	_TALKMSG		msg_c01r0201_kuji_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//手持ちあたり
+ev_c01r0201_kuji_06:
+	_NICK_NAME	0,SCWK_PARAM1
+
+	_TALK_KEYWAIT		msg_c01r0201_kuji_06
+
+	_JUMP		ev_c01r0201_kuji_atari_chk_01
+
+
+//PCあたり
+ev_c01r0201_kuji_07:
+	_NICK_NAME_PC	0,SCWK_PARAM1
+
+	_TALK_KEYWAIT		msg_c01r0201_kuji_07
+
+	_JUMP		ev_c01r0201_kuji_atari_chk_01
+
+//あたり共通処理(賞品のテキストつき）
+ev_c01r0201_kuji_atari_chk_01:
+	_SWITCH			SCWK_PARAM2
+	_CASE_JUMP		2,ev_c01r0201_kuji_09
+	_CASE_JUMP		3,ev_c01r0201_kuji_10
+	_CASE_JUMP		4,ev_c01r0201_kuji_11
+	_CASE_JUMP		5,ev_c01r0201_kuji_12
+	_END
+
+//３等
+ev_c01r0201_kuji_09:
+	_TALK_KEYWAIT		msg_c01r0201_kuji_09
+	_JUMP				ev_c01r0201_kuji_atari_chk_02
+
+//２等
+ev_c01r0201_kuji_10:
+	_TALK_KEYWAIT		msg_c01r0201_kuji_10
+	_JUMP				ev_c01r0201_kuji_atari_chk_02
+
+//１等
+ev_c01r0201_kuji_11:
+	_TALK_KEYWAIT		msg_c01r0201_kuji_11
+	_JUMP				ev_c01r0201_kuji_atari_chk_02
+
+//特等
+ev_c01r0201_kuji_12:
+	_TALK_KEYWAIT		msg_c01r0201_kuji_12
+	_JUMP				ev_c01r0201_kuji_atari_chk_02
+
+
+//あたり共通処理
+ev_c01r0201_kuji_atari_chk_02:
+	_SWITCH			SCWK_PARAM2
+	_CASE_JUMP		2,ev_c01r0201_kuji_no_3
+	_CASE_JUMP		3,ev_c01r0201_kuji_no_2
+	_CASE_JUMP		4,ev_c01r0201_kuji_no_1
+	_CASE_JUMP		5,ev_c01r0201_kuji_no_0
+	_END
+
+//クジ３等のアイテム番号セット
+ev_c01r0201_kuji_no_3:
+	_LDVAL		SCWK_PARAM3,ITEM_POINTOAPPU
+	_JUMP		ev_c01r0201_kuji_item_get_chk
+
+//クジ２等のアイテム番号セット
+ev_c01r0201_kuji_no_2:
+	_LDVAL		SCWK_PARAM3,ITEM_GAKUSYUUSOUTI
+	_JUMP		ev_c01r0201_kuji_item_get_chk
+
+//クジ１等のアイテム番号セット
+ev_c01r0201_kuji_no_1:
+	_LDVAL		SCWK_PARAM3,ITEM_GENKINOKATAMARI
+	_JUMP		ev_c01r0201_kuji_item_get_chk
+
+//クジ特等のアイテム番号セット
+ev_c01r0201_kuji_no_0:
+	_LDVAL		SCWK_PARAM3,ITEM_MASUTAABOORU
+	_JUMP		ev_c01r0201_kuji_item_get_chk
+
+//アイテムゲットチェック
+ev_c01r0201_kuji_item_get_chk:
+	//アイテム名、個数をセット
+	_LDWK			SCWK_TEMP0,SCWK_PARAM3
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c01r0201_kuji_13	//もらえない
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_JUMP		ev_c01r0201_kuji_15
+
+//預けた状態のまま
+ev_c01r0201_kuji_13:
+	//内部ワーク(何等か)を保存
+	_LDWK		WK_SCENE_KUJI_AZUKE_ITEM,SCWK_PARAM2
+
+	_TALKMSG		msg_c01r0201_kuji_13
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//預けたアイテム受け取り
+ev_c01r0201_kuji_14:
+	_PLAYER_NAME	0
+
+	_TALK_KEYWAIT		msg_c01r0201_kuji_14
+
+	//内部ワークへコピー（計算用）
+	_LDWK		SCWK_PARAM2,WK_SCENE_KUJI_AZUKE_ITEM
+
+	_JUMP		ev_c01r0201_kuji_atari_chk_02
+
+//預けたアイテム受け取り後
+ev_c01r0201_kuji_15:
+	//預け状態解除
+	_LDVAL			WK_SCENE_KUJI_AZUKE_ITEM,0
+
+	_TALKMSG		msg_c01r0201_kuji_15
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							姉さん									*/
+/********************************************************************/
+ev_c01r0201_woman2:
+	_EASY_OBJ_MSG	msg_c01r0201woman2_01
+	_END
+
+
+/********************************************************************/
+/*							おじさん								*/
+/********************************************************************/
+ev_c01r0201_middleman2:
+	_EASY_OBJ_MSG	msg_c01r0201_middleman2_01
+	_END
+
+
+/********************************************************************/
+/*								ピエロ								*/
+/********************************************************************/
+ev_c01r0201_crown:
+	_END
+
+
+
+/********************************************************************/
+/*	曜日毎に変わる対戦トレーナー									*/
+/********************************************************************/
+//--------------------------------------------------------------
+//	日曜日
+//--------------------------------------------------------------
+ev_c01r0201_sunday:
+	_TALK_OBJ_START
+
+	_IF_TR_FLAGON_JUMP	IDOL_01,ev_c01r0201_sunday_battle_after
+	
+	_TALKMSG		msg_c01r0201_idol_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01r0201_sunday_cancel	//NO
+	
+	_TALKMSG		msg_c01r0201_idol_02
+	_TALK_CLOSE
+	
+	_TRAINER_BTL_SET	IDOL_01,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0201_week_battle_lose
+	
+	_TRAINER_FLAG_SET	IDOL_01
+	_FLAG_SET			TMFLG_C01R0201_BATTLE_END
+	
+	_TALK_OBJ_END
+	_END
+
+//戦闘終了後
+ev_c01r0201_sunday_battle_after:
+	_TALKMSG		msg_c01r0201_idol_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//対戦断った
+ev_c01r0201_sunday_cancel:
+	_TALKMSG		msg_c01r0201_idol_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	月曜日
+//--------------------------------------------------------------
+ev_c01r0201_monday:
+	_TALK_OBJ_START
+
+	_IF_TR_FLAGON_JUMP	REPORTER_01,ev_c01r0201_monday_battle_after
+	
+	_TALKMSG		msg_c01r0201_reporter_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01r0201_monday_cancel	//NO
+	
+	_TALKMSG		msg_c01r0201_reporter_02
+	_TALK_CLOSE
+	
+	_TRAINER_BTL_SET	REPORTER_01,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0201_week_battle_lose
+	
+	_TRAINER_FLAG_SET	REPORTER_01
+	_FLAG_SET			TMFLG_C01R0201_BATTLE_END
+	
+	_TALK_OBJ_END
+	_END
+
+//戦闘終了後
+ev_c01r0201_monday_battle_after:
+	_TALKMSG		msg_c01r0201_reporter_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//対戦断った
+ev_c01r0201_monday_cancel:
+	_TALKMSG		msg_c01r0201_reporter_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	火曜日
+//--------------------------------------------------------------
+ev_c01r0201_tuesday:
+	_TALK_OBJ_START
+	
+	_IF_TR_FLAGON_JUMP	CAMERAMAN_01,ev_c01r0201_tuesday_battle_after
+
+	_TALKMSG		msg_c01r0201_cameraman_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01r0201_tuesday_cancel	//NO
+	
+	_TALKMSG		msg_c01r0201_cameraman_02
+	_TALK_CLOSE
+	
+	_TRAINER_BTL_SET	CAMERAMAN_01,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0201_week_battle_lose
+	
+	_TRAINER_FLAG_SET	CAMERAMAN_01
+	_FLAG_SET			TMFLG_C01R0201_BATTLE_END
+	
+	_TALK_OBJ_END
+	_END
+
+//戦闘終了後
+ev_c01r0201_tuesday_battle_after:
+	_TALKMSG		msg_c01r0201_cameraman_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//対戦断った
+ev_c01r0201_tuesday_cancel:
+	_TALKMSG		msg_c01r0201_cameraman_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	水曜日
+//--------------------------------------------------------------
+ev_c01r0201_wednesday:
+	_TALK_OBJ_START
+	
+	_IF_TR_FLAGON_JUMP	PIERROT_02,ev_c01r0201_wednesday_battle_after
+
+	_TALKMSG		msg_c01r0201_pierrot_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01r0201_wednesday_cancel	//NO
+	
+	_TALKMSG		msg_c01r0201_pierrot_02
+	_TALK_CLOSE
+	
+	_TRAINER_BTL_SET	PIERROT_02,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0201_week_battle_lose
+	
+	_TRAINER_FLAG_SET	PIERROT_02
+	_FLAG_SET			TMFLG_C01R0201_BATTLE_END
+	
+	_TALK_OBJ_END
+	_END
+
+//戦闘終了後
+ev_c01r0201_wednesday_battle_after:
+	_TALKMSG		msg_c01r0201_pierrot_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//対戦断った
+ev_c01r0201_wednesday_cancel:
+	_TALKMSG		msg_c01r0201_pierrot_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	木曜日(2vs2)
+//--------------------------------------------------------------
+ev_c01r0201_thursday:
+	_TALK_OBJ_START
+
+	_IF_TR_FLAGON_JUMP	INTERVIEW_01,ev_c01r0201_thursday_battle_after
+
+	//手持ち2匹以上いるかチェック(除外無し＝６）
+	_GET_POKE_COUNT3	SCWK_ANSWER,6
+	_IFVAL_JUMP			SCWK_ANSWER,GE,2,ev_c01r0201_thursday_battle
+	_TALKMSG		msg_c01r0201_interview1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+	
+ev_c01r0201_thursday_battle:
+	_TALKMSG		msg_c01r0201_interview1_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01r0201_thursday_cancel	//NO
+	
+	_TALKMSG		msg_c01r0201_interview1_03
+	_TALK_CLOSE
+	
+	_TRAINER_BTL_SET	INTERVIEW_01,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0201_week_battle_lose
+	
+	_TRAINER_FLAG_SET	INTERVIEW_01
+	_FLAG_SET			TMFLG_C01R0201_BATTLE_END
+	
+	_TALK_OBJ_END
+	_END
+
+//戦闘終了後
+ev_c01r0201_thursday_battle_after:
+	_TALKMSG		msg_c01r0201_interview1_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//対戦断った
+ev_c01r0201_thursday_cancel:
+	_TALKMSG		msg_c01r0201_interview1_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	木曜日(2vs2)：相方
+//--------------------------------------------------------------
+ev_c01r0201_thursday2:
+	_TALK_OBJ_START
+	
+	_IF_TR_FLAGON_JUMP	INTERVIEW_01,ev_c01r0201_thursday2_battle_after
+
+	//手持ち2匹以上いるかチェック(除外無し＝６）
+	_GET_POKE_COUNT3	SCWK_ANSWER,6
+	_IFVAL_JUMP			SCWK_ANSWER,GE,2,ev_c01r0201_thursday2_battle
+	_TALKMSG		msg_c01r0201_interview2_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c01r0201_thursday2_battle:
+	_TALKMSG		msg_c01r0201_interview2_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01r0201_thursday2_cancel	//NO
+	
+	_TALKMSG		msg_c01r0201_interview2_03
+	_TALK_CLOSE
+	
+	_TRAINER_BTL_SET	INTERVIEW_01,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0201_week_battle_lose
+	
+	_TRAINER_FLAG_SET	INTERVIEW_01
+	_FLAG_SET			TMFLG_C01R0201_BATTLE_END
+	
+	_TALK_OBJ_END
+	_END
+
+//戦闘終了後
+ev_c01r0201_thursday2_battle_after:
+	_TALKMSG		msg_c01r0201_interview2_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//対戦断った
+ev_c01r0201_thursday2_cancel:
+	_TALKMSG		msg_c01r0201_interview2_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	金曜日
+//--------------------------------------------------------------
+ev_c01r0201_friday:
+	_TALK_OBJ_START
+	
+	_IF_TR_FLAGON_JUMP	POKEGIRL_03,ev_c01r0201_friday_battle_after
+
+	_TALKMSG		msg_c01r0201_pokegirl_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01r0201_friday_cancel	//NO
+	
+	_TALKMSG		msg_c01r0201_pokegirl_02
+	_TALK_CLOSE
+	
+	_TRAINER_BTL_SET	POKEGIRL_03,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0201_week_battle_lose
+	
+	_TRAINER_FLAG_SET	POKEGIRL_03
+	_FLAG_SET			TMFLG_C01R0201_BATTLE_END
+	
+	_TALK_OBJ_END
+	_END
+
+//戦闘終了後
+ev_c01r0201_friday_battle_after:
+	_TALKMSG		msg_c01r0201_pokegirl_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//対戦断った
+ev_c01r0201_friday_cancel:
+	_TALKMSG		msg_c01r0201_pokegirl_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	土曜日
+//--------------------------------------------------------------
+ev_c01r0201_saturday:
+	_TALK_OBJ_START
+	
+	_IF_TR_FLAGON_JUMP	GUITARIST_07,ev_c01r0201_saturday_battle_after
+
+	_TALKMSG		msg_c01r0201_guitarist_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01r0201_saturday_cancel	//NO
+	
+	_TALKMSG		msg_c01r0201_guitarist_02
+	_TALK_CLOSE
+	
+	_TRAINER_BTL_SET	GUITARIST_07,0
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01r0201_week_battle_lose
+	
+	_TRAINER_FLAG_SET	GUITARIST_07
+	_FLAG_SET			TMFLG_C01R0201_BATTLE_END
+	
+	_TALK_OBJ_END
+	_END
+
+//戦闘終了後
+ev_c01r0201_saturday_battle_after:
+	_TALKMSG		msg_c01r0201_guitarist_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//対戦断った
+ev_c01r0201_saturday_cancel:
+	_TALKMSG		msg_c01r0201_guitarist_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//--------------------------------------------------------------
+//	曜日トレーナー共通処理
+//--------------------------------------------------------------
+//曜日毎に変わる対戦トレーナー：対戦負けた場合
+ev_c01r0201_week_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+
+//--------------------------------------------------------------
+//	トレーナー兄さん	
+//--------------------------------------------------------------
+ev_c01r0201_man3_01:
+	_EASY_OBJ_MSG	msg_c01r0201_man3_01 
+	_END

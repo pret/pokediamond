@@ -1,0 +1,54 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: mail_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-08-02T21:26:50
+ *****************************************************************************/
+
+#ifndef NARC_MAIL_GRA_NAIX_
+#define NARC_MAIL_GRA_NAIX_
+
+enum {
+	NARC_mail_gra_mail_000_nclr = 0,
+	NARC_mail_gra_mail_001_nclr = 1,
+	NARC_mail_gra_mail_002_nclr = 2,
+	NARC_mail_gra_mail_003_nclr = 3,
+	NARC_mail_gra_mail_004_nclr = 4,
+	NARC_mail_gra_mail_005_nclr = 5,
+	NARC_mail_gra_mail_006_nclr = 6,
+	NARC_mail_gra_mail_007_nclr = 7,
+	NARC_mail_gra_mail_008_nclr = 8,
+	NARC_mail_gra_mail_009_nclr = 9,
+	NARC_mail_gra_mail_010_nclr = 10,
+	NARC_mail_gra_mail_011_nclr = 11,
+	NARC_mail_gra_mail_000_ncgr = 12,
+	NARC_mail_gra_mail_001_ncgr = 13,
+	NARC_mail_gra_mail_002_ncgr = 14,
+	NARC_mail_gra_mail_003_ncgr = 15,
+	NARC_mail_gra_mail_004_ncgr = 16,
+	NARC_mail_gra_mail_005_ncgr = 17,
+	NARC_mail_gra_mail_006_ncgr = 18,
+	NARC_mail_gra_mail_007_ncgr = 19,
+	NARC_mail_gra_mail_008_ncgr = 20,
+	NARC_mail_gra_mail_009_ncgr = 21,
+	NARC_mail_gra_mail_010_ncgr = 22,
+	NARC_mail_gra_mail_011_ncgr = 23,
+	NARC_mail_gra_mail_000_nscr = 24,
+	NARC_mail_gra_mail_001_nscr = 25,
+	NARC_mail_gra_mail_002_nscr = 26,
+	NARC_mail_gra_mail_003_nscr = 27,
+	NARC_mail_gra_mail_004_nscr = 28,
+	NARC_mail_gra_mail_005_nscr = 29,
+	NARC_mail_gra_mail_006_nscr = 30,
+	NARC_mail_gra_mail_007_nscr = 31,
+	NARC_mail_gra_mail_008_nscr = 32,
+	NARC_mail_gra_mail_009_nscr = 33,
+	NARC_mail_gra_mail_010_nscr = 34,
+	NARC_mail_gra_mail_011_nscr = 35,
+	NARC_mail_gra_mail_scr_nscr = 36
+};
+
+/* NARC_MAIL_GRA_NAIX_ */
+#endif

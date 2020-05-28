@@ -1,0 +1,112 @@
+//====================================================================
+//								c10r0109
+//
+//	LOCALWORK1	ルームインに使用
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c10r0109.h"
+	.include	"../eventdata/zone_c10r0109evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c10r0109_bigfour4
+_EVENT_DATA		ev_c10r0109_room_in
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_c10r0109_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*							四天王									*/
+/********************************************************************/
+ev_c10r0109_bigfour4:
+	_TALK_OBJ_START
+
+	/*フラグを落とす処理が後で必要になる！*/
+
+	/*勝利していたら*/
+	_IF_FLAGON_JUMP	FE_BIGFOUR4_WIN,ev_c10r0109_bigfour4_02
+
+	_TRAINER_BGM_SET	BIGFOUR4_01					/*視線曲セット*/
+
+	_TALK_KEYWAIT	msg_c10r0109_bigfour4_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_TRAINER_BTL_SET	BIGFOUR4_01,0
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c10r0109_common_battle_lose
+
+	_FLAG_SET		FE_BIGFOUR4_WIN
+
+	/*奥のドアを消す*/
+	_SE_PLAY			SEQ_SE_DP_KI_GASYAN
+	_OBJ_DEL		C10R0109_DOOR_02
+
+	/*冒険ノートデータ作成*/
+	_FNOTE_DATA_MAKE	FNOTE_ID_SITENNOU,BIGFOUR4_01,0,0,0
+
+	_TALKMSG		msg_c10r0109_bigfour4_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_c10r0109_common_battle_lose:
+	_TRAINER_LOSE
+	_TALK_OBJ_END
+	_END
+
+/*勝利していたら*/
+ev_c10r0109_bigfour4_02:
+	_TALKMSG		msg_c10r0109_bigfour4_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							ルームイン								*/
+/********************************************************************/
+ev_c10r0109_room_in:
+	_EVENT_START
+
+	/*前進*/
+	_OBJ_ANIME			FLDOBJ_ID_PLAYER,anm_c10r0109_roomin_01
+	_OBJ_ANIME_WAIT	
+
+	/*奥のドアを出す*/
+	_SE_PLAY			SEQ_SE_DP_KI_GASYAN
+	_FLAG_RESET			FV_C10R0109_DOOR_01
+	_OBJ_ADD			C10R0109_DOOR_01
+
+	_LDVAL				LOCALWORK1,1
+
+	_EVENT_END
+	_END
+
+//----------------------------------------------------------------------------------------------
+//前進
+//----------------------------------------------------------------------------------------------
+_ANIME_LABEL	anm_c10r0109_roomin_01
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+

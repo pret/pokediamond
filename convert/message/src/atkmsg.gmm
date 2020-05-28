@@ -1,0 +1,7111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="sogabe" host="W00086" date="2005-09-02T15:24:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="ATKMSG_M_000">
+		<language name="日本語">！</language>
+	</row>
+
+	<row id="ATKMSG_Y_000">
+		<language name="日本語">！</language>
+	</row>
+
+	<row id="ATKMSG_E_000">
+		<language name="日本語">！</language>
+	</row>
+
+	<row id="ATKMSG_M_001">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はたく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_001">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はたく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_001">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はたく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_002">
+		<language name="日本語">[1:01:ニックネーム:0]の
+からてチョップ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_002">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+からてチョップ！</language>
+	</row>
+
+	<row id="ATKMSG_E_002">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+からてチョップ！</language>
+	</row>
+
+	<row id="ATKMSG_M_003">
+		<language name="日本語">[1:01:ニックネーム:0]の
+おうふくビンタ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_003">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+おうふくビンタ！</language>
+	</row>
+
+	<row id="ATKMSG_E_003">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+おうふくビンタ！</language>
+	</row>
+
+	<row id="ATKMSG_M_004">
+		<language name="日本語">[1:01:ニックネーム:0]の
+れんぞくパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_004">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+れんぞくパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_004">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+れんぞくパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_005">
+		<language name="日本語">[1:01:ニックネーム:0]の
+メガトンパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_005">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+メガトンパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_005">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+メガトンパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_006">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ネコにこばん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_006">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ネコにこばん！</language>
+	</row>
+
+	<row id="ATKMSG_E_006">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ネコにこばん！</language>
+	</row>
+
+	<row id="ATKMSG_M_007">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ほのおのパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_007">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ほのおのパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_007">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ほのおのパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_008">
+		<language name="日本語">[1:01:ニックネーム:0]の
+れいとうパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_008">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+れいとうパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_008">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+れいとうパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_009">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かみなりパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_009">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かみなりパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_009">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かみなりパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_010">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ひっかく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_010">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ひっかく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_010">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ひっかく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_011">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はさむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_011">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はさむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_011">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はさむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_012">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ハサミギロチン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_012">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ハサミギロチン！</language>
+	</row>
+
+	<row id="ATKMSG_E_012">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ハサミギロチン！</language>
+	</row>
+
+	<row id="ATKMSG_M_013">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かまいたち！</language>
+	</row>
+
+	<row id="ATKMSG_Y_013">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かまいたち！</language>
+	</row>
+
+	<row id="ATKMSG_E_013">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かまいたち！</language>
+	</row>
+
+	<row id="ATKMSG_M_014">
+		<language name="日本語">[1:01:ニックネーム:0]は
+つるぎのまいを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_014">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+つるぎのまいを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_014">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+つるぎのまいを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_015">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いあいぎり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_015">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いあいぎり！</language>
+	</row>
+
+	<row id="ATKMSG_E_015">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いあいぎり！</language>
+	</row>
+
+	<row id="ATKMSG_M_016">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かぜおこし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_016">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かぜおこし！</language>
+	</row>
+
+	<row id="ATKMSG_E_016">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かぜおこし！</language>
+	</row>
+
+	<row id="ATKMSG_M_017">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つばさでうつ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_017">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つばさでうつ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_017">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つばさでうつ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_018">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ふきとばし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_018">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ふきとばし！</language>
+	</row>
+
+	<row id="ATKMSG_E_018">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ふきとばし！</language>
+	</row>
+
+	<row id="ATKMSG_M_019">
+		<language name="日本語">[1:01:ニックネーム:0]の
+そらをとぶ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_019">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+そらをとぶ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_019">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+そらをとぶ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_020">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しめつける　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_020">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しめつける　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_020">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しめつける　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_021">
+		<language name="日本語">[1:01:ニックネーム:0]の
+たたきつける　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_021">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+たたきつける　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_021">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+たたきつける　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_022">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つるのムチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_022">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つるのムチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_022">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つるのムチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_023">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ふみつけ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_023">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ふみつけ！</language>
+	</row>
+
+	<row id="ATKMSG_E_023">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ふみつけ！</language>
+	</row>
+
+	<row id="ATKMSG_M_024">
+		<language name="日本語">[1:01:ニックネーム:0]の
+にどげり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_024">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+にどげり！</language>
+	</row>
+
+	<row id="ATKMSG_E_024">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+にどげり！</language>
+	</row>
+
+	<row id="ATKMSG_M_025">
+		<language name="日本語">[1:01:ニックネーム:0]の
+メガトンキック！</language>
+	</row>
+
+	<row id="ATKMSG_Y_025">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+メガトンキック！</language>
+	</row>
+
+	<row id="ATKMSG_E_025">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+メガトンキック！</language>
+	</row>
+
+	<row id="ATKMSG_M_026">
+		<language name="日本語">[1:01:ニックネーム:0]の
+とびげり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_026">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+とびげり！</language>
+	</row>
+
+	<row id="ATKMSG_E_026">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+とびげり！</language>
+	</row>
+
+	<row id="ATKMSG_M_027">
+		<language name="日本語">[1:01:ニックネーム:0]の
+まわしげり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_027">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+まわしげり！</language>
+	</row>
+
+	<row id="ATKMSG_E_027">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+まわしげり！</language>
+	</row>
+
+	<row id="ATKMSG_M_028">
+		<language name="日本語">[1:01:ニックネーム:0]の
+すなかけ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_028">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+すなかけ！</language>
+	</row>
+
+	<row id="ATKMSG_E_028">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+すなかけ！</language>
+	</row>
+
+	<row id="ATKMSG_M_029">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ずつき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_029">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ずつき！</language>
+	</row>
+
+	<row id="ATKMSG_E_029">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ずつき！</language>
+	</row>
+
+	<row id="ATKMSG_M_030">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つのでつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_030">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つのでつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_030">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つのでつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_031">
+		<language name="日本語">[1:01:ニックネーム:0]の
+みだれづき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_031">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+みだれづき！</language>
+	</row>
+
+	<row id="ATKMSG_E_031">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+みだれづき！</language>
+	</row>
+
+	<row id="ATKMSG_M_032">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つのドリル！</language>
+	</row>
+
+	<row id="ATKMSG_Y_032">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つのドリル！</language>
+	</row>
+
+	<row id="ATKMSG_E_032">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つのドリル！</language>
+	</row>
+
+	<row id="ATKMSG_M_033">
+		<language name="日本語">[1:01:ニックネーム:0]の
+たいあたり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_033">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+たいあたり！</language>
+	</row>
+
+	<row id="ATKMSG_E_033">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+たいあたり！</language>
+	</row>
+
+	<row id="ATKMSG_M_034">
+		<language name="日本語">[1:01:ニックネーム:0]の
+のしかかり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_034">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+のしかかり！</language>
+	</row>
+
+	<row id="ATKMSG_E_034">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+のしかかり！</language>
+	</row>
+
+	<row id="ATKMSG_M_035">
+		<language name="日本語">[1:01:ニックネーム:0]の
+まきつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_035">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+まきつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_035">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+まきつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_036">
+		<language name="日本語">[1:01:ニックネーム:0]の
+とっしん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_036">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+とっしん！</language>
+	</row>
+
+	<row id="ATKMSG_E_036">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+とっしん！</language>
+	</row>
+
+	<row id="ATKMSG_M_037">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あばれる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_037">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あばれる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_037">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あばれる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_038">
+		<language name="日本語">[1:01:ニックネーム:0]の
+すてみタックル！</language>
+	</row>
+
+	<row id="ATKMSG_Y_038">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+すてみタックル！</language>
+	</row>
+
+	<row id="ATKMSG_E_038">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+すてみタックル！</language>
+	</row>
+
+	<row id="ATKMSG_M_039">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しっぽをふる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_039">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しっぽをふる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_039">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しっぽをふる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_040">
+		<language name="日本語">[1:01:ニックネーム:0]の
+どくばり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_040">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+どくばり！</language>
+	</row>
+
+	<row id="ATKMSG_E_040">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+どくばり！</language>
+	</row>
+
+	<row id="ATKMSG_M_041">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ダブルニードル！</language>
+	</row>
+
+	<row id="ATKMSG_Y_041">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ダブルニードル！</language>
+	</row>
+
+	<row id="ATKMSG_E_041">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ダブルニードル！</language>
+	</row>
+
+	<row id="ATKMSG_M_042">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ミサイルばり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_042">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ミサイルばり！</language>
+	</row>
+
+	<row id="ATKMSG_E_042">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ミサイルばり！</language>
+	</row>
+
+	<row id="ATKMSG_M_043">
+		<language name="日本語">[1:01:ニックネーム:0]の
+にらみつける　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_043">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+にらみつける　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_043">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+にらみつける　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_044">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かみつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_044">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かみつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_044">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かみつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_045">
+		<language name="日本語">[1:01:ニックネーム:0]の
+なきごえ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_045">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+なきごえ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_045">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+なきごえ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_046">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ほえる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_046">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ほえる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_046">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ほえる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_047">
+		<language name="日本語">[1:01:ニックネーム:0]の
+うたう　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_047">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+うたう　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_047">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+うたう　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_048">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ちょうおんぱ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_048">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ちょうおんぱ！</language>
+	</row>
+
+	<row id="ATKMSG_E_048">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ちょうおんぱ！</language>
+	</row>
+
+	<row id="ATKMSG_M_049">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ソニックブーム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_049">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ソニックブーム！</language>
+	</row>
+
+	<row id="ATKMSG_E_049">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ソニックブーム！</language>
+	</row>
+
+	<row id="ATKMSG_M_050">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かなしばり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_050">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かなしばり！</language>
+	</row>
+
+	<row id="ATKMSG_E_050">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かなしばり！</language>
+	</row>
+
+	<row id="ATKMSG_M_051">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ようかいえき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_051">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ようかいえき！</language>
+	</row>
+
+	<row id="ATKMSG_E_051">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ようかいえき！</language>
+	</row>
+
+	<row id="ATKMSG_M_052">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ひのこ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_052">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ひのこ！</language>
+	</row>
+
+	<row id="ATKMSG_E_052">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ひのこ！</language>
+	</row>
+
+	<row id="ATKMSG_M_053">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かえんほうしゃ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_053">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かえんほうしゃ！</language>
+	</row>
+
+	<row id="ATKMSG_E_053">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かえんほうしゃ！</language>
+	</row>
+
+	<row id="ATKMSG_M_054">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しろいきり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_054">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しろいきり！</language>
+	</row>
+
+	<row id="ATKMSG_E_054">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しろいきり！</language>
+	</row>
+
+	<row id="ATKMSG_M_055">
+		<language name="日本語">[1:01:ニックネーム:0]の
+みずでっぽう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_055">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+みずでっぽう！</language>
+	</row>
+
+	<row id="ATKMSG_E_055">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+みずでっぽう！</language>
+	</row>
+
+	<row id="ATKMSG_M_056">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ハイドロポンプ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_056">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ハイドロポンプ！</language>
+	</row>
+
+	<row id="ATKMSG_E_056">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ハイドロポンプ！</language>
+	</row>
+
+	<row id="ATKMSG_M_057">
+		<language name="日本語">[1:01:ニックネーム:0]の
+なみのり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_057">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+なみのり！</language>
+	</row>
+
+	<row id="ATKMSG_E_057">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+なみのり！</language>
+	</row>
+
+	<row id="ATKMSG_M_058">
+		<language name="日本語">[1:01:ニックネーム:0]の
+れいとうビーム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_058">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+れいとうビーム！</language>
+	</row>
+
+	<row id="ATKMSG_E_058">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+れいとうビーム！</language>
+	</row>
+
+	<row id="ATKMSG_M_059">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ふぶき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_059">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ふぶき！</language>
+	</row>
+
+	<row id="ATKMSG_E_059">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ふぶき！</language>
+	</row>
+
+	<row id="ATKMSG_M_060">
+		<language name="日本語">[1:01:ニックネーム:0]の
+サイケこうせん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_060">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+サイケこうせん！</language>
+	</row>
+
+	<row id="ATKMSG_E_060">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+サイケこうせん！</language>
+	</row>
+
+	<row id="ATKMSG_M_061">
+		<language name="日本語">[1:01:ニックネーム:0]の
+バブルこうせん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_061">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+バブルこうせん！</language>
+	</row>
+
+	<row id="ATKMSG_E_061">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+バブルこうせん！</language>
+	</row>
+
+	<row id="ATKMSG_M_062">
+		<language name="日本語">[1:01:ニックネーム:0]の
+オーロラビーム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_062">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+オーロラビーム！</language>
+	</row>
+
+	<row id="ATKMSG_E_062">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+オーロラビーム！</language>
+	</row>
+
+	<row id="ATKMSG_M_063">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はかいこうせん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_063">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はかいこうせん！</language>
+	</row>
+
+	<row id="ATKMSG_E_063">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はかいこうせん！</language>
+	</row>
+
+	<row id="ATKMSG_M_064">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_064">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_064">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_065">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ドリルくちばし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_065">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ドリルくちばし！</language>
+	</row>
+
+	<row id="ATKMSG_E_065">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ドリルくちばし！</language>
+	</row>
+
+	<row id="ATKMSG_M_066">
+		<language name="日本語">[1:01:ニックネーム:0]の
+じごくぐるま！</language>
+	</row>
+
+	<row id="ATKMSG_Y_066">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+じごくぐるま！</language>
+	</row>
+
+	<row id="ATKMSG_E_066">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+じごくぐるま！</language>
+	</row>
+
+	<row id="ATKMSG_M_067">
+		<language name="日本語">[1:01:ニックネーム:0]の
+けたぐり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_067">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+けたぐり！</language>
+	</row>
+
+	<row id="ATKMSG_E_067">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+けたぐり！</language>
+	</row>
+
+	<row id="ATKMSG_M_068">
+		<language name="日本語">[1:01:ニックネーム:0]の
+カウンター！</language>
+	</row>
+
+	<row id="ATKMSG_Y_068">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+カウンター！</language>
+	</row>
+
+	<row id="ATKMSG_E_068">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+カウンター！</language>
+	</row>
+
+	<row id="ATKMSG_M_069">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ちきゅうなげ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_069">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ちきゅうなげ！</language>
+	</row>
+
+	<row id="ATKMSG_E_069">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ちきゅうなげ！</language>
+	</row>
+
+	<row id="ATKMSG_M_070">
+		<language name="日本語">[1:01:ニックネーム:0]は
+かいりきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_070">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+かいりきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_070">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+かいりきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_071">
+		<language name="日本語">[1:01:ニックネーム:0]の
+すいとる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_071">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+すいとる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_071">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+すいとる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_072">
+		<language name="日本語">[1:01:ニックネーム:0]の
+メガドレイン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_072">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+メガドレイン！</language>
+	</row>
+
+	<row id="ATKMSG_E_072">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+メガドレイン！</language>
+	</row>
+
+	<row id="ATKMSG_M_073">
+		<language name="日本語">[1:01:ニックネーム:0]の
+やどりぎのタネ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_073">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+やどりぎのタネ！</language>
+	</row>
+
+	<row id="ATKMSG_E_073">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+やどりぎのタネ！</language>
+	</row>
+
+	<row id="ATKMSG_M_074">
+		<language name="日本語">[1:01:ニックネーム:0]は
+せいちょうを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_074">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+せいちょうを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_074">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+せいちょうを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_075">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はっぱカッター！</language>
+	</row>
+
+	<row id="ATKMSG_Y_075">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はっぱカッター！</language>
+	</row>
+
+	<row id="ATKMSG_E_075">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はっぱカッター！</language>
+	</row>
+
+	<row id="ATKMSG_M_076">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ソーラービーム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_076">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ソーラービーム！</language>
+	</row>
+
+	<row id="ATKMSG_E_076">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ソーラービーム！</language>
+	</row>
+
+	<row id="ATKMSG_M_077">
+		<language name="日本語">[1:01:ニックネーム:0]の
+どくのこな！</language>
+	</row>
+
+	<row id="ATKMSG_Y_077">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+どくのこな！</language>
+	</row>
+
+	<row id="ATKMSG_E_077">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+どくのこな！</language>
+	</row>
+
+	<row id="ATKMSG_M_078">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しびれごな！</language>
+	</row>
+
+	<row id="ATKMSG_Y_078">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しびれごな！</language>
+	</row>
+
+	<row id="ATKMSG_E_078">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しびれごな！</language>
+	</row>
+
+	<row id="ATKMSG_M_079">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ねむりごな！</language>
+	</row>
+
+	<row id="ATKMSG_Y_079">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ねむりごな！</language>
+	</row>
+
+	<row id="ATKMSG_E_079">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ねむりごな！</language>
+	</row>
+
+	<row id="ATKMSG_M_080">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はなびらのまい！</language>
+	</row>
+
+	<row id="ATKMSG_Y_080">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はなびらのまい！</language>
+	</row>
+
+	<row id="ATKMSG_E_080">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はなびらのまい！</language>
+	</row>
+
+	<row id="ATKMSG_M_081">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いとをはく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_081">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いとをはく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_081">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いとをはく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_082">
+		<language name="日本語">[1:01:ニックネーム:0]の
+りゅうのいかり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_082">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+りゅうのいかり！</language>
+	</row>
+
+	<row id="ATKMSG_E_082">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+りゅうのいかり！</language>
+	</row>
+
+	<row id="ATKMSG_M_083">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ほのおのうず！</language>
+	</row>
+
+	<row id="ATKMSG_Y_083">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ほのおのうず！</language>
+	</row>
+
+	<row id="ATKMSG_E_083">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ほのおのうず！</language>
+	</row>
+
+	<row id="ATKMSG_M_084">
+		<language name="日本語">[1:01:ニックネーム:0]の
+でんきショック！</language>
+	</row>
+
+	<row id="ATKMSG_Y_084">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+でんきショック！</language>
+	</row>
+
+	<row id="ATKMSG_E_084">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+でんきショック！</language>
+	</row>
+
+	<row id="ATKMSG_M_085">
+		<language name="日本語">[1:01:ニックネーム:0]の
+１０まんボルト！</language>
+	</row>
+
+	<row id="ATKMSG_Y_085">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+１０まんボルト！</language>
+	</row>
+
+	<row id="ATKMSG_E_085">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+１０まんボルト！</language>
+	</row>
+
+	<row id="ATKMSG_M_086">
+		<language name="日本語">[1:01:ニックネーム:0]の
+でんじは！</language>
+	</row>
+
+	<row id="ATKMSG_Y_086">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+でんじは！</language>
+	</row>
+
+	<row id="ATKMSG_E_086">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+でんじは！</language>
+	</row>
+
+	<row id="ATKMSG_M_087">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かみなり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_087">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かみなり！</language>
+	</row>
+
+	<row id="ATKMSG_E_087">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かみなり！</language>
+	</row>
+
+	<row id="ATKMSG_M_088">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いわおとし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_088">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いわおとし！</language>
+	</row>
+
+	<row id="ATKMSG_E_088">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いわおとし！</language>
+	</row>
+
+	<row id="ATKMSG_M_089">
+		<language name="日本語">[1:01:ニックネーム:0]の
+じしん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_089">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+じしん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_089">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+じしん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_090">
+		<language name="日本語">[1:01:ニックネーム:0]の
+じわれ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_090">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+じわれ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_090">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+じわれ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_091">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あなをほる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_091">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あなをほる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_091">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あなをほる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_092">
+		<language name="日本語">[1:01:ニックネーム:0]の
+どくどく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_092">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+どくどく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_092">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+どくどく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_093">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ねんりき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_093">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ねんりき！</language>
+	</row>
+
+	<row id="ATKMSG_E_093">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ねんりき！</language>
+	</row>
+
+	<row id="ATKMSG_M_094">
+		<language name="日本語">[1:01:ニックネーム:0]の
+サイコキネシス！</language>
+	</row>
+
+	<row id="ATKMSG_Y_094">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+サイコキネシス！</language>
+	</row>
+
+	<row id="ATKMSG_E_094">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+サイコキネシス！</language>
+	</row>
+
+	<row id="ATKMSG_M_095">
+		<language name="日本語">[1:01:ニックネーム:0]の
+さいみんじゅつ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_095">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+さいみんじゅつ！</language>
+	</row>
+
+	<row id="ATKMSG_E_095">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+さいみんじゅつ！</language>
+	</row>
+
+	<row id="ATKMSG_M_096">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ヨガのポーズを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_096">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ヨガのポーズを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_096">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ヨガのポーズを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_097">
+		<language name="日本語">[1:01:ニックネーム:0]は
+こうそくいどうを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_097">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+こうそくいどうを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_097">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+こうそくいどうを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_098">
+		<language name="日本語">[1:01:ニックネーム:0]の
+でんこうせっか！</language>
+	</row>
+
+	<row id="ATKMSG_Y_098">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+でんこうせっか！</language>
+	</row>
+
+	<row id="ATKMSG_E_098">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+でんこうせっか！</language>
+	</row>
+
+	<row id="ATKMSG_M_099">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いかり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_099">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いかり！</language>
+	</row>
+
+	<row id="ATKMSG_E_099">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いかり！</language>
+	</row>
+
+	<row id="ATKMSG_M_100">
+		<language name="日本語">[1:01:ニックネーム:0]は
+テレポートした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_100">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+テレポートした！</language>
+	</row>
+
+	<row id="ATKMSG_E_100">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+テレポートした！</language>
+	</row>
+
+	<row id="ATKMSG_M_101">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ナイトヘッド！</language>
+	</row>
+
+	<row id="ATKMSG_Y_101">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ナイトヘッド！</language>
+	</row>
+
+	<row id="ATKMSG_E_101">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ナイトヘッド！</language>
+	</row>
+
+	<row id="ATKMSG_M_102">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ものまねを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_102">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ものまねを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_102">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ものまねを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_103">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いやなおと　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_103">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いやなおと　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_103">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いやなおと　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_104">
+		<language name="日本語">[1:01:ニックネーム:0]は
+かげぶんしんを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_104">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+かげぶんしんを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_104">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+かげぶんしんを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_105">
+		<language name="日本語">[1:01:ニックネーム:0]は
+じこさいせいした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_105">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+じこさいせいした！</language>
+	</row>
+
+	<row id="ATKMSG_E_105">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+じこさいせいした！</language>
+	</row>
+
+	<row id="ATKMSG_M_106">
+		<language name="日本語">[1:01:ニックネーム:0]は
+かたくなるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_106">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+かたくなるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_106">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+かたくなるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_107">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ちいさくなるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_107">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ちいさくなるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_107">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ちいさくなるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_108">
+		<language name="日本語">[1:01:ニックネーム:0]は
+えんまくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_108">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+えんまくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_108">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+えんまくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_109">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あやしいひかり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_109">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あやしいひかり！</language>
+	</row>
+
+	<row id="ATKMSG_E_109">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あやしいひかり！</language>
+	</row>
+
+	<row id="ATKMSG_M_110">
+		<language name="日本語">[1:01:ニックネーム:0]は
+からにこもるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_110">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+からにこもるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_110">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+からにこもるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_111">
+		<language name="日本語">[1:01:ニックネーム:0]は
+まるくなるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_111">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+まるくなるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_111">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+まるくなるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_112">
+		<language name="日本語">[1:01:ニックネーム:0]の
+バリアー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_112">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+バリアー！</language>
+	</row>
+
+	<row id="ATKMSG_E_112">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+バリアー！</language>
+	</row>
+
+	<row id="ATKMSG_M_113">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ひかりのかべ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_113">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ひかりのかべ！</language>
+	</row>
+
+	<row id="ATKMSG_E_113">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ひかりのかべ！</language>
+	</row>
+
+	<row id="ATKMSG_M_114">
+		<language name="日本語">[1:01:ニックネーム:0]の
+くろいきり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_114">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+くろいきり！</language>
+	</row>
+
+	<row id="ATKMSG_E_114">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+くろいきり！</language>
+	</row>
+
+	<row id="ATKMSG_M_115">
+		<language name="日本語">[1:01:ニックネーム:0]の
+リフレクター！</language>
+	</row>
+
+	<row id="ATKMSG_Y_115">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+リフレクター！</language>
+	</row>
+
+	<row id="ATKMSG_E_115">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+リフレクター！</language>
+	</row>
+
+	<row id="ATKMSG_M_116">
+		<language name="日本語">[1:01:ニックネーム:0]の
+きあいだめ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_116">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+きあいだめ！</language>
+	</row>
+
+	<row id="ATKMSG_E_116">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+きあいだめ！</language>
+	</row>
+
+	<row id="ATKMSG_M_117">
+		<language name="日本語">[1:01:ニックネーム:0]は
+がまんした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_117">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+がまんした！</language>
+	</row>
+
+	<row id="ATKMSG_E_117">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+がまんした！</language>
+	</row>
+
+	<row id="ATKMSG_M_118">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ゆびをふる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_118">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ゆびをふる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_118">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ゆびをふる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_119">
+		<language name="日本語">[1:01:ニックネーム:0]の
+オウムがえし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_119">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+オウムがえし！</language>
+	</row>
+
+	<row id="ATKMSG_E_119">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+オウムがえし！</language>
+	</row>
+
+	<row id="ATKMSG_M_120">
+		<language name="日本語">[1:01:ニックネーム:0]の
+じばく！</language>
+	</row>
+
+	<row id="ATKMSG_Y_120">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+じばく！</language>
+	</row>
+
+	<row id="ATKMSG_E_120">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+じばく！</language>
+	</row>
+
+	<row id="ATKMSG_M_121">
+		<language name="日本語">[1:01:ニックネーム:0]は
+タマゴばくだんを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_121">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+タマゴばくだんを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_121">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+タマゴばくだんを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_122">
+		<language name="日本語">[1:01:ニックネーム:0]の
+したでなめる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_122">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+したでなめる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_122">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+したでなめる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_123">
+		<language name="日本語">[1:01:ニックネーム:0]は
+スモッグを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_123">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+スモッグを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_123">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+スモッグを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_124">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ヘドロこうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_124">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ヘドロこうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_124">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ヘドロこうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_125">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ホネこんぼうを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_125">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ホネこんぼうを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_125">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ホネこんぼうを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_126">
+		<language name="日本語">[1:01:ニックネーム:0]の
+だいもんじ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_126">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+だいもんじ！</language>
+	</row>
+
+	<row id="ATKMSG_E_126">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+だいもんじ！</language>
+	</row>
+
+	<row id="ATKMSG_M_127">
+		<language name="日本語">[1:01:ニックネーム:0]の
+たきのぼり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_127">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+たきのぼり！</language>
+	</row>
+
+	<row id="ATKMSG_E_127">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+たきのぼり！</language>
+	</row>
+
+	<row id="ATKMSG_M_128">
+		<language name="日本語">[1:01:ニックネーム:0]の
+からではさむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_128">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+からではさむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_128">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+からではさむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_129">
+		<language name="日本語">[1:01:ニックネーム:0]の
+スピードスター！</language>
+	</row>
+
+	<row id="ATKMSG_Y_129">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+スピードスター！</language>
+	</row>
+
+	<row id="ATKMSG_E_129">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+スピードスター！</language>
+	</row>
+
+	<row id="ATKMSG_M_130">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ロケットずつき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_130">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ロケットずつき！</language>
+	</row>
+
+	<row id="ATKMSG_E_130">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ロケットずつき！</language>
+	</row>
+
+	<row id="ATKMSG_M_131">
+		<language name="日本語">[1:01:ニックネーム:0]の
+とげキャノン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_131">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+とげキャノン！</language>
+	</row>
+
+	<row id="ATKMSG_E_131">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+とげキャノン！</language>
+	</row>
+
+	<row id="ATKMSG_M_132">
+		<language name="日本語">[1:01:ニックネーム:0]の
+からみつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_132">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+からみつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_132">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+からみつく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_133">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ドわすれした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_133">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ドわすれした！</language>
+	</row>
+
+	<row id="ATKMSG_E_133">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ドわすれした！</language>
+	</row>
+
+	<row id="ATKMSG_M_134">
+		<language name="日本語">[1:01:ニックネーム:0]の
+スプーンまげ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_134">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+スプーンまげ！</language>
+	</row>
+
+	<row id="ATKMSG_E_134">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+スプーンまげ！</language>
+	</row>
+
+	<row id="ATKMSG_M_135">
+		<language name="日本語">[1:01:ニックネーム:0]の
+タマゴうみ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_135">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+タマゴうみ！</language>
+	</row>
+
+	<row id="ATKMSG_E_135">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+タマゴうみ！</language>
+	</row>
+
+	<row id="ATKMSG_M_136">
+		<language name="日本語">[1:01:ニックネーム:0]の
+とびひざげり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_136">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+とびひざげり！</language>
+	</row>
+
+	<row id="ATKMSG_E_136">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+とびひざげり！</language>
+	</row>
+
+	<row id="ATKMSG_M_137">
+		<language name="日本語">[1:01:ニックネーム:0]の
+へびにらみ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_137">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+へびにらみ！</language>
+	</row>
+
+	<row id="ATKMSG_E_137">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+へびにらみ！</language>
+	</row>
+
+	<row id="ATKMSG_M_138">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ゆめくい！</language>
+	</row>
+
+	<row id="ATKMSG_Y_138">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ゆめくい！</language>
+	</row>
+
+	<row id="ATKMSG_E_138">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ゆめくい！</language>
+	</row>
+
+	<row id="ATKMSG_M_139">
+		<language name="日本語">[1:01:ニックネーム:0]の
+どくガス　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_139">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+どくガス　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_139">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+どくガス　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_140">
+		<language name="日本語">[1:01:ニックネーム:0]は
+たまなげを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_140">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+たまなげを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_140">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+たまなげを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_141">
+		<language name="日本語">[1:01:ニックネーム:0]の
+きゅうけつ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_141">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+きゅうけつ！</language>
+	</row>
+
+	<row id="ATKMSG_E_141">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+きゅうけつ！</language>
+	</row>
+
+	<row id="ATKMSG_M_142">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あくまのキッス！</language>
+	</row>
+
+	<row id="ATKMSG_Y_142">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あくまのキッス！</language>
+	</row>
+
+	<row id="ATKMSG_E_142">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あくまのキッス！</language>
+	</row>
+
+	<row id="ATKMSG_M_143">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ゴッドバード！</language>
+	</row>
+
+	<row id="ATKMSG_Y_143">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ゴッドバード！</language>
+	</row>
+
+	<row id="ATKMSG_E_143">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ゴッドバード！</language>
+	</row>
+
+	<row id="ATKMSG_M_144">
+		<language name="日本語">[1:01:ニックネーム:0]は
+へんしんを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_144">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+へんしんを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_144">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+へんしんを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_145">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あわ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_145">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あわ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_145">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あわ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_146">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ピヨピヨパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_146">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ピヨピヨパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_146">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ピヨピヨパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_147">
+		<language name="日本語">[1:01:ニックネーム:0]の
+キノコのほうし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_147">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+キノコのほうし！</language>
+	</row>
+
+	<row id="ATKMSG_E_147">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+キノコのほうし！</language>
+	</row>
+
+	<row id="ATKMSG_M_148">
+		<language name="日本語">[1:01:ニックネーム:0]は
+フラッシュを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_148">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+フラッシュを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_148">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+フラッシュを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_149">
+		<language name="日本語">[1:01:ニックネーム:0]の
+サイコウェーブ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_149">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+サイコウェーブ！</language>
+	</row>
+
+	<row id="ATKMSG_E_149">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+サイコウェーブ！</language>
+	</row>
+
+	<row id="ATKMSG_M_150">
+		<language name="日本語">[1:01:ニックネーム:0]は
+はねるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_150">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+はねるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_150">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+はねるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_151">
+		<language name="日本語">[1:01:ニックネーム:0]は
+とけるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_151">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+とけるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_151">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+とけるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_152">
+		<language name="日本語">[1:01:ニックネーム:0]の
+クラブハンマー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_152">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+クラブハンマー！</language>
+	</row>
+
+	<row id="ATKMSG_E_152">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+クラブハンマー！</language>
+	</row>
+
+	<row id="ATKMSG_M_153">
+		<language name="日本語">[1:01:ニックネーム:0]の
+だいばくはつ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_153">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+だいばくはつ！</language>
+	</row>
+
+	<row id="ATKMSG_E_153">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+だいばくはつ！</language>
+	</row>
+
+	<row id="ATKMSG_M_154">
+		<language name="日本語">[1:01:ニックネーム:0]の
+みだれひっかき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_154">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+みだれひっかき！</language>
+	</row>
+
+	<row id="ATKMSG_E_154">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+みだれひっかき！</language>
+	</row>
+
+	<row id="ATKMSG_M_155">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ホネブーメランを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_155">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ホネブーメランを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_155">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ホネブーメランを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_156">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ねむるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_156">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ねむるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_156">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ねむるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_157">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いわなだれ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_157">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いわなだれ！</language>
+	</row>
+
+	<row id="ATKMSG_E_157">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いわなだれ！</language>
+	</row>
+
+	<row id="ATKMSG_M_158">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ひっさつまえば！</language>
+	</row>
+
+	<row id="ATKMSG_Y_158">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ひっさつまえば！</language>
+	</row>
+
+	<row id="ATKMSG_E_158">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ひっさつまえば！</language>
+	</row>
+
+	<row id="ATKMSG_M_159">
+		<language name="日本語">[1:01:ニックネーム:0]は
+かくばるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_159">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+かくばるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_159">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+かくばるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_160">
+		<language name="日本語">[1:01:ニックネーム:0]の
+テクスチャー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_160">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+テクスチャー！</language>
+	</row>
+
+	<row id="ATKMSG_E_160">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+テクスチャー！</language>
+	</row>
+
+	<row id="ATKMSG_M_161">
+		<language name="日本語">[1:01:ニックネーム:0]の
+トライアタック！</language>
+	</row>
+
+	<row id="ATKMSG_Y_161">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+トライアタック！</language>
+	</row>
+
+	<row id="ATKMSG_E_161">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+トライアタック！</language>
+	</row>
+
+	<row id="ATKMSG_M_162">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いかりのまえば！</language>
+	</row>
+
+	<row id="ATKMSG_Y_162">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いかりのまえば！</language>
+	</row>
+
+	<row id="ATKMSG_E_162">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いかりのまえば！</language>
+	</row>
+
+	<row id="ATKMSG_M_163">
+		<language name="日本語">[1:01:ニックネーム:0]の
+きりさく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_163">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+きりさく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_163">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+きりさく　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_164">
+		<language name="日本語">[1:01:ニックネーム:0]は
+みがわりを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_164">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+みがわりを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_164">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+みがわりを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_165">
+		<language name="日本語">[1:01:ニックネーム:0]は
+わるあがきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_165">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+わるあがきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_165">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+わるあがきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_166">
+		<language name="日本語">[1:01:ニックネーム:0]の
+スケッチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_166">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+スケッチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_166">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+スケッチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_167">
+		<language name="日本語">[1:01:ニックネーム:0]の
+トリプルキック！</language>
+	</row>
+
+	<row id="ATKMSG_Y_167">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+トリプルキック！</language>
+	</row>
+
+	<row id="ATKMSG_E_167">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+トリプルキック！</language>
+	</row>
+
+	<row id="ATKMSG_M_168">
+		<language name="日本語">[1:01:ニックネーム:0]の
+どろぼう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_168">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+どろぼう！</language>
+	</row>
+
+	<row id="ATKMSG_E_168">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+どろぼう！</language>
+	</row>
+
+	<row id="ATKMSG_M_169">
+		<language name="日本語">[1:01:ニックネーム:0]の
+クモのす　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_169">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+クモのす　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_169">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+クモのす　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_170">
+		<language name="日本語">[1:01:ニックネーム:0]は
+こころのめを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_170">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+こころのめを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_170">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+こころのめを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_171">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あくむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_171">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あくむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_171">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あくむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_172">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かえんぐるま！</language>
+	</row>
+
+	<row id="ATKMSG_Y_172">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かえんぐるま！</language>
+	</row>
+
+	<row id="ATKMSG_E_172">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かえんぐるま！</language>
+	</row>
+
+	<row id="ATKMSG_M_173">
+		<language name="日本語">[1:01:ニックネーム:0]は
+いびきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_173">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+いびきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_173">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+いびきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_174">
+		<language name="日本語">[1:01:ニックネーム:0]の
+のろい　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_174">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+のろい　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_174">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+のろい　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_175">
+		<language name="日本語">[1:01:ニックネーム:0]は
+じたばたした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_175">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+じたばたした！</language>
+	</row>
+
+	<row id="ATKMSG_E_175">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+じたばたした！</language>
+	</row>
+
+	<row id="ATKMSG_M_176">
+		<language name="日本語">[1:01:ニックネーム:0]の
+テクスチャー２！</language>
+	</row>
+
+	<row id="ATKMSG_Y_176">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+テクスチャー２！</language>
+	</row>
+
+	<row id="ATKMSG_E_176">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+テクスチャー２！</language>
+	</row>
+
+	<row id="ATKMSG_M_177">
+		<language name="日本語">[1:01:ニックネーム:0]の
+エアロブラスト！</language>
+	</row>
+
+	<row id="ATKMSG_Y_177">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+エアロブラスト！</language>
+	</row>
+
+	<row id="ATKMSG_E_177">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+エアロブラスト！</language>
+	</row>
+
+	<row id="ATKMSG_M_178">
+		<language name="日本語">[1:01:ニックネーム:0]の
+わたほうし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_178">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+わたほうし！</language>
+	</row>
+
+	<row id="ATKMSG_E_178">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+わたほうし！</language>
+	</row>
+
+	<row id="ATKMSG_M_179">
+		<language name="日本語">[1:01:ニックネーム:0]の
+きしかいせい！</language>
+	</row>
+
+	<row id="ATKMSG_Y_179">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+きしかいせい！</language>
+	</row>
+
+	<row id="ATKMSG_E_179">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+きしかいせい！</language>
+	</row>
+
+	<row id="ATKMSG_M_180">
+		<language name="日本語">[1:01:ニックネーム:0]の
+うらみ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_180">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+うらみ！</language>
+	</row>
+
+	<row id="ATKMSG_E_180">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+うらみ！</language>
+	</row>
+
+	<row id="ATKMSG_M_181">
+		<language name="日本語">[1:01:ニックネーム:0]の
+こなゆき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_181">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+こなゆき！</language>
+	</row>
+
+	<row id="ATKMSG_E_181">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+こなゆき！</language>
+	</row>
+
+	<row id="ATKMSG_M_182">
+		<language name="日本語">[1:01:ニックネーム:0]は
+まもるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_182">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+まもるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_182">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+まもるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_183">
+		<language name="日本語">[1:01:ニックネーム:0]の
+マッハパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_183">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+マッハパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_183">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+マッハパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_184">
+		<language name="日本語">[1:01:ニックネーム:0]は
+こわいかおを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_184">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+こわいかおを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_184">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+こわいかおを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_185">
+		<language name="日本語">[1:01:ニックネーム:0]の
+だましうち！</language>
+	</row>
+
+	<row id="ATKMSG_Y_185">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+だましうち！</language>
+	</row>
+
+	<row id="ATKMSG_E_185">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+だましうち！</language>
+	</row>
+
+	<row id="ATKMSG_M_186">
+		<language name="日本語">[1:01:ニックネーム:0]の
+てんしのキッス！</language>
+	</row>
+
+	<row id="ATKMSG_Y_186">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+てんしのキッス！</language>
+	</row>
+
+	<row id="ATKMSG_E_186">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+てんしのキッス！</language>
+	</row>
+
+	<row id="ATKMSG_M_187">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はらだいこ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_187">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はらだいこ！</language>
+	</row>
+
+	<row id="ATKMSG_E_187">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はらだいこ！</language>
+	</row>
+
+	<row id="ATKMSG_M_188">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ヘドロばくだん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_188">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ヘドロばくだん！</language>
+	</row>
+
+	<row id="ATKMSG_E_188">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ヘドロばくだん！</language>
+	</row>
+
+	<row id="ATKMSG_M_189">
+		<language name="日本語">[1:01:ニックネーム:0]の
+どろかけ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_189">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+どろかけ！</language>
+	</row>
+
+	<row id="ATKMSG_E_189">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+どろかけ！</language>
+	</row>
+
+	<row id="ATKMSG_M_190">
+		<language name="日本語">[1:01:ニックネーム:0]の
+オクタンほう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_190">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+オクタンほう！</language>
+	</row>
+
+	<row id="ATKMSG_E_190">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+オクタンほう！</language>
+	</row>
+
+	<row id="ATKMSG_M_191">
+		<language name="日本語">[1:01:ニックネーム:0]は
+まきびしを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_191">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+まきびしを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_191">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+まきびしを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_192">
+		<language name="日本語">[1:01:ニックネーム:0]の
+でんじほう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_192">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+でんじほう！</language>
+	</row>
+
+	<row id="ATKMSG_E_192">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+でんじほう！</language>
+	</row>
+
+	<row id="ATKMSG_M_193">
+		<language name="日本語">[1:01:ニックネーム:0]の
+みやぶる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_193">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+みやぶる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_193">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+みやぶる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_194">
+		<language name="日本語">[1:01:ニックネーム:0]の
+みちづれ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_194">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+みちづれ！</language>
+	</row>
+
+	<row id="ATKMSG_E_194">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+みちづれ！</language>
+	</row>
+
+	<row id="ATKMSG_M_195">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ほろびのうた！</language>
+	</row>
+
+	<row id="ATKMSG_Y_195">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ほろびのうた！</language>
+	</row>
+
+	<row id="ATKMSG_E_195">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ほろびのうた！</language>
+	</row>
+
+	<row id="ATKMSG_M_196">
+		<language name="日本語">[1:01:ニックネーム:0]の
+こごえるかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_196">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+こごえるかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_E_196">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+こごえるかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_M_197">
+		<language name="日本語">[1:01:ニックネーム:0]の
+みきり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_197">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+みきり！</language>
+	</row>
+
+	<row id="ATKMSG_E_197">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+みきり！</language>
+	</row>
+
+	<row id="ATKMSG_M_198">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ボーンラッシュ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_198">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ボーンラッシュ！</language>
+	</row>
+
+	<row id="ATKMSG_E_198">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ボーンラッシュ！</language>
+	</row>
+
+	<row id="ATKMSG_M_199">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ロックオン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_199">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ロックオン！</language>
+	</row>
+
+	<row id="ATKMSG_E_199">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ロックオン！</language>
+	</row>
+
+	<row id="ATKMSG_M_200">
+		<language name="日本語">[1:01:ニックネーム:0]の
+げきりん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_200">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+げきりん！</language>
+	</row>
+
+	<row id="ATKMSG_E_200">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+げきりん！</language>
+	</row>
+
+	<row id="ATKMSG_M_201">
+		<language name="日本語">[1:01:ニックネーム:0]の
+すなあらし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_201">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+すなあらし！</language>
+	</row>
+
+	<row id="ATKMSG_E_201">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+すなあらし！</language>
+	</row>
+
+	<row id="ATKMSG_M_202">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ギガドレイン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_202">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ギガドレイン！</language>
+	</row>
+
+	<row id="ATKMSG_E_202">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ギガドレイン！</language>
+	</row>
+
+	<row id="ATKMSG_M_203">
+		<language name="日本語">[1:01:ニックネーム:0]は
+こらえるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_203">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+こらえるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_203">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+こらえるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_204">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あまえる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_204">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あまえる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_204">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あまえる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_205">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ころがるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_205">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ころがるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_205">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ころがるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_206">
+		<language name="日本語">[1:01:ニックネーム:0]の
+みねうち！</language>
+	</row>
+
+	<row id="ATKMSG_Y_206">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+みねうち！</language>
+	</row>
+
+	<row id="ATKMSG_E_206">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+みねうち！</language>
+	</row>
+
+	<row id="ATKMSG_M_207">
+		<language name="日本語">[1:01:ニックネーム:0]は
+いばるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_207">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+いばるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_207">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+いばるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_208">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ミルクのみ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_208">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ミルクのみ！</language>
+	</row>
+
+	<row id="ATKMSG_E_208">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ミルクのみ！</language>
+	</row>
+
+	<row id="ATKMSG_M_209">
+		<language name="日本語">[1:01:ニックネーム:0]の
+スパーク！</language>
+	</row>
+
+	<row id="ATKMSG_Y_209">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+スパーク！</language>
+	</row>
+
+	<row id="ATKMSG_E_209">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+スパーク！</language>
+	</row>
+
+	<row id="ATKMSG_M_210">
+		<language name="日本語">[1:01:ニックネーム:0]の
+れんぞくぎり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_210">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+れんぞくぎり！</language>
+	</row>
+
+	<row id="ATKMSG_E_210">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+れんぞくぎり！</language>
+	</row>
+
+	<row id="ATKMSG_M_211">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はがねのつばさ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_211">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はがねのつばさ！</language>
+	</row>
+
+	<row id="ATKMSG_E_211">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はがねのつばさ！</language>
+	</row>
+
+	<row id="ATKMSG_M_212">
+		<language name="日本語">[1:01:ニックネーム:0]の
+くろいまなざし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_212">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+くろいまなざし！</language>
+	</row>
+
+	<row id="ATKMSG_E_212">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+くろいまなざし！</language>
+	</row>
+
+	<row id="ATKMSG_M_213">
+		<language name="日本語">[1:01:ニックネーム:0]の
+メロメロ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_213">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+メロメロ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_213">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+メロメロ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_214">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ねごとを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_214">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ねごとを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_214">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ねごとを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_215">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いやしのすず！</language>
+	</row>
+
+	<row id="ATKMSG_Y_215">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いやしのすず！</language>
+	</row>
+
+	<row id="ATKMSG_E_215">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いやしのすず！</language>
+	</row>
+
+	<row id="ATKMSG_M_216">
+		<language name="日本語">[1:01:ニックネーム:0]の
+おんがえし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_216">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+おんがえし！</language>
+	</row>
+
+	<row id="ATKMSG_E_216">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+おんがえし！</language>
+	</row>
+
+	<row id="ATKMSG_M_217">
+		<language name="日本語">[1:01:ニックネーム:0]の
+プレゼント！</language>
+	</row>
+
+	<row id="ATKMSG_Y_217">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+プレゼント！</language>
+	</row>
+
+	<row id="ATKMSG_E_217">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+プレゼント！</language>
+	</row>
+
+	<row id="ATKMSG_M_218">
+		<language name="日本語">[1:01:ニックネーム:0]の
+やつあたり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_218">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+やつあたり！</language>
+	</row>
+
+	<row id="ATKMSG_E_218">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+やつあたり！</language>
+	</row>
+
+	<row id="ATKMSG_M_219">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しんぴのまもり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_219">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しんぴのまもり！</language>
+	</row>
+
+	<row id="ATKMSG_E_219">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しんぴのまもり！</language>
+	</row>
+
+	<row id="ATKMSG_M_220">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いたみわけ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_220">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いたみわけ！</language>
+	</row>
+
+	<row id="ATKMSG_E_220">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いたみわけ！</language>
+	</row>
+
+	<row id="ATKMSG_M_221">
+		<language name="日本語">[1:01:ニックネーム:0]の
+せいなるほのお！</language>
+	</row>
+
+	<row id="ATKMSG_Y_221">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+せいなるほのお！</language>
+	</row>
+
+	<row id="ATKMSG_E_221">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+せいなるほのお！</language>
+	</row>
+
+	<row id="ATKMSG_M_222">
+		<language name="日本語">[1:01:ニックネーム:0]の
+マグニチュード！</language>
+	</row>
+
+	<row id="ATKMSG_Y_222">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+マグニチュード！</language>
+	</row>
+
+	<row id="ATKMSG_E_222">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+マグニチュード！</language>
+	</row>
+
+	<row id="ATKMSG_M_223">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ばくれつパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_223">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ばくれつパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_223">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ばくれつパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_224">
+		<language name="日本語">[1:01:ニックネーム:0]の
+メガホーン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_224">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+メガホーン！</language>
+	</row>
+
+	<row id="ATKMSG_E_224">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+メガホーン！</language>
+	</row>
+
+	<row id="ATKMSG_M_225">
+		<language name="日本語">[1:01:ニックネーム:0]の
+りゅうのいぶき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_225">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+りゅうのいぶき！</language>
+	</row>
+
+	<row id="ATKMSG_E_225">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+りゅうのいぶき！</language>
+	</row>
+
+	<row id="ATKMSG_M_226">
+		<language name="日本語">[1:01:ニックネーム:0]の
+バトンタッチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_226">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+バトンタッチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_226">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+バトンタッチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_227">
+		<language name="日本語">[1:01:ニックネーム:0]の
+アンコール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_227">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+アンコール！</language>
+	</row>
+
+	<row id="ATKMSG_E_227">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+アンコール！</language>
+	</row>
+
+	<row id="ATKMSG_M_228">
+		<language name="日本語">[1:01:ニックネーム:0]の
+おいうち！</language>
+	</row>
+
+	<row id="ATKMSG_Y_228">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+おいうち！</language>
+	</row>
+
+	<row id="ATKMSG_E_228">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+おいうち！</language>
+	</row>
+
+	<row id="ATKMSG_M_229">
+		<language name="日本語">[1:01:ニックネーム:0]の
+こうそくスピン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_229">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+こうそくスピン！</language>
+	</row>
+
+	<row id="ATKMSG_E_229">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+こうそくスピン！</language>
+	</row>
+
+	<row id="ATKMSG_M_230">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あまいかおり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_230">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あまいかおり！</language>
+	</row>
+
+	<row id="ATKMSG_E_230">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あまいかおり！</language>
+	</row>
+
+	<row id="ATKMSG_M_231">
+		<language name="日本語">[1:01:ニックネーム:0]の
+アイアンテール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_231">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+アイアンテール！</language>
+	</row>
+
+	<row id="ATKMSG_E_231">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+アイアンテール！</language>
+	</row>
+
+	<row id="ATKMSG_M_232">
+		<language name="日本語">[1:01:ニックネーム:0]の
+メタルクロー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_232">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+メタルクロー！</language>
+	</row>
+
+	<row id="ATKMSG_E_232">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+メタルクロー！</language>
+	</row>
+
+	<row id="ATKMSG_M_233">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あてみなげ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_233">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あてみなげ！</language>
+	</row>
+
+	<row id="ATKMSG_E_233">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あてみなげ！</language>
+	</row>
+
+	<row id="ATKMSG_M_234">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あさのひざし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_234">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あさのひざし！</language>
+	</row>
+
+	<row id="ATKMSG_E_234">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あさのひざし！</language>
+	</row>
+
+	<row id="ATKMSG_M_235">
+		<language name="日本語">[1:01:ニックネーム:0]の
+こうごうせい！</language>
+	</row>
+
+	<row id="ATKMSG_Y_235">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+こうごうせい！</language>
+	</row>
+
+	<row id="ATKMSG_E_235">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+こうごうせい！</language>
+	</row>
+
+	<row id="ATKMSG_M_236">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つきのひかり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_236">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つきのひかり！</language>
+	</row>
+
+	<row id="ATKMSG_E_236">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つきのひかり！</language>
+	</row>
+
+	<row id="ATKMSG_M_237">
+		<language name="日本語">[1:01:ニックネーム:0]は
+めざめるパワーを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_237">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+めざめるパワーを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_237">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+めざめるパワーを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_238">
+		<language name="日本語">[1:01:ニックネーム:0]の
+クロスチョップ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_238">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+クロスチョップ！</language>
+	</row>
+
+	<row id="ATKMSG_E_238">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+クロスチョップ！</language>
+	</row>
+
+	<row id="ATKMSG_M_239">
+		<language name="日本語">[1:01:ニックネーム:0]の
+たつまき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_239">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+たつまき！</language>
+	</row>
+
+	<row id="ATKMSG_E_239">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+たつまき！</language>
+	</row>
+
+	<row id="ATKMSG_M_240">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あまごい！</language>
+	</row>
+
+	<row id="ATKMSG_Y_240">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あまごい！</language>
+	</row>
+
+	<row id="ATKMSG_E_240">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あまごい！</language>
+	</row>
+
+	<row id="ATKMSG_M_241">
+		<language name="日本語">[1:01:ニックネーム:0]の
+にほんばれ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_241">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+にほんばれ！</language>
+	</row>
+
+	<row id="ATKMSG_E_241">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+にほんばれ！</language>
+	</row>
+
+	<row id="ATKMSG_M_242">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かみくだく！</language>
+	</row>
+
+	<row id="ATKMSG_Y_242">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かみくだく！</language>
+	</row>
+
+	<row id="ATKMSG_E_242">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かみくだく！</language>
+	</row>
+
+	<row id="ATKMSG_M_243">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ミラーコート！</language>
+	</row>
+
+	<row id="ATKMSG_Y_243">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ミラーコート！</language>
+	</row>
+
+	<row id="ATKMSG_E_243">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ミラーコート！</language>
+	</row>
+
+	<row id="ATKMSG_M_244">
+		<language name="日本語">[1:01:ニックネーム:0]は
+じこあんじを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_244">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+じこあんじを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_244">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+じこあんじを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_245">
+		<language name="日本語">[1:01:ニックネーム:0]は
+しんそくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_245">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+しんそくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_245">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+しんそくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_246">
+		<language name="日本語">[1:01:ニックネーム:0]の
+げんしのちから！</language>
+	</row>
+
+	<row id="ATKMSG_Y_246">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+げんしのちから！</language>
+	</row>
+
+	<row id="ATKMSG_E_246">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+げんしのちから！</language>
+	</row>
+
+	<row id="ATKMSG_M_247">
+		<language name="日本語">[1:01:ニックネーム:0]の
+シャドーボール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_247">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+シャドーボール！</language>
+	</row>
+
+	<row id="ATKMSG_E_247">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+シャドーボール！</language>
+	</row>
+
+	<row id="ATKMSG_M_248">
+		<language name="日本語">[1:01:ニックネーム:0]の
+みらいよち！</language>
+	</row>
+
+	<row id="ATKMSG_Y_248">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+みらいよち！</language>
+	</row>
+
+	<row id="ATKMSG_E_248">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+みらいよち！</language>
+	</row>
+
+	<row id="ATKMSG_M_249">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いわくだき　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_249">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いわくだき　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_249">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いわくだき　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_250">
+		<language name="日本語">[1:01:ニックネーム:0]の
+うずしお！</language>
+	</row>
+
+	<row id="ATKMSG_Y_250">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+うずしお！</language>
+	</row>
+
+	<row id="ATKMSG_E_250">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+うずしお！</language>
+	</row>
+
+	<row id="ATKMSG_M_251">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ふくろだたき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_251">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ふくろだたき！</language>
+	</row>
+
+	<row id="ATKMSG_E_251">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ふくろだたき！</language>
+	</row>
+
+	<row id="ATKMSG_M_252">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ねこだまし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_252">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ねこだまし！</language>
+	</row>
+
+	<row id="ATKMSG_E_252">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ねこだまし！</language>
+	</row>
+
+	<row id="ATKMSG_M_253">
+		<language name="日本語">[1:01:ニックネーム:0]の
+さわぐ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_253">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+さわぐ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_253">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+さわぐ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_254">
+		<language name="日本語">[1:01:ニックネーム:0]の
+たくわえる！</language>
+	</row>
+
+	<row id="ATKMSG_Y_254">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+たくわえる！</language>
+	</row>
+
+	<row id="ATKMSG_E_254">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+たくわえる！</language>
+	</row>
+
+	<row id="ATKMSG_M_255">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はきだす　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_255">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はきだす　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_255">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はきだす　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_256">
+		<language name="日本語">[1:01:ニックネーム:0]の
+のみこむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_256">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+のみこむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_256">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+のみこむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_257">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ねっぷう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_257">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ねっぷう！</language>
+	</row>
+
+	<row id="ATKMSG_E_257">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ねっぷう！</language>
+	</row>
+
+	<row id="ATKMSG_M_258">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あられ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_258">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あられ！</language>
+	</row>
+
+	<row id="ATKMSG_E_258">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あられ！</language>
+	</row>
+
+	<row id="ATKMSG_M_259">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いちゃもん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_259">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いちゃもん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_259">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いちゃもん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_260">
+		<language name="日本語">[1:01:ニックネーム:0]の
+おだてる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_260">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+おだてる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_260">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+おだてる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_261">
+		<language name="日本語">[1:01:ニックネーム:0]の
+おにび！</language>
+	</row>
+
+	<row id="ATKMSG_Y_261">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+おにび！</language>
+	</row>
+
+	<row id="ATKMSG_E_261">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+おにび！</language>
+	</row>
+
+	<row id="ATKMSG_M_262">
+		<language name="日本語">[1:01:ニックネーム:0]の
+おきみやげ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_262">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+おきみやげ！</language>
+	</row>
+
+	<row id="ATKMSG_E_262">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+おきみやげ！</language>
+	</row>
+
+	<row id="ATKMSG_M_263">
+		<language name="日本語">[1:01:ニックネーム:0]の
+からげんき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_263">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+からげんき！</language>
+	</row>
+
+	<row id="ATKMSG_E_263">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+からげんき！</language>
+	</row>
+
+	<row id="ATKMSG_M_264">
+		<language name="日本語">[1:01:ニックネーム:0]の
+きあいパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_264">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+きあいパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_264">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+きあいパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_265">
+		<language name="日本語">[1:01:ニックネーム:0]の
+きつけ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_265">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+きつけ！</language>
+	</row>
+
+	<row id="ATKMSG_E_265">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+きつけ！</language>
+	</row>
+
+	<row id="ATKMSG_M_266">
+		<language name="日本語">[1:01:ニックネーム:0]は
+このゆびとまれを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_266">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+このゆびとまれを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_266">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+このゆびとまれを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_267">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しぜんのちから！</language>
+	</row>
+
+	<row id="ATKMSG_Y_267">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しぜんのちから！</language>
+	</row>
+
+	<row id="ATKMSG_E_267">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しぜんのちから！</language>
+	</row>
+
+	<row id="ATKMSG_M_268">
+		<language name="日本語">[1:01:ニックネーム:0]は
+じゅうでんを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_268">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+じゅうでんを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_268">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+じゅうでんを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_269">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ちょうはつした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_269">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ちょうはつした！</language>
+	</row>
+
+	<row id="ATKMSG_E_269">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ちょうはつした！</language>
+	</row>
+
+	<row id="ATKMSG_M_270">
+		<language name="日本語">[1:01:ニックネーム:0]の
+てだすけ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_270">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+てだすけ！</language>
+	</row>
+
+	<row id="ATKMSG_E_270">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+てだすけ！</language>
+	</row>
+
+	<row id="ATKMSG_M_271">
+		<language name="日本語">[1:01:ニックネーム:0]は
+トリックを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_271">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+トリックを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_271">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+トリックを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_272">
+		<language name="日本語">[1:01:ニックネーム:0]の
+なりきり　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_272">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+なりきり　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_272">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+なりきり　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_273">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ねがいごとを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_273">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ねがいごとを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_273">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ねがいごとを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_274">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ねこのてを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_274">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ねこのてを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_274">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ねこのてを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_275">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ねをはるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_275">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ねをはるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_275">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ねをはるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_276">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ばかぢから！</language>
+	</row>
+
+	<row id="ATKMSG_Y_276">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ばかぢから！</language>
+	</row>
+
+	<row id="ATKMSG_E_276">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ばかぢから！</language>
+	</row>
+
+	<row id="ATKMSG_M_277">
+		<language name="日本語">[1:01:ニックネーム:0]の
+マジックコート！</language>
+	</row>
+
+	<row id="ATKMSG_Y_277">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+マジックコート！</language>
+	</row>
+
+	<row id="ATKMSG_E_277">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+マジックコート！</language>
+	</row>
+
+	<row id="ATKMSG_M_278">
+		<language name="日本語">[1:01:ニックネーム:0]の
+リサイクル！</language>
+	</row>
+
+	<row id="ATKMSG_Y_278">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+リサイクル！</language>
+	</row>
+
+	<row id="ATKMSG_E_278">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+リサイクル！</language>
+	</row>
+
+	<row id="ATKMSG_M_279">
+		<language name="日本語">[1:01:ニックネーム:0]の
+リベンジ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_279">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+リベンジ！</language>
+	</row>
+
+	<row id="ATKMSG_E_279">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+リベンジ！</language>
+	</row>
+
+	<row id="ATKMSG_M_280">
+		<language name="日本語">[1:01:ニックネーム:0]は
+かわらわりを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_280">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+かわらわりを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_280">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+かわらわりを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_281">
+		<language name="日本語">[1:01:ニックネーム:0]は
+あくびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_281">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+あくびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_281">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+あくびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_282">
+		<language name="日本語">[1:01:ニックネーム:0]は
+はたきおとすを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_282">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+はたきおとすを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_282">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+はたきおとすを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_283">
+		<language name="日本語">[1:01:ニックネーム:0]の
+がむしゃら　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_283">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+がむしゃら　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_283">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+がむしゃら　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_284">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ふんか！</language>
+	</row>
+
+	<row id="ATKMSG_Y_284">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ふんか！</language>
+	</row>
+
+	<row id="ATKMSG_E_284">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ふんか！</language>
+	</row>
+
+	<row id="ATKMSG_M_285">
+		<language name="日本語">[1:01:ニックネーム:0]の
+スキルスワップ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_285">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+スキルスワップ！</language>
+	</row>
+
+	<row id="ATKMSG_E_285">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+スキルスワップ！</language>
+	</row>
+
+	<row id="ATKMSG_M_286">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ふういん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_286">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ふういん！</language>
+	</row>
+
+	<row id="ATKMSG_E_286">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ふういん！</language>
+	</row>
+
+	<row id="ATKMSG_M_287">
+		<language name="日本語">[1:01:ニックネーム:0]の
+リフレッシュ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_287">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+リフレッシュ！</language>
+	</row>
+
+	<row id="ATKMSG_E_287">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+リフレッシュ！</language>
+	</row>
+
+	<row id="ATKMSG_M_288">
+		<language name="日本語">[1:01:ニックネーム:0]の
+おんねん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_288">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+おんねん！</language>
+	</row>
+
+	<row id="ATKMSG_E_288">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+おんねん！</language>
+	</row>
+
+	<row id="ATKMSG_M_289">
+		<language name="日本語">[1:01:ニックネーム:0]の
+よこどり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_289">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+よこどり！</language>
+	</row>
+
+	<row id="ATKMSG_E_289">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+よこどり！</language>
+	</row>
+
+	<row id="ATKMSG_M_290">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ひみつのちから！</language>
+	</row>
+
+	<row id="ATKMSG_Y_290">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ひみつのちから！</language>
+	</row>
+
+	<row id="ATKMSG_E_290">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ひみつのちから！</language>
+	</row>
+
+	<row id="ATKMSG_M_291">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ダイビング！</language>
+	</row>
+
+	<row id="ATKMSG_Y_291">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ダイビング！</language>
+	</row>
+
+	<row id="ATKMSG_E_291">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ダイビング！</language>
+	</row>
+
+	<row id="ATKMSG_M_292">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つっぱり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_292">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つっぱり！</language>
+	</row>
+
+	<row id="ATKMSG_E_292">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つっぱり！</language>
+	</row>
+
+	<row id="ATKMSG_M_293">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ほごしょくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_293">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ほごしょくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_293">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ほごしょくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_294">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ほたるび！</language>
+	</row>
+
+	<row id="ATKMSG_Y_294">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ほたるび！</language>
+	</row>
+
+	<row id="ATKMSG_E_294">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ほたるび！</language>
+	</row>
+
+	<row id="ATKMSG_M_295">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ラスターパージ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_295">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ラスターパージ！</language>
+	</row>
+
+	<row id="ATKMSG_E_295">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ラスターパージ！</language>
+	</row>
+
+	<row id="ATKMSG_M_296">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ミストボール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_296">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ミストボール！</language>
+	</row>
+
+	<row id="ATKMSG_E_296">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ミストボール！</language>
+	</row>
+
+	<row id="ATKMSG_M_297">
+		<language name="日本語">[1:01:ニックネーム:0]は
+フェザーダンスを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_297">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+フェザーダンスを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_297">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+フェザーダンスを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_298">
+		<language name="日本語">[1:01:ニックネーム:0]は
+フラフラダンスを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_298">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+フラフラダンスを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_298">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+フラフラダンスを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_299">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ブレイズキック！</language>
+	</row>
+
+	<row id="ATKMSG_Y_299">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ブレイズキック！</language>
+	</row>
+
+	<row id="ATKMSG_E_299">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ブレイズキック！</language>
+	</row>
+
+	<row id="ATKMSG_M_300">
+		<language name="日本語">[1:01:ニックネーム:0]は
+どろあそびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_300">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+どろあそびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_300">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+どろあそびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_301">
+		<language name="日本語">[1:01:ニックネーム:0]の
+アイスボール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_301">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+アイスボール！</language>
+	</row>
+
+	<row id="ATKMSG_E_301">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+アイスボール！</language>
+	</row>
+
+	<row id="ATKMSG_M_302">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ニードルアーム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_302">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ニードルアーム！</language>
+	</row>
+
+	<row id="ATKMSG_E_302">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ニードルアーム！</language>
+	</row>
+
+	<row id="ATKMSG_M_303">
+		<language name="日本語">[1:01:ニックネーム:0]の
+なまける！</language>
+	</row>
+
+	<row id="ATKMSG_Y_303">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+なまける！</language>
+	</row>
+
+	<row id="ATKMSG_E_303">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+なまける！</language>
+	</row>
+
+	<row id="ATKMSG_M_304">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ハイパーボイス！</language>
+	</row>
+
+	<row id="ATKMSG_Y_304">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ハイパーボイス！</language>
+	</row>
+
+	<row id="ATKMSG_E_304">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ハイパーボイス！</language>
+	</row>
+
+	<row id="ATKMSG_M_305">
+		<language name="日本語">[1:01:ニックネーム:0]の
+どくどくのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_305">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+どくどくのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_E_305">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+どくどくのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_M_306">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ブレイククロー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_306">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ブレイククロー！</language>
+	</row>
+
+	<row id="ATKMSG_E_306">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ブレイククロー！</language>
+	</row>
+
+	<row id="ATKMSG_M_307">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ブラストバーン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_307">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ブラストバーン！</language>
+	</row>
+
+	<row id="ATKMSG_E_307">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ブラストバーン！</language>
+	</row>
+
+	<row id="ATKMSG_M_308">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ハイドロカノン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_308">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ハイドロカノン！</language>
+	</row>
+
+	<row id="ATKMSG_E_308">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ハイドロカノン！</language>
+	</row>
+
+	<row id="ATKMSG_M_309">
+		<language name="日本語">[1:01:ニックネーム:0]の
+コメットパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_309">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+コメットパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_309">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+コメットパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_310">
+		<language name="日本語">[1:01:ニックネーム:0]は
+おどろかすを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_310">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+おどろかすを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_310">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+おどろかすを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_311">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ウェザーボール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_311">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ウェザーボール！</language>
+	</row>
+
+	<row id="ATKMSG_E_311">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ウェザーボール！</language>
+	</row>
+
+	<row id="ATKMSG_M_312">
+		<language name="日本語">[1:01:ニックネーム:0]の
+アロマセラピー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_312">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+アロマセラピー！</language>
+	</row>
+
+	<row id="ATKMSG_E_312">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+アロマセラピー！</language>
+	</row>
+
+	<row id="ATKMSG_M_313">
+		<language name="日本語">[1:01:ニックネーム:0]は
+うそなきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_313">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+うそなきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_313">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+うそなきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_314">
+		<language name="日本語">[1:01:ニックネーム:0]の
+エアカッター！</language>
+	</row>
+
+	<row id="ATKMSG_Y_314">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+エアカッター！</language>
+	</row>
+
+	<row id="ATKMSG_E_314">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+エアカッター！</language>
+	</row>
+
+	<row id="ATKMSG_M_315">
+		<language name="日本語">[1:01:ニックネーム:0]の
+オーバーヒート！</language>
+	</row>
+
+	<row id="ATKMSG_Y_315">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+オーバーヒート！</language>
+	</row>
+
+	<row id="ATKMSG_E_315">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+オーバーヒート！</language>
+	</row>
+
+	<row id="ATKMSG_M_316">
+		<language name="日本語">[1:01:ニックネーム:0]は
+かぎわけるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_316">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+かぎわけるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_316">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+かぎわけるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_317">
+		<language name="日本語">[1:01:ニックネーム:0]の
+がんせきふうじ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_317">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+がんせきふうじ！</language>
+	</row>
+
+	<row id="ATKMSG_E_317">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+がんせきふうじ！</language>
+	</row>
+
+	<row id="ATKMSG_M_318">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ぎんいろのかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_318">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ぎんいろのかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_E_318">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ぎんいろのかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_M_319">
+		<language name="日本語">[1:01:ニックネーム:0]の
+きんぞくおん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_319">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+きんぞくおん！</language>
+	</row>
+
+	<row id="ATKMSG_E_319">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+きんぞくおん！</language>
+	</row>
+
+	<row id="ATKMSG_M_320">
+		<language name="日本語">[1:01:ニックネーム:0]は
+くさぶえを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_320">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+くさぶえを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_320">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+くさぶえを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_321">
+		<language name="日本語">[1:01:ニックネーム:0]の
+くすぐる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_321">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+くすぐる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_321">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+くすぐる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_322">
+		<language name="日本語">[1:01:ニックネーム:0]の
+コスモパワー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_322">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+コスモパワー！</language>
+	</row>
+
+	<row id="ATKMSG_E_322">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+コスモパワー！</language>
+	</row>
+
+	<row id="ATKMSG_M_323">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しおふき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_323">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しおふき！</language>
+	</row>
+
+	<row id="ATKMSG_E_323">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しおふき！</language>
+	</row>
+
+	<row id="ATKMSG_M_324">
+		<language name="日本語">[1:01:ニックネーム:0]の
+シグナルビーム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_324">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+シグナルビーム！</language>
+	</row>
+
+	<row id="ATKMSG_E_324">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+シグナルビーム！</language>
+	</row>
+
+	<row id="ATKMSG_M_325">
+		<language name="日本語">[1:01:ニックネーム:0]の
+シャドーパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_325">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+シャドーパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_325">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+シャドーパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_326">
+		<language name="日本語">[1:01:ニックネーム:0]の
+じんつうりき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_326">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+じんつうりき！</language>
+	</row>
+
+	<row id="ATKMSG_E_326">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+じんつうりき！</language>
+	</row>
+
+	<row id="ATKMSG_M_327">
+		<language name="日本語">[1:01:ニックネーム:0]の
+スカイアッパー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_327">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+スカイアッパー！</language>
+	</row>
+
+	<row id="ATKMSG_E_327">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+スカイアッパー！</language>
+	</row>
+
+	<row id="ATKMSG_M_328">
+		<language name="日本語">[1:01:ニックネーム:0]の
+すなじごく！</language>
+	</row>
+
+	<row id="ATKMSG_Y_328">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+すなじごく！</language>
+	</row>
+
+	<row id="ATKMSG_E_328">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+すなじごく！</language>
+	</row>
+
+	<row id="ATKMSG_M_329">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ぜったいれいどを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_329">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ぜったいれいどを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_329">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ぜったいれいどを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_330">
+		<language name="日本語">[1:01:ニックネーム:0]は
+だくりゅうを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_330">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+だくりゅうを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_330">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+だくりゅうを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_331">
+		<language name="日本語">[1:01:ニックネーム:0]の
+タネマシンガン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_331">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+タネマシンガン！</language>
+	</row>
+
+	<row id="ATKMSG_E_331">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+タネマシンガン！</language>
+	</row>
+
+	<row id="ATKMSG_M_332">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つばめがえし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_332">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つばめがえし！</language>
+	</row>
+
+	<row id="ATKMSG_E_332">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つばめがえし！</language>
+	</row>
+
+	<row id="ATKMSG_M_333">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つららばり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_333">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つららばり！</language>
+	</row>
+
+	<row id="ATKMSG_E_333">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つららばり！</language>
+	</row>
+
+	<row id="ATKMSG_M_334">
+		<language name="日本語">[1:01:ニックネーム:0]は
+てっぺきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_334">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+てっぺきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_334">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+てっぺきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_335">
+		<language name="日本語">[1:01:ニックネーム:0]の
+とおせんぼう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_335">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+とおせんぼう！</language>
+	</row>
+
+	<row id="ATKMSG_E_335">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+とおせんぼう！</language>
+	</row>
+
+	<row id="ATKMSG_M_336">
+		<language name="日本語">[1:01:ニックネーム:0]の
+とおぼえ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_336">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+とおぼえ！</language>
+	</row>
+
+	<row id="ATKMSG_E_336">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+とおぼえ！</language>
+	</row>
+
+	<row id="ATKMSG_M_337">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ドラゴンクロー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_337">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ドラゴンクロー！</language>
+	</row>
+
+	<row id="ATKMSG_E_337">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ドラゴンクロー！</language>
+	</row>
+
+	<row id="ATKMSG_M_338">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ハードプラント！</language>
+	</row>
+
+	<row id="ATKMSG_Y_338">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ハードプラント！</language>
+	</row>
+
+	<row id="ATKMSG_E_338">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ハードプラント！</language>
+	</row>
+
+	<row id="ATKMSG_M_339">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ビルドアップした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_339">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ビルドアップした！</language>
+	</row>
+
+	<row id="ATKMSG_E_339">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ビルドアップした！</language>
+	</row>
+
+	<row id="ATKMSG_M_340">
+		<language name="日本語">[1:01:ニックネーム:0]は
+とびはねるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_340">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+とびはねるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_340">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+とびはねるを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_341">
+		<language name="日本語">[1:01:ニックネーム:0]の
+マッドショット！</language>
+	</row>
+
+	<row id="ATKMSG_Y_341">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+マッドショット！</language>
+	</row>
+
+	<row id="ATKMSG_E_341">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+マッドショット！</language>
+	</row>
+
+	<row id="ATKMSG_M_342">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ポイズンテール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_342">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ポイズンテール！</language>
+	</row>
+
+	<row id="ATKMSG_E_342">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ポイズンテール！</language>
+	</row>
+
+	<row id="ATKMSG_M_343">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ほしがる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_343">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ほしがる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_343">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ほしがる　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_344">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ボルテッカー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_344">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ボルテッカー！</language>
+	</row>
+
+	<row id="ATKMSG_E_344">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ボルテッカー！</language>
+	</row>
+
+	<row id="ATKMSG_M_345">
+		<language name="日本語">[1:01:ニックネーム:0]の
+マジカルリーフ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_345">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+マジカルリーフ！</language>
+	</row>
+
+	<row id="ATKMSG_E_345">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+マジカルリーフ！</language>
+	</row>
+
+	<row id="ATKMSG_M_346">
+		<language name="日本語">[1:01:ニックネーム:0]は
+みずあそびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_346">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+みずあそびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_346">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+みずあそびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_347">
+		<language name="日本語">[1:01:ニックネーム:0]は
+めいそうを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_347">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+めいそうを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_347">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+めいそうを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_348">
+		<language name="日本語">[1:01:ニックネーム:0]の
+リーフブレード！</language>
+	</row>
+
+	<row id="ATKMSG_Y_348">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+リーフブレード！</language>
+	</row>
+
+	<row id="ATKMSG_E_348">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+リーフブレード！</language>
+	</row>
+
+	<row id="ATKMSG_M_349">
+		<language name="日本語">[1:01:ニックネーム:0]の
+りゅうのまい！</language>
+	</row>
+
+	<row id="ATKMSG_Y_349">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+りゅうのまい！</language>
+	</row>
+
+	<row id="ATKMSG_E_349">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+りゅうのまい！</language>
+	</row>
+
+	<row id="ATKMSG_M_350">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ロックブラスト！</language>
+	</row>
+
+	<row id="ATKMSG_Y_350">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ロックブラスト！</language>
+	</row>
+
+	<row id="ATKMSG_E_350">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ロックブラスト！</language>
+	</row>
+
+	<row id="ATKMSG_M_351">
+		<language name="日本語">[1:01:ニックネーム:0]の
+でんげきは！</language>
+	</row>
+
+	<row id="ATKMSG_Y_351">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+でんげきは！</language>
+	</row>
+
+	<row id="ATKMSG_E_351">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+でんげきは！</language>
+	</row>
+
+	<row id="ATKMSG_M_352">
+		<language name="日本語">[1:01:ニックネーム:0]の
+みずのはどう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_352">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+みずのはどう！</language>
+	</row>
+
+	<row id="ATKMSG_E_352">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+みずのはどう！</language>
+	</row>
+
+	<row id="ATKMSG_M_353">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はめつのねがい！</language>
+	</row>
+
+	<row id="ATKMSG_Y_353">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はめつのねがい！</language>
+	</row>
+
+	<row id="ATKMSG_E_353">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はめつのねがい！</language>
+	</row>
+
+	<row id="ATKMSG_M_354">
+		<language name="日本語">[1:01:ニックネーム:0]の
+サイコブースト！</language>
+	</row>
+
+	<row id="ATKMSG_Y_354">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+サイコブースト！</language>
+	</row>
+
+	<row id="ATKMSG_E_354">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+サイコブースト！</language>
+	</row>
+
+	<row id="ATKMSG_M_355">
+		<language name="日本語">[1:01:ニックネーム:0]は
+はねやすめした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_355">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+はねやすめした！</language>
+	</row>
+
+	<row id="ATKMSG_E_355">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+はねやすめした！</language>
+	</row>
+
+	<row id="ATKMSG_M_356">
+		<language name="日本語">[1:01:ニックネーム:0]は
+じゅうりょくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_356">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+じゅうりょくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_356">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+じゅうりょくを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_357">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ミラクルアイ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_357">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ミラクルアイ！</language>
+	</row>
+
+	<row id="ATKMSG_E_357">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ミラクルアイ！</language>
+	</row>
+
+	<row id="ATKMSG_M_358">
+		<language name="日本語">[1:01:ニックネーム:0]の
+めざましビンタ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_358">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+めざましビンタ！</language>
+	</row>
+
+	<row id="ATKMSG_E_358">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+めざましビンタ！</language>
+	</row>
+
+	<row id="ATKMSG_M_359">
+		<language name="日本語">[1:01:ニックネーム:0]の
+アームハンマー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_359">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+アームハンマー！</language>
+	</row>
+
+	<row id="ATKMSG_E_359">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+アームハンマー！</language>
+	</row>
+
+	<row id="ATKMSG_M_360">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ジャイロボール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_360">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ジャイロボール！</language>
+	</row>
+
+	<row id="ATKMSG_E_360">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ジャイロボール！</language>
+	</row>
+
+	<row id="ATKMSG_M_361">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いやしのねがい！</language>
+	</row>
+
+	<row id="ATKMSG_Y_361">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いやしのねがい！</language>
+	</row>
+
+	<row id="ATKMSG_E_361">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いやしのねがい！</language>
+	</row>
+
+	<row id="ATKMSG_M_362">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しおみず！</language>
+	</row>
+
+	<row id="ATKMSG_Y_362">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しおみず！</language>
+	</row>
+
+	<row id="ATKMSG_E_362">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しおみず！</language>
+	</row>
+
+	<row id="ATKMSG_M_363">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しぜんのめぐみ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_363">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しぜんのめぐみ！</language>
+	</row>
+
+	<row id="ATKMSG_E_363">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しぜんのめぐみ！</language>
+	</row>
+
+	<row id="ATKMSG_M_364">
+		<language name="日本語">[1:01:ニックネーム:0]の
+フェイント　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_364">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+フェイント　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_364">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+フェイント　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_365">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ついばむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_365">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ついばむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_365">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ついばむ　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_366">
+		<language name="日本語">[1:01:ニックネーム:0]の
+おいかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_366">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+おいかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_E_366">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+おいかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_M_367">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つぼをつく！</language>
+	</row>
+
+	<row id="ATKMSG_Y_367">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つぼをつく！</language>
+	</row>
+
+	<row id="ATKMSG_E_367">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つぼをつく！</language>
+	</row>
+
+	<row id="ATKMSG_M_368">
+		<language name="日本語">[1:01:ニックネーム:0]の
+メタルバースト！</language>
+	</row>
+
+	<row id="ATKMSG_Y_368">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+メタルバースト！</language>
+	</row>
+
+	<row id="ATKMSG_E_368">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+メタルバースト！</language>
+	</row>
+
+	<row id="ATKMSG_M_369">
+		<language name="日本語">[1:01:ニックネーム:0]の
+とんぼがえり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_369">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+とんぼがえり！</language>
+	</row>
+
+	<row id="ATKMSG_E_369">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+とんぼがえり！</language>
+	</row>
+
+	<row id="ATKMSG_M_370">
+		<language name="日本語">[1:01:ニックネーム:0]の
+インファイト！</language>
+	</row>
+
+	<row id="ATKMSG_Y_370">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+インファイト！</language>
+	</row>
+
+	<row id="ATKMSG_E_370">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+インファイト！</language>
+	</row>
+
+	<row id="ATKMSG_M_371">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しっぺがえし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_371">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しっぺがえし！</language>
+	</row>
+
+	<row id="ATKMSG_E_371">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しっぺがえし！</language>
+	</row>
+
+	<row id="ATKMSG_M_372">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ダメおし！</language>
+	</row>
+
+	<row id="ATKMSG_Y_372">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ダメおし！</language>
+	</row>
+
+	<row id="ATKMSG_E_372">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ダメおし！</language>
+	</row>
+
+	<row id="ATKMSG_M_373">
+		<language name="日本語">[1:01:ニックネーム:0]の
+さしおさえ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_373">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+さしおさえ！</language>
+	</row>
+
+	<row id="ATKMSG_E_373">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+さしおさえ！</language>
+	</row>
+
+	<row id="ATKMSG_M_374">
+		<language name="日本語">[1:01:ニックネーム:0]の
+なげつける！</language>
+	</row>
+
+	<row id="ATKMSG_Y_374">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+なげつける！</language>
+	</row>
+
+	<row id="ATKMSG_E_374">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+なげつける！</language>
+	</row>
+
+	<row id="ATKMSG_M_375">
+		<language name="日本語">[1:01:ニックネーム:0]の
+サイコシフト！</language>
+	</row>
+
+	<row id="ATKMSG_Y_375">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+サイコシフト！</language>
+	</row>
+
+	<row id="ATKMSG_E_375">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+サイコシフト！</language>
+	</row>
+
+	<row id="ATKMSG_M_376">
+		<language name="日本語">[1:01:ニックネーム:0]は
+きりふだを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_376">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+きりふだを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_376">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+きりふだを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_377">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かいふくふうじ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_377">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かいふくふうじ！</language>
+	</row>
+
+	<row id="ATKMSG_E_377">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かいふくふうじ！</language>
+	</row>
+
+	<row id="ATKMSG_M_378">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しぼりとる！</language>
+	</row>
+
+	<row id="ATKMSG_Y_378">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しぼりとる！</language>
+	</row>
+
+	<row id="ATKMSG_E_378">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しぼりとる！</language>
+	</row>
+
+	<row id="ATKMSG_M_379">
+		<language name="日本語">[1:01:ニックネーム:0]の
+パワートリック！</language>
+	</row>
+
+	<row id="ATKMSG_Y_379">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+パワートリック！</language>
+	</row>
+
+	<row id="ATKMSG_E_379">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+パワートリック！</language>
+	</row>
+
+	<row id="ATKMSG_M_380">
+		<language name="日本語">[1:01:ニックネーム:0]の
+いえき　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_380">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+いえき　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_380">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+いえき　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_381">
+		<language name="日本語">[1:01:ニックネーム:0]は
+おまじないを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_381">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+おまじないを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_381">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+おまじないを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_382">
+		<language name="日本語">[1:01:ニックネーム:0]は
+さきどりを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_382">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+さきどりを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_382">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+さきどりを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_383">
+		<language name="日本語">[1:01:ニックネーム:0]は
+まねっこを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_383">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+まねっこを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_383">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+まねっこを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_384">
+		<language name="日本語">[1:01:ニックネーム:0]の
+パワースワップ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_384">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+パワースワップ！</language>
+	</row>
+
+	<row id="ATKMSG_E_384">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+パワースワップ！</language>
+	</row>
+
+	<row id="ATKMSG_M_385">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ガードスワップ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_385">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ガードスワップ！</language>
+	</row>
+
+	<row id="ATKMSG_E_385">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ガードスワップ！</language>
+	</row>
+
+	<row id="ATKMSG_M_386">
+		<language name="日本語">[1:01:ニックネーム:0]は
+おしおきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_386">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+おしおきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_386">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+おしおきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_387">
+		<language name="日本語">[1:01:ニックネーム:0]は
+とっておきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_387">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+とっておきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_387">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+とっておきを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_388">
+		<language name="日本語">[1:01:ニックネーム:0]は
+なやみのタネを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_388">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+なやみのタネを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_388">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+なやみのタネを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_389">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ふいうち！</language>
+	</row>
+
+	<row id="ATKMSG_Y_389">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ふいうち！</language>
+	</row>
+
+	<row id="ATKMSG_E_389">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ふいうち！</language>
+	</row>
+
+	<row id="ATKMSG_M_390">
+		<language name="日本語">[1:01:ニックネーム:0]は
+どくびしを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_390">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+どくびしを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_390">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+どくびしを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_391">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ハートスワップ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_391">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ハートスワップ！</language>
+	</row>
+
+	<row id="ATKMSG_E_391">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ハートスワップ！</language>
+	</row>
+
+	<row id="ATKMSG_M_392">
+		<language name="日本語">[1:01:ニックネーム:0]の
+アクアリング！</language>
+	</row>
+
+	<row id="ATKMSG_Y_392">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+アクアリング！</language>
+	</row>
+
+	<row id="ATKMSG_E_392">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+アクアリング！</language>
+	</row>
+
+	<row id="ATKMSG_M_393">
+		<language name="日本語">[1:01:ニックネーム:0]は
+でんじふゆうを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_393">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+でんじふゆうを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_393">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+でんじふゆうを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_394">
+		<language name="日本語">[1:01:ニックネーム:0]の
+フレアドライブ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_394">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+フレアドライブ！</language>
+	</row>
+
+	<row id="ATKMSG_E_394">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+フレアドライブ！</language>
+	</row>
+
+	<row id="ATKMSG_M_395">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はっけい！</language>
+	</row>
+
+	<row id="ATKMSG_Y_395">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はっけい！</language>
+	</row>
+
+	<row id="ATKMSG_E_395">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はっけい！</language>
+	</row>
+
+	<row id="ATKMSG_M_396">
+		<language name="日本語">[1:01:ニックネーム:0]の
+はどうだん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_396">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+はどうだん！</language>
+	</row>
+
+	<row id="ATKMSG_E_396">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+はどうだん！</language>
+	</row>
+
+	<row id="ATKMSG_M_397">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ロックカットを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_397">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ロックカットを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_397">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ロックカットを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_398">
+		<language name="日本語">[1:01:ニックネーム:0]は
+どくづきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_398">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+どくづきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_398">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+どくづきを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_399">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あくのはどう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_399">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あくのはどう！</language>
+	</row>
+
+	<row id="ATKMSG_E_399">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あくのはどう！</language>
+	</row>
+
+	<row id="ATKMSG_M_400">
+		<language name="日本語">[1:01:ニックネーム:0]の
+つじぎり！</language>
+	</row>
+
+	<row id="ATKMSG_Y_400">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+つじぎり！</language>
+	</row>
+
+	<row id="ATKMSG_E_400">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+つじぎり！</language>
+	</row>
+
+	<row id="ATKMSG_M_401">
+		<language name="日本語">[1:01:ニックネーム:0]の
+アクアテール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_401">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+アクアテール！</language>
+	</row>
+
+	<row id="ATKMSG_E_401">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+アクアテール！</language>
+	</row>
+
+	<row id="ATKMSG_M_402">
+		<language name="日本語">[1:01:ニックネーム:0]は
+タネばくだんを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_402">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+タネばくだんを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_402">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+タネばくだんを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_403">
+		<language name="日本語">[1:01:ニックネーム:0]の
+エアスラッシュ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_403">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+エアスラッシュ！</language>
+	</row>
+
+	<row id="ATKMSG_E_403">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+エアスラッシュ！</language>
+	</row>
+
+	<row id="ATKMSG_M_404">
+		<language name="日本語">[1:01:ニックネーム:0]の
+シザークロス！</language>
+	</row>
+
+	<row id="ATKMSG_Y_404">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+シザークロス！</language>
+	</row>
+
+	<row id="ATKMSG_E_404">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+シザークロス！</language>
+	</row>
+
+	<row id="ATKMSG_M_405">
+		<language name="日本語">[1:01:ニックネーム:0]の
+むしのさざめき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_405">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+むしのさざめき！</language>
+	</row>
+
+	<row id="ATKMSG_E_405">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+むしのさざめき！</language>
+	</row>
+
+	<row id="ATKMSG_M_406">
+		<language name="日本語">[1:01:ニックネーム:0]の
+りゅうのはどう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_406">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+りゅうのはどう！</language>
+	</row>
+
+	<row id="ATKMSG_E_406">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+りゅうのはどう！</language>
+	</row>
+
+	<row id="ATKMSG_M_407">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ドラゴンダイブ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_407">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ドラゴンダイブ！</language>
+	</row>
+
+	<row id="ATKMSG_E_407">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ドラゴンダイブ！</language>
+	</row>
+
+	<row id="ATKMSG_M_408">
+		<language name="日本語">[1:01:ニックネーム:0]は
+パワージェムを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_408">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+パワージェムを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_408">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+パワージェムを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_409">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ドレインパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_409">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ドレインパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_409">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ドレインパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_410">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しんくうは！</language>
+	</row>
+
+	<row id="ATKMSG_Y_410">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しんくうは！</language>
+	</row>
+
+	<row id="ATKMSG_E_410">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しんくうは！</language>
+	</row>
+
+	<row id="ATKMSG_M_411">
+		<language name="日本語">[1:01:ニックネーム:0]の
+きあいだま！</language>
+	</row>
+
+	<row id="ATKMSG_Y_411">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+きあいだま！</language>
+	</row>
+
+	<row id="ATKMSG_E_411">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+きあいだま！</language>
+	</row>
+
+	<row id="ATKMSG_M_412">
+		<language name="日本語">[1:01:ニックネーム:0]の
+エナジーボール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_412">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+エナジーボール！</language>
+	</row>
+
+	<row id="ATKMSG_E_412">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+エナジーボール！</language>
+	</row>
+
+	<row id="ATKMSG_M_413">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ブレイブバード！</language>
+	</row>
+
+	<row id="ATKMSG_Y_413">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ブレイブバード！</language>
+	</row>
+
+	<row id="ATKMSG_E_413">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ブレイブバード！</language>
+	</row>
+
+	<row id="ATKMSG_M_414">
+		<language name="日本語">[1:01:ニックネーム:0]の
+だいちのちから！</language>
+	</row>
+
+	<row id="ATKMSG_Y_414">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+だいちのちから！</language>
+	</row>
+
+	<row id="ATKMSG_E_414">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+だいちのちから！</language>
+	</row>
+
+	<row id="ATKMSG_M_415">
+		<language name="日本語">[1:01:ニックネーム:0]は
+すりかえを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_415">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+すりかえを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_415">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+すりかえを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_416">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ギガインパクト！</language>
+	</row>
+
+	<row id="ATKMSG_Y_416">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ギガインパクト！</language>
+	</row>
+
+	<row id="ATKMSG_E_416">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ギガインパクト！</language>
+	</row>
+
+	<row id="ATKMSG_M_417">
+		<language name="日本語">[1:01:ニックネーム:0]は
+わるだくみを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_417">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+わるだくみを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_417">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+わるだくみを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_418">
+		<language name="日本語">[1:01:ニックネーム:0]の
+バレットパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_418">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+バレットパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_E_418">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+バレットパンチ！</language>
+	</row>
+
+	<row id="ATKMSG_M_419">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ゆきなだれ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_419">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ゆきなだれ！</language>
+	</row>
+
+	<row id="ATKMSG_E_419">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ゆきなだれ！</language>
+	</row>
+
+	<row id="ATKMSG_M_420">
+		<language name="日本語">[1:01:ニックネーム:0]の
+こおりのつぶて！</language>
+	</row>
+
+	<row id="ATKMSG_Y_420">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+こおりのつぶて！</language>
+	</row>
+
+	<row id="ATKMSG_E_420">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+こおりのつぶて！</language>
+	</row>
+
+	<row id="ATKMSG_M_421">
+		<language name="日本語">[1:01:ニックネーム:0]の
+シャドークロー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_421">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+シャドークロー！</language>
+	</row>
+
+	<row id="ATKMSG_E_421">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+シャドークロー！</language>
+	</row>
+
+	<row id="ATKMSG_M_422">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かみなりのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_422">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かみなりのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_E_422">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かみなりのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_M_423">
+		<language name="日本語">[1:01:ニックネーム:0]の
+こおりのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_423">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+こおりのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_E_423">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+こおりのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_M_424">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ほのおのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_424">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ほのおのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_E_424">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ほのおのキバ！</language>
+	</row>
+
+	<row id="ATKMSG_M_425">
+		<language name="日本語">[1:01:ニックネーム:0]の
+かげうち！</language>
+	</row>
+
+	<row id="ATKMSG_Y_425">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+かげうち！</language>
+	</row>
+
+	<row id="ATKMSG_E_425">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+かげうち！</language>
+	</row>
+
+	<row id="ATKMSG_M_426">
+		<language name="日本語">[1:01:ニックネーム:0]の
+どろばくだん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_426">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+どろばくだん！</language>
+	</row>
+
+	<row id="ATKMSG_E_426">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+どろばくだん！</language>
+	</row>
+
+	<row id="ATKMSG_M_427">
+		<language name="日本語">[1:01:ニックネーム:0]の
+サイコカッター！</language>
+	</row>
+
+	<row id="ATKMSG_Y_427">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+サイコカッター！</language>
+	</row>
+
+	<row id="ATKMSG_E_427">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+サイコカッター！</language>
+	</row>
+
+	<row id="ATKMSG_M_428">
+		<language name="日本語">[1:01:ニックネーム:0]の
+しねんのずつき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_428">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+しねんのずつき！</language>
+	</row>
+
+	<row id="ATKMSG_E_428">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+しねんのずつき！</language>
+	</row>
+
+	<row id="ATKMSG_M_429">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ミラーショット！</language>
+	</row>
+
+	<row id="ATKMSG_Y_429">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ミラーショット！</language>
+	</row>
+
+	<row id="ATKMSG_E_429">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ミラーショット！</language>
+	</row>
+
+	<row id="ATKMSG_M_430">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ラスターカノン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_430">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ラスターカノン！</language>
+	</row>
+
+	<row id="ATKMSG_E_430">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ラスターカノン！</language>
+	</row>
+
+	<row id="ATKMSG_M_431">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ロッククライム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_431">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ロッククライム！</language>
+	</row>
+
+	<row id="ATKMSG_E_431">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ロッククライム！</language>
+	</row>
+
+	<row id="ATKMSG_M_432">
+		<language name="日本語">[1:01:ニックネーム:0]は
+きりばらいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_432">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+きりばらいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_432">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+きりばらいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_433">
+		<language name="日本語">[1:01:ニックネーム:0]は
+トリックルームを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_433">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+トリックルームを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_433">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+トリックルームを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_434">
+		<language name="日本語">[1:01:ニックネーム:0]の
+りゅうせいぐん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_434">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+りゅうせいぐん！</language>
+	</row>
+
+	<row id="ATKMSG_E_434">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+りゅうせいぐん！</language>
+	</row>
+
+	<row id="ATKMSG_M_435">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ほうでん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_435">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ほうでん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_435">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ほうでん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_436">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ふんえん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_436">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ふんえん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_436">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ふんえん　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_437">
+		<language name="日本語">[1:01:ニックネーム:0]の
+リーフストーム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_437">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+リーフストーム！</language>
+	</row>
+
+	<row id="ATKMSG_E_437">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+リーフストーム！</language>
+	</row>
+
+	<row id="ATKMSG_M_438">
+		<language name="日本語">[1:01:ニックネーム:0]の
+パワーウィップ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_438">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+パワーウィップ！</language>
+	</row>
+
+	<row id="ATKMSG_E_438">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+パワーウィップ！</language>
+	</row>
+
+	<row id="ATKMSG_M_439">
+		<language name="日本語">[1:01:ニックネーム:0]の
+がんせきほう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_439">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+がんせきほう！</language>
+	</row>
+
+	<row id="ATKMSG_E_439">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+がんせきほう！</language>
+	</row>
+
+	<row id="ATKMSG_M_440">
+		<language name="日本語">[1:01:ニックネーム:0]の
+クロスポイズン！</language>
+	</row>
+
+	<row id="ATKMSG_Y_440">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+クロスポイズン！</language>
+	</row>
+
+	<row id="ATKMSG_E_440">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+クロスポイズン！</language>
+	</row>
+
+	<row id="ATKMSG_M_441">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ダストシュート！</language>
+	</row>
+
+	<row id="ATKMSG_Y_441">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ダストシュート！</language>
+	</row>
+
+	<row id="ATKMSG_E_441">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ダストシュート！</language>
+	</row>
+
+	<row id="ATKMSG_M_442">
+		<language name="日本語">[1:01:ニックネーム:0]の
+アイアンヘッド！</language>
+	</row>
+
+	<row id="ATKMSG_Y_442">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+アイアンヘッド！</language>
+	</row>
+
+	<row id="ATKMSG_E_442">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+アイアンヘッド！</language>
+	</row>
+
+	<row id="ATKMSG_M_443">
+		<language name="日本語">[1:01:ニックネーム:0]の
+マグネットボム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_443">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+マグネットボム！</language>
+	</row>
+
+	<row id="ATKMSG_E_443">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+マグネットボム！</language>
+	</row>
+
+	<row id="ATKMSG_M_444">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ストーンエッジ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_444">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ストーンエッジ！</language>
+	</row>
+
+	<row id="ATKMSG_E_444">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ストーンエッジ！</language>
+	</row>
+
+	<row id="ATKMSG_M_445">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ゆうわくした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_445">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ゆうわくした！</language>
+	</row>
+
+	<row id="ATKMSG_E_445">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ゆうわくした！</language>
+	</row>
+
+	<row id="ATKMSG_M_446">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ステルスロック！</language>
+	</row>
+
+	<row id="ATKMSG_Y_446">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ステルスロック！</language>
+	</row>
+
+	<row id="ATKMSG_E_446">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ステルスロック！</language>
+	</row>
+
+	<row id="ATKMSG_M_447">
+		<language name="日本語">[1:01:ニックネーム:0]は
+くさむすびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_447">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+くさむすびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_447">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+くさむすびを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_448">
+		<language name="日本語">[1:01:ニックネーム:0]は
+おしゃべりした！</language>
+	</row>
+
+	<row id="ATKMSG_Y_448">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+おしゃべりした！</language>
+	</row>
+
+	<row id="ATKMSG_E_448">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+おしゃべりした！</language>
+	</row>
+
+	<row id="ATKMSG_M_449">
+		<language name="日本語">[1:01:ニックネーム:0]の
+さばきのつぶて！</language>
+	</row>
+
+	<row id="ATKMSG_Y_449">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+さばきのつぶて！</language>
+	</row>
+
+	<row id="ATKMSG_E_449">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+さばきのつぶて！</language>
+	</row>
+
+	<row id="ATKMSG_M_450">
+		<language name="日本語">[1:01:ニックネーム:0]の
+むしくい　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_450">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+むしくい　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_E_450">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+むしくい　こうげき！</language>
+	</row>
+
+	<row id="ATKMSG_M_451">
+		<language name="日本語">[1:01:ニックネーム:0]の
+チャージビーム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_451">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+チャージビーム！</language>
+	</row>
+
+	<row id="ATKMSG_E_451">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+チャージビーム！</language>
+	</row>
+
+	<row id="ATKMSG_M_452">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ウッドハンマー！</language>
+	</row>
+
+	<row id="ATKMSG_Y_452">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ウッドハンマー！</language>
+	</row>
+
+	<row id="ATKMSG_E_452">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ウッドハンマー！</language>
+	</row>
+
+	<row id="ATKMSG_M_453">
+		<language name="日本語">[1:01:ニックネーム:0]の
+アクアジェット！</language>
+	</row>
+
+	<row id="ATKMSG_Y_453">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+アクアジェット！</language>
+	</row>
+
+	<row id="ATKMSG_E_453">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+アクアジェット！</language>
+	</row>
+
+	<row id="ATKMSG_M_454">
+		<language name="日本語">[1:01:ニックネーム:0]は
+こうげきしれいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_454">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+こうげきしれいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_454">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+こうげきしれいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_455">
+		<language name="日本語">[1:01:ニックネーム:0]は
+ぼうぎょしれいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_455">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+ぼうぎょしれいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_455">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+ぼうぎょしれいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_456">
+		<language name="日本語">[1:01:ニックネーム:0]は
+かいふくしれいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_Y_456">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+かいふくしれいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_E_456">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+かいふくしれいを　した！</language>
+	</row>
+
+	<row id="ATKMSG_M_457">
+		<language name="日本語">[1:01:ニックネーム:0]の
+もろはのずつき！</language>
+	</row>
+
+	<row id="ATKMSG_Y_457">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+もろはのずつき！</language>
+	</row>
+
+	<row id="ATKMSG_E_457">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+もろはのずつき！</language>
+	</row>
+
+	<row id="ATKMSG_M_458">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ダブルアタック！</language>
+	</row>
+
+	<row id="ATKMSG_Y_458">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ダブルアタック！</language>
+	</row>
+
+	<row id="ATKMSG_E_458">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ダブルアタック！</language>
+	</row>
+
+	<row id="ATKMSG_M_459">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ときのほうこう！</language>
+	</row>
+
+	<row id="ATKMSG_Y_459">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ときのほうこう！</language>
+	</row>
+
+	<row id="ATKMSG_E_459">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ときのほうこう！</language>
+	</row>
+
+	<row id="ATKMSG_M_460">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あくうせつだん！</language>
+	</row>
+
+	<row id="ATKMSG_Y_460">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あくうせつだん！</language>
+	</row>
+
+	<row id="ATKMSG_E_460">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あくうせつだん！</language>
+	</row>
+
+	<row id="ATKMSG_M_461">
+		<language name="日本語">[1:01:ニックネーム:0]は
+みかづきのまいを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_Y_461">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]は
+みかづきのまいを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_E_461">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]は
+みかづきのまいを　つかった！</language>
+	</row>
+
+	<row id="ATKMSG_M_462">
+		<language name="日本語">[1:01:ニックネーム:0]の
+にぎりつぶす！</language>
+	</row>
+
+	<row id="ATKMSG_Y_462">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+にぎりつぶす！</language>
+	</row>
+
+	<row id="ATKMSG_E_462">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+にぎりつぶす！</language>
+	</row>
+
+	<row id="ATKMSG_M_463">
+		<language name="日本語">[1:01:ニックネーム:0]の
+マグマストーム！</language>
+	</row>
+
+	<row id="ATKMSG_Y_463">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+マグマストーム！</language>
+	</row>
+
+	<row id="ATKMSG_E_463">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+マグマストーム！</language>
+	</row>
+
+	<row id="ATKMSG_M_464">
+		<language name="日本語">[1:01:ニックネーム:0]の
+ダークホール！</language>
+	</row>
+
+	<row id="ATKMSG_Y_464">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+ダークホール！</language>
+	</row>
+
+	<row id="ATKMSG_E_464">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+ダークホール！</language>
+	</row>
+
+	<row id="ATKMSG_M_465">
+		<language name="日本語">[1:01:ニックネーム:0]の
+シードフレア！</language>
+	</row>
+
+	<row id="ATKMSG_Y_465">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+シードフレア！</language>
+	</row>
+
+	<row id="ATKMSG_E_465">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+シードフレア！</language>
+	</row>
+
+	<row id="ATKMSG_M_466">
+		<language name="日本語">[1:01:ニックネーム:0]の
+あやしいかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_466">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+あやしいかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_E_466">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+あやしいかぜ！</language>
+	</row>
+
+	<row id="ATKMSG_M_467">
+		<language name="日本語">[1:01:ニックネーム:0]の
+シャドーダイブ！</language>
+	</row>
+
+	<row id="ATKMSG_Y_467">
+		<language name="日本語">やせいの　[1:01:ニックネーム:0]の
+シャドーダイブ！</language>
+	</row>
+
+	<row id="ATKMSG_E_467">
+		<language name="日本語">あいての　[1:01:ニックネーム:0]の
+シャドーダイブ！</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

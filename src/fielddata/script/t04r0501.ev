@@ -1,0 +1,166 @@
+//====================================================================
+//								t04r0501
+//
+//	FH_01		一度シールを入手したフラグ
+//	LOCALWORK0	追加したシールの定義
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t04r0501.h"
+	//.include	"../eventdata/zone_t04r0501evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t04r0501_babyboy1
+_EVENT_DATA		ev_t04r0501_middlewoman1
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_t04r0501_flag_change:
+	_END
+
+
+/********************************************************************/
+/*							男の子									*/
+//
+//	SCWK_TEMP2	アンノーンの形状
+//	SCWK_TEMP3	入手するシール定義
+/********************************************************************/
+ev_t04r0501_babyboy1:
+	_TALK_OBJ_START
+
+	/*シールいれを入手していない*/
+	_IF_FLAGOFF_JUMP	FE_SIIRUIRE_GET,ev_t04r0501_babyboy1_04
+
+	/*マップ遷移してまだシールをもらってない時はワークをクリアする*/
+	_IF_FLAGOFF_CALL	FH_01,ev_t04r0501_babyboy1_00
+
+	/*手持ちの先頭がアンノーンかチェック*/
+	_FRONT_POKEMON		SCWK_TEMP0					//先頭の手持ち番号取得
+	_TEMOTI_MONSNO		SCWK_TEMP0,SCWK_TEMP1		/*位置からポケモンナンバー取得*/
+	_IFVAL_JUMP			SCWK_TEMP1,EQ,MONSNO_ANNOON,ev_t04r0501_babyboy1_form_chk
+
+	_TALKMSG		msg_t04r0501_babyboy1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*手持ちの先頭がアンノーンの時*/
+ev_t04r0501_babyboy1_form_chk:
+
+	_UNKNOWN_FORM_GET	SCWK_TEMP0,SCWK_TEMP2		/*位置からアンノーンの形状を取得*/
+
+	/*保存しておいた形状を比較して同じ時はもらえない*/
+	_IFWK_JUMP			LOCALWORK0,EQ,SCWK_TEMP2,ev_t04r0501_babyboy1_03
+
+	_JUMP				ev_t04r0501_babyboy1_02
+
+/*入手処理*/
+ev_t04r0501_babyboy1_02:
+	/*入手するシール定義をセット*/
+	_LDVAL				SCWK_TEMP3,SEAL_ID_ALPHA_A	/*開始位置*/
+	_ADD_WK				SCWK_TEMP3,SCWK_TEMP2		/*形状のオフセットを足す*/
+
+	/*すでにシールがいっぱいの時*/
+	_CB_ITEM_NUM_GET	SCWK_TEMP3,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,99,ev_t04r0501_babyboy1_03
+
+	_POKEMON_NAME		0,SCWK_TEMP0
+	_TALK_KEYWAIT		msg_t04r0501_babyboy1_02
+
+	/*ノーマルは１０貰える*/
+	_LDVAL				SCWK_PARAM0,10
+
+	_CB_ITEM_NUM_GET	SCWK_TEMP3,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,LE,89,ev_t04r0501_seal_add		//89まではOK
+
+	//89より大きいときは、99に収まるように
+	_SUB_WK				SCWK_ANSWER,89
+	_SUB_WK				SCWK_PARAM0,SCWK_ANSWER
+
+/*シール追加*/
+ev_t04r0501_seal_add:
+	_CB_ITEM_NUM_ADD	SCWK_TEMP3,SCWK_PARAM0				/*シール追加*/
+
+	/*追加したアンノーンの形状をローカルワークに保存しておく*/
+	_LDWK				LOCALWORK0,SCWK_TEMP2
+
+	/*入手したフラグセット*/
+	_FLAG_SET			FH_01
+
+	_SEAL_NAME		0,SCWK_TEMP3
+	_TALKMSG		mes_shop_03_03
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*すでにシールがいっぱいの時*/
+/*保存しておいた形状を比較して同じ時はもらえない*/
+ev_t04r0501_babyboy1_03:
+	_TALKMSG			msg_t04r0501_babyboy1_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*マップ遷移してまだシールをもらってない時はワークをクリアする*/
+ev_t04r0501_babyboy1_00:
+	_LDVAL				LOCALWORK0,0xffff
+	_RET
+
+/*シールいれを入手していない*/
+ev_t04r0501_babyboy1_04:
+	_TALKMSG			msg_t04r0501_babyboy1_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							おばさん								*/
+/********************************************************************/
+ev_t04r0501_middlewoman1:
+	_TALK_OBJ_START
+
+	/*すでにシールいれを入手していたら*/
+	_IF_FLAGON_JUMP	FE_SIIRUIRE_GET,ev_t04r0501_middlewoman1_02
+
+	_TALK_KEYWAIT	msg_t04r0501_middlewoman1_01
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_SIIRUIRE
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	_FLAG_SET		FE_SIIRUIRE_GET
+
+	_TALKMSG		msg_t04r0501_middlewoman1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*すでにシールいれを入手していたら*/
+ev_t04r0501_middlewoman1_02:
+	_TALKMSG		msg_t04r0501_middlewoman1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+

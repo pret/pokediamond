@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2005-04-28T11:41:33" source="kusa0428.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20050324"/>
+</head>
+
+<body>
+
+<original_create user="kanako_eo" host="W00107" date="2005-04-28T11:41:33" source="kusa0428.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20050324"/>
+
+<model_info
+	pos_scale="1"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="0"
+	tex_matrix_mode="maya"
+	compress_node="none" node_size="3 3"
+	compress_material="off" material_size="2 2"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="2" xyz="-2.000000 0.000000 2.000000" whd="4.000000 3.318848 4.000000"/>
+
+<tex_image_array size="2">
+	<tex_image index="0" name="kusa02"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="kusa02"
+		path="C:/mayadata/eo_map/tex/kusa02.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0550 4000 0004 0550 0000 0000
+			4000 0044 5555 4400 0044 5555 4400 0004
+			4400 4444 5555 1445 5441 5555 4444 0044
+			4400 4421 5544 1345 5431 4455 1244 0044
+			4400 2111 5444 1144 4411 4445 1112 0044
+			4000 1112 4431 1134 4311 1344 2111 0004
+			4000 1114 4322 1224 4221 2234 4111 0004
+			4000 2124 4222 2224 4222 2224 4212 0004
+			5500 2244 2222 2224 4222 2222 4422 0055
+			5550 2344 2222 2232 2322 2222 4432 0555
+			5550 2445 2222 2222 2222 2222 5442 0555
+			5500 4455 2222 3322 2233 2222 5544 0055
+			5000 4444 2224 3342 2433 4222 4444 0005
+			4400 2234 2222 3444 4443 2222 4322 0044
+			3440 2223 3222 4443 3444 2223 3222 0443
+			3340 2223 3222 4433 3344 2223 3222 0433
+			3460 2233 3222 4443 3444 2223 3322 0643
+			6600 2346 2222 3444 4443 2222 6432 0066
+			5000 6666 2234 3342 2433 4322 6666 0005
+			5500 6655 2222 3322 2233 2222 5566 0055
+			5550 3665 2222 2222 2222 2222 5663 0555
+			5550 2665 2222 2232 2322 2222 5662 0555
+			5500 2366 2222 2226 6222 2222 6632 0055
+			0000 3366 6222 2226 6222 2226 6633 0000
+			6000 3336 6633 2266 6622 3366 6333 0006
+			6000 3336 5664 3366 6633 4665 6333 0006
+			6000 6436 5566 3665 5663 6655 6346 0006
+			6000 6666 5556 6665 5666 6555 6666 0006
+			0000 0666 5555 6605 5066 5555 6660 0000
+			0000 0000 5550 6000 0006 0555 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="1" name="kusa_o02"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="kusa_o02"
+		path="C:/mayadata/eo_map/tex/kusa_o02.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 3333 0033 0000 0000 3300 3333 0000
+			3300 1123 0331 0000 0000 1330 3211 0033
+			2330 1112 0311 0000 0000 1130 2111 0332
+			2230 1112 3311 0000 0000 1133 2111 0322
+			2340 1122 3311 0033 3300 1133 2211 0432
+			4400 1234 1331 0331 1330 1331 4321 0044
+			0000 4444 1123 3311 1133 3211 4444 0000
+			0000 4400 1111 3211 1123 1111 0044 0000
+			0000 2440 1111 1211 1121 1111 0442 0000
+			0000 1440 1111 1121 1211 1111 0441 0000
+			0000 1244 1111 1114 4111 1111 4421 0000
+			0000 2244 4111 1114 4111 1114 4422 0000
+			4000 2224 4422 1144 4411 2244 4222 0004
+			4000 2224 0443 2244 4422 3440 4222 0004
+			4000 4324 0044 2440 0442 4400 4234 0004
+			4000 4444 0004 4440 0444 4000 4444 0004
+			0000 0444 0000 4400 0044 0000 4440 0000
+			0000 0000 0000 4000 0004 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="2">
+	<tex_palette index="0" name="kusa02" color_size="8">
+		4772 4f4c 3eaa 3649 3209 36eb 2dab 7fff
+	</tex_palette>
+	<tex_palette index="1" name="kusa_o02" color_size="8">
+		4db4 364a 31e9 2568 2127 7fff 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="2">
+	<material index="0" name="lambert5"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+	<material index="1" name="pasted__lambert5"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="1" tex_palette_idx="1"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="2">
+	<matrix index="0" mtx_weight="1" node_idx="1"/>
+	<matrix index="1" mtx_weight="1" node_idx="2"/>
+</matrix_array>
+
+<polygon_array size="2">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.000000 -4.000000"
+		volume_max="4.000000 0.000000 4.000000"
+		volume_r="5.656738"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.998047 0.000000"/>
+					<pos_s xyz="-4.000000 0.000000 4.000000"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="4.000000 0.000000"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_xz xz="4.000000 -4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-4.000000 0.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+	<polygon index="1" name="polygon1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 1.495850 -3.064209"
+		volume_max="4.000000 6.638184 3.064209"
+		volume_r="8.333984"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">1</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.765625 0.642578"/>
+					<pos_xyz xyz="-4.000000 1.495850 3.064209"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="4.000000 1.495850"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_yz yz="6.638184 -3.064209"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-4.000000 6.638184"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="3">
+	<node index="0" name="group1" kind="null"
+		parent="-1"
+		child="1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="off"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="0"
+	>
+	</node>
+	<node index="1" name="polySurface2" kind="mesh"
+		parent="0"
+		child="-1"
+		brother_next="2"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.000000 -4.000000"
+		volume_max="4.000000 0.000000 4.000000"
+		volume_r="5.656738"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+	<node index="2" name="polySurface3" kind="mesh"
+		parent="0"
+		child="-1"
+		brother_next="-1"
+		brother_prev="1"
+		draw_mtx="on"
+		billboard="y_on"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 1.495850 -3.064209"
+		volume_max="4.000000 6.638184 3.064209"
+		volume_r="8.333984"
+	>
+		<display index="0" material="1" polygon="1" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="8" polygon_size="2"
+	triangle_size="0" quad_size="2"/>
+
+</body>
+
+</imd>

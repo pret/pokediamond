@@ -1,0 +1,267 @@
+//====================================================================
+//						c02r0501.gmm
+//					シティ０２・r0501
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c02r0501.h"
+	.include	"../eventdata/zone_c02r0501evc.h"
+	.include	"../../../include/itemtool/itemsym.h"
+	
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c02r0501_flag_change
+_EVENT_DATA		ev_c02r0501_babyboy1
+_EVENT_DATA		ev_c02r0501_middlewoman1
+_EVENT_DATA_END						//終了
+
+
+ev_c02r0501_flag_change:
+	_IFVAL_JUMP	WK_SCENE_C02R0501,EQ,0,ev_c02r0501_flag_scene_set
+	_IFVAL_CALL	WK_SCENE_C02R0501,EQ,3,ev_c02r0501_flag_scene_reset
+	_IFVAL_CALL	WK_SCENE_C02R0501,GE,1,ev_c02r0501_flag_babyboy1_nightmare
+ev_c02r0501_flag_change_end:
+	_END
+
+//イベントを起こすかどうかチェックする
+ev_c02r0501_flag_scene_set:
+	//イベントクリア？
+	_IF_FLAGON_JUMP				FE_C02R0501_EVENT_CLEAR,ev_c02r0501_flag_change_end
+	//ゲームクリア？
+	_SYS_FLAG_GAME_CLEAR_GET	LOCALWORK0	
+	_IFVAL_JUMP					LOCALWORK0,EQ,0,ev_c02r0501_flag_change_end
+	//全国図鑑入手？
+	_ZENKOKU_ZUKAN_FLAG			FLAG_MODE_GET,LOCALWORK0
+	_IFVAL_JUMP					LOCALWORK0,EQ,0,ev_c02r0501_flag_change_end
+
+	//イベント発生
+	_LDVAL						WK_SCENE_C02R0501,1
+	_CALL						ev_c02r0501_flag_babyboy1_nightmare
+	_END
+
+//羽イベント終了直後状態だったらリセットする
+ev_c02r0501_flag_scene_reset:
+	_LDVAL		WK_SCENE_C02R0501,0
+	_RET
+
+//少年の状態をチェンジ
+ev_c02r0501_flag_babyboy1_nightmare:
+	_SXY_POS_CHANGE	C02R0501_BABYBOY1,8,6
+	_SXY_DIR_CHANGE	C02R0501_BABYBOY1,DIR_DOWN
+	_SXY_MV_CHANGE	C02R0501_BABYBOY1,MV_DMY
+	_SXY_POS_CHANGE	C02R0501_MIDDLEWOMAN1,9,6
+	_SXY_DIR_CHANGE	C02R0501_MIDDLEWOMAN1,DIR_LEFT
+	_RET
+
+ev_c02r0501_flag_seaman_off:
+	_FLAG_SET		FV_C02R0501_SEAMAN
+	_RET
+
+/********************************************************************/
+/*							お母さん								*/
+/********************************************************************/
+ev_c02r0501_middlewoman1:
+	_SWITCH			WK_SCENE_C02R0501
+	_CASE_JUMP		1,ev_c02r0501_middlewoman1_event_01
+	_CASE_JUMP		2,ev_c02r0501_middlewoman1_event_01
+	_CASE_JUMP		3,ev_c02r0501_middlewoman1_event_02
+	//イベント外
+//	_LDVAL		WK_SCENE_C02R0501,1
+	_EASY_OBJ_MSG	msg_c02r0501_middlewoman1_01
+	_END
+
+ev_c02r0501_middlewoman1_event_01:
+	_EASY_OBJ_MSG	msg_c02r0501_middlewoman1_02
+	_END
+ev_c02r0501_middlewoman1_event_02:
+	_EASY_OBJ_MSG	msg_c02r0501_middlewoman1_03
+	_END
+
+/********************************************************************/
+/*							男の子									*/
+/********************************************************************/
+ev_c02r0501_babyboy1:
+	_IFVAL_JUMP		WK_SCENE_C02R0501,EQ,1,ev_c02r0501_babyboy1_event_01
+	_IFVAL_JUMP		WK_SCENE_C02R0501,EQ,2,ev_c02r0501_babyboy1_event_01
+	_IFVAL_JUMP		WK_SCENE_C02R0501,EQ,3,ev_c02r0501_babyboy1_event_02
+ev_c02r0501_babyboy1_01:
+	//通常
+	_EASY_OBJ_MSG	msg_c02r0501_babyboy1_01
+	_END
+
+//ムーバスイベントクリア直後
+ev_c02r0501_babyboy1_event_02:
+	_EASY_OBJ_MSG	msg_c02r0501_babyboy1_04
+	_END
+
+//男の子ムーバスイベント中
+ev_c02r0501_babyboy1_event_01:
+	//ムーバスイベント開始
+	_IF_FLAGOFF_JUMP	FE_D15_UNSEAL,ev_c02r0501_d15_unseal
+	//ムーバスクリア？
+	_IF_FLAGOFF_JUMP	FE_D15R0101_LEGEND_CLEAR,ev_c02r0501_babyboy1_event_nightmare
+	//三日月の羽入手？
+	_ITEM_CHK			ITEM_MIKADUKINOHANE,1,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c02r0501_babyboy1_event_nightmare
+	
+//三日月の羽を持っていたら
+ev_c02r0501_babyboy1_event_clear:
+	_TALK_OBJ_START_TURN_NOT
+	//イベントクリア
+	_FLAG_SET		FE_C02R0501_EVENT_CLEAR
+	_LDVAL			WK_SCENE_C02R0501,3	//イベント終了直後状態
+	//三日月の羽削除
+	_SUB_ITEM		ITEM_MIKADUKINOHANE,1,SCWK_ANSWER
+
+	//三日月の羽根が～
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c02r0501_babyboy1_03
+
+	//男の子は眼を覚ました！
+	_TALKMSG		msg_c02r0501_babyboy1_05
+	_ME_PLAY		SEQ_ASA
+	_ME_WAIT
+	_TALK_CLOSE
+
+	/*間をあける*/
+	_TIME_WAIT		15,SCWK_ANSWER
+	
+	//父親ナミキさん登場
+	_CALL			ev_c02r0501_comanm_seaman_in
+	_TALK_KEYWAIT	msg_c02r0501_seaman_01
+	//ナミキ振り向き
+	_CALL			ev_c02r0501_comanm_seaman_side_01
+	_TALK_KEYWAIT	msg_c02r0501_seaman_02
+	//ナミキ子供の方を向く	
+	_CALL			ev_c02r0501_comanm_seaman_side_02
+	_TALK_KEYWAIT	msg_c02r0501_seaman_03
+	_TALK_CLOSE
+	//ナミキ立ち去り	
+	_CALL			ev_c02r0501_comanm_seaman_out
+	
+	_TALK_OBJ_END
+	_END
+
+//悪夢状態
+ev_c02r0501_babyboy1_event_nightmare:
+	_TALK_OBJ_START_TURN_NOT
+	_TALKMSG		msg_c02r0501_babyboy1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//d15行きの船解放
+ev_c02r0501_d15_unseal:
+	_FLAG_SET		FE_D15_UNSEAL
+	_LDVAL			WK_SCENE_C02R0501,2
+	_JUMP			ev_c02r0501_babyboy1_event_nightmare
+	_END
+
+/********************************************************************/
+/*						アニメーション各種							*/
+/********************************************************************/
+ev_c02r0501_comanm_seaman_in:
+	_SE_PLAY	SEQ_SE_DP_KAIDAN2
+	_SE_WAIT	SEQ_SE_DP_KAIDAN2
+	//ナミキ登場
+	_FLAG_RESET	FV_C02R0501_SEAMAN
+	_OBJ_ADD	C02R0501_SEAMAN
+	_TIME_WAIT	5,SCWK_ANSWER
+	//人物振り向き
+	_OBJ_ANIME	C02R0501_MIDDLEWOMAN1,anm_c02r0501_com_in_side01
+	_OBJ_ANIME	C02R0501_BABYBOY1,anm_c02r0501_com_in_side01
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_c02r0501_com_in_side01
+	_OBJ_ANIME_WAIT
+	//ナミキ近づく
+	_OBJ_ANIME	C02R0501_SEAMAN,anm_c02r0501_seaman_in_walk01
+	_OBJ_ANIME_WAIT
+	//主人公よける
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_c02r0501_seaman_in_walk02
+	_OBJ_ANIME_WAIT
+	//ナミキベッド際へ
+	_OBJ_ANIME	C02R0501_SEAMAN,anm_c02r0501_seaman_in_walk03
+	_OBJ_ANIME_WAIT
+	//主人公ナミキの方を向く
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_c02r0501_com_in_side02
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_c02r0501_comanm_seaman_side_01:
+	//ナミキ自機振り向き
+	_OBJ_ANIME	C02R0501_SEAMAN,anm_c02r0501_com_in_side03
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_c02r0501_comanm_seaman_side_02:
+	//ナミキベッド側振り向き
+	_OBJ_ANIME	C02R0501_SEAMAN,anm_c02r0501_com_in_side04
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_c02r0501_comanm_seaman_out:
+	//ナミキ立ち去る
+	_OBJ_ANIME	FLDOBJ_ID_PLAYER,anm_c02r0501_com_in_side01
+	_OBJ_ANIME	C02R0501_SEAMAN,anm_c02r0501_seaman_out_walk01
+	_OBJ_ANIME_WAIT
+	//ナミキ消す
+	_FLAG_SET	FV_C02R0501_SEAMAN
+	_OBJ_DEL	C02R0501_SEAMAN
+	_SE_PLAY	SEQ_SE_DP_KAIDAN2
+	_SE_WAIT	SEQ_SE_DP_KAIDAN2
+	_RET
+
+//--------------------------------------------------------------------
+//ナミキ登場時　人物振り向き
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0501_com_in_side01
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_c02r0501_com_in_side02
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_c02r0501_com_in_side03
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+_ANIME_LABEL	anm_c02r0501_com_in_side04
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+//--------------------------------------------------------------------
+//ナミキ登場時　ナミキ近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0501_seaman_in_walk01
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	ACMD_END,0
+//--------------------------------------------------------------------
+//ナミキ登場時　自機ナミキ避ける
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0501_seaman_in_walk02
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA	ACMD_END,0
+//--------------------------------------------------------------------
+//ナミキ登場時　ナミキもう一歩近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0501_seaman_in_walk03
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+	
+//--------------------------------------------------------------------
+//ナミキ退場時
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c02r0501_seaman_out_walk01
+	_ANIME_DATA	AC_WALK_L_8F,3
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/********************************************************************/

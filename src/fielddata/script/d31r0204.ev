@@ -1,0 +1,185 @@
+//====================================================================
+//								d31r0204
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	//.include	"../../../include/msgdata/msg_d31r0204.h"
+	.include	"../eventdata/zone_d31r0204evc.h"
+	.include	"../../../src/field/b_tower_scr_def.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d31r0204_flag_change
+_EVENT_DATA		ev_d31r0204_obj_change
+_EVENT_DATA		ev_tower_wayd_common
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d31r0204_flag_change:
+	_IFVAL_JUMP		WK_SCENE_D31R0204,EQ,0,ev_d31r0204_flag_change_end
+	/*
+	  通信の子の時は親子の左右位置をいれかえる
+	  カレントID取得関数は非接続時に呼ぶと0が返る
+	*/
+	_COMM_GET_CURRENT_ID	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,ev_d31r0204_flag_change_child
+
+	/*非接続時と親のとき*/
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_MINE,LOCALWORK0
+	_LDWK			OBJCHRWORK0,LOCALWORK0
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_MINE2,LOCALWORK0
+	_LDWK			OBJCHRWORK1,LOCALWORK0
+ev_d31r0204_flag_change_end:
+	_END
+
+/*通信の子の時*/
+ev_d31r0204_flag_change_child:
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_MINE,LOCALWORK0
+	_LDWK			OBJCHRWORK1,LOCALWORK0
+	_BTOWER_TOOLS	BTWR_SUB_GET_MINE_OBJ,BTWR_PTCODE_MINE2,LOCALWORK0
+	_LDWK			OBJCHRWORK0,LOCALWORK0
+	_END
+
+
+ev_d31r0204_obj_change:
+	_IFVAL_CALL		WK_SCENE_D31R0204,NE,0,ev_d31r0204_obj_player
+	_OBJ_INVISIBLE	D31R0204_HERO
+	_OBJ_INVISIBLE	D31R0204_TRAINER
+ev_d31r0204_obj_seven_chk:
+	_END
+
+ev_d31r0204_obj_player:
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	//半マスずらす
+	_PLAYER_POS_OFFSET_SET	8,0,0	
+	_RET
+	
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_tower_wayd_common:
+	_EVENT_START
+	_CALL		ev_tower_wayd_comanm_in
+	_CALL		ev_tower_wayd_comanm_walk
+	_CALL		ev_tower_wayd_comanm_out
+	_MAP_CHANGE		ZONE_ID_D31R0206,0,SB_ROOMD_PLAYER_SX,SB_ROOMD_PLAYER_SY,DIR_UP
+	_EVENT_END
+	_END
+
+
+//====================================================================
+/********************************************************************/
+/*	バトルタワー　マルチ通路アニメコモン							*/
+/********************************************************************/
+//====================================================================
+ev_tower_wayd_comanm_in:
+	//エレベータドアopen
+	_SET_UP_DOOR_ANIME	0,0,3,2,77
+	_SET_UP_DOOR_ANIME	0,0,14,2,78
+	_SEQ_OPEN_DOOR	77
+	_SEQ_OPEN_DOOR	78
+	_WAIT_3D_ANIME	77
+	_WAIT_3D_ANIME	78
+	_OBJ_ANIME		D31R0204_PCWOMAN2_01,anm_d31r0204_pcwoman2_in
+	_OBJ_ANIME		D31R0204_PCWOMAN2_02,anm_d31r0204_pcwoman2_in
+	_OBJ_ANIME_WAIT
+	_OBJ_VISIBLE	D31R0204_HERO
+	_OBJ_VISIBLE	D31R0204_TRAINER
+	_OBJ_ANIME		D31R0204_HERO,anm_d31r0204_trainer_in
+	_OBJ_ANIME		D31R0204_TRAINER,anm_d31r0204_trainer_in
+	_OBJ_ANIME_WAIT
+	_SEQ_CLOSE_DOOR	77	//ドア閉める
+	_SEQ_CLOSE_DOOR	78	//ドア閉める
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_WAIT_3D_ANIME	78	//アニメ終了待ち
+	_FREE_3D_ANIME	77	//ドアアニメ解放	
+	_FREE_3D_ANIME	78	//ドアアニメ解放	
+	_RET
+
+ev_tower_wayd_comanm_walk:
+	_OBJ_ANIME	D31R0204_PCWOMAN2_01,anm_d31r0204_pcwoman2_right
+	_OBJ_ANIME	D31R0204_HERO,anm_d31r0204_trainer_right
+	_OBJ_ANIME	D31R0204_PCWOMAN2_02,anm_d31r0204_pcwoman2_left
+	_OBJ_ANIME	D31R0204_TRAINER,anm_d31r0204_trainer_left
+	_OBJ_ANIME_WAIT
+	_RET
+
+ev_tower_wayd_comanm_out:
+	_OBJ_ANIME	D31R0204_PCWOMAN2_01,anm_d31r0204_pcwoman2_out
+	_OBJ_ANIME	D31R0204_PCWOMAN2_02,anm_d31r0204_pcwoman2_out
+	_OBJ_ANIME	D31R0204_HERO,anm_d31r0204_trainer_out
+	_OBJ_ANIME	D31R0204_TRAINER,anm_d31r0204_trainer_out
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//トレーナー　In
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0204_pcwoman2_in
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0204_trainer_in
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//トレーナー01　walk
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0204_trainer_right
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0204_trainer_left
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,5
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//トレーナー out　
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0204_trainer_out
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//受け付け嬢　walk
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d31r0204_pcwoman2_right
+	_ANIME_DATA	AC_WALK_R_8F,5
+	_ANIME_DATA AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d31r0204_pcwoman2_left
+	_ANIME_DATA	AC_WALK_L_8F,5
+	_ANIME_DATA AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	ACMD_END,0
+	
+_ANIME_LABEL	anm_d31r0204_pcwoman2_out
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+

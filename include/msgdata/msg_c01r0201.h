@@ -1,0 +1,71 @@
+//==============================================================================
+/**
+ * @file		msg_c01r0201.h
+ * @brief		メッセージID参照用ヘッダファイル
+ *
+ * このファイルはコンバータにより自動生成されています
+ */
+//==============================================================================
+#ifndef __MSG_C01R0201_H__
+#define __MSG_C01R0201_H__
+
+#define	msg_c01r0201_sunglasses_01		(0)
+#define	msg_c01r0201_sunglasses_02		(1)
+#define	msg_c01r0201_sunglasses_03		(2)
+#define	msg_c01r0201_sunglasses_04		(3)
+#define	msg_c01r0201_kuji_01		(4)
+#define	msg_c01r0201_kuji_02		(5)
+#define	msg_c01r0201_kuji_03		(6)
+#define	msg_c01r0201_kuji_04		(7)
+#define	msg_c01r0201_kuji_05		(8)
+#define	msg_c01r0201_kuji_06		(9)
+#define	msg_c01r0201_kuji_07		(10)
+#define	msg_c01r0201_kuji_08		(11)
+#define	msg_c01r0201_kuji_16		(12)
+#define	msg_c01r0201_kuji_17		(13)
+#define	msg_c01r0201_kuji_09		(14)
+#define	msg_c01r0201_kuji_10		(15)
+#define	msg_c01r0201_kuji_11		(16)
+#define	msg_c01r0201_kuji_12		(17)
+#define	msg_c01r0201_kuji_13		(18)
+#define	msg_c01r0201_kuji_14		(19)
+#define	msg_c01r0201_kuji_15		(20)
+#define	msg_c01r0201woman2_01		(21)
+#define	msg_c01r0201_middleman2_01		(22)
+#define	msg_c01r0201_man3_01		(23)
+#define	msg_c01r0201_idol_01		(24)
+#define	msg_c01r0201_idol_02		(25)
+#define	msg_c01r0201_idol_03		(26)
+#define	msg_c01r0201_idol_04		(27)
+#define	msg_c01r0201_reporter_01		(28)
+#define	msg_c01r0201_reporter_02		(29)
+#define	msg_c01r0201_reporter_03		(30)
+#define	msg_c01r0201_reporter_04		(31)
+#define	msg_c01r0201_cameraman_01		(32)
+#define	msg_c01r0201_cameraman_02		(33)
+#define	msg_c01r0201_cameraman_03		(34)
+#define	msg_c01r0201_cameraman_04		(35)
+#define	msg_c01r0201_pierrot_01		(36)
+#define	msg_c01r0201_pierrot_02		(37)
+#define	msg_c01r0201_pierrot_03		(38)
+#define	msg_c01r0201_pierrot_04		(39)
+#define	msg_c01r0201_interview1_01		(40)
+#define	msg_c01r0201_interview1_02		(41)
+#define	msg_c01r0201_interview1_03		(42)
+#define	msg_c01r0201_interview1_04		(43)
+#define	msg_c01r0201_interview1_05		(44)
+#define	msg_c01r0201_interview2_01		(45)
+#define	msg_c01r0201_interview2_02		(46)
+#define	msg_c01r0201_interview2_03		(47)
+#define	msg_c01r0201_interview2_04		(48)
+#define	msg_c01r0201_interview2_05		(49)
+#define	msg_c01r0201_pokegirl_01		(50)
+#define	msg_c01r0201_pokegirl_02		(51)
+#define	msg_c01r0201_pokegirl_03		(52)
+#define	msg_c01r0201_pokegirl_04		(53)
+#define	msg_c01r0201_guitarist_01		(54)
+#define	msg_c01r0201_guitarist_02		(55)
+#define	msg_c01r0201_guitarist_03		(56)
+#define	msg_c01r0201_guitarist_04		(57)
+
+#endif

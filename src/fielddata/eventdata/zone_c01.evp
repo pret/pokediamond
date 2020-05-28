@@ -1,0 +1,65 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evp]
+*/
+//============================================================================================
+
+const u32 PosEv_zone_c01_num = 5;
+
+const POS_EVENT_DATA PosEv_zone_c01[5] =
+{
+	{
+		SCRID_POS_C01_SUPPORT,
+		173,
+		796,
+		4,
+		1,
+		0*0x1000,
+		0,
+		WK_SCENE_C01,
+	},
+
+	{
+		SCRID_POS_C01_DOCTOR,
+		173,
+		743,
+		3,
+		1,
+		0*0x1000,
+		3,
+		WK_SCENE_C01,
+	},
+
+	{
+		SCRID_POS_C01_ASSISTANTM,
+		188,
+		757,
+		1,
+		4,
+		0*0x1000,
+		1,
+		WK_SCENE_C01,
+	},
+
+	{
+		SCRID_C01_GTC_STOPPER,
+		155,
+		779,
+		1,
+		3,
+		0*0x1000,
+		0,
+		WK_SCENE_C01_GTC,
+	},
+
+	{
+		SCRID_C01_POKETCH_SP,
+		172,
+		776,
+		5,
+		1,
+		0*0x1000,
+		1,
+		WK_SCENE_C01_RIVAL,
+	},
+};

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<ita version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2005-12-10T14:03:21" source="machine_l02.mb"/>
+	<title>Texture SRT Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<tex_srt_info
+	frame_size="91"
+	tool_start_frame="0"
+	tool_end_frame="90"
+	interpolation="linear"
+	interp_end_to_start="off"
+	tex_matrix_mode="maya"
+	compress_material="off" material_size="4 4"
+	frame_step_mode="1"
+	tolerance_tex_scale="0.100000"
+	tolerance_tex_rotate="0.100000"
+	tolerance_tex_translate="0.010000"
+/>
+
+<tex_scale_data size="1">
+	1.000000
+</tex_scale_data>
+
+<tex_rotate_data size="1">
+	0.000000
+</tex_rotate_data>
+
+<tex_translate_data size="91">
+	0.000000 0.011230 0.022217 0.033447 0.044434 0.055664 0.066650 0.077881 0.088867 0.100098
+	0.111084 0.122314 0.133301 0.144531 0.155518 0.166748 0.177734 0.188965 0.199951 0.211182
+	0.222168 0.233398 0.244385 0.255615 0.266602 0.277832 0.288818 0.300049 0.311035 0.322266
+	0.333252 0.344482 0.355469 0.366699 0.377686 0.388916 0.399902 0.411133 0.422119 0.433350
+	0.444336 0.455566 0.466553 0.477783 0.488770 0.500000 0.511230 0.522217 0.533447 0.544434
+	0.555664 0.566650 0.577881 0.588867 0.600098 0.611084 0.622314 0.633301 0.644531 0.655518
+	0.666748 0.677734 0.688965 0.699951 0.711182 0.722168 0.733398 0.744385 0.755615 0.766602
+	0.777832 0.788818 0.800049 0.811035 0.822266 0.833252 0.844482 0.855469 0.866699 0.877686
+	0.888916 0.899902 0.911133 0.922119 0.933350 0.944336 0.955566 0.966553 0.977783 0.988770
+	1.000000
+</tex_translate_data>
+
+<tex_srt_anm_array size="2">
+	<tex_srt_anm index="0" material_name="lab_01_2">
+		<tex_scale_s frame_step="1" data_size="1" data_head="0"/>
+		<tex_scale_t frame_step="1" data_size="1" data_head="0"/>
+		<tex_rotate frame_step="1" data_size="1" data_head="0"/>
+		<tex_translate_s frame_step="1" data_size="91" data_head="0"/>
+		<tex_translate_t frame_step="1" data_size="1" data_head="0"/>
+	</tex_srt_anm>
+	<tex_srt_anm index="1" material_name="lab_01_3">
+		<tex_scale_s frame_step="1" data_size="1" data_head="0"/>
+		<tex_scale_t frame_step="1" data_size="1" data_head="0"/>
+		<tex_rotate frame_step="1" data_size="1" data_head="0"/>
+		<tex_translate_s frame_step="1" data_size="91" data_head="0"/>
+		<tex_translate_t frame_step="1" data_size="1" data_head="0"/>
+	</tex_srt_anm>
+</tex_srt_anm_array>
+
+</body>
+
+</ita>

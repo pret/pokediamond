@@ -1,0 +1,71 @@
+//====================================================================
+//								r213r0401
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r213r0401.h"
+	//.include	"../eventdata/zone_r213r0401evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r213r0401_middleman2
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_r213r0401_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*						金持ちおじさん								*/
+/********************************************************************/
+ev_r213r0401_middleman2:
+	_TALK_OBJ_START
+	_TALK_KEYWAIT	msg_r213r0401_middleman2_01
+
+	_GET_RND		SCWK_ANSWER,4
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r213r0401_middleman2_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r213r0401_middleman2_03
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_r213r0401_middleman2_04
+	_JUMP							ev_r213r0401_middleman2_05
+
+ev_r213r0401_middleman2_02:
+	_TALKMSG		msg_r213r0401_middleman2_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r213r0401_middleman2_03:
+	_TALKMSG		msg_r213r0401_middleman2_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r213r0401_middleman2_04:
+	_TALKMSG		msg_r213r0401_middleman2_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_r213r0401_middleman2_05:
+	_TALKMSG		msg_r213r0401_middleman2_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

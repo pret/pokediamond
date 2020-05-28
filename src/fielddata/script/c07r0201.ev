@@ -1,0 +1,151 @@
+//====================================================================
+//								c07r0201
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c07r0201.h"
+	//.include	"../eventdata/zone_c07r0201evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c07r0201_woman6
+_EVENT_DATA		ev_c07r0201_middleman2
+_EVENT_DATA		ev_c07r0201_gorggeousw
+_EVENT_DATA		ev_c07r0201_fix_shop_01
+_EVENT_DATA		ev_c07r0201_fix_shop_02
+_EVENT_DATA		ev_c07r0201_board01
+_EVENT_DATA		ev_c07r0201_poster
+_EVENT_DATA		ev_c07r0201_lady
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_c07r0201_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0201_woman6:
+	_EASY_OBJ_MSG	msg_c07r0201_woman6_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0201_middleman2:
+	_EASY_OBJ_MSG	msg_c07r0201_middleman2_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0201_gorggeousw:
+	_EASY_OBJ_MSG	msg_c07r0201_gorggeousw_01
+	_END
+
+/********************************************************************/
+//						品物固定の店員(OBJ名shopm)
+/********************************************************************/
+ev_c07r0201_fix_shop_01:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_FIX_SHOP_CALL		ID_SHOP_ITEM_C07_DEPT_01_01
+
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+//						品物固定の店員(OBJ名shopm)
+/********************************************************************/
+ev_c07r0201_fix_shop_02:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_FIX_SHOP_CALL		ID_SHOP_ITEM_C07_DEPT_01_02
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0201_board01:
+	_EASY_MSG		msg_c07r0201_board01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0201_poster:
+	_EASY_MSG		msg_c07r0201_poster_01
+	_END
+
+
+/********************************************************************/
+/*						淑女										*/
+/********************************************************************/
+ev_c07r0201_lady:
+	_TALK_OBJ_START
+
+	_IF_FLAGON_JUMP	FE_C07R0201_ACCE_GET,ev_c07r0201_lady_02
+
+	//SCWK_TEMP0　＜　アクセサリー番号
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+	_IFVAL_CALL			SCWK_ANSWER,EQ,MONSNO_NAETORU,ev_c07r0201_lady_acce_no_1_set
+	_IFVAL_CALL			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,ev_c07r0201_lady_acce_no_2_set
+	_IFVAL_CALL			SCWK_ANSWER,EQ,MONSNO_POTTYAMA,ev_c07r0201_lady_acce_no_3_set
+
+	_LDWK			WK_SCENE_C07R0201_GET_ACCE_NO,SCWK_TEMP0
+	_ACCE_NAME		0,SCWK_TEMP0
+	_TALK_KEYWAIT	msg_c07r0201_lady_01
+
+	//アクセサリー取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_LDVAL			SCWK_TEMP1,1
+	_CHG_COMMON_SCR	SCRID_ACCE_EVENT
+
+	_FLAG_SET		FE_C07R0201_ACCE_GET
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c07r0201_lady_02:
+	_ACCE_NAME		0,WK_SCENE_C07R0201_GET_ACCE_NO
+	_TALKMSG		msg_c07r0201_lady_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アクセサリー１
+ev_c07r0201_lady_acce_no_1_set:
+	_LDVAL		SCWK_TEMP0,IMC_ACCE_OMEN02
+	_RET
+
+//アクセサリー２
+ev_c07r0201_lady_acce_no_2_set:
+	_LDVAL		SCWK_TEMP0,IMC_ACCE_OMEN00
+	_RET
+
+//アクセサリー３
+ev_c07r0201_lady_acce_no_3_set:
+	_LDVAL		SCWK_TEMP0,IMC_ACCE_OMEN01
+	_RET
+
+/********************************************************************/
+/********************************************************************/

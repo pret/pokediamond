@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<itp version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2005-07-06T19:18:31" source="obj30.mb"/>
+	<title>Texture Pattern Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20050324"/>
+</head>
+
+<body>
+
+<tex_pattern_info
+	frame_size="65"
+	tool_start_frame="0"
+	tool_end_frame="64"
+	compress_material="off" material_size="1 1"
+/>
+
+<tex_pattern_list_data image_size="16" palette_size="1">
+	<image_name index="0" name="boygirl.1"/>
+	<image_name index="1" name="boygirl.10"/>
+	<image_name index="2" name="boygirl.11"/>
+	<image_name index="3" name="boygirl.12"/>
+	<image_name index="4" name="boygirl.13"/>
+	<image_name index="5" name="boygirl.14"/>
+	<image_name index="6" name="boygirl.15"/>
+	<image_name index="7" name="boygirl.16"/>
+	<image_name index="8" name="boygirl.2"/>
+	<image_name index="9" name="boygirl.3"/>
+	<image_name index="10" name="boygirl.4"/>
+	<image_name index="11" name="boygirl.5"/>
+	<image_name index="12" name="boygirl.6"/>
+	<image_name index="13" name="boygirl.7"/>
+	<image_name index="14" name="boygirl.8"/>
+	<image_name index="15" name="boygirl.9"/>
+	<palette_name index="0" name="boygirl"/>
+</tex_pattern_list_data>
+
+<tex_pattern_data>
+	<frame_idx size="16">
+		0 4 8 12 16 20 24 28 32 36
+		40 44 48 52 56 60
+	</frame_idx>
+	<image_idx size="16">
+		0 8 9 10 11 12 13 14 15 1
+		2 3 4 5 6 7
+	</image_idx>
+	<palette_idx size="16">
+		0 0 0 0 0 0 0 0 0 0
+		0 0 0 0 0 0
+	</palette_idx>
+</tex_pattern_data>
+
+<tex_pattern_anm_array size="1">
+	<tex_pattern_anm index="0" material_name="lambert2" data_size="16" data_head="0"/>
+</tex_pattern_anm_array>
+
+</body>
+
+</itp>

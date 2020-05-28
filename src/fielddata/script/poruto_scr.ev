@@ -1,0 +1,273 @@
+//====================================================================
+//								poruto_scr
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	//.include	"../../../include/msgdata/msg_poruto_scr.h"
+	.include	"../../../include/msgdata/msg_pgamestart.h"
+	//.include	"../eventdata/zone_poruto_screvc.h"
+	.include	"../../../include/msgdata/msg_connect.h"
+	.include	"../../../include/msgdata/msg_ev_win.h"
+	.include	"../../../include/itemtool/itemsym.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_poruto_scr
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_poruto_scr_flag_change:
+//	_END
+
+	_END
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_poruto_scr:
+	_TALK_OBJ_START
+	_TALK_KEYWAIT	msg_pgamestart_01_00
+	_JUMP			ev_nmixer_start_menu_01
+	_END
+
+
+//料理選択
+ev_nmixer_start_menu_01:
+	_TALKMSG			msg_pgamestart_01_01
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_pgamestart_select01_01,0
+	_BMPMENU_MAKE_LIST	msg_pgamestart_select01_02,1
+	_BMPMENU_MAKE_LIST	msg_pgamestart_select01_03,2
+	_BMPMENU_MAKE_LIST	msg_pgamestart_select01_04,3
+	_BMPMENU_START
+	
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_nmixer_local		//一人用
+	_CASE_JUMP		1,ev_nmixer_comm		//通信プレイ
+	_CASE_JUMP		2,ev_nmixer_exp			//説明を聞く
+	_JUMP			ev_nmixer_common_exit
+	_END
+
+
+//--------------------------------------------------------------------
+//項目を選択した
+//--------------------------------------------------------------------
+
+//「やめる」終了
+ev_nmixer_common_exit:
+	_TALKMSG	msg_pgamestart_07_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//説明を聞く
+ev_nmixer_exp:
+	_TALKMSG		msg_pgamestart_06_01
+	_LAST_KEYWAIT
+	_JUMP			ev_nmixer_start_menu_01
+	_END
+
+//ブラックアウト
+ev_nmixer_call_blackout:
+	_BLACK_OUT			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_RET
+
+//ブラックイン
+ev_nmixer_call_blackin:
+	_SET_MAP_PROC
+	_TALK_OBJ_START
+	_BLACK_IN			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_RET
+
+//ポルトケースがない
+ev_nmixer_ng_porutocase:
+	_TALKMSG		msg_pgamestart_01_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//木の実がない
+ev_nmixer_ng_nuts:
+	_TALKMSG		msg_pgamestart_01_06
+	_JUMP			ev_nmixer_common_exit
+	_END
+
+//ポルトがいっぱい
+ev_nmixer_ng_poruto:
+	_TALKMSG		msg_pgamestart_01_07
+	_JUMP			ev_nmixer_common_exit
+	_END
+
+//////////////////////////////////////////////////
+//一人用
+ev_nmixer_local:
+	//ポルトケースチェック
+	_ITEM_CHK		ITEM_POFINKEESU,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_nmixer_ng_porutocase
+	
+	_NUTMIXER_PLAY_CHECK	SCWK_ANSWER
+//	_LDVAL			SCWK_ANSWER,0
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_nmixer_ng_nuts
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_nmixer_ng_poruto
+	
+	_TIME_WAIT		30,SCWK_ANSWER	//1秒待ち
+
+	_CALL		ev_nmixer_call_blackout
+//	_TALK_CLOSE
+	//ゲームメイン呼び出し
+	_NUTMIXER_CALL 0 
+	_CALL		ev_nmixer_call_blackin
+	_JUMP		ev_nmixer_common_exit
+	_END
+
+//////////////////////////////////////////////////
+//通信プレイ
+ev_nmixer_comm:
+	//ポルトケースチェック
+	_ITEM_CHK		ITEM_POFINKEESU,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_nmixer_ng_porutocase
+
+	//木の実＆ポルトチェック
+	_NUTMIXER_PLAY_CHECK	SCWK_ANSWER
+//	_LDVAL			SCWK_ANSWER,0
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_nmixer_ng_nuts
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_nmixer_ng_poruto
+
+//通信セーブ開始
+ev_nmixer_comm_save:
+	//各種エラーチェック
+	//
+//	_JUMP	ev_nmixer_connect_menu01	//セーブしないで飛ぶ
+
+	//セーブしますか？(LOCALWORK0に結果が代入される)
+	_CHG_COMMON_SCR	SCRID_REPORT_CALL
+	_LDWK			SCWK_ANSWER,LOCALWORK0
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_nmixer_connect_menu01	//成功
+	_JUMP			ev_nmixer_common_exit		//終了へ
+	_END
+
+
+//コネクトメニュー01
+ev_nmixer_connect_menu01:
+	_TALKMSG		msg_pgamestart_02_01
+	
+	_BMPMENU_INIT		18,1,0,1,SCWK_ANSWER	//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_014,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_015,1
+	_BMPMENU_MAKE_LIST	msg_ev_win_006,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_nmixer_connect_group		//グループ
+	_CASE_JUMP		1,ev_nmixer_connect_leader		//リーダー
+	_JUMP			ev_nmixer_common_exit		//終了へ
+	_END
+
+//--------------------------------------------------------------------
+//グループ
+//--------------------------------------------------------------------
+ev_nmixer_connect_group:
+	//DSワイヤレス通信を始めますか？
+	_TALKMSG		msg_pgamestart_01_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_nmixer_connect_menu01
+
+	_TALK_CLOSE
+
+	//親機を選択するウィンドウを開く
+	_SEL_PARENT_WIN	COMM_MODE_NUT_CRASH,0,0,SCWK_ANSWER
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_CANCEL,ev_nmixer_connect_group_cancel//キャンセル
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_ERROR,ev_nmixer_connect_group_error			 //エラー
+
+	//それ以外
+	_JUMP			ev_nmixer_connect										//成功
+	_END
+
+//キャンセル
+ev_nmixer_connect_group_cancel:
+	_COMM_DIRECT_END
+	_JUMP			ev_nmixer_connect_menu01
+	_END
+
+//エラー
+ev_nmixer_connect_group_error:
+	_COMM_DIRECT_END
+	_JUMP			ev_nmixer_connect_menu01
+//	_TALK_KEYWAIT	msg_connect_rule_02
+//	_TALK_CLOSE
+//	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//リーダー
+//--------------------------------------------------------------------
+ev_nmixer_connect_leader:
+	//DSワイヤレス通信を始めますか？
+	_TALKMSG		msg_pgamestart_01_02
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_nmixer_connect_menu01
+
+	_TALK_CLOSE
+
+	//子機を選択するウィンドウを開く
+	_SEL_CHILD_WIN	COMM_MODE_NUT_CRASH,0,0,SCWK_ANSWER
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_CANCEL,ev_nmixer_connect_leader_cancel//キャンセル
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_ERROR,ev_nmixer_connect_leader_error  //エラー
+
+	//それ以外
+	_JUMP			ev_nmixer_connect										//成功
+	_END
+
+//キャンセル
+ev_nmixer_connect_leader_cancel:
+	_COMM_DIRECT_END
+	_JUMP			ev_nmixer_connect_menu01
+	_END
+
+//エラー
+ev_nmixer_connect_leader_error:
+	_COMM_DIRECT_END
+	_JUMP			ev_nmixer_connect_menu01
+//	_TALK_KEYWAIT	msg_connect_rule_02
+//	_TALK_CLOSE
+//	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+// 接続＆プロセスコール
+//--------------------------------------------------------------------
+ev_nmixer_connect:
+	//ゲーム開始
+//	_TALKMSG_NOSKIP	msg_pgamestart_04_02
+///	_TIME_WAIT		30,SCWK_ANSWER	//1秒待ち
+//	_CALL	ev_nmixer_call_blackout
+//	_TALK_CLOSE
+	_BLACK_OUT			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_TALK_OBJ_END
+	
+	_NUTMIXER_CALL 1 
+	_COMM_DIRECT_END
+	_CALL	ev_nmixer_call_blackin
+
+	_JUMP	ev_nmixer_common_exit
+	_END
+

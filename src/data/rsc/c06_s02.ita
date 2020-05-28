@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<ita version="1.6.0">
+
+<head>
+	<create user="kei_hoshiba" host="D6DFPW1X" date="2006-06-12T18:24:57" source="0612anim_R_side.mb"/>
+	<title>Texture SRT Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+</head>
+
+<body>
+
+<tex_srt_info
+	frame_size="121"
+	tool_start_frame="0"
+	tool_end_frame="120"
+	interpolation="frame"
+	tex_matrix_mode="maya"
+	compress_material="on" material_size="4 4"
+	frame_step_mode="1"
+	tolerance_tex_scale="0.100000"
+	tolerance_tex_rotate="0.100000"
+	tolerance_tex_translate="0.010000"
+/>
+
+<tex_scale_data size="2">
+	1.000000 2.000000
+</tex_scale_data>
+
+<tex_rotate_data size="1">
+	0.000000
+</tex_rotate_data>
+
+<tex_translate_data size="122">
+	0.000000 0.000000 0.000000 -0.004150 -0.008301 -0.012695 -0.016846 -0.020996 -0.025146 -0.029297
+	-0.033691 -0.037842 -0.041992 -0.046143 -0.050537 -0.054688 -0.058838 -0.062988 -0.067139 -0.071533
+	-0.075684 -0.079834 -0.083984 -0.088135 -0.092529 -0.096680 -0.100830 -0.104980 -0.109131 -0.113525
+	-0.117676 -0.121826 -0.125977 -0.130371 -0.134521 -0.138672 -0.142822 -0.146973 -0.151367 -0.155518
+	-0.159668 -0.163818 -0.167969 -0.172363 -0.176514 -0.180664 -0.184814 -0.188965 -0.193359 -0.197510
+	-0.201660 -0.205811 -0.210205 -0.214355 -0.218506 -0.222656 -0.226807 -0.231201 -0.235352 -0.239502
+	-0.243652 -0.247803 -0.252197 -0.256348 -0.260498 -0.264648 -0.268799 -0.273193 -0.277344 -0.281494
+	-0.285645 -0.289795 -0.294189 -0.298340 -0.302490 -0.306641 -0.311035 -0.315186 -0.319336 -0.323486
+	-0.327637 -0.332031 -0.336182 -0.340332 -0.344482 -0.348633 -0.353027 -0.357178 -0.361328 -0.365479
+	-0.369629 -0.374023 -0.378174 -0.382324 -0.386475 -0.390869 -0.395020 -0.399170 -0.403320 -0.407471
+	-0.411865 -0.416016 -0.420166 -0.424316 -0.428467 -0.432861 -0.437012 -0.441162 -0.445313 -0.449463
+	-0.453857 -0.458008 -0.462158 -0.466309 -0.470703 -0.474854 -0.479004 -0.483154 -0.487305 -0.491699
+	-0.495850 -0.500000
+</tex_translate_data>
+
+<tex_srt_anm_array size="1">
+	<tex_srt_anm index="0" material_name="water:lambert5">
+		<tex_scale_s frame_step="1" data_size="1" data_head="0"/>
+		<tex_scale_t frame_step="1" data_size="1" data_head="1"/>
+		<tex_rotate frame_step="1" data_size="1" data_head="0"/>
+		<tex_translate_s frame_step="1" data_size="1" data_head="0"/>
+		<tex_translate_t frame_step="1" data_size="121" data_head="1"/>
+	</tex_srt_anm>
+</tex_srt_anm_array>
+
+</body>
+
+</ita>

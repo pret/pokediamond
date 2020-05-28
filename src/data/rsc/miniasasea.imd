@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="s_ohta" host="W00081" date="2006-04-04T15:29:28" source="miniasasea.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="s_ohta" host="W00081" date="2006-04-04T15:29:28" source="miniasasea.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="1"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="none" node_size="1 1"
+	compress_material="off" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="2" xyz="-2.000000 0.000000 -2.000000" whd="4.000000 0.000000 4.000000"/>
+
+<tex_image_array size="8">
+	<tex_image index="0" name="asasea.1"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asasea"
+		path="C:/mayadata/area0/tex/anime/asasea.1.tga"
+	>
+		<bitmap size="64">
+			2667 3332 2223 7222 6677 1332 2331 2222
+			6677 1322 3331 2222 6777 3326 3333 2223
+			7772 3666 3333 2223 7772 6667 3366 2233
+			7722 6777 3666 2233 2222 7777 3667 2311
+			2223 7222 2667 3311 2333 2222 6677 3322
+			3333 2222 6677 3322 1133 2223 6777 3226
+			1133 2223 7772 3666 3366 2233 7772 6667
+			3666 2233 7722 6777 3667 2333 2222 7777
+		</bitmap>
+	</tex_image>
+	<tex_image index="1" name="asasea.2"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asasea"
+		path="C:/mayadata/area0/tex/anime/asasea.2.tga"
+	>
+		<bitmap size="64">
+			2666 3332 7223 7777 2666 1332 2331 7722
+			2667 1322 3331 7222 6667 3322 3333 7223
+			6677 3226 3333 7223 6777 3666 3333 2233
+			7777 6666 3336 2233 7772 6677 3366 2311
+			7223 7777 2266 3311 2333 7722 2666 3322
+			3333 7222 2667 3322 1133 7223 6667 3222
+			1133 7223 6677 3226 3333 2233 6777 6666
+			3336 2233 7777 6666 3366 2333 7772 6677
+		</bitmap>
+	</tex_image>
+	<tex_image index="2" name="asasea.3"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asasea"
+		path="C:/mayadata/area0/tex/anime/asasea.3.tga"
+	>
+		<bitmap size="64">
+			2446 3332 7777 6666 2446 1332 7331 6777
+			2466 1322 3331 6772 4466 3322 3333 7723
+			4466 3224 3333 7723 4666 3444 3333 7233
+			6667 4466 3334 7233 6677 6666 3344 7311
+			7777 6667 2246 3311 7333 6777 2446 3322
+			3333 6772 2466 3322 1133 7723 4466 3222
+			1133 7723 4466 3224 3333 7233 4666 4444
+			3332 7233 6667 4466 3222 7333 6677 6666
+		</bitmap>
+	</tex_image>
+	<tex_image index="3" name="asasea.4"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asasea"
+		path="C:/mayadata/area0/tex/anime/asasea.4.tga"
+	>
+		<bitmap size="64">
+			2224 7732 6666 4446 2224 7332 6677 4466
+			2244 1322 7771 4667 2244 3322 3333 6677
+			2244 3222 3333 6673 2444 3222 3333 6673
+			4446 2244 3333 6773 4466 4444 3332 6711
+			6666 4446 2224 7711 6677 4466 2224 7322
+			7773 4667 2244 3322 1133 6677 2244 3222
+			1133 6673 2244 3222 3333 6673 2444 2222
+			3332 6773 4446 2244 3322 6733 4466 4444
+		</bitmap>
+	</tex_image>
+	<tex_image index="4" name="asasea.5"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asasea"
+		path="C:/mayadata/area0/tex/anime/asasea.5.tga"
+	>
+		<bitmap size="64">
+			2222 4662 2224 2222 2222 6662 2444 2222
+			2222 6622 4466 2224 2222 0022 6666 2244
+			2222 0222 6000 2246 2222 0222 0000 2446
+			2222 2222 0000 2466 2222 2222 0022 4466
+			2224 2222 2222 4661 2444 2222 2222 6662
+			4466 2224 2222 6622 6666 2244 2222 0222
+			6600 2246 2222 0222 6000 2446 2222 2222
+			0002 2466 2222 2222 0222 4466 2222 2222
+		</bitmap>
+	</tex_image>
+	<tex_image index="5" name="asasea.6"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asasea"
+		path="C:/mayadata/area0/tex/anime/asasea.6.tga"
+	>
+		<bitmap size="64">
+			2222 2255 2222 2222 2222 1255 2221 2222
+			2222 1552 2221 2222 2222 5552 2225 2222
+			2222 5222 2555 2222 2222 2222 5552 2222
+			2222 2222 5522 2222 2222 2222 5222 2215
+			2222 2222 5222 2215 2222 2222 2222 2255
+			2222 2222 2222 5555 1125 2222 2222 5522
+			1555 2222 2222 2222 5552 2222 2222 2222
+			5522 2222 2222 2222 5222 2225 2222 2222
+		</bitmap>
+	</tex_image>
+	<tex_image index="6" name="asasea.7"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asasea"
+		path="C:/mayadata/area0/tex/anime/asasea.7.tga"
+	>
+		<bitmap size="64">
+			4422 0002 2220 2222 4422 1004 2001 2222
+			4222 1044 0001 2222 4222 0444 0000 2220
+			2222 4444 0004 2220 2222 4422 0444 2200
+			2222 2222 0444 2200 2222 2222 4442 2011
+			2220 2222 4422 0011 2000 2222 4422 0004
+			0000 2222 4222 0044 1100 2220 4222 0444
+			1104 2220 2222 4444 0444 2200 2222 4422
+			0444 2200 2222 2222 4442 2000 2222 2222
+		</bitmap>
+	</tex_image>
+	<tex_image index="7" name="asasea.8"
+		width="16" height="16" original_width="16" original_height="16"
+		format="palette16"
+		color0_mode="color"
+		palette_name="asasea"
+		path="C:/mayadata/area0/tex/anime/asasea.8.tga"
+	>
+		<bitmap size="64">
+			6672 3334 2223 2222 6672 1334 2331 2222
+			6772 1346 3331 2222 6722 4466 3334 2223
+			7722 6666 3346 2223 7222 6677 3466 2233
+			2222 7772 4667 2233 2222 2222 6677 2314
+			2223 2222 6672 3314 2333 2222 6672 3324
+			3333 2222 6772 3346 1134 2223 6722 4466
+			1146 2223 7722 6666 3466 2233 7222 6677
+			4667 2233 2222 7772 6677 2334 2222 2222
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="asasea" color_size="8">
+		5a72 6250 5e93 5651 6a92 6ed4 6ed4 7336
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="lambert4"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.000000 -4.000000"
+		volume_max="4.000000 0.000000 4.000000"
+		volume_r="5.656738"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 16.000000"/>
+					<nrm xyz="0.000000 0.998047 0.000000"/>
+					<pos_s xyz="-4.000000 0.000000 4.000000"/>
+					<tex st="16.000000 16.000000"/>
+					<pos_xy xy="4.000000 0.000000"/>
+					<tex st="16.000000 0.000000"/>
+					<pos_xz xz="4.000000 -4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-4.000000 0.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pPlane1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-4.000000 0.000000 -4.000000"
+		volume_max="4.000000 0.000000 4.000000"
+		volume_r="5.656738"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

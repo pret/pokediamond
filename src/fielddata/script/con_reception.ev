@@ -1,0 +1,1958 @@
+//====================================================================
+//							con_reception
+//
+//	SCWK_TEMP0	ランク(ノーマル等)、コンテスト終了後、練習では結果順位、シングルではアクセサリ番号が入ります
+//	SCWK_TEMP1	コンディション(かっこよさ等)
+//	SCWK_TEMP3	コンテストモード(チャーム等)
+//
+//	LOCALWORK2	手持ちの何番目かを保持
+//	LOCALWORK3	受付ナンバー(シングルDESK_SINGLE、マルチDESK_MULTI, 練習DESK_PRACTICE)
+//
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_con_reception.h"
+	.include	"../eventdata/zone_c05r1101evc.h"
+	.include	"../eventdata/zone_c05r1102evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+//#define DEBUG_CONTEST		//コンテスト開始
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_connect_contest_return
+_EVENT_DATA		ev_con_reception_init_change
+_EVENT_DATA		ev_c05r1102_flag_change
+_EVENT_DATA		ev_c05r1101_flag_change
+_EVENT_DATA		ev_con_reception_obj_change
+_EVENT_DATA		ev_con_reception_npc01
+_EVENT_DATA		ev_con_reception_front01
+_EVENT_DATA		ev_con_reception_front02
+_EVENT_DATA		ev_con_reception_front03
+_EVENT_DATA		ev_con_reception_front04
+_EVENT_DATA		ev_con_reception_front05
+_EVENT_DATA		ev_con_reception_front06
+_EVENT_DATA		ev_con_reception_disp
+_EVENT_DATA_END
+
+//※contest.cにある同名の定義と番号ずれがおきないように注意！！
+///受付：シングル
+#define DESK_SINGLE			(0)
+///受付：マルチ
+#define DESK_MULTI			(1)
+///受付：練習
+#define DESK_PRACTICE		(2)
+
+///受付のゲートのX位置(シングル)
+#define INFOMATION_GATE_SINGLE_X		(19)
+///受付のゲートのX位置(マルチ)
+#define INFOMATION_GATE_MULTI_X			(7)
+///受付のゲートのX位置(練習)
+#define INFOMATION_GATE_PRACTICE_X		(28)
+
+///定義が有効だとデバッグ有効
+//#define MATSUDA_DEBUG
+
+/********************************************************************/
+//
+/*	通信コンテスト結果画面でセーブして、リセットした時の復帰処理	*/
+//
+/********************************************************************/
+ev_connect_contest_return:
+	_EVENT_START
+
+	_LDVAL		SCWK_ANSWER,INFOMATION_GATE_MULTI_X
+	_CALL		ev_contest_return_door
+
+	_FLAG_RESET	SYS_FLAG_COMM_COUNTER			//通信カウンター通過フラグ(システム)
+	_LDVAL		WK_SCENE_COMM_ID,SCR_COMM_ID_NOTHING
+
+	_EVENT_END
+	_END
+
+
+//--------------------------------------------------------------
+//	ドアから戻ってくるアニメ：共通処理
+//		SCWK_ANSWER：ドア座標X
+//--------------------------------------------------------------
+ev_contest_return_door:
+	/*どのカウンターを通過したかを覚えておいて、ドアの座標をセットする*/
+	/*この強制スクリプトは必ず発動してしまってよさそう？*/
+	/*出てくるアニメは共通でよさそう？*/
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_connect_contest_return_player_00
+	_OBJ_ANIME_WAIT
+
+	//カウンター開く
+	_SET_UP_DOOR_ANIME	0,0,SCWK_ANSWER,5,77
+	_CALL			connect_contest_door_open
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_connect_contest_return_player_02
+	_OBJ_ANIME_WAIT
+	_CALL			connect_contest_door_close
+
+	_RET
+
+//--------------------------------------------------------------
+//	ドアから出てきた所からカウンターの前に戻るアニメ
+//			シングル、通信で使用出来る(練習は移動距離が違う)
+//		SCWK_ANSWER：ドア座標X
+//--------------------------------------------------------------
+ev_contest_return_door_to_counter:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_connect_contest_return_player_03_2
+	_OBJ_ANIME_WAIT
+	_RET
+	
+//--------------------------------------------------------------
+//	練習受付：戻りアニメ
+//		引数：SCWK_TEMP0　順位
+//		戻り値：SCWK_ANSWER　０＝はい、１＝いいえ
+//--------------------------------------------------------------
+ev_contest_return_door_practice:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_connect_contest_return_player_03
+	_OBJ_ANIME_WAIT
+	_IFVAL_CALL		SCWK_TEMP3,EQ,CONMODE_VISUAL_PRACTICE,ev_connect_contest_practice_visual
+	_IFVAL_CALL		SCWK_TEMP3,EQ,CONMODE_DANCE_PRACTICE,ev_connect_contest_practice_dance
+	_IFVAL_CALL		SCWK_TEMP3,EQ,CONMODE_ACTIN_PRACTICE,ev_connect_contest_practice_actin
+	
+	_LDVAL		SCWK_TEMP0,CONRANK_NORMAL
+
+	//はい・いいえ　選択
+	_YES_NO_WIN		SCWK_ANSWER
+	_RET
+
+//練習受付：戻りアニメ：ビジュアル
+ev_connect_contest_practice_visual:
+	_IFVAL_JUMP		SCWK_TEMP0,GT,1,ev_connect_contest_practice_visual_low
+	_TALK_KEYWAIT	msg_prac_v_06
+	_RET
+	
+ev_connect_contest_practice_visual_low:	//順位が低かった
+	_TALK_KEYWAIT	msg_prac_v_07
+	_RET
+
+//練習受付：戻りアニメ：ダンス
+ev_connect_contest_practice_dance:
+	_IFVAL_JUMP		SCWK_TEMP0,GT,1,ev_connect_contest_practice_dance_low
+	_TALK_KEYWAIT	msg_prac_d_06
+	_RET
+
+ev_connect_contest_practice_dance_low:	//順位が低かった
+	_TALK_KEYWAIT	msg_prac_d_07
+	_RET
+
+//練習受付：戻りアニメ：演技
+ev_connect_contest_practice_actin:
+	_IFVAL_JUMP		SCWK_TEMP0,GT,1,ev_connect_contest_practice_actin_low
+	_TALK_KEYWAIT	msg_prac_a_06
+	_RET
+	
+ev_connect_contest_practice_actin_low:	//順位が低かった
+	_TALK_KEYWAIT	msg_prac_a_07
+	_RET
+
+
+//--------------------------------------------------------------
+//	ドアアニメ
+//--------------------------------------------------------------
+connect_contest_door_open:
+	_SEQ_OPEN_DOOR	77	//ドア開ける
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_RET
+
+connect_contest_door_close:
+	_SEQ_CLOSE_DOOR	77	//ドア閉める
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_FREE_3D_ANIME	77	//ドアアニメ解放
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	ドアの方へ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_connect_contest_return_player_00
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_connect_contest_return_player_02
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//左に向かって(1歩)カウンターの方を向く
+_ANIME_LABEL anm_connect_contest_return_player_03
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//左に向かって(2歩)カウンターの方を向く
+_ANIME_LABEL anm_connect_contest_return_player_03_2
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+
+
+
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_con_reception_init_change:
+	//コンテストに参加中だったら
+	_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c05r1102_flag_change:
+	//コンテストに参加していなかったら
+	_IFVAL_CALL		WK_SCENE_CONTEST,EQ,0,ev_con_reception_flag_clear
+	_IFVAL_JUMP		WK_SCENE_CONTEST,EQ,0,ev_con_poketch_hook_skip
+	_POKETCH_HOOK_SET	//コンテストに参加しているならポケッチフック
+ev_con_poketch_hook_skip:
+	_END
+
+//コンテストに参加していなかったら
+ev_con_reception_flag_clear:
+	_LDVAL			WK_SCENE_CONTEST,0	//参加中ではない
+	_FLAG_SET		FV_C05R1102_CON1	//参加者を消す
+	_FLAG_SET		FV_C05R1102_CON2	//参加者を消す
+	_FLAG_SET		FV_C05R1102_CON3	//参加者を消す
+	_FLAG_SET		FV_C05R1102_CON4	//参加者を消す
+	_FLAG_SET		FV_C05R1102_CON5	//参加者を消す
+	_RET
+
+//--------------------------------------------------------------
+//	c05r1101.ev内でのFLAG_CHANGE_LABELの処理
+//--------------------------------------------------------------
+ev_c05r1101_flag_change:
+	_POKETCH_HOOK_RESET		//ポケッチのフック解除
+
+	_CALL			ev_c05r1102_flag_change_pofin_event	//ゴージャス兄さん
+	
+	_CALL			ev_con_reception_flag_clear
+
+	_TV_INTERVIEWER_CHECK	7,LOCALWORK0
+	_IFVAL_JUMP				LOCALWORK0,EQ,0,ev_c05r1101_flag_change_vanish
+	_FLAG_RESET				FV_TV_INTERVIEW_07
+
+	_END
+
+ev_c05r1101_flag_change_vanish:
+	_FLAG_SET			FV_TV_INTERVIEW_07
+	_END
+
+//--------------------------------------------------------------
+//	c05r1101.ev:ゴージャス兄さん移動処理
+//--------------------------------------------------------------
+ev_c05r1102_flag_change_pofin_event:
+	_IF_FLAGON_JUMP		FE_C05R1101_POFIN_INFOMATION,ev_c05r1102_flag_change_pofin_event_move
+	_RET
+
+ev_c05r1102_flag_change_pofin_event_move:
+	_SXY_POS_CHANGE		C05R1101_GORGGEOUSM_01,24,6
+	_SXY_MV_CHANGE		C05R1101_GORGGEOUSM_01,MV_DOWN
+	_SXY_DIR_CHANGE		C05R1101_GORGGEOUSM_01,DIR_DOWN
+	_RET
+
+
+/********************************************************************/
+/*						OBJ_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_con_reception_obj_change:
+	//オープニング会場で主人公をバニッシュする
+	_IFVAL_CALL		WK_SCENE_CONTEST,EQ,1,ev_con_reception_flag_change_player_vanish
+
+	_END
+
+//オープニング会場で主人公をバニッシュする
+ev_con_reception_flag_change_player_vanish:
+	_OBJ_INVISIBLE	FLDOBJ_ID_PLAYER
+	_RET
+
+
+/********************************************************************/
+/*							入り口付近								*/
+/********************************************************************/
+ev_con_reception_npc01:
+	_EASY_OBJ_MSG	msg_con_reception_npc01_01
+	_END
+
+
+/********************************************************************/
+/*							受付１									*/
+//	シングルプレイ
+/********************************************************************/
+ev_con_reception_front01:
+	_TALK_OBJ_START
+
+#ifdef DEBUG_CONTEST
+	_LDVAL			LOCALWORK2,0
+	_CON_SYSTEM_CREATE	CONRANK_NORMAL,CONTYPE_CUTE,CONMODE_CHARM,LOCALWORK2
+	_CONTEST_PROC
+	_CON_SYSTEM_EXIT	LOCALWORK2
+
+	_TALK_OBJ_END
+	_END
+#endif
+
+	_LDVAL			LOCALWORK3,DESK_SINGLE
+	_LDVAL			SCWK_TEMP3,CONMODE_GRAND
+
+	_TALK_KEYWAIT	msg_con_reception_front03_01
+	_JUMP			ev_con_reception_menu_01
+	_END
+
+
+/********************************************************************/
+/*							受付２									*/
+//	マルチプレイ
+/********************************************************************/
+ev_con_reception_front02:
+	_TALK_OBJ_START
+
+	_LDVAL			LOCALWORK3,DESK_MULTI
+	_LDVAL			SCWK_TEMP3,CONMODE_GRAND
+
+	_TALK_KEYWAIT	msg_con_reception_front06_01
+	_JUMP			ev_con_reception_menu_01
+	_END
+
+//--------------------------------------------------------------------
+//共通メニュー
+//--------------------------------------------------------------------
+ev_con_reception_menu_01:
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_MULTI,ev_con_reception_menu_01_multi_msg
+	_TALKMSG		msg_con_reception_front04_01	//シングル用メッセージ
+	_JUMP			ev_con_reception_menu_01_msg_skip
+ev_con_reception_menu_01_multi_msg:
+	_TALKMSG		msg_con_reception_front06_06	//マルチ用メッセージ
+ev_con_reception_menu_01_msg_skip:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_con_reception_front06_02,0			//さんかする
+	_BMPMENU_MAKE_LIST	msg_con_reception_front06_03,1			//せつめいをきく
+	_BMPMENU_MAKE_LIST	msg_con_reception_front06_04,2			//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_01_01
+	_CASE_JUMP		1,ev_con_reception_menu_01_02
+	_JUMP			ev_con_reception_end			//終了
+	_END
+
+//--------------------------------------------------------------------
+//共通終了「またの参加をお待ちしております」
+//--------------------------------------------------------------------
+ev_con_reception_end:
+	_COMM_DIRECT_END
+	_LDVAL		WK_SCENE_COMM_ID,SCR_COMM_ID_NOTHING
+	_FLAG_RESET	SYS_FLAG_COMM_COUNTER			//通信カウンター通過フラグ(システム)
+
+	_TALK_KEYWAIT	msg_con_reception_front06_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//さんかする
+//--------------------------------------------------------------------
+ev_con_reception_menu_01_01:
+
+	/*通信受付の時は、セーブ後に通信受付フラグセット*/
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_MULTI,ev_con_reception_report
+
+	_JUMP		ev_con_reception_menu_04
+	_END
+
+//--------------------------------------------------------------------
+/*通信受付の時は、セーブ後に通信受付フラグセット*/
+//--------------------------------------------------------------------
+ev_con_reception_report:
+
+    //k.ohno
+	// 全ポケモン回復
+	_PC_KAIFUKU
+
+#ifndef MATSUDA_DEBUG
+	//セーブしますか？(LOCALWORK0に結果が代入される)
+	_FLAG_RESET		SYS_FLAG_COMM_COUNTER					/*通信カウンター通過フラグ(システム)*/
+	_CHG_COMMON_SCR	SCRID_REPORT_CALL
+	_LDWK			SCWK_ANSWER,LOCALWORK0
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_con_reception_report__02	//成功
+	_JUMP			ev_con_reception_end							//終了へ
+	_END
+#endif
+
+/*セーブ成功*/
+ev_con_reception_report__02:
+//	_LDVAL			WK_SCENE_COMM_ID,SCR_COMM_ID_CONTEST/*通信受付IDセット*/
+//	_FLAG_SET		SYS_FLAG_COMM_COUNTER					/*通信カウンター通過フラグ(システム)*/
+#if 0	//通信対戦の時はランクはハイパー固定
+//	_JUMP		ev_con_reception_menu_04
+#else
+	_LDVAL			SCWK_TEMP0,CONRANK_HYPER		//ランクセット
+	_JUMP			ev_con_reception_menu_05
+#endif
+	_END
+
+//--------------------------------------------------------------------
+//せつめいをきく
+//--------------------------------------------------------------------
+ev_con_reception_menu_01_02:
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_MULTI,ev_con_reception_menu_02_multi	//マルチ
+	_JUMP			ev_con_reception_menu_02	//シングル
+	_END
+
+//--------------------------------------------------------------
+//	通信受付での　せつめいをきく
+//--------------------------------------------------------------
+ev_con_reception_menu_02_multi:
+	_TALK_KEYWAIT	msg_con_reception_front06_08
+	_JUMP			ev_con_reception_menu_01
+
+//--------------------------------------------------------------------
+//共通メニュー
+//--------------------------------------------------------------------
+ev_con_reception_menu_02:
+	_TALKMSG		msg_con_reception_front04_02
+ev_con_reception_menu_02_msg_skip:
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_093,0			//コンテストのきほん
+	_BMPMENU_MAKE_LIST	msg_ev_win_094,1			//コンテストのしゅるい
+	_BMPMENU_MAKE_LIST	msg_ev_win_095,2			//ランクについて
+	_BMPMENU_MAKE_LIST	msg_ev_win_096,3			//もどる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_02_01
+	_CASE_JUMP		1,ev_con_reception_menu_02_02
+	_CASE_JUMP		2,ev_con_reception_menu_02_03
+	_JUMP			ev_con_reception_menu_01		//menu01へ戻る
+	_END
+
+//--------------------------------------------------------------------
+//コンテストのきほん
+//--------------------------------------------------------------------
+ev_con_reception_menu_02_01:
+	_JUMP			ev_con_reception_menu_03_msg_skip
+	_END
+
+//--------------------------------------------------------------------
+//コンテストのしゅるい
+//--------------------------------------------------------------------
+ev_con_reception_menu_02_02:
+	_TALK_KEYWAIT	msg_con_reception_info_05
+	_JUMP			ev_con_reception_menu_02		//menu02へ戻る
+	_END
+
+//--------------------------------------------------------------------
+//ランクについて
+//--------------------------------------------------------------------
+ev_con_reception_menu_02_03:
+	_TALK_KEYWAIT	msg_con_reception_info_06
+	_JUMP			ev_con_reception_menu_02		//menu02へ戻る
+	_END
+
+//--------------------------------------------------------------------
+//共通メニュー
+//--------------------------------------------------------------------
+ev_con_reception_menu_03:
+	_TALKMSG		msg_prac_recep_06	//msg_con_reception_info_07
+ev_con_reception_menu_03_msg_skip:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_con_reception_selp_27,0			//コンテストとは？
+	_BMPMENU_MAKE_LIST	msg_con_reception_selp_28,1			//ビジュアルぶもん
+	_BMPMENU_MAKE_LIST	msg_con_reception_selp_29,2			//ダンスぶもん
+	_BMPMENU_MAKE_LIST	msg_con_reception_selp_30,3			//えんぎぶもん
+	_BMPMENU_MAKE_LIST	msg_con_reception_selp_31,4			//もどる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_03_01
+	_CASE_JUMP		1,ev_con_reception_menu_03_02
+	_CASE_JUMP		2,ev_con_reception_menu_03_03
+	_CASE_JUMP		3,ev_con_reception_menu_03_04
+	_JUMP			ev_con_reception_menu_02_msg_skip		//menu02へ戻る
+	_END
+
+//--------------------------------------------------------------------
+//コンテストとは？
+//--------------------------------------------------------------------
+ev_con_reception_menu_03_01:
+	_TALK_KEYWAIT	msg_con_reception_info_01
+	_JUMP			ev_con_reception_menu_03		//menu03へ戻る
+	_END
+
+//--------------------------------------------------------------------
+//ビジュアルぶもん
+//--------------------------------------------------------------------
+ev_con_reception_menu_03_02:
+	_TALK_KEYWAIT	msg_con_reception_info_02
+	_JUMP			ev_con_reception_menu_03		//menu03へ戻る
+	_END
+
+//--------------------------------------------------------------------
+//ダンスぶもん
+//--------------------------------------------------------------------
+ev_con_reception_menu_03_03:
+	_TALK_KEYWAIT	msg_con_reception_info_03
+	_JUMP			ev_con_reception_menu_03		//menu03へ戻る
+	_END
+
+//--------------------------------------------------------------------
+//えんぎぶもん
+//--------------------------------------------------------------------
+ev_con_reception_menu_03_04:
+	_TALK_KEYWAIT	msg_con_reception_info_04
+	_JUMP			ev_con_reception_menu_03		//menu03へ戻る
+	_END
+
+//====================================================================
+//共通メニュー
+//====================================================================
+ev_con_reception_menu_04:
+	_TALKMSG		msg_con_reception_selp_18
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_102,0			//ノーマル
+	_BMPMENU_MAKE_LIST	msg_ev_win_103,1			//スーパー
+	_BMPMENU_MAKE_LIST	msg_ev_win_104,2			//ハイパー
+	_BMPMENU_MAKE_LIST	msg_ev_win_105,3			//マスター
+	_BMPMENU_MAKE_LIST	msg_ev_win_106,4			//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_04_01
+	_CASE_JUMP		1,ev_con_reception_menu_04_02
+	_CASE_JUMP		2,ev_con_reception_menu_04_03
+	_CASE_JUMP		3,ev_con_reception_menu_04_04
+	_JUMP			ev_con_reception_end			//終了
+	_END
+
+//--------------------------------------------------------------------
+//ノーマル
+//--------------------------------------------------------------------
+ev_con_reception_menu_04_01:
+	_LDVAL			SCWK_TEMP0,CONRANK_NORMAL		//ランクセット
+	_JUMP			ev_con_reception_menu_05
+	_END
+
+//--------------------------------------------------------------------
+//スーパー
+//--------------------------------------------------------------------
+ev_con_reception_menu_04_02:
+	_LDVAL			SCWK_TEMP0,CONRANK_SUPER		//ランクセット
+	_JUMP			ev_con_reception_menu_05
+	_END
+
+//--------------------------------------------------------------------
+//ハイパー
+//--------------------------------------------------------------------
+ev_con_reception_menu_04_03:
+	_LDVAL			SCWK_TEMP0,CONRANK_HYPER		//ランクセット
+	_JUMP			ev_con_reception_menu_05
+	_END
+
+//--------------------------------------------------------------------
+//マスター
+//--------------------------------------------------------------------
+ev_con_reception_menu_04_04:
+	_LDVAL			SCWK_TEMP0,CONRANK_MASTER		//ランクセット
+	_JUMP			ev_con_reception_menu_05
+	_END
+
+//====================================================================
+//共通メニュー
+//====================================================================
+ev_con_reception_menu_05:
+	_TALKMSG		msg_con_reception_selp_19
+	_BMPMENU_INIT		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_107,0			//かっこよさ
+	_BMPMENU_MAKE_LIST	msg_ev_win_108,1			//うつくしさ
+	_BMPMENU_MAKE_LIST	msg_ev_win_109,2			//かわいさ
+	_BMPMENU_MAKE_LIST	msg_ev_win_110,3			//かしこさ
+	_BMPMENU_MAKE_LIST	msg_ev_win_111,4			//たくましさ
+	_BMPMENU_MAKE_LIST	msg_ev_win_112,5			//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_05_01
+	_CASE_JUMP		1,ev_con_reception_menu_05_02
+	_CASE_JUMP		2,ev_con_reception_menu_05_03
+	_CASE_JUMP		3,ev_con_reception_menu_05_04
+	_CASE_JUMP		4,ev_con_reception_menu_05_05
+	_JUMP			ev_con_reception_end			//終了
+	_END
+
+//--------------------------------------------------------------------
+//かっこよさ
+//--------------------------------------------------------------------
+ev_con_reception_menu_05_01:
+	_LDVAL			SCWK_TEMP1,CONTYPE_STYLE		//コンディションセット
+	_JUMP			ev_con_reception_common_02
+	_END
+
+//--------------------------------------------------------------------
+//うつくしさ
+//--------------------------------------------------------------------
+ev_con_reception_menu_05_02:
+	_LDVAL			SCWK_TEMP1,CONTYPE_BEAUTIFUL	//コンディションセット
+	_JUMP			ev_con_reception_common_02
+	_END
+
+//--------------------------------------------------------------------
+//かわいさ
+//--------------------------------------------------------------------
+ev_con_reception_menu_05_03:
+	_LDVAL			SCWK_TEMP1,CONTYPE_CUTE			//コンディションセット
+	_JUMP			ev_con_reception_common_02
+	_END
+
+//--------------------------------------------------------------------
+//かしこさ
+//--------------------------------------------------------------------
+ev_con_reception_menu_05_04:
+	_LDVAL			SCWK_TEMP1,CONTYPE_CLEVER		//コンディションセット
+	_JUMP			ev_con_reception_common_02
+	_END
+
+//--------------------------------------------------------------------
+//たくましさ
+//--------------------------------------------------------------------
+ev_con_reception_menu_05_05:
+	_LDVAL			SCWK_TEMP1,CONTYPE_STRONG		//コンディションセット
+	_JUMP			ev_con_reception_common_02
+	_END
+
+//--------------------------------------------------------------------
+//LOCALWORK2使用！
+//--------------------------------------------------------------------
+ev_con_reception_common_02:
+	/*「どのポケモンをさんかさせますか？」*/
+	_TALK_KEYWAIT	msg_con_reception_selp_11
+
+	/*「ポケモンをえらんでください」*/
+	_TALK_KEYWAIT	msg_con_reception_selp_12
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//シングルポケモンリスト用フラグセット
+	_IFVAL_CALL		LOCALWORK3,EQ,DESK_SINGLE,ev_con_reception_pokelist_single
+	//通信ポケモンリスト用フラグセット
+	_IFVAL_CALL		LOCALWORK3,EQ,DESK_MULTI,ev_con_reception_pokelist_multi
+
+	_LDVAL			SCWK_ANSWER,0		/*ポケモンリスト初期カーソル位置*/
+ev_con_reception_common_02_list_back:	/*ポケモンリスト画面呼び出し戻り先*/
+	//ポケモン選択画面呼び出し
+	_CON_POKELIST_SET_PROC	SCWK_ANSWER,SCWK_TEMP0,SCWK_TEMP1,LOCALWORK4
+
+	//選択したポケモンの並び番号取得
+	_CON_POKELIST_GET_RESULT	LOCALWORK2,SCWK_ANSWER
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_con_reception_common_02_list_select_end
+	_CON_POKESTATUS_SET_PROC	LOCALWORK2
+	_POKESTATUS_GET_RESULT		SCWK_ANSWER
+	_JUMP			ev_con_reception_common_02_list_back
+
+ev_con_reception_common_02_list_select_end:	//リスト選択後
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルチェック
+	_IFVAL_JUMP		LOCALWORK2,EQ,0xff,ev_con_reception_end_pre	//終了確認
+
+	_JUMP			ev_con_reception_common_02_01
+	_END
+
+ev_con_reception_end_pre:
+    //さんかをとりやめますか？
+	_TALK_KEYWAIT	msg_con_recep_wireless_04
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_con_reception_end   // この場合"はい"ならやめる
+    _JUMP			ev_con_reception_common_02
+	_END
+	
+
+//--------------------------------------------------------------------
+//ポケモン選択
+//--------------------------------------------------------------------
+//シングルポケモンリストへ
+ev_con_reception_pokelist_single:
+	_LDVAL			LOCALWORK4,0		//非通信
+	_RET
+
+//通信ポケモンリストへ
+ev_con_reception_pokelist_multi:
+	_LDVAL			LOCALWORK4,1		//通信
+	_RET
+
+//--------------------------------------------------------------------
+//コンテストシステムワーク確保
+//--------------------------------------------------------------------
+ev_con_reception_common_02_01:
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_MULTI,ev_con_reception_menu_06	//通信へ
+	_JUMP			ev_con_reception_common_05					//シングルへ
+	_END
+
+//====================================================================
+//グループ、リーダー選択メニュー
+//====================================================================
+ev_con_reception_menu_06:
+
+	_TALKMSG		msg_con_recep_wireless_08   //みんなではなしあって　ひとりがリーダー・・・
+
+	_BMPMENU_INIT		18,1,0,1,SCWK_ANSWER		//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_014,0			//グループ
+	_BMPMENU_MAKE_LIST	msg_ev_win_015,1			//リーダー
+	_BMPMENU_MAKE_LIST	msg_ev_win_006,2			//
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_06_01		//グループ
+	_CASE_JUMP		1,ev_con_reception_06_02		//リーダー
+	_JUMP			ev_con_reception_end			//終了
+	_END
+
+//--------------------------------------------------------------------
+//グループ
+//--------------------------------------------------------------------
+ev_con_reception_06_01:
+	//DSワイヤレス通信を始めますか？
+	_TALKMSG		msg_con_recep_wireless_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_con_reception_menu_06
+
+	_TALK_CLOSE
+
+	//親機を選択するウィンドウを開く
+	_SEL_PARENT_WIN	COMM_MODE_CONTEST,SCWK_TEMP1,SCWK_TEMP0,SCWK_ANSWER
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_CANCEL,ev_con_reception_group_cancel	//キャンセル
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_ERROR,ev_con_reception_group_error	//エラー
+
+	//それ以外
+	_JUMP			ev_con_reception_common_05		//成功
+	_END
+
+//キャンセル
+ev_con_reception_group_cancel:
+	_JUMP			ev_con_reception_menu_06		//グループ、リーダー選択へ
+	_END
+
+//エラー
+ev_con_reception_group_error:
+	_JUMP			ev_con_reception_menu_06		//グループ、リーダー選択へ
+	_END
+
+//--------------------------------------------------------------------
+//リーダー
+//--------------------------------------------------------------------
+ev_con_reception_06_02:
+	//DSワイヤレス通信を始めますか？
+	_TALKMSG		msg_con_recep_wireless_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_con_reception_menu_06
+
+	_TALK_CLOSE
+
+	//子機を選択するウィンドウを開く
+	_SEL_CHILD_WIN	COMM_MODE_CONTEST,SCWK_TEMP1,SCWK_TEMP0,SCWK_ANSWER
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_CANCEL,ev_con_reception_leader_cancel	//キャンセル
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,COMM_RETVAL_ERROR,ev_con_reception_leader_error		//エラー
+
+	//それ以外
+	_JUMP			ev_con_reception_common_05		//成功
+	_END
+
+//キャンセル
+ev_con_reception_leader_cancel:
+	_JUMP			ev_con_reception_menu_06		//グループ、リーダー選択へ
+	_END
+
+//エラー
+ev_con_reception_leader_error:
+	_COMM_DIRECT_END
+
+	//_TALK_KEYWAIT	msg_connect_rule_02
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//====================================================================
+//成功
+//====================================================================
+ev_con_reception_common_05:
+	_CON_SYSTEM_CREATE	SCWK_TEMP0,SCWK_TEMP1,SCWK_TEMP3,LOCALWORK2
+
+	//通信の時は、通信用のワーク初期化
+	_IFVAL_CALL		LOCALWORK3,EQ,DESK_MULTI,ev_con_sio_param_init_set
+
+/*↓会場に入ってからやるようにした。実質これの機能はタッチパネルでの送りのみなので。*/
+//	_CON_MSGPRINT_FLAG_SET
+	
+	//練習の時は独自メッセージ
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_PRACTICE,ev_con_reception_common_05_setsumei
+	
+	_CON_MY_ENTRY_NO_GET	SCWK_ANSWER
+	_ADD_WK					SCWK_ANSWER,1	//エントリー番号を1オリジンに変更
+	_CON_NUM_TAG_SET		SCWK_ANSWER,0
+	_TALKMSG_CON_SIO	msg_con_reception_selp_13
+
+	_CON_MY_ENTRY_NO_GET	SCWK_ANSWER
+	_CON_BREEDER_NAME_GET	SCWK_ANSWER,0
+	_CON_NICK_NAME_GET		SCWK_ANSWER,1
+	_TALKMSG_CON_SIO	msg_con_reception_enter_01
+	//同期待ち
+	_CONSIO_TIMING_SEND		CONSIO_TIMING_SCR_5
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_5
+	_TALK_CLOSE
+
+ev_con_reception_common_05_setsumei_return:	//練習独自メッセージ終わった後の戻り場所
+	
+	//カウンターが開く
+	//
+
+	//話しかけ受付によって分岐
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_SINGLE,ev_con_reception_no_0
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_MULTI,ev_con_reception_no_1
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_PRACTICE,ev_con_reception_no_2
+	_END
+
+//練習の時の会話分
+ev_con_reception_common_05_setsumei:
+	_CON_MY_ENTRY_NO_GET	SCWK_ANSWER
+	_ADD_WK					SCWK_ANSWER,1	//エントリー番号を1オリジンに変更
+	_CON_NUM_TAG_SET		SCWK_ANSWER,0
+	_TALK_KEYWAIT			msg_prac_pkmn_sel_03
+
+	_CON_MY_ENTRY_NO_GET	SCWK_ANSWER
+	_CON_BREEDER_NAME_GET	SCWK_ANSWER,0
+	_CON_NICK_NAME_GET		SCWK_ANSWER,1
+//	_TALK_KEYWAIT	msg_prac_pkmn_sel_04
+	_TALK_CLOSE
+	_JUMP		ev_con_reception_common_05_setsumei_return
+
+//シングルでない時は、通信用のワーク初期化(012,345で分かれている)
+ev_con_sio_param_init_set:
+	_TALKMSG	msg_con_caution_01
+	_CON_SIO_PARAM_INIT_SET
+	_RET
+
+//--------------------------------------------------------------------
+//受付が案内する
+//--------------------------------------------------------------------
+ev_con_reception_no_0:
+	_SET_UP_DOOR_ANIME	0,0,INFOMATION_GATE_SINGLE_X,5,77
+	_CALL			connect_contest_door_open
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_con_reception_player_01
+	_OBJ_ANIME		C05R1101_PCWOMAN1_01,anm_con_reception_guide_01
+	_OBJ_ANIME_WAIT
+
+	_CALL			connect_contest_door_close
+	_OBJ_ANIME_WAIT
+
+	_JUMP			ev_con_reception_common_03
+	_END
+
+ev_con_reception_no_1:
+	_FLAG_SET		SYS_FLAG_COMM_COUNTER					/*通信カウンター通過フラグ(システム)*/
+	_LDVAL			WK_SCENE_COMM_ID,SCR_COMM_ID_CONTEST/*通信受付IDセット*/
+	_SET_UP_DOOR_ANIME	0,0,INFOMATION_GATE_MULTI_X,5,77
+	_CALL			connect_contest_door_open
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_con_reception_player_02
+	_OBJ_ANIME		C05R1101_PCWOMAN1_02,anm_con_reception_guide_02
+	_OBJ_ANIME_WAIT
+
+	_CALL			connect_contest_door_close
+	_OBJ_ANIME_WAIT
+
+	_JUMP			ev_con_reception_common_03
+	_END
+
+ev_con_reception_no_2:
+	_SET_UP_DOOR_ANIME	0,0,INFOMATION_GATE_PRACTICE_X,5,77
+	_CALL			connect_contest_door_open
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_con_reception_player_03
+	_OBJ_ANIME		C05R1101_PCWOMAN1_03,anm_con_reception_guide_03
+	_OBJ_ANIME_WAIT
+
+	_CALL			connect_contest_door_close
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG_CON_SIO	msg_con_reception_enter_06
+	_TALK_CLOSE
+
+	_JUMP			ev_con_reception_common_03
+	_END
+
+ev_con_reception_common_03:
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_PRACTICE,ev_con_reception_practice
+//	_TALKMSG_CON_SIO	msg_con_reception_enter_02
+	//きがえ
+	_CON_HERO_CHANGE
+	//_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_con_reception_player_20
+	//_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_con_reception_male_01		//プレイヤー男
+	_JUMP			ev_con_reception_female_01						//プレイヤー女
+	_END
+
+//プレイヤー男
+ev_con_reception_male_01:
+	_PLAYER_NAME	0
+	_TALKMSG_CON_SIO	msg_con_reception_enter_03
+	_JUMP			ev_con_reception_common_04
+	_END
+
+//プレイヤー女
+ev_con_reception_female_01:
+	_PLAYER_NAME	0
+	_TALKMSG_CON_SIO	msg_con_reception_enter_04
+	_JUMP			ev_con_reception_common_04
+	_END
+
+ev_con_reception_common_04:
+	//向きを直す
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_con_reception_player_21
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG_CON_SIO	msg_con_reception_enter_05
+	//同期待ち
+	_CONSIO_TIMING_SEND		CONSIO_TIMING_SCR_6
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_6
+	_TALK_CLOSE
+
+	_JUMP			ev_con_reception_common_06
+	_END
+
+//====================================================================
+//練習モード(会場の処理なし)
+//====================================================================
+ev_con_reception_practice:
+	_BLACK_OUT			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_CONTEST_PROC
+	//FieldFinishしてたので取得しなおす
+	_CON_ENTRY_PARAM_GET	SCWK_TEMP0,SCWK_TEMP1,SCWK_TEMP3,LOCALWORK2
+
+	//受付会場へ移動
+	_LDVAL			WK_SCENE_CONTEST,0
+	_MAP_CHANGE_NONE_FADE		ZONE_ID_C05R1101,0,28,3,DIR_DOWN
+
+	_EVENT_START
+	
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_CON_DESK_MODE_GET		LOCALWORK3	//画面切り替えしたので受付ナンバー取得しなおす
+	_CON_ENTRY_PARAM_GET	SCWK_TEMP0,SCWK_TEMP1,SCWK_TEMP3,LOCALWORK2
+	_CON_RANKING_CHECK		SCWK_TEMP0	//最終順位セット
+	_CON_MSGPRINT_FLAG_RESET
+	_CON_SYSTEM_EXIT		LOCALWORK2
+
+	_LDVAL			SCWK_ANSWER,INFOMATION_GATE_PRACTICE_X
+	_CALL			ev_contest_return_door
+	_CALL			ev_contest_return_door_practice
+	
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_con_reception_common_05	//再び練習へ
+	
+	//お疲れ様でした
+	_TALKMSG		msg_prac_recep_05_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	//_TALK_OBJ_END
+	_EVENT_END
+	_END		//
+	
+//====================================================================
+//会場へ
+//====================================================================
+ev_con_reception_common_06:
+
+	//オープニング会場へ移動
+	
+	//-- コンテストに参加した事で発生するイベント関連のフラグセット --//
+	_FLAG_RESET		FV_C05_EGG			/*タマゴくれる人出現*/
+	//_FLAG_SET		FE_CON_CHALLENGE
+	//-- ここまで --//
+	
+	_LDVAL			WK_SCENE_CONTEST,1
+	_CALL			ev_con_reception_init_change_02
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_FLAG_RESET		FV_C05R1102_CON1	//参加者を出す
+	_FLAG_RESET		FV_C05R1102_CON2	//参加者を出す
+	_FLAG_RESET		FV_C05R1102_CON3	//参加者を出す
+	_FLAG_RESET		FV_C05R1102_CON4	//参加者を出す
+	
+	_BLACK_OUT			SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	
+	_MAP_CHANGE_NONE_FADE		ZONE_ID_C05R1102,0,29,7,DIR_UP
+
+	_CON_MSGPRINT_FLAG_SET
+	_CON_DESK_MODE_GET		LOCALWORK3	//画面切り替えしたので受付ナンバー取得しなおす
+	_CON_HBLANK_STOP
+//	_WIPE_FADE_START		SCR_WIPE_DIV,SCR_WIPE_SYNC,WIPE_TYPE_CURTAININ,WIPE_FADE_BLACK
+	_BLACK_IN				SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	_CON_HBLANK_START
+
+	//同期待ち
+	_CONSIO_TIMING_SEND	CONSIO_TIMING_SCR_START
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_START
+
+	_SE_PLAY		SEQ_SE_DP_CON_F007
+
+	//司会周りを見る
+	_OBJ_ANIME		C05R1102_PCWOMAN1,anm_con_reception_pcwoman1_01
+	_OBJ_ANIME_WAIT
+
+	_CON_RANK_NAME_GET	0			//ランク名
+	_CON_TYPE_NAME_GET	1			//コンディション名
+	_TALKMSG_CON_SIO	msg_con_opening_host_01		/*本番用オープニングメッセージ*/
+
+	//同期待ち
+	_CONSIO_TIMING_SEND		CONSIO_TIMING_SCR_0
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_0
+	
+	/*司会者左を向く*/
+	_OBJ_ANIME		C05R1102_PCWOMAN1,anm_con_reception_pcwoman1_left
+	_OBJ_ANIME_WAIT
+
+	_CON_BREEDER_NAME_GET	0,0
+	_TALKMSG_CON_SIO	msg_con_opening_host_02
+
+	/*歓声、口笛*/
+	_CON_POPULARITY_GET	0,SCWK_ANSWER
+	_CON_CAMERA_FLASH_SET		0
+	_CALL	con_call_whistle
+	_CON_CAMERA_FLASH_CHECK
+
+	//同期待ち
+	_CONSIO_TIMING_SEND		CONSIO_TIMING_SCR_1
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_1
+
+	/*司会者後ろを向く*/
+	_OBJ_ANIME		C05R1102_PCWOMAN1,anm_con_reception_pcwoman1_up
+	_OBJ_ANIME_WAIT
+
+	_CON_BREEDER_NAME_GET	1,0
+	_TALKMSG_CON_SIO	msg_con_opening_host_03
+
+	/*歓声、口笛*/
+	_CON_POPULARITY_GET	1,SCWK_ANSWER
+	_CON_CAMERA_FLASH_SET		1
+	_CALL	con_call_whistle
+	_CON_CAMERA_FLASH_CHECK
+
+	//同期待ち
+	_CONSIO_TIMING_SEND		CONSIO_TIMING_SCR_2
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_2
+
+	/*必要なら間とか*/
+	_TIME_WAIT		8,SCWK_ANSWER
+
+	/*司会者後ろを向く*/
+	//_OBJ_ANIME		C05R1102_PCWOMAN1,anm_con_reception_pcwoman1_01
+	//_OBJ_ANIME_WAIT
+
+	_CON_BREEDER_NAME_GET	2,0
+	_TALKMSG_CON_SIO	msg_con_opening_host_04
+
+	/*歓声、口笛*/
+	_CON_POPULARITY_GET	2,SCWK_ANSWER
+	_CON_CAMERA_FLASH_SET		2
+	_CALL	con_call_whistle
+	_CON_CAMERA_FLASH_CHECK
+
+	//同期待ち
+	_CONSIO_TIMING_SEND		CONSIO_TIMING_SCR_3
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_3
+
+	/*司会者右を向く*/
+	_OBJ_ANIME		C05R1102_PCWOMAN1,anm_con_reception_pcwoman1_right
+	_OBJ_ANIME_WAIT
+
+	_CON_BREEDER_NAME_GET	3,0
+	_TALKMSG_CON_SIO	msg_con_opening_host_05
+
+	/*歓声、口笛*/
+	_CON_POPULARITY_GET	3,SCWK_ANSWER
+	_CON_CAMERA_FLASH_SET		3
+	_CALL	con_call_whistle
+	_CON_CAMERA_FLASH_CHECK
+
+	//同期待ち
+	_CONSIO_TIMING_SEND		CONSIO_TIMING_SCR_4
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_4
+
+	/*司会者下を向く*/
+	_OBJ_ANIME		C05R1102_PCWOMAN1,anm_con_reception_pcwoman1_down
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG_CON_SIO	msg_con_opening_host_06
+	_TALK_CLOSE
+
+	/*歓声*/
+	//_SE_PLAY		SEQ_SE_
+	//_SE_WAIT		SEQ_SE_
+
+	//コンテスト呼び出し
+
+	//同期待ち
+	_CONSIO_TIMING_SEND		CONSIO_TIMING_SCR_IMC
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_IMC
+
+	_SE_PLAY		SEQ_SE_DP_CON_F007
+	_TIME_WAIT		30,SCWK_ANSWER
+	_CON_HBLANK_STOP
+	_WIPE_FADE_START		SCR_WIPE_DIV,SCR_WIPE_SYNC,WIPE_TYPE_CURTAINOUT,WIPE_FADE_BLACK
+	_WIPE_FADE_END_CHECK
+	_CON_HBLANK_START
+	
+	_WIRELESS_ICON_EASY_END
+
+	_CONTEST_PROC
+	//FieldFinishしてたので取得しなおす
+	_CON_MSGPRINT_FLAG_SET
+	_CON_ENTRY_PARAM_GET	SCWK_TEMP0,SCWK_TEMP1,SCWK_TEMP3,LOCALWORK2
+
+	//エンディング
+	_CON_DESK_MODE_GET		LOCALWORK3	//画面切り替えしたので受付ナンバー取得しなおす
+//	_LDVAL			WK_SCENE_CONTEST,2
+	_CALL			ev_con_reception_init_change_03
+
+	_WIRELESS_ICON_EASY
+	
+	_WHITE_IN				SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_CON_VICTORY_ENTRY_NO_GET	SCWK_ANSWER
+	_CON_CAMERA_FLASH_SET		SCWK_ANSWER
+	_CON_POPULARITY_GET			SCWK_ANSWER,SCWK_ANSWER
+	_CALL	con_call_whistle
+	_CON_CAMERA_FLASH_CHECK
+
+	/*「おめでとうございます！」*/
+	_TALKMSG_CON_SIO	msg_con_ending_host_01	
+
+	/*CPUが優勝した時、通信対戦の時*/
+	_CON_ENDING_SKIP_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_con_ending_skip
+
+	_CON_VICTORY_BREEDER_NAME_GET	0
+	_CON_VICTORY_NICK_NAME_GET		1
+	_CON_RIBBON_NAME_GET			2
+	_CON_HAVE_RIBBON_CHECK		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_con_ribbon_not_have
+	_TALKMSG_CON_SIO	msg_con_ending_host_04
+	_JUMP			ev_con_ribbon_event_skip
+ev_con_ribbon_not_have:
+	_TALKMSG_CON_SIO	msg_con_ending_host_02
+	_TALK_CLOSE
+
+	/*司会者と優勝者向き合う*/
+	_OBJ_ANIME		C05R1102_PCWOMAN1,anm_con_reception_pcwoman1_right
+	_OBJ_ANIME		C05R1102_CON5,anm_con_reception_pcwoman1_left
+	_OBJ_ANIME_WAIT
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	_ME_PLAY		SEQ_FANFA1
+	_ME_WAIT
+
+	/*司会者と優勝者、正面を向く*/
+	_OBJ_ANIME		C05R1102_PCWOMAN1,anm_con_reception_pcwoman1_down
+	_OBJ_ANIME		C05R1102_CON5,anm_con_reception_pcwoman1_down
+	_OBJ_ANIME_WAIT
+
+ev_con_ribbon_event_skip:	//既にリボンを所持している時はここまでスキップしてくる
+ev_con_ending_skip:	/*CPUが優勝した時、通信対戦の時はここまでスキップしてくる*/
+
+	_TALKMSG_CON_SIO	msg_con_ending_host_03
+	_TALK_CLOSE
+
+	//_CON_VICTORY_BREEDER_NAME_GET	0
+	//_CON_VICTORY_NICK_NAME_GET		1
+	//_TALKMSG_CON_SIO	msg_con_ending_host_04
+
+	//_CON_VICTORY_ITEM_NO_GET	SCWK_ANSWER
+	//_ITEM_NAME			2,SCWK_ANSWER				//道具名
+	//_TALKMSG		msg_con_ending_host_02
+
+	_SE_PLAY		SEQ_SE_DP_CON_F007
+	
+	_CON_VICTORY_ENTRY_NO_GET	SCWK_ANSWER
+	_CON_CAMERA_FLASH_SET		SCWK_ANSWER
+	_CON_POPULARITY_GET			SCWK_ANSWER,SCWK_ANSWER
+	_CALL	con_call_whistle
+	_CON_CAMERA_FLASH_CHECK
+	
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	//同期待ち
+	_CONSIO_TIMING_SEND		CONSIO_TIMING_SCR_END
+	_CONSIO_TIMING_CHECK	CONSIO_TIMING_SCR_END
+	//通信切断
+//	_COMM_DIRECT_END
+	_COMM_DIRECT_END_TIMING	//通信切断に失敗する時があるっぽいのでこれに変えてみる
+	_TIME_WAIT		10,SCWK_ANSWER	//通信切断に失敗する時があるっぽいので切断後ウェイト入れてみる
+	_WIRELESS_ICON_EASY_END
+	
+	_CON_HBLANK_STOP
+	_WIPE_FADE_START		SCR_WIPE_DIV,SCR_WIPE_SYNC,WIPE_TYPE_CURTAINOUT,WIPE_FADE_BLACK
+	_WIPE_FADE_END_CHECK
+	_CON_HBLANK_START
+
+	_CON_ENTRY_PARAM_GET	SCWK_TEMP0,SCWK_TEMP1,SCWK_TEMP3,LOCALWORK2
+//	_CON_RANKING_CHECK	SCWK_TEMP0	//最終順位セット
+	_CON_ACCE_NO_GET	SCWK_TEMP0	//アクセサリ番号取得
+	_CON_MSGPRINT_FLAG_RESET
+	_CON_SYSTEM_EXIT	LOCALWORK2
+
+	_LDVAL			WK_SCENE_CONTEST,0
+	_IFVAL_JUMP		LOCALWORK3,EQ,DESK_SINGLE,ev_con_door_return_single
+	//通信受付：受付会場へ移動
+	_MAP_CHANGE_NONE_FADE		ZONE_ID_C05R1101,0,7,3,DIR_DOWN
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	//通信受付ドアから出てくるアニメ
+	_LDVAL			SCWK_ANSWER,INFOMATION_GATE_MULTI_X
+	_CALL			ev_contest_return_door
+	_FLAG_RESET	SYS_FLAG_COMM_COUNTER			//通信カウンター通過フラグ(システム)
+	_LDVAL		WK_SCENE_COMM_ID,SCR_COMM_ID_NOTHING
+	_JUMP			ev_con_door_return_end
+ev_con_door_return_single:
+	//シングル受付：受付会場へ移動
+	_MAP_CHANGE_NONE_FADE		ZONE_ID_C05R1101,0,18,3,DIR_DOWN
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+	//シングル受付ドアから出てくるアニメ
+	_LDVAL			SCWK_ANSWER,INFOMATION_GATE_SINGLE_X
+	_CALL			ev_contest_return_door
+	//シングル受付：カウンターでアクセサリーをもらう
+	_CALL			ev_contest_return_door_to_counter
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,0xffff,ev_con_acce_not_get
+	_PLAYER_NAME	0
+	_ACCE_NAME		1,SCWK_TEMP0
+	_TALK_KEYWAIT	msg_con_ending_host_05
+#if 0	//共通ルーチンを使用するようにした
+//	_ME_PLAY		SEQ_FANFA4
+//	_TALK_KEYWAIT	msg_con_ending_host_06
+//	_ME_WAIT
+//	_IMC_ACCE_ADD_ITEM	SCWK_TEMP0,1
+#else
+	_LDVAL			SCWK_TEMP1, 1
+	_CHG_COMMON_SCR	SCRID_ACCE_EVENT_KEYWAIT
+#endif
+ev_con_acce_not_get:
+	_TALK_KEYWAIT	msg_con_ending_host_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+ev_con_door_return_end:
+	_END		//
+
+//--------------------------------------------------------------
+//	紹介された時の歓声と口笛(SCWK_ANSWERにあらかじめ人気を入れておく事)
+//--------------------------------------------------------------
+con_call_whistle:
+	_SE_PLAY		SEQ_SE_DP_CON_F007
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,con_whistle_play1
+	_IFVAL_CALL		SCWK_ANSWER,EQ,2,con_whistle_play2
+	_IFVAL_CALL		SCWK_ANSWER,EQ,3,con_whistle_play3
+	_IFVAL_CALL		SCWK_ANSWER,EQ,4,con_whistle_play4
+	_IFVAL_CALL		SCWK_ANSWER,GE,5,con_whistle_play5
+	_RET
+
+con_whistle_play1:
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_SE_WAIT		SEQ_SE_DP_CON_015
+	_RET
+
+con_whistle_play2:
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_TIME_WAIT		5,SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_SE_WAIT		SEQ_SE_DP_CON_015
+	_RET
+
+con_whistle_play3:
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_SE_WAIT		SEQ_SE_DP_CON_015
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_TIME_WAIT		5,SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_SE_WAIT		SEQ_SE_DP_CON_015
+	_RET
+
+con_whistle_play4:
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_TIME_WAIT		5,SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_SE_WAIT		SEQ_SE_DP_CON_015
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_TIME_WAIT		5,SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_SE_WAIT		SEQ_SE_DP_CON_015
+	_RET
+
+con_whistle_play5:
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_TIME_WAIT		5,SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_TIME_WAIT		5,SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_TIME_WAIT		10,SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_TIME_WAIT		5,SCWK_ANSWER
+	_SE_PLAY		SEQ_SE_DP_CON_015
+	_SE_WAIT		SEQ_SE_DP_CON_015
+	_RET
+
+//--------------------------------------------------------------
+//	
+//--------------------------------------------------------------
+//コンテストに参加中だったら
+ev_con_reception_init_change_02:
+	//キャラコードを設定
+	_CON_OBJ_CODE_GET	0,OBJCHRWORK0
+	_CON_OBJ_CODE_GET	1,OBJCHRWORK1
+	_CON_OBJ_CODE_GET	2,OBJCHRWORK2
+	_CON_OBJ_CODE_GET	3,OBJCHRWORK3
+	_RET
+
+//エンディング中だったら
+ev_con_reception_init_change_03:
+	/*優勝した人*/
+	_CON_VICTORY_ENTRY_NO_GET	SCWK_ANSWER
+	_CON_OBJ_CODE_GET	SCWK_ANSWER,OBJCHRWORK4
+	_FLAG_RESET			FV_C05R1102_CON5
+	_OBJ_ADD			C05R1102_CON5
+	/*優勝したエントリーナンバーを取得*/
+	_CON_VICTORY_ENTRY_NO_GET	LOCALWORK0
+	_IFVAL_JUMP			LOCALWORK0,EQ,0,ev_con_reception_victory_entry_del_01
+	_IFVAL_JUMP			LOCALWORK0,EQ,1,ev_con_reception_victory_entry_del_02
+	_IFVAL_JUMP			LOCALWORK0,EQ,2,ev_con_reception_victory_entry_del_03
+	_IFVAL_JUMP			LOCALWORK0,EQ,3,ev_con_reception_victory_entry_del_04
+	_RET
+
+ev_con_reception_victory_entry_del_01:
+	_OBJ_DEL			C05R1102_CON1
+	_RET
+
+ev_con_reception_victory_entry_del_02:
+	_OBJ_DEL			C05R1102_CON2
+	_RET
+
+ev_con_reception_victory_entry_del_03:
+	_OBJ_DEL			C05R1102_CON3
+	_RET
+
+ev_con_reception_victory_entry_del_04:
+	_OBJ_DEL			C05R1102_CON4
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	受付に案内される
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_con_reception_player_01
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_con_reception_player_02
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_con_reception_player_03
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,3
+//	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	着替え
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_con_reception_player_20
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_4F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_WAIT_2F,1
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_1F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_1F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_1F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	向きを直す
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_con_reception_player_21
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//受付	主人公を案内する
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_con_reception_guide_01
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_con_reception_guide_02
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_con_reception_guide_03
+	_ANIME_DATA	AC_WAIT_8F,2
+#if 1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+#else
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+#endif
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//司会	周りを見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_con_reception_pcwoman1_01
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//司会	左を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_con_reception_pcwoman1_left
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//司会	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_con_reception_pcwoman1_up
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//司会	右を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_con_reception_pcwoman1_right
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//司会	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_con_reception_pcwoman1_down
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							受付３									*/
+//	練習、チュートリアル
+/********************************************************************/
+ev_con_reception_front03:
+ev_con_reception_front04:
+ev_con_reception_front05:
+ev_con_reception_front06:
+	_TALK_OBJ_START
+
+	_LDVAL			LOCALWORK3,DESK_PRACTICE
+	_LDVAL			SCWK_TEMP0,CONRANK_NORMAL		//ランクセット(練習はノーマル固定)
+//	_LDVAL			SCWK_TEMP3,CONMODE_GRAND
+
+	_TALK_KEYWAIT	msg_prac_recep_01	//msg_con_recep_tut_01
+	_JUMP			ev_con_reception_tit_menu_01
+	_END
+
+//--------------------------------------------------------------------
+//共通メニュー
+//--------------------------------------------------------------------
+ev_con_reception_tit_menu_01:
+	_TALKMSG		msg_prac_recep_02	//msg_con_recep_tut_07
+ev_con_reception_tit_menu_01_msg_skip:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_prac_recep_03,0			//れんしゅうする
+	_BMPMENU_MAKE_LIST	msg_prac_recep_04,1			//せつめいをきく
+	_BMPMENU_MAKE_LIST	msg_prac_recep_05,2			//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_tit_menu_01_rensyuu
+	_CASE_JUMP		1,ev_con_reception_tit_menu_01_setsumei_msg
+	_CASE_JUMP		2,ev_con_reception_tit_menu_01_yameru
+	_JUMP			ev_con_reception_tit_menu_01_yameru	//終了
+	_END
+
+//==============================================================================
+//	練習：れんしゅうをする
+//==============================================================================
+/*練習：れんしゅうをする*/
+ev_con_reception_tit_menu_01_rensyuu:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_prac_recep_vpra,0			//ビジュアルのれんしゅう
+	_BMPMENU_MAKE_LIST	msg_prac_recep_dpra,1			//ダンスのれんしゅう
+	_BMPMENU_MAKE_LIST	msg_prac_recep_apra,2			//えんぎのれんしゅう
+	_BMPMENU_MAKE_LIST	msg_prac_recep_exit,3			//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_rensyuu_visual
+	_CASE_JUMP		1,ev_con_reception_menu_rensyuu_dance
+	_CASE_JUMP		2,ev_con_reception_menu_rensyuu_actin
+	_JUMP			ev_con_reception_menu_rensyuu_yameru			//終了
+	_END
+
+/*練習：れんしゅうをする：ビジュアルのれんしゅう*/
+ev_con_reception_menu_rensyuu_visual:
+	_LDVAL			LOCALWORK4,0	/*コンテストタイプ選択を飛ばさない*/
+	_LDVAL			SCWK_TEMP3,CONMODE_VISUAL_PRACTICE
+//	_JUMP			ev_con_reception_menu_rensyuu_rank_select
+	_JUMP			ev_con_reception_menu_rensyuu_type_select_before	//ノーマル固定になったので
+	_END
+	
+/*練習：れんしゅうをする：ダンスのれんしゅう*/
+ev_con_reception_menu_rensyuu_dance:
+	/*ダンスではタイプ選択なしなので、かっこよさ固定で入れる*/
+	_LDVAL			LOCALWORK4,1	/*コンテストタイプ選択を飛ばす*/
+	_LDVAL			SCWK_TEMP1,CONTYPE_STYLE		//コンディションセット
+	_LDVAL			SCWK_TEMP3,CONMODE_DANCE_PRACTICE
+//	_JUMP			ev_con_reception_menu_rensyuu_rank_select
+	_JUMP			ev_con_reception_menu_rensyuu_type_select_before
+	_END
+
+/*練習：れんしゅうをする：えんぎのれんしゅう*/
+ev_con_reception_menu_rensyuu_actin:
+	_LDVAL			LOCALWORK4,0	/*コンテストタイプ選択を飛ばさない*/
+	_LDVAL			SCWK_TEMP3,CONMODE_ACTIN_PRACTICE
+//	_JUMP			ev_con_reception_menu_rensyuu_rank_select
+	_JUMP			ev_con_reception_menu_rensyuu_type_select_before
+	_END
+
+/*練習：れんしゅうをする：もどる*/
+ev_con_reception_menu_rensyuu_yameru:
+#if 0
+	_JUMP			ev_con_reception_tit_menu_01_msg_skip
+#else
+	_TALK_KEYWAIT	msg_prac_recep_exit_01
+	_LAST_KEYWAIT
+	_JUMP			ev_con_reception_tit_menu_common_yameru
+	_END
+#endif
+
+//--------------------------------------------------------------
+//	
+//--------------------------------------------------------------
+/*練習：れんしゅうをする：共通メニュー、参加コンテストランク選択*/
+ev_con_reception_menu_rensyuu_rank_select:
+	_TALKMSG		msg_prac_rank_sel_01
+	_BMPMENU_INIT_EX		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_prac_rank_sel_02,0			//ノーマル
+	_BMPMENU_MAKE_LIST	msg_prac_rank_sel_03,1			//スーパー
+	_BMPMENU_MAKE_LIST	msg_prac_rank_sel_04,2			//ハイパー
+	_BMPMENU_MAKE_LIST	msg_prac_rank_sel_05,3			//マスター
+	_BMPMENU_MAKE_LIST	msg_prac_rank_sel_06,4			//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_rensyuu_rank_select_00
+	_CASE_JUMP		1,ev_con_reception_menu_rensyuu_rank_select_01
+	_CASE_JUMP		2,ev_con_reception_menu_rensyuu_rank_select_02
+	_CASE_JUMP		3,ev_con_reception_menu_rensyuu_rank_select_03
+	_JUMP			ev_con_reception_menu_rensyuu_rank_select_yameru			//終了
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストランク選択＞ノーマル*/
+ev_con_reception_menu_rensyuu_rank_select_00:
+	_LDVAL			SCWK_TEMP0,CONRANK_NORMAL		//ランクセット
+	_JUMP			ev_con_reception_menu_rensyuu_type_select_before
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストランク選択＞スーパー*/
+ev_con_reception_menu_rensyuu_rank_select_01:
+	_LDVAL			SCWK_TEMP0,CONRANK_SUPER		//ランクセット
+	_JUMP			ev_con_reception_menu_rensyuu_type_select_before
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストランク選択＞ハイパー*/
+ev_con_reception_menu_rensyuu_rank_select_02:
+	_LDVAL			SCWK_TEMP0,CONRANK_HYPER		//ランクセット
+	_JUMP			ev_con_reception_menu_rensyuu_type_select_before
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストランク選択＞マスター*/
+ev_con_reception_menu_rensyuu_rank_select_03:
+	_LDVAL			SCWK_TEMP0,CONRANK_MASTER		//ランクセット
+	_JUMP			ev_con_reception_menu_rensyuu_type_select_before
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストランク選択＞やめる*/
+ev_con_reception_menu_rensyuu_rank_select_yameru:
+	_TALK_KEYWAIT	msg_prac_rank_sel_07
+	_LAST_KEYWAIT
+	_JUMP			ev_con_reception_tit_menu_common_yameru
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、コンテストタイプ選択前の判定*/
+ev_con_reception_menu_rensyuu_type_select_before:
+	_IFVAL_JUMP		LOCALWORK4,EQ,1,ev_con_reception_menu_rensyuu_pokemon_select
+	_JUMP			ev_con_reception_menu_rensyuu_type_select
+
+//--------------------------------------------------------------
+//	
+//--------------------------------------------------------------
+/*練習：れんしゅうをする：共通メニュー、参加コンテストタイプ選択*/
+ev_con_reception_menu_rensyuu_type_select:
+	_TALKMSG		msg_prac_con_sel_01
+	_BMPMENU_INIT_EX		1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_prac_con_sel_02,0			//かっこよさ
+	_BMPMENU_MAKE_LIST	msg_prac_con_sel_03,1			//うつくしさ
+	_BMPMENU_MAKE_LIST	msg_prac_con_sel_04,2			//かわいさ
+	_BMPMENU_MAKE_LIST	msg_prac_con_sel_05,3			//かしこさ
+	_BMPMENU_MAKE_LIST	msg_prac_con_sel_06,4			//たくましさ
+	_BMPMENU_MAKE_LIST	msg_prac_con_sel_07,5			//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_rensyuu_type_select_00
+	_CASE_JUMP		1,ev_con_reception_menu_rensyuu_type_select_01
+	_CASE_JUMP		2,ev_con_reception_menu_rensyuu_type_select_02
+	_CASE_JUMP		3,ev_con_reception_menu_rensyuu_type_select_03
+	_CASE_JUMP		4,ev_con_reception_menu_rensyuu_type_select_04
+	_JUMP			ev_con_reception_menu_rensyuu_type_select_yameru			//終了
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストタイプ選択＞かっこよさ*/
+ev_con_reception_menu_rensyuu_type_select_00:
+	_LDVAL			SCWK_TEMP1,CONTYPE_STYLE		//コンディションセット
+	_JUMP			ev_con_reception_menu_rensyuu_pokemon_select
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストタイプ選択＞うつくしさ*/
+ev_con_reception_menu_rensyuu_type_select_01:
+	_LDVAL			SCWK_TEMP1,CONTYPE_BEAUTIFUL		//コンディションセット
+	_JUMP			ev_con_reception_menu_rensyuu_pokemon_select
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストタイプ選択＞かわいさ*/
+ev_con_reception_menu_rensyuu_type_select_02:
+	_LDVAL			SCWK_TEMP1,CONTYPE_CUTE		//コンディションセット
+	_JUMP			ev_con_reception_menu_rensyuu_pokemon_select
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストタイプ選択＞かしこさ*/
+ev_con_reception_menu_rensyuu_type_select_03:
+	_LDVAL			SCWK_TEMP1,CONTYPE_CLEVER		//コンディションセット
+	_JUMP			ev_con_reception_menu_rensyuu_pokemon_select
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストタイプ選択＞たくましさ*/
+ev_con_reception_menu_rensyuu_type_select_04:
+	_LDVAL			SCWK_TEMP1,CONTYPE_STRONG		//コンディションセット
+	_JUMP			ev_con_reception_menu_rensyuu_pokemon_select
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加コンテストタイプ選択＞やめる*/
+ev_con_reception_menu_rensyuu_type_select_yameru:
+	_TALK_KEYWAIT	msg_prac_con_sel_08
+	_LAST_KEYWAIT
+	_JUMP			ev_con_reception_tit_menu_common_yameru
+	_END
+
+/*練習：れんしゅうをする：共通メニュー、参加ポケモン選択*/
+/*LOCALWORK2使用！*/
+ev_con_reception_menu_rensyuu_pokemon_select:
+	/*「どのポケモンをさんかさせますか？」*/
+	_TALK_KEYWAIT	msg_prac_pkmn_sel_01
+
+	/*「ポケモンをえらんでください」*/
+	_TALK_KEYWAIT	msg_prac_pkmn_sel_02
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_LDVAL			SCWK_ANSWER,0		//ポケモンリスト初期カーソル位置
+ev_con_reception_menu_list_back:	//ポケモンリスト画面呼び出し戻り先
+	//ポケモン選択画面呼び出し
+	_CON_POKELIST_SET_PROC	SCWK_ANSWER,SCWK_TEMP0,SCWK_TEMP1,0
+
+	//選択したポケモンの並び番号とモード取得
+	_CON_POKELIST_GET_RESULT	LOCALWORK2,SCWK_ANSWER
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_con_reception_menu_list_select_end
+	_CON_POKESTATUS_SET_PROC	LOCALWORK2
+	_POKESTATUS_GET_RESULT		SCWK_ANSWER
+	_JUMP			ev_con_reception_menu_list_back
+	
+ev_con_reception_menu_list_select_end:	//リスト選択後
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//キャンセルチェック
+	_IFVAL_JUMP		LOCALWORK2,EQ,0xff,ev_con_reception_menu_rensyuu_type_select_yameru	//終了
+
+	_JUMP			ev_con_reception_common_05
+	_END
+
+
+//==============================================================================
+//	練習：せつめいをきく
+//==============================================================================
+/*練習：せつめいをきく*/
+ev_con_reception_tit_menu_01_setsumei_msg:
+	_TALKMSG			msg_prac_recep_06
+ev_con_reception_tit_menu_01_setsumei:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_q,0			//れんしゅうって？
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_v,1			//ビジュアルのせつめい
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_d,2			//ダンスのせつめい
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_a,3			//えんぎのせつめい
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_e,4			//もどる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_setsumei_question
+	_CASE_JUMP		1,ev_con_reception_menu_setsumei_visual
+	_CASE_JUMP		2,ev_con_reception_menu_setsumei_dance
+	_CASE_JUMP		3,ev_con_reception_menu_setsumei_actin
+	_JUMP			ev_con_reception_tit_menu_01
+	_END
+
+//--------------------------------------------------------------
+//	ビジュアルのせつめい
+//--------------------------------------------------------------
+/*練習：せつめいをきく：ビジュアルのせつめい*/
+ev_con_reception_menu_setsumei_visual_msg:
+	_TALKMSG			msg_prac_recep_06	//msg_con_reception_info_07
+ev_con_reception_menu_setsumei_visual:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_v_01,0			//ぜんたいのながれ
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_v_02,1			//ポケモンひょうか
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_v_03,2			//ドレスアップひょうか
+//	_BMPMENU_MAKE_LIST	msg_prac_xplain_v_04,3			//テーマ
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_v_05,3			//もどる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_setsumei_visual_00
+	_CASE_JUMP		1,ev_con_reception_menu_setsumei_visual_01
+	_CASE_JUMP		2,ev_con_reception_menu_setsumei_visual_02
+//	_CASE_JUMP		3,ev_con_reception_menu_setsumei_visual_03
+	_JUMP			ev_con_reception_menu_setsumei_visual_04			//終了
+	_END
+
+/*練習：せつめいをきく：ビジュアルのせつめい：ぜんたいのながれ*/
+ev_con_reception_menu_setsumei_visual_00:
+	_TALK_KEYWAIT	msg_prac_xplain_v_01_01
+	_JUMP			ev_con_reception_menu_setsumei_visual_msg
+	_END
+
+/*練習：せつめいをきく：ビジュアルのせつめい：ポケモンひょうか*/
+ev_con_reception_menu_setsumei_visual_01:
+	_TALK_KEYWAIT	msg_prac_xplain_v_02_01
+	_JUMP			ev_con_reception_menu_setsumei_visual_msg
+	_END
+
+/*練習：せつめいをきく：ビジュアルのせつめい：ドレスアップひょうか*/
+ev_con_reception_menu_setsumei_visual_02:
+	_TALK_KEYWAIT	msg_prac_xplain_v_03_01
+	_JUMP			ev_con_reception_menu_setsumei_visual_msg
+	_END
+
+/*練習：せつめいをきく：ビジュアルのせつめい：テーマ*/
+//ev_con_reception_menu_setsumei_visual_03:
+//	_TALK_KEYWAIT	msg_prac_xplain_v_04_01
+//	_JUMP			ev_con_reception_menu_setsumei_visual_msg
+//	_END
+
+/*練習：せつめいをきく：ビジュアルのせつめい：もどる*/
+ev_con_reception_menu_setsumei_visual_04:
+//	_TALK_KEYWAIT	msg_prac_xplain_v_05_01
+	_JUMP			ev_con_reception_tit_menu_01_setsumei
+	_END
+
+//--------------------------------------------------------------
+//	ダンスのせつめい
+//--------------------------------------------------------------
+/*練習：せつめいをきく：ダンスのせつめい*/
+ev_con_reception_menu_setsumei_dance_msg:
+	_TALKMSG			msg_prac_recep_06	//msg_con_reception_info_07
+ev_con_reception_menu_setsumei_dance:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_d_01,0			//ぜんたいのながれ
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_d_02,1			//ポケモンひょうか
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_d_03,2			//ドレスアップひょうか
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_d_04,3			//テーマ
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_d_05,4			//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_setsumei_dance_00
+	_CASE_JUMP		1,ev_con_reception_menu_setsumei_dance_01
+	_CASE_JUMP		2,ev_con_reception_menu_setsumei_dance_02
+	_CASE_JUMP		3,ev_con_reception_menu_setsumei_dance_03
+	_JUMP			ev_con_reception_menu_setsumei_dance_04			//終了
+	_END
+
+/*練習：せつめいをきく：ダンスのせつめい：ぜんたいのながれ*/
+ev_con_reception_menu_setsumei_dance_00:
+	_TALK_KEYWAIT	msg_prac_xplain_d_01_01
+	_JUMP			ev_con_reception_menu_setsumei_dance_msg
+	_END
+
+/*練習：せつめいをきく：ダンスのせつめい：ポケモンひょうか*/
+ev_con_reception_menu_setsumei_dance_01:
+	_TALK_KEYWAIT	msg_prac_xplain_d_02_01
+	_JUMP			ev_con_reception_menu_setsumei_dance_msg
+	_END
+
+/*練習：せつめいをきく：ダンスのせつめい：ドレスアップひょうか*/
+ev_con_reception_menu_setsumei_dance_02:
+	_TALK_KEYWAIT	msg_prac_xplain_d_03_01
+	_JUMP			ev_con_reception_menu_setsumei_dance_msg
+	_END
+
+/*練習：せつめいをきく：ダンスのせつめい：テーマ*/
+ev_con_reception_menu_setsumei_dance_03:
+	_TALK_KEYWAIT	msg_prac_xplain_d_04_01
+	_JUMP			ev_con_reception_menu_setsumei_dance_msg
+	_END
+
+/*練習：せつめいをきく：ダンスのせつめい：もどる*/
+ev_con_reception_menu_setsumei_dance_04:
+//	_TALK_KEYWAIT	msg_prac_xplain_d_05_01
+	_JUMP			ev_con_reception_tit_menu_01_setsumei
+	_END
+
+//--------------------------------------------------------------
+//	えんぎのせつめい
+//--------------------------------------------------------------
+/*練習：せつめいをきく：えんぎのせつめい*/
+ev_con_reception_menu_setsumei_actin_msg:
+	_TALKMSG			msg_prac_recep_06	//msg_con_reception_info_07
+ev_con_reception_menu_setsumei_actin:
+	_BMPMENU_INIT_EX	1,1,0,1,SCWK_ANSWER			//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_a_01,0			//ぜんたいのながれ
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_a_02,1			//ポケモンひょうか
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_a_03,2			//ドレスアップひょうか
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_a_04,3			//テーマ
+	_BMPMENU_MAKE_LIST	msg_prac_xplain_a_05,4			//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_con_reception_menu_setsumei_actin_00
+	_CASE_JUMP		1,ev_con_reception_menu_setsumei_actin_01
+	_CASE_JUMP		2,ev_con_reception_menu_setsumei_actin_02
+	_CASE_JUMP		3,ev_con_reception_menu_setsumei_actin_03
+	_JUMP			ev_con_reception_menu_setsumei_actin_04			//終了
+	_END
+
+/*練習：せつめいをきく：えんぎのせつめい：ぜんたいのながれ*/
+ev_con_reception_menu_setsumei_actin_00:
+	_TALK_KEYWAIT	msg_prac_xplain_a_01_01
+	_JUMP			ev_con_reception_menu_setsumei_actin_msg
+	_END
+
+/*練習：せつめいをきく：えんぎのせつめい：ポケモンひょうか*/
+ev_con_reception_menu_setsumei_actin_01:
+	_TALK_KEYWAIT	msg_prac_xplain_a_02_01
+	_JUMP			ev_con_reception_menu_setsumei_actin_msg
+	_END
+
+/*練習：せつめいをきく：えんぎのせつめい：ドレスアップひょうか*/
+ev_con_reception_menu_setsumei_actin_02:
+	_TALK_KEYWAIT	msg_prac_xplain_a_03_01
+	_JUMP			ev_con_reception_menu_setsumei_actin_msg
+	_END
+
+/*練習：せつめいをきく：えんぎのせつめい：テーマ*/
+ev_con_reception_menu_setsumei_actin_03:
+	_TALK_KEYWAIT	msg_prac_xplain_a_04_01
+	_JUMP			ev_con_reception_menu_setsumei_actin_msg
+	_END
+
+/*練習：せつめいをきく：えんぎのせつめい：もどる*/
+ev_con_reception_menu_setsumei_actin_04:
+//	_TALK_KEYWAIT	msg_prac_xplain_a_05_01
+	_JUMP			ev_con_reception_tit_menu_01_setsumei
+	_END
+
+//--------------------------------------------------------------
+//	れんしゅうって？
+//--------------------------------------------------------------
+/*練習：せつめいをきく：れんしゅうって？*/
+ev_con_reception_menu_setsumei_question:
+	_TALK_KEYWAIT	msg_prac_xplain_q_01
+	_TALKMSG			msg_prac_recep_06	//msg_con_reception_info_07
+	_JUMP			ev_con_reception_tit_menu_01_setsumei
+	_END
+
+//--------------------------------------------------------------
+//	練習：せつめいをきく：やめる
+//--------------------------------------------------------------
+/*練習：せつめいをきく：やめる*/
+ev_con_reception_menu_setsumei_yameru:
+	_TALK_KEYWAIT	msg_prac_xplain_e_01
+	_JUMP			ev_con_reception_tit_menu_common_yameru
+	_END
+
+
+/*やめる*/
+ev_con_reception_tit_menu_01_yameru:
+	_TALKMSG		msg_prac_recep_05_01	//msg_con_recep_tut_09
+	_LAST_KEYWAIT
+ev_con_reception_tit_menu_common_yameru:	/*歩き回り可能状態にする時のジャンプ先*/
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							ディスプレイ							*/
+/********************************************************************/
+ev_con_reception_disp:
+	_TALK_START
+	_CON_RECORD_DISP
+	_TALK_END
+	_END
+
+

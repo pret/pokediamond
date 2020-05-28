@@ -1,0 +1,32 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: record.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-10T20:14:21
+ *****************************************************************************/
+
+#ifndef NARC_RECORD_NAIX_
+#define NARC_RECORD_NAIX_
+
+enum {
+	NARC_record_record_s_nclr = 0,
+	NARC_record_record_s_obj_nclr = 1,
+	NARC_record_subbg_lz_ncgr = 2,
+	NARC_record_subbg_lz_nscr = 3,
+	NARC_record_obj_lz_ncgr = 4,
+	NARC_record_obj_lz_ncer = 5,
+	NARC_record_obj_lz_nanr = 6,
+	NARC_record_union_chara_nclr = 7,
+	NARC_record_union_chara2_nclr = 8,
+	NARC_record_union_chara_lz_ncgr = 9,
+	NARC_record_friend_note_lz_ncer = 10,
+	NARC_record_friend_note_lz_nanr = 11,
+	NARC_record_obj_s_lz_ncgr = 12,
+	NARC_record_obj_s_lz_ncer = 13,
+	NARC_record_obj_s_lz_nanr = 14
+};
+
+/* NARC_RECORD_NAIX_ */
+#endif

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<ita version="1.6.0">
+
+<head>
+	<create user="kei_hoshiba" host="D6DFPW1X" date="2006-06-16T12:03:50" source="untitled"/>
+	<title>Texture SRT Animation Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+</head>
+
+<body>
+
+<tex_srt_info
+	frame_size="90"
+	tool_start_frame="1"
+	tool_end_frame="90"
+	interpolation="frame"
+	tex_matrix_mode="maya"
+	compress_material="off" material_size="1 1"
+	frame_step_mode="1"
+	tolerance_tex_scale="0.100000"
+	tolerance_tex_rotate="0.100000"
+	tolerance_tex_translate="0.010000"
+/>
+
+<tex_scale_data size="1">
+	1.000000
+</tex_scale_data>
+
+<tex_rotate_data size="1">
+	0.000000
+</tex_rotate_data>
+
+<tex_translate_data size="90">
+	-1.000000 -0.996582 -0.986328 -0.970215 -0.948242 -0.921143 -0.889404 -0.853271 -0.813721 -0.770752
+	-0.725342 -0.677490 -0.627930 -0.577393 -0.525879 -0.474121 -0.422607 -0.372070 -0.322510 -0.274658
+	-0.229248 -0.186279 -0.146729 -0.110596 -0.078857 -0.051758 -0.029785 -0.013672 -0.003418 0.000000
+	-0.003174 -0.012695 -0.028076 -0.048584 -0.073975 -0.104004 -0.137939 -0.175293 -0.216064 -0.259277
+	-0.304688 -0.352051 -0.400635 -0.450195 -0.500000 -0.549805 -0.599365 -0.647949 -0.695313 -0.740723
+	-0.783936 -0.824707 -0.862061 -0.895996 -0.926025 -0.951416 -0.971924 -0.987305 -0.996826 -1.000000
+	-1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000
+	-1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000
+	-1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000 -1.000000
+</tex_translate_data>
+
+<tex_srt_anm_array size="1">
+	<tex_srt_anm index="0" material_name="lambert2">
+		<tex_scale_s frame_step="1" data_size="1" data_head="0"/>
+		<tex_scale_t frame_step="1" data_size="1" data_head="0"/>
+		<tex_rotate frame_step="1" data_size="1" data_head="0"/>
+		<tex_translate_s frame_step="1" data_size="90" data_head="0"/>
+		<tex_translate_t frame_step="1" data_size="1" data_head="29"/>
+	</tex_srt_anm>
+</tex_srt_anm_array>
+
+</body>
+
+</ita>

@@ -1,0 +1,98 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evp]
+*/
+//============================================================================================
+
+const u32 PosEv_zone_d05r0114_num = 8;
+
+const POS_EVENT_DATA PosEv_zone_d05r0114[8] =
+{
+	{
+		SCRID_POS_D05R0114_GINGAM,
+		31,
+		48,
+		1,
+		1,
+		0*0x1000,
+		0,
+		WK_SCENE_D05R0114,
+	},
+
+	{
+		SCRID_POS_D05R0114_GINGABOSS,
+		29,
+		35,
+		5,
+		1,
+		0*0x1000,
+		1,
+		WK_SCENE_D05R0114,
+	},
+
+	{
+		SCRID_POS_D05R0114_GINGAKANBU,
+		30,
+		32,
+		3,
+		1,
+		0*0x1000,
+		2,
+		WK_SCENE_D05R0114,
+	},
+
+	{
+		SCRID_POS_D05R0114_IA_BATTLE,
+		30,
+		26,
+		3,
+		1,
+		0*0x1000,
+		3,
+		WK_SCENE_D05R0114,
+	},
+
+	{
+		SCRID_POS_D05R0114_IA_STOP,
+		29,
+		31,
+		5,
+		1,
+		0*0x1000,
+		3,
+		WK_SCENE_D05R0114,
+	},
+
+	{
+		SCRID_POS_D05R0114_KANBU_STOP,
+		29,
+		36,
+		5,
+		1,
+		0*0x1000,
+		2,
+		WK_SCENE_D05R0114,
+	},
+
+	{
+		SCRID_TENKAINOFUE,
+		31,
+		52,
+		1,
+		1,
+		0*0x1000,
+		1,
+		WK_SCENE_D05R0116,
+	},
+
+	{
+		SCRID_POS_D05R0114_SPPOKE_RETRY,
+		29,
+		26,
+		5,
+		1,
+		0*0x1000,
+		5,
+		WK_SCENE_D05R0114,
+	},
+};

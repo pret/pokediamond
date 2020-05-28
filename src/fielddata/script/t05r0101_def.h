@@ -1,0 +1,13 @@
+#ifndef _T05R0101_DEF_H_
+#define _T05R0101_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_T05R0101_OLDMAN1		(1)
+#define	SCRID_T05R0101_OLDWOMAN1		(2)
+#define	SCRID_T05R0101_GIRL1		(3)
+#define	SCRID_T05R0101_KAKEJIKU		(4)
+#define	SCRID_T05R0101_FLAG_CHANGE		(5)
+#define	SCRID_T05R0101_BOOK1		(6)
+#define	SCRID_T05R0101_DATA_MAX		(6)		//最大数
+
+#endif //_T05R0101_DEF_H_

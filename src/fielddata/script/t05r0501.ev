@@ -1,0 +1,203 @@
+//====================================================================
+//								t05r0501
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_t05r0501.h"
+	.include	"../eventdata/zone_t05r0501evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_t05r0501_wall
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_t05r0501_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*							壁画									*/
+/********************************************************************/
+#define POS_T05R0501_X1	(9)
+#define POS_T05R0501_X2	(10)
+
+ev_t05r0501_wall:
+	_TALK_START
+
+	/*壁画を初めて見たとき*/
+	_IF_FLAGOFF_JUMP	FE_FRESCO_SEE,ev_t05r0501_wall_02
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_t05r0501_wall_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/*壁画を初めて見たとき*/
+ev_t05r0501_wall_02:
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_t05r0501_wall_01
+	_TALK_CLOSE
+
+	_FLAG_SET		FE_FRESCO_SEE
+	_FLAG_RESET		FV_T05_GINGABOSS
+	_LDVAL			WK_SCENE_T05,1
+
+	_FLAG_RESET		FV_T05R0501_OLDWOMAN
+	_OBJ_ADD		T05R0501_OLDWOMAN
+
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_T05R0501_X1,ev_t05r0501_pos_x1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_T05R0501_X2,ev_t05r0501_pos_x2
+	_END
+
+/*近づいてきて、壁画を見たまま*/
+ev_t05r0501_pos_x1:
+	_OBJ_ANIME		T05R0501_OLDWOMAN,anm_t05r0501_oldwoman_01
+	_OBJ_ANIME_WAIT
+
+	/*長老のほうを向く*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t05r0501_player_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_t05r0501_oldwoman1_01
+	_TALK_CLOSE
+
+	/*主人公のほうをむいて*/
+	_OBJ_ANIME		T05R0501_OLDWOMAN,anm_t05r0501_oldwoman_11
+	_OBJ_ANIME_WAIT
+
+	_CALL			t05r0501_item_get
+
+	/*退場*/
+	_OBJ_ANIME		T05R0501_OLDWOMAN,anm_t05r0501_oldwoman_21
+	_OBJ_ANIME_WAIT
+
+	_JUMP			common_t05r0501_pos
+	_END
+
+ev_t05r0501_pos_x2:
+	_OBJ_ANIME		T05R0501_OLDWOMAN,anm_t05r0501_oldwoman_02
+	_OBJ_ANIME_WAIT
+
+	/*長老のほうを向く*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_t05r0501_player_02
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_t05r0501_oldwoman1_01
+	_TALK_CLOSE
+
+	/*主人公のほうをむいて*/
+	_OBJ_ANIME		T05R0501_OLDWOMAN,anm_t05r0501_oldwoman_12
+	_OBJ_ANIME_WAIT
+
+	_CALL			t05r0501_item_get
+
+	/*退場*/
+	_OBJ_ANIME		T05R0501_OLDWOMAN,anm_t05r0501_oldwoman_22
+	_OBJ_ANIME_WAIT
+
+	_JUMP			common_t05r0501_pos
+	_END
+
+/*なみのりゲット*/
+t05r0501_item_get:
+	_TALK_KEYWAIT	msg_t05r0501_oldwoman1_02
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_HIDENMASIN03
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FV_T05_OLDWOMAN
+	_FLAG_RESET		FV_T05R0101_OLDWOMAN
+	_FLAG_SET		SYS_FLAG_T05_GINGA_EVENT
+
+	_TALK_KEYWAIT	msg_t05r0501_oldwoman1_03
+	_TALK_CLOSE
+	_RET
+
+/*共通終了処理*/
+common_t05r0501_pos:
+	_OBJ_DEL		T05R0501_OLDWOMAN
+	_TALK_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	長老のほうをむく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05r0501_player_01
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05r0501_player_02
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//長老	ちかづく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05r0501_oldwoman_01
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,5
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05r0501_oldwoman_02
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,4
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//長老	主人公を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05r0501_oldwoman_11
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05r0501_oldwoman_12
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//長老	退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_t05r0501_oldwoman_21
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,5
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_t05r0501_oldwoman_22
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,4
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,6
+	_ANIME_DATA	ACMD_END,0
+
+
+
+
+

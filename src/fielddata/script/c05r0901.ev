@@ -1,0 +1,151 @@
+//====================================================================
+//								c05r0901
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c05r0901.h"
+	//.include	"../eventdata/zone_c05r0901evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c05r0901_girl2
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							活発少女	　							*/
+/********************************************************************/
+ev_c05r0901_girl2:
+	_TALK_OBJ_START
+
+	/*イーブイを貰っていたら*/
+	_IF_FLAGON_JUMP	FE_C05R0901_POKEMON_GET,ev_c05r0901_girl2_08
+
+	/*すでに会話していたら*/
+	_IF_FLAGON_JUMP	SYS_FLAG_MIZUKI,ev_c05r0901_girl2_02
+
+	/*一度会話したフラグ立てておく*/
+	_FLAG_SET		SYS_FLAG_MIZUKI
+	
+	_TALK_KEYWAIT	msg_c05r0901_girl2_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*すでに会話していたら*/
+ev_c05r0901_girl2_02:
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c05r0901_girl2_03
+
+	_TALKMSG		msg_c05r0901_girl2_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*全国図鑑になっていたら*/
+ev_c05r0901_girl2_03:
+	//一度説明している
+	_IF_FLAGON_JUMP		FE_C05R0901_TALK,ev_c05r0901_girl2_04
+
+	_FLAG_SET		FE_C05R0901_TALK
+
+	_TALKMSG	msg_c05r0901_girl2_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c05r0901_pokemon_add_check
+	_JUMP			ev_c05r0901_girl2_07
+
+
+ev_c05r0901_girl2_04:
+	_TALKMSG	msg_c05r0901_girl2_04
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c05r0901_pokemon_add_check
+	_JUMP			ev_c05r0901_girl2_07
+
+//ポケモン追加チェック
+ev_c05r0901_pokemon_add_check:
+	//ポケモン数カウント
+	_GET_POKE_COUNT		SCWK_ANSWER
+	//6体いるなら受け取れない
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,6,ev_c05r0901_girl2_06
+
+	_TALKMSG		msg_c05r0901_girl2_05
+
+	//ポケモン番号ー＞文字バッファへ
+	_PLAYER_NAME	0
+
+	_ME_PLAY		SEQ_FANFA4
+	_TALKMSG		msg_c05r0901_girl2_09
+	_ME_WAIT
+
+	//ポケモンとして追加
+	_ADD_POKEMON	MONSNO_IIBUI,5,0,SCWK_ANSWER
+
+	_FLAG_SET		FE_C05R0901_POKEMON_GET
+
+	_TALKMSG		msg_c05r0901_girl2_10
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c05r0901_name_change_yes
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c05r0901_name_change_no
+	_END
+
+//名前変更あり
+c05r0901_name_change_yes:
+	_TALK_CLOSE
+
+	_GET_POKE_COUNT	LOCALWORK0
+	_SUB_WK			LOCALWORK0,1		//"最大数ー１"変更されたPOS
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//名前入力
+	_NAMEIN_POKE	LOCALWORK0,SCWK_ANSWER
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_OBJ_END
+	_END
+
+//名前変更なし
+c05r0901_name_change_no:
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//手持ちがいっぱい（6体）
+ev_c05r0901_girl2_06:
+	_TALKMSG		msg_c05r0901_girl2_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//いいえ
+ev_c05r0901_girl2_07:
+	_TALKMSG		msg_c05r0901_girl2_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//イーブイ入手済み
+ev_c05r0901_girl2_08:
+	_TALKMSG		msg_c05r0901_girl2_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

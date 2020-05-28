@@ -1,0 +1,729 @@
+//====================================================================
+//							隠しアイテム
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_hide_item.h"
+
+//--------------------------------------------------------------------
+//						スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//						スクリプトテーブル
+//--------------------------------------------------------------------
+//隠しアイテム最大数 = 256
+_EVENT_DATA		ev_hide_item_0
+_EVENT_DATA		ev_hide_item_1
+_EVENT_DATA		ev_hide_item_2
+_EVENT_DATA		ev_hide_item_3
+_EVENT_DATA		ev_hide_item_4
+_EVENT_DATA		ev_hide_item_5
+_EVENT_DATA		ev_hide_item_6
+_EVENT_DATA		ev_hide_item_7
+_EVENT_DATA		ev_hide_item_8
+_EVENT_DATA		ev_hide_item_9
+_EVENT_DATA		ev_hide_item_10
+_EVENT_DATA		ev_hide_item_11
+_EVENT_DATA		ev_hide_item_12
+_EVENT_DATA		ev_hide_item_13
+_EVENT_DATA		ev_hide_item_14
+_EVENT_DATA		ev_hide_item_15
+_EVENT_DATA		ev_hide_item_16
+_EVENT_DATA		ev_hide_item_17
+_EVENT_DATA		ev_hide_item_18
+_EVENT_DATA		ev_hide_item_19
+_EVENT_DATA		ev_hide_item_20
+_EVENT_DATA		ev_hide_item_21
+_EVENT_DATA		ev_hide_item_22
+_EVENT_DATA		ev_hide_item_23
+_EVENT_DATA		ev_hide_item_24
+_EVENT_DATA		ev_hide_item_25
+_EVENT_DATA		ev_hide_item_26
+_EVENT_DATA		ev_hide_item_27
+_EVENT_DATA		ev_hide_item_28
+_EVENT_DATA		ev_hide_item_29
+_EVENT_DATA		ev_hide_item_30
+_EVENT_DATA		ev_hide_item_31
+_EVENT_DATA		ev_hide_item_32
+_EVENT_DATA		ev_hide_item_33
+_EVENT_DATA		ev_hide_item_34
+_EVENT_DATA		ev_hide_item_35
+_EVENT_DATA		ev_hide_item_36
+_EVENT_DATA		ev_hide_item_37
+_EVENT_DATA		ev_hide_item_38
+_EVENT_DATA		ev_hide_item_39
+_EVENT_DATA		ev_hide_item_40
+_EVENT_DATA		ev_hide_item_41
+_EVENT_DATA		ev_hide_item_42
+_EVENT_DATA		ev_hide_item_43
+_EVENT_DATA		ev_hide_item_44
+_EVENT_DATA		ev_hide_item_45
+_EVENT_DATA		ev_hide_item_46
+_EVENT_DATA		ev_hide_item_47
+_EVENT_DATA		ev_hide_item_48
+_EVENT_DATA		ev_hide_item_49
+_EVENT_DATA		ev_hide_item_50
+_EVENT_DATA		ev_hide_item_51
+_EVENT_DATA		ev_hide_item_52
+_EVENT_DATA		ev_hide_item_53
+_EVENT_DATA		ev_hide_item_54
+_EVENT_DATA		ev_hide_item_55
+_EVENT_DATA		ev_hide_item_56
+_EVENT_DATA		ev_hide_item_57
+_EVENT_DATA		ev_hide_item_58
+_EVENT_DATA		ev_hide_item_59
+_EVENT_DATA		ev_hide_item_60
+_EVENT_DATA		ev_hide_item_61
+_EVENT_DATA		ev_hide_item_62
+_EVENT_DATA		ev_hide_item_63
+_EVENT_DATA		ev_hide_item_64
+_EVENT_DATA		ev_hide_item_65
+_EVENT_DATA		ev_hide_item_66
+_EVENT_DATA		ev_hide_item_67
+_EVENT_DATA		ev_hide_item_68
+_EVENT_DATA		ev_hide_item_69
+_EVENT_DATA		ev_hide_item_70
+_EVENT_DATA		ev_hide_item_71
+_EVENT_DATA		ev_hide_item_72
+_EVENT_DATA		ev_hide_item_73
+_EVENT_DATA		ev_hide_item_74
+_EVENT_DATA		ev_hide_item_75
+_EVENT_DATA		ev_hide_item_76
+_EVENT_DATA		ev_hide_item_77
+_EVENT_DATA		ev_hide_item_78
+_EVENT_DATA		ev_hide_item_79
+_EVENT_DATA		ev_hide_item_80
+_EVENT_DATA		ev_hide_item_81
+_EVENT_DATA		ev_hide_item_82
+_EVENT_DATA		ev_hide_item_83
+_EVENT_DATA		ev_hide_item_84
+_EVENT_DATA		ev_hide_item_85
+_EVENT_DATA		ev_hide_item_86
+_EVENT_DATA		ev_hide_item_87
+_EVENT_DATA		ev_hide_item_88
+_EVENT_DATA		ev_hide_item_89
+_EVENT_DATA		ev_hide_item_90
+_EVENT_DATA		ev_hide_item_91
+_EVENT_DATA		ev_hide_item_92
+_EVENT_DATA		ev_hide_item_93
+_EVENT_DATA		ev_hide_item_94
+_EVENT_DATA		ev_hide_item_95
+_EVENT_DATA		ev_hide_item_96
+_EVENT_DATA		ev_hide_item_97
+_EVENT_DATA		ev_hide_item_98
+_EVENT_DATA		ev_hide_item_99
+_EVENT_DATA		ev_hide_item_100
+_EVENT_DATA		ev_hide_item_101
+_EVENT_DATA		ev_hide_item_102
+_EVENT_DATA		ev_hide_item_103
+_EVENT_DATA		ev_hide_item_104
+_EVENT_DATA		ev_hide_item_105
+_EVENT_DATA		ev_hide_item_106
+_EVENT_DATA		ev_hide_item_107
+_EVENT_DATA		ev_hide_item_108
+_EVENT_DATA		ev_hide_item_109
+_EVENT_DATA		ev_hide_item_110
+_EVENT_DATA		ev_hide_item_111
+_EVENT_DATA		ev_hide_item_112
+_EVENT_DATA		ev_hide_item_113
+_EVENT_DATA		ev_hide_item_114
+_EVENT_DATA		ev_hide_item_115
+_EVENT_DATA		ev_hide_item_116
+_EVENT_DATA		ev_hide_item_117
+_EVENT_DATA		ev_hide_item_118
+_EVENT_DATA		ev_hide_item_119
+_EVENT_DATA		ev_hide_item_120
+_EVENT_DATA		ev_hide_item_121
+_EVENT_DATA		ev_hide_item_122
+_EVENT_DATA		ev_hide_item_123
+_EVENT_DATA		ev_hide_item_124
+_EVENT_DATA		ev_hide_item_125
+_EVENT_DATA		ev_hide_item_126
+_EVENT_DATA		ev_hide_item_127
+_EVENT_DATA		ev_hide_item_128
+_EVENT_DATA		ev_hide_item_129
+_EVENT_DATA		ev_hide_item_130
+_EVENT_DATA		ev_hide_item_131
+_EVENT_DATA		ev_hide_item_132
+_EVENT_DATA		ev_hide_item_133
+_EVENT_DATA		ev_hide_item_134
+_EVENT_DATA		ev_hide_item_135
+_EVENT_DATA		ev_hide_item_136
+_EVENT_DATA		ev_hide_item_137
+_EVENT_DATA		ev_hide_item_138
+_EVENT_DATA		ev_hide_item_139
+_EVENT_DATA		ev_hide_item_140
+_EVENT_DATA		ev_hide_item_141
+_EVENT_DATA		ev_hide_item_142
+_EVENT_DATA		ev_hide_item_143
+_EVENT_DATA		ev_hide_item_144
+_EVENT_DATA		ev_hide_item_145
+_EVENT_DATA		ev_hide_item_146
+_EVENT_DATA		ev_hide_item_147
+_EVENT_DATA		ev_hide_item_148
+_EVENT_DATA		ev_hide_item_149
+_EVENT_DATA		ev_hide_item_150
+_EVENT_DATA		ev_hide_item_151
+_EVENT_DATA		ev_hide_item_152
+_EVENT_DATA		ev_hide_item_153
+_EVENT_DATA		ev_hide_item_154
+_EVENT_DATA		ev_hide_item_155
+_EVENT_DATA		ev_hide_item_156
+_EVENT_DATA		ev_hide_item_157
+_EVENT_DATA		ev_hide_item_158
+_EVENT_DATA		ev_hide_item_159
+_EVENT_DATA		ev_hide_item_160
+_EVENT_DATA		ev_hide_item_161
+_EVENT_DATA		ev_hide_item_162
+_EVENT_DATA		ev_hide_item_163
+_EVENT_DATA		ev_hide_item_164
+_EVENT_DATA		ev_hide_item_165
+_EVENT_DATA		ev_hide_item_166
+_EVENT_DATA		ev_hide_item_167
+_EVENT_DATA		ev_hide_item_168
+_EVENT_DATA		ev_hide_item_169
+_EVENT_DATA		ev_hide_item_170
+_EVENT_DATA		ev_hide_item_171
+_EVENT_DATA		ev_hide_item_172
+_EVENT_DATA		ev_hide_item_173
+_EVENT_DATA		ev_hide_item_174
+_EVENT_DATA		ev_hide_item_175
+_EVENT_DATA		ev_hide_item_176
+_EVENT_DATA		ev_hide_item_177
+_EVENT_DATA		ev_hide_item_178
+_EVENT_DATA		ev_hide_item_179
+_EVENT_DATA		ev_hide_item_180
+_EVENT_DATA		ev_hide_item_181
+_EVENT_DATA		ev_hide_item_182
+_EVENT_DATA		ev_hide_item_183
+_EVENT_DATA		ev_hide_item_184
+_EVENT_DATA		ev_hide_item_185
+_EVENT_DATA		ev_hide_item_186
+_EVENT_DATA		ev_hide_item_187
+_EVENT_DATA		ev_hide_item_188
+_EVENT_DATA		ev_hide_item_189
+_EVENT_DATA		ev_hide_item_190
+_EVENT_DATA		ev_hide_item_191
+_EVENT_DATA		ev_hide_item_192
+_EVENT_DATA		ev_hide_item_193
+_EVENT_DATA		ev_hide_item_194
+_EVENT_DATA		ev_hide_item_195
+_EVENT_DATA		ev_hide_item_196
+_EVENT_DATA		ev_hide_item_197
+_EVENT_DATA		ev_hide_item_198
+_EVENT_DATA		ev_hide_item_199
+_EVENT_DATA		ev_hide_item_200
+_EVENT_DATA		ev_hide_item_201
+_EVENT_DATA		ev_hide_item_202
+_EVENT_DATA		ev_hide_item_203
+_EVENT_DATA		ev_hide_item_204
+_EVENT_DATA		ev_hide_item_205
+_EVENT_DATA		ev_hide_item_206
+_EVENT_DATA		ev_hide_item_207
+_EVENT_DATA		ev_hide_item_208
+_EVENT_DATA		ev_hide_item_209
+_EVENT_DATA		ev_hide_item_210
+_EVENT_DATA		ev_hide_item_211
+_EVENT_DATA		ev_hide_item_212
+_EVENT_DATA		ev_hide_item_213
+_EVENT_DATA		ev_hide_item_214
+_EVENT_DATA		ev_hide_item_215
+_EVENT_DATA		ev_hide_item_216
+_EVENT_DATA		ev_hide_item_217
+_EVENT_DATA		ev_hide_item_218
+_EVENT_DATA		ev_hide_item_219
+_EVENT_DATA		ev_hide_item_220
+_EVENT_DATA		ev_hide_item_221
+_EVENT_DATA		ev_hide_item_222
+_EVENT_DATA		ev_hide_item_223
+_EVENT_DATA		ev_hide_item_224
+_EVENT_DATA		ev_hide_item_225
+_EVENT_DATA		ev_hide_item_226
+_EVENT_DATA		ev_hide_item_227
+_EVENT_DATA		ev_hide_item_228
+_EVENT_DATA		ev_hide_item_229
+_EVENT_DATA		ev_hide_item_230
+_EVENT_DATA		ev_hide_item_231
+_EVENT_DATA		ev_hide_item_232
+_EVENT_DATA		ev_hide_item_233
+_EVENT_DATA		ev_hide_item_234
+_EVENT_DATA		ev_hide_item_235
+_EVENT_DATA		ev_hide_item_236
+_EVENT_DATA		ev_hide_item_237
+_EVENT_DATA		ev_hide_item_238
+_EVENT_DATA		ev_hide_item_239
+_EVENT_DATA		ev_hide_item_240
+_EVENT_DATA		ev_hide_item_241
+_EVENT_DATA		ev_hide_item_242
+_EVENT_DATA		ev_hide_item_243
+_EVENT_DATA		ev_hide_item_244
+_EVENT_DATA		ev_hide_item_245
+_EVENT_DATA		ev_hide_item_246
+_EVENT_DATA		ev_hide_item_247
+_EVENT_DATA		ev_hide_item_248
+_EVENT_DATA		ev_hide_item_249
+_EVENT_DATA		ev_hide_item_250
+_EVENT_DATA		ev_hide_item_251
+_EVENT_DATA		ev_hide_item_252
+_EVENT_DATA		ev_hide_item_253
+_EVENT_DATA		ev_hide_item_254
+_EVENT_DATA		ev_hide_item_255
+_EVENT_DATA_END				//終了
+
+
+/********************************************************************/
+//						隠しアイテム取得
+//
+//	SCWK_TEMP0	アイテムナンバー
+//	SCWK_TEMP1	個数
+//	SCWK_TEMP2	フラグナンバー
+//
+//	スクリプトにデータを渡す時に、
+//	SCWK_PARAM0,1,2も使用している！
+/********************************************************************/
+//隠しアイテム最大数 = 256
+ev_hide_item_0:
+ev_hide_item_1:
+ev_hide_item_2:
+ev_hide_item_3:
+ev_hide_item_4:
+ev_hide_item_5:
+ev_hide_item_6:
+ev_hide_item_7:
+ev_hide_item_8:
+ev_hide_item_9:
+ev_hide_item_10:
+ev_hide_item_11:
+ev_hide_item_12:
+ev_hide_item_13:
+ev_hide_item_14:
+ev_hide_item_15:
+ev_hide_item_16:
+ev_hide_item_17:
+ev_hide_item_18:
+ev_hide_item_19:
+ev_hide_item_20:
+ev_hide_item_21:
+ev_hide_item_22:
+ev_hide_item_23:
+ev_hide_item_24:
+ev_hide_item_25:
+ev_hide_item_26:
+ev_hide_item_27:
+ev_hide_item_28:
+ev_hide_item_29:
+ev_hide_item_30:
+ev_hide_item_31:
+ev_hide_item_32:
+ev_hide_item_33:
+ev_hide_item_34:
+ev_hide_item_35:
+ev_hide_item_36:
+ev_hide_item_37:
+ev_hide_item_38:
+ev_hide_item_39:
+ev_hide_item_40:
+ev_hide_item_41:
+ev_hide_item_42:
+ev_hide_item_43:
+ev_hide_item_44:
+ev_hide_item_45:
+ev_hide_item_46:
+ev_hide_item_47:
+ev_hide_item_48:
+ev_hide_item_49:
+ev_hide_item_50:
+ev_hide_item_51:
+ev_hide_item_52:
+ev_hide_item_53:
+ev_hide_item_54:
+ev_hide_item_55:
+ev_hide_item_56:
+ev_hide_item_57:
+ev_hide_item_58:
+ev_hide_item_59:
+ev_hide_item_60:
+ev_hide_item_61:
+ev_hide_item_62:
+ev_hide_item_63:
+ev_hide_item_64:
+ev_hide_item_65:
+ev_hide_item_66:
+ev_hide_item_67:
+ev_hide_item_68:
+ev_hide_item_69:
+ev_hide_item_70:
+ev_hide_item_71:
+ev_hide_item_72:
+ev_hide_item_73:
+ev_hide_item_74:
+ev_hide_item_75:
+ev_hide_item_76:
+ev_hide_item_77:
+ev_hide_item_78:
+ev_hide_item_79:
+ev_hide_item_80:
+ev_hide_item_81:
+ev_hide_item_82:
+ev_hide_item_83:
+ev_hide_item_84:
+ev_hide_item_85:
+ev_hide_item_86:
+ev_hide_item_87:
+ev_hide_item_88:
+ev_hide_item_89:
+ev_hide_item_90:
+ev_hide_item_91:
+ev_hide_item_92:
+ev_hide_item_93:
+ev_hide_item_94:
+ev_hide_item_95:
+ev_hide_item_96:
+ev_hide_item_97:
+ev_hide_item_98:
+ev_hide_item_99:
+ev_hide_item_100:
+ev_hide_item_101:
+ev_hide_item_102:
+ev_hide_item_103:
+ev_hide_item_104:
+ev_hide_item_105:
+ev_hide_item_106:
+ev_hide_item_107:
+ev_hide_item_108:
+ev_hide_item_109:
+ev_hide_item_110:
+ev_hide_item_111:
+ev_hide_item_112:
+ev_hide_item_113:
+ev_hide_item_114:
+ev_hide_item_115:
+ev_hide_item_116:
+ev_hide_item_117:
+ev_hide_item_118:
+ev_hide_item_119:
+ev_hide_item_120:
+ev_hide_item_121:
+ev_hide_item_122:
+ev_hide_item_123:
+ev_hide_item_124:
+ev_hide_item_125:
+ev_hide_item_126:
+ev_hide_item_127:
+ev_hide_item_128:
+ev_hide_item_129:
+ev_hide_item_130:
+ev_hide_item_131:
+ev_hide_item_132:
+ev_hide_item_133:
+ev_hide_item_134:
+ev_hide_item_135:
+ev_hide_item_136:
+ev_hide_item_137:
+ev_hide_item_138:
+ev_hide_item_139:
+ev_hide_item_140:
+ev_hide_item_141:
+ev_hide_item_142:
+ev_hide_item_143:
+ev_hide_item_144:
+ev_hide_item_145:
+ev_hide_item_146:
+ev_hide_item_147:
+ev_hide_item_148:
+ev_hide_item_149:
+ev_hide_item_150:
+ev_hide_item_151:
+ev_hide_item_152:
+ev_hide_item_153:
+ev_hide_item_154:
+ev_hide_item_155:
+ev_hide_item_156:
+ev_hide_item_157:
+ev_hide_item_158:
+ev_hide_item_159:
+ev_hide_item_160:
+ev_hide_item_161:
+ev_hide_item_162:
+ev_hide_item_163:
+ev_hide_item_164:
+ev_hide_item_165:
+ev_hide_item_166:
+ev_hide_item_167:
+ev_hide_item_168:
+ev_hide_item_169:
+ev_hide_item_170:
+ev_hide_item_171:
+ev_hide_item_172:
+ev_hide_item_173:
+ev_hide_item_174:
+ev_hide_item_175:
+ev_hide_item_176:
+ev_hide_item_177:
+ev_hide_item_178:
+ev_hide_item_179:
+ev_hide_item_180:
+ev_hide_item_181:
+ev_hide_item_182:
+ev_hide_item_183:
+ev_hide_item_184:
+ev_hide_item_185:
+ev_hide_item_186:
+ev_hide_item_187:
+ev_hide_item_188:
+ev_hide_item_189:
+ev_hide_item_190:
+ev_hide_item_191:
+ev_hide_item_192:
+ev_hide_item_193:
+ev_hide_item_194:
+ev_hide_item_195:
+ev_hide_item_196:
+ev_hide_item_197:
+ev_hide_item_198:
+ev_hide_item_199:
+ev_hide_item_200:
+ev_hide_item_201:
+ev_hide_item_202:
+ev_hide_item_203:
+ev_hide_item_204:
+ev_hide_item_205:
+ev_hide_item_206:
+ev_hide_item_207:
+ev_hide_item_208:
+ev_hide_item_209:
+ev_hide_item_210:
+ev_hide_item_211:
+ev_hide_item_212:
+ev_hide_item_213:
+ev_hide_item_214:
+ev_hide_item_215:
+ev_hide_item_216:
+ev_hide_item_217:
+ev_hide_item_218:
+ev_hide_item_219:
+ev_hide_item_220:
+ev_hide_item_221:
+ev_hide_item_222:
+ev_hide_item_223:
+ev_hide_item_224:
+ev_hide_item_225:
+ev_hide_item_226:
+ev_hide_item_227:
+ev_hide_item_228:
+ev_hide_item_229:
+ev_hide_item_230:
+ev_hide_item_231:
+ev_hide_item_232:
+ev_hide_item_233:
+ev_hide_item_234:
+ev_hide_item_235:
+ev_hide_item_236:
+ev_hide_item_237:
+ev_hide_item_238:
+ev_hide_item_239:
+ev_hide_item_240:
+ev_hide_item_241:
+ev_hide_item_242:
+ev_hide_item_243:
+ev_hide_item_244:
+ev_hide_item_245:
+ev_hide_item_246:
+ev_hide_item_247:
+ev_hide_item_248:
+ev_hide_item_249:
+ev_hide_item_250:
+ev_hide_item_251:
+ev_hide_item_252:
+ev_hide_item_253:
+ev_hide_item_254:
+ev_hide_item_255:
+
+	//_TALK_START
+
+	_SE_WAIT		SEQ_SE_DP_SELECT							//話しかけ開始音の終了待ち
+
+	//パラメータ保存
+	_LDWK			SCWK_TEMP0,SCWK_PARAM0						//アイテムナンバー
+	_LDWK			SCWK_TEMP1,SCWK_PARAM1						//個数
+	_LDWK			SCWK_TEMP2,SCWK_PARAM2						//フラグナンバー
+
+	//アイテムナンバーがITEM_COINならコイン取得処理へ
+	//_IFVAL_JUMP	SCWK_TEMP0,EQ,ITEM_COIN,ev_hide_item_coin
+
+	//アイテムを加えられるかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+
+	//取得結果でメッセージを分岐させる
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_itemget_hideitem_true	//成功
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_itemget_hideitem_false	//失敗
+	_END
+
+//--------------------------------------------------------------------
+//	終了
+//--------------------------------------------------------------------
+ev_hide_item_end:
+	_TALK_CLOSE
+	//_TALK_END
+	//_CHG_LOCAL_SCR											//ローカルスクリプトに切り替え
+	_END
+
+//--------------------------------------------------------------------
+//	入手成功
+//--------------------------------------------------------------------
+ev_itemget_hideitem_true:
+	_CHG_COMMON_SCR SCRID_POCKET_ME_SET
+
+	_TV_ENTRY_WATCH_HIDE_ITEM	SCWK_TEMP0
+	_ADD_ITEM		SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+
+	//入手したアイテムが技マシンかチェック
+	_WAZA_ITEM_CHK	SCWK_TEMP0,SCWK_ANSWER
+
+	//メッセージ分岐
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_itemget_hideitem_yes_wazam
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_itemget_hideitem_no_wazam
+	_END
+
+ev_itemget_hideitem_true_2:
+	//_TALK_WAIT
+	_ME_WAIT
+
+	//アウスのプレートのチェックをして専用メッセージを出す
+	_AUSU_ITEM_CHECK	SCWK_TEMP0,SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,ev_itemget_hide_item_item_ausunopureeto
+
+	_PLAYER_NAME	0
+	_ITEM_NAME		1,SCWK_TEMP0
+
+	//ポケットナンバーをSCWK_ANSWERに代入
+	_GET_POCKET_NO	SCWK_TEMP0,SCWK_ANSWER
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		BAG_POKE_EVENT,		hideitem_bag_poke_11		//
+	_CASE_JUMP		BAG_POKE_NORMAL,	hideitem_bag_poke_10		//
+	_CASE_JUMP		BAG_POKE_NUTS,		hideitem_bag_poke_15		//
+	_CASE_JUMP		BAG_POKE_DRUG,		hideitem_bag_poke_14		//
+	_CASE_JUMP		BAG_POKE_BALL,		hideitem_bag_poke_16		//
+	_CASE_JUMP		BAG_POKE_BATTLE,	hideitem_bag_poke_17		//
+	_CASE_JUMP		BAG_POKE_SEAL,		hideitem_bag_poke_13		//
+	_CASE_JUMP		BAG_POKE_WAZA,		hideitem_bag_poke_12		//
+	_END
+
+hideitem_bag_poke_10:
+	//ポケットナンバーをSCWK_ANSWERに代入
+	_GET_POCKET_NO	SCWK_TEMP0,SCWK_ANSWER
+	_POCKET_NAME	2,SCWK_ANSWER
+	_JUMP			ev_itemget_hideitem_common_10
+	_END
+
+hideitem_bag_poke_11:
+	//ポケットナンバーをSCWK_ANSWERに代入
+	_GET_POCKET_NO	SCWK_TEMP0,SCWK_ANSWER
+	_POCKET_NAME	2,SCWK_ANSWER
+	_JUMP			ev_itemget_hideitem_common_10
+	_END
+
+hideitem_bag_poke_12:
+	//ポケットナンバーをSCWK_ANSWERに代入
+	_GET_POCKET_NO	SCWK_TEMP0,SCWK_ANSWER
+	_POCKET_NAME	2,SCWK_ANSWER
+	_JUMP			ev_itemget_hideitem_common_10
+	_END
+
+hideitem_bag_poke_13:
+	//ポケットナンバーをSCWK_ANSWERに代入
+	_GET_POCKET_NO	SCWK_TEMP0,SCWK_ANSWER
+	_POCKET_NAME	2,SCWK_ANSWER
+	_JUMP			ev_itemget_hideitem_common_10
+	_END
+
+hideitem_bag_poke_14:
+	//ポケットナンバーをSCWK_ANSWERに代入
+	_GET_POCKET_NO	SCWK_TEMP0,SCWK_ANSWER
+	_POCKET_NAME	2,SCWK_ANSWER
+	_JUMP			ev_itemget_hideitem_common_10
+	_END
+
+hideitem_bag_poke_15:
+	//ポケットナンバーをSCWK_ANSWERに代入
+	_GET_POCKET_NO	SCWK_TEMP0,SCWK_ANSWER
+	_POCKET_NAME	2,SCWK_ANSWER
+	_JUMP			ev_itemget_hideitem_common_10
+	_END
+
+hideitem_bag_poke_16:
+	//ポケットナンバーをSCWK_ANSWERに代入
+	_GET_POCKET_NO	SCWK_TEMP0,SCWK_ANSWER
+	_POCKET_NAME	2,SCWK_ANSWER
+	_JUMP			ev_itemget_hideitem_common_10
+	_END
+
+hideitem_bag_poke_17:
+	//ポケットナンバーをSCWK_ANSWERに代入
+	_GET_POCKET_NO	SCWK_TEMP0,SCWK_ANSWER
+	_POCKET_NAME	2,SCWK_ANSWER
+	_JUMP			ev_itemget_hideitem_common_10
+	_END
+
+//
+ev_itemget_hideitem_common_10:
+	//隠しアイテム取得ＴＶをセット
+	//_PROGRAM		KAKUSHI_ITEM_TV_SET
+
+	//ワークの値をフラグナンバーとしてフラグセット
+	_FLAG_SET_WK	SCWK_TEMP2
+
+	_TALKMSG		msg_hide_item_get_10
+	_LAST_KEYWAIT
+
+	//最後に成功したことをSCWK_ANSWERに代入しておく！
+	_LDVAL			SCWK_ANSWER,1
+
+	_JUMP			ev_hide_item_end
+	_END
+
+//--------------------------------------------------------------------
+//	技マシンかによってメッセージ分岐
+//--------------------------------------------------------------------
+//「技マシン」
+ev_itemget_hideitem_yes_wazam:
+	_PLAYER_NAME	0
+	_ITEM_NAME		1,SCWK_TEMP0
+	_ITEM_WAZA_NAME		2,SCWK_TEMP0
+	_TALKMSG		msg_hide_item_get_07
+	_JUMP			ev_itemget_hideitem_true_2
+	_END
+
+//「技マシン」以外
+ev_itemget_hideitem_no_wazam:
+	_PLAYER_NAME	0
+	_ITEM_NAME		1,SCWK_TEMP0
+	_TALKMSG		msg_hide_item_get_04
+	_JUMP			ev_itemget_hideitem_true_2
+	_END
+
+//--------------------------------------------------------------------
+//	入手失敗
+//--------------------------------------------------------------------
+ev_itemget_hideitem_false:
+	_ITEM_NAME		0,SCWK_TEMP0
+	_TALKMSG		msg_hide_item_get_05
+	_LAST_KEYWAIT
+
+	//最後に失敗したことをSCWK_ANSWERに代入しておく！
+	_LDVAL			SCWK_ANSWER,0
+
+	_JUMP			ev_hide_item_end
+	_END
+
+//--------------------------------------------------------------------
+//アウスのプレートのチェックをして専用メッセージを出す
+//--------------------------------------------------------------------
+ev_itemget_hide_item_item_ausunopureeto:
+	_CHG_COMMON_SCR SCRID_PLATE_MSG
+	_RET
+
+

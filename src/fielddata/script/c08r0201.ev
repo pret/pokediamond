@@ -1,0 +1,385 @@
+//====================================================================
+//								c08r0201
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c08r0201.h"
+	//.include	"../eventdata/zone_c08r0201evc.h"
+	.include	"../../field/scr_ribbon.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c08r0201_week
+_EVENT_DATA_END
+
+/********************************************************************/
+/*							お洒落姉さん							*/
+/*	SCWK_PARAM2 = 先頭ポケモンの手持ち番号							*/
+/********************************************************************/
+ev_c08r0201_week:
+	_TALK_OBJ_START
+
+	//今日リボンを貰っている
+	_IF_FLAGON_JUMP		TMFLG_C08R0201_RIBBON_GET,ev_c08r0201_week_chk_01
+
+	//初日
+	_IF_FLAGON_JUMP		TMFLG_C08R0201_FIRST_DAY,ev_c08r0201_week_02
+
+	//初回
+	_IF_FLAGOFF_JUMP		FE_C08R0201_WEEK_TALK,ev_c08r0201_week_01
+
+	//先頭ポケモン番号取得
+	_FRONT_POKEMON		SCWK_PARAM2
+
+	//曜日ごとのリボンを持っている
+	_CALL		ev_c08r0201_week_rbbon_chk
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c08r0201_week_09			//持っている
+	_JUMP							ev_c08r0201_week_chk_02			//持っていない（簡易会話へ）
+
+//初回
+ev_c08r0201_week_01:
+	_FLAG_SET			FE_C08R0201_WEEK_TALK
+	_FLAG_SET			TMFLG_C08R0201_FIRST_DAY	
+
+	_TALKMSG		msg_c08r0201_week_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//初日
+ev_c08r0201_week_02:
+	_TALKMSG		msg_c08r0201_week_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//先頭のポケモンが曜日ごとのリボンを持っている
+ev_c08r0201_week_chk_01:
+//060529修正 リボンを貰った日は、「あすもまた...」のみに変更（佐藤さんからの指示です）
+//	_CALL		ev_c08r0201_week_rbbon_chk
+//	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c08r0201_week_09			//持っている
+	_JUMP								ev_c08r0201_week_08			//持っていない
+
+//リボンがあるかのチェック　SCWK_ANSWER 0:なし 1:あり
+ev_c08r0201_week_rbbon_chk:
+	//曜日チェック
+	_CHK_WEEK	SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_SUNDAY,ev_c08r0201_week_sunday_ribbon_chk
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_MONDAY,ev_c08r0201_week_monday_ribbon_chk
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_TUESDAY,ev_c08r0201_week_tuesday_ribbon_chk
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_WEDNESDAY,ev_c08r0201_week_wednesday_ribbon_chk
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_THURSDAY,ev_c08r0201_week_thursday_ribbon_chk
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_FRIDAY,ev_c08r0201_week_friday_ribbon_chk
+	_JUMP										ev_c08r0201_week_saturday_ribbon_chk
+
+ev_c08r0201_week_sunday_ribbon_chk:
+	//にっこリボン
+	_CHK_RIBBON		SCWK_ANSWER,SCWK_PARAM2,RIBBON_SINOU_NIKKO_RIBBON
+	_RET
+
+ev_c08r0201_week_monday_ribbon_chk:
+	//しゃっきリボン
+	_CHK_RIBBON		SCWK_ANSWER,SCWK_PARAM2,RIBBON_SINOU_SYAKKI_RIBBON
+	_RET
+
+ev_c08r0201_week_tuesday_ribbon_chk:
+	//どっきリボン
+	_CHK_RIBBON		SCWK_ANSWER,SCWK_PARAM2,RIBBON_SINOU_DOKKI_RIBBON
+	_RET
+
+ev_c08r0201_week_wednesday_ribbon_chk:
+	//しょんぼリボン
+	_CHK_RIBBON		SCWK_ANSWER,SCWK_PARAM2,RIBBON_SINOU_SYONBO_RIBBON
+	_RET
+
+ev_c08r0201_week_thursday_ribbon_chk:
+	//うっかリボン
+	_CHK_RIBBON		SCWK_ANSWER,SCWK_PARAM2,RIBBON_SINOU_UKKA_RIBBON
+	_RET
+
+ev_c08r0201_week_friday_ribbon_chk:
+	//すっきリボン
+	_CHK_RIBBON		SCWK_ANSWER,SCWK_PARAM2,RIBBON_SINOU_SUKKI_RIBBON
+	_RET
+
+ev_c08r0201_week_saturday_ribbon_chk:
+	//ぐっすリボン
+	_CHK_RIBBON		SCWK_ANSWER,SCWK_PARAM2,RIBBON_SINOU_GUSSU_RIBBON
+	_RET
+
+
+//取得時の共通終了メッセージ
+ev_c08r0201_week_common_ribbon_get_01:
+	_POKEMON_NAME	1,SCWK_PARAM2
+	_PLAYER_NAME	2
+
+	_TALK_KEYWAIT		msg_c08r0201_week_05
+
+	_ME_PLAY		SEQ_FANFA1
+	_TALK_KEYWAIT		msg_c08r0201_week_06
+	_ME_WAIT
+
+	_TALK_KEYWAIT		msg_c08r0201_week_07
+
+	_JUMP				ev_c08r0201_week_08
+
+
+//リボンを貰った日
+ev_c08r0201_week_08:
+	_TALKMSG		msg_c08r0201_week_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//リボンを貰った日で、先頭のポケモンがリボンをその曜日のリボンを持っている
+ev_c08r0201_week_09:
+	_POKEMON_NAME	1,SCWK_PARAM2
+	_TALKMSG		msg_c08r0201_week_09
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+
+//曜日チェック
+ev_c08r0201_week_chk_02:
+	//曜日チェック
+	_CHK_WEEK	SCWK_ANSWER
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_SUNDAY,ev_c08r0201_week_sunday
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_MONDAY,ev_c08r0201_week_monday
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_TUESDAY,ev_c08r0201_week_tuesday
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_WEDNESDAY,ev_c08r0201_week_wednesday
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_THURSDAY,ev_c08r0201_week_thursday
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,RTC_WEEK_FRIDAY,ev_c08r0201_week_friday
+	_JUMP										ev_c08r0201_week_saturday
+
+ev_c08r0201_week_sunday:
+	_TALK_KEYWAIT		msg_c08r0201_week_20
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_PMS_INPUT_SINGLE		SCWK_ANSWER, SCWK_PARAM0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,ev_c08r0201_week_common_cancel
+
+	_PMS_BUF			0,SCWK_PARAM0
+	_TALK_KEYWAIT		msg_c08r0201_week_21
+	//リボンゲット
+	_FLAG_SET			TMFLG_C08R0201_RIBBON_GET
+
+	_SET_RIBBON			SCWK_PARAM2,RIBBON_SINOU_NIKKO_RIBBON
+
+	_RIBBON_NAME		3,RIBBON_SINOU_NIKKO_RIBBON
+
+	_JUMP				ev_c08r0201_week_common_ribbon_get_01
+
+
+
+ev_c08r0201_week_monday:
+	_TALK_KEYWAIT		msg_c08r0201_week_03
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_PMS_INPUT_SINGLE		SCWK_ANSWER, SCWK_PARAM0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,ev_c08r0201_week_common_cancel
+
+	_PMS_BUF			0,SCWK_PARAM0
+
+	_TALK_KEYWAIT		msg_c08r0201_week_04
+
+	//リボンゲット
+	_FLAG_SET			TMFLG_C08R0201_RIBBON_GET
+
+	_SET_RIBBON			SCWK_PARAM2,RIBBON_SINOU_SYAKKI_RIBBON
+
+	_RIBBON_NAME		3,RIBBON_SINOU_SYAKKI_RIBBON
+
+	_JUMP				ev_c08r0201_week_common_ribbon_get_01
+
+
+ev_c08r0201_week_tuesday:
+	_TALK_KEYWAIT		msg_c08r0201_week_10
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_PMS_INPUT_SINGLE		SCWK_ANSWER, SCWK_PARAM0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,ev_c08r0201_week_common_cancel
+
+	_PMS_BUF			0,SCWK_PARAM0
+
+	_TALK_KEYWAIT		msg_c08r0201_week_11
+
+	//リボンゲット
+	_FLAG_SET			TMFLG_C08R0201_RIBBON_GET
+
+	_SET_RIBBON			SCWK_PARAM2,RIBBON_SINOU_DOKKI_RIBBON
+
+	_RIBBON_NAME		3,RIBBON_SINOU_DOKKI_RIBBON
+
+	_JUMP				ev_c08r0201_week_common_ribbon_get_01
+
+ev_c08r0201_week_wednesday:
+	_TALK_KEYWAIT		msg_c08r0201_week_12
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_PMS_INPUT_SINGLE		SCWK_ANSWER, SCWK_PARAM0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,ev_c08r0201_week_common_cancel
+
+	_PMS_BUF			0,SCWK_PARAM0
+
+	_TALK_KEYWAIT		msg_c08r0201_week_13
+
+	//リボンゲット
+	_FLAG_SET			TMFLG_C08R0201_RIBBON_GET
+
+	_SET_RIBBON			SCWK_PARAM2,RIBBON_SINOU_SYONBO_RIBBON
+
+	_RIBBON_NAME		3,RIBBON_SINOU_SYONBO_RIBBON
+
+	_JUMP				ev_c08r0201_week_common_ribbon_get_01
+
+
+ev_c08r0201_week_thursday:
+	_TALK_KEYWAIT		msg_c08r0201_week_14
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_PMS_INPUT_SINGLE		SCWK_ANSWER, SCWK_PARAM0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,ev_c08r0201_week_common_cancel
+
+	_PMS_BUF			0,SCWK_PARAM0
+
+	_TALK_KEYWAIT		msg_c08r0201_week_15
+
+	//リボンゲット
+	_FLAG_SET			TMFLG_C08R0201_RIBBON_GET
+
+	_SET_RIBBON			SCWK_PARAM2,RIBBON_SINOU_UKKA_RIBBON
+
+	_RIBBON_NAME		3,RIBBON_SINOU_UKKA_RIBBON
+
+	_JUMP				ev_c08r0201_week_common_ribbon_get_01
+
+
+ev_c08r0201_week_friday:
+	_TALK_KEYWAIT		msg_c08r0201_week_16
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_PMS_INPUT_SINGLE		SCWK_ANSWER, SCWK_PARAM0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,ev_c08r0201_week_common_cancel
+
+	_PMS_BUF			0,SCWK_PARAM0
+
+	_TALK_KEYWAIT		msg_c08r0201_week_17
+
+	//リボンゲット
+	_FLAG_SET			TMFLG_C08R0201_RIBBON_GET
+
+	_SET_RIBBON			SCWK_PARAM2,RIBBON_SINOU_SUKKI_RIBBON
+
+	_RIBBON_NAME		3,RIBBON_SINOU_SUKKI_RIBBON
+
+	_JUMP				ev_c08r0201_week_common_ribbon_get_01
+
+
+ev_c08r0201_week_saturday:
+	_TALK_KEYWAIT		msg_c08r0201_week_18
+	_AB_KEYWAIT
+	_TALK_CLOSE
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_PMS_INPUT_SINGLE		SCWK_ANSWER, SCWK_PARAM0
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP				SCWK_ANSWER,EQ,0,ev_c08r0201_week_common_cancel
+
+	_PMS_BUF			0,SCWK_PARAM0
+
+	_TALK_KEYWAIT		msg_c08r0201_week_19
+
+	//リボンゲット
+	_FLAG_SET			TMFLG_C08R0201_RIBBON_GET
+
+	_SET_RIBBON			SCWK_PARAM2,RIBBON_SINOU_GUSSU_RIBBON
+
+	_RIBBON_NAME		3,RIBBON_SINOU_GUSSU_RIBBON
+
+	_JUMP				ev_c08r0201_week_common_ribbon_get_01
+
+
+ev_c08r0201_week_common_cancel:
+	_TALKMSG		msg_c08r0201_week_22
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

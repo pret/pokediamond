@@ -1,0 +1,311 @@
+//====================================================================
+//								c06r0601
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c06r0601.h"
+	//.include	"../eventdata/zone_c06r0601evc.h"
+	.include	"../../../include/contest/contest_def.h"
+	
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c06r0601_man3
+_EVENT_DATA		ev_c06r0601_girl2
+_EVENT_DATA		ev_c06r0601_patiritusu1
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_c06r0601_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*			トレーナー兄さん(バンダナ取得イベント)					*/
+/********************************************************************/
+ev_c06r0601_man3:
+	_TALK_OBJ_START
+
+	//先頭ポケモン番号(タマゴを除く）を取得
+	_FRONT_POKEMON	SCWK_PARAM0
+
+	//全入手済みチェック
+	_IF_FLAGOFF_JUMP	FE_C06R0601_ITEM_GET_STYLE,ev_c06r0601_not_complete
+	_IF_FLAGOFF_JUMP	FE_C06R0601_ITEM_GET_BEAUTIFUL,ev_c06r0601_not_complete
+	_IF_FLAGOFF_JUMP	FE_C06R0601_ITEM_GET_CUTE,ev_c06r0601_not_complete
+	_IF_FLAGOFF_JUMP	FE_C06R0601_ITEM_GET_CLEVER,ev_c06r0601_not_complete
+	_IF_FLAGOFF_JUMP	FE_C06R0601_ITEM_GET_STRONG,ev_c06r0601_not_complete
+	
+	//全て入手している
+	_TALKMSG		msg_c06r0601_man3_11
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+	
+//まだ取得していないバンダナがある
+ev_c06r0601_not_complete:
+	_TALKMSG	msg_c06r0601_man3_01
+	_TALKMSG	msg_c06r0601_man3_02
+	
+	_CALL		ev_c06r0601_man3_style_get_check
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,TRUE,ev_c06r0601_man3_style
+	_CALL		ev_c06r0601_man3_beautiful_get_check
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,TRUE,ev_c06r0601_man3_beautiful
+	_CALL		ev_c06r0601_man3_cute_get_check
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,TRUE,ev_c06r0601_man3_cute
+	_CALL		ev_c06r0601_man3_clever_get_check
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,TRUE,ev_c06r0601_man3_clever
+	_CALL		ev_c06r0601_man3_strong_get_check
+	_IFVAL_JUMP	SCWK_ANSWER,EQ,TRUE,ev_c06r0601_man3_strong
+	
+	//パラメータが足りない
+	_TALKMSG	msg_c06r0601_man3_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//アイテムがいっぱいで受け取れない
+ev_c06r0601_man3_item_max_failed:
+	_TALKMSG	msg_c06r0601_man3_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+	
+//かっこよさバンダナ取得
+ev_c06r0601_man3_style:
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_AKAIBANDANA
+	_LDVAL			SCWK_TEMP1,1
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c06r0601_man3_item_max_failed
+	
+	_POKEMON_NAME	0,SCWK_PARAM0
+	_ITEM_NAME		1,ITEM_AKAIBANDANA
+	_TALKMSG		msg_c06r0601_man3_05
+	
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C06R0601_ITEM_GET_STYLE
+	
+	_TALKMSG		msg_c06r0601_man3_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//美しさバンダナ取得
+ev_c06r0601_man3_beautiful:
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_AOIBANDANA
+	_LDVAL			SCWK_TEMP1,1
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c06r0601_man3_item_max_failed
+	
+	_POKEMON_NAME	0,SCWK_PARAM0
+	_ITEM_NAME		1,ITEM_AOIBANDANA
+	_TALKMSG		msg_c06r0601_man3_05
+	
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C06R0601_ITEM_GET_BEAUTIFUL
+	
+	_TALKMSG		msg_c06r0601_man3_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//可愛さバンダナ取得
+ev_c06r0601_man3_cute:
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_PINKUNOBANDANA
+	_LDVAL			SCWK_TEMP1,1
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c06r0601_man3_item_max_failed
+	
+	_POKEMON_NAME	0,SCWK_PARAM0
+	_ITEM_NAME		1,ITEM_PINKUNOBANDANA
+	_TALKMSG		msg_c06r0601_man3_05
+	
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C06R0601_ITEM_GET_CUTE
+	
+	_TALKMSG		msg_c06r0601_man3_08
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//賢さバンダナ取得
+ev_c06r0601_man3_clever:
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_MIDORINOBANDANA
+	_LDVAL			SCWK_TEMP1,1
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c06r0601_man3_item_max_failed
+	
+	_POKEMON_NAME	0,SCWK_PARAM0
+	_ITEM_NAME		1,ITEM_MIDORINOBANDANA
+	_TALKMSG		msg_c06r0601_man3_05
+	
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C06R0601_ITEM_GET_CLEVER
+	
+	_TALKMSG		msg_c06r0601_man3_09
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//逞しさバンダナ取得
+ev_c06r0601_man3_strong:
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_KIIRONOBANDANA
+	_LDVAL			SCWK_TEMP1,1
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c06r0601_man3_item_max_failed
+	
+	_POKEMON_NAME	0,SCWK_PARAM0
+	_ITEM_NAME		1,ITEM_KIIRONOBANDANA
+	_TALKMSG		msg_c06r0601_man3_05
+	
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C06R0601_ITEM_GET_STRONG
+	
+	_TALKMSG		msg_c06r0601_man3_10
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	かっこよさが200以上で、まだアイテムを入手していないかチェック
+//		戻り値 SCWK_ANSWER = TRUE:入手条件を満たしている、FALSE:満たしていない
+//--------------------------------------------------------------
+ev_c06r0601_man3_style_get_check:
+	_IF_FLAGON_JUMP		FE_C06R0601_ITEM_GET_STYLE,ev_c06r0601_man3_style_get_failed
+	
+	_TEMOTI_POKE_CONTEST_STATUS_GET	SCWK_PARAM0,CONTYPE_STYLE,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,200,ev_c06r0601_man3_style_get_failed
+	
+	//条件OK
+	_LDVAL		SCWK_ANSWER,TRUE
+	_RET
+
+ev_c06r0601_man3_style_get_failed:
+	_LDVAL		SCWK_ANSWER,FALSE
+	_RET
+
+//--------------------------------------------------------------
+//	美しさが200以上で、まだアイテムを入手していないかチェック
+//		戻り値 SCWK_ANSWER = TRUE:入手条件を満たしている、FALSE:満たしていない
+//--------------------------------------------------------------
+ev_c06r0601_man3_beautiful_get_check:
+	_IF_FLAGON_JUMP		FE_C06R0601_ITEM_GET_BEAUTIFUL,ev_c06r0601_man3_beautiful_get_failed
+	
+	_TEMOTI_POKE_CONTEST_STATUS_GET	SCWK_PARAM0,CONTYPE_BEAUTIFUL,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,200,ev_c06r0601_man3_beautiful_get_failed
+	
+	//条件OK
+	_LDVAL		SCWK_ANSWER,TRUE
+	_RET
+
+ev_c06r0601_man3_beautiful_get_failed:
+	_LDVAL		SCWK_ANSWER,FALSE
+	_RET
+
+//--------------------------------------------------------------
+//	可愛さが200以上で、まだアイテムを入手していないかチェック
+//		戻り値 SCWK_ANSWER = TRUE:入手条件を満たしている、FALSE:満たしていない
+//--------------------------------------------------------------
+ev_c06r0601_man3_cute_get_check:
+	_IF_FLAGON_JUMP		FE_C06R0601_ITEM_GET_CUTE,ev_c06r0601_man3_cute_get_failed
+	
+	_TEMOTI_POKE_CONTEST_STATUS_GET	SCWK_PARAM0,CONTYPE_CUTE,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,200,ev_c06r0601_man3_cute_get_failed
+	
+	//条件OK
+	_LDVAL		SCWK_ANSWER,TRUE
+	_RET
+
+ev_c06r0601_man3_cute_get_failed:
+	_LDVAL		SCWK_ANSWER,FALSE
+	_RET
+
+//--------------------------------------------------------------
+//	かしこさが200以上で、まだアイテムを入手していないかチェック
+//		戻り値 SCWK_ANSWER = TRUE:入手条件を満たしている、FALSE:満たしていない
+//--------------------------------------------------------------
+ev_c06r0601_man3_clever_get_check:
+	_IF_FLAGON_JUMP		FE_C06R0601_ITEM_GET_CLEVER,ev_c06r0601_man3_clever_get_failed
+	
+	_TEMOTI_POKE_CONTEST_STATUS_GET	SCWK_PARAM0,CONTYPE_CLEVER,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,200,ev_c06r0601_man3_clever_get_failed
+	
+	//条件OK
+	_LDVAL		SCWK_ANSWER,TRUE
+	_RET
+
+ev_c06r0601_man3_clever_get_failed:
+	_LDVAL		SCWK_ANSWER,FALSE
+	_RET
+
+//--------------------------------------------------------------
+//	逞しさが200以上で、まだアイテムを入手していないかチェック
+//		戻り値 SCWK_ANSWER = TRUE:入手条件を満たしている、FALSE:満たしていない
+//--------------------------------------------------------------
+ev_c06r0601_man3_strong_get_check:
+	_IF_FLAGON_JUMP		FE_C06R0601_ITEM_GET_STRONG,ev_c06r0601_man3_strong_get_failed
+	
+	_TEMOTI_POKE_CONTEST_STATUS_GET	SCWK_PARAM0,CONTYPE_STRONG,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,LT,200,ev_c06r0601_man3_strong_get_failed
+	
+	//条件OK
+	_LDVAL		SCWK_ANSWER,TRUE
+	_RET
+
+ev_c06r0601_man3_strong_get_failed:
+	_LDVAL		SCWK_ANSWER,FALSE
+	_RET
+
+/********************************************************************/
+/*			活発少女												*/
+/********************************************************************/
+ev_c06r0601_girl2:
+	_EASY_OBJ_MSG	msg_c06r0601_girl2_01
+	_END
+
+/********************************************************************/
+/*			ポケモン：パチリス										*/
+/********************************************************************/
+ev_c06r0601_patiritusu1:
+	_EASY_VOICE_MSG	msg_c06r0601_patiritusu_01,MONSNO_PATIRISSU,0
+	_END
+
+/********************************************************************/
+/********************************************************************/

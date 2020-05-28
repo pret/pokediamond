@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-07-04T18:56:44" source="30f_sppoke64.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+</head>
+
+<body>
+
+<original_create user="kanako_eo" host="W00107" date="2006-07-04T18:56:44" source="30f_sppoke64.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+
+<model_info
+	pos_scale="4"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="0"
+	tex_matrix_mode="maya"
+	compress_node="none" node_size="1 1"
+	compress_material="off" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="4" xyz="-2.000000 0.000000 0.000000" whd="4.000000 4.000000 0.000000"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="sppoke12"
+		width="64" height="64" original_width="64" original_height="64"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="sppoke12"
+		path="C:/mayadata/obj/tex/sppoke12.tga"
+	>
+		<bitmap size="1024">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 bb00
+			00bb 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 7707 0000 99bb
+			bb99 0000 7077 0000 0000 0000 0000 0000
+			0000 0000 0000 0bbb 7700 8878 bb07 9999
+			9999 70bb 8788 0077 bbb0 0000 0000 0000
+			0000 0000 d000 b99a 687b 6888 9ab8 9944
+			9999 8ba9 8886 b786 a99b 000d 0000 0000
+			0000 0000 9d00 999a 887a 8888 49b8 9944
+			9999 8b99 8888 a788 a999 00d9 0000 0000
+			0000 0000 9d00 999a 8687 6888 4996 9994
+			9999 6999 8886 7868 a999 00d9 0000 0000
+			0000 0000 99d0 999a 8867 6666 9997 d999
+			999d 7999 6666 7688 a999 0d99 0000 0000
+			0000 0000 99d0 999a 66d9 7666 999b d999
+			999d b999 6667 9d66 a999 0d99 0000 0000
+			0000 0000 99d0 999a 66d9 4711 999b 9999
+			9999 b999 1174 9d66 a999 0d99 0000 0000
+			0000 0000 99d0 99b9 2daa 4111 d99b 999d
+			d999 b99d 1144 aad2 9b99 0d99 0000 0000
+			0000 0000 99d0 99b9 411a 4113 d9b4 999d
+			d999 4b9d 3114 a114 9b99 0d99 0000 0000
+			0000 0000 9d00 a9b9 44da 4114 99b4 9999
+			9999 4b99 4114 ad44 9b9a 00d9 0000 0000
+			0000 0000 ad00 ab99 44da 4444 99b4 d999
+			999d 4b99 4444 ad44 99ba 00da 0000 0000
+			0000 0000 d000 abaa 44da 4444 9d44 d999
+			999d 44d9 4444 ad44 aaba 000d 0000 0000
+			0000 0000 d100 baaa 44da cc24 9d44 9999
+			9999 44d9 42cc ad44 aaab 001d 0000 0000
+			0000 0000 2100 baad 4daa c4c1 d41c 9999
+			9999 c14d 1c4c aad4 daab 0012 0000 0000
+			0000 0000 2210 aad2 4dab ccc4 d44c d999
+			999d c44d 4ccc bad4 2daa 0122 0000 0000
+			0000 0000 11d0 ad21 4dba cc44 d444 d9aa
+			aa9d 444d 44cc abd4 12da 0d11 0000 0000
+			0000 0000 111d d111 dbad 4444 d444 aaaa
+			aaaa 444d 4444 dabd 111d d111 0000 0000
+			0000 0000 221d 1111 ddd2 5244 4445 aaad
+			daaa 5444 4425 2ddd 1111 d122 0000 0000
+			0000 0000 442d 1144 d00d 4514 4155 daad
+			daad 5514 4154 d00d 4411 d244 0000 0000
+			0000 d000 4444 d244 100d 5544 4455 daad
+			daad 5544 4455 d001 442d 4444 000d 0000
+			0000 d000 1144 d441 1000 5444 4445 aaad
+			daaa 5444 4445 0001 144d 4411 000d 0000
+			0000 d000 1114 d441 0000 4441 4444 aaad
+			daaa 4444 1444 0000 144d 4111 000d 0000
+			0000 d000 4111 1144 dddd 244d 4433 dad4
+			4dad 3344 d442 dddd 4411 1114 000d 0000
+			0000 d000 4411 d114 a99d 31da 1334 dad4
+			4dad 4331 ad13 d99a 411d 1144 000d 0000
+			0000 0000 444d 9d11 9999 3daa 4333 aad4
+			4daa 3334 aad3 9999 11d9 d444 0000 0000
+			0000 0000 442d 99d4 9999 2daa 4233 aad4
+			4daa 3324 aad2 9999 4d99 d244 0000 0000
+			0000 0000 222d 999d dd99 2dad 2222 ad44
+			44da 2222 dad2 99dd d999 d222 0000 0000
+			0000 0000 d2d0 999a 3ddd 2dd2 2222 ad22
+			22da 2222 2dd2 ddd3 a999 0d2d 0000 0000
+			0000 0000 d2d0 d9aa 2ddd 3d22 2222 d222
+			222d 2222 22d3 ddd2 aa9d 0d2d 0000 0000
+			0000 0000 ad00 dbaa dd23 d223 2213 2222
+			2222 3122 322d 32dd aabd 00da 0000 0000
+			0000 0000 ad00 ddaa d422 d22d dd33 2222
+			2222 33dd d22d 224d aadd 00da 0000 0000
+			0000 0000 ad00 2dba 444d 3dd4 00d3 dddd
+			dddd 3d00 4dd3 d444 abd2 00da 0000 0000
+			0000 0000 d000 2bba 4dd2 33d4 00d3 0000
+			0000 3d00 4d33 2dd4 abb2 000d 0000 0000
+			0000 0000 0000 dddd d444 333d 000d 0000
+			0000 d000 d333 444d dddd 0000 0000 0000
+			0000 0000 0000 0000 dddd 3333 000d 0000
+			0000 d000 3333 dddd 0000 0000 0000 0000
+			0000 0000 0000 0000 3331 3773 000d 0000
+			0000 d000 3773 1333 0000 0000 0000 0000
+			0000 0000 0000 d000 7376 7767 000d 0000
+			0000 d000 7677 6737 000d 0000 0000 0000
+			0000 0000 0000 d000 6766 6666 00dd 0000
+			0000 dd00 6666 6676 000d 0000 0000 0000
+			0000 0000 0000 6d00 6666 6766 00d6 0000
+			0000 6d00 6676 6666 00d6 0000 0000 0000
+			0000 0000 0000 6d00 6667 6667 00d6 0000
+			0000 6d00 7666 7666 00d6 0000 0000 0000
+			0000 0000 0000 dd00 6666 d666 000d 0000
+			0000 d000 666d 6666 00dd 0000 0000 0000
+			0000 0000 0000 d000 dddd dddd 0000 0000
+			0000 0000 dddd dddd 000d 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="sppoke12" color_size="16">
+		51a8 354a 62b5 45ef 7fbd 4e88 25a5 1905
+		2668 175f 1635 154c 193a 0000 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="obj"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="0 0 0"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 64.000000"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_s xyz="-2.000000 0.000000 0.000000"/>
+					<tex st="64.000000 64.000000"/>
+					<pos_xy xy="2.000000 0.000000"/>
+					<tex st="64.000000 0.000000"/>
+					<pos_xy xy="2.000000 4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-2.000000 4.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pPlane1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="on"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

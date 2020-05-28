@@ -1,0 +1,11 @@
+#ifndef _R206R0101_DEF_H_
+#define _R206R0101_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_R206R0101_FLAG_CHANGE		(1)
+#define	SCRID_R206R0101_SHOPM1		(2)
+#define	SCRID_R206R0101_STOPPER		(3)
+#define	SCRID_R206R0101_GIRL2		(4)
+#define	SCRID_R206R0101_DATA_MAX		(4)		//最大数
+
+#endif //_R206R0101_DEF_H_

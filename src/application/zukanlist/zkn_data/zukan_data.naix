@@ -1,0 +1,75 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: zukan_data.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-08-03T19:43:03
+ *****************************************************************************/
+
+#ifndef NARC_ZUKAN_DATA_NAIX_
+#define NARC_ZUKAN_DATA_NAIX_
+
+enum {
+	NARC_zukan_data_zkn_height_dat = 0,
+	NARC_zukan_data_zkn_gram_dat = 1,
+	NARC_zukan_data_zkn_form_dat = 2,
+	NARC_zukan_data_zkn_height_scale_girl_dat = 3,
+	NARC_zukan_data_zkn_height_scale_girl_poke_dat = 4,
+	NARC_zukan_data_zkn_height_scale_man_dat = 5,
+	NARC_zukan_data_zkn_height_scale_man_poke_dat = 6,
+	NARC_zukan_data_zkn_height_y_girl_dat = 7,
+	NARC_zukan_data_zkn_height_y_girl_poke_dat = 8,
+	NARC_zukan_data_zkn_height_y_man_dat = 9,
+	NARC_zukan_data_zkn_height_y_man_poke_dat = 10,
+	NARC_zukan_data_zkn_sort_zenkoku_dat = 11,
+	NARC_zukan_data_zkn_sort_shinoh_dat = 12,
+	NARC_zukan_data_zkn_sort_aiueo_dat = 13,
+	NARC_zukan_data_zkn_sort_hevy_dat = 14,
+	NARC_zukan_data_zkn_sort_light_dat = 15,
+	NARC_zukan_data_zkn_sort_tall_dat = 16,
+	NARC_zukan_data_zkn_sort_short_dat = 17,
+	NARC_zukan_data_zkn_sort_a_dat = 18,
+	NARC_zukan_data_zkn_sort_ka_dat = 19,
+	NARC_zukan_data_zkn_sort_sa_dat = 20,
+	NARC_zukan_data_zkn_sort_ta_dat = 21,
+	NARC_zukan_data_zkn_sort_na_dat = 22,
+	NARC_zukan_data_zkn_sort_ha_dat = 23,
+	NARC_zukan_data_zkn_sort_ma_dat = 24,
+	NARC_zukan_data_zkn_sort_ra_dat = 25,
+	NARC_zukan_data_zkn_sort_yawa_dat = 26,
+	NARC_zukan_data_zkn_sort_normal_dat = 27,
+	NARC_zukan_data_zkn_sort_battle_dat = 28,
+	NARC_zukan_data_zkn_sort_hikou_dat = 29,
+	NARC_zukan_data_zkn_sort_poison_dat = 30,
+	NARC_zukan_data_zkn_sort_jimen_dat = 31,
+	NARC_zukan_data_zkn_sort_iwa_dat = 32,
+	NARC_zukan_data_zkn_sort_mushi_dat = 33,
+	NARC_zukan_data_zkn_sort_ghost_dat = 34,
+	NARC_zukan_data_zkn_sort_metal_dat = 35,
+	NARC_zukan_data_zkn_sort_fire_dat = 36,
+	NARC_zukan_data_zkn_sort_water_dat = 37,
+	NARC_zukan_data_zkn_sort_kusa_dat = 38,
+	NARC_zukan_data_zkn_sort_electric_dat = 39,
+	NARC_zukan_data_zkn_sort_sp_dat = 40,
+	NARC_zukan_data_zkn_sort_koori_dat = 41,
+	NARC_zukan_data_zkn_sort_dragon_dat = 42,
+	NARC_zukan_data_zkn_sort_aku_dat = 43,
+	NARC_zukan_data_zkn_sort_fm_fourlegs_dat = 44,
+	NARC_zukan_data_zkn_sort_fm_twolegs_dat = 45,
+	NARC_zukan_data_zkn_sort_fm_tail_dat = 46,
+	NARC_zukan_data_zkn_sort_fm_harabai_dat = 47,
+	NARC_zukan_data_zkn_sort_fm_fourwing_dat = 48,
+	NARC_zukan_data_zkn_sort_fm_twowing_dat = 49,
+	NARC_zukan_data_zkn_sort_fm_haitsukubari_dat = 50,
+	NARC_zukan_data_zkn_sort_fm_straight_dat = 51,
+	NARC_zukan_data_zkn_sort_fm_arm_dat = 52,
+	NARC_zukan_data_zkn_sort_fm_legs_dat = 53,
+	NARC_zukan_data_zkn_sort_fm_maynlegs_dat = 54,
+	NARC_zukan_data_zkn_sort_fm_water_dat = 55,
+	NARC_zukan_data_zkn_sort_fm_circle_dat = 56,
+	NARC_zukan_data_zkn_sort_fm_comp_dat = 57
+};
+
+/* NARC_ZUKAN_DATA_NAIX_ */
+#endif

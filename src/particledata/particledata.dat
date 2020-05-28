@@ -1,0 +1,11 @@
+//---- コンバータ：SPAConv.exe  Version 1.13
+
+const char * const particledata_tbl[] = {
+	"wazaeffect/effectdata/w_001.spa",	//0
+	"wazaeffect/effectdata/w_249.spa",	//1
+	"wazaeffect/effectdata/vs_battle.spa",	//2
+	"wazaeffect/effectdata/con_dance.spa",	//3
+	"wazaeffect/effectdata/title_scene1.spa",	//4
+	"wazaeffect/effectdata/title_scene2.spa",	//5
+};
+

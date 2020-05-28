@@ -1,0 +1,20 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: tv.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-06T11:39:12
+ *****************************************************************************/
+
+#ifndef NARC_TV_NAIX_
+#define NARC_TV_NAIX_
+
+enum {
+	NARC_tv_list_bin = 0,
+	NARC_tv_contents_bin = 1,
+	NARC_tv_pokeitem_bin = 2
+};
+
+/* NARC_TV_NAIX_ */
+#endif

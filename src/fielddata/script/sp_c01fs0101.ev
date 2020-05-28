@@ -1,0 +1,9 @@
+//051213
+//dmy
+.text
+
+.include	"scr_seq_def.h"
+.include	"haitatu_def.h"
+
+_FLAG_CHANGE_LABEL	SCRID_HAITATU_FLAG_CHANGE
+_SP_EVENT_DATA_END

@@ -1,0 +1,22 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: dendou_demo.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-01T12:41:08
+ *****************************************************************************/
+
+#ifndef NARC_DENDOU_DEMO_NAIX_
+#define NARC_DENDOU_DEMO_NAIX_
+
+enum {
+	NARC_dendou_demo_bg_poke_lz_nscr = 0,
+	NARC_dendou_demo_bg_player_lz_nscr = 1,
+	NARC_dendou_demo_bg_mask_lz_nscr = 2,
+	NARC_dendou_demo_bg_poke_lz_ncgr = 3,
+	NARC_dendou_demo_bg_nclr = 4
+};
+
+/* NARC_DENDOU_DEMO_NAIX_ */
+#endif

@@ -1,0 +1,334 @@
+
+//============================================================================================
+/**
+ * @file	arc_tool.dat
+ * @bfief	アーカイバ用テーブルデータ定義
+ * @author	HisashiSogabe
+ * @date	05.05.30
+ */
+//============================================================================================
+
+#ifndef	__ARC_TOOL_DAT_
+#define	__ARC_TOOL_DAT_
+
+//============================================================================================
+/**
+ *	file_kindに指定するdefine定義
+ */
+//============================================================================================
+
+enum{
+	ARC_WAZA_SEQ=0,		///< 技シーケンス
+	ARC_SUB_SEQ,		///< サーバシーケンス
+	ARC_PERSONAL,		///< ポケモンパーソナルデータ
+	ARC_GROW_TBL,		///< ポケモン成長テーブル
+	ARC_POKE_GRA,		///< ポケモングラフィック
+	ARC_POKE_HEIGHT,	///< ポケモン高さ情報
+	ARC_TRB_GRA,		///< トレーナーグラフィック（背面）
+	ARC_BATT_BG,		///< 戦闘背景グラフィック
+	ARC_WAZA_EFF,		///< 技エフェクト
+	ARC_WAZA_TBL,		///< 技テーブル
+	ARC_SCRIPT,			///< マップスクリプト
+	ARC_SCRIPT_MSG,		///< マップメッセージ
+	ARC_POKETCH_IMG,	///< ポケッチ画像
+	ARC_BAG_GRA,		///< バッグ画面グラフィック
+	ARC_FONT,			///< フォントグラフィック
+	ARC_ITEMDATA,		///< アイテムデータ
+	ARC_ITEMICON,		///< アイテムアイコン
+	ARC_TMAP_GRA,		///< タウンマップ2Dグラフィック
+	ARC_BOX_GRA,		///< ボックスグラフィック
+	ARC_POKEICON,		///< ポケモンアイコン
+	ARC_PLIST_GRA,		///< ポケモンリスト
+	ARC_WER_CHAR,		///< 技エフェクトキャラ
+	ARC_WER_PLTT,		///< 技エフェクトパレット
+	ARC_WER_CELL,		///< 技エフェクトセル
+	ARC_WER_CELLANM,	///< 技エフェクトセルアニメ
+	ARC_IMAGECLIP_GRA,	///< イメージクリップグラフィック
+	ARC_MSG,			///< メッセージデータ
+	ARC_BATT_OBJ,		///< 戦闘OBJグラフィック
+	ARC_UG_RADAR_GRA,	///< 炭鉱レーダー画面グラフィックデータ
+	ARC_WAZA_PARTICLE,	///< 技エフェクト用パーティクル
+	ARC_BE_SEQ,			///< 戦闘効果シーケンス
+	ARC_NAMEIN_GRA,		///< 名前入力画面グラフィックデータ
+	ARC_EVENTDATA,		///< ゾーン毎イベントデータ
+	ARC_WOTBL,			///< 技覚えテーブルデータ
+	ARC_EVO,			///< 進化テーブルデータ
+	ARC_FONTOAM,		///< OAMフォント描画システムセルデータ
+	ARC_FIELD_BOARD,	///< 看板
+	ARC_D_ENCOUNT,		///< ダイアバージョンエンカウントデータ
+	ARC_WINFRAME,		///< 各種ウィンドウのフレームグラフィック
+	ARC_PSTATUS_GRA,	///< ポケモンステータス画面グラフィック
+	ARC_3D_STRUCT,		///< 3D配置モデル
+	ARC_MAP_MATRIX,		///< マップマトリックス
+	ARC_AREA_DATA,		///< エリアデータ
+	ARC_AREA_BUILD_MODEL,	///< エリア内使用配置モデル
+	ARC_AREA_TEX_SET,		///< エリアテクスチャセット
+	ARC_CONTEST_BG,			///< コンテストBGグラフィック
+	ARC_CONTEST_OBJ,		///< コンテストOBJグラフィック
+	ARC_UGEFFECT_GRA,		///< 地下フェード用OBJグラフィック
+	ARC_TITLE,				///< タイトル画面グラフィック
+	ARC_MMDL,				///< エリア別動作モデルリスト
+    ARC_UG_TRAP_GRA,        ///< 炭鉱罠グラフィックデータ
+	ARC_TR_CASE_GRA,        ///< トレーナーケースグラフィックデータ
+    ARC_UG_FOSSIL_GRA,      ///< 炭鉱化石グラフィックデータ
+    ARC_NTAG_GRA,			///< 木の実タグ画面グラフィックデータ
+	ARC_TRADELIST_GRA,		///< ポケモン交換リストグラフィックデータ
+    ARC_UG_PARTS_GRA,  	    ///< 炭鉱化石パーツグラフィックデータ
+    ARC_OPENING_GRA,		///< オープニンググラフィックデータ
+    ARC_TRDATA,				///< エンカウントトレーナーデータ
+    ARC_TRPOKE,				///< エンカウントトレーナー持ちポケモンデータ
+    ARC_TRTBL,				///< エンカウントトレーナーメッセージテーブルデータ
+	ARC_TRF_GRA,			///< トレーナーグラフィック（正面）
+	ARC_PARTICLE_DATA,		///< アプリ用パーティクル
+    ARC_SHOP_GRA,			///< ショップ画面グラフィック
+    ARC_WAZA_EFF_SUB,		///< 状態異常などのエフェクト用
+    ARC_UG_ANIM_GRA,	    ///< 地下化石掘りのアニメ
+    ARC_WEATHER_SYS_GRA,	///< 天気システムグラフィック
+	ARC_MENU_GRA,			///< メニューグラフィック
+	ARC_FIELD_MAP_DATA,		///< フィールドマップデータ
+	ARC_NUTSDATA,			///< 木の実データ
+	ARC_ZUKAN_GRA,			///< 図鑑グラフィックデータ
+	ARC_POKEFOOT_GRA,		///< ポケモン足跡グラフィックデータ
+	ARC_BM_TEX_SET,			///< 配置モデルテクスチャセット
+	ARC_BPLIST_GRA,			///< 戦闘用ポケモンリストグラフィック
+	ARC_CONFIG_GRA,			///< コンフィグ画面2Dリソース
+	ARC_UNIONROOM_GRA,		///< ユニオンルームサブ画面用グラフィック
+	ARC_ZUKAN_DATA,			///< 図鑑データ
+	ARC_PMSI_GRAPHIC,		///< 簡易会話入力画面グラフィックデータ
+	ARC_BBAG_GRA,			///< 戦闘用バッググラフィック
+	ARC_OEKAKI_GRA,			///< お絵かきボードグラフィック
+	ARC_MAIL_GRA,			///< メール画面グラフィックデータ
+	ARC_FNOTE_GRA,			///< 冒険ノート画面グラフィック
+	ARC_MMODEL,				///< フィールドOBJ動作モデルグラフィックデータ
+	ARC_EV_POKESELECT_GRA,	///< ポケモンセレクト画面
+	ARC_PORUTO_GRA,			///< ポルトケース画面グラフィック
+	ARC_TOUCH_SUBWINDOW_GRA,///< サブ画面　触れるウィンドウグラフィック
+	ARC_FLDCOMACT_GRA,		///< フィールドコモンアクター
+	ARC_RECORD_GRA,			///< レコードコーナー用画像データ
+	ARC_PORUDEMO_GRA,		///< ポルトデモグラフィック
+	ARC_PORUACT_GRA,		///< ポルトOAMグラフィック
+	ARC_WIFINOTE_GRA,       ///< WIFIともだち手帳グラフィック
+	ARC_CONTEST_DATA,		///< コンテスト用外部データ
+	ARC_CUSTOM_BALL_GRA,	///< カスタムボール用
+	ARC_WIFIP2PMATCH_GRA,       ///< WIFIP2Pマッチンググラフィック
+	ARC_DEMO_TRADE_GRA,		///< ポケモン交換デモグラフィック
+	ARC_POKE_ANM,			///<ポケモンアニメ
+	ARC_MYSIGN_GRA,			///<自分サイン作成画面グラフィック
+	ARC_MMODEL_LIST,		///<動作モデル割り振りデータ
+	ARC_FIELD_CUTIN_GRA,	///<フィールドカットイングラフィック
+	ARC_FIELD_DEMO_CLI_GRA,	///<climaxデモグラフィックデータ
+	ARC_BALL_PARTICLE,		///< ボールエフェクト用パーティクル
+	ARC_SAMPLE_PARTICLE,	///< エフェクト用パーティクル
+	ARC_DENDOU_PC_GRA,		///< 殿堂入りPC画面グラフィック
+	ARC_WIFI_EARCH_PLACE,	///< WI-FI地球画面の地域データ
+	ARC_TR_AI,				///< トレーナーAI
+	ARC_WORLDTRADE_GRA,		///< wifi世界交換グラフィック
+	ARC_DENDOU_DEMO,		///< 殿堂入りデモグラフィック
+	ARC_ENCDATA_EX,			///< 特殊エンカウント関連
+	ARC_FLDEFF,				///< フィールドエフェクト関連
+	ARC_VS_DEMO_GRA,		///< 通信対戦開始デモグラフィック
+	ARC_POKE_ZUKAN,			///< 全国図鑑ナンバーからシンオウ図鑑ナンバーを引くテーブル
+	ARC_BM_ANM,				///< 3Ｄモデリングデータアニメ
+	ARC_BM_ANM_LIST,		///< 3Ｄモデリングデータアニメリスト
+	ARC_ENCOUNTEFFECT,		///< エンカウントエフェクト
+	ARC_WAZAOSHIE_GRA,		///< 技教え/思い出し画面グラフィック
+	ARC_POKE_ANM_TBL,		///< ポケモンアニメーションテーブル
+	ARC_FIELD_TRADE_POKE,	///< ゲーム内ポケモン交換データ
+	ARC_MYSTERY_GRA,		///< ふしぎなできごと用画像データ
+	ARC_OTHER_POKE,			///< 複数フォルムを持つポケモングラフィックデータ
+	ARC_EGGDEMO_GRA,		///< たまごデモ
+	ARC_EGGDEMO_PARTICLE,	///< たまごデモ
+	ARC_SHIP_DEMO,			///< 船デモ
+	ARC_OTHER_HEIGHT,		///< 複数フォルムを持つポケモンの高さ情報
+	ARC_NUTMIXER_GRA,		///< 木の実ミキサー　画像
+	ARC_BTOWER_APP,			///< バトルタワーアプリ2Dグラフィック
+	ARC_SHINKA_DEMO,		///< 進化デモパーティクル
+	ARC_INTRO,				///< 新規開始導入部
+	ARC_TV,					///< テレビ番組データ
+	ARC_ENDING,				///< エンディングデモグラフィック
+	ARC_OP_DEMO,			///< オープニングデモ
+	ARC_WIFI_EARTH,			///< WI-FI地球画面
+	ARC_RANKING_GRA,		///< ギネスランキング画像
+	ARC_PPARK_DATA,			///< ポケパーク用得点データなど
+	ARC_SYOUJYOU,			///< 表彰状
+	ARC_SLOT,				///< ミニゲーム　スロット
+	ARC_BTD_TR,				///< バトルタワートレーナーデータ
+	ARC_BTD_PM,				///< バトルタワーポケモンデータ
+	ARC_INTRO_TV,			///< 新規開始導入部(TV)
+	ARC_TRTBL_OFS,			///< トレーナーメッセージ検索用テーブル
+	ARC_POKE_YOFS,			///< ポケモン高さ情報
+	ARC_ZUKAN_ENC_DIAMOND,	///< ダイヤエンカウント図鑑データ
+	ARC_ZUKAN_ENC_PEARL,	///< パールエンカウント図鑑データ
+	ARC_HIDEN_EFFECT,		///< フィールド秘伝技エフェクトグラフィック
+	ARC_POKE_SHADOW,		///< ポケモン影サイズ
+	ARC_P_ENCOUNT,			///< パールバージョンエンカウントデータ
+	ARC_POKE_SHADOW_OFX,	///< ポケモン影Xオフセット
+	ARC_SHIN_ZUKAN,			///< シンオウ図鑑ナンバーから全国図鑑ナンバーを取得
+};
+
+#ifdef	__ARC_TOOL_DAT_TBL_
+
+//============================================================================================
+/**
+ * アーカイブファイルのテーブル定義
+ */
+//============================================================================================
+static const char*	ArchiveFileTable[]={
+	{"battle/skill/waza_seq.narc"},				///< 技シーケンス
+	{"battle/skill/sub_seq.narc"},				///< サーバシーケンス
+#if (PM_VERSION==VERSION_DIAMOND)
+	{"poketool/personal/personal.narc"},		///< ポケモンパーソナルデータ
+#else
+	{"poketool/personal_pearl/personal.narc"},		///< ポケモンパーソナルデータ
+#endif
+	{"poketool/personal/growtbl.narc"},			///< ポケモン成長テーブル
+	{"poketool/pokegra/pokegra.narc"},			///< ポケモングラフィック
+	{"poketool/pokegra/height.narc"},			///< ポケモン高さ情報
+	{"poketool/trgra/trbgra.narc"},				///< トレーナーグラフィック（背面）
+	{"battle/graphic/batt_bg.narc"},			///< 戦闘背景グラフィック
+	{"wazaeffect/we.arc"},						///< 技エフェクト
+	{"poketool/waza/waza_tbl.narc"},			///< 技テーブルデータ
+	{"fielddata/script/scr_seq.narc"},			///< マップスクリプトデータ
+	{"msgdata/scenario/scr_msg.narc"},			///< マップスクリプトメッセージデータ
+	{"graphic/poketch.narc"},					///< ポケッチ画像データ
+	{"graphic/bag_gra.narc"},					///< バッグ画面グラフィック
+	{"graphic/font.narc"},						///< フォントグラフィック
+	{"itemtool/itemdata/item_data.narc"},		///< アイテムデータ
+	{"itemtool/itemdata/item_icon.narc"},		///< アイテムアイコン
+	{"graphic/tmap_gra.narc"},					///< タウンマップ2Dグラフィック
+	{"graphic/box.narc"},						///< ボックスグラフィック
+	{"poketool/icongra/poke_icon.narc"},		///< ポケモンアイコン
+	{"graphic/plist_gra.narc"},					///< ポケモンリスト画面グラフィック
+	{"wazaeffect/effectclact/wechar.narc"},		///< 技エフェクトキャラ
+	{"wazaeffect/effectclact/wepltt.narc"},		///< 技エフェクトパレット
+	{"wazaeffect/effectclact/wecell.narc"},		///< 技エフェクトセル
+	{"wazaeffect/effectclact/wecellanm.narc"},	///< 技エフェクトセルアニメ
+	{"graphic/imageclip.narc"},					///< イメージクリップグラフィック
+	{"msgdata/msg.narc"},						///< メッセージデータ
+	{"battle/graphic/batt_obj.narc"},			///< 戦闘OBJグラフィック
+	{"data/underg_radar.narc"},					///< 炭鉱レーダー画面グラフィックデータ
+	{"wazaeffect/effectdata/waza_particle.narc"},	///< 技エフェクト用パーティクル
+	{"battle/skill/be_seq.narc"},				//戦闘効果シーケンス
+	{"data/namein.narc"},						///< 名前入力画面グラフィックデータ
+	{"fielddata/eventdata/zone_event.narc"},	///< ゾーン毎イベントデータ
+	{"poketool/personal/wotbl.narc"},			///< 技覚えテーブルデータ
+	{"poketool/personal/evo.narc"},				///< 進化テーブルデータ
+	{"graphic/fontoam.narc"},					///< OAMフォント描画システムセルデータ
+	{"graphic/field_board.narc"},				///< 看板
+	{"fielddata/encountdata/d_enc_data.narc"},		///< ダイヤバージョンエンカウントデータ
+	{"graphic/winframe.narc"},					///< 各種ウィンドウのフレームグラフィック
+	{"graphic/pst_gra.narc"},					///< ポケモンステータス画面グラフィック
+	{"fielddata/build_model/build_model.narc"},					///< 3D配置モデル
+	{"fielddata/mapmatrix/map_matrix.narc"},					///< マップマトリックス
+	{"fielddata/areadata/area_data.narc"},	///< エリアデータ
+	{"fielddata/areadata/area_build_model/area_build.narc"},	///< エリア内使用配置モデル
+	{"fielddata/areadata/area_map_tex/map_tex_set.narc"},	///< エリアテクスチャセット
+	{"contest/graphic/contest_bg.narc"},			///< コンテストBGグラフィック
+	{"contest/graphic/contest_obj.narc"},			///< コンテストOBJグラフィック
+	{"data/ugeffect_obj_graphic.narc"},				///< 地下フェード用OBJグラフィック
+	{"demo/title/titledemo.narc"},				///< タイトル画面グラフィック
+	{"fielddata/areadata/area_move_model/move_model_list.narc"},///< エリア別動作モデルリスト
+	{"data/ug_trap.narc"},					    ///< 炭鉱罠グラフィックデータ
+	{"graphic/trainer_case.narc"},					///< トレーナーケースグラフィックデータ
+	{"data/ug_fossil.narc"},					    ///< 炭鉱化石グラフィックデータ
+    {"graphic/ntag_gra.narc"},			      ///< 木の実タグ画面グラフィックデータ
+	{"data/tradelist.narc"},					    ///< ポケモン交換リストグラフィックデータ
+	{"data/ug_parts.narc"},					    ///< 炭鉱化石パーツグラフィックデータ
+	{"graphic/opening.narc"},						///< オープニンググラフィックデータ
+	{"poketool/trainer/trdata.narc"},			///< エンカウントトレーナーデータ
+	{"poketool/trainer/trpoke.narc"},			///< エンカウントトレーナー持ちポケモンデータ
+	{"poketool/trmsg/trtbl.narc"},				///< エンカウントトレーナーメッセージテーブルデータ
+	{"poketool/trgra/trfgra.narc"},				///< トレーナーグラフィック（正面）
+	{"particledata/particledata.narc"},	///< アプリ用パーティクルデータ
+    {"graphic/shop_gra.narc"},					///< ショップ画面グラフィック
+	{"wazaeffect/we_sub.narc"},						///< 技エフェクト
+	{"data/ug_anim.narc"},					    ///< 炭鉱化石アニメグラフィックデータ
+	{"data/weather_sys.narc"},					    ///< 天気システムグラフィック
+	{"graphic/menu_gra.narc"},					///< メニューグラフィック
+	{"fielddata/land_data/land_data.narc"},			///< フィールドマップデータ
+	{"itemtool/itemdata/nuts_data.narc"},			///< 木の実データ
+	{"graphic/zukan.narc"},						///< 図鑑グラフィックデータ
+	{"poketool/pokefoot/pokefoot.narc"},			///< ポケモン足跡グラフィックデータ
+	{"fielddata/areadata/area_build_model/areabm_texset.narc"},	///< 配置モデルテクスチャセット
+	{"battle/graphic/b_plist_gra.narc"},		///< 戦闘用ポケモンリストグラフィック
+	{"graphic/config_gra.narc"},	///< コンフィグ画面2Dリソース
+	{"graphic/unionroom.narc"},					///< ユニオンルームサブ画面グラフィック
+	{"application/zukanlist/zkn_data/zukan_data.narc"},	///< 図鑑データ						
+	{"graphic/pmsi.narc"},						///< 簡易会話入力画面グラフィックデータ     
+	{"battle/graphic/b_bag_gra.narc"},			///< 戦闘用バッググラフィック               
+	{"graphic/oekaki.narc"},					///< お絵かきボードグラフィック             
+	{"graphic/mail_gra.narc"},					///< メール画面グラフィックデータ           
+	{"graphic/f_note_gra.narc"},				///< 冒険ノート画面グラフィック
+	{"data/mmodel/mmodel.narc"},				///< フィールドOBJ動作モデルグラフィックデータ
+	{"graphic/ev_pokeselect.narc"},				///< ポケモン選択画面
+	{"graphic/poru_gra.narc"},				///< ポルト画面グラフィック
+	{"graphic/touch_subwindow.narc"},			///< サブ画面　触れるウィンドウグラフィック
+	{"graphic/fld_comact.narc"},				///< フィールドコモンアクターグラフィック
+	{"graphic/record.narc"},					///< レコードコーナーグラフィック
+	{"graphic/porudemo.narc"},				///< ポルトデモグラフィック
+	{"graphic/poruact.narc"},				///< ポルトOAMグラフィック
+	{"data/wifinote.narc"},				///< WIFIともだち手帳グラフィック
+	{"contest/data/contest_data.narc"},			///< コンテスト外部データ
+	{"application/custom_ball/data/cb_data.narc"},				///< カスタムボール用
+	{"data/wifip2pmatch.narc"},				///< WIFIP2Pマッチンググラフィック
+	{"graphic/demo_trade.narc"},				///< ポケモン交換デモグラフィック
+	{"pokeanime/poke_anm.narc"},			///<ポケモンアニメ
+	{"graphic/mysign.narc"},				///< 自分サイン作成画面グラフィック
+	{"fielddata/mm_list/move_model_list.narc"},	///<動作モデル割り振りデータ
+	{"data/field_cutin.narc"},	///<フィールドカットイングラフィック
+	{"data/demo_climax.narc"},	///<フィールドclimaxデモグラフィック
+	{"wazaeffect/effectdata/ball_particle.narc"},	///< ボールエフェクト用パーティクル
+	{"wazaeffect/pt_debug/debug_particle.narc"},	///< ボールエフェクト用パーティクル
+	{"graphic/dendou_pc.narc"},					///< 殿堂入りＰＣ画面
+	{"application/wifi_earth/wifi_earth_place.narc"},	///< WI-FI地球画面の地域データ
+	{"battle/tr_ai/tr_ai_seq.narc"},				///< トレーナーAI
+	{"graphic/worldtrade.narc"},			///< wifi世界交換グラフィック
+	{"graphic/dendou_demo.narc"},				///< 殿堂入りデモグラフィック
+	{"arc/encdata_ex.narc"},				///<特殊エンカウント関連
+	{"data/mmodel/fldeff.narc"},				///< フィールドエフェクト関連
+	{"battle/graphic/vs_demo_gra.narc"},		///< 通信対戦開始デモグラフィック
+	{"poketool/pokezukan.narc"},			///< 全国図鑑ナンバーからシンオウ図鑑ナンバーを引くテーブル
+	{"arc/bm_anime.narc"},					///< 3Ｄモデリングデータアニメ
+	{"arc/bm_anime_list.narc"},				///< 3Ｄモデリングデータアニメリスト
+	{"graphic/field_encounteffect.narc"},	///< エンカウントエフェクト
+	{"graphic/waza_oshie_gra.narc"},		///< 技教え/思い出し画面グラフィック
+	{"poketool/pokeanm/pokeanm.narc"},		///< ポケモンアニメーションテーブル
+	{"fielddata/pokemon_trade/fld_trade.narc"},		///< ゲーム内ポケモン交換データ
+	{"graphic/mystery.narc"},			///< ふしぎなできごと用画像データ
+	{"poketool/pokegra/otherpoke.narc"},			///< 複数フォルムを持つポケモングラフィックデータ
+	{"demo/egg/data/egg_data.narc"},	///< たまごデータ
+	{"demo/egg/data/particle/egg_demo_particle.narc"},	///< たまごデータ
+	{"arc/ship_demo.narc"},	///< 船デモデータ
+	{"poketool/pokegra/height_o.narc"},			///< ポケモン高さ情報
+	{"graphic/nutmixer.narc"},			///< 木の実ミキサーグラフィック
+	{"graphic/btower.narc"},			///< バトルタワーアプリ2Dグラフィック
+	{"demo/shinka/data/particle/shinka_demo_particle.narc"},	///< 進化デモパーティクルデータ
+	{"demo/intro/intro.narc"},				///< 新規開始導入部
+	{"arc/tv.narc"},				///< テレビ番組データ
+	{"graphic/ending.narc"},			///< エンディングデモグラフィック
+	{"demo/title/op_demo.narc"},		///< オープニングデモ
+	{"application/wifi_earth/wifi_earth.narc"},		///< WI-FI地球画面
+	{"graphic/ranking.narc"},		///< ギネスランキング画像
+	{"arc/ppark.narc"},				///< ポケパーク用得点データなど
+	{"demo/syoujyou/syoujyou.narc"},				///< 表彰状
+	{"data/slot.narc"},
+	{"battle/b_tower/btdtr.narc"},				///< バトルタワートレーナーデータ
+	{"battle/b_tower/btdpm.narc"},				///< バトルタワーポケモンデータ
+	{"demo/intro/intro_tv.narc"},				///< 新規開始導入部(TV)
+	{"poketool/trmsg/trtblofs.narc"},				///< トレーナーメッセージ検索用テーブル
+	{"poketool/pokegra/poke_yofs.narc"},		///< ポケモン高さ情報
+	{"application/zukanlist/zkn_data/zukan_enc_diamond.narc"},	///< 図鑑データ						
+	{"application/zukanlist/zkn_data/zukan_enc_pearl.narc"},	///< 図鑑データ						
+	{"graphic/hiden_effect.narc"},		///< フィールド秘伝技エフェクト
+	{"poketool/pokegra/poke_shadow.narc"},		///< ポケモン影サイズ
+	{"fielddata/encountdata/p_enc_data.narc"},		///< パールバージョンエンカウントデータ
+	{"poketool/pokegra/poke_shadow_ofx.narc"},		///< ポケモン影Xオフセット
+	{"poketool/shinzukan.narc"},					///<シンオウ図鑑ナンバーから全国図鑑ナンバーを引くテーブル
+};
+
+#endif	__ARC_TOOL_DAT_TBL_
+
+#endif	__ARC_TOOL_DAT_
+
+
+

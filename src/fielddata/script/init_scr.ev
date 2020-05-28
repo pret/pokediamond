@@ -1,0 +1,202 @@
+//====================================================================
+//								init_scr
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_init_script
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						ゲーム開始スクリプト 						*/
+/*											 						*/
+/*	※非常駐プログラム類の呼び出しは禁止	 						*/
+/********************************************************************/
+ev_init_script:
+
+/*******************************************/
+	//デバック
+	//_LDVAL			WK_SCENE_D29R0102,1		/*デバック*/
+/*******************************************/
+
+	//R201
+	_FLAG_SET		FV_R201_SUPPORT
+	_FLAG_SET		FV_R201_DOCTOR
+
+	/*湖*/
+	_FLAG_SET		FV_D27R0101_POKE
+	_FLAG_SET		FV_D27R0101_KABAN
+	//_FLAG_SET		FV_D27R0101_GKANBU1	//本当は2Dエディタで削除してよい
+	_FLAG_SET		FV_L01_RIVAL
+	//_FLAG_SET		FV_D27R0101_GKANBU
+
+	/*湖の伝説ポケモン*/
+	_FLAG_SET		FV_D27R0103_AI
+	_FLAG_SET		FV_D28R0103_HAI
+	_FLAG_SET		FV_D29R0103_REI
+	_FLAG_SET		FV_D27R0103_DOCTOR
+
+	_FLAG_SET		FV_D29R0101_RIVAL
+	_FLAG_SET		FV_D29R0102_GKANBU2
+
+	/*コトブキタウン*/
+	_FLAG_SET		FV_T01_RIVAL
+	_FLAG_SET		FV_T01R0201_RIVALMAMA
+	_LDVAL			WK_SCENE_T01,1			/*ライバルぶつかりイベントが別になったため*/
+
+	//マサゴタウン
+	_FLAG_SET		FV_T02_RIVAL
+	_FLAG_SET		FV_T02R0101_OOKIDO
+
+	/*ソノオタウン(イベント変更にともない削除 06.04.06)*/
+	_FLAG_SET		FV_T03_GINGABOSS
+	_LDVAL			WK_SCENE_T03,1	
+
+	_FLAG_SET		FV_D02R0101_BABYGIRL1
+
+	/*ハクタイの森*/
+	_FLAG_SET		FV_D03R0101_LEADER
+
+	/*カンナギタウン*/
+	_FLAG_SET		FV_T05_GINGABOSS
+	_FLAG_SET		FV_T05R0501_OLDWOMAN
+	_FLAG_SET		FV_T05R0101_OLDWOMAN
+
+	//コトブキシティ
+	_FLAG_SET		FV_C01_SUPPORT
+	_FLAG_SET		FV_C01_DOCTOR
+	_FLAG_SET		FV_C01_GINGA
+	_FLAG_SET		FV_C01_POKETCH
+	_FLAG_SET		FV_C01R0101_POKETCH
+	_FLAG_SET		FV_C01_CROWN
+	_FLAG_SET		FV_C01_SUNGLASSES
+
+	/*ミオシティ*/
+	_FLAG_SET		FV_C02_SUPPORT
+	_FLAG_SET		FV_C02_DOCTOR
+	_FLAG_SET		FV_C02_RIVAL
+	_FLAG_SET		FV_C02_SEAMAN
+	_FLAG_SET		FV_C02R0103_SUPPORT
+	_FLAG_SET		FV_C02R0103_DOCTOR
+	_FLAG_SET		FV_C02R0103_RIVAL
+
+	//クロガネシティ
+	_FLAG_SET		FV_C03_BOY1
+
+	/*秘伝「いわくだき」POS*/
+	_LDVAL			WK_SCENE_D14R0101,1
+
+	/*ハクタイシティ*/
+	_FLAG_SET		FV_C04_CHAMP
+	_FLAG_SET		FV_C04PC0101_GONBE
+	_FLAG_SET		FV_C04R0101_PIPPI
+	_FLAG_SET		FV_C04R0101_MIDDLEM
+	//_FLAG_SET		FV_C04R0101_POKE
+	_FLAG_SET		FV_C04R0601_OOKIDO
+
+	//ヨスガシティ
+	_FLAG_SET		FV_C05_POKE
+	_FLAG_SET		FV_C05_JUDGE
+	_FLAG_SET		FV_C05_CHAMP
+	_FLAG_SET		FV_C05_RIVAL
+
+	//バグ対処見送り(06.07.23)
+	//_FLAG_SET		FV_C05_EGG		/*タマゴくれる人*/
+
+	//ノモセシティ
+	_FLAG_SET		FV_C06_RIVAL
+	_FLAG_SET		FV_R213_GINGAM
+	
+	//トバリシティ
+	_FLAG_SET		FV_D26R0101_GKANBU
+	_FLAG_SET		FV_C07_GINGAM_3
+	_FLAG_SET		FV_FLD_ITEM_238
+
+	_FLAG_SET		FV_R207_SUPPORT
+
+	/*ポケモンリーグ*/
+	_FLAG_SET		FV_C10R0101_RIVAL
+
+	/*発電所*/
+	_FLAG_SET		FV_D13R0101_ITEM
+
+	//バトルタワー
+	_FLAG_SET		FV_D31R0205_TRAINER
+	_FLAG_SET		FV_D31R0201_PRIZEMAN
+
+	_FLAG_SET		FV_D31_TOWERBOSS
+	_FLAG_SET		FV_D31_RIVAL
+
+	/*５人衆*/
+	_FLAG_SET		FV_T06R0101_SEVEN2
+
+	/*火山*/
+	_FLAG_SET		FV_D16R0103_RIVAL
+	_FLAG_SET		FV_D16R0103_HIIDORAN
+
+	/*育て屋*/
+	_FLAG_SET		FV_T04R0101_SUNGLASSES
+
+	_FLAG_SET		FV_T04R0501_BABYBOY1
+
+	/*C09*/
+	_FLAG_SET		FV_C09_GYMLEADER
+
+	/*L02*/
+	_FLAG_SET		FV_L02_CHAMP
+	_FLAG_SET		FV_L02_GINGAM_1
+
+	/*L03*/
+	_FLAG_SET		FV_L03_GINGAM
+
+	_FLAG_SET		FV_R210A_CHAMP
+
+	//L02R0101
+	_FLAG_SET		FV_L02R0201_WOMAN2
+
+	/*大きさ比べの記録初期化*/
+	_OOKISA_KURABE_INIT
+
+	/*ポケモンくじ乱数初期化*/
+	_KUJI_ATARI_INIT
+
+	/*レベルジジイ初期化*/
+	_LEVEL_JIJII_INIT
+
+	/*D24R0201*/
+	_FLAG_SET		FV_D24R0201_LEADER
+	
+	/*C02R0501*/
+	_FLAG_SET		FV_C02R0501_SEAMAN
+	
+	/*R224*/
+	_FLAG_SET		FV_R224_OOKIDO
+
+	/*D15R0101*/
+	_FLAG_SET		FV_FLD_ITEM_92
+
+	/*スロットレンチャン数を９へ*/
+	_LDVAL			SYS_WORK_RENSYOU_COUNT,9
+
+	/*D17R0104のアイテムボール*/
+	_FLAG_SET		FV_D17R0104_ITEM
+
+	/*C05R1001お料理教室のインタビュアー*/
+	_FLAG_SET		FV_TV_INTERVIEW_11
+
+	/*テンガンザン*/
+	_FLAG_SET		FV_D05R0112_GINGAW
+
+	_END
+
+

@@ -1,0 +1,1727 @@
+//====================================================================
+//					フィールド・シティ０1
+//						コトブキシティ
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c01.h"
+	.include	"../eventdata/zone_c01evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c01_flag_change
+_EVENT_DATA		pos_c01_support
+_EVENT_DATA		pos_c01_assistantm
+_EVENT_DATA		pos_c01_doctor
+_EVENT_DATA		ev_c01_assistantm
+_EVENT_DATA		ev_c01_boy1
+_EVENT_DATA		ev_c01_babygirl1
+_EVENT_DATA		ev_c01_woman3
+_EVENT_DATA		ev_c01_boy1b
+_EVENT_DATA		ev_c01_man3a
+_EVENT_DATA		ev_c01_oldman1a
+_EVENT_DATA		ev_c01_sunglasses
+_EVENT_DATA		ev_c01_shopm
+_EVENT_DATA		ev_c01_crown1
+_EVENT_DATA		ev_c01_crown2
+_EVENT_DATA		ev_c01_crown3
+_EVENT_DATA		ev_c01_poketch_sp
+_EVENT_DATA		ev_c01_poketch
+_EVENT_DATA		ev_c01_gtc_stopper
+_EVENT_DATA		ev_c01_boy1_a
+_EVENT_DATA		ev_c01_boy1_b
+_EVENT_DATA		ev_c01_sign1
+_EVENT_DATA		ev_c01_sign2
+_EVENT_DATA		ev_c01_sign3
+_EVENT_DATA		ev_c01_sign4
+_EVENT_DATA		ev_c01_sign5
+_EVENT_DATA		ev_c01_sign6
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/********************************************************************/
+#define IMC_INIT_DATA1_START_NO		(IMC_ACCE_WATA00)
+#define IMC_INIT_DATA1_KIND_NUM		(6)
+#define IMC_INIT_DATA2_START_NO		(IMC_ACCE_HANE00)
+#define IMC_INIT_DATA2_KIND_NUM		(6)
+#define IMC_INIT_DATA3_START_NO		(IMC_BG_RIGHT_01)
+#define IMC_INIT_DATA3_KIND_NUM		(8)
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c01_flag_change:
+	//サポートの位置を変更
+	_IFVAL_CALL		WK_SCENE_C01,GE,3,ev_c01_flag_change_support_01
+
+	//WKOBJCHRにサポートのキャラコードをセットする
+	_GET_MY_SEX		LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,c01_male_flag_change_01	//サポート女
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,c01_female_flag_change_01	//サポート男
+	_END
+
+//サポートの位置を変更
+ev_c01_flag_change_support_01:
+	_SXY_POS_CHANGE	C01_SUPPORT,176,739
+	_SXY_DIR_CHANGE	C01_SUPPORT,DIR_LEFT
+	_SXY_MV_CHANGE	C01_SUPPORT,MV_LEFT
+	_RET
+
+c01_male_flag_change_01:	//サポート女
+	_LDVAL			OBJCHRWORK0,HEROINE
+	_END
+
+c01_female_flag_change_01:	//サポート男
+	_LDVAL			OBJCHRWORK0,HERO
+	_END
+
+
+/********************************************************************/
+//		サポートのトレーナースクール紹介(誘導なし)イベント
+/********************************************************************/
+#define POS_C01_SUPPORT_X1	(173)
+#define POS_C01_SUPPORT_X2	(174)
+#define POS_C01_SUPPORT_X3	(175)
+
+pos_c01_support:
+	_EVENT_START
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C01_SUPPORT_X1,pos_c01_support_01_01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C01_SUPPORT_X2,pos_c01_support_01_02
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_C01_SUPPORT_X3,pos_c01_support_01_03
+	_END
+
+//--------------------------------------------------------------------
+//サポート	近づいてくる
+//--------------------------------------------------------------------
+pos_c01_support_01_01:
+	_SXY_POS_CHANGE	C01_SUPPORT,POS_C01_SUPPORT_X1,788
+	_JUMP			pos_c01_support_01_common
+	_END
+
+pos_c01_support_01_02:
+	_SXY_POS_CHANGE	C01_SUPPORT,POS_C01_SUPPORT_X2,788
+	_JUMP			pos_c01_support_01_common
+	_END
+
+pos_c01_support_01_03:
+	_SXY_POS_CHANGE	C01_SUPPORT,POS_C01_SUPPORT_X3,788
+	_JUMP			pos_c01_support_01_common
+	_END
+
+//--------------------------------------------------------------------
+//共通処理
+//--------------------------------------------------------------------
+pos_c01_support_01_common:
+	_FLAG_RESET		FV_C01_SUPPORT
+	_OBJ_ADD		C01_SUPPORT
+	_OBJ_PAUSE		C01_SUPPORT
+
+	_OBJ_ANIME		C01_SUPPORT,anm_c01_support_0
+	_OBJ_ANIME_WAIT
+
+	_CHG_COMMON_SCR SCRID_THE_BOY_GIRL_PLAY				/*サポート曲再生*/
+
+	_OBJ_ANIME		C01_SUPPORT,anm_c01_support_01
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c01_support_male_01	//サポート女
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c01_support_female_01	//サポート男
+	_END
+
+//--------------------------------------------------------------------
+//サポート女
+//--------------------------------------------------------------------
+c01_support_male_01:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c01_heroine_01
+
+	//手持ちのポケモンの数でメッセージ分岐
+	_GET_POKE_COUNT	SCWK_ANSWER
+	_NUMBER_NAME	0,SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,GE,4,c01_support_male_01_num_4_6
+	_IFVAL_CALL		SCWK_ANSWER,LE,3,c01_support_male_01_num_1_3
+
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_TALK_KEYWAIT	msg_c01_heroine_07
+	_JUMP			c01_01_support_common_01
+	_END
+
+c01_support_male_01_num_4_6:
+	_TALK_KEYWAIT	msg_c01_heroine_02
+	_RET
+
+c01_support_male_01_num_1_3:
+	_TALK_KEYWAIT	msg_c01_heroine_03
+	_RET
+
+//--------------------------------------------------------------------
+//サポート男
+//--------------------------------------------------------------------
+c01_support_female_01:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c01_hero_01
+
+	//手持ちのポケモンの数でメッセージ分岐
+	_GET_POKE_COUNT	SCWK_ANSWER
+	_NUMBER_NAME	0,SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,GE,4,c01_support_female_01_num_4_6
+	_IFVAL_CALL		SCWK_ANSWER,LE,3,c01_support_female_01_num_1_3
+
+	_PLAYER_NAME	0
+	_RIVAL_NAME		1
+	_TALK_KEYWAIT	msg_c01_hero_07
+	_JUMP			c01_01_support_common_01
+	_END
+
+c01_support_female_01_num_4_6:
+	_TALK_KEYWAIT	msg_c01_hero_02
+	_RET
+
+c01_support_female_01_num_1_3:
+	_TALK_KEYWAIT	msg_c01_hero_03
+	_RET
+
+//--------------------------------------------------------------------
+//共通
+//--------------------------------------------------------------------
+c01_01_support_common_01:
+	_TALK_CLOSE
+
+	//サポート去っていく
+	_OBJ_ANIME		C01_SUPPORT,anm_c01_support_11
+	_OBJ_ANIME_WAIT
+
+	//サポート消す
+	_OBJ_DEL		C01_SUPPORT
+
+	_CHG_COMMON_SCR SCRID_THE_BOY_GIRL_STOP			/*サポート曲停止*/
+
+	//サポートイベント終了
+	_LDVAL			WK_SCENE_C01,1
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//サポート	近寄り
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_support_0
+	_ANIME_DATA	AC_WALK_D_8F,4
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_support_01
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_support_11
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+//							サングラス
+/********************************************************************/
+ev_c01_sunglasses:
+	_TALK_OBJ_START
+
+	/*クロガネバッチ取得済み*/
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C03,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01_sunglasses_02
+
+	_TALKMSG		msg_c01_sunglasses_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*クロガネバッチ取得済み*/
+ev_c01_sunglasses_02:
+	_TALKMSG		msg_c01_sunglasses_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+
+/********************************************************************/
+//							店員	
+/********************************************************************/
+ev_c01_shopm:
+	_EASY_OBJ_MSG	msg_c01_shopm_02
+	_END
+
+
+/********************************************************************/
+//							GTCストッパー	
+/********************************************************************/
+#define POS_C01_GTC_STOPPER_Z1	(779)
+#define POS_C01_GTC_STOPPER_Z2	(780)
+#define POS_C01_GTC_STOPPER_Z3	(781)
+
+ev_c01_gtc_stopper:
+	_EVENT_START
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_GTC_STOPPER_Z1,pos_c01_gtc_stopper_01_01
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_GTC_STOPPER_Z2,pos_c01_gtc_stopper_01_02
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_GTC_STOPPER_Z3,pos_c01_gtc_stopper_01_03
+	_END
+
+//--------------------------------------------------------------------
+//ストッパー	近づいてくる
+//--------------------------------------------------------------------
+pos_c01_gtc_stopper_01_01:
+	_OBJ_ANIME		C01_SHOPM,anm_c01_gtc_stopper_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c01_shopm_01
+	_TALK_CLOSE
+
+	_OBJ_ANIME		C01_SHOPM,anm_c01_gtc_stopper_11
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_gtc_stopper_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_gtc_stopper_01_common
+	_END
+
+pos_c01_gtc_stopper_01_02:
+	_OBJ_ANIME		C01_SHOPM,anm_c01_gtc_stopper_02
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c01_shopm_01
+	_TALK_CLOSE
+
+	_OBJ_ANIME		C01_SHOPM,anm_c01_gtc_stopper_12
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_gtc_stopper_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_gtc_stopper_01_common
+	_END
+
+pos_c01_gtc_stopper_01_03:
+	_OBJ_ANIME		C01_SHOPM,anm_c01_gtc_stopper_03
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c01_shopm_01
+	_TALK_CLOSE
+
+	_OBJ_ANIME		C01_SHOPM,anm_c01_gtc_stopper_13
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_gtc_stopper_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_gtc_stopper_01_common
+	_END
+
+pos_c01_gtc_stopper_01_common:
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ストッパー	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_gtc_stopper_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_gtc_stopper_02
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_gtc_stopper_03
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ストッパー	押して戻る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_gtc_stopper_11
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_gtc_stopper_12
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_gtc_stopper_13
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	押し戻される
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_gtc_stopper_player_01
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+//							助手(POS)
+/********************************************************************/
+#define POS_C01_ASSISTANTM_Z1	(757)
+#define POS_C01_ASSISTANTM_Z2	(758)
+#define POS_C01_ASSISTANTM_Z3	(759)
+#define POS_C01_ASSISTANTM_Z4	(760)
+
+pos_c01_assistantm:
+	_EVENT_START
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_ASSISTANTM_Z1,pos_c01_assistantm_01_01
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_ASSISTANTM_Z2,pos_c01_assistantm_01_02
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_ASSISTANTM_Z3,pos_c01_assistantm_01_03
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_ASSISTANTM_Z4,pos_c01_assistantm_01_04
+	_END
+
+//--------------------------------------------------------------------
+//助手	近づいてくる
+//--------------------------------------------------------------------
+pos_c01_assistantm_01_01:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_assistantm_player_01
+	_OBJ_ANIME		C01_ASSISTANTM,anm_c01_assistantm_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_assistantm_01_common
+	_END
+
+pos_c01_assistantm_01_02:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_assistantm_player_01
+	_OBJ_ANIME		C01_ASSISTANTM,anm_c01_assistantm_02
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_assistantm_01_common
+	_END
+
+pos_c01_assistantm_01_03:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_assistantm_player_01
+	_OBJ_ANIME		C01_ASSISTANTM,anm_c01_assistantm_03
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_assistantm_01_common
+	_END
+
+pos_c01_assistantm_01_04:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_assistantm_player_01
+	_OBJ_ANIME		C01_ASSISTANTM,anm_c01_assistantm_04
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_assistantm_01_common
+	_END
+
+pos_c01_assistantm_01_common:
+	/*アイテム入手を見てメッセージをかえる*/
+	_CALL			ev_c01_assistantm_talk
+	_TALK_CLOSE
+
+	/*押し戻す*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_assistantm_player_30
+	_OBJ_ANIME		C01_ASSISTANTM,anm_c01_assistantm_30
+	_OBJ_ANIME_WAIT
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_ASSISTANTM_Z1,pos_c01_assistantm_02_01
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_ASSISTANTM_Z2,pos_c01_assistantm_02_02
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_ASSISTANTM_Z3,pos_c01_assistantm_02_03
+	_IFVAL_JUMP	SCWK_TEMP1,EQ,POS_C01_ASSISTANTM_Z4,pos_c01_assistantm_02_04
+	_END
+
+//--------------------------------------------------------------------
+//アイテム入手状況でメッセージを変更
+//--------------------------------------------------------------------
+ev_c01_assistantm_talk:
+	_IF_FLAGOFF_JUMP	FE_TOWNMAP_GET,ev_c01_townmap_nothing
+	_IF_FLAGOFF_JUMP	FE_POKETCH_GET,ev_c01_poketch_nothing
+
+	_TALK_KEYWAIT	msg_c01_assistantm_01
+	_RET
+
+ev_c01_townmap_nothing:
+	_TALK_KEYWAIT	msg_c01_assistantm_02
+	_RET
+
+ev_c01_poketch_nothing:
+	_TALK_KEYWAIT	msg_c01_assistantm_04
+	_RET
+
+ev_c01_assistantm_talk_keywait:
+	_IF_FLAGOFF_JUMP	FE_TOWNMAP_GET,ev_c01_townmap_nothing_keywait
+	_IF_FLAGOFF_JUMP	FE_POKETCH_GET,ev_c01_poketch_nothing_keywait
+
+	_TALKMSG	msg_c01_assistantm_07
+	_RET
+
+ev_c01_townmap_nothing_keywait:
+	_TALKMSG	msg_c01_assistantm_08
+	_RET
+
+ev_c01_poketch_nothing_keywait:
+	_TALKMSG	msg_c01_assistantm_09
+	_RET
+
+//--------------------------------------------------------------------
+//助手	元の位置に戻る
+//--------------------------------------------------------------------
+pos_c01_assistantm_02_01:
+	_OBJ_ANIME		C01_ASSISTANTM,anm_c01_assistantm_11
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_assistantm_03_common
+	_END
+
+pos_c01_assistantm_02_02:
+	_OBJ_ANIME		C01_ASSISTANTM,anm_c01_assistantm_12
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_assistantm_03_common
+	_END
+
+pos_c01_assistantm_02_03:
+	_OBJ_ANIME		C01_ASSISTANTM,anm_c01_assistantm_13
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_assistantm_03_common
+	_END
+
+pos_c01_assistantm_02_04:
+	_OBJ_ANIME		C01_ASSISTANTM,anm_c01_assistantm_14
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_assistantm_03_common
+	_END
+
+pos_c01_assistantm_03_common:
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	助手の方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_assistantm_player_01
+	_ANIME_DATA	AC_WAIT_8F,5
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	押し戻す
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_assistantm_player_30
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//助手	近寄り
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_assistantm_01
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_assistantm_02
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_assistantm_03
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_WALK_D_8F,3
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_assistantm_04
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_WALK_D_8F,4
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//助手	押し戻す
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_assistantm_30
+	_ANIME_DATA	AC_DIR_PAUSE_ON,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_PAUSE_OFF,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//助手	元の位置に戻る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_assistantm_11
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_assistantm_12
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_assistantm_13
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_assistantm_14
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+//							助手(会話)
+/********************************************************************/
+ev_c01_assistantm:
+	_TALK_OBJ_START
+
+	//クロガネバッチ取得済み
+	_SYS_FLAG_BADGE_GET	BADGE_ID_C03,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_c01_assistantm_badge_get
+
+	/*ポケッチ入手後*/
+	_IF_FLAGON_JUMP	FE_POKETCH_GET,ev_c01_assistantm_talk_acce_case_get_after
+
+	/*アイテム入手を見てメッセージをかえる*/
+	_CALL			ev_c01_assistantm_talk_keywait
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ポケッチ入手後*/
+ev_c01_assistantm_talk_acce_case_get_after:
+	_TALKMSG		msg_c01_assistantm_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//クロガネバッチ取得済み
+ev_c01_assistantm_badge_get:
+	_TALKMSG		msg_c01_assistantm_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+//							博士(POS)
+/********************************************************************/
+#define POS_C01_DOCTOR_X1	(173)
+#define POS_C01_DOCTOR_X2	(174)
+#define POS_C01_DOCTOR_X3	(175)
+
+pos_c01_doctor:
+	_EVENT_START
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_PARAM0,SCWK_PARAM1
+	_IFVAL_JUMP	SCWK_PARAM0,EQ,POS_C01_DOCTOR_X1,pos_c01_doctor_01_01
+	_IFVAL_JUMP	SCWK_PARAM0,EQ,POS_C01_DOCTOR_X2,pos_c01_doctor_01_02
+	_IFVAL_JUMP	SCWK_PARAM0,EQ,POS_C01_DOCTOR_X3,pos_c01_doctor_01_03
+	_END
+
+//--------------------------------------------------------------------
+//主人公近づく
+//--------------------------------------------------------------------
+pos_c01_doctor_01_01:
+	_OBJ_ANIME		C01_DOCTOR,anm_c01_doctor_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_player_60
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_doctor_01_common
+	_END
+
+pos_c01_doctor_01_02:
+	_OBJ_ANIME		C01_DOCTOR,anm_c01_doctor_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_player_61
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_doctor_01_common
+	_END
+
+pos_c01_doctor_01_03:
+	_OBJ_ANIME		C01_DOCTOR,anm_c01_doctor_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_player_62
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_doctor_01_common
+	_END
+
+//--------------------------------------------------------------------
+//共通処理
+//--------------------------------------------------------------------
+pos_c01_doctor_01_common:
+	_PLAYER_NAME		0
+	_SUPPORT_NAME		1
+	_TALK_KEYWAIT		msg_c01_doctor_01
+
+	//ギンガ団話す
+	_OBJ_ANIME		C01_GINGA_01,anm_c01_ginga_01
+	_OBJ_ANIME		C01_DOCTOR,anm_c01_doctor_10
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c01_gingam_01
+
+	//サポート話す
+	_OBJ_ANIME		C01_SUPPORT,anm_c01_support_30
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c01_support_male_10	//サポート女
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c01_support_female_10	//サポート男
+	_END
+
+//--------------------------------------------------------------------
+//サポート女
+//--------------------------------------------------------------------
+c01_support_male_10:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c01_heroine_05
+	_JUMP			c01_01_support_common_10
+	_END
+
+//--------------------------------------------------------------------
+//サポート男
+//--------------------------------------------------------------------
+c01_support_female_10:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c01_hero_05
+	_JUMP			c01_01_support_common_10
+	_END
+
+//--------------------------------------------------------------------
+//共通
+//--------------------------------------------------------------------
+c01_01_support_common_10:
+	_TALK_CLOSE
+
+	//サポート戦う
+	_OBJ_ANIME		C01_SUPPORT,anm_c01_support_40
+	_OBJ_ANIME_WAIT
+
+	//戦闘呼び出し
+	_CALL			sub_c01_get_support_id
+	_TRAINER_MULTI_BTL_SET	SCWK_TEMP0,GINGAM_09,GINGAM_10
+	_TRAINER_LOSE_CHECK SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c01_common_battle_lose
+
+	//ギンガ団話す
+	_OBJ_ANIME		C01_GINGA_02,anm_c01_ginga_22
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c01_gingam_02
+	_TALK_CLOSE
+
+	//ギンガ団画面上部へ消える
+	_OBJ_ANIME		C01_GINGA_01,anm_c01_ginga_11
+	_OBJ_ANIME		C01_GINGA_02,anm_c01_ginga_12
+	_OBJ_ANIME_WAIT
+
+	_OBJ_DEL		C01_GINGA_01
+	_OBJ_DEL		C01_GINGA_02
+	_FLAG_SET		FV_C01_GINGA
+
+	//博士近づく
+	_OBJ_ANIME		C01_DOCTOR,anm_c01_doctor_51
+	_OBJ_ANIME		C01_SUPPORT,anm_c01_support_51
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c01_doctor_02
+
+	//サポート 主人公を見る
+	_OBJ_ANIME		C01_SUPPORT,anm_c01_support_41
+	_OBJ_ANIME_WAIT
+
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c01_support_male_50	//サポート女
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c01_support_female_50	//サポート男
+	_END
+
+//--------------------------------------------------------------------
+//	サブルーチン：ライバルのトレーナーID取得
+//--------------------------------------------------------------------
+sub_c01_get_support_id:
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c01_male_100			//サポート女
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,c01_female_100			//サポート男
+	_END
+	
+c01_male_100:			//サポート女
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+
+	_LDVAL				SCWK_TEMP0,HEROINE_01
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,sub_c01_get_support_id_ret
+
+	_LDVAL				SCWK_TEMP0,HEROINE_02
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_POTTYAMA,sub_c01_get_support_id_ret
+
+	_LDVAL				SCWK_TEMP0,HEROINE_03
+	_RET
+
+c01_female_100:			//サポート男
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+
+	_LDVAL				SCWK_TEMP0,HERO_01
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,sub_c01_get_support_id_ret
+
+	_LDVAL				SCWK_TEMP0,HERO_02
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_POTTYAMA,sub_c01_get_support_id_ret
+
+	_LDVAL				SCWK_TEMP0,HERO_03
+	_RET
+
+sub_c01_get_support_id_ret:
+	_RET
+
+//--------------------------------------------------------------------
+//サポート女
+//--------------------------------------------------------------------
+c01_support_male_50:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c01_heroine_06
+	_JUMP			c01_01_support_common_50
+	_END
+
+//--------------------------------------------------------------------
+//サポート男
+//--------------------------------------------------------------------
+c01_support_female_50:
+	_SUPPORT_NAME	0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c01_hero_06
+	_JUMP			c01_01_support_common_50
+	_END
+
+//--------------------------------------------------------------------
+//共通
+//--------------------------------------------------------------------
+c01_01_support_common_50:
+	_TALK_CLOSE
+
+	/*博士とサポート去っていく*/
+	_OBJ_ANIME		C01_SUPPORT,anm_c01_support_80
+	_OBJ_ANIME		C01_DOCTOR,anm_c01_doctor_80
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_player_80
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_c01_doctor_02_common
+	_END
+
+//--------------------------------------------------------------------
+//共通処理
+//--------------------------------------------------------------------
+pos_c01_doctor_02_common:
+	_OBJ_DEL		C01_SUPPORT
+	_OBJ_DEL		C01_DOCTOR
+
+	/*研究所に博士戻る*/
+	_FLAG_RESET		FV_T02R0101_DOCTOR
+
+	//ギンガ団イベント終了
+	_LDVAL			WK_SCENE_C01,4
+
+	/*クロガネのライバルイベント終了*/
+	_LDVAL			WK_SCENE_C03,3
+
+	/*コトブキピエロを消す*/
+	_OBJ_DEL		C01_CROWN1
+	_OBJ_DEL		C01_CROWN2
+	_OBJ_DEL		C01_CROWN_03
+
+	/*アクセサリーイベント開始*/
+	_SXY_POS_CHANGE	C01_SUNGLASSES,174,750
+	_SXY_MV_CHANGE	C01_SUNGLASSES,MV_UP
+	_FLAG_RESET		FV_C01_SUNGLASSES
+	_OBJ_ADD		C01_SUNGLASSES
+	_OBJ_PAUSE		C01_SUNGLASSES
+	_OBJ_ANIME		C01_SUNGLASSES,anm_c01_poketch_80
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c01_accesse_01
+
+	_CALL			ev_c01_assistantm_poketch_get_after_sub
+
+	_TALK_KEYWAIT	msg_c01_accesse_02
+	_TALK_CLOSE
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*立ち去る*/
+	_OBJ_ANIME		C01_SUNGLASSES,anm_c01_poketch_81
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C01_SUNGLASSES
+
+	_EVENT_END
+	_END
+
+ev_c01_assistantm_poketch_get_after_sub:
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_AKUSESARIIIRE		//アクセサリケース
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_ACCE_CASE_GET
+
+	//初期データセットその1(5個セット)
+	_CALL			imc_data_set_1
+	_CALL			imc_data_set_1
+	_CALL			imc_data_set_1
+	_CALL			imc_data_set_1
+	_CALL			imc_data_set_1
+
+	//初期データセットその2(5個セット)
+	_CALL			imc_data_set_2
+	_CALL			imc_data_set_2
+	_CALL			imc_data_set_2
+	_CALL			imc_data_set_2
+	_CALL			imc_data_set_2
+
+	//これは絶対にもっている背景
+	_IMC_BG_ADD_ITEM	IMC_BG_RIGHT_00
+
+	//初期データセットその3(2個セット)
+	_CALL			imc_data_set_3
+	_CALL			imc_data_set_3
+	_RET
+
+//初期データセットその1(アクセサリー)
+imc_data_set_1:
+	_GET_RND		SCWK_ANSWER,IMC_INIT_DATA1_KIND_NUM		//0-5
+	_LDVAL			SCWK_TEMP0,IMC_INIT_DATA1_START_NO		//スタートナンバーセット
+	_ADD_WK			SCWK_TEMP0,SCWK_ANSWER					//0-5を足す
+	_IMC_ACCE_ADD_ITEM	SCWK_TEMP0,1
+	_RET
+
+//初期データセットその2(アクセサリー)
+imc_data_set_2:
+	_GET_RND		SCWK_ANSWER,IMC_INIT_DATA2_KIND_NUM		//0-5
+	_LDVAL			SCWK_TEMP0,IMC_INIT_DATA2_START_NO		//スタートナンバーセット
+	_ADD_WK			SCWK_TEMP0,SCWK_ANSWER					//0-5を足す
+	_IMC_ACCE_ADD_ITEM	SCWK_TEMP0,1
+	_RET
+
+//初期データセットその3(背景)
+imc_data_set_3:
+	_GET_RND		SCWK_ANSWER,IMC_INIT_DATA3_KIND_NUM		//0-7
+	_LDVAL			SCWK_TEMP0,IMC_INIT_DATA3_START_NO		//スタートナンバーセット
+	_ADD_WK			SCWK_TEMP0,SCWK_ANSWER					//0-7を足す
+	_IMC_BG_ADD_ITEM	SCWK_TEMP0
+	_RET
+
+//--------------------------------------------------------------------
+//共通敗北処理
+//--------------------------------------------------------------------
+ev_c01_common_battle_lose:
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ポケッチおじさん	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_poketch_80
+	_ANIME_DATA	AC_WALK_U_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ポケッチおじさん	立ち去るj
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_poketch_81
+	_ANIME_DATA	AC_WALK_D_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_player_60
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_player_61
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_player_62
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_player_80
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_player_81
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_player_82
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	主人公に話しかける
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_support_30
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	戦う
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_support_40
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_support_51
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	主人公を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_support_41
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//サポート	画面下に消える
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_support_80
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_support_81
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_support_82
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	博士に話しかける
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_ginga_01
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	逃げ出す
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_ginga_11
+	_ANIME_DATA	AC_WALK_U_4F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_ginga_12
+	_ANIME_DATA	AC_WALK_U_4F,10
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ギンガ団	話す
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_ginga_22
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	主人公の方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_doctor_01
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	ギンガ団の方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_doctor_10
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	画面下に消える
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_doctor_80
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_doctor_81
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_doctor_82
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//博士	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_doctor_51
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ギンガ団の方を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_doctor_player_01
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_doctor_player_02
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_doctor_player_03
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_doctor_player_04
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_doctor_player_05
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							男の子									*/
+/********************************************************************/
+ev_c01_boy1:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_c01_boy1_01
+
+	_BMPLIST_INIT		23,11,0,0,SCWK_ANSWER		//Bキャンセル無効
+	_BMPLIST_MAKE_LIST	msg_ev_win_050,EV_WIN_TALK_MSG_NONE,0
+	_BMPLIST_MAKE_LIST	msg_ev_win_051,EV_WIN_TALK_MSG_NONE,1
+	_BMPLIST_MAKE_LIST	msg_ev_win_052,EV_WIN_TALK_MSG_NONE,2
+	_BMPLIST_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_c01_boy1a_01_sel000
+	_CASE_JUMP		1,ev_c01_boy1a_01_sel001
+
+	_TALKMSG		msg_c01_boy1_04
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c01_boy1a_01_sel000:
+	_TALKMSG		msg_c01_boy1_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+ev_c01_boy1a_01_sel001:
+	_TALKMSG		msg_c01_boy1_03
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							女の子									*/
+/********************************************************************/
+ev_c01_babygirl1:
+	_EASY_OBJ_MSG	msg_c01_babygirl1_01
+	_END
+
+
+/********************************************************************/
+/*						トレーナー兄さん							*/
+/********************************************************************/
+ev_c01_man3a:
+	_EASY_OBJ_MSG	msg_c01_man3a_01
+	_END
+
+
+/********************************************************************/
+/*						トレーナー姉さん							*/
+/********************************************************************/
+ev_c01_woman3:
+	_EASY_OBJ_MSG	msg_c01_woman3_01
+	_END
+
+
+/********************************************************************/
+/*						　和風爺さん	　							*/
+/********************************************************************/
+ev_c01_oldman1a:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_c01_oldman1a_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,oldman1a_02
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,oldman1a_03
+	_END
+
+//Yes
+oldman1a_02:
+	_TALKMSG		msg_c01_oldman1a_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//NO
+oldman1a_03:
+	_TALKMSG		msg_c01_oldman1a_03
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						男の子　	　　							*/
+/********************************************************************/
+ev_c01_boy1b:
+	_EASY_OBJ_MSG	msg_c01_boy1b_01
+	_END
+
+
+/********************************************************************/
+/*						　タウンマップ　　							*/
+/********************************************************************/
+ev_c01_sign1:
+	_EASY_BOARD_MSG	msg_c01_sign1_01,BOARD_TYPE_TOWN,0
+	_END
+
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c01_sign2:
+	_EASY_BOARD_MSG	msg_c01_sign2_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c01_sign3:
+	_EASY_BOARD_MSG	msg_c01_sign3_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c01_sign4:
+	_EASY_BOARD_MSG	msg_c01_sign4_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c01_sign5:
+	_EASY_BOARD_MSG	msg_c01_sign5_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*						　	施設看板　　							*/
+/********************************************************************/
+ev_c01_sign6:
+	_EASY_BOARD_MSG	msg_c01_sign6_01,BOARD_TYPE_POST,0
+	_END
+
+
+/********************************************************************/
+/*							ポケッチ(強制)							*/
+/********************************************************************/
+#define POS_C01_POKETCH_X1	(172)
+#define POS_C01_POKETCH_X2	(173)
+#define POS_C01_POKETCH_X3	(174)
+#define POS_C01_POKETCH_X4	(175)
+#define POS_C01_POKETCH_X5	(176)
+
+ev_c01_poketch_sp:
+	_EVENT_START
+
+	/*「！」*/
+	_OBJ_ANIME		C01_POKETCH,anm_c01_poketch_99
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_player_99
+	_OBJ_ANIME_WAIT
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_C01_POKETCH_X1,pos_c01_poketch_01_01
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_C01_POKETCH_X2,pos_c01_poketch_01_02
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_C01_POKETCH_X3,pos_c01_poketch_01_03
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_C01_POKETCH_X4,pos_c01_poketch_01_04
+	_IFVAL_CALL	SCWK_TEMP0,EQ,POS_C01_POKETCH_X5,pos_c01_poketch_01_05
+
+	_TALK_KEYWAIT	msg_c01_pokecth_01
+
+	_LDVAL			WK_SCENE_C01_RIVAL,2
+
+	_TALKMSG		msg_c01_pokecth_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+pos_c01_poketch_01_01:
+	_OBJ_ANIME		C01_POKETCH,anm_c01_poketch_100
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_c01_poketch_01_02:
+	_OBJ_ANIME		C01_POKETCH,anm_c01_poketch_101
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_c01_poketch_01_03:
+	_OBJ_ANIME		C01_POKETCH,anm_c01_poketch_102
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_c01_poketch_01_04:
+	_OBJ_ANIME		C01_POKETCH,anm_c01_poketch_103
+	_OBJ_ANIME_WAIT
+	_RET
+
+pos_c01_poketch_01_05:
+	_OBJ_ANIME		C01_POKETCH,anm_c01_poketch_104
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//主人公	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_player_99
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ポケッチくれる人	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_poketch_99
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ポケッチくれる人	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_poketch_100
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_poketch_101
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_poketch_102
+	_ANIME_DATA	AC_WALK_D_8F,4
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_poketch_103
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_poketch_104
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,2
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ポケッチ(会話)							*/
+/********************************************************************/
+ev_c01_poketch:
+	_TALK_OBJ_START
+
+	_LDVAL			SCWK_TEMP0,0
+	_CALL			ev_c01_poketch_ticket_count
+
+	/*全てチケット入手している*/
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,3,ev_c01_poketch_ticket_all_get
+
+	_TALKMSG		msg_c01_pokecth_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ひきかえけんの数取得*/
+ev_c01_poketch_ticket_count:
+	_IF_FLAGON_CALL	FE_C01_CROWN1_TICKET,ev_c01_poketch_ticket_add
+	_IF_FLAGON_CALL	FE_C01_CROWN2_TICKET,ev_c01_poketch_ticket_add
+	_IF_FLAGON_CALL	FE_C01_CROWN3_TICKET,ev_c01_poketch_ticket_add
+	_RET
+
+ev_c01_poketch_ticket_add:
+	_ADD_WK			SCWK_TEMP0,1
+	_RET
+
+/*全てチケット入手している*/
+ev_c01_poketch_ticket_all_get:
+	_TALK_KEYWAIT	msg_c01_pokecth_04
+
+	/*引き換え券を削除*/
+	_SUB_ITEM		ITEM_HIKIKAEKEN1,1,SCWK_ANSWER
+	_SUB_ITEM		ITEM_HIKIKAEKEN2,1,SCWK_ANSWER
+	_SUB_ITEM		ITEM_HIKIKAEKEN3,1,SCWK_ANSWER
+
+	//ポケッチ入手
+	_GET_POKETCH
+
+	//ポケッチ入手
+	_LDVAL			WK_SCENE_C01,2
+
+	//デジタル時計、電卓、万歩計、ポケリスト	※メッセージは出さない
+	_POKETCH_ADD	POKETCH_APPID_DWATCH
+	_POKETCH_ADD	POKETCH_APPID_CALC
+	_POKETCH_ADD	POKETCH_APPID_PEDOMETER
+	_POKETCH_ADD	POKETCH_APPID_POKELIST
+
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c01_pokecth_05
+	_ME_PLAY		SEQ_FANFA4
+	_ME_WAIT
+
+	_TALK_KEYWAIT	msg_c01_pokecth_06
+	_TALK_CLOSE
+
+	/*向きによってアニメをかえる*/
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_UP,ev_c01_poketch_dir_up
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_DOWN,ev_c01_poketch_dir_down
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_c01_poketch_dir_left
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_RIGHT,ev_c01_poketch_dir_right
+	_END
+
+/*ポケッチカンパニーの方へ去っていく*/
+ev_c01_poketch_dir_up:
+ev_c01_poketch_dir_left:
+ev_c01_poketch_dir_right:
+	_OBJ_ANIME		C01_POKETCH,anm_c01_poketch_11
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_player_11
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c01_poketch_dir
+	_END
+
+ev_c01_poketch_dir_down:
+	_OBJ_ANIME		C01_POKETCH,anm_c01_poketch_10
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c01_player_10
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c01_poketch_dir
+	_END
+
+common_c01_poketch_dir:
+	_OBJ_DEL		C01_POKETCH
+
+	_FLAG_SET		FE_POKETCH_GET
+	_FLAG_RESET		FV_C01R0101_POKETCH
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//ポケッチくれる人	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_poketch_10
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_poketch_11
+	_ANIME_DATA	AC_WALK_U_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_c01_player_10
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL anm_c01_player_11
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*								ピエロ								*/
+/********************************************************************/
+ev_c01_crown1:
+	_TALK_OBJ_START
+
+	/*チケットをゲットしていたら*/
+	_IF_FLAGON_JUMP	FE_C01_CROWN1_TICKET,ev_c01_crown1_ticket_get
+
+	_TALKMSG		msg_c01_crown1_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_c01_crown1_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c01_crown1_01
+	_END
+
+yes_c01_crown1_01:
+	//_SE_PLAY		SEQ_SE_DP_UG_020
+	_SE_PLAY		SEQ_SE_DP_PINPON
+	_TALK_KEYWAIT	msg_c01_crown1_02
+
+	_TALK_KEYWAIT	msg_c01_crown1_04
+
+	_TALK_KEYWAIT	msg_c01_crown1_05
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_HIKIKAEKEN1
+	_LDVAL			SCWK_TEMP1,1
+
+	_FLAG_SET		FE_C01_CROWN1_TICKET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+no_c01_crown1_01:
+	//_SE_PLAY		SEQ_SE_DP_CUSTOM06
+	_SE_PLAY		SEQ_SE_DP_BOX03
+	_TALKMSG		msg_c01_crown1_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*チケットをゲットしていたら*/
+ev_c01_crown1_ticket_get:
+	_TALKMSG		msg_c01_crown1_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*								ピエロ								*/
+/********************************************************************/
+ev_c01_crown2:
+	_TALK_OBJ_START
+
+	/*チケットをゲットしていたら*/
+	_IF_FLAGON_JUMP	FE_C01_CROWN2_TICKET,ev_c01_crown2_ticket_get
+
+	_TALKMSG		msg_c01_crown2_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_c01_crown2_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c01_crown2_01
+	_END
+
+yes_c01_crown2_01:
+	//_SE_PLAY		SEQ_SE_DP_UG_020
+	_SE_PLAY		SEQ_SE_DP_PINPON
+	_TALK_KEYWAIT	msg_c01_crown2_02
+
+	_TALK_KEYWAIT	msg_c01_crown2_04
+
+	_TALK_KEYWAIT	msg_c01_crown2_05
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_HIKIKAEKEN2
+	_LDVAL			SCWK_TEMP1,1
+
+	_FLAG_SET		FE_C01_CROWN2_TICKET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+no_c01_crown2_01:
+	//_SE_PLAY		SEQ_SE_DP_CUSTOM06
+	_SE_PLAY		SEQ_SE_DP_BOX03
+	_TALKMSG		msg_c01_crown2_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*チケットをゲットしていたら*/
+ev_c01_crown2_ticket_get:
+	_TALKMSG		msg_c01_crown2_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*								ピエロ								*/
+/********************************************************************/
+ev_c01_crown3:
+	_TALK_OBJ_START
+
+	/*ポケッチキャンペーンが始まっていなかったら*/
+	_IFVAL_JUMP		WK_SCENE_C01_RIVAL,LT,2,ev_c01_crown3_before
+
+	/*チケットをゲットしていたら*/
+	_IF_FLAGON_JUMP	FE_C01_CROWN3_TICKET,ev_c01_crown3_ticket_get
+
+	_TALKMSG		msg_c01_crown_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_c01_crown3_01
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,no_c01_crown3_01
+	_END
+
+yes_c01_crown3_01:
+	//_SE_PLAY		SEQ_SE_DP_UG_020
+	_SE_PLAY		SEQ_SE_DP_PINPON
+	_TALK_KEYWAIT	msg_c01_crown_02
+
+	_TALK_KEYWAIT	msg_c01_crown_04
+
+	_TALK_KEYWAIT	msg_c01_crown_05
+
+	/*ポケッチくれる人の位置を変更する！*/
+	_OBJ_POS_CHANGE C01_POKETCH,174,1,771,DIR_DOWN
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_HIKIKAEKEN3
+	_LDVAL			SCWK_TEMP1,1
+
+	_FLAG_SET		FE_C01_CROWN3_TICKET
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+no_c01_crown3_01:
+	//_SE_PLAY		SEQ_SE_DP_CUSTOM06
+	_SE_PLAY		SEQ_SE_DP_BOX03
+	_TALKMSG		msg_c01_crown_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*チケットをゲットしていたら*/
+ev_c01_crown3_ticket_get:
+	_TALKMSG		msg_c01_crown_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ポケッチキャンペーンが始まっていなかったら*/
+ev_c01_crown3_before:
+	_TALKMSG		msg_c01_crown_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							ＤＳ少年								*/
+/********************************************************************/
+ev_c01_boy1_a:
+	_EASY_OBJ_MSG	msg_c01_boy1_a_01
+	_END
+
+
+/********************************************************************/
+/*							ＤＳ少年								*/
+/********************************************************************/
+ev_c01_boy1_b:
+	_EASY_OBJ_MSG	msg_c01_boy1_b_01
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

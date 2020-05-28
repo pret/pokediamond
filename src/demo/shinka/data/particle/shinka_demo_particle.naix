@@ -1,0 +1,19 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: .\particle\shinka_demo_particle.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-28T11:23:20
+ *****************************************************************************/
+
+#ifndef NARC___PARTICLE_SHINKA_DEMO_PARTICLE_NAIX_
+#define NARC___PARTICLE_SHINKA_DEMO_PARTICLE_NAIX_
+
+enum {
+	NARC___particle_shinka_demo_particle_shinka_demo_spa = 0,
+	NARC___particle_shinka_demo_particle_shinka_demo_dmy_spa = 1
+};
+
+/* NARC___PARTICLE_SHINKA_DEMO_PARTICLE_NAIX_ */
+#endif

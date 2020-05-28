@@ -1,0 +1,289 @@
+//====================================================================
+//								c07r0205
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c07r0205.h"
+	//.include	"../eventdata/zone_c07r0205evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c07r0205_sportsman
+_EVENT_DATA		ev_c07r0205_middlewoman2
+_EVENT_DATA		ev_c07r0205_bigman1a
+_EVENT_DATA		ev_c07r0205_bigman1b
+_EVENT_DATA		ev_c07r0205_board_01
+_EVENT_DATA		ev_c07r0205_vender
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0205_sportsman:
+	_EASY_OBJ_MSG	msg_c07r0205_sportsman_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0205_middlewoman2:
+	_EASY_OBJ_MSG	msg_c07r0205_middlewoman2_01
+	_END
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0205_bigman1a:
+	_TALK_OBJ_START
+
+	/*すでにアイテム入手していたら*/
+	_IF_FLAGON_JUMP	FE_C07R0205_ITEM_GET,ev_c07r0205_bigman1a_02
+
+	_TALK_KEYWAIT	msg_c07r0205_bigman1a_01
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_KUTTUKIBARI
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得出来るかチェック
+	_ADD_ITEM_CHK	SCWK_TEMP0,SCWK_TEMP1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_c07r0205_bigman1a_item_event_fail
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_FLAG_SET		FE_C07R0205_ITEM_GET
+	_JUMP			ev_c07r0205_bigman1a_02
+	_END
+
+/*すでにアイテム入手していたら*/
+ev_c07r0205_bigman1a_02:
+	_TALKMSG		msg_c07r0205_bigman1a_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*アイテム入手失敗*/
+ev_c07r0205_bigman1a_item_event_fail:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*							???									*/
+/********************************************************************/
+ev_c07r0205_bigman1b:
+	_EASY_OBJ_MSG	msg_c07r0205_bigman1b_01
+	_END
+
+/********************************************************************/
+/*							案内板									*/
+/********************************************************************/
+ev_c07r0205_board_01:
+	_EASY_MSG		msg_c07r0205_board_01
+	_END
+
+/********************************************************************/
+/*							自販機									*/
+/*																	*/
+/*																	*/
+/*							SCWK_PARAM0使用							*/
+/*							0:おいしいみず							*/
+/*							1:サイコソーダ							*/
+/*							2:ミックスオレ							*/
+/*																	*/
+/*							SCWK_PARAM1使用							*/
+/*							アイテム番号							*/
+/********************************************************************/
+#define PRICE_OISIIMIZU			200				/*おいしいみずの値段*/
+#define PRICE_SAIKOSOODA		300				/*サイコソーダの値段*/
+#define PRICE_MIKKUSUORE		350				/*ミックスオレの値段*/
+
+#define ATARI_RND				64				//あたりの乱数（１／６４）
+
+#define NO_OISIIMIZU			0				/*おいしいみず*/
+#define NO_SAIKOSOODA			1				/*サイコソーダ*/
+#define NO_MIKKUSUORE			2				/*ミックスオレ*/
+
+#define JIHANKI_GOLD_WIN_POS_X	0				//自販機用お金printウインドウ左上Ｘ
+#define JIHANKI_GOLD_WIN_POS_Y	0				//自販機用お金printウインドウ左上Ｙ
+
+#define JIHANKI_ITEM_WIN_POS_X	16				//アイテム選択ウインドウ左上Ｘ
+#define JIHANKI_ITEM_WIN_POS_Y	0				//アイテム選択ウインドウ左上Ｙ
+
+#define NO_TEMOTI_GOLD			0				//手持ち金print(※0以外は_GODL_WIN_WRITE/_GOLD_WRITE自体が未対応)
+
+ev_c07r0205_vender:
+	_TALK_START
+	//”じどう　はんばいきがある”
+	_TALKMSG		msg_c07r0205_vender_01
+
+	_GOLD_WIN_WRITE		20,2
+
+	//商品リスト
+	_JUMP			common_vm_02
+
+//繰り返し購入のため、１と２に分割
+common_vm_02:
+	_BMPMENU_INIT		1,1,0,1,SCWK_PARAM0					//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_vm_01,0					//
+	_BMPMENU_MAKE_LIST	msg_vm_02,1					//
+	_BMPMENU_MAKE_LIST	msg_vm_03,2					//
+	_BMPMENU_MAKE_LIST	msg_vm_04,3					//やめる
+	_BMPMENU_START
+
+	_SWITCH			SCWK_PARAM0
+	_CASE_JUMP		0,case0_vm_01
+	_CASE_JUMP		1,case1_vm_01
+	_CASE_JUMP		2,case2_vm_01
+
+	//買わないときのメッセージ
+	_TALKMSG		msg_c07r0205_vender_05
+	_JUMP			common_vm_end
+
+/*おいしいみず*/
+case0_vm_01:
+	//アイテムナンバーセット
+	_LDVAL			SCWK_PARAM1,ITEM_OISIIMIZU
+	_JUMP			common_vm_03
+
+/*サイコソーダ*/
+case1_vm_01:
+	//アイテムナンバーセット
+	_LDVAL			SCWK_PARAM1,ITEM_SAIKOSOODA
+	_JUMP			common_vm_03
+
+/*ミックスオレ*/
+case2_vm_01:
+	//アイテムナンバーセット
+	_LDVAL			SCWK_PARAM1,ITEM_MIKKUSUORE
+	_JUMP			common_vm_03
+
+
+//所持金チェック
+comp_gold_case_0:
+	_COMP_GOLD		SCWK_ANSWER,PRICE_OISIIMIZU
+	_RET
+
+comp_gold_case_1:
+	_COMP_GOLD		SCWK_ANSWER,PRICE_SAIKOSOODA
+	_RET
+
+comp_gold_case_2:
+	_COMP_GOLD		SCWK_ANSWER,PRICE_MIKKUSUORE
+	_RET
+
+//お金を減らす
+sub_gold_case_0:
+	_SUB_GOLD		PRICE_OISIIMIZU
+	_RET
+
+sub_gold_case_1:
+	_SUB_GOLD		PRICE_SAIKOSOODA
+	_RET
+
+sub_gold_case_2:
+	_SUB_GOLD		PRICE_MIKKUSUORE
+	_RET
+
+//購入時の統一処理
+common_vm_03:
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NO_OISIIMIZU,comp_gold_case_0
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NO_SAIKOSOODA,comp_gold_case_1
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NO_MIKKUSUORE,comp_gold_case_2
+
+	//お金が足りない?
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,common_vm_not_enough_money
+
+	//アイテムが取れるかチェック
+	_ADD_ITEM_CHK	SCWK_PARAM1,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,common_vm_fail_item
+
+	//お金を減らす（売買成立）
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NO_OISIIMIZU,sub_gold_case_0
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NO_SAIKOSOODA,sub_gold_case_1
+	_IFVAL_CALL		SCWK_PARAM0,EQ,NO_MIKKUSUORE,sub_gold_case_2
+	_GOLD_WRITE
+	_ITEM_NAME		0,SCWK_PARAM1
+
+	_SE_PLAY		SE_JIHANKI
+
+	//xxxxが出てきた。
+	_ITEM_NAME	0,SCWK_PARAM1
+	_TALK_KEYWAIT	msg_c07r0205_vender_02
+	//アイテム名、個数をセット
+	_LDWK			SCWK_TEMP0,SCWK_PARAM1
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	//ハズレなら通常処理
+	_GET_RND		SCWK_ANSWER,ATARI_RND
+	_IFVAL_JUMP		SCWK_ANSWER,NE,0,common_vm_normal_ret
+
+	//アイテムが取れるかチェック
+	_ADD_ITEM_CHK	SCWK_PARAM1,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,common_vm_fail_item
+
+	_SE_PLAY		SE_JIHANKI
+
+	//追加OK(当たりメッセージ）
+	_ITEM_NAME	0,SCWK_PARAM1
+	_TALK_KEYWAIT	msg_c07r0205_vender_03
+
+	//アイテム名、個数をセット
+	_LDWK			SCWK_TEMP0,SCWK_PARAM1
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_JUMP			common_vm_normal_ret
+
+//もう一度買う画面へ
+common_vm_normal_ret:
+	//”じどう　はんばいきがある”
+	_TALKMSG		msg_c07r0205_vender_01
+	_JUMP			common_vm_02
+
+//お金が足りない
+common_vm_not_enough_money:
+	_TALK_KEYWAIT	msg_c07r0205_vender_04
+	_JUMP			common_vm_end
+
+//失敗メッセージ
+common_vm_fail_item:
+	//アイテム取得失敗イベント(共通メッセージを出す、専用を使用するときはいらない)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_FAIL
+	_TALK_CLOSE
+
+	_GOLD_WIN_DEL
+
+	_TALK_END
+	_END
+
+//共通終了処理
+common_vm_end:
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_GOLD_WIN_DEL
+
+	_TALK_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

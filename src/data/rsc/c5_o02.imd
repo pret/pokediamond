@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2005-12-13T13:28:34" source="c5_o02.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="unno" host="W00106" date="2005-12-13T13:28:34" source="c5_o02.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="2"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="2" xyz="-2.000000 0.375000 -2.000000" whd="4.000000 5.625000 3.000000"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="h_dumy01"
+		width="64" height="64" original_width="64" original_height="64"
+		format="palette16"
+		color0_mode="color"
+		palette_name="h_dumy01_pl"
+		path="C:/mayadata/0_5_4_build/tex/h_dumy01.tga"
+	>
+		<bitmap size="1024">
+			45f1 4422 5a2e 6655 111f f111 bbbb d33b
+			45f1 4422 5a2e 6655 111f f111 bbbb d33b
+			55b0 4444 5422 6665 000c c110 3333 133b
+			55b0 4444 5422 6665 000c c110 3333 133b
+			33d0 32e3 44ef eeee dddd dddd fccc fe2e
+			33d0 32e3 44ef eeee dddd dddd fccc fe2e
+			0000 33c0 2442 111c d111 111d e000 5668
+			0000 33c0 2442 111c d111 111d e000 5668
+			0000 23c0 4422 111b cb11 011d e000 6668
+			0000 23c0 4422 111b cb11 011d e000 6668
+			77f3 8677 6866 7577 423f fee4 c1dd ffb3
+			77f3 8677 6866 7577 423f fee4 c1dd ffb3
+			9985 9988 9998 9888 6655 5666 1111 c111
+			9985 9988 9998 9888 6655 5666 1111 c111
+			8877 9988 8888 9888 5547 7655 1d1d fdcc
+			8877 9988 8888 9888 5547 7655 1d1d fdcc
+			ccdc 997d 9899 8888 6888 cccc f111 5656
+			ccdc 997d 9899 8888 6888 cccc f111 5656
+			1111 9951 8899 8989 8998 111c e110 6568
+			1111 9951 8899 8989 8998 111c e110 6568
+			dfdd 66ed 6686 6667 7886 dccf ebbc 7766
+			dfdd 66ed 6686 6667 7886 dccf ebbc 7766
+			24d1 2bb3 4443 b255 666e e445 6666 c666
+			24d1 2bb3 4443 b255 666e e445 6666 c666
+			22d1 4233 5542 3455 5552 2444 6555 c566
+			22d1 4233 5542 3455 5552 2444 6555 c566
+			bbfd bbcc bbfc 566e 7666 e223 b222 dfbb
+			bbfd bbcc bbfc 566e 7666 e223 b222 dfbb
+			b3bb 1bcc cbbc 989e 9999 2222 c222 1111
+			b3bb 1bcc cbbc 989e 9999 2222 c222 1111
+			bbb3 ccfb b3bc 866f 8999 322e cb32 111c
+			bbb3 ccfb b3bc 866f 8999 322e cb32 111c
+			5676 4475 2433 3322 dccf cddd 4444 7757
+			5676 4475 2433 3322 dccf cddd 4444 7757
+			6666 5556 2234 3224 001c d001 5566 8886
+			6666 5556 2234 3224 001c d001 5566 8886
+			55e4 42e4 333e 244e cccf fddd e457 7754
+			55e4 42e4 333e 244e cccf fddd e457 7754
+			4555 4332 4455 899e 7666 4233 c224 bbbb
+			4555 4332 4455 899e 7666 4233 c224 bbbb
+			6555 2335 4444 8997 6688 4422 3444 bb33
+			6555 2335 4444 8997 6688 4422 3444 bb33
+			57e5 42e7 23be 777e 7557 e54e fbcf dccc
+			57e5 42e7 23be 777e 7557 e54e fbcf dccc
+			6656 6556 2235 4222 6664 7655 1000 d33c
+			6656 6556 2235 4222 6664 7655 1000 d33c
+			5576 5555 b324 23bb 6664 7654 0110 db3c
+			5576 5555 b324 23bb 6664 7654 0110 db3c
+			4424 9972 6668 323e 4442 cbcf d111 dddd
+			4424 9972 6668 323e 4442 cbcf d111 dddd
+			5444 9984 9899 4236 4444 1111 0011 0001
+			5444 9984 9899 4236 4444 1111 0011 0001
+			54e4 8864 8888 4237 e444 dccf fccc ddcc
+			54e4 8864 8888 4237 e444 dccf fccc ddcc
+			8866 6668 5666 8866 9986 6868 9999 8688
+			8866 6668 5666 8866 9986 6868 9999 8688
+			9888 8888 6668 8888 9996 8688 8999 8688
+			9888 8888 6668 8888 9996 8688 8999 8688
+			5575 eee6 3bff c3ee eeef feee 7e4e 8888
+			5575 eee6 3bff c3ee eeef feee 7e4e 8888
+			4455 10f6 0001 000d 0000 011d e010 9999
+			4455 10f6 0001 000d 0000 011d e010 9999
+			5566 c1c6 0111 000d 0000 1100 e011 9999
+			5566 c1c6 0111 000d 0000 1100 e011 9999
+			45f1 4422 5a2e 6655 111f f111 bbbb d33b
+			45f1 4422 5a2e 6655 111f f111 bbbb d33b
+			55b0 4444 5422 6665 000c c110 3333 133b
+			55b0 4444 5422 6665 000c c110 3333 133b
+			33d0 32e3 44ef eeee dddd dddd fccc fe2e
+			33d0 32e3 44ef eeee dddd dddd fccc fe2e
+			0000 33c0 2442 111c d111 111d e000 5668
+			0000 33c0 2442 111c d111 111d e000 5668
+			0000 23c0 4422 111b cb11 011d e000 6668
+			0000 23c0 4422 111b cb11 011d e000 6668
+			77f3 8677 6866 7577 423f fee4 c1dd ffb3
+			77f3 8677 6866 7577 423f fee4 c1dd ffb3
+			9985 9988 9998 9888 6655 5666 1111 c111
+			9985 9988 9998 9888 6655 5666 1111 c111
+			8877 9988 8888 9888 5547 7655 1d1d fdcc
+			8877 9988 8888 9888 5547 7655 1d1d fdcc
+			ccdc 997d 9899 8888 6888 cccc f111 5656
+			ccdc 997d 9899 8888 6888 cccc f111 5656
+			1111 9951 8899 8989 8998 111c e110 6568
+			1111 9951 8899 8989 8998 111c e110 6568
+			dfdd 66ed 6686 6667 7886 dccf ebbc 7766
+			dfdd 66ed 6686 6667 7886 dccf ebbc 7766
+			24d1 2bb3 4443 b255 666e e445 6666 c666
+			24d1 2bb3 4443 b255 666e e445 6666 c666
+			22d1 4233 5542 3455 5552 2444 6555 c566
+			22d1 4233 5542 3455 5552 2444 6555 c566
+			bbfd bbcc bbfc 566e 7666 e223 b222 dfbb
+			bbfd bbcc bbfc 566e 7666 e223 b222 dfbb
+			b3bb 1bcc cbbc 989e 9999 2222 c222 1111
+			b3bb 1bcc cbbc 989e 9999 2222 c222 1111
+			bbb3 ccfb b3bc 866f 8999 322e cb32 111c
+			bbb3 ccfb b3bc 866f 8999 322e cb32 111c
+			5676 4475 2433 3322 dccf cddd 4444 7757
+			5676 4475 2433 3322 dccf cddd 4444 7757
+			6666 5556 2234 3224 001c d001 5566 8886
+			6666 5556 2234 3224 001c d001 5566 8886
+			55e4 42e4 333e 244e cccf fddd e457 7754
+			55e4 42e4 333e 244e cccf fddd e457 7754
+			4555 4332 4455 899e 7666 4233 c224 bbbb
+			4555 4332 4455 899e 7666 4233 c224 bbbb
+			6555 2335 4444 8997 6688 4422 3444 bb33
+			6555 2335 4444 8997 6688 4422 3444 bb33
+			57e5 42e7 23be 777e 7557 e54e fbcf dccc
+			57e5 42e7 23be 777e 7557 e54e fbcf dccc
+			6656 6556 2235 4222 6664 7655 1000 d33c
+			6656 6556 2235 4222 6664 7655 1000 d33c
+			5576 5555 b324 23bb 6664 7654 0110 db3c
+			5576 5555 b324 23bb 6664 7654 0110 db3c
+			4424 9972 6668 323e 4442 cbcf d111 dddd
+			4424 9972 6668 323e 4442 cbcf d111 dddd
+			5444 9984 9899 4236 4444 1111 0011 0001
+			5444 9984 9899 4236 4444 1111 0011 0001
+			54e4 8864 8888 4237 e444 dccf fccc ddcc
+			54e4 8864 8888 4237 e444 dccf fccc ddcc
+			8866 6668 5666 8866 9986 6868 9999 8688
+			8866 6668 5666 8866 9986 6868 9999 8688
+			9888 8888 6668 8888 9996 8688 8999 8688
+			9888 8888 6668 8888 9996 8688 8999 8688
+			5575 eee6 3bff c3ee eeef feee 7e4e 8888
+			5575 eee6 3bff c3ee eeef feee 7e4e 8888
+			4455 10f6 0001 000d 0000 011d e010 9999
+			4455 10f6 0001 000d 0000 011d e010 9999
+			5566 c1c6 0111 000d 0000 1100 e011 9999
+			5566 c1c6 0111 000d 0000 1100 e011 9999
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="h_dumy01_pl" color_size="16">
+		3637 3657 3a79 3a78 3e79 3e99 4299 3e99
+		42ba 46ba 3e7a 3a58 3a58 3a57 3e78 3e57
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="c5_o02"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="8"
+		fog_flag="on"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="25 25 25"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="20" polygon_size="5"
+		triangle_size="0" quad_size="5"
+		volume_min="-2.000000 0.375000 -2.000000"
+		volume_max="2.000000 6.000000 1.000000"
+		volume_r="6.633301"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="20">
+					<mtx idx="0"/>
+					<tex st="0.000000 64.000000"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_s xyz="-2.000000 6.000000 1.000000"/>
+					<tex st="64.000000 64.000000"/>
+					<pos_xy xy="-2.000000 0.375000"/>
+					<tex st="64.000000 10.750000"/>
+					<pos_xy xy="2.000000 0.375000"/>
+					<tex st="0.000000 10.750000"/>
+					<pos_xy xy="2.000000 6.000000"/>
+					<tex st="-64.000000 64.000000"/>
+					<nrm xyz="-1.000000 0.000000 0.000000"/>
+					<pos_s xyz="-2.000000 0.375000 -2.000000"/>
+					<tex st="0.000000 64.000000"/>
+					<pos_xz xz="-2.000000 1.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-2.000000 6.000000"/>
+					<tex st="-64.000000 0.000000"/>
+					<pos_xz xz="-2.000000 -2.000000"/>
+					<tex st="64.000000 64.000000"/>
+					<nrm xyz="0.998047 0.000000 0.000000"/>
+					<pos_s xyz="2.000000 0.375000 1.000000"/>
+					<tex st="128.000000 64.000000"/>
+					<pos_xz xz="2.000000 -2.000000"/>
+					<tex st="128.000000 0.000000"/>
+					<pos_xy xy="2.000000 6.000000"/>
+					<tex st="64.000000 0.000000"/>
+					<pos_xz xz="2.000000 1.000000"/>
+					<tex st="0.000000 -64.000000"/>
+					<nrm xyz="0.000000 0.000000 -1.000000"/>
+					<pos_xz xz="-2.000000 -2.000000"/>
+					<tex st="64.000000 -64.000000"/>
+					<pos_xy xy="2.000000 6.000000"/>
+					<tex st="64.000000 -128.000000"/>
+					<pos_xy xy="2.000000 0.375000"/>
+					<tex st="0.000000 -128.000000"/>
+					<pos_xy xy="-2.000000 0.375000"/>
+					<tex st="0.000000 0.000000"/>
+					<nrm xyz="0.000000 0.998047 0.000000"/>
+					<pos_yz yz="6.000000 1.000000"/>
+					<tex st="64.000000 0.000000"/>
+					<pos_xy xy="2.000000 6.000000"/>
+					<tex st="64.000000 -64.000000"/>
+					<pos_xz xz="2.000000 -2.000000"/>
+					<tex st="0.000000 -64.000000"/>
+					<pos_xy xy="-2.000000 6.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pCube1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="20" polygon_size="5"
+		triangle_size="0" quad_size="5"
+		volume_min="-2.000000 0.375000 -2.000000"
+		volume_max="2.000000 6.000000 1.000000"
+		volume_r="6.633301"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="20" polygon_size="5"
+	triangle_size="0" quad_size="5"/>
+
+</body>
+
+</imd>

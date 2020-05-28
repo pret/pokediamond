@@ -1,0 +1,1466 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="nakatsui" host="W00092" date="2006-08-03T19:34:47"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="34" japanese="コンテスト名称" english="コンテスト名称" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+				<comment language="english">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+			</tag>
+			<tag entry="35" japanese="コンテストランク" english="コンテストランク" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">○○○○ランク
+「ランク」も含む</comment>
+				<comment language="english">○○○○ランク
+「ランク」も含む</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+			<tag entry="102" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="136"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="3" width="243"/>
+		<erase position="-1" width="100"/>
+		<attribute japanese="キャラ指定" english="キャラ指定" type="string" default="" position="1" width="100">
+		</attribute>
+		<language japanese="日本語" english="日本語">
+			<message position="2" width="204"/>
+			<font default=" 0:font_talk" position="4" width="100">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="-1" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="-47" top="131" right="577" bottom="686" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="448" right="1024" bottom="600" visible="yes"/>
+		<tag-palette left="651" top="47" right="998" bottom="445" visible="yes"/>
+		<band id="0" index="1" style="0000" width="449"/>
+		<band id="1" index="2" style="0000" width="165"/>
+		<band id="2" index="3" style="0000" width="409"/>
+		<band id="3" index="4" style="0000" width="205"/>
+		<band id="4" index="0" style="0000" width="616"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_tv_02_01_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●ポケモン捕獲番組／ニックネームをつけた場合
+
+トレーナー名：０：主人公名
+ポケモン名：１：捕まえたポケモンの名
+どうぐ名：２：捕まえたボール種類
+数字３桁：３：試投回数
+ニックネーム：４：つけたニックネーム</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">ＤＪ『ポケモン！
+ほかく　だぜーっ！！▼
+こんかいも　ポケモンを　ほかくした
+トレーナーの　きろくを▽
+みんなに　おつたえ　するぜーっ！▼
+さあ　こんかい　ナイスな　ほかくを
+くりひろげた　トレーナーの　なまえは▽
+[1:03:トレーナー名:0]だーっ！▼
+[1:03:トレーナー名:0]が　ほかくした
+ポケモンは　なんと！▽
+[1:00:ポケモン名:1]だってよーっ！▼
+[1:03:トレーナー名:0]！　ナイスだぜーっ！
+しかも　ほかくに　つかった　ボールは▽
+[1:08:どうぐ名:2]で▽
+[1:34:数字３桁:3]かい　で▽
+ほかく　したんだってよーっ！▼
+まったく　グレートな
+トレーナーだぜ！！▽
+[1:03:トレーナー名:0]はよーっ！▼
+……ん？　ちょっと　まってくれっ！
+また　じょうほうが　はいったぞ！▼
+[1:03:トレーナー名:0]が
+ほかくした　[1:00:ポケモン名:1]に▽
+つけた　ニックネームが　わかったぜっ！▼
+なんと　[1:01:ニックネーム:4]だってよー！
+[1:03:トレーナー名:0]！！▽
+もう　かんべんして　くれよー！▽
+どこまで　イカすんだよ　アンタ！▽
+ホント　さいこう　だぜーっ！▼
+[1:03:トレーナー名:0]みたいに
+みんなも　ガンガン　ポケモンを▽
+ほかく　してくれよなーっ！！</language>
+	</row>
+
+	<row id="msg_tv_02_01_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●ポケモン捕獲番組／ニックネームをつけなかった
+
+トレーナー名：０：主人公名
+ポケモン名：１：捕まえたポケモンの名
+どうぐ名：２：捕まえたボール種類
+数字３桁：３：試投回数
+</comment>
+		<language name="日本語" width="216">ＤＪ『ポケモン！
+ほかく　だぜーっ！！▼
+こんかいも　ポケモンを　ほかくした
+トレーナーの　きろくを▽
+みんなに　おつたえ　するぜーっ！▼
+さあ　こんかい　ナイスな　ほかくを
+くりひろげた　トレーナーの　なまえは▽
+[1:03:トレーナー名:0]だーっ！▼
+[1:03:トレーナー名:0]が　ほかくした
+ポケモンは　なんと！▽
+[1:00:ポケモン名:1]だってよーっ！▼
+[1:03:トレーナー名:0]！　ナイスだぜーっ！
+しかも　ほかくに　つかった　ボールは▽
+[1:08:どうぐ名:2]で▽
+[1:34:数字３桁:3]かい　で▽
+ほかく　したんだってよーっ！▼
+まったく　グレートな
+トレーナーだぜっ！！▽
+[1:03:トレーナー名:0]はよーっ！▼
+……ん？　ちょっと　まってくれ！
+また　じょうほうが　はいったぞ！▼
+[1:03:トレーナー名:0]が
+ほかくした　[1:00:ポケモン名:1]に▼
+あえて　ニックネームは
+つけなかったんだってよーっ！▼
+[1:03:トレーナー名:0]！！
+いさぎよい　クールキッズだぜーっ！▼
+[1:03:トレーナー名:0]みたいに
+みんなも　ガンガン　ポケモンを▽
+ほかく　してくれよなーっ！！</language>
+	</row>
+
+	<row id="msg_tv_02_02_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●ポケモン捕獲失敗番組／倒した
+
+トレーナー名：０：主人公名
+数字３桁：1：試投回数
+</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">ＤＪ『ポケモン！
+ほかく　だぜーっ！！▼
+こんかいも　ポケモンを　ほかくした
+トレーナーの　きろくを▽
+みんなに　おつたえ　するぜーっ！▼
+さあ　こんかい　すてきな　ほかくを
+くりひろげた　トレーナーの　なまえは▽
+[1:03:トレーナー名:0]だなーっ！▼
+[1:03:トレーナー名:0]が　ほかくした
+ポケモンは……▼
+……ん？　ちょっと　まってくれ……▼
+[1:03:トレーナー名:0]は　ポケモンの　ほかくに
+しっぱい　してるじゃないか……▼
+しかも　ボールを　[1:34:数字３桁:1]かいも
+なげてるのに　ダメだった　だと……▼
+そして　[1:03:トレーナー名:0]は
+その　ポケモンを　たおした　だって……▼
+ああ……　なんてことだ……▼
+こいつは　かなしすぎて　ニュースに
+ならないぜ……▼
+[1:03:トレーナー名:0]！！
+がんばれよ！　つぎが　あるさ！！▼
+あんな　ポケモンの　ことなんて
+わすれちまえよ！！▼
+この　ひろい　シンオウには
+アンタに　おにあいの　ポケモンが▽
+たくさん　いるからなーっ！</language>
+	</row>
+
+	<row id="msg_tv_02_02_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●ポケモン捕獲失敗番組／逃げられた
+
+トレーナー名：０：主人公名
+数字３桁：1：試投回数
+</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">ＤＪ『ポケモン！
+ほかく　だぜーっ！！▼
+こんかいも　ポケモンを
+ほかくした　トレーナーの　きろくを▽
+みんなに　おつたえ　するぜーっ！▼
+さあ　こんかい　すてきな　ほかくを
+くりひろげた　トレーナーの　なまえは▽
+[1:03:トレーナー名:0]だなーっ！▼
+[1:03:トレーナー名:0]が　ほかくした
+ポケモンは……▼
+……ん？　ちょっと　まってくれ……▼
+[1:03:トレーナー名:0]は　ポケモンの　ほかくに
+しっぱい　してるじゃないか……▼
+しかも　ボールを　[1:34:数字３桁:1]かいも
+なげてるのに　ダメだった　だと……▼
+ああ……　なんてことだ……▼
+これは　かなしすぎて　ニュースに
+ならないぜ……▼
+[1:03:トレーナー名:0]！！
+がんばれよ！　つぎが　あるさ！！▼
+あんな　ポケモンの　ことなんて
+わすれちまえよ！！▼
+この　ひろい　シンオウには
+アンタに　おにあいの　ポケモンが▽
+たくさん　いるからなーっ！</language>
+	</row>
+
+	<row id="msg_tv_02_03_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●世界をつる番組／つった場合
+
+トレーナー名：０：主人公名
+どうぐ名：１：竿の種類
+ポケモン名：２：つったポケモン名</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『つりで　ポケモンを
+つかまえる　トレーナーたちを▽
+しょうかいする　このコーナー▼
+こんかいも　ゲストに　つりたつじんを
+おむかえして　おります▼
+たつじん『ウム！▼
+しかい『さて　たつじん！
+こんかいは　[1:03:トレーナー名:0]さんの▽
+つりに　ついて　ですが……▼
+どうやら　[1:08:どうぐ名:1]で
+みごと　[1:00:ポケモン名:2]を▽
+つりあげた　ようです！▼
+たつじん『ウム！▼
+しかい『では　たつじん！
+[1:03:トレーナー名:0]さんの▽
+さお　さばき！▽
+ズバリ　なんてん　でしょうか！？▼
+たつじん『ウム！
+さおをふる　なやましい　こしつき！▽
+もんくなしの　１００てん！！▼
+しかい『でました！　１００てん！！
+おめでとう！　[1:03:トレーナー名:0]さん！▼
+それでは　また　じかい！
+さようならー！</language>
+	</row>
+
+	<row id="msg_tv_02_03_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●世界をつる番組／逃がした場合
+
+トレーナー名：０：主人公名
+</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『つりで　ポケモンを
+つかまえる　トレーナーたちを▽
+しょうかいする　このコーナー▼
+こんかいも　ゲストに　つりたつじんを
+おむかえして　おります▼
+たつじん『ウム！▼
+しかい『さて　たつじん！
+こんかいは　[1:03:トレーナー名:0]さんの▽
+つりに　ついて　ですが……▼
+えものに　にげられて▽
+しまった　ようですねー▼
+たつじん『ウム！▼
+しかい『では　たつじん！
+[1:03:トレーナー名:0]さんの▽
+さお　さばき！▽
+ズバリ　なんてん　でしょうか！？▼
+たつじん『ウム！
+さおをふる　こしつきが　あまい！▽
+きあいがたりないので　５てん！▼
+しかい『ざんねん！　５てん！！
+[1:03:トレーナー名:0]さん！　がんばって！▼
+それでは　またじかい！
+さようならー！</language>
+	</row>
+
+	<row id="msg_tv_02_04_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●グループ乗り換え番組
+
+トレーナー名：０：主人公名
+トレーナー名：１：グループ名</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『グループ　だいすき！
+の　コーナーです▼
+きょうも　ゲストに
+グループマニアさんを▽
+おむかえして　おります▼
+マニア『イエイ！▼
+しかい『さて　こんかい
+[1:03:トレーナー名:0]さんが▽
+[1:03:トレーナー名:1]　という▽
+グループに　のりかえましたが▽
+どう　おもわれますか？▼
+マニア『イエイ！
+べつに　いいんじゃないの！▼
+しかい『そうですねー
+それでは　また！　さようなら！</language>
+	</row>
+
+	<row id="msg_tv_02_05_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●レアポケモン番組／倒した
+
+トレーナー名：０：主人公名
+マップ名：１：であった場所名
+ポケモン名：２：であったポケモン</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">たいちょう『ハハハッ！▼
+いやぁ　みんな！　たいちょうだ！
+ぼうけん　たのしんでるか！▼
+こんかいも　わたしのように
+ポケモンと　きけんと　ぼうけんを▽
+あいする　トレーナーを▽
+しょうかい　しよう　じゃないか！▼
+その　なも　[1:03:トレーナー名:0]クンだ！▼
+[1:03:トレーナー名:0]クンはなぁ
+なんと[1:04:マップ名:1]で▽
+とても　めずらしい▽
+[1:00:ポケモン名:2]と　であった　そうだ！▼
+しかも　じまんの　パートナーで
+[1:00:ポケモン名:2]を　たおして▽
+やったそうだ！▼
+いやぁ　とても　ワクワクする
+はなしじゃ　ないか！▼
+テレビの　まえの　みんなも
+たくさん　ぼうけん　してくれよ！▼
+それじゃあな！　ハハハッ！</language>
+	</row>
+
+	<row id="msg_tv_02_05_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●レアポケモン番組／逃げられた
+
+トレーナー名：０：主人公名
+マップ名：１：であった場所名
+ポケモン名：２：であったポケモン</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">たいちょう『ハハハッ！▼
+いやぁ　みんな！　たいちょうだ！
+ぼうけん　たのしんでるか！▼
+こんかいも　わたしのように
+ポケモンと　きけんと　ぼうけんを▽
+あいする　トレーナーを▽
+しょうかい　しよう　じゃないか！▼
+その　なも　[1:03:トレーナー名:0]クンだ！▼
+[1:03:トレーナー名:0]クンはなぁ
+なんと[1:04:マップ名:1]で▽
+とても　めずらしい▽
+[1:00:ポケモン名:2]と　であった　そうだ！▼
+ざんねんながら　にげられて　しまった
+ようだがなぁ　ハハハッ！▼
+いやぁ　とても　ワクワクする
+はなしじゃ　ないか！▼
+テレビの　まえの　みんなも
+たくさん　ぼうけん　してくれよ！▼
+それじゃあな！　ハハハッ！</language>
+	</row>
+
+	<row id="msg_tv_02_05_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●レアポケモン番組／捕まえた
+
+トレーナー名：０：主人公名
+マップ名：１：であった場所名
+ポケモン名：２：であったポケモン</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">たいちょう『ハハハッ！▼
+いやぁ　みんな！　たいちょうだ！
+ぼうけん　たのしんでるか！▼
+こんかいも　わたしのように
+ポケモンと　きけんと　ぼうけんを▽
+あいする　トレーナーを▽
+しょうかい　しよう　じゃないか！▼
+その　なも　[1:03:トレーナー名:0]クンだ！▼
+[1:03:トレーナー名:0]クンはなぁ
+なんと[1:04:マップ名:1]で▽
+とても　めずらしい▽
+[1:00:ポケモン名:2]と　であった　そうだ！▼
+しかも　つかまえた　らしいぞ！
+ハハハッ！　やるじゃないか！▼
+いやぁ　とても　ワクワクする
+はなしじゃ　ないか！▼
+テレビの　まえの　みんなも
+たくさん　ぼうけん　してくれよ！▼
+それじゃあな！　ハハハッ！</language>
+	</row>
+
+	<row id="msg_tv_02_06_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●隠し道具発見番組
+
+マップ名：０：見つけた場所
+トレーナー名：１：主人公名
+どうぐ名：２：みつけた道具名</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">キャスター『ここで　ニュースです▼
+[1:04:マップ名:0]を
+ぼうけんちゅうの　トレーナー▽
+[1:03:トレーナー名:1]さんが▽
+かくされていた▽
+[1:08:どうぐ名:2]を▽
+みつけた　もよう　です▼
+くわしい　ほうほうは　わかって
+おりませんが　もくげきしゃに　よると▽
+[1:03:トレーナー名:1]さんは　あたりを▽
+なんども　キョロキョロと　みわたし▽
+たいへんに　おちつかない▽
+ようす　だったそうです▼
+いじょう　ニュースを　おわります</language>
+	</row>
+
+	<row id="msg_tv_02_07_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●買い物番組
+
+どうぐ名：０：買った道具
+数字３桁１：買った数
+トレーナー名：２：トレーナー名</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『おまたせしました！
+シンオウ　かいものチャンピオンの▽
+コーナーです▼
+こんかい　しょうかいするのは
+[1:08:どうぐ名:0]を▽
+[1:34:数字３桁:1]も　かった▽
+[1:03:トレーナー名:2]さん　です▼
+ゲスト『いやー
+[1:03:トレーナー名:2]さんの▽
+かいものは　すばらしいねー！▽
+ほら　みてくださいよ！▼
+[1:03:トレーナー名:2]さんの
+[1:08:どうぐ名:0]を　つかむ▽
+すばやい　ゆびの　うごき！！▼
+このゆびで　シンオウじゅうの
+[1:08:どうぐ名:0]を▽
+かいしめて　やる！▽
+という　きあいがね　ビシビシと▽
+つたわってくるよねー▼
+しかいしゃ『なるほどー　さすがは
+[1:03:トレーナー名:2]さん　ですねー▼
+みなさんも　[1:03:トレーナー名:2]さんに
+まけないよう　たくさん▽
+おかいものして　ください！▼
+それでは　また！</language>
+	</row>
+
+	<row id="msg_tv_02_08_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●タマゴがかえった番組
+
+トレーナー名：０：主人公名
+マップ名：１：うまれたマップ番号
+ポケモン：２：生まれたポケモン</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『ハッピー　ハッピー
+タマゴくらぶの　じかん　じゃ▼
+[1:03:トレーナー名:0]さんの
+タマゴが　[1:04:マップ名:1]で▽
+かえったぞい▼
+うまれたのは　[1:00:ポケモン名:2]！！
+[1:03:トレーナー名:0]さん！　めでたいの！▽
+あたらしい　かぞくを　たいせつにな！▼
+では　また！</language>
+	</row>
+
+	<row id="msg_tv_02_09_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●ポケモン相性番組／バッチリ
+
+トレーナー名：０：トレーナー名
+</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">アシスタント『みなさん　おまちかね
+ポケモン　あいしょう　コーナーです！▼
+きょうも　ゲストに　れんあいと
+ポケモン　いくせいの　たつじんを▽
+おまねき　して　おおくり　いたします▼
+たつじん『よろしくてよ……▼
+アシスタント『さて　たつじん！
+こんかいは▽
+[1:03:トレーナー名:0]さんが▽
+そだてやさんに　あずけた　２ひきの▽
+ポケモンの　あいしょうを　おしえて▽
+いただきたいの　ですが？▼
+たつじん『とっても　よろしくてよ……▼
+アシスタント『おおー！　でましたっ！
+たつじんの　とっても　よろしくてよ！▼
+[1:03:トレーナー名:0]　さん！
+あなたが　あずけた　２ひきの▽
+あいしょうは　バッチリ　ですよ！▼
+では　たつじん！　じかいも
+よろしく　おねがい　いたします！▼
+たつじん『よろしくてよ……</language>
+	</row>
+
+	<row id="msg_tv_02_09_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●ポケモン相性番組／まずまず
+
+トレーナー名：０：トレーナー名</comment>
+		<language name="日本語" width="216">アシスタント『みなさん　おまちかね
+ポケモン　あいしょう　コーナーです！▼
+きょうも　ゲストに　れんあいと
+ポケモン　いくせいの　たつじんを▽
+おまねき　して　おおくり　いたします▼
+たつじん『よろしくてよ……▼
+アシスタント『さて　たつじん……
+こんかいは▽
+[1:03:トレーナー名:0]さんが▽
+そだてやさんに　あずけた　２ひきの▽
+ポケモンの　あいしょうを　おしえて▽
+いただきたいの　ですが？▼
+たつじん『よろしくてよ……▼
+アシスタント『おおー！　でましたっ！
+たつじんの　よろしくてよ！▼
+[1:03:トレーナー名:0]　さん！
+あなたが　あずけた　２ひきの▽
+あいしょうが　いいようですよ！▼
+では　たつじん！　じかいも
+よろしく　おねがい　いたします！▼
+たつじん『よろしくてよ……</language>
+	</row>
+
+	<row id="msg_tv_02_09_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●ポケモン相性番組／あまりよくない
+
+トレーナー名：０：トレーナー名</comment>
+		<language name="日本語" width="216">アシスタント『みなさん　おまちかね
+ポケモン　あいしょう　コーナーです！▼
+きょうも　ゲストに　れんあいと
+ポケモン　いくせいの　たつじんを▽
+おまねき　して　おおくり　いたします▼
+たつじん『よろしくてよ……▼
+アシスタント『さて　たつじん！
+こんかいは▽
+[1:03:トレーナー名:0]さんが▽
+そだてやさんに　あずけた　２ひきの▽
+ポケモンの　あいしょうを　おしえて▽
+いただきたいの　ですが？▼
+たつじん『よろしく　なくてよ……▼
+アシスタント『おおー！　でましたっ！
+たつじんの　よろしく　なくてよ！▼
+[1:03:トレーナー名:0]　さん！
+あなたが　あずけた　２ひきの▽
+あいしょうが　よくない　ですよ！▼
+では　たつじん！　じかいも
+よろしく　おねがい　いたします！▼
+たつじん『よろしくてよ……</language>
+	</row>
+
+	<row id="msg_tv_02_09_04" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●ポケモン相性番組／悪い
+
+トレーナー名：０：トレーナー名</comment>
+		<language name="日本語" width="216">アシスタント『みなさん　おまちかね
+ポケモン　あいしょう　コーナーです！▼
+きょうも　ゲストに　れんあいと
+ポケモン　いくせいの　たつじんを▽
+おまねき　して　おおくり　いたします▼
+たつじん『よろしくてよ……▼
+アシスタント『さて　たつじん！
+こんかいは▽
+[1:03:トレーナー名:0]さんが▽
+そだてやさんに　あずけた　２ひきの▽
+ポケモンの　あいしょうを　おしえて▽
+いただきたいの　ですが？▼
+たつじん『さ　い　あ　く……▼
+アシスタント『おおー！　でましたっ！
+たつじんの　さ　い　あ　く！▼
+[1:03:トレーナー名:0]　さん！
+あなたが　あずけた　２ひきの▽
+あいしょうが　わるい　ですよ！▼
+では　たつじん！　じかいも
+よろしく　おねがい　いたします！▼
+たつじん『よろしくてよ……</language>
+	</row>
+
+	<row id="msg_tv_02_10_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●改名番組１／改名した場合
+１～５はランダムで決定
+
+トレーナー名：０：主人公名
+ポケモン名：１：ポケモンの名
+ニックネーム：２：あたらしいニックネーム</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『なまえ　かわれば
+うんめい　かわる！？▼
+ドキドキ　かいめい
+はんだんの　じかんです！▼
+さあさあ！　こんかいは
+[1:03:トレーナー名:0]さんが▽
+[1:00:ポケモン名:1]に　つけた▽
+あたらしい　ニックネーム▽
+[1:01:ニックネーム:2]　ですが▽
+こちらは　いかがでしょう？▼
+かんていし『……　いいのね？
+じゃあ　スパッと　いうわよ！▼
+[1:01:ニックネーム:2]　と　いう
+ニックネームは　さいこう！▼
+[1:01:ニックネーム:2]は　まえより
+もっと　みりょくてきに　なる！▼
+だが　しかし！▼
+[1:03:トレーナー名:0]は
+ぬまに　はまる！▼
+しかい『[1:03:トレーナー名:0]さん！
+かいめいは　だいせいこう　ですよ！▼
+[1:01:ニックネーム:2]ちゃんに
+ポフィンを　いっぱい　あげると▽
+もっと　いいかも　しれません！▼
+でも　だいしつげんに　いくときは
+きをつけて　くださいね！▼
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<row id="msg_tv_02_10_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●改名番組２／改名した場合
+１～５はランダムで決定
+
+トレーナー名：０：主人公名
+ポケモン名：１：ポケモンの名
+ニックネーム：２：あたらしいニックネーム</comment>
+		<language name="日本語" width="216">しかい『なまえ　かわれば
+うんめい　かわる！？▼
+ドキドキ　かいめい
+はんだんの　じかんです！▼
+さあさあ！　こんかいは
+[1:03:トレーナー名:0]さんが▽
+[1:00:ポケモン名:1]に　つけた▽
+あたらしい　ニックネーム▽
+[1:01:ニックネーム:2]　ですが▽
+こちらは　いかがでしょう？▼
+かんていし『……　いいのね？
+じゃあ　スパッと　いうわよ！▼
+[1:01:ニックネーム:2]　と　いう
+ニックネームは　さいこう！▼
+[1:01:ニックネーム:2]は　まえより
+もっと　すばやくなる！▼
+だが　しかし！▼
+[1:03:トレーナー名:0]は
+ぬまに　はまる！▼
+しかい『[1:03:トレーナー名:0]さん！
+かいめいは　だいせいこう　ですよ！▼
+[1:01:ニックネーム:2]ちゃんに
+インドメタシンを　あげると▽
+もっと　いいかも　しれません！▼
+でも　だいしつげんに　いくときは
+きをつけて　くださいね▼
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<row id="msg_tv_02_10_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●改名番組３／改名した場合
+１～５はランダムで決定
+
+トレーナー名：０：主人公名
+ポケモン名：１：ポケモンの名
+ニックネーム：２：あたらしいニックネーム</comment>
+		<language name="日本語" width="216">しかい『なまえ　かわれば
+うんめい　かわる！？▼
+ドキドキ　かいめい
+はんだんの　じかんです！▼
+さあさあ！　こんかいは
+[1:03:トレーナー名:0]さんが▽
+[1:00:ポケモン名:1]に　つけた▽
+あたらしい　ニックネーム▽
+[1:01:ニックネーム:2]　ですが▽
+こちらは　いかがでしょう？▼
+かんていし『……　いいのね？
+じゃあ　スパッと　いうわよ！▼
+[1:01:ニックネーム:2]　と　いう
+ニックネームは　さいこう！▼
+[1:01:ニックネーム:2]は　まえより
+もっと　こうばしく　なる！▼
+だが　しかし！▼
+[1:03:トレーナー名:0]は
+ぬまに　はまる！▼
+しかい『[1:03:トレーナー名:0]さん！
+かいめいは　だいせいこう　ですよ！▼
+[1:01:ニックネーム:2]ちゃんは
+こうばしく　なります！▼
+でも　だいしつげんに　いくときは
+きをつけて　くださいね！▼
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<row id="msg_tv_02_10_04" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●改名番組４／改名した場合
+１～５はランダムで決定
+
+トレーナー名：０：主人公名
+ポケモン名：１：ポケモンの名
+ニックネーム：２：あたらしいニックネーム</comment>
+		<language name="日本語" width="216">しかい『なまえ　かわれば
+うんめい　かわる！？▼
+ドキドキ　かいめい
+はんだんの　じかんです！▼
+さあさあ！　こんかいは
+[1:03:トレーナー名:0]さんが▽
+[1:00:ポケモン名:1]に　つけた▽
+あたらしい　ニックネーム▽
+[1:01:ニックネーム:2]　ですが▽
+こちらは　いかがでしょう？▼
+かんていし『……　いいのね？
+じゃあ　スパッと　いうわよ！▼
+[1:01:ニックネーム:2]　と　いう
+ニックネームは　さいこう！▼
+[1:01:ニックネーム:2]は　まえより
+もっと　つよくなる！▼
+だが　しかし！▼
+[1:03:トレーナー名:0]は
+ぬまに　はまる！▼
+しかい『[1:03:トレーナー名:0]さん！
+かいめいは　だいせいこう　ですよ！▼
+[1:01:ニックネーム:2]ちゃんを
+せんとうにして　ぼうけん　すると▽
+もっと　いいかも　しれません！▼
+でも　だいしつげんに　いくときは
+きをつけて　くださいね▼
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<row id="msg_tv_02_10_05" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●改名番組５／改名した場合
+１～５はランダムで決定
+
+トレーナー名：０：主人公名
+ポケモン名：１：ポケモンの名
+ニックネーム：２：あたらしいニックネーム</comment>
+		<language name="日本語" width="216">しかい『なまえ　かわれば
+うんめい　かわる！？▼
+ドキドキ　かいめい
+はんだんの　じかんです！▼
+さあさあ！　こんかいは
+[1:03:トレーナー名:0]さんが▽
+[1:00:ポケモン名:1]に　つけた▽
+あたらしい　ニックネーム▽
+[1:01:ニックネーム:2]　ですが▽
+こちらは　いかがでしょう？▼
+かんていし『……　いいのね？
+じゃあ　スパッと　いうわよ！▼
+[1:01:ニックネーム:2]　と　いう
+ニックネームは　さいこう！▼
+[1:01:ニックネーム:2]は　まえよりも
+もっと　しあわせに　なる！▼
+だが　しかし！▼
+[1:03:トレーナー名:0]は
+ぬまに　はまる！▼
+しかい『[1:03:トレーナー名:0]さん！
+かいめいは　だいせいこう　ですよ！▼
+[1:01:ニックネーム:2]ちゃんは
+しあわせに　なります！▼
+でも　だいしつげんに　いくときは
+きをつけて　くださいね▼
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<row id="msg_tv_02_11_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●毒で瀕死番組
+
+トレーナー名：０：トレーナー名
+マップ名：１：ちからつきた道路名
+ポケモン名：２：力尽きたポケモン名</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『おまたせ　しました
+どくの　メモリーの　じかんです▼
+こんかいは　[1:03:トレーナー名:0]さんの
+どくの　メモリーを▽
+ごしょうかい　いたします……▼
+[1:03:トレーナー名:0]さんが
+[1:04:マップ名:1]を▽
+ぼうけんちゅう▽
+それは　おこりました▼
+[1:03:トレーナー名:0]さんの
+たいせつな　パートナー▽
+[1:00:ポケモン名:2]ちゃんが▽
+せつない　なきごえを　あげ▽
+そこで　ちから　つきたのです▼
+それは　[1:04:マップ名:1]に
+そして　[1:03:トレーナー名:0]さんの
+こころに　こだま　しました……▼
+ああ　ああ　[1:03:トレーナー名:0]さんが
+どくけしさえ　もっていれば……▼
+……　……　……▼
+いじょう　この　ばんぐみは
+フレンドリィショップの▽
+ていきょうで　おおくり　しました……</language>
+	</row>
+
+	<row id="msg_tv_02_12_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●ポケモンくじ番組
+
+数字７桁：０：トレーナーＩＤ
+トレーナー名：１：主人公名
+どうぐ名：２：賞品名</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">ながれる　じまく『ポケモンくじの▼
+けっか　はっぴょう　です▼
+こんかいの　とうせんばんごう▼
+[1:38:数字７桁:0]▼
+ばん　です▼
+こんかい　とうせんしゃは▼
+[1:03:トレーナー名:1]▼
+さん　です▼
+とうせん　しょうひんは▼
+[1:08:どうぐ名:2]▼
+です</language>
+	</row>
+
+	<row id="msg_tv_02_13_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●化石堀番組
+
+トレーナー名：0：主人公名
+地下のどうぐの名前：1：地下のどうぐの名前
+数字３桁：２：見つけた数</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『ちかロマンを　もとめて
+の　コーナーです▼
+こんかいも　ゲストに
+いせきマニアさんを▽
+おむかえして　おおくり　します▼
+マニア『おげんき　ですかー▼
+しかい『さて　こんかいは
+[1:03:トレーナー名:0]さんが▽
+[1:19:地下のどうぐの名前:1]を▽
+ほりあてたとの　じょうほうが▽
+とどいて　おります▼
+マニア『ちかには　まだまだ
+まいぞう　された▽
+おたからが　あるからねー▼
+[1:19:地下のどうぐの名前:1]　くらい
+でると　しか　いえないね▼
+しかい『でも　マニアさんは　なかなか
+いいものが　みつかって　いませんよね▼
+マニア『うるさいなー
+ぼくだって　がんばってるんだよぉー▼
+しかい『[1:03:トレーナー名:0]さんも
+かくされた　おたからを▽
+いっぱい　はっくつ　してくださいね▼
+それでは　また！</language>
+	</row>
+
+	<row id="msg_tv_02_14_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●殿堂入り番組
+
+トレーナー名：０：主人公名
+ポケモン名：１：最後にだしていたポケモン</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">キャスター『ここで　ニュースです▼
+シンオウを　ぼうけんちゅうの
+[1:03:トレーナー名:0]さんが▽
+なんと　チャンピオンを　やぶって▽
+でんどういりを　はたしました▼
+かんけいしゃの　はなしに　よりますと
+しょうぶの　きめてに　なったのは▽
+[1:03:トレーナー名:0]さんの　パートナー▽
+[1:00:ポケモン名:1]の　かつやく▽
+だった　もようです▼
+やったな！　[1:03:トレーナー名:0]！！
+がんばったな！　[1:00:ポケモン名:1]！！▼
+……ご　ごほん！▼
+いじょう　ニュースを　おわります</language>
+	</row>
+
+	<row id="msg_tv_02_15_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●サファリ番組
+
+トレーナー名：０：主人公名
+ポケモン名：１：サファリではじめにつかまえたポケモン
+数字２桁：２：サファリで捕まえたポケモンの数</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">キャスター『ここで　ニュースです▼
+シンオウを　ぼうけんちゅうの
+[1:03:トレーナー名:0]さんが▽
+だいしつげんで　ポケモンを▽
+つかまえていた　との▽
+じょうほうが　はいってきました▼
+かんけいしゃの　しょうげんに
+よると　[1:03:トレーナー名:0]さんは▽
+まず[1:00:ポケモン名:1]を▽
+つかまえて　おおよろこび▼
+ゲームしゅうりょう　までに
+[1:33:数字２桁:2]ひきの▽
+ポケモンを　つかまえて▽
+いったとの　ことです▼
+いじょう　ニュースを　おわります</language>
+	</row>
+
+	<row id="msg_tv_02_16_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●オスだけ番組
+
+トレーナー名：０：主人公名
+ポケモン名：１：先頭のポケモン</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">キャスター『ここで　ニュースです▼
+シンオウを　ぼうけんちゅうの
+[1:03:トレーナー名:0]さんが▽
+てもちの　ポケモンを▽
+いれかえていた　ようです▼
+かんけいしゃの
+しょうげんに　よりますと▽
+[1:03:トレーナー名:0]さんは▽
+パソコンから　オスの▽
+ポケモンだけを　つれだして▽
+[1:00:ポケモン名:1]を▽
+じっと　ながめて　ニヤッと▽
+ほほえんでいた　とのことです▼
+いじょう　ニュースを　おわります</language>
+	</row>
+
+	<row id="msg_tv_02_16_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●メスだけ番組
+
+トレーナー名：０：主人公名
+ポケモン名：１：先頭のポケモン</comment>
+		<language name="日本語" width="216">キャスター『ここで　ニュースです▼
+シンオウを　ぼうけんちゅうの
+[1:03:トレーナー名:0]さんが▽
+てもちの　ポケモンを▽
+いれかえていた　ようです▼
+かんけいしゃの
+しょうげんに　よりますと▽
+[1:03:トレーナー名:0]さんは▽
+パソコンから　メスの▽
+ポケモンだけを　つれだして▽
+[1:00:ポケモン名:1]を▽
+じっと　ながめて　ニヤッと▽
+ほほえんでいた　とのことです▼
+いじょう　ニュースを　おわります</language>
+	</row>
+
+	<row id="msg_tv_02_17_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●良薬は口に苦し番組
+
+トレーナー名：０：主人公名
+ポケモン名：１：漢方をあげたポケモン名
+どうぐ名：２：漢方の種類</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">キャスター『ここで　ニュースです▼
+シンオウ　ちほうを　ぼうけんちゅうの
+[1:03:トレーナー名:0]さんが▽
+[1:00:ポケモン名:1]に▽
+[1:08:どうぐ名:2]を▽
+あげていた　とのことです▼
+もくげきしゃの　しょうげんに
+よりますと　[1:00:ポケモン名:1]は▽
+とても　いやそうな　かおを▽
+している　のに▽
+[1:03:トレーナー名:0]さんは▽
+まるで　きがついて　いない▽
+ようす　だったそうです▼
+いじょう　ニュースを　おわります</language>
+	</row>
+
+	<row id="msg_tv_02_18_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●豊作番組
+
+トレーナー名：０：主人公名
+どうぐ名：１：木の実の名前
+数字２桁：できた木の実</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『みなさん
+しゅみの　みずやりと▽
+つちいじりの　じかんです▼
+ほんじつも　ゲストに
+きのみ　たつじんを　おむかえして▽
+おおくり　いたします▼
+たつじん『んだ！　んだ！▼
+しかいしゃ『さて　たつじん！
+こんかいは　[1:03:トレーナー名:0]さんの▽
+[1:08:どうぐ名:1]ですが▽
+よくそだって　いますねー▼
+たつじん『んだ！　[1:33:数字２桁:2]つも
+みが　なっとるだ！▼
+[1:03:トレーナー名:0]は　キラリと　かがやく
+みずやりと　つちいじりの▽
+さいのうが　あるだ！▼
+しかいしゃ『やー　さすがは
+[1:03:トレーナー名:0]さん！▽
+では　それでは　また！</language>
+	</row>
+
+	<row id="msg_tv_02_19_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●不作番組
+
+トレーナー名：０：主人公名
+どうぐ名１：木の実の名前
+</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかいしゃ『みなさん
+しゅみの　みずやりと▽
+つちいじりの　じかんです▼
+ほんじつも　ゲストに
+きのみ　たつじんを　おむかえして▽
+おおくり　いたします▼
+たつじん『んだ！　んだ！▼
+しかいしゃ『さて　たつじん！
+こんかいは　[1:03:トレーナー名:0]さんの▽
+[1:08:どうぐ名:1]ですが　うまく▽
+そだたなかった　ようですねー▼
+たつじん『んだ！
+みが　ちょっとしか　なっとらん！▼
+しかいしゃ『なにか　アドバイスは？▽
+たつじん『んだな……▼
+もっと　みずを　こまめに
+あげないと　ダメだ！▽
+あと　もっと　つちを　みろ！▼
+しかいしゃ『[1:03:トレーナー名:0]さん！
+たつじんの　ことばを　しんじて▽
+がんばって　くださいね！▽
+それでは　また！</language>
+	</row>
+
+	<row id="msg_tv_02_20_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●新グループ番組
+
+トレーナ名：０：主人公名
+トレーナ名：1：グループ名</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『グループ　だいすき！
+の　じかんです▼
+こんかいも　ゲストに
+グループ　マニアさんを▽
+おむかえして　います▼
+マニア『イエイ！▼
+しかい『こんかい
+[1:03:トレーナー名:0]さんが▽
+[1:03:トレーナー名:1]　という▽
+グループを　つくりましたが▽
+どう　おもわれますか？▼
+マニア『イエイ！　いいんじゃないの
+[1:03:トレーナー名:1]　グループ！▼
+しかい『そうですね！
+それでは　また！　さようなら！</language>
+	</row>
+
+	<row id="msg_tv_02_21_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●シール番組１／１～３までランダム選択される
+
+トレーナー名：０：主人公名
+どうぐ名：１：シール名
+ポケモン名：カスタムカプセル</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">しかい『シールくらぶ
+の　じかんです▼
+こんかいも　ゲストに
+シールせんせい　を▽
+おむかえ　しております▼
+せんせい『よろしく　たのもう……▼
+しかい『こんかいは　
+[1:03:トレーナー名:0]さんの▽
+つくった　ボールカプセルを▽
+ごしょうかい　いたします▼
+せんせい『ムゥ……　これは……▼
+カプセルに　ちりばめられた
+この　[1:08:どうぐ名:1]……▼
+いっけん　むぞうさ　にも
+みえる……　だが　しかし▽
+じつは　こうみょうに　けいさん▽
+しつくされて　いるな……▼
+む！　まてっ！▼
+しかも　なかにいる　ポケモンは
+[1:00:ポケモン名:2]　だとっ！？▼
+こやつ　カプセルが　ひらく
+しゅんかんを　みきわめて▽
+シールを　はりおったかっ！▼
+しかい『せんせいも　だいぜっさんの
+[1:03:トレーナー名:0]さんの▽
+ボールカプセルは　つうしんたいせんで▽
+ごらんください！▼
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<row id="msg_tv_02_21_02" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●シール番組２／１～３までランダム選択される
+
+トレーナー名：０：主人公名
+どうぐ名：１：シール名
+ポケモン名：カスタムカプセル</comment>
+		<language name="日本語" width="216">しかい『シールくらぶ
+の　じかんです▼
+こんかいも　ゲストに
+シールせんせい　を▽
+おむかえ　しております▼
+せんせい『よろしく　たのもう……▼
+しかい『こんかいは　
+[1:03:トレーナー名:0]さんの▽
+つくった　ボールカプセルを▽
+ごしょうかい　いたします▼
+せんせい『おろかもの　めが……▼
+たしかに　[1:08:どうぐ名:1]は
+すばらしい……▽
+だが　このような　いちに▽
+はって　しまっては　しんの▽
+うつくしさは　でない……▼
+ん……▼
+まて……　まさか……▼
+！！▼
+カプセルの　なかは
+[1:00:ポケモン名:2]！！▼
+[1:00:ポケモン名:2]　ならば
+この　いちに　はった▽
+[1:08:どうぐ名:1]が　むしろ▽
+うつくしく　かがやくっ！▼
+まさか　[1:03:トレーナー名:0]のやつ
+はじめから　[1:00:ポケモン名:2]を▽
+いれるつもりで　[1:08:どうぐ名:1]を▽
+ここに　はったとでも　いうのか！▼
+おのれっ！▼
+[1:03:トレーナー名:0]めがっ！
+このわしを　たばかる　とはっ！▼
+しかい『せんせいも　くやしさの
+あまりに　おこりだす　ほどの▽
+[1:03:トレーナー名:0]さんの▽
+ボールカプセルは　つうしんたいせんで▽
+ごらんください！▼
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<row id="msg_tv_02_21_03" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●シール番組３／１～３までランダム選択される
+
+トレーナー名：０：主人公名
+どうぐ名：１：シール名
+ポケモン名：カスタムカプセル</comment>
+		<language name="日本語" width="216">しかい『シールくらぶ
+の　じかんです▼
+こんかいも　ゲストに
+シールせんせい　を▽
+おむかえ　しております▼
+せんせい『よろしく　たのもう……▼
+しかい『こんかいは　
+[1:03:トレーナー名:0]さんの▽
+つくった　ボールカプセルを▽
+ごしょうかい　いたします▼
+せんせい『きほんに　ちゅうじつに
+はられた　[1:08:どうぐ名:1]……▼
+[1:03:トレーナー名:0]の
+ていねいな　しごとぶりが▽
+うかがえるな……▼
+そして　なかに　いるのは
+[1:00:ポケモン名:2]か……▼
+ふははっ！　[1:03:トレーナー名:0]め！
+なかなか　やるではないか！▼
+しかい『せんせいも　ごまんえつの
+[1:03:トレーナー名:0]さんの▽
+ボールカプセルは　つうしんたいせんで▽
+ごらんください！▼
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<row id="msg_tv_02_22_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>●旗をとった番組
+
+トレーナー名：０：自分
+トレーナー名：1：相手
+</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">キャスター『ハタダイジェストの
+じかんです！▼
+きょうも　ゲストに
+ハタマニアさんを▽
+おむかえして　います！▼
+マニア『ごっつあんですっ！▼
+キャスター『さて　こんかいは
+[1:03:トレーナー名:0]さんが▽
+[1:03:トレーナー名:1]さんの▽
+ハタを　とった　という▽
+ニュースですが▼
+マニアさんは　こちらに
+ついて　どうおもわれます？▼
+マニア『ごっつあんですっ！
+じぶんも　[1:03:トレーナー名:1]さんの▽
+ハタを　ねらっとりましたっ！▼
+でも　[1:03:トレーナー名:0]さんの
+ハタも　ねらっとりますっ！▼
+キャスター『さすが　ハタマニアさん！
+よくぶかい　コメントですね！▽
+[1:03:トレーナー名:0]さんも▽
+ゆだん　しないで　くださいよ！▽
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<row id="msg_tv_02_23_01" back-color="#80ffff,,,#80ffff,,#80ffff,#80ffff,#80ffff,,,#80ffff,#80ffff,">
+		<comment>●旗をとられた番組
+
+トレーナー名：０：自分
+トレーナー名：1：相手
+</comment>
+		<attribute name="キャラ指定">ＴＶ</attribute>
+		<language name="日本語" width="216">キャスター『ハタダイジェストの
+じかんです！▼
+きょうも　ゲストに
+ハタマニアさんを▽
+おむかえして　います！▼
+マニア『ごっつあんですっ！▼
+しかいしゃ『こんかいはですね
+[1:03:トレーナー名:0]さんの　ハタが▽
+[1:03:トレーナー名:1]さんに▽
+とられて　しまった　という▽
+ニュース　なんですが▽
+いかが　ですか？▼
+マニア『ごっつあんですっ！
+ハタを　とられるのは▽
+くやしい　ものですっ！▼
+じぶんも　ずっと
+[1:03:トレーナー名:0]さんの▽
+ハタを　ねらっとりましたっ！▼
+そして　[1:03:トレーナー名:1]さんの
+ハタも　ねらっとりますっ！▼
+キャスター『さすが　ハタマニアさん！
+よくぶかい　コメントですね！▽
+[1:03:トレーナー名:0]さんも▽
+ハタを　とりかえして　ください！▽
+それでは　また　おあいしましょう！</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

@@ -1,0 +1,1902 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="tomoya_takahashi" host="W00109" date="2006-02-17T00:16:37"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名" english="ポケット名" view="EP" width="144" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名</comment>
+				<comment language="english">バッグのポケット名</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="106"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="315"/>
+		<erase position="-1" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="1" width="214"/>
+			<font default=" 0:font_talk" position="3" width="100">
+				<list entry="0" file="L:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="L:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="L:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="4" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="32" top="102" right="737" bottom="730" maximized="no" rayout="Vertical2">
+		<comment-input left="677" top="578" right="1024" bottom="730" visible="yes"/>
+		<tag-palette left="677" top="180" right="1024" bottom="578" visible="yes"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="ZKN_COMMENT_03_000">
+		<language name="日本語"> </language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_001">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_002">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_003">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_004">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_005">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_006">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_007">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_008">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_009">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_010">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_011">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_012">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_013">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_014">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_015">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_016">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_017">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_018">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_019">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_020">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_021">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_022">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_023">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_024">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_025">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_026">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_027">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_028">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_029">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_030">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_031">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_032">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_033">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_034">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_035">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_036">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_037">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_038">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_039">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_040">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_041">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_042">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_043">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_044">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_045">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_046">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_047">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_048">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_049">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_050">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_051">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_052">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_053">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_054">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_055">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_056">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_057">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_058">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_059">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_060">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_061">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_062">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_063">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_064">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_065">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_066">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_067">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_068">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_069">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_070">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_071">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_072">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_073">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_074">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_075">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_076">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_077">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_078">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_079">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_080">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_081">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_082">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_083">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_084">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_085">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_086">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_087">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_088">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_089">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_090">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_091">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_092">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_093">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_094">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_095">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_096">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_097">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_098">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_099">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_100">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_101">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_102">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_103">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_104">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_105">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_106">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_107">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_108">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_109">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_110">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_111">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_112">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_113">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_114">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_115">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_116">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_117">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_118">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_119">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_120">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_121">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_122">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_123">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_124">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_125">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_126">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_127">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_128">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_129">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_130">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_131">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_132">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_133">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_134">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_135">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_136">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_137">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_138">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_139">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_140">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_141">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_142">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_143">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_144">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_145">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_146">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_147">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_148">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_149">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_150">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_151">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_152">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_153">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_154">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_155">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_156">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_157">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_158">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_159">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_160">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_161">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_162">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_163">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_164">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_165">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_166">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_167">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_168">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_169">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_170">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_171">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_172">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_173">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_174">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_175">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_176">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_177">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_178">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_179">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_180">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_181">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_182">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_183">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_184">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_185">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_186">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_187">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_188">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_189">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_190">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_191">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_192">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_193">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_194">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_195">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_196">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_197">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_198">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_199">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_200">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_201">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_202">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_203">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_204">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_205">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_206">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_207">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_208">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_209">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_210">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_211">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_212">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_213">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_214">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_215">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_216">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_217">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_218">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_219">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_220">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_221">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_222">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_223">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_224">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_225">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_226">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_227">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_228">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_229">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_230">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_231">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_232">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_233">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_234">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_235">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_236">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_237">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_238">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_239">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_240">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_241">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_242">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_243">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_244">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_245">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_246">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_247">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_248">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_249">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_250">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_251">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_252">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_253">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_254">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_255">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_256">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_257">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_258">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_259">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_260">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_261">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_262">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_263">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_264">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_265">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_266">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_267">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_268">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_269">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_270">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_271">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_272">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_273">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_274">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_275">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_276">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_277">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_278">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_279">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_280">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_281">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_282">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_283">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_284">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_285">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_286">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_287">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_288">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_289">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_290">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_291">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_292">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_293">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_294">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_295">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_296">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_297">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_298">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_299">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_300">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_301">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_302">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_303">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_304">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_305">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_306">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_307">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_308">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_309">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_310">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_311">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_312">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_313">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_314">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_315">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_316">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_317">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_318">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_319">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_320">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_321">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_322">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_323">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_324">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_325">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_326">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_327">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_328">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_329">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_330">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_331">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_332">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_333">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_334">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_335">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_336">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_337">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_338">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_339">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_340">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_341">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_342">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_343">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_344">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_345">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_346">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_347">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_348">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_349">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_350">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_351">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_352">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_353">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_354">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_355">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_356">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_357">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_358">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_359">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_360">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_361">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_362">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_363">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_364">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_365">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_366">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_367">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_368">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_369">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_370">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_371">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_372">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_373">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_374">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_375">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_376">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_377">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_378">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_379">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_380">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_381">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_382">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_383">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_384">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_385">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_386">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_387">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_388">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_389">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_390">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_391">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_392">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_393">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_394">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_395">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_396">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_397">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_398">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_399">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_400">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_401">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_402">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_403">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_404">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_405">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_406">
+		<language name="日本語">？</language>
+	</row>
+
+	<row id="ZKN_COMMENT_03_407">
+		<language name="日本語">？</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

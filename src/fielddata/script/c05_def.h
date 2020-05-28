@@ -1,0 +1,40 @@
+#ifndef _C05_DEF_H_
+#define _C05_DEF_H_
+
+//スクリプトデータID定義 
+#define	SCRID_C05_FLAG_CHANGE		(1)
+#define	SCRID_C05_RIVAL		(2)
+#define	SCRID_C05_STOPPER_03		(3)
+#define	SCRID_C05_STOPPER_04		(4)
+#define	SCRID_C05_EGG		(5)
+#define	SCRID_C05_CHAMP		(6)
+#define	SCRID_C05_MIDDLEMAN1		(7)
+#define	SCRID_C05_MAN1		(8)
+#define	SCRID_C05_GIRL2		(9)
+#define	SCRID_C05_GIRL1		(10)
+#define	SCRID_C05_OLDMAN2		(11)
+#define	SCRID_C05_GONBE		(12)
+#define	SCRID_C05_GENTLEMAN		(13)
+#define	SCRID_C05_WOMAN2		(14)
+#define	SCRID_C05_MIDDLEWOMAN1		(15)
+#define	SCRID_C05_BABY		(16)
+#define	SCRID_C05_ARTIST		(17)
+#define	SCRID_C05_MAN1A		(18)
+#define	SCRID_C05_BABY2		(19)
+#define	SCRID_C05_FIGHTER		(20)
+#define	SCRID_C05_WOMAN1A		(21)
+#define	SCRID_C05_LEADER		(22)
+#define	SCRID_POS_C05_JUDGE		(23)
+#define	SCRID_C05_SIGN1		(24)
+#define	SCRID_C05_SIGN2		(25)
+#define	SCRID_C05_SIGN3		(26)
+#define	SCRID_C05_SIGN4		(27)
+#define	SCRID_C05_SIGN5		(28)
+#define	SCRID_C05_SIGN6		(29)
+#define	SCRID_C05_SIGN7		(30)
+#define	SCRID_C05_SIGN8		(31)
+#define	SCRID_C05_SIGN9		(32)
+#define	SCRID_C05_RIVAL_GATE		(33)
+#define	SCRID_C05_DATA_MAX		(33)		//最大数
+
+#endif //_C05_DEF_H_

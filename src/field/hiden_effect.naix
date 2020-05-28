@@ -1,0 +1,32 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: hiden_effect.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-29T15:48:00
+ *****************************************************************************/
+
+#ifndef NARC_HIDEN_EFFECT_NAIX_
+#define NARC_HIDEN_EFFECT_NAIX_
+
+enum {
+	NARC_hiden_effect_iaigiri_nsbca = 0,
+	NARC_hiden_effect_iaigiri_nsbma = 1,
+	NARC_hiden_effect_iaigiri_nsbta = 2,
+	NARC_hiden_effect_iaigiri_nsbmd = 3,
+	NARC_hiden_effect_iwakudaki_nsbca = 4,
+	NARC_hiden_effect_iwakudaki_nsbma = 5,
+	NARC_hiden_effect_iwakudaki_nsbtp = 6,
+	NARC_hiden_effect_iwakudaki_nsbta = 7,
+	NARC_hiden_effect_iwakudaki_nsbmd = 8,
+	NARC_hiden_effect_ride_loop_nsbca = 9,
+	NARC_hiden_effect_ride_loop_nsbtp = 10,
+	NARC_hiden_effect_ride_loop_nsbmd = 11,
+	NARC_hiden_effect_ride_start_nsbca = 12,
+	NARC_hiden_effect_ride_start_nsbtp = 13,
+	NARC_hiden_effect_ride_start_nsbmd = 14
+};
+
+/* NARC_HIDEN_EFFECT_NAIX_ */
+#endif

@@ -1,0 +1,427 @@
+//====================================================================
+//								r212ar0103
+/*		LOCALWORK11使用。このマップでは使わないで				*/
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r212ar0103.h"
+	.include	"../eventdata/zone_r212ar0103evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r212ar0103_flag_change
+_EVENT_DATA		ev_r212ar0103_rich
+_EVENT_DATA		ev_r212ar0103_butler
+_EVENT_DATA		ev_r212ar0103_policeman
+_EVENT_DATA		pos_r212ar0103_policeman_01
+_EVENT_DATA		ev_r212ar0103_statue
+_EVENT_DATA		ev_r212ar0103_books
+_EVENT_DATA_END
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL							*/
+/********************************************************************/
+ev_r212ar0103_flag_change:
+	_GET_NOW_HOUR	LOCALWORK0
+	_IFVAL_JUMP		LOCALWORK0,EQ,0,r212ar0103_policeman_01_set
+	_IFVAL_JUMP		LOCALWORK0,EQ,1,r212ar0103_policeman_01_set
+	_IFVAL_JUMP		LOCALWORK0,LE,5,r212ar0103_policeman_01_del
+	_JUMP							r212ar0103_policeman_01_set
+
+//警備員出現
+r212ar0103_policeman_01_set:
+	_FLAG_RESET		FV_R212AR0103_POLICEMAN
+	_LDVAL			WK_SCENE_R212AR0101_POLICEMAN,0
+	_END
+
+//警備員消去
+r212ar0103_policeman_01_del:
+	_FLAG_SET		FV_R212AR0103_POLICEMAN
+	_LDVAL			WK_SCENE_R212AR0101_POLICEMAN,1
+	_END
+
+/********************************************************************/
+/*						金持ちおじさん								*/
+/********************************************************************/
+#define R212AR0103_URAYAMA_POS_X		(5)
+#define R212AR0103_URAYAMA_POS_Z		(7)
+
+ev_r212ar0103_rich:
+	_TALK_OBJ_START
+
+	//エンカウントが更新して1日経っていない
+	_IF_FLAGON_JUMP		TMFLG_URANIWA_ENCOUNT,ev_r212ar0103_rich_09
+
+	//執事が出た後、次の日をまたいだときの対処
+	_IFVAL_JUMP			LOCALWORK11,EQ,1,ev_r212ar0103_rich_09
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_r212ar0103_rich_03
+	_JUMP			ev_r212ar0103_rich_01
+
+//図鑑入手前
+ev_r212ar0103_rich_01:
+	_TALKMSG		msg_r212ar0103_rich_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//うらやましいじゃろ
+ev_r212ar0103_rich_03:
+	_TALKMSG		msg_r212ar0103_rich_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r212ar0103_rich_05
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r212ar0103_rich_04
+	_END
+
+//いいえ
+ev_r212ar0103_rich_04:
+	_TALKMSG		msg_r212ar0103_rich_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//「はい」選択一回目
+ev_r212ar0103_rich_05:
+	_TALKMSG		msg_r212ar0103_rich_05
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_r212ar0103_rich_06
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r212ar0103_rich_04
+	_END
+
+//「はい」選択２回目
+ev_r212ar0103_rich_06:
+	//出現するポケモン算出&SET
+	_URAYAMA_ENCOUNT_SET
+
+	//ポケモン番号を取得
+	_URAYAMA_ENCOUNT_NO_CHK		SCWK_PARAM0
+
+	_POKEMON_NAME_EXTRA	0,SCWK_PARAM0,0,0
+	_TALK_KEYWAIT		msg_r212ar0103_rich_06
+
+	//プレイヤーの位置算出
+	_PLAYER_POS_GET	SCWK_PARAM1,SCWK_PARAM2
+
+	//執事。”！”後、ウラヤマ氏へ向く
+	_OBJ_ANIME		R212AR0103_BUTLER,anime_butler_to_urayama
+	_OBJ_ANIME_WAIT
+
+	_TALKMSG		msg_r212ar0103_butler_01
+
+	//ウラヤマ氏。”！”後に執事へ向く
+	_OBJ_ANIME		R212AR0103_RICH,anime_urayama_turn_to_butler
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT		msg_r212ar0103_rich_07
+
+	_TALK_KEYWAIT		msg_r212ar0103_butler_02
+	_TALK_CLOSE
+
+	//執事出て行く
+	_OBJ_ANIME		R212AR0103_BUTLER,anime_butler_to_exit_l
+	_OBJ_ANIME_WAIT
+
+	//執事消去
+	_OBJ_DEL	R212AR0103_BUTLER
+
+	//執事が出た後、次の日をまたいだときの対処
+	_LDVAL		LOCALWORK11,1
+
+	//主人公の方へ向く
+	_CALL		r212ar0103_urayama_turn_to_hero
+
+	_FLAG_SET	TMFLG_URANIWA_ENCOUNT
+	_JUMP		ev_r212ar0103_rich_09
+
+ev_r212ar0103_rich_09:
+	//ポケモン番号を取得
+	_URAYAMA_ENCOUNT_NO_CHK		SCWK_PARAM0
+
+	_POKEMON_NAME_EXTRA	0,SCWK_PARAM0,0,0
+	_TALKMSG		msg_r212ar0103_rich_09
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//主人公の方へ向く
+r212ar0103_urayama_turn_to_hero:
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,R212AR0103_URAYAMA_POS_X-1, anm_call_urayama_turn_to_hero_l
+	_IFVAL_JUMP		SCWK_PARAM1,EQ,R212AR0103_URAYAMA_POS_X+1, anm_call_urayama_turn_to_hero_r
+	_IFVAL_JUMP		SCWK_PARAM2,EQ,R212AR0103_URAYAMA_POS_Z-1, anm_call_urayama_turn_to_hero_u
+	_JUMP														anm_call_urayama_turn_to_hero_d
+
+
+anm_call_urayama_turn_to_hero_l:
+	_OBJ_ANIME		R212AR0103_RICH,anime_urayama_turn_to_hero_l
+	_OBJ_ANIME_WAIT
+	_RET
+
+anm_call_urayama_turn_to_hero_r:
+	_OBJ_ANIME		R212AR0103_RICH,anime_urayama_turn_to_hero_r
+	_OBJ_ANIME_WAIT
+	_RET
+
+anm_call_urayama_turn_to_hero_u:
+	_OBJ_ANIME		R212AR0103_RICH,anime_urayama_turn_to_hero_u
+	_OBJ_ANIME_WAIT
+	_RET
+
+anm_call_urayama_turn_to_hero_d:
+	_OBJ_ANIME		R212AR0103_RICH,anime_urayama_turn_to_hero_d
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//執事。基本の向きへ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anime_butler_normal_dir
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//執事。”！”後、ウラヤマ氏へ向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anime_butler_to_urayama
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_WAIT_16F,1
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ウラヤマ氏。”！”後に執事へ向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anime_urayama_turn_to_butler
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//執事出て行く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anime_butler_to_exit_l
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公の方へ向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anime_urayama_turn_to_hero_l
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anime_urayama_turn_to_hero_r
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anime_urayama_turn_to_hero_u
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anime_urayama_turn_to_hero_d
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*								執事								*/
+/********************************************************************/
+ev_r212ar0103_butler:
+	_TALK_OBJ_START
+
+	/*全国図鑑になっていたら*/
+	_ZENKOKU_ZUKAN_FLAG	FLAG_MODE_GET,SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_r212ar0103_butler_07_2
+
+	_JUMP				ev_r212ar0103_butler_talk_chk
+
+/*全国図鑑になっていたら*/
+ev_r212ar0103_butler_07_2:
+	//すでに会話していたら
+	_IF_FLAGON_JUMP		FE_R212AR0103_BUTLER_TALK,ev_r212ar0103_butler_talk_chk
+
+	_JUMP				ev_r212ar0103_butler_07
+	_END
+
+//全国図鑑入手後初めて
+ev_r212ar0103_butler_07:
+	//ポケモン番号を取得
+	//_URAYAMA_ENCOUNT_NO_CHK		SCWK_PARAM0
+
+	//_POKEMON_NAME_EXTRA	0,SCWK_PARAM0,0,0
+
+	_TALKMSG		msg_r212ar0103_butler_07
+	_FLAG_SET		FE_R212AR0103_BUTLER_TALK
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	//基本の向きへ
+	_OBJ_ANIME		R212AR0103_BUTLER,anime_butler_normal_dir
+	_OBJ_ANIME_WAIT
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------------
+//クリア前
+ev_r212ar0103_butler_talk_chk:
+	//エンカウントが更新して1日経っていない
+	_IF_FLAGON_JUMP		TMFLG_URANIWA_ENCOUNT,ev_r212ar0103_butler_06
+
+	//ゲームクリアチェック
+	_SYS_FLAG_GAME_CLEAR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_r212ar0103_butler_05
+
+	_GET_RND		SCWK_ANSWER,2
+	_IFVAL_CALL		SCWK_ANSWER,EQ,0,ev_r212ar0103_butler_03_0
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,ev_r212ar0103_butler_03_1
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	//基本の向きへ
+	_OBJ_ANIME		R212AR0103_BUTLER,anime_butler_normal_dir
+	_OBJ_ANIME_WAIT
+
+	_TALK_OBJ_END
+	_END
+
+ev_r212ar0103_butler_03_0:
+	_TALK_KEYWAIT	msg_r212ar0103_butler_03
+	_RET
+
+ev_r212ar0103_butler_03_1:
+	_TALK_KEYWAIT	msg_r212ar0103_butler_04
+	_RET
+
+//--------------------------------------------------------------------------
+//クリア後
+ev_r212ar0103_butler_05:
+
+	_GET_RND		SCWK_ANSWER,2
+	_IFVAL_CALL		SCWK_ANSWER,EQ,0,ev_r212ar0103_butler_05_0
+	_IFVAL_CALL		SCWK_ANSWER,EQ,1,ev_r212ar0103_butler_05_1
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	//基本の向きへ
+	_OBJ_ANIME		R212AR0103_BUTLER,anime_butler_normal_dir
+	_OBJ_ANIME_WAIT
+
+	_TALK_OBJ_END
+	_END
+
+ev_r212ar0103_butler_05_0:
+	_TALK_KEYWAIT	msg_r212ar0103_butler_03
+	_RET
+
+ev_r212ar0103_butler_05_1:
+	_TALK_KEYWAIT	msg_r212ar0103_butler_05
+	_RET
+
+//--------------------------------------------------------------------------
+//エンカウントが変わってから１日経っていない
+ev_r212ar0103_butler_06:
+	//ポケモン番号を取得
+	_URAYAMA_ENCOUNT_NO_CHK		SCWK_PARAM0
+
+	_POKEMON_NAME_EXTRA	0,SCWK_PARAM0,0,0
+	_TALKMSG		msg_r212ar0103_butler_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	//基本の向きへ
+	_OBJ_ANIME		R212AR0103_BUTLER,anime_butler_normal_dir
+	_OBJ_ANIME_WAIT
+
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+/*						警備員										*/
+/********************************************************************/
+ev_r212ar0103_policeman:
+	_TALK_OBJ_START
+	_TALKMSG		msg_r212ar0103_policeman_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_OBJ_ANIME		R212AR0103_POLICEMAN_01,anm_r212ar0103_policeman_01_turn
+	_OBJ_ANIME_WAIT
+
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//警備員が元の向きへ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r212ar0103_policeman_01_turn
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//警備員が銅像のの向きへ
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r212ar0103_policeman_02_turn
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*						POS 警備員									*/
+/********************************************************************/
+pos_r212ar0103_policeman_01:
+	_EVENT_START
+
+	_OBJ_ANIME		R212AR0103_POLICEMAN_01,anm_r212ar0103_policeman_02_turn
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT		msg_r212ar0103_policeman_02
+	_TALK_CLOSE
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_r212ar0103_hero_back_01_statue_01
+	_OBJ_ANIME		R212AR0103_POLICEMAN_01,anm_r212ar0103_policeman_01_turn
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公１歩数下がる
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_r212ar0103_hero_back_01_statue_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	ACMD_END,0
+
+/********************************************************************/
+/*							銅像									*/
+/********************************************************************/
+ev_r212ar0103_statue:
+	_EASY_MSG	msg_r212ar0103_statue_01
+	_END
+
+/********************************************************************/
+/*							本										*/
+/********************************************************************/
+ev_r212ar0103_books:
+	_EASY_MSG	msg_r212ar0103_books_01
+	_END
+
+/********************************************************************/
+/********************************************************************/

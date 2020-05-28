@@ -1,0 +1,27 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: touch_subwindow.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-03-27T12:14:26
+ *****************************************************************************/
+
+#ifndef NARC_TOUCH_SUBWINDOW_NAIX_
+#define NARC_TOUCH_SUBWINDOW_NAIX_
+
+enum {
+	NARC_touch_subwindow_yes_no_button_NCLR = 0,
+	NARC_touch_subwindow_yes_no_dutton_lzh_NCGR = 1,
+	NARC_touch_subwindow_yes_button01_lzh_NSCR = 2,
+	NARC_touch_subwindow_no_button01_lzh_NSCR = 3,
+	NARC_touch_subwindow_yes_button02_lzh_NSCR = 4,
+	NARC_touch_subwindow_no_button02_lzh_NSCR = 5,
+	NARC_touch_subwindow_yes_button03_lzh_NSCR = 6,
+	NARC_touch_subwindow_no_button03_lzh_NSCR = 7,
+	NARC_touch_subwindow_yes_button04_lzh_NSCR = 8,
+	NARC_touch_subwindow_no_button04_lzh_NSCR = 9
+};
+
+/* NARC_TOUCH_SUBWINDOW_NAIX_ */
+#endif

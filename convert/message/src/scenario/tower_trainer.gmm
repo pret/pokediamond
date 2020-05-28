@@ -1,0 +1,5792 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="nakatsui" host="W00092" date="2006-08-03T16:10:04"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1"/>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="34" japanese="コンテスト名称" english="コンテスト名称" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+				<comment language="english">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+			</tag>
+			<tag entry="35" japanese="コンテストランク" english="コンテストランク" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">○○○○ランク
+「ランク」も含む</comment>
+				<comment language="english">○○○○ランク
+「ランク」も含む</comment>
+			</tag>
+			<tag entry="36" japanese="国名" english="国名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる国名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる国名</comment>
+			</tag>
+			<tag entry="37" japanese="地域名" english="地域名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる地域名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる地域名</comment>
+			</tag>
+			<tag entry="38" japanese="風船の名前" english="風船の名前" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">すれ違い通信でつかう風船の名前</comment>
+				<comment language="english">すれ違い通信でつかう風船の名前</comment>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+			<tag entry="102" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="136"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="3" width="297"/>
+		<erase position="-1" width="100"/>
+		<attribute japanese="キャラ指定" english="キャラ指定" type="string" default="" position="1" width="107">
+		</attribute>
+		<language japanese="日本語" english="日本語">
+			<message position="2" width="261"/>
+			<font default=" 0:font_talk" position="4" width="92">
+				<list entry="0" file="Q:\msgdata\font\font_talk.nftr"/>
+				<list entry="1" file="Q:\msgdata\font\font_system.nftr"/>
+				<list entry="2" file="Q:\msgdata\font\font_button.nftr"/>
+			</font>
+			<size position="-1" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="33"/>
+			<line position="6" width="35"/>
+		</language>
+	</columns>
+
+	<dialog left="64" top="96" right="564" bottom="644" maximized="no" rayout="Vertical2">
+		<comment-input left="676" top="494" right="1024" bottom="646" visible="yes"/>
+		<tag-palette left="430" top="265" right="777" bottom="664" visible="no"/>
+		<band id="0" index="1" style="0000" width="492"/>
+		<band id="1" index="2" style="0000" width="165"/>
+		<band id="2" index="3" style="0000" width="325"/>
+		<band id="3" index="4" style="0000" width="492"/>
+		<band id="4" index="0" style="0000" width="591"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="mes_tower_tr_001_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イチロウタ</comment>
+		<attribute name="キャラ指定">たんぱんこぞう</attribute>
+		<language name="日本語" width="216">いくぞー！</language>
+	</row>
+
+	<row id="mes_tower_tr_001_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イチロウタ</comment>
+		<language name="日本語" width="216">いえーい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_001_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イチロウタ</comment>
+		<language name="日本語" width="216">ふえーん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_002_01">
+		<comment>ジロウマル</comment>
+		<attribute name="キャラ指定">たんぱんこぞう</attribute>
+		<language name="日本語" width="216">おい　ひよっこ！
+かかって　こいよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_002_02">
+		<comment>ジロウマル</comment>
+		<language name="日本語" width="216">やっぱり　ひよっこ　だな！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_002_03">
+		<comment>ジロウマル</comment>
+		<language name="日本語" width="216">ふえーん！
+ひよっこの　くせにー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_003_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サブロウタ</comment>
+		<attribute name="キャラ指定">たんぱんこぞう</attribute>
+		<language name="日本語" width="216">やっぱり　たんパンが　いちばん！</language>
+	</row>
+
+	<row id="mes_tower_tr_003_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サブロウタ</comment>
+		<language name="日本語" width="216">たんぱん　サイコー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_003_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サブロウタ</comment>
+		<language name="日本語" width="216">たんパンは　あげないぞ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_004_01">
+		<comment>ユー</comment>
+		<attribute name="キャラ指定">ミニスカート</attribute>
+		<language name="日本語" width="216">ミニスカートは
+あたしの　ポリシー！</language>
+	</row>
+
+	<row id="mes_tower_tr_004_02">
+		<comment>ユー</comment>
+		<language name="日本語" width="216">ミニスカート　さいこー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_004_03">
+		<comment>ユー</comment>
+		<language name="日本語" width="216">あなたの　ポリシーは　なに？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_005_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イブ</comment>
+		<attribute name="キャラ指定">ミニスカート</attribute>
+		<language name="日本語" width="216">わたしのミニスカートは
+ほんとに　ミニスカート！</language>
+	</row>
+
+	<row id="mes_tower_tr_005_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イブ</comment>
+		<language name="日本語" width="216">みとれてたでしょ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_005_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イブ</comment>
+		<language name="日本語" width="216">ミニスカートって　あしが
+ながく　みえるよね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_006_01">
+		<comment>ミユ</comment>
+		<attribute name="キャラ指定">ミニスカート</attribute>
+		<language name="日本語" width="216">かわいい　アクセサリー　さがしてるの</language>
+	</row>
+
+	<row id="mes_tower_tr_006_02">
+		<comment>ミユ</comment>
+		<language name="日本語" width="216">みつけたら　おしえてね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_006_03">
+		<comment>ミユ</comment>
+		<language name="日本語" width="216">わたしも　ドレスアップ　したいなー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_007_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ラー</comment>
+		<attribute name="キャラ指定">じゅくがえり♂</attribute>
+		<language name="日本語" width="216">じゅくで　べんきょう　したこと
+きみで　じっけんして　みますね！</language>
+	</row>
+
+	<row id="mes_tower_tr_007_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ラー</comment>
+		<language name="日本語" width="216">やった！
+だいせいこうです！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_007_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ラー</comment>
+		<language name="日本語" width="216">うーん……　おかしいなぁ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_008_01">
+		<comment>マカオ</comment>
+		<attribute name="キャラ指定">じゅくがえり♂</attribute>
+		<language name="日本語" width="216">う　うぉーっ！！</language>
+	</row>
+
+	<row id="mes_tower_tr_008_02">
+		<comment>マカオ</comment>
+		<language name="日本語" width="216">しょうぶは
+いきおいと　きあい　なのです▼</language>
+	</row>
+
+	<row id="mes_tower_tr_008_03">
+		<comment>マカオ</comment>
+		<language name="日本語" width="216">やっぱ　きあいだけじゃ　ダメですか▼</language>
+	</row>
+
+	<row id="mes_tower_tr_009_01" text-color=",,,,,#000000,,,,,,," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エリオット</comment>
+		<attribute name="キャラ指定">じゅくがえり♂</attribute>
+		<language name="日本語" width="216">せかいじゅうで　おしごと　したいから
+まいにち　おべんきょう　です！</language>
+	</row>
+
+	<row id="mes_tower_tr_009_02" text-color=",,,,,#000000,,,,,,," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エリオット</comment>
+		<language name="日本語" width="216">ゆめは　ワールドワイドです！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_009_03" text-color=",,,,,#000000,,,,,,," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エリオット</comment>
+		<language name="日本語" width="216">ポケモンしょうぶの
+べんきょうも　しないと▼</language>
+	</row>
+
+	<row id="mes_tower_tr_010_01" text-color=",,,,,#000000,,,,,,,">
+		<comment>シモーヌ</comment>
+		<attribute name="キャラ指定">じゅくがえり♀</attribute>
+		<language name="日本語" width="216">おおきく　なったら
+ポケモン　はかせに　なるんだー！</language>
+	</row>
+
+	<row id="mes_tower_tr_010_02" text-color=",,,,,#000000,,,,,,,">
+		<comment>シモーヌ</comment>
+		<language name="日本語" width="216">おっほん！　おっほん！
+きみも　まだまだ　じゃなー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_010_03" text-color=",,,,,#000000,,,,,,,">
+		<comment>シモーヌ</comment>
+		<language name="日本語" width="216">おっほん！　おっほん！
+ワシも　まだまだ　じゃな！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_011_01" text-color=",,,,,#000000,,,,,,," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ガクコ</comment>
+		<attribute name="キャラ指定">じゅくがえり♀</attribute>
+		<language name="日本語" width="216">ポケモンの　べんきょうなら
+まけないんだからね！</language>
+	</row>
+
+	<row id="mes_tower_tr_011_02" text-color=",,,,,#000000,,,,,,," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ガクコ</comment>
+		<language name="日本語" width="216">ちしきの　しょうり！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_011_03" text-color=",,,,,#000000,,,,,,," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ガクコ</comment>
+		<language name="日本語" width="216">かえって　ふくしゅう！
+そして　あなたに　ふくしゅうよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_012_01" text-color=",,,,,#000000,,,,,,,">
+		<comment>セザンヌ</comment>
+		<attribute name="キャラ指定">じゅくがえり♀</attribute>
+		<language name="日本語" width="216">あ　なんか　よわそー
+これ　かてるかもー</language>
+	</row>
+
+	<row id="mes_tower_tr_012_02" text-color=",,,,,#000000,,,,,,,">
+		<comment>セザンヌ</comment>
+		<language name="日本語" width="216">やったぁ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_012_03">
+		<comment>セザンヌ</comment>
+		<language name="日本語" width="216">いたいなぁ　もう▼</language>
+	</row>
+
+	<row id="mes_tower_tr_013_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タスケ</comment>
+		<attribute name="キャラ指定">おぼっちゃま</attribute>
+		<language name="日本語" width="216">うんうん　いいんだよ
+なにも　いわなくても</language>
+	</row>
+
+	<row id="mes_tower_tr_013_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タスケ</comment>
+		<language name="日本語" width="216">うんうん　わかってる
+がんばったよ　キミは▼</language>
+	</row>
+
+	<row id="mes_tower_tr_013_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タスケ</comment>
+		<language name="日本語" width="216">うんうん　わかってる……
+なにも　いわくても　いいよ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_014_01">
+		<comment>コスケ</comment>
+		<attribute name="キャラ指定">おぼっちゃま</attribute>
+		<language name="日本語" width="216">ぼく　リッチ！</language>
+	</row>
+
+	<row id="mes_tower_tr_014_02">
+		<comment>コスケ</comment>
+		<language name="日本語" width="216">まあね　リッチだからね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_014_03">
+		<comment>コスケ</comment>
+		<language name="日本語" width="216">なんでなのっ！
+リッチなのにっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_015_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ショウスケ</comment>
+		<attribute name="キャラ指定">おぼっちゃま</attribute>
+		<language name="日本語" width="216">ふーん　キミつよいんだ　ふーん</language>
+	</row>
+
+	<row id="mes_tower_tr_015_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ショウスケ</comment>
+		<language name="日本語" width="216">ふーん　たいしたこと　ないね　ふーん▼</language>
+	</row>
+
+	<row id="mes_tower_tr_015_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ショウスケ</comment>
+		<language name="日本語" width="216">ふーん　つよいじゃん　ふーん▼</language>
+	</row>
+
+	<row id="mes_tower_tr_016_01">
+		<comment>キラリ</comment>
+		<attribute name="キャラ指定">おじょうさま</attribute>
+		<language name="日本語" width="216">あ　それ
+いきますわよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_016_02">
+		<comment>キラリ</comment>
+		<language name="日本語" width="216">やりましたわ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_016_03">
+		<comment>キラリ</comment>
+		<language name="日本語" width="216">まあ　ざんねん▼</language>
+	</row>
+
+	<row id="mes_tower_tr_017_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アン</comment>
+		<attribute name="キャラ指定">おじょうさま</attribute>
+		<language name="日本語" width="216">ココデ　オワリデス
+カクゴ　シロヨ　デス</language>
+	</row>
+
+	<row id="mes_tower_tr_017_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アン</comment>
+		<language name="日本語" width="216">シテ　ヤッタリ　デス▼</language>
+	</row>
+
+	<row id="mes_tower_tr_017_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アン</comment>
+		<language name="日本語" width="216">アア　クヤシイ　デシタ
+アリガトウ　ゴザイマシタ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_018_01">
+		<comment>ホタル</comment>
+		<attribute name="キャラ指定">おじょうさま</attribute>
+		<language name="日本語" width="216">たいくつ　なのよね……</language>
+	</row>
+
+	<row id="mes_tower_tr_018_02">
+		<comment>ホタル</comment>
+		<language name="日本語" width="216">ほんと　たいくつ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_018_03">
+		<comment>ホタル</comment>
+		<language name="日本語" width="216">いい　ヒマつぶしに　なったわ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_019_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マツノシン</comment>
+		<attribute name="キャラ指定">キャンプボーイ</attribute>
+		<language name="日本語" width="216">あれ？　みんなが　いない？</language>
+	</row>
+
+	<row id="mes_tower_tr_019_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マツノシン</comment>
+		<language name="日本語" width="216">みんなーー！　どこーー！？　▼</language>
+	</row>
+
+	<row id="mes_tower_tr_019_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マツノシン</comment>
+		<language name="日本語" width="216">キャンプに　きたんだけど
+はぐれちゃった　みたい……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_020_01">
+		<comment>ノーマン</comment>
+		<attribute name="キャラ指定">キャンプボーイ</attribute>
+		<language name="日本語" width="216">お！
+きみも　ポケッチ　もってるの？</language>
+	</row>
+
+	<row id="mes_tower_tr_020_02">
+		<comment>ノーマン</comment>
+		<language name="日本語" width="216">ポケッチで　あそんでたのに
+かっちゃった！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_020_03">
+		<comment>ノーマン</comment>
+		<language name="日本語" width="216">ポケッチで　あそんでたら
+まけちゃった……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_021_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジージー</comment>
+		<attribute name="キャラ指定">キャンプボーイ</attribute>
+		<language name="日本語" width="216">もりで　きたえた　ポケモンだ</language>
+	</row>
+
+	<row id="mes_tower_tr_021_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジージー</comment>
+		<language name="日本語" width="216">もりの　パワーだ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_021_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジージー</comment>
+		<language name="日本語" width="216">もう　もりへ　かえるよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_022_01">
+		<comment>バルト</comment>
+		<attribute name="キャラ指定">ピクニックガール</attribute>
+		<language name="日本語" width="216">ピクニック　きぶんで
+しょうぶ　します！</language>
+	</row>
+
+	<row id="mes_tower_tr_022_02">
+		<comment>バルト</comment>
+		<language name="日本語" width="216">ルンルンルン！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_022_03">
+		<comment>バルト</comment>
+		<language name="日本語" width="216">ピクニックきぶん　じゃ
+かてないよね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_023_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スジコ</comment>
+		<attribute name="キャラ指定">ピクニックガール</attribute>
+		<language name="日本語" width="216">ウーララー！
+いっくわよぉ！</language>
+	</row>
+
+	<row id="mes_tower_tr_023_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スジコ</comment>
+		<language name="日本語" width="216">ウーララー！
+かって　ごきげん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_023_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スジコ</comment>
+		<language name="日本語" width="216">ウーララー！
+まけても　ごきげん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_024_01">
+		<comment>アケマツ</comment>
+		<attribute name="キャラ指定">ピクニックガール</attribute>
+		<language name="日本語" width="216">ポケモンしょうぶの　たのしさを
+わたしが　おしえて　あげます</language>
+	</row>
+
+	<row id="mes_tower_tr_024_02">
+		<comment>アケマツ</comment>
+		<language name="日本語" width="216">わたしとの　しょうぶは
+たのしかったでしょ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_024_03">
+		<comment>アケマツ</comment>
+		<language name="日本語" width="216">あらやだ　かんどう！
+あなた　さいこう！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_025_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マスジ</comment>
+		<attribute name="キャラ指定">うきわボーイ</attribute>
+		<language name="日本語" width="216">ほ　ほんとは　うきわが
+なくっても　およげるもん！</language>
+	</row>
+
+	<row id="mes_tower_tr_025_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マスジ</comment>
+		<language name="日本語" width="216">ほ　ほ　ほんと　だよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_025_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マスジ</comment>
+		<language name="日本語" width="216">う　うそじゃ　ないもん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_026_01">
+		<comment>シオノジョ</comment>
+		<attribute name="キャラ指定">うきわボーイ</attribute>
+		<language name="日本語" width="216">ボクは　うみより　かわが　すきだよ！
+きみは　どっちが　すきですか？</language>
+	</row>
+
+	<row id="mes_tower_tr_026_02">
+		<comment>シオノジョ</comment>
+		<language name="日本語" width="216">かわの　みずって　つめたくて
+きもちいいよね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_026_03">
+		<comment>シオノジョ</comment>
+		<language name="日本語" width="216">うみは　みずが　めに　はいると
+ちくちくするから　イヤ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_027_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カイコウ</comment>
+		<attribute name="キャラ指定">うきわボーイ</attribute>
+		<language name="日本語" width="216">がんばれ！
+ぼくの　ポケモン！</language>
+	</row>
+
+	<row id="mes_tower_tr_027_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カイコウ</comment>
+		<language name="日本語" width="216">やったぞ！
+ぼくの　ポケモン！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_027_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カイコウ</comment>
+		<language name="日本語" width="216">がんばったね！
+ぼくの　ポケモン！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_028_01">
+		<comment>オタマ</comment>
+		<attribute name="キャラ指定">うきわガール</attribute>
+		<language name="日本語" width="216">うみの　おすなの　うえ　あるくと
+あしが　アチチって　なるよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_028_02">
+		<comment>オタマ</comment>
+		<language name="日本語" width="216">うみ　だいすきー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_028_03">
+		<comment>オタマ</comment>
+		<language name="日本語" width="216">アチチ！　アチチ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_029_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オカネ</comment>
+		<attribute name="キャラ指定">うきわガール</attribute>
+		<language name="日本語" width="216">ちゃぷちゃぷ！
+ちゃぷちゃぷ！</language>
+	</row>
+
+	<row id="mes_tower_tr_029_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オカネ</comment>
+		<language name="日本語" width="216">ざばーん！！
+ざぱーん！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_029_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オカネ</comment>
+		<language name="日本語" width="216">ばちゃばちゃ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_030_01">
+		<comment>オトミ</comment>
+		<attribute name="キャラ指定">うきわガール</attribute>
+		<language name="日本語" width="216">うきわ　だいすきっこ　です！
+よろしく　おねがいします！</language>
+	</row>
+
+	<row id="mes_tower_tr_030_02">
+		<comment>オトミ</comment>
+		<language name="日本語" width="216">ありがとうございました！
+うきわ　だいすきっこ　でした！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_030_03">
+		<comment>オトミ</comment>
+		<language name="日本語" width="216">さようなら！▼
+うきわ　だいすきっこ　でした！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_031_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジンゾウ</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">きたきたきたー！
+きみとは　はちょうが　あいそうだ！</language>
+	</row>
+
+	<row id="mes_tower_tr_031_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジンゾウ</comment>
+		<language name="日本語" width="216">ジャーーーン！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_031_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジンゾウ</comment>
+		<language name="日本語" width="216">ちぇっ！　まけたら　リズムが
+おかしく　なっちまった！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_032_01">
+		<comment>ヨウゾウ</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">ロック？　ジャズ？　テクノ？
+ＢＧＭなら　なんでもオッケー！</language>
+	</row>
+
+	<row id="mes_tower_tr_032_02">
+		<comment>ヨウゾウ</comment>
+		<language name="日本語" width="216">キュワワーン！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_032_03">
+		<comment>ヨウゾウ</comment>
+		<language name="日本語" width="216">はぁ……　ブルースでも
+うたいたい　きぶんだよ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_033_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヤスミン</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">いざ！　セッション！</language>
+	</row>
+
+	<row id="mes_tower_tr_033_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヤスミン</comment>
+		<language name="日本語" width="216">れんしゅうが　たりないぜ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_033_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヤスミン</comment>
+		<language name="日本語" width="216">せかいツアー　なんて
+とおい　ゆめの　はなしかな……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_034_01">
+		<comment>コウメ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">あら　あなた……
+オシャレな　スカーフしてるね！</language>
+	</row>
+
+	<row id="mes_tower_tr_034_02">
+		<comment>コウメ</comment>
+		<language name="日本語" width="216">どこで　かったの？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_034_03">
+		<comment>コウメ</comment>
+		<language name="日本語" width="216">もう！　オシャレ　だけじゃなくて
+ポケモンも　つよいなんて　くやしい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_035_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コタケ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">いつも　おうえん　ありがとう！</language>
+	</row>
+
+	<row id="mes_tower_tr_035_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コタケ</comment>
+		<language name="日本語" width="216">あれ？　わたしの　ファンじゃないの？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_035_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コタケ</comment>
+		<language name="日本語" width="216">アイドルに　なんてことを……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_036_01">
+		<comment>コマツ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">ラー　ララー　ラー</language>
+	</row>
+
+	<row id="mes_tower_tr_036_02">
+		<comment>コマツ</comment>
+		<language name="日本語" width="216">ラー　ラララー
+ラララー　ラー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_036_03">
+		<comment>コマツ</comment>
+		<language name="日本語" width="216">さよならー　ララー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_037_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トモチカ</comment>
+		<attribute name="キャラ指定">だいすきクラブ♂</attribute>
+		<language name="日本語" width="216">キサマのだいすきと　オレのだいすき
+どちらが　うえか　はっきりさせよう</language>
+	</row>
+
+	<row id="mes_tower_tr_037_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トモチカ</comment>
+		<language name="日本語" width="216">フハハッ！　オレのほうが
+だいすき　ということ　らしいな！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_037_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トモチカ</comment>
+		<language name="日本語" width="216">くっ……　キサマのほうが
+だいすきだと　いうのか！？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_038_01">
+		<comment>カネツグ</comment>
+		<attribute name="キャラ指定">だいすきクラブ♂</attribute>
+		<language name="日本語" width="216">おらの　ポケモンは　つえーど</language>
+	</row>
+
+	<row id="mes_tower_tr_038_02">
+		<comment>カネツグ</comment>
+		<language name="日本語" width="216">おらを　なめちゃいかんよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_038_03">
+		<comment>カネツグ</comment>
+		<language name="日本語" width="216">おめ　やるなー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_039_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アツモリ</comment>
+		<attribute name="キャラ指定">だいすきクラブ♂</attribute>
+		<language name="日本語" width="216">さぁ　きみの　だいすきな　ポケモン
+ぼくに　みせてごらん　ホラホラ</language>
+	</row>
+
+	<row id="mes_tower_tr_039_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アツモリ</comment>
+		<language name="日本語" width="216">ほうほう……
+かわいいが　ちょっと　よわいねえ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_039_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アツモリ</comment>
+		<language name="日本語" width="216">ほおー
+かわいいのに　つよいねえ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_040_01">
+		<comment>ネネ</comment>
+		<attribute name="キャラ指定">だいすきクラブ♀</attribute>
+		<language name="日本語" width="216">あたしの　ポケモンちゃんは
+かわいいけど　あんまし　つよくない！</language>
+	</row>
+
+	<row id="mes_tower_tr_040_02">
+		<comment>ネネ</comment>
+		<language name="日本語" width="216">あれ？　かっちゃった？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_040_03">
+		<comment>ネネ</comment>
+		<language name="日本語" width="216">でも　いいの
+あたしが　すきなら　いいの▼</language>
+	</row>
+
+	<row id="mes_tower_tr_041_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キキ</comment>
+		<attribute name="キャラ指定">だいすきクラブ♀</attribute>
+		<language name="日本語" width="216">さいきん　あまやかして　ばかり
+だから　だいじょうぶ　かしら？</language>
+	</row>
+
+	<row id="mes_tower_tr_041_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キキ</comment>
+		<language name="日本語" width="216">うーん　やったわ！
+さすが　わたしの　ポケモンちゃん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_041_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キキ</comment>
+		<language name="日本語" width="216">あまやかしすぎちゃ　ダメね……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_042_01">
+		<comment>ヤヤ</comment>
+		<attribute name="キャラ指定">だいすきクラブ♀</attribute>
+		<language name="日本語" width="216">あなたも　だいすきクラブに
+はいりませんこと？</language>
+	</row>
+
+	<row id="mes_tower_tr_042_02">
+		<comment>ヤヤ</comment>
+		<language name="日本語" width="216">にゅうかい　すれば
+たのしいこと　いっぱいよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_042_03">
+		<comment>ヤヤ</comment>
+		<language name="日本語" width="216">はいりましょ！
+ホラホラ　ぜひ　はいりましょ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_043_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>モトッキ（マリオクラブ）</comment>
+		<attribute name="キャラ指定">ウエーター</attribute>
+		<language name="日本語" width="216">ごちゅうもんを　どうぞ</language>
+	</row>
+
+	<row id="mes_tower_tr_043_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>モトッキ（マリオクラブ）</comment>
+		<language name="日本語" width="216">かしこまりました
+まけを　おひとつ　ですね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_043_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>モトッキ（マリオクラブ）</comment>
+		<language name="日本語" width="216">かしこまりました
+かちを　おひとつ　ですね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_044_01">
+		<comment>フロイト</comment>
+		<attribute name="キャラ指定">ウエーター</attribute>
+		<language name="日本語" width="216">ほんとは　ぼく　コックに
+なりたかったんだ……</language>
+	</row>
+
+	<row id="mes_tower_tr_044_02">
+		<comment>フロイト</comment>
+		<language name="日本語" width="216">いまの　しごとも　たのしい　けどな▼</language>
+	</row>
+
+	<row id="mes_tower_tr_044_03">
+		<comment>フロイト</comment>
+		<language name="日本語" width="216">しらない　ひとと　はなすの
+にがて　なんだよね……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_045_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ランマル</comment>
+		<attribute name="キャラ指定">ウエーター</attribute>
+		<language name="日本語" width="216">ポケモンしょうぶも　オーダーも
+スピードが　かんじん！</language>
+	</row>
+
+	<row id="mes_tower_tr_045_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ランマル</comment>
+		<language name="日本語" width="216">サクッとね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_045_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ランマル</comment>
+		<language name="日本語" width="216">りょうりも　しょうぶも
+あついうちに　だせ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_046_01">
+		<comment>フサ</comment>
+		<attribute name="キャラ指定">ウエートレス</attribute>
+		<language name="日本語" width="216">いつもは　サービスが　おしごとなのぉ
+でも　ここでは　サービスしないよぉ</language>
+	</row>
+
+	<row id="mes_tower_tr_046_02">
+		<comment>フサ</comment>
+		<language name="日本語" width="216">むふふ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_046_03">
+		<comment>フサ</comment>
+		<language name="日本語" width="216">もー　サービスしてよぉー
+そんなんじゃ　モテないよぉ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_047_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カキエ</comment>
+		<attribute name="キャラ指定">ウエートレス</attribute>
+		<language name="日本語" width="216">かわいいでしょ？
+この　せいふく？</language>
+	</row>
+
+	<row id="mes_tower_tr_047_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カキエ</comment>
+		<language name="日本語" width="216">おきにいりなの！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_047_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カキエ</comment>
+		<language name="日本語" width="216">せいふく　よごれちゃうよー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_048_01">
+		<comment>タエ</comment>
+		<attribute name="キャラ指定">ウエートレス</attribute>
+		<language name="日本語" width="216">あなた　つよいよね？</language>
+	</row>
+
+	<row id="mes_tower_tr_048_02">
+		<comment>タエ</comment>
+		<language name="日本語" width="216">あれれ　ちょっと　ざんねん▼</language>
+	</row>
+
+	<row id="mes_tower_tr_048_03">
+		<comment>タエ</comment>
+		<language name="日本語" width="216">やっぱり　つよい　トレーナーさんだぁ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_049_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サムソン</comment>
+		<attribute name="キャラ指定">むしとりしょうねん</attribute>
+		<language name="日本語" width="216">いろんな　ポケモンを
+つかまえて　そだててるんだ</language>
+	</row>
+
+	<row id="mes_tower_tr_049_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サムソン</comment>
+		<language name="日本語" width="216">どうだい？
+よく　そだってるでしょ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_049_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サムソン</comment>
+		<language name="日本語" width="216">もっと　そだてないと！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_050_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ヨシヒット（マリオクラブ）</comment>
+		<attribute name="キャラ指定">むしとりしょうねん</attribute>
+		<language name="日本語" width="216">きみも　この　あみで
+つかまえてやる！！</language>
+	</row>
+
+	<row id="mes_tower_tr_050_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ヨシヒット（マリオクラブ）</comment>
+		<language name="日本語" width="216">めしとったり！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_050_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ヨシヒット（マリオクラブ）</comment>
+		<language name="日本語" width="216">こら！　にげるなよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_051_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヒデヨシ</comment>
+		<attribute name="キャラ指定">むしとりしょうねん</attribute>
+		<language name="日本語" width="216">どこかに　でっかい　ヘラクロス
+いないかなー</language>
+	</row>
+
+	<row id="mes_tower_tr_051_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヒデヨシ</comment>
+		<language name="日本語" width="216">おうさまみたいに　でっかいやつね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_051_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヒデヨシ</comment>
+		<language name="日本語" width="216">でかい　ヘラクロスさえ　いればなぁ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_052_01">
+		<comment>カナメ</comment>
+		<attribute name="キャラ指定">にんじゃごっこ</attribute>
+		<language name="日本語" width="216">かくごー！！</language>
+	</row>
+
+	<row id="mes_tower_tr_052_02">
+		<comment>カナメ</comment>
+		<language name="日本語" width="216">うちとったりー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_052_03">
+		<comment>カナメ</comment>
+		<language name="日本語" width="216">むねんじゃ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_053_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キザム</comment>
+		<attribute name="キャラ指定">にんじゃごっこ</attribute>
+		<language name="日本語" width="216">おそろしい　にんじゅつを　くらえ！</language>
+	</row>
+
+	<row id="mes_tower_tr_053_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キザム</comment>
+		<language name="日本語" width="216">はは！　みたか！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_053_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キザム</comment>
+		<language name="日本語" width="216">にんぽうハッタリ　だいしっぱい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_054_01">
+		<comment>ニコライ</comment>
+		<attribute name="キャラ指定">にんじゃごっこ</attribute>
+		<language name="日本語" width="216">おおきくなったら　ほんとうの
+にんじゃに　なるのじゃ！</language>
+	</row>
+
+	<row id="mes_tower_tr_054_02">
+		<comment>ニコライ</comment>
+		<language name="日本語" width="216">アッパレ！　アッパレ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_054_03">
+		<comment>ニコライ</comment>
+		<language name="日本語" width="216">で　ほんとの　にんじゃって
+なにを　すれば　いいんじゃ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_055_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モモジ</comment>
+		<attribute name="キャラ指定">ポケモンごっこ</attribute>
+		<language name="日本語" width="216">いじめる？　いじめる？</language>
+	</row>
+
+	<row id="mes_tower_tr_055_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モモジ</comment>
+		<language name="日本語" width="216">わぁい！　わぁい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_055_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モモジ</comment>
+		<language name="日本語" width="216">いじめる　いやー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_056_01">
+		<comment>チヨジ</comment>
+		<attribute name="キャラ指定">ポケモンごっこ</attribute>
+		<language name="日本語" width="216">この　ふくねー　おかーちゃんに
+つくって　もらったのー</language>
+	</row>
+
+	<row id="mes_tower_tr_056_02">
+		<comment>チヨジ</comment>
+		<language name="日本語" width="216">かわいいでしょー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_056_03">
+		<comment>チヨジ</comment>
+		<language name="日本語" width="216">おかーちゃん　おさいほうが
+とっても　じょうずなのー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_057_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アンジ</comment>
+		<attribute name="キャラ指定">ポケモンごっこ</attribute>
+		<language name="日本語" width="216">みんな　がんばろーね！</language>
+	</row>
+
+	<row id="mes_tower_tr_057_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アンジ</comment>
+		<language name="日本語" width="216">みんな　あいがとー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_057_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アンジ</comment>
+		<language name="日本語" width="216">うぇえええん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_058_01">
+		<comment>ムネタツ</comment>
+		<attribute name="キャラ指定">つりびと</attribute>
+		<language name="日本語" width="216">しょうぶ　だからと　いって
+ガツガツするのは　みっともないよ</language>
+	</row>
+
+	<row id="mes_tower_tr_058_02">
+		<comment>ムネタツ</comment>
+		<language name="日本語" width="216">ほら　リラックス　リラックス
+しぜんが　いちばん　だいじだよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_058_03">
+		<comment>ムネタツ</comment>
+		<language name="日本語" width="216">もっと　リラックス　しないとなー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_059_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ユメスケ</comment>
+		<attribute name="キャラ指定">つりびと</attribute>
+		<language name="日本語" width="216">つって　つって　つって　つりまくる！
+どいつも　こいつも　つりあげてやる！</language>
+	</row>
+
+	<row id="mes_tower_tr_059_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ユメスケ</comment>
+		<language name="日本語" width="216">カーカッカッ！！
+ぜっこうちょう　だわ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_059_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ユメスケ</comment>
+		<language name="日本語" width="216">おわー！
+にがしたかー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_060_01">
+		<comment>イアン</comment>
+		<attribute name="キャラ指定">いせきマニア</attribute>
+		<language name="日本語" width="216">いせきを　ちょうさするのも
+いろいろ　たいへん　なんだぜ！</language>
+	</row>
+
+	<row id="mes_tower_tr_060_02">
+		<comment>イアン</comment>
+		<language name="日本語" width="216">きみの　ちからじゃ
+いせきマニアは　むり　かもね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_060_03">
+		<comment>イアン</comment>
+		<language name="日本語" width="216">いせきには　きけんが
+いっぱい　なのさ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_061_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>コウジー（マリオクラブ）</comment>
+		<attribute name="キャラ指定">いせきマニア</attribute>
+		<language name="日本語" width="216">ともに　せかいを　たびした
+おいらの　なかま！</language>
+	</row>
+
+	<row id="mes_tower_tr_061_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>コウジー（マリオクラブ）</comment>
+		<language name="日本語" width="216">どうだい？
+つよいだろ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_061_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>コウジー（マリオクラブ）</comment>
+		<language name="日本語" width="216">また　たびに　でようかな……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_062_01">
+		<comment>フミノリ</comment>
+		<attribute name="キャラ指定">ポケモンコレクター</attribute>
+		<language name="日本語" width="216">ちょっと　あーた　これ　みてよ！
+めずらしい　ポケモンちゃん　ですよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_062_02">
+		<comment>フミノリ</comment>
+		<language name="日本語" width="216">めずらしい　うえに　つよーい
+ポケモンちゃんな　わけですよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_062_03">
+		<comment>フミノリ</comment>
+		<language name="日本語" width="216">ああ！　こら！　まって！
+いや！　やめて！　さわらないで！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_063_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タダノスケ</comment>
+		<attribute name="キャラ指定">ポケモンコレクター</attribute>
+		<language name="日本語" width="216">きょうは　ぼくちんの
+とっておきを　おみせしますよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_063_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タダノスケ</comment>
+		<language name="日本語" width="216">どうよどうよ？　いいでしょ？
+ちょー　かっこいいでしょ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_063_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タダノスケ</comment>
+		<language name="日本語" width="216">あわわ……　ぼくちんの……
+ぼくちんの　ポケモンが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_064_01">
+		<comment>ハルノ</comment>
+		<attribute name="キャラ指定">パラソルおねえさん</attribute>
+		<language name="日本語" width="216">ねえ　みて！　おきにいりの
+パラソルと　じまんの　ポケモン！</language>
+	</row>
+
+	<row id="mes_tower_tr_064_02">
+		<comment>ハルノ</comment>
+		<language name="日本語" width="216">どっちも　かわいいでしょ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_064_03">
+		<comment>ハルノ</comment>
+		<language name="日本語" width="216">みせるだけ！
+あげないよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_065_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>フユノ</comment>
+		<attribute name="キャラ指定">パラソルおねえさん</attribute>
+		<language name="日本語" width="216">あなた　にじ　みたことある？</language>
+	</row>
+
+	<row id="mes_tower_tr_065_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>フユノ</comment>
+		<language name="日本語" width="216">にじの　むこうには
+なにが　あるのかな？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_065_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>フユノ</comment>
+		<language name="日本語" width="216">にじを　ながめてると　なんか
+いいこと　ありそな　きが　するよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_066_01">
+		<comment>フユノ</comment>
+		<attribute name="キャラ指定">パラソルおねえさん</attribute>
+		<language name="日本語" width="216">いまの　あなたは　どんな　おてんき？</language>
+	</row>
+
+	<row id="mes_tower_tr_066_02">
+		<comment>フユノ</comment>
+		<language name="日本語" width="216">いまの　あたしは
+たいよう　さんさん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_066_03">
+		<comment>フユノ</comment>
+		<language name="日本語" width="216">いまの　あたしは
+きりの　なか……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_067_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アキノ
+</comment>
+		<attribute name="キャラ指定">おとなのおねえさん</attribute>
+		<language name="日本語" width="216">おねえさんはね　よわっちい
+トレーナー　きらいよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_067_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アキノ</comment>
+		<language name="日本語" width="216">たよりがい　ないなぁ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_067_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アキノ</comment>
+		<language name="日本語" width="216">やっぱ　ポケモン　トレーナーは
+つよくて　ムチムチが　いいわよね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_068_01">
+		<comment>カタセ</comment>
+		<attribute name="キャラ指定">おとなのおねえさん</attribute>
+		<language name="日本語" width="216">おねえさんね……　さいきん
+なやんでることが　あるの……</language>
+	</row>
+
+	<row id="mes_tower_tr_068_02">
+		<comment>カタセ</comment>
+		<language name="日本語" width="216">しょうぶに　かったら
+どうでも　よくなっちゃった！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_068_03">
+		<comment>カタセ</comment>
+		<language name="日本語" width="216">また　なやみが　ふえるわね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_069_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ブロンディ</comment>
+		<attribute name="キャラ指定">おとなのおねえさん</attribute>
+		<language name="日本語" width="216">ちょっと　いたいかも　しれないけど
+すぐに　おわるから　がまん　してネ！</language>
+	</row>
+
+	<row id="mes_tower_tr_069_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ブロンディ</comment>
+		<language name="日本語" width="216">はい　オシマイ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_069_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ブロンディ</comment>
+		<language name="日本語" width="216">やーん！　いったーい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_070_01">
+		<comment>ミツヨ</comment>
+		<attribute name="キャラ指定">アロマなおねえさん</attribute>
+		<language name="日本語" width="216">グスッ　グスッ……</language>
+	</row>
+
+	<row id="mes_tower_tr_070_02">
+		<comment>ミツヨ</comment>
+		<language name="日本語" width="216">グスッ　グスッ……
+かぜ　かしら……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_070_03">
+		<comment>ミツヨ</comment>
+		<language name="日本語" width="216">グスッ　グスッ……
+はなが　つまるわぁ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_071_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ハマヨ</comment>
+		<attribute name="キャラ指定">アロマなおねえさん</attribute>
+		<language name="日本語" width="216">くんくん……</language>
+	</row>
+
+	<row id="mes_tower_tr_071_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ハマヨ</comment>
+		<language name="日本語" width="216">なんの　におい　かしら……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_071_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ハマヨ</comment>
+		<language name="日本語" width="216">あなた　こうすいでも　つけてる？
+なんだか　ちょっと　いい　におい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_072_01">
+		<comment>ミミヨ</comment>
+		<attribute name="キャラ指定">アロマなおねえさん</attribute>
+		<language name="日本語" width="216">すてきな　かおりに　つつまれて
+あなたは　まけるのっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_072_02">
+		<comment>ミミヨ</comment>
+		<language name="日本語" width="216">キャハハッ！
+うっとり　してる　からよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_072_03">
+		<comment>ミミヨ</comment>
+		<language name="日本語" width="216">キィー！　くやしいー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_073_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コロク</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">うなれ　ギター！
+さけべ　おれー！</language>
+	</row>
+
+	<row id="mes_tower_tr_073_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コロク</comment>
+		<language name="日本語" width="216">イェーイ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_073_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コロク</comment>
+		<language name="日本語" width="216">ギャアアアア！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_074_01">
+		<comment>マグミ</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">じぶんの　すなおな　きもちを
+うたに　すると　いいですよ</language>
+	</row>
+
+	<row id="mes_tower_tr_074_02">
+		<comment>マグミ</comment>
+		<language name="日本語" width="216">いまは　ロックな　きぶんですね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_074_03">
+		<comment>マグミ</comment>
+		<language name="日本語" width="216">いまの　きもちは　フォークですかね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_075_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カゲカツ</comment>
+		<attribute name="キャラ指定">とりつかい</attribute>
+		<language name="日本語" width="216">ききなさい！
+とりつかいの　こころえ　そのいち！</language>
+	</row>
+
+	<row id="mes_tower_tr_075_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カゲカツ</comment>
+		<language name="日本語" width="216">かったら　おおぞら　とびまわれ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_075_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カゲカツ</comment>
+		<language name="日本語" width="216">まけたら　つばさを　やすめよう！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_076_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>エーツコー（マリオクラブ）</comment>
+		<attribute name="キャラ指定">とりつかい</attribute>
+		<language name="日本語" width="216">おたがい　ベストを　つくしましょ！</language>
+	</row>
+
+	<row id="mes_tower_tr_076_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>エーツコー（マリオクラブ）</comment>
+		<language name="日本語" width="216">おたがい　がんばったもんね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_076_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>エーツコー（マリオクラブ）</comment>
+		<language name="日本語" width="216">さっすがぁー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_077_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ニキータ</comment>
+		<attribute name="キャラ指定">とりつかい</attribute>
+		<language name="日本語" width="216">とんで　とんで　とんで！！
+しょうぶを　せいするわ！</language>
+	</row>
+
+	<row id="mes_tower_tr_077_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ニキータ</comment>
+		<language name="日本語" width="216">びゅーん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_077_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ニキータ</comment>
+		<language name="日本語" width="216">おーちーるー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_078_01">
+		<comment>ボン</comment>
+		<attribute name="キャラ指定">ふなのり</attribute>
+		<language name="日本語" width="216">わし　ふなのり　オブ　ふなのり！
+うまれたのは　ふねの　なか！</language>
+	</row>
+
+	<row id="mes_tower_tr_078_02">
+		<comment>ボン</comment>
+		<language name="日本語" width="216">なみが　ゆりかご！
+うみが　わしの　かあちゃんだ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_078_03">
+		<comment>ボン</comment>
+		<language name="日本語" width="216">うう……　だからな　うっぷ……
+りくに　いたら　よっちまうのさ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_079_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>クリストフ</comment>
+		<attribute name="キャラ指定">ふなのり</attribute>
+		<language name="日本語" width="216">うみよー　おれの　うみよー</language>
+	</row>
+
+	<row id="mes_tower_tr_079_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>クリストフ</comment>
+		<language name="日本語" width="216">おお……　きこえる……
+なみの　おとが　きこえるぜ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_079_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>クリストフ</comment>
+		<language name="日本語" width="216">おれも　うみ　みてえな
+でっかい　おとこに　なりたいぜ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_080_01">
+		<comment>ロブ</comment>
+		<attribute name="キャラ指定">やまおとこ</attribute>
+		<language name="日本語" width="216">やっーーーほーーー！！</language>
+	</row>
+
+	<row id="mes_tower_tr_080_02">
+		<comment>ロブ</comment>
+		<language name="日本語" width="216">ほら！　きみも　さけぼうっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_080_03">
+		<comment>ロブ</comment>
+		<language name="日本語" width="216">ごほっ!！　ごほっ！　ごほっ！
+さけびすぎて　むせた……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_081_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>チヨノフ</comment>
+		<attribute name="キャラ指定">やまおとこ</attribute>
+		<language name="日本語" width="216">やまおとこに　ほれなさい！</language>
+	</row>
+
+	<row id="mes_tower_tr_081_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>チヨノフ</comment>
+		<language name="日本語" width="216">ほれたね？
+もう　ベタぼれだね？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_081_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>チヨノフ</comment>
+		<language name="日本語" width="216">さあ　ほれなさい！
+さあ！　さあさあ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_082_01">
+		<comment>カルロッタ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">あたしも　あたしの
+ポケモンも　アイドルよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_082_02">
+		<comment>カルロッタ</comment>
+		<language name="日本語" width="216">なんて　いったって　アイドルよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_082_03">
+		<comment>カルロッタ</comment>
+		<language name="日本語" width="216">にんき　だったら
+まけないんだから……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_083_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イツカ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">さあ　わたしを　みて！
+もっと　わたしを　みるの！</language>
+	</row>
+
+	<row id="mes_tower_tr_083_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イツカ</comment>
+		<language name="日本語" width="216">か・い・か・ん……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_083_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イツカ</comment>
+		<language name="日本語" width="216">だれよりも　めだちたいから
+アイドルに　なったの！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_084_01">
+		<comment>カロリーヌ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">ポケモンしょうぶの　やりすぎで
+アイドル　くびに　なりそう</language>
+	</row>
+
+	<row id="mes_tower_tr_084_02">
+		<comment>カロリーヌ</comment>
+		<language name="日本語" width="216">ポケモンしょうぶは
+たのしすぎるわね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_084_03">
+		<comment>カロリーヌ</comment>
+		<language name="日本語" width="216">ポケモンしょうぶは
+どうにも　とまらないわ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_085_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ケイ・スケ（マリオクラブ）</comment>
+		<attribute name="キャラ指定">ジョギング</attribute>
+		<language name="日本語" width="216">まいあさ　マラソン　さいこうさー！</language>
+	</row>
+
+	<row id="mes_tower_tr_085_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ケイ・スケ（マリオクラブ）</comment>
+		<language name="日本語" width="216">きたえた　からだで
+らくしょうさー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_085_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ケイ・スケ（マリオクラブ）</comment>
+		<language name="日本語" width="216">まけても
+マラソン　さいこうさー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_086_01">
+		<comment>シンデン</comment>
+		<attribute name="キャラ指定">ジョギング</attribute>
+		<language name="日本語" width="216">けんこうに　きを　つかい
+はしりながら　しょうぶ　します！</language>
+	</row>
+
+	<row id="mes_tower_tr_086_02">
+		<comment>シンデン</comment>
+		<language name="日本語" width="216">けんこう　バンザイ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_086_03">
+		<comment>シンデン</comment>
+		<language name="日本語" width="216">グキッ！
+あしが　あしが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_087_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エミール</comment>
+		<attribute name="キャラ指定">さぎょういん</attribute>
+		<language name="日本語" width="216">じゃん　じゃん　はこぶぞ！</language>
+	</row>
+
+	<row id="mes_tower_tr_087_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エミール</comment>
+		<language name="日本語" width="216">おまえも　どこかに
+はこんで　やろうか？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_087_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エミール</comment>
+		<language name="日本語" width="216">まいにち　はこびすぎて
+きんにくつう　だ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_088_01">
+		<comment>ビクトル</comment>
+		<attribute name="キャラ指定">さぎょういん</attribute>
+		<language name="日本語" width="216">このあたりの　たてものは
+おれっちが　つくったのよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_088_02">
+		<comment>ビクトル</comment>
+		<language name="日本語" width="216">どうよ？　いかすだろ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_088_03">
+		<comment>ビクトル</comment>
+		<language name="日本語" width="216">おれっちの　ゆめは　やまより
+たかい　ビルを　こしらえる　こと！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_089_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カザン</comment>
+		<attribute name="キャラ指定">ぼくじょうおじさん</attribute>
+		<language name="日本語" width="216">ほーら　おじさんから　ぼくそうの
+においが　プーンと　するだろう？</language>
+	</row>
+
+	<row id="mes_tower_tr_089_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カザン</comment>
+		<language name="日本語" width="216">うぉう！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_089_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カザン</comment>
+		<language name="日本語" width="216">これはね　ポケモンが　だーいすきな
+あまーい　ぼくそうの　におい　なんだよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_090_01">
+		<comment>クラウド</comment>
+		<attribute name="キャラ指定">ぼくじょうおじさん</attribute>
+		<language name="日本語" width="216">ほら　おっさんが　むねを　かすよっ！
+たっぷり　かかって　きなさいっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_090_02">
+		<comment>クラウド</comment>
+		<language name="日本語" width="216">もう　おわりかいっ！？
+もっと　はげしく　ぶつかっておいで！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_090_03">
+		<comment>クラウド</comment>
+		<language name="日本語" width="216">おお……　いたい……　いたいよ……
+おっさん　むねが　はりさけそうだよ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_091_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ガンノスケ</comment>
+		<attribute name="キャラ指定">ぼくじょうおじさん</attribute>
+		<language name="日本語" width="216">おれも　わかくないからね
+あんまり　むりは　しないよ</language>
+	</row>
+
+	<row id="mes_tower_tr_091_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ガンノスケ</comment>
+		<language name="日本語" width="216">わかさの　かわりに
+けいけんが　あるからね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_091_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ガンノスケ</comment>
+		<language name="日本語" width="216">いいね　きみ　わかいね
+キラキラしてるね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_092_01">
+		<comment>ミスヅ</comment>
+		<attribute name="キャラ指定">カウガール</attribute>
+		<language name="日本語" width="216">ヘイ！　そこの　トレーナー！
+わたしと　しょうぶよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_092_02">
+		<comment>ミスヅ</comment>
+		<language name="日本語" width="216">やりぃ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_092_03">
+		<comment>ミスヅ</comment>
+		<language name="日本語" width="216">アンビーリバボー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_093_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キクチヨ</comment>
+		<attribute name="キャラ指定">カウガール</attribute>
+		<language name="日本語" width="216">とうちゃんと　かあちゃんと
+あたしで　そだてた　ポケモン！</language>
+	</row>
+
+	<row id="mes_tower_tr_093_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キクチヨ</comment>
+		<language name="日本語" width="216">めちゃんこ　つよい　でしょが▼</language>
+	</row>
+
+	<row id="mes_tower_tr_093_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キクチヨ</comment>
+		<language name="日本語" width="216">あんれー　まけちゃったー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_094_01">
+		<comment>マイア</comment>
+		<attribute name="キャラ指定">カウガール</attribute>
+		<language name="日本語" width="216">わたし　いっぱい　がんばるから！
+あなたも　いっぱい　がんばってね！</language>
+	</row>
+
+	<row id="mes_tower_tr_094_02">
+		<comment>マイア</comment>
+		<language name="日本語" width="216">ふう！　がんばったね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_094_03">
+		<comment>マイア</comment>
+		<language name="日本語" width="216">いっぱい　がんばったね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_095_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ロベール</comment>
+		<attribute name="キャラ指定">カメラマン</attribute>
+		<language name="日本語" width="216">ハイハイ　わらってー！</language>
+	</row>
+
+	<row id="mes_tower_tr_095_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ロベール</comment>
+		<language name="日本語" width="216">ホラホラ　わらってー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_095_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ロベール</comment>
+		<language name="日本語" width="216">イイえがお　だねー！
+しょうりの　ポーズも　きまってるぅ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_096_01">
+		<comment>アーノルド</comment>
+		<attribute name="キャラ指定">カメラマン</attribute>
+		<language name="日本語" width="216">きみに　ズームイン！</language>
+	</row>
+
+	<row id="mes_tower_tr_096_02">
+		<comment>アーノルド</comment>
+		<language name="日本語" width="216">ばっちり　フォーカス！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_096_03">
+		<comment>アーノルド</comment>
+		<language name="日本語" width="216">きみから　ズームアウト……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_097_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モウリュウ</comment>
+		<attribute name="キャラ指定">カメラマン</attribute>
+		<language name="日本語" width="216">カメラというのは　じつは
+とっても　おもいのですよ</language>
+	</row>
+
+	<row id="mes_tower_tr_097_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モウリュウ</comment>
+		<language name="日本語" width="216">いつも　かたが　パンパン……
+おかげで　たくましく　なりましたよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_097_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モウリュウ</comment>
+		<language name="日本語" width="216">うう……　フラフラする……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_098_01">
+		<comment>マイヅル</comment>
+		<attribute name="キャラ指定">レポーター</attribute>
+		<language name="日本語" width="216">そこの　トレーナーさーん
+しょうぶ　おねがいしまーす</language>
+	</row>
+
+	<row id="mes_tower_tr_098_02">
+		<comment>マイヅル</comment>
+		<language name="日本語" width="216">ありがとう　ございましたー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_098_03">
+		<comment>マイヅル</comment>
+		<language name="日本語" width="216">きょうしゅく　でーす▼</language>
+	</row>
+
+	<row id="mes_tower_tr_099_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トラコ</comment>
+		<attribute name="キャラ指定">レポーター</attribute>
+		<language name="日本語" width="216">ニュースの　ためなら
+なんだって　しますわ！</language>
+	</row>
+
+	<row id="mes_tower_tr_099_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トラコ</comment>
+		<language name="日本語" width="216">ポケモンしょうぶ　だって
+がんばります！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_099_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トラコ</comment>
+		<language name="日本語" width="216">やめて　やめて
+マイクが　おれちゃう▼</language>
+	</row>
+
+	<row id="mes_tower_tr_100_01">
+		<comment>アタミ</comment>
+		<attribute name="キャラ指定">レポーター</attribute>
+		<language name="日本語" width="216">あなたは　わたしの　こと
+どう　おもって　いますか？</language>
+	</row>
+
+	<row id="mes_tower_tr_100_02">
+		<comment>アタミ</comment>
+		<language name="日本語" width="216">つよい　トレーナー！
+と　おもって　いますか？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_100_03">
+		<comment>アタミ</comment>
+		<language name="日本語" width="216">わたしは　わたしに　ついて
+レポート　しているのです▼</language>
+	</row>
+
+	<row id="mes_tower_tr_101_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジクウ</comment>
+		<attribute name="キャラ指定">サイクリング♂</attribute>
+		<language name="日本語" width="216">さあ！
+いっしょに　はしろうぜ！</language>
+	</row>
+
+	<row id="mes_tower_tr_101_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジクウ</comment>
+		<language name="日本語" width="216">ゴーーール！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_101_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジクウ</comment>
+		<language name="日本語" width="216">わー　おいていかないでー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_102_01">
+		<comment>サイエン</comment>
+		<attribute name="キャラ指定">サイクリング♂</attribute>
+		<language name="日本語" width="216">ギアチェンジ！
+トップスピードで　おまえにアタック！</language>
+	</row>
+
+	<row id="mes_tower_tr_102_02">
+		<comment>サイエン</comment>
+		<language name="日本語" width="216">びゅーん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_102_03">
+		<comment>サイエン</comment>
+		<language name="日本語" width="216">ドッカーン！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_103_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>バーバレラ</comment>
+		<attribute name="キャラ指定">サイクリング♀</attribute>
+		<language name="日本語" width="216">わたしの　ポケモンの
+はしりに　ついて　これるか？</language>
+	</row>
+
+	<row id="mes_tower_tr_103_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>バーバレラ</comment>
+		<language name="日本語" width="216">おそいっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_103_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>バーバレラ</comment>
+		<language name="日本語" width="216">スピードの　かなたへ　いくぜ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_104_01">
+		<comment>ネリミ</comment>
+		<attribute name="キャラ指定">サイクリング♀</attribute>
+		<language name="日本語" width="216">わたし　はやく　はしるより
+のんびり　サイクリングが　すき！　</language>
+	</row>
+
+	<row id="mes_tower_tr_104_02">
+		<comment>ネリミ</comment>
+		<language name="日本語" width="216">のんびり　しましょ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_104_03">
+		<comment>ネリミ</comment>
+		<language name="日本語" width="216">もっと　のんびり
+すれば　いいのに……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_105_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジンパチ</comment>
+		<attribute name="キャラ指定">からておう</attribute>
+		<language name="日本語" width="216">とししたの　あいてにも
+ぜんりょくで　いどむ！</language>
+	</row>
+
+	<row id="mes_tower_tr_105_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジンパチ</comment>
+		<language name="日本語" width="216">ぜんりょくで　かつ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_105_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジンパチ</comment>
+		<language name="日本語" width="216">きょうから　あなたを
+ししょうと　よばせてください！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_106_01">
+		<comment>キンヤ</comment>
+		<attribute name="キャラ指定">からておう</attribute>
+		<language name="日本語" width="216">もえる　こころと　はがねの　こぶし
+ながれる　あせは　たきの　ごとし</language>
+	</row>
+
+	<row id="mes_tower_tr_106_02">
+		<comment>キンヤ</comment>
+		<language name="日本語" width="216">むんっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_106_03">
+		<comment>キンヤ</comment>
+		<language name="日本語" width="216">あせを　ながした　りょうでは
+まけない　つもりだ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_107_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イクナ</comment>
+		<attribute name="キャラ指定">バトルガール</attribute>
+		<language name="日本語" width="216">かくごしなよっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_107_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イクナ</comment>
+		<language name="日本語" width="216">まだまだ　いけるわよ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_107_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>イクナ</comment>
+		<language name="日本語" width="216">くっ……　おぼてなさい▼</language>
+	</row>
+
+	<row id="mes_tower_tr_108_01">
+		<comment>トメ</comment>
+		<attribute name="キャラ指定">バトルガール</attribute>
+		<language name="日本語" width="216">ヘイ！　カモン！</language>
+	</row>
+
+	<row id="mes_tower_tr_108_02">
+		<comment>トメ</comment>
+		<language name="日本語" width="216">ナイスファイト！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_108_03">
+		<comment>トメ</comment>
+		<language name="日本語" width="216">やるわね　アンタ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_109_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トミイチ</comment>
+		<attribute name="キャラ指定">からておう</attribute>
+		<language name="日本語" width="216">わが　きゅうきょくの　おうぎ！
+とくと　くらえぃ！！</language>
+	</row>
+
+	<row id="mes_tower_tr_109_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トミイチ</comment>
+		<language name="日本語" width="216">われこそ　さいきょう　なり！
+ぐわーっはっはっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_109_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トミイチ</comment>
+		<language name="日本語" width="216">わ　われが　やぶれると　いうのか……
+ぐっ　ぐあーっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_110_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>オ・サム（マリオクラブ）</comment>
+		<attribute name="キャラ指定">からておう</attribute>
+		<language name="日本語" width="216">そこの　こどもさん！
+しょうぶ　おねがい　しまっす！</language>
+	</row>
+
+	<row id="mes_tower_tr_110_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>オ・サム（マリオクラブ）</comment>
+		<language name="日本語" width="216">こどもさん！
+ありがとう　ございましたっす！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_110_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>オ・サム（マリオクラブ）</comment>
+		<language name="日本語" width="216">こどもさん！
+じぶん　ほんと　くやしいっす！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_111_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>シャクソン</comment>
+		<attribute name="キャラ指定">からておう</attribute>
+		<language name="日本語" width="216">ほ　ほんとうは　からて　なんて
+やったこと　ないんだ！</language>
+	</row>
+
+	<row id="mes_tower_tr_111_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>シャクソン</comment>
+		<language name="日本語" width="216">うっそ！？
+おれ　さいのう　あり！？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_111_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>シャクソン</comment>
+		<language name="日本語" width="216">からてか　って　かっこいいじゃん
+だから　ものまね　してるだけ　なんだ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_112_01">
+		<comment>サカメ</comment>
+		<attribute name="キャラ指定">バトルガール</attribute>
+		<language name="日本語" width="216">やまに　こもって　はや５ねん！
+かみのけも　のびっぱなし！</language>
+	</row>
+
+	<row id="mes_tower_tr_112_02">
+		<comment>サカメ</comment>
+		<language name="日本語" width="216">おふろなら　まいにち
+はいってるわよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_112_03">
+		<comment>サカメ</comment>
+		<language name="日本語" width="216">あと　５ねんかな……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_113_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サンダンス</comment>
+		<attribute name="キャラ指定">バトルガール</attribute>
+		<language name="日本語" width="216">ちょっと　いま　わたしの
+きんにく　みて　わらわなかった！？</language>
+	</row>
+
+	<row id="mes_tower_tr_113_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サンダンス</comment>
+		<language name="日本語" width="216">きんにくの　うつくしさを
+しらないのね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_113_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サンダンス</comment>
+		<language name="日本語" width="216">きんにくこそ　きゅうきょくの　び！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_114_01">
+		<comment>モンシロ</comment>
+		<attribute name="キャラ指定">バトルガール</attribute>
+		<language name="日本語" width="216">こいも　しょうぶも　まけしらず！</language>
+	</row>
+
+	<row id="mes_tower_tr_114_02">
+		<comment>モンシロ</comment>
+		<language name="日本語" width="216">また　かっちゃった！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_114_03">
+		<comment>モンシロ</comment>
+		<language name="日本語" width="216">まけても　いいもーん！
+このあと　デートだから　いいもーん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_115_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ハヤット</comment>
+		<attribute name="キャラ指定">ベテラントレーナー</attribute>
+		<language name="日本語" width="216">ときは　きたれりっ！
+みなのもの　であえーい！</language>
+	</row>
+
+	<row id="mes_tower_tr_115_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ハヤット</comment>
+		<language name="日本語" width="216">てきトレーナー！
+うちとったりー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_115_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ハヤット</comment>
+		<language name="日本語" width="216">ひけー！　みなのもの　ひけー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_116_01">
+		<comment>グラマン</comment>
+		<attribute name="キャラ指定">ベテラントレーナー</attribute>
+		<language name="日本語" width="216">トレーナーれき　７５ねんの
+わしに　かてると　おもってるか？</language>
+	</row>
+
+	<row id="mes_tower_tr_116_02">
+		<comment>グラマン</comment>
+		<language name="日本語" width="216">わしの　れきしに　カンパイ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_116_03">
+		<comment>グラマン</comment>
+		<language name="日本語" width="216">わしの　えいこうの　れきしがー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_117_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>シュンスケ（マリオクラブ）</comment>
+		<attribute name="キャラ指定">ベテラントレーナー</attribute>
+		<language name="日本語" width="216">じゅんびは　よろしいかな？</language>
+	</row>
+
+	<row id="mes_tower_tr_117_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>シュンスケ（マリオクラブ）</comment>
+		<language name="日本語" width="216">すばらしい　しょうぶで　あったぞ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_117_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,#ffff80,,,#ffff80,#ffff80,">
+		<comment>シュンスケ（マリオクラブ）</comment>
+		<language name="日本語" width="216">やるのう　おぬし▼</language>
+	</row>
+
+	<row id="mes_tower_tr_118_01">
+		<comment>ラメ</comment>
+		<attribute name="キャラ指定">マダム</attribute>
+		<language name="日本語" width="216">おやまあ……
+かわいい　トレーナーだこと……</language>
+	</row>
+
+	<row id="mes_tower_tr_118_02">
+		<comment>ラメ</comment>
+		<language name="日本語" width="216">くやしがっているのね……
+かわいいわ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_118_03">
+		<comment>ラメ</comment>
+		<language name="日本語" width="216">ふうん……
+かわいいだけでは　ないのね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_119_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>パンコール</comment>
+		<attribute name="キャラ指定">マダム</attribute>
+		<language name="日本語" width="216">そいやさーっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_119_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>パンコール</comment>
+		<language name="日本語" width="216">かっこいい　かけごえでしょう？
+きあいが　はいりますのよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_119_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>パンコール</comment>
+		<language name="日本語" width="216">はあっ　はあっ……
+つかれましたわ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_120_01">
+		<comment>カメ</comment>
+		<attribute name="キャラ指定">マダム</attribute>
+		<language name="日本語" width="216">おかねもちの　せいかつも
+いろいろ　なやみが　ありますの……</language>
+	</row>
+
+	<row id="mes_tower_tr_120_02">
+		<comment>カメ</comment>
+		<language name="日本語" width="216">まあ　おかねが　ないより
+いいです　けれども……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_120_03">
+		<comment>カメ</comment>
+		<language name="日本語" width="216">まいにち　つづく　パーティ……
+いいかげん　ウンザリですわ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_121_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カッペイ</comment>
+		<attribute name="キャラ指定">サイキッカー♂</attribute>
+		<language name="日本語" width="216">しるがいい　はいぼくを……
+まなぶがいい　しょうぶを……</language>
+	</row>
+
+	<row id="mes_tower_tr_121_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カッペイ</comment>
+		<language name="日本語" width="216">おまえは　まだ　つよくなる……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_121_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カッペイ</comment>
+		<language name="日本語" width="216">はいしゃは　さるのみ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_122_01">
+		<comment>ナンペイ</comment>
+		<attribute name="キャラ指定">サイキッカー♂</attribute>
+		<language name="日本語" width="216">おれの　めをみろ！</language>
+	</row>
+
+	<row id="mes_tower_tr_122_02">
+		<comment>ナンペイ</comment>
+		<language name="日本語" width="216">あんじに　かかったな！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_122_03">
+		<comment>ナンペイ</comment>
+		<language name="日本語" width="216">おれの　あんじが
+きかないなんて！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_123_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キンペイ</comment>
+		<attribute name="キャラ指定">サイキッカー♂</attribute>
+		<language name="日本語" width="216">……　……</language>
+	</row>
+
+	<row id="mes_tower_tr_123_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キンペイ</comment>
+		<language name="日本語" width="216">……　……やった▼</language>
+	</row>
+
+	<row id="mes_tower_tr_123_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キンペイ</comment>
+		<language name="日本語" width="216">だまって　せいしんを
+しゅうちゅう　させて　いました……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_124_01">
+		<comment>ロロ</comment>
+		<attribute name="キャラ指定">サイキッカー♀</attribute>
+		<language name="日本語" width="216">あたいの　パワー！
+トリックじゃないわ！</language>
+	</row>
+
+	<row id="mes_tower_tr_124_02">
+		<comment>ロロ</comment>
+		<language name="日本語" width="216">これが　ちょうのうりょく！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_124_03">
+		<comment>ロロ</comment>
+		<language name="日本語" width="216">トリックじゃ　ないのに……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_125_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タタミ</comment>
+		<attribute name="キャラ指定">サイキッカー♀</attribute>
+		<language name="日本語" width="216">くらうが　いいわぁ！</language>
+	</row>
+
+	<row id="mes_tower_tr_125_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タタミ</comment>
+		<language name="日本語" width="216">あっはっはっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_125_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タタミ</comment>
+		<language name="日本語" width="216">ギギギ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_126_01">
+		<comment>ダミー</comment>
+		<attribute name="キャラ指定">サイキッカー♀</attribute>
+		<language name="日本語" width="216">めを　とじて　ゆっくりと
+かずを　かぞえなさい……</language>
+	</row>
+
+	<row id="mes_tower_tr_126_02">
+		<comment>ダミー</comment>
+		<language name="日本語" width="216">わたしが　かつまでの
+カウントダウンよ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_126_03">
+		<comment>ダミー</comment>
+		<language name="日本語" width="216">ちっ……
+ねむくなると　おもったのに……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_127_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キンサク</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♂</attribute>
+		<language name="日本語" width="216">ぼくは　ポケモンたちと
+いっしょに　せいかつを　しています</language>
+	</row>
+
+	<row id="mes_tower_tr_127_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キンサク</comment>
+		<language name="日本語" width="216">しょうぶは　とくいでは　ないのですが▼</language>
+	</row>
+
+	<row id="mes_tower_tr_127_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>キンサク</comment>
+		<language name="日本語" width="216">しょうぶは　とくいでは　ないのです▼</language>
+	</row>
+
+	<row id="mes_tower_tr_128_01">
+		<comment>ジュンサク</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♂</attribute>
+		<language name="日本語" width="216">……とうさんと　いっしょに
+そだてた　ポケモンです……</language>
+	</row>
+
+	<row id="mes_tower_tr_128_02">
+		<comment>ジュンサク</comment>
+		<language name="日本語" width="216">……　とうさん　みてる……？
+ぼくやったよ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_128_03">
+		<comment>ジュンサク</comment>
+		<language name="日本語" width="216">だめだ　とうさん……
+もっと　そだてないと　だめだ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_129_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ショウサク</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♂</attribute>
+		<language name="日本語" width="216">ポケモン　そだてるのは
+とても　てが　かかるけん！</language>
+	</row>
+
+	<row id="mes_tower_tr_129_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ショウサク</comment>
+		<language name="日本語" width="216">わはは！　てしおに　かけた
+ポケモン　じゃけんのぅ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_129_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ショウサク</comment>
+		<language name="日本語" width="216">うがが！
+わしの　ポケモンがぁ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_130_01">
+		<comment>ココナ</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♀</attribute>
+		<language name="日本語" width="216">うちの　そだてた
+ポケモン　みてくれる？</language>
+	</row>
+
+	<row id="mes_tower_tr_130_02">
+		<comment>ココナ</comment>
+		<language name="日本語" width="216">どう？　かわいいやろ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_130_03">
+		<comment>ココナ</comment>
+		<language name="日本語" width="216">かんにんやー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_131_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ユーナ</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♀</attribute>
+		<language name="日本語" width="216">かわいい　ポケモンを
+せんもんに　そだててるの！</language>
+	</row>
+
+	<row id="mes_tower_tr_131_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ユーナ</comment>
+		<language name="日本語" width="216">かわいくて　つよいでしょ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_131_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ユーナ</comment>
+		<language name="日本語" width="216">こんなに　かわいいのに！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_132_01">
+		<comment>ヨハンナ</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♀</attribute>
+		<language name="日本語" width="216">はじめまして！
+なめてると　いたいめ　みるわよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_132_02">
+		<comment>ヨハンナ</comment>
+		<language name="日本語" width="216">ほらね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_132_03">
+		<comment>ヨハンナ</comment>
+		<language name="日本語" width="216">わたしが　なめてた　みたい……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_133_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スケノシン</comment>
+		<attribute name="キャラ指定">ジェントルマン</attribute>
+		<language name="日本語" width="216">ふむふむ……　きみは　なかなか
+すてきな　ひとみを　しておるネ！</language>
+	</row>
+
+	<row id="mes_tower_tr_133_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スケノシン</comment>
+		<language name="日本語" width="216">まけても　くもらぬ　かがやき……　
+まるで　ほうせきの　ようだネ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_133_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スケノシン</comment>
+		<language name="日本語" width="216">わがやの　どんな　ビッグな
+ほうせきより　かがいているネ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_134_01">
+		<comment>ブルーノ</comment>
+		<attribute name="キャラ指定">ジェントルマン</attribute>
+		<language name="日本語" width="216">わしも　わかいころは
+むちゃなことを　したものだよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_134_02">
+		<comment>ブルーノ</comment>
+		<language name="日本語" width="216">きみを　みとると
+むかしを　おもいだすね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_134_03">
+		<comment>ブルーノ</comment>
+		<language name="日本語" width="216">きみも　なかなか
+むちゃな　やつだ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_135_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サムオ</comment>
+		<attribute name="キャラ指定">スキンヘッズ</attribute>
+		<language name="日本語" width="216">おうちに　かえるなら
+いまの　うちだぜぇ！</language>
+	</row>
+
+	<row id="mes_tower_tr_135_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サムオ</comment>
+		<language name="日本語" width="216">ゲヘヘェ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_135_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サムオ</comment>
+		<language name="日本語" width="216">わー！　おがあちゃーん！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_136_01">
+		<comment>バガン</comment>
+		<attribute name="キャラ指定">スキンヘッズ</attribute>
+		<language name="日本語" width="216">しょうぶは　なにも　うまない！！
+てを　とりあおう！　ラブだっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_136_02">
+		<comment>バガン</comment>
+		<language name="日本語" width="216">うっかり　しょうぶして　しまったが
+てを　とりあおう！　ラブだっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_136_03">
+		<comment>バガン</comment>
+		<language name="日本語" width="216">しょうぶなんて　むなしい！
+てを　とりあおう！　ラブだっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_137_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ステハチ</comment>
+		<attribute name="キャラ指定">けんきゅういん</attribute>
+		<language name="日本語" width="216">めがねを　おとしちゃってさー
+まえが　ぜんぜん　みえないなー</language>
+	</row>
+
+	<row id="mes_tower_tr_137_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ステハチ</comment>
+		<language name="日本語" width="216">かった　みたいだなー
+なんにも　みえないけどなー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_137_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ステハチ</comment>
+		<language name="日本語" width="216">まけた　みたいだなー
+なんにも　みえないけどなー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_138_01">
+		<comment>タケーシ（マリオクラブ）</comment>
+		<attribute name="キャラ指定">けんきゅういん</attribute>
+		<language name="日本語" width="216">ちいさなことから　コツコツと！</language>
+	</row>
+
+	<row id="mes_tower_tr_138_02">
+		<comment>タケーシ（マリオクラブ）</comment>
+		<language name="日本語" width="216">コツコツと　かちました！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_138_03">
+		<comment>タケーシ（マリオクラブ）</comment>
+		<language name="日本語" width="216">コツコツと　やったのに……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_139_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アダム</comment>
+		<attribute name="キャラ指定">ピエロ</attribute>
+		<language name="日本語" width="216">ヘラヘラヘラ……</language>
+	</row>
+
+	<row id="mes_tower_tr_139_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アダム</comment>
+		<language name="日本語" width="216">ゲラゲラゲラ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_139_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アダム</comment>
+		<language name="日本語" width="216">しくしくしく▼</language>
+	</row>
+
+	<row id="mes_tower_tr_140_01">
+		<comment>セリーヌ</comment>
+		<attribute name="キャラ指定">ピエロ</attribute>
+		<language name="日本語" width="216">さー　ゆかいな　ポケモンショーの
+はじまり　ですよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_140_02">
+		<comment>セリーヌ</comment>
+		<language name="日本語" width="216">ほーら　ゆかい　でしょう？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_140_03">
+		<comment>セリーヌ</comment>
+		<language name="日本語" width="216">んー　おれ　ふゆかいー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_141_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>メルバ</comment>
+		<attribute name="キャラ指定">エリートトレーナー♂</attribute>
+		<language name="日本語" width="216">けいこを　つけてやろう</language>
+	</row>
+
+	<row id="mes_tower_tr_141_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>メルバ</comment>
+		<language name="日本語" width="216">まだだ！　たてっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_141_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>メルバ</comment>
+		<language name="日本語" width="216">よしっ！　そこまでっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_142_01">
+		<comment>ブンシ</comment>
+		<attribute name="キャラ指定">エリートトレーナー♂</attribute>
+		<language name="日本語" width="216">なんにも　かんがえなくて　いいじゃん！
+たのしきゃ　それで　いーじゃん！</language>
+	</row>
+
+	<row id="mes_tower_tr_142_02">
+		<comment>ブンシ</comment>
+		<language name="日本語" width="216">しょうぶも　かてるじゃん！
+もんだい　ないじゃん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_142_03">
+		<comment>ブンシ</comment>
+		<language name="日本語" width="216">まけても　いいじゃん！
+たのしきゃ　いいじゃん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_143_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トモノシン</comment>
+		<attribute name="キャラ指定">エリートトレーナー♂</attribute>
+		<language name="日本語" width="216">きたい　してる　からね……
+がっかり　させないで　くれよっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_143_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トモノシン</comment>
+		<language name="日本語" width="216">きたい　はずれか……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_143_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トモノシン</comment>
+		<language name="日本語" width="216">いいね　キミ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_144_01">
+		<comment>ポポ</comment>
+		<attribute name="キャラ指定">エリートトレーナー♀</attribute>
+		<language name="日本語" width="216">あたしの　パパも　ママも
+つよい　トレーナーなのよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_144_02">
+		<comment>ポポ</comment>
+		<language name="日本語" width="216">ちすじ　って　やつね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_144_03">
+		<comment>ポポ</comment>
+		<language name="日本語" width="216">パパ　ママ　ごめんなさーい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_145_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アグネス</comment>
+		<attribute name="キャラ指定">エリートトレーナー♀</attribute>
+		<language name="日本語" width="216">オレは　どんな　しょうぶも
+ぜんりょくで　いどむ！</language>
+	</row>
+
+	<row id="mes_tower_tr_145_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アグネス</comment>
+		<language name="日本語" width="216">とうぜんの　けっか！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_145_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アグネス</comment>
+		<language name="日本語" width="216">まいりました！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_146_01">
+		<comment>マエ</comment>
+		<attribute name="キャラ指定">エリートトレーナー♀</attribute>
+		<language name="日本語" width="216">ここが　じんせいの　おおいちばん！
+まけるわけには　いかないのよっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_146_02">
+		<comment>マエ</comment>
+		<language name="日本語" width="216">うっしゃーーっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_146_03">
+		<comment>マエ</comment>
+		<language name="日本語" width="216">ミニスカートから　でなおしね……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_147_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カスガ</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♂</attribute>
+		<language name="日本語" width="216">しぜんと　ポケモンが　すきで
+レンジャーに　なったんだ！</language>
+	</row>
+
+	<row id="mes_tower_tr_147_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カスガ</comment>
+		<language name="日本語" width="216">しょうぶも　すき　だけどね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_147_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カスガ</comment>
+		<language name="日本語" width="216">うーん……
+しょうぶも　すきなんだけどな▼</language>
+	</row>
+
+	<row id="mes_tower_tr_148_01">
+		<comment>テルヒコ</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♂</attribute>
+		<language name="日本語" width="216">ハーイ！　きみも
+レンジャーに　ならないか！</language>
+	</row>
+
+	<row id="mes_tower_tr_148_02">
+		<comment>テルヒコ</comment>
+		<language name="日本語" width="216">ああ　でも
+きみの　ちからじゃ　ムリかも▼</language>
+	</row>
+
+	<row id="mes_tower_tr_148_03">
+		<comment>テルヒコ</comment>
+		<language name="日本語" width="216">いいね　つよいね　きみ
+レンジャーは　たのしいぞー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_149_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モーリス</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♂</attribute>
+		<language name="日本語" width="216">かっても　まけても
+しょうぶは　いちどきり！</language>
+	</row>
+
+	<row id="mes_tower_tr_149_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モーリス</comment>
+		<language name="日本語" width="216">くいは　ない？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_149_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モーリス</comment>
+		<language name="日本語" width="216">くいは　ない！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_150_01">
+		<comment>キアーラ</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♀</attribute>
+		<language name="日本語" width="216">しぜんと　そこにくらす　ポケモンを
+まもるのが　わたしの　しめい！</language>
+	</row>
+
+	<row id="mes_tower_tr_150_02">
+		<comment>キアーラ</comment>
+		<language name="日本語" width="216">たいへん　だけど
+とっても　たのしい　まいにちよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_150_03">
+		<comment>キアーラ</comment>
+		<language name="日本語" width="216">とても　やりがいが　あるわ！
+あなたも　どうかしら？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_151_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジョディー</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♀</attribute>
+		<language name="日本語" width="216">わたしの　ポケモンちゃんで
+たっぷり　かわいがって　あげる！</language>
+	</row>
+
+	<row id="mes_tower_tr_151_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジョディー</comment>
+		<language name="日本語" width="216">どうかしら？　まんぞくした？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_151_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジョディー</comment>
+		<language name="日本語" width="216">つよいわね　あなた！
+ちょっと　ビックリ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_152_01">
+		<comment>クレハ</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♀</attribute>
+		<language name="日本語" width="216">よるも　ねないで
+かんがえた　さくせんよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_152_02">
+		<comment>クレハ</comment>
+		<language name="日本語" width="216">さくせん　せいこう！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_152_03">
+		<comment>クレハ</comment>
+		<language name="日本語" width="216">そんなぁ……
+こんやは　ねむれないと……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_153_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ガン</comment>
+		<attribute name="キャラ指定">ドラゴンつかい</attribute>
+		<language name="日本語" width="216">ドラゴンつかいの　こころえ
+そのいち！</language>
+	</row>
+
+	<row id="mes_tower_tr_153_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ガン</comment>
+		<language name="日本語" width="216">かったら　ほえろ！
+ドラゴンと！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_153_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ガン</comment>
+		<language name="日本語" width="216">まけても　ほえろ！
+ドラゴンと！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_154_01">
+		<comment>コトノナカ</comment>
+		<attribute name="キャラ指定">ドラゴンつかい</attribute>
+		<language name="日本語" width="216">ドラゴンの　ように　たくましく！</language>
+	</row>
+
+	<row id="mes_tower_tr_154_02">
+		<comment>コトノナカ</comment>
+		<language name="日本語" width="216">つよい　おれさま！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_154_03">
+		<comment>コトノナカ</comment>
+		<language name="日本語" width="216">……　ぜえぜえ……
+たくましく　なりたかった……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_155_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ハーマン</comment>
+		<attribute name="キャラ指定">ドラゴンつかい</attribute>
+		<language name="日本語" width="216">みるが　いい！　かんじるが　いい！
+たぶん　さいきょうの　ちからを！</language>
+	</row>
+
+	<row id="mes_tower_tr_155_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ハーマン</comment>
+		<language name="日本語" width="216">たぶん　さいきょうの
+わしに　まけは　ない！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_155_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ハーマン</comment>
+		<language name="日本語" width="216">たぶん　さいきょうの　しょうごう！
+おぬしに　ゆずろう　じゃないか！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_156_01">
+		<comment>シュンデイ</comment>
+		<attribute name="キャラ指定">ドラゴンつかい</attribute>
+		<language name="日本語" width="216">あーっ！
+めずらしい　ポケモンだーっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_156_02">
+		<comment>シュンデイ</comment>
+		<language name="日本語" width="216">ヒヒヒ……　しょうぶに
+すきを　みせる　からだ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_156_03">
+		<comment>シュンデイ</comment>
+		<language name="日本語" width="216">ちぇ　だませなかった▼</language>
+	</row>
+
+	<row id="mes_tower_tr_157_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヤコフ</comment>
+		<attribute name="キャラ指定">エリート（厚着）♂</attribute>
+		<language name="日本語" width="216">ひどい　さむがり　だけど
+けっこう　つよいよ　ぼく</language>
+	</row>
+
+	<row id="mes_tower_tr_157_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヤコフ</comment>
+		<language name="日本語" width="216">ガタガタ……
+わ　わはは　かった　かったぞ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_157_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヤコフ</comment>
+		<language name="日本語" width="216">ガタガタ……　うう……
+なんだか　もう　ねむいや……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_158_01">
+		<comment>レオニード</comment>
+		<attribute name="キャラ指定">エリート（厚着）♂</attribute>
+		<language name="日本語" width="216">ボク　ごじまんの
+ポケモンが　いくじゃなーい！</language>
+	</row>
+
+	<row id="mes_tower_tr_158_02">
+		<comment>レオニード</comment>
+		<language name="日本語" width="216">いがいに　やるじゃなーい▼</language>
+	</row>
+
+	<row id="mes_tower_tr_158_03">
+		<comment>レオニード</comment>
+		<language name="日本語" width="216">いいセンスしてる　じゃなーい▼</language>
+	</row>
+
+	<row id="mes_tower_tr_159_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ナヨ</comment>
+		<attribute name="キャラ指定">エリート（厚着）♀</attribute>
+		<language name="日本語" width="216">ゆきって　すてき　よね！
+あたりが　まっしろに　なって！</language>
+	</row>
+
+	<row id="mes_tower_tr_159_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ナヨ</comment>
+		<language name="日本語" width="216">ゆきって　ロマンティック！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_159_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ナヨ</comment>
+		<language name="日本語" width="216">めのまえが　まっしろ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_160_01">
+		<comment>ライマー</comment>
+		<attribute name="キャラ指定">エリート（厚着）♀</attribute>
+		<language name="日本語" width="216">かわいい　コートでしょ？
+ちょっと　うごきにくいけど</language>
+	</row>
+
+	<row id="mes_tower_tr_160_02">
+		<comment>ライマー</comment>
+		<language name="日本語" width="216">ぬくぬく▼</language>
+	</row>
+
+	<row id="mes_tower_tr_160_03">
+		<comment>ライマー</comment>
+		<language name="日本語" width="216">もごもご▼</language>
+	</row>
+
+	<row id="mes_tower_tr_161_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>シロー</comment>
+		<attribute name="キャラ指定">たんパンこぞう</attribute>
+		<language name="日本語" width="216">ぼくこそ　
+たんパン　なんばーわん！</language>
+	</row>
+
+	<row id="mes_tower_tr_161_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>シロー</comment>
+		<language name="日本語" width="216">みたか！
+なんばーわんの　じつりょく！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_161_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>シロー</comment>
+		<language name="日本語" width="216">くそう……
+なんばーわんの　ぼくが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_162_01">
+		<comment>ゴロー</comment>
+		<attribute name="キャラ指定">たんパンこぞう</attribute>
+		<language name="日本語" width="216">おれこそ　
+たんパン　おんりーわん！</language>
+	</row>
+
+	<row id="mes_tower_tr_162_02">
+		<comment>ゴロー</comment>
+		<language name="日本語" width="216">みたか！
+おんりーわんの　じつりょく！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_162_03">
+		<comment>ゴロー</comment>
+		<language name="日本語" width="216">くそう……
+おんりーわんの　おれが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_163_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヒルダ</comment>
+		<attribute name="キャラ指定">ミニスカート</attribute>
+		<language name="日本語" width="216">あ　あの
+よろしく　おねがいしますね</language>
+	</row>
+
+	<row id="mes_tower_tr_163_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヒルダ</comment>
+		<language name="日本語" width="216">わ　わわ　かってしまいました？
+え　えと？　ごごごめんなさい▼</language>
+	</row>
+
+	<row id="mes_tower_tr_163_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヒルダ</comment>
+		<language name="日本語" width="216">あ　あの　
+ありがとう　ございました……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_164_01">
+		<comment>カネコ</comment>
+		<attribute name="キャラ指定">ミニスカート</attribute>
+		<language name="日本語" width="216">いっくよぉー！！</language>
+	</row>
+
+	<row id="mes_tower_tr_164_02">
+		<comment>カネコ</comment>
+		<language name="日本語" width="216">ぶらぼー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_164_03">
+		<comment>カネコ</comment>
+		<language name="日本語" width="216">きゃん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_165_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ベン</comment>
+		<attribute name="キャラ指定">じゅくがえり</attribute>
+		<language name="日本語" width="216">きみも　まなべ！</language>
+	</row>
+
+	<row id="mes_tower_tr_165_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ベン</comment>
+		<language name="日本語" width="216">しょうぶの　つらさを！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_165_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ベン</comment>
+		<language name="日本語" width="216">しょうりの　よろこびを！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_166_01">
+		<comment>ガク</comment>
+		<attribute name="キャラ指定">じゅくがえり</attribute>
+		<language name="日本語" width="216">べんきょうさせて　もらいます</language>
+	</row>
+
+	<row id="mes_tower_tr_166_02">
+		<comment>ガク</comment>
+		<language name="日本語" width="216">べんきょうに　なりませんよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_166_03">
+		<comment>ガク</comment>
+		<language name="日本語" width="216">そうか　あんなときには
+あんなわざを　だせば　いいのか▼</language>
+	</row>
+
+	<row id="mes_tower_tr_167_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジャニス</comment>
+		<attribute name="キャラ指定">じゅくがえり</attribute>
+		<language name="日本語" width="216">せんせいから　しょうぶの　コツを
+おしえて　もらったの！</language>
+	</row>
+
+	<row id="mes_tower_tr_167_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジャニス</comment>
+		<language name="日本語" width="216">やったよ　せんせい！
+ちょー　らくしょー！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_167_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジャニス</comment>
+		<language name="日本語" width="216">もー！　せんせいー！！
+ぜんぜん　ダメじゃーん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_168_01">
+		<comment>ハルネ</comment>
+		<attribute name="キャラ指定">じゅくがえり</attribute>
+		<language name="日本語" width="216">ねえねえ？　なんで　しょうぶするの？</language>
+	</row>
+
+	<row id="mes_tower_tr_168_02">
+		<comment>ハルネ</comment>
+		<language name="日本語" width="216">なんで？　なんで？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_168_03">
+		<comment>ハルネ</comment>
+		<language name="日本語" width="216">しょうぶに　かって　どうするの？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_169_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ゲラン</comment>
+		<attribute name="キャラ指定">おぼっちゃま</attribute>
+		<language name="日本語" width="216">しょせん　ポケモンも　ブランド
+だれが　かつか　わかってるよな？</language>
+	</row>
+
+	<row id="mes_tower_tr_169_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ゲラン</comment>
+		<language name="日本語" width="216">とうぜんの　けっかに
+きょうみは　ないな▼</language>
+	</row>
+
+	<row id="mes_tower_tr_169_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ゲラン</comment>
+		<language name="日本語" width="216">そんな……　ぼくの……
+ぼくの　そだてた　ポケモンが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_170_01">
+		<comment>サキョウ</comment>
+		<attribute name="キャラ指定">おぼっちゃま</attribute>
+		<language name="日本語" width="216">ぼくに　かえないものは　ないんだよ！
+しょうぶだって　おかねの　ちからで！</language>
+	</row>
+
+	<row id="mes_tower_tr_170_02">
+		<comment>サキョウ</comment>
+		<language name="日本語" width="216">おかねで　かえないもの
+なんて　ないんだよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_170_03">
+		<comment>サキョウ</comment>
+		<language name="日本語" width="216">おこづかい　あげるから
+ぼくを　かたせてー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_171_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オトギ</comment>
+		<attribute name="キャラ指定">おじょうさま</attribute>
+		<language name="日本語" width="216">わたし　ほんとは　おじょうさま　なんて
+ガラじゃないのよね……</language>
+	</row>
+
+	<row id="mes_tower_tr_171_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オトギ</comment>
+		<language name="日本語" width="216">がはははっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_171_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オトギ</comment>
+		<language name="日本語" width="216">くそっ！　くやしいぜ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_172_01">
+		<comment>パシモン</comment>
+		<attribute name="キャラ指定">おじょうさま</attribute>
+		<language name="日本語" width="216">ツルツルッと　おわらせて　あげますわ</language>
+	</row>
+
+	<row id="mes_tower_tr_172_02">
+		<comment>パシモン</comment>
+		<language name="日本語" width="216">ツルツルッと　いただきましたわ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_172_03">
+		<comment>パシモン</comment>
+		<language name="日本語" width="216">ツルツルッと　ごめんあそばせ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_173_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カルロ</comment>
+		<attribute name="キャラ指定">むしとりしょうねん</attribute>
+		<language name="日本語" width="216">ボリボリ……
+ボリボリ……</language>
+	</row>
+
+	<row id="mes_tower_tr_173_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カルロ</comment>
+		<language name="日本語" width="216">ああ　フエンせんべいは
+おいしいなぁ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_173_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カルロ</comment>
+		<language name="日本語" width="216">ああ　かゆいなぁ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_174_01">
+		<comment>サマノスケ</comment>
+		<attribute name="キャラ指定">むしとりしょうねん</attribute>
+		<language name="日本語" width="216">むしとりしょうねんの　いきざま！
+しっかりと　みるが　いいっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_174_02">
+		<comment>サマノスケ</comment>
+		<language name="日本語" width="216">これが　むしとりしょうねんの
+いきざま　だっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_174_03">
+		<comment>サマノスケ</comment>
+		<language name="日本語" width="216">むしとりしょうねん　バンザーーイ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_175_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カゲツナ</comment>
+		<attribute name="キャラ指定">にんじゃごっこ</attribute>
+		<language name="日本語" width="216">ひでんの　わざを　ごらんあれぃ！</language>
+	</row>
+
+	<row id="mes_tower_tr_175_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カゲツナ</comment>
+		<language name="日本語" width="216">いやいや　どうでしょー？
+すごかったでしょー？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_175_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カゲツナ</comment>
+		<language name="日本語" width="216">では　このへんで　どろん　します▼</language>
+	</row>
+
+	<row id="mes_tower_tr_176_01">
+		<comment>フェデリコ</comment>
+		<attribute name="キャラ指定">にんじゃごっこ</attribute>
+		<language name="日本語" width="216">みえたっ！！</language>
+	</row>
+
+	<row id="mes_tower_tr_176_02">
+		<comment>フェデリコ</comment>
+		<language name="日本語" width="216">わるく　おもうなよ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_176_03">
+		<comment>フェデリコ</comment>
+		<language name="日本語" width="216">ギョエーッ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_177_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ファウスト</comment>
+		<attribute name="キャラ指定">ポケモンごっこ</attribute>
+		<language name="日本語" width="216">ピカー！</language>
+	</row>
+
+	<row id="mes_tower_tr_177_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ファウスト</comment>
+		<language name="日本語" width="216">ピカピカー！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_177_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ファウスト</comment>
+		<language name="日本語" width="216">ピ　ピカ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_178_01">
+		<comment>チェルニー</comment>
+		<attribute name="キャラ指定">ポケモンごっこ</attribute>
+		<language name="日本語" width="216">しょうぶ？
+ぜったい　まけんばい！</language>
+	</row>
+
+	<row id="mes_tower_tr_178_02">
+		<comment>チェルニー</comment>
+		<language name="日本語" width="216">わーい！　わーい！
+かったばいー！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_178_03">
+		<comment>チェルニー</comment>
+		<language name="日本語" width="216">うう……
+まけたばい……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_179_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トコヨ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">わたし　かわいいことが　しごと</language>
+	</row>
+
+	<row id="mes_tower_tr_179_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トコヨ</comment>
+		<language name="日本語" width="216">かわいいって
+それだけで　ざいさん▼</language>
+	</row>
+
+	<row id="mes_tower_tr_179_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トコヨ</comment>
+		<language name="日本語" width="216">うががー！！
+こんちくしょー！！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_180_01">
+		<comment>ニュー</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">わたしと　あくしゅ！！</language>
+	</row>
+
+	<row id="mes_tower_tr_180_02">
+		<comment>ニュー</comment>
+		<language name="日本語" width="216">かったら　サインもして
+あげたのにぃ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_180_03">
+		<comment>ニュー</comment>
+		<language name="日本語" width="216">マネージャーが
+だまってないわよ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_181_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コロンタ</comment>
+		<attribute name="キャラ指定">ジョギング</attribute>
+		<language name="日本語" width="216">はしれっ！！
+かんがえるなっ！　はしれっ！！</language>
+	</row>
+
+	<row id="mes_tower_tr_181_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コロンタ</comment>
+		<language name="日本語" width="216">もっと！
+もっともっと　はやくっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_181_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コロンタ</comment>
+		<language name="日本語" width="216">はしれっ！
+おれの　ぶんまで　はしれっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_182_01">
+		<comment>シリュウ</comment>
+		<attribute name="キャラ指定">ジョギング</attribute>
+		<language name="日本語" width="216">チース
+よろしく　おねがいしまーす</language>
+	</row>
+
+	<row id="mes_tower_tr_182_02">
+		<comment>シリュウ</comment>
+		<language name="日本語" width="216">チース
+おつかれさまでしたー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_182_03">
+		<comment>シリュウ</comment>
+		<language name="日本語" width="216">チース
+ありがとございましたー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_183_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>レイヤ</comment>
+		<attribute name="キャラ指定">つりびと</attribute>
+		<language name="日本語" width="216">なかまには　たいこうぼうと
+よばれる　わし！</language>
+	</row>
+
+	<row id="mes_tower_tr_183_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>レイヤ</comment>
+		<language name="日本語" width="216">きょうも　おおものを
+つりあげた　わし！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_183_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>レイヤ</comment>
+		<language name="日本語" width="216">たいこうぼうの　いみは
+パパか　ママに　ききなさい▼</language>
+	</row>
+
+	<row id="mes_tower_tr_184_01">
+		<comment>デリー</comment>
+		<attribute name="キャラ指定">つりびと</attribute>
+		<language name="日本語" width="216">まー　おいら　くらいに　なってくると
+ねてても　らくしょうな　わけ</language>
+	</row>
+
+	<row id="mes_tower_tr_184_02">
+		<comment>デリー</comment>
+		<language name="日本語" width="216">ぐー　ぐー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_184_03">
+		<comment>デリー</comment>
+		<language name="日本語" width="216">すやすや……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_185_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アブラハム</comment>
+		<attribute name="キャラ指定">いせきマニア</attribute>
+		<language name="日本語" width="216">ボクはね　ママと　まいぞうきんを
+さがして　たびして　いるよ</language>
+	</row>
+
+	<row id="mes_tower_tr_185_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アブラハム</comment>
+		<language name="日本語" width="216">あとは　まいにち　つりを　したり
+はたけを　たがやしているね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_185_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アブラハム</comment>
+		<language name="日本語" width="216">きみは　あくせく　してるね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_186_01">
+		<comment>ヒナオ</comment>
+		<attribute name="キャラ指定">いせきマニア</attribute>
+		<language name="日本語" width="216">きょうも　かつ　かつ！
+あすも　かつ！</language>
+	</row>
+
+	<row id="mes_tower_tr_186_02">
+		<comment>ヒナオ</comment>
+		<language name="日本語" width="216">なはは！　なはは！
+オレは　いっしょう　まけない！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_186_03">
+		<comment>ヒナオ</comment>
+		<language name="日本語" width="216">やだ！　やだやだ！
+オレ　まけてないもん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_187_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ユリウス</comment>
+		<attribute name="キャラ指定">ポケモンコレクター</attribute>
+		<language name="日本語" width="216">どれどれ　キミの　あつめっぷりを
+ボクが　チェックして　あげよう</language>
+	</row>
+
+	<row id="mes_tower_tr_187_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ユリウス</comment>
+		<language name="日本語" width="216">まだ　あまいねぇ
+がんばって　くれたまえよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_187_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ユリウス</comment>
+		<language name="日本語" width="216">なかなかの　コレクションだね
+ぜんぶ　ゆずって　くれたまえ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_188_01">
+		<comment>ジョルジュ</comment>
+		<attribute name="キャラ指定">ポケモンコレクター</attribute>
+		<language name="日本語" width="216">そりゃ　そりゃ　そりゃー！！</language>
+	</row>
+
+	<row id="mes_tower_tr_188_02">
+		<comment>ジョルジュ</comment>
+		<language name="日本語" width="216">おっしゃー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_188_03">
+		<comment>ジョルジュ</comment>
+		<language name="日本語" width="216">オロローン！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_189_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マルオ</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">きいてくれい！
+たましいの　さけび！</language>
+	</row>
+
+	<row id="mes_tower_tr_189_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マルオ</comment>
+		<language name="日本語" width="216">あい　らぶ　みゅーじっく！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_189_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マルオ</comment>
+		<language name="日本語" width="216">アンコール　いくかー？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_190_01">
+		<comment>マル</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">しょうぶー？
+あー　いいよー</language>
+	</row>
+
+	<row id="mes_tower_tr_190_02">
+		<comment>マル</comment>
+		<language name="日本語" width="216">へー　つよいねー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_190_03">
+		<comment>マル</comment>
+		<language name="日本語" width="216">ありがとー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_191_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ボレロ</comment>
+		<attribute name="キャラ指定">とりつかい</attribute>
+		<language name="日本語" width="216">ばびゅーん！</language>
+	</row>
+
+	<row id="mes_tower_tr_191_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ボレロ</comment>
+		<language name="日本語" width="216">ばさっ！　ばさっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_191_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ボレロ</comment>
+		<language name="日本語" width="216">ついばんじゃうぞ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_192_01">
+		<comment>タイザン</comment>
+		<attribute name="キャラ指定">とりつかい</attribute>
+		<language name="日本語" width="216">いっちょ　もんでやるかぁ！</language>
+	</row>
+
+	<row id="mes_tower_tr_192_02">
+		<comment>タイザン</comment>
+		<language name="日本語" width="216">また　しょうぶしような！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_192_03">
+		<comment>タイザン</comment>
+		<language name="日本語" width="216">おまえ　なかなか　やるなぁ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_193_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>グレゴリー</comment>
+		<attribute name="キャラ指定">ふなのり</attribute>
+		<language name="日本語" width="216">なみを　ながめてると
+いろいろな　ことを　おもいだす……</language>
+	</row>
+
+	<row id="mes_tower_tr_193_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>グレゴリー</comment>
+		<language name="日本語" width="216">うおーー！
+おとっつぁーーん！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_193_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>グレゴリー</comment>
+		<language name="日本語" width="216">うおーー！
+おっかさーーん！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_194_01">
+		<comment>セス</comment>
+		<attribute name="キャラ指定">ふなのり</attribute>
+		<language name="日本語" width="216">さあ！　おにいさんに
+とびこんで　おいで！</language>
+	</row>
+
+	<row id="mes_tower_tr_194_02">
+		<comment>セス</comment>
+		<language name="日本語" width="216">どうだい？
+おにいさんは　でっかいだろ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_194_03">
+		<comment>セス</comment>
+		<language name="日本語" width="216">よく　およぎきったね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_195_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジモン</comment>
+		<attribute name="キャラ指定">やまおとこ</attribute>
+		<language name="日本語" width="216">わー！　わー！　ちょっと　まってー！
+まだ　こころの　じゅんびがー！！</language>
+	</row>
+
+	<row id="mes_tower_tr_195_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジモン</comment>
+		<language name="日本語" width="216">れれ？　もう　おしまい？
+え？　ぼく　かったの？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_195_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジモン</comment>
+		<language name="日本語" width="216">ん？　んん？　もう　おしまい？
+え？　ぼく　まけたの？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_196_01">
+		<comment>アマデオ</comment>
+		<attribute name="キャラ指定">やまおとこ</attribute>
+		<language name="日本語" width="216">わしのー　だいこうぶつはー
+モーモーミルク　だぞー</language>
+	</row>
+
+	<row id="mes_tower_tr_196_02">
+		<comment>アマデオ</comment>
+		<language name="日本語" width="216">わははー　わしの　かちー
+モーモーミルク　のみいくかー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_196_03">
+		<comment>アマデオ</comment>
+		<language name="日本語" width="216">うぃー　モーモーミルクだぁー！
+モーモーミルク　もってこーい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_197_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オミト</comment>
+		<attribute name="キャラ指定">おまわりさん</attribute>
+		<language name="日本語" width="216">ごようだ！
+ごようだ！　ごようだ！</language>
+	</row>
+
+	<row id="mes_tower_tr_197_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オミト</comment>
+		<language name="日本語" width="216">めしとったりぃ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_197_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オミト</comment>
+		<language name="日本語" width="216">べらぼうめぇ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_198_01">
+		<comment>タシマヤ</comment>
+		<attribute name="キャラ指定">おまわりさん</attribute>
+		<language name="日本語" width="216">おまわりさんじゃ　ないんですよねぇ
+せいふくコレクター　なんですねぇ</language>
+	</row>
+
+	<row id="mes_tower_tr_198_02">
+		<comment>タシマヤ</comment>
+		<language name="日本語" width="216">きみも　せいふく　にあいそうですねぇ
+どんどんと　きていくと　いいですねぇ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_198_03">
+		<comment>タシマヤ</comment>
+		<language name="日本語" width="216">いやぁ　しょうぶって
+ほんとに　いいもの　ですねぇ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_199_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ワラジ</comment>
+		<attribute name="キャラ指定">ギャンブラー</attribute>
+		<language name="日本語" width="216">じんせい　すべてが　ギャンブルよ！
+あしたのこと　なんざ　わからねぇ！</language>
+	</row>
+
+	<row id="mes_tower_tr_199_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ワラジ</comment>
+		<language name="日本語" width="216">きょうは　まけても　あしたは
+かてるかも　しれねーぜ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_199_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ワラジ</comment>
+		<language name="日本語" width="216">あしたは　かてるかも　しれねえ！
+そう　しんじるのさ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_200_01">
+		<comment>オンリ</comment>
+		<attribute name="キャラ指定">ギャンブラー</attribute>
+		<language name="日本語" width="216">ぼくの　すべてを　かけて
+しょうぶ　するよ</language>
+	</row>
+
+	<row id="mes_tower_tr_200_02">
+		<comment>オンリ</comment>
+		<language name="日本語" width="216">ヒャッホー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_200_03">
+		<comment>オンリ</comment>
+		<language name="日本語" width="216">おしまいだー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_201_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コレヤス</comment>
+		<attribute name="キャラ指定">キャンプボーイ</attribute>
+		<language name="日本語" width="216">かんぜん　むてきの　キャンプボーイ
+ここに　けんざん！</language>
+	</row>
+
+	<row id="mes_tower_tr_201_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コレヤス</comment>
+		<language name="日本語" width="216">でしに　してあげても　いいよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_201_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コレヤス</comment>
+		<language name="日本語" width="216">きみの　でしに　なりたいなぁ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_202_01">
+		<comment>サンスケ</comment>
+		<attribute name="キャラ指定">キャンプボーイ</attribute>
+		<language name="日本語" width="216">かてるきは　まるで　しないけど
+しょうぶ　してみるよ</language>
+	</row>
+
+	<row id="mes_tower_tr_202_02">
+		<comment>サンスケ</comment>
+		<language name="日本語" width="216">わー　かてることも　あるんだー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_202_03">
+		<comment>サンスケ</comment>
+		<language name="日本語" width="216">やっぱり　まけたー
+うーん　ごめんね　マイハート▼</language>
+	</row>
+
+	<row id="mes_tower_tr_203_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コトチヨ</comment>
+		<attribute name="キャラ指定">ピクニックガール</attribute>
+		<language name="日本語" width="216">きみさぁ　あたしにぃ　きょうみ
+しんしん　って　かんじでしょ</language>
+	</row>
+
+	<row id="mes_tower_tr_203_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コトチヨ</comment>
+		<language name="日本語" width="216">あたしばっかりぃ　みてるからぁ
+まけるのよぉ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_203_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コトチヨ</comment>
+		<language name="日本語" width="216">なんでぇ　かつのよおぉ
+あたし　すきじゃないのぉ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_204_01">
+		<comment>マリーナ</comment>
+		<attribute name="キャラ指定">ピクニックガール</attribute>
+		<language name="日本語" width="216">かっても　まけても
+うらみっこ　なしね</language>
+	</row>
+
+	<row id="mes_tower_tr_204_02">
+		<comment>マリーナ</comment>
+		<language name="日本語" width="216">わーい　わーい　わーい
+やった　やったぁー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_204_03">
+		<comment>マリーナ</comment>
+		<language name="日本語" width="216">ちょっと！
+おぼえてなさいよぉ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_205_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ワホ</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">おとなの　ポケモン……
+みせて　あげよう……</language>
+	</row>
+
+	<row id="mes_tower_tr_205_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ワホ</comment>
+		<language name="日本語" width="216">どうよ？　どうよ？
+えんか　みたいに　しぶいオレ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_205_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ワホ</comment>
+		<language name="日本語" width="216">く　くやしくても
+がまん　するのが　おとな……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_206_01">
+		<comment>リョウセイ</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">オレが　もってるのは
+ギターじゃないのだ</language>
+	</row>
+
+	<row id="mes_tower_tr_206_02">
+		<comment>リョウセイ</comment>
+		<language name="日本語" width="216">ピコピコピコ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_206_03">
+		<comment>リョウセイ</comment>
+		<language name="日本語" width="216">キーボードなのだ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_207_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モポ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">しごとでは　ビキニのおねえさんや
+おとなのおねえさん　にも　なるのよ</language>
+	</row>
+
+	<row id="mes_tower_tr_207_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モポ</comment>
+		<language name="日本語" width="216">アイドルは　なんにでも　なれるの！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_207_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>モポ</comment>
+		<language name="日本語" width="216">でも　ほんとの　わたしは
+まだまだ　かわいい　ミニスカート！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_208_01">
+		<comment>フランシス</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">たのしく　あそびましょう
+いたいことは　きらいだよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_208_02">
+		<comment>フランシス</comment>
+		<language name="日本語" width="216">あー　たのしいー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_208_03">
+		<comment>フランシス</comment>
+		<language name="日本語" width="216">いったぁい！　ちょっとぉ！
+あなた　つよすぎるよ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_209_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オニーロク</comment>
+		<attribute name="キャラ指定">だいすきクラブ♂</attribute>
+		<language name="日本語" width="216">おわりにして　やろうっ！
+オレさまの　だいすきなポケモンでっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_209_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オニーロク</comment>
+		<language name="日本語" width="216">オレさまの　ポケモンあいは
+かんぜんで　さいきょうなのだ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_209_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>オニーロク</comment>
+		<language name="日本語" width="216">なぜっ！　なぜだっ！！
+なぜ　オレさまが　まけるっ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_210_01" back-color="#ffffff,,,#ffffff,,#ffffff,#ffffff,#ffffff,,,#ffffff,#ffffff,">
+		<comment>ゴウジン</comment>
+		<attribute name="キャラ指定">だいすきクラブ♂</attribute>
+		<language name="日本語" width="216">ポケモンがいる　くらし
+まいにちが　さいこうさ……</language>
+	</row>
+
+	<row id="mes_tower_tr_210_02">
+		<comment>ゴウジン</comment>
+		<language name="日本語" width="216">えへへ……
+ポケモンは　さいこうだね……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_210_03">
+		<comment>ゴウジン</comment>
+		<language name="日本語" width="216">まけても　ポケモンが　いるし
+もんだいないさ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_211_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アラキ</comment>
+		<attribute name="キャラ指定">だいすきクラブ♀</attribute>
+		<language name="日本語" width="216">もう　ポケモンさえ　いれば
+あとは　なーんにも　いらないわ</language>
+	</row>
+
+	<row id="mes_tower_tr_211_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アラキ</comment>
+		<language name="日本語" width="216">ポケモンが　いればね
+わたし　まいにち　しあわせよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_211_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アラキ</comment>
+		<language name="日本語" width="216">あなたも　そうでしょ？　ね？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_212_01">
+		<comment>ヤト</comment>
+		<attribute name="キャラ指定">だいすきクラブ♀</attribute>
+		<language name="日本語" width="216">おばさん　こうみえても
+わかいころは　イケイケだったのよ</language>
+	</row>
+
+	<row id="mes_tower_tr_212_02">
+		<comment>ヤト</comment>
+		<language name="日本語" width="216">まあ　いまも　イケイケだけどさ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_212_03">
+		<comment>ヤト</comment>
+		<language name="日本語" width="216">あのころが　なつかしいわぁ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_213_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ボブ</comment>
+		<attribute name="キャラ指定">ぼくじょうおじさん</attribute>
+		<language name="日本語" width="216">がんばれよぉ！
+あいする　こどもたち！</language>
+	</row>
+
+	<row id="mes_tower_tr_213_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ボブ</comment>
+		<language name="日本語" width="216">わはは！　よくやったぞ！
+ママも　よろこんでるぞ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_213_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ボブ</comment>
+		<language name="日本語" width="216">ポケモンは　わしの
+だいじな　かぞくなのだよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_214_01">
+		<comment>ボブヒコ</comment>
+		<attribute name="キャラ指定">ぼくじょうおじさん</attribute>
+		<language name="日本語" width="216">ぼっちゃん？　じょうちゃん？
+どっちでも　いいけど　いくぞぉ！</language>
+	</row>
+
+	<row id="mes_tower_tr_214_02">
+		<comment>ボブヒコ</comment>
+		<language name="日本語" width="216">ぼっちゃん？　じょうちゃん？
+どっちでも　いいけど　ごめんなぁ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_214_03">
+		<comment>ボブヒコ</comment>
+		<language name="日本語" width="216">ぼっちゃん？　じょうちゃん？
+どっちでも　いいけど　つよいなぁ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_215_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コマ</comment>
+		<attribute name="キャラ指定">カウガール</attribute>
+		<language name="日本語" width="216">オワリニ　シテヤル</language>
+	</row>
+
+	<row id="mes_tower_tr_215_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コマ</comment>
+		<language name="日本語" width="216">コレデ　オワリダ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_215_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コマ</comment>
+		<language name="日本語" width="216">ツヨイ　デスネ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_216_01">
+		<comment>テキサス</comment>
+		<attribute name="キャラ指定">カウガール</attribute>
+		<language name="日本語" width="216">がんばっちゃうもんねー！
+えい　えい　おー！</language>
+	</row>
+
+	<row id="mes_tower_tr_216_02">
+		<comment>テキサス</comment>
+		<language name="日本語" width="216">ばんざーい！　ぶいぶい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_216_03">
+		<comment>テキサス</comment>
+		<language name="日本語" width="216">まけちゃったー　しくしくしくー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_217_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アドロック</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♂</attribute>
+		<language name="日本語" width="216">ごしょうかい　しましょう！
+ぼくの　だいじな　パートナー！</language>
+	</row>
+
+	<row id="mes_tower_tr_217_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アドロック</comment>
+		<language name="日本語" width="216">どうですか？
+ぼくの　パートナーは！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_217_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アドロック</comment>
+		<language name="日本語" width="216">あわわ……
+ぼくの　パートナーが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_218_01">
+		<comment>フトシ</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♂</attribute>
+		<language name="日本語" width="216">かちまけ　ばかりが
+しょうぶじゃ　ないよ</language>
+	</row>
+
+	<row id="mes_tower_tr_218_02">
+		<comment>フトシ</comment>
+		<language name="日本語" width="216">かったら　うれしいけどね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_218_03">
+		<comment>フトシ</comment>
+		<language name="日本語" width="216">どれだけ　がんばったかが
+たいせつ　なんだよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_219_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コウガ</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♀</attribute>
+		<language name="日本語" width="216">きびしくても　だめ……
+あまやかしても　だめ……</language>
+	</row>
+
+	<row id="mes_tower_tr_219_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コウガ</comment>
+		<language name="日本語" width="216">ポケモン　ブリーダーは
+おくが　ふかいの！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_219_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コウガ</comment>
+		<language name="日本語" width="216">いいポケモンを　そだてるには
+バランスが　たいせつだよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_220_01">
+		<comment>ヒノエ</comment>
+		<attribute name="キャラ指定">ポケモンブリーダー♀</attribute>
+		<language name="日本語" width="216">ポケモンの　そだてぐあい
+チェックして　あげるね</language>
+	</row>
+
+	<row id="mes_tower_tr_220_02">
+		<comment>ヒノエ</comment>
+		<language name="日本語" width="216">まだまだ！
+そだてかたが　あまーい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_220_03">
+		<comment>ヒノエ</comment>
+		<language name="日本語" width="216">これは　すごいわ！
+ずいぶん　コッテリと　そだてたのね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_221_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サブ</comment>
+		<attribute name="キャラ指定">エリートトレーナー♂</attribute>
+		<language name="日本語" width="216">ぼくかつ
+これマジ</language>
+	</row>
+
+	<row id="mes_tower_tr_221_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サブ</comment>
+		<language name="日本語" width="216">な？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_221_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サブ</comment>
+		<language name="日本語" width="216">む！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_222_01">
+		<comment>ナユタ</comment>
+		<attribute name="キャラ指定">エリートトレーナー♂</attribute>
+		<language name="日本語" width="216">フハーッ！　フハーッ！
+かてると　おもうて　おるのかー！</language>
+	</row>
+
+	<row id="mes_tower_tr_222_02">
+		<comment>ナユタ</comment>
+		<language name="日本語" width="216">フハーッ！　フハーッ！
+わしの　かちじゃー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_222_03">
+		<comment>ナユタ</comment>
+		<language name="日本語" width="216">フハーッ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_223_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ファナ</comment>
+		<attribute name="キャラ指定">エリートトレーナー♀</attribute>
+		<language name="日本語" width="216">もう　にがさない
+あきらめなさい</language>
+	</row>
+
+	<row id="mes_tower_tr_223_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ファナ</comment>
+		<language name="日本語" width="216">わるく　なかったわ
+また　あいましょ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_223_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ファナ</comment>
+		<language name="日本語" width="216">こんな　ことって……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_224_01">
+		<comment>ヘルガ</comment>
+		<attribute name="キャラ指定">エリートトレーナー♀</attribute>
+		<language name="日本語" width="216">やあやあ！
+たのしく　あそびましょ！</language>
+	</row>
+
+	<row id="mes_tower_tr_224_02">
+		<comment>ヘルガ</comment>
+		<language name="日本語" width="216">ありがとう
+また　あそぼうね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_224_03">
+		<comment>ヘルガ</comment>
+		<language name="日本語" width="216">ありがとう！
+また　あそんでね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_225_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アントン</comment>
+		<attribute name="キャラ指定">エリート（厚着）♂</attribute>
+		<language name="日本語" width="216">ユー　ぜんぜん　ダメだヨー
+ミーが　おしえて　あげるヨー</language>
+	</row>
+
+	<row id="mes_tower_tr_225_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アントン</comment>
+		<language name="日本語" width="216">ユー　だめだヨー　ほら　たつヨー　
+ネバネバ　ネバ　ギブアップ　だヨー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_225_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アントン</comment>
+		<language name="日本語" width="216">ユー　いいヨー
+がんばったヨー　さいこうダヨー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_226_01">
+		<comment>ゴヨウマツ</comment>
+		<attribute name="キャラ指定">エリート（厚着）♂</attribute>
+		<language name="日本語" width="216">ぜんりょく　とうきゅうだ！</language>
+	</row>
+
+	<row id="mes_tower_tr_226_02">
+		<comment>ゴヨウマツ</comment>
+		<language name="日本語" width="216">うーん！　しびれるー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_226_03">
+		<comment>ゴヨウマツ</comment>
+		<language name="日本語" width="216">ビリビリきたー！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_227_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スケキヨ</comment>
+		<attribute name="キャラ指定">エリート（厚着）♀</attribute>
+		<language name="日本語" width="216">さあ　かかってこい！</language>
+	</row>
+
+	<row id="mes_tower_tr_227_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スケキヨ</comment>
+		<language name="日本語" width="216">うむ　よわいぞ！
+がんばってくれ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_227_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スケキヨ</comment>
+		<language name="日本語" width="216">うむ　つよいじゃないか！
+また　しょうぶして　くれ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_228_01">
+		<comment>コツル</comment>
+		<attribute name="キャラ指定">エリート（厚着）♀</attribute>
+		<language name="日本語" width="216">ほんきで　いらっしゃいな！</language>
+	</row>
+
+	<row id="mes_tower_tr_228_02">
+		<comment>コツル</comment>
+		<language name="日本語" width="216">あら　これだけ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_228_03">
+		<comment>コツル</comment>
+		<language name="日本語" width="216">ふうん……
+なかなかの　ものね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_229_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ビリー</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♂</attribute>
+		<language name="日本語" width="216">あはは！　ざんねんだね！
+ぼくが　あいてだよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_229_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ビリー</comment>
+		<language name="日本語" width="216">あはは！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_229_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ビリー</comment>
+		<language name="日本語" width="216">あは……
+あはは……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_230_01">
+		<comment>トゥビェン</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♂</attribute>
+		<language name="日本語" width="216">きんちょう　してるかな？
+おにーさんに　まかせなさい！</language>
+	</row>
+
+	<row id="mes_tower_tr_230_02">
+		<comment>トゥビェン</comment>
+		<language name="日本語" width="216">いい　しょうぶ　だったよ
+また　あいたいねー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_230_03">
+		<comment>トゥビェン</comment>
+		<language name="日本語" width="216">ふうー
+まさか　まけちゃう　なんてねー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_231_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ゼンコ</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♀</attribute>
+		<language name="日本語" width="216">しぜんの　ちから
+みせて　あげる！</language>
+	</row>
+
+	<row id="mes_tower_tr_231_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ゼンコ</comment>
+		<language name="日本語" width="216">これが　しぜんの　ちから！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_231_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ゼンコ</comment>
+		<language name="日本語" width="216">しぜんを　たいせつ　にね……　</language>
+	</row>
+
+	<row id="mes_tower_tr_232_01">
+		<comment>ケーニッヒ</comment>
+		<attribute name="キャラ指定">ポケモンレンジャー♀</attribute>
+		<language name="日本語" width="216">ぼくと　しょうぶ？
+しらないよぉ！</language>
+	</row>
+
+	<row id="mes_tower_tr_232_02">
+		<comment>ケーニッヒ</comment>
+		<language name="日本語" width="216">ほーら
+こうなると　おもったんだ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_232_03">
+		<comment>ケーニッヒ</comment>
+		<language name="日本語" width="216">ぶー！ぶー！
+こんなことって！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_233_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ゼノン</comment>
+		<attribute name="キャラ指定">ドラゴンつかい</attribute>
+		<language name="日本語" width="216">フハハハッ！
+わがはいが　あいてだ！</language>
+	</row>
+
+	<row id="mes_tower_tr_233_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ゼノン</comment>
+		<language name="日本語" width="216">フハハハッ！
+わがはいに　かてると　おもったか！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_233_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ゼノン</comment>
+		<language name="日本語" width="216">フハハハッ！
+また　あおう！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_234_01">
+		<comment>セフィーロ</comment>
+		<attribute name="キャラ指定">ドラゴンつかい</attribute>
+		<language name="日本語" width="216">ゆきなさいぃー！　きたえぬいた
+ボクの　ポケモンちゃん　たちー！</language>
+	</row>
+
+	<row id="mes_tower_tr_234_02">
+		<comment>セフィーロ</comment>
+		<language name="日本語" width="216">やったぁー！
+さすが　ボクの　ポケモンちゃんー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_234_03">
+		<comment>セフィーロ</comment>
+		<language name="日本語" width="216">ああん！　やだー！
+ボクの　ポケモンちゃんがー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_235_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エンマ</comment>
+		<attribute name="キャラ指定">からておう</attribute>
+		<language name="日本語" width="216">ポケモンしょうぶは　しんけんしょうぶ
+ちょっとの　ゆだんも　できんのだ！</language>
+	</row>
+
+	<row id="mes_tower_tr_235_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エンマ</comment>
+		<language name="日本語" width="216">きを　ぬいては　いかん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_235_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エンマ</comment>
+		<language name="日本語" width="216">ちょっと　ぼーっと　してた……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_236_01">
+		<comment>タケトラ</comment>
+		<attribute name="キャラ指定">からておう</attribute>
+		<language name="日本語" width="216">オス！！</language>
+	</row>
+
+	<row id="mes_tower_tr_236_02">
+		<comment>タケトラ</comment>
+		<language name="日本語" width="216">オーッス！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_236_03">
+		<comment>タケトラ</comment>
+		<language name="日本語" width="216">オッス……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_237_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヒメ</comment>
+		<attribute name="キャラ指定">バトルガール</attribute>
+		<language name="日本語" width="216">あたし　つよい　それだけ</language>
+	</row>
+
+	<row id="mes_tower_tr_237_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヒメ</comment>
+		<language name="日本語" width="216">あたし　かった　それだけ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_237_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヒメ</comment>
+		<language name="日本語" width="216">あたし　まけた　それだけ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_238_01">
+		<comment>スケ</comment>
+		<attribute name="キャラ指定">バトルガール</attribute>
+		<language name="日本語" width="216">シャーッ！</language>
+	</row>
+
+	<row id="mes_tower_tr_238_02">
+		<comment>スケ</comment>
+		<language name="日本語" width="216">ホォーッ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_238_03">
+		<comment>スケ</comment>
+		<language name="日本語" width="216">ハウッ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_239_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カンベエ</comment>
+		<attribute name="キャラ指定">ベテラントレーナー</attribute>
+		<language name="日本語" width="216">ボク　もう　なんねんも
+ここにいるけど　まるで　あきないね</language>
+	</row>
+
+	<row id="mes_tower_tr_239_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カンベエ</comment>
+		<language name="日本語" width="216">こうみえても　まだ　こどもさ
+きみと　どうきゅうせい　だよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_239_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カンベエ</comment>
+		<language name="日本語" width="216">かみのけが　まっしろに　なっても
+ポケモンしょうぶ　して　いたいね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_240_01">
+		<comment>ペドロ</comment>
+		<attribute name="キャラ指定">ベテラントレーナー</attribute>
+		<language name="日本語" width="216">はじめに　いって　おこう……
+きみでは　わたしに　かつことはできない</language>
+	</row>
+
+	<row id="mes_tower_tr_240_02">
+		<comment>ペドロ</comment>
+		<language name="日本語" width="216">だから　いっただろう？
+きみでは　わたしに　かてるはずがない▼</language>
+	</row>
+
+	<row id="mes_tower_tr_240_03">
+		<comment>ペドロ</comment>
+		<language name="日本語" width="216">なぜだ……　うきわガールにしか
+まけたことのない　このわたしが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_241_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヤン</comment>
+		<attribute name="キャラ指定">マダム</attribute>
+		<language name="日本語" width="216">まだ　おこさんじゃ　ないの</language>
+	</row>
+
+	<row id="mes_tower_tr_241_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヤン</comment>
+		<language name="日本語" width="216">さいきんの　おこさんは
+げんきが　ないのねぇ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_241_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヤン</comment>
+		<language name="日本語" width="216">さいきんの　おこさんも　げんきねぇ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_242_01">
+		<comment>テフコ</comment>
+		<attribute name="キャラ指定">マダム</attribute>
+		<language name="日本語" width="216">うちの　こには　つよくて　りっぱな
+トレーナーに　なって　もらいたいわ</language>
+	</row>
+
+	<row id="mes_tower_tr_242_02">
+		<comment>テフコ</comment>
+		<language name="日本語" width="216">あなたくらいの
+つよさでは　こまるわ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_242_03">
+		<comment>テフコ</comment>
+		<language name="日本語" width="216">あなたくらいに　つよくなって
+ほしいわね……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_243_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ノール</comment>
+		<attribute name="キャラ指定">サイキッカー♂</attribute>
+		<language name="日本語" width="216">みせて　あげよー！
+エスパーふしぎパワー！</language>
+	</row>
+
+	<row id="mes_tower_tr_243_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ノール</comment>
+		<language name="日本語" width="216">みたかー！
+エスパーふしぎパワー！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_243_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ノール</comment>
+		<language name="日本語" width="216">そんなー！
+エスパーふしぎパワーが！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_244_01">
+		<comment>チョウキチ</comment>
+		<attribute name="キャラ指定">サイキッカー♂</attribute>
+		<language name="日本語" width="216">おれの　きょうだいが
+かわいがってやる！</language>
+	</row>
+
+	<row id="mes_tower_tr_244_02">
+		<comment>チョウキチ</comment>
+		<language name="日本語" width="216">おいおい　きょうだい！
+それくらいに　しておけよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_244_03">
+		<comment>チョウキチ</comment>
+		<language name="日本語" width="216">ぼくの　かわいい　きょうだいが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_245_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ノノミ</comment>
+		<attribute name="キャラ指定">サイキッカー♀</attribute>
+		<language name="日本語" width="216">ぐるぐるぐる……</language>
+	</row>
+
+	<row id="mes_tower_tr_245_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ノノミ</comment>
+		<language name="日本語" width="216">めが　まわった？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_245_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ノノミ</comment>
+		<language name="日本語" width="216">ああん……　おなかが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_246_01">
+		<comment>ヒコ</comment>
+		<attribute name="キャラ指定">サイキッカー♀</attribute>
+		<language name="日本語" width="216">おにいちゃんが　おしえてくれたよ！
+めだ！　めを　ねらえ　って！</language>
+	</row>
+
+	<row id="mes_tower_tr_246_02">
+		<comment>ヒコ</comment>
+		<language name="日本語" width="216">やったぁ！　やったよ！
+おにいちゃん！</language>
+	</row>
+
+	<row id="mes_tower_tr_246_03">
+		<comment>ヒコ</comment>
+		<language name="日本語" width="216">めいちゅうりつを　さげるんだ！
+って　おにいちゃんが　いってた！</language>
+	</row>
+
+	<row id="mes_tower_tr_247_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アントニオ</comment>
+		<attribute name="キャラ指定">ウエーター</attribute>
+		<language name="日本語" width="216">おー！　きみ　つよそうだねー
+たのしみ　たのしみ！</language>
+	</row>
+
+	<row id="mes_tower_tr_247_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アントニオ</comment>
+		<language name="日本語" width="216">おもった　とおり
+つよいねー　きみ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_247_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アントニオ</comment>
+		<language name="日本語" width="216">やっぱり　つよいねー
+がんばってよ　きみ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_248_01">
+		<comment>イケル</comment>
+		<attribute name="キャラ指定">ウエーター</attribute>
+		<language name="日本語" width="216">らっしゃい　ませぇー！！</language>
+	</row>
+
+	<row id="mes_tower_tr_248_02">
+		<comment>イケル</comment>
+		<language name="日本語" width="216">いじょうで
+よろしい　でしょうかぁー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_248_03">
+		<comment>イケル</comment>
+		<language name="日本語" width="216">ありがとう　ございましたぁー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_249_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コスズ</comment>
+		<attribute name="キャラ指定">ウエートレス</attribute>
+		<language name="日本語" width="216">おかえりなさいませ！</language>
+	</row>
+
+	<row id="mes_tower_tr_249_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コスズ</comment>
+		<language name="日本語" width="216">ありがとう　ございます！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_249_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>コスズ</comment>
+		<language name="日本語" width="216">いってらっしゃいませ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_250_01">
+		<comment>サンレー</comment>
+		<attribute name="キャラ指定">ウエートレス</attribute>
+		<language name="日本語" width="216">かわいい　おきゃくさん！
+いっぱい　サービスするよん！</language>
+	</row>
+
+	<row id="mes_tower_tr_250_02">
+		<comment>サンレー</comment>
+		<language name="日本語" width="216">ねえねえ　どうだった？
+あたしの　サービス？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_250_03">
+		<comment>サンレー</comment>
+		<language name="日本語" width="216">あーん　まだ　サービスの
+とちゅう　なのにー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_251_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ホーミー</comment>
+		<attribute name="キャラ指定">カメラマン</attribute>
+		<language name="日本語" width="216">じーっ</language>
+	</row>
+
+	<row id="mes_tower_tr_251_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ホーミー</comment>
+		<language name="日本語" width="216">おっと　チャックが……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_251_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ホーミー</comment>
+		<language name="日本語" width="216">きみ　かっこいいなぁ
+みとれちゃったよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_252_01">
+		<comment>ヒデジ</comment>
+		<attribute name="キャラ指定">カメラマン</attribute>
+		<language name="日本語" width="216">きみの　ような　トレーナーを
+ずっと　まっていたんだ</language>
+	</row>
+
+	<row id="mes_tower_tr_252_02">
+		<comment>ヒデジ</comment>
+		<language name="日本語" width="216">おもったとおり　つよいね！
+ぼくも　あぶなかった！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_252_03">
+		<comment>ヒデジ</comment>
+		<language name="日本語" width="216">おもったとおり！
+つよい　トレーナーだね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_253_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジャネット</comment>
+		<attribute name="キャラ指定">レポーター</attribute>
+		<language name="日本語" width="216">さて　どうやって
+せめよう　かしらねぇ？</language>
+	</row>
+
+	<row id="mes_tower_tr_253_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジャネット</comment>
+		<language name="日本語" width="216">ほらぁ　もっと　がんばらないと
+だめじゃないの▼</language>
+	</row>
+
+	<row id="mes_tower_tr_253_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジャネット</comment>
+		<language name="日本語" width="216">あらぁ　もう　いいの？
+いいわ　また　こんどね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_254_01">
+		<comment>ダユー</comment>
+		<attribute name="キャラ指定">レポーター</attribute>
+		<language name="日本語" width="216">わたくしの　ポケモンは
+ひとあじ　ちがいますわよ</language>
+	</row>
+
+	<row id="mes_tower_tr_254_02">
+		<comment>ダユー</comment>
+		<language name="日本語" width="216">いかがかしら？
+まったりと　コクが　あるでしょう？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_254_03">
+		<comment>ダユー</comment>
+		<language name="日本語" width="216">いかがかしら？
+すっきり　アッサリしてる　でしょう？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_255_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジャイルズ</comment>
+		<attribute name="キャラ指定">サイクリング♂</attribute>
+		<language name="日本語" width="216">オッス！
+つよそうな　トレーナーだな！</language>
+	</row>
+
+	<row id="mes_tower_tr_255_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジャイルズ</comment>
+		<language name="日本語" width="216">なんだか　ワクワク　してきたぞ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_255_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ジャイルズ</comment>
+		<language name="日本語" width="216">いちち……
+つえーなー　おまえ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_256_01">
+		<comment>ジェローム</comment>
+		<attribute name="キャラ指定">サイクリング♂</attribute>
+		<language name="日本語" width="216">ブロロローーー！！
+わしの　フルスロットルを　みろー！</language>
+	</row>
+
+	<row id="mes_tower_tr_256_02">
+		<comment>ジェローム</comment>
+		<language name="日本語" width="216">ブロロローン！！
+まだまだ　とばすぞー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_256_03">
+		<comment>ジェローム</comment>
+		<language name="日本語" width="216">ブロ……　ブロロ……
+スタミナぎれだ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_257_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エーミー</comment>
+		<attribute name="キャラ指定">サイクリング♀</attribute>
+		<language name="日本語" width="216">チャリン　チャリーン</language>
+	</row>
+
+	<row id="mes_tower_tr_257_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エーミー</comment>
+		<language name="日本語" width="216">キキーッ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_257_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>エーミー</comment>
+		<language name="日本語" width="216">ドタッ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_258_01">
+		<comment>ソフィー</comment>
+		<attribute name="キャラ指定">サイクリング♀</attribute>
+		<language name="日本語" width="216">かれしと　じてんしゃに
+のってね　デートするのが　ゆめなの</language>
+	</row>
+
+	<row id="mes_tower_tr_258_02">
+		<comment>ソフィー</comment>
+		<language name="日本語" width="216">ふたりのりは　ダメだけどね▼</language>
+	</row>
+
+	<row id="mes_tower_tr_258_03">
+		<comment>ソフィー</comment>
+		<language name="日本語" width="216">あー　かれし　ほっしー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_259_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サクゾウ</comment>
+		<attribute name="キャラ指定">ギャンブラー</attribute>
+		<language name="日本語" width="216">きみは　なにを　かけるんだい？
+ぼくは　すべてを　かけよう！</language>
+	</row>
+
+	<row id="mes_tower_tr_259_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サクゾウ</comment>
+		<language name="日本語" width="216">きみの　まけだね
+どうするんだい？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_259_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>サクゾウ</comment>
+		<language name="日本語" width="216">ガクッ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_260_01">
+		<comment>キング</comment>
+		<attribute name="キャラ指定">ギャンブラー</attribute>
+		<language name="日本語" width="216">しぶい　しょうぶ　しようか</language>
+	</row>
+
+	<row id="mes_tower_tr_260_02">
+		<comment>キング</comment>
+		<language name="日本語" width="216">けっこうな　おてまえで……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_260_03">
+		<comment>キング</comment>
+		<language name="日本語" width="216">おそまつさま　でした……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_261_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ピピン</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">ほんとに　やるき？　あたしと？</language>
+	</row>
+
+	<row id="mes_tower_tr_261_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ピピン</comment>
+		<language name="日本語" width="216">ケラケラケラ！
+やめれば　よかったのにぃ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_261_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ピピン</comment>
+		<language name="日本語" width="216">すごいすごい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_262_01">
+		<comment>スゲコ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">うたって　おどって
+キミを　くぎづけに　しちゃう！</language>
+	</row>
+
+	<row id="mes_tower_tr_262_02">
+		<comment>スゲコ</comment>
+		<language name="日本語" width="216">うっふーん▼</language>
+	</row>
+
+	<row id="mes_tower_tr_262_03">
+		<comment>スゲコ</comment>
+		<language name="日本語" width="216">コンコン……
+こんどは　べつの　くぎを　うつ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_263_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トウベエ</comment>
+		<attribute name="キャラ指定">ジョギング</attribute>
+		<language name="日本語" width="216">よーい　ドン！</language>
+	</row>
+
+	<row id="mes_tower_tr_263_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トウベエ</comment>
+		<language name="日本語" width="216">おさきにー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_263_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トウベエ</comment>
+		<language name="日本語" width="216">わーん　まってえー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_264_01">
+		<comment>モモタロウ</comment>
+		<attribute name="キャラ指定">ジョギング</attribute>
+		<language name="日本語" width="216">なぜ　ぼくは
+ここに　いるの……</language>
+	</row>
+
+	<row id="mes_tower_tr_264_02">
+		<comment>モモタロウ</comment>
+		<language name="日本語" width="216">きみは　だれ　なの……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_264_03">
+		<comment>モモタロウ</comment>
+		<language name="日本語" width="216">なんで　ぼくは　しょうぶして　いるの？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_265_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ナスオ</comment>
+		<attribute name="キャラ指定">つりびと</attribute>
+		<language name="日本語" width="216">シンオウいちの　さおテクニック！
+みせて　あげよう！</language>
+	</row>
+
+	<row id="mes_tower_tr_265_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ナスオ</comment>
+		<language name="日本語" width="216">みたか！　おどろいたか！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_265_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ナスオ</comment>
+		<language name="日本語" width="216">さおテクニックは　しょうぶに
+かんけい　ないよな……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_266_01">
+		<comment>タダオミ</comment>
+		<attribute name="キャラ指定">つりびと</attribute>
+		<language name="日本語" width="216">わしは　つりと　しょうぶが
+ほんとうに　だいすき</language>
+	</row>
+
+	<row id="mes_tower_tr_266_02">
+		<comment>タダオミ</comment>
+		<language name="日本語" width="216">おおものを　つったときや
+しょうぶに　かったときは　サイコー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_266_03">
+		<comment>タダオミ</comment>
+		<language name="日本語" width="216">わしは　つりと　しょうぶを
+するために　うまれてきたんじゃ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_267_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ニック</comment>
+		<attribute name="キャラ指定">ふなのり</attribute>
+		<language name="日本語" width="216">オオキナ　フネニ
+ノッテ　キマシタ</language>
+	</row>
+
+	<row id="mes_tower_tr_267_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ニック</comment>
+		<language name="日本語" width="216">シンオウ　トテモ　ヨイ　トコロ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_267_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ニック</comment>
+		<language name="日本語" width="216">キミモ　フネニ　ノリマセンカ
+ステキナ　トコ　ツレテ　イキマスヨ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_268_01">
+		<comment>ラジカント</comment>
+		<attribute name="キャラ指定">ふなのり</attribute>
+		<language name="日本語" width="216">ええ？　きみが　あいて？
+なんだか　ふあんだな……</language>
+	</row>
+
+	<row id="mes_tower_tr_268_02">
+		<comment>ラジカント</comment>
+		<language name="日本語" width="216">いがい……
+かてると　おもわなかったよ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_268_03">
+		<comment>ラジカント</comment>
+		<language name="日本語" width="216">ほらね……
+つよいと　おもったんだ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_269_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ドンタ</comment>
+		<attribute name="キャラ指定">やまおとこ</attribute>
+		<language name="日本語" width="216">どすこい！　どすこい！</language>
+	</row>
+
+	<row id="mes_tower_tr_269_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ドンタ</comment>
+		<language name="日本語" width="216">はぁー！！　どすこーい！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_269_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ドンタ</comment>
+		<language name="日本語" width="216">ごっちゃんでーす！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_270_01">
+		<comment>ラキム</comment>
+		<attribute name="キャラ指定">やまおとこ</attribute>
+		<language name="日本語" width="216">さわやかに　しょうぶ　しましょう！
+さあ！　わらって！</language>
+	</row>
+
+	<row id="mes_tower_tr_270_02">
+		<comment>ラキム</comment>
+		<language name="日本語" width="216">あははっ！　あははっ！
+さあ　きみも　わらうんだよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_270_03">
+		<comment>ラキム</comment>
+		<language name="日本語" width="216">まけても　さわやかに！
+あははっ！　あははっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_271_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マ</comment>
+		<attribute name="キャラ指定">いせきマニア</attribute>
+		<language name="日本語" width="216">きあい　いれろ</language>
+	</row>
+
+	<row id="mes_tower_tr_271_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マ</comment>
+		<language name="日本語" width="216">わるくない▼</language>
+	</row>
+
+	<row id="mes_tower_tr_271_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>マ</comment>
+		<language name="日本語" width="216">いいな　おまえ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_272_01">
+		<comment>イワベエ</comment>
+		<attribute name="キャラ指定">いせきマニア</attribute>
+		<language name="日本語" width="216">ポケモンしょうぶの　だいごみは
+さいごの　いちげきに　ありっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_272_02">
+		<comment>イワベエ</comment>
+		<language name="日本語" width="216">どうじゃっ！
+わしの　さいごの　いちげきはっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_272_03">
+		<comment>イワベエ</comment>
+		<language name="日本語" width="216">おふぅ……
+おまえの　いちげきは　きくのぉ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_273_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>パクサ</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">へー　いいんじゃん　きみ</language>
+	</row>
+
+	<row id="mes_tower_tr_273_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>パクサ</comment>
+		<language name="日本語" width="216">へー　がんばった　じゃん▼</language>
+	</row>
+
+	<row id="mes_tower_tr_273_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>パクサ</comment>
+		<language name="日本語" width="216">へー　つよいじゃん　きみ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_274_01">
+		<comment>ゲンゴロウ</comment>
+		<attribute name="キャラ指定">ギタリスト</attribute>
+		<language name="日本語" width="216">ぼくと　ぼくの　ポケモンたちの
+コーラスを　きいてください</language>
+	</row>
+
+	<row id="mes_tower_tr_274_02">
+		<comment>ゲンゴロウ</comment>
+		<language name="日本語" width="216">ダバダバダバダバー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_274_03">
+		<comment>ゲンゴロウ</comment>
+		<language name="日本語" width="216">あっ　ちょっと！！
+まだ　おわってないです！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_275_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タカジーン</comment>
+		<attribute name="キャラ指定">ポケモンコレクター</attribute>
+		<language name="日本語" width="216">パソコンの　なかまから　じょうほうを
+きいて　そだてたんだぞ！</language>
+	</row>
+
+	<row id="mes_tower_tr_275_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タカジーン</comment>
+		<language name="日本語" width="216">ありがとう　パソコンの　なかま！
+かおも　しらないけど！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_275_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タカジーン</comment>
+		<language name="日本語" width="216">だめじゃないかよー！
+パソコンの　なかまー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_276_01">
+		<comment>ムック</comment>
+		<attribute name="キャラ指定">ポケモンコレクター</attribute>
+		<language name="日本語" width="216">ちょっと　まってくれよぉ
+メール　かいてるんだよぉ</language>
+	</row>
+
+	<row id="mes_tower_tr_276_02">
+		<comment>ムック</comment>
+		<language name="日本語" width="216">はやく　かえって
+メールを　みないとぉ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_276_03">
+		<comment>ムック</comment>
+		<language name="日本語" width="216">なにするんだよぉ
+もう　ぼく　かえるよぉ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_277_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アマポーラ</comment>
+		<attribute name="キャラ指定">スキンヘッズ</attribute>
+		<language name="日本語" width="216">おとうさま……　おかあさま……
+わたしを　みていて　ください……</language>
+	</row>
+
+	<row id="mes_tower_tr_277_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アマポーラ</comment>
+		<language name="日本語" width="216">おとうさま……　おかあさま……
+みていて　くれましたか……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_277_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>アマポーラ</comment>
+		<language name="日本語" width="216">おとうさま……　おかあさま……
+もうしわけ　ありません……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_278_01">
+		<comment>シーゲル</comment>
+		<attribute name="キャラ指定">スキンヘッズ</attribute>
+		<language name="日本語" width="216">ぼく　ほんとうは
+しょうぶは　すきじゃないんだな</language>
+	</row>
+
+	<row id="mes_tower_tr_278_02">
+		<comment>シーゲル</comment>
+		<language name="日本語" width="216">うう　かったけど
+こわかったんだな……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_278_03">
+		<comment>シーゲル</comment>
+		<language name="日本語" width="216">う　うう……
+くやしくて　なきそう　なんだな▼</language>
+	</row>
+
+	<row id="mes_tower_tr_279_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>レポマン</comment>
+		<attribute name="キャラ指定">けんきゅういん</attribute>
+		<language name="日本語" width="216">かがくの　ちからですっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_279_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>レポマン</comment>
+		<language name="日本語" width="216">みましたか！　おどろきましたか！
+これが　かがくの　ちからです！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_279_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>レポマン</comment>
+		<language name="日本語" width="216">かんがえられません……
+かがくの　ちからが　やぶれるなんて▼</language>
+	</row>
+
+	<row id="mes_tower_tr_280_01">
+		<comment>ナンコウ</comment>
+		<attribute name="キャラ指定">けんきゅういん</attribute>
+		<language name="日本語" width="216">とつげきせよ！　ぼくの　ポケモン！
+じっけんの　せいかを　みせてやれっ！</language>
+	</row>
+
+	<row id="mes_tower_tr_280_02">
+		<comment>ナンコウ</comment>
+		<language name="日本語" width="216">やったぞ　ポケモンっ！
+これで　ぼくも　はかせだっ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_280_03">
+		<comment>ナンコウ</comment>
+		<language name="日本語" width="216">どんな　じっけんか？
+それは　な　い　し　ょ</language>
+	</row>
+
+	<row id="mes_tower_tr_281_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ネモ</comment>
+		<attribute name="キャラ指定">ジェントルマン</attribute>
+		<language name="日本語" width="216">こどもの　きもちに　かえって
+しょうぶと　いきましょうか！</language>
+	</row>
+
+	<row id="mes_tower_tr_281_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ネモ</comment>
+		<language name="日本語" width="216">ばぶー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_281_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ネモ</comment>
+		<language name="日本語" width="216">ばぶばぶー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_282_01">
+		<comment>タネシゲ</comment>
+		<attribute name="キャラ指定">ジェントルマン</attribute>
+		<language name="日本語" width="216">ファファファファ！！
+よく　かちぬいているな！</language>
+	</row>
+
+	<row id="mes_tower_tr_282_02">
+		<comment>タネシゲ</comment>
+		<language name="日本語" width="216">ファファファファ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_282_03">
+		<comment>タネシゲ</comment>
+		<language name="日本語" width="216">ファファファファ！！
+いいなかまに　めぐまれて　おるな！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_283_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トドメキ</comment>
+		<attribute name="キャラ指定">さぎょういん</attribute>
+		<language name="日本語" width="216">スクラップに　してやる</language>
+	</row>
+
+	<row id="mes_tower_tr_283_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トドメキ</comment>
+		<language name="日本語" width="216">リサイクルしてやる▼</language>
+	</row>
+
+	<row id="mes_tower_tr_283_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>トドメキ</comment>
+		<language name="日本語" width="216">しげんを　たいせつにな▼</language>
+	</row>
+
+	<row id="mes_tower_tr_284_01">
+		<comment>ムネアゲ</comment>
+		<attribute name="キャラ指定">さぎょういん</attribute>
+		<language name="日本語" width="216">お！　いいねぇ！
+やろうじゃ　ないの！</language>
+	</row>
+
+	<row id="mes_tower_tr_284_02">
+		<comment>ムネアゲ</comment>
+		<language name="日本語" width="216">いっちょあがり！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_284_03">
+		<comment>ムネアゲ</comment>
+		<language name="日本語" width="216">しごとの　あいまの　ポケモンしょうぶ
+いい　きぶんてんかん　なるねぇ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_285_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タマノシン</comment>
+		<attribute name="キャラ指定">ピエロ</attribute>
+		<language name="日本語" width="216">せいいっぱい　やらせて　いただきます
+よろしく　おねがい　いたします！</language>
+	</row>
+
+	<row id="mes_tower_tr_285_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タマノシン</comment>
+		<language name="日本語" width="216">わたくし　やりました！
+わたくし　やりとげましたよ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_285_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タマノシン</comment>
+		<language name="日本語" width="216">せいいっぱい　がんばりました！
+せいえん　ありがとう　ございました！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_286_01">
+		<comment>ペル</comment>
+		<attribute name="キャラ指定">ピエロ</attribute>
+		<language name="日本語" width="216">ポケモンしょうぶと　いうのはね
+すなに　かいた　ラブレターなのだよ</language>
+	</row>
+
+	<row id="mes_tower_tr_286_02">
+		<comment>ペル</comment>
+		<language name="日本語" width="216">キミに　わかるかなぁー？
+わかんねぇんだろうなぁー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_286_03">
+		<comment>ペル</comment>
+		<language name="日本語" width="216">キミに　わかるかなぁー？
+わかんねぇんだろうなぁー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_287_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スタンリー</comment>
+		<attribute name="キャラ指定">おまわりさん</attribute>
+		<language name="日本語" width="216">はい　きみー　そこの　きみー
+ちょっと　まって　くださーい！</language>
+	</row>
+
+	<row id="mes_tower_tr_287_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スタンリー</comment>
+		<language name="日本語" width="216">はいはい　こどもは
+さっさと　おうちに　かえりなさーい▼</language>
+	</row>
+
+	<row id="mes_tower_tr_287_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>スタンリー</comment>
+		<language name="日本語" width="216">わー　きみー　おまわりさんに
+ひどいこと　するねー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_288_01">
+		<comment>タンジュウ</comment>
+		<attribute name="キャラ指定">おまわりさん</attribute>
+		<language name="日本語" width="216">ムニャ……　ムニャ……</language>
+	</row>
+
+	<row id="mes_tower_tr_288_02">
+		<comment>タンジュウ</comment>
+		<language name="日本語" width="216">ピッピー……　ムニャ……
+まってよぉ……　ムニャ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_288_03">
+		<comment>タンジュウ</comment>
+		<language name="日本語" width="216">ムニャ……
+えへへ……　ムニャ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_289_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヘル</comment>
+		<attribute name="キャラ指定">ギャンブラー</attribute>
+		<language name="日本語" width="216">つきあって　もらおう！
+かれいなる　かけに！</language>
+	</row>
+
+	<row id="mes_tower_tr_289_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヘル</comment>
+		<language name="日本語" width="216">んー！　イエスッ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_289_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ヘル</comment>
+		<language name="日本語" width="216">きみも　かなり　ギャンブラーだな！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_290_01">
+		<comment>トメゾウ</comment>
+		<attribute name="キャラ指定">ギャンブラー</attribute>
+		<language name="日本語" width="216">しょうぶ　ってのはな　チマチマ
+けいさんする　もん　じゃねーの！</language>
+	</row>
+
+	<row id="mes_tower_tr_290_02">
+		<comment>トメゾウ</comment>
+		<language name="日本語" width="216">ほらなー？
+かつときゃ　かつの！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_290_03">
+		<comment>トメゾウ</comment>
+		<language name="日本語" width="216">なーっ？
+まけるときゃ　まけるの！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_291_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ババール</comment>
+		<attribute name="キャラ指定">とりつかい</attribute>
+		<language name="日本語" width="216">じんせい　おもいどおりに
+いかないことも　たくさん　ある！</language>
+	</row>
+
+	<row id="mes_tower_tr_291_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ババール</comment>
+		<language name="日本語" width="216">ばんざーい！
+おもいどおりに　なったぞー！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_291_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ババール</comment>
+		<language name="日本語" width="216">ほらね……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_292_01">
+		<comment>カケス</comment>
+		<attribute name="キャラ指定">とりつかい</attribute>
+		<language name="日本語" width="216">もう　にげばは　ないわ！</language>
+	</row>
+
+	<row id="mes_tower_tr_292_02">
+		<comment>カケス</comment>
+		<language name="日本語" width="216">はじめから　きまって　いたの！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_292_03">
+		<comment>カケス</comment>
+		<language name="日本語" width="216">さーよーなーらー！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_293_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カネモリ</comment>
+		<attribute name="キャラ指定">パラソルおねえさん</attribute>
+		<language name="日本語" width="216">あめのひも　はれのひも　ここで
+つよい　トレーナーを　さがす　わたし</language>
+	</row>
+
+	<row id="mes_tower_tr_293_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カネモリ</comment>
+		<language name="日本語" width="216">おかげで　こんなに
+つよく　なって　しまったの……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_293_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カネモリ</comment>
+		<language name="日本語" width="216">つよくて　いや　それより　かっこいい
+トレーナーは　いないの　かしら……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_294_01">
+		<comment>ナミダ</comment>
+		<attribute name="キャラ指定">パラソルおねえさん</attribute>
+		<language name="日本語" width="216">これね　ひがさ　なの</language>
+	</row>
+
+	<row id="mes_tower_tr_294_02">
+		<comment>ナミダ</comment>
+		<language name="日本語" width="216">しょうぶは　つよいけど
+おひさまに　よわいの……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_294_03">
+		<comment>ナミダ</comment>
+		<language name="日本語" width="216">おはだを　やきたくないの▼</language>
+	</row>
+
+	<row id="mes_tower_tr_295_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>シオミツ</comment>
+		<attribute name="キャラ指定">おとなのおねえさん</attribute>
+		<language name="日本語" width="216">まぁ……　めずらしい　ポケモン……</language>
+	</row>
+
+	<row id="mes_tower_tr_295_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>シオミツ</comment>
+		<language name="日本語" width="216">つかまえられないわぁ……
+ほんと　かわった　ポケモンねぇ▼</language>
+	</row>
+
+	<row id="mes_tower_tr_295_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>シオミツ</comment>
+		<language name="日本語" width="216">あら　あなた　トレーナー？
+ポケモンでは　ないの……？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_296_01">
+		<comment>ヨシモリ</comment>
+		<attribute name="キャラ指定">おとなのおねえさん</attribute>
+		<language name="日本語" width="216">いいかな？</language>
+	</row>
+
+	<row id="mes_tower_tr_296_02">
+		<comment>ヨシモリ</comment>
+		<language name="日本語" width="216">やるじゃん▼</language>
+	</row>
+
+	<row id="mes_tower_tr_296_03">
+		<comment>ヨシモリ</comment>
+		<language name="日本語" width="216">バイバイ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_297_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カナエ</comment>
+		<attribute name="キャラ指定">アロマなおねえさん</attribute>
+		<language name="日本語" width="216">あたいに　かとう　なんざ
+じゅうねん　はやいんだよ！！</language>
+	</row>
+
+	<row id="mes_tower_tr_297_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カナエ</comment>
+		<language name="日本語" width="216">あまいんだよ！！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_297_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>カナエ</comment>
+		<language name="日本語" width="216">つよいっスね！！
+じぶん　かんどうっス！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_298_01">
+		<comment>クルブシ</comment>
+		<attribute name="キャラ指定">アロマなおねえさん</attribute>
+		<language name="日本語" width="216">いい　かおりを　かいでると
+ねむく　なっちゃうよね……</language>
+	</row>
+
+	<row id="mes_tower_tr_298_02">
+		<comment>クルブシ</comment>
+		<language name="日本語" width="216">……ふあぁ
+あらぁ？　もう　おしまいなのぉ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_298_03">
+		<comment>クルブシ</comment>
+		<language name="日本語" width="216">……ふあぁ
+あらぁ？　まけちゃったのぉ？▼</language>
+	</row>
+
+	<row id="mes_tower_tr_299_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>パオ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">キミ　だいじょうぶ？
+あたし　ウルトラすっごいよ！</language>
+	</row>
+
+	<row id="mes_tower_tr_299_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>パオ</comment>
+		<language name="日本語" width="216">しかたないよ！
+あたし　ウルトラすっごいもん！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_299_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>パオ</comment>
+		<language name="日本語" width="216">きみは　ミラクルすっごいね！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_300_01">
+		<comment>タマエ</comment>
+		<attribute name="キャラ指定">アイドル</attribute>
+		<language name="日本語" width="216">しょうぶだけが　わたしの　いきがい
+しょうりだけが　わたしの　ねがい</language>
+	</row>
+
+	<row id="mes_tower_tr_300_02">
+		<comment>タマエ</comment>
+		<language name="日本語" width="216">……とうぜん▼</language>
+	</row>
+
+	<row id="mes_tower_tr_300_03">
+		<comment>タマエ</comment>
+		<language name="日本語" width="216">あなた　なにものよ……▼</language>
+	</row>
+
+	<row id="mes_tower_tr_301_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ごにんしゅう１用ダミー１
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="mes_tower_tr_301_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ごにんしゅう１用ダミー２
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_301_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ごにんしゅう１用ダミー３
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_302_01">
+		<comment>ごにんしゅう2用ダミー１
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="mes_tower_tr_302_02">
+		<comment>ごにんしゅう2用ダミー２
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_302_03">
+		<comment>ごにんしゅう2用ダミー３
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_303_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ごにんしゅう3用ダミー１
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="mes_tower_tr_303_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ごにんしゅう3用ダミー２
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_303_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ごにんしゅう3用ダミー３
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_304_01">
+		<comment>ごにんしゅう4用ダミー１
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="mes_tower_tr_304_02">
+		<comment>ごにんしゅう4用ダミー２
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_304_03">
+		<comment>ごにんしゅう4用ダミー３
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_305_01" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ごにんしゅう5用ダミー１
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー</language>
+	</row>
+
+	<row id="mes_tower_tr_305_02" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ごにんしゅう5用ダミー２
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_305_03" back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>ごにんしゅう5用ダミー３
+※実際には表示しません</comment>
+		<language name="日本語" width="216">ダミー▼</language>
+	</row>
+
+	<row id="mes_tower_tr_306_01" text-color="#000000,,,#ff0000,,#ff0000,#ff0000,,,,,,">
+		<comment>タイクーン／挨拶セリフダミー 　（1週目）
+
+※実際には表示しません</comment>
+		<language name="日本語" width="216">さあ　タワータイクーンの　わたしに
+その　じつりょく　みせてくれたまえ！</language>
+	</row>
+
+	<row id="mes_tower_tr_306_02" text-color="#000000,,,,,#ff0000,#ff0000,,,,,,">
+		<comment>タイクーン／勝ち台詞　（1週目）</comment>
+		<language name="日本語" width="216">すばらしい　しょうぶ　だった！
+また　きてくれたまえ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_306_03" text-color="#000000,,,,,#ff0000,#ff0000,,,,,,">
+		<comment>タイクーン／負け台詞　（1週目）</comment>
+		<language name="日本語" width="216">きみのような　すごい　トレーナーに
+まけたのであれば　なっとく　だ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_307_01" text-color="#000000,,,#ff0000,,#000000,#000000,#000000,,,#000000,#000000," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タイクーン／挨拶セリフダミー　（２週目）
+
+※実際には表示しません</comment>
+		<language name="日本語" width="216">さあ　タワータイクーンの　わたしに
+その　じつりょく　みせてくれたまえ！</language>
+	</row>
+
+	<row id="mes_tower_tr_307_02" text-color="#000000,,,#000000,,#000000,#000000,#000000,,,#000000,#000000," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タイクーン／勝ち台詞　（２週目）</comment>
+		<language name="日本語" width="216">すばらしい　しょうぶ　だった！
+また　きてくれたまえ！▼</language>
+	</row>
+
+	<row id="mes_tower_tr_307_03" text-color="#000000,,,#000000,,#000000,#000000,#000000,,,#000000,#000000," back-color="#ff8080,,,#ff8080,,#ff8080,#ff8080,#ff8080,,,#ff8080,#ff8080,">
+		<comment>タイクーン／負け台詞　（２週目）</comment>
+		<language name="日本語" width="216">きみのような　すごい　トレーナーに
+まけたのであれば　なっとく　だ！▼</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

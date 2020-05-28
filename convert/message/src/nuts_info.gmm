@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="sogabe" host="W00086" date="2005-09-02T15:24:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="NUTSINFO_000">
+		<language name="日本語">まっかな　みは　たいへん　からくて
+ちょっと　しげきてきな　あじがする。
+とても　かわいい　はなが　さく。</language>
+	</row>
+
+	<row id="NUTSINFO_001">
+		<language name="日本語">カゴのみは　そとがわも　なかみも
+かたくて　しぶい　けれど
+ちゃんと　ぜんぶ　たべられる。</language>
+	</row>
+
+	<row id="NUTSINFO_002">
+		<language name="日本語">なかに　くうどうが　あるので
+たべられる　ぶぶんは　すくないが
+とても　あまくて　おいしい。</language>
+	</row>
+
+	<row id="NUTSINFO_003">
+		<language name="日本語">ほかのものより　はっぱが　ながく
+まるまっている　やつは
+ちょっと　にがみが　つよい。</language>
+	</row>
+
+	<row id="NUTSINFO_004">
+		<language name="日本語">まわりの　かわは　かたい　けれど
+なかみは　とっても　ジューシィ。
+キリリとした　さんみが　とくちょう。</language>
+	</row>
+
+	<row id="NUTSINFO_005">
+		<language name="日本語">クラボなどに　くらべると　すこし
+せいちょう　するのが　おそい。
+みが　ちいさいものほど　おいしい。</language>
+	</row>
+
+	<row id="NUTSINFO_006">
+		<language name="日本語">しぜんの　めぐみが　ひとつになって
+くちのなかで　いろいろな　あじが
+ひろがる　ふしぎな　おいしさ。</language>
+	</row>
+
+	<row id="NUTSINFO_007">
+		<language name="日本語">ふりそそぐ　たいようの　エネルギーを
+きゅうしゅう　すれば　するほど
+いろあざやかに　せいちょうする。</language>
+	</row>
+
+	<row id="NUTSINFO_008">
+		<language name="日本語">ポケモンの　からだにいい　せいぶんを
+ないぶに　じっくり　たくわえるので
+そだつまでに　じかんが　かかる。</language>
+	</row>
+
+	<row id="NUTSINFO_009">
+		<language name="日本語">もともとは　オレンのみと　おなじ
+しゅるいから　わかれて　できた。
+オレンより　おおきく　まろやか。</language>
+	</row>
+
+	<row id="NUTSINFO_010">
+		<language name="日本語">まるい　きのみを　かじった　ような
+かたちを　しているが　そのなかには
+からい　せいぶんが　つまっている。</language>
+	</row>
+
+	<row id="NUTSINFO_011">
+		<language name="日本語">はんしょくの　はんいを　ひろげるため
+ポケモンが　もちやすいように
+まわりの　イボイボが　できたという。</language>
+	</row>
+
+	<row id="NUTSINFO_012">
+		<language name="日本語">だんだんと　せいちょう　するにつれて
+きのみの　かたちが　まがっていく。
+まがりかたが　おおきいほど　あまい。</language>
+	</row>
+
+	<row id="NUTSINFO_013">
+		<language name="日本語">はなが　ちいさく　あまり　たいようの
+ひかりを　きゅうしゅう　しない。
+ヘタに　ちかいところが　にがい。</language>
+	</row>
+
+	<row id="NUTSINFO_014">
+		<language name="日本語">とても　おおきな　すっぱい　きのみ。
+かにくの　みずみずしさが
+すっぱさを　より　つよくしている。</language>
+	</row>
+
+	<row id="NUTSINFO_015">
+		<language name="日本語">きのみの　まわりの　あかいつぶは
+ちょっぴり　からくて
+まんなかの　ぶぶんは　しぶい。</language>
+	</row>
+
+	<row id="NUTSINFO_016">
+		<language name="日本語">やわらかい　かわに　つつまれた
+ちいさな　あおいつぶは　たべると
+くちのなかを　くろく　そめてしまう。</language>
+	</row>
+
+	<row id="NUTSINFO_017">
+		<language name="日本語">この　あまにがい　きのみは　せかいで
+７ばんめに　はっけん　されたので
+ナナと　よばれるように　なった。</language>
+	</row>
+
+	<row id="NUTSINFO_018">
+		<language name="日本語">いちょうの　しょうかに　よさそうな
+にがみと　さんみの　きいたあじ。
+しろく　うつくしい　はながさく。</language>
+	</row>
+
+	<row id="NUTSINFO_019">
+		<language name="日本語">そとがわの　すっぱい　かわをむき
+なかの　からい　みを　すりつぶすと
+くすりにも　なると　いわれている。</language>
+	</row>
+
+	<row id="NUTSINFO_020">
+		<language name="日本語">ぶあつい　かわを　むくと　なかから
+たくさんの　かにくが　こぼれでる。
+ちょっと　あまからい　おとなのあじ。</language>
+	</row>
+
+	<row id="NUTSINFO_021">
+		<language name="日本語">そのままでも　たべられる　けれど
+につめると　でてくる　エキスは
+りょうりの　かくしあじにも　なる。</language>
+	</row>
+
+	<row id="NUTSINFO_022">
+		<language name="日本語">ずっと　あめが　ふりつづける　ような
+しっけの　おおい　とちでも
+すくすくと　しっかり　そだつ。</language>
+	</row>
+
+	<row id="NUTSINFO_023">
+		<language name="日本語">ちょっと　めずらしい　きのみで
+こうきゅうかんが　あるために
+おくりものに　すると　よろこばれる。</language>
+	</row>
+
+	<row id="NUTSINFO_024">
+		<language name="日本語">とても　やわらかく　ガブリと
+かじると　あまさと　すっぱさが
+くち　いっぱいに　ひろがる。</language>
+	</row>
+
+	<row id="NUTSINFO_025">
+		<language name="日本語">おおきくて　からい　きのみで
+さむい　きせつなどに　たべると
+からだが　ポカポカと　あたたまる。</language>
+	</row>
+
+	<row id="NUTSINFO_026">
+		<language name="日本語">しぶみが　かなり　つよいので
+１つや　２つ　たべた　ぐらいでは
+ほんとうの　おいしさは　わからない。</language>
+	</row>
+
+	<row id="NUTSINFO_027">
+		<language name="日本語">うっとりする　あまさの　おくで
+かすかに　かんじる　おとなの　にがさ
+ポケモンも　だいまんぞくの　あじ。</language>
+	</row>
+
+	<row id="NUTSINFO_028">
+		<language name="日本語">にがいけど　かわごと　たべさせよう。
+ひょうめんに　はえている　けが
+いのなかを　きれいに　してくれる。</language>
+	</row>
+
+	<row id="NUTSINFO_029">
+		<language name="日本語">ぜんたいてきに　かなり　すっぱいが
+とくに　とんがった　さきの　ぶぶんに
+すっぱさが　しゅうちゅう　している。</language>
+	</row>
+
+	<row id="NUTSINFO_030">
+		<language name="日本語">ほのおタイプ　いがいの　ポケモンでも
+たべれば　ゴーッと　ほのおを
+はきたく　なるほど　からい。</language>
+	</row>
+
+	<row id="NUTSINFO_031">
+		<language name="日本語">とおい　うみから　ただよってきたが
+いまでは　シンオウ　ちほうでも
+さいばいが　できるように　なった。</language>
+	</row>
+
+	<row id="NUTSINFO_032">
+		<language name="日本語">そこぬけに　あまい　しぜんのめぐみ。
+とても　おおきく　５０センチを
+こえるものも　みつかっている。</language>
+	</row>
+
+	<row id="NUTSINFO_033">
+		<language name="日本語">とんでもなく　にがい　きのみで
+これを　ひとかじり　すれば
+しゃっくりも　いっしゅんで　とまる。</language>
+	</row>
+
+	<row id="NUTSINFO_034">
+		<language name="日本語">みるからに　おいしそうな
+いろと　つやを　しているが
+たべてみると　ものすごく　すっぱい。</language>
+	</row>
+
+	<row id="NUTSINFO_035">
+		<language name="日本語">むかしは　ねったいちほうで
+おおく　とれたという　きのみ。
+しゃくねつの　からさが　じまん。</language>
+	</row>
+
+	<row id="NUTSINFO_036">
+		<language name="日本語">みの　なかには　きほうと　よばれる
+くうきの　あなが　いくつも　あるので
+プカプカと　みずに　うかぶ。</language>
+	</row>
+
+	<row id="NUTSINFO_037">
+		<language name="日本語">じめんに　おちた　かみなりの
+エネルギーが　この　きのみを
+おおきく　ゆたかに　そだてる。</language>
+	</row>
+
+	<row id="NUTSINFO_038">
+		<language name="日本語">しょくぶつ　とくゆうの　あおくさい
+あじが　きらわれることも　あるが
+せんいしつが　おおく　からだにいい。</language>
+	</row>
+
+	<row id="NUTSINFO_039">
+		<language name="日本語">しぶさと　すっぱさが　ほどよく
+ちょうわした　さわやかな　あじ。
+ひやすと　いっそう　おいしくなる。</language>
+	</row>
+
+	<row id="NUTSINFO_040">
+		<language name="日本語">かにくの　なかの　せいぶんに
+ねつを　はっせいする　こうかがあり
+ひえた　こころも　ホットに　なれる。</language>
+	</row>
+
+	<row id="NUTSINFO_041">
+		<language name="日本語">そとがわは　あざやかな　みどりいろ。
+でも　なかを　わってみると
+しぶくて　くろい　みが　ぎっしり。</language>
+	</row>
+
+	<row id="NUTSINFO_042">
+		<language name="日本語">あまみ　たっぷりの　かにくのなかに
+かたくて　こうばしい　ふうみが
+かすかに　かんじられる。</language>
+	</row>
+
+	<row id="NUTSINFO_043">
+		<language name="日本語">とおくにあった　べつべつの　きのみが
+かぜで　はこばれ　みをむすび
+しんしゅの　きのみに　なったという。</language>
+	</row>
+
+	<row id="NUTSINFO_044">
+		<language name="日本語">にんげんが　ちかづくと　せんたんが
+まるく　ふくらむ　ところから
+ひとのこころを　よむと　いわれる。</language>
+	</row>
+
+	<row id="NUTSINFO_045">
+		<language name="日本語">せんたんから　のびた　いとのような
+かべんを　かぜで　ゆらして
+むしポケモンを　よびよせる。</language>
+	</row>
+
+	<row id="NUTSINFO_046">
+		<language name="日本語">しぶみが　つよいので　ピクルスの
+ざいりょうに　されることが　おおい。
+そのまま　かじっても　しげきてき。</language>
+	</row>
+
+	<row id="NUTSINFO_047">
+		<language name="日本語">むかしから　ふしぎな　ちからが
+あると　いわれており　かんそうさせて
+おまもりに　することも　ある。</language>
+	</row>
+
+	<row id="NUTSINFO_048">
+		<language name="日本語">たくさん　あつめて　につめると
+にがみが　きえていくので
+ジャムの　ざいりょうにも　よい。</language>
+	</row>
+
+	<row id="NUTSINFO_049">
+		<language name="日本語">ひょうめんに　はえた　トゲトゲで
+ポケモンの　はだに　くっつき
+とおくの　とちまで　はこばれる。</language>
+	</row>
+
+	<row id="NUTSINFO_050">
+		<language name="日本語">とてもかたく　しげきのつよい　あじ。
+そのため　むかしのひとは　くすりの
+ざいりょうとして　つかっていた。</language>
+	</row>
+
+	<row id="NUTSINFO_051">
+		<language name="日本語">なかみを　くりぬいて　かんそうさせ
+あなに　くちをつけて　ふくと
+なんともいえない　おとがする。</language>
+	</row>
+
+	<row id="NUTSINFO_052">
+		<language name="日本語">なぞのきのみ　チイラのみには
+うみの　ちからが　やどるという
+うわさが　ある。</language>
+	</row>
+
+	<row id="NUTSINFO_053">
+		<language name="日本語">なぞのきのみ　リュガのみには
+りくの　ちからが　やどるという
+うわさが　ある。</language>
+	</row>
+
+	<row id="NUTSINFO_054">
+		<language name="日本語">なぞのきのみ　カムラのみには
+そらの　ちからが　やどるという　
+うわさが　ある。</language>
+	</row>
+
+	<row id="NUTSINFO_055">
+		<language name="日本語">なぞのきのみ　ヤタピのみには
+すべての　いきものの　ちからが
+やどると　いわれている。</language>
+	</row>
+
+	<row id="NUTSINFO_056">
+		<language name="日本語">ふしぎな　ふしぎな　きのみ。
+なにが　おこるのか
+なにが　できるのか　わからない。</language>
+	</row>
+
+	<row id="NUTSINFO_057">
+		<language name="日本語">でんせつのみ　と　いわれている。
+この　みを　もつと
+とても　しあわせに　なるらしい。</language>
+	</row>
+
+	<row id="NUTSINFO_058">
+		<language name="日本語">あまりにも　ちからが　つよすぎるため
+せかいの　はてに　すてられた
+まぼろしの　きのみ。</language>
+	</row>
+
+	<row id="NUTSINFO_059">
+		<language name="日本語">しょうたい　ふめいの　きのみ。
+よぞらに　うかぶ　ほしの　ちからを
+もっている　らしい。</language>
+	</row>
+
+	<row id="NUTSINFO_060">
+		<language name="日本語">いっしょに　たべたものを　あまく
+かんじさせる　こうかが　ある。
+この　きのみじたいは　とてもしぶい。</language>
+	</row>
+
+	<row id="NUTSINFO_061">
+		<language name="日本語">ひょうめんは　かたい　かわに
+つつまれて　いるが　なかみは　あまく
+やわらかい　クリームのよう。</language>
+	</row>
+
+	<row id="NUTSINFO_062">
+		<language name="日本語">ちいさなつぶが　あつまった　きのみ。
+らんぼうに　あつかうと　みがはじけて
+リズミカルな　おとを　たてる。</language>
+	</row>
+
+	<row id="NUTSINFO_063">
+		<language name="日本語">みを　ほぐすと　ひとつひとつが
+コマのような　かたちを　しており
+むかしは　これで　あそんだ。</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

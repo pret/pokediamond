@@ -1,0 +1,101 @@
+//============================================================================================
+/**
+* MapEditNH2 [*.evt] -> Pokemon D/P SXY Data [*.evc]
+*/
+//============================================================================================
+#include "zone_t02r0101evc.h"
+
+const u32 FObj_zone_t02r0101_num = 5;
+
+const _TAG_FIELD_OBJ_H FObj_zone_t02r0101[5] =
+{
+	{
+		T02R0101_DOCTOR,
+		DOCTOR,
+		15,
+		0,
+		FV_T02R0101_DOCTOR,
+		SCRID_T02R0101_DOCTOR,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		7,
+		5,
+		0*0x1000,
+	},
+
+	{
+		T02R0101_MIDDLEMAN1,
+		ASSISTANTM,
+		3,
+		0,
+		0,
+		SCRID_T02R0101_ASSISTM1,
+		1,
+		0,
+		0,
+		0,
+		2,
+		0,
+		3,
+		12,
+		0*0x1000,
+	},
+
+	{
+		T02R0101_WOMAN1,
+		ASSISTANTW,
+		10,
+		0,
+		0,
+		SCRID_T02R0101_ASSISTW1,
+		1,
+		0,
+		0,
+		0,
+		2,
+		0,
+		10,
+		12,
+		0*0x1000,
+	},
+
+	{
+		T02R0101_SUPPORT,
+		WKOBJCODE00,
+		15,
+		0,
+		FV_T02R0101_SUPPORT,
+		SCRID_SUPPORT_GAME_CLEAR,
+		1,
+		0,
+		0,
+		0,
+		0,
+		0,
+		7,
+		14,
+		0*0x1000,
+	},
+
+	{
+		T02R0101_OOKIDO,
+		OOKIDO,
+		14,
+		0,
+		FV_T02R0101_OOKIDO,
+		SCRID_NULL,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		7,
+		14,
+		0*0x1000,
+	},
+};

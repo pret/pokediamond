@@ -1,0 +1,59 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: mystery.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-17T16:55:38
+ *****************************************************************************/
+
+#ifndef NARC_MYSTERY_NAIX_
+#define NARC_MYSTERY_NAIX_
+
+enum {
+	NARC_mystery_fusigi_bg_00_nclr = 0,
+	NARC_mystery_fusigi_bg_00_lz_ccgr = 1,
+	NARC_mystery_fusigi_bg_00_lz_cscr = 2,
+	NARC_mystery_fusigi_card_nclr = 3,
+	NARC_mystery_fusigi_card01_lz_cscr = 4,
+	NARC_mystery_fusigi_card02_lz_cscr = 5,
+	NARC_mystery_fusigi_card_lz_cngr = 6,
+	NARC_mystery_fusigi_cur_nclr = 7,
+	NARC_mystery_fusigi_cur_00_lz_canr = 8,
+	NARC_mystery_fusigi_cur_00_lz_ccer = 9,
+	NARC_mystery_fusigi_cur_00_lz_ccgr = 10,
+	NARC_mystery_fusigi_font_00_nclr = 11,
+	NARC_mystery_fusigi_panel_nclr = 12,
+	NARC_mystery_fusigi_panel_00_lz_canr = 13,
+	NARC_mystery_fusigi_panel_00_lz_ccer = 14,
+	NARC_mystery_fusigi_panel_00_lz_ccgr = 15,
+	NARC_mystery_fusigi_recep_nclr = 16,
+	NARC_mystery_fusigi_recep_00_lz_ccgr = 17,
+	NARC_mystery_fusigi_recep_00_lz_cscr = 18,
+	NARC_mystery_gba_box_bg_nclr = 19,
+	NARC_mystery_gba_box_main1_lz_cscr = 20,
+	NARC_mystery_gba_box_main2_lz_cscr = 21,
+	NARC_mystery_gba_box_main_lz_cngr = 22,
+	NARC_mystery_gba_box_oam_nclr = 23,
+	NARC_mystery_gba_box_oam_lz_canr = 24,
+	NARC_mystery_gba_box_oam_lz_ccer = 25,
+	NARC_mystery_gba_box_oam_lz_cngr = 26,
+	NARC_mystery_gba_box_sub_lz_cngr = 27,
+	NARC_mystery_gba_box_sub_lz_cscr = 28,
+	NARC_mystery_fushigi_back_nclr = 29,
+	NARC_mystery_fushigi_back_lz_cngr = 30,
+	NARC_mystery_fushigi_back_lz_cscr = 31,
+	NARC_mystery_fushigi_box_nclr = 32,
+	NARC_mystery_fushigi_box_lz_canr = 33,
+	NARC_mystery_fushigi_box_lz_ccer = 34,
+	NARC_mystery_fushigi_box_lz_cngr = 35,
+	NARC_mystery_title_cursol_nclr = 36,
+	NARC_mystery_title_cursor_lz_canr = 37,
+	NARC_mystery_title_cursor_lz_ccer = 38,
+	NARC_mystery_title_cursor_lz_cngr = 39,
+	NARC_mystery_wicon_ncgr = 40,
+	NARC_mystery_wicon_nclr = 41
+};
+
+/* NARC_MYSTERY_NAIX_ */
+#endif

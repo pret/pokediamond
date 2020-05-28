@@ -1,0 +1,81 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: nuts_data.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-07-08T10:51:02
+ *****************************************************************************/
+
+#ifndef NARC_NUTS_DATA_NAIX_
+#define NARC_NUTS_DATA_NAIX_
+
+enum {
+	NARC_nuts_data_nuts001_dat = 0,
+	NARC_nuts_data_nuts002_dat = 1,
+	NARC_nuts_data_nuts003_dat = 2,
+	NARC_nuts_data_nuts004_dat = 3,
+	NARC_nuts_data_nuts005_dat = 4,
+	NARC_nuts_data_nuts006_dat = 5,
+	NARC_nuts_data_nuts007_dat = 6,
+	NARC_nuts_data_nuts008_dat = 7,
+	NARC_nuts_data_nuts009_dat = 8,
+	NARC_nuts_data_nuts010_dat = 9,
+	NARC_nuts_data_nuts011_dat = 10,
+	NARC_nuts_data_nuts012_dat = 11,
+	NARC_nuts_data_nuts013_dat = 12,
+	NARC_nuts_data_nuts014_dat = 13,
+	NARC_nuts_data_nuts015_dat = 14,
+	NARC_nuts_data_nuts016_dat = 15,
+	NARC_nuts_data_nuts017_dat = 16,
+	NARC_nuts_data_nuts018_dat = 17,
+	NARC_nuts_data_nuts019_dat = 18,
+	NARC_nuts_data_nuts020_dat = 19,
+	NARC_nuts_data_nuts021_dat = 20,
+	NARC_nuts_data_nuts022_dat = 21,
+	NARC_nuts_data_nuts023_dat = 22,
+	NARC_nuts_data_nuts024_dat = 23,
+	NARC_nuts_data_nuts025_dat = 24,
+	NARC_nuts_data_nuts026_dat = 25,
+	NARC_nuts_data_nuts027_dat = 26,
+	NARC_nuts_data_nuts028_dat = 27,
+	NARC_nuts_data_nuts029_dat = 28,
+	NARC_nuts_data_nuts030_dat = 29,
+	NARC_nuts_data_nuts031_dat = 30,
+	NARC_nuts_data_nuts032_dat = 31,
+	NARC_nuts_data_nuts033_dat = 32,
+	NARC_nuts_data_nuts034_dat = 33,
+	NARC_nuts_data_nuts035_dat = 34,
+	NARC_nuts_data_nuts036_dat = 35,
+	NARC_nuts_data_nuts037_dat = 36,
+	NARC_nuts_data_nuts038_dat = 37,
+	NARC_nuts_data_nuts039_dat = 38,
+	NARC_nuts_data_nuts040_dat = 39,
+	NARC_nuts_data_nuts041_dat = 40,
+	NARC_nuts_data_nuts042_dat = 41,
+	NARC_nuts_data_nuts043_dat = 42,
+	NARC_nuts_data_nuts044_dat = 43,
+	NARC_nuts_data_nuts045_dat = 44,
+	NARC_nuts_data_nuts046_dat = 45,
+	NARC_nuts_data_nuts047_dat = 46,
+	NARC_nuts_data_nuts048_dat = 47,
+	NARC_nuts_data_nuts049_dat = 48,
+	NARC_nuts_data_nuts050_dat = 49,
+	NARC_nuts_data_nuts051_dat = 50,
+	NARC_nuts_data_nuts052_dat = 51,
+	NARC_nuts_data_nuts053_dat = 52,
+	NARC_nuts_data_nuts054_dat = 53,
+	NARC_nuts_data_nuts055_dat = 54,
+	NARC_nuts_data_nuts056_dat = 55,
+	NARC_nuts_data_nuts057_dat = 56,
+	NARC_nuts_data_nuts058_dat = 57,
+	NARC_nuts_data_nuts059_dat = 58,
+	NARC_nuts_data_nuts060_dat = 59,
+	NARC_nuts_data_nuts061_dat = 60,
+	NARC_nuts_data_nuts062_dat = 61,
+	NARC_nuts_data_nuts063_dat = 62,
+	NARC_nuts_data_nuts064_dat = 63
+};
+
+/* NARC_NUTS_DATA_NAIX_ */
+#endif

@@ -1,0 +1,292 @@
+//====================================================================
+//							みずうみ０１
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_l01.h"
+	.include	"../eventdata/zone_l01evc.h"
+	.include	"../eventdata/zone_l01evd.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_l01_init_change
+_EVENT_DATA		ev_l01_flag_change
+_EVENT_DATA		pos_l01_rival
+_EVENT_DATA		pos_l01_rival_stop
+_EVENT_DATA		ev_l01_rival_return
+_EVENT_DATA		ev_l01_sign1
+_EVENT_DATA_END						//終了
+
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_l01_init_change:
+	_IF_FLAGOFF_JUMP	FE_L02_GINGA_WIN,ev_l01_door_exit_move_1
+	_IF_FLAGON_JUMP		FE_L02_GINGA_WIN,ev_l01_door_exit_move_2
+	_END
+
+/*L02のギンガ団に勝利していない時はd27r0102は入れない！*/
+ev_l01_door_exit_move_1:
+	_SXY_EXIT_POS_CHANGE	L01_SP_MAT01,80,840
+	_SXY_EXIT_POS_CHANGE	L01_SP_MAT02,81,840
+	_END
+
+/*L02のギンガ団に勝利していたらd27r0101は入れない！*/
+ev_l01_door_exit_move_2:
+	_SXY_EXIT_POS_CHANGE	L01_MAT01,80,840
+	_SXY_EXIT_POS_CHANGE	L01_MAT02,81,840
+	_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_l01_flag_change:
+	_IF_FLAGOFF_JUMP	FE_L02_GINGA_WIN,ev_l01_door_exit_move_1
+	_IF_FLAGON_JUMP		FE_L02_GINGA_WIN,ev_l01_door_exit_move_2
+	_END
+
+
+/********************************************************************/
+/*						ライバルと湖へPOS							*/
+/********************************************************************/
+#define POS_L01_RIVAL_X1		(80)
+#define POS_L01_RIVAL_X2		(81)
+#define POS_L01_RIVAL_X3		(82)
+#define POS_L01_RIVAL_X4		(83)
+#define POS_L01_RIVAL_X5		(84)
+#define POS_L01_RIVAL_X6		(85)
+
+pos_l01_rival:
+	_EVENT_START
+
+	/*ライバル上を向く*/
+	_OBJ_ANIME		SCR_OBJID_MV_PAIR,anm_l01_rival_00
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_l01_rival_a_01
+	_TALK_CLOSE
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_X1,pos_l01_rival_x01
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_X2,pos_l01_rival_x02
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_X3,pos_l01_rival_x03
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_X4,pos_l01_rival_x04
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_X5,pos_l01_rival_x05
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_X6,pos_l01_rival_x06
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	湖へ移動
+//--------------------------------------------------------------------
+pos_l01_rival_x01:
+pos_l01_rival_x02:
+pos_l01_rival_x03:
+pos_l01_rival_x04:
+pos_l01_rival_x05:
+pos_l01_rival_x06:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l01_player_01
+	_OBJ_ANIME		SCR_OBJID_MV_PAIR,anm_l01_rival_01
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_l01_rival_common
+
+//共通処理
+pos_l01_rival_common:
+	_LDVAL			WK_SCENE_L01,1
+
+	_EVENT_END
+
+	//湖へ
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_MAP_CHANGE		ZONE_ID_D27R0101,0,46,54,DIR_UP
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_rival_00
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	湖へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_rival_01
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	湖へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_player_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						ライバルの湖ストッパー						*/
+/********************************************************************/
+#define POS_L01_RIVAL_STOP_X1		(80)
+#define POS_L01_RIVAL_STOP_X2		(81)
+#define POS_L01_RIVAL_STOP_X3		(82)
+#define POS_L01_RIVAL_STOP_X4		(83)
+#define POS_L01_RIVAL_STOP_X5		(84)
+#define POS_L01_RIVAL_STOP_X6		(85)
+
+pos_l01_rival_stop:
+	_EVENT_START
+
+	_SYS_FLAG_PAIR_RESET
+	_MOVE_CODE_CHANGE	FLDOBJ_ID_PAIR,MV_DOWN
+
+	/*ライバル上を向く*/
+	_OBJ_ANIME		FLDOBJ_ID_PAIR,anm_l01_rival_stop_x00
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_l01_rival_b_02
+	_TALK_CLOSE
+
+	//主人公の位置情報取得
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_STOP_X1,pos_l01_rival_x11
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_STOP_X2,pos_l01_rival_x12
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_STOP_X3,pos_l01_rival_x13
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_STOP_X4,pos_l01_rival_x14
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_STOP_X5,pos_l01_rival_x15
+	_IFVAL_JUMP	SCWK_TEMP0,EQ,POS_L01_RIVAL_STOP_X6,pos_l01_rival_x16
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	湖へ移動
+//--------------------------------------------------------------------
+pos_l01_rival_x11:
+pos_l01_rival_x12:
+pos_l01_rival_x13:
+pos_l01_rival_x14:
+pos_l01_rival_x15:
+pos_l01_rival_x16:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l01_player_stop_11
+	_OBJ_ANIME		FLDOBJ_ID_PAIR,anm_l01_rival_stop_x11
+	_OBJ_ANIME_WAIT
+	_JUMP			pos_l01_rival_stop_common
+
+//共通処理
+pos_l01_rival_stop_common:
+	_SYS_FLAG_PAIR_SET
+	_MOVE_CODE_CHANGE	FLDOBJ_ID_PAIR,MV_PAIR
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	上を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_rival_stop_x00
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	湖へ行かせない
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_rival_stop_x11
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	湖へ行けない
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_player_stop_11
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						ライバルの湖から帰ってくる					*/
+/********************************************************************/
+ev_l01_rival_return:
+	_EVENT_START
+
+	//_TIME_WAIT	8,SCWK_ANSWER	/**/
+
+	//主人公が先頭になる
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l01_player_return_01
+	_OBJ_ANIME		L01_RIVAL,anm_l01_rival_return_x01
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_l01_rival_b_01
+	_TALK_CLOSE
+
+	/*ライバル後ろへ*/
+	//_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_l01_player_return_02
+	_OBJ_ANIME		L01_RIVAL,anm_l01_rival_return_x02
+	_OBJ_ANIME_WAIT
+
+	//連れ歩き開始
+	_SYS_FLAG_PAIR_SET
+	_MOVE_CODE_CHANGE	L01_RIVAL,MV_PAIR
+	_NOT_ZONE_DEL_SET	L01_RIVAL,TRUE
+	_PAIR_OBJID_SET
+
+	_LDVAL			WK_SCENE_L01,3
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//ライバル	先頭をゆずる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_rival_return_x01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル	後ろへ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_rival_return_x02
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	先頭になる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_player_return_01
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ライバル後ろへ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_l01_player_return_02
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							標識									*/
+/********************************************************************/
+ev_l01_sign1:
+	_EASY_BOARD_MSG	msg_l01_sign1_01,BOARD_TYPE_ROAD,0
+	_END
+
+
+/********************************************************************/
+/********************************************************************/

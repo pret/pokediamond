@@ -1,0 +1,504 @@
+//====================================================================
+//						sodateya.gmm
+//						ポケモンそだてやさん
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_sodateya.h"
+	.include	"../eventdata/zone_t04r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_sodateya_m
+_EVENT_DATA		ev_sodateya_w
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*							そだてやじいさん						*/
+/********************************************************************/
+ev_sodateya_m:
+	_TALK_OBJ_START
+
+	_GET_SODATE_NAME
+	_GET_SODATEYA_ZIISAN	SCWK_ANSWER		//じいさんチェック0:なし1:たまご2:一匹3:2匹
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_sodateya_m_0100	//タマゴ
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_sodateya_m_0200	//１匹預かっている
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,3,ev_sodateya_m_0300	//２匹預かっている
+
+	_TALKMSG	msg_sodateya_oldman_01			//じいさん自己紹介
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  じいさんタマゴ発見												*/
+/*==================================================================*/
+ev_sodateya_m_0100:
+	_TALKMSG		msg_sodateya_oldman_02			//タマゴがあったぞい  ほしいじゃろ
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_m_0101	//はい
+													
+													//いいえ
+
+	_TALKMSG		msg_sodateya_oldman_11			//ほんとうはほしいんじゃろ？
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_m_0101	//はい
+	
+													//いいえ
+	_TALKMSG	msg_sodateya_oldman_04			//それじゃわしがもらおうありがとよ
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_FLAG_RESET		FE_SODATE_TAMAGO				//おじいさん移動フラグをオフ
+	_DEL_SODATEYA_EGG								//タマゴ削除
+
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  タマゴもらう前に手持ちチェック									*/
+/*==================================================================*/
+ev_sodateya_m_0101:
+	_GET_POKE_COUNT	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,NE,6,ev_sodateya_m_0102
+	_TALKMSG	msg_sodateya_oldman_05			//てもちがいっぱいのようじゃな
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  じいさんからタマゴをもらった！									*/
+/*==================================================================*/
+ev_sodateya_m_0102:
+	_PLAYER_NAME	0
+	_TALKMSG		msg_sodateya_oldman_06			//○○○はタマゴをもらった
+	_ME_PLAY			SEQ_FANFA4
+	_ME_WAIT
+	_AB_KEYWAIT
+	_TALKMSG	msg_sodateya_oldman_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_GET_SODATEYA_EGG								//タマゴが手持ちにはいる
+	_FLAG_RESET		FE_SODATE_TAMAGO				//おじいさん移動フラグをオフ
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  ○○○はげんきじゃぞ											*/
+/*==================================================================*/
+ev_sodateya_m_0200:	//１匹預かっている
+	_GET_SODATE_NAME
+	_TALKMSG	msg_sodateya_oldman_03			//おおあんたか！○○○はげんきじゃぞ
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  ○○○と○○○はげんきじゃぞ									*/
+/*==================================================================*/
+ev_sodateya_m_0300:					//２匹預かっている
+	_GET_SODATE_NAME
+	_TALK_KEYWAIT	msg_sodateya_oldman_10			//○○○と○○○はげんきじゃぞ
+	_GET_SODATEYA_AISHOU	SCWK_ANSWER				//相性の度合いを取得する
+
+	_IFVAL_CALL	SCWK_ANSWER,EQ,0,ev_sodateya_aishou_level1
+	_IFVAL_CALL	SCWK_ANSWER,EQ,1,ev_sodateya_aishou_level2
+	_IFVAL_CALL	SCWK_ANSWER,EQ,2,ev_sodateya_aishou_level3
+	_IFVAL_CALL	SCWK_ANSWER,EQ,3,ev_sodateya_aishou_level4
+
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//70%でタマゴが産まれる相性
+ev_sodateya_aishou_level1:
+	_TALKMSG	msg_sodateya_01
+	_RET
+
+//50%でタマゴが産まれる相性
+ev_sodateya_aishou_level2:
+	_TALKMSG	msg_sodateya_02
+	_RET
+
+//20%でタマゴが産まれる相性
+ev_sodateya_aishou_level3:
+	_TALKMSG	msg_sodateya_03
+	_RET
+
+//0%でタマゴが産まれる相性
+ev_sodateya_aishou_level4:
+	_TALKMSG	msg_sodateya_04
+	_RET
+
+
+/********************************************************************/
+/*							ばあさん								*/
+/********************************************************************/
+ev_sodateya_w:
+	_TALK_OBJ_START
+	_GOLD_WIN_WRITE		20,2
+
+	_GET_SODATEYA_ZIISAN	SCWK_ANSWER		//じいさんチェック0:なし1:たまご2:一匹3:2匹
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_sodateya_w_0100	//タマゴ
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_sodateya_w_0200	//１匹預かっている
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,3,ev_sodateya_w_0300	//２匹預かっている
+	_TALKMSG		msg_sodateya_oldwoman_01		//じこしょうかい→あずけるかい？
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_0001	//はい
+	_TALKMSG	msg_sodateya_oldwoman_06		//そうかいそれじゃまたきておくれ
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  どのこをそだててみるかね？										*/
+/*==================================================================*/
+ev_sodateya_w_0001:
+	_GET_POKE_COUNT2	SCWK_ANSWER								//手持ちチェック
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,1,ev_sodateya_w_0003		//１体のとき->メッセージを出して終了
+
+	_GET_POKE_COUNT4	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,2,ev_sodateya_w_0005		//ボックス０のとき（＋手持ちが２）
+	
+ev_sodateya_w_0001b:
+	_TALK_KEYWAIT	msg_sodateya_oldwoman_02		//どのこをそだててみるかね
+	_TALK_CLOSE
+
+	_GOLD_WIN_DEL
+
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_LDVAL			SCWK_ANSWER,0		/*ポケモンリスト初期カーソル位置*/
+ev_sodateya_w_0001b_list_back:
+	//ポケモン選択
+	_SODATEYA_POKELIST_SET_PROC		SCWK_ANSWER
+	//選択したポケモンの並び番号取得
+	_SODATEYA_POKELIST_GET_RESULT	SCWK_PARAM0,SCWK_ANSWER
+
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_0001b_list_select_end
+	_CON_POKESTATUS_SET_PROC	SCWK_PARAM0
+	_POKESTATUS_GET_RESULT		SCWK_ANSWER
+	_JUMP			ev_sodateya_w_0001b_list_back
+
+ev_sodateya_w_0001b_list_select_end:
+	_SET_MAP_PROC
+
+	_GOLD_WIN_WRITE		20,2
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IFVAL_JUMP		SCWK_PARAM0,EQ,0xff,ev_sodateya_w_end//キャンセルされた
+
+	_TEMOTI_MONSNO	SCWK_PARAM0,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_tamago_select	//タマゴが選択された
+
+	_GET_POKE_COUNT3	SCWK_ANSWER,SCWK_PARAM0						//あずけたら戦闘できなくないか？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_0004	//できない
+
+	_MSG_AZUKE_SET	0,SCWK_PARAM0,SCWK_PARAM1			//育て屋にあずけるポケモンの名前と番号をセット
+
+	_SET_SODATEYA_POKE	SCWK_PARAM0							//てもちから育て屋ワークへ
+
+	/*預けたことがあるフラグ*/
+	_FLAG_SET		FE_SODATEYA_AZUKE
+
+	_GET_SODATEYA_ZIISAN	SCWK_ANSWER				//預けチェック 2:1匹3:2匹
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_sodateya_oldwoman_03
+	_JUMP			ev_sodateya_oldwoman_22
+
+/*もう一体可能*/
+ev_sodateya_oldwoman_03:	
+	_VOICE_PLAY		SCWK_PARAM1,0						/*泣き声*/
+	_TALK_KEYWAIT	msg_sodateya_oldwoman_03		//それではしばらくあずかるぞ
+
+	_VOICE_WAIT
+
+	_JUMP			ev_sodateya_w_0002	//もう一体預ける？
+
+//もう一体不可
+ev_sodateya_oldwoman_22:	
+	_VOICE_PLAY		SCWK_PARAM1,0						//泣き声
+	_TALKMSG		msg_sodateya_oldwoman_22		//それではしばらくあずかるぞ
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	_VOICE_WAIT
+
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+
+/*==================================================================*/
+/*  タマゴが選択された												*/
+/*==================================================================*/
+ev_sodateya_w_tamago_select:
+	_TALKMSG	msg_sodateya_oldwoman_21		//
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  それじゃまたきておくれ											*/
+/*==================================================================*/
+ev_sodateya_w_end:
+	_TALKMSG	msg_sodateya_oldwoman_09		//それじゃまたきておくれ
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+
+/*==================================================================*/
+/*  もう１ぴきそだてるかい？										*/
+/*==================================================================*/
+ev_sodateya_w_0002:
+	_TALKMSG		msg_sodateya_oldwoman_04		//もう１ぴきそだてるかい？
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_0001	//はい
+
+	_JUMP			ev_sodateya_w_end				//それじゃまたきておくれ
+	_END
+
+
+/*==================================================================*/
+/*  おや？ポケモンが１ぴきしかいないよだな							*/
+/*==================================================================*/
+ev_sodateya_w_0003:
+	_TALKMSG	msg_sodateya_oldwoman_16		//おやポケモンが１ぴきしかいないようだな
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+	
+
+/*==================================================================*/
+/*  そのポケモンをあずけるとたたかえなくなるぞ						*/
+/*==================================================================*/
+ev_sodateya_w_0004:
+	_TALKMSG	msg_sodateya_oldwoman_18		//おやポケモンが１ぴきしかいないようだな
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  ROMの中全て見渡して２匹しかいないときは預からない				*/
+/*==================================================================*/
+ev_sodateya_w_0005:
+	_TALKMSG	msg_sodateya_oldwoman_19		//おや？おまえさんポケモンがぜんびで　２ひきしかいないようじゃな
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  そういえばじいさんがさがしておったぞ							*/
+/*==================================================================*/
+ev_sodateya_w_0100:
+	_TALKMSG	msg_sodateya_oldwoman_05		//じいさんがさがしておったぞ
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+
+ev_sodateya_poke_levelput:
+	_TALK_KEYWAIT	msg_sodateya_oldwoman_11		//○○○はレベルでいうと○○○くらい
+	_RET
+
+
+ev_sodateya_poke_leveldiff:
+	_SODATE_POKE_LEVEL_STR		SCWK_ANSWER,SCWK_PARAM0	//レベル差を取得
+	_IFVAL_CALL		SCWK_ANSWER,NE,0,ev_sodateya_poke_levelput		
+	_RET
+
+
+/*==================================================================*/
+/*  １ぴきあずかってる												*/
+/*==================================================================*/
+ev_sodateya_w_0200:
+	_TALK_KEYWAIT	msg_sodateya_oldwoman_10		//おおあんたか！よくきたな
+	_LDVAL			SCWK_PARAM0,0
+	_CALL			ev_sodateya_poke_leveldiff
+
+	_TALKMSG		msg_sodateya_oldwoman_04		//もう１ぴきそだてるかい？
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_0001	//はい
+
+	_TALKMSG		msg_sodateya_oldwoman_17		//ポケモンをひきとるかい
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_0201	//はい
+
+	_JUMP			ev_sodateya_w_end				//それじゃまたきておくれ
+
+/*==================================================================*/
+/*  ひきとるかい？													*/
+/*==================================================================*/
+ev_sodateya_w_0201:
+	_GET_POKE_COUNT		SCWK_ANSWER					//手持ちに空きはあるか？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,6,ev_sodateya_w_0206	//ない
+
+	_GET_SODATEYA_ZIISAN	SCWK_ANSWER				//預けチェック 2:1匹3:2匹
+
+	_LDVAL			SCWK_PARAM1,0		//0番のポケモンをセットした状態へ
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_sodateya_w_0202	//あずかってるのは１匹
+
+//	_BMPMENU_INIT		14,1,0,1,SCWK_PARAM1		//Bキャンセル無効
+	_BMPMENU_INIT		1,1,0,1,SCWK_PARAM1		//Bキャンセル無効
+	_HIKITORI_LIST_NAME_SET	0,1,2,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_130,0
+	_HIKITORI_LIST_NAME_SET	0,1,2,1
+	_BMPMENU_MAKE_LIST	msg_ev_win_131,1
+	_BMPMENU_MAKE_LIST	msg_ev_win_132,2
+	_BMPMENU_START
+
+	_SWITCH			SCWK_PARAM1
+	_CASE_JUMP		0,ev_sodateya_w_0202			//１匹目選択
+	_CASE_JUMP		1,ev_sodateya_w_0202			//２匹目選択
+	_JUMP			ev_sodateya_w_end				//キャンセル
+
+/*==================================================================*/
+/*  ○○○をひきとるなら料金は○○○円だよ							*/
+/*==================================================================*/
+ev_sodateya_w_0202:
+	_HIKITORI_RYOUKIN	SCWK_TEMP0,SCWK_PARAM1
+	_TALKMSG		msg_sodateya_oldwoman_14			//○○○をひきとるなら料金は○○円だよ
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_0203		//お金チェックへ
+
+	_JUMP			ev_sodateya_w_end					//それじゃまたきておくれ
+
+/*==================================================================*/
+/* おかね足りてるかチェック											*/
+/*==================================================================*/
+ev_sodateya_w_0203:
+	_COMP_MY_GOLD		SCWK_ANSWER,SCWK_TEMP0				//お金足りてる？
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_sodateya_w_0204		//足りてる
+		
+	_TALKMSG	msg_sodateya_oldwoman_07			//おかねがたりないようじゃのう
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+/*==================================================================*/
+/*  ○○○は○○○をひきとった										*/
+/*==================================================================*/
+ev_sodateya_w_0204:
+	_OBJ_ANIME	SODATEYA_OLDWOMAN2,oldwoman2_01_anime01
+	_OBJ_ANIME_WAIT										//アニメ終了待ち
+
+	_HIKITORI_POKE	SCWK_PARAM2,SCWK_PARAM1							//ポケモンを引き取る
+	_SUB_MY_GOLD	SCWK_TEMP0
+
+	_GOLD_WRITE
+	_SE_PLAY				SEQ_SE_DP_REGI
+	_SE_WAIT				SEQ_SE_DP_REGI
+
+	_TALK_KEYWAIT	msg_sodateya_oldwoman_15			//はいよ　たしかに！
+	_VOICE_PLAY		SCWK_PARAM2,0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_sodateya_oldwoman_20			//○○○は○○○を…
+	_VOICE_WAIT
+	_GET_SODATEYA_ZIISAN	SCWK_ANSWER		//じいさんチェック0:なし1:たまご2:一匹3:2匹
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,2,ev_sodateya_w_0205		//もういっぴき質問
+	_JUMP			ev_sodateya_w_end					//それじゃまたきておくれ
+
+/*==================================================================*/
+/*  もういっぴきもひきとるか？										*/
+/*==================================================================*/
+ev_sodateya_w_0205:
+	_TALKMSG		msg_sodateya_oldwoman_08			//もう１ぴきもひきとるか？
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_0201		//はい
+	_JUMP			ev_sodateya_w_end					//それじゃまたきておくれ
+
+/*==================================================================*/
+/*  てもちのポケモンがいっぱいじゃよ								*/
+/*==================================================================*/
+ev_sodateya_w_0206:
+	_TALKMSG	msg_sodateya_oldwoman_12			//てもちのポケモンがいっぱいじゃよ
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+_ANIME_LABEL	oldwoman2_01_anime01
+	_ANIME_DATA	AC_WAIT_4F,3
+	_ANIME_DATA	AC_DIR_L,1
+	_ANIME_DATA	AC_WAIT_4F,3
+	_ANIME_DATA	AC_DIR_R,1
+	_ANIME_DATA	AC_WAIT_4F,3
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	AC_WAIT_8F,3
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	AC_VANISH_OFF,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+/*==================================================================*/
+/*  ２ひきあずかってる												*/
+/*==================================================================*/
+ev_sodateya_w_0300:
+	_TALK_KEYWAIT	msg_sodateya_oldwoman_10		//おおあんたか！よくきたな
+
+	_LDVAL			SCWK_PARAM0,0						//１匹目のレベルアップチェック
+	_CALL			ev_sodateya_poke_leveldiff
+
+	_LDVAL			SCWK_PARAM0,1						//二匹目のレベルアップチェック
+	_CALL			ev_sodateya_poke_leveldiff
+
+	_TALKMSG		msg_sodateya_oldwoman_17		//ポケモンをひきとるかい
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_sodateya_w_0201	//はい
+	_TALKMSG	msg_sodateya_oldwoman_09		//それじゃまたきておくれ
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_OBJ_END
+	_END
+
+
+/*==================================================================*/
+/*  タマゴが孵化した												*/
+/*==================================================================*/
+ev_sodateya_tamago_huka:
+	_TALK_START
+	_TALK_KEYWAIT	msg_sodateya_05		//タマゴから○○○がうまれた！
+	_TAMAGO_DEMO
+	_TALK_CLOSE
+	_GOLD_WIN_DEL
+	_TALK_END
+	_END
+
+/********************************************************************/
+/********************************************************************/

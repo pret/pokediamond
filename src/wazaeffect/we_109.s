@@ -1,0 +1,76 @@
+//==============================================================================
+/**
+ * @file	we_109.s
+ * @brief	Ç†Ç‚ÇµÇ¢Ç–Ç©ÇË			109
+ * @author	goto
+ * @date	2005.07.13(êÖ)
+ *
+ * Ç±Ç±Ç…êFÅXÇ»âê‡ìôÇèëÇ¢ÇƒÇ‡ÇÊÇ¢
+ *
+ */
+//==============================================================================
+	
+	.text
+	
+	.include	"west.h"
+
+	.global		WEST_AYASIIHIKARI
+	
+// =============================================================================
+//
+//
+//	Å°Ç†Ç‚ÇµÇ¢Ç–Ç©ÇË			109
+//
+//
+// =============================================================================
+WEST_AYASIIHIKARI:
+	
+	LOAD_PARTICLE_DROP	0,W_109_SPA	
+	LOAD_PARTICLE_DROP	1,W_109_SPA
+	
+	CONTEST_jp		CONTEST
+
+	FUNC_CALL		WEST_SP_WE_HAIKEI_PAL_FADE, 5, 0, 1, 0, 12, WE_PAL_BLACK,
+	WAIT_FLAG
+	
+	ADD_PARTICLE 	0,W_109_109_AYASII_BALL1, EMTFUNC_FIELD_OPERATOR
+	EX_DATA			OPERATOR_DEF_DATA_NUM, OPERATOR_PRI_NONE, OPERATOR_TARGET_DF, OPERATOR_POS_LSP, OPERATOR_AXIS_AT, OPERATOR_FLD_NONE, OPERATOR_CAMERA_SPIN
+	
+	SE_FLOW_LR		SEQ_SE_DP_153
+	WAIT			6
+	ADD_PARTICLE 	1,W_109_109_AYASII_BALL2, EMTFUNC_DEFENCE_POS
+
+	SE_WAITPLAY_R	SEQ_SE_DP_061,35
+
+	WAIT_PARTICLE
+	EXIT_PARTICLE	0,
+	EXIT_PARTICLE	1,
+
+	FUNC_CALL		WEST_SP_WE_HAIKEI_PAL_FADE, 5, 0, 1, 12, 0, WE_PAL_BLACK,
+	WAIT_FLAG
+	
+	SEQEND
+
+
+CONTEST:
+
+	FUNC_CALL		WEST_SP_WE_HAIKEI_PAL_FADE, 5, 0, 1, 0, 12, WE_PAL_BLACK,
+	WAIT_FLAG
+	
+	ADD_PARTICLE 	0,W_109_109_AYASII_BALL1, EMTFUNC_FIELD_OPERATOR
+	EX_DATA			OPERATOR_DEF_DATA_NUM, OPERATOR_PRI_NONE, OPERATOR_TARGET_NONE, OPERATOR_POS_145_CON, OPERATOR_AXIS_145_CON, OPERATOR_FLD_NONE, OPERATOR_CAMERA_145
+	
+	SE_FLOW_LR		SEQ_SE_DP_153
+	WAIT			6
+	ADD_PARTICLE 	1,W_109_109_AYASII_BALL2, EMTFUNC_DEFENCE_POS
+
+	SE_WAITPLAY_R	SEQ_SE_DP_061,30
+
+	WAIT_PARTICLE
+	EXIT_PARTICLE	0,
+	EXIT_PARTICLE	1,
+
+	FUNC_CALL		WEST_SP_WE_HAIKEI_PAL_FADE, 5, 0, 1, 12, 0, WE_PAL_BLACK,
+	WAIT_FLAG
+	
+	SEQEND

@@ -1,0 +1,185 @@
+//====================================================================
+//								d27r0103
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d27r0103.h"
+	.include	"../eventdata/zone_d27r0103evc.h"
+	.include	"../../../src/field/move_pokemon_def.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d27r0103_flag_change
+_EVENT_DATA		ev_d27r0103_ai
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d27r0103_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_D27R0103	//到着
+	_END
+
+
+/********************************************************************/
+/*					アイ(エムリット)								*/
+/********************************************************************/
+ev_d27r0103_ai:
+	_TALK_OBJ_START
+	_POKE_WINDOW_PUT	MONSNO_AI,PM_MALE
+	_AB_KEYWAIT
+	_POKE_WINDOW_DEL		/*ポケモンウィンドウ消去*/
+	
+	_VOICE_PLAY		MONSNO_AI,0
+	_TALK_KEYWAIT	msg_d27r0103_sppoke2_01
+	_TALK_CLOSE
+
+	//飛び去る
+	//消しアニメ
+/*
+	_OBJ_PAUSE_CLEAR	D27R0103_AI
+	_FLDOBJ_BLINK_ANM	D27R0103_AI,6,8
+	_OBJ_PAUSE			D27R0103_AI
+*/
+	_FLAG_SET		FV_D27R0103_AI
+	_OBJ_DEL		D27R0103_AI
+	_TIME_WAIT		8,SCWK_ANSWER
+	_FLAG_RESET		FV_D27R0103_AI
+	_OBJ_ADD		D27R0103_AI
+	_TIME_WAIT		8,SCWK_ANSWER
+	_FLAG_SET		FV_D27R0103_AI
+	_OBJ_DEL		D27R0103_AI
+	_TIME_WAIT		8,SCWK_ANSWER
+	_FLAG_RESET		FV_D27R0103_AI
+	_OBJ_ADD		D27R0103_AI
+	_TIME_WAIT		8,SCWK_ANSWER
+	_FLAG_SET		FV_D27R0103_AI
+	_OBJ_DEL		D27R0103_AI
+	_TIME_WAIT		8,SCWK_ANSWER
+	_FLAG_RESET		FV_D27R0103_AI
+	_OBJ_ADD		D27R0103_AI
+	_TIME_WAIT		8,SCWK_ANSWER
+	_FLAG_SET		FV_D27R0103_AI
+	_OBJ_DEL		D27R0103_AI
+
+	//移動ポケモンに追加
+	_ADD_MOVE_POKE	MOVE_POKE_AI
+	_TALKMSG		msg_d27r0103_sppoke2_02
+	_TALK_CLOSE
+
+#if 1
+
+	_TIME_WAIT		30,SCWK_ANSWER
+
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_UP,ev_d27r0103_doctor_dir_up
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_DOWN,ev_d27r0103_doctor_dir_down
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_d27r0103_doctor_dir_left
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_RIGHT,ev_d27r0103_doctor_dir_right
+	_END
+
+ev_d27r0103_doctor_dir_up:
+	_SXY_POS_CHANGE	D27R0103_DOCTOR,12,22
+	_JUMP			common_d27r0103_doctor_dir
+	_END
+
+ev_d27r0103_doctor_dir_down:
+	_SXY_POS_CHANGE	D27R0103_DOCTOR,12,20
+	_JUMP			common_d27r0103_doctor_dir
+	_END
+
+ev_d27r0103_doctor_dir_left:
+	_SXY_POS_CHANGE	D27R0103_DOCTOR,13,21
+	_JUMP			common_d27r0103_doctor_dir
+	_END
+
+ev_d27r0103_doctor_dir_right:
+	_SXY_POS_CHANGE	D27R0103_DOCTOR,11,21
+	_JUMP			common_d27r0103_doctor_dir
+	_END
+
+/*近づいてくる*/
+common_d27r0103_doctor_dir:
+
+	/*ナナカマド登場*/
+	_FLAG_RESET		FV_D27R0103_DOCTOR
+	_OBJ_ADD		D27R0103_DOCTOR
+
+	_OBJ_ANIME		D27R0103_DOCTOR,anm_d27r0103_doctor_01
+	_OBJ_ANIME_WAIT
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d27r0103_player_01
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_d27r0103_doctor_01
+	_TALK_CLOSE
+
+	/*下を向いてから、向きなおして*/
+	_OBJ_ANIME		D27R0103_DOCTOR,anm_d27r0103_doctor_02
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_d27r0103_doctor_02
+
+	/*「マップマーキング」を取得済みかチェック*/
+	_POKETCH_CHECK	POKETCH_APPID_MAP_MARKING,SCWK_ANSWER
+	_IFVAL_CALL		SCWK_ANSWER,EQ,0,ev_d27r0103_poketch_app_nothing
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_d27r0103_doctor_04
+	_TALK_CLOSE
+
+	/*画面外へ*/
+	_OBJ_ANIME		D27R0103_DOCTOR,anm_d27r0103_doctor_03
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		D27R0103_DOCTOR
+
+	_TALK_OBJ_END
+#endif
+	_END
+
+/*「マップマーキング」を取得していなかった時のメッセージ*/
+ev_d27r0103_poketch_app_nothing:
+	_TALK_KEYWAIT	msg_d27r0103_doctor_03
+	_RET
+
+//--------------------------------------------------------------------
+//ナナカマド	ちかづいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0103_doctor_01
+	_ANIME_DATA	AC_WALK_U_8F,7
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ナナカマド	下を向いてから、向きなおして
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0103_doctor_02
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ナナカマド	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0103_doctor_03
+	_ANIME_DATA	AC_WALK_D_8F,9
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d27r0103_player_01
+	_ANIME_DATA	AC_DIR_D,1
+	_ANIME_DATA	ACMD_END,0
+
+

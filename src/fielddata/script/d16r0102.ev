@@ -1,0 +1,257 @@
+//====================================================================
+//								d16r0102
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d16r0102.h"
+	.include	"../eventdata/zone_d16r0102evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d16r0102_seven5_01
+_EVENT_DATA		ev_d16r0102_seven5_03
+_EVENT_DATA		ev_d16r0102_seven5_04
+_EVENT_DATA		ev_d16r0102_seven5_05
+_EVENT_DATA		ev_d16r0102_seven5_06
+_EVENT_DATA		ev_d16r0102_flag_change
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d16r0102_flag_change:
+	/*５人衆イベントをクリアしていなかったらイベントが再度起きるようにする！*/
+	//_IF_FLAGOFF_JUMP		FE_SEVEN5_CLEAR,ev_d16r0102_flag_change_retry
+
+	/*５人衆イベントをクリアしていなかったらイベントが再度起きるようにする！*/
+	_IFVAL_JUMP		WK_SCENE_D16R0102,LT,2,ev_d16r0102_flag_change_retry
+
+	_END
+
+/*５人衆イベントをクリアしていなかったらイベントが再度起きるようにする！*/
+ev_d16r0102_flag_change_retry:
+	_LDVAL			WK_SCENE_D16R0102,0
+	_END
+
+
+/********************************************************************/
+/*							仲間になる								*/
+/********************************************************************/
+ev_d16r0102_seven5_01:
+	_EVENT_START
+
+	_BICYCLE_REQ		0	/*強制的に自転車から降りるようにする*/
+
+	/*振り向く*/
+	_OBJ_ANIME	D16R0102_SEVEN4,anm_d16r0102_seven5_100
+	_OBJ_ANIME_WAIT
+
+	/*会話しているかで分岐*/
+	_PLAYER_NAME		0
+	_IF_FLAGOFF_CALL	FE_D16R0102_SEVEN5_TALK,ev_d16r0102_seven5_01_talk_off
+	_IF_FLAGON_CALL		FE_D16R0102_SEVEN5_TALK,ev_d16r0102_seven5_01_talk_on
+
+	_PLAYER_NAME	0
+	_ME_PLAY		SEQ_GONIN
+	_TALKMSG		msg_pair_01
+	_ME_WAIT
+
+	_FLAG_SET		FE_D16R0102_SEVEN5_TALK
+	_LDVAL			WK_SCENE_D16R0102,1
+
+	_TALKMSG		msg_pair_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+
+	/*連れ歩き開始*/
+	_LDVAL			SYS_WORK_PAIR_TRAINER_ID,BTFIVE4_01
+	_SYS_FLAG_PAIR_SET
+	_MOVE_CODE_CHANGE	D16R0102_SEVEN4,MV_PAIR
+
+	_EVENT_END
+	_END
+
+ev_d16r0102_seven5_01_talk_off:
+	_TALK_KEYWAIT	msg_d16r0102_seven5_01
+	_RET
+
+ev_d16r0102_seven5_01_talk_on:
+	_TALK_KEYWAIT	msg_d16r0102_seven5_02
+	_RET
+
+
+/********************************************************************/
+/*							別れる									*/
+/********************************************************************/
+ev_d16r0102_seven5_03:
+	_EVENT_START
+
+	/*向き合う*/
+	_OBJ_ANIME		D16R0102_SEVEN4,anm_d16r0102_seven5_110
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d16r0102_player_10
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_d16r0102_seven5_03
+	_TALK_CLOSE
+
+	_LDVAL			WK_SCENE_D16R0102,0
+
+	/*連れ歩き終了*/
+	_SYS_FLAG_PAIR_RESET
+	_MOVE_CODE_CHANGE	D16R0102_SEVEN4,MV_DOWN
+
+	/*一歩上に移動*/
+	_OBJ_ANIME		D16R0102_SEVEN4,anm_d16r0102_seven5_11
+	_OBJ_ANIME_WAIT
+
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0102_player_10
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	一歩上に移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0102_seven5_11
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	振り向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0102_seven5_100
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0102_seven5_110
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							ゴール									*/
+/********************************************************************/
+ev_d16r0102_seven5_04:
+	_EVENT_START
+
+	/*連れ歩き終了*/
+	_SYS_FLAG_PAIR_RESET
+	_MOVE_CODE_CHANGE	D16R0102_SEVEN4,MV_DOWN
+
+	/*主人公の向きによってアニメを分岐*/
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_UP,ev_d16r0102_seven5_04_dir_up
+	_JUMP			ev_d16r0102_seven5_04_dir_left
+	_END
+
+/*主人公一歩左へ移動、５人衆一歩上に移動して、向き合う*/
+ev_d16r0102_seven5_04_dir_up:
+	_OBJ_ANIME		D16R0102_SEVEN4,anm_d16r0102_seven5_01
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d16r0102_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d16r0102_seven5_04_dir
+	_END
+
+/*主人公一歩左へ移動、５人衆一歩左に移動して、向き合う*/
+ev_d16r0102_seven5_04_dir_left:
+	_OBJ_ANIME		D16R0102_SEVEN4,anm_d16r0102_seven5_01_2
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_d16r0102_player_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d16r0102_seven5_04_dir
+	_END
+
+common_d16r0102_seven5_04_dir:
+	/*５人衆一度、出口を見てから、主人公の方を向いて*/
+	_OBJ_ANIME		D16R0102_SEVEN4,anm_d16r0102_seven5_02
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_d16r0102_seven5_04
+	_TALK_CLOSE
+
+	/*出口に入る*/
+	_OBJ_ANIME		D16R0102_SEVEN4,anm_d16r0102_seven5_03
+	_OBJ_ANIME_WAIT
+
+	_SE_WAIT		SEQ_SE_DP_SELECT
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		D16R0102_SEVEN4
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+
+	/*５人衆イベントクリア*/
+	//_FLAG_SET		FE_SEVEN5_CLEAR
+	/*dt06r0101に移動*/
+
+	_LDVAL			WK_SCENE_D16R0102,2
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	一歩左へ移動
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0102_player_01
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	出口前へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0102_seven5_01
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d16r0102_seven5_01_2
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	出口見てから、主人公を見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0102_seven5_02
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//５人衆	出口へ
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d16r0102_seven5_03
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							穴抜け									*/
+/********************************************************************/
+ev_d16r0102_seven5_05:
+	_EASY_OBJ_MSG	msg_d16r0102_seven5_05
+	_END
+
+
+/********************************************************************/
+/*							穴を掘る								*/
+/********************************************************************/
+ev_d16r0102_seven5_06:
+	_EASY_OBJ_MSG	msg_d16r0102_seven5_06
+	_END
+
+

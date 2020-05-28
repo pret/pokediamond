@@ -1,0 +1,1144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.5">
+
+<head>
+	<create user="matsumiya" host="DFS5V61X" date="2006-07-29T17:19:26"/>
+	<generator name="MessageEditor" version="4.9.2.5"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="00" b="FF" a="FF"/>
+		<list entry="3" r="00" g="8C" b="00" a="FF"/>
+		<list entry="4" r="FF" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="1" japanese="ポケモンＤＰ（単語）" english="PokemonDP" color="#c0c0c0">
+			<tag entry="00" japanese="ポケモン名" english="ポケモン名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの名前</comment>
+				<comment language="english">ポケモンの名前</comment>
+			</tag>
+			<tag entry="01" japanese="ニックネーム" english="ニックネーム" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンのニックネーム</comment>
+				<comment language="english">ポケモンのニックネーム</comment>
+			</tag>
+			<tag entry="02" japanese="ポケモン分類" english="ポケモン分類" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「DNAポケモン」など。</comment>
+				<comment language="english">「DNAポケモン」など。</comment>
+			</tag>
+			<tag entry="03" japanese="トレーナー名" english="トレーナー名" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="04" japanese="マップ名" english="マップ名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="05" japanese="とくせい名" english="とくせい名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="06" japanese="わざ名" english="わざ名" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="07" japanese="せいかく" english="せいかく" view="EP" width="60" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="08" japanese="どうぐ名" english="どうぐ名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="09" japanese="ポロック名" english="ポロック名" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="10" japanese="グッズ名" english="グッズ名" view="EP" length="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="11" japanese="ボックス名" english="ボックス名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="12" japanese="attackmsg" english="attackmsg" view="EP" length="0" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘専用</comment>
+				<comment language="english">戦闘専用</comment>
+			</tag>
+			<tag entry="13" japanese="ステータス名" english="ステータス名" view="EP" width="74" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+				<comment language="english">たいりょく、こうげきりょく、ぼうぎょりょく、とくこう、とくぼう、すばやさ、かいひりつ、めいちゅう</comment>
+			</tag>
+			<tag entry="14" japanese="トレーナー種別名" english="トレーナー種別名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">「たんぱんこぞう」「エリートトレーナー」など</comment>
+				<comment language="english">「たんぱんこぞう」「エリートトレーナー」など</comment>
+			</tag>
+			<tag entry="15" japanese="ポケモンのタイプ" english="ポケモンのタイプ" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ほのお、みず、でんき、はがねなど</comment>
+				<comment language="english">ほのお、みず、でんき、はがねなど</comment>
+			</tag>
+			<tag entry="16" japanese="木の実の味（戦闘用）" english="木の実の味（戦闘用）" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+				<comment language="english">戦闘時にポケモンが木の実を使ったときの味表示</comment>
+			</tag>
+			<tag entry="17" japanese="特殊状態名" english="特殊状態名" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンの特殊状態です。</comment>
+				<comment language="english">ポケモンの特殊状態です。</comment>
+			</tag>
+			<tag entry="18" japanese="バッグのポケット名" english="バッグのポケット名" view="EP" width="132" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+				<comment language="english">バッグのポケットの名前。「ポケット」の部分も含む。</comment>
+			</tag>
+			<tag entry="19" japanese="欠番（どうぐ説明）" english="欠番（どうぐ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">どうぐの説明テキスト
+</comment>
+				<comment language="english">どうぐの説明テキスト
+</comment>
+			</tag>
+			<tag entry="20" japanese="欠番（わざ説明）" english="欠番（わざ説明）" view="EP" width="120" line="5">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">わざの説明テキスト
+１０文字×５行</comment>
+				<comment language="english">わざの説明テキスト
+１０文字×５行</comment>
+			</tag>
+			<tag entry="21" japanese="欠番（とくせい説明）" english="欠番（とくせい説明）" view="EP" width="144" line="2">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">とくせい説明
+12文字×2行</comment>
+				<comment language="english">とくせい説明
+12文字×2行</comment>
+			</tag>
+			<tag entry="22" japanese="欠番（ずかんテキスト）" english="欠番（ずかんテキスト）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモン図鑑のテキスト
+18文字×3行</comment>
+				<comment language="english">ポケモン図鑑のテキスト
+18文字×3行</comment>
+			</tag>
+			<tag entry="23" japanese="欠番（きのみ説明）" english="欠番（きのみ説明）" view="EP" width="216" line="3">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">きのみの説明テキスト</comment>
+				<comment language="english">きのみの説明テキスト</comment>
+			</tag>
+			<tag entry="24" japanese="ポケッチソフト名" english="ポケッチソフト名" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケッチに入れるソフトの名前</comment>
+				<comment language="english">ポケッチに入れるソフトの名前</comment>
+			</tag>
+			<tag entry="25" japanese="地下のどうぐの名前" english="地下のどうぐの名前" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下で使うどうぐの名前</comment>
+				<comment language="english">地下で使うどうぐの名前</comment>
+			</tag>
+			<tag entry="26" japanese="カップ名" english="カップ名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">対戦のレギュレーション名</comment>
+				<comment language="english">対戦のレギュレーション名</comment>
+			</tag>
+			<tag entry="27" japanese="ポケット名（アイコンつき）" english="ポケット名（アイコンつき）" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">バッグのポケット名（アイコンつき）</comment>
+				<comment language="english">バッグのポケット名（アイコンつき）</comment>
+			</tag>
+			<tag entry="28" japanese="簡易会話単語" english="簡易会話単語" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="29" japanese="秘密会話質問項目" english="秘密会話質問項目" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話に出てくる質問内容</comment>
+				<comment language="english">地下での会話に出てくる質問内容</comment>
+			</tag>
+			<tag entry="30" japanese="秘密会話質問の答え" english="秘密会話質問の答え" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">地下での会話の質問への回答</comment>
+				<comment language="english">地下での会話の質問への回答</comment>
+			</tag>
+			<tag entry="31" japanese="アクセサリー名" english="アクセサリー名" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ポケモンにつけるアクセサリー</comment>
+				<comment language="english">ポケモンにつけるアクセサリー</comment>
+			</tag>
+			<tag entry="32" japanese="ジム名" english="ジム名" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="33" japanese="時間帯" english="時間帯" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">ぼうけんノートなどで使う</comment>
+				<comment language="english">ぼうけんノートなどで使う</comment>
+			</tag>
+			<tag entry="34" japanese="コンテスト名称" english="コンテスト名称" view="EP" width="120" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+				<comment language="english">コンテストのジャンル
+「○○○○○コンテスト」</comment>
+			</tag>
+			<tag entry="35" japanese="コンテストランク" english="コンテストランク" view="EP" width="84" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">○○○○ランク
+「ランク」も含む</comment>
+				<comment language="english">○○○○ランク
+「ランク」も含む</comment>
+			</tag>
+			<tag entry="36" japanese="国名" english="国名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる国名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる国名</comment>
+			</tag>
+			<tag entry="37" japanese="地域名" english="地域名" view="EP" width="216" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">プレイヤーが入力する、自分が住んでいる地域名</comment>
+				<comment language="english">プレイヤーが入力する、自分が住んでいる地域名</comment>
+			</tag>
+			<tag entry="38" japanese="風船の名前" english="風船の名前" view="EP" width="108" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">すれ違い通信でつかう風船の名前</comment>
+				<comment language="english">すれ違い通信でつかう風船の名前</comment>
+			</tag>
+			<tag entry="39" japanese="リボンの名前" english="リボンの名前" view="EP" width="168" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+				<comment language="japanese">リボンの名前</comment>
+				<comment language="english">リボンの名前</comment>
+			</tag>
+			<tag entry="40" japanese="イメージクリップ背景" english="イメージクリップ背景" view="EP" width="96" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="50" japanese="数字１桁" english="数字１桁" view="EP" width="8" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="51" japanese="数字２桁" english="数字２桁" view="EP" width="16" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="52" japanese="数字３桁" english="数字３桁" view="EP" width="24" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="53" japanese="数字４桁" english="数字４桁" view="EP" width="32" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="54" japanese="数字５桁" english="数字５桁" view="EP" width="40" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="55" japanese="数字６桁" english="数字６桁" view="EP" width="48" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="56" japanese="数字７桁" english="数字７桁" view="EP" width="56" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="57" japanese="数字８桁" english="数字８桁" view="EP" width="64" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="58" japanese="数字９桁" english="数字９桁" view="EP" width="72" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="59" japanese="数字10桁" english="数字10桁" view="EP" width="80" line="1">
+				<parameter number="0" japanese="番号" english="番号" type="int8"/>
+			</tag>
+			<tag entry="101" japanese="縦倍角" english="縦倍角" view="EP" length="0" line="1">
+				<parameter number="0" japanese="倍率" english="倍率" type="int8"/>
+			</tag>
+		</group>
+
+		<group entry="2" japanese="ポケモンＤＰ（プログラム）" english="ポケモンＤＰ（プログラム）">
+			<tag entry="00" japanese="操作画面ガイドアイコン" english="操作画面ガイドアイコン" view="EP" width="24" line="2">
+				<parameter number="0" japanese="モード" english="モード" type="int8"/>
+			</tag>
+			<tag entry="01" japanese="文字表示ウェイト" english="文字表示ウェイト" view="EP" length="0" line="1">
+				<parameter number="0" japanese="フレーム数" english="フレーム数" type="int16"/>
+				<comment language="japanese">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+				<comment language="english">次の文字を表示する前にウエイトを入れる（タスク表示専用）</comment>
+			</tag>
+			<tag entry="02" japanese="コールバック引数" english="コールバック引数" view="EP" length="0" line="1">
+				<parameter number="0" japanese="引数" english="引数" type="int16"/>
+				<comment language="japanese">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+				<comment language="english">デフォルトでは０が渡されますが、このタグを使って任意の数値を渡せます。</comment>
+			</tag>
+			<tag entry="03" japanese="文字表示位置X" english="文字表示位置X" view="EP" length="0" line="1">
+				<parameter number="0" japanese="X位置" english="X位置" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+			<tag entry="04" japanese="文字表示位置Y" english="文字表示位置Y" view="EP" length="0" line="1">
+				<parameter number="0" japanese="表示位置Y" english="表示位置Y" type="int16"/>
+				<comment language="japanese">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+				<comment language="english">文字表示位置を、ウィンドウ内オフセット（ドット単位）で指定する。</comment>
+			</tag>
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="操作（上→下）" english="操作（上→下）" value="2:00:操作画面ガイドアイコン:0"/>
+		<set japanese="注視（上→下）" english="注視（上→下）" value="2:00:操作画面ガイドアイコン:1"/>
+		<set japanese="操作（下→上）" english="操作（下→上）" value="2:00:操作画面ガイドアイコン:2"/>
+		<set japanese="注視（下→上）" english="注視（下→上）" value="2:00:操作画面ガイドアイコン:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+		<set japanese="標準色" english="Black" value="FF:00:色:0"/>
+		<set japanese="色１" english="Red" value="FF:00:色:1"/>
+		<set japanese="色２" english="Green" value="FF:00:色:2"/>
+		<set japanese="色３" english="Blue" value="FF:00:色:3"/>
+		<set japanese="色４" english="色４" value="FF:00:色:4"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="150"/>
+		<group default=" 0:デフォルト" position="-1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="3" width="243"/>
+		<erase position="-1" width="100"/>
+		<attribute japanese="キャラ指定" english="キャラ指定" type="string" default="" position="1" width="100">
+		</attribute>
+		<language japanese="日本語" english="日本語">
+			<message position="2" width="214"/>
+			<font default=" 0:font_talk" position="4" width="100">
+				<list entry="0" file="Q:/msgdata/font/font_talk.nftr"/>
+				<list entry="1" file="Q:/msgdata/font/font_system.nftr"/>
+				<list entry="2" file="Q:/msgdata/font/font_button.nftr"/>
+			</font>
+			<size position="-1" width="100"/>
+			<space position="-1" width="100"/>
+			<width position="5" width="100"/>
+			<line position="6" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="16" top="45" right="642" bottom="600" maximized="no" rayout="Vertical2">
+		<comment-input left="638" top="443" right="985" bottom="595" visible="yes"/>
+		<tag-palette left="641" top="46" right="988" bottom="444" visible="yes"/>
+		<band id="0" index="0" style="0000" width="451"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="469"/>
+		<band id="3" index="3" style="0000" width="147"/>
+		<band id="4" index="4" style="0000" width="618"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="msg_footmark_01">
+		<comment>♂
+
+0＝先頭のポケモン名</comment>
+		<attribute name="キャラ指定">太った兄さん</attribute>
+		<language name="日本語" width="216">フトマキ『ポケモン　というのは
+あしあとを　みてみれば▽
+なにを　かんがえているか　なんて▽
+すぐ　わかるのです！▼
+ほう……　しんじられませんか？▼
+ならば　きみの　[1:00:ポケモン名:0]を
+ここで　あるかせて　ごらんなさい▼
+その　あしあとから　きもちを
+わたしが　よみとって　みせましょう！▼</language>
+	</row>
+
+	<row id="msg_footmark_02">
+		<comment>♂
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">フトマキ『また　ポケモンの　きもちが
+しりたく　なったのですな？▼
+ならば　きみの　[1:00:ポケモン名:0]を
+ここで　あるかせて　ごらんなさい▼
+その　あしあとから　きもちを
+わたしが　よみとって　みせましょう！▼</language>
+	</row>
+
+	<row id="msg_footmark_03">
+		<comment>♂
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">フトマキ『……と　[1:00:ポケモン名:0]は
+このように　かんがえて　おりますな！</language>
+	</row>
+
+	<row id="msg_footmark_04">
+		<comment>♂
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">フトマキ『……ふーむ　[1:00:ポケモン名:0]は
+あしあとが　つかないので▼
+なにを　かんがえて　いるのか
+ちょいと　わかりにくい　ですな！</language>
+	</row>
+
+	<row id="msg_footmark_05">
+		<comment>♂
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">フトマキ『……ふーむ　[1:00:ポケモン名:0]は
+かなり　むくちな　ポケモンですな！</language>
+	</row>
+
+	<row id="msg_footmark_06">
+		<comment>♂
+
+msg_footmark_03表示条件で
+先頭のポケモンが
+なつき度最高のとき、そして
+あしあとリボンをもっていないとき
+
+続けてmsg_footmark_09
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">フトマキ『……と　[1:00:ポケモン名:0]は
+このように　かんがえて　おりますな！▼
+それにしても　[1:00:ポケモン名:0]と
+あなたは　いいかんじ　です▽
+これを　さしあげましょう！▼</language>
+	</row>
+
+	<row id="msg_footmark_07">
+		<comment>♂
+
+msg_footmark_04表示条件で
+先頭のポケモンが
+なつき度最高のとき、そして
+あしあとリボンをもっていないとき
+
+続けてmsg_footmark_09
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">フトマキ『……ふーむ　[1:00:ポケモン名:0]は
+あしあとが　つかないので▼
+なにを　かんがえて　いるのか
+ちょいと　わかりにくい　ですな！▼
+ですが　[1:00:ポケモン名:0]と
+あなたは　いいかんじ　です▽
+これを　さしあげましょう！▼</language>
+	</row>
+
+	<row id="msg_footmark_08">
+		<comment>♂
+
+msg_footmark_05表示条件で
+先頭のポケモンが
+なつき度最高のとき、そして
+あしあとリボンをもっていないとき
+
+続けてmsg_footmark_09
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">フトマキ『……ふーむ　[1:00:ポケモン名:0]は
+かなり　むくちな　ポケモンですな！▼
+ですが　[1:00:ポケモン名:0]と
+あなたは　いいかんじ　ですぞ▽
+なので　これを　さしあげましょう！▼</language>
+	</row>
+
+	<row id="msg_footmark_09">
+		<comment>♂
+
+1＝主人公名
+続けてmsg_footmark_10</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]は
+あしあとリボンを　もらった！▼</language>
+	</row>
+
+	<row id="msg_footmark_10">
+		<comment>♂
+
+0＝ポケモン名（先頭のポケモン）
+1＝主人公名
+2＝リボン名</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]は　あしあとリボンを
+[1:00:ポケモン名:0]に　つけて　あげた！</language>
+	</row>
+
+	<row id="msg_footmark_a1_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かわいい系・足跡あり
+なつき度000～069
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">んもう……　[1:03:トレーナー名:1]ったら
+ほかの　ポケモンと　あそんでばかり▽
+[1:01:ニックネーム:2]　つまんない……▼
+もしかして
+[1:03:トレーナー名:1]は　[1:01:ニックネーム:2]のこと▽
+あんまり　スキじゃ　ないの？▼
+[1:01:ニックネーム:2]……
+[1:03:トレーナー名:1]のために　ガンバルから▽
+もっと　なかよくして！▼</language>
+	</row>
+
+	<row id="msg_footmark_a1_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かわいい系・足跡あり
+なつき度070～149
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">ポケモンに　あんまり　やさしくない
+ひとも　いるって　いうけど▽
+[1:03:トレーナー名:1]は　どうなんだろう……▼
+[1:01:ニックネーム:2]のこと
+だいじに　してくれるかな？▼
+いろんな　ところへ
+つれていって　くれるかな？▼
+ともだちに……　なれるかな？▼</language>
+	</row>
+
+	<row id="msg_footmark_a1_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かわいい系・足跡あり
+なつき度150～199
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">あー　[1:03:トレーナー名:1]と　いっしょの
+ぼうけんは　たのしいなあ▼
+[1:01:ニックネーム:2]だけじゃ
+いけないような　ところにも▽
+つれてってくれるし▼
+みたことがない　ポケモンとも
+たたかわせてくれる……▼
+[1:03:トレーナー名:1]のために
+もっと　もっと　つよくなるぞー！▼</language>
+	</row>
+
+	<row id="msg_footmark_a1_04" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かわいい系・足跡あり
+なつき度200～254
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:01:ニックネーム:2]と　[1:03:トレーナー名:1]は
+いきが　ピッタリ　めいコンビ！▼
+これまで　いろんな　にんげんを
+みてきたけど……▼
+[1:03:トレーナー名:1]が　いちばん
+[1:01:ニックネーム:2]の　きもちを　わかってる！▼
+いまは　おなかが　すいてるんだけど
+もちろん　わかってるよ……ね？▼</language>
+	</row>
+
+	<row id="msg_footmark_a1_05" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かわいい系・足跡あり
+なつき度255
+
+0＝先頭のポケモン名
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">ポケモンと　にんげんの　あいだに
+ゆうじょうが　うまれるって　いったら▼
+[1:00:ポケモン名:0]の　なかまたちは
+しんじて　くれるかな？▼
+でも　[1:03:トレーナー名:1]と　[1:01:ニックネーム:2]を
+みれば　すぐに　わかるよ▼
+だって……
+[1:01:ニックネーム:2]たち　しんゆう　だもんね！▼</language>
+	</row>
+
+	<row id="msg_footmark_a2_01">
+		<comment>ポケモン
+
+かわいい系・足跡なし
+なつき度000～069
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:01:ニックネーム:2]　つまんない……
+もっと　あそんで　あそんで▼
+[1:01:ニックネーム:2]と　[1:03:トレーナー名:1]
+なかよく　しよう……▼</language>
+	</row>
+
+	<row id="msg_footmark_a2_02">
+		<comment>ポケモン
+
+かわいい系・足跡なし
+なつき度070～149
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]と　いっしょに
+いろんなとこ　いく……▼
+[1:01:ニックネーム:2]に　やさしく
+ナデナデ　フカフカ……▼</language>
+	</row>
+
+	<row id="msg_footmark_a2_03">
+		<comment>ポケモン
+
+かわいい系・足跡なし
+なつき度150～199
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:01:ニックネーム:2]　つよくなると
+[1:03:トレーナー名:1]　うれしい▼
+まるいの　しかくいの
+さんかくなの　ソーナノ▼
+いろんな　ポケモン
+[1:01:ニックネーム:2]も　みたい……▼</language>
+	</row>
+
+	<row id="msg_footmark_a2_04">
+		<comment>ポケモン
+
+かわいい系・足跡なし
+なつき度200～254
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:01:ニックネーム:2]と　[1:03:トレーナー名:1]
+なかよし　コンビ▼
+[1:03:トレーナー名:1]の　きもちは
+[1:01:ニックネーム:2]には　わかる！▼
+[1:01:ニックネーム:2]の　きもちも
+[1:03:トレーナー名:1]　わかってる！▼</language>
+	</row>
+
+	<row id="msg_footmark_a2_05">
+		<comment>ポケモン
+
+かわいい系・足跡なし
+なつき度255
+
+0＝先頭のポケモン名
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]は　[1:01:ニックネーム:2]の　じまん！▼
+[1:00:ポケモン名:0]の　なかまたちに
+[1:03:トレーナー名:1]を　じまんする！▼
+だいすき　しんゆう
+[1:01:ニックネーム:2]たち　しんゆう！▼</language>
+	</row>
+
+	<row id="msg_footmark_b1_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かっこいい系・足跡あり
+なつき度000～069
+
+0＝先頭のポケモン名
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">どうして　[1:03:トレーナー名:1]は
+ほかの　ポケモンを▽
+つかってばかり　いるのだ？▼
+わたしは　あまり
+ひつようと　されていないのか？▼
+こんなことなら　やせいのままで
+いたほうが　よかったかも……▼
+イヤ　もうしばらくは
+つきあっておいて　やるか……▼</language>
+	</row>
+
+	<row id="msg_footmark_b1_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かっこいい系・足跡あり
+なつき度070～149
+
+1＝主人公名</comment>
+		<language name="日本語" width="216">ポケモンが　なきごえで
+なにを　うったえて　いるのかは▽
+にんげんには　わからない▼
+しかし　われわれ　ポケモンのなかには
+にんげんの　ことばを▽
+りかいするものも　すこしは……▼
+フフフッ　[1:03:トレーナー名:1]　キミは
+にんげんにしては　いいヤツだな……▼</language>
+	</row>
+
+	<row id="msg_footmark_b1_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かっこいい系・足跡あり
+なつき度150～199
+
+1＝主人公名</comment>
+		<language name="日本語" width="216">ポケモンが　じぶんのちから
+だけで　たびをしても▽
+こうどうはんいは　かぎられてしまう▼
+けれど　にんげんと　たびをすれば
+より　とおくの　とちまで▽
+でかけることが　できるわけだ▼
+[1:03:トレーナー名:1]と　いっしょの　たびは
+なかなか　こころづよい　もんだな▼
+そして　とても　ゆかいだ……▼</language>
+	</row>
+
+	<row id="msg_footmark_b1_04" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かっこいい系・足跡あり
+なつき度200～254
+
+1＝主人公名</comment>
+		<language name="日本語" width="216">ポケモンが　にんげんと　こうどうを
+ともにすることを▽
+「やせいを　わすれた」といって▽
+よくおもわない　なかまも　いる▼
+だが　それは　まちがっている▼
+かれらは　わたしに　とっての
+[1:03:トレーナー名:1]　のように▼
+すぐれた　パートナーと
+まだ　であえていない　だけなのだ……▼</language>
+	</row>
+
+	<row id="msg_footmark_b1_05" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+かっこいい系・足跡あり
+なつき度255
+
+0＝先頭のポケモン名
+1＝主人公名</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]は……　たいしたヤツだ▼
+わたしが　[1:00:ポケモン名:0]として
+さいこうの　はたらきが　できるのも▽
+[1:03:トレーナー名:1]が　いてこそだ▼
+いっしょに　たびを　していると
+やせいの　ポケモンたちが▽
+うらやましそうに　みているぞ……▼</language>
+	</row>
+
+	<row id="msg_footmark_b2_01">
+		<comment>ポケモン
+
+かっこいい系・足跡なし
+なつき度000～069
+
+1＝主人公名</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]　いつまで
+ほうって　おくきだ……▼
+もっと　カツヤクの　ばを
+あたえろ……▼</language>
+	</row>
+
+	<row id="msg_footmark_b2_02">
+		<comment>ポケモン
+
+かっこいい系・足跡なし
+なつき度070～149
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">ポケモンは　じぶんを
+すきに　なってくれる　にんげんに▽
+よく　なつく……▼
+[1:03:トレーナー名:1]は
+[1:01:ニックネーム:2]が　すきか……？▼</language>
+	</row>
+
+	<row id="msg_footmark_b2_03">
+		<comment>ポケモン
+
+かっこいい系・足跡なし
+なつき度150～199
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:01:ニックネーム:2]　つよくなったか
+だれの　おかげだ▼
+[1:03:トレーナー名:1]の　おかげか……？
+アリガトウ　なのか？▼</language>
+	</row>
+
+	<row id="msg_footmark_b2_04">
+		<comment>ポケモン
+
+かっこいい系・足跡なし
+なつき度200～254
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]と　[1:01:ニックネーム:2]
+なんだか　にている▼
+にんげんの　ことばでは
+アイショウがいい　というらしい▽
+[1:03:トレーナー名:1]も　そうおもうか？▼</language>
+	</row>
+
+	<row id="msg_footmark_b2_05">
+		<comment>ポケモン
+
+かっこいい系・足跡なし
+なつき度255
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]は　たいしたヤツだ
+[1:01:ニックネーム:2]の　ちからを▽
+さいこうに　ださせてくれる▼
+にんげんに　しておくには
+もったいない……▼</language>
+	</row>
+
+	<row id="msg_footmark_c1_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+こわい系・足跡あり
+なつき度000～069
+
+0＝先頭のポケモン名
+1＝主人公名</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]め　わたしを
+なかまに　くわえて　おきながら▽
+あまり　たよりにしないのは　なぜだ！▼
+やくにたたないと　おもってるのか？
+こうかい　してるのか？▼
+にんげんの　かってな　つごうで
+[1:00:ポケモン名:0]を　ふりまわす　つもりか？▼</language>
+	</row>
+
+	<row id="msg_footmark_c1_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+こわい系・足跡あり
+なつき度070～149
+
+0＝先頭のポケモン名
+1＝主人公名</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]が　どういうヤツかは
+どうも　わかりにくいが▼
+にんげんに　きらわれることの　おおい
+[1:00:ポケモン名:0]を　なかまにするんだから▽
+あんがい　いいヤツかもな……▼
+まあ　だからといって
+[1:03:トレーナー名:1]の　まえで　ニコニコ▽
+わらって　みせたりは　しないが……▼</language>
+	</row>
+
+	<row id="msg_footmark_c1_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+こわい系・足跡あり
+なつき度150～199
+
+1＝主人公名</comment>
+		<language name="日本語" width="216">いつもは　うすぐらい　ところや
+ジメジメした　ところに　いるのが▽
+すきな　われわれだが▼
+[1:03:トレーナー名:1]と　いっしょに　いると
+あかるく　にぎやかな　ばしょも▽
+わるくないと　おもえてくる……▼
+ふしぎなヤツだぜ　[1:03:トレーナー名:1]め……▼</language>
+	</row>
+
+	<row id="msg_footmark_c1_04" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+こわい系・足跡あり
+なつき度200～254
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">じぶんが　にんげんと　いっしょに
+たびを　することに　なるなんて▽
+かんがえたことも　なかった……▼
+[1:00:ポケモン名:0]の　なかまが
+いまの　このすがたを　みたら▽
+ビックリ　するだろうか▼
+それとも　うらやましいと
+おもってくれる　だろうか……？▼</language>
+	</row>
+
+	<row id="msg_footmark_c1_05" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+こわい系・足跡あり
+なつき度255
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]め……　[1:01:ニックネーム:2]を
+ここまで　いいきぶんに　させるとは▽
+ほんとうに　たいしたヤツだ！▼
+あいじょうひょうげんの　しるしに
+くびすじを　ガブリと……▼
+ハハハ　しんぱいするな
+じょうだんに　きまってる……▼</language>
+	</row>
+
+	<row id="msg_footmark_c2_01">
+		<comment>ポケモン
+
+こわい系・足跡なし
+なつき度000～069
+
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:01:ニックネーム:2]　ぼわーん
+やることない……▼
+あんまり　たいくつ　させると
+せなかから　かみつくぞ▼</language>
+	</row>
+
+	<row id="msg_footmark_c2_02">
+		<comment>ポケモン
+
+こわい系・足跡なし
+なつき度070～149
+
+0＝先頭のポケモン名
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:00:ポケモン名:0]を　すきになる
+にんげんなんて　いるのか？▼
+どうだ？　[1:03:トレーナー名:1]は
+[1:01:ニックネーム:2]　すきか？▼
+[1:01:ニックネーム:2]は　おまえのことが……
+イヤ　まだ　わからない……▼　</language>
+	</row>
+
+	<row id="msg_footmark_c2_03">
+		<comment>ポケモン
+
+こわい系・足跡なし
+なつき度150～199
+
+0＝先頭のポケモン名
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">[1:03:トレーナー名:1]　こわがらずに
+[1:01:ニックネーム:2]と　なかよく　してくれた▼
+でも　[1:01:ニックネーム:2]は
+これからも　こわくする▼
+それが　[1:00:ポケモン名:0]だからだ……▼</language>
+	</row>
+
+	<row id="msg_footmark_c2_04">
+		<comment>ポケモン
+
+こわい系・足跡なし
+なつき度200～254
+
+1＝主人公名
+2＝先頭のポケモンのニックネーム</comment>
+		<language name="日本語" width="216">やせいに　いたころの　ことを
+すこし　わすれはじめた……▼
+でも　[1:01:ニックネーム:2]は　かなしくない
+[1:03:トレーナー名:1]と　いっしょにいると▽
+あきないからな……▼</language>
+	</row>
+
+	<row id="msg_footmark_c2_05">
+		<comment>ポケモン
+
+こわい系・足跡なし
+なつき度255
+
+0＝先頭のポケモン名
+1＝主人公名</comment>
+		<language name="日本語" width="216">にんげんを　きらいな
+ポケモンなんて　いない……▼
+ポケモンを　きらう　にんげんが
+いるだけだ……▼
+とくに　[1:00:ポケモン名:0]は　きらわれる
+でも　[1:03:トレーナー名:1]は▽
+なかよく　してくれた……▼</language>
+	</row>
+
+	<row id="msg_footmark_d1_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+おとぼけ系・足跡あり
+なつき度000～069
+
+1＝主人公名</comment>
+		<language name="日本語" width="216">んー　あれ？
+ここは　ドコですか？▼
+[1:03:トレーナー名:1]さんの　おうちですか？
+そうでない？　んー▼
+とくに　ようじが　ないのなら
+ボールに　もどって　いいですか？▼
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_d1_02" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+おとぼけ系・足跡あり
+なつき度070～149
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">んー　そうですねー
+いちばん　すきなのは　ねることで▽
+そのつぎは　たべること▼
+でも　ほんとうに　すきなのは
+かんがえごとを　することですねー▼
+[1:00:ポケモン名:0]　いちぞくの
+しょうらいについて　かんがえていると▽
+じかんを　わすれますねー▼
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_d1_03" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+おとぼけ系・足跡あり
+なつき度150～199
+
+0＝先頭のポケモン名</comment>
+		<language name="日本語" width="216">んー　そうですねー
+ポケモンの　わざにも▽
+いろんな　しゅるいが　ありますが▼
+あくタイプの　わざとか
+ドラゴンかんけいの　わざとか▽
+あこがれて　しまいますねー▼
+[1:00:ポケモン名:0]の　わたくしには
+どうなんですかねー　ムリですかねー▼
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_d1_04" text-color="#ff0000,,,#ff0000,,#ff0000,#ff0000,,,,,," back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+おとぼけ系・足跡あり
+なつき度200～254
+
+1＝主人公名</comment>
+		<language name="日本語" width="216">んー　なんと　もうしましょうかー
+なるだけ　しずかな　せいかつを▽
+こころがけていた　わたくしですが▼
+ちかごろ　[1:03:トレーナー名:1]さんと
+いっしょに　こうどう　しているから▼
+ちょっと　ファンキーな　かんじに
+なってきている　きが　しませんかー▼
+しません？　そうですかー
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_d1_05" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+おとぼけ系・足跡あり
+なつき度255
+
+1＝主人公名</comment>
+		<language name="日本語" width="216">んー　わたくし
+ほかの　ポケモンたちから▽
+「なにも　かんがえてないだろう？」▽
+なんて　いわれてますが▽
+そんなことは　ないんですよー▼
+どうやったら
+[1:03:トレーナー名:1]さんの　おやくにたてるか▽
+まいにち　そのことばかり▽
+かんがえてるんですよ▼
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_d2_01">
+		<comment>ポケモン
+
+おとぼけ系・足跡なし
+なつき度000～069</comment>
+		<language name="日本語" width="216">んー　そうですねー
+ホントにねー　なんなんですかねー▽
+どうなんですかねー▽
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_d2_02">
+		<comment>ポケモン
+
+おとぼけ系・足跡なし
+なつき度070～149</comment>
+		<language name="日本語" width="216">んー　そうですねー
+わたくしも　やるきだけは▽
+せけんなみに　あるんですけどねー▽
+なかなか　じっさいねー▽
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_d2_03">
+		<comment>ポケモン
+
+おとぼけ系・足跡なし
+なつき度150～199</comment>
+		<language name="日本語" width="216">んー　そうですねー
+おたがい　けんこうにだけは▽
+きをつけたいですねー▽
+それが　いちばんですねー▽
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_d2_04">
+		<comment>ポケモン
+
+おとぼけ系・足跡なし
+なつき度200～254</comment>
+		<language name="日本語" width="216">んー　そうですねー
+うてばひびく　っていうんですか？▼
+[1:03:トレーナー名:1]さんと　わたし
+まるで　ふたごのきょうだい　のように▽
+いきが　ピッタリ　ですよねー▽
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_d2_05">
+		<comment>ポケモン
+
+おとぼけ系・足跡なし
+なつき度255</comment>
+		<language name="日本語" width="216">んー　そうですねー
+こうなったらもう　おたがいに▽
+いけるトコまで　いくしかないですねー▼
+でんどういり……　なんて
+いいひびきの　コトバですねー▼
+んー　……　……　……▼</language>
+	</row>
+
+	<row id="msg_footmark_un_01" back-color="#ffff80,,,#ffff80,,#ffff80,#ffff80,,,,,,">
+		<comment>ポケモン
+
+アンノーン系</comment>
+		<language name="日本語" width="216">シーン　……　……　……
+　……　……　……　……▽
+……　……　シーン　……▽
+　……　……　……　……▽
+……　シーン　……　……▽
+　……　……　……　……▼</language>
+	</row>
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

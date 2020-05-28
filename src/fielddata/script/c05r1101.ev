@@ -1,0 +1,539 @@
+//====================================================================
+//								c05r1101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c05r1101.h"
+	.include	"../eventdata/zone_c05r1101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c05r1101_judge
+_EVENT_DATA		ev_c05r1101_mama
+_EVENT_DATA		ev_c05r1101_reporter
+_EVENT_DATA		ev_c05r1101_biyou
+_EVENT_DATA		ev_c05r1101_bandanna
+_EVENT_DATA		ev_c05r1101_dress_prev_00
+_EVENT_DATA		ev_c05r1101_dress_prev_01
+_EVENT_DATA		ev_c05r1101_dress_prev_02
+_EVENT_DATA		ev_c05r1101_dress_prev_03
+_EVENT_DATA		ev_c05r1101_dress_prev_04
+_EVENT_DATA		ev_c05r1101_woman3
+_EVENT_DATA		ev_c05r1101_clown1
+_EVENT_DATA		ev_c05r1101_girl3
+_EVENT_DATA		ev_c05r1101_gerggeousm1
+_EVENT_DATA_END
+
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+
+/*------ ！！！FLAG_CHANGE_LABELの処理はcon_reception.evで行っています！！！ -----------*/
+//ev_c05r1101_flag_change:
+//	_END
+
+
+
+/********************************************************************/
+/*							ミミィ		　							*/
+/********************************************************************/
+ev_c05r1101_judge:
+	_EVENT_START
+
+	/*気づく*/
+	_OBJ_ANIME		C05R1101_JUDGE,anm_c05r1101_judge_100
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c05r1101_judge_01
+	_TALK_CLOSE
+
+	_OBJ_ANIME		C05R1101_MAMA,anm_c05r1101_mama_100
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c05r1101_mama_01
+	_TALK_CLOSE
+
+	/*近づく*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c05r1101_player_100
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_c05_judge_02_01
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c05r1101_mama_06
+
+	_TALK_KEYWAIT	msg_c05r1101_judge_03
+
+	//アクセサリー取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_LDVAL			SCWK_TEMP0,IMC_ACCE_KIRAKIRA_POWDER00
+	_LDVAL			SCWK_TEMP1,1
+	_CHG_COMMON_SCR	SCRID_ACCE_EVENT_KEYWAIT
+
+	_TALK_KEYWAIT	msg_c05r1101_judge_04
+
+	_TALK_KEYWAIT	msg_c05r1101_judge_05
+	_TALK_CLOSE
+
+	/*ミミィ退場*/
+	_OBJ_ANIME		C05R1101_JUDGE,anm_c05r1101_judge_110
+	_OBJ_ANIME		C05R1101_MAMA,anm_c05r1101_mama_110
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c05r1101_player_110
+	_OBJ_ANIME_WAIT
+	_OBJ_DEL		C05R1101_JUDGE
+
+	_LDVAL		WK_SCENE_C05R1101_JUDGE,1
+
+	_OBJ_ANIME		C05R1101_MAMA,anm_c05r1101_mama_111
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c05r1101_player_111
+	_OBJ_ANIME_WAIT
+
+	_PLAYER_NAME	0
+	_TALK_KEYWAIT	msg_c05r1101_mama_02
+	_TALK_CLOSE
+
+	_ME_PLAY		SEQ_FANFA4
+	_GET_MY_SEX		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,c05r1101_male_mama_01	//主人公男
+	_JUMP			c05r1101_female_mama_01					//主人公女
+	_END
+
+//主人公男
+c05r1101_male_mama_01:
+	_TALKMSG		msg_c05r1101_mama_03
+	_JUMP			common_c05r1101_mama_10
+	_END
+
+//主人公女
+c05r1101_female_mama_01:
+	_TALKMSG		msg_c05r1101_mama_04
+	_JUMP			common_c05r1101_mama_10
+	_END
+
+//共通処理
+common_c05r1101_mama_10:
+	_ME_WAIT
+
+	_TALK_KEYWAIT	msg_c05r1101_mama_05
+	_TALK_CLOSE
+
+	_TIME_WAIT		15,SCWK_ANSWER
+
+	/*退場*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c05r1101_player_01
+	_OBJ_ANIME		C05R1101_MAMA,anm_c05r1101_mama_11
+	_OBJ_ANIME_WAIT
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		C05R1101_MAMA
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+
+	_FLAG_SET		FV_C05_STOPPER		/*ストッパー解除*/
+	_LDVAL			WK_SCENE_C05,1		/*ライバルイベント開始*/
+
+	_FLAG_SET		SYS_FLAG_PST
+	_LDVAL			WK_SCENE_C05R1101,1
+	_EVENT_END
+	_END
+
+
+//--------------------------------------------------------------------
+//主人公	近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_player_100
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ミミィ	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_judge_100
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	AC_MARK_GYOE,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ミミィ	退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_judge_110
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_WALK_R_8F,3
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ママ	気づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_mama_100
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ママ	ミミィ見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_mama_110
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ママ	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_mama_111
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+ev_c05r1101_mama:
+	_END
+	
+
+//--------------------------------------------------------------------
+//ママ	近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_mama_01
+	_ANIME_DATA	AC_WALK_L_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c05r1101_mama_02
+	_ANIME_DATA	AC_WALK_U_8F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c05r1101_mama_03
+	_ANIME_DATA	AC_WALK_R_8F,8
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ママ	去っていく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_mama_11
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	見送る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_player_01
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	AC_WAIT_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	ミミィを見る
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_player_110
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	向き合う
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c05r1101_player_111
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+
+/********************************************************************/
+/*							レポーター								*/
+/********************************************************************/
+ev_c05r1101_reporter:
+	_END
+
+
+/********************************************************************/
+/*							受付嬢(けづくろい)						*/
+/********************************************************************/
+ev_c05r1101_biyou:
+//	_EASY_OBJ_MSG	msg_c05r1101_biyou_01
+	_END
+
+
+/********************************************************************/
+/*							受付嬢(バンダナ)						*/
+/********************************************************************/
+ev_c05r1101_bandanna:
+//	_EASY_OBJ_MSG	msg_c05r1101_bandanna_01
+	_END
+
+
+/********************************************************************/
+/*
+				コンテストイメージクリップPreview
+*/
+/********************************************************************/
+ev_c05r1101_dress_prev_00:
+	_TALK_START
+
+	// セーブデータ有無チェック
+	_CLIP_CONSAVEDATA_CHECK	0,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_dress_prev_none
+	
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_CON_SET_PROC	0,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_END
+	_END
+
+ev_c05r1101_dress_prev_01:
+	_TALK_START
+
+	// セーブデータ有無チェック
+	_CLIP_CONSAVEDATA_CHECK	1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_dress_prev_none
+	
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_CON_SET_PROC	1,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_END
+	_END
+
+ev_c05r1101_dress_prev_02:
+	_TALK_START
+
+	// セーブデータ有無チェック
+	_CLIP_CONSAVEDATA_CHECK	2,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_dress_prev_none
+	
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_CON_SET_PROC	2,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_END
+	_END
+
+ev_c05r1101_dress_prev_03:
+	_TALK_START
+
+	// セーブデータ有無チェック
+	_CLIP_CONSAVEDATA_CHECK	3,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_dress_prev_none
+	
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_CON_SET_PROC	3,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_END
+	_END
+
+ev_c05r1101_dress_prev_04:
+	_TALK_START
+
+	// セーブデータ有無チェック
+	_CLIP_CONSAVEDATA_CHECK	4,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_dress_prev_none
+	
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_IMAGE_CLIP_VIEW_CON_SET_PROC	4,SCWK_ANSWER
+	_SET_MAP_PROC
+
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_TALK_END
+	_END
+
+ev_dress_prev_none:
+	_TALKMSG		msg_c05r1101_trim_01
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_END
+	_END
+
+/********************************************************************/
+/********************************************************************/
+
+
+/********************************************************************/
+/*							お洒落姉さん						*/
+/********************************************************************/
+ev_c05r1101_woman3:
+	_EASY_OBJ_MSG	msg_c05r1101_woman3_01
+	_END
+
+/********************************************************************/
+/*							ピエロ									*/
+/********************************************************************/
+ev_c05r1101_clown1:
+	_EASY_OBJ_MSG	msg_c05r1101_clown_01
+	_END
+
+/********************************************************************/
+/*							お洒落少女								*/
+/********************************************************************/
+ev_c05r1101_girl3:
+	_EASY_OBJ_MSG	msg_c05r1101_girl3_01
+	_END
+
+/********************************************************************/
+/*						ゴージャス兄さん(ポフィン入手イベント)		*/
+/********************************************************************/
+ev_c05r1101_gerggeousm1:
+	_TALK_OBJ_START
+	
+	_IF_FLAGOFF_JUMP	FE_C05R1101_POFIN_INFOMATION,ev_c05r1101_gerggeousm1_infomation
+	_IF_FLAGOFF_JUMP	FE_C05R1101_POFIN_GET,ev_c05r1101_gerggeousm1_pofin_get
+	
+	//ポフィン入手済み
+ev_c05r1101_gerggeousm1_pofinkeesu_not:	//ポフィンケースを持っていない場合はここに戻る
+	_TALKMSG		msg_c05r1101_gerggeousm_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	移動後：ポフィン入手イベント
+//--------------------------------------------------------------
+ev_c05r1101_gerggeousm1_pofin_get:
+	_ITEM_CHK		ITEM_POFINKEESU,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c05r1101_gerggeousm1_pofinkeesu_not
+	
+	//ポフィンケースを持っていてまだポフィンを貰っていない
+	_TALKMSG		msg_c05r1101_gerggeousm_02
+	
+	_POFIN_ADD_CHK		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c05r1101_gerggeousm1_pofin_get_failed
+	
+	_CALL			ev_c05r1101_gerggeousm1_pofin_set	//ポフィン追加
+	_FLAG_SET		FE_C05R1101_POFIN_GET
+	
+	_TALKMSG		msg_c05r1101_gerggeousm_05
+	
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//ポフィンケースがいっぱいで入手出来なかった
+ev_c05r1101_gerggeousm1_pofin_get_failed:
+	_TALKMSG		msg_c05r1101_gerggeousm_07
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------
+//	受付前でのイベント進行
+//--------------------------------------------------------------
+ev_c05r1101_gerggeousm1_infomation:
+	_FLAG_SET		FE_C05R1101_POFIN_INFOMATION
+	
+	_ITEM_CHK		ITEM_POFINKEESU,1,SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c05r1101_gerggeousm1_infomation_pofinkeesu_not
+	
+	//ポフィンケース持ってる
+	_TALKMSG		msg_c05r1101_gerggeousm_02
+
+	_POFIN_ADD_CHK		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,FALSE,ev_c05r1101_gerggeousm1_infomation_pofin_get_failed
+	
+	_CALL			ev_c05r1101_gerggeousm1_pofin_set	//ポフィン追加
+	_FLAG_SET		FE_C05R1101_POFIN_GET
+	
+	_TALKMSG		msg_c05r1101_gerggeousm_04
+	_TALK_CLOSE
+	_CALL			ev_c05r1101_gerggeousm1_info_move
+	_TALK_OBJ_END
+	_END
+
+//受付前：ポフィンケースがいっぱいで入手出来なかった
+ev_c05r1101_gerggeousm1_infomation_pofin_get_failed:
+	_TALKMSG		msg_c05r1101_gerggeousm_08
+	_TALK_CLOSE
+	_CALL			ev_c05r1101_gerggeousm1_info_move
+	_TALK_OBJ_END
+	_END
+	
+//受付前：ポフィンケース持ってない
+ev_c05r1101_gerggeousm1_infomation_pofinkeesu_not:
+	_TALKMSG		msg_c05r1101_gerggeousm_01
+	_TALK_CLOSE
+	_CALL			ev_c05r1101_gerggeousm1_info_move
+	_TALK_OBJ_END
+	_END
+	
+//--------------------------------------------------------------
+//	ポフィン追加
+//--------------------------------------------------------------
+ev_c05r1101_gerggeousm1_pofin_set:
+	_POFIN_ADD		SCWK_ANSWER,60,30,30,30,30,40
+
+	_ME_PLAY		SEQ_FANFA4
+	_PLAYER_NAME	0
+	_TALKMSG		msg_c05r1101_gerggeousm_03
+	_ME_WAIT
+
+	_TALKMSG		msg_c05r1101_gerggeousm_03_01
+	
+	_RET
+
+//--------------------------------------------------------------
+//	ゴージャス兄さんを受付前から移動させる
+//--------------------------------------------------------------
+ev_c05r1101_gerggeousm1_info_move:
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_c05r1101_gerggeousm1_info_move_mawarikomi
+	_OBJ_ANIME		C05R1101_GORGGEOUSM_01,anm_gerggeousm1_move
+	_OBJ_ANIME_WAIT
+	_RET
+
+//自機に重ならないように回り込んで移動させる
+ev_c05r1101_gerggeousm1_info_move_mawarikomi:
+	_OBJ_ANIME		C05R1101_GORGGEOUSM_01,anm_gerggeousm1_move_mawarikomi
+	_OBJ_ANIME_WAIT
+	_RET
+
+//--------------------------------------------------------------------
+//	ゴージャス兄さんアニメ：受付前から移動
+//--------------------------------------------------------------------
+_ANIME_LABEL anm_gerggeousm1_move
+	_ANIME_DATA	AC_WALK_R_8F,8
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//自機に重ならないように回り込んで移動させる
+_ANIME_LABEL anm_gerggeousm1_move_mawarikomi
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	AC_WALK_R_8F,8
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	ACMD_END,0
+

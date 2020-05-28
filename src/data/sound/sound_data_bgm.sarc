@@ -1,0 +1,450 @@
+;===============================================================================================
+;
+;	NITRO-Composer
+;
+;	ポケットモンスター　ダイヤモンド・パール
+;
+;	サウンドアーカイブ定義ファイル(BGM)
+;
+;	05.06.09 satoshi nohara
+;	05.07.21 go ichinose
+;
+;	"★"検索	波形アーカイブ、バンクなどの項目の先頭
+;	"●"検索	BGMの先頭
+;
+;===============================================================================================
+
+
+;===============================================================================================
+;	★Wave Archive
+;	波形アーカイブ(複数の波形データをまとめたもの)
+;
+;	label
+;	filetype
+;	filename
+;
+;	AUTOと書いてあると、.swlsは自動で生成される。
+;
+;	bankデータで使用している波形データをまとめたファイルが.swlsファイルに出力される
+;
+;	例
+;	BANK_NARIGANE	: TEXT, "narigane.bnk",	WAVE_ARC_NARIGANE
+;	narigane.bnk内に記述してある波形データをまとめたものが、
+;	WAVE_ARC_NARIGANEが指す、narigane.swlsに出力される
+;===============================================================================================
+@WAVEARC
+ @PATH "swar"
+;-----------------------------------------------------------------------------------------------
+;●常駐(1000-
+;-----------------------------------------------------------------------------------------------
+WAVE_ARC_BASIC = BGM_START			: AUTO, "basic.swls"
+;-----------------------------------------------------------------------------------------------
+;●BGM
+;-----------------------------------------------------------------------------------------------
+WAVE_ARC_BGM_FIELD					: AUTO, "bgm_field.swls"
+WAVE_ARC_BGM_BATTLE					: AUTO, "bgm_battle.swls"
+WAVE_ARC_BGM_DUNGEON					: AUTO, "bgm_dungeon.swls"
+WAVE_ARC_BGM_OPEND					: AUTO, "bgm_opend.swls"
+
+
+;===============================================================================================
+;	★Bank
+;	バンクデータの登録
+;
+;	label
+;	filetype
+;	filename
+;	wavearc0(バンク定義ファイルの中で波形データを使っていない場合は省略可)
+;	wavearc1(バンク定義ファイルの中で波形データを使っていない場合は省略可)
+;	wavearc2(バンク定義ファイルの中で波形データを使っていない場合は省略可)
+;	wavearc3(バンク定義ファイルの中で波形データを使っていない場合は省略可)
+;===============================================================================================
+@BANK
+ @PATH "bnk" 
+;------------------------------------------------------------------1-----------------------------
+;●常駐(1000-
+;-----------------------------------------------------------------------------------------------
+BANK_BASIC = BGM_START			: TEXT, "basic.bnk",	WAVE_ARC_BASIC
+;-----------------------------------------------------------------------------------------------
+;●BGM
+;-----------------------------------------------------------------------------------------------
+BANK_BGM_FIELD: TEXT, "bgm_field.bnk",WAVE_ARC_BASIC, WAVE_ARC_BGM_FIELD
+BANK_BGM_BATTLE: TEXT, "bgm_battle.bnk",WAVE_ARC_BASIC, WAVE_ARC_BGM_BATTLE
+BANK_BGM_DUNGEON: TEXT, "bgm_dungeon.bnk",WAVE_ARC_BASIC, WAVE_ARC_BGM_DUNGEON
+BANK_BGM_OPEND: TEXT, "bgm_opend.bnk",WAVE_ARC_BASIC, WAVE_ARC_BGM_OPEND
+
+
+;===============================================================================================
+;	★Sequence
+;	シーケンスデータ登録(SMFの登録)
+;
+;	label
+;	filetype
+;	filename
+;	bank
+;	volume
+;	channelPrio
+;	playerPrio
+;	playerNo
+;
+;	PLAYER_BGMは、プレイヤーの指定をしている
+;	0-31の数字でもよい。詳しくは「サウンドアーカイブマニュアル」
+;===============================================================================================
+@SEQ
+ @PATH "mid"
+;-----------------------------------------------------------------------------------------------
+;●BGM(1000-
+;-----------------------------------------------------------------------------------------------
+
+;-----------------------------------------------------------------------------------------------
+;　SEQ_DUMMYは、製品版では使用してはいけない！
+;　SEQ_SILENCEは、無音の曲として使用する！
+;　(必ずBANK_BGM_FIELDを指定して下さい)
+;-----------------------------------------------------------------------------------------------
+SEQ_DUMMY = BGM_START	: SMF, "dummy.mid",BANK_BGM_FIELD, 70, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_SILENCE_FIELD	: SMF, "silence.mid",	BANK_BGM_FIELD, 70, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;
+SEQ_SILENCE_DUNGEON	: SMF, "silence.mid",	BANK_BGM_DUNGEON, 70, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;
+SEQ_TEST_TITLE		: SMF, "test_title.mid",BANK_BASIC,50, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;test
+
+
+;-------------------------------------------------------------------------------------------------
+;　★　登録済み　BGM　★
+;-------------------------------------------------------------------------------------------------
+;　街や道　登録
+;　
+;　使用バンク		BANK_BGM_FIELD		(BANK_BASICはダメ！)
+;　使用プレイヤー	PLAYER_FIELD		(フィールドで流れるBGMなので)
+;-------------------------------------------------------------------------------------------------
+;●昼！
+SEQ_TOWN01_D	: SMF, "mus_dp_town01_d.mid",	BANK_BGM_FIELD, 125, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN02_D	: SMF, "mus_dp_town02_d.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN03_D	: SMF, "mus_dp_town03_d.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN04_D	: SMF, "mus_dp_town04_d.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN06_D	: SMF, "mus_dp_town06_d.mid",	BANK_BGM_FIELD, 94, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN07_D	: SMF, "mus_dp_town07_d.mid",	BANK_BGM_FIELD,  96, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+;--------------------------------------------------------------------------------
+SEQ_CITY01_D	: SMF, "mus_dp_city01_d.mid",	BANK_BGM_FIELD,  96, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY02_D	: SMF, "mus_dp_city02_d.mid",	BANK_BGM_FIELD, 108, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY03_D	: SMF, "mus_dp_city03_d.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY04_D	: SMF, "mus_dp_city04_d.mid",	BANK_BGM_FIELD,  96, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY05_D	: SMF, "mus_dp_city05_d.mid",	BANK_BGM_FIELD,  92, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY06_D	: SMF, "mus_dp_city06_d.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY07_D	: SMF, "mus_dp_city07_d.mid",	BANK_BGM_FIELD, 120, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY08_D	: SMF, "mus_dp_city08_d.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY09_D	: SMF, "mus_dp_city09_d.mid",	BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY10_D	: SMF, "mus_dp_city10_d.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY11_D	: SMF, "mus_dp_city11_d.mid",	BANK_BGM_FIELD,  80, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+;----------------------------------------------------------------------------------
+SEQ_ROAD_A_D	: SMF, "mus_dp_road_a_d.mid",	BANK_BGM_FIELD, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_B_D	: SMF, "mus_dp_road_b_d.mid",	BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_C_D	: SMF, "mus_dp_road_c_d.mid",	BANK_BGM_FIELD,  86, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_D_D	: SMF, "mus_dp_road_d_d.mid",	BANK_BGM_FIELD, 108, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_E_D	: SMF, "mus_dp_road_e_d.mid",	BANK_BGM_FIELD,  86, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_F_D	: SMF, "mus_dp_road_f_d.mid",	BANK_BGM_FIELD, 80, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+;-------------------------------------------------------------------------------------------
+SEQ_ROAD_SNOW_D	: SMF, "mus_dp_road_snow_d.mid",BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_BZA_D	: SMF, "mus_dp_road_bza_d.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+
+;-------------------------------------------------------------------------------------------------
+;　街や道　登録
+;-------------------------------------------------------------------------------------------
+SEQ_OPENING	: SMF, "mus_dp_opening.mid"  ,BANK_BGM_FIELD,127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_TV_HOUSOU	: SMF, "mus_dp_tv_housou.mid",BANK_BGM_FIELD, 96, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+
+
+;使いまわし　--------------------------------------------------------------------------------
+;●昼！Day!
+SEQ_TOWN05_D	: SMF, "mus_dp_town05_d.mid",	BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+;--------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+SEQ_ROAD_BZB_D	: SMF, "mus_dp_road_bzb_d.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+
+
+;★夜！
+
+SEQ_TOWN01_N	: SMF, "mus_dp_town01_n.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN02_N	: SMF, "mus_dp_town02_n.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN03_N	: SMF, "mus_dp_town03_n.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN04_N	: SMF, "mus_dp_town04_n.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN06_N	: SMF, "mus_dp_town06_n.mid",	BANK_BGM_FIELD, 94, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_TOWN07_N	: SMF, "mus_dp_town07_n.mid",	BANK_BGM_FIELD,  95, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+;--------------------------------------------------------------------------------
+SEQ_CITY01_N	: SMF, "mus_dp_city01_n.mid",	BANK_BGM_FIELD, 104, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY02_N	: SMF, "mus_dp_city02_n.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY03_N	: SMF, "mus_dp_city03_n.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY04_N	: SMF, "mus_dp_city04_n.mid",	BANK_BGM_FIELD,  98, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY05_N	: SMF, "mus_dp_city05_n.mid",	BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY06_N	: SMF, "mus_dp_city06_n.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY07_N	: SMF, "mus_dp_city07_n.mid",	BANK_BGM_FIELD, 118, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY08_N	: SMF, "mus_dp_city08_n.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY09_N	: SMF, "mus_dp_city09_n.mid",	BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY10_N	: SMF, "mus_dp_city10_n.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_CITY11_N	: SMF, "mus_dp_city11_n.mid",	BANK_BGM_FIELD,  80, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+;----------------------------------------------------------------------------------
+SEQ_ROAD_A_N	: SMF, "mus_dp_road_a_n.mid",	BANK_BGM_FIELD, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_B_N	: SMF, "mus_dp_road_b_n.mid",	BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_C_N	: SMF, "mus_dp_road_c_n.mid",	BANK_BGM_FIELD,  86, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_D_N	: SMF, "mus_dp_road_d_n.mid",	BANK_BGM_FIELD, 108, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_E_N	: SMF, "mus_dp_road_e_n.mid",	BANK_BGM_FIELD,  86, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_F_N	: SMF, "mus_dp_road_f_n.mid",	BANK_BGM_FIELD, 80, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+;--------------------------------------------------------------------------------------
+SEQ_ROAD_SNOW_N	: SMF, "mus_dp_road_snow_n.mid",BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_ROAD_BZA_N	: SMF, "mus_dp_road_bza_n.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+
+;使いまわし　--------------------------------------------------------------------------------
+;★夜！Night!
+SEQ_TOWN05_N	: SMF, "mus_dp_town05_n.mid",	BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+;--------------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
+SEQ_ROAD_BZB_N	: SMF, "mus_dp_road_bzb_n.mid",	BANK_BGM_FIELD,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+
+
+
+
+;-------------------------------------------------------------------------------------------------
+;　ダンジョン　登録
+;
+;　使用バンク		BANK_BGM_DUNGEON	(BANK_BASICはダメ！)
+;　使用プレイヤー	PLAYER_FIELD		(フィールドで流れるBGMなので)
+;-------------------------------------------------------------------------------------------------
+SEQ_TANKOU	: SMF, "mus_dp_tankou.mid",	BANK_BGM_DUNGEON, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_HATANIGE	: SMF, "mus_dp_hatanige.mid",	BANK_BGM_DUNGEON,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_01	: SMF, "mus_dp_d_01.mid",	BANK_BGM_DUNGEON,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_02	: SMF, "mus_dp_d_02.mid",	BANK_BGM_DUNGEON,  88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_03	: SMF, "mus_dp_d_03.mid",	BANK_BGM_DUNGEON, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_RYAYHY	: SMF, "mus_dp_d_ryayhy.mid",	BANK_BGM_DUNGEON,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_KOUEN	: SMF, "mus_dp_d_kouen.mid",	BANK_BGM_DUNGEON, 115, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_AGITO	: SMF, "mus_dp_d_agito.mid",	BANK_BGM_DUNGEON,  86, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_GINLOBBY	: SMF, "mus_dp_d_ginlobby.mid",	BANK_BGM_DUNGEON, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_SAFARI	: SMF, "mus_dp_d_safari.mid",	BANK_BGM_DUNGEON,  84, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_LAKE	: SMF, "mus_dp_d_lake.mid",	BANK_BGM_DUNGEON,  88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_MOUNT1	: SMF, "mus_dp_d_mount1.mid",	BANK_BGM_DUNGEON, 112, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_MOUNT2	: SMF, "mus_dp_d_mount2.mid",	BANK_BGM_DUNGEON, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_06	: SMF, "mus_dp_d_06.mid",	BANK_BGM_DUNGEON, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_05	: SMF, "mus_dp_d_05.mid",	BANK_BGM_DUNGEON, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_04	: SMF, "mus_dp_d_04.mid",	BANK_BGM_DUNGEON, 120 , BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_LEAGUE	: SMF, "mus_dp_d_league.mid",	BANK_BGM_DUNGEON, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_BLD_DENDO	: SMF, "mus_dp_bld_dendo.mid",	BANK_BGM_DUNGEON, 112, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+
+;使いまわしダンジョン--------------------------------------------------------------------------------
+SEQ_D_CROAD	: SMF, "mus_dp_d_croad.mid",	BANK_BGM_DUNGEON,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_ICE	: SMF, "mus_dp_d_ice.mid",	BANK_BGM_DUNGEON,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_SECRET	: SMF, "mus_dp_d_secret.mid",	BANK_BGM_DUNGEON,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_UNKNOWN	: SMF, "mus_dp_d_unknown.mid",	BANK_BGM_DUNGEON,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_POKEPARK	: SMF, "mus_dp_pokepark.mid",	BANK_BGM_DUNGEON,  75, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_D_HARDMT	: SMF, "mus_dp_d_hardmt.mid",	BANK_BGM_DUNGEON,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_BLD_LEGEND	: SMF, "mus_dp_bld_legend.mid",	BANK_BGM_DUNGEON,  88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+
+
+
+
+;---------------------------------------------------------------------------------
+;施設　登録
+;
+;　BANK		BANK_BGM_FIELD,BANK_BGM_DUNGEON	(BANK_BASICはダメ！必ずどちらかにする)
+;　PLAYER	PLAYER_FIELD					(フィールドで流れるBGMなので)
+;---------------------------------------------------------------------------------
+SEQ_PC_01	: SMF, "mus_dp_pc_01.mid",	BANK_BGM_FIELD, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_PC_02	: SMF, "mus_dp_pc_02.mid",	BANK_BGM_FIELD, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_GYM		: SMF, "mus_dp_gym.mid",	BANK_BGM_FIELD, 118, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_KENKYUJO	: SMF, "mus_dp_kenkyujo.mid",	BANK_BGM_FIELD, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_BLD_CON	: SMF, "mus_dp_bld_con.mid",	BANK_BGM_FIELD,	 56, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_FS	 	: SMF, "mus_dp_fs.mid",		BANK_BGM_FIELD,  82, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;
+SEQ_BLD_GAME	: SMF, "mus_dp_bld_game.mid",	BANK_BGM_DUNGEON,127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_BF_TOWWER	: SMF, "mus_dp_bf_tower.mid",	BANK_BGM_DUNGEON, 78, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;
+SEQ_BLD_TV	: SMF, "mus_dp_bld_tv.mid",	BANK_BGM_DUNGEON,108, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;
+SEQ_THE_EVENT04	: SMF, "mus_dp_event04.mid",	BANK_BGM_DUNGEON, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_FUE		: SMF, "mus_dp_fue.mid",	BANK_BGM_DUNGEON, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_AUS		: SMF, "mus_dp_aus.mid",	BANK_BGM_DUNGEON, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_BLD_BLD_GTC	: SMF, "mus_dp_bld_gtc.mid",	BANK_BGM_DUNGEON, 96, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_OPENING2	: SMF, "mus_dp_opening.mid"  ,BANK_BGM_FIELD,127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;
+
+;使いまわし施設　--------------------------------------------------------------------------------
+SEQ_BF_FACT	: SMF, "mus_dp_bf_fact.mid",	BANK_BGM_DUNGEON, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;
+
+
+
+
+;---------------------------------------------------------------------------------
+;視線　登録
+;
+;　使用バンク		BANK_BASIC	(PLAYER_FIELD,PLAYER_DUNGEON両方から呼ばれるため)
+;　使用プレイヤー	PLAYER_BGM	(PLAYER_FIELDの情報を保持しておくため)
+;---------------------------------------------------------------------------------
+SEQ_EYE_BOY	: SMF, "mus_dp_eye_boy.mid",	BANK_BASIC, 105, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_KID	: SMF, "mus_dp_eye_kid.mid",	BANK_BASIC, 82, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_FIGHT	: SMF, "mus_dp_eye_fight.mid",	BANK_BASIC, 70, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_GINGA	: SMF, "mus_dp_eye_ginga.mid",	BANK_BASIC, 68, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_LADY	: SMF, "mus_dp_eye_lady.mid",	BANK_BASIC, 90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_MOUNT	: SMF, "mus_dp_eye_mount.mid",	BANK_BASIC, 88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_RICH	: SMF, "mus_dp_eye_rich.mid",	BANK_BASIC, 80, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_ENKA	: SMF, "mus_dp_eye_enka.mid",	BANK_BASIC, 70, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_MYS	: SMF, "mus_dp_eye_mys.mid",	BANK_BASIC, 80, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_ELITE	: SMF, "mus_dp_eye_elite.mid",	BANK_BASIC, 80, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_GIRL	: SMF, "mus_dp_eye_girl.mid",	BANK_BASIC, 95, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_SPORT	: SMF, "mus_dp_eye_sport.mid",	BANK_BASIC, 95, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_FUN	: SMF, "mus_dp_eye_fun.mid",	BANK_BASIC, 115, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_TENNO	: SMF, "mus_dp_eye_tenno.mid",	BANK_BASIC, 86, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EYE_CHAMP	: SMF, "mus_dp_eye_champ.mid",	BANK_BASIC,100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+
+;使いまわし視線　--------------------------------------------------------------------------------
+
+
+
+
+;---------------------------------------------------------------------------------
+;戦闘　登録
+;
+;　使用バンク		BANK_BGM_BATTLE	(戦闘画面なので)
+;　使用プレイヤー	PLAYER_BGM		(PLAYER_FIELDの情報を保持しておくため)
+;---------------------------------------------------------------------------------
+SEQ_FIGHT0101	: SMF, "mus_dp_fight0101.mid",	BANK_BGM_BATTLE, 88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_POKE	: SMF, "mus_dp_ba_poke.mid",	BANK_BGM_BATTLE, 88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_GYM	: SMF, "mus_dp_ba_gym.mid",	BANK_BGM_BATTLE, 88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_DPOKE1	: SMF, "mus_dp_ba_dpoke1.mid",	BANK_BGM_BATTLE, 78, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_TRAIN	: SMF, "mus_dp_ba_train.mid",	BANK_BGM_BATTLE, 88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_AKAGI	: SMF, "mus_dp_ba_akagi.mid",	BANK_BGM_BATTLE, 90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_DPOKE2	: SMF, "mus_dp_ba_dpoke2.mid",	BANK_BGM_BATTLE, 90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_CHANP	: SMF, "mus_dp_ba_champ.mid",	BANK_BGM_BATTLE, 90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_GINGA	: SMF, "mus_dp_ba_ginga.mid",	BANK_BGM_BATTLE, 90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_RIVAL	: SMF, "mus_dp_ba_rival.mid",	BANK_BGM_BATTLE, 88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_SECRET1	: SMF, "mus_dp_ba_secret1.mid",	BANK_BGM_BATTLE, 92, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_SECRET2	: SMF, "mus_dp_ba_secret2.mid",	BANK_BGM_BATTLE, 92, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+
+SEQ_WINPOKE	: SMF, "mus_dp_winpoke.mid",	BANK_BGM_BATTLE, 114, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_WINTRAIN	: SMF, "mus_dp_wintrain.mid",	BANK_BGM_BATTLE, 118, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_WINTGYM	: SMF, "mus_dp_wingym.mid",	BANK_BGM_BATTLE, 120, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_WINCHAMP	: SMF, "mus_dp_winchamp.mid",	BANK_BGM_BATTLE, 105, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_WINGINGA	: SMF, "mus_dp_winginga.mid",	BANK_BGM_BATTLE, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_WINAKAGI	: SMF, "mus_dp_winakagi.mid",	BANK_BGM_BATTLE, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_WINTENNO	: SMF, "mus_dp_wintenno.mid",	BANK_BGM_BATTLE, 90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_GINGA3	: SMF, "mus_dp_ba_ginga3.mid",	BANK_BGM_BATTLE, 90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+
+;技エフェクト使用のため
+SEQ_CON_TEST	: SMF, "mus_dp_con_test.mid",	BANK_BGM_BATTLE, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+
+;使いまわし戦闘　--------------------------------------------------------------------------------
+SEQ_BA_TENNO	: SMF, "mus_dp_ba_tenno.mid",	BANK_BGM_BATTLE, 94, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BA_TOWER	: SMF, "mus_dp_ba_tower.mid",	BANK_BGM_BATTLE, 98, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+
+
+
+
+;-----------------------------------------------------------------------------------------------
+;イベントA(演出としてフィールドBGMの上にのる形)登録
+;
+;　使用バンク		BANK_BASIC	(PLAYER_FIELD,PLAYER_DUNGEON両方から呼ばれるため)
+;　使用プレイヤー	PLAYER_BGM	(PLAYER_FIELDの情報を保持しておくため)
+;;-----------------------------------------------------------------------------------------------
+SEQ_TSURETEKE	: SMF, "mus_dp_tsureteke.mid",	BANK_BASIC, 125, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_THE_RIV	: SMF, "mus_dp_the_riv.mid",	BANK_BASIC,  70, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_THE_EVENT01	: SMF, "mus_dp_event01.mid",	BANK_BASIC,  96, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_SHINKA	: SMF, "mus_dp_shinka.mid",	BANK_BASIC,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_THE_BOY	: SMF, "mus_dp_the_boy.mid",	BANK_BASIC,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_THE_GIRL	: SMF, "mus_dp_the_girl.mid",	BANK_BASIC,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+
+SEQ_THE_EVENT02	: SMF, "mus_dp_event02.mid",	BANK_BGM_DUNGEON, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_THE_EVENT03	: SMF, "mus_dp_event03.mid",	BANK_BGM_DUNGEON, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_THE_EVENT05	: SMF, "mus_dp_event05.mid",	BANK_BGM_DUNGEON, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+
+;使いまわし　イベントA　--------------------------------------------------------------------------------
+SEQ_THE_AKAGI	: SMF, "mus_dp_the_AKAGI.mid",	BANK_BASIC,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+
+
+
+SEQ_EV_DENDO1	: SMF, "mus_dp_ev_dendo1.mid",	BANK_BASIC, 112, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_EV_LEGEND	: SMF, "mus_dp_ev_legend.mid",	BANK_BASIC, 105, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+
+;-----------------------------------------------------------------------------------------------
+;イベントB(フィールドBGMをのっとる形)登録
+;
+;　使用バンク		BANK_BASIC	(PLAYER_FIELD,PLAYER_DUNGEON両方から呼ばれるため)
+;　使用プレイヤー	PLAYER_FIELD	(PLAYER_FIELDをのっとる形なので)
+;;-----------------------------------------------------------------------------------------------
+SEQ_KUSAGASA	: SMF, "mus_dp_kusagasa.mid",	BANK_BASIC, 105, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_NAMINORI	: SMF, "mus_dp_naminori.mid",	BANK_BASIC, 115, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+SEQ_BICYCLE	: SMF, "mus_dp_bicycle.mid",	BANK_BASIC, 115, BGM_CH_PRI, BGM_PL_PRI, PLAYER_FIELD;道路
+
+;使いまわし　イベントB　--------------------------------------------------------------------------------
+
+
+
+
+
+;-----------------------------------------------------------------------------------------------
+;●ME
+;
+;　使用バンク		BANK_BASIC	(PLAYER_FIELD,PLAYER_DUNGEON両方から呼ばれるため)
+;　使用プレイヤー	PLAYER_ME	(PLAYER_FIELD、PLAYER_BGMの情報を保持しておくため)
+;-----------------------------------------------------------------------------------------------
+SEQ_GONIN	: SMF, "me_dp_gonin.mid",	BANK_BASIC, 106, ME_CH_PRI, ME_PL_PRI, PLAYER_ME;
+SEQ_TV_END	: SMF, "mus_dp_tv_end.mid",	BANK_BASIC, 90,  ME_CH_PRI, ME_PL_PRI, PLAYER_ME;道路
+
+SEQ_FANFA1	: SMF, "me_dp_lvup.mid",	BANK_BASIC, 125, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_FANFA5	: SMF, "me_dp_shinkaome.mid",	BANK_BASIC, 94, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_FANFA3	: SMF, "me_dp_keyitem.mid",	BANK_BASIC, 94, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_FANFA4	: SMF, "me_dp_item.mid",	BANK_BASIC, 100, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_FANFA6	: SMF, "me_dp_pokeget.mid",	BANK_BASIC, 100, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_FANFA2	: SMF, "me_dp_hyouka.mid",	BANK_BASIC, 94, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+
+
+SEQ_BADGE	: SMF, "me_dp_badge.mid",	BANK_BASIC, 100, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_POCKETCH	: SMF, "me_dp_poketch.mid",	BANK_BASIC, 100, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_WAZA	: SMF, "me_dp_waza.mid",	BANK_BASIC, 100, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_ACCE	: SMF, "me_dp_acce.mid",	BANK_BASIC, 88, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_WASURE	: SMF, "me_dp_wasure.mid",	BANK_BASIC, 127, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+
+
+;調整前-----------------------------------------------------------------------------------------
+SEQ_ASA		: SMF, "me_dp_asa.mid",		BANK_BASIC, 100, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_KINOMI	: SMF, "me_dp_kinomi.mid",	BANK_BASIC, 100, ME_CH_PRI, ME_PL_PRI, PLAYER_ME	;
+SEQ_REPORT	: SMF, "me_dp_report.mid",	BANK_BASIC, 112, BGM_CH_PRI, BGM_PL_PRI, PLAYER_ME;
+
+
+
+
+;-----------------------------------------------------------------------------------------------
+;専用画面　登録
+;
+;　使用バンク		BANK_BASIC	(とりあえず。ここは専用バンクでも問題ない)
+;　使用プレイヤー	PLAYER_BGM	(とりあえず。)
+;;-----------------------------------------------------------------------------------------------
+SEQ_CO_DRESS	: SMF, "mus_dp_co_dress.mid",	BANK_BASIC, 110, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+
+SEQ_KOUKAN	: SMF, "mus_dp_koukan.mid",	BANK_BASIC, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_BLD_EV_DENDO2: SMF, "mus_dp_ev_dendo2.mid",	BANK_BASIC,  88, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+
+SEQ_TITLE00	: SMF, "mus_dp_title00.mid",	BANK_BGM_OPEND, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_TITLE01	: SMF, "mus_dp_title01.mid",	BANK_BGM_OPEND, 127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+
+SEQ_PRESENT	: SMF, "mus_dp_present.mid",	BANK_BASIC,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_WIFILOBBY	: SMF, "mus_dp_wifilobby.mid",	BANK_BASIC,  90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_CO_KAWAI	: SMF, "mus_dp_co_kawai.mid",	BANK_BASIC, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_CO_KASHI: SMF, "mus_dp_co_kashi.mid",	BANK_BASIC, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_CO_UTSUK: SMF, "mus_dp_co_utsuk.mid",	BANK_BASIC, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_CO_TAKUMA: SMF, "mus_dp_co_takma.mid",	BANK_BGM_FIELD, 95, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_CO_KAKKO: SMF, "mus_dp_co_kakko.mid",	BANK_BGM_FIELD, 95, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_CO_KEKKA: SMF, "mus_dp_co_kekka.mid",	BANK_BASIC, 80, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_CO_FANFA: SMF, "mus_dp_co_fanfa.mid",	BANK_BASIC, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_KINOMI1: SMF, "mus_dp_kinomi1.mid",	BANK_BASIC, 90, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_SLOT_ATARI	: SMF, "mus_dp_slot_atari.mid",	BANK_BASIC,  80, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_SLOT_OOATARI: SMF, "mus_dp_slot_ooatari.mid",BANK_BASIC, 75, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_BLD_ENDING	: SMF, "mus_dp_ending.mid",	BANK_BGM_FIELD,127, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+
+;使いまわし　専用画面　--------------------------------------------------------------------------------
+
+SEQ_KINOMI2	: SMF, "mus_dp_kinomi2.mid",	BANK_BASIC, 70, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+SEQ_SLOT	: SMF, "mus_dp_slot.mid",	BANK_BASIC, 112, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;道路
+
+
+;----------- ------------------------------------------------------------------------------------
+;●終了ナンバー(サウンドテストで使用する)
+;-----------------------------------------------------------------------------------------------
+SEQ_AIF_FIELD	: TEXT, "aif_check.smft",	BANK_BGM_FIELD, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_AIF_DUNGEON	: TEXT, "aif_check.smft",	BANK_BGM_DUNGEON, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+SEQ_AIF_BATTLE	: TEXT, "aif_check.smft",	BANK_BGM_BATTLE, 100, BGM_CH_PRI, BGM_PL_PRI, PLAYER_BGM;
+
+SEQ_BGM_END	: TEXT, "pm_voice.smft",BANK_BASIC, 0, 0, 0, 0; 
+
+
+

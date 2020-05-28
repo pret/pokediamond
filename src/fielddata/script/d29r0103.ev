@@ -1,0 +1,86 @@
+//====================================================================
+//								d29r0103
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d29r0103.h"
+	.include	"../eventdata/zone_d29r0103evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d29r0103_flag_change
+_EVENT_DATA		ev_d29r0103_init_change
+_EVENT_DATA		ev_d29r0103_rei
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d29r0103_flag_change:
+	_ARRIVE_FLAG_SET	FLAG_ARRIVE_D29R0103	//到着
+	_END
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d29r0103_init_change:
+	_IF_FLAGON_JUMP	FE_INIT_CHANGE_OBJ_DEL,ev_d29r0103_init_change_obj_del
+	_END
+
+ev_d29r0103_init_change_obj_del:
+	_FLAG_SET		FV_D29R0103_REI
+	_OBJ_DEL		D29R0103_REI
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_END
+
+
+/********************************************************************/
+/*								レイ								*/
+/********************************************************************/
+ev_d29r0103_rei:
+	_TALK_OBJ_START
+
+	_VOICE_PLAY		MONSNO_REI,0
+	_TALK_KEYWAIT	msg_d29r0103_sppoke1_01
+	_TALK_CLOSE
+
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	MONSNO_REI,50
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+
+	_LOSE_CHECK			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d29r0103_legend_lose
+	_SEACRET_POKE_RETRY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d29r0103_legend_capture_ng
+
+//レイ捕まえたor倒した
+ev_d29r0103_legend_event_clear:
+	//クリアフラグon
+	_FLAG_SET			FE_D29R0103_LEGEND_CLEAR
+	_TALK_OBJ_END
+	_END
+
+//レイ捕まえ損ねた
+ev_d29r0103_legend_capture_ng:
+	_TALKMSG			msg_d29r0103_sppoke1_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//全滅
+ev_d29r0103_legend_lose:
+	_NORMAL_LOSE	
+	_TALK_OBJ_END
+	_END
+
+
+

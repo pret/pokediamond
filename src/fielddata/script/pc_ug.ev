@@ -1,0 +1,401 @@
+//====================================================================
+//								pc_ug
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"connect_def.h"
+	.include	"../../../include/msgdata/msg_pc_ug.h"
+	//.include	"../eventdata/zone_pc_ugevc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_pc_ug_first
+_EVENT_DATA		ev_pc_ug_help
+_EVENT_DATA		ev_pc_ug_counter
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_pc_ug_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*					初回イベント(ともだち手帳入手)					*/
+/********************************************************************/
+ev_pc_ug_first:
+	_EVENT_START
+
+	_TALK_KEYWAIT	msg_pcug_01_01
+	_TALK_CLOSE
+
+	/*受付に近づく*/
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_pc_ug_player_01
+	_OBJ_ANIME_WAIT
+
+	_TALK_KEYWAIT	msg_pcug_01_02
+
+	/*「ともだちてちょう」入手*/
+
+	//アイテム名、個数をセット
+	_LDVAL			SCWK_TEMP0,ITEM_TOMODATITETYOU
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*▼あり*/
+
+	_JUMP			ev_pc_ug_menu01
+	_END
+
+/*選択メニュー*/
+ev_pc_ug_menu01:
+	_TALKMSG		msg_pcug_01_03
+	_BMPMENU_INIT		11,13,0,1,SCWK_ANSWER				//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_137,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_138,1
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_pc_ug_menu_001
+	_CASE_JUMP		1,ev_pc_ug_menu_002
+	_JUMP			ev_pc_ug_menu_002
+	_END
+
+ev_pc_ug_menu_001:
+	_TALKMSG		msg_pcug_01_04
+	_BMPMENU_INIT		15,13,0,1,SCWK_ANSWER				//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_139,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_138,1
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_pc_ug_menu_001
+	_CASE_JUMP		1,ev_pc_ug_menu_002
+	_JUMP			ev_pc_ug_menu_002
+	_END
+
+/*「もうわかった」*/
+ev_pc_ug_menu_002:
+	_LDVAL			WK_SCENE_PC0103,1
+
+	_TALKMSG		msg_pcug_01_05
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	受付に近づく
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_pc_ug_player_01
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	AC_WALK_U_8F,4
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_DIR_U,1
+	_ANIME_DATA	AC_WAIT_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*							受付									*/
+/********************************************************************/
+ev_pc_ug_help:
+	_TALK_OBJ_START
+
+	_TALKMSG		msg_pcug_01_06
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_pc_ug_01
+	_JUMP			no_pc_ug_01
+	_END
+
+/*「いいえ」*/
+no_pc_ug_01:
+	_TALKMSG		msg_pcug_01_05
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「はい」*/
+yes_pc_ug_01:
+	_TALKMSG		msg_pcug_01_07
+	_BMPMENU_INIT		11,13,0,1,SCWK_ANSWER				//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_137,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_138,1
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_pc_ug_menu_011
+	_CASE_JUMP		1,no_pc_ug_01
+	_JUMP			no_pc_ug_01
+	_END
+
+/*TALK_OBJ_START用に別にしている*/
+ev_pc_ug_menu_011:
+	_TALKMSG		msg_pcug_01_04
+	_BMPMENU_INIT		15,13,0,1,SCWK_ANSWER				//Bキャンセル有効
+	_BMPMENU_MAKE_LIST	msg_ev_win_139,0
+	_BMPMENU_MAKE_LIST	msg_ev_win_138,1
+	_BMPMENU_START
+
+	_SWITCH			SCWK_ANSWER
+	_CASE_JUMP		0,ev_pc_ug_menu_011						/*もう一度表示へ*/
+	_CASE_JUMP		1,no_pc_ug_01
+	_JUMP			no_pc_ug_01
+	_END
+
+
+/********************************************************************/
+/*							ごりよう受付							*/
+/********************************************************************/
+#define POS_PC_UG_X1	(7)
+#define POS_PC_UG_X2	(9)
+
+ev_pc_ug_counter:
+	_TALK_OBJ_START
+
+	/*手持ちにダメタマゴがいるかチェック*/
+	_DAME_TAMAGO_CHK_ALL	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,TRUE,ev_pc_ug_dame_tamago
+
+	_TALKMSG		msg_pcug_02_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_pc_ug_check  //はい
+	_JUMP			no_pc_ug_02
+	_END
+
+
+yes_pc_ug_check:
+	// ともだちリストがあるかどうか
+	_FRIEND_DATA_NUM  SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_pc_ug_check2  //ない
+	_JUMP			yes_pc_ug_03
+
+yes_pc_ug_check2:
+	// 本ＩＤかどうか
+    _CHECK_MY_GSID  SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,pc_ug_id_get_end  //本ID
+	_JUMP			pc_ug_id_get  // 仮ID
+	_END
+
+pc_ug_id_get:
+	// まだ仮IDなので本IDを取るかどうか伺う
+	_TALKMSG		msg_pcug_02_05
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_pc_ug_03  //はい
+	_JUMP			no_pc_ug_02  // おわり
+	_END
+
+
+pc_ug_id_get_end:
+	//本IDなので友達登録を促しておわり
+	_TALKMSG		msg_pcug_02_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//====================================================================
+//ごりようですか？
+//====================================================================
+/*「いいえ」*/
+no_pc_ug_02:
+	_TALKMSG		msg_pcug_02_02
+	_LAST_KEYWAIT
+
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*「はい」		一気に03に飛ぶ
+yes_pc_ug_02:
+	_TALKMSG		msg_pcug_02_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,yes_pc_ug_03
+	_JUMP			no_pc_ug_02
+	_END */
+
+/*「はい」*/
+yes_pc_ug_03:
+
+	// 全ポケモン回復
+	_PC_KAIFUKU
+
+	//セーブしますか？(LOCALWORK0に結果が代入される)
+	_CHG_COMMON_SCR	SCRID_REPORT_CALL
+	_LDWK			SCWK_ANSWER,LOCALWORK0
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,save_after_ug_03				//成功
+	_JUMP			no_pc_ug_02										//終了へ
+	_END
+
+
+save_after_ug_03:
+	_TALK_KEYWAIT	msg_pcug_02_04
+	_TALK_CLOSE
+
+	//マップ遷移しないのでフラグは立てない！
+	//_FLAG_SET		SYS_FLAG_COMM_COUNTER			//通信カウンター通過フラグ(システム)
+
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_PC_UG_X1,ev_pc_ug_pos1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_PC_UG_X2,ev_pc_ug_pos2
+	_END
+
+/*部屋に入るふり*/
+ev_pc_ug_pos1:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_pc_ug_player_20
+	_OBJ_ANIME_WAIT
+	_JUMP			common_pc_ug_pos
+	_END
+
+ev_pc_ug_pos2:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_pc_ug_player_21
+	_OBJ_ANIME_WAIT
+	_JUMP			common_pc_ug_pos
+	_END
+
+common_pc_ug_pos:
+	//カウンターが開く
+	_SET_UP_DOOR_ANIME	0,0,8,5,77
+	_CALL			connect_door_open
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_pc_ug_player_22
+	_OBJ_ANIME_WAIT
+	_CALL			connect_door_close
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_pc_ug_player_23
+	_OBJ_ANIME_WAIT
+
+	//通信部屋のドアが開く
+	_SET_UP_DOOR_ANIME	0,0,8,2,77
+	_CALL			connect_door_open
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_pc_ug_player_24
+	_OBJ_ANIME_WAIT
+	_CALL			connect_door_close
+
+	_JUMP			ev_wifi_p2p_match_menu			//成功
+	_END
+
+connect_door_open:
+	_SEQ_OPEN_DOOR	77	//ドア開ける
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_RET
+
+connect_door_close:
+	_SEQ_CLOSE_DOOR	77	//ドア閉める
+	_WAIT_3D_ANIME	77	//アニメ終了待ち
+	_FREE_3D_ANIME	77	//ドアアニメ解放
+	_RET
+
+//====================================================================
+//ボード呼び出し
+//====================================================================
+ev_wifi_p2p_match_menu:
+	_BLACK_OUT		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	_FINISH_MAP_PROC
+
+	_FRIEND_DATA_NUM  SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,ev_wifi_p2p_match_menu_check  //ない
+
+	_WIFI_P2P_MATCH_EVENT_CALL   //P2P対戦
+
+	_JUMP ev_wifi_p2p_match_call_end
+
+ev_wifi_p2p_match_menu_check:
+	_WIFI_P2P_MATCH_EVENT_CALL   //P2P対戦 だけどID取得のみ
+//	_DPW_INIT_PROC	SCWK_ANSWER   //ID取得のみ
+
+ev_wifi_p2p_match_call_end:
+
+	_SET_MAP_PROC
+	_BLACK_IN		SCR_WIPE_DIV,SCR_WIPE_SYNC
+	_WIPE_FADE_END_CHECK
+
+	//通信部屋のドアが開く
+	_SET_UP_DOOR_ANIME	0,0,8,2,77
+	_CALL			connect_door_open
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_pc_ug_player_30
+	_OBJ_ANIME_WAIT
+	_CALL			connect_door_close
+
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_pc_ug_player_31
+	_OBJ_ANIME_WAIT
+
+	//カウンターが開く
+	_SET_UP_DOOR_ANIME	0,0,8,5,77
+	_CALL			connect_door_open
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_pc_ug_player_32
+	_OBJ_ANIME_WAIT
+	_CALL			connect_door_close
+
+	_END
+
+//--------------------------------------------------------------------
+//主人公	部屋に入るふり
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_pc_ug_player_20
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_pc_ug_player_21
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_pc_ug_player_22
+	_ANIME_DATA	AC_WALK_U_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_pc_ug_player_23
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_pc_ug_player_24
+	_ANIME_DATA	AC_WALK_U_8F,1
+	_ANIME_DATA	AC_VANISH_ON,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//主人公	部屋から出るふり
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_pc_ug_player_30
+	_ANIME_DATA	AC_VANISH_OFF,1
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_pc_ug_player_31
+	_ANIME_DATA	AC_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_pc_ug_player_32
+	_ANIME_DATA	AC_WALK_D_8F,2
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+//
+/*					手持ちにダメタマゴがいる時						*/
+//
+/********************************************************************/
+ev_pc_ug_dame_tamago:
+	_CHG_COMMON_SCR	SCRID_CONNECT_DAME_TAMAGO_MSG
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+

@@ -1,0 +1,14 @@
+.cvsignore
+arc_result.txt
+arclist
+field_land.txt
+field_outrange.txt
+field_zone.txt
+ug_land.txt
+map_matrix.txt
+map_matrix.naix
+land_list
+field_list_for_mat.csv
+room_list_for_mat.csv
+dun_list_for_mat.csv
+ug_list_for_mat.csv

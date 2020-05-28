@@ -1,0 +1,101 @@
+//====================================================================
+//						r218r0101.gmm
+//							r0101
+//====================================================================
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_r218r0101.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_r218r0101_policeman
+_EVENT_DATA		ev_r218r0101_fishing
+_EVENT_DATA_END						//終了
+
+/********************************************************************/
+/*							お巡りさん								*/
+/********************************************************************/
+ev_r218r0101_policeman:
+	_EASY_OBJ_MSG	msg_r218r0101_policeman_01
+	_END
+
+/********************************************************************/
+/*							釣り人									*/
+/********************************************************************/
+ev_r218r0101_fishing:
+	_TALK_OBJ_START
+
+	//アイテム名をセット
+	_LDVAL			SCWK_TEMP0,ITEM_BORONOTURIZAO
+	_ITEM_NAME		0,SCWK_TEMP0
+
+	//既に取得済みかチェック
+	_IF_FLAGON_JUMP		FE_BORONOTURIZAO_GET,r218r0101_fishing_flag_on
+
+	_TALKMSG	msg_r218r0101_fishing_01
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,r218r0101_fishing_yes
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,r218r0101_fishing_no
+	_END
+
+//既に取得済み
+r218r0101_fishing_flag_on:
+	_ITEM_NAME		0,SCWK_TEMP0
+
+	_TALKMSG		msg_r218r0101_fishing_03
+	_YES_NO_WIN		SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,0,r218r0101_fishing_05
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,r218r0101_fishing_06
+	_END
+
+//説明　はい
+r218r0101_fishing_05:
+	_TALKMSG		msg_r218r0101_fishing_05
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//説明　いいえ
+r218r0101_fishing_06:
+	_TALKMSG		msg_r218r0101_fishing_06
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+
+//”いいえ”選択
+r218r0101_fishing_no:
+	_TALKMSG		msg_r218r0101_fishing_04
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//”はい”選択
+r218r0101_fishing_yes:
+	_ITEM_NAME		0,SCWK_TEMP0
+
+	_TALK_KEYWAIT	msg_r218r0101_fishing_02
+
+	//個数をセット
+	_LDVAL			SCWK_TEMP1,1
+
+	//アイテム取得成功イベント(SCWK_TEMP0=アイテムナンバー、SCWK_TEMP1=個数を代入しておく)
+	_CHG_COMMON_SCR	SCRID_ITEM_EVENT_KEYWAIT	/*送りカーソル待ちあり*/
+
+	//取得済み状態へ
+	_FLAG_SET		FE_BORONOTURIZAO_GET
+
+	_JUMP			r218r0101_fishing_flag_on
+
+
+/********************************************************************/
+/********************************************************************/

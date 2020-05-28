@@ -1,0 +1,1 @@
+start MessageEditor -i ..\template.gmt %1

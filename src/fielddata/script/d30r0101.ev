@@ -1,0 +1,117 @@
+//====================================================================
+//								d30r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d30r0101.h"
+	.include	"../eventdata/zone_d30r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d30r0101_flag_change
+_EVENT_DATA		ev_d30r0101_init_change
+_EVENT_DATA		ev_d30r0101_sppoke7
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d30r0101_flag_change:
+
+	_END
+
+
+/********************************************************************/
+/*						INIT_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_d30r0101_init_change:
+	_IF_FLAGON_JUMP	FE_INIT_CHANGE_OBJ_DEL,ev_d30r0101_init_change_obj_del
+	_END
+
+ev_d30r0101_init_change_obj_del:
+	_FLAG_SET		FV_D30R0101_SPPOKE7
+	_OBJ_DEL		D30R0101_SPPOKE7
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	_END
+
+
+/********************************************************************/
+/*							ダーク									*/
+/********************************************************************/
+ev_d30r0101_sppoke7:
+	_EVENT_START
+	_SE_PLAY		SEQ_SE_DP_SELECT
+	_SE_WAIT		SEQ_SE_DP_SELECT
+
+	_TALK_KEYWAIT	msg_d30r0101_sppoke7_01
+	_TALK_CLOSE
+
+	_FLAG_SET		FE_INIT_CHANGE_OBJ_DEL
+	_SP_WILD_BTL_SET	MONSNO_DAAKU,40
+	_FLAG_RESET		FE_INIT_CHANGE_OBJ_DEL
+	
+	_LOSE_CHECK			SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_d30r0101_legend_lose
+	_HAIFU_POKE_RETRY_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,1,ev_d30r0101_legend_capture_ng
+
+//ダーク捕まえたor倒した
+ev_d30r0101_legend_event_clear:
+	//クリアフラグon
+	_FLAG_SET		FE_D30R0101_LEGEND_CLEAR
+
+ev_d30r0101_legend_event_end:
+	//宿屋の親父を消しておく
+	_FLAG_SET		FV_C02R0401_EVENT
+
+	//宿屋から来ていれば宿屋に戻る
+	_IFVAL_JUMP		WK_SCENE_C02R0401,EQ,2,ev_d30r0101_return_c02r0401
+	_EVENT_END
+	_END
+
+//ダーク逃した
+ev_d30r0101_legend_capture_ng:
+	_TALKMSG			msg_d30r0101_sppoke7_02
+	_TALK_CLOSE
+	_JUMP				ev_d30r0101_legend_event_end
+
+//宿屋に戻る
+ev_d30r0101_return_c02r0401:
+	_TIME_WAIT		30,SCWK_ANSWER
+	//二回フェードを繰り返し
+	_BLACK_OUT		SCR_WIPE_DIV,3
+	_WIPE_FADE_END_CHECK
+	_BLACK_IN		SCR_WIPE_DIV,3
+	_WIPE_FADE_END_CHECK
+	_BLACK_OUT		SCR_WIPE_DIV,3
+	_WIPE_FADE_END_CHECK
+	_BLACK_IN		SCR_WIPE_DIV,3
+	_WIPE_FADE_END_CHECK
+
+	//最後にゆっくりフェードアウト
+	_BLACK_OUT		SCR_WIPE_DIV,6
+	_WIPE_FADE_END_CHECK
+	
+	//4秒間暗いまま
+	_TIME_WAIT		120,SCWK_ANSWER
+	
+	_MAP_CHANGE_NONE_FADE	ZONE_ID_C02R0401,0,8,6,DIR_DOWN
+	
+	_BLACK_IN		SCR_WIPE_DIV,6
+	_WIPE_FADE_END_CHECK
+	_EVENT_END
+	_END
+
+//全滅
+ev_d30r0101_legend_lose:
+	_NORMAL_LOSE	
+	_EVENT_END
+	_END

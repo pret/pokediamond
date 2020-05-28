@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="sogabe" host="W00086" date="2005-09-02T15:24:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="TOKUSEIINFO_000">
+		<language name="日本語">ー
+ー</language>
+	</row>
+
+	<row id="TOKUSEIINFO_001">
+		<language name="日本語">やせいの　ポケモンが
+よりつき　にくくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_002">
+		<language name="日本語">せんとうに　でると
+あめを　ふらす。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_003">
+		<language name="日本語">ちょっとずつ
+すばやく　なっていく。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_004">
+		<language name="日本語">あいての　こうげきが
+きゅうしょに　あたらない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_005">
+		<language name="日本語">いちげきひっさつが
+きかない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_006">
+		<language name="日本語">だれも　じばくが
+できなくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_007">
+		<language name="日本語">まひ　じょうたいに
+ならない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_008">
+		<language name="日本語">すなあらしで
+かいひりつが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_009">
+		<language name="日本語">さわった　あいてを
+まひさせる　ことがある。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_010">
+		<language name="日本語">でんきを　うけると
+かいふくする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_011">
+		<language name="日本語">みずを　うけると
+かいふくする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_012">
+		<language name="日本語">メロメロ　じょうたいに
+ならない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_013">
+		<language name="日本語">てんきの　えいきょうが
+なくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_014">
+		<language name="日本語">わざの　めいちゅうりつが
+あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_015">
+		<language name="日本語">ねむり　じょうたいに
+ならない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_016">
+		<language name="日本語">うけた　わざの　タイプに
+へんかする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_017">
+		<language name="日本語">どく　じょうたいに
+ならない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_018">
+		<language name="日本語">ほのおを　うけると
+ほのおわざが　つよくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_019">
+		<language name="日本語">わざの　ついかこうかを
+うけない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_020">
+		<language name="日本語">こんらん　じょうたいに
+ならない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_021">
+		<language name="日本語">いれかえさせる　わざが
+きかない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_022">
+		<language name="日本語">あいての　こうげきを
+さげる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_023">
+		<language name="日本語">あいての　かげをふみ
+にげられなくする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_024">
+		<language name="日本語">ふれた　あいてを
+キズつける。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_025">
+		<language name="日本語">こうかばつぐん　しか
+あたらない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_026">
+		<language name="日本語">じめんタイプの　わざを
+うけない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_027">
+		<language name="日本語">ふれると　どく　まひ
+ねむりに　することがある。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_028">
+		<language name="日本語">どく　まひ　やけどを
+あいてに　うつす。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_029">
+		<language name="日本語">あいてに　のうりょくを
+さげられない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_030">
+		<language name="日本語">じょうたい　いじょうが
+ひっこむと　なおる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_031">
+		<language name="日本語">でんきタイプの　わざを
+すべて　うける。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_032">
+		<language name="日本語">わざの　ついかこうかが
+でやすい。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_033">
+		<language name="日本語">あめのとき　すばやさが
+あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_034">
+		<language name="日本語">はれのとき　すばやさが
+あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_035">
+		<language name="日本語">やせいの　ポケモンに
+そうぐう　しやすくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_036">
+		<language name="日本語">あいてと　おなじ
+とくせいに　なる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_037">
+		<language name="日本語">ぶつり　こうげきの
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_038">
+		<language name="日本語">ふれた　あいてに　どくを
+おわせる　ことがある。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_039">
+		<language name="日本語">ひるまない。
+</language>
+	</row>
+
+	<row id="TOKUSEIINFO_040">
+		<language name="日本語">こおり　じょうたいに
+ならない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_041">
+		<language name="日本語">やけど　じょうたいに
+ならない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_042">
+		<language name="日本語">はがねタイプの　ポケモンを
+にげられなくする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_043">
+		<language name="日本語">おとの　わざを
+うけない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_044">
+		<language name="日本語">あめのとき　すこしずつ
+ＨＰを　かいふくする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_045">
+		<language name="日本語">せんとうで　すなあらしを
+おこす。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_046">
+		<language name="日本語">あいての　つかう　わざの
+ＰＰを　おおく　へらす。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_047">
+		<language name="日本語">ほのおと　こおりタイプの
+わざに　つよい。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_048">
+		<language name="日本語">おきるのが　はやくなる。
+</language>
+	</row>
+
+	<row id="TOKUSEIINFO_049">
+		<language name="日本語">ふれた　あいてを　やけど
+させることがある。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_050">
+		<language name="日本語">やせいの　ポケモンから
+かならず　にげられる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_051">
+		<language name="日本語">あいてに　めいちゅうりつを
+さげられない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_052">
+		<language name="日本語">あいてに　こうげきを
+さげられない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_053">
+		<language name="日本語">どうぐを　ひろってくる
+ことが　ある。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_054">
+		<language name="日本語">こうげきが　れんぞくで
+だせない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_055">
+		<language name="日本語">こうげきは　たかいが
+はずれやすい。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_056">
+		<language name="日本語">ふれると　メロメロに
+することがある。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_057">
+		<language name="日本語">マイナスが　いると
+とくこうが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_058">
+		<language name="日本語">プラスが　いると
+とくこうが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_059">
+		<language name="日本語">てんきで　ポワルンが
+へんかする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_060">
+		<language name="日本語">どうぐを　とられない。
+</language>
+	</row>
+
+	<row id="TOKUSEIINFO_061">
+		<language name="日本語">じょうたい　いじょうを
+なおす　ことがある。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_062">
+		<language name="日本語">じょうたい　いじょうで
+こうげきが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_063">
+		<language name="日本語">じょうたい　いじょうで
+ぼうぎょが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_064">
+		<language name="日本語">すいとった　あいての
+ＨＰを　へらす</language>
+	</row>
+
+	<row id="TOKUSEIINFO_065">
+		<language name="日本語">ピンチのとき　くさの
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_066">
+		<language name="日本語">ピンチのとき　ほのおの
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_067">
+		<language name="日本語">ピンチのとき　みずの
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_068">
+		<language name="日本語">ピンチのとき　むしの
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_069">
+		<language name="日本語">ぶつかっても
+はんどうを　うけない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_070">
+		<language name="日本語">せんとうに　でると
+にほんばれに　なる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_071">
+		<language name="日本語">せんとうで　あいてを
+にげられなくする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_072">
+		<language name="日本語">ねむり　じょうたいに
+ならない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_073">
+		<language name="日本語">あいてに　のうりょくを
+さげられない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_074">
+		<language name="日本語">ぶつり　こうげきの
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_075">
+		<language name="日本語">あいての　こうげきが
+きゅうしょに　あたらない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_076">
+		<language name="日本語">てんきの　えいきょうが
+なくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_077">
+		<language name="日本語">こんらん　していると
+かいひ　しやすくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_078">
+		<language name="日本語">でんきを　うけると
+すばやさが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_079">
+		<language name="日本語">せいべつが　おなじだと
+こうげきが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_080">
+		<language name="日本語">ひるむ　たびに
+すばやさが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_081">
+		<language name="日本語">てんきが　あられのとき　
+かいひりつが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_082">
+		<language name="日本語">きのみを　いつもより
+はやく　つかう。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_083">
+		<language name="日本語">きゅうしょに　うけると
+こうげきが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_084">
+		<language name="日本語">どうぐが　なくなると
+すばやさが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_085">
+		<language name="日本語">ほのお　わざの
+いりょくを　よわめる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_086">
+		<language name="日本語">のうりょく　へんかが
+いつもより　はげしい。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_087">
+		<language name="日本語">あついと　ＨＰが　へる。
+みずで　ＨＰを　かいふく。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_088">
+		<language name="日本語">あいての　のうりょくを
+みて　つよさを　かえる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_089">
+		<language name="日本語">パンチを　つかう　わざの
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_090">
+		<language name="日本語">どくじょうたいに　なると
+ＨＰを　かいふくする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_091">
+		<language name="日本語">タイプが　おなじ　わざの
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_092">
+		<language name="日本語">れんぞく　わざを
+たくさん　だせる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_093">
+		<language name="日本語">じょうたい　いじょうが
+あめの　とき　なおる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_094">
+		<language name="日本語">はれると　ＨＰが　へるが
+とくこうが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_095">
+		<language name="日本語">じょうたい　いじょうで
+すばやさが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_096">
+		<language name="日本語">だしたわざが　すべて
+ノーマルタイプに　なる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_097">
+		<language name="日本語">きゅうしょに　あてたとき
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_098">
+		<language name="日本語">こうげき　いがいでは
+ダメージを　うけない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_099">
+		<language name="日本語">おたがいの　わざが
+かならず　あたる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_100">
+		<language name="日本語">あいてより　すばやくても
+こうどうが　おそくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_101">
+		<language name="日本語">よわい　わざの
+いりょくが　あがる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_102">
+		<language name="日本語">じょうたい　いじょうに
+はれのとき　ならない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_103">
+		<language name="日本語">もっている　どうぐを
+つかうことが　できない。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_104">
+		<language name="日本語">とくせいに　かんけいなく
+あいてに　わざを　だせる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_105">
+		<language name="日本語">あいての　きゅうしょに
+こうげきが　あたりやすい。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_106">
+		<language name="日本語">ひんしの　ときに　ふれた
+あいてに　ダメージ。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_107">
+		<language name="日本語">あいての　もつ　きけんな
+わざを　さっちする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_108">
+		<language name="日本語">あいての　もつ　わざを
+よみとることが　できる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_109">
+		<language name="日本語">あいての　のうりょくの
+へんかを　むしする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_110">
+		<language name="日本語">こうかいまひとつ　のとき
+わざを　つよめる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_111">
+		<language name="日本語">こうかばつぐん　のとき
+いりょくを　よわめる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_112">
+		<language name="日本語">こうげきと　すばやさが
+しばらく　はんぶんになる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_113">
+		<language name="日本語">ゴーストタイプに　わざが
+あたるようになる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_114">
+		<language name="日本語">みずタイプの　わざを
+すべて　うける。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_115">
+		<language name="日本語">てんきが　あられのとき
+ＨＰを　かいふくする。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_116">
+		<language name="日本語">こうかばつぐん　のとき
+いりょくを　よわめる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_117">
+		<language name="日本語">せんとうに　でると
+あられを　ふらす。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_118">
+		<language name="日本語">あまいミツを　あつめて
+くることが　ある。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_119">
+		<language name="日本語">あいての　もちものを
+しることが　できる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_120">
+		<language name="日本語">はんどうで　ダメージを
+うけるわざが　つよくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_121">
+		<language name="日本語">もっている　プレートで
+タイプが　かわる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_122">
+		<language name="日本語">はれのとき　じぶんと
+みかたが　つよくなる。</language>
+	</row>
+
+	<row id="TOKUSEIINFO_123">
+		<language name="日本語">ねむっている　あいての
+ＨＰを　へらす。</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

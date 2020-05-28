@@ -1,0 +1,69 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: field_board.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-29T12:41:17
+ *****************************************************************************/
+
+#ifndef NARC_FIELD_BOARD_NAIX_
+#define NARC_FIELD_BOARD_NAIX_
+
+enum {
+	NARC_field_board_kanb_win00_NCGR = 0,
+	NARC_field_board_kanb_win00_NCLR = 1,
+	NARC_field_board_board_road000_NCGR = 2,
+	NARC_field_board_board_road001_NCGR = 3,
+	NARC_field_board_board_road002_NCGR = 4,
+	NARC_field_board_board_road003_NCGR = 5,
+	NARC_field_board_board_road004_NCGR = 6,
+	NARC_field_board_board_road005_NCGR = 7,
+	NARC_field_board_board_road006_NCGR = 8,
+	NARC_field_board_board_road007_NCGR = 9,
+	NARC_field_board_board_road008_NCGR = 10,
+	NARC_field_board_board_road009_NCGR = 11,
+	NARC_field_board_board_road010_NCGR = 12,
+	NARC_field_board_board_road011_NCGR = 13,
+	NARC_field_board_board_road012_NCGR = 14,
+	NARC_field_board_board_road013_NCGR = 15,
+	NARC_field_board_board_road014_NCGR = 16,
+	NARC_field_board_board_road015_NCGR = 17,
+	NARC_field_board_board_road016_NCGR = 18,
+	NARC_field_board_board_road017_NCGR = 19,
+	NARC_field_board_board_road018_NCGR = 20,
+	NARC_field_board_board_road019_NCGR = 21,
+	NARC_field_board_board_road020_NCGR = 22,
+	NARC_field_board_board_road021_NCGR = 23,
+	NARC_field_board_board_road022_NCGR = 24,
+	NARC_field_board_board_road023_NCGR = 25,
+	NARC_field_board_board_road024_NCGR = 26,
+	NARC_field_board_board_road025_NCGR = 27,
+	NARC_field_board_board_road026_NCGR = 28,
+	NARC_field_board_board_road027_NCGR = 29,
+	NARC_field_board_board_road028_NCGR = 30,
+	NARC_field_board_board_road029_NCGR = 31,
+	NARC_field_board_board_road030_NCGR = 32,
+	NARC_field_board_board_town_dmy_NCGR = 33,
+	NARC_field_board_board_town_t01_NCGR = 34,
+	NARC_field_board_board_town_t02_NCGR = 35,
+	NARC_field_board_board_town_t03_NCGR = 36,
+	NARC_field_board_board_town_t04_NCGR = 37,
+	NARC_field_board_board_town_t05_NCGR = 38,
+	NARC_field_board_board_town_t06_NCGR = 39,
+	NARC_field_board_board_town_t07_NCGR = 40,
+	NARC_field_board_board_town_c01_NCGR = 41,
+	NARC_field_board_board_town_c02_NCGR = 42,
+	NARC_field_board_board_town_c03_NCGR = 43,
+	NARC_field_board_board_town_c04_NCGR = 44,
+	NARC_field_board_board_town_c05_NCGR = 45,
+	NARC_field_board_board_town_c06_NCGR = 46,
+	NARC_field_board_board_town_c07_NCGR = 47,
+	NARC_field_board_board_town_c08_NCGR = 48,
+	NARC_field_board_board_town_c09_NCGR = 49,
+	NARC_field_board_board_town_c10_NCGR = 50,
+	NARC_field_board_board_town_c11_NCGR = 51
+};
+
+/* NARC_FIELD_BOARD_NAIX_ */
+#endif

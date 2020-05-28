@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="unno" host="W00106" date="2006-06-01T21:57:07" source="bomb_mark.mb"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+</head>
+
+<body>
+
+<original_create user="unno" host="W00106" date="2006-06-01T21:57:07" source="bomb_mark.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20051121"/>
+
+<model_info
+	pos_scale="2"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="1"
+	tex_matrix_mode="maya"
+	compress_node="merge" node_size="1 1"
+	compress_material="on" material_size="1 1"
+	output_texture="used"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="3" xyz="-3.000000 0.125000 -3.000000" whd="6.000000 0.000000 6.000000"/>
+
+<tex_image_array size="1">
+	<tex_image index="0" name="bomb_mark"
+		width="64" height="64" original_width="64" original_height="64"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="bomb_mark_pl"
+		path="C:/mayadata/obj3/tex/bomb_mark.tga"
+	>
+		<bitmap size="1024">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 2222 0005 0000 0000 0000
+			0000 0050 0000 0000 0000 0000 0000 0000
+			0000 0000 2000 2222 0955 0000 0000 0000
+			0000 0550 0000 0000 0000 0000 0000 0000
+			0000 0000 2000 5222 5999 0000 0000 0000
+			0000 5595 0005 2000 5522 0000 0000 0000
+			0000 0000 2000 5552 5999 0000 0000 0000
+			5000 5599 0005 2200 5222 0009 0000 0000
+			0000 0000 0000 9555 5599 0000 0000 0000
+			5000 9999 0555 2200 2222 0095 0000 0000
+			0000 0000 0000 9990 0059 5500 0095 5000
+			5555 9999 0966 2200 4222 0995 0000 0000
+			0000 0000 0000 0000 0000 5555 0995 5000
+			5555 9999 0966 2000 4422 0995 0000 0000
+			0000 0000 0000 0000 5222 5555 9669 5555
+			9999 9999 2966 0022 5550 0599 0000 0000
+			0000 0000 0000 2200 2222 9555 9669 9999
+			9999 9999 9666 2222 9990 0059 0000 0000
+			0000 0000 0000 2220 2222 9555 6669 9999
+			9999 9999 6666 2299 9992 0005 0000 0000
+			0000 0000 0000 3330 5222 9955 6669 9999
+			9999 6699 6996 2666 5552 0000 0000 0000
+			0000 0000 0000 3330 5552 9999 6669 9996
+			9999 6699 9bbb 2699 0005 0000 0000 0000
+			0000 0000 0000 3330 5552 9999 6666 9966
+			9999 6669 9bbb 5699 0005 0000 0000 0000
+			0000 0000 5000 3330 9553 6999 b666 666b
+			6699 bb66 9bbb 5699 0005 0000 0000 0000
+			0000 0000 5000 9995 9555 b699 bbbb 666b
+			6666 bbb6 666b 5999 0055 0000 0000 0000
+			0000 0000 0000 9995 9666 b699 bbbb 66bb
+			6666 bbb6 666b 5999 0055 0000 0000 0000
+			0000 0000 0000 9950 6999 bb66 bbbb bbbb
+			b666 bbbb 666b 9966 5559 0000 0000 0000
+			0000 0000 0000 6650 6666 bb66 bbbb bbbb
+			cccc bbbc 6bbb 9666 5599 0000 0000 0000
+			0000 0000 0000 6650 6666 bb66 bbbb bbbb
+			cccc bbbc 6bbb 9666 5599 0000 0000 0000
+			0000 0000 5000 6695 6666 bbbb bbbb cccc
+			cccc cccc bbbb 6666 5596 0000 0000 0000
+			0000 0000 2200 5552 b999 bbbb ccbb cccc
+			cccc cccc bbbc 6666 5596 0000 0000 0000
+			0000 0000 2200 5552 6999 bbb6 ccbb cccc
+			cccc cccc bbbc 666b 5596 0000 0000 0000
+			0000 0000 2200 9952 9999 bb66 cccc cccc
+			cccc cccc cccc 666b 2246 0000 0000 0000
+			0000 0000 4500 9954 9999 bb66 cccc cccc
+			cccc cccc cccc 66bb 2244 0002 0000 0000
+			0000 0000 4500 9954 6699 cb66 cccc 8acc
+			acca cca8 cccc 66bb 2245 0092 0000 0000
+			0000 0000 5500 9955 6669 cb66 cccc 78ac
+			8c88 cc88 cccc 5bbb 2245 0595 0000 0000
+			0000 0000 9900 9999 6669 cbb6 cccc 88ac
+			8aa7 cc87 cccc 5bbb 2245 0995 0000 0000
+			0000 0000 9900 9999 6699 cbb6 cccc accc
+			78ca cca8 cccc 5bbb 2245 0995 0000 0000
+			0000 0000 9000 5559 6999 cb66 cccc 778c
+			88c7 cccc cccc 6bbb 5545 0999 0000 0000
+			0000 0000 0000 3223 6995 c666 cccc 88ac
+			aaa8 ccaa cccc 66bb 9996 0999 0000 0000
+			0000 0000 3000 3223 6995 c666 cccc accc
+			8aca cc87 cccc 66bb 9996 0999 0000 0000
+			0000 0000 3000 2223 6695 bb66 cccc cccc
+			78ac cca8 cccc 66bb 9925 0449 0000 0000
+			0000 0000 3000 2233 6665 bb66 cccc cccc
+			88ac ccca bccc 56bb 2222 0443 0000 0000
+			0000 0000 3000 2233 6665 bb66 cccc cccc
+			cccc cccc bccc 26bb 2222 0453 0000 0000
+			0000 0000 3000 2233 6665 bbbb cccc cccc
+			cccc cccc bccc 2599 2222 0459 0000 0000
+			0000 0000 3000 5553 b669 bbbb cccb cccc
+			cccc cccc 9bbc 2599 4222 0559 0000 0000
+			0000 0000 3000 5553 b669 bbbb bbbb cccc
+			cccc cccc 9bbc 2599 4422 0559 0000 0000
+			0000 0000 5000 9955 b669 99bb bb99 cccb
+			cccc bbcc 555b 4999 9944 0559 0000 0000
+			0000 0000 5000 9955 5559 9995 9999 cbbb
+			9ccc 5599 5555 9955 9999 0559 0000 0000
+			0000 0000 0000 9555 5599 9995 9999 cbb9
+			99cc 5599 5555 9995 9999 0559 0000 0000
+			0000 0000 2000 5222 0000 9500 3359 5553
+			2355 5522 5555 9999 9999 0555 0000 0000
+			0000 0000 2200 5222 0095 0000 3300 5333
+			5333 9955 9999 9999 5599 0055 0000 0000
+			0000 0000 2200 9522 0099 0000 3300 5333
+			5333 9955 9999 9999 5599 0005 0000 0000
+			0000 0000 2200 9555 0099 0000 0000 5555
+			9555 9999 9555 5999 0555 0000 0000 0000
+			0000 0000 5000 9955 0059 0000 0000 0000
+			5555 5555 5555 5555 0005 0000 0000 0000
+			0000 0000 0000 9999 0055 0000 0000 0000
+			5500 5555 5555 0555 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="bomb_mark_pl" color_size="16">
+		3b74 3a6e 3e56 3a35 3a14 31d2 212b 08af
+		0cac 296e 10c9 1ce9 18c7 7fff 7fff 7fff
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="bomb_mark"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="25 25 25"
+		ambient="25 25 25"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-6.000000 0.250000 -6.000000"
+		volume_max="6.000000 0.250000 6.000000"
+		volume_r="8.489014"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="8.000000 56.000000"/>
+					<nrm xyz="0.000000 0.998047 0.000000"/>
+					<pos_s xyz="-6.000000 0.250000 6.000000"/>
+					<tex st="56.000000 56.000000"/>
+					<pos_xy xy="6.000000 0.250000"/>
+					<tex st="56.000000 8.000000"/>
+					<pos_xz xz="6.000000 -6.000000"/>
+					<tex st="8.000000 8.000000"/>
+					<pos_xy xy="-6.000000 0.250000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pCube1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="off"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-6.000000 0.250000 -6.000000"
+		volume_max="6.000000 0.250000 6.000000"
+		volume_r="8.489014"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+</body>
+
+</imd>

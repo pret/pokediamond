@@ -1,0 +1,7 @@
+//---- コンバータ：SPAConv.exe  Version 1.08
+
+const char * const debug_particle_tbl[] = {
+	"wazaeffect/effectdata/dummy.spa",	//0
+	"wazaeffect/effectdata/debug.spa",	//1
+};
+

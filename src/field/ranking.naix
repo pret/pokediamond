@@ -1,0 +1,21 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: ranking.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-06-06T18:43:29
+ *****************************************************************************/
+
+#ifndef NARC_RANKING_NAIX_
+#define NARC_RANKING_NAIX_
+
+enum {
+	NARC_ranking_ranking_nclr = 0,
+	NARC_ranking_ranking_ncgr = 1,
+	NARC_ranking_ranking_ncer = 2,
+	NARC_ranking_ranking_nanr = 3
+};
+
+/* NARC_RANKING_NAIX_ */
+#endif

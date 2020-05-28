@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<imd version="1.6.0">
+
+<head>
+	<create user="kanako_eo" host="W00107" date="2006-07-13T18:28:18"/>
+	<title>Model Data for NINTENDO NITRO-System</title>
+	<generator name="NNS_3DMaterialEditor" version="2.7.0.20050228"/>
+</head>
+
+<body>
+
+<original_create user="kanako_eo" host="W00107" date="2006-07-13T15:56:53" source="sphero_ine.mb"/>
+<original_generator name="Maya 6.5 NNS_Export" version="1.6.0.20060417"/>
+
+<model_info
+	pos_scale="3"
+	scaling_rule="standard"
+	vertex_style="direct"
+	magnify="1.000000"
+	tool_start_frame="0"
+	tex_matrix_mode="maya"
+	compress_node="none" node_size="1 1"
+	compress_material="off" material_size="1 1"
+	output_texture="all"
+	force_full_weight="off"
+	use_primitive_strip="on"
+/>
+
+<box_test pos_scale="3" xyz="-2.000000 0.000000 0.000000" whd="4.000000 4.000000 0.000000"/>
+
+<tex_image_array size="4">
+	<tex_image index="0" name="swimheroine.1"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="swimheroine"
+		path="C:/mayadata/obj/tex/swimheroine/swimheroine.1.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 1110 0011 0000 0000 0000
+			0000 0000 1100 3332 1233 0001 0000 0000
+			0000 0000 3110 3333 3333 0012 0000 0000
+			0000 0000 3340 3333 3333 0043 0000 0000
+			0000 0000 3354 3333 3333 0453 0000 0000
+			0000 0000 3356 3333 3333 0653 0000 0000
+			0000 4000 3556 3333 3333 4655 0000 0000
+			0000 4000 3526 3333 3333 4625 0000 0000
+			0000 4000 5526 3335 5533 4625 0000 0000
+			0000 4000 5546 3335 5533 4665 0000 0000
+			0000 4000 3261 3325 3523 4162 0000 0000
+			0000 4000 6114 3322 6223 4411 0000 0000
+			0000 4000 1446 3241 1142 4644 0000 0000
+			0000 4000 4664 1144 4441 4466 0000 0000
+			0000 0000 6664 1146 6641 0466 0000 0000
+			0000 0000 4640 1146 4641 0046 0000 0000
+			0000 0000 44e0 1644 4446 00e4 0000 0000
+			0000 0000 4f40 4646 c646 004c 0000 0000
+			0000 0000 6a94 4466 c664 049c 0000 0000
+			0000 0000 a494 6687 b786 049b 0000 0000
+			0000 0000 4440 777a 4a77 0044 0000 0000
+			0000 0000 5540 4444 5444 0045 0000 0000
+			0000 0000 5540 0004 5400 0045 0000 0000
+			0000 0000 4400 0000 4000 0004 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="1" name="swimheroine.2"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="swimheroine"
+		path="C:/mayadata/obj/tex/swimheroine/swimheroine.2.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 2200 0002 0000 0000 0000
+			0000 0000 0000 3310 0013 0000 0000 0000
+			0000 0000 1100 3332 1233 0001 0000 0000
+			0000 0000 3210 3333 3333 0012 0000 0000
+			0000 0000 3340 3333 3333 0043 0000 0000
+			0000 0000 3354 3333 3333 0453 0000 0000
+			0000 0000 3356 3333 3333 0653 0000 0000
+			0000 4000 3556 3333 3333 4655 0000 0000
+			0000 4000 3526 3333 3333 4625 0000 0000
+			0000 4000 5526 7735 5537 4625 0000 0000
+			0000 4000 5569 5585 5585 4945 0000 0000
+			0000 4000 3269 2225 3522 4962 0000 0000
+			0000 4000 2c66 5355 2553 466c 0000 0000
+			0000 4000 6416 9912 6219 4614 0000 0000
+			0000 4000 9414 dd43 934d 4414 0000 0000
+			0000 0000 aa14 ddd9 a9dd 0414 0000 0000
+			0000 0000 9140 d9a4 94a9 0041 0000 0000
+			0000 0000 9940 11fe 9ef1 0049 0000 0000
+			0000 0000 a920 64ee aee4 0029 0000 0000
+			0000 0000 12d4 8889 1988 0ad2 0000 0000
+			0000 0000 4dd4 0044 4440 04dd 0000 0000
+			0000 0000 0440 0000 0000 0044 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="2" name="swimheroine.3"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="swimheroine"
+		path="C:/mayadata/obj/tex/swimheroine/swimheroine.3.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 2222 0011 0000 0000
+			0000 0000 0000 2222 3333 0133 0000 0000
+			0000 0000 1200 3333 3333 0133 0000 0000
+			0000 0000 3510 3333 3333 0013 0000 0000
+			0000 0000 3331 3333 3333 0002 0000 0000
+			0000 0000 3331 3333 5333 0012 0000 0000
+			0000 1000 3335 3333 5333 0015 0000 0000
+			0000 1000 3355 3333 5533 0012 0000 0000
+			0000 1000 5557 3333 5555 0012 0000 0000
+			0000 1000 5582 5555 2555 0015 0000 0000
+			0000 4000 2225 2222 5222 0465 0000 0000
+			0000 4000 555a 3353 5555 0464 0000 0000
+			0000 0000 319a 61cb 1666 0464 0000 0000
+			0000 0000 34da 1916 4111 4664 0000 0000
+			0000 0000 ddd9 9916 6444 4664 0000 0000
+			0000 0000 9da0 a916 6664 4114 0000 0000
+			0000 0000 aa00 444a 6464 0444 0000 0000
+			0000 0000 29a0 bea4 4444 0000 0000 0000
+			0000 0000 99a0 bada 046a 0000 0000 0000
+			0000 0000 4a00 c499 04ac 0000 0000 0000
+			0000 0000 2da0 cc49 488c 0000 0000 0000
+			0000 0000 dda0 bbb4 48ab 0000 0000 0000
+			0000 0000 4400 4440 4404 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+	<tex_image index="3" name="swimheroine.4"
+		width="32" height="32" original_width="32" original_height="32"
+		format="palette16"
+		color0_mode="transparency"
+		palette_name="swimheroine"
+		path="C:/mayadata/obj/tex/swimheroine/swimheroine.4.tga"
+	>
+		<bitmap size="256">
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 1100 2222 0000 0000 0000 0000
+			0000 0000 3310 3333 2222 0000 0000 0000
+			0000 0000 3310 3333 3333 0021 0000 0000
+			0000 0000 3100 3333 3333 0153 0000 0000
+			0000 0000 2000 3333 3333 1333 0000 0000
+			0000 0000 2100 3335 3333 1333 0000 0000
+			0000 0000 5100 3335 3333 5333 0001 0000
+			0000 0000 2100 3355 3333 5533 0001 0000
+			0000 0000 2100 5555 3333 7555 0001 0000
+			0000 0000 5100 5552 5555 2855 0001 0000
+			0000 0000 5640 2225 2222 5222 0004 0000
+			0000 0000 4640 5555 3533 a555 0004 0000
+			0000 0000 4640 6661 bc16 a913 0000 0000
+			0000 0000 4664 1114 6191 ad43 0000 0000
+			0000 0000 4664 4446 6199 9ddd 0000 0000
+			0000 0000 4114 4666 619a 0ad9 0000 0000
+			0000 0000 4440 4646 a444 00aa 0000 0000
+			0000 0000 0000 4444 4aeb 0a92 0000 0000
+			0000 0000 0000 a640 adab 0a99 0000 0000
+			0000 0000 0000 ca40 994c 00a4 0000 0000
+			0000 0000 0000 c884 94cc 0ad2 0000 0000
+			0000 0000 0000 ba84 4bbb 0add 0000 0000
+			0000 0000 0000 4044 0444 0044 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+			0000 0000 0000 0000 0000 0000 0000 0000
+		</bitmap>
+	</tex_image>
+</tex_image_array>
+
+<tex_palette_array size="1">
+	<tex_palette index="0" name="swimheroine" color_size="16">
+		4ef8 4587 6695 7fbd 0000 6f39 2907 625d
+		4db8 3e9b 210f 1e79 2f7f 5f5f 1cf8 25be
+	</tex_palette>
+</tex_palette_array>
+
+<material_array size="1">
+	<material index="0" name="obj"
+		light0="on" light1="off" light2="off" light3="off"
+		face="front"
+		alpha="31"
+		wire_mode="off"
+		polygon_mode="modulate"
+		polygon_id="0"
+		fog_flag="off"
+		depth_test_decal="off"
+		translucent_update_depth="off"
+		render_1_pixel="off"
+		far_clipping="off"
+		diffuse="0 0 0"
+		ambient="31 31 31"
+		specular="0 0 0"
+		emission="0 0 0"
+		shininess_table_flag="off"
+		tex_image_idx="0" tex_palette_idx="0"
+		tex_tiling="repeat repeat"
+		tex_scale="1.000000 1.000000"
+		tex_rotate="0.000000"
+		tex_translate="0.000000 0.000000"
+		tex_gen_mode="none"
+	/>
+</material_array>
+
+<matrix_array size="1">
+	<matrix index="0" mtx_weight="1" node_idx="0"/>
+</matrix_array>
+
+<polygon_array size="1">
+	<polygon index="0" name="polygon0"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+		mtx_prim_size="1"
+		nrm_flag="on" clr_flag="off" tex_flag="on"
+	>
+		<mtx_prim index="0">
+			<mtx_list size="1">0</mtx_list>
+			<primitive_array size="1">
+				<primitive index="0" type="quads" vertex_size="4">
+					<mtx idx="0"/>
+					<tex st="0.000000 32.000000"/>
+					<nrm xyz="0.000000 0.000000 0.998047"/>
+					<pos_s xyz="-2.000000 0.000000 0.000000"/>
+					<tex st="32.000000 32.000000"/>
+					<pos_xy xy="2.000000 0.000000"/>
+					<tex st="32.000000 0.000000"/>
+					<pos_xy xy="2.000000 4.000000"/>
+					<tex st="0.000000 0.000000"/>
+					<pos_xy xy="-2.000000 4.000000"/>
+				</primitive>
+			</primitive_array>
+		</mtx_prim>
+	</polygon>
+</polygon_array>
+
+<node_array size="1">
+	<node index="0" name="pPlane1" kind="mesh"
+		parent="-1"
+		child="-1"
+		brother_next="-1"
+		brother_prev="-1"
+		draw_mtx="on"
+		billboard="on"
+		scale="1.000000 1.000000 1.000000"
+		rotate="0.000000 0.000000 0.000000"
+		translate="0.000000 0.000000 0.000000"
+		visibility="on"
+		display_size="1"
+		vertex_size="4" polygon_size="1"
+		triangle_size="0" quad_size="1"
+		volume_min="-2.000000 0.000000 0.000000"
+		volume_max="2.000000 4.000000 0.000000"
+		volume_r="4.472168"
+	>
+		<display index="0" material="0" polygon="0" priority="0"/>
+	</node>
+</node_array>
+
+<output_info vertex_size="4" polygon_size="1"
+	triangle_size="0" quad_size="1"/>
+
+<ex_nns_3dme>
+	<ex_model_info scene_name="デフォルトシーン" disp_pos="0.000000 60.000000"/>
+	<ex_tex_image_array size="4">
+		<ex_tex_image index="0" disp_pos="0.000000 300.000000"/>
+		<ex_tex_image index="1" disp_pos="-120.000000 420.000000"/>
+		<ex_tex_image index="2" disp_pos="0.000000 420.000000"/>
+		<ex_tex_image index="3" disp_pos="120.000000 420.000000"/>
+	</ex_tex_image_array>
+	<ex_tex_palette_array size="1">
+		<ex_tex_palette index="0" disp_pos="-120.000000 480.000000"/>
+	</ex_tex_palette_array>
+	<ex_material_array size="1">
+		<ex_material index="0" disp_pos="0.000000 240.000000"/>
+	</ex_material_array>
+	<ex_polygon_array size="1">
+		<ex_polygon index="0" disp_pos="0.000000 180.000000"/>
+	</ex_polygon_array>
+	<ex_node_array size="1">
+		<ex_node index="0" disp_pos="0.000000 120.000000"/>
+	</ex_node_array>
+</ex_nns_3dme>
+
+</body>
+
+</imd>

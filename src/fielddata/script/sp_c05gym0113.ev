@@ -1,0 +1,7 @@
+.text
+
+.include	"scr_seq_def.h"
+
+.include	"c05gym0113_def.h"
+
+_SP_EVENT_DATA_END

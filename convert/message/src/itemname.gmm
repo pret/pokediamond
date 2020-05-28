@@ -1,0 +1,1954 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="" ?>
+
+<gmml version="4.4">
+
+<head>
+	<create user="HiroyukiNakamura" host="W00086" date="2005-11-30T18:22:51"/>
+	<generator name="MessageEditor" version="4.8.9.2"/>
+</head>
+
+<body language="japanese">
+	<color>
+		<list entry="0" r="00" g="00" b="00" a="FF"/>
+		<list entry="1" r="FF" g="00" b="00" a="FF"/>
+		<list entry="2" r="00" g="FF" b="00" a="FF"/>
+		<list entry="3" r="00" g="00" b="FF" a="FF"/>
+	</color>
+
+	<tag-table>
+		<group entry="0" japanese="タググループ" english="タググループ">
+		</group>
+
+		<group entry="254" japanese="文字列展開" english="Word">
+		</group>
+
+		<set japanese="黒" english="Black" value="FF:00:色:0"/>
+		<set japanese="赤" english="Red" value="FF:00:色:1"/>
+		<set japanese="緑" english="Green" value="FF:00:色:2"/>
+		<set japanese="青" english="Blue" value="FF:00:色:3"/>
+		<set japanese="500%" english="500%" value="FF:01:サイズ:500"/>
+		<set japanese="400%" english="400%" value="FF:01:サイズ:400"/>
+		<set japanese="300%" english="300%" value="FF:01:サイズ:300"/>
+		<set japanese="200%" english="200%" value="FF:01:サイズ:200"/>
+		<set japanese="150%" english="150%" value="FF:01:サイズ:150"/>
+		<set japanese="100%" english="100%" value="FF:01:サイズ:100"/>
+		<set japanese="75%" english="75%" value="FF:01:サイズ:75"/>
+		<set japanese="50%" english="50%" value="FF:01:サイズ:50"/>
+	</tag-table>
+
+	<columns>
+		<id position="0" width="100"/>
+		<group default=" 0:デフォルト" position="1" width="100">
+			<list entry="0" japanese="デフォルト" english="Default" colorID="0"/>
+		</group>
+		<number position="-1" width="100"/>
+		<comment position="2" width="100"/>
+		<erase position="3" width="100"/>
+		<language japanese="日本語" english="日本語">
+			<message position="4" width="100"/>
+			<font default="" position="5" width="100">
+			</font>
+			<size position="6" width="100"/>
+			<space position="7" width="100"/>
+			<width position="8" width="100"/>
+			<line position="9" width="100"/>
+		</language>
+	</columns>
+
+	<dialog left="28" top="301" right="733" bottom="921" maximized="no" rayout="Vertical2">
+		<comment-input left="733" top="771" right="1080" bottom="921" visible="yes"/>
+		<tag-palette left="733" top="375" right="1080" bottom="771" visible="yes"/>
+		<band id="0" index="0" style="0000" width="530"/>
+		<band id="1" index="1" style="0000" width="165"/>
+		<band id="2" index="2" style="0000" width="560"/>
+		<band id="3" index="3" style="0000" width="135"/>
+		<band id="4" index="4" style="0000" width="697"/>
+		<edit entry="0" language="日本語" mode="Edit" spell-check="-1"/>
+		<edit entry="1" language="日本語" mode="Preview" spell-check="-1"/>
+		<edit entry="2" language="日本語" mode="Source" spell-check="-1"/>
+		<edit entry="3" language="日本語" mode="Source" spell-check="-1"/>
+	</dialog>
+
+	<output default="デフォルト">
+		<target japanese="デフォルト" english="default" endian="big" encoding="Shift_JIS" letter-list-encoding="Shift_JIS" header-file-encoding="Shift_JIS" language="日本語">
+			<struct name="JMSMesgEntry" id="" message="mesgOffset">
+			</struct>
+			<entry sort="id" id-block="no" flowlabel-block="no"/>
+			<header divide="no" id-prefix="JMS_" query-prefix="JMS_QUERY_" flownode-prefix="JMS_FLOWNODE_" id="" struct="" query=""/>
+		</target>
+	</output>
+
+
+	<lock>
+		<operation add_message="no" header_setting="no" tag_setting="no" output_setting="no" display="no" sort="no" flowchart_window="no"/>
+	</lock>
+
+
+	<row id="ITEMNAME_000">
+		<language name="日本語">なし</language>
+	</row>
+
+	<row id="ITEMNAME_001">
+		<language name="日本語">マスターボール</language>
+	</row>
+
+	<row id="ITEMNAME_002">
+		<language name="日本語">ハイパーボール</language>
+	</row>
+
+	<row id="ITEMNAME_003">
+		<language name="日本語">スーパーボール</language>
+	</row>
+
+	<row id="ITEMNAME_004">
+		<language name="日本語">モンスターボール</language>
+	</row>
+
+	<row id="ITEMNAME_005">
+		<language name="日本語">サファリボール</language>
+	</row>
+
+	<row id="ITEMNAME_006">
+		<language name="日本語">ネットボール</language>
+	</row>
+
+	<row id="ITEMNAME_007">
+		<language name="日本語">ダイブボール</language>
+	</row>
+
+	<row id="ITEMNAME_008">
+		<language name="日本語">ネストボール</language>
+	</row>
+
+	<row id="ITEMNAME_009">
+		<language name="日本語">リピートボール</language>
+	</row>
+
+	<row id="ITEMNAME_010">
+		<language name="日本語">タイマーボール</language>
+	</row>
+
+	<row id="ITEMNAME_011">
+		<language name="日本語">ゴージャスボール</language>
+	</row>
+
+	<row id="ITEMNAME_012">
+		<language name="日本語">プレミアボール</language>
+	</row>
+
+	<row id="ITEMNAME_013">
+		<language name="日本語">ダークボール</language>
+	</row>
+
+	<row id="ITEMNAME_014">
+		<language name="日本語">ヒールボール</language>
+	</row>
+
+	<row id="ITEMNAME_015">
+		<language name="日本語">クイックボール</language>
+	</row>
+
+	<row id="ITEMNAME_016">
+		<language name="日本語">プレシャスボール</language>
+	</row>
+
+	<row id="ITEMNAME_017">
+		<language name="日本語">キズぐすり</language>
+	</row>
+
+	<row id="ITEMNAME_018">
+		<language name="日本語">どくけし</language>
+	</row>
+
+	<row id="ITEMNAME_019">
+		<language name="日本語">やけどなおし</language>
+	</row>
+
+	<row id="ITEMNAME_020">
+		<language name="日本語">こおりなおし</language>
+	</row>
+
+	<row id="ITEMNAME_021">
+		<language name="日本語">ねむけざまし</language>
+	</row>
+
+	<row id="ITEMNAME_022">
+		<language name="日本語">まひなおし</language>
+	</row>
+
+	<row id="ITEMNAME_023">
+		<language name="日本語">かいふくのくすり</language>
+	</row>
+
+	<row id="ITEMNAME_024">
+		<language name="日本語">まんたんのくすり</language>
+	</row>
+
+	<row id="ITEMNAME_025">
+		<language name="日本語">すごいキズぐすり</language>
+	</row>
+
+	<row id="ITEMNAME_026">
+		<language name="日本語">いいキズぐすり</language>
+	</row>
+
+	<row id="ITEMNAME_027">
+		<language name="日本語">なんでもなおし</language>
+	</row>
+
+	<row id="ITEMNAME_028">
+		<language name="日本語">げんきのかけら</language>
+	</row>
+
+	<row id="ITEMNAME_029">
+		<language name="日本語">げんきのかたまり</language>
+	</row>
+
+	<row id="ITEMNAME_030">
+		<language name="日本語">おいしいみず</language>
+	</row>
+
+	<row id="ITEMNAME_031">
+		<language name="日本語">サイコソーダ</language>
+	</row>
+
+	<row id="ITEMNAME_032">
+		<language name="日本語">ミックスオレ</language>
+	</row>
+
+	<row id="ITEMNAME_033">
+		<language name="日本語">モーモーミルク</language>
+	</row>
+
+	<row id="ITEMNAME_034">
+		<language name="日本語">ちからのこな</language>
+	</row>
+
+	<row id="ITEMNAME_035">
+		<language name="日本語">ちからのねっこ</language>
+	</row>
+
+	<row id="ITEMNAME_036">
+		<language name="日本語">ばんのうごな</language>
+	</row>
+
+	<row id="ITEMNAME_037">
+		<language name="日本語">ふっかつそう</language>
+	</row>
+
+	<row id="ITEMNAME_038">
+		<language name="日本語">ピーピーエイド</language>
+	</row>
+
+	<row id="ITEMNAME_039">
+		<language name="日本語">ピーピーリカバー</language>
+	</row>
+
+	<row id="ITEMNAME_040">
+		<language name="日本語">ピーピーエイダー</language>
+	</row>
+
+	<row id="ITEMNAME_041">
+		<language name="日本語">ピーピーマックス</language>
+	</row>
+
+	<row id="ITEMNAME_042">
+		<language name="日本語">フエンせんべい</language>
+	</row>
+
+	<row id="ITEMNAME_043">
+		<language name="日本語">きのみジュース</language>
+	</row>
+
+	<row id="ITEMNAME_044">
+		<language name="日本語">せいなるはい</language>
+	</row>
+
+	<row id="ITEMNAME_045">
+		<language name="日本語">マックスアップ</language>
+	</row>
+
+	<row id="ITEMNAME_046">
+		<language name="日本語">タウリン</language>
+	</row>
+
+	<row id="ITEMNAME_047">
+		<language name="日本語">ブロムヘキシン</language>
+	</row>
+
+	<row id="ITEMNAME_048">
+		<language name="日本語">インドメタシン</language>
+	</row>
+
+	<row id="ITEMNAME_049">
+		<language name="日本語">リゾチウム</language>
+	</row>
+
+	<row id="ITEMNAME_050">
+		<language name="日本語">ふしぎなアメ</language>
+	</row>
+
+	<row id="ITEMNAME_051">
+		<language name="日本語">ポイントアップ</language>
+	</row>
+
+	<row id="ITEMNAME_052">
+		<language name="日本語">キトサン</language>
+	</row>
+
+	<row id="ITEMNAME_053">
+		<language name="日本語">ポイントマックス</language>
+	</row>
+
+	<row id="ITEMNAME_054">
+		<language name="日本語">もりのヨウカン</language>
+	</row>
+
+	<row id="ITEMNAME_055">
+		<language name="日本語">エフェクトガード</language>
+	</row>
+
+	<row id="ITEMNAME_056">
+		<language name="日本語">クリティカッター</language>
+	</row>
+
+	<row id="ITEMNAME_057">
+		<language name="日本語">プラスパワー</language>
+	</row>
+
+	<row id="ITEMNAME_058">
+		<language name="日本語">ディフェンダー</language>
+	</row>
+
+	<row id="ITEMNAME_059">
+		<language name="日本語">スピーダー</language>
+	</row>
+
+	<row id="ITEMNAME_060">
+		<language name="日本語">ヨクアタール</language>
+	</row>
+
+	<row id="ITEMNAME_061">
+		<language name="日本語">スペシャルアップ</language>
+	</row>
+
+	<row id="ITEMNAME_062">
+		<language name="日本語">スペシャルガード</language>
+	</row>
+
+	<row id="ITEMNAME_063">
+		<language name="日本語">ピッピにんぎょう</language>
+	</row>
+
+	<row id="ITEMNAME_064">
+		<language name="日本語">エネコのシッポ</language>
+	</row>
+
+	<row id="ITEMNAME_065">
+		<language name="日本語">あおいビードロ</language>
+	</row>
+
+	<row id="ITEMNAME_066">
+		<language name="日本語">きいろビードロ</language>
+	</row>
+
+	<row id="ITEMNAME_067">
+		<language name="日本語">あかいビードロ</language>
+	</row>
+
+	<row id="ITEMNAME_068">
+		<language name="日本語">くろいビードロ</language>
+	</row>
+
+	<row id="ITEMNAME_069">
+		<language name="日本語">しろいビードロ</language>
+	</row>
+
+	<row id="ITEMNAME_070">
+		<language name="日本語">あさせのしお</language>
+	</row>
+
+	<row id="ITEMNAME_071">
+		<language name="日本語">あさせのかいがら</language>
+	</row>
+
+	<row id="ITEMNAME_072">
+		<language name="日本語">あかいかけら</language>
+	</row>
+
+	<row id="ITEMNAME_073">
+		<language name="日本語">あおいかけら</language>
+	</row>
+
+	<row id="ITEMNAME_074">
+		<language name="日本語">きいろいかけら</language>
+	</row>
+
+	<row id="ITEMNAME_075">
+		<language name="日本語">みどりのかけら</language>
+	</row>
+
+	<row id="ITEMNAME_076">
+		<language name="日本語">シルバースプレー</language>
+	</row>
+
+	<row id="ITEMNAME_077">
+		<language name="日本語">ゴールドスプレー</language>
+	</row>
+
+	<row id="ITEMNAME_078">
+		<language name="日本語">あなぬけのヒモ</language>
+	</row>
+
+	<row id="ITEMNAME_079">
+		<language name="日本語">むしよけスプレー</language>
+	</row>
+
+	<row id="ITEMNAME_080">
+		<language name="日本語">たいようのいし</language>
+	</row>
+
+	<row id="ITEMNAME_081">
+		<language name="日本語">つきのいし</language>
+	</row>
+
+	<row id="ITEMNAME_082">
+		<language name="日本語">ほのおのいし</language>
+	</row>
+
+	<row id="ITEMNAME_083">
+		<language name="日本語">かみなりのいし</language>
+	</row>
+
+	<row id="ITEMNAME_084">
+		<language name="日本語">みずのいし</language>
+	</row>
+
+	<row id="ITEMNAME_085">
+		<language name="日本語">リーフのいし</language>
+	</row>
+
+	<row id="ITEMNAME_086">
+		<language name="日本語">ちいさなキノコ</language>
+	</row>
+
+	<row id="ITEMNAME_087">
+		<language name="日本語">おおきなキノコ</language>
+	</row>
+
+	<row id="ITEMNAME_088">
+		<language name="日本語">しんじゅ</language>
+	</row>
+
+	<row id="ITEMNAME_089">
+		<language name="日本語">おおきなしんじゅ</language>
+	</row>
+
+	<row id="ITEMNAME_090">
+		<language name="日本語">ほしのすな</language>
+	</row>
+
+	<row id="ITEMNAME_091">
+		<language name="日本語">ほしのかけら</language>
+	</row>
+
+	<row id="ITEMNAME_092">
+		<language name="日本語">きんのたま</language>
+	</row>
+
+	<row id="ITEMNAME_093">
+		<language name="日本語">ハートのウロコ</language>
+	</row>
+
+	<row id="ITEMNAME_094">
+		<language name="日本語">あまいミツ</language>
+	</row>
+
+	<row id="ITEMNAME_095">
+		<language name="日本語">すくすくこやし</language>
+	</row>
+
+	<row id="ITEMNAME_096">
+		<language name="日本語">じめじめこやし</language>
+	</row>
+
+	<row id="ITEMNAME_097">
+		<language name="日本語">ながながこやし</language>
+	</row>
+
+	<row id="ITEMNAME_098">
+		<language name="日本語">ねばねばこやし</language>
+	</row>
+
+	<row id="ITEMNAME_099">
+		<language name="日本語">ねっこのカセキ</language>
+	</row>
+
+	<row id="ITEMNAME_100">
+		<language name="日本語">ツメのカセキ</language>
+	</row>
+
+	<row id="ITEMNAME_101">
+		<language name="日本語">かいのカセキ</language>
+	</row>
+
+	<row id="ITEMNAME_102">
+		<language name="日本語">こうらのカセキ</language>
+	</row>
+
+	<row id="ITEMNAME_103">
+		<language name="日本語">ひみつのコハク</language>
+	</row>
+
+	<row id="ITEMNAME_104">
+		<language name="日本語">たてのカセキ</language>
+	</row>
+
+	<row id="ITEMNAME_105">
+		<language name="日本語">ずがいのカセキ</language>
+	</row>
+
+	<row id="ITEMNAME_106">
+		<language name="日本語">きちょうなホネ</language>
+	</row>
+
+	<row id="ITEMNAME_107">
+		<language name="日本語">ひかりのいし</language>
+	</row>
+
+	<row id="ITEMNAME_108">
+		<language name="日本語">やみのいし</language>
+	</row>
+
+	<row id="ITEMNAME_109">
+		<language name="日本語">めざめいし</language>
+	</row>
+
+	<row id="ITEMNAME_110">
+		<language name="日本語">まんまるいし</language>
+	</row>
+
+	<row id="ITEMNAME_111">
+		<language name="日本語">かなめいし</language>
+	</row>
+
+	<row id="ITEMNAME_112">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_113">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_114">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_115">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_116">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_117">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_118">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_119">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_120">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_121">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_122">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_123">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_124">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_125">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_126">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_127">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_128">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_129">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_130">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_131">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_132">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_133">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_134">
+		<language name="日本語">？？？</language>
+	</row>
+
+	<row id="ITEMNAME_135">
+		<language name="日本語">こんごうだま</language>
+	</row>
+
+	<row id="ITEMNAME_136">
+		<language name="日本語">しらたま</language>
+	</row>
+
+	<row id="ITEMNAME_137">
+		<language name="日本語">グラスメール</language>
+	</row>
+
+	<row id="ITEMNAME_138">
+		<language name="日本語">フレイムメール</language>
+	</row>
+
+	<row id="ITEMNAME_139">
+		<language name="日本語">ブルーメール</language>
+	</row>
+
+	<row id="ITEMNAME_140">
+		<language name="日本語">ブルームメール</language>
+	</row>
+
+	<row id="ITEMNAME_141">
+		<language name="日本語">トンネルメール</language>
+	</row>
+
+	<row id="ITEMNAME_142">
+		<language name="日本語">スチールメール</language>
+	</row>
+
+	<row id="ITEMNAME_143">
+		<language name="日本語">ラブラブメール</language>
+	</row>
+
+	<row id="ITEMNAME_144">
+		<language name="日本語">ブリザードメール</language>
+	</row>
+
+	<row id="ITEMNAME_145">
+		<language name="日本語">スペースメール</language>
+	</row>
+
+	<row id="ITEMNAME_146">
+		<language name="日本語">エアメール</language>
+	</row>
+
+	<row id="ITEMNAME_147">
+		<language name="日本語">モザイクメール</language>
+	</row>
+
+	<row id="ITEMNAME_148">
+		<language name="日本語">ブリックメール</language>
+	</row>
+
+	<row id="ITEMNAME_149">
+		<language name="日本語">クラボのみ</language>
+	</row>
+
+	<row id="ITEMNAME_150">
+		<language name="日本語">カゴのみ</language>
+	</row>
+
+	<row id="ITEMNAME_151">
+		<language name="日本語">モモンのみ</language>
+	</row>
+
+	<row id="ITEMNAME_152">
+		<language name="日本語">チーゴのみ</language>
+	</row>
+
+	<row id="ITEMNAME_153">
+		<language name="日本語">ナナシのみ</language>
+	</row>
+
+	<row id="ITEMNAME_154">
+		<language name="日本語">ヒメリのみ</language>
+	</row>
+
+	<row id="ITEMNAME_155">
+		<language name="日本語">オレンのみ</language>
+	</row>
+
+	<row id="ITEMNAME_156">
+		<language name="日本語">キーのみ</language>
+	</row>
+
+	<row id="ITEMNAME_157">
+		<language name="日本語">ラムのみ</language>
+	</row>
+
+	<row id="ITEMNAME_158">
+		<language name="日本語">オボンのみ</language>
+	</row>
+
+	<row id="ITEMNAME_159">
+		<language name="日本語">フィラのみ</language>
+	</row>
+
+	<row id="ITEMNAME_160">
+		<language name="日本語">ウイのみ</language>
+	</row>
+
+	<row id="ITEMNAME_161">
+		<language name="日本語">マゴのみ</language>
+	</row>
+
+	<row id="ITEMNAME_162">
+		<language name="日本語">バンジのみ</language>
+	</row>
+
+	<row id="ITEMNAME_163">
+		<language name="日本語">イアのみ</language>
+	</row>
+
+	<row id="ITEMNAME_164">
+		<language name="日本語">ズリのみ</language>
+	</row>
+
+	<row id="ITEMNAME_165">
+		<language name="日本語">ブリーのみ</language>
+	</row>
+
+	<row id="ITEMNAME_166">
+		<language name="日本語">ナナのみ</language>
+	</row>
+
+	<row id="ITEMNAME_167">
+		<language name="日本語">セシナのみ</language>
+	</row>
+
+	<row id="ITEMNAME_168">
+		<language name="日本語">パイルのみ</language>
+	</row>
+
+	<row id="ITEMNAME_169">
+		<language name="日本語">ザロクのみ</language>
+	</row>
+
+	<row id="ITEMNAME_170">
+		<language name="日本語">ネコブのみ</language>
+	</row>
+
+	<row id="ITEMNAME_171">
+		<language name="日本語">タポルのみ</language>
+	</row>
+
+	<row id="ITEMNAME_172">
+		<language name="日本語">ロメのみ</language>
+	</row>
+
+	<row id="ITEMNAME_173">
+		<language name="日本語">ウブのみ</language>
+	</row>
+
+	<row id="ITEMNAME_174">
+		<language name="日本語">マトマのみ</language>
+	</row>
+
+	<row id="ITEMNAME_175">
+		<language name="日本語">モコシのみ</language>
+	</row>
+
+	<row id="ITEMNAME_176">
+		<language name="日本語">ゴスのみ</language>
+	</row>
+
+	<row id="ITEMNAME_177">
+		<language name="日本語">ラブタのみ</language>
+	</row>
+
+	<row id="ITEMNAME_178">
+		<language name="日本語">ノメルのみ</language>
+	</row>
+
+	<row id="ITEMNAME_179">
+		<language name="日本語">ノワキのみ</language>
+	</row>
+
+	<row id="ITEMNAME_180">
+		<language name="日本語">シーヤのみ</language>
+	</row>
+
+	<row id="ITEMNAME_181">
+		<language name="日本語">カイスのみ</language>
+	</row>
+
+	<row id="ITEMNAME_182">
+		<language name="日本語">ドリのみ</language>
+	</row>
+
+	<row id="ITEMNAME_183">
+		<language name="日本語">ベリブのみ</language>
+	</row>
+
+	<row id="ITEMNAME_184">
+		<language name="日本語">オッカのみ</language>
+	</row>
+
+	<row id="ITEMNAME_185">
+		<language name="日本語">イトケのみ</language>
+	</row>
+
+	<row id="ITEMNAME_186">
+		<language name="日本語">ソクノのみ</language>
+	</row>
+
+	<row id="ITEMNAME_187">
+		<language name="日本語">リンドのみ</language>
+	</row>
+
+	<row id="ITEMNAME_188">
+		<language name="日本語">ヤチェのみ</language>
+	</row>
+
+	<row id="ITEMNAME_189">
+		<language name="日本語">ヨプのみ</language>
+	</row>
+
+	<row id="ITEMNAME_190">
+		<language name="日本語">ビアーのみ</language>
+	</row>
+
+	<row id="ITEMNAME_191">
+		<language name="日本語">シュカのみ</language>
+	</row>
+
+	<row id="ITEMNAME_192">
+		<language name="日本語">バコウのみ</language>
+	</row>
+
+	<row id="ITEMNAME_193">
+		<language name="日本語">ウタンのみ</language>
+	</row>
+
+	<row id="ITEMNAME_194">
+		<language name="日本語">タンガのみ</language>
+	</row>
+
+	<row id="ITEMNAME_195">
+		<language name="日本語">ヨロギのみ</language>
+	</row>
+
+	<row id="ITEMNAME_196">
+		<language name="日本語">カシブのみ</language>
+	</row>
+
+	<row id="ITEMNAME_197">
+		<language name="日本語">ハバンのみ</language>
+	</row>
+
+	<row id="ITEMNAME_198">
+		<language name="日本語">ナモのみ</language>
+	</row>
+
+	<row id="ITEMNAME_199">
+		<language name="日本語">リリバのみ</language>
+	</row>
+
+	<row id="ITEMNAME_200">
+		<language name="日本語">ホズのみ</language>
+	</row>
+
+	<row id="ITEMNAME_201">
+		<language name="日本語">チイラのみ</language>
+	</row>
+
+	<row id="ITEMNAME_202">
+		<language name="日本語">リュガのみ</language>
+	</row>
+
+	<row id="ITEMNAME_203">
+		<language name="日本語">カムラのみ</language>
+	</row>
+
+	<row id="ITEMNAME_204">
+		<language name="日本語">ヤタピのみ</language>
+	</row>
+
+	<row id="ITEMNAME_205">
+		<language name="日本語">ズアのみ</language>
+	</row>
+
+	<row id="ITEMNAME_206">
+		<language name="日本語">サンのみ</language>
+	</row>
+
+	<row id="ITEMNAME_207">
+		<language name="日本語">スターのみ</language>
+	</row>
+
+	<row id="ITEMNAME_208">
+		<language name="日本語">ナゾのみ</language>
+	</row>
+
+	<row id="ITEMNAME_209">
+		<language name="日本語">ミクルのみ</language>
+	</row>
+
+	<row id="ITEMNAME_210">
+		<language name="日本語">イバンのみ</language>
+	</row>
+
+	<row id="ITEMNAME_211">
+		<language name="日本語">ジャポのみ</language>
+	</row>
+
+	<row id="ITEMNAME_212">
+		<language name="日本語">レンブのみ</language>
+	</row>
+
+	<row id="ITEMNAME_213">
+		<language name="日本語">ひかりのこな</language>
+	</row>
+
+	<row id="ITEMNAME_214">
+		<language name="日本語">しろいハーブ</language>
+	</row>
+
+	<row id="ITEMNAME_215">
+		<language name="日本語">きょうせいギプス</language>
+	</row>
+
+	<row id="ITEMNAME_216">
+		<language name="日本語">がくしゅうそうち</language>
+	</row>
+
+	<row id="ITEMNAME_217">
+		<language name="日本語">せんせいのツメ</language>
+	</row>
+
+	<row id="ITEMNAME_218">
+		<language name="日本語">やすらぎのすず</language>
+	</row>
+
+	<row id="ITEMNAME_219">
+		<language name="日本語">メンタルハーブ</language>
+	</row>
+
+	<row id="ITEMNAME_220">
+		<language name="日本語">こだわりハチマキ</language>
+	</row>
+
+	<row id="ITEMNAME_221">
+		<language name="日本語">おうじゃのしるし</language>
+	</row>
+
+	<row id="ITEMNAME_222">
+		<language name="日本語">ぎんのこな</language>
+	</row>
+
+	<row id="ITEMNAME_223">
+		<language name="日本語">おまもりこばん</language>
+	</row>
+
+	<row id="ITEMNAME_224">
+		<language name="日本語">きよめのおふだ</language>
+	</row>
+
+	<row id="ITEMNAME_225">
+		<language name="日本語">こころのしずく</language>
+	</row>
+
+	<row id="ITEMNAME_226">
+		<language name="日本語">しんかいのキバ</language>
+	</row>
+
+	<row id="ITEMNAME_227">
+		<language name="日本語">しんかいのウロコ</language>
+	</row>
+
+	<row id="ITEMNAME_228">
+		<language name="日本語">けむりだま</language>
+	</row>
+
+	<row id="ITEMNAME_229">
+		<language name="日本語">かわらずのいし</language>
+	</row>
+
+	<row id="ITEMNAME_230">
+		<language name="日本語">きあいのハチマキ</language>
+	</row>
+
+	<row id="ITEMNAME_231">
+		<language name="日本語">しあわせタマゴ</language>
+	</row>
+
+	<row id="ITEMNAME_232">
+		<language name="日本語">ピントレンズ</language>
+	</row>
+
+	<row id="ITEMNAME_233">
+		<language name="日本語">メタルコート</language>
+	</row>
+
+	<row id="ITEMNAME_234">
+		<language name="日本語">たべのこし</language>
+	</row>
+
+	<row id="ITEMNAME_235">
+		<language name="日本語">りゅうのウロコ</language>
+	</row>
+
+	<row id="ITEMNAME_236">
+		<language name="日本語">でんきだま</language>
+	</row>
+
+	<row id="ITEMNAME_237">
+		<language name="日本語">やわらかいすな</language>
+	</row>
+
+	<row id="ITEMNAME_238">
+		<language name="日本語">かたいいし</language>
+	</row>
+
+	<row id="ITEMNAME_239">
+		<language name="日本語">きせきのタネ</language>
+	</row>
+
+	<row id="ITEMNAME_240">
+		<language name="日本語">くろいメガネ</language>
+	</row>
+
+	<row id="ITEMNAME_241">
+		<language name="日本語">くろおび</language>
+	</row>
+
+	<row id="ITEMNAME_242">
+		<language name="日本語">じしゃく</language>
+	</row>
+
+	<row id="ITEMNAME_243">
+		<language name="日本語">しんぴのしずく</language>
+	</row>
+
+	<row id="ITEMNAME_244">
+		<language name="日本語">するどいくちばし</language>
+	</row>
+
+	<row id="ITEMNAME_245">
+		<language name="日本語">どくバリ</language>
+	</row>
+
+	<row id="ITEMNAME_246">
+		<language name="日本語">とけないこおり</language>
+	</row>
+
+	<row id="ITEMNAME_247">
+		<language name="日本語">のろいのおふだ</language>
+	</row>
+
+	<row id="ITEMNAME_248">
+		<language name="日本語">まがったスプーン</language>
+	</row>
+
+	<row id="ITEMNAME_249">
+		<language name="日本語">もくたん</language>
+	</row>
+
+	<row id="ITEMNAME_250">
+		<language name="日本語">りゅうのキバ</language>
+	</row>
+
+	<row id="ITEMNAME_251">
+		<language name="日本語">シルクのスカーフ</language>
+	</row>
+
+	<row id="ITEMNAME_252">
+		<language name="日本語">アップグレード</language>
+	</row>
+
+	<row id="ITEMNAME_253">
+		<language name="日本語">かいがらのすず</language>
+	</row>
+
+	<row id="ITEMNAME_254">
+		<language name="日本語">うしおのおこう</language>
+	</row>
+
+	<row id="ITEMNAME_255">
+		<language name="日本語">のんきのおこう</language>
+	</row>
+
+	<row id="ITEMNAME_256">
+		<language name="日本語">ラッキーパンチ</language>
+	</row>
+
+	<row id="ITEMNAME_257">
+		<language name="日本語">メタルパウダー</language>
+	</row>
+
+	<row id="ITEMNAME_258">
+		<language name="日本語">ふといホネ</language>
+	</row>
+
+	<row id="ITEMNAME_259">
+		<language name="日本語">ながねぎ</language>
+	</row>
+
+	<row id="ITEMNAME_260">
+		<language name="日本語">あかいバンダナ</language>
+	</row>
+
+	<row id="ITEMNAME_261">
+		<language name="日本語">あおいバンダナ</language>
+	</row>
+
+	<row id="ITEMNAME_262">
+		<language name="日本語">ピンクのバンダナ</language>
+	</row>
+
+	<row id="ITEMNAME_263">
+		<language name="日本語">みどりのバンダナ</language>
+	</row>
+
+	<row id="ITEMNAME_264">
+		<language name="日本語">きいろのバンダナ</language>
+	</row>
+
+	<row id="ITEMNAME_265">
+		<language name="日本語">こうかくレンズ</language>
+	</row>
+
+	<row id="ITEMNAME_266">
+		<language name="日本語">ちからのハチマキ</language>
+	</row>
+
+	<row id="ITEMNAME_267">
+		<language name="日本語">ものしりメガネ</language>
+	</row>
+
+	<row id="ITEMNAME_268">
+		<language name="日本語">たつじんのおび</language>
+	</row>
+
+	<row id="ITEMNAME_269">
+		<language name="日本語">ひかりのねんど</language>
+	</row>
+
+	<row id="ITEMNAME_270">
+		<language name="日本語">いのちのたま</language>
+	</row>
+
+	<row id="ITEMNAME_271">
+		<language name="日本語">パワフルハーブ</language>
+	</row>
+
+	<row id="ITEMNAME_272">
+		<language name="日本語">どくどくだま</language>
+	</row>
+
+	<row id="ITEMNAME_273">
+		<language name="日本語">かえんだま</language>
+	</row>
+
+	<row id="ITEMNAME_274">
+		<language name="日本語">スピードパウダー</language>
+	</row>
+
+	<row id="ITEMNAME_275">
+		<language name="日本語">きあいのタスキ</language>
+	</row>
+
+	<row id="ITEMNAME_276">
+		<language name="日本語">フォーカスレンズ</language>
+	</row>
+
+	<row id="ITEMNAME_277">
+		<language name="日本語">メトロノーム</language>
+	</row>
+
+	<row id="ITEMNAME_278">
+		<language name="日本語">くろいてっきゅう</language>
+	</row>
+
+	<row id="ITEMNAME_279">
+		<language name="日本語">こうこうのしっぽ</language>
+	</row>
+
+	<row id="ITEMNAME_280">
+		<language name="日本語">あかいいと</language>
+	</row>
+
+	<row id="ITEMNAME_281">
+		<language name="日本語">くろいヘドロ</language>
+	</row>
+
+	<row id="ITEMNAME_282">
+		<language name="日本語">つめたいいわ</language>
+	</row>
+
+	<row id="ITEMNAME_283">
+		<language name="日本語">さらさらいわ</language>
+	</row>
+
+	<row id="ITEMNAME_284">
+		<language name="日本語">あついいわ</language>
+	</row>
+
+	<row id="ITEMNAME_285">
+		<language name="日本語">しめったいわ</language>
+	</row>
+
+	<row id="ITEMNAME_286">
+		<language name="日本語">ねばりのかぎづめ</language>
+	</row>
+
+	<row id="ITEMNAME_287">
+		<language name="日本語">こだわりスカーフ</language>
+	</row>
+
+	<row id="ITEMNAME_288">
+		<language name="日本語">くっつきバリ</language>
+	</row>
+
+	<row id="ITEMNAME_289">
+		<language name="日本語">パワーリスト</language>
+	</row>
+
+	<row id="ITEMNAME_290">
+		<language name="日本語">パワーベルト</language>
+	</row>
+
+	<row id="ITEMNAME_291">
+		<language name="日本語">パワーレンズ</language>
+	</row>
+
+	<row id="ITEMNAME_292">
+		<language name="日本語">パワーバンド</language>
+	</row>
+
+	<row id="ITEMNAME_293">
+		<language name="日本語">パワーアンクル</language>
+	</row>
+
+	<row id="ITEMNAME_294">
+		<language name="日本語">パワーウエイト</language>
+	</row>
+
+	<row id="ITEMNAME_295">
+		<language name="日本語">きれいなぬけがら</language>
+	</row>
+
+	<row id="ITEMNAME_296">
+		<language name="日本語">おおきなねっこ</language>
+	</row>
+
+	<row id="ITEMNAME_297">
+		<language name="日本語">こだわりメガネ</language>
+	</row>
+
+	<row id="ITEMNAME_298">
+		<language name="日本語">ひのたまプレート</language>
+	</row>
+
+	<row id="ITEMNAME_299">
+		<language name="日本語">しずくプレート</language>
+	</row>
+
+	<row id="ITEMNAME_300">
+		<language name="日本語">いかずちプレート</language>
+	</row>
+
+	<row id="ITEMNAME_301">
+		<language name="日本語">みどりのプレート</language>
+	</row>
+
+	<row id="ITEMNAME_302">
+		<language name="日本語">つららのプレート</language>
+	</row>
+
+	<row id="ITEMNAME_303">
+		<language name="日本語">こぶしのプレート</language>
+	</row>
+
+	<row id="ITEMNAME_304">
+		<language name="日本語">もうどくプレート</language>
+	</row>
+
+	<row id="ITEMNAME_305">
+		<language name="日本語">だいちのプレート</language>
+	</row>
+
+	<row id="ITEMNAME_306">
+		<language name="日本語">あおぞらプレート</language>
+	</row>
+
+	<row id="ITEMNAME_307">
+		<language name="日本語">ふしぎのプレート</language>
+	</row>
+
+	<row id="ITEMNAME_308">
+		<language name="日本語">たまむしプレート</language>
+	</row>
+
+	<row id="ITEMNAME_309">
+		<language name="日本語">がんせきプレート</language>
+	</row>
+
+	<row id="ITEMNAME_310">
+		<language name="日本語">もののけプレート</language>
+	</row>
+
+	<row id="ITEMNAME_311">
+		<language name="日本語">りゅうのプレート</language>
+	</row>
+
+	<row id="ITEMNAME_312">
+		<language name="日本語">こわもてプレート</language>
+	</row>
+
+	<row id="ITEMNAME_313">
+		<language name="日本語">こうてつプレート</language>
+	</row>
+
+	<row id="ITEMNAME_314">
+		<language name="日本語">あやしいおこう</language>
+	</row>
+
+	<row id="ITEMNAME_315">
+		<language name="日本語">がんせきおこう</language>
+	</row>
+
+	<row id="ITEMNAME_316">
+		<language name="日本語">まんぷくおこう</language>
+	</row>
+
+	<row id="ITEMNAME_317">
+		<language name="日本語">さざなみのおこう</language>
+	</row>
+
+	<row id="ITEMNAME_318">
+		<language name="日本語">おはなのおこう</language>
+	</row>
+
+	<row id="ITEMNAME_319">
+		<language name="日本語">こううんのおこう</language>
+	</row>
+
+	<row id="ITEMNAME_320">
+		<language name="日本語">きよめのおこう</language>
+	</row>
+
+	<row id="ITEMNAME_321">
+		<language name="日本語">プロテクター</language>
+	</row>
+
+	<row id="ITEMNAME_322">
+		<language name="日本語">エレキブースター</language>
+	</row>
+
+	<row id="ITEMNAME_323">
+		<language name="日本語">マグマブースター</language>
+	</row>
+
+	<row id="ITEMNAME_324">
+		<language name="日本語">あやしいパッチ</language>
+	</row>
+
+	<row id="ITEMNAME_325">
+		<language name="日本語">れいかいのぬの</language>
+	</row>
+
+	<row id="ITEMNAME_326">
+		<language name="日本語">するどいツメ</language>
+	</row>
+
+	<row id="ITEMNAME_327">
+		<language name="日本語">するどいキバ</language>
+	</row>
+
+	<row id="ITEMNAME_328">
+		<language name="日本語">わざマシン０１</language>
+	</row>
+
+	<row id="ITEMNAME_329">
+		<language name="日本語">わざマシン０２</language>
+	</row>
+
+	<row id="ITEMNAME_330">
+		<language name="日本語">わざマシン０３</language>
+	</row>
+
+	<row id="ITEMNAME_331">
+		<language name="日本語">わざマシン０４</language>
+	</row>
+
+	<row id="ITEMNAME_332">
+		<language name="日本語">わざマシン０５</language>
+	</row>
+
+	<row id="ITEMNAME_333">
+		<language name="日本語">わざマシン０６</language>
+	</row>
+
+	<row id="ITEMNAME_334">
+		<language name="日本語">わざマシン０７</language>
+	</row>
+
+	<row id="ITEMNAME_335">
+		<language name="日本語">わざマシン０８</language>
+	</row>
+
+	<row id="ITEMNAME_336">
+		<language name="日本語">わざマシン０９</language>
+	</row>
+
+	<row id="ITEMNAME_337">
+		<language name="日本語">わざマシン１０</language>
+	</row>
+
+	<row id="ITEMNAME_338">
+		<language name="日本語">わざマシン１１</language>
+	</row>
+
+	<row id="ITEMNAME_339">
+		<language name="日本語">わざマシン１２</language>
+	</row>
+
+	<row id="ITEMNAME_340">
+		<language name="日本語">わざマシン１３</language>
+	</row>
+
+	<row id="ITEMNAME_341">
+		<language name="日本語">わざマシン１４</language>
+	</row>
+
+	<row id="ITEMNAME_342">
+		<language name="日本語">わざマシン１５</language>
+	</row>
+
+	<row id="ITEMNAME_343">
+		<language name="日本語">わざマシン１６</language>
+	</row>
+
+	<row id="ITEMNAME_344">
+		<language name="日本語">わざマシン１７</language>
+	</row>
+
+	<row id="ITEMNAME_345">
+		<language name="日本語">わざマシン１８</language>
+	</row>
+
+	<row id="ITEMNAME_346">
+		<language name="日本語">わざマシン１９</language>
+	</row>
+
+	<row id="ITEMNAME_347">
+		<language name="日本語">わざマシン２０</language>
+	</row>
+
+	<row id="ITEMNAME_348">
+		<language name="日本語">わざマシン２１</language>
+	</row>
+
+	<row id="ITEMNAME_349">
+		<language name="日本語">わざマシン２２</language>
+	</row>
+
+	<row id="ITEMNAME_350">
+		<language name="日本語">わざマシン２３</language>
+	</row>
+
+	<row id="ITEMNAME_351">
+		<language name="日本語">わざマシン２４</language>
+	</row>
+
+	<row id="ITEMNAME_352">
+		<language name="日本語">わざマシン２５</language>
+	</row>
+
+	<row id="ITEMNAME_353">
+		<language name="日本語">わざマシン２６</language>
+	</row>
+
+	<row id="ITEMNAME_354">
+		<language name="日本語">わざマシン２７</language>
+	</row>
+
+	<row id="ITEMNAME_355">
+		<language name="日本語">わざマシン２８</language>
+	</row>
+
+	<row id="ITEMNAME_356">
+		<language name="日本語">わざマシン２９</language>
+	</row>
+
+	<row id="ITEMNAME_357">
+		<language name="日本語">わざマシン３０</language>
+	</row>
+
+	<row id="ITEMNAME_358">
+		<language name="日本語">わざマシン３１</language>
+	</row>
+
+	<row id="ITEMNAME_359">
+		<language name="日本語">わざマシン３２</language>
+	</row>
+
+	<row id="ITEMNAME_360">
+		<language name="日本語">わざマシン３３</language>
+	</row>
+
+	<row id="ITEMNAME_361">
+		<language name="日本語">わざマシン３４</language>
+	</row>
+
+	<row id="ITEMNAME_362">
+		<language name="日本語">わざマシン３５</language>
+	</row>
+
+	<row id="ITEMNAME_363">
+		<language name="日本語">わざマシン３６</language>
+	</row>
+
+	<row id="ITEMNAME_364">
+		<language name="日本語">わざマシン３７</language>
+	</row>
+
+	<row id="ITEMNAME_365">
+		<language name="日本語">わざマシン３８</language>
+	</row>
+
+	<row id="ITEMNAME_366">
+		<language name="日本語">わざマシン３９</language>
+	</row>
+
+	<row id="ITEMNAME_367">
+		<language name="日本語">わざマシン４０</language>
+	</row>
+
+	<row id="ITEMNAME_368">
+		<language name="日本語">わざマシン４１</language>
+	</row>
+
+	<row id="ITEMNAME_369">
+		<language name="日本語">わざマシン４２</language>
+	</row>
+
+	<row id="ITEMNAME_370">
+		<language name="日本語">わざマシン４３</language>
+	</row>
+
+	<row id="ITEMNAME_371">
+		<language name="日本語">わざマシン４４</language>
+	</row>
+
+	<row id="ITEMNAME_372">
+		<language name="日本語">わざマシン４５</language>
+	</row>
+
+	<row id="ITEMNAME_373">
+		<language name="日本語">わざマシン４６</language>
+	</row>
+
+	<row id="ITEMNAME_374">
+		<language name="日本語">わざマシン４７</language>
+	</row>
+
+	<row id="ITEMNAME_375">
+		<language name="日本語">わざマシン４８</language>
+	</row>
+
+	<row id="ITEMNAME_376">
+		<language name="日本語">わざマシン４９</language>
+	</row>
+
+	<row id="ITEMNAME_377">
+		<language name="日本語">わざマシン５０</language>
+	</row>
+
+	<row id="ITEMNAME_378">
+		<language name="日本語">わざマシン５１</language>
+	</row>
+
+	<row id="ITEMNAME_379">
+		<language name="日本語">わざマシン５２</language>
+	</row>
+
+	<row id="ITEMNAME_380">
+		<language name="日本語">わざマシン５３</language>
+	</row>
+
+	<row id="ITEMNAME_381">
+		<language name="日本語">わざマシン５４</language>
+	</row>
+
+	<row id="ITEMNAME_382">
+		<language name="日本語">わざマシン５５</language>
+	</row>
+
+	<row id="ITEMNAME_383">
+		<language name="日本語">わざマシン５６</language>
+	</row>
+
+	<row id="ITEMNAME_384">
+		<language name="日本語">わざマシン５７</language>
+	</row>
+
+	<row id="ITEMNAME_385">
+		<language name="日本語">わざマシン５８</language>
+	</row>
+
+	<row id="ITEMNAME_386">
+		<language name="日本語">わざマシン５９</language>
+	</row>
+
+	<row id="ITEMNAME_387">
+		<language name="日本語">わざマシン６０</language>
+	</row>
+
+	<row id="ITEMNAME_388">
+		<language name="日本語">わざマシン６１</language>
+	</row>
+
+	<row id="ITEMNAME_389">
+		<language name="日本語">わざマシン６２</language>
+	</row>
+
+	<row id="ITEMNAME_390">
+		<language name="日本語">わざマシン６３</language>
+	</row>
+
+	<row id="ITEMNAME_391">
+		<language name="日本語">わざマシン６４</language>
+	</row>
+
+	<row id="ITEMNAME_392">
+		<language name="日本語">わざマシン６５</language>
+	</row>
+
+	<row id="ITEMNAME_393">
+		<language name="日本語">わざマシン６６</language>
+	</row>
+
+	<row id="ITEMNAME_394">
+		<language name="日本語">わざマシン６７</language>
+	</row>
+
+	<row id="ITEMNAME_395">
+		<language name="日本語">わざマシン６８</language>
+	</row>
+
+	<row id="ITEMNAME_396">
+		<language name="日本語">わざマシン６９</language>
+	</row>
+
+	<row id="ITEMNAME_397">
+		<language name="日本語">わざマシン７０</language>
+	</row>
+
+	<row id="ITEMNAME_398">
+		<language name="日本語">わざマシン７１</language>
+	</row>
+
+	<row id="ITEMNAME_399">
+		<language name="日本語">わざマシン７２</language>
+	</row>
+
+	<row id="ITEMNAME_400">
+		<language name="日本語">わざマシン７３</language>
+	</row>
+
+	<row id="ITEMNAME_401">
+		<language name="日本語">わざマシン７４</language>
+	</row>
+
+	<row id="ITEMNAME_402">
+		<language name="日本語">わざマシン７５</language>
+	</row>
+
+	<row id="ITEMNAME_403">
+		<language name="日本語">わざマシン７６</language>
+	</row>
+
+	<row id="ITEMNAME_404">
+		<language name="日本語">わざマシン７７</language>
+	</row>
+
+	<row id="ITEMNAME_405">
+		<language name="日本語">わざマシン７８</language>
+	</row>
+
+	<row id="ITEMNAME_406">
+		<language name="日本語">わざマシン７９</language>
+	</row>
+
+	<row id="ITEMNAME_407">
+		<language name="日本語">わざマシン８０</language>
+	</row>
+
+	<row id="ITEMNAME_408">
+		<language name="日本語">わざマシン８１</language>
+	</row>
+
+	<row id="ITEMNAME_409">
+		<language name="日本語">わざマシン８２</language>
+	</row>
+
+	<row id="ITEMNAME_410">
+		<language name="日本語">わざマシン８３</language>
+	</row>
+
+	<row id="ITEMNAME_411">
+		<language name="日本語">わざマシン８４</language>
+	</row>
+
+	<row id="ITEMNAME_412">
+		<language name="日本語">わざマシン８５</language>
+	</row>
+
+	<row id="ITEMNAME_413">
+		<language name="日本語">わざマシン８６</language>
+	</row>
+
+	<row id="ITEMNAME_414">
+		<language name="日本語">わざマシン８７</language>
+	</row>
+
+	<row id="ITEMNAME_415">
+		<language name="日本語">わざマシン８８</language>
+	</row>
+
+	<row id="ITEMNAME_416">
+		<language name="日本語">わざマシン８９</language>
+	</row>
+
+	<row id="ITEMNAME_417">
+		<language name="日本語">わざマシン９０</language>
+	</row>
+
+	<row id="ITEMNAME_418">
+		<language name="日本語">わざマシン９１</language>
+	</row>
+
+	<row id="ITEMNAME_419">
+		<language name="日本語">わざマシン９２</language>
+	</row>
+
+	<row id="ITEMNAME_420">
+		<language name="日本語">ひでんマシン０１</language>
+	</row>
+
+	<row id="ITEMNAME_421">
+		<language name="日本語">ひでんマシン０２</language>
+	</row>
+
+	<row id="ITEMNAME_422">
+		<language name="日本語">ひでんマシン０３</language>
+	</row>
+
+	<row id="ITEMNAME_423">
+		<language name="日本語">ひでんマシン０４</language>
+	</row>
+
+	<row id="ITEMNAME_424">
+		<language name="日本語">ひでんマシン０５</language>
+	</row>
+
+	<row id="ITEMNAME_425">
+		<language name="日本語">ひでんマシン０６</language>
+	</row>
+
+	<row id="ITEMNAME_426">
+		<language name="日本語">ひでんマシン０７</language>
+	</row>
+
+	<row id="ITEMNAME_427">
+		<language name="日本語">ひでんマシン０８</language>
+	</row>
+
+	<row id="ITEMNAME_428">
+		<language name="日本語">たんけんセット</language>
+	</row>
+
+	<row id="ITEMNAME_429">
+		<language name="日本語">たからぶくろ</language>
+	</row>
+
+	<row id="ITEMNAME_430">
+		<language name="日本語">ルールブック</language>
+	</row>
+
+	<row id="ITEMNAME_431">
+		<language name="日本語">ポケトレ</language>
+	</row>
+
+	<row id="ITEMNAME_432">
+		<language name="日本語">ポイントカード</language>
+	</row>
+
+	<row id="ITEMNAME_433">
+		<language name="日本語">ぼうけんノート</language>
+	</row>
+
+	<row id="ITEMNAME_434">
+		<language name="日本語">シールいれ</language>
+	</row>
+
+	<row id="ITEMNAME_435">
+		<language name="日本語">アクセサリーいれ</language>
+	</row>
+
+	<row id="ITEMNAME_436">
+		<language name="日本語">シールぶくろ</language>
+	</row>
+
+	<row id="ITEMNAME_437">
+		<language name="日本語">ともだちてちょう</language>
+	</row>
+
+	<row id="ITEMNAME_438">
+		<language name="日本語">はつでんしょキー</language>
+	</row>
+
+	<row id="ITEMNAME_439">
+		<language name="日本語">こだいのおまもり</language>
+	</row>
+
+	<row id="ITEMNAME_440">
+		<language name="日本語">ギンガだんのカギ</language>
+	</row>
+
+	<row id="ITEMNAME_441">
+		<language name="日本語">あかいくさり</language>
+	</row>
+
+	<row id="ITEMNAME_442">
+		<language name="日本語">タウンマップ</language>
+	</row>
+
+	<row id="ITEMNAME_443">
+		<language name="日本語">バトルサーチャー</language>
+	</row>
+
+	<row id="ITEMNAME_444">
+		<language name="日本語">コインケース</language>
+	</row>
+
+	<row id="ITEMNAME_445">
+		<language name="日本語">ボロのつりざお</language>
+	</row>
+
+	<row id="ITEMNAME_446">
+		<language name="日本語">いいつりざお</language>
+	</row>
+
+	<row id="ITEMNAME_447">
+		<language name="日本語">すごいつりざお</language>
+	</row>
+
+	<row id="ITEMNAME_448">
+		<language name="日本語">コダックじょうろ</language>
+	</row>
+
+	<row id="ITEMNAME_449">
+		<language name="日本語">ポフィンケース</language>
+	</row>
+
+	<row id="ITEMNAME_450">
+		<language name="日本語">じてんしゃ</language>
+	</row>
+
+	<row id="ITEMNAME_451">
+		<language name="日本語">ルームキー</language>
+	</row>
+
+	<row id="ITEMNAME_452">
+		<language name="日本語">オーキドのてがみ</language>
+	</row>
+
+	<row id="ITEMNAME_453">
+		<language name="日本語">みかづきのはね</language>
+	</row>
+
+	<row id="ITEMNAME_454">
+		<language name="日本語">メンバーズカード</language>
+	</row>
+
+	<row id="ITEMNAME_455">
+		<language name="日本語">てんかいのふえ</language>
+	</row>
+
+	<row id="ITEMNAME_456">
+		<language name="日本語">ふねのチケット</language>
+	</row>
+
+	<row id="ITEMNAME_457">
+		<language name="日本語">コンテストパス</language>
+	</row>
+
+	<row id="ITEMNAME_458">
+		<language name="日本語">かざんのおきいし</language>
+	</row>
+
+	<row id="ITEMNAME_459">
+		<language name="日本語">おとどけもの</language>
+	</row>
+
+	<row id="ITEMNAME_460">
+		<language name="日本語">ひきかえけん１</language>
+	</row>
+
+	<row id="ITEMNAME_461">
+		<language name="日本語">ひきかえけん２</language>
+	</row>
+
+	<row id="ITEMNAME_462">
+		<language name="日本語">ひきかえけん３</language>
+	</row>
+
+	<row id="ITEMNAME_463">
+		<language name="日本語">そうこのカギ</language>
+	</row>
+
+	<row id="ITEMNAME_464">
+		<language name="日本語">ひでんのくすり</language>
+	</row>
+
+
+	<flowchart-group-list>
+		<flowchart-group japanese="root" english="root" group-id="0" parent-id="-1"/>
+	</flowchart-group-list>
+</body>
+
+</gmml>

@@ -1,0 +1,30 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: waza_oshie_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-05-09T12:42:45
+ *****************************************************************************/
+
+#ifndef NARC_WAZA_OSHIE_GRA_NAIX_
+#define NARC_WAZA_OSHIE_GRA_NAIX_
+
+enum {
+	NARC_waza_oshie_gra_list_cur_NANR = 0,
+	NARC_waza_oshie_gra_list_cur_NCER = 1,
+	NARC_waza_oshie_gra_list_cur_NCGR = 2,
+	NARC_waza_oshie_gra_page_cur_NANR = 3,
+	NARC_waza_oshie_gra_page_cur_NCER = 4,
+	NARC_waza_oshie_gra_page_cur_NCGR = 5,
+	NARC_waza_oshie_gra_scroll_cur_NANR = 6,
+	NARC_waza_oshie_gra_scroll_cur_NCER = 7,
+	NARC_waza_oshie_gra_scroll_cur_NCGR = 8,
+	NARC_waza_oshie_gra_waza_oboe_obj_NCLR = 9,
+	NARC_waza_oshie_gra_waza_oboe_bg_NCGR = 10,
+	NARC_waza_oshie_gra_waza_oboe_NSCR = 11,
+	NARC_waza_oshie_gra_waza_oboe_NCLR = 12
+};
+
+/* NARC_WAZA_OSHIE_GRA_NAIX_ */
+#endif

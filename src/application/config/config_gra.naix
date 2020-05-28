@@ -1,0 +1,20 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: config_gra.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2006-04-01T14:47:01
+ *****************************************************************************/
+
+#ifndef NARC_CONFIG_GRA_NAIX_
+#define NARC_CONFIG_GRA_NAIX_
+
+enum {
+	NARC_config_gra_config01_nclr = 0,
+	NARC_config_gra_config01_ncgr = 1,
+	NARC_config_gra_config01_nscr = 2
+};
+
+/* NARC_CONFIG_GRA_NAIX_ */
+#endif

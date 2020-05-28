@@ -1,0 +1,91 @@
+//====================================================================
+//								d07r0105
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_d07r0105.h"
+	.include	"../eventdata/zone_d07r0105evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_d07r0105_babyboy1
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+//ev_d07r0105_flag_change:
+//	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_d07r0105_babyboy1:
+	_TALK_OBJ_START
+
+	_TALK_KEYWAIT	msg_d07r0105_babyboy1_01
+	_TALK_CLOSE
+
+	/*退場*/
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_UP,ev_d07r0105_babyboy1_up
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_DOWN,ev_d07r0105_babyboy1_down
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_d07r0105_babyboy1_left
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_RIGHT,ev_d07r0105_babyboy1_right
+	_END
+
+/*退場*/
+ev_d07r0105_babyboy1_up:
+	_OBJ_ANIME		D07R0105_BABYBOY1,anm_d07r0105_babyboy1_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d07r0105_babyboy1_01
+
+ev_d07r0105_babyboy1_down:
+	_OBJ_ANIME		D07R0105_BABYBOY1,anm_d07r0105_babyboy1_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d07r0105_babyboy1_01
+
+ev_d07r0105_babyboy1_left:
+	_OBJ_ANIME		D07R0105_BABYBOY1,anm_d07r0105_babyboy1_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d07r0105_babyboy1_01
+
+ev_d07r0105_babyboy1_right:
+	_OBJ_ANIME		D07R0105_BABYBOY1,anm_d07r0105_babyboy1_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_d07r0105_babyboy1_01
+
+common_d07r0105_babyboy1_01:
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		D07R0105_BABYBOY1
+	_SE_STOP		SEQ_SE_DP_KAIDAN2
+
+	_FLAG_RESET		FV_T04R0501_BABYBOY1
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//少年	退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_d07r0105_babyboy1_01
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_d07r0105_babyboy1_02
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_WALK_U_8F,3
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+

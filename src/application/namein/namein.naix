@@ -1,0 +1,36 @@
+/*****************************************************************************
+	Archive file index definition.
+	File: namein.naix
+
+	This file was created by NINTENDO NITRO-System Archiver.
+
+	Update:2005-11-19T22:57:50
+ *****************************************************************************/
+
+#ifndef NARC_NAMEIN_NAIX_
+#define NARC_NAMEIN_NAIX_
+
+enum {
+	NARC_namein_name_bg_NCLR = 0,
+	NARC_namein_name_obj_NCLR = 1,
+	NARC_namein_name_bg_m_lz_NCGR = 2,
+	NARC_namein_name_bg_s_lz_NCGR = 3,
+	NARC_namein_name_bg_m_lz_NSCR = 4,
+	NARC_namein_name_bg_s_lz_NSCR = 5,
+	NARC_namein_name_screen1_lz_NSCR = 6,
+	NARC_namein_name_screen2_lz_NSCR = 7,
+	NARC_namein_name_screen3_lz_NSCR = 8,
+	NARC_namein_name_screen4_lz_NSCR = 9,
+	NARC_namein_name_obj_m_lz_NCGR = 10,
+	NARC_namein_name_obj_s_lz_NCGR = 11,
+	NARC_namein_name_obj_m_lz_NCER = 12,
+	NARC_namein_name_obj_s_lz_NCER = 13,
+	NARC_namein_name_obj_m_lz_NANR = 14,
+	NARC_namein_name_obj_s_lz_NANR = 15,
+	NARC_namein_name_bg_prog_lz_NCGR = 16,
+	NARC_namein_name_bg_s2_lz_NSCR = 17,
+	NARC_namein_name_bg_s3_lz_NSCR = 18
+};
+
+/* NARC_NAMEIN_NAIX_ */
+#endif

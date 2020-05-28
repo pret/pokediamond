@@ -1,0 +1,6 @@
+*.bin
+*.s
+arc_result.txt
+arclist.txt
+area_move_model.txt
+move_model_list.naix

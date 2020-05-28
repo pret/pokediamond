@@ -1,0 +1,335 @@
+//====================================================================
+//								c10r0101
+//====================================================================
+
+	.text
+
+	.include	"scr_seq_def.h"
+	.include	"../../../include/msgdata/msg_c10r0101.h"
+	.include	"../eventdata/zone_c10r0101evc.h"
+
+//--------------------------------------------------------------------
+//					     スクリプト本体
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+//					     スクリプトテーブル
+//--------------------------------------------------------------------
+_EVENT_DATA		ev_c10r0101_veteran
+_EVENT_DATA		ev_c10r0101_shop
+_EVENT_DATA		ev_c10r0101_fix_shop
+_EVENT_DATA		ev_c10r0101_rival
+_EVENT_DATA		ev_c10r0101_flag_change
+_EVENT_DATA		ev_c10r0101_woman3
+_EVENT_DATA		ev_c10r0101_pcwoman1
+_EVENT_DATA_END
+
+
+/********************************************************************/
+/*						FLAG_CHANGE_LABEL 							*/
+/********************************************************************/
+ev_c10r0101_flag_change:
+	_ARRIVE_FLAG_SET		FLAG_ARRIVE_CHAMPLEAGUE
+
+	/*リーグのドアをリセット*/
+	_FLAG_SET		FV_C10R0103_DOOR_01		/*手前*/
+	_FLAG_SET		FV_C10R0105_DOOR_01
+	_FLAG_SET		FV_C10R0107_DOOR_01
+	_FLAG_SET		FV_C10R0109_DOOR_01
+	_FLAG_RESET		FV_C10R0103_DOOR_02		/*奥*/
+	_FLAG_RESET		FV_C10R0105_DOOR_02
+	_FLAG_RESET		FV_C10R0107_DOOR_02
+	_FLAG_RESET		FV_C10R0109_DOOR_02
+
+	/*四天王リセット*/
+	_FLAG_RESET		FE_BIGFOUR1_WIN
+	_FLAG_RESET		FE_BIGFOUR2_WIN
+	_FLAG_RESET		FE_BIGFOUR3_WIN
+	_FLAG_RESET		FE_BIGFOUR4_WIN
+
+	/*ベテランどいていたら*/
+	_IF_FLAGON_JUMP	FE_C10R0101_VETERAN,ev_c10r0101_flag_change_pos
+	_END
+
+/*ベテランどいていたら*/
+ev_c10r0101_flag_change_pos:
+	_SXY_POS_CHANGE	C10R0101_VETERAN,12,3
+	_END
+
+
+/********************************************************************/
+/*																	*/
+/********************************************************************/
+ev_c10r0101_veteran:
+	_TALK_OBJ_START
+
+	/*ベテランどいていたら*/
+	_IF_FLAGON_JUMP	FE_C10R0101_VETERAN,ev_c10r0101_veteran_02
+
+	_TALK_KEYWAIT	msg_c10r0101_veteran_01
+	_TALK_CLOSE
+
+	_ME_PLAY		SEQ_BADGE
+	_ME_WAIT
+
+	_PLAYER_DIR_GET	SCWK_ANSWER
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_UP,ev_c10r0101_veteran_dir_up
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_LEFT,ev_c10r0101_veteran_dir_left
+	_IFVAL_JUMP		SCWK_ANSWER,EQ,DIR_RIGHT,ev_c10r0101_veteran_dir_right
+	_END
+
+/*どく*/
+ev_c10r0101_veteran_dir_up:
+	_OBJ_ANIME		C10R0101_VETERAN,anm_c10r0101_veteran_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c10r0101_veteran_dir
+
+ev_c10r0101_veteran_dir_left:
+	_OBJ_ANIME		C10R0101_VETERAN,anm_c10r0101_veteran_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c10r0101_veteran_dir
+
+ev_c10r0101_veteran_dir_right:
+	_OBJ_ANIME		C10R0101_VETERAN,anm_c10r0101_veteran_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c10r0101_veteran_dir
+
+common_c10r0101_veteran_dir:
+	_FLAG_SET		FE_C10R0101_VETERAN
+
+	_TALKMSG		msg_c10r0101_veteran_02
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+/*ベテランどいていたら*/
+ev_c10r0101_veteran_02:
+	_TALKMSG		msg_c10r0101_veteran_03
+	_LAST_KEYWAIT
+	_TALK_CLOSE
+	_TALK_OBJ_END
+	_END
+
+//--------------------------------------------------------------------
+//門番　道をあける
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c10r0101_veteran_01
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_D_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c10r0101_veteran_02
+	_ANIME_DATA	AC_WALK_L_8F,1
+	_ANIME_DATA	AC_STAY_WALK_R_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c10r0101_veteran_03
+	_ANIME_DATA	AC_WALK_R_8F,1
+	_ANIME_DATA	AC_STAY_WALK_L_8F,1
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+//							店員(OBJ名shopm)
+/********************************************************************/
+ev_c10r0101_shop:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_SHOP_CALL		1
+
+	_TALK_OBJ_END
+	_END
+
+/********************************************************************/
+//						品物固定の店員(OBJ名shopm)
+/********************************************************************/
+ev_c10r0101_fix_shop:
+	_TALK_OBJ_START
+
+	_CHG_COMMON_SCR		SCRID_SHOP_START_TALK
+	_TALK_CLOSE_NO_CLEAR
+	_FIX_SHOP_CALL		ID_SHOP_ITEM_PK_FS
+
+	_TALK_OBJ_END
+	_END
+
+
+/********************************************************************/
+//							ライバル
+/********************************************************************/
+#define POS_C10R0101_X1	(10)
+#define POS_C10R0101_X2	(11)
+#define POS_C10R0101_X3	(12)
+
+ev_c10r0101_rival:
+	_EVENT_START
+
+	/*登場*/
+	_FLAG_RESET		FV_C10R0101_RIVAL
+	_OBJ_ADD		C10R0101_RIVAL
+
+	_CHG_COMMON_SCR SCRID_THE_RIVAL_PLAY				/*ライバル曲再生*/
+
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_C10R0101_X1,ev_c10r0101_rival_x1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_C10R0101_X2,ev_c10r0101_rival_x2
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_C10R0101_X3,ev_c10r0101_rival_x3
+	_END
+
+/*近づいてくる*/
+ev_c10r0101_rival_x1:
+	_OBJ_ANIME		C10R0101_RIVAL,anm_c10r0101_rival_01
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c10r0101_rival_01
+	
+ev_c10r0101_rival_x2:
+	_OBJ_ANIME		C10R0101_RIVAL,anm_c10r0101_rival_02
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c10r0101_rival_01
+
+ev_c10r0101_rival_x3:
+	_OBJ_ANIME		C10R0101_RIVAL,anm_c10r0101_rival_03
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c10r0101_rival_01
+
+common_c10r0101_rival_01:
+	_OBJ_ANIME		FLDOBJ_ID_PLAYER,anm_c10r0101_player_01
+	_OBJ_ANIME_WAIT
+
+	_RIVAL_NAME		0
+	_TALK_KEYWAIT	msg_c10r0101_rival_01
+	_TALK_CLOSE
+
+	//戦闘呼び出し
+	_FIRST_POKE_NO_GET	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_NAETORU,ev_c10r0101_rival_02
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,MONSNO_HIKOZARU,ev_c10r0101_rival_03
+	_JUMP												ev_c10r0101_rival_01
+
+//戦闘呼び出し
+ev_c10r0101_rival_01:
+	_TRAINER_BTL_SET	RIVAL_13,0
+	_JUMP				ev_c10r0101_rival_btl_coomon
+
+ev_c10r0101_rival_02:
+	_TRAINER_BTL_SET	RIVAL_14,0
+	_JUMP				ev_c10r0101_rival_btl_coomon
+
+ev_c10r0101_rival_03:
+	_TRAINER_BTL_SET	RIVAL_15,0
+	_JUMP				ev_c10r0101_rival_btl_coomon
+
+ev_c10r0101_rival_btl_coomon:
+	_TRAINER_LOSE_CHECK	SCWK_ANSWER
+	_IFVAL_JUMP			SCWK_ANSWER,EQ,0,ev_c10r0101_rival_battle_lose
+
+	_RIVAL_NAME		0
+	_PLAYER_NAME	1
+	_TALK_KEYWAIT	msg_c10r0101_rival_02
+	_TALK_CLOSE
+
+	_PLAYER_POS_GET	SCWK_TEMP0,SCWK_TEMP1
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_C10R0101_X1,ev_c10r0101_rival_x11
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_C10R0101_X2,ev_c10r0101_rival_x12
+	_IFVAL_JUMP		SCWK_TEMP0,EQ,POS_C10R0101_X3,ev_c10r0101_rival_x13
+	_END
+
+/*退場*/
+ev_c10r0101_rival_x11:
+	_OBJ_ANIME		C10R0101_RIVAL,anm_c10r0101_rival_11
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c10r0101_rival_11
+	
+ev_c10r0101_rival_x12:
+	_OBJ_ANIME		C10R0101_RIVAL,anm_c10r0101_rival_12
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c10r0101_rival_11
+
+ev_c10r0101_rival_x13:
+	_OBJ_ANIME		C10R0101_RIVAL,anm_c10r0101_rival_13
+	_OBJ_ANIME_WAIT
+	_JUMP			common_c10r0101_rival_11
+
+common_c10r0101_rival_11:
+	_SE_PLAY		SEQ_SE_DP_KAIDAN2
+	_OBJ_DEL		C10R0101_RIVAL
+	_SE_WAIT		SEQ_SE_DP_KAIDAN2
+	_LDVAL			WK_SCENE_C10R0101,1
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//敗北処理
+//--------------------------------------------------------------------
+ev_c10r0101_rival_battle_lose:
+	_FLAG_SET		FV_C10R0101_RIVAL	/*再度イベントを起こした時の対処*/
+	_TRAINER_LOSE
+	_EVENT_END
+	_END
+
+//--------------------------------------------------------------------
+//主人公	下を向く
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c10r0101_player_01
+	_ANIME_DATA	AC_STAY_WALK_D_4F,1
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル　近づいてくる
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c10r0101_rival_01
+	_ANIME_DATA	AC_WALK_U_4F,3
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,3
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c10r0101_rival_02
+	_ANIME_DATA	AC_WALK_U_4F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c10r0101_rival_03
+	_ANIME_DATA	AC_WALK_U_4F,3
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_U_4F,3
+	_ANIME_DATA	ACMD_END,0
+
+//--------------------------------------------------------------------
+//ライバル　退場
+//--------------------------------------------------------------------
+_ANIME_LABEL	anm_c10r0101_rival_11
+	_ANIME_DATA	AC_WALK_D_4F,3
+	_ANIME_DATA	AC_WALK_R_4F,1
+	_ANIME_DATA	AC_WALK_D_4F,3
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c10r0101_rival_12
+	_ANIME_DATA	AC_WALK_D_4F,6
+	_ANIME_DATA	ACMD_END,0
+
+_ANIME_LABEL	anm_c10r0101_rival_13
+	_ANIME_DATA	AC_WALK_D_4F,3
+	_ANIME_DATA	AC_WALK_L_4F,1
+	_ANIME_DATA	AC_WALK_D_4F,3
+	_ANIME_DATA	ACMD_END,0
+
+
+/********************************************************************/
+/*						トレーナー姉さん							*/
+/********************************************************************/
+ev_c10r0101_woman3:
+	_EASY_OBJ_MSG	msg_c10r0101_woman3_01
+	_END
+
+/********************************************************************/
+/*						ポケセン回復受付　							*/
+/********************************************************************/
+ev_c10r0101_pcwoman1:
+	_LDVAL			SCWK_TEMP3,C10R0101_PCWOMAN1_01
+	_CHG_COMMON_SCR	SCRID_HEAL_P01
+	_END
+
+/********************************************************************/
+/********************************************************************/
