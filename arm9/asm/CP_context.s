@@ -22,8 +22,8 @@ CP_SaveContext: ; 0x020D3648
 	.balign 4
 _020D3684: .word 0x04000290
 
-	arm_func_start CP_RestoreContext
-CP_RestoreContext: ; 0x020D3688
+	arm_func_start CPi_RestoreContext
+CPi_RestoreContext: ; 0x020D3688
 	stmdb sp!, {r4}
 	ldr r1, _020D36C0 ; =0x04000290
 	ldmia r0, {r2-r4,r12}

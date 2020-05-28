@@ -15,4 +15,7 @@ typedef struct CPContext {
     u16 sqrt_mode;
 } CPContext;
 
+void CP_SaveContext(CPContext *context);
+void CPi_RestoreContext(const CPContext* context);
+
 #endif //POKEDIAMOND_CP_CONTEXT_H

@@ -93,7 +93,7 @@
 .extern CPSi_sha1_init
 .extern CPSi_sha1_result
 .extern CPSi_sha1_result_prng
-.extern CP_RestoreContext
+.extern CPi_RestoreContext
 .extern CP_SaveContext
 .extern CTRDG_CpuCopy16
 .extern CTRDG_CpuCopy32
