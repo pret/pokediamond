@@ -6,13 +6,13 @@
 	arm_func_start MOD04_021D8D18
 MOD04_021D8D18: ; 0x021D8D18
 	stmdb sp!, {r4, lr}
-	ldr r2, _021D8D58 ; =0x02210468
+	ldr r2, _021D8D58 ; =UNK04_02210468
 	ldr r1, _021D8D5C ; =0x000013D8
 	ldr r2, [r2]
 	mov r4, r0
 	add r0, r2, r1
 	bl OS_LockMutex
-	ldr r2, _021D8D58 ; =0x02210468
+	ldr r2, _021D8D58 ; =UNK04_02210468
 	ldr r1, _021D8D5C ; =0x000013D8
 	ldr r0, [r2]
 	add r0, r0, #0x1000
@@ -22,14 +22,14 @@ MOD04_021D8D18: ; 0x021D8D18
 	bl OS_UnlockMutex
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021D8D58: .word 0x02210468
+_021D8D58: .word UNK04_02210468
 _021D8D5C: .word 0x000013D8
 
 	arm_func_start MOD04_021D8D60
 MOD04_021D8D60: ; 0x021D8D60
 	stmdb sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x98
-	ldr r4, _021D8EE0 ; =0x0221046C
+	ldr r4, _021D8EE0 ; =UNK04_0221046C
 	mov r3, #0
 	ldr r5, [r4, #4]
 	ldr ip, [r4]
@@ -39,11 +39,11 @@ MOD04_021D8D60: ; 0x021D8D60
 	mov r4, r2
 	cmpeq ip, r3
 	bne _021D8DC0
-	ldr r0, _021D8EE4 ; =0x0220BEF8
+	ldr r0, _021D8EE4 ; =UNK04_0220BEF8
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D8EE8 ; =0x0220BF04
-	ldr r2, _021D8EE4 ; =0x0220BEF8
+	ldr r1, _021D8EE8 ; =UNK04_0220BF04
+	ldr r2, _021D8EE4 ; =UNK04_0220BEF8
 	mov r0, r5
 	bl MOD04_021DAB68
 	cmp r0, #0
@@ -52,11 +52,11 @@ MOD04_021D8D60: ; 0x021D8D60
 	mov r0, #8
 	ldmia sp!, {r4, r5, r6, pc}
 _021D8DC0:
-	ldr r0, _021D8EEC ; =0x0220BF0C
+	ldr r0, _021D8EEC ; =UNK04_0220BF0C
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D8EE8 ; =0x0220BF04
-	ldr r2, _021D8EEC ; =0x0220BF0C
+	ldr r1, _021D8EE8 ; =UNK04_0220BF04
+	ldr r2, _021D8EEC ; =UNK04_0220BF0C
 	mov r0, r5
 	bl MOD04_021DAB68
 	cmp r0, #0
@@ -66,7 +66,7 @@ _021D8DC0:
 	mov r0, r6
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D8EF0 ; =0x0220BF14
+	ldr r1, _021D8EF0 ; =UNK04_0220BF14
 	mov r0, r5
 	mov r2, r6
 	bl MOD04_021DAB68
@@ -75,14 +75,14 @@ _021D8DC0:
 	movne r0, #8
 	ldmneia sp!, {r4, r5, r6, pc}
 _021D8E18:
-	ldr r1, _021D8EE0 ; =0x0221046C
+	ldr r1, _021D8EE0 ; =UNK04_0221046C
 	add r0, sp, #0
 	bl MOD04_021D9F78
 	cmp r0, #0
 	addeq sp, sp, #0x98
 	moveq r0, #5
 	ldmeqia sp!, {r4, r5, r6, pc}
-	ldr r0, _021D8EF4 ; =0x0221048C
+	ldr r0, _021D8EF4 ; =UNK04_0221048C
 	add r1, sp, #0
 	ldr r2, [r0]
 	mov r0, r5
@@ -91,15 +91,15 @@ _021D8E18:
 	addeq sp, sp, #0x98
 	moveq r0, #8
 	ldmeqia sp!, {r4, r5, r6, pc}
-	ldr r0, _021D8EF8 ; =0x02210460
+	ldr r0, _021D8EF8 ; =UNK04_02210460
 	ldr r0, [r0]
 	cmp r0, #1
 	bne _021D8E94
-	ldr r0, _021D8EFC ; =0x0220BF1C
+	ldr r0, _021D8EFC ; =UNK04_0220BF1C
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D8F00 ; =0x0220BF20
-	ldr r2, _021D8EFC ; =0x0220BF1C
+	ldr r1, _021D8F00 ; =UNK04_0220BF20
+	ldr r2, _021D8EFC ; =UNK04_0220BF1C
 	mov r0, r5
 	bl MOD04_021DAB68
 	cmp r0, #0
@@ -114,7 +114,7 @@ _021D8E94:
 	mov r0, r4
 	bl wcslen
 	mov r3, r0
-	ldr r1, _021D8F04 ; =0x0220BF28
+	ldr r1, _021D8F04 ; =UNK04_0220BF28
 	mov r0, r5
 	mov r2, r4
 	mov r3, r3, lsl #1
@@ -128,35 +128,35 @@ _021D8ED4:
 	add sp, sp, #0x98
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021D8EE0: .word 0x0221046C
-_021D8EE4: .word 0x0220BEF8
-_021D8EE8: .word 0x0220BF04
-_021D8EEC: .word 0x0220BF0C
-_021D8EF0: .word 0x0220BF14
-_021D8EF4: .word 0x0221048C
-_021D8EF8: .word 0x02210460
-_021D8EFC: .word 0x0220BF1C
-_021D8F00: .word 0x0220BF20
-_021D8F04: .word 0x0220BF28
+_021D8EE0: .word UNK04_0221046C
+_021D8EE4: .word UNK04_0220BEF8
+_021D8EE8: .word UNK04_0220BF04
+_021D8EEC: .word UNK04_0220BF0C
+_021D8EF0: .word UNK04_0220BF14
+_021D8EF4: .word UNK04_0221048C
+_021D8EF8: .word UNK04_02210460
+_021D8EFC: .word UNK04_0220BF1C
+_021D8F00: .word UNK04_0220BF20
+_021D8F04: .word UNK04_0220BF28
 
 	arm_func_start MOD04_021D8F08
 MOD04_021D8F08: ; 0x021D8F08
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	mov r1, #0
 	ldr r0, [r0]
 	str r1, [sp]
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0x314]
-	ldr r1, _021D91C0 ; =0x0220BF34
+	ldr r1, _021D91C0 ; =UNK04_0220BF34
 	bl MOD04_021DA388
 	str r0, [sp]
 	cmp r0, #0
 	beq _021D8F40
 	bl MOD04_021DCA84
 _021D8F40:
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	mov r2, #0
 	ldr r1, [r0]
 	ldr r0, _021D91C4 ; =0x021D74A8
@@ -164,14 +164,14 @@ _021D8F40:
 	str r2, [r0]
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0x314]
-	ldr r1, _021D91C8 ; =0x0220BF3C
+	ldr r1, _021D91C8 ; =UNK04_0220BF3C
 	bl MOD04_021DA388
 	bl atol
 	ldr r1, _021D91C4 ; =0x021D74A8
 	ldr r1, [r1]
 	cmp r1, #0x22
 	bne _021D8F9C
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	ldr r2, _021D91CC ; =0x00004E85
 	ldr r1, [r0]
 	add sp, sp, #4
@@ -182,7 +182,7 @@ _021D8F40:
 _021D8F9C:
 	cmp r0, #0xc8
 	beq _021D8FC8
-	ldr r2, _021D91BC ; =0x02210468
+	ldr r2, _021D91BC ; =UNK04_02210468
 	ldr r1, _021D91D0 ; =0x000059D8
 	ldr r2, [r2]
 	add r1, r0, r1
@@ -192,10 +192,10 @@ _021D8F9C:
 	mov r0, #0x12
 	ldmia sp!, {r4, r5, pc}
 _021D8FC8:
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	ldr r2, _021D91D4 ; =0x0000100C
 	ldr r3, [r0]
-	ldr r1, _021D91D8 ; =0x0220BF48
+	ldr r1, _021D91D8 ; =UNK04_0220BF48
 	add r0, r3, #0x1000
 	ldr r0, [r0, #0x314]
 	add r2, r3, r2
@@ -203,7 +203,7 @@ _021D8FC8:
 	bl MOD04_021DA334
 	cmp r0, #0
 	bgt _021D9014
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	ldr r2, _021D91CC ; =0x00004E85
 	ldr r1, [r0]
 	add sp, sp, #4
@@ -212,14 +212,14 @@ _021D8FC8:
 	mov r0, #0xe
 	ldmia sp!, {r4, r5, pc}
 _021D9014:
-	ldr r1, _021D91BC ; =0x02210468
+	ldr r1, _021D91BC ; =UNK04_02210468
 	ldr r0, _021D91D4 ; =0x0000100C
 	ldr r2, [r1]
 	add r1, sp, #0
 	add r0, r2, r0
 	mov r2, #0xa
 	bl strtold2
-	ldr r2, _021D91BC ; =0x02210468
+	ldr r2, _021D91BC ; =UNK04_02210468
 	ldr r1, _021D91D4 ; =0x0000100C
 	ldr r5, [r2]
 	mov r4, r0
@@ -242,14 +242,14 @@ _021D9014:
 	str r0, [r1, #8]
 	cmp r4, #0x64
 	bge _021D91B0
-	ldr ip, _021D91BC ; =0x02210468
+	ldr ip, _021D91BC ; =UNK04_02210468
 	mov r0, #0
 	ldr r1, [ip]
 	ldr r5, _021D91E0 ; =0x00001052
 	add r1, r1, #0x1000
 	strb r0, [r1, #0x52]
 	ldr r2, [ip]
-	ldr r1, _021D91E4 ; =0x0220BF54
+	ldr r1, _021D91E4 ; =UNK04_0220BF54
 	add r2, r2, #0x1000
 	strb r0, [r2, #0x1f]
 	ldr r2, [ip]
@@ -267,52 +267,52 @@ _021D9014:
 	ldr r0, [r0, #0x314]
 	add r2, r2, r5
 	bl MOD04_021DA334
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	ldr r2, _021D91EC ; =0x0000101F
 	ldr r3, [r0]
-	ldr r1, _021D91F0 ; =0x0220BF5C
+	ldr r1, _021D91F0 ; =UNK04_0220BF5C
 	add r0, r3, #0x1000
 	add r2, r3, r2
 	ldr r0, [r0, #0x314]
 	mov r3, #0x33
 	bl MOD04_021DA334
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	ldr r2, _021D91F4 ; =0x0000117F
 	ldr r3, [r0]
-	ldr r1, _021D91F8 ; =0x0220BF64
+	ldr r1, _021D91F8 ; =UNK04_0220BF64
 	add r0, r3, #0x1000
 	add r2, r3, r2
 	ldr r0, [r0, #0x314]
 	mov r3, #9
 	bl MOD04_021DA334
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	ldr r2, _021D91FC ; =0x00001010
 	ldr r3, [r0]
-	ldr r1, _021D9200 ; =0x0220BF70
+	ldr r1, _021D9200 ; =UNK04_0220BF70
 	add r0, r3, #0x1000
 	add r2, r3, r2
 	ldr r0, [r0, #0x314]
 	mov r3, #0xf
 	bl MOD04_021DA334
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	ldr r2, _021D9204 ; =0x00001188
 	ldr r3, [r0]
-	ldr r1, _021D9208 ; =0x0220BF7C
+	ldr r1, _021D9208 ; =UNK04_0220BF7C
 	add r0, r3, #0x1000
 	add r2, r3, r2
 	ldr r0, [r0, #0x314]
 	mov r3, #0x41
 	bl MOD04_021DA2F4
-	ldr r0, _021D91BC ; =0x02210468
+	ldr r0, _021D91BC ; =UNK04_02210468
 	mov r1, #0
 	ldr r0, [r0]
 	cmp r4, #0x28
 	add r0, r0, #0x1000
 	strb r1, [r0, #0x1b3]
-	ldrne r0, _021D920C ; =0x02210464
+	ldrne r0, _021D920C ; =UNK04_02210464
 	movne r1, #1
 	strne r1, [r0]
-	ldreq r0, _021D920C ; =0x02210464
+	ldreq r0, _021D920C ; =UNK04_02210464
 	moveq r1, #2
 	streq r1, [r0]
 _021D91B0:
@@ -320,33 +320,33 @@ _021D91B0:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021D91BC: .word 0x02210468
-_021D91C0: .word 0x0220BF34
+_021D91BC: .word UNK04_02210468
+_021D91C0: .word UNK04_0220BF34
 _021D91C4: .word 0x021D74A8
-_021D91C8: .word 0x0220BF3C
+_021D91C8: .word UNK04_0220BF3C
 _021D91CC: .word 0x00004E85
 _021D91D0: .word 0x000059D8
 _021D91D4: .word 0x0000100C
-_021D91D8: .word 0x0220BF48
+_021D91D8: .word UNK04_0220BF48
 _021D91DC: .word 0x00004E20
 _021D91E0: .word 0x00001052
-_021D91E4: .word 0x0220BF54
+_021D91E4: .word UNK04_0220BF54
 _021D91E8: .word 0x0000012D
 _021D91EC: .word 0x0000101F
-_021D91F0: .word 0x0220BF5C
+_021D91F0: .word UNK04_0220BF5C
 _021D91F4: .word 0x0000117F
-_021D91F8: .word 0x0220BF64
+_021D91F8: .word UNK04_0220BF64
 _021D91FC: .word 0x00001010
-_021D9200: .word 0x0220BF70
+_021D9200: .word UNK04_0220BF70
 _021D9204: .word 0x00001188
-_021D9208: .word 0x0220BF7C
-_021D920C: .word 0x02210464
+_021D9208: .word UNK04_0220BF7C
+_021D920C: .word UNK04_02210464
 
 	arm_func_start MOD04_021D9210
 MOD04_021D9210: ; 0x021D9210
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r0, _021D93F4 ; =0x02210468
+	ldr r0, _021D93F4 ; =UNK04_02210468
 	mov r1, #0
 	ldr r0, [r0]
 	add r2, r0, #0x1000
@@ -356,7 +356,7 @@ MOD04_021D9210: ; 0x021D9210
 	bl MOD04_021DA3DC
 	cmp r0, #1
 	beq _021D9260
-	ldr r0, _021D93F4 ; =0x02210468
+	ldr r0, _021D93F4 ; =UNK04_02210468
 	ldr r2, _021D93F8 ; =0x00004E84
 	ldr r1, [r0]
 	add sp, sp, #4
@@ -370,7 +370,7 @@ _021D9260:
 	addne sp, sp, #4
 	movne r0, #0xe
 	ldmneia sp!, {r4, r5, pc}
-	ldr r0, _021D93F4 ; =0x02210468
+	ldr r0, _021D93F4 ; =UNK04_02210468
 	ldr r1, _021D93F8 ; =0x00004E84
 	ldr r0, [r0]
 	add r0, r0, #0x1000
@@ -380,12 +380,12 @@ _021D9260:
 	ldr r0, _021D93FC ; =0x00004E22
 	cmp r2, r0
 	bne _021D9328
-	ldr r0, _021D9400 ; =0x0220BF88
+	ldr r0, _021D9400 ; =UNK04_0220BF88
 	ldr r1, _021D9404 ; =0x0000071F
 	blx r5
 	movs r5, r0
 	bne _021D92D0
-	ldr r0, _021D93F4 ; =0x02210468
+	ldr r0, _021D93F4 ; =UNK04_02210468
 	ldr r2, _021D93F8 ; =0x00004E84
 	ldr r1, [r0]
 	add sp, sp, #4
@@ -395,16 +395,16 @@ _021D9260:
 	ldmia sp!, {r4, r5, pc}
 _021D92D0:
 	add r1, r5, #0x1f
-	ldr r0, _021D9408 ; =0x0221046C
+	ldr r0, _021D9408 ; =UNK04_0221046C
 	bic r1, r1, #0x1f
 	bl FUN_02096710
 	cmp r0, #1
 	beq _021D9318
-	ldr r0, _021D940C ; =0x0220BF98
+	ldr r0, _021D940C ; =UNK04_0220BF98
 	mov r1, r5
 	mov r2, #0
 	blx r4
-	ldr r0, _021D93F4 ; =0x02210468
+	ldr r0, _021D93F4 ; =UNK04_02210468
 	ldr r2, _021D93F8 ; =0x00004E84
 	ldr r1, [r0]
 	add sp, sp, #4
@@ -413,7 +413,7 @@ _021D92D0:
 	mov r0, #0xf
 	ldmia sp!, {r4, r5, pc}
 _021D9318:
-	ldr r0, _021D940C ; =0x0220BF98
+	ldr r0, _021D940C ; =UNK04_0220BF98
 	mov r1, r5
 	mov r2, #0
 	blx r4
@@ -430,9 +430,9 @@ _021D9334:
 	beq _021D9378
 	b _021D93E8
 _021D9350:
-	ldr r0, _021D9408 ; =0x0221046C
+	ldr r0, _021D9408 ; =UNK04_0221046C
 	bl FUN_02096570
-	ldr r0, _021D93F4 ; =0x02210468
+	ldr r0, _021D93F4 ; =UNK04_02210468
 	ldr r2, _021D9410 ; =0x00004E88
 	ldr r1, [r0]
 	add sp, sp, #4
@@ -441,12 +441,12 @@ _021D9350:
 	mov r0, #0x10
 	ldmia sp!, {r4, r5, pc}
 _021D9378:
-	ldr r0, _021D9400 ; =0x0220BF88
+	ldr r0, _021D9400 ; =UNK04_0220BF88
 	mov r1, #0x700
 	blx r5
 	movs r5, r0
 	bne _021D93AC
-	ldr r0, _021D93F4 ; =0x02210468
+	ldr r0, _021D93F4 ; =UNK04_02210468
 	ldr r2, _021D9414 ; =0x00004E8C
 	ldr r1, [r0]
 	add sp, sp, #4
@@ -458,11 +458,11 @@ _021D93AC:
 	add r0, r5, #0x1f
 	bic r0, r0, #0x1f
 	bl DWCi_AUTH_MakeWiFiID
-	ldr r0, _021D940C ; =0x0220BF98
+	ldr r0, _021D940C ; =UNK04_0220BF98
 	mov r1, r5
 	mov r2, #0
 	blx r4
-	ldr r0, _021D93F4 ; =0x02210468
+	ldr r0, _021D93F4 ; =UNK04_02210468
 	ldr r2, _021D9414 ; =0x00004E8C
 	ldr r1, [r0]
 	add sp, sp, #4
@@ -475,13 +475,13 @@ _021D93E8:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021D93F4: .word 0x02210468
+_021D93F4: .word UNK04_02210468
 _021D93F8: .word 0x00004E84
 _021D93FC: .word 0x00004E22
-_021D9400: .word 0x0220BF88
+_021D9400: .word UNK04_0220BF88
 _021D9404: .word 0x0000071F
-_021D9408: .word 0x0221046C
-_021D940C: .word 0x0220BF98
+_021D9408: .word UNK04_0221046C
+_021D940C: .word UNK04_0220BF98
 _021D9410: .word 0x00004E88
 _021D9414: .word 0x00004E8C
 
@@ -493,7 +493,7 @@ MOD04_021D9418: ; 0x021D9418
 	mov r0, #1
 	ldr r7, _021D96D4 ; =0x00001388
 	ldr fp, _021D96D8 ; =0x000082EA
-	ldr r5, _021D96DC ; =0x02210468
+	ldr r5, _021D96DC ; =UNK04_02210468
 	ldr r4, _021D96E0 ; =0x000013D8
 	mov r6, sb
 	str sb, [sp, #8]
@@ -685,7 +685,7 @@ MOD04_021D96CC: ; 0x021D96CC
 	.align 2, 0
 _021D96D4: .word 0x00001388
 _021D96D8: .word 0x000082EA
-_021D96DC: .word 0x02210468
+_021D96DC: .word UNK04_02210468
 _021D96E0: .word 0x000013D8
 _021D96E4: .word 0x00001B34
 _021D96E8: .word 0x00004E84
@@ -693,17 +693,17 @@ _021D96E8: .word 0x00004E84
 	arm_func_start MOD04_021D96EC
 MOD04_021D96EC: ; 0x021D96EC
 	stmdb sp!, {r4, lr}
-	ldr r1, _021D97E0 ; =0x0220BEB4
+	ldr r1, _021D97E0 ; =UNK04_0220BEB4
 	mov r4, r0
 	ldr r0, [r1]
-	ldr r1, _021D97E4 ; =0x0220BFA4
+	ldr r1, _021D97E4 ; =UNK04_0220BFA4
 	bl strcmp
 	cmp r0, #0
-	ldrne r0, _021D97E0 ; =0x0220BEB4
+	ldrne r0, _021D97E0 ; =UNK04_0220BEB4
 	movne r1, #1
 	strne r1, [r0, #0x14]
-	ldr r0, _021D97E8 ; =0x02210468
-	ldr r1, _021D97E0 ; =0x0220BEB4
+	ldr r0, _021D97E8 ; =UNK04_02210468
+	ldr r1, _021D97E0 ; =UNK04_0220BEB4
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	ldr r2, [r0, #0x20c]
@@ -717,10 +717,10 @@ MOD04_021D96EC: ; 0x021D96EC
 	ldmneia sp!, {r4, pc}
 	cmp r4, #1
 	bne _021D9758
-	ldr r0, _021D97EC ; =0x0221046C
+	ldr r0, _021D97EC ; =UNK04_0221046C
 	bl DWCi_BM_GetWiFiInfo
 _021D9758:
-	ldr r0, _021D97E8 ; =0x02210468
+	ldr r0, _021D97E8 ; =UNK04_02210468
 	ldr r2, _021D97F0 ; =0x000011CC
 	ldr r3, [r0]
 	add r0, r3, #0x1000
@@ -728,7 +728,7 @@ _021D9758:
 	add r1, r3, #0x1200
 	add r2, r3, r2
 	bl MOD04_021D8D60
-	ldr r2, _021D97E8 ; =0x02210468
+	ldr r2, _021D97E8 ; =UNK04_02210468
 	ldr r1, [r2]
 	add r1, r1, #0x1000
 	str r0, [r1, #4]
@@ -746,7 +746,7 @@ _021D9758:
 	ldr r0, _021D97F4 ; =0x021D3498
 	ldr r0, [r0, #4]
 	bl OS_GetThreadPriority
-	ldr r1, _021D97E8 ; =0x02210468
+	ldr r1, _021D97E8 ; =UNK04_02210468
 	ldr r2, [r1]
 	sub r1, r0, #1
 	add r0, r2, #0x1000
@@ -755,17 +755,17 @@ _021D9758:
 	mov r0, #0
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021D97E0: .word 0x0220BEB4
-_021D97E4: .word 0x0220BFA4
-_021D97E8: .word 0x02210468
-_021D97EC: .word 0x0221046C
+_021D97E0: .word UNK04_0220BEB4
+_021D97E4: .word UNK04_0220BFA4
+_021D97E8: .word UNK04_02210468
+_021D97EC: .word UNK04_0221046C
 _021D97F0: .word 0x000011CC
 _021D97F4: .word 0x021D3498
 
 	arm_func_start MOD04_021D97F8
 MOD04_021D97F8: ; 0x021D97F8
 	stmdb sp!, {r4, lr}
-	ldr r1, _021D9874 ; =0x02210468
+	ldr r1, _021D9874 ; =UNK04_02210468
 	mov r4, r0
 	ldr r1, [r1]
 	cmp r1, #0
@@ -774,7 +774,7 @@ MOD04_021D97F8: ; 0x021D97F8
 	mov r2, #0x1c4
 	bl MI_CpuFill8
 _021D981C:
-	ldr r1, _021D9874 ; =0x02210468
+	ldr r1, _021D9874 ; =UNK04_02210468
 	ldr r0, _021D9878 ; =0x00001008
 	ldr r2, [r1]
 	mov r1, r4
@@ -799,7 +799,7 @@ _021D985C:
 	strge r0, [r4]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021D9874: .word 0x02210468
+_021D9874: .word UNK04_02210468
 _021D9878: .word 0x00001008
 _021D987C: .word 0x00004E20
 _021D9880: .word 0x00007530
@@ -809,7 +809,7 @@ _021D9888: .word 0x00004E84
 	arm_func_start MOD04_021D988C
 MOD04_021D988C: ; 0x021D988C
 	stmdb sp!, {r4, lr}
-	ldr r0, _021D98D4 ; =0x02210468
+	ldr r0, _021D98D4 ; =UNK04_02210468
 	ldr r1, [r0]
 	cmp r1, #0
 	moveq r0, #0x16
@@ -817,7 +817,7 @@ MOD04_021D988C: ; 0x021D988C
 	ldr r0, _021D98D8 ; =0x000013D8
 	add r0, r1, r0
 	bl OS_LockMutex
-	ldr r1, _021D98D4 ; =0x02210468
+	ldr r1, _021D98D4 ; =UNK04_02210468
 	ldr r0, _021D98D8 ; =0x000013D8
 	ldr r2, [r1]
 	add r1, r2, #0x1000
@@ -827,14 +827,14 @@ MOD04_021D988C: ; 0x021D988C
 	mov r0, r4
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021D98D4: .word 0x02210468
+_021D98D4: .word UNK04_02210468
 _021D98D8: .word 0x000013D8
 
 	arm_func_start MOD04_021D98DC
 MOD04_021D98DC: ; 0x021D98DC
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021D9914 ; =0x02210468
+	ldr r0, _021D9914 ; =UNK04_02210468
 	ldr r1, [r0]
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0x384]
@@ -847,13 +847,13 @@ MOD04_021D98DC: ; 0x021D98DC
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021D9914: .word 0x02210468
+_021D9914: .word UNK04_02210468
 _021D9918: .word 0x00001318
 
 	arm_func_start MOD04_021D991C
 MOD04_021D991C: ; 0x021D991C
 	stmdb sp!, {r4, lr}
-	ldr r0, _021D996C ; =0x02210468
+	ldr r0, _021D996C ; =UNK04_02210468
 	ldr r0, [r0]
 	cmp r0, #0
 	ldmeqia sp!, {r4, pc}
@@ -864,24 +864,24 @@ MOD04_021D991C: ; 0x021D991C
 	beq _021D9948
 	bl MOD04_021DAE4C
 _021D9948:
-	ldr r1, _021D996C ; =0x02210468
-	ldr r0, _021D9970 ; =0x0220BFC4
+	ldr r1, _021D996C ; =UNK04_02210468
+	ldr r0, _021D9970 ; =UNK04_0220BFC4
 	ldr r1, [r1]
 	mov r2, #0
 	blx r4
-	ldr r0, _021D996C ; =0x02210468
+	ldr r0, _021D996C ; =UNK04_02210468
 	mov r1, #0
 	str r1, [r0]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021D996C: .word 0x02210468
-_021D9970: .word 0x0220BFC4
+_021D996C: .word UNK04_02210468
+_021D9970: .word UNK04_0220BFC4
 
 	arm_func_start MOD04_021D9974
 MOD04_021D9974: ; 0x021D9974
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021D9A0C ; =0x02210468
+	ldr r0, _021D9A0C ; =UNK04_02210468
 	ldr r1, [r0]
 	cmp r1, #0
 	addeq sp, sp, #4
@@ -889,7 +889,7 @@ MOD04_021D9974: ; 0x021D9974
 	ldr r0, _021D9A10 ; =0x000013D8
 	add r0, r1, r0
 	bl OS_LockMutex
-	ldr r2, _021D9A0C ; =0x02210468
+	ldr r2, _021D9A0C ; =UNK04_02210468
 	mov r3, #1
 	ldr r0, [r2]
 	ldr r1, _021D9A10 ; =0x000013D8
@@ -898,7 +898,7 @@ MOD04_021D9974: ; 0x021D9974
 	ldr r0, [r2]
 	add r0, r0, r1
 	bl OS_UnlockMutex
-	ldr r0, _021D9A0C ; =0x02210468
+	ldr r0, _021D9A0C ; =UNK04_02210468
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0x314]
@@ -906,7 +906,7 @@ MOD04_021D9974: ; 0x021D9974
 	beq _021D99DC
 	bl MOD04_021DB440
 _021D99DC:
-	ldr r0, _021D9A0C ; =0x02210468
+	ldr r0, _021D9A0C ; =UNK04_02210468
 	ldr r1, [r0]
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0x384]
@@ -919,7 +919,7 @@ _021D99DC:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021D9A0C: .word 0x02210468
+_021D9A0C: .word UNK04_02210468
 _021D9A10: .word 0x000013D8
 _021D9A14: .word 0x00001318
 
@@ -927,12 +927,12 @@ _021D9A14: .word 0x00001318
 MOD04_021D9A18: ; 0x021D9A18
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
-	ldr r1, _021D9ABC ; =0x02210468
+	ldr r1, _021D9ABC ; =UNK04_02210468
 	ldr r0, _021D9AC0 ; =0x000013D8
 	ldr r1, [r1]
 	add r0, r1, r0
 	bl OS_InitMutex
-	ldr r1, _021D9ABC ; =0x02210468
+	ldr r1, _021D9ABC ; =UNK04_02210468
 	mov r2, #0
 	ldr r0, [r1]
 	add r0, r0, #0x1000
@@ -949,7 +949,7 @@ MOD04_021D9A18: ; 0x021D9A18
 	addeq sp, sp, #0xc
 	ldmeqia sp!, {pc}
 _021D9A74:
-	ldr r2, _021D9ABC ; =0x02210468
+	ldr r2, _021D9ABC ; =UNK04_02210468
 	ldr r0, _021D9AC4 ; =0x00001318
 	ldr lr, [r2]
 	mov r3, #0x1000
@@ -960,7 +960,7 @@ _021D9A74:
 	add r3, lr, #0x1000
 	str ip, [sp, #4]
 	bl OS_CreateThread
-	ldr r1, _021D9ABC ; =0x02210468
+	ldr r1, _021D9ABC ; =UNK04_02210468
 	ldr r0, _021D9AC4 ; =0x00001318
 	ldr r1, [r1]
 	add r0, r1, r0
@@ -968,7 +968,7 @@ _021D9A74:
 	add sp, sp, #0xc
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021D9ABC: .word 0x02210468
+_021D9ABC: .word UNK04_02210468
 _021D9AC0: .word 0x000013D8
 _021D9AC4: .word 0x00001318
 _021D9AC8: .word MOD04_021D9418
@@ -977,7 +977,7 @@ _021D9AC8: .word MOD04_021D9418
 MOD04_021D9ACC: ; 0x021D9ACC
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r2, _021D9BFC ; =0x02210468
+	ldr r2, _021D9BFC ; =UNK04_02210468
 	mov r5, r0
 	ldr r0, [r2]
 	mov r4, r1
@@ -986,10 +986,10 @@ MOD04_021D9ACC: ; 0x021D9ACC
 	ldr r2, [r5, #0x40]
 	movne r0, #2
 	ldmneia sp!, {r4, r5, pc}
-	ldr r0, _021D9C00 ; =0x0220BFD4
+	ldr r0, _021D9C00 ; =UNK04_0220BFD4
 	ldr r1, _021D9C04 ; =0x000013F4
 	blx r2
-	ldr r1, _021D9BFC ; =0x02210468
+	ldr r1, _021D9BFC ; =UNK04_02210468
 	cmp r0, #0
 	str r0, [r1]
 	addeq sp, sp, #4
@@ -998,10 +998,10 @@ MOD04_021D9ACC: ; 0x021D9ACC
 	ldr r2, _021D9C04 ; =0x000013F4
 	mov r1, #0
 	bl MI_CpuFill8
-	ldr r1, _021D9BFC ; =0x02210468
+	ldr r1, _021D9BFC ; =UNK04_02210468
 	ldr r2, _021D9C08 ; =0x00001008
 	ldr r0, [r1]
-	ldr r3, _021D9C0C ; =0x02210464
+	ldr r3, _021D9C0C ; =UNK04_02210464
 	add r0, r0, #0x1000
 	str r4, [r0, #0x314]
 	ldr r0, [r1]
@@ -1010,7 +1010,7 @@ MOD04_021D9ACC: ; 0x021D9ACC
 	mov r2, #0x1c4
 	str r1, [r3]
 	bl MI_CpuFill8
-	ldr r2, _021D9BFC ; =0x02210468
+	ldr r2, _021D9BFC ; =UNK04_02210468
 	ldr r3, _021D9C10 ; =0x00004E84
 	ldr r0, [r2]
 	ldr r1, _021D9C14 ; =0x000011CC
@@ -1029,13 +1029,13 @@ _021D9B7C:
 	add r0, lr, #0x1100
 	mov r2, #0
 	strh r2, [r0, #0xfe]
-	ldr r1, _021D9BFC ; =0x02210468
+	ldr r1, _021D9BFC ; =UNK04_02210468
 	mov r0, #1
 	ldr r1, [r1]
 	add r1, r1, #0x1000
 	strb r2, [r1, #0x20b]
 	bl MOD04_021D96EC
-	ldr r2, _021D9BFC ; =0x02210468
+	ldr r2, _021D9BFC ; =UNK04_02210468
 	ldr r1, [r2]
 	add r1, r1, #0x1000
 	str r0, [r1, #4]
@@ -1045,7 +1045,7 @@ _021D9B7C:
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {r4, r5, pc}
-	ldr r0, _021D9C18 ; =0x02210460
+	ldr r0, _021D9C18 ; =UNK04_02210460
 	mov r1, #0
 	str r1, [r0]
 	bl MOD04_021D9A18
@@ -1053,22 +1053,22 @@ _021D9B7C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021D9BFC: .word 0x02210468
-_021D9C00: .word 0x0220BFD4
+_021D9BFC: .word UNK04_02210468
+_021D9C00: .word UNK04_0220BFD4
 _021D9C04: .word 0x000013F4
 _021D9C08: .word 0x00001008
-_021D9C0C: .word 0x02210464
+_021D9C0C: .word UNK04_02210464
 _021D9C10: .word 0x00004E84
 _021D9C14: .word 0x000011CC
-_021D9C18: .word 0x02210460
+_021D9C18: .word UNK04_02210460
 
 	arm_func_start MOD04_021D9C1C
 MOD04_021D9C1C: ; 0x021D9C1C
-	ldr r1, _021D9C28 ; =0x0220BEB4
+	ldr r1, _021D9C28 ; =UNK04_0220BEB4
 	str r0, [r1]
 	bx lr
 	.align 2, 0
-_021D9C28: .word 0x0220BEB4
+_021D9C28: .word UNK04_0220BEB4
 
 	arm_func_start MOD04_021D9C2C
 MOD04_021D9C2C: ; 0x021D9C2C
@@ -1078,7 +1078,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	mov r6, r0
 	mov r5, r1
 	mov ip, #2
-	ldr r2, _021D9F30 ; =0x0220BFE4
+	ldr r2, _021D9F30 ; =UNK04_0220BFE4
 	add r0, sp, #4
 	mov r1, #0x21
 	mov r3, #1
@@ -1087,7 +1087,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, sp, #4
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F34 ; =0x0220BFF0
+	ldr r1, _021D9F34 ; =UNK04_0220BFF0
 	mov r0, r6
 	add r2, sp, #4
 	bl MOD04_021DAB68
@@ -1098,7 +1098,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	mov r0, r5
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F38 ; =0x0220BFF8
+	ldr r1, _021D9F38 ; =UNK04_0220BFF8
 	mov r0, r6
 	mov r2, r5
 	bl MOD04_021DAB68
@@ -1109,7 +1109,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0xe
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F3C ; =0x0220C000
+	ldr r1, _021D9F3C ; =UNK04_0220C000
 	mov r0, r6
 	add r2, r5, #0xe
 	bl MOD04_021DAB68
@@ -1120,7 +1120,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x41
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F40 ; =0x0220C008
+	ldr r1, _021D9F40 ; =UNK04_0220C008
 	mov r0, r6
 	add r2, r5, #0x41
 	bl MOD04_021DAB68
@@ -1131,7 +1131,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x6f
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F44 ; =0x0220C010
+	ldr r1, _021D9F44 ; =UNK04_0220C010
 	mov r0, r6
 	add r2, r5, #0x6f
 	bl MOD04_021DAB68
@@ -1142,7 +1142,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x15
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F48 ; =0x0220C018
+	ldr r1, _021D9F48 ; =UNK04_0220C018
 	mov r0, r6
 	add r2, r5, #0x15
 	bl MOD04_021DAB68
@@ -1153,7 +1153,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x1a
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F4C ; =0x0220C020
+	ldr r1, _021D9F4C ; =UNK04_0220C020
 	mov r0, r6
 	add r2, r5, #0x1a
 	bl MOD04_021DAB68
@@ -1164,7 +1164,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x1d
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F50 ; =0x0220C028
+	ldr r1, _021D9F50 ; =UNK04_0220C028
 	mov r0, r6
 	add r2, r5, #0x1d
 	bl MOD04_021DAB68
@@ -1175,7 +1175,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x1f
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F54 ; =0x0220C030
+	ldr r1, _021D9F54 ; =UNK04_0220C030
 	mov r0, r6
 	add r2, r5, #0x1f
 	bl MOD04_021DAB68
@@ -1186,7 +1186,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x2c
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F58 ; =0x0220C038
+	ldr r1, _021D9F58 ; =UNK04_0220C038
 	mov r0, r6
 	add r2, r5, #0x2c
 	bl MOD04_021DAB68
@@ -1197,7 +1197,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x2f
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F5C ; =0x0220C040
+	ldr r1, _021D9F5C ; =UNK04_0220C040
 	mov r0, r6
 	add r2, r5, #0x2f
 	bl MOD04_021DAB68
@@ -1208,7 +1208,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x34
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F60 ; =0x0220C048
+	ldr r1, _021D9F60 ; =UNK04_0220C048
 	mov r0, r6
 	add r2, r5, #0x34
 	bl MOD04_021DAB68
@@ -1219,7 +1219,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x7e
 	bl wcslen
 	mov r3, r0
-	ldr r1, _021D9F64 ; =0x0220C050
+	ldr r1, _021D9F64 ; =UNK04_0220C050
 	mov r0, r6
 	add r2, r5, #0x7e
 	mov r3, r3, lsl #1
@@ -1233,7 +1233,7 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	add r0, r5, #0x4e
 	bl strlen
 	mov r3, r0
-	ldr r1, _021D9F68 ; =0x0220C058
+	ldr r1, _021D9F68 ; =UNK04_0220C058
 	mov r0, r6
 	add r2, r5, #0x4e
 	bl MOD04_021DAB68
@@ -1242,14 +1242,14 @@ MOD04_021D9C2C: ; 0x021D9C2C
 	movne r0, #0
 	ldmneia sp!, {r4, r5, r6, pc}
 _021D9ED0:
-	ldr r2, _021D9F6C ; =0x0220C060
+	ldr r2, _021D9F6C ; =UNK04_0220C060
 	mov ip, #2
 	add r0, sp, #4
 	mov r1, #0x21
 	mov r3, #1
 	str ip, [sp]
 	bl OS_SNPrintf
-	ldr r1, _021D9F70 ; =0x0220C078
+	ldr r1, _021D9F70 ; =UNK04_0220C078
 	add r2, sp, #4
 	mov r0, r6
 	bl MOD04_021DAC98
@@ -1257,7 +1257,7 @@ _021D9ED0:
 	addne sp, sp, #0x28
 	movne r0, #0
 	ldmneia sp!, {r4, r5, r6, pc}
-	ldr r1, _021D9F74 ; =0x0220C084
+	ldr r1, _021D9F74 ; =UNK04_0220C084
 	mov r0, r6
 	add r2, r5, #0x15
 	bl MOD04_021DAC98
@@ -1267,24 +1267,24 @@ _021D9ED0:
 	add sp, sp, #0x28
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021D9F30: .word 0x0220BFE4
-_021D9F34: .word 0x0220BFF0
-_021D9F38: .word 0x0220BFF8
-_021D9F3C: .word 0x0220C000
-_021D9F40: .word 0x0220C008
-_021D9F44: .word 0x0220C010
-_021D9F48: .word 0x0220C018
-_021D9F4C: .word 0x0220C020
-_021D9F50: .word 0x0220C028
-_021D9F54: .word 0x0220C030
-_021D9F58: .word 0x0220C038
-_021D9F5C: .word 0x0220C040
-_021D9F60: .word 0x0220C048
-_021D9F64: .word 0x0220C050
-_021D9F68: .word 0x0220C058
-_021D9F6C: .word 0x0220C060
-_021D9F70: .word 0x0220C078
-_021D9F74: .word 0x0220C084
+_021D9F30: .word UNK04_0220BFE4
+_021D9F34: .word UNK04_0220BFF0
+_021D9F38: .word UNK04_0220BFF8
+_021D9F3C: .word UNK04_0220C000
+_021D9F40: .word UNK04_0220C008
+_021D9F44: .word UNK04_0220C010
+_021D9F48: .word UNK04_0220C018
+_021D9F4C: .word UNK04_0220C020
+_021D9F50: .word UNK04_0220C028
+_021D9F54: .word UNK04_0220C030
+_021D9F58: .word UNK04_0220C038
+_021D9F5C: .word UNK04_0220C040
+_021D9F60: .word UNK04_0220C048
+_021D9F64: .word UNK04_0220C050
+_021D9F68: .word UNK04_0220C058
+_021D9F6C: .word UNK04_0220C060
+_021D9F70: .word UNK04_0220C078
+_021D9F74: .word UNK04_0220C084
 
 	arm_func_start MOD04_021D9F78
 MOD04_021D9F78: ; 0x021D9F78
@@ -1301,7 +1301,7 @@ MOD04_021D9F78: ; 0x021D9F78
 	cmp r5, r0
 	cmpeq r3, r0
 	beq _021D9FC4
-	ldr r2, _021DA218 ; =0x0220C094
+	ldr r2, _021DA218 ; =UNK04_0220C094
 	mov r0, r4
 	mov r1, #0xe
 	str r5, [sp]
@@ -1310,14 +1310,14 @@ MOD04_021D9F78: ; 0x021D9F78
 _021D9FC4:
 	ldr r3, [r6, #8]
 	ldr r5, [r6, #0xc]
-	ldr r2, _021DA218 ; =0x0220C094
+	ldr r2, _021DA218 ; =UNK04_0220C094
 	mov r0, r4
 	mov r1, #0xe
 	str r5, [sp]
 	bl OS_SNPrintf
 _021D9FE0:
 	ldrh r3, [r6, #0x10]
-	ldr r2, _021DA21C ; =0x0220C09C
+	ldr r2, _021DA21C ; =UNK04_0220C09C
 	add r0, r4, #0xe
 	mov r1, #7
 	bl OS_SNPrintf
@@ -1345,7 +1345,7 @@ _021DA02C:
 	add r0, sp, #0x16
 	strb r1, [r4, #0x1d]
 	bl OS_GetMacAddress
-	ldr r5, _021DA228 ; =0x0220C0A4
+	ldr r5, _021DA228 ; =UNK04_0220C0A4
 	add r7, sp, #0x16
 	add r6, r4, #0x1f
 	mov r8, #0
@@ -1362,7 +1362,7 @@ _021DA05C:
 	add r0, sp, #0x38
 	bl OS_GetOwnerInfo
 	ldrb r0, [sp, #0x38]
-	ldr r2, _021DA228 ; =0x0220C0A4
+	ldr r2, _021DA228 ; =UNK04_0220C0A4
 	mov r1, #3
 	cmp r0, #6
 	movhi r0, #1
@@ -1375,7 +1375,7 @@ _021DA05C:
 	mov r2, #0x14
 	bl MI_CpuCopy8
 	ldrb r1, [sp, #0x3b]
-	ldr r2, _021DA22C ; =0x0220C0AC
+	ldr r2, _021DA22C ; =UNK04_0220C0AC
 	add r0, r4, #0x2f
 	str r1, [sp]
 	ldrb r3, [sp, #0x3a]
@@ -1395,7 +1395,7 @@ _021DA0F8:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 _021DA104:
 	ldr r0, [sp, #0x20]
-	ldr r2, _021DA230 ; =0x0220C0B8
+	ldr r2, _021DA230 ; =UNK04_0220C0B8
 	str r0, [sp]
 	ldr r1, [sp, #0x24]
 	add r0, r4, #0x34
@@ -1425,7 +1425,7 @@ _021DA104:
 _021DA174:
 	add r7, r4, #0x41
 	mov r6, #0
-	ldr r5, _021DA228 ; =0x0220C0A4
+	ldr r5, _021DA228 ; =UNK04_0220C0A4
 _021DA180:
 	ldrb r2, [r8, r6]
 	mov r0, r7
@@ -1437,7 +1437,7 @@ _021DA180:
 	blt _021DA180
 	bl MOD04_021EBAB8
 	mov r3, r0
-	ldr r2, _021DA234 ; =0x0220C0D4
+	ldr r2, _021DA234 ; =UNK04_0220C0D4
 	add r0, r4, #0x6f
 	mov r1, #0xe
 	bl OS_SNPrintf
@@ -1467,14 +1467,14 @@ _021DA1E8:
 	add sp, sp, #0x8c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021DA218: .word 0x0220C094
-_021DA21C: .word 0x0220C09C
+_021DA218: .word UNK04_0220C094
+_021DA21C: .word UNK04_0220C09C
 _021DA220: .word 0x027FFE0C
 _021DA224: .word 0x027FFE10
-_021DA228: .word 0x0220C0A4
-_021DA22C: .word 0x0220C0AC
-_021DA230: .word 0x0220C0B8
-_021DA234: .word 0x0220C0D4
+_021DA228: .word UNK04_0220C0A4
+_021DA22C: .word UNK04_0220C0AC
+_021DA230: .word UNK04_0220C0B8
+_021DA234: .word UNK04_0220C0D4
 
 	arm_func_start MOD04_021DA238
 MOD04_021DA238: ; 0x021DA238
@@ -1509,7 +1509,7 @@ _021DA298:
 	ldr r1, [sl, r7, lsl #3]
 	cmp r1, #0
 	beq _021DA2B4
-	ldr r0, _021DA2EC ; =0x0220C110
+	ldr r0, _021DA2EC ; =UNK04_0220C110
 	mov r2, r6
 	blx r8
 	str r5, [sl, r7, lsl #3]
@@ -1518,7 +1518,7 @@ _021DA2B4:
 	ldr r1, [r0, #4]
 	cmp r1, #0
 	beq _021DA2D8
-	ldr r0, _021DA2F0 ; =0x0220C12C
+	ldr r0, _021DA2F0 ; =UNK04_0220C12C
 	mov r2, fp
 	blx r8
 	add r0, sl, r7, lsl #3
@@ -1530,8 +1530,8 @@ _021DA2D8:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021DA2EC: .word 0x0220C110
-_021DA2F0: .word 0x0220C12C
+_021DA2EC: .word UNK04_0220C110
+_021DA2F0: .word UNK04_0220C12C
 
 	arm_func_start MOD04_021DA2F4
 MOD04_021DA2F4: ; 0x021DA2F4
@@ -1619,7 +1619,7 @@ MOD04_021DA3DC: ; 0x021DA3DC
 	bl MI_CpuFill8
 	add r0, fp, #0x1000
 	ldr r5, [r0, #0xa04]
-	ldr r1, _021DA66C ; =0x0220C148
+	ldr r1, _021DA66C ; =UNK04_0220C148
 	mov r0, r5
 	bl strstr
 	str r0, [sp]
@@ -1633,7 +1633,7 @@ MOD04_021DA3DC: ; 0x021DA3DC
 	add r1, r1, #4
 	add r0, r1, r0
 	str r0, [sp, #4]
-	ldr r1, _021DA670 ; =0x0220C150
+	ldr r1, _021DA670 ; =UNK04_0220C150
 	mov r0, r5
 	bl strstr
 	cmp r0, #0
@@ -1642,7 +1642,7 @@ MOD04_021DA3DC: ; 0x021DA3DC
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	add r8, r0, #1
 	ldrsb r7, [r8, #3]
-	ldr r2, _021DA674 ; =0x0220C154
+	ldr r2, _021DA674 ; =UNK04_0220C154
 	mov r5, #0
 	add r1, sp, #8
 	mov r0, fp
@@ -1657,7 +1657,7 @@ MOD04_021DA3DC: ; 0x021DA3DC
 	strb r7, [r8, #3]
 	cmp r6, #1
 	beq _021DA4C8
-	ldr r1, _021DA678 ; =0x0220C160
+	ldr r1, _021DA678 ; =UNK04_0220C160
 	mov r0, r8
 	mov r2, #3
 	bl strncmp
@@ -1668,7 +1668,7 @@ _021DA4C8:
 	mov r0, #1
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021DA4D4:
-	ldr r1, _021DA67C ; =0x0220C164
+	ldr r1, _021DA67C ; =UNK04_0220C164
 	add r0, r8, #4
 	bl strstr
 	cmp r0, #0
@@ -1679,14 +1679,14 @@ _021DA4D4:
 	mov r6, r5
 	b _021DA580
 _021DA4FC:
-	ldr r1, _021DA680 ; =0x0220C168
+	ldr r1, _021DA680 ; =UNK04_0220C168
 	mov r0, sb
 	bl strstr
 	movs r7, r0
 	beq _021DA598
 	ldrsb sl, [r7]
 	add r8, r7, #2
-	ldr r1, _021DA67C ; =0x0220C164
+	ldr r1, _021DA67C ; =UNK04_0220C164
 	mov r0, r8
 	strb r6, [r7]
 	bl strstr
@@ -1727,20 +1727,20 @@ _021DA598:
 	bhs _021DA65C
 	mov r5, #0
 _021DA5B0:
-	ldr r1, _021DA684 ; =0x0220C16C
+	ldr r1, _021DA684 ; =UNK04_0220C16C
 	mov r0, r8
 	bl strstr
 	movs sl, r0
 	beq _021DA65C
 	ldrsb r7, [sl]
 	add sb, sl, #1
-	ldr r1, _021DA688 ; =0x0220C170
+	ldr r1, _021DA688 ; =UNK04_0220C170
 	mov r0, sb
 	strb r5, [sl]
 	bl strstr
 	movs r6, r0
 	bne _021DA5F4
-	ldr r1, _021DA67C ; =0x0220C164
+	ldr r1, _021DA67C ; =UNK04_0220C164
 	mov r0, sb
 	bl strstr
 	mov r6, r0
@@ -1778,14 +1778,14 @@ _021DA65C:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
 _021DA668: .word 0x00001A34
-_021DA66C: .word 0x0220C148
-_021DA670: .word 0x0220C150
-_021DA674: .word 0x0220C154
-_021DA678: .word 0x0220C160
-_021DA67C: .word 0x0220C164
-_021DA680: .word 0x0220C168
-_021DA684: .word 0x0220C16C
-_021DA688: .word 0x0220C170
+_021DA66C: .word UNK04_0220C148
+_021DA670: .word UNK04_0220C150
+_021DA674: .word UNK04_0220C154
+_021DA678: .word UNK04_0220C160
+_021DA67C: .word UNK04_0220C164
+_021DA680: .word UNK04_0220C168
+_021DA684: .word UNK04_0220C16C
+_021DA688: .word UNK04_0220C170
 
 	arm_func_start MOD04_021DA68C
 MOD04_021DA68C: ; 0x021DA68C
@@ -1804,7 +1804,7 @@ MOD04_021DA68C: ; 0x021DA68C
 	mov r0, r7
 	bl strlen
 	mov r1, r0
-	ldr r0, _021DA7D8 ; =0x0220C174
+	ldr r0, _021DA7D8 ; =UNK04_0220C174
 	add r1, r1, #1
 	blx r5
 	ldr r2, [r8]
@@ -1818,7 +1818,7 @@ MOD04_021DA68C: ; 0x021DA68C
 	mov r0, r6
 	bl strlen
 	mov r1, r0
-	ldr r0, _021DA7DC ; =0x0220C194
+	ldr r0, _021DA7DC ; =UNK04_0220C194
 	add r1, r1, #1
 	blx r5
 	ldr r2, [r8]
@@ -1850,7 +1850,7 @@ _021DA770:
 	ldr r1, [r2, r3, lsl #3]
 	cmp r1, #0
 	beq _021DA798
-	ldr r0, _021DA7E0 ; =0x0220C1B4
+	ldr r0, _021DA7E0 ; =UNK04_0220C1B4
 	mov r2, #0
 	blx r4
 	ldr r1, [r8]
@@ -1864,7 +1864,7 @@ _021DA798:
 	ldr r1, [r0, #4]
 	cmp r1, #0
 	beq _021DA7D0
-	ldr r0, _021DA7E4 ; =0x0220C1D0
+	ldr r0, _021DA7E4 ; =UNK04_0220C1D0
 	mov r2, #0
 	blx r4
 	ldr r1, [r8]
@@ -1876,10 +1876,10 @@ _021DA7D0:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021DA7D8: .word 0x0220C174
-_021DA7DC: .word 0x0220C194
-_021DA7E0: .word 0x0220C1B4
-_021DA7E4: .word 0x0220C1D0
+_021DA7D8: .word UNK04_0220C174
+_021DA7DC: .word UNK04_0220C194
+_021DA7E0: .word UNK04_0220C1B4
+_021DA7E4: .word UNK04_0220C1D0
 
 	arm_func_start MOD04_021DA7E8
 MOD04_021DA7E8: ; 0x021DA7E8
@@ -1907,7 +1907,7 @@ MOD04_021DA7E8: ; 0x021DA7E8
 	movne r0, r4
 	ldmneia sp!, {r4, r5, r6, pc}
 	ldr r0, _021DA934 ; =0x00001024
-	ldr r1, _021DA938 ; =0x0220C1EC
+	ldr r1, _021DA938 ; =UNK04_0220C1EC
 	add r0, r5, r0
 	bl strstr
 	cmp r0, #0
@@ -1924,7 +1924,7 @@ MOD04_021DA7E8: ; 0x021DA7E8
 	b _021DA8C0
 _021DA884:
 	ldr r0, _021DA934 ; =0x00001024
-	ldr r1, _021DA940 ; =0x0220C1F4
+	ldr r1, _021DA940 ; =UNK04_0220C1F4
 	add r0, r5, r0
 	bl strstr
 	cmp r0, #0
@@ -1941,7 +1941,7 @@ _021DA884:
 _021DA8C0:
 	add r0, r5, #0x1000
 	ldr r0, [r0, #0x124]
-	ldr r1, _021DA948 ; =0x0220C200
+	ldr r1, _021DA948 ; =UNK04_0220C200
 	bl strstr
 	cmp r0, #0
 	movne r1, #0
@@ -1949,7 +1949,7 @@ _021DA8C0:
 	addne r4, r0, #1
 	add r0, r5, #0x1000
 	ldr r0, [r0, #0x124]
-	ldr r1, _021DA94C ; =0x0220C204
+	ldr r1, _021DA94C ; =UNK04_0220C204
 	bl strstr
 	cmp r0, #0
 	addeq r0, r5, #0x1000
@@ -1971,12 +1971,12 @@ _021DA92C:
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
 _021DA934: .word 0x00001024
-_021DA938: .word 0x0220C1EC
+_021DA938: .word UNK04_0220C1EC
 _021DA93C: .word 0x0000102B
-_021DA940: .word 0x0220C1F4
+_021DA940: .word UNK04_0220C1F4
 _021DA944: .word 0x000001BB
-_021DA948: .word 0x0220C200
-_021DA94C: .word 0x0220C204
+_021DA948: .word UNK04_0220C200
+_021DA94C: .word UNK04_0220C204
 
 	arm_func_start MOD04_021DA950
 MOD04_021DA950: ; 0x021DA950
@@ -1992,7 +1992,7 @@ MOD04_021DA950: ; 0x021DA950
 	movle r0, #0
 	ldmleia sp!, {r4, r5, r6, r7, pc}
 	ldr r1, [r6, #0xc]
-	ldr r0, _021DAA08 ; =0x0220C208
+	ldr r0, _021DAA08 ; =UNK04_0220C208
 	add r1, r1, r5
 	blx r2
 	movs r4, r0
@@ -2004,7 +2004,7 @@ MOD04_021DA950: ; 0x021DA950
 	mov r1, r4
 	bl MI_CpuCopy8
 	ldr r1, [r6]
-	ldr r0, _021DAA0C ; =0x0220C218
+	ldr r0, _021DAA0C ; =UNK04_0220C218
 	mov r2, #0
 	blx r7
 	cmp r4, #0
@@ -2027,8 +2027,8 @@ MOD04_021DA950: ; 0x021DA950
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021DAA08: .word 0x0220C208
-_021DAA0C: .word 0x0220C218
+_021DAA08: .word UNK04_0220C208
+_021DAA0C: .word UNK04_0220C218
 
 	arm_func_start MOD04_021DAA10
 MOD04_021DAA10: ; 0x021DAA10
@@ -2039,7 +2039,7 @@ MOD04_021DAA10: ; 0x021DAA10
 	cmp r1, #0
 	ldr r3, [r0, #0x14]
 	beq _021DAA38
-	ldr r0, _021DAA4C ; =0x0220C218
+	ldr r0, _021DAA4C ; =UNK04_0220C218
 	mov r2, #0
 	blx r3
 _021DAA38:
@@ -2049,7 +2049,7 @@ _021DAA38:
 	bl MI_CpuFill8
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DAA4C: .word 0x0220C218
+_021DAA4C: .word UNK04_0220C218
 
 	arm_func_start MOD04_021DAA50
 MOD04_021DAA50: ; 0x021DAA50
@@ -2062,7 +2062,7 @@ MOD04_021DAA50: ; 0x021DAA50
 	addeq sp, sp, #4
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, pc}
-	ldr r0, _021DAABC ; =0x0220C22C
+	ldr r0, _021DAABC ; =UNK04_0220C22C
 	mov r1, r5
 	blx r2
 	str r0, [r4]
@@ -2081,7 +2081,7 @@ MOD04_021DAA50: ; 0x021DAA50
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021DAABC: .word 0x0220C22C
+_021DAABC: .word UNK04_0220C22C
 
 	arm_func_start MOD04_021DAAC0
 MOD04_021DAAC0: ; 0x021DAAC0
@@ -2118,7 +2118,7 @@ MOD04_021DAACC: ; 0x021DAACC
 	ldr r1, [r4, #8]
 	sub r1, r1, r0
 _021DAB34:
-	ldr r2, _021DAB64 ; =0x0220C240
+	ldr r2, _021DAB64 ; =UNK04_0220C240
 	mov r3, r6
 	bl OS_SNPrintf
 	cmp r0, r5
@@ -2131,7 +2131,7 @@ _021DAB34:
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
 _021DAB60: .word 0x000019F4
-_021DAB64: .word 0x0220C240
+_021DAB64: .word UNK04_0220C240
 
 	arm_func_start MOD04_021DAB68
 MOD04_021DAB68: ; 0x021DAB68
@@ -2142,7 +2142,7 @@ MOD04_021DAB68: ; 0x021DAB68
 	ldr r4, [r0, #0x9f0]
 	ldr r0, _021DAC8C ; =0x000019F4
 	cmp r4, #0
-	ldreq r6, _021DAC90 ; =0x0220C244
+	ldreq r6, _021DAC90 ; =UNK04_0220C244
 	mov r8, r2
 	add r5, sl, #0x1000
 	add r4, sl, r0
@@ -2151,7 +2151,7 @@ MOD04_021DAB68: ; 0x021DAB68
 	add fp, r0, #1
 	mov r2, #0
 	mov sb, r1
-	ldrne r6, _021DAC94 ; =0x0220C248
+	ldrne r6, _021DAC94 ; =UNK04_0220C248
 	mov r0, r8
 	mov r1, r7
 	mov r3, r2
@@ -2211,8 +2211,8 @@ _021DAC28:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
 _021DAC8C: .word 0x000019F4
-_021DAC90: .word 0x0220C244
-_021DAC94: .word 0x0220C248
+_021DAC90: .word UNK04_0220C244
+_021DAC94: .word UNK04_0220C248
 
 	arm_func_start MOD04_021DAC98
 MOD04_021DAC98: ; 0x021DAC98
@@ -2226,7 +2226,7 @@ MOD04_021DAC98: ; 0x021DAC98
 	add r5, r8, r2
 	bl strlen
 	mov r4, r0
-	ldr r0, _021DAD80 ; =0x0220C250
+	ldr r0, _021DAD80 ; =UNK04_0220C250
 	bl strlen
 	mov sb, r0
 	mov r0, r7
@@ -2251,7 +2251,7 @@ MOD04_021DAC98: ; 0x021DAC98
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, pc}
 _021DAD1C:
 	ldr r0, [r5]
-	ldr r1, _021DAD84 ; =0x0220C148
+	ldr r1, _021DAD84 ; =UNK04_0220C148
 	bl strstr
 	add r8, r0, #2
 	ldrsb sb, [r0, #2]
@@ -2261,7 +2261,7 @@ _021DAD1C:
 	add r0, r8, r4
 	mov r1, r8
 	bl memmove
-	ldr r2, _021DAD80 ; =0x0220C250
+	ldr r2, _021DAD80 ; =UNK04_0220C250
 	str r6, [sp]
 	mov r3, r7
 	mov r0, r8
@@ -2276,8 +2276,8 @@ _021DAD1C:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
 _021DAD7C: .word 0x000019F4
-_021DAD80: .word 0x0220C250
-_021DAD84: .word 0x0220C148
+_021DAD80: .word UNK04_0220C250
+_021DAD84: .word UNK04_0220C148
 
 	arm_func_start MOD04_021DAD88
 MOD04_021DAD88: ; 0x021DAD88
@@ -2288,10 +2288,10 @@ MOD04_021DAD88: ; 0x021DAD88
 	ldr r1, [r0, #8]
 	ldr r0, _021DAE40 ; =0x000019F4
 	cmp r1, #0
-	ldreq r6, _021DAE44 ; =0x0220C25C
+	ldreq r6, _021DAE44 ; =UNK04_0220C25C
 	add r5, r7, r0
 	add r0, r7, #0x1000
-	ldrne r6, _021DAE48 ; =0x0220C2B0
+	ldrne r6, _021DAE48 ; =UNK04_0220C2B0
 	ldr r0, [r0, #0x124]
 	bl strlen
 	mov r4, r0
@@ -2329,8 +2329,8 @@ MOD04_021DAD88: ; 0x021DAD88
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
 _021DAE40: .word 0x000019F4
-_021DAE44: .word 0x0220C25C
-_021DAE48: .word 0x0220C2B0
+_021DAE44: .word UNK04_0220C25C
+_021DAE48: .word UNK04_0220C2B0
 
 	arm_func_start MOD04_021DAE4C
 MOD04_021DAE4C: ; 0x021DAE4C
@@ -2357,7 +2357,7 @@ MOD04_021DAE4C: ; 0x021DAE4C
 	ldr r1, [r0, #0x9c8]
 	cmp r1, #0
 	beq _021DAEC0
-	ldr r0, _021DAF0C ; =0x0220C2D0
+	ldr r0, _021DAF0C ; =UNK04_0220C2D0
 	mov r2, #0
 	blx r4
 	add r0, r5, #0x1000
@@ -2368,7 +2368,7 @@ _021DAEC0:
 	ldr r1, [r0, #0x9cc]
 	cmp r1, #0
 	beq _021DAEE8
-	ldr r0, _021DAF10 ; =0x0220C2E8
+	ldr r0, _021DAF10 ; =UNK04_0220C2E8
 	mov r2, #0
 	blx r4
 	add r0, r5, #0x1000
@@ -2385,8 +2385,8 @@ _021DAEE8:
 _021DAF00: .word 0x00001A34
 _021DAF04: .word 0x00001A04
 _021DAF08: .word 0x000019F4
-_021DAF0C: .word 0x0220C2D0
-_021DAF10: .word 0x0220C2E8
+_021DAF0C: .word UNK04_0220C2D0
+_021DAF10: .word UNK04_0220C2E8
 _021DAF14: .word 0x00001C10
 
 	arm_func_start MOD04_021DAF18
@@ -2428,7 +2428,7 @@ MOD04_021DAF18: ; 0x021DAF18
 	add r0, sl, #0x1000
 	str r1, [r6, #0x810]
 	ldr r1, [r0, #0x124]
-	ldr r0, _021DB238 ; =0x0220C0E4
+	ldr r0, _021DB238 ; =UNK04_0220C0E4
 	str r1, [r6, #0x800]
 	mov r1, #0xb
 	str r6, [r8, #0xc]
@@ -2602,7 +2602,7 @@ _021DB228: .word 0x00001198
 _021DB22C: .word 0x00001A04
 _021DB230: .word 0x0000EA60
 _021DB234: .word MOD04_021DAAC0
-_021DB238: .word 0x0220C0E4
+_021DB238: .word UNK04_0220C0E4
 _021DB23C: .word 0x021C8F04
 _021DB240: .word 0x00001A14
 _021DB244: .word 0x000082EA
@@ -2615,7 +2615,7 @@ MOD04_021DB248: ; 0x021DB248
 	add r0, r5, #0x1000
 	ldr r6, [r0, #0xa04]
 	ldr r2, _021DB334 ; =0x00001A04
-	ldr r1, _021DB338 ; =0x0220C148
+	ldr r1, _021DB338 ; =UNK04_0220C148
 	mov r0, r6
 	add r4, r5, r2
 	bl strstr
@@ -2623,7 +2623,7 @@ MOD04_021DB248: ; 0x021DB248
 	addeq sp, sp, #4
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, r7, pc}
-	ldr r1, _021DB338 ; =0x0220C148
+	ldr r1, _021DB338 ; =UNK04_0220C148
 	mov r0, r6
 	bl strstr
 	ldr r1, _021DB33C ; =0x00001A14
@@ -2638,16 +2638,16 @@ MOD04_021DB248: ; 0x021DB248
 	add r0, r5, r1
 	bl OS_UnlockMutex
 	ldr r0, [r4]
-	ldr r1, _021DB340 ; =0x0220C300
+	ldr r1, _021DB340 ; =UNK04_0220C300
 	bl strstr
 	movs r4, r0
 	addeq sp, sp, #4
 	moveq r0, #1
 	ldmeqia sp!, {r4, r5, r6, r7, pc}
-	ldr r0, _021DB340 ; =0x0220C300
+	ldr r0, _021DB340 ; =UNK04_0220C300
 	bl strlen
 	add r7, r4, r0
-	ldr r1, _021DB344 ; =0x0220C164
+	ldr r1, _021DB344 ; =UNK04_0220C164
 	mov r0, r7
 	bl strstr
 	mov r4, r0
@@ -2670,10 +2670,10 @@ MOD04_021DB248: ; 0x021DB248
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
 _021DB334: .word 0x00001A04
-_021DB338: .word 0x0220C148
+_021DB338: .word UNK04_0220C148
 _021DB33C: .word 0x00001A14
-_021DB340: .word 0x0220C300
-_021DB344: .word 0x0220C164
+_021DB340: .word UNK04_0220C300
+_021DB344: .word UNK04_0220C164
 
 	arm_func_start MOD04_021DB348
 MOD04_021DB348: ; 0x021DB348
@@ -2798,10 +2798,10 @@ MOD04_021DB4A4: ; 0x021DB4A4
 	add r0, r5, #0x1000
 	ldr r0, [r0, #0x18]
 	cmp r0, #1
-	ldreq r0, _021DB564 ; =0x02210480
+	ldreq r0, _021DB564 ; =UNK04_02210480
 	moveq r1, #1
 	streq r1, [r0]
-	ldrne r0, _021DB564 ; =0x02210480
+	ldrne r0, _021DB564 ; =UNK04_02210480
 	movne r1, #0
 	strne r1, [r0]
 	add r0, r5, #0x1000
@@ -2832,7 +2832,7 @@ _021DB524:
 	.align 2, 0
 _021DB55C: .word 0x00001BF4
 _021DB560: .word 0x00001A14
-_021DB564: .word 0x02210480
+_021DB564: .word UNK04_02210480
 _021DB568: .word 0x00001B34
 _021DB56C: .word MOD04_021DAF18
 
@@ -2840,8 +2840,8 @@ _021DB56C: .word MOD04_021DAF18
 MOD04_021DB570: ; 0x021DB570
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #8
-	ldr r1, _021DB5F4 ; =0x0220C314
-	ldr r2, _021DB5F8 ; =0x0220C320
+	ldr r1, _021DB5F4 ; =UNK04_0220C314
+	ldr r2, _021DB5F8 ; =UNK04_0220C320
 	mov r4, r0
 	bl MOD04_021DAC98
 	cmp r0, #0
@@ -2850,17 +2850,17 @@ MOD04_021DB570: ; 0x021DB570
 	ldmneia sp!, {r4, pc}
 	add r0, r4, #0x1000
 	ldr r0, [r0, #0x9f4]
-	ldr r1, _021DB5FC ; =0x0220C148
+	ldr r1, _021DB5FC ; =UNK04_0220C148
 	bl strstr
 	add r0, r0, #4
 	bl strlen
 	movs r3, r0
 	beq _021DB5E8
-	ldr r2, _021DB600 ; =0x0220C328
+	ldr r2, _021DB600 ; =UNK04_0220C328
 	add r0, sp, #0
 	mov r1, #7
 	bl OS_SNPrintf
-	ldr r1, _021DB604 ; =0x0220C32C
+	ldr r1, _021DB604 ; =UNK04_0220C32C
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021DAC98
@@ -2873,11 +2873,11 @@ _021DB5E8:
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DB5F4: .word 0x0220C314
-_021DB5F8: .word 0x0220C320
-_021DB5FC: .word 0x0220C148
-_021DB600: .word 0x0220C328
-_021DB604: .word 0x0220C32C
+_021DB5F4: .word UNK04_0220C314
+_021DB5F8: .word UNK04_0220C320
+_021DB5FC: .word UNK04_0220C148
+_021DB600: .word UNK04_0220C328
+_021DB604: .word UNK04_0220C32C
 
 	arm_func_start MOD04_021DB608
 MOD04_021DB608: ; 0x021DB608
@@ -2899,7 +2899,7 @@ MOD04_021DB608: ; 0x021DB608
 	stmia ip!, {r0, r1, r2, r3}
 	ldmia lr, {r0, r1, r2}
 	stmia ip, {r0, r1, r2}
-	ldr r0, _021DB71C ; =0x0220C33C
+	ldr r0, _021DB71C ; =UNK04_0220C33C
 	ldr r1, _021DB720 ; =0x00000B68
 	blx r4
 	add r1, r6, #0x1000
@@ -2909,7 +2909,7 @@ MOD04_021DB608: ; 0x021DB608
 	moveq r0, #1
 	streq r0, [r1, #0x20]
 	ldmeqia sp!, {r4, r5, r6, pc}
-	ldr r0, _021DB724 ; =0x0220C354
+	ldr r0, _021DB724 ; =UNK04_0220C354
 	ldr r1, _021DB728 ; =0x000005EA
 	blx r4
 	add r2, r6, #0x1000
@@ -2951,22 +2951,22 @@ MOD04_021DB608: ; 0x021DB608
 	.align 2, 0
 _021DB714: .word 0x00001C10
 _021DB718: .word 0x00001004
-_021DB71C: .word 0x0220C33C
+_021DB71C: .word UNK04_0220C33C
 _021DB720: .word 0x00000B68
-_021DB724: .word 0x0220C354
+_021DB724: .word UNK04_0220C354
 _021DB728: .word 0x000005EA
 _021DB72C: .word 0x00001A04
 
 	arm_func_start MOD04_021DB730
 MOD04_021DB730: ; 0x021DB730
 	stmdb sp!, {r4, lr}
-	ldr r2, _021DB770 ; =0x02210484
+	ldr r2, _021DB770 ; =UNK04_02210484
 	ldr r1, _021DB774 ; =0x000011DC
 	ldr r2, [r2]
 	mov r4, r0
 	add r0, r2, r1
 	bl OS_LockMutex
-	ldr r2, _021DB770 ; =0x02210484
+	ldr r2, _021DB770 ; =UNK04_02210484
 	ldr r1, _021DB774 ; =0x000011DC
 	ldr r0, [r2]
 	add r0, r0, #0x1000
@@ -2976,14 +2976,14 @@ MOD04_021DB730: ; 0x021DB730
 	bl OS_UnlockMutex
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DB770: .word 0x02210484
+_021DB770: .word UNK04_02210484
 _021DB774: .word 0x000011DC
 
 	arm_func_start MOD04_021DB778
 MOD04_021DB778: ; 0x021DB778
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	sub sp, sp, #0x2d4
-	ldr r5, _021DC670 ; =0x02210484
+	ldr r5, _021DC670 ; =UNK04_02210484
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r5]
@@ -3024,11 +3024,11 @@ MOD04_021DB778: ; 0x021DB778
 	mov r0, r7
 	str r0, [sp, #0x60]
 	mvn r0, #1
-	ldr r4, _021DC674 ; =0x02210490
+	ldr r4, _021DC674 ; =UNK04_02210490
 	mov r6, #1
 	str r0, [sp, #0x18]
 _021DB830:
-	ldr r0, _021DC678 ; =0x02210494
+	ldr r0, _021DC678 ; =UNK04_02210494
 	ldr r1, [sp, #0x14]
 	str r6, [r0, #4]
 	str r1, [r0, #8]
@@ -3036,20 +3036,20 @@ _021DB830:
 	str sb, [r0, #0xc]
 	str r1, [r0, #0x18]
 	str r8, [r0, #0x10]
-	ldr r0, _021DC680 ; =0x0220C36C
+	ldr r0, _021DC680 ; =UNK04_0220C36C
 	ldr r1, [r5]
 	ldr r2, [r0]
-	ldr r0, _021DC678 ; =0x02210494
+	ldr r0, _021DC678 ; =UNK04_02210494
 	add r1, r1, #0x1000
 	str r2, [r0]
 	ldr r0, [sp, #0x18]
 	str r0, [r1, #4]
 	ldr r0, [r4]
-	ldr r1, _021DC678 ; =0x02210494
+	ldr r1, _021DC678 ; =UNK04_02210494
 	bl MOD04_021DB608
 	cmp r0, #0
 	beq _021DB89C
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #1
@@ -3060,7 +3060,7 @@ _021DB89C:
 	bl MOD04_021DB570
 	cmp r0, #0
 	beq _021DB8C4
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #1
@@ -3091,13 +3091,13 @@ _021DB8FC:
 	beq _021DB948
 	b _021DB930
 _021DB91C:
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mvn r1, #0
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	str r1, [r0, #4]
 _021DB930:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #3
@@ -3108,7 +3108,7 @@ _021DB948:
 	bl MOD04_021DA3DC
 	cmp r0, #1
 	beq _021DB970
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #2
@@ -3116,7 +3116,7 @@ _021DB948:
 	b _021DC614
 _021DB970:
 	ldr r0, [r4]
-	ldr r1, _021DC68C ; =0x0220C418
+	ldr r1, _021DC68C ; =UNK04_0220C418
 	bl MOD04_021DA388
 	bl atol
 	mov sl, r0
@@ -3133,25 +3133,25 @@ _021DB9A0:
 	ldr r0, _021DC694 ; =0x0000012E
 	cmp sl, r0
 	bne _021DBC9C
-	ldr r0, _021DC698 ; =0x0221048C
+	ldr r0, _021DC698 ; =UNK04_0221048C
 	str r6, [r0]
 	ldr r0, [r5]
 	add r0, r0, #0x1000
 	ldr r1, [r0, #0x118]
 	cmp r1, #0
 	beq _021DBC0C
-	ldr r1, _021DC674 ; =0x02210490
+	ldr r1, _021DC674 ; =UNK04_02210490
 	mvn r2, #5
 	str r2, [r0, #4]
 	ldr r0, [r1]
 	bl MOD04_021DAE4C
-	ldr r2, _021DC678 ; =0x02210494
-	ldr r0, _021DC69C ; =0x0220BEB4
+	ldr r2, _021DC678 ; =UNK04_02210494
+	ldr r0, _021DC69C ; =UNK04_0220BEB4
 	ldr r3, _021DC67C ; =0x00004E20
 	ldr r0, [r0]
 	mov r5, #0
 	mov r4, #0x200
-	ldr r1, _021DC6A0 ; =0x0220C424
+	ldr r1, _021DC6A0 ; =UNK04_0220C424
 	str r0, [r2]
 	str r5, [r2, #4]
 	str r4, [r2, #8]
@@ -3160,16 +3160,16 @@ _021DB9A0:
 	str r3, [r2, #0x18]
 	bl strcmp
 	cmp r0, #0
-	ldrne r0, _021DC678 ; =0x02210494
+	ldrne r0, _021DC678 ; =UNK04_02210494
 	movne r1, #1
 	strne r1, [r0, #0x14]
-	ldr r0, _021DC674 ; =0x02210490
-	ldr r1, _021DC678 ; =0x02210494
+	ldr r0, _021DC674 ; =UNK04_02210490
+	ldr r1, _021DC678 ; =UNK04_02210494
 	ldr r0, [r0]
 	bl MOD04_021DB608
 	cmp r0, #0
 	beq _021DBA5C
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #1
@@ -3180,7 +3180,7 @@ _021DBA5C:
 	bl MOD04_021DA238
 	cmp r0, #0
 	beq _021DBA88
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	add r1, sp, #0x240
 	ldr r0, [r0]
 	mov r2, #1
@@ -3188,61 +3188,61 @@ _021DBA5C:
 	cmp r0, #0
 	bne _021DBAA0
 _021DBA88:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #8
 	bl MOD04_021DB730
 	b _021DC614
 _021DBAA0:
-	ldr r0, _021DC674 ; =0x02210490
-	ldr r1, _021DC6A4 ; =0x0220C444
+	ldr r0, _021DC674 ; =UNK04_02210490
+	ldr r1, _021DC6A4 ; =UNK04_0220C444
 	ldr r0, [r0]
-	ldr r2, _021DC6A8 ; =0x0220C44C
+	ldr r2, _021DC6A8 ; =UNK04_0220C44C
 	mov r3, #7
 	bl MOD04_021DAB68
 	cmp r0, #0
 	bne _021DBAF8
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	ldr r4, [r0, #0x118]
 	mov r0, r4
 	bl strlen
-	ldr r1, _021DC674 ; =0x02210490
+	ldr r1, _021DC674 ; =UNK04_02210490
 	mov r3, r0
 	ldr r0, [r1]
-	ldr r1, _021DC6AC ; =0x0220C454
+	ldr r1, _021DC6AC ; =UNK04_0220C454
 	mov r2, r4
 	bl MOD04_021DAB68
 	cmp r0, #0
 	beq _021DBB10
 _021DBAF8:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #8
 	bl MOD04_021DB730
 	b _021DC614
 _021DBB10:
-	ldr r1, _021DC670 ; =0x02210484
-	ldr r0, _021DC6B0 ; =0x0220C464
+	ldr r1, _021DC670 ; =UNK04_02210484
+	ldr r0, _021DC6B0 ; =UNK04_0220C464
 	ldr r1, [r1]
 	mov r2, #0
 	add r1, r1, #0x1000
 	ldr r1, [r1, #0x118]
 	blx r8
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mov r2, #0
 	ldr r0, [r0]
-	ldr r1, _021DC674 ; =0x02210490
+	ldr r1, _021DC674 ; =UNK04_02210490
 	add r0, r0, #0x1000
 	str r2, [r0, #0x118]
 	ldr r0, [r1]
 	bl MOD04_021DB570
 	cmp r0, #0
 	beq _021DBB6C
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #1
@@ -3252,11 +3252,11 @@ _021DBB6C:
 	ldr r0, _021DC684 ; =0x021D3498
 	ldr r0, [r0, #4]
 	bl OS_GetThreadPriority
-	ldr r2, _021DC674 ; =0x02210490
+	ldr r2, _021DC674 ; =UNK04_02210490
 	sub r1, r0, #1
 	ldr r0, [r2]
 	bl MOD04_021DB4A4
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r1, [r0]
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0xba0]
@@ -3266,7 +3266,7 @@ _021DBB6C:
 	add r0, r1, r0
 	bl OS_JoinThread
 _021DBBAC:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	add r1, r0, #0x1000
 	ldr r1, [r1, #0x20]
@@ -3276,13 +3276,13 @@ _021DBBAC:
 	beq _021DBBFC
 	b _021DBBE4
 _021DBBD0:
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mvn r1, #0
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	str r1, [r0, #4]
 _021DBBE4:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #3
@@ -3307,7 +3307,7 @@ _021DBC30:
 	mov r0, fp
 	bl strlen
 	add r1, r0, #1
-	ldr r0, _021DC6B4 ; =0x0220C394
+	ldr r0, _021DC6B4 ; =UNK04_0220C394
 	blx sb
 	ldr r1, [r5]
 	add r1, r1, #0x1000
@@ -3318,7 +3318,7 @@ _021DBC30:
 	str r0, [sp, #0xc]
 	cmp r0, #0
 	bne _021DBC80
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #4
@@ -3333,7 +3333,7 @@ _021DBC80:
 	bl strncpy
 	b _021DBCB4
 _021DBC9C:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #0xa
@@ -3351,7 +3351,7 @@ _021DBCB4:
 	cmpeq r2, r0
 	bne _021DBDEC
 	ldr r1, [r5]
-	ldr r0, _021DC6B8 ; =0x022104B0
+	ldr r0, _021DC6B8 ; =UNK04_022104B0
 	add r2, r1, #0x1000
 	ldr r1, [sp, #0x20]
 	str r1, [r2, #4]
@@ -3381,7 +3381,7 @@ _021DBD38:
 	bl MOD04_021D988C
 	cmp r0, #9
 	bne _021DBD6C
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mvn r1, #0
 	ldr r0, [r0]
 	add r0, r0, #0x1000
@@ -3390,7 +3390,7 @@ _021DBD38:
 _021DBD6C:
 	add r0, sp, #0x7c
 	bl MOD04_021D97F8
-	ldr r0, _021DC6BC ; =0x02210488
+	ldr r0, _021DC6BC ; =UNK04_02210488
 	ldr r0, [r0]
 	cmp r0, #1
 	bne _021DBDC4
@@ -3402,7 +3402,7 @@ _021DBD6C:
 	cmp r0, #0xb
 	bne _021DBDC4
 _021DBDA0:
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mov r1, #0
 	ldr r0, [r0]
 	add r0, r0, #0x1000
@@ -3412,7 +3412,7 @@ _021DBDA0:
 	bl MOD04_021DB730
 	b _021DC614
 _021DBDC4:
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	ldr r1, [sp, #0x7c]
 	ldr r0, [r0]
 	add r0, r0, #0x1000
@@ -3427,7 +3427,7 @@ _021DBDE8:
 _021DBDEC:
 	cmp sl, #0xc8
 	bne _021DBE14
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mov r2, #0
 	ldr r1, [r0]
 	mov r0, #0xb
@@ -3437,11 +3437,11 @@ _021DBDEC:
 	b _021DC614
 _021DBE14:
 	ldr r0, [r5]
-	ldr r1, _021DC6A0 ; =0x0220C424
+	ldr r1, _021DC6A0 ; =UNK04_0220C424
 	add r2, r0, #0x1000
 	ldr r0, [sp, #0x28]
 	str r0, [r2, #4]
-	ldr r0, _021DC678 ; =0x02210494
+	ldr r0, _021DC678 ; =UNK04_02210494
 	ldr r2, [sp, #0x2c]
 	str sb, [r0, #0xc]
 	str r2, [r0, #4]
@@ -3450,20 +3450,20 @@ _021DBE14:
 	str r2, [r0, #8]
 	ldr r2, _021DC6C4 ; =0x00009C40
 	str r2, [r0, #0x18]
-	ldr r0, _021DC69C ; =0x0220BEB4
-	ldr r2, _021DC678 ; =0x02210494
+	ldr r0, _021DC69C ; =UNK04_0220BEB4
+	ldr r2, _021DC678 ; =UNK04_02210494
 	ldr r0, [r0]
 	str r0, [r2]
 	bl strcmp
 	cmp r0, #0
-	ldrne r0, _021DC678 ; =0x02210494
-	ldr r1, _021DC678 ; =0x02210494
+	ldrne r0, _021DC678 ; =UNK04_02210494
+	ldr r1, _021DC678 ; =UNK04_02210494
 	strne r6, [r0, #0x14]
 	ldr r0, [r4]
 	bl MOD04_021DB608
 	cmp r0, #0
 	beq _021DBE98
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #1
@@ -3481,7 +3481,7 @@ _021DBE98:
 	cmp r0, #0
 	bne _021DBED8
 _021DBEC0:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #8
@@ -3489,8 +3489,8 @@ _021DBEC0:
 	b _021DC614
 _021DBED8:
 	ldr r0, [r4]
-	ldr r1, _021DC6A4 ; =0x0220C444
-	ldr r2, _021DC6C8 ; =0x0220C484
+	ldr r1, _021DC6A4 ; =UNK04_0220C444
+	ldr r2, _021DC6C8 ; =UNK04_0220C484
 	ldr r3, [sp, #0x30]
 	bl MOD04_021DAB68
 	cmp r0, #0
@@ -3502,13 +3502,13 @@ _021DBED8:
 	bl strlen
 	mov r3, r0
 	ldr r0, [r4]
-	ldr r1, _021DC6CC ; =0x0220C48C
+	ldr r1, _021DC6CC ; =UNK04_0220C48C
 	mov r2, sl
 	bl MOD04_021DAB68
 	cmp r0, #0
 	beq _021DBF3C
 _021DBF24:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #8
@@ -3516,7 +3516,7 @@ _021DBF24:
 	b _021DC614
 _021DBF3C:
 	ldr r1, [r5]
-	ldr r0, _021DC6D0 ; =0x0220C3B0
+	ldr r0, _021DC6D0 ; =UNK04_0220C3B0
 	add r1, r1, #0x1000
 	ldr r2, [sp, #0x34]
 	ldr r1, [r1, #0x114]
@@ -3529,7 +3529,7 @@ _021DBF3C:
 	bl MOD04_021DB570
 	cmp r0, #0
 	beq _021DBF8C
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #1
@@ -3563,11 +3563,11 @@ _021DBFC4:
 	b _021DC040
 _021DBFEC:
 	bl MOD04_021DAE4C
-	ldr r0, _021DC6BC ; =0x02210488
+	ldr r0, _021DC6BC ; =UNK04_02210488
 	ldr r0, [r0]
 	cmp r0, #1
 	bne _021DC020
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mov r2, #0
 	ldr r1, [r0]
 	mov r0, #0xb
@@ -3580,13 +3580,13 @@ _021DC020:
 	bl MOD04_021DB730
 	b _021DC614
 _021DC02C:
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mvn r1, #0
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	str r1, [r0, #4]
 _021DC040:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #3
@@ -3597,7 +3597,7 @@ _021DC058:
 	bl MOD04_021DA3DC
 	cmp r0, #1
 	beq _021DC080
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #2
@@ -3605,7 +3605,7 @@ _021DC058:
 	b _021DC614
 _021DC080:
 	ldr r0, [r4]
-	ldr r1, _021DC68C ; =0x0220C418
+	ldr r1, _021DC68C ; =UNK04_0220C418
 	bl MOD04_021DA388
 	bl atol
 	mov sl, r0
@@ -3613,7 +3613,7 @@ _021DC080:
 	ldr r0, [r0]
 	cmp r0, #0x22
 	bne _021DC0BC
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #2
@@ -3622,17 +3622,17 @@ _021DC080:
 _021DC0BC:
 	cmp sl, #0xc8
 	beq _021DC118
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
-	ldr r0, _021DC6BC ; =0x02210488
+	ldr r0, _021DC6BC ; =UNK04_02210488
 	ldr r0, [r0]
 	cmp r0, #1
 	bne _021DC10C
 	ldr r0, _021DC694 ; =0x0000012E
 	cmp sl, r0
 	bne _021DC10C
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mov r2, #0
 	ldr r1, [r0]
 	mov r0, #0xb
@@ -3646,13 +3646,13 @@ _021DC10C:
 	b _021DC614
 _021DC118:
 	ldr r0, [r4]
-	ldr r1, _021DC6D4 ; =0x0220C494
+	ldr r1, _021DC6D4 ; =UNK04_0220C494
 	ldr r3, [sp, #0x40]
 	add r2, sp, #0x64
 	bl MOD04_021DA334
 	cmp r0, #0
 	bgt _021DC14C
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #9
@@ -3665,20 +3665,20 @@ _021DC14C:
 	ldr r1, [r1]
 	cmp r1, #0x22
 	bne _021DC17C
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #9
 	bl MOD04_021DB730
 	b _021DC614
 _021DC17C:
-	ldr r1, _021DC6BC ; =0x02210488
+	ldr r1, _021DC6BC ; =UNK04_02210488
 	ldr r1, [r1]
 	cmp r1, #1
 	bne _021DC1B4
 	cmp r0, #0x72
 	bne _021DC1B4
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mov r2, #0
 	ldr r1, [r0]
 	mov r0, #0xb
@@ -3689,7 +3689,7 @@ _021DC17C:
 _021DC1B4:
 	cmp r0, #0x64
 	blt _021DC1D4
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #6
@@ -3698,13 +3698,13 @@ _021DC1B4:
 _021DC1D4:
 	ldr r2, [sp, #0x44]
 	ldr r0, [r4]
-	ldr r1, _021DC6D8 ; =0x0220C4A0
+	ldr r1, _021DC6D8 ; =UNK04_0220C4A0
 	mov r3, r2
 	bl MOD04_021DA334
 	mov fp, r0
 	cmp fp, #0
 	bgt _021DC20C
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #9
@@ -3713,13 +3713,13 @@ _021DC1D4:
 _021DC20C:
 	ldr r2, [sp, #0x48]
 	ldr r0, [r4]
-	ldr r1, _021DC6DC ; =0x0220C4A4
+	ldr r1, _021DC6DC ; =UNK04_0220C4A4
 	mov r3, r2
 	bl MOD04_021DA334
 	str r0, [sp, #4]
 	cmp r0, #0
 	bgt _021DC244
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #9
@@ -3728,17 +3728,17 @@ _021DC20C:
 _021DC244:
 	ldr r2, [sp, #0x4c]
 	ldr r0, [r4]
-	ldr r1, _021DC6E0 ; =0x0220C4AC
+	ldr r1, _021DC6E0 ; =UNK04_0220C4AC
 	mov r3, r2
 	bl MOD04_021DA334
 	mov sl, r0
-	ldr r0, _021DC6E4 ; =0x0220C3CC
+	ldr r0, _021DC6E4 ; =UNK04_0220C3CC
 	add r1, fp, #1
 	blx sb
 	str r0, [sp]
 	cmp r0, #0
 	bne _021DC28C
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #4
@@ -3746,12 +3746,12 @@ _021DC244:
 	b _021DC614
 _021DC28C:
 	ldr r1, [sp, #4]
-	ldr r0, _021DC6E8 ; =0x0220C3D8
+	ldr r0, _021DC6E8 ; =UNK04_0220C3D8
 	add r1, r1, #1
 	blx sb
 	movs r7, r0
 	bne _021DC2BC
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #4
@@ -3760,13 +3760,13 @@ _021DC28C:
 _021DC2BC:
 	cmp sl, #0
 	ble _021DC2F4
-	ldr r0, _021DC6EC ; =0x0220C3E8
+	ldr r0, _021DC6EC ; =UNK04_0220C3E8
 	add r1, sl, #1
 	blx sb
 	str r0, [sp, #8]
 	cmp r0, #0
 	bne _021DC2F4
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #4
@@ -3774,13 +3774,13 @@ _021DC2BC:
 	b _021DC614
 _021DC2F4:
 	ldr r0, [r4]
-	ldr r1, _021DC6D8 ; =0x0220C4A0
+	ldr r1, _021DC6D8 ; =UNK04_0220C4A0
 	ldr r2, [sp]
 	add r3, fp, #1
 	bl MOD04_021DA334
 	cmp r0, #0
 	bge _021DC328
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #9
@@ -3793,12 +3793,12 @@ _021DC328:
 	ldr r1, [sp]
 	strb r2, [r1, r0]
 	ldr r0, [r4]
-	ldr r1, _021DC6DC ; =0x0220C4A4
+	ldr r1, _021DC6DC ; =UNK04_0220C4A4
 	mov r2, r7
 	bl MOD04_021DA334
 	cmp r0, #0
 	bge _021DC36C
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #9
@@ -3811,13 +3811,13 @@ _021DC36C:
 	mov fp, r1
 	ble _021DC404
 	ldr r0, [r4]
-	ldr r1, _021DC6E0 ; =0x0220C4AC
+	ldr r1, _021DC6E0 ; =UNK04_0220C4AC
 	ldr r2, [sp, #8]
 	add r3, sl, #1
 	bl MOD04_021DA334
 	cmp r0, #0
 	bge _021DC3B4
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #9
@@ -3833,7 +3833,7 @@ _021DC3B4:
 	ldr r1, [r1]
 	cmp r1, #0x22
 	bne _021DC3F0
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #9
@@ -3849,7 +3849,7 @@ _021DC404:
 	ldr r0, [r4]
 	bl MOD04_021DAE4C
 	ldr r0, [r5]
-	ldr r1, _021DC678 ; =0x02210494
+	ldr r1, _021DC678 ; =UNK04_02210494
 	add r2, r0, #0x1000
 	ldr r0, [sp, #0x5c]
 	str r0, [r2, #4]
@@ -3868,7 +3868,7 @@ _021DC404:
 	bl MOD04_021DB608
 	cmp r0, #0
 	beq _021DC474
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #1
@@ -3880,7 +3880,7 @@ _021DC474:
 	bl MOD04_021DAACC
 	cmp r0, #0
 	beq _021DC4A0
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #8
@@ -3891,7 +3891,7 @@ _021DC4A0:
 	bl MOD04_021DB570
 	cmp r0, #0
 	beq _021DC4C8
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #1
@@ -3922,13 +3922,13 @@ _021DC500:
 	beq _021DC54C
 	b _021DC534
 _021DC520:
-	ldr r0, _021DC670 ; =0x02210484
+	ldr r0, _021DC670 ; =UNK04_02210484
 	mvn r1, #0
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	str r1, [r0, #4]
 _021DC534:
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #3
@@ -3939,7 +3939,7 @@ _021DC54C:
 	bl MOD04_021DA3DC
 	cmp r0, #1
 	beq _021DC574
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #2
@@ -3959,7 +3959,7 @@ _021DC598:
 	mov r0, sl
 	bl strlen
 	add r1, r0, #1
-	ldr r0, _021DC6F8 ; =0x0220C3F8
+	ldr r0, _021DC6F8 ; =UNK04_0220C3F8
 	blx sb
 	ldr r1, [r5]
 	add r1, r1, #0x1000
@@ -3970,7 +3970,7 @@ _021DC598:
 	str r0, [sp, #0x10]
 	cmp r0, #0
 	bne _021DC5E8
-	ldr r0, _021DC674 ; =0x02210490
+	ldr r0, _021DC674 ; =UNK04_02210490
 	ldr r0, [r0]
 	bl MOD04_021DAE4C
 	mov r0, #4
@@ -3992,14 +3992,14 @@ _021DC614:
 	ldr r0, [sp]
 	cmp r0, #0
 	beq _021DC630
-	ldr r0, _021DC6FC ; =0x0220C4B4
+	ldr r0, _021DC6FC ; =UNK04_0220C4B4
 	ldr r1, [sp]
 	mov r2, #0
 	blx r8
 _021DC630:
 	cmp r7, #0
 	beq _021DC648
-	ldr r0, _021DC700 ; =0x0220C4C0
+	ldr r0, _021DC700 ; =UNK04_0220C4C0
 	mov r1, r7
 	mov r2, #0
 	blx r8
@@ -4008,57 +4008,57 @@ _021DC648:
 	cmp r0, #0
 	addeq sp, sp, #0x2d4
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r0, _021DC704 ; =0x0220C4CC
+	ldr r0, _021DC704 ; =UNK04_0220C4CC
 	ldr r1, [sp, #8]
 	mov r2, #0
 	blx r8
 	add sp, sp, #0x2d4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021DC670: .word 0x02210484
-_021DC674: .word 0x02210490
-_021DC678: .word 0x02210494
+_021DC670: .word UNK04_02210484
+_021DC674: .word UNK04_02210490
+_021DC678: .word UNK04_02210494
 _021DC67C: .word 0x00004E20
-_021DC680: .word 0x0220C36C
+_021DC680: .word UNK04_0220C36C
 _021DC684: .word 0x021D3498
 _021DC688: .word 0x00001B34
-_021DC68C: .word 0x0220C418
+_021DC68C: .word UNK04_0220C418
 _021DC690: .word 0x021D74A8
 _021DC694: .word 0x0000012E
-_021DC698: .word 0x0221048C
-_021DC69C: .word 0x0220BEB4
-_021DC6A0: .word 0x0220C424
-_021DC6A4: .word 0x0220C444
-_021DC6A8: .word 0x0220C44C
-_021DC6AC: .word 0x0220C454
-_021DC6B0: .word 0x0220C464
-_021DC6B4: .word 0x0220C394
-_021DC6B8: .word 0x022104B0
-_021DC6BC: .word 0x02210488
+_021DC698: .word UNK04_0221048C
+_021DC69C: .word UNK04_0220BEB4
+_021DC6A0: .word UNK04_0220C424
+_021DC6A4: .word UNK04_0220C444
+_021DC6A8: .word UNK04_0220C44C
+_021DC6AC: .word UNK04_0220C454
+_021DC6B0: .word UNK04_0220C464
+_021DC6B4: .word UNK04_0220C394
+_021DC6B8: .word UNK04_022104B0
+_021DC6BC: .word UNK04_02210488
 _021DC6C0: .word 0xFFFFA4FA
 _021DC6C4: .word 0x00009C40
-_021DC6C8: .word 0x0220C484
-_021DC6CC: .word 0x0220C48C
-_021DC6D0: .word 0x0220C3B0
-_021DC6D4: .word 0x0220C494
-_021DC6D8: .word 0x0220C4A0
-_021DC6DC: .word 0x0220C4A4
-_021DC6E0: .word 0x0220C4AC
-_021DC6E4: .word 0x0220C3CC
-_021DC6E8: .word 0x0220C3D8
-_021DC6EC: .word 0x0220C3E8
+_021DC6C8: .word UNK04_0220C484
+_021DC6CC: .word UNK04_0220C48C
+_021DC6D0: .word UNK04_0220C3B0
+_021DC6D4: .word UNK04_0220C494
+_021DC6D8: .word UNK04_0220C4A0
+_021DC6DC: .word UNK04_0220C4A4
+_021DC6E0: .word UNK04_0220C4AC
+_021DC6E4: .word UNK04_0220C3CC
+_021DC6E8: .word UNK04_0220C3D8
+_021DC6EC: .word UNK04_0220C3E8
 _021DC6F0: .word 0x0002BF20
 _021DC6F4: .word 0x0001D4C0
-_021DC6F8: .word 0x0220C3F8
-_021DC6FC: .word 0x0220C4B4
-_021DC700: .word 0x0220C4C0
-_021DC704: .word 0x0220C4CC
+_021DC6F8: .word UNK04_0220C3F8
+_021DC6FC: .word UNK04_0220C4B4
+_021DC700: .word UNK04_0220C4C0
+_021DC704: .word UNK04_0220C4CC
 
 	arm_func_start MOD04_021DC708
 MOD04_021DC708: ; 0x021DC708
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
-	ldr r0, _021DC788 ; =0x02210484
+	ldr r0, _021DC788 ; =UNK04_02210484
 	ldr r1, [r0]
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0x188]
@@ -4071,7 +4071,7 @@ MOD04_021DC708: ; 0x021DC708
 	addeq sp, sp, #0xc
 	ldmeqia sp!, {pc}
 _021DC740:
-	ldr r1, _021DC788 ; =0x02210484
+	ldr r1, _021DC788 ; =UNK04_02210484
 	ldr r0, _021DC78C ; =0x0000111C
 	ldr r2, [r1]
 	mov r3, #0x1000
@@ -4082,7 +4082,7 @@ _021DC740:
 	add r3, r2, #0x1000
 	str ip, [sp, #4]
 	bl OS_CreateThread
-	ldr r1, _021DC788 ; =0x02210484
+	ldr r1, _021DC788 ; =UNK04_02210484
 	ldr r0, _021DC78C ; =0x0000111C
 	ldr r1, [r1]
 	add r0, r1, r0
@@ -4090,29 +4090,29 @@ _021DC740:
 	add sp, sp, #0xc
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DC788: .word 0x02210484
+_021DC788: .word UNK04_02210484
 _021DC78C: .word 0x0000111C
 _021DC790: .word MOD04_021DB778
 
 	arm_func_start MOD04_021DC794
 MOD04_021DC794: ; 0x021DC794
-	ldr r0, _021DC7A8 ; =0x02210484
+	ldr r0, _021DC7A8 ; =UNK04_02210484
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	ldr r0, [r0, #4]
 	bx lr
 	.align 2, 0
-_021DC7A8: .word 0x02210484
+_021DC7A8: .word UNK04_02210484
 
 	arm_func_start MOD04_021DC7AC
 MOD04_021DC7AC: ; 0x021DC7AC
 	stmdb sp!, {r4, lr}
-	ldr r1, _021DC7E8 ; =0x02210484
+	ldr r1, _021DC7E8 ; =UNK04_02210484
 	ldr r0, _021DC7EC ; =0x000011DC
 	ldr r1, [r1]
 	add r0, r1, r0
 	bl OS_LockMutex
-	ldr r1, _021DC7E8 ; =0x02210484
+	ldr r1, _021DC7E8 ; =UNK04_02210484
 	ldr r0, _021DC7EC ; =0x000011DC
 	ldr r2, [r1]
 	add r1, r2, #0x1000
@@ -4122,26 +4122,26 @@ MOD04_021DC7AC: ; 0x021DC7AC
 	mov r0, r4
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DC7E8: .word 0x02210484
+_021DC7E8: .word UNK04_02210484
 _021DC7EC: .word 0x000011DC
 
 	arm_func_start MOD04_021DC7F0
 MOD04_021DC7F0: ; 0x021DC7F0
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DC864 ; =0x02210484
+	ldr r0, _021DC864 ; =UNK04_02210484
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
-	ldr r0, _021DC868 ; =0x02210490
+	ldr r0, _021DC868 ; =UNK04_02210490
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021DC820
 	bl MOD04_021DB440
 _021DC820:
 	bl MOD04_021D9974
-	ldr r0, _021DC864 ; =0x02210484
+	ldr r0, _021DC864 ; =UNK04_02210484
 	ldr r1, [r0]
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0x188]
@@ -4151,7 +4151,7 @@ _021DC820:
 	add r0, r1, r0
 	bl OS_JoinThread
 _021DC848:
-	ldr r0, _021DC864 ; =0x02210484
+	ldr r0, _021DC864 ; =UNK04_02210484
 	mvn r1, #6
 	ldr r0, [r0]
 	add r0, r0, #0x1000
@@ -4159,15 +4159,15 @@ _021DC848:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DC864: .word 0x02210484
-_021DC868: .word 0x02210490
+_021DC864: .word UNK04_02210484
+_021DC868: .word UNK04_02210490
 _021DC86C: .word 0x0000111C
 
 	arm_func_start MOD04_021DC870
 MOD04_021DC870: ; 0x021DC870
 	stmdb sp!, {r4, lr}
-	ldr r1, _021DC958 ; =0x02210484
-	ldr r0, _021DC95C ; =0x02210490
+	ldr r1, _021DC958 ; =UNK04_02210484
+	ldr r0, _021DC95C ; =UNK04_02210490
 	ldr r1, [r1]
 	ldr r0, [r0]
 	add r1, r1, #0x1000
@@ -4175,17 +4175,17 @@ MOD04_021DC870: ; 0x021DC870
 	ldr r4, [r1, #0x10c]
 	beq _021DC8B8
 	bl MOD04_021DAE4C
-	ldr r1, _021DC95C ; =0x02210490
-	ldr r0, _021DC960 ; =0x0220C4D8
+	ldr r1, _021DC95C ; =UNK04_02210490
+	ldr r0, _021DC960 ; =UNK04_0220C4D8
 	ldr r1, [r1]
 	mov r2, #0
 	blx r4
-	ldr r0, _021DC95C ; =0x02210490
+	ldr r0, _021DC95C ; =UNK04_02210490
 	mov r1, #0
 	str r1, [r0]
 _021DC8B8:
 	bl MOD04_021D991C
-	ldr r0, _021DC958 ; =0x02210484
+	ldr r0, _021DC958 ; =UNK04_02210484
 	ldr r0, [r0]
 	cmp r0, #0
 	ldmeqia sp!, {r4, pc}
@@ -4193,52 +4193,52 @@ _021DC8B8:
 	ldr r1, [r0, #0x114]
 	cmp r1, #0
 	beq _021DC8FC
-	ldr r0, _021DC964 ; =0x0220C3B0
+	ldr r0, _021DC964 ; =UNK04_0220C3B0
 	mov r2, #0
 	blx r4
-	ldr r0, _021DC958 ; =0x02210484
+	ldr r0, _021DC958 ; =UNK04_02210484
 	mov r1, #0
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	str r1, [r0, #0x114]
 _021DC8FC:
-	ldr r0, _021DC958 ; =0x02210484
+	ldr r0, _021DC958 ; =UNK04_02210484
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	ldr r1, [r0, #0x118]
 	cmp r1, #0
 	beq _021DC934
-	ldr r0, _021DC968 ; =0x0220C464
+	ldr r0, _021DC968 ; =UNK04_0220C464
 	mov r2, #0
 	blx r4
-	ldr r0, _021DC958 ; =0x02210484
+	ldr r0, _021DC958 ; =UNK04_02210484
 	mov r1, #0
 	ldr r0, [r0]
 	add r0, r0, #0x1000
 	str r1, [r0, #0x118]
 _021DC934:
-	ldr r1, _021DC958 ; =0x02210484
-	ldr r0, _021DC96C ; =0x0220C4E8
+	ldr r1, _021DC958 ; =UNK04_02210484
+	ldr r0, _021DC96C ; =UNK04_0220C4E8
 	ldr r1, [r1]
 	mov r2, #0
 	blx r4
-	ldr r0, _021DC958 ; =0x02210484
+	ldr r0, _021DC958 ; =UNK04_02210484
 	mov r1, #0
 	str r1, [r0]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DC958: .word 0x02210484
-_021DC95C: .word 0x02210490
-_021DC960: .word 0x0220C4D8
-_021DC964: .word 0x0220C3B0
-_021DC968: .word 0x0220C464
-_021DC96C: .word 0x0220C4E8
+_021DC958: .word UNK04_02210484
+_021DC95C: .word UNK04_02210490
+_021DC960: .word UNK04_0220C4D8
+_021DC964: .word UNK04_0220C3B0
+_021DC968: .word UNK04_0220C464
+_021DC96C: .word UNK04_0220C4E8
 
 	arm_func_start MOD04_021DC970
 MOD04_021DC970: ; 0x021DC970
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r1, _021DCA5C ; =0x02210484
+	ldr r1, _021DCA5C ; =UNK04_02210484
 	mov r5, r0
 	ldr r0, [r1]
 	ldr r4, [r5]
@@ -4246,10 +4246,10 @@ MOD04_021DC970: ; 0x021DC970
 	addne sp, sp, #4
 	movne r0, #4
 	ldmneia sp!, {r4, r5, pc}
-	ldr r0, _021DCA60 ; =0x0220C4FC
+	ldr r0, _021DCA60 ; =UNK04_0220C4FC
 	ldr r1, _021DCA64 ; =0x000011F4
 	blx r4
-	ldr r1, _021DCA5C ; =0x02210484
+	ldr r1, _021DCA5C ; =UNK04_02210484
 	cmp r0, #0
 	str r0, [r1]
 	addeq sp, sp, #4
@@ -4258,7 +4258,7 @@ MOD04_021DC970: ; 0x021DC970
 	ldr r2, _021DCA64 ; =0x000011F4
 	mov r1, #0
 	bl MI_CpuFill8
-	ldr r1, _021DCA5C ; =0x02210484
+	ldr r1, _021DCA5C ; =UNK04_02210484
 	ldr r2, _021DCA68 ; =0xFFFE7961
 	ldr r0, [r1]
 	ldr r3, _021DCA6C ; =0x00001108
@@ -4268,25 +4268,25 @@ MOD04_021DC970: ; 0x021DC970
 	ldmia r5, {r0, r1, r2}
 	add r3, ip, r3
 	stmia r3, {r0, r1, r2}
-	ldr r0, _021DCA70 ; =0x02210490
+	ldr r0, _021DCA70 ; =UNK04_02210490
 	ldr r0, [r0]
 	cmp r0, #0
 	addne sp, sp, #4
 	movne r0, #4
 	ldmneia sp!, {r4, r5, pc}
-	ldr r0, _021DCA74 ; =0x0220C510
+	ldr r0, _021DCA74 ; =UNK04_0220C510
 	ldr r1, _021DCA78 ; =0x00001C10
 	blx r4
-	ldr r1, _021DCA70 ; =0x02210490
+	ldr r1, _021DCA70 ; =UNK04_02210490
 	cmp r0, #0
 	str r0, [r1]
 	addeq sp, sp, #4
 	moveq r0, #4
 	ldmeqia sp!, {r4, r5, pc}
-	ldr r1, _021DCA5C ; =0x02210484
+	ldr r1, _021DCA5C ; =UNK04_02210484
 	ldr r0, _021DCA7C ; =0x000011DC
 	ldr r2, [r1]
-	ldr r1, _021DCA80 ; =0x0221048C
+	ldr r1, _021DCA80 ; =UNK04_0221048C
 	mov r3, #0
 	add r0, r2, r0
 	str r3, [r1]
@@ -4296,16 +4296,16 @@ MOD04_021DC970: ; 0x021DC970
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021DCA5C: .word 0x02210484
-_021DCA60: .word 0x0220C4FC
+_021DCA5C: .word UNK04_02210484
+_021DCA60: .word UNK04_0220C4FC
 _021DCA64: .word 0x000011F4
 _021DCA68: .word 0xFFFE7961
 _021DCA6C: .word 0x00001108
-_021DCA70: .word 0x02210490
-_021DCA74: .word 0x0220C510
+_021DCA70: .word UNK04_02210490
+_021DCA74: .word UNK04_0220C510
 _021DCA78: .word 0x00001C10
 _021DCA7C: .word 0x000011DC
-_021DCA80: .word 0x0221048C
+_021DCA80: .word UNK04_0221048C
 
 	arm_func_start MOD04_021DCA84
 MOD04_021DCA84: ; 0x021DCA84
@@ -4314,7 +4314,7 @@ MOD04_021DCA84: ; 0x021DCA84
 	mov r6, r0
 	bl strlen
 	mov r4, r0
-	ldr r0, _021DCCB4 ; =0x0220C580
+	ldr r0, _021DCCB4 ; =UNK04_0220C580
 	bl strlen
 	cmp r4, r0
 	bne _021DCCA8
@@ -4377,7 +4377,7 @@ MOD04_021DCA84: ; 0x021DCA84
 	str r1, [sp]
 	str r0, [sp, #4]
 	mov r8, #0
-	ldr r7, _021DCCBC ; =0x0220C550
+	ldr r7, _021DCCBC ; =UNK04_0220C550
 	add r6, sp, #0x24
 _021DCB9C:
 	ldr r0, [r7, r8, lsl #2]
@@ -4439,9 +4439,9 @@ _021DCBC4:
 	cmpeq r0, r2
 	beq _021DCCA8
 	subs r4, r4, r0
-	ldr r2, _021DCCC0 ; =0x022104FC
+	ldr r2, _021DCCC0 ; =UNK04_022104FC
 	sbc r3, r5, r1
-	ldr r1, _021DCCC4 ; =0x022104F8
+	ldr r1, _021DCCC4 ; =UNK04_022104F8
 	mov r0, #1
 	str r3, [r2, #4]
 	str r0, [r1]
@@ -4453,17 +4453,17 @@ _021DCCA8:
 	add sp, sp, #0x40
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021DCCB4: .word 0x0220C580
+_021DCCB4: .word UNK04_0220C580
 _021DCCB8: .word 0x021D74A8
-_021DCCBC: .word 0x0220C550
-_021DCCC0: .word 0x022104FC
-_021DCCC4: .word 0x022104F8
+_021DCCBC: .word UNK04_0220C550
+_021DCCC0: .word UNK04_022104FC
+_021DCCC4: .word UNK04_022104F8
 
 	arm_func_start MOD04_021DCCC8
 MOD04_021DCCC8: ; 0x021DCCC8
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #8
-	ldr r0, _021DCED4 ; =0x02210504
+	ldr r0, _021DCED4 ; =UNK04_02210504
 	mov r1, #0
 	ldr r0, [r0]
 	add r4, r0, #8
@@ -4478,14 +4478,14 @@ MOD04_021DCCC8: ; 0x021DCCC8
 	mov r0, #0
 	ldmia sp!, {r4, pc}
 _021DCD08:
-	ldr r1, _021DCEDC ; =0x0220C5A0
+	ldr r1, _021DCEDC ; =UNK04_0220C5A0
 	mov r0, r4
 	bl MOD04_021DA388
 	cmp r0, #0
 	beq _021DCD20
 	bl MOD04_021DCA84
 _021DCD20:
-	ldr r1, _021DCEE0 ; =0x0220C5A8
+	ldr r1, _021DCEE0 ; =UNK04_0220C5A8
 	mov r0, r4
 	bl MOD04_021DA388
 	cmp r0, #0
@@ -4520,7 +4520,7 @@ _021DCD7C:
 	mov r0, #0
 	ldmia sp!, {r4, pc}
 _021DCDA0:
-	ldr r1, _021DCEEC ; =0x0220C5B4
+	ldr r1, _021DCEEC ; =UNK04_0220C5B4
 	add r2, sp, #0
 	mov r0, r4
 	mov r3, #4
@@ -4558,8 +4558,8 @@ _021DCE08:
 	mov r0, #0
 	ldmia sp!, {r4, pc}
 _021DCE2C:
-	ldr r0, _021DCED4 ; =0x02210504
-	ldr r1, _021DCEF4 ; =0x0220C5C0
+	ldr r0, _021DCED4 ; =UNK04_02210504
+	ldr r1, _021DCEF4 ; =UNK04_0220C5C0
 	ldr r2, [r0]
 	mov r0, r4
 	add r2, r2, #0x1000
@@ -4567,8 +4567,8 @@ _021DCE2C:
 	mov r3, #0x40
 	add r2, r2, #4
 	bl MOD04_021DA334
-	ldr r0, _021DCED4 ; =0x02210504
-	ldr r1, _021DCEF8 ; =0x0220C5C8
+	ldr r0, _021DCED4 ; =UNK04_02210504
+	ldr r1, _021DCEF8 ; =UNK04_0220C5C8
 	ldr r2, [r0]
 	mov r0, r4
 	add r2, r2, #0x1000
@@ -4576,7 +4576,7 @@ _021DCE2C:
 	mov r3, #0x12c
 	add r2, r2, #0x45
 	bl MOD04_021DA334
-	ldr r1, _021DCEFC ; =0x0220C5D8
+	ldr r1, _021DCEFC ; =UNK04_0220C5D8
 	add r2, sp, #0
 	mov r0, r4
 	mov r3, #1
@@ -4584,7 +4584,7 @@ _021DCE2C:
 	ldrsb r0, [sp]
 	cmp r0, #0x59
 	bne _021DCEB0
-	ldr r0, _021DCED4 ; =0x02210504
+	ldr r0, _021DCED4 ; =UNK04_02210504
 	mov r1, #1
 	ldr r0, [r0]
 	add r0, r0, #0x1000
@@ -4592,7 +4592,7 @@ _021DCE2C:
 	str r1, [r0]
 	b _021DCEC8
 _021DCEB0:
-	ldr r0, _021DCED4 ; =0x02210504
+	ldr r0, _021DCED4 ; =UNK04_02210504
 	mov r1, #0
 	ldr r0, [r0]
 	add r0, r0, #0x1000
@@ -4603,23 +4603,23 @@ _021DCEC8:
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DCED4: .word 0x02210504
+_021DCED4: .word UNK04_02210504
 _021DCED8: .word 0xFFFF9DF3
-_021DCEDC: .word 0x0220C5A0
-_021DCEE0: .word 0x0220C5A8
+_021DCEDC: .word UNK04_0220C5A0
+_021DCEE0: .word UNK04_0220C5A8
 _021DCEE4: .word 0x021D74A8
 _021DCEE8: .word 0xFFFF9E58
-_021DCEEC: .word 0x0220C5B4
+_021DCEEC: .word UNK04_0220C5B4
 _021DCEF0: .word 0xFFFFA240
-_021DCEF4: .word 0x0220C5C0
-_021DCEF8: .word 0x0220C5C8
-_021DCEFC: .word 0x0220C5D8
+_021DCEF4: .word UNK04_0220C5C0
+_021DCEF8: .word UNK04_0220C5C8
+_021DCEFC: .word UNK04_0220C5D8
 
 	arm_func_start MOD04_021DCF00
 MOD04_021DCF00: ; 0x021DCF00
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DCFF0 ; =0x02210504
+	ldr r0, _021DCFF0 ; =UNK04_02210504
 	ldr r1, [r0]
 	cmp r1, #0
 	addeq sp, sp, #4
@@ -4636,7 +4636,7 @@ MOD04_021DCF00: ; 0x021DCF00
 	bl OS_IsThreadTerminated
 	cmp r0, #1
 	bne _021DCFE4
-	ldr r0, _021DCFF0 ; =0x02210504
+	ldr r0, _021DCFF0 ; =UNK04_02210504
 	ldr r1, [r0]
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0x28]
@@ -4647,7 +4647,7 @@ MOD04_021DCF00: ; 0x021DCF00
 	bl MOD04_021DCCC8
 	cmp r0, #0
 	bne _021DCF94
-	ldr r0, _021DCFF0 ; =0x02210504
+	ldr r0, _021DCFF0 ; =UNK04_02210504
 	ldr r0, [r0]
 	add r0, r0, #8
 	bl MOD04_021DAE4C
@@ -4655,7 +4655,7 @@ MOD04_021DCF00: ; 0x021DCF00
 	mov r0, #4
 	ldmfd sp!, {pc}
 _021DCF94:
-	ldr r0, _021DCFF0 ; =0x02210504
+	ldr r0, _021DCFF0 ; =UNK04_02210504
 	ldr r0, [r0]
 	add r0, r0, #8
 	bl MOD04_021DAE4C
@@ -4682,7 +4682,7 @@ _021DCFE4:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DCFF0: .word 0x02210504
+_021DCFF0: .word UNK04_02210504
 _021DCFF4: .word 0x00001B3C
 _021DCFF8: .word 0xFFFFA1DB
 
@@ -4690,7 +4690,7 @@ _021DCFF8: .word 0xFFFFA1DB
 MOD04_021DCFFC: ; 0x021DCFFC
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #0xb4
-	ldr r2, _021DD244 ; =0x02210504
+	ldr r2, _021DD244 ; =UNK04_02210504
 	mov r5, r0
 	ldr r2, [r2]
 	mov r0, r1
@@ -4699,7 +4699,7 @@ MOD04_021DCFFC: ; 0x021DCFFC
 	mov r1, #0
 	mov r2, #0x174
 	bl MI_CpuFill8
-	ldr r0, _021DD244 ; =0x02210504
+	ldr r0, _021DD244 ; =UNK04_02210504
 	ldr r1, [r0]
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0xba8]
@@ -4712,8 +4712,8 @@ MOD04_021DCFFC: ; 0x021DCFFC
 	bne _021DD058
 	bl OS_Terminate
 _021DD058:
-	ldr r0, _021DD24C ; =0x0220BEB4
-	ldr r1, _021DD244 ; =0x02210504
+	ldr r0, _021DD24C ; =UNK04_0220BEB4
+	ldr r1, _021DD244 ; =UNK04_02210504
 	ldr r0, [r0]
 	mov r3, #0
 	ldr r4, [r1]
@@ -4722,7 +4722,7 @@ _021DD058:
 	str r3, [sp, #4]
 	str r2, [sp, #8]
 	ldr r2, [r4]
-	ldr r1, _021DD250 ; =0x0220C5E4
+	ldr r1, _021DD250 ; =UNK04_0220C5E4
 	str r2, [sp, #0xc]
 	ldr r2, [r4, #4]
 	str r2, [sp, #0x10]
@@ -4750,7 +4750,7 @@ _021DD0DC:
 	bl MOD04_021DA238
 	cmp r0, #0
 	beq _021DD10C
-	ldr r0, _021DD244 ; =0x02210504
+	ldr r0, _021DD244 ; =UNK04_02210504
 	add r1, sp, #0x1c
 	ldr r0, [r0]
 	mov r2, #0
@@ -4759,7 +4759,7 @@ _021DD0DC:
 	cmp r0, #0
 	bne _021DD134
 _021DD10C:
-	ldr r0, _021DD244 ; =0x02210504
+	ldr r0, _021DD244 ; =UNK04_02210504
 	ldr r0, [r0]
 	add r0, r0, #8
 	bl MOD04_021DAE4C
@@ -4770,17 +4770,17 @@ _021DD10C:
 	mov r0, #0
 	ldmia sp!, {r4, r5, pc}
 _021DD134:
-	ldr r0, _021DD244 ; =0x02210504
-	ldr r1, _021DD25C ; =0x0220C604
+	ldr r0, _021DD244 ; =UNK04_02210504
+	ldr r1, _021DD25C ; =UNK04_0220C604
 	ldr r0, [r0]
-	ldr r2, _021DD260 ; =0x0220C60C
+	ldr r2, _021DD260 ; =UNK04_0220C60C
 	add r0, r0, #8
 	mov r3, #6
 	bl MOD04_021DAB68
 	cmp r0, #0
 	bne _021DD17C
-	ldr r0, _021DD244 ; =0x02210504
-	ldr r1, _021DD264 ; =0x0220C614
+	ldr r0, _021DD244 ; =UNK04_02210504
+	ldr r1, _021DD264 ; =UNK04_0220C614
 	ldr r0, [r0]
 	mov r2, r5
 	add r0, r0, #8
@@ -4789,7 +4789,7 @@ _021DD134:
 	cmp r0, #0
 	beq _021DD1A4
 _021DD17C:
-	ldr r0, _021DD244 ; =0x02210504
+	ldr r0, _021DD244 ; =UNK04_02210504
 	ldr r0, [r0]
 	add r0, r0, #8
 	bl MOD04_021DAE4C
@@ -4800,13 +4800,13 @@ _021DD17C:
 	mov r0, #0
 	ldmia sp!, {r4, r5, pc}
 _021DD1A4:
-	ldr r0, _021DD244 ; =0x02210504
+	ldr r0, _021DD244 ; =UNK04_02210504
 	ldr r0, [r0]
 	add r0, r0, #8
 	bl MOD04_021DB570
 	cmp r0, #0
 	beq _021DD1E4
-	ldr r0, _021DD244 ; =0x02210504
+	ldr r0, _021DD244 ; =UNK04_02210504
 	ldr r0, [r0]
 	add r0, r0, #8
 	bl MOD04_021DAE4C
@@ -4820,12 +4820,12 @@ _021DD1E4:
 	ldr r0, _021DD268 ; =0x021D3498
 	ldr r0, [r0, #4]
 	bl OS_GetThreadPriority
-	ldr r1, _021DD244 ; =0x02210504
+	ldr r1, _021DD244 ; =UNK04_02210504
 	ldr r2, [r1]
 	sub r1, r0, #1
 	add r0, r2, #8
 	bl MOD04_021DB4A4
-	ldr r0, _021DD244 ; =0x02210504
+	ldr r0, _021DD244 ; =UNK04_02210504
 	ldr r1, [r0]
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0xba8]
@@ -4842,48 +4842,48 @@ _021DD1E4:
 	add sp, sp, #0xb4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021DD244: .word 0x02210504
+_021DD244: .word UNK04_02210504
 _021DD248: .word 0x00001B3C
-_021DD24C: .word 0x0220BEB4
-_021DD250: .word 0x0220C5E4
+_021DD24C: .word UNK04_0220BEB4
+_021DD250: .word UNK04_0220C5E4
 _021DD254: .word 0x00004E20
 _021DD258: .word 0xFFFFA1DC
-_021DD25C: .word 0x0220C604
-_021DD260: .word 0x0220C60C
-_021DD264: .word 0x0220C614
+_021DD25C: .word UNK04_0220C604
+_021DD260: .word UNK04_0220C60C
+_021DD264: .word UNK04_0220C614
 _021DD268: .word 0x021D3498
 
 	arm_func_start MOD04_021DD26C
 MOD04_021DD26C: ; 0x021DD26C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DD2BC ; =0x02210504
+	ldr r0, _021DD2BC ; =UNK04_02210504
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
 	add r0, r0, #8
 	bl MOD04_021DAE4C
-	ldr r1, _021DD2BC ; =0x02210504
-	ldr r0, _021DD2C0 ; =0x0220C618
+	ldr r1, _021DD2BC ; =UNK04_02210504
+	ldr r0, _021DD2C0 ; =UNK04_0220C618
 	ldr r1, [r1]
 	mov r2, #0
 	ldr r3, [r1, #4]
 	blx r3
-	ldr r0, _021DD2BC ; =0x02210504
+	ldr r0, _021DD2BC ; =UNK04_02210504
 	mov r1, #0
 	str r1, [r0]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DD2BC: .word 0x02210504
-_021DD2C0: .word 0x0220C618
+_021DD2BC: .word UNK04_02210504
+_021DD2C0: .word UNK04_0220C618
 
 	arm_func_start MOD04_021DD2C4
 MOD04_021DD2C4: ; 0x021DD2C4
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r2, _021DD35C ; =0x02210504
+	ldr r2, _021DD35C ; =UNK04_02210504
 	mov r5, r0
 	ldr r0, [r2]
 	mov r4, r1
@@ -4896,10 +4896,10 @@ MOD04_021DD2C4: ; 0x021DD2C4
 	mov r0, #0
 	ldmia sp!, {r4, r5, pc}
 _021DD2FC:
-	ldr r0, _021DD364 ; =0x0220C628
+	ldr r0, _021DD364 ; =UNK04_0220C628
 	ldr r1, _021DD368 ; =0x00001C1C
 	blx r5
-	ldr r1, _021DD35C ; =0x02210504
+	ldr r1, _021DD35C ; =UNK04_02210504
 	cmp r0, #0
 	str r0, [r1]
 	bne _021DD330
@@ -4913,7 +4913,7 @@ _021DD330:
 	ldr r2, _021DD368 ; =0x00001C1C
 	mov r1, #0
 	bl MI_CpuFill8
-	ldr r1, _021DD35C ; =0x02210504
+	ldr r1, _021DD35C ; =UNK04_02210504
 	mov r0, #1
 	ldr r2, [r1]
 	str r5, [r2]
@@ -4922,9 +4922,9 @@ _021DD330:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021DD35C: .word 0x02210504
+_021DD35C: .word UNK04_02210504
 _021DD360: .word 0xFFFFA1DC
-_021DD364: .word 0x0220C628
+_021DD364: .word UNK04_0220C628
 _021DD368: .word 0x00001C1C
 
 	arm_func_start MOD04_021DD36C
@@ -5099,7 +5099,7 @@ _021DD580:
 	add r1, sp, #8
 	mov r2, sb
 	bl MI_CpuCopy8
-	ldr r0, _021DD6AC ; =0x0220C638
+	ldr r0, _021DD6AC ; =UNK04_0220C638
 	cmp r8, #2
 	ldr r1, [r0]
 	ldrb r0, [sp, #8]
@@ -5109,7 +5109,7 @@ _021DD580:
 	strltb r4, [r6, #1]
 	blt _021DD628
 	ldrb r2, [sp, #8]
-	ldr r0, _021DD6AC ; =0x0220C638
+	ldr r0, _021DD6AC ; =UNK04_0220C638
 	ldrb r1, [sp, #9]
 	mov r2, r2, lsl #4
 	and r2, r2, #0x3f
@@ -5122,7 +5122,7 @@ _021DD628:
 	strltb r4, [r6, #2]
 	blt _021DD658
 	ldrb r2, [sp, #9]
-	ldr r0, _021DD6AC ; =0x0220C638
+	ldr r0, _021DD6AC ; =UNK04_0220C638
 	ldrb r1, [sp, #0xa]
 	mov r2, r2, lsl #2
 	and r2, r2, #0x3f
@@ -5134,7 +5134,7 @@ _021DD658:
 	cmp r8, #4
 	strltb r4, [r6, #3]
 	blt _021DD67C
-	ldr r0, _021DD6AC ; =0x0220C638
+	ldr r0, _021DD6AC ; =UNK04_0220C638
 	ldrb r1, [sp, #0xa]
 	ldr r2, [r0]
 	and r0, r1, #0x3f
@@ -5155,55 +5155,55 @@ _021DD69C: .word 0xAAAAAAAB
 _021DD6A0: .word 0x00000003
 _021DD6A4: .word 0x2AAAAAAB
 _021DD6A8: .word 0x00000006
-_021DD6AC: .word 0x0220C638
+_021DD6AC: .word UNK04_0220C638
 
 	arm_func_start MOD04_021DD6B0
 MOD04_021DD6B0: ; 0x021DD6B0
-	ldr r3, _021DD6CC ; =0x02210508
+	ldr r3, _021DD6CC ; =UNK04_02210508
 	ldr r2, [r3]
 	cmp r2, #9
-	ldrne r2, _021DD6D0 ; =0x0221050C
+	ldrne r2, _021DD6D0 ; =UNK04_0221050C
 	strne r0, [r3]
 	strne r1, [r2]
 	bx lr
 	.align 2, 0
-_021DD6CC: .word 0x02210508
-_021DD6D0: .word 0x0221050C
+_021DD6CC: .word UNK04_02210508
+_021DD6D0: .word UNK04_0221050C
 
 	arm_func_start MOD04_021DD6D4
 MOD04_021DD6D4: ; 0x021DD6D4
-	ldr r0, _021DD6EC ; =0x02210508
+	ldr r0, _021DD6EC ; =UNK04_02210508
 	ldr r0, [r0]
 	cmp r0, #0
 	movne r0, #1
 	moveq r0, #0
 	bx lr
 	.align 2, 0
-_021DD6EC: .word 0x02210508
+_021DD6EC: .word UNK04_02210508
 
 	arm_func_start MOD04_021DD6F0
 MOD04_021DD6F0: ; 0x021DD6F0
-	ldr r1, _021DD710 ; =0x02210508
+	ldr r1, _021DD710 ; =UNK04_02210508
 	ldr r0, [r1]
 	cmp r0, #9
 	movne r2, #0
-	ldrne r0, _021DD714 ; =0x0221050C
+	ldrne r0, _021DD714 ; =UNK04_0221050C
 	strne r2, [r1]
 	strne r2, [r0]
 	bx lr
 	.align 2, 0
-_021DD710: .word 0x02210508
-_021DD714: .word 0x0221050C
+_021DD710: .word UNK04_02210508
+_021DD714: .word UNK04_0221050C
 
 	arm_func_start MOD04_021DD718
 MOD04_021DD718: ; 0x021DD718
 	cmp r0, #0
-	ldrne r2, _021DD800 ; =0x0221050C
+	ldrne r2, _021DD800 ; =UNK04_0221050C
 	ldrne r2, [r2]
 	strne r2, [r0]
 	cmp r1, #0
 	beq _021DD7F4
-	ldr r0, _021DD804 ; =0x02210508
+	ldr r0, _021DD804 ; =UNK04_02210508
 	ldr r0, [r0]
 	cmp r0, #0x11
 	addls pc, pc, r0, lsl #2
@@ -5263,25 +5263,25 @@ _021DD7EC:
 	mov r0, #0
 	str r0, [r1]
 _021DD7F4:
-	ldr r0, _021DD804 ; =0x02210508
+	ldr r0, _021DD804 ; =UNK04_02210508
 	ldr r0, [r0]
 	bx lr
 	.align 2, 0
-_021DD800: .word 0x0221050C
-_021DD804: .word 0x02210508
+_021DD800: .word UNK04_0221050C
+_021DD804: .word UNK04_02210508
 
 	arm_func_start MOD04_021DD808
 MOD04_021DD808: ; 0x021DD808
 	cmp r0, #0
-	ldrne r1, _021DD824 ; =0x0221050C
+	ldrne r1, _021DD824 ; =UNK04_0221050C
 	ldrne r1, [r1]
 	strne r1, [r0]
-	ldr r0, _021DD828 ; =0x02210508
+	ldr r0, _021DD828 ; =UNK04_02210508
 	ldr r0, [r0]
 	bx lr
 	.align 2, 0
-_021DD824: .word 0x0221050C
-_021DD828: .word 0x02210508
+_021DD824: .word UNK04_0221050C
+_021DD828: .word UNK04_02210508
 
 	arm_func_start MOD04_021DD82C
 MOD04_021DD82C: ; 0x021DD82C
@@ -5316,7 +5316,7 @@ _021DD870: .word MOD04_021DD944
 	arm_func_start MOD04_021DD874
 MOD04_021DD874: ; 0x021DD874
 	stmdb sp!, {r4, r5, r6, r7, r8, lr}
-	ldr ip, _021DD8E0 ; =0x02210514
+	ldr ip, _021DD8E0 ; =UNK04_02210514
 	mov r4, r2
 	mov r7, r3
 	mov r5, r1
@@ -5334,7 +5334,7 @@ MOD04_021DD874: ; 0x021DD874
 	mov r1, r6
 	mov r2, r7
 	bl MI_CpuCopy8
-	ldr r1, _021DD8E4 ; =0x02210510
+	ldr r1, _021DD8E4 ; =UNK04_02210510
 	mov r0, r8
 	ldr r3, [r1]
 	mov r1, r5
@@ -5344,8 +5344,8 @@ _021DD8D8:
 	mov r0, r6
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021DD8E0: .word 0x02210514
-_021DD8E4: .word 0x02210510
+_021DD8E0: .word UNK04_02210514
+_021DD8E4: .word UNK04_02210510
 
 	arm_func_start MOD04_021DD8E8
 MOD04_021DD8E8: ; 0x021DD8E8
@@ -5361,49 +5361,49 @@ MOD04_021DD8E8: ; 0x021DD8E8
 MOD04_021DD904: ; 0x021DD904
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r3, _021DD920 ; =0x02210510
+	ldr r3, _021DD920 ; =UNK04_02210510
 	ldr r3, [r3]
 	blx r3
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DD920: .word 0x02210510
+_021DD920: .word UNK04_02210510
 
 	arm_func_start MOD04_021DD924
 MOD04_021DD924: ; 0x021DD924
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r3, _021DD940 ; =0x02210514
+	ldr r3, _021DD940 ; =UNK04_02210514
 	ldr r3, [r3]
 	blx r3
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DD940: .word 0x02210514
+_021DD940: .word UNK04_02210514
 
 	arm_func_start MOD04_021DD944
 MOD04_021DD944: ; 0x021DD944
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r3, _021DD964 ; =0x02210514
+	ldr r3, _021DD964 ; =UNK04_02210514
 	mov r2, #0x20
 	ldr r3, [r3]
 	blx r3
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DD964: .word 0x02210514
+_021DD964: .word UNK04_02210514
 
 	arm_func_start MOD04_021DD968
 MOD04_021DD968: ; 0x021DD968
-	ldr r3, _021DD97C ; =0x02210514
-	ldr r2, _021DD980 ; =0x02210510
+	ldr r3, _021DD97C ; =UNK04_02210514
+	ldr r2, _021DD980 ; =UNK04_02210510
 	str r0, [r3]
 	str r1, [r2]
 	bx lr
 	.align 2, 0
-_021DD97C: .word 0x02210514
-_021DD980: .word 0x02210510
+_021DD97C: .word UNK04_02210514
+_021DD980: .word UNK04_02210510
 
 	arm_func_start MOD04_021DD984
 MOD04_021DD984: ; 0x021DD984
@@ -5523,7 +5523,7 @@ _021DDB10: .word 0x020A8B28
 
 	arm_func_start MOD04_021DDB14
 MOD04_021DDB14: ; 0x021DDB14
-	ldr r0, _021DDB3C ; =0x02210518
+	ldr r0, _021DDB3C ; =UNK04_02210518
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021DDB34
@@ -5535,13 +5535,13 @@ _021DDB34:
 	mov r0, #0
 	bx lr
 	.align 2, 0
-_021DDB3C: .word 0x02210518
+_021DDB3C: .word UNK04_02210518
 
 	arm_func_start MOD04_021DDB40
 MOD04_021DDB40: ; 0x021DDB40
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DDBB8 ; =0x02210518
+	ldr r0, _021DDBB8 ; =UNK04_02210518
 	ldr r2, [r0]
 	cmp r2, #0
 	addeq sp, sp, #4
@@ -5562,7 +5562,7 @@ MOD04_021DDB40: ; 0x021DDB40
 	strh r0, [r2, #4]
 	bl MOD04_021EB9D8
 	cmp r0, #0
-	ldrne r0, _021DDBB8 ; =0x02210518
+	ldrne r0, _021DDBB8 ; =UNK04_02210518
 	movne r1, #0
 	strne r1, [r0]
 	movne r0, #1
@@ -5570,12 +5570,12 @@ MOD04_021DDB40: ; 0x021DDB40
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DDBB8: .word 0x02210518
+_021DDBB8: .word UNK04_02210518
 
 	arm_func_start MOD04_021DDBBC
 MOD04_021DDBBC: ; 0x021DDBBC
 	stmdb sp!, {r4, lr}
-	ldr r0, _021DDC18 ; =0x02210518
+	ldr r0, _021DDC18 ; =UNK04_02210518
 	ldr r1, [r0]
 	cmp r1, #0
 	ldmeqia sp!, {r4, pc}
@@ -5595,18 +5595,18 @@ _021DDBF4:
 	cmp r0, #0
 	beq _021DDBF4
 _021DDC08:
-	ldr r0, _021DDC18 ; =0x02210518
+	ldr r0, _021DDC18 ; =UNK04_02210518
 	mov r1, #0
 	str r1, [r0]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DDC18: .word 0x02210518
+_021DDC18: .word UNK04_02210518
 
 	arm_func_start MOD04_021DDC1C
 MOD04_021DDC1C: ; 0x021DDC1C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DDCE4 ; =0x02210518
+	ldr r0, _021DDCE4 ; =UNK04_02210518
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -5620,7 +5620,7 @@ MOD04_021DDC1C: ; 0x021DDC1C
 	mov r1, r0
 	cmp r1, #5
 	bne _021DDC80
-	ldr r1, _021DDCE4 ; =0x02210518
+	ldr r1, _021DDCE4 ; =UNK04_02210518
 	mov r0, #4
 	ldr r3, [r1]
 	mov r2, #1
@@ -5638,7 +5638,7 @@ _021DDC80:
 	sub r1, r1, #0x2bc
 	mov r0, #9
 	bl MOD04_021DD6B0
-	ldr r1, _021DDCE4 ; =0x02210518
+	ldr r1, _021DDCE4 ; =UNK04_02210518
 	mov r0, #8
 	ldr r1, [r1]
 	add sp, sp, #4
@@ -5647,7 +5647,7 @@ _021DDC80:
 _021DDCB8:
 	mov r0, #5
 	bl MOD04_021DD6B0
-	ldr r1, _021DDCE4 ; =0x02210518
+	ldr r1, _021DDCE4 ; =UNK04_02210518
 	mov r0, #7
 	ldr r1, [r1]
 	add sp, sp, #4
@@ -5658,13 +5658,13 @@ _021DDCD8:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DDCE4: .word 0x02210518
+_021DDCE4: .word UNK04_02210518
 
 	arm_func_start MOD04_021DDCE8
 MOD04_021DDCE8: ; 0x021DDCE8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DDD78 ; =0x02210518
+	ldr r0, _021DDD78 ; =UNK04_02210518
 	ldr r1, [r0]
 	cmp r1, #0
 	addeq sp, sp, #4
@@ -5673,7 +5673,7 @@ MOD04_021DDCE8: ; 0x021DDCE8
 	cmp r0, #2
 	bne _021DDD28
 	bl MOD04_021EBB80
-	ldr r1, _021DDD78 ; =0x02210518
+	ldr r1, _021DDD78 ; =UNK04_02210518
 	add sp, sp, #4
 	ldr r1, [r1]
 	str r0, [r1]
@@ -5690,7 +5690,7 @@ _021DDD28:
 	cmp r0, #9
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
-	ldr r0, _021DDD78 ; =0x02210518
+	ldr r0, _021DDD78 ; =UNK04_02210518
 	mov r3, #0
 	ldr r2, [r0]
 	mov r1, #6
@@ -5700,13 +5700,13 @@ _021DDD28:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DDD78: .word 0x02210518
+_021DDD78: .word UNK04_02210518
 
 	arm_func_start MOD04_021DDD7C
 MOD04_021DDD7C: ; 0x021DDD7C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DDDC8 ; =0x02210518
+	ldr r0, _021DDDC8 ; =UNK04_02210518
 	ldr r1, [r0]
 	cmp r1, #0
 	addeq sp, sp, #4
@@ -5724,13 +5724,13 @@ MOD04_021DDD7C: ; 0x021DDD7C
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DDDC8: .word 0x02210518
+_021DDDC8: .word UNK04_02210518
 
 	arm_func_start MOD04_021DDDCC
 MOD04_021DDDCC: ; 0x021DDDCC
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
-	ldr r0, _021DDE70 ; =0x02210518
+	ldr r0, _021DDE70 ; =UNK04_02210518
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021DDE5C
@@ -5742,7 +5742,7 @@ MOD04_021DDDCC: ; 0x021DDDCC
 	mov r1, #0
 	mov r2, #0xc
 	bl MI_CpuFill8
-	ldr r0, _021DDE70 ; =0x02210518
+	ldr r0, _021DDE70 ; =UNK04_02210518
 	ldr r3, _021DDE74 ; =MOD04_021DD944
 	ldr lr, [r0]
 	ldr r2, _021DDE78 ; =MOD04_021DD904
@@ -5771,7 +5771,7 @@ _021DDE5C:
 	add sp, sp, #0xc
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DDE70: .word 0x02210518
+_021DDE70: .word UNK04_02210518
 _021DDE74: .word MOD04_021DD944
 _021DDE78: .word MOD04_021DD904
 
@@ -5788,29 +5788,29 @@ MOD04_021DDE7C: ; 0x021DDE7C
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 _021DDEA4:
-	ldr r0, _021DDED4 ; =0x0220D280
+	ldr r0, _021DDED4 ; =UNK04_0220D280
 	bl MOD04_021D9C1C
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 _021DDEB4:
-	ldr r0, _021DDED8 ; =0x0220D2A8
+	ldr r0, _021DDED8 ; =UNK04_0220D2A8
 	bl MOD04_021D9C1C
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 _021DDEC4:
-	ldr r0, _021DDEDC ; =0x0220D2CC
+	ldr r0, _021DDEDC ; =UNK04_0220D2CC
 	bl MOD04_021D9C1C
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DDED4: .word 0x0220D280
-_021DDED8: .word 0x0220D2A8
-_021DDEDC: .word 0x0220D2CC
+_021DDED4: .word UNK04_0220D280
+_021DDED8: .word UNK04_0220D2A8
+_021DDEDC: .word UNK04_0220D2CC
 
 	arm_func_start MOD04_021DDEE0
 MOD04_021DDEE0: ; 0x021DDEE0
 	stmdb sp!, {r4, r5, r6, lr}
-	ldr r2, _021DDF3C ; =0x02210518
+	ldr r2, _021DDF3C ; =UNK04_02210518
 	mov r6, r0
 	ldr r2, [r2]
 	mov r5, r1
@@ -5825,7 +5825,7 @@ MOD04_021DDEE0: ; 0x021DDEE0
 	strh r0, [r6, #0xa]
 	strh r0, [r6, #4]
 	mov r0, #0
-	ldr r1, _021DDF3C ; =0x02210518
+	ldr r1, _021DDF3C ; =UNK04_02210518
 	strh r0, [r6, #6]
 	str r6, [r1]
 	bl MOD04_021DDE7C
@@ -5833,7 +5833,7 @@ MOD04_021DDEE0: ; 0x021DDEE0
 	bl CPS_SetSslHandshakePriority
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021DDF3C: .word 0x02210518
+_021DDF3C: .word UNK04_02210518
 
 	arm_func_start MOD04_021DDF40
 MOD04_021DDF40: ; 0x021DDF40
@@ -5846,7 +5846,7 @@ _021DDF48: .word MOD04_021D9974
 MOD04_021DDF4C: ; 0x021DDF4C
 	stmdb sp!, {lr}
 	sub sp, sp, #0x1c4
-	ldr r0, _021DE054 ; =0x0221051C
+	ldr r0, _021DE054 ; =UNK04_0221051C
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #0x1c4
@@ -5872,12 +5872,12 @@ _021DDFA4:
 	ldmfd sp!, {pc}
 _021DDFB0:
 	bl MOD04_021D991C
-	ldr r0, _021DE054 ; =0x0221051C
+	ldr r0, _021DE054 ; =UNK04_0221051C
 	ldr r2, _021DE058 ; =0x00001E1C
 	ldr r1, [r0]
 	mov r0, #4
 	bl MOD04_021DD904
-	ldr r0, _021DE054 ; =0x0221051C
+	ldr r0, _021DE054 ; =UNK04_0221051C
 	mov r1, #0
 	str r1, [r0]
 	add sp, sp, #0x1c4
@@ -5885,12 +5885,12 @@ _021DDFB0:
 	ldmfd sp!, {pc}
 _021DDFE0:
 	bl MOD04_021D991C
-	ldr r0, _021DE054 ; =0x0221051C
+	ldr r0, _021DE054 ; =UNK04_0221051C
 	ldr r2, _021DE058 ; =0x00001E1C
 	ldr r1, [r0]
 	mov r0, #4
 	bl MOD04_021DD904
-	ldr r0, _021DE054 ; =0x0221051C
+	ldr r0, _021DE054 ; =UNK04_0221051C
 	mov r1, #0
 	str r1, [r0]
 	add sp, sp, #0x1c4
@@ -5900,13 +5900,13 @@ _021DE010:
 	add r0, sp, #0
 	bl MOD04_021D97F8
 	bl MOD04_021D991C
-	ldr r0, _021DE054 ; =0x0221051C
+	ldr r0, _021DE054 ; =UNK04_0221051C
 	ldr r2, _021DE058 ; =0x00001E1C
 	ldr r1, [r0]
 	mov r0, #4
 	bl MOD04_021DD904
 	ldr r1, [sp]
-	ldr r2, _021DE054 ; =0x0221051C
+	ldr r2, _021DE054 ; =UNK04_0221051C
 	mov r3, #0
 	mov r0, #2
 	str r3, [r2]
@@ -5915,14 +5915,14 @@ _021DE010:
 	add sp, sp, #0x1c4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DE054: .word 0x0221051C
+_021DE054: .word UNK04_0221051C
 _021DE058: .word 0x00001E1C
 
 	arm_func_start MOD04_021DE05C
 MOD04_021DE05C: ; 0x021DE05C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DE130 ; =0x0221051C
+	ldr r0, _021DE130 ; =UNK04_0221051C
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021DE078
@@ -5931,7 +5931,7 @@ _021DE078:
 	ldr r1, _021DE134 ; =0x00001E1C
 	mov r0, #4
 	bl MOD04_021DD944
-	ldr r1, _021DE130 ; =0x0221051C
+	ldr r1, _021DE130 ; =UNK04_0221051C
 	cmp r0, #0
 	str r0, [r1]
 	bne _021DE0AC
@@ -5945,14 +5945,14 @@ _021DE0AC:
 	ldr r2, _021DE134 ; =0x00001E1C
 	mov r1, #0
 	bl MI_CpuFill8
-	ldr r0, _021DE130 ; =0x0221051C
+	ldr r0, _021DE130 ; =UNK04_0221051C
 	ldr r1, _021DE13C ; =0x00001C44
 	ldr r2, [r0]
-	ldr r0, _021DE140 ; =0x0220D2EC
+	ldr r0, _021DE140 ; =UNK04_0220D2EC
 	add r1, r2, r1
 	mov r2, #9
 	bl MI_CpuCopy8
-	ldr r1, _021DE130 ; =0x0221051C
+	ldr r1, _021DE130 ; =UNK04_0221051C
 	ldr r2, _021DE144 ; =MOD04_021DD944
 	ldr r0, [r1]
 	ldr r3, _021DE148 ; =MOD04_021DD904
@@ -5976,11 +5976,11 @@ _021DE0AC:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DE130: .word 0x0221051C
+_021DE130: .word UNK04_0221051C
 _021DE134: .word 0x00001E1C
 _021DE138: .word 0xFFFFB17C
 _021DE13C: .word 0x00001C44
-_021DE140: .word 0x0220D2EC
+_021DE140: .word UNK04_0220D2EC
 _021DE144: .word MOD04_021DD944
 _021DE148: .word MOD04_021DD904
 _021DE14C: .word 0x00001C10
@@ -6015,7 +6015,7 @@ MOD04_021DE174: ; 0x021DE174
 	bl strlen
 	cmp r0, #0
 	bne _021DE1C0
-	ldr r0, _021DE1F4 ; =0x0220D2F0
+	ldr r0, _021DE1F4 ; =UNK04_0220D2F0
 	mov r1, r4
 	bl MOD04_021DCFFC
 	b _021DE1CC
@@ -6035,13 +6035,13 @@ _021DE1CC:
 	.align 2, 0
 _021DE1EC: .word MOD04_021DD944
 _021DE1F0: .word MOD04_021DD904
-_021DE1F4: .word 0x0220D2F0
+_021DE1F4: .word UNK04_0220D2F0
 
 	arm_func_start MOD04_021DE1F8
 MOD04_021DE1F8: ; 0x021DE1F8
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r2, _021DE2C4 ; =0x022104F8
+	ldr r2, _021DE2C4 ; =UNK04_022104F8
 	mov r5, r0
 	ldr r2, [r2]
 	mov r4, r1
@@ -6070,7 +6070,7 @@ _021DE248:
 	addeq sp, sp, #4
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, pc}
-	ldr r2, _021DE2C8 ; =0x022104FC
+	ldr r2, _021DE2C8 ; =UNK04_022104FC
 	mov ip, #0
 	ldr lr, [r2]
 	ldr r3, [r2, #4]
@@ -6095,8 +6095,8 @@ _021DE2AC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021DE2C4: .word 0x022104F8
-_021DE2C8: .word 0x022104FC
+_021DE2C4: .word UNK04_022104F8
+_021DE2C8: .word UNK04_022104FC
 _021DE2CC: .word 0xBC19137F
 
 	arm_func_start MOD04_021DE2D0
@@ -6198,7 +6198,7 @@ MOD04_021DE3D0: ; 0x021DE3D0
 MOD04_021DE404: ; 0x021DE404
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r1, _021DE454 ; =0x02210520
+	ldr r1, _021DE454 ; =UNK04_02210520
 	ldr r2, [r1]
 	cmp r2, #0
 	addeq sp, sp, #4
@@ -6219,7 +6219,7 @@ _021DE448:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DE454: .word 0x02210520
+_021DE454: .word UNK04_02210520
 _021DE458: .word MOD04_021DE730
 
 	arm_func_start MOD04_021DE45C
@@ -6237,14 +6237,14 @@ MOD04_021DE45C: ; 0x021DE45C
 	mov r0, #0xa80
 	mov r1, #0x20
 	bl MOD04_021DE884
-	ldr r2, _021DE568 ; =0x02210520
+	ldr r2, _021DE568 ; =UNK04_02210520
 	mov r1, #0
 	str r0, [r2]
 	str r1, [r0, #0x48]
 	ldr r0, [r2]
 	mov r2, #0xa80
 	bl MI_CpuFill8
-	ldr r0, _021DE568 ; =0x02210520
+	ldr r0, _021DE568 ; =UNK04_02210520
 	mov r1, r5
 	ldr r3, [r0]
 	mov r2, #0x1f
@@ -6252,29 +6252,29 @@ MOD04_021DE45C: ; 0x021DE45C
 	ldr r0, [r0]
 	add r0, r0, #8
 	bl strncpy
-	ldr r0, _021DE568 ; =0x02210520
+	ldr r0, _021DE568 ; =UNK04_02210520
 	mov r1, r4
 	ldr r0, [r0]
 	mov r2, #0x1f
 	add r0, r0, #0x28
 	bl strncpy
-	ldr r1, _021DE568 ; =0x02210520
-	ldr r0, _021DE56C ; =0x0220D2F8
+	ldr r1, _021DE568 ; =UNK04_02210520
+	ldr r0, _021DE56C ; =UNK04_0220D2F8
 	ldr r1, [r1]
 	add r1, r1, #0x4c
 	bl MOD04_021DE174
 	cmp r0, #0
 	bne _021DE520
-	ldr r0, _021DE568 ; =0x02210520
+	ldr r0, _021DE568 ; =UNK04_02210520
 	ldr r0, [r0]
 	bl MOD04_021DE86C
-	ldr r1, _021DE568 ; =0x02210520
+	ldr r1, _021DE568 ; =UNK04_02210520
 	mov r0, #0
 	str r0, [r1]
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 _021DE520:
-	ldr r0, _021DE568 ; =0x02210520
+	ldr r0, _021DE568 ; =UNK04_02210520
 	mov r2, #0x800
 	ldr r0, [r0]
 	ldr r1, _021DE570 ; =MOD04_021DE574
@@ -6285,7 +6285,7 @@ _021DE520:
 	mov r2, #0
 	str ip, [sp, #4]
 	bl OS_CreateThread
-	ldr r0, _021DE568 ; =0x02210520
+	ldr r0, _021DE568 ; =UNK04_02210520
 	ldr r0, [r0]
 	add r0, r0, #0x9c0
 	bl OS_WakeupThreadDirect
@@ -6293,8 +6293,8 @@ _021DE520:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021DE568: .word 0x02210520
-_021DE56C: .word 0x0220D2F8
+_021DE568: .word UNK04_02210520
+_021DE56C: .word UNK04_0220D2F8
 _021DE570: .word MOD04_021DE574
 
 	arm_func_start MOD04_021DE574
@@ -6309,12 +6309,12 @@ _021DE58C:
 	bl MOD04_021DE150
 	cmp r0, #3
 	bne _021DE6AC
-	ldr r0, _021DE718 ; =0x02210520
+	ldr r0, _021DE718 ; =UNK04_02210520
 	ldr r5, [r0]
 	add r0, r5, #0x50
 	bl strlen
 	mov r4, r0
-	ldr r0, _021DE71C ; =0x0220D300
+	ldr r0, _021DE71C ; =UNK04_0220D300
 	bl strlen
 	add r0, r4, r0
 	cmp r0, #0xff
@@ -6326,12 +6326,12 @@ _021DE58C:
 	add sp, sp, #0x2a4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021DE5D8:
-	ldr r2, _021DE720 ; =0x0220D314
+	ldr r2, _021DE720 ; =UNK04_0220D314
 	add r0, sp, #0x10
 	add r3, r5, #0x50
 	mov r1, #0x100
 	bl OS_SNPrintf
-	ldr r0, _021DE718 ; =0x02210520
+	ldr r0, _021DE718 ; =UNK04_02210520
 	ldr r4, [r0]
 	add r0, r4, #0x91
 	bl strlen
@@ -6349,7 +6349,7 @@ _021DE5D8:
 	add sp, sp, #0x2a4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021DE630:
-	ldr r0, _021DE718 ; =0x02210520
+	ldr r0, _021DE718 ; =UNK04_02210520
 	ldr r4, _021DE724 ; =MOD04_021DE774
 	ldr r2, [r0]
 	ldr r0, _021DE728 ; =MOD04_021DE884
@@ -6371,7 +6371,7 @@ _021DE630:
 	add sp, sp, #0x2a4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021DE684:
-	ldr r1, _021DE718 ; =0x02210520
+	ldr r1, _021DE718 ; =UNK04_02210520
 	mov r0, #0
 	ldr r3, [r1]
 	mov r4, #1
@@ -6389,7 +6389,7 @@ _021DE6AC:
 	ldr r1, [sp, #0xc]
 	mov r0, #0xe
 	bl MOD04_021DD6B0
-	ldr r1, _021DE718 ; =0x02210520
+	ldr r1, _021DE718 ; =UNK04_02210520
 	mov r0, #0
 	ldr r2, [r1]
 	mov r1, #3
@@ -6415,9 +6415,9 @@ MOD04_021DE710: ; 0x021DE710
 	add sp, sp, #0x2a4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021DE718: .word 0x02210520
-_021DE71C: .word 0x0220D300
-_021DE720: .word 0x0220D314
+_021DE718: .word UNK04_02210520
+_021DE71C: .word UNK04_0220D300
+_021DE720: .word UNK04_0220D314
 _021DE724: .word MOD04_021DE774
 _021DE728: .word MOD04_021DE884
 _021DE72C: .word MOD04_021DE86C
@@ -6425,15 +6425,15 @@ _021DE72C: .word MOD04_021DE86C
 	arm_func_start MOD04_021DE730
 MOD04_021DE730: ; 0x021DE730
 	stmdb sp!, {r4, lr}
-	ldr r0, _021DE770 ; =0x02210520
+	ldr r0, _021DE770 ; =UNK04_02210520
 	ldr r0, [r0]
 	add r0, r0, #0x9c0
 	bl OS_JoinThread
-	ldr r0, _021DE770 ; =0x02210520
+	ldr r0, _021DE770 ; =UNK04_02210520
 	ldr r0, [r0]
 	ldr r4, [r0, #4]
 	bl MOD04_021DE86C
-	ldr r0, _021DE770 ; =0x02210520
+	ldr r0, _021DE770 ; =UNK04_02210520
 	mov r1, #0
 	str r1, [r0]
 	cmp r4, #0
@@ -6441,7 +6441,7 @@ MOD04_021DE730: ; 0x021DE730
 	blx r4
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DE770: .word 0x02210520
+_021DE770: .word UNK04_02210520
 
 	arm_func_start MOD04_021DE774
 MOD04_021DE774: ; 0x021DE774
@@ -6450,7 +6450,7 @@ MOD04_021DE774: ; 0x021DE774
 	mov r6, r0
 	mov r4, r2
 	bne _021DE79C
-	ldr r3, _021DE854 ; =0x02210520
+	ldr r3, _021DE854 ; =UNK04_02210520
 	ldr r3, [r3]
 	ldr r3, [r3]
 	blx r3
@@ -6504,7 +6504,7 @@ _021DE820:
 _021DE830:
 	bl OS_Terminate
 _021DE834:
-	ldr r1, _021DE854 ; =0x02210520
+	ldr r1, _021DE854 ; =UNK04_02210520
 	mov r0, r6
 	ldr r2, [r1]
 	mov r1, r5
@@ -6513,7 +6513,7 @@ _021DE834:
 	blx r3
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021DE854: .word 0x02210520
+_021DE854: .word UNK04_02210520
 _021DE858: .word 0xFFFF86E7
 _021DE85C: .word 0xFFFF86D4
 _021DE860: .word 0xFFFF86CA
@@ -6560,7 +6560,7 @@ _021DE8C0:
 MOD04_021DE8C8: ; 0x021DE8C8
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #8
-	ldr r2, _021DE9E4 ; =0x02210524
+	ldr r2, _021DE9E4 ; =UNK04_02210524
 	mov r1, #0
 	ldr r3, [r2, #4]
 	ldr ip, [r2]
@@ -6594,7 +6594,7 @@ MOD04_021DE8C8: ; 0x021DE8C8
 	orr r2, r2, r0, lsr #8
 	orr r1, r1, r2
 	str r1, [sp, #4]
-	ldr ip, _021DE9E4 ; =0x02210524
+	ldr ip, _021DE9E4 ; =UNK04_02210524
 	add r0, sp, #0
 	str r3, [sp]
 	ldmia r0, {r2, r3}
@@ -6608,7 +6608,7 @@ MOD04_021DE8C8: ; 0x021DE8C8
 	str r1, [ip, #0x10]
 	str r0, [ip, #0x14]
 _021DE98C:
-	ldr r1, _021DE9E4 ; =0x02210524
+	ldr r1, _021DE9E4 ; =UNK04_02210524
 	ldr r3, [r1, #8]
 	ldr r2, [r1]
 	ldr r0, [r1, #4]
@@ -6631,7 +6631,7 @@ _021DE98C:
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DE9E4: .word 0x02210524
+_021DE9E4: .word UNK04_02210524
 _021DE9E8: .word 0x6C078965
 _021DE9EC: .word 0x5D588B65
 _021DE9F0: .word 0x00269EC3
@@ -6742,7 +6742,7 @@ MOD04_021DEB54: ; 0x021DEB54
 	mov r4, r2
 	str r3, [sp, #4]
 	str r1, [sp, #8]
-	ldr r2, _021DEB8C ; =0x0220D328
+	ldr r2, _021DEB8C ; =UNK04_0220D328
 	mov r0, r4
 	mov r1, #0x1000
 	bl OS_SNPrintf
@@ -6751,7 +6751,7 @@ MOD04_021DEB54: ; 0x021DEB54
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DEB8C: .word 0x0220D328
+_021DEB8C: .word UNK04_0220D328
 
 	arm_func_start MOD04_021DEB90
 MOD04_021DEB90: ; 0x021DEB90
@@ -6759,21 +6759,21 @@ MOD04_021DEB90: ; 0x021DEB90
 	sub sp, sp, #4
 	bl MOD04_021FD43C
 	bl MOD04_021EFB28
-	ldr r2, _021DEBCC ; =0x02210540
+	ldr r2, _021DEBCC ; =UNK04_02210540
 	ldr r1, _021DEBD0 ; =0xFFFE8515
 	str r0, [r2]
 	mov r0, #9
 	bl MOD04_021DD6B0
-	ldr r0, _021DEBD4 ; =0x0221053C
+	ldr r0, _021DEBD4 ; =UNK04_0221053C
 	mov r1, #0
 	ldr r0, [r0]
 	str r1, [r0]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DEBCC: .word 0x02210540
+_021DEBCC: .word UNK04_02210540
 _021DEBD0: .word 0xFFFE8515
-_021DEBD4: .word 0x0221053C
+_021DEBD4: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DEBD8
 MOD04_021DEBD8: ; 0x021DEBD8
@@ -6821,7 +6821,7 @@ _021DEC48:
 	movs r7, r0
 	addeq sp, sp, #0xc
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	ldrb r8, [r7, #1]
 	ldr r1, [r0]
 	mov r5, #1
@@ -6831,7 +6831,7 @@ _021DEC48:
 	mov r0, r8
 	moveq r5, #0
 	bl MOD04_021EA9D8
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x369]
 	cmp r0, #2
@@ -6849,9 +6849,9 @@ _021DECBC:
 _021DECC0:
 	mov r0, r8
 	bl MOD04_021DF56C
-	ldr r1, _021DEF54 ; =0x0221053C
+	ldr r1, _021DEF54 ; =UNK04_0221053C
 	ldrb r7, [r7]
-	ldr r2, _021DEF58 ; =0x02210544
+	ldr r2, _021DEF58 ; =UNK04_02210544
 	mov fp, #0
 	ldr r3, [r1]
 	str fp, [r2, r7, lsl #2]
@@ -6864,7 +6864,7 @@ _021DECC0:
 	sub r0, r0, #1
 	strb r0, [r1, #0x368]
 _021DED00:
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x2d]
 	cmp r0, #0
@@ -6902,7 +6902,7 @@ _021DED58:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021DED90:
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x2d]
 	cmp r0, #0
@@ -6914,7 +6914,7 @@ _021DED90:
 	cmp r0, #3
 	bne _021DEE04
 _021DEDBC:
-	ldr r2, _021DEF54 ; =0x0221053C
+	ldr r2, _021DEF54 ; =UNK04_0221053C
 	ldr r1, [r2]
 	ldrb r0, [r1, #0x361]
 	add r6, r0, #2
@@ -6933,7 +6933,7 @@ _021DEDBC:
 	add r1, r1, #3
 	bl MOD04_021E8830
 _021DEE04:
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x369]
 	cmp r0, #2
@@ -6947,7 +6947,7 @@ _021DEE2C:
 	ldrb r0, [r1, #0x361]
 	cmp r0, #0
 	bne _021DEE68
-	ldr r1, _021DEF5C ; =0x0220D334
+	ldr r1, _021DEF5C ; =UNK04_0220D334
 	mov r0, #1
 	mov r2, #0
 	bl MOD04_021E1E30
@@ -6956,12 +6956,12 @@ _021DEE4C:
 	ldrb r0, [r1, #0x361]
 	cmp r0, #0
 	bne _021DEE68
-	ldr r1, _021DEF5C ; =0x0220D334
+	ldr r1, _021DEF5C ; =UNK04_0220D334
 	mov r0, #1
 	mov r2, #0
 	bl MOD04_021E1E30
 _021DEE68:
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x369]
 	cmp r0, #0
@@ -6970,7 +6970,7 @@ _021DEE68:
 	cmp r0, #1
 	bne _021DEEA4
 _021DEE88:
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	ldr r2, [r0]
 	ldrb r1, [r2, #0x368]
 	strb r1, [r2, #0x36a]
@@ -6978,7 +6978,7 @@ _021DEE88:
 	ldr r0, [r0, #0x364]
 	bl MOD04_02202308
 _021DEEA4:
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	ldr r6, [r0]
 	ldr r0, [r6, #0x90]
 	cmp r0, #0
@@ -6992,7 +6992,7 @@ _021DEEA4:
 	bl MOD04_021E1F18
 	str r0, [sp]
 	ldr r1, [r6, #0x94]
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	str r1, [sp, #4]
 	ldr r1, [r0]
 	mov r0, r4
@@ -7002,7 +7002,7 @@ _021DEEA4:
 	mov r3, r8
 	blx r4
 _021DEF00:
-	ldr r0, _021DEF54 ; =0x0221053C
+	ldr r0, _021DEF54 ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x2d]
 	cmp r0, #0
@@ -7025,9 +7025,9 @@ _021DEF24:
 	.align 2, 0
 _021DEF4C: .word 0xFFFFE250
 _021DEF50: .word 0xFFFFE24F
-_021DEF54: .word 0x0221053C
-_021DEF58: .word 0x02210544
-_021DEF5C: .word 0x0220D334
+_021DEF54: .word UNK04_0221053C
+_021DEF58: .word UNK04_02210544
+_021DEF5C: .word UNK04_0220D334
 
 	arm_func_start MOD04_021DEF60
 MOD04_021DEF60: ; 0x021DEF60
@@ -7061,16 +7061,16 @@ MOD04_021DEF6C: ; 0x021DEF6C
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmneia sp!, {r4, r5, r6, r7, pc}
-	ldr r0, _021DF0C8 ; =0x0220D338
+	ldr r0, _021DF0C8 ; =UNK04_0220D338
 	bl strlen
 	mov r2, r0
-	ldr r1, _021DF0C8 ; =0x0220D338
+	ldr r1, _021DF0C8 ; =UNK04_0220D338
 	mov r0, r4
 	bl memcmp
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmneia sp!, {r4, r5, r6, r7, pc}
-	ldr r0, _021DF0C8 ; =0x0220D338
+	ldr r0, _021DF0C8 ; =UNK04_0220D338
 	bl strlen
 	add r4, r4, r0
 	mov r0, r4
@@ -7091,18 +7091,18 @@ MOD04_021DEF6C: ; 0x021DEF6C
 	cmp r0, #3
 	addne sp, sp, #0xc
 	ldmneia sp!, {r4, r5, r6, r7, pc}
-	ldr r0, _021DF0CC ; =0x0220D340
+	ldr r0, _021DF0CC ; =UNK04_0220D340
 	add r1, r7, #1
 	add r4, r4, r1
 	bl strlen
 	mov r2, r0
-	ldr r1, _021DF0CC ; =0x0220D340
+	ldr r1, _021DF0CC ; =UNK04_0220D340
 	mov r0, r4
 	bl memcmp
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmneia sp!, {r4, r5, r6, r7, pc}
-	ldr r0, _021DF0D0 ; =0x0221053C
+	ldr r0, _021DF0D0 ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldr r0, [r1, #0x24]
 	cmp r0, #5
@@ -7118,7 +7118,7 @@ MOD04_021DEF6C: ; 0x021DEF6C
 	addne sp, sp, #0xc
 	ldmneia sp!, {r4, r5, r6, r7, pc}
 _021DF0A8:
-	ldr r0, _021DF0CC ; =0x0220D340
+	ldr r0, _021DF0CC ; =UNK04_0220D340
 	bl strlen
 	add r2, r4, r0
 	ldr r1, [r5]
@@ -7127,9 +7127,9 @@ _021DF0A8:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021DF0C8: .word 0x0220D338
-_021DF0CC: .word 0x0220D340
-_021DF0D0: .word 0x0221053C
+_021DF0C8: .word UNK04_0220D338
+_021DF0CC: .word UNK04_0220D340
+_021DF0D0: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DF0D4
 MOD04_021DF0D4: ; 0x021DF0D4
@@ -7168,7 +7168,7 @@ MOD04_021DF12C: ; 0x021DF12C
 	bne _021DF174
 	cmp r6, #0
 	beq _021DF174
-	ldr r0, _021DF2AC ; =0x0221053C
+	ldr r0, _021DF2AC ; =UNK04_0221053C
 	ldr r0, [r0]
 	ldr r0, [r0, #0x4f4]
 	cmp r0, #0
@@ -7182,7 +7182,7 @@ _021DF174:
 	bne _021DF1D8
 	mov r0, #6
 	bl MOD04_021DF5CC
-	ldr r1, _021DF2AC ; =0x0221053C
+	ldr r1, _021DF2AC ; =UNK04_0221053C
 	mov r0, #0
 	ldr r3, [r1]
 	ldrb r1, [r3, #0x361]
@@ -7194,7 +7194,7 @@ _021DF1A0:
 	ldr r1, [r1, #0x448]
 	cmp r2, r1
 	bne _021DF1C8
-	ldr r1, _021DF2AC ; =0x0221053C
+	ldr r1, _021DF2AC ; =UNK04_0221053C
 	ldr r1, [r1]
 	add r0, r1, r0
 	ldrb r0, [r0, #0x624]
@@ -7206,18 +7206,18 @@ _021DF1C8:
 	cmp r0, r1
 	ble _021DF1A0
 _021DF1D8:
-	ldr r1, _021DF2AC ; =0x0221053C
+	ldr r1, _021DF2AC ; =UNK04_0221053C
 	ldr r0, _021DF2B0 ; =0x00000624
 	ldr r2, [r1]
 	ldrb r1, [r2, #0x361]
 	add r0, r2, r0
 	add r1, r1, #1
 	bl MOD04_021DF530
-	ldr r1, _021DF2AC ; =0x0221053C
+	ldr r1, _021DF2AC ; =UNK04_0221053C
 	ldr r1, [r1]
 	str r0, [r1, #0x644]
 	bl MOD04_021E8780
-	ldr r0, _021DF2AC ; =0x0221053C
+	ldr r0, _021DF2AC ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x369]
 	cmp r0, #2
@@ -7226,7 +7226,7 @@ _021DF1D8:
 	cmp r0, #3
 	bne _021DF258
 _021DF224:
-	ldr r0, _021DF2AC ; =0x0221053C
+	ldr r0, _021DF2AC ; =UNK04_0221053C
 	ldr r1, [sp, #0x20]
 	ldr r3, [r0]
 	mov r0, r7
@@ -7249,7 +7249,7 @@ _021DF26C:
 	cmp r7, #0
 	addeq sp, sp, #0xc
 	ldmeqia sp!, {r4, r5, r6, r7, pc}
-	ldr r0, _021DF2AC ; =0x0221053C
+	ldr r0, _021DF2AC ; =UNK04_0221053C
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #0xc
@@ -7263,14 +7263,14 @@ _021DF26C:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021DF2AC: .word 0x0221053C
+_021DF2AC: .word UNK04_0221053C
 _021DF2B0: .word 0x00000624
 
 	arm_func_start MOD04_021DF2B4
 MOD04_021DF2B4: ; 0x021DF2B4
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r2, _021DF300 ; =0x0221053C
+	ldr r2, _021DF300 ; =UNK04_0221053C
 	mov r5, r0
 	ldr r0, [r2]
 	mov r4, r1
@@ -7279,7 +7279,7 @@ MOD04_021DF2B4: ; 0x021DF2B4
 	beq _021DF2DC
 	bl MOD04_021DF5CC
 _021DF2DC:
-	ldr r1, _021DF300 ; =0x0221053C
+	ldr r1, _021DF300 ; =UNK04_0221053C
 	mov r0, r5
 	ldr r3, [r1]
 	mov r1, r4
@@ -7289,7 +7289,7 @@ _021DF2DC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021DF300: .word 0x0221053C
+_021DF300: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DF304
 MOD04_021DF304: ; 0x021DF304
@@ -7298,7 +7298,7 @@ MOD04_021DF304: ; 0x021DF304
 	movs r5, r0
 	mov r4, r1
 	bne _021DF334
-	ldr r1, _021DF36C ; =0x0221053C
+	ldr r1, _021DF36C ; =UNK04_0221053C
 	mov r0, #3
 	ldr r1, [r1]
 	str r4, [r1, #0x64]
@@ -7309,7 +7309,7 @@ _021DF334:
 	mov r0, #0
 	bl MOD04_021DF5CC
 _021DF33C:
-	ldr r0, _021DF36C ; =0x0221053C
+	ldr r0, _021DF36C ; =UNK04_0221053C
 	ldr r0, [r0]
 	ldr r3, [r0, #0x70]
 	cmp r3, #0
@@ -7322,7 +7322,7 @@ _021DF33C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021DF36C: .word 0x0221053C
+_021DF36C: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DF370
 MOD04_021DF370: ; 0x021DF370
@@ -7409,7 +7409,7 @@ _021DF468:
 	mov r4, #6
 	mvn r5, #0x13
 _021DF470:
-	ldr r0, _021DF51C ; =0x0221053C
+	ldr r0, _021DF51C ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldr r0, [r1, #0x24]
 	cmp r0, #5
@@ -7460,7 +7460,7 @@ _021DF508:
 	mov r0, r6
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021DF51C: .word 0x0221053C
+_021DF51C: .word UNK04_0221053C
 _021DF520: .word 0xFFFF11B8
 _021DF524: .word 0xFFFEC398
 _021DF528: .word 0xFFFEEAA8
@@ -7517,7 +7517,7 @@ _021DF5B0:
 
 	arm_func_start MOD04_021DF5CC
 MOD04_021DF5CC: ; 0x021DF5CC
-	ldr r1, _021DF5E8 ; =0x0221053C
+	ldr r1, _021DF5E8 ; =UNK04_0221053C
 	ldr r3, [r1]
 	ldr r2, [r3, #0x24]
 	str r2, [r3, #0x28]
@@ -7525,7 +7525,7 @@ MOD04_021DF5CC: ; 0x021DF5CC
 	str r0, [r1, #0x24]
 	bx lr
 	.align 2, 0
-_021DF5E8: .word 0x0221053C
+_021DF5E8: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DF5EC
 MOD04_021DF5EC: ; 0x021DF5EC
@@ -7536,7 +7536,7 @@ MOD04_021DF5F0: ; 0x021DF5F0
 	stmdb sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, #0
-	ldr r4, _021DF634 ; =0x02210544
+	ldr r4, _021DF634 ; =UNK04_02210544
 _021DF600:
 	ldr r0, [r4, r5, lsl #2]
 	cmp r0, #0
@@ -7553,15 +7553,15 @@ _021DF620:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021DF634: .word 0x02210544
+_021DF634: .word UNK04_02210544
 
 	arm_func_start MOD04_021DF638
 MOD04_021DF638: ; 0x021DF638
-	ldr r1, _021DF644 ; =0x022105C4
+	ldr r1, _021DF644 ; =UNK04_022105C4
 	add r0, r1, r0, lsl #3
 	bx lr
 	.align 2, 0
-_021DF644: .word 0x022105C4
+_021DF644: .word UNK04_022105C4
 
 	arm_func_start MOD04_021DF648
 MOD04_021DF648: ; 0x021DF648
@@ -7570,7 +7570,7 @@ MOD04_021DF648: ; 0x021DF648
 	cmp r1, #0
 	mov ip, #0
 	ble _021DF684
-	ldr r2, _021DF6B8 ; =0x0221053C
+	ldr r2, _021DF6B8 ; =UNK04_0221053C
 	ldr r3, [r2]
 _021DF664:
 	add r2, r3, ip, lsl #2
@@ -7586,7 +7586,7 @@ _021DF684:
 	addge sp, sp, #4
 	movge r0, #0
 	ldmgeia sp!, {pc}
-	ldr r0, _021DF6B8 ; =0x0221053C
+	ldr r0, _021DF6B8 ; =UNK04_0221053C
 	ldr r0, [r0]
 	add r0, r0, ip
 	ldrb r0, [r0, #0x624]
@@ -7596,37 +7596,37 @@ _021DF684:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DF6B8: .word 0x0221053C
+_021DF6B8: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DF6BC
 MOD04_021DF6BC: ; 0x021DF6BC
-	ldr r1, _021DF6C8 ; =0x02210544
+	ldr r1, _021DF6C8 ; =UNK04_02210544
 	add r0, r1, r0, lsl #2
 	bx lr
 	.align 2, 0
-_021DF6C8: .word 0x02210544
+_021DF6C8: .word UNK04_02210544
 
 	arm_func_start MOD04_021DF6CC
 MOD04_021DF6CC: ; 0x021DF6CC
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r1, _021DF6FC ; =0x02210544
+	ldr r1, _021DF6FC ; =UNK04_02210544
 	mov r0, #0
 	mov r2, #0x80
 	bl MIi_CpuClear32
-	ldr r1, _021DF700 ; =0x022105C4
+	ldr r1, _021DF700 ; =UNK04_022105C4
 	mov r0, #0
 	mov r2, #0x100
 	bl MIi_CpuClear32
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DF6FC: .word 0x02210544
-_021DF700: .word 0x022105C4
+_021DF6FC: .word UNK04_02210544
+_021DF700: .word UNK04_022105C4
 
 	arm_func_start MOD04_021DF704
 MOD04_021DF704: ; 0x021DF704
-	ldr r2, _021DF72C ; =0x02210544
+	ldr r2, _021DF72C ; =UNK04_02210544
 	mov r0, #0
 _021DF70C:
 	ldr r1, [r2, r0, lsl #2]
@@ -7638,7 +7638,7 @@ _021DF70C:
 	mvn r0, #0
 	bx lr
 	.align 2, 0
-_021DF72C: .word 0x02210544
+_021DF72C: .word UNK04_02210544
 
 	arm_func_start MOD04_021DF730
 MOD04_021DF730: ; 0x021DF730
@@ -7661,13 +7661,13 @@ MOD04_021DF748: ; 0x021DF748
 	arm_func_start MOD04_021DF760
 MOD04_021DF760: ; 0x021DF760
 	stmdb sp!, {r4, r5, r6, lr}
-	ldr r1, _021DF7BC ; =0x0221053C
+	ldr r1, _021DF7BC ; =UNK04_0221053C
 	mov r6, r0
 	ldr r0, [r1]
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, pc}
-	ldr r4, _021DF7C0 ; =0x02210544
+	ldr r4, _021DF7C0 ; =UNK04_02210544
 	mov r5, #0
 _021DF784:
 	ldr r0, [r4, r5, lsl #2]
@@ -7676,7 +7676,7 @@ _021DF784:
 	bl MOD04_021FD3C4
 	ldrb r0, [r0, #1]
 	cmp r6, r0
-	ldreq r0, _021DF7C0 ; =0x02210544
+	ldreq r0, _021DF7C0 ; =UNK04_02210544
 	ldreq r0, [r0, r5, lsl #2]
 	ldmeqia sp!, {r4, r5, r6, pc}
 _021DF7A8:
@@ -7686,14 +7686,14 @@ _021DF7A8:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021DF7BC: .word 0x0221053C
-_021DF7C0: .word 0x02210544
+_021DF7BC: .word UNK04_0221053C
+_021DF7C0: .word UNK04_02210544
 
 	arm_func_start MOD04_021DF7C4
 MOD04_021DF7C4: ; 0x021DF7C4
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #8
-	ldr r0, _021DF87C ; =0x0221053C
+	ldr r0, _021DF87C ; =UNK04_0221053C
 	ldr r0, [r0]
 	ldr r0, [r0]
 	cmp r0, #0
@@ -7704,14 +7704,14 @@ MOD04_021DF7C4: ; 0x021DF7C4
 	bl MOD04_021DE8C8
 	add r0, r0, #0xc000
 	mov r1, r0, lsl #0x10
-	ldr r3, _021DF87C ; =0x0221053C
+	ldr r3, _021DF87C ; =UNK04_0221053C
 	mov r0, #0
 	mov r2, r0
 	mov r1, r1, lsr #0x10
 	ldr r4, [r3]
 	bl MOD04_021FFEB0
 	ldr r1, _021DF880 ; =MOD04_021DEB90
-	ldr r2, _021DF87C ; =0x0221053C
+	ldr r2, _021DF87C ; =UNK04_0221053C
 	str r1, [sp]
 	mov r1, r0
 	ldr r0, [r2]
@@ -7724,12 +7724,12 @@ MOD04_021DF7C4: ; 0x021DF7C4
 	addne sp, sp, #8
 	movne r0, r4
 	ldmneia sp!, {r4, pc}
-	ldr r0, _021DF87C ; =0x0221053C
+	ldr r0, _021DF87C ; =UNK04_0221053C
 	ldr r1, _021DF884 ; =MOD04_021E9204
 	ldr r0, [r0]
 	ldr r0, [r0]
 	bl MOD04_021FD6C8
-	ldr r0, _021DF87C ; =0x0221053C
+	ldr r0, _021DF87C ; =UNK04_0221053C
 	ldr r1, _021DF888 ; =MOD04_021E9464
 	ldr r0, [r0]
 	ldr r0, [r0]
@@ -7738,27 +7738,27 @@ MOD04_021DF7C4: ; 0x021DF7C4
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DF87C: .word 0x0221053C
+_021DF87C: .word UNK04_0221053C
 _021DF880: .word MOD04_021DEB90
 _021DF884: .word MOD04_021E9204
 _021DF888: .word MOD04_021E9464
 
 	arm_func_start MOD04_021DF88C
 MOD04_021DF88C: ; 0x021DF88C
-	ldr r0, _021DF8A4 ; =0x0221053C
+	ldr r0, _021DF8A4 ; =UNK04_0221053C
 	ldr r0, [r0]
 	cmp r0, #0
 	ldrne r0, [r0, #0x24]
 	moveq r0, #0
 	bx lr
 	.align 2, 0
-_021DF8A4: .word 0x0221053C
+_021DF8A4: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DF8A8
 MOD04_021DF8A8: ; 0x021DF8A8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r1, _021DF8F0 ; =0x0221053C
+	ldr r1, _021DF8F0 ; =UNK04_0221053C
 	ldr r2, [r1]
 	cmp r2, #0
 	addeq sp, sp, #4
@@ -7775,13 +7775,13 @@ MOD04_021DF8A8: ; 0x021DF8A8
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DF8F0: .word 0x0221053C
+_021DF8F0: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DF8F4
 MOD04_021DF8F4: ; 0x021DF8F4
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r2, _021DF954 ; =0x0221053C
+	ldr r2, _021DF954 ; =UNK04_0221053C
 	ldr r3, [r2]
 	cmp r3, #0
 	addeq sp, sp, #4
@@ -7806,25 +7806,25 @@ _021DF948:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DF954: .word 0x0221053C
+_021DF954: .word UNK04_0221053C
 _021DF958: .word 0x00000624
 
 	arm_func_start MOD04_021DF95C
 MOD04_021DF95C: ; 0x021DF95C
-	ldr r0, _021DF974 ; =0x0221053C
+	ldr r0, _021DF974 ; =UNK04_0221053C
 	ldr r0, [r0]
 	cmp r0, #0
 	ldrneb r0, [r0, #0x2c]
 	moveq r0, #0
 	bx lr
 	.align 2, 0
-_021DF974: .word 0x0221053C
+_021DF974: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DF978
 MOD04_021DF978: ; 0x021DF978
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DF9D0 ; =0x0221053C
+	ldr r0, _021DF9D0 ; =UNK04_0221053C
 	ldr r1, [r0]
 	cmp r1, #0
 	addeq sp, sp, #4
@@ -7847,12 +7847,12 @@ _021DF9C0:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DF9D0: .word 0x0221053C
+_021DF9D0: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DF9D4
 MOD04_021DF9D4: ; 0x021DF9D4
 	stmdb sp!, {r4, lr}
-	ldr r1, _021DFA3C ; =0x0221053C
+	ldr r1, _021DFA3C ; =UNK04_0221053C
 	mov r4, r0
 	ldr r0, [r1]
 	cmp r0, #0
@@ -7860,7 +7860,7 @@ MOD04_021DF9D4: ; 0x021DF9D4
 	bl MOD04_021DD6D4
 	cmp r0, #0
 	bne _021DFA14
-	ldr r0, _021DFA3C ; =0x0221053C
+	ldr r0, _021DFA3C ; =UNK04_0221053C
 	ldr r0, [r0]
 	ldr r0, [r0, #0x24]
 	cmp r0, #5
@@ -7880,20 +7880,20 @@ _021DFA1C:
 	mov r0, #0
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021DFA3C: .word 0x0221053C
+_021DFA3C: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DFA40
 MOD04_021DFA40: ; 0x021DFA40
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021DFAF0 ; =0x0221053C
+	ldr r0, _021DFAF0 ; =UNK04_0221053C
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021DFA80
 	bl MOD04_021DD6D4
 	cmp r0, #0
 	bne _021DFA80
-	ldr r0, _021DFAF0 ; =0x0221053C
+	ldr r0, _021DFAF0 ; =UNK04_0221053C
 	ldr r2, [r0]
 	ldr r0, [r2, #0x24]
 	cmp r0, #5
@@ -7908,7 +7908,7 @@ _021DFA8C:
 	ldrb r0, [r2, #0x361]
 	cmp r0, #0
 	bne _021DFAC0
-	ldr r1, _021DFAF4 ; =0x0220D334
+	ldr r1, _021DFAF4 ; =UNK04_0220D334
 	mov r0, #1
 	mov r2, #0
 	bl MOD04_021E1E30
@@ -7920,24 +7920,24 @@ _021DFA8C:
 	ldmfd sp!, {pc}
 _021DFAC0:
 	mov r1, #1
-	ldr r0, _021DFAF0 ; =0x0221053C
+	ldr r0, _021DFAF0 ; =UNK04_0221053C
 	strb r1, [r2, #0x2d]
 	ldr r0, [r0]
 	ldr r0, [r0]
 	bl MOD04_021FD45C
-	ldr r1, _021DFAF0 ; =0x0221053C
+	ldr r1, _021DFAF0 ; =UNK04_0221053C
 	mov r0, #0
 	ldr r1, [r1]
 	strb r0, [r1, #0x2d]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021DFAF0: .word 0x0221053C
-_021DFAF4: .word 0x0220D334
+_021DFAF0: .word UNK04_0221053C
+_021DFAF4: .word UNK04_0220D334
 
 	arm_func_start MOD04_021DFAF8
 MOD04_021DFAF8: ; 0x021DFAF8
-	ldr r2, _021DFB1C ; =0x0221053C
+	ldr r2, _021DFB1C ; =UNK04_0221053C
 	ldr r3, [r2]
 	cmp r3, #0
 	moveq r0, #0
@@ -7947,7 +7947,7 @@ MOD04_021DFAF8: ; 0x021DFAF8
 	strne r1, [r2, #0x94]
 	bx lr
 	.align 2, 0
-_021DFB1C: .word 0x0221053C
+_021DFB1C: .word UNK04_0221053C
 
 	arm_func_start MOD04_021DFB20
 MOD04_021DFB20: ; 0x021DFB20
@@ -7962,7 +7962,7 @@ MOD04_021DFB20: ; 0x021DFB20
 	bl MOD04_021DD6D4
 	cmp r0, #0
 	bne _021DFB60
-	ldr r0, _021DFD04 ; =0x0221053C
+	ldr r0, _021DFD04 ; =UNK04_0221053C
 	ldr r0, [r0]
 	ldr r0, [r0, #0x24]
 	cmp r0, #3
@@ -7973,7 +7973,7 @@ _021DFB60:
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021DFB6C:
 	bl MOD04_021DF6CC
-	ldr r1, _021DFD04 ; =0x0221053C
+	ldr r1, _021DFD04 ; =UNK04_0221053C
 	mov r0, #5
 	ldr r2, [r1]
 	str r6, [r2, #0x88]
@@ -7984,7 +7984,7 @@ _021DFB6C:
 	bl MOD04_021E1F84
 	movs r4, r0
 	beq _021DFBB8
-	ldr r0, _021DFD04 ; =0x0221053C
+	ldr r0, _021DFD04 ; =UNK04_0221053C
 	mov r1, r4
 	ldr r0, [r0]
 	add r0, r0, #0x1c
@@ -7995,13 +7995,13 @@ _021DFBB8:
 	mov r5, #0xb
 	b _021DFC8C
 _021DFBC0:
-	ldr r0, _021DFD04 ; =0x0221053C
+	ldr r0, _021DFD04 ; =UNK04_0221053C
 	add r2, sp, #8
 	ldr r0, [r0]
 	mov r1, r4
 	add r0, r0, #0x1c
 	bl MOD04_021F0664
-	ldr r0, _021DFD04 ; =0x0221053C
+	ldr r0, _021DFD04 ; =UNK04_0221053C
 	ldr r1, [sp, #8]
 	ldr r0, [r0]
 	add r2, sp, #0x10
@@ -8011,7 +8011,7 @@ _021DFBC0:
 	cmp r0, #6
 	movne r5, #0xb
 	bne _021DFC8C
-	ldr r0, _021DFD08 ; =0x0220D344
+	ldr r0, _021DFD08 ; =UNK04_0220D344
 	mov r6, #0x30
 	add r1, sp, #0xc
 	add r2, sp, #0x18
@@ -8023,7 +8023,7 @@ _021DFBC0:
 	mov r2, #0xa
 	bl strtoul
 	and r6, r0, #0xff
-	ldr r0, _021DFD0C ; =0x0220D348
+	ldr r0, _021DFD0C ; =UNK04_0220D348
 	add r1, sp, #0xc
 	add r2, sp, #0x18
 	mov r3, #0x2f
@@ -8050,7 +8050,7 @@ _021DFC8C:
 	mov r0, r5
 	mov r1, #0
 	bl MOD04_021DD6B0
-	ldr r0, _021DFD04 ; =0x0221053C
+	ldr r0, _021DFD04 ; =UNK04_0221053C
 	mov r1, #0
 	ldr r4, [r0]
 	mov r0, r5
@@ -8061,7 +8061,7 @@ _021DFC8C:
 	ldr r4, [r4, #0x88]
 	mov r2, #1
 	blx r4
-	ldr r0, _021DFD04 ; =0x0221053C
+	ldr r0, _021DFD04 ; =UNK04_0221053C
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021DFCF8
@@ -8070,7 +8070,7 @@ _021DFC8C:
 	bne _021DFCF8
 	mov r0, #3
 	bl MOD04_021DF5CC
-	ldr r1, _021DFD14 ; =0x0220D334
+	ldr r1, _021DFD14 ; =UNK04_0220D334
 	mov r0, #1
 	mov r2, #0
 	bl MOD04_021E1E30
@@ -8079,11 +8079,11 @@ _021DFCF8:
 	add sp, sp, #0x224
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021DFD04: .word 0x0221053C
-_021DFD08: .word 0x0220D344
-_021DFD0C: .word 0x0220D348
+_021DFD04: .word UNK04_0221053C
+_021DFD08: .word UNK04_0220D344
+_021DFD0C: .word UNK04_0220D348
 _021DFD10: .word MOD04_021DF12C
-_021DFD14: .word 0x0220D334
+_021DFD14: .word UNK04_0220D334
 
 	arm_func_start MOD04_021DFD18
 MOD04_021DFD18: ; 0x021DFD18
@@ -8096,7 +8096,7 @@ MOD04_021DFD18: ; 0x021DFD18
 	bl MOD04_021DD6D4
 	cmp r0, #0
 	bne _021DFD50
-	ldr r0, _021DFDB4 ; =0x0221053C
+	ldr r0, _021DFDB4 ; =UNK04_0221053C
 	ldr r0, [r0]
 	ldr r0, [r0, #0x24]
 	cmp r0, #3
@@ -8107,7 +8107,7 @@ _021DFD50:
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021DFD5C:
 	bl MOD04_021DF6CC
-	ldr r1, _021DFDB4 ; =0x0221053C
+	ldr r1, _021DFDB4 ; =UNK04_0221053C
 	mov r2, #0
 	ldr r3, [r1]
 	mov r0, #5
@@ -8129,7 +8129,7 @@ _021DFD5C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021DFDB4: .word 0x0221053C
+_021DFDB4: .word UNK04_0221053C
 _021DFDB8: .word MOD04_021DF12C
 
 	arm_func_start MOD04_021DFDBC
@@ -8142,7 +8142,7 @@ MOD04_021DFDBC: ; 0x021DFDBC
 	bl MOD04_021DD6D4
 	cmp r0, #0
 	bne _021DFDF8
-	ldr r0, _021DFE5C ; =0x0221053C
+	ldr r0, _021DFE5C ; =UNK04_0221053C
 	ldr r2, [r0]
 	ldr r1, [r2, #0x24]
 	cmp r1, #3
@@ -8159,7 +8159,7 @@ _021DFE04:
 	mov r0, #4
 	str r5, [r1, #0x7c]
 	bl MOD04_021DF5CC
-	ldr r0, _021DFE5C ; =0x0221053C
+	ldr r0, _021DFE5C ; =UNK04_0221053C
 	ldr r1, [sp, #0x20]
 	ldr r3, [r0]
 	ldr r0, [sp, #0x24]
@@ -8177,7 +8177,7 @@ _021DFE04:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021DFE5C: .word 0x0221053C
+_021DFE5C: .word UNK04_0221053C
 _021DFE60: .word MOD04_021DF2B4
 
 	arm_func_start MOD04_021DFE64
@@ -8191,7 +8191,7 @@ MOD04_021DFE64: ; 0x021DFE64
 	bl MOD04_021DD6D4
 	cmp r0, #0
 	bne _021DFE9C
-	ldr r0, _021DFF6C ; =0x0221053C
+	ldr r0, _021DFF6C ; =UNK04_0221053C
 	ldr r2, [r0]
 	ldr r1, [r2, #0x24]
 	cmp r1, #0
@@ -8226,14 +8226,14 @@ _021DFECC:
 	bl MOD04_021DE89C
 	mov r5, r0
 _021DFF00:
-	ldr r1, _021DFF6C ; =0x0221053C
+	ldr r1, _021DFF6C ; =UNK04_0221053C
 	mov r0, r4
 	ldr r1, [r1]
 	mov r2, r5, lsl #1
 	add r1, r1, #0x2e
 	bl MIi_CpuCopy16
 _021DFF18:
-	ldr r0, _021DFF6C ; =0x0221053C
+	ldr r0, _021DFF6C ; =UNK04_0221053C
 	mov r1, #0
 	ldr r0, [r0]
 	add r0, r0, r5, lsl #1
@@ -8249,14 +8249,14 @@ _021DFF18:
 _021DFF4C:
 	mov r0, #1
 	bl MOD04_021DF5CC
-	ldr r0, _021DFF6C ; =0x0221053C
+	ldr r0, _021DFF6C ; =UNK04_0221053C
 	ldr r0, [r0]
 	ldr r0, [r0, #0x68]
 	bl MOD04_021EE898
 	mov r0, #1
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021DFF6C: .word 0x0221053C
+_021DFF6C: .word UNK04_0221053C
 _021DFF70: .word 0xFFFF1596
 
 	arm_func_start MOD04_021DFF74
@@ -8268,7 +8268,7 @@ MOD04_021DFF74: ; 0x021DFF74
 	beq _021DFF8C
 	bl MOD04_021DF5EC
 _021DFF8C:
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -8281,7 +8281,7 @@ _021DFF8C:
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {pc}
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	ldr r0, [r0]
 	ldr r0, [r0, #0x24]
 	cmp r0, #6
@@ -8305,7 +8305,7 @@ _021DFFF4:
 	beq _021E0110
 	b _021E0194
 _021E0014:
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	mov r2, #0
 	ldr r0, [r0]
 	ldr r1, [r0, #0xa0]
@@ -8315,7 +8315,7 @@ _021E0014:
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {pc}
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	mov r1, #0
 	ldr r0, [r0]
 	ldr r2, _021E01E8 ; =MOD04_021DF0D4
@@ -8326,7 +8326,7 @@ _021E0014:
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {pc}
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	ldr r2, _021E01EC ; =MOD04_021DEF6C
 	ldr r0, [r0]
 	mov r1, #3
@@ -8337,7 +8337,7 @@ _021E0014:
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {pc}
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	ldr r2, _021E01F0 ; =MOD04_021E20C8
 	ldr r0, [r0]
 	mov r1, #1
@@ -8348,7 +8348,7 @@ _021E0014:
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {pc}
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	ldr r2, _021E01F4 ; =MOD04_021E1FE4
 	ldr r0, [r0]
 	mov r1, #2
@@ -8391,7 +8391,7 @@ _021E013C:
 _021E014C:
 	bl MOD04_021EAA64
 	bl MOD04_021E2228
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x369]
 	cmp r0, #2
@@ -8410,7 +8410,7 @@ _021E0180:
 	mov r0, #0
 	bl MOD04_021E9568
 _021E0194:
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x36c]
 	cmp r0, #1
@@ -8420,19 +8420,19 @@ _021E0194:
 	cmp r0, #0
 	beq _021E01CC
 	bl MOD04_02202280
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	mov r1, #0
 	ldr r0, [r0]
 	str r1, [r0, #0x364]
 _021E01CC:
-	ldr r0, _021E01E4 ; =0x0221053C
+	ldr r0, _021E01E4 ; =UNK04_0221053C
 	mov r1, #0
 	ldr r0, [r0]
 	strb r1, [r0, #0x36c]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E01E4: .word 0x0221053C
+_021E01E4: .word UNK04_0221053C
 _021E01E8: .word MOD04_021DF0D4
 _021E01EC: .word MOD04_021DEF6C
 _021E01F0: .word MOD04_021E20C8
@@ -8444,7 +8444,7 @@ _021E01FC: .word 0xFFFFB17B
 MOD04_021E0200: ; 0x021E0200
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -8453,12 +8453,12 @@ MOD04_021E0200: ; 0x021E0200
 	cmp r0, #0
 	beq _021E023C
 	bl MOD04_02202280
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	mov r1, #0
 	ldr r0, [r0]
 	str r1, [r0, #0x364]
 _021E023C:
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	mov r2, #0
 	ldr r1, [r0]
 	strb r2, [r1, #0x36c]
@@ -8467,14 +8467,14 @@ _021E023C:
 	cmp r0, #0
 	beq _021E0270
 	bl MOD04_02203E80
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	mov r1, #0
 	ldr r0, [r0]
 	str r1, [r0, #0x438]
 _021E0270:
 	bl MOD04_02200D6C
 	bl MOD04_021FBE7C
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	ldr ip, [r0]
 	ldr r0, [ip, #0x1c]
 	cmp r0, #0
@@ -8484,37 +8484,37 @@ _021E0270:
 	mov r3, r1
 	add r0, ip, #0x1c
 	bl MOD04_021F0EB0
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	mov r2, #0
 	ldr r0, [r0]
 	mov r3, r2
 	add r0, r0, #0x1c
 	mov r1, #3
 	bl MOD04_021F0EB0
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	mov r2, #0
 	ldr r0, [r0]
 	mov r3, r2
 	add r0, r0, #0x1c
 	mov r1, #1
 	bl MOD04_021F0EB0
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	mov r2, #0
 	ldr r0, [r0]
 	mov r1, #2
 	add r0, r0, #0x1c
 	mov r3, r2
 	bl MOD04_021F0EB0
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	ldr r0, [r0]
 	add r0, r0, #0x1c
 	bl MOD04_021F0F18
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	ldr r0, [r0]
 	add r0, r0, #0x1c
 	bl MOD04_021F0F64
 	mov r1, #0
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	ldr r0, [r0]
 	str r1, [r0, #0x1c]
 _021E0324:
@@ -8522,36 +8522,36 @@ _021E0324:
 	bl MOD04_021E1D90
 	bl MOD04_021E854C
 	bl MOD04_021EA9C4
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	ldr r0, [r0]
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021E035C
 	bl MOD04_021FD704
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	mov r1, #0
 	ldr r0, [r0]
 	str r1, [r0]
 _021E035C:
-	ldr r0, _021E0370 ; =0x0221053C
+	ldr r0, _021E0370 ; =UNK04_0221053C
 	mov r1, #0
 	str r1, [r0]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E0370: .word 0x0221053C
+_021E0370: .word UNK04_0221053C
 
 	arm_func_start MOD04_021E0374
 MOD04_021E0374: ; 0x021E0374
 	stmdb sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x10
-	ldr ip, _021E05D8 ; =0x0221053C
+	ldr ip, _021E05D8 ; =UNK04_0221053C
 	mov r6, r1
 	mov r5, r2
 	mov r4, r3
 	str r0, [ip]
 	bl MOD04_021DD6F0
-	ldr r0, _021E05D8 ; =0x0221053C
+	ldr r0, _021E05D8 ; =UNK04_0221053C
 	mov r2, #0
 	ldr r1, [r0]
 	ldr r3, _021E05DC ; =MOD04_021E8F80
@@ -8570,19 +8570,19 @@ MOD04_021E0374: ; 0x021E0374
 	ldr r0, [r0]
 	ldr r3, [sp, #0x28]
 	str r1, [r0, #0x10]
-	ldr r0, _021E05D8 ; =0x0221053C
+	ldr r0, _021E05D8 ; =UNK04_0221053C
 	moveq ip, #0x2000
 	ldr r0, [r0]
 	cmp r3, #0
 	str ip, [r0, #0x14]
 	moveq r3, #0x2000
-	ldr r1, _021E05D8 ; =0x0221053C
+	ldr r1, _021E05D8 ; =UNK04_0221053C
 	mov r0, #0
 	ldr r2, [r1]
-	ldr ip, _021E05EC ; =0x02210F94
+	ldr ip, _021E05EC ; =UNK04_02210F94
 	str r3, [r2, #0x18]
 	ldr r2, [r1]
-	ldr r3, _021E05F0 ; =0x02211094
+	ldr r3, _021E05F0 ; =UNK04_02211094
 	str r0, [r2, #0x1c]
 	ldr r2, [r1]
 	str r6, [r2, #0x20]
@@ -8621,7 +8621,7 @@ MOD04_021E0374: ; 0x021E0374
 	ldr r1, [r1]
 	str r0, [r1, #0x94]
 	bl MOD04_021DF6CC
-	ldr r0, _021E05D8 ; =0x0221053C
+	ldr r0, _021E05D8 ; =UNK04_0221053C
 	mov r3, r5
 	ldr r2, [r0]
 	ldr r1, [r6, #0x24]
@@ -8636,7 +8636,7 @@ MOD04_021E0374: ; 0x021E0374
 	add r2, r2, #0x1c
 	str r5, [sp, #0xc]
 	bl MOD04_021E1074
-	ldr r0, _021E05D8 ; =0x0221053C
+	ldr r0, _021E05D8 ; =UNK04_0221053C
 	ldr r2, [sp, #0x30]
 	ldr r5, [r0]
 	ldr r3, [sp, #0x2c]
@@ -8645,10 +8645,10 @@ MOD04_021E0374: ; 0x021E0374
 	add r1, r5, #0x1c
 	add r2, r5, #0x2e
 	bl MOD04_021E234C
-	ldr r0, _021E05D8 ; =0x0221053C
-	ldr r1, _021E05EC ; =0x02210F94
+	ldr r0, _021E05D8 ; =UNK04_0221053C
+	ldr r1, _021E05EC ; =UNK04_02210F94
 	ldr r2, [r0]
-	ldr r0, _021E05F0 ; =0x02211094
+	ldr r0, _021E05F0 ; =UNK04_02211094
 	str r1, [sp]
 	str r0, [sp, #4]
 	ldr r1, [sp, #0x2c]
@@ -8659,7 +8659,7 @@ MOD04_021E0374: ; 0x021E0374
 	add r1, r2, #0x1c
 	add r3, r2, #4
 	bl MOD04_021EA368
-	ldr r1, _021E05D8 ; =0x0221053C
+	ldr r1, _021E05D8 ; =UNK04_0221053C
 	ldr r0, _021E05F8 ; =0x000007D8
 	ldr r1, [r1]
 	add r0, r1, r0
@@ -8673,12 +8673,12 @@ MOD04_021E0374: ; 0x021E0374
 	bl strlen
 	mov r5, r0
 _021E0578:
-	ldr r1, _021E05EC ; =0x02210F94
+	ldr r1, _021E05EC ; =UNK04_02210F94
 	mov r0, r4
 	mov r2, r5
 	bl MI_CpuCopy8
 	ldr r0, [sp, #0x20]
-	ldr r1, _021E05EC ; =0x02210F94
+	ldr r1, _021E05EC ; =UNK04_02210F94
 	mov r2, #0
 	strb r2, [r1, r5]
 	bl strlen
@@ -8690,28 +8690,28 @@ _021E0578:
 	mov r4, r0
 _021E05B4:
 	ldr r0, [sp, #0x20]
-	ldr r1, _021E05F0 ; =0x02211094
+	ldr r1, _021E05F0 ; =UNK04_02211094
 	mov r2, r4
 	bl MI_CpuCopy8
-	ldr r0, _021E05F0 ; =0x02211094
+	ldr r0, _021E05F0 ; =UNK04_02211094
 	mov r1, #0
 	strb r1, [r0, r4]
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E05D8: .word 0x0221053C
+_021E05D8: .word UNK04_0221053C
 _021E05DC: .word MOD04_021E8F80
 _021E05E0: .word MOD04_021DEF60
 _021E05E4: .word MOD04_021DEBE4
 _021E05E8: .word MOD04_021DEBD8
-_021E05EC: .word 0x02210F94
-_021E05F0: .word 0x02211094
+_021E05EC: .word UNK04_02210F94
+_021E05F0: .word UNK04_02211094
 _021E05F4: .word MOD04_021DF304
 _021E05F8: .word 0x000007D8
 
 	arm_func_start MOD04_021E05FC
 MOD04_021E05FC: ; 0x021E05FC
-	ldr r0, _021E0624 ; =0x022106C8
+	ldr r0, _021E0624 ; =UNK04_022106C8
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021E061C
@@ -8723,7 +8723,7 @@ _021E061C:
 	mov r0, #0
 	bx lr
 	.align 2, 0
-_021E0624: .word 0x022106C8
+_021E0624: .word UNK04_022106C8
 
 	arm_func_start MOD04_021E0628
 MOD04_021E0628: ; 0x021E0628
@@ -8735,7 +8735,7 @@ MOD04_021E0628: ; 0x021E0628
 	cmp r1, #0
 	addne sp, sp, #0x4c
 	ldmneia sp!, {r4, r5, pc}
-	ldr r1, _021E07CC ; =0x022106C8
+	ldr r1, _021E07CC ; =UNK04_022106C8
 	ldr r2, [r1]
 	ldr r1, [r2, #4]
 	cmp r1, #3
@@ -8756,7 +8756,7 @@ MOD04_021E0628: ; 0x021E0628
 	cmp r0, #0
 	addne sp, sp, #0x4c
 	ldmneia sp!, {r4, r5, pc}
-	ldr r0, _021E07CC ; =0x022106C8
+	ldr r0, _021E07CC ; =UNK04_022106C8
 	mov r3, #4
 	ldr r1, [r0]
 	ldr r0, _021E07D4 ; =MOD04_021E0628
@@ -8777,7 +8777,7 @@ _021E06DC:
 	ldr r0, _021E07D8 ; =MOD04_021E0C80
 	mov r1, #0
 	bl MOD04_021E0A00
-	ldr r0, _021E07CC ; =0x022106C8
+	ldr r0, _021E07CC ; =UNK04_022106C8
 	mov r1, #1
 	ldr r0, [r0]
 	add sp, sp, #0x4c
@@ -8797,13 +8797,13 @@ _021E0704:
 	bl strcmp
 	cmp r0, #0
 	bne _021E079C
-	ldr r0, _021E07CC ; =0x022106C8
+	ldr r0, _021E07CC ; =UNK04_022106C8
 	add r2, sp, #0x32
 	ldr r0, [r0]
 	ldr r1, [r0, #0xc]
 	add r0, r0, #0x3c
 	bl DWCi_Acc_LoginIdToUserName
-	ldr r0, _021E07CC ; =0x022106C8
+	ldr r0, _021E07CC ; =UNK04_022106C8
 	ldr r2, [r4, #4]
 	ldr r1, [r0]
 	ldr r0, [r1, #0x1c]
@@ -8811,10 +8811,10 @@ _021E0704:
 	bl DWCi_Acc_SetLoginIdToUserData
 	mov r0, r5
 	bl MOD04_021F0D54
-	ldr r0, _021E07CC ; =0x022106C8
-	ldr r1, _021E07DC ; =0x022106C4
+	ldr r0, _021E07CC ; =UNK04_022106C8
+	ldr r1, _021E07DC ; =UNK04_022106C4
 	ldr r4, [r0]
-	ldr r0, _021E07E0 ; =0x022106CC
+	ldr r0, _021E07E0 ; =UNK04_022106CC
 	ldr r2, [r1]
 	ldr r3, [r0]
 	add r0, r4, #0x48
@@ -8836,12 +8836,12 @@ _021E079C:
 	add sp, sp, #0x4c
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021E07CC: .word 0x022106C8
+_021E07CC: .word UNK04_022106C8
 _021E07D0: .word 0x00000705
 _021E07D4: .word MOD04_021E0628
 _021E07D8: .word MOD04_021E0C80
-_021E07DC: .word 0x022106C4
-_021E07E0: .word 0x022106CC
+_021E07DC: .word UNK04_022106C4
+_021E07E0: .word UNK04_022106CC
 
 	arm_func_start MOD04_021E07E4
 MOD04_021E07E4: ; 0x021E07E4
@@ -8852,25 +8852,25 @@ MOD04_021E07E4: ; 0x021E07E4
 	bne _021E08BC
 	add r0, sp, #0
 	bl MOD04_021D97F8
-	ldr r0, _021E09DC ; =0x022106C8
+	ldr r0, _021E09DC ; =UNK04_022106C8
 	add r1, sp, #0x4a
 	ldr r0, [r0]
 	add r0, r0, #0x48
 	bl strcpy
-	ldr r0, _021E09DC ; =0x022106C8
+	ldr r0, _021E09DC ; =UNK04_022106C8
 	add r1, sp, #0x100
 	ldr r0, [r0]
 	add r1, r1, #0x77
 	add r0, r0, #0x148
 	bl strcpy
 	bl MOD04_021D991C
-	ldr r1, _021E09DC ; =0x022106C8
+	ldr r1, _021E09DC ; =UNK04_022106C8
 	mov r0, #0
 	ldr r1, [r1]
 	mov r2, r0
 	ldr r1, [r1, #0x24]
 	bl MOD04_021DD904
-	ldr r0, _021E09DC ; =0x022106C8
+	ldr r0, _021E09DC ; =UNK04_022106C8
 	mov r2, #0
 	ldr r1, [r0]
 	str r2, [r1, #0x24]
@@ -8879,10 +8879,10 @@ MOD04_021E07E4: ; 0x021E07E4
 	bl DWCi_Acc_IsAuthentic
 	cmp r0, #0
 	beq _021E0898
-	ldr r0, _021E09DC ; =0x022106C8
-	ldr r1, _021E09E0 ; =0x022106C4
+	ldr r0, _021E09DC ; =UNK04_022106C8
+	ldr r1, _021E09E0 ; =UNK04_022106C4
 	ldr ip, [r0]
-	ldr r0, _021E09E4 ; =0x022106CC
+	ldr r0, _021E09E4 ; =UNK04_022106CC
 	ldr r2, [r1]
 	ldr r3, [r0]
 	add r0, ip, #0x48
@@ -8891,7 +8891,7 @@ MOD04_021E07E4: ; 0x021E07E4
 	add sp, sp, #0x3d4
 	ldmfd sp!, {pc}
 _021E0898:
-	ldr r0, _021E09DC ; =0x022106C8
+	ldr r0, _021E09DC ; =UNK04_022106C8
 	ldr r2, _021E09E8 ; =MOD04_021E0C98
 	ldr r1, [r0]
 	mov r3, #3
@@ -8906,7 +8906,7 @@ _021E08BC:
 	addeq sp, sp, #0x3d4
 	ldmeqia sp!, {pc}
 	bl OS_GetTick
-	ldr r3, _021E09DC ; =0x022106C8
+	ldr r3, _021E09DC ; =UNK04_022106C8
 	ldr r2, _021E09EC ; =0x000082EA
 	ldr ip, [r3]
 	mov r3, #0
@@ -8925,13 +8925,13 @@ _021E08BC:
 	add r0, sp, #0x1c4
 	bl MOD04_021D97F8
 	bl MOD04_021D991C
-	ldr r1, _021E09DC ; =0x022106C8
+	ldr r1, _021E09DC ; =UNK04_022106C8
 	mov r0, #0
 	ldr r1, [r1]
 	mov r2, r0
 	ldr r1, [r1, #0x24]
 	bl MOD04_021DD904
-	ldr r0, _021E09DC ; =0x022106C8
+	ldr r0, _021E09DC ; =UNK04_022106C8
 	mov r2, #0
 	ldr r1, [r0]
 	mov r0, #2
@@ -8946,25 +8946,25 @@ _021E0958:
 	mov r1, #0
 	mov r2, #0x48
 	bl MI_CpuFill8
-	ldr r0, _021E09DC ; =0x022106C8
+	ldr r0, _021E09DC ; =UNK04_022106C8
 	ldr r0, [r0]
 	ldr r0, [r0, #0x10]
 	bl MOD04_021DE89C
-	ldr r1, _021E09DC ; =0x022106C8
+	ldr r1, _021E09DC ; =UNK04_022106C8
 	mov r2, r0, lsl #1
 	ldr r1, [r1]
 	add r2, r2, #2
 	ldr r0, [r1, #0x10]
 	add r1, sp, #0x388
 	bl MI_CpuCopy8
-	ldr r0, _021E09DC ; =0x022106C8
+	ldr r0, _021E09DC ; =UNK04_022106C8
 	ldr r1, _021E09F4 ; =0x00000251
 	ldr r2, [r0]
 	add r0, sp, #0x3bc
 	add r1, r2, r1
 	bl strcpy
 	ldr r2, _021E09F8 ; =MOD04_021DD944
-	ldr r0, _021E09DC ; =0x022106C8
+	ldr r0, _021E09DC ; =UNK04_022106C8
 	str r2, [sp, #0x3c8]
 	ldr r2, _021E09FC ; =MOD04_021DD904
 	ldr r1, [r0]
@@ -8975,9 +8975,9 @@ _021E0958:
 	add sp, sp, #0x3d4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E09DC: .word 0x022106C8
-_021E09E0: .word 0x022106C4
-_021E09E4: .word 0x022106CC
+_021E09DC: .word UNK04_022106C8
+_021E09E0: .word UNK04_022106C4
+_021E09E4: .word UNK04_022106CC
 _021E09E8: .word MOD04_021E0C98
 _021E09EC: .word 0x000082EA
 _021E09F0: .word 0x00002710
@@ -8995,9 +8995,9 @@ MOD04_021E0A00: ; 0x021E0A00
 	mov r1, #0
 	mov r2, #0x48
 	bl MI_CpuFill8
-	ldr r0, _021E0BB8 ; =0x022106C8
-	ldr r2, _021E0BBC ; =0x022106CC
-	ldr r1, _021E0BC0 ; =0x022106C4
+	ldr r0, _021E0BB8 ; =UNK04_022106C8
+	ldr r2, _021E0BBC ; =UNK04_022106CC
+	ldr r1, _021E0BC0 ; =UNK04_022106C4
 	ldr r0, [r0]
 	str r5, [r2]
 	str r4, [r1]
@@ -9005,7 +9005,7 @@ MOD04_021E0A00: ; 0x021E0A00
 	bl DWCi_Acc_IsAuthentic
 	cmp r0, #0
 	beq _021E0A68
-	ldr r0, _021E0BB8 ; =0x022106C8
+	ldr r0, _021E0BB8 ; =UNK04_022106C8
 	ldr r1, [r0]
 	ldr r0, [r1, #0x1c]
 	add r2, r1, #0x248
@@ -9014,20 +9014,20 @@ MOD04_021E0A00: ; 0x021E0A00
 	bl DWCi_Acc_LoginIdToUserName
 	b _021E0B1C
 _021E0A68:
-	ldr r0, _021E0BB8 ; =0x022106C8
+	ldr r0, _021E0BB8 ; =UNK04_022106C8
 	ldr r0, [r0]
 	add r0, r0, #0x3c
 	bl DWCi_Acc_IsValidLoginId
 	cmp r0, #0
 	bne _021E0AD0
-	ldr r0, _021E0BB8 ; =0x022106C8
+	ldr r0, _021E0BB8 ; =UNK04_022106C8
 	ldr r0, [r0]
 	ldr r0, [r0, #0x1c]
 	add r0, r0, #4
 	bl DWCi_Acc_CheckConsoleUserId
 	cmp r0, #0
 	beq _021E0ABC
-	ldr r0, _021E0BB8 ; =0x022106C8
+	ldr r0, _021E0BB8 ; =UNK04_022106C8
 	ldr r1, [r0]
 	ldr r0, [r1, #0x1c]
 	add r3, r1, #0x3c
@@ -9036,7 +9036,7 @@ _021E0A68:
 	stmia r3, {r0, r1, r2}
 	b _021E0B04
 _021E0ABC:
-	ldr r0, _021E0BB8 ; =0x022106C8
+	ldr r0, _021E0BB8 ; =UNK04_022106C8
 	ldr r0, [r0]
 	add r0, r0, #0x3c
 	bl DWCi_Acc_CreateTempLoginId
@@ -9047,7 +9047,7 @@ _021E0AD0:
 	ldr r3, _021E0BC8 ; =0x5D588B65
 	umull ip, r4, r0, r2
 	mla r4, r0, r3, r4
-	ldr r3, _021E0BB8 ; =0x022106C8
+	ldr r3, _021E0BB8 ; =UNK04_022106C8
 	ldr r0, _021E0BCC ; =0x00269EC3
 	mla r4, r1, r2, r4
 	adds r0, ip, r0
@@ -9056,25 +9056,25 @@ _021E0AD0:
 	add r0, r3, #0x3c
 	bl DWCi_Acc_SetPlayerId
 _021E0B04:
-	ldr r0, _021E0BB8 ; =0x022106C8
+	ldr r0, _021E0BB8 ; =UNK04_022106C8
 	ldr r2, [r0]
 	ldr r1, [r2, #0xc]
 	add r0, r2, #0x3c
 	add r2, r2, #0x248
 	bl DWCi_Acc_LoginIdToUserName
 _021E0B1C:
-	ldr r0, _021E0BB8 ; =0x022106C8
+	ldr r0, _021E0BB8 ; =UNK04_022106C8
 	ldr r0, [r0]
 	ldr r0, [r0, #0x10]
 	bl MOD04_021DE89C
-	ldr r1, _021E0BB8 ; =0x022106C8
+	ldr r1, _021E0BB8 ; =UNK04_022106C8
 	mov r2, r0, lsl #1
 	ldr r1, [r1]
 	add r2, r2, #2
 	ldr r0, [r1, #0x10]
 	add r1, sp, #0
 	bl MI_CpuCopy8
-	ldr r0, _021E0BB8 ; =0x022106C8
+	ldr r0, _021E0BB8 ; =UNK04_022106C8
 	ldr r1, _021E0BD0 ; =0x00000251
 	ldr r2, [r0]
 	add r0, sp, #0x34
@@ -9088,12 +9088,12 @@ _021E0B1C:
 	str r4, [sp, #0x40]
 	str r3, [sp, #0x44]
 	bl MOD04_021DD924
-	ldr r1, _021E0BB8 ; =0x022106C8
+	ldr r1, _021E0BB8 ; =UNK04_022106C8
 	mov r4, r0
 	ldr r0, [r1]
 	str r4, [r0, #0x24]
 	bl OS_GetTick
-	ldr r2, _021E0BB8 ; =0x022106C8
+	ldr r2, _021E0BB8 ; =UNK04_022106C8
 	ldr r2, [r2]
 	str r0, [r2, #0x28]
 	str r1, [r2, #0x2c]
@@ -9103,9 +9103,9 @@ _021E0B1C:
 	add sp, sp, #0x4c
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021E0BB8: .word 0x022106C8
-_021E0BBC: .word 0x022106CC
-_021E0BC0: .word 0x022106C4
+_021E0BB8: .word UNK04_022106C8
+_021E0BBC: .word UNK04_022106CC
+_021E0BC0: .word UNK04_022106C4
 _021E0BC4: .word 0x6C078965
 _021E0BC8: .word 0x5D588B65
 _021E0BCC: .word 0x00269EC3
@@ -9118,7 +9118,7 @@ _021E0BDC: .word 0x00001C10
 MOD04_021E0BE0: ; 0x021E0BE0
 	stmdb sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x10
-	ldr r4, _021E0C7C ; =0x022106C8
+	ldr r4, _021E0C7C ; =UNK04_022106C8
 	mov r6, r1
 	ldr r4, [r4]
 	mov r1, r0
@@ -9126,18 +9126,18 @@ MOD04_021E0BE0: ; 0x021E0BE0
 	mov r5, r2
 	mov r4, r3
 	bl strcpy
-	ldr r0, _021E0C7C ; =0x022106C8
+	ldr r0, _021E0C7C ; =UNK04_022106C8
 	mov r1, r6
 	ldr r0, [r0]
 	add r0, r0, #0x148
 	bl strcpy
-	ldr r0, _021E0C7C ; =0x022106C8
+	ldr r0, _021E0C7C ; =UNK04_022106C8
 	ldr r6, [r0]
 	bl OS_GetTick
 	str r0, [r6, #0x34]
 	str r1, [r6, #0x38]
 	mov r3, #1
-	ldr r0, _021E0C7C ; =0x022106C8
+	ldr r0, _021E0C7C ; =UNK04_022106C8
 	str r3, [r6, #0x30]
 	ldr r2, [r0]
 	mov r1, #0
@@ -9150,13 +9150,13 @@ MOD04_021E0BE0: ; 0x021E0BE0
 	bl MOD04_021F0D8C
 	bl MOD04_021E0DB0
 	cmp r0, #0
-	ldreq r0, _021E0C7C ; =0x022106C8
+	ldreq r0, _021E0C7C ; =UNK04_022106C8
 	ldreq r0, [r0]
 	streq r4, [r0, #4]
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E0C7C: .word 0x022106C8
+_021E0C7C: .word UNK04_022106C8
 
 	arm_func_start MOD04_021E0C80
 MOD04_021E0C80: ; 0x021E0C80
@@ -9172,7 +9172,7 @@ _021E0C94: .word MOD04_021E0C98
 MOD04_021E0C98: ; 0x021E0C98
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #8
-	ldr r3, _021E0DA0 ; =0x022106C8
+	ldr r3, _021E0DA0 ; =UNK04_022106C8
 	mov r2, #0
 	ldr ip, [r3]
 	mov r4, r1
@@ -9189,7 +9189,7 @@ MOD04_021E0C98: ; 0x021E0C98
 	ldr r1, [r1, #0x1c]
 	cmp r1, r0
 	bne _021E0D48
-	ldr r1, _021E0DA4 ; =0x0220D34C
+	ldr r1, _021E0DA4 ; =UNK04_0220D34C
 	mov r3, #5
 	mov r0, #1
 	str r3, [ip, #4]
@@ -9198,7 +9198,7 @@ MOD04_021E0C98: ; 0x021E0C98
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmneia sp!, {r4, pc}
-	ldr r0, _021E0DA0 ; =0x022106C8
+	ldr r0, _021E0DA0 ; =UNK04_022106C8
 	ldr r1, [r4, #4]
 	ldr r3, [r0]
 	mov r0, #0
@@ -9240,8 +9240,8 @@ _021E0D90:
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021E0DA0: .word 0x022106C8
-_021E0DA4: .word 0x0220D34C
+_021E0DA0: .word UNK04_022106C8
+_021E0DA4: .word UNK04_0220D34C
 _021E0DA8: .word 0xFFFF15A0
 _021E0DAC: .word MOD04_021E0628
 
@@ -9286,7 +9286,7 @@ _021E0E20: .word 0xFFFF11B8
 
 	arm_func_start MOD04_021E0E24
 MOD04_021E0E24: ; 0x021E0E24
-	ldr r0, _021E0E44 ; =0x022106C8
+	ldr r0, _021E0E44 ; =UNK04_022106C8
 	ldr r2, [r0]
 	cmp r2, #0
 	movne r1, #0
@@ -9295,42 +9295,42 @@ MOD04_021E0E24: ; 0x021E0E24
 	strne r1, [r0, #0x30]
 	bx lr
 	.align 2, 0
-_021E0E44: .word 0x022106C8
+_021E0E44: .word UNK04_022106C8
 
 	arm_func_start MOD04_021E0E48
 MOD04_021E0E48: ; 0x021E0E48
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021E0EA8 ; =0x022106C8
+	ldr r0, _021E0EA8 ; =UNK04_022106C8
 	ldr r0, [r0]
 	ldr r0, [r0, #0x24]
 	cmp r0, #0
 	beq _021E0E94
 	bl MOD04_021D9974
 	bl MOD04_021D991C
-	ldr r1, _021E0EA8 ; =0x022106C8
+	ldr r1, _021E0EA8 ; =UNK04_022106C8
 	mov r0, #0
 	ldr r1, [r1]
 	mov r2, r0
 	ldr r1, [r1, #0x24]
 	bl MOD04_021DD904
-	ldr r0, _021E0EA8 ; =0x022106C8
+	ldr r0, _021E0EA8 ; =UNK04_022106C8
 	mov r1, #0
 	ldr r0, [r0]
 	str r1, [r0, #0x24]
 _021E0E94:
-	ldr r0, _021E0EA8 ; =0x022106C8
+	ldr r0, _021E0EA8 ; =UNK04_022106C8
 	mov r1, #0
 	str r1, [r0]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E0EA8: .word 0x022106C8
+_021E0EA8: .word UNK04_022106C8
 
 	arm_func_start MOD04_021E0EAC
 MOD04_021E0EAC: ; 0x021E0EAC
 	stmdb sp!, {r4, lr}
-	ldr r2, _021E0EFC ; =0x022106C8
+	ldr r2, _021E0EFC ; =UNK04_022106C8
 	mov r4, r0
 	ldr r2, [r2]
 	cmp r2, #0
@@ -9338,7 +9338,7 @@ MOD04_021E0EAC: ; 0x021E0EAC
 	cmp r4, #0
 	ldmeqia sp!, {r4, pc}
 	bl MOD04_021DD6B0
-	ldr r0, _021E0EFC ; =0x022106C8
+	ldr r0, _021E0EFC ; =UNK04_022106C8
 	ldr r0, [r0]
 	ldr r3, [r0, #0x14]
 	cmp r3, #0
@@ -9351,24 +9351,24 @@ _021E0EF4:
 	bl MOD04_021E0E24
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021E0EFC: .word 0x022106C8
+_021E0EFC: .word UNK04_022106C8
 
 	arm_func_start MOD04_021E0F00
 MOD04_021E0F00: ; 0x021E0F00
-	ldr r0, _021E0F18 ; =0x022106C8
+	ldr r0, _021E0F18 ; =UNK04_022106C8
 	ldr r0, [r0]
 	cmp r0, #0
 	ldrne r0, [r0, #0x1c]
 	moveq r0, #0
 	bx lr
 	.align 2, 0
-_021E0F18: .word 0x022106C8
+_021E0F18: .word UNK04_022106C8
 
 	arm_func_start MOD04_021E0F1C
 MOD04_021E0F1C: ; 0x021E0F1C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021E1024 ; =0x022106C8
+	ldr r0, _021E1024 ; =UNK04_022106C8
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -9377,7 +9377,7 @@ MOD04_021E0F1C: ; 0x021E0F1C
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {pc}
-	ldr r0, _021E1024 ; =0x022106C8
+	ldr r0, _021E1024 ; =UNK04_022106C8
 	ldr r1, [r0]
 	ldr r0, [r1, #4]
 	cmp r0, #5
@@ -9403,14 +9403,14 @@ _021E0F84:
 	beq _021E0FA0
 	bl MOD04_021F0F18
 _021E0FA0:
-	ldr r0, _021E1024 ; =0x022106C8
+	ldr r0, _021E1024 ; =UNK04_022106C8
 	ldr r0, [r0]
 	ldr r0, [r0, #0x30]
 	cmp r0, #0
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
 	bl OS_GetTick
-	ldr r3, _021E1024 ; =0x022106C8
+	ldr r3, _021E1024 ; =UNK04_022106C8
 	ldr r2, _021E1028 ; =0x000082EA
 	ldr ip, [r3]
 	mov r3, #0
@@ -9430,7 +9430,7 @@ _021E0FA0:
 	ldr r1, _021E1030 ; =0xFFFF1172
 	mov r0, #6
 	bl MOD04_021E0EAC
-	ldr r0, _021E1024 ; =0x022106C8
+	ldr r0, _021E1024 ; =UNK04_022106C8
 	mov r1, #0
 	ldr r0, [r0]
 	str r1, [r0, #0x30]
@@ -9438,7 +9438,7 @@ _021E101C:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E1024: .word 0x022106C8
+_021E1024: .word UNK04_022106C8
 _021E1028: .word 0x000082EA
 _021E102C: .word 0x0000EA60
 _021E1030: .word 0xFFFF1172
@@ -9450,7 +9450,7 @@ MOD04_021E1034: ; 0x021E1034
 	ldr r0, _021E106C ; =MOD04_021E0C80
 	mov r1, #0
 	bl MOD04_021E0A00
-	ldr r0, _021E1070 ; =0x022106C8
+	ldr r0, _021E1070 ; =UNK04_022106C8
 	mov r3, #1
 	ldr r2, [r0]
 	mov r1, #0
@@ -9461,12 +9461,12 @@ MOD04_021E1034: ; 0x021E1034
 	ldmfd sp!, {pc}
 	.align 2, 0
 _021E106C: .word MOD04_021E0C80
-_021E1070: .word 0x022106C8
+_021E1070: .word UNK04_022106C8
 
 	arm_func_start MOD04_021E1074
 MOD04_021E1074: ; 0x021E1074
 	stmdb sp!, {r4, r5, r6, lr}
-	ldr ip, _021E10F4 ; =0x022106C8
+	ldr ip, _021E10F4 ; =UNK04_022106C8
 	mov r6, r1
 	mov r5, r2
 	mov r1, #0
@@ -9474,7 +9474,7 @@ MOD04_021E1074: ; 0x021E1074
 	mov r4, r3
 	str r0, [ip]
 	bl MI_CpuFill8
-	ldr r0, _021E10F4 ; =0x022106C8
+	ldr r0, _021E10F4 ; =UNK04_022106C8
 	mov r2, #0
 	ldr r1, [r0]
 	ldr ip, [sp, #0x10]
@@ -9498,16 +9498,16 @@ MOD04_021E1074: ; 0x021E1074
 	str r6, [r0, #0x1c]
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E10F4: .word 0x022106C8
+_021E10F4: .word UNK04_022106C8
 
 	arm_func_start MOD04_021E10F8
 MOD04_021E10F8: ; 0x021E10F8
-	ldr r0, _021E1108 ; =0x022106D0
+	ldr r0, _021E1108 ; =UNK04_022106D0
 	ldr r0, [r0]
 	ldr r0, [r0, #0x20]
 	bx lr
 	.align 2, 0
-_021E1108: .word 0x022106D0
+_021E1108: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E110C
 MOD04_021E110C: ; 0x021E110C
@@ -9521,7 +9521,7 @@ MOD04_021E110C: ; 0x021E110C
 	str r0, [sp]
 	addne sp, sp, #0x24
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r4, _021E12B4 ; =0x022106D0
+	ldr r4, _021E12B4 ; =UNK04_022106D0
 	mov sb, r8
 	ldr r2, [r4]
 	ldr r1, [r2, #0x14]
@@ -9617,14 +9617,14 @@ _021E1274:
 	beq _021E129C
 	bl MOD04_021E1DA4
 _021E129C:
-	ldr r0, _021E12B4 ; =0x022106D0
+	ldr r0, _021E12B4 ; =UNK04_022106D0
 	mov r1, #1
 	ldr r0, [r0]
 	strb r1, [r0, #0x1d]
 	add sp, sp, #0x24
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021E12B4: .word 0x022106D0
+_021E12B4: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E12B8
 MOD04_021E12B8: ; 0x021E12B8
@@ -9637,7 +9637,7 @@ MOD04_021E12B8: ; 0x021E12B8
 	mov fp, #0
 	addne sp, sp, #0x1c
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r4, _021E1410 ; =0x022106D0
+	ldr r4, _021E1410 ; =UNK04_022106D0
 	mov r8, fp
 	ldr r1, [r4]
 	ldr r0, [r1, #0x14]
@@ -9721,7 +9721,7 @@ _021E13FC:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021E1410: .word 0x022106D0
+_021E1410: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1414
 MOD04_021E1414: ; 0x021E1414
@@ -9737,7 +9737,7 @@ MOD04_021E1414: ; 0x021E1414
 	cmp r0, #0
 	beq _021E15FC
 	mov r0, #0xc
-	ldr r1, _021E1670 ; =0x022106D0
+	ldr r1, _021E1670 ; =UNK04_022106D0
 	mul r6, r8, r0
 	ldr r0, [r1]
 	ldr r0, [r0, #0x18]
@@ -9745,7 +9745,7 @@ MOD04_021E1414: ; 0x021E1414
 	bl DWC_GetFriendDataType
 	cmp r0, #0
 	beq _021E15FC
-	ldr r7, _021E1670 ; =0x022106D0
+	ldr r7, _021E1670 ; =UNK04_022106D0
 	ldr r1, [r7]
 	ldr r0, [r1]
 	cmp r0, #1
@@ -9767,7 +9767,7 @@ _021E1498:
 	bl MOD04_021E1900
 	cmp r0, #0
 	beq _021E14E8
-	ldr r0, _021E1670 ; =0x022106D0
+	ldr r0, _021E1670 ; =UNK04_022106D0
 	mov r2, #1
 	ldr r4, [r0]
 	ldr r1, _021E1674 ; =0x00000601
@@ -9807,21 +9807,21 @@ _021E1514:
 	bl MOD04_021E17BC
 	b _021E15B0
 _021E1548:
-	ldr r0, _021E1670 ; =0x022106D0
+	ldr r0, _021E1670 ; =UNK04_022106D0
 	ldr r1, [sb, #0xc]
 	ldr r0, [r0]
 	ldr r1, [r1]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r6
 	bl DWC_SetGsProfileId
-	ldr r0, _021E1670 ; =0x022106D0
+	ldr r0, _021E1670 ; =UNK04_022106D0
 	ldr r0, [r0]
 	ldr r0, [r0, #0x18]
 	add r0, r0, r6
 	bl DWCi_SetBuddyFriendData
 	mov r0, r8
 	bl MOD04_021E1DA4
-	ldr r0, _021E1670 ; =0x022106D0
+	ldr r0, _021E1670 ; =UNK04_022106D0
 	mov r2, #1
 	ldr r4, [r0]
 	ldr r1, _021E1674 ; =0x00000601
@@ -9844,7 +9844,7 @@ _021E15C4:
 	cmp r0, #0x600
 	addeq sp, sp, #4
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r0, _021E1670 ; =0x022106D0
+	ldr r0, _021E1670 ; =UNK04_022106D0
 	mov r1, #1
 	ldr r3, [r0]
 	add sp, sp, #4
@@ -9863,7 +9863,7 @@ _021E15FC:
 	cmp r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021E1618:
-	ldr r0, _021E1670 ; =0x022106D0
+	ldr r0, _021E1670 ; =UNK04_022106D0
 	ldr r1, [r0]
 	ldr r0, [r1]
 	cmp r0, #1
@@ -9876,7 +9876,7 @@ _021E1618:
 	addne sp, sp, #4
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021E1648:
-	ldr r0, _021E1670 ; =0x022106D0
+	ldr r0, _021E1670 ; =UNK04_022106D0
 	mov r1, #1
 	ldr r3, [r0]
 	ldrb r2, [r3, #0x1c]
@@ -9887,7 +9887,7 @@ _021E1648:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021E1670: .word 0x022106D0
+_021E1670: .word UNK04_022106D0
 _021E1674: .word 0x00000601
 
 	arm_func_start MOD04_021E1678
@@ -9933,7 +9933,7 @@ _021E16E8: .word 0xFFFEEAA8
 MOD04_021E16EC: ; 0x021E16EC
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r2, _021E17B8 ; =0x022106D0
+	ldr r2, _021E17B8 ; =UNK04_022106D0
 	mov r3, #0
 	ldr r2, [r2]
 	mov r5, r0
@@ -9955,7 +9955,7 @@ _021E172C:
 	mov r5, r0
 	cmp r5, #0
 	ble _021E176C
-	ldr r0, _021E17B8 ; =0x022106D0
+	ldr r0, _021E17B8 ; =UNK04_022106D0
 	add r2, sp, #0
 	ldr r0, [r0]
 	mov r1, r5
@@ -9977,7 +9977,7 @@ _021E1784:
 	mov r0, #0
 	ldmia sp!, {r4, r5, pc}
 _021E1790:
-	ldr r0, _021E17B8 ; =0x022106D0
+	ldr r0, _021E17B8 ; =UNK04_022106D0
 	mov r2, r4
 	ldr r0, [r0]
 	ldr r0, [r0, #4]
@@ -9988,15 +9988,15 @@ _021E1790:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021E17B8: .word 0x022106D0
+_021E17B8: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E17BC
 MOD04_021E17BC: ; 0x021E17BC
 	stmdb sp!, {r4, lr}
-	ldr r2, _021E17E8 ; =0x022106D0
+	ldr r2, _021E17E8 ; =UNK04_022106D0
 	mov r1, r0
 	ldr r0, [r2]
-	ldr r2, _021E17EC ; =0x0220D350
+	ldr r2, _021E17EC ; =UNK04_0220D350
 	ldr r0, [r0, #4]
 	bl MOD04_021F09B0
 	mov r4, r0
@@ -10004,8 +10004,8 @@ MOD04_021E17BC: ; 0x021E17BC
 	mov r0, r4
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021E17E8: .word 0x022106D0
-_021E17EC: .word 0x0220D350
+_021E17E8: .word UNK04_022106D0
+_021E17EC: .word UNK04_0220D350
 
 	arm_func_start MOD04_021E17F0
 MOD04_021E17F0: ; 0x021E17F0
@@ -10064,7 +10064,7 @@ _021E18AC:
 	mov r1, r7
 	mov r2, r8
 	bl MOD04_021E19B8
-	ldr r0, _021E18FC ; =0x022106D0
+	ldr r0, _021E18FC ; =UNK04_022106D0
 	ldr r1, [r0]
 	ldr r0, [sp, #8]
 	strb r0, [r1, #0x1d]
@@ -10084,7 +10084,7 @@ _021E18F0:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021E18FC: .word 0x022106D0
+_021E18FC: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1900
 MOD04_021E1900: ; 0x021E1900
@@ -10124,7 +10124,7 @@ _021E1974:
 	mov r2, r4
 	bl MOD04_021E19B8
 _021E1984:
-	ldr r1, _021E19B4 ; =0x022106D0
+	ldr r1, _021E19B4 ; =UNK04_022106D0
 	mov r0, #1
 	ldr r1, [r1]
 	add sp, sp, #4
@@ -10139,13 +10139,13 @@ _021E19A8:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021E19B4: .word 0x022106D0
+_021E19B4: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E19B8
 MOD04_021E19B8: ; 0x021E19B8
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r3, _021E1A1C ; =0x022106D0
+	ldr r3, _021E1A1C ; =UNK04_022106D0
 	mov r5, r1
 	ldr r1, [r3]
 	mov r4, r2
@@ -10156,7 +10156,7 @@ MOD04_021E19B8: ; 0x021E19B8
 	mla r0, r5, r2, r0
 	mov r1, #0
 	bl MI_CpuFill8
-	ldr r0, _021E1A1C ; =0x022106D0
+	ldr r0, _021E1A1C ; =UNK04_022106D0
 	ldr r0, [r0]
 	ldr r3, [r0, #0x3c]
 	cmp r3, #0
@@ -10169,33 +10169,33 @@ MOD04_021E19B8: ; 0x021E19B8
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021E1A1C: .word 0x022106D0
+_021E1A1C: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1A20
 MOD04_021E1A20: ; 0x021E1A20
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r1, _021E1A5C ; =0x022106D0
+	ldr r1, _021E1A5C ; =UNK04_022106D0
 	mov r0, #0
 	ldr r3, [r1]
 	ldrb r1, [r3, #0x1d]
 	ldr r2, [r3, #0x30]
 	ldr r3, [r3, #0x2c]
 	blx r3
-	ldr r0, _021E1A5C ; =0x022106D0
+	ldr r0, _021E1A5C ; =UNK04_022106D0
 	mov r1, #2
 	ldr r0, [r0]
 	str r1, [r0]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E1A5C: .word 0x022106D0
+_021E1A5C: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1A60
 MOD04_021E1A60: ; 0x021E1A60
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	sub sp, sp, #0x24c
-	ldr r2, _021E1CC4 ; =0x022106D0
+	ldr r2, _021E1CC4 ; =UNK04_022106D0
 	mov r6, r0
 	ldr r2, [r2]
 	mov r5, r1
@@ -10211,7 +10211,7 @@ MOD04_021E1A60: ; 0x021E1A60
 	str fp, [sp, #0x1c]
 	cmp r0, #0
 	ble _021E1B7C
-	ldr r8, _021E1CC4 ; =0x022106D0
+	ldr r8, _021E1CC4 ; =UNK04_022106D0
 	mov sb, #1
 	mov r7, #0xc
 _021E1AB4:
@@ -10270,12 +10270,12 @@ _021E1B64:
 	cmp r1, r0
 	blt _021E1AB4
 _021E1B7C:
-	ldr r0, _021E1CC4 ; =0x022106D0
+	ldr r0, _021E1CC4 ; =UNK04_022106D0
 	mov r1, #1
 	ldr r0, [r0]
 	strb r1, [r0, #0x1e]
 _021E1B8C:
-	ldr sl, _021E1CC4 ; =0x022106D0
+	ldr sl, _021E1CC4 ; =UNK04_022106D0
 	ldr r0, [sl]
 	ldrb r0, [r0, #0x1c]
 	cmp r0, r5
@@ -10316,14 +10316,14 @@ _021E1C08:
 	cmp r0, sb
 	bne _021E1C9C
 	bl MOD04_021E0F00
-	ldr r2, _021E1CC4 ; =0x022106D0
+	ldr r2, _021E1CC4 ; =UNK04_022106D0
 	mov r1, #0xc
 	ldr r3, [r2]
 	add r2, sp, #0x20
 	ldrb r3, [r3, #0x1c]
 	mla r1, r3, r1, r6
 	bl DWC_LoginIdToUserName
-	ldr r0, _021E1CC4 ; =0x022106D0
+	ldr r0, _021E1CC4 ; =UNK04_022106D0
 	mov r1, #0
 	ldr r4, [r0]
 	add r2, sp, #0x20
@@ -10339,7 +10339,7 @@ _021E1C08:
 	str r0, [sp, #0x14]
 	ldr r0, [r4, #4]
 	bl MOD04_021F0C84
-	ldr r0, _021E1CC4 ; =0x022106D0
+	ldr r0, _021E1CC4 ; =UNK04_022106D0
 	mov r1, #2
 	ldr r0, [r0]
 	add sp, sp, #0x24c
@@ -10357,12 +10357,12 @@ _021E1C9C:
 	add sp, sp, #0x24c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021E1CC4: .word 0x022106D0
+_021E1CC4: .word UNK04_022106D0
 _021E1CC8: .word MOD04_021E1414
 
 	arm_func_start MOD04_021E1CCC
 MOD04_021E1CCC: ; 0x021E1CCC
-	ldr r0, _021E1CF8 ; =0x022106D0
+	ldr r0, _021E1CF8 ; =UNK04_022106D0
 	ldr r1, [r0]
 	cmp r1, #0
 	bxeq lr
@@ -10374,13 +10374,13 @@ MOD04_021E1CCC: ; 0x021E1CCC
 	strb r2, [r0, #0x1f]
 	bx lr
 	.align 2, 0
-_021E1CF8: .word 0x022106D0
+_021E1CF8: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1CFC
 MOD04_021E1CFC: ; 0x021E1CFC
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r0, _021E1D88 ; =0x022106D0
+	ldr r0, _021E1D88 ; =UNK04_022106D0
 	mov r5, #0
 	ldr r4, [r0]
 	bl OS_GetTick
@@ -10398,7 +10398,7 @@ MOD04_021E1CFC: ; 0x021E1CFC
 	cmpeq r0, #0x12c
 	blo _021E1D7C
 	ldr r1, [r4, #8]
-	ldr r0, _021E1D88 ; =0x022106D0
+	ldr r0, _021E1D88 ; =UNK04_022106D0
 	add r1, r1, #1
 	str r1, [r4, #8]
 	ldr r0, [r0]
@@ -10406,7 +10406,7 @@ MOD04_021E1CFC: ; 0x021E1CFC
 	bl MOD04_021F0F18
 	mov r5, r0
 	bl OS_GetTick
-	ldr r2, _021E1D88 ; =0x022106D0
+	ldr r2, _021E1D88 ; =UNK04_022106D0
 	ldr r2, [r2]
 	str r0, [r2, #0xc]
 	str r1, [r2, #0x10]
@@ -10415,23 +10415,23 @@ _021E1D7C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021E1D88: .word 0x022106D0
+_021E1D88: .word UNK04_022106D0
 _021E1D8C: .word 0x000082EA
 
 	arm_func_start MOD04_021E1D90
 MOD04_021E1D90: ; 0x021E1D90
-	ldr r0, _021E1DA0 ; =0x022106D0
+	ldr r0, _021E1DA0 ; =UNK04_022106D0
 	mov r1, #0
 	str r1, [r0]
 	bx lr
 	.align 2, 0
-_021E1DA0: .word 0x022106D0
+_021E1DA0: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1DA4
 MOD04_021E1DA4: ; 0x021E1DA4
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #0x210
-	ldr r1, _021E1E2C ; =0x022106D0
+	ldr r1, _021E1E2C ; =UNK04_022106D0
 	mov r4, r0
 	ldr r3, [r1]
 	ldr r2, [r3, #0x44]
@@ -10443,7 +10443,7 @@ MOD04_021E1DA4: ; 0x021E1DA4
 	ldr r1, [r3, #0x48]
 	blx r2
 _021E1DD8:
-	ldr r0, _021E1E2C ; =0x022106D0
+	ldr r0, _021E1E2C ; =UNK04_022106D0
 	ldr r1, [r0]
 	ldr r0, [r1, #0x34]
 	cmp r0, #0
@@ -10454,7 +10454,7 @@ _021E1DD8:
 	mla r0, r4, r0, r1
 	add r1, sp, #0x108
 	bl MOD04_021E26B8
-	ldr r2, _021E1E2C ; =0x022106D0
+	ldr r2, _021E1E2C ; =UNK04_022106D0
 	mov r1, r0
 	ldr r0, [r2]
 	add r2, sp, #0x108
@@ -10465,12 +10465,12 @@ _021E1DD8:
 	add sp, sp, #0x210
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021E1E2C: .word 0x022106D0
+_021E1E2C: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1E30
 MOD04_021E1E30: ; 0x021E1E30
 	stmdb sp!, {r4, r5, r6, lr}
-	ldr r3, _021E1ED0 ; =0x022106D0
+	ldr r3, _021E1ED0 ; =UNK04_022106D0
 	mov r6, r0
 	ldr r0, [r3]
 	mov r5, r1
@@ -10486,39 +10486,39 @@ _021E1E5C:
 _021E1E64:
 	mvn r0, #0
 	cmp r6, r0
-	ldreq r0, _021E1ED0 ; =0x022106D0
+	ldreq r0, _021E1ED0 ; =UNK04_022106D0
 	ldreq r0, [r0]
 	ldreq r0, [r0, #4]
 	ldreq r0, [r0]
 	ldreq r6, [r0, #0x214]
 	cmp r5, #0
-	ldreq r0, _021E1ED0 ; =0x022106D0
+	ldreq r0, _021E1ED0 ; =UNK04_022106D0
 	mov r1, r6
 	ldreq r0, [r0]
 	ldreq r0, [r0, #4]
 	ldreq r0, [r0]
 	addeq r5, r0, #0x218
 	cmp r4, #0
-	ldreq r0, _021E1ED0 ; =0x022106D0
+	ldreq r0, _021E1ED0 ; =UNK04_022106D0
 	mov r2, r5
 	ldreq r0, [r0]
 	ldreq r0, [r0, #4]
 	ldreq r0, [r0]
 	addeq r4, r0, #0x318
-	ldr r0, _021E1ED0 ; =0x022106D0
+	ldr r0, _021E1ED0 ; =UNK04_022106D0
 	mov r3, r4
 	ldr r0, [r0]
 	ldr r0, [r0, #4]
 	bl MOD04_021F034C
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E1ED0: .word 0x022106D0
+_021E1ED0: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1ED4
 MOD04_021E1ED4: ; 0x021E1ED4
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021E1F14 ; =0x022106D0
+	ldr r0, _021E1F14 ; =UNK04_022106D0
 	ldr r1, [r0]
 	cmp r1, #0
 	addeq sp, sp, #4
@@ -10526,19 +10526,19 @@ MOD04_021E1ED4: ; 0x021E1ED4
 	mov r0, #0
 	str r0, [r1, #8]
 	bl OS_GetTick
-	ldr r2, _021E1F14 ; =0x022106D0
+	ldr r2, _021E1F14 ; =UNK04_022106D0
 	ldr r2, [r2]
 	str r0, [r2, #0xc]
 	str r1, [r2, #0x10]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E1F14: .word 0x022106D0
+_021E1F14: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1F18
 MOD04_021E1F18: ; 0x021E1F18
 	stmdb sp!, {r4, r5, r6, lr}
-	ldr r4, _021E1F80 ; =0x022106D0
+	ldr r4, _021E1F80 ; =UNK04_022106D0
 	mov r6, r0
 	ldr r0, [r4]
 	cmp r0, #0
@@ -10568,13 +10568,13 @@ _021E1F78:
 	mvn r0, #0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E1F80: .word 0x022106D0
+_021E1F80: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1F84
 MOD04_021E1F84: ; 0x021E1F84
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r1, _021E1FE0 ; =0x022106D0
+	ldr r1, _021E1FE0 ; =UNK04_022106D0
 	mov r5, r0
 	ldr r0, [r1]
 	ldr r4, [r0, #0x18]
@@ -10597,13 +10597,13 @@ _021E1FD4:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021E1FE0: .word 0x022106D0
+_021E1FE0: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E1FE4
 MOD04_021E1FE4: ; 0x021E1FE4
 	stmdb sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x210
-	ldr r2, _021E2064 ; =0x022106D0
+	ldr r2, _021E2064 ; =UNK04_022106D0
 	mov r6, r0
 	ldr r0, [r2]
 	mov r5, r1
@@ -10622,7 +10622,7 @@ MOD04_021E1FE4: ; 0x021E1FE4
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F06E4
-	ldr r0, _021E2064 ; =0x022106D0
+	ldr r0, _021E2064 ; =UNK04_022106D0
 	ldr r1, [sp, #4]
 	ldr r0, [r0]
 	add r2, sp, #0x108
@@ -10634,7 +10634,7 @@ MOD04_021E1FE4: ; 0x021E1FE4
 	add sp, sp, #0x210
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E2064: .word 0x022106D0
+_021E2064: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E2068
 MOD04_021E2068: ; 0x021E2068
@@ -10643,7 +10643,7 @@ MOD04_021E2068: ; 0x021E2068
 	mov r4, r1
 	mov r5, r0
 	ldr r0, [r4, #8]
-	ldr r1, _021E20C0 ; =0x0220D354
+	ldr r1, _021E20C0 ; =UNK04_0220D354
 	bl strcmp
 	cmp r0, #0
 	addne sp, sp, #0xc
@@ -10661,14 +10661,14 @@ MOD04_021E2068: ; 0x021E2068
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021E20C0: .word 0x0220D354
+_021E20C0: .word UNK04_0220D354
 _021E20C4: .word MOD04_021E110C
 
 	arm_func_start MOD04_021E20C8
 MOD04_021E20C8: ; 0x021E20C8
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
-	ldr r2, _021E210C ; =0x022106D0
+	ldr r2, _021E210C ; =UNK04_022106D0
 	ldr r2, [r2]
 	ldr r2, [r2, #0x18]
 	cmp r2, #0
@@ -10684,13 +10684,13 @@ MOD04_021E20C8: ; 0x021E20C8
 	add sp, sp, #0xc
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E210C: .word 0x022106D0
+_021E210C: .word UNK04_022106D0
 _021E2110: .word MOD04_021E12B8
 
 	arm_func_start MOD04_021E2114
 MOD04_021E2114: ; 0x021E2114
 	stmdb sp!, {r4, lr}
-	ldr r2, _021E2170 ; =0x022106D0
+	ldr r2, _021E2170 ; =UNK04_022106D0
 	mov r4, r0
 	ldr r2, [r2]
 	cmp r2, #0
@@ -10698,7 +10698,7 @@ MOD04_021E2114: ; 0x021E2114
 	cmp r4, #0
 	ldmeqia sp!, {r4, pc}
 	bl MOD04_021DD6B0
-	ldr r0, _021E2170 ; =0x022106D0
+	ldr r0, _021E2170 ; =UNK04_022106D0
 	ldr r3, [r0]
 	ldr r0, [r3]
 	cmp r0, #0
@@ -10714,13 +10714,13 @@ _021E2168:
 	bl MOD04_021E1CCC
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021E2170: .word 0x022106D0
+_021E2170: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E2174
 MOD04_021E2174: ; 0x021E2174
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r0, _021E2224 ; =0x022106D0
+	ldr r0, _021E2224 ; =UNK04_022106D0
 	ldr r5, [sp, #0x10]
 	ldr r1, [r0]
 	ldr r4, [sp, #0x14]
@@ -10755,7 +10755,7 @@ MOD04_021E2174: ; 0x021E2174
 	ldreqb r0, [r1, #0x1f]
 	addeq r0, r0, #1
 	streqb r0, [r1, #0x1f]
-	ldr r0, _021E2224 ; =0x022106D0
+	ldr r0, _021E2224 ; =UNK04_022106D0
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x1f]
 	add r0, r0, #1
@@ -10763,13 +10763,13 @@ MOD04_021E2174: ; 0x021E2174
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021E2224: .word 0x022106D0
+_021E2224: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E2228
 MOD04_021E2228: ; 0x021E2228
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021E2348 ; =0x022106D0
+	ldr r0, _021E2348 ; =UNK04_022106D0
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -10791,7 +10791,7 @@ MOD04_021E2228: ; 0x021E2228
 _021E227C:
 	bl MOD04_021FBD00
 _021E2280:
-	ldr r0, _021E2348 ; =0x022106D0
+	ldr r0, _021E2348 ; =UNK04_022106D0
 	ldr r0, [r0]
 	ldr r0, [r0, #4]
 	cmp r0, #0
@@ -10803,7 +10803,7 @@ _021E2280:
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {pc}
-	ldr r0, _021E2348 ; =0x022106D0
+	ldr r0, _021E2348 ; =UNK04_022106D0
 	ldr r3, [r0]
 	ldr r0, [r3, #0x18]
 	cmp r0, #0
@@ -10819,7 +10819,7 @@ _021E2280:
 	ldr r1, [r3, #0x14]
 	bl MOD04_021E1A60
 _021E22EC:
-	ldr r0, _021E2348 ; =0x022106D0
+	ldr r0, _021E2348 ; =UNK04_022106D0
 	ldr r3, [r0]
 	ldrb r2, [r3, #0x1c]
 	ldr r1, [r3, #0x14]
@@ -10832,7 +10832,7 @@ _021E22EC:
 	add r0, r0, #1
 	strb r0, [r1, #0x1f]
 _021E231C:
-	ldr r0, _021E2348 ; =0x022106D0
+	ldr r0, _021E2348 ; =UNK04_022106D0
 	ldr r1, [r0]
 	ldrb r0, [r1, #0x1f]
 	cmp r0, #2
@@ -10844,12 +10844,12 @@ _021E231C:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E2348: .word 0x022106D0
+_021E2348: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E234C
 MOD04_021E234C: ; 0x021E234C
 	stmdb sp!, {r4, lr}
-	ldr lr, _021E2428 ; =0x022106D0
+	ldr lr, _021E2428 ; =UNK04_022106D0
 	mov ip, #0
 	str r0, [lr]
 	str ip, [r0]
@@ -10904,11 +10904,11 @@ MOD04_021E234C: ; 0x021E234C
 	str ip, [r0, #0x58]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021E2428: .word 0x022106D0
+_021E2428: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E242C
 MOD04_021E242C: ; 0x021E242C
-	ldr r2, _021E2450 ; =0x022106D0
+	ldr r2, _021E2450 ; =UNK04_022106D0
 	ldr r3, [r2]
 	cmp r3, #0
 	moveq r0, #0
@@ -10918,13 +10918,13 @@ MOD04_021E242C: ; 0x021E242C
 	strne r1, [r2, #0x48]
 	bx lr
 	.align 2, 0
-_021E2450: .word 0x022106D0
+_021E2450: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E2454
 MOD04_021E2454: ; 0x021E2454
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #0x104
-	ldr r2, _021E24DC ; =0x022106D0
+	ldr r2, _021E24DC ; =UNK04_022106D0
 	mov r5, r0
 	ldr r0, [r2]
 	mov r4, r1
@@ -10959,7 +10959,7 @@ _021E248C:
 	add sp, sp, #0x104
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021E24DC: .word 0x022106D0
+_021E24DC: .word UNK04_022106D0
 
 	arm_func_start MOD04_021E24E0
 MOD04_021E24E0: ; 0x021E24E0
@@ -11032,7 +11032,7 @@ MOD04_021E259C: ; 0x021E259C
 	bne _021E2650
 	cmp r6, #0
 	beq _021E260C
-	ldr r0, _021E26B0 ; =0x0220D38C
+	ldr r0, _021E26B0 ; =UNK04_0220D38C
 	add r1, sp, #0
 	add r2, sp, #0xc
 	mov r3, #0x2f
@@ -11049,7 +11049,7 @@ MOD04_021E259C: ; 0x021E259C
 _021E260C:
 	cmp r4, #0
 	beq _021E2668
-	ldr r0, _021E26B4 ; =0x0220D390
+	ldr r0, _021E26B4 ; =UNK04_0220D390
 	add r1, sp, #0
 	add r2, sp, #0xc
 	mov r3, #0x2f
@@ -11093,8 +11093,8 @@ _021E268C:
 	add sp, sp, #0x218
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E26B0: .word 0x0220D38C
-_021E26B4: .word 0x0220D390
+_021E26B0: .word UNK04_0220D38C
+_021E26B4: .word UNK04_0220D390
 
 	arm_func_start MOD04_021E26B8
 MOD04_021E26B8: ; 0x021E26B8
@@ -11108,28 +11108,28 @@ _021E26CC: .word MOD04_021E259C
 
 	arm_func_start MOD04_021E26D0
 MOD04_021E26D0: ; 0x021E26D0
-	ldr r1, _021E26E0 ; =0x022106D8
+	ldr r1, _021E26E0 ; =UNK04_022106D8
 	ldr r1, [r1]
 	str r0, [r1, #0x1a0]
 	bx lr
 	.align 2, 0
-_021E26E0: .word 0x022106D8
+_021E26E0: .word UNK04_022106D8
 
 	arm_func_start MOD04_021E26E4
 MOD04_021E26E4: ; 0x021E26E4
-	ldr r0, _021E26F0 ; =0x022106D8
+	ldr r0, _021E26F0 ; =UNK04_022106D8
 	ldr r0, [r0]
 	bx lr
 	.align 2, 0
-_021E26F0: .word 0x022106D8
+_021E26F0: .word UNK04_022106D8
 
 	arm_func_start MOD04_021E26F4
 MOD04_021E26F4: ; 0x021E26F4
-	ldr r1, _021E2700 ; =0x022106D8
+	ldr r1, _021E2700 ; =UNK04_022106D8
 	str r0, [r1]
 	bx lr
 	.align 2, 0
-_021E2700: .word 0x022106D8
+_021E2700: .word UNK04_022106D8
 
 	arm_func_start MOD04_021E2704
 MOD04_021E2704: ; 0x021E2704
@@ -11243,7 +11243,7 @@ _021E2880:
 	strb r1, [r0, #0xc]
 	bl MOD04_021E26E4
 	ldr r3, [r0, #0x200]
-	ldr r2, _021E2B58 ; =0x0220D394
+	ldr r2, _021E2B58 ; =UNK04_0220D394
 	add r0, sp, #0x10
 	mov r1, #0xc
 	bl OS_SNPrintf
@@ -11433,7 +11433,7 @@ _021E2B04:
 	add sp, sp, #0x20
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E2B58: .word 0x0220D394
+_021E2B58: .word UNK04_0220D394
 _021E2B5C: .word 0x00001388
 
 	arm_func_start MOD04_021E2B60
@@ -11477,7 +11477,7 @@ _021E2BD8:
 	mov r1, fp
 	mov r2, r7
 	bl MI_CpuCopy8
-	ldr r1, _021E2C74 ; =0x0220D398
+	ldr r1, _021E2C74 ; =UNK04_0220D398
 	mov r0, fp
 	mov r2, r6
 	bl strncmp
@@ -11513,7 +11513,7 @@ _021E2BD8:
 	add sp, sp, #0x9c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021E2C74: .word 0x0220D398
+_021E2C74: .word UNK04_0220D398
 
 	arm_func_start MOD04_021E2C78
 MOD04_021E2C78: ; 0x021E2C78
@@ -11624,7 +11624,7 @@ _021E2D88:
 	mov r0, r6
 	mov r1, #0x36
 	bl MOD04_02202254
-	ldr r4, _021E2E0C ; =0x02210704
+	ldr r4, _021E2E0C ; =UNK04_02210704
 	mov r5, #0
 _021E2DE4:
 	ldrb r1, [r4]
@@ -11639,7 +11639,7 @@ _021E2DF8:
 	blt _021E2DE4
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E2E0C: .word 0x02210704
+_021E2E0C: .word UNK04_02210704
 
 	arm_func_start MOD04_021E2E10
 MOD04_021E2E10: ; 0x021E2E10
@@ -11723,30 +11723,30 @@ _021E2EF8:
 	ldmgeia sp!, {r4, pc}
 	mov r0, #0xc
 	mul r2, r1, r0
-	ldr r0, _021E2F5C ; =0x02210704
+	ldr r0, _021E2F5C ; =UNK04_02210704
 	ldrb r0, [r0, r2]
 	cmp r0, #0
 	ldmeqia sp!, {r4, pc}
-	ldr r0, _021E2F60 ; =0x02210705
+	ldr r0, _021E2F60 ; =UNK04_02210705
 	ldrb r0, [r0, r2]
 	cmp r0, #0
 	beq _021E2F44
-	ldr r1, _021E2F64 ; =0x0221070C
+	ldr r1, _021E2F64 ; =UNK04_0221070C
 	mov r0, r4
 	ldr r1, [r1, r2]
 	bl MOD04_022021C0
 	ldmia sp!, {r4, pc}
 _021E2F44:
-	ldr r1, _021E2F64 ; =0x0221070C
+	ldr r1, _021E2F64 ; =UNK04_0221070C
 	mov r0, r4
 	ldr r1, [r1, r2]
 	ldr r1, [r1]
 	bl MOD04_02202220
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021E2F5C: .word 0x02210704
-_021E2F60: .word 0x02210705
-_021E2F64: .word 0x0221070C
+_021E2F5C: .word UNK04_02210704
+_021E2F60: .word UNK04_02210705
+_021E2F64: .word UNK04_0221070C
 
 	arm_func_start MOD04_021E2F68
 MOD04_021E2F68: ; 0x021E2F68
@@ -11766,8 +11766,8 @@ MOD04_021E2F68: ; 0x021E2F68
 	bl MOD04_02203BE4
 	cmp r0, #0
 	ble _021E2FF8
-	ldr r4, _021E30D8 ; =0x0220BAC4
-	ldr r6, _021E30DC ; =0x0220D3A0
+	ldr r4, _021E30D8 ; =UNK04_0220BAC4
+	ldr r6, _021E30DC ; =UNK04_0220D3A0
 	mvn r5, #0
 _021E2FB4:
 	bl MOD04_021E26E4
@@ -11810,7 +11810,7 @@ _021E3028:
 	cmp r6, #0
 	subgt r0, r6, #1
 	ldrgt sl, [r5, r0, lsl #2]
-	ldr r0, _021E30D8 ; =0x0220BAC4
+	ldr r0, _021E30D8 ; =UNK04_0220BAC4
 	movle sl, fp
 	ldr r2, [r0, r6, lsl #2]
 	mov r1, r7
@@ -11835,20 +11835,20 @@ _021E3090:
 	ldr r0, [r0, #0xe4]
 	mov r1, r6
 	bl MOD04_02203BF4
-	ldr r1, _021E30DC ; =0x0220D3A0
+	ldr r1, _021E30DC ; =UNK04_0220D3A0
 	mov r2, r8
 	bl MOD04_02203A48
 	bl MOD04_021E26E4
 	mov r1, #0
 	ldr r0, [r0, #0xe4]
-	ldr r2, _021E30DC ; =0x0220D3A0
+	ldr r2, _021E30DC ; =UNK04_0220D3A0
 	mov r3, r1
 	bl MOD04_02203BD4
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021E30D8: .word 0x0220BAC4
-_021E30DC: .word 0x0220D3A0
+_021E30D8: .word UNK04_0220BAC4
+_021E30DC: .word UNK04_0220D3A0
 
 	arm_func_start MOD04_021E30E0
 MOD04_021E30E0: ; 0x021E30E0
@@ -11878,7 +11878,7 @@ _021E3120:
 	ldrb r0, [r0, #0x15]
 	cmp r0, #0
 	bne _021E31BC
-	ldr r1, _021E32D4 ; =0x0220D3AC
+	ldr r1, _021E32D4 ; =UNK04_0220D3AC
 	mov r0, r6
 	mov r2, r5
 	bl MOD04_0220394C
@@ -11932,7 +11932,7 @@ _021E31BC:
 	mov r0, fp
 	bl MOD04_021DE8C8
 	orr r2, r0, r7, lsl #8
-	ldr r1, _021E32DC ; =0x0220D3A0
+	ldr r1, _021E32DC ; =UNK04_0220D3A0
 	mov r0, r6
 	bl MOD04_02203A48
 	b _021E3250
@@ -11948,7 +11948,7 @@ _021E3238:
 	ldr r0, [sp, #8]
 	bl MOD04_021DE8C8
 	mov r2, r0
-	ldr r1, _021E32DC ; =0x0220D3A0
+	ldr r1, _021E32DC ; =UNK04_0220D3A0
 	mov r0, r6
 	bl MOD04_02203A48
 _021E3250:
@@ -11970,7 +11970,7 @@ _021E3268:
 	bl MOD04_021E26E4
 	mov r1, #0
 	ldr r0, [r0, #0xe4]
-	ldr r2, _021E32DC ; =0x0220D3A0
+	ldr r2, _021E32DC ; =UNK04_0220D3A0
 	mov r3, r1
 	bl MOD04_02203BD4
 _021E32A0:
@@ -11989,9 +11989,9 @@ _021E32C8:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021E32D4: .word 0x0220D3AC
+_021E32D4: .word UNK04_0220D3AC
 _021E32D8: .word 0x007FFFFF
-_021E32DC: .word 0x0220D3A0
+_021E32DC: .word UNK04_0220D3A0
 
 	arm_func_start MOD04_021E32E0
 MOD04_021E32E0: ; 0x021E32E0
@@ -12189,7 +12189,7 @@ _021E3580:
 	mov r0, r6
 	mov r1, #0
 	bl MOD04_02203BF4
-	ldr r1, _021E36AC ; =0x0220D3AC
+	ldr r1, _021E36AC ; =UNK04_0220D3AC
 	mov r2, #0
 	bl MOD04_0220394C
 	mov r4, r0
@@ -12261,7 +12261,7 @@ _021E3684:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021E36AC: .word 0x0220D3AC
+_021E36AC: .word UNK04_0220D3AC
 
 	arm_func_start MOD04_021E36B0
 MOD04_021E36B0: ; 0x021E36B0
@@ -12541,7 +12541,7 @@ _021E39EC: .word 0xFFFEC398
 MOD04_021E39F0: ; 0x021E39F0
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, lr}
 	sub sp, sp, #8
-	ldr r0, _021E3E1C ; =0x022106D4
+	ldr r0, _021E3E1C ; =UNK04_022106D4
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #8
@@ -12566,7 +12566,7 @@ MOD04_021E39F0: ; 0x021E39F0
 	bne _021E3C58
 	mov r0, #0
 	bl MOD04_021E3EC4
-	ldr r1, _021E3E1C ; =0x022106D4
+	ldr r1, _021E3E1C ; =UNK04_022106D4
 	ldr r5, [r1]
 	ldr r1, [r5, #8]
 	cmp r1, r0
@@ -12654,7 +12654,7 @@ _021E3B98:
 	ldrb r0, [r0, #0xd]
 	cmp r0, #1
 	blt _021E3C3C
-	ldr r8, _021E3E1C ; =0x022106D4
+	ldr r8, _021E3E1C ; =UNK04_022106D4
 	mov r5, #0
 	mov r4, #0x11
 	mov r6, r7
@@ -12693,7 +12693,7 @@ _021E3C28:
 	cmp r7, r0
 	ble _021E3BBC
 _021E3C3C:
-	ldr r0, _021E3E1C ; =0x022106D4
+	ldr r0, _021E3E1C ; =UNK04_022106D4
 	add sp, sp, #8
 	ldr r1, [r0]
 	ldrb r0, [r1, #2]
@@ -12711,7 +12711,7 @@ _021E3C58:
 	addne sp, sp, #8
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 _021E3C7C:
-	ldr r0, _021E3E1C ; =0x022106D4
+	ldr r0, _021E3E1C ; =UNK04_022106D4
 	ldr r4, [r0]
 	bl MOD04_021E26E4
 	ldrb r1, [r4, #1]
@@ -12723,7 +12723,7 @@ _021E3C7C:
 	ldrb r0, [r4, #2]
 	cmp r0, #0
 	bne _021E3CF0
-	ldr r0, _021E3E1C ; =0x022106D4
+	ldr r0, _021E3E1C ; =UNK04_022106D4
 	ldr r4, [r0]
 	bl OS_GetTick
 	ldr r3, [r4, #0x10]
@@ -12745,7 +12745,7 @@ _021E3CF0:
 	cmp r0, #0
 	addeq sp, sp, #8
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
-	ldr r0, _021E3E1C ; =0x022106D4
+	ldr r0, _021E3E1C ; =UNK04_022106D4
 	ldr r4, [r0]
 	bl OS_GetTick
 	ldr r3, [r4, #0x18]
@@ -12811,7 +12811,7 @@ _021E3D98:
 	cmp r4, r0
 	ble _021E3D98
 _021E3DF8:
-	ldr r0, _021E3E1C ; =0x022106D4
+	ldr r0, _021E3E1C ; =UNK04_022106D4
 	ldr r4, [r0]
 	bl OS_GetTick
 	str r0, [r4, #0x18]
@@ -12821,14 +12821,14 @@ _021E3DF8:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021E3E1C: .word 0x022106D4
+_021E3E1C: .word UNK04_022106D4
 _021E3E20: .word 0x000082EA
 _021E3E24: .word 0x00001770
 
 	arm_func_start MOD04_021E3E28
 MOD04_021E3E28: ; 0x021E3E28
 	stmdb sp!, {r4, lr}
-	ldr r1, _021E3E98 ; =0x022106D4
+	ldr r1, _021E3E98 ; =UNK04_022106D4
 	mov r4, r0
 	ldr r3, [r1]
 	cmp r3, #0
@@ -12843,20 +12843,20 @@ MOD04_021E3E28: ; 0x021E3E28
 	ldr r0, [r1]
 	strb r2, [r0, #2]
 	bl OS_GetTick
-	ldr r2, _021E3E98 ; =0x022106D4
+	ldr r2, _021E3E98 ; =UNK04_022106D4
 	cmp r4, #0
 	ldr r2, [r2]
 	str r0, [r2, #0x18]
 	str r1, [r2, #0x1c]
 	ldmneia sp!, {r4, pc}
 	bl OS_GetTick
-	ldr r2, _021E3E98 ; =0x022106D4
+	ldr r2, _021E3E98 ; =UNK04_022106D4
 	ldr r2, [r2]
 	str r0, [r2, #0x10]
 	str r1, [r2, #0x14]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021E3E98: .word 0x022106D4
+_021E3E98: .word UNK04_022106D4
 
 	arm_func_start MOD04_021E3E9C
 MOD04_021E3E9C: ; 0x021E3E9C
@@ -12939,7 +12939,7 @@ _021E3F8C:
 	arm_func_start MOD04_021E3F98
 MOD04_021E3F98: ; 0x021E3F98
 	stmdb sp!, {r4, lr}
-	ldr r1, _021E405C ; =0x0220D3B4
+	ldr r1, _021E405C ; =UNK04_0220D3B4
 	mvn r2, #0
 	mov r4, r0
 	bl MOD04_0220394C
@@ -12947,27 +12947,27 @@ MOD04_021E3F98: ; 0x021E3F98
 	cmp r0, r2
 	moveq r0, #0
 	ldmeqia sp!, {r4, pc}
-	ldr r1, _021E4060 ; =0x0220D3C0
+	ldr r1, _021E4060 ; =UNK04_0220D3C0
 	mov r0, r4
 	bl MOD04_0220394C
 	mvn r2, #0
 	cmp r0, r2
 	moveq r0, #0
 	ldmeqia sp!, {r4, pc}
-	ldr r1, _021E4064 ; =0x0220D3CC
+	ldr r1, _021E4064 ; =UNK04_0220D3CC
 	mov r0, r4
 	bl MOD04_0220394C
 	mvn r2, #0
 	cmp r0, r2
 	moveq r0, #0
 	ldmeqia sp!, {r4, pc}
-	ldr r1, _021E4068 ; =0x0220D3D8
+	ldr r1, _021E4068 ; =UNK04_0220D3D8
 	mov r0, r4
 	bl MOD04_0220394C
 	mvn r1, #0
 	cmp r0, r1
 	bne _021E4028
-	ldr r1, _021E4068 ; =0x0220D3D8
+	ldr r1, _021E4068 ; =UNK04_0220D3D8
 	mov r0, r4
 	mov r2, #0
 	bl MOD04_0220394C
@@ -12975,7 +12975,7 @@ MOD04_021E3F98: ; 0x021E3F98
 	moveq r0, #0
 	ldmeqia sp!, {r4, pc}
 _021E4028:
-	ldr r1, _021E406C ; =0x0220D3E4
+	ldr r1, _021E406C ; =UNK04_0220D3E4
 	mov r0, r4
 	mvn r2, #0
 	bl MOD04_0220394C
@@ -12983,18 +12983,18 @@ _021E4028:
 	cmp r0, r1
 	moveq r0, #0
 	ldmeqia sp!, {r4, pc}
-	ldr r1, _021E4070 ; =0x0220D3AC
+	ldr r1, _021E4070 ; =UNK04_0220D3AC
 	mov r0, r4
 	mov r2, #0
 	bl MOD04_0220394C
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021E405C: .word 0x0220D3B4
-_021E4060: .word 0x0220D3C0
-_021E4064: .word 0x0220D3CC
-_021E4068: .word 0x0220D3D8
-_021E406C: .word 0x0220D3E4
-_021E4070: .word 0x0220D3AC
+_021E405C: .word UNK04_0220D3B4
+_021E4060: .word UNK04_0220D3C0
+_021E4064: .word UNK04_0220D3CC
+_021E4068: .word UNK04_0220D3D8
+_021E406C: .word UNK04_0220D3E4
+_021E4070: .word UNK04_0220D3AC
 
 	arm_func_start MOD04_021E4074
 MOD04_021E4074: ; 0x021E4074
@@ -13073,7 +13073,7 @@ _021E415C:
 MOD04_021E4164: ; 0x021E4164
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #4
-	ldr r6, _021E41BC ; =0x02210704
+	ldr r6, _021E41BC ; =UNK04_02210704
 	mov r7, #0
 	mov r4, r7
 	mov r5, #4
@@ -13089,14 +13089,14 @@ _021E4194:
 	cmp r7, #0x9a
 	add r6, r6, #0xc
 	blt _021E417C
-	ldr r1, _021E41BC ; =0x02210704
+	ldr r1, _021E41BC ; =UNK04_02210704
 	ldr r2, _021E41C0 ; =0x00000738
 	mov r0, #0
 	bl MIi_CpuClear32
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021E41BC: .word 0x02210704
+_021E41BC: .word UNK04_02210704
 _021E41C0: .word 0x00000738
 
 	arm_func_start MOD04_021E41C4
@@ -14036,7 +14036,7 @@ _021E4EC8:
 MOD04_021E4ED4: ; 0x021E4ED4
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
-	ldr r1, _021E4F90 ; =0x0220D3F0
+	ldr r1, _021E4F90 ; =UNK04_0220D3F0
 	mov r0, #1
 	mov r2, #0
 	bl MOD04_021E1E30
@@ -14083,7 +14083,7 @@ _021E4F28:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021E4F90: .word 0x0220D3F0
+_021E4F90: .word UNK04_0220D3F0
 
 	arm_func_start MOD04_021E4F94
 MOD04_021E4F94: ; 0x021E4F94
@@ -14589,7 +14589,7 @@ _021E56BC:
 	ldrb r0, [r0, #0x15]
 	cmp r0, #2
 	beq _021E56DC
-	ldr r1, _021E581C ; =0x0220D3F0
+	ldr r1, _021E581C ; =UNK04_0220D3F0
 	mov r0, #2
 	mov r2, r4
 	bl MOD04_021E1E30
@@ -14648,7 +14648,7 @@ _021E5780:
 	cmp r0, #0
 	addne sp, sp, #0x20
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
-	ldr r0, _021E5820 ; =0x022106DC
+	ldr r0, _021E5820 ; =UNK04_022106DC
 	ldrb r1, [r0]
 	cmp r1, #1
 	moveq r1, #1
@@ -14682,8 +14682,8 @@ _021E57E8:
 	add sp, sp, #0x20
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021E581C: .word 0x0220D3F0
-_021E5820: .word 0x022106DC
+_021E581C: .word UNK04_0220D3F0
+_021E5820: .word UNK04_022106DC
 
 	arm_func_start MOD04_021E5824
 MOD04_021E5824: ; 0x021E5824
@@ -15199,19 +15199,19 @@ _021E5F1C:
 	ldr r0, [sp, #0x2c]
 	cmp r0, #4
 	bne _021E5DB4
-	ldr r0, _021E602C ; =0x0220D3F4
+	ldr r0, _021E602C ; =UNK04_0220D3F4
 	add r1, sp, #0x1c
 	add r2, sp, #0x30
 	mov r3, r5
 	bl MOD04_021DE9F4
 	mov r6, r0
-	ldr r0, _021E6030 ; =0x0220D3F8
+	ldr r0, _021E6030 ; =UNK04_0220D3F8
 	add r1, sp, #0x12
 	add r2, sp, #0x30
 	mov r3, r5
 	bl MOD04_021DE9F4
 	mov fp, r0
-	ldr r0, _021E6034 ; =0x0220D3FC
+	ldr r0, _021E6034 ; =UNK04_0220D3FC
 	add r1, sp, #0x10
 	add r2, sp, #0x30
 	mov r3, r5
@@ -15248,9 +15248,9 @@ _021E5F1C:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
 _021E6028: .word 0x00000BB8
-_021E602C: .word 0x0220D3F4
-_021E6030: .word 0x0220D3F8
-_021E6034: .word 0x0220D3FC
+_021E602C: .word UNK04_0220D3F4
+_021E6030: .word UNK04_0220D3F8
+_021E6034: .word UNK04_0220D3FC
 
 	arm_func_start MOD04_021E6038
 MOD04_021E6038: ; 0x021E6038
@@ -15293,7 +15293,7 @@ _021E60A0:
 	mov r6, r0
 	bl MOD04_021E26E4
 	mov r4, r0
-	ldr r1, _021E61E4 ; =0x0220D3AC
+	ldr r1, _021E61E4 ; =UNK04_0220D3AC
 	mov r0, r6
 	mov r2, #0
 	bl MOD04_0220394C
@@ -15367,7 +15367,7 @@ _021E6160:
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021E61E4: .word 0x0220D3AC
+_021E61E4: .word UNK04_0220D3AC
 _021E61E8: .word 0x00001770
 
 	arm_func_start MOD04_021E61EC
@@ -15710,7 +15710,7 @@ _021E66B0:
 	mov r4, #3
 	b _021E6724
 _021E66B8:
-	ldr r0, _021E672C ; =0x022106DC
+	ldr r0, _021E672C ; =UNK04_022106DC
 	ldrb r1, [r0]
 	cmp r1, #1
 	bne _021E66D8
@@ -15745,7 +15745,7 @@ _021E6724:
 	mov r0, r4
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021E672C: .word 0x022106DC
+_021E672C: .word UNK04_022106DC
 
 	arm_func_start MOD04_021E6730
 MOD04_021E6730: ; 0x021E6730
@@ -16587,7 +16587,7 @@ _021E7370:
 	blt _021E7358
 	b _021E7608
 _021E7380:
-	ldr r0, _021E7614 ; =0x022106D4
+	ldr r0, _021E7614 ; =UNK04_022106D4
 	ldr r4, [r0]
 	cmp r4, #0
 	beq _021E73E0
@@ -16640,7 +16640,7 @@ _021E7424:
 	bl MOD04_021E3F28
 	cmp r0, #0xff
 	beq _021E7608
-	ldr r1, _021E7614 ; =0x022106D4
+	ldr r1, _021E7614 ; =UNK04_022106D4
 	mov r4, #1
 	ldr r3, [r1]
 	mov r5, r4,lsl  r0
@@ -16768,7 +16768,7 @@ _021E7608:
 	add sp, sp, #0x118
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021E7614: .word 0x022106D4
+_021E7614: .word UNK04_022106D4
 _021E7618: .word 0x000082EA
 
 	arm_func_start MOD04_021E761C
@@ -16829,9 +16829,9 @@ MOD04_021E76C8: ; 0x021E76C8
 	mov r0, #3
 	mov r6, r1
 	str r0, [sp]
-	ldr ip, _021E7760 ; =0x0220D410
-	ldr r2, _021E7764 ; =0x0220D400
-	ldr r3, _021E7768 ; =0x0220D408
+	ldr ip, _021E7760 ; =UNK04_0220D410
+	ldr r2, _021E7764 ; =UNK04_0220D400
+	ldr r3, _021E7768 ; =UNK04_0220D408
 	add r0, sp, #8
 	mov r1, #0x200
 	str ip, [sp, #4]
@@ -16861,9 +16861,9 @@ _021E7748:
 	add sp, sp, #0x208
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021E7760: .word 0x0220D410
-_021E7764: .word 0x0220D400
-_021E7768: .word 0x0220D408
+_021E7760: .word UNK04_0220D410
+_021E7764: .word UNK04_0220D400
+_021E7768: .word UNK04_0220D408
 
 	arm_func_start MOD04_021E776C
 MOD04_021E776C: ; 0x021E776C
@@ -16885,7 +16885,7 @@ MOD04_021E776C: ; 0x021E776C
 _021E77A8:
 	mov r4, #0
 _021E77AC:
-	ldr r6, _021E7880 ; =0x0220D398
+	ldr r6, _021E7880 ; =UNK04_0220D398
 	add sb, sp, #4
 	ldrb r3, [r6]
 	ldrb r2, [r6, #1]
@@ -16940,7 +16940,7 @@ _021E781C:
 	add sp, sp, #0x9c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021E7880: .word 0x0220D398
+_021E7880: .word UNK04_0220D398
 
 	arm_func_start MOD04_021E7884
 MOD04_021E7884: ; 0x021E7884
@@ -16983,7 +16983,7 @@ _021E7900:
 	cmp sb, #0
 	beq _021E7978
 	ldr r3, [sl]
-	ldr r2, _021E7A3C ; =0x0220D394
+	ldr r2, _021E7A3C ; =UNK04_0220D394
 	add r0, sp, #0x20
 	mov r1, #0x200
 	bl OS_SNPrintf
@@ -16995,7 +16995,7 @@ _021E7900:
 	mov r5, #0x10
 _021E793C:
 	ldr r3, [sl, r7, lsl #2]
-	ldr r2, _021E7A40 ; =0x0220D414
+	ldr r2, _021E7A40 ; =UNK04_0220D414
 	mov r0, r6
 	mov r1, r5
 	bl OS_SNPrintf
@@ -17063,8 +17063,8 @@ _021E7A30:
 	add sp, sp, #0x224
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021E7A3C: .word 0x0220D394
-_021E7A40: .word 0x0220D414
+_021E7A3C: .word UNK04_0220D394
+_021E7A40: .word UNK04_0220D414
 
 	arm_func_start MOD04_021E7A44
 MOD04_021E7A44: ; 0x021E7A44
@@ -17328,30 +17328,30 @@ MOD04_021E7DF4: ; 0x021E7DF4
 	stmdb sp!, {lr}
 	sub sp, sp, #0x24
 	mov lr, #3
-	ldr ip, _021E7E48 ; =0x0220D3AC
+	ldr ip, _021E7E48 ; =UNK04_0220D3AC
 	str lr, [sp]
 	str ip, [sp, #4]
 	str r1, [sp, #8]
 	str r2, [sp, #0xc]
 	str r2, [sp, #0x10]
-	ldr r2, _021E7E4C ; =0x0220D3CC
-	ldr r1, _021E7E50 ; =0x0220D3D8
+	ldr r2, _021E7E4C ; =UNK04_0220D3CC
+	ldr r1, _021E7E50 ; =UNK04_0220D3D8
 	str r2, [sp, #0x14]
 	str r3, [sp, #0x18]
 	str r1, [sp, #0x1c]
-	ldr r2, _021E7E54 ; =0x0220D418
-	ldr r3, _021E7E58 ; =0x0220D3E4
+	ldr r2, _021E7E54 ; =UNK04_0220D418
+	ldr r3, _021E7E58 ; =UNK04_0220D3E4
 	mov r1, #0x100
 	str ip, [sp, #0x20]
 	bl OS_SNPrintf
 	add sp, sp, #0x24
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E7E48: .word 0x0220D3AC
-_021E7E4C: .word 0x0220D3CC
-_021E7E50: .word 0x0220D3D8
-_021E7E54: .word 0x0220D418
-_021E7E58: .word 0x0220D3E4
+_021E7E48: .word UNK04_0220D3AC
+_021E7E4C: .word UNK04_0220D3CC
+_021E7E50: .word UNK04_0220D3D8
+_021E7E54: .word UNK04_0220D418
+_021E7E58: .word UNK04_0220D3E4
 
 	arm_func_start MOD04_021E7E5C
 MOD04_021E7E5C: ; 0x021E7E5C
@@ -17383,7 +17383,7 @@ MOD04_021E7E5C: ; 0x021E7E5C
 	bne _021E7EF4
 _021E7EC4:
 	add r1, sp, #0x100
-	ldr r2, _021E8020 ; =0x02210704
+	ldr r2, _021E8020 ; =UNK04_02210704
 	add r1, r1, #0x13
 	mov r3, #0
 _021E7ED4:
@@ -17423,12 +17423,12 @@ _021E7F20:
 	ldrb r3, [r0, #0x15]
 	add r0, sp, #0xc
 	bl MOD04_021E7DF4
-	ldr r0, _021E8024 ; =0x022106E0
+	ldr r0, _021E8024 ; =UNK04_022106E0
 	ldr r5, [r0]
 	cmp r5, #0
 	beq _021E7FAC
 	add r0, sp, #0xc
-	ldr r2, _021E8028 ; =0x0220D470
+	ldr r2, _021E8028 ; =UNK04_0220D470
 	mov r3, r0
 	mov r1, #0x100
 	str r5, [sp]
@@ -17438,8 +17438,8 @@ _021E7F84:
 	bl MOD04_021E26E4
 	ldr r5, [r0, #0x208]
 _021E7F8C:
-	ldr r2, _021E802C ; =0x0220D47C
-	ldr r3, _021E8030 ; =0x0220D3AC
+	ldr r2, _021E802C ; =UNK04_0220D47C
+	ldr r3, _021E8030 ; =UNK04_0220D3AC
 	add r0, sp, #0xc
 	mov r1, #0x100
 	str r5, [sp]
@@ -17478,11 +17478,11 @@ _021E7FD0:
 	add sp, sp, #0x1b0
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021E8020: .word 0x02210704
-_021E8024: .word 0x022106E0
-_021E8028: .word 0x0220D470
-_021E802C: .word 0x0220D47C
-_021E8030: .word 0x0220D3AC
+_021E8020: .word UNK04_02210704
+_021E8024: .word UNK04_022106E0
+_021E8028: .word UNK04_0220D470
+_021E802C: .word UNK04_0220D47C
+_021E8030: .word UNK04_0220D3AC
 
 	arm_func_start MOD04_021E8034
 MOD04_021E8034: ; 0x021E8034
@@ -17506,14 +17506,14 @@ _021E8074:
 	bl MOD04_02200D6C
 	mov r0, #0
 	bl MOD04_021E26D0
-	ldr r0, _021E80C0 ; =0x022106E0
+	ldr r0, _021E80C0 ; =UNK04_022106E0
 	ldr r1, [r0]
 	cmp r1, #0
 	beq _021E80A8
 	mov r0, #4
 	mov r2, #0
 	bl MOD04_021DD904
-	ldr r0, _021E80C0 ; =0x022106E0
+	ldr r0, _021E80C0 ; =UNK04_022106E0
 	mov r1, #0
 	str r1, [r0]
 _021E80A8:
@@ -17524,7 +17524,7 @@ _021E80A8:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E80C0: .word 0x022106E0
+_021E80C0: .word UNK04_022106E0
 
 	arm_func_start MOD04_021E80C4
 MOD04_021E80C4: ; 0x021E80C4
@@ -17551,28 +17551,28 @@ MOD04_021E80C4: ; 0x021E80C4
 	mov r1, #0
 	strb r1, [r0, #0x2d0]
 	mov r0, #0x32
-	ldr r1, _021E8160 ; =0x0220D3AC
+	ldr r1, _021E8160 ; =UNK04_0220D3AC
 	bl MOD04_0220277C
 	mov r0, #0x33
-	ldr r1, _021E8164 ; =0x0220D3CC
+	ldr r1, _021E8164 ; =UNK04_0220D3CC
 	bl MOD04_0220277C
 	mov r0, #0x34
-	ldr r1, _021E8168 ; =0x0220D3D8
+	ldr r1, _021E8168 ; =UNK04_0220D3D8
 	bl MOD04_0220277C
 	mov r0, #0x35
-	ldr r1, _021E816C ; =0x0220D3E4
+	ldr r1, _021E816C ; =UNK04_0220D3E4
 	bl MOD04_0220277C
 	mov r0, #0x36
-	ldr r1, _021E8170 ; =0x0220D3A0
+	ldr r1, _021E8170 ; =UNK04_0220D3A0
 	bl MOD04_0220277C
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021E8160: .word 0x0220D3AC
-_021E8164: .word 0x0220D3CC
-_021E8168: .word 0x0220D3D8
-_021E816C: .word 0x0220D3E4
-_021E8170: .word 0x0220D3A0
+_021E8160: .word UNK04_0220D3AC
+_021E8164: .word UNK04_0220D3CC
+_021E8168: .word UNK04_0220D3D8
+_021E816C: .word UNK04_0220D3E4
+_021E8170: .word UNK04_0220D3A0
 
 	arm_func_start MOD04_021E8174
 MOD04_021E8174: ; 0x021E8174
@@ -17836,39 +17836,39 @@ MOD04_021E854C: ; 0x021E854C
 	sub sp, sp, #4
 	mov r0, #0
 	bl MOD04_021E26F4
-	ldr r0, _021E85C8 ; =0x022106E0
+	ldr r0, _021E85C8 ; =UNK04_022106E0
 	ldr r1, [r0]
 	cmp r1, #0
 	beq _021E8584
 	mov r0, #4
 	mov r2, #0
 	bl MOD04_021DD904
-	ldr r0, _021E85C8 ; =0x022106E0
+	ldr r0, _021E85C8 ; =UNK04_022106E0
 	mov r1, #0
 	str r1, [r0]
 _021E8584:
 	bl MOD04_021E4164
-	ldr r0, _021E85CC ; =0x022106D4
+	ldr r0, _021E85CC ; =UNK04_022106D4
 	ldr r1, [r0]
 	cmp r1, #0
 	beq _021E85B0
 	mov r0, #4
 	mov r2, #0
 	bl MOD04_021DD904
-	ldr r0, _021E85CC ; =0x022106D4
+	ldr r0, _021E85CC ; =UNK04_022106D4
 	mov r1, #0
 	str r1, [r0]
 _021E85B0:
-	ldr r0, _021E85D0 ; =0x022106DC
+	ldr r0, _021E85D0 ; =UNK04_022106DC
 	mov r1, #0
 	strb r1, [r0]
 	strb r1, [r0, #1]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E85C8: .word 0x022106E0
-_021E85CC: .word 0x022106D4
-_021E85D0: .word 0x022106DC
+_021E85C8: .word UNK04_022106E0
+_021E85CC: .word UNK04_022106D4
+_021E85D0: .word UNK04_022106DC
 
 	arm_func_start MOD04_021E85D4
 MOD04_021E85D4: ; 0x021E85D4
@@ -17882,12 +17882,12 @@ MOD04_021E85D4: ; 0x021E85D4
 	ldmneia sp!, {pc}
 	bl MOD04_021E26E4
 	ldrb r1, [r0, #0x16]
-	ldr r2, _021E8694 ; =0x0220D394
+	ldr r2, _021E8694 ; =UNK04_0220D394
 	add r0, sp, #0
 	add r3, r1, #1
 	mov r1, #0xc
 	bl OS_SNPrintf
-	ldr r0, _021E8698 ; =0x0220D484
+	ldr r0, _021E8698 ; =UNK04_0220D484
 	add r1, sp, #0
 	add r2, sp, #0xc
 	mov r3, #0x2f
@@ -17897,19 +17897,19 @@ MOD04_021E85D4: ; 0x021E85D4
 	add r0, sp, #0
 	mov r1, #0xc
 	add r3, r2, #1
-	ldr r2, _021E8694 ; =0x0220D394
+	ldr r2, _021E8694 ; =UNK04_0220D394
 	bl OS_SNPrintf
-	ldr r0, _021E869C ; =0x0220D488
+	ldr r0, _021E869C ; =UNK04_0220D488
 	add r1, sp, #0
 	add r2, sp, #0xc
 	mov r3, #0x2f
 	bl MOD04_021DEB0C
-	ldr r2, _021E8694 ; =0x0220D394
+	ldr r2, _021E8694 ; =UNK04_0220D394
 	add r0, sp, #0
 	mov r1, #0xc
 	mov r3, #3
 	bl OS_SNPrintf
-	ldr r0, _021E86A0 ; =0x0220D3F4
+	ldr r0, _021E86A0 ; =UNK04_0220D3F4
 	add r1, sp, #0
 	add r2, sp, #0xc
 	mov r3, #0x2f
@@ -17921,10 +17921,10 @@ MOD04_021E85D4: ; 0x021E85D4
 	add sp, sp, #0x2c
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021E8694: .word 0x0220D394
-_021E8698: .word 0x0220D484
-_021E869C: .word 0x0220D488
-_021E86A0: .word 0x0220D3F4
+_021E8694: .word UNK04_0220D394
+_021E8698: .word UNK04_0220D484
+_021E869C: .word UNK04_0220D488
+_021E86A0: .word UNK04_0220D3F4
 
 	arm_func_start MOD04_021E86A4
 MOD04_021E86A4: ; 0x021E86A4
@@ -17934,7 +17934,7 @@ MOD04_021E86A4: ; 0x021E86A4
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r0, _021E8748 ; =0x022106E4
+	ldr r0, _021E8748 ; =UNK04_022106E4
 	mov r1, #0
 	mov r2, #0x20
 	bl MI_CpuFill8
@@ -17943,7 +17943,7 @@ MOD04_021E86A4: ; 0x021E86A4
 	ldrb r0, [r0, #0xe]
 	cmp r0, #0
 	blt _021E8730
-	ldr r5, _021E8748 ; =0x022106E4
+	ldr r5, _021E8748 ; =UNK04_022106E4
 	mov r4, #1
 _021E86E8:
 	bl MOD04_021E26E4
@@ -17965,14 +17965,14 @@ _021E86E8:
 	cmp r6, r0
 	ble _021E86E8
 _021E8730:
-	ldr r0, _021E8748 ; =0x022106E4
+	ldr r0, _021E8748 ; =UNK04_022106E4
 	str r0, [r7]
 	bl MOD04_021E26E4
 	ldrb r0, [r0, #0xe]
 	add r0, r0, #1
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021E8748: .word 0x022106E4
+_021E8748: .word UNK04_022106E4
 
 	arm_func_start MOD04_021E874C
 MOD04_021E874C: ; 0x021E874C
@@ -18481,7 +18481,7 @@ MOD04_021E8E08: ; 0x021E8E08
 	mov r0, r4
 	mov r1, r5
 	bl MOD04_021DD6B0
-	ldr r1, _021E8EC8 ; =0x0220D3F0
+	ldr r1, _021E8EC8 ; =UNK04_0220D3F0
 	mov r0, #1
 	mov r2, #0
 	bl MOD04_021E1E30
@@ -18515,7 +18515,7 @@ MOD04_021E8E08: ; 0x021E8E08
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021E8EC8: .word 0x0220D3F0
+_021E8EC8: .word UNK04_0220D3F0
 
 	arm_func_start MOD04_021E8ECC
 MOD04_021E8ECC: ; 0x021E8ECC
@@ -18620,7 +18620,7 @@ _021E8FC4:
 _021E9030:
 	bl MOD04_021E26E4
 	ldr r3, [r0, #0x200]
-	ldr r2, _021E91F8 ; =0x0220D394
+	ldr r2, _021E91F8 ; =UNK04_0220D394
 	add r0, sp, #0x10
 	mov r1, #0xc
 	bl OS_SNPrintf
@@ -18738,7 +18738,7 @@ _021E91E8:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021E91F8: .word 0x0220D394
+_021E91F8: .word UNK04_0220D394
 _021E91FC: .word 0x00001388
 _021E9200: .word 0xFFFEABC4
 
@@ -18761,7 +18761,7 @@ MOD04_021E9204: ; 0x021E9204
 	cmp r0, #0
 	beq _021E925C
 _021E9244:
-	ldr r1, _021E944C ; =0x0220D48C
+	ldr r1, _021E944C ; =UNK04_0220D48C
 	mov r0, r8
 	mvn r2, #0
 	bl MOD04_021FD6B0
@@ -18773,7 +18773,7 @@ _021E925C:
 	mvn r2, #0
 	cmp r5, r2
 	bne _021E9290
-	ldr r1, _021E9450 ; =0x0220D498
+	ldr r1, _021E9450 ; =UNK04_0220D498
 	mov r0, r8
 	bl MOD04_021FD6B0
 	ldr r1, _021E9454 ; =0xFFFEABC4
@@ -18831,7 +18831,7 @@ _021E92D4:
 	strh r6, [r0, #0x90]
 	b _021E9364
 _021E934C:
-	ldr r1, _021E9458 ; =0x0220D4A4
+	ldr r1, _021E9458 ; =UNK04_0220D4A4
 	mov r0, r8
 	mvn r2, #0
 	bl MOD04_021FD6B0
@@ -18899,10 +18899,10 @@ _021E93D4:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021E944C: .word 0x0220D48C
-_021E9450: .word 0x0220D498
+_021E944C: .word UNK04_0220D48C
+_021E9450: .word UNK04_0220D498
 _021E9454: .word 0xFFFEABC4
-_021E9458: .word 0x0220D4A4
+_021E9458: .word UNK04_0220D4A4
 _021E945C: .word 0xFFFEC5E6
 _021E9460: .word 0x0000FFFF
 
@@ -18958,7 +18958,7 @@ _021E94EC:
 	bl MOD04_022011A8
 	b _021E9558
 _021E9518:
-	ldr r1, _021E9564 ; =0x0220F018
+	ldr r1, _021E9564 ; =UNK04_0220F018
 	mov r0, r4
 	mov r2, #6
 	bl memcmp
@@ -18980,7 +18980,7 @@ _021E9558:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021E9564: .word 0x0220F018
+_021E9564: .word UNK04_0220F018
 
 	arm_func_start MOD04_021E9568
 MOD04_021E9568: ; 0x021E9568
@@ -19752,7 +19752,7 @@ _021EA0A4:
 	addne sp, sp, #0x18
 	ldmneia sp!, {r4, r5, r6, pc}
 _021EA0C8:
-	ldr r1, _021EA134 ; =0x0220D3F0
+	ldr r1, _021EA134 ; =UNK04_0220D3F0
 	mov r0, #5
 	mov r2, #0
 	bl MOD04_021E1E30
@@ -19781,7 +19781,7 @@ _021EA110:
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
 _021EA130: .word MOD04_021E32E4
-_021EA134: .word 0x0220D3F0
+_021EA134: .word UNK04_0220D3F0
 
 	arm_func_start MOD04_021EA138
 MOD04_021EA138: ; 0x021EA138
@@ -19810,7 +19810,7 @@ MOD04_021EA138: ; 0x021EA138
 	bl MOD04_021E26E4
 	mov r2, #0
 	strb r2, [r0, #0xe]
-	ldr r1, _021EA1DC ; =0x022106DC
+	ldr r1, _021EA1DC ; =UNK04_022106DC
 	mov r0, #0xa
 	strb r2, [r1, #1]
 	bl MOD04_021E26D0
@@ -19827,7 +19827,7 @@ MOD04_021EA138: ; 0x021EA138
 	bl MOD04_021EA1E0
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EA1DC: .word 0x022106DC
+_021EA1DC: .word UNK04_022106DC
 
 	arm_func_start MOD04_021EA1E0
 MOD04_021EA1E0: ; 0x021EA1E0
@@ -20020,7 +20020,7 @@ MOD04_021EA368: ; 0x021EA368
 	mov r1, #0
 	str r1, [r0, #0x480]
 	bl MOD04_021E4164
-	ldr r1, _021EA4D0 ; =0x022106DC
+	ldr r1, _021EA4D0 ; =UNK04_022106DC
 	mov r0, #0
 	strb r0, [r1]
 	strb r0, [r1, #1]
@@ -20028,7 +20028,7 @@ MOD04_021EA368: ; 0x021EA368
 	bl MOD04_021E8174
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EA4D0: .word 0x022106DC
+_021EA4D0: .word UNK04_022106DC
 
 	arm_func_start MOD04_021EA4D4
 MOD04_021EA4D4: ; 0x021EA4D4
@@ -20115,7 +20115,7 @@ _021EA5C4:
 MOD04_021EA5D8: ; 0x021EA5D8
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #4
-	ldr r3, _021EA6D0 ; =0x02210E3C
+	ldr r3, _021EA6D0 ; =UNK04_02210E3C
 	mov r7, r0
 	ldr r4, [r3]
 	mov r3, #0x30
@@ -20153,7 +20153,7 @@ _021EA644:
 	strb r0, [r4, #0x1d]
 	mov r1, #0
 	str r1, [r4, #0x10]
-	ldr r0, _021EA6D0 ; =0x02210E3C
+	ldr r0, _021EA6D0 ; =UNK04_02210E3C
 	str r1, [r4, #0x18]
 	ldr r0, [r0]
 	ldr r3, [r0, #0x604]
@@ -20163,7 +20163,7 @@ _021EA644:
 	mov r0, r7
 	blx r3
 _021EA694:
-	ldr r0, _021EA6D0 ; =0x02210E3C
+	ldr r0, _021EA6D0 ; =UNK04_02210E3C
 	ldr r0, [r0]
 	ldr r0, [r0, #0x608]
 	cmp r0, #0
@@ -20179,14 +20179,14 @@ _021EA694:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EA6D0: .word 0x02210E3C
+_021EA6D0: .word UNK04_02210E3C
 _021EA6D4: .word 0xFFFE82AC
 
 	arm_func_start MOD04_021EA6D8
 MOD04_021EA6D8: ; 0x021EA6D8
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
-	ldr r4, _021EA79C ; =0x02210E3C
+	ldr r4, _021EA79C ; =UNK04_02210E3C
 	mov r3, #0x30
 	ldr r4, [r4]
 	mov r7, r1
@@ -20239,7 +20239,7 @@ _021EA790:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EA79C: .word 0x02210E3C
+_021EA79C: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EA7A0
 MOD04_021EA7A0: ; 0x021EA7A0
@@ -20248,7 +20248,7 @@ MOD04_021EA7A0: ; 0x021EA7A0
 	mov r7, r1
 	mov r6, r2
 	bl MOD04_021DF748
-	ldr r1, _021EA854 ; =0x02210E3C
+	ldr r1, _021EA854 ; =UNK04_02210E3C
 	mov r4, r0
 	ldr r1, [r1]
 	mov r0, #0x30
@@ -20264,7 +20264,7 @@ MOD04_021EA7A0: ; 0x021EA7A0
 	mov r0, r7
 	mov r2, r6
 	bl MI_CpuCopy8
-	ldr r0, _021EA854 ; =0x02210E3C
+	ldr r0, _021EA854 ; =UNK04_02210E3C
 	ldr r0, [r0]
 	ldr r3, [r0, #0x604]
 	cmp r3, #0
@@ -20274,7 +20274,7 @@ MOD04_021EA7A0: ; 0x021EA7A0
 	mov r2, r6
 	blx r3
 _021EA818:
-	ldr r0, _021EA854 ; =0x02210E3C
+	ldr r0, _021EA854 ; =UNK04_02210E3C
 	ldr r0, [r0]
 	ldr r0, [r0, #0x608]
 	cmp r0, #0
@@ -20290,7 +20290,7 @@ _021EA818:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EA854: .word 0x02210E3C
+_021EA854: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EA858
 MOD04_021EA858: ; 0x021EA858
@@ -20342,7 +20342,7 @@ _021EA8E4:
 _021EA8F8:
 	mov r0, #0x30
 	mul ip, r4, r0
-	ldr r0, _021EA944 ; =0x02210E3C
+	ldr r0, _021EA944 ; =UNK04_02210E3C
 	mov r3, #1
 	ldr r1, [r0]
 	mov r2, #0
@@ -20361,7 +20361,7 @@ _021EA934:
 	bl MOD04_021DD6B0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EA944: .word 0x02210E3C
+_021EA944: .word UNK04_02210E3C
 _021EA948: .word 0xFFFE82B6
 
 	arm_func_start MOD04_021EA94C
@@ -20379,48 +20379,48 @@ MOD04_021EA94C: ; 0x021EA94C
 
 	arm_func_start MOD04_021EA974
 MOD04_021EA974: ; 0x021EA974
-	ldr r2, _021EA98C ; =0x02210E3C
+	ldr r2, _021EA98C ; =UNK04_02210E3C
 	mov r1, #0x30
 	ldr r2, [r2]
 	mla r1, r0, r1, r2
 	ldrb r0, [r1, #0x1d]
 	bx lr
 	.align 2, 0
-_021EA98C: .word 0x02210E3C
+_021EA98C: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EA990
 MOD04_021EA990: ; 0x021EA990
-	ldr r2, _021EA9A8 ; =0x02210E3C
+	ldr r2, _021EA9A8 ; =UNK04_02210E3C
 	mov r1, #0x30
 	ldr r2, [r2]
 	mla r1, r0, r1, r2
 	ldrb r0, [r1, #0x1c]
 	bx lr
 	.align 2, 0
-_021EA9A8: .word 0x02210E3C
+_021EA9A8: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EA9AC
 MOD04_021EA9AC: ; 0x021EA9AC
-	ldr r2, _021EA9C0 ; =0x02210E3C
+	ldr r2, _021EA9C0 ; =UNK04_02210E3C
 	mov r1, #0x30
 	ldr r2, [r2]
 	mla r0, r1, r0, r2
 	bx lr
 	.align 2, 0
-_021EA9C0: .word 0x02210E3C
+_021EA9C0: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EA9C4
 MOD04_021EA9C4: ; 0x021EA9C4
-	ldr r0, _021EA9D4 ; =0x02210E3C
+	ldr r0, _021EA9D4 ; =UNK04_02210E3C
 	mov r1, #0
 	str r1, [r0]
 	bx lr
 	.align 2, 0
-_021EA9D4: .word 0x02210E3C
+_021EA9D4: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EA9D8
 MOD04_021EA9D8: ; 0x021EA9D8
-	ldr r2, _021EAA60 ; =0x02210E3C
+	ldr r2, _021EAA60 ; =UNK04_02210E3C
 	ldr r3, [r2]
 	cmp r3, #0
 	bxeq lr
@@ -20448,20 +20448,20 @@ MOD04_021EA9D8: ; 0x021EA9D8
 	cmp r0, #0
 	movne r0, #1
 	strneb r0, [r2]
-	ldr r0, _021EAA60 ; =0x02210E3C
+	ldr r0, _021EAA60 ; =UNK04_02210E3C
 	mov r2, #0
 	ldr r0, [r0]
 	add r0, r0, r1
 	strh r2, [r0, #0x22]
 	bx lr
 	.align 2, 0
-_021EAA60: .word 0x02210E3C
+_021EAA60: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EAA64
 MOD04_021EAA64: ; 0x021EAA64
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	sub sp, sp, #0xc
-	ldr r0, _021EAC14 ; =0x02210E3C
+	ldr r0, _021EAC14 ; =UNK04_02210E3C
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #0xc
@@ -20473,7 +20473,7 @@ MOD04_021EAA64: ; 0x021EAA64
 	mov r8, #0
 	addle sp, sp, #0xc
 	ldmleia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r4, _021EAC14 ; =0x02210E3C
+	ldr r4, _021EAC14 ; =UNK04_02210E3C
 	str r8, [sp]
 	str r8, [sp, #4]
 	mov fp, #1
@@ -20571,20 +20571,20 @@ _021EAC00:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021EAC14: .word 0x02210E3C
+_021EAC14: .word UNK04_02210E3C
 _021EAC18: .word 0x000082EA
 
 	arm_func_start MOD04_021EAC1C
 MOD04_021EAC1C: ; 0x021EAC1C
 	stmdb sp!, {r4, lr}
-	ldr r2, _021EAC58 ; =0x02210E3C
+	ldr r2, _021EAC58 ; =UNK04_02210E3C
 	mov r4, r1
 	ldr r1, [r2]
 	ldr r1, [r1, #0x60c]
 	cmp r1, #0
 	ldmeqia sp!, {r4, pc}
 	bl MOD04_021DF748
-	ldr r2, _021EAC58 ; =0x02210E3C
+	ldr r2, _021EAC58 ; =UNK04_02210E3C
 	mov r1, r0
 	ldr r2, [r2]
 	mov r0, r4
@@ -20592,13 +20592,13 @@ MOD04_021EAC1C: ; 0x021EAC1C
 	blx r2
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EAC58: .word 0x02210E3C
+_021EAC58: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EAC5C
 MOD04_021EAC5C: ; 0x021EAC5C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr ip, _021EACB0 ; =0x02210E3C
+	ldr ip, _021EACB0 ; =UNK04_02210E3C
 	ldr ip, [ip]
 	cmp ip, #0
 	addeq sp, sp, #4
@@ -20619,18 +20619,18 @@ _021EACA4:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EACB0: .word 0x02210E3C
+_021EACB0: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EACB4
 MOD04_021EACB4: ; 0x021EACB4
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r3, _021EACEC ; =0x02210E3C
+	ldr r3, _021EACEC ; =UNK04_02210E3C
 	ldr r2, _021EACF0 ; =0x00000614
 	mov r1, #0
 	str r0, [r3]
 	bl MI_CpuFill8
-	ldr r0, _021EACEC ; =0x02210E3C
+	ldr r0, _021EACEC ; =UNK04_02210E3C
 	ldr r1, _021EACF4 ; =0x000005B9
 	ldr r0, [r0]
 	add r0, r0, #0x600
@@ -20638,14 +20638,14 @@ MOD04_021EACB4: ; 0x021EACB4
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EACEC: .word 0x02210E3C
+_021EACEC: .word UNK04_02210E3C
 _021EACF0: .word 0x00000614
 _021EACF4: .word 0x000005B9
 
 	arm_func_start MOD04_021EACF8
 MOD04_021EACF8: ; 0x021EACF8
 	stmdb sp!, {r4, lr}
-	ldr r2, _021EAD40 ; =0x02210E3C
+	ldr r2, _021EAD40 ; =UNK04_02210E3C
 	ldr r3, [r2]
 	cmp r3, #0
 	moveq r0, #0
@@ -20655,7 +20655,7 @@ MOD04_021EACF8: ; 0x021EACF8
 	add r0, r3, r4
 	str r1, [r0, #0x2c]
 	bl OS_GetTick
-	ldr r2, _021EAD40 ; =0x02210E3C
+	ldr r2, _021EAD40 ; =UNK04_02210E3C
 	ldr r2, [r2]
 	add r2, r2, r4
 	str r0, [r2, #0x24]
@@ -20663,7 +20663,7 @@ MOD04_021EACF8: ; 0x021EACF8
 	mov r0, #1
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EAD40: .word 0x02210E3C
+_021EAD40: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EAD44
 MOD04_021EAD44: ; 0x021EAD44
@@ -20687,7 +20687,7 @@ MOD04_021EAD6C: ; 0x021EAD6C
 	add r1, sp, #0
 	mov r2, #8
 	bl MI_CpuCopy8
-	ldr r1, _021EADA4 ; =0x0220D4BC
+	ldr r1, _021EADA4 ; =UNK04_0220D4BC
 	add r0, sp, #6
 	mov r2, #2
 	bl memcmp
@@ -20697,7 +20697,7 @@ MOD04_021EAD6C: ; 0x021EAD6C
 	add sp, sp, #0xc
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EADA4: .word 0x0220D4BC
+_021EADA4: .word UNK04_0220D4BC
 
 	arm_func_start MOD04_021EADA8
 MOD04_021EADA8: ; 0x021EADA8
@@ -20705,7 +20705,7 @@ MOD04_021EADA8: ; 0x021EADA8
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	ldr r1, _021EADD4 ; =0x0220D4BC
+	ldr r1, _021EADD4 ; =UNK04_0220D4BC
 	add r0, r6, #6
 	mov r2, #2
 	bl strncpy
@@ -20713,11 +20713,11 @@ MOD04_021EADA8: ; 0x021EADA8
 	str r4, [r6]
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EADD4: .word 0x0220D4BC
+_021EADD4: .word UNK04_0220D4BC
 
 	arm_func_start MOD04_021EADD8
 MOD04_021EADD8: ; 0x021EADD8
-	ldr r1, _021EADF4 ; =0x02210E3C
+	ldr r1, _021EADF4 ; =UNK04_02210E3C
 	ldr r1, [r1]
 	cmp r1, #0
 	moveq r0, #0
@@ -20725,11 +20725,11 @@ MOD04_021EADD8: ; 0x021EADD8
 	movne r0, #1
 	bx lr
 	.align 2, 0
-_021EADF4: .word 0x02210E3C
+_021EADF4: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EADF8
 MOD04_021EADF8: ; 0x021EADF8
-	ldr r1, _021EAE14 ; =0x02210E3C
+	ldr r1, _021EAE14 ; =UNK04_02210E3C
 	ldr r1, [r1]
 	cmp r1, #0
 	moveq r0, #0
@@ -20737,11 +20737,11 @@ MOD04_021EADF8: ; 0x021EADF8
 	movne r0, #1
 	bx lr
 	.align 2, 0
-_021EAE14: .word 0x02210E3C
+_021EAE14: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EAE18
 MOD04_021EAE18: ; 0x021EAE18
-	ldr r1, _021EAE34 ; =0x02210E3C
+	ldr r1, _021EAE34 ; =UNK04_02210E3C
 	ldr r1, [r1]
 	cmp r1, #0
 	moveq r0, #0
@@ -20749,7 +20749,7 @@ MOD04_021EAE18: ; 0x021EAE18
 	movne r0, #1
 	bx lr
 	.align 2, 0
-_021EAE34: .word 0x02210E3C
+_021EAE34: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EAE38
 MOD04_021EAE38: ; 0x021EAE38
@@ -20791,7 +20791,7 @@ MOD04_021EAE90: ; 0x021EAE90
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, pc}
-	ldr r0, _021EAF1C ; =0x02210E3C
+	ldr r0, _021EAF1C ; =UNK04_02210E3C
 	ldr r0, [r0]
 	add r0, r0, #0x600
 	ldrh r0, [r0, #0x10]
@@ -20803,7 +20803,7 @@ MOD04_021EAE90: ; 0x021EAE90
 	mov r2, r4
 	mov r3, #0
 	bl MOD04_021EA94C
-	ldr r0, _021EAF1C ; =0x02210E3C
+	ldr r0, _021EAF1C ; =UNK04_02210E3C
 	ldr r0, [r0]
 	ldr r2, [r0, #0x600]
 	cmp r2, #0
@@ -20815,7 +20815,7 @@ _021EAF14:
 	mov r0, #1
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EAF1C: .word 0x02210E3C
+_021EAF1C: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EAF20
 MOD04_021EAF20: ; 0x021EAF20
@@ -20850,7 +20850,7 @@ MOD04_021EAF20: ; 0x021EAF20
 	mov r2, #8
 	mov r3, #1
 	bl MOD04_021EA94C
-	ldr r0, _021EB040 ; =0x02210E3C
+	ldr r0, _021EB040 ; =UNK04_02210E3C
 	ldr r0, [r0]
 	add r0, r0, #0x600
 	ldrh sb, [r0, #0x10]
@@ -20878,7 +20878,7 @@ MOD04_021EAF20: ; 0x021EAF20
 	strb r2, [r4, #0x1c]
 	str r2, [r4]
 	str r2, [r4, #0xc]
-	ldr r1, _021EB040 ; =0x02210E3C
+	ldr r1, _021EB040 ; =UNK04_02210E3C
 	str r2, [r4, #0x14]
 	ldr r1, [r1]
 	ldr r2, [r1, #0x600]
@@ -20893,7 +20893,7 @@ _021EB034:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021EB040: .word 0x02210E3C
+_021EB040: .word UNK04_02210E3C
 
 	arm_func_start MOD04_021EB044
 MOD04_021EB044: ; 0x021EB044
@@ -20962,7 +20962,7 @@ _021EB108: .word MOD04_021EB06C
 MOD04_021EB10C: ; 0x021EB10C
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #4
-	ldr r0, _021EB178 ; =0x02210E40
+	ldr r0, _021EB178 ; =UNK04_02210E40
 	ldr r7, [r0]
 	cmp r7, #0
 	beq _021EB164
@@ -20985,18 +20985,18 @@ _021EB14C:
 	cmp r7, #0
 	bne _021EB12C
 _021EB164:
-	ldr r0, _021EB178 ; =0x02210E40
+	ldr r0, _021EB178 ; =UNK04_02210E40
 	mov r1, #0
 	str r1, [r0]
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EB178: .word 0x02210E40
+_021EB178: .word UNK04_02210E40
 
 	arm_func_start MOD04_021EB17C
 MOD04_021EB17C: ; 0x021EB17C
 	stmdb sp!, {r4, lr}
-	ldr r1, _021EB1FC ; =0x02210E40
+	ldr r1, _021EB1FC ; =UNK04_02210E40
 	ldr r1, [r1]
 	cmp r1, #0
 	ldmeqia sp!, {r4, pc}
@@ -21006,7 +21006,7 @@ MOD04_021EB17C: ; 0x021EB17C
 	mov r2, #0
 	ldr r4, [r1, #0x18]
 	bl MOD04_021DD904
-	ldr r0, _021EB1FC ; =0x02210E40
+	ldr r0, _021EB1FC ; =UNK04_02210E40
 	str r4, [r0]
 	ldmia sp!, {r4, pc}
 _021EB1B4:
@@ -21031,7 +21031,7 @@ _021EB1EC:
 	bne _021EB1C0
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EB1FC: .word 0x02210E40
+_021EB1FC: .word UNK04_02210E40
 
 	arm_func_start MOD04_021EB200
 MOD04_021EB200: ; 0x021EB200
@@ -21047,7 +21047,7 @@ MOD04_021EB200: ; 0x021EB200
 	stmia ip, {r0, r1, r2, r3}
 	mov r0, #0
 	str r0, [ip, #0x18]
-	ldr r1, _021EB258 ; =0x02210E40
+	ldr r1, _021EB258 ; =UNK04_02210E40
 	str r0, [ip, #0x10]
 	ldr r0, [r1]
 	cmp r0, #0
@@ -21058,7 +21058,7 @@ MOD04_021EB200: ; 0x021EB200
 	strne ip, [r1]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EB258: .word 0x02210E40
+_021EB258: .word UNK04_02210E40
 
 	arm_func_start MOD04_021EB25C
 MOD04_021EB25C: ; 0x021EB25C
@@ -21292,14 +21292,14 @@ MOD04_021EB524: ; 0x021EB524
 MOD04_021EB550:
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021EB598 ; =0x02210E44
+	ldr r0, _021EB598 ; =UNK04_02210E44
 	ldr r0, [r0]
 	cmp r0, #0
 	addle sp, sp, #4
 	movle r0, #1
 	ldmleia sp!, {pc}
 	bl MOD79_02213DBC
-	ldr r0, _021EB598 ; =0x02210E44
+	ldr r0, _021EB598 ; =UNK04_02210E44
 	ldr r1, [r0]
 	subs r1, r1, #1
 	str r1, [r0]
@@ -21310,14 +21310,14 @@ _021EB58C:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EB598: .word 0x02210E44
+_021EB598: .word UNK04_02210E44
 
 	arm_func_start MOD04_021EB59C
 MOD04_021EB59C: ; 0x021EB59C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
 	bl MOD79_02213E24
-	ldr r1, _021EB5C4 ; =0x02210E44
+	ldr r1, _021EB5C4 ; =UNK04_02210E44
 	mov r0, #1
 	ldr r2, [r1]
 	add r2, r2, #1
@@ -21325,12 +21325,12 @@ MOD04_021EB59C: ; 0x021EB59C
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EB5C4: .word 0x02210E44
+_021EB5C4: .word UNK04_02210E44
 
 	arm_func_start MOD04_021EB5C8
 MOD04_021EB5C8: ; 0x021EB5C8
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, lr}
-	ldr r1, _021EB660 ; =0x02210E48
+	ldr r1, _021EB660 ; =UNK04_02210E48
 	ldr r0, _021EB664 ; =0x00000474
 	ldr sl, [r1]
 	mov r4, #0xc0
@@ -21371,19 +21371,19 @@ _021EB658:
 	mov r0, #1
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021EB660: .word 0x02210E48
+_021EB660: .word UNK04_02210E48
 _021EB664: .word 0x00000474
 
 	arm_func_start MOD04_021EB668
 MOD04_021EB668: ; 0x021EB668
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r1, _021EB6A0 ; =0x02210E54
+	ldr r1, _021EB6A0 ; =UNK04_02210E54
 	mov r0, #8
 	ldr r1, [r1]
 	mov r2, #0xc
 	bl MOD04_021EB910
-	ldr r0, _021EB6A4 ; =0x02210E48
+	ldr r0, _021EB6A4 ; =UNK04_02210E48
 	ldr r2, _021EB6A8 ; =0x00000D18
 	ldr r1, [r0]
 	mov r0, #0x10
@@ -21391,8 +21391,8 @@ MOD04_021EB668: ; 0x021EB668
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EB6A0: .word 0x02210E54
-_021EB6A4: .word 0x02210E48
+_021EB6A0: .word UNK04_02210E54
+_021EB6A4: .word UNK04_02210E48
 _021EB6A8: .word 0x00000D18
 
 	arm_func_start MOD04_021EB6AC
@@ -21407,22 +21407,22 @@ MOD04_021EB6BC: ; 0x021EB6BC
 	stmdb sp!, {lr}
 	sub sp, sp, #4
 	bl MOD04_021EB6AC
-	ldr r1, _021EB6DC ; =0x02210E58
+	ldr r1, _021EB6DC ; =UNK04_02210E58
 	ldr r1, [r1]
 	strb r0, [r1, #0x17]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EB6DC: .word 0x02210E58
+_021EB6DC: .word UNK04_02210E58
 
 	arm_func_start MOD04_021EB6E0
 MOD04_021EB6E0: ; 0x021EB6E0
-	ldr r0, _021EB6F0 ; =0x02210E58
+	ldr r0, _021EB6F0 ; =UNK04_02210E58
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
 	bx lr
 	.align 2, 0
-_021EB6F0: .word 0x02210E58
+_021EB6F0: .word UNK04_02210E58
 
 	arm_func_start MOD04_021EB6F4
 MOD04_021EB6F4: ; 0x021EB6F4
@@ -21440,12 +21440,12 @@ MOD04_021EB6F4: ; 0x021EB6F4
 
 	arm_func_start MOD04_021EB720
 MOD04_021EB720: ; 0x021EB720
-	ldr r0, _021EB730 ; =0x02210E58
+	ldr r0, _021EB730 ; =UNK04_02210E58
 	ldr r0, [r0]
 	ldrb r0, [r0, #9]
 	bx lr
 	.align 2, 0
-_021EB730: .word 0x02210E58
+_021EB730: .word UNK04_02210E58
 
 	arm_func_start MOD04_021EB734
 MOD04_021EB734: ; 0x021EB734
@@ -21478,32 +21478,32 @@ MOD04_021EB734: ; 0x021EB734
 	arm_func_start MOD04_021EB798
 MOD04_021EB798: ; 0x021EB798
 	ands r1, r0, #1
-	ldrne r0, _021EB7EC ; =0x02210E58
+	ldrne r0, _021EB7EC ; =UNK04_02210E58
 	ldrne r0, [r0]
 	bxne lr
 	ands r1, r0, #2
-	ldrne r0, _021EB7F0 ; =0x02210E4C
+	ldrne r0, _021EB7F0 ; =UNK04_02210E4C
 	ldrne r0, [r0]
 	bxne lr
 	ands r1, r0, #4
-	ldrne r0, _021EB7F4 ; =0x02210E50
+	ldrne r0, _021EB7F4 ; =UNK04_02210E50
 	ldrne r0, [r0]
 	bxne lr
 	ands r1, r0, #8
-	ldrne r0, _021EB7F8 ; =0x02210E54
+	ldrne r0, _021EB7F8 ; =UNK04_02210E54
 	ldrne r0, [r0]
 	bxne lr
 	ands r0, r0, #0x10
-	ldrne r0, _021EB7FC ; =0x02210E48
+	ldrne r0, _021EB7FC ; =UNK04_02210E48
 	ldrne r0, [r0]
 	moveq r0, #0
 	bx lr
 	.align 2, 0
-_021EB7EC: .word 0x02210E58
-_021EB7F0: .word 0x02210E4C
-_021EB7F4: .word 0x02210E50
-_021EB7F8: .word 0x02210E54
-_021EB7FC: .word 0x02210E48
+_021EB7EC: .word UNK04_02210E58
+_021EB7F0: .word UNK04_02210E4C
+_021EB7F4: .word UNK04_02210E50
+_021EB7F8: .word UNK04_02210E54
+_021EB7FC: .word UNK04_02210E48
 
 	arm_func_start MOD04_021EB800
 MOD04_021EB800: ; 0x021EB800
@@ -21714,14 +21714,14 @@ MOD04_021EBAB8: ; 0x021EBAB8
 	cmp r0, #0xa
 	blo _021EBADC
 	cmp r0, #0x10
-	ldrls r0, _021EBAE4 ; =0x02210E58
+	ldrls r0, _021EBAE4 ; =UNK04_02210E58
 	ldrls r0, [r0]
 	ldrlsb r4, [r0, #0x17]
 _021EBADC:
 	mov r0, r4
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EBAE4: .word 0x02210E58
+_021EBAE4: .word UNK04_02210E58
 
 	arm_func_start MOD04_021EBAE8
 MOD04_021EBAE8: ; 0x021EBAE8
@@ -21839,12 +21839,12 @@ MOD04_021EBC60: ; 0x021EBC60
 	mov r1, #0x18
 	blx r2
 	mov r1, r0
-	ldr r3, _021EBE08 ; =0x02210E58
+	ldr r3, _021EBE08 ; =UNK04_02210E58
 	mov r0, #0
 	mov r2, #0x18
 	str r1, [r3]
 	bl MIi_CpuClear32
-	ldr r0, _021EBE08 ; =0x02210E58
+	ldr r0, _021EBE08 ; =UNK04_02210E58
 	ldr r1, [r4]
 	ldr r3, [r0]
 	mov r2, #1
@@ -21857,44 +21857,44 @@ MOD04_021EBC60: ; 0x021EBC60
 	mov r0, #0x10
 	strb r2, [r3, #8]
 	bl MOD04_021EB958
-	ldr r2, _021EBE10 ; =0x02210E48
+	ldr r2, _021EBE10 ; =UNK04_02210E48
 	mov r1, #0x2300
 	str r0, [r2]
 	mov r0, #2
 	bl MOD04_021EB958
-	ldr r2, _021EBE14 ; =0x02210E4C
+	ldr r2, _021EBE14 ; =UNK04_02210E4C
 	mov r1, #0x58
 	str r0, [r2]
 	mov r0, #4
 	bl MOD04_021EB958
-	ldr r2, _021EBE18 ; =0x02210E50
+	ldr r2, _021EBE18 ; =UNK04_02210E50
 	mov r1, #0xc
 	str r0, [r2]
 	mov r0, #8
 	bl MOD04_021EB958
-	ldr r2, _021EBE1C ; =0x02210E54
-	ldr r1, _021EBE10 ; =0x02210E48
+	ldr r2, _021EBE1C ; =UNK04_02210E54
+	ldr r1, _021EBE10 ; =UNK04_02210E48
 	str r0, [r2]
 	ldr r1, [r1]
 	mov r0, #0
 	ldr r2, _021EBE0C ; =0x00000D18
 	bl MIi_CpuClear32
 	mov r0, #0
-	ldr r1, _021EBE14 ; =0x02210E4C
+	ldr r1, _021EBE14 ; =UNK04_02210E4C
 	mov r2, #0x2300
 	ldr r1, [r1]
 	bl MIi_CpuClear32
 	mov r0, #0
-	ldr r1, _021EBE18 ; =0x02210E50
+	ldr r1, _021EBE18 ; =UNK04_02210E50
 	mov r2, #0x58
 	ldr r1, [r1]
 	bl MIi_CpuClear32
 	mov r0, #0
-	ldr r1, _021EBE1C ; =0x02210E54
+	ldr r1, _021EBE1C ; =UNK04_02210E54
 	mov r2, #0xc
 	ldr r1, [r1]
 	bl MIi_CpuClear32
-	ldr r0, _021EBE10 ; =0x02210E48
+	ldr r0, _021EBE10 ; =UNK04_02210E48
 	ldrb r1, [r4, #8]
 	ldr r0, [r0]
 	strb r1, [r0, #0xd0a]
@@ -21904,7 +21904,7 @@ MOD04_021EBC60: ; 0x021EBC60
 	and r1, r1, #3
 	orr r1, r2, r1
 	strb r1, [r0, #0xd0b]
-	ldr r1, _021EBE1C ; =0x02210E54
+	ldr r1, _021EBE1C ; =UNK04_02210E54
 	ldr r2, [r4]
 	ldr r3, [r1]
 	mov r1, #0
@@ -21925,7 +21925,7 @@ MOD04_021EBC60: ; 0x021EBC60
 	orr r1, r2, r1, lsl #4
 	strb r1, [r0, #0xd0c]
 	bl DWCi_BM_GetApInfo
-	ldr r0, _021EBE14 ; =0x02210E4C
+	ldr r0, _021EBE14 ; =UNK04_02210E4C
 	mov r1, #0x2300
 	ldr r0, [r0]
 	bl WCM_Init
@@ -21941,12 +21941,12 @@ _021EBE00:
 	mov r0, #1
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EBE08: .word 0x02210E58
+_021EBE08: .word UNK04_02210E58
 _021EBE0C: .word 0x00000D18
-_021EBE10: .word 0x02210E48
-_021EBE14: .word 0x02210E4C
-_021EBE18: .word 0x02210E50
-_021EBE1C: .word 0x02210E54
+_021EBE10: .word UNK04_02210E48
+_021EBE14: .word UNK04_02210E4C
+_021EBE18: .word UNK04_02210E50
+_021EBE1C: .word UNK04_02210E54
 
 	arm_func_start MOD04_021EBE20
 MOD04_021EBE20: ; 0x021EBE20
@@ -23294,7 +23294,7 @@ MOD04_021ECFC8: ; 0x021ECFC8
 	cmp r0, #4
 	bne _021ED028
 _021ECFFC:
-	ldr r0, _021ED0B4 ; =0x0220D4C0
+	ldr r0, _021ED0B4 ; =UNK04_0220D4C0
 	add r1, r4, #4
 	mov r2, #8
 	bl MI_CpuCopy8
@@ -23313,7 +23313,7 @@ _021ED028:
 	cmp r0, #7
 	bne _021ED06C
 _021ED040:
-	ldr r0, _021ED0B8 ; =0x0220BADC
+	ldr r0, _021ED0B8 ; =UNK04_0220BADC
 	add r1, r4, #4
 	mov r2, #8
 	bl MI_CpuCopy8
@@ -23332,7 +23332,7 @@ _021ED06C:
 	cmp r0, #8
 	bne _021ED0AC
 _021ED084:
-	ldr r0, _021ED0BC ; =0x0220BAEC
+	ldr r0, _021ED0BC ; =UNK04_0220BAEC
 	add r1, r4, #4
 	mov r2, #0xb
 	bl MI_CpuCopy8
@@ -23346,9 +23346,9 @@ _021ED0AC:
 	mov r0, r5
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021ED0B4: .word 0x0220D4C0
-_021ED0B8: .word 0x0220BADC
-_021ED0BC: .word 0x0220BAEC
+_021ED0B4: .word UNK04_0220D4C0
+_021ED0B8: .word UNK04_0220BADC
+_021ED0BC: .word UNK04_0220BAEC
 
 	arm_func_start MOD04_021ED0C0
 MOD04_021ED0C0: ; 0x021ED0C0
@@ -23367,7 +23367,7 @@ MOD04_021ED0C0: ; 0x021ED0C0
 	cmp r0, #6
 	bne _021ED11C
 _021ED0F8:
-	ldr r0, _021ED128 ; =0x0220BAE4
+	ldr r0, _021ED128 ; =UNK04_0220BAE4
 	add r1, r4, #4
 	mov r2, #8
 	bl MI_CpuCopy8
@@ -23381,7 +23381,7 @@ _021ED11C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021ED128: .word 0x0220BAE4
+_021ED128: .word UNK04_0220BAE4
 
 	arm_func_start MOD04_021ED12C
 MOD04_021ED12C: ; 0x021ED12C
@@ -23396,7 +23396,7 @@ MOD04_021ED12C: ; 0x021ED12C
 	cmp r0, #6
 	bne _021ED170
 _021ED154:
-	ldr r1, _021ED178 ; =0x0220BAE4
+	ldr r1, _021ED178 ; =UNK04_0220BAE4
 	add r0, r4, #0xc
 	mov r2, #8
 	bl strncmp
@@ -23407,7 +23407,7 @@ _021ED170:
 	mov r0, #0
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021ED178: .word 0x0220BAE4
+_021ED178: .word UNK04_0220BAE4
 
 	arm_func_start MOD04_021ED17C
 MOD04_021ED17C: ; 0x021ED17C
@@ -23527,7 +23527,7 @@ _021ED2F0:
 MOD04_021ED2FC: ; 0x021ED2FC
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr ip, _021ED324 ; =0x0220BAF8
+	ldr ip, _021ED324 ; =UNK04_0220BAF8
 	cmp r2, #0xc
 	movgt r2, #0xc
 	ldr r2, [ip, r2, lsl #2]
@@ -23536,7 +23536,7 @@ MOD04_021ED2FC: ; 0x021ED2FC
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021ED324: .word 0x0220BAF8
+_021ED324: .word UNK04_0220BAF8
 
 	arm_func_start MOD04_021ED328
 MOD04_021ED328: ; 0x021ED328
@@ -24267,7 +24267,7 @@ MOD04_021EDCFC: ; 0x021EDCFC
 	mov r6, r0
 	mov r4, r2
 	mov r5, r1
-	ldr r0, _021EDDB8 ; =0x0220BB2C
+	ldr r0, _021EDDB8 ; =UNK04_0220BB2C
 	mov r1, r4
 	mov r2, #0x58
 	bl MI_CpuCopy8
@@ -24312,7 +24312,7 @@ _021EDD94:
 	str r0, [r4, #0x20]
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EDDB8: .word 0x0220BB2C
+_021EDDB8: .word UNK04_0220BB2C
 
 	arm_func_start MOD04_021EDDBC
 MOD04_021EDDBC: ; 0x021EDDBC
@@ -24721,7 +24721,7 @@ _021EE2FC:
 	eor r1, r2, r1
 	strb r1, [r4, r3]
 	blt _021EE2FC
-	ldr r0, _021EE45C ; =0x0220D4DC
+	ldr r0, _021EE45C ; =UNK04_0220D4DC
 	mov r3, #0
 _021EE328:
 	ldr r1, [r0]
@@ -24736,7 +24736,7 @@ _021EE328:
 	mov r0, r4
 	mov r2, #0xd
 	bl MI_CpuCopy8
-	ldr r3, _021EE460 ; =0x0220BB84
+	ldr r3, _021EE460 ; =UNK04_0220BB84
 	add ip, sp, #0
 	mov r2, #0
 _021EE364:
@@ -24748,7 +24748,7 @@ _021EE364:
 	add ip, ip, #1
 	add r3, r3, #1
 	blt _021EE364
-	ldr r0, _021EE464 ; =0x0220D4E0
+	ldr r0, _021EE464 ; =UNK04_0220D4E0
 	mov r3, #0
 _021EE38C:
 	ldr r1, [r0]
@@ -24759,7 +24759,7 @@ _021EE38C:
 	add r3, r3, #1
 	cmp r3, #0xd
 	blt _021EE38C
-	ldr r2, _021EE468 ; =0x0220BB94
+	ldr r2, _021EE468 ; =UNK04_0220BB94
 	mov ip, #0
 _021EE3B4:
 	ldrb r3, [r4, ip]
@@ -24806,10 +24806,10 @@ _021EE3E4:
 	.align 2, 0
 _021EE454: .word 0x92492493
 _021EE458: .word 0x00000007
-_021EE45C: .word 0x0220D4DC
-_021EE460: .word 0x0220BB84
-_021EE464: .word 0x0220D4E0
-_021EE468: .word 0x0220BB94
+_021EE45C: .word UNK04_0220D4DC
+_021EE460: .word UNK04_0220BB84
+_021EE464: .word UNK04_0220D4E0
+_021EE468: .word UNK04_0220BB94
 
 	arm_func_start MOD04_021EE46C
 MOD04_021EE46C: ; 0x021EE46C
@@ -24837,7 +24837,7 @@ MOD04_021EE46C: ; 0x021EE46C
 MOD04_021EE4B8: ; 0x021EE4B8
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0x1c
-	ldr lr, _021EE5AC ; =0x0220BBA4
+	ldr lr, _021EE5AC ; =UNK04_0220BBA4
 	add ip, sp, #0
 	mov r4, r1
 	mov r3, #0xc
@@ -24853,7 +24853,7 @@ _021EE4D0:
 	mov r3, #0x18
 	bl MOD04_021EE0C0
 	mov r3, #0
-	ldr r0, _021EE5B0 ; =0x0220D4E4
+	ldr r0, _021EE5B0 ; =UNK04_0220D4E4
 _021EE500:
 	ldr r1, [r0]
 	ldrb r2, [r4, r3]
@@ -24889,7 +24889,7 @@ _021EE570:
 	add lr, lr, #1
 	cmp lr, #0x18
 	blt _021EE52C
-	ldr r0, _021EE5B4 ; =0x0220D4D8
+	ldr r0, _021EE5B4 ; =UNK04_0220D4D8
 	mov r3, #0
 _021EE584:
 	ldr r1, [r0]
@@ -24903,9 +24903,9 @@ _021EE584:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EE5AC: .word 0x0220BBA4
-_021EE5B0: .word 0x0220D4E4
-_021EE5B4: .word 0x0220D4D8
+_021EE5AC: .word UNK04_0220BBA4
+_021EE5B0: .word UNK04_0220D4E4
+_021EE5B4: .word UNK04_0220D4D8
 
 	arm_func_start MOD04_021EE5B8
 MOD04_021EE5B8: ; 0x021EE5B8
@@ -24919,7 +24919,7 @@ _021EE5C4: .word MOD04_021EE2A4
 MOD04_021EE5C8: ; 0x021EE5C8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r1, _021EE5F0 ; =0x0220D540
+	ldr r1, _021EE5F0 ; =UNK04_0220D540
 	mov r2, #8
 	bl memcmp
 	cmp r0, #0
@@ -24928,7 +24928,7 @@ MOD04_021EE5C8: ; 0x021EE5C8
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EE5F0: .word 0x0220D540
+_021EE5F0: .word UNK04_0220D540
 
 	arm_func_start MOD04_021EE5F4
 MOD04_021EE5F4: ; 0x021EE5F4
@@ -24937,7 +24937,7 @@ MOD04_021EE5F4: ; 0x021EE5F4
 	mov r4, r1
 	add r1, sp, #0
 	bl MOD04_021EE4B8
-	ldr r1, _021EE63C ; =0x0220D54C
+	ldr r1, _021EE63C ; =UNK04_0220D54C
 	add r0, sp, #0
 	mov r2, #8
 	bl memcmp
@@ -24951,7 +24951,7 @@ MOD04_021EE5F4: ; 0x021EE5F4
 	add sp, sp, #0x18
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EE63C: .word 0x0220D54C
+_021EE63C: .word UNK04_0220D54C
 
 	arm_func_start MOD04_021EE640
 MOD04_021EE640: ; 0x021EE640
@@ -24972,7 +24972,7 @@ MOD04_021EE668: ; 0x021EE668
 	sub sp, sp, #0x1c
 	add r1, sp, #0
 	bl MOD04_021EE4B8
-	ldr r1, _021EE69C ; =0x0220D54C
+	ldr r1, _021EE69C ; =UNK04_0220D54C
 	add r0, sp, #0
 	mov r2, #8
 	bl memcmp
@@ -24982,18 +24982,18 @@ MOD04_021EE668: ; 0x021EE668
 	add sp, sp, #0x1c
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EE69C: .word 0x0220D54C
+_021EE69C: .word UNK04_0220D54C
 
 	arm_func_start MOD04_021EE6A0
 MOD04_021EE6A0: ; 0x021EE6A0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x5c
-	ldr r0, _021EE7D4 ; =0x02210EE0
+	ldr r0, _021EE7D4 ; =UNK04_02210EE0
 	mov r2, #8
 	ldr r0, [r0]
 	mvn r1, #0
 	cmp r0, r1
-	ldreq r1, _021EE7D8 ; =0x02210E5C
+	ldreq r1, _021EE7D8 ; =UNK04_02210E5C
 	moveq r0, #1
 	str r2, [sp, #0x10]
 	streq r0, [r1]
@@ -25006,7 +25006,7 @@ MOD04_021EE6A0: ; 0x021EE6A0
 	str r0, [sp]
 	add r1, sp, #0x10
 	str r1, [sp, #4]
-	ldr r0, _021EE7D4 ; =0x02210EE0
+	ldr r0, _021EE7D4 ; =UNK04_02210EE0
 	add r1, sp, #0x18
 	ldr r0, [r0]
 	mov r2, #0x40
@@ -25019,30 +25019,30 @@ MOD04_021EE6A0: ; 0x021EE6A0
 	bl MOD04_021EE7DC
 	cmp r0, #0
 	bne _021EE774
-	ldr r0, _021EE7D4 ; =0x02210EE0
+	ldr r0, _021EE7D4 ; =UNK04_02210EE0
 	ldr r0, [r0]
 	bl MOD04_021EFD9C
 	ldr r1, [sp, #0x14]
 	ands r0, r1, #1
-	ldrne r0, _021EE7D8 ; =0x02210E5C
+	ldrne r0, _021EE7D8 ; =UNK04_02210E5C
 	movne r1, #2
 	strne r1, [r0]
 	bne _021EE764
 	ands r0, r1, #2
-	ldrne r0, _021EE7D8 ; =0x02210E5C
+	ldrne r0, _021EE7D8 ; =UNK04_02210E5C
 	movne r1, #3
 	strne r1, [r0]
-	ldreq r0, _021EE7D8 ; =0x02210E5C
+	ldreq r0, _021EE7D8 ; =UNK04_02210E5C
 	moveq r1, #1
 	streq r1, [r0]
 _021EE764:
-	ldr r0, _021EE7D8 ; =0x02210E5C
+	ldr r0, _021EE7D8 ; =UNK04_02210E5C
 	add sp, sp, #0x5c
 	ldr r0, [r0]
 	ldmfd sp!, {pc}
 _021EE774:
 	bl MOD04_021F025C
-	ldr r1, _021EE7D4 ; =0x02210EE0
+	ldr r1, _021EE7D4 ; =UNK04_02210EE0
 	ldr r2, [r1, #0x50]
 	add r2, r2, #0x7d0
 	cmp r0, r2
@@ -25052,14 +25052,14 @@ _021EE774:
 	bne _021EE7B4
 	ldr r0, [r1]
 	bl MOD04_021EFD9C
-	ldr r1, _021EE7D8 ; =0x02210E5C
+	ldr r1, _021EE7D8 ; =UNK04_02210E5C
 	mov r0, #1
 	str r0, [r1]
 	add sp, sp, #0x5c
 	ldmfd sp!, {pc}
 _021EE7B4:
 	bl MOD04_021EE990
-	ldr r0, _021EE7D4 ; =0x02210EE0
+	ldr r0, _021EE7D4 ; =UNK04_02210EE0
 	ldr r1, [r0, #0x54]
 	add r1, r1, #1
 	str r1, [r0, #0x54]
@@ -25068,8 +25068,8 @@ _021EE7C8:
 	add sp, sp, #0x5c
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EE7D4: .word 0x02210EE0
-_021EE7D8: .word 0x02210E5C
+_021EE7D4: .word UNK04_02210EE0
+_021EE7D8: .word UNK04_02210E5C
 
 	arm_func_start MOD04_021EE7DC
 MOD04_021EE7DC: ; 0x021EE7DC
@@ -25080,20 +25080,20 @@ MOD04_021EE7DC: ; 0x021EE7DC
 	mov r4, r3
 	movlt r0, #1
 	ldmltia sp!, {r4, r5, r6, pc}
-	ldr r1, _021EE88C ; =0x02210EE8
+	ldr r1, _021EE88C ; =UNK04_02210EE8
 	add r0, r6, #4
 	mov r2, #4
 	bl memcmp
 	cmp r0, #0
 	movne r0, #1
 	ldmneia sp!, {r4, r5, r6, pc}
-	ldr r0, _021EE890 ; =0x02210EE0
+	ldr r0, _021EE890 ; =UNK04_02210EE0
 	ldrh r1, [r6, #2]
 	ldrh r0, [r0, #6]
 	cmp r1, r0
 	movne r0, #1
 	ldmneia sp!, {r4, r5, r6, pc}
-	ldr r1, _021EE894 ; =0x0220D558
+	ldr r1, _021EE894 ; =UNK04_0220D558
 	mov r0, r5
 	mov r2, #3
 	bl memcmp
@@ -25118,35 +25118,35 @@ MOD04_021EE7DC: ; 0x021EE7DC
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EE88C: .word 0x02210EE8
-_021EE890: .word 0x02210EE0
-_021EE894: .word 0x0220D558
+_021EE88C: .word UNK04_02210EE8
+_021EE890: .word UNK04_02210EE0
+_021EE894: .word UNK04_0220D558
 
 	arm_func_start MOD04_021EE898
 MOD04_021EE898: ; 0x021EE898
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #0x44
 	mov r4, r0
-	ldr r0, _021EE974 ; =0x02210EA0
+	ldr r0, _021EE974 ; =UNK04_02210EA0
 	mov r1, r4
 	bl strcpy
-	ldr r0, _021EE978 ; =0x02210EE0
+	ldr r0, _021EE978 ; =UNK04_02210EE0
 	mvn r1, #0
 	str r1, [r0]
 	bl MOD04_021F024C
-	ldr r0, _021EE97C ; =0x02210E60
+	ldr r0, _021EE97C ; =UNK04_02210E60
 	ldrsb r5, [r0]
 	cmp r5, #0
 	bne _021EE8E0
-	ldr r1, _021EE980 ; =0x0220D55C
+	ldr r1, _021EE980 ; =UNK04_0220D55C
 	add r0, sp, #0
 	mov r2, r4
 	bl sprintf
 _021EE8E0:
 	cmp r5, #0
-	ldrne r0, _021EE97C ; =0x02210E60
+	ldrne r0, _021EE97C ; =UNK04_02210E60
 	ldr r1, _021EE984 ; =0x00006CFC
-	ldr r2, _021EE988 ; =0x02210EE4
+	ldr r2, _021EE988 ; =UNK04_02210EE4
 	addeq r0, sp, #0
 	bl MOD04_021EE9E0
 	cmp r0, #0
@@ -25156,7 +25156,7 @@ _021EE8E0:
 	mov r1, r0
 	mov r2, #0
 	bl MOD04_021EFDB8
-	ldr r2, _021EE978 ; =0x02210EE0
+	ldr r2, _021EE978 ; =UNK04_02210EE0
 	mvn r1, #0
 	cmp r0, r1
 	str r0, [r2]
@@ -25167,51 +25167,51 @@ _021EE8E0:
 	strb r1, [r2, #0xc]
 	bl strlen
 	mov r5, r0
-	ldr r0, _021EE98C ; =0x02210EF1
+	ldr r0, _021EE98C ; =UNK04_02210EF1
 	mov r1, r4
 	add r2, r5, #1
 	bl memcpy
-	ldr r0, _021EE978 ; =0x02210EE0
+	ldr r0, _021EE978 ; =UNK04_02210EE0
 	add r1, r5, #6
 	str r1, [r0, #0x4c]
 	bl MOD04_021EE990
-	ldr r0, _021EE978 ; =0x02210EE0
+	ldr r0, _021EE978 ; =UNK04_02210EE0
 	mov r1, #0
 	str r1, [r0, #0x54]
 	add sp, sp, #0x44
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021EE974: .word 0x02210EA0
-_021EE978: .word 0x02210EE0
-_021EE97C: .word 0x02210E60
-_021EE980: .word 0x0220D55C
+_021EE974: .word UNK04_02210EA0
+_021EE978: .word UNK04_02210EE0
+_021EE97C: .word UNK04_02210E60
+_021EE980: .word UNK04_0220D55C
 _021EE984: .word 0x00006CFC
-_021EE988: .word 0x02210EE4
-_021EE98C: .word 0x02210EF1
+_021EE988: .word UNK04_02210EE4
+_021EE98C: .word UNK04_02210EF1
 
 	arm_func_start MOD04_021EE990
 MOD04_021EE990: ; 0x021EE990
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
-	ldr r1, _021EE9D4 ; =0x02210EE4
+	ldr r1, _021EE9D4 ; =UNK04_02210EE4
 	mov r0, #8
 	str r1, [sp]
-	ldr r1, _021EE9D8 ; =0x02210EE0
+	ldr r1, _021EE9D8 ; =UNK04_02210EE0
 	str r0, [sp, #4]
 	ldr r0, [r1]
 	ldr r2, [r1, #0x4c]
-	ldr r1, _021EE9DC ; =0x02210EEC
+	ldr r1, _021EE9DC ; =UNK04_02210EEC
 	mov r3, #0
 	bl MOD04_021EFBD4
 	bl MOD04_021F025C
-	ldr r1, _021EE9D8 ; =0x02210EE0
+	ldr r1, _021EE9D8 ; =UNK04_02210EE0
 	str r0, [r1, #0x50]
 	add sp, sp, #0xc
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EE9D4: .word 0x02210EE4
-_021EE9D8: .word 0x02210EE0
-_021EE9DC: .word 0x02210EEC
+_021EE9D4: .word UNK04_02210EE4
+_021EE9D8: .word UNK04_02210EE0
+_021EE9DC: .word UNK04_02210EEC
 
 	arm_func_start MOD04_021EE9E0
 MOD04_021EE9E0: ; 0x021EE9E0
@@ -25334,8 +25334,8 @@ MOD04_021EEB60: ; 0x021EEB60
 	mov r8, r0
 	mov r6, r2
 	bne _021EEB88
-	ldr r0, _021EEBC8 ; =0x0220D580
-	ldr r1, _021EEBCC ; =0x0220D584
+	ldr r0, _021EEBC8 ; =UNK04_0220D580
+	ldr r1, _021EEBCC ; =UNK04_0220D584
 	ldr r3, _021EEBD0 ; =0x00000121
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -25359,8 +25359,8 @@ _021EEBC0:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021EEBC8: .word 0x0220D580
-_021EEBCC: .word 0x0220D584
+_021EEBC8: .word UNK04_0220D580
+_021EEBCC: .word UNK04_0220D584
 _021EEBD0: .word 0x00000121
 
 	arm_func_start MOD04_021EEBD4
@@ -25371,8 +25371,8 @@ MOD04_021EEBD4: ; 0x021EEBD4
 	mov r7, r0
 	mov r5, r2
 	bne _021EEC00
-	ldr r0, _021EEC34 ; =0x0220D580
-	ldr r1, _021EEC38 ; =0x0220D584
+	ldr r0, _021EEC34 ; =UNK04_0220D580
+	ldr r1, _021EEC38 ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0x104
 	bl __msl_assertion_failed
@@ -25392,8 +25392,8 @@ _021EEC10:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EEC34: .word 0x0220D580
-_021EEC38: .word 0x0220D584
+_021EEC34: .word UNK04_0220D580
+_021EEC38: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EEC3C
 MOD04_021EEC3C: ; 0x021EEC3C
@@ -25477,8 +25477,8 @@ MOD04_021EED28: ; 0x021EED28
 	cmp r4, r0
 	blt _021EED5C
 _021EED48:
-	ldr r0, _021EED7C ; =0x0220D590
-	ldr r1, _021EED80 ; =0x0220D584
+	ldr r0, _021EED7C ; =UNK04_0220D590
+	ldr r1, _021EED80 ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0xd3
 	bl __msl_assertion_failed
@@ -25492,8 +25492,8 @@ _021EED5C:
 	bl MOD04_021EF1B8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EED7C: .word 0x0220D590
-_021EED80: .word 0x0220D584
+_021EED7C: .word UNK04_0220D590
+_021EED80: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EED84
 MOD04_021EED84: ; 0x021EED84
@@ -25506,8 +25506,8 @@ MOD04_021EED84: ; 0x021EED84
 	cmp r4, r0
 	blt _021EEDB8
 _021EEDA4:
-	ldr r0, _021EEDD8 ; =0x0220D590
-	ldr r1, _021EEDDC ; =0x0220D584
+	ldr r0, _021EEDD8 ; =UNK04_0220D590
+	ldr r1, _021EEDDC ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0xca
 	bl __msl_assertion_failed
@@ -25521,8 +25521,8 @@ _021EEDB8:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021EEDD8: .word 0x0220D590
-_021EEDDC: .word 0x0220D584
+_021EEDD8: .word UNK04_0220D590
+_021EEDDC: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EEDE0
 MOD04_021EEDE0: ; 0x021EEDE0
@@ -25535,8 +25535,8 @@ MOD04_021EEDE0: ; 0x021EEDE0
 	cmp r7, r0
 	blt _021EEE14
 _021EEE00:
-	ldr r0, _021EEE6C ; =0x0220D590
-	ldr r1, _021EEE70 ; =0x0220D584
+	ldr r0, _021EEE6C ; =UNK04_0220D590
+	ldr r1, _021EEE70 ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0xc0
 	bl __msl_assertion_failed
@@ -25565,8 +25565,8 @@ _021EEE58:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EEE6C: .word 0x0220D590
-_021EEE70: .word 0x0220D584
+_021EEE6C: .word UNK04_0220D590
+_021EEE70: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EEE74
 MOD04_021EEE74: ; 0x021EEE74
@@ -25576,8 +25576,8 @@ MOD04_021EEE74: ; 0x021EEE74
 	mov r6, r0
 	mov r5, r1
 	bne _021EEEA0
-	ldr r0, _021EEEE8 ; =0x0220D5B0
-	ldr r1, _021EEEEC ; =0x0220D584
+	ldr r0, _021EEEE8 ; =UNK04_0220D5B0
+	ldr r1, _021EEEEC ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0xb7
 	bl __msl_assertion_failed
@@ -25601,8 +25601,8 @@ _021EEEA0:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EEEE8: .word 0x0220D5B0
-_021EEEEC: .word 0x0220D584
+_021EEEE8: .word UNK04_0220D5B0
+_021EEEEC: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EEEF0
 MOD04_021EEEF0: ; 0x021EEEF0
@@ -25615,8 +25615,8 @@ MOD04_021EEEF0: ; 0x021EEEF0
 	cmp r4, r0
 	ble _021EEF24
 _021EEF10:
-	ldr r0, _021EEFA0 ; =0x0220D5BC
-	ldr r1, _021EEFA4 ; =0x0220D584
+	ldr r0, _021EEFA0 ; =UNK04_0220D5BC
+	ldr r1, _021EEFA4 ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0xa7
 	bl __msl_assertion_failed
@@ -25655,8 +25655,8 @@ _021EEF8C:
 	bl MOD04_021EF1B8
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021EEFA0: .word 0x0220D5BC
-_021EEFA4: .word 0x0220D584
+_021EEFA0: .word UNK04_0220D5BC
+_021EEFA4: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EEFA8
 MOD04_021EEFA8: ; 0x021EEFA8
@@ -25665,8 +25665,8 @@ MOD04_021EEFA8: ; 0x021EEFA8
 	movs r5, r0
 	mov r4, r1
 	bne _021EEFD0
-	ldr r0, _021EEFF4 ; =0x0220D5DC
-	ldr r1, _021EEFF8 ; =0x0220D584
+	ldr r0, _021EEFF4 ; =UNK04_0220D5DC
+	ldr r1, _021EEFF8 ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0xa0
 	bl __msl_assertion_failed
@@ -25681,8 +25681,8 @@ _021EEFD0:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021EEFF4: .word 0x0220D5DC
-_021EEFF8: .word 0x0220D584
+_021EEFF4: .word UNK04_0220D5DC
+_021EEFF8: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EEFFC
 MOD04_021EEFFC: ; 0x021EEFFC
@@ -25695,8 +25695,8 @@ MOD04_021EEFFC: ; 0x021EEFFC
 	cmp r4, r0
 	blt _021EF030
 _021EF01C:
-	ldr r0, _021EF064 ; =0x0220D590
-	ldr r1, _021EF068 ; =0x0220D584
+	ldr r0, _021EF064 ; =UNK04_0220D590
+	ldr r1, _021EF068 ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0x94
 	bl __msl_assertion_failed
@@ -25717,8 +25717,8 @@ _021EF050:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021EF064: .word 0x0220D590
-_021EF068: .word 0x0220D584
+_021EF064: .word UNK04_0220D590
+_021EF068: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EF06C
 MOD04_021EF06C: ; 0x021EF06C
@@ -25731,8 +25731,8 @@ MOD04_021EF074: ; 0x021EF074
 	sub sp, sp, #4
 	movs r5, r0
 	bne _021EF098
-	ldr r0, _021EF0DC ; =0x0220D5DC
-	ldr r1, _021EF0E0 ; =0x0220D584
+	ldr r0, _021EF0DC ; =UNK04_0220D5DC
+	ldr r1, _021EF0E0 ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0x69
 	bl __msl_assertion_failed
@@ -25757,8 +25757,8 @@ _021EF0C4:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021EF0DC: .word 0x0220D5DC
-_021EF0E0: .word 0x0220D584
+_021EF0DC: .word UNK04_0220D5DC
+_021EF0E0: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EF0E4
 MOD04_021EF0E4: ; 0x021EF0E4
@@ -25771,16 +25771,16 @@ MOD04_021EF0E4: ; 0x021EF0E4
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021EF11C
-	ldr r0, _021EF1A8 ; =0x0220D5DC
-	ldr r1, _021EF1AC ; =0x0220D584
+	ldr r0, _021EF1A8 ; =UNK04_0220D5DC
+	ldr r1, _021EF1AC ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0x52
 	bl __msl_assertion_failed
 _021EF11C:
 	cmp r7, #0
 	bne _021EF138
-	ldr r0, _021EF1B0 ; =0x0220D5E4
-	ldr r1, _021EF1AC ; =0x0220D584
+	ldr r0, _021EF1B0 ; =UNK04_0220D5E4
+	ldr r1, _021EF1AC ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0x53
 	bl __msl_assertion_failed
@@ -25803,8 +25803,8 @@ _021EF138:
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	bne _021EF19C
-	ldr r0, _021EF1B4 ; =0x0220D5F0
-	ldr r1, _021EF1AC ; =0x0220D584
+	ldr r0, _021EF1B4 ; =UNK04_0220D5F0
+	ldr r1, _021EF1AC ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0x5e
 	bl __msl_assertion_failed
@@ -25816,10 +25816,10 @@ _021EF19C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EF1A8: .word 0x0220D5DC
-_021EF1AC: .word 0x0220D584
-_021EF1B0: .word 0x0220D5E4
-_021EF1B4: .word 0x0220D5F0
+_021EF1A8: .word UNK04_0220D5DC
+_021EF1AC: .word UNK04_0220D584
+_021EF1B0: .word UNK04_0220D5E4
+_021EF1B4: .word UNK04_0220D5F0
 
 	arm_func_start MOD04_021EF1B8
 MOD04_021EF1B8: ; 0x021EF1B8
@@ -25852,15 +25852,15 @@ MOD04_021EF1E4: ; 0x021EF1E4
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	ldmneia sp!, {r4, pc}
-	ldr r0, _021EF238 ; =0x0220D5F0
-	ldr r1, _021EF23C ; =0x0220D584
+	ldr r0, _021EF238 ; =UNK04_0220D5F0
+	ldr r1, _021EF23C ; =UNK04_0220D584
 	mov r2, #0
 	mov r3, #0x41
 	bl __msl_assertion_failed
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EF238: .word 0x0220D5F0
-_021EF23C: .word 0x0220D584
+_021EF238: .word UNK04_0220D5F0
+_021EF23C: .word UNK04_0220D584
 
 	arm_func_start MOD04_021EF240
 MOD04_021EF240: ; 0x021EF240
@@ -25882,8 +25882,8 @@ MOD04_021EF264: ; 0x021EF264
 	mov r7, r0
 	mov r5, r2
 	bne _021EF290
-	ldr r0, _021EF2DC ; =0x0220D5FC
-	ldr r1, _021EF2E0 ; =0x0220D600
+	ldr r0, _021EF2DC ; =UNK04_0220D5FC
+	ldr r1, _021EF2E0 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0xd3
 	bl __msl_assertion_failed
@@ -25910,8 +25910,8 @@ _021EF2D0:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EF2DC: .word 0x0220D5FC
-_021EF2E0: .word 0x0220D600
+_021EF2DC: .word UNK04_0220D5FC
+_021EF2E0: .word UNK04_0220D600
 
 	arm_func_start MOD04_021EF2E4
 MOD04_021EF2E4: ; 0x021EF2E4
@@ -25921,8 +25921,8 @@ MOD04_021EF2E4: ; 0x021EF2E4
 	mov r7, r0
 	mov r5, r2
 	bne _021EF310
-	ldr r0, _021EF350 ; =0x0220D5FC
-	ldr r1, _021EF354 ; =0x0220D600
+	ldr r0, _021EF350 ; =UNK04_0220D5FC
+	ldr r1, _021EF354 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0xb6
 	bl __msl_assertion_failed
@@ -25945,8 +25945,8 @@ _021EF324:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EF350: .word 0x0220D5FC
-_021EF354: .word 0x0220D600
+_021EF350: .word UNK04_0220D5FC
+_021EF354: .word UNK04_0220D600
 
 	arm_func_start MOD04_021EF358
 MOD04_021EF358: ; 0x021EF358
@@ -25955,8 +25955,8 @@ MOD04_021EF358: ; 0x021EF358
 	movs r6, r0
 	mov r5, r1
 	bne _021EF380
-	ldr r0, _021EF3EC ; =0x0220D60C
-	ldr r1, _021EF3F0 ; =0x0220D600
+	ldr r0, _021EF3EC ; =UNK04_0220D60C
+	ldr r1, _021EF3F0 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x94
 	bl __msl_assertion_failed
@@ -25989,8 +25989,8 @@ _021EF380:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EF3EC: .word 0x0220D60C
-_021EF3F0: .word 0x0220D600
+_021EF3EC: .word UNK04_0220D60C
+_021EF3F0: .word UNK04_0220D600
 
 	arm_func_start MOD04_021EF3F4
 MOD04_021EF3F4: ; 0x021EF3F4
@@ -25999,8 +25999,8 @@ MOD04_021EF3F4: ; 0x021EF3F4
 	movs r6, r0
 	mov r5, r1
 	bne _021EF41C
-	ldr r0, _021EF48C ; =0x0220D60C
-	ldr r1, _021EF490 ; =0x0220D600
+	ldr r0, _021EF48C ; =UNK04_0220D60C
+	ldr r1, _021EF490 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x82
 	bl __msl_assertion_failed
@@ -26034,8 +26034,8 @@ _021EF41C:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EF48C: .word 0x0220D60C
-_021EF490: .word 0x0220D600
+_021EF48C: .word UNK04_0220D60C
+_021EF490: .word UNK04_0220D600
 
 	arm_func_start MOD04_021EF494
 MOD04_021EF494: ; 0x021EF494
@@ -26044,8 +26044,8 @@ MOD04_021EF494: ; 0x021EF494
 	movs r6, r0
 	mov r5, r1
 	bne _021EF4BC
-	ldr r0, _021EF538 ; =0x0220D60C
-	ldr r1, _021EF53C ; =0x0220D600
+	ldr r0, _021EF538 ; =UNK04_0220D60C
+	ldr r1, _021EF53C ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x71
 	bl __msl_assertion_failed
@@ -26083,8 +26083,8 @@ _021EF520:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EF538: .word 0x0220D60C
-_021EF53C: .word 0x0220D600
+_021EF538: .word UNK04_0220D60C
+_021EF53C: .word UNK04_0220D600
 
 	arm_func_start MOD04_021EF540
 MOD04_021EF540: ; 0x021EF540
@@ -26092,8 +26092,8 @@ MOD04_021EF540: ; 0x021EF540
 	movs r6, r0
 	mov r4, #0
 	bne _021EF564
-	ldr r0, _021EF5A8 ; =0x0220D60C
-	ldr r1, _021EF5AC ; =0x0220D600
+	ldr r0, _021EF5A8 ; =UNK04_0220D60C
+	ldr r1, _021EF5AC ; =UNK04_0220D600
 	mov r2, r4
 	mov r3, #0x61
 	bl __msl_assertion_failed
@@ -26118,8 +26118,8 @@ _021EF5A0:
 	mov r0, r4
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021EF5A8: .word 0x0220D60C
-_021EF5AC: .word 0x0220D600
+_021EF5A8: .word UNK04_0220D60C
+_021EF5AC: .word UNK04_0220D600
 
 	arm_func_start MOD04_021EF5B0
 MOD04_021EF5B0: ; 0x021EF5B0
@@ -26127,8 +26127,8 @@ MOD04_021EF5B0: ; 0x021EF5B0
 	sub sp, sp, #4
 	movs r5, r0
 	bne _021EF5D4
-	ldr r0, _021EF624 ; =0x0220D60C
-	ldr r1, _021EF628 ; =0x0220D600
+	ldr r0, _021EF624 ; =UNK04_0220D60C
+	ldr r1, _021EF628 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x51
 	bl __msl_assertion_failed
@@ -26156,8 +26156,8 @@ _021EF60C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021EF624: .word 0x0220D60C
-_021EF628: .word 0x0220D600
+_021EF624: .word UNK04_0220D60C
+_021EF628: .word UNK04_0220D600
 
 	arm_func_start MOD04_021EF62C
 MOD04_021EF62C: ; 0x021EF62C
@@ -26168,8 +26168,8 @@ MOD04_021EF62C: ; 0x021EF62C
 	mov r8, r2
 	ldr r6, [sp, #0x24]
 	bne _021EF65C
-	ldr r0, _021EF750 ; =0x0220D614
-	ldr r1, _021EF754 ; =0x0220D600
+	ldr r0, _021EF750 ; =UNK04_0220D614
+	ldr r1, _021EF754 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x38
 	bl __msl_assertion_failed
@@ -26177,24 +26177,24 @@ _021EF65C:
 	ldr r0, [sp, #0x20]
 	cmp r0, #0
 	bne _021EF67C
-	ldr r0, _021EF758 ; =0x0220D61C
-	ldr r1, _021EF754 ; =0x0220D600
+	ldr r0, _021EF758 ; =UNK04_0220D61C
+	ldr r1, _021EF754 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x39
 	bl __msl_assertion_failed
 _021EF67C:
 	cmp sl, #0
 	bne _021EF698
-	ldr r0, _021EF75C ; =0x0220D624
-	ldr r1, _021EF754 ; =0x0220D600
+	ldr r0, _021EF75C ; =UNK04_0220D624
+	ldr r1, _021EF754 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x3a
 	bl __msl_assertion_failed
 _021EF698:
 	cmp sb, #0
 	bne _021EF6B4
-	ldr r0, _021EF760 ; =0x0220D630
-	ldr r1, _021EF754 ; =0x0220D600
+	ldr r0, _021EF760 ; =UNK04_0220D630
+	ldr r1, _021EF754 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x3b
 	bl __msl_assertion_failed
@@ -26203,8 +26203,8 @@ _021EF6B4:
 	bl MOD04_021DD860
 	movs r5, r0
 	bne _021EF6D8
-	ldr r0, _021EF764 ; =0x0220D60C
-	ldr r1, _021EF754 ; =0x0220D600
+	ldr r0, _021EF764 ; =UNK04_0220D60C
+	ldr r1, _021EF754 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x3e
 	bl __msl_assertion_failed
@@ -26215,8 +26215,8 @@ _021EF6D8:
 	ldr r0, [r5]
 	cmp r0, #0
 	bne _021EF704
-	ldr r0, _021EF768 ; =0x0220D63C
-	ldr r1, _021EF754 ; =0x0220D600
+	ldr r0, _021EF768 ; =UNK04_0220D63C
+	ldr r1, _021EF754 ; =UNK04_0220D600
 	mov r2, #0
 	mov r3, #0x41
 	bl __msl_assertion_failed
@@ -26243,13 +26243,13 @@ _021EF734:
 	str r7, [r5, #0xc]
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021EF750: .word 0x0220D614
-_021EF754: .word 0x0220D600
-_021EF758: .word 0x0220D61C
-_021EF75C: .word 0x0220D624
-_021EF760: .word 0x0220D630
-_021EF764: .word 0x0220D60C
-_021EF768: .word 0x0220D63C
+_021EF750: .word UNK04_0220D614
+_021EF754: .word UNK04_0220D600
+_021EF758: .word UNK04_0220D61C
+_021EF75C: .word UNK04_0220D624
+_021EF760: .word UNK04_0220D630
+_021EF764: .word UNK04_0220D60C
+_021EF768: .word UNK04_0220D63C
 
 	arm_func_start MOD04_021EF76C
 MOD04_021EF76C: ; 0x021EF76C
@@ -26293,7 +26293,7 @@ MOD04_021EF7E0: ; 0x021EF7E0
 	mov r8, r0
 	mov r7, r1
 	mov r5, r6
-	ldr r4, _021EF81C ; =0x0220D64C
+	ldr r4, _021EF81C ; =UNK04_0220D64C
 _021EF7F8:
 	ldrb r2, [r8, r6]
 	mov r1, r4
@@ -26305,7 +26305,7 @@ _021EF7F8:
 	blo _021EF7F8
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021EF81C: .word 0x0220D64C
+_021EF81C: .word UNK04_0220D64C
 
 	arm_func_start MOD04_021EF820
 MOD04_021EF820: ; 0x021EF820
@@ -26321,13 +26321,13 @@ MOD04_021EF820: ; 0x021EF820
 	beq _021EF854
 	b _021EF85C
 _021EF84C:
-	ldr r5, _021EF948 ; =0x0220BBBC
+	ldr r5, _021EF948 ; =UNK04_0220BBBC
 	b _021EF860
 _021EF854:
-	ldr r5, _021EF94C ; =0x0220BBC0
+	ldr r5, _021EF94C ; =UNK04_0220BBC0
 	b _021EF860
 _021EF85C:
-	ldr r5, _021EF950 ; =0x0220BBC4
+	ldr r5, _021EF950 ; =UNK04_0220BBC4
 _021EF860:
 	cmp r6, #0
 	ble _021EF898
@@ -26393,9 +26393,9 @@ _021EF93C:
 	bhi _021EF8D8
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021EF948: .word 0x0220BBBC
-_021EF94C: .word 0x0220BBC0
-_021EF950: .word 0x0220BBC4
+_021EF948: .word UNK04_0220BBBC
+_021EF94C: .word UNK04_0220BBC0
+_021EF950: .word UNK04_0220BBC4
 _021EF954: .word 0x55555556
 _021EF958: .word 0x00000003
 
@@ -26465,26 +26465,26 @@ MOD04_021EF9FC: ; 0x021EF9FC
 MOD04_021EFA2C: ; 0x021EFA2C
 	cmp r0, #0
 	bicne r1, r0, #0x80000000
-	ldr r0, _021EFA44 ; =0x0220D654
+	ldr r0, _021EFA44 ; =UNK04_0220D654
 	moveq r1, #1
 	str r1, [r0]
 	bx lr
 	.align 2, 0
-_021EFA44: .word 0x0220D654
+_021EFA44: .word UNK04_0220D654
 
 	arm_func_start MOD04_021EFA48
 MOD04_021EFA48: ; 0x021EFA48
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021EFA6C ; =0x0220D654
+	ldr r0, _021EFA6C ; =UNK04_0220D654
 	ldr r0, [r0]
 	bl MOD04_021EFA70
-	ldr r1, _021EFA6C ; =0x0220D654
+	ldr r1, _021EFA6C ; =UNK04_0220D654
 	str r0, [r1]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021EFA6C: .word 0x0220D654
+_021EFA6C: .word UNK04_0220D654
 
 	arm_func_start MOD04_021EFA70
 MOD04_021EFA70: ; 0x021EFA70
@@ -26519,8 +26519,8 @@ MOD04_021EFAC8: ; 0x021EFAC8
 	bl OS_IsTickAvailable
 	cmp r0, #1
 	beq _021EFAF0
-	ldr r0, _021EFB18 ; =0x0220D658
-	ldr r1, _021EFB1C ; =0x0220D678
+	ldr r0, _021EFB18 ; =UNK04_0220D658
+	ldr r1, _021EFB1C ; =UNK04_0220D678
 	ldr r3, _021EFB20 ; =0x00000667
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -26536,18 +26536,18 @@ _021EFAF0:
 	strne r0, [r4]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EFB18: .word 0x0220D658
-_021EFB1C: .word 0x0220D678
+_021EFB18: .word UNK04_0220D658
+_021EFB1C: .word UNK04_0220D678
 _021EFB20: .word 0x00000667
 _021EFB24: .word 0x01FF6210
 
 	arm_func_start MOD04_021EFB28
 MOD04_021EFB28: ; 0x021EFB28
-	ldr r0, _021EFB34 ; =0x02210F3C
+	ldr r0, _021EFB34 ; =UNK04_02210F3C
 	ldr r0, [r0]
 	bx lr
 	.align 2, 0
-_021EFB34: .word 0x02210F3C
+_021EFB34: .word UNK04_02210F3C
 
 	arm_func_start MOD04_021EFB38
 MOD04_021EFB38: ; 0x021EFB38
@@ -26768,12 +26768,12 @@ MOD04_021EFDB8: ; 0x021EFDB8
 	arm_func_start MOD04_021EFDD4
 MOD04_021EFDD4: ; 0x021EFDD4
 	cmp r0, #0
-	ldrlt r2, _021EFDE8 ; =0x02210F3C
+	ldrlt r2, _021EFDE8 ; =UNK04_02210F3C
 	strlt r0, [r2]
 	movlt r0, r1
 	bx lr
 	.align 2, 0
-_021EFDE8: .word 0x02210F3C
+_021EFDE8: .word UNK04_02210F3C
 
 	arm_func_start MOD04_021EFDEC
 MOD04_021EFDEC: ; 0x021EFDEC
@@ -26816,13 +26816,13 @@ _021EFE68:
 	arm_func_start MOD04_021EFE70
 MOD04_021EFE70: ; 0x021EFE70
 	stmdb sp!, {r4, lr}
-	ldr r4, _021EFEE8 ; =0x0220D684
-	ldr r1, _021EFEEC ; =0x02210F40
-	ldr lr, _021EFEF0 ; =0x02210F38
-	ldr r2, _021EFEF4 ; =0x02210F64
+	ldr r4, _021EFEE8 ; =UNK04_0220D684
+	ldr r1, _021EFEEC ; =UNK04_02210F40
+	ldr lr, _021EFEF0 ; =UNK04_02210F38
+	ldr r2, _021EFEF4 ; =UNK04_02210F64
 	mov ip, #2
 	mov r3, #0
-	ldr r0, _021EFEF8 ; =0x02210F50
+	ldr r0, _021EFEF8 ; =UNK04_02210F50
 	str r4, [r1]
 	str lr, [r1, #4]
 	strh ip, [r1, #8]
@@ -26830,27 +26830,27 @@ MOD04_021EFE70: ; 0x021EFE70
 	str r2, [r1, #0xc]
 	str r3, [r0]
 	bl SOCL_GetHostID
-	ldr r1, _021EFEF8 ; =0x02210F50
+	ldr r1, _021EFEF8 ; =UNK04_02210F50
 	bl SOC_U32to4U8
-	ldr r2, _021EFEF8 ; =0x02210F50
+	ldr r2, _021EFEF8 ; =UNK04_02210F50
 	ldr r0, [r2]
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqia sp!, {r4, pc}
-	ldr r1, _021EFEF4 ; =0x02210F64
+	ldr r1, _021EFEF4 ; =UNK04_02210F64
 	mov r3, #0
-	ldr r0, _021EFEEC ; =0x02210F40
+	ldr r0, _021EFEEC ; =UNK04_02210F40
 	mov ip, #4
 	str r2, [r1]
 	strh ip, [r0, #0xa]
 	str r3, [r1, #4]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021EFEE8: .word 0x0220D684
-_021EFEEC: .word 0x02210F40
-_021EFEF0: .word 0x02210F38
-_021EFEF4: .word 0x02210F64
-_021EFEF8: .word 0x02210F50
+_021EFEE8: .word UNK04_0220D684
+_021EFEEC: .word UNK04_02210F40
+_021EFEF0: .word UNK04_02210F38
+_021EFEF4: .word UNK04_02210F64
+_021EFEF8: .word UNK04_02210F50
 
 	arm_func_start MOD04_021EFEFC
 MOD04_021EFEFC: ; 0x021EFEFC
@@ -27129,8 +27129,8 @@ MOD04_021F025C: ; 0x021F025C
 	bl OS_IsTickAvailable
 	cmp r0, #1
 	beq _021F0284
-	ldr r0, _021F02A8 ; =0x0220D658
-	ldr r1, _021F02AC ; =0x0220D678
+	ldr r0, _021F02A8 ; =UNK04_0220D658
+	ldr r1, _021F02AC ; =UNK04_0220D678
 	ldr r3, _021F02B0 ; =0x00000109
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -27145,8 +27145,8 @@ _021F0284:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021F02A8: .word 0x0220D658
-_021F02AC: .word 0x0220D678
+_021F02A8: .word UNK04_0220D658
+_021F02AC: .word UNK04_0220D678
 _021F02B0: .word 0x00000109
 _021F02B4: .word 0x000082EA
 
@@ -27173,7 +27173,7 @@ _021F02E4:
 	ldr r2, [ip, #0x1d8]
 	cmp r2, #4
 	bne _021F0318
-	ldr r1, _021F0344 ; =0x0220D690
+	ldr r1, _021F0344 ; =UNK04_0220D690
 	bl MOD04_021FAEEC
 	add sp, sp, #4
 	mov r0, #2
@@ -27181,7 +27181,7 @@ _021F02E4:
 _021F0318:
 	cmp r3, #0
 	bne _021F0334
-	ldr r1, _021F0348 ; =0x0220D6E4
+	ldr r1, _021F0348 ; =UNK04_0220D6E4
 	bl MOD04_021FAEEC
 	add sp, sp, #4
 	mov r0, #2
@@ -27192,8 +27192,8 @@ _021F0334:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021F0344: .word 0x0220D690
-_021F0348: .word 0x0220D6E4
+_021F0344: .word UNK04_0220D690
+_021F0348: .word UNK04_0220D6E4
 
 	arm_func_start MOD04_021F034C
 MOD04_021F034C: ; 0x021F034C
@@ -27219,7 +27219,7 @@ _021F037C:
 	ldr r1, [r4, #0x1d8]
 	cmp r1, #4
 	bne _021F03B0
-	ldr r1, _021F0560 ; =0x0220D690
+	ldr r1, _021F0560 ; =UNK04_0220D690
 	bl MOD04_021FAEEC
 	add sp, sp, #0x204
 	mov r0, #2
@@ -27227,7 +27227,7 @@ _021F037C:
 _021F03B0:
 	cmp r2, #0
 	bne _021F03CC
-	ldr r1, _021F0564 ; =0x0220D6F8
+	ldr r1, _021F0564 ; =UNK04_0220D6F8
 	bl MOD04_021FAEEC
 	add sp, sp, #0x204
 	mov r0, #2
@@ -27235,7 +27235,7 @@ _021F03B0:
 _021F03CC:
 	cmp r5, #0
 	bne _021F03E8
-	ldr r1, _021F0568 ; =0x0220D710
+	ldr r1, _021F0568 ; =UNK04_0220D710
 	bl MOD04_021FAEEC
 	add sp, sp, #0x204
 	mov r0, #2
@@ -27301,7 +27301,7 @@ _021F04A0:
 	add r0, r4, #0x318
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r2, _021F056C ; =0x0220D728
+	ldr r2, _021F056C ; =UNK04_0220D728
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -27309,7 +27309,7 @@ _021F04A0:
 	mov r2, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F0570 ; =0x0220D6C0
+	ldr r2, _021F0570 ; =UNK04_0220D6C0
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -27317,7 +27317,7 @@ _021F04A0:
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F0574 ; =0x0220D734
+	ldr r2, _021F0574 ; =UNK04_0220D734
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -27325,7 +27325,7 @@ _021F04A0:
 	add r1, r4, #0x1f4
 	add r2, sp, #0
 	bl MOD04_021F2F9C
-	ldr r2, _021F0578 ; =0x0220D744
+	ldr r2, _021F0578 ; =UNK04_0220D744
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -27333,7 +27333,7 @@ _021F04A0:
 	add r1, r4, #0x1f4
 	add r2, sp, #0x100
 	bl MOD04_021F2F9C
-	ldr r2, _021F057C ; =0x0220D6CC
+	ldr r2, _021F057C ; =UNK04_0220D6CC
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -27341,14 +27341,14 @@ _021F04A0:
 	add sp, sp, #0x204
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021F0560: .word 0x0220D690
-_021F0564: .word 0x0220D6F8
-_021F0568: .word 0x0220D710
-_021F056C: .word 0x0220D728
-_021F0570: .word 0x0220D6C0
-_021F0574: .word 0x0220D734
-_021F0578: .word 0x0220D744
-_021F057C: .word 0x0220D6CC
+_021F0560: .word UNK04_0220D690
+_021F0564: .word UNK04_0220D6F8
+_021F0568: .word UNK04_0220D710
+_021F056C: .word UNK04_0220D728
+_021F0570: .word UNK04_0220D6C0
+_021F0574: .word UNK04_0220D734
+_021F0578: .word UNK04_0220D744
+_021F057C: .word UNK04_0220D6CC
 
 	arm_func_start MOD04_021F0580
 MOD04_021F0580: ; 0x021F0580
@@ -27372,7 +27372,7 @@ _021F05A8:
 	ldr r2, [r3, #0x1d8]
 	cmp r2, #4
 	bne _021F05DC
-	ldr r1, _021F05F0 ; =0x0220D690
+	ldr r1, _021F05F0 ; =UNK04_0220D690
 	bl MOD04_021FAEEC
 	add sp, sp, #4
 	mov r0, #2
@@ -27384,7 +27384,7 @@ _021F05DC:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021F05F0: .word 0x0220D690
+_021F05F0: .word UNK04_0220D690
 
 	arm_func_start MOD04_021F05F4
 MOD04_021F05F4: ; 0x021F05F4
@@ -27484,7 +27484,7 @@ _021F0708:
 _021F072C:
 	cmp r4, #0
 	bne _021F0744
-	ldr r1, _021F0814 ; =0x0220D750
+	ldr r1, _021F0814 ; =UNK04_0220D750
 	bl MOD04_021FAEEC
 	mov r0, #2
 	ldmia sp!, {r4, r5, r6, pc}
@@ -27495,7 +27495,7 @@ _021F0744:
 	cmp r1, r2
 	blt _021F076C
 _021F0758:
-	ldr r1, _021F0818 ; =0x0220D760
+	ldr r1, _021F0818 ; =UNK04_0220D760
 	mov r0, r5
 	bl MOD04_021FAEEC
 	mov r0, #2
@@ -27504,7 +27504,7 @@ _021F076C:
 	bl MOD04_021F8430
 	movs r6, r0
 	bne _021F078C
-	ldr r1, _021F0818 ; =0x0220D760
+	ldr r1, _021F0818 ; =UNK04_0220D760
 	mov r0, r5
 	bl MOD04_021FAEEC
 	mov r0, #2
@@ -27513,8 +27513,8 @@ _021F078C:
 	ldr r5, [r6, #8]
 	cmp r5, #0
 	bne _021F07AC
-	ldr r0, _021F081C ; =0x0220D770
-	ldr r1, _021F0820 ; =0x0220D77C
+	ldr r0, _021F081C ; =UNK04_0220D770
+	ldr r1, _021F0820 ; =UNK04_0220D77C
 	ldr r3, _021F0824 ; =0x000005CF
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -27548,10 +27548,10 @@ _021F07FC:
 	str r1, [r4, #0x20c]
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F0814: .word 0x0220D750
-_021F0818: .word 0x0220D760
-_021F081C: .word 0x0220D770
-_021F0820: .word 0x0220D77C
+_021F0814: .word UNK04_0220D750
+_021F0818: .word UNK04_0220D760
+_021F081C: .word UNK04_0220D770
+_021F0820: .word UNK04_0220D77C
 _021F0824: .word 0x000005CF
 
 	arm_func_start MOD04_021F0828
@@ -27596,7 +27596,7 @@ _021F088C:
 	ldr r2, [r5, #0x1d8]
 	cmp r2, #4
 	bne _021F08C0
-	ldr r1, _021F0940 ; =0x0220D690
+	ldr r1, _021F0940 ; =UNK04_0220D690
 	bl MOD04_021FAEEC
 	add sp, sp, #4
 	mov r0, #2
@@ -27636,7 +27636,7 @@ _021F0934:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021F0940: .word 0x0220D690
+_021F0940: .word UNK04_0220D690
 
 	arm_func_start MOD04_021F0944
 MOD04_021F0944: ; 0x021F0944
@@ -27660,7 +27660,7 @@ _021F096C:
 	ldr r2, [r3, #0x1d8]
 	cmp r2, #4
 	bne _021F09A0
-	ldr r1, _021F09AC ; =0x0220D690
+	ldr r1, _021F09AC ; =UNK04_0220D690
 	bl MOD04_021FAEEC
 	add sp, sp, #4
 	mov r0, #2
@@ -27670,7 +27670,7 @@ _021F09A0:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021F09AC: .word 0x0220D690
+_021F09AC: .word UNK04_0220D690
 
 	arm_func_start MOD04_021F09B0
 MOD04_021F09B0: ; 0x021F09B0
@@ -27698,7 +27698,7 @@ _021F09E4:
 	ldr r1, [r4, #0x1d8]
 	cmp r1, #4
 	bne _021F0A20
-	ldr r1, _021F0B10 ; =0x0220D690
+	ldr r1, _021F0B10 ; =UNK04_0220D690
 	bl MOD04_021FAEEC
 	ldr ip, _021F0B0C ; =0x00000408
 	mov r0, #2
@@ -27707,7 +27707,7 @@ _021F09E4:
 _021F0A20:
 	cmp r2, #0
 	bne _021F0A40
-	ldr r1, _021F0B14 ; =0x0220D784
+	ldr r1, _021F0B14 ; =UNK04_0220D784
 	bl MOD04_021FAEEC
 	ldr ip, _021F0B0C ; =0x00000408
 	mov r0, #2
@@ -27731,11 +27731,11 @@ _021F0A64:
 	cmp r0, #0
 	bne _021F0A64
 _021F0A7C:
-	ldr r2, _021F0B1C ; =0x0220D794
+	ldr r2, _021F0B1C ; =UNK04_0220D794
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
-	ldr r2, _021F0B20 ; =0x0220D6C0
+	ldr r2, _021F0B20 ; =UNK04_0220D6C0
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -27743,7 +27743,7 @@ _021F0A7C:
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F0B24 ; =0x0220D7A0
+	ldr r2, _021F0B24 ; =UNK04_0220D7A0
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -27751,7 +27751,7 @@ _021F0A7C:
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F0B28 ; =0x0220D7B0
+	ldr r2, _021F0B28 ; =UNK04_0220D7B0
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -27759,7 +27759,7 @@ _021F0A7C:
 	add r1, r4, #0x1f4
 	add r2, sp, #0
 	bl MOD04_021F2F9C
-	ldr r2, _021F0B2C ; =0x0220D6CC
+	ldr r2, _021F0B2C ; =UNK04_0220D6CC
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -27769,14 +27769,14 @@ _021F0A7C:
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
 _021F0B0C: .word 0x00000408
-_021F0B10: .word 0x0220D690
-_021F0B14: .word 0x0220D784
+_021F0B10: .word UNK04_0220D690
+_021F0B14: .word UNK04_0220D784
 _021F0B18: .word 0x00000401
-_021F0B1C: .word 0x0220D794
-_021F0B20: .word 0x0220D6C0
-_021F0B24: .word 0x0220D7A0
-_021F0B28: .word 0x0220D7B0
-_021F0B2C: .word 0x0220D6CC
+_021F0B1C: .word UNK04_0220D794
+_021F0B20: .word UNK04_0220D6C0
+_021F0B24: .word UNK04_0220D7A0
+_021F0B28: .word UNK04_0220D7B0
+_021F0B2C: .word UNK04_0220D6CC
 
 	arm_func_start MOD04_021F0B30
 MOD04_021F0B30: ; 0x021F0B30
@@ -27800,7 +27800,7 @@ _021F0B58:
 	ldr r3, [ip, #0x1d8]
 	cmp r3, #4
 	bne _021F0B8C
-	ldr r1, _021F0B98 ; =0x0220D690
+	ldr r1, _021F0B98 ; =UNK04_0220D690
 	bl MOD04_021FAEEC
 	add sp, sp, #4
 	mov r0, #2
@@ -27810,7 +27810,7 @@ _021F0B8C:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021F0B98: .word 0x0220D690
+_021F0B98: .word UNK04_0220D690
 
 	arm_func_start MOD04_021F0B9C
 MOD04_021F0B9C: ; 0x021F0B9C
@@ -27831,7 +27831,7 @@ _021F0BCC:
 	ldr lr, [sp, #0x218]
 	cmp lr, #0
 	bne _021F0BEC
-	ldr r1, _021F0C7C ; =0x0220D6D4
+	ldr r1, _021F0C7C ; =UNK04_0220D6D4
 	bl MOD04_021FAEEC
 	add sp, sp, #0x20c
 	mov r0, #2
@@ -27864,7 +27864,7 @@ _021F0C44:
 	ldr ip, [r4, #0x1d8]
 	cmp ip, #4
 	bne _021F0C64
-	ldr r1, _021F0C80 ; =0x0220D690
+	ldr r1, _021F0C80 ; =UNK04_0220D690
 	bl MOD04_021FAEEC
 	add sp, sp, #0x20c
 	mov r0, #2
@@ -27877,8 +27877,8 @@ _021F0C64:
 	add sp, sp, #0x20c
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021F0C7C: .word 0x0220D6D4
-_021F0C80: .word 0x0220D690
+_021F0C7C: .word UNK04_0220D6D4
+_021F0C80: .word UNK04_0220D690
 
 	arm_func_start MOD04_021F0C84
 MOD04_021F0C84: ; 0x021F0C84
@@ -27897,7 +27897,7 @@ _021F0CAC:
 	ldr ip, [sp, #0x48]
 	cmp ip, #0
 	bne _021F0CCC
-	ldr r1, _021F0D4C ; =0x0220D6D4
+	ldr r1, _021F0D4C ; =UNK04_0220D6D4
 	bl MOD04_021FAEEC
 	add sp, sp, #0x30
 	mov r0, #2
@@ -27937,7 +27937,7 @@ _021F0D0C:
 	add sp, sp, #0x30
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021F0D4C: .word 0x0220D6D4
+_021F0D4C: .word UNK04_0220D6D4
 _021F0D50: .word 0x00000601
 
 	arm_func_start MOD04_021F0D54
@@ -27994,7 +27994,7 @@ _021F0DF4:
 	ldr r4, [sp, #0x54]
 	cmp r4, #0
 	bne _021F0E14
-	ldr r1, _021F0EA8 ; =0x0220D6D4
+	ldr r1, _021F0EA8 ; =UNK04_0220D6D4
 	bl MOD04_021FAEEC
 	add sp, sp, #0x48
 	mov r0, #2
@@ -28019,7 +28019,7 @@ _021F0E14:
 	mov r0, #0
 	ldmia sp!, {r4, pc}
 _021F0E5C:
-	ldr lr, _021F0EAC ; =0x0220D7BC
+	ldr lr, _021F0EAC ; =UNK04_0220D7BC
 	mov ip, #0
 	str lr, [sp]
 	str r1, [sp, #4]
@@ -28039,8 +28039,8 @@ _021F0E5C:
 	add sp, sp, #0x48
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021F0EA8: .word 0x0220D6D4
-_021F0EAC: .word 0x0220D7BC
+_021F0EA8: .word UNK04_0220D6D4
+_021F0EAC: .word UNK04_0220D7BC
 
 	arm_func_start MOD04_021F0EB0
 MOD04_021F0EB0: ; 0x021F0EB0
@@ -28061,7 +28061,7 @@ _021F0ED8:
 	cmp r1, #6
 	blt _021F0EFC
 _021F0EE8:
-	ldr r1, _021F0F14 ; =0x0220D7C0
+	ldr r1, _021F0F14 ; =UNK04_0220D7C0
 	bl MOD04_021FAEEC
 	add sp, sp, #4
 	mov r0, #2
@@ -28074,7 +28074,7 @@ _021F0EFC:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021F0F14: .word 0x0220D7C0
+_021F0F14: .word UNK04_0220D7C0
 
 	arm_func_start MOD04_021F0F18
 MOD04_021F0F18: ; 0x021F0F18
@@ -28119,7 +28119,7 @@ MOD04_021F0F64: ; 0x021F0F64
 MOD04_021F0F94: ; 0x021F0F94
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r3, _021F0FD0 ; =0x02210E5C
+	ldr r3, _021F0FD0 ; =UNK04_02210E5C
 	ldr r3, [r3]
 	cmp r3, #1
 	addne sp, sp, #4
@@ -28133,7 +28133,7 @@ MOD04_021F0F94: ; 0x021F0F94
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021F0FD0: .word 0x02210E5C
+_021F0FD0: .word UNK04_02210E5C
 
 	arm_func_start MOD04_021F0FD4
 MOD04_021F0FD4: ; 0x021F0FD4
@@ -28146,8 +28146,8 @@ MOD04_021F0FD4: ; 0x021F0FD4
 	mov r6, #0
 	cmp r0, #4
 	bls _021F100C
-	ldr r0, _021F117C ; =0x0220D7D0
-	ldr r1, _021F1180 ; =0x0220D8C8
+	ldr r0, _021F117C ; =UNK04_0220D7D0
+	ldr r1, _021F1180 ; =UNK04_0220D8C8
 	ldr r3, _021F1184 ; =0x000001B5
 	mov r2, r6
 	bl __msl_assertion_failed
@@ -28190,8 +28190,8 @@ _021F1060:
 	movne r1, #4
 	strne r1, [r0, #0x1c]
 	bne _021F10A8
-	ldr r0, _021F1188 ; =0x0220D8D0
-	ldr r1, _021F1180 ; =0x0220D8C8
+	ldr r0, _021F1188 ; =UNK04_0220D8D0
+	ldr r1, _021F1180 ; =UNK04_0220D8C8
 	ldr r3, _021F118C ; =0x000001DB
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -28257,10 +28257,10 @@ _021F1170:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021F117C: .word 0x0220D7D0
-_021F1180: .word 0x0220D8C8
+_021F117C: .word UNK04_0220D7D0
+_021F1180: .word UNK04_0220D8C8
 _021F1184: .word 0x000001B5
-_021F1188: .word 0x0220D8D0
+_021F1188: .word UNK04_0220D8D0
 _021F118C: .word 0x000001DB
 
 	arm_func_start MOD04_021F1190
@@ -28283,7 +28283,7 @@ _021F11C8:
 	mov r0, r5
 	add r1, r4, #0x1f4
 	bl MOD04_021F5DF8
-	ldr r0, _021F1494 ; =0x0220D8D4
+	ldr r0, _021F1494 ; =UNK04_0220D8D4
 	str sl, [sp]
 	str r0, [sp, #4]
 	ldr r1, [r4, #0x1d4]
@@ -28296,7 +28296,7 @@ _021F11C8:
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	add r0, sp, #0x18
 	str r0, [sp]
-	ldr r0, _021F1494 ; =0x0220D8D4
+	ldr r0, _021F1494 ; =UNK04_0220D8D4
 	add r2, r4, #0x1dc
 	str r0, [sp, #4]
 	ldr r1, [r4, #0x1d4]
@@ -28308,7 +28308,7 @@ _021F11C8:
 	cmp r0, #3
 	addne sp, sp, #0x1c
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r2, _021F1498 ; =0x0220D8D8
+	ldr r2, _021F1498 ; =UNK04_0220D8D8
 	mov r0, r5
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -28321,13 +28321,13 @@ _021F11C8:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F1264:
 	ldr r0, [r4, #0x1dc]
-	ldr r1, _021F149C ; =0x0220D904
+	ldr r1, _021F149C ; =UNK04_0220D904
 	bl strstr
 	movs r7, r0
 	beq _021F1428
 _021F1278:
 	strb fp, [r7]
-	ldr r1, _021F14A0 ; =0x0220D90C
+	ldr r1, _021F14A0 ; =UNK04_0220D90C
 	ldr r2, [r4, #0x1dc]
 	mov r0, r5
 	bl MOD04_021FB3D0
@@ -28348,7 +28348,7 @@ _021F1278:
 	bl MOD04_021DD844
 	cmp r0, #0
 	bne _021F12E8
-	ldr r1, _021F14A4 ; =0x0220D918
+	ldr r1, _021F14A4 ; =UNK04_0220D918
 	mov r0, r5
 	bl MOD04_021FAEEC
 	add sp, sp, #0x1c
@@ -28373,7 +28373,7 @@ _021F12EC:
 	add r2, r2, #1
 	bl memmove
 	ldr r7, [r4, #0x1ec]
-	ldr r1, _021F14A8 ; =0x0220D928
+	ldr r1, _021F14A8 ; =UNK04_0220D928
 	mov r0, r7
 	bl strstr
 	cmp r0, #0
@@ -28387,7 +28387,7 @@ _021F12EC:
 	bl MOD04_021F6C38
 	cmp r0, #0
 	bne _021F1378
-	ldr r1, _021F14AC ; =0x0220D930
+	ldr r1, _021F14AC ; =UNK04_0220D930
 	mov r2, r7
 	mov r0, r5
 	bl MOD04_021FB3D0
@@ -28411,7 +28411,7 @@ _021F1398:
 	movne r0, #4
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	ldr r7, [r4, #0x1ec]
-	ldr r1, _021F14B0 ; =0x0220D958
+	ldr r1, _021F14B0 ; =UNK04_0220D958
 	ldr r2, [sp, #0xc]
 	mov r0, r7
 	bl strncmp
@@ -28425,18 +28425,18 @@ _021F1398:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F13F0:
-	ldr r1, _021F14B4 ; =0x0220D960
+	ldr r1, _021F14B4 ; =UNK04_0220D960
 	mov r0, r7
 	mov r2, r6
 	bl strncmp
 	cmp r0, #0
 	beq _021F1414
-	ldr r1, _021F14B8 ; =0x0220D968
+	ldr r1, _021F14B8 ; =UNK04_0220D968
 	mov r0, r5
 	bl MOD04_021FB3D0
 _021F1414:
 	ldr r0, [r4, #0x1dc]
-	ldr r1, _021F149C ; =0x0220D904
+	ldr r1, _021F149C ; =UNK04_0220D904
 	bl strstr
 	movs r7, r0
 	bne _021F1278
@@ -28444,7 +28444,7 @@ _021F1428:
 	ldr r0, [sp, #0x18]
 	cmp r0, #0
 	beq _021F1468
-	ldr r2, _021F14BC ; =0x0220D998
+	ldr r2, _021F14BC ; =UNK04_0220D998
 	mov r3, #4
 	mov r0, r5
 	mov r1, #7
@@ -28471,17 +28471,17 @@ _021F1480:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021F1494: .word 0x0220D8D4
-_021F1498: .word 0x0220D8D8
-_021F149C: .word 0x0220D904
-_021F14A0: .word 0x0220D90C
-_021F14A4: .word 0x0220D918
-_021F14A8: .word 0x0220D928
-_021F14AC: .word 0x0220D930
-_021F14B0: .word 0x0220D958
-_021F14B4: .word 0x0220D960
-_021F14B8: .word 0x0220D968
-_021F14BC: .word 0x0220D998
+_021F1494: .word UNK04_0220D8D4
+_021F1498: .word UNK04_0220D8D8
+_021F149C: .word UNK04_0220D904
+_021F14A0: .word UNK04_0220D90C
+_021F14A4: .word UNK04_0220D918
+_021F14A8: .word UNK04_0220D928
+_021F14AC: .word UNK04_0220D930
+_021F14B0: .word UNK04_0220D958
+_021F14B4: .word UNK04_0220D960
+_021F14B8: .word UNK04_0220D968
+_021F14BC: .word UNK04_0220D998
 
 	arm_func_start MOD04_021F14C0
 MOD04_021F14C0: ; 0x021F14C0
@@ -28665,7 +28665,7 @@ _021F1730:
 	cmp r1, #6
 	blt _021F1730
 	ldr r2, [sp]
-	ldr r1, _021F17AC ; =0x0220D9C0
+	ldr r1, _021F17AC ; =UNK04_0220D9C0
 	add r0, sp, #0
 	str r3, [r2, #0x460]
 	bl MOD04_021FB3D0
@@ -28688,7 +28688,7 @@ _021F178C:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F17AC: .word 0x0220D9C0
+_021F17AC: .word UNK04_0220D9C0
 
 	arm_func_start MOD04_021F17B0
 MOD04_021F17B0: ; 0x021F17B0
@@ -28700,18 +28700,18 @@ MOD04_021F17B0: ; 0x021F17B0
 	bl MOD04_021F85E8
 	cmp r0, #0
 	bne _021F17E8
-	ldr r1, _021F1938 ; =0x0220D9E4
+	ldr r1, _021F1938 ; =UNK04_0220D9E4
 	mov r0, r6
 	bl MOD04_021FAEEC
 	add sp, sp, #8
 	mov r0, #2
 	ldmia sp!, {r4, r5, r6, pc}
 _021F17E8:
-	ldr r2, _021F193C ; =0x0220D9F8
+	ldr r2, _021F193C ; =UNK04_0220D9F8
 	mov r0, r6
 	add r1, r5, #0x1f4
 	bl MOD04_021F2F9C
-	ldr r2, _021F1940 ; =0x0220DA04
+	ldr r2, _021F1940 ; =UNK04_0220DA04
 	mov r0, r6
 	add r1, r5, #0x1f4
 	bl MOD04_021F2F9C
@@ -28719,7 +28719,7 @@ _021F17E8:
 	mov r0, r6
 	add r1, r5, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F1944 ; =0x0220DA10
+	ldr r2, _021F1944 ; =UNK04_0220DA10
 	mov r0, r6
 	add r1, r5, #0x1f4
 	bl MOD04_021F2F9C
@@ -28730,7 +28730,7 @@ _021F17E8:
 	bl MOD04_021F2F64
 	mov r0, r6
 	add r1, r5, #0x1f4
-	ldr r2, _021F1948 ; =0x0220DA20
+	ldr r2, _021F1948 ; =UNK04_0220DA20
 	bl MOD04_021F2F9C
 	ldr r0, [sp]
 	ldr r0, [r0, #8]
@@ -28739,8 +28739,8 @@ _021F17E8:
 	ldr r4, [r0]
 	cmp r4, #0
 	bge _021F187C
-	ldr r0, _021F194C ; =0x0220DA28
-	ldr r1, _021F1950 ; =0x0220DA34
+	ldr r0, _021F194C ; =UNK04_0220DA28
+	ldr r1, _021F1950 ; =UNK04_0220DA34
 	ldr r3, _021F1954 ; =0x000001FD
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -28781,8 +28781,8 @@ _021F18F0:
 	ldr r0, [r5, #0x430]
 	cmp r0, #0
 	bge _021F191C
-	ldr r0, _021F1958 ; =0x0220DA40
-	ldr r1, _021F1950 ; =0x0220DA34
+	ldr r0, _021F1958 ; =UNK04_0220DA40
+	ldr r1, _021F1950 ; =UNK04_0220DA34
 	mov r2, #0
 	mov r3, #0x204
 	bl __msl_assertion_failed
@@ -28796,15 +28796,15 @@ _021F192C:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F1938: .word 0x0220D9E4
-_021F193C: .word 0x0220D9F8
-_021F1940: .word 0x0220DA04
-_021F1944: .word 0x0220DA10
-_021F1948: .word 0x0220DA20
-_021F194C: .word 0x0220DA28
-_021F1950: .word 0x0220DA34
+_021F1938: .word UNK04_0220D9E4
+_021F193C: .word UNK04_0220D9F8
+_021F1940: .word UNK04_0220DA04
+_021F1944: .word UNK04_0220DA10
+_021F1948: .word UNK04_0220DA20
+_021F194C: .word UNK04_0220DA28
+_021F1950: .word UNK04_0220DA34
 _021F1954: .word 0x000001FD
-_021F1958: .word 0x0220DA40
+_021F1958: .word UNK04_0220DA40
 _021F195C: .word MOD04_021F1960
 
 	arm_func_start MOD04_021F1960
@@ -28830,7 +28830,7 @@ MOD04_021F1984: ; 0x021F1984
 	bl MOD04_021F85E8
 	cmp r0, #0
 	bne _021F19BC
-	ldr r1, _021F1A60 ; =0x0220D9E4
+	ldr r1, _021F1A60 ; =UNK04_0220D9E4
 	mov r0, r4
 	bl MOD04_021FAEEC
 	add sp, sp, #4
@@ -28841,7 +28841,7 @@ _021F19BC:
 	ldr r0, [r1, #0x10]
 	cmp r0, #0
 	bne _021F19E4
-	ldr r1, _021F1A60 ; =0x0220D9E4
+	ldr r1, _021F1A60 ; =UNK04_0220D9E4
 	mov r0, r4
 	bl MOD04_021FAEEC
 	add sp, sp, #4
@@ -28881,7 +28881,7 @@ _021F1A54:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021F1A60: .word 0x0220D9E4
+_021F1A60: .word UNK04_0220D9E4
 
 	arm_func_start MOD04_021F1A64
 MOD04_021F1A64: ; 0x021F1A64
@@ -28966,7 +28966,7 @@ MOD04_021F1B60: ; 0x021F1B60
 	mov r1, r3
 	ldr r4, [r7]
 	bl MOD04_021FB3DC
-	ldr r2, _021F1C34 ; =0x0220DA6C
+	ldr r2, _021F1C34 ; =UNK04_0220DA6C
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -28974,7 +28974,7 @@ MOD04_021F1B60: ; 0x021F1B60
 	mov r2, r5
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F1C38 ; =0x0220DA04
+	ldr r2, _021F1C38 ; =UNK04_0220DA04
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -28982,7 +28982,7 @@ MOD04_021F1B60: ; 0x021F1B60
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F1C3C ; =0x0220DA74
+	ldr r2, _021F1C3C ; =UNK04_0220DA74
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -28990,7 +28990,7 @@ MOD04_021F1B60: ; 0x021F1B60
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F1C40 ; =0x0220DA78
+	ldr r2, _021F1C40 ; =UNK04_0220DA78
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -28998,7 +28998,7 @@ MOD04_021F1B60: ; 0x021F1B60
 	add r1, r4, #0x1f4
 	add r2, sp, #0
 	bl MOD04_021F2F9C
-	ldr r2, _021F1C44 ; =0x0220DA20
+	ldr r2, _021F1C44 ; =UNK04_0220DA20
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -29009,11 +29009,11 @@ MOD04_021F1B60: ; 0x021F1B60
 	.align 2, 0
 _021F1C2C: .word 0x00000DB4
 _021F1C30: .word 0x00000DAD
-_021F1C34: .word 0x0220DA6C
-_021F1C38: .word 0x0220DA04
-_021F1C3C: .word 0x0220DA74
-_021F1C40: .word 0x0220DA78
-_021F1C44: .word 0x0220DA20
+_021F1C34: .word UNK04_0220DA6C
+_021F1C38: .word UNK04_0220DA04
+_021F1C3C: .word UNK04_0220DA74
+_021F1C40: .word UNK04_0220DA78
+_021F1C44: .word UNK04_0220DA20
 
 	arm_func_start MOD04_021F1C48
 MOD04_021F1C48: ; 0x021F1C48
@@ -29022,7 +29022,7 @@ MOD04_021F1C48: ; 0x021F1C48
 	sub sp, sp, ip
 	mov r4, r1
 	mov sl, r0
-	ldr r1, _021F261C ; =0x0220DA6C
+	ldr r1, _021F261C ; =UNK04_0220DA6C
 	add r2, sp, #0x38
 	mov r0, r4
 	mov r3, #0x1000
@@ -29030,7 +29030,7 @@ MOD04_021F1C48: ; 0x021F1C48
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F1CAC
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29046,14 +29046,14 @@ _021F1CAC:
 	add r0, sp, #0x38
 	bl atol
 	mov r5, r0
-	ldr r1, _021F2624 ; =0x0220DAB0
+	ldr r1, _021F2624 ; =UNK04_0220DAB0
 	add r2, sp, #0x38
 	mov r0, r4
 	mov r3, #0x1000
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F1D04
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29069,7 +29069,7 @@ _021F1D04:
 	add r0, sp, #0x38
 	bl atol
 	mov r8, r0
-	ldr r1, _021F2628 ; =0x0220DAB4
+	ldr r1, _021F2628 ; =UNK04_0220DAB4
 	add r2, sp, #0x38
 	mov r0, r4
 	mov r3, #0x1000
@@ -29119,7 +29119,7 @@ _021F1DA0:
 	bl MOD04_021DD860
 	movs r5, r0
 	bne _021F1DE4
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29127,14 +29127,14 @@ _021F1DA0:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F1DE4:
-	ldr r1, _021F2630 ; =0x0220DA78
+	ldr r1, _021F2630 ; =UNK04_0220DA78
 	add r2, sp, #0x38
 	mov r0, r4
 	mov r3, #0x1000
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F1E30
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29155,7 +29155,7 @@ _021F1E30:
 	ldr r0, [r5, #8]
 	cmp r0, #0
 	bne _021F1E6C
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29187,7 +29187,7 @@ _021F1EB4:
 	bl MOD04_021F8624
 	movs r5, r0
 	bne _021F1EE4
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29195,14 +29195,14 @@ _021F1EB4:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F1EE4:
-	ldr r1, _021F2630 ; =0x0220DA78
+	ldr r1, _021F2630 ; =UNK04_0220DA78
 	add r2, sp, #0x38
 	mov r0, r4
 	mov r3, #0x1000
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F1F30
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29215,12 +29215,12 @@ _021F1EE4:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F1F30:
-	ldr r1, _021F2634 ; =0x0220DACC
+	ldr r1, _021F2634 ; =UNK04_0220DACC
 	add r0, sp, #0x38
 	bl strstr
 	movs r4, r0
 	bne _021F1F74
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29239,7 +29239,7 @@ _021F1F74:
 	bl strlen
 	cmp r0, #0x20
 	beq _021F1FBC
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29272,7 +29272,7 @@ _021F1FBC:
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021F2028
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29306,7 +29306,7 @@ _021F2078:
 	bl MOD04_021F8624
 	movs r5, r0
 	bne _021F20A8
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29323,7 +29323,7 @@ _021F20A8:
 	ldr r2, [r5, #8]
 	cmp r2, #0
 	bne _021F20E8
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29346,7 +29346,7 @@ _021F20F0:
 	ldr r0, [r5, #8]
 	str r1, [r0]
 _021F211C:
-	ldr r1, _021F2630 ; =0x0220DA78
+	ldr r1, _021F2630 ; =UNK04_0220DA78
 	add r2, sp, #0x38
 	mov r0, r4
 	mov r3, #0x1000
@@ -29354,7 +29354,7 @@ _021F211C:
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F216C
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29367,14 +29367,14 @@ _021F211C:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F216C:
-	ldr r1, _021F2640 ; =0x0220DAD8
+	ldr r1, _021F2640 ; =UNK04_0220DAD8
 	add r0, sp, #0x38
 	add r2, sp, #0x28
 	mov r3, #0x10
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F21B8
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29395,7 +29395,7 @@ _021F21B8:
 	mov r0, #0
 	add r2, sp, #0x1000
 	str r0, [r7, #8]
-	ldr r1, _021F2644 ; =0x0220DADC
+	ldr r1, _021F2644 ; =UNK04_0220DADC
 	add r0, sp, #0x38
 	add r2, r2, #0x38
 	mov r3, #0x100
@@ -29412,7 +29412,7 @@ _021F21B8:
 	ldr r0, [r7, #8]
 	cmp r0, #0
 	bne _021F2238
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29424,7 +29424,7 @@ _021F2238:
 	bl MOD04_021DD82C
 	add r2, sp, #0x1000
 	mov r4, #0
-	ldr r1, _021F2648 ; =0x0220DAE4
+	ldr r1, _021F2648 ; =UNK04_0220DAE4
 	add r0, sp, #0x38
 	add r2, r2, #0x38
 	mov r3, #0x100
@@ -29442,7 +29442,7 @@ _021F2238:
 	ldr r0, [r7, #0xc]
 	cmp r0, #0
 	bne _021F22AC
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29450,7 +29450,7 @@ _021F2238:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F22AC:
-	ldr r1, _021F264C ; =0x0220DAEC
+	ldr r1, _021F264C ; =UNK04_0220DAEC
 	add r0, sp, #0x38
 	add r2, sp, #0x28
 	mov r3, #0x10
@@ -29483,7 +29483,7 @@ _021F22AC:
 	orr r0, r1, r0
 	str r0, [r7, #0x10]
 _021F232C:
-	ldr r1, _021F2650 ; =0x0220DAF4
+	ldr r1, _021F2650 ; =UNK04_0220DAF4
 	add r0, sp, #0x38
 	add r2, sp, #0x28
 	mov r3, #0x10
@@ -29515,7 +29515,7 @@ _021F2380:
 	bl MOD04_021DD860
 	movs r3, r0
 	bne _021F23C4
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29541,14 +29541,14 @@ _021F23C4:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F2408:
-	ldr r1, _021F2630 ; =0x0220DA78
+	ldr r1, _021F2630 ; =UNK04_0220DA78
 	add r2, sp, #0x38
 	mov r0, r4
 	mov r3, #0x1000
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F2454
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29561,12 +29561,12 @@ _021F2408:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F2454:
-	ldr r1, _021F2650 ; =0x0220DAF4
+	ldr r1, _021F2650 ; =UNK04_0220DAF4
 	add r0, sp, #0x38
 	bl strstr
 	cmp r0, #0
 	bne _021F2498
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29582,7 +29582,7 @@ _021F2498:
 	ldrsb r1, [r0, #3]
 	cmp r1, #0
 	bne _021F24D4
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29598,7 +29598,7 @@ _021F24D4:
 	add r0, r0, #3
 	bl atol
 	mov r4, r0
-	ldr r1, _021F2654 ; =0x0220DAF8
+	ldr r1, _021F2654 ; =UNK04_0220DAF8
 	add r0, sp, #0x38
 	bl strstr
 	movs r1, r0
@@ -29623,7 +29623,7 @@ _021F2518:
 	bl MOD04_021DD860
 	movs r5, r0
 	bne _021F255C
-	ldr r1, _021F262C ; =0x0220DABC
+	ldr r1, _021F262C ; =UNK04_0220DABC
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F2618 ; =0x0000113C
@@ -29651,14 +29651,14 @@ _021F255C:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F25A8:
-	ldr r1, _021F2630 ; =0x0220DA78
+	ldr r1, _021F2630 ; =UNK04_0220DA78
 	add r2, sp, #0x38
 	mov r0, r4
 	mov r3, #0x1000
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F25F4
-	ldr r2, _021F2620 ; =0x0220DA80
+	ldr r2, _021F2620 ; =UNK04_0220DA80
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -29671,7 +29671,7 @@ _021F25A8:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F25F4:
-	ldr r3, _021F2658 ; =0x0220DAFC
+	ldr r3, _021F2658 ; =UNK04_0220DAFC
 	mov r0, sl
 	mov r1, r8
 	mov r2, #0x67
@@ -29683,33 +29683,33 @@ _021F2608:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
 _021F2618: .word 0x0000113C
-_021F261C: .word 0x0220DA6C
-_021F2620: .word 0x0220DA80
-_021F2624: .word 0x0220DAB0
-_021F2628: .word 0x0220DAB4
-_021F262C: .word 0x0220DABC
-_021F2630: .word 0x0220DA78
-_021F2634: .word 0x0220DACC
+_021F261C: .word UNK04_0220DA6C
+_021F2620: .word UNK04_0220DA80
+_021F2624: .word UNK04_0220DAB0
+_021F2628: .word UNK04_0220DAB4
+_021F262C: .word UNK04_0220DABC
+_021F2630: .word UNK04_0220DA78
+_021F2634: .word UNK04_0220DACC
 _021F2638: .word 0x0000040C
 _021F263C: .word 0x00000401
-_021F2640: .word 0x0220DAD8
-_021F2644: .word 0x0220DADC
-_021F2648: .word 0x0220DAE4
-_021F264C: .word 0x0220DAEC
-_021F2650: .word 0x0220DAF4
-_021F2654: .word 0x0220DAF8
-_021F2658: .word 0x0220DAFC
+_021F2640: .word UNK04_0220DAD8
+_021F2644: .word UNK04_0220DADC
+_021F2648: .word UNK04_0220DAE4
+_021F264C: .word UNK04_0220DAEC
+_021F2650: .word UNK04_0220DAF4
+_021F2654: .word UNK04_0220DAF8
+_021F2658: .word UNK04_0220DAFC
 
 	arm_func_start MOD04_021F265C
 MOD04_021F265C: ; 0x021F265C
 	stmdb sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldr r4, [r6]
-	ldr r2, _021F26F0 ; =0x0220DB00
+	ldr r2, _021F26F0 ; =UNK04_0220DB00
 	mov r5, r1
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
-	ldr r2, _021F26F4 ; =0x0220DA04
+	ldr r2, _021F26F4 ; =UNK04_0220DA04
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -29717,7 +29717,7 @@ MOD04_021F265C: ; 0x021F265C
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F26F8 ; =0x0220DB0C
+	ldr r2, _021F26F8 ; =UNK04_0220DB0C
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -29727,7 +29727,7 @@ MOD04_021F265C: ; 0x021F265C
 	bl MOD04_021F2F64
 	mov r0, r6
 	add r1, r4, #0x1f4
-	ldr r2, _021F26FC ; =0x0220DB1C
+	ldr r2, _021F26FC ; =UNK04_0220DB1C
 	bl MOD04_021F2F9C
 	ldr r2, [r5, #0x10]
 	mov r0, r6
@@ -29735,16 +29735,16 @@ MOD04_021F265C: ; 0x021F265C
 	bl MOD04_021F2F9C
 	mov r0, r6
 	add r1, r4, #0x1f4
-	ldr r2, _021F2700 ; =0x0220DA20
+	ldr r2, _021F2700 ; =UNK04_0220DA20
 	bl MOD04_021F2F9C
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F26F0: .word 0x0220DB00
-_021F26F4: .word 0x0220DA04
-_021F26F8: .word 0x0220DB0C
-_021F26FC: .word 0x0220DB1C
-_021F2700: .word 0x0220DA20
+_021F26F0: .word UNK04_0220DB00
+_021F26F4: .word UNK04_0220DA04
+_021F26F8: .word UNK04_0220DB0C
+_021F26FC: .word UNK04_0220DB1C
+_021F2700: .word UNK04_0220DA20
 
 	arm_func_start MOD04_021F2704
 MOD04_021F2704: ; 0x021F2704
@@ -29797,7 +29797,7 @@ MOD04_021F2770: ; 0x021F2770
 	bl strchr
 	movs r4, r0
 	beq _021F2894
-	ldr r1, _021F28A0 ; =0x0220DB24
+	ldr r1, _021F28A0 ; =UNK04_0220DB24
 	sub r0, r4, #5
 	mov r2, #5
 	bl strncmp
@@ -29808,7 +29808,7 @@ MOD04_021F2770: ; 0x021F2770
 	mov r0, #0
 	strb r0, [r4]
 	ldr r0, [r6]
-	ldr r1, _021F28A4 ; =0x0220DB2C
+	ldr r1, _021F28A4 ; =UNK04_0220DB2C
 	add r2, sp, #0
 	mov r3, #0x10
 	bl MOD04_021FB1F0
@@ -29820,7 +29820,7 @@ MOD04_021F2770: ; 0x021F2770
 	bl atol
 	str r0, [r7]
 	ldr r0, [r6]
-	ldr r1, _021F28A8 ; =0x0220DB30
+	ldr r1, _021F28A8 ; =UNK04_0220DB30
 	add r2, sp, #0
 	mov r3, #0x10
 	bl MOD04_021FB1F0
@@ -29860,9 +29860,9 @@ _021F2894:
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021F28A0: .word 0x0220DB24
-_021F28A4: .word 0x0220DB2C
-_021F28A8: .word 0x0220DB30
+_021F28A0: .word UNK04_0220DB24
+_021F28A4: .word UNK04_0220DB2C
+_021F28A8: .word UNK04_0220DB30
 
 	arm_func_start MOD04_021F28AC
 MOD04_021F28AC: ; 0x021F28AC
@@ -29875,8 +29875,8 @@ MOD04_021F28AC: ; 0x021F28AC
 	movs r0, r2
 	ldr r8, [sp, #0x44]
 	bne _021F28E4
-	ldr r0, _021F2A0C ; =0x0220DB38
-	ldr r1, _021F2A10 ; =0x0220DB50
+	ldr r0, _021F2A0C ; =UNK04_0220DB38
+	ldr r1, _021F2A10 ; =UNK04_0220DB50
 	ldr r3, _021F2A14 ; =0x000001B9
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -29930,24 +29930,24 @@ _021F298C:
 _021F2990:
 	cmp fp, #0
 	bge _021F29AC
-	ldr r0, _021F2A18 ; =0x0220DB5C
-	ldr r1, _021F2A10 ; =0x0220DB50
+	ldr r0, _021F2A18 ; =UNK04_0220DB5C
+	ldr r1, _021F2A10 ; =UNK04_0220DB50
 	ldr r3, _021F2A1C ; =0x000001DE
 	mov r2, #0
 	bl __msl_assertion_failed
 _021F29AC:
 	cmp r4, #0
 	bge _021F29C8
-	ldr r0, _021F2A20 ; =0x0220DB68
-	ldr r1, _021F2A10 ; =0x0220DB50
+	ldr r0, _021F2A20 ; =UNK04_0220DB68
+	ldr r1, _021F2A10 ; =UNK04_0220DB50
 	ldr r3, _021F2A24 ; =0x000001DF
 	mov r2, #0
 	bl __msl_assertion_failed
 _021F29C8:
 	cmp r4, fp
 	ble _021F29E4
-	ldr r0, _021F2A28 ; =0x0220DB74
-	ldr r1, _021F2A10 ; =0x0220DB50
+	ldr r0, _021F2A28 ; =UNK04_0220DB74
+	ldr r1, _021F2A10 ; =UNK04_0220DB50
 	mov r2, #0
 	mov r3, #0x1e0
 	bl __msl_assertion_failed
@@ -29963,14 +29963,14 @@ _021F29E4:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021F2A0C: .word 0x0220DB38
-_021F2A10: .word 0x0220DB50
+_021F2A0C: .word UNK04_0220DB38
+_021F2A10: .word UNK04_0220DB50
 _021F2A14: .word 0x000001B9
-_021F2A18: .word 0x0220DB5C
+_021F2A18: .word UNK04_0220DB5C
 _021F2A1C: .word 0x000001DE
-_021F2A20: .word 0x0220DB68
+_021F2A20: .word UNK04_0220DB68
 _021F2A24: .word 0x000001DF
-_021F2A28: .word 0x0220DB74
+_021F2A28: .word UNK04_0220DB74
 
 	arm_func_start MOD04_021F2A2C
 MOD04_021F2A2C: ; 0x021F2A2C
@@ -29985,8 +29985,8 @@ MOD04_021F2A2C: ; 0x021F2A2C
 	cmp sl, r1
 	str r0, [sp, #0x3c]
 	bne _021F2A6C
-	ldr r0, _021F2C28 ; =0x0220DB80
-	ldr r1, _021F2C2C ; =0x0220DB50
+	ldr r0, _021F2C28 ; =UNK04_0220DB80
+	ldr r1, _021F2C2C ; =UNK04_0220DB50
 	mov r2, #0
 	mov r3, #0x150
 	bl __msl_assertion_failed
@@ -29994,8 +29994,8 @@ _021F2A6C:
 	ldr r0, [sp]
 	cmp r0, #0
 	bne _021F2A8C
-	ldr r0, _021F2C30 ; =0x0220DB98
-	ldr r1, _021F2C2C ; =0x0220DB50
+	ldr r0, _021F2C30 ; =UNK04_0220DB98
+	ldr r1, _021F2C2C ; =UNK04_0220DB50
 	ldr r3, _021F2C34 ; =0x00000151
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -30003,8 +30003,8 @@ _021F2A8C:
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	bne _021F2AAC
-	ldr r0, _021F2C38 ; =0x0220DBAC
-	ldr r1, _021F2C2C ; =0x0220DB50
+	ldr r0, _021F2C38 ; =UNK04_0220DBAC
+	ldr r1, _021F2C2C ; =UNK04_0220DB50
 	ldr r3, _021F2C3C ; =0x00000152
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -30012,8 +30012,8 @@ _021F2AAC:
 	ldr r0, [sp, #0x38]
 	cmp r0, #0
 	bne _021F2ACC
-	ldr r0, _021F2C40 ; =0x0220DBC0
-	ldr r1, _021F2C2C ; =0x0220DB50
+	ldr r0, _021F2C40 ; =UNK04_0220DBC0
+	ldr r1, _021F2C2C ; =UNK04_0220DB50
 	ldr r3, _021F2C44 ; =0x00000153
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -30038,7 +30038,7 @@ _021F2AF4:
 	bl MOD04_021DD844
 	movs sb, r0
 	bne _021F2B30
-	ldr r1, _021F2C48 ; =0x0220DBD4
+	ldr r1, _021F2C48 ; =UNK04_0220DBD4
 	mov r0, fp
 	bl MOD04_021FAEEC
 	add sp, sp, #0x14
@@ -30065,7 +30065,7 @@ _021F2B30:
 	mvn r1, #0x4b
 	cmp r0, r1
 	beq _021F2BBC
-	ldr r1, _021F2C4C ; =0x0220DBE4
+	ldr r1, _021F2C4C ; =UNK04_0220DBE4
 	mov r0, fp
 	bl MOD04_021FAEEC
 	add sp, sp, #0x14
@@ -30076,7 +30076,7 @@ _021F2B98:
 	addne r8, r8, r6
 	addne r5, r5, r6
 	bne _021F2BBC
-	ldr r1, _021F2C50 ; =0x0220DC10
+	ldr r1, _021F2C50 ; =UNK04_0220DC10
 	ldr r2, [sp, #0x3c]
 	mov r0, fp
 	ldr r4, [sp, #0xc]
@@ -30094,7 +30094,7 @@ _021F2BBC:
 _021F2BE0:
 	cmp r5, #0
 	beq _021F2BFC
-	ldr r1, _021F2C54 ; =0x0220DC34
+	ldr r1, _021F2C54 ; =UNK04_0220DC34
 	ldr r2, [sp, #0x3c]
 	mov r0, fp
 	mov r3, r5
@@ -30112,18 +30112,18 @@ _021F2BFC:
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021F2C28: .word 0x0220DB80
-_021F2C2C: .word 0x0220DB50
-_021F2C30: .word 0x0220DB98
+_021F2C28: .word UNK04_0220DB80
+_021F2C2C: .word UNK04_0220DB50
+_021F2C30: .word UNK04_0220DB98
 _021F2C34: .word 0x00000151
-_021F2C38: .word 0x0220DBAC
+_021F2C38: .word UNK04_0220DBAC
 _021F2C3C: .word 0x00000152
-_021F2C40: .word 0x0220DBC0
+_021F2C40: .word UNK04_0220DBC0
 _021F2C44: .word 0x00000153
-_021F2C48: .word 0x0220DBD4
-_021F2C4C: .word 0x0220DBE4
-_021F2C50: .word 0x0220DC10
-_021F2C54: .word 0x0220DC34
+_021F2C48: .word UNK04_0220DBD4
+_021F2C4C: .word UNK04_0220DBE4
+_021F2C50: .word UNK04_0220DC10
+_021F2C54: .word UNK04_0220DC34
 
 	arm_func_start MOD04_021F2C58
 MOD04_021F2C58: ; 0x021F2C58
@@ -30151,8 +30151,8 @@ MOD04_021F2C88: ; 0x021F2C88
 	mov r7, r3
 	cmp r1, #0
 	bne _021F2CC0
-	ldr r0, _021F2D80 ; =0x0220DC4C
-	ldr r1, _021F2D84 ; =0x0220DB50
+	ldr r0, _021F2D80 ; =UNK04_0220DC4C
+	ldr r1, _021F2D84 ; =UNK04_0220DB50
 	mov r2, #0
 	mov r3, #0xfb
 	bl __msl_assertion_failed
@@ -30170,7 +30170,7 @@ _021F2CC0:
 	bl MOD04_021EF06C
 	cmp r0, #0
 	bne _021F2D4C
-	ldr fp, _021F2D88 ; =0x0220DC70
+	ldr fp, _021F2D88 ; =UNK04_0220DC70
 	add r5, sp, #0xc
 	add r4, sp, #0x10
 _021F2D00:
@@ -30209,9 +30209,9 @@ _021F2D74:
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021F2D80: .word 0x0220DC4C
-_021F2D84: .word 0x0220DB50
-_021F2D88: .word 0x0220DC70
+_021F2D80: .word UNK04_0220DC4C
+_021F2D84: .word UNK04_0220DB50
+_021F2D88: .word UNK04_0220DC70
 
 	arm_func_start MOD04_021F2D8C
 MOD04_021F2D8C: ; 0x021F2D8C
@@ -30223,8 +30223,8 @@ MOD04_021F2D8C: ; 0x021F2D8C
 	mov r5, r0
 	cmp r1, #0
 	bne _021F2DC0
-	ldr r0, _021F2E5C ; =0x0220DC4C
-	ldr r1, _021F2E60 ; =0x0220DB50
+	ldr r0, _021F2E5C ; =UNK04_0220DC4C
+	ldr r1, _021F2E60 ; =UNK04_0220DB50
 	mov r2, #0
 	mov r3, #0xde
 	bl __msl_assertion_failed
@@ -30240,7 +30240,7 @@ _021F2DC0:
 	add r0, sp, #0xc
 	str r0, [sp]
 	add r1, sp, #0x10
-	ldr r0, _021F2E64 ; =0x0220DC70
+	ldr r0, _021F2E64 ; =UNK04_0220DC70
 	str r1, [sp, #4]
 	str r0, [sp, #8]
 	ldr r1, [r4, #8]
@@ -30270,9 +30270,9 @@ _021F2E3C:
 	add sp, sp, #0x10
 	bx lr
 	.align 2, 0
-_021F2E5C: .word 0x0220DC4C
-_021F2E60: .word 0x0220DB50
-_021F2E64: .word 0x0220DC70
+_021F2E5C: .word UNK04_0220DC4C
+_021F2E60: .word UNK04_0220DB50
+_021F2E64: .word UNK04_0220DC70
 
 	arm_func_start MOD04_021F2E68
 MOD04_021F2E68: ; 0x021F2E68
@@ -30309,7 +30309,7 @@ MOD04_021F2E68: ; 0x021F2E68
 	moveq r0, #3
 	ldmeqia sp!, {r4, r5, r6, r7, r8, pc}
 _021F2EE8:
-	ldr r2, _021F2F5C ; =0x0220DC74
+	ldr r2, _021F2F5C ; =UNK04_0220DC74
 	mov r0, r7
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -30330,7 +30330,7 @@ _021F2F20:
 	movne r0, #0
 	strne r0, [r6]
 	bne _021F2F54
-	ldr r1, _021F2F60 ; =0x0220DC9C
+	ldr r1, _021F2F60 ; =UNK04_0220DC9C
 	mov r0, r7
 	mov r2, r4
 	bl MOD04_021FB3D0
@@ -30342,8 +30342,8 @@ _021F2F54:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021F2F5C: .word 0x0220DC74
-_021F2F60: .word 0x0220DC9C
+_021F2F5C: .word UNK04_0220DC74
+_021F2F60: .word UNK04_0220DC9C
 
 	arm_func_start MOD04_021F2F64
 MOD04_021F2F64: ; 0x021F2F64
@@ -30351,7 +30351,7 @@ MOD04_021F2F64: ; 0x021F2F64
 	sub sp, sp, #0x14
 	mov r4, r1
 	mov r5, r0
-	ldr r1, _021F2F98 ; =0x0220DC48
+	ldr r1, _021F2F98 ; =UNK04_0220DC48
 	add r0, sp, #0
 	bl sprintf
 	add r2, sp, #0
@@ -30361,7 +30361,7 @@ MOD04_021F2F64: ; 0x021F2F64
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021F2F98: .word 0x0220DC48
+_021F2F98: .word UNK04_0220DC48
 
 	arm_func_start MOD04_021F2F9C
 MOD04_021F2F9C: ; 0x021F2F9C
@@ -30386,24 +30386,24 @@ MOD04_021F2FCC: ; 0x021F2FCC
 	mov sb, r1
 	mov r7, r3
 	bne _021F2FF8
-	ldr r0, _021F30C0 ; =0x0220DCC0
-	ldr r1, _021F30C4 ; =0x0220DB50
+	ldr r0, _021F30C0 ; =UNK04_0220DCC0
+	ldr r1, _021F30C4 ; =UNK04_0220DB50
 	mov r2, #0
 	mov r3, #0x51
 	bl __msl_assertion_failed
 _021F2FF8:
 	cmp r7, #0
 	bge _021F3014
-	ldr r0, _021F30C8 ; =0x0220DCD0
-	ldr r1, _021F30C4 ; =0x0220DB50
+	ldr r0, _021F30C8 ; =UNK04_0220DCD0
+	ldr r1, _021F30C4 ; =UNK04_0220DB50
 	mov r2, #0
 	mov r3, #0x52
 	bl __msl_assertion_failed
 _021F3014:
 	cmp sb, #0
 	bne _021F3030
-	ldr r0, _021F30CC ; =0x0220DB38
-	ldr r1, _021F30C4 ; =0x0220DB50
+	ldr r0, _021F30CC ; =UNK04_0220DB38
+	ldr r1, _021F30C4 ; =UNK04_0220DB50
 	mov r2, #0
 	mov r3, #0x53
 	bl __msl_assertion_failed
@@ -30426,7 +30426,7 @@ _021F3030:
 	bl MOD04_021DD844
 	movs r4, r0
 	bne _021F308C
-	ldr r1, _021F30D0 ; =0x0220DBD4
+	ldr r1, _021F30D0 ; =UNK04_0220DBD4
 	mov r0, sl
 	bl MOD04_021FAEEC
 	mov r0, #1
@@ -30446,11 +30446,11 @@ _021F308C:
 	str r4, [sb]
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021F30C0: .word 0x0220DCC0
-_021F30C4: .word 0x0220DB50
-_021F30C8: .word 0x0220DCD0
-_021F30CC: .word 0x0220DB38
-_021F30D0: .word 0x0220DBD4
+_021F30C0: .word UNK04_0220DCC0
+_021F30C4: .word UNK04_0220DB50
+_021F30C8: .word UNK04_0220DCD0
+_021F30CC: .word UNK04_0220DB38
+_021F30D0: .word UNK04_0220DBD4
 
 	arm_func_start MOD04_021F30D4
 MOD04_021F30D4: ; 0x021F30D4
@@ -30459,8 +30459,8 @@ MOD04_021F30D4: ; 0x021F30D4
 	mov r8, r0
 	mov r7, r2
 	bne _021F30FC
-	ldr r0, _021F3164 ; =0x0220DB38
-	ldr r1, _021F3168 ; =0x0220DB50
+	ldr r0, _021F3164 ; =UNK04_0220DB38
+	ldr r1, _021F3168 ; =UNK04_0220DB50
 	mov r2, #0
 	mov r3, #0x25
 	bl __msl_assertion_failed
@@ -30475,7 +30475,7 @@ _021F30FC:
 	bl MOD04_021DD844
 	cmp r0, #0
 	bne _021F3138
-	ldr r1, _021F316C ; =0x0220DBD4
+	ldr r1, _021F316C ; =UNK04_0220DBD4
 	mov r0, r8
 	bl MOD04_021FAEEC
 	mov r0, #1
@@ -30493,9 +30493,9 @@ _021F3138:
 	mov r0, r2
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021F3164: .word 0x0220DB38
-_021F3168: .word 0x0220DB50
-_021F316C: .word 0x0220DBD4
+_021F3164: .word UNK04_0220DB38
+_021F3168: .word UNK04_0220DB50
+_021F316C: .word UNK04_0220DBD4
 
 	arm_func_start MOD04_021F3170
 MOD04_021F3170: ; 0x021F3170
@@ -30578,8 +30578,8 @@ MOD04_021F3260: ; 0x021F3260
 	mov r4, r0
 	cmp r1, #0
 	bne _021F328C
-	ldr r0, _021F3448 ; =0x0220DCE0
-	ldr r1, _021F344C ; =0x0220DD00
+	ldr r0, _021F3448 ; =UNK04_0220DCE0
+	ldr r1, _021F344C ; =UNK04_0220DD00
 	mov r2, #0
 	mov r3, #0x6e
 	bl __msl_assertion_failed
@@ -30587,8 +30587,8 @@ _021F328C:
 	ldr r0, [r7, #8]
 	cmp r0, #0
 	bne _021F32AC
-	ldr r0, _021F3450 ; =0x0220DD10
-	ldr r1, _021F344C ; =0x0220DD00
+	ldr r0, _021F3450 ; =UNK04_0220DD10
+	ldr r1, _021F344C ; =UNK04_0220DD00
 	mov r2, #0
 	mov r3, #0x6f
 	bl __msl_assertion_failed
@@ -30707,9 +30707,9 @@ _021F342C:
 	bl MOD04_021DD82C
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021F3448: .word 0x0220DCE0
-_021F344C: .word 0x0220DD00
-_021F3450: .word 0x0220DD10
+_021F3448: .word UNK04_0220DCE0
+_021F344C: .word UNK04_0220DD00
+_021F3450: .word UNK04_0220DD10
 
 	arm_func_start MOD04_021F3454
 MOD04_021F3454: ; 0x021F3454
@@ -30722,7 +30722,7 @@ MOD04_021F3454: ; 0x021F3454
 	bl MOD04_021DD860
 	cmp r0, #0
 	bne _021F3494
-	ldr r1, _021F34FC ; =0x0220DD24
+	ldr r1, _021F34FC ; =UNK04_0220DD24
 	mov r0, r6
 	bl MOD04_021FAEEC
 	mov r0, #1
@@ -30757,7 +30757,7 @@ _021F3494:
 	add sp, sp, #0x10
 	bx lr
 	.align 2, 0
-_021F34FC: .word 0x0220DD24
+_021F34FC: .word UNK04_0220DD24
 
 	arm_func_start MOD04_021F3500
 MOD04_021F3500: ; 0x021F3500
@@ -30769,16 +30769,16 @@ MOD04_021F3500: ; 0x021F3500
 	mov r6, r2
 	cmp r5, #0
 	bne _021F3534
-	ldr r0, _021F35E4 ; =0x0220DD34
-	ldr r1, _021F35E8 ; =0x0220DD00
+	ldr r0, _021F35E4 ; =UNK04_0220DD34
+	ldr r1, _021F35E8 ; =UNK04_0220DD00
 	mov r2, #0
 	mov r3, #0x23
 	bl __msl_assertion_failed
 _021F3534:
 	cmp r7, #0
 	bne _021F3550
-	ldr r0, _021F35EC ; =0x0220DD48
-	ldr r1, _021F35E8 ; =0x0220DD00
+	ldr r0, _021F35EC ; =UNK04_0220DD48
+	ldr r1, _021F35E8 ; =UNK04_0220DD00
 	mov r2, #0
 	mov r3, #0x24
 	bl __msl_assertion_failed
@@ -30787,8 +30787,8 @@ _021F3550:
 	beq _021F3574
 	cmp r6, #0
 	beq _021F3574
-	ldr r0, _021F35F0 ; =0x0220DD60
-	ldr r1, _021F35E8 ; =0x0220DD00
+	ldr r0, _021F35F0 ; =UNK04_0220DD60
+	ldr r1, _021F35E8 ; =UNK04_0220DD00
 	mov r2, #0
 	mov r3, #0x25
 	bl __msl_assertion_failed
@@ -30822,10 +30822,10 @@ _021F3574:
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021F35E4: .word 0x0220DD34
-_021F35E8: .word 0x0220DD00
-_021F35EC: .word 0x0220DD48
-_021F35F0: .word 0x0220DD60
+_021F35E4: .word UNK04_0220DD34
+_021F35E8: .word UNK04_0220DD00
+_021F35EC: .word UNK04_0220DD48
+_021F35F0: .word UNK04_0220DD60
 
 	arm_func_start MOD04_021F35F4
 MOD04_021F35F4: ; 0x021F35F4
@@ -30843,20 +30843,20 @@ MOD04_021F35F4: ; 0x021F35F4
 	beq _021F3658
 	cmp r2, #3
 	bne _021F3658
-	ldr r2, _021F37A8 ; =0x0220DDD0
+	ldr r2, _021F37A8 ; =UNK04_0220DDD0
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
 	ldr r2, [r4, #0x198]
 	mov r0, r5
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F37AC ; =0x0220DDE4
+	ldr r2, _021F37AC ; =UNK04_0220DDE4
 	mov r0, r5
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
 _021F3658:
 	mov r1, #1
-	ldr r0, _021F37B0 ; =0x0220DDEC
+	ldr r0, _021F37B0 ; =UNK04_0220DDEC
 	str r1, [sp]
 	str r0, [sp, #4]
 	ldr r1, [r4, #0x1d4]
@@ -30948,9 +30948,9 @@ _021F3788:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F37A8: .word 0x0220DDD0
-_021F37AC: .word 0x0220DDE4
-_021F37B0: .word 0x0220DDEC
+_021F37A8: .word UNK04_0220DDD0
+_021F37AC: .word UNK04_0220DDE4
+_021F37B0: .word UNK04_0220DDEC
 _021F37B4: .word MOD04_021F37B8
 
 	arm_func_start MOD04_021F37B8
@@ -31025,7 +31025,7 @@ MOD04_021F3880: ; 0x021F3880
 	cmp r0, #4
 	bne _021F38E0
 	ldr r1, _021F3920 ; =0x00000107
-	ldr r2, _021F3924 ; =0x0220DDF0
+	ldr r2, _021F3924 ; =UNK04_0220DDF0
 	mov r0, r5
 	bl MOD04_021FAF00
 	mov r0, r5
@@ -31042,8 +31042,8 @@ _021F38E0:
 	ldmeqia sp!, {r4, r5, pc}
 	cmp r0, #3
 	beq _021F390C
-	ldr r0, _021F3928 ; =0x0220DE18
-	ldr r1, _021F392C ; =0x0220DE30
+	ldr r0, _021F3928 ; =UNK04_0220DE18
+	ldr r1, _021F392C ; =UNK04_0220DE30
 	ldr r3, _021F3930 ; =0x000002EF
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -31055,9 +31055,9 @@ _021F390C:
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
 _021F3920: .word 0x00000107
-_021F3924: .word 0x0220DDF0
-_021F3928: .word 0x0220DE18
-_021F392C: .word 0x0220DE30
+_021F3924: .word UNK04_0220DDF0
+_021F3928: .word UNK04_0220DE18
+_021F392C: .word UNK04_0220DE30
 _021F3930: .word 0x000002EF
 
 	arm_func_start MOD04_021F3934
@@ -31090,7 +31090,7 @@ _021F3994:
 	ldr r0, _021F3FC4 ; =0x00000201
 	cmp r2, r0
 	bne _021F39C8
-	ldr r1, _021F3FC8 ; =0x0220DE40
+	ldr r1, _021F3FC8 ; =UNK04_0220DE40
 	add r2, sp, #0x4e
 	mov r0, r6
 	mov r3, #0x200
@@ -31101,7 +31101,7 @@ _021F3994:
 	bl atol
 	str r0, [r5, #0x1a0]
 _021F39C8:
-	ldr r1, _021F3FCC ; =0x0220DE48
+	ldr r1, _021F3FCC ; =UNK04_0220DE48
 	mov r0, r6
 	bl strstr
 	cmp r0, #0
@@ -31140,13 +31140,13 @@ _021F3A34:
 	beq _021F3B38
 	b _021F3FB4
 _021F3A58:
-	ldr r1, _021F3FD0 ; =0x0220DE50
+	ldr r1, _021F3FD0 ; =UNK04_0220DE50
 	mov r0, r6
 	mov r2, #5
 	bl strncmp
 	cmp r0, #0
 	beq _021F3A9C
-	ldr r2, _021F3FD4 ; =0x0220DE58
+	ldr r2, _021F3FD4 ; =UNK04_0220DE58
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31158,14 +31158,14 @@ _021F3A58:
 	mov r0, #3
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 _021F3A9C:
-	ldr r1, _021F3FD8 ; =0x0220DE88
+	ldr r1, _021F3FD8 ; =UNK04_0220DE88
 	mov r0, r6
 	mov r2, r4
 	mov r3, #0x80
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F3AE4
-	ldr r2, _021F3FD4 ; =0x0220DE58
+	ldr r2, _021F3FD4 ; =UNK04_0220DE58
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31200,13 +31200,13 @@ _021F3B14:
 	str r0, [r7, #0x14]
 	b _021F3FB4
 _021F3B38:
-	ldr r1, _021F3FDC ; =0x0220DE94
+	ldr r1, _021F3FDC ; =UNK04_0220DE94
 	mov r0, r6
 	mov r2, #5
 	bl strncmp
 	cmp r0, #0
 	beq _021F3B7C
-	ldr r2, _021F3FD4 ; =0x0220DE58
+	ldr r2, _021F3FD4 ; =UNK04_0220DE58
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31218,14 +31218,14 @@ _021F3B38:
 	mov r0, #3
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 _021F3B7C:
-	ldr r1, _021F3FE0 ; =0x0220DE9C
+	ldr r1, _021F3FE0 ; =UNK04_0220DE9C
 	add r2, sp, #0x4e
 	mov r0, r6
 	mov r3, #0x200
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F3BC4
-	ldr r2, _021F3FE4 ; =0x0220DEA8
+	ldr r2, _021F3FE4 ; =UNK04_0220DEA8
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31240,14 +31240,14 @@ _021F3BC4:
 	add r0, sp, #0x4e
 	bl atol
 	str r0, [r5, #0x19c]
-	ldr r1, _021F3FE8 ; =0x0220DED8
+	ldr r1, _021F3FE8 ; =UNK04_0220DED8
 	add r2, sp, #0x4e
 	mov r0, r6
 	mov r3, #0x200
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F3C18
-	ldr r2, _021F3FE4 ; =0x0220DEA8
+	ldr r2, _021F3FE4 ; =UNK04_0220DEA8
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31272,13 +31272,13 @@ _021F3C18:
 	str r0, [r7, #0x14]
 	b _021F3FB4
 _021F3C48:
-	ldr r1, _021F3FEC ; =0x0220DEE4
+	ldr r1, _021F3FEC ; =UNK04_0220DEE4
 	mov r0, r6
 	mov r2, #5
 	bl strncmp
 	cmp r0, #0
 	beq _021F3C8C
-	ldr r2, _021F3FD4 ; =0x0220DE58
+	ldr r2, _021F3FD4 ; =UNK04_0220DE58
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31290,14 +31290,14 @@ _021F3C48:
 	mov r0, #3
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 _021F3C8C:
-	ldr r1, _021F3FF0 ; =0x0220DEEC
+	ldr r1, _021F3FF0 ; =UNK04_0220DEEC
 	add r2, sp, #0x4e
 	mov r0, r6
 	mov r3, #0x200
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F3CD4
-	ldr r2, _021F3FE4 ; =0x0220DEA8
+	ldr r2, _021F3FE4 ; =UNK04_0220DEA8
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31312,14 +31312,14 @@ _021F3CD4:
 	add r0, sp, #0x4e
 	bl atol
 	str r0, [r5, #0x198]
-	ldr r1, _021F3FE0 ; =0x0220DE9C
+	ldr r1, _021F3FE0 ; =UNK04_0220DE9C
 	add r2, sp, #0x4e
 	mov r0, r6
 	mov r3, #0x200
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F3D28
-	ldr r2, _021F3FE4 ; =0x0220DEA8
+	ldr r2, _021F3FE4 ; =UNK04_0220DEA8
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31334,14 +31334,14 @@ _021F3D28:
 	add r0, sp, #0x4e
 	bl atol
 	str r0, [r5, #0x19c]
-	ldr r1, _021F3FE8 ; =0x0220DED8
+	ldr r1, _021F3FE8 ; =UNK04_0220DED8
 	add r2, sp, #0x4e
 	mov r0, r6
 	mov r3, #0x200
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F3D7C
-	ldr r2, _021F3FE4 ; =0x0220DEA8
+	ldr r2, _021F3FE4 ; =UNK04_0220DEA8
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31356,7 +31356,7 @@ _021F3D7C:
 	add r0, sp, #0x4e
 	bl atol
 	str r0, [r5, #0x1a0]
-	ldr r1, _021F3FF4 ; =0x0220DEF8
+	ldr r1, _021F3FF4 ; =UNK04_0220DEF8
 	add r2, sp, #0x39
 	mov r0, r6
 	mov r3, #0x15
@@ -31365,7 +31365,7 @@ _021F3D7C:
 	cmp r0, #0
 	moveq r0, #0
 	streqb r0, [sp, #0x39]
-	ldr r1, _021F3FFC ; =0x0220DF08
+	ldr r1, _021F3FFC ; =UNK04_0220DF08
 	mov r0, r6
 	add r2, r5, r2
 	mov r3, #0x19
@@ -31384,7 +31384,7 @@ _021F3D7C:
 	addne r0, r5, r0
 	bne _021F3E14
 	add r0, sp, #0x200
-	ldr r1, _021F4004 ; =0x0220DF10
+	ldr r1, _021F4004 ; =UNK04_0220DF10
 	add r0, r0, #0x4e
 	add r2, r5, #0x110
 	add r3, r5, #0x144
@@ -31397,8 +31397,8 @@ _021F3E14:
 	add r2, r4, #0x80
 	str r2, [sp, #8]
 	add r2, r4, #0xa1
-	ldr r1, _021F4008 ; =0x0220DF18
-	ldr r3, _021F400C ; =0x0220DF28
+	ldr r1, _021F4008 ; =UNK04_0220DF18
+	ldr r3, _021F400C ; =UNK04_0220DF28
 	add r0, sp, #0x4e
 	str r2, [sp, #0xc]
 	bl sprintf
@@ -31408,14 +31408,14 @@ _021F3E14:
 	add r0, sp, #0x4e
 	add r2, sp, #0x18
 	bl MOD04_021EF794
-	ldr r1, _021F4010 ; =0x0220DF5C
+	ldr r1, _021F4010 ; =UNK04_0220DF5C
 	mov r0, r6
 	add r2, sp, #0x4e
 	mov r3, #0x200
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F3E9C
-	ldr r2, _021F3FE4 ; =0x0220DEA8
+	ldr r2, _021F3FE4 ; =UNK04_0220DEA8
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -31433,7 +31433,7 @@ _021F3E9C:
 	bl memcmp
 	cmp r0, #0
 	beq _021F3EE0
-	ldr r2, _021F4014 ; =0x0220DF64
+	ldr r2, _021F4014 ; =UNK04_0220DF64
 	mov r0, r8
 	mov r1, #0x108
 	bl MOD04_021FAF00
@@ -31468,7 +31468,7 @@ _021F3F08:
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021F3F50
-	ldr r1, _021F4018 ; =0x0220DF84
+	ldr r1, _021F4018 ; =UNK04_0220DF84
 	mov r0, r8
 	bl MOD04_021FAEEC
 	add sp, sp, #0x2a0
@@ -31508,27 +31508,27 @@ _021F3FB4:
 	.align 2, 0
 _021F3FC0: .word 0x00000106
 _021F3FC4: .word 0x00000201
-_021F3FC8: .word 0x0220DE40
-_021F3FCC: .word 0x0220DE48
-_021F3FD0: .word 0x0220DE50
-_021F3FD4: .word 0x0220DE58
-_021F3FD8: .word 0x0220DE88
-_021F3FDC: .word 0x0220DE94
-_021F3FE0: .word 0x0220DE9C
-_021F3FE4: .word 0x0220DEA8
-_021F3FE8: .word 0x0220DED8
-_021F3FEC: .word 0x0220DEE4
-_021F3FF0: .word 0x0220DEEC
-_021F3FF4: .word 0x0220DEF8
+_021F3FC8: .word UNK04_0220DE40
+_021F3FCC: .word UNK04_0220DE48
+_021F3FD0: .word UNK04_0220DE50
+_021F3FD4: .word UNK04_0220DE58
+_021F3FD8: .word UNK04_0220DE88
+_021F3FDC: .word UNK04_0220DE94
+_021F3FE0: .word UNK04_0220DE9C
+_021F3FE4: .word UNK04_0220DEA8
+_021F3FE8: .word UNK04_0220DED8
+_021F3FEC: .word UNK04_0220DEE4
+_021F3FF0: .word UNK04_0220DEEC
+_021F3FF4: .word UNK04_0220DEF8
 _021F3FF8: .word 0x00000474
-_021F3FFC: .word 0x0220DF08
+_021F3FFC: .word UNK04_0220DF08
 _021F4000: .word 0x0000012F
-_021F4004: .word 0x0220DF10
-_021F4008: .word 0x0220DF18
-_021F400C: .word 0x0220DF28
-_021F4010: .word 0x0220DF5C
-_021F4014: .word 0x0220DF64
-_021F4018: .word 0x0220DF84
+_021F4004: .word UNK04_0220DF10
+_021F4008: .word UNK04_0220DF18
+_021F400C: .word UNK04_0220DF28
+_021F4010: .word UNK04_0220DF5C
+_021F4014: .word UNK04_0220DF64
+_021F4018: .word UNK04_0220DF84
 
 	arm_func_start MOD04_021F401C
 MOD04_021F401C: ; 0x021F401C
@@ -31570,11 +31570,11 @@ _021F4090:
 	mov r3, #1
 	strb r6, [r0, sl]
 	bl MOD04_021EF820
-	ldr r2, _021F4280 ; =0x0220DF94
+	ldr r2, _021F4280 ; =UNK04_0220DF94
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
-	ldr r2, _021F4284 ; =0x0220DFA0
+	ldr r2, _021F4284 ; =UNK04_0220DFA0
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31582,7 +31582,7 @@ _021F4090:
 	add r1, r4, #0x1f4
 	add r2, r4, #0x144
 	bl MOD04_021F2F9C
-	ldr r2, _021F4288 ; =0x0220DFA8
+	ldr r2, _021F4288 ; =UNK04_0220DFA8
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31590,7 +31590,7 @@ _021F4090:
 	add r1, r4, #0x1f4
 	add r2, r4, #0x110
 	bl MOD04_021F2F9C
-	ldr r2, _021F428C ; =0x0220DFB0
+	ldr r2, _021F428C ; =UNK04_0220DFB0
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31598,7 +31598,7 @@ _021F4090:
 	add r1, r4, #0x1f4
 	add r2, sp, #0x1f
 	bl MOD04_021F2F9C
-	ldr r2, _021F4290 ; =0x0220DFC0
+	ldr r2, _021F4290 ; =UNK04_0220DFC0
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31606,15 +31606,15 @@ _021F4090:
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F4294 ; =0x0220DFCC
+	ldr r2, _021F4294 ; =UNK04_0220DFCC
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
-	ldr r2, _021F4298 ; =0x02210EA0
+	ldr r2, _021F4298 ; =UNK04_02210EA0
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
-	ldr r2, _021F429C ; =0x0220DFD8
+	ldr r2, _021F429C ; =UNK04_0220DFD8
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31622,7 +31622,7 @@ _021F4090:
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F42A0 ; =0x0220DEF8
+	ldr r2, _021F42A0 ; =UNK04_0220DEF8
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31668,7 +31668,7 @@ _021F4210:
 	mov r3, #1
 	strb r5, [r0, r8]
 	bl MOD04_021EF820
-	ldr r2, _021F42AC ; =0x0220DFE8
+	ldr r2, _021F42AC ; =UNK04_0220DFE8
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31677,11 +31677,11 @@ _021F4210:
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
 _021F424C:
-	ldr r2, _021F42B0 ; =0x0220DFF4
+	ldr r2, _021F42B0 ; =UNK04_0220DFF4
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
-	ldr r2, _021F42B4 ; =0x0220DDE4
+	ldr r2, _021F42B4 ; =UNK04_0220DDE4
 	mov r0, fp
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31691,20 +31691,20 @@ _021F424C:
 	.align 2, 0
 _021F4278: .word 0x00000177
 _021F427C: .word 0x79707367
-_021F4280: .word 0x0220DF94
-_021F4284: .word 0x0220DFA0
-_021F4288: .word 0x0220DFA8
-_021F428C: .word 0x0220DFB0
-_021F4290: .word 0x0220DFC0
-_021F4294: .word 0x0220DFCC
-_021F4298: .word 0x02210EA0
-_021F429C: .word 0x0220DFD8
-_021F42A0: .word 0x0220DEF8
+_021F4280: .word UNK04_0220DF94
+_021F4284: .word UNK04_0220DFA0
+_021F4288: .word UNK04_0220DFA8
+_021F428C: .word UNK04_0220DFB0
+_021F4290: .word UNK04_0220DFC0
+_021F4294: .word UNK04_0220DFCC
+_021F4298: .word UNK04_02210EA0
+_021F429C: .word UNK04_0220DFD8
+_021F42A0: .word UNK04_0220DEF8
 _021F42A4: .word 0x0000012F
 _021F42A8: .word 0x000002C2
-_021F42AC: .word 0x0220DFE8
-_021F42B0: .word 0x0220DFF4
-_021F42B4: .word 0x0220DDE4
+_021F42AC: .word UNK04_0220DFE8
+_021F42B0: .word UNK04_0220DFF4
+_021F42B4: .word UNK04_0220DDE4
 
 	arm_func_start MOD04_021F42B8
 MOD04_021F42B8: ; 0x021F42B8
@@ -31740,7 +31740,7 @@ MOD04_021F42B8: ; 0x021F42B8
 	addne r0, r4, r0
 	bne _021F4354
 	add r0, sp, #0x200
-	ldr r1, _021F4620 ; =0x0220DF10
+	ldr r1, _021F4620 ; =UNK04_0220DF10
 	add r0, r0, #0x35
 	add r2, r4, #0x110
 	add r3, r4, #0x144
@@ -31751,8 +31751,8 @@ _021F4354:
 	str r0, [sp]
 	add r0, r5, #0x80
 	str r0, [sp, #4]
-	ldr r1, _021F4624 ; =0x0220DF18
-	ldr r3, _021F4628 ; =0x0220DF28
+	ldr r1, _021F4624 ; =UNK04_0220DF18
+	ldr r3, _021F4628 ; =UNK04_0220DF28
 	add r0, sp, #0x35
 	str r5, [sp, #8]
 	add r2, r5, #0xa1
@@ -31780,11 +31780,11 @@ _021F4354:
 	ldrne r0, [r0]
 	strne r0, [r4, #0x1a0]
 _021F43D0:
-	ldr r2, _021F462C ; =0x0220DFFC
+	ldr r2, _021F462C ; =UNK04_0220DFFC
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
-	ldr r2, _021F4630 ; =0x0220DE88
+	ldr r2, _021F4630 ; =UNK04_0220DE88
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31795,7 +31795,7 @@ _021F43D0:
 	ldrsb r0, [r5, #0xc2]
 	cmp r0, #0
 	beq _021F4430
-	ldr r2, _021F4634 ; =0x0220E004
+	ldr r2, _021F4634 ; =UNK04_0220E004
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31809,7 +31809,7 @@ _021F4430:
 	ldrsb r0, [r0, #0x2f]
 	cmp r0, #0
 	beq _021F4468
-	ldr r2, _021F4638 ; =0x0220DEF8
+	ldr r2, _021F4638 ; =UNK04_0220DEF8
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31820,7 +31820,7 @@ _021F4430:
 	bl MOD04_021F2F9C
 	b _021F44A8
 _021F4468:
-	ldr r2, _021F463C ; =0x0220E010
+	ldr r2, _021F463C ; =UNK04_0220E010
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31828,7 +31828,7 @@ _021F4468:
 	add r1, r4, #0x1f4
 	add r2, r4, #0x110
 	bl MOD04_021F2F9C
-	ldr r2, _021F4640 ; =0x0220E018
+	ldr r2, _021F4640 ; =UNK04_0220E018
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31840,7 +31840,7 @@ _021F44A8:
 	ldr r0, [r4, #0x19c]
 	cmp r0, #0
 	beq _021F44D4
-	ldr r2, _021F4644 ; =0x0220DE9C
+	ldr r2, _021F4644 ; =UNK04_0220DE9C
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31852,7 +31852,7 @@ _021F44D4:
 	ldr r0, [r4, #0x1a0]
 	cmp r0, #0
 	beq _021F4500
-	ldr r2, _021F4648 ; =0x0220DED8
+	ldr r2, _021F4648 ; =UNK04_0220DED8
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31861,7 +31861,7 @@ _021F44D4:
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
 _021F4500:
-	ldr r2, _021F464C ; =0x0220E01C
+	ldr r2, _021F464C ; =UNK04_0220E01C
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31872,12 +31872,12 @@ _021F4500:
 	ldr r0, [r4, #0x10c]
 	cmp r0, #1
 	bne _021F453C
-	ldr r2, _021F4650 ; =0x0220E028
+	ldr r2, _021F4650 ; =UNK04_0220E028
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
 _021F453C:
-	ldr r2, _021F4654 ; =0x0220E034
+	ldr r2, _021F4654 ; =UNK04_0220E034
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31896,7 +31896,7 @@ _021F453C:
 	add r1, r4, #0x1f4
 	mov r2, r2, asr #0x10
 	bl MOD04_021F2F64
-	ldr r2, _021F4658 ; =0x0220DFC0
+	ldr r2, _021F4658 ; =UNK04_0220DFC0
 	mov r0, r6
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -31906,15 +31906,15 @@ _021F453C:
 	bl MOD04_021F2F64
 	mov r0, r6
 	add r1, r4, #0x1f4
-	ldr r2, _021F465C ; =0x0220DFCC
+	ldr r2, _021F465C ; =UNK04_0220DFCC
 	bl MOD04_021F2F9C
 	mov r0, r6
 	add r1, r4, #0x1f4
-	ldr r2, _021F4660 ; =0x02210EA0
+	ldr r2, _021F4660 ; =UNK04_02210EA0
 	bl MOD04_021F2F9C
 	mov r0, r6
 	add r1, r4, #0x1f4
-	ldr r2, _021F4664 ; =0x0220DFD8
+	ldr r2, _021F4664 ; =UNK04_0220DFD8
 	bl MOD04_021F2F9C
 	mov r0, r6
 	add r1, r4, #0x1f4
@@ -31922,11 +31922,11 @@ _021F453C:
 	bl MOD04_021F2F64
 	mov r0, r6
 	add r1, r4, #0x1f4
-	ldr r2, _021F4668 ; =0x0220DFF4
+	ldr r2, _021F4668 ; =UNK04_0220DFF4
 	bl MOD04_021F2F9C
 	mov r0, r6
 	add r1, r4, #0x1f4
-	ldr r2, _021F466C ; =0x0220DDE4
+	ldr r2, _021F466C ; =UNK04_0220DDE4
 	bl MOD04_021F2F9C
 	mov r0, #0
 	add sp, sp, #0x28c
@@ -31935,26 +31935,26 @@ _021F453C:
 _021F4614: .word 0x000001C2
 _021F4618: .word 0x00000177
 _021F461C: .word 0x0000012F
-_021F4620: .word 0x0220DF10
-_021F4624: .word 0x0220DF18
-_021F4628: .word 0x0220DF28
-_021F462C: .word 0x0220DFFC
-_021F4630: .word 0x0220DE88
-_021F4634: .word 0x0220E004
-_021F4638: .word 0x0220DEF8
-_021F463C: .word 0x0220E010
-_021F4640: .word 0x0220E018
-_021F4644: .word 0x0220DE9C
-_021F4648: .word 0x0220DED8
-_021F464C: .word 0x0220E01C
-_021F4650: .word 0x0220E028
-_021F4654: .word 0x0220E034
-_021F4658: .word 0x0220DFC0
-_021F465C: .word 0x0220DFCC
-_021F4660: .word 0x02210EA0
-_021F4664: .word 0x0220DFD8
-_021F4668: .word 0x0220DFF4
-_021F466C: .word 0x0220DDE4
+_021F4620: .word UNK04_0220DF10
+_021F4624: .word UNK04_0220DF18
+_021F4628: .word UNK04_0220DF28
+_021F462C: .word UNK04_0220DFFC
+_021F4630: .word UNK04_0220DE88
+_021F4634: .word UNK04_0220E004
+_021F4638: .word UNK04_0220DEF8
+_021F463C: .word UNK04_0220E010
+_021F4640: .word UNK04_0220E018
+_021F4644: .word UNK04_0220DE9C
+_021F4648: .word UNK04_0220DED8
+_021F464C: .word UNK04_0220E01C
+_021F4650: .word UNK04_0220E028
+_021F4654: .word UNK04_0220E034
+_021F4658: .word UNK04_0220DFC0
+_021F465C: .word UNK04_0220DFCC
+_021F4660: .word UNK04_02210EA0
+_021F4664: .word UNK04_0220DFD8
+_021F4668: .word UNK04_0220DFF4
+_021F466C: .word UNK04_0220DDE4
 
 	arm_func_start MOD04_021F4670
 MOD04_021F4670: ; 0x021F4670
@@ -31976,7 +31976,7 @@ _021F46A8:
 	ldr r0, [r4, #0x1d8]
 	cmp r0, #0
 	beq _021F46CC
-	ldr r1, _021F48AC ; =0x0220E03C
+	ldr r1, _021F48AC ; =UNK04_0220E03C
 	mov r0, r8
 	bl MOD04_021FAEEC
 	add sp, sp, #0x10
@@ -31996,7 +31996,7 @@ _021F46EC:
 	str r0, [r4, #0x10c]
 	b _021F4710
 _021F46F8:
-	ldr r1, _021F48B0 ; =0x0220E050
+	ldr r1, _021F48B0 ; =UNK04_0220E050
 	mov r0, r8
 	bl MOD04_021FAEEC
 	add sp, sp, #0x10
@@ -32029,7 +32029,7 @@ _021F4710:
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021F4790
-	ldr r1, _021F48BC ; =0x0220DF84
+	ldr r1, _021F48BC ; =UNK04_0220DF84
 	mov r0, r8
 	bl MOD04_021FAEEC
 	add sp, sp, #0x10
@@ -32112,11 +32112,11 @@ _021F48A0:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021F48AC: .word 0x0220E03C
-_021F48B0: .word 0x0220E050
+_021F48AC: .word UNK04_0220E03C
+_021F48B0: .word UNK04_0220E050
 _021F48B4: .word 0x0000012F
 _021F48B8: .word 0x00000177
-_021F48BC: .word 0x0220DF84
+_021F48BC: .word UNK04_0220DF84
 _021F48C0: .word 0x000001C2
 _021F48C4: .word 0x000002C2
 
@@ -32139,7 +32139,7 @@ MOD04_021F48C8: ; 0x021F48C8
 	mvn r1, #0
 	cmp r0, r1
 	bne _021F4938
-	ldr r2, _021F4C1C ; =0x0220E064
+	ldr r2, _021F4C1C ; =UNK04_0220E064
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -32155,7 +32155,7 @@ _021F4938:
 	bl MOD04_021F017C
 	cmp r0, #0
 	bne _021F4974
-	ldr r2, _021F4C20 ; =0x0220E08C
+	ldr r2, _021F4C20 ; =UNK04_0220E08C
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -32179,7 +32179,7 @@ _021F4974:
 	mvn r1, #0
 	cmp r0, r1
 	bne _021F49D0
-	ldr r2, _021F4C24 ; =0x0220E0C0
+	ldr r2, _021F4C24 ; =UNK04_0220E0C0
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -32197,7 +32197,7 @@ _021F49D0:
 	mvn r1, #0
 	cmp r0, r1
 	bne _021F4A14
-	ldr r2, _021F4C28 ; =0x0220E0E8
+	ldr r2, _021F4C28 ; =UNK04_0220E0E8
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -32218,7 +32218,7 @@ _021F4A14:
 	mvn r1, #0
 	cmp r0, r1
 	bne _021F4A64
-	ldr r2, _021F4C2C ; =0x0220E114
+	ldr r2, _021F4C2C ; =UNK04_0220E114
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -32248,7 +32248,7 @@ _021F4A80:
 	mvn r1, #0
 	cmp r0, r1
 	bne _021F4AD0
-	ldr r2, _021F4C1C ; =0x0220E064
+	ldr r2, _021F4C1C ; =UNK04_0220E064
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -32264,7 +32264,7 @@ _021F4AD0:
 	bl MOD04_021F017C
 	cmp r0, #0
 	bne _021F4B0C
-	ldr r2, _021F4C20 ; =0x0220E08C
+	ldr r2, _021F4C20 ; =UNK04_0220E08C
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -32276,11 +32276,11 @@ _021F4AD0:
 	mov r0, #3
 	ldmia sp!, {r4, r5, r6, pc}
 _021F4B0C:
-	ldr r0, _021F4C30 ; =0x0220DD90
+	ldr r0, _021F4C30 ; =UNK04_0220DD90
 	bl SOC_GetHostByAddr
 	cmp r0, #0
 	bne _021F4B48
-	ldr r2, _021F4C34 ; =0x0220E144
+	ldr r2, _021F4C34 ; =UNK04_0220E144
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -32304,8 +32304,8 @@ _021F4B48:
 	str r0, [sp, #4]
 	cmp r0, #0
 	bne _021F4B88
-	ldr r0, _021F4C38 ; =0x0220E178
-	ldr r1, _021F4C3C ; =0x0220DE30
+	ldr r0, _021F4C38 ; =UNK04_0220E178
+	ldr r1, _021F4C3C ; =UNK04_0220DE30
 	mov r3, #0x90
 	bl __msl_assertion_failed
 _021F4B88:
@@ -32329,7 +32329,7 @@ _021F4B88:
 	mvn r1, #0x4b
 	cmp r0, r1
 	beq _021F4C04
-	ldr r2, _021F4C44 ; =0x0220E198
+	ldr r2, _021F4C44 ; =UNK04_0220E198
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -32348,17 +32348,17 @@ _021F4C04:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F4C1C: .word 0x0220E064
-_021F4C20: .word 0x0220E08C
-_021F4C24: .word 0x0220E0C0
-_021F4C28: .word 0x0220E0E8
-_021F4C2C: .word 0x0220E114
-_021F4C30: .word 0x0220DD90
-_021F4C34: .word 0x0220E144
-_021F4C38: .word 0x0220E178
-_021F4C3C: .word 0x0220DE30
+_021F4C1C: .word UNK04_0220E064
+_021F4C20: .word UNK04_0220E08C
+_021F4C24: .word UNK04_0220E0C0
+_021F4C28: .word UNK04_0220E0E8
+_021F4C2C: .word UNK04_0220E114
+_021F4C30: .word UNK04_0220DD90
+_021F4C34: .word UNK04_0220E144
+_021F4C38: .word UNK04_0220E178
+_021F4C3C: .word UNK04_0220DE30
 _021F4C40: .word 0x0000CC74
-_021F4C44: .word 0x0220E198
+_021F4C44: .word UNK04_0220E198
 
 	arm_func_start MOD04_021F4C48
 MOD04_021F4C48: ; 0x021F4C48
@@ -32369,7 +32369,7 @@ MOD04_021F4C48: ; 0x021F4C48
 	cmp r8, #0
 	mov r7, #0
 	ble _021F4CA0
-	ldr r6, _021F4CB0 ; =0x0220E1C0
+	ldr r6, _021F4CB0 ; =UNK04_0220E1C0
 	ldr r5, _021F4CB4 ; =0x08421085
 	ldr r4, _021F4CB8 ; =0x0000003E
 _021F4C70:
@@ -32391,7 +32391,7 @@ _021F4CA0:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021F4CB0: .word 0x0220E1C0
+_021F4CB0: .word UNK04_0220E1C0
 _021F4CB4: .word 0x08421085
 _021F4CB8: .word 0x0000003E
 
@@ -32543,7 +32543,7 @@ MOD04_021F4E64: ; 0x021F4E64
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021F4EFC
-	ldr r1, _021F5014 ; =0x0220E200
+	ldr r1, _021F5014 ; =UNK04_0220E200
 	mov r0, r8
 	bl MOD04_021FAEEC
 	add sp, sp, #0x20
@@ -32624,7 +32624,7 @@ _021F5008:
 	add sp, sp, #0x20
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021F5014: .word 0x0220E200
+_021F5014: .word UNK04_0220E200
 
 	arm_func_start MOD04_021F5018
 MOD04_021F5018: ; 0x021F5018
@@ -32634,14 +32634,14 @@ MOD04_021F5018: ; 0x021F5018
 	ldr r4, [r7]
 	mov r5, r2
 	mov r6, r1
-	ldr r2, _021F50A8 ; =0x0220E210
+	ldr r2, _021F50A8 ; =UNK04_0220E210
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
 	ldr r2, [r4, #0x198]
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F64
-	ldr r2, _021F50AC ; =0x0220E228
+	ldr r2, _021F50AC ; =UNK04_0220E228
 	mov r0, r7
 	add r1, r4, #0x1f4
 	bl MOD04_021F2F9C
@@ -32651,7 +32651,7 @@ MOD04_021F5018: ; 0x021F5018
 	bl MOD04_021F2F64
 	mov r0, r7
 	add r1, r4, #0x1f4
-	ldr r2, _021F50B0 ; =0x0220E234
+	ldr r2, _021F50B0 ; =UNK04_0220E234
 	bl MOD04_021F2F9C
 	mov r2, r5
 	mov r0, r7
@@ -32659,16 +32659,16 @@ MOD04_021F5018: ; 0x021F5018
 	bl MOD04_021F2F64
 	mov r0, r7
 	add r1, r4, #0x1f4
-	ldr r2, _021F50B4 ; =0x0220E23C
+	ldr r2, _021F50B4 ; =UNK04_0220E23C
 	bl MOD04_021F2F9C
 	mov r0, #0
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021F50A8: .word 0x0220E210
-_021F50AC: .word 0x0220E228
-_021F50B0: .word 0x0220E234
-_021F50B4: .word 0x0220E23C
+_021F50A8: .word UNK04_0220E210
+_021F50AC: .word UNK04_0220E228
+_021F50B0: .word UNK04_0220E234
+_021F50B4: .word UNK04_0220E23C
 
 	arm_func_start MOD04_021F50B8
 MOD04_021F50B8: ; 0x021F50B8
@@ -32678,7 +32678,7 @@ MOD04_021F50B8: ; 0x021F50B8
 	movs r5, r2
 	ldr r4, [r6]
 	bne _021F50E4
-	ldr r1, _021F5810 ; =0x0220E264
+	ldr r1, _021F5810 ; =UNK04_0220E264
 	bl MOD04_021FAEEC
 	add sp, sp, #0x100
 	mov r0, #2
@@ -32724,7 +32724,7 @@ _021F5170:
 	ldrsb r1, [r5]
 	cmp r1, #0
 	bne _021F5190
-	ldr r1, _021F5810 ; =0x0220E264
+	ldr r1, _021F5810 ; =UNK04_0220E264
 	bl MOD04_021FAEEC
 	add sp, sp, #0x100
 	mov r0, #2
@@ -32738,7 +32738,7 @@ _021F5190:
 	add r0, r4, #0x110
 	mov r2, #0x1f
 	bl MOD04_021FB3DC
-	ldr r1, _021F5814 ; =0x0220E274
+	ldr r1, _021F5814 ; =UNK04_0220E274
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -32750,7 +32750,7 @@ _021F51D0:
 	ldrsb r1, [r5]
 	cmp r1, #0
 	bne _021F51F0
-	ldr r1, _021F5810 ; =0x0220E264
+	ldr r1, _021F5810 ; =UNK04_0220E264
 	bl MOD04_021FAEEC
 	add sp, sp, #0x100
 	mov r0, #2
@@ -32765,7 +32765,7 @@ _021F51F0:
 	add r0, r4, r0
 	mov r2, #0x15
 	bl MOD04_021FB3DC
-	ldr r1, _021F581C ; =0x0220E27C
+	ldr r1, _021F581C ; =UNK04_0220E27C
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -32777,7 +32777,7 @@ _021F5234:
 	ldrsb r1, [r5]
 	cmp r1, #0
 	bne _021F5254
-	ldr r1, _021F5810 ; =0x0220E264
+	ldr r1, _021F5810 ; =UNK04_0220E264
 	bl MOD04_021FAEEC
 	add sp, sp, #0x100
 	mov r0, #2
@@ -32793,7 +32793,7 @@ _021F5254:
 	add r0, r4, #0x144
 	mov r2, #0x33
 	bl MOD04_021FB3DC
-	ldr r1, _021F5820 ; =0x0220E28C
+	ldr r1, _021F5820 ; =UNK04_0220E28C
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5D78
@@ -32805,7 +32805,7 @@ _021F529C:
 	ldrsb r1, [r5]
 	cmp r1, #0
 	bne _021F52BC
-	ldr r1, _021F5810 ; =0x0220E264
+	ldr r1, _021F5810 ; =UNK04_0220E264
 	bl MOD04_021FAEEC
 	add sp, sp, #0x100
 	mov r0, #2
@@ -32820,7 +32820,7 @@ _021F52BC:
 	add r0, r4, r0
 	mov r2, #0x1f
 	bl MOD04_021FB3DC
-	ldr r1, _021F5828 ; =0x0220E294
+	ldr r1, _021F5828 ; =UNK04_0220E294
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5D78
@@ -32833,7 +32833,7 @@ _021F5300:
 	mov r1, r5
 	mov r2, #0x1f
 	bl MOD04_021FB3DC
-	ldr r1, _021F582C ; =0x0220E2A0
+	ldr r1, _021F582C ; =UNK04_0220E2A0
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -32846,7 +32846,7 @@ _021F5330:
 	mov r1, r5
 	mov r2, #0x1f
 	bl MOD04_021FB3DC
-	ldr r1, _021F5830 ; =0x0220E2AC
+	ldr r1, _021F5830 ; =UNK04_0220E2AC
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -32859,7 +32859,7 @@ _021F5360:
 	mov r1, r5
 	mov r2, #0x4c
 	bl MOD04_021FB3DC
-	ldr r1, _021F5834 ; =0x0220E2B8
+	ldr r1, _021F5834 ; =UNK04_0220E2B8
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -32872,7 +32872,7 @@ _021F5390:
 	mov r1, r5
 	mov r2, #0xb
 	bl MOD04_021FB3DC
-	ldr r1, _021F5838 ; =0x0220E2C4
+	ldr r1, _021F5838 ; =UNK04_0220E2C4
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -32885,7 +32885,7 @@ _021F53C0:
 	bl strlen
 	cmp r0, #2
 	beq _021F53E8
-	ldr r1, _021F583C ; =0x0220E2D0
+	ldr r1, _021F583C ; =UNK04_0220E2D0
 	mov r0, r6
 	bl MOD04_021FAEEC
 	add sp, sp, #0x100
@@ -32896,7 +32896,7 @@ _021F53E8:
 	mov r1, r5
 	mov r2, #3
 	bl MOD04_021FB3DC
-	ldr r1, _021F5840 ; =0x0220E2E8
+	ldr r1, _021F5840 ; =UNK04_0220E2E8
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -32917,7 +32917,7 @@ _021F5434:
 	mov r0, r0, asr #0x18
 	cmp r0, #0x4d
 	bne _021F5460
-	ldr r0, _021F5848 ; =0x0220E2F8
+	ldr r0, _021F5848 ; =UNK04_0220E2F8
 	add r2, sp, #0
 	ldrb r1, [r0]
 	ldrb r0, [r0, #1]
@@ -32927,7 +32927,7 @@ _021F5434:
 _021F5460:
 	cmp r0, #0x46
 	bne _021F5484
-	ldr r0, _021F584C ; =0x0220E2FC
+	ldr r0, _021F584C ; =UNK04_0220E2FC
 	add r2, sp, #0
 	ldrb r1, [r0]
 	ldrb r0, [r0, #1]
@@ -32935,14 +32935,14 @@ _021F5460:
 	strb r0, [r2, #1]
 	b _021F549C
 _021F5484:
-	ldr r0, _021F5850 ; =0x0220E300
+	ldr r0, _021F5850 ; =UNK04_0220E300
 	add r2, sp, #0
 	ldrb r1, [r0]
 	ldrb r0, [r0, #1]
 	strb r1, [r2]
 	strb r0, [r2, #1]
 _021F549C:
-	ldr r1, _021F5854 ; =0x0220E304
+	ldr r1, _021F5854 ; =UNK04_0220E304
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -32955,7 +32955,7 @@ _021F54BC:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5858 ; =0x0220E30C
+	ldr r1, _021F5858 ; =UNK04_0220E30C
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -32990,7 +32990,7 @@ _021F553C:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5864 ; =0x0220E318
+	ldr r1, _021F5864 ; =UNK04_0220E318
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33014,7 +33014,7 @@ _021F5594:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5868 ; =0x0220E32C
+	ldr r1, _021F5868 ; =UNK04_0220E32C
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33060,7 +33060,7 @@ _021F563C:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5878 ; =0x0220E340
+	ldr r1, _021F5878 ; =UNK04_0220E340
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33073,7 +33073,7 @@ _021F566C:
 	mov r1, r5
 	mov r2, #0x33
 	bl MOD04_021FB3DC
-	ldr r1, _021F587C ; =0x0220E34C
+	ldr r1, _021F587C ; =UNK04_0220E34C
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33086,7 +33086,7 @@ _021F569C:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5880 ; =0x0220E354
+	ldr r1, _021F5880 ; =UNK04_0220E354
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33099,7 +33099,7 @@ _021F56CC:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5884 ; =0x0220E35C
+	ldr r1, _021F5884 ; =UNK04_0220E35C
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33112,7 +33112,7 @@ _021F56FC:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5888 ; =0x0220E364
+	ldr r1, _021F5888 ; =UNK04_0220E364
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33125,7 +33125,7 @@ _021F572C:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F588C ; =0x0220E36C
+	ldr r1, _021F588C ; =UNK04_0220E36C
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33138,7 +33138,7 @@ _021F575C:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5890 ; =0x0220E374
+	ldr r1, _021F5890 ; =UNK04_0220E374
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33151,7 +33151,7 @@ _021F578C:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5894 ; =0x0220E37C
+	ldr r1, _021F5894 ; =UNK04_0220E37C
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33164,7 +33164,7 @@ _021F57BC:
 	mov r1, r5
 	mov r2, #0x100
 	bl MOD04_021FB3DC
-	ldr r1, _021F5898 ; =0x0220E384
+	ldr r1, _021F5898 ; =UNK04_0220E384
 	add r2, sp, #0
 	mov r0, r6
 	bl MOD04_021F5DB8
@@ -33173,7 +33173,7 @@ _021F57BC:
 	add sp, sp, #0x100
 	ldmia sp!, {r4, r5, r6, pc}
 _021F57EC:
-	ldr r1, _021F589C ; =0x0220E248
+	ldr r1, _021F589C ; =UNK04_0220E248
 	mov r0, r6
 	bl MOD04_021FAEEC
 	add sp, sp, #0x100
@@ -33184,42 +33184,42 @@ _021F5804:
 	add sp, sp, #0x100
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F5810: .word 0x0220E264
-_021F5814: .word 0x0220E274
+_021F5810: .word UNK04_0220E264
+_021F5814: .word UNK04_0220E274
 _021F5818: .word 0x0000012F
-_021F581C: .word 0x0220E27C
-_021F5820: .word 0x0220E28C
+_021F581C: .word UNK04_0220E27C
+_021F5820: .word UNK04_0220E28C
 _021F5824: .word 0x00000177
-_021F5828: .word 0x0220E294
-_021F582C: .word 0x0220E2A0
-_021F5830: .word 0x0220E2AC
-_021F5834: .word 0x0220E2B8
-_021F5838: .word 0x0220E2C4
-_021F583C: .word 0x0220E2D0
-_021F5840: .word 0x0220E2E8
+_021F5828: .word UNK04_0220E294
+_021F582C: .word UNK04_0220E2A0
+_021F5830: .word UNK04_0220E2AC
+_021F5834: .word UNK04_0220E2B8
+_021F5838: .word UNK04_0220E2C4
+_021F583C: .word UNK04_0220E2D0
+_021F5840: .word UNK04_0220E2E8
 _021F5844: .word 0x0210428C
-_021F5848: .word 0x0220E2F8
-_021F584C: .word 0x0220E2FC
-_021F5850: .word 0x0220E300
-_021F5854: .word 0x0220E304
-_021F5858: .word 0x0220E30C
+_021F5848: .word UNK04_0220E2F8
+_021F584C: .word UNK04_0220E2FC
+_021F5850: .word UNK04_0220E300
+_021F5854: .word UNK04_0220E304
+_021F5858: .word UNK04_0220E30C
 _021F585C: .word 0x0000070D
 _021F5860: .word 0x0000070E
-_021F5864: .word 0x0220E318
-_021F5868: .word 0x0220E32C
+_021F5864: .word UNK04_0220E318
+_021F5868: .word UNK04_0220E32C
 _021F586C: .word 0x00000712
 _021F5870: .word 0x00000714
 _021F5874: .word 0x00000715
-_021F5878: .word 0x0220E340
-_021F587C: .word 0x0220E34C
-_021F5880: .word 0x0220E354
-_021F5884: .word 0x0220E35C
-_021F5888: .word 0x0220E364
-_021F588C: .word 0x0220E36C
-_021F5890: .word 0x0220E374
-_021F5894: .word 0x0220E37C
-_021F5898: .word 0x0220E384
-_021F589C: .word 0x0220E248
+_021F5878: .word UNK04_0220E340
+_021F587C: .word UNK04_0220E34C
+_021F5880: .word UNK04_0220E354
+_021F5884: .word UNK04_0220E35C
+_021F5888: .word UNK04_0220E364
+_021F588C: .word UNK04_0220E36C
+_021F5890: .word UNK04_0220E374
+_021F5894: .word UNK04_0220E37C
+_021F5898: .word UNK04_0220E384
+_021F589C: .word UNK04_0220E248
 
 	arm_func_start MOD04_021F58A0
 MOD04_021F58A0: ; 0x021F58A0
@@ -33260,16 +33260,16 @@ _021F58C0: ; jump table
 _021F5924:
 	cmp r2, #0
 	bge _021F5940
-	ldr r1, _021F5D0C ; =0x0220E38C
+	ldr r1, _021F5D0C ; =UNK04_0220E38C
 	bl MOD04_021FAEEC
 	add sp, sp, #0x10
 	mov r0, #2
 	ldmia sp!, {r4, pc}
 _021F5940:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D14 ; =0x0220E2C4
+	ldr r1, _021F5D14 ; =UNK04_0220E2C4
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5DB8
@@ -33288,40 +33288,40 @@ _021F596C:
 	beq _021F59C8
 	b _021F59E4
 _021F5990:
-	ldr r1, _021F5D20 ; =0x0220E304
-	ldr r2, _021F5D24 ; =0x0220E2F8
+	ldr r1, _021F5D20 ; =UNK04_0220E304
+	ldr r2, _021F5D24 ; =UNK04_0220E2F8
 	bl MOD04_021F5DB8
 	cmp r0, #0
 	beq _021F5CFC
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F59AC:
-	ldr r1, _021F5D20 ; =0x0220E304
-	ldr r2, _021F5D28 ; =0x0220E2FC
+	ldr r1, _021F5D20 ; =UNK04_0220E304
+	ldr r2, _021F5D28 ; =UNK04_0220E2FC
 	bl MOD04_021F5DB8
 	cmp r0, #0
 	beq _021F5CFC
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F59C8:
-	ldr r1, _021F5D20 ; =0x0220E304
-	ldr r2, _021F5D2C ; =0x0220E300
+	ldr r1, _021F5D20 ; =UNK04_0220E304
+	ldr r2, _021F5D2C ; =UNK04_0220E300
 	bl MOD04_021F5DB8
 	cmp r0, #0
 	beq _021F5CFC
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F59E4:
-	ldr r1, _021F5D30 ; =0x0220E3A0
+	ldr r1, _021F5D30 ; =UNK04_0220E3A0
 	bl MOD04_021FAEEC
 	add sp, sp, #0x10
 	mov r0, #2
 	ldmia sp!, {r4, pc}
 _021F59F8:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D34 ; =0x0220E30C
+	ldr r1, _021F5D34 ; =UNK04_0220E30C
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5DB8
@@ -33330,10 +33330,10 @@ _021F59F8:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5A24:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D38 ; =0x0220E3B0
+	ldr r1, _021F5D38 ; =UNK04_0220E3B0
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5D78
@@ -33342,10 +33342,10 @@ _021F5A24:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5A50:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D3C ; =0x0220E3C0
+	ldr r1, _021F5D3C ; =UNK04_0220E3C0
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5D78
@@ -33356,11 +33356,11 @@ _021F5A50:
 _021F5A7C:
 	mov r0, r2, asr #3
 	add r2, r2, r0, lsr #28
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	mov r2, r2, asr #4
 	bl sprintf
-	ldr r1, _021F5D40 ; =0x0220E3CC
+	ldr r1, _021F5D40 ; =UNK04_0220E3CC
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5D78
@@ -33371,11 +33371,11 @@ _021F5A7C:
 _021F5AB4:
 	mov r0, r2, asr #1
 	add r2, r2, r0, lsr #30
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	mov r2, r2, asr #2
 	bl sprintf
-	ldr r1, _021F5D44 ; =0x0220E3D8
+	ldr r1, _021F5D44 ; =UNK04_0220E3D8
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5D78
@@ -33386,11 +33386,11 @@ _021F5AB4:
 _021F5AEC:
 	mov r0, r2, asr #1
 	add r2, r2, r0, lsr #30
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	mov r2, r2, asr #2
 	bl sprintf
-	ldr r1, _021F5D48 ; =0x0220E3E8
+	ldr r1, _021F5D48 ; =UNK04_0220E3E8
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5D78
@@ -33399,10 +33399,10 @@ _021F5AEC:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5B24:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D4C ; =0x0220E3F8
+	ldr r1, _021F5D4C ; =UNK04_0220E3F8
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5D78
@@ -33411,10 +33411,10 @@ _021F5B24:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5B50:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D50 ; =0x0220E408
+	ldr r1, _021F5D50 ; =UNK04_0220E408
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5D78
@@ -33423,12 +33423,12 @@ _021F5B50:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5B7C:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	cmp r2, #0
 	movne r2, #1
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D54 ; =0x0220E41C
+	ldr r1, _021F5D54 ; =UNK04_0220E41C
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5D78
@@ -33437,10 +33437,10 @@ _021F5B7C:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5BB0:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D58 ; =0x0220E354
+	ldr r1, _021F5D58 ; =UNK04_0220E354
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5DB8
@@ -33449,10 +33449,10 @@ _021F5BB0:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5BDC:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D5C ; =0x0220E35C
+	ldr r1, _021F5D5C ; =UNK04_0220E35C
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5DB8
@@ -33461,10 +33461,10 @@ _021F5BDC:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5C08:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D60 ; =0x0220E364
+	ldr r1, _021F5D60 ; =UNK04_0220E364
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5DB8
@@ -33473,10 +33473,10 @@ _021F5C08:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5C34:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D64 ; =0x0220E36C
+	ldr r1, _021F5D64 ; =UNK04_0220E36C
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5DB8
@@ -33485,10 +33485,10 @@ _021F5C34:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5C60:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D68 ; =0x0220E374
+	ldr r1, _021F5D68 ; =UNK04_0220E374
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5DB8
@@ -33497,10 +33497,10 @@ _021F5C60:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5C8C:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D6C ; =0x0220E37C
+	ldr r1, _021F5D6C ; =UNK04_0220E37C
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5DB8
@@ -33509,10 +33509,10 @@ _021F5C8C:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5CB8:
-	ldr r1, _021F5D10 ; =0x0220E244
+	ldr r1, _021F5D10 ; =UNK04_0220E244
 	add r0, sp, #0
 	bl sprintf
-	ldr r1, _021F5D70 ; =0x0220E384
+	ldr r1, _021F5D70 ; =UNK04_0220E384
 	add r2, sp, #0
 	mov r0, r4
 	bl MOD04_021F5DB8
@@ -33521,7 +33521,7 @@ _021F5CB8:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 _021F5CE4:
-	ldr r1, _021F5D74 ; =0x0220E248
+	ldr r1, _021F5D74 ; =UNK04_0220E248
 	mov r0, r4
 	bl MOD04_021FAEEC
 	add sp, sp, #0x10
@@ -33533,33 +33533,33 @@ _021F5CFC:
 	ldmia sp!, {r4, pc}
 	.align 2, 0
 _021F5D08: .word 0x00000706
-_021F5D0C: .word 0x0220E38C
-_021F5D10: .word 0x0220E244
-_021F5D14: .word 0x0220E2C4
+_021F5D0C: .word UNK04_0220E38C
+_021F5D10: .word UNK04_0220E244
+_021F5D14: .word UNK04_0220E2C4
 _021F5D18: .word 0x00000501
 _021F5D1C: .word 0x00000502
-_021F5D20: .word 0x0220E304
-_021F5D24: .word 0x0220E2F8
-_021F5D28: .word 0x0220E2FC
-_021F5D2C: .word 0x0220E300
-_021F5D30: .word 0x0220E3A0
-_021F5D34: .word 0x0220E30C
-_021F5D38: .word 0x0220E3B0
-_021F5D3C: .word 0x0220E3C0
-_021F5D40: .word 0x0220E3CC
-_021F5D44: .word 0x0220E3D8
-_021F5D48: .word 0x0220E3E8
-_021F5D4C: .word 0x0220E3F8
-_021F5D50: .word 0x0220E408
-_021F5D54: .word 0x0220E41C
-_021F5D58: .word 0x0220E354
-_021F5D5C: .word 0x0220E35C
-_021F5D60: .word 0x0220E364
-_021F5D64: .word 0x0220E36C
-_021F5D68: .word 0x0220E374
-_021F5D6C: .word 0x0220E37C
-_021F5D70: .word 0x0220E384
-_021F5D74: .word 0x0220E248
+_021F5D20: .word UNK04_0220E304
+_021F5D24: .word UNK04_0220E2F8
+_021F5D28: .word UNK04_0220E2FC
+_021F5D2C: .word UNK04_0220E300
+_021F5D30: .word UNK04_0220E3A0
+_021F5D34: .word UNK04_0220E30C
+_021F5D38: .word UNK04_0220E3B0
+_021F5D3C: .word UNK04_0220E3C0
+_021F5D40: .word UNK04_0220E3CC
+_021F5D44: .word UNK04_0220E3D8
+_021F5D48: .word UNK04_0220E3E8
+_021F5D4C: .word UNK04_0220E3F8
+_021F5D50: .word UNK04_0220E408
+_021F5D54: .word UNK04_0220E41C
+_021F5D58: .word UNK04_0220E354
+_021F5D5C: .word UNK04_0220E35C
+_021F5D60: .word UNK04_0220E364
+_021F5D64: .word UNK04_0220E36C
+_021F5D68: .word UNK04_0220E374
+_021F5D6C: .word UNK04_0220E37C
+_021F5D70: .word UNK04_0220E384
+_021F5D74: .word UNK04_0220E248
 
 	arm_func_start MOD04_021F5D78
 MOD04_021F5D78: ; 0x021F5D78
@@ -33608,7 +33608,7 @@ MOD04_021F5DF8: ; 0x021F5DF8
 	ldr r2, [r4, #0x448]
 	cmp r2, #0
 	ble _021F5E54
-	ldr r2, _021F5EB0 ; =0x0220E42C
+	ldr r2, _021F5EB0 ; =UNK04_0220E42C
 	bl MOD04_021F2F9C
 	ldr r2, [r4, #0x198]
 	mov r0, r6
@@ -33618,7 +33618,7 @@ MOD04_021F5DF8: ; 0x021F5DF8
 	mov r0, r6
 	mov r1, r5
 	bl MOD04_021F2F9C
-	ldr r2, _021F5EB4 ; =0x0220E23C
+	ldr r2, _021F5EB4 ; =UNK04_0220E23C
 	mov r0, r6
 	mov r1, r5
 	bl MOD04_021F2F9C
@@ -33628,7 +33628,7 @@ _021F5E54:
 	ldr r0, [r4, #0x458]
 	cmp r0, #0
 	ble _021F5EA8
-	ldr r2, _021F5EB8 ; =0x0220E444
+	ldr r2, _021F5EB8 ; =UNK04_0220E444
 	mov r0, r6
 	mov r1, r5
 	bl MOD04_021F2F9C
@@ -33640,7 +33640,7 @@ _021F5E54:
 	mov r0, r6
 	mov r1, r5
 	bl MOD04_021F2F9C
-	ldr r2, _021F5EB4 ; =0x0220E23C
+	ldr r2, _021F5EB4 ; =UNK04_0220E23C
 	mov r0, r6
 	mov r1, r5
 	bl MOD04_021F2F9C
@@ -33650,9 +33650,9 @@ _021F5EA8:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F5EB0: .word 0x0220E42C
-_021F5EB4: .word 0x0220E23C
-_021F5EB8: .word 0x0220E444
+_021F5EB0: .word UNK04_0220E42C
+_021F5EB4: .word UNK04_0220E23C
+_021F5EB8: .word UNK04_0220E444
 
 	arm_func_start MOD04_021F5EBC
 MOD04_021F5EBC: ; 0x021F5EBC
@@ -33669,13 +33669,13 @@ MOD04_021F5EBC: ; 0x021F5EBC
 	addne sp, sp, #0x26c
 	movne r0, #4
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021F6648 ; =0x0220E458
+	ldr r1, _021F6648 ; =UNK04_0220E458
 	mov r0, r4
 	mov r2, #4
 	bl strncmp
 	cmp r0, #0
 	beq _021F5F34
-	ldr r2, _021F664C ; =0x0220E460
+	ldr r2, _021F664C ; =UNK04_0220E460
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -33687,14 +33687,14 @@ MOD04_021F5EBC: ; 0x021F5EBC
 	mov r0, #3
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F5F34:
-	ldr r1, _021F6650 ; =0x0220E228
+	ldr r1, _021F6650 ; =UNK04_0220E228
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F5F7C
-	ldr r2, _021F664C ; =0x0220E460
+	ldr r2, _021F664C ; =UNK04_0220E460
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -33711,8 +33711,8 @@ _021F5F7C:
 	mov sb, r0
 	cmp sb, #0
 	bgt _021F5FA4
-	ldr r0, _021F6654 ; =0x0220E490
-	ldr r1, _021F6658 ; =0x0220E4A0
+	ldr r0, _021F6654 ; =UNK04_0220E490
+	ldr r1, _021F6658 ; =UNK04_0220E4A0
 	ldr r3, _021F665C ; =0x0000015A
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -33745,7 +33745,7 @@ _021F5FCC:
 	add r5, sp, #0xf9
 	str r0, [sp, #0x13c]
 	str r3, [sp, #0x140]
-	ldr r1, _021F6660 ; =0x0220E274
+	ldr r1, _021F6660 ; =UNK04_0220E274
 	mov r0, r4
 	mov r3, #0x1f
 	str r2, [sp, #0x12c]
@@ -33756,7 +33756,7 @@ _021F5FCC:
 	moveq r1, #0
 	streqb r1, [r0]
 	ldr r2, [sp, #0x130]
-	ldr r1, _021F6664 ; =0x0220E27C
+	ldr r1, _021F6664 ; =UNK04_0220E27C
 	mov r0, r4
 	mov r3, #0x15
 	bl MOD04_021FB1F0
@@ -33765,7 +33765,7 @@ _021F5FCC:
 	moveq r1, #0
 	streqb r1, [r0]
 	ldr r2, [sp, #0x134]
-	ldr r1, _021F6668 ; =0x0220E28C
+	ldr r1, _021F6668 ; =UNK04_0220E28C
 	mov r0, r4
 	mov r3, #0x33
 	bl MOD04_021FB1F0
@@ -33774,7 +33774,7 @@ _021F5FCC:
 	moveq r1, #0
 	streqb r1, [r0]
 	ldr r2, [sp, #0x138]
-	ldr r1, _021F666C ; =0x0220E2A0
+	ldr r1, _021F666C ; =UNK04_0220E2A0
 	mov r0, r4
 	mov r3, #0x1f
 	bl MOD04_021FB1F0
@@ -33783,7 +33783,7 @@ _021F5FCC:
 	moveq r1, #0
 	streqb r1, [r0]
 	ldr r2, [sp, #0x13c]
-	ldr r1, _021F6670 ; =0x0220E2AC
+	ldr r1, _021F6670 ; =UNK04_0220E2AC
 	mov r0, r4
 	mov r3, #0x1f
 	bl MOD04_021FB1F0
@@ -33791,7 +33791,7 @@ _021F5FCC:
 	ldreq r0, [sp, #0x13c]
 	moveq r1, #0
 	streqb r1, [r0]
-	ldr r1, _021F6674 ; =0x0220E30C
+	ldr r1, _021F6674 ; =UNK04_0220E30C
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33805,7 +33805,7 @@ _021F5FCC:
 	str r0, [sp, #0x144]
 _021F60F8:
 	ldr r2, [sp, #0x140]
-	ldr r1, _021F6678 ; =0x0220E2B8
+	ldr r1, _021F6678 ; =UNK04_0220E2B8
 	mov r0, r4
 	mov r3, #0x4c
 	bl MOD04_021FB1F0
@@ -33813,7 +33813,7 @@ _021F60F8:
 	ldreq r0, [sp, #0x140]
 	moveq r1, #0
 	streqb r1, [r0]
-	ldr r1, _021F667C ; =0x0220E2C4
+	ldr r1, _021F667C ; =UNK04_0220E2C4
 	add r2, sp, #0x148
 	mov r0, r4
 	mov r3, #0xb
@@ -33822,7 +33822,7 @@ _021F60F8:
 	moveq r0, #0
 	add r2, sp, #0x100
 	streqb r0, [sp, #0x148]
-	ldr r1, _021F6680 ; =0x0220E2E8
+	ldr r1, _021F6680 ; =UNK04_0220E2E8
 	add r2, r2, #0x53
 	mov r0, r4
 	mov r3, #3
@@ -33830,7 +33830,7 @@ _021F60F8:
 	cmp r0, #0
 	moveq r0, #0
 	streqb r0, [sp, #0x153]
-	ldr r1, _021F6684 ; =0x0220E4AC
+	ldr r1, _021F6684 ; =UNK04_0220E4AC
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33844,7 +33844,7 @@ _021F60F8:
 	bl _d2f
 	str r0, [sp, #0x158]
 _021F6194:
-	ldr r1, _021F6688 ; =0x0220E4B4
+	ldr r1, _021F6688 ; =UNK04_0220E4B4
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33858,7 +33858,7 @@ _021F6194:
 	bl _d2f
 	str r0, [sp, #0x15c]
 _021F61C8:
-	ldr r1, _021F668C ; =0x0220E4BC
+	ldr r1, _021F668C ; =UNK04_0220E4BC
 	add r2, sp, #0x160
 	mov r0, r4
 	mov r3, #0x80
@@ -33866,7 +33866,7 @@ _021F61C8:
 	cmp r0, #0
 	moveq r0, #0
 	streqb r0, [sp, #0x160]
-	ldr r1, _021F6690 ; =0x0220E258
+	ldr r1, _021F6690 ; =UNK04_0220E258
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33890,7 +33890,7 @@ _021F61C8:
 	addne sp, sp, #0x26c
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F6244:
-	ldr r1, _021F6694 ; =0x0220E304
+	ldr r1, _021F6694 ; =UNK04_0220E304
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33910,7 +33910,7 @@ _021F6244:
 	ldrne r0, _021F6698 ; =0x00000502
 	strne r0, [sp, #0x1ec]
 _021F6290:
-	ldr r1, _021F66A0 ; =0x0220E4C4
+	ldr r1, _021F66A0 ; =UNK04_0220E4C4
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33924,7 +33924,7 @@ _021F6290:
 	str r0, [sp, #0x1f0]
 _021F62C0:
 	ldr r2, [sp, #0x1f4]
-	ldr r1, _021F66A4 ; =0x0220E34C
+	ldr r1, _021F66A4 ; =UNK04_0220E34C
 	mov r0, r4
 	mov r3, #0x33
 	bl MOD04_021FB1F0
@@ -33932,7 +33932,7 @@ _021F62C0:
 	ldreq r0, [sp, #0x1f4]
 	moveq r1, #0
 	streqb r1, [r0]
-	ldr r1, _021F66A8 ; =0x0220E354
+	ldr r1, _021F66A8 ; =UNK04_0220E354
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33945,7 +33945,7 @@ _021F62C0:
 	bl atol
 	str r0, [sp, #0x1f8]
 _021F6314:
-	ldr r1, _021F66AC ; =0x0220E35C
+	ldr r1, _021F66AC ; =UNK04_0220E35C
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33958,7 +33958,7 @@ _021F6314:
 	bl atol
 	str r0, [sp, #0x1fc]
 _021F6344:
-	ldr r1, _021F66B0 ; =0x0220E364
+	ldr r1, _021F66B0 ; =UNK04_0220E364
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33971,7 +33971,7 @@ _021F6344:
 	bl atol
 	str r0, [sp, #0x200]
 _021F6374:
-	ldr r1, _021F66B4 ; =0x0220E36C
+	ldr r1, _021F66B4 ; =UNK04_0220E36C
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33984,7 +33984,7 @@ _021F6374:
 	bl atol
 	str r0, [sp, #0x204]
 _021F63A4:
-	ldr r1, _021F66B8 ; =0x0220E374
+	ldr r1, _021F66B8 ; =UNK04_0220E374
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -33997,7 +33997,7 @@ _021F63A4:
 	bl atol
 	str r0, [sp, #0x208]
 _021F63D4:
-	ldr r1, _021F66BC ; =0x0220E37C
+	ldr r1, _021F66BC ; =UNK04_0220E37C
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -34010,7 +34010,7 @@ _021F63D4:
 	bl atol
 	str r0, [sp, #0x20c]
 _021F6404:
-	ldr r1, _021F66C0 ; =0x0220E384
+	ldr r1, _021F66C0 ; =UNK04_0220E384
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -34023,7 +34023,7 @@ _021F6404:
 	bl atol
 	str r0, [sp, #0x210]
 _021F6434:
-	ldr r1, _021F66C4 ; =0x0220E4CC
+	ldr r1, _021F66C4 ; =UNK04_0220E4CC
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -34036,7 +34036,7 @@ _021F6434:
 	bl atol
 	str r0, [sp, #0x214]
 _021F6464:
-	ldr r1, _021F66C8 ; =0x0220E4D4
+	ldr r1, _021F66C8 ; =UNK04_0220E4D4
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
@@ -34049,14 +34049,14 @@ _021F6464:
 	bl atol
 	str r0, [sp, #0x218]
 _021F6494:
-	ldr r1, _021F66CC ; =0x0220E4DC
+	ldr r1, _021F66CC ; =UNK04_0220E4DC
 	add r2, sp, #0x14
 	mov r0, r4
 	mov r3, #0x40
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F64DC
-	ldr r2, _021F664C ; =0x0220E460
+	ldr r2, _021F664C ; =UNK04_0220E460
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -34138,7 +34138,7 @@ _021F65B0:
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021F65F0
-	ldr r1, _021F66D0 ; =0x0220E200
+	ldr r1, _021F66D0 ; =UNK04_0220E200
 	mov r0, sl
 	bl MOD04_021FAEEC
 	add sp, sp, #0x26c
@@ -34169,41 +34169,41 @@ _021F6630:
 	add sp, sp, #0x26c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021F6648: .word 0x0220E458
-_021F664C: .word 0x0220E460
-_021F6650: .word 0x0220E228
-_021F6654: .word 0x0220E490
-_021F6658: .word 0x0220E4A0
+_021F6648: .word UNK04_0220E458
+_021F664C: .word UNK04_0220E460
+_021F6650: .word UNK04_0220E228
+_021F6654: .word UNK04_0220E490
+_021F6658: .word UNK04_0220E4A0
 _021F665C: .word 0x0000015A
-_021F6660: .word 0x0220E274
-_021F6664: .word 0x0220E27C
-_021F6668: .word 0x0220E28C
-_021F666C: .word 0x0220E2A0
-_021F6670: .word 0x0220E2AC
-_021F6674: .word 0x0220E30C
-_021F6678: .word 0x0220E2B8
-_021F667C: .word 0x0220E2C4
-_021F6680: .word 0x0220E2E8
-_021F6684: .word 0x0220E4AC
-_021F6688: .word 0x0220E4B4
-_021F668C: .word 0x0220E4BC
-_021F6690: .word 0x0220E258
-_021F6694: .word 0x0220E304
+_021F6660: .word UNK04_0220E274
+_021F6664: .word UNK04_0220E27C
+_021F6668: .word UNK04_0220E28C
+_021F666C: .word UNK04_0220E2A0
+_021F6670: .word UNK04_0220E2AC
+_021F6674: .word UNK04_0220E30C
+_021F6678: .word UNK04_0220E2B8
+_021F667C: .word UNK04_0220E2C4
+_021F6680: .word UNK04_0220E2E8
+_021F6684: .word UNK04_0220E4AC
+_021F6688: .word UNK04_0220E4B4
+_021F668C: .word UNK04_0220E4BC
+_021F6690: .word UNK04_0220E258
+_021F6694: .word UNK04_0220E304
 _021F6698: .word 0x00000502
 _021F669C: .word 0x00000501
-_021F66A0: .word 0x0220E4C4
-_021F66A4: .word 0x0220E34C
-_021F66A8: .word 0x0220E354
-_021F66AC: .word 0x0220E35C
-_021F66B0: .word 0x0220E364
-_021F66B4: .word 0x0220E36C
-_021F66B8: .word 0x0220E374
-_021F66BC: .word 0x0220E37C
-_021F66C0: .word 0x0220E384
-_021F66C4: .word 0x0220E4CC
-_021F66C8: .word 0x0220E4D4
-_021F66CC: .word 0x0220E4DC
-_021F66D0: .word 0x0220E200
+_021F66A0: .word UNK04_0220E4C4
+_021F66A4: .word UNK04_0220E34C
+_021F66A8: .word UNK04_0220E354
+_021F66AC: .word UNK04_0220E35C
+_021F66B0: .word UNK04_0220E364
+_021F66B4: .word UNK04_0220E36C
+_021F66B8: .word UNK04_0220E374
+_021F66BC: .word UNK04_0220E37C
+_021F66C0: .word UNK04_0220E384
+_021F66C4: .word UNK04_0220E4CC
+_021F66C8: .word UNK04_0220E4D4
+_021F66CC: .word UNK04_0220E4DC
+_021F66D0: .word UNK04_0220E200
 
 	arm_func_start MOD04_021F66D4
 MOD04_021F66D4: ; 0x021F66D4
@@ -34365,8 +34365,8 @@ MOD04_021F68D8: ; 0x021F68D8
 	bl MOD04_021F6988
 	cmp r0, #0
 	bne _021F6930
-	ldr r0, _021F697C ; =0x0220E4E4
-	ldr r1, _021F6980 ; =0x0220E4A0
+	ldr r0, _021F697C ; =UNK04_0220E4E4
+	ldr r1, _021F6980 ; =UNK04_0220E4A0
 	mov r2, #0
 	mov r3, #0xb7
 	bl __msl_assertion_failed
@@ -34383,7 +34383,7 @@ _021F6930:
 	addne sp, sp, #4
 	movne r0, #0
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, pc}
-	ldr r1, _021F6984 ; =0x0220E4FC
+	ldr r1, _021F6984 ; =UNK04_0220E4FC
 	mov r0, r4
 	bl MOD04_021FAEEC
 	mov r0, #2
@@ -34391,9 +34391,9 @@ _021F6930:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
 _021F6978: .word 0x0000FFFF
-_021F697C: .word 0x0220E4E4
-_021F6980: .word 0x0220E4A0
-_021F6984: .word 0x0220E4FC
+_021F697C: .word UNK04_0220E4E4
+_021F6980: .word UNK04_0220E4A0
+_021F6984: .word UNK04_0220E4FC
 
 	arm_func_start MOD04_021F6988
 MOD04_021F6988: ; 0x021F6988
@@ -34560,11 +34560,11 @@ _021F6BA8:
 	mov r4, r0
 	b _021F6BD4
 _021F6BB4:
-	ldr r1, _021F6BE8 ; =0x0220E50C
+	ldr r1, _021F6BE8 ; =UNK04_0220E50C
 	mov r2, r3
 	bl MOD04_021FB3D0
-	ldr r0, _021F6BEC ; =0x0220E554
-	ldr r1, _021F6BF0 ; =0x0220E558
+	ldr r0, _021F6BEC ; =UNK04_0220E554
+	ldr r1, _021F6BF0 ; =UNK04_0220E558
 	ldr r3, _021F6BF4 ; =0x00000146
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -34575,9 +34575,9 @@ _021F6BD4:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021F6BE8: .word 0x0220E50C
-_021F6BEC: .word 0x0220E554
-_021F6BF0: .word 0x0220E558
+_021F6BE8: .word UNK04_0220E50C
+_021F6BEC: .word UNK04_0220E554
+_021F6BF0: .word UNK04_0220E558
 _021F6BF4: .word 0x00000146
 
 	arm_func_start MOD04_021F6BF8
@@ -34672,8 +34672,8 @@ MOD04_021F6CE4: ; 0x021F6CE4
 	ldr r0, [r2, #0x210]
 	cmp r0, #0
 	bge _021F6D30
-	ldr r0, _021F6D84 ; =0x0220E568
-	ldr r1, _021F6D88 ; =0x0220E558
+	ldr r0, _021F6D84 ; =UNK04_0220E568
+	ldr r1, _021F6D88 ; =UNK04_0220E558
 	mov r2, #0
 	mov r3, #0xb6
 	bl __msl_assertion_failed
@@ -34701,8 +34701,8 @@ _021F6D64:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021F6D84: .word 0x0220E568
-_021F6D88: .word 0x0220E558
+_021F6D84: .word UNK04_0220E568
+_021F6D88: .word UNK04_0220E558
 
 	arm_func_start MOD04_021F6D8C
 MOD04_021F6D8C: ; 0x021F6D8C
@@ -34716,7 +34716,7 @@ MOD04_021F6D8C: ; 0x021F6D8C
 	bl MOD04_021DD860
 	cmp r0, #0
 	bne _021F6DC8
-	ldr r1, _021F6E40 ; =0x0220E588
+	ldr r1, _021F6E40 ; =UNK04_0220E588
 	mov r0, r8
 	bl MOD04_021FAEEC
 	mov r0, #1
@@ -34754,7 +34754,7 @@ _021F6E10:
 	mov r0, r3
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021F6E40: .word 0x0220E588
+_021F6E40: .word UNK04_0220E588
 
 	arm_func_start MOD04_021F6E44
 MOD04_021F6E44: ; 0x021F6E44
@@ -34764,8 +34764,8 @@ MOD04_021F6E44: ; 0x021F6E44
 	mov r6, r1
 	ldr r5, [r7]
 	bne _021F6E70
-	ldr r0, _021F7168 ; =0x0220E598
-	ldr r1, _021F716C ; =0x0220E558
+	ldr r0, _021F7168 ; =UNK04_0220E598
+	ldr r1, _021F716C ; =UNK04_0220E558
 	mov r2, #0
 	mov r3, #0x22
 	bl __msl_assertion_failed
@@ -34773,16 +34773,16 @@ _021F6E70:
 	ldr r0, [r7]
 	cmp r0, #0
 	bne _021F6E90
-	ldr r0, _021F7170 ; =0x0220E5AC
-	ldr r1, _021F716C ; =0x0220E558
+	ldr r0, _021F7170 ; =UNK04_0220E5AC
+	ldr r1, _021F716C ; =UNK04_0220E558
 	mov r2, #0
 	mov r3, #0x23
 	bl __msl_assertion_failed
 _021F6E90:
 	cmp r6, #0
 	bne _021F6EAC
-	ldr r0, _021F7174 ; =0x0220E5C0
-	ldr r1, _021F716C ; =0x0220E558
+	ldr r0, _021F7174 ; =UNK04_0220E5C0
+	ldr r1, _021F716C ; =UNK04_0220E558
 	mov r2, #0
 	mov r3, #0x24
 	bl __msl_assertion_failed
@@ -34808,7 +34808,7 @@ _021F6EE8:
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021F6F10
-	ldr r1, _021F7178 ; =0x0220E588
+	ldr r1, _021F7178 ; =UNK04_0220E588
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x14
@@ -34844,7 +34844,7 @@ _021F6F70:
 	bl MOD04_021DD860
 	movs r3, r0
 	bne _021F6F98
-	ldr r1, _021F7178 ; =0x0220E588
+	ldr r1, _021F7178 ; =UNK04_0220E588
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x14
@@ -34877,7 +34877,7 @@ _021F6FEC:
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021F7014
-	ldr r1, _021F7178 ; =0x0220E588
+	ldr r1, _021F7178 ; =UNK04_0220E588
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x14
@@ -34906,7 +34906,7 @@ _021F7058:
 	bl MOD04_021DD860
 	movs r3, r0
 	bne _021F7080
-	ldr r1, _021F7178 ; =0x0220E588
+	ldr r1, _021F7178 ; =UNK04_0220E588
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x14
@@ -34942,7 +34942,7 @@ _021F70DC:
 	bl MOD04_021DD860
 	movs r3, r0
 	bne _021F7104
-	ldr r1, _021F7178 ; =0x0220E588
+	ldr r1, _021F7178 ; =UNK04_0220E588
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x14
@@ -34967,8 +34967,8 @@ _021F7104:
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021F7148:
-	ldr r0, _021F7180 ; =0x0220E554
-	ldr r1, _021F716C ; =0x0220E558
+	ldr r0, _021F7180 ; =UNK04_0220E554
+	ldr r1, _021F716C ; =UNK04_0220E558
 	mov r2, #0
 	mov r3, #0x6b
 	bl __msl_assertion_failed
@@ -34977,13 +34977,13 @@ _021F715C:
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021F7168: .word 0x0220E598
-_021F716C: .word 0x0220E558
-_021F7170: .word 0x0220E5AC
-_021F7174: .word 0x0220E5C0
-_021F7178: .word 0x0220E588
+_021F7168: .word UNK04_0220E598
+_021F716C: .word UNK04_0220E558
+_021F7170: .word UNK04_0220E5AC
+_021F7174: .word UNK04_0220E5C0
+_021F7178: .word UNK04_0220E588
 _021F717C: .word 0x00000201
-_021F7180: .word 0x0220E554
+_021F7180: .word UNK04_0220E554
 
 	arm_func_start MOD04_021F7184
 MOD04_021F7184: ; 0x021F7184
@@ -34994,22 +34994,22 @@ MOD04_021F7184: ; 0x021F7184
 	mov r5, r2
 	mov r4, r3
 	bne _021F71B4
-	ldr r0, _021F7258 ; =0x0220E5D4
-	ldr r1, _021F725C ; =0x0220E5E4
+	ldr r0, _021F7258 ; =UNK04_0220E5D4
+	ldr r1, _021F725C ; =UNK04_0220E5E4
 	ldr r3, _021F7260 ; =0x00000389
 	mov r2, #0
 	bl __msl_assertion_failed
 _021F71B4:
 	mvn r0, #0
 	cmp r5, #0
-	ldreq r5, _021F7264 ; =0x0220E5F0
+	ldreq r5, _021F7264 ; =UNK04_0220E5F0
 	cmp r4, r0
 	bne _021F71D4
 	mov r0, r5
 	bl strlen
 	mov r4, r0
 _021F71D4:
-	ldr r1, _021F7268 ; =0x0220E5F4
+	ldr r1, _021F7268 ; =UNK04_0220E5F4
 	add r0, sp, #0
 	mov r2, r4
 	bl sprintf
@@ -35043,11 +35043,11 @@ _021F71D4:
 	add sp, sp, #0x24
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021F7258: .word 0x0220E5D4
-_021F725C: .word 0x0220E5E4
+_021F7258: .word UNK04_0220E5D4
+_021F725C: .word UNK04_0220E5E4
 _021F7260: .word 0x00000389
-_021F7264: .word 0x0220E5F0
-_021F7268: .word 0x0220E5F4
+_021F7264: .word UNK04_0220E5F0
+_021F7268: .word UNK04_0220E5F4
 
 	arm_func_start MOD04_021F726C
 MOD04_021F726C: ; 0x021F726C
@@ -35061,13 +35061,13 @@ MOD04_021F726C: ; 0x021F726C
 	ldr r5, [r3]
 	ldr r4, [r3, #8]
 	bne _021F72A8
-	ldr r0, _021F72DC ; =0x0220E604
-	ldr r1, _021F72E0 ; =0x0220E5E4
+	ldr r0, _021F72DC ; =UNK04_0220E604
+	ldr r1, _021F72E0 ; =UNK04_0220E5E4
 	ldr r3, _021F72E4 ; =0x00000376
 	mov r2, #0
 	bl __msl_assertion_failed
 _021F72A8:
-	ldr r1, _021F72E8 ; =0x0220E610
+	ldr r1, _021F72E8 ; =UNK04_0220E610
 	str r6, [sp]
 	add r0, sp, #8
 	mov r2, r7
@@ -35081,10 +35081,10 @@ _021F72A8:
 	add sp, sp, #0x4c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021F72DC: .word 0x0220E604
-_021F72E0: .word 0x0220E5E4
+_021F72DC: .word UNK04_0220E604
+_021F72E0: .word UNK04_0220E5E4
 _021F72E4: .word 0x00000376
-_021F72E8: .word 0x0220E610
+_021F72E8: .word UNK04_0220E610
 
 	arm_func_start MOD04_021F72EC
 MOD04_021F72EC: ; 0x021F72EC
@@ -35095,16 +35095,16 @@ MOD04_021F72EC: ; 0x021F72EC
 	mov r6, r2
 	mov r5, r3
 	bne _021F731C
-	ldr r0, _021F745C ; =0x0220E5D4
-	ldr r1, _021F7460 ; =0x0220E5E4
+	ldr r0, _021F745C ; =UNK04_0220E5D4
+	ldr r1, _021F7460 ; =UNK04_0220E5E4
 	mov r2, #0
 	mov r3, #0x340
 	bl __msl_assertion_failed
 _021F731C:
 	cmp r5, #0
 	bne _021F7338
-	ldr r0, _021F7464 ; =0x0220E624
-	ldr r1, _021F7460 ; =0x0220E5E4
+	ldr r0, _021F7464 ; =UNK04_0220E624
+	ldr r1, _021F7460 ; =UNK04_0220E5E4
 	ldr r3, _021F7468 ; =0x00000341
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -35120,7 +35120,7 @@ _021F7338:
 	str r2, [r1, #0x10]
 	str r2, [r1, #0x14]
 	mov r4, r0
-	ldr r2, _021F746C ; =0x0220E634
+	ldr r2, _021F746C ; =UNK04_0220E634
 	mov r0, r8
 	str r6, [sp, #0x10]
 	bl MOD04_021F2F9C
@@ -35134,7 +35134,7 @@ _021F7338:
 	cmp r0, #0
 	addne sp, sp, #0x18
 	ldmneia sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r2, _021F7470 ; =0x0220E638
+	ldr r2, _021F7470 ; =UNK04_0220E638
 	add r1, sp, #0
 	mov r0, r8
 	bl MOD04_021F2F9C
@@ -35148,7 +35148,7 @@ _021F7338:
 	cmp r0, #0
 	addne sp, sp, #0x18
 	ldmneia sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r2, _021F7474 ; =0x0220E640
+	ldr r2, _021F7474 ; =UNK04_0220E640
 	add r1, sp, #0
 	mov r0, r8
 	bl MOD04_021F2F9C
@@ -35183,13 +35183,13 @@ _021F7338:
 	add sp, sp, #0x18
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021F745C: .word 0x0220E5D4
-_021F7460: .word 0x0220E5E4
-_021F7464: .word 0x0220E624
+_021F745C: .word UNK04_0220E5D4
+_021F7460: .word UNK04_0220E5E4
+_021F7464: .word UNK04_0220E624
 _021F7468: .word 0x00000341
-_021F746C: .word 0x0220E634
-_021F7470: .word 0x0220E638
-_021F7474: .word 0x0220E640
+_021F746C: .word UNK04_0220E634
+_021F7470: .word UNK04_0220E638
+_021F7474: .word UNK04_0220E640
 
 	arm_func_start MOD04_021F7478
 MOD04_021F7478: ; 0x021F7478
@@ -35202,7 +35202,7 @@ MOD04_021F7478: ; 0x021F7478
 	bl MOD04_021F85E8
 	cmp r0, #0
 	bne _021F74B4
-	ldr r1, _021F7600 ; =0x0220E648
+	ldr r1, _021F7600 ; =UNK04_0220E648
 	mov r0, r5
 	bl MOD04_021FAEEC
 	add sp, sp, #0xc
@@ -35218,7 +35218,7 @@ _021F74B4:
 	mvn r1, #0
 	cmp r0, r1
 	bne _021F7504
-	ldr r2, _021F7604 ; =0x0220E664
+	ldr r2, _021F7604 ; =UNK04_0220E664
 	mov r0, r5
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -35234,7 +35234,7 @@ _021F7504:
 	bl MOD04_021F017C
 	cmp r0, #0
 	bne _021F7540
-	ldr r2, _021F7608 ; =0x0220E68C
+	ldr r2, _021F7608 ; =UNK04_0220E68C
 	mov r0, r5
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -35278,7 +35278,7 @@ _021F7540:
 	mvn r1, #0x4b
 	cmp r0, r1
 	beq _021F75EC
-	ldr r2, _021F760C ; =0x0220E6C0
+	ldr r2, _021F760C ; =UNK04_0220E6C0
 	mov r0, r5
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -35296,10 +35296,10 @@ _021F75EC:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021F7600: .word 0x0220E648
-_021F7604: .word 0x0220E664
-_021F7608: .word 0x0220E68C
-_021F760C: .word 0x0220E6C0
+_021F7600: .word UNK04_0220E648
+_021F7604: .word UNK04_0220E664
+_021F7608: .word UNK04_0220E68C
+_021F760C: .word UNK04_0220E6C0
 
 	arm_func_start MOD04_021F7610
 MOD04_021F7610: ; 0x021F7610
@@ -35511,8 +35511,8 @@ MOD04_021F78CC: ; 0x021F78CC
 	movs r4, r1
 	ldr r6, [r5]
 	bne _021F78F4
-	ldr r0, _021F79C8 ; =0x0220E5D4
-	ldr r1, _021F79CC ; =0x0220E5E4
+	ldr r0, _021F79C8 ; =UNK04_0220E5D4
+	ldr r1, _021F79CC ; =UNK04_0220E5E4
 	ldr r3, _021F79D0 ; =0x00000213
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -35528,12 +35528,12 @@ _021F78F4:
 _021F7914:
 	cmp r0, #0
 	bne _021F7940
-	ldr r0, _021F79D4 ; =0x0220E6E8
-	ldr r1, _021F79CC ; =0x0220E5E4
+	ldr r0, _021F79D4 ; =UNK04_0220E6E8
+	ldr r1, _021F79CC ; =UNK04_0220E5E4
 	ldr r3, _021F79D8 ; =0x00000225
 	mov r2, #0
 	bl __msl_assertion_failed
-	ldr r1, _021F79DC ; =0x0220E6EC
+	ldr r1, _021F79DC ; =UNK04_0220E6EC
 	mov r0, r5
 	bl MOD04_021FB3D0
 	ldmia sp!, {r4, r5, r6, pc}
@@ -35578,12 +35578,12 @@ _021F79B8:
 	bl MOD04_021F79E0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F79C8: .word 0x0220E5D4
-_021F79CC: .word 0x0220E5E4
+_021F79C8: .word UNK04_0220E5D4
+_021F79CC: .word UNK04_0220E5E4
 _021F79D0: .word 0x00000213
-_021F79D4: .word 0x0220E6E8
+_021F79D4: .word UNK04_0220E6E8
 _021F79D8: .word 0x00000225
-_021F79DC: .word 0x0220E6EC
+_021F79DC: .word UNK04_0220E6EC
 
 	arm_func_start MOD04_021F79E0
 MOD04_021F79E0: ; 0x021F79E0
@@ -35622,8 +35622,8 @@ MOD04_021F7A40: ; 0x021F7A40
 	cmp r1, #0x64
 	mov r4, #0
 	bne _021F7A70
-	ldr r0, _021F7AD8 ; =0x0220E710
-	ldr r1, _021F7ADC ; =0x0220E5E4
+	ldr r0, _021F7AD8 ; =UNK04_0220E710
+	ldr r1, _021F7ADC ; =UNK04_0220E5E4
 	ldr r3, _021F7AE0 ; =0x000001D9
 	mov r2, r4
 	bl __msl_assertion_failed
@@ -35658,8 +35658,8 @@ _021F7AD0:
 	mov r0, r4
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F7AD8: .word 0x0220E710
-_021F7ADC: .word 0x0220E5E4
+_021F7AD8: .word UNK04_0220E710
+_021F7ADC: .word UNK04_0220E5E4
 _021F7AE0: .word 0x000001D9
 
 	arm_func_start MOD04_021F7AE4
@@ -35674,7 +35674,7 @@ MOD04_021F7AE4: ; 0x021F7AE4
 	beq _021F7B4C
 	mov r2, #1
 	str r2, [sp]
-	ldr r1, _021F7D60 ; =0x0220E738
+	ldr r1, _021F7D60 ; =UNK04_0220E738
 	add r3, sp, #0xc
 	str r1, [sp, #4]
 	ldr r1, [r6, #8]
@@ -35708,7 +35708,7 @@ _021F7B4C:
 	ldmeqia sp!, {r4, r5, r6, r7, pc}
 _021F7B84:
 	add r1, sp, #0xc
-	ldr r0, _021F7D60 ; =0x0220E738
+	ldr r0, _021F7D60 ; =UNK04_0220E738
 	str r1, [sp]
 	str r0, [sp, #4]
 	ldr r1, [r6, #8]
@@ -35777,7 +35777,7 @@ _021F7C64:
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021F7CA4
-	ldr r1, _021F7D64 ; =0x0220E73C
+	ldr r1, _021F7D64 ; =UNK04_0220E73C
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x24
@@ -35807,7 +35807,7 @@ _021F7CA4:
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021F7CF8:
 	ldr r1, [r6, #0xc]
-	ldr r3, _021F7D68 ; =0x0220E74C
+	ldr r3, _021F7D68 ; =UNK04_0220E74C
 	mov r0, r7
 	mov r2, #0x67
 	bl MOD04_021F1A64
@@ -35836,9 +35836,9 @@ _021F7D38:
 	add sp, sp, #0x24
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021F7D60: .word 0x0220E738
-_021F7D64: .word 0x0220E73C
-_021F7D68: .word 0x0220E74C
+_021F7D60: .word UNK04_0220E738
+_021F7D64: .word UNK04_0220E73C
+_021F7D68: .word UNK04_0220E74C
 
 	arm_func_start MOD04_021F7D6C
 MOD04_021F7D6C: ; 0x021F7D6C
@@ -35855,7 +35855,7 @@ MOD04_021F7D6C: ; 0x021F7D6C
 	bl MOD04_021EF06C
 	cmp r0, #0
 	beq _021F7E2C
-	ldr r5, _021F7E38 ; =0x0220E738
+	ldr r5, _021F7E38 ; =UNK04_0220E738
 	add r4, sp, #8
 	mov r7, #0
 _021F7DAC:
@@ -35898,7 +35898,7 @@ _021F7E2C:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021F7E38: .word 0x0220E738
+_021F7E38: .word UNK04_0220E738
 
 	arm_func_start MOD04_021F7E3C
 MOD04_021F7E3C: ; 0x021F7E3C
@@ -35910,14 +35910,14 @@ MOD04_021F7E3C: ; 0x021F7E3C
 	cmp r1, #0x68
 	ldr r4, [r6]
 	beq _021F7E70
-	ldr r0, _021F8058 ; =0x0220E750
-	ldr r1, _021F805C ; =0x0220E5E4
+	ldr r0, _021F8058 ; =UNK04_0220E750
+	ldr r1, _021F805C ; =UNK04_0220E5E4
 	mov r2, #0
 	mov r3, #0xc1
 	bl __msl_assertion_failed
 _021F7E70:
 	add r1, sp, #0xc
-	ldr r0, _021F8060 ; =0x0220E738
+	ldr r0, _021F8060 ; =UNK04_0220E738
 	str r1, [sp]
 	str r0, [sp, #4]
 	ldr r1, [r5, #8]
@@ -35936,20 +35936,20 @@ _021F7E70:
 	movne r0, #0
 	ldmneia sp!, {r4, r5, r6, r7, pc}
 	ldr r0, [r5, #0x18]
-	ldr r1, _021F8064 ; =0x0220E770
+	ldr r1, _021F8064 ; =UNK04_0220E770
 	bl strstr
 	cmp r0, #0
 	beq _021F804C
 	mov r1, #0
 	strb r1, [r0]
 	ldr r7, [r5, #0x18]
-	ldr r1, _021F8068 ; =0x0220E778
+	ldr r1, _021F8068 ; =UNK04_0220E778
 	mov r0, r7
 	mov r2, #6
 	bl strncmp
 	cmp r0, #0
 	bne _021F8030
-	ldr r1, _021F806C ; =0x0220E780
+	ldr r1, _021F806C ; =UNK04_0220E780
 	add r2, sp, #0x10
 	mov r0, r7
 	mov r3, #0x10
@@ -35964,7 +35964,7 @@ _021F7E70:
 	bl atol
 	mov r7, r0
 	ldr r0, [r5, #0x18]
-	ldr r1, _021F8070 ; =0x0220E788
+	ldr r1, _021F8070 ; =UNK04_0220E788
 	add r2, sp, #0x20
 	mov r3, #0x1f
 	bl MOD04_021FB1F0
@@ -35975,7 +35975,7 @@ _021F7E70:
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, r7, pc}
 	ldr r0, [r5, #0x18]
-	ldr r1, _021F8074 ; =0x0220E790
+	ldr r1, _021F8074 ; =UNK04_0220E790
 	add r2, sp, #0x3f
 	mov r3, #0x21
 	bl MOD04_021FB1F0
@@ -35988,7 +35988,7 @@ _021F7E70:
 	str r7, [sp]
 	ldr r2, _021F8078 ; =0x00000177
 	ldr r3, [r4, #0x1a0]
-	ldr r1, _021F807C ; =0x0220E798
+	ldr r1, _021F807C ; =UNK04_0220E798
 	add r0, sp, #0x81
 	add r2, r4, r2
 	bl sprintf
@@ -36003,11 +36003,11 @@ _021F7E70:
 	bl strcmp
 	cmp r0, #0
 	beq _021F8000
-	ldr r2, _021F8080 ; =0x0220E7A0
+	ldr r2, _021F8080 ; =UNK04_0220E7A0
 	mov r0, r6
 	add r1, r5, #0x28
 	bl MOD04_021F2F9C
-	ldr r2, _021F8064 ; =0x0220E770
+	ldr r2, _021F8064 ; =UNK04_0220E770
 	mov r0, r6
 	add r1, r5, #0x28
 	bl MOD04_021F2F9C
@@ -36017,11 +36017,11 @@ _021F7E70:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021F8000:
-	ldr r2, _021F8084 ; =0x0220E7A8
+	ldr r2, _021F8084 ; =UNK04_0220E7A8
 	mov r0, r6
 	add r1, r5, #0x28
 	bl MOD04_021F2F9C
-	ldr r2, _021F8064 ; =0x0220E770
+	ldr r2, _021F8064 ; =UNK04_0220E770
 	mov r0, r6
 	add r1, r5, #0x28
 	bl MOD04_021F2F9C
@@ -36043,18 +36043,18 @@ _021F804C:
 	add sp, sp, #0x184
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021F8058: .word 0x0220E750
-_021F805C: .word 0x0220E5E4
-_021F8060: .word 0x0220E738
-_021F8064: .word 0x0220E770
-_021F8068: .word 0x0220E778
-_021F806C: .word 0x0220E780
-_021F8070: .word 0x0220E788
-_021F8074: .word 0x0220E790
+_021F8058: .word UNK04_0220E750
+_021F805C: .word UNK04_0220E5E4
+_021F8060: .word UNK04_0220E738
+_021F8064: .word UNK04_0220E770
+_021F8068: .word UNK04_0220E778
+_021F806C: .word UNK04_0220E780
+_021F8070: .word UNK04_0220E788
+_021F8074: .word UNK04_0220E790
 _021F8078: .word 0x00000177
-_021F807C: .word 0x0220E798
-_021F8080: .word 0x0220E7A0
-_021F8084: .word 0x0220E7A8
+_021F807C: .word UNK04_0220E798
+_021F8080: .word UNK04_0220E7A0
+_021F8084: .word UNK04_0220E7A8
 
 	arm_func_start MOD04_021F8088
 MOD04_021F8088: ; 0x021F8088
@@ -36089,7 +36089,7 @@ _021F80D4:
 	ldr r0, [sp, #8]
 	cmp r0, #4
 	bne _021F8110
-	ldr r1, _021F83B8 ; =0x0220E648
+	ldr r1, _021F83B8 ; =UNK04_0220E648
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x1c
@@ -36105,18 +36105,18 @@ _021F8110:
 	bl MOD04_021F85E8
 	cmp r0, #0
 	bne _021F814C
-	ldr r1, _021F83B8 ; =0x0220E648
+	ldr r1, _021F83B8 ; =UNK04_0220E648
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x1c
 	mov r0, #3
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021F814C:
-	ldr r2, _021F83BC ; =0x0220E778
+	ldr r2, _021F83BC ; =UNK04_0220E778
 	mov r0, r7
 	add r1, r6, #0x28
 	bl MOD04_021F2F9C
-	ldr r2, _021F83C0 ; =0x0220E780
+	ldr r2, _021F83C0 ; =UNK04_0220E780
 	mov r0, r7
 	add r1, r6, #0x28
 	bl MOD04_021F2F9C
@@ -36124,7 +36124,7 @@ _021F814C:
 	mov r0, r7
 	add r1, r6, #0x28
 	bl MOD04_021F2F64
-	ldr r2, _021F83C4 ; =0x0220E788
+	ldr r2, _021F83C4 ; =UNK04_0220E788
 	mov r0, r7
 	add r1, r6, #0x28
 	bl MOD04_021F2F9C
@@ -36134,7 +36134,7 @@ _021F814C:
 	bl MOD04_021F2F9C
 	mov r0, r7
 	add r1, r6, #0x28
-	ldr r2, _021F83C8 ; =0x0220E790
+	ldr r2, _021F83C8 ; =UNK04_0220E790
 	bl MOD04_021F2F9C
 	mov r0, r7
 	add r1, r6, #0x28
@@ -36143,7 +36143,7 @@ _021F814C:
 	bl MOD04_021F2F9C
 	mov r0, r7
 	add r1, r6, #0x28
-	ldr r2, _021F83CC ; =0x0220E770
+	ldr r2, _021F83CC ; =UNK04_0220E770
 	bl MOD04_021F2F9C
 	ldr r3, [r5, #0x434]
 	cmp r3, #0
@@ -36186,7 +36186,7 @@ _021F824C:
 _021F8258:
 	add r2, sp, #0x10
 	str r2, [sp]
-	ldr r1, _021F83D0 ; =0x0220E738
+	ldr r1, _021F83D0 ; =UNK04_0220E738
 	add r3, sp, #0xc
 	str r1, [sp, #4]
 	ldr r1, [r6, #8]
@@ -36196,14 +36196,14 @@ _021F8258:
 	addne sp, sp, #0x1c
 	ldmneia sp!, {r4, r5, r6, r7, pc}
 	ldr r0, [r6, #0x18]
-	ldr r1, _021F83CC ; =0x0220E770
+	ldr r1, _021F83CC ; =UNK04_0220E770
 	bl strstr
 	cmp r0, #0
 	beq _021F8360
 	mov r1, #0
 	strb r1, [r0]
 	ldr r4, [r6, #0x18]
-	ldr r1, _021F83D4 ; =0x0220E7A0
+	ldr r1, _021F83D4 ; =UNK04_0220E7A0
 	mov r0, r4
 	mov r2, #7
 	bl strncmp
@@ -36215,7 +36215,7 @@ _021F8258:
 	ldr r0, [r6, #0x14]
 	cmp r0, #1
 	ble _021F82EC
-	ldr r1, _021F83D8 ; =0x0220E7B0
+	ldr r1, _021F83D8 ; =UNK04_0220E7B0
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x1c
@@ -36230,13 +36230,13 @@ _021F82EC:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021F8308:
-	ldr r1, _021F83DC ; =0x0220E7A8
+	ldr r1, _021F83DC ; =UNK04_0220E7A8
 	mov r0, r4
 	mov r2, #6
 	bl strncmp
 	cmp r0, #0
 	beq _021F8338
-	ldr r1, _021F83E0 ; =0x0220E7D4
+	ldr r1, _021F83E0 ; =UNK04_0220E7D4
 	mov r0, r7
 	bl MOD04_021FAEEC
 	add sp, sp, #0x1c
@@ -36249,8 +36249,8 @@ _021F8338:
 	str r0, [r6, #0x20]
 	b _021F8360
 _021F834C:
-	ldr r0, _021F83E4 ; =0x0220E6E8
-	ldr r1, _021F83E8 ; =0x0220E5E4
+	ldr r0, _021F83E4 ; =UNK04_0220E6E8
+	ldr r1, _021F83E8 ; =UNK04_0220E5E4
 	mov r2, #0
 	mov r3, #0x9f
 	bl __msl_assertion_failed
@@ -36259,7 +36259,7 @@ _021F8360:
 	cmp r0, #0
 	ble _021F83AC
 	mov r1, #1
-	ldr r0, _021F83D0 ; =0x0220E738
+	ldr r0, _021F83D0 ; =UNK04_0220E738
 	str r1, [sp]
 	str r0, [sp, #4]
 	ldr r1, [r6, #8]
@@ -36280,19 +36280,19 @@ _021F83AC:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021F83B8: .word 0x0220E648
-_021F83BC: .word 0x0220E778
-_021F83C0: .word 0x0220E780
-_021F83C4: .word 0x0220E788
-_021F83C8: .word 0x0220E790
-_021F83CC: .word 0x0220E770
-_021F83D0: .word 0x0220E738
-_021F83D4: .word 0x0220E7A0
-_021F83D8: .word 0x0220E7B0
-_021F83DC: .word 0x0220E7A8
-_021F83E0: .word 0x0220E7D4
-_021F83E4: .word 0x0220E6E8
-_021F83E8: .word 0x0220E5E4
+_021F83B8: .word UNK04_0220E648
+_021F83BC: .word UNK04_0220E778
+_021F83C0: .word UNK04_0220E780
+_021F83C4: .word UNK04_0220E788
+_021F83C8: .word UNK04_0220E790
+_021F83CC: .word UNK04_0220E770
+_021F83D0: .word UNK04_0220E738
+_021F83D4: .word UNK04_0220E7A0
+_021F83D8: .word UNK04_0220E7B0
+_021F83DC: .word UNK04_0220E7A8
+_021F83E0: .word UNK04_0220E7D4
+_021F83E4: .word UNK04_0220E6E8
+_021F83E8: .word UNK04_0220E5E4
 
 	arm_func_start MOD04_021F83EC
 MOD04_021F83EC: ; 0x021F83EC
@@ -36484,8 +36484,8 @@ MOD04_021F8624: ; 0x021F8624
 	cmp r4, #0
 	add r6, r2, r0
 	bgt _021F865C
-	ldr r0, _021F8704 ; =0x0220E7F4
-	ldr r1, _021F8708 ; =0x0220E7FC
+	ldr r0, _021F8704 ; =UNK04_0220E7F4
+	ldr r1, _021F8708 ; =UNK04_0220E7FC
 	ldr r3, _021F870C ; =0x000002B5
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -36533,8 +36533,8 @@ _021F865C:
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
 _021F8700: .word 0x00000428
-_021F8704: .word 0x0220E7F4
-_021F8708: .word 0x0220E7FC
+_021F8704: .word UNK04_0220E7F4
+_021F8708: .word UNK04_0220E7FC
 _021F870C: .word 0x000002B5
 
 	arm_func_start MOD04_021F8710
@@ -36551,13 +36551,13 @@ MOD04_021F8710: ; 0x021F8710
 	addne sp, sp, #0x20
 	movne r0, #4
 	ldmneia sp!, {r4, r5, r6, pc}
-	ldr r1, _021F8860 ; =0x0220E80C
+	ldr r1, _021F8860 ; =UNK04_0220E80C
 	mov r0, r6
 	mov r2, #5
 	bl strncmp
 	cmp r0, #0
 	beq _021F8784
-	ldr r2, _021F8864 ; =0x0220E814
+	ldr r2, _021F8864 ; =UNK04_0220E814
 	mov r0, r5
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -36569,14 +36569,14 @@ MOD04_021F8710: ; 0x021F8710
 	mov r0, #3
 	ldmia sp!, {r4, r5, r6, pc}
 _021F8784:
-	ldr r1, _021F8868 ; =0x0220E844
+	ldr r1, _021F8868 ; =UNK04_0220E844
 	add r2, sp, #0x10
 	mov r0, r6
 	mov r3, #0x10
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F87CC
-	ldr r2, _021F8864 ; =0x0220E814
+	ldr r2, _021F8864 ; =UNK04_0220E814
 	mov r0, r5
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -36601,7 +36601,7 @@ _021F87CC:
 	bl MOD04_021DD860
 	movs r3, r0
 	bne _021F8818
-	ldr r1, _021F886C ; =0x0220E850
+	ldr r1, _021F886C ; =UNK04_0220E850
 	mov r0, r5
 	bl MOD04_021FAEEC
 	add sp, sp, #0x20
@@ -36628,10 +36628,10 @@ _021F8848:
 	add sp, sp, #0x20
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021F8860: .word 0x0220E80C
-_021F8864: .word 0x0220E814
-_021F8868: .word 0x0220E844
-_021F886C: .word 0x0220E850
+_021F8860: .word UNK04_0220E80C
+_021F8864: .word UNK04_0220E814
+_021F8868: .word UNK04_0220E844
+_021F886C: .word UNK04_0220E850
 
 	arm_func_start MOD04_021F8870
 MOD04_021F8870: ; 0x021F8870
@@ -36726,7 +36726,7 @@ MOD04_021F8974: ; 0x021F8974
 	bl MOD04_021DD860
 	movs r8, r0
 	bne _021F89BC
-	ldr r1, _021F8AC0 ; =0x0220E8A0
+	ldr r1, _021F8AC0 ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	add sp, sp, #4
@@ -36736,7 +36736,7 @@ _021F89BC:
 	ldr r7, [sb, #0x424]
 	cmp r7, #0
 	beq _021F8A38
-	ldr fp, _021F8AC4 ; =0x0220E8B0
+	ldr fp, _021F8AC4 ; =UNK04_0220E8B0
 	mov r5, r6
 	mov r4, #1
 _021F89D4:
@@ -36753,7 +36753,7 @@ _021F89D4:
 	ldr r0, [sb, #0x210]
 	cmp r6, r0
 	blt _021F8A1C
-	ldr r1, _021F8AC8 ; =0x0220E8D0
+	ldr r1, _021F8AC8 ; =UNK04_0220E8D0
 	ldr r3, _021F8ACC ; =0x00000563
 	mov r0, fp
 	mov r2, r5
@@ -36809,9 +36809,9 @@ _021F8AB4:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021F8AC0: .word 0x0220E8A0
-_021F8AC4: .word 0x0220E8B0
-_021F8AC8: .word 0x0220E8D0
+_021F8AC0: .word UNK04_0220E8A0
+_021F8AC4: .word UNK04_0220E8B0
+_021F8AC8: .word UNK04_0220E8D0
 _021F8ACC: .word 0x00000563
 
 	arm_func_start MOD04_021F8AD0
@@ -36831,7 +36831,7 @@ MOD04_021F8AD0: ; 0x021F8AD0
 	moveq r4, #0
 _021F8B04:
 	mov r1, #1
-	ldr r0, _021F99B8 ; =0x0220E8DC
+	ldr r0, _021F99B8 ; =UNK04_0220E8DC
 	str r1, [sp]
 	str r0, [sp, #4]
 	ldr r1, [sb, #4]
@@ -36859,7 +36859,7 @@ _021F8B04:
 	cmp r0, #4
 	bne _021F8BA4
 	ldr r1, _021F99BC ; =0x00000D01
-	ldr r2, _021F99C0 ; =0x0220E8E0
+	ldr r2, _021F99C0 ; =UNK04_0220E8E0
 	mov r0, sl
 	bl MOD04_021FAF00
 	mov r0, sl
@@ -36876,11 +36876,11 @@ _021F8BA4:
 	ldr r0, [sb]
 	cmp r0, #1
 	bne _021F8D6C
-	ldr r2, _021F99C4 ; =0x0220E90C
+	ldr r2, _021F99C4 ; =UNK04_0220E90C
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F99C8 ; =0x0220E918
+	ldr r2, _021F99C8 ; =UNK04_0220E918
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36889,7 +36889,7 @@ _021F8BA4:
 	ldr r2, [r0, #0x198]
 	mov r0, sl
 	bl MOD04_021F2F64
-	ldr r2, _021F99CC ; =0x0220E924
+	ldr r2, _021F99CC ; =UNK04_0220E924
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36898,7 +36898,7 @@ _021F8BA4:
 	ldr r2, [r2, #0x1a0]
 	add r1, sb, #0x18
 	bl MOD04_021F2F64
-	ldr r2, _021F99D0 ; =0x0220E930
+	ldr r2, _021F99D0 ; =UNK04_0220E930
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36910,7 +36910,7 @@ _021F8BA4:
 	ldrsb r0, [sb, #0x28]
 	cmp r0, #0
 	beq _021F8C60
-	ldr r2, _021F99D4 ; =0x0220E940
+	ldr r2, _021F99D4 ; =UNK04_0220E940
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36922,7 +36922,7 @@ _021F8C60:
 	ldrsb r0, [sb, #0x47]
 	cmp r0, #0
 	beq _021F8C8C
-	ldr r2, _021F99D8 ; =0x0220E948
+	ldr r2, _021F99D8 ; =UNK04_0220E948
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36934,7 +36934,7 @@ _021F8C8C:
 	ldrsb r0, [sb, #0x5c]
 	cmp r0, #0
 	beq _021F8CB8
-	ldr r2, _021F99DC ; =0x0220E958
+	ldr r2, _021F99DC ; =UNK04_0220E958
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36946,7 +36946,7 @@ _021F8CB8:
 	ldrsb r0, [sb, #0x8f]
 	cmp r0, #0
 	beq _021F8CE4
-	ldr r2, _021F99E0 ; =0x0220E960
+	ldr r2, _021F99E0 ; =UNK04_0220E960
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36958,7 +36958,7 @@ _021F8CE4:
 	ldrsb r0, [sb, #0xae]
 	cmp r0, #0
 	beq _021F8D10
-	ldr r2, _021F99E4 ; =0x0220E96C
+	ldr r2, _021F99E4 ; =UNK04_0220E96C
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36970,7 +36970,7 @@ _021F8D10:
 	ldr r0, [sb, #0x130]
 	cmp r0, #0
 	beq _021F8D3C
-	ldr r2, _021F99E8 ; =0x0220E978
+	ldr r2, _021F99E8 ; =UNK04_0220E978
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36982,7 +36982,7 @@ _021F8D3C:
 	ldr r0, [sb, #0x134]
 	cmp r0, #0
 	ble _021F9134
-	ldr r2, _021F99EC ; =0x0220E984
+	ldr r2, _021F99EC ; =UNK04_0220E984
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -36994,11 +36994,11 @@ _021F8D3C:
 _021F8D6C:
 	cmp r0, #2
 	bne _021F8DA8
-	ldr r2, _021F99F0 ; =0x0220E98C
+	ldr r2, _021F99F0 ; =UNK04_0220E98C
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F99DC ; =0x0220E958
+	ldr r2, _021F99DC ; =UNK04_0220E958
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37010,11 +37010,11 @@ _021F8D6C:
 _021F8DA8:
 	cmp r0, #3
 	bne _021F8E28
-	ldr r2, _021F99F4 ; =0x0220E994
+	ldr r2, _021F99F4 ; =UNK04_0220E994
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F99DC ; =0x0220E958
+	ldr r2, _021F99DC ; =UNK04_0220E958
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37022,7 +37022,7 @@ _021F8DA8:
 	add r1, sb, #0x18
 	add r2, sb, #0x5c
 	bl MOD04_021F2F9C
-	ldr r2, _021F99F8 ; =0x0220E99C
+	ldr r2, _021F99F8 ; =UNK04_0220E99C
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37030,7 +37030,7 @@ _021F8DA8:
 	add r1, sb, #0x18
 	add r2, sb, #0xcd
 	bl MOD04_021F2F9C
-	ldr r2, _021F99D0 ; =0x0220E930
+	ldr r2, _021F99D0 ; =UNK04_0220E930
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37043,11 +37043,11 @@ _021F8DA8:
 _021F8E28:
 	cmp r0, #4
 	bne _021F8EAC
-	ldr r2, _021F99FC ; =0x0220E9A4
+	ldr r2, _021F99FC ; =UNK04_0220E9A4
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F99C8 ; =0x0220E918
+	ldr r2, _021F99C8 ; =UNK04_0220E918
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37056,7 +37056,7 @@ _021F8E28:
 	ldr r2, [r0, #0x198]
 	mov r0, sl
 	bl MOD04_021F2F64
-	ldr r2, _021F99CC ; =0x0220E924
+	ldr r2, _021F99CC ; =UNK04_0220E924
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37065,7 +37065,7 @@ _021F8E28:
 	ldr r2, [r2, #0x1a0]
 	add r1, sb, #0x18
 	bl MOD04_021F2F64
-	ldr r2, _021F9A00 ; =0x0220E9B0
+	ldr r2, _021F9A00 ; =UNK04_0220E9B0
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37077,11 +37077,11 @@ _021F8E28:
 _021F8EAC:
 	cmp r0, #5
 	bne _021F8F28
-	ldr r2, _021F9A04 ; =0x0220E9BC
+	ldr r2, _021F9A04 ; =UNK04_0220E9BC
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F99D4 ; =0x0220E940
+	ldr r2, _021F99D4 ; =UNK04_0220E940
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37091,7 +37091,7 @@ _021F8EAC:
 	bl MOD04_021F2F9C
 	mov r0, sl
 	add r1, sb, #0x18
-	ldr r2, _021F99DC ; =0x0220E958
+	ldr r2, _021F99DC ; =UNK04_0220E958
 	bl MOD04_021F2F9C
 	mov r0, sl
 	add r1, sb, #0x18
@@ -37099,7 +37099,7 @@ _021F8EAC:
 	bl MOD04_021F2F9C
 	mov r0, sl
 	add r1, sb, #0x18
-	ldr r2, _021F99F8 ; =0x0220E99C
+	ldr r2, _021F99F8 ; =UNK04_0220E99C
 	bl MOD04_021F2F9C
 	mov r0, sl
 	add r1, sb, #0x18
@@ -37109,11 +37109,11 @@ _021F8EAC:
 _021F8F28:
 	cmp r0, #6
 	bne _021F9038
-	ldr r2, _021F9A08 ; =0x0220E9C4
+	ldr r2, _021F9A08 ; =UNK04_0220E9C4
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F99D4 ; =0x0220E940
+	ldr r2, _021F99D4 ; =UNK04_0220E940
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37121,7 +37121,7 @@ _021F8F28:
 	add r1, sb, #0x18
 	add r2, sb, #0x28
 	bl MOD04_021F2F9C
-	ldr r2, _021F99DC ; =0x0220E958
+	ldr r2, _021F99DC ; =UNK04_0220E958
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37129,7 +37129,7 @@ _021F8F28:
 	add r1, sb, #0x18
 	add r2, sb, #0x5c
 	bl MOD04_021F2F9C
-	ldr r2, _021F99F8 ; =0x0220E99C
+	ldr r2, _021F99F8 ; =UNK04_0220E99C
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37137,7 +37137,7 @@ _021F8F28:
 	add r1, sb, #0x18
 	add r2, sb, #0xcd
 	bl MOD04_021F2F9C
-	ldr r2, _021F9A0C ; =0x0220E9D0
+	ldr r2, _021F9A0C ; =UNK04_0220E9D0
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37146,7 +37146,7 @@ _021F8F28:
 	ldr r2, [r2, #0x46c]
 	add r1, sb, #0x18
 	bl MOD04_021F2F64
-	ldr r2, _021F99D0 ; =0x0220E930
+	ldr r2, _021F99D0 ; =UNK04_0220E930
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37155,7 +37155,7 @@ _021F8F28:
 	ldr r2, [r2, #0x470]
 	add r1, sb, #0x18
 	bl MOD04_021F2F64
-	ldr r2, _021F99D8 ; =0x0220E948
+	ldr r2, _021F99D8 ; =UNK04_0220E948
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37166,7 +37166,7 @@ _021F8F28:
 	ldrsb r0, [sb, #0xec]
 	cmp r0, #0
 	beq _021F9134
-	ldr r2, _021F9A10 ; =0x0220E9DC
+	ldr r2, _021F9A10 ; =UNK04_0220E9DC
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37178,11 +37178,11 @@ _021F8F28:
 _021F9038:
 	cmp r0, #7
 	bne _021F90C0
-	ldr r2, _021F9A14 ; =0x0220E9E4
+	ldr r2, _021F9A14 ; =UNK04_0220E9E4
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F99C8 ; =0x0220E918
+	ldr r2, _021F99C8 ; =UNK04_0220E918
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37191,7 +37191,7 @@ _021F9038:
 	ldr r2, [r0, #0x198]
 	mov r0, sl
 	bl MOD04_021F2F64
-	ldr r2, _021F99CC ; =0x0220E924
+	ldr r2, _021F99CC ; =UNK04_0220E924
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37200,7 +37200,7 @@ _021F9038:
 	ldr r2, [r2, #0x1a0]
 	add r1, sb, #0x18
 	bl MOD04_021F2F64
-	ldr r2, _021F99D0 ; =0x0220E930
+	ldr r2, _021F99D0 ; =UNK04_0220E930
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37213,11 +37213,11 @@ _021F9038:
 _021F90C0:
 	cmp r0, #8
 	bne _021F9120
-	ldr r2, _021F9A18 ; =0x0220E9F0
+	ldr r2, _021F9A18 ; =UNK04_0220E9F0
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F9A1C ; =0x0220EA00
+	ldr r2, _021F9A1C ; =UNK04_0220EA00
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37225,7 +37225,7 @@ _021F90C0:
 	add r1, sb, #0x18
 	add r2, sb, #0x47
 	bl MOD04_021F2F9C
-	ldr r2, _021F99D0 ; =0x0220E930
+	ldr r2, _021F99D0 ; =UNK04_0220E930
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37236,21 +37236,21 @@ _021F90C0:
 	bl MOD04_021F2F64
 	b _021F9134
 _021F9120:
-	ldr r0, _021F9A20 ; =0x0220EA10
-	ldr r1, _021F9A24 ; =0x0220E8D0
+	ldr r0, _021F9A20 ; =UNK04_0220EA10
+	ldr r1, _021F9A24 ; =UNK04_0220E8D0
 	ldr r3, _021F9A28 ; =0x00000275
 	mov r2, #0
 	bl __msl_assertion_failed
 _021F9134:
-	ldr r2, _021F9A2C ; =0x0220EA14
+	ldr r2, _021F9A2C ; =UNK04_0220EA14
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F9A30 ; =0x02210EA0
+	ldr r2, _021F9A30 ; =UNK04_02210EA0
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
-	ldr r2, _021F9A34 ; =0x0220EA20
+	ldr r2, _021F9A34 ; =UNK04_0220EA20
 	mov r0, sl
 	add r1, sb, #0x18
 	bl MOD04_021F2F9C
@@ -37262,7 +37262,7 @@ _021F9174:
 	cmp r0, #4
 	bne _021FA704
 	add r1, sp, #0xa0
-	ldr r0, _021F99B8 ; =0x0220E8DC
+	ldr r0, _021F99B8 ; =UNK04_0220E8DC
 	str r1, [sp]
 	str r0, [sp, #4]
 	ldr r1, [sb, #4]
@@ -37277,7 +37277,7 @@ _021F9174:
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	ldr r1, _021F99BC ; =0x00000D01
-	ldr r2, _021F9A38 ; =0x0220EA28
+	ldr r2, _021F9A38 ; =UNK04_0220EA28
 	mov r0, sl
 	bl MOD04_021FAF00
 	mov r0, sl
@@ -37290,7 +37290,7 @@ _021F9174:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021F91E8:
 	ldr r0, [sb, #8]
-	ldr r1, _021F9A34 ; =0x0220EA20
+	ldr r1, _021F9A34 ; =UNK04_0220EA20
 	bl strstr
 	cmp r0, #0
 	beq _021FA704
@@ -37348,7 +37348,7 @@ _021F92A8:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021F9A40 ; =0x0220EA54
+	ldr r1, _021F9A40 ; =UNK04_0220EA54
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -37363,12 +37363,12 @@ _021F92A8:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021F9A44 ; =0x0220EA5C
+	ldr r1, _021F9A44 ; =UNK04_0220EA5C
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
 	bne _021F9338
-	ldr r1, _021F9A20 ; =0x0220EA10
+	ldr r1, _021F9A20 ; =UNK04_0220EA10
 	mov r0, r6
 	bl strcmp
 	cmp r0, #0
@@ -37379,7 +37379,7 @@ _021F9338:
 	str r0, [sp, #0x20]
 	b _021F9530
 _021F9344:
-	ldr r1, _021F9A48 ; =0x0220EA64
+	ldr r1, _021F9A48 ; =UNK04_0220EA64
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -37394,7 +37394,7 @@ _021F9344:
 	movs r8, r0
 	str r8, [sp, #0xe8]
 	bne _021F939C
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -37427,7 +37427,7 @@ _021F93D0:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021F9A50 ; =0x0220EA68
+	ldr r1, _021F9A50 ; =UNK04_0220EA68
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -37438,7 +37438,7 @@ _021F93D0:
 	bl MOD04_021FB3DC
 	b _021F94F4
 _021F9424:
-	ldr r1, _021F9A54 ; =0x0220EA70
+	ldr r1, _021F9A54 ; =UNK04_0220EA70
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -37449,7 +37449,7 @@ _021F9424:
 	bl MOD04_021FB3DC
 	b _021F94F4
 _021F944C:
-	ldr r1, _021F9A58 ; =0x0220EA7C
+	ldr r1, _021F9A58 ; =UNK04_0220EA7C
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -37460,7 +37460,7 @@ _021F944C:
 	bl MOD04_021FB3DC
 	b _021F94F4
 _021F9474:
-	ldr r1, _021F9A5C ; =0x0220EA88
+	ldr r1, _021F9A5C ; =UNK04_0220EA88
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -37471,7 +37471,7 @@ _021F9474:
 	bl MOD04_021FB3DC
 	b _021F94F4
 _021F949C:
-	ldr r1, _021F9A60 ; =0x0220EA94
+	ldr r1, _021F9A60 ; =UNK04_0220EA94
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -37482,12 +37482,12 @@ _021F949C:
 	bl MOD04_021FB3DC
 	b _021F94F4
 _021F94C4:
-	ldr r1, _021F9A48 ; =0x0220EA64
+	ldr r1, _021F9A48 ; =UNK04_0220EA64
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
 	beq _021F94EC
-	ldr r1, _021F9A40 ; =0x0220EA54
+	ldr r1, _021F9A40 ; =UNK04_0220EA54
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -37500,7 +37500,7 @@ _021F94F4:
 	beq _021F93D0
 	b _021F9530
 _021F9500:
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -37588,12 +37588,12 @@ _021F9600:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021F9A68 ; =0x0220EAC4
+	ldr r1, _021F9A68 ; =UNK04_0220EAC4
 	add r0, sp, #0xec
 	bl strcmp
 	cmp r0, #0
 	beq _021F9694
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -37610,7 +37610,7 @@ _021F9694:
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021F96C0
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -37659,7 +37659,7 @@ _021F972C:
 	bl MOD04_021DD860
 	movs r8, r0
 	bne _021F977C
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -37687,12 +37687,12 @@ _021F977C:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021F9A6C ; =0x0220EAC8
+	ldr r1, _021F9A6C ; =UNK04_0220EAC8
 	add r0, sp, #0xec
 	bl strcmp
 	cmp r0, #0
 	beq _021F9810
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -37723,7 +37723,7 @@ _021F982C:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021F9A50 ; =0x0220EA68
+	ldr r1, _021F9A50 ; =UNK04_0220EA68
 	mov r0, r6
 	bl strcmp
 	cmp r0, #0
@@ -37735,7 +37735,7 @@ _021F982C:
 	bl MOD04_021DD844
 	cmp r0, #0
 	bne _021F98A0
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -37748,7 +37748,7 @@ _021F98A0:
 	bl MOD04_021DD860
 	cmp r0, #0
 	bne _021F98D0
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -37770,7 +37770,7 @@ _021F98D0:
 	str r0, [r8, #0x38]
 	b _021F9ABC
 _021F9904:
-	ldr r1, _021F9A54 ; =0x0220EA70
+	ldr r1, _021F9A54 ; =UNK04_0220EA70
 	mov r0, r6
 	bl strcmp
 	cmp r0, #0
@@ -37783,7 +37783,7 @@ _021F9904:
 	bl MOD04_021DD844
 	cmp r0, #0
 	bne _021F9954
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -37796,7 +37796,7 @@ _021F9954:
 	bl MOD04_021DD860
 	cmp r0, #0
 	bne _021F9984
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -37818,61 +37818,61 @@ _021F9984:
 	b _021F9ABC
 	.align 2, 0
 _021F99B4: .word 0x000004EC
-_021F99B8: .word 0x0220E8DC
+_021F99B8: .word UNK04_0220E8DC
 _021F99BC: .word 0x00000D01
-_021F99C0: .word 0x0220E8E0
-_021F99C4: .word 0x0220E90C
-_021F99C8: .word 0x0220E918
-_021F99CC: .word 0x0220E924
-_021F99D0: .word 0x0220E930
-_021F99D4: .word 0x0220E940
-_021F99D8: .word 0x0220E948
-_021F99DC: .word 0x0220E958
-_021F99E0: .word 0x0220E960
-_021F99E4: .word 0x0220E96C
-_021F99E8: .word 0x0220E978
-_021F99EC: .word 0x0220E984
-_021F99F0: .word 0x0220E98C
-_021F99F4: .word 0x0220E994
-_021F99F8: .word 0x0220E99C
-_021F99FC: .word 0x0220E9A4
-_021F9A00: .word 0x0220E9B0
-_021F9A04: .word 0x0220E9BC
-_021F9A08: .word 0x0220E9C4
-_021F9A0C: .word 0x0220E9D0
-_021F9A10: .word 0x0220E9DC
-_021F9A14: .word 0x0220E9E4
-_021F9A18: .word 0x0220E9F0
-_021F9A1C: .word 0x0220EA00
-_021F9A20: .word 0x0220EA10
-_021F9A24: .word 0x0220E8D0
+_021F99C0: .word UNK04_0220E8E0
+_021F99C4: .word UNK04_0220E90C
+_021F99C8: .word UNK04_0220E918
+_021F99CC: .word UNK04_0220E924
+_021F99D0: .word UNK04_0220E930
+_021F99D4: .word UNK04_0220E940
+_021F99D8: .word UNK04_0220E948
+_021F99DC: .word UNK04_0220E958
+_021F99E0: .word UNK04_0220E960
+_021F99E4: .word UNK04_0220E96C
+_021F99E8: .word UNK04_0220E978
+_021F99EC: .word UNK04_0220E984
+_021F99F0: .word UNK04_0220E98C
+_021F99F4: .word UNK04_0220E994
+_021F99F8: .word UNK04_0220E99C
+_021F99FC: .word UNK04_0220E9A4
+_021F9A00: .word UNK04_0220E9B0
+_021F9A04: .word UNK04_0220E9BC
+_021F9A08: .word UNK04_0220E9C4
+_021F9A0C: .word UNK04_0220E9D0
+_021F9A10: .word UNK04_0220E9DC
+_021F9A14: .word UNK04_0220E9E4
+_021F9A18: .word UNK04_0220E9F0
+_021F9A1C: .word UNK04_0220EA00
+_021F9A20: .word UNK04_0220EA10
+_021F9A24: .word UNK04_0220E8D0
 _021F9A28: .word 0x00000275
-_021F9A2C: .word 0x0220EA14
-_021F9A30: .word 0x02210EA0
-_021F9A34: .word 0x0220EA20
-_021F9A38: .word 0x0220EA28
+_021F9A2C: .word UNK04_0220EA14
+_021F9A30: .word UNK04_02210EA0
+_021F9A34: .word UNK04_0220EA20
+_021F9A38: .word UNK04_0220EA28
 _021F9A3C: .word 0x00000601
-_021F9A40: .word 0x0220EA54
-_021F9A44: .word 0x0220EA5C
-_021F9A48: .word 0x0220EA64
-_021F9A4C: .word 0x0220E8A0
-_021F9A50: .word 0x0220EA68
-_021F9A54: .word 0x0220EA70
-_021F9A58: .word 0x0220EA7C
-_021F9A5C: .word 0x0220EA88
-_021F9A60: .word 0x0220EA94
-_021F9A64: .word 0x0220EA9C
-_021F9A68: .word 0x0220EAC4
-_021F9A6C: .word 0x0220EAC8
-_021F9A70: .word 0x0220EACC
+_021F9A40: .word UNK04_0220EA54
+_021F9A44: .word UNK04_0220EA5C
+_021F9A48: .word UNK04_0220EA64
+_021F9A4C: .word UNK04_0220E8A0
+_021F9A50: .word UNK04_0220EA68
+_021F9A54: .word UNK04_0220EA70
+_021F9A58: .word UNK04_0220EA7C
+_021F9A5C: .word UNK04_0220EA88
+_021F9A60: .word UNK04_0220EA94
+_021F9A64: .word UNK04_0220EA9C
+_021F9A68: .word UNK04_0220EAC4
+_021F9A6C: .word UNK04_0220EAC8
+_021F9A70: .word UNK04_0220EACC
 _021F9A74:
-	ldr r1, _021F9A70 ; =0x0220EACC
+	ldr r1, _021F9A70 ; =UNK04_0220EACC
 	mov r0, r6
 	bl strcmp
 	cmp r0, #0
 	ldreq r7, [sp, #0x54]
 	beq _021F9ABC
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -37916,7 +37916,7 @@ _021F9AFC:
 	str r0, [sp, #0x28]
 	cmp r0, #0
 	bne _021F9B50
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -37957,13 +37957,13 @@ _021F9BA8:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021FA72C ; =0x0220EAD4
+	ldr r1, _021FA72C ; =UNK04_0220EAD4
 	mov r0, r4
 	bl strcmp
 	cmp r0, #0
 	streq fp, [sp, #0x34]
 	beq _021F9D9C
-	ldr r1, _021FA730 ; =0x0220EADC
+	ldr r1, _021FA730 ; =UNK04_0220EADC
 	mov r0, r4
 	bl strcmp
 	cmp r0, #0
@@ -37985,7 +37985,7 @@ _021F9BA8:
 	ldr r6, [r0, #0xc]
 	cmp r6, #0
 	bne _021F9C5C
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -38019,7 +38019,7 @@ _021F9C94:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021FA734 ; =0x0220EAE0
+	ldr r1, _021FA734 ; =UNK04_0220EAE0
 	mov r0, r4
 	bl strcmp
 	cmp r0, #0
@@ -38030,7 +38030,7 @@ _021F9C94:
 	bl MOD04_021FB3DC
 	b _021F9D0C
 _021F9CE8:
-	ldr r1, _021F9A50 ; =0x0220EA68
+	ldr r1, _021F9A50 ; =UNK04_0220EA68
 	mov r0, r4
 	bl strcmp
 	cmp r0, #0
@@ -38040,7 +38040,7 @@ _021F9CE8:
 	mov r1, r5
 	bl MOD04_021FB3DC
 _021F9D0C:
-	ldr r1, _021FA738 ; =0x0220EAE8
+	ldr r1, _021FA738 ; =UNK04_0220EAE8
 	mov r0, r4
 	bl strcmp
 	cmp r0, #0
@@ -38050,12 +38050,12 @@ _021F9D0C:
 	str r0, [r8, #0x24]
 	b _021F9D60
 _021F9D30:
-	ldr r1, _021FA730 ; =0x0220EADC
+	ldr r1, _021FA730 ; =UNK04_0220EADC
 	mov r0, r4
 	bl strcmp
 	cmp r0, #0
 	beq _021F9D58
-	ldr r1, _021FA72C ; =0x0220EAD4
+	ldr r1, _021FA72C ; =UNK04_0220EAD4
 	mov r0, r4
 	bl strcmp
 	cmp r0, #0
@@ -38068,7 +38068,7 @@ _021F9D60:
 	beq _021F9C94
 	b _021F9D9C
 _021F9D6C:
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -38119,12 +38119,12 @@ _021F9DE0:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021FA73C ; =0x0220EAF4
+	ldr r1, _021FA73C ; =UNK04_0220EAF4
 	add r0, sp, #0xec
 	bl strcmp
 	cmp r0, #0
 	beq _021F9E74
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -38145,13 +38145,13 @@ _021F9E74:
 	strne r5, [r0, #0x418]
 	bne _021F9EE8
 	ldr r0, [sb, #8]
-	ldr r1, _021FA740 ; =0x0220EAF8
+	ldr r1, _021FA740 ; =UNK04_0220EAF8
 	add r2, sp, #0x2ec
 	mov r3, #0x200
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	bne _021F9EDC
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -38172,7 +38172,7 @@ _021F9EE8:
 	bl MOD04_021DD860
 	movs r3, r0
 	bne _021F9F14
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -38216,12 +38216,12 @@ _021F9F50:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021FA744 ; =0x0220EB00
+	ldr r1, _021FA744 ; =UNK04_0220EB00
 	add r0, sp, #0xec
 	bl strcmp
 	cmp r0, #0
 	beq _021F9FE4
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -38238,7 +38238,7 @@ _021F9FE4:
 	bl atol
 	movs r5, r0
 	ldrne r0, [sp, #0x24]
-	ldr r1, _021FA740 ; =0x0220EAF8
+	ldr r1, _021FA740 ; =UNK04_0220EAF8
 	strne r5, [r0, #0x418]
 	ldr r0, [sb, #8]
 	add r2, sp, #0x2ec
@@ -38248,7 +38248,7 @@ _021F9FE4:
 	bne _021FA054
 	cmp r5, #0
 	bne _021FA04C
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -38272,7 +38272,7 @@ _021FA060:
 	bl MOD04_021DD860
 	movs r3, r0
 	bne _021FA08C
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -38310,7 +38310,7 @@ _021FA0C8:
 	str r0, [sp, #0x2c]
 	cmp r0, #0
 	bne _021FA11C
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -38333,12 +38333,12 @@ _021FA11C:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021FA748 ; =0x0220EB04
+	ldr r1, _021FA748 ; =UNK04_0220EB04
 	add r0, sp, #0xec
 	bl strcmp
 	cmp r0, #0
 	beq _021FA19C
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -38379,14 +38379,14 @@ _021FA1E0:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021FA74C ; =0x0220EB0C
+	ldr r1, _021FA74C ; =UNK04_0220EB0C
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
 	ldreq r0, [sp, #0x6c]
 	streq r0, [sp, #0x30]
 	beq _021FA430
-	ldr r1, _021FA750 ; =0x0220EB14
+	ldr r1, _021FA750 ; =UNK04_0220EB14
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -38401,7 +38401,7 @@ _021FA1E0:
 	bl MOD04_021DD844
 	cmp r0, #0
 	bne _021FA27C
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -38442,7 +38442,7 @@ _021FA2D0:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021F9A50 ; =0x0220EA68
+	ldr r1, _021F9A50 ; =UNK04_0220EA68
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -38453,7 +38453,7 @@ _021FA2D0:
 	bl MOD04_021FB3DC
 	b _021FA3F4
 _021FA324:
-	ldr r1, _021F9A54 ; =0x0220EA70
+	ldr r1, _021F9A54 ; =UNK04_0220EA70
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -38464,7 +38464,7 @@ _021FA324:
 	bl MOD04_021FB3DC
 	b _021FA3F4
 _021FA34C:
-	ldr r1, _021FA754 ; =0x0220EB18
+	ldr r1, _021FA754 ; =UNK04_0220EB18
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -38475,7 +38475,7 @@ _021FA34C:
 	bl MOD04_021FB3DC
 	b _021FA3F4
 _021FA374:
-	ldr r1, _021FA758 ; =0x0220EB20
+	ldr r1, _021FA758 ; =UNK04_0220EB20
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -38486,7 +38486,7 @@ _021FA374:
 	bl MOD04_021FB3DC
 	b _021FA3F4
 _021FA39C:
-	ldr r1, _021F9A60 ; =0x0220EA94
+	ldr r1, _021F9A60 ; =UNK04_0220EA94
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -38497,12 +38497,12 @@ _021FA39C:
 	bl MOD04_021FB3DC
 	b _021FA3F4
 _021FA3C4:
-	ldr r1, _021FA750 ; =0x0220EB14
+	ldr r1, _021FA750 ; =UNK04_0220EB14
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
 	beq _021FA3EC
-	ldr r1, _021FA74C ; =0x0220EB0C
+	ldr r1, _021FA74C ; =UNK04_0220EB0C
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -38515,7 +38515,7 @@ _021FA3F4:
 	beq _021FA2D0
 	b _021FA430
 _021FA400:
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -38560,7 +38560,7 @@ _021FA474:
 	bl MOD04_021DD860
 	movs r7, r0
 	bne _021FA4C8
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -38583,12 +38583,12 @@ _021FA4C8:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021FA75C ; =0x0220EB28
+	ldr r1, _021FA75C ; =UNK04_0220EB28
 	add r0, sp, #0xec
 	bl strcmp
 	cmp r0, #0
 	beq _021FA548
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -38611,7 +38611,7 @@ _021FA548:
 	ldr r0, [r7, #8]
 	cmp r0, #0
 	bne _021FA58C
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -38637,7 +38637,7 @@ _021FA5A8:
 	ldrne ip, _021F99B4 ; =0x000004EC
 	addne sp, sp, ip
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _021F9A50 ; =0x0220EA68
+	ldr r1, _021F9A50 ; =UNK04_0220EA68
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -38650,7 +38650,7 @@ _021FA5A8:
 	ldr r0, [r0, r8, lsl #2]
 	cmp r0, #0
 	bne _021FA620
-	ldr r1, _021F9A4C ; =0x0220E8A0
+	ldr r1, _021F9A4C ; =UNK04_0220E8A0
 	mov r0, sl
 	bl MOD04_021FAEEC
 	ldr ip, _021F99B4 ; =0x000004EC
@@ -38664,7 +38664,7 @@ _021FA620:
 	add r8, r8, #1
 	b _021FA6A4
 _021FA634:
-	ldr r1, _021FA760 ; =0x0220EB2C
+	ldr r1, _021FA760 ; =UNK04_0220EB2C
 	mov r0, r5
 	bl strcmp
 	cmp r0, #0
@@ -38672,8 +38672,8 @@ _021FA634:
 	ldr r0, [r7, #4]
 	cmp r8, r0
 	beq _021FA668
-	ldr r0, _021FA764 ; =0x0220EB34
-	ldr r1, _021F9A24 ; =0x0220E8D0
+	ldr r0, _021FA764 ; =UNK04_0220EB34
+	ldr r1, _021F9A24 ; =UNK04_0220E8D0
 	ldr r2, [sp, #0x84]
 	ldr r3, _021FA768 ; =0x00000515
 	bl __msl_assertion_failed
@@ -38682,7 +38682,7 @@ _021FA668:
 	ldr r6, [sp, #0x88]
 	b _021FA6A4
 _021FA674:
-	ldr r2, _021F9A64 ; =0x0220EA9C
+	ldr r2, _021F9A64 ; =UNK04_0220EA9C
 	mov r0, sl
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -38712,8 +38712,8 @@ _021FA6A4:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _021FA6E4:
-	ldr r0, _021F9A20 ; =0x0220EA10
-	ldr r1, _021F9A24 ; =0x0220E8D0
+	ldr r0, _021F9A20 ; =UNK04_0220EA10
+	ldr r1, _021F9A24 ; =UNK04_0220E8D0
 	ldr r3, _021FA76C ; =0x0000052A
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -38734,21 +38734,21 @@ _021FA714:
 	add sp, sp, ip
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021FA72C: .word 0x0220EAD4
-_021FA730: .word 0x0220EADC
-_021FA734: .word 0x0220EAE0
-_021FA738: .word 0x0220EAE8
-_021FA73C: .word 0x0220EAF4
-_021FA740: .word 0x0220EAF8
-_021FA744: .word 0x0220EB00
-_021FA748: .word 0x0220EB04
-_021FA74C: .word 0x0220EB0C
-_021FA750: .word 0x0220EB14
-_021FA754: .word 0x0220EB18
-_021FA758: .word 0x0220EB20
-_021FA75C: .word 0x0220EB28
-_021FA760: .word 0x0220EB2C
-_021FA764: .word 0x0220EB34
+_021FA72C: .word UNK04_0220EAD4
+_021FA730: .word UNK04_0220EADC
+_021FA734: .word UNK04_0220EAE0
+_021FA738: .word UNK04_0220EAE8
+_021FA73C: .word UNK04_0220EAF4
+_021FA740: .word UNK04_0220EAF8
+_021FA744: .word UNK04_0220EB00
+_021FA748: .word UNK04_0220EB04
+_021FA74C: .word UNK04_0220EB0C
+_021FA750: .word UNK04_0220EB14
+_021FA754: .word UNK04_0220EB18
+_021FA758: .word UNK04_0220EB20
+_021FA75C: .word UNK04_0220EB28
+_021FA760: .word UNK04_0220EB2C
+_021FA764: .word UNK04_0220EB34
 _021FA768: .word 0x00000515
 _021FA76C: .word 0x0000052A
 
@@ -38794,7 +38794,7 @@ _021FA7DC:
 	cmp r0, #0
 	bne _021FA814
 _021FA7FC:
-	ldr r1, _021FA958 ; =0x0220EB54
+	ldr r1, _021FA958 ; =UNK04_0220EB54
 	mov r0, sb
 	bl MOD04_021FAEEC
 	add sp, sp, #0xc
@@ -38888,7 +38888,7 @@ _021FA904:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021FA958: .word 0x0220EB54
+_021FA958: .word UNK04_0220EB54
 
 	arm_func_start MOD04_021FA95C
 MOD04_021FA95C: ; 0x021FA95C
@@ -38942,7 +38942,7 @@ MOD04_021FA9F0: ; 0x021FA9F0
 	bl MOD04_021DD860
 	movs r4, r0
 	bne _021FAA2C
-	ldr r1, _021FAAB0 ; =0x0220E8A0
+	ldr r1, _021FAAB0 ; =UNK04_0220E8A0
 	mov r0, r6
 	bl MOD04_021FAEEC
 	add sp, sp, #4
@@ -38976,14 +38976,14 @@ _021FAA2C:
 	addne sp, sp, #4
 	strne r4, [r5]
 	ldmneia sp!, {r4, r5, r6, r7, pc}
-	ldr r1, _021FAAB0 ; =0x0220E8A0
+	ldr r1, _021FAAB0 ; =UNK04_0220E8A0
 	mov r0, r6
 	bl MOD04_021FAEEC
 	mov r0, #1
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FAAB0: .word 0x0220E8A0
+_021FAAB0: .word UNK04_0220E8A0
 
 	arm_func_start MOD04_021FAAB4
 MOD04_021FAAB4: ; 0x021FAAB4
@@ -39001,7 +39001,7 @@ MOD04_021FAAB4: ; 0x021FAAB4
 	ldr r0, [r4, #8]
 	cmp r0, #0
 	bne _021FAB04
-	ldr r1, _021FAC9C ; =0x0220E8A0
+	ldr r1, _021FAC9C ; =UNK04_0220E8A0
 	mov r0, r6
 	bl MOD04_021FAEEC
 	add sp, sp, #8
@@ -39017,7 +39017,7 @@ _021FAB04:
 	mvn r1, #0
 	cmp r0, r1
 	bne _021FAB54
-	ldr r2, _021FACA0 ; =0x0220EB68
+	ldr r2, _021FACA0 ; =UNK04_0220EB68
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -39033,7 +39033,7 @@ _021FAB54:
 	bl MOD04_021F017C
 	cmp r0, #0
 	bne _021FAB90
-	ldr r2, _021FACA4 ; =0x0220EB90
+	ldr r2, _021FACA4 ; =UNK04_0220EB90
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -39045,11 +39045,11 @@ _021FAB54:
 	mov r0, #3
 	ldmia sp!, {r4, r5, r6, pc}
 _021FAB90:
-	ldr r0, _021FACA8 ; =0x0220E860
+	ldr r0, _021FACA8 ; =UNK04_0220E860
 	bl SOC_GetHostByAddr
 	cmp r0, #0
 	bne _021FABCC
-	ldr r2, _021FACAC ; =0x0220EBC4
+	ldr r2, _021FACAC ; =UNK04_0220EBC4
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -39073,8 +39073,8 @@ _021FABCC:
 	str r0, [sp, #4]
 	cmp r0, #0
 	bne _021FAC0C
-	ldr r0, _021FACB0 ; =0x0220EBF4
-	ldr r1, _021FACB4 ; =0x0220E8D0
+	ldr r0, _021FACB0 ; =UNK04_0220EBF4
+	ldr r1, _021FACB4 ; =UNK04_0220E8D0
 	mov r3, #0x59
 	bl __msl_assertion_failed
 _021FAC0C:
@@ -39098,7 +39098,7 @@ _021FAC0C:
 	mvn r1, #0x4b
 	cmp r0, r1
 	beq _021FAC88
-	ldr r2, _021FACBC ; =0x0220EC14
+	ldr r2, _021FACBC ; =UNK04_0220EC14
 	mov r0, r6
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -39116,15 +39116,15 @@ _021FAC88:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021FAC9C: .word 0x0220E8A0
-_021FACA0: .word 0x0220EB68
-_021FACA4: .word 0x0220EB90
-_021FACA8: .word 0x0220E860
-_021FACAC: .word 0x0220EBC4
-_021FACB0: .word 0x0220EBF4
-_021FACB4: .word 0x0220E8D0
+_021FAC9C: .word UNK04_0220E8A0
+_021FACA0: .word UNK04_0220EB68
+_021FACA4: .word UNK04_0220EB90
+_021FACA8: .word UNK04_0220E860
+_021FACAC: .word UNK04_0220EBC4
+_021FACB0: .word UNK04_0220EBF4
+_021FACB4: .word UNK04_0220E8D0
 _021FACB8: .word 0x0000CD74
-_021FACBC: .word 0x0220EC14
+_021FACBC: .word UNK04_0220EC14
 
 	arm_func_start MOD04_021FACC0
 MOD04_021FACC0: ; 0x021FACC0
@@ -39133,14 +39133,14 @@ MOD04_021FACC0: ; 0x021FACC0
 	mov r4, r1
 	mov r5, r0
 	mov r0, r3
-	ldr r1, _021FAD3C ; =0x0220EC3C
+	ldr r1, _021FAD3C ; =UNK04_0220EC3C
 	add r2, sp, #4
 	mov r3, #0x40
 	bl MOD04_021FB1F0
 	cmp r0, #0
 	addeq sp, sp, #0x54
 	ldmeqia sp!, {r4, r5, pc}
-	ldr r1, _021FAD40 ; =0x0220EC44
+	ldr r1, _021FAD40 ; =UNK04_0220EC44
 	add ip, sp, #0x4c
 	add r0, sp, #4
 	add r2, sp, #0x44
@@ -39160,8 +39160,8 @@ MOD04_021FACC0: ; 0x021FACC0
 	add sp, sp, #0x54
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FAD3C: .word 0x0220EC3C
-_021FAD40: .word 0x0220EC44
+_021FAD3C: .word UNK04_0220EC3C
+_021FAD40: .word UNK04_0220EC44
 
 	arm_func_start MOD04_021FAD44
 MOD04_021FAD44: ; 0x021FAD44
@@ -39171,7 +39171,7 @@ MOD04_021FAD44: ; 0x021FAD44
 	mov r5, r2
 	mov r6, r0
 	cmp ip, #0
-	ldreq r0, _021FADE0 ; =0x0220EC50
+	ldreq r0, _021FADE0 ; =UNK04_0220EC50
 	mov lr, r1
 	mov r4, r3
 	streq r0, [sp, #0x30]
@@ -39183,7 +39183,7 @@ MOD04_021FAD44: ; 0x021FAD44
 	cmp r0, #0
 	addne sp, sp, #0x20
 	ldmneia sp!, {r4, r5, r6, pc}
-	ldr r1, _021FADE4 ; =0x0220EC54
+	ldr r1, _021FADE4 ; =UNK04_0220EC54
 	add r0, sp, #0
 	mov r3, r4
 	mov r2, #1
@@ -39205,8 +39205,8 @@ MOD04_021FAD44: ; 0x021FAD44
 	add sp, sp, #0x20
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021FADE0: .word 0x0220EC50
-_021FADE4: .word 0x0220EC54
+_021FADE0: .word UNK04_0220EC50
+_021FADE4: .word UNK04_0220EC54
 
 	arm_func_start MOD04_021FADE8
 MOD04_021FADE8: ; 0x021FADE8
@@ -39222,13 +39222,13 @@ MOD04_021FADE8: ; 0x021FADE8
 	addne sp, sp, #0x10
 	movne r0, #4
 	ldmneia sp!, {r4, r5, r6, pc}
-	ldr r1, _021FAEE0 ; =0x0220EC6C
+	ldr r1, _021FAEE0 ; =UNK04_0220EC6C
 	mov r0, r4
 	mov r2, #4
 	bl strncmp
 	cmp r0, #0
 	beq _021FAE5C
-	ldr r2, _021FAEE4 ; =0x0220EC74
+	ldr r2, _021FAEE4 ; =UNK04_0220EC74
 	mov r0, r6
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -39250,7 +39250,7 @@ _021FAE5C:
 	bl MOD04_021DD860
 	movs r3, r0
 	bne _021FAE9C
-	ldr r1, _021FAEE8 ; =0x0220ECA4
+	ldr r1, _021FAEE8 ; =UNK04_0220ECA4
 	mov r0, r6
 	bl MOD04_021FAEEC
 	add sp, sp, #0x10
@@ -39276,9 +39276,9 @@ _021FAEC8:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021FAEE0: .word 0x0220EC6C
-_021FAEE4: .word 0x0220EC74
-_021FAEE8: .word 0x0220ECA4
+_021FAEE0: .word UNK04_0220EC6C
+_021FAEE4: .word UNK04_0220EC74
+_021FAEE8: .word UNK04_0220ECA4
 
 	arm_func_start MOD04_021FAEEC
 MOD04_021FAEEC: ; 0x021FAEEC
@@ -39312,24 +39312,24 @@ MOD04_021FAF2C: ; 0x021FAF2C
 	mov r5, r3
 	ldr r4, [sp, #0x18]
 	bne _021FAF5C
-	ldr r0, _021FB0D8 ; =0x0220ECB4
-	ldr r1, _021FB0DC ; =0x0220ECC4
+	ldr r0, _021FB0D8 ; =UNK04_0220ECB4
+	ldr r1, _021FB0DC ; =UNK04_0220ECC4
 	ldr r3, _021FB0E0 ; =0x00000199
 	mov r2, #0
 	bl __msl_assertion_failed
 _021FAF5C:
 	cmp r5, #0
 	bne _021FAF78
-	ldr r0, _021FB0E4 ; =0x0220ECD4
-	ldr r1, _021FB0DC ; =0x0220ECC4
+	ldr r0, _021FB0E4 ; =UNK04_0220ECD4
+	ldr r1, _021FB0DC ; =UNK04_0220ECC4
 	ldr r3, _021FB0E8 ; =0x0000019A
 	mov r2, #0
 	bl __msl_assertion_failed
 _021FAF78:
 	cmp r4, #0
 	bne _021FAF94
-	ldr r0, _021FB0EC ; =0x0220ECE0
-	ldr r1, _021FB0DC ; =0x0220ECC4
+	ldr r0, _021FB0EC ; =UNK04_0220ECE0
+	ldr r1, _021FB0DC ; =UNK04_0220ECC4
 	ldr r3, _021FB0F0 ; =0x0000019B
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -39339,7 +39339,7 @@ _021FAF94:
 	add r3, r7, r1
 	cmp r0, #0x5c
 	beq _021FAFD0
-	ldr r2, _021FB0F4 ; =0x0220ECF0
+	ldr r2, _021FB0F4 ; =UNK04_0220ECF0
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -39359,7 +39359,7 @@ _021FAFD0:
 _021FAFE8:
 	cmp r2, #0
 	bne _021FB018
-	ldr r2, _021FB0F4 ; =0x0220ECF0
+	ldr r2, _021FB0F4 ; =UNK04_0220ECF0
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -39372,7 +39372,7 @@ _021FAFE8:
 _021FB018:
 	cmp r1, r0
 	bne _021FB048
-	ldr r2, _021FB0F4 ; =0x0220ECF0
+	ldr r2, _021FB0F4 ; =UNK04_0220ECF0
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -39396,7 +39396,7 @@ _021FB05C:
 _021FB06C:
 	cmp r2, r0
 	bne _021FB09C
-	ldr r2, _021FB0F4 ; =0x0220ECF0
+	ldr r2, _021FB0F4 ; =UNK04_0220ECF0
 	mov r0, r8
 	mov r1, #1
 	bl MOD04_021FAF00
@@ -39425,14 +39425,14 @@ _021FB0B8:
 	str r1, [r6]
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021FB0D8: .word 0x0220ECB4
-_021FB0DC: .word 0x0220ECC4
+_021FB0D8: .word UNK04_0220ECB4
+_021FB0DC: .word UNK04_0220ECC4
 _021FB0E0: .word 0x00000199
-_021FB0E4: .word 0x0220ECD4
+_021FB0E4: .word UNK04_0220ECD4
 _021FB0E8: .word 0x0000019A
-_021FB0EC: .word 0x0220ECE0
+_021FB0EC: .word UNK04_0220ECE0
 _021FB0F0: .word 0x0000019B
-_021FB0F4: .word 0x0220ECF0
+_021FB0F4: .word UNK04_0220ECF0
 _021FB0F8: .word 0x000001FF
 
 	arm_func_start MOD04_021FB0FC
@@ -39452,10 +39452,10 @@ MOD04_021FB0FC: ; 0x021FB0FC
 	mvn r1, #0
 	cmp r0, r1
 	bne _021FB170
-	ldr r1, _021FB1E0 ; =0x0220ED00
+	ldr r1, _021FB1E0 ; =UNK04_0220ED00
 	mov r0, r5
 	bl MOD04_021FB3D0
-	ldr r2, _021FB1E4 ; =0x0220ED14
+	ldr r2, _021FB1E4 ; =UNK04_0220ED14
 	mov r0, r5
 	mov r1, #5
 	bl MOD04_021FAF00
@@ -39472,7 +39472,7 @@ _021FB170:
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	beq _021FB1A4
-	ldr r1, _021FB1E8 ; =0x0220ED4C
+	ldr r1, _021FB1E8 ; =UNK04_0220ED4C
 	mov r0, r5
 	bl MOD04_021FB3D0
 	mov r0, #4
@@ -39484,7 +39484,7 @@ _021FB1A4:
 	ldr r0, [sp]
 	cmp r0, #0
 	beq _021FB1D0
-	ldr r1, _021FB1EC ; =0x0220ED64
+	ldr r1, _021FB1EC ; =UNK04_0220ED64
 	mov r0, r5
 	bl MOD04_021FB3D0
 	mov r0, #3
@@ -39498,10 +39498,10 @@ _021FB1D0:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FB1E0: .word 0x0220ED00
-_021FB1E4: .word 0x0220ED14
-_021FB1E8: .word 0x0220ED4C
-_021FB1EC: .word 0x0220ED64
+_021FB1E0: .word UNK04_0220ED00
+_021FB1E4: .word UNK04_0220ED14
+_021FB1E8: .word UNK04_0220ED4C
+_021FB1EC: .word UNK04_0220ED64
 
 	arm_func_start MOD04_021FB1F0
 MOD04_021FB1F0: ; 0x021FB1F0
@@ -39511,32 +39511,32 @@ MOD04_021FB1F0: ; 0x021FB1F0
 	mov r4, r2
 	mov r7, r3
 	bne _021FB21C
-	ldr r0, _021FB2D8 ; =0x0220ED7C
-	ldr r1, _021FB2DC ; =0x0220ECC4
+	ldr r0, _021FB2D8 ; =UNK04_0220ED7C
+	ldr r1, _021FB2DC ; =UNK04_0220ECC4
 	ldr r3, _021FB2E0 ; =0x0000010D
 	mov r2, #0
 	bl __msl_assertion_failed
 _021FB21C:
 	cmp r8, #0
 	bne _021FB238
-	ldr r0, _021FB2E4 ; =0x0220ECD4
-	ldr r1, _021FB2DC ; =0x0220ECC4
+	ldr r0, _021FB2E4 ; =UNK04_0220ECD4
+	ldr r1, _021FB2DC ; =UNK04_0220ECC4
 	ldr r3, _021FB2E8 ; =0x0000010E
 	mov r2, #0
 	bl __msl_assertion_failed
 _021FB238:
 	cmp r4, #0
 	bne _021FB254
-	ldr r0, _021FB2EC ; =0x0220ECE0
-	ldr r1, _021FB2DC ; =0x0220ECC4
+	ldr r0, _021FB2EC ; =UNK04_0220ECE0
+	ldr r1, _021FB2DC ; =UNK04_0220ECC4
 	ldr r3, _021FB2F0 ; =0x0000010F
 	mov r2, #0
 	bl __msl_assertion_failed
 _021FB254:
 	cmp r7, #0
 	bgt _021FB270
-	ldr r0, _021FB2F4 ; =0x0220ED8C
-	ldr r1, _021FB2DC ; =0x0220ECC4
+	ldr r0, _021FB2F4 ; =UNK04_0220ED8C
+	ldr r1, _021FB2DC ; =UNK04_0220ECC4
 	mov r2, #0
 	mov r3, #0x110
 	bl __msl_assertion_failed
@@ -39571,14 +39571,14 @@ _021FB2C8:
 	mov r0, #1
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021FB2D8: .word 0x0220ED7C
-_021FB2DC: .word 0x0220ECC4
+_021FB2D8: .word UNK04_0220ED7C
+_021FB2DC: .word UNK04_0220ECC4
 _021FB2E0: .word 0x0000010D
-_021FB2E4: .word 0x0220ECD4
+_021FB2E4: .word UNK04_0220ECD4
 _021FB2E8: .word 0x0000010E
-_021FB2EC: .word 0x0220ECE0
+_021FB2EC: .word UNK04_0220ECE0
 _021FB2F0: .word 0x0000010F
-_021FB2F4: .word 0x0220ED8C
+_021FB2F4: .word UNK04_0220ED8C
 
 	arm_func_start MOD04_021FB2F8
 MOD04_021FB2F8: ; 0x021FB2F8
@@ -39587,14 +39587,14 @@ MOD04_021FB2F8: ; 0x021FB2F8
 	mov r6, r1
 	mov r7, r0
 	mov r5, r2
-	ldr r1, _021FB3C0 ; =0x0220ED94
+	ldr r1, _021FB3C0 ; =UNK04_0220ED94
 	mov r0, r6
 	mov r2, #7
 	ldr r4, [r7]
 	bl strncmp
 	cmp r0, #0
 	bne _021FB3B4
-	ldr r1, _021FB3C4 ; =0x0220ED9C
+	ldr r1, _021FB3C4 ; =UNK04_0220ED9C
 	add r2, sp, #0
 	mov r0, r6
 	mov r3, #0x10
@@ -39605,7 +39605,7 @@ MOD04_021FB2F8: ; 0x021FB2F8
 	bl atol
 	str r0, [r4, #0x418]
 _021FB350:
-	ldr r1, _021FB3C8 ; =0x0220EDA4
+	ldr r1, _021FB3C8 ; =UNK04_0220EDA4
 	mov r0, r6
 	mov r2, r4
 	mov r3, #0x100
@@ -39615,7 +39615,7 @@ _021FB350:
 	streqb r0, [r4]
 	cmp r5, #0
 	beq _021FB3A8
-	ldr r1, _021FB3CC ; =0x0220EDB0
+	ldr r1, _021FB3CC ; =UNK04_0220EDB0
 	mov r0, r6
 	bl strstr
 	cmp r0, #0
@@ -39636,10 +39636,10 @@ _021FB3B4:
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FB3C0: .word 0x0220ED94
-_021FB3C4: .word 0x0220ED9C
-_021FB3C8: .word 0x0220EDA4
-_021FB3CC: .word 0x0220EDB0
+_021FB3C0: .word UNK04_0220ED94
+_021FB3C4: .word UNK04_0220ED9C
+_021FB3C8: .word UNK04_0220EDA4
+_021FB3CC: .word UNK04_0220EDB0
 
 	arm_func_start MOD04_021FB3D0
 MOD04_021FB3D0: ; 0x021FB3D0
@@ -39654,16 +39654,16 @@ MOD04_021FB3DC: ; 0x021FB3DC
 	mov r5, r1
 	mov r4, r2
 	bne _021FB404
-	ldr r0, _021FB440 ; =0x0220EDB8
-	ldr r1, _021FB444 ; =0x0220ECC4
+	ldr r0, _021FB440 ; =UNK04_0220EDB8
+	ldr r1, _021FB444 ; =UNK04_0220ECC4
 	mov r2, #0
 	mov r3, #0x2f
 	bl __msl_assertion_failed
 _021FB404:
 	cmp r5, #0
 	bne _021FB420
-	ldr r0, _021FB448 ; =0x0220EDC8
-	ldr r1, _021FB444 ; =0x0220ECC4
+	ldr r0, _021FB448 ; =UNK04_0220EDC8
+	ldr r1, _021FB444 ; =UNK04_0220ECC4
 	mov r2, #0
 	mov r3, #0x30
 	bl __msl_assertion_failed
@@ -39677,15 +39677,15 @@ _021FB420:
 	strb r1, [r0, #-1]
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021FB440: .word 0x0220EDB8
-_021FB444: .word 0x0220ECC4
-_021FB448: .word 0x0220EDC8
+_021FB440: .word UNK04_0220EDB8
+_021FB444: .word UNK04_0220ECC4
+_021FB448: .word UNK04_0220EDC8
 
 	arm_func_start MOD04_021FB44C
 MOD04_021FB44C: ; 0x021FB44C
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, lr}
 	sub sp, sp, #0x24
-	ldr r0, _021FB520 ; =0x02210F84
+	ldr r0, _021FB520 ; =UNK04_02210F84
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #0x24
@@ -39693,7 +39693,7 @@ MOD04_021FB44C: ; 0x021FB44C
 	bl MOD04_021EF06C
 	subs r4, r0, #1
 	bmi _021FB500
-	ldr r5, _021FB524 ; =0x0220BBC8
+	ldr r5, _021FB524 ; =UNK04_0220BBC8
 	add r3, sp, #0x14
 	mov r2, #8
 _021FB480:
@@ -39703,8 +39703,8 @@ _021FB480:
 	strb r1, [r3], #1
 	strb r0, [r3], #1
 	bne _021FB480
-	ldr sb, _021FB528 ; =0x0220EDEC
-	ldr r5, _021FB52C ; =0x0220EDD8
+	ldr sb, _021FB528 ; =UNK04_0220EDEC
+	ldr r5, _021FB52C ; =UNK04_0220EDD8
 	add r8, sp, #4
 	mov r7, #0xf
 	mov r6, #0
@@ -39732,19 +39732,19 @@ _021FB4B8:
 	subs r4, r4, #1
 	bpl _021FB4AC
 _021FB500:
-	ldr r0, _021FB520 ; =0x02210F84
+	ldr r0, _021FB520 ; =UNK04_02210F84
 	ldr r0, [r0]
 	bl MOD04_021EF074
-	ldr r0, _021FB520 ; =0x02210F84
+	ldr r0, _021FB520 ; =UNK04_02210F84
 	mov r1, #0
 	str r1, [r0]
 	add sp, sp, #0x24
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021FB520: .word 0x02210F84
-_021FB524: .word 0x0220BBC8
-_021FB528: .word 0x0220EDEC
-_021FB52C: .word 0x0220EDD8
+_021FB520: .word UNK04_02210F84
+_021FB524: .word UNK04_0220BBC8
+_021FB528: .word UNK04_0220EDEC
+_021FB52C: .word UNK04_0220EDD8
 
 	arm_func_start MOD04_021FB530
 MOD04_021FB530: ; 0x021FB530
@@ -39756,13 +39756,13 @@ MOD04_021FB530: ; 0x021FB530
 	mov r4, r3
 	addmi sp, sp, #0x14
 	ldmmiia sp!, {r4, r5, r6, r7, pc}
-	ldr r0, _021FB650 ; =0x02210F84
+	ldr r0, _021FB650 ; =UNK04_02210F84
 	ldr r0, [r0]
 	bl MOD04_021EF06C
 	cmp r7, r0
 	addge sp, sp, #0x14
 	ldmgeia sp!, {r4, r5, r6, r7, pc}
-	ldr r0, _021FB650 ; =0x02210F84
+	ldr r0, _021FB650 ; =UNK04_02210F84
 	mov r1, r7
 	ldr r0, [r0]
 	bl MOD04_021EEFFC
@@ -39820,14 +39820,14 @@ _021FB624:
 	mov r2, r6
 	blx ip
 _021FB638:
-	ldr r0, _021FB650 ; =0x02210F84
+	ldr r0, _021FB650 ; =UNK04_02210F84
 	mov r1, r7
 	ldr r0, [r0]
 	bl MOD04_021EED84
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FB650: .word 0x02210F84
+_021FB650: .word UNK04_02210F84
 
 	arm_func_start MOD04_021FB654
 MOD04_021FB654: ; 0x021FB654
@@ -39837,8 +39837,8 @@ MOD04_021FB654: ; 0x021FB654
 	mov r7, sb
 	bl MOD04_021FBB3C
 	mov r8, r0
-	ldr r5, _021FB6D4 ; =0x0220EDDC
-	ldr r4, _021FB6D8 ; =0x0220EDD8
+	ldr r5, _021FB6D4 ; =UNK04_0220EDDC
+	ldr r4, _021FB6D8 ; =UNK04_0220EDD8
 	b _021FB6BC
 _021FB678:
 	sub r6, r8, sl
@@ -39867,15 +39867,15 @@ _021FB6CC:
 	sub r0, r7, sb
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021FB6D4: .word 0x0220EDDC
-_021FB6D8: .word 0x0220EDD8
+_021FB6D4: .word UNK04_0220EDDC
+_021FB6D8: .word UNK04_0220EDD8
 
 	arm_func_start MOD04_021FB6DC
 MOD04_021FB6DC: ; 0x021FB6DC
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
 	mov r4, r1
-	ldr r1, _021FB7D0 ; =0x0220EDFC
+	ldr r1, _021FB7D0 ; =UNK04_0220EDFC
 	mov r5, r0
 	mov r3, #0
 	mov r2, #8
@@ -39889,7 +39889,7 @@ MOD04_021FB6DC: ; 0x021FB6DC
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 _021FB71C:
-	ldr r1, _021FB7D4 ; =0x0220EE08
+	ldr r1, _021FB7D4 ; =UNK04_0220EE08
 	mov r0, r5
 	mov r2, #9
 	bl strncmp
@@ -39901,7 +39901,7 @@ _021FB71C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 _021FB748:
-	ldr r1, _021FB7D4 ; =0x0220EE08
+	ldr r1, _021FB7D4 ; =UNK04_0220EE08
 	mov r0, r5
 	mov r2, #9
 	bl strncmp
@@ -39913,7 +39913,7 @@ _021FB748:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 _021FB774:
-	ldr r1, _021FB7D8 ; =0x0220EE14
+	ldr r1, _021FB7D8 ; =UNK04_0220EE14
 	mov r0, r5
 	mov r2, #8
 	bl strncmp
@@ -39925,7 +39925,7 @@ _021FB774:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 _021FB7A0:
-	ldr r1, _021FB7DC ; =0x0220EE20
+	ldr r1, _021FB7DC ; =UNK04_0220EE20
 	mov r0, r5
 	mov r2, #8
 	bl strncmp
@@ -39938,31 +39938,31 @@ _021FB7A0:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FB7D0: .word 0x0220EDFC
-_021FB7D4: .word 0x0220EE08
-_021FB7D8: .word 0x0220EE14
-_021FB7DC: .word 0x0220EE20
+_021FB7D0: .word UNK04_0220EDFC
+_021FB7D4: .word UNK04_0220EE08
+_021FB7D8: .word UNK04_0220EE14
+_021FB7DC: .word UNK04_0220EE20
 
 	arm_func_start MOD04_021FB7E0
 MOD04_021FB7E0: ; 0x021FB7E0
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #4
-	ldr r1, _021FB874 ; =0x0220EE2C
+	ldr r1, _021FB874 ; =UNK04_0220EE2C
 	mov r7, r0
 	bl MOD04_021FBBC8
 	bl atol
 	mov r6, r0
-	ldr r1, _021FB878 ; =0x0220EE34
+	ldr r1, _021FB878 ; =UNK04_0220EE34
 	mov r0, r7
 	bl MOD04_021FBBC8
 	bl atol
 	mov r5, r0
-	ldr r1, _021FB87C ; =0x0220EE38
+	ldr r1, _021FB87C ; =UNK04_0220EE38
 	mov r0, r7
 	bl MOD04_021FBBC8
 	bl atol
 	mov r4, r0
-	ldr r1, _021FB880 ; =0x0220EE3C
+	ldr r1, _021FB880 ; =UNK04_0220EE3C
 	mov r0, r7
 	bl MOD04_021FBBC8
 	bl atol
@@ -39983,31 +39983,31 @@ MOD04_021FB7E0: ; 0x021FB7E0
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FB874: .word 0x0220EE2C
-_021FB878: .word 0x0220EE34
-_021FB87C: .word 0x0220EE38
-_021FB880: .word 0x0220EE3C
+_021FB874: .word UNK04_0220EE2C
+_021FB878: .word UNK04_0220EE34
+_021FB87C: .word UNK04_0220EE38
+_021FB880: .word UNK04_0220EE3C
 
 	arm_func_start MOD04_021FB884
 MOD04_021FB884: ; 0x021FB884
 	stmdb sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
-	ldr r1, _021FB94C ; =0x0220EE40
+	ldr r1, _021FB94C ; =UNK04_0220EE40
 	mov r4, r0
 	bl MOD04_021FBBC8
 	bl atol
 	mov r7, r0
-	ldr r1, _021FB950 ; =0x0220EE38
+	ldr r1, _021FB950 ; =UNK04_0220EE38
 	mov r0, r4
 	bl MOD04_021FBBC8
 	bl atol
 	mov r6, r0
-	ldr r1, _021FB954 ; =0x0220EE34
+	ldr r1, _021FB954 ; =UNK04_0220EE34
 	mov r0, r4
 	bl MOD04_021FBBC8
 	bl atol
 	mov r5, r0
-	ldr r1, _021FB958 ; =0x0220EE3C
+	ldr r1, _021FB958 ; =UNK04_0220EE3C
 	mov r0, r4
 	bl MOD04_021FBBC8
 	bl atol
@@ -40021,16 +40021,16 @@ MOD04_021FB884: ; 0x021FB884
 	cmp r8, r0
 	addeq sp, sp, #8
 	ldmeqia sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r1, _021FB95C ; =0x0220EE48
+	ldr r1, _021FB95C ; =UNK04_0220EE48
 	mov r0, r4
 	bl MOD04_021FBBC8
 	bl atol
 	mov r6, r0
-	ldr r1, _021FB960 ; =0x0220EE50
+	ldr r1, _021FB960 ; =UNK04_0220EE50
 	mov r0, r4
 	bl strstr
 	cmp r0, #0
-	ldreq r3, _021FB964 ; =0x0220EE58
+	ldreq r3, _021FB964 ; =UNK04_0220EE58
 	moveq r6, #0
 	addne r3, r0, #6
 	mov r0, r8
@@ -40041,24 +40041,24 @@ MOD04_021FB884: ; 0x021FB884
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021FB94C: .word 0x0220EE40
-_021FB950: .word 0x0220EE38
-_021FB954: .word 0x0220EE34
-_021FB958: .word 0x0220EE3C
-_021FB95C: .word 0x0220EE48
-_021FB960: .word 0x0220EE50
-_021FB964: .word 0x0220EE58
+_021FB94C: .word UNK04_0220EE40
+_021FB950: .word UNK04_0220EE38
+_021FB954: .word UNK04_0220EE34
+_021FB958: .word UNK04_0220EE3C
+_021FB95C: .word UNK04_0220EE48
+_021FB960: .word UNK04_0220EE50
+_021FB964: .word UNK04_0220EE58
 
 	arm_func_start MOD04_021FB968
 MOD04_021FB968: ; 0x021FB968
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r1, _021FB9F4 ; =0x0220EE5C
+	ldr r1, _021FB9F4 ; =UNK04_0220EE5C
 	mov r5, r0
 	bl MOD04_021FBBC8
 	bl atol
 	mov r4, r0
-	ldr r1, _021FB9F8 ; =0x0220EE38
+	ldr r1, _021FB9F8 ; =UNK04_0220EE38
 	mov r0, r5
 	bl MOD04_021FBBC8
 	bl atol
@@ -40071,7 +40071,7 @@ MOD04_021FB968: ; 0x021FB968
 	cmp r5, r0
 	addeq sp, sp, #4
 	ldmeqia sp!, {r4, r5, pc}
-	ldr r0, _021FB9FC ; =0x02210F84
+	ldr r0, _021FB9FC ; =UNK04_02210F84
 	mov r1, r5
 	ldr r0, [r0]
 	bl MOD04_021EEFFC
@@ -40087,25 +40087,25 @@ MOD04_021FB968: ; 0x021FB968
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FB9F4: .word 0x0220EE5C
-_021FB9F8: .word 0x0220EE38
-_021FB9FC: .word 0x02210F84
+_021FB9F4: .word UNK04_0220EE5C
+_021FB9F8: .word UNK04_0220EE38
+_021FB9FC: .word UNK04_02210F84
 
 	arm_func_start MOD04_021FBA00
 MOD04_021FBA00: ; 0x021FBA00
 	stmdb sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
-	ldr r1, _021FBAA0 ; =0x0220EE64
+	ldr r1, _021FBAA0 ; =UNK04_0220EE64
 	mov r6, r0
 	bl MOD04_021FBBC8
 	bl atol
 	mov r5, r0
-	ldr r1, _021FBAA4 ; =0x0220EE38
+	ldr r1, _021FBAA4 ; =UNK04_0220EE38
 	mov r0, r6
 	bl MOD04_021FBBC8
 	bl atol
 	mov r4, r0
-	ldr r1, _021FBAA8 ; =0x0220EE6C
+	ldr r1, _021FBAA8 ; =UNK04_0220EE6C
 	mov r0, r6
 	bl MOD04_021FBBC8
 	mov r1, r4
@@ -40118,7 +40118,7 @@ MOD04_021FBA00: ; 0x021FBA00
 	cmp r6, r0
 	addeq sp, sp, #8
 	ldmeqia sp!, {r4, r5, r6, pc}
-	ldr r0, _021FBAAC ; =0x02210F84
+	ldr r0, _021FBAAC ; =UNK04_02210F84
 	mov r1, r6
 	ldr r0, [r0]
 	bl MOD04_021EEFFC
@@ -40134,15 +40134,15 @@ MOD04_021FBA00: ; 0x021FBA00
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021FBAA0: .word 0x0220EE64
-_021FBAA4: .word 0x0220EE38
-_021FBAA8: .word 0x0220EE6C
-_021FBAAC: .word 0x02210F84
+_021FBAA0: .word UNK04_0220EE64
+_021FBAA4: .word UNK04_0220EE38
+_021FBAA8: .word UNK04_0220EE6C
+_021FBAAC: .word UNK04_02210F84
 
 	arm_func_start MOD04_021FBAB0
 MOD04_021FBAB0: ; 0x021FBAB0
 	stmdb sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r3, _021FBB38 ; =0x02210F84
+	ldr r3, _021FBB38 ; =UNK04_02210F84
 	mov r7, r0
 	ldr r0, [r3]
 	mov r6, r1
@@ -40154,7 +40154,7 @@ MOD04_021FBAB0: ; 0x021FBAB0
 	bl MOD04_021EF06C
 	cmp r0, #0
 	ble _021FBB30
-	ldr r8, _021FBB38 ; =0x02210F84
+	ldr r8, _021FBB38 ; =UNK04_02210F84
 _021FBAE8:
 	ldr r0, [r8]
 	mov r1, r4
@@ -40179,7 +40179,7 @@ _021FBB30:
 	mvn r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021FBB38: .word 0x02210F84
+_021FBB38: .word UNK04_02210F84
 
 	arm_func_start MOD04_021FBB3C
 MOD04_021FBB3C: ; 0x021FBB3C
@@ -40232,17 +40232,17 @@ MOD04_021FBBC8: ; 0x021FBBC8
 	sub sp, sp, #4
 	bl MOD04_021FBBE8
 	cmp r0, #0
-	ldreq r0, _021FBBE4 ; =0x0220EE58
+	ldreq r0, _021FBBE4 ; =UNK04_0220EE58
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021FBBE4: .word 0x0220EE58
+_021FBBE4: .word UNK04_0220EE58
 
 	arm_func_start MOD04_021FBBE8
 MOD04_021FBBE8: ; 0x021FBBE8
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #0x100
-	ldr lr, _021FBCA8 ; =0x0220BBD8
+	ldr lr, _021FBCA8 ; =UNK04_0220BBD8
 	add ip, sp, #0
 	mov r4, r0
 	mov r3, #0x80
@@ -40253,13 +40253,13 @@ _021FBC00:
 	strb r2, [ip], #1
 	strb r0, [ip], #1
 	bne _021FBC00
-	ldr r2, _021FBCAC ; =0x02210F8C
+	ldr r2, _021FBCAC ; =UNK04_02210F8C
 	add r0, sp, #0
 	ldr r3, [r2]
 	eor r3, r3, #1
 	str r3, [r2]
 	bl strcat
-	ldr r1, _021FBCB0 ; =0x0220EE74
+	ldr r1, _021FBCB0 ; =UNK04_0220EE74
 	add r0, sp, #0
 	bl strcat
 	add r1, sp, #0
@@ -40271,8 +40271,8 @@ _021FBC00:
 	ldmeqia sp!, {r4, pc}
 	add r0, sp, #0
 	bl strlen
-	ldr r1, _021FBCAC ; =0x02210F8C
-	ldr r2, _021FBCB4 ; =0x02211194
+	ldr r1, _021FBCAC ; =UNK04_02210F8C
+	ldr r2, _021FBCB4 ; =UNK04_02211194
 	ldr r1, [r1]
 	add r3, r4, r0
 	add r0, r2, r1, lsl #8
@@ -40293,15 +40293,15 @@ _021FBC98:
 	add sp, sp, #0x100
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021FBCA8: .word 0x0220BBD8
-_021FBCAC: .word 0x02210F8C
-_021FBCB0: .word 0x0220EE74
-_021FBCB4: .word 0x02211194
+_021FBCA8: .word UNK04_0220BBD8
+_021FBCAC: .word UNK04_02210F8C
+_021FBCB0: .word UNK04_0220EE74
+_021FBCB4: .word UNK04_02211194
 
 	arm_func_start MOD04_021FBCB8
 MOD04_021FBCB8: ; 0x021FBCB8
 	stmdb sp!, {r4, lr}
-	ldr r2, _021FBCFC ; =0x0220EDD8
+	ldr r2, _021FBCFC ; =UNK04_0220EDD8
 	mov r4, #0
 	cmp r1, #0
 	ldr lr, [r2]
@@ -40319,18 +40319,18 @@ _021FBCD0:
 	blt _021FBCD0
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021FBCFC: .word 0x0220EDD8
+_021FBCFC: .word UNK04_0220EDD8
 
 	arm_func_start MOD04_021FBD00
 MOD04_021FBD00: ; 0x021FBD00
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, lr}
-	ldr r0, _021FBE48 ; =0x0220EDD4
+	ldr r0, _021FBE48 ; =UNK04_0220EDD4
 	mvn r1, #0
 	ldr r0, [r0]
 	cmp r0, r1
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
-	ldr r1, _021FBE4C ; =0x02210F88
+	ldr r1, _021FBE4C ; =UNK04_02210F88
 	ldr r1, [r1]
 	cmp r1, #5
 	movne r0, #0
@@ -40338,10 +40338,10 @@ MOD04_021FBD00: ; 0x021FBD00
 	bl MOD04_021FBBBC
 	cmp r0, #0
 	beq _021FBE2C
-	ldr r8, _021FBE50 ; =0x02210F80
-	ldr sl, _021FBE54 ; =0x02210F90
-	ldr sb, _021FBE58 ; =0x02210F7C
-	ldr r7, _021FBE48 ; =0x0220EDD4
+	ldr r8, _021FBE50 ; =UNK04_02210F80
+	ldr sl, _021FBE54 ; =UNK04_02210F90
+	ldr sb, _021FBE58 ; =UNK04_02210F7C
+	ldr r7, _021FBE48 ; =UNK04_0220EDD4
 	mov r6, #0x100
 	mov r5, #0
 _021FBD54:
@@ -40403,7 +40403,7 @@ _021FBE1C:
 	cmp r0, #0
 	bne _021FBD54
 _021FBE2C:
-	ldr r1, _021FBE48 ; =0x0220EDD4
+	ldr r1, _021FBE48 ; =UNK04_0220EDD4
 	mvn r0, #0
 	ldr r1, [r1]
 	cmp r1, r0
@@ -40411,15 +40411,15 @@ _021FBE2C:
 	moveq r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_021FBE48: .word 0x0220EDD4
-_021FBE4C: .word 0x02210F88
-_021FBE50: .word 0x02210F80
-_021FBE54: .word 0x02210F90
-_021FBE58: .word 0x02210F7C
+_021FBE48: .word UNK04_0220EDD4
+_021FBE4C: .word UNK04_02210F88
+_021FBE50: .word UNK04_02210F80
+_021FBE54: .word UNK04_02210F90
+_021FBE58: .word UNK04_02210F7C
 
 	arm_func_start MOD04_021FBE5C
 MOD04_021FBE5C: ; 0x021FBE5C
-	ldr r1, _021FBE78 ; =0x0220EDD4
+	ldr r1, _021FBE78 ; =UNK04_0220EDD4
 	mvn r0, #0
 	ldr r1, [r1]
 	cmp r1, r0
@@ -40427,47 +40427,47 @@ MOD04_021FBE5C: ; 0x021FBE5C
 	moveq r0, #0
 	bx lr
 	.align 2, 0
-_021FBE78: .word 0x0220EDD4
+_021FBE78: .word UNK04_0220EDD4
 
 	arm_func_start MOD04_021FBE7C
 MOD04_021FBE7C: ; 0x021FBE7C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _021FBEF8 ; =0x0220EDD4
+	ldr r0, _021FBEF8 ; =UNK04_0220EDD4
 	mvn r1, #0
 	ldr r0, [r0]
 	cmp r0, r1
 	beq _021FBEAC
 	mov r1, #2
 	bl MOD04_021EFD80
-	ldr r0, _021FBEF8 ; =0x0220EDD4
+	ldr r0, _021FBEF8 ; =UNK04_0220EDD4
 	ldr r0, [r0]
 	bl MOD04_021EFD9C
 _021FBEAC:
-	ldr r0, _021FBEF8 ; =0x0220EDD4
+	ldr r0, _021FBEF8 ; =UNK04_0220EDD4
 	mvn r1, #0
 	str r1, [r0]
 	bl MOD04_021FB44C
-	ldr r0, _021FBEFC ; =0x02210F80
+	ldr r0, _021FBEFC ; =UNK04_02210F80
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
 	bl MOD04_021DD82C
-	ldr r2, _021FBEFC ; =0x02210F80
+	ldr r2, _021FBEFC ; =UNK04_02210F80
 	mov r3, #0
-	ldr r1, _021FBF00 ; =0x02210F90
-	ldr r0, _021FBF04 ; =0x02210F7C
+	ldr r1, _021FBF00 ; =UNK04_02210F90
+	ldr r0, _021FBF04 ; =UNK04_02210F7C
 	str r3, [r2]
 	str r3, [r1]
 	str r3, [r0]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_021FBEF8: .word 0x0220EDD4
-_021FBEFC: .word 0x02210F80
-_021FBF00: .word 0x02210F90
-_021FBF04: .word 0x02210F7C
+_021FBEF8: .word UNK04_0220EDD4
+_021FBEFC: .word UNK04_02210F80
+_021FBF00: .word UNK04_02210F90
+_021FBF04: .word UNK04_02210F7C
 
 	arm_func_start MOD04_021FBF08
 MOD04_021FBF08: ; 0x021FBF08
@@ -40494,7 +40494,7 @@ MOD04_021FBF44: ; 0x021FBF44
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	sub sp, sp, #4
 	mov r5, r0
-	ldr r0, _021FC06C ; =0x0220EE78
+	ldr r0, _021FC06C ; =UNK04_0220EE78
 	mov r4, r1
 	bl strlen
 	mov r8, r0
@@ -40543,7 +40543,7 @@ _021FBFDC:
 	mov sb, r1
 	mov r1, r8
 	bl _s32_div_f
-	ldr r0, _021FC06C ; =0x0220EE78
+	ldr r0, _021FC06C ; =UNK04_0220EE78
 	ldrsb r3, [r0, sb]
 	ldrsb r2, [r0, r1]
 	mla r0, sl, r6, r3
@@ -40573,7 +40573,7 @@ _021FC04C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021FC06C: .word 0x0220EE78
+_021FC06C: .word UNK04_0220EE78
 _021FC070: .word 0x2C0B02C1
 _021FC074: .word 0x0000005D
 _021FC078: .word 0x00004647
@@ -40584,8 +40584,8 @@ MOD04_021FC07C: ; 0x021FC07C
 	sub sp, sp, #4
 	movs sl, r0
 	bne _021FC0A0
-	ldr r0, _021FC1AC ; =0x0220EE9C
-	ldr r1, _021FC1B0 ; =0x0220EEA4
+	ldr r0, _021FC1AC ; =UNK04_0220EE9C
+	ldr r1, _021FC1B0 ; =UNK04_0220EEA4
 	mov r2, #0
 	mov r3, #0x2b
 	bl __msl_assertion_failed
@@ -40662,8 +40662,8 @@ _021FC194:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_021FC1AC: .word 0x0220EE9C
-_021FC1B0: .word 0x0220EEA4
+_021FC1AC: .word UNK04_0220EE9C
+_021FC1B0: .word UNK04_0220EEA4
 _021FC1B4: .word 0x2C0B02C1
 _021FC1B8: .word 0x0000005D
 
@@ -40730,8 +40730,8 @@ MOD04_021FC268: ; 0x021FC268
 	ldr r0, [r6, #8]
 	cmp r5, r0
 	ble _021FC2A8
-	ldr r0, _021FC2F8 ; =0x0220EEB0
-	ldr r1, _021FC2FC ; =0x0220EEC8
+	ldr r0, _021FC2F8 ; =UNK04_0220EEB0
+	ldr r1, _021FC2FC ; =UNK04_0220EEC8
 	mov r2, #0
 	mov r3, #0x4f
 	bl __msl_assertion_failed
@@ -40740,8 +40740,8 @@ _021FC2A8:
 	sub r0, r0, r5
 	cmp r4, r0
 	ble _021FC2CC
-	ldr r0, _021FC300 ; =0x0220EED4
-	ldr r1, _021FC2FC ; =0x0220EEC8
+	ldr r0, _021FC300 ; =UNK04_0220EED4
+	ldr r1, _021FC2FC ; =UNK04_0220EEC8
 	mov r2, #0
 	mov r3, #0x50
 	bl __msl_assertion_failed
@@ -40758,9 +40758,9 @@ _021FC2CC:
 	str r0, [r6, #8]
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021FC2F8: .word 0x0220EEB0
-_021FC2FC: .word 0x0220EEC8
-_021FC300: .word 0x0220EED4
+_021FC2F8: .word UNK04_0220EEB0
+_021FC2FC: .word UNK04_0220EEC8
+_021FC300: .word UNK04_0220EED4
 
 	arm_func_start MOD04_021FC304
 MOD04_021FC304: ; 0x021FC304
@@ -40783,8 +40783,8 @@ _021FC338:
 	add r1, r1, r4
 	cmp r1, r0
 	ble _021FC360
-	ldr r0, _021FC388 ; =0x0220EEF8
-	ldr r1, _021FC38C ; =0x0220EEC8
+	ldr r0, _021FC388 ; =UNK04_0220EEF8
+	ldr r1, _021FC38C ; =UNK04_0220EEC8
 	mov r2, #0
 	mov r3, #0x40
 	bl __msl_assertion_failed
@@ -40800,8 +40800,8 @@ _021FC360:
 	str r0, [r6, #8]
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_021FC388: .word 0x0220EEF8
-_021FC38C: .word 0x0220EEC8
+_021FC388: .word UNK04_0220EEF8
+_021FC38C: .word UNK04_0220EEC8
 
 	arm_func_start MOD04_021FC390
 MOD04_021FC390: ; 0x021FC390
@@ -40814,8 +40814,8 @@ MOD04_021FC390: ; 0x021FC390
 	mov r4, r1
 	cmp r2, r0
 	ble _021FC3C8
-	ldr r0, _021FC3FC ; =0x0220EF1C
-	ldr r1, _021FC400 ; =0x0220EEC8
+	ldr r0, _021FC3FC ; =UNK04_0220EF1C
+	ldr r1, _021FC400 ; =UNK04_0220EEC8
 	mov r2, #0
 	mov r3, #0x2e
 	bl __msl_assertion_failed
@@ -40834,8 +40834,8 @@ _021FC3C8:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FC3FC: .word 0x0220EF1C
-_021FC400: .word 0x0220EEC8
+_021FC3FC: .word UNK04_0220EF1C
+_021FC400: .word UNK04_0220EEC8
 
 	arm_func_start MOD04_021FC404
 MOD04_021FC404: ; 0x021FC404
@@ -40847,8 +40847,8 @@ MOD04_021FC404: ; 0x021FC404
 	mov r4, r1
 	cmp r2, r0
 	blt _021FC438
-	ldr r0, _021FC454 ; =0x0220EF40
-	ldr r1, _021FC458 ; =0x0220EEC8
+	ldr r0, _021FC454 ; =UNK04_0220EF40
+	ldr r1, _021FC458 ; =UNK04_0220EEC8
 	mov r2, #0
 	mov r3, #0x23
 	bl __msl_assertion_failed
@@ -40861,8 +40861,8 @@ _021FC438:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FC454: .word 0x0220EF40
-_021FC458: .word 0x0220EEC8
+_021FC454: .word UNK04_0220EF40
+_021FC458: .word UNK04_0220EEC8
 
 	arm_func_start MOD04_021FC45C
 MOD04_021FC45C: ; 0x021FC45C
@@ -40900,8 +40900,8 @@ MOD04_021FC4A4: ; 0x021FC4A4
 	mov r5, r3
 	str r2, [r4]
 	bne _021FC4DC
-	ldr r0, _021FC590 ; =0x0220EF5C
-	ldr r1, _021FC594 ; =0x0220EF64
+	ldr r0, _021FC590 ; =UNK04_0220EF5C
+	ldr r1, _021FC594 ; =UNK04_0220EF64
 	ldr r3, _021FC598 ; =0x00000197
 	bl __msl_assertion_failed
 _021FC4DC:
@@ -40954,8 +40954,8 @@ _021FC584:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021FC590: .word 0x0220EF5C
-_021FC594: .word 0x0220EF64
+_021FC590: .word UNK04_0220EF5C
+_021FC594: .word UNK04_0220EF64
 _021FC598: .word 0x00000197
 
 	arm_func_start MOD04_021FC59C
@@ -40967,8 +40967,8 @@ MOD04_021FC59C: ; 0x021FC59C
 	mov r5, r2
 	mov r4, r3
 	bne _021FC5CC
-	ldr r0, _021FC6BC ; =0x0220EF5C
-	ldr r1, _021FC6C0 ; =0x0220EF64
+	ldr r0, _021FC6BC ; =UNK04_0220EF5C
+	ldr r1, _021FC6C0 ; =UNK04_0220EF64
 	mov r2, #0
 	mov r3, #0x160
 	bl __msl_assertion_failed
@@ -41037,8 +41037,8 @@ _021FC6B0:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FC6BC: .word 0x0220EF5C
-_021FC6C0: .word 0x0220EF64
+_021FC6BC: .word UNK04_0220EF5C
+_021FC6C0: .word UNK04_0220EF64
 
 	arm_func_start MOD04_021FC6C4
 MOD04_021FC6C4: ; 0x021FC6C4
@@ -41049,8 +41049,8 @@ MOD04_021FC6C4: ; 0x021FC6C4
 	mov r5, r2
 	mov r4, r3
 	bne _021FC6F4
-	ldr r0, _021FC7C8 ; =0x0220EF74
-	ldr r1, _021FC7CC ; =0x0220EF64
+	ldr r0, _021FC7C8 ; =UNK04_0220EF74
+	ldr r1, _021FC7CC ; =UNK04_0220EF64
 	ldr r3, _021FC7D0 ; =0x0000012D
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -41112,8 +41112,8 @@ _021FC7BC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FC7C8: .word 0x0220EF74
-_021FC7CC: .word 0x0220EF64
+_021FC7C8: .word UNK04_0220EF74
+_021FC7CC: .word UNK04_0220EF64
 _021FC7D0: .word 0x0000012D
 
 	arm_func_start MOD04_021FC7D4
@@ -41125,8 +41125,8 @@ MOD04_021FC7D4: ; 0x021FC7D4
 	mov r5, r2
 	mov r4, r3
 	bne _021FC804
-	ldr r0, _021FC8D8 ; =0x0220EF74
-	ldr r1, _021FC8DC ; =0x0220EF64
+	ldr r0, _021FC8D8 ; =UNK04_0220EF74
+	ldr r1, _021FC8DC ; =UNK04_0220EF64
 	ldr r3, _021FC8E0 ; =0x00000101
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -41188,8 +41188,8 @@ _021FC8CC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FC8D8: .word 0x0220EF74
-_021FC8DC: .word 0x0220EF64
+_021FC8D8: .word UNK04_0220EF74
+_021FC8DC: .word UNK04_0220EF64
 _021FC8E0: .word 0x00000101
 
 	arm_func_start MOD04_021FC8E4
@@ -41199,8 +41199,8 @@ MOD04_021FC8E4: ; 0x021FC8E4
 	movs r4, r0
 	mov r5, r1
 	bne _021FC90C
-	ldr r0, _021FC9B0 ; =0x0220EF74
-	ldr r1, _021FC9B4 ; =0x0220EF64
+	ldr r0, _021FC9B0 ; =UNK04_0220EF74
+	ldr r1, _021FC9B4 ; =UNK04_0220EF64
 	mov r2, #0
 	mov r3, #0xd9
 	bl __msl_assertion_failed
@@ -41248,8 +41248,8 @@ _021FC9A4:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FC9B0: .word 0x0220EF74
-_021FC9B4: .word 0x0220EF64
+_021FC9B0: .word UNK04_0220EF74
+_021FC9B4: .word UNK04_0220EF64
 
 	arm_func_start MOD04_021FC9B8
 MOD04_021FC9B8: ; 0x021FC9B8
@@ -41258,8 +41258,8 @@ MOD04_021FC9B8: ; 0x021FC9B8
 	movs r4, r0
 	mov r5, r1
 	bne _021FC9E0
-	ldr r0, _021FCA84 ; =0x0220EF74
-	ldr r1, _021FCA88 ; =0x0220EF64
+	ldr r0, _021FCA84 ; =UNK04_0220EF74
+	ldr r1, _021FCA88 ; =UNK04_0220EF64
 	mov r2, #0
 	mov r3, #0xba
 	bl __msl_assertion_failed
@@ -41307,8 +41307,8 @@ _021FCA78:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FCA84: .word 0x0220EF74
-_021FCA88: .word 0x0220EF64
+_021FCA84: .word UNK04_0220EF74
+_021FCA88: .word UNK04_0220EF64
 
 	arm_func_start MOD04_021FCA8C
 MOD04_021FCA8C: ; 0x021FCA8C
@@ -41319,8 +41319,8 @@ MOD04_021FCA8C: ; 0x021FCA8C
 	mov r5, r2
 	mov r4, r3
 	bne _021FCABC
-	ldr r0, _021FCB80 ; =0x0220EF74
-	ldr r1, _021FCB84 ; =0x0220EF64
+	ldr r0, _021FCB80 ; =UNK04_0220EF74
+	ldr r1, _021FCB84 ; =UNK04_0220EF64
 	mov r2, #0
 	mov r3, #0x94
 	bl __msl_assertion_failed
@@ -41378,8 +41378,8 @@ _021FCB74:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FCB80: .word 0x0220EF74
-_021FCB84: .word 0x0220EF64
+_021FCB80: .word UNK04_0220EF74
+_021FCB84: .word UNK04_0220EF64
 
 	arm_func_start MOD04_021FCB88
 MOD04_021FCB88: ; 0x021FCB88
@@ -41390,8 +41390,8 @@ MOD04_021FCB88: ; 0x021FCB88
 	mov r5, r2
 	mov r4, r3
 	bne _021FCBB8
-	ldr r0, _021FCC80 ; =0x0220EF74
-	ldr r1, _021FCC84 ; =0x0220EF64
+	ldr r0, _021FCC80 ; =UNK04_0220EF74
+	ldr r1, _021FCC84 ; =UNK04_0220EF64
 	mov r2, #0
 	mov r3, #0x69
 	bl __msl_assertion_failed
@@ -41450,8 +41450,8 @@ _021FCC74:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FCC80: .word 0x0220EF74
-_021FCC84: .word 0x0220EF64
+_021FCC80: .word UNK04_0220EF74
+_021FCC84: .word UNK04_0220EF64
 
 	arm_func_start MOD04_021FCC88
 MOD04_021FCC88: ; 0x021FCC88
@@ -41465,8 +41465,8 @@ MOD04_021FCC88: ; 0x021FCC88
 	cmp r6, #0
 	bne _021FCCC0
 _021FCCAC:
-	ldr r0, _021FCDAC ; =0x0220EF80
-	ldr r1, _021FCDB0 ; =0x0220EF64
+	ldr r0, _021FCDAC ; =UNK04_0220EF80
+	ldr r1, _021FCDB0 ; =UNK04_0220EF64
 	mov r2, #0
 	mov r3, #0x3d
 	bl __msl_assertion_failed
@@ -41536,16 +41536,16 @@ _021FCDA0:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FCDAC: .word 0x0220EF80
-_021FCDB0: .word 0x0220EF64
+_021FCDAC: .word UNK04_0220EF80
+_021FCDB0: .word UNK04_0220EF64
 
 	arm_func_start MOD04_021FCDB4
 MOD04_021FCDB4: ; 0x021FCDB4
 	stmdb sp!, {r4, lr}
 	movs r4, r0
 	bne _021FCDD4
-	ldr r0, _021FCE44 ; =0x0220EF5C
-	ldr r1, _021FCE48 ; =0x0220EF64
+	ldr r0, _021FCE44 ; =UNK04_0220EF5C
+	ldr r1, _021FCE48 ; =UNK04_0220EF64
 	mov r2, #0
 	mov r3, #0x1b
 	bl __msl_assertion_failed
@@ -41580,8 +41580,8 @@ _021FCE3C:
 	mov r0, #1
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021FCE44: .word 0x0220EF5C
-_021FCE48: .word 0x0220EF64
+_021FCE44: .word UNK04_0220EF5C
+_021FCE48: .word UNK04_0220EF64
 
 	arm_func_start MOD04_021FCE4C
 MOD04_021FCE4C: ; 0x021FCE4C
@@ -41999,8 +41999,8 @@ MOD04_021FD3C4: ; 0x021FD3C4
 	stmdb sp!, {r4, lr}
 	movs r4, r0
 	bne _021FD3E4
-	ldr r0, _021FD3EC ; =0x0220EF98
-	ldr r1, _021FD3F0 ; =0x0220EFA4
+	ldr r0, _021FD3EC ; =UNK04_0220EF98
+	ldr r1, _021FD3F0 ; =UNK04_0220EFA4
 	ldr r3, _021FD3F4 ; =0x000001A3
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -42008,8 +42008,8 @@ _021FD3E4:
 	ldr r0, [r4, #0x40]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021FD3EC: .word 0x0220EF98
-_021FD3F0: .word 0x0220EFA4
+_021FD3EC: .word UNK04_0220EF98
+_021FD3F0: .word UNK04_0220EFA4
 _021FD3F4: .word 0x000001A3
 
 	arm_func_start MOD04_021FD3F8
@@ -42019,8 +42019,8 @@ MOD04_021FD3F8: ; 0x021FD3F8
 	movs r5, r0
 	mov r4, r1
 	bne _021FD420
-	ldr r0, _021FD42C ; =0x0220EF98
-	ldr r1, _021FD430 ; =0x0220EFA4
+	ldr r0, _021FD42C ; =UNK04_0220EF98
+	ldr r1, _021FD430 ; =UNK04_0220EFA4
 	mov r2, #0
 	mov r3, #0x19c
 	bl __msl_assertion_failed
@@ -42029,8 +42029,8 @@ _021FD420:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FD42C: .word 0x0220EF98
-_021FD430: .word 0x0220EFA4
+_021FD42C: .word UNK04_0220EF98
+_021FD430: .word UNK04_0220EFA4
 
 	arm_func_start MOD04_021FD434
 MOD04_021FD434: ; 0x021FD434
@@ -42335,7 +42335,7 @@ MOD04_021FD760: ; 0x021FD760
 MOD04_021FD7DC: ; 0x021FD7DC
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #0xc
-	ldr r4, _021FD824 ; =0x0220EFB0
+	ldr r4, _021FD824 ; =UNK04_0220EFB0
 	add r3, sp, #4
 	ldrb r5, [r4]
 	ldrb r4, [r4, #1]
@@ -42352,7 +42352,7 @@ MOD04_021FD7DC: ; 0x021FD7DC
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FD824: .word 0x0220EFB0
+_021FD824: .word UNK04_0220EFB0
 
 	arm_func_start MOD04_021FD828
 MOD04_021FD828: ; 0x021FD828
@@ -42378,7 +42378,7 @@ _021FD854: .word MOD04_021FD1AC
 MOD04_021FD858: ; 0x021FD858
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
-	ldr r3, _021FD8E0 ; =0x0220EFB0
+	ldr r3, _021FD8E0 ; =UNK04_0220EFB0
 	mov r4, r0
 	ldrb ip, [r3]
 	ldrb r3, [r3, #1]
@@ -42412,13 +42412,13 @@ _021FD8BC:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FD8E0: .word 0x0220EFB0
+_021FD8E0: .word UNK04_0220EFB0
 
 	arm_func_start MOD04_021FD8E4
 MOD04_021FD8E4: ; 0x021FD8E4
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #8
-	ldr r1, _021FD948 ; =0x0220EFB0
+	ldr r1, _021FD948 ; =UNK04_0220EFB0
 	mov r4, r0
 	ldrb r3, [r1]
 	ldrb r2, [r1, #1]
@@ -42442,7 +42442,7 @@ MOD04_021FD8E4: ; 0x021FD8E4
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021FD948: .word 0x0220EFB0
+_021FD948: .word UNK04_0220EFB0
 
 	arm_func_start MOD04_021FD94C
 MOD04_021FD94C: ; 0x021FD94C
@@ -42452,7 +42452,7 @@ MOD04_021FD94C: ; 0x021FD94C
 	mov r7, r1
 	cmp r6, #2
 	blt _021FD97C
-	ldr r1, _021FDA14 ; =0x0220EFB0
+	ldr r1, _021FDA14 ; =UNK04_0220EFB0
 	mov r0, r7
 	mov r2, #2
 	bl memcmp
@@ -42476,7 +42476,7 @@ _021FD99C:
 	ldmltia sp!, {r4, r5, r6, r7, r8, pc}
 	ldr ip, [r8, #0x50]
 	ldr r3, [r8, #0x58]
-	ldr r1, _021FDA14 ; =0x0220EFB0
+	ldr r1, _021FDA14 ; =UNK04_0220EFB0
 	add r0, r8, #0x50
 	mov r2, #2
 	add r4, ip, r3
@@ -42499,7 +42499,7 @@ _021FD99C:
 	mov r0, #1
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_021FDA14: .word 0x0220EFB0
+_021FDA14: .word UNK04_0220EFB0
 
 	arm_func_start MOD04_021FDA18
 MOD04_021FDA18: ; 0x021FDA18
@@ -42759,8 +42759,8 @@ MOD04_021FDD98: ; 0x021FDD98
 	mov r4, r0
 	cmp r4, #0
 	bgt _021FDDCC
-	ldr r0, _021FDE0C ; =0x0220EFBC
-	ldr r1, _021FDE10 ; =0x0220EFC4
+	ldr r0, _021FDE0C ; =UNK04_0220EFBC
+	ldr r1, _021FDE10 ; =UNK04_0220EFC4
 	ldr r3, _021FDE14 ; =0x00000475
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -42782,8 +42782,8 @@ _021FDDCC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FDE0C: .word 0x0220EFBC
-_021FDE10: .word 0x0220EFC4
+_021FDE0C: .word UNK04_0220EFBC
+_021FDE10: .word UNK04_0220EFC4
 _021FDE14: .word 0x00000475
 
 	arm_func_start MOD04_021FDE18
@@ -42822,7 +42822,7 @@ _021FDE60:
 	strne r0, [r4]
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021FDE98:
-	ldr r1, _021FDEE8 ; =0x0220EFB0
+	ldr r1, _021FDEE8 ; =UNK04_0220EFB0
 	add r0, r7, #0x50
 	mov r2, #2
 	bl MOD04_021FC304
@@ -42843,7 +42843,7 @@ _021FDE98:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_021FDEE8: .word 0x0220EFB0
+_021FDEE8: .word UNK04_0220EFB0
 
 	arm_func_start MOD04_021FDEEC
 MOD04_021FDEEC: ; 0x021FDEEC
@@ -43076,7 +43076,7 @@ MOD04_021FE1B4: ; 0x021FE1B4
 _021FE224:
 	cmp r7, #2
 	ble _021FE248
-	ldr r1, _021FE470 ; =0x0220EFB0
+	ldr r1, _021FE470 ; =UNK04_0220EFB0
 	mov r0, r8
 	mov r2, #2
 	bl memcmp
@@ -43183,7 +43183,7 @@ _021FE39C:
 	beq _021FE3CC
 	cmp r7, #4
 	blt _021FE3CC
-	ldr r1, _021FE470 ; =0x0220EFB0
+	ldr r1, _021FE470 ; =UNK04_0220EFB0
 	add r0, r8, #2
 	mov r2, #2
 	bl memcmp
@@ -43237,7 +43237,7 @@ _021FE44C:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021FE470: .word 0x0220EFB0
+_021FE470: .word UNK04_0220EFB0
 
 	arm_func_start MOD04_021FE474
 MOD04_021FE474: ; 0x021FE474
@@ -43336,7 +43336,7 @@ MOD04_021FE590: ; 0x021FE590
 	addne sp, sp, #4
 	movne r0, #1
 	ldmneia sp!, {r4, r5, pc}
-	ldr r1, _021FE638 ; =0x0220EFB4
+	ldr r1, _021FE638 ; =UNK04_0220EFB4
 	mov r0, r5
 	mov r2, #4
 	bl memcmp
@@ -43366,7 +43366,7 @@ MOD04_021FE590: ; 0x021FE590
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FE638: .word 0x0220EFB4
+_021FE638: .word UNK04_0220EFB4
 
 	arm_func_start MOD04_021FE63C
 MOD04_021FE63C: ; 0x021FE63C
@@ -44875,7 +44875,7 @@ MOD04_021FFA10: ; 0x021FFA10
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _021FFAE0:
 	mov r0, #4
-	ldr r2, _021FFC38 ; =0x021FFC74
+	ldr r2, _021FFC38 ; =MOD04_021FFC74
 	mov r1, r0
 	bl MOD04_021EF0E4
 	str r0, [r4, #0x10]
@@ -44964,7 +44964,7 @@ _021FFBE4:
 	.align 2, 0
 _021FFC30: .word MOD04_021FFC84
 _021FFC34: .word MOD04_021FFCB4
-_021FFC38: .word 0x021FFC74
+_021FFC38: .word MOD04_021FFC74
 
 	arm_func_start MOD04_021FFC3C
 MOD04_021FFC3C: ; 0x021FFC3C
@@ -44982,6 +44982,9 @@ MOD04_021FFC3C: ; 0x021FFC3C
 	moveq r0, #0
 	add sp, sp, #0xa4
 	ldmfd sp!, {pc}
+
+	arm_func_start MOD04_021FFC74
+MOD04_021FFC74: ; 0x021FFC74
 	ldr ip, _021FFC80 ; =MOD04_021FCE4C
 	ldr r0, [r0]
 	bx ip
@@ -45022,7 +45025,7 @@ MOD04_021FFCDC: ; 0x021FFCDC
 	ldr r2, [r0]
 	mov r4, r1
 	cmp r2, #0
-	ldreq r2, _021FFD24 ; =0x0220EFD4
+	ldreq r2, _021FFD24 ; =UNK04_0220EFD4
 	moveq r1, #0
 	streq r2, [r0]
 	streq r1, [r4]
@@ -45037,7 +45040,7 @@ MOD04_021FFCDC: ; 0x021FFCDC
 	str r0, [r4]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_021FFD24: .word 0x0220EFD4
+_021FFD24: .word UNK04_0220EFD4
 
 	arm_func_start MOD04_021FFD28
 MOD04_021FFD28: ; 0x021FFD28
@@ -45067,8 +45070,8 @@ _021FFD58:
 	sub sb, r4, r8
 	cmp sb, #0x100
 	blt _021FFD9C
-	ldr r0, _021FFEA0 ; =0x0220EFD8
-	ldr r1, _021FFEA4 ; =0x0220EFF8
+	ldr r0, _021FFEA0 ; =UNK04_0220EFD8
+	ldr r1, _021FFEA4 ; =UNK04_0220EFF8
 	mov r2, #0
 	mov r3, #0x81
 	bl __msl_assertion_failed
@@ -45149,8 +45152,8 @@ _021FFE84:
 	add sp, sp, #0x104
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_021FFEA0: .word 0x0220EFD8
-_021FFEA4: .word 0x0220EFF8
+_021FFEA0: .word UNK04_0220EFD8
+_021FFEA4: .word UNK04_0220EFF8
 _021FFEA8: .word 0x0210430C
 _021FFEAC: .word 0x0000FFFF
 
@@ -45161,8 +45164,8 @@ MOD04_021FFEB0: ; 0x021FFEB0
 	movs r5, r2
 	mov r4, r1
 	bne _021FFEE0
-	ldr r2, _021FFF64 ; =0x02211394
-	ldr r3, _021FFF68 ; =0x02211398
+	ldr r2, _021FFF64 ; =UNK04_02211394
+	ldr r3, _021FFF68 ; =UNK04_02211398
 	ldr ip, [r2]
 	mov r1, #0x16
 	eor ip, ip, #1
@@ -45178,7 +45181,7 @@ _021FFEE0:
 	ldmia r0, {r0}
 	bl SOC_InetNtoA
 	mov r2, r0
-	ldr r1, _021FFF6C ; =0x0220F008
+	ldr r1, _021FFF6C ; =UNK04_0220F008
 	mov r0, r5
 	mov r3, r4
 	bl sprintf
@@ -45188,7 +45191,7 @@ _021FFF18:
 	ldmia r0, {r0}
 	bl SOC_InetNtoA
 	mov r2, r0
-	ldr r1, _021FFF70 ; =0x0220F010
+	ldr r1, _021FFF70 ; =UNK04_0220F010
 	mov r0, r5
 	bl sprintf
 	b _021FFF58
@@ -45197,7 +45200,7 @@ _021FFF38:
 	moveq r0, #0
 	streqb r0, [r5]
 	beq _021FFF58
-	ldr r1, _021FFF74 ; =0x0220F014
+	ldr r1, _021FFF74 ; =UNK04_0220F014
 	mov r0, r5
 	mov r2, r4
 	bl sprintf
@@ -45206,11 +45209,11 @@ _021FFF58:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_021FFF64: .word 0x02211394
-_021FFF68: .word 0x02211398
-_021FFF6C: .word 0x0220F008
-_021FFF70: .word 0x0220F010
-_021FFF74: .word 0x0220F014
+_021FFF64: .word UNK04_02211394
+_021FFF68: .word UNK04_02211398
+_021FFF6C: .word UNK04_0220F008
+_021FFF70: .word UNK04_0220F010
+_021FFF74: .word UNK04_0220F014
 
 	arm_func_start MOD04_021FFF78
 MOD04_021FFF78: ; 0x021FFF78
@@ -45509,7 +45512,7 @@ _02200348:
 MOD04_0220039C: ; 0x0220039C
 	stmdb sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x20
-	ldr r6, _02200464 ; =0x0220F018
+	ldr r6, _02200464 ; =UNK04_0220F018
 	add r3, sp, #4
 	ldrb ip, [r6]
 	ldrb r2, [r6, #1]
@@ -45558,13 +45561,13 @@ MOD04_0220039C: ; 0x0220039C
 	add sp, sp, #0x20
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_02200464: .word 0x0220F018
+_02200464: .word UNK04_0220F018
 
 	arm_func_start MOD04_02200468
 MOD04_02200468: ; 0x02200468
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r0, _022004B8 ; =0x022113D4
+	ldr r0, _022004B8 ; =UNK04_022113D4
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -45573,7 +45576,7 @@ MOD04_02200468: ; 0x02200468
 	subs r5, r0, #1
 	addmi sp, sp, #4
 	ldmmiia sp!, {r4, r5, pc}
-	ldr r4, _022004B8 ; =0x022113D4
+	ldr r4, _022004B8 ; =UNK04_022113D4
 _02200498:
 	ldr r0, [r4]
 	mov r1, r5
@@ -45584,7 +45587,7 @@ _02200498:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_022004B8: .word 0x022113D4
+_022004B8: .word UNK04_022113D4
 
 	arm_func_start MOD04_022004BC
 MOD04_022004BC: ; 0x022004BC
@@ -45604,7 +45607,7 @@ _022004E8:
 	mvn sl, #0
 	cmp r0, sl
 	beq _02200564
-	ldr r6, _022006B0 ; =0x022113D8
+	ldr r6, _022006B0 ; =UNK04_022113D8
 	add r8, sp, #8
 	add r7, sp, #0x10
 	mov r5, #0x200
@@ -45723,7 +45726,7 @@ _02200664:
 	add sp, sp, #0x20
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_022006B0: .word 0x022113D8
+_022006B0: .word UNK04_022113D8
 
 	arm_func_start MOD04_022006B4
 MOD04_022006B4: ; 0x022006B4
@@ -45746,7 +45749,7 @@ _022006D8:
 	arm_func_start MOD04_022006EC
 MOD04_022006EC: ; 0x022006EC
 	stmdb sp!, {r4, r5, r6, r7, r8, lr}
-	ldr ip, _022007B4 ; =0x02210E5C
+	ldr ip, _022007B4 ; =UNK04_02210E5C
 	mov r8, r0
 	ldr r0, [ip]
 	mov r7, r1
@@ -45797,39 +45800,39 @@ _022007A4:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_022007B4: .word 0x02210E5C
+_022007B4: .word UNK04_02210E5C
 
 	arm_func_start MOD04_022007B8
 MOD04_022007B8: ; 0x022007B8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _02200848 ; =0x022113D0
+	ldr r0, _02200848 ; =UNK04_022113D0
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _022007E8
-	ldr r0, _0220084C ; =0x022113C8
-	ldr r1, _02200850 ; =0x0220F020
+	ldr r0, _0220084C ; =UNK04_022113C8
+	ldr r1, _02200850 ; =UNK04_0220F020
 	ldr r0, [r0]
 	bl MOD04_02200860
-	ldr r1, _02200848 ; =0x022113D0
+	ldr r1, _02200848 ; =UNK04_022113D0
 	str r0, [r1]
 _022007E8:
-	ldr r0, _02200854 ; =0x022113CC
+	ldr r0, _02200854 ; =UNK04_022113CC
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _02200810
-	ldr r0, _02200858 ; =0x022113C4
-	ldr r1, _0220085C ; =0x0220F03C
+	ldr r0, _02200858 ; =UNK04_022113C4
+	ldr r1, _0220085C ; =UNK04_0220F03C
 	ldr r0, [r0]
 	bl MOD04_02200860
-	ldr r1, _02200854 ; =0x022113CC
+	ldr r1, _02200854 ; =UNK04_022113CC
 	str r0, [r1]
 _02200810:
-	ldr r0, _02200848 ; =0x022113D0
+	ldr r0, _02200848 ; =UNK04_022113D0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02200830
-	ldr r0, _02200854 ; =0x022113CC
+	ldr r0, _02200854 ; =UNK04_022113CC
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _0220083C
@@ -45842,12 +45845,12 @@ _0220083C:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02200848: .word 0x022113D0
-_0220084C: .word 0x022113C8
-_02200850: .word 0x0220F020
-_02200854: .word 0x022113CC
-_02200858: .word 0x022113C4
-_0220085C: .word 0x0220F03C
+_02200848: .word UNK04_022113D0
+_0220084C: .word UNK04_022113C8
+_02200850: .word UNK04_0220F020
+_02200854: .word UNK04_022113CC
+_02200858: .word UNK04_022113C4
+_0220085C: .word UNK04_0220F03C
 
 	arm_func_start MOD04_02200860
 MOD04_02200860: ; 0x02200860
@@ -45855,9 +45858,9 @@ MOD04_02200860: ; 0x02200860
 	sub sp, sp, #0x84
 	cmp r0, #0
 	bne _0220088C
-	ldr r2, _02200898 ; =0x0220F058
+	ldr r2, _02200898 ; =UNK04_0220F058
 	str r1, [sp]
-	ldr r3, _0220089C ; =0x02210EA0
+	ldr r3, _0220089C ; =UNK04_02210EA0
 	add r0, sp, #4
 	mov r1, #0x80
 	bl snprintf
@@ -45867,8 +45870,8 @@ _0220088C:
 	add sp, sp, #0x84
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02200898: .word 0x0220F058
-_0220089C: .word 0x02210EA0
+_02200898: .word UNK04_0220F058
+_0220089C: .word UNK04_02210EA0
 
 	arm_func_start MOD04_022008A0
 MOD04_022008A0: ; 0x022008A0
@@ -45891,7 +45894,7 @@ MOD04_022008A0: ; 0x022008A0
 MOD04_022008D8: ; 0x022008D8
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #0x1c
-	ldr lr, _022009F4 ; =0x0220F018
+	ldr lr, _022009F4 ; =UNK04_0220F018
 	add r5, sp, #4
 	ldrb r4, [lr]
 	ldrb r3, [lr, #1]
@@ -45961,13 +45964,13 @@ MOD04_022008D8: ; 0x022008D8
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_022009F4: .word 0x0220F018
+_022009F4: .word UNK04_0220F018
 
 	arm_func_start MOD04_022009F8
 MOD04_022009F8: ; 0x022009F8
 	stmdb sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x60
-	ldr r7, _02200C30 ; =0x0220F018
+	ldr r7, _02200C30 ; =UNK04_0220F018
 	mov r6, r0
 	ldrb r4, [r7]
 	ldrb r3, [r7, #1]
@@ -46031,13 +46034,13 @@ MOD04_022009F8: ; 0x022009F8
 	mov r0, r3, lsr #0x10
 	strb r1, [sp, #0x15]
 	strb r0, [sp, #0x14]
-	ldr r1, _02200C34 ; =0x02210EA0
+	ldr r1, _02200C34 ; =UNK04_02210EA0
 	add r0, sp, #0x19
 	strb r3, [sp, #0x16]
 	strb r2, [sp, #0x17]
 	strb r2, [sp, #0x18]
 	bl strcpy
-	ldr r0, _02200C34 ; =0x02210EA0
+	ldr r0, _02200C34 ; =UNK04_02210EA0
 	bl strlen
 	ldrb r1, [r5, #0xe]
 	add r4, r0, #0x16
@@ -46049,7 +46052,7 @@ MOD04_022009F8: ; 0x022009F8
 	mov r0, #0
 	strb r0, [r5, #0xc]
 	str r4, [sp]
-	ldr r1, _02200C38 ; =0x022113D0
+	ldr r1, _02200C38 ; =UNK04_022113D0
 	ldr r0, [r6, #4]
 	ldr r1, [r1]
 	ldr r2, _02200C3C ; =0x00006CFD
@@ -46062,7 +46065,7 @@ _02200B60:
 	mov r0, #1
 	strb r0, [r5, #0xc]
 	str r4, [sp]
-	ldr r1, _02200C38 ; =0x022113D0
+	ldr r1, _02200C38 ; =UNK04_022113D0
 	ldr r0, [r6]
 	ldr r1, [r1]
 	ldr r2, _02200C3C ; =0x00006CFD
@@ -46096,7 +46099,7 @@ _02200B90:
 	mov r0, #2
 	strb r0, [r5, #0xc]
 	str r4, [sp]
-	ldr r1, _02200C40 ; =0x022113CC
+	ldr r1, _02200C40 ; =UNK04_022113CC
 	ldr r0, [r6]
 	ldr r1, [r1]
 	ldr r2, _02200C3C ; =0x00006CFD
@@ -46111,11 +46114,11 @@ _02200C14:
 	add sp, sp, #0x60
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_02200C30: .word 0x0220F018
-_02200C34: .word 0x02210EA0
-_02200C38: .word 0x022113D0
+_02200C30: .word UNK04_0220F018
+_02200C34: .word UNK04_02210EA0
+_02200C38: .word UNK04_022113D0
 _02200C3C: .word 0x00006CFD
-_02200C40: .word 0x022113CC
+_02200C40: .word UNK04_022113CC
 
 	arm_func_start MOD04_02200C44
 MOD04_02200C44: ; 0x02200C44
@@ -46197,7 +46200,7 @@ MOD04_02200CEC: ; 0x02200CEC
 MOD04_02200D40: ; 0x02200D40
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r1, _02200D68 ; =0x0220F018
+	ldr r1, _02200D68 ; =UNK04_0220F018
 	mov r2, #6
 	bl memcmp
 	cmp r0, #0
@@ -46206,44 +46209,44 @@ MOD04_02200D40: ; 0x02200D40
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02200D68: .word 0x0220F018
+_02200D68: .word UNK04_0220F018
 
 	arm_func_start MOD04_02200D6C
 MOD04_02200D6C: ; 0x02200D6C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _02200DA0 ; =0x022113D4
+	ldr r0, _02200DA0 ; =UNK04_022113D4
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
 	ldmeqia sp!, {pc}
 	bl MOD04_021EF074
-	ldr r0, _02200DA0 ; =0x022113D4
+	ldr r0, _02200DA0 ; =UNK04_022113D4
 	mov r1, #0
 	str r1, [r0]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02200DA0: .word 0x022113D4
+_02200DA0: .word UNK04_022113D4
 
 	arm_func_start MOD04_02200DA4
 MOD04_02200DA4: ; 0x02200DA4
 	stmdb sp!, {r4, r5, r6, lr}
-	ldr r1, _02200E08 ; =0x022113D4
+	ldr r1, _02200E08 ; =UNK04_022113D4
 	mov r6, r0
 	ldr r0, [r1]
 	mov r5, #0
 	bl MOD04_021EF06C
 	cmp r0, #0
 	ldmleia sp!, {r4, r5, r6, pc}
-	ldr r4, _02200E08 ; =0x022113D4
+	ldr r4, _02200E08 ; =UNK04_022113D4
 _02200DC8:
 	ldr r0, [r4]
 	mov r1, r5
 	bl MOD04_021EEFFC
 	cmp r6, r0
 	bne _02200DF0
-	ldr r0, _02200E08 ; =0x022113D4
+	ldr r0, _02200E08 ; =UNK04_022113D4
 	mov r1, r5
 	ldr r0, [r0]
 	bl MOD04_021EEDE0
@@ -46256,7 +46259,7 @@ _02200DF0:
 	blt _02200DC8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_02200E08: .word 0x022113D4
+_02200E08: .word UNK04_022113D4
 
 	arm_func_start MOD04_02200E0C
 MOD04_02200E0C: ; 0x02200E0C
@@ -46273,7 +46276,7 @@ MOD04_02200E0C: ; 0x02200E0C
 	stmia r2!, {r0, r1}
 	stmia r2!, {r0, r1}
 	stmia r2, {r0, r1}
-	ldr r0, _02200E9C ; =0x022113D4
+	ldr r0, _02200E9C ; =UNK04_022113D4
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _02200E68
@@ -46281,24 +46284,24 @@ MOD04_02200E0C: ; 0x02200E0C
 	mov r0, #0x40
 	mov r1, #4
 	bl MOD04_021EF0E4
-	ldr r1, _02200E9C ; =0x022113D4
+	ldr r1, _02200E9C ; =UNK04_022113D4
 	str r0, [r1]
 _02200E68:
-	ldr r0, _02200E9C ; =0x022113D4
+	ldr r0, _02200E9C ; =UNK04_022113D4
 	add r1, sp, #0
 	ldr r0, [r0]
 	bl MOD04_021EEFA8
-	ldr r0, _02200E9C ; =0x022113D4
+	ldr r0, _02200E9C ; =UNK04_022113D4
 	ldr r0, [r0]
 	bl MOD04_021EF06C
-	ldr r2, _02200E9C ; =0x022113D4
+	ldr r2, _02200E9C ; =UNK04_022113D4
 	sub r1, r0, #1
 	ldr r0, [r2]
 	bl MOD04_021EEFFC
 	add sp, sp, #0x44
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02200E9C: .word 0x022113D4
+_02200E9C: .word UNK04_022113D4
 _02200EA0: .word MOD04_02200EA4
 
 	arm_func_start MOD04_02200EA4
@@ -46320,7 +46323,7 @@ _02200EC0:
 	arm_func_start MOD04_02200ED4
 MOD04_02200ED4: ; 0x02200ED4
 	stmdb sp!, {r4, r5, r6, lr}
-	ldr r1, _02200F38 ; =0x022113D4
+	ldr r1, _02200F38 ; =UNK04_022113D4
 	mov r6, r0
 	ldr r0, [r1]
 	cmp r0, #0
@@ -46330,7 +46333,7 @@ MOD04_02200ED4: ; 0x02200ED4
 	bl MOD04_021EF06C
 	cmp r0, #0
 	ble _02200F30
-	ldr r4, _02200F38 ; =0x022113D4
+	ldr r4, _02200F38 ; =UNK04_022113D4
 _02200F04:
 	ldr r0, [r4]
 	mov r1, r5
@@ -46347,7 +46350,7 @@ _02200F30:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_02200F38: .word 0x022113D4
+_02200F38: .word UNK04_022113D4
 
 	arm_func_start MOD04_02200F3C
 MOD04_02200F3C: ; 0x02200F3C
@@ -46362,13 +46365,13 @@ MOD04_02200F3C: ; 0x02200F3C
 	mov r1, #3
 	str r3, [sp, #0x824]
 	bl MOD04_02201DCC
-	ldr r4, _02201124 ; =0x022115D8
+	ldr r4, _02201124 ; =UNK04_022115D8
 	mov r8, #0
 	ldr r0, [r4]
 	cmp r0, #0
 	ble _02200FD0
-	ldr fp, _02201128 ; =0x0220F174
-	ldr r5, _0220112C ; =0x022115DC
+	ldr fp, _02201128 ; =UNK04_0220F174
+	ldr r5, _0220112C ; =UNK04_022115DC
 	add r7, sp, #0x10
 	add r6, sp, #0x24
 _02200F8C:
@@ -46390,31 +46393,31 @@ _02200F8C:
 	cmp r8, r0
 	blt _02200F8C
 _02200FD0:
-	ldr r1, _02201130 ; =0x0220F180
+	ldr r1, _02201130 ; =UNK04_0220F180
 	add r0, sp, #0x24
 	bl MOD04_022021C0
 	ldr r1, [sl, #0xc0]
 	add r0, sp, #0x24
 	bl MOD04_02202220
-	ldr r1, _02201134 ; =0x0220F18C
+	ldr r1, _02201134 ; =UNK04_0220F18C
 	add r0, sp, #0x24
 	bl MOD04_022021C0
 	ldr r0, [sl, #0xc8]
 	cmp r0, #0
-	ldrne r1, _02201138 ; =0x0220F194
+	ldrne r1, _02201138 ; =UNK04_0220F194
 	add r0, sp, #0x24
-	ldreq r1, _0220113C ; =0x0220F198
+	ldreq r1, _0220113C ; =UNK04_0220F198
 	bl MOD04_022021C0
 	cmp sb, #0
 	beq _0220102C
-	ldr r1, _02201140 ; =0x0220F19C
+	ldr r1, _02201140 ; =UNK04_0220F19C
 	add r0, sp, #0x24
 	bl MOD04_022021C0
 	add r0, sp, #0x24
 	mov r1, sb
 	bl MOD04_02202220
 _0220102C:
-	ldr r1, _02201144 ; =0x0220F1AC
+	ldr r1, _02201144 ; =UNK04_0220F1AC
 	add r0, sp, #0x24
 	bl MOD04_022021C0
 	add r0, sp, #0x24
@@ -46423,13 +46426,13 @@ _0220102C:
 	ldr r0, [sl, #0xa8]
 	cmp r0, #0
 	beq _02201084
-	ldr r1, _02201148 ; =0x0220F1B8
+	ldr r1, _02201148 ; =UNK04_0220F1B8
 	add r0, sp, #0x24
 	bl MOD04_022021C0
 	ldr r1, [sl, #0x104]
 	add r0, sp, #0x24
 	bl MOD04_02202220
-	ldr r1, _0220114C ; =0x0220F1C4
+	ldr r1, _0220114C ; =UNK04_0220F1C4
 	add r0, sp, #0x24
 	bl MOD04_022021C0
 	add r0, sl, #0x100
@@ -46480,17 +46483,17 @@ _022010D4:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
 _02201120: .word 0x0000082C
-_02201124: .word 0x022115D8
-_02201128: .word 0x0220F174
-_0220112C: .word 0x022115DC
-_02201130: .word 0x0220F180
-_02201134: .word 0x0220F18C
-_02201138: .word 0x0220F194
-_0220113C: .word 0x0220F198
-_02201140: .word 0x0220F19C
-_02201144: .word 0x0220F1AC
-_02201148: .word 0x0220F1B8
-_0220114C: .word 0x0220F1C4
+_02201124: .word UNK04_022115D8
+_02201128: .word UNK04_0220F174
+_0220112C: .word UNK04_022115DC
+_02201130: .word UNK04_0220F180
+_02201134: .word UNK04_0220F18C
+_02201138: .word UNK04_0220F194
+_0220113C: .word UNK04_0220F198
+_02201140: .word UNK04_0220F19C
+_02201144: .word UNK04_0220F1AC
+_02201148: .word UNK04_0220F1B8
+_0220114C: .word UNK04_0220F1C4
 
 	arm_func_start MOD04_02201150
 MOD04_02201150: ; 0x02201150
@@ -46525,7 +46528,7 @@ MOD04_022011A8: ; 0x022011A8
 	movs r8, r0
 	mov r0, #0
 	str r0, [sp, #0x80c]
-	ldreq r0, _02201508 ; =0x0220F060
+	ldreq r0, _02201508 ; =UNK04_0220F060
 	mov r7, r2
 	ldreq r8, [r0]
 	ldrsb r0, [r1]
@@ -46749,7 +46752,7 @@ _022014D8:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
 _02201504: .word 0x00000814
-_02201508: .word 0x0220F060
+_02201508: .word UNK04_0220F060
 
 	arm_func_start MOD04_0220150C
 MOD04_0220150C: ; 0x0220150C
@@ -46788,7 +46791,7 @@ _02201578: .word 0x0000000A
 MOD04_0220157C: ; 0x0220157C
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
-	ldr ip, _022016A4 ; =0x0220BCD8
+	ldr ip, _022016A4 ; =UNK04_0220BCD8
 	mov r3, r0
 	ldrb r7, [ip]
 	ldrb r6, [ip, #1]
@@ -46865,7 +46868,7 @@ _0220167C:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_022016A4: .word 0x0220BCD8
+_022016A4: .word UNK04_0220BCD8
 
 	arm_func_start MOD04_022016A8
 MOD04_022016A8: ; 0x022016A8
@@ -46887,7 +46890,7 @@ MOD04_022016A8: ; 0x022016A8
 	mov r1, r4
 	mov r2, #2
 	bl MOD04_02201714
-	ldr r1, _02201710 ; =0x0220F1D0
+	ldr r1, _02201710 ; =UNK04_0220F1D0
 	mov r0, r4
 	bl MOD04_022021C0
 	ldr r0, [r4, #0x800]
@@ -46896,7 +46899,7 @@ MOD04_022016A8: ; 0x022016A8
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_02201710: .word 0x0220F1D0
+_02201710: .word UNK04_0220F1D0
 
 	arm_func_start MOD04_02201714
 MOD04_02201714: ; 0x02201714
@@ -46934,10 +46937,10 @@ _02201758:
 	mov r4, #0x5c
 _02201790:
 	ldrb r1, [r6]
-	ldr r0, _022018E0 ; =0x0220F3A8
+	ldr r0, _022018E0 ; =UNK04_0220F3A8
 	ldr fp, [r0, r1, lsl #2]
 	cmp fp, #0
-	ldreq fp, _022018E4 ; =0x0220F1E4
+	ldreq fp, _022018E4 ; =UNK04_0220F1E4
 	cmp r8, #0
 	bne _02201804
 	mov r1, fp
@@ -46955,7 +46958,7 @@ _02201790:
 	ldr r0, [sb, #0x800]
 	cmp r5, r0
 	bne _022017F4
-	ldr r1, _022018E8 ; =0x0220F1EC
+	ldr r1, _022018E8 ; =UNK04_0220F1EC
 	mov r0, sb
 	bl MOD04_022021C0
 _022017F4:
@@ -46969,7 +46972,7 @@ _02201804:
 	cmp r0, #0
 	ble _022018BC
 _02201814:
-	ldr r1, _022018EC ; =0x0220F1F0
+	ldr r1, _022018EC ; =UNK04_0220F1F0
 	add r0, sp, #0xc
 	mov r2, fp
 	mov r3, r7
@@ -47003,7 +47006,7 @@ _02201888:
 	ldr r0, [sb, #0x800]
 	cmp r5, r0
 	bne _022018A0
-	ldr r1, _022018E8 ; =0x0220F1EC
+	ldr r1, _022018E8 ; =UNK04_0220F1EC
 	mov r0, sb
 	bl MOD04_022021C0
 _022018A0:
@@ -47025,10 +47028,10 @@ _022018BC:
 	add sp, sp, #0x194
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_022018E0: .word 0x0220F3A8
-_022018E4: .word 0x0220F1E4
-_022018E8: .word 0x0220F1EC
-_022018EC: .word 0x0220F1F0
+_022018E0: .word UNK04_0220F3A8
+_022018E4: .word UNK04_0220F1E4
+_022018E8: .word UNK04_0220F1EC
+_022018EC: .word UNK04_0220F1F0
 
 	arm_func_start MOD04_022018F0
 MOD04_022018F0: ; 0x022018F0
@@ -47172,8 +47175,8 @@ _02201AC8:
 	mov r7, #0
 	cmp r0, #0
 	ble _02201B64
-	ldr fp, _02201C64 ; =0x0220F1E4
-	ldr r4, _02201C68 ; =0x0220F3A8
+	ldr fp, _02201C64 ; =UNK04_0220F1E4
+	ldr r4, _02201C68 ; =UNK04_0220F3A8
 	add r5, sp, #0xc
 _02201B00:
 	ldrb r0, [r5]
@@ -47193,7 +47196,7 @@ _02201B00:
 	ldr r0, [sb, #0x800]
 	cmp r6, r0
 	bne _02201B50
-	ldr r1, _02201C6C ; =0x0220F1EC
+	ldr r1, _02201C6C ; =UNK04_0220F1EC
 	mov r0, sb
 	bl MOD04_022021C0
 _02201B50:
@@ -47261,7 +47264,7 @@ _02201C28:
 	ldr r0, [sb, #0x800]
 	cmp r4, r0
 	bne _02201C40
-	ldr r1, _02201C6C ; =0x0220F1EC
+	ldr r1, _02201C6C ; =UNK04_0220F1EC
 	mov r0, sb
 	bl MOD04_022021C0
 _02201C40:
@@ -47276,9 +47279,9 @@ _02201C4C:
 	add sp, sp, #0x114
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_02201C64: .word 0x0220F1E4
-_02201C68: .word 0x0220F3A8
-_02201C6C: .word 0x0220F1EC
+_02201C64: .word UNK04_0220F1E4
+_02201C68: .word UNK04_0220F3A8
+_02201C6C: .word UNK04_0220F1EC
 
 	arm_func_start MOD04_02201C70
 MOD04_02201C70: ; 0x02201C70
@@ -47286,7 +47289,7 @@ MOD04_02201C70: ; 0x02201C70
 	sub sp, sp, #8
 	mov r4, r0
 	mov r0, r1
-	ldr r1, _02201D28 ; =0x0220F1F8
+	ldr r1, _02201D28 ; =UNK04_0220F1F8
 	add r2, sp, #0
 	add r3, sp, #4
 	bl sscanf
@@ -47330,7 +47333,7 @@ _02201D04:
 	add sp, sp, #8
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02201D28: .word 0x0220F1F8
+_02201D28: .word UNK04_0220F1F8
 
 	arm_func_start MOD04_02201D2C
 MOD04_02201D2C: ; 0x02201D2C
@@ -47597,7 +47600,7 @@ _022020D0:
 	mvn r0, #0
 	cmp r1, r0
 	bne _0220211C
-	ldr r1, _02202130 ; =0x0220F204
+	ldr r1, _02202130 ; =UNK04_0220F204
 	mov r0, r7
 	bl strcmp
 	cmp r0, #0
@@ -47619,7 +47622,7 @@ _0220211C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02202130: .word 0x0220F204
+_02202130: .word UNK04_0220F204
 
 	arm_func_start MOD04_02202134
 MOD04_02202134: ; 0x02202134
@@ -47629,10 +47632,10 @@ MOD04_02202134: ; 0x02202134
 	cmp r0, #0
 	addeq sp, sp, #4
 	ldmeqia sp!, {r4, r5, pc}
-	ldr r1, _022021B8 ; =0x022115D8
+	ldr r1, _022021B8 ; =UNK04_022115D8
 	mov r2, #0
 	str r2, [r1]
-	ldr ip, _022021BC ; =0x022115DC
+	ldr ip, _022021BC ; =UNK04_022115DC
 _0220215C:
 	ldr r3, [r1]
 	ldr r2, [r0, #0xc]
@@ -47658,8 +47661,8 @@ _0220215C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_022021B8: .word 0x022115D8
-_022021BC: .word 0x022115DC
+_022021B8: .word UNK04_022115D8
+_022021BC: .word UNK04_022115DC
 
 	arm_func_start MOD04_022021C0
 MOD04_022021C0: ; 0x022021C0
@@ -47694,7 +47697,7 @@ MOD04_02202220: ; 0x02202220
 	sub sp, sp, #0x18
 	mov r2, r1
 	mov r4, r0
-	ldr r1, _02202250 ; =0x0220F214
+	ldr r1, _02202250 ; =UNK04_0220F214
 	add r0, sp, #0
 	bl sprintf
 	add r1, sp, #0
@@ -47703,7 +47706,7 @@ MOD04_02202220: ; 0x02202220
 	add sp, sp, #0x18
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02202250: .word 0x0220F214
+_02202250: .word UNK04_0220F214
 
 	arm_func_start MOD04_02202254
 MOD04_02202254: ; 0x02202254
@@ -47723,7 +47726,7 @@ MOD04_02202254: ; 0x02202254
 MOD04_02202280: ; 0x02202280
 	stmdb sp!, {r4, lr}
 	movs r4, r0
-	ldreq r0, _02202300 ; =0x0220F060
+	ldreq r0, _02202300 ; =UNK04_0220F060
 	ldreq r4, [r0]
 	ldr r0, [r4, #0xbc]
 	cmp r0, #0
@@ -47750,21 +47753,21 @@ _022022C8:
 	beq _022022E8
 	bl MOD04_021F0248
 _022022E8:
-	ldr r0, _02202304 ; =0x0220F064
+	ldr r0, _02202304 ; =UNK04_0220F064
 	cmp r4, r0
 	ldmeqia sp!, {r4, pc}
 	mov r0, r4
 	bl MOD04_021DD82C
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02202300: .word 0x0220F060
-_02202304: .word 0x0220F064
+_02202300: .word UNK04_0220F060
+_02202304: .word UNK04_0220F064
 
 	arm_func_start MOD04_02202308
 MOD04_02202308: ; 0x02202308
 	stmdb sp!, {r4, lr}
 	movs r4, r0
-	ldreq r0, _0220235C ; =0x0220F060
+	ldreq r0, _0220235C ; =UNK04_0220F060
 	ldreq r4, [r0]
 	ldr r0, [r4, #0xbc]
 	cmp r0, #0
@@ -47784,7 +47787,7 @@ MOD04_02202308: ; 0x02202308
 	str r0, [r4, #0xb4]
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_0220235C: .word 0x0220F060
+_0220235C: .word UNK04_0220F060
 _02202360: .word 0x00002710
 
 	arm_func_start MOD04_02202364
@@ -47813,7 +47816,7 @@ MOD04_02202364: ; 0x02202364
 	str r0, [r5, #0xb8]
 	ldr r2, [r5, #0x10c]
 	ldr r3, [r5, #0x9c]
-	ldr r1, _02202480 ; =0x0220F218
+	ldr r1, _02202480 ; =UNK04_0220F218
 	mov r0, #5
 	blx r3
 	add sp, sp, #4
@@ -47866,7 +47869,7 @@ _02202454:
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
 _0220247C: .word 0x00002710
-_02202480: .word 0x0220F218
+_02202480: .word UNK04_0220F218
 _02202484: .word 0x0000EA60
 _02202488: .word 0x00004E20
 
@@ -47886,7 +47889,7 @@ MOD04_0220248C: ; 0x0220248C
 	cmp r0, #0
 	addeq sp, sp, #0x18
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
-	ldr r8, _02202530 ; =0x02211630
+	ldr r8, _02202530 ; =UNK04_02211630
 	add sl, sp, #8
 	add sb, sp, #0x10
 	mov r6, #0
@@ -47916,13 +47919,13 @@ _02202518:
 	add sp, sp, #0x18
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_02202530: .word 0x02211630
+_02202530: .word UNK04_02211630
 
 	arm_func_start MOD04_02202534
 MOD04_02202534: ; 0x02202534
 	stmdb sp!, {r4, lr}
 	movs r4, r0
-	ldreq r0, _02202564 ; =0x0220F060
+	ldreq r0, _02202564 ; =UNK04_0220F060
 	ldreq r4, [r0]
 	ldr r0, [r4, #0xbc]
 	cmp r0, #0
@@ -47934,37 +47937,37 @@ _02202558:
 	bl MOD04_0220248C
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02202564: .word 0x0220F060
+_02202564: .word UNK04_0220F060
 
 	arm_func_start MOD04_02202568
 MOD04_02202568: ; 0x02202568
 	cmp r0, #0
-	ldreq r0, _0220257C ; =0x0220F060
+	ldreq r0, _0220257C ; =UNK04_0220F060
 	ldreq r0, [r0]
 	str r1, [r0, #0xa8]
 	bx lr
 	.align 2, 0
-_0220257C: .word 0x0220F060
+_0220257C: .word UNK04_0220F060
 
 	arm_func_start MOD04_02202580
 MOD04_02202580: ; 0x02202580
 	cmp r0, #0
-	ldreq r0, _02202594 ; =0x0220F060
+	ldreq r0, _02202594 ; =UNK04_0220F060
 	ldreq r0, [r0]
 	str r1, [r0, #0xa4]
 	bx lr
 	.align 2, 0
-_02202594: .word 0x0220F060
+_02202594: .word UNK04_0220F060
 
 	arm_func_start MOD04_02202598
 MOD04_02202598: ; 0x02202598
 	cmp r0, #0
-	ldreq r0, _022025AC ; =0x0220F060
+	ldreq r0, _022025AC ; =UNK04_0220F060
 	ldreq r0, [r0]
 	str r1, [r0, #0xa0]
 	bx lr
 	.align 2, 0
-_022025AC: .word 0x0220F060
+_022025AC: .word UNK04_0220F060
 
 	arm_func_start MOD04_022025B0
 MOD04_022025B0: ; 0x022025B0
@@ -47974,7 +47977,7 @@ MOD04_022025B0: ; 0x022025B0
 	mov r8, r1
 	mov r4, r2
 	mov r7, r3
-	ldreq r5, _02202760 ; =0x0220F064
+	ldreq r5, _02202760 ; =UNK04_0220F064
 	beq _022025E0
 	mov r0, #0x110
 	bl MOD04_021DD860
@@ -48048,7 +48051,7 @@ _022026CC:
 	cmp r2, #0xa
 	blt _022026CC
 	mov r1, #0
-	ldr r0, _0220276C ; =0x022115D8
+	ldr r0, _0220276C ; =UNK04_022115D8
 	str r1, [r5, #0x100]
 	ldr r0, [r0]
 	cmp r0, #0
@@ -48058,17 +48061,17 @@ _022026FC:
 	ldr r0, [sp, #0x5c]
 	cmp r0, #0
 	beq _02202748
-	ldr r0, _02202770 ; =0x022115F0
+	ldr r0, _02202770 ; =UNK04_022115F0
 	ldrsb r4, [r0]
 	cmp r4, #0
 	bne _02202728
-	ldr r1, _02202774 ; =0x0220F250
+	ldr r1, _02202774 ; =UNK04_0220F250
 	add r0, sp, #0
 	mov r2, r7
 	bl sprintf
 _02202728:
 	cmp r4, #0
-	ldrne r0, _02202770 ; =0x022115F0
+	ldrne r0, _02202770 ; =UNK04_022115F0
 	ldr r1, _02202778 ; =0x00006CFC
 	addeq r0, sp, #0
 	add r2, r5, #0xcc
@@ -48084,12 +48087,12 @@ _0220274C:
 	add sp, sp, #0x40
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_02202760: .word 0x0220F064
+_02202760: .word UNK04_0220F064
 _02202764: .word 0x80808081
 _02202768: .word 0x000000FF
-_0220276C: .word 0x022115D8
-_02202770: .word 0x022115F0
-_02202774: .word 0x0220F250
+_0220276C: .word UNK04_022115D8
+_02202770: .word UNK04_022115F0
+_02202774: .word UNK04_0220F250
 _02202778: .word 0x00006CFC
 
 	arm_func_start MOD04_0220277C
@@ -48098,11 +48101,11 @@ MOD04_0220277C: ; 0x0220277C
 	bxlt lr
 	cmp r0, #0xfe
 	bxgt lr
-	ldr r2, _02202798 ; =0x0220F3A8
+	ldr r2, _02202798 ; =UNK04_0220F3A8
 	str r1, [r2, r0, lsl #2]
 	bx lr
 	.align 2, 0
-_02202798: .word 0x0220F3A8
+_02202798: .word UNK04_0220F3A8
 
 	arm_func_start MOD04_0220279C
 MOD04_0220279C: ; 0x0220279C
@@ -48564,7 +48567,7 @@ MOD04_02202DC0: ; 0x02202DC0
 	mov r4, r1
 	mov r7, r2
 	mov r5, r0
-	ldr r1, _02202E64 ; =0x0220F7A0
+	ldr r1, _02202E64 ; =UNK04_0220F7A0
 	mov r0, r7
 	bl strstr
 	cmp r0, #0
@@ -48601,7 +48604,7 @@ MOD04_02202DC0: ; 0x02202DC0
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02202E64: .word 0x0220F7A0
+_02202E64: .word UNK04_0220F7A0
 
 	arm_func_start MOD04_02202E68
 MOD04_02202E68: ; 0x02202E68
@@ -48622,7 +48625,7 @@ MOD04_02202E68: ; 0x02202E68
 	mov r6, #0
 	cmp r0, #0
 	ble _02202EF4
-	ldr r4, _02202F64 ; =0x0220F3A8
+	ldr r4, _02202F64 ; =UNK04_0220F3A8
 _02202EB0:
 	mov r0, r8
 	mov r1, r7
@@ -48673,7 +48676,7 @@ _02202F20:
 	blx r4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_02202F64: .word 0x0220F3A8
+_02202F64: .word UNK04_0220F3A8
 
 	arm_func_start MOD04_02202F68
 MOD04_02202F68: ; 0x02202F68
@@ -48754,7 +48757,7 @@ MOD04_02203048: ; 0x02203048
 	mov r4, r2
 	cmp r3, #0
 	bne _02203070
-	ldr r0, _022030BC ; =0x02210E5C
+	ldr r0, _022030BC ; =UNK04_02210E5C
 	ldr r0, [r0]
 	cmp r0, #1
 	ldmneia sp!, {r4, r5, r6, pc}
@@ -48779,7 +48782,7 @@ _02203070:
 	bl MOD04_02203294
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_022030BC: .word 0x02210E5C
+_022030BC: .word UNK04_02210E5C
 
 	arm_func_start MOD04_022030C0
 MOD04_022030C0: ; 0x022030C0
@@ -48855,7 +48858,7 @@ _022031B0:
 _022031C8:
 	ands r0, r1, #4
 	beq _02203204
-	ldr r3, _0220328C ; =0x0220F7A8
+	ldr r3, _0220328C ; =UNK04_0220F7A8
 	add ip, sp, #0x10
 	mov r2, #6
 _022031DC:
@@ -48870,7 +48873,7 @@ _022031DC:
 	strb r0, [ip]
 	b _0220322C
 _02203204:
-	ldr r3, _02203290 ; =0x0220F7B8
+	ldr r3, _02203290 ; =UNK04_0220F7B8
 	add ip, sp, #0x10
 	mov r2, #4
 _02203210:
@@ -48909,8 +48912,8 @@ _02203264:
 	add sp, sp, #0x114
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_0220328C: .word 0x0220F7A8
-_02203290: .word 0x0220F7B8
+_0220328C: .word UNK04_0220F7A8
+_02203290: .word UNK04_0220F7B8
 
 	arm_func_start MOD04_02203294
 MOD04_02203294: ; 0x02203294
@@ -49003,14 +49006,14 @@ MOD04_02203378: ; 0x02203378
 
 	arm_func_start MOD04_022033AC
 MOD04_022033AC: ; 0x022033AC
-	ldr r1, _022033C4 ; =0x02211738
+	ldr r1, _022033C4 ; =UNK04_02211738
 	ldr r1, [r1]
 	cmp r0, r1
 	moveq r0, #1
 	movne r0, #0
 	bx lr
 	.align 2, 0
-_022033C4: .word 0x02211738
+_022033C4: .word UNK04_02211738
 
 	arm_func_start MOD04_022033C8
 MOD04_022033C8: ; 0x022033C8
@@ -49252,7 +49255,7 @@ _022036A8:
 	movs r4, r0
 	addmi sp, sp, #0x9c
 	ldmmiia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r1, _02203734 ; =0x0220F7D4
+	ldr r1, _02203734 ; =UNK04_0220F7D4
 	add r0, sp, #0x16
 	mov r2, r5
 	mov r3, r7
@@ -49284,7 +49287,7 @@ _02203718:
 	add sp, sp, #0x9c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_02203734: .word 0x0220F7D4
+_02203734: .word UNK04_0220F7D4
 
 	arm_func_start MOD04_02203738
 MOD04_02203738: ; 0x02203738
@@ -49297,7 +49300,7 @@ MOD04_02203738: ; 0x02203738
 	movs r8, r0
 	addeq sp, sp, #4
 	ldmeqia sp!, {r4, r5, r6, r7, r8, sb, pc}
-	ldr r4, _022037B8 ; =0x0220F7DC
+	ldr r4, _022037B8 ; =UNK04_0220F7DC
 	mov r6, #0
 	mov r5, #0x5c
 _02203768:
@@ -49323,14 +49326,14 @@ _0220379C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_022037B8: .word 0x0220F7DC
+_022037B8: .word UNK04_0220F7DC
 
 	arm_func_start MOD04_022037BC
 MOD04_022037BC: ; 0x022037BC
 	cmp r0, #0
-	ldrne r2, _02203824 ; =0x02211730
+	ldrne r2, _02203824 ; =UNK04_02211730
 	strne r0, [r2]
-	ldr r2, _02203824 ; =0x02211730
+	ldr r2, _02203824 ; =UNK04_02211730
 	ldr r0, [r2]
 	b _022037E0
 _022037D4:
@@ -49349,7 +49352,7 @@ _022037F8:
 	moveq r0, #0
 	cmp r3, #0
 	bxeq lr
-	ldr r1, _02203824 ; =0x02211730
+	ldr r1, _02203824 ; =UNK04_02211730
 	mov r2, #0
 	ldr r3, [r1]
 	add r3, r3, #1
@@ -49357,13 +49360,13 @@ _022037F8:
 	strb r2, [ip]
 	bx lr
 	.align 2, 0
-_02203824: .word 0x02211730
+_02203824: .word UNK04_02211730
 
 	arm_func_start MOD04_02203828
 MOD04_02203828: ; 0x02203828
 	stmdb sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
-	ldr r1, _02203884 ; =0x0220BCE0
+	ldr r1, _02203884 ; =UNK04_0220BCE0
 	add r4, sp, #0
 	ldr r2, [r1]
 	ldr r1, [r1, #4]
@@ -49386,7 +49389,7 @@ _02203850:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_02203884: .word 0x0220BCE0
+_02203884: .word UNK04_0220BCE0
 
 	arm_func_start MOD04_02203888
 MOD04_02203888: ; 0x02203888
@@ -49470,7 +49473,7 @@ MOD04_0220394C: ; 0x0220394C
 	stmdb sp!, {r4, r5, r6, lr}
 	mov r5, r1
 	mov r6, r0
-	ldr r1, _022039D8 ; =0x0220F7E0
+	ldr r1, _022039D8 ; =UNK04_0220F7E0
 	mov r0, r5
 	mov r4, r2
 	bl strcmp
@@ -49509,7 +49512,7 @@ _022039D0:
 	bl atol
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_022039D8: .word 0x0220F7E0
+_022039D8: .word UNK04_0220F7E0
 _022039DC: .word 0x0210430C
 
 	arm_func_start MOD04_022039E0
@@ -49520,8 +49523,8 @@ MOD04_022039E0: ; 0x022039E0
 	mov r5, r1
 	mov r4, r2
 	bne _02203A0C
-	ldr r0, _02203A40 ; =0x0220F7E8
-	ldr r1, _02203A44 ; =0x0220F7F0
+	ldr r0, _02203A40 ; =UNK04_0220F7E8
+	ldr r1, _02203A44 ; =UNK04_0220F7F0
 	mov r2, #0
 	mov r3, #0x97
 	bl __msl_assertion_failed
@@ -49540,8 +49543,8 @@ _02203A0C:
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_02203A40: .word 0x0220F7E8
-_02203A44: .word 0x0220F7F0
+_02203A40: .word UNK04_0220F7E8
+_02203A44: .word UNK04_0220F7F0
 
 	arm_func_start MOD04_02203A48
 MOD04_02203A48: ; 0x02203A48
@@ -49549,7 +49552,7 @@ MOD04_02203A48: ; 0x02203A48
 	sub sp, sp, #0x14
 	mov r4, r1
 	mov r5, r0
-	ldr r1, _02203A7C ; =0x0220F7FC
+	ldr r1, _02203A7C ; =UNK04_0220F7FC
 	add r0, sp, #0
 	bl sprintf
 	add r2, sp, #0
@@ -49559,7 +49562,7 @@ MOD04_02203A48: ; 0x02203A48
 	add sp, sp, #0x14
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_02203A7C: .word 0x0220F7FC
+_02203A7C: .word UNK04_0220F7FC
 
 	arm_func_start MOD04_02203A80
 MOD04_02203A80: ; 0x02203A80
@@ -49596,7 +49599,7 @@ MOD04_02203AC0: ; 0x02203AC0
 MOD04_02203AE4: ; 0x02203AE4
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _02203B30 ; =0x02211734
+	ldr r0, _02203B30 ; =UNK04_02211734
 	ldr r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -49605,22 +49608,22 @@ MOD04_02203AE4: ; 0x02203AE4
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmneia sp!, {pc}
-	ldr r0, _02203B30 ; =0x02211734
+	ldr r0, _02203B30 ; =UNK04_02211734
 	ldr r0, [r0]
 	bl MOD04_021EF5B0
-	ldr r0, _02203B30 ; =0x02211734
+	ldr r0, _02203B30 ; =UNK04_02211734
 	mov r1, #0
 	str r1, [r0]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02203B30: .word 0x02211734
+_02203B30: .word UNK04_02211734
 
 	arm_func_start MOD04_02203B34
 MOD04_02203B34: ; 0x02203B34
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
-	ldr r0, _02203B88 ; =0x02211734
+	ldr r0, _02203B88 ; =UNK04_02211734
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _02203B78
@@ -49633,15 +49636,15 @@ MOD04_02203B34: ; 0x02203B34
 	mov r2, #2
 	str ip, [sp, #4]
 	bl MOD04_021EF62C
-	ldr r1, _02203B88 ; =0x02211734
+	ldr r1, _02203B88 ; =UNK04_02211734
 	str r0, [r1]
 _02203B78:
-	ldr r0, _02203B88 ; =0x02211734
+	ldr r0, _02203B88 ; =UNK04_02211734
 	ldr r0, [r0]
 	add sp, sp, #0xc
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02203B88: .word 0x02211734
+_02203B88: .word UNK04_02211734
 _02203B8C: .word MOD04_02203BA8
 _02203B90: .word MOD04_02203B98
 _02203B94: .word MOD04_02203BBC
@@ -49686,11 +49689,11 @@ _02203BE0: .word MOD04_02206740
 
 	arm_func_start MOD04_02203BE4
 MOD04_02203BE4: ; 0x02203BE4
-	ldr ip, _02203BF0 ; =0x0220658C
+	ldr ip, _02203BF0 ; =MOD04_0220658C
 	add r0, r0, #0x4c
 	bx ip
 	.align 2, 0
-_02203BF0: .word 0x0220658C
+_02203BF0: .word MOD04_0220658C
 
 	arm_func_start MOD04_02203BF4
 MOD04_02203BF4: ; 0x02203BF4
@@ -49828,7 +49831,7 @@ _02203D74:
 	str r7, [sl, #0x40]
 	cmp r8, #0
 	ble _02203DFC
-	ldr fp, _02203E78 ; =0x0220F3A8
+	ldr fp, _02203E78 ; =UNK04_0220F3A8
 _02203DA8:
 	ldrb r0, [sb, r6]
 	add r4, sb, r6
@@ -49840,7 +49843,7 @@ _02203DA8:
 	cmp r0, #0x100
 	bge _02203DFC
 	add r0, sp, #8
-	ldr r1, _02203E7C ; =0x0220F800
+	ldr r1, _02203E7C ; =UNK04_0220F800
 	mov r2, r5
 	add r0, r0, r7
 	bl sprintf
@@ -49886,8 +49889,8 @@ _02203E4C:
 	add sp, sp, #0x10c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_02203E78: .word 0x0220F3A8
-_02203E7C: .word 0x0220F800
+_02203E78: .word UNK04_0220F3A8
+_02203E7C: .word UNK04_0220F800
 
 	arm_func_start MOD04_02203E80
 MOD04_02203E80: ; 0x02203E80
@@ -49912,7 +49915,7 @@ MOD04_02203EA4: ; 0x02203EA4
 	mov r5, r3
 	cmp r4, #0
 	bne _02203EE0
-	ldr r0, _02203F68 ; =0x02210E5C
+	ldr r0, _02203F68 ; =UNK04_02210E5C
 	ldr r0, [r0]
 	cmp r0, #1
 	addne sp, sp, #0x10
@@ -49954,7 +49957,7 @@ _02203EE0:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_02203F68: .word 0x02210E5C
+_02203F68: .word UNK04_02210E5C
 _02203F6C: .word 0x00000638
 _02203F70: .word MOD04_02204028
 _02203F74: .word MOD04_02203F78
@@ -50242,7 +50245,7 @@ _0220431C:
 	str r0, [sl, #0x4b0]
 	mov r0, #1
 	str r0, [sl]
-	ldr r0, _0220437C ; =0x02211738
+	ldr r0, _0220437C ; =UNK04_02211738
 	ldr r3, [sl, #0x494]
 	ldr r2, [r0]
 	ldr r4, [sl, #0x488]
@@ -50257,7 +50260,7 @@ _02204364:
 	.align 2, 0
 _02204374: .word 0x000005F4
 _02204378: .word 0x000005DB
-_0220437C: .word 0x02211738
+_0220437C: .word UNK04_02211738
 
 	arm_func_start MOD04_02204380
 MOD04_02204380: ; 0x02204380
@@ -50463,8 +50466,8 @@ MOD04_0220464C: ; 0x0220464C
 	mov r8, #0
 	cmp r0, #3
 	blt _02204800
-	ldr sl, _0220481C ; =0x0220F818
-	ldr fp, _02204820 ; =0x0220F830
+	ldr sl, _0220481C ; =UNK04_0220F818
+	ldr fp, _02204820 ; =UNK04_0220F830
 	add r7, sp, #0
 	mov r6, r8
 	mov r4, r8
@@ -50586,8 +50589,8 @@ _02204810:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_0220481C: .word 0x0220F818
-_02204820: .word 0x0220F830
+_0220481C: .word UNK04_0220F818
+_02204820: .word UNK04_0220F830
 _02204824: .word 0x000005B4
 
 	arm_func_start MOD04_02204828
@@ -51035,7 +51038,7 @@ _02204E88:
 	ldrb r1, [r7]
 	ldrb r0, [r7, #1]
 	add r5, r8, #0x4a0
-	ldr r2, _02205228 ; =0x02211738
+	ldr r2, _02205228 ; =UNK04_02211738
 	strb r1, [r8, #0x4a0]
 	strb r0, [r5, #1]
 	ldrb r4, [r7, #2]
@@ -51069,7 +51072,7 @@ _02204E88:
 	mov r0, r8
 	add r1, r7, #6
 	bl MOD04_02205240
-	ldr r0, _02205228 ; =0x02211738
+	ldr r0, _02205228 ; =UNK04_02211738
 	ldr r3, [r8, #0x494]
 	ldr r2, [r0]
 	ldr r4, [r8, #0x488]
@@ -51236,7 +51239,7 @@ _02205154:
 	str r0, [r8, #0x5c8]
 	mov r0, #2
 	str r0, [r8]
-	ldr r0, _02205228 ; =0x02211738
+	ldr r0, _02205228 ; =UNK04_02211738
 	ldr r3, [r8, #0x494]
 	ldr r2, [r0]
 	ldr r4, [r8, #0x488]
@@ -51257,8 +51260,8 @@ _022051B4:
 _022051D0:
 	cmp r6, #0
 	bge _022051EC
-	ldr r0, _02205234 ; =0x0220F840
-	ldr r1, _02205238 ; =0x0220F830
+	ldr r0, _02205234 ; =UNK04_0220F840
+	ldr r1, _02205238 ; =UNK04_0220F830
 	ldr r3, _0220523C ; =0x000004AF
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -51280,11 +51283,11 @@ _02205214:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
 _02205224: .word 0x000004BC
-_02205228: .word 0x02211738
+_02205228: .word UNK04_02211738
 _0220522C: .word 0x000004A8
 _02205230: .word 0x0000FFFF
-_02205234: .word 0x0220F840
-_02205238: .word 0x0220F830
+_02205234: .word UNK04_0220F840
+_02205238: .word UNK04_0220F830
 _0220523C: .word 0x000004AF
 
 	arm_func_start MOD04_02205240
@@ -51332,7 +51335,7 @@ _022052B4:
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, r7, r8, pc}
 _022052D8:
-	ldr r1, _02205374 ; =0x0220F84C
+	ldr r1, _02205374 ; =UNK04_0220F84C
 	add r0, r5, #1
 	mov r2, #4
 	bl memcmp
@@ -51372,7 +51375,7 @@ _022052D8:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_02205374: .word 0x0220F84C
+_02205374: .word UNK04_0220F84C
 
 	arm_func_start MOD04_02205378
 MOD04_02205378: ; 0x02205378
@@ -51667,8 +51670,8 @@ _02205750:
 	sub r6, r6, r0
 	b _022057B8
 _02205798:
-	ldr r0, _022057E0 ; =0x0220F854
-	ldr r1, _022057E4 ; =0x0220F830
+	ldr r0, _022057E0 ; =UNK04_0220F854
+	ldr r1, _022057E4 ; =UNK04_0220F830
 	ldr r3, _022057E8 ; =0x00000317
 	mov r2, #0
 	bl __msl_assertion_failed
@@ -51688,8 +51691,8 @@ _022057D4:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, pc}
 	.align 2, 0
-_022057E0: .word 0x0220F854
-_022057E4: .word 0x0220F830
+_022057E0: .word UNK04_0220F854
+_022057E4: .word UNK04_0220F830
 _022057E8: .word 0x00000317
 
 	arm_func_start MOD04_022057EC
@@ -51915,16 +51918,16 @@ MOD04_02205AB4: ; 0x02205AB4
 	mov r4, r3
 	cmp r0, #1
 	beq _02205AEC
-	ldr r0, _02205D18 ; =0x0220F858
-	ldr r1, _02205D1C ; =0x0220F830
+	ldr r0, _02205D18 ; =UNK04_0220F858
+	ldr r1, _02205D1C ; =UNK04_0220F830
 	ldr r3, _02205D20 ; =0x0000020A
 	mov r2, #0
 	bl __msl_assertion_failed
 _02205AEC:
 	cmp r7, #0
-	ldreq r7, _02205D24 ; =0x0220F878
+	ldreq r7, _02205D24 ; =UNK04_0220F878
 	cmp r6, #0
-	ldreq r6, _02205D24 ; =0x0220F878
+	ldreq r6, _02205D24 ; =UNK04_0220F878
 	mov r0, r7
 	bl strlen
 	cmp r0, #0x100
@@ -52065,10 +52068,10 @@ _02205D0C:
 	add sp, sp, #0x30c
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02205D18: .word 0x0220F858
-_02205D1C: .word 0x0220F830
+_02205D18: .word UNK04_0220F858
+_02205D1C: .word UNK04_0220F830
 _02205D20: .word 0x0000020A
-_02205D24: .word 0x0220F878
+_02205D24: .word UNK04_0220F878
 
 	arm_func_start MOD04_02205D28
 MOD04_02205D28: ; 0x02205D28
@@ -52254,7 +52257,7 @@ MOD04_02205F98: ; 0x02205F98
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #4
 	movs r7, r1
-	ldreq r7, _02205FEC ; =0x0220F878
+	ldreq r7, _02205FEC ; =UNK04_0220F878
 	mov r4, r0
 	mov r0, r7
 	mov r6, r2
@@ -52273,7 +52276,7 @@ MOD04_02205F98: ; 0x02205F98
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02205FEC: .word 0x0220F878
+_02205FEC: .word UNK04_0220F878
 
 	arm_func_start MOD04_02205FF0
 MOD04_02205FF0: ; 0x02205FF0
@@ -52283,7 +52286,7 @@ MOD04_02205FF0: ; 0x02205FF0
 	add r0, r4, #0xc
 	mov r1, #0x14
 	bl MOD04_02206124
-	ldr r1, _02206118 ; =0x0221173C
+	ldr r1, _02206118 ; =UNK04_0221173C
 	mov r3, r0
 	ldr r1, [r1]
 	cmp r1, #0
@@ -52292,7 +52295,7 @@ MOD04_02205FF0: ; 0x02205FF0
 	bl strcpy
 	b _02206038
 _02206028:
-	ldr r1, _0220611C ; =0x0220F87C
+	ldr r1, _0220611C ; =UNK04_0220F87C
 	add r0, sp, #8
 	add r2, r4, #0xc
 	bl sprintf
@@ -52356,8 +52359,8 @@ _022060E0:
 	add sp, sp, #0x88
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02206118: .word 0x0221173C
-_0220611C: .word 0x0220F87C
+_02206118: .word UNK04_0221173C
+_0220611C: .word UNK04_0220F87C
 _02206120: .word 0x0000EE70
 
 	arm_func_start MOD04_02206124
@@ -52399,13 +52402,13 @@ MOD04_02206184: ; 0x02206184
 	ldr r5, [r4, #0x80]
 	cmp r5, #0
 	ble _02206214
-	ldr r0, _02206240 ; =0x0220F804
+	ldr r0, _02206240 ; =UNK04_0220F804
 	ldr r6, [r0]
 	mov r0, r6
 	bl strlen
 	cmp r5, r0
 	bls _02206214
-	ldr r0, _02206240 ; =0x0220F804
+	ldr r0, _02206240 ; =UNK04_0220F804
 	ldr r7, [r4, #0x7c]
 	ldr r5, [r0]
 	mov r0, r5
@@ -52422,7 +52425,7 @@ MOD04_02206184: ; 0x02206184
 	mov r0, r4
 	add r1, r7, r1
 	bl MOD04_02205240
-	ldr r0, _02206244 ; =0x02211738
+	ldr r0, _02206244 ; =UNK04_02211738
 	ldr r3, [r4, #0x494]
 	ldr r2, [r0]
 	ldr ip, [r4, #0x488]
@@ -52430,7 +52433,7 @@ MOD04_02206184: ; 0x02206184
 	mov r1, #5
 	blx ip
 _02206214:
-	ldr r0, _02206244 ; =0x02211738
+	ldr r0, _02206244 ; =UNK04_02211738
 	ldr r3, [r4, #0x494]
 	ldr r2, [r0]
 	ldr ip, [r4, #0x488]
@@ -52442,8 +52445,8 @@ _02206214:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02206240: .word 0x0220F804
-_02206244: .word 0x02211738
+_02206240: .word UNK04_0220F804
+_02206244: .word UNK04_02211738
 
 	arm_func_start MOD04_02206248
 MOD04_02206248: ; 0x02206248
@@ -52454,8 +52457,8 @@ MOD04_02206248: ; 0x02206248
 	mov r5, r2
 	mov r4, r3
 	bne _02206278
-	ldr r0, _02206360 ; =0x0220F898
-	ldr r1, _02206364 ; =0x0220F830
+	ldr r0, _02206360 ; =UNK04_0220F898
+	ldr r1, _02206364 ; =UNK04_0220F830
 	mov r2, #0
 	mov r3, #0x11c
 	bl __msl_assertion_failed
@@ -52463,7 +52466,7 @@ _02206278:
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0
 	bne _02206298
-	ldr r0, _02206368 ; =0x02210E5C
+	ldr r0, _02206368 ; =UNK04_02210E5C
 	ldr r0, [r0]
 	cmp r0, #1
 	addne sp, sp, #4
@@ -52490,13 +52493,13 @@ _02206298:
 	cmp r0, #0
 	str r2, [r7, #0x48c]
 	bne _022062FC
-	ldr r0, _0220636C ; =0x0220F8A8
-	ldr r1, _02206364 ; =0x0220F830
+	ldr r0, _0220636C ; =UNK04_0220F8A8
+	ldr r1, _02206364 ; =UNK04_0220F830
 	ldr r3, _02206370 ; =0x00000132
 	bl __msl_assertion_failed
 _022062FC:
 	ldr r0, [sp, #0x24]
-	ldr r1, _02206374 ; =0x0220F878
+	ldr r1, _02206374 ; =UNK04_0220F878
 	str r0, [r7, #0x494]
 	str r1, [r7, #0x498]
 	mov r3, #0
@@ -52521,12 +52524,12 @@ _022062FC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02206360: .word 0x0220F898
-_02206364: .word 0x0220F830
-_02206368: .word 0x02210E5C
-_0220636C: .word 0x0220F8A8
+_02206360: .word UNK04_0220F898
+_02206364: .word UNK04_0220F830
+_02206368: .word UNK04_02210E5C
+_0220636C: .word UNK04_0220F8A8
 _02206370: .word 0x00000132
-_02206374: .word 0x0220F878
+_02206374: .word UNK04_0220F878
 
 	arm_func_start MOD04_02206378
 MOD04_02206378: ; 0x02206378
@@ -52556,8 +52559,8 @@ MOD04_022063A8: ; 0x022063A8
 	bl MOD04_021EF358
 	movs r4, r0
 	bne _022063E0
-	ldr r0, _02206420 ; =0x0220F8BC
-	ldr r1, _02206424 ; =0x0220F830
+	ldr r0, _02206420 ; =UNK04_0220F8BC
+	ldr r1, _02206424 ; =UNK04_0220F830
 	mov r2, #0
 	mov r3, #0xf4
 	bl __msl_assertion_failed
@@ -52579,8 +52582,8 @@ _022063E0:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_02206420: .word 0x0220F8BC
-_02206424: .word 0x0220F830
+_02206420: .word UNK04_0220F8BC
+_02206424: .word UNK04_0220F830
 
 	arm_func_start MOD04_02206428
 MOD04_02206428: ; 0x02206428
@@ -52689,6 +52692,9 @@ MOD04_02206570: ; 0x02206570
 	ldr r0, [r0]
 	add sp, sp, #4
 	ldmfd sp!, {pc}
+
+	arm_func_start MOD04_0220658C
+MOD04_0220658C: ; 0x0220658C
 	ldr ip, _02206598 ; =MOD04_021EF06C
 	ldr r0, [r0, #4]
 	bx ip
@@ -52849,7 +52855,7 @@ _0220677C:
 _02206780:
 	str r2, [r0, #0x498]
 	str r1, [r0, #0x49c]
-	ldr r2, _022067B0 ; =0x02211740
+	ldr r2, _022067B0 ; =UNK04_02211740
 	ldr ip, _022067B4 ; =MOD04_021EED08
 	str r0, [r2]
 	mov r1, r3
@@ -52860,31 +52866,31 @@ _022067A0: .word MOD04_02206978
 _022067A4: .word MOD04_02206898
 _022067A8: .word MOD04_02206828
 _022067AC: .word MOD04_022067B8
-_022067B0: .word 0x02211740
+_022067B0: .word UNK04_02211740
 _022067B4: .word MOD04_021EED08
 
 	arm_func_start MOD04_022067B8
 MOD04_022067B8: ; 0x022067B8
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r2, _02206820 ; =0x02211740
+	ldr r2, _02206820 ; =UNK04_02211740
 	mov r5, r1
 	ldr r1, [r2]
 	ldr r0, [r0]
 	ldr r1, [r1, #0x498]
-	ldr r2, _02206824 ; =0x0220F878
+	ldr r2, _02206824 ; =UNK04_0220F878
 	bl MOD04_022039E0
-	ldr r1, _02206820 ; =0x02211740
+	ldr r1, _02206820 ; =UNK04_02211740
 	mov r4, r0
 	ldr r1, [r1]
 	ldr r0, [r5]
 	ldr r1, [r1, #0x498]
-	ldr r2, _02206824 ; =0x0220F878
+	ldr r2, _02206824 ; =UNK04_0220F878
 	bl MOD04_022039E0
 	mov r1, r0
 	mov r0, r4
 	bl strnicmp
-	ldr r1, _02206820 ; =0x02211740
+	ldr r1, _02206820 ; =UNK04_02211740
 	ldr r1, [r1]
 	ldr r1, [r1, #0x49c]
 	cmp r1, #0
@@ -52892,31 +52898,31 @@ MOD04_022067B8: ; 0x022067B8
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_02206820: .word 0x02211740
-_02206824: .word 0x0220F878
+_02206820: .word UNK04_02211740
+_02206824: .word UNK04_0220F878
 
 	arm_func_start MOD04_02206828
 MOD04_02206828: ; 0x02206828
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r2, _02206890 ; =0x02211740
+	ldr r2, _02206890 ; =UNK04_02211740
 	mov r5, r1
 	ldr r1, [r2]
 	ldr r0, [r0]
 	ldr r1, [r1, #0x498]
-	ldr r2, _02206894 ; =0x0220F878
+	ldr r2, _02206894 ; =UNK04_0220F878
 	bl MOD04_022039E0
-	ldr r1, _02206890 ; =0x02211740
+	ldr r1, _02206890 ; =UNK04_02211740
 	mov r4, r0
 	ldr r1, [r1]
 	ldr r0, [r5]
 	ldr r1, [r1, #0x498]
-	ldr r2, _02206894 ; =0x0220F878
+	ldr r2, _02206894 ; =UNK04_0220F878
 	bl MOD04_022039E0
 	mov r1, r0
 	mov r0, r4
 	bl strcmp
-	ldr r1, _02206890 ; =0x02211740
+	ldr r1, _02206890 ; =UNK04_02211740
 	ldr r1, [r1]
 	ldr r1, [r1, #0x49c]
 	cmp r1, #0
@@ -52924,13 +52930,13 @@ MOD04_02206828: ; 0x02206828
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_02206890: .word 0x02211740
-_02206894: .word 0x0220F878
+_02206890: .word UNK04_02211740
+_02206894: .word UNK04_0220F878
 
 	arm_func_start MOD04_02206898
 MOD04_02206898: ; 0x02206898
 	stmdb sp!, {r4, r5, r6, lr}
-	ldr r3, _02206974 ; =0x02211740
+	ldr r3, _02206974 ; =UNK04_02211740
 	mov r2, #0
 	ldr r3, [r3]
 	ldr r5, [r1]
@@ -52938,7 +52944,7 @@ MOD04_02206898: ; 0x02206898
 	ldr r1, [r3, #0x498]
 	mov r3, r2
 	bl MOD04_02203910
-	ldr r3, _02206974 ; =0x02211740
+	ldr r3, _02206974 ; =UNK04_02211740
 	mov r2, #0
 	mov r4, r0
 	ldr r0, [r3]
@@ -52952,7 +52958,7 @@ MOD04_02206898: ; 0x02206898
 	mov r0, r4
 	mov r1, r6
 	bl _dsub
-	ldr r2, _02206974 ; =0x02211740
+	ldr r2, _02206974 ; =UNK04_02211740
 	mov r4, r0
 	ldr r0, [r2]
 	mov r5, r1
@@ -52986,27 +52992,27 @@ _0220692C:
 	rsb r0, r0, #0
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_02206974: .word 0x02211740
+_02206974: .word UNK04_02211740
 
 	arm_func_start MOD04_02206978
 MOD04_02206978: ; 0x02206978
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r2, _022069D8 ; =0x02211740
+	ldr r2, _022069D8 ; =UNK04_02211740
 	ldr r0, [r0]
 	ldr r2, [r2]
 	ldr r5, [r1]
 	ldr r1, [r2, #0x498]
 	mov r2, #0
 	bl MOD04_0220394C
-	ldr r1, _022069D8 ; =0x02211740
+	ldr r1, _022069D8 ; =UNK04_02211740
 	mov r4, r0
 	ldr r1, [r1]
 	mov r0, r5
 	ldr r1, [r1, #0x498]
 	mov r2, #0
 	bl MOD04_0220394C
-	ldr r1, _022069D8 ; =0x02211740
+	ldr r1, _022069D8 ; =UNK04_02211740
 	sub r0, r4, r0
 	ldr r1, [r1]
 	ldr r1, [r1, #0x49c]
@@ -53015,7 +53021,7 @@ MOD04_02206978: ; 0x02206978
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_022069D8: .word 0x02211740
+_022069D8: .word UNK04_02211740
 
 	arm_func_start MOD04_022069DC
 MOD04_022069DC: ; 0x022069DC
@@ -53060,7 +53066,7 @@ MOD04_02206A4C: ; 0x02206A4C
 	mov r0, r6
 	bl MOD04_022083D4
 	cmp r0, #0xa
-	ldrgt r0, _02206B08 ; =0x02211760
+	ldrgt r0, _02206B08 ; =UNK04_02211760
 	movgt r1, #7
 	strgt r1, [r0]
 	movgt r0, #0
@@ -53069,22 +53075,22 @@ MOD04_02206A4C: ; 0x02206A4C
 	bl MOD04_022083D4
 	mov r5, r0
 	cmp r5, #0xa
-	ldrgt r0, _02206B08 ; =0x02211760
+	ldrgt r0, _02206B08 ; =UNK04_02211760
 	movgt r1, #7
 	strgt r1, [r0]
 	movgt r0, #0
 	ldmgtia sp!, {r4, r5, r6, pc}
 	bl MOD04_02206DA4
-	ldr r1, _02206B0C ; =0x02211750
+	ldr r1, _02206B0C ; =UNK04_02211750
 	add r0, r0, #1
 	ldr r2, [r1]
 	mov r1, #4
 	blx r2
-	ldr r1, _02206B10 ; =0x02211778
+	ldr r1, _02206B10 ; =UNK04_02211778
 	str r0, [r1, r4, lsl #2]
 	ldr r0, [r1, r4, lsl #2]
 	cmp r0, #0
-	ldreq r0, _02206B08 ; =0x02211760
+	ldreq r0, _02206B08 ; =UNK04_02211760
 	moveq r1, #1
 	streq r1, [r0]
 	moveq r0, #0
@@ -53092,7 +53098,7 @@ MOD04_02206A4C: ; 0x02206A4C
 	mov r1, r6
 	mov r2, r5
 	bl MOD04_02206C98
-	ldr r1, _02206B10 ; =0x02211778
+	ldr r1, _02206B10 ; =UNK04_02211778
 	mov r2, #0
 	ldr r1, [r1, r4, lsl #2]
 	strb r2, [r1, r0]
@@ -53100,17 +53106,17 @@ _02206B00:
 	mov r0, #1
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_02206B08: .word 0x02211760
-_02206B0C: .word 0x02211750
-_02206B10: .word 0x02211778
+_02206B08: .word UNK04_02211760
+_02206B0C: .word UNK04_02211750
+_02206B10: .word UNK04_02211778
 
 	arm_func_start MOD04_02206B14
 MOD04_02206B14: ; 0x02206B14
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #4
 	mov r7, #0
-	ldr r4, _02206B58 ; =0x02211764
-	ldr r6, _02206B5C ; =0x02211778
+	ldr r4, _02206B58 ; =UNK04_02211764
+	ldr r6, _02206B5C ; =UNK04_02211778
 	mov r5, r7
 _02206B2C:
 	ldr r0, [r6, r7, lsl #2]
@@ -53126,8 +53132,8 @@ _02206B44:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02206B58: .word 0x02211764
-_02206B5C: .word 0x02211778
+_02206B58: .word UNK04_02211764
+_02206B5C: .word UNK04_02211778
 
 	arm_func_start MOD04_02206B60
 MOD04_02206B60: ; 0x02206B60
@@ -53231,7 +53237,7 @@ MOD04_02206C98: ; 0x02206C98
 	bl MOD04_02206E28
 	cmp r0, #0
 	ble _02206D8C
-	ldr r5, _02206DA0 ; =0x0220BCE8
+	ldr r5, _02206DA0 ; =UNK04_0220BCE8
 	mov r6, #0
 	mov r4, #0x2a
 	mov fp, #3
@@ -53287,7 +53293,7 @@ _02206D8C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_02206DA0: .word 0x0220BCE8
+_02206DA0: .word UNK04_0220BCE8
 
 	arm_func_start MOD04_02206DA4
 MOD04_02206DA4: ; 0x02206DA4
@@ -53359,8 +53365,8 @@ _02206E64:
 
 	arm_func_start MOD04_02206E6C
 MOD04_02206E6C: ; 0x02206E6C
-	ldr r1, _02206E8C ; =0x02211744
-	ldr r2, _02206E90 ; =0x02211758
+	ldr r1, _02206E8C ; =UNK04_02211744
+	ldr r2, _02206E90 ; =UNK04_02211758
 	str r0, [r1]
 	mov r1, #0
 	ldr ip, _02206E94 ; =MOD04_02208570
@@ -53368,8 +53374,8 @@ MOD04_02206E6C: ; 0x02206E6C
 	str r1, [r2]
 	bx ip
 	.align 2, 0
-_02206E8C: .word 0x02211744
-_02206E90: .word 0x02211758
+_02206E8C: .word UNK04_02211744
+_02206E90: .word UNK04_02211758
 _02206E94: .word MOD04_02208570
 _02206E98: .word MOD04_02206E9C
 
@@ -53380,50 +53386,50 @@ MOD04_02206E9C: ; 0x02206E9C
 	bl MOD04_02206B14
 	bl MOD04_02208378
 	bl MOD04_0220831C
-	ldr r0, _02206EEC ; =0x0221174C
-	ldr r1, _02206EF0 ; =0x02211764
+	ldr r0, _02206EEC ; =UNK04_0221174C
+	ldr r1, _02206EF0 ; =UNK04_02211764
 	ldr r0, [r0]
 	ldr r1, [r1]
 	blx r1
-	ldr r0, _02206EF4 ; =0x02211754
-	ldr r1, _02206EF0 ; =0x02211764
+	ldr r0, _02206EF4 ; =UNK04_02211754
+	ldr r1, _02206EF0 ; =UNK04_02211764
 	ldr r0, [r0]
 	ldr r1, [r1]
 	blx r1
-	ldr r0, _02206EF8 ; =0x02211744
+	ldr r0, _02206EF8 ; =UNK04_02211744
 	ldr r0, [r0]
 	blx r0
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02206EEC: .word 0x0221174C
-_02206EF0: .word 0x02211764
-_02206EF4: .word 0x02211754
-_02206EF8: .word 0x02211744
+_02206EEC: .word UNK04_0221174C
+_02206EF0: .word UNK04_02211764
+_02206EF4: .word UNK04_02211754
+_02206EF8: .word UNK04_02211744
 
 	arm_func_start MOD04_02206EFC
 MOD04_02206EFC: ; 0x02206EFC
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	sub sp, sp, #4
 	mov r7, r0
-	ldr sb, _022070D0 ; =0x02211750
+	ldr sb, _022070D0 ; =UNK04_02211750
 	ldr ip, [sp, #0x30]
-	ldr r0, _022070D4 ; =0x0221175C
+	ldr r0, _022070D4 ; =UNK04_0221175C
 	mov r6, r1
 	str ip, [r0]
-	ldr r5, _022070D8 ; =0x02211764
+	ldr r5, _022070D8 ; =UNK04_02211764
 	str r7, [sb]
 	str r6, [r5]
-	ldr r4, _022070DC ; =0x02211760
+	ldr r4, _022070DC ; =UNK04_02211760
 	mov r1, #0
-	ldr r8, _022070E0 ; =0x02211778
-	ldr lr, _022070E4 ; =0x02211748
-	ldr sl, _022070E8 ; =0x0221174C
-	ldr fp, _022070EC ; =0x02211754
+	ldr r8, _022070E0 ; =UNK04_02211778
+	ldr lr, _022070E4 ; =UNK04_02211748
+	ldr sl, _022070E8 ; =UNK04_0221174C
+	ldr fp, _022070EC ; =UNK04_02211754
 	str r1, [r4]
-	ldr ip, _022070F0 ; =0x02211768
+	ldr ip, _022070F0 ; =UNK04_02211768
 	mvn sb, #0
-	ldr r0, _022070F4 ; =0x02211784
+	ldr r0, _022070F4 ; =UNK04_02211784
 	mov r5, r2
 	mov r4, r3
 	str r1, [r8]
@@ -53434,7 +53440,7 @@ MOD04_02206EFC: ; 0x02206EFC
 	str r1, [sl]
 	str r1, [fp]
 	bl MOD04_02208228
-	ldr r0, _022070F8 ; =0x022117CC
+	ldr r0, _022070F8 ; =UNK04_022117CC
 	bl MOD04_02207194
 	mov r0, r5
 	bl MOD04_0220710C
@@ -53449,17 +53455,17 @@ MOD04_02206EFC: ; 0x02206EFC
 	str r0, [r1]
 	beq _02207080
 	ldr r1, [sp, #0x28]
-	ldr r0, _022070FC ; =0x0221176C
+	ldr r0, _022070FC ; =UNK04_0221176C
 	mov r2, #4
 	bl MOD04_02206C98
-	ldr r1, _022070FC ; =0x0221176C
+	ldr r1, _022070FC ; =UNK04_0221176C
 	mov r2, #0
 	strb r2, [r1, r0]
 	ldr r1, [sp, #0x2c]
-	ldr r0, _02207100 ; =0x022117B0
+	ldr r0, _02207100 ; =UNK04_022117B0
 	mov r2, #0x10
 	bl MOD04_02206C98
-	ldr r1, _02207100 ; =0x022117B0
+	ldr r1, _02207100 ; =UNK04_022117B0
 	mov r2, #0
 	strb r2, [r1, r0]
 	bl MOD04_02208320
@@ -53474,10 +53480,10 @@ MOD04_02206EFC: ; 0x02206EFC
 	bl MOD04_022085B8
 	cmp r0, #0
 	beq _0220703C
-	ldr r0, _02207104 ; =0x02211798
+	ldr r0, _02207104 ; =UNK04_02211798
 	bl MOD04_0220724C
-	ldr r2, _022070E4 ; =0x02211748
-	ldr r1, _02207108 ; =0x02211758
+	ldr r2, _022070E4 ; =UNK04_02211748
+	ldr r1, _02207108 ; =UNK04_02211758
 	str r0, [r2]
 	mov r0, #1
 	str r0, [r1]
@@ -53486,68 +53492,68 @@ MOD04_02206EFC: ; 0x02206EFC
 _0220703C:
 	bl MOD04_02208378
 _02207040:
-	ldr r0, _022070E8 ; =0x0221174C
-	ldr r1, _022070D8 ; =0x02211764
+	ldr r0, _022070E8 ; =UNK04_0221174C
+	ldr r1, _022070D8 ; =UNK04_02211764
 	ldr r0, [r0]
 	ldr r1, [r1]
 	blx r1
-	ldr r0, _022070EC ; =0x02211754
-	ldr r1, _022070D8 ; =0x02211764
+	ldr r0, _022070EC ; =UNK04_02211754
+	ldr r1, _022070D8 ; =UNK04_02211764
 	ldr r0, [r0]
 	ldr r1, [r1]
 	blx r1
-	ldr r0, _022070DC ; =0x02211760
+	ldr r0, _022070DC ; =UNK04_02211760
 	mov r1, #8
 	str r1, [r0]
 	add sp, sp, #4
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 _02207080:
-	ldr r0, _022070E8 ; =0x0221174C
+	ldr r0, _022070E8 ; =UNK04_0221174C
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0220709C
-	ldr r1, _022070D8 ; =0x02211764
+	ldr r1, _022070D8 ; =UNK04_02211764
 	ldr r1, [r1]
 	blx r1
 _0220709C:
-	ldr r0, _022070EC ; =0x02211754
+	ldr r0, _022070EC ; =UNK04_02211754
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _022070B8
-	ldr r1, _022070D8 ; =0x02211764
+	ldr r1, _022070D8 ; =UNK04_02211764
 	ldr r1, [r1]
 	blx r1
 _022070B8:
-	ldr r0, _022070DC ; =0x02211760
+	ldr r0, _022070DC ; =UNK04_02211760
 	mov r1, #1
 	str r1, [r0]
 	mov r0, #0
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_022070D0: .word 0x02211750
-_022070D4: .word 0x0221175C
-_022070D8: .word 0x02211764
-_022070DC: .word 0x02211760
-_022070E0: .word 0x02211778
-_022070E4: .word 0x02211748
-_022070E8: .word 0x0221174C
-_022070EC: .word 0x02211754
-_022070F0: .word 0x02211768
-_022070F4: .word 0x02211784
-_022070F8: .word 0x022117CC
-_022070FC: .word 0x0221176C
-_02207100: .word 0x022117B0
-_02207104: .word 0x02211798
-_02207108: .word 0x02211758
+_022070D0: .word UNK04_02211750
+_022070D4: .word UNK04_0221175C
+_022070D8: .word UNK04_02211764
+_022070DC: .word UNK04_02211760
+_022070E0: .word UNK04_02211778
+_022070E4: .word UNK04_02211748
+_022070E8: .word UNK04_0221174C
+_022070EC: .word UNK04_02211754
+_022070F0: .word UNK04_02211768
+_022070F4: .word UNK04_02211784
+_022070F8: .word UNK04_022117CC
+_022070FC: .word UNK04_0221176C
+_02207100: .word UNK04_022117B0
+_02207104: .word UNK04_02211798
+_02207108: .word UNK04_02211758
 
 	arm_func_start MOD04_0220710C
 MOD04_0220710C: ; 0x0220710C
 	stmdb sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	bl MOD04_022083D4
-	ldr r1, _02207154 ; =0x02211750
+	ldr r1, _02207154 ; =UNK04_02211750
 	mov r4, r0
 	ldr r2, [r1]
 	add r0, r4, #1
@@ -53564,7 +53570,7 @@ _0220714C:
 	mov r0, r5
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_02207154: .word 0x02211750
+_02207154: .word UNK04_02211750
 
 	arm_func_start MOD04_02207158
 MOD04_02207158: ; 0x02207158
@@ -53573,7 +53579,7 @@ MOD04_02207158: ; 0x02207158
 	cmp r0, #0
 	bne _02207184
 	bl MOD04_02208364
-	ldr r0, _02207190 ; =0x02211768
+	ldr r0, _02207190 ; =UNK04_02211768
 	ldr r4, [r0]
 	bl MOD04_02208350
 	mov r0, r4
@@ -53584,13 +53590,13 @@ _02207184:
 	mov r0, #0
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02207190: .word 0x02211768
+_02207190: .word UNK04_02211768
 
 	arm_func_start MOD04_02207194
 MOD04_02207194: ; 0x02207194
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r2, _022071BC ; =0x0220F9B0
+	ldr r2, _022071BC ; =UNK04_0220F9B0
 	mov ip, #2
 	mov r1, #0x21
 	mov r3, #1
@@ -53599,7 +53605,7 @@ MOD04_02207194: ; 0x02207194
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_022071BC: .word 0x0220F9B0
+_022071BC: .word UNK04_0220F9B0
 
 	arm_func_start MOD04_022071C0
 MOD04_022071C0: ; 0x022071C0
@@ -53644,7 +53650,7 @@ _02207248: .word 0x027FFE0C
 MOD04_0220724C: ; 0x0220724C
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #0x10
-	ldr ip, _02207324 ; =0x0220BD2C
+	ldr ip, _02207324 ; =UNK04_0220BD2C
 	add r3, sp, #0
 	mov r4, r0
 	mov r2, #6
@@ -53656,12 +53662,12 @@ _02207264:
 	strb r0, [r3], #1
 	bne _02207264
 	ldrb r1, [ip]
-	ldr r0, _02207328 ; =0x022117F0
+	ldr r0, _02207328 ; =UNK04_022117F0
 	strb r1, [r3]
 	bl MOD04_021DD9DC
 	cmp r0, #0
 	beq _02207318
-	ldr r0, _02207328 ; =0x022117F0
+	ldr r0, _02207328 ; =UNK04_022117F0
 	ldr r1, [r0]
 	cmp r1, #0x63
 	bgt _022072B8
@@ -53677,14 +53683,14 @@ _022072B8:
 	strgtb r1, [sp]
 	strgtb r0, [sp, #1]
 _022072CC:
-	ldr r0, _02207328 ; =0x022117F0
+	ldr r0, _02207328 ; =UNK04_022117F0
 	ldr r1, [r0, #4]
 	cmp r1, #0
 	blt _022072FC
 	cmp r1, #0xa
 	bge _022072FC
 	add r3, r1, #0x30
-	ldr r1, _0220732C ; =0x022117F8
+	ldr r1, _0220732C ; =UNK04_022117F8
 	add r0, sp, #4
 	mov r2, #9
 	strb r3, [sp, #3]
@@ -53702,9 +53708,9 @@ _02207318:
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02207324: .word 0x0220BD2C
-_02207328: .word 0x022117F0
-_0220732C: .word 0x022117F8
+_02207324: .word UNK04_0220BD2C
+_02207328: .word UNK04_022117F0
+_0220732C: .word UNK04_022117F8
 
 	arm_func_start MOD04_02207330
 MOD04_02207330: ; 0x02207330
@@ -53721,7 +53727,7 @@ MOD04_0220733C: ; 0x0220733C
 	ldr r3, [r8, #0xac]
 	mov r7, r1
 	cmp r2, r3
-	ldrlo r0, _022074D8 ; =0x02211760
+	ldrlo r0, _022074D8 ; =UNK04_02211760
 	movlo r1, #7
 	strlo r1, [r0]
 	addlo sp, sp, #0x10
@@ -53730,7 +53736,7 @@ MOD04_0220733C: ; 0x0220733C
 	bl MOD04_022083D4
 	mov r5, r0
 	cmp r5, #0x20
-	ldrgt r0, _022074D8 ; =0x02211760
+	ldrgt r0, _022074D8 ; =UNK04_02211760
 	movgt r1, #7
 	strgt r1, [r0]
 	addgt sp, sp, #0x10
@@ -53742,20 +53748,20 @@ MOD04_0220733C: ; 0x0220733C
 	bl MOD04_02206DA4
 	mov r6, r0
 _022073A4:
-	ldr r1, _022074DC ; =0x02211750
+	ldr r1, _022074DC ; =UNK04_02211750
 	add r0, r6, #1
 	ldr r2, [r1]
 	mov r1, #4
 	blx r2
 	movs r4, r0
-	ldreq r0, _022074D8 ; =0x02211760
+	ldreq r0, _022074D8 ; =UNK04_02211760
 	moveq r1, #1
 	streq r1, [r0]
 	addeq sp, sp, #0x10
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, r7, r8, pc}
 	ldr ip, [r8, #0xac]
-	ldr r2, _022074E0 ; =0x0220BD54
+	ldr r2, _022074E0 ; =UNK04_0220BD54
 	add r0, sp, #4
 	add r1, sp, #8
 	mov r3, r7
@@ -53763,7 +53769,7 @@ _022073A4:
 	bl MOD04_0220788C
 	cmp r0, #0
 	bne _02207414
-	ldr r1, _022074E4 ; =0x02211764
+	ldr r1, _022074E4 ; =UNK04_02211764
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
@@ -53780,7 +53786,7 @@ _02207414:
 	mov r1, #0
 	strb r1, [r4, r0]
 	ldr r0, [sp, #8]
-	ldr r1, _022074E8 ; =0x0220F9CC
+	ldr r1, _022074E8 ; =UNK04_0220F9CC
 	mov r2, r4
 	bl MOD04_022086F0
 	cmp r0, #0
@@ -53801,7 +53807,7 @@ _0220744C:
 	addne sp, sp, #0x10
 	movne r0, #1
 	ldmneia sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r1, _022074E4 ; =0x02211764
+	ldr r1, _022074E4 ; =UNK04_02211764
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
@@ -53812,22 +53818,22 @@ _022074A4:
 	ldr r0, [sp, #4]
 	ldr r1, [sp, #8]
 	bl MOD04_02207BB4
-	ldr r1, _022074E4 ; =0x02211764
+	ldr r1, _022074E4 ; =UNK04_02211764
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
-	ldr r0, _022074D8 ; =0x02211760
+	ldr r0, _022074D8 ; =UNK04_02211760
 	mov r1, #1
 	str r1, [r0]
 	mov r0, #0
 	add sp, sp, #0x10
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_022074D8: .word 0x02211760
-_022074DC: .word 0x02211750
-_022074E0: .word 0x0220BD54
-_022074E4: .word 0x02211764
-_022074E8: .word 0x0220F9CC
+_022074D8: .word UNK04_02211760
+_022074DC: .word UNK04_02211750
+_022074E0: .word UNK04_0220BD54
+_022074E4: .word UNK04_02211764
+_022074E8: .word UNK04_0220F9CC
 
 	arm_func_start MOD04_022074EC
 MOD04_022074EC: ; 0x022074EC
@@ -53835,7 +53841,7 @@ MOD04_022074EC: ; 0x022074EC
 	sub sp, sp, #0x18
 	mov r7, r2
 	mov r4, r1
-	ldr r1, _02207790 ; =0x02211750
+	ldr r1, _02207790 ; =UNK04_02211750
 	mov r6, r7, lsl #8
 	cmp r6, #0x80
 	ldr r2, [r1]
@@ -53845,7 +53851,7 @@ MOD04_022074EC: ; 0x022074EC
 	mov r1, #4
 	blx r2
 	movs r5, r0
-	ldreq r0, _02207794 ; =0x02211760
+	ldreq r0, _02207794 ; =UNK04_02211760
 	moveq r1, #1
 	streq r1, [r0]
 	addeq sp, sp, #0x18
@@ -53856,18 +53862,18 @@ MOD04_022074EC: ; 0x022074EC
 	bl MOD04_02208558
 	mov sb, r0
 	bl MOD04_02206DA4
-	ldr r1, _02207790 ; =0x02211750
+	ldr r1, _02207790 ; =UNK04_02211750
 	add r0, r0, #1
 	ldr r2, [r1]
 	mov r1, #4
 	blx r2
 	movs r4, r0
 	bne _02207594
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, r5
 	ldr r1, [r1]
 	blx r1
-	ldr r0, _02207794 ; =0x02211760
+	ldr r0, _02207794 ; =UNK04_02211760
 	mov r1, #1
 	str r1, [r0]
 	add sp, sp, #0x18
@@ -53884,22 +53890,22 @@ _02207594:
 	bl MOD04_02208558
 	mov sb, r0
 	bl MOD04_02206DA4
-	ldr r1, _02207790 ; =0x02211750
+	ldr r1, _02207790 ; =UNK04_02211750
 	add r0, r0, #1
 	ldr r2, [r1]
 	mov r1, #4
 	blx r2
 	movs sl, r0
 	bne _02207610
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, r5
 	ldr r1, [r1]
 	blx r1
-	ldr r0, _02207794 ; =0x02211760
+	ldr r0, _02207794 ; =UNK04_02211760
 	mov r1, #1
 	str r1, [r0]
 	add sp, sp, #0x18
@@ -53911,7 +53917,7 @@ _02207610:
 	bl MOD04_02206C98
 	mov r1, #0
 	strb r1, [sl, r0]
-	ldr r2, _0220779C ; =0x0220BD3C
+	ldr r2, _0220779C ; =UNK04_0220BD3C
 	add r0, sp, #4
 	add r1, sp, #8
 	mov r3, r5
@@ -53919,15 +53925,15 @@ _02207610:
 	bl MOD04_0220788C
 	cmp r0, #0
 	bne _02207680
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, sl
 	ldr r1, [r1]
 	blx r1
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, r5
 	ldr r1, [r1]
 	blx r1
@@ -53936,13 +53942,13 @@ _02207610:
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 _02207680:
 	ldr r0, [sp, #8]
-	ldr r1, _022077A0 ; =0x0220F9D8
+	ldr r1, _022077A0 ; =UNK04_0220F9D8
 	mov r2, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _0220773C
 	ldr r0, [sp, #8]
-	ldr r1, _022077A4 ; =0x0220F9E0
+	ldr r1, _022077A4 ; =UNK04_0220F9E0
 	mov r2, sl
 	bl MOD04_022086F0
 	cmp r0, #0
@@ -53967,15 +53973,15 @@ _02207680:
 	addne sp, sp, #0x18
 	movne r0, #1
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, sl
 	ldr r1, [r1]
 	blx r1
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, r5
 	ldr r1, [r1]
 	blx r1
@@ -53983,43 +53989,43 @@ _02207680:
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 _0220773C:
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, sl
 	ldr r1, [r1]
 	blx r1
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
-	ldr r1, _02207798 ; =0x02211764
+	ldr r1, _02207798 ; =UNK04_02211764
 	mov r0, r5
 	ldr r1, [r1]
 	blx r1
 	ldr r0, [sp, #4]
 	ldr r1, [sp, #8]
 	bl MOD04_02207BB4
-	ldr r0, _02207794 ; =0x02211760
+	ldr r0, _02207794 ; =UNK04_02211760
 	mov r1, #1
 	str r1, [r0]
 	mov r0, #0
 	add sp, sp, #0x18
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_02207790: .word 0x02211750
-_02207794: .word 0x02211760
-_02207798: .word 0x02211764
-_0220779C: .word 0x0220BD3C
-_022077A0: .word 0x0220F9D8
-_022077A4: .word 0x0220F9E0
+_02207790: .word UNK04_02211750
+_02207794: .word UNK04_02211760
+_02207798: .word UNK04_02211764
+_0220779C: .word UNK04_0220BD3C
+_022077A0: .word UNK04_0220F9D8
+_022077A4: .word UNK04_0220F9E0
 
 	arm_func_start MOD04_022077A8
 MOD04_022077A8: ; 0x022077A8
 	stmdb sp!, {r4, lr}
 	sub sp, sp, #0x10
-	ldr r2, _02207814 ; =0x0220BD48
+	ldr r2, _02207814 ; =UNK04_0220BD48
 	mov r4, r0
 	mov ip, #0x80
-	ldr r3, _02207818 ; =0x02211850
+	ldr r3, _02207818 ; =UNK04_02211850
 	add r0, sp, #4
 	add r1, sp, #8
 	str ip, [sp]
@@ -54042,8 +54048,8 @@ MOD04_022077A8: ; 0x022077A8
 	add sp, sp, #0x10
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02207814: .word 0x0220BD48
-_02207818: .word 0x02211850
+_02207814: .word UNK04_0220BD48
+_02207818: .word UNK04_02211850
 
 	arm_func_start MOD04_0220781C
 MOD04_0220781C: ; 0x0220781C
@@ -54056,7 +54062,7 @@ MOD04_0220781C: ; 0x0220781C
 	bl MOD04_022092A0
 	str r0, [r5]
 	ldr r1, [r5]
-	ldr r0, _02207884 ; =0x02211768
+	ldr r0, _02207884 ; =UNK04_02211768
 	str r1, [r0]
 	bl MOD04_02208350
 	ldr r0, [r5]
@@ -54067,15 +54073,15 @@ MOD04_0220781C: ; 0x0220781C
 	mov r0, r5
 	mov r1, r4
 	bl MOD04_02207BB4
-	ldr r0, _02207888 ; =0x02211760
+	ldr r0, _02207888 ; =UNK04_02211760
 	mov r1, #3
 	str r1, [r0]
 	mov r0, #0
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_02207884: .word 0x02211768
-_02207888: .word 0x02211760
+_02207884: .word UNK04_02211768
+_02207888: .word UNK04_02211760
 
 	arm_func_start MOD04_0220788C
 MOD04_0220788C: ; 0x0220788C
@@ -54083,31 +54089,31 @@ MOD04_0220788C: ; 0x0220788C
 	sub sp, sp, #8
 	mov r8, r0
 	mov r7, r1
-	ldr r0, _02207B40 ; =0x0221182C
-	ldr r1, _02207B44 ; =0x02211838
+	ldr r0, _02207B40 ; =UNK04_0221182C
+	ldr r1, _02207B44 ; =UNK04_02211838
 	mov r6, r2
 	mov r4, r3
 	bl MOD04_022071C0
 	cmp r0, #0
-	ldreq r0, _02207B48 ; =0x02211760
+	ldreq r0, _02207B48 ; =UNK04_02211760
 	moveq r1, #8
 	streq r1, [r0]
 	addeq sp, sp, #8
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r1, _02207B4C ; =0x02211750
+	ldr r1, _02207B4C ; =UNK04_02211750
 	mov r0, #0x24
 	ldr r2, [r1]
 	mov r1, #4
 	blx r2
 	movs r5, r0
-	ldreq r0, _02207B48 ; =0x02211760
+	ldreq r0, _02207B48 ; =UNK04_02211760
 	moveq r1, #1
 	streq r1, [r0]
 	addeq sp, sp, #8
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r0, _02207B50 ; =0x0221175C
+	ldr r0, _02207B50 ; =UNK04_0221175C
 	mov r1, #0
 	ldr r0, [r0]
 	str r0, [r5, #8]
@@ -54115,11 +54121,11 @@ MOD04_0220788C: ; 0x0220788C
 	bl MOD04_022082D4
 	cmp r0, #0
 	bne _02207944
-	ldr r1, _02207B54 ; =0x02211764
+	ldr r1, _02207B54 ; =UNK04_02211764
 	mov r0, r5
 	ldr r1, [r1]
 	blx r1
-	ldr r0, _02207B48 ; =0x02211760
+	ldr r0, _02207B48 ; =UNK04_02211760
 	mov r1, #2
 	str r1, [r0]
 	add sp, sp, #8
@@ -54127,7 +54133,7 @@ MOD04_0220788C: ; 0x0220788C
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 _02207944:
 	ldr r1, _02207B58 ; =MOD04_02207BE0
-	ldr r0, _02207B5C ; =0x02211754
+	ldr r0, _02207B5C ; =UNK04_02211754
 	str r1, [sp]
 	str r5, [sp, #4]
 	ldr r0, [r0]
@@ -54138,109 +54144,109 @@ _02207944:
 	movs r4, r0
 	bne _0220799C
 	bl MOD04_022082A0
-	ldr r1, _02207B54 ; =0x02211764
+	ldr r1, _02207B54 ; =UNK04_02211764
 	mov r0, r5
 	ldr r1, [r1]
 	blx r1
-	ldr r0, _02207B48 ; =0x02211760
+	ldr r0, _02207B48 ; =UNK04_02211760
 	mov r1, #3
 	str r1, [r0]
 	add sp, sp, #8
 	mov r0, #0
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 _0220799C:
-	ldr r1, _02207B60 ; =0x0220F9C8
+	ldr r1, _02207B60 ; =UNK04_0220F9C8
 	str r5, [r8]
 	mov r2, #1
 	str r4, [r7]
 	bl MOD04_022086D4
 	cmp r0, #0
 	beq _02207B1C
-	ldr r1, _02207B64 ; =0x0220F9E4
-	ldr r2, _02207B68 ; =0x022117CC
+	ldr r1, _02207B64 ; =UNK04_0220F9E4
+	ldr r2, _02207B68 ; =UNK04_022117CC
 	mov r0, r4
 	bl MOD04_02208764
 	cmp r0, #0
 	beq _02207B1C
-	ldr r1, _02207B6C ; =0x0220F9F0
-	ldr r2, _02207B70 ; =0x0221176C
+	ldr r1, _02207B6C ; =UNK04_0220F9F0
+	ldr r2, _02207B70 ; =UNK04_0221176C
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
-	ldr r1, _02207B74 ; =0x0220F9F8
-	ldr r2, _02207B40 ; =0x0221182C
+	ldr r1, _02207B74 ; =UNK04_0220F9F8
+	ldr r2, _02207B40 ; =UNK04_0221182C
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
-	ldr r1, _02207B78 ; =0x0220FA04
-	ldr r2, _02207B7C ; =0x022117B0
+	ldr r1, _02207B78 ; =UNK04_0220FA04
+	ldr r2, _02207B7C ; =UNK04_022117B0
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
-	ldr r0, _02207B80 ; =0x0221174C
-	ldr r1, _02207B84 ; =0x0220FA0C
+	ldr r0, _02207B80 ; =UNK04_0221174C
+	ldr r1, _02207B84 ; =UNK04_0220FA0C
 	ldr r2, [r0]
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
-	ldr r1, _02207B88 ; =0x0220FA14
-	ldr r2, _02207B44 ; =0x02211838
+	ldr r1, _02207B88 ; =UNK04_0220FA14
+	ldr r2, _02207B44 ; =UNK04_02211838
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
-	ldr r1, _02207B8C ; =0x0220FA1C
-	ldr r2, _02207B90 ; =0x02211784
+	ldr r1, _02207B8C ; =UNK04_0220FA1C
+	ldr r2, _02207B90 ; =UNK04_02211784
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
-	ldr r1, _02207B94 ; =0x0220FA24
+	ldr r1, _02207B94 ; =UNK04_0220FA24
 	mov r0, r4
 	mov r2, r6
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
-	ldr r0, _02207B98 ; =0x02211778
+	ldr r0, _02207B98 ; =UNK04_02211778
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _02207AA0
-	ldr r1, _02207B9C ; =0x0220FA2C
+	ldr r1, _02207B9C ; =UNK04_0220FA2C
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
 _02207AA0:
-	ldr r0, _02207B98 ; =0x02211778
+	ldr r0, _02207B98 ; =UNK04_02211778
 	ldr r2, [r0, #4]
 	cmp r2, #0
 	beq _02207AC4
-	ldr r1, _02207BA0 ; =0x0220FA34
+	ldr r1, _02207BA0 ; =UNK04_0220FA34
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
 _02207AC4:
-	ldr r0, _02207B98 ; =0x02211778
+	ldr r0, _02207B98 ; =UNK04_02211778
 	ldr r2, [r0, #8]
 	cmp r2, #0
 	beq _02207AE8
-	ldr r1, _02207BA4 ; =0x0220FA3C
+	ldr r1, _02207BA4 ; =UNK04_0220FA3C
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
 	beq _02207B1C
 _02207AE8:
-	ldr r0, _02207BA8 ; =0x02211748
+	ldr r0, _02207BA8 ; =UNK04_02211748
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02207B10
-	ldr r1, _02207BAC ; =0x0220FA44
-	ldr r2, _02207BB0 ; =0x02211798
+	ldr r1, _02207BAC ; =UNK04_0220FA44
+	ldr r2, _02207BB0 ; =UNK04_02211798
 	mov r0, r4
 	bl MOD04_022086F0
 	cmp r0, #0
@@ -54253,42 +54259,42 @@ _02207B1C:
 	mov r0, r5
 	mov r1, r4
 	bl MOD04_02207BB4
-	ldr r0, _02207B48 ; =0x02211760
+	ldr r0, _02207B48 ; =UNK04_02211760
 	mov r1, #1
 	str r1, [r0]
 	mov r0, #0
 	add sp, sp, #8
 	ldmia sp!, {r4, r5, r6, r7, r8, pc}
 	.align 2, 0
-_02207B40: .word 0x0221182C
-_02207B44: .word 0x02211838
-_02207B48: .word 0x02211760
-_02207B4C: .word 0x02211750
-_02207B50: .word 0x0221175C
-_02207B54: .word 0x02211764
+_02207B40: .word UNK04_0221182C
+_02207B44: .word UNK04_02211838
+_02207B48: .word UNK04_02211760
+_02207B4C: .word UNK04_02211750
+_02207B50: .word UNK04_0221175C
+_02207B54: .word UNK04_02211764
 _02207B58: .word MOD04_02207BE0
-_02207B5C: .word 0x02211754
-_02207B60: .word 0x0220F9C8
-_02207B64: .word 0x0220F9E4
-_02207B68: .word 0x022117CC
-_02207B6C: .word 0x0220F9F0
-_02207B70: .word 0x0221176C
-_02207B74: .word 0x0220F9F8
-_02207B78: .word 0x0220FA04
-_02207B7C: .word 0x022117B0
-_02207B80: .word 0x0221174C
-_02207B84: .word 0x0220FA0C
-_02207B88: .word 0x0220FA14
-_02207B8C: .word 0x0220FA1C
-_02207B90: .word 0x02211784
-_02207B94: .word 0x0220FA24
-_02207B98: .word 0x02211778
-_02207B9C: .word 0x0220FA2C
-_02207BA0: .word 0x0220FA34
-_02207BA4: .word 0x0220FA3C
-_02207BA8: .word 0x02211748
-_02207BAC: .word 0x0220FA44
-_02207BB0: .word 0x02211798
+_02207B5C: .word UNK04_02211754
+_02207B60: .word UNK04_0220F9C8
+_02207B64: .word UNK04_0220F9E4
+_02207B68: .word UNK04_022117CC
+_02207B6C: .word UNK04_0220F9F0
+_02207B70: .word UNK04_0221176C
+_02207B74: .word UNK04_0220F9F8
+_02207B78: .word UNK04_0220FA04
+_02207B7C: .word UNK04_022117B0
+_02207B80: .word UNK04_0221174C
+_02207B84: .word UNK04_0220FA0C
+_02207B88: .word UNK04_0220FA14
+_02207B8C: .word UNK04_0220FA1C
+_02207B90: .word UNK04_02211784
+_02207B94: .word UNK04_0220FA24
+_02207B98: .word UNK04_02211778
+_02207B9C: .word UNK04_0220FA2C
+_02207BA0: .word UNK04_0220FA34
+_02207BA4: .word UNK04_0220FA3C
+_02207BA8: .word UNK04_02211748
+_02207BAC: .word UNK04_0220FA44
+_02207BB0: .word UNK04_02211798
 
 	arm_func_start MOD04_02207BB4
 MOD04_02207BB4: ; 0x02207BB4
@@ -54297,13 +54303,13 @@ MOD04_02207BB4: ; 0x02207BB4
 	mov r0, r1
 	bl MOD04_02209410
 	bl MOD04_022082A0
-	ldr r1, _02207BDC ; =0x02211764
+	ldr r1, _02207BDC ; =UNK04_02211764
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02207BDC: .word 0x02211764
+_02207BDC: .word UNK04_02211764
 
 	arm_func_start MOD04_02207BE0
 MOD04_02207BE0: ; 0x02207BE0
@@ -54326,7 +54332,7 @@ MOD04_02207BE0: ; 0x02207BE0
 	beq _02207E08
 	b _02207E18
 _02207C28:
-	ldr r1, _02207F04 ; =0x0220FA4C
+	ldr r1, _02207F04 ; =UNK04_0220FA4C
 	ldr r0, [sp]
 	add r2, sp, #0x10
 	bl MOD04_02209A98
@@ -54372,7 +54378,7 @@ _02207CBC:
 	add r7, r7, #1
 	bne _02207CE8
 	add r0, r1, r3
-	ldr r1, _02207F0C ; =0x0220FA5C
+	ldr r1, _02207F0C ; =UNK04_0220FA5C
 	mov r2, r6
 	bl MOD04_022083C8
 	cmp r0, #0
@@ -54482,42 +54488,42 @@ _02207E38:
 	ldr r0, [sl, #0x20]
 	cmp r0, #0
 	beq _02207E50
-	ldr r1, _02207F10 ; =0x02211764
+	ldr r1, _02207F10 ; =UNK04_02211764
 	ldr r1, [r1]
 	blx r1
 _02207E50:
 	ldr r0, [sl, #0x1c]
 	cmp r0, #0
 	beq _02207E68
-	ldr r1, _02207F10 ; =0x02211764
+	ldr r1, _02207F10 ; =UNK04_02211764
 	ldr r1, [r1]
 	blx r1
 _02207E68:
-	ldr r1, _02207F10 ; =0x02211764
+	ldr r1, _02207F10 ; =UNK04_02211764
 	ldr r0, [sl, #0x18]
 	ldr r1, [r1]
 	blx r1
 	b _02207E8C
 _02207E7C:
-	ldr r1, _02207F10 ; =0x02211764
+	ldr r1, _02207F10 ; =UNK04_02211764
 	ldr r0, [sl, #0x10]
 	ldr r1, [r1]
 	blx r1
 _02207E8C:
 	bl MOD04_02208364
-	ldr r0, _02207F14 ; =0x02211768
+	ldr r0, _02207F14 ; =UNK04_02211768
 	mvn r1, #0
 	str r1, [r0]
 	bl MOD04_02208350
 	ldr r0, [sp]
 	bl MOD04_02209CC4
-	ldr r1, _02207F10 ; =0x02211764
+	ldr r1, _02207F10 ; =UNK04_02211764
 	mov r0, sl
 	ldr r1, [r1]
 	blx r1
 	bl MOD04_022082A0
 	cmp r4, #0
-	ldrne r0, _02207F18 ; =0x02211760
+	ldrne r0, _02207F18 ; =UNK04_02211760
 	strne r4, [r0]
 	ldr r0, [sp, #4]
 	cmp r0, #0
@@ -54536,12 +54542,12 @@ _02207EE8:
 	add sp, sp, #0x1c
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_02207F04: .word 0x0220FA4C
+_02207F04: .word UNK04_0220FA4C
 _02207F08: .word 0x0000012E
-_02207F0C: .word 0x0220FA5C
-_02207F10: .word 0x02211764
-_02207F14: .word 0x02211768
-_02207F18: .word 0x02211760
+_02207F0C: .word UNK04_0220FA5C
+_02207F10: .word UNK04_02211764
+_02207F14: .word UNK04_02211768
+_02207F18: .word UNK04_02211760
 
 	arm_func_start MOD04_02207F1C
 MOD04_02207F1C: ; 0x02207F1C
@@ -54596,7 +54602,7 @@ MOD04_02207F9C: ; 0x02207F9C
 	ldr r0, [r0, #0x10]
 	str r2, [sp, #4]
 	bl MOD04_022083B4
-	ldr r1, _02208224 ; =0x0220FA68
+	ldr r1, _02208224 ; =UNK04_0220FA68
 	add r2, sp, #0x1c
 	mov r0, r4
 	bl MOD04_02209A98
@@ -54764,7 +54770,7 @@ _02208218:
 	add sp, sp, #0x24
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_02208224: .word 0x0220FA68
+_02208224: .word UNK04_0220FA68
 
 	arm_func_start MOD04_02208228
 MOD04_02208228: ; 0x02208228
@@ -54808,40 +54814,40 @@ _0220829C: .word 0x020CBDC4
 MOD04_022082A0: ; 0x022082A0
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _022082CC ; =0x022118D4
+	ldr r0, _022082CC ; =UNK04_022118D4
 	bl OS_LockMutex
-	ldr r1, _022082D0 ; =0x022118D0
+	ldr r1, _022082D0 ; =UNK04_022118D0
 	mov r2, #0
-	ldr r0, _022082CC ; =0x022118D4
+	ldr r0, _022082CC ; =UNK04_022118D4
 	str r2, [r1]
 	bl OS_UnlockMutex
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_022082CC: .word 0x022118D4
-_022082D0: .word 0x022118D0
+_022082CC: .word UNK04_022118D4
+_022082D0: .word UNK04_022118D0
 
 	arm_func_start MOD04_022082D4
 MOD04_022082D4: ; 0x022082D4
 	stmdb sp!, {r4, lr}
-	ldr r0, _02208314 ; =0x022118D4
+	ldr r0, _02208314 ; =UNK04_022118D4
 	bl OS_LockMutex
-	ldr r0, _02208318 ; =0x022118D0
+	ldr r0, _02208318 ; =UNK04_022118D0
 	ldr r0, [r0]
 	cmp r0, #0
 	moveq r4, #1
 	movne r4, #0
 	cmp r4, #0
-	ldrne r0, _02208318 ; =0x022118D0
+	ldrne r0, _02208318 ; =UNK04_022118D0
 	movne r1, #1
 	strne r1, [r0]
-	ldr r0, _02208314 ; =0x022118D4
+	ldr r0, _02208314 ; =UNK04_022118D4
 	bl OS_UnlockMutex
 	mov r0, r4
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02208314: .word 0x022118D4
-_02208318: .word 0x022118D0
+_02208314: .word UNK04_022118D4
+_02208318: .word UNK04_022118D0
 
 	arm_func_start MOD04_0220831C
 MOD04_0220831C: ; 0x0220831C
@@ -54851,35 +54857,35 @@ MOD04_0220831C: ; 0x0220831C
 MOD04_02208320: ; 0x02208320
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _02208348 ; =0x022118D4
+	ldr r0, _02208348 ; =UNK04_022118D4
 	bl OS_InitMutex
-	ldr r0, _0220834C ; =0x022118D0
+	ldr r0, _0220834C ; =UNK04_022118D0
 	mov r1, #0
 	str r1, [r0]
 	mov r0, #1
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02208348: .word 0x022118D4
-_0220834C: .word 0x022118D0
+_02208348: .word UNK04_022118D4
+_0220834C: .word UNK04_022118D0
 
 	arm_func_start MOD04_02208350
 MOD04_02208350: ; 0x02208350
 	ldr ip, _0220835C ; =0x020CBFA0
-	ldr r0, _02208360 ; =0x022118EC
+	ldr r0, _02208360 ; =UNK04_022118EC
 	bx ip
 	.align 2, 0
 _0220835C: .word 0x020CBFA0
-_02208360: .word 0x022118EC
+_02208360: .word UNK04_022118EC
 
 	arm_func_start MOD04_02208364
 MOD04_02208364: ; 0x02208364
 	ldr ip, _02208370 ; =0x020CC010
-	ldr r0, _02208374 ; =0x022118EC
+	ldr r0, _02208374 ; =UNK04_022118EC
 	bx ip
 	.align 2, 0
 _02208370: .word 0x020CC010
-_02208374: .word 0x022118EC
+_02208374: .word UNK04_022118EC
 
 	arm_func_start MOD04_02208378
 MOD04_02208378: ; 0x02208378
@@ -54889,13 +54895,13 @@ MOD04_02208378: ; 0x02208378
 MOD04_0220837C: ; 0x0220837C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _02208398 ; =0x022118EC
+	ldr r0, _02208398 ; =UNK04_022118EC
 	bl OS_InitMutex
 	mov r0, #1
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02208398: .word 0x022118EC
+_02208398: .word UNK04_022118EC
 
 	arm_func_start MOD04_0220839C
 MOD04_0220839C: ; 0x0220839C
@@ -54966,13 +54972,13 @@ _02208440:
 MOD04_0220844C: ; 0x0220844C
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	sub sp, sp, #0xc
-	ldr r4, _02208554 ; =0x0220BD64
+	ldr r4, _02208554 ; =UNK04_0220BD64
 	mov r6, #0
 	ldr r5, [r4]
 	mov r7, #0xa
 	umull r4, sl, r5, r7
 	mla sl, r5, r6, sl
-	ldr r5, _02208554 ; =0x0220BD64
+	ldr r5, _02208554 ; =UNK04_0220BD64
 	mov sb, r1
 	ldr r5, [r5, #4]
 	mov r8, r2
@@ -54990,10 +54996,10 @@ MOD04_0220844C: ; 0x0220844C
 	mov r1, #1
 	str r1, [sp, #4]
 _022084B0:
-	ldr r1, _02208554 ; =0x0220BD64
+	ldr r1, _02208554 ; =UNK04_0220BD64
 	add r1, r1, r7, lsl #3
 	ldr r4, [r1, #4]
-	ldr r1, _02208554 ; =0x0220BD64
+	ldr r1, _02208554 ; =UNK04_0220BD64
 	cmp r8, r4
 	ldr r5, [r1, r7, lsl #3]
 	cmpeq sb, r5
@@ -55035,7 +55041,7 @@ _02208530:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_02208554: .word 0x0220BD64
+_02208554: .word UNK04_0220BD64
 
 	arm_func_start MOD04_02208558
 MOD04_02208558: ; 0x02208558
@@ -55057,35 +55063,35 @@ MOD04_02208570: ; 0x02208570
 	mov r4, r0
 	bl MOD04_022091BC
 	bl MOD04_02208C24
-	ldr r0, _022085AC ; =0x0221191C
-	ldr r1, _022085B0 ; =0x02211904
+	ldr r0, _022085AC ; =UNK04_0221191C
+	ldr r1, _022085B0 ; =UNK04_02211904
 	ldr r0, [r0]
 	ldr r1, [r1]
 	blx r1
 	bl MOD04_02208CF4
-	ldr r0, _022085B4 ; =0x02211920
+	ldr r0, _022085B4 ; =UNK04_02211920
 	mov r1, #0
 	str r1, [r0]
 	blx r4
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_022085AC: .word 0x0221191C
-_022085B0: .word 0x02211904
-_022085B4: .word 0x02211920
+_022085AC: .word UNK04_0221191C
+_022085B0: .word UNK04_02211904
+_022085B4: .word UNK04_02211920
 
 	arm_func_start MOD04_022085B8
 MOD04_022085B8: ; 0x022085B8
 	stmdb sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #4
-	ldr r3, _022086B0 ; =0x02211908
+	ldr r3, _022086B0 ; =UNK04_02211908
 	mov r7, #0
-	ldr r6, _022086B4 ; =0x02211924
-	ldr r5, _022086B8 ; =0x02211904
-	ldr lr, _022086BC ; =0x02211910
-	ldr ip, _022086C0 ; =0x02211914
+	ldr r6, _022086B4 ; =UNK04_02211924
+	ldr r5, _022086B8 ; =UNK04_02211904
+	ldr lr, _022086BC ; =UNK04_02211910
+	ldr ip, _022086C0 ; =UNK04_02211914
 	str r7, [r3]
-	ldr r4, _022086C4 ; =0x0221190C
-	ldr r3, _022086C8 ; =0x02211918
+	ldr r4, _022086C4 ; =UNK04_0221190C
+	ldr r3, _022086C8 ; =UNK04_02211918
 	str r7, [r4]
 	mov r4, r2
 	str r0, [r6]
@@ -55095,7 +55101,7 @@ MOD04_022085B8: ; 0x022085B8
 	str r7, [r3]
 	bl MOD04_02208CF8
 	cmp r0, #0
-	ldreq r0, _022086B0 ; =0x02211908
+	ldreq r0, _022086B0 ; =UNK04_02211908
 	moveq r1, #9
 	streq r1, [r0]
 	addeq sp, sp, #4
@@ -55107,10 +55113,10 @@ MOD04_022085B8: ; 0x022085B8
 	mov r1, #8
 	blx r2
 	movs r1, r0
-	ldr r0, _022086CC ; =0x0221191C
+	ldr r0, _022086CC ; =UNK04_0221191C
 	str r1, [r0]
 	bne _02208660
-	ldr r0, _022086B0 ; =0x02211908
+	ldr r0, _022086B0 ; =UNK04_02211908
 	mov r1, #1
 	str r1, [r0]
 	bl MOD04_02208CF4
@@ -55121,16 +55127,16 @@ _02208660:
 	mov r0, r4
 	bl MOD04_02208C54
 	cmp r0, #0
-	ldrne r1, _022086D0 ; =0x02211920
+	ldrne r1, _022086D0 ; =UNK04_02211920
 	movne r0, #1
 	strne r0, [r1]
 	addne sp, sp, #4
 	ldmneia sp!, {r4, r5, r6, r7, pc}
-	ldr r0, _022086CC ; =0x0221191C
+	ldr r0, _022086CC ; =UNK04_0221191C
 	mov r1, r5
 	ldr r2, [r1]
 	ldr r0, [r0]
-	ldr r1, _022086B0 ; =0x02211908
+	ldr r1, _022086B0 ; =UNK04_02211908
 	mov r3, #9
 	str r3, [r1]
 	blx r2
@@ -55139,15 +55145,15 @@ _02208660:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_022086B0: .word 0x02211908
-_022086B4: .word 0x02211924
-_022086B8: .word 0x02211904
-_022086BC: .word 0x02211910
-_022086C0: .word 0x02211914
-_022086C4: .word 0x0221190C
-_022086C8: .word 0x02211918
-_022086CC: .word 0x0221191C
-_022086D0: .word 0x02211920
+_022086B0: .word UNK04_02211908
+_022086B4: .word UNK04_02211924
+_022086B8: .word UNK04_02211904
+_022086BC: .word UNK04_02211910
+_022086C0: .word UNK04_02211914
+_022086C4: .word UNK04_0221190C
+_022086C8: .word UNK04_02211918
+_022086CC: .word UNK04_0221191C
+_022086D0: .word UNK04_02211920
 
 	arm_func_start MOD04_022086D4
 MOD04_022086D4: ; 0x022086D4
@@ -55224,7 +55230,7 @@ MOD04_02208794: ; 0x02208794
 	addlt sp, sp, #4
 	movlt r0, #1
 	ldmltia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
-	ldr r7, _02208850 ; =0x0220BDF7
+	ldr r7, _02208850 ; =UNK04_0220BDF7
 	mov fp, #0x13
 	ldr r0, [sp]
 	add r5, r0, #0x46
@@ -55260,7 +55266,7 @@ _02208834:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_02208850: .word 0x0220BDF7
+_02208850: .word UNK04_0220BDF7
 
 	arm_func_start MOD04_02208854
 MOD04_02208854: ; 0x02208854
@@ -55339,13 +55345,13 @@ _02208948:
 	cmp r5, #0
 	strne r7, [r4, #0xc]
 	bne _022089D0
-	ldr r1, _022089D8 ; =0x02211924
+	ldr r1, _022089D8 ; =UNK04_02211924
 	mov r0, r6
 	ldr r2, [r1]
 	mov r1, #4
 	blx r2
 	cmp r0, #0
-	ldreq r0, _022089DC ; =0x02211908
+	ldreq r0, _022089DC ; =UNK04_02211908
 	moveq r1, #1
 	streq r1, [r0]
 	moveq r0, #0
@@ -55374,22 +55380,22 @@ _022089D0:
 	mov r0, #1
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, pc}
 	.align 2, 0
-_022089D8: .word 0x02211924
-_022089DC: .word 0x02211908
+_022089D8: .word UNK04_02211924
+_022089DC: .word UNK04_02211908
 
 	arm_func_start MOD04_022089E0
 MOD04_022089E0: ; 0x022089E0
 	ldr ip, _022089EC ; =MOD04_02208888
-	ldr r0, _022089F0 ; =0x02211910
+	ldr r0, _022089F0 ; =UNK04_02211910
 	bx ip
 	.align 2, 0
 _022089EC: .word MOD04_02208888
-_022089F0: .word 0x02211910
+_022089F0: .word UNK04_02211910
 
 	arm_func_start MOD04_022089F4
 MOD04_022089F4: ; 0x022089F4
 	stmdb sp!, {r4, lr}
-	ldr r4, _02208A20 ; =0x02211910
+	ldr r4, _02208A20 ; =UNK04_02211910
 	ldr r0, [r4]
 	cmp r0, #0
 	ldmeqia sp!, {r4, pc}
@@ -55401,7 +55407,7 @@ _02208A08:
 	bne _02208A08
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02208A20: .word 0x02211910
+_02208A20: .word UNK04_02211910
 
 	arm_func_start MOD04_02208A24
 MOD04_02208A24: ; 0x02208A24
@@ -55411,7 +55417,7 @@ MOD04_02208A24: ; 0x02208A24
 	bl MOD04_02208AD0
 	movs r4, r0
 	beq _02208ABC
-	ldr r0, _02208AC8 ; =0x02211910
+	ldr r0, _02208AC8 ; =UNK04_02211910
 	ldr r2, [r0]
 	ldr r1, [r2]
 	cmp r2, r1
@@ -55436,7 +55442,7 @@ _02208A84:
 	ldr r6, [r0, #0x30]
 	ldr r5, [r0, #0x2c]
 	bl MOD04_02209338
-	ldr r1, _02208ACC ; =0x02211904
+	ldr r1, _02208ACC ; =UNK04_02211904
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
@@ -55450,12 +55456,12 @@ _02208ABC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02208AC8: .word 0x02211910
-_02208ACC: .word 0x02211904
+_02208AC8: .word UNK04_02211910
+_02208ACC: .word UNK04_02211904
 
 	arm_func_start MOD04_02208AD0
 MOD04_02208AD0: ; 0x02208AD0
-	ldr r1, _02208B24 ; =0x02211910
+	ldr r1, _02208B24 ; =UNK04_02211910
 	mov ip, #0
 	ldr r3, [r1]
 	cmp r3, #0
@@ -55479,13 +55485,13 @@ _02208B1C:
 	mov r0, ip
 	bx lr
 	.align 2, 0
-_02208B24: .word 0x02211910
+_02208B24: .word UNK04_02211910
 
 	arm_func_start MOD04_02208B28
 MOD04_02208B28: ; 0x02208B28
 	stmdb sp!, {r4, r5, lr}
 	sub sp, sp, #4
-	ldr r1, _02208BD8 ; =0x02211924
+	ldr r1, _02208BD8 ; =UNK04_02211924
 	mov r4, r0
 	ldr r2, [r1]
 	mov r0, #0x14
@@ -55494,7 +55500,7 @@ MOD04_02208B28: ; 0x02208B28
 	blx r2
 	cmp r0, #0
 	beq _02208BCC
-	ldr r1, _02208BDC ; =0x02211910
+	ldr r1, _02208BDC ; =UNK04_02211910
 	ldr r2, [r1]
 	cmp r2, #0
 	streq r0, [r0]
@@ -55511,7 +55517,7 @@ MOD04_02208B28: ; 0x02208B28
 	ldr r1, [r1]
 	str r0, [r1]
 _02208B94:
-	ldr r1, _02208BE0 ; =0x0221190C
+	ldr r1, _02208BE0 ; =UNK04_0221190C
 	mvn r2, #0
 	ldr ip, [r1]
 	ldr r3, [r1]
@@ -55530,49 +55536,49 @@ _02208BCC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_02208BD8: .word 0x02211924
-_02208BDC: .word 0x02211910
-_02208BE0: .word 0x0221190C
+_02208BD8: .word UNK04_02211924
+_02208BDC: .word UNK04_02211910
+_02208BE0: .word UNK04_0221190C
 
 	arm_func_start MOD04_02208BE4
 MOD04_02208BE4: ; 0x02208BE4
 	ldr ip, _02208BF8 ; =0x020CBDC4
 	mov r1, #0
-	ldr r0, _02208BFC ; =0x02211944
+	ldr r0, _02208BFC ; =UNK04_02211944
 	mov r2, r1
 	bx ip
 	.align 2, 0
 _02208BF8: .word 0x020CBDC4
-_02208BFC: .word 0x02211944
+_02208BFC: .word UNK04_02211944
 
 	arm_func_start MOD04_02208C00
 MOD04_02208C00: ; 0x02208C00
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _02208C20 ; =0x02211944
+	ldr r0, _02208C20 ; =UNK04_02211944
 	add r1, sp, #0
 	mov r2, #1
 	bl OS_ReceiveMessage
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02208C20: .word 0x02211944
+_02208C20: .word UNK04_02211944
 
 	arm_func_start MOD04_02208C24
 MOD04_02208C24: ; 0x02208C24
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _02208C4C ; =0x02211918
+	ldr r0, _02208C4C ; =UNK04_02211918
 	mov r1, #1
 	str r1, [r0]
 	bl MOD04_02208BE4
-	ldr r0, _02208C50 ; =0x02211964
+	ldr r0, _02208C50 ; =UNK04_02211964
 	bl OS_JoinThread
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02208C4C: .word 0x02211918
-_02208C50: .word 0x02211964
+_02208C4C: .word UNK04_02211918
+_02208C50: .word UNK04_02211964
 
 	arm_func_start MOD04_02208C54
 MOD04_02208C54: ; 0x02208C54
@@ -55585,46 +55591,46 @@ MOD04_02208C54: ; 0x02208C54
 	addeq sp, sp, #0xc
 	moveq r0, #0
 	ldmeqia sp!, {r4, r5, pc}
-	ldr r0, _02208CBC ; =0x02211944
-	ldr r1, _02208CC0 ; =0x02211928
+	ldr r0, _02208CBC ; =UNK04_02211944
+	ldr r1, _02208CC0 ; =UNK04_02211928
 	mov r2, #1
 	bl OS_InitMessageQueue
 	mov r0, #0x2000
 	str r0, [sp]
-	ldr r0, _02208CC4 ; =0x02211964
+	ldr r0, _02208CC4 ; =UNK04_02211964
 	ldr r1, _02208CC8 ; =MOD04_0220A044
 	add r3, r4, #0x2000
 	mov r2, #0
 	str r5, [sp, #4]
 	bl OS_CreateThread
-	ldr r0, _02208CC4 ; =0x02211964
+	ldr r0, _02208CC4 ; =UNK04_02211964
 	bl OS_WakeupThreadDirect
 	mov r0, #1
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_02208CBC: .word 0x02211944
-_02208CC0: .word 0x02211928
-_02208CC4: .word 0x02211964
+_02208CBC: .word UNK04_02211944
+_02208CC0: .word UNK04_02211928
+_02208CC4: .word UNK04_02211964
 _02208CC8: .word MOD04_0220A044
 
 	arm_func_start MOD04_02208CCC
 MOD04_02208CCC: ; 0x02208CCC
 	ldr ip, _02208CD8 ; =0x020CBFA0
-	ldr r0, _02208CDC ; =0x0221192C
+	ldr r0, _02208CDC ; =UNK04_0221192C
 	bx ip
 	.align 2, 0
 _02208CD8: .word 0x020CBFA0
-_02208CDC: .word 0x0221192C
+_02208CDC: .word UNK04_0221192C
 
 	arm_func_start MOD04_02208CE0
 MOD04_02208CE0: ; 0x02208CE0
 	ldr ip, _02208CEC ; =0x020CC010
-	ldr r0, _02208CF0 ; =0x0221192C
+	ldr r0, _02208CF0 ; =UNK04_0221192C
 	bx ip
 	.align 2, 0
 _02208CEC: .word 0x020CC010
-_02208CF0: .word 0x0221192C
+_02208CF0: .word UNK04_0221192C
 
 	arm_func_start MOD04_02208CF4
 MOD04_02208CF4: ; 0x02208CF4
@@ -55634,13 +55640,13 @@ MOD04_02208CF4: ; 0x02208CF4
 MOD04_02208CF8: ; 0x02208CF8
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _02208D14 ; =0x0221192C
+	ldr r0, _02208D14 ; =UNK04_0221192C
 	bl OS_InitMutex
 	mov r0, #1
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02208D14: .word 0x0221192C
+_02208D14: .word UNK04_0221192C
 
 	arm_func_start MOD04_02208D18
 MOD04_02208D18: ; 0x02208D18
@@ -55999,7 +56005,7 @@ MOD04_022091BC: ; 0x022091BC
 	stmdb sp!, {lr}
 	sub sp, sp, #4
 	bl MOD04_02208CE0
-	ldr r0, _02209214 ; =0x02211914
+	ldr r0, _02209214 ; =UNK04_02211914
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _02209204
@@ -56020,7 +56026,7 @@ _02209204:
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02209214: .word 0x02211914
+_02209214: .word UNK04_02211914
 
 	arm_func_start MOD04_02209218
 MOD04_02209218: ; 0x02209218
@@ -56029,7 +56035,7 @@ MOD04_02209218: ; 0x02209218
 	mov r4, r0
 	mov r5, #0
 	bl MOD04_02208CE0
-	ldr r0, _0220929C ; =0x02211914
+	ldr r0, _0220929C ; =UNK04_02211914
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _02209278
@@ -56060,7 +56066,7 @@ _0220928C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_0220929C: .word 0x02211914
+_0220929C: .word UNK04_02211914
 
 	arm_func_start MOD04_022092A0
 MOD04_022092A0: ; 0x022092A0
@@ -56069,7 +56075,7 @@ MOD04_022092A0: ; 0x022092A0
 	mov r5, r0
 	ldr r0, [r5]
 	cmp r0, #0
-	ldrne r0, _02209334 ; =0x02211908
+	ldrne r0, _02209334 ; =UNK04_02211908
 	movne r1, #0xb
 	strne r1, [r0]
 	addne sp, sp, #4
@@ -56080,7 +56086,7 @@ MOD04_022092A0: ; 0x022092A0
 	bne _022092F8
 	ldr r0, [r5, #0x38]
 	cmp r0, #0
-	ldreq r0, _02209334 ; =0x02211908
+	ldreq r0, _02209334 ; =UNK04_02211908
 	moveq r1, #0xb
 	streq r1, [r0]
 	addeq sp, sp, #4
@@ -56091,7 +56097,7 @@ _022092F8:
 	mov r0, r5
 	bl MOD04_02208B28
 	movs r4, r0
-	ldrmi r0, _02209334 ; =0x02211908
+	ldrmi r0, _02209334 ; =UNK04_02211908
 	movmi r1, #1
 	strmi r1, [r0]
 	bmi _02209324
@@ -56104,7 +56110,7 @@ _02209324:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_02209334: .word 0x02211908
+_02209334: .word UNK04_02211908
 
 	arm_func_start MOD04_02209338
 MOD04_02209338: ; 0x02209338
@@ -56120,27 +56126,27 @@ MOD04_02209338: ; 0x02209338
 	ldr r0, [r0, #0x800]
 	cmp r0, #0
 	beq _02209374
-	ldr r1, _022093AC ; =0x02211904
+	ldr r1, _022093AC ; =UNK04_02211904
 	ldr r1, [r1]
 	blx r1
 _02209374:
-	ldr r1, _022093AC ; =0x02211904
+	ldr r1, _022093AC ; =UNK04_02211904
 	ldr r0, [r4, #0x20]
 	ldr r1, [r1]
 	blx r1
 _02209384:
-	ldr r1, _022093AC ; =0x02211904
+	ldr r1, _022093AC ; =UNK04_02211904
 	ldr r0, [r4, #0x24]
 	ldr r1, [r1]
 	blx r1
-	ldr r1, _022093AC ; =0x02211904
+	ldr r1, _022093AC ; =UNK04_02211904
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
 	mov r0, #1
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_022093AC: .word 0x02211904
+_022093AC: .word UNK04_02211904
 
 	arm_func_start MOD04_022093B0
 MOD04_022093B0: ; 0x022093B0
@@ -56149,7 +56155,7 @@ MOD04_022093B0: ; 0x022093B0
 	movs r7, r0
 	addeq sp, sp, #4
 	ldmeqia sp!, {r4, r5, r6, r7, pc}
-	ldr r4, _0220940C ; =0x02211904
+	ldr r4, _0220940C ; =UNK04_02211904
 	mov r5, #0
 _022093CC:
 	ldr r0, [r7]
@@ -56171,12 +56177,12 @@ _022093FC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0220940C: .word 0x02211904
+_0220940C: .word UNK04_02211904
 
 	arm_func_start MOD04_02209410
 MOD04_02209410: ; 0x02209410
 	stmdb sp!, {r4, lr}
-	ldr r1, _02209434 ; =0x02211904
+	ldr r1, _02209434 ; =UNK04_02211904
 	mov r4, r0
 	ldr r0, [r4, #0x30]
 	ldr r1, [r1]
@@ -56185,7 +56191,7 @@ MOD04_02209410: ; 0x02209410
 	bl MOD04_02209338
 	ldmia sp!, {r4, pc}
 	.align 2, 0
-_02209434: .word 0x02211904
+_02209434: .word UNK04_02211904
 
 	arm_func_start MOD04_02209438
 MOD04_02209438: ; 0x02209438
@@ -56201,29 +56207,29 @@ MOD04_02209438: ; 0x02209438
 	cmp r0, #1
 	beq _02209478
 	cmp r0, #2
-	ldrne r0, _022099A0 ; =0x02211908
+	ldrne r0, _022099A0 ; =UNK04_02211908
 	movne r1, #0xb
 	strne r1, [r0]
 	bne _02209918
 _02209478:
 	cmp r4, #0
-	ldreq r0, _022099A0 ; =0x02211908
+	ldreq r0, _022099A0 ; =UNK04_02211908
 	moveq r1, #0xb
 	streq r1, [r0]
 	beq _02209918
-	ldr r1, _022099A4 ; =0x02211924
+	ldr r1, _022099A4 ; =UNK04_02211924
 	mov r0, #0x58
 	ldr r2, [r1]
 	mov r1, #4
 	blx r2
 	movs r7, r0
-	ldreq r0, _022099A0 ; =0x02211908
+	ldreq r0, _022099A0 ; =UNK04_02211908
 	moveq r1, #1
 	streq r1, [r0]
 	beq _02209918
 	mov r1, #0x58
 	bl MOD04_02209FA8
-	ldr r1, _022099A4 ; =0x02211924
+	ldr r1, _022099A4 ; =UNK04_02211924
 	mov r0, #0x420
 	ldr r2, [r1]
 	mov r1, #4
@@ -56231,7 +56237,7 @@ _02209478:
 	str r0, [r7, #0x30]
 	ldr r0, [r7, #0x30]
 	cmp r0, #0
-	ldreq r0, _022099A0 ; =0x02211908
+	ldreq r0, _022099A0 ; =UNK04_02211908
 	moveq r1, #1
 	streq r1, [r0]
 	beq _02209918
@@ -56245,25 +56251,25 @@ _02209478:
 	bl MOD04_02209FBC
 	mov r4, r0
 	cmp r4, #7
-	ldrle r0, _022099A0 ; =0x02211908
+	ldrle r0, _022099A0 ; =UNK04_02211908
 	movle r1, #4
 	strle r1, [r0]
 	ble _02209918
 	mov sl, #7
 	mov r3, #0x50
-	ldr r1, _022099A8 ; =0x0220FA78
+	ldr r1, _022099A8 ; =UNK04_0220FA78
 	mov r0, fp
 	mov r2, sl
 	str r3, [r7, #0x28]
 	bl MOD04_02209FC8
 	cmp r0, #0
 	beq _02209580
-	ldr r1, _022099AC ; =0x0220FA80
+	ldr r1, _022099AC ; =UNK04_0220FA80
 	mov r0, fp
 	mov r2, #8
 	bl MOD04_02209FC8
 	cmp r0, #0
-	ldrne r0, _022099A0 ; =0x02211908
+	ldrne r0, _022099A0 ; =UNK04_02211908
 	movne r1, #4
 	strne r1, [r0]
 	bne _02209918
@@ -56276,7 +56282,7 @@ _02209580:
 	sub r0, r4, sl
 	cmp r0, #0
 	str r0, [sp, #4]
-	ldrle r0, _022099A0 ; =0x02211908
+	ldrle r0, _022099A0 ; =UNK04_02211908
 	movle r1, #4
 	add r8, fp, sl
 	strle r1, [r0]
@@ -56298,7 +56304,7 @@ _022095B4:
 	bl MOD04_0220B8E4
 	mov r0, r0, lsl #0x18
 	movs r0, r0, asr #0x18
-	ldrmi r0, _022099A0 ; =0x02211908
+	ldrmi r0, _022099A0 ; =UNK04_02211908
 	movmi r1, #4
 	sub r5, r5, #1
 	strmi r1, [r0]
@@ -56322,12 +56328,12 @@ _02209614:
 	bne _022095B4
 _0220962C:
 	cmp r5, #0
-	ldrne r0, _022099A0 ; =0x02211908
+	ldrne r0, _022099A0 ; =UNK04_02211908
 	movne r1, #4
 	strne r1, [r0]
 	bne _02209918
 	ldr r0, [sp, #4]
-	ldr r1, _022099A4 ; =0x02211924
+	ldr r1, _022099A4 ; =UNK04_02211924
 	add r0, sl, r0
 	sub r0, r0, r6, lsl #1
 	ldr r2, [r1]
@@ -56337,7 +56343,7 @@ _0220962C:
 	str r0, [r7, #0x24]
 	ldr r0, [r7, #0x24]
 	cmp r0, #0
-	ldreq r0, _022099A0 ; =0x02211908
+	ldreq r0, _022099A0 ; =UNK04_02211908
 	moveq r1, #1
 	streq r1, [r0]
 	beq _02209918
@@ -56459,7 +56465,7 @@ _022097E4:
 	blt _02209834
 	ldr r1, _022099B4 ; =0x0000FFFF
 	cmp r0, r1
-	ldrgt r0, _022099A0 ; =0x02211908
+	ldrgt r0, _022099A0 ; =UNK04_02211908
 	movgt r1, #4
 	strgt r1, [r0]
 	bgt _02209918
@@ -56471,7 +56477,7 @@ _02209840:
 	ldr r0, [r7, #8]
 	cmp r0, #0
 	beq _022098E4
-	ldr r0, _022099A4 ; =0x02211924
+	ldr r0, _022099A4 ; =UNK04_02211924
 	ldr r3, [r7, #0xc]
 	ldr r2, [r0]
 	mov r0, #0x830
@@ -56481,13 +56487,13 @@ _02209840:
 	str r0, [r7, #0x20]
 	ldr r0, [r7, #0x20]
 	cmp r0, #0
-	ldreq r0, _022099A0 ; =0x02211908
+	ldreq r0, _022099A0 ; =UNK04_02211908
 	moveq r1, #1
 	streq r1, [r0]
 	beq _02209918
 	mov r1, #0x830
 	bl MOD04_02209FA8
-	ldr r1, _022099A4 ; =0x02211924
+	ldr r1, _022099A4 ; =UNK04_02211924
 	add r0, r4, #1
 	ldr r2, [r1]
 	mov r1, #4
@@ -56497,7 +56503,7 @@ _02209840:
 	ldr r0, [r7, #0x20]
 	ldr r0, [r0, #0x800]
 	cmp r0, #0
-	ldreq r0, _022099A0 ; =0x02211908
+	ldreq r0, _022099A0 ; =UNK04_02211908
 	moveq r1, #1
 	streq r1, [r0]
 	beq _02209918
@@ -56510,7 +56516,7 @@ _02209840:
 	ldr r0, [r0, #0x800]
 	strb r1, [r0, r4]
 _022098E4:
-	ldr r1, _022099B8 ; =0x0220BDE4
+	ldr r1, _022099B8 ; =UNK04_0220BDE4
 	add r0, r7, #0x44
 	mov r2, #0x14
 	bl MOD04_02209F90
@@ -56532,11 +56538,11 @@ _02209918:
 	ldr r0, [r0, #0x800]
 	cmp r0, #0
 	beq _02209944
-	ldr r1, _022099BC ; =0x02211904
+	ldr r1, _022099BC ; =UNK04_02211904
 	ldr r1, [r1]
 	blx r1
 _02209944:
-	ldr r1, _022099BC ; =0x02211904
+	ldr r1, _022099BC ; =UNK04_02211904
 	ldr r0, [r7, #0x20]
 	ldr r1, [r1]
 	blx r1
@@ -56544,18 +56550,18 @@ _02209954:
 	ldr r0, [r7, #0x24]
 	cmp r0, #0
 	beq _0220996C
-	ldr r1, _022099BC ; =0x02211904
+	ldr r1, _022099BC ; =UNK04_02211904
 	ldr r1, [r1]
 	blx r1
 _0220996C:
 	ldr r0, [r7, #0x30]
 	cmp r0, #0
 	beq _02209984
-	ldr r1, _022099BC ; =0x02211904
+	ldr r1, _022099BC ; =UNK04_02211904
 	ldr r1, [r1]
 	blx r1
 _02209984:
-	ldr r1, _022099BC ; =0x02211904
+	ldr r1, _022099BC ; =UNK04_02211904
 	mov r0, r7
 	ldr r1, [r1]
 	blx r1
@@ -56564,14 +56570,14 @@ _02209994:
 	add sp, sp, #0xc
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_022099A0: .word 0x02211908
-_022099A4: .word 0x02211924
-_022099A8: .word 0x0220FA78
-_022099AC: .word 0x0220FA80
+_022099A0: .word UNK04_02211908
+_022099A4: .word UNK04_02211924
+_022099A8: .word UNK04_0220FA78
+_022099AC: .word UNK04_0220FA80
 _022099B0: .word 0x000001BB
 _022099B4: .word 0x0000FFFF
-_022099B8: .word 0x0220BDE4
-_022099BC: .word 0x02211904
+_022099B8: .word UNK04_0220BDE4
+_022099BC: .word UNK04_02211904
 
 	arm_func_start MOD04_022099C0
 MOD04_022099C0: ; 0x022099C0
@@ -56651,7 +56657,7 @@ MOD04_02209A98: ; 0x02209A98
 	ldr r0, [r7, #0x14]
 	cmp r0, #0
 	beq _02209AE0
-	ldr r1, _02209BAC ; =0x02211904
+	ldr r1, _02209BAC ; =UNK04_02211904
 	ldr r1, [r1]
 	blx r1
 	mov r0, #0
@@ -56663,7 +56669,7 @@ _02209AE0:
 	bl MOD04_02209BB8
 	movs r4, r0
 	bmi _02209B44
-	ldr r1, _02209BB0 ; =0x02211924
+	ldr r1, _02209BB0 ; =UNK04_02211924
 	add r0, r4, #1
 	ldr r2, [r1]
 	mov r1, #4
@@ -56683,14 +56689,14 @@ _02209AE0:
 	str r1, [r5]
 	ldmia sp!, {r4, r5, r6, r7, pc}
 _02209B44:
-	ldr r0, _02209BB4 ; =0x0220FA8C
+	ldr r0, _02209BB4 ; =UNK04_0220FA8C
 	mov r1, r6
 	bl MOD04_0220A038
 	cmp r0, #0
 	addne sp, sp, #4
 	mvnne r0, #0
 	ldmneia sp!, {r4, r5, r6, r7, pc}
-	ldr r1, _02209BB0 ; =0x02211924
+	ldr r1, _02209BB0 ; =UNK04_02211924
 	mov r0, #4
 	ldr r2, [r1]
 	mov r1, r0
@@ -56710,9 +56716,9 @@ _02209B44:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02209BAC: .word 0x02211904
-_02209BB0: .word 0x02211924
-_02209BB4: .word 0x0220FA8C
+_02209BAC: .word UNK04_02211904
+_02209BB0: .word UNK04_02211924
+_02209BB4: .word UNK04_0220FA8C
 
 	arm_func_start MOD04_02209BB8
 MOD04_02209BB8: ; 0x02209BB8
@@ -56796,7 +56802,7 @@ MOD04_02209CC4: ; 0x02209CC4
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	beq _02209CF8
-	ldr r5, _02209D3C ; =0x02211904
+	ldr r5, _02209D3C ; =UNK04_02211904
 _02209CDC:
 	ldr r6, [r0]
 	ldr r1, [r5]
@@ -56809,24 +56815,24 @@ _02209CF8:
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
 	beq _02209D10
-	ldr r1, _02209D3C ; =0x02211904
+	ldr r1, _02209D3C ; =UNK04_02211904
 	ldr r1, [r1]
 	blx r1
 _02209D10:
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	beq _02209D28
-	ldr r1, _02209D3C ; =0x02211904
+	ldr r1, _02209D3C ; =UNK04_02211904
 	ldr r1, [r1]
 	blx r1
 _02209D28:
-	ldr r1, _02209D3C ; =0x02211904
+	ldr r1, _02209D3C ; =UNK04_02211904
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
 	ldmia sp!, {r4, r5, r6, pc}
 	.align 2, 0
-_02209D3C: .word 0x02211904
+_02209D3C: .word UNK04_02211904
 
 	arm_func_start MOD04_02209D40
 MOD04_02209D40: ; 0x02209D40
@@ -56994,15 +57000,15 @@ _02209F58: .word MOD04_02209F84
 MOD04_02209F5C: ; 0x02209F5C
 	stmdb sp!, {lr}
 	sub sp, sp, #4
-	ldr r0, _02209F80 ; =0x02211A24
+	ldr r0, _02209F80 ; =UNK04_02211A24
 	bl OS_GetLowEntropyData
-	ldr r0, _02209F80 ; =0x02211A24
+	ldr r0, _02209F80 ; =UNK04_02211A24
 	mov r1, #0x20
 	bl CPS_SslAddRandomSeed
 	add sp, sp, #4
 	ldmfd sp!, {pc}
 	.align 2, 0
-_02209F80: .word 0x02211A24
+_02209F80: .word UNK04_02211A24
 
 	arm_func_start MOD04_02209F84
 MOD04_02209F84: ; 0x02209F84
@@ -57086,7 +57092,7 @@ MOD04_0220A044: ; 0x0220A044
 	sub sp, sp, #0x124
 	mov r0, #0
 	str r0, [sp, #0x14]
-	ldr r0, _0220AFFC ; =0x02211918
+	ldr r0, _0220AFFC ; =UNK04_02211918
 	mvn r5, #0
 	ldr r1, [r0]
 	ldr r0, [sp, #0x14]
@@ -57190,7 +57196,7 @@ _0220A1DC:
 	cmp r0, #0
 	ldrne sb, [r0, #8]
 	ldrne r4, [r0, #0xc]
-	ldrne r1, _0220B000 ; =0x02211914
+	ldrne r1, _0220B000 ; =UNK04_02211914
 	ldreq sb, [sp, #0x20]
 	strne r0, [r1]
 	bl MOD04_02208CCC
@@ -57255,7 +57261,7 @@ _0220A2C8:
 	strmi r0, [sp, #4]
 	bmi _0220B348
 	bl MOD04_02208CE0
-	ldr r0, _0220B000 ; =0x02211914
+	ldr r0, _0220B000 ; =UNK04_02211914
 	ldr r0, [r0]
 	str r5, [r0, #0x10]
 	bl MOD04_02208CCC
@@ -57276,7 +57282,7 @@ _0220A2C8:
 _0220A32C:
 	bl MOD04_02209F5C
 	bl MOD04_02208CE0
-	ldr r0, _0220B000 ; =0x02211914
+	ldr r0, _0220B000 ; =UNK04_02211914
 	ldr r0, [r0]
 	str r5, [r0, #0x10]
 	bl MOD04_02208CCC
@@ -57307,7 +57313,7 @@ _0220A344:
 	b _0220A430
 _0220A3A4:
 	ldr r0, [sp, #0x24]
-	ldr r3, _0220B004 ; =0x0220FA9C
+	ldr r3, _0220B004 ; =UNK04_0220FA9C
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57320,7 +57326,7 @@ _0220A3A4:
 	b _0220A284
 _0220A3D4:
 	ldr r0, [sp, #0x44]
-	ldr r3, _0220B008 ; =0x0220FAA4
+	ldr r3, _0220B008 ; =UNK04_0220FAA4
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57333,7 +57339,7 @@ _0220A3D4:
 	b _0220A284
 _0220A404:
 	ldr r0, [sp, #0x44]
-	ldr r3, _0220B00C ; =0x0220FAAC
+	ldr r3, _0220B00C ; =UNK04_0220FAAC
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57363,7 +57369,7 @@ _0220A430:
 	b _0220A284
 _0220A474:
 	ldr r0, [sp, #0x2c]
-	ldr r3, _0220B010 ; =0x0220FAB4
+	ldr r3, _0220B010 ; =UNK04_0220FAB4
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57375,7 +57381,7 @@ _0220A474:
 	beq _0220A284
 _0220A4A0:
 	ldr r0, [sp, #0x4c]
-	ldr r3, _0220B014 ; =0x0220FAB8
+	ldr r3, _0220B014 ; =UNK04_0220FAB8
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57386,7 +57392,7 @@ _0220A4A0:
 	cmp r0, #0
 	beq _0220A284
 	ldr r0, [r4, #8]
-	ldr r3, _0220B018 ; =0x0220FAC4
+	ldr r3, _0220B018 ; =UNK04_0220FAC4
 	cmp r0, #0
 	ldrne r0, [sp, #0x50]
 	mov r1, r5
@@ -57417,7 +57423,7 @@ _0220A4A0:
 	cmp r0, #0
 	beq _0220A284
 _0220A548:
-	ldr r3, _0220B01C ; =0x0220FACC
+	ldr r3, _0220B01C ; =UNK04_0220FACC
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -57447,7 +57453,7 @@ _0220A580:
 	cmp r0, #0
 	beq _0220A284
 _0220A5B8:
-	ldr r3, _0220B020 ; =0x0220FAD0
+	ldr r3, _0220B020 ; =UNK04_0220FAD0
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -57472,7 +57478,7 @@ _0220A5B8:
 	cmp r0, #0
 	beq _0220A284
 _0220A618:
-	ldr r3, _0220B01C ; =0x0220FACC
+	ldr r3, _0220B01C ; =UNK04_0220FACC
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -57482,7 +57488,7 @@ _0220A618:
 	blt _0220B348
 	cmp r0, #0
 	beq _0220A284
-	ldr r1, _0220B024 ; =0x02211904
+	ldr r1, _0220B024 ; =UNK04_02211904
 	mov r0, sb
 	ldr r1, [r1]
 	blx r1
@@ -57541,7 +57547,7 @@ _0220A6C8:
 	bne _0220A6C8
 _0220A714:
 	ldr r0, [sp, #0x60]
-	ldr r3, _0220B028 ; =0x0220FAD4
+	ldr r3, _0220B028 ; =UNK04_0220FAD4
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57563,7 +57569,7 @@ _0220A714:
 	blt _0220B348
 	cmp r0, #0
 	beq _0220A284
-	ldr r3, _0220B01C ; =0x0220FACC
+	ldr r3, _0220B01C ; =UNK04_0220FACC
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -57595,7 +57601,7 @@ _0220A7A4:
 	bne _0220A7A4
 _0220A7E0:
 	ldr r0, [sp, #0x68]
-	ldr r3, _0220B02C ; =0x0220FB04
+	ldr r3, _0220B02C ; =UNK04_0220FB04
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57607,7 +57613,7 @@ _0220A7E0:
 	beq _0220A284
 _0220A80C:
 	ldr r0, [sp, #0x6c]
-	ldr r3, _0220B030 ; =0x0220FB38
+	ldr r3, _0220B030 ; =UNK04_0220FB38
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57634,7 +57640,7 @@ _0220A80C:
 	cmp r0, #0
 	beq _0220A284
 _0220A878:
-	ldr r3, _0220B01C ; =0x0220FACC
+	ldr r3, _0220B01C ; =UNK04_0220FACC
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -57645,7 +57651,7 @@ _0220A878:
 	cmp r0, #0
 	beq _0220A284
 _0220A8A0:
-	ldr r3, _0220B01C ; =0x0220FACC
+	ldr r3, _0220B01C ; =UNK04_0220FACC
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -57676,7 +57682,7 @@ _0220A8EC:
 	blt _0220B348
 	cmp r0, #0
 	beq _0220A284
-	ldr r3, _0220B01C ; =0x0220FACC
+	ldr r3, _0220B01C ; =UNK04_0220FACC
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -57687,7 +57693,7 @@ _0220A8EC:
 	cmp r0, #0
 	beq _0220A284
 	ldr r0, [sp, #0x74]
-	ldr r3, _0220B034 ; =0x0220BDFC
+	ldr r3, _0220B034 ; =UNK04_0220BDFC
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57713,7 +57719,7 @@ _0220A8EC:
 	beq _0220A284
 _0220A9A4:
 	ldr r0, [sp, #0x3c]
-	ldr r3, _0220B038 ; =0x0220FB4C
+	ldr r3, _0220B038 ; =UNK04_0220FB4C
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57727,7 +57733,7 @@ _0220A9A4:
 	cmp r0, #0
 	beq _0220AA08
 	ldr r0, [sp, #0x78]
-	ldr r3, _0220B03C ; =0x0220BE24
+	ldr r3, _0220B03C ; =UNK04_0220BE24
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57738,7 +57744,7 @@ _0220A9A4:
 	cmp r0, #0
 	beq _0220A284
 _0220AA08:
-	ldr r3, _0220B01C ; =0x0220FACC
+	ldr r3, _0220B01C ; =UNK04_0220FACC
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -57762,7 +57768,7 @@ _0220AA08:
 	cmp r0, #0
 	beq _0220A284
 _0220AA64:
-	ldr r3, _0220B01C ; =0x0220FACC
+	ldr r3, _0220B01C ; =UNK04_0220FACC
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -57792,7 +57798,7 @@ _0220AAA8:
 	cmp r0, #0
 	beq _0220A284
 	ldr r0, [sp, #0x24]
-	ldr r3, _0220B040 ; =0x0220FB50
+	ldr r3, _0220B040 ; =UNK04_0220FB50
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57838,7 +57844,7 @@ _0220AB64:
 	bne _0220AB24
 _0220AB78:
 	ldr r0, [sp, #0x2c]
-	ldr r3, _0220B044 ; =0x0220FB58
+	ldr r3, _0220B044 ; =UNK04_0220FB58
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57882,7 +57888,7 @@ _0220AC0C:
 	cmp sl, r0
 	beq _0220AC54
 	ldr r0, [sp, #0x2c]
-	ldr r3, _0220B048 ; =0x0220FB5C
+	ldr r3, _0220B048 ; =UNK04_0220FB5C
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57900,7 +57906,7 @@ _0220AC54:
 	cmp r3, #0
 	ble _0220AC88
 	ldr r0, [sp, #0x84]
-	ldr r2, _0220B04C ; =0x02211A44
+	ldr r2, _0220B04C ; =UNK04_02211A44
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -57948,7 +57954,7 @@ _0220AD04:
 	bne _0220AD6C
 	cmp sb, #0
 	beq _0220AD38
-	ldr r2, _0220B054 ; =0x02211924
+	ldr r2, _0220B054 ; =UNK04_02211924
 	ldr r0, [sp, #0x90]
 	ldr r1, [sp, #0x24]
 	ldr r2, [r2]
@@ -57957,7 +57963,7 @@ _0220AD04:
 	ldr sb, [sb]
 	b _0220AD54
 _0220AD38:
-	ldr r2, _0220B054 ; =0x02211924
+	ldr r2, _0220B054 ; =UNK04_02211924
 	ldr r0, [sp, #0x90]
 	ldr r1, [sp, #0x24]
 	ldr r2, [r2]
@@ -58017,24 +58023,24 @@ _0220ADA0:
 	ldr r0, [fp]
 	cmp r0, #0
 	beq _0220B348
-	ldr r1, _0220B04C ; =0x02211A44
+	ldr r1, _0220B04C ; =UNK04_02211A44
 	ldr r2, [sp, #0x9c]
 	ldr r3, [sp, #0xa0]
 	mov r0, fp
 	bl MOD04_02208DCC
 	cmp r0, #0
 	beq _0220B348
-	ldr r0, _0220B04C ; =0x02211A44
-	ldr r1, _0220B058 ; =0x0220FB60
+	ldr r0, _0220B04C ; =UNK04_02211A44
+	ldr r1, _0220B058 ; =UNK04_0220FB60
 	ldr r2, [sp, #0x44]
 	bl MOD04_02209FC8
 	cmp r0, #0
 	bne _0220B348
-	ldr r0, _0220B04C ; =0x02211A44
+	ldr r0, _0220B04C ; =UNK04_02211A44
 	ldrsb r0, [r0, #8]
 	cmp r0, #0x20
 	bne _0220B348
-	ldr r0, _0220B05C ; =0x02211A4D
+	ldr r0, _0220B05C ; =UNK04_02211A4D
 	ldr r1, [sp, #0x3c]
 	bl MOD04_0220B844
 	cmp r0, #0
@@ -58046,7 +58052,7 @@ _0220ADA0:
 	bl MOD04_02209014
 	cmp r0, #0
 	blt _0220B348
-	ldr r1, _0220B060 ; =0x0220FB68
+	ldr r1, _0220B060 ; =UNK04_0220FB68
 	mov r0, fp
 	add r2, sp, #0x10c
 	bl MOD04_02209BB8
@@ -58058,14 +58064,14 @@ _0220ADA0:
 	bgt _0220B348
 	cmp sb, #0
 	ble _0220AEF8
-	ldr r1, _0220B04C ; =0x02211A44
+	ldr r1, _0220B04C ; =UNK04_02211A44
 	ldr r2, [sp, #0x10c]
 	mov r0, fp
 	mov r3, sb
 	bl MOD04_02208DCC
 	cmp r0, #0
 	beq _0220B348
-	ldr r0, _0220B04C ; =0x02211A44
+	ldr r0, _0220B04C ; =UNK04_02211A44
 	mov r1, sb
 	bl MOD04_0220B844
 	movs sb, r0
@@ -58081,7 +58087,7 @@ _0220AF00:
 	ldrne r0, [sp, #0xb0]
 	strne r0, [sp, #8]
 	bne _0220AF88
-	ldr r1, _0220B064 ; =0x0220FB78
+	ldr r1, _0220B064 ; =UNK04_0220FB78
 	mov r0, fp
 	add r2, sp, #0x10c
 	bl MOD04_02209BB8
@@ -58098,7 +58104,7 @@ _0220AF00:
 	ldr r3, [sp, #0xb8]
 	ldr r2, [sp, #8]
 	str r3, [sp]
-	ldr r3, _0220B068 ; =0x0220FB84
+	ldr r3, _0220B068 ; =UNK04_0220FB84
 	mov r0, fp
 	add r2, r1, r2
 	bl MOD04_02208EC4
@@ -58112,7 +58118,7 @@ _0220AF80:
 	ldr r0, [sp, #0xc0]
 	str r0, [sp, #8]
 _0220AF88:
-	ldr r1, _0220B06C ; =0x0220FB90
+	ldr r1, _0220B06C ; =UNK04_0220FB90
 	mov r0, fp
 	add r2, sp, #0x10c
 	bl MOD04_02209BB8
@@ -58127,7 +58133,7 @@ _0220AF88:
 	ldr r3, [sp, #0xc8]
 	mov r0, fp
 	str r3, [sp]
-	ldr r3, _0220B070 ; =0x0220FBA4
+	ldr r3, _0220B070 ; =UNK04_0220FBA4
 	add r2, r1, r2
 	bl MOD04_02208EC4
 	cmp r0, #0
@@ -58144,36 +58150,36 @@ _0220AFE4:
 	blt _0220B104
 	b _0220B0B0
 	.align 2, 0
-_0220AFFC: .word 0x02211918
-_0220B000: .word 0x02211914
-_0220B004: .word 0x0220FA9C
-_0220B008: .word 0x0220FAA4
-_0220B00C: .word 0x0220FAAC
-_0220B010: .word 0x0220FAB4
-_0220B014: .word 0x0220FAB8
-_0220B018: .word 0x0220FAC4
-_0220B01C: .word 0x0220FACC
-_0220B020: .word 0x0220FAD0
-_0220B024: .word 0x02211904
-_0220B028: .word 0x0220FAD4
-_0220B02C: .word 0x0220FB04
-_0220B030: .word 0x0220FB38
-_0220B034: .word 0x0220BDFC
-_0220B038: .word 0x0220FB4C
-_0220B03C: .word 0x0220BE24
-_0220B040: .word 0x0220FB50
-_0220B044: .word 0x0220FB58
-_0220B048: .word 0x0220FB5C
-_0220B04C: .word 0x02211A44
+_0220AFFC: .word UNK04_02211918
+_0220B000: .word UNK04_02211914
+_0220B004: .word UNK04_0220FA9C
+_0220B008: .word UNK04_0220FAA4
+_0220B00C: .word UNK04_0220FAAC
+_0220B010: .word UNK04_0220FAB4
+_0220B014: .word UNK04_0220FAB8
+_0220B018: .word UNK04_0220FAC4
+_0220B01C: .word UNK04_0220FACC
+_0220B020: .word UNK04_0220FAD0
+_0220B024: .word UNK04_02211904
+_0220B028: .word UNK04_0220FAD4
+_0220B02C: .word UNK04_0220FB04
+_0220B030: .word UNK04_0220FB38
+_0220B034: .word UNK04_0220BDFC
+_0220B038: .word UNK04_0220FB4C
+_0220B03C: .word UNK04_0220BE24
+_0220B040: .word UNK04_0220FB50
+_0220B044: .word UNK04_0220FB58
+_0220B048: .word UNK04_0220FB5C
+_0220B04C: .word UNK04_02211A44
 _0220B050: .word 0x000001FF
-_0220B054: .word 0x02211924
-_0220B058: .word 0x0220FB60
-_0220B05C: .word 0x02211A4D
-_0220B060: .word 0x0220FB68
-_0220B064: .word 0x0220FB78
-_0220B068: .word 0x0220FB84
-_0220B06C: .word 0x0220FB90
-_0220B070: .word 0x0220FBA4
+_0220B054: .word UNK04_02211924
+_0220B058: .word UNK04_0220FB60
+_0220B05C: .word UNK04_02211A4D
+_0220B060: .word UNK04_0220FB68
+_0220B064: .word UNK04_0220FB78
+_0220B068: .word UNK04_0220FB84
+_0220B06C: .word UNK04_0220FB90
+_0220B070: .word UNK04_0220FBA4
 _0220B074:
 	ldr r0, [sp, #0xd4]
 	mov r1, r5
@@ -58226,7 +58232,7 @@ _0220B114:
 	str r0, [sp, #0x108]
 _0220B124:
 	ldr r0, [sp, #0xe0]
-	ldr r2, _0220B04C ; =0x02211A44
+	ldr r2, _0220B04C ; =UNK04_02211A44
 	str r0, [sp]
 	ldr sb, [sp, #0x108]
 	ldr r3, [sp, #0x2c]
@@ -58237,7 +58243,7 @@ _0220B124:
 	cmp r0, #0
 	blt _0220B348
 	ldr r2, [sp, #0x108]
-	ldr r0, _0220B04C ; =0x02211A44
+	ldr r0, _0220B04C ; =UNK04_02211A44
 	and r1, r2, #1
 	ldrsb r0, [r0, r2]
 	strb r0, [r6, r1]
@@ -58266,7 +58272,7 @@ _0220B1B4:
 	ldr r1, [sp, #0x10c]
 	cmp r1, #0
 	beq _0220B348
-	ldr r0, _0220B04C ; =0x02211A44
+	ldr r0, _0220B04C ; =UNK04_02211A44
 	bl MOD04_0220B8E4
 	str r0, [sp, #0x1c]
 	cmp r0, #0
@@ -58307,7 +58313,7 @@ _0220B214:
 	str r0, [fp, #4]
 	bne _0220B278
 	ldr r0, [sp, #0xe8]
-	ldr r2, _0220B04C ; =0x02211A44
+	ldr r2, _0220B04C ; =UNK04_02211A44
 	str r0, [sp]
 	mov r0, r4
 	mov r1, r5
@@ -58354,7 +58360,7 @@ _0220B2B4:
 	cmp r0, #0
 	beq _0220B334
 	ldr r0, [sp, #0xf8]
-	ldr r2, _0220B04C ; =0x02211A44
+	ldr r2, _0220B04C ; =UNK04_02211A44
 	str r0, [sp]
 	ldr r3, [sp, #0x2c]
 	mov r0, r4
@@ -58374,13 +58380,13 @@ _0220B334:
 	beq _0220B2B4
 _0220B348:
 	bl MOD04_02208CE0
-	ldr r0, _0220B000 ; =0x02211914
-	ldr r1, _0220B024 ; =0x02211904
+	ldr r0, _0220B000 ; =UNK04_02211914
+	ldr r1, _0220B024 ; =UNK04_02211904
 	ldr r0, [r0]
 	ldr r1, [r1]
 	blx r1
 	ldr r1, [sp, #0xfc]
-	ldr r0, _0220B000 ; =0x02211914
+	ldr r0, _0220B000 ; =UNK04_02211914
 	str r1, [r0]
 	bl MOD04_02208CCC
 	ldr r0, [r4, #4]
@@ -58404,7 +58410,7 @@ _0220B3A4:
 	streq r0, [fp, #8]
 	ldrne r0, [sp, #0x104]
 	strne r0, [fp, #8]
-	ldrne r0, _0220B400 ; =0x02211908
+	ldrne r0, _0220B400 ; =UNK04_02211908
 	strne r1, [r0]
 	ldr sl, [r4, #0x2c]
 	mov r0, r4
@@ -58415,14 +58421,14 @@ _0220B3A4:
 	mov r2, sl
 	blx sb
 _0220B3E8:
-	ldr r0, _0220AFFC ; =0x02211918
+	ldr r0, _0220AFFC ; =UNK04_02211918
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0220A1DC
 	add sp, sp, #0x124
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_0220B400: .word 0x02211908
+_0220B400: .word UNK04_02211908
 
 	arm_func_start MOD04_0220B404
 MOD04_0220B404: ; 0x0220B404
@@ -58484,7 +58490,7 @@ _0220B4BC:
 	mvnne r0, #0
 	ldmneia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	ldr r3, [sb]
-	ldr r0, _0220B558 ; =0x02211A44
+	ldr r0, _0220B558 ; =UNK04_02211A44
 	rsb r6, r3, #0x400
 	cmp r7, r6
 	movle r6, r7
@@ -58500,7 +58506,7 @@ _0220B4BC:
 	sub r7, r7, r6
 	cmp r0, #0x400
 	bne _0220B544
-	ldr r2, _0220B558 ; =0x02211A44
+	ldr r2, _0220B558 ; =UNK04_02211A44
 	mov r0, sl
 	mov r1, fp
 	mov r3, r4
@@ -58520,7 +58526,7 @@ _0220B54C:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_0220B558: .word 0x02211A44
+_0220B558: .word UNK04_02211A44
 
 	arm_func_start MOD04_0220B55C
 MOD04_0220B55C: ; 0x0220B55C
@@ -58532,7 +58538,7 @@ MOD04_0220B55C: ; 0x0220B55C
 	str r0, [r5]
 	str r0, [r4]
 	bl MOD04_02208CE0
-	ldr r1, _0220B5FC ; =0x02211914
+	ldr r1, _0220B5FC ; =UNK04_02211914
 	ldr r2, [r1]
 	cmp r2, #0
 	beq _0220B5D8
@@ -58557,7 +58563,7 @@ _0220B5D0:
 	mov r4, #1
 	b _0220B5EC
 _0220B5D8:
-	ldr r0, _0220B600 ; =0x02211910
+	ldr r0, _0220B600 ; =UNK04_02211910
 	ldr r0, [r0]
 	cmp r0, #0
 	movne r4, #1
@@ -58568,8 +58574,8 @@ _0220B5EC:
 	add sp, sp, #4
 	ldmia sp!, {r4, r5, pc}
 	.align 2, 0
-_0220B5FC: .word 0x02211914
-_0220B600: .word 0x02211910
+_0220B5FC: .word UNK04_02211914
+_0220B600: .word UNK04_02211910
 
 	arm_func_start MOD04_0220B604
 MOD04_0220B604: ; 0x0220B604
@@ -58695,7 +58701,7 @@ _0220B76C:
 MOD04_0220B788: ; 0x0220B788
 	stmdb sp!, {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	sub sp, sp, #0x24
-	ldr r6, _0220B840 ; =0x0220BE70
+	ldr r6, _0220B840 ; =UNK04_0220BE70
 	add r4, sp, #0
 	mov sl, r0
 	mov sb, r1
@@ -58743,7 +58749,7 @@ _0220B81C:
 	add sp, sp, #0x24
 	ldmia sp!, {r4, r5, r6, r7, r8, sb, sl, fp, pc}
 	.align 2, 0
-_0220B840: .word 0x0220BE70
+_0220B840: .word UNK04_0220BE70
 
 	arm_func_start MOD04_0220B844
 MOD04_0220B844: ; 0x0220B844
@@ -58945,25 +58951,71 @@ _0220BAB8:
 	bx lr
 
 	.section .rodata
-	; 0x0220BAC4
-	.byte 0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
-	.byte 0x02, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x57, 0x61, 0x79, 0x70
-	.byte 0x6F, 0x72, 0x74, 0x32, 0x46, 0x52, 0x45, 0x45, 0x53, 0x50, 0x4F, 0x54, 0x4E, 0x49, 0x4E, 0x54
-	.byte 0x45, 0x4E, 0x44, 0x4F, 0x57, 0x46, 0x43, 0x00, 0x02, 0x80, 0x00, 0x00, 0x04, 0x80, 0x00, 0x00
-	.byte 0x08, 0x80, 0x00, 0x00, 0x10, 0x80, 0x00, 0x00, 0x20, 0x80, 0x00, 0x00, 0x40, 0x80, 0x00, 0x00
-	.byte 0x80, 0x80, 0x00, 0x00, 0x00, 0x81, 0x00, 0x00, 0x00, 0x82, 0x00, 0x00, 0x00, 0x84, 0x00, 0x00
-	.byte 0x00, 0x88, 0x00, 0x00, 0x00, 0x90, 0x00, 0x00, 0x00, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global UNK_0220BAC4
+UNK04_0220BAC4: ; 0x0220BAC4
+	.byte 0x03, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
+	.byte 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
+
+	.global UNK_0220BADC
+UNK04_0220BADC: ; 0x0220BADC
+	.byte 0x57, 0x61, 0x79, 0x70, 0x6F, 0x72, 0x74, 0x32
+
+	.global UNK_0220BAE4
+UNK04_0220BAE4: ; 0x0220BAE4
+	.byte 0x46, 0x52, 0x45, 0x45, 0x53, 0x50, 0x4F, 0x54
+
+	.global UNK_0220BAEC
+UNK04_0220BAEC: ; 0x0220BAEC
+	.byte 0x4E, 0x49, 0x4E, 0x54, 0x45, 0x4E, 0x44, 0x4F, 0x57, 0x46, 0x43, 0x00
+
+	.global UNK_0220BAF8
+UNK04_0220BAF8: ; 0x0220BAF8
+	.byte 0x02, 0x80, 0x00, 0x00, 0x04, 0x80, 0x00, 0x00, 0x08, 0x80, 0x00, 0x00, 0x10, 0x80, 0x00, 0x00
+	.byte 0x20, 0x80, 0x00, 0x00, 0x40, 0x80, 0x00, 0x00, 0x80, 0x80, 0x00, 0x00, 0x00, 0x81, 0x00, 0x00
+	.byte 0x00, 0x82, 0x00, 0x00, 0x00, 0x84, 0x00, 0x00, 0x00, 0x88, 0x00, 0x00, 0x00, 0x90, 0x00, 0x00
+	.byte 0x00, 0xA0, 0x00, 0x00
+
+	.global UNK_0220BB2C
+UNK04_0220BB2C: ; 0x0220BB2C
+	.byte 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0xCC, 0xD4, 0x20, 0x02, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x05, 0x01, 0x0C, 0x04, 0x02, 0x03, 0x0A, 0x00, 0x0B, 0x07, 0x09, 0x08
-	.byte 0x06, 0x00, 0x00, 0x00, 0x0A, 0x0D, 0x0E, 0x08, 0x09, 0x03, 0x06, 0x00, 0x0C, 0x05, 0x02, 0x07
-	.byte 0x0B, 0x01, 0x0F, 0x04, 0x17, 0x14, 0x11, 0x0D, 0x0B, 0x06, 0x0F, 0x0E, 0x09, 0x15, 0x0C, 0x04
-	.byte 0x02, 0x01, 0x12, 0x10, 0x05, 0x03, 0x13, 0x0A, 0x07, 0x08, 0x00, 0x16, 0x5B, 0x5D, 0x5F, 0x00
-	.byte 0x2D, 0x5F, 0x3D, 0x00, 0x2B, 0x2F, 0x3D, 0x00, 0x13, 0x1D, 0x01, 0x04, 0x00, 0x00, 0x00, 0x28
-	.byte 0x1F, 0x06, 0x45, 0x34, 0x3F, 0x01, 0x1B, 0x00, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xCC, 0xD4, 0x20, 0x02, 0x04, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BB84
+UNK04_0220BB84: ; 0x0220BB84
+	.byte 0x05, 0x01, 0x0C, 0x04, 0x02, 0x03, 0x0A, 0x00, 0x0B, 0x07, 0x09, 0x08, 0x06, 0x00, 0x00, 0x00
+
+	.global UNK_0220BB94
+UNK04_0220BB94: ; 0x0220BB94
+	.byte 0x0A, 0x0D, 0x0E, 0x08, 0x09, 0x03, 0x06, 0x00, 0x0C, 0x05, 0x02, 0x07, 0x0B, 0x01, 0x0F, 0x04
+
+	.global UNK_0220BBA4
+UNK04_0220BBA4: ; 0x0220BBA4
+	.byte 0x17, 0x14, 0x11, 0x0D, 0x0B, 0x06, 0x0F, 0x0E, 0x09, 0x15, 0x0C, 0x04, 0x02, 0x01, 0x12, 0x10
+	.byte 0x05, 0x03, 0x13, 0x0A, 0x07, 0x08, 0x00, 0x16
+
+	.global UNK_0220BBBC
+UNK04_0220BBBC: ; 0x0220BBBC
+	.byte 0x5B, 0x5D, 0x5F, 0x00
+
+	.global UNK_0220BBC0
+UNK04_0220BBC0: ; 0x0220BBC0
+	.byte 0x2D, 0x5F, 0x3D, 0x00
+
+	.global UNK_0220BBC4
+UNK04_0220BBC4: ; 0x0220BBC4
+	.byte 0x2B, 0x2F, 0x3D, 0x00
+
+	.global UNK_0220BBC8
+UNK04_0220BBC8: ; 0x0220BBC8
+	.byte 0x13, 0x1D, 0x01, 0x04, 0x00, 0x00, 0x00, 0x28, 0x1F, 0x06, 0x45, 0x34, 0x3F, 0x01, 0x1B, 0x00
+
+	.global UNK_0220BBD8
+UNK04_0220BBD8: ; 0x0220BBD8
+	.byte 0x5C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -58979,440 +59031,1231 @@ _0220BAB8:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFD, 0xFC, 0x1E, 0x66, 0x6A, 0xB2, 0x00, 0x00
-	.byte 0xCC, 0xF7, 0x20, 0x02, 0xC4, 0xF7, 0x20, 0x02, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48
-	.byte 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58
-	.byte 0x59, 0x5A, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6E
-	.byte 0x6F, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x30, 0x31, 0x32, 0x33
-	.byte 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x2E, 0x2D, 0x00, 0x00, 0x00, 0x00, 0x30, 0x30, 0x3A, 0x30
-	.byte 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x2D, 0x30, 0x30, 0x00, 0x00, 0x00, 0x62, 0x47, 0x6C, 0x7A
-	.byte 0x64, 0x41, 0x2A, 0x2A, 0x00, 0x00, 0x00, 0x00, 0x59, 0x32, 0x39, 0x31, 0x62, 0x6E, 0x51, 0x2A
-	.byte 0x00, 0x00, 0x00, 0x00, 0x59, 0x32, 0x39, 0x75, 0x64, 0x47, 0x56, 0x75, 0x64, 0x48, 0x4D, 0x2A
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xC1, 0x6F, 0xF2, 0x86, 0x23, 0x00, 0x00, 0x80, 0xC6, 0xA4
-	.byte 0x7E, 0x8D, 0x03, 0x00, 0x00, 0x40, 0x7A, 0x10, 0xF3, 0x5A, 0x00, 0x00, 0x00, 0xA0, 0x72, 0x4E
-	.byte 0x18, 0x09, 0x00, 0x00, 0x00, 0x10, 0xA5, 0xD4, 0xE8, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x76, 0x48
-	.byte 0x17, 0x00, 0x00, 0x00, 0x00, 0xE4, 0x0B, 0x54, 0x02, 0x00, 0x00, 0x00, 0x00, 0xCA, 0x9A, 0x3B
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0xE1, 0xF5, 0x05, 0x00, 0x00, 0x00, 0x00, 0x80, 0x96, 0x98, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x40, 0x42, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0x86, 0x01, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x10, 0x27, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x03, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x2D, 0x2D, 0x74, 0x39, 0x53, 0x66, 0x34, 0x79, 0x66, 0x6A, 0x66, 0x31
-	.byte 0x52, 0x74, 0x76, 0x44, 0x75, 0x33, 0x41, 0x41, 0x00, 0x00, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x74
-	.byte 0x65, 0x6E, 0x74, 0x2D, 0x44, 0x69, 0x73, 0x70, 0x6F, 0x73, 0x69, 0x74, 0x69, 0x6F, 0x6E, 0x3A
-	.byte 0x20, 0x66, 0x6F, 0x72, 0x6D, 0x2D, 0x64, 0x61, 0x74, 0x61, 0x3B, 0x20, 0x6E, 0x61, 0x6D, 0x65
-	.byte 0x3D, 0x22, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x54, 0x79, 0x70, 0x65
-	.byte 0x3A, 0x20, 0x61, 0x70, 0x70, 0x6C, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2F, 0x6F, 0x63
-	.byte 0x74, 0x65, 0x74, 0x2D, 0x73, 0x74, 0x72, 0x65, 0x61, 0x6D, 0x0D, 0x0A, 0x43, 0x6F, 0x6E, 0x74
-	.byte 0x65, 0x6E, 0x74, 0x2D, 0x54, 0x72, 0x61, 0x6E, 0x73, 0x66, 0x65, 0x72, 0x2D, 0x45, 0x6E, 0x63
-	.byte 0x6F, 0x64, 0x69, 0x6E, 0x67, 0x3A, 0x20, 0x62, 0x69, 0x6E, 0x61, 0x72, 0x79, 0x0D, 0x0A, 0x00
+
+	.global UNK_0220BCD8
+UNK04_0220BCD8: ; 0x0220BCD8
+	.byte 0xFD, 0xFC, 0x1E, 0x66, 0x6A, 0xB2, 0x00, 0x00
+
+	.global UNK_0220BCE0
+UNK04_0220BCE0: ; 0x0220BCE0
+	.byte 0xCC, 0xF7, 0x20, 0x02, 0xC4, 0xF7, 0x20, 0x02
+
+	.global UNK_0220BCE8
+UNK04_0220BCE8: ; 0x0220BCE8
+	.byte 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50
+	.byte 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66
+	.byte 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6E, 0x6F, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76
+	.byte 0x77, 0x78, 0x79, 0x7A, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x2E, 0x2D
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BD2C
+UNK04_0220BD2C: ; 0x0220BD2C
+	.byte 0x30, 0x30, 0x3A, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x2D, 0x30, 0x30, 0x00, 0x00, 0x00
+
+	.global UNK_0220BD3C
+UNK04_0220BD3C: ; 0x0220BD3C
+	.byte 0x62, 0x47, 0x6C, 0x7A, 0x64, 0x41, 0x2A, 0x2A, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BD48
+UNK04_0220BD48: ; 0x0220BD48
+	.byte 0x59, 0x32, 0x39, 0x31, 0x62, 0x6E, 0x51, 0x2A, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BD54
+UNK04_0220BD54: ; 0x0220BD54
+	.byte 0x59, 0x32, 0x39, 0x75, 0x64, 0x47, 0x56, 0x75, 0x64, 0x48, 0x4D, 0x2A, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BD64
+UNK04_0220BD64: ; 0x0220BD64
+	.byte 0x00, 0x00, 0xC1, 0x6F, 0xF2, 0x86, 0x23, 0x00, 0x00, 0x80, 0xC6, 0xA4, 0x7E, 0x8D, 0x03, 0x00
+	.byte 0x00, 0x40, 0x7A, 0x10, 0xF3, 0x5A, 0x00, 0x00, 0x00, 0xA0, 0x72, 0x4E, 0x18, 0x09, 0x00, 0x00
+	.byte 0x00, 0x10, 0xA5, 0xD4, 0xE8, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x76, 0x48, 0x17, 0x00, 0x00, 0x00
+	.byte 0x00, 0xE4, 0x0B, 0x54, 0x02, 0x00, 0x00, 0x00, 0x00, 0xCA, 0x9A, 0x3B, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0xE1, 0xF5, 0x05, 0x00, 0x00, 0x00, 0x00, 0x80, 0x96, 0x98, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x40, 0x42, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00, 0xA0, 0x86, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x10, 0x27, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x64, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BDE4
+UNK04_0220BDE4: ; 0x0220BDE4
+	.byte 0x2D, 0x2D, 0x74, 0x39, 0x53, 0x66, 0x34, 0x79, 0x66, 0x6A, 0x66, 0x31, 0x52, 0x74, 0x76, 0x44
+	.byte 0x75, 0x33, 0x41
+
+	.global UNK_0220BDF7
+UNK04_0220BDF7: ; 0x0220BDF7
+	.byte 0x41, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BDFC
+UNK04_0220BDFC: ; 0x0220BDFC
+	.byte 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x44, 0x69, 0x73, 0x70, 0x6F, 0x73, 0x69, 0x74
+	.byte 0x69, 0x6F, 0x6E, 0x3A, 0x20, 0x66, 0x6F, 0x72, 0x6D, 0x2D, 0x64, 0x61, 0x74, 0x61, 0x3B, 0x20
+	.byte 0x6E, 0x61, 0x6D, 0x65, 0x3D, 0x22, 0x00, 0x00
+
+	.global UNK_0220BE24
+UNK04_0220BE24: ; 0x0220BE24
+	.byte 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x54, 0x79, 0x70, 0x65, 0x3A, 0x20, 0x61, 0x70
+	.byte 0x70, 0x6C, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2F, 0x6F, 0x63, 0x74, 0x65, 0x74, 0x2D
+	.byte 0x73, 0x74, 0x72, 0x65, 0x61, 0x6D, 0x0D, 0x0A, 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D
+	.byte 0x54, 0x72, 0x61, 0x6E, 0x73, 0x66, 0x65, 0x72, 0x2D, 0x45, 0x6E, 0x63, 0x6F, 0x64, 0x69, 0x6E
+	.byte 0x67, 0x3A, 0x20, 0x62, 0x69, 0x6E, 0x61, 0x72, 0x79, 0x0D, 0x0A, 0x00
+
+	.global UNK_0220BE70
+UNK04_0220BE70: ; 0x0220BE70
 	.byte 0x00, 0xCA, 0x9A, 0x3B, 0x00, 0xE1, 0xF5, 0x05, 0x80, 0x96, 0x98, 0x00, 0x40, 0x42, 0x0F, 0x00
 	.byte 0xA0, 0x86, 0x01, 0x00, 0x10, 0x27, 0x00, 0x00, 0xE8, 0x03, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00
 	.byte 0x0A, 0x00, 0x00, 0x00
 
 	.section .data
-	; 0x0220BEB4
-	.byte 0xD0, 0xBE, 0x20, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x4E, 0x00, 0x00
-	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E, 0x74, 0x65, 0x73, 0x74
-	.byte 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65
-	.byte 0x74, 0x2F, 0x61, 0x63, 0x00, 0x00, 0x00, 0x00, 0x61, 0x63, 0x63, 0x74, 0x63, 0x72, 0x65, 0x61
-	.byte 0x74, 0x65, 0x00, 0x00, 0x61, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00, 0x6C, 0x6F, 0x67, 0x69
-	.byte 0x6E, 0x00, 0x00, 0x00, 0x67, 0x73, 0x62, 0x72, 0x63, 0x64, 0x00, 0x00, 0x59, 0x00, 0x00, 0x00
-	.byte 0x69, 0x73, 0x77, 0x66, 0x63, 0x00, 0x00, 0x00, 0x69, 0x6E, 0x67, 0x61, 0x6D, 0x65, 0x73, 0x6E
-	.byte 0x00, 0x00, 0x00, 0x00, 0x44, 0x61, 0x74, 0x65, 0x00, 0x00, 0x00, 0x00, 0x68, 0x74, 0x74, 0x70
-	.byte 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x00, 0x00, 0x72, 0x65, 0x74, 0x75, 0x72, 0x6E, 0x63, 0x64
-	.byte 0x00, 0x00, 0x00, 0x00, 0x74, 0x6F, 0x6B, 0x65, 0x6E, 0x00, 0x00, 0x00, 0x6C, 0x6F, 0x63, 0x61
-	.byte 0x74, 0x6F, 0x72, 0x00, 0x63, 0x68, 0x61, 0x6C, 0x6C, 0x65, 0x6E, 0x67, 0x65, 0x00, 0x00, 0x00
-	.byte 0x64, 0x61, 0x74, 0x65, 0x74, 0x69, 0x6D, 0x65, 0x00, 0x00, 0x00, 0x00, 0x53, 0x65, 0x74, 0x2D
-	.byte 0x43, 0x6F, 0x6F, 0x6B, 0x69, 0x65, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x62, 0x6D
-	.byte 0x77, 0x6F, 0x72, 0x6B, 0x00, 0x00, 0x00, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x62, 0x6D, 0x77
-	.byte 0x6F, 0x72, 0x6B, 0x00, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E
-	.byte 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74
-	.byte 0x2F, 0x61, 0x63, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x44, 0x57, 0x43, 0x61, 0x75, 0x74, 0x68
-	.byte 0x00, 0x00, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x44, 0x57, 0x43, 0x61, 0x75, 0x74
-	.byte 0x68, 0x00, 0x00, 0x00, 0x25, 0x30, 0x33, 0x64, 0x25, 0x30, 0x33, 0x64, 0x00, 0x00, 0x00, 0x00
-	.byte 0x73, 0x64, 0x6B, 0x76, 0x65, 0x72, 0x00, 0x00, 0x75, 0x73, 0x65, 0x72, 0x69, 0x64, 0x00, 0x00
-	.byte 0x70, 0x61, 0x73, 0x73, 0x77, 0x64, 0x00, 0x00, 0x62, 0x73, 0x73, 0x69, 0x64, 0x00, 0x00, 0x00
-	.byte 0x61, 0x70, 0x69, 0x6E, 0x66, 0x6F, 0x00, 0x00, 0x67, 0x61, 0x6D, 0x65, 0x63, 0x64, 0x00, 0x00
-	.byte 0x6D, 0x61, 0x6B, 0x65, 0x72, 0x63, 0x64, 0x00, 0x75, 0x6E, 0x69, 0x74, 0x63, 0x64, 0x00, 0x00
-	.byte 0x6D, 0x61, 0x63, 0x61, 0x64, 0x72, 0x00, 0x00, 0x6C, 0x61, 0x6E, 0x67, 0x00, 0x00, 0x00, 0x00
-	.byte 0x62, 0x69, 0x72, 0x74, 0x68, 0x00, 0x00, 0x00, 0x64, 0x65, 0x76, 0x74, 0x69, 0x6D, 0x65, 0x00
-	.byte 0x64, 0x65, 0x76, 0x6E, 0x61, 0x6D, 0x65, 0x00, 0x73, 0x73, 0x69, 0x64, 0x00, 0x00, 0x00, 0x00
+	.global UNK_0220BEB4
+UNK04_0220BEB4: ; 0x0220BEB4
+	.word UNK04_0220BED0
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x4E, 0x00, 0x00
+
+	.global UNK04_0220BED0
+UNK04_0220BED0: ; 0x0220BED0
+	.asciz "https://nas.test.nintendowifi.net/ac"
+
+	.balign 4, 0
+	.global UNK_0220BEF8
+UNK04_0220BEF8: ; 0x0220BEF8
+	.byte 0x61, 0x63, 0x63, 0x74, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x00, 0x00
+
+	.global UNK_0220BF04
+UNK04_0220BF04: ; 0x0220BF04
+	.byte 0x61, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
+
+	.global UNK_0220BF0C
+UNK04_0220BF0C: ; 0x0220BF0C
+	.byte 0x6C, 0x6F, 0x67, 0x69, 0x6E, 0x00, 0x00, 0x00
+
+	.global UNK_0220BF14
+UNK04_0220BF14: ; 0x0220BF14
+	.byte 0x67, 0x73, 0x62, 0x72, 0x63, 0x64, 0x00, 0x00
+
+	.global UNK_0220BF1C
+UNK04_0220BF1C: ; 0x0220BF1C
+	.asciz "Y"
+
+	.balign 4, 0
+	.global UNK_0220BF20
+UNK04_0220BF20: ; 0x0220BF20
+	.byte 0x69, 0x73, 0x77, 0x66, 0x63, 0x00, 0x00, 0x00
+
+	.global UNK_0220BF28
+UNK04_0220BF28: ; 0x0220BF28
+	.byte 0x69, 0x6E, 0x67, 0x61, 0x6D, 0x65, 0x73, 0x6E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BF34
+UNK04_0220BF34: ; 0x0220BF34
+	.byte 0x44, 0x61, 0x74, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BF3C
+UNK04_0220BF3C: ; 0x0220BF3C
+	.byte 0x68, 0x74, 0x74, 0x70, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x00, 0x00
+
+	.global UNK_0220BF48
+UNK04_0220BF48: ; 0x0220BF48
+	.byte 0x72, 0x65, 0x74, 0x75, 0x72, 0x6E, 0x63, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BF54
+UNK04_0220BF54: ; 0x0220BF54
+	.byte 0x74, 0x6F, 0x6B, 0x65, 0x6E, 0x00, 0x00, 0x00
+
+	.global UNK_0220BF5C
+UNK04_0220BF5C: ; 0x0220BF5C
+	.byte 0x6C, 0x6F, 0x63, 0x61, 0x74, 0x6F, 0x72, 0x00
+
+	.global UNK_0220BF64
+UNK04_0220BF64: ; 0x0220BF64
+	.byte 0x63, 0x68, 0x61, 0x6C, 0x6C, 0x65, 0x6E, 0x67, 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220BF70
+UNK04_0220BF70: ; 0x0220BF70
+	.byte 0x64, 0x61, 0x74, 0x65, 0x74, 0x69, 0x6D, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BF7C
+UNK04_0220BF7C: ; 0x0220BF7C
+	.byte 0x53, 0x65, 0x74, 0x2D, 0x43, 0x6F, 0x6F, 0x6B, 0x69, 0x65, 0x00, 0x00
+
+	.global UNK_0220BF88
+UNK04_0220BF88: ; 0x0220BF88
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x62, 0x6D, 0x77, 0x6F, 0x72, 0x6B, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BF98
+UNK04_0220BF98: ; 0x0220BF98
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x62, 0x6D, 0x77, 0x6F, 0x72, 0x6B, 0x00
+
+	.balign 4, 0
+	.global UNK_0220BFA4
+UNK04_0220BFA4: ; 0x0220BFA4
+	.asciz "https://nas.nintendowifi.net/ac"
+
+	.balign 4, 0
+	.global UNK_0220BFC4
+UNK04_0220BFC4: ; 0x0220BFC4
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x44, 0x57, 0x43, 0x61, 0x75, 0x74, 0x68, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BFD4
+UNK04_0220BFD4: ; 0x0220BFD4
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x44, 0x57, 0x43, 0x61, 0x75, 0x74, 0x68, 0x00, 0x00, 0x00
+
+	.global UNK_0220BFE4
+UNK04_0220BFE4: ; 0x0220BFE4
+	.byte 0x25, 0x30, 0x33, 0x64, 0x25, 0x30, 0x33, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220BFF0
+UNK04_0220BFF0: ; 0x0220BFF0
+	.byte 0x73, 0x64, 0x6B, 0x76, 0x65, 0x72, 0x00, 0x00
+
+	.global UNK_0220BFF8
+UNK04_0220BFF8: ; 0x0220BFF8
+	.byte 0x75, 0x73, 0x65, 0x72, 0x69, 0x64, 0x00, 0x00
+
+	.global UNK_0220C000
+UNK04_0220C000: ; 0x0220C000
+	.byte 0x70, 0x61, 0x73, 0x73, 0x77, 0x64, 0x00, 0x00
+
+	.global UNK_0220C008
+UNK04_0220C008: ; 0x0220C008
+	.byte 0x62, 0x73, 0x73, 0x69, 0x64, 0x00, 0x00, 0x00
+
+	.global UNK_0220C010
+UNK04_0220C010: ; 0x0220C010
+	.byte 0x61, 0x70, 0x69, 0x6E, 0x66, 0x6F, 0x00, 0x00
+
+	.global UNK_0220C018
+UNK04_0220C018: ; 0x0220C018
+	.byte 0x67, 0x61, 0x6D, 0x65, 0x63, 0x64, 0x00, 0x00
+
+	.global UNK_0220C020
+UNK04_0220C020: ; 0x0220C020
+	.byte 0x6D, 0x61, 0x6B, 0x65, 0x72, 0x63, 0x64, 0x00
+
+	.global UNK_0220C028
+UNK04_0220C028: ; 0x0220C028
+	.byte 0x75, 0x6E, 0x69, 0x74, 0x63, 0x64, 0x00, 0x00
+
+	.global UNK_0220C030
+UNK04_0220C030: ; 0x0220C030
+	.byte 0x6D, 0x61, 0x63, 0x61, 0x64, 0x72, 0x00, 0x00
+
+	.global UNK_0220C038
+UNK04_0220C038: ; 0x0220C038
+	.byte 0x6C, 0x61, 0x6E, 0x67, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C040
+UNK04_0220C040: ; 0x0220C040
+	.byte 0x62, 0x69, 0x72, 0x74, 0x68, 0x00, 0x00, 0x00
+
+	.global UNK_0220C048
+UNK04_0220C048: ; 0x0220C048
+	.byte 0x64, 0x65, 0x76, 0x74, 0x69, 0x6D, 0x65, 0x00
+
+	.global UNK_0220C050
+UNK04_0220C050: ; 0x0220C050
+	.byte 0x64, 0x65, 0x76, 0x6E, 0x61, 0x6D, 0x65, 0x00
+
+	.global UNK_0220C058
+UNK04_0220C058: ; 0x0220C058
+	.byte 0x73, 0x73, 0x69, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C060
+UNK04_0220C060: ; 0x0220C060
 	.byte 0x4E, 0x69, 0x74, 0x72, 0x6F, 0x20, 0x57, 0x69, 0x46, 0x69, 0x20, 0x53, 0x44, 0x4B, 0x2F, 0x25
-	.byte 0x64, 0x2E, 0x25, 0x64, 0x00, 0x00, 0x00, 0x00, 0x55, 0x73, 0x65, 0x72, 0x2D, 0x41, 0x67, 0x65
-	.byte 0x6E, 0x74, 0x00, 0x00, 0x48, 0x54, 0x54, 0x50, 0x5F, 0x58, 0x5F, 0x47, 0x41, 0x4D, 0x45, 0x43
-	.byte 0x44, 0x00, 0x00, 0x00, 0x25, 0x30, 0x31, 0x33, 0x6C, 0x6C, 0x75, 0x00, 0x25, 0x30, 0x33, 0x75
-	.byte 0x00, 0x00, 0x00, 0x00, 0x25, 0x30, 0x32, 0x78, 0x00, 0x00, 0x00, 0x00, 0x25, 0x30, 0x32, 0x78
-	.byte 0x25, 0x30, 0x32, 0x78, 0x00, 0x00, 0x00, 0x00, 0x25, 0x30, 0x32, 0x64, 0x25, 0x30, 0x32, 0x64
+	.byte 0x64, 0x2E, 0x25, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C078
+UNK04_0220C078: ; 0x0220C078
+	.byte 0x55, 0x73, 0x65, 0x72, 0x2D, 0x41, 0x67, 0x65, 0x6E, 0x74, 0x00, 0x00
+
+	.global UNK_0220C084
+UNK04_0220C084: ; 0x0220C084
+	.byte 0x48, 0x54, 0x54, 0x50, 0x5F, 0x58, 0x5F, 0x47, 0x41, 0x4D, 0x45, 0x43, 0x44, 0x00, 0x00, 0x00
+
+	.global UNK_0220C094
+UNK04_0220C094: ; 0x0220C094
+	.byte 0x25, 0x30, 0x31, 0x33, 0x6C, 0x6C, 0x75, 0x00
+
+	.global UNK_0220C09C
+UNK04_0220C09C: ; 0x0220C09C
+	.byte 0x25, 0x30, 0x33, 0x75, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C0A4
+UNK04_0220C0A4: ; 0x0220C0A4
+	.byte 0x25, 0x30, 0x32, 0x78, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C0AC
+UNK04_0220C0AC: ; 0x0220C0AC
+	.byte 0x25, 0x30, 0x32, 0x78, 0x25, 0x30, 0x32, 0x78, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C0B8
+UNK04_0220C0B8: ; 0x0220C0B8
 	.byte 0x25, 0x30, 0x32, 0x64, 0x25, 0x30, 0x32, 0x64, 0x25, 0x30, 0x32, 0x64, 0x25, 0x30, 0x32, 0x64
-	.byte 0x00, 0x00, 0x00, 0x00, 0x25, 0x30, 0x32, 0x64, 0x3A, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30
-	.byte 0x2D, 0x30, 0x30, 0x00, 0x18, 0xCF, 0x20, 0x02, 0xEC, 0xCD, 0x20, 0x02, 0xCC, 0xD0, 0x20, 0x02
-	.byte 0xA8, 0xD1, 0x20, 0x02, 0x84, 0xC6, 0x20, 0x02, 0x20, 0xC9, 0x20, 0x02, 0x08, 0xCA, 0x20, 0x02
-	.byte 0xD0, 0xC7, 0x20, 0x02, 0xD4, 0xCC, 0x20, 0x02, 0xB4, 0xCB, 0x20, 0x02, 0xCC, 0xCA, 0x20, 0x02
+	.byte 0x25, 0x30, 0x32, 0x64, 0x25, 0x30, 0x32, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C0D4
+UNK04_0220C0D4: ; 0x0220C0D4
+	.byte 0x25, 0x30, 0x32, 0x64, 0x3A, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x2D, 0x30, 0x30, 0x00
+
+	.global UNK_0220C0E4
+UNK04_0220C0E4: ; 0x0220C0E4
+	.byte 0x18, 0xCF, 0x20, 0x02, 0xEC, 0xCD, 0x20, 0x02, 0xCC, 0xD0, 0x20, 0x02, 0xA8, 0xD1, 0x20, 0x02
+	.byte 0x84, 0xC6, 0x20, 0x02, 0x20, 0xC9, 0x20, 0x02, 0x08, 0xCA, 0x20, 0x02, 0xD0, 0xC7, 0x20, 0x02
+	.byte 0xD4, 0xCC, 0x20, 0x02, 0xB4, 0xCB, 0x20, 0x02, 0xCC, 0xCA, 0x20, 0x02
+
+	.global UNK_0220C110
+UNK04_0220C110: ; 0x0220C110
 	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x61, 0x72, 0x72, 0x61, 0x79, 0x5F, 0x65, 0x6E, 0x74, 0x72, 0x79
-	.byte 0x5B, 0x69, 0x5D, 0x2E, 0x6C, 0x61, 0x62, 0x65, 0x6C, 0x00, 0x00, 0x00, 0x46, 0x52, 0x45, 0x45
-	.byte 0x20, 0x61, 0x72, 0x72, 0x61, 0x79, 0x5F, 0x65, 0x6E, 0x74, 0x72, 0x79, 0x5B, 0x69, 0x5D, 0x2E
-	.byte 0x76, 0x61, 0x6C, 0x75, 0x65, 0x00, 0x00, 0x00, 0x0D, 0x0A, 0x0D, 0x0A, 0x00, 0x00, 0x00, 0x00
-	.byte 0x20, 0x00, 0x00, 0x00, 0x68, 0x74, 0x74, 0x70, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x00, 0x00
-	.byte 0x32, 0x30, 0x30, 0x00, 0x0D, 0x0A, 0x00, 0x00, 0x3A, 0x20, 0x00, 0x00, 0x3D, 0x00, 0x00, 0x00
-	.byte 0x26, 0x00, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74
-	.byte 0x2D, 0x3E, 0x65, 0x6E, 0x74, 0x72, 0x79, 0x5B, 0x69, 0x5D, 0x2E, 0x6C, 0x61, 0x62, 0x65, 0x6C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74
-	.byte 0x2D, 0x3E, 0x65, 0x6E, 0x74, 0x72, 0x79, 0x5B, 0x69, 0x5D, 0x2E, 0x76, 0x61, 0x6C, 0x75, 0x65
-	.byte 0x00, 0x00, 0x00, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x2D
-	.byte 0x3E, 0x65, 0x6E, 0x74, 0x72, 0x79, 0x5B, 0x69, 0x5D, 0x2E, 0x6C, 0x61, 0x62, 0x65, 0x6C, 0x00
+	.byte 0x5B, 0x69, 0x5D, 0x2E, 0x6C, 0x61, 0x62, 0x65, 0x6C, 0x00, 0x00, 0x00
+
+	.global UNK_0220C12C
+UNK04_0220C12C: ; 0x0220C12C
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x61, 0x72, 0x72, 0x61, 0x79, 0x5F, 0x65, 0x6E, 0x74, 0x72, 0x79
+	.byte 0x5B, 0x69, 0x5D, 0x2E, 0x76, 0x61, 0x6C, 0x75, 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220C148
+UNK04_0220C148: ; 0x0220C148
+	.byte 0x0D, 0x0A, 0x0D, 0x0A, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C150
+UNK04_0220C150: ; 0x0220C150
+	.byte 0x20, 0x00, 0x00, 0x00
+
+	.global UNK_0220C154
+UNK04_0220C154: ; 0x0220C154
+	.byte 0x68, 0x74, 0x74, 0x70, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x00, 0x00
+
+	.global UNK_0220C160
+UNK04_0220C160: ; 0x0220C160
+	.byte 0x32, 0x30, 0x30, 0x00
+
+	.global UNK_0220C164
+UNK04_0220C164: ; 0x0220C164
+	.byte 0x0D, 0x0A, 0x00, 0x00
+
+	.global UNK_0220C168
+UNK04_0220C168: ; 0x0220C168
+	.byte 0x3A, 0x20, 0x00, 0x00
+
+	.global UNK_0220C16C
+UNK04_0220C16C: ; 0x0220C16C
+	.byte 0x3D, 0x00, 0x00, 0x00
+
+	.global UNK_0220C170
+UNK04_0220C170: ; 0x0220C170
+	.byte 0x26, 0x00, 0x00, 0x00
+
+	.global UNK_0220C174
+UNK04_0220C174: ; 0x0220C174
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x2D, 0x3E, 0x65, 0x6E
+	.byte 0x74, 0x72, 0x79, 0x5B, 0x69, 0x5D, 0x2E, 0x6C, 0x61, 0x62, 0x65, 0x6C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C194
+UNK04_0220C194: ; 0x0220C194
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x2D, 0x3E, 0x65, 0x6E
+	.byte 0x74, 0x72, 0x79, 0x5B, 0x69, 0x5D, 0x2E, 0x76, 0x61, 0x6C, 0x75, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C1B4
+UNK04_0220C1B4: ; 0x0220C1B4
 	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x2D, 0x3E, 0x65, 0x6E, 0x74
-	.byte 0x72, 0x79, 0x5B, 0x69, 0x5D, 0x2E, 0x76, 0x61, 0x6C, 0x75, 0x65, 0x00, 0x68, 0x74, 0x74, 0x70
-	.byte 0x3A, 0x2F, 0x2F, 0x00, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x00, 0x00, 0x00, 0x00
-	.byte 0x3A, 0x00, 0x00, 0x00, 0x2F, 0x00, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x6E, 0x65
-	.byte 0x77, 0x70, 0x74, 0x72, 0x00, 0x00, 0x00, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x62, 0x75, 0x66
-	.byte 0x2D, 0x3E, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x00, 0x00, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F
-	.byte 0x43, 0x20, 0x62, 0x75, 0x66, 0x2D, 0x3E, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x00, 0x00, 0x00
-	.byte 0x25, 0x73, 0x00, 0x00, 0x25, 0x73, 0x3D, 0x00, 0x26, 0x25, 0x73, 0x3D, 0x00, 0x00, 0x00, 0x00
-	.byte 0x25, 0x73, 0x3A, 0x20, 0x25, 0x73, 0x0D, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x50, 0x4F, 0x53, 0x54
-	.byte 0x20, 0x2F, 0x25, 0x73, 0x20, 0x48, 0x54, 0x54, 0x50, 0x2F, 0x31, 0x2E, 0x30, 0x0D, 0x0A, 0x43
-	.byte 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x74, 0x79, 0x70, 0x65, 0x3A, 0x20, 0x61, 0x70, 0x70
-	.byte 0x6C, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2F, 0x78, 0x2D, 0x77, 0x77, 0x77, 0x2D, 0x66
-	.byte 0x6F, 0x72, 0x6D, 0x2D, 0x75, 0x72, 0x6C, 0x65, 0x6E, 0x63, 0x6F, 0x64, 0x65, 0x64, 0x0D, 0x0A
-	.byte 0x48, 0x6F, 0x73, 0x74, 0x3A, 0x20, 0x25, 0x73, 0x0D, 0x0A, 0x0D, 0x0A, 0x00, 0x00, 0x00, 0x00
+	.byte 0x72, 0x79, 0x5B, 0x69, 0x5D, 0x2E, 0x6C, 0x61, 0x62, 0x65, 0x6C, 0x00
+
+	.global UNK_0220C1D0
+UNK04_0220C1D0: ; 0x0220C1D0
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x2D, 0x3E, 0x65, 0x6E, 0x74
+	.byte 0x72, 0x79, 0x5B, 0x69, 0x5D, 0x2E, 0x76, 0x61, 0x6C, 0x75, 0x65, 0x00
+
+	.global UNK_0220C1EC
+UNK04_0220C1EC: ; 0x0220C1EC
+	.byte 0x68, 0x74, 0x74, 0x70, 0x3A, 0x2F, 0x2F, 0x00
+
+	.global UNK_0220C1F4
+UNK04_0220C1F4: ; 0x0220C1F4
+	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C200
+UNK04_0220C200: ; 0x0220C200
+	.byte 0x3A, 0x00, 0x00, 0x00
+
+	.global UNK_0220C204
+UNK04_0220C204: ; 0x0220C204
+	.byte 0x2F, 0x00, 0x00, 0x00
+
+	.global UNK_0220C208
+UNK04_0220C208: ; 0x0220C208
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x6E, 0x65, 0x77, 0x70, 0x74, 0x72, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C218
+UNK04_0220C218: ; 0x0220C218
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x62, 0x75, 0x66, 0x2D, 0x3E, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C22C
+UNK04_0220C22C: ; 0x0220C22C
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x62, 0x75, 0x66, 0x2D, 0x3E, 0x62, 0x75, 0x66, 0x66, 0x65
+	.byte 0x72, 0x00, 0x00, 0x00
+
+	.global UNK_0220C240
+UNK04_0220C240: ; 0x0220C240
+	.byte 0x25, 0x73, 0x00, 0x00
+
+	.global UNK_0220C244
+UNK04_0220C244: ; 0x0220C244
+	.byte 0x25, 0x73, 0x3D, 0x00
+
+	.global UNK_0220C248
+UNK04_0220C248: ; 0x0220C248
+	.byte 0x26, 0x25, 0x73, 0x3D, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C250
+UNK04_0220C250: ; 0x0220C250
+	.byte 0x25, 0x73, 0x3A, 0x20, 0x25, 0x73, 0x0D, 0x0A, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C25C
+UNK04_0220C25C: ; 0x0220C25C
+	.byte 0x50, 0x4F, 0x53, 0x54, 0x20, 0x2F, 0x25, 0x73, 0x20, 0x48, 0x54, 0x54, 0x50, 0x2F, 0x31, 0x2E
+	.byte 0x30, 0x0D, 0x0A, 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x74, 0x79, 0x70, 0x65, 0x3A
+	.byte 0x20, 0x61, 0x70, 0x70, 0x6C, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2F, 0x78, 0x2D, 0x77
+	.byte 0x77, 0x77, 0x2D, 0x66, 0x6F, 0x72, 0x6D, 0x2D, 0x75, 0x72, 0x6C, 0x65, 0x6E, 0x63, 0x6F, 0x64
+	.byte 0x65, 0x64, 0x0D, 0x0A, 0x48, 0x6F, 0x73, 0x74, 0x3A, 0x20, 0x25, 0x73, 0x0D, 0x0A, 0x0D, 0x0A
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C2B0
+UNK04_0220C2B0: ; 0x0220C2B0
 	.byte 0x47, 0x45, 0x54, 0x20, 0x2F, 0x25, 0x73, 0x20, 0x48, 0x54, 0x54, 0x50, 0x2F, 0x31, 0x2E, 0x30
 	.byte 0x0D, 0x0A, 0x48, 0x6F, 0x73, 0x74, 0x3A, 0x20, 0x25, 0x73, 0x0D, 0x0A, 0x0D, 0x0A, 0x00, 0x00
+
+	.global UNK_0220C2D0
+UNK04_0220C2D0: ; 0x0220C2D0
 	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x68, 0x74, 0x74, 0x70, 0x2D, 0x3E, 0x6C, 0x6F, 0x77, 0x72, 0x65
-	.byte 0x63, 0x76, 0x62, 0x75, 0x66, 0x00, 0x00, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x68, 0x74, 0x74
-	.byte 0x70, 0x2D, 0x3E, 0x6C, 0x6F, 0x77, 0x73, 0x65, 0x6E, 0x64, 0x62, 0x75, 0x66, 0x00, 0x00, 0x00
+	.byte 0x63, 0x76, 0x62, 0x75, 0x66, 0x00, 0x00, 0x00
+
+	.global UNK_0220C2E8
+UNK04_0220C2E8: ; 0x0220C2E8
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x68, 0x74, 0x74, 0x70, 0x2D, 0x3E, 0x6C, 0x6F, 0x77, 0x73, 0x65
+	.byte 0x6E, 0x64, 0x62, 0x75, 0x66, 0x00, 0x00, 0x00
+
+	.global UNK_0220C300
+UNK04_0220C300: ; 0x0220C300
 	.byte 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x4C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x3A, 0x20
-	.byte 0x00, 0x00, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
-	.byte 0x63, 0x6C, 0x6F, 0x73, 0x65, 0x00, 0x00, 0x00, 0x25, 0x64, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x74
-	.byte 0x65, 0x6E, 0x74, 0x2D, 0x4C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F
-	.byte 0x43, 0x20, 0x68, 0x74, 0x74, 0x70, 0x2D, 0x3E, 0x6C, 0x6F, 0x77, 0x72, 0x65, 0x63, 0x76, 0x62
-	.byte 0x75, 0x66, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x68, 0x74, 0x74, 0x70, 0x2D, 0x3E
-	.byte 0x6C, 0x6F, 0x77, 0x73, 0x65, 0x6E, 0x64, 0x62, 0x75, 0x66, 0x00, 0x00, 0x70, 0xC3, 0x20, 0x02
-	.byte 0x68, 0x74, 0x74, 0x70, 0x3A, 0x2F, 0x2F, 0x63, 0x6F, 0x6E, 0x6E, 0x74, 0x65, 0x73, 0x74, 0x2E
-	.byte 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74
-	.byte 0x2F, 0x00, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x44, 0x57, 0x43, 0x6E, 0x65, 0x74
-	.byte 0x63, 0x68, 0x65, 0x63, 0x6B, 0x2D, 0x3E, 0x62, 0x6F, 0x64, 0x79, 0x5F, 0x33, 0x30, 0x32, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C314
+UNK04_0220C314: ; 0x0220C314
+	.byte 0x43, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
+
+	.global UNK_0220C320
+UNK04_0220C320: ; 0x0220C320
+	.byte 0x63, 0x6C, 0x6F, 0x73, 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220C328
+UNK04_0220C328: ; 0x0220C328
+	.byte 0x25, 0x64, 0x00, 0x00
+
+	.global UNK_0220C32C
+UNK04_0220C32C: ; 0x0220C32C
+	.byte 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x4C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x00, 0x00
+
+	.global UNK_0220C33C
+UNK04_0220C33C: ; 0x0220C33C
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x68, 0x74, 0x74, 0x70, 0x2D, 0x3E, 0x6C, 0x6F, 0x77, 0x72
+	.byte 0x65, 0x63, 0x76, 0x62, 0x75, 0x66, 0x00, 0x00
+
+	.global UNK_0220C354
+UNK04_0220C354: ; 0x0220C354
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x68, 0x74, 0x74, 0x70, 0x2D, 0x3E, 0x6C, 0x6F, 0x77, 0x73
+	.byte 0x65, 0x6E, 0x64, 0x62, 0x75, 0x66, 0x00, 0x00
+
+	.global UNK_0220C36C
+UNK04_0220C36C: ; 0x0220C36C
+	.byte 0x70, 0xC3, 0x20, 0x02, 0x68, 0x74, 0x74, 0x70, 0x3A, 0x2F, 0x2F, 0x63, 0x6F, 0x6E, 0x6E, 0x74
+	.byte 0x65, 0x73, 0x74, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69
+	.byte 0x2E, 0x6E, 0x65, 0x74, 0x2F, 0x00, 0x00, 0x00
+
+	.global UNK_0220C394
+UNK04_0220C394: ; 0x0220C394
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x44, 0x57, 0x43, 0x6E, 0x65, 0x74, 0x63, 0x68, 0x65, 0x63
+	.byte 0x6B, 0x2D, 0x3E, 0x62, 0x6F, 0x64, 0x79, 0x5F, 0x33, 0x30, 0x32, 0x00
+
+	.global UNK_0220C3B0
+UNK04_0220C3B0: ; 0x0220C3B0
 	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x44, 0x57, 0x43, 0x6E, 0x65, 0x74, 0x63, 0x68, 0x65, 0x63, 0x6B
-	.byte 0x2D, 0x3E, 0x62, 0x6F, 0x64, 0x79, 0x5F, 0x33, 0x30, 0x32, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F
-	.byte 0x43, 0x20, 0x75, 0x72, 0x6C, 0x00, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x64, 0x61
-	.byte 0x74, 0x61, 0x5F, 0x6C, 0x65, 0x6E, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x77, 0x61
-	.byte 0x69, 0x74, 0x5F, 0x6C, 0x65, 0x6E, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x44, 0x57
-	.byte 0x43, 0x6E, 0x65, 0x74, 0x63, 0x68, 0x65, 0x63, 0x6B, 0x2D, 0x3E, 0x62, 0x6F, 0x64, 0x79, 0x5F
-	.byte 0x77, 0x61, 0x79, 0x70, 0x6F, 0x72, 0x74, 0x00, 0x68, 0x74, 0x74, 0x70, 0x72, 0x65, 0x73, 0x75
-	.byte 0x6C, 0x74, 0x00, 0x00, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E
-	.byte 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74
-	.byte 0x2F, 0x61, 0x63, 0x00, 0x61, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00, 0x6D, 0x65, 0x73, 0x73
-	.byte 0x61, 0x67, 0x65, 0x00, 0x48, 0x6F, 0x74, 0x53, 0x70, 0x6F, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6F
-	.byte 0x6E, 0x73, 0x65, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x44, 0x57, 0x43, 0x6E, 0x65, 0x74, 0x63
-	.byte 0x68, 0x65, 0x63, 0x6B, 0x2D, 0x3E, 0x62, 0x6F, 0x64, 0x79, 0x5F, 0x77, 0x61, 0x79, 0x70, 0x6F
-	.byte 0x72, 0x74, 0x00, 0x00, 0x70, 0x61, 0x72, 0x73, 0x65, 0x00, 0x00, 0x00, 0x48, 0x54, 0x4D, 0x4C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x72, 0x65, 0x74, 0x75, 0x72, 0x6E, 0x63, 0x64, 0x00, 0x00, 0x00, 0x00
-	.byte 0x75, 0x72, 0x6C, 0x00, 0x64, 0x61, 0x74, 0x61, 0x00, 0x00, 0x00, 0x00, 0x77, 0x61, 0x69, 0x74
-	.byte 0x00, 0x00, 0x00, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x75, 0x72, 0x6C, 0x00, 0x00, 0x00, 0x00
-	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x64, 0x61, 0x74, 0x61, 0x00, 0x00, 0x00, 0x46, 0x52, 0x45, 0x45
-	.byte 0x20, 0x77, 0x61, 0x69, 0x74, 0x00, 0x00, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x44, 0x57, 0x43
-	.byte 0x68, 0x74, 0x74, 0x70, 0x00, 0x00, 0x00, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x44, 0x57, 0x43
-	.byte 0x6E, 0x65, 0x74, 0x63, 0x68, 0x65, 0x63, 0x6B, 0x00, 0x00, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F
-	.byte 0x43, 0x20, 0x44, 0x57, 0x43, 0x6E, 0x65, 0x74, 0x63, 0x68, 0x65, 0x63, 0x6B, 0x00, 0x00, 0x00
+	.byte 0x2D, 0x3E, 0x62, 0x6F, 0x64, 0x79, 0x5F, 0x33, 0x30, 0x32, 0x00, 0x00
+
+	.global UNK_0220C3CC
+UNK04_0220C3CC: ; 0x0220C3CC
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x75, 0x72, 0x6C, 0x00, 0x00, 0x00
+
+	.global UNK_0220C3D8
+UNK04_0220C3D8: ; 0x0220C3D8
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x64, 0x61, 0x74, 0x61, 0x5F, 0x6C, 0x65, 0x6E, 0x00, 0x00
+
+	.global UNK_0220C3E8
+UNK04_0220C3E8: ; 0x0220C3E8
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x77, 0x61, 0x69, 0x74, 0x5F, 0x6C, 0x65, 0x6E, 0x00, 0x00
+
+	.global UNK_0220C3F8
+UNK04_0220C3F8: ; 0x0220C3F8
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x44, 0x57, 0x43, 0x6E, 0x65, 0x74, 0x63, 0x68, 0x65, 0x63
+	.byte 0x6B, 0x2D, 0x3E, 0x62, 0x6F, 0x64, 0x79, 0x5F, 0x77, 0x61, 0x79, 0x70, 0x6F, 0x72, 0x74, 0x00
+
+	.global UNK_0220C418
+UNK04_0220C418: ; 0x0220C418
+	.byte 0x68, 0x74, 0x74, 0x70, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x00, 0x00
+
+	.global UNK_0220C424
+UNK04_0220C424: ; 0x0220C424
+	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74
+	.byte 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x2F, 0x61, 0x63, 0x00
+
+	.global UNK_0220C444
+UNK04_0220C444: ; 0x0220C444
+	.byte 0x61, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
+
+	.global UNK_0220C44C
+UNK04_0220C44C: ; 0x0220C44C
+	.byte 0x6D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x00
+
+	.global UNK_0220C454
+UNK04_0220C454: ; 0x0220C454
+	.byte 0x48, 0x6F, 0x74, 0x53, 0x70, 0x6F, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6F, 0x6E, 0x73, 0x65, 0x00
+
+	.global UNK_0220C464
+UNK04_0220C464: ; 0x0220C464
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x44, 0x57, 0x43, 0x6E, 0x65, 0x74, 0x63, 0x68, 0x65, 0x63, 0x6B
+	.byte 0x2D, 0x3E, 0x62, 0x6F, 0x64, 0x79, 0x5F, 0x77, 0x61, 0x79, 0x70, 0x6F, 0x72, 0x74, 0x00, 0x00
+
+	.global UNK_0220C484
+UNK04_0220C484: ; 0x0220C484
+	.byte 0x70, 0x61, 0x72, 0x73, 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220C48C
+UNK04_0220C48C: ; 0x0220C48C
+	.byte 0x48, 0x54, 0x4D, 0x4C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C494
+UNK04_0220C494: ; 0x0220C494
+	.byte 0x72, 0x65, 0x74, 0x75, 0x72, 0x6E, 0x63, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C4A0
+UNK04_0220C4A0: ; 0x0220C4A0
+	.byte 0x75, 0x72, 0x6C, 0x00
+
+	.global UNK_0220C4A4
+UNK04_0220C4A4: ; 0x0220C4A4
+	.byte 0x64, 0x61, 0x74, 0x61, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C4AC
+UNK04_0220C4AC: ; 0x0220C4AC
+	.byte 0x77, 0x61, 0x69, 0x74, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C4B4
+UNK04_0220C4B4: ; 0x0220C4B4
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x75, 0x72, 0x6C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C4C0
+UNK04_0220C4C0: ; 0x0220C4C0
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x64, 0x61, 0x74, 0x61, 0x00, 0x00, 0x00
+
+	.global UNK_0220C4CC
+UNK04_0220C4CC: ; 0x0220C4CC
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x77, 0x61, 0x69, 0x74, 0x00, 0x00, 0x00
+
+	.global UNK_0220C4D8
+UNK04_0220C4D8: ; 0x0220C4D8
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x44, 0x57, 0x43, 0x68, 0x74, 0x74, 0x70, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C4E8
+UNK04_0220C4E8: ; 0x0220C4E8
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x44, 0x57, 0x43, 0x6E, 0x65, 0x74, 0x63, 0x68, 0x65, 0x63, 0x6B
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C4FC
+UNK04_0220C4FC: ; 0x0220C4FC
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x44, 0x57, 0x43, 0x6E, 0x65, 0x74, 0x63, 0x68, 0x65, 0x63
+	.byte 0x6B, 0x00, 0x00, 0x00
+
+	.global UNK_0220C510
+UNK04_0220C510: ; 0x0220C510
 	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x44, 0x57, 0x43, 0x68, 0x74, 0x74, 0x70, 0x00, 0x00, 0x00
 	.byte 0x44, 0x65, 0x63, 0x00, 0x4A, 0x75, 0x6C, 0x00, 0x4F, 0x63, 0x74, 0x00, 0x53, 0x65, 0x70, 0x00
 	.byte 0x41, 0x75, 0x67, 0x00, 0x4E, 0x6F, 0x76, 0x00, 0x4A, 0x75, 0x6E, 0x00, 0x4D, 0x61, 0x79, 0x00
 	.byte 0x41, 0x70, 0x72, 0x00, 0x4D, 0x61, 0x72, 0x00, 0x46, 0x65, 0x62, 0x00, 0x4A, 0x61, 0x6E, 0x00
+
+	.global UNK_0220C550
+UNK04_0220C550: ; 0x0220C550
 	.byte 0x4C, 0xC5, 0x20, 0x02, 0x48, 0xC5, 0x20, 0x02, 0x44, 0xC5, 0x20, 0x02, 0x40, 0xC5, 0x20, 0x02
 	.byte 0x3C, 0xC5, 0x20, 0x02, 0x38, 0xC5, 0x20, 0x02, 0x24, 0xC5, 0x20, 0x02, 0x30, 0xC5, 0x20, 0x02
 	.byte 0x2C, 0xC5, 0x20, 0x02, 0x28, 0xC5, 0x20, 0x02, 0x34, 0xC5, 0x20, 0x02, 0x20, 0xC5, 0x20, 0x02
+
+	.global UNK_0220C580
+UNK04_0220C580: ; 0x0220C580
 	.byte 0x46, 0x72, 0x69, 0x2C, 0x20, 0x30, 0x33, 0x20, 0x4D, 0x61, 0x72, 0x20, 0x32, 0x30, 0x30, 0x36
 	.byte 0x20, 0x30, 0x31, 0x3A, 0x32, 0x38, 0x3A, 0x31, 0x33, 0x20, 0x47, 0x4D, 0x54, 0x00, 0x00, 0x00
-	.byte 0x44, 0x61, 0x74, 0x65, 0x00, 0x00, 0x00, 0x00, 0x68, 0x74, 0x74, 0x70, 0x72, 0x65, 0x73, 0x75
-	.byte 0x6C, 0x74, 0x00, 0x00, 0x72, 0x65, 0x74, 0x75, 0x72, 0x6E, 0x63, 0x64, 0x00, 0x00, 0x00, 0x00
-	.byte 0x73, 0x76, 0x63, 0x68, 0x6F, 0x73, 0x74, 0x00, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x74
-	.byte 0x6F, 0x6B, 0x65, 0x6E, 0x00, 0x00, 0x00, 0x00, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x64, 0x61
-	.byte 0x74, 0x61, 0x00, 0x00, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E
-	.byte 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74
-	.byte 0x2F, 0x61, 0x63, 0x00, 0x61, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00, 0x53, 0x56, 0x43, 0x4C
-	.byte 0x4F, 0x43, 0x00, 0x00, 0x73, 0x76, 0x63, 0x00, 0x46, 0x52, 0x45, 0x45, 0x20, 0x69, 0x6E, 0x74
-	.byte 0x77, 0x6F, 0x72, 0x6B, 0x00, 0x00, 0x00, 0x00, 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x69, 0x6E
-	.byte 0x74, 0x77, 0x6F, 0x72, 0x6B, 0x00, 0x00, 0x00, 0x3C, 0xC6, 0x20, 0x02, 0x41, 0x42, 0x43, 0x44
-	.byte 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50, 0x51, 0x52, 0x53, 0x54
-	.byte 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A
-	.byte 0x6B, 0x6C, 0x6D, 0x6E, 0x6F, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A
-	.byte 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x2E, 0x2D, 0x00, 0x00, 0x00, 0x00
-	.byte 0x01, 0x00, 0x01, 0x00, 0x98, 0xC6, 0x20, 0x02, 0x00, 0x01, 0x00, 0x00, 0xCC, 0xC6, 0x20, 0x02
-	.byte 0x03, 0x00, 0x00, 0x00, 0x80, 0xC6, 0x20, 0x02, 0x42, 0x45, 0x2C, 0x20, 0x47, 0x6C, 0x6F, 0x62
-	.byte 0x61, 0x6C, 0x53, 0x69, 0x67, 0x6E, 0x20, 0x6E, 0x76, 0x2D, 0x73, 0x61, 0x2C, 0x20, 0x52, 0x6F
-	.byte 0x6F, 0x74, 0x20, 0x43, 0x41, 0x2C, 0x20, 0x47, 0x6C, 0x6F, 0x62, 0x61, 0x6C, 0x53, 0x69, 0x67
-	.byte 0x6E, 0x20, 0x52, 0x6F, 0x6F, 0x74, 0x20, 0x43, 0x41, 0x00, 0x00, 0x00, 0xDA, 0x0E, 0xE6, 0x99
-	.byte 0x8D, 0xCE, 0xA3, 0xE3, 0x4F, 0x8A, 0x7E, 0xFB, 0xF1, 0x8B, 0x83, 0x25, 0x6B, 0xEA, 0x48, 0x1F
-	.byte 0xF1, 0x2A, 0xB0, 0xB9, 0x95, 0x11, 0x04, 0xBD, 0xF0, 0x63, 0xD1, 0xE2, 0x67, 0x66, 0xCF, 0x1C
-	.byte 0xDD, 0xCF, 0x1B, 0x48, 0x2B, 0xEE, 0x8D, 0x89, 0x8E, 0x9A, 0xAF, 0x29, 0x80, 0x65, 0xAB, 0xE9
-	.byte 0xC7, 0x2D, 0x12, 0xCB, 0xAB, 0x1C, 0x4C, 0x70, 0x07, 0xA1, 0x3D, 0x0A, 0x30, 0xCD, 0x15, 0x8D
-	.byte 0x4F, 0xF8, 0xDD, 0xD4, 0x8C, 0x50, 0x15, 0x1C, 0xEF, 0x50, 0xEE, 0xC4, 0x2E, 0xF7, 0xFC, 0xE9
-	.byte 0x52, 0xF2, 0x91, 0x7D, 0xE0, 0x6D, 0xD5, 0x35, 0x30, 0x8E, 0x5E, 0x43, 0x73, 0xF2, 0x41, 0xE9
-	.byte 0xD5, 0x6A, 0xE3, 0xB2, 0x89, 0x3A, 0x56, 0x39, 0x38, 0x6F, 0x06, 0x3C, 0x88, 0x69, 0x5B, 0x2A
-	.byte 0x4D, 0xC5, 0xA7, 0x54, 0xB8, 0x6C, 0x89, 0xCC, 0x9B, 0xF9, 0x3C, 0xCA, 0xE5, 0xFD, 0x89, 0xF5
-	.byte 0x12, 0x3C, 0x92, 0x78, 0x96, 0xD6, 0xDC, 0x74, 0x6E, 0x93, 0x44, 0x61, 0xD1, 0x8D, 0xC7, 0x46
-	.byte 0xB2, 0x75, 0x0E, 0x86, 0xE8, 0x19, 0x8A, 0xD5, 0x6D, 0x6C, 0xD5, 0x78, 0x16, 0x95, 0xA2, 0xE9
-	.byte 0xC8, 0x0A, 0x38, 0xEB, 0xF2, 0x24, 0x13, 0x4F, 0x73, 0x54, 0x93, 0x13, 0x85, 0x3A, 0x1B, 0xBC
-	.byte 0x1E, 0x34, 0xB5, 0x8B, 0x05, 0x8C, 0xB9, 0x77, 0x8B, 0xB1, 0xDB, 0x1F, 0x20, 0x91, 0xAB, 0x09
-	.byte 0x53, 0x6E, 0x90, 0xCE, 0x7B, 0x37, 0x74, 0xB9, 0x70, 0x47, 0x91, 0x22, 0x51, 0x63, 0x16, 0x79
-	.byte 0xAE, 0xB1, 0xAE, 0x41, 0x26, 0x08, 0xC8, 0x19, 0x2B, 0xD1, 0x46, 0xAA, 0x48, 0xD6, 0x64, 0x2A
-	.byte 0xD7, 0x83, 0x34, 0xFF, 0x2C, 0x2A, 0xC1, 0x6C, 0x19, 0x43, 0x4A, 0x07, 0x85, 0xE7, 0xD3, 0x7C
-	.byte 0xF6, 0x21, 0x68, 0xEF, 0xEA, 0xF2, 0x52, 0x9F, 0x7F, 0x93, 0x90, 0xCF, 0x01, 0x00, 0x01, 0x00
-	.byte 0xE4, 0xC7, 0x20, 0x02, 0x00, 0x01, 0x00, 0x00, 0x1C, 0xC8, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00
-	.byte 0xCC, 0xC7, 0x20, 0x02, 0x49, 0x45, 0x2C, 0x20, 0x42, 0x61, 0x6C, 0x74, 0x69, 0x6D, 0x6F, 0x72
-	.byte 0x65, 0x2C, 0x20, 0x43, 0x79, 0x62, 0x65, 0x72, 0x54, 0x72, 0x75, 0x73, 0x74, 0x2C, 0x20, 0x42
-	.byte 0x61, 0x6C, 0x74, 0x69, 0x6D, 0x6F, 0x72, 0x65, 0x20, 0x43, 0x79, 0x62, 0x65, 0x72, 0x54, 0x72
-	.byte 0x75, 0x73, 0x74, 0x20, 0x52, 0x6F, 0x6F, 0x74, 0x00, 0x00, 0x00, 0x00, 0xA3, 0x04, 0xBB, 0x22
-	.byte 0xAB, 0x98, 0x3D, 0x57, 0xE8, 0x26, 0x72, 0x9A, 0xB5, 0x79, 0xD4, 0x29, 0xE2, 0xE1, 0xE8, 0x95
-	.byte 0x80, 0xB1, 0xB0, 0xE3, 0x5B, 0x8E, 0x2B, 0x29, 0x9A, 0x64, 0xDF, 0xA1, 0x5D, 0xED, 0xB0, 0x09
-	.byte 0x05, 0x6D, 0xDB, 0x28, 0x2E, 0xCE, 0x62, 0xA2, 0x62, 0xFE, 0xB4, 0x88, 0xDA, 0x12, 0xEB, 0x38
-	.byte 0xEB, 0x21, 0x9D, 0xC0, 0x41, 0x2B, 0x01, 0x52, 0x7B, 0x88, 0x77, 0xD3, 0x1C, 0x8F, 0xC7, 0xBA
-	.byte 0xB9, 0x88, 0xB5, 0x6A, 0x09, 0xE7, 0x73, 0xE8, 0x11, 0x40, 0xA7, 0xD1, 0xCC, 0xCA, 0x62, 0x8D
-	.byte 0x2D, 0xE5, 0x8F, 0x0B, 0xA6, 0x50, 0xD2, 0xA8, 0x50, 0xC3, 0x28, 0xEA, 0xF5, 0xAB, 0x25, 0x87
-	.byte 0x8A, 0x9A, 0x96, 0x1C, 0xA9, 0x67, 0xB8, 0x3F, 0x0C, 0xD5, 0xF7, 0xF9, 0x52, 0x13, 0x2F, 0xC2
-	.byte 0x1B, 0xD5, 0x70, 0x70, 0xF0, 0x8F, 0xC0, 0x12, 0xCA, 0x06, 0xCB, 0x9A, 0xE1, 0xD9, 0xCA, 0x33
-	.byte 0x7A, 0x77, 0xD6, 0xF8, 0xEC, 0xB9, 0xF1, 0x68, 0x44, 0x42, 0x48, 0x13, 0xD2, 0xC0, 0xC2, 0xA4
-	.byte 0xAE, 0x5E, 0x60, 0xFE, 0xB6, 0xA6, 0x05, 0xFC, 0xB4, 0xDD, 0x07, 0x59, 0x02, 0xD4, 0x59, 0x18
-	.byte 0x98, 0x63, 0xF5, 0xA5, 0x63, 0xE0, 0x90, 0x0C, 0x7D, 0x5D, 0xB2, 0x06, 0x7A, 0xF3, 0x85, 0xEA
-	.byte 0xEB, 0xD4, 0x03, 0xAE, 0x5E, 0x84, 0x3E, 0x5F, 0xFF, 0x15, 0xED, 0x69, 0xBC, 0xF9, 0x39, 0x36
-	.byte 0x72, 0x75, 0xCF, 0x77, 0x52, 0x4D, 0xF3, 0xC9, 0x90, 0x2C, 0xB9, 0x3D, 0xE5, 0xC9, 0x23, 0x53
-	.byte 0x3F, 0x1F, 0x24, 0x98, 0x21, 0x5C, 0x07, 0x99, 0x29, 0xBD, 0xC6, 0x3A, 0xEC, 0xE7, 0x6E, 0x86
-	.byte 0x3A, 0x6B, 0x97, 0x74, 0x63, 0x33, 0xBD, 0x68, 0x18, 0x31, 0xF0, 0x78, 0x8D, 0x76, 0xBF, 0xFC
-	.byte 0x9E, 0x8E, 0x5D, 0x2A, 0x86, 0xA7, 0x4D, 0x90, 0xDC, 0x27, 0x1A, 0x39, 0x01, 0x00, 0x01, 0x00
-	.byte 0x34, 0xC9, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00, 0x84, 0xC9, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00
-	.byte 0x1C, 0xC9, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20, 0x47, 0x54, 0x45, 0x20, 0x43, 0x6F, 0x72, 0x70
-	.byte 0x6F, 0x72, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2C, 0x20, 0x47, 0x54, 0x45, 0x20, 0x43, 0x79, 0x62
-	.byte 0x65, 0x72, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20, 0x53, 0x6F, 0x6C, 0x75, 0x74, 0x69, 0x6F, 0x6E
-	.byte 0x73, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x2C, 0x20, 0x47, 0x54, 0x45, 0x20, 0x43, 0x79, 0x62
-	.byte 0x65, 0x72, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20, 0x47, 0x6C, 0x6F, 0x62, 0x61, 0x6C, 0x20, 0x52
-	.byte 0x6F, 0x6F, 0x74, 0x00, 0x95, 0x0F, 0xA0, 0xB6, 0xF0, 0x50, 0x9C, 0xE8, 0x7A, 0xC7, 0x88, 0xCD
-	.byte 0xDD, 0x17, 0x0E, 0x2E, 0xB0, 0x94, 0xD0, 0x1B, 0x3D, 0x0E, 0xF6, 0x94, 0xC0, 0x8A, 0x94, 0xC7
-	.byte 0x06, 0xC8, 0x90, 0x97, 0xC8, 0xB8, 0x64, 0x1A, 0x7A, 0x7E, 0x6C, 0x3C, 0x53, 0xE1, 0x37, 0x28
-	.byte 0x73, 0x60, 0x7F, 0xB2, 0x97, 0x53, 0x07, 0x9F, 0x53, 0xF9, 0x6D, 0x58, 0x94, 0xD2, 0xAF, 0x8D
-	.byte 0x6D, 0x88, 0x67, 0x80, 0xE6, 0xED, 0xB2, 0x95, 0xCF, 0x72, 0x31, 0xCA, 0xA5, 0x1C, 0x72, 0xBA
-	.byte 0x5C, 0x02, 0xE7, 0x64, 0x42, 0xE7, 0xF9, 0xA9, 0x2C, 0xD6, 0x3A, 0x0D, 0xAC, 0x8D, 0x42, 0xAA
-	.byte 0x24, 0x01, 0x39, 0xE6, 0x9C, 0x3F, 0x01, 0x85, 0x57, 0x0D, 0x58, 0x87, 0x45, 0xF8, 0xD3, 0x85
-	.byte 0xAA, 0x93, 0x69, 0x26, 0x85, 0x70, 0x48, 0x80, 0x3F, 0x12, 0x15, 0xC7, 0x79, 0xB4, 0x1F, 0x05
-	.byte 0x2F, 0x3B, 0x62, 0x99, 0x01, 0x00, 0x01, 0x00, 0x1C, 0xCA, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00
-	.byte 0x48, 0xCA, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0x04, 0xCA, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20
+
+	.global UNK_0220C5A0
+UNK04_0220C5A0: ; 0x0220C5A0
+	.byte 0x44, 0x61, 0x74, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C5A8
+UNK04_0220C5A8: ; 0x0220C5A8
+	.byte 0x68, 0x74, 0x74, 0x70, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x00, 0x00
+
+	.global UNK_0220C5B4
+UNK04_0220C5B4: ; 0x0220C5B4
+	.byte 0x72, 0x65, 0x74, 0x75, 0x72, 0x6E, 0x63, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C5C0
+UNK04_0220C5C0: ; 0x0220C5C0
+	.byte 0x73, 0x76, 0x63, 0x68, 0x6F, 0x73, 0x74, 0x00
+
+	.global UNK_0220C5C8
+UNK04_0220C5C8: ; 0x0220C5C8
+	.byte 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x74, 0x6F, 0x6B, 0x65, 0x6E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C5D8
+UNK04_0220C5D8: ; 0x0220C5D8
+	.byte 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x64, 0x61, 0x74, 0x61, 0x00, 0x00
+
+	.global UNK_0220C5E4
+UNK04_0220C5E4: ; 0x0220C5E4
+	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74
+	.byte 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x2F, 0x61, 0x63, 0x00
+
+	.global UNK_0220C604
+UNK04_0220C604: ; 0x0220C604
+	.byte 0x61, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
+
+	.global UNK_0220C60C
+UNK04_0220C60C: ; 0x0220C60C
+	.byte 0x53, 0x56, 0x43, 0x4C, 0x4F, 0x43, 0x00, 0x00
+
+	.global UNK_0220C614
+UNK04_0220C614: ; 0x0220C614
+	.byte 0x73, 0x76, 0x63, 0x00
+
+	.global UNK_0220C618
+UNK04_0220C618: ; 0x0220C618
+	.byte 0x46, 0x52, 0x45, 0x45, 0x20, 0x69, 0x6E, 0x74, 0x77, 0x6F, 0x72, 0x6B, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220C628
+UNK04_0220C628: ; 0x0220C628
+	.byte 0x41, 0x4C, 0x4C, 0x4F, 0x43, 0x20, 0x69, 0x6E, 0x74, 0x77, 0x6F, 0x72, 0x6B, 0x00, 0x00, 0x00
+
+	.global UNK_0220C638
+UNK04_0220C638: ; 0x0220C638
+	.byte 0x3C, 0xC6, 0x20, 0x02, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C
+	.byte 0x4D, 0x4E, 0x4F, 0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x61, 0x62
+	.byte 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6E, 0x6F, 0x70, 0x71, 0x72
+	.byte 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37
+	.byte 0x38, 0x39, 0x2E, 0x2D, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x98, 0xC6, 0x20, 0x02
+	.byte 0x00, 0x01, 0x00, 0x00, 0xCC, 0xC6, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0x80, 0xC6, 0x20, 0x02
+	.byte 0x42, 0x45, 0x2C, 0x20, 0x47, 0x6C, 0x6F, 0x62, 0x61, 0x6C, 0x53, 0x69, 0x67, 0x6E, 0x20, 0x6E
+	.byte 0x76, 0x2D, 0x73, 0x61, 0x2C, 0x20, 0x52, 0x6F, 0x6F, 0x74, 0x20, 0x43, 0x41, 0x2C, 0x20, 0x47
+	.byte 0x6C, 0x6F, 0x62, 0x61, 0x6C, 0x53, 0x69, 0x67, 0x6E, 0x20, 0x52, 0x6F, 0x6F, 0x74, 0x20, 0x43
+	.byte 0x41, 0x00, 0x00, 0x00, 0xDA, 0x0E, 0xE6, 0x99, 0x8D, 0xCE, 0xA3, 0xE3, 0x4F, 0x8A, 0x7E, 0xFB
+	.byte 0xF1, 0x8B, 0x83, 0x25, 0x6B, 0xEA, 0x48, 0x1F, 0xF1, 0x2A, 0xB0, 0xB9, 0x95, 0x11, 0x04, 0xBD
+	.byte 0xF0, 0x63, 0xD1, 0xE2, 0x67, 0x66, 0xCF, 0x1C, 0xDD, 0xCF, 0x1B, 0x48, 0x2B, 0xEE, 0x8D, 0x89
+	.byte 0x8E, 0x9A, 0xAF, 0x29, 0x80, 0x65, 0xAB, 0xE9, 0xC7, 0x2D, 0x12, 0xCB, 0xAB, 0x1C, 0x4C, 0x70
+	.byte 0x07, 0xA1, 0x3D, 0x0A, 0x30, 0xCD, 0x15, 0x8D, 0x4F, 0xF8, 0xDD, 0xD4, 0x8C, 0x50, 0x15, 0x1C
+	.byte 0xEF, 0x50, 0xEE, 0xC4, 0x2E, 0xF7, 0xFC, 0xE9, 0x52, 0xF2, 0x91, 0x7D, 0xE0, 0x6D, 0xD5, 0x35
+	.byte 0x30, 0x8E, 0x5E, 0x43, 0x73, 0xF2, 0x41, 0xE9, 0xD5, 0x6A, 0xE3, 0xB2, 0x89, 0x3A, 0x56, 0x39
+	.byte 0x38, 0x6F, 0x06, 0x3C, 0x88, 0x69, 0x5B, 0x2A, 0x4D, 0xC5, 0xA7, 0x54, 0xB8, 0x6C, 0x89, 0xCC
+	.byte 0x9B, 0xF9, 0x3C, 0xCA, 0xE5, 0xFD, 0x89, 0xF5, 0x12, 0x3C, 0x92, 0x78, 0x96, 0xD6, 0xDC, 0x74
+	.byte 0x6E, 0x93, 0x44, 0x61, 0xD1, 0x8D, 0xC7, 0x46, 0xB2, 0x75, 0x0E, 0x86, 0xE8, 0x19, 0x8A, 0xD5
+	.byte 0x6D, 0x6C, 0xD5, 0x78, 0x16, 0x95, 0xA2, 0xE9, 0xC8, 0x0A, 0x38, 0xEB, 0xF2, 0x24, 0x13, 0x4F
+	.byte 0x73, 0x54, 0x93, 0x13, 0x85, 0x3A, 0x1B, 0xBC, 0x1E, 0x34, 0xB5, 0x8B, 0x05, 0x8C, 0xB9, 0x77
+	.byte 0x8B, 0xB1, 0xDB, 0x1F, 0x20, 0x91, 0xAB, 0x09, 0x53, 0x6E, 0x90, 0xCE, 0x7B, 0x37, 0x74, 0xB9
+	.byte 0x70, 0x47, 0x91, 0x22, 0x51, 0x63, 0x16, 0x79, 0xAE, 0xB1, 0xAE, 0x41, 0x26, 0x08, 0xC8, 0x19
+	.byte 0x2B, 0xD1, 0x46, 0xAA, 0x48, 0xD6, 0x64, 0x2A, 0xD7, 0x83, 0x34, 0xFF, 0x2C, 0x2A, 0xC1, 0x6C
+	.byte 0x19, 0x43, 0x4A, 0x07, 0x85, 0xE7, 0xD3, 0x7C, 0xF6, 0x21, 0x68, 0xEF, 0xEA, 0xF2, 0x52, 0x9F
+	.byte 0x7F, 0x93, 0x90, 0xCF, 0x01, 0x00, 0x01, 0x00, 0xE4, 0xC7, 0x20, 0x02, 0x00, 0x01, 0x00, 0x00
+	.byte 0x1C, 0xC8, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0xCC, 0xC7, 0x20, 0x02, 0x49, 0x45, 0x2C, 0x20
+	.byte 0x42, 0x61, 0x6C, 0x74, 0x69, 0x6D, 0x6F, 0x72, 0x65, 0x2C, 0x20, 0x43, 0x79, 0x62, 0x65, 0x72
+	.byte 0x54, 0x72, 0x75, 0x73, 0x74, 0x2C, 0x20, 0x42, 0x61, 0x6C, 0x74, 0x69, 0x6D, 0x6F, 0x72, 0x65
+	.byte 0x20, 0x43, 0x79, 0x62, 0x65, 0x72, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20, 0x52, 0x6F, 0x6F, 0x74
+	.byte 0x00, 0x00, 0x00, 0x00, 0xA3, 0x04, 0xBB, 0x22, 0xAB, 0x98, 0x3D, 0x57, 0xE8, 0x26, 0x72, 0x9A
+	.byte 0xB5, 0x79, 0xD4, 0x29, 0xE2, 0xE1, 0xE8, 0x95, 0x80, 0xB1, 0xB0, 0xE3, 0x5B, 0x8E, 0x2B, 0x29
+	.byte 0x9A, 0x64, 0xDF, 0xA1, 0x5D, 0xED, 0xB0, 0x09, 0x05, 0x6D, 0xDB, 0x28, 0x2E, 0xCE, 0x62, 0xA2
+	.byte 0x62, 0xFE, 0xB4, 0x88, 0xDA, 0x12, 0xEB, 0x38, 0xEB, 0x21, 0x9D, 0xC0, 0x41, 0x2B, 0x01, 0x52
+	.byte 0x7B, 0x88, 0x77, 0xD3, 0x1C, 0x8F, 0xC7, 0xBA, 0xB9, 0x88, 0xB5, 0x6A, 0x09, 0xE7, 0x73, 0xE8
+	.byte 0x11, 0x40, 0xA7, 0xD1, 0xCC, 0xCA, 0x62, 0x8D, 0x2D, 0xE5, 0x8F, 0x0B, 0xA6, 0x50, 0xD2, 0xA8
+	.byte 0x50, 0xC3, 0x28, 0xEA, 0xF5, 0xAB, 0x25, 0x87, 0x8A, 0x9A, 0x96, 0x1C, 0xA9, 0x67, 0xB8, 0x3F
+	.byte 0x0C, 0xD5, 0xF7, 0xF9, 0x52, 0x13, 0x2F, 0xC2, 0x1B, 0xD5, 0x70, 0x70, 0xF0, 0x8F, 0xC0, 0x12
+	.byte 0xCA, 0x06, 0xCB, 0x9A, 0xE1, 0xD9, 0xCA, 0x33, 0x7A, 0x77, 0xD6, 0xF8, 0xEC, 0xB9, 0xF1, 0x68
+	.byte 0x44, 0x42, 0x48, 0x13, 0xD2, 0xC0, 0xC2, 0xA4, 0xAE, 0x5E, 0x60, 0xFE, 0xB6, 0xA6, 0x05, 0xFC
+	.byte 0xB4, 0xDD, 0x07, 0x59, 0x02, 0xD4, 0x59, 0x18, 0x98, 0x63, 0xF5, 0xA5, 0x63, 0xE0, 0x90, 0x0C
+	.byte 0x7D, 0x5D, 0xB2, 0x06, 0x7A, 0xF3, 0x85, 0xEA, 0xEB, 0xD4, 0x03, 0xAE, 0x5E, 0x84, 0x3E, 0x5F
+	.byte 0xFF, 0x15, 0xED, 0x69, 0xBC, 0xF9, 0x39, 0x36, 0x72, 0x75, 0xCF, 0x77, 0x52, 0x4D, 0xF3, 0xC9
+	.byte 0x90, 0x2C, 0xB9, 0x3D, 0xE5, 0xC9, 0x23, 0x53, 0x3F, 0x1F, 0x24, 0x98, 0x21, 0x5C, 0x07, 0x99
+	.byte 0x29, 0xBD, 0xC6, 0x3A, 0xEC, 0xE7, 0x6E, 0x86, 0x3A, 0x6B, 0x97, 0x74, 0x63, 0x33, 0xBD, 0x68
+	.byte 0x18, 0x31, 0xF0, 0x78, 0x8D, 0x76, 0xBF, 0xFC, 0x9E, 0x8E, 0x5D, 0x2A, 0x86, 0xA7, 0x4D, 0x90
+	.byte 0xDC, 0x27, 0x1A, 0x39, 0x01, 0x00, 0x01, 0x00, 0x34, 0xC9, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00
+	.byte 0x84, 0xC9, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0x1C, 0xC9, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20
 	.byte 0x47, 0x54, 0x45, 0x20, 0x43, 0x6F, 0x72, 0x70, 0x6F, 0x72, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2C
 	.byte 0x20, 0x47, 0x54, 0x45, 0x20, 0x43, 0x79, 0x62, 0x65, 0x72, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20
-	.byte 0x52, 0x6F, 0x6F, 0x74, 0x00, 0x00, 0x00, 0x00, 0xB8, 0xE6, 0x4F, 0xBA, 0xDB, 0x98, 0x7C, 0x71
-	.byte 0x7C, 0xAF, 0x44, 0xB7, 0xD3, 0x0F, 0x46, 0xD9, 0x64, 0xE5, 0x93, 0xC1, 0x42, 0x8E, 0xC7, 0xBA
-	.byte 0x49, 0x8D, 0x35, 0x2D, 0x7A, 0xE7, 0x8B, 0xBD, 0xE5, 0x05, 0x31, 0x59, 0xC6, 0xB1, 0x2F, 0x0A
-	.byte 0x0C, 0xFB, 0x9F, 0xA7, 0x3F, 0xA2, 0x09, 0x66, 0x84, 0x56, 0x1E, 0x37, 0x29, 0x1B, 0x87, 0xE9
-	.byte 0x7E, 0x0C, 0xCA, 0x9A, 0x9F, 0xA5, 0x7F, 0xF5, 0x15, 0x94, 0xA3, 0xD5, 0xA2, 0x46, 0x82, 0xD8
-	.byte 0x68, 0x4C, 0xD1, 0x37, 0x15, 0x06, 0x68, 0xAF, 0xBD, 0xF8, 0xB0, 0xB3, 0xF0, 0x29, 0xF5, 0x95
-	.byte 0x5A, 0x09, 0x16, 0x61, 0x77, 0x0A, 0x22, 0x25, 0xD4, 0x4F, 0x45, 0xAA, 0xC7, 0xBD, 0xE5, 0x96
-	.byte 0xDF, 0xF9, 0xD4, 0xA8, 0x8E, 0x42, 0xCC, 0x24, 0xC0, 0x1E, 0x91, 0x27, 0x4A, 0xB5, 0x6D, 0x06
-	.byte 0x80, 0x63, 0x39, 0xC4, 0xA2, 0x5E, 0x38, 0x03, 0x01, 0x00, 0x01, 0x00, 0xE0, 0xCA, 0x20, 0x02
-	.byte 0x80, 0x00, 0x00, 0x00, 0x30, 0xCB, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0xC8, 0xCA, 0x20, 0x02
-	.byte 0x55, 0x53, 0x2C, 0x20, 0x57, 0x61, 0x73, 0x68, 0x69, 0x6E, 0x67, 0x74, 0x6F, 0x6E, 0x2C, 0x20
-	.byte 0x4E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x20, 0x6F, 0x66, 0x20, 0x41, 0x6D, 0x65, 0x72
-	.byte 0x69, 0x63, 0x61, 0x20, 0x49, 0x6E, 0x63, 0x2C, 0x20, 0x4E, 0x4F, 0x41, 0x2C, 0x20, 0x4E, 0x69
-	.byte 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x20, 0x43, 0x41, 0x2C, 0x20, 0x63, 0x61, 0x40, 0x6E, 0x6F
-	.byte 0x61, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x2E, 0x63, 0x6F, 0x6D, 0x00, 0x00
-	.byte 0xB3, 0xCD, 0x79, 0x97, 0x77, 0x5D, 0x8A, 0xAF, 0x86, 0xA8, 0xE8, 0xD7, 0x73, 0x1C, 0x77, 0xDF
-	.byte 0x10, 0x90, 0x1F, 0x81, 0xF8, 0x41, 0x9E, 0x21, 0x55, 0xDF, 0xBC, 0xFC, 0x63, 0xFB, 0x19, 0x43
-	.byte 0xF1, 0xF6, 0xC4, 0x72, 0x42, 0x49, 0xBD, 0xAD, 0x44, 0x68, 0x4E, 0xF3, 0xDA, 0x1D, 0xE6, 0x4D
-	.byte 0xD8, 0xF9, 0x59, 0x88, 0xDC, 0xAE, 0x3E, 0x9B, 0x38, 0x09, 0xCA, 0x7F, 0xFF, 0xDC, 0x24, 0xA2
-	.byte 0x44, 0x78, 0x78, 0x49, 0x93, 0xD4, 0x84, 0x40, 0x10, 0xB8, 0xEC, 0x3E, 0xDB, 0x2D, 0x93, 0xC8
-	.byte 0x11, 0xC8, 0xFD, 0x78, 0x2D, 0x61, 0xAD, 0x31, 0xAE, 0x86, 0x26, 0xB0, 0xFD, 0x5A, 0x3F, 0xA1
-	.byte 0x3D, 0xBF, 0xE2, 0x4B, 0x49, 0xEC, 0xCE, 0x66, 0x98, 0x58, 0x26, 0x12, 0xC0, 0xFB, 0xF4, 0x77
-	.byte 0x65, 0x1B, 0xEA, 0xFB, 0xCB, 0x7F, 0xE0, 0x8C, 0xCB, 0x02, 0xA3, 0x4E, 0x5E, 0x8C, 0xEA, 0x9B
-	.byte 0x01, 0x00, 0x01, 0x00, 0x48, 0xCC, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00, 0xC8, 0xCB, 0x20, 0x02
-	.byte 0x03, 0x00, 0x00, 0x00, 0xB0, 0xCB, 0x20, 0x02, 0xD2, 0x36, 0x36, 0x6A, 0x8B, 0xD7, 0xC2, 0x5B
-	.byte 0x9E, 0xDA, 0x81, 0x41, 0x62, 0x8F, 0x38, 0xEE, 0x49, 0x04, 0x55, 0xD6, 0xD0, 0xEF, 0x1C, 0x1B
-	.byte 0x95, 0x16, 0x47, 0xEF, 0x18, 0x48, 0x35, 0x3A, 0x52, 0xF4, 0x2B, 0x6A, 0x06, 0x8F, 0x3B, 0x2F
-	.byte 0xEA, 0x56, 0xE3, 0xAF, 0x86, 0x8D, 0x9E, 0x17, 0xF7, 0x9E, 0xB4, 0x65, 0x75, 0x02, 0x4D, 0xEF
-	.byte 0xCB, 0x09, 0xA2, 0x21, 0x51, 0xD8, 0x9B, 0xD0, 0x67, 0xD0, 0xBA, 0x0D, 0x92, 0x06, 0x14, 0x73
-	.byte 0xD4, 0x93, 0xCB, 0x97, 0x2A, 0x00, 0x9C, 0x5C, 0x4E, 0x0C, 0xBC, 0xFA, 0x15, 0x52, 0xFC, 0xF2
-	.byte 0x44, 0x6E, 0xDA, 0x11, 0x4A, 0x6E, 0x08, 0x9F, 0x2F, 0x2D, 0xE3, 0xF9, 0xAA, 0x3A, 0x86, 0x73
-	.byte 0xB6, 0x46, 0x53, 0x58, 0xC8, 0x89, 0x05, 0xBD, 0x83, 0x11, 0xB8, 0x73, 0x3F, 0xAA, 0x07, 0x8D
-	.byte 0xF4, 0x42, 0x4D, 0xE7, 0x40, 0x9D, 0x1C, 0x37, 0x5A, 0x41, 0x2C, 0x20, 0x57, 0x65, 0x73, 0x74
-	.byte 0x65, 0x72, 0x6E, 0x20, 0x43, 0x61, 0x70, 0x65, 0x2C, 0x20, 0x43, 0x61, 0x70, 0x65, 0x20, 0x54
-	.byte 0x6F, 0x77, 0x6E, 0x2C, 0x20, 0x54, 0x68, 0x61, 0x77, 0x74, 0x65, 0x20, 0x43, 0x6F, 0x6E, 0x73
-	.byte 0x75, 0x6C, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x63, 0x63, 0x2C, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69
-	.byte 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65
-	.byte 0x73, 0x20, 0x44, 0x69, 0x76, 0x69, 0x73, 0x69, 0x6F, 0x6E, 0x2C, 0x20, 0x54, 0x68, 0x61, 0x77
-	.byte 0x74, 0x65, 0x20, 0x50, 0x72, 0x65, 0x6D, 0x69, 0x75, 0x6D, 0x20, 0x53, 0x65, 0x72, 0x76, 0x65
-	.byte 0x72, 0x20, 0x43, 0x41, 0x2C, 0x20, 0x70, 0x72, 0x65, 0x6D, 0x69, 0x75, 0x6D, 0x2D, 0x73, 0x65
-	.byte 0x72, 0x76, 0x65, 0x72, 0x40, 0x74, 0x68, 0x61, 0x77, 0x74, 0x65, 0x2E, 0x63, 0x6F, 0x6D, 0x00
-	.byte 0x01, 0x00, 0x01, 0x00, 0xE8, 0xCC, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00, 0x68, 0xCD, 0x20, 0x02
-	.byte 0x03, 0x00, 0x00, 0x00, 0xD0, 0xCC, 0x20, 0x02, 0x5A, 0x41, 0x2C, 0x20, 0x57, 0x65, 0x73, 0x74
-	.byte 0x65, 0x72, 0x6E, 0x20, 0x43, 0x61, 0x70, 0x65, 0x2C, 0x20, 0x43, 0x61, 0x70, 0x65, 0x20, 0x54
-	.byte 0x6F, 0x77, 0x6E, 0x2C, 0x20, 0x54, 0x68, 0x61, 0x77, 0x74, 0x65, 0x20, 0x43, 0x6F, 0x6E, 0x73
-	.byte 0x75, 0x6C, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x63, 0x63, 0x2C, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69
-	.byte 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65
-	.byte 0x73, 0x20, 0x44, 0x69, 0x76, 0x69, 0x73, 0x69, 0x6F, 0x6E, 0x2C, 0x20, 0x54, 0x68, 0x61, 0x77
-	.byte 0x74, 0x65, 0x20, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x20, 0x43, 0x41, 0x2C, 0x20, 0x73, 0x65
-	.byte 0x72, 0x76, 0x65, 0x72, 0x2D, 0x63, 0x65, 0x72, 0x74, 0x73, 0x40, 0x74, 0x68, 0x61, 0x77, 0x74
-	.byte 0x65, 0x2E, 0x63, 0x6F, 0x6D, 0x00, 0x00, 0x00, 0xD3, 0xA4, 0x50, 0x6E, 0xC8, 0xFF, 0x56, 0x6B
-	.byte 0xE6, 0xCF, 0x5D, 0xB6, 0xEA, 0x0C, 0x68, 0x75, 0x47, 0xA2, 0xAA, 0xC2, 0xDA, 0x84, 0x25, 0xFC
-	.byte 0xA8, 0xF4, 0x47, 0x51, 0xDA, 0x85, 0xB5, 0x20, 0x74, 0x94, 0x86, 0x1E, 0x0F, 0x75, 0xC9, 0xE9
-	.byte 0x08, 0x61, 0xF5, 0x06, 0x6D, 0x30, 0x6E, 0x15, 0x19, 0x02, 0xE9, 0x52, 0xC0, 0x62, 0xDB, 0x4D
-	.byte 0x99, 0x9E, 0xE2, 0x6A, 0x0C, 0x44, 0x38, 0xCD, 0xFE, 0xBE, 0xE3, 0x64, 0x09, 0x70, 0xC5, 0xFE
-	.byte 0xB1, 0x6B, 0x29, 0xB6, 0x2F, 0x49, 0xC8, 0x3B, 0xD4, 0x27, 0x04, 0x25, 0x10, 0x97, 0x2F, 0xE7
-	.byte 0x90, 0x6D, 0xC0, 0x28, 0x42, 0x99, 0xD7, 0x4C, 0x43, 0xDE, 0xC3, 0xF5, 0x21, 0x6D, 0x54, 0x9F
-	.byte 0x5D, 0xC3, 0x58, 0xE1, 0xC0, 0xE4, 0xD9, 0x5B, 0xB0, 0xB8, 0xDC, 0xB4, 0x7B, 0xDF, 0x36, 0x3A
-	.byte 0xC2, 0xB5, 0x66, 0x22, 0x12, 0xD6, 0x87, 0x0D, 0x01, 0x00, 0x01, 0x00, 0x80, 0xCE, 0x20, 0x02
-	.byte 0x80, 0x00, 0x00, 0x00, 0x00, 0xCE, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0xE8, 0xCD, 0x20, 0x02
-	.byte 0xCC, 0x5E, 0xD1, 0x11, 0x5D, 0x5C, 0x69, 0xD0, 0xAB, 0xD3, 0xB9, 0x6A, 0x4C, 0x99, 0x1F, 0x59
-	.byte 0x98, 0x30, 0x8E, 0x16, 0x85, 0x20, 0x46, 0x6D, 0x47, 0x3F, 0xD4, 0x85, 0x20, 0x84, 0xE1, 0x6D
-	.byte 0xB3, 0xF8, 0xA4, 0xED, 0x0C, 0xF1, 0x17, 0x0F, 0x3B, 0xF9, 0xA7, 0xF9, 0x25, 0xD7, 0xC1, 0xCF
-	.byte 0x84, 0x63, 0xF2, 0x7C, 0x63, 0xCF, 0xA2, 0x47, 0xF2, 0xC6, 0x5B, 0x33, 0x8E, 0x64, 0x40, 0x04
-	.byte 0x68, 0xC1, 0x80, 0xB9, 0x64, 0x1C, 0x45, 0x77, 0xC7, 0xD8, 0x6E, 0xF5, 0x95, 0x29, 0x3C, 0x50
-	.byte 0xE8, 0x34, 0xD7, 0x78, 0x1F, 0xA8, 0xBA, 0x6D, 0x43, 0x91, 0x95, 0x8F, 0x45, 0x57, 0x5E, 0x7E
-	.byte 0xC5, 0xFB, 0xCA, 0xA4, 0x04, 0xEB, 0xEA, 0x97, 0x37, 0x54, 0x30, 0x6F, 0xBB, 0x01, 0x47, 0x32
-	.byte 0x33, 0xCD, 0xDC, 0x57, 0x9B, 0x64, 0x69, 0x61, 0xF8, 0x9B, 0x1D, 0x1C, 0x89, 0x4F, 0x5C, 0x67
-	.byte 0x55, 0x53, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E, 0x2C, 0x20, 0x49, 0x6E
-	.byte 0x63, 0x2E, 0x2C, 0x20, 0x43, 0x6C, 0x61, 0x73, 0x73, 0x20, 0x33, 0x20, 0x50, 0x75, 0x62, 0x6C
-	.byte 0x69, 0x63, 0x20, 0x50, 0x72, 0x69, 0x6D, 0x61, 0x72, 0x79, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69
-	.byte 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x41, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69
-	.byte 0x74, 0x79, 0x20, 0x2D, 0x20, 0x47, 0x32, 0x2C, 0x20, 0x28, 0x63, 0x29, 0x20, 0x31, 0x39, 0x39
-	.byte 0x38, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E
-	.byte 0x20, 0x2D, 0x20, 0x46, 0x6F, 0x72, 0x20, 0x61, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69, 0x7A, 0x65
-	.byte 0x64, 0x20, 0x75, 0x73, 0x65, 0x20, 0x6F, 0x6E, 0x6C, 0x79, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69
-	.byte 0x53, 0x69, 0x67, 0x6E, 0x20, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20, 0x4E, 0x65, 0x74, 0x77, 0x6F
-	.byte 0x72, 0x6B, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x2C, 0xCF, 0x20, 0x02, 0x00, 0x01, 0x00, 0x00
-	.byte 0xC8, 0xCF, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0x14, 0xCF, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20
-	.byte 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x2C, 0x20
-	.byte 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E, 0x20, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20, 0x4E
-	.byte 0x65, 0x74, 0x77, 0x6F, 0x72, 0x6B, 0x2C, 0x20, 0x28, 0x63, 0x29, 0x20, 0x31, 0x39, 0x39, 0x39
-	.byte 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x20
-	.byte 0x2D, 0x20, 0x46, 0x6F, 0x72, 0x20, 0x61, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69, 0x7A, 0x65, 0x64
-	.byte 0x20, 0x75, 0x73, 0x65, 0x20, 0x6F, 0x6E, 0x6C, 0x79, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53
-	.byte 0x69, 0x67, 0x6E, 0x20, 0x43, 0x6C, 0x61, 0x73, 0x73, 0x20, 0x33, 0x20, 0x50, 0x75, 0x62, 0x6C
-	.byte 0x69, 0x63, 0x20, 0x50, 0x72, 0x69, 0x6D, 0x61, 0x72, 0x79, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69
-	.byte 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x41, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69
-	.byte 0x74, 0x79, 0x20, 0x2D, 0x20, 0x47, 0x33, 0x00, 0xCB, 0xBA, 0x9C, 0x52, 0xFC, 0x78, 0x1F, 0x1A
-	.byte 0x1E, 0x6F, 0x1B, 0x37, 0x73, 0xBD, 0xF8, 0xC9, 0x6B, 0x94, 0x12, 0x30, 0x4F, 0xF0, 0x36, 0x47
-	.byte 0xF5, 0xD0, 0x91, 0x0A, 0xF5, 0x17, 0xC8, 0xA5, 0x61, 0xC1, 0x16, 0x40, 0x4D, 0xFB, 0x8A, 0x61
-	.byte 0x90, 0xE5, 0x76, 0x20, 0xC1, 0x11, 0x06, 0x7D, 0xAB, 0x2C, 0x6E, 0xA6, 0xF5, 0x11, 0x41, 0x8E
-	.byte 0xFA, 0x2D, 0xAD, 0x2A, 0x61, 0x59, 0xA4, 0x67, 0x26, 0x4C, 0xD0, 0xE8, 0xBC, 0x52, 0x5B, 0x70
-	.byte 0x20, 0x04, 0x58, 0xD1, 0x7A, 0xC9, 0xA4, 0x69, 0xBC, 0x83, 0x17, 0x64, 0xAD, 0x05, 0x8B, 0xBC
-	.byte 0xD0, 0x58, 0xCE, 0x8D, 0x8C, 0xF5, 0xEB, 0xF0, 0x42, 0x49, 0x0B, 0x9D, 0x97, 0x27, 0x67, 0x32
-	.byte 0x6E, 0xE1, 0xAE, 0x93, 0x15, 0x1C, 0x70, 0xBC, 0x20, 0x4D, 0x2F, 0x18, 0xDE, 0x92, 0x88, 0xE8
-	.byte 0x6C, 0x85, 0x57, 0x11, 0x1A, 0xE9, 0x7E, 0xE3, 0x26, 0x11, 0x54, 0xA2, 0x45, 0x96, 0x55, 0x83
-	.byte 0xCA, 0x30, 0x89, 0xE8, 0xDC, 0xD8, 0xA3, 0xED, 0x2A, 0x80, 0x3F, 0x7F, 0x79, 0x65, 0x57, 0x3E
-	.byte 0x15, 0x20, 0x66, 0x08, 0x2F, 0x95, 0x93, 0xBF, 0xAA, 0x47, 0x2F, 0xA8, 0x46, 0x97, 0xF0, 0x12
-	.byte 0xE2, 0xFE, 0xC2, 0x0A, 0x2B, 0x51, 0xE6, 0x76, 0xE6, 0xB7, 0x46, 0xB7, 0xE2, 0x0D, 0xA6, 0xCC
-	.byte 0xA8, 0xC3, 0x4C, 0x59, 0x55, 0x89, 0xE6, 0xE8, 0x53, 0x5C, 0x1C, 0xEA, 0x9D, 0xF0, 0x62, 0x16
-	.byte 0x0B, 0xA7, 0xC9, 0x5F, 0x0C, 0xF0, 0xDE, 0xC2, 0x76, 0xCE, 0xAF, 0xF7, 0x6A, 0xF2, 0xFA, 0x41
-	.byte 0xA6, 0xA2, 0x33, 0x14, 0xC9, 0xE5, 0x7A, 0x63, 0xD3, 0x9E, 0x62, 0x37, 0xD5, 0x85, 0x65, 0x9E
-	.byte 0x0E, 0xE6, 0x53, 0x24, 0x74, 0x1B, 0x5E, 0x1D, 0x12, 0x53, 0x5B, 0xC7, 0x2C, 0xE7, 0x83, 0x49
-	.byte 0x3B, 0x15, 0xAE, 0x8A, 0x68, 0xB9, 0x57, 0x97, 0x01, 0x00, 0x01, 0x00, 0xE0, 0xD0, 0x20, 0x02
-	.byte 0x80, 0x00, 0x00, 0x00, 0x24, 0xD1, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0xC8, 0xD0, 0x20, 0x02
-	.byte 0x55, 0x53, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E, 0x2C, 0x20, 0x49, 0x6E
-	.byte 0x63, 0x2E, 0x2C, 0x20, 0x43, 0x6C, 0x61, 0x73, 0x73, 0x20, 0x33, 0x20, 0x50, 0x75, 0x62, 0x6C
-	.byte 0x69, 0x63, 0x20, 0x50, 0x72, 0x69, 0x6D, 0x61, 0x72, 0x79, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69
-	.byte 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x41, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69
-	.byte 0x74, 0x79, 0x00, 0x00, 0xC9, 0x5C, 0x59, 0x9E, 0xF2, 0x1B, 0x8A, 0x01, 0x14, 0xB4, 0x10, 0xDF
-	.byte 0x04, 0x40, 0xDB, 0xE3, 0x57, 0xAF, 0x6A, 0x45, 0x40, 0x8F, 0x84, 0x0C, 0x0B, 0xD1, 0x33, 0xD9
-	.byte 0xD9, 0x11, 0xCF, 0xEE, 0x02, 0x58, 0x1F, 0x25, 0xF7, 0x2A, 0xA8, 0x44, 0x05, 0xAA, 0xEC, 0x03
-	.byte 0x1F, 0x78, 0x7F, 0x9E, 0x93, 0xB9, 0x9A, 0x00, 0xAA, 0x23, 0x7D, 0xD6, 0xAC, 0x85, 0xA2, 0x63
-	.byte 0x45, 0xC7, 0x72, 0x27, 0xCC, 0xF4, 0x4C, 0xC6, 0x75, 0x71, 0xD2, 0x39, 0xEF, 0x4F, 0x42, 0xF0
-	.byte 0x75, 0xDF, 0x0A, 0x90, 0xC6, 0x8E, 0x20, 0x6F, 0x98, 0x0F, 0xF8, 0xAC, 0x23, 0x5F, 0x70, 0x29
-	.byte 0x36, 0xA4, 0xC9, 0x86, 0xE7, 0xB1, 0x9A, 0x20, 0xCB, 0x53, 0xA5, 0x85, 0xE7, 0x3D, 0xBE, 0x7D
-	.byte 0x9A, 0xFE, 0x24, 0x45, 0x33, 0xDC, 0x76, 0x15, 0xED, 0x0F, 0xA2, 0x71, 0x64, 0x4C, 0x65, 0x2E
-	.byte 0x81, 0x68, 0x45, 0xA7, 0x01, 0x00, 0x01, 0x00, 0xBC, 0xD1, 0x20, 0x02, 0x7D, 0x00, 0x00, 0x00
-	.byte 0x00, 0xD2, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0xA4, 0xD1, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20
-	.byte 0x52, 0x53, 0x41, 0x20, 0x44, 0x61, 0x74, 0x61, 0x20, 0x53, 0x65, 0x63, 0x75, 0x72, 0x69, 0x74
-	.byte 0x79, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x2C, 0x20, 0x53, 0x65, 0x63, 0x75, 0x72, 0x65, 0x20
-	.byte 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61
-	.byte 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x41, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69, 0x74, 0x79, 0x00, 0x00
-	.byte 0x92, 0xCE, 0x7A, 0xC1, 0xAE, 0x83, 0x3E, 0x5A, 0xAA, 0x89, 0x83, 0x57, 0xAC, 0x25, 0x01, 0x76
-	.byte 0x0C, 0xAD, 0xAE, 0x8E, 0x2C, 0x37, 0xCE, 0xEB, 0x35, 0x78, 0x64, 0x54, 0x03, 0xE5, 0x84, 0x40
-	.byte 0x51, 0xC9, 0xBF, 0x8F, 0x08, 0xE2, 0x8A, 0x82, 0x08, 0xD2, 0x16, 0x86, 0x37, 0x55, 0xE9, 0xB1
-	.byte 0x21, 0x02, 0xAD, 0x76, 0x68, 0x81, 0x9A, 0x05, 0xA2, 0x4B, 0xC9, 0x4B, 0x25, 0x66, 0x22, 0x56
-	.byte 0x6C, 0x88, 0x07, 0x8F, 0xF7, 0x81, 0x59, 0x6D, 0x84, 0x07, 0x65, 0x70, 0x13, 0x71, 0x76, 0x3E
-	.byte 0x9B, 0x77, 0x4C, 0xE3, 0x50, 0x89, 0x56, 0x98, 0x48, 0xB9, 0x1D, 0xA7, 0x29, 0x1A, 0x13, 0x2E
-	.byte 0x4A, 0x11, 0x59, 0x9C, 0x1E, 0x15, 0xD5, 0x49, 0x54, 0x2C, 0x73, 0x3A, 0x69, 0x82, 0xB1, 0x97
-	.byte 0x39, 0x9C, 0x6D, 0x70, 0x67, 0x48, 0xE5, 0xDD, 0x2D, 0xD6, 0xC8, 0x1E, 0x7B, 0x00, 0x00, 0x00
+	.byte 0x53, 0x6F, 0x6C, 0x75, 0x74, 0x69, 0x6F, 0x6E, 0x73, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x2C
+	.byte 0x20, 0x47, 0x54, 0x45, 0x20, 0x43, 0x79, 0x62, 0x65, 0x72, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20
+	.byte 0x47, 0x6C, 0x6F, 0x62, 0x61, 0x6C, 0x20, 0x52, 0x6F, 0x6F, 0x74, 0x00, 0x95, 0x0F, 0xA0, 0xB6
+	.byte 0xF0, 0x50, 0x9C, 0xE8, 0x7A, 0xC7, 0x88, 0xCD, 0xDD, 0x17, 0x0E, 0x2E, 0xB0, 0x94, 0xD0, 0x1B
+	.byte 0x3D, 0x0E, 0xF6, 0x94, 0xC0, 0x8A, 0x94, 0xC7, 0x06, 0xC8, 0x90, 0x97, 0xC8, 0xB8, 0x64, 0x1A
+	.byte 0x7A, 0x7E, 0x6C, 0x3C, 0x53, 0xE1, 0x37, 0x28, 0x73, 0x60, 0x7F, 0xB2, 0x97, 0x53, 0x07, 0x9F
+	.byte 0x53, 0xF9, 0x6D, 0x58, 0x94, 0xD2, 0xAF, 0x8D, 0x6D, 0x88, 0x67, 0x80, 0xE6, 0xED, 0xB2, 0x95
+	.byte 0xCF, 0x72, 0x31, 0xCA, 0xA5, 0x1C, 0x72, 0xBA, 0x5C, 0x02, 0xE7, 0x64, 0x42, 0xE7, 0xF9, 0xA9
+	.byte 0x2C, 0xD6, 0x3A, 0x0D, 0xAC, 0x8D, 0x42, 0xAA, 0x24, 0x01, 0x39, 0xE6, 0x9C, 0x3F, 0x01, 0x85
+	.byte 0x57, 0x0D, 0x58, 0x87, 0x45, 0xF8, 0xD3, 0x85, 0xAA, 0x93, 0x69, 0x26, 0x85, 0x70, 0x48, 0x80
+	.byte 0x3F, 0x12, 0x15, 0xC7, 0x79, 0xB4, 0x1F, 0x05, 0x2F, 0x3B, 0x62, 0x99, 0x01, 0x00, 0x01, 0x00
+	.byte 0x1C, 0xCA, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00, 0x48, 0xCA, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00
+	.byte 0x04, 0xCA, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20, 0x47, 0x54, 0x45, 0x20, 0x43, 0x6F, 0x72, 0x70
+	.byte 0x6F, 0x72, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2C, 0x20, 0x47, 0x54, 0x45, 0x20, 0x43, 0x79, 0x62
+	.byte 0x65, 0x72, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20, 0x52, 0x6F, 0x6F, 0x74, 0x00, 0x00, 0x00, 0x00
+	.byte 0xB8, 0xE6, 0x4F, 0xBA, 0xDB, 0x98, 0x7C, 0x71, 0x7C, 0xAF, 0x44, 0xB7, 0xD3, 0x0F, 0x46, 0xD9
+	.byte 0x64, 0xE5, 0x93, 0xC1, 0x42, 0x8E, 0xC7, 0xBA, 0x49, 0x8D, 0x35, 0x2D, 0x7A, 0xE7, 0x8B, 0xBD
+	.byte 0xE5, 0x05, 0x31, 0x59, 0xC6, 0xB1, 0x2F, 0x0A, 0x0C, 0xFB, 0x9F, 0xA7, 0x3F, 0xA2, 0x09, 0x66
+	.byte 0x84, 0x56, 0x1E, 0x37, 0x29, 0x1B, 0x87, 0xE9, 0x7E, 0x0C, 0xCA, 0x9A, 0x9F, 0xA5, 0x7F, 0xF5
+	.byte 0x15, 0x94, 0xA3, 0xD5, 0xA2, 0x46, 0x82, 0xD8, 0x68, 0x4C, 0xD1, 0x37, 0x15, 0x06, 0x68, 0xAF
+	.byte 0xBD, 0xF8, 0xB0, 0xB3, 0xF0, 0x29, 0xF5, 0x95, 0x5A, 0x09, 0x16, 0x61, 0x77, 0x0A, 0x22, 0x25
+	.byte 0xD4, 0x4F, 0x45, 0xAA, 0xC7, 0xBD, 0xE5, 0x96, 0xDF, 0xF9, 0xD4, 0xA8, 0x8E, 0x42, 0xCC, 0x24
+	.byte 0xC0, 0x1E, 0x91, 0x27, 0x4A, 0xB5, 0x6D, 0x06, 0x80, 0x63, 0x39, 0xC4, 0xA2, 0x5E, 0x38, 0x03
+	.byte 0x01, 0x00, 0x01, 0x00, 0xE0, 0xCA, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00, 0x30, 0xCB, 0x20, 0x02
+	.byte 0x03, 0x00, 0x00, 0x00, 0xC8, 0xCA, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20, 0x57, 0x61, 0x73, 0x68
+	.byte 0x69, 0x6E, 0x67, 0x74, 0x6F, 0x6E, 0x2C, 0x20, 0x4E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F
+	.byte 0x20, 0x6F, 0x66, 0x20, 0x41, 0x6D, 0x65, 0x72, 0x69, 0x63, 0x61, 0x20, 0x49, 0x6E, 0x63, 0x2C
+	.byte 0x20, 0x4E, 0x4F, 0x41, 0x2C, 0x20, 0x4E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x20, 0x43
+	.byte 0x41, 0x2C, 0x20, 0x63, 0x61, 0x40, 0x6E, 0x6F, 0x61, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E
+	.byte 0x64, 0x6F, 0x2E, 0x63, 0x6F, 0x6D, 0x00, 0x00, 0xB3, 0xCD, 0x79, 0x97, 0x77, 0x5D, 0x8A, 0xAF
+	.byte 0x86, 0xA8, 0xE8, 0xD7, 0x73, 0x1C, 0x77, 0xDF, 0x10, 0x90, 0x1F, 0x81, 0xF8, 0x41, 0x9E, 0x21
+	.byte 0x55, 0xDF, 0xBC, 0xFC, 0x63, 0xFB, 0x19, 0x43, 0xF1, 0xF6, 0xC4, 0x72, 0x42, 0x49, 0xBD, 0xAD
+	.byte 0x44, 0x68, 0x4E, 0xF3, 0xDA, 0x1D, 0xE6, 0x4D, 0xD8, 0xF9, 0x59, 0x88, 0xDC, 0xAE, 0x3E, 0x9B
+	.byte 0x38, 0x09, 0xCA, 0x7F, 0xFF, 0xDC, 0x24, 0xA2, 0x44, 0x78, 0x78, 0x49, 0x93, 0xD4, 0x84, 0x40
+	.byte 0x10, 0xB8, 0xEC, 0x3E, 0xDB, 0x2D, 0x93, 0xC8, 0x11, 0xC8, 0xFD, 0x78, 0x2D, 0x61, 0xAD, 0x31
+	.byte 0xAE, 0x86, 0x26, 0xB0, 0xFD, 0x5A, 0x3F, 0xA1, 0x3D, 0xBF, 0xE2, 0x4B, 0x49, 0xEC, 0xCE, 0x66
+	.byte 0x98, 0x58, 0x26, 0x12, 0xC0, 0xFB, 0xF4, 0x77, 0x65, 0x1B, 0xEA, 0xFB, 0xCB, 0x7F, 0xE0, 0x8C
+	.byte 0xCB, 0x02, 0xA3, 0x4E, 0x5E, 0x8C, 0xEA, 0x9B, 0x01, 0x00, 0x01, 0x00, 0x48, 0xCC, 0x20, 0x02
+	.byte 0x80, 0x00, 0x00, 0x00, 0xC8, 0xCB, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0xB0, 0xCB, 0x20, 0x02
+	.byte 0xD2, 0x36, 0x36, 0x6A, 0x8B, 0xD7, 0xC2, 0x5B, 0x9E, 0xDA, 0x81, 0x41, 0x62, 0x8F, 0x38, 0xEE
+	.byte 0x49, 0x04, 0x55, 0xD6, 0xD0, 0xEF, 0x1C, 0x1B, 0x95, 0x16, 0x47, 0xEF, 0x18, 0x48, 0x35, 0x3A
+	.byte 0x52, 0xF4, 0x2B, 0x6A, 0x06, 0x8F, 0x3B, 0x2F, 0xEA, 0x56, 0xE3, 0xAF, 0x86, 0x8D, 0x9E, 0x17
+	.byte 0xF7, 0x9E, 0xB4, 0x65, 0x75, 0x02, 0x4D, 0xEF, 0xCB, 0x09, 0xA2, 0x21, 0x51, 0xD8, 0x9B, 0xD0
+	.byte 0x67, 0xD0, 0xBA, 0x0D, 0x92, 0x06, 0x14, 0x73, 0xD4, 0x93, 0xCB, 0x97, 0x2A, 0x00, 0x9C, 0x5C
+	.byte 0x4E, 0x0C, 0xBC, 0xFA, 0x15, 0x52, 0xFC, 0xF2, 0x44, 0x6E, 0xDA, 0x11, 0x4A, 0x6E, 0x08, 0x9F
+	.byte 0x2F, 0x2D, 0xE3, 0xF9, 0xAA, 0x3A, 0x86, 0x73, 0xB6, 0x46, 0x53, 0x58, 0xC8, 0x89, 0x05, 0xBD
+	.byte 0x83, 0x11, 0xB8, 0x73, 0x3F, 0xAA, 0x07, 0x8D, 0xF4, 0x42, 0x4D, 0xE7, 0x40, 0x9D, 0x1C, 0x37
+	.byte 0x5A, 0x41, 0x2C, 0x20, 0x57, 0x65, 0x73, 0x74, 0x65, 0x72, 0x6E, 0x20, 0x43, 0x61, 0x70, 0x65
+	.byte 0x2C, 0x20, 0x43, 0x61, 0x70, 0x65, 0x20, 0x54, 0x6F, 0x77, 0x6E, 0x2C, 0x20, 0x54, 0x68, 0x61
+	.byte 0x77, 0x74, 0x65, 0x20, 0x43, 0x6F, 0x6E, 0x73, 0x75, 0x6C, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x63
+	.byte 0x63, 0x2C, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E
+	.byte 0x20, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x20, 0x44, 0x69, 0x76, 0x69, 0x73, 0x69
+	.byte 0x6F, 0x6E, 0x2C, 0x20, 0x54, 0x68, 0x61, 0x77, 0x74, 0x65, 0x20, 0x50, 0x72, 0x65, 0x6D, 0x69
+	.byte 0x75, 0x6D, 0x20, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x20, 0x43, 0x41, 0x2C, 0x20, 0x70, 0x72
+	.byte 0x65, 0x6D, 0x69, 0x75, 0x6D, 0x2D, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x40, 0x74, 0x68, 0x61
+	.byte 0x77, 0x74, 0x65, 0x2E, 0x63, 0x6F, 0x6D, 0x00, 0x01, 0x00, 0x01, 0x00, 0xE8, 0xCC, 0x20, 0x02
+	.byte 0x80, 0x00, 0x00, 0x00, 0x68, 0xCD, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0xD0, 0xCC, 0x20, 0x02
+	.byte 0x5A, 0x41, 0x2C, 0x20, 0x57, 0x65, 0x73, 0x74, 0x65, 0x72, 0x6E, 0x20, 0x43, 0x61, 0x70, 0x65
+	.byte 0x2C, 0x20, 0x43, 0x61, 0x70, 0x65, 0x20, 0x54, 0x6F, 0x77, 0x6E, 0x2C, 0x20, 0x54, 0x68, 0x61
+	.byte 0x77, 0x74, 0x65, 0x20, 0x43, 0x6F, 0x6E, 0x73, 0x75, 0x6C, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x63
+	.byte 0x63, 0x2C, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E
+	.byte 0x20, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x20, 0x44, 0x69, 0x76, 0x69, 0x73, 0x69
+	.byte 0x6F, 0x6E, 0x2C, 0x20, 0x54, 0x68, 0x61, 0x77, 0x74, 0x65, 0x20, 0x53, 0x65, 0x72, 0x76, 0x65
+	.byte 0x72, 0x20, 0x43, 0x41, 0x2C, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2D, 0x63, 0x65, 0x72
+	.byte 0x74, 0x73, 0x40, 0x74, 0x68, 0x61, 0x77, 0x74, 0x65, 0x2E, 0x63, 0x6F, 0x6D, 0x00, 0x00, 0x00
+	.byte 0xD3, 0xA4, 0x50, 0x6E, 0xC8, 0xFF, 0x56, 0x6B, 0xE6, 0xCF, 0x5D, 0xB6, 0xEA, 0x0C, 0x68, 0x75
+	.byte 0x47, 0xA2, 0xAA, 0xC2, 0xDA, 0x84, 0x25, 0xFC, 0xA8, 0xF4, 0x47, 0x51, 0xDA, 0x85, 0xB5, 0x20
+	.byte 0x74, 0x94, 0x86, 0x1E, 0x0F, 0x75, 0xC9, 0xE9, 0x08, 0x61, 0xF5, 0x06, 0x6D, 0x30, 0x6E, 0x15
+	.byte 0x19, 0x02, 0xE9, 0x52, 0xC0, 0x62, 0xDB, 0x4D, 0x99, 0x9E, 0xE2, 0x6A, 0x0C, 0x44, 0x38, 0xCD
+	.byte 0xFE, 0xBE, 0xE3, 0x64, 0x09, 0x70, 0xC5, 0xFE, 0xB1, 0x6B, 0x29, 0xB6, 0x2F, 0x49, 0xC8, 0x3B
+	.byte 0xD4, 0x27, 0x04, 0x25, 0x10, 0x97, 0x2F, 0xE7, 0x90, 0x6D, 0xC0, 0x28, 0x42, 0x99, 0xD7, 0x4C
+	.byte 0x43, 0xDE, 0xC3, 0xF5, 0x21, 0x6D, 0x54, 0x9F, 0x5D, 0xC3, 0x58, 0xE1, 0xC0, 0xE4, 0xD9, 0x5B
+	.byte 0xB0, 0xB8, 0xDC, 0xB4, 0x7B, 0xDF, 0x36, 0x3A, 0xC2, 0xB5, 0x66, 0x22, 0x12, 0xD6, 0x87, 0x0D
+	.byte 0x01, 0x00, 0x01, 0x00, 0x80, 0xCE, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00, 0x00, 0xCE, 0x20, 0x02
+	.byte 0x03, 0x00, 0x00, 0x00, 0xE8, 0xCD, 0x20, 0x02, 0xCC, 0x5E, 0xD1, 0x11, 0x5D, 0x5C, 0x69, 0xD0
+	.byte 0xAB, 0xD3, 0xB9, 0x6A, 0x4C, 0x99, 0x1F, 0x59, 0x98, 0x30, 0x8E, 0x16, 0x85, 0x20, 0x46, 0x6D
+	.byte 0x47, 0x3F, 0xD4, 0x85, 0x20, 0x84, 0xE1, 0x6D, 0xB3, 0xF8, 0xA4, 0xED, 0x0C, 0xF1, 0x17, 0x0F
+	.byte 0x3B, 0xF9, 0xA7, 0xF9, 0x25, 0xD7, 0xC1, 0xCF, 0x84, 0x63, 0xF2, 0x7C, 0x63, 0xCF, 0xA2, 0x47
+	.byte 0xF2, 0xC6, 0x5B, 0x33, 0x8E, 0x64, 0x40, 0x04, 0x68, 0xC1, 0x80, 0xB9, 0x64, 0x1C, 0x45, 0x77
+	.byte 0xC7, 0xD8, 0x6E, 0xF5, 0x95, 0x29, 0x3C, 0x50, 0xE8, 0x34, 0xD7, 0x78, 0x1F, 0xA8, 0xBA, 0x6D
+	.byte 0x43, 0x91, 0x95, 0x8F, 0x45, 0x57, 0x5E, 0x7E, 0xC5, 0xFB, 0xCA, 0xA4, 0x04, 0xEB, 0xEA, 0x97
+	.byte 0x37, 0x54, 0x30, 0x6F, 0xBB, 0x01, 0x47, 0x32, 0x33, 0xCD, 0xDC, 0x57, 0x9B, 0x64, 0x69, 0x61
+	.byte 0xF8, 0x9B, 0x1D, 0x1C, 0x89, 0x4F, 0x5C, 0x67, 0x55, 0x53, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69
+	.byte 0x53, 0x69, 0x67, 0x6E, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x2C, 0x20, 0x43, 0x6C, 0x61, 0x73
+	.byte 0x73, 0x20, 0x33, 0x20, 0x50, 0x75, 0x62, 0x6C, 0x69, 0x63, 0x20, 0x50, 0x72, 0x69, 0x6D, 0x61
+	.byte 0x72, 0x79, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E
+	.byte 0x20, 0x41, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69, 0x74, 0x79, 0x20, 0x2D, 0x20, 0x47, 0x32, 0x2C
+	.byte 0x20, 0x28, 0x63, 0x29, 0x20, 0x31, 0x39, 0x39, 0x38, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69
+	.byte 0x67, 0x6E, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x20, 0x2D, 0x20, 0x46, 0x6F, 0x72, 0x20, 0x61
+	.byte 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69, 0x7A, 0x65, 0x64, 0x20, 0x75, 0x73, 0x65, 0x20, 0x6F, 0x6E
+	.byte 0x6C, 0x79, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E, 0x20, 0x54, 0x72, 0x75
+	.byte 0x73, 0x74, 0x20, 0x4E, 0x65, 0x74, 0x77, 0x6F, 0x72, 0x6B, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00
+	.byte 0x2C, 0xCF, 0x20, 0x02, 0x00, 0x01, 0x00, 0x00, 0xC8, 0xCF, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00
+	.byte 0x14, 0xCF, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E
+	.byte 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E
+	.byte 0x20, 0x54, 0x72, 0x75, 0x73, 0x74, 0x20, 0x4E, 0x65, 0x74, 0x77, 0x6F, 0x72, 0x6B, 0x2C, 0x20
+	.byte 0x28, 0x63, 0x29, 0x20, 0x31, 0x39, 0x39, 0x39, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67
+	.byte 0x6E, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x20, 0x2D, 0x20, 0x46, 0x6F, 0x72, 0x20, 0x61, 0x75
+	.byte 0x74, 0x68, 0x6F, 0x72, 0x69, 0x7A, 0x65, 0x64, 0x20, 0x75, 0x73, 0x65, 0x20, 0x6F, 0x6E, 0x6C
+	.byte 0x79, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69, 0x53, 0x69, 0x67, 0x6E, 0x20, 0x43, 0x6C, 0x61, 0x73
+	.byte 0x73, 0x20, 0x33, 0x20, 0x50, 0x75, 0x62, 0x6C, 0x69, 0x63, 0x20, 0x50, 0x72, 0x69, 0x6D, 0x61
+	.byte 0x72, 0x79, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E
+	.byte 0x20, 0x41, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69, 0x74, 0x79, 0x20, 0x2D, 0x20, 0x47, 0x33, 0x00
+	.byte 0xCB, 0xBA, 0x9C, 0x52, 0xFC, 0x78, 0x1F, 0x1A, 0x1E, 0x6F, 0x1B, 0x37, 0x73, 0xBD, 0xF8, 0xC9
+	.byte 0x6B, 0x94, 0x12, 0x30, 0x4F, 0xF0, 0x36, 0x47, 0xF5, 0xD0, 0x91, 0x0A, 0xF5, 0x17, 0xC8, 0xA5
+	.byte 0x61, 0xC1, 0x16, 0x40, 0x4D, 0xFB, 0x8A, 0x61, 0x90, 0xE5, 0x76, 0x20, 0xC1, 0x11, 0x06, 0x7D
+	.byte 0xAB, 0x2C, 0x6E, 0xA6, 0xF5, 0x11, 0x41, 0x8E, 0xFA, 0x2D, 0xAD, 0x2A, 0x61, 0x59, 0xA4, 0x67
+	.byte 0x26, 0x4C, 0xD0, 0xE8, 0xBC, 0x52, 0x5B, 0x70, 0x20, 0x04, 0x58, 0xD1, 0x7A, 0xC9, 0xA4, 0x69
+	.byte 0xBC, 0x83, 0x17, 0x64, 0xAD, 0x05, 0x8B, 0xBC, 0xD0, 0x58, 0xCE, 0x8D, 0x8C, 0xF5, 0xEB, 0xF0
+	.byte 0x42, 0x49, 0x0B, 0x9D, 0x97, 0x27, 0x67, 0x32, 0x6E, 0xE1, 0xAE, 0x93, 0x15, 0x1C, 0x70, 0xBC
+	.byte 0x20, 0x4D, 0x2F, 0x18, 0xDE, 0x92, 0x88, 0xE8, 0x6C, 0x85, 0x57, 0x11, 0x1A, 0xE9, 0x7E, 0xE3
+	.byte 0x26, 0x11, 0x54, 0xA2, 0x45, 0x96, 0x55, 0x83, 0xCA, 0x30, 0x89, 0xE8, 0xDC, 0xD8, 0xA3, 0xED
+	.byte 0x2A, 0x80, 0x3F, 0x7F, 0x79, 0x65, 0x57, 0x3E, 0x15, 0x20, 0x66, 0x08, 0x2F, 0x95, 0x93, 0xBF
+	.byte 0xAA, 0x47, 0x2F, 0xA8, 0x46, 0x97, 0xF0, 0x12, 0xE2, 0xFE, 0xC2, 0x0A, 0x2B, 0x51, 0xE6, 0x76
+	.byte 0xE6, 0xB7, 0x46, 0xB7, 0xE2, 0x0D, 0xA6, 0xCC, 0xA8, 0xC3, 0x4C, 0x59, 0x55, 0x89, 0xE6, 0xE8
+	.byte 0x53, 0x5C, 0x1C, 0xEA, 0x9D, 0xF0, 0x62, 0x16, 0x0B, 0xA7, 0xC9, 0x5F, 0x0C, 0xF0, 0xDE, 0xC2
+	.byte 0x76, 0xCE, 0xAF, 0xF7, 0x6A, 0xF2, 0xFA, 0x41, 0xA6, 0xA2, 0x33, 0x14, 0xC9, 0xE5, 0x7A, 0x63
+	.byte 0xD3, 0x9E, 0x62, 0x37, 0xD5, 0x85, 0x65, 0x9E, 0x0E, 0xE6, 0x53, 0x24, 0x74, 0x1B, 0x5E, 0x1D
+	.byte 0x12, 0x53, 0x5B, 0xC7, 0x2C, 0xE7, 0x83, 0x49, 0x3B, 0x15, 0xAE, 0x8A, 0x68, 0xB9, 0x57, 0x97
+	.byte 0x01, 0x00, 0x01, 0x00, 0xE0, 0xD0, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00, 0x24, 0xD1, 0x20, 0x02
+	.byte 0x03, 0x00, 0x00, 0x00, 0xC8, 0xD0, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20, 0x56, 0x65, 0x72, 0x69
+	.byte 0x53, 0x69, 0x67, 0x6E, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x2C, 0x20, 0x43, 0x6C, 0x61, 0x73
+	.byte 0x73, 0x20, 0x33, 0x20, 0x50, 0x75, 0x62, 0x6C, 0x69, 0x63, 0x20, 0x50, 0x72, 0x69, 0x6D, 0x61
+	.byte 0x72, 0x79, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E
+	.byte 0x20, 0x41, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69, 0x74, 0x79, 0x00, 0x00, 0xC9, 0x5C, 0x59, 0x9E
+	.byte 0xF2, 0x1B, 0x8A, 0x01, 0x14, 0xB4, 0x10, 0xDF, 0x04, 0x40, 0xDB, 0xE3, 0x57, 0xAF, 0x6A, 0x45
+	.byte 0x40, 0x8F, 0x84, 0x0C, 0x0B, 0xD1, 0x33, 0xD9, 0xD9, 0x11, 0xCF, 0xEE, 0x02, 0x58, 0x1F, 0x25
+	.byte 0xF7, 0x2A, 0xA8, 0x44, 0x05, 0xAA, 0xEC, 0x03, 0x1F, 0x78, 0x7F, 0x9E, 0x93, 0xB9, 0x9A, 0x00
+	.byte 0xAA, 0x23, 0x7D, 0xD6, 0xAC, 0x85, 0xA2, 0x63, 0x45, 0xC7, 0x72, 0x27, 0xCC, 0xF4, 0x4C, 0xC6
+	.byte 0x75, 0x71, 0xD2, 0x39, 0xEF, 0x4F, 0x42, 0xF0, 0x75, 0xDF, 0x0A, 0x90, 0xC6, 0x8E, 0x20, 0x6F
+	.byte 0x98, 0x0F, 0xF8, 0xAC, 0x23, 0x5F, 0x70, 0x29, 0x36, 0xA4, 0xC9, 0x86, 0xE7, 0xB1, 0x9A, 0x20
+	.byte 0xCB, 0x53, 0xA5, 0x85, 0xE7, 0x3D, 0xBE, 0x7D, 0x9A, 0xFE, 0x24, 0x45, 0x33, 0xDC, 0x76, 0x15
+	.byte 0xED, 0x0F, 0xA2, 0x71, 0x64, 0x4C, 0x65, 0x2E, 0x81, 0x68, 0x45, 0xA7, 0x01, 0x00, 0x01, 0x00
+	.byte 0xBC, 0xD1, 0x20, 0x02, 0x7D, 0x00, 0x00, 0x00, 0x00, 0xD2, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00
+	.byte 0xA4, 0xD1, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20, 0x52, 0x53, 0x41, 0x20, 0x44, 0x61, 0x74, 0x61
+	.byte 0x20, 0x53, 0x65, 0x63, 0x75, 0x72, 0x69, 0x74, 0x79, 0x2C, 0x20, 0x49, 0x6E, 0x63, 0x2E, 0x2C
+	.byte 0x20, 0x53, 0x65, 0x63, 0x75, 0x72, 0x65, 0x20, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x20, 0x43
+	.byte 0x65, 0x72, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x41, 0x75, 0x74
+	.byte 0x68, 0x6F, 0x72, 0x69, 0x74, 0x79, 0x00, 0x00, 0x92, 0xCE, 0x7A, 0xC1, 0xAE, 0x83, 0x3E, 0x5A
+	.byte 0xAA, 0x89, 0x83, 0x57, 0xAC, 0x25, 0x01, 0x76, 0x0C, 0xAD, 0xAE, 0x8E, 0x2C, 0x37, 0xCE, 0xEB
+	.byte 0x35, 0x78, 0x64, 0x54, 0x03, 0xE5, 0x84, 0x40, 0x51, 0xC9, 0xBF, 0x8F, 0x08, 0xE2, 0x8A, 0x82
+	.byte 0x08, 0xD2, 0x16, 0x86, 0x37, 0x55, 0xE9, 0xB1, 0x21, 0x02, 0xAD, 0x76, 0x68, 0x81, 0x9A, 0x05
+	.byte 0xA2, 0x4B, 0xC9, 0x4B, 0x25, 0x66, 0x22, 0x56, 0x6C, 0x88, 0x07, 0x8F, 0xF7, 0x81, 0x59, 0x6D
+	.byte 0x84, 0x07, 0x65, 0x70, 0x13, 0x71, 0x76, 0x3E, 0x9B, 0x77, 0x4C, 0xE3, 0x50, 0x89, 0x56, 0x98
+	.byte 0x48, 0xB9, 0x1D, 0xA7, 0x29, 0x1A, 0x13, 0x2E, 0x4A, 0x11, 0x59, 0x9C, 0x1E, 0x15, 0xD5, 0x49
+	.byte 0x54, 0x2C, 0x73, 0x3A, 0x69, 0x82, 0xB1, 0x97, 0x39, 0x9C, 0x6D, 0x70, 0x67, 0x48, 0xE5, 0xDD
+	.byte 0x2D, 0xD6, 0xC8, 0x1E, 0x7B, 0x00, 0x00, 0x00
+
+	.global UNK_0220D280
+UNK04_0220D280: ; 0x0220D280
 	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E, 0x74, 0x65, 0x73, 0x74
 	.byte 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65
-	.byte 0x74, 0x2F, 0x61, 0x63, 0x00, 0x00, 0x00, 0x00, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F
-	.byte 0x6E, 0x61, 0x73, 0x2E, 0x64, 0x65, 0x76, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F
-	.byte 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x2F, 0x61, 0x63, 0x00, 0x68, 0x74, 0x74, 0x70
-	.byte 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F
-	.byte 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x2F, 0x61, 0x63, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x30, 0x30, 0x30, 0x30, 0x00, 0x00, 0x00, 0x00, 0x39, 0x30, 0x30, 0x30, 0x00, 0x00, 0x00, 0x00
+	.byte 0x74, 0x2F, 0x61, 0x63, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D2A8
+UNK04_0220D2A8: ; 0x0220D2A8
+	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E, 0x64, 0x65, 0x76, 0x2E
+	.byte 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74
+	.byte 0x2F, 0x61, 0x63, 0x00
+
+	.global UNK_0220D2CC
+UNK04_0220D2CC: ; 0x0220D2CC
+	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x6E, 0x61, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74
+	.byte 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x2F, 0x61, 0x63, 0x00
+
+	.global UNK_0220D2EC
+UNK04_0220D2EC: ; 0x0220D2EC
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D2F0
+UNK04_0220D2F0: ; 0x0220D2F0
+	.byte 0x30, 0x30, 0x30, 0x30, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D2F8
+UNK04_0220D2F8: ; 0x0220D2F8
+	.byte 0x39, 0x30, 0x30, 0x30, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D300
+UNK04_0220D300: ; 0x0220D300
 	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x2F, 0x64, 0x6F, 0x77, 0x6E, 0x6C, 0x6F, 0x61
-	.byte 0x64, 0x00, 0x00, 0x00, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x25, 0x73, 0x2F, 0x64
-	.byte 0x6F, 0x77, 0x6E, 0x6C, 0x6F, 0x61, 0x64, 0x00, 0x25, 0x63, 0x25, 0x73, 0x25, 0x63, 0x25, 0x73
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x47, 0x50, 0x43, 0x4D, 0x00, 0x00, 0x00, 0x00
-	.byte 0x4D, 0x41, 0x54, 0x00, 0x53, 0x43, 0x4D, 0x00, 0x53, 0x43, 0x4E, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x49, 0x20, 0x68, 0x61, 0x76, 0x65, 0x20, 0x61, 0x75, 0x74, 0x68, 0x6F
-	.byte 0x72, 0x69, 0x7A, 0x65, 0x64, 0x20, 0x79, 0x6F, 0x75, 0x72, 0x20, 0x72, 0x65, 0x71, 0x75, 0x65
-	.byte 0x73, 0x74, 0x20, 0x74, 0x6F, 0x20, 0x61, 0x64, 0x64, 0x20, 0x6D, 0x65, 0x20, 0x74, 0x6F, 0x20
-	.byte 0x79, 0x6F, 0x75, 0x72, 0x20, 0x6C, 0x69, 0x73, 0x74, 0x00, 0x00, 0x00, 0x53, 0x43, 0x4D, 0x00
-	.byte 0x53, 0x43, 0x4E, 0x00, 0x25, 0x75, 0x00, 0x00, 0x53, 0x42, 0x43, 0x4D, 0x00, 0x00, 0x00, 0x00
-	.byte 0x64, 0x77, 0x63, 0x5F, 0x65, 0x76, 0x61, 0x6C, 0x00, 0x00, 0x00, 0x00, 0x64, 0x77, 0x63, 0x5F
-	.byte 0x70, 0x69, 0x64, 0x00, 0x6E, 0x75, 0x6D, 0x70, 0x6C, 0x61, 0x79, 0x65, 0x72, 0x73, 0x00, 0x00
-	.byte 0x6D, 0x61, 0x78, 0x70, 0x6C, 0x61, 0x79, 0x65, 0x72, 0x73, 0x00, 0x00, 0x64, 0x77, 0x63, 0x5F
-	.byte 0x6D, 0x74, 0x79, 0x70, 0x65, 0x00, 0x00, 0x00, 0x64, 0x77, 0x63, 0x5F, 0x6D, 0x72, 0x65, 0x73
-	.byte 0x76, 0x00, 0x00, 0x00, 0x64, 0x77, 0x63, 0x5F, 0x6D, 0x76, 0x65, 0x72, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x56, 0x45, 0x52, 0x00, 0x46, 0x4D, 0x45, 0x00, 0x4D, 0x44, 0x46, 0x00
-	.byte 0x25, 0x73, 0x25, 0x64, 0x76, 0x25, 0x73, 0x00, 0x47, 0x50, 0x43, 0x4D, 0x00, 0x00, 0x00, 0x00
-	.byte 0x4D, 0x41, 0x54, 0x00, 0x2F, 0x25, 0x75, 0x00, 0x25, 0x73, 0x20, 0x3D, 0x20, 0x25, 0x64, 0x20
-	.byte 0x61, 0x6E, 0x64, 0x20, 0x25, 0x73, 0x20, 0x21, 0x3D, 0x20, 0x25, 0x75, 0x20, 0x61, 0x6E, 0x64
-	.byte 0x20, 0x6D, 0x61, 0x78, 0x70, 0x6C, 0x61, 0x79, 0x65, 0x72, 0x73, 0x20, 0x3D, 0x20, 0x25, 0x64
-	.byte 0x20, 0x61, 0x6E, 0x64, 0x20, 0x6E, 0x75, 0x6D, 0x70, 0x6C, 0x61, 0x79, 0x65, 0x72, 0x73, 0x20
-	.byte 0x3C, 0x20, 0x25, 0x64, 0x20, 0x61, 0x6E, 0x64, 0x20, 0x25, 0x73, 0x20, 0x3D, 0x20, 0x25, 0x64
-	.byte 0x20, 0x61, 0x6E, 0x64, 0x20, 0x25, 0x73, 0x20, 0x21, 0x3D, 0x20, 0x25, 0x73, 0x00, 0x00, 0x00
-	.byte 0x25, 0x73, 0x20, 0x61, 0x6E, 0x64, 0x20, 0x28, 0x25, 0x73, 0x29, 0x00, 0x25, 0x73, 0x20, 0x3D
-	.byte 0x20, 0x25, 0x75, 0x00, 0x53, 0x43, 0x4D, 0x00, 0x53, 0x43, 0x4E, 0x00, 0x49, 0x6E, 0x69, 0x74
-	.byte 0x20, 0x73, 0x74, 0x61, 0x74, 0x65, 0x00, 0x00, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x20, 0x66
-	.byte 0x75, 0x6C, 0x6C, 0x00, 0x55, 0x6E, 0x6B, 0x6E, 0x6F, 0x77, 0x6E, 0x20, 0x63, 0x6F, 0x6E, 0x6E
-	.byte 0x65, 0x63, 0x74, 0x20, 0x61, 0x74, 0x74, 0x65, 0x6D, 0x70, 0x74, 0x00, 0x44, 0x54, 0x00, 0x00
+	.byte 0x64, 0x00, 0x00, 0x00
+
+	.global UNK_0220D314
+UNK04_0220D314: ; 0x0220D314
+	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x25, 0x73, 0x2F, 0x64, 0x6F, 0x77, 0x6E, 0x6C
+	.byte 0x6F, 0x61, 0x64, 0x00
+
+	.global UNK_0220D328
+UNK04_0220D328: ; 0x0220D328
+	.byte 0x25, 0x63, 0x25, 0x73, 0x25, 0x63, 0x25, 0x73, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D334
+UNK04_0220D334: ; 0x0220D334
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D338
+UNK04_0220D338: ; 0x0220D338
+	.byte 0x47, 0x50, 0x43, 0x4D, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D340
+UNK04_0220D340: ; 0x0220D340
+	.byte 0x4D, 0x41, 0x54, 0x00
+
+	.global UNK_0220D344
+UNK04_0220D344: ; 0x0220D344
+	.byte 0x53, 0x43, 0x4D, 0x00
+
+	.global UNK_0220D348
+UNK04_0220D348: ; 0x0220D348
+	.byte 0x53, 0x43, 0x4E, 0x00
+
+	.global UNK_0220D34C
+UNK04_0220D34C: ; 0x0220D34C
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D350
+UNK04_0220D350: ; 0x0220D350
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D354
+UNK04_0220D354: ; 0x0220D354
+	.byte 0x49, 0x20, 0x68, 0x61, 0x76, 0x65, 0x20, 0x61, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69, 0x7A, 0x65
+	.byte 0x64, 0x20, 0x79, 0x6F, 0x75, 0x72, 0x20, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x20, 0x74
+	.byte 0x6F, 0x20, 0x61, 0x64, 0x64, 0x20, 0x6D, 0x65, 0x20, 0x74, 0x6F, 0x20, 0x79, 0x6F, 0x75, 0x72
+	.byte 0x20, 0x6C, 0x69, 0x73, 0x74, 0x00, 0x00, 0x00
+
+	.global UNK_0220D38C
+UNK04_0220D38C: ; 0x0220D38C
+	.byte 0x53, 0x43, 0x4D, 0x00
+
+	.global UNK_0220D390
+UNK04_0220D390: ; 0x0220D390
+	.byte 0x53, 0x43, 0x4E, 0x00
+
+	.global UNK_0220D394
+UNK04_0220D394: ; 0x0220D394
+	.byte 0x25, 0x75, 0x00, 0x00
+
+	.global UNK_0220D398
+UNK04_0220D398: ; 0x0220D398
+	.byte 0x53, 0x42, 0x43, 0x4D, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D3A0
+UNK04_0220D3A0: ; 0x0220D3A0
+	.byte 0x64, 0x77, 0x63, 0x5F, 0x65, 0x76, 0x61, 0x6C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D3AC
+UNK04_0220D3AC: ; 0x0220D3AC
+	.byte 0x64, 0x77, 0x63, 0x5F, 0x70, 0x69, 0x64, 0x00
+
+	.global UNK_0220D3B4
+UNK04_0220D3B4: ; 0x0220D3B4
+	.byte 0x6E, 0x75, 0x6D, 0x70, 0x6C, 0x61, 0x79, 0x65, 0x72, 0x73, 0x00, 0x00
+
+	.global UNK_0220D3C0
+UNK04_0220D3C0: ; 0x0220D3C0
+	.byte 0x6D, 0x61, 0x78, 0x70, 0x6C, 0x61, 0x79, 0x65, 0x72, 0x73, 0x00, 0x00
+
+	.global UNK_0220D3CC
+UNK04_0220D3CC: ; 0x0220D3CC
+	.byte 0x64, 0x77, 0x63, 0x5F, 0x6D, 0x74, 0x79, 0x70, 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220D3D8
+UNK04_0220D3D8: ; 0x0220D3D8
+	.byte 0x64, 0x77, 0x63, 0x5F, 0x6D, 0x72, 0x65, 0x73, 0x76, 0x00, 0x00, 0x00
+
+	.global UNK_0220D3E4
+UNK04_0220D3E4: ; 0x0220D3E4
+	.byte 0x64, 0x77, 0x63, 0x5F, 0x6D, 0x76, 0x65, 0x72, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D3F0
+UNK04_0220D3F0: ; 0x0220D3F0
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D3F4
+UNK04_0220D3F4: ; 0x0220D3F4
+	.byte 0x56, 0x45, 0x52, 0x00
+
+	.global UNK_0220D3F8
+UNK04_0220D3F8: ; 0x0220D3F8
+	.byte 0x46, 0x4D, 0x45, 0x00
+
+	.global UNK_0220D3FC
+UNK04_0220D3FC: ; 0x0220D3FC
+	.byte 0x4D, 0x44, 0x46, 0x00
+
+	.global UNK_0220D400
+UNK04_0220D400: ; 0x0220D400
+	.byte 0x25, 0x73, 0x25, 0x64, 0x76, 0x25, 0x73, 0x00
+
+	.global UNK_0220D408
+UNK04_0220D408: ; 0x0220D408
+	.byte 0x47, 0x50, 0x43, 0x4D, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D410
+UNK04_0220D410: ; 0x0220D410
+	.byte 0x4D, 0x41, 0x54, 0x00
+
+	.global UNK_0220D414
+UNK04_0220D414: ; 0x0220D414
+	.byte 0x2F, 0x25, 0x75, 0x00
+
+	.global UNK_0220D418
+UNK04_0220D418: ; 0x0220D418
+	.byte 0x25, 0x73, 0x20, 0x3D, 0x20, 0x25, 0x64, 0x20, 0x61, 0x6E, 0x64, 0x20, 0x25, 0x73, 0x20, 0x21
+	.byte 0x3D, 0x20, 0x25, 0x75, 0x20, 0x61, 0x6E, 0x64, 0x20, 0x6D, 0x61, 0x78, 0x70, 0x6C, 0x61, 0x79
+	.byte 0x65, 0x72, 0x73, 0x20, 0x3D, 0x20, 0x25, 0x64, 0x20, 0x61, 0x6E, 0x64, 0x20, 0x6E, 0x75, 0x6D
+	.byte 0x70, 0x6C, 0x61, 0x79, 0x65, 0x72, 0x73, 0x20, 0x3C, 0x20, 0x25, 0x64, 0x20, 0x61, 0x6E, 0x64
+	.byte 0x20, 0x25, 0x73, 0x20, 0x3D, 0x20, 0x25, 0x64, 0x20, 0x61, 0x6E, 0x64, 0x20, 0x25, 0x73, 0x20
+	.byte 0x21, 0x3D, 0x20, 0x25, 0x73, 0x00, 0x00, 0x00
+
+	.global UNK_0220D470
+UNK04_0220D470: ; 0x0220D470
+	.byte 0x25, 0x73, 0x20, 0x61, 0x6E, 0x64, 0x20, 0x28, 0x25, 0x73, 0x29, 0x00
+
+	.global UNK_0220D47C
+UNK04_0220D47C: ; 0x0220D47C
+	.byte 0x25, 0x73, 0x20, 0x3D, 0x20, 0x25, 0x75, 0x00
+
+	.global UNK_0220D484
+UNK04_0220D484: ; 0x0220D484
+	.byte 0x53, 0x43, 0x4D, 0x00
+
+	.global UNK_0220D488
+UNK04_0220D488: ; 0x0220D488
+	.byte 0x53, 0x43, 0x4E, 0x00
+
+	.global UNK_0220D48C
+UNK04_0220D48C: ; 0x0220D48C
+	.byte 0x49, 0x6E, 0x69, 0x74, 0x20, 0x73, 0x74, 0x61, 0x74, 0x65, 0x00, 0x00
+
+	.global UNK_0220D498
+UNK04_0220D498: ; 0x0220D498
+	.byte 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x20, 0x66, 0x75, 0x6C, 0x6C, 0x00
+
+	.global UNK_0220D4A4
+UNK04_0220D4A4: ; 0x0220D4A4
+	.byte 0x55, 0x6E, 0x6B, 0x6E, 0x6F, 0x77, 0x6E, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x20
+	.byte 0x61, 0x74, 0x74, 0x65, 0x6D, 0x70, 0x74, 0x00
+
+	.global UNK_0220D4BC
+UNK04_0220D4BC: ; 0x0220D4BC
+	.byte 0x44, 0x54, 0x00, 0x00
+
+	.global UNK_0220D4C0
+UNK04_0220D4C0: ; 0x0220D4C0
 	.byte 0x4E, 0x57, 0x43, 0x55, 0x53, 0x42, 0x41, 0x50, 0x00, 0x00, 0x00, 0x00, 0x4E, 0x49, 0x4E, 0x54
-	.byte 0x45, 0x4E, 0x44, 0x4F, 0x2D, 0x44, 0x53, 0x00, 0x08, 0xD5, 0x20, 0x02, 0xE8, 0xD4, 0x20, 0x02
-	.byte 0xF8, 0xD4, 0x20, 0x02, 0x24, 0xD5, 0x20, 0x02, 0x67, 0x77, 0x69, 0x27, 0x36, 0x26, 0x66, 0x73
-	.byte 0x3D, 0x30, 0x4E, 0x66, 0x7E, 0x00, 0x00, 0x00, 0x25, 0x28, 0x65, 0x67, 0x45, 0x72, 0x29, 0x61
-	.byte 0x67, 0x28, 0x73, 0x26, 0x6D, 0x00, 0x00, 0x00, 0x33, 0x38, 0x67, 0x36, 0x7A, 0x78, 0x6A, 0x6B
-	.byte 0x32, 0x30, 0x67, 0x76, 0x6D, 0x76, 0x5D, 0x36, 0x5E, 0x3D, 0x6A, 0x26, 0x25, 0x76, 0x59, 0x31
-	.byte 0x00, 0x00, 0x00, 0x00, 0x39, 0x35, 0x32, 0x75, 0x79, 0x62, 0x6A, 0x6E, 0x70, 0x6D, 0x75, 0x39
-	.byte 0x30, 0x33, 0x62, 0x69, 0x61, 0x40, 0x62, 0x6B, 0x35, 0x6D, 0x5B, 0x2D, 0x00, 0x00, 0x00, 0x00
-	.byte 0x4E, 0x57, 0x43, 0x55, 0x53, 0x42, 0x41, 0x50, 0x00, 0x00, 0x00, 0x00, 0x4E, 0x44, 0x57, 0x43
-	.byte 0x53, 0x48, 0x41, 0x50, 0x00, 0x00, 0x00, 0x00, 0xFE, 0xFD, 0x09, 0x00, 0x25, 0x73, 0x2E, 0x61
-	.byte 0x76, 0x61, 0x69, 0x6C, 0x61, 0x62, 0x6C, 0x65, 0x2E, 0x67, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74
-	.byte 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00, 0x00, 0x00, 0x00
-	.byte 0x66, 0x6E, 0x00, 0x00, 0x64, 0x61, 0x72, 0x72, 0x61, 0x79, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00
+	.byte 0x45, 0x4E, 0x44, 0x4F, 0x2D, 0x44, 0x53, 0x00
+
+	.global UNK_0220D4D8
+UNK04_0220D4D8: ; 0x0220D4D8
+	.byte 0x08, 0xD5, 0x20, 0x02
+
+	.global UNK_0220D4DC
+UNK04_0220D4DC: ; 0x0220D4DC
+	.byte 0xE8, 0xD4, 0x20, 0x02
+
+	.global UNK_0220D4E0
+UNK04_0220D4E0: ; 0x0220D4E0
+	.byte 0xF8, 0xD4, 0x20, 0x02
+
+	.global UNK_0220D4E4
+UNK04_0220D4E4: ; 0x0220D4E4
+	.byte 0x24, 0xD5, 0x20, 0x02, 0x67, 0x77, 0x69, 0x27, 0x36, 0x26, 0x66, 0x73, 0x3D, 0x30, 0x4E, 0x66
+	.byte 0x7E, 0x00, 0x00, 0x00, 0x25, 0x28, 0x65, 0x67, 0x45, 0x72, 0x29, 0x61, 0x67, 0x28, 0x73, 0x26
+	.byte 0x6D, 0x00, 0x00, 0x00, 0x33, 0x38, 0x67, 0x36, 0x7A, 0x78, 0x6A, 0x6B, 0x32, 0x30, 0x67, 0x76
+	.byte 0x6D, 0x76, 0x5D, 0x36, 0x5E, 0x3D, 0x6A, 0x26, 0x25, 0x76, 0x59, 0x31, 0x00, 0x00, 0x00, 0x00
+	.byte 0x39, 0x35, 0x32, 0x75, 0x79, 0x62, 0x6A, 0x6E, 0x70, 0x6D, 0x75, 0x39, 0x30, 0x33, 0x62, 0x69
+	.byte 0x61, 0x40, 0x62, 0x6B, 0x35, 0x6D, 0x5B, 0x2D, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D540
+UNK04_0220D540: ; 0x0220D540
+	.byte 0x4E, 0x57, 0x43, 0x55, 0x53, 0x42, 0x41, 0x50, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D54C
+UNK04_0220D54C: ; 0x0220D54C
+	.byte 0x4E, 0x44, 0x57, 0x43, 0x53, 0x48, 0x41, 0x50, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D558
+UNK04_0220D558: ; 0x0220D558
+	.byte 0xFE, 0xFD, 0x09, 0x00
+
+	.global UNK_0220D55C
+UNK04_0220D55C: ; 0x0220D55C
+	.byte 0x25, 0x73, 0x2E, 0x61, 0x76, 0x61, 0x69, 0x6C, 0x61, 0x62, 0x6C, 0x65, 0x2E, 0x67, 0x73, 0x2E
+	.byte 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D580
+UNK04_0220D580: ; 0x0220D580
+	.byte 0x66, 0x6E, 0x00, 0x00
+
+	.global UNK_0220D584
+UNK04_0220D584: ; 0x0220D584
+	.byte 0x64, 0x61, 0x72, 0x72, 0x61, 0x79, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D590
+UNK04_0220D590: ; 0x0220D590
 	.byte 0x28, 0x6E, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x29, 0x20, 0x26, 0x26, 0x20, 0x28, 0x6E, 0x20, 0x3C
 	.byte 0x20, 0x61, 0x72, 0x72, 0x61, 0x79, 0x2D, 0x3E, 0x63, 0x6F, 0x75, 0x6E, 0x74, 0x29, 0x00, 0x00
-	.byte 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x72, 0x61, 0x74, 0x6F, 0x72, 0x00, 0x00, 0x28, 0x6E, 0x20, 0x3E
-	.byte 0x3D, 0x20, 0x30, 0x29, 0x20, 0x26, 0x26, 0x20, 0x28, 0x6E, 0x20, 0x3C, 0x3D, 0x20, 0x61, 0x72
-	.byte 0x72, 0x61, 0x79, 0x2D, 0x3E, 0x63, 0x6F, 0x75, 0x6E, 0x74, 0x29, 0x00, 0x61, 0x72, 0x72, 0x61
-	.byte 0x79, 0x00, 0x00, 0x00, 0x65, 0x6C, 0x65, 0x6D, 0x53, 0x69, 0x7A, 0x65, 0x00, 0x00, 0x00, 0x00
-	.byte 0x61, 0x72, 0x72, 0x61, 0x79, 0x2D, 0x3E, 0x6C, 0x69, 0x73, 0x74, 0x00, 0x66, 0x6E, 0x00, 0x00
-	.byte 0x68, 0x61, 0x73, 0x68, 0x74, 0x61, 0x62, 0x6C, 0x65, 0x2E, 0x63, 0x00, 0x74, 0x61, 0x62, 0x6C
-	.byte 0x65, 0x00, 0x00, 0x00, 0x68, 0x61, 0x73, 0x68, 0x46, 0x6E, 0x00, 0x00, 0x63, 0x6F, 0x6D, 0x70
-	.byte 0x46, 0x6E, 0x00, 0x00, 0x65, 0x6C, 0x65, 0x6D, 0x53, 0x69, 0x7A, 0x65, 0x00, 0x00, 0x00, 0x00
-	.byte 0x6E, 0x42, 0x75, 0x63, 0x6B, 0x65, 0x74, 0x73, 0x00, 0x00, 0x00, 0x00, 0x74, 0x61, 0x62, 0x6C
-	.byte 0x65, 0x2D, 0x3E, 0x62, 0x75, 0x63, 0x6B, 0x65, 0x74, 0x73, 0x00, 0x00, 0x25, 0x30, 0x32, 0x78
-	.byte 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x4F, 0x53, 0x5F, 0x49, 0x73, 0x54, 0x69, 0x63
-	.byte 0x6B, 0x41, 0x76, 0x61, 0x69, 0x6C, 0x61, 0x62, 0x6C, 0x65, 0x28, 0x29, 0x20, 0x3D, 0x3D, 0x20
-	.byte 0x54, 0x52, 0x55, 0x45, 0x00, 0x00, 0x00, 0x00, 0x6E, 0x6F, 0x6E, 0x70, 0x6F, 0x72, 0x74, 0x2E
-	.byte 0x63, 0x00, 0x00, 0x00, 0x6C, 0x6F, 0x63, 0x61, 0x6C, 0x68, 0x6F, 0x73, 0x74, 0x00, 0x00, 0x00
+
+	.global UNK_0220D5B0
+UNK04_0220D5B0: ; 0x0220D5B0
+	.byte 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x72, 0x61, 0x74, 0x6F, 0x72, 0x00, 0x00
+
+	.global UNK_0220D5BC
+UNK04_0220D5BC: ; 0x0220D5BC
+	.byte 0x28, 0x6E, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x29, 0x20, 0x26, 0x26, 0x20, 0x28, 0x6E, 0x20, 0x3C
+	.byte 0x3D, 0x20, 0x61, 0x72, 0x72, 0x61, 0x79, 0x2D, 0x3E, 0x63, 0x6F, 0x75, 0x6E, 0x74, 0x29, 0x00
+
+	.global UNK_0220D5DC
+UNK04_0220D5DC: ; 0x0220D5DC
+	.byte 0x61, 0x72, 0x72, 0x61, 0x79, 0x00, 0x00, 0x00
+
+	.global UNK_0220D5E4
+UNK04_0220D5E4: ; 0x0220D5E4
+	.byte 0x65, 0x6C, 0x65, 0x6D, 0x53, 0x69, 0x7A, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D5F0
+UNK04_0220D5F0: ; 0x0220D5F0
+	.byte 0x61, 0x72, 0x72, 0x61, 0x79, 0x2D, 0x3E, 0x6C, 0x69, 0x73, 0x74, 0x00
+
+	.global UNK_0220D5FC
+UNK04_0220D5FC: ; 0x0220D5FC
+	.byte 0x66, 0x6E, 0x00, 0x00
+
+	.global UNK_0220D600
+UNK04_0220D600: ; 0x0220D600
+	.byte 0x68, 0x61, 0x73, 0x68, 0x74, 0x61, 0x62, 0x6C, 0x65, 0x2E, 0x63, 0x00
+
+	.global UNK_0220D60C
+UNK04_0220D60C: ; 0x0220D60C
+	.byte 0x74, 0x61, 0x62, 0x6C, 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220D614
+UNK04_0220D614: ; 0x0220D614
+	.byte 0x68, 0x61, 0x73, 0x68, 0x46, 0x6E, 0x00, 0x00
+
+	.global UNK_0220D61C
+UNK04_0220D61C: ; 0x0220D61C
+	.byte 0x63, 0x6F, 0x6D, 0x70, 0x46, 0x6E, 0x00, 0x00
+
+	.global UNK_0220D624
+UNK04_0220D624: ; 0x0220D624
+	.byte 0x65, 0x6C, 0x65, 0x6D, 0x53, 0x69, 0x7A, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D630
+UNK04_0220D630: ; 0x0220D630
+	.byte 0x6E, 0x42, 0x75, 0x63, 0x6B, 0x65, 0x74, 0x73, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D63C
+UNK04_0220D63C: ; 0x0220D63C
+	.byte 0x74, 0x61, 0x62, 0x6C, 0x65, 0x2D, 0x3E, 0x62, 0x75, 0x63, 0x6B, 0x65, 0x74, 0x73, 0x00, 0x00
+
+	.global UNK_0220D64C
+UNK04_0220D64C: ; 0x0220D64C
+	.byte 0x25, 0x30, 0x32, 0x78, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D654
+UNK04_0220D654: ; 0x0220D654
+	.byte 0x01, 0x00, 0x00, 0x00
+
+	.global UNK_0220D658
+UNK04_0220D658: ; 0x0220D658
+	.byte 0x4F, 0x53, 0x5F, 0x49, 0x73, 0x54, 0x69, 0x63, 0x6B, 0x41, 0x76, 0x61, 0x69, 0x6C, 0x61, 0x62
+	.byte 0x6C, 0x65, 0x28, 0x29, 0x20, 0x3D, 0x3D, 0x20, 0x54, 0x52, 0x55, 0x45, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D678
+UNK04_0220D678: ; 0x0220D678
+	.byte 0x6E, 0x6F, 0x6E, 0x70, 0x6F, 0x72, 0x74, 0x2E, 0x63, 0x00, 0x00, 0x00
+
+	.global UNK_0220D684
+UNK04_0220D684: ; 0x0220D684
+	.byte 0x6C, 0x6F, 0x63, 0x61, 0x6C, 0x68, 0x6F, 0x73, 0x74, 0x00, 0x00, 0x00
+
+	.global UNK_0220D690
+UNK04_0220D690: ; 0x0220D690
 	.byte 0x54, 0x68, 0x65, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x68
 	.byte 0x61, 0x73, 0x20, 0x61, 0x6C, 0x72, 0x65, 0x61, 0x64, 0x79, 0x20, 0x62, 0x65, 0x65, 0x6E, 0x20
 	.byte 0x64, 0x69, 0x73, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x65, 0x64, 0x2E, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x66, 0x69, 0x6E
-	.byte 0x61, 0x6C, 0x5C, 0x00, 0x4E, 0x6F, 0x20, 0x63, 0x61, 0x6C, 0x6C, 0x62, 0x61, 0x63, 0x6B, 0x2E
-	.byte 0x00, 0x00, 0x00, 0x00, 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x6D, 0x65, 0x73, 0x73
-	.byte 0x61, 0x67, 0x65, 0x2E, 0x00, 0x00, 0x00, 0x00, 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20
-	.byte 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x53, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220D6C0
+UNK04_0220D6C0: ; 0x0220D6C0
+	.byte 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220D6CC
+UNK04_0220D6CC: ; 0x0220D6CC
+	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220D6D4
+UNK04_0220D6D4: ; 0x0220D6D4
+	.byte 0x4E, 0x6F, 0x20, 0x63, 0x61, 0x6C, 0x6C, 0x62, 0x61, 0x63, 0x6B, 0x2E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D6E4
+UNK04_0220D6E4: ; 0x0220D6E4
+	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x6D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x2E
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D6F8
+UNK04_0220D6F8: ; 0x0220D6F8
+	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x53, 0x74
+	.byte 0x72, 0x69, 0x6E, 0x67, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220D710
+UNK04_0220D710: ; 0x0220D710
 	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x6C, 0x6F, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E
-	.byte 0x53, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x2E, 0x00, 0x5C, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x5C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x5C, 0x73, 0x74, 0x61, 0x74, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x5C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x5C, 0x6C, 0x6F, 0x63, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x5C, 0x00
+	.byte 0x53, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x2E, 0x00
+
+	.global UNK_0220D728
+UNK04_0220D728: ; 0x0220D728
+	.byte 0x5C, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D734
+UNK04_0220D734: ; 0x0220D734
+	.byte 0x5C, 0x73, 0x74, 0x61, 0x74, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D744
+UNK04_0220D744: ; 0x0220D744
+	.byte 0x5C, 0x6C, 0x6F, 0x63, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x5C, 0x00
+
+	.global UNK_0220D750
+UNK04_0220D750: ; 0x0220D750
 	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x2E, 0x00
+
+	.global UNK_0220D760
+UNK04_0220D760: ; 0x0220D760
 	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x69, 0x6E, 0x64, 0x65, 0x78, 0x2E, 0x00, 0x00
-	.byte 0x62, 0x75, 0x64, 0x64, 0x79, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x00, 0x67, 0x70, 0x2E, 0x63
-	.byte 0x00, 0x00, 0x00, 0x00, 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x72, 0x65, 0x61, 0x73
-	.byte 0x6F, 0x6E, 0x2E, 0x00, 0x5C, 0x61, 0x64, 0x64, 0x62, 0x75, 0x64, 0x64, 0x79, 0x5C, 0x00, 0x00
+
+	.global UNK_0220D770
+UNK04_0220D770: ; 0x0220D770
+	.byte 0x62, 0x75, 0x64, 0x64, 0x79, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x00
+
+	.global UNK_0220D77C
+UNK04_0220D77C: ; 0x0220D77C
+	.byte 0x67, 0x70, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D784
+UNK04_0220D784: ; 0x0220D784
+	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x72, 0x65, 0x61, 0x73, 0x6F, 0x6E, 0x2E, 0x00
+
+	.global UNK_0220D794
+UNK04_0220D794: ; 0x0220D794
+	.byte 0x5C, 0x61, 0x64, 0x64, 0x62, 0x75, 0x64, 0x64, 0x79, 0x5C, 0x00, 0x00
+
+	.global UNK_0220D7A0
+UNK04_0220D7A0: ; 0x0220D7A0
 	.byte 0x5C, 0x6E, 0x65, 0x77, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00, 0x00
-	.byte 0x5C, 0x72, 0x65, 0x61, 0x73, 0x6F, 0x6E, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D7B0
+UNK04_0220D7B0: ; 0x0220D7B0
+	.byte 0x5C, 0x72, 0x65, 0x61, 0x73, 0x6F, 0x6E, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D7BC
+UNK04_0220D7BC: ; 0x0220D7BC
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D7C0
+UNK04_0220D7C0: ; 0x0220D7C0
 	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x66, 0x75, 0x6E, 0x63, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220D7D0
+UNK04_0220D7D0: ; 0x0220D7D0
 	.byte 0x28, 0x69, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x2D, 0x3E, 0x63, 0x6F
 	.byte 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x53, 0x74, 0x61, 0x74, 0x65, 0x20, 0x3D, 0x3D, 0x20, 0x47, 0x50
 	.byte 0x49, 0x5F, 0x4E, 0x4F, 0x54, 0x5F, 0x43, 0x4F, 0x4E, 0x4E, 0x45, 0x43, 0x54, 0x45, 0x44, 0x29
@@ -59428,385 +60271,1640 @@ _0220BAB8:
 	.byte 0x45, 0x44, 0x29, 0x20, 0x7C, 0x7C, 0x20, 0x28, 0x69, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74
 	.byte 0x69, 0x6F, 0x6E, 0x2D, 0x3E, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x53, 0x74, 0x61, 0x74
 	.byte 0x65, 0x20, 0x3D, 0x3D, 0x20, 0x47, 0x50, 0x49, 0x5F, 0x44, 0x49, 0x53, 0x43, 0x4F, 0x4E, 0x4E
-	.byte 0x45, 0x43, 0x54, 0x45, 0x44, 0x29, 0x00, 0x00, 0x67, 0x70, 0x69, 0x2E, 0x63, 0x00, 0x00, 0x00
-	.byte 0x30, 0x00, 0x00, 0x00, 0x43, 0x4D, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61
-	.byte 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x72, 0x65, 0x61, 0x64, 0x69
-	.byte 0x6E, 0x67, 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76
-	.byte 0x65, 0x72, 0x2E, 0x00, 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00, 0x43, 0x4D, 0x44, 0x3A
-	.byte 0x20, 0x25, 0x73, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D
-	.byte 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00, 0x5C, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x00
+	.byte 0x45, 0x43, 0x54, 0x45, 0x44, 0x29, 0x00, 0x00
+
+	.global UNK_0220D8C8
+UNK04_0220D8C8: ; 0x0220D8C8
+	.byte 0x67, 0x70, 0x69, 0x2E, 0x63, 0x00, 0x00, 0x00
+
+	.global UNK_0220D8D0
+UNK04_0220D8D0: ; 0x0220D8D0
+	.byte 0x30, 0x00, 0x00, 0x00
+
+	.global UNK_0220D8D4
+UNK04_0220D8D4: ; 0x0220D8D4
+	.byte 0x43, 0x4D, 0x00, 0x00
+
+	.global UNK_0220D8D8
+UNK04_0220D8D8: ; 0x0220D8D8
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x72, 0x65, 0x61, 0x64, 0x69, 0x6E, 0x67, 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20
+	.byte 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00
+
+	.global UNK_0220D904
+UNK04_0220D904: ; 0x0220D904
+	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220D90C
+UNK04_0220D90C: ; 0x0220D90C
+	.byte 0x43, 0x4D, 0x44, 0x3A, 0x20, 0x25, 0x73, 0x0A, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D918
+UNK04_0220D918: ; 0x0220D918
+	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220D928
+UNK04_0220D928: ; 0x0220D928
+	.byte 0x5C, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D930
+UNK04_0220D930: ; 0x0220D930
 	.byte 0x4E, 0x6F, 0x20, 0x6D, 0x61, 0x74, 0x63, 0x68, 0x69, 0x6E, 0x67, 0x20, 0x6F, 0x70, 0x65, 0x72
 	.byte 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x66, 0x6F, 0x75, 0x6E, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20
-	.byte 0x69, 0x64, 0x20, 0x25, 0x64, 0x0A, 0x00, 0x00, 0x5C, 0x62, 0x6D, 0x5C, 0x00, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x6B, 0x61, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x52, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64
-	.byte 0x20, 0x61, 0x6E, 0x20, 0x75, 0x6E, 0x72, 0x65, 0x63, 0x6F, 0x67, 0x6E, 0x69, 0x7A, 0x65, 0x64
-	.byte 0x2C, 0x20, 0x75, 0x6E, 0x73, 0x6F, 0x6C, 0x69, 0x63, 0x69, 0x74, 0x65, 0x64, 0x20, 0x6D, 0x65
-	.byte 0x73, 0x73, 0x61, 0x67, 0x65, 0x2E, 0x0A, 0x00, 0x54, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76
-	.byte 0x65, 0x72, 0x20, 0x68, 0x61, 0x73, 0x20, 0x63, 0x6C, 0x6F, 0x73, 0x65, 0x64, 0x20, 0x74, 0x68
-	.byte 0x65, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x2E, 0x00, 0x00, 0x00
+	.byte 0x69, 0x64, 0x20, 0x25, 0x64, 0x0A, 0x00, 0x00
+
+	.global UNK_0220D958
+UNK04_0220D958: ; 0x0220D958
+	.byte 0x5C, 0x62, 0x6D, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D960
+UNK04_0220D960: ; 0x0220D960
+	.byte 0x5C, 0x6B, 0x61, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D968
+UNK04_0220D968: ; 0x0220D968
+	.byte 0x52, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64, 0x20, 0x61, 0x6E, 0x20, 0x75, 0x6E, 0x72, 0x65
+	.byte 0x63, 0x6F, 0x67, 0x6E, 0x69, 0x7A, 0x65, 0x64, 0x2C, 0x20, 0x75, 0x6E, 0x73, 0x6F, 0x6C, 0x69
+	.byte 0x63, 0x69, 0x74, 0x65, 0x64, 0x20, 0x6D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x2E, 0x0A, 0x00
+
+	.global UNK_0220D998
+UNK04_0220D998: ; 0x0220D998
+	.byte 0x54, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x20, 0x68, 0x61, 0x73, 0x20, 0x63
+	.byte 0x6C, 0x6F, 0x73, 0x65, 0x64, 0x20, 0x74, 0x68, 0x65, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63
+	.byte 0x74, 0x69, 0x6F, 0x6E, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220D9C0
+UNK04_0220D9C0: ; 0x0220D9C0
 	.byte 0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x2A
 	.byte 0x2A, 0x2A, 0x0A, 0x67, 0x70, 0x69, 0x49, 0x6E, 0x69, 0x74, 0x69, 0x61, 0x6C, 0x69, 0x7A, 0x65
-	.byte 0x0A, 0x00, 0x00, 0x00, 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x70, 0x72, 0x6F, 0x66
-	.byte 0x69, 0x6C, 0x65, 0x2E, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x64, 0x65, 0x6C, 0x62, 0x75, 0x64, 0x64
-	.byte 0x79, 0x5C, 0x00, 0x00, 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00
+	.byte 0x0A, 0x00, 0x00, 0x00
+
+	.global UNK_0220D9E4
+UNK04_0220D9E4: ; 0x0220D9E4
+	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x2E
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220D9F8
+UNK04_0220D9F8: ; 0x0220D9F8
+	.byte 0x5C, 0x64, 0x65, 0x6C, 0x62, 0x75, 0x64, 0x64, 0x79, 0x5C, 0x00, 0x00
+
+	.global UNK_0220DA04
+UNK04_0220DA04: ; 0x0220DA04
+	.byte 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DA10
+UNK04_0220DA10: ; 0x0220DA10
 	.byte 0x5C, 0x64, 0x65, 0x6C, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00, 0x00
-	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00, 0x69, 0x6E, 0x64, 0x65, 0x78, 0x20, 0x3E, 0x3D
-	.byte 0x20, 0x30, 0x00, 0x00, 0x67, 0x70, 0x69, 0x42, 0x75, 0x64, 0x64, 0x79, 0x2E, 0x63, 0x00, 0x00
+
+	.global UNK_0220DA20
+UNK04_0220DA20: ; 0x0220DA20
+	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220DA28
+UNK04_0220DA28: ; 0x0220DA28
+	.byte 0x69, 0x6E, 0x64, 0x65, 0x78, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00
+
+	.global UNK_0220DA34
+UNK04_0220DA34: ; 0x0220DA34
+	.byte 0x67, 0x70, 0x69, 0x42, 0x75, 0x64, 0x64, 0x79, 0x2E, 0x63, 0x00, 0x00
+
+	.global UNK_0220DA40
+UNK04_0220DA40: ; 0x0220DA40
 	.byte 0x69, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x2D, 0x3E, 0x70, 0x72, 0x6F
 	.byte 0x66, 0x69, 0x6C, 0x65, 0x4C, 0x69, 0x73, 0x74, 0x2E, 0x6E, 0x75, 0x6D, 0x42, 0x75, 0x64, 0x64
-	.byte 0x69, 0x65, 0x73, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x62, 0x6D, 0x5C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x5C, 0x74, 0x5C, 0x00, 0x5C, 0x6D, 0x73, 0x67, 0x5C, 0x00, 0x00, 0x00
+	.byte 0x69, 0x65, 0x73, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DA6C
+UNK04_0220DA6C: ; 0x0220DA6C
+	.byte 0x5C, 0x62, 0x6D, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DA74
+UNK04_0220DA74: ; 0x0220DA74
+	.byte 0x5C, 0x74, 0x5C, 0x00
+
+	.global UNK_0220DA78
+UNK04_0220DA78: ; 0x0220DA78
+	.byte 0x5C, 0x6D, 0x73, 0x67, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DA80
+UNK04_0220DA80: ; 0x0220DA80
 	.byte 0x55, 0x6E, 0x65, 0x78, 0x70, 0x65, 0x63, 0x74, 0x65, 0x64, 0x20, 0x64, 0x61, 0x74, 0x61, 0x20
 	.byte 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64, 0x20, 0x66, 0x72, 0x6F
 	.byte 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x66, 0x5C, 0x00, 0x5C, 0x64, 0x61, 0x74, 0x65, 0x5C, 0x00, 0x00, 0x4F, 0x75, 0x74, 0x20
-	.byte 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00, 0x7C, 0x73, 0x69, 0x67
-	.byte 0x6E, 0x65, 0x64, 0x7C, 0x00, 0x00, 0x00, 0x00, 0x7C, 0x73, 0x7C, 0x00, 0x7C, 0x73, 0x73, 0x7C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x7C, 0x6C, 0x73, 0x7C, 0x00, 0x00, 0x00, 0x00, 0x7C, 0x69, 0x70, 0x7C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x7C, 0x70, 0x7C, 0x00, 0x7C, 0x6C, 0x7C, 0x00, 0x31, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x61, 0x75, 0x74, 0x68, 0x61, 0x64, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x66, 0x72, 0x6F
-	.byte 0x6D, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00, 0x5C, 0x73, 0x69, 0x67
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x6D, 0x73, 0x67, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x6D, 0x5C, 0x00
-	.byte 0x5C, 0x6C, 0x65, 0x6E, 0x5C, 0x00, 0x00, 0x00, 0x6F, 0x75, 0x74, 0x70, 0x75, 0x74, 0x42, 0x75
-	.byte 0x66, 0x66, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00, 0x00
-	.byte 0x67, 0x70, 0x69, 0x42, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2E, 0x63, 0x00, 0x6C, 0x65, 0x6E, 0x20
-	.byte 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00, 0x00, 0x70, 0x6F, 0x73, 0x20, 0x3E, 0x3D, 0x20, 0x30
-	.byte 0x00, 0x00, 0x00, 0x00, 0x70, 0x6F, 0x73, 0x20, 0x3C, 0x3D, 0x20, 0x6C, 0x65, 0x6E, 0x00, 0x00
+
+	.global UNK_0220DAB0
+UNK04_0220DAB0: ; 0x0220DAB0
+	.byte 0x5C, 0x66, 0x5C, 0x00
+
+	.global UNK_0220DAB4
+UNK04_0220DAB4: ; 0x0220DAB4
+	.byte 0x5C, 0x64, 0x61, 0x74, 0x65, 0x5C, 0x00, 0x00
+
+	.global UNK_0220DABC
+UNK04_0220DABC: ; 0x0220DABC
+	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220DACC
+UNK04_0220DACC: ; 0x0220DACC
+	.byte 0x7C, 0x73, 0x69, 0x67, 0x6E, 0x65, 0x64, 0x7C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DAD8
+UNK04_0220DAD8: ; 0x0220DAD8
+	.byte 0x7C, 0x73, 0x7C, 0x00
+
+	.global UNK_0220DADC
+UNK04_0220DADC: ; 0x0220DADC
+	.byte 0x7C, 0x73, 0x73, 0x7C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DAE4
+UNK04_0220DAE4: ; 0x0220DAE4
+	.byte 0x7C, 0x6C, 0x73, 0x7C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DAEC
+UNK04_0220DAEC: ; 0x0220DAEC
+	.byte 0x7C, 0x69, 0x70, 0x7C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DAF4
+UNK04_0220DAF4: ; 0x0220DAF4
+	.byte 0x7C, 0x70, 0x7C, 0x00
+
+	.global UNK_0220DAF8
+UNK04_0220DAF8: ; 0x0220DAF8
+	.byte 0x7C, 0x6C, 0x7C, 0x00
+
+	.global UNK_0220DAFC
+UNK04_0220DAFC: ; 0x0220DAFC
+	.byte 0x31, 0x00, 0x00, 0x00
+
+	.global UNK_0220DB00
+UNK04_0220DB00: ; 0x0220DB00
+	.byte 0x5C, 0x61, 0x75, 0x74, 0x68, 0x61, 0x64, 0x64, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DB0C
+UNK04_0220DB0C: ; 0x0220DB0C
+	.byte 0x5C, 0x66, 0x72, 0x6F, 0x6D, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00
+
+	.global UNK_0220DB1C
+UNK04_0220DB1C: ; 0x0220DB1C
+	.byte 0x5C, 0x73, 0x69, 0x67, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DB24
+UNK04_0220DB24: ; 0x0220DB24
+	.byte 0x5C, 0x6D, 0x73, 0x67, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DB2C
+UNK04_0220DB2C: ; 0x0220DB2C
+	.byte 0x5C, 0x6D, 0x5C, 0x00
+
+	.global UNK_0220DB30
+UNK04_0220DB30: ; 0x0220DB30
+	.byte 0x5C, 0x6C, 0x65, 0x6E, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DB38
+UNK04_0220DB38: ; 0x0220DB38
+	.byte 0x6F, 0x75, 0x74, 0x70, 0x75, 0x74, 0x42, 0x75, 0x66, 0x66, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20
+	.byte 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DB50
+UNK04_0220DB50: ; 0x0220DB50
+	.byte 0x67, 0x70, 0x69, 0x42, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2E, 0x63, 0x00
+
+	.global UNK_0220DB5C
+UNK04_0220DB5C: ; 0x0220DB5C
+	.byte 0x6C, 0x65, 0x6E, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DB68
+UNK04_0220DB68: ; 0x0220DB68
+	.byte 0x70, 0x6F, 0x73, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DB74
+UNK04_0220DB74: ; 0x0220DB74
+	.byte 0x70, 0x6F, 0x73, 0x20, 0x3C, 0x3D, 0x20, 0x6C, 0x65, 0x6E, 0x00, 0x00
+
+	.global UNK_0220DB80
+UNK04_0220DB80: ; 0x0220DB80
 	.byte 0x73, 0x6F, 0x63, 0x6B, 0x20, 0x21, 0x3D, 0x20, 0x49, 0x4E, 0x56, 0x41, 0x4C, 0x49, 0x44, 0x5F
-	.byte 0x53, 0x4F, 0x43, 0x4B, 0x45, 0x54, 0x00, 0x00, 0x69, 0x6E, 0x70, 0x75, 0x74, 0x42, 0x75, 0x66
-	.byte 0x66, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x62, 0x79, 0x74, 0x65
-	.byte 0x73, 0x52, 0x65, 0x61, 0x64, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00
+	.byte 0x53, 0x4F, 0x43, 0x4B, 0x45, 0x54, 0x00, 0x00
+
+	.global UNK_0220DB98
+UNK04_0220DB98: ; 0x0220DB98
+	.byte 0x69, 0x6E, 0x70, 0x75, 0x74, 0x42, 0x75, 0x66, 0x66, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x4E
+	.byte 0x55, 0x4C, 0x4C, 0x00
+
+	.global UNK_0220DBAC
+UNK04_0220DBAC: ; 0x0220DBAC
+	.byte 0x62, 0x79, 0x74, 0x65, 0x73, 0x52, 0x65, 0x61, 0x64, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C
+	.byte 0x4C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DBC0
+UNK04_0220DBC0: ; 0x0220DBC0
 	.byte 0x63, 0x6F, 0x6E, 0x6E, 0x43, 0x6C, 0x6F, 0x73, 0x65, 0x64, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55
-	.byte 0x4C, 0x4C, 0x00, 0x00, 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72
-	.byte 0x79, 0x2E, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E
-	.byte 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x72, 0x65, 0x61, 0x64, 0x69, 0x6E, 0x67, 0x20, 0x66
-	.byte 0x72, 0x6F, 0x6D, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00
+	.byte 0x4C, 0x4C, 0x00, 0x00
+
+	.global UNK_0220DBD4
+UNK04_0220DBD4: ; 0x0220DBD4
+	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220DBE4
+UNK04_0220DBE4: ; 0x0220DBE4
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x72, 0x65, 0x61, 0x64, 0x69, 0x6E, 0x67, 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20
+	.byte 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220DC10
+UNK04_0220DC10: ; 0x0220DC10
 	.byte 0x52, 0x45, 0x43, 0x56, 0x58, 0x58, 0x58, 0x58, 0x28, 0x25, 0x73, 0x29, 0x3A, 0x20, 0x43, 0x6F
 	.byte 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x63, 0x6C, 0x6F, 0x73, 0x65, 0x64, 0x0A
-	.byte 0x00, 0x00, 0x00, 0x00, 0x52, 0x45, 0x43, 0x56, 0x54, 0x4F, 0x54, 0x4C, 0x28, 0x25, 0x73, 0x29
-	.byte 0x3A, 0x20, 0x25, 0x64, 0x0A, 0x00, 0x00, 0x00, 0x25, 0x64, 0x00, 0x00, 0x70, 0x65, 0x65, 0x72
-	.byte 0x2D, 0x3E, 0x6F, 0x75, 0x74, 0x70, 0x75, 0x74, 0x42, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2E, 0x62
-	.byte 0x75, 0x66, 0x66, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00
-	.byte 0x50, 0x54, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E
-	.byte 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x73, 0x65, 0x6E, 0x64, 0x69, 0x6E, 0x67, 0x20, 0x6F
-	.byte 0x6E, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x53, 0x45, 0x4E, 0x44
-	.byte 0x58, 0x58, 0x58, 0x58, 0x28, 0x25, 0x73, 0x29, 0x3A, 0x20, 0x43, 0x6F, 0x6E, 0x6E, 0x65, 0x63
-	.byte 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x63, 0x6C, 0x6F, 0x73, 0x65, 0x64, 0x0A, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DC34
+UNK04_0220DC34: ; 0x0220DC34
+	.byte 0x52, 0x45, 0x43, 0x56, 0x54, 0x4F, 0x54, 0x4C, 0x28, 0x25, 0x73, 0x29, 0x3A, 0x20, 0x25, 0x64
+	.byte 0x0A, 0x00, 0x00, 0x00
+
+	.global UNK_0220DC48
+UNK04_0220DC48: ; 0x0220DC48
+	.byte 0x25, 0x64, 0x00, 0x00
+
+	.global UNK_0220DC4C
+UNK04_0220DC4C: ; 0x0220DC4C
+	.byte 0x70, 0x65, 0x65, 0x72, 0x2D, 0x3E, 0x6F, 0x75, 0x74, 0x70, 0x75, 0x74, 0x42, 0x75, 0x66, 0x66
+	.byte 0x65, 0x72, 0x2E, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C
+	.byte 0x4C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DC70
+UNK04_0220DC70: ; 0x0220DC70
+	.byte 0x50, 0x54, 0x00, 0x00
+
+	.global UNK_0220DC74
+UNK04_0220DC74: ; 0x0220DC74
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x73, 0x65, 0x6E, 0x64, 0x69, 0x6E, 0x67, 0x20, 0x6F, 0x6E, 0x20, 0x61, 0x20
+	.byte 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00
+
+	.global UNK_0220DC9C
+UNK04_0220DC9C: ; 0x0220DC9C
+	.byte 0x53, 0x45, 0x4E, 0x44, 0x58, 0x58, 0x58, 0x58, 0x28, 0x25, 0x73, 0x29, 0x3A, 0x20, 0x43, 0x6F
+	.byte 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x63, 0x6C, 0x6F, 0x73, 0x65, 0x64, 0x0A
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DCC0
+UNK04_0220DCC0: ; 0x0220DCC0
 	.byte 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00
+
+	.global UNK_0220DCD0
+UNK04_0220DCD0: ; 0x0220DCD0
 	.byte 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x4C, 0x65, 0x6E, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00
+
+	.global UNK_0220DCE0
+UNK04_0220DCE0: ; 0x0220DCE0
 	.byte 0x64, 0x61, 0x74, 0x61, 0x2D, 0x3E, 0x63, 0x61, 0x6C, 0x6C, 0x62, 0x61, 0x63, 0x6B, 0x2E, 0x63
 	.byte 0x61, 0x6C, 0x6C, 0x62, 0x61, 0x63, 0x6B, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00
+
+	.global UNK_0220DD00
+UNK04_0220DD00: ; 0x0220DD00
 	.byte 0x67, 0x70, 0x69, 0x43, 0x61, 0x6C, 0x6C, 0x62, 0x61, 0x63, 0x6B, 0x2E, 0x63, 0x00, 0x00, 0x00
+
+	.global UNK_0220DD10
+UNK04_0220DD10: ; 0x0220DD10
 	.byte 0x64, 0x61, 0x74, 0x61, 0x2D, 0x3E, 0x61, 0x72, 0x67, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C
-	.byte 0x4C, 0x00, 0x00, 0x00, 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72
-	.byte 0x79, 0x2E, 0x00, 0x00, 0x69, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20
-	.byte 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x20, 0x21
-	.byte 0x3D, 0x20, 0x47, 0x50, 0x5F, 0x4E, 0x4F, 0x5F, 0x45, 0x52, 0x52, 0x4F, 0x52, 0x00, 0x00, 0x00
+	.byte 0x4C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DD24
+UNK04_0220DD24: ; 0x0220DD24
+	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220DD34
+UNK04_0220DD34: ; 0x0220DD34
+	.byte 0x69, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x21, 0x3D, 0x20, 0x4E
+	.byte 0x55, 0x4C, 0x4C, 0x00
+
+	.global UNK_0220DD48
+UNK04_0220DD48: ; 0x0220DD48
+	.byte 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x20, 0x21, 0x3D, 0x20, 0x47, 0x50, 0x5F, 0x4E, 0x4F, 0x5F
+	.byte 0x45, 0x52, 0x52, 0x4F, 0x52, 0x00, 0x00, 0x00
+
+	.global UNK_0220DD60
+UNK04_0220DD60: ; 0x0220DD60
 	.byte 0x28, 0x66, 0x61, 0x74, 0x61, 0x6C, 0x20, 0x3D, 0x3D, 0x20, 0x47, 0x50, 0x5F, 0x46, 0x41, 0x54
 	.byte 0x41, 0x4C, 0x29, 0x20, 0x7C, 0x7C, 0x20, 0x28, 0x66, 0x61, 0x74, 0x61, 0x6C, 0x20, 0x3D, 0x3D
 	.byte 0x20, 0x47, 0x50, 0x5F, 0x4E, 0x4F, 0x4E, 0x5F, 0x46, 0x41, 0x54, 0x41, 0x4C, 0x29, 0x00, 0x00
+
+	.global UNK_0220DD90
+UNK04_0220DD90: ; 0x0220DD90
 	.byte 0x67, 0x70, 0x63, 0x6D, 0x2E, 0x67, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F
 	.byte 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DDD0
+UNK04_0220DDD0: ; 0x0220DDD0
 	.byte 0x5C, 0x6C, 0x6F, 0x67, 0x6F, 0x75, 0x74, 0x5C, 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00, 0x43, 0x4D, 0x00, 0x00
+	.byte 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DDE4
+UNK04_0220DDE4: ; 0x0220DDE4
+	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220DDEC
+UNK04_0220DDEC: ; 0x0220DDEC
+	.byte 0x43, 0x4D, 0x00, 0x00
+
+	.global UNK_0220DDF0
+UNK04_0220DDF0: ; 0x0220DDF0
 	.byte 0x54, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x20, 0x68, 0x61, 0x73, 0x20, 0x72
 	.byte 0x65, 0x66, 0x75, 0x73, 0x65, 0x64, 0x20, 0x74, 0x68, 0x65, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65
-	.byte 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x2E, 0x00, 0x00, 0x73, 0x74, 0x61, 0x74, 0x65, 0x20, 0x3D, 0x3D
-	.byte 0x20, 0x47, 0x50, 0x49, 0x5F, 0x43, 0x4F, 0x4E, 0x4E, 0x45, 0x43, 0x54, 0x45, 0x44, 0x00, 0x00
+	.byte 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x2E, 0x00, 0x00
+
+	.global UNK_0220DE18
+UNK04_0220DE18: ; 0x0220DE18
+	.byte 0x73, 0x74, 0x61, 0x74, 0x65, 0x20, 0x3D, 0x3D, 0x20, 0x47, 0x50, 0x49, 0x5F, 0x43, 0x4F, 0x4E
+	.byte 0x4E, 0x45, 0x43, 0x54, 0x45, 0x44, 0x00, 0x00
+
+	.global UNK_0220DE30
+UNK04_0220DE30: ; 0x0220DE30
 	.byte 0x67, 0x70, 0x69, 0x43, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x70, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x66, 0x61, 0x74, 0x61, 0x6C, 0x5C, 0x00
-	.byte 0x5C, 0x6C, 0x63, 0x5C, 0x31, 0x00, 0x00, 0x00, 0x55, 0x6E, 0x65, 0x78, 0x70, 0x65, 0x63, 0x74
-	.byte 0x65, 0x64, 0x20, 0x64, 0x61, 0x74, 0x61, 0x20, 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65
-	.byte 0x69, 0x76, 0x65, 0x64, 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65
-	.byte 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x00, 0x5C, 0x63, 0x68, 0x61, 0x6C, 0x6C, 0x65, 0x6E
-	.byte 0x67, 0x65, 0x5C, 0x00, 0x5C, 0x6E, 0x75, 0x72, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x75, 0x73, 0x65
-	.byte 0x72, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x55, 0x6E, 0x65, 0x78, 0x65, 0x70, 0x65, 0x63
-	.byte 0x74, 0x65, 0x64, 0x20, 0x64, 0x61, 0x74, 0x61, 0x20, 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63
-	.byte 0x65, 0x69, 0x76, 0x65, 0x64, 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73
-	.byte 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x5C, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65
-	.byte 0x69, 0x64, 0x5C, 0x00, 0x5C, 0x6C, 0x63, 0x5C, 0x32, 0x00, 0x00, 0x00, 0x5C, 0x73, 0x65, 0x73
-	.byte 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x75, 0x6E, 0x69, 0x71, 0x75, 0x65, 0x6E
-	.byte 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x6C, 0x74, 0x5C, 0x00, 0x00, 0x00, 0x00
-	.byte 0x25, 0x73, 0x40, 0x25, 0x73, 0x00, 0x00, 0x00, 0x25, 0x73, 0x25, 0x73, 0x25, 0x73, 0x25, 0x73
-	.byte 0x25, 0x73, 0x25, 0x73, 0x00, 0x00, 0x00, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20
+
+	.global UNK_0220DE40
+UNK04_0220DE40: ; 0x0220DE40
+	.byte 0x5C, 0x70, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DE48
+UNK04_0220DE48: ; 0x0220DE48
+	.byte 0x5C, 0x66, 0x61, 0x74, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220DE50
+UNK04_0220DE50: ; 0x0220DE50
+	.byte 0x5C, 0x6C, 0x63, 0x5C, 0x31, 0x00, 0x00, 0x00
+
+	.global UNK_0220DE58
+UNK04_0220DE58: ; 0x0220DE58
+	.byte 0x55, 0x6E, 0x65, 0x78, 0x70, 0x65, 0x63, 0x74, 0x65, 0x64, 0x20, 0x64, 0x61, 0x74, 0x61, 0x20
+	.byte 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64, 0x20, 0x66, 0x72, 0x6F
+	.byte 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220DE88
+UNK04_0220DE88: ; 0x0220DE88
+	.byte 0x5C, 0x63, 0x68, 0x61, 0x6C, 0x6C, 0x65, 0x6E, 0x67, 0x65, 0x5C, 0x00
+
+	.global UNK_0220DE94
+UNK04_0220DE94: ; 0x0220DE94
+	.byte 0x5C, 0x6E, 0x75, 0x72, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DE9C
+UNK04_0220DE9C: ; 0x0220DE9C
+	.byte 0x5C, 0x75, 0x73, 0x65, 0x72, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DEA8
+UNK04_0220DEA8: ; 0x0220DEA8
+	.byte 0x55, 0x6E, 0x65, 0x78, 0x65, 0x70, 0x65, 0x63, 0x74, 0x65, 0x64, 0x20, 0x64, 0x61, 0x74, 0x61
+	.byte 0x20, 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64, 0x20, 0x66, 0x72
+	.byte 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00
+
+	.global UNK_0220DED8
+UNK04_0220DED8: ; 0x0220DED8
+	.byte 0x5C, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00
+
+	.global UNK_0220DEE4
+UNK04_0220DEE4: ; 0x0220DEE4
+	.byte 0x5C, 0x6C, 0x63, 0x5C, 0x32, 0x00, 0x00, 0x00
+
+	.global UNK_0220DEEC
+UNK04_0220DEEC: ; 0x0220DEEC
+	.byte 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DEF8
+UNK04_0220DEF8: ; 0x0220DEF8
+	.byte 0x5C, 0x75, 0x6E, 0x69, 0x71, 0x75, 0x65, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DF08
+UNK04_0220DF08: ; 0x0220DF08
+	.byte 0x5C, 0x6C, 0x74, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DF10
+UNK04_0220DF10: ; 0x0220DF10
+	.byte 0x25, 0x73, 0x40, 0x25, 0x73, 0x00, 0x00, 0x00
+
+	.global UNK_0220DF18
+UNK04_0220DF18: ; 0x0220DF18
+	.byte 0x25, 0x73, 0x25, 0x73, 0x25, 0x73, 0x25, 0x73, 0x25, 0x73, 0x25, 0x73, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DF28
+UNK04_0220DF28: ; 0x0220DF28
 	.byte 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20
 	.byte 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20
-	.byte 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x70, 0x72, 0x6F
-	.byte 0x6F, 0x66, 0x5C, 0x00, 0x43, 0x6F, 0x75, 0x6C, 0x64, 0x20, 0x6E, 0x6F, 0x74, 0x20, 0x61, 0x75
-	.byte 0x74, 0x68, 0x65, 0x6E, 0x74, 0x69, 0x63, 0x61, 0x74, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65
-	.byte 0x72, 0x2E, 0x00, 0x00, 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72
-	.byte 0x79, 0x2E, 0x00, 0x00, 0x5C, 0x6E, 0x65, 0x77, 0x75, 0x73, 0x65, 0x72, 0x5C, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x65, 0x6D, 0x61, 0x69, 0x6C, 0x5C, 0x00, 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00
+	.byte 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220DF5C
+UNK04_0220DF5C: ; 0x0220DF5C
+	.byte 0x5C, 0x70, 0x72, 0x6F, 0x6F, 0x66, 0x5C, 0x00
+
+	.global UNK_0220DF64
+UNK04_0220DF64: ; 0x0220DF64
+	.byte 0x43, 0x6F, 0x75, 0x6C, 0x64, 0x20, 0x6E, 0x6F, 0x74, 0x20, 0x61, 0x75, 0x74, 0x68, 0x65, 0x6E
+	.byte 0x74, 0x69, 0x63, 0x61, 0x74, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00
+
+	.global UNK_0220DF84
+UNK04_0220DF84: ; 0x0220DF84
+	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220DF94
+UNK04_0220DF94: ; 0x0220DF94
+	.byte 0x5C, 0x6E, 0x65, 0x77, 0x75, 0x73, 0x65, 0x72, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DFA0
+UNK04_0220DFA0: ; 0x0220DFA0
+	.byte 0x5C, 0x65, 0x6D, 0x61, 0x69, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220DFA8
+UNK04_0220DFA8: ; 0x0220DFA8
+	.byte 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00
+
+	.global UNK_0220DFB0
+UNK04_0220DFB0: ; 0x0220DFB0
 	.byte 0x5C, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6F, 0x72, 0x64, 0x65, 0x6E, 0x63, 0x5C, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x70, 0x72, 0x6F, 0x64, 0x75, 0x63, 0x74, 0x69, 0x64, 0x5C, 0x00, 0x5C, 0x67, 0x61, 0x6D
-	.byte 0x65, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x00, 0x5C, 0x6E, 0x61, 0x6D, 0x65, 0x73, 0x70, 0x61
-	.byte 0x63, 0x65, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x63, 0x64, 0x6B, 0x65, 0x79, 0x65, 0x6E
-	.byte 0x63, 0x5C, 0x00, 0x00, 0x5C, 0x69, 0x64, 0x5C, 0x31, 0x00, 0x00, 0x00, 0x5C, 0x6C, 0x6F, 0x67
-	.byte 0x69, 0x6E, 0x5C, 0x00, 0x5C, 0x61, 0x75, 0x74, 0x68, 0x74, 0x6F, 0x6B, 0x65, 0x6E, 0x5C, 0x00
-	.byte 0x5C, 0x75, 0x73, 0x65, 0x72, 0x5C, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x5C, 0x72, 0x65, 0x73
-	.byte 0x70, 0x6F, 0x6E, 0x73, 0x65, 0x5C, 0x00, 0x00, 0x5C, 0x66, 0x69, 0x72, 0x65, 0x77, 0x61, 0x6C
-	.byte 0x6C, 0x5C, 0x31, 0x00, 0x5C, 0x70, 0x6F, 0x72, 0x74, 0x5C, 0x00, 0x00, 0x49, 0x6E, 0x76, 0x61
-	.byte 0x6C, 0x69, 0x64, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x2E, 0x00
+
+	.global UNK_0220DFC0
+UNK04_0220DFC0: ; 0x0220DFC0
+	.byte 0x5C, 0x70, 0x72, 0x6F, 0x64, 0x75, 0x63, 0x74, 0x69, 0x64, 0x5C, 0x00
+
+	.global UNK_0220DFCC
+UNK04_0220DFCC: ; 0x0220DFCC
+	.byte 0x5C, 0x67, 0x61, 0x6D, 0x65, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x00
+
+	.global UNK_0220DFD8
+UNK04_0220DFD8: ; 0x0220DFD8
+	.byte 0x5C, 0x6E, 0x61, 0x6D, 0x65, 0x73, 0x70, 0x61, 0x63, 0x65, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220DFE8
+UNK04_0220DFE8: ; 0x0220DFE8
+	.byte 0x5C, 0x63, 0x64, 0x6B, 0x65, 0x79, 0x65, 0x6E, 0x63, 0x5C, 0x00, 0x00
+
+	.global UNK_0220DFF4
+UNK04_0220DFF4: ; 0x0220DFF4
+	.byte 0x5C, 0x69, 0x64, 0x5C, 0x31, 0x00, 0x00, 0x00
+
+	.global UNK_0220DFFC
+UNK04_0220DFFC: ; 0x0220DFFC
+	.byte 0x5C, 0x6C, 0x6F, 0x67, 0x69, 0x6E, 0x5C, 0x00
+
+	.global UNK_0220E004
+UNK04_0220E004: ; 0x0220E004
+	.byte 0x5C, 0x61, 0x75, 0x74, 0x68, 0x74, 0x6F, 0x6B, 0x65, 0x6E, 0x5C, 0x00
+
+	.global UNK_0220E010
+UNK04_0220E010: ; 0x0220E010
+	.byte 0x5C, 0x75, 0x73, 0x65, 0x72, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E018
+UNK04_0220E018: ; 0x0220E018
+	.byte 0x40, 0x00, 0x00, 0x00
+
+	.global UNK_0220E01C
+UNK04_0220E01C: ; 0x0220E01C
+	.byte 0x5C, 0x72, 0x65, 0x73, 0x70, 0x6F, 0x6E, 0x73, 0x65, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E028
+UNK04_0220E028: ; 0x0220E028
+	.byte 0x5C, 0x66, 0x69, 0x72, 0x65, 0x77, 0x61, 0x6C, 0x6C, 0x5C, 0x31, 0x00
+
+	.global UNK_0220E034
+UNK04_0220E034: ; 0x0220E034
+	.byte 0x5C, 0x70, 0x6F, 0x72, 0x74, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E03C
+UNK04_0220E03C: ; 0x0220E03C
+	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69
+	.byte 0x6F, 0x6E, 0x2E, 0x00
+
+	.global UNK_0220E050
+UNK04_0220E050: ; 0x0220E050
 	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x66, 0x69, 0x72, 0x65, 0x77, 0x61, 0x6C, 0x6C
-	.byte 0x2E, 0x00, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E
-	.byte 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x69, 0x6E, 0x67, 0x20
-	.byte 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72
-	.byte 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x6D
-	.byte 0x61, 0x6B, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x20, 0x6E
-	.byte 0x6F, 0x6E, 0x2D, 0x62, 0x6C, 0x6F, 0x63, 0x6B, 0x69, 0x6E, 0x67, 0x2E, 0x00, 0x00, 0x00, 0x00
+	.byte 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E064
+UNK04_0220E064: ; 0x0220E064
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F
+	.byte 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E08C
+UNK04_0220E08C: ; 0x0220E08C
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x6D, 0x61, 0x6B, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B
+	.byte 0x65, 0x74, 0x20, 0x6E, 0x6F, 0x6E, 0x2D, 0x62, 0x6C, 0x6F, 0x63, 0x6B, 0x69, 0x6E, 0x67, 0x2E
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E0C0
+UNK04_0220E0C0: ; 0x0220E0C0
 	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
 	.byte 0x6F, 0x72, 0x20, 0x62, 0x69, 0x6E, 0x64, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63
-	.byte 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61
-	.byte 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x6C, 0x69, 0x73, 0x74, 0x65
-	.byte 0x6E, 0x69, 0x6E, 0x67, 0x20, 0x6F, 0x6E, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74
-	.byte 0x2E, 0x00, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E
-	.byte 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x67, 0x65, 0x74, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x61
-	.byte 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x27, 0x73, 0x20, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73
-	.byte 0x2E, 0x00, 0x00, 0x00, 0x43, 0x6F, 0x75, 0x6C, 0x64, 0x20, 0x6E, 0x6F, 0x74, 0x20, 0x72, 0x65
-	.byte 0x73, 0x6F, 0x6C, 0x76, 0x65, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E
-	.byte 0x20, 0x6D, 0x61, 0x6E, 0x61, 0x6E, 0x67, 0x65, 0x72, 0x20, 0x68, 0x6F, 0x73, 0x74, 0x20, 0x6E
-	.byte 0x61, 0x6D, 0x65, 0x2E, 0x00, 0x00, 0x00, 0x00, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2E
-	.byte 0x73, 0x69, 0x6E, 0x5F, 0x61, 0x64, 0x64, 0x72, 0x2E, 0x73, 0x5F, 0x61, 0x64, 0x64, 0x72, 0x20
-	.byte 0x21, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61
-	.byte 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65
-	.byte 0x63, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00
+	.byte 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E0E8
+UNK04_0220E0E8: ; 0x0220E0E8
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x6C, 0x69, 0x73, 0x74, 0x65, 0x6E, 0x69, 0x6E, 0x67, 0x20, 0x6F, 0x6E, 0x20
+	.byte 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E114
+UNK04_0220E114: ; 0x0220E114
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x67, 0x65, 0x74, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63
+	.byte 0x6B, 0x65, 0x74, 0x27, 0x73, 0x20, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E144
+UNK04_0220E144: ; 0x0220E144
+	.byte 0x43, 0x6F, 0x75, 0x6C, 0x64, 0x20, 0x6E, 0x6F, 0x74, 0x20, 0x72, 0x65, 0x73, 0x6F, 0x6C, 0x76
+	.byte 0x65, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x6D, 0x61, 0x6E
+	.byte 0x61, 0x6E, 0x67, 0x65, 0x72, 0x20, 0x68, 0x6F, 0x73, 0x74, 0x20, 0x6E, 0x61, 0x6D, 0x65, 0x2E
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E178
+UNK04_0220E178: ; 0x0220E178
+	.byte 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2E, 0x73, 0x69, 0x6E, 0x5F, 0x61, 0x64, 0x64, 0x72
+	.byte 0x2E, 0x73, 0x5F, 0x61, 0x64, 0x64, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E198
+UNK04_0220E198: ; 0x0220E198
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20
+	.byte 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00
+
+	.global UNK_0220E1C0
+UNK04_0220E1C0: ; 0x0220E1C0
 	.byte 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50
 	.byte 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66
 	.byte 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6E, 0x6F, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76
 	.byte 0x77, 0x78, 0x79, 0x7A, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x00, 0x00
+
+	.global UNK_0220E200
+UNK04_0220E200: ; 0x0220E200
 	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220E210
+UNK04_0220E210: ; 0x0220E210
 	.byte 0x5C, 0x67, 0x65, 0x74, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x5C, 0x5C, 0x73, 0x65, 0x73
-	.byte 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65
-	.byte 0x69, 0x64, 0x5C, 0x00, 0x5C, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x66, 0x69, 0x6E
-	.byte 0x61, 0x6C, 0x5C, 0x00, 0x25, 0x64, 0x00, 0x00, 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20
-	.byte 0x69, 0x6E, 0x66, 0x6F, 0x2E, 0x00, 0x00, 0x00, 0x5C, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61
-	.byte 0x79, 0x5C, 0x00, 0x00, 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x76, 0x61, 0x6C, 0x75
-	.byte 0x65, 0x2E, 0x00, 0x00, 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00, 0x5C, 0x75, 0x6E, 0x69
-	.byte 0x71, 0x75, 0x65, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x65, 0x6D, 0x61
-	.byte 0x69, 0x6C, 0x5C, 0x00, 0x5C, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6F, 0x72, 0x64, 0x5C, 0x00, 0x00
-	.byte 0x5C, 0x66, 0x69, 0x72, 0x73, 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x5C, 0x6C, 0x61, 0x73
-	.byte 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x00, 0x5C, 0x68, 0x6F, 0x6D, 0x65, 0x70, 0x61, 0x67
-	.byte 0x65, 0x5C, 0x00, 0x00, 0x5C, 0x7A, 0x69, 0x70, 0x63, 0x6F, 0x64, 0x65, 0x5C, 0x00, 0x00, 0x00
+	.byte 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E228
+UNK04_0220E228: ; 0x0220E228
+	.byte 0x5C, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00
+
+	.global UNK_0220E234
+UNK04_0220E234: ; 0x0220E234
+	.byte 0x5C, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E23C
+UNK04_0220E23C: ; 0x0220E23C
+	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220E244
+UNK04_0220E244: ; 0x0220E244
+	.byte 0x25, 0x64, 0x00, 0x00
+
+	.global UNK_0220E248
+UNK04_0220E248: ; 0x0220E248
+	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x69, 0x6E, 0x66, 0x6F, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E258
+UNK04_0220E258: ; 0x0220E258
+	.byte 0x5C, 0x62, 0x69, 0x72, 0x74, 0x68, 0x64, 0x61, 0x79, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E264
+UNK04_0220E264: ; 0x0220E264
+	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x76, 0x61, 0x6C, 0x75, 0x65, 0x2E, 0x00, 0x00
+
+	.global UNK_0220E274
+UNK04_0220E274: ; 0x0220E274
+	.byte 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E27C
+UNK04_0220E27C: ; 0x0220E27C
+	.byte 0x5C, 0x75, 0x6E, 0x69, 0x71, 0x75, 0x65, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E28C
+UNK04_0220E28C: ; 0x0220E28C
+	.byte 0x5C, 0x65, 0x6D, 0x61, 0x69, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220E294
+UNK04_0220E294: ; 0x0220E294
+	.byte 0x5C, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6F, 0x72, 0x64, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E2A0
+UNK04_0220E2A0: ; 0x0220E2A0
+	.byte 0x5C, 0x66, 0x69, 0x72, 0x73, 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00
+
+	.global UNK_0220E2AC
+UNK04_0220E2AC: ; 0x0220E2AC
+	.byte 0x5C, 0x6C, 0x61, 0x73, 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E2B8
+UNK04_0220E2B8: ; 0x0220E2B8
+	.byte 0x5C, 0x68, 0x6F, 0x6D, 0x65, 0x70, 0x61, 0x67, 0x65, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E2C4
+UNK04_0220E2C4: ; 0x0220E2C4
+	.byte 0x5C, 0x7A, 0x69, 0x70, 0x63, 0x6F, 0x64, 0x65, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E2D0
+UNK04_0220E2D0: ; 0x0220E2D0
 	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x63, 0x6F, 0x75, 0x6E, 0x74, 0x72, 0x79, 0x63
-	.byte 0x6F, 0x64, 0x65, 0x2E, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x63, 0x6F, 0x75, 0x6E, 0x74, 0x72, 0x79
-	.byte 0x63, 0x6F, 0x64, 0x65, 0x5C, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x31, 0x00, 0x00, 0x00
-	.byte 0x32, 0x00, 0x00, 0x00, 0x5C, 0x73, 0x65, 0x78, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x69, 0x63, 0x71
-	.byte 0x75, 0x69, 0x6E, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x63, 0x61
-	.byte 0x72, 0x64, 0x31, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x5C, 0x00, 0x00, 0x5C, 0x76, 0x69, 0x64
-	.byte 0x65, 0x6F, 0x63, 0x61, 0x72, 0x64, 0x32, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x5C, 0x00, 0x00
-	.byte 0x5C, 0x6F, 0x73, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x5C, 0x00, 0x00, 0x5C, 0x61, 0x69, 0x6D
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x70, 0x69, 0x63, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x6F, 0x63, 0x63
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x69, 0x6E, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x69, 0x6E, 0x63
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x6D, 0x61, 0x72, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x63, 0x68, 0x63
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x69, 0x31, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x49, 0x6E, 0x76, 0x61
-	.byte 0x6C, 0x69, 0x64, 0x20, 0x7A, 0x69, 0x70, 0x63, 0x6F, 0x64, 0x65, 0x2E, 0x00, 0x00, 0x00, 0x00
+	.byte 0x6F, 0x64, 0x65, 0x2E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E2E8
+UNK04_0220E2E8: ; 0x0220E2E8
+	.byte 0x5C, 0x63, 0x6F, 0x75, 0x6E, 0x74, 0x72, 0x79, 0x63, 0x6F, 0x64, 0x65, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E2F8
+UNK04_0220E2F8: ; 0x0220E2F8
+	.byte 0x30, 0x00, 0x00, 0x00
+
+	.global UNK_0220E2FC
+UNK04_0220E2FC: ; 0x0220E2FC
+	.byte 0x31, 0x00, 0x00, 0x00
+
+	.global UNK_0220E300
+UNK04_0220E300: ; 0x0220E300
+	.byte 0x32, 0x00, 0x00, 0x00
+
+	.global UNK_0220E304
+UNK04_0220E304: ; 0x0220E304
+	.byte 0x5C, 0x73, 0x65, 0x78, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E30C
+UNK04_0220E30C: ; 0x0220E30C
+	.byte 0x5C, 0x69, 0x63, 0x71, 0x75, 0x69, 0x6E, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E318
+UNK04_0220E318: ; 0x0220E318
+	.byte 0x5C, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x63, 0x61, 0x72, 0x64, 0x31, 0x73, 0x74, 0x72, 0x69, 0x6E
+	.byte 0x67, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E32C
+UNK04_0220E32C: ; 0x0220E32C
+	.byte 0x5C, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x63, 0x61, 0x72, 0x64, 0x32, 0x73, 0x74, 0x72, 0x69, 0x6E
+	.byte 0x67, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E340
+UNK04_0220E340: ; 0x0220E340
+	.byte 0x5C, 0x6F, 0x73, 0x73, 0x74, 0x72, 0x69, 0x6E, 0x67, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E34C
+UNK04_0220E34C: ; 0x0220E34C
+	.byte 0x5C, 0x61, 0x69, 0x6D, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E354
+UNK04_0220E354: ; 0x0220E354
+	.byte 0x5C, 0x70, 0x69, 0x63, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E35C
+UNK04_0220E35C: ; 0x0220E35C
+	.byte 0x5C, 0x6F, 0x63, 0x63, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E364
+UNK04_0220E364: ; 0x0220E364
+	.byte 0x5C, 0x69, 0x6E, 0x64, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E36C
+UNK04_0220E36C: ; 0x0220E36C
+	.byte 0x5C, 0x69, 0x6E, 0x63, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E374
+UNK04_0220E374: ; 0x0220E374
+	.byte 0x5C, 0x6D, 0x61, 0x72, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E37C
+UNK04_0220E37C: ; 0x0220E37C
+	.byte 0x5C, 0x63, 0x68, 0x63, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E384
+UNK04_0220E384: ; 0x0220E384
+	.byte 0x5C, 0x69, 0x31, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E38C
+UNK04_0220E38C: ; 0x0220E38C
+	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x7A, 0x69, 0x70, 0x63, 0x6F, 0x64, 0x65, 0x2E
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E3A0
+UNK04_0220E3A0: ; 0x0220E3A0
 	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x73, 0x65, 0x78, 0x2E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E3B0
+UNK04_0220E3B0: ; 0x0220E3B0
 	.byte 0x5C, 0x63, 0x70, 0x75, 0x62, 0x72, 0x61, 0x6E, 0x64, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x63, 0x70, 0x75, 0x73, 0x70, 0x65, 0x65, 0x64, 0x5C, 0x00, 0x00, 0x5C, 0x6D, 0x65, 0x6D
-	.byte 0x6F, 0x72, 0x79, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x63, 0x61
-	.byte 0x72, 0x64, 0x31, 0x72, 0x61, 0x6D, 0x5C, 0x00, 0x5C, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x63, 0x61
-	.byte 0x72, 0x64, 0x32, 0x72, 0x61, 0x6D, 0x5C, 0x00, 0x5C, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74
-	.byte 0x69, 0x6F, 0x6E, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x5C, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74
-	.byte 0x69, 0x6F, 0x6E, 0x73, 0x70, 0x65, 0x65, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x68, 0x61, 0x73
-	.byte 0x6E, 0x65, 0x74, 0x77, 0x6F, 0x72, 0x6B, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x75, 0x70, 0x64
-	.byte 0x61, 0x74, 0x65, 0x70, 0x72, 0x6F, 0x5C, 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79, 0x5C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x5C, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x75, 0x69, 0x5C, 0x5C, 0x73
-	.byte 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x5C, 0x70, 0x69, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E3C0
+UNK04_0220E3C0: ; 0x0220E3C0
+	.byte 0x5C, 0x63, 0x70, 0x75, 0x73, 0x70, 0x65, 0x65, 0x64, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E3CC
+UNK04_0220E3CC: ; 0x0220E3CC
+	.byte 0x5C, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E3D8
+UNK04_0220E3D8: ; 0x0220E3D8
+	.byte 0x5C, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x63, 0x61, 0x72, 0x64, 0x31, 0x72, 0x61, 0x6D, 0x5C, 0x00
+
+	.global UNK_0220E3E8
+UNK04_0220E3E8: ; 0x0220E3E8
+	.byte 0x5C, 0x76, 0x69, 0x64, 0x65, 0x6F, 0x63, 0x61, 0x72, 0x64, 0x32, 0x72, 0x61, 0x6D, 0x5C, 0x00
+
+	.global UNK_0220E3F8
+UNK04_0220E3F8: ; 0x0220E3F8
+	.byte 0x5C, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x69, 0x64, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E408
+UNK04_0220E408: ; 0x0220E408
+	.byte 0x5C, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x73, 0x70, 0x65, 0x65, 0x64
+	.byte 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E41C
+UNK04_0220E41C: ; 0x0220E41C
+	.byte 0x5C, 0x68, 0x61, 0x73, 0x6E, 0x65, 0x74, 0x77, 0x6F, 0x72, 0x6B, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E42C
+UNK04_0220E42C: ; 0x0220E42C
+	.byte 0x5C, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x70, 0x72, 0x6F, 0x5C, 0x5C, 0x73, 0x65, 0x73, 0x73
+	.byte 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E444
+UNK04_0220E444: ; 0x0220E444
+	.byte 0x5C, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x75, 0x69, 0x5C, 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B
+	.byte 0x65, 0x79, 0x5C, 0x00
+
+	.global UNK_0220E458
+UNK04_0220E458: ; 0x0220E458
+	.byte 0x5C, 0x70, 0x69, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E460
+UNK04_0220E460: ; 0x0220E460
 	.byte 0x55, 0x6E, 0x65, 0x78, 0x70, 0x65, 0x63, 0x74, 0x65, 0x64, 0x20, 0x64, 0x61, 0x74, 0x61, 0x20
 	.byte 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64, 0x20, 0x66, 0x72, 0x6F
 	.byte 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E490
+UNK04_0220E490: ; 0x0220E490
 	.byte 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x20, 0x3E, 0x20, 0x30, 0x00, 0x00, 0x00
-	.byte 0x67, 0x70, 0x69, 0x49, 0x6E, 0x66, 0x6F, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x5C, 0x6C, 0x6F, 0x6E
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x6C, 0x61, 0x74, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x6C, 0x6F, 0x63
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x70, 0x6D, 0x61, 0x73, 0x6B, 0x5C, 0x00, 0x5C, 0x6F, 0x31, 0x5C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x5C, 0x63, 0x6F, 0x6E, 0x6E, 0x5C, 0x00, 0x00, 0x5C, 0x73, 0x69, 0x67
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x67, 0x70, 0x69, 0x49, 0x73, 0x56, 0x61, 0x6C, 0x69, 0x64, 0x44, 0x61
-	.byte 0x74, 0x65, 0x28, 0x64, 0x2C, 0x20, 0x6D, 0x2C, 0x20, 0x79, 0x29, 0x00, 0x49, 0x6E, 0x76, 0x61
-	.byte 0x6C, 0x69, 0x64, 0x20, 0x64, 0x61, 0x74, 0x65, 0x2E, 0x00, 0x00, 0x00, 0x67, 0x70, 0x69, 0x50
-	.byte 0x72, 0x6F, 0x63, 0x65, 0x73, 0x73, 0x4F, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20
-	.byte 0x77, 0x61, 0x73, 0x20, 0x70, 0x61, 0x73, 0x73, 0x65, 0x64, 0x20, 0x61, 0x6E, 0x20, 0x6F, 0x70
-	.byte 0x65, 0x72, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x77, 0x69, 0x74, 0x68, 0x20, 0x61, 0x6E, 0x20
-	.byte 0x69, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x74, 0x79, 0x70, 0x65, 0x20, 0x28, 0x25, 0x64
-	.byte 0x29, 0x0A, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x67, 0x70, 0x69, 0x4F, 0x70, 0x65, 0x72, 0x61
-	.byte 0x74, 0x69, 0x6F, 0x6E, 0x2E, 0x63, 0x00, 0x00, 0x69, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74
-	.byte 0x69, 0x6F, 0x6E, 0x2D, 0x3E, 0x6E, 0x75, 0x6D, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x65, 0x73
-	.byte 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00, 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D
-	.byte 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69
-	.byte 0x6F, 0x6E, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x2A, 0x63, 0x6F, 0x6E
-	.byte 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00
+
+	.global UNK_0220E4A0
+UNK04_0220E4A0: ; 0x0220E4A0
+	.byte 0x67, 0x70, 0x69, 0x49, 0x6E, 0x66, 0x6F, 0x2E, 0x63, 0x00, 0x00, 0x00
+
+	.global UNK_0220E4AC
+UNK04_0220E4AC: ; 0x0220E4AC
+	.byte 0x5C, 0x6C, 0x6F, 0x6E, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E4B4
+UNK04_0220E4B4: ; 0x0220E4B4
+	.byte 0x5C, 0x6C, 0x61, 0x74, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E4BC
+UNK04_0220E4BC: ; 0x0220E4BC
+	.byte 0x5C, 0x6C, 0x6F, 0x63, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E4C4
+UNK04_0220E4C4: ; 0x0220E4C4
+	.byte 0x5C, 0x70, 0x6D, 0x61, 0x73, 0x6B, 0x5C, 0x00
+
+	.global UNK_0220E4CC
+UNK04_0220E4CC: ; 0x0220E4CC
+	.byte 0x5C, 0x6F, 0x31, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E4D4
+UNK04_0220E4D4: ; 0x0220E4D4
+	.byte 0x5C, 0x63, 0x6F, 0x6E, 0x6E, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E4DC
+UNK04_0220E4DC: ; 0x0220E4DC
+	.byte 0x5C, 0x73, 0x69, 0x67, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E4E4
+UNK04_0220E4E4: ; 0x0220E4E4
+	.byte 0x67, 0x70, 0x69, 0x49, 0x73, 0x56, 0x61, 0x6C, 0x69, 0x64, 0x44, 0x61, 0x74, 0x65, 0x28, 0x64
+	.byte 0x2C, 0x20, 0x6D, 0x2C, 0x20, 0x79, 0x29, 0x00
+
+	.global UNK_0220E4FC
+UNK04_0220E4FC: ; 0x0220E4FC
+	.byte 0x49, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x64, 0x61, 0x74, 0x65, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E50C
+UNK04_0220E50C: ; 0x0220E50C
+	.byte 0x67, 0x70, 0x69, 0x50, 0x72, 0x6F, 0x63, 0x65, 0x73, 0x73, 0x4F, 0x70, 0x65, 0x72, 0x61, 0x74
+	.byte 0x69, 0x6F, 0x6E, 0x20, 0x77, 0x61, 0x73, 0x20, 0x70, 0x61, 0x73, 0x73, 0x65, 0x64, 0x20, 0x61
+	.byte 0x6E, 0x20, 0x6F, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x77, 0x69, 0x74, 0x68
+	.byte 0x20, 0x61, 0x6E, 0x20, 0x69, 0x6E, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x20, 0x74, 0x79, 0x70, 0x65
+	.byte 0x20, 0x28, 0x25, 0x64, 0x29, 0x0A, 0x00, 0x00
+
+	.global UNK_0220E554
+UNK04_0220E554: ; 0x0220E554
+	.byte 0x30, 0x00, 0x00, 0x00
+
+	.global UNK_0220E558
+UNK04_0220E558: ; 0x0220E558
+	.byte 0x67, 0x70, 0x69, 0x4F, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2E, 0x63, 0x00, 0x00
+
+	.global UNK_0220E568
+UNK04_0220E568: ; 0x0220E568
+	.byte 0x69, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x2D, 0x3E, 0x6E, 0x75, 0x6D
+	.byte 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x65, 0x73, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00
+
+	.global UNK_0220E588
+UNK04_0220E588: ; 0x0220E588
+	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220E598
+UNK04_0220E598: ; 0x0220E598
+	.byte 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55
+	.byte 0x4C, 0x4C, 0x00, 0x00
+
+	.global UNK_0220E5AC
+UNK04_0220E5AC: ; 0x0220E5AC
+	.byte 0x2A, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x21, 0x3D, 0x20, 0x4E
+	.byte 0x55, 0x4C, 0x4C, 0x00
+
+	.global UNK_0220E5C0
+UNK04_0220E5C0: ; 0x0220E5C0
 	.byte 0x6F, 0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C
-	.byte 0x4C, 0x00, 0x00, 0x00, 0x70, 0x65, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x67, 0x70, 0x69, 0x50, 0x65, 0x65, 0x72, 0x2E, 0x63, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x5C, 0x6C, 0x65, 0x6E, 0x5C, 0x25, 0x64, 0x5C, 0x6D, 0x73, 0x67, 0x5C
-	.byte 0x0A, 0x00, 0x00, 0x00, 0x74, 0x72, 0x61, 0x6E, 0x73, 0x66, 0x65, 0x72, 0x49, 0x44, 0x00, 0x00
+	.byte 0x4C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E5D4
+UNK04_0220E5D4: ; 0x0220E5D4
+	.byte 0x70, 0x65, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E5E4
+UNK04_0220E5E4: ; 0x0220E5E4
+	.byte 0x67, 0x70, 0x69, 0x50, 0x65, 0x65, 0x72, 0x2E, 0x63, 0x00, 0x00, 0x00
+
+	.global UNK_0220E5F0
+UNK04_0220E5F0: ; 0x0220E5F0
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E5F4
+UNK04_0220E5F4: ; 0x0220E5F4
+	.byte 0x5C, 0x6C, 0x65, 0x6E, 0x5C, 0x25, 0x64, 0x5C, 0x6D, 0x73, 0x67, 0x5C, 0x0A, 0x00, 0x00, 0x00
+
+	.global UNK_0220E604
+UNK04_0220E604: ; 0x0220E604
+	.byte 0x74, 0x72, 0x61, 0x6E, 0x73, 0x66, 0x65, 0x72, 0x49, 0x44, 0x00, 0x00
+
+	.global UNK_0220E610
+UNK04_0220E610: ; 0x0220E610
 	.byte 0x5C, 0x6D, 0x5C, 0x25, 0x64, 0x5C, 0x78, 0x66, 0x65, 0x72, 0x5C, 0x25, 0x64, 0x20, 0x25, 0x75
-	.byte 0x20, 0x25, 0x75, 0x00, 0x6D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x20, 0x21, 0x3D, 0x20, 0x4E
-	.byte 0x55, 0x4C, 0x4C, 0x00, 0x5C, 0x6D, 0x5C, 0x00, 0x5C, 0x6C, 0x65, 0x6E, 0x5C, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x6D, 0x73, 0x67, 0x5C, 0x0A, 0x00, 0x00, 0x45, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x63, 0x6F
-	.byte 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x74, 0x6F, 0x20, 0x61, 0x20, 0x70, 0x65
-	.byte 0x65, 0x72, 0x2E, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E
-	.byte 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x69, 0x6E, 0x67, 0x20
-	.byte 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72
-	.byte 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x6D
-	.byte 0x61, 0x6B, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x20, 0x6E
-	.byte 0x6F, 0x6E, 0x2D, 0x62, 0x6C, 0x6F, 0x63, 0x6B, 0x69, 0x6E, 0x67, 0x2E, 0x00, 0x00, 0x00, 0x00
+	.byte 0x20, 0x25, 0x75, 0x00
+
+	.global UNK_0220E624
+UNK04_0220E624: ; 0x0220E624
+	.byte 0x6D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00
+
+	.global UNK_0220E634
+UNK04_0220E634: ; 0x0220E634
+	.byte 0x5C, 0x6D, 0x5C, 0x00
+
+	.global UNK_0220E638
+UNK04_0220E638: ; 0x0220E638
+	.byte 0x5C, 0x6C, 0x65, 0x6E, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E640
+UNK04_0220E640: ; 0x0220E640
+	.byte 0x5C, 0x6D, 0x73, 0x67, 0x5C, 0x0A, 0x00, 0x00
+
+	.global UNK_0220E648
+UNK04_0220E648: ; 0x0220E648
+	.byte 0x45, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6E, 0x67
+	.byte 0x20, 0x74, 0x6F, 0x20, 0x61, 0x20, 0x70, 0x65, 0x65, 0x72, 0x2E, 0x00
+
+	.global UNK_0220E664
+UNK04_0220E664: ; 0x0220E664
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F
+	.byte 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E68C
+UNK04_0220E68C: ; 0x0220E68C
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x6D, 0x61, 0x6B, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B
+	.byte 0x65, 0x74, 0x20, 0x6E, 0x6F, 0x6E, 0x2D, 0x62, 0x6C, 0x6F, 0x63, 0x6B, 0x69, 0x6E, 0x67, 0x2E
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E6C0
+UNK04_0220E6C0: ; 0x0220E6C0
 	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
 	.byte 0x6F, 0x72, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20
-	.byte 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x30, 0x00, 0x00, 0x00, 0x54, 0x72, 0x69, 0x65
-	.byte 0x64, 0x20, 0x74, 0x6F, 0x20, 0x72, 0x65, 0x6D, 0x6F, 0x76, 0x65, 0x20, 0x70, 0x65, 0x65, 0x72
-	.byte 0x20, 0x6E, 0x6F, 0x74, 0x20, 0x69, 0x6E, 0x20, 0x6C, 0x69, 0x73, 0x74, 0x2E, 0x00, 0x00, 0x00
+	.byte 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00
+
+	.global UNK_0220E6E8
+UNK04_0220E6E8: ; 0x0220E6E8
+	.byte 0x30, 0x00, 0x00, 0x00
+
+	.global UNK_0220E6EC
+UNK04_0220E6EC: ; 0x0220E6EC
+	.byte 0x54, 0x72, 0x69, 0x65, 0x64, 0x20, 0x74, 0x6F, 0x20, 0x72, 0x65, 0x6D, 0x6F, 0x76, 0x65, 0x20
+	.byte 0x70, 0x65, 0x65, 0x72, 0x20, 0x6E, 0x6F, 0x74, 0x20, 0x69, 0x6E, 0x20, 0x6C, 0x69, 0x73, 0x74
+	.byte 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E710
+UNK04_0220E710: ; 0x0220E710
 	.byte 0x70, 0x65, 0x65, 0x72, 0x2D, 0x3E, 0x73, 0x74, 0x61, 0x74, 0x65, 0x20, 0x21, 0x3D, 0x20, 0x47
 	.byte 0x50, 0x49, 0x5F, 0x50, 0x45, 0x45, 0x52, 0x5F, 0x4E, 0x4F, 0x54, 0x5F, 0x43, 0x4F, 0x4E, 0x4E
-	.byte 0x45, 0x43, 0x54, 0x45, 0x44, 0x00, 0x00, 0x00, 0x50, 0x52, 0x00, 0x00, 0x4F, 0x75, 0x74, 0x20
-	.byte 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00, 0x31, 0x00, 0x00, 0x00
+	.byte 0x45, 0x43, 0x54, 0x45, 0x44, 0x00, 0x00, 0x00
+
+	.global UNK_0220E738
+UNK04_0220E738: ; 0x0220E738
+	.byte 0x50, 0x52, 0x00, 0x00
+
+	.global UNK_0220E73C
+UNK04_0220E73C: ; 0x0220E73C
+	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220E74C
+UNK04_0220E74C: ; 0x0220E74C
+	.byte 0x31, 0x00, 0x00, 0x00
+
+	.global UNK_0220E750
+UNK04_0220E750: ; 0x0220E750
 	.byte 0x70, 0x65, 0x65, 0x72, 0x2D, 0x3E, 0x73, 0x74, 0x61, 0x74, 0x65, 0x20, 0x3D, 0x3D, 0x20, 0x47
 	.byte 0x50, 0x49, 0x5F, 0x50, 0x45, 0x45, 0x52, 0x5F, 0x57, 0x41, 0x49, 0x54, 0x49, 0x4E, 0x47, 0x00
-	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00, 0x5C, 0x61, 0x75, 0x74, 0x68, 0x5C, 0x00, 0x00
-	.byte 0x5C, 0x70, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00
-	.byte 0x5C, 0x73, 0x69, 0x67, 0x5C, 0x00, 0x00, 0x00, 0x25, 0x73, 0x25, 0x64, 0x25, 0x64, 0x00, 0x00
-	.byte 0x5C, 0x61, 0x6E, 0x61, 0x63, 0x6B, 0x5C, 0x00, 0x5C, 0x61, 0x61, 0x63, 0x6B, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E770
+UNK04_0220E770: ; 0x0220E770
+	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220E778
+UNK04_0220E778: ; 0x0220E778
+	.byte 0x5C, 0x61, 0x75, 0x74, 0x68, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E780
+UNK04_0220E780: ; 0x0220E780
+	.byte 0x5C, 0x70, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E788
+UNK04_0220E788: ; 0x0220E788
+	.byte 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E790
+UNK04_0220E790: ; 0x0220E790
+	.byte 0x5C, 0x73, 0x69, 0x67, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E798
+UNK04_0220E798: ; 0x0220E798
+	.byte 0x25, 0x73, 0x25, 0x64, 0x25, 0x64, 0x00, 0x00
+
+	.global UNK_0220E7A0
+UNK04_0220E7A0: ; 0x0220E7A0
+	.byte 0x5C, 0x61, 0x6E, 0x61, 0x63, 0x6B, 0x5C, 0x00
+
+	.global UNK_0220E7A8
+UNK04_0220E7A8: ; 0x0220E7A8
+	.byte 0x5C, 0x61, 0x61, 0x63, 0x6B, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E7B0
+UNK04_0220E7B0: ; 0x0220E7B0
 	.byte 0x45, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x67, 0x65, 0x74, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x62, 0x75
 	.byte 0x64, 0x64, 0x79, 0x20, 0x61, 0x75, 0x74, 0x68, 0x6F, 0x72, 0x69, 0x7A, 0x61, 0x74, 0x69, 0x6F
-	.byte 0x6E, 0x2E, 0x00, 0x00, 0x45, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x70, 0x61, 0x72, 0x73, 0x69, 0x6E
-	.byte 0x67, 0x20, 0x62, 0x75, 0x64, 0x64, 0x79, 0x20, 0x6D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x2E
-	.byte 0x00, 0x00, 0x00, 0x00, 0x69, 0x64, 0x20, 0x3E, 0x20, 0x30, 0x00, 0x00, 0x67, 0x70, 0x69, 0x50
-	.byte 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x6E, 0x70, 0x72
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x55, 0x6E, 0x65, 0x78, 0x70, 0x65, 0x63, 0x74, 0x65, 0x64, 0x20, 0x64
-	.byte 0x61, 0x74, 0x61, 0x20, 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64
-	.byte 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72
-	.byte 0x2E, 0x00, 0x00, 0x00, 0x5C, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00
+	.byte 0x6E, 0x2E, 0x00, 0x00
+
+	.global UNK_0220E7D4
+UNK04_0220E7D4: ; 0x0220E7D4
+	.byte 0x45, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x70, 0x61, 0x72, 0x73, 0x69, 0x6E, 0x67, 0x20, 0x62, 0x75
+	.byte 0x64, 0x64, 0x79, 0x20, 0x6D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x2E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E7F4
+UNK04_0220E7F4: ; 0x0220E7F4
+	.byte 0x69, 0x64, 0x20, 0x3E, 0x20, 0x30, 0x00, 0x00
+
+	.global UNK_0220E7FC
+UNK04_0220E7FC: ; 0x0220E7FC
+	.byte 0x67, 0x70, 0x69, 0x50, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E80C
+UNK04_0220E80C: ; 0x0220E80C
+	.byte 0x5C, 0x6E, 0x70, 0x72, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E814
+UNK04_0220E814: ; 0x0220E814
+	.byte 0x55, 0x6E, 0x65, 0x78, 0x70, 0x65, 0x63, 0x74, 0x65, 0x64, 0x20, 0x64, 0x61, 0x74, 0x61, 0x20
+	.byte 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64, 0x20, 0x66, 0x72, 0x6F
+	.byte 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220E844
+UNK04_0220E844: ; 0x0220E844
+	.byte 0x5C, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00
+
+	.global UNK_0220E850
+UNK04_0220E850: ; 0x0220E850
 	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220E860
+UNK04_0220E860: ; 0x0220E860
 	.byte 0x67, 0x70, 0x73, 0x70, 0x2E, 0x67, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F
 	.byte 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E8A0
+UNK04_0220E8A0: ; 0x0220E8A0
 	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220E8B0
+UNK04_0220E8B0: ; 0x0220E8B0
 	.byte 0x6E, 0x75, 0x6D, 0x20, 0x3C, 0x20, 0x69, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F
 	.byte 0x6E, 0x2D, 0x3E, 0x6E, 0x75, 0x6D, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x65, 0x73, 0x00, 0x00
-	.byte 0x67, 0x70, 0x69, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x2E, 0x63, 0x00, 0x53, 0x4D, 0x00, 0x00
+
+	.global UNK_0220E8D0
+UNK04_0220E8D0: ; 0x0220E8D0
+	.byte 0x67, 0x70, 0x69, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x2E, 0x63, 0x00
+
+	.global UNK_0220E8DC
+UNK04_0220E8DC: ; 0x0220E8DC
+	.byte 0x53, 0x4D, 0x00, 0x00
+
+	.global UNK_0220E8E0
+UNK04_0220E8E0: ; 0x0220E8E0
 	.byte 0x43, 0x6F, 0x75, 0x6C, 0x64, 0x20, 0x6E, 0x6F, 0x74, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63
 	.byte 0x74, 0x20, 0x74, 0x6F, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x20
-	.byte 0x6D, 0x61, 0x6E, 0x61, 0x67, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x73, 0x65, 0x61
-	.byte 0x72, 0x63, 0x68, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00
+	.byte 0x6D, 0x61, 0x6E, 0x61, 0x67, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E90C
+UNK04_0220E90C: ; 0x0220E90C
+	.byte 0x5C, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E918
+UNK04_0220E918: ; 0x0220E918
+	.byte 0x5C, 0x73, 0x65, 0x73, 0x73, 0x6B, 0x65, 0x79, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E924
+UNK04_0220E924: ; 0x0220E924
+	.byte 0x5C, 0x70, 0x72, 0x6F, 0x66, 0x69, 0x6C, 0x65, 0x69, 0x64, 0x5C, 0x00
+
+	.global UNK_0220E930
+UNK04_0220E930: ; 0x0220E930
 	.byte 0x5C, 0x6E, 0x61, 0x6D, 0x65, 0x73, 0x70, 0x61, 0x63, 0x65, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00, 0x5C, 0x75, 0x6E, 0x69, 0x71, 0x75, 0x65, 0x6E
-	.byte 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x65, 0x6D, 0x61, 0x69, 0x6C, 0x5C, 0x00
-	.byte 0x5C, 0x66, 0x69, 0x72, 0x73, 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x5C, 0x6C, 0x61, 0x73
-	.byte 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x00, 0x5C, 0x69, 0x63, 0x71, 0x75, 0x69, 0x6E, 0x5C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x5C, 0x73, 0x6B, 0x69, 0x70, 0x5C, 0x00, 0x00, 0x5C, 0x76, 0x61, 0x6C
-	.byte 0x69, 0x64, 0x5C, 0x00, 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x73, 0x5C, 0x00, 0x5C, 0x70, 0x61, 0x73
-	.byte 0x73, 0x5C, 0x00, 0x00, 0x5C, 0x70, 0x6D, 0x61, 0x74, 0x63, 0x68, 0x5C, 0x00, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x70, 0x72, 0x6F, 0x64, 0x75, 0x63, 0x74, 0x69, 0x64, 0x5C, 0x00, 0x5C, 0x63, 0x68, 0x65
-	.byte 0x63, 0x6B, 0x5C, 0x00, 0x5C, 0x6E, 0x65, 0x77, 0x75, 0x73, 0x65, 0x72, 0x5C, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x70, 0x72, 0x6F, 0x64, 0x75, 0x63, 0x74, 0x49, 0x44, 0x5C, 0x00, 0x5C, 0x63, 0x64, 0x6B
-	.byte 0x65, 0x79, 0x5C, 0x00, 0x5C, 0x6F, 0x74, 0x68, 0x65, 0x72, 0x73, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E940
+UNK04_0220E940: ; 0x0220E940
+	.byte 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E948
+UNK04_0220E948: ; 0x0220E948
+	.byte 0x5C, 0x75, 0x6E, 0x69, 0x71, 0x75, 0x65, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E958
+UNK04_0220E958: ; 0x0220E958
+	.byte 0x5C, 0x65, 0x6D, 0x61, 0x69, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220E960
+UNK04_0220E960: ; 0x0220E960
+	.byte 0x5C, 0x66, 0x69, 0x72, 0x73, 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00
+
+	.global UNK_0220E96C
+UNK04_0220E96C: ; 0x0220E96C
+	.byte 0x5C, 0x6C, 0x61, 0x73, 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E978
+UNK04_0220E978: ; 0x0220E978
+	.byte 0x5C, 0x69, 0x63, 0x71, 0x75, 0x69, 0x6E, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E984
+UNK04_0220E984: ; 0x0220E984
+	.byte 0x5C, 0x73, 0x6B, 0x69, 0x70, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E98C
+UNK04_0220E98C: ; 0x0220E98C
+	.byte 0x5C, 0x76, 0x61, 0x6C, 0x69, 0x64, 0x5C, 0x00
+
+	.global UNK_0220E994
+UNK04_0220E994: ; 0x0220E994
+	.byte 0x5C, 0x6E, 0x69, 0x63, 0x6B, 0x73, 0x5C, 0x00
+
+	.global UNK_0220E99C
+UNK04_0220E99C: ; 0x0220E99C
+	.byte 0x5C, 0x70, 0x61, 0x73, 0x73, 0x5C, 0x00, 0x00
+
+	.global UNK_0220E9A4
+UNK04_0220E9A4: ; 0x0220E9A4
+	.byte 0x5C, 0x70, 0x6D, 0x61, 0x74, 0x63, 0x68, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E9B0
+UNK04_0220E9B0: ; 0x0220E9B0
+	.byte 0x5C, 0x70, 0x72, 0x6F, 0x64, 0x75, 0x63, 0x74, 0x69, 0x64, 0x5C, 0x00
+
+	.global UNK_0220E9BC
+UNK04_0220E9BC: ; 0x0220E9BC
+	.byte 0x5C, 0x63, 0x68, 0x65, 0x63, 0x6B, 0x5C, 0x00
+
+	.global UNK_0220E9C4
+UNK04_0220E9C4: ; 0x0220E9C4
+	.byte 0x5C, 0x6E, 0x65, 0x77, 0x75, 0x73, 0x65, 0x72, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220E9D0
+UNK04_0220E9D0: ; 0x0220E9D0
+	.byte 0x5C, 0x70, 0x72, 0x6F, 0x64, 0x75, 0x63, 0x74, 0x49, 0x44, 0x5C, 0x00
+
+	.global UNK_0220E9DC
+UNK04_0220E9DC: ; 0x0220E9DC
+	.byte 0x5C, 0x63, 0x64, 0x6B, 0x65, 0x79, 0x5C, 0x00
+
+	.global UNK_0220E9E4
+UNK04_0220E9E4: ; 0x0220E9E4
+	.byte 0x5C, 0x6F, 0x74, 0x68, 0x65, 0x72, 0x73, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220E9F0
+UNK04_0220E9F0: ; 0x0220E9F0
 	.byte 0x5C, 0x75, 0x6E, 0x69, 0x71, 0x75, 0x65, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x5C, 0x00, 0x00
+
+	.global UNK_0220EA00
+UNK04_0220EA00: ; 0x0220EA00
 	.byte 0x5C, 0x70, 0x72, 0x65, 0x66, 0x65, 0x72, 0x72, 0x65, 0x64, 0x6E, 0x69, 0x63, 0x6B, 0x5C, 0x00
-	.byte 0x30, 0x00, 0x00, 0x00, 0x5C, 0x67, 0x61, 0x6D, 0x65, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x00
-	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61
-	.byte 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x72, 0x65, 0x61, 0x64, 0x69
-	.byte 0x6E, 0x67, 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76
-	.byte 0x65, 0x72, 0x2E, 0x00, 0x62, 0x73, 0x72, 0x64, 0x6F, 0x6E, 0x65, 0x00, 0x6D, 0x6F, 0x72, 0x65
-	.byte 0x00, 0x00, 0x00, 0x00, 0x62, 0x73, 0x72, 0x00, 0x6E, 0x69, 0x63, 0x6B, 0x00, 0x00, 0x00, 0x00
-	.byte 0x75, 0x6E, 0x69, 0x71, 0x75, 0x65, 0x6E, 0x69, 0x63, 0x6B, 0x00, 0x00, 0x66, 0x69, 0x72, 0x73
-	.byte 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x00, 0x00, 0x00, 0x6C, 0x61, 0x73, 0x74, 0x6E, 0x61, 0x6D, 0x65
-	.byte 0x00, 0x00, 0x00, 0x00, 0x65, 0x6D, 0x61, 0x69, 0x6C, 0x00, 0x00, 0x00, 0x45, 0x72, 0x72, 0x6F
-	.byte 0x72, 0x20, 0x72, 0x65, 0x61, 0x64, 0x69, 0x6E, 0x67, 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20, 0x74
-	.byte 0x68, 0x65, 0x20, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72
-	.byte 0x2E, 0x00, 0x00, 0x00, 0x76, 0x72, 0x00, 0x00, 0x6E, 0x72, 0x00, 0x00, 0x6E, 0x64, 0x6F, 0x6E
-	.byte 0x65, 0x00, 0x00, 0x00, 0x70, 0x73, 0x72, 0x64, 0x6F, 0x6E, 0x65, 0x00, 0x70, 0x73, 0x72, 0x00
-	.byte 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x00, 0x00, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x63, 0x6F
-	.byte 0x64, 0x65, 0x00, 0x00, 0x63, 0x75, 0x72, 0x00, 0x5C, 0x70, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00
-	.byte 0x6E, 0x75, 0x72, 0x00, 0x6F, 0x74, 0x68, 0x65, 0x72, 0x73, 0x00, 0x00, 0x6F, 0x64, 0x6F, 0x6E
-	.byte 0x65, 0x00, 0x00, 0x00, 0x6F, 0x00, 0x00, 0x00, 0x66, 0x69, 0x72, 0x73, 0x74, 0x00, 0x00, 0x00
-	.byte 0x6C, 0x61, 0x73, 0x74, 0x00, 0x00, 0x00, 0x00, 0x75, 0x73, 0x00, 0x00, 0x75, 0x73, 0x64, 0x6F
-	.byte 0x6E, 0x65, 0x00, 0x00, 0x63, 0x6F, 0x75, 0x6E, 0x74, 0x20, 0x3D, 0x3D, 0x20, 0x61, 0x72, 0x67
-	.byte 0x2D, 0x3E, 0x6E, 0x75, 0x6D, 0x53, 0x75, 0x67, 0x67, 0x65, 0x73, 0x74, 0x65, 0x64, 0x4E, 0x69
-	.byte 0x63, 0x6B, 0x73, 0x00, 0x4E, 0x6F, 0x20, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x20, 0x63, 0x72
-	.byte 0x69, 0x74, 0x65, 0x72, 0x69, 0x61, 0x2E, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61
-	.byte 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74
-	.byte 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220EA10
+UNK04_0220EA10: ; 0x0220EA10
+	.byte 0x30, 0x00, 0x00, 0x00
+
+	.global UNK_0220EA14
+UNK04_0220EA14: ; 0x0220EA14
+	.byte 0x5C, 0x67, 0x61, 0x6D, 0x65, 0x6E, 0x61, 0x6D, 0x65, 0x5C, 0x00, 0x00
+
+	.global UNK_0220EA20
+UNK04_0220EA20: ; 0x0220EA20
+	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220EA28
+UNK04_0220EA28: ; 0x0220EA28
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x72, 0x65, 0x61, 0x64, 0x69, 0x6E, 0x67, 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20
+	.byte 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00
+
+	.global UNK_0220EA54
+UNK04_0220EA54: ; 0x0220EA54
+	.byte 0x62, 0x73, 0x72, 0x64, 0x6F, 0x6E, 0x65, 0x00
+
+	.global UNK_0220EA5C
+UNK04_0220EA5C: ; 0x0220EA5C
+	.byte 0x6D, 0x6F, 0x72, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EA64
+UNK04_0220EA64: ; 0x0220EA64
+	.byte 0x62, 0x73, 0x72, 0x00
+
+	.global UNK_0220EA68
+UNK04_0220EA68: ; 0x0220EA68
+	.byte 0x6E, 0x69, 0x63, 0x6B, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EA70
+UNK04_0220EA70: ; 0x0220EA70
+	.byte 0x75, 0x6E, 0x69, 0x71, 0x75, 0x65, 0x6E, 0x69, 0x63, 0x6B, 0x00, 0x00
+
+	.global UNK_0220EA7C
+UNK04_0220EA7C: ; 0x0220EA7C
+	.byte 0x66, 0x69, 0x72, 0x73, 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220EA88
+UNK04_0220EA88: ; 0x0220EA88
+	.byte 0x6C, 0x61, 0x73, 0x74, 0x6E, 0x61, 0x6D, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EA94
+UNK04_0220EA94: ; 0x0220EA94
+	.byte 0x65, 0x6D, 0x61, 0x69, 0x6C, 0x00, 0x00, 0x00
+
+	.global UNK_0220EA9C
+UNK04_0220EA9C: ; 0x0220EA9C
+	.byte 0x45, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x72, 0x65, 0x61, 0x64, 0x69, 0x6E, 0x67, 0x20, 0x66, 0x72
+	.byte 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x20, 0x73, 0x65
+	.byte 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220EAC4
+UNK04_0220EAC4: ; 0x0220EAC4
+	.byte 0x76, 0x72, 0x00, 0x00
+
+	.global UNK_0220EAC8
+UNK04_0220EAC8: ; 0x0220EAC8
+	.byte 0x6E, 0x72, 0x00, 0x00
+
+	.global UNK_0220EACC
+UNK04_0220EACC: ; 0x0220EACC
+	.byte 0x6E, 0x64, 0x6F, 0x6E, 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220EAD4
+UNK04_0220EAD4: ; 0x0220EAD4
+	.byte 0x70, 0x73, 0x72, 0x64, 0x6F, 0x6E, 0x65, 0x00
+
+	.global UNK_0220EADC
+UNK04_0220EADC: ; 0x0220EADC
+	.byte 0x70, 0x73, 0x72, 0x00
+
+	.global UNK_0220EAE0
+UNK04_0220EAE0: ; 0x0220EAE0
+	.byte 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x00, 0x00
+
+	.global UNK_0220EAE8
+UNK04_0220EAE8: ; 0x0220EAE8
+	.byte 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x63, 0x6F, 0x64, 0x65, 0x00, 0x00
+
+	.global UNK_0220EAF4
+UNK04_0220EAF4: ; 0x0220EAF4
+	.byte 0x63, 0x75, 0x72, 0x00
+
+	.global UNK_0220EAF8
+UNK04_0220EAF8: ; 0x0220EAF8
+	.byte 0x5C, 0x70, 0x69, 0x64, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220EB00
+UNK04_0220EB00: ; 0x0220EB00
+	.byte 0x6E, 0x75, 0x72, 0x00
+
+	.global UNK_0220EB04
+UNK04_0220EB04: ; 0x0220EB04
+	.byte 0x6F, 0x74, 0x68, 0x65, 0x72, 0x73, 0x00, 0x00
+
+	.global UNK_0220EB0C
+UNK04_0220EB0C: ; 0x0220EB0C
+	.byte 0x6F, 0x64, 0x6F, 0x6E, 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220EB14
+UNK04_0220EB14: ; 0x0220EB14
+	.byte 0x6F, 0x00, 0x00, 0x00
+
+	.global UNK_0220EB18
+UNK04_0220EB18: ; 0x0220EB18
+	.byte 0x66, 0x69, 0x72, 0x73, 0x74, 0x00, 0x00, 0x00
+
+	.global UNK_0220EB20
+UNK04_0220EB20: ; 0x0220EB20
+	.byte 0x6C, 0x61, 0x73, 0x74, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EB28
+UNK04_0220EB28: ; 0x0220EB28
+	.byte 0x75, 0x73, 0x00, 0x00
+
+	.global UNK_0220EB2C
+UNK04_0220EB2C: ; 0x0220EB2C
+	.byte 0x75, 0x73, 0x64, 0x6F, 0x6E, 0x65, 0x00, 0x00
+
+	.global UNK_0220EB34
+UNK04_0220EB34: ; 0x0220EB34
+	.byte 0x63, 0x6F, 0x75, 0x6E, 0x74, 0x20, 0x3D, 0x3D, 0x20, 0x61, 0x72, 0x67, 0x2D, 0x3E, 0x6E, 0x75
+	.byte 0x6D, 0x53, 0x75, 0x67, 0x67, 0x65, 0x73, 0x74, 0x65, 0x64, 0x4E, 0x69, 0x63, 0x6B, 0x73, 0x00
+
+	.global UNK_0220EB54
+UNK04_0220EB54: ; 0x0220EB54
+	.byte 0x4E, 0x6F, 0x20, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x20, 0x63, 0x72, 0x69, 0x74, 0x65, 0x72
+	.byte 0x69, 0x61, 0x2E, 0x00
+
+	.global UNK_0220EB68
+UNK04_0220EB68: ; 0x0220EB68
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x63, 0x72, 0x65, 0x61, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F
+	.byte 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220EB90
+UNK04_0220EB90: ; 0x0220EB90
 	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
 	.byte 0x6F, 0x72, 0x20, 0x6D, 0x61, 0x6B, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B
 	.byte 0x65, 0x74, 0x20, 0x6E, 0x6F, 0x6E, 0x2D, 0x62, 0x6C, 0x6F, 0x63, 0x6B, 0x69, 0x6E, 0x67, 0x2E
-	.byte 0x00, 0x00, 0x00, 0x00, 0x43, 0x6F, 0x75, 0x6C, 0x64, 0x20, 0x6E, 0x6F, 0x74, 0x20, 0x72, 0x65
-	.byte 0x73, 0x6F, 0x6C, 0x76, 0x65, 0x20, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x20, 0x6D, 0x61, 0x6E
-	.byte 0x61, 0x6E, 0x67, 0x65, 0x72, 0x20, 0x68, 0x6F, 0x73, 0x74, 0x20, 0x6E, 0x61, 0x6D, 0x65, 0x2E
-	.byte 0x00, 0x00, 0x00, 0x00, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2E, 0x73, 0x69, 0x6E, 0x5F
-	.byte 0x61, 0x64, 0x64, 0x72, 0x2E, 0x73, 0x5F, 0x61, 0x64, 0x64, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x30
-	.byte 0x00, 0x00, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E
-	.byte 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6E
-	.byte 0x67, 0x20, 0x61, 0x20, 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00, 0x5C, 0x78, 0x66, 0x65
-	.byte 0x72, 0x5C, 0x00, 0x00, 0x25, 0x64, 0x20, 0x25, 0x75, 0x20, 0x25, 0x75, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x5C, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6F, 0x6E, 0x5C, 0x25, 0x64, 0x5C
-	.byte 0x72, 0x65, 0x73, 0x75, 0x6C, 0x74, 0x5C, 0x25, 0x64, 0x00, 0x00, 0x00, 0x5C, 0x72, 0x6E, 0x5C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x55, 0x6E, 0x65, 0x78, 0x70, 0x65, 0x63, 0x74, 0x65, 0x64, 0x20, 0x64
-	.byte 0x61, 0x74, 0x61, 0x20, 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64
-	.byte 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72
-	.byte 0x2E, 0x00, 0x00, 0x00, 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72
-	.byte 0x79, 0x2E, 0x00, 0x00, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55
-	.byte 0x4C, 0x4C, 0x00, 0x00, 0x67, 0x70, 0x69, 0x55, 0x74, 0x69, 0x6C, 0x69, 0x74, 0x79, 0x2E, 0x63
-	.byte 0x00, 0x00, 0x00, 0x00, 0x6B, 0x65, 0x79, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EBC4
+UNK04_0220EBC4: ; 0x0220EBC4
+	.byte 0x43, 0x6F, 0x75, 0x6C, 0x64, 0x20, 0x6E, 0x6F, 0x74, 0x20, 0x72, 0x65, 0x73, 0x6F, 0x6C, 0x76
+	.byte 0x65, 0x20, 0x73, 0x65, 0x61, 0x72, 0x63, 0x68, 0x20, 0x6D, 0x61, 0x6E, 0x61, 0x6E, 0x67, 0x65
+	.byte 0x72, 0x20, 0x68, 0x6F, 0x73, 0x74, 0x20, 0x6E, 0x61, 0x6D, 0x65, 0x2E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EBF4
+UNK04_0220EBF4: ; 0x0220EBF4
+	.byte 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2E, 0x73, 0x69, 0x6E, 0x5F, 0x61, 0x64, 0x64, 0x72
+	.byte 0x2E, 0x73, 0x5F, 0x61, 0x64, 0x64, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x30, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EC14
+UNK04_0220EC14: ; 0x0220EC14
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6E, 0x67, 0x20, 0x61, 0x20
+	.byte 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x2E, 0x00
+
+	.global UNK_0220EC3C
+UNK04_0220EC3C: ; 0x0220EC3C
+	.byte 0x5C, 0x78, 0x66, 0x65, 0x72, 0x5C, 0x00, 0x00
+
+	.global UNK_0220EC44
+UNK04_0220EC44: ; 0x0220EC44
+	.byte 0x25, 0x64, 0x20, 0x25, 0x75, 0x20, 0x25, 0x75, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EC50
+UNK04_0220EC50: ; 0x0220EC50
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EC54
+UNK04_0220EC54: ; 0x0220EC54
+	.byte 0x5C, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6F, 0x6E, 0x5C, 0x25, 0x64, 0x5C, 0x72, 0x65, 0x73, 0x75
+	.byte 0x6C, 0x74, 0x5C, 0x25, 0x64, 0x00, 0x00, 0x00
+
+	.global UNK_0220EC6C
+UNK04_0220EC6C: ; 0x0220EC6C
+	.byte 0x5C, 0x72, 0x6E, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EC74
+UNK04_0220EC74: ; 0x0220EC74
+	.byte 0x55, 0x6E, 0x65, 0x78, 0x70, 0x65, 0x63, 0x74, 0x65, 0x64, 0x20, 0x64, 0x61, 0x74, 0x61, 0x20
+	.byte 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64, 0x20, 0x66, 0x72, 0x6F
+	.byte 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00, 0x00, 0x00
+
+	.global UNK_0220ECA4
+UNK04_0220ECA4: ; 0x0220ECA4
+	.byte 0x4F, 0x75, 0x74, 0x20, 0x6F, 0x66, 0x20, 0x6D, 0x65, 0x6D, 0x6F, 0x72, 0x79, 0x2E, 0x00, 0x00
+
+	.global UNK_0220ECB4
+UNK04_0220ECB4: ; 0x0220ECB4
+	.byte 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00
+
+	.global UNK_0220ECC4
+UNK04_0220ECC4: ; 0x0220ECC4
+	.byte 0x67, 0x70, 0x69, 0x55, 0x74, 0x69, 0x6C, 0x69, 0x74, 0x79, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220ECD4
+UNK04_0220ECD4: ; 0x0220ECD4
+	.byte 0x6B, 0x65, 0x79, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00
+
+	.global UNK_0220ECE0
+UNK04_0220ECE0: ; 0x0220ECE0
 	.byte 0x76, 0x61, 0x6C, 0x75, 0x65, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00
+
+	.global UNK_0220ECF0
+UNK04_0220ECF0: ; 0x0220ECF0
 	.byte 0x50, 0x61, 0x72, 0x73, 0x65, 0x20, 0x45, 0x72, 0x72, 0x6F, 0x72, 0x2E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220ED00
+UNK04_0220ED00: ; 0x0220ED00
 	.byte 0x45, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6E, 0x67
-	.byte 0x0A, 0x00, 0x00, 0x00, 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E
-	.byte 0x20, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x20, 0x63, 0x68, 0x65, 0x63, 0x6B, 0x69, 0x6E, 0x67, 0x20
-	.byte 0x66, 0x6F, 0x72, 0x20, 0x61, 0x20, 0x63, 0x6F, 0x6D, 0x70, 0x6C, 0x65, 0x74, 0x65, 0x64, 0x20
-	.byte 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x2E, 0x00, 0x43, 0x6F, 0x6E, 0x6E
-	.byte 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x72, 0x65, 0x6A, 0x65, 0x63, 0x74, 0x65, 0x64, 0x0A
-	.byte 0x00, 0x00, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x61
-	.byte 0x63, 0x63, 0x65, 0x70, 0x74, 0x65, 0x64, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x63, 0x6F, 0x6D, 0x6D
-	.byte 0x61, 0x6E, 0x64, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x6C, 0x65, 0x6E, 0x20
-	.byte 0x3E, 0x20, 0x30, 0x00, 0x5C, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x5C, 0x00, 0x5C, 0x65, 0x72, 0x72
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x65, 0x72, 0x72, 0x6D, 0x73, 0x67, 0x5C, 0x00, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x66, 0x61, 0x74, 0x61, 0x6C, 0x5C, 0x00, 0x64, 0x65, 0x73, 0x74, 0x20, 0x21, 0x3D, 0x20
-	.byte 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00, 0x00, 0x73, 0x72, 0x63, 0x20, 0x21, 0x3D, 0x20, 0x4E
-	.byte 0x55, 0x4C, 0x4C, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xDC, 0xED, 0x20, 0x02, 0x00, 0x61, 0x6D, 0x65
-	.byte 0x53, 0x70, 0x79, 0x33, 0x44, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x72, 0x6F, 0x6A
-	.byte 0x65, 0x63, 0x74, 0x41, 0x70, 0x68, 0x65, 0x78, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x70, 0x61, 0x75
-	.byte 0x74, 0x68, 0x72, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x5C, 0x67, 0x65, 0x74, 0x70, 0x69, 0x64, 0x72
-	.byte 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x67, 0x65, 0x74, 0x70, 0x64, 0x72, 0x5C, 0x00, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x73, 0x65, 0x74, 0x70, 0x64, 0x72, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x73, 0x65, 0x74, 0x70
-	.byte 0x64, 0x72, 0x00, 0x00, 0x70, 0x69, 0x64, 0x00, 0x6C, 0x69, 0x64, 0x00, 0x6D, 0x6F, 0x64, 0x00
-	.byte 0x67, 0x65, 0x74, 0x70, 0x64, 0x72, 0x00, 0x00, 0x6C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x00, 0x00
-	.byte 0x5C, 0x64, 0x61, 0x74, 0x61, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x67, 0x65, 0x74, 0x70
-	.byte 0x69, 0x64, 0x72, 0x00, 0x70, 0x61, 0x75, 0x74, 0x68, 0x72, 0x00, 0x00, 0x65, 0x72, 0x72, 0x6D
-	.byte 0x73, 0x67, 0x00, 0x00, 0x5C, 0x00, 0x00, 0x00, 0x33, 0x62, 0x38, 0x64, 0x64, 0x38, 0x39, 0x39
-	.byte 0x35, 0x66, 0x37, 0x63, 0x34, 0x30, 0x61, 0x39, 0x61, 0x35, 0x63, 0x35, 0x62, 0x37, 0x64, 0x64
-	.byte 0x35, 0x62, 0x34, 0x38, 0x31, 0x33, 0x34, 0x31, 0x00, 0x00, 0x00, 0x00, 0x62, 0x75, 0x66, 0x66
-	.byte 0x65, 0x72, 0x00, 0x00, 0x67, 0x74, 0x32, 0x41, 0x75, 0x74, 0x68, 0x2E, 0x63, 0x00, 0x00, 0x00
+	.byte 0x0A, 0x00, 0x00, 0x00
+
+	.global UNK_0220ED14
+UNK04_0220ED14: ; 0x0220ED14
+	.byte 0x54, 0x68, 0x65, 0x72, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x61, 0x6E, 0x20, 0x65, 0x72, 0x72
+	.byte 0x6F, 0x72, 0x20, 0x63, 0x68, 0x65, 0x63, 0x6B, 0x69, 0x6E, 0x67, 0x20, 0x66, 0x6F, 0x72, 0x20
+	.byte 0x61, 0x20, 0x63, 0x6F, 0x6D, 0x70, 0x6C, 0x65, 0x74, 0x65, 0x64, 0x20, 0x63, 0x6F, 0x6E, 0x6E
+	.byte 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x2E, 0x00
+
+	.global UNK_0220ED4C
+UNK04_0220ED4C: ; 0x0220ED4C
+	.byte 0x43, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x72, 0x65, 0x6A, 0x65, 0x63
+	.byte 0x74, 0x65, 0x64, 0x0A, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220ED64
+UNK04_0220ED64: ; 0x0220ED64
+	.byte 0x43, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x20, 0x61, 0x63, 0x63, 0x65, 0x70
+	.byte 0x74, 0x65, 0x64, 0x0A, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220ED7C
+UNK04_0220ED7C: ; 0x0220ED7C
+	.byte 0x63, 0x6F, 0x6D, 0x6D, 0x61, 0x6E, 0x64, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00
+
+	.global UNK_0220ED8C
+UNK04_0220ED8C: ; 0x0220ED8C
+	.byte 0x6C, 0x65, 0x6E, 0x20, 0x3E, 0x20, 0x30, 0x00
+
+	.global UNK_0220ED94
+UNK04_0220ED94: ; 0x0220ED94
+	.byte 0x5C, 0x65, 0x72, 0x72, 0x6F, 0x72, 0x5C, 0x00
+
+	.global UNK_0220ED9C
+UNK04_0220ED9C: ; 0x0220ED9C
+	.byte 0x5C, 0x65, 0x72, 0x72, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220EDA4
+UNK04_0220EDA4: ; 0x0220EDA4
+	.byte 0x5C, 0x65, 0x72, 0x72, 0x6D, 0x73, 0x67, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EDB0
+UNK04_0220EDB0: ; 0x0220EDB0
+	.byte 0x5C, 0x66, 0x61, 0x74, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220EDB8
+UNK04_0220EDB8: ; 0x0220EDB8
+	.byte 0x64, 0x65, 0x73, 0x74, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EDC8
+UNK04_0220EDC8: ; 0x0220EDC8
+	.byte 0x73, 0x72, 0x63, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00
+
+	.global UNK_0220EDD4
+UNK04_0220EDD4: ; 0x0220EDD4
+	.byte 0xFF, 0xFF, 0xFF, 0xFF
+
+	.global UNK_0220EDD8
+UNK04_0220EDD8: ; 0x0220EDD8
+	.byte 0xDC, 0xED, 0x20, 0x02
+
+	.global UNK_0220EDDC
+UNK04_0220EDDC: ; 0x0220EDDC
+	.byte 0x00, 0x61, 0x6D, 0x65, 0x53, 0x70, 0x79, 0x33, 0x44, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EDEC
+UNK04_0220EDEC: ; 0x0220EDEC
+	.byte 0x00, 0x72, 0x6F, 0x6A, 0x65, 0x63, 0x74, 0x41, 0x70, 0x68, 0x65, 0x78, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EDFC
+UNK04_0220EDFC: ; 0x0220EDFC
+	.byte 0x5C, 0x70, 0x61, 0x75, 0x74, 0x68, 0x72, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EE08
+UNK04_0220EE08: ; 0x0220EE08
+	.byte 0x5C, 0x67, 0x65, 0x74, 0x70, 0x69, 0x64, 0x72, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220EE14
+UNK04_0220EE14: ; 0x0220EE14
+	.byte 0x5C, 0x67, 0x65, 0x74, 0x70, 0x64, 0x72, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EE20
+UNK04_0220EE20: ; 0x0220EE20
+	.byte 0x5C, 0x73, 0x65, 0x74, 0x70, 0x64, 0x72, 0x5C, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EE2C
+UNK04_0220EE2C: ; 0x0220EE2C
+	.byte 0x73, 0x65, 0x74, 0x70, 0x64, 0x72, 0x00, 0x00
+
+	.global UNK_0220EE34
+UNK04_0220EE34: ; 0x0220EE34
+	.byte 0x70, 0x69, 0x64, 0x00
+
+	.global UNK_0220EE38
+UNK04_0220EE38: ; 0x0220EE38
+	.byte 0x6C, 0x69, 0x64, 0x00
+
+	.global UNK_0220EE3C
+UNK04_0220EE3C: ; 0x0220EE3C
+	.byte 0x6D, 0x6F, 0x64, 0x00
+
+	.global UNK_0220EE40
+UNK04_0220EE40: ; 0x0220EE40
+	.byte 0x67, 0x65, 0x74, 0x70, 0x64, 0x72, 0x00, 0x00
+
+	.global UNK_0220EE48
+UNK04_0220EE48: ; 0x0220EE48
+	.byte 0x6C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x00, 0x00
+
+	.global UNK_0220EE50
+UNK04_0220EE50: ; 0x0220EE50
+	.byte 0x5C, 0x64, 0x61, 0x74, 0x61, 0x5C, 0x00, 0x00
+
+	.global UNK_0220EE58
+UNK04_0220EE58: ; 0x0220EE58
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EE5C
+UNK04_0220EE5C: ; 0x0220EE5C
+	.byte 0x67, 0x65, 0x74, 0x70, 0x69, 0x64, 0x72, 0x00
+
+	.global UNK_0220EE64
+UNK04_0220EE64: ; 0x0220EE64
+	.byte 0x70, 0x61, 0x75, 0x74, 0x68, 0x72, 0x00, 0x00
+
+	.global UNK_0220EE6C
+UNK04_0220EE6C: ; 0x0220EE6C
+	.byte 0x65, 0x72, 0x72, 0x6D, 0x73, 0x67, 0x00, 0x00
+
+	.global UNK_0220EE74
+UNK04_0220EE74: ; 0x0220EE74
+	.byte 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220EE78
+UNK04_0220EE78: ; 0x0220EE78
+	.byte 0x33, 0x62, 0x38, 0x64, 0x64, 0x38, 0x39, 0x39, 0x35, 0x66, 0x37, 0x63, 0x34, 0x30, 0x61, 0x39
+	.byte 0x61, 0x35, 0x63, 0x35, 0x62, 0x37, 0x64, 0x64, 0x35, 0x62, 0x34, 0x38, 0x31, 0x33, 0x34, 0x31
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EE9C
+UNK04_0220EE9C: ; 0x0220EE9C
+	.byte 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x00, 0x00
+
+	.global UNK_0220EEA4
+UNK04_0220EEA4: ; 0x0220EEA4
+	.byte 0x67, 0x74, 0x32, 0x41, 0x75, 0x74, 0x68, 0x2E, 0x63, 0x00, 0x00, 0x00
+
+	.global UNK_0220EEB0
+UNK04_0220EEB0: ; 0x0220EEB0
 	.byte 0x73, 0x74, 0x61, 0x72, 0x74, 0x20, 0x3C, 0x3D, 0x20, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D
-	.byte 0x3E, 0x6C, 0x65, 0x6E, 0x00, 0x00, 0x00, 0x00, 0x67, 0x74, 0x32, 0x42, 0x75, 0x66, 0x66, 0x65
-	.byte 0x72, 0x2E, 0x63, 0x00, 0x73, 0x68, 0x6F, 0x72, 0x74, 0x65, 0x6E, 0x42, 0x79, 0x20, 0x3C, 0x3D
-	.byte 0x20, 0x28, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x6C, 0x65, 0x6E, 0x20, 0x2D, 0x20
-	.byte 0x73, 0x74, 0x61, 0x72, 0x74, 0x29, 0x00, 0x00, 0x28, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D
-	.byte 0x3E, 0x6C, 0x65, 0x6E, 0x20, 0x2B, 0x20, 0x6C, 0x65, 0x6E, 0x29, 0x20, 0x3C, 0x3D, 0x20, 0x62
-	.byte 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x73, 0x69, 0x7A, 0x65, 0x00, 0x28, 0x62, 0x75, 0x66
-	.byte 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x6C, 0x65, 0x6E, 0x20, 0x2B, 0x20, 0x32, 0x29, 0x20, 0x3C, 0x3D
-	.byte 0x20, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x73, 0x69, 0x7A, 0x65, 0x00, 0x00, 0x00
+	.byte 0x3E, 0x6C, 0x65, 0x6E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EEC8
+UNK04_0220EEC8: ; 0x0220EEC8
+	.byte 0x67, 0x74, 0x32, 0x42, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2E, 0x63, 0x00
+
+	.global UNK_0220EED4
+UNK04_0220EED4: ; 0x0220EED4
+	.byte 0x73, 0x68, 0x6F, 0x72, 0x74, 0x65, 0x6E, 0x42, 0x79, 0x20, 0x3C, 0x3D, 0x20, 0x28, 0x62, 0x75
+	.byte 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x6C, 0x65, 0x6E, 0x20, 0x2D, 0x20, 0x73, 0x74, 0x61, 0x72
+	.byte 0x74, 0x29, 0x00, 0x00
+
+	.global UNK_0220EEF8
+UNK04_0220EEF8: ; 0x0220EEF8
+	.byte 0x28, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x6C, 0x65, 0x6E, 0x20, 0x2B, 0x20, 0x6C
+	.byte 0x65, 0x6E, 0x29, 0x20, 0x3C, 0x3D, 0x20, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x73
+	.byte 0x69, 0x7A, 0x65, 0x00
+
+	.global UNK_0220EF1C
+UNK04_0220EF1C: ; 0x0220EF1C
+	.byte 0x28, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x6C, 0x65, 0x6E, 0x20, 0x2B, 0x20, 0x32
+	.byte 0x29, 0x20, 0x3C, 0x3D, 0x20, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x73, 0x69, 0x7A
+	.byte 0x65, 0x00, 0x00, 0x00
+
+	.global UNK_0220EF40
+UNK04_0220EF40: ; 0x0220EF40
 	.byte 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x6C, 0x65, 0x6E, 0x20, 0x3C, 0x20, 0x62, 0x75
-	.byte 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x73, 0x69, 0x7A, 0x65, 0x00, 0x00, 0x73, 0x6F, 0x63, 0x6B
-	.byte 0x65, 0x74, 0x00, 0x00, 0x67, 0x74, 0x32, 0x43, 0x61, 0x6C, 0x6C, 0x62, 0x61, 0x63, 0x6B, 0x2E
-	.byte 0x63, 0x00, 0x00, 0x00, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
+	.byte 0x66, 0x66, 0x65, 0x72, 0x2D, 0x3E, 0x73, 0x69, 0x7A, 0x65, 0x00, 0x00
+
+	.global UNK_0220EF5C
+UNK04_0220EF5C: ; 0x0220EF5C
+	.byte 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x00, 0x00
+
+	.global UNK_0220EF64
+UNK04_0220EF64: ; 0x0220EF64
+	.byte 0x67, 0x74, 0x32, 0x43, 0x61, 0x6C, 0x6C, 0x62, 0x61, 0x63, 0x6B, 0x2E, 0x63, 0x00, 0x00, 0x00
+
+	.global UNK_0220EF74
+UNK04_0220EF74: ; 0x0220EF74
+	.byte 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
+
+	.global UNK_0220EF80
+UNK04_0220EF80: ; 0x0220EF80
 	.byte 0x73, 0x6F, 0x63, 0x6B, 0x65, 0x74, 0x20, 0x26, 0x26, 0x20, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63
-	.byte 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00, 0x00, 0x00, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69
-	.byte 0x6F, 0x6E, 0x00, 0x00, 0x67, 0x74, 0x32, 0x4D, 0x61, 0x69, 0x6E, 0x2E, 0x63, 0x00, 0x00, 0x00
-	.byte 0xFE, 0xFE, 0x00, 0x00, 0x74, 0x69, 0x6D, 0x65, 0x00, 0x00, 0x00, 0x00, 0x6C, 0x65, 0x6E, 0x20
-	.byte 0x3E, 0x20, 0x30, 0x00, 0x67, 0x74, 0x32, 0x4D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x2E, 0x63
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x6C, 0x65, 0x6E, 0x20, 0x3C, 0x20, 0x47, 0x54
-	.byte 0x49, 0x32, 0x5F, 0x53, 0x54, 0x41, 0x43, 0x4B, 0x5F, 0x48, 0x4F, 0x53, 0x54, 0x4C, 0x45, 0x4E
-	.byte 0x5F, 0x4D, 0x41, 0x58, 0x00, 0x00, 0x00, 0x00, 0x67, 0x74, 0x32, 0x55, 0x74, 0x69, 0x6C, 0x69
-	.byte 0x74, 0x79, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00, 0x25, 0x73, 0x3A, 0x25, 0x64, 0x00, 0x00, 0x00
-	.byte 0x25, 0x73, 0x00, 0x00, 0x3A, 0x25, 0x64, 0x00, 0xFD, 0xFC, 0x1E, 0x66, 0x6A, 0xB2, 0x00, 0x00
+	.byte 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EF98
+UNK04_0220EF98: ; 0x0220EF98
+	.byte 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
+
+	.global UNK_0220EFA4
+UNK04_0220EFA4: ; 0x0220EFA4
+	.byte 0x67, 0x74, 0x32, 0x4D, 0x61, 0x69, 0x6E, 0x2E, 0x63, 0x00, 0x00, 0x00
+
+	.global UNK_0220EFB0
+UNK04_0220EFB0: ; 0x0220EFB0
+	.byte 0xFE, 0xFE, 0x00, 0x00
+
+	.global UNK_0220EFB4
+UNK04_0220EFB4: ; 0x0220EFB4
+	.byte 0x74, 0x69, 0x6D, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EFBC
+UNK04_0220EFBC: ; 0x0220EFBC
+	.byte 0x6C, 0x65, 0x6E, 0x20, 0x3E, 0x20, 0x30, 0x00
+
+	.global UNK_0220EFC4
+UNK04_0220EFC4: ; 0x0220EFC4
+	.byte 0x67, 0x74, 0x32, 0x4D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EFD4
+UNK04_0220EFD4: ; 0x0220EFD4
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EFD8
+UNK04_0220EFD8: ; 0x0220EFD8
+	.byte 0x6C, 0x65, 0x6E, 0x20, 0x3C, 0x20, 0x47, 0x54, 0x49, 0x32, 0x5F, 0x53, 0x54, 0x41, 0x43, 0x4B
+	.byte 0x5F, 0x48, 0x4F, 0x53, 0x54, 0x4C, 0x45, 0x4E, 0x5F, 0x4D, 0x41, 0x58, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220EFF8
+UNK04_0220EFF8: ; 0x0220EFF8
+	.byte 0x67, 0x74, 0x32, 0x55, 0x74, 0x69, 0x6C, 0x69, 0x74, 0x79, 0x2E, 0x63, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F008
+UNK04_0220F008: ; 0x0220F008
+	.byte 0x25, 0x73, 0x3A, 0x25, 0x64, 0x00, 0x00, 0x00
+
+	.global UNK_0220F010
+UNK04_0220F010: ; 0x0220F010
+	.byte 0x25, 0x73, 0x00, 0x00
+
+	.global UNK_0220F014
+UNK04_0220F014: ; 0x0220F014
+	.byte 0x3A, 0x25, 0x64, 0x00
+
+	.global UNK_0220F018
+UNK04_0220F018: ; 0x0220F018
+	.byte 0xFD, 0xFC, 0x1E, 0x66, 0x6A, 0xB2, 0x00, 0x00
+
+	.global UNK_0220F020
+UNK04_0220F020: ; 0x0220F020
 	.byte 0x6E, 0x61, 0x74, 0x6E, 0x65, 0x67, 0x31, 0x2E, 0x67, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65
-	.byte 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00, 0x6E, 0x61, 0x74, 0x6E
-	.byte 0x65, 0x67, 0x32, 0x2E, 0x67, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77
-	.byte 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00, 0x25, 0x73, 0x2E, 0x25, 0x73, 0x00, 0x00, 0x00
-	.byte 0x64, 0xF0, 0x20, 0x02, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00
+
+	.global UNK_0220F03C
+UNK04_0220F03C: ; 0x0220F03C
+	.byte 0x6E, 0x61, 0x74, 0x6E, 0x65, 0x67, 0x32, 0x2E, 0x67, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65
+	.byte 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00
+
+	.global UNK_0220F058
+UNK04_0220F058: ; 0x0220F058
+	.byte 0x25, 0x73, 0x2E, 0x25, 0x73, 0x00, 0x00, 0x00
+
+	.global UNK_0220F060
+UNK04_0220F060: ; 0x0220F060
+	.byte 0x64, 0xF0, 0x20, 0x02
+
+	.global UNK_0220F064
+UNK04_0220F064: ; 0x0220F064
+	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -59823,20 +61921,81 @@ _0220BAB8:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x6C, 0x6F, 0x63, 0x61, 0x6C, 0x69, 0x70, 0x25, 0x64, 0x00, 0x00, 0x00
-	.byte 0x6C, 0x6F, 0x63, 0x61, 0x6C, 0x70, 0x6F, 0x72, 0x74, 0x00, 0x00, 0x00, 0x6E, 0x61, 0x74, 0x6E
-	.byte 0x65, 0x67, 0x00, 0x00, 0x31, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x73, 0x74, 0x61, 0x74
-	.byte 0x65, 0x63, 0x68, 0x61, 0x6E, 0x67, 0x65, 0x64, 0x00, 0x00, 0x00, 0x00, 0x67, 0x61, 0x6D, 0x65
-	.byte 0x6E, 0x61, 0x6D, 0x65, 0x00, 0x00, 0x00, 0x00, 0x70, 0x75, 0x62, 0x6C, 0x69, 0x63, 0x69, 0x70
-	.byte 0x00, 0x00, 0x00, 0x00, 0x70, 0x75, 0x62, 0x6C, 0x69, 0x63, 0x70, 0x6F, 0x72, 0x74, 0x00, 0x00
+
+	.global UNK_0220F174
+UNK04_0220F174: ; 0x0220F174
+	.byte 0x6C, 0x6F, 0x63, 0x61, 0x6C, 0x69, 0x70, 0x25, 0x64, 0x00, 0x00, 0x00
+
+	.global UNK_0220F180
+UNK04_0220F180: ; 0x0220F180
+	.byte 0x6C, 0x6F, 0x63, 0x61, 0x6C, 0x70, 0x6F, 0x72, 0x74, 0x00, 0x00, 0x00
+
+	.global UNK_0220F18C
+UNK04_0220F18C: ; 0x0220F18C
+	.byte 0x6E, 0x61, 0x74, 0x6E, 0x65, 0x67, 0x00, 0x00
+
+	.global UNK_0220F194
+UNK04_0220F194: ; 0x0220F194
+	.byte 0x31, 0x00, 0x00, 0x00
+
+	.global UNK_0220F198
+UNK04_0220F198: ; 0x0220F198
+	.byte 0x30, 0x00, 0x00, 0x00
+
+	.global UNK_0220F19C
+UNK04_0220F19C: ; 0x0220F19C
+	.byte 0x73, 0x74, 0x61, 0x74, 0x65, 0x63, 0x68, 0x61, 0x6E, 0x67, 0x65, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F1AC
+UNK04_0220F1AC: ; 0x0220F1AC
+	.byte 0x67, 0x61, 0x6D, 0x65, 0x6E, 0x61, 0x6D, 0x65, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F1B8
+UNK04_0220F1B8: ; 0x0220F1B8
+	.byte 0x70, 0x75, 0x62, 0x6C, 0x69, 0x63, 0x69, 0x70, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F1C4
+UNK04_0220F1C4: ; 0x0220F1C4
+	.byte 0x70, 0x75, 0x62, 0x6C, 0x69, 0x63, 0x70, 0x6F, 0x72, 0x74, 0x00, 0x00
+
+	.global UNK_0220F1D0
+UNK04_0220F1D0: ; 0x0220F1D0
 	.byte 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x5C, 0x71, 0x75, 0x65, 0x72, 0x79, 0x69, 0x64, 0x5C, 0x31
-	.byte 0x2E, 0x31, 0x00, 0x00, 0x75, 0x6E, 0x6B, 0x6E, 0x6F, 0x77, 0x6E, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x25, 0x73, 0x25, 0x64, 0x00, 0x00, 0x00, 0x00, 0x25, 0x30, 0x38, 0x58, 0x25, 0x30, 0x34, 0x58
-	.byte 0x00, 0x00, 0x00, 0x00, 0x32, 0x35, 0x35, 0x2E, 0x32, 0x35, 0x35, 0x2E, 0x32, 0x35, 0x35, 0x2E
-	.byte 0x32, 0x35, 0x35, 0x00, 0x25, 0x64, 0x00, 0x00, 0x4E, 0x6F, 0x20, 0x63, 0x68, 0x61, 0x6C, 0x6C
-	.byte 0x65, 0x6E, 0x67, 0x65, 0x20, 0x76, 0x61, 0x6C, 0x75, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x72
-	.byte 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64, 0x20, 0x66, 0x72, 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65
-	.byte 0x20, 0x6D, 0x61, 0x73, 0x74, 0x65, 0x72, 0x20, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00
+	.byte 0x2E, 0x31, 0x00, 0x00
+
+	.global UNK_0220F1E4
+UNK04_0220F1E4: ; 0x0220F1E4
+	.byte 0x75, 0x6E, 0x6B, 0x6E, 0x6F, 0x77, 0x6E, 0x00
+
+	.global UNK_0220F1EC
+UNK04_0220F1EC: ; 0x0220F1EC
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F1F0
+UNK04_0220F1F0: ; 0x0220F1F0
+	.byte 0x25, 0x73, 0x25, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F1F8
+UNK04_0220F1F8: ; 0x0220F1F8
+	.byte 0x25, 0x30, 0x38, 0x58, 0x25, 0x30, 0x34, 0x58, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F204
+UNK04_0220F204: ; 0x0220F204
+	.byte 0x32, 0x35, 0x35, 0x2E, 0x32, 0x35, 0x35, 0x2E, 0x32, 0x35, 0x35, 0x2E, 0x32, 0x35, 0x35, 0x00
+
+	.global UNK_0220F214
+UNK04_0220F214: ; 0x0220F214
+	.byte 0x25, 0x64, 0x00, 0x00
+
+	.global UNK_0220F218
+UNK04_0220F218: ; 0x0220F218
+	.byte 0x4E, 0x6F, 0x20, 0x63, 0x68, 0x61, 0x6C, 0x6C, 0x65, 0x6E, 0x67, 0x65, 0x20, 0x76, 0x61, 0x6C
+	.byte 0x75, 0x65, 0x20, 0x77, 0x61, 0x73, 0x20, 0x72, 0x65, 0x63, 0x65, 0x69, 0x76, 0x65, 0x64, 0x20
+	.byte 0x66, 0x72, 0x6F, 0x6D, 0x20, 0x74, 0x68, 0x65, 0x20, 0x6D, 0x61, 0x73, 0x74, 0x65, 0x72, 0x20
+	.byte 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x00
+
+	.global UNK_0220F250
+UNK04_0220F250: ; 0x0220F250
 	.byte 0x25, 0x73, 0x2E, 0x6D, 0x61, 0x73, 0x74, 0x65, 0x72, 0x2E, 0x67, 0x73, 0x2E, 0x6E, 0x69, 0x6E
 	.byte 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x70, 0x69, 0x64, 0x5F, 0x00, 0x00, 0x00, 0x00, 0x74, 0x65, 0x61, 0x6D
@@ -59858,14 +62017,18 @@ _0220BAB8:
 	.byte 0x67, 0x61, 0x6D, 0x65, 0x76, 0x61, 0x72, 0x69, 0x61, 0x6E, 0x74, 0x00, 0x74, 0x69, 0x6D, 0x65
 	.byte 0x65, 0x6C, 0x61, 0x70, 0x73, 0x65, 0x64, 0x00, 0x72, 0x6F, 0x75, 0x6E, 0x64, 0x65, 0x6C, 0x61
 	.byte 0x70, 0x73, 0x65, 0x64, 0x00, 0x00, 0x00, 0x00, 0x74, 0x65, 0x61, 0x6D, 0x66, 0x72, 0x61, 0x67
-	.byte 0x6C, 0x69, 0x6D, 0x69, 0x74, 0x00, 0x00, 0x00, 0x70, 0xF2, 0x20, 0x02, 0xF8, 0xF2, 0x20, 0x02
-	.byte 0xD4, 0xF2, 0x20, 0x02, 0xB4, 0xF2, 0x20, 0x02, 0xE0, 0xF2, 0x20, 0x02, 0xA4, 0xF2, 0x20, 0x02
-	.byte 0x28, 0xF3, 0x20, 0x02, 0x70, 0xF3, 0x20, 0x02, 0x58, 0xF3, 0x20, 0x02, 0x04, 0xF3, 0x20, 0x02
-	.byte 0x64, 0xF3, 0x20, 0x02, 0x10, 0xF3, 0x20, 0x02, 0x1C, 0xF3, 0x20, 0x02, 0x40, 0xF3, 0x20, 0x02
-	.byte 0x98, 0xF3, 0x20, 0x02, 0x7C, 0xF3, 0x20, 0x02, 0x4C, 0xF3, 0x20, 0x02, 0x34, 0xF3, 0x20, 0x02
-	.byte 0x88, 0xF3, 0x20, 0x02, 0xEC, 0xF2, 0x20, 0x02, 0xCC, 0xF2, 0x20, 0x02, 0xBC, 0xF2, 0x20, 0x02
-	.byte 0x8C, 0xF2, 0x20, 0x02, 0x9C, 0xF2, 0x20, 0x02, 0x84, 0xF2, 0x20, 0x02, 0x7C, 0xF2, 0x20, 0x02
-	.byte 0xAC, 0xF2, 0x20, 0x02, 0x74, 0xF2, 0x20, 0x02, 0x94, 0xF2, 0x20, 0x02, 0xC4, 0xF2, 0x20, 0x02
+	.byte 0x6C, 0x69, 0x6D, 0x69, 0x74, 0x00, 0x00, 0x00
+
+	.global UNK_0220F3A8
+UNK04_0220F3A8: ; 0x0220F3A8
+	.byte 0x70, 0xF2, 0x20, 0x02, 0xF8, 0xF2, 0x20, 0x02, 0xD4, 0xF2, 0x20, 0x02, 0xB4, 0xF2, 0x20, 0x02
+	.byte 0xE0, 0xF2, 0x20, 0x02, 0xA4, 0xF2, 0x20, 0x02, 0x28, 0xF3, 0x20, 0x02, 0x70, 0xF3, 0x20, 0x02
+	.byte 0x58, 0xF3, 0x20, 0x02, 0x04, 0xF3, 0x20, 0x02, 0x64, 0xF3, 0x20, 0x02, 0x10, 0xF3, 0x20, 0x02
+	.byte 0x1C, 0xF3, 0x20, 0x02, 0x40, 0xF3, 0x20, 0x02, 0x98, 0xF3, 0x20, 0x02, 0x7C, 0xF3, 0x20, 0x02
+	.byte 0x4C, 0xF3, 0x20, 0x02, 0x34, 0xF3, 0x20, 0x02, 0x88, 0xF3, 0x20, 0x02, 0xEC, 0xF2, 0x20, 0x02
+	.byte 0xCC, 0xF2, 0x20, 0x02, 0xBC, 0xF2, 0x20, 0x02, 0x8C, 0xF2, 0x20, 0x02, 0x9C, 0xF2, 0x20, 0x02
+	.byte 0x84, 0xF2, 0x20, 0x02, 0x7C, 0xF2, 0x20, 0x02, 0xAC, 0xF2, 0x20, 0x02, 0x74, 0xF2, 0x20, 0x02
+	.byte 0x94, 0xF2, 0x20, 0x02, 0xC4, 0xF2, 0x20, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -59921,74 +62084,799 @@ _0220BAB8:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00, 0x5C, 0x62, 0x61, 0x73, 0x69, 0x63, 0x5C, 0x5C
-	.byte 0x69, 0x6E, 0x66, 0x6F, 0x5C, 0x00, 0x00, 0x00, 0x5C, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x5C
-	.byte 0x00, 0x00, 0x00, 0x00, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x00, 0x00, 0x00, 0x71, 0x75, 0x65, 0x72
-	.byte 0x79, 0x69, 0x64, 0x00, 0x25, 0x73, 0x25, 0x64, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x70, 0x69, 0x6E, 0x67, 0x00, 0x00, 0x00, 0x00, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x00, 0x00
-	.byte 0x73, 0x62, 0x5F, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x63, 0x00, 0x25, 0x64, 0x00, 0x00
-	.byte 0x5C, 0x25, 0x73, 0x00, 0x08, 0xF8, 0x20, 0x02, 0x51, 0x75, 0x65, 0x72, 0x79, 0x20, 0x45, 0x72
-	.byte 0x72, 0x6F, 0x72, 0x3A, 0x20, 0x00, 0x00, 0x00, 0x73, 0x6C, 0x69, 0x73, 0x74, 0x2D, 0x3E, 0x69
-	.byte 0x6E, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x6C, 0x65, 0x6E, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F7A0
+UNK04_0220F7A0: ; 0x0220F7A0
+	.byte 0x5C, 0x66, 0x69, 0x6E, 0x61, 0x6C, 0x5C, 0x00
+
+	.global UNK_0220F7A8
+UNK04_0220F7A8: ; 0x0220F7A8
+	.byte 0x5C, 0x62, 0x61, 0x73, 0x69, 0x63, 0x5C, 0x5C, 0x69, 0x6E, 0x66, 0x6F, 0x5C, 0x00, 0x00, 0x00
+
+	.global UNK_0220F7B8
+UNK04_0220F7B8: ; 0x0220F7B8
+	.byte 0x5C, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x5C, 0x00, 0x00, 0x00, 0x00, 0x66, 0x69, 0x6E, 0x61
+	.byte 0x6C, 0x00, 0x00, 0x00, 0x71, 0x75, 0x65, 0x72, 0x79, 0x69, 0x64, 0x00
+
+	.global UNK_0220F7D4
+UNK04_0220F7D4: ; 0x0220F7D4
+	.byte 0x25, 0x73, 0x25, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F7DC
+UNK04_0220F7DC: ; 0x0220F7DC
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F7E0
+UNK04_0220F7E0: ; 0x0220F7E0
+	.byte 0x70, 0x69, 0x6E, 0x67, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F7E8
+UNK04_0220F7E8: ; 0x0220F7E8
+	.byte 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x00, 0x00
+
+	.global UNK_0220F7F0
+UNK04_0220F7F0: ; 0x0220F7F0
+	.byte 0x73, 0x62, 0x5F, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2E, 0x63, 0x00
+
+	.global UNK_0220F7FC
+UNK04_0220F7FC: ; 0x0220F7FC
+	.byte 0x25, 0x64, 0x00, 0x00
+
+	.global UNK_0220F800
+UNK04_0220F800: ; 0x0220F800
+	.byte 0x5C, 0x25, 0x73, 0x00
+
+	.global UNK_0220F804
+UNK04_0220F804: ; 0x0220F804
+	.byte 0x08, 0xF8, 0x20, 0x02, 0x51, 0x75, 0x65, 0x72, 0x79, 0x20, 0x45, 0x72, 0x72, 0x6F, 0x72, 0x3A
+	.byte 0x20, 0x00, 0x00, 0x00
+
+	.global UNK_0220F818
+UNK04_0220F818: ; 0x0220F818
+	.byte 0x73, 0x6C, 0x69, 0x73, 0x74, 0x2D, 0x3E, 0x69, 0x6E, 0x62, 0x75, 0x66, 0x66, 0x65, 0x72, 0x6C
+	.byte 0x65, 0x6E, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00
+
+	.global UNK_0220F830
+UNK04_0220F830: ; 0x0220F830
 	.byte 0x73, 0x62, 0x5F, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x6C, 0x69, 0x73, 0x74, 0x2E, 0x63, 0x00
-	.byte 0x69, 0x6E, 0x6C, 0x65, 0x6E, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00, 0xFF, 0xFF, 0xFF, 0xFF
-	.byte 0x00, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x73, 0x6C, 0x69, 0x73, 0x74, 0x2D, 0x3E, 0x73
-	.byte 0x74, 0x61, 0x74, 0x65, 0x20, 0x3D, 0x3D, 0x20, 0x73, 0x6C, 0x5F, 0x64, 0x69, 0x73, 0x63, 0x6F
-	.byte 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x65, 0x64, 0x00, 0x00, 0x00, 0x00, 0x00, 0x25, 0x73, 0x2E, 0x6D
-	.byte 0x73, 0x25, 0x64, 0x2E, 0x67, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x77
-	.byte 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00, 0x73, 0x6C, 0x69, 0x73, 0x74, 0x20, 0x21, 0x3D
-	.byte 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00, 0x63, 0x61, 0x6C, 0x6C, 0x62, 0x61, 0x63, 0x6B
-	.byte 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00, 0x00, 0x76, 0x61, 0x6C, 0x20
-	.byte 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x01, 0x00, 0x01, 0x00, 0xE0, 0xF8, 0x20, 0x02
-	.byte 0x80, 0x00, 0x00, 0x00, 0x30, 0xF9, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00, 0xC8, 0xF8, 0x20, 0x02
-	.byte 0x55, 0x53, 0x2C, 0x20, 0x57, 0x61, 0x73, 0x68, 0x69, 0x6E, 0x67, 0x74, 0x6F, 0x6E, 0x2C, 0x20
-	.byte 0x4E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x20, 0x6F, 0x66, 0x20, 0x41, 0x6D, 0x65, 0x72
-	.byte 0x69, 0x63, 0x61, 0x20, 0x49, 0x6E, 0x63, 0x2C, 0x20, 0x4E, 0x4F, 0x41, 0x2C, 0x20, 0x4E, 0x69
-	.byte 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x20, 0x43, 0x41, 0x2C, 0x20, 0x63, 0x61, 0x40, 0x6E, 0x6F
-	.byte 0x61, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x2E, 0x63, 0x6F, 0x6D, 0x00, 0x00
-	.byte 0xB3, 0xCD, 0x79, 0x97, 0x77, 0x5D, 0x8A, 0xAF, 0x86, 0xA8, 0xE8, 0xD7, 0x73, 0x1C, 0x77, 0xDF
-	.byte 0x10, 0x90, 0x1F, 0x81, 0xF8, 0x41, 0x9E, 0x21, 0x55, 0xDF, 0xBC, 0xFC, 0x63, 0xFB, 0x19, 0x43
-	.byte 0xF1, 0xF6, 0xC4, 0x72, 0x42, 0x49, 0xBD, 0xAD, 0x44, 0x68, 0x4E, 0xF3, 0xDA, 0x1D, 0xE6, 0x4D
-	.byte 0xD8, 0xF9, 0x59, 0x88, 0xDC, 0xAE, 0x3E, 0x9B, 0x38, 0x09, 0xCA, 0x7F, 0xFF, 0xDC, 0x24, 0xA2
-	.byte 0x44, 0x78, 0x78, 0x49, 0x93, 0xD4, 0x84, 0x40, 0x10, 0xB8, 0xEC, 0x3E, 0xDB, 0x2D, 0x93, 0xC8
-	.byte 0x11, 0xC8, 0xFD, 0x78, 0x2D, 0x61, 0xAD, 0x31, 0xAE, 0x86, 0x26, 0xB0, 0xFD, 0x5A, 0x3F, 0xA1
-	.byte 0x3D, 0xBF, 0xE2, 0x4B, 0x49, 0xEC, 0xCE, 0x66, 0x98, 0x58, 0x26, 0x12, 0xC0, 0xFB, 0xF4, 0x77
-	.byte 0x65, 0x1B, 0xEA, 0xFB, 0xCB, 0x7F, 0xE0, 0x8C, 0xCB, 0x02, 0xA3, 0x4E, 0x5E, 0x8C, 0xEA, 0x9B
+
+	.global UNK_0220F840
+UNK04_0220F840: ; 0x0220F840
+	.byte 0x69, 0x6E, 0x6C, 0x65, 0x6E, 0x20, 0x3E, 0x3D, 0x20, 0x30, 0x00, 0x00
+
+	.global UNK_0220F84C
+UNK04_0220F84C: ; 0x0220F84C
+	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F854
+UNK04_0220F854: ; 0x0220F854
+	.byte 0x30, 0x00, 0x00, 0x00
+
+	.global UNK_0220F858
+UNK04_0220F858: ; 0x0220F858
+	.byte 0x73, 0x6C, 0x69, 0x73, 0x74, 0x2D, 0x3E, 0x73, 0x74, 0x61, 0x74, 0x65, 0x20, 0x3D, 0x3D, 0x20
+	.byte 0x73, 0x6C, 0x5F, 0x64, 0x69, 0x73, 0x63, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x65, 0x64, 0x00
+
+	.global UNK_0220F878
+UNK04_0220F878: ; 0x0220F878
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F87C
+UNK04_0220F87C: ; 0x0220F87C
+	.byte 0x25, 0x73, 0x2E, 0x6D, 0x73, 0x25, 0x64, 0x2E, 0x67, 0x73, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65
+	.byte 0x6E, 0x64, 0x6F, 0x77, 0x69, 0x66, 0x69, 0x2E, 0x6E, 0x65, 0x74, 0x00
+
+	.global UNK_0220F898
+UNK04_0220F898: ; 0x0220F898
+	.byte 0x73, 0x6C, 0x69, 0x73, 0x74, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x00, 0x00
+
+	.global UNK_0220F8A8
+UNK04_0220F8A8: ; 0x0220F8A8
+	.byte 0x63, 0x61, 0x6C, 0x6C, 0x62, 0x61, 0x63, 0x6B, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F8BC
+UNK04_0220F8BC: ; 0x0220F8BC
+	.byte 0x76, 0x61, 0x6C, 0x20, 0x21, 0x3D, 0x20, 0x4E, 0x55, 0x4C, 0x4C, 0x00, 0x01, 0x00, 0x01, 0x00
+	.byte 0xE0, 0xF8, 0x20, 0x02, 0x80, 0x00, 0x00, 0x00, 0x30, 0xF9, 0x20, 0x02, 0x03, 0x00, 0x00, 0x00
+	.byte 0xC8, 0xF8, 0x20, 0x02, 0x55, 0x53, 0x2C, 0x20, 0x57, 0x61, 0x73, 0x68, 0x69, 0x6E, 0x67, 0x74
+	.byte 0x6F, 0x6E, 0x2C, 0x20, 0x4E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x20, 0x6F, 0x66, 0x20
+	.byte 0x41, 0x6D, 0x65, 0x72, 0x69, 0x63, 0x61, 0x20, 0x49, 0x6E, 0x63, 0x2C, 0x20, 0x4E, 0x4F, 0x41
+	.byte 0x2C, 0x20, 0x4E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x20, 0x43, 0x41, 0x2C, 0x20, 0x63
+	.byte 0x61, 0x40, 0x6E, 0x6F, 0x61, 0x2E, 0x6E, 0x69, 0x6E, 0x74, 0x65, 0x6E, 0x64, 0x6F, 0x2E, 0x63
+	.byte 0x6F, 0x6D, 0x00, 0x00, 0xB3, 0xCD, 0x79, 0x97, 0x77, 0x5D, 0x8A, 0xAF, 0x86, 0xA8, 0xE8, 0xD7
+	.byte 0x73, 0x1C, 0x77, 0xDF, 0x10, 0x90, 0x1F, 0x81, 0xF8, 0x41, 0x9E, 0x21, 0x55, 0xDF, 0xBC, 0xFC
+	.byte 0x63, 0xFB, 0x19, 0x43, 0xF1, 0xF6, 0xC4, 0x72, 0x42, 0x49, 0xBD, 0xAD, 0x44, 0x68, 0x4E, 0xF3
+	.byte 0xDA, 0x1D, 0xE6, 0x4D, 0xD8, 0xF9, 0x59, 0x88, 0xDC, 0xAE, 0x3E, 0x9B, 0x38, 0x09, 0xCA, 0x7F
+	.byte 0xFF, 0xDC, 0x24, 0xA2, 0x44, 0x78, 0x78, 0x49, 0x93, 0xD4, 0x84, 0x40, 0x10, 0xB8, 0xEC, 0x3E
+	.byte 0xDB, 0x2D, 0x93, 0xC8, 0x11, 0xC8, 0xFD, 0x78, 0x2D, 0x61, 0xAD, 0x31, 0xAE, 0x86, 0x26, 0xB0
+	.byte 0xFD, 0x5A, 0x3F, 0xA1, 0x3D, 0xBF, 0xE2, 0x4B, 0x49, 0xEC, 0xCE, 0x66, 0x98, 0x58, 0x26, 0x12
+	.byte 0xC0, 0xFB, 0xF4, 0x77, 0x65, 0x1B, 0xEA, 0xFB, 0xCB, 0x7F, 0xE0, 0x8C, 0xCB, 0x02, 0xA3, 0x4E
+	.byte 0x5E, 0x8C, 0xEA, 0x9B
+
+	.global UNK_0220F9B0
+UNK04_0220F9B0: ; 0x0220F9B0
 	.byte 0x4E, 0x69, 0x74, 0x72, 0x6F, 0x20, 0x57, 0x69, 0x46, 0x69, 0x20, 0x53, 0x44, 0x4B, 0x2F, 0x25
-	.byte 0x64, 0x2E, 0x25, 0x64, 0x00, 0x00, 0x00, 0x00, 0xCC, 0xF8, 0x20, 0x02, 0x63, 0x6F, 0x6E, 0x74
-	.byte 0x65, 0x6E, 0x74, 0x73, 0x00, 0x00, 0x00, 0x00, 0x6F, 0x66, 0x66, 0x73, 0x65, 0x74, 0x00, 0x00
-	.byte 0x6E, 0x75, 0x6D, 0x00, 0x55, 0x73, 0x65, 0x72, 0x2D, 0x41, 0x67, 0x65, 0x6E, 0x74, 0x00, 0x00
-	.byte 0x67, 0x61, 0x6D, 0x65, 0x63, 0x64, 0x00, 0x00, 0x72, 0x68, 0x67, 0x61, 0x6D, 0x65, 0x63, 0x64
-	.byte 0x00, 0x00, 0x00, 0x00, 0x70, 0x61, 0x73, 0x73, 0x77, 0x64, 0x00, 0x00, 0x74, 0x6F, 0x6B, 0x65
-	.byte 0x6E, 0x00, 0x00, 0x00, 0x75, 0x73, 0x65, 0x72, 0x69, 0x64, 0x00, 0x00, 0x6D, 0x61, 0x63, 0x61
-	.byte 0x64, 0x72, 0x00, 0x00, 0x61, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00, 0x61, 0x74, 0x74, 0x72
-	.byte 0x31, 0x00, 0x00, 0x00, 0x61, 0x74, 0x74, 0x72, 0x32, 0x00, 0x00, 0x00, 0x61, 0x74, 0x74, 0x72
-	.byte 0x33, 0x00, 0x00, 0x00, 0x61, 0x70, 0x69, 0x6E, 0x66, 0x6F, 0x00, 0x00, 0x48, 0x54, 0x54, 0x50
-	.byte 0x53, 0x54, 0x41, 0x54, 0x55, 0x53, 0x43, 0x4F, 0x44, 0x45, 0x00, 0x00, 0x72, 0x65, 0x74, 0x75
-	.byte 0x72, 0x6E, 0x63, 0x64, 0x00, 0x00, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D
-	.byte 0x4C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x00, 0x00, 0x68, 0x74, 0x74, 0x70, 0x3A, 0x2F, 0x2F, 0x00
-	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x00, 0x00, 0x00, 0x00, 0x48, 0x54, 0x54, 0x50
-	.byte 0x53, 0x54, 0x41, 0x54, 0x55, 0x53, 0x43, 0x4F, 0x44, 0x45, 0x00, 0x00, 0x47, 0x45, 0x54, 0x20
-	.byte 0x00, 0x00, 0x00, 0x00, 0x50, 0x4F, 0x53, 0x54, 0x20, 0x00, 0x00, 0x00, 0x48, 0x45, 0x41, 0x44
-	.byte 0x20, 0x00, 0x00, 0x00, 0x2F, 0x00, 0x00, 0x00, 0x20, 0x48, 0x54, 0x54, 0x50, 0x2F, 0x31, 0x2E
-	.byte 0x31, 0x0D, 0x0A, 0x00, 0x48, 0x6F, 0x73, 0x74, 0x3A, 0x20, 0x00, 0x00, 0x0D, 0x0A, 0x00, 0x00
-	.byte 0x3A, 0x20, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x54, 0x79, 0x70, 0x65
-	.byte 0x3A, 0x20, 0x6D, 0x75, 0x6C, 0x74, 0x69, 0x70, 0x61, 0x72, 0x74, 0x2F, 0x66, 0x6F, 0x72, 0x6D
-	.byte 0x2D, 0x64, 0x61, 0x74, 0x61, 0x3B, 0x20, 0x62, 0x6F, 0x75, 0x6E, 0x64, 0x61, 0x72, 0x79, 0x3D
-	.byte 0x00, 0x00, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x54, 0x79, 0x70, 0x65
-	.byte 0x3A, 0x20, 0x61, 0x70, 0x70, 0x6C, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2F, 0x78, 0x2D
-	.byte 0x77, 0x77, 0x77, 0x2D, 0x66, 0x6F, 0x72, 0x6D, 0x2D, 0x75, 0x72, 0x6C, 0x65, 0x6E, 0x63, 0x6F
-	.byte 0x64, 0x65, 0x64, 0x0D, 0x0A, 0x00, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D
-	.byte 0x4C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x3A, 0x20, 0x00, 0x00, 0x00, 0x00, 0x22, 0x0D, 0x0A, 0x00
-	.byte 0x2D, 0x2D, 0x0D, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x3D, 0x00, 0x00, 0x00, 0x26, 0x00, 0x00, 0x00
-	.byte 0x48, 0x54, 0x54, 0x50, 0x2F, 0x00, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D
-	.byte 0x4C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x00, 0x00, 0x43, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69
-	.byte 0x6F, 0x6E, 0x00, 0x00, 0x4B, 0x65, 0x65, 0x70, 0x2D, 0x41, 0x6C, 0x69, 0x76, 0x65, 0x00, 0x00
+	.byte 0x64, 0x2E, 0x25, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F9C8
+UNK04_0220F9C8: ; 0x0220F9C8
+	.byte 0xCC, 0xF8, 0x20, 0x02
+
+	.global UNK_0220F9CC
+UNK04_0220F9CC: ; 0x0220F9CC
+	.byte 0x63, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x73, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220F9D8
+UNK04_0220F9D8: ; 0x0220F9D8
+	.byte 0x6F, 0x66, 0x66, 0x73, 0x65, 0x74, 0x00, 0x00
+
+	.global UNK_0220F9E0
+UNK04_0220F9E0: ; 0x0220F9E0
+	.byte 0x6E, 0x75, 0x6D, 0x00
+
+	.global UNK_0220F9E4
+UNK04_0220F9E4: ; 0x0220F9E4
+	.byte 0x55, 0x73, 0x65, 0x72, 0x2D, 0x41, 0x67, 0x65, 0x6E, 0x74, 0x00, 0x00
+
+	.global UNK_0220F9F0
+UNK04_0220F9F0: ; 0x0220F9F0
+	.byte 0x67, 0x61, 0x6D, 0x65, 0x63, 0x64, 0x00, 0x00
+
+	.global UNK_0220F9F8
+UNK04_0220F9F8: ; 0x0220F9F8
+	.byte 0x72, 0x68, 0x67, 0x61, 0x6D, 0x65, 0x63, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220FA04
+UNK04_0220FA04: ; 0x0220FA04
+	.byte 0x70, 0x61, 0x73, 0x73, 0x77, 0x64, 0x00, 0x00
+
+	.global UNK_0220FA0C
+UNK04_0220FA0C: ; 0x0220FA0C
+	.byte 0x74, 0x6F, 0x6B, 0x65, 0x6E, 0x00, 0x00, 0x00
+
+	.global UNK_0220FA14
+UNK04_0220FA14: ; 0x0220FA14
+	.byte 0x75, 0x73, 0x65, 0x72, 0x69, 0x64, 0x00, 0x00
+
+	.global UNK_0220FA1C
+UNK04_0220FA1C: ; 0x0220FA1C
+	.byte 0x6D, 0x61, 0x63, 0x61, 0x64, 0x72, 0x00, 0x00
+
+	.global UNK_0220FA24
+UNK04_0220FA24: ; 0x0220FA24
+	.byte 0x61, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
+
+	.global UNK_0220FA2C
+UNK04_0220FA2C: ; 0x0220FA2C
+	.byte 0x61, 0x74, 0x74, 0x72, 0x31, 0x00, 0x00, 0x00
+
+	.global UNK_0220FA34
+UNK04_0220FA34: ; 0x0220FA34
+	.byte 0x61, 0x74, 0x74, 0x72, 0x32, 0x00, 0x00, 0x00
+
+	.global UNK_0220FA3C
+UNK04_0220FA3C: ; 0x0220FA3C
+	.byte 0x61, 0x74, 0x74, 0x72, 0x33, 0x00, 0x00, 0x00
+
+	.global UNK_0220FA44
+UNK04_0220FA44: ; 0x0220FA44
+	.byte 0x61, 0x70, 0x69, 0x6E, 0x66, 0x6F, 0x00, 0x00
+
+	.global UNK_0220FA4C
+UNK04_0220FA4C: ; 0x0220FA4C
+	.byte 0x48, 0x54, 0x54, 0x50, 0x53, 0x54, 0x41, 0x54, 0x55, 0x53, 0x43, 0x4F, 0x44, 0x45, 0x00, 0x00
+
+	.global UNK_0220FA5C
+UNK04_0220FA5C: ; 0x0220FA5C
+	.byte 0x72, 0x65, 0x74, 0x75, 0x72, 0x6E, 0x63, 0x64, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220FA68
+UNK04_0220FA68: ; 0x0220FA68
+	.byte 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x4C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x00, 0x00
+
+	.global UNK_0220FA78
+UNK04_0220FA78: ; 0x0220FA78
+	.byte 0x68, 0x74, 0x74, 0x70, 0x3A, 0x2F, 0x2F, 0x00
+
+	.global UNK_0220FA80
+UNK04_0220FA80: ; 0x0220FA80
+	.byte 0x68, 0x74, 0x74, 0x70, 0x73, 0x3A, 0x2F, 0x2F, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220FA8C
+UNK04_0220FA8C: ; 0x0220FA8C
+	.byte 0x48, 0x54, 0x54, 0x50, 0x53, 0x54, 0x41, 0x54, 0x55, 0x53, 0x43, 0x4F, 0x44, 0x45, 0x00, 0x00
+
+	.global UNK_0220FA9C
+UNK04_0220FA9C: ; 0x0220FA9C
+	.byte 0x47, 0x45, 0x54, 0x20, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220FAA4
+UNK04_0220FAA4: ; 0x0220FAA4
+	.byte 0x50, 0x4F, 0x53, 0x54, 0x20, 0x00, 0x00, 0x00
+
+	.global UNK_0220FAAC
+UNK04_0220FAAC: ; 0x0220FAAC
+	.byte 0x48, 0x45, 0x41, 0x44, 0x20, 0x00, 0x00, 0x00
+
+	.global UNK_0220FAB4
+UNK04_0220FAB4: ; 0x0220FAB4
+	.byte 0x2F, 0x00, 0x00, 0x00
+
+	.global UNK_0220FAB8
+UNK04_0220FAB8: ; 0x0220FAB8
+	.byte 0x20, 0x48, 0x54, 0x54, 0x50, 0x2F, 0x31, 0x2E, 0x31, 0x0D, 0x0A, 0x00
+
+	.global UNK_0220FAC4
+UNK04_0220FAC4: ; 0x0220FAC4
+	.byte 0x48, 0x6F, 0x73, 0x74, 0x3A, 0x20, 0x00, 0x00
+
+	.global UNK_0220FACC
+UNK04_0220FACC: ; 0x0220FACC
+	.byte 0x0D, 0x0A, 0x00, 0x00
+
+	.global UNK_0220FAD0
+UNK04_0220FAD0: ; 0x0220FAD0
+	.byte 0x3A, 0x20, 0x00, 0x00
+
+	.global UNK_0220FAD4
+UNK04_0220FAD4: ; 0x0220FAD4
+	.byte 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x54, 0x79, 0x70, 0x65, 0x3A, 0x20, 0x6D, 0x75
+	.byte 0x6C, 0x74, 0x69, 0x70, 0x61, 0x72, 0x74, 0x2F, 0x66, 0x6F, 0x72, 0x6D, 0x2D, 0x64, 0x61, 0x74
+	.byte 0x61, 0x3B, 0x20, 0x62, 0x6F, 0x75, 0x6E, 0x64, 0x61, 0x72, 0x79, 0x3D, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220FB04
+UNK04_0220FB04: ; 0x0220FB04
+	.byte 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x54, 0x79, 0x70, 0x65, 0x3A, 0x20, 0x61, 0x70
+	.byte 0x70, 0x6C, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x2F, 0x78, 0x2D, 0x77, 0x77, 0x77, 0x2D
+	.byte 0x66, 0x6F, 0x72, 0x6D, 0x2D, 0x75, 0x72, 0x6C, 0x65, 0x6E, 0x63, 0x6F, 0x64, 0x65, 0x64, 0x0D
+	.byte 0x0A, 0x00, 0x00, 0x00
+
+	.global UNK_0220FB38
+UNK04_0220FB38: ; 0x0220FB38
+	.byte 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x4C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x3A, 0x20
+	.byte 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220FB4C
+UNK04_0220FB4C: ; 0x0220FB4C
+	.byte 0x22, 0x0D, 0x0A, 0x00
+
+	.global UNK_0220FB50
+UNK04_0220FB50: ; 0x0220FB50
+	.byte 0x2D, 0x2D, 0x0D, 0x0A, 0x00, 0x00, 0x00, 0x00
+
+	.global UNK_0220FB58
+UNK04_0220FB58: ; 0x0220FB58
+	.byte 0x3D, 0x00, 0x00, 0x00
+
+	.global UNK_0220FB5C
+UNK04_0220FB5C: ; 0x0220FB5C
+	.byte 0x26, 0x00, 0x00, 0x00
+
+	.global UNK_0220FB60
+UNK04_0220FB60: ; 0x0220FB60
+	.byte 0x48, 0x54, 0x54, 0x50, 0x2F, 0x00, 0x00, 0x00
+
+	.global UNK_0220FB68
+UNK04_0220FB68: ; 0x0220FB68
+	.byte 0x43, 0x6F, 0x6E, 0x74, 0x65, 0x6E, 0x74, 0x2D, 0x4C, 0x65, 0x6E, 0x67, 0x74, 0x68, 0x00, 0x00
+
+	.global UNK_0220FB78
+UNK04_0220FB78: ; 0x0220FB78
+	.byte 0x43, 0x6F, 0x6E, 0x6E, 0x65, 0x63, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00
+
+	.global UNK_0220FB84
+UNK04_0220FB84: ; 0x0220FB84
+	.byte 0x4B, 0x65, 0x65, 0x70, 0x2D, 0x41, 0x6C, 0x69, 0x76, 0x65, 0x00, 0x00
+
+	.global UNK_0220FB90
+UNK04_0220FB90: ; 0x0220FB90
 	.byte 0x54, 0x72, 0x61, 0x6E, 0x73, 0x66, 0x65, 0x72, 0x2D, 0x45, 0x6E, 0x63, 0x6F, 0x64, 0x69, 0x6E
-	.byte 0x67, 0x00, 0x00, 0x00, 0x63, 0x68, 0x75, 0x6E, 0x6B, 0x65, 0x64, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x67, 0x00, 0x00, 0x00
+
+	.global UNK_0220FBA4
+UNK04_0220FBA4: ; 0x0220FBA4
+	.byte 0x63, 0x68, 0x75, 0x6E, 0x6B, 0x65, 0x64, 0x00
 
 	.section .bss
-	; 0x02210468
-	.space 0x19f8
+
+	.global UNK04_02210460
+UNK04_02210460: ; 0x02210460
+	.space 0x4
+
+	.global UNK04_02210464
+UNK04_02210464: ; 0x02210464
+	.space 0x4
+
+	.global UNK04_02210468
+UNK04_02210468: ; 0x02210468
+	.space 0x4
+
+	.global UNK04_0221046C
+UNK04_0221046C: ; 0x0221046C
+	.space 0x14
+
+	.global UNK04_02210480
+UNK04_02210480: ; 0x02210480
+	.space 0x4
+
+	.global UNK04_02210484
+UNK04_02210484: ; 0x02210484
+	.space 0x4
+
+	.global UNK04_02210488
+UNK04_02210488: ; 0x02210488
+	.space 0x4
+
+	.global UNK04_0221048C
+UNK04_0221048C: ; 0x0221048C
+	.space 0x4
+
+	.global UNK04_02210490
+UNK04_02210490: ; 0x02210490
+	.space 0x4
+
+	.global UNK04_02210494
+UNK04_02210494: ; 0x02210494
+	.space 0x1C
+
+	.global UNK04_022104B0
+UNK04_022104B0: ; 0x022104B0
+	.space 0x48
+
+	.global UNK04_022104F8
+UNK04_022104F8: ; 0x022104F8
+	.space 0x4
+
+	.global UNK04_022104FC
+UNK04_022104FC: ; 0x022104FC
+	.space 0x8
+
+	.global UNK04_02210504
+UNK04_02210504: ; 0x02210504
+	.space 0x4
+
+	.global UNK04_02210508
+UNK04_02210508: ; 0x02210508
+	.space 0x4
+
+	.global UNK04_0221050C
+UNK04_0221050C: ; 0x0221050C
+	.space 0x4
+
+	.global UNK04_02210510
+UNK04_02210510: ; 0x02210510
+	.space 0x4
+
+	.global UNK04_02210514
+UNK04_02210514: ; 0x02210514
+	.space 0x4
+
+	.global UNK04_02210518
+UNK04_02210518: ; 0x02210518
+	.space 0x4
+
+	.global UNK04_0221051C
+UNK04_0221051C: ; 0x0221051C
+	.space 0x4
+
+	.global UNK04_02210520
+UNK04_02210520: ; 0x02210520
+	.space 0x4
+
+	.global UNK04_02210524
+UNK04_02210524: ; 0x02210524
+	.space 0x18
+
+	.global UNK04_0221053C
+UNK04_0221053C: ; 0x0221053C
+	.space 0x4
+
+	.global UNK04_02210540
+UNK04_02210540: ; 0x02210540
+	.space 0x4
+
+	.global UNK04_02210544
+UNK04_02210544: ; 0x02210544
+	.space 0x80
+
+	.global UNK04_022105C4
+UNK04_022105C4: ; 0x022105C4
+	.space 0x100
+
+	.global UNK04_022106C4
+UNK04_022106C4: ; 0x022106C4
+	.space 0x4
+
+	.global UNK04_022106C8
+UNK04_022106C8: ; 0x022106C8
+	.space 0x4
+
+	.global UNK04_022106CC
+UNK04_022106CC: ; 0x022106CC
+	.space 0x4
+
+	.global UNK04_022106D0
+UNK04_022106D0: ; 0x022106D0
+	.space 0x4
+
+	.global UNK04_022106D4
+UNK04_022106D4: ; 0x022106D4
+	.space 0x4
+
+	.global UNK04_022106D8
+UNK04_022106D8: ; 0x022106D8
+	.space 0x4
+
+	.global UNK04_022106DC
+UNK04_022106DC: ; 0x022106DC
+	.space 0x4
+
+	.global UNK04_022106E0
+UNK04_022106E0: ; 0x022106E0
+	.space 0x4
+
+	.global UNK04_022106E4
+UNK04_022106E4: ; 0x022106E4
+	.space 0x20
+
+	.global UNK04_02210704
+UNK04_02210704: ; 0x02210704
+	.space 0x1
+
+	.global UNK04_02210705
+UNK04_02210705: ; 0x02210705
+	.space 0x7
+
+	.global UNK04_0221070C
+UNK04_0221070C: ; 0x0221070C
+	.space 0x730
+
+	.global UNK04_02210E3C
+UNK04_02210E3C: ; 0x02210E3C
+	.space 0x4
+
+	.global UNK04_02210E40
+UNK04_02210E40: ; 0x02210E40
+	.space 0x4
+
+	.global UNK04_02210E44
+UNK04_02210E44: ; 0x02210E44
+	.space 0x4
+
+	.global UNK04_02210E48
+UNK04_02210E48: ; 0x02210E48
+	.space 0x4
+
+	.global UNK04_02210E4C
+UNK04_02210E4C: ; 0x02210E4C
+	.space 0x4
+
+	.global UNK04_02210E50
+UNK04_02210E50: ; 0x02210E50
+	.space 0x4
+
+	.global UNK04_02210E54
+UNK04_02210E54: ; 0x02210E54
+	.space 0x4
+
+	.global UNK04_02210E58
+UNK04_02210E58: ; 0x02210E58
+	.space 0x4
+
+	.global UNK04_02210E5C
+UNK04_02210E5C: ; 0x02210E5C
+	.space 0x4
+
+	.global UNK04_02210E60
+UNK04_02210E60: ; 0x02210E60
+	.space 0x40
+
+	.global UNK04_02210EA0
+UNK04_02210EA0: ; 0x02210EA0
+	.space 0x40
+
+	.global UNK04_02210EE0
+UNK04_02210EE0: ; 0x02210EE0
+	.space 0x4
+
+	.global UNK04_02210EE4
+UNK04_02210EE4: ; 0x02210EE4
+	.space 0x4
+
+	.global UNK04_02210EE8
+UNK04_02210EE8: ; 0x02210EE8
+	.space 0x4
+
+	.global UNK04_02210EEC
+UNK04_02210EEC: ; 0x02210EEC
+	.space 0x5
+
+	.global UNK04_02210EF1
+UNK04_02210EF1: ; 0x02210EF1
+	.space 0x47
+
+	.global UNK04_02210F38
+UNK04_02210F38: ; 0x02210F38
+	.space 0x4
+
+	.global UNK04_02210F3C
+UNK04_02210F3C: ; 0x02210F3C
+	.space 0x4
+
+	.global UNK04_02210F40
+UNK04_02210F40: ; 0x02210F40
+	.space 0x10
+
+	.global UNK04_02210F50
+UNK04_02210F50: ; 0x02210F50
+	.space 0x14
+
+	.global UNK04_02210F64
+UNK04_02210F64: ; 0x02210F64
+	.space 0x18
+
+	.global UNK04_02210F7C
+UNK04_02210F7C: ; 0x02210F7C
+	.space 0x4
+
+	.global UNK04_02210F80
+UNK04_02210F80: ; 0x02210F80
+	.space 0x4
+
+	.global UNK04_02210F84
+UNK04_02210F84: ; 0x02210F84
+	.space 0x4
+
+	.global UNK04_02210F88
+UNK04_02210F88: ; 0x02210F88
+	.space 0x4
+
+	.global UNK04_02210F8C
+UNK04_02210F8C: ; 0x02210F8C
+	.space 0x4
+
+	.global UNK04_02210F90
+UNK04_02210F90: ; 0x02210F90
+	.space 0x4
+
+	.global UNK04_02210F94
+UNK04_02210F94: ; 0x02210F94
+	.space 0x100
+
+	.global UNK04_02211094
+UNK04_02211094: ; 0x02211094
+	.space 0x100
+
+	.global UNK04_02211194
+UNK04_02211194: ; 0x02211194
+	.space 0x200
+
+	.global UNK04_02211394
+UNK04_02211394: ; 0x02211394
+	.space 0x4
+
+	.global UNK04_02211398
+UNK04_02211398: ; 0x02211398
+	.space 0x2C
+
+	.global UNK04_022113C4
+UNK04_022113C4: ; 0x022113C4
+	.space 0x4
+
+	.global UNK04_022113C8
+UNK04_022113C8: ; 0x022113C8
+	.space 0x4
+
+	.global UNK04_022113CC
+UNK04_022113CC: ; 0x022113CC
+	.space 0x4
+
+	.global UNK04_022113D0
+UNK04_022113D0: ; 0x022113D0
+	.space 0x4
+
+	.global UNK04_022113D4
+UNK04_022113D4: ; 0x022113D4
+	.space 0x4
+
+	.global UNK04_022113D8
+UNK04_022113D8: ; 0x022113D8
+	.space 0x200
+
+	.global UNK04_022115D8
+UNK04_022115D8: ; 0x022115D8
+	.space 0x4
+
+	.global UNK04_022115DC
+UNK04_022115DC: ; 0x022115DC
+	.space 0x14
+
+	.global UNK04_022115F0
+UNK04_022115F0: ; 0x022115F0
+	.space 0x40
+
+	.global UNK04_02211630
+UNK04_02211630: ; 0x02211630
+	.space 0x100
+
+	.global UNK04_02211730
+UNK04_02211730: ; 0x02211730
+	.space 0x4
+
+	.global UNK04_02211734
+UNK04_02211734: ; 0x02211734
+	.space 0x4
+
+	.global UNK04_02211738
+UNK04_02211738: ; 0x02211738
+	.space 0x4
+
+	.global UNK04_0221173C
+UNK04_0221173C: ; 0x0221173C
+	.space 0x4
+
+	.global UNK04_02211740
+UNK04_02211740: ; 0x02211740
+	.space 0x4
+
+	.global UNK04_02211744
+UNK04_02211744: ; 0x02211744
+	.space 0x4
+
+	.global UNK04_02211748
+UNK04_02211748: ; 0x02211748
+	.space 0x4
+
+	.global UNK04_0221174C
+UNK04_0221174C: ; 0x0221174C
+	.space 0x4
+
+	.global UNK04_02211750
+UNK04_02211750: ; 0x02211750
+	.space 0x4
+
+	.global UNK04_02211754
+UNK04_02211754: ; 0x02211754
+	.space 0x4
+
+	.global UNK04_02211758
+UNK04_02211758: ; 0x02211758
+	.space 0x4
+
+	.global UNK04_0221175C
+UNK04_0221175C: ; 0x0221175C
+	.space 0x4
+
+	.global UNK04_02211760
+UNK04_02211760: ; 0x02211760
+	.space 0x4
+
+	.global UNK04_02211764
+UNK04_02211764: ; 0x02211764
+	.space 0x4
+
+	.global UNK04_02211768
+UNK04_02211768: ; 0x02211768
+	.space 0x4
+
+	.global UNK04_0221176C
+UNK04_0221176C: ; 0x0221176C
+	.space 0xC
+
+	.global UNK04_02211778
+UNK04_02211778: ; 0x02211778
+	.space 0xC
+
+	.global UNK04_02211784
+UNK04_02211784: ; 0x02211784
+	.space 0x14
+
+	.global UNK04_02211798
+UNK04_02211798: ; 0x02211798
+	.space 0x18
+
+	.global UNK04_022117B0
+UNK04_022117B0: ; 0x022117B0
+	.space 0x1C
+
+	.global UNK04_022117CC
+UNK04_022117CC: ; 0x022117CC
+	.space 0x24
+
+	.global UNK04_022117F0
+UNK04_022117F0: ; 0x022117F0
+	.space 0x8
+
+	.global UNK04_022117F8
+UNK04_022117F8: ; 0x022117F8
+	.space 0x34
+
+	.global UNK04_0221182C
+UNK04_0221182C: ; 0x0221182C
+	.space 0xC
+
+	.global UNK04_02211838
+UNK04_02211838: ; 0x02211838
+	.space 0x18
+
+	.global UNK04_02211850
+UNK04_02211850: ; 0x02211850
+	.space 0x80
+
+	.global UNK04_022118D0
+UNK04_022118D0: ; 0x022118D0
+	.space 0x4
+
+	.global UNK04_022118D4
+UNK04_022118D4: ; 0x022118D4
+	.space 0x18
+
+	.global UNK04_022118EC
+UNK04_022118EC: ; 0x022118EC
+	.space 0x18
+
+	.global UNK04_02211904
+UNK04_02211904: ; 0x02211904
+	.space 0x4
+
+	.global UNK04_02211908
+UNK04_02211908: ; 0x02211908
+	.space 0x4
+
+	.global UNK04_0221190C
+UNK04_0221190C: ; 0x0221190C
+	.space 0x4
+
+	.global UNK04_02211910
+UNK04_02211910: ; 0x02211910
+	.space 0x4
+
+	.global UNK04_02211914
+UNK04_02211914: ; 0x02211914
+	.space 0x4
+
+	.global UNK04_02211918
+UNK04_02211918: ; 0x02211918
+	.space 0x4
+
+	.global UNK04_0221191C
+UNK04_0221191C: ; 0x0221191C
+	.space 0x4
+
+	.global UNK04_02211920
+UNK04_02211920: ; 0x02211920
+	.space 0x4
+
+	.global UNK04_02211924
+UNK04_02211924: ; 0x02211924
+	.space 0x4
+
+	.global UNK04_02211928
+UNK04_02211928: ; 0x02211928
+	.space 0x4
+
+	.global UNK04_0221192C
+UNK04_0221192C: ; 0x0221192C
+	.space 0x18
+
+	.global UNK04_02211944
+UNK04_02211944: ; 0x02211944
+	.space 0x20
+
+	.global UNK04_02211964
+UNK04_02211964: ; 0x02211964
+	.space 0xC0
+
+	.global UNK04_02211A24
+UNK04_02211A24: ; 0x02211A24
+	.space 0x20
+
+	.global UNK04_02211A44
+UNK04_02211A44: ; 0x02211A44
+	.space 0x9
+
+	.global UNK04_02211A4D
+UNK04_02211A4D: ; 0x02211A4D
+	.space 0x413
