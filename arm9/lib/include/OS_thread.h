@@ -87,6 +87,8 @@ struct _OSThread
     u32 systemErrno;
 };
 
+extern OSThreadInfo OSi_ThreadInfo;
+
 void OS_SleepThread(OSThreadQueue * queue);
 void OS_WakeupThread(OSThreadQueue * queue);
 
