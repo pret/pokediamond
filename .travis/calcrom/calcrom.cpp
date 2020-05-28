@@ -102,8 +102,8 @@ int main(int argc, char ** argv)
         // Analyze sections
         for (Elf32_Shdr & hdr : shdr) {
             string shname = shstrtab + hdr.sh_name;
-            bool is_text = (shname == ".text" || shname == ".init");
-            bool is_data = (shname == ".data" || shname == ".rodata" || shname == ".sdata");
+            bool is_text = (shname == ".text" || shname == ".init" || shname == ".itcm");
+            bool is_data = (shname == ".data" || shname == ".rodata" || shname == ".sdata" || shname == ".dtcm");
             size_t size = hdr.sh_size + (hdr.sh_size & 3 ? 4 - (hdr.sh_size & 3) : 0);
             if (is_text || is_data)
             {
