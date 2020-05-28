@@ -618,6 +618,10 @@
 .extern FUN_0200BD20
 .extern FUN_0200BE38
 .extern FUN_0200BF60
+.extern WCM_GetLinkLevel
+.extern STD_CompareNString
+.extern STD_CompareString
+.extern STD_GetStringLength
 .extern FUN_0200C00C
 .extern FUN_0200C06C
 .extern FUN_0200C0DC
