@@ -1,6 +1,5 @@
 #include "global.h"
 #include "SPI_pm.h"
-#include "OS_system.h"
 #include "CARD_backup.h"
 #include "CARD_pullOut.h"
 #include "CTRDG_common.h"
