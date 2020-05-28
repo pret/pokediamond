@@ -33,7 +33,7 @@ typedef struct FSDirPos
     u16 index;
     u32 pos;
 }
-FSDirPos;
+FSDirPos; // size = 0xC
 
 typedef struct FSFileID
 {
@@ -138,41 +138,41 @@ FSWriteFileInfo;
 
 typedef struct FSFile
 {
-    FSFileLink link;
-    struct FSArchive *arc;
-    u32 stat;
-    FSCommandType command;
-    FSResult error;
-    OSThreadQueue queue[1];
+    FSFileLink link;                         // 0x00
+    struct FSArchive *arc;                   // 0x08
+    u32 stat;                                // 0xC
+    FSCommandType command;                   // 0x10
+    FSResult error;                          // 0x14
+    OSThreadQueue queue[1];                  // 0x18
     union {
         struct
         {
-            u32 own_id;
-            u32 top;
-            u32 bottom;
-            u32 pos;
+            u32 own_id;                      // 0x20
+            u32 top;                         // 0x24
+            u32 bottom;                      // 0x28
+            u32 pos;                         // 0x2C
         } file;
         struct
         {
-            FSDirPos pos;
-            u32 parent;
+            FSDirPos pos;                    // 0x20
+            u32 parent;                      // 0x2C
         } dir;
-    } prop;
+    } prop;                                  // 0x20
 
     union {
-        FSReadFileInfo readfile;
-        FSWriteFileInfo writefile;
+        FSReadFileInfo readfile;             // 0x30
+        FSWriteFileInfo writefile;           // 0x30
 
-        FSSeekDirInfo seekdir;
-        FSReadDirInfo readdir;
-        FSFindPathInfo findpath;
-        FSGetPathInfo getpath;
-        FSOpenFileFastInfo openfilefast;
-        FSOpenFileDirectInfo openfiledirect;
-        FSCloseFileInfo closefile;
-    } arg;
+        FSSeekDirInfo seekdir;               // 0x30
+        FSReadDirInfo readdir;               // 0x30
+        FSFindPathInfo findpath;             // 0x30
+        FSGetPathInfo getpath;               // 0x30
+        FSOpenFileFastInfo openfilefast;     // 0x30
+        FSOpenFileDirectInfo openfiledirect; // 0x30
+        FSCloseFileInfo closefile;           // 0x30
+    } arg;                                   // 0x30
 }
-FSFile;
+FSFile; // size = 0x50
 
 void FS_Init(u32 default_dma_no);
 BOOL FS_IsAvailable(void);

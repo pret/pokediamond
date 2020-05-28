@@ -22372,13 +22372,13 @@ MOD06_02244758: ; 0x02244758
 	ldr r1, _02244768 ; =0x0000083E
 	add r2, r0, #0
 	add r1, r2, r1
-	ldr r3, _0224476C ; =0x020CE3E0
+	ldr r3, _0224476C ; =MI_CpuCopy8
 	add r0, #0x3e
 	mov r2, #0x1c
 	bx r3
 	nop
 _02244768: .word 0x0000083E
-_0224476C: .word 0x020CE3E0
+_0224476C: .word MI_CpuCopy8
 
 	thumb_func_start MOD06_02244770
 MOD06_02244770: ; 0x02244770
