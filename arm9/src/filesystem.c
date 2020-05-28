@@ -1,11 +1,9 @@
 #include "global.h"
 #include "FS_file.h"
+#include "heap.h"
+#include "filesystem.h"
 
-void * FUN_02016998(u32 heap_id, u32 size);
-void * FUN_020169D8(u32 heap_id, u32 size);
-void FUN_02016A18(void * ptr);
-
-static char * UNK_021058A0[] = {
+static char * sNarcFileList[] = {
     "battle/skill/waza_seq.narc",
     "battle/skill/sub_seq.narc",
     "poketool/personal/personal.narc",
@@ -245,37 +243,37 @@ THUMB_FUNC void * LoadFileIntoMemory(const char * path, s32 file_idx, u32 heap_i
     return dest;
 }
 
-THUMB_FUNC void LoadFromNARC(void * dest, s32 narc_id, s32 file_id)
+THUMB_FUNC void LoadFromNARC(void * dest, NarcId narc_id, s32 file_id)
 {
-    ReadNARCFile(dest, UNK_021058A0[narc_id], file_id, 0, 0);
+    ReadNARCFile(dest, sNarcFileList[narc_id], file_id, 0, 0);
 }
 
-THUMB_FUNC void * LoadFromNarc_2(s32 narc_id, s32 file_id, u32 heap_id)
+THUMB_FUNC void * LoadFromNarc_2(NarcId narc_id, s32 file_id, u32 heap_id)
 {
-    return LoadFileIntoMemory(UNK_021058A0[narc_id], file_id, heap_id, 0, 0, FALSE);
+    return LoadFileIntoMemory(sNarcFileList[narc_id], file_id, heap_id, 0, 0, FALSE);
 }
 
-THUMB_FUNC void * FUN_02006528(s32 narc_id, s32 file_id, u32 heap_id)
+THUMB_FUNC void * FUN_02006528(NarcId narc_id, s32 file_id, u32 heap_id)
 {
-    return LoadFileIntoMemory(UNK_021058A0[narc_id], file_id, heap_id, 0, 0, TRUE);
+    return LoadFileIntoMemory(sNarcFileList[narc_id], file_id, heap_id, 0, 0, TRUE);
 }
 
-THUMB_FUNC void FUN_02006548(void * dest, s32 narc_id, s32 file_id, u32 offset, u32 size)
+THUMB_FUNC void FUN_02006548(void * dest, NarcId narc_id, s32 file_id, u32 offset, u32 size)
 {
-    ReadNARCFile(dest, UNK_021058A0[narc_id], file_id, offset, size);
+    ReadNARCFile(dest, sNarcFileList[narc_id], file_id, offset, size);
 }
 
-THUMB_FUNC void * FUN_02006564(s32 narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size)
+THUMB_FUNC void * FUN_02006564(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size)
 {
-    return LoadFileIntoMemory(UNK_021058A0[narc_id], file_id, heap_id, offset, size, FALSE);
+    return LoadFileIntoMemory(sNarcFileList[narc_id], file_id, heap_id, offset, size, FALSE);
 }
 
-THUMB_FUNC void * FUN_02006584(s32 narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size)
+THUMB_FUNC void * FUN_02006584(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size)
 {
-    return LoadFileIntoMemory(UNK_021058A0[narc_id], file_id, heap_id, offset, size, TRUE);
+    return LoadFileIntoMemory(sNarcFileList[narc_id], file_id, heap_id, offset, size, TRUE);
 }
 
-THUMB_FUNC u32 LoadFromNARC_7(s32 narc_id, s32 file_idx)
+THUMB_FUNC u32 LoadFromNARC_7(NarcId narc_id, s32 file_idx)
 {
     FSFile file;
     register u32 chunk_starts[3];
@@ -286,7 +284,7 @@ THUMB_FUNC u32 LoadFromNARC_7(s32 narc_id, s32 file_idx)
     u16 num_files = 0;
 
     FS_InitFile(&file);
-    FS_OpenFile(&file, UNK_021058A0[narc_id]);
+    FS_OpenFile(&file, sNarcFileList[narc_id]);
 
     FS_SeekFile(&file, 12, FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 2);
@@ -312,24 +310,16 @@ THUMB_FUNC u32 LoadFromNARC_7(s32 narc_id, s32 file_idx)
     return chunk_size;
 }
 
-struct NARC
+THUMB_FUNC NARC * FUN_02006670(NarcId narc_id, u32 heap_id)
 {
-    FSFile file;
-    u32 btaf_start;
-    u32 gmif_start;
-    u16 num_files;
-};
-
-THUMB_FUNC struct NARC * FUN_02006670(s32 narc_id, u32 heap_id)
-{
-    struct NARC * narc = (struct NARC *)FUN_02016998(heap_id, sizeof(struct NARC));
+    NARC * narc = (NARC *)FUN_02016998(heap_id, sizeof(NARC));
     u32 btnf_start;
     u32 chunk_size;
     if (narc != NULL)
     {
         narc->btaf_start = 0;
         FS_InitFile(&narc->file);
-        FS_OpenFile(&narc->file, UNK_021058A0[narc_id]);
+        FS_OpenFile(&narc->file, sNarcFileList[narc_id]);
         FS_SeekFile(&narc->file, 12, FS_SEEK_SET);
         FS_ReadFile(&narc->file, &narc->btaf_start, 2);
         FS_SeekFile(&narc->file, narc->btaf_start + 4, FS_SEEK_SET);
@@ -343,13 +333,13 @@ THUMB_FUNC struct NARC * FUN_02006670(s32 narc_id, u32 heap_id)
     return narc;
 }
 
-THUMB_FUNC void FUN_020066F4(struct NARC * narc)
+THUMB_FUNC void FUN_020066F4(NARC * narc)
 {
     FS_CloseFile(&narc->file);
     FUN_02016A18(narc); // free to heap
 }
 
-THUMB_FUNC void * FUN_02006704(struct NARC * narc, u32 file_id, u32 heap_id)
+THUMB_FUNC void * FUN_02006704(NARC * narc, u32 file_id, u32 heap_id)
 {
     u32 file_start;
     u32 file_end;
@@ -368,7 +358,7 @@ THUMB_FUNC void * FUN_02006704(struct NARC * narc, u32 file_id, u32 heap_id)
     return dest;
 }
 
-THUMB_FUNC void FUN_02006774(struct NARC * narc, u32 file_id, void * dest)
+THUMB_FUNC void FUN_02006774(NARC * narc, u32 file_id, void * dest)
 {
     u32 file_start;
     u32 file_end;
@@ -381,7 +371,7 @@ THUMB_FUNC void FUN_02006774(struct NARC * narc, u32 file_id, void * dest)
     FS_ReadFile(&narc->file, dest, file_end - file_start);
 }
 
-THUMB_FUNC u32 FUN_020067D0(struct NARC * narc, u32 file_id)
+THUMB_FUNC u32 FUN_020067D0(NARC * narc, u32 file_id)
 {
     u32 file_start;
     u32 file_end;
@@ -393,7 +383,7 @@ THUMB_FUNC u32 FUN_020067D0(struct NARC * narc, u32 file_id)
     return file_end - file_start;
 }
 
-THUMB_FUNC void FUN_02006814(struct NARC * narc, u32 file_id, u32 pos, u32 size, void * dest)
+THUMB_FUNC void FUN_02006814(NARC * narc, u32 file_id, u32 pos, u32 size, void * dest)
 {
     u32 file_start;
     if (narc->num_files <= file_id)
@@ -404,12 +394,12 @@ THUMB_FUNC void FUN_02006814(struct NARC * narc, u32 file_id, u32 pos, u32 size,
     FS_ReadFile(&narc->file, dest, size);
 }
 
-THUMB_FUNC void FUN_02006864(struct NARC * narc, u32 size, void * dest)
+THUMB_FUNC void FUN_02006864(NARC * narc, u32 size, void * dest)
 {
     FS_ReadFile(&narc->file, dest, size);
 }
 
-THUMB_FUNC u16 FUN_02006874(struct NARC * narc)
+THUMB_FUNC u16 FUN_02006874(NARC * narc)
 {
     return narc->num_files;
 }
