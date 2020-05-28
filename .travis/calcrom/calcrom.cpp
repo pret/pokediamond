@@ -11,7 +11,12 @@
  *  - Must be placed in ".travis/calcrom/".
  *
  * Changelog:
- *  - 1.0 (26 May 2020): Initial implementation
+ *  - 0.1.0 (26 May 2020):
+ *      Initial implementation
+ *  - 0.1.1 (26 May 2020):
+ *      Allow program to be run from wherever
+ *    0.1.2 (27 May 2020):
+ *      Extra security on ELF header
  */
 
 #include <iostream>
@@ -42,11 +47,17 @@ public:
     }
 };
 
-int main()
+int main(int argc, char ** argv)
 {
     fstream elf;
     Elf32_Ehdr ehdr;
     vector<Elf32_Shdr> shdr;
+    stringstream pattern;
+
+    if (argc < 2) {
+        cout << "usage: calcrom PROJECT_DIR" << endl;
+        throw invalid_argument("missing required argument: PROJECT_DIR\n");
+    }
 
     // Accumulate sizes
     //        src   asm
@@ -55,7 +66,8 @@ int main()
     unsigned sizes[2][2] = {{0, 0}, {0, 0}};
     char * shstrtab = NULL;
     size_t shstrsz = 0;
-    for (char const * & fname : Glob("../../arm9/{src,asm,lib/{src,asm},modules/*/{src,asm}}/*.{c,s,cpp}"))
+    pattern << argv[1] << "/arm9/{src,asm,lib/{src,asm},modules/*/{src,asm}}/*.{c,s,cpp}";
+    for (char const * & fname : Glob(pattern.str()))
     {
         string fname_s(fname);
         string ext = fname_s.substr(fname_s.rfind('.'), 4);
@@ -64,7 +76,10 @@ int main()
         fname_s = fname_s.replace(fname_s.rfind('.'), 4, ".o");
         elf.open(fname_s, ios_base::in | ios_base::binary);
         elf.read((char *)&ehdr, sizeof(ehdr));
-        if (memcmp(ehdr.e_ident, ELFMAG, SELFMAG) != 0) {
+        if (memcmp(ehdr.e_ident, ELFMAG, SELFMAG) != 0
+         || ehdr.e_ehsize != sizeof(Elf32_Ehdr)
+         || ehdr.e_shentsize != sizeof(Elf32_Shdr))
+        {
             elf.close();
             stringstream ss;
             ss << "Error validating " << fname_s << " as an ELF file" << endl;
