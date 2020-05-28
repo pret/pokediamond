@@ -815,7 +815,7 @@ SECTIONS {
 		libVCT.o (.data)
 		unk_020ADA84.o (.data)
 		GX.o (.data)
-		OS_irqHandler.o (.data)
+		OS_irqTable.o (.data)
 		OS_emulator.o (.data)
 		FS_command.o (.data)
 		FS_command_default.o (.data)
@@ -983,7 +983,6 @@ SECTIONS {
 	.DTCM : {
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.START = .;
-		OS_irqHandler.o (.dtcm)
 		OS_irqTable.o (.dtcm)
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.END = .;
@@ -995,7 +994,7 @@ SECTIONS {
 	{
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.BSS_START = .;
-		OS_irqHandler.o (.bss)
+		OS_irqHandler.o (.dtcm.bss)
 		. = ALIGN(32);
 		SDK_AUTOLOAD.DTCM.BSS_END = .;
 		SDK_AUTOLOAD.DTCM.BSS_SIZE = SDK_AUTOLOAD.DTCM.BSS_END - SDK_AUTOLOAD.DTCM.BSS_START;

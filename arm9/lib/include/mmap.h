@@ -22,6 +22,9 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_DTCM                 ((u32)SDK_AUTOLOAD_DTCM_START)
 #define HW_DTCM_SIZE            0x00004000
 
+#define HW_DTCM_SYSRV           (HW_DTCM + 0x00003fc0)
+#define HW_INTR_CHECK_BUF       (HW_DTCM_SYSRV + 0x38)
+
 #define HW_CARD_ROM_HEADER_SIZE 0x00000160
 #define HW_DOWNLOAD_PARAMETER_SIZE      0x00000020
 
