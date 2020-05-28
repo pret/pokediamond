@@ -22,6 +22,7 @@
 #include "OS_alloc.h"
 #include "OS_system.h"
 #include "OS_terminate_proc.h"
+#include "OS_irqHandler.h"
 #include "OS_interrupt.h"
 #include "OS_reset.h"
 #include "OS_spinLock.h"

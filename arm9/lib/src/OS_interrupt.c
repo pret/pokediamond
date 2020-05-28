@@ -1,7 +1,3 @@
-//
-// Created by red031000 on 2020-05-07.
-//
-
 #include "consts.h"
 #include "function_target.h"
 #include "OS_interrupt.h"

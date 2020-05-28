@@ -36,6 +36,18 @@ OS_IRQTable: ; 027E0000 ;10b6a0
 OSi_IrqCallbackInfo: ; 0x021D341C
 	.space 0x60
 
+	.section .data
+	.global OSi_IrqCallbackInfoIndex
+OSi_IrqCallbackInfoIndex: ; 0x02106818
+	.short  8
+	.short  9
+	.short 10
+	.short 11
+	.short  3
+	.short  4
+	.short  5
+	.short  6
+
     .section .text
 
 	arm_func_start OSi_IrqTimer3

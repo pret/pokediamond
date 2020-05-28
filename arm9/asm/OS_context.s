@@ -60,7 +60,7 @@ _020CBB78: .word CP_SaveContext
 OS_LoadContext: ; 0x020CBB7C
 	stmdb sp!, {r0,lr}
 	add r0, r0, #0x48
-	ldr r1, _020CBBBC ; =CP_RestoreContext
+	ldr r1, _020CBBBC ; =CPi_RestoreContext
 	blx r1
 	ldmia sp!, {r0,lr}
 	mrs r1, cpsr
@@ -75,4 +75,4 @@ OS_LoadContext: ; 0x020CBB7C
 	mov r0, r0
 	subs pc, lr, #0x4
 	.balign 4
-_020CBBBC: .word CP_RestoreContext
+_020CBBBC: .word CPi_RestoreContext
