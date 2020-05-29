@@ -3,6 +3,14 @@
 #include "poke_overlay.h"
 #include "heap.h"
 
+struct UnkStruct_02006234 * FUN_02006234(struct Unk21DBE18 * ovly_mgr, int * a1, u32 heap_id); //todo header?
+void FUN_02006260(struct UnkStruct_02006234 * a0);
+void * FUN_02006268(struct UnkStruct_02006234 * a0, u32 size, u32 heap_id);
+void * FUN_02006278(struct UnkStruct_02006234 * a0);
+void FUN_0200627C(struct UnkStruct_02006234 * a0);
+int * FUN_0200628C(struct UnkStruct_02006234 * a0);
+BOOL FUN_02006290(struct UnkStruct_02006234 * a0);
+
 THUMB_FUNC struct UnkStruct_02006234 * FUN_02006234(struct Unk21DBE18 * ovly_mgr, int * a1, u32 heap_id)
 {
     struct UnkStruct_02006234 * ret = (struct UnkStruct_02006234 *)AllocFromHeap(heap_id, sizeof(struct UnkStruct_02006234));
