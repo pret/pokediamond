@@ -7258,6 +7258,7 @@
 .extern OSi_AlarmQueue
 .extern OSi_CurrentThreadPtr
 .extern OSi_DebuggerHandler
+.extern OSi_DoBoot
 .extern OSi_DoLockByWord
 .extern OSi_DoResetSystem
 .extern OSi_DoTryLockByWord

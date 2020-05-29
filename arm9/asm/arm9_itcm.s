@@ -3,72 +3,7 @@
 	.section .text
 
 	; OS
-	arm_func_start OSi_DoBoot
-OSi_DoBoot: ; 0x01FF81B4
-	mov ip, #0x04000000
-	str ip, [ip, #0x208]
-	ldr r1, _01FF8260
-	add r1, r1, #0x3fc0
-	add r1, r1, #0x3c
-	mov r0, #0x0
-	str r0, [r1]
-	ldr r1, _01FF8264
-_01FF81D4:
-	ldrh r0, [r1]
-	and r0, r0, #0xf
-	cmp r0, #0x1
-	bne _01FF81D4
-	mov r0, #0x100
-	strh r0, [r1]
-	mov r0, #0x0
-	ldr r3, _01FF8268
-	ldr r4, [r3]
-	ldr r1, _01FF826C
-	mov r2, #0x80
-	bl OSi_CpuClear32
-	str r4, [r3]
-	ldr r1, _01FF8270
-	mov r2, #0x18
-	bl OSi_CpuClear32
-	ldr r1, _01FF8274
-	strh r0, [r1]
-	ldr r1, _01FF8278
-	mov r2, #0x64
-	bl OSi_CpuClear32
-	ldr r1, _01FF8264
-_01FF822C:
-	ldrh r0, [r1]
-	and r0, r0, #0xf
-	cmp r0, #0x1
-	beq _01FF822C
-	mov r0, #0x0
-	strh r0, [r1]
-	ldr r3, _01FF827C
-	ldr ip, [r3, #0x24]
-	mov lr, ip
-	ldr fp, _01FF8270
-	ldmia fp, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl}
-	mov fp, #0x0
-	bx ip
-_01FF8260: .word SDK_AUTOLOAD_DTCM_START
-_01FF8264: .word 0x04000180
-_01FF8268: .word 0x027FFD9C
-_01FF826C: .word 0x027FFD80
-_01FF8270: .word 0x027FFF80
-_01FF8274: .word 0x027FFF98
-_01FF8278: .word 0x027FFF9C
-_01FF827C: .word 0x027FFE00
-
-	arm_func_start OSi_CpuClear32
-OSi_CpuClear32: ; 01FF8280
-	add ip, r1, r2
-_01FF8284:
-	cmp r1, ip
-	stmltia r1!, {r0}
-	blt _01FF8284
-	bx lr
-
-	arm_func_start OSi_ReadCardRom32
+	arm_func_start OSi_ReadCardRom32  ;OS_reset.c
 OSi_ReadCardRom32: ; 01FF8294
 	stmdb sp!,	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
@@ -152,7 +87,7 @@ _01FF83B8:	.word 0x040001AD
 _01FF83BC:	.word 0x040001AE
 _01FF83C0:	.word 0x040001AF
 
-	arm_func_start OSi_ReloadRomData
+	arm_func_start OSi_ReloadRomData  ;OS_reset.c
 OSi_ReloadRomData: ; 0x01FF83C4
 	stmdb sp!,	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
@@ -212,7 +147,7 @@ _01FF8498:	.word 0x027FFE30
 _01FF849C:	.word 0x027FFE38
 _01FF84A0:	.word 0x027FFE3C
 
-	arm_func_start OSi_DoResetSystem
+	arm_func_start OSi_DoResetSystem  ;OS_reset.c
 OSi_DoResetSystem: ; 0x01FF84A4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4

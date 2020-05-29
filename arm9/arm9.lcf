@@ -964,6 +964,7 @@ SECTIONS {
 		. = ALIGN(32);
 		SDK_AUTOLOAD.ITCM.START = .;
 		OS_irqHandler.o (.itcm)
+		OS_reset.o (.itcm)
 		arm9_itcm.o (.text)
 		. = ALIGN(32);
 		SDK_AUTOLOAD.ITCM.END = .;
