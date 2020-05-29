@@ -190,12 +190,12 @@ _02008C0A:
 _02008C14:
 	add r0, r7, #0x0
 	mov r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x24
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	mul r1, r4
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r6, #0x0]
 	mov r7, #0x0
 	str r4, [r6, #0x4]
@@ -252,10 +252,10 @@ _02008C8A:
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _02008C94
-	bl FUN_02016A18
+	bl FreeToHeap
 _02008C94:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start FUN_02008C9C

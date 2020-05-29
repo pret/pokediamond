@@ -18,7 +18,7 @@ FUN_020476CC: ; 0x020476CC
 	mov r1, #0x67
 	lsl r1, r1, #0x2
 	add r5, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x67
 	mov r1, #0x0
 	lsl r2, r2, #0x2
@@ -283,7 +283,7 @@ FUN_02047814: ; 0x02047814
 	add r1, r6, #0x0
 	bl FUN_0206B900
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5, #0xc]
 	bl FUN_02022510
 	mov r1, #0x45
@@ -330,7 +330,7 @@ _0204796C:
 	bl ErrorHandling
 _02047976:
 	ldr r0, [r5, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x4
@@ -348,7 +348,7 @@ _02047996:
 	add r0, r4, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r5, r5, #0x1
 	add r4, r4, #0x4
 	cmp r5, #0x4
@@ -366,7 +366,7 @@ _020479BA:
 	mov r0, #0x46
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r5, r5, #0x1
 	add r4, r4, #0x4
 	cmp r5, #0x4
@@ -374,21 +374,21 @@ _020479BA:
 	mov r0, #0x42
 	lsl r0, r0, #0x2
 	ldr r0, [r7, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r7, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x13
 	lsl r0, r0, #0x4
 	ldr r0, [r7, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x4d
 	lsl r0, r0, #0x2
 	ldr r0, [r7, r0]
 	bl FUN_02061020
 	add r0, r7, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r7, pc}
 
 	thumb_func_start FUN_020479FC
@@ -697,7 +697,7 @@ _02047C82:
 	blt _02047C40
 _02047C98:
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r1, #0x42
 	lsl r1, r1, #0x2
 	ldr r0, [sp, #0x10]
@@ -868,7 +868,7 @@ _02047DEE:
 	blt _02047DEE
 _02047E0E:
 	ldr r0, [sp, #0x8]
-	bl FUN_02016A18
+	bl FreeToHeap
 _02047E14:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0x0

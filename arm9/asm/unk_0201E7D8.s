@@ -419,12 +419,12 @@ FUN_0201EABC: ; 0x0201EABC
 _0201EADA:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x24
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	mov r1, #0xc
 	ldr r0, [sp, #0x0]
 	mul r1, r5
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	str r0, [r4, #0x20]
 	cmp r5, #0x0
@@ -485,9 +485,9 @@ FUN_0201EB48: ; 0x0201EB48
 	cmp r0, #0x0
 	beq _0201EB62
 	ldr r0, [r0, #0x20]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x64]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x64]
 _0201EB62:
@@ -495,18 +495,18 @@ _0201EB62:
 
 	thumb_func_start FUN_0201EB64
 FUN_0201EB64: ; 0x0201EB64
-	ldr r3, _0201EB6C ; =FUN_02016998
+	ldr r3, _0201EB6C ; =AllocFromHeap
 	mov r1, #0x68
 	bx r3
 	nop
-_0201EB6C: .word FUN_02016998
+_0201EB6C: .word AllocFromHeap
 
 	thumb_func_start FUN_0201EB70
 FUN_0201EB70: ; 0x0201EB70
-	ldr r3, _0201EB74 ; =FUN_02016A18
+	ldr r3, _0201EB74 ; =FreeToHeap
 	bx r3
 	.balign 4
-_0201EB74: .word FUN_02016A18
+_0201EB74: .word FreeToHeap
 
 	thumb_func_start FUN_0201EB78
 FUN_0201EB78: ; 0x0201EB78

@@ -12,10 +12,10 @@ _0200A388: .word AllocAndReadWholeNarcMemberByIdPair
 
 	thumb_func_start FUN_0200A38C
 FUN_0200A38C: ; 0x0200A38C
-	ldr r3, _0200A390 ; =FUN_02016A18
+	ldr r3, _0200A390 ; =FreeToHeap
 	bx r3
 	.balign 4
-_0200A390: .word FUN_02016A18
+_0200A390: .word FreeToHeap
 
 	thumb_func_start FUN_0200A394
 FUN_0200A394: ; 0x0200A394
@@ -215,7 +215,7 @@ FUN_0200A4D4: ; 0x0200A4D4
 	ldr r1, [sp, #0x4]
 	mov r0, #0x0
 	str r6, [sp, #0xc]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r7, r0, #0x0
 	beq _0200A574
 	ldr r0, [sp, #0x8]
@@ -251,7 +251,7 @@ _0200A556:
 	add r2, r6, #0x0
 	bl FUN_02021E8C
 	add r0, r7, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x10
 	pop {r3-r7, pc}
 _0200A56A:
@@ -302,7 +302,7 @@ FUN_0200A584: ; 0x0200A584
 	ldr r0, [sp, #0x0]
 	ldr r1, [sp, #0x4]
 	str r6, [sp, #0xc]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r7, r0, #0x0
 	beq _0200A626
 	ldr r0, [sp, #0x8]
@@ -343,7 +343,7 @@ _0200A606:
 	bl FUN_02021E8C
 _0200A61A:
 	add r0, r7, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x10
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
@@ -428,7 +428,7 @@ FUN_0200A670: ; 0x0200A670
 	str r0, [sp, #0xc]
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	beq _0200A728
 	str r4, [sp, #0x0]
@@ -466,7 +466,7 @@ _0200A70A:
 	add r1, r4, #0x0
 	bl FUN_02021E8C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x14
 	pop {r4-r7, pc}
 _0200A71E:
@@ -558,7 +558,7 @@ FUN_0200A76C: ; 0x0200A76C
 	lsl r6, r0, #0x1
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r5, r0, #0x0
 	beq _0200A824
 	str r5, [sp, #0x0]
@@ -596,7 +596,7 @@ _0200A814:
 	add r1, r5, #0x0
 	bl FUN_02021E8C
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _0200A824:
 	ldr r0, [sp, #0x8]
 	add sp, #0x18
@@ -645,7 +645,7 @@ FUN_0200A86C: ; 0x0200A86C
 	mov r1, #0xc
 	add r7, r2, #0x0
 	str r3, [sp, #0x0]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	beq _0200A8B4
 	cmp r5, #0x0
@@ -658,7 +658,7 @@ FUN_0200A86C: ; 0x0200A86C
 	cmp r0, #0x0
 	bne _0200A8AA
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r3-r7, pc}
 _0200A8A0:
@@ -696,7 +696,7 @@ _0200A8D2:
 	bl NARC_dtor
 _0200A8D8:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _0200A8DE:
 	pop {r4, pc}
 

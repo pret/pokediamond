@@ -752,7 +752,7 @@ FUN_0200E6CC: ; 0x0200E6CC
 	mov r1, #0x10
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r1, r0, #0x0
 	str r5, [r1, #0x0]
 	str r4, [r1, #0x4]
@@ -773,7 +773,7 @@ FUN_0200E6F8: ; 0x0200E6F8
 	add r4, r1, #0x0
 	add r0, r2, #0x0
 	mov r1, #0x8
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r1, r0, #0x0
 	mov r2, #0x1
 	str r5, [r1, #0x0]
@@ -798,7 +798,7 @@ FUN_0200E71C: ; 0x0200E71C
 	add r0, r5, #0x0
 	bl FUN_0200CAB4
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0200E73C
@@ -812,7 +812,7 @@ FUN_0200E73C: ; 0x0200E73C
 	add r0, r5, #0x0
 	bl FUN_0200CAB4
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0200E758

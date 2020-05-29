@@ -13,7 +13,7 @@ UNK_020FD144: ; 0x020FD144
 FUN_02087A6C: ; 0x02087A6C
 	push {r3, lr}
 	mov r1, #0x18
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r3, r0, #0x0
 	mov r2, #0x18
 	mov r1, #0x0
@@ -32,7 +32,7 @@ FUN_02087A84: ; 0x02087A84
 	bl ErrorHandling
 _02087A8E:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 
@@ -107,17 +107,17 @@ _02087B1A:
 	bl ErrorHandling
 _02087B24:
 	ldr r0, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x14]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	str r0, [r4, #0x4]

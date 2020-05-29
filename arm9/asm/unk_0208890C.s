@@ -17,7 +17,7 @@ FUN_0208890C: ; 0x0208890C
 	add r0, r2, #0x0
 	mov r1, #0x20
 	add r7, r3, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	mov r1, #0x0
 	mov r2, #0x20

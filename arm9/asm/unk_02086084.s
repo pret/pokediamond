@@ -208,7 +208,7 @@ FUN_020861DC: ; 0x020861DC
 	mov r1, #0x4
 	bl FUN_020178A0
 	ldr r0, [r4, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	bl FUN_0201C29C
 	ldr r0, [r4, #0x3c]
 	bl FUN_020072E8
@@ -375,7 +375,7 @@ _020863B6:
 	str r0, [r4, #0x0]
 	b _020863CE
 _020863C4:
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	mov r0, #0x1
 	pop {r4-r7, pc}
@@ -394,7 +394,7 @@ FUN_020863DC: ; 0x020863DC
 	add r4, r1, #0x0
 	mov r0, #0xb
 	mov r1, #0x1c
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r2, r0, #0x0
 	add r3, r2, #0x0
 	mov r1, #0x1c

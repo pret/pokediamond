@@ -824,7 +824,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	bl FUN_0201B398
 	ldr r0, _021D7C1C ; =0x0000C010
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	add r1, r0, #0
 	bl FUN_02015F10
@@ -937,7 +937,7 @@ _021D7CC2:
 	blt _021D7C9A
 _021D7CCA:
 	ldr r0, [sp, #0x18]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r7, #1
 	bl FUN_02088D1C
 	str r0, [sp, #0x10]
@@ -995,7 +995,7 @@ _021D7D10:
 	blt _021D7D10
 _021D7D44:
 	ldr r0, [sp, #0x14]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x10]
 	add r7, r7, #1
 	cmp r7, r0
@@ -2395,19 +2395,19 @@ MOD77_021D88D0: ; 0x021D88D0
 	add r4, r0, #0
 	ldr r0, _021D8900 ; =0x0000C290
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021D8904 ; =0x0000C28C
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021D8908 ; =0x0000C298
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021D890C ; =0x0000C294
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021D8910 ; =0x0000C0CC
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	nop
 _021D8900: .word 0x0000C290

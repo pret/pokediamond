@@ -15,7 +15,7 @@ FUN_02034A28: ; 0x02034A28
 _02034A38:
 	ldr r1, _02034A44 ; =0x00000AC8
 	add r0, r4, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x14]
 	pop {r3-r5, pc}
 	.balign 4
@@ -31,7 +31,7 @@ FUN_02034A48: ; 0x02034A48
 	bl ErrorHandling
 _02034A56:
 	ldr r0, [r4, #0x14]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 

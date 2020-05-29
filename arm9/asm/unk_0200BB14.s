@@ -9,7 +9,7 @@ FUN_0200BB14: ; 0x0200BB14
 	mov r1, #0x4e
 	lsl r1, r1, #0x2
 	add r4, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	cmp r0, #0x0
 	bne _0200BB28
 	mov r0, #0x0
@@ -31,7 +31,7 @@ FUN_0200BB34: ; 0x0200BB34
 _0200BB3E:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x58
-	bl FUN_02016998
+	bl AllocFromHeap
 	cmp r0, #0x0
 	bne _0200BB4E
 	mov r0, #0x0
@@ -214,7 +214,7 @@ _0200BC68:
 	blt _0200BC68
 _0200BC7C:
 	ldr r0, [r5, #0x8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5, #0x24]
 	bl FUN_02009C30
 	ldr r0, [r5, #0x28]
@@ -256,13 +256,13 @@ _0200BCCC:
 	thumb_func_start FUN_0200BCD0
 FUN_0200BCD0: ; 0x0200BCD0
 	ldr r2, [r0, #0x4]
-	ldr r3, _0200BCDC ; =FUN_02016A18
+	ldr r3, _0200BCDC ; =FreeToHeap
 	sub r2, r2, #0x1
 	str r2, [r0, #0x4]
 	add r0, r1, #0x0
 	bx r3
 	.balign 4
-_0200BCDC: .word FUN_02016A18
+_0200BCDC: .word FreeToHeap
 
 	thumb_func_start FUN_0200BCE0
 FUN_0200BCE0: ; 0x0200BCE0
@@ -293,7 +293,7 @@ _0200BD12:
 	add r0, r4, #0x0
 	bl FUN_0200BCB0
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start FUN_0200BD20
@@ -328,7 +328,7 @@ _0200BD48:
 	ldr r1, [sp, #0x14]
 	ldr r0, [r5, #0x0]
 	mul r1, r2
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x8]
 	ldr r0, [sp, #0x14]
 	mov r7, #0x0
@@ -348,7 +348,7 @@ _0200BD68:
 	str r0, [sp, #0x1c]
 	bl FUN_02009668
 	ldr r0, [sp, #0x1c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x14]
 	add r7, r7, #0x1
 	add r6, r6, #0x4
@@ -424,7 +424,7 @@ _0200BDF6:
 	bl FUN_02008BE0
 	str r0, [r4, #0x4]
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1
 	add sp, #0x24
 	pop {r4-r7, pc}
@@ -849,7 +849,7 @@ FUN_0200C154: ; 0x0200C154
 	add r6, r1, #0x0
 	mov r1, #0x10
 	add r5, r2, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0200C170
 	add sp, #0x74
@@ -858,7 +858,7 @@ FUN_0200C154: ; 0x0200C154
 _0200C170:
 	ldr r0, [r7, #0x0]
 	mov r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x8]
 	cmp r0, #0x0
 	bne _0200C184
@@ -868,7 +868,7 @@ _0200C170:
 _0200C184:
 	ldr r0, [r7, #0x0]
 	mov r1, #0x24
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, [r4, #0x8]
 	str r0, [r1, #0x0]
 	ldr r0, [r4, #0x8]
@@ -880,7 +880,7 @@ _0200C184:
 	bne _0200C1AC
 	cmp r0, #0x0
 	beq _0200C1A6
-	bl FUN_02016A18
+	bl FreeToHeap
 _0200C1A6:
 	add sp, #0x74
 	mov r0, #0x0
@@ -1187,7 +1187,7 @@ _0200C3EE:
 	ldr r0, [r4, #0x8]
 	bl FUN_02008C80
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 

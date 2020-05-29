@@ -212,9 +212,9 @@ _0206F34A:
 	b _0206F380
 _0206F366:
 	ldr r0, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x4]
 	add r0, r0, #0x1
 	str r0, [r4, #0x4]
@@ -235,14 +235,14 @@ FUN_0206F38C: ; 0x0206F38C
 	push {r4, lr}
 	mov r0, #0xb
 	mov r1, #0x10
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	mov r1, #0x0
 	mov r2, #0x10
 	add r4, r0, #0x0
 	bl MI_CpuFill8
 	mov r0, #0xb
 	mov r1, #0xc
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	mov r1, #0x0
 	mov r2, #0xc
 	str r0, [r4, #0x0]

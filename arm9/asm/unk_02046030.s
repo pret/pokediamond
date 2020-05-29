@@ -11,7 +11,7 @@ FUN_02046030: ; 0x02046030
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0xc
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r2, r0, #0x0
 	mov r0, #0x0
 	strb r0, [r2, #0x0]
@@ -217,7 +217,7 @@ _020461CE:
 	b _020461F8
 _020461E4:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	mov r1, #0x0
 	bl FUN_0206367C

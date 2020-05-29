@@ -11,7 +11,7 @@ FUN_02085338: ; 0x02085338
 	add r0, r3, #0x0
 	mov r1, #0x24
 	add r6, r2, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	strb r5, [r4, #0x0]
 	strb r7, [r4, #0x1]
@@ -59,10 +59,10 @@ _020853A4: .word 0x0000FFFF
 
 	thumb_func_start FUN_020853A8
 FUN_020853A8: ; 0x020853A8
-	ldr r3, _020853AC ; =FUN_02016A18
+	ldr r3, _020853AC ; =FreeToHeap
 	bx r3
 	.balign 4
-_020853AC: .word FUN_02016A18
+_020853AC: .word FreeToHeap
 
 	thumb_func_start FUN_020853B0
 FUN_020853B0: ; 0x020853B0

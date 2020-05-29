@@ -17,7 +17,7 @@ FUN_02052EE8: ; 0x02052EE8
 	ldr r1, _02052F58 ; =0x000004E8
 	add r5, r0, #0x0
 	mov r0, #0x1f
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	ldr r2, _02052F58 ; =0x000004E8
 	mov r0, #0x0
@@ -115,7 +115,7 @@ FUN_02052FA4: ; 0x02052FA4
 	mov r0, #0x59
 	bl FUN_020168D0
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 _02052FC4: .word 0x000004DC
@@ -913,7 +913,7 @@ FUN_020535E0: ; 0x020535E0
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	beq _020535F4
@@ -946,7 +946,7 @@ FUN_02053618: ; 0x02053618
 	push {r4, lr}
 	mov r1, #0x35
 	lsl r1, r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bl FUN_020535BC
 	add r0, r4, #0x0
@@ -958,5 +958,5 @@ FUN_0205362C: ; 0x0205362C
 	add r4, r0, #0x0
 	bl FUN_02053600
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}

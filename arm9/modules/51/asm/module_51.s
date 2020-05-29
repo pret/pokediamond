@@ -355,7 +355,7 @@ _02254AEC:
 	ldr r0, [sp]
 	bl MOD51_02254B30
 	ldr r0, [r6, #0x20]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xa2
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
@@ -1884,7 +1884,7 @@ _022556E6:
 	bl MOD51_02255640
 _0225570E:
 	ldr r0, [sp, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 _02255714:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}

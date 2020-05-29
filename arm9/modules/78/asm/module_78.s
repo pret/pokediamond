@@ -245,14 +245,14 @@ _021D76C8:
 	add r0, r7, #0
 	bl thunk_FUN_020ae84c
 	ldr r0, [r5, #0x60]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	cmp r4, #4
 	blo _021D76C8
 	ldr r0, [r6, #0x5c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r6]
 	bl FUN_0201EB70
 	ldr r0, [sp]

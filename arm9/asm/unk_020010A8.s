@@ -14,7 +14,7 @@ FUN_020010A8: ; 0x020010A8
 	mov r1, #0x38
 	add r7, r2, #0x0
 	str r3, [sp, #0x0]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r3, r5, #0x0
 	add r2, r4, #0x0

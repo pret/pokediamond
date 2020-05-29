@@ -247,7 +247,7 @@ FUN_02079B60: ; 0x02079B60
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0x28]
@@ -340,7 +340,7 @@ _02079C24:
 	bl FUN_02017FB4
 _02079C36:
 	add r0, r7, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x14
 	pop {r4-r7, pc}
 
@@ -355,7 +355,7 @@ FUN_02079C40: ; 0x02079C40
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x18]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r5, #0x0

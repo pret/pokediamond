@@ -879,7 +879,7 @@ FUN_02086A80: ; 0x02086A80
 	mov r1, #0x12
 	lsl r1, r1, #0xa
 	add r4, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r2, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -935,7 +935,7 @@ FUN_02086AF0: ; 0x02086AF0
 	add r0, r5, #0x0
 	bl FUN_02012DE4
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02086B08
@@ -975,7 +975,7 @@ FUN_02086B40: ; 0x02086B40
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02086B54
 	bl ErrorHandling
@@ -1023,10 +1023,10 @@ _02086B9C:
 
 	thumb_func_start FUN_02086BA0
 FUN_02086BA0: ; 0x02086BA0
-	ldr r3, _02086BA4 ; =FUN_02016A18
+	ldr r3, _02086BA4 ; =FreeToHeap
 	bx r3
 	.balign 4
-_02086BA4: .word FUN_02016A18
+_02086BA4: .word FreeToHeap
 
 	thumb_func_start FUN_02086BA8
 FUN_02086BA8: ; 0x02086BA8

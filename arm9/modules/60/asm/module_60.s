@@ -662,7 +662,7 @@ MOD60_021D7A14: ; 0x021D7A14
 	mov r1, #0
 	bl FUN_020178A0
 	ldr r0, [r4, #0x14]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD60_021D7A14
 
@@ -680,7 +680,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r6, r0, #0
 	add r0, r4, #0
 	mov r1, #1
@@ -705,13 +705,13 @@ MOD60_021D7A40: ; 0x021D7A40
 	mov r1, #4
 	bl FUN_02017E14
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x49
 	mov r1, #0
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r6, r0, #0
 	add r0, r4, #0
 	mov r1, #0
@@ -733,13 +733,13 @@ MOD60_021D7A40: ; 0x021D7A40
 	mov r3, #0
 	bl FUN_02017FB4
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x49
 	mov r1, #2
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x24]
 	ldr r2, [r5, #0x24]
 	add r0, r4, #0
@@ -817,11 +817,11 @@ MOD60_021D7A40: ; 0x021D7A40
 
 	thumb_func_start MOD60_021D7B98
 MOD60_021D7B98: ; 0x021D7B98
-	ldr r3, _021D7BA0 ; =FUN_02016A18
+	ldr r3, _021D7BA0 ; =FreeToHeap
 	ldr r0, [r0, #0x24]
 	bx r3
 	nop
-_021D7BA0: .word FUN_02016A18
+_021D7BA0: .word FreeToHeap
 	thumb_func_end MOD60_021D7B98
 
 	thumb_func_start MOD60_021D7BA4
@@ -1019,7 +1019,7 @@ MOD60_021D7D18: ; 0x021D7D18
 	bl FUN_0201BDE0
 	add r0, r5, #0
 	bl FUN_02021A4C
-	ldr r1, _021D7DF0 ; =0x020ECAC0
+	ldr r1, _021D7DF0 ; =gGameVersion
 	ldr r0, [r6, #0x20]
 	ldrb r1, [r1]
 	add r2, r5, #0
@@ -1090,7 +1090,7 @@ _021D7DB6:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021D7DEC: .word 0x00010200
-_021D7DF0: .word 0x020ECAC0
+_021D7DF0: .word gGameVersion
 _021D7DF4: .word 0x0001020F
 	thumb_func_end MOD60_021D7D18
 

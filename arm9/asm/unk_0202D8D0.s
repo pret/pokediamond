@@ -48,7 +48,7 @@ FUN_0202D8D0: ; 0x0202D8D0
 	bne _0202D8EC
 	mov r0, #0xf
 	mov r1, #0x18
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _0202D914 ; =UNK_021C59E0
 	str r0, [r1, #0x0]
 _0202D8EC:
@@ -82,7 +82,7 @@ FUN_0202D918: ; 0x0202D918
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	beq _0202D92C
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0202D930 ; =UNK_021C59E0
 	mov r1, #0x0
 	str r1, [r0, #0x0]

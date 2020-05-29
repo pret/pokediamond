@@ -77,7 +77,7 @@ _021D7564:
 _021D757A:
 	mov r0, #4
 	mov r1, #0x28
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0x28
 	str r0, [r4, #4]
@@ -355,9 +355,9 @@ _021D7806:
 	add r1, r0, #0
 	bl FUN_02015F10
 	ldr r0, [r4, #8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r4, #4]
 	mov r0, #4
@@ -1157,7 +1157,7 @@ MOD05_021D7EE8: ; 0x021D7EE8
 	add r6, r1, #0
 	add r5, r0, #0
 	mov r1, #0x64
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r0, #0x60
 	add r1, r6, #0
@@ -1189,7 +1189,7 @@ _021D7F18:
 	blt _021D7F18
 _021D7F2C:
 	strh r3, [r4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
 	nop
@@ -1207,10 +1207,10 @@ MOD05_021D7F40: ; 0x021D7F40
 
 	thumb_func_start MOD05_021D7F44
 MOD05_021D7F44: ; 0x021D7F44
-	ldr r3, _021D7F48 ; =FUN_02016A18
+	ldr r3, _021D7F48 ; =FreeToHeap
 	bx r3
 	.balign 4, 0
-_021D7F48: .word FUN_02016A18
+_021D7F48: .word FreeToHeap
 
 	thumb_func_start MOD05_021D7F4C
 MOD05_021D7F4C: ; 0x021D7F4C
@@ -1220,7 +1220,7 @@ MOD05_021D7F4C: ; 0x021D7F4C
 	add r0, r5, #0
 	mov r1, #0x14
 	add r6, r2, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	str r7, [r4]
 	str r5, [r4, #4]
@@ -1230,7 +1230,7 @@ MOD05_021D7F4C: ; 0x021D7F4C
 	str r6, [r4, #8]
 	add r0, r5, #0
 	add r1, r7, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	ldr r1, [r4, #0xc]
 	mov r0, #0
@@ -1240,7 +1240,7 @@ MOD05_021D7F4C: ; 0x021D7F4C
 	bl FUN_0201B578
 	add r1, r0, #0
 	add r0, r5, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x10]
 	ldr r1, [r4, #0x10]
 	add r0, r6, #0
@@ -1269,11 +1269,11 @@ _021D7FAA:
 	blt _021D7FAA
 _021D7FBC:
 	ldr r0, [r5, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start MOD05_021D7FD0
@@ -1367,7 +1367,7 @@ _021D806C:
 	cmp r1, #0
 	beq _021D807A
 	ldr r0, [r5, #4]
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x10]
 _021D807A:
 	ldr r3, [r6, #8]
@@ -1414,7 +1414,7 @@ _021D80BE:
 	cmp r0, #0
 	beq _021D80CC
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 _021D80CC:
 	ldr r0, [r4, #4]
 	bl FUN_0200CAB4
@@ -3726,7 +3726,7 @@ _021D9348:
 	add r0, r4, #0
 	add r1, r2, #0
 	mul r1, r3
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r7, r0, #0
 	mov r0, #0
 	str r0, [sp, #0x1c]
@@ -3749,7 +3749,7 @@ _021D9374:
 	add r2, r4, #0
 	bl FUN_02009668
 	ldr r0, [sp, #0x24]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x1c]
 	add r6, r6, #4
 	add r0, r0, #1
@@ -3839,7 +3839,7 @@ _021D9432:
 	blo _021D9432
 _021D944A:
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x52
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
@@ -3879,7 +3879,7 @@ _021D944A:
 	lsl r1, r1, #2
 	str r0, [r5, r1]
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x2c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -4345,17 +4345,17 @@ MOD05_021D9820: ; 0x021D9820
 	add r4, r1, #0
 	ldrh r0, [r5, r0]
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r6, r0, #0
 	ldr r0, _021D99F4 ; =0x00000162
 	mov r1, #8
 	ldrh r0, [r5, r0]
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r6, #8]
 	ldr r0, _021D99F4 ; =0x00000162
 	mov r1, #0x24
 	ldrh r0, [r5, r0]
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, [r6, #8]
 	add r2, r4, #0
 	str r0, [r1]
@@ -4757,7 +4757,7 @@ MOD05_021D9B54: ; 0x021D9B54
 	mov r1, #0xae
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r7, r0, #0
 	mov r1, #0
 	add r2, r7, #0
@@ -5312,7 +5312,7 @@ _021D9F54:
 	bl thunk_FUN_020ae84c
 	str r7, [r5, #0x10]
 	ldr r0, [r5, #0x24]
-	bl FUN_02016A18
+	bl FreeToHeap
 _021D9F6E:
 	mov r0, #0
 	str r0, [r5, #0x14]
@@ -5347,7 +5347,7 @@ _021D9F90:
 	mov r0, #0
 	str r0, [r5]
 	ldr r0, [r5, #0x14]
-	bl FUN_02016A18
+	bl FreeToHeap
 _021D9FAC:
 	mov r0, #0
 	str r0, [r5, #4]
@@ -5422,7 +5422,7 @@ MOD05_021DA018: ; 0x021DA018
 	ldr r0, [r4, r0]
 	bl NARC_dtor
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _021DA038:
 	pop {r4, pc}
 	.balign 4, 0
@@ -6028,7 +6028,7 @@ MOD05_021DA430: ; 0x021DA430
 	mov r1, #0xe
 	mov r0, #4
 	lsl r1, r1, #6
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r2, #0xe
 	mov r0, #0
@@ -6046,7 +6046,7 @@ MOD05_021DA450: ; 0x021DA450
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _021DA462
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r4]
 _021DA462:
@@ -6236,17 +6236,17 @@ MOD05_021DA5B8: ; 0x021DA5B8
 	push {r3, lr}
 	mov r0, #4
 	mov r1, #0x28
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	mov r1, #0
 	str r1, [r0]
 	pop {r3, pc}
 
 	thumb_func_start MOD05_021DA5C8
 MOD05_021DA5C8: ; 0x021DA5C8
-	ldr r3, _021DA5CC ; =FUN_02016A18
+	ldr r3, _021DA5CC ; =FreeToHeap
 	bx r3
 	.balign 4, 0
-_021DA5CC: .word FUN_02016A18
+_021DA5CC: .word FreeToHeap
 
 	thumb_func_start MOD05_021DA5D0
 MOD05_021DA5D0: ; 0x021DA5D0
@@ -7308,7 +7308,7 @@ MOD05_021DAE14: ; 0x021DAE14
 	cmp r0, #0
 	beq _021DAE3C
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 _021DAE3C:
@@ -7478,7 +7478,7 @@ MOD05_021DAF78: ; 0x021DAF78
 	add r4, r1, #0
 	mov r0, #4
 	mov r1, #1
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r2, r0, #0
 	strb r4, [r2]
 	ldr r0, [r5, #0x10]
@@ -7566,7 +7566,7 @@ MOD05_021DB030: ; 0x021DB030
 	push {r3, lr}
 	mov r0, #4
 	mov r1, #0x10
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	mov r1, #0
 	str r1, [r0]
 	pop {r3, pc}
@@ -7673,7 +7673,7 @@ _021DB106:
 	cmp r1, r0
 	bne _021DB126
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
@@ -7740,7 +7740,7 @@ _021DB1A0:
 	cmp r0, #0
 	beq _021DB1B4
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	mov r0, #1
 	pop {r4, r5, pc}
@@ -7804,7 +7804,7 @@ _021DB222:
 	cmp r0, #0
 	beq _021DB236
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x10
 	mov r0, #1
 	pop {r4, r5, r6, pc}
@@ -7955,7 +7955,7 @@ _021DB348:
 	cmp r1, r0
 	bne _021DB368
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8062,7 +8062,7 @@ _021DB432:
 	cmp r0, #0
 	beq _021DB446
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x10
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
@@ -8082,7 +8082,7 @@ MOD05_021DB44C: ; 0x021DB44C
 _021DB45A:
 	mov r0, #4
 	mov r1, #0x14
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	ldr r0, _021DB4AC ; =0x021F65FC
 	lsl r1, r6, #2
@@ -8394,7 +8394,7 @@ _021DB6A4:
 	mul r4, r1
 	mov r0, #4
 	add r1, r4, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, [sp]
 	add r2, r4, #0
 	str r0, [r1]
@@ -8682,7 +8682,7 @@ MOD05_021DB900: ; 0x021DB900
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #8
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021DB912
 	bl ErrorHandling
@@ -8728,7 +8728,7 @@ _021DB958:
 	lsl r4, r0, #2
 	mov r0, #4
 	add r1, r6, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5]
 	cmp r0, #0
 	bne _021DB974
@@ -8736,7 +8736,7 @@ _021DB958:
 _021DB974:
 	mov r0, #4
 	add r1, r4, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #4]
 	cmp r0, #0
 	bne _021DB986
@@ -8772,11 +8772,11 @@ MOD05_021DB9BC: ; 0x021DB9BC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021DB9D4
@@ -8815,7 +8815,7 @@ MOD05_021DBA00: ; 0x021DBA00
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #0x38
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r4, #0
@@ -8935,7 +8935,7 @@ MOD05_021DBABC: ; 0x021DBABC
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #0x48
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r4, #0
@@ -9545,7 +9545,7 @@ MOD05_021DBEF4: ; 0x021DBEF4
 	mov r1, #0x42
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	cmp r0, #0
 	beq _021DBF1E
 	mov r2, #0
@@ -9754,7 +9754,7 @@ MOD05_021DC06C: ; 0x021DC06C
 	ldr r0, [r6, r4]
 	cmp r0, #0
 	beq _021DC08A
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r6, r4]
 _021DC08A:
@@ -9786,7 +9786,7 @@ MOD05_021DC0AC: ; 0x021DC0AC
 	push {r3, lr}
 	cmp r0, #0
 	beq _021DC0B6
-	bl FUN_02016A18
+	bl FreeToHeap
 _021DC0B6:
 	pop {r3, pc}
 
@@ -9796,7 +9796,7 @@ MOD05_021DC0B8: ; 0x021DC0B8
 	add r5, r0, #0
 	mov r0, #4
 	mov r1, #0x18
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	add r2, r4, #0
 	mov r1, #0x18
@@ -9843,7 +9843,7 @@ _021DC112:
 	sub r1, r1, #1
 	bne _021DC112
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -10245,7 +10245,7 @@ _021DC3F6:
 	add r1, r0, #0
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r6, #0x10]
 	mov r1, #0
 	mov r2, #0x39
@@ -10313,7 +10313,7 @@ MOD05_021DC480: ; 0x021DC480
 	mov r2, #4
 	bl FUN_02009668
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD05_021DC4AC
@@ -10334,7 +10334,7 @@ _021DC4B4:
 	cmp r4, #4
 	blt _021DC4B4
 	ldr r0, [r6, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r6, #0x10]
 	add r0, r6, #0
@@ -10408,7 +10408,7 @@ MOD05_021DC554: ; 0x021DC554
 	add r5, r0, #0
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r0, #0x41
 	lsl r0, r0, #2
@@ -10882,7 +10882,7 @@ _021DC8DC:
 	cmp r0, #0
 	bne _021DC8F4
 	ldr r0, [r4, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r4, #0xc]
 	pop {r3, r4, r5, pc}
@@ -11017,7 +11017,7 @@ _021DC998:
 	cmp r1, #0
 	ble _021DC9FE
 	mov r0, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r2, [r4, #0xc]
 	ldr r1, _021DCA3C ; =0x00000F58
 	str r0, [r2, r1]
@@ -11434,7 +11434,7 @@ MOD05_021DCD04: ; 0x021DCD04
 _021DCD14:
 	ldr r1, _021DCD60 ; =0x00000F68
 	mov r0, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	bne _021DCD26
@@ -11489,7 +11489,7 @@ MOD05_021DCD68: ; 0x021DCD68
 _021DCD80:
 	mov r0, #4
 	mov r1, #0x64
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x10]
 	cmp r0, #0
 	bne _021DCD92
@@ -11692,7 +11692,7 @@ MOD05_021DCECC: ; 0x021DCECC
 	mov r3, #0xc0
 	bl FUN_02017FB4
 	ldr r0, [sp]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [sp]
 _021DCF0E:
@@ -11734,7 +11734,7 @@ MOD05_021DCF14: ; 0x021DCF14
 	mov r1, #2
 	bl FUN_02017E14
 	ldr r0, [sp, #8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [sp, #8]
 _021DCF62:
@@ -11814,7 +11814,7 @@ _021DCFA0:
 	ldr r0, [r0, #8]
 	bl FUN_02017CD0
 	ldr r0, [sp, #0x14]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [sp, #0x14]
 _021DD00A:
@@ -20436,7 +20436,7 @@ MOD05_021E1374: ; 0x021E1374
 	add r7, r0, #0
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021E1396
 	bl ErrorHandling
@@ -20619,7 +20619,7 @@ _021E14FA:
 	bl MOD05_021E1514
 	b _021E150C
 _021E1502:
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #8
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -20912,7 +20912,7 @@ MOD05_021E1724: ; 0x021E1724
 	add r6, r1, #0
 	mov r0, #4
 	mov r1, #0xc
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021E173C
 	bl ErrorHandling
@@ -21566,7 +21566,7 @@ MOD05_021E1BF8: ; 0x021E1BF8
 	lsl r1, r1, #2
 	str r2, [sp, #0x18]
 	add r5, r3, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021E1C18
 	add sp, #0x1c
@@ -21973,7 +21973,7 @@ _021E1F22:
 	ldr r0, [r6, #4]
 	bl FUN_0200CAB4
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 _021E1F30: .word 0x000005DC
@@ -22570,7 +22570,7 @@ _021E23BE:
 	ldr r0, [r6, #4]
 	bl FUN_0200CAB4
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 _021E23CC: .word 0x000005DC
@@ -22839,7 +22839,7 @@ _021E25F6:
 	ldr r0, [r6, #4]
 	bl FUN_0200CAB4
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _021E2602:
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
@@ -23985,7 +23985,7 @@ MOD05_021E2EE4: ; 0x021E2EE4
 	add r2, r7, #0
 	bl MOD05_021E2E88
 	ldr r0, [sp, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -24374,7 +24374,7 @@ MOD05_021E320C: ; 0x021E320C
 	add r5, r0, #0
 	mov r0, #4
 	mov r1, #0x44
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r0, #0x16
 	mov r1, #4
@@ -24408,9 +24408,9 @@ MOD05_021E3248: ; 0x021E3248
 	ldr r0, [r4, #0x40]
 	bl FUN_02021A20
 	ldr r0, [r4, #0x38]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -24615,7 +24615,7 @@ _021E33FE:
 	cmp r0, #0
 	beq _021E3414
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #4
 	mov r0, #1
 	pop {r3, r4, r5, r6, pc}
@@ -24633,7 +24633,7 @@ MOD05_021E3424: ; 0x021E3424
 	add r4, r0, #0
 	mov r0, #0xb
 	mov r1, #4
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [r2]
@@ -24679,7 +24679,7 @@ MOD05_021E3474: ; 0x021E3474
 	mov r1, #0x4c
 	str r2, [sp]
 	add r5, r3, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0x4c
 	add r4, r0, #0
@@ -24821,7 +24821,7 @@ _021E3580:
 _021E3590:
 	bl FUN_0200CAB4
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #4
 	pop {r3, r4, pc}
 _021E359E:
@@ -25079,7 +25079,7 @@ MOD05_021E3768: ; 0x021E3768
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #0x30
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0x30
 	add r4, r0, #0
@@ -25119,7 +25119,7 @@ _021E37B2:
 	and r0, r1
 	str r0, [r2]
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	nop
 _021E37C8: .word 0xFFFF1FFF
@@ -25415,7 +25415,7 @@ MOD05_021E39FC: ; 0x021E39FC
 	push {r4, r5, r6, lr}
 	mov r0, #4
 	mov r1, #0x48
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0x48
 	add r4, r0, #0
@@ -25463,7 +25463,7 @@ _021E3A56:
 	and r0, r1
 	str r0, [r2]
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	nop
 _021E3A6C: .word 0xFFFF1FFF
@@ -26098,7 +26098,7 @@ MOD05_021E3F68: ; 0x021E3F68
 	bl FUN_020690AC
 	add r0, r4, #0
 	mov r1, #0x20
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r1, sp, #4
 	add r5, r0, #0
 	ldrh r0, [r1, #4]
@@ -26121,9 +26121,9 @@ MOD05_021E3F68: ; 0x021E3F68
 	mov r2, #0x20
 	bl MOD05_021E40F0
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -26214,9 +26214,9 @@ MOD05_021E4014: ; 0x021E4014
 	add r1, r4, #0
 	bl MOD05_021E4118
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
@@ -26232,7 +26232,7 @@ MOD05_021E4080: ; 0x021E4080
 	lsl r1, r1, #0xa
 	str r2, [sp, #4]
 	add r5, r3, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov ip, r0
 	lsl r0, r5, #2
 	mov r7, #0
@@ -26323,7 +26323,7 @@ MOD05_021E4118: ; 0x021E4118
 MOD05_021E4140: ; 0x021E4140
 	push {r4, lr}
 	mov r1, #0x30
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0x30
 	add r4, r0, #0
@@ -26334,10 +26334,10 @@ MOD05_021E4140: ; 0x021E4140
 
 	thumb_func_start MOD05_021E4158
 MOD05_021E4158: ; 0x021E4158
-	ldr r3, _021E415C ; =FUN_02016A18
+	ldr r3, _021E415C ; =FreeToHeap
 	bx r3
 	.balign 4, 0
-_021E415C: .word FUN_02016A18
+_021E415C: .word FreeToHeap
 
 	thumb_func_start MOD05_021E4160
 MOD05_021E4160: ; 0x021E4160
@@ -26441,7 +26441,7 @@ _021E41CE:
 MOD05_021E4220: ; 0x021E4220
 	push {r4, lr}
 	mov r1, #0x30
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0x30
 	add r4, r0, #0
@@ -26452,10 +26452,10 @@ MOD05_021E4220: ; 0x021E4220
 
 	thumb_func_start MOD05_021E4238
 MOD05_021E4238: ; 0x021E4238
-	ldr r3, _021E423C ; =FUN_02016A18
+	ldr r3, _021E423C ; =FreeToHeap
 	bx r3
 	.balign 4, 0
-_021E423C: .word FUN_02016A18
+_021E423C: .word FreeToHeap
 
 	thumb_func_start MOD05_021E4240
 MOD05_021E4240: ; 0x021E4240
@@ -26641,7 +26641,7 @@ MOD05_021E4394: ; 0x021E4394
 	add r6, r0, #0
 	mov r0, #4
 	mov r1, #0xcc
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0xcc
 	add r7, r0, #0
@@ -26674,7 +26674,7 @@ _021E43CC:
 	cmp r4, #0x30
 	blt _021E43CC
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 
@@ -26846,7 +26846,7 @@ _021E4518: .word 0x021F745C
 MOD05_021E451C: ; 0x021E451C
 	push {r3, lr}
 	mov r1, #0x1c
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r3, r0, #0
 	mov r2, #0x1c
 	mov r1, #0
@@ -26859,10 +26859,10 @@ _021E452A:
 
 	thumb_func_start MOD05_021E4534
 MOD05_021E4534: ; 0x021E4534
-	ldr r3, _021E4538 ; =FUN_02016A18
+	ldr r3, _021E4538 ; =FreeToHeap
 	bx r3
 	.balign 4, 0
-_021E4538: .word FUN_02016A18
+_021E4538: .word FreeToHeap
 
 	thumb_func_start MOD05_021E453C
 MOD05_021E453C: ; 0x021E453C
@@ -27038,7 +27038,7 @@ MOD05_021E4688: ; 0x021E4688
 	push {r3, r4, r5, r6, r7, lr}
 	mov r1, #0x24
 	add r6, r0, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0x24
 	add r7, r0, #0
@@ -27070,7 +27070,7 @@ _021E46BC:
 	cmp r4, #8
 	blt _021E46BC
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 
@@ -27172,7 +27172,7 @@ MOD05_021E4788: ; 0x021E4788
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #0xe8
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0xe8
 	add r4, r0, #0
@@ -27192,7 +27192,7 @@ MOD05_021E47A0: ; 0x021E47A0
 	bl MOD05_021E4918
 _021E47B2:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -27772,10 +27772,10 @@ MOD05_021E4BE8: ; 0x021E4BE8
 
 	thumb_func_start MOD05_021E4C00
 MOD05_021E4C00: ; 0x021E4C00
-	ldr r3, _021E4C04 ; =FUN_02016A18
+	ldr r3, _021E4C04 ; =FreeToHeap
 	bx r3
 	.balign 4, 0
-_021E4C04: .word FUN_02016A18
+_021E4C04: .word FreeToHeap
 
 	thumb_func_start MOD05_021E4C08
 MOD05_021E4C08: ; 0x021E4C08
@@ -32684,7 +32684,7 @@ _021E7198:
 	str r0, [sp]
 	mov r0, #4
 	mov r1, #0x10
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	mov r0, #0
 	str r0, [r4]
@@ -32728,7 +32728,7 @@ MOD05_021E71E8: ; 0x021E71E8
 	add r0, r4, #0
 	bl MOD05_021E6014
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	bl FUN_0200CAB4
 _021E7216:
@@ -32824,7 +32824,7 @@ MOD05_021E72B8: ; 0x021E72B8
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r5, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	bne _021E72CC
 	bl ErrorHandling
@@ -33101,7 +33101,7 @@ MOD05_021E74D4: ; 0x021E74D4
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r5, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	bne _021E74E8
 	bl ErrorHandling
@@ -33250,7 +33250,7 @@ _021E75EA:
 	mov r1, #1
 	str r1, [r0]
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r7, #0
 	bl FUN_0200CAB4
 _021E7606:
@@ -33389,7 +33389,7 @@ _021E771C:
 	mov r1, #1
 	str r1, [r0]
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r6, #0
 	bl FUN_0200CAB4
 _021E7740:
@@ -33408,7 +33408,7 @@ MOD05_021E7750: ; 0x021E7750
 	mov r0, #4
 	mov r1, #0x14
 	add r7, r2, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x14
@@ -34040,7 +34040,7 @@ MOD05_021E7C00: ; 0x021E7C00
 	push {r4, lr}
 	mov r1, #0x46
 	lsl r1, r1, #6
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	bl MOD05_021E7C1C
 	add r0, r4, #0
@@ -34048,10 +34048,10 @@ MOD05_021E7C00: ; 0x021E7C00
 
 	thumb_func_start MOD05_021E7C14
 MOD05_021E7C14: ; 0x021E7C14
-	ldr r3, _021E7C18 ; =FUN_02016A18
+	ldr r3, _021E7C18 ; =FreeToHeap
 	bx r3
 	.balign 4, 0
-_021E7C18: .word FUN_02016A18
+_021E7C18: .word FreeToHeap
 
 	thumb_func_start MOD05_021E7C1C
 MOD05_021E7C1C: ; 0x021E7C1C
@@ -34169,7 +34169,7 @@ MOD05_021E7CD8: ; 0x021E7CD8
 	cmp r4, #0
 	beq _021E7D0E
 	mov r0, #4
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	str r0, [sp, #4]
 	ldr r2, [sp, #4]
 	add r0, r6, #0
@@ -34279,7 +34279,7 @@ _021E7DBE:
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	beq _021E7DD2
-	bl FUN_02016A18
+	bl FreeToHeap
 _021E7DD2:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
@@ -34725,7 +34725,7 @@ _021E80F4: .word 0x021F789C
 MOD05_021E80F8: ; 0x021E80F8
 	push {r3, lr}
 	mov r1, #0x14
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r3, r0, #0
 	mov r2, #0x14
 	mov r1, #0
@@ -34747,7 +34747,7 @@ MOD05_021E8110: ; 0x021E8110
 	bl FUN_02019178
 _021E8120:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E8128
@@ -35262,7 +35262,7 @@ MOD05_021E84F4: ; 0x021E84F4
 	add r4, r0, #0
 	ldr r0, [r4, #4]
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x10]
 	mov r3, #1
 	str r3, [sp]
@@ -35320,7 +35320,7 @@ MOD05_021E856C: ; 0x021E856C
 	ldr r0, [r4, #0x10]
 	bl FUN_02019178
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -35332,7 +35332,7 @@ MOD05_021E8588: ; 0x021E8588
 	add r0, r5, #0
 	mov r1, #0x34
 	add r7, r2, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	str r6, [r4]
 	str r5, [r4, #4]
@@ -35376,7 +35376,7 @@ MOD05_021E85E4: ; 0x021E85E4
 	ldr r0, [r4, #0x14]
 	bl FUN_0200AB18
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E85FC
@@ -35708,7 +35708,7 @@ MOD05_021E8860: ; 0x021E8860
 	bl GX_ResetBankForBG
 	mov r0, #4
 	add r1, r0, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r7, r0, #0
 	mov r0, #0
 	add r1, r7, #0
@@ -35782,7 +35782,7 @@ _021E8906: ; jump table
 _021E8912:
 	mov r0, #4
 	mov r1, #0x20
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	mov r1, #0
 	mov r2, #0x20
@@ -35964,7 +35964,7 @@ _021E8A86: ; jump table
 _021E8A92:
 	mov r0, #4
 	mov r1, #0x20
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	mov r1, #0
 	mov r2, #0x20
@@ -36148,7 +36148,7 @@ _021E8C0A: ; jump table
 _021E8C18:
 	mov r0, #4
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	mov r2, #0x10
 	mov r1, #0
@@ -36304,7 +36304,7 @@ _021E8D3E: ; jump table
 _021E8D4C:
 	mov r0, #4
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	mov r2, #0x10
 	mov r1, #0
@@ -36571,7 +36571,7 @@ _021E8F3C: ; jump table
 _021E8F48:
 	mov r0, #4
 	mov r1, #0x1c
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	mov r2, #0x1c
 	mov r1, #0
@@ -36706,7 +36706,7 @@ _021E904C: ; jump table
 _021E9058:
 	mov r0, #4
 	mov r1, #0x1c
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	mov r2, #0x1c
 	mov r1, #0
@@ -36846,7 +36846,7 @@ _021E916E:
 	mov r1, #0x1e
 	mov r0, #4
 	lsl r1, r1, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x1e
 	str r0, [r7, #0xc]
 	mov r1, #0
@@ -37252,7 +37252,7 @@ _021E94D4:
 	mov r1, #0x71
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x71
 	str r0, [r6, #0xc]
 	mov r1, #0
@@ -37612,7 +37612,7 @@ _021E97D6:
 	mov r1, #0x7a
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x7a
 	str r0, [r7, #0xc]
 	mov r1, #0
@@ -38069,7 +38069,7 @@ _021E9B98:
 	mov r1, #9
 	mov r0, #4
 	lsl r1, r1, #6
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, [sp, #0x1c]
 	mov r2, #9
 	str r0, [r1, #0xc]
@@ -38728,7 +38728,7 @@ _021EA110:
 	mov r1, #0x1f
 	mov r0, #4
 	lsl r1, r1, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x1f
 	str r0, [r5, #0xc]
 	mov r1, #0
@@ -39058,7 +39058,7 @@ _021EA3D8:
 	mov r1, #0x8a
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, [sp, #0x18]
 	mov r2, #0x8a
 	str r0, [r1, #0xc]
@@ -39645,7 +39645,7 @@ _021EA8B2:
 	mov r1, #0x69
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x69
 	str r0, [r4, #0xc]
 	mov r1, #0
@@ -39931,7 +39931,7 @@ _021EAB14:
 	mov r1, #0x1b
 	mov r0, #4
 	lsl r1, r1, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x1b
 	str r0, [r6, #0xc]
 	mov r1, #0
@@ -40238,7 +40238,7 @@ _021EAD8E:
 	mov r1, #0x3d
 	mov r0, #4
 	lsl r1, r1, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, [sp, #0x14]
 	mov r2, #0x3d
 	str r0, [r1, #0xc]
@@ -40727,7 +40727,7 @@ _021EB18E:
 	mov r1, #0x6f
 	mov r0, #4
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x6f
 	str r0, [r5, #0xc]
 	mov r1, #0
@@ -41072,7 +41072,7 @@ _021EB466: ; jump table
 _021EB476:
 	mov r0, #4
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	mov r2, #0x10
 	mov r1, #0
@@ -41254,7 +41254,7 @@ _021EB5D0: ; jump table
 _021EB5E4:
 	mov r0, #4
 	mov r1, #0x38
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	mov r2, #0x38
 	str r0, [r4, #0xc]
@@ -41473,7 +41473,7 @@ _021EB7A2:
 	mov r1, #0x1f
 	ldr r0, [sp, #0x14]
 	lsl r1, r1, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x1f
 	str r0, [r5, #0xc]
 	mov r1, #0
@@ -42156,7 +42156,7 @@ _021EBD20:
 	mov r1, #0x9b
 	ldr r0, [sp, #0x10]
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x9b
 	str r0, [r5, #0xc]
 	mov r1, #0
@@ -43353,7 +43353,7 @@ _021EC6FA:
 	mov r1, #0
 	bl FUN_02023CA0
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r7, #0
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
@@ -43406,7 +43406,7 @@ MOD05_021EC744: ; 0x021EC744
 	bl FUN_020687C8
 	add r4, r0, #0
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -43925,7 +43925,7 @@ MOD05_021ECB6C: ; 0x021ECB6C
 	mov r0, #4
 	mov r1, #0xb4
 	str r2, [sp, #4]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r4, #0
@@ -44166,7 +44166,7 @@ _021ECD4A:
 	blo _021ECCFE
 _021ECD54:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -44671,7 +44671,7 @@ _021ED168:
 	add r0, r5, #0
 	bl MOD05_021ECD64
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 
@@ -45625,7 +45625,7 @@ _021ED7CE:
 	ldr r0, [sp, #0x10]
 	bl FUN_02021A20
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x3c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -46490,7 +46490,7 @@ MOD05_021EDFBC: ; 0x021EDFBC
 _021EDFC4:
 	ldr r1, _021EE03C ; =0x0000086C
 	mov r0, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	lsl r4, r6, #2
 	add r1, r5, r4
 	add r1, #0x90
@@ -46559,7 +46559,7 @@ MOD05_021EE050: ; 0x021EE050
 _021EE058:
 	ldr r1, _021EE0B0 ; =0x0000086C
 	mov r0, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	lsl r4, r6, #2
 	add r1, r5, r4
 	add r1, #0x90
@@ -46614,7 +46614,7 @@ MOD05_021EE0C0: ; 0x021EE0C0
 	beq _021EE0E6
 	mov r0, #4
 	mov r1, #0x10
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r7, #0
@@ -46643,7 +46643,7 @@ _021EE0FC:
 	ldr r0, [r4, #0xc]
 	str r0, [r5, #8]
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, r4, r5, r6, r7, pc}
 
 	thumb_func_start MOD05_021EE114
@@ -49082,7 +49082,7 @@ MOD05_021EF368: ; 0x021EF368
 	lsl r1, r1, #2
 	str r2, [sp, #4]
 	add r6, r3, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x41
 	mov r1, #0
 	lsl r2, r2, #2
@@ -49335,7 +49335,7 @@ _021EF542:
 	add r0, r5, r4
 	add r0, #0x90
 	ldr r0, [r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, r4
 	add r0, #0x90
 	str r7, [r0]
@@ -49370,7 +49370,7 @@ MOD05_021EF5A8: ; 0x021EF5A8
 	ldr r0, [r4]
 	bl MOD05_021F3C30
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -49971,7 +49971,7 @@ _021EF9EC:
 	mov r1, #0
 	str r1, [r0]
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	bl FUN_0200CAB4
 _021EF9FE:
@@ -49989,7 +49989,7 @@ MOD05_021EFA08: ; 0x021EFA08
 	mov r1, #0x28
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r1, r0, #0
 	str r5, [r1]
 	str r4, [r1, #4]
@@ -50761,7 +50761,7 @@ _021F000E:
 	add r2, r6, #0
 	bl FUN_0200ABC0
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	mov r1, #0x24
 	bl MOD05_021F01EC
@@ -50963,7 +50963,7 @@ _021F01D4:
 	add r0, r4, #0
 	bl MOD05_021F0290
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	bl FUN_02037778
 	mov r0, #1
 	pop {r3, r4, r5, pc}
@@ -51077,7 +51077,7 @@ MOD05_021F02C4: ; 0x021F02C4
 	ldr r5, [r6, #0x10]
 	mov r0, #0xb
 	mov r1, #0x94
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	bl MOD05_021F0254
 	str r6, [r4, #0x30]
@@ -51259,7 +51259,7 @@ MOD05_021F043C: ; 0x021F043C
 	add r5, r0, #0
 	mov r0, #4
 	mov r1, #0x60
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r1, r5, #0
 	add r4, r0, #0
 	bl MOD05_021F0454
@@ -51350,7 +51350,7 @@ MOD05_021F04F8: ; 0x021F04F8
 	bl ErrorHandling
 _021F0508:
 	ldr r0, [r4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r4]
 _021F0512:
@@ -54562,11 +54562,11 @@ MOD05_021F1E2C: ; 0x021F1E2C
 	cmp r5, #1
 	bne _021F1E4C
 	mov r0, #4
-	bl FUN_02016998
+	bl AllocFromHeap
 	b _021F1E52
 _021F1E4C:
 	mov r0, #4
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 _021F1E52:
 	add r5, r0, #0
 	add r0, r6, #0
@@ -54972,7 +54972,7 @@ MOD05_021F2160: ; 0x021F2160
 	add r7, r0, #0
 	mov r0, #4
 	mul r1, r6
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	add r0, r7, #0
 	add r0, #0xe4
@@ -54983,7 +54983,7 @@ MOD05_021F2160: ; 0x021F2160
 _021F2180:
 	mov r0, #4
 	lsl r1, r6, #3
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r5, r0, #0
 	add r7, #0xf4
 	str r5, [r7]
@@ -57504,7 +57504,7 @@ MOD05_021F33B4: ; 0x021F33B4
 	ldr r1, [sp, #8]
 	mov r0, #4
 	str r2, [sp]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021F33E2
 	bl ErrorHandling
@@ -57577,7 +57577,7 @@ MOD05_021F3458: ; 0x021F3458
 	ldr r0, [r4, #0x24]
 	bl FUN_0200CAB4
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #1
 	mov r1, #0
 	lsl r0, r0, #8
@@ -57635,7 +57635,7 @@ MOD05_021F34DC: ; 0x021F34DC
 	str r0, [sp, #0x10]
 	mov r0, #4
 	mov r1, #0x58
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	mov r1, #0
 	mov r2, #0x58
 	add r5, r0, #0
@@ -57871,13 +57871,13 @@ _021F370A:
 	ldr r0, [r5, #0x24]
 	bl FUN_0201F744
 	ldr r0, [r5, #8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r6, #0
 	bl FUN_0200CAB4
 	pop {r4, r5, r6, pc}
@@ -57904,13 +57904,13 @@ _021F3758:
 	ldr r0, [r5, #0x24]
 	bl FUN_0201F744
 	ldr r0, [r5, #8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r6, #0
 	bl FUN_0200CAB4
 _021F377C:
@@ -57945,7 +57945,7 @@ MOD05_021F379C: ; 0x021F379C
 MOD05_021F37AC: ; 0x021F37AC
 	push {r4, lr}
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021F37BC
 	bl ErrorHandling
@@ -58014,7 +58014,7 @@ MOD05_021F3810: ; 0x021F3810
 	mul r5, r0
 	ldr r0, [r4]
 	add r1, r5, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	bne _021F382E
@@ -58032,7 +58032,7 @@ MOD05_021F383C: ; 0x021F383C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x5c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x60
@@ -58467,7 +58467,7 @@ MOD05_021F3BC0: ; 0x021F3BC0
 	add r7, r0, #0
 	mov r0, #4
 	mov r1, #0x20
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r5, r0, #0
 	mov r4, #0
 _021F3BD0:
@@ -58491,7 +58491,7 @@ _021F3BEC:
 	mov r1, #9
 	mov r0, #4
 	lsl r1, r1, #0xc
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r6, #0x10]
 	cmp r0, #0
 	bne _021F3C04
@@ -58534,7 +58534,7 @@ _021F3C38:
 	ldr r0, [r5, #0x10]
 	cmp r0, #0
 	beq _021F3C4C
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r5, #0x10]
 _021F3C4C:
@@ -58544,7 +58544,7 @@ _021F3C4C:
 	cmp r4, #4
 	blo _021F3C38
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
 
@@ -59431,7 +59431,7 @@ _021F42EA:
 	mov r1, #0
 	str r1, [r0]
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	bl FUN_0200CAB4
 	pop {r3, r4, r5, pc}
@@ -59462,7 +59462,7 @@ MOD05_021F4328: ; 0x021F4328
 	push {r3, lr}
 	mov r0, #4
 	mov r1, #0x20
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	str r1, [r0, #0x10]
 	str r1, [r0, #0x14]
@@ -59481,7 +59481,7 @@ MOD05_021F4344: ; 0x021F4344
 	mov r0, #4
 	mov r1, #0x1c
 	add r4, r2, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r6, r0, #0
 	add r0, r5, #0
 	add r1, r6, #0
@@ -59518,7 +59518,7 @@ MOD05_021F4344: ; 0x021F4344
 	add r2, r6, #0
 	bl MOD05_021F41F0
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #1
 	str r0, [r4, #0x1c]
 	pop {r4, r5, r6}
@@ -59532,7 +59532,7 @@ MOD05_021F43C0: ; 0x021F43C0
 	push {r3, lr}
 	cmp r0, #0
 	beq _021F43CA
-	bl FUN_02016A18
+	bl FreeToHeap
 _021F43CA:
 	pop {r3, pc}
 
@@ -59561,7 +59561,7 @@ MOD05_021F43E4: ; 0x021F43E4
 	mov r1, #0xb4
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r1, r0, #0
 	add r2, r1, #0
 	mov r0, #0
@@ -59659,12 +59659,12 @@ MOD05_021F4498: ; 0x021F4498
 	add r5, r0, #0
 	add r0, r6, #0
 	mov r1, #8
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x18
 	add r4, r0, #0
 	add r0, r6, #0
 	mul r1, r5
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #4]
 	mov r6, #0
 	str r5, [r4]
@@ -59721,9 +59721,9 @@ MOD05_021F450C: ; 0x021F450C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -59816,7 +59816,7 @@ _021F45A6:
 MOD05_021F45B4: ; 0x021F45B4
 	push {r4, lr}
 	mov r1, #0x1c
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	bl MOD05_021F4650
 	add r0, r4, #0
@@ -59836,7 +59836,7 @@ _021F45D8:
 	add r0, r4, #0
 	bl MOD05_021F4650
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _021F45E4:
 	pop {r4, pc}
 	.balign 4, 0
@@ -59988,7 +59988,7 @@ MOD05_021F46C8: ; 0x021F46C8
 	mov r1, #0xca
 	lsl r1, r1, #2
 	add r6, r0, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0xca
 	mov r1, #0
 	lsl r2, r2, #2
@@ -60025,7 +60025,7 @@ _021F4712:
 	ldr r0, [r4, r0]
 	bl FUN_02012974
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021F4724
@@ -60351,11 +60351,11 @@ MOD05_021F4978: ; 0x021F4978
 	add r5, r0, #0
 	mov r0, #4
 	lsl r1, r1, #6
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r0, #4
 	mov r1, #0x10
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	ldr r1, _021F49A8 ; =0x000008B8
 	mov r2, #0
 	str r0, [r4, r1]
@@ -60596,7 +60596,7 @@ _021F4B70:
 	bl MOD05_021DB918
 	ldr r0, _021F4B9C ; =0x000008B8
 	ldr r0, [r5, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021F4B9C ; =0x000008B8
 	mov r1, #0
 	str r1, [r5, r0]
@@ -60661,7 +60661,7 @@ _021F4C10:
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _021F4C1E
-	bl FUN_02016A18
+	bl FreeToHeap
 _021F4C1E:
 	add r6, r6, #1
 	add r4, r4, #4
@@ -60670,11 +60670,11 @@ _021F4C1E:
 	ldr r1, [r5]
 	ldr r0, _021F4C6C ; =0x000008BC
 	ldr r0, [r1, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r1, [r5]
 	ldr r0, _021F4C70 ; =0x0000089C
 	ldr r0, [r1, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r1, [r5]
 	ldr r0, _021F4C70 ; =0x0000089C
 	mov r2, #0
@@ -60682,14 +60682,14 @@ _021F4C1E:
 	ldr r1, [r5]
 	add r0, r0, #4
 	ldr r0, [r1, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x8a
 	ldr r1, [r5]
 	mov r2, #0
 	lsl r0, r0, #4
 	str r2, [r1, r0]
 	ldr r0, [r5]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r5]
 	pop {r3, r4, r5, r6, r7, pc}
@@ -60793,7 +60793,7 @@ MOD05_021F4CF8: ; 0x021F4CF8
 	push {r4, lr}
 	mov r0, #4
 	mov r1, #0xfc
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r4, #0
 	add r2, r4, #0
 _021F4D06:
@@ -60814,7 +60814,7 @@ MOD05_021F4D1C: ; 0x021F4D1C
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r4]
 	pop {r4, pc}
@@ -61475,7 +61475,7 @@ _021F51E6:
 	ldrb r1, [r4, #4]
 	lsl r1, r1, #2
 	ldr r4, [r0, r1]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	.balign 4, 0
@@ -61596,7 +61596,7 @@ _021F52F8:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _021F5302
-	bl FUN_02016A18
+	bl FreeToHeap
 _021F5302:
 	mov r1, #0x10
 	mov r0, #0
@@ -61658,7 +61658,7 @@ MOD05_021F5358: ; 0x021F5358
 	cmp r0, #0
 	bne _021F5376
 	ldr r0, [r4]
-	bl FUN_02016A18
+	bl FreeToHeap
 _021F5376:
 	mov r1, #0x14
 	mov r0, #0
@@ -62044,7 +62044,7 @@ MOD05_021F5608: ; 0x021F5608
 	bl FUN_02017FB4
 	mov r0, #4
 	mov r1, #0x20
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x11
 	mov r2, #0x20
 	add r4, r0, #0
@@ -62057,7 +62057,7 @@ MOD05_021F5608: ; 0x021F5608
 	mov r3, #0x20
 	bl FUN_02017E14
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r2, _021F565C ; =0x00006001
 	add r0, r5, #0
 	mov r1, #2
@@ -62272,7 +62272,7 @@ MOD05_021F57D0: ; 0x021F57D0
 	str r0, [r4]
 _021F57E2:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -62504,7 +62504,7 @@ _021F59B2:
 	sub r5, r6, r5
 	add r0, r7, #0
 	add r1, r5, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	bne _021F59C4
 	bl ErrorHandling
@@ -62552,7 +62552,7 @@ _021F5A06:
 _021F5A0E:
 	ldr r4, [r6, #4]
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
 	bl FUN_020168D0
 	pop {r4, r5, r6, pc}
@@ -62695,10 +62695,10 @@ MOD05_021F5B14: ; 0x021F5B14
 	cmp r2, #0
 	ldr r0, [r0, #4]
 	bne _021F5B22
-	bl FUN_02016998
+	bl AllocFromHeap
 	b _021F5B26
 _021F5B22:
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 _021F5B26:
 	add r4, r0, #0
 	cmp r4, #0
@@ -62710,10 +62710,10 @@ _021F5B30:
 
 	thumb_func_start MOD05_021F5B34
 MOD05_021F5B34: ; 0x021F5B34
-	ldr r3, _021F5B38 ; =FUN_02016A18
+	ldr r3, _021F5B38 ; =FreeToHeap
 	bx r3
 	.balign 4, 0
-_021F5B38: .word FUN_02016A18
+_021F5B38: .word FreeToHeap
 
 	thumb_func_start MOD05_021F5B3C
 MOD05_021F5B3C: ; 0x021F5B3C
@@ -62875,7 +62875,7 @@ MOD05_021F5C44: ; 0x021F5C44
 	add r0, r1, #0
 	mov r1, #0x18
 	add r5, r2, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	add r2, r4, #0
 	mov r1, #0x18
@@ -62960,7 +62960,7 @@ _021F5CBA:
 	add r1, r6, #0
 	bl FUN_02046A20
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _021F5D10:
@@ -62971,7 +62971,7 @@ _021F5D18:
 	ldr r0, [r4, #0x34]
 	bl FUN_020587B0
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _021F5D28:
@@ -63018,7 +63018,7 @@ MOD05_021F5D68: ; 0x021F5D68
 	push {r4, lr}
 	add r4, r0, #0
 	bl FUN_0201B6C8
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
 	bl FUN_0200CAB4
 	pop {r4, pc}
@@ -63446,7 +63446,7 @@ MOD05_021F6074: ; 0x021F6074
 	add r5, r0, #0
 	mov r0, #4
 	add r1, r5, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	bne _021F6088
 	bl ErrorHandling
@@ -63650,7 +63650,7 @@ MOD05_021F61F4: ; 0x021F61F4
 	add r5, r0, #0
 	add r0, r6, #0
 	mov r1, #0x34
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	mov r1, #0
 	mov r2, #0x34
@@ -63686,7 +63686,7 @@ MOD05_021F6240: ; 0x021F6240
 	push {r4, lr}
 	add r4, r0, #0
 	bl FUN_0201B6C8
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
 	bl FUN_0200CAB4
 	pop {r4, pc}
@@ -63881,7 +63881,7 @@ _021F638E: ; jump table
 _021F639A:
 	mov r0, #0xb
 	mov r1, #8
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	str r0, [r6, #4]
 	ldr r0, [r4]
 	add r0, r0, #1
@@ -63892,7 +63892,7 @@ _021F63AC:
 	add r6, r0, #0
 	mov r0, #0xb
 	add r1, r6, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	str r0, [r5, #4]
 	mov r1, #0
 	add r2, r6, #0
@@ -63937,9 +63937,9 @@ _021F6402:
 	b _021F6424
 _021F6414:
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _021F6424:

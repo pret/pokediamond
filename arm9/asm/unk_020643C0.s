@@ -273,7 +273,7 @@ _020645D8: .word FUN_020646DC
 FUN_020645DC: ; 0x020645DC
 	push {r4, lr}
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _020645EC
 	bl ErrorHandling
@@ -306,7 +306,7 @@ FUN_0206460C: ; 0x0206460C
 	add r5, r1, #0x0
 	mul r5, r2
 	add r1, r5, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02064622
 	bl ErrorHandling

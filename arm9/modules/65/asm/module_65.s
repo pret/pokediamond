@@ -819,7 +819,7 @@ _021D7B0A:
 	cmp r4, #6
 	blt _021D7B0A
 	ldr r0, [r5, #0x24]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end MOD65_021D7B04
@@ -3149,7 +3149,7 @@ _021D8D6E:
 	mov r1, #4
 	bl FUN_020178A0
 	ldr r0, [r5, #0x68]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end MOD65_021D8D68

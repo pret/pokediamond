@@ -898,7 +898,7 @@ FUN_0200D18C: ; 0x0200D18C
 	str r0, [sp, #0x28]
 	add r0, r6, #0x0
 	lsl r1, r1, #0x6
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
 	bl FUN_020187B0
@@ -982,9 +982,9 @@ _0200D1E0:
 	ldr r0, [sp, #0x24]
 	bl FUN_02002840
 	ldr r0, [sp, #0x2c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x40
 	pop {r3-r7, pc}
 	.balign 4
@@ -1011,7 +1011,7 @@ FUN_0200D274: ; 0x0200D274
 	mov r1, #0x9
 	ldr r0, [sp, #0x2c]
 	lsl r1, r1, #0x6
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, [sp, #0x10]
 	mov r2, #0x9
 	ldr r1, [r1, #0x14]
@@ -1051,9 +1051,9 @@ _0200D2D2:
 	lsl r3, r3, #0x6
 	bl FUN_02017E14
 	ldr r0, [sp, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x14
 	pop {r4-r7, pc}
 	.balign 4
@@ -1731,7 +1731,7 @@ FUN_0200D858: ; 0x0200D858
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
 	ldr r1, _0200D970 ; =0x0000048C
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, [sp, #0x24]
 	add r4, r0, #0x0
 	ldr r0, _0200D974 ; =0x00000404
@@ -1743,7 +1743,7 @@ FUN_0200D858: ; 0x0200D858
 	bl memcpy
 	ldr r0, [sp, #0x28]
 	mov r1, #0x80
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, [sp, #0x24]
 	mov r2, #0x20
 	add r1, #0xa
@@ -1785,7 +1785,7 @@ _0200D8DA:
 	cmp r5, #0x8
 	blo _0200D8DA
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x28]
 	mov r1, #0x17
 	str r0, [sp, #0x0]
@@ -1811,7 +1811,7 @@ _0200D8DA:
 	ldr r0, [r0, #0x14]
 	bl FUN_0200D148
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x20]
 	ldr r1, _0200D978 ; =0x00000484
 	str r0, [r4, #0x0]
@@ -2150,7 +2150,7 @@ FUN_0200DBE8: ; 0x0200DBE8
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, r1, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
 	bl FUN_0200CAB4
 	pop {r4, pc}
@@ -2533,7 +2533,7 @@ FUN_0200DEF4: ; 0x0200DEF4
 	mov r1, #0x19
 	ldrh r0, [r5, r0]
 	lsl r1, r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r2, sp, #0x18
 	ldr r3, _0200DFCC ; =UNK_020ECE98
 	add r4, r0, #0x0
@@ -2586,7 +2586,7 @@ FUN_0200DEF4: ; 0x0200DEF4
 	lsl r2, r2, #0x8
 	bl GX_LoadOBJ
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r2, _0200DFC8 ; =0x00000162
 	ldrh r0, [r6, #0x0]
 	ldrh r1, [r6, #0x4]
@@ -2611,7 +2611,7 @@ FUN_0200DEF4: ; 0x0200DEF4
 	mov r2, #0x20
 	bl GX_LoadOBJPltt
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x28
 	pop {r3-r7, pc}
 	nop

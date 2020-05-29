@@ -582,7 +582,7 @@ _02061000:
 FUN_02061008: ; 0x02061008
 	push {r4, lr}
 	mov r1, #0x24
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	mov r0, #0x0
 	add r1, r4, #0x0
@@ -593,10 +593,10 @@ FUN_02061008: ; 0x02061008
 
 	thumb_func_start FUN_02061020
 FUN_02061020: ; 0x02061020
-	ldr r3, _02061024 ; =FUN_02016A18
+	ldr r3, _02061024 ; =FreeToHeap
 	bx r3
 	.balign 4
-_02061024: .word FUN_02016A18
+_02061024: .word FreeToHeap
 
 	thumb_func_start FUN_02061028
 FUN_02061028: ; 0x02061028

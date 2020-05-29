@@ -17,7 +17,7 @@ FUN_02031480: ; 0x02031480
 	cmp r1, #0x0
 	bne _0203149C
 	ldr r1, _020314CC ; =0x00000253
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _020314C8 ; =UNK_021C59FC
 	ldr r2, _020314CC ; =0x00000253
 	str r0, [r1, #0x0]
@@ -56,7 +56,7 @@ FUN_020314D0: ; 0x020314D0
 	push {r3, lr}
 	ldr r0, _020314E4 ; =UNK_021C59FC
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _020314E4 ; =UNK_021C59FC
 	mov r1, #0x0
 	str r1, [r0, #0x0]

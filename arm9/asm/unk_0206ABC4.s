@@ -337,7 +337,7 @@ FUN_0206AE0C: ; 0x0206AE0C
 	bl FUN_0206B8CC
 	add r0, r5, #0x0
 	mov r1, #0x60
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [sp, #0x4c]
 	add r0, r5, #0x0
 	bl FUN_020669C0
@@ -740,9 +740,9 @@ _0206B120:
 	blt _0206B0A2
 _0206B156:
 	ldr r0, [sp, #0x4c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x40]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x44]
 	bl seedr_LC
 	add sp, #0x50

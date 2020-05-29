@@ -68,7 +68,7 @@ FUN_0202254C: ; 0x0202254C
 	push {r4, lr}
 	ldr r1, _020225E0 ; =0x000204A8
 	mov r0, #0x1
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	ldr r2, _020225E0 ; =0x000204A8
 	mov r0, #0x0
@@ -191,7 +191,7 @@ FUN_0202263C: ; 0x0202263C
 	str r0, [sp, #0x0]
 	mov r0, #0x3
 	lsl r1, r1, #0xc
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r6, r0, #0x0
 	mov r0, #0x1
 	bl FUN_02016444
@@ -261,7 +261,7 @@ _020226B4:
 	cmp r4, #0x40
 	blt _020226B4
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x0]
 	bl FUN_020227DC
 	ldr r0, [sp, #0x0]
@@ -846,12 +846,12 @@ FUN_02022AD8: ; 0x02022AD8
 	add r5, r0, #0x0
 	mov r0, #0x3
 	lsl r1, r1, #0x10
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	mov r1, #0x2
 	add r6, r0, #0x0
 	mov r0, #0x3
 	lsl r1, r1, #0x10
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	mov r2, #0x2
 	add r4, r0, #0x0
 	mov r0, #0x0
@@ -900,9 +900,9 @@ _02022B54:
 	bl FUN_0202288C
 _02022B5E:
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, sp, #0x2c
 	add r1, sp, #0x38
 	add r2, sp, #0x10
@@ -2076,7 +2076,7 @@ _02023430:
 	str r0, [sp, #0x10]
 	ldr r1, [sp, #0x10]
 	add r0, r6, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x4]
 	ldr r2, [sp, #0x10]
@@ -2324,7 +2324,7 @@ _02023608:
 	bne _02023652
 	ldr r0, _02023658 ; =UNK_021C59C8
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1
 	bl FUN_02089D90
 _02023652:
@@ -2465,7 +2465,7 @@ FUN_02023740: ; 0x02023740
 	bl OS_ReleaseLockID
 	ldr r0, _02023768 ; =UNK_021C59C8
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1
 	add r1, r4, #0x0
 	bl FUN_0208A0B8

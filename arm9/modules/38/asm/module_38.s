@@ -24,7 +24,7 @@ MOD38_02254854: ; 0x02254854
 	mov r1, #0x24
 	add r7, r2, #0
 	str r3, [sp]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	beq _02254892
 	ldr r3, [sp]
@@ -44,7 +44,7 @@ MOD38_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _0225488C:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254892:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -139,7 +139,7 @@ MOD38_02254928: ; 0x02254928
 	ldr r0, [r4, #0x14]
 	bl MOD38_02254D04
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD38_02254928
 
@@ -512,7 +512,7 @@ MOD38_02254BC4: ; 0x02254BC4
 	add r6, r1, #0
 	mov r0, #8
 	mov r1, #0xc0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	beq _02254C2A
 	add r0, #8
@@ -683,7 +683,7 @@ MOD38_02254D04: ; 0x02254D04
 	add r0, r4, #0
 	bl MOD38_02254CC4
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254D32:
 	pop {r4, pc}
 	thumb_func_end MOD38_02254D04

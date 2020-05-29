@@ -37,7 +37,7 @@ _0204AEE6:
 	ldr r1, [r4, #0x4]
 	cmp r1, #0x1
 	bne _0204AEF4
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _0204AEF4:
@@ -52,7 +52,7 @@ FUN_0204AEF8: ; 0x0204AEF8
 	mov r0, #0xb
 	mov r1, #0x10
 	add r4, r2, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [r2, #0x0]

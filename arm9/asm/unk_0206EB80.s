@@ -14,7 +14,7 @@ _0206EB84: .word 0x00000774
 FUN_0206EB88: ; 0x0206EB88
 	push {r4, lr}
 	ldr r1, _0206EB9C ; =0x00000774
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bl FUN_0206EBA0
 	add r0, r4, #0x0
@@ -859,7 +859,7 @@ _0206F160: .word FUN_02022610
 FUN_0206F164: ; 0x0206F164
 	push {r4, lr}
 	mov r1, #0x24
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	mov r0, #0x0
 	add r1, r4, #0x0

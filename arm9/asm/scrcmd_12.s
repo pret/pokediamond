@@ -669,7 +669,7 @@ _02043266:
 	cmp r7, #0x0
 	beq _02043270
 	add r0, r7, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02043270:
 	add sp, #0x38
 	pop {r3-r7, pc}

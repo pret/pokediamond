@@ -15,7 +15,7 @@ FUN_02013CD4: ; 0x02013CD4
 	add r5, r0, #0x0
 	ldr r0, [r5, #0xc]
 	mov r1, #0x18
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02013CE8
 	bl ErrorHandling
@@ -65,13 +65,13 @@ _02013D36:
 	bl ErrorHandling
 _02013D40:
 	ldr r0, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 
@@ -423,7 +423,7 @@ FUN_02013F68: ; 0x02013F68
 	add r6, r0, #0x0
 	add r0, r1, #0x0
 	lsl r1, r6, #0x6
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r7, r0, #0x0
 	bne _02013F7C
 	bl ErrorHandling
@@ -451,7 +451,7 @@ FUN_02013F98: ; 0x02013F98
 	add r0, r1, #0x0
 	mov r1, #0x28
 	mul r1, r6
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r7, r0, #0x0
 	bne _02013FAE
 	bl ErrorHandling
@@ -478,7 +478,7 @@ FUN_02013FC8: ; 0x02013FC8
 	add r0, r1, #0x0
 	mov r1, #0x18
 	mul r1, r6
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r7, r0, #0x0
 	bne _02013FDE
 	bl ErrorHandling

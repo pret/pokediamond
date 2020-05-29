@@ -988,7 +988,7 @@ FUN_0202A878: ; 0x0202A878
 	add r0, r1, #0x0
 	mov r1, #0xff
 	lsl r1, r1, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	mov r0, #0x1d
 	lsl r0, r0, #0x6

@@ -546,10 +546,10 @@ MOD57_021D7944: ; 0x021D7944
 	bl MOD57_021D94BC
 	ldr r0, _021D79A4 ; =0x000030B8
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021D79A8 ; =0x000032F8
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #4
 	bl MOD57_021D89D4
 	ldr r0, [r4]
@@ -736,7 +736,7 @@ _021D7AC4:
 	mov r2, #0x20
 	bl GXS_LoadBGPltt
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD57_021D7A34
 
@@ -788,7 +788,7 @@ _021D7B30:
 	mov r2, #0x20
 	bl GXS_LoadBGPltt
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #4
 	pop {r3, r4, pc}
 	thumb_func_end MOD57_021D7AF4
@@ -815,7 +815,7 @@ MOD57_021D7B5C: ; 0x021D7B5C
 	mov r2, #0x20
 	bl GXS_LoadBGPltt
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -966,7 +966,7 @@ MOD57_021D7CA4: ; 0x021D7CA4
 	lsl r2, r2, #8
 	bl GXS_LoadBGPltt
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
 	add r0, #0xb4
 	ldr r1, [r0]
@@ -993,7 +993,7 @@ MOD57_021D7CA4: ; 0x021D7CA4
 	lsl r2, r2, #8
 	bl GX_LoadBGPltt
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
 	add r0, #0xb4
 	ldr r0, [r0]
@@ -1228,7 +1228,7 @@ MOD57_021D7EDC: ; 0x021D7EDC
 	mov r1, #3
 	bl FUN_020178A0
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD57_021D7EDC
 
@@ -3715,7 +3715,7 @@ _021D9290:
 	mov r0, #0x1e
 	lsl r0, r0, #4
 	ldr r0, [r5, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	bl ErrorHandling
 	b _021D92CE
 _021D92CA:
@@ -3967,7 +3967,7 @@ _021D94C6:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, r6]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18

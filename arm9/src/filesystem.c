@@ -232,10 +232,10 @@ THUMB_FUNC void * AllocAndReadFromNarcMemberByPathAndId(const char * path, s32 f
     switch (r4)
     {
     case 0:
-        dest = FUN_02016998(heap_id, chunk_size);
+        dest = AllocFromHeap(heap_id, chunk_size);
         break;
     default:
-        dest = FUN_020169D8(heap_id, chunk_size);
+        dest = AllocFromHeapAtEnd(heap_id, chunk_size);
         break;
     }
     FS_ReadFile(&file, dest, chunk_size);
@@ -312,7 +312,7 @@ THUMB_FUNC u32 GetNarcMemberSizeByIdPair(NarcId narc_id, s32 file_idx)
 
 THUMB_FUNC NARC * NARC_ctor(NarcId narc_id, u32 heap_id)
 {
-    NARC * narc = (NARC *)FUN_02016998(heap_id, sizeof(NARC));
+    NARC * narc = (NARC *)AllocFromHeap(heap_id, sizeof(NARC));
     u32 btnf_start;
     u32 chunk_size;
     if (narc != NULL)
@@ -336,7 +336,7 @@ THUMB_FUNC NARC * NARC_ctor(NarcId narc_id, u32 heap_id)
 THUMB_FUNC void NARC_dtor(NARC * narc)
 {
     FS_CloseFile(&narc->file);
-    FUN_02016A18(narc); // free to heap
+    FreeToHeap(narc); // free to heap
 }
 
 THUMB_FUNC void * NARC_AllocAndReadWholeMember(NARC * narc, u32 file_id, u32 heap_id)
@@ -350,7 +350,7 @@ THUMB_FUNC void * NARC_AllocAndReadWholeMember(NARC * narc, u32 file_id, u32 hea
     FS_ReadFile(&narc->file, &file_start, 4);
     FS_ReadFile(&narc->file, &file_end, 4);
     FS_SeekFile(&narc->file, narc->gmif_start + 8 + file_start, FS_SEEK_SET);
-    dest = FUN_02016998(heap_id, file_end - file_start);
+    dest = AllocFromHeap(heap_id, file_end - file_start);
     if (dest != NULL)
     {
         FS_ReadFile(&narc->file, dest, file_end - file_start);

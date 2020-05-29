@@ -9,7 +9,7 @@
 FUN_02024F30: ; 0x02024F30
 	push {r4, lr}
 	mov r1, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bl FUN_02024F50
 	add r0, r4, #0x0

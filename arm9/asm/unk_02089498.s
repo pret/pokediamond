@@ -329,7 +329,7 @@ FUN_020896E0: ; 0x020896E0
 	mov r1, #0x0
 	bl FUN_020178A0
 	ldr r0, [r4, #0x14]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start FUN_02089734

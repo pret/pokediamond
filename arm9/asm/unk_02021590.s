@@ -27,7 +27,7 @@ FUN_02021590: ; 0x02021590
 	mov r1, #0x78
 	add r7, r2, #0x0
 	str r3, [sp, #0x4]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	beq _020215C0
 	ldr r1, [sp, #0x20]
@@ -54,7 +54,7 @@ FUN_020215C8: ; 0x020215C8
 	add r0, r4, #0x0
 	bl FUN_020216B8
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 
@@ -112,7 +112,7 @@ _02021638:
 _02021642:
 	ldr r0, [sp, #0x18]
 	ldr r1, [r5, #0x64]
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x74]
 	ldr r0, _020216B0 ; =FUN_02021924
 	add r1, r4, #0x0
@@ -175,7 +175,7 @@ FUN_020216B8: ; 0x020216B8
 	ldr r0, [r4, #0x74]
 	cmp r0, #0x0
 	beq _020216C6
-	bl FUN_02016A18
+	bl FreeToHeap
 _020216C6:
 	ldr r0, [r4, #0x54]
 	cmp r0, #0x0
@@ -209,7 +209,7 @@ FUN_020216EC: ; 0x020216EC
 	mul r4, r0
 	add r0, r1, #0x0
 	add r1, r4, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x10]
 	ldr r0, _02021718 ; =FUN_02021774
 	add r3, r4, #0x0
@@ -249,7 +249,7 @@ FUN_0202173C: ; 0x0202173C
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x10]
 	pop {r4, pc}

@@ -1034,7 +1034,7 @@ MOD61_021D7CB4: ; 0x021D7CB4
 	mov r1, #0
 	bl FUN_020178A0
 	ldr r0, [r4, #0x18]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD61_021D7CB4
 
@@ -1079,7 +1079,7 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r7, r0, #0
 	add r0, r6, #0
 	add r1, r4, #0
@@ -1105,13 +1105,13 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	mov r1, #4
 	bl FUN_02017E14
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r1, [sp, #0x1c]
 	mov r0, #0x4f
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	ldr r1, [sp, #0x1c]
 	add r0, r6, #0
@@ -1238,13 +1238,13 @@ _021D7E00:
 	ldr r0, [r5, #0x30]
 	bl FUN_0200372C
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r1, [sp, #0x20]
 	mov r0, #0x4f
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x34]
 	ldr r1, [sp, #0x20]
 	ldr r2, [r5, #0x34]
@@ -1259,7 +1259,7 @@ _021D7E00:
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x38]
 	ldr r2, [r5, #0x38]
 	add r0, r6, #0
@@ -1360,9 +1360,9 @@ MOD61_021D7FB4: ; 0x021D7FB4
 	sub sp, #4
 	add r4, r0, #0
 	ldr r0, [r4, #0x38]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x34]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	bl FUN_02003038

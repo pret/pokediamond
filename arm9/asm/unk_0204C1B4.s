@@ -29,7 +29,7 @@ FUN_0204C1B4: ; 0x0204C1B4
 	mov r1, #0x20
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r2, r0, #0x0
 	str r5, [r2, #0x4]
 	str r4, [r2, #0x8]
@@ -95,7 +95,7 @@ _0204C23C:
 	ldr r0, [r0, #0x1c]
 	bl MOD05_021F45E8
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	mov r0, #0x1
 	pop {r4-r5, pc}
@@ -114,7 +114,7 @@ FUN_0204C260: ; 0x0204C260
 	mov r1, #0x24
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [r2, #0x0]
@@ -145,7 +145,7 @@ FUN_0204C29C: ; 0x0204C29C
 	mov r1, #0x24
 	str r2, [sp, #0x0]
 	str r3, [sp, #0x4]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r6, r0, #0x0
 	mov r4, #0x0
 	str r4, [r6, #0x0]
@@ -348,7 +348,7 @@ _0204C41E:
 	str r0, [r4, #0x0]
 	b _0204C458
 _0204C450:
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0204C458:

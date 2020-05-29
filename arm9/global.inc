@@ -1025,9 +1025,9 @@
 .extern FUN_0201681C
 .extern FUN_02016828
 .extern FUN_020168D0
-.extern FUN_02016998
-.extern FUN_020169D8
-.extern FUN_02016A18
+.extern AllocFromHeap
+.extern AllocFromHeapAtEnd
+.extern FreeToHeap
 .extern FUN_02016A8C
 .extern FUN_02016AF8
 .extern FUN_02016B20
@@ -5793,6 +5793,8 @@
 .extern FX_ModS32
 .extern FX_Modf
 .extern FX_Sqrt
+.extern gGameLanguage
+.extern gGameVersion
 .extern G2S_GetBG0CharPtr
 .extern G2S_GetBG0ScrPtr
 .extern G2S_GetBG1CharPtr

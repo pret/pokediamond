@@ -57,7 +57,7 @@ _020068A8:
 	bl FUN_02017E14
 _020068BC:
 	add r0, r7, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _020068C2:
 	add r0, r4, #0x0
 	add sp, #0x8
@@ -111,7 +111,7 @@ _02006912:
 	bl FUN_02017CE8
 _02006926:
 	add r0, r7, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _0200692C:
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -240,7 +240,7 @@ _02006A14:
 	blx r3
 _02006A24:
 	ldr r0, [sp, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 _02006A2A:
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -284,7 +284,7 @@ _02006A60:
 	blx r3
 _02006A7A:
 	add r0, r7, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02006A80:
 	add r0, r4, #0x0
 	add sp, #0x8
@@ -331,7 +331,7 @@ _02006ACE:
 	bl FUN_020B1240
 _02006ADA:
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02006AE0:
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -370,7 +370,7 @@ _02006B0E:
 	ldr r4, [r0, #0x10]
 _02006B22:
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02006B28:
 	add r0, r4, #0x0
 	add sp, #0x8
@@ -433,7 +433,7 @@ _02006B88:
 	blx r5
 _02006B98:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02006B9E:
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -457,7 +457,7 @@ FUN_02006BB0: ; 0x02006BB0
 	cmp r0, #0x0
 	bne _02006BD6
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _02006BD6:
@@ -480,7 +480,7 @@ FUN_02006BDC: ; 0x02006BDC
 	cmp r0, #0x0
 	bne _02006C02
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _02006C02:
@@ -502,7 +502,7 @@ FUN_02006C08: ; 0x02006C08
 	cmp r0, #0x0
 	bne _02006C2C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _02006C2C:
@@ -524,7 +524,7 @@ FUN_02006C30: ; 0x02006C30
 	cmp r0, #0x0
 	bne _02006C56
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _02006C56:
@@ -547,7 +547,7 @@ FUN_02006C5C: ; 0x02006C5C
 	cmp r0, #0x0
 	bne _02006C82
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _02006C82:
@@ -583,14 +583,14 @@ _02006CAC:
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	b _02006CCE
 _02006CC0:
 	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 _02006CCE:
 	cmp r4, #0x0
@@ -607,13 +607,13 @@ _02006CCE:
 	ldr r1, [r4, #0x0]
 	add r0, r6, #0x0
 	lsr r1, r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	b _02006CFC
 _02006CF2:
 	ldr r1, [r4, #0x0]
 	add r0, r6, #0x0
 	lsr r1, r1, #0x8
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 _02006CFC:
 	add r5, r0, #0x0
 	cmp r5, #0x0
@@ -622,7 +622,7 @@ _02006CFC:
 	add r1, r5, #0x0
 	bl MI_UncompressLZ8
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02006D10:
 	add r4, r5, #0x0
 _02006D12:
@@ -649,13 +649,13 @@ FUN_02006D18: ; 0x02006D18
 _02006D36:
 	ldr r1, [r5, #0x0]
 	add r0, r7, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	b _02006D4C
 _02006D42:
 	ldr r1, [r5, #0x0]
 	add r0, r7, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 _02006D4C:
 	cmp r4, #0x0
@@ -674,12 +674,12 @@ _02006D4C:
 	bne _02006D74
 	ldr r1, [r5, #0x0]
 	add r0, r7, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	b _02006D7C
 _02006D74:
 	ldr r1, [r5, #0x0]
 	add r0, r7, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 _02006D7C:
 	add r5, r0, #0x0
 	cmp r5, #0x0
@@ -688,7 +688,7 @@ _02006D7C:
 	add r1, r5, #0x0
 	bl MI_UncompressLZ8
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02006D90:
 	add r4, r5, #0x0
 _02006D92:

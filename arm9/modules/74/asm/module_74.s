@@ -675,7 +675,7 @@ _021D79D8:
 	blt _021D79D8
 _021D79EE:
 	ldr r0, [r6, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 	thumb_func_end MOD74_021D79C8
@@ -1309,7 +1309,7 @@ _021D7F0C:
 	cmp r0, #0x1e
 	blt _021D7EB8
 	ldr r0, [sp]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0

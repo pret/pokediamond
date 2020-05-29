@@ -25,7 +25,7 @@ MOD24_02254854: ; 0x02254854
 	lsl r1, r1, #8
 	add r7, r2, #0
 	str r3, [sp]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	beq _02254894
 	ldr r3, [sp]
@@ -45,7 +45,7 @@ MOD24_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _0225488E:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254894:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -108,7 +108,7 @@ MOD24_022548F4: ; 0x022548F4
 	ldr r0, [r4, r0]
 	bl MOD24_02254D48
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 _02254910: .word 0x000016FC
@@ -629,7 +629,7 @@ MOD24_02254CA0: ; 0x02254CA0
 	add r6, r1, #0
 	mov r0, #8
 	mov r1, #0x74
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	beq _02254CFA
 	mov r0, #7
@@ -729,10 +729,10 @@ _02254D5C:
 	ldr r0, [r4, #0x70]
 	bl FUN_02019178
 	ldr r0, [r4, #0x70]
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254D7E:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254D84:
 	pop {r4, pc}
 	nop

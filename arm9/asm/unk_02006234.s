@@ -9,7 +9,7 @@ FUN_02006234: ; 0x02006234
 	add r4, r1, #0x0
 	add r0, r2, #0x0
 	mov r1, #0x28
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r3, r0, #0x0
 	add r2, r3, #0x0
 	ldmia r5!, {r0-r1}
@@ -28,17 +28,17 @@ FUN_02006234: ; 0x02006234
 
 	thumb_func_start FUN_02006260
 FUN_02006260: ; 0x02006260
-	ldr r3, _02006264 ; =FUN_02016A18
+	ldr r3, _02006264 ; =FreeToHeap
 	bx r3
 	.balign 4
-_02006264: .word FUN_02016A18
+_02006264: .word FreeToHeap
 
 	thumb_func_start FUN_02006268
 FUN_02006268: ; 0x02006268
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, r2, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x1c]
 	pop {r4, pc}
 	.balign 4
@@ -53,7 +53,7 @@ FUN_0200627C: ; 0x0200627C
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x1c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x1c]
 	pop {r4, pc}

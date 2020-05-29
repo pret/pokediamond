@@ -11,7 +11,7 @@ FUN_02008DEC: ; 0x02008DEC
 	str r2, [sp, #0x0]
 	add r0, r2, #0x0
 	mov r1, #0x14
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
@@ -22,7 +22,7 @@ FUN_02008DEC: ; 0x02008DEC
 	mul r7, r0
 	ldr r0, [sp, #0x0]
 	add r1, r7, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	add r2, r7, #0x0
 	str r0, [r4, #0x4]
@@ -58,11 +58,11 @@ _02008E4A:
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	ldr r0, [r4, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start FUN_02008E6C
@@ -818,11 +818,11 @@ FUN_02009424: ; 0x02009424
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0xc
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	lsl r1, r5, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x0]
 	str r5, [r4, #0x4]
 	mov r0, #0x0
@@ -835,9 +835,9 @@ FUN_02009448: ; 0x02009448
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 
@@ -1172,7 +1172,7 @@ _02009678:
 	mov r1, #0x18
 	add r0, r6, #0x0
 	mul r1, r2
-	bl FUN_02016998
+	bl AllocFromHeap
 	b _0200969C
 _0200969A:
 	mov r0, #0x0
@@ -1197,7 +1197,7 @@ FUN_020096B4: ; 0x020096B4
 	ldr r0, [r4, #0x0]
 	cmp r0, #0x0
 	beq _020096C2
-	bl FUN_02016A18
+	bl FreeToHeap
 _020096C2:
 	mov r0, #0x0
 	str r0, [r4, #0x0]
@@ -1453,7 +1453,7 @@ FUN_0200986C: ; 0x0200986C
 	add r5, r1, #0x0
 	add r0, r2, #0x0
 	mov r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
@@ -1471,7 +1471,7 @@ FUN_0200988C: ; 0x0200988C
 	add r0, r3, #0x0
 	mov r1, #0xc
 	add r6, r2, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r4, #0x0
@@ -1488,7 +1488,7 @@ FUN_020098B0: ; 0x020098B0
 	add r5, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1503,7 +1503,7 @@ FUN_020098CC: ; 0x020098CC
 	add r5, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1518,7 +1518,7 @@ FUN_020098E8: ; 0x020098E8
 	add r5, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1533,7 +1533,7 @@ FUN_02009904: ; 0x02009904
 	add r5, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1549,7 +1549,7 @@ FUN_02009920: ; 0x02009920
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
 	beq _0200992E
-	bl FUN_02016A18
+	bl FreeToHeap
 _0200992E:
 	mov r0, #0x0
 	str r0, [r4, #0x8]
@@ -1685,13 +1685,13 @@ FUN_02009A04: ; 0x02009A04
 	ldr r1, [r4, #0x0]
 	add r0, r6, #0x0
 	lsr r1, r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	b _02009A34
 _02009A2A:
 	ldr r1, [r4, #0x0]
 	add r0, r6, #0x0
 	lsr r1, r1, #0x8
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 _02009A34:
 	add r5, r0, #0x0
 	cmp r5, #0x0
@@ -1700,7 +1700,7 @@ _02009A34:
 	add r1, r5, #0x0
 	bl MI_UncompressLZ8
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02009A48:
 	add r4, r5, #0x0
 _02009A4A:

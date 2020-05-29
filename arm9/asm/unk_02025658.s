@@ -65,7 +65,7 @@ _020256B6:
 FUN_020256BC: ; 0x020256BC
 	push {r4, lr}
 	mov r1, #0x38
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	bl FUN_02025658
 	add r0, r4, #0x0

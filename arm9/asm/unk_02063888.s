@@ -10,7 +10,7 @@ FUN_02063888: ; 0x02063888
 	mov r1, #0x18
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r3, r0, #0x0
 	mov r2, #0x18
 	mov r1, #0x0
@@ -92,7 +92,7 @@ _02063920:
 	sub r2, r2, #0x2
 	bl FUN_020492BC
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02063942:
 	mov r0, #0x0
 	add sp, #0x1c

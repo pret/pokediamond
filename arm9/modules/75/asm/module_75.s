@@ -4248,7 +4248,7 @@ _021E8CCC:
 	lsr r2, r2, #0x18
 	bl MOD75_021EB130
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

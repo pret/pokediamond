@@ -1548,7 +1548,7 @@ FUN_0207E190: ; 0x0207E190
 	add r2, r7, #0x0
 	bl FUN_0207E0C4
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	b _0207E1F4
 _0207E1E8:
 	sub r0, #0x8

@@ -2191,7 +2191,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	add r1, #0xc
 	bl MOD09_0221790C
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r2, [r5]
 	mov r0, #0x48
 	ldr r2, [r2, #0xc]
@@ -2205,7 +2205,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	add r1, #0xc
 	bl MOD09_02217C38
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #1
 	str r0, [sp]
 	lsl r0, r0, #9
@@ -2305,7 +2305,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	ldr r0, [r5]
 	mov r1, #0x20
 	ldr r0, [r0, #0xc]
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x1a
 	lsl r1, r1, #4
 	add r1, r6, r1
@@ -2345,7 +2345,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	mov r2, #1
 	bl FUN_02003054
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x14
 	pop {r3, r4, r5, r6, pc}
 	nop
@@ -3434,7 +3434,7 @@ _02213976:
 	lsr r1, r1, #0x18
 	bl FUN_0201AC68
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r4, r4, #1
 	add r6, r6, #4
 	cmp r4, #2
@@ -8687,7 +8687,7 @@ _0221668E:
 	bl FUN_02021A20
 _022166BE:
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -11729,7 +11729,7 @@ MOD09_02217F88: ; 0x02217F88
 	mul r1, r7
 	ldr r0, [r0, #0xc]
 	lsl r1, r1, #1
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x14]
 	ldr r1, [sp, #0x18]
@@ -11757,7 +11757,7 @@ MOD09_02217F88: ; 0x02217F88
 	mov r1, #6
 	bl FUN_0201AC68
 	ldr r0, [sp, #0x18]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -14016,7 +14016,7 @@ MOD09_022191C0: ; 0x022191C0
 	add r1, #0xc
 	bl MOD09_0221A2F4
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #6
@@ -16829,7 +16829,7 @@ MOD09_0221A884: ; 0x0221A884
 	mul r1, r7
 	ldr r0, [r0, #0xc]
 	lsl r1, r1, #1
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x14]
 	ldr r1, [sp, #0x18]
@@ -16853,7 +16853,7 @@ MOD09_0221A884: ; 0x0221A884
 	mov r1, #6
 	bl FUN_0201AC68
 	ldr r0, [sp, #0x18]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -17262,7 +17262,7 @@ _0221AC00: .word 0x0000114D
 MOD09_0221AC04: ; 0x0221AC04
 	push {r3, lr}
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r3, r0, #0
 	mov r2, #0x10
 	mov r1, #0
@@ -17275,10 +17275,10 @@ _0221AC12:
 
 	thumb_func_start MOD09_0221AC1C
 MOD09_0221AC1C: ; 0x0221AC1C
-	ldr r3, _0221AC20 ; =FUN_02016A18
+	ldr r3, _0221AC20 ; =FreeToHeap
 	bx r3
 	.align 2, 0
-_0221AC20: .word FUN_02016A18
+_0221AC20: .word FreeToHeap
 
 	thumb_func_start MOD09_0221AC24
 MOD09_0221AC24: ; 0x0221AC24

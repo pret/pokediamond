@@ -264,7 +264,7 @@ _020604D0:
 	mov r1, #0x5
 	bl FUN_0202AAFC
 	ldr r0, [sp, #0x1c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x14]
 	bl FUN_0202AA38
 	add r2, r0, #0x0
