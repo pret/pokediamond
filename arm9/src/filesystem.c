@@ -6,7 +6,11 @@
 static char * sNarcFileList[] = {
     "battle/skill/waza_seq.narc",
     "battle/skill/sub_seq.narc",
+#ifdef PEARL
+    "poketool/personal_pearl/personal.narc",
+#else
     "poketool/personal/personal.narc",
+#endif
     "poketool/personal/growtbl.narc",
     "poketool/pokegra/pokegra.narc",
     "poketool/pokegra/height.narc",

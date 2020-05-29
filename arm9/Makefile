@@ -222,8 +222,10 @@ endif
 MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
+ifeq ($(COMPARE),1)
 	@$(SHA1SUM) -c $(TARGET).sha1
 	@echo $(ROM): OK
+endif
 
 clean: mostlyclean
 	make -C $(TOOLS_DIR)/mwasmarm_patcher clean

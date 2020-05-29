@@ -265,7 +265,7 @@ FUN_02047814: ; 0x02047814
 	add r0, r6, #0x0
 	mov r2, #0x5
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	ldr r0, [r4, #0x4]
 	add r1, r6, #0x0
 	bl FUN_0206B900
@@ -278,7 +278,7 @@ FUN_02047814: ; 0x02047814
 	ldr r1, _02047960 ; =0x0000018F
 	add r0, r6, #0x0
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	ldr r0, [r4, #0x8]
 	add r1, r6, #0x0
 	bl FUN_0206B900

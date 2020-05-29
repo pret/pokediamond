@@ -52747,7 +52747,7 @@ _021EFCC6:
 	add r7, r4, #0
 _021EFCEA:
 	add r0, r4, #0
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	tst r0, r6
 	beq _021EFCFC
 	mov r0, #0xd6
@@ -58345,7 +58345,7 @@ _021F2834:
 	add r0, r5, #0
 	lsr r1, r1, #0x18
 	bl MOD16_021F2D98
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F2854 ; =0x00003108
 	ldrb r1, [r5, r1]
 	tst r0, r1
@@ -58384,7 +58384,7 @@ _021F2884:
 	add r0, r5, #0
 	lsr r1, r1, #0x18
 	bl MOD16_021F2D98
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F28A4 ; =0x00003108
 	ldrb r1, [r5, r1]
 	tst r0, r1
@@ -61188,7 +61188,7 @@ MOD16_021F3D3C: ; 0x021F3D3C
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x24]
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F3E88 ; =0x00003108
 	ldrb r1, [r5, r1]
 	tst r0, r1
@@ -61266,7 +61266,7 @@ _021F3DF4:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x1c]
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F3E88 ; =0x00003108
 	ldrb r1, [r5, r1]
 	tst r0, r1
@@ -62434,7 +62434,7 @@ _021F4704:
 	cmp r0, #0
 	beq _021F47E0
 	add r0, r4, #0
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, [sp, #0x50]
 	tst r0, r1
 	bne _021F47E0
@@ -62515,7 +62515,7 @@ _021F4704:
 	b _021F47F0
 _021F47E0:
 	add r0, r4, #0
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, [sp, #0x50]
 	orr r0, r1
 	lsl r0, r0, #0x18
@@ -62610,7 +62610,7 @@ _021F48A2:
 	cmp r0, #4
 	bne _021F48BA
 	ldr r0, [sp, #0x38]
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, [sp, #0x50]
 	orr r0, r1
 	lsl r0, r0, #0x18
@@ -63008,7 +63008,7 @@ _021F4BB2:
 	b _021F4DFA
 _021F4BB4:
 	mov r0, #5
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F4D6C ; =0x000003D3
 	ldrb r1, [r5, r1]
 	orr r1, r0
@@ -63037,7 +63037,7 @@ _021F4BD0:
 	beq _021F4CBE
 _021F4BEE:
 	mov r0, #4
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F4D6C ; =0x000003D3
 	ldrb r1, [r5, r1]
 	orr r1, r0
@@ -63062,7 +63062,7 @@ _021F4C0A:
 	tst r0, r1
 	beq _021F4CBE
 	mov r0, #3
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F4D6C ; =0x000003D3
 	ldrb r1, [r5, r1]
 	orr r1, r0
@@ -63087,7 +63087,7 @@ _021F4C3E:
 	tst r0, r1
 	beq _021F4CBE
 	mov r0, #2
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F4D6C ; =0x000003D3
 	ldrb r1, [r5, r1]
 	orr r1, r0
@@ -63112,7 +63112,7 @@ _021F4C72:
 	tst r0, r1
 	beq _021F4CBE
 	mov r0, #1
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F4D6C ; =0x000003D3
 	ldrb r1, [r5, r1]
 	orr r1, r0
@@ -63140,7 +63140,7 @@ _021F4CBE:
 	b _021F4DFA
 _021F4CC0:
 	mov r0, #0
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	ldr r1, _021F4D6C ; =0x000003D3
 	ldrb r1, [r5, r1]
 	orr r1, r0

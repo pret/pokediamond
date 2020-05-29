@@ -43653,14 +43653,14 @@ _021EC960:
 	add r1, r5, #0
 	add r2, r1, #0
 	bl FUN_020672BC
-	bl FUN_02068884
+	bl GetNatureFromPersonality
 	mov r7, #0x96
 	add r6, r0, #0
 	lsl r7, r7, #4
 _021EC978:
 	bl rand_MT
 	add r4, r0, #0
-	bl FUN_02068884
+	bl GetNatureFromPersonality
 	cmp r6, r0
 	bne _021EC98A
 	cmp r4, #0
@@ -44415,7 +44415,7 @@ MOD05_021ECF14: ; 0x021ECF14
 	add r1, r6, #0
 	mov r2, #1
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	mov r1, #0
 	add r0, sp, #0x10
 	strb r1, [r0, #2]
@@ -44552,7 +44552,7 @@ _021ED05E:
 	ldr r1, [sp, #0x10]
 	add r0, r7, #0
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	add r2, sp, #0x14
 	mov r1, #0
 	add r0, sp, #0x14
@@ -45451,7 +45451,7 @@ _021ED788:
 	ldr r1, [sp, #0x14]
 	add r0, r6, #0
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	mov r5, #0
 	add r7, sp, #0x34
 _021ED7A2:

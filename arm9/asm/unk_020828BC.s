@@ -777,7 +777,7 @@ FUN_02082D60: ; 0x02082D60
 	ldrh r1, [r7, #0x14]
 	add r0, r6, #0x0
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	mov r4, #0x0
 	add r5, r7, #0x0
 _02082D9A:
