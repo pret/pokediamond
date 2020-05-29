@@ -30,11 +30,11 @@ ARM_FUNC void SND_PauseSeq(s32 player, BOOL flag) {
 // ARM_FUNC void SND_SetPlayerTempoRatio(s32 player, s32 ratio) { }
 
 ARM_FUNC void SND_SetPlayerVolume(s32 player, s32 volume) {
-    SNDi_SetPlayerParam(player, 6, volume, 2);
+    SNDi_SetPlayerParam(player, 6, (u32)volume, 2);
 }
 
 ARM_FUNC void SND_SetPlayerChannelPriority(s32 player, s32 prio) {
-    SNDi_SetPlayerParam(player, 4, prio, 1);
+    SNDi_SetPlayerParam(player, 4, (u32)prio, 1);
 }
 
 // ARM_FUNC void SND_SetPlayerLocalVariable(s32 player, s32 varNo, s16 var) { }
@@ -44,11 +44,11 @@ ARM_FUNC void SND_SetPlayerChannelPriority(s32 player, s32 prio) {
 // ARM_FUNC void SND_SetTrackVolume(s32 player, u32 trackBitMask, s32 volume) { }
 
 ARM_FUNC void SND_SetTrackPitch(s32 player, u32 trackBitMask, s32 pitch) {
-    SNDi_SetTrackParam(player, trackBitMask, 12, pitch, 2);
+    SNDi_SetTrackParam(player, trackBitMask, 12, (u32)pitch, 2);
 }
 
 ARM_FUNC void SND_SetTrackPan(s32 player, u32 trackBitMask, s32 pan) {
-    SNDi_SetTrackParam(player, trackBitMask, 9, pan, 1);
+    SNDi_SetTrackParam(player, trackBitMask, 9, (u32)pan, 1);
 }
 
 ARM_FUNC void SND_SetTrackAllocatableChannel(s32 player, u32 trackBitMask, u32 chnBitMask) {
@@ -65,7 +65,7 @@ ARM_FUNC void SND_StopTimer(u32 chnBitMask, u32 capBitMask, u32 alarmBitMask, u3
 
     while (i < SND_ALARM_COUNT && tmpMask != 0) {
         if (tmpMask & 1)
-            SNDi_IncAlarmId(i);
+            SNDi_IncAlarmId((u32)i);
         i++;
         tmpMask >>= 1;
     }
@@ -79,7 +79,7 @@ ARM_FUNC void SND_SetupCapture(s32 capture, s32 format, void *bufferPtr, u32 len
 }
 
 ARM_FUNC void SND_SetupAlarm(s32 alarm, u32 tick, u32 period, SNDAlarmCallback cb, void *userData) {
-    PushCmd4(SND_CMD_SETUP_ALARM, alarm, tick, period, SNDi_SetAlarmHandler(alarm, cb, userData));
+    PushCmd4(SND_CMD_SETUP_ALARM, alarm, tick, period, SNDi_SetAlarmHandler((u32)alarm, cb, userData));
 }
 
 // ARM_FUNC void SND_SetTrackMute(s32 player, u32 trackBitMask, BOOL flag) { }

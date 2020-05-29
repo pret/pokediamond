@@ -4,6 +4,7 @@ struct AlarmCallback {
     SNDAlarmCallback cb;
     void *data;
     u8 id;
+    u8 padding[3];
 };
 
 static struct AlarmCallback sCallbackTable[SND_ALARM_COUNT];

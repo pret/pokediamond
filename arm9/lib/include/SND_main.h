@@ -19,7 +19,7 @@ struct SNDBinaryFileHeader {
 typedef struct SNDBinaryBlockHeader {
     u32 type;       // 0x0
     u32 size;       // 0x4
-};  // size = 0x8
+} SNDBinaryBlockHeader;  // size = 0x8
 
 struct SNDWaveParam {
     u8 format;      // 0x0
