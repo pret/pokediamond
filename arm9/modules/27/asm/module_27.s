@@ -983,7 +983,7 @@ MOD27_02254FAC: ; 0x02254FAC
 	str r1, [sp, #8]
 	mov r0, #0x13
 	mov r1, #8
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0x14]
 	cmp r0, #0
 	beq _022550C0
@@ -1024,7 +1024,7 @@ _02254FFC:
 	ldr r1, [r4, #4]
 	mov r2, #0
 	lsl r3, r3, #6
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	ldr r0, [sp, #0x18]
 	add r1, sp, #0x20
 	bl FUN_020B0088
@@ -1107,7 +1107,7 @@ _02255098:
 	blt _02254FFC
 _022550BA:
 	ldr r0, [sp, #0x14]
-	bl FUN_020066F4
+	bl NARC_dtor
 _022550C0:
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}

@@ -600,7 +600,7 @@ _022122A6:
 	str r0, [r4, #4]
 	ldr r1, [sp]
 	ldr r2, [r4]
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	str r0, [r4, #0x14]
 	cmp r0, #0
 	bne _022122C6
@@ -8148,10 +8148,10 @@ MOD08_02215ACC: ; 0x02215ACC
 
 	thumb_func_start MOD08_02215AF8
 MOD08_02215AF8: ; 0x02215AF8
-	ldr r3, _02215AFC ; =FUN_02006704
+	ldr r3, _02215AFC ; =NARC_AllocAndReadWholeMember
 	bx r3
 	.align 2, 0
-_02215AFC: .word FUN_02006704
+_02215AFC: .word NARC_AllocAndReadWholeMember
 
 	thumb_func_start MOD08_02215B00
 MOD08_02215B00: ; 0x02215B00
@@ -45110,7 +45110,7 @@ _022282D4: ; jump table
 _022282DC:
 	ldr r1, [r4]
 	mov r0, #0x63
-	bl FUN_02006670
+	bl NARC_ctor
 	add r1, r4, #0
 	add r1, #0x8c
 	str r0, [r1]
@@ -45387,7 +45387,7 @@ _02228504:
 	add r4, #0x8c
 	str r1, [r0]
 	ldr r0, [r4]
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r0, [sp]
 	bl FUN_0200CAB4
 _02228520:
@@ -49547,7 +49547,7 @@ _0222A31C:
 	mov r1, #0x8a
 	mov r2, #0
 	add r3, r6, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r0, #1
 	str r0, [sp]
 	add r0, sp, #0x24
@@ -49555,14 +49555,14 @@ _0222A31C:
 	mov r1, #0x90
 	mov r2, #0
 	add r3, r6, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r0, #1
 	str r0, [sp]
 	add r0, sp, #0x24
 	mov r1, #0x8e
 	mov r2, #0
 	add r3, r6, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	ldr r0, [r5]
 	add r2, sp, #0x24
 	lsl r0, r0, #2
@@ -49793,7 +49793,7 @@ _0222A5AA:
 	str r1, [r0, #8]
 	add r0, sp, #0
 	mov r1, #0x79
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	add r0, sp, #0
 	ldrb r1, [r0]
 	ldr r0, [r5]

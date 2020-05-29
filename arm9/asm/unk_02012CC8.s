@@ -736,10 +736,10 @@ _02013188: .word UNK_021C4850
 
 	thumb_func_start FUN_0201318C
 FUN_0201318C: ; 0x0201318C
-	ldr r3, _02013190 ; =LoadFromNarc_2
+	ldr r3, _02013190 ; =AllocAndReadWholeNarcMemberByIdPair
 	bx r3
 	.balign 4
-_02013190: .word LoadFromNarc_2
+_02013190: .word AllocAndReadWholeNarcMemberByIdPair
 
 	thumb_func_start FUN_02013194
 FUN_02013194: ; 0x02013194

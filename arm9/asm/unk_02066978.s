@@ -4069,7 +4069,7 @@ _0206877A:
 	add r0, r4, #0x0
 	mov r1, #0x3
 	add r2, r5, #0x0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -5230,7 +5230,7 @@ _02068FCA:
 	add r0, sp, #0x0
 	add r1, r4, #0x0
 	add r2, r3, #0x0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	add r0, sp, #0x0
 	ldrb r0, [r0, #0x0]
 	pop {r3-r5, pc}
@@ -5277,7 +5277,7 @@ FUN_02069010: ; 0x02069010
 	mov r1, #0x72
 	mov r2, #0x0
 	mul r3, r5
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r0, sp, #0xc
 	add r1, r4, #0x0
 	mov r2, #0x14
@@ -5301,7 +5301,7 @@ FUN_02069038: ; 0x02069038
 	mov r1, #0x72
 	mov r2, #0x0
 	mul r3, r6
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	cmp r5, #0x2
 	bne _0206906C
 	add r1, sp, #0x4
@@ -6734,7 +6734,7 @@ FUN_02069B40: ; 0x02069B40
 	mov r1, #0x6d
 	mov r2, #0x0
 	lsl r3, r3, #0x1
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r0, sp, #0x4
 	ldrh r0, [r0, #0x0]
 	add sp, #0x8
@@ -6756,7 +6756,7 @@ FUN_02069B60: ; 0x02069B60
 	add r0, sp, #0x4
 	mov r1, #0x91
 	lsl r3, r3, #0x1
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 _02069B7E:
 	add r0, sp, #0x4
 	ldrh r0, [r0, #0x0]
@@ -7347,7 +7347,7 @@ FUN_02069F9C: ; 0x02069F9C
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x21
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	pop {r4, pc}
 
 	thumb_func_start FUN_02069FB0
@@ -7822,13 +7822,13 @@ _0206A32E:
 
 	thumb_func_start FUN_0206A370
 FUN_0206A370: ; 0x0206A370
-	ldr r3, _0206A37C ; =LoadFromNARC
+	ldr r3, _0206A37C ; =ReadWholeNarcMemberByIdPair
 	add r2, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0x2
 	bx r3
 	nop
-_0206A37C: .word LoadFromNARC
+_0206A37C: .word ReadWholeNarcMemberByIdPair
 
 	thumb_func_start FUN_0206A380
 FUN_0206A380: ; 0x0206A380
@@ -7838,18 +7838,18 @@ FUN_0206A380: ; 0x0206A380
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	pop {r4, pc}
 
 	thumb_func_start FUN_0206A394
 FUN_0206A394: ; 0x0206A394
-	ldr r3, _0206A3A0 ; =LoadFromNARC
+	ldr r3, _0206A3A0 ; =ReadWholeNarcMemberByIdPair
 	add r2, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0x22
 	bx r3
 	nop
-_0206A3A0: .word LoadFromNARC
+_0206A3A0: .word ReadWholeNarcMemberByIdPair
 
 	thumb_func_start FUN_0206A3A4
 FUN_0206A3A4: ; 0x0206A3A4

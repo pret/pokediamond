@@ -2182,7 +2182,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	mov r0, #0x48
 	ldr r2, [r2, #0xc]
 	mov r1, #0x14
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0
 	bl FUN_020B0180
@@ -2196,7 +2196,7 @@ MOD09_02212F8C: ; 0x02212F8C
 	mov r0, #0x48
 	ldr r2, [r2, #0xc]
 	mov r1, #0x15
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0
 	bl FUN_020B0180
@@ -3406,7 +3406,7 @@ _02213976:
 	ldr r1, [r6]
 	ldr r2, [r2, #0xc]
 	mov r0, #0x48
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	add r7, r0, #0
 	bl FUN_020B0180
@@ -14007,7 +14007,7 @@ MOD09_022191C0: ; 0x022191C0
 	mov r0, #0x4d
 	ldr r2, [r2, #0xc]
 	mov r1, #1
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0
 	bl FUN_020B0180

@@ -2747,7 +2747,7 @@ _0207B250:
 _0207B256:
 	mov r0, #0x27
 	mov r2, #0x13
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	add r4, r0, #0x0
 	bl FUN_020B0180

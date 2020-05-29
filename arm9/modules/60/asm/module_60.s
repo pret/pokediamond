@@ -673,11 +673,11 @@ MOD60_021D7A40: ; 0x021D7A40
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x49
-	bl FUN_02006670
+	bl NARC_ctor
 	add r4, r0, #0
 	mov r0, #0x49
 	mov r1, #1
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
 	bl FUN_020169D8
@@ -685,7 +685,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	add r0, r4, #0
 	mov r1, #1
 	add r2, r6, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, r6, #0
 	add r1, sp, #0x20
 	bl FUN_020B0088
@@ -708,7 +708,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	bl FUN_02016A18
 	mov r0, #0x49
 	mov r1, #0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
 	bl FUN_020169D8
@@ -716,7 +716,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	add r0, r4, #0
 	mov r1, #0
 	add r2, r6, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, r6, #0
 	add r1, sp, #0x1c
 	bl FUN_020B0138
@@ -736,7 +736,7 @@ MOD60_021D7A40: ; 0x021D7A40
 	bl FUN_02016A18
 	mov r0, #0x49
 	mov r1, #2
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
 	bl FUN_02016998
@@ -744,13 +744,13 @@ MOD60_021D7A40: ; 0x021D7A40
 	ldr r2, [r5, #0x24]
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r1, r5, #0
 	ldr r0, [r5, #0x24]
 	add r1, #0x28
 	bl FUN_020B0180
 	add r0, r4, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x20

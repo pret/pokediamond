@@ -1162,7 +1162,7 @@ MOD05_021D7EE8: ; 0x021D7EE8
 	mov r0, #0x60
 	add r1, r6, #0
 	add r2, r5, #0
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	ldr r1, _021D7F38 ; =0x0000FFFF
 	mov r2, #0
 	add r3, r4, #0
@@ -4675,7 +4675,7 @@ _021D9ABE:
 	add r0, r6, #0
 	add r1, r4, #0
 	mov r2, #4
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r4, r0, #0
 	bne _021D9AD0
 	bl ErrorHandling
@@ -4802,13 +4802,13 @@ _021D9B98:
 	bl FUN_02016B20
 	mov r0, #0x6e
 	mov r1, #4
-	bl FUN_02006670
+	bl NARC_ctor
 	mov r1, #0x2b
 	lsl r1, r1, #4
 	str r0, [r7, r1]
 	mov r0, #0x6f
 	mov r1, #4
-	bl FUN_02006670
+	bl NARC_ctor
 	mov r1, #0xad
 	lsl r1, r1, #2
 	str r0, [r7, r1]
@@ -4877,7 +4877,7 @@ MOD05_021D9C14: ; 0x021D9C14
 	add r1, r6, #0
 	add r2, sp, #0x10
 	add r5, r3, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	cmp r4, #4
 	blt _021D9C38
 	bl ErrorHandling
@@ -4987,7 +4987,7 @@ MOD05_021D9CEC: ; 0x021D9CEC
 	ldr r0, [r6, r0]
 	add r1, r4, #0
 	add r2, sp, #0x20
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, sp, #0x20
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -5113,7 +5113,7 @@ _021D9DEC:
 	ldr r0, [r6, r0]
 	add r1, r5, #0
 	add r2, sp, #4
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	cmp r4, #4
 	blt _021D9E02
 	bl ErrorHandling
@@ -5211,7 +5211,7 @@ _021D9EA4:
 	ldr r0, [r4, r0]
 	add r1, r5, #0
 	add r2, sp, #0x10
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, sp, #0x10
 	ldrb r0, [r0, #1]
 	bl MOD05_021D9BF0
@@ -5367,7 +5367,7 @@ MOD05_021D9FB4: ; 0x021D9FB4
 	ldr r0, [r4, r0]
 	add r2, sp, #0
 	add r5, r3, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	cmp r5, #4
 	blt _021D9FD4
 	bl ErrorHandling
@@ -5416,11 +5416,11 @@ MOD05_021DA018: ; 0x021DA018
 	mov r0, #0x2b
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r0, #0xad
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_020066F4
+	bl NARC_dtor
 	add r0, r4, #0
 	bl FUN_02016A18
 _021DA038:
@@ -5478,7 +5478,7 @@ MOD05_021DA080: ; 0x021DA080
 	ldr r0, [r5, r0]
 	add r1, r3, #0
 	add r2, sp, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	cmp r4, #4
 	blt _021DA0A0
 	bl ErrorHandling
@@ -5724,11 +5724,11 @@ _021DA21A:
 MOD05_021DA220: ; 0x021DA220
 	mov r1, #0xad
 	lsl r1, r1, #2
-	ldr r3, _021DA22C ; =FUN_02006874
+	ldr r3, _021DA22C ; =NARC_GetFileCount
 	ldr r0, [r0, r1]
 	bx r3
 	nop
-_021DA22C: .word FUN_02006874
+_021DA22C: .word NARC_GetFileCount
 
 	thumb_func_start MOD05_021DA230
 MOD05_021DA230: ; 0x021DA230
@@ -5738,7 +5738,7 @@ MOD05_021DA230: ; 0x021DA230
 	lsl r2, r2, #2
 	ldr r0, [r0, r2]
 	add r2, sp, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, sp, #0
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -10422,7 +10422,7 @@ MOD05_021DC554: ; 0x021DC554
 	ldr r0, _021DC590 ; =0x021F689C
 	str r0, [r4, #4]
 	mov r0, #0x41
-	bl FUN_02006670
+	bl NARC_ctor
 	mov r1, #0x42
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -10476,7 +10476,7 @@ _021DC5A2:
 	ldr r1, [r4]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r1, [r4]
 	mov r0, #4
 	bl FUN_02016A8C
@@ -11681,7 +11681,7 @@ MOD05_021DCECC: ; 0x021DCECC
 	mul r2, r1
 	ldr r1, [r3, r2]
 	mov r2, #4
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, sp, #0x14
 	str r0, [sp]
 	bl FUN_020B0138
@@ -11718,7 +11718,7 @@ MOD05_021DCF14: ; 0x021DCF14
 	ldr r0, [r4, r0]
 	ldr r1, [r1, #4]
 	mov r2, #4
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, sp, #0x14
 	str r0, [sp, #8]
 	bl FUN_020B0088
@@ -11764,7 +11764,7 @@ MOD05_021DCF68: ; 0x021DCF68
 	ldr r0, [r4, r0]
 	ldr r1, [r1, #8]
 	mov r2, #4
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	str r0, [sp, #0x14]
 	cmp r0, #0
 	bne _021DCFA0
@@ -27816,33 +27816,33 @@ MOD05_021E4C34: ; 0x021E4C34
 	bl MOD05_021E4C30
 	add r1, r0, #0
 	mov r0, #0x6b
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [r4, #0x20]
 	pop {r4, pc}
 
 	thumb_func_start MOD05_021E4C48
 MOD05_021E4C48: ; 0x021E4C48
-	ldr r3, _021E4C50 ; =FUN_020066F4
+	ldr r3, _021E4C50 ; =NARC_dtor
 	ldr r0, [r0, #0x20]
 	bx r3
 	nop
-_021E4C50: .word FUN_020066F4
+_021E4C50: .word NARC_dtor
 
 	thumb_func_start MOD05_021E4C54
 MOD05_021E4C54: ; 0x021E4C54
-	ldr r3, _021E4C5C ; =FUN_020067D0
+	ldr r3, _021E4C5C ; =NARC_GetMemberSize
 	ldr r0, [r0, #0x20]
 	bx r3
 	nop
-_021E4C5C: .word FUN_020067D0
+_021E4C5C: .word NARC_GetMemberSize
 
 	thumb_func_start MOD05_021E4C60
 MOD05_021E4C60: ; 0x021E4C60
-	ldr r3, _021E4C68 ; =FUN_02006774
+	ldr r3, _021E4C68 ; =NARC_ReadWholeMember
 	ldr r0, [r0, #0x20]
 	bx r3
 	nop
-_021E4C68: .word FUN_02006774
+_021E4C68: .word NARC_ReadWholeMember
 
 	thumb_func_start MOD05_021E4C6C
 MOD05_021E4C6C: ; 0x021E4C6C
@@ -34174,7 +34174,7 @@ MOD05_021E7CD8: ; 0x021E7CD8
 	ldr r2, [sp, #4]
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r4, #0
 	mov r1, #0x30
 	bl _u32_div_f
@@ -46621,7 +46621,7 @@ MOD05_021EE0C0: ; 0x021EE0C0
 	mov r2, #0
 	mov r3, #0x10
 	str r4, [sp]
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	b _021EE0FC
 _021EE0E6:
 	bl ErrorHandling
@@ -46631,7 +46631,7 @@ _021EE0E6:
 	add r1, r7, #0
 	mov r2, #4
 	mov r3, #0
-	bl FUN_02006584
+	bl AllocAtEndAndReadFromNarcMemberByIdPair
 	add r4, r0, #0
 _021EE0FC:
 	ldr r0, [r4]
@@ -46678,7 +46678,7 @@ MOD05_021EE114: ; 0x021EE114
 	ldr r0, [r0]
 	ldr r1, [sp, #0x10]
 	ldr r2, [r4, r7]
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	add r0, #0xf0
 	ldr r0, [r0]
@@ -46784,7 +46784,7 @@ MOD05_021EE1E4: ; 0x021EE1E4
 	ldr r0, [r0]
 	lsl r1, r1, #0xa
 	add r2, sp, #0x20
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	add r0, #0xf0
 	ldr r0, [r0]
@@ -46870,7 +46870,7 @@ MOD05_021EE2A4: ; 0x021EE2A4
 	ldr r0, [r0]
 	ldr r1, [sp, #0xc]
 	ldr r2, [r4, r5]
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r7, #0
 	add r0, #0xf0
 	ldr r0, [r0]
@@ -46984,7 +46984,7 @@ MOD05_021EE38C: ; 0x021EE38C
 	ldr r0, [r0]
 	lsl r1, r1, #0xa
 	add r2, sp, #0x1c
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	add r0, #0xf0
 	ldr r0, [r0]
@@ -49155,7 +49155,7 @@ _021EF3AE:
 	str r1, [r0]
 	mov r0, #0x43
 	mov r1, #4
-	bl FUN_02006670
+	bl NARC_ctor
 	add r1, r4, #0
 	add r1, #0xf8
 	str r0, [r1]
@@ -49366,7 +49366,7 @@ MOD05_021EF5A8: ; 0x021EF5A8
 	add r4, r0, #0
 	add r0, #0xf8
 	ldr r0, [r0]
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r0, [r4]
 	bl MOD05_021F3C30
 	add r0, r4, #0
@@ -49890,7 +49890,7 @@ _021EF948:
 	ldr r2, [r4, #0x24]
 	add r1, r5, #0
 	add r2, r3, r2
-	bl FUN_02006864
+	bl NARC_ReadFile
 	ldr r0, [r4, #0x24]
 	add r0, r0, r5
 	str r0, [r4, #0x24]
@@ -49914,7 +49914,7 @@ _021EF978:
 	ldr r3, [r3]
 	add r1, r5, #0
 	add r2, r3, r2
-	bl FUN_02006864
+	bl NARC_ReadFile
 	cmp r6, #0
 	beq _021EF990
 	mov r0, #2
@@ -50018,7 +50018,7 @@ MOD05_021EFA40: ; 0x021EFA40
 	add r4, r3, #0
 	add r5, r2, #0
 	ldr r2, [r4]
-	bl FUN_02006864
+	bl NARC_ReadFile
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
 	beq _021EFA6A
@@ -54450,7 +54450,7 @@ MOD05_021F1D68: ; 0x021F1D68
 	add r4, r0, #0
 	mov r0, #0x51
 	mov r1, #4
-	bl FUN_02006670
+	bl NARC_ctor
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_020583F0
@@ -54461,7 +54461,7 @@ MOD05_021F1D68: ; 0x021F1D68
 MOD05_021F1D80: ; 0x021F1D80
 	push {r3, lr}
 	bl FUN_020583F4
-	bl FUN_020066F4
+	bl NARC_dtor
 	pop {r3, pc}
 
 	thumb_func_start MOD05_021F1D8C
@@ -54557,7 +54557,7 @@ MOD05_021F1E2C: ; 0x021F1E2C
 	bl FUN_020583F4
 	add r1, r4, #0
 	add r6, r0, #0
-	bl FUN_020067D0
+	bl NARC_GetMemberSize
 	add r1, r0, #0
 	cmp r5, #1
 	bne _021F1E4C
@@ -54572,7 +54572,7 @@ _021F1E52:
 	add r0, r6, #0
 	add r1, r4, #0
 	add r2, r5, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, r5, #0
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
@@ -59038,68 +59038,68 @@ MOD05_021F3FE0: ; 0x021F3FE0
 	add r0, r5, #0
 	mov r1, #8
 	add r2, sp, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	mov r1, #2
 	add r2, sp, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	mov r1, #2
 	add r2, r4, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	mov r1, #2
 	add r2, sp, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	mov r1, #2
 	add r2, r4, #4
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	mov r1, #2
 	add r2, sp, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r2, r4, #0
 	add r0, r5, #0
 	mov r1, #2
 	add r2, #8
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	mov r1, #2
 	add r2, sp, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	mov r1, #2
 	add r2, sp, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r2, r4, #0
 	add r0, r5, #0
 	mov r1, #2
 	add r2, #0xc
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	mov r1, #2
 	add r2, sp, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r2, r4, #0
 	add r0, r5, #0
 	mov r1, #2
 	add r2, #0x18
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r0, r5, #0
 	mov r1, #2
 	add r2, sp, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r2, r4, #0
 	add r0, r5, #0
 	mov r1, #4
 	add r2, #0x14
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add r4, #0x10
 	add r0, r5, #0
 	mov r1, #4
 	add r2, r4, #0
-	bl FUN_02006864
+	bl NARC_ReadFile
 	add sp, #8
 	pop {r3, r4, r5, pc}
 
@@ -59235,13 +59235,13 @@ _021F4180:
 
 	thumb_func_start MOD05_021F4184
 MOD05_021F4184: ; 0x021F4184
-	ldr r3, _021F4190 ; =FUN_02006864
+	ldr r3, _021F4190 ; =NARC_ReadFile
 	add r2, r1, #0
 	mov r1, #0x1c
 	ldr r2, [r2]
 	bx r3
 	nop
-_021F4190: .word FUN_02006864
+_021F4190: .word NARC_ReadFile
 
 	thumb_func_start MOD05_021F4194
 MOD05_021F4194: ; 0x021F4194
@@ -59250,10 +59250,10 @@ MOD05_021F4194: ; 0x021F4194
 	mov r1, #0xc
 	mul r1, r2
 	ldr r2, [r3, #0x10]
-	ldr r3, _021F41A4 ; =FUN_02006864
+	ldr r3, _021F41A4 ; =NARC_ReadFile
 	bx r3
 	nop
-_021F41A4: .word FUN_02006864
+_021F41A4: .word NARC_ReadFile
 
 	thumb_func_start MOD05_021F41A8
 MOD05_021F41A8: ; 0x021F41A8
@@ -59262,10 +59262,10 @@ MOD05_021F41A8: ; 0x021F41A8
 	mov r1, #0xc
 	mul r1, r2
 	ldr r2, [r3, #0x14]
-	ldr r3, _021F41B8 ; =FUN_02006864
+	ldr r3, _021F41B8 ; =NARC_ReadFile
 	bx r3
 	nop
-_021F41B8: .word FUN_02006864
+_021F41B8: .word NARC_ReadFile
 
 	thumb_func_start MOD05_021F41BC
 MOD05_021F41BC: ; 0x021F41BC
@@ -59274,41 +59274,41 @@ MOD05_021F41BC: ; 0x021F41BC
 	mov r1, #0xc
 	mul r1, r2
 	ldr r2, [r3, #4]
-	ldr r3, _021F41CC ; =FUN_02006864
+	ldr r3, _021F41CC ; =NARC_ReadFile
 	bx r3
 	nop
-_021F41CC: .word FUN_02006864
+_021F41CC: .word NARC_ReadFile
 
 	thumb_func_start MOD05_021F41D0
 MOD05_021F41D0: ; 0x021F41D0
 	add r3, r1, #0
 	ldr r1, [r2, #0xc]
 	ldr r2, [r3, #8]
-	ldr r3, _021F41DC ; =FUN_02006864
+	ldr r3, _021F41DC ; =NARC_ReadFile
 	lsl r1, r1, #2
 	bx r3
 	.balign 4, 0
-_021F41DC: .word FUN_02006864
+_021F41DC: .word NARC_ReadFile
 
 	thumb_func_start MOD05_021F41E0
 MOD05_021F41E0: ; 0x021F41E0
 	add r3, r1, #0
 	ldr r1, [r2, #0x14]
 	ldr r2, [r3, #0xc]
-	ldr r3, _021F41EC ; =FUN_02006864
+	ldr r3, _021F41EC ; =NARC_ReadFile
 	bx r3
 	nop
-_021F41EC: .word FUN_02006864
+_021F41EC: .word NARC_ReadFile
 
 	thumb_func_start MOD05_021F41F0
 MOD05_021F41F0: ; 0x021F41F0
 	add r3, r1, #0
 	ldr r1, [r2, #0x10]
 	ldr r2, [r3, #0x18]
-	ldr r3, _021F41FC ; =FUN_02006864
+	ldr r3, _021F41FC ; =NARC_ReadFile
 	bx r3
 	nop
-_021F41FC: .word FUN_02006864
+_021F41FC: .word NARC_ReadFile
 
 	thumb_func_start MOD05_021F4200
 MOD05_021F4200: ; 0x021F4200
@@ -60381,13 +60381,13 @@ MOD05_021F49AC: ; 0x021F49AC
 	sub r0, #8
 	ldr r2, [r7]
 	add r0, r5, r0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	mov r1, #0x8b
 	lsl r1, r1, #4
 	ldrh r1, [r5, r1]
 	mov r0, #0x2b
 	mov r2, #4
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	ldr r1, _021F4BA0 ; =0x000008BC
 	str r0, [r5, r1]
 	ldr r0, [r5, r1]
@@ -60405,14 +60405,14 @@ _021F49E4:
 	ldrh r1, [r5, r1]
 	mov r0, #0x2c
 	mov r2, #4
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	ldr r1, _021F4BAC ; =0x0000089C
 	mov r2, #4
 	str r0, [r5, r1]
 	add r1, #0x14
 	ldrh r1, [r5, r1]
 	mov r0, #0x47
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	mov r1, #0x8a
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -60477,7 +60477,7 @@ _021F4A78:
 	str r1, [r5, r0]
 	mov r0, #0x28
 	mov r1, #4
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0xc]
 	ldr r0, [r7, #4]
 	bl MOD05_021DA220
@@ -60505,7 +60505,7 @@ _021F4ABE:
 	ldr r0, [sp, #0xc]
 	add r1, r6, #0
 	mov r2, #4
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	str r0, [r4, #4]
 	ldr r0, [sp, #4]
 	cmp r6, r0
@@ -60547,7 +60547,7 @@ _021F4B10:
 	ldr r0, [sp, #0xc]
 	mov r1, #0
 	mov r2, #4
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	str r0, [r5, #4]
 	bl FUN_020BC0FC
 	add r4, r0, #0
@@ -60565,7 +60565,7 @@ _021F4B36:
 	bl ErrorHandling
 _021F4B46:
 	ldr r0, [sp, #0xc]
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r2, _021F4BB8 ; =0x04000060
 	ldr r0, _021F4BBC ; =0xFFFFCFFF
 	ldrh r1, [r2]
@@ -61471,7 +61471,7 @@ _021F51E6:
 	ldr r1, _021F5218 ; =0x021FC644
 	ldr r1, [r1, r2]
 	mov r2, #4
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	ldrb r1, [r4, #4]
 	lsl r1, r1, #2
 	ldr r4, [r0, r1]
@@ -62652,7 +62652,7 @@ MOD05_021F5AB8: ; 0x021F5AB8
 	add r7, r3, #0
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_020067D0
+	bl NARC_GetMemberSize
 	add r1, r0, #0
 	add r0, r6, #0
 	add r2, r7, #0
@@ -62661,7 +62661,7 @@ MOD05_021F5AB8: ; 0x021F5AB8
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -62674,7 +62674,7 @@ MOD05_021F5AE4: ; 0x021F5AE4
 	add r6, r1, #0
 	add r0, r4, #0
 	add r1, r7, #0
-	bl FUN_020067D0
+	bl NARC_GetMemberSize
 	add r2, r0, #0
 	ldr r3, [sp, #0x18]
 	add r0, r5, #0
@@ -62684,7 +62684,7 @@ MOD05_021F5AE4: ; 0x021F5AE4
 	add r0, r4, #0
 	add r1, r7, #0
 	add r2, r5, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0

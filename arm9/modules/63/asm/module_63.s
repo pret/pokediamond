@@ -504,12 +504,12 @@ MOD63_021D78BC: ; 0x021D78BC
 	mov r0, #0x30
 	add r1, r6, #0
 	add r2, r4, #0
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	str r0, [r5, #0x5c]
 	mov r0, #0x30
 	add r1, r7, #0
 	add r2, r4, #0
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, r5, #0
 	add r2, r5, #0
 	str r0, [r5, #0x60]
@@ -4217,7 +4217,7 @@ MOD63_021D96A0: ; 0x021D96A0
 	stmia r2!, {r0, r1}
 	mov r0, #0x80
 	mov r1, #0x4c
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0x10]
 	add r0, r5, #0
 	str r0, [sp, #0x14]
@@ -4231,7 +4231,7 @@ _021D96C6:
 	ldr r1, [r1, r7]
 	mov r2, #0x4c
 	add r6, r5, r7
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	str r0, [r6, #0x1c]
 	cmp r0, #0
 	beq _021D96F4
@@ -4253,7 +4253,7 @@ _021D96F8:
 	cmp r4, #4
 	blo _021D96C6
 	ldr r0, [sp, #0x10]
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -4380,7 +4380,7 @@ MOD63_021D9810: ; 0x021D9810
 	mov r0, #0x80
 	mov r1, #0x46
 	mov r2, #0x4c
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	str r0, [r5, #0x3c]
 	bl FUN_020BC0FC
 	str r0, [r5, #0x40]
@@ -4403,7 +4403,7 @@ _021D9840:
 	bl FUN_02016B44
 	mov r0, #0x80
 	mov r1, #0x4c
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0xc]
 	add r0, r5, #0
 	str r0, [sp, #0x10]
@@ -4419,7 +4419,7 @@ _021D9862:
 	mul r6, r0
 	ldr r0, [sp, #0xc]
 	mov r2, #0x4c
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, r5, r6
 	add r1, #0x9c
 	str r0, [r1]
@@ -4484,7 +4484,7 @@ _021D98BC:
 	cmp r7, #6
 	blo _021D9862
 	ldr r0, [sp, #0xc]
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r0, #0x4c
 	bl FUN_0201EB64
 	add r3, sp, #0x20
@@ -5498,11 +5498,11 @@ MOD63_021DA158: ; 0x021DA158
 	add r4, r0, #0
 	mov r0, #0x80
 	mov r1, #0x4c
-	bl FUN_02006670
+	bl NARC_ctor
 	mov r1, #0x35
 	mov r2, #0x4c
 	add r5, r0, #0
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	str r0, [r4, #0x10]
 	cmp r0, #0
 	beq _021DA18E
@@ -5519,7 +5519,7 @@ _021DA18E:
 	bl ErrorHandling
 _021DA192:
 	add r0, r5, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r1, #0
 	str r1, [sp]
 	ldr r0, [r4, #0x14]

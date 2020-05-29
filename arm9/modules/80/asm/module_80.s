@@ -10713,7 +10713,7 @@ MOD80_02232BAC: ; 0x02232BAC
 	push {r3, r4, r5, lr}
 	add r5, r2, #0
 	add r2, r3, #0
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r4, r0, #0
 	beq _02232BCE
 	add r1, r5, #0
@@ -10953,7 +10953,7 @@ MOD80_02232D7C: ; 0x02232D7C
 	str r0, [r5, r1]
 	mov r0, #0x13
 	mov r1, #0x3e
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
@@ -11142,7 +11142,7 @@ _02232F14:
 	bl FUN_0200A8E0
 _02232F22:
 	ldr r0, [sp, #0x1c]
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r0, _02232F9C ; =0x00000EC8
 	mov r1, #0
 	add r0, r5, r0

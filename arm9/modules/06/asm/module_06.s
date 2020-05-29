@@ -4723,7 +4723,7 @@ MOD06_0223B9A8: ; 0x0223B9A8
 	mov r0, #0x6a
 	mov r1, #8
 	mov r2, #4
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0
 	ldrh r2, [r1, #2]
 	ldr r1, _0223BA00 ; =0x0000FFFF
@@ -23104,20 +23104,20 @@ MOD06_02244CE8: ; 0x02244CE8
 	add r3, r0, #0
 	add r2, r1, #0
 	add r1, r3, #0
-	ldr r3, _02244CF4 ; =LoadFromNarc_2
+	ldr r3, _02244CF4 ; =AllocAndReadWholeNarcMemberByIdPair
 	mov r0, #0x86
 	bx r3
 	.align 2, 0
-_02244CF4: .word LoadFromNarc_2
+_02244CF4: .word AllocAndReadWholeNarcMemberByIdPair
 
 	thumb_func_start MOD06_02244CF8
 MOD06_02244CF8: ; 0x02244CF8
-	ldr r3, _02244D00 ; =LoadFromNARC
+	ldr r3, _02244D00 ; =ReadWholeNarcMemberByIdPair
 	add r2, r1, #0
 	mov r1, #0x87
 	bx r3
 	.align 2, 0
-_02244D00: .word LoadFromNARC
+_02244D00: .word ReadWholeNarcMemberByIdPair
 
 	thumb_func_start MOD06_02244D04
 MOD06_02244D04: ; 0x02244D04
@@ -23285,7 +23285,7 @@ _02244E10:
 	str r0, [r7, #0x38]
 	mov r0, #0x61
 	mov r1, #4
-	bl FUN_02006670
+	bl NARC_ctor
 	ldr r4, _02244EF4 ; =0x022512E0
 	str r0, [sp, #0x10]
 	mov r6, #0
@@ -23361,7 +23361,7 @@ _02244E48:
 	ldr r3, [r7, #0x24]
 	bl MOD06_02244F84
 	ldr r0, [sp, #0x10]
-	bl FUN_020066F4
+	bl NARC_dtor
 	add r0, r7, #0
 	bl MOD06_02244FFC
 	add sp, #0x14
@@ -23640,7 +23640,7 @@ MOD06_02245114: ; 0x02245114
 	str r0, [r5, #0x2c]
 	mov r0, #0x6a
 	mov r2, #4
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	add r7, r0, #0
 	mov r4, #0
 _02245132:
@@ -24327,7 +24327,7 @@ _02245670:
 _02245672:
 	mov r0, #0x6a
 	mov r2, #4
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	lsl r1, r7, #2
 	add r1, r7, r1
 	add r3, r5, #0
@@ -26394,12 +26394,12 @@ MOD06_02246600: ; 0x02246600
 
 	thumb_func_start MOD06_02246604
 MOD06_02246604: ; 0x02246604
-	ldr r3, _0224660C ; =FUN_02006670
+	ldr r3, _0224660C ; =NARC_ctor
 	mov r0, #0x61
 	mov r1, #4
 	bx r3
 	.align 2, 0
-_0224660C: .word FUN_02006670
+_0224660C: .word NARC_ctor
 
 	thumb_func_start MOD06_02246610
 MOD06_02246610: ; 0x02246610
@@ -27697,7 +27697,7 @@ MOD06_02246F0C: ; 0x02246F0C
 	add r1, r4, #0
 	bl MOD06_02247018
 	add r0, r4, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r0, #4
 	mov r1, #0x20
 	bl FUN_020643C0
@@ -27751,12 +27751,12 @@ _02247008: .word 0x04000008
 
 	thumb_func_start MOD06_0224700C
 MOD06_0224700C: ; 0x0224700C
-	ldr r3, _02247014 ; =FUN_02006670
+	ldr r3, _02247014 ; =NARC_ctor
 	mov r0, #0x61
 	mov r1, #4
 	bx r3
 	.align 2, 0
-_02247014: .word FUN_02006670
+_02247014: .word NARC_ctor
 
 	thumb_func_start MOD06_02247018
 MOD06_02247018: ; 0x02247018
@@ -28412,7 +28412,7 @@ _02247530:
 	bl ErrorHandling
 _02247538:
 	add r0, r6, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -28422,7 +28422,7 @@ MOD06_02247544: ; 0x02247544
 	push {r3, r4, r5, lr}
 	add r5, r2, #0
 	mov r2, #4
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, r5, #0
 	add r4, r0, #0
 	bl FUN_020B0138
@@ -28445,7 +28445,7 @@ MOD06_0224756C: ; 0x0224756C
 	add r1, r2, #0
 	add r4, r3, #0
 	mov r2, #4
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, r4, #0
 	add r6, r0, #0
 	bl FUN_020B0088
@@ -28483,7 +28483,7 @@ MOD06_022475A4: ; 0x022475A4
 	add r0, r6, #0
 	add r1, r7, #0
 	mov r2, #4
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, r4, #0
 	add r6, r0, #0
 	bl FUN_020B0180
@@ -30532,7 +30532,7 @@ _02248522:
 	bl MOD06_02245D10
 _02248582:
 	add r0, r4, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r0, [r5]
 	add r0, r0, #1
 	str r0, [r5]
@@ -31522,7 +31522,7 @@ MOD06_02248D00: ; 0x02248D00
 	mov r1, #0x7e
 	mov r2, #0
 	mul r3, r4
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r0, sp, #4
 	ldrb r4, [r0, r5]
 	cmp r4, #0
@@ -31548,7 +31548,7 @@ MOD06_02248D60: ; 0x02248D60
 	mov r1, #0x7e
 	add r3, r4, r3
 	str r2, [sp]
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r0, sp, #4
 	ldrb r0, [r0]
 	cmp r0, #5
@@ -31574,7 +31574,7 @@ MOD06_02248D8C: ; 0x02248D8C
 	mov r1, #0x7e
 	mov r2, #1
 	add r3, r3, #1
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add sp, #4
 	pop {r3, r4, pc}
 
@@ -39622,7 +39622,7 @@ MOD06_0224CBB0: ; 0x0224CBB0
 	mov r0, #0x6a
 	mov r1, #8
 	mov r2, #4
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	add r4, r0, #0
 	add r1, sp, #4
 	ldr r0, [sp]
@@ -39692,7 +39692,7 @@ _0224CC40:
 	mov r0, #0x6a
 	mov r1, #8
 	mov r2, #4
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0
 	ldrh r1, [r1, #2]
 	lsl r1, r1, #2
@@ -39753,7 +39753,7 @@ _0224CC80:
 	mov r0, #0x6a
 	mov r1, #1
 	mov r2, #4
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	str r0, [sp, #0xc]
 	mov r4, #0
 	ldr r0, [r0]
@@ -39877,7 +39877,7 @@ MOD06_0224CDA0: ; 0x0224CDA0
 	mov r0, #0x6a
 	mov r1, #0
 	mov r2, #4
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	ldr r1, [r0]
 	str r1, [r4]
 	bl FUN_02016A18

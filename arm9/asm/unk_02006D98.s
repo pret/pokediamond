@@ -152,7 +152,7 @@ _02006E12:
 	ldr r2, [r4, r2]
 	mov r0, #0x75
 	mov r1, #0xd3
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	str r0, [sp, #0x4]
 	bl FUN_020B0088
@@ -3034,7 +3034,7 @@ _020082CC:
 	ldrh r0, [r0, #0x4]
 	ldrh r1, [r1, #0x6]
 	ldr r2, [r6, r2]
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x58
 	str r0, [sp, #0x4c]
 	bl FUN_020B0088
@@ -3597,7 +3597,7 @@ _02008706:
 	ldrh r0, [r4, #0x4]
 	ldrh r1, [r4, #0x8]
 	ldr r2, [r5, r2]
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18
 	str r0, [sp, #0x10]
 	bl FUN_020B0138
@@ -3643,7 +3643,7 @@ _0200874A:
 	ldr r2, [r5, r2]
 	mov r0, #0x75
 	mov r1, #0xd4
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18
 	str r0, [sp, #0x4]
 	bl FUN_020B0138

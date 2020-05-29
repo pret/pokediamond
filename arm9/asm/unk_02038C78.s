@@ -1635,7 +1635,7 @@ FUN_020392B4: ; 0x020392B4
 	add r4, r3, #0x0
 	mov r0, #0xa
 	mov r2, #0xb
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	str r0, [r5, #0x7c]
 	mov r0, #0x1
 	mov r1, #0x1a
@@ -1929,7 +1929,7 @@ FUN_0203949C: ; 0x0203949C
 	add r1, r0, #0x0
 	mov r0, #0xa
 	mov r2, #0xb
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	pop {r3, pc}
 	.balign 4
 

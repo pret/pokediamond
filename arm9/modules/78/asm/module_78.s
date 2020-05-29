@@ -332,7 +332,7 @@ MOD78_021D778C: ; 0x021D778C
 	add r5, r0, #0
 	mov r0, #0x78
 	mov r1, #0x48
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp]
 	add r0, r5, #0
 	add r0, #0x70
@@ -349,7 +349,7 @@ MOD78_021D778C: ; 0x021D778C
 	ldr r1, _021D7878 ; =0x021D7900
 	mov r2, #0x48
 	ldrh r1, [r1, r3]
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, r5, #0
 	add r2, r5, #0
 	str r0, [r5, #0x5c]
@@ -399,7 +399,7 @@ _021D780E:
 	ldrh r1, [r1, #2]
 	ldr r0, [sp]
 	mov r2, #0x48
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	str r0, [r4, #0x60]
 	mov r1, #0
 	bl FUN_020BC4C8
@@ -428,7 +428,7 @@ _021D780E:
 	cmp r6, #4
 	blo _021D780E
 	ldr r0, [sp]
-	bl FUN_020066F4
+	bl NARC_dtor
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

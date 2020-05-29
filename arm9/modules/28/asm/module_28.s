@@ -638,7 +638,7 @@ MOD28_02254CB4: ; 0x02254CB4
 	bl FUN_02006A34
 	mov r0, #0x13
 	mov r1, #8
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0x1c]
 	cmp r0, #0
 	bne _02254CE8
@@ -679,7 +679,7 @@ _02254D24:
 	ldr r0, [sp, #0x1c]
 	ldr r1, [r4, #4]
 	mov r2, #8
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, sp, #0x2c
 	str r0, [sp, #0x20]
 	bl FUN_020B0088
@@ -807,7 +807,7 @@ _02254DE0:
 	b _02254D24
 _02254E40:
 	ldr r0, [sp, #0x1c]
-	bl FUN_020066F4
+	bl NARC_dtor
 _02254E46:
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}

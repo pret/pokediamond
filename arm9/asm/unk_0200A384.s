@@ -5,10 +5,10 @@
 
 	thumb_func_start FUN_0200A384
 FUN_0200A384: ; 0x0200A384
-	ldr r3, _0200A388 ; =LoadFromNarc_2
+	ldr r3, _0200A388 ; =AllocAndReadWholeNarcMemberByIdPair
 	bx r3
 	.balign 4
-_0200A388: .word LoadFromNarc_2
+_0200A388: .word AllocAndReadWholeNarcMemberByIdPair
 
 	thumb_func_start FUN_0200A38C
 FUN_0200A38C: ; 0x0200A38C
@@ -92,7 +92,7 @@ FUN_0200A418: ; 0x0200A418
 	add r5, r1, #0x0
 	add r1, r3, #0x0
 	add r4, r2, #0x0
-	bl FUN_02006670
+	bl NARC_ctor
 	add r6, r0, #0x0
 	beq _0200A4AE
 	add r1, sp, #0xc
@@ -100,7 +100,7 @@ FUN_0200A418: ; 0x0200A418
 	add r1, r5, #0x0
 	mov r2, #0x0
 	mov r3, #0x4
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	add r0, sp, #0x4
 	lsl r2, r4, #0x3
 	str r0, [sp, #0x0]
@@ -108,7 +108,7 @@ FUN_0200A418: ; 0x0200A418
 	add r1, r5, #0x0
 	add r2, r2, #0x4
 	mov r3, #0x8
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	add r0, sp, #0x4
 	ldrh r2, [r0, #0xa]
 	ldr r0, _0200A4B4 ; =0x000002FD
@@ -132,7 +132,7 @@ FUN_0200A418: ; 0x0200A418
 	ldr r2, [sp, #0x4]
 	add r0, r6, #0x0
 	lsl r3, r3, #0x1
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	ldr r2, _0200A4B8 ; =0x00091BD3
 	add r3, r4, #0x1
 	mul r2, r3
@@ -158,7 +158,7 @@ _0200A492:
 	bne _0200A492
 _0200A4A8:
 	add r0, r6, #0x0
-	bl FUN_020066F4
+	bl NARC_dtor
 _0200A4AE:
 	add sp, #0x10
 	pop {r4-r6, pc}
@@ -370,7 +370,7 @@ FUN_0200A648: ; 0x0200A648
 	add r5, r1, #0x0
 	add r1, r7, #0x0
 	add r4, r2, #0x0
-	bl FUN_02006670
+	bl NARC_ctor
 	add r6, r0, #0x0
 	beq _0200A66E
 	ldr r1, [sp, #0x18]
@@ -380,7 +380,7 @@ FUN_0200A648: ; 0x0200A648
 	add r3, r7, #0x0
 	bl FUN_0200A670
 	add r0, r6, #0x0
-	bl FUN_020066F4
+	bl NARC_dtor
 _0200A66E:
 	pop {r3-r7, pc}
 
@@ -396,7 +396,7 @@ FUN_0200A670: ; 0x0200A670
 	mov r3, #0x4
 	add r7, r0, #0x0
 	str r1, [sp, #0x4]
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	add r0, sp, #0x8
 	ldrh r0, [r0, #0x8]
 	cmp r5, r0
@@ -408,7 +408,7 @@ FUN_0200A670: ; 0x0200A670
 	add r0, r7, #0x0
 	add r2, r2, #0x4
 	mov r3, #0x8
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	add r0, sp, #0x8
 	ldrh r2, [r0, #0xa]
 	ldr r0, _0200A72C ; =0x000002FD
@@ -436,7 +436,7 @@ FUN_0200A670: ; 0x0200A670
 	ldr r2, [sp, #0x8]
 	add r0, r7, #0x0
 	add r3, r6, #0x0
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	ldr r2, _0200A730 ; =0x00091BD3
 	add r3, r5, #0x1
 	mul r2, r3
@@ -488,7 +488,7 @@ FUN_0200A738: ; 0x0200A738
 	add r5, r1, #0x0
 	add r1, r6, #0x0
 	add r4, r2, #0x0
-	bl FUN_02006670
+	bl NARC_ctor
 	add r7, r0, #0x0
 	beq _0200A75E
 	add r1, r5, #0x0
@@ -497,7 +497,7 @@ FUN_0200A738: ; 0x0200A738
 	bl FUN_0200A76C
 	add r4, r0, #0x0
 	add r0, r7, #0x0
-	bl FUN_020066F4
+	bl NARC_dtor
 	b _0200A768
 _0200A75E:
 	mov r0, #0x4
@@ -520,7 +520,7 @@ FUN_0200A76C: ; 0x0200A76C
 	mov r3, #0x4
 	add r7, r0, #0x0
 	str r1, [sp, #0x4]
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	add r0, sp, #0xc
 	ldrh r0, [r0, #0x8]
 	cmp r4, r0
@@ -532,7 +532,7 @@ FUN_0200A76C: ; 0x0200A76C
 	add r0, r7, #0x0
 	add r2, r2, #0x4
 	mov r3, #0x8
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	add r0, sp, #0xc
 	ldrh r2, [r0, #0xa]
 	ldr r0, _0200A83C ; =0x000002FD
@@ -566,7 +566,7 @@ FUN_0200A76C: ; 0x0200A76C
 	ldr r2, [sp, #0xc]
 	add r0, r7, #0x0
 	add r3, r6, #0x0
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	ldr r2, _0200A840 ; =0x00091BD3
 	add r3, r4, #0x1
 	mul r2, r3
@@ -629,7 +629,7 @@ FUN_0200A84C: ; 0x0200A84C
 	add r1, r3, #0x0
 	add r0, sp, #0x4
 	mov r3, #0x0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r0, sp, #0x4
 	ldrh r0, [r0, #0x0]
 	add sp, #0x8
@@ -664,7 +664,7 @@ FUN_0200A86C: ; 0x0200A86C
 _0200A8A0:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [r4, #0x8]
 _0200A8AA:
 	strh r5, [r4, #0x0]
@@ -693,7 +693,7 @@ _0200A8CA:
 	b _0200A8D8
 _0200A8D2:
 	ldr r0, [r4, #0x8]
-	bl FUN_020066F4
+	bl NARC_dtor
 _0200A8D8:
 	add r0, r4, #0x0
 	bl FUN_02016A18

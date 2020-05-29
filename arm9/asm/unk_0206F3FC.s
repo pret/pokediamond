@@ -1268,7 +1268,7 @@ FUN_0206FD24: ; 0x0206FD24
 	mov r0, #0x14
 	mov r1, #0x10
 	mov r2, #0xc
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0x0
 	bl FUN_020B0138
@@ -6198,7 +6198,7 @@ FUN_020724D4: ; 0x020724D4
 	mov r1, #0x16
 	add r2, r4, #0x0
 	add r7, r3, #0x0
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	str r0, [sp, #0x8]
 	bl FUN_020B0180

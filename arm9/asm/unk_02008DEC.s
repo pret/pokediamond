@@ -1674,7 +1674,7 @@ FUN_02009A04: ; 0x02009A04
 	add r6, r3, #0x0
 	add r5, r2, #0x0
 	add r2, r6, #0x0
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r4, r0, #0x0
 	beq _02009A4A
 	cmp r5, #0x0

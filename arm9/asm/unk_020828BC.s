@@ -181,7 +181,7 @@ _0208292A:
 	str r0, [sp, #0x14]
 	mov r0, #0x5a
 	mov r1, #0x0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	mov r1, #0x30
 	bl _u32_div_f
 	str r0, [sp, #0x24]
@@ -942,7 +942,7 @@ FUN_02082ED0: ; 0x02082ED0
 	str r0, [sp, #0x14]
 	mov r0, #0x5a
 	mov r1, #0x1
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	lsr r0, r0, #0x3
 	str r0, [sp, #0x18]
 	ldr r1, [sp, #0x18]

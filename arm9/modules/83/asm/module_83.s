@@ -15963,7 +15963,7 @@ MOD83_022352FC: ; 0x022352FC
 	beq _02235330
 	add r1, r5, #0
 	add r2, r6, #0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	add r0, r4, #0
 	add r1, r7, #0
 	bl FUN_020B0030
@@ -15986,7 +15986,7 @@ MOD83_02235334: ; 0x02235334
 	add r4, r2, #0
 	add r0, r3, #0
 	add r1, r6, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, r4, #0
 	add r1, r5, #0
 	bl FUN_020B0030
@@ -16217,7 +16217,7 @@ MOD83_022354F0: ; 0x022354F0
 	add r5, r0, #0
 	mov r0, #0x13
 	mov r1, #0x4e
-	bl FUN_02006670
+	bl NARC_ctor
 	mov r1, #1
 	str r0, [sp, #0xc]
 	mov r0, #0x4e
@@ -16345,7 +16345,7 @@ _02235602:
 	ldr r0, [sp, #0x10]
 	bl FUN_02016A18
 	ldr r0, [sp, #0xc]
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r1, _02235640 ; =MOD83_022354AC
 	ldr r0, _02235644 ; =0x00012604
 	str r1, [r5, r0]

@@ -44074,7 +44074,7 @@ MOD11_022431DC: ; 0x022431DC
 	add r5, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	mov r1, #0x19
 	lsl r1, r1, #6
 	cmp r0, r1
@@ -44096,7 +44096,7 @@ _022431F8:
 	add r0, r5, r0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start MOD11_0224321C
@@ -44107,7 +44107,7 @@ MOD11_0224321C: ; 0x0224321C
 	add r5, r0, #0
 	add r0, r4, #0
 	add r1, r6, #0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	mov r1, #0x19
 	lsl r1, r1, #6
 	cmp r0, r1
@@ -44173,7 +44173,7 @@ _02243246:
 	lsl r0, r0, #8
 	add r0, r5, r0
 	add r1, r4, #0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start MOD11_022432B4
@@ -65823,7 +65823,7 @@ _0224D5FE:
 	add r0, #2
 	mov r1, #0x8a
 	mov r2, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r0, #1
 	str r0, [sp]
 	add r0, sp, #0x30
@@ -65831,14 +65831,14 @@ _0224D5FE:
 	add r0, #1
 	mov r1, #0x90
 	mov r2, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r0, #1
 	str r0, [sp]
 	ldrh r3, [r5, #2]
 	add r0, sp, #0x30
 	mov r1, #0x8e
 	mov r2, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r0, sp, #0x30
 	ldrh r1, [r5, #2]
 	add r0, #3
@@ -66007,7 +66007,7 @@ _0224D774:
 	add r0, #0x90
 	mov r1, #0x8a
 	mov r2, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r0, #1
 	str r0, [sp]
 	add r0, r4, #0
@@ -66015,7 +66015,7 @@ _0224D774:
 	add r0, #0x91
 	mov r1, #0x90
 	mov r2, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r0, #1
 	str r0, [sp]
 	add r0, r4, #0
@@ -66023,7 +66023,7 @@ _0224D774:
 	add r0, #0x93
 	mov r1, #0x8e
 	mov r2, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r0, r6, #0
 	bl MOD11_02253A78
 	str r7, [r4]
@@ -66171,7 +66171,7 @@ _0224D8C4:
 	add r0, #0x90
 	mov r1, #0x8a
 	mov r2, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r0, #1
 	str r0, [sp]
 	add r0, r5, #0
@@ -66179,7 +66179,7 @@ _0224D8C4:
 	add r0, #0x91
 	mov r1, #0x90
 	mov r2, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r0, #1
 	str r0, [sp]
 	add r0, r5, #0
@@ -66187,7 +66187,7 @@ _0224D8C4:
 	add r0, #0x93
 	mov r1, #0x8e
 	mov r2, #0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r0, r6, #0
 	bl MOD11_02253A78
 	str r7, [r5]

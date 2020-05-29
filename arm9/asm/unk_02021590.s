@@ -85,7 +85,7 @@ FUN_02021600: ; 0x02021600
 	ldr r1, [sp, #0x18]
 	add r4, r2, #0x0
 	add r6, r3, #0x0
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [r5, #0x54]
 	cmp r0, #0x0
 	beq _020216A6
@@ -95,7 +95,7 @@ FUN_02021600: ; 0x02021600
 	add r1, r4, #0x0
 	mov r2, #0x0
 	mov r3, #0x10
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	str r6, [r5, #0x6c]
 	cmp r6, #0x0
 	beq _02021638
@@ -122,7 +122,7 @@ _02021642:
 	ldr r0, [r5, #0x54]
 	ldr r2, [r5, #0x60]
 	ldr r3, [r5, #0x64]
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 _02021660:
 	add r0, r5, #0x0
 	add r0, #0x6a
@@ -180,7 +180,7 @@ _020216C6:
 	ldr r0, [r4, #0x54]
 	cmp r0, #0x0
 	beq _020216D0
-	bl FUN_020066F4
+	bl NARC_dtor
 _020216D0:
 	pop {r4, pc}
 	.balign 4
@@ -219,7 +219,7 @@ FUN_020216EC: ; 0x020216EC
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	ldr r2, [r5, #0x5c]
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	pop {r3-r5, pc}
 	.balign 4
 _02021718: .word FUN_02021774
@@ -381,7 +381,7 @@ FUN_0202181C: ; 0x0202181C
 	ldr r0, [r4, #0x54]
 	ldr r1, [r4, #0x58]
 	add r3, r6, #0x0
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x3
 	bhi _020218C0

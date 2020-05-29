@@ -193,7 +193,7 @@ _02014CC2:
 	add r1, r1, r4
 	ldr r1, [r1, #0x14]
 	mov r0, #0x5e
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	ldr r1, [r5, #0x0]
 	mov r2, #0x0
 	add r1, r1, r4

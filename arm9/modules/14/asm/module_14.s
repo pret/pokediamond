@@ -18727,7 +18727,7 @@ _021E0818:
 	str r0, [r5, #0x18]
 	mov r0, #0x13
 	mov r1, #0xa
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [r5, #0x48]
 	ldr r0, [r5, #8]
 	cmp r0, #0
@@ -18788,7 +18788,7 @@ _021E08D8:
 	ldr r0, [r4, #0x48]
 	cmp r0, #0
 	beq _021E08E2
-	bl FUN_020066F4
+	bl NARC_dtor
 _021E08E2:
 	pop {r4, pc}
 
@@ -18922,7 +18922,7 @@ MOD14_021E0940: ; 0x021E0940
 	ldr r1, [r4, #0x28]
 	mov r2, #0
 	lsl r3, r3, #6
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	add r0, r5, #0
 	add r0, #0x4c
 	add r1, sp, #0x1c
@@ -19146,7 +19146,7 @@ MOD14_021E0BAC: ; 0x021E0BAC
 	ldr r0, [r0, #0x48]
 	add r1, r2, #0
 	mov r2, #0
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	pop {r3, pc}
 
 	thumb_func_start MOD14_021E0BBC
@@ -19169,7 +19169,7 @@ MOD14_021E0BBC: ; 0x021E0BBC
 	ldr r1, [r4, #0x28]
 	mov r2, #0
 	lsl r3, r3, #6
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	add r5, #0x4c
 	add r0, r5, #0
 	add r1, sp, #4

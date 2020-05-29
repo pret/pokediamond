@@ -3316,7 +3316,7 @@ MOD07_02213924: ; 0x02213924
 	mov r0, #0x14
 	ldr r2, [r2, #0x24]
 	mov r1, #0x10
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x10
 	add r4, r0, #0
 	bl FUN_020B0138

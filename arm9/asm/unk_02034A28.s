@@ -71,7 +71,7 @@ FUN_02034A98: ; 0x02034A98
 	add r4, r0, #0x0
 	mov r0, #0x20
 	add r1, r4, #0x0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	mov r1, #0x2
 	lsl r1, r1, #0xa
 	cmp r0, r1
@@ -82,7 +82,7 @@ _02034AB8:
 	add r0, r5, #0x0
 	mov r1, #0x20
 	add r2, r4, #0x0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -414,7 +414,7 @@ FUN_02034CB4: ; 0x02034CB4
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x25
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 _02034CDE:
 	pop {r3-r5, pc}
 
@@ -443,7 +443,7 @@ FUN_02034CEC: ; 0x02034CEC
 	bl MIi_CpuClearFast
 	mov r0, #0xa
 	add r1, r4, #0x0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	mov r1, #0x1
 	lsl r1, r1, #0x8
 	cmp r0, r1
@@ -455,7 +455,7 @@ _02034D1C:
 	add r0, r5, r0
 	mov r1, #0xa
 	add r2, r4, #0x0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_02034D2C

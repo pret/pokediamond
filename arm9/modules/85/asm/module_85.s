@@ -1494,7 +1494,7 @@ MOD85_021D811C: ; 0x021D811C
 	add r4, r0, #0
 	mov r0, #0x85
 	mov r1, #0x4f
-	bl FUN_02006670
+	bl NARC_ctor
 	ldr r1, _021D8130 ; =0x00000438
 	str r0, [r4, r1]
 	pop {r4, pc}
@@ -1505,12 +1505,12 @@ _021D8130: .word 0x00000438
 	thumb_func_start MOD85_021D8134
 MOD85_021D8134: ; 0x021D8134
 	ldr r1, _021D813C ; =0x00000438
-	ldr r3, _021D8140 ; =FUN_020066F4
+	ldr r3, _021D8140 ; =NARC_dtor
 	ldr r0, [r0, r1]
 	bx r3
 	.align 2, 0
 _021D813C: .word 0x00000438
-_021D8140: .word FUN_020066F4
+_021D8140: .word NARC_dtor
 	thumb_func_end MOD85_021D8134
 
 	thumb_func_start MOD85_021D8144
@@ -1521,7 +1521,7 @@ MOD85_021D8144: ; 0x021D8144
 	add r6, r1, #0
 	ldr r0, [r4, r0]
 	add r5, r2, #0
-	bl FUN_020067D0
+	bl NARC_GetMemberSize
 	add r1, r0, #0
 	cmp r5, #1
 	bne _021D8162
@@ -1541,7 +1541,7 @@ _021D8172:
 	add r1, r6, #0
 	ldr r0, [r4, r0]
 	add r2, r5, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, r5, #0
 	pop {r4, r5, r6, pc}
 	nop

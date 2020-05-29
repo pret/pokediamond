@@ -1661,7 +1661,7 @@ MOD81_02238A84: ; 0x02238A84
 	str r0, [r4, r6]
 	ldr r1, [sp, #4]
 	add r0, r7, #0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r4, r6]
 	bl DC_FlushRange

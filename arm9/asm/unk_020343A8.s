@@ -39,7 +39,7 @@ _020343D8:
 	mov r0, #0x29
 	mov r1, r12
 	mov r2, #0xb
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	add r6, r0, #0x0
 	ldrb r0, [r6, #0x0]
 	add r5, r6, #0x5
@@ -297,7 +297,7 @@ FUN_020345A8: ; 0x020345A8
 	mov r0, #0x29
 	mov r1, #0x0
 	add r2, r4, #0x0
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	add r4, r0, #0x0
 	ldrb r1, [r4, #0x4]
 	add r0, r4, #0x5

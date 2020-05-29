@@ -5,37 +5,37 @@
 
 	thumb_func_start FUN_02085258
 FUN_02085258: ; 0x02085258
-	ldr r3, _02085260 ; =FUN_02006670
+	ldr r3, _02085260 ; =NARC_ctor
 	add r1, r0, #0x0
 	mov r0, #0x44
 	bx r3
 	.balign 4
-_02085260: .word FUN_02006670
+_02085260: .word NARC_ctor
 
 	thumb_func_start FUN_02085264
 FUN_02085264: ; 0x02085264
-	ldr r3, _02085268 ; =FUN_02006704
+	ldr r3, _02085268 ; =NARC_AllocAndReadWholeMember
 	bx r3
 	.balign 4
-_02085268: .word FUN_02006704
+_02085268: .word NARC_AllocAndReadWholeMember
 
 	thumb_func_start FUN_0208526C
 FUN_0208526C: ; 0x0208526C
-	ldr r3, _02085270 ; =FUN_020066F4
+	ldr r3, _02085270 ; =NARC_dtor
 	bx r3
 	.balign 4
-_02085270: .word FUN_020066F4
+_02085270: .word NARC_dtor
 
 	thumb_func_start FUN_02085274
 FUN_02085274: ; 0x02085274
 	add r3, r0, #0x0
 	add r2, r1, #0x0
 	add r1, r3, #0x0
-	ldr r3, _02085280 ; =LoadFromNarc_2
+	ldr r3, _02085280 ; =AllocAndReadWholeNarcMemberByIdPair
 	mov r0, #0x44
 	bx r3
 	.balign 4
-_02085280: .word LoadFromNarc_2
+_02085280: .word AllocAndReadWholeNarcMemberByIdPair
 
 	thumb_func_start FUN_02085284
 FUN_02085284: ; 0x02085284

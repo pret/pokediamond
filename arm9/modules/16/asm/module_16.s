@@ -2148,7 +2148,7 @@ MOD16_021D8534: ; 0x021D8534
 	add r5, r0, #0
 	mov r0, #0x45
 	add r4, r1, #0
-	bl FUN_02006670
+	bl NARC_ctor
 	mov r1, #0x9f
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -2296,7 +2296,7 @@ MOD16_021D8628: ; 0x021D8628
 	mov r0, #0x9f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r2, #0xa
 	add r0, r4, #0
 	mov r1, #0
@@ -3146,7 +3146,7 @@ MOD16_021D8C78: ; 0x021D8C78
 	add r6, r3, #0
 	ldr r0, [r0, r2]
 	add r2, r6, #0
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r4, r0, #0
 	beq _021D8CB0
 	cmp r5, #0

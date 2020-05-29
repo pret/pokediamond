@@ -1317,7 +1317,7 @@ _02012018:
 FUN_02012044: ; 0x02012044
 	push {r4-r6, lr}
 	add r5, r3, #0x0
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r4, r0, #0x0
 	bne _02012054
 	bl ErrorHandling
@@ -1543,7 +1543,7 @@ FUN_020121E8: ; 0x020121E8
 	str r3, [sp, #0x48]
 	mov r3, #0x0
 	str r3, [sp, #0x2c]
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	str r0, [sp, #0x20]
 	cmp r0, #0x0
 	bne _02012204
@@ -1888,7 +1888,7 @@ FUN_02012470: ; 0x02012470
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x0
 	add r5, r0, #0x0
 	bl FUN_020B0138

@@ -580,14 +580,14 @@ FUN_02006C98: ; 0x02006C98
 _02006CAC:
 	ldr r1, [sp, #0x0]
 	add r0, r7, #0x0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_020169D8
 	add r4, r0, #0x0
 	b _02006CCE
 _02006CC0:
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_02016998
@@ -598,7 +598,7 @@ _02006CCE:
 	ldr r2, [sp, #0x0]
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	cmp r5, #0x0
 	beq _02006D12
 	ldr r0, [sp, #0x18]
@@ -639,7 +639,7 @@ FUN_02006D18: ; 0x02006D18
 	str r1, [sp, #0x4]
 	add r6, r2, #0x0
 	add r7, r3, #0x0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	str r0, [r5, #0x0]
 	cmp r6, #0x0
 	bne _02006D36
@@ -663,7 +663,7 @@ _02006D4C:
 	ldr r1, [sp, #0x0]
 	ldr r2, [sp, #0x4]
 	add r0, r4, #0x0
-	bl LoadFromNARC
+	bl ReadWholeNarcMemberByIdPair
 	cmp r6, #0x0
 	beq _02006D92
 	ldr r0, [r4, #0x0]

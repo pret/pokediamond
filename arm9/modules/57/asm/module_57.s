@@ -3685,7 +3685,7 @@ _021D91BC:
 	stmia r2!, {r0, r1}
 	mov r0, #0x33
 	mov r1, #0x19
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0x14]
 	mov r0, #0x1e
 	lsl r0, r0, #4
@@ -3699,7 +3699,7 @@ _021D9290:
 	ldr r1, [r1, r6]
 	mov r2, #0x19
 	add r5, r7, r6
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	mov r1, #7
 	lsl r1, r1, #6
 	str r0, [r5, r1]
@@ -3727,7 +3727,7 @@ _021D92CE:
 	cmp r4, #8
 	blo _021D9290
 	ldr r0, [sp, #0x14]
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r0, #0x10
 	mov r1, #1
 	bl FUN_0201E6E4

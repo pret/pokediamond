@@ -1081,7 +1081,7 @@ FUN_0200D300: ; 0x0200D300
 	mov r0, #0x24
 	mov r1, #0x1
 	add r2, r4, #0x0
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18
 	str r0, [sp, #0x14]
 	bl FUN_020B0138

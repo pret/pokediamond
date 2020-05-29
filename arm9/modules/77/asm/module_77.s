@@ -2314,7 +2314,7 @@ MOD77_021D8814: ; 0x021D8814
 	ldr r2, [r4]
 	mov r0, #0x81
 	mov r1, #0
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	ldr r2, _021D88B4 ; =0x0000C0CC
 	str r0, [r4, r2]
 	add r0, r2, #0
@@ -2327,7 +2327,7 @@ MOD77_021D8814: ; 0x021D8814
 	ldr r2, [r4]
 	mov r0, #0x81
 	mov r1, #1
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	ldr r2, _021D88B8 ; =0x0000C294
 	str r0, [r4, r2]
 	add r0, r2, #0
@@ -2341,7 +2341,7 @@ MOD77_021D8814: ; 0x021D8814
 	ldr r2, [r4]
 	mov r0, #0x81
 	mov r1, #2
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	ldr r2, _021D88BC ; =0x0000C298
 	str r0, [r4, r2]
 	add r0, r2, #0
@@ -2355,7 +2355,7 @@ MOD77_021D8814: ; 0x021D8814
 	ldr r2, [r4]
 	mov r0, #0x81
 	mov r1, #3
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	ldr r2, _021D88C0 ; =0x0000C28C
 	str r0, [r4, r2]
 	add r1, r2, #0
@@ -2368,7 +2368,7 @@ MOD77_021D8814: ; 0x021D8814
 	ldr r2, [r4]
 	mov r0, #0x81
 	mov r1, #4
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	ldr r2, _021D88C8 ; =0x0000C290
 	str r0, [r4, r2]
 	add r1, r2, #0

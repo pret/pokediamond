@@ -159,22 +159,22 @@ typedef enum NarcId
     NARC_POKETOOL_SHINZUKAN,
 } NarcId;
 
-void ReadNARCFile(void * dest, const char * path, s32 file_idx, u32 offset, u32 size);
-void * LoadFileIntoMemory(const char * path, s32 file_idx, u32 heap_id, u32 offset, u32 size, BOOL r4);
-void LoadFromNARC(void * dest, NarcId narc_id, s32 file_id);
-void * LoadFromNarc_2(NarcId narc_id, s32 file_id, u32 heap_id);
-void * FUN_02006528(NarcId narc_id, s32 file_id, u32 heap_id);
-void FUN_02006548(void * dest, NarcId narc_id, s32 file_id, u32 offset, u32 size);
-void * FUN_02006564(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size);
-void * FUN_02006584(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size);
-u32 LoadFromNARC_7(NarcId narc_id, s32 file_idx);
-NARC * FUN_02006670(NarcId narc_id, u32 heap_id);
-void FUN_020066F4(NARC * narc);
-void * FUN_02006704(NARC * narc, u32 file_id, u32 heap_id);
-void FUN_02006774(NARC * narc, u32 file_id, void * dest);
-u32 FUN_020067D0(NARC * narc, u32 file_id);
-void FUN_02006814(NARC * narc, u32 file_id, u32 pos, u32 size, void * dest);
-void FUN_02006864(NARC * narc, u32 size, void * dest);
-u16 FUN_02006874(NARC * narc);
+void ReadFromNarcMemberByPathAndId(void * dest, const char * path, s32 file_idx, u32 offset, u32 size);
+void * AllocAndReadFromNarcMemberByPathAndId(const char * path, s32 file_idx, u32 heap_id, u32 offset, u32 size, BOOL r4);
+void ReadWholeNarcMemberByIdPair(void * dest, NarcId narc_id, s32 file_id);
+void * AllocAndReadWholeNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id);
+void * AllocAtEndAndReadWholeNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id);
+void ReadFromNarcMemberByIdPair(void * dest, NarcId narc_id, s32 file_id, u32 offset, u32 size);
+void * AllocAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size);
+void * AllocAtEndAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size);
+u32 GetNarcMemberSizeByIdPair(NarcId narc_id, s32 file_idx);
+NARC * NARC_ctor(NarcId narc_id, u32 heap_id);
+void NARC_dtor(NARC * narc);
+void * NARC_AllocAndReadWholeMember(NARC * narc, u32 file_id, u32 heap_id);
+void NARC_ReadWholeMember(NARC * narc, u32 file_id, void * dest);
+u32 NARC_GetMemberSize(NARC * narc, u32 file_id);
+void NARC_ReadFromMember(NARC * narc, u32 file_id, u32 pos, u32 size, void * dest);
+void NARC_ReadFile(NARC * narc, u32 size, void * dest);
+u16 NARC_GetFileCount(NARC * narc);
 
 #endif //POKEDIAMOND_FILESYSTEM_H

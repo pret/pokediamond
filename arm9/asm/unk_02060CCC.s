@@ -3239,7 +3239,7 @@ FUN_02062474: ; 0x02062474
 	mov r1, #0x7e
 	mov r2, #0x2
 	mov r3, #0x0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	ldr r0, [sp, #0x8]
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -3275,13 +3275,13 @@ _020624C6:
 	mov r1, #0x7e
 	add r3, r4, #0x4
 	str r2, [sp, #0x0]
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r2, #0x2
 	add r0, sp, #0x4
 	mov r1, #0x7e
 	add r3, r4, #0x6
 	str r2, [sp, #0x0]
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r2, sp, #0x4
 	ldrh r2, [r2, #0x2]
 	add r0, r6, #0x0

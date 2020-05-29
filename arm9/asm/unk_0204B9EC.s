@@ -166,7 +166,7 @@ _0204BB08:
 	mov r1, #0x83
 	mov r2, #0x0
 	mul r3, r4
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	pop {r3-r5, pc}
 	.balign 4
 _0204BB1C: .word 0x000001ED
