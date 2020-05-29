@@ -168,27 +168,27 @@ THUMB_FUNC void ReadNARCFile(void * dest, const char * path, s32 file_idx, u32 o
     FS_SeekFile(&file, 12, FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 2);
     chunk_starts[0] = chunk_size;
-    FS_SeekFile(&file, chunk_starts[0] + 4, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[0] + 4), FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 4);
     FS_ReadFile(&file, &num_files, 2);
     if (num_files <= file_idx)
         ErrorHandling();
     chunk_starts[1] = chunk_starts[0] + chunk_size;
-    FS_SeekFile(&file, chunk_starts[1] + 4, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[1] + 4), FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 4);
     btnf_size = chunk_size;
-    FS_SeekFile(&file, chunk_starts[0] + 12 + 8 * file_idx, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[0] + 12 + 8 * file_idx), FS_SEEK_SET);
     FS_ReadFile(&file, &file_start, 4);
     FS_ReadFile(&file, &file_end, 4);
     chunk_starts[2] = chunk_starts[1] + btnf_size;
-    FS_SeekFile(&file, chunk_starts[2] + 8 + file_start + offset, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[2] + 8 + file_start + offset), FS_SEEK_SET);
     if (size == 0)
         chunk_size = file_end - file_start;
     else
         chunk_size = size;
     if (chunk_size == 0)
         ErrorHandling();
-    FS_ReadFile(&file, dest, chunk_size);
+    FS_ReadFile(&file, dest, (s32)chunk_size);
     FS_CloseFile(&file);
 }
 
@@ -209,20 +209,20 @@ THUMB_FUNC void * LoadFileIntoMemory(const char * path, s32 file_idx, u32 heap_i
     FS_SeekFile(&file, 12, FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 2);
     chunk_starts[0] = chunk_size;
-    FS_SeekFile(&file, chunk_starts[0] + 4, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[0] + 4), FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 4);
     FS_ReadFile(&file, &num_files, 2);
     if (num_files <= file_idx)
         ErrorHandling();
     chunk_starts[1] = chunk_starts[0] + chunk_size;
-    FS_SeekFile(&file, chunk_starts[1] + 4, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[1] + 4), FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 4);
     btnf_size = chunk_size;
-    FS_SeekFile(&file, chunk_starts[0] + 12 + 8 * file_idx, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[0] + 12 + 8 * file_idx), FS_SEEK_SET);
     FS_ReadFile(&file, &file_start, 4);
     FS_ReadFile(&file, &file_end, 4);
     chunk_starts[2] = chunk_starts[1] + btnf_size;
-    FS_SeekFile(&file, chunk_starts[2] + 8 + file_start + offset, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[2] + 8 + file_start + offset), FS_SEEK_SET);
     if (size == 0)
         chunk_size = file_end - file_start;
     else
@@ -238,7 +238,7 @@ THUMB_FUNC void * LoadFileIntoMemory(const char * path, s32 file_idx, u32 heap_i
         dest = FUN_020169D8(heap_id, chunk_size);
         break;
     }
-    FS_ReadFile(&file, dest, chunk_size);
+    FS_ReadFile(&file, dest, (s32)chunk_size);
     FS_CloseFile(&file);
     return dest;
 }
@@ -289,20 +289,20 @@ THUMB_FUNC u32 LoadFromNARC_7(NarcId narc_id, s32 file_idx)
     FS_SeekFile(&file, 12, FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 2);
     chunk_starts[0] = chunk_size;
-    FS_SeekFile(&file, chunk_starts[0] + 4, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[0] + 4), FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 4);
     FS_ReadFile(&file, &num_files, 2);
     if (num_files <= file_idx)
         ErrorHandling();
     chunk_starts[1] = chunk_starts[0] + chunk_size;
-    FS_SeekFile(&file, chunk_starts[1] + 4, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[1] + 4), FS_SEEK_SET);
     FS_ReadFile(&file, &chunk_size, 4);
     btnf_size = chunk_size;
-    FS_SeekFile(&file, chunk_starts[0] + 12 + 8 * file_idx, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[0] + 12 + 8 * file_idx), FS_SEEK_SET);
     FS_ReadFile(&file, &file_start, 4);
     FS_ReadFile(&file, &file_end, 4);
     chunk_starts[2] = chunk_starts[1] + btnf_size;
-    FS_SeekFile(&file, chunk_starts[2] + 8 + file_start + 0, FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(chunk_starts[2] + 8 + file_start + 0), FS_SEEK_SET);
     chunk_size = file_end - file_start;
     if (chunk_size == 0)
         ErrorHandling();
@@ -322,11 +322,11 @@ THUMB_FUNC NARC * FUN_02006670(NarcId narc_id, u32 heap_id)
         FS_OpenFile(&narc->file, sNarcFileList[narc_id]);
         FS_SeekFile(&narc->file, 12, FS_SEEK_SET);
         FS_ReadFile(&narc->file, &narc->btaf_start, 2);
-        FS_SeekFile(&narc->file, narc->btaf_start + 4, FS_SEEK_SET);
+        FS_SeekFile(&narc->file, (s32)(narc->btaf_start + 4), FS_SEEK_SET);
         FS_ReadFile(&narc->file, &chunk_size, 4);
         FS_ReadFile(&narc->file, &narc->num_files, 2);
         btnf_start = narc->btaf_start + chunk_size;
-        FS_SeekFile(&narc->file, btnf_start + 4, FS_SEEK_SET);
+        FS_SeekFile(&narc->file, (s32)(btnf_start + 4), FS_SEEK_SET);
         FS_ReadFile(&narc->file, &chunk_size, 4);
         narc->gmif_start = btnf_start + chunk_size;
     }
@@ -346,14 +346,14 @@ THUMB_FUNC void * FUN_02006704(NARC * narc, u32 file_id, u32 heap_id)
     void * dest;
     if (narc->num_files <= file_id)
         ErrorHandling();
-    FS_SeekFile(&narc->file, narc->btaf_start + 12 + 8 * file_id, FS_SEEK_SET);
+    FS_SeekFile(&narc->file, (s32)(narc->btaf_start + 12 + 8 * file_id), FS_SEEK_SET);
     FS_ReadFile(&narc->file, &file_start, 4);
     FS_ReadFile(&narc->file, &file_end, 4);
-    FS_SeekFile(&narc->file, narc->gmif_start + 8 + file_start, FS_SEEK_SET);
+    FS_SeekFile(&narc->file, (s32)(narc->gmif_start + 8 + file_start), FS_SEEK_SET);
     dest = FUN_02016998(heap_id, file_end - file_start);
     if (dest != NULL)
     {
-        FS_ReadFile(&narc->file, dest, file_end - file_start);
+        FS_ReadFile(&narc->file, dest, (s32)(file_end - file_start));
     }
     return dest;
 }
@@ -364,11 +364,11 @@ THUMB_FUNC void FUN_02006774(NARC * narc, u32 file_id, void * dest)
     u32 file_end;
     if (narc->num_files <= file_id)
         ErrorHandling();
-    FS_SeekFile(&narc->file, narc->btaf_start + 12 + 8 * file_id, FS_SEEK_SET);
+    FS_SeekFile(&narc->file, (s32)(narc->btaf_start + 12 + 8 * file_id), FS_SEEK_SET);
     FS_ReadFile(&narc->file, &file_start, 4);
     FS_ReadFile(&narc->file, &file_end, 4);
-    FS_SeekFile(&narc->file, narc->gmif_start + 8 + file_start, FS_SEEK_SET);
-    FS_ReadFile(&narc->file, dest, file_end - file_start);
+    FS_SeekFile(&narc->file, (s32)(narc->gmif_start + 8 + file_start), FS_SEEK_SET);
+    FS_ReadFile(&narc->file, dest, (s32)(file_end - file_start));
 }
 
 THUMB_FUNC u32 FUN_020067D0(NARC * narc, u32 file_id)
@@ -377,7 +377,7 @@ THUMB_FUNC u32 FUN_020067D0(NARC * narc, u32 file_id)
     u32 file_end;
     if (narc->num_files <= file_id)
         ErrorHandling();
-    FS_SeekFile(&narc->file, narc->btaf_start + 12 + 8 * file_id, FS_SEEK_SET);
+    FS_SeekFile(&narc->file, (s32)(narc->btaf_start + 12 + 8 * file_id), FS_SEEK_SET);
     FS_ReadFile(&narc->file, &file_start, 4);
     FS_ReadFile(&narc->file, &file_end, 4);
     return file_end - file_start;
@@ -388,15 +388,15 @@ THUMB_FUNC void FUN_02006814(NARC * narc, u32 file_id, u32 pos, u32 size, void *
     u32 file_start;
     if (narc->num_files <= file_id)
         ErrorHandling();
-    FS_SeekFile(&narc->file, narc->btaf_start + 12 + 8 * file_id, FS_SEEK_SET);
+    FS_SeekFile(&narc->file, (s32)(narc->btaf_start + 12 + 8 * file_id), FS_SEEK_SET);
     FS_ReadFile(&narc->file, &file_start, 4);
-    FS_SeekFile(&narc->file, narc->gmif_start + 8 + file_start + pos, FS_SEEK_SET);
-    FS_ReadFile(&narc->file, dest, size);
+    FS_SeekFile(&narc->file, (s32)(narc->gmif_start + 8 + file_start + pos), FS_SEEK_SET);
+    FS_ReadFile(&narc->file, dest, (s32)size);
 }
 
 THUMB_FUNC void FUN_02006864(NARC * narc, u32 size, void * dest)
 {
-    FS_ReadFile(&narc->file, dest, size);
+    FS_ReadFile(&narc->file, dest, (s32)size);
 }
 
 THUMB_FUNC u16 FUN_02006874(NARC * narc)

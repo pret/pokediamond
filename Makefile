@@ -177,7 +177,7 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir include -ir include-mw -ir arm9/lib/include
+CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir include -ir include-mw -ir arm9/lib/include -W all -W error
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################

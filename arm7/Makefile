@@ -83,7 +83,7 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm7_thumb.s -o arm7.o
 ASFLAGS = -proc arm4t -i  ..
-CFLAGS = -O4,p -proc v4t -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir ../arm9/lib/include # temporary fix while arm7 libos hasn't been decomped
+CFLAGS = -O4,p -proc v4t -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir ../arm9/lib/include -W all -W error # temporary fix while arm7 libos hasn't been decomped
 LDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
