@@ -60,7 +60,7 @@ ARM_FUNC asm OSProcMode OS_GetProcMode(void) {
     bx lr
 }
 
-ARM_FUNC asm void OS_SpinWait(void) {
+ARM_FUNC asm void OS_SpinWait(u32 cycles) {
     subs r0, r0, #0x4
     bhs OS_SpinWait
     bx lr
