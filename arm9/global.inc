@@ -7289,6 +7289,7 @@
 .extern OSi_MainExArenaEnabled
 .extern OSi_NeedResetTimer
 .extern OSi_PreviousVCount
+.extern OSi_ReadCardRom32
 .extern OSi_ReferSymbol
 .extern OSi_RemoveMutexLinkFromQueue
 .extern OSi_RescheduleCount
