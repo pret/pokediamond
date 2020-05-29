@@ -675,7 +675,7 @@ FUN_0205CA80: ; 0x0205CA80
 	mov r1, #0x2c
 	add r7, r2, #0x0
 	str r3, [sp, #0x0]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	bne _0205CA9A
 	bl ErrorHandling

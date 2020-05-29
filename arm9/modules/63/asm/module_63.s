@@ -372,13 +372,13 @@ MOD63_021D77B4: ; 0x021D77B4
 	beq _021D780A
 _021D77F2:
 	mov r0, #0
-	ldr r1, _021D781C ; =0x020FF3D4
+	ldr r1, _021D781C ; =UNK_020FF3D4
 	mvn r0, r0
 	bl FUN_02000E7C
 	b _021D7818
 _021D77FE:
 	mov r0, #0
-	ldr r1, _021D7820 ; =0x020FF368
+	ldr r1, _021D7820 ; =UNK_020FF368
 	mvn r0, r0
 	bl FUN_02000E7C
 	b _021D7818
@@ -504,12 +504,12 @@ MOD63_021D78BC: ; 0x021D78BC
 	mov r0, #0x30
 	add r1, r6, #0
 	add r2, r4, #0
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	str r0, [r5, #0x5c]
 	mov r0, #0x30
 	add r1, r7, #0
 	add r2, r4, #0
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, r5, #0
 	add r2, r5, #0
 	str r0, [r5, #0x60]
@@ -581,9 +581,9 @@ MOD63_021D7970: ; 0x021D7970
 	add r0, #0x68
 	bl thunk_FUN_020ae84c
 	ldr r0, [r4, #0x60]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x5c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD63_021D7970
@@ -882,7 +882,7 @@ MOD63_021D7B9C: ; 0x021D7B9C
 	mov r1, #7
 	bl FUN_020178A0
 	ldr r0, [r4, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD63_021D7B9C
 
@@ -898,7 +898,7 @@ MOD63_021D7C18: ; 0x021D7C18
 	add r1, r4, #0
 	add r2, r5, #0
 	bl MOD63_021D83A8
-	ldr r0, _021D7D5C ; =0x020ECAC0
+	ldr r0, _021D7D5C ; =gGameVersion
 	ldrb r0, [r0]
 	cmp r0, #0xa
 	bne _021D7C46
@@ -1038,7 +1038,7 @@ _021D7C52:
 	add sp, #8
 	pop {r4, r5, r6, pc}
 	nop
-_021D7D5C: .word 0x020ECAC0
+_021D7D5C: .word gGameVersion
 _021D7D60: .word 0x04000060
 _021D7D64: .word 0xFFFFCFFF
 _021D7D68: .word 0x00007FFF
@@ -1911,7 +1911,7 @@ MOD63_021D83A8: ; 0x021D83A8
 	mov r3, #3
 	str r4, [sp, #0xc]
 	bl FUN_020068C8
-	ldr r0, _021D85C8 ; =0x020ECAC0
+	ldr r0, _021D85C8 ; =gGameVersion
 	ldrb r7, [r0]
 	cmp r7, #0xa
 	bne _021D841A
@@ -2113,7 +2113,7 @@ _021D844C:
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021D85C8: .word 0x020ECAC0
+_021D85C8: .word gGameVersion
 _021D85CC: .word 0x00000227
 _021D85D0: .word 0x021DB9A0
 _021D85D4: .word 0x00010100
@@ -2129,7 +2129,7 @@ MOD63_021D85D8: ; 0x021D85D8
 	add r5, r1, #0
 	cmp r0, #0
 	bne _021D863A
-	ldr r0, _021D8640 ; =0x020ECAC0
+	ldr r0, _021D8640 ; =gGameVersion
 	ldrb r0, [r0]
 	cmp r0, #0xa
 	bne _021D85F8
@@ -2173,7 +2173,7 @@ _021D863A:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021D8640: .word 0x020ECAC0
+_021D8640: .word gGameVersion
 	thumb_func_end MOD63_021D85D8
 
 	thumb_func_start MOD63_021D8644
@@ -2271,7 +2271,7 @@ MOD63_021D86E0: ; 0x021D86E0
 	push {r3, r4, r5, lr}
 	sub sp, #0x18
 	add r4, r0, #0
-	ldr r0, _021D8858 ; =0x020ECAC0
+	ldr r0, _021D8858 ; =gGameVersion
 	ldrb r0, [r0]
 	cmp r0, #0xa
 	bne _021D8788
@@ -2457,7 +2457,7 @@ _021D8828:
 	add sp, #0x18
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_021D8858: .word 0x020ECAC0
+_021D8858: .word gGameVersion
 _021D885C: .word 0xFFFFE000
 _021D8860: .word 0xFFFDA000
 _021D8864: .word 0xFFFFF6E3
@@ -3687,7 +3687,7 @@ MOD63_021D9234: ; 0x021D9234
 	mov r1, #5
 	bl FUN_020178A0
 	ldr r0, [r4, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	strb r0, [r4, #0x1a]
 _021D9286:
@@ -3988,14 +3988,14 @@ MOD63_021D9498: ; 0x021D9498
 	add r6, r0, #0
 	mov r0, #0x4c
 	add r1, r4, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x44]
 	mov r0, #0x10
 	bl MOD63_021DAF20
 	str r0, [r5, #0x48]
 	mov r0, #0x4c
 	add r1, r6, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x4c]
 	ldr r0, [r5, #0x44]
 	mov r1, #0
@@ -4112,14 +4112,14 @@ _021D95D0:
 	add r0, r5, r0
 	add r0, #0xd0
 	ldr r0, [r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	cmp r4, #6
 	blo _021D95D0
 	ldr r0, [r5, #0x70]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	mov r1, #0
 	add r0, #0x38
@@ -4137,7 +4137,7 @@ _021D9608:
 	lsl r0, r4, #2
 	add r0, r5, r0
 	ldr r0, [r0, #0x50]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -4163,7 +4163,7 @@ _021D963C:
 	ldr r0, [r5, #0x44]
 	cmp r0, #0
 	beq _021D964A
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r5, #0x44]
 _021D964A:
@@ -4172,7 +4172,7 @@ _021D964A:
 	beq _021D965E
 	bl MOD63_021DB580
 	ldr r0, [r5, #0x4c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0
 	str r0, [r5, #0x4c]
 _021D965E:
@@ -4189,7 +4189,7 @@ _021D965E:
 	mov r1, #4
 	bl FUN_020178A0
 	ldr r0, [r5, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5, #0x10]
 	bl FUN_020223BC
 	mov r0, #0
@@ -4217,7 +4217,7 @@ MOD63_021D96A0: ; 0x021D96A0
 	stmia r2!, {r0, r1}
 	mov r0, #0x80
 	mov r1, #0x4c
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0x10]
 	add r0, r5, #0
 	str r0, [sp, #0x14]
@@ -4231,7 +4231,7 @@ _021D96C6:
 	ldr r1, [r1, r7]
 	mov r2, #0x4c
 	add r6, r5, r7
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	str r0, [r6, #0x1c]
 	cmp r0, #0
 	beq _021D96F4
@@ -4241,7 +4241,7 @@ _021D96C6:
 	cmp r0, #0
 	bne _021D96F8
 	ldr r0, [r6, #0x2c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	bl ErrorHandling
 	b _021D96F8
 _021D96F4:
@@ -4253,7 +4253,7 @@ _021D96F8:
 	cmp r4, #4
 	blo _021D96C6
 	ldr r0, [sp, #0x10]
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r0, #0
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -4380,7 +4380,7 @@ MOD63_021D9810: ; 0x021D9810
 	mov r0, #0x80
 	mov r1, #0x46
 	mov r2, #0x4c
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	str r0, [r5, #0x3c]
 	bl FUN_020BC0FC
 	str r0, [r5, #0x40]
@@ -4403,7 +4403,7 @@ _021D9840:
 	bl FUN_02016B44
 	mov r0, #0x80
 	mov r1, #0x4c
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0xc]
 	add r0, r5, #0
 	str r0, [sp, #0x10]
@@ -4419,7 +4419,7 @@ _021D9862:
 	mul r6, r0
 	ldr r0, [sp, #0xc]
 	mov r2, #0x4c
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, r5, r6
 	add r1, #0x9c
 	str r0, [r1]
@@ -4484,7 +4484,7 @@ _021D98BC:
 	cmp r7, #6
 	blo _021D9862
 	ldr r0, [sp, #0xc]
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r0, #0x4c
 	bl FUN_0201EB64
 	add r3, sp, #0x20
@@ -5498,11 +5498,11 @@ MOD63_021DA158: ; 0x021DA158
 	add r4, r0, #0
 	mov r0, #0x80
 	mov r1, #0x4c
-	bl FUN_02006670
+	bl NARC_ctor
 	mov r1, #0x35
 	mov r2, #0x4c
 	add r5, r0, #0
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	str r0, [r4, #0x10]
 	cmp r0, #0
 	beq _021DA18E
@@ -5512,14 +5512,14 @@ MOD63_021DA158: ; 0x021DA158
 	cmp r0, #0
 	bne _021DA192
 	ldr r0, [r4, #0x14]
-	bl FUN_02016A18
+	bl FreeToHeap
 	bl ErrorHandling
 	b _021DA192
 _021DA18E:
 	bl ErrorHandling
 _021DA192:
 	add r0, r5, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r1, #0
 	str r1, [sp]
 	ldr r0, [r4, #0x14]
@@ -5841,7 +5841,7 @@ MOD63_021DA418: ; 0x021DA418
 	mov r1, #5
 	bl FUN_020178A0
 	ldr r0, [r4, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021DA470 ; =0x0000028E
 	mov r1, #0
 	strb r1, [r4, r0]
@@ -5852,7 +5852,7 @@ _021DA458:
 	beq _021DA46E
 	add r0, #0xd
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021DA474 ; =0x0000028F
 	mov r1, #0
 	strb r1, [r4, r0]
@@ -7196,7 +7196,7 @@ MOD63_021DAEF8: ; 0x021DAEF8
 	mov r1, #0x7d
 	mov r0, #0x4c
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x7d
 	add r4, r0, #0
 	mov r1, #0
@@ -7216,14 +7216,14 @@ MOD63_021DAF20: ; 0x021DAF20
 	add r5, r0, #0
 	mov r0, #0x4c
 	mov r1, #8
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r0, #0xc
 	add r6, r5, #0
 	mul r6, r0
 	mov r0, #0x4c
 	add r1, r6, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0
 	add r2, r6, #0
 	str r0, [r4, #4]
@@ -7257,9 +7257,9 @@ _021DAF68:
 	blt _021DAF5A
 _021DAF72:
 	ldr r0, [r5, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD63_021DAF4C
 
@@ -7321,7 +7321,7 @@ _021DAFDA:
 	cmp r4, #0xa
 	blo _021DAFCA
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD63_021DAF9C
 
@@ -7997,7 +7997,7 @@ _021DB4BA:
 	mov r1, #0x12
 	mov r0, #0x4c
 	lsl r1, r1, #0xa
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x14]
 	mov r0, #1
 	str r0, [sp]
@@ -8043,7 +8043,7 @@ MOD63_021DB580: ; 0x021DB580
 	ldr r0, [r4, #0x18]
 	bl FUN_02012DE4
 	ldr r0, [r4, #0x14]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4]
 	bl FUN_020072E8
 	pop {r4, pc}
@@ -8653,7 +8653,7 @@ UNK63_021DBAB8: ; 0x021DBAB8
 
 	.global MOD63_UNK_021DBE18
 MOD63_UNK_021DBE18:
-	.byte 0x11, 0x8D, 0x1D, 0x02, 0x99, 0x8D, 0x1D, 0x02, 0x69, 0x8E, 0x1D, 0x02, 0xFF, 0xFF, 0xFF, 0xFF
+	.word MOD63_021D8D10, MOD63_021D8D98, MOD63_021D8E68, 0xFFFFFFFF
 	.byte 0x05, 0x05, 0x05, 0x05, 0x4C, 0x00, 0x00, 0x00, 0x4C, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00
 	.byte 0x07, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
 	.byte 0x05, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00

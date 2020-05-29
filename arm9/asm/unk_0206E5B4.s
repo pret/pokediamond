@@ -504,21 +504,21 @@ _0206E72C:
 	lsl r3, r3, #0x3
 	ldrh r1, [r1, r3]
 	mov r0, #0xf
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	pop {r3, pc}
 _0206E73A:
 	ldr r1, _0206E760 ; =UNK_020F85B6
 	lsl r3, r3, #0x3
 	ldrh r1, [r1, r3]
 	mov r0, #0x10
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	pop {r3, pc}
 _0206E748:
 	ldr r1, _0206E764 ; =UNK_020F85B8
 	lsl r3, r3, #0x3
 	ldrh r1, [r1, r3]
 	mov r0, #0x10
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	pop {r3, pc}
 _0206E756:
 	mov r0, #0x0
@@ -1159,7 +1159,7 @@ FUN_0206EB50: ; 0x0206EB50
 	mov r0, #0xf
 	add r2, r4, #0x0
 	add r3, r1, #0x0
-	bl FUN_02006564
+	bl AllocAndReadFromNarcMemberByIdPair
 	add sp, #0x4
 	pop {r3-r4, pc}
 	.balign 4

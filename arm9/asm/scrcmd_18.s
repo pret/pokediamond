@@ -211,7 +211,7 @@ FUN_02044414: ; 0x02044414
 	add r1, r4, #0x0
 	bl FUN_0206B900
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02044494:
 	mov r0, #0x0
 	add sp, #0xc

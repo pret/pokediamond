@@ -93,7 +93,7 @@ _02012CFA:
 _02012D04:
 	ldr r0, [sp, #0x2c]
 	mov r1, #0xdc
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02012D14
 	bl ErrorHandling
@@ -267,7 +267,7 @@ _02012E60:
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	beq _02012E78
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r5, #0x4]
 _02012E78:
@@ -294,7 +294,7 @@ _02012E94:
 	bl FUN_0201EB70
 _02012E9E:
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r7, pc}
 	nop
 _02012EA8: .word UNK_021C4858
@@ -736,10 +736,10 @@ _02013188: .word UNK_021C4850
 
 	thumb_func_start FUN_0201318C
 FUN_0201318C: ; 0x0201318C
-	ldr r3, _02013190 ; =LoadFromNarc_2
+	ldr r3, _02013190 ; =AllocAndReadWholeNarcMemberByIdPair
 	bx r3
 	.balign 4
-_02013190: .word LoadFromNarc_2
+_02013190: .word AllocAndReadWholeNarcMemberByIdPair
 
 	thumb_func_start FUN_02013194
 FUN_02013194: ; 0x02013194
@@ -1493,7 +1493,7 @@ FUN_02013690: ; 0x02013690
 	push {r3-r5, lr}
 	mov r1, #0x8
 	add r5, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	beq _020136B2
 	ldr r0, _020136B8 ; =0x0001020F
@@ -1526,7 +1526,7 @@ _020136CA:
 	bl FUN_02021A20
 _020136D8:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _020136DE:
 	pop {r4, pc}
 

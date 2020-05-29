@@ -819,7 +819,7 @@ _021D7B0A:
 	cmp r4, #6
 	blt _021D7B0A
 	ldr r0, [r5, #0x24]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end MOD65_021D7B04
@@ -831,7 +831,7 @@ MOD65_021D7B24: ; 0x021D7B24
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x53
-	bl FUN_02006670
+	bl NARC_ctor
 	add r4, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -916,7 +916,7 @@ MOD65_021D7B24: ; 0x021D7B24
 	mov r3, #0x53
 	bl FUN_02079B60
 	add r0, r4, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r0, [r5, #0x24]
 	mov r1, #3
 	bl FUN_0201AC68
@@ -3149,7 +3149,7 @@ _021D8D6E:
 	mov r1, #4
 	bl FUN_020178A0
 	ldr r0, [r5, #0x68]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end MOD65_021D8D68
@@ -3161,7 +3161,7 @@ MOD65_021D8D90: ; 0x021D8D90
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x57
-	bl FUN_02006670
+	bl NARC_ctor
 	add r4, r0, #0
 	mov r0, #2
 	str r0, [sp]
@@ -3245,7 +3245,7 @@ MOD65_021D8D90: ; 0x021D8D90
 	mov r3, #0x57
 	bl FUN_02079B60
 	add r0, r4, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r0, [r5, #0x68]
 	mov r1, #2
 	bl FUN_0201AC68

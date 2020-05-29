@@ -85,7 +85,7 @@ FUN_02006D98: ; 0x02006D98
 	mov r1, #0xba
 	lsl r1, r1, #0x2
 	add r5, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	mov r0, #0xa6
 	lsl r0, r0, #0x2
@@ -108,13 +108,13 @@ FUN_02006D98: ; 0x02006D98
 	add r0, #0x10
 	str r2, [r4, r0]
 	add r0, r5, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0xab
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
 	add r0, r5, #0x0
 	mov r1, #0xc0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x2b
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
@@ -124,7 +124,7 @@ FUN_02006D98: ; 0x02006D98
 	bl MIi_CpuClearFast
 	add r0, r5, #0x0
 	mov r1, #0xc0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0xad
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -152,7 +152,7 @@ _02006E12:
 	ldr r2, [r4, r2]
 	mov r0, #0x75
 	mov r1, #0xd3
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	str r0, [sp, #0x4]
 	bl FUN_020B0088
@@ -213,7 +213,7 @@ _02006E8E:
 	cmp r0, #0x50
 	blt _02006E86
 	ldr r0, [sp, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _02006ED0 ; =0x000002E1
 	mov r1, #0x1
 	strb r1, [r4, r0]
@@ -757,17 +757,17 @@ FUN_020072E8: ; 0x020072E8
 	mov r0, #0xab
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x2b
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xad
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 
@@ -3034,7 +3034,7 @@ _020082CC:
 	ldrh r0, [r0, #0x4]
 	ldrh r1, [r1, #0x6]
 	ldr r2, [r6, r2]
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x58
 	str r0, [sp, #0x4c]
 	bl FUN_020B0088
@@ -3541,7 +3541,7 @@ _020086A4:
 	b _0200855C
 _020086BC:
 	ldr r0, [sp, #0x4c]
-	bl FUN_02016A18
+	bl FreeToHeap
 _020086C2:
 	ldr r0, [sp, #0x44]
 	mov r1, #0xa
@@ -3597,7 +3597,7 @@ _02008706:
 	ldrh r0, [r4, #0x4]
 	ldrh r1, [r4, #0x8]
 	ldr r2, [r5, r2]
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18
 	str r0, [sp, #0x10]
 	bl FUN_020B0138
@@ -3631,7 +3631,7 @@ _0200874A:
 	cmp r7, #0x10
 	blt _0200874A
 	ldr r0, [sp, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
 	add r0, #0x6c
 	ldrh r0, [r0, #0x0]
@@ -3643,7 +3643,7 @@ _0200874A:
 	ldr r2, [r5, r2]
 	mov r0, #0x75
 	mov r1, #0xd4
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0x18
 	str r0, [sp, #0x4]
 	bl FUN_020B0138
@@ -3684,7 +3684,7 @@ _0200879E:
 	cmp r1, #0x10
 	blt _0200879E
 	ldr r0, [sp, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 _020087E0:
 	ldr r0, [r4, #0x0]
 	lsl r0, r0, #0x1f

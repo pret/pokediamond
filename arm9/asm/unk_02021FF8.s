@@ -105,7 +105,7 @@ FUN_020220C4: ; 0x020220C4
 _020220D6:
 	ldr r0, [sp, #0x18]
 	mov r1, #0x14
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	beq _0202211C
 	str r5, [r4, #0x0]
@@ -115,7 +115,7 @@ _020220D6:
 	str r0, [r4, #0xc]
 	ldr r0, [sp, #0x18]
 	lsl r1, r7, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x10]
 	cmp r0, #0x0
 	beq _02022114
@@ -134,7 +134,7 @@ _02022102:
 	b _0202211C
 _02022114:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r4, #0x0
 _0202211C:
 	add r0, r4, #0x0
@@ -157,9 +157,9 @@ FUN_0202212C: ; 0x0202212C
 	bl ErrorHandling
 _02022136:
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start FUN_02022144

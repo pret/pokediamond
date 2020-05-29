@@ -13,7 +13,7 @@ UNK_020F7374: ; 0x020F7374
 FUN_0205DD18: ; 0x0205DD18
 	push {r4, lr}
 	mov r1, #0xd4
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	mov r0, #0x1
 	lsl r0, r0, #0x10
@@ -28,10 +28,10 @@ FUN_0205DD18: ; 0x0205DD18
 
 	thumb_func_start FUN_0205DD38
 FUN_0205DD38: ; 0x0205DD38
-	ldr r3, _0205DD3C ; =FUN_02016A18
+	ldr r3, _0205DD3C ; =FreeToHeap
 	bx r3
 	.balign 4
-_0205DD3C: .word FUN_02016A18
+_0205DD3C: .word FreeToHeap
 
 	thumb_func_start FUN_0205DD40
 FUN_0205DD40: ; 0x0205DD40
@@ -929,7 +929,7 @@ _0205E3CC:
 	str r0, [r5, #0x0]
 	b _0205E3FC
 _0205E3DE:
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x34]
 	bl FUN_020587B0
 	mov r0, #0x1

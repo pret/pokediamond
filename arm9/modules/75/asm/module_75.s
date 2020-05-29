@@ -453,7 +453,7 @@ MOD75_021E6F00: ; 0x021E6F00
 	bl FUN_0200AB18
 	add r4, #0xd4
 	ldr r0, [r4]
-	bl FUN_020066F4
+	bl NARC_dtor
 	add r0, r5, #0
 	bl FUN_0200627C
 	mov r0, #0
@@ -771,7 +771,7 @@ MOD75_021E7214: ; 0x021E7214
 	add r4, r0, #0
 	mov r0, #0xd
 	mov r1, #6
-	bl FUN_02006670
+	bl NARC_ctor
 	add r1, r4, #0
 	add r1, #0xd4
 	str r0, [r1]
@@ -4248,7 +4248,7 @@ _021E8CCC:
 	lsr r2, r2, #0x18
 	bl MOD75_021EB130
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -7831,7 +7831,7 @@ MOD75_021EA950: ; 0x021EA950
 	add r5, r1, #0
 	mov r1, #0x11
 	mov r2, #6
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, r5, #0
 	add r4, r0, #0
 	bl FUN_020B0030
@@ -8584,7 +8584,7 @@ MOD75_021EAF54: ; 0x021EAF54
 	add r5, r1, #0
 	mov r1, #0x26
 	mov r2, #6
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, r5, #0
 	add r4, r0, #0
 	bl FUN_020B0030

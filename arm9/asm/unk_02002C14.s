@@ -226,7 +226,7 @@ _02002D48:
 	add r0, r0, r5
 	add r0, #0x84
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _02002D8C ; =UNK_02106FC8
 	mov r1, #0x0
 	ldr r0, [r0, #0x0]

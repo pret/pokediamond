@@ -11,7 +11,7 @@ FUN_0204639C: ; 0x0204639C
 	add r6, r1, #0x0
 	add r1, r0, #0x0
 	add r7, r2, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	mov r0, #0x0
 	str r0, [r4, #0x0]
@@ -23,7 +23,7 @@ FUN_0204639C: ; 0x0204639C
 	mov r0, #0x20
 	mov r1, #0x4
 	str r5, [r4, #0x18]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	str r0, [r4, #0x1c]
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
@@ -59,7 +59,7 @@ FUN_020463EC: ; 0x020463EC
 	bne _02046400
 	beq _0204640A
 _02046400:
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x10]
 	str r0, [r4, #0x14]
@@ -98,13 +98,13 @@ _02046436:
 	ldr r0, [r0, #0x14]
 	cmp r0, #0x0
 	beq _02046444
-	bl FUN_02016A18
+	bl FreeToHeap
 _02046444:
 	ldr r0, [r5, #0x10]
 	ldr r0, [r0, #0x1c]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	str r4, [r5, #0x10]
 	cmp r4, #0x0
 	bne _0204645C
@@ -202,7 +202,7 @@ _020464E8:
 	cmp r0, #0x0
 	bne _020464FC
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _020464FC:
@@ -217,7 +217,7 @@ FUN_02046500: ; 0x02046500
 	mov r0, #0x20
 	mov r1, #0xc
 	add r4, r2, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [r2, #0x0]

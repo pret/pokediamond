@@ -50,7 +50,7 @@ FUN_02087D00: ; 0x02087D00
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	lsl r1, r1, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0xcf
 	mov r1, #0x0
 	lsl r2, r2, #0x2
@@ -159,7 +159,7 @@ _02087DEE:
 	ldr r0, [sp, #0x4]
 	bl FUN_0200AB18
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x0]
 	strb r0, [r7, #0x0]
 	mov r0, #0x5
@@ -171,10 +171,10 @@ _02087DEE:
 
 	thumb_func_start FUN_02087E14
 FUN_02087E14: ; 0x02087E14
-	ldr r3, _02087E18 ; =FUN_02016A18
+	ldr r3, _02087E18 ; =FreeToHeap
 	bx r3
 	.balign 4
-_02087E18: .word FUN_02016A18
+_02087E18: .word FreeToHeap
 
 	thumb_func_start FUN_02087E1C
 FUN_02087E1C: ; 0x02087E1C
@@ -376,7 +376,7 @@ _02087F86:
 	strb r0, [r1, #0x2]
 	ldr r0, [r5, #0x0]
 	mov r1, #0x40
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	mov r2, #0x40
 	add r4, r0, #0x0
@@ -426,7 +426,7 @@ _02087FE6:
 	ldrb r6, [r0, #0x0]
 	strb r6, [r5, #0x8]
 	ldr r0, [r5, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	cmp r6, #0x7
 	bne _02087FFE
 	mov r0, #0x0
@@ -434,7 +434,7 @@ _02087FE6:
 _02087FFE:
 	ldr r0, [r5, #0x0]
 	mov r1, #0x30
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x10]
@@ -490,7 +490,7 @@ _0208806E:
 	ldrb r0, [r0, #0x14]
 	strb r0, [r5, #0x8]
 	ldr r0, [r5, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	cmp r4, #0x1
 	bne _02088084
 	mov r0, #0x0
@@ -517,7 +517,7 @@ FUN_020880A0: ; 0x020880A0
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	mov r1, #0xc
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	mov r2, #0xc
 	add r4, r0, #0x0
@@ -574,9 +574,9 @@ FUN_0208810C: ; 0x0208810C
 _0208811E:
 	ldr r4, [r4, #0x10]
 	ldr r0, [r4, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x6
 	pop {r4, pc}
 
@@ -586,7 +586,7 @@ FUN_02088130: ; 0x02088130
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	mov r1, #0x30
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r2, [r5, #0xc]
 	add r4, r0, #0x0
 	ldrb r1, [r2, #0x1]
@@ -650,9 +650,9 @@ FUN_020881AC: ; 0x020881AC
 _020881BE:
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0, #0x24]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r4, pc}
 

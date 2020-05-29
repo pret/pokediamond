@@ -20,7 +20,7 @@ FUN_020842DC: ; 0x020842DC
 	cmp r0, #0x1
 	beq _02084308
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -39,7 +39,7 @@ _02084308:
 	tst r0, r5
 	beq _02084332
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -53,7 +53,7 @@ _02084332:
 	tst r0, r5
 	beq _02084350
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -67,7 +67,7 @@ _02084350:
 	tst r0, r5
 	beq _0208436E
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -81,7 +81,7 @@ _0208436E:
 	tst r0, r5
 	beq _0208438C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -95,7 +95,7 @@ _0208438C:
 	tst r0, r5
 	beq _020843AA
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -124,7 +124,7 @@ _020843CE:
 	cmp r5, #0x0
 	bne _02084414
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -143,7 +143,7 @@ _020843EA:
 	cmp r5, r0
 	bhs _02084414
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -160,7 +160,7 @@ _02084414:
 	cmp r0, #0x64
 	bhs _0208443A
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -179,7 +179,7 @@ _0208443A:
 	cmp r0, #0x0
 	beq _02084464
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -214,7 +214,7 @@ _0208447C:
 	cmp r0, #0x5
 	blo _020844B2
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -230,7 +230,7 @@ _020844B2:
 	cmp r0, #0x1
 	bne _020844D6
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -248,7 +248,7 @@ _020844E4:
 	cmp r0, #0x1
 	bne _020844FC
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -320,7 +320,7 @@ _02084502:
 	cmp r1, r0
 	bge _020845C6
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -329,7 +329,7 @@ _0208459C:
 	cmp r5, #0x0
 	ble _020845AE
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -340,7 +340,7 @@ _020845AE:
 	cmp r0, #0x1
 	bne _020845C6
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -370,7 +370,7 @@ _020845C6:
 	cmp r1, r0
 	bge _02084632
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -380,7 +380,7 @@ _02084606:
 	cmp r0, #0x0
 	ble _0208461A
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -391,7 +391,7 @@ _0208461A:
 	cmp r0, #0x1
 	bne _02084632
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -422,7 +422,7 @@ _02084632:
 	cmp r1, r0
 	bge _020846A0
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -432,7 +432,7 @@ _02084674:
 	cmp r0, #0x0
 	ble _02084688
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -443,7 +443,7 @@ _02084688:
 	cmp r0, #0x1
 	bne _020846A0
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -474,7 +474,7 @@ _020846A0:
 	cmp r1, r0
 	bge _0208470E
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -484,7 +484,7 @@ _020846E2:
 	cmp r0, #0x0
 	ble _020846F6
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -495,7 +495,7 @@ _020846F6:
 	cmp r0, #0x1
 	bne _0208470E
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -526,7 +526,7 @@ _0208470E:
 	cmp r1, r0
 	bge _0208477C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -536,7 +536,7 @@ _02084750:
 	cmp r0, #0x0
 	ble _02084764
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -547,7 +547,7 @@ _02084764:
 	cmp r0, #0x1
 	bne _0208477C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -577,7 +577,7 @@ _0208477C:
 	cmp r1, r0
 	bge _020847E6
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -586,7 +586,7 @@ _020847BC:
 	cmp r7, #0x0
 	ble _020847CE
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -597,13 +597,13 @@ _020847CE:
 	cmp r0, #0x1
 	bne _020847E6
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x18
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _020847E6:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -642,7 +642,7 @@ FUN_02084810: ; 0x02084810
 	cmp r0, #0x1
 	beq _02084840
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x70
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -1225,7 +1225,7 @@ _02084D00:
 	cmp r7, #0x1
 	bne _02084D14
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x70
 	mov r0, #0x0
 	pop {r3-r7, pc}
@@ -1253,7 +1253,7 @@ _02084D14:
 	add r0, r5, #0x0
 	bl FUN_0208508C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x70
 	add r0, r6, #0x0
 	pop {r3-r7, pc}
@@ -1277,7 +1277,7 @@ _02084D54:
 	add r0, r5, #0x0
 	bl FUN_0208508C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x70
 	add r0, r6, #0x0
 	pop {r3-r7, pc}
@@ -1302,13 +1302,13 @@ _02084D8A:
 	add r0, r5, #0x0
 	bl FUN_0208508C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x70
 	add r0, r6, #0x0
 	pop {r3-r7, pc}
 _02084DC2:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r6, #0x0
 	add sp, #0x70
 	pop {r3-r7, pc}

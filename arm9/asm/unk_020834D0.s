@@ -308,7 +308,7 @@ FUN_020836BC: ; 0x020836BC
 	add r4, r0, #0x0
 	mov r0, #0x14
 	add r1, r4, #0x1
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r5, #0x0
@@ -327,7 +327,7 @@ _020836F0:
 	mov r4, #0x0
 _020836F2:
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 
@@ -435,7 +435,7 @@ FUN_020837B4: ; 0x020837B4
 	mov r0, #0x14
 	mov r1, #0x31
 	add r6, r2, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
@@ -456,7 +456,7 @@ _020837E6:
 	mov r5, #0x0
 _020837E8:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -501,7 +501,7 @@ FUN_02083834: ; 0x02083834
 	mov r0, #0x14
 	mov r1, #0x19
 	add r5, r2, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r6, r0, #0x0
 	mov r4, #0x0
 	mov r7, #0x8
@@ -531,7 +531,7 @@ _02083876:
 	mov r4, #0x0
 _02083878:
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 	nop
@@ -570,7 +570,7 @@ FUN_020838B4: ; 0x020838B4
 	bl FUN_02021EF0
 	mov r0, #0x14
 	add r1, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, sp, #0x0
 	add r1, r4, #0x4
@@ -594,7 +594,7 @@ _020838F6:
 	mov r5, #0x0
 _020838F8:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	add sp, #0x10
 	pop {r3-r5, pc}
@@ -630,7 +630,7 @@ FUN_02083930: ; 0x02083930
 	add r4, r0, #0x0
 	mov r0, #0x14
 	add r1, r4, #0x1
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r5, #0x0
@@ -649,7 +649,7 @@ _02083964:
 	mov r4, #0x0
 _02083966:
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 
@@ -917,7 +917,7 @@ FUN_02083B48: ; 0x02083B48
 	mov r0, #0x14
 	mov r1, #0x7
 	add r6, r2, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
@@ -936,7 +936,7 @@ _02083B76:
 	mov r5, #0x0
 _02083B78:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	pop {r4-r6, pc}
 	.balign 4

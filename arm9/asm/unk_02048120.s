@@ -64,7 +64,7 @@ FUN_02048164: ; 0x02048164
 	add r6, r1, #0x0
 	mov r0, #0xb
 	mov r1, #0x24
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0204817A
 	bl ErrorHandling
@@ -230,9 +230,9 @@ _020482B2:
 	mov r1, #0x3
 	bl FUN_020178A0
 	ldr r0, [r4, #0x8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	mov r0, #0x1
 	pop {r3-r4, pc}

@@ -36,7 +36,7 @@ FUN_0205EB38: ; 0x0205EB38
 	mov r1, #0x5b
 	add r0, r4, #0x0
 	lsl r1, r1, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x5b
 	add r7, r0, #0x0
 	mov r1, #0x0
@@ -124,7 +124,7 @@ _0205EC02:
 	add r0, r7, #0x0
 	bl MOD05_021D99F8
 	add r0, r7, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r7, pc}
 
 	thumb_func_start FUN_0205EC18

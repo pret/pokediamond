@@ -8,7 +8,7 @@ FUN_020337E8: ; 0x020337E8
 	push {r3-r5, lr}
 	mov r1, #0x72
 	lsl r1, r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, #0x1f
 	mov r1, #0x1f
@@ -16,7 +16,7 @@ FUN_020337E8: ; 0x020337E8
 	bl DWC_Init
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	pop {r3-r5, pc}
 	.balign 4

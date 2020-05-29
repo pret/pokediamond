@@ -457,7 +457,7 @@ MOD86_021D7858: ; 0x021D7858
 	mov r1, #7
 	bl FUN_020178A0
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD86_021D7858
 

@@ -75,7 +75,7 @@ FUN_02033B68: ; 0x02033B68
 	bl FUN_02033D9C
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	ldr r0, _02033BC4 ; =FUN_02033BC8
 	add r1, r4, #0x0
@@ -276,7 +276,7 @@ FUN_02033CD4: ; 0x02033CD4
 	strh r1, [r0, #0x4]
 _02033CF6:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	nop
 _02033D00: .word 0x40000200
@@ -320,7 +320,7 @@ FUN_02033D3C: ; 0x02033D3C
 	add r0, r3, #0x0
 	lsl r1, r1, #0x2
 	add r4, r2, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	str r0, [sp, #0x4]
 	cmp r0, #0x0
 	beq _02033D92
@@ -350,7 +350,7 @@ _02033D80:
 	bl GXS_LoadOBJPltt
 _02033D8C:
 	ldr r0, [sp, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 _02033D92:
 	add sp, #0x8
 	pop {r3-r5, pc}
@@ -366,7 +366,7 @@ FUN_02033D9C: ; 0x02033D9C
 	add r5, r0, #0x0
 	add r0, r2, #0x0
 	lsl r1, r1, #0x2
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	str r0, [sp, #0x4]
 	cmp r0, #0x0
 	beq _02033E58
@@ -456,7 +456,7 @@ _02033E46:
 	bl GXS_LoadOBJ
 _02033E52:
 	ldr r0, [sp, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 _02033E58:
 	add sp, #0x8
 	pop {r3-r5, pc}

@@ -12,7 +12,7 @@ FUN_0206AB04: ; 0x0206AB04
 	str r1, [sp, #0x0]
 	mov r1, #0x9
 	add r3, r2, #0x0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	pop {r3, pc}
 
 	thumb_func_start FUN_0206AB18
@@ -115,10 +115,10 @@ _0206ABB0:
 
 	thumb_func_start FUN_0206ABB4
 FUN_0206ABB4: ; 0x0206ABB4
-	ldr r3, _0206ABC0 ; =LoadFromNARC
+	ldr r3, _0206ABC0 ; =ReadWholeNarcMemberByIdPair
 	add r2, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0x9
 	bx r3
 	nop
-_0206ABC0: .word LoadFromNARC
+_0206ABC0: .word ReadWholeNarcMemberByIdPair

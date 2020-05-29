@@ -220,7 +220,7 @@ _02034308:
 	mov r1, #0x0
 	bl FUN_020178A0
 	ldr r0, [sp, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x24
 	pop {r4-r7, pc}
 	nop

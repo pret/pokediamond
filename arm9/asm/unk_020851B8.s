@@ -7,7 +7,7 @@
 FUN_020851B8: ; 0x020851B8
 	push {r3, lr}
 	mov r1, #0xc
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	strb r1, [r0, #0x0]
 	strb r1, [r0, #0x1]

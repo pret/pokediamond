@@ -168,7 +168,7 @@ FUN_02063A5C: ; 0x02063A5C
 	add r4, r1, #0x0
 	mov r0, #0x20
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _02063A7C ; =0x19740205
 	str r1, [r0, #0x0]
 	ldr r1, [r4, #0x8]
@@ -192,7 +192,7 @@ FUN_02063A80: ; 0x02063A80
 	bl ErrorHandling
 _02063A90:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 _02063A98: .word 0x19740205
@@ -357,7 +357,7 @@ FUN_02063BBC: ; 0x02063BBC
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldrh r1, [r5, #0x4]
 	str r1, [r0, #0x0]
 	mov r1, #0x7f
@@ -365,7 +365,7 @@ FUN_02063BBC: ; 0x02063BBC
 	str r0, [r4, r1]
 	mov r0, #0xb
 	sub r1, #0xbc
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x7e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -1102,7 +1102,7 @@ FUN_02064174: ; 0x02064174
 	bl MOD06_0224CB30
 	add r6, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r1, _020641A8 ; =0x0224CB55
 	add r0, r5, #0x0
 	add r2, r6, #0x0
@@ -1206,7 +1206,7 @@ FUN_02064230: ; 0x02064230
 	mov r2, #0x1
 	bl FUN_02028AD4
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r1, _02064280 ; =0x0224CAAD
 	add r0, r5, #0x0
 	add r2, r7, #0x0

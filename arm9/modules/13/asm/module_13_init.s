@@ -15,13 +15,13 @@ MOD13_02211E60: ; 0x02211E60
 	add r5, r0, #0
 	add r0, r4, #0
 	lsl r1, r1, #0x12
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r1, #1
 	mov r2, #0
 	bl MOD13_02223494
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	bl OS_RestoreInterrupts
 	ldr r1, _02211EA0 ; =0x04000208

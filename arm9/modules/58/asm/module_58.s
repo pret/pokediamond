@@ -561,7 +561,7 @@ MOD58_021D9ED8: ; 0x021D9ED8
 	mov r1, #0
 	bl FUN_020178A0
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD58_021D9ED8

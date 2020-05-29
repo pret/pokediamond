@@ -22,7 +22,7 @@ FUN_0201C24C: ; 0x0201C24C
 _0201C25E:
 	add r0, r4, #0x0
 	mov r1, #0xc
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _0201C298 ; =UNK_021C5934
 	cmp r0, #0x0
 	str r0, [r1, #0x0]
@@ -31,7 +31,7 @@ _0201C25E:
 _0201C272:
 	add r0, r4, #0x0
 	lsl r1, r5, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _0201C298 ; =UNK_021C5934
 	ldr r2, [r1, #0x0]
 	str r0, [r2, #0x8]
@@ -60,10 +60,10 @@ _0201C2AA:
 	ldr r0, _0201C2C4 ; =UNK_021C5934
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0201C2C4 ; =UNK_021C5934
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0201C2C4 ; =UNK_021C5934
 	mov r1, #0x0
 	str r1, [r0, #0x0]
@@ -131,7 +131,7 @@ FUN_0201C328: ; 0x0201C328
 	add r0, r1, #0x0
 	mov r1, #0x30
 	mul r1, r4
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r2, _0201C344 ; =FUN_0201C358
 	add r1, r4, #0x0
 	add r5, r0, #0x0
@@ -150,10 +150,10 @@ _0201C34C: .word FUN_020B442C
 
 	thumb_func_start FUN_0201C350
 FUN_0201C350: ; 0x0201C350
-	ldr r3, _0201C354 ; =FUN_02016A18
+	ldr r3, _0201C354 ; =FreeToHeap
 	bx r3
 	.balign 4
-_0201C354: .word FUN_02016A18
+_0201C354: .word FreeToHeap
 
 	thumb_func_start FUN_0201C358
 FUN_0201C358: ; 0x0201C358

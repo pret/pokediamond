@@ -440,7 +440,7 @@ FUN_02026FE4: ; 0x02026FE4
 FUN_02026FE8: ; 0x02026FE8
 	push {r4, lr}
 	mov r1, #0x98
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	mov r2, #0x98
 	add r4, r0, #0x0

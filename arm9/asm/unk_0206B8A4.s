@@ -15,7 +15,7 @@ FUN_0206B8AC: ; 0x0206B8AC
 	push {r4, lr}
 	mov r1, #0x59
 	lsl r1, r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bl FUN_0206B8C0
 	add r0, r4, #0x0
@@ -267,7 +267,7 @@ _0206BA6E:
 _0206BA78:
 	mov r0, #0x0
 	mov r1, #0xec
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r12, r0
 	add r1, r4, #0x0
 	mov r0, #0xec
@@ -307,7 +307,7 @@ _0206BABA:
 	ldr r0, [r4, #0x0]
 	str r0, [r2, #0x0]
 	mov r0, r12
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r3-r7, pc}
 

@@ -39,7 +39,7 @@ _020343D8:
 	mov r0, #0x29
 	mov r1, r12
 	mov r2, #0xb
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	add r6, r0, #0x0
 	ldrb r0, [r6, #0x0]
 	add r5, r6, #0x5
@@ -112,7 +112,7 @@ _0203446C:
 	lsl r2, r2, #0x1
 	bl MI_CpuCopy8
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -125,7 +125,7 @@ FUN_02034494: ; 0x02034494
 	push {r3, lr}
 	ldr r1, _020344A8 ; =0x000011AA
 	mov r0, #0xb
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	strb r1, [r0, #0x0]
 	strb r1, [r0, #0x1]
@@ -155,10 +155,10 @@ FUN_020344AC: ; 0x020344AC
 
 	thumb_func_start FUN_020344D0
 FUN_020344D0: ; 0x020344D0
-	ldr r3, _020344D4 ; =FUN_02016A18
+	ldr r3, _020344D4 ; =FreeToHeap
 	bx r3
 	.balign 4
-_020344D4: .word FUN_02016A18
+_020344D4: .word FreeToHeap
 
 	thumb_func_start FUN_020344D8
 FUN_020344D8: ; 0x020344D8
@@ -292,12 +292,12 @@ FUN_020345A8: ; 0x020345A8
 	push {r3-r5, lr}
 	ldr r1, _020345D8 ; =0x00000708
 	add r4, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r5, r0, #0x0
 	mov r0, #0x29
 	mov r1, #0x0
 	add r2, r4, #0x0
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	add r4, r0, #0x0
 	ldrb r1, [r4, #0x4]
 	add r0, r4, #0x5
@@ -306,7 +306,7 @@ FUN_020345A8: ; 0x020345A8
 	add r1, r5, #0x0
 	bl MI_CpuCopy8
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -320,7 +320,7 @@ FUN_020345DC: ; 0x020345DC
 	bl ErrorHandling
 _020345E6:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 

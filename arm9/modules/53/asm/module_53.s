@@ -410,7 +410,7 @@ _021D786E:
 	add r0, r6, #0
 	bl MOD53_021D7AE8
 	ldr r0, [r6, #8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	bl FUN_0200627C
 	mov r0, #0
@@ -675,7 +675,7 @@ _021D7A0E:
 	mov r1, #0xf
 	mov r0, #0x27
 	lsl r1, r1, #0xa
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _021D7AE0 ; =0x000043C8
 	str r0, [r7, r1]
 	mov r0, #0x27
@@ -704,7 +704,7 @@ MOD53_021D7AE8: ; 0x021D7AE8
 	add r6, r0, #0
 	ldr r0, _021D7B1C ; =0x000043C8
 	ldr r0, [r6, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021D7B20 ; =0x000093F0
 	ldr r0, [r6, r0]
 	bl FUN_020145A8
@@ -749,7 +749,7 @@ MOD53_021D7B24: ; 0x021D7B24
 	mov r1, #0
 	bl FUN_020178A0
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD53_021D7B24

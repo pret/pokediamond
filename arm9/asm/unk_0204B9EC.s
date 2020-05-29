@@ -166,7 +166,7 @@ _0204BB08:
 	mov r1, #0x83
 	mov r2, #0x0
 	mul r3, r4
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	pop {r3-r5, pc}
 	.balign 4
 _0204BB1C: .word 0x000001ED
@@ -232,7 +232,7 @@ _0204BB72:
 	cmp r6, #0x6
 	blt _0204BB3C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4
@@ -495,7 +495,7 @@ FUN_0204BD40: ; 0x0204BD40
 	mov r2, #0x1
 	bl FUN_020479FC
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r7, #0x0
 	pop {r3-r7, pc}
 	.balign 4

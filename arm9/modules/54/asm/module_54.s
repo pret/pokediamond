@@ -634,11 +634,11 @@ MOD54_021D7A34: ; 0x021D7A34
 	add r6, r0, #0
 	bl MOD54_021D8F0C
 	ldr r0, [r6, #0x18]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xea
 	lsl r0, r0, #2
 	ldr r0, [r6, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r4, #0
 	add r5, r6, #0
 _021D7A50:
@@ -674,7 +674,7 @@ MOD54_021D7A6C: ; 0x021D7A6C
 	mov r1, #0
 	bl FUN_020178A0
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD54_021D7A6C
@@ -3320,19 +3320,19 @@ MOD54_021D8F0C: ; 0x021D8F0C
 	mov r0, #0xcd
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xce
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xc9
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xca
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD54_021D8F0C
@@ -3777,7 +3777,7 @@ MOD54_021D9238: ; 0x021D9238
 	add r5, r0, #0
 	add r0, r1, #0
 	add r1, r4, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r7, r0, #0
 	add r0, r5, #0
 	bl FUN_02022504
@@ -3807,7 +3807,7 @@ MOD54_021D9274: ; 0x021D9274
 	add r5, r0, #0
 	add r0, r1, #0
 	add r1, r4, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r7, r0, #0
 	add r0, r5, #0
 	bl FUN_02022504
@@ -3835,7 +3835,7 @@ MOD54_021D92AC: ; 0x021D92AC
 	add r5, r0, #0
 	add r0, r1, #0
 	add r1, r4, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r7, r0, #0
 	add r0, r5, #0
 	bl FUN_02022504
@@ -4069,7 +4069,7 @@ MOD54_021D943C: ; 0x021D943C
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	add r0, r6, #0
 	bl MOD54_021D9098
@@ -4111,7 +4111,7 @@ MOD54_021D9488: ; 0x021D9488
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	add r0, r6, #0
 	mov r1, #0
@@ -4217,7 +4217,7 @@ MOD54_021D9544: ; 0x021D9544
 	add r6, r0, #0
 	add r0, r1, #0
 	add r1, r5, #0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	mov r1, #0
 	add r2, r5, #0
@@ -4267,7 +4267,7 @@ _021D959C:
 	add r2, r4, #0
 	bl MIi_CpuCopyFast
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #4]
 	sub r6, r6, r4
 	add r0, r0, r4

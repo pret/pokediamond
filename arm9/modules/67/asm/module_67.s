@@ -3315,7 +3315,7 @@ MOD67_021D8F00: ; 0x021D8F00
 	ldr r1, [sp, #0xc]
 	bl FUN_0200AC60
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD67_021D8F00

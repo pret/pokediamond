@@ -1398,7 +1398,7 @@ _02004B80:
 	bne _02004BCE
 	ldr r0, [sp, #0x48]
 	add r1, r6, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x0]
 	cmp r0, #0x0
 	bne _02004B9C
@@ -1512,7 +1512,7 @@ _02004C60:
 	mov r0, #0x0
 	strb r0, [r4, #0x0]
 	ldr r0, [r6, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 _02004C76:
 	pop {r4-r6, pc}
 

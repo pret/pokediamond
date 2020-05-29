@@ -11,7 +11,7 @@ FUN_020061E8: ; 0x020061E8
 	cmp r5, #0x0
 	beq _0200620C
 	add r0, r3, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02006202
 	mov r0, #0x0
@@ -38,7 +38,7 @@ FUN_0200621C: ; 0x0200621C
 	bl FUN_0201B6C8
 	cmp r0, #0x0
 	beq _0200622C
-	bl FUN_02016A18
+	bl FreeToHeap
 _0200622C:
 	add r0, r4, #0x0
 	bl FUN_0200CAB4

@@ -135,7 +135,7 @@ FUN_020219F4: ; 0x020219F4
 	add r0, r1, #0x0
 	lsl r1, r4, #0x1
 	add r1, #0xa
-	bl FUN_02016998
+	bl AllocFromHeap
 	cmp r0, #0x0
 	beq _02021A14
 	ldr r1, _02021A18 ; =0xB6F8D2EC
@@ -167,7 +167,7 @@ _02021A36:
 	ldr r0, _02021A48 ; =0xB6F8D2ED
 	str r0, [r4, #0x4]
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	nop
 _02021A44: .word 0xB6F8D2EC

@@ -52,7 +52,7 @@ _0208A2A6:
 	lsl r1, r1, #0x6
 	strb r0, [r4, r1]
 	ldr r0, [r4, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	bl FUN_0204649C
 	mov r0, #0x11

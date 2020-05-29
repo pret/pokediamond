@@ -166,7 +166,7 @@ MOD68_021D762C: ; 0x021D762C
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	bl FUN_0200627C
 	mov r0, #0
@@ -372,7 +372,7 @@ MOD68_021D77A4: ; 0x021D77A4
 	bl FUN_02006930
 	mov r0, #0x24
 	mov r1, #0x80
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	ldr r0, _021D7854 ; =0x00003001
 	mov r2, #0
@@ -395,7 +395,7 @@ _021D7812:
 	mov r3, #2
 	bl FUN_02018148
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r5]
 	mov r1, #1
 	bl FUN_02017CD0
@@ -1375,7 +1375,7 @@ MOD68_021D7F98: ; 0x021D7F98
 	mov r0, #0x7f
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x7e
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]

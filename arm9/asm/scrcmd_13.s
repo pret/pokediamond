@@ -73,7 +73,7 @@ _02043908:
 _0204390A:
 	strh r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -140,7 +140,7 @@ _0204398C:
 	cmp r5, #0x6
 	blt _0204395C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r7, #0x0
 	bl FUN_0202BEDC
 	mov r0, #0x0

@@ -107,7 +107,7 @@ FUN_02057444: ; 0x02057444
 	add r4, r0, #0x0
 	mov r0, #0xb
 	lsl r1, r1, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r5, r0, #0x0
 	bne _0205745A
 	bl ErrorHandling
@@ -123,7 +123,7 @@ _0205745A:
 	mul r6, r0
 	mov r0, #0xb
 	add r1, r6, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0205747E
 	bl ErrorHandling
@@ -967,7 +967,7 @@ _02057BC0:
 	str r0, [sp, #0x4]
 	ldr r1, [sp, #0x4]
 	mov r0, #0xb
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r6, r0, #0x0
 	bne _02057BD4
 	bl ErrorHandling
@@ -978,7 +978,7 @@ _02057BD4:
 	bl memcpy
 	mov r0, #0xb
 	mov r1, #0x14
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	bne _02057BEE
 	bl ErrorHandling

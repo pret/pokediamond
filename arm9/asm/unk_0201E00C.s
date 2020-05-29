@@ -20,7 +20,7 @@ FUN_0201E00C: ; 0x0201E00C
 	bne _0201E060
 	add r0, r4, #0x0
 	mov r1, #0x28
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r1, r0, #0x0
 	ldr r0, _0201E064 ; =UNK_021C5998
 	mov r2, #0x28
@@ -33,7 +33,7 @@ FUN_0201E00C: ; 0x0201E00C
 	mul r1, r6
 	str r6, [r0, #0x4]
 	add r0, r4, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r7, _0201E064 ; =UNK_021C5998
 	mov r4, #0x0
 	ldr r1, [r7, #0x0]
@@ -89,10 +89,10 @@ FUN_0201E08C: ; 0x0201E08C
 	ldr r0, _0201E0B4 ; =UNK_021C5998
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0201E0B4 ; =UNK_021C5998
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0201E0B4 ; =UNK_021C5998
 	mov r1, #0x0
 	str r1, [r0, #0x0]

@@ -1069,7 +1069,7 @@ FUN_02005AE0: ; 0x02005AE0
 	bl FUN_02005BA0
 	add r0, r4, #0x0
 	mov r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _02005B04
 	bl ErrorHandling
@@ -1163,7 +1163,7 @@ FUN_02005BA0: ; 0x02005BA0
 	ldr r0, [r4, #0x0]
 	bl FUN_0200CAB4
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02005BC2:
 	mov r0, #0x0
 	str r0, [r4, #0x0]

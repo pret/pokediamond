@@ -588,7 +588,7 @@ MOD59_021D796C: ; 0x021D796C
 	mov r1, #7
 	bl FUN_020178A0
 	ldr r0, [r4, #0x18]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD59_021D796C
 
@@ -1096,7 +1096,7 @@ _021D7DA8:
 	mov r6, #3
 	b _021D7DC4
 _021D7DB0:
-	ldr r0, _021D7EAC ; =0x020ECAC0
+	ldr r0, _021D7EAC ; =gGameVersion
 	ldr r2, _021D7EB0 ; =0x021D9DA0
 	ldrb r0, [r0]
 	cmp r0, #0xa
@@ -1214,7 +1214,7 @@ _021D7E9C: .word 0x021D9DA8
 _021D7EA0: .word 0x021D9E0C
 _021D7EA4: .word 0x021D9DB0
 _021D7EA8: .word 0x021D9E58
-_021D7EAC: .word 0x020ECAC0
+_021D7EAC: .word gGameVersion
 _021D7EB0: .word 0x021D9DA0
 _021D7EB4: .word 0x021D9F40
 _021D7EB8: .word 0x021D9F68
@@ -1447,7 +1447,7 @@ MOD59_021D8058: ; 0x021D8058
 	mov r0, #0x7d
 	mov r3, #7
 	bl FUN_0200687C
-	ldr r0, _021D80F8 ; =0x020ECAC0
+	ldr r0, _021D80F8 ; =gGameVersion
 	ldrb r0, [r0]
 	cmp r0, #0xa
 	bne _021D80A6
@@ -1490,7 +1490,7 @@ _021D80AA:
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
 	nop
-_021D80F8: .word 0x020ECAC0
+_021D80F8: .word gGameVersion
 	thumb_func_end MOD59_021D8058
 
 	thumb_func_start MOD59_021D80FC
@@ -1722,7 +1722,7 @@ MOD59_021D82A0: ; 0x021D82A0
 	bl FUN_02068C00
 	ldr r0, [r5]
 	mov r1, #0xc8
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r7, r0, #0
 	ldr r2, _021D83F0 ; =0x021D9FE8
 	mov r1, #0
@@ -1848,11 +1848,11 @@ _021D82C8:
 	lsl r3, r0, #6
 	bl FUN_02017FB4
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4140,7 +4140,7 @@ _021D9636:
 	str r0, [r4, #0xc]
 	b _021D985C
 _021D963C:
-	ldr r1, _021D977C ; =0x020ECAC0
+	ldr r1, _021D977C ; =gGameVersion
 	ldrb r1, [r1]
 	cmp r1, #0xa
 	bne _021D964C
@@ -4295,7 +4295,7 @@ _021D9764:
 	b _021D985C
 	nop
 _021D9778: .word 0x020FA5FC
-_021D977C: .word 0x020ECAC0
+_021D977C: .word gGameVersion
 _021D9780: .word 0x021D9F40
 _021D9784: .word 0x021D9F68
 _021D9788:
@@ -4861,7 +4861,7 @@ MOD59_021D9BD0: ; 0x021D9BD0
 	mov r1, #2
 	bl FUN_020178A0
 	ldr r0, [r4, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	nop
 _021D9C44: .word 0x04000050

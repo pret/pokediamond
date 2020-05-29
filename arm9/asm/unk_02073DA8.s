@@ -1610,7 +1610,7 @@ FUN_02074AF4: ; 0x02074AF4
 	mov r1, #0x2c
 	add r4, r5, r0
 	mov r0, #0xc
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r7, r0, #0x0
 	mov r0, #0x3
 	lsl r0, r0, #0x8

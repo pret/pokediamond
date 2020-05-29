@@ -185,14 +185,14 @@ _02088BBA:
 	add r0, r5, #0x0
 	bl memcpy
 	ldr r0, [r4, #0x18]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x18]
 	add r0, r5, #0x0
 	bl FUN_0206E37C
 	str r0, [r4, #0x8]
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	bl FUN_0206E384
 	cmp r0, #0x5
@@ -337,7 +337,7 @@ _02088CF2:
 	mov r1, #0x4
 	bl FUN_0206F190
 	ldr r0, [r4, #0x18]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x18]
 	add sp, #0x4

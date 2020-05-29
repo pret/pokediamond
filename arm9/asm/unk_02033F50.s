@@ -247,7 +247,7 @@ _02033FA4:
 	add r0, r4, #0x0
 	bl FUN_0200AB18
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x28
 	pop {r3-r7, pc}
 	nop

@@ -123,7 +123,7 @@ FUN_02002FD0: ; 0x02002FD0
 	push {r4, lr}
 	mov r1, #0x12
 	lsl r1, r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x12
 	mov r1, #0x0
 	lsl r2, r2, #0x4
@@ -135,10 +135,10 @@ FUN_02002FD0: ; 0x02002FD0
 
 	thumb_func_start FUN_02002FEC
 FUN_02002FEC: ; 0x02002FEC
-	ldr r3, _02002FF0 ; =FUN_02016A18
+	ldr r3, _02002FF0 ; =FreeToHeap
 	bx r3
 	.balign 4
-_02002FF0: .word FUN_02016A18
+_02002FF0: .word FreeToHeap
 
 	thumb_func_start FUN_02002FF4
 FUN_02002FF4: ; 0x02002FF4
@@ -163,11 +163,11 @@ FUN_02003008: ; 0x02003008
 	str r3, [sp, #0x4]
 	add r0, r3, #0x0
 	add r1, r4, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
 	add r1, r4, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r3, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
@@ -185,10 +185,10 @@ FUN_02003038: ; 0x02003038
 	add r5, r1, #0x0
 	mul r5, r0
 	ldr r0, [r4, r5]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, r5
 	ldr r0, [r0, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -263,7 +263,7 @@ _020030C0:
 	ldr r2, [sp, #0x18]
 	bl FUN_02003054
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x8
 	pop {r4-r6, pc}
 	.balign 4

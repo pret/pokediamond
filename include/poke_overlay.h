@@ -3,6 +3,8 @@
 
 #include "FS_overlay.h"
 
+#define SDK_OVERLAY_INVALID_ID -1u
+
 #define OVERLAY_LOAD_WRAM 0
 #define OVERLAY_LOAD_ITCM 1
 #define OVERLAY_LOAD_DTCM 2

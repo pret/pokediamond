@@ -24,15 +24,7 @@ typedef enum {
     GIFT_EEVEE = 12
 } EncounterType;
 
-typedef enum {
-    JAPANESE = 1,
-    ENGLISH = 2,
-    FRENCH = 3,
-    ITALIAN = 4,
-    GERMAN = 5,
-    SPANISH = 7,
-    KOREAN = 8
-} OriginLanguage;
+typedef enum GameLanguage OriginLanguage;
 
 typedef enum {
     ARCEUS_NORMAL = 0,

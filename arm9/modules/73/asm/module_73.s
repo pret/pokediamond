@@ -872,7 +872,7 @@ _021D7BC6:
 	bl ErrorHandling
 _021D7C0C:
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _021D7C12:
 	ldr r0, [r5]
 	add r0, r0, #1
@@ -2023,7 +2023,7 @@ MOD73_021D856C: ; 0x021D856C
 _021D857C:
 	ldr r0, _021D858C ; =0x0000152C
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _021D858C ; =0x0000152C
 	mov r1, #0
 	str r1, [r4, r0]
@@ -2522,7 +2522,7 @@ MOD73_021D8980: ; 0x021D8980
 	mov r1, #1
 	bl FUN_020178A0
 	ldr r0, [r4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD73_021D8980
 
@@ -3425,7 +3425,7 @@ MOD73_021D9094: ; 0x021D9094
 	mov r1, #8
 	str r2, [sp]
 	add r5, r3, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	mov r0, #0
 	str r5, [r4]
@@ -3481,7 +3481,7 @@ MOD73_021D90F4: ; 0x021D90F4
 	bl MOD73_021D91BC
 _021D9104:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD73_021D90F4
 
@@ -3508,7 +3508,7 @@ MOD73_021D9120: ; 0x021D9120
 	add r0, r3, #0
 	lsl r1, r1, #4
 	add r7, r2, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x1b
 	mov r1, #0
 	lsl r2, r2, #4
@@ -3591,7 +3591,7 @@ MOD73_021D91BC: ; 0x021D91BC
 	ldr r0, [r4, r0]
 	bl FUN_0200CAB4
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD73_021D91BC
@@ -3690,7 +3690,7 @@ MOD73_021D9258: ; 0x021D9258
 	bl FUN_02013D98
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
@@ -3716,7 +3716,7 @@ MOD73_021D9288: ; 0x021D9288
 	bl FUN_02013E14
 	add r5, r0, #0
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	add sp, #0x10
 	pop {r3, r4, r5, pc}
@@ -5118,9 +5118,9 @@ MOD73_021D9D48: ; 0x021D9D48
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x20]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x28]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD73_021D9D48
@@ -6047,7 +6047,7 @@ MOD73_021DA374: ; 0x021DA374
 	ldr r0, [r4, #4]
 	bl FUN_020186B4
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #4]
 	mov r1, #1
 	bl FUN_0201AC68
@@ -9210,7 +9210,7 @@ _021DBAA4:
 	add r0, r1, r0
 	str r0, [sp, #0x20]
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [sp, #0x28]
 	add r0, r0, #1
 	str r0, [sp, #0x28]

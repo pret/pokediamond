@@ -11,7 +11,7 @@ FUN_0206015C: ; 0x0206015C
 	add r5, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0x10
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	mov r0, #0xb
 	bl MOD06_02244DB0
@@ -219,7 +219,7 @@ _02060312:
 	ldr r0, [r4, #0x0]
 	bl MOD06_02244DBC
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x10
 	mov r0, #0x1
 	pop {r3-r7, pc}

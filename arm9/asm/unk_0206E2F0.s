@@ -7,7 +7,7 @@
 FUN_0206E2F0: ; 0x0206E2F0
 	push {r4, lr}
 	mov r1, #0x78
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	mov r2, #0x78
 	add r4, r0, #0x0

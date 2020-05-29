@@ -9,7 +9,7 @@ FUN_0206439C: ; 0x0206439C
 	add r5, r1, #0x0
 	add r6, r2, #0x0
 	mov r1, #0x8
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_0206BB1C

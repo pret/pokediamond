@@ -675,7 +675,7 @@ _021D79D8:
 	blt _021D79D8
 _021D79EE:
 	ldr r0, [r6, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 	thumb_func_end MOD74_021D79C8
@@ -687,7 +687,7 @@ MOD74_021D79F8: ; 0x021D79F8
 	add r5, r0, #0
 	ldr r1, [r5]
 	mov r0, #0x7b
-	bl FUN_02006670
+	bl NARC_ctor
 	add r4, r0, #0
 	mov r0, #5
 	str r0, [sp]
@@ -744,7 +744,7 @@ _021D7A5A:
 	mov r3, #0x7b
 	bl FUN_02079B60
 	add r0, r4, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	ldr r0, [r5, #0x10]
 	mov r1, #1
 	bl FUN_0201AC68
@@ -1309,7 +1309,7 @@ _021D7F0C:
 	cmp r0, #0x1e
 	blt _021D7EB8
 	ldr r0, [sp]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
