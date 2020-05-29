@@ -16,5 +16,7 @@ void OS_InitReset(void);
 static void OSi_CommonCallback(PXIFifoTag tag, u32 data, BOOL err);
 static void OSi_SendToPxi(u16 data);
 void OS_ResetSystem(u32 parameter);
+void OSi_DoBoot(void);
+static void OSi_CpuClear32(register u32 data, register void *destp, register u32 size);
 
 #endif //POKEDIAMOND_OS_RESET_H

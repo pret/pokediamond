@@ -92,7 +92,8 @@
 #define reg_PAD_KEYINPUT           (*(REGType16v *)0x4000130)
 #define reg_PAD_KEYCNT             (*(REGType16v *)0x4000132)
 
-#define reg_PXI_SUBPINTF           (*(REGType16v *)0x4000180)
+#define REG_SUBPINTF_ADDR          0x4000180
+#define reg_PXI_SUBPINTF           (*(REGType16v *)REG_SUBPINTF_ADDR)
 #define reg_PXI_SUBP_FIFO_CNT      (*(REGType16v *)0x4000184)
 #define reg_PXI_SEND_FIFO          (*(REGType32v *)0x4000188)
 
