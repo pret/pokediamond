@@ -49,7 +49,7 @@ _0206B8DA:
 	add r5, #0x8
 _0206B8EE:
 	add r0, r5, #0x0
-	bl FUN_02066978
+	bl ZeroMonData
 	add r4, r4, #0x1
 	add r5, #0xec
 	cmp r4, #0x6
@@ -145,7 +145,7 @@ _0206B992:
 	add r1, #0x8
 	mul r0, r4
 	add r0, r1, r0
-	bl FUN_02066978
+	bl ZeroMonData
 	ldr r0, [r7, #0x4]
 	sub r0, r0, #0x1
 	str r0, [r7, #0x4]

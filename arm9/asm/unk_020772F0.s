@@ -1080,7 +1080,7 @@ FUN_02077894: ; 0x02077894
 	ldr r1, [r4, #0x4]
 	add r6, r0, #0x0
 	mov r2, #0x5
-	bl FUN_02066ACC
+	bl CreateMon
 	add r0, r6, #0x0
 	bl FreeToHeap
 _020778DE:
@@ -1651,7 +1651,7 @@ _02077D88:
 	ldr r1, [r4, #0x4]
 	add r5, r0, #0x0
 	mov r2, #0x5
-	bl FUN_02066ACC
+	bl CreateMon
 	add r0, r5, #0x0
 	bl FUN_020690E4
 	add r2, r0, #0x0
@@ -1831,7 +1831,7 @@ _02077F1A:
 	ldr r1, [r5, #0x4]
 	add r6, r0, #0x0
 	mov r2, #0x1
-	bl FUN_02066ACC
+	bl CreateMon
 	add r0, r6, #0x0
 	bl FUN_020690E4
 	add r2, r0, #0x0

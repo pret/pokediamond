@@ -10476,7 +10476,7 @@ FUN_0203ED2C: ; 0x0203ED2C
 	mov r0, #0x20
 	bl FUN_020669C0
 	add r4, r0, #0x0
-	bl FUN_02066978
+	bl ZeroMonData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -10486,7 +10486,7 @@ FUN_0203ED2C: ; 0x0203ED2C
 	add r1, r5, #0x0
 	mov r2, #0x32
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	bl FUN_0202498C
