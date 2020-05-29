@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.extern UNK_02103BAC
+	.extern SNDi_DecibelTable
 	.extern GXi_DmaId
 
 	.section .rodata
@@ -24277,7 +24277,7 @@ FUN_020C0BA0: ; 0x020C0BA0
 	ldmeqia sp!, {r4-r11,pc}
 	mov r0, #0x8000
 	rsb r0, r0, #0x0
-	ldr r4, _020C0D18 ; =UNK_02103BAC
+	ldr r4, _020C0D18 ; =SNDi_DecibelTable
 	str r0, [sp, #0x4]
 	mov r5, #0x1
 	mov r11, #0x0
@@ -24367,7 +24367,7 @@ _020C0D00:
 	ldmia sp!, {r4-r11,pc}
 	.balign 4
 _020C0D14: .word UNK_021D1E08
-_020C0D18: .word UNK_02103BAC
+_020C0D18: .word SNDi_DecibelTable
 _020C0D1C: .word 0x00007FFF
 
 	arm_func_start FUN_020C0D20
@@ -27918,7 +27918,7 @@ FUN_020C3C88:
 	sub sp, sp, #0x4
 	ldr r5, _020C3D94 ; =UNK_021D2DFC
 	mov r7, #0x0
-	ldr r4, _020C3D98 ; =UNK_02103BAC
+	ldr r4, _020C3D98 ; =SNDi_DecibelTable
 _020C3C9C:
 	ldr r1, [r5, #0x110]
 	mov r0, r1, lsl #0x1f
@@ -27988,7 +27988,7 @@ _020C3D7C:
 	ldmia sp!, {r4-r7,pc}
 	.balign 4
 _020C3D94: .word UNK_021D2DFC
-_020C3D98: .word UNK_02103BAC
+_020C3D98: .word SNDi_DecibelTable
 
 	arm_func_start FUN_020C3D9C
 FUN_020C3D9C:
