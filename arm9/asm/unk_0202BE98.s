@@ -23,7 +23,7 @@ FUN_0202BEA0: ; 0x0202BEA0
 	add r7, r4, #0x0
 _0202BEB4:
 	add r0, r5, #0x0
-	bl FUN_02066978
+	bl ZeroMonData
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
@@ -53,7 +53,7 @@ FUN_0202BEDC: ; 0x0202BEDC
 	add r7, r4, #0x0
 _0202BEF0:
 	add r0, r5, #0x0
-	bl FUN_02066978
+	bl ZeroMonData
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0

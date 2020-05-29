@@ -8,44 +8,98 @@
 
 	.global UNK_020F7ECC
 UNK_020F7ECC: ; 0x020F7ECC
-	.byte 0x2D, 0x00
-
-	.global UNK_020F7ECE
-UNK_020F7ECE: ; 0x020F7ECE
-	.byte 0x5F, 0x00, 0x14, 0x00, 0x50, 0x00
+	.short 0x002D, 0x005F
+	.short 0x0014, 0x0050
 
 	.global UNK_020F7ED4
 UNK_020F7ED4: ; 0x020F7ED4
-	.byte 0x05, 0x03, 0x02, 0x05, 0x03, 0x02, 0x01, 0x01, 0x00, 0x03, 0x02, 0x01, 0x01, 0x01, 0x00, 0x01
-	.byte 0x01, 0x01, 0xFF, 0xFF, 0xFF, 0xFB, 0xFB, 0xF6, 0xFB, 0xFB, 0xF6, 0x03, 0x02, 0x01
+	.byte 0x05, 0x03, 0x02
+	.byte 0x05, 0x03, 0x02
+	.byte 0x01, 0x01, 0x00
+	.byte 0x03, 0x02, 0x01
+	.byte 0x01, 0x01, 0x00
+	.byte 0x01, 0x01, 0x01
+	.byte 0xFF, 0xFF, 0xFF
+	.byte 0xFB, 0xFB, 0xF6
+	.byte 0xFB, 0xFB, 0xF6
+	.byte 0x03, 0x02, 0x01
 
-	.global UNK_020F7EF2
-UNK_020F7EF2: ; 0x020F7EF2
-	.byte 0x96, 0x00, 0x97, 0x00, 0xFA, 0x00, 0xF9, 0x00, 0xFB, 0x00, 0x7E, 0x01, 0x7F, 0x01, 0x80, 0x01
-	.byte 0x81, 0x01, 0x82, 0x01, 0xE3, 0x01, 0xE4, 0x01, 0xE7, 0x01, 0xE9, 0x01, 0xEA, 0x01, 0xEB, 0x01
-	.byte 0xEC, 0x01, 0xED, 0x01
+	.global sLegendaryMonsList
+sLegendaryMonsList: ; 0x020F7EF2
+	.short 0x0096 ; MEWTWO
+	.short 0x0097 ; MEW
+	.short 0x00FA ; LUGIA
+	.short 0x00F9 ; HO-OH
+	.short 0x00FB ; CELEBI
+	.short 0x017E ; KYOGRE
+	.short 0x017F ; GROUDON
+	.short 0x0180 ; RAYQUAZA
+	.short 0x0181 ; JIRACHI
+	.short 0x0182 ; DEOXYS
+	.short 0x01E3 ; DIALGA
+	.short 0x01E4 ; PALKIA
+	.short 0x01E7 ; GIRATINA
+	.short 0x01E9 ; PHIONE
+	.short 0x01EA ; MANAPHY
+	.short 0x01EB ; DARKRAI
+	.short 0x01EC ; SHAYMIN
+	.short 0x01ED ; ARCEUS
 
 	.global UNK_020F7F16
 UNK_020F7F16: ; 0x020F7F16
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0xFF, 0x01, 0x00, 0xFF, 0x00, 0x00, 0x01
-	.byte 0xFF, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF, 0x00, 0x01, 0x00, 0xFF, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.byte 0xFF, 0x01, 0xFF, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0xFF, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0xFF, 0x01, 0x00, 0x00, 0x00, 0x00, 0x01, 0xFF, 0x00, 0xFF, 0x01, 0x00, 0x00, 0x00
-	.byte 0x00, 0x01, 0x00, 0x00, 0xFF, 0x00, 0x01, 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x01, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x01, 0xFF, 0x00, 0x00
-	.byte 0xFF, 0x01, 0x00, 0x00, 0xFF, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte  0,  0,  0,  0,  0
+	.byte  1,  0,  0,  0, -1
+	.byte  1,  0, -1,  0,  0
+	.byte  1, -1,  0,  0,  0
+	.byte  1,  0,  0, -1,  0
+	.byte -1,  0,  0,  0,  1
+	.byte  0,  0,  0,  0,  0
+	.byte  0,  0, -1,  0,  1
+	.byte  0, -1,  0,  0,  1
+	.byte  0,  0,  0, -1,  1
+	.byte -1,  0,  1,  0,  0
+	.byte  0,  0,  1,  0, -1
+	.byte  0,  0,  0,  0,  0
+	.byte  0, -1,  1,  0,  0
+	.byte  0,  0,  1, -1,  0
+	.byte -1,  1,  0,  0,  0
+	.byte  0,  1,  0,  0, -1
+	.byte  0,  1, -1,  0,  0
+	.byte  0,  0,  0,  0,  0
+	.byte  0,  1,  0, -1,  0
+	.byte -1,  0,  0,  1,  0
+	.byte  0,  0,  0,  1, -1
+	.byte  0,  0, -1,  1,  0
+	.byte  0, -1,  0,  1,  0
+	.byte  0,  0,  0,  0,  0
 
 	.global UNK_020F7F93
 UNK_020F7F93: ; 0x020F7F93
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0xFF, 0x00, 0x00, 0x00, 0x01, 0x00, 0xFF, 0x00, 0x00, 0x01
-	.byte 0x00, 0x00, 0xFF, 0x00, 0x01, 0x00, 0x00, 0x00, 0xFF, 0xFF, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x01, 0xFF, 0x00, 0x00, 0x00, 0x01, 0x00, 0xFF, 0x00, 0x00, 0x01, 0x00
-	.byte 0x00, 0xFF, 0xFF, 0x00, 0x01, 0x00, 0x00, 0x00, 0xFF, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x01, 0xFF, 0x00, 0x00, 0x00, 0x01, 0x00, 0xFF, 0xFF, 0x00, 0x00, 0x01, 0x00
-	.byte 0x00, 0xFF, 0x00, 0x01, 0x00, 0x00, 0x00, 0xFF, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x01, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x01, 0x00, 0xFF, 0x00, 0x00, 0x01, 0x00, 0x00
-	.byte 0xFF, 0x00, 0x01, 0x00, 0x00, 0x00, 0xFF, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte  0,  0,  0,  0,  0
+	.byte  1, -1,  0,  0,  0
+	.byte  1,  0, -1,  0,  0
+	.byte  1,  0,  0, -1,  0
+	.byte  1,  0,  0,  0, -1
+	.byte -1,  1,  0,  0,  0
+	.byte  0,  0,  0,  0,  0
+	.byte  0,  1, -1,  0,  0
+	.byte  0,  1,  0, -1,  0
+	.byte  0,  1,  0,  0, -1
+	.byte -1,  0,  1,  0,  0
+	.byte  0, -1,  1,  0,  0
+	.byte  0,  0,  0,  0,  0
+	.byte  0,  0,  1, -1,  0
+	.byte  0,  0,  1,  0, -1
+	.byte -1,  0,  0,  1,  0
+	.byte  0, -1,  0,  1,  0
+	.byte  0,  0, -1,  1,  0
+	.byte  0,  0,  0,  0,  0
+	.byte  0,  0,  0,  1, -1
+	.byte -1,  0,  0,  0,  1
+	.byte  0, -1,  0,  0,  1
+	.byte  0,  0, -1,  0,  1
+	.byte  0,  0,  0, -1,  1
+	.byte  0,  0,  0,  0,  0
 
 	.section .data
 
@@ -57,16 +111,12 @@ UNK_02105FC8: ; 0x02105FC8
 
 	.global UNK_021C5AC0
 UNK_021C5AC0: ; 0x021C5AC0
-	.space 0x4
-
-	.global UNK_021C5AC4
-UNK_021C5AC4: ; 0x021C5AC4
-	.space 0x190
+	.space 0x194
 
 	.text
 
-	thumb_func_start FUN_02066978
-FUN_02066978: ; 0x02066978
+	thumb_func_start ZeroMonData
+ZeroMonData: ; 0x02066978
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x0
@@ -111,7 +161,7 @@ FUN_020669C0: ; 0x020669C0
 	mov r1, #0xec
 	bl AllocFromHeap
 	add r4, r0, #0x0
-	bl FUN_02066978
+	bl ZeroMonData
 	add r0, r4, #0x0
 	pop {r4, pc}
 	.balign 4
@@ -248,15 +298,15 @@ _02066AC8:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02066ACC
-FUN_02066ACC: ; 0x02066ACC
+	thumb_func_start CreateMon
+CreateMon: ; 0x02066ACC
 	push {r0-r3}
 	push {r3-r6, lr}
 	sub sp, #0x2c
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	add r6, r3, #0x0
-	bl FUN_02066978
+	bl ZeroMonData
 	ldr r0, [sp, #0x50]
 	add r1, r4, #0x0
 	str r0, [sp, #0x0]
@@ -269,7 +319,7 @@ FUN_02066ACC: ; 0x02066ACC
 	str r0, [sp, #0xc]
 	ldr r2, [sp, #0x48]
 	add r0, r5, #0x0
-	bl FUN_02066B64
+	bl CreateBoxMon
 	add r0, r5, #0x0
 	add r0, #0x88
 	mov r1, #0x64
@@ -315,8 +365,8 @@ FUN_02066ACC: ; 0x02066ACC
 	add sp, #0x10
 	bx r3
 
-	thumb_func_start FUN_02066B64
-FUN_02066B64: ; 0x02066B64
+	thumb_func_start CreateBoxMon
+CreateBoxMon: ; 0x02066B64
 	push {r0-r3}
 	push {r4-r7, lr}
 	sub sp, #0xc
@@ -562,8 +612,8 @@ _02066D84: .word 0xFFFF0000
 _02066D88: .word gGameLanguage
 _02066D8C: .word gGameVersion
 
-	thumb_func_start FUN_02066D90
-FUN_02066D90: ; 0x02066D90
+	thumb_func_start CreateMonWithNature
+CreateMonWithNature: ; 0x02066D90
 	push {r3-r7, lr}
 	sub sp, #0x18
 	str r2, [sp, #0x10]
@@ -578,7 +628,7 @@ _02066D9E:
 	lsl r0, r0, #0x10
 	orr r5, r0
 	add r0, r5, #0x0
-	bl FUN_02068884
+	bl GetNatureFromPersonality
 	cmp r4, r0
 	bne _02066D9E
 	mov r0, #0x1
@@ -591,7 +641,7 @@ _02066D9E:
 	ldr r3, [sp, #0x14]
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_02066ACC
+	bl CreateMon
 	add sp, #0x18
 	pop {r3-r7, pc}
 	.balign 4
@@ -642,7 +692,7 @@ _02066DF4:
 	lsl r0, r1, #0x10
 	lsr r5, r0, #0x10
 	add r0, r4, #0x0
-	bl FUN_02068884
+	bl GetNatureFromPersonality
 	cmp r7, r0
 	bne _02066DF4
 	ldr r0, [sp, #0x14]
@@ -671,7 +721,7 @@ _02066E58:
 	ldr r1, [sp, #0x14]
 	ldr r2, [sp, #0x18]
 	ldr r3, [sp, #0x1c]
-	bl FUN_02066ACC
+	bl CreateMon
 	add sp, #0x24
 	pop {r4-r7, pc}
 
@@ -714,7 +764,7 @@ FUN_02066EA4: ; 0x02066EA4
 	mov r3, #0x0
 	str r3, [sp, #0x8]
 	str r3, [sp, #0xc]
-	bl FUN_02066ACC
+	bl CreateMon
 	add r0, r4, #0x0
 	mov r1, #0xae
 	add r2, sp, #0x24
@@ -1099,7 +1149,7 @@ _02067204:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_02067234
+	bl GetMonData
 	add r4, r0, #0x0
 	ldrh r0, [r5, #0x4]
 	lsl r0, r0, #0x1f
@@ -1119,8 +1169,8 @@ _02067230:
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02067234
-FUN_02067234: ; 0x02067234
+	thumb_func_start GetMonData
+GetMonData: ; 0x02067234
 	push {r3, lr}
 	add r3, r1, #0x0
 	sub r3, #0x9f
@@ -1198,7 +1248,7 @@ _020672AA:
 	mov r0, #0x1
 	pop {r3, pc}
 _020672B6:
-	bl FUN_0206731C
+	bl GetBoxMonData
 	pop {r3, pc}
 
 	thumb_func_start FUN_020672BC
@@ -1235,7 +1285,7 @@ _020672F8:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_0206731C
+	bl GetBoxMonData
 	add r4, r0, #0x0
 	ldrh r0, [r5, #0x4]
 	lsl r0, r0, #0x1e
@@ -1250,8 +1300,8 @@ _02067318:
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0206731C
-FUN_0206731C: ; 0x0206731C
+	thumb_func_start GetBoxMonData
+GetBoxMonData: ; 0x0206731C
 	push {r4-r7, lr}
 	sub sp, #0xc
 	str r1, [sp, #0x4]
@@ -1261,25 +1311,25 @@ FUN_0206731C: ; 0x0206731C
 	ldr r1, [r1, #0x0]
 	str r0, [sp, #0x0]
 	add r2, r4, #0x0
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r2, #0x1
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r2, #0x2
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r2, #0x3
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x4]
 	cmp r0, #0xb2
@@ -1943,7 +1993,7 @@ _020677D8:
 	bl FUN_0206E7B8
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_02069F24
+	bl GetArceusTypeByPlate
 	add r4, r0, #0x0
 	b _0206781A
 _020677FC:
@@ -2016,7 +2066,7 @@ _02067886:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_020678C0
+	bl SetMonData
 	ldrh r0, [r5, #0x4]
 	lsl r0, r0, #0x1f
 	lsr r0, r0, #0x1f
@@ -2040,8 +2090,8 @@ _020678BC:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020678C0
-FUN_020678C0: ; 0x020678C0
+	thumb_func_start SetMonData
+SetMonData: ; 0x020678C0
 	push {r3, lr}
 	add r3, r0, #0x0
 	add r0, r1, #0x0
@@ -2131,7 +2181,7 @@ _0206794C:
 	pop {r3, pc}
 _02067958:
 	add r0, r3, #0x0
-	bl FUN_020679D8
+	bl SetBoxMonData
 	pop {r3, pc}
 
 	thumb_func_start FUN_02067960
@@ -2174,7 +2224,7 @@ _020679AA:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_020679D8
+	bl SetBoxMonData
 	ldrh r0, [r5, #0x4]
 	lsl r0, r0, #0x1e
 	lsr r0, r0, #0x1f
@@ -2193,8 +2243,8 @@ _020679D4:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020679D8
-FUN_020679D8: ; 0x020679D8
+	thumb_func_start SetBoxMonData
+SetBoxMonData: ; 0x020679D8
 	push {r4-r7, lr}
 	sub sp, #0x4c
 	str r1, [sp, #0x4]
@@ -2203,25 +2253,25 @@ FUN_020679D8: ; 0x020679D8
 	ldr r1, [r1, #0x0]
 	str r0, [sp, #0x0]
 	mov r2, #0x0
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r2, #0x1
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r2, #0x2
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r2, #0x3
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x4]
 	cmp r0, #0xb2
@@ -3175,24 +3225,24 @@ FUN_02068100: ; 0x02068100
 	ldr r1, [r1, #0x0]
 	str r0, [sp, #0x0]
 	mov r2, #0x0
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r2, #0x1
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r2, #0x2
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0206A418
+	bl GetSubstruct
 	ldr r0, [sp, #0x0]
 	mov r2, #0x3
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
-	bl FUN_0206A418
+	bl GetSubstruct
 	cmp r7, #0xb2
 	bls _02068142
 	b _02068500
@@ -3924,7 +3974,7 @@ _0206864A:
 FUN_02068654: ; 0x02068654
 	push {r3-r5, lr}
 	add r4, r2, #0x0
-	bl FUN_0206A8FC
+	bl ConvertUnownOrArceusSpecies
 	mov r1, #0x0
 	bl FUN_0206851C
 	add r5, r0, #0x0
@@ -4160,7 +4210,7 @@ FUN_02068824: ; 0x02068824
 	bl FUN_02068538
 	ldr r1, _0206884C ; =UNK_021C5AC0
 	bl FUN_0206876C
-	ldr r2, _02068850 ; =UNK_021C5AC4
+	ldr r2, _02068850 ; =UNK_021C5AC0 + 4
 	mov r1, #0x1
 _02068838:
 	ldr r0, [r2, #0x0]
@@ -4175,7 +4225,7 @@ _02068846:
 	pop {r4, pc}
 	nop
 _0206884C: .word UNK_021C5AC0
-_02068850: .word UNK_021C5AC4
+_02068850: .word UNK_021C5AC0 + 4
 
 	thumb_func_start FUN_02068854
 FUN_02068854: ; 0x02068854
@@ -4199,12 +4249,12 @@ FUN_0206885C: ; 0x0206885C
 	add r1, r4, #0x0
 	bl FUN_02066A94
 	add r0, r6, #0x0
-	bl FUN_02068884
+	bl GetNatureFromPersonality
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068884
-FUN_02068884: ; 0x02068884
+	thumb_func_start GetNatureFromPersonality
+GetNatureFromPersonality: ; 0x02068884
 	push {r3, lr}
 	mov r1, #0x19
 	bl _u32_div_f
@@ -4551,7 +4601,7 @@ FUN_02068AD8: ; 0x02068AD8
 	mov r4, #0x0
 _02068B04:
 	add r0, r4, #0x0
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	tst r0, r7
 	beq _02068B34
 	bl rand_LC
@@ -4559,14 +4609,14 @@ _02068B04:
 	tst r0, r1
 	beq _02068B26
 	add r0, r4, #0x3
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	orr r0, r6
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	b _02068B56
 _02068B26:
 	add r0, r4, #0x3
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	orr r0, r5
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -4577,12 +4627,12 @@ _02068B34:
 	tst r0, r1
 	beq _02068B56
 	add r0, r4, #0x3
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	orr r0, r6
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r4, #0x3
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	orr r0, r5
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
@@ -6830,7 +6880,7 @@ FUN_02069BD0: ; 0x02069BD0
 FUN_02069BE4: ; 0x02069BE4
 	push {r4, lr}
 	add r4, r1, #0x0
-	bl FUN_02068884
+	bl GetNatureFromPersonality
 	lsl r1, r0, #0x2
 	add r1, r0, r1
 	ldr r0, _02069BF8 ; =UNK_020F7F16
@@ -6919,7 +6969,7 @@ _02069C70:
 	cmp r0, #0x0
 	bne _02069C70
 	add r0, r7, #0x0
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	add r1, r0, #0x0
 	lsl r1, r1, #0x18
 	add r0, r5, #0x0
@@ -7246,7 +7296,7 @@ FUN_02069ECC: ; 0x02069ECC
 	bl FUN_0206E7B8
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_02069F24
+	bl GetArceusTypeByPlate
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x70
@@ -7258,8 +7308,8 @@ _02069F1C:
 	.balign 4
 _02069F20: .word 0x000001ED
 
-	thumb_func_start FUN_02069F24
-FUN_02069F24: ; 0x02069F24
+	thumb_func_start GetArceusTypeByPlate
+GetArceusTypeByPlate: ; 0x02069F24
 	sub r0, #0x7d
 	cmp r0, #0xf
 	bhi _02069F96
@@ -7343,7 +7393,7 @@ _02069F96:
 FUN_02069F9C: ; 0x02069F9C
 	push {r4, lr}
 	add r4, r2, #0x0
-	bl FUN_0206A8FC
+	bl ConvertUnownOrArceusSpecies
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x21
@@ -7518,7 +7568,7 @@ _0206A104:
 	ldrh r0, [r0, r1]
 	cmp r4, r0
 	blo _0206A12E
-	ldr r0, _0206A138 ; =UNK_020F7ECE
+	ldr r0, _0206A138 ; =UNK_020F7ECC + 2
 	ldrh r0, [r0, r1]
 	cmp r4, r0
 	add r2, sp, #0x4
@@ -7538,7 +7588,7 @@ _0206A12E:
 	pop {r3-r7, pc}
 	nop
 _0206A134: .word UNK_020F7ECC
-_0206A138: .word UNK_020F7ECE
+_0206A138: .word UNK_020F7ECC + 2
 
 	thumb_func_start FUN_0206A13C
 FUN_0206A13C: ; 0x0206A13C
@@ -7694,42 +7744,42 @@ FUN_0206A23C: ; 0x0206A23C
 	ldr r0, [sp, #0x4]
 	ldr r1, [r5, #0x0]
 	mov r2, #0x0
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x4]
 	ldr r1, [r5, #0x0]
 	mov r2, #0x1
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r6, r0, #0x0
 	ldr r0, [sp, #0x4]
 	ldr r1, [r5, #0x0]
 	mov r2, #0x2
-	bl FUN_0206A418
+	bl GetSubstruct
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x4]
 	ldr r1, [r5, #0x0]
 	mov r2, #0x3
-	bl FUN_0206A418
+	bl GetSubstruct
 	str r0, [sp, #0x8]
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r2, #0x0
-	bl FUN_0206A418
+	bl GetSubstruct
 	str r0, [sp, #0xc]
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r2, #0x1
-	bl FUN_0206A418
+	bl GetSubstruct
 	str r0, [sp, #0x10]
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r2, #0x2
-	bl FUN_0206A418
+	bl GetSubstruct
 	str r0, [sp, #0x14]
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r2, #0x3
-	bl FUN_0206A418
+	bl GetSubstruct
 	ldr r2, [sp, #0x4]
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x4]
@@ -7834,7 +7884,7 @@ _0206A37C: .word ReadWholeNarcMemberByIdPair
 FUN_0206A380: ; 0x0206A380
 	push {r4, lr}
 	add r4, r2, #0x0
-	bl FUN_0206A8FC
+	bl ConvertUnownOrArceusSpecies
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x2
@@ -7922,8 +7972,8 @@ _0206A412:
 	pop {r3-r4}
 	bx lr
 
-	thumb_func_start FUN_0206A418
-FUN_0206A418: ; 0x0206A418
+	thumb_func_start GetSubstruct
+GetSubstruct: ; 0x0206A418
 	push {r3, lr}
 	mov r3, #0x3e
 	lsl r3, r3, #0xc
@@ -8705,8 +8755,8 @@ _0206A8F8:
 	add r0, r1, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0206A8FC
-FUN_0206A8FC: ; 0x0206A8FC
+	thumb_func_start ConvertUnownOrArceusSpecies
+ConvertUnownOrArceusSpecies: ; 0x0206A8FC
 	ldr r3, _0206A928 ; =0x00000182
 	cmp r0, r3
 	beq _0206A90C
@@ -8735,8 +8785,8 @@ _0206A926:
 	.balign 4
 _0206A928: .word 0x00000182
 
-	thumb_func_start FUN_0206A92C
-FUN_0206A92C: ; 0x0206A92C
+	thumb_func_start MaskOfFlagNo
+MaskOfFlagNo: ; 0x0206A92C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r4, #0x1
@@ -8756,8 +8806,8 @@ _0206A948:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0206A94C
-FUN_0206A94C: ; 0x0206A94C
+	thumb_func_start LowestFlagNo
+LowestFlagNo: ; 0x0206A94C
 	mov r3, #0x1
 	mov r2, #0x0
 _0206A950:
@@ -8773,9 +8823,9 @@ _0206A95E:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_0206A964
-FUN_0206A964: ; 0x0206A964
-	ldr r3, _0206A980 ; =UNK_020F7EF2
+	thumb_func_start IsPokemonLegendaryOrMythical
+IsPokemonLegendaryOrMythical: ; 0x0206A964
+	ldr r3, _0206A980 ; =sLegendaryMonsList
 	mov r2, #0x0
 _0206A968:
 	ldrh r1, [r3, #0x0]
@@ -8791,20 +8841,20 @@ _0206A972:
 	mov r0, #0x0
 	bx lr
 	nop
-_0206A980: .word UNK_020F7EF2
+_0206A980: .word sLegendaryMonsList
 
-	thumb_func_start FUN_0206A984
-FUN_0206A984: ; 0x0206A984
+	thumb_func_start GetLegendaryMon
+GetLegendaryMon: ; 0x0206A984
 	cmp r0, #0x12
 	blo _0206A98A
 	mov r0, #0x0
 _0206A98A:
 	lsl r1, r0, #0x1
-	ldr r0, _0206A994 ; =UNK_020F7EF2
+	ldr r0, _0206A994 ; =sLegendaryMonsList
 	ldrh r0, [r0, r1]
 	bx lr
 	nop
-_0206A994: .word UNK_020F7EF2
+_0206A994: .word sLegendaryMonsList
 
 	thumb_func_start FUN_0206A998
 FUN_0206A998: ; 0x0206A998
@@ -8814,7 +8864,7 @@ FUN_0206A998: ; 0x0206A998
 	bl FUN_020671BC
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206A964
+	bl IsPokemonLegendaryOrMythical
 	pop {r3, pc}
 
 	thumb_func_start FUN_0206A9AC

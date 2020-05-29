@@ -4704,7 +4704,7 @@
 .extern FUN_02065344
 .extern FUN_02066818
 .extern FUN_02066840
-.extern FUN_02066978
+.extern ZeroMonData
 .extern FUN_020669A0
 .extern FUN_020669BC
 .extern FUN_020669C0
@@ -4712,8 +4712,8 @@
 .extern FUN_02066A20
 .extern FUN_02066A6C
 .extern FUN_02066A94
-.extern FUN_02066ACC
-.extern FUN_02066D90
+.extern CreateMon
+.extern CreateMonWithNature
 .extern FUN_02066DD4
 .extern FUN_02066E74
 .extern FUN_02066EA4
@@ -4739,7 +4739,7 @@
 .extern FUN_02068824
 .extern FUN_02068854
 .extern FUN_0206885C
-.extern FUN_02068884
+.extern GetNatureFromPersonality
 .extern FUN_020688E8
 .extern FUN_020689E0
 .extern FUN_020689E8
@@ -4792,7 +4792,7 @@
 .extern FUN_02069E94
 .extern FUN_02069EC4
 .extern FUN_02069ECC
-.extern FUN_02069F24
+.extern GetArceusTypeByPlate
 .extern FUN_02069F9C
 .extern FUN_02069FB0
 .extern FUN_0206A014
@@ -4801,10 +4801,10 @@
 .extern FUN_0206A16C
 .extern FUN_0206A1C4
 .extern FUN_0206A23C
-.extern FUN_0206A92C
-.extern FUN_0206A94C
-.extern FUN_0206A964
-.extern FUN_0206A984
+.extern MaskOfFlagNo
+.extern LowestFlagNo
+.extern IsPokemonLegendaryOrMythical
+.extern GetLegendaryMon
 .extern FUN_0206A998
 .extern FUN_0206A9AC
 .extern FUN_0206AA30

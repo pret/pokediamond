@@ -2120,7 +2120,7 @@ _02027B9C:
 	str r0, [sp, #0xc]
 	ldrh r1, [r5, #0x10]
 	add r0, r4, #0x0
-	bl FUN_02066ACC
+	bl CreateMon
 	add r2, r5, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x74
@@ -2295,7 +2295,7 @@ FUN_02027CB8: ; 0x02027CB8
 	str r0, [sp, #0xc]
 	ldrh r1, [r5, #0x8]
 	add r0, r4, #0x0
-	bl FUN_02066ACC
+	bl CreateMon
 	add r2, r5, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x74

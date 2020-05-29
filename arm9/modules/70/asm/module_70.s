@@ -1556,7 +1556,7 @@ _021D80F4:
 	ldrb r2, [r2]
 	ldr r0, [r7, r0]
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	mov r0, #0x66
 	lsl r0, r0, #2
 	ldr r0, [r7, r0]
