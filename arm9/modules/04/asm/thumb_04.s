@@ -16,7 +16,7 @@ MOD04_021D74E0: ; 0x021D74E0
 _021D74F2:
 	ldr r1, _021D7648 ; =0x00001FAC
 	add r0, r4, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r2, _021D7644 ; =UNK04_0220FBC0
 	mov r1, #0x1f
 	str r0, [r2, #4]
@@ -48,7 +48,7 @@ _021D74F2:
 	str r4, [r0, r1]
 	ldr r1, _021D764C ; =0x0002B020
 	add r0, r4, #0
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r2, _021D7644 ; =UNK04_0220FBC0
 	ldr r1, _021D7650 ; =0x00001F04
 	ldr r3, [r2]
@@ -2821,7 +2821,7 @@ MOD04_021D8A7C: ; 0x021D8A7C
 	cmp r1, #0
 	bne _021D8ACA
 	ldr r1, _021D8BD0 ; =0x000035DC
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r2, _021D8BCC ; =UNK04_0220FBC8
 	mov r1, #0x35
 	str r0, [r2]

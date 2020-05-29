@@ -916,7 +916,7 @@ MOD56_02212540: ; 0x02212540
 	mov r1, #0
 	bl FUN_020178A0
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD56_02212540
@@ -7113,7 +7113,7 @@ _02215532:
 	add r2, r6, #0
 	bl FUN_0200ABC0
 	add r0, r6, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	mov r2, #0x56
 	add r0, #0xcc
@@ -8445,7 +8445,7 @@ MOD56_022160E4: ; 0x022160E4
 	add r2, r4, #0
 	bl FUN_0200ABC0
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _0221611C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

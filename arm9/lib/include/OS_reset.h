@@ -19,4 +19,9 @@ void OS_ResetSystem(u32 parameter);
 void OSi_DoBoot(void);
 static void OSi_CpuClear32(register u32 data, register void *destp, register u32 size);
 
+static inline u32 OS_GetResetParameter(void)
+{
+    return (u32)*(u32 *)HW_RESET_PARAMETER_BUF;
+}
+
 #endif //POKEDIAMOND_OS_RESET_H

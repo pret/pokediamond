@@ -32,7 +32,7 @@ FUN_02001B8C: ; 0x02001B8C
 	mov r1, #0x20
 	add r7, r2, #0x0
 	str r0, [sp, #0x4]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r3, r5, #0x0
 	ldmia r3!, {r0-r1}

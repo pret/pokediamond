@@ -108,11 +108,11 @@ _02060764:
 	b _0206078A
 _02060772:
 	ldr r0, [r4, #0x24]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x28]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r4-r6, pc}
@@ -130,7 +130,7 @@ FUN_02060790: ; 0x02060790
 	mov r1, #0x2c
 	add r6, r2, #0x0
 	str r3, [sp, #0x0]
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	mov r2, #0x2c
 	add r4, r0, #0x0

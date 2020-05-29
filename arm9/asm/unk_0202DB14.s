@@ -24,7 +24,7 @@ FUN_0202DB14: ; 0x0202DB14
 	mov r1, #0xe9
 	mov r0, #0xf
 	lsl r1, r1, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _0202DBA0 ; =UNK_021C59E4
 	mov r2, #0xe9
 	str r0, [r1, #0x0]
@@ -104,7 +104,7 @@ _0202DBB8:
 	ldr r0, [r0, #0x0]
 	cmp r0, #0x0
 	beq _0202DBD2
-	bl FUN_02016A18
+	bl FreeToHeap
 _0202DBD2:
 	ldr r0, _0202DBDC ; =UNK_021C59E4
 	mov r1, #0x0

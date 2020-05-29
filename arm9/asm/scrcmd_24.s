@@ -67,7 +67,7 @@ _02045DFC:
 	strh r0, [r5, #0x0]
 _02045E0E:
 	ldr r0, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	pop {r3-r5, pc}
@@ -109,7 +109,7 @@ FUN_02045E20: ; 0x02045E20
 	bl FUN_02088EF8
 	strh r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -157,7 +157,7 @@ FUN_02045E74: ; 0x02045E74
 	add r0, r5, #0x0
 	bl SetupNativeScript
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4
@@ -226,7 +226,7 @@ FUN_02045F24: ; 0x02045F24
 	add r6, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r3, r0, #0x0
 	ldr r0, _02045F80 ; =0x0000FFFF
 	strh r4, [r3, #0x0]

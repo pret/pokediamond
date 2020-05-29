@@ -187,7 +187,7 @@ _0205F8F8:
 _0205F90A:
 	mov r0, #0xb
 	mov r1, #0x4
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	mov r1, #0x0
 	mov r2, #0x4
 	add r6, r0, #0x0
@@ -323,7 +323,7 @@ _0205FA16:
 	add r0, sp, #0x28
 	bl FS_CloseFile
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x70
 	pop {r3-r7, pc}
 	nop

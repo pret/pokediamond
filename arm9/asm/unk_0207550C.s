@@ -17,7 +17,7 @@ FUN_0207550C: ; 0x0207550C
 	cmp r0, #0x1
 	beq _0207552C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1c
 	pop {r3-r5, pc}
 _0207552C:
@@ -58,7 +58,7 @@ _0207552C:
 	beq _0207558A
 _02075580:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	pop {r3-r5, pc}
 _0207558A:
@@ -68,7 +68,7 @@ _0207558A:
 	cmp r0, #0x0
 	beq _020755A0
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _020755A0:
@@ -78,7 +78,7 @@ _020755A0:
 	cmp r0, #0x0
 	beq _020755B6
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x2
 	pop {r3-r5, pc}
 _020755B6:
@@ -143,32 +143,32 @@ _0207562C:
 	b _0207568E
 _02075632:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x3
 	pop {r3-r5, pc}
 _0207563C:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x4
 	pop {r3-r5, pc}
 _02075646:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x5
 	pop {r3-r5, pc}
 _02075650:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x6
 	pop {r3-r5, pc}
 _0207565A:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x7
 	pop {r3-r5, pc}
 _02075664:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x8
 	pop {r3-r5, pc}
 _0207566E:
@@ -178,12 +178,12 @@ _0207566E:
 	cmp r0, #0x0
 	beq _02075684
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xb
 	pop {r3-r5, pc}
 _02075684:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x9
 	pop {r3-r5, pc}
 _0207568E:
@@ -193,7 +193,7 @@ _0207568E:
 	cmp r0, #0x0
 	beq _020756A4
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xa
 	pop {r3-r5, pc}
 _020756A4:
@@ -203,7 +203,7 @@ _020756A4:
 	cmp r0, #0x0
 	beq _020756BA
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xb
 	pop {r3-r5, pc}
 _020756BA:
@@ -213,13 +213,13 @@ _020756BA:
 	cmp r0, #0x0
 	ble _020756D0
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xc
 	pop {r3-r5, pc}
 _020756D0:
 	bge _020756DC
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x12
 	pop {r3-r5, pc}
 _020756DC:
@@ -229,13 +229,13 @@ _020756DC:
 	cmp r0, #0x0
 	ble _020756F2
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xd
 	pop {r3-r5, pc}
 _020756F2:
 	bge _020756FE
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x13
 	pop {r3-r5, pc}
 _020756FE:
@@ -245,13 +245,13 @@ _020756FE:
 	cmp r0, #0x0
 	ble _02075714
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xe
 	pop {r3-r5, pc}
 _02075714:
 	bge _02075720
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x14
 	pop {r3-r5, pc}
 _02075720:
@@ -261,13 +261,13 @@ _02075720:
 	cmp r0, #0x0
 	ble _02075736
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0xf
 	pop {r3-r5, pc}
 _02075736:
 	bge _02075742
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x15
 	pop {r3-r5, pc}
 _02075742:
@@ -277,13 +277,13 @@ _02075742:
 	cmp r0, #0x0
 	ble _02075758
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x10
 	pop {r3-r5, pc}
 _02075758:
 	bge _02075764
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x16
 	pop {r3-r5, pc}
 _02075764:
@@ -293,13 +293,13 @@ _02075764:
 	cmp r0, #0x0
 	ble _0207577A
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x11
 	pop {r3-r5, pc}
 _0207577A:
 	bge _02075786
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x17
 	pop {r3-r5, pc}
 _02075786:
@@ -309,7 +309,7 @@ _02075786:
 	cmp r0, #0x0
 	beq _0207579C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x18
 	pop {r3-r5, pc}
 _0207579C:
@@ -319,7 +319,7 @@ _0207579C:
 	cmp r0, #0x0
 	beq _020757B2
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x19
 	pop {r3-r5, pc}
 _020757B2:
@@ -329,7 +329,7 @@ _020757B2:
 	cmp r0, #0x0
 	beq _020757C8
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1a
 	pop {r3-r5, pc}
 _020757C8:
@@ -345,12 +345,12 @@ _020757C8:
 	beq _020757EA
 _020757E0:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1b
 	pop {r3-r5, pc}
 _020757EA:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1c
 	pop {r3-r5, pc}
 

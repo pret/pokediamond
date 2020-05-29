@@ -24,7 +24,7 @@ MOD22_02254854: ; 0x02254854
 	mov r1, #0x68
 	add r7, r2, #0
 	str r3, [sp]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	beq _02254892
 	ldr r2, [sp]
@@ -44,7 +44,7 @@ MOD22_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _0225488C:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254892:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -163,7 +163,7 @@ MOD22_0225492C: ; 0x0225492C
 	ldr r0, [r4, #0x60]
 	bl MOD22_02254F10
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD22_0225492C
@@ -880,7 +880,7 @@ MOD22_02254E8C: ; 0x02254E8C
 	add r6, r1, #0
 	mov r0, #8
 	mov r1, #0x88
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	beq _02254F08
 	str r6, [r4]
@@ -946,10 +946,10 @@ MOD22_02254F10: ; 0x02254F10
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _02254F20
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254F20:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254F26:
 	pop {r4, pc}
 	thumb_func_end MOD22_02254F10

@@ -72,7 +72,7 @@ FUN_02009EF0: ; 0x02009EF0
 _02009F08:
 	ldr r0, [sp, #0x30]
 	mov r1, #0x3c
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _02009F7C ; =UNK_021C4670
 	cmp r0, #0x0
 	str r0, [r1, #0x0]
@@ -164,7 +164,7 @@ _02009FAE:
 	bl FUN_0200A06C
 	ldr r0, _02009FD4 ; =UNK_021C4670
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _02009FD4 ; =UNK_021C4670
 	mov r1, #0x0
 	str r1, [r0, #0x0]

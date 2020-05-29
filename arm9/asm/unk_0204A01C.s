@@ -81,7 +81,7 @@ FUN_0204A048: ; 0x0204A048
 	bl FUN_0202C144
 _0204A0BC:
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	add sp, #0x20
 	pop {r3-r7, pc}
@@ -119,7 +119,7 @@ FUN_0204A0C8: ; 0x0204A0C8
 	bl FUN_0206B900
 	add r5, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	add sp, #0xc
 	pop {r4-r7, pc}

@@ -455,7 +455,7 @@ FUN_0202D7D8: ; 0x0202D7D8
 	lsl r7, r4, #0x4
 	mov r0, #0xf
 	add r1, r7, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	add r2, r7, #0x0
 	str r0, [r5, #0x18]
@@ -485,11 +485,11 @@ FUN_0202D804: ; 0x0202D804
 
 	thumb_func_start FUN_0202D824
 FUN_0202D824: ; 0x0202D824
-	ldr r3, _0202D82C ; =FUN_02016A18
+	ldr r3, _0202D82C ; =FreeToHeap
 	ldr r0, [r0, #0x18]
 	bx r3
 	nop
-_0202D82C: .word FUN_02016A18
+_0202D82C: .word FreeToHeap
 
 	thumb_func_start FUN_0202D830
 FUN_0202D830: ; 0x0202D830

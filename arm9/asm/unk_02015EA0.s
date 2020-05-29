@@ -411,7 +411,7 @@ FUN_020161A4: ; 0x020161A4
 	sub r5, r1, r0
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	beq _020161E8
 	add r0, sp, #0x0
@@ -593,7 +593,7 @@ _02016306:
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x0
 	beq _02016314
-	bl FUN_02016A18
+	bl FreeToHeap
 	str r6, [r5, #0x0]
 	str r6, [r5, #0x4]
 _02016314:
@@ -649,7 +649,7 @@ _02016362:
 	sub r6, r1, r0
 	add r0, r4, #0x0
 	add r1, r6, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	beq _0201639C
 	add r0, sp, #0x20
@@ -659,7 +659,7 @@ _02016362:
 	cmp r6, r0
 	beq _0201639C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r4, #0x0
 _0201639C:
 	add r0, sp, #0x20

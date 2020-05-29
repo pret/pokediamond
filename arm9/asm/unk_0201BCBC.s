@@ -86,7 +86,7 @@ _0201BD16:
 	beq _0201BD32
 	bl FUN_0201C238
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _0201BD32:
 	ldr r0, [r6, r4]
 	bl FUN_0200CAB4
@@ -297,7 +297,7 @@ FUN_0201BE98: ; 0x0201BE98
 _0201BEAC:
 	mov r0, #0x0
 	mov r1, #0x30
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	mov r1, #0x1
 	add r0, #0x23
@@ -433,7 +433,7 @@ _0201BFBE:
 	add r0, r4, #0x0
 	bl FUN_0201C238
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x8
 	pop {r3-r7, pc}
 	nop
@@ -701,7 +701,7 @@ FUN_0201C1B0: ; 0x0201C1B0
 	mov r1, #0x6
 	mov r0, #0x0
 	lsl r1, r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x0
 	add r5, r0, #0x0
 	str r2, [sp, #0x0]
@@ -717,7 +717,7 @@ FUN_0201C1B0: ; 0x0201C1B0
 	lsl r2, r2, #0x8
 	bl MIi_CpuCopy32
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	add sp, #0x8
 	pop {r3-r5, pc}
@@ -769,7 +769,7 @@ FUN_0201C238: ; 0x0201C238
 	ldr r0, [r4, #0x2c]
 	cmp r0, #0x0
 	beq _0201C24A
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x2c]
 _0201C24A:

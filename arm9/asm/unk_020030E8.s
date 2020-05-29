@@ -92,7 +92,7 @@ _0200319A:
 	ldr r1, [sp, #0x14]
 	bl MIi_CpuCopy16
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -1419,6 +1419,6 @@ _02003B64:
 	add r0, r5, #0x0
 	bl FUN_02003054
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x8
 	pop {r3-r5, pc}

@@ -53,7 +53,7 @@ _020484CC:
 	add r1, r4, #0x0
 	bl FUN_02022540
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x14
 	pop {r3-r6, pc}
 	.balign 4
@@ -238,7 +238,7 @@ _02048666:
 	cmp r0, #0x0
 	bne _02048688
 	add r0, r5, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x4
 	bl FUN_020168D0
 	mov r0, #0x0
@@ -262,7 +262,7 @@ FUN_02048694: ; 0x02048694
 	add r4, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0x3c
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
 	bl FUN_020462AC

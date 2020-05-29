@@ -29,7 +29,7 @@ FUN_02029EE4: ; 0x02029EE4
 	push {r4, lr}
 	mov r1, #0xfb
 	lsl r1, r1, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bl FUN_02029ECC
 	add r0, r4, #0x0

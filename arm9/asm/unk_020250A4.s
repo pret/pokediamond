@@ -68,7 +68,7 @@ _02025112:
 	cmp r4, r0
 	blt _020250DC
 	ldr r0, [sp, #0x8]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -82,7 +82,7 @@ FUN_02025128: ; 0x02025128
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
 	mov r1, #0xc0
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [sp, #0x4]
 	mov r6, #0x0
 	add r5, r0, #0x0
@@ -104,7 +104,7 @@ _02025142:
 	bl FUN_02085290
 	strb r0, [r5, #0x2]
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r6, r6, #0x1
 	add r5, r5, #0x3
 	cmp r6, #0x40

@@ -170,7 +170,7 @@ FUN_02053708: ; 0x02053708
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	lsl r1, r1, #0x6
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x0]
 	mov r2, #0x0
@@ -187,7 +187,7 @@ _02053734:
 	cmp r2, r0
 	blt _02053734
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}

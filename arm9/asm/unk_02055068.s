@@ -116,10 +116,10 @@ _0205515C:
 
 	thumb_func_start FUN_02055160
 FUN_02055160: ; 0x02055160
-	ldr r3, _02055164 ; =FUN_02016A18
+	ldr r3, _02055164 ; =FreeToHeap
 	bx r3
 	.balign 4
-_02055164: .word FUN_02016A18
+_02055164: .word FreeToHeap
 
 	thumb_func_start FUN_02055168
 FUN_02055168: ; 0x02055168
@@ -136,7 +136,7 @@ FUN_0205517C: ; 0x0205517C
 	push {r4, lr}
 	mov r0, #0xb
 	mov r1, #0x3c
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0205518E
 	bl ErrorHandling

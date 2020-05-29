@@ -19,7 +19,7 @@ FUN_020607D4: ; 0x020607D4
 	mov r1, #0x80
 	add r7, r2, #0x0
 	str r3, [sp, #0xc]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	strb r6, [r4, #0x1]
 	strb r7, [r4, #0x4]
@@ -151,7 +151,7 @@ _020608F0:
 _020608F8:
 	bl ErrorHandling
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x28
 	pop {r3-r7, pc}
 _02060906:
@@ -177,7 +177,7 @@ FUN_02060924: ; 0x02060924
 	mov r0, #0xb
 	mov r1, #0x8
 	add r6, r2, #0x0
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r2, r0, #0x0
 	str r6, [r2, #0x4]
 	strb r4, [r2, #0x0]
@@ -222,7 +222,7 @@ _0206097C:
 	pop {r4-r6, pc}
 _0206098A:
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1
 	pop {r4-r6, pc}
 _02060994:
@@ -398,7 +398,7 @@ _02060AE2:
 	strb r0, [r4, #0x0]
 	b _02060B00
 _02060AF6:
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0xc
 	mov r0, #0x1
 	pop {r3-r6, pc}

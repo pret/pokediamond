@@ -266,7 +266,7 @@ _0208AB9C:
 	ldr r0, [sp, #0xc]
 	bl FUN_0200A8B8
 	ldr r0, [sp, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	bl OS_ResetSystem
 _0208ABC4:

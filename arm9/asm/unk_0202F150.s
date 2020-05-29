@@ -42,7 +42,7 @@ _0202F178:
 	bl FUN_02031480
 	ldr r1, _0202F2C0 ; =0x0000068C
 	mov r0, #0xf
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _0202F2BC ; =UNK_021C59F4
 	ldr r2, _0202F2C0 ; =0x0000068C
 	str r0, [r1, #0x4]
@@ -67,7 +67,7 @@ _0202F178:
 	mov r0, #0xf
 	ldr r1, [r2, r1]
 	lsl r1, r1, #0x1
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r2, _0202F2BC ; =UNK_021C59F4
 	ldr r1, _0202F2C8 ; =0x0000045C
 	ldr r3, [r2, #0x4]
@@ -76,7 +76,7 @@ _0202F178:
 	ldr r1, _0202F2C4 ; =0x00000658
 	mov r0, #0xf
 	ldr r1, [r2, r1]
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r2, _0202F2BC ; =UNK_021C59F4
 	mov r1, #0x46
 	ldr r3, [r2, #0x4]
@@ -87,7 +87,7 @@ _0202F178:
 	mov r0, #0xf
 	ldr r1, [r2, r1]
 	mul r1, r5
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r2, _0202F2BC ; =UNK_021C59F4
 	ldr r1, _0202F2CC ; =0x00000458
 	ldr r3, [r2, #0x4]
@@ -97,7 +97,7 @@ _0202F178:
 	mov r0, #0xf
 	ldr r1, [r2, r1]
 	mul r1, r5
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _0202F2BC ; =UNK_021C59F4
 	ldr r2, [r1, #0x4]
 	ldr r1, _0202F2D0 ; =0x00000454
@@ -1161,23 +1161,23 @@ _0202FA82:
 	ldr r1, [r1, #0x4]
 	sub r0, #0xec
 	ldr r0, [r1, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0202FB00 ; =UNK_021C59F4
 	ldr r1, [r0, #0x4]
 	mov r0, #0x46
 	lsl r0, r0, #0x4
 	ldr r0, [r1, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0202FB00 ; =UNK_021C59F4
 	ldr r1, [r0, #0x4]
 	ldr r0, _0202FB08 ; =0x00000458
 	ldr r0, [r1, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0202FB00 ; =UNK_021C59F4
 	ldr r1, [r0, #0x4]
 	ldr r0, _0202FB0C ; =0x00000454
 	ldr r0, [r1, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0202FB00 ; =UNK_021C59F4
 	ldr r1, [r0, #0x4]
 	ldr r0, _0202FB10 ; =0x0000056C
@@ -1190,7 +1190,7 @@ _0202FA82:
 	bl FUN_0202D824
 	ldr r0, _0202FB00 ; =UNK_021C59F4
 	ldr r0, [r0, #0x4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0202FB00 ; =UNK_021C59F4
 	mov r1, #0x0
 	str r1, [r0, #0x4]

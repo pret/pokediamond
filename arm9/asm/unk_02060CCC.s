@@ -582,7 +582,7 @@ _02061000:
 FUN_02061008: ; 0x02061008
 	push {r4, lr}
 	mov r1, #0x24
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	mov r0, #0x0
 	add r1, r4, #0x0
@@ -593,10 +593,10 @@ FUN_02061008: ; 0x02061008
 
 	thumb_func_start FUN_02061020
 FUN_02061020: ; 0x02061020
-	ldr r3, _02061024 ; =FUN_02016A18
+	ldr r3, _02061024 ; =FreeToHeap
 	bx r3
 	.balign 4
-_02061024: .word FUN_02016A18
+_02061024: .word FreeToHeap
 
 	thumb_func_start FUN_02061028
 FUN_02061028: ; 0x02061028
@@ -3239,7 +3239,7 @@ FUN_02062474: ; 0x02062474
 	mov r1, #0x7e
 	mov r2, #0x2
 	mov r3, #0x0
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	ldr r0, [sp, #0x8]
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -3275,13 +3275,13 @@ _020624C6:
 	mov r1, #0x7e
 	add r3, r4, #0x4
 	str r2, [sp, #0x0]
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	mov r2, #0x2
 	add r0, sp, #0x4
 	mov r1, #0x7e
 	add r3, r4, #0x6
 	str r2, [sp, #0x0]
-	bl FUN_02006548
+	bl ReadFromNarcMemberByIdPair
 	add r2, sp, #0x4
 	ldrh r2, [r2, #0x2]
 	add r0, r6, #0x0

@@ -207,7 +207,7 @@ FUN_02037400: ; 0x02037400
 	bl MI_CpuFill8
 	mov r0, #0xb
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x0]
 	mov r1, #0x0
 	str r1, [r0, #0x0]
@@ -268,7 +268,7 @@ FUN_020374B0: ; 0x020374B0
 	add r0, r4, #0x0
 	add r0, #0x94
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
 	add r0, #0x90
 	ldr r0, [r0, #0x0]
@@ -278,7 +278,7 @@ FUN_020374B0: ; 0x020374B0
 	ldr r0, [r0, #0x0]
 	bl FUN_0208A320
 	ldr r0, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0x0
 	bl FUN_0200627C
 	mov r0, #0x5b

@@ -218,7 +218,7 @@ FUN_02023D6C: ; 0x02023D6C
 	push {r4, lr}
 	mov r1, #0x4f
 	lsl r1, r1, #0x2
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bl FUN_02024378
 	add r0, r4, #0x0

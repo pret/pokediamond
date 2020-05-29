@@ -39,7 +39,7 @@ FUN_02027E44: ; 0x02027E44
 FUN_02027E5C: ; 0x02027E5C
 	push {r4, lr}
 	mov r1, #0x8
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	bl FUN_02027E44
 	add r0, r4, #0x0

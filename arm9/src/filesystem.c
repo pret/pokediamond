@@ -152,7 +152,7 @@ static char * sNarcFileList[] = {
     "poketool/shinzukan.narc",
 };
 
-THUMB_FUNC void ReadNARCFile(void * dest, const char * path, s32 file_idx, u32 offset, u32 size)
+THUMB_FUNC void ReadFromNarcMemberByPathAndId(void * dest, const char * path, s32 file_idx, u32 offset, u32 size)
 {
     FSFile file;
     register u32 chunk_starts[3];
@@ -192,7 +192,7 @@ THUMB_FUNC void ReadNARCFile(void * dest, const char * path, s32 file_idx, u32 o
     FS_CloseFile(&file);
 }
 
-THUMB_FUNC void * LoadFileIntoMemory(const char * path, s32 file_idx, u32 heap_id, u32 offset, u32 size, BOOL r4)
+THUMB_FUNC void * AllocAndReadFromNarcMemberByPathAndId(const char * path, s32 file_idx, u32 heap_id, u32 offset, u32 size, BOOL r4)
 {
     FSFile file;
     register u32 chunk_starts[3];
@@ -232,10 +232,10 @@ THUMB_FUNC void * LoadFileIntoMemory(const char * path, s32 file_idx, u32 heap_i
     switch (r4)
     {
     case 0:
-        dest = FUN_02016998(heap_id, chunk_size);
+        dest = AllocFromHeap(heap_id, chunk_size);
         break;
     default:
-        dest = FUN_020169D8(heap_id, chunk_size);
+        dest = AllocFromHeapAtEnd(heap_id, chunk_size);
         break;
     }
     FS_ReadFile(&file, dest, (s32)chunk_size);
@@ -243,37 +243,37 @@ THUMB_FUNC void * LoadFileIntoMemory(const char * path, s32 file_idx, u32 heap_i
     return dest;
 }
 
-THUMB_FUNC void LoadFromNARC(void * dest, NarcId narc_id, s32 file_id)
+THUMB_FUNC void ReadWholeNarcMemberByIdPair(void * dest, NarcId narc_id, s32 file_id)
 {
-    ReadNARCFile(dest, sNarcFileList[narc_id], file_id, 0, 0);
+    ReadFromNarcMemberByPathAndId(dest, sNarcFileList[narc_id], file_id, 0, 0);
 }
 
-THUMB_FUNC void * LoadFromNarc_2(NarcId narc_id, s32 file_id, u32 heap_id)
+THUMB_FUNC void * AllocAndReadWholeNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id)
 {
-    return LoadFileIntoMemory(sNarcFileList[narc_id], file_id, heap_id, 0, 0, FALSE);
+    return AllocAndReadFromNarcMemberByPathAndId(sNarcFileList[narc_id], file_id, heap_id, 0, 0, FALSE);
 }
 
-THUMB_FUNC void * FUN_02006528(NarcId narc_id, s32 file_id, u32 heap_id)
+THUMB_FUNC void * AllocAtEndAndReadWholeNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id)
 {
-    return LoadFileIntoMemory(sNarcFileList[narc_id], file_id, heap_id, 0, 0, TRUE);
+    return AllocAndReadFromNarcMemberByPathAndId(sNarcFileList[narc_id], file_id, heap_id, 0, 0, TRUE);
 }
 
-THUMB_FUNC void FUN_02006548(void * dest, NarcId narc_id, s32 file_id, u32 offset, u32 size)
+THUMB_FUNC void ReadFromNarcMemberByIdPair(void * dest, NarcId narc_id, s32 file_id, u32 offset, u32 size)
 {
-    ReadNARCFile(dest, sNarcFileList[narc_id], file_id, offset, size);
+    ReadFromNarcMemberByPathAndId(dest, sNarcFileList[narc_id], file_id, offset, size);
 }
 
-THUMB_FUNC void * FUN_02006564(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size)
+THUMB_FUNC void * AllocAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size)
 {
-    return LoadFileIntoMemory(sNarcFileList[narc_id], file_id, heap_id, offset, size, FALSE);
+    return AllocAndReadFromNarcMemberByPathAndId(sNarcFileList[narc_id], file_id, heap_id, offset, size, FALSE);
 }
 
-THUMB_FUNC void * FUN_02006584(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size)
+THUMB_FUNC void * AllocAtEndAndReadFromNarcMemberByIdPair(NarcId narc_id, s32 file_id, u32 heap_id, u32 offset, u32 size)
 {
-    return LoadFileIntoMemory(sNarcFileList[narc_id], file_id, heap_id, offset, size, TRUE);
+    return AllocAndReadFromNarcMemberByPathAndId(sNarcFileList[narc_id], file_id, heap_id, offset, size, TRUE);
 }
 
-THUMB_FUNC u32 LoadFromNARC_7(NarcId narc_id, s32 file_idx)
+THUMB_FUNC u32 GetNarcMemberSizeByIdPair(NarcId narc_id, s32 file_idx)
 {
     FSFile file;
     register u32 chunk_starts[3];
@@ -310,9 +310,9 @@ THUMB_FUNC u32 LoadFromNARC_7(NarcId narc_id, s32 file_idx)
     return chunk_size;
 }
 
-THUMB_FUNC NARC * FUN_02006670(NarcId narc_id, u32 heap_id)
+THUMB_FUNC NARC * NARC_ctor(NarcId narc_id, u32 heap_id)
 {
-    NARC * narc = (NARC *)FUN_02016998(heap_id, sizeof(NARC));
+    NARC * narc = (NARC *)AllocFromHeap(heap_id, sizeof(NARC));
     u32 btnf_start;
     u32 chunk_size;
     if (narc != NULL)
@@ -333,13 +333,13 @@ THUMB_FUNC NARC * FUN_02006670(NarcId narc_id, u32 heap_id)
     return narc;
 }
 
-THUMB_FUNC void FUN_020066F4(NARC * narc)
+THUMB_FUNC void NARC_dtor(NARC * narc)
 {
     FS_CloseFile(&narc->file);
-    FUN_02016A18(narc); // free to heap
+    FreeToHeap(narc); // free to heap
 }
 
-THUMB_FUNC void * FUN_02006704(NARC * narc, u32 file_id, u32 heap_id)
+THUMB_FUNC void * NARC_AllocAndReadWholeMember(NARC * narc, u32 file_id, u32 heap_id)
 {
     u32 file_start;
     u32 file_end;
@@ -350,7 +350,7 @@ THUMB_FUNC void * FUN_02006704(NARC * narc, u32 file_id, u32 heap_id)
     FS_ReadFile(&narc->file, &file_start, 4);
     FS_ReadFile(&narc->file, &file_end, 4);
     FS_SeekFile(&narc->file, (s32)(narc->gmif_start + 8 + file_start), FS_SEEK_SET);
-    dest = FUN_02016998(heap_id, file_end - file_start);
+    dest = AllocFromHeap(heap_id, file_end - file_start);
     if (dest != NULL)
     {
         FS_ReadFile(&narc->file, dest, (s32)(file_end - file_start));
@@ -358,7 +358,7 @@ THUMB_FUNC void * FUN_02006704(NARC * narc, u32 file_id, u32 heap_id)
     return dest;
 }
 
-THUMB_FUNC void FUN_02006774(NARC * narc, u32 file_id, void * dest)
+THUMB_FUNC void NARC_ReadWholeMember(NARC * narc, u32 file_id, void * dest)
 {
     u32 file_start;
     u32 file_end;
@@ -371,7 +371,7 @@ THUMB_FUNC void FUN_02006774(NARC * narc, u32 file_id, void * dest)
     FS_ReadFile(&narc->file, dest, (s32)(file_end - file_start));
 }
 
-THUMB_FUNC u32 FUN_020067D0(NARC * narc, u32 file_id)
+THUMB_FUNC u32 NARC_GetMemberSize(NARC * narc, u32 file_id)
 {
     u32 file_start;
     u32 file_end;
@@ -383,7 +383,7 @@ THUMB_FUNC u32 FUN_020067D0(NARC * narc, u32 file_id)
     return file_end - file_start;
 }
 
-THUMB_FUNC void FUN_02006814(NARC * narc, u32 file_id, u32 pos, u32 size, void * dest)
+THUMB_FUNC void NARC_ReadFromMember(NARC * narc, u32 file_id, u32 pos, u32 size, void * dest)
 {
     u32 file_start;
     if (narc->num_files <= file_id)
@@ -394,12 +394,12 @@ THUMB_FUNC void FUN_02006814(NARC * narc, u32 file_id, u32 pos, u32 size, void *
     FS_ReadFile(&narc->file, dest, (s32)size);
 }
 
-THUMB_FUNC void FUN_02006864(NARC * narc, u32 size, void * dest)
+THUMB_FUNC void NARC_ReadFile(NARC * narc, u32 size, void * dest)
 {
     FS_ReadFile(&narc->file, dest, (s32)size);
 }
 
-THUMB_FUNC u16 FUN_02006874(NARC * narc)
+THUMB_FUNC u16 NARC_GetFileCount(NARC * narc)
 {
     return narc->num_files;
 }

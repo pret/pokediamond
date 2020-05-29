@@ -157,7 +157,7 @@ FUN_0205AEA4: ; 0x0205AEA4
 	add r6, r1, #0x0
 	mov r0, #0x4
 	mov r1, #0x14
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
 	bne _0205AEBA
 	bl ErrorHandling

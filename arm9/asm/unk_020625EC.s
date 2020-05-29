@@ -65,7 +65,7 @@ FUN_020625EC: ; 0x020625EC
 	mov r1, #0x2d
 	mov r0, #0x50
 	lsl r1, r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x2d
 	mov r1, #0x0
 	lsl r2, r2, #0x4
@@ -187,7 +187,7 @@ _020626EC:
 _020626FE:
 	add r0, r4, #0x0
 	ldr r5, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r2, #0x2d
 	add r0, r4, #0x0
 	mov r1, #0x0
@@ -647,7 +647,7 @@ FUN_02062A70: ; 0x02062A70
 	mov r1, #0x3c
 	ldr r0, [r4, #0x0]
 	mul r1, r2
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0xb
 	lsl r1, r1, #0x6
 	str r0, [r4, r1]
@@ -909,7 +909,7 @@ _02062C72:
 	mov r0, #0xb
 	lsl r0, r0, #0x6
 	ldr r0, [r6, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -2095,7 +2095,7 @@ _02063636:
 	str r0, [r4, #0x0]
 	b _02063646
 _0206363E:
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1
 	pop {r3-r5, pc}
 _02063646:
@@ -2112,7 +2112,7 @@ FUN_02063650: ; 0x02063650
 	add r4, r0, #0x0
 	mov r0, #0xb
 	mov r1, #0xc
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r2, r0, #0x0
 	mov r0, #0x0
 	str r0, [r2, #0x0]

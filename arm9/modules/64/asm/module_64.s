@@ -293,7 +293,7 @@ _021D7726:
 	bl MOD64_021D7A38
 	add r4, #0x94
 	ldr r0, [r4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	bl MOD64_021D7828
 	bl FUN_0201C29C
 	add r0, r5, #0
@@ -727,7 +727,7 @@ MOD64_021D7AEC: ; 0x021D7AEC
 	bl FUN_02019178
 	add r4, #0x98
 	ldr r0, [r4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD64_021D7AEC
@@ -1121,7 +1121,7 @@ MOD64_021D7E04: ; 0x021D7E04
 	add r4, r1, #0
 	cmp r0, #0
 	beq _021D7E14
-	bl FUN_02016A18
+	bl FreeToHeap
 _021D7E14:
 	ldr r0, [r5, #0x64]
 	cmp r0, #0
@@ -1130,7 +1130,7 @@ _021D7E14:
 	add r0, r4, #0
 	bl thunk_FUN_020ae84c
 	ldr r0, [r5, #0x64]
-	bl FUN_02016A18
+	bl FreeToHeap
 _021D7E28:
 	add r0, r5, #0
 	mov r1, #0
@@ -2991,9 +2991,9 @@ MOD64_021D8C0C: ; 0x021D8C0C
 	ldr r0, [r4, #4]
 	bl FUN_02013E44
 	ldr r0, [r4, #0xc]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD64_021D8C0C
 
@@ -3480,7 +3480,7 @@ _021D8FB2:
 	add r0, r5, #0
 	add r0, #0x9c
 	ldr r0, [r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #3

@@ -24,7 +24,7 @@ FUN_02014518: ; 0x02014518
 	push {r3-r7, lr}
 	mov r1, #0x78
 	add r7, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	mov r2, #0x78
 	add r6, r0, #0x0
@@ -71,7 +71,7 @@ _0201456E:
 	ldr r0, [r6, #0x0]
 	bl FUN_0200A8B8
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_02014588

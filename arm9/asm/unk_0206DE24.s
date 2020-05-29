@@ -210,7 +210,7 @@ FUN_0206DFB4: ; 0x0206DFB4
 	mov r1, #0x12
 	lsl r1, r1, #0xa
 	add r4, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r2, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]
@@ -266,7 +266,7 @@ FUN_0206E024: ; 0x0206E024
 	add r0, r5, #0x0
 	bl FUN_02012DE4
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r5, pc}
 
 	thumb_func_start FUN_0206E03C
@@ -310,7 +310,7 @@ FUN_0206E07C: ; 0x0206E07C
 	add r5, r0, #0x0
 	ldr r0, [r5, #0x0]
 	mov r1, #0x10
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	bne _0206E090
 	bl ErrorHandling
@@ -363,6 +363,6 @@ FUN_0206E0DC: ; 0x0206E0DC
 	ldr r0, [r4, #0xc]
 	bl FUN_0206E024
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4

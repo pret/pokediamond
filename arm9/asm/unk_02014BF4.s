@@ -80,7 +80,7 @@ FUN_02014BF4: ; 0x02014BF4
 	mov r1, #0xc
 	add r5, r0, #0x0
 	add r6, r2, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	strb r6, [r4, #0x8]
 	mov r0, #0x1d
@@ -91,7 +91,7 @@ FUN_02014BF4: ; 0x02014BF4
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	str r5, [r4, #0x4]
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	add r2, r6, #0x0
 	str r0, [r4, #0x0]
@@ -104,9 +104,9 @@ FUN_02014C28: ; 0x02014C28
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 
@@ -193,7 +193,7 @@ _02014CC2:
 	add r1, r1, r4
 	ldr r1, [r1, #0x14]
 	mov r0, #0x5e
-	bl FUN_02006528
+	bl AllocAtEndAndReadWholeNarcMemberByIdPair
 	ldr r1, [r5, #0x0]
 	mov r2, #0x0
 	add r1, r1, r4
@@ -319,7 +319,7 @@ FUN_02014D9C: ; 0x02014D9C
 	ldr r0, [r5, #0x0]
 	add r0, r0, r4
 	ldr r0, [r0, #0x8]
-	bl FUN_02016A18
+	bl FreeToHeap
 _02014DD6:
 	pop {r3-r5, pc}
 
@@ -350,7 +350,7 @@ _02014DF0:
 	mov r0, #0x0
 	str r0, [r4, #0x4]
 	ldr r0, [r4, #0x8]
-	bl FUN_02016A18
+	bl FreeToHeap
 _02014E0E:
 	pop {r3-r5, pc}
 

@@ -103,7 +103,7 @@ FUN_020139D8: ; 0x020139D8
 	push {r3-r7, lr}
 	mov r1, #0x30
 	add r6, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r4, _02013A0C ; =UNK_020ED5C0
 	str r0, [sp, #0x0]
 	mov r7, #0x0
@@ -141,7 +141,7 @@ _02013A18:
 	cmp r4, #0xb
 	blt _02013A18
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4-r6, pc}
 	.balign 4
 

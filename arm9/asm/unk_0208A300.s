@@ -7,7 +7,7 @@
 FUN_0208A300: ; 0x0208A300
 	push {r3, lr}
 	mov r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x0
 	strb r1, [r0, #0x0]
 	strb r1, [r0, #0x1]
@@ -23,10 +23,10 @@ FUN_0208A300: ; 0x0208A300
 
 	thumb_func_start FUN_0208A320
 FUN_0208A320: ; 0x0208A320
-	ldr r3, _0208A324 ; =FUN_02016A18
+	ldr r3, _0208A324 ; =FreeToHeap
 	bx r3
 	.balign 4
-_0208A324: .word FUN_02016A18
+_0208A324: .word FreeToHeap
 
 	thumb_func_start FUN_0208A328
 FUN_0208A328: ; 0x0208A328

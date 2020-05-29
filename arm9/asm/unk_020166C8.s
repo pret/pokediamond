@@ -397,8 +397,8 @@ FUN_02016988: ; 0x02016988
 _02016996:
 	pop {r3, pc}
 
-	thumb_func_start FUN_02016998
-FUN_02016998: ; 0x02016998
+	thumb_func_start AllocFromHeap
+AllocFromHeap: ; 0x02016998
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldr r0, _020169D4 ; =UNK_021C4D28
@@ -433,8 +433,8 @@ _020169D0:
 	.balign 4
 _020169D4: .word UNK_021C4D28
 
-	thumb_func_start FUN_020169D8
-FUN_020169D8: ; 0x020169D8
+	thumb_func_start AllocFromHeapAtEnd
+AllocFromHeapAtEnd: ; 0x020169D8
 	push {r3-r5, lr}
 	ldr r2, _02016A14 ; =UNK_021C4D28
 	add r5, r0, #0x0
@@ -469,8 +469,8 @@ _02016A10:
 	.balign 4
 _02016A14: .word UNK_021C4D28
 
-	thumb_func_start FUN_02016A18
-FUN_02016A18: ; 0x02016A18
+	thumb_func_start FreeToHeap
+FreeToHeap: ; 0x02016A18
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	sub r0, r6, #0x4

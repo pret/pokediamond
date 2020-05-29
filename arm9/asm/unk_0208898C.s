@@ -137,7 +137,7 @@ FUN_02088A78: ; 0x02088A78
 	bl FUN_0200628C
 	ldr r0, [r4, #0xc]
 	ldr r6, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
 	mov r1, #0x0
 	mov r2, #0x24

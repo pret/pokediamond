@@ -187,7 +187,7 @@ _0205211E:
 	mov r1, #0x19
 	mov r0, #0x1f
 	lsl r1, r1, #0x4
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r2, #0x19
 	mov r1, #0x0
 	lsl r2, r2, #0x4
@@ -623,7 +623,7 @@ FUN_020524A0: ; 0x020524A0
 	ldr r0, [r4, #0xc]
 	bl FUN_0200CAB4
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x1f
 	bl FUN_020168D0
 _020524B8:
@@ -1889,7 +1889,7 @@ _02052DBA:
 	str r4, [sp, #0x4]
 	bl FUN_0200ABB4
 	add r0, r6, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r7, #0x0
 	bl FUN_0200A8B8
 _02052DE0:
@@ -2003,15 +2003,15 @@ FUN_02052EAC: ; 0x02052EAC
 	mov r0, #0x62
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x63
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x61
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 
 	thumb_func_start FUN_02052ED0

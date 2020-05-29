@@ -548,7 +548,7 @@ FUN_02088F0C: ; 0x02088F0C
 	add r5, r1, #0x0
 	ldr r1, _02088F44 ; =0x0000195C
 	add r6, r0, #0x0
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	str r5, [r4, #0x0]
@@ -581,7 +581,7 @@ FUN_02088F4C: ; 0x02088F4C
 	ldr r0, [r4, #0x4]
 	bl FUN_02013A10
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02088F5E:
 	pop {r4, pc}
 

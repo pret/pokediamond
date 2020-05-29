@@ -1649,7 +1649,7 @@ _0207A980:
 	cmp r0, #0x2
 	bne _0207A99E
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 _0207A99E:
 	mov r1, #0x7
 	mov r0, #0x0
@@ -1831,7 +1831,7 @@ FUN_0207AAE0: ; 0x0207AAE0
 	add r2, r7, #0x0
 	bl FUN_0207AB0C
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -2747,7 +2747,7 @@ _0207B250:
 _0207B256:
 	mov r0, #0x27
 	mov r2, #0x13
-	bl LoadFromNarc_2
+	bl AllocAndReadWholeNarcMemberByIdPair
 	add r1, sp, #0xc
 	add r4, r0, #0x0
 	bl FUN_020B0180
@@ -2765,7 +2765,7 @@ _0207B256:
 	mov r1, #0x3
 	bl FUN_0201AC68
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0207B2AC ; =0x0000068C
 	ldrsb r0, [r5, r0]
 	cmp r0, #0x0

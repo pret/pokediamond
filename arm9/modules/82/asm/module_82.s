@@ -707,7 +707,7 @@ _0222DA48:
 	bl FUN_0200433C
 	ldr r1, _0222DB78 ; =0x00020020
 	mov r0, #0x44
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x24]
 	add r0, #0x1f
 	mov r1, #0x1f
@@ -858,7 +858,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	bl FUN_02006278
 	add r4, r0, #0
 	ldr r0, [r4, #0x24]
-	bl FUN_02016A18
+	bl FreeToHeap
 	bl FUN_020888CC
 	bl FUN_02088868
 	add r0, r4, #0
@@ -880,7 +880,7 @@ MOD82_0222DC50: ; 0x0222DC50
 	bl MOD82_0222DD20
 	bl FUN_0202E4F0
 	ldr r0, [r4, #4]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r5, #0
 	bl FUN_0200627C
 	mov r0, #0

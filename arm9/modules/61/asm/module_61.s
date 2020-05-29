@@ -1034,7 +1034,7 @@ MOD61_021D7CB4: ; 0x021D7CB4
 	mov r1, #0
 	bl FUN_020178A0
 	ldr r0, [r4, #0x18]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	thumb_func_end MOD61_021D7CB4
 
@@ -1053,7 +1053,7 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	add r0, #0x18
 	str r0, [sp, #0x20]
 	mov r0, #0x4f
-	bl FUN_02006670
+	bl NARC_ctor
 	mov r1, #0
 	str r1, [sp]
 	add r6, r0, #0
@@ -1076,15 +1076,15 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	bl FUN_0200CD68
 	mov r0, #0x4f
 	add r1, r4, #0
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r7, r0, #0
 	add r0, r6, #0
 	add r1, r4, #0
 	add r2, r7, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, r7, #0
 	add r1, sp, #0x28
 	bl FUN_020B0088
@@ -1105,18 +1105,18 @@ MOD61_021D7CE8: ; 0x021D7CE8
 	mov r1, #4
 	bl FUN_02017E14
 	add r0, r7, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r1, [sp, #0x1c]
 	mov r0, #0x4f
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_020169D8
+	bl AllocFromHeapAtEnd
 	add r4, r0, #0
 	ldr r1, [sp, #0x1c]
 	add r0, r6, #0
 	add r2, r4, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r0, r4, #0
 	add r1, sp, #0x24
 	bl FUN_020B0138
@@ -1238,39 +1238,39 @@ _021D7E00:
 	ldr r0, [r5, #0x30]
 	bl FUN_0200372C
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r1, [sp, #0x20]
 	mov r0, #0x4f
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x34]
 	ldr r1, [sp, #0x20]
 	ldr r2, [r5, #0x34]
 	add r0, r6, #0
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r1, r5, #0
 	ldr r0, [r5, #0x34]
 	add r1, #0x3c
 	bl FUN_020B0180
 	mov r0, #0x4f
 	mov r1, #0x24
-	bl LoadFromNARC_7
+	bl GetNarcMemberSizeByIdPair
 	add r1, r0, #0
 	ldr r0, [r5]
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x38]
 	ldr r2, [r5, #0x38]
 	add r0, r6, #0
 	mov r1, #0x24
-	bl FUN_02006774
+	bl NARC_ReadWholeMember
 	add r1, r5, #0
 	ldr r0, [r5, #0x38]
 	add r1, #0x40
 	bl FUN_020B0180
 	add r0, r6, #0
-	bl FUN_020066F4
+	bl NARC_dtor
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0x20
@@ -1360,9 +1360,9 @@ MOD61_021D7FB4: ; 0x021D7FB4
 	sub sp, #4
 	add r4, r0, #0
 	ldr r0, [r4, #0x38]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x34]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, [r4, #0x30]
 	mov r1, #2
 	bl FUN_02003038

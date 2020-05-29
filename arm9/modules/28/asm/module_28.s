@@ -24,7 +24,7 @@ MOD28_02254854: ; 0x02254854
 	mov r1, #0x64
 	add r7, r2, #0
 	str r3, [sp]
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	beq _02254892
 	ldr r3, [sp]
@@ -44,7 +44,7 @@ MOD28_02254854: ; 0x02254854
 	pop {r3, r4, r5, r6, r7, pc}
 _0225488C:
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254892:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -202,7 +202,7 @@ MOD28_022549AC: ; 0x022549AC
 	ldr r0, [r4, #0x5c]
 	bl MOD28_02254B70
 	add r0, r4, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.align 2, 0
 	thumb_func_end MOD28_022549AC
@@ -397,7 +397,7 @@ MOD28_02254AF4: ; 0x02254AF4
 	add r5, r0, #0
 	mov r0, #8
 	lsl r1, r1, #2
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r4, r0, #0
 	beq _02254B6A
 	add r0, #8
@@ -492,7 +492,7 @@ _02254B9A:
 	bl FUN_0200CAB4
 _02254BC0:
 	add r0, r5, #0
-	bl FUN_02016A18
+	bl FreeToHeap
 _02254BC6:
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end MOD28_02254B70
@@ -638,7 +638,7 @@ MOD28_02254CB4: ; 0x02254CB4
 	bl FUN_02006A34
 	mov r0, #0x13
 	mov r1, #8
-	bl FUN_02006670
+	bl NARC_ctor
 	str r0, [sp, #0x1c]
 	cmp r0, #0
 	bne _02254CE8
@@ -679,7 +679,7 @@ _02254D24:
 	ldr r0, [sp, #0x1c]
 	ldr r1, [r4, #4]
 	mov r2, #8
-	bl FUN_02006704
+	bl NARC_AllocAndReadWholeMember
 	add r1, sp, #0x2c
 	str r0, [sp, #0x20]
 	bl FUN_020B0088
@@ -695,7 +695,7 @@ _02254D24:
 	lsl r2, r2, #0xa
 	bl GXS_LoadOBJ
 	ldr r0, [sp, #0x20]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldrh r0, [r6]
 	mov r1, #1
 	ldr r2, [sp, #0x24]
@@ -807,7 +807,7 @@ _02254DE0:
 	b _02254D24
 _02254E40:
 	ldr r0, [sp, #0x1c]
-	bl FUN_020066F4
+	bl NARC_dtor
 _02254E46:
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}

@@ -10,12 +10,12 @@ FUN_0201C360: ; 0x0201C360
 	add r5, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x8
-	bl FUN_02016998
+	bl AllocFromHeap
 	mov r1, #0x14
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	mul r1, r5
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r4, #0x0]
 	mov r6, #0x0
 	str r5, [r4, #0x4]
@@ -41,9 +41,9 @@ FUN_0201C39C: ; 0x0201C39C
 	add r4, r0, #0x0
 	bl FUN_0201C414
 	ldr r0, [r4, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add r0, r4, #0x0
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r4, pc}
 	.balign 4
 

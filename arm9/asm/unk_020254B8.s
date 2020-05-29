@@ -82,7 +82,7 @@ FUN_02025520: ; 0x02025520
 	add r0, r3, #0x0
 	lsl r1, r1, #0x6
 	str r2, [sp, #0x8]
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [sp, #0x10]
 	bl FUN_020254CC
 	mov r0, #0x0
@@ -197,7 +197,7 @@ _020255F8:
 	lsl r2, r2, #0x6
 	bl memcpy
 	ldr r0, [sp, #0x10]
-	bl FUN_02016A18
+	bl FreeToHeap
 	add sp, #0x2c
 	pop {r4-r7, pc}
 	nop

@@ -13,7 +13,7 @@ FUN_0204A368: ; 0x0204A368
 	bne _0204A388
 	ldr r1, _0204A38C ; =0x000080E2
 	mov r0, #0xb
-	bl FUN_02016998
+	bl AllocFromHeap
 	str r0, [r5, #0x54]
 	ldr r0, [r5, #0x28]
 	ldr r1, [r5, #0x54]
@@ -31,7 +31,7 @@ FUN_0204A390: ; 0x0204A390
 	ldr r0, [r4, #0x54]
 	cmp r0, #0x0
 	beq _0204A3A2
-	bl FUN_02016A18
+	bl FreeToHeap
 	mov r0, #0x0
 	str r0, [r4, #0x54]
 _0204A3A2:
@@ -98,7 +98,7 @@ _0204A402:
 _0204A410:
 	mov r0, #0x43
 	mov r1, #0xb
-	bl FUN_02006670
+	bl NARC_ctor
 	add r7, r0, #0x0
 	ldr r0, [sp, #0xc]
 	mov r6, #0x0
@@ -119,7 +119,7 @@ _0204A42E:
 	mov r2, #0x10
 	add r0, r7, #0x0
 	lsl r3, r2, #0x7
-	bl FUN_02006814
+	bl NARC_ReadFromMember
 	mov r0, #0x1
 	lsl r0, r0, #0xa
 	add r5, r5, r0
@@ -130,7 +130,7 @@ _0204A42E:
 	blt _0204A42E
 _0204A452:
 	add r0, r7, #0x0
-	bl FUN_020066F4
+	bl NARC_dtor
 	add sp, #0x3c
 	pop {r4-r7, pc}
 

@@ -38,7 +38,7 @@ FUN_0201D060: ; 0x0201D060
 	bne _0201D11A
 	ldr r0, [r5, #0xc]
 	mov r1, #0x3c
-	bl FUN_02016998
+	bl AllocFromHeap
 	add r1, r0, #0x0
 	ldr r0, _0201D120 ; =UNK_021C5994
 	mov r2, #0x3c
@@ -54,7 +54,7 @@ FUN_0201D060: ; 0x0201D060
 	ldr r2, [r1, #0x4]
 	mov r1, #0x54
 	mul r1, r2
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r7, _0201D120 ; =UNK_021C5994
 	mov r6, #0x0
 	ldr r1, [r7, #0x0]
@@ -138,10 +138,10 @@ FUN_0201D12C: ; 0x0201D12C
 	ldr r0, _0201D164 ; =UNK_021C5994
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0201D164 ; =UNK_021C5994
 	ldr r0, [r0, #0x0]
-	bl FUN_02016A18
+	bl FreeToHeap
 	ldr r0, _0201D164 ; =UNK_021C5994
 	mov r1, #0x0
 	str r1, [r0, #0x0]
@@ -1664,14 +1664,14 @@ FUN_0201DC58: ; 0x0201DC58
 	ldr r0, [r0, #0x34]
 	cmp r0, #0x0
 	beq _0201DC76
-	bl FUN_02016A18
+	bl FreeToHeap
 _0201DC76:
 	ldr r0, _0201DCBC ; =UNK_021C5994
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x38]
 	cmp r0, #0x0
 	beq _0201DC84
-	bl FUN_02016A18
+	bl FreeToHeap
 _0201DC84:
 	ldr r0, _0201DCBC ; =UNK_021C5994
 	ldr r0, [r0, #0x0]
@@ -1680,7 +1680,7 @@ _0201DC84:
 	beq _0201DC9C
 	add r0, r6, #0x0
 	lsr r1, r5, #0x3
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _0201DCBC ; =UNK_021C5994
 	ldr r1, [r1, #0x0]
 	str r0, [r1, #0x34]
@@ -1692,7 +1692,7 @@ _0201DC9C:
 	beq _0201DCB4
 	add r0, r6, #0x0
 	lsr r1, r4, #0x3
-	bl FUN_02016998
+	bl AllocFromHeap
 	ldr r1, _0201DCBC ; =UNK_021C5994
 	ldr r1, [r1, #0x0]
 	str r0, [r1, #0x38]
@@ -1714,12 +1714,12 @@ FUN_0201DCC0: ; 0x0201DCC0
 	bne _0201DCDA
 	mov r1, #0x0
 	str r1, [r2, #0x24]
-	bl FUN_02016A18
+	bl FreeToHeap
 	pop {r3, pc}
 _0201DCDA:
 	mov r1, #0x0
 	str r1, [r2, #0x28]
-	bl FUN_02016A18
+	bl FreeToHeap
 _0201DCE2:
 	pop {r3, pc}
 	.balign 4
