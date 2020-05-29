@@ -6557,7 +6557,7 @@ MOD06_0223C854: ; 0x0223C854
 	add r5, r3, #0
 	bl FUN_020669C0
 	str r0, [sp, #0x1c]
-	bl FUN_02066978
+	bl ZeroMonData
 	ldrb r0, [r6, #0xd]
 	mov r7, #0
 	cmp r0, #0
@@ -6639,7 +6639,7 @@ _0223C914:
 	cmp r0, #0x1c
 	bne _0223C8EC
 	add r0, r4, #0
-	bl FUN_02068884
+	bl GetNatureFromPersonality
 	ldr r1, [sp, #0x20]
 	cmp r0, r1
 	beq _0223C92E
@@ -6658,7 +6658,7 @@ _0223C92E:
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0x14]
-	bl FUN_02066ACC
+	bl CreateMon
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0x1c]
 	ldr r3, [sp, #0x48]
@@ -6686,7 +6686,7 @@ MOD06_0223C968: ; 0x0223C968
 	add r5, r3, #0
 	bl FUN_020669C0
 	add r4, r0, #0
-	bl FUN_02066978
+	bl ZeroMonData
 	add r0, r7, #0
 	mov r1, #0x12
 	mov r6, #1
@@ -6775,7 +6775,7 @@ _0223CA28:
 	add r0, r4, #0
 	add r1, r7, #0
 	mov r3, #0x20
-	bl FUN_02066D90
+	bl CreateMonWithNature
 	add r0, r4, #0
 	mov r1, #7
 	add r2, r5, #0
@@ -19774,7 +19774,7 @@ _02243312:
 	cmp r0, #0
 	bne _0224336E
 	add r0, r5, #0
-	bl FUN_0206A964
+	bl IsPokemonLegendaryOrMythical
 	cmp r0, #1
 	beq _0224336E
 	add r0, sp, #0x10
@@ -21750,7 +21750,7 @@ MOD06_02244210: ; 0x02244210
 	mov r4, #0
 _02244264:
 	add r0, r4, #0
-	bl FUN_0206A984
+	bl GetLegendaryMon
 	add r7, r0, #0
 	ldr r0, [sp, #0x18]
 	add r1, r7, #0
@@ -21898,7 +21898,7 @@ MOD06_02244388: ; 0x02244388
 	add r5, r1, #0
 	add r6, r0, #0
 	add r0, r5, #0
-	bl FUN_02066978
+	bl ZeroMonData
 	ldr r0, [r6, #0x10]
 	ldr r3, _02244520 ; =0x3FFFFFFF
 	str r0, [sp]
@@ -22580,7 +22580,7 @@ _022448EC:
 	add r7, r6, #0
 	orr r7, r0
 	add r0, r7, #0
-	bl FUN_02068884
+	bl GetNatureFromPersonality
 	add r1, sp, #8
 	ldrb r1, [r1, #0xb]
 	cmp r1, r0
@@ -22630,7 +22630,7 @@ _02244920:
 	str r0, [r5, #0x14]
 _02244960:
 	add r0, r4, #0
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	add r1, sp, #8
 	ldrb r1, [r1, #0xa]
 	tst r0, r1
@@ -22652,7 +22652,7 @@ _02244984:
 	lsr r6, r0, #0x18
 _0224498A:
 	add r0, r4, #0
-	bl FUN_0206A92C
+	bl MaskOfFlagNo
 	add r1, sp, #8
 	ldrb r1, [r1, #0xa]
 	tst r0, r1
@@ -31106,7 +31106,7 @@ MOD06_022489D4: ; 0x022489D4
 	mov r3, #0x20
 	str r1, [sp, #0xc]
 	ldr r1, [r4]
-	bl FUN_02066ACC
+	bl CreateMon
 	ldr r0, [sp, #0x28]
 	add r1, r6, #0
 	bl MOD06_022489AC

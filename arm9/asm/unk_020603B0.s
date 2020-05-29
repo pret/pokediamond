@@ -217,7 +217,7 @@ _020604D0:
 	mov r0, #0x4
 	bl FUN_020669C0
 	str r0, [sp, #0x1c]
-	bl FUN_02066978
+	bl ZeroMonData
 	ldr r0, [sp, #0x18]
 	bl FUN_020239C0
 	mov r1, #0x0
@@ -230,7 +230,7 @@ _020604D0:
 	add r1, r7, #0x0
 	add r2, r6, #0x0
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	add r0, r4, #0x0
 	mov r1, #0x7
 	mov r2, #0x0

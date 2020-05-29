@@ -443,7 +443,7 @@ _0206AECE:
 	ldrh r2, [r2, #0x2]
 	ldr r0, [sp, #0x40]
 	lsr r3, r3, #0x18
-	bl FUN_02066ACC
+	bl CreateMon
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x40]
 	ldr r0, [r0, #0x4]
@@ -527,7 +527,7 @@ _0206AF76:
 	ldrh r2, [r2, #0x2]
 	ldr r0, [sp, #0x40]
 	lsr r3, r3, #0x18
-	bl FUN_02066ACC
+	bl CreateMon
 	ldr r7, [sp, #0x30]
 	mov r6, #0x0
 _0206AFB0:
@@ -618,7 +618,7 @@ _0206B030:
 	ldrh r2, [r7, #0x2]
 	ldr r0, [sp, #0x40]
 	lsr r3, r3, #0x18
-	bl FUN_02066ACC
+	bl CreateMon
 	ldr r0, [sp, #0x40]
 	mov r1, #0x6
 	add r2, r7, #0x6
@@ -704,7 +704,7 @@ _0206B0DA:
 	ldrh r2, [r2, #0x2]
 	ldr r0, [sp, #0x40]
 	lsr r3, r3, #0x18
-	bl FUN_02066ACC
+	bl CreateMon
 	ldr r2, [sp, #0x3c]
 	ldr r0, [sp, #0x40]
 	mov r1, #0x6

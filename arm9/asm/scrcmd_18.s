@@ -195,7 +195,7 @@ FUN_02044414: ; 0x02044414
 	mov r0, #0xb
 	bl FUN_020669C0
 	add r4, r0, #0x0
-	bl FUN_02066978
+	bl ZeroMonData
 	mov r0, #0x1
 	add r1, r5, #0x0
 	bl FUN_02015CF8

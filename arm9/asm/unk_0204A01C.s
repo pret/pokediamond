@@ -45,7 +45,7 @@ FUN_0204A048: ; 0x0204A048
 	add r0, r5, #0x0
 	bl FUN_020669C0
 	add r4, r0, #0x0
-	bl FUN_02066978
+	bl ZeroMonData
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -55,7 +55,7 @@ FUN_0204A048: ; 0x0204A048
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	mov r3, #0x20
-	bl FUN_02066ACC
+	bl CreateMon
 	ldr r0, [sp, #0x40]
 	ldr r1, [sp, #0x14]
 	str r0, [sp, #0x0]
@@ -102,7 +102,7 @@ FUN_0204A0C8: ; 0x0204A0C8
 	mov r0, #0x20
 	bl FUN_020669C0
 	add r4, r0, #0x0
-	bl FUN_02066978
+	bl ZeroMonData
 	ldr r0, [sp, #0x20]
 	ldr r1, [sp, #0x24]
 	bl FUN_02015CF8
