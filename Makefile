@@ -33,6 +33,9 @@ ifeq ($(NOWINE),1)
 WINE :=
 endif
 
+# Compare result of arm9, arm7, and ROM to sha1 hash(s)
+COMPARE ?= 1
+
 ################ Target Executable and Sources ###############
 
 BUILD_DIR := build
@@ -213,7 +216,9 @@ endif
 MAKEFLAGS += --no-print-directory
 
 all: $(ROM)
+ifeq ($(COMPARE),1)
 	@$(SHA1SUM) -c $(TARGET).sha1
+endif
 
 clean: mostlyclean
 	make -C arm9 clean
@@ -255,10 +260,10 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
 $(SBINFILES): arm9 arm7
 
 arm9:
-	$(MAKE) -C arm9
+	$(MAKE) -C arm9 COMPARE=$(COMPARE)
 
 arm7:
-	$(MAKE) -C arm7
+	$(MAKE) -C arm7 COMPARE=$(COMPARE)
 
 $(BINFILES): %.bin: %.sbin
 	@cp $< $@
