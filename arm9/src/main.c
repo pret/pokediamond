@@ -85,7 +85,7 @@ THUMB_FUNC void NitroMain(void)
     }
     else
     {
-        switch (*((s32 *)HW_RESET_PARAMETER_BUF))
+        switch (OS_GetResetParameter())
         {
         case 0:
             gBacklightTop.unk1C = 0;

@@ -17,4 +17,9 @@ static void OSi_CommonCallback(PXIFifoTag tag, u32 data, BOOL err);
 static void OSi_SendToPxi(u16 data);
 void OS_ResetSystem(u32 parameter);
 
+static inline u32 OS_GetResetParameter(void)
+{
+    return (u32)*(u32 *)HW_RESET_PARAMETER_BUF;
+}
+
 #endif //POKEDIAMOND_OS_RESET_H
