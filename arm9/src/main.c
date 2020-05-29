@@ -156,18 +156,18 @@ THUMB_FUNC void FUN_02000E0C(void)
     {
         if (gBacklightTop.unk14 == NULL)
             return;
-        if (gBacklightTop.unk10 != -1u)
+        if (gBacklightTop.unk10 != SDK_OVERLAY_INVALID_ID)
             HandleLoadOverlay(gBacklightTop.unk10, 0);
         gBacklightTop.unk8 = gBacklightTop.unk10;
         gBacklightTop.unkC = FUN_02006234(gBacklightTop.unk14, &gBacklightTop.unk18, 0);
-        gBacklightTop.unk10 = -1u;
+        gBacklightTop.unk10 = SDK_OVERLAY_INVALID_ID;
         gBacklightTop.unk14 = NULL;
     }
     if (FUN_02006290(gBacklightTop.unkC))
     {
         FUN_02006260(gBacklightTop.unkC);
         gBacklightTop.unkC = 0;
-        if (gBacklightTop.unk8 != -1u)
+        if (gBacklightTop.unk8 != SDK_OVERLAY_INVALID_ID)
             UnloadOverlayByID(gBacklightTop.unk8);
     }
 }

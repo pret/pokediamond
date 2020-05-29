@@ -5,9 +5,25 @@
 #include "SPI_pm.h"
 #include "structs.h"
 
+struct UnkStruct_02006234;
+
 struct Unk21DBE18
 {
-    u8 filler_00[16];
+    BOOL (*unk0)(struct UnkStruct_02006234 *, u32 *);
+    BOOL (*unk4)(struct UnkStruct_02006234 *, u32 *);
+    BOOL (*unk8)(struct UnkStruct_02006234 *, u32 *);
+    FSOverlayID ovly;
+};
+
+struct UnkStruct_02006234
+{
+    struct Unk21DBE18 ovly_mgr;
+    u32 unk10;
+    u32 unk14;
+    int * unk18;
+    void * unk1C;
+    u32 unk20;
+    u32 unk24;
 };
 
 struct Unk2106FA0
