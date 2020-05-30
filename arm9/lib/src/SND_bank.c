@@ -95,6 +95,7 @@ ARM_FUNC void SND_DestroyWaveArc(struct SNDWaveArc *waveArc) {
 }
 
 ARM_FUNC struct SNDInstPos SND_GetFirstInstDataPos(const struct SNDBankData *bankData) {
+#pragma unused (bankData)
     struct SNDInstPos retval;
     retval.program = 0;
     retval.index = 0;
