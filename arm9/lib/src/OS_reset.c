@@ -146,8 +146,7 @@ void OSi_ReadCardRom32(u32 src, void *dst, s32 len) //should be static, can't ma
 
     s32 pos = -(s32)(src & 511);
 
-    while ((reg_CARD_CNT & CARD_CTRL_START))
-        {}
+    while (reg_CARD_CNT & CARD_CTRL_START) {}
     reg_CARD_MASTERCNT = (u32)(CARD_MASTER_SELECT_ROM | CARD_MASTER_ENABLE);
 
     for (src = (u32)(src + pos); pos < len; src += 512)
