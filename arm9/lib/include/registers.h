@@ -98,9 +98,12 @@
 #define reg_PXI_SEND_FIFO          (*(REGType32v *)0x4000188)
 
 #define reg_MI_MCCNT0              (*(REGType16v *)0x40001a0)
+#define reg_CARD_MASTERCNT         (*(REGType8v  *)0x40001a1) //?
 #define reg_MI_MCD0                (*(REGType16v *)0x40001a2)
 #define reg_MI_MCCNT1              (*(REGType32v *)0x40001a4)
+#define reg_CARD_CNT               (*(REGType32v *)0x40001a4) //?
 #define reg_MI_MCCMD0              (*(REGType32v *)0x40001a8)
+#define reg_CARD_CMD               (*(REGType8v  *)0x40001a8) //?
 #define reg_MI_MCCMD1              (*(REGType32v *)0x40001ac)
 #define reg_MI_EXMEMCNT            (*(REGType16v *)0x4000204)
 
@@ -355,6 +358,7 @@
 #define reg_PXI_RECV_FIFO          (*(REGType32v *)0x4100000)
 
 #define reg_MI_MCD1                (*(REGType32v *)0x4100010)
+#define reg_CARD_DATA              (*(REGType32v *)0x4100010) //?
 
 #define REG_PAD_KEYINPUT_L_SHIFT                           9
 #define REG_PAD_KEYINPUT_L_SIZE                            1
