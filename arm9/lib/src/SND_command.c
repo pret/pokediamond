@@ -21,6 +21,7 @@ static struct SNDCommand *sFreeList;
 extern s32 PXI_SendWordByFifo(u32, u32, u32);
 extern void PXI_SetFifoRecvCallback(u32, void (*)(s32, s32));
 extern BOOL PXI_IsCallbackReady(u32, u32);
+extern void DC_FlushRange(void*, u32);
 
 static void InitPXI(void);
 static void RequestCommandProc(void);
@@ -52,7 +53,7 @@ ARM_FUNC void SND_CommandInit(void) {
     cmd->id = SND_CMD_SET_SHARED_WORK;
     cmd->arg[0] = (u32)SNDi_SharedWork;
     SND_PushCommand(cmd);
-    SND_FlushCommand(SND_CMD_FLAG_BLOCK);
+    (void)SND_FlushCommand(SND_CMD_FLAG_BLOCK);
 }
 
 ARM_FUNC const struct SNDCommand *SND_RecvCommandReply(u32 flags) {
@@ -61,7 +62,7 @@ ARM_FUNC const struct SNDCommand *SND_RecvCommandReply(u32 flags) {
     if (flags & SND_CMD_FLAG_BLOCK) {
         u32 tag = SNDi_GetFinishedCommandTag();
         while (sFinishedTag == tag) {
-            OS_RestoreInterrupts(oldirq);
+            (void)OS_RestoreInterrupts(oldirq);
             OS_SpinWait(100);
             oldirq = OS_DisableInterrupts();
             tag = SNDi_GetFinishedCommandTag();
@@ -69,7 +70,7 @@ ARM_FUNC const struct SNDCommand *SND_RecvCommandReply(u32 flags) {
     } else {
         u32 tag = SNDi_GetFinishedCommandTag();
         if (sFinishedTag == tag) {
-            OS_RestoreInterrupts(oldirq);
+            (void)OS_RestoreInterrupts(oldirq);
             return NULL;
         }
     }
@@ -93,7 +94,7 @@ ARM_FUNC const struct SNDCommand *SND_RecvCommandReply(u32 flags) {
     sWaitingCommandListCount--;
     sFinishedTag++;
 
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
     return queueRead;
 }
 
@@ -116,13 +117,13 @@ ARM_FUNC struct SNDCommand *SND_AllocCommand(u32 flags) {
         if (cmd != NULL)
             return cmd;
     } else {
-        SND_FlushCommand(SND_CMD_FLAG_BLOCK);
+        (void)SND_FlushCommand(SND_CMD_FLAG_BLOCK);
     }
 
     RequestCommandProc();
     
     do {
-        SND_RecvCommandReply(SND_CMD_FLAG_BLOCK);
+        (void)SND_RecvCommandReply(SND_CMD_FLAG_BLOCK);
         cmd = AllocCommand();
     } while (cmd == NULL);
     return cmd;
@@ -142,25 +143,25 @@ ARM_FUNC void SND_PushCommand(struct SNDCommand *cmd) {
 
     cmd->llNext = NULL;
 
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
 }
 
 ARM_FUNC BOOL SND_FlushCommand(u32 flags) {
     OSIntrMode oldirq = OS_DisableInterrupts();
 
     if (sReserveList == NULL) {
-        OS_RestoreInterrupts(oldirq);
+        (void)OS_RestoreInterrupts(oldirq);
         return TRUE;
     }
 
     if (sWaitingCommandListCount >= SND_CMD_WAIT_QUEUE_COUNT) {
         if ((flags & SND_CMD_FLAG_BLOCK) == 0) {
-            OS_RestoreInterrupts(oldirq);
+            (void)OS_RestoreInterrupts(oldirq);
             return FALSE;
         }
 
         do {
-            SND_RecvCommandReply(SND_CMD_FLAG_BLOCK);
+            (void)SND_RecvCommandReply(SND_CMD_FLAG_BLOCK);
         } while (sWaitingCommandListCount >= SND_CMD_WAIT_QUEUE_COUNT);
     }
 
@@ -169,13 +170,13 @@ ARM_FUNC BOOL SND_FlushCommand(u32 flags) {
     s32 result = PXI_SendWordByFifo(7, (u32)sReserveList, 0);
     if (result < 0) {
         if ((flags & SND_CMD_FLAG_BLOCK) == 0) {
-            OS_RestoreInterrupts(oldirq);
+            (void)OS_RestoreInterrupts(oldirq);
             return FALSE;
         }
 
         result = PXI_SendWordByFifo(7, (u32)sReserveList, 0);
         while (result < 0) {
-            OS_RestoreInterrupts(oldirq);
+            (void)OS_RestoreInterrupts(oldirq);
             OS_SpinWait(100);
             oldirq = OS_DisableInterrupts();
             result = PXI_SendWordByFifo(7, (u32)sReserveList, 0);
@@ -197,7 +198,7 @@ ARM_FUNC BOOL SND_FlushCommand(u32 flags) {
     sWaitingCommandListCount++;
     sCurrentTag++;
 
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
     return TRUE;
 }
 
@@ -216,7 +217,7 @@ ARM_FUNC void SND_WaitForCommandProc(u32 tag) {
         return;
 
     do {
-        SND_RecvCommandReply(SND_CMD_FLAG_BLOCK);
+        (void)SND_RecvCommandReply(SND_CMD_FLAG_BLOCK);
     } while (SND_IsFinishedCommandTag(tag) == 0);
 }
 
@@ -229,7 +230,7 @@ ARM_FUNC u32 SND_GetCurrentCommandTag(void) {
     else
         retval = sCurrentTag;
 
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
     return retval;
 }
 
@@ -249,7 +250,7 @@ ARM_FUNC BOOL SND_IsFinishedCommandTag(u32 tag) {
             result = FALSE;
     }
 
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
     return result;
 }
 
@@ -260,7 +261,7 @@ ARM_FUNC s32 SND_CountFreeCommand(void) {
     for (struct SNDCommand *cmd = sFreeList; cmd != NULL; cmd = cmd->llNext)
         count++;
 
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
     return count;
 }
 
@@ -271,7 +272,7 @@ ARM_FUNC s32 SND_CountReservedCommand(void) {
     for (struct SNDCommand *cmd = sReserveList; cmd != NULL; cmd = cmd->llNext)
         count++;
 
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
     return count;
 }
 
@@ -280,9 +281,10 @@ ARM_FUNC s32 SND_CountWaitingCommand(void) {
 }
 
 ARM_FUNC static void PxiFifoCallback(s32 a, s32 b) {
+#pragma unused (a)
     OSIntrMode oldirq = OS_DisableInterrupts();
     SNDi_CallAlarmHandler(b);
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
 }
 
 ARM_FUNC static void InitPXI(void) {
@@ -306,7 +308,7 @@ ARM_FUNC static void RequestCommandProc(void) {
 ARM_FUNC static struct SNDCommand *AllocCommand(void) {
     OSIntrMode oldirq = OS_DisableInterrupts();
     if (sFreeList == NULL) {
-        OS_RestoreInterrupts(oldirq);
+        (void)OS_RestoreInterrupts(oldirq);
         return NULL;
     }
 
@@ -315,7 +317,7 @@ ARM_FUNC static struct SNDCommand *AllocCommand(void) {
     sFreeList = sFreeList->llNext;
     if (sFreeList == NULL)
         sFreeListEnd = NULL;
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
     return retval;
 }
 
@@ -328,6 +330,6 @@ ARM_FUNC static BOOL IsCommandAvailable(void) {
     // is this some kind of debug or ensata register?
     *(vu32 *)0x4FFF200 = 0x10;
     u32 resp = *(vu32 *)0x4FFF200;
-    OS_RestoreInterrupts(oldirq);
+    (void)OS_RestoreInterrupts(oldirq);
     return resp != 0;
 }
