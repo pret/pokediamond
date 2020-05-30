@@ -184,8 +184,8 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te -i ..
-CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -W error -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -W error -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
+CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
+CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
