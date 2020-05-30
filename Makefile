@@ -1,5 +1,8 @@
 # Makefile to build Pokemon Diamond image
 
+include config.mk
+include filesystem.mk
+
 .PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed

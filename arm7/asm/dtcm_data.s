@@ -11,44 +11,44 @@ _038075E4:
 	.word	0x00060005
 	.word	0x00000000
 
-	.global _038075F8
-_038075F8:
-	.word	FUN_037F86B4
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F873C
-	.word	FUN_037F872C
-	.word	FUN_037F871C
-	.word	FUN_037F870C
-	.word	FUN_037F8820
-	.word	FUN_037F877C
-	.word	FUN_037F876C
-	.word	FUN_037F875C
-	.word	FUN_037F874C
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
-	.word	FUN_037F8820
+	.global OS_IRQTable
+OS_IRQTable:
+	.word	OSi_IrqVBlank
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OSi_IrqTimer0
+	.word	OSi_IrqTimer1
+	.word	OSi_IrqTimer2
+	.word	OSi_IrqTimer3
+	.word	OS_IrqDummy
+	.word	OSi_IrqDma0
+	.word	OSi_IrqDma1
+	.word	OSi_IrqDma2
+	.word	OSi_IrqDma3
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
 
-	.global _0380765C
-_0380765C:
+	.global sMasterPan
+sMasterPan:
 	.word	0xFFFFFFFF
 
 	.global _03807660
 _03807660:
 	.word	0x12345678
 
-	.global _03807664
-_03807664:
+	.global cardi_rom_header_addr
+cardi_rom_header_addr:
 	.word	0x027FFE00
 
 	.global _03807668
@@ -59,12 +59,12 @@ _03807668:
 _0380766C:
 	.word	0x00000001
 
-	.global _03807670
-_03807670:
+	.global PMi_LEDStatus
+PMi_LEDStatus:
 	.word	0x00000001
 
-	.global _03807674
-_03807674:
+	.global PMi_BlinkPatternData
+PMi_BlinkPatternData:
 	.word	0x00000000
 	.word	0xAA000000
 	.word	0x00010008
