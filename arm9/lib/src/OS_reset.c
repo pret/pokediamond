@@ -122,23 +122,23 @@ _01FF8284:
     bx lr
 }
 
+enum
+{
+    CARD_MASTER_SELECT_ROM = 0x0,
+    CARD_MASTER_ENABLE = 0x80,
+    CARD_CMD_READ_PAGE = 0xb7,
+    CARD_CTRL_CMD_MASK = 0x07000000,
+    CARD_CTRL_CMD_PAGE = 0x01000000,
+    CARD_CTRL_READ = 0x00000000,
+    CARD_CTRL_RESET_HI = 0x20000000,
+    CARD_CTRL_START = 0x80000000,
+    CARD_CTRL_READY = 0x00800000,
+    CARD_ENUM_END
+};
+
 void OSi_ReadCardRom32(u32 src, void *dst, s32 len) //should be static, can't mark as such
 {
     vu32 *const hdr_GAME_BUF = (vu32 *)(HW_ROM_HEADER_BUF + 0x60);
-
-    enum
-    {
-        CARD_MASTER_SELECT_ROM = 0x0,
-        CARD_MASTER_ENABLE = 0x80,
-        CARD_CMD_READ_PAGE = 0xb7,
-        CARD_CTRL_CMD_MASK = 0x07000000,
-        CARD_CTRL_CMD_PAGE = 0x01000000,
-        CARD_CTRL_READ = 0x00000000,
-        CARD_CTRL_RESET_HI = 0x20000000,
-        CARD_CTRL_START = 0x80000000,
-        CARD_CTRL_READY = 0x00800000,
-        CARD_ENUM_END
-    };
 
     const u32 ctrl_start = (u32)((*hdr_GAME_BUF &~CARD_CTRL_CMD_MASK)
                                  | (CARD_CTRL_CMD_PAGE | CARD_CTRL_READ
