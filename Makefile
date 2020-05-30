@@ -194,6 +194,7 @@ SHA1SUM = sha1sum
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
+MAKEBANNER = $(WINE) $(TOOLS_DIR)/bin/makebanner.exe
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -271,9 +272,9 @@ arm7:
 $(BINFILES): %.bin: %.sbin
 	@cp $< $@
 
-$(ELF): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BINFILES)
+$(ELF): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(BINFILES) $(BUILD_DIR)/pokediamond_bnr.bin
 	# Hack because mwldarm doesn't like the sbin suffix
-	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BINFILES)
+	$(LD) $(LDFLAGS) -o $@ $^
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@
@@ -296,7 +297,8 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.png: ;
 %.pal: ;
 
-$(BUILD_DIR)/data/icon.o: graphics/icon.4bpp graphics/icon.gbapal
+$(BUILD_DIR)/pokediamond_bnr.bin: pokediamond.bsf graphics/icon.4bpp graphics/icon.gbapal
+	$(MAKEBANNER) $< $@
 
 ### Debug Print ###
 
