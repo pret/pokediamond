@@ -15,6 +15,7 @@
 
 ; .dtcm
 .extern OS_IrqHandler_ThreadSwitch
+.extern OSi_EnterTimerCallback
 .extern OSi_IrqVBlank
 .extern OSi_IrqTimer3
 .extern OSi_IrqTimer2
@@ -24,9 +25,33 @@
 .extern OSi_IrqDma2
 .extern OSi_IrqDma1
 .extern OSi_IrqDma0
+.extern OSi_RemoveMutexLinkFromQueue
+.extern OSi_UnlockAllMutex
 .extern OS_IrqDummy
+.extern OS_CheckHeap
+.extern OS_CreateHeap
+.extern OS_CreateHeap
+.extern OS_DisableInterrupts_IrqAndFiq
 .extern OS_DisableIrqMask
+.extern OS_EnableInterrupts
 .extern OS_EnableIrqMask
+.extern OS_GetArenaHi
+.extern OS_GetArenaLo
+.extern OS_GetProcMode
+.extern OS_Init
+.extern OS_InitAlloc
+.extern OS_InitContext
+.extern OS_InitIrqTable
+.extern OS_InitLock
+.extern OS_InitThread
+.extern OS_IsResetOccurred
+.extern OS_LoadContext
+.extern OS_ResetRequestIrqMask
+.extern OS_ResetSystem
+.extern OS_RestoreInterrupts_IrqAndFiq
+.extern OS_SaveContext
+.extern OS_SetArenaLo
+.extern OS_SetCurrentHeap
 .extern OS_SetIrqMask
 .extern OS_SetIrqFunction
 .extern OS_UnLockCartridge
@@ -36,6 +61,8 @@
 .extern OS_TryLockCartridge
 .extern OS_UnlockCartridge
 .extern OS_LockCartridge
+.extern FUN_037F8000
+.extern FUN_037F8530
 .extern FUN_037F8CB4
 .extern OS_Sleep
 .extern OS_WakeupThreadDirect
@@ -69,6 +96,7 @@
 .extern MIi_CpuClearFast
 .extern MIi_CpuCopyFast
 .extern MI_CpuFill8
+.extern MI_SwapWord
 .extern PXI_Init
 .extern PXI_SendWordByFifo
 .extern PXI_SetFifoRecvCallback
@@ -76,6 +104,7 @@
 .extern EXIi_SetBitRcnt0L
 .extern SND_EndSleep
 .extern SND_BeginSleep
+.extern SND_Init
 .extern SPI_Init
 .extern PMi_ResetControl
 .extern PMi_SetControl
@@ -177,6 +206,8 @@
 .extern sMasterPan
 .extern _03807660
 .extern cardi_rom_header_addr
+.extern CARD_CheckPullOut_Polling
+.extern CARD_SetThreadPriority
 .extern _03807668
 .extern _0380766C
 .extern PMi_LEDStatus
@@ -218,6 +249,7 @@
 .extern _03807954
 .extern _03807958
 .extern _0380795C
+.extern PAD_InitXYButton
 .extern PADi_XYButtonAvailable
 .extern _038079E0
 .extern sSurroundDecay
@@ -295,6 +327,7 @@
 .extern _0380A4A4
 .extern _0380AA64
 .extern _0380B064
+.extern FS_Init
 
 ; .ext
 .extern WMSP_GetIndicateThread
