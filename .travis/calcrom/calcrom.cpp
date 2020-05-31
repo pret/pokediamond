@@ -47,17 +47,11 @@ public:
     }
 };
 
-int main(int argc, char ** argv)
-{
+void analyze(string basedir, string subdir) {
     fstream elf;
     Elf32_Ehdr ehdr;
     vector<Elf32_Shdr> shdr;
     stringstream pattern;
-
-    if (argc < 2) {
-        cout << "usage: calcrom PROJECT_DIR" << endl;
-        throw invalid_argument("missing required argument: PROJECT_DIR\n");
-    }
 
     // Accumulate sizes
     //        src   asm
@@ -66,19 +60,21 @@ int main(int argc, char ** argv)
     unsigned sizes[2][2] = {{0, 0}, {0, 0}};
     char * shstrtab = NULL;
     size_t shstrsz = 0;
-    pattern << argv[1] << "/arm9/{src,asm,lib/{src,asm},modules/*/{src,asm}}/*.{c,s,cpp}";
+    stringstream builddir;
+    builddir << subdir << "/build";
+    pattern << basedir << "/" << subdir << "/{src,asm,lib/{src,asm},modules/*/{src,asm}}/*.{c,s,cpp}";
     for (char const * & fname : Glob(pattern.str()))
     {
         string fname_s(fname);
         string ext = fname_s.substr(fname_s.rfind('.'), 4);
         bool is_asm = ext == ".s";
-        fname_s = fname_s.replace(fname_s.find("arm9"), 4, "arm9/build");
+        fname_s = fname_s.replace(fname_s.find(subdir), 4, builddir.str());
         fname_s = fname_s.replace(fname_s.rfind('.'), 4, ".o");
         elf.open(fname_s, ios_base::in | ios_base::binary);
         elf.read((char *)&ehdr, sizeof(ehdr));
         if (memcmp(ehdr.e_ident, ELFMAG, SELFMAG) != 0
-         || ehdr.e_ehsize != sizeof(Elf32_Ehdr)
-         || ehdr.e_shentsize != sizeof(Elf32_Shdr))
+            || ehdr.e_ehsize != sizeof(Elf32_Ehdr)
+            || ehdr.e_shentsize != sizeof(Elf32_Shdr))
         {
             elf.close();
             stringstream ss;
@@ -113,24 +109,37 @@ int main(int argc, char ** argv)
     }
     free(shstrtab);
 
-    cout << "Analysis of ARM9 binary:" << endl;
+    cout << "Analysis of " << subdir << " binary:" << endl;
     // Report code
     unsigned total_text = sizes[1][0] + sizes[1][1];
     double total_text_d = total_text;
     double src_text_d = sizes[1][0];
     double asm_text_d = sizes[1][1];
-    cout << total_text << " total bytes of code" << endl;
-    cout << "  " << sizes[1][0] << " bytes of code in src (" << (src_text_d / total_text_d * 100.0) << "%)" << endl;
-    cout << "  " << sizes[1][1] << " bytes of code in asm (" << (asm_text_d / total_text_d * 100.0) << "%)" << endl;
+    cout << "  " << total_text << " total bytes of code" << endl;
+    cout << "    " << sizes[1][0] << " bytes of code in src (" << (src_text_d / total_text_d * 100.0) << "%)" << endl;
+    cout << "    " << sizes[1][1] << " bytes of code in asm (" << (asm_text_d / total_text_d * 100.0) << "%)" << endl;
     cout << endl;
     // Report data
     unsigned total_data = sizes[0][0] + sizes[0][1];
     double total_data_d = total_data;
     double src_data_d = sizes[0][0];
     double asm_data_d = sizes[0][1];
-    cout << total_data << " total bytes of data" << endl;
-    cout << "  " << sizes[0][0] << " bytes of data in src (" << (src_data_d / total_data_d * 100.0) << "%)" << endl;
-    cout << "  " << sizes[0][1] << " bytes of data in asm (" << (asm_data_d / total_data_d * 100.0) << "%)" << endl;
+    cout << "  " << total_data << " total bytes of data" << endl;
+    cout << "    " << sizes[0][0] << " bytes of data in src (" << (src_data_d / total_data_d * 100.0) << "%)" << endl;
+    cout << "    " << sizes[0][1] << " bytes of data in asm (" << (asm_data_d / total_data_d * 100.0) << "%)" << endl;
     // Let vectors fall to gc
+}
+
+int main(int argc, char ** argv)
+{
+    if (argc < 2) {
+        cout << "usage: calcrom PROJECT_DIR" << endl;
+        throw invalid_argument("missing required argument: PROJECT_DIR\n");
+    }
+
+    analyze(argv[1], "arm9");
+    cout << endl;
+    analyze(argv[1], "arm7");
+
     return 0;
 }
