@@ -43,13 +43,14 @@ OS_SaveContext: ; 0x037F97AC
 	msr	CPSR_c, r2
 	mov	r0, #1
 	stmia	r1, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip, sp, lr}
-	adr r0, OS_LoadContext
+	adr	r0, _037F97E0
 	str	r0, [r1, #60]	; 0x3c
 	mov	r0, #0
 	bx	lr
 
 	arm_func_start OS_LoadContext
 OS_LoadContext: ; 0x037F97E0
+_037F97E0: ; needed because otherwise it breaks
 	mrs	r1, CPSR
 	bic	r1, r1, #31
 	orr	r1, r1, #211	; 0xd3
