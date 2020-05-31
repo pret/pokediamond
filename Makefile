@@ -300,6 +300,9 @@ DUMMY != mkdir -p $(ALL_DIRS)
 $(BUILD_DIR)/pokediamond_bnr.bin: pokediamond.bsf graphics/icon.4bpp graphics/icon.gbapal
 	$(MAKEBANNER) $< $@
 
+symbols.csv: arm9 arm7
+	(echo "Name,Location"; grep -P " *[0-9A-F]{8} [0-9A-F]{8} \S+ +\w+\t\(\w+\.o\)" arm9/build/arm9.elf.xMAP arm7/build/arm7.elf.xMAP | sed -r 's/ *([0-9A-F]{8}) [0-9A-F]{8} \S+ +(\w+)\t\(\w+\.o\)/\2,\1/g' | cut -d: -f2) > $@
+
 ### Debug Print ###
 
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
