@@ -3,8 +3,8 @@
 	.include "global.inc"
 
 	.section .text
-	arm_func_start FUN_027E0000
-FUN_027E0000: ; 0x027E0000 load at 0x023801B0
+	arm_func_start WVR_ShelterExtWram
+WVR_ShelterExtWram: ; 0x027E0000 load at 0x023801B0
 	stmdb	sp!, {r4, r5, r6, lr}
 	ldr	r6, _027E00C0	; =0x023801B0
 	ldr	r3, _027E00C4	; =0x023A92F8

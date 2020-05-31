@@ -3,8 +3,8 @@
 	.section	.text
 	.balign	4, 0
 
-	arm_func_start FUN_06000000
-FUN_06000000: ; 0x06000000
+	arm_func_start WMSP_SetChildSize
+WMSP_SetChildSize: ; 0x06000000
 	ldr	r1, _0600002C	; =_0601A960
 	ldr	r2, [r1, #1360]	; 0x550
 	strh	r0, [r2, #50]	; 0x32
@@ -18,8 +18,8 @@ FUN_06000000: ; 0x06000000
 	bx	lr
 _0600002C:	.word	_0601A960
 
-	arm_func_start FUN_06000030
-FUN_06000030: ; 0x06000030
+	arm_func_start WMSP_SetParentSize
+WMSP_SetParentSize: ; 0x06000030
 	ldr	r1, _0600005C	; =_0601A960
 	ldr	r2, [r1, #1360]	; 0x550
 	strh	r0, [r2, #48]	; 0x30
@@ -33,8 +33,8 @@ FUN_06000030: ; 0x06000030
 	bx	lr
 _0600005C:	.word	_0601A960
 
-	arm_func_start FUN_06000060
-FUN_06000060: ; 0x06000060
+	arm_func_start WMSP_SetChildMaxSize
+WMSP_SetChildMaxSize: ; 0x06000060
 	ldr	r1, _060000AC	; =_0601A960
 	ldr	r2, [r1, #1360]	; 0x550
 	strh	r0, [r2, #54]	; 0x36
@@ -56,8 +56,8 @@ FUN_06000060: ; 0x06000060
 	bx	lr
 _060000AC:	.word	_0601A960
 
-	arm_func_start FUN_060000B0
-FUN_060000B0: ; 0x060000B0
+	arm_func_start WMSP_SetParentMaxSize
+WMSP_SetParentMaxSize: ; 0x060000B0
 	ldr	r1, _060000FC	; =_0601A960
 	ldr	r2, [r1, #1360]	; 0x550
 	strh	r0, [r2, #48]	; 0x30
@@ -79,8 +79,8 @@ FUN_060000B0: ; 0x060000B0
 	bx	lr
 _060000FC:	.word	_0601A960
 
-	arm_func_start FUN_06000100
-FUN_06000100: ; 0x06000100
+	arm_func_start WMSP_ResetSizeVars
+WMSP_ResetSizeVars: ; 0x06000100
 	ldr	r0, _06000130	; =_0601A960
 	ldr	r1, [r0, #1360]	; 0x550
 	mov	r0, #0
@@ -95,8 +95,8 @@ FUN_06000100: ; 0x06000100
 	bx	lr
 _06000130:	.word	_0601A960
 
-	arm_func_start FUN_06000134
-FUN_06000134: ; 0x06000134
+	arm_func_start WMSP_GetInternalRequestBuf
+WMSP_GetInternalRequestBuf: ; 0x06000134
 	stmdb	sp!, {r4, lr}
 	mov	r4, #0
 	bl	FUN_060001A4
@@ -132,13 +132,13 @@ _060001A0:	.word	_0601A960
 
 	arm_func_start FUN_060001A4
 FUN_060001A4: ; 0x060001A4
-	ldr	pc, _060001A8	; =FUN_037FB05C
-_060001A8:	.word	FUN_037FB05C
+	ldr	pc, _060001A8	; =OS_DisableInterrupts
+_060001A8:	.word	OS_DisableInterrupts
 
 	arm_func_start FUN_060001AC
 FUN_060001AC: ; 0x060001AC
-	ldr	pc, _060001B0	; =FUN_037FB070
-_060001B0:	.word	FUN_037FB070
+	ldr	pc, _060001B0	; =OS_RestoreInterrupts
+_060001B0:	.word	OS_RestoreInterrupts
 
 	arm_func_start FUN_060001B4
 FUN_060001B4: ; 0x060001B4
@@ -158,28 +158,28 @@ FUN_060001B4: ; 0x060001B4
 
 	arm_func_start FUN_060001E8
 FUN_060001E8: ; 0x060001E8
-	ldr	pc, _060001EC	; =FUN_03807534
-_060001EC:	.word	FUN_03807534
+	ldr	pc, _060001EC	; =WMSP_GetBuffer4Callback2Wm9
+_060001EC:	.word	WMSP_GetBuffer4Callback2Wm9
 
 	arm_func_start FUN_060001F0
 FUN_060001F0: ; 0x060001F0
-	ldr	pc, _060001F4	; =FUN_03807590
-_060001F4:	.word	FUN_03807590
+	ldr	pc, _060001F4	; =WMSP_ReturnResult2Wm9
+_060001F4:	.word	WMSP_ReturnResult2Wm9
 
-	arm_func_start FUN_060001F8
-FUN_060001F8: ; 0x060001F8
+	arm_func_start WMSP_GetIndicateThread
+WMSP_GetIndicateThread: ; 0x060001F8
 	ldr	r0, _06000200	; =_0380B808
 	bx	lr
 _06000200:	.word	_0380B808
 
-	arm_func_start FUN_06000204
-FUN_06000204: ; 0x06000204
+	arm_func_start WMSP_GetRequestThread
+WMSP_GetRequestThread: ; 0x06000204
 	ldr	r0, _0600020C	; =_0380B764
 	bx	lr
 _0600020C:	.word	_0380B764
 
-	arm_func_start FUN_06000210
-FUN_06000210: ; 0x06000210
+	arm_func_start WMSP_SetThreadPriorityHigh
+WMSP_SetThreadPriorityHigh: ; 0x06000210
 	stmdb	sp!, {r4, lr}
 	bl	FUN_060001A4
 	mov	r4, r0
@@ -188,7 +188,7 @@ FUN_06000210: ; 0x06000210
 	ldr	r1, _06000268	; =_0601A960
 	ldr	r1, [r1, #1400]	; 0x578
 	bl	FUN_06000278
-	bl	FUN_06008D18
+	bl	WL_GetThreadStruct
 	ldr	r1, _06000268	; =_0601A960
 	ldr	r1, [r1, #1404]	; 0x57c
 	bl	FUN_06000278
@@ -207,21 +207,21 @@ _0600026C:	.word	_0380B764
 
 	arm_func_start FUN_06000270
 FUN_06000270: ; 0x06000270
-	ldr	pc, _06000274	; =FUN_037F8D88
-_06000274:	.word	FUN_037F8D88
+	ldr	pc, _06000274	; =OS_DisableScheduler
+_06000274:	.word	OS_DisableScheduler
 
 	arm_func_start FUN_06000278
 FUN_06000278: ; 0x06000278
-	ldr	pc, _0600027C	; =FUN_037F8EB8
-_0600027C:	.word	FUN_037F8EB8
+	ldr	pc, _0600027C	; =OS_SetThreadPriority
+_0600027C:	.word	OS_SetThreadPriority
 
 	arm_func_start FUN_06000280
 FUN_06000280: ; 0x06000280
-	ldr	pc, _06000284	; =FUN_037F8D50
-_06000284:	.word	FUN_037F8D50
+	ldr	pc, _06000284	; =OS_EnableScheduler
+_06000284:	.word	OS_EnableScheduler
 
-	arm_func_start FUN_06000288
-FUN_06000288: ; 0x06000288
+	arm_func_start WMSP_SetThreadPriorityLow
+WMSP_SetThreadPriorityLow: ; 0x06000288
 	stmdb	sp!, {r4, lr}
 	bl	FUN_060001A4
 	mov	r4, r0
@@ -230,7 +230,7 @@ FUN_06000288: ; 0x06000288
 	ldr	r1, _060002E0	; =_0601A960
 	ldr	r1, [r1, #1420]	; 0x58c
 	bl	FUN_06000278
-	bl	FUN_06008D18
+	bl	WL_GetThreadStruct
 	ldr	r1, _060002E0	; =_0601A960
 	ldr	r1, [r1, #1416]	; 0x588
 	bl	FUN_06000278
@@ -247,8 +247,8 @@ _060002DC:	.word	_0380B764
 _060002E0:	.word	_0601A960
 _060002E4:	.word	_0380B808
 
-	arm_func_start FUN_060002E8
-FUN_060002E8: ; 0x060002E8
+	arm_func_start WMSP_GetLinkLevel
+WMSP_GetLinkLevel: ; 0x060002E8
 	ldr	r1, _0600034C	; =_0601A960
 	ldr	r1, [r1, #1356]	; 0x54c
 	ldrb	r1, [r1, #83]	; 0x53
@@ -277,11 +277,11 @@ _06000324:
 	bx	lr
 _0600034C:	.word	_0601A960
 
-	arm_func_start FUN_06000350
-FUN_06000350: ; 0x06000350
+	arm_func_start WMSP_GetAverageLinkLevel
+WMSP_GetAverageLinkLevel: ; 0x06000350
 	mov	r2, #0
 	mov	r3, r2
-	ldr	r1, _06000384	; =_06019960
+	ldr	r1, _06000384	; =wmspW
 _0600035C:
 	add	r0, r1, r3
 	add	r0, r0, #4096	; 0x1000
@@ -291,15 +291,15 @@ _0600035C:
 	cmp	r3, #32
 	blt	_0600035C
 	mov	r0, r2, lsr #5
-	ldr	ip, _06000388	; =FUN_060002E8
+	ldr	ip, _06000388	; =WMSP_GetLinkLevel
 	bx	ip
-_06000384:	.word	_06019960
-_06000388:	.word	FUN_060002E8
+_06000384:	.word	wmspW
+_06000388:	.word	WMSP_GetLinkLevel
 
-	arm_func_start FUN_0600038C
-FUN_0600038C: ; 0x0600038C
+	arm_func_start WMSP_FillRssiIntoList
+WMSP_FillRssiIntoList: ; 0x0600038C
 	mov	r3, #0
-	ldr	r2, _060003BC	; =_06019960
+	ldr	r2, _060003BC	; =wmspW
 _06000394:
 	add	r1, r2, r3
 	add	r1, r1, #4096	; 0x1000
@@ -311,11 +311,11 @@ _06000394:
 	ldr	r0, _060003C0	; =_0601A960
 	str	r1, [r0, #1396]	; 0x574
 	bx	lr
-_060003BC:	.word	_06019960
+_060003BC:	.word	wmspW
 _060003C0:	.word	_0601A960
 
-	arm_func_start FUN_060003C4
-FUN_060003C4: ; 0x060003C4
+	arm_func_start WMSP_AddRssiToList
+WMSP_AddRssiToList: ; 0x060003C4
 	ldr	r1, _060003FC	; =_0601A960
 	ldr	r3, [r1, #1396]	; 0x574
 	ldr	r2, _06000400	; =_0601AEB4
@@ -334,8 +334,8 @@ _060003FC:	.word	_0601A960
 _06000400:	.word	_0601AEB4
 _06000404:	.word	0x027FFF98
 
-	arm_func_start FUN_06000408
-FUN_06000408: ; 0x06000408
+	arm_func_start WMSP_SetAllParams
+WMSP_SetAllParams: ; 0x06000408
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -410,7 +410,7 @@ _06000510:
 	ldrh	r0, [r0, #238]	; 0xee
 	strh	r0, [r5, #156]	; 0x9c
 	mov	r0, r5
-	bl	FUN_06002810
+	bl	WMSP_WL_ParamSetAll
 	ldrh	r2, [r0, #4]
 	cmp	r2, #0
 	moveq	r0, #1
@@ -427,16 +427,16 @@ _06000550:	.word	0x0000FFFF
 
 	arm_func_start FUN_06000554
 FUN_06000554: ; 0x06000554
-	ldr	pc, _06000558	; =FUN_037FB478
-_06000558:	.word	FUN_037FB478
+	ldr	pc, _06000558	; =MI_CpuCopy8
+_06000558:	.word	MI_CpuCopy8
 
 	arm_func_start FUN_0600055C
 FUN_0600055C: ; 0x0600055C
-	ldr	pc, _06000560	; =FUN_037FB300
-_06000560:	.word	FUN_037FB300
+	ldr	pc, _06000560	; =MIi_CpuClear16
+_06000560:	.word	MIi_CpuClear16
 
-	arm_func_start FUN_06000564
-FUN_06000564: ; 0x06000564
+	arm_func_start WMSP_CopyParentParam
+WMSP_CopyParentParam: ; 0x06000564
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, r0
@@ -483,8 +483,8 @@ _06000608:
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_06000614
-FUN_06000614: ; 0x06000614
+	arm_func_start WMSP_CheckMacAddress
+WMSP_CheckMacAddress: ; 0x06000614
 	ldr	r1, _0600068C	; =_0601A960
 	ldr	r1, [r1, #1360]	; 0x550
 	add	r3, r1, #224	; 0xe0
@@ -550,15 +550,15 @@ _060006F4:	.word	_0601A960
 
 	arm_func_start FUN_060006F8
 FUN_060006F8: ; 0x060006F8
-	ldr	pc, _060006FC	; =FUN_037F9924
-_060006FC:	.word	FUN_037F9924
+	ldr	pc, _060006FC	; =OS_SendMessage
+_060006FC:	.word	OS_SendMessage
 
-	arm_func_start FUN_06000700
-FUN_06000700: ; 0x06000700
+	arm_func_start WMSP_WlRequest
+WMSP_WlRequest: ; 0x06000700
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r1, r0
-	ldr	r0, _06000778	; =_06019960
+	ldr	r0, _06000778	; =wmspW
 	mov	r2, #1
 	bl	FUN_060006F8
 	ldr	r0, _0600077C	; =_060199B8
@@ -586,26 +586,26 @@ _06000768:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
-_06000778:	.word	_06019960
+_06000778:	.word	wmspW
 _0600077C:	.word	_060199B8
 
 	arm_func_start FUN_06000780
 FUN_06000780: ; 0x06000780
-	ldr	pc, _06000784	; =FUN_037F9884
-_06000784:	.word	FUN_037F9884
+	ldr	pc, _06000784	; =OS_ReceiveMessage
+_06000784:	.word	OS_ReceiveMessage
 
 	arm_func_start FUN_06000788
 FUN_06000788: ; 0x06000788
-	ldr	pc, _0600078C	; =FUN_037FBAA8
-_0600078C:	.word	FUN_037FBAA8
+	ldr	pc, _0600078C	; =SND_BeginSleep
+_0600078C:	.word	SND_BeginSleep
 
 	arm_func_start FUN_06000790
 FUN_06000790: ; 0x06000790
 	ldr	pc, _06000794	; =FUN_037FB1F0
 _06000794:	.word	FUN_037FB1F0
 
-	arm_func_start FUN_06000798
-FUN_06000798: ; 0x06000798
+	arm_func_start WM_sp_init
+WM_sp_init: ; 0x06000798
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #12
 	mov	r5, r0
@@ -620,7 +620,7 @@ FUN_06000798: ; 0x06000798
 	mov	r1, #0
 	str	r1, [r0, #1356]	; 0x54c
 	str	r1, [r0, #1360]	; 0x550
-	ldr	r0, _06000928	; =_06019960
+	ldr	r0, _06000928	; =wmspW
 	ldr	r1, _0600092C	; =_06019980
 	mov	r2, #2
 	bl	FUN_06000964
@@ -636,7 +636,7 @@ FUN_06000798: ; 0x06000798
 	ldr	r1, _06000944	; =_06019A08
 	mov	r2, #32
 	bl	FUN_06000964
-	ldr	r0, _06000928	; =_06019960
+	ldr	r0, _06000928	; =wmspW
 	str	r0, [r5, #16]
 	ldr	r0, _06000930	; =_06019988
 	str	r0, [r5, #20]
@@ -660,7 +660,7 @@ FUN_06000798: ; 0x06000798
 	ldr	r0, [r4, #4]
 	str	r0, [sp, #4]
 	ldr	r0, _0600094C	; =_0380B808
-	ldr	r1, _06000950	; =FUN_060020E0
+	ldr	r1, _06000950	; =WMSP_IndicateThread
 	mov	r2, #0
 	ldr	r3, _06000948	; =_0601AE88
 	bl	FUN_06000974
@@ -671,7 +671,7 @@ FUN_06000798: ; 0x06000798
 	ldr	r0, [r4, #12]
 	str	r0, [sp, #4]
 	ldr	r0, _06000954	; =_0380B764
-	ldr	r1, _06000958	; =FUN_06002188
+	ldr	r1, _06000958	; =WMSP_RequestThread
 	mov	r2, #0
 	ldr	r3, _0600095C	; =_0601AA88
 	bl	FUN_06000974
@@ -679,7 +679,7 @@ FUN_06000798: ; 0x06000798
 	bl	FUN_0600097C
 	mov	r3, #0
 	mov	r2, r3
-	ldr	r1, _06000928	; =_06019960
+	ldr	r1, _06000928	; =wmspW
 _060008C0:
 	add	r0, r1, r3
 	add	r0, r0, #4096	; 0x1000
@@ -703,12 +703,12 @@ _060008F0:
 	ldr	r0, [r4, #20]
 	str	r0, [r5, #12]
 	mov	r0, r5
-	bl	FUN_06008D2C
+	bl	WL_InitDriver
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06000924:	.word	_0601A960
-_06000928:	.word	_06019960
+_06000928:	.word	wmspW
 _0600092C:	.word	_06019980
 _06000930:	.word	_06019988
 _06000934:	.word	_060199A8
@@ -718,54 +718,54 @@ _06000940:	.word	_060199E8
 _06000944:	.word	_06019A08
 _06000948:	.word	_0601AE88
 _0600094C:	.word	_0380B808
-_06000950:	.word	FUN_060020E0
+_06000950:	.word	WMSP_IndicateThread
 _06000954:	.word	_0380B764
-_06000958:	.word	FUN_06002188
+_06000958:	.word	WMSP_RequestThread
 _0600095C:	.word	_0601AA88
 _06000960:	.word	FUN_06000690
 
 	arm_func_start FUN_06000964
 FUN_06000964: ; 0x06000964
-	ldr	pc, _06000968	; =FUN_037F99B8
-_06000968:	.word	FUN_037F99B8
+	ldr	pc, _06000968	; =OS_InitMessageQueue
+_06000968:	.word	OS_InitMessageQueue
 
 	arm_func_start FUN_0600096C
 FUN_0600096C: ; 0x0600096C
-	ldr	pc, _06000970	; =FUN_037F9B68
-_06000970:	.word	FUN_037F9B68
+	ldr	pc, _06000970	; =OS_InitMutex
+_06000970:	.word	OS_InitMutex
 
 	arm_func_start FUN_06000974
 FUN_06000974: ; 0x06000974
-	ldr	pc, _06000978	; =FUN_037F9244
-_06000978:	.word	FUN_037F9244
+	ldr	pc, _06000978	; =OS_CreateThread
+_06000978:	.word	OS_CreateThread
 
 	arm_func_start FUN_0600097C
 FUN_0600097C: ; 0x0600097C
-	ldr	pc, _06000980	; =FUN_037F8FB4
-_06000980:	.word	FUN_037F8FB4
+	ldr	pc, _06000980	; =OS_WakeupThreadDirect
+_06000980:	.word	OS_WakeupThreadDirect
 
 	arm_func_start FUN_06000984
 FUN_06000984: ; 0x06000984
-	ldr	pc, _06000988	; =FUN_037FAFD0
-_06000988:	.word	FUN_037FAFD0
+	ldr	pc, _06000988	; =OS_IsVAlarmAvailable
+_06000988:	.word	OS_IsVAlarmAvailable
 
 	arm_func_start FUN_0600098C
 FUN_0600098C: ; 0x0600098C
-	ldr	pc, _06000990	; =FUN_037FAFE0
-_06000990:	.word	FUN_037FAFE0
+	ldr	pc, _06000990	; =OS_InitVAlarm
+_06000990:	.word	OS_InitVAlarm
 
 	arm_func_start FUN_06000994
 FUN_06000994: ; 0x06000994
-	ldr	pc, _06000998	; =FUN_037FB5B0
-_06000998:	.word	FUN_037FB5B0
+	ldr	pc, _06000998	; =PXI_Init
+_06000998:	.word	PXI_Init
 
 	arm_func_start FUN_0600099C
 FUN_0600099C: ; 0x0600099C
-	ldr	pc, _060009A0	; =FUN_037FB7A8
-_060009A0:	.word	FUN_037FB7A8
+	ldr	pc, _060009A0	; =PXI_SetFifoRecvCallback
+_060009A0:	.word	PXI_SetFifoRecvCallback
 
-	arm_func_start FUN_060009A4
-FUN_060009A4: ; 0x060009A4
+	arm_func_start WMSP_CancelAllAlarms
+WMSP_CancelAllAlarms: ; 0x060009A4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _060009C8	; =_0380B8D8
@@ -780,11 +780,11 @@ _060009CC:	.word	_0380B8AC
 
 	arm_func_start FUN_060009D0
 FUN_060009D0: ; 0x060009D0
-	ldr	pc, _060009D4	; =FUN_037FA650
-_060009D4:	.word	FUN_037FA650
+	ldr	pc, _060009D4	; =OS_CancelAlarm
+_060009D4:	.word	OS_CancelAlarm
 
-	arm_func_start FUN_060009D8
-FUN_060009D8: ; 0x060009D8
+	arm_func_start WMSP_InitAlarm
+WMSP_InitAlarm: ; 0x060009D8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _060009FC	; =_0380B8D8
@@ -799,8 +799,8 @@ _06000A00:	.word	_0380B8AC
 
 	arm_func_start FUN_06000A04
 FUN_06000A04: ; 0x06000A04
-	ldr	pc, _06000A08	; =FUN_037FA900
-_06000A08:	.word	FUN_037FA900
+	ldr	pc, _06000A08	; =OS_CreateAlarm
+_06000A08:	.word	OS_CreateAlarm
 
 	arm_func_start FUN_06000A0C
 FUN_06000A0C: ; 0x06000A0C
@@ -932,7 +932,7 @@ _06000B74:
 	mov	r0, r0, lsl r5
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 	b	_06000CF4
 _06000BF4:
 	mov	r5, #0
@@ -951,8 +951,8 @@ _06000C18:
 	mov	r0, r5
 	str	r0, [r6, #12]
 	mov	r5, #1
-	bl	FUN_06006978
-	bl	FUN_06000288
+	bl	WMSP_CancelVAlarm
+	bl	WMSP_SetThreadPriorityLow
 _06000C38:
 	mov	r1, #0
 	add	r0, r6, #256	; 0x100
@@ -966,7 +966,7 @@ _06000C38:
 	add	r0, r6, #412	; 0x19c
 	mov	r2, #80	; 0x50
 	bl	FUN_06000D08
-	bl	FUN_06000100
+	bl	WMSP_ResetSizeVars
 	mov	r0, #0
 	strh	r0, [r6, #194]	; 0xc2
 	mov	r0, #3
@@ -1000,7 +1000,7 @@ _06000C38:
 	cmp	r5, #0
 	beq	_06000CF4
 	mov	r0, #1
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 _06000CF4:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -1010,8 +1010,8 @@ _06000D04:	.word	0x0000018A
 
 	arm_func_start FUN_06000D08
 FUN_06000D08: ; 0x06000D08
-	ldr	pc, _06000D0C	; =FUN_037FB3E4
-_06000D0C:	.word	FUN_037FB3E4
+	ldr	pc, _06000D0C	; =MI_CpuFill8
+_06000D0C:	.word	MI_CpuFill8
 
 	arm_func_start FUN_06000D10
 FUN_06000D10: ; 0x06000D10
@@ -1028,7 +1028,7 @@ FUN_06000D10: ; 0x06000D10
 	ldrh	r0, [r5, #246]	; 0xf6
 	cmp	r0, #0
 	bne	_06000DB0
-	bl	FUN_06000134
+	bl	WMSP_GetInternalRequestBuf
 	movs	r4, r0
 	moveq	r0, #0
 	beq	_06000D7C
@@ -1119,13 +1119,13 @@ _06000E94:	.word	_060199E8
 
 	arm_func_start FUN_06000E98
 FUN_06000E98: ; 0x06000E98
-	ldr	pc, _06000E9C	; =FUN_037FA364
-_06000E9C:	.word	FUN_037FA364
+	ldr	pc, _06000E9C	; =OS_GetTick
+_06000E9C:	.word	OS_GetTick
 
 	arm_func_start FUN_06000EA0
 FUN_06000EA0: ; 0x06000EA0
-	ldr	pc, _06000EA4	; =FUN_037FB318
-_06000EA4:	.word	FUN_037FB318
+	ldr	pc, _06000EA4	; =MIi_CpuCopy16
+_06000EA4:	.word	MIi_CpuCopy16
 
 	arm_func_start FUN_06000EA8
 FUN_06000EA8: ; 0x06000EA8
@@ -1182,7 +1182,7 @@ FUN_06000F10: ; 0x06000F10
 	mov	r1, #0
 	strh	r1, [r5, #138]	; 0x8a
 	mov	r0, #1
-	bl	FUN_06007168
+	bl	WMSP_FlushSendQueue
 	bl	FUN_060001E8
 	mov	r1, #128	; 0x80
 	strh	r1, [r0]
@@ -1195,7 +1195,7 @@ FUN_06000F10: ; 0x06000F10
 	bl	FUN_060001F0
 	b	_06001028
 _06000F94:
-	bl	FUN_06000134
+	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_06000FF8
@@ -1264,12 +1264,12 @@ FUN_06001048: ; 0x06001048
 	moveq	r0, r1, asr #2
 	addeq	r0, r0, #25
 	andeq	r0, r0, #255	; 0xff
-	bl	FUN_060003C4
-	bl	FUN_06000350
+	bl	WMSP_AddRssiToList
+	bl	WMSP_GetAverageLinkLevel
 	strh	r0, [r4, #188]	; 0xbc
 	add	r5, r5, #16
 	add	r0, r5, #30
-	bl	FUN_06000614
+	bl	WMSP_CheckMacAddress
 	cmp	r0, #1
 	beq	_0600112C
 	ldrh	r1, [r5, #6]
@@ -1316,9 +1316,9 @@ _0600113C:	.word	0x000005E4
 	arm_func_start FUN_06001140
 FUN_06001140: ; 0x06001140
 	stmdb	sp!, {r4, lr}
-	bl	FUN_06000134
+	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
-	ldr	r4, _060011C8	; =_06019960
+	ldr	r4, _060011C8	; =wmspW
 	ldr	r0, _060011CC	; =_0601A960
 	ldr	r0, [r0, #1360]	; 0x550
 	mov	r2, #0
@@ -1351,7 +1351,7 @@ _06001180:
 _060011C0:
 	ldmia	sp!, {r4, lr}
 	bx	lr
-_060011C8:	.word	_06019960
+_060011C8:	.word	wmspW
 _060011CC:	.word	_0601A960
 
 	arm_func_start FUN_060011D0
@@ -1439,7 +1439,7 @@ _060012C8:
 	mov	r0, r8
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUN_06007168
+	bl	WMSP_FlushSendQueue
 	mov	r7, r0
 _06001304:
 	cmp	r6, #0
@@ -1533,14 +1533,14 @@ _06001448:	.word	FUN_060011D0
 
 	arm_func_start FUN_0600144C
 FUN_0600144C: ; 0x0600144C
-	ldr	pc, _06001450	; =FUN_037FA75C
-_06001450:	.word	FUN_037FA75C
+	ldr	pc, _06001450	; =OS_SetAlarm
+_06001450:	.word	OS_SetAlarm
 
 	arm_func_start FUN_06001454
 FUN_06001454: ; 0x06001454
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
-	ldr	r5, _060014E4	; =_06019960
+	ldr	r5, _060014E4	; =wmspW
 	ldr	r1, _060014E8	; =_0601A960
 	ldr	r0, [r1, #1348]	; 0x544
 	ldr	r1, [r1, #1352]	; 0x548
@@ -1575,15 +1575,15 @@ _060014D8:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
-_060014E4:	.word	_06019960
+_060014E4:	.word	wmspW
 _060014E8:	.word	_0601A960
 _060014EC:	.word	0x00000185
 _060014F0:	.word	_06019988
 
 	arm_func_start FUN_060014F4
 FUN_060014F4: ; 0x060014F4
-	ldr	pc, _060014F8	; =FUN_037FA138
-_060014F8:	.word	FUN_037FA138
+	ldr	pc, _060014F8	; =OS_AllocFromHeap
+_060014F8:	.word	OS_AllocFromHeap
 
 	arm_func_start FUN_060014FC
 FUN_060014FC: ; 0x060014FC
@@ -1701,7 +1701,7 @@ _060015B4:
 	beq	_060016C4
 	mov	r0, r1, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_06000000
+	bl	WMSP_SetChildSize
 _060016C4:
 	mov	r0, fp
 	bl	FUN_060001AC
@@ -1711,7 +1711,7 @@ _060016C4:
 	bne	_060016E8
 	mov	r0, r7
 	mov	r1, #0
-	bl	FUN_06007168
+	bl	WMSP_FlushSendQueue
 _060016E8:
 	bl	FUN_060001E8
 	mov	r1, #14
@@ -1770,7 +1770,7 @@ _0600173C:
 	mov	r0, #0
 	ldrh	r1, [r8, #48]	; 0x30
 	add	r2, r8, #50	; 0x32
-	bl	FUN_06006CAC
+	bl	WMSP_ParsePortPacket
 	b	_060017F8
 _060017CC:
 	mov	r0, #0
@@ -1853,9 +1853,9 @@ FUN_060018C8: ; 0x060018C8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
-	bl	FUN_06000134
+	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
-	ldr	r4, _0600194C	; =_06019960
+	ldr	r4, _0600194C	; =wmspW
 	moveq	r0, #0
 	beq	_06001900
 	mov	r0, #43	; 0x2b
@@ -1885,7 +1885,7 @@ _06001940:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
-_0600194C:	.word	_06019960
+_0600194C:	.word	wmspW
 
 	arm_func_start FUN_06001950
 FUN_06001950: ; 0x06001950
@@ -1895,12 +1895,12 @@ FUN_06001950: ; 0x06001950
 	bx	ip
 _06001960:	.word	FUN_060018C8
 
-	arm_func_start FUN_06001964
-FUN_06001964: ; 0x06001964
+	arm_func_start WMSP_RequestResumeMP
+WMSP_RequestResumeMP: ; 0x06001964
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _060019DC	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
-	bl	FUN_06000134
+	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_0600199C
@@ -1953,7 +1953,7 @@ FUN_060019E4: ; 0x060019E4
 	cmp	r0, #0
 	beq	_06001A34
 _06001A2C:
-	bl	FUN_06001964
+	bl	WMSP_RequestResumeMP
 	b	_06001D28
 _06001A34:
 	cmp	r1, #0
@@ -2026,7 +2026,7 @@ _06001AD4:
 	mov	r0, r4
 	ldrh	r1, [r6, #8]
 	add	r2, r6, #10
-	bl	FUN_06006CAC
+	bl	WMSP_ParsePortPacket
 	b	_06001C28
 _06001B50:
 	cmp	r1, #0
@@ -2055,7 +2055,7 @@ _06001B50:
 	cmp	r3, r1
 	cmpeq	r0, r2
 	bls	_06001C28
-	bl	FUN_06000134
+	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
 	add	r2, r8, r4, lsl #3
 	ldr	r0, [sp, #20]
@@ -2097,7 +2097,7 @@ _06001C3C:
 	mov	r0, #0
 	mov	r1, fp, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUN_06007168
+	bl	WMSP_FlushSendQueue
 	ldrh	r0, [r7]
 	cmp	r0, #0
 	movne	r5, #1
@@ -2217,7 +2217,7 @@ _06001DF4:
 	ldrh	r0, [r6, #8]
 	cmp	r1, r0
 	beq	_06001E6C
-	bl	FUN_06000134
+	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_06001E38
@@ -2332,8 +2332,8 @@ _06001F88:	.word	_0601A960
 
 	arm_func_start FUN_06001F8C
 FUN_06001F8C: ; 0x06001F8C
-	ldr	pc, _06001F90	; =FUN_037FA0C4
-_06001F90:	.word	FUN_037FA0C4
+	ldr	pc, _06001F90	; =OS_FreeToHeap
+_06001F90:	.word	OS_FreeToHeap
 
 	arm_func_start FUN_06001F94
 FUN_06001F94: ; 0x06001F94
@@ -2440,14 +2440,14 @@ _060020D4:	.word	0x00000182
 _060020D8:	.word	0x00000185
 _060020DC:	.word	0x00000186
 
-	arm_func_start FUN_060020E0
-FUN_060020E0: ; 0x060020E0
+	arm_func_start WMSP_IndicateThread
+WMSP_IndicateThread: ; 0x060020E0
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 
 	arm_func_start FUN_060020E4
 FUN_060020E4: ; 0x060020E4
 	sub	sp, sp, #4
-	ldr	r0, _06002178	; =_06019960
+	ldr	r0, _06002178	; =wmspW
 	add	r7, r0, #88	; 0x58
 	mov	r4, #1
 	add	r6, r0, #40	; 0x28
@@ -2488,22 +2488,22 @@ _0600216C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
-_06002178:	.word	_06019960
+_06002178:	.word	wmspW
 
 	arm_func_start FUN_0600217C
 FUN_0600217C: ; 0x0600217C
-	ldr	pc, _06002180	; =FUN_037F9218
-_06002180:	.word	FUN_037F9218
+	ldr	pc, _06002180	; =OS_ExitThread
+_06002180:	.word	OS_ExitThread
 
 	arm_func_start FUN_06002184
 FUN_06002184: ; 0x06002184
 	bx	lr
 
-	arm_func_start FUN_06002188
-FUN_06002188: ; 0x06002188
+	arm_func_start WMSP_RequestThread
+WMSP_RequestThread: ; 0x06002188
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	sub	sp, sp, #8
-	ldr	r1, _06002228	; =_06019960
+	ldr	r1, _06002228	; =wmspW
 	ldr	r0, _0600222C	; =_0601A960
 	ldr	sl, [r0, #1360]	; 0x550
 	mov	r6, #1
@@ -2545,7 +2545,7 @@ _0600221C:
 	add	sp, sp, #8
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	bx	lr
-_06002228:	.word	_06019960
+_06002228:	.word	wmspW
 _0600222C:	.word	_0601A960
 _06002230:	.word	_06019268
 
@@ -2567,13 +2567,13 @@ FUN_06002234: ; 0x06002234
 	ldrh	r1, [r0, #12]
 	strh	r1, [r3, #16]
 	strh	r2, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_06002284
-FUN_06002284: ; 0x06002284
+	arm_func_start WMSP_WL_DevTestSignal
+WMSP_WL_DevTestSignal: ; 0x06002284
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -2598,22 +2598,22 @@ FUN_06002284: ; 0x06002284
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060022F4:	.word	0x00000309
 
-	arm_func_start FUN_060022F8
-FUN_060022F8: ; 0x060022F8
+	arm_func_start WMSP_WL_DevGetStationState
+WMSP_WL_DevGetStationState: ; 0x060022F8
 	mov	r1, #776	; 0x308
 	mov	r2, #2
 	ldr	ip, _06002308	; =FUN_06002234
 	bx	ip
 _06002308:	.word	FUN_06002234
 
-	arm_func_start FUN_0600230C
-FUN_0600230C: ; 0x0600230C
+	arm_func_start WMSP_WL_DevGetWirelessCounter
+WMSP_WL_DevGetWirelessCounter: ; 0x0600230C
 	ldr	r1, _0600231C	; =0x00000307
 	mov	r2, #92	; 0x5c
 	ldr	ip, _06002320	; =FUN_06002234
@@ -2621,8 +2621,8 @@ FUN_0600230C: ; 0x0600230C
 _0600231C:	.word	0x00000307
 _06002320:	.word	FUN_06002234
 
-	arm_func_start FUN_06002324
-FUN_06002324: ; 0x06002324
+	arm_func_start WMSP_WL_DevGetVersion
+WMSP_WL_DevGetVersion: ; 0x06002324
 	ldr	r1, _06002334	; =0x00000306
 	mov	r2, #9
 	ldr	ip, _06002338	; =FUN_06002234
@@ -2630,8 +2630,8 @@ FUN_06002324: ; 0x06002324
 _06002334:	.word	0x00000306
 _06002338:	.word	FUN_06002234
 
-	arm_func_start FUN_0600233C
-FUN_0600233C: ; 0x0600233C
+	arm_func_start WMSP_WL_DevSetInitializeWirelessCounter
+WMSP_WL_DevSetInitializeWirelessCounter: ; 0x0600233C
 	ldr	r1, _0600234C	; =0x00000305
 	mov	r2, #1
 	ldr	ip, _06002350	; =FUN_06002234
@@ -2639,16 +2639,16 @@ FUN_0600233C: ; 0x0600233C
 _0600234C:	.word	0x00000305
 _06002350:	.word	FUN_06002234
 
-	arm_func_start FUN_06002354
-FUN_06002354: ; 0x06002354
+	arm_func_start WMSP_WL_DevRestart
+WMSP_WL_DevRestart: ; 0x06002354
 	mov	r1, #772	; 0x304
 	mov	r2, #1
 	ldr	ip, _06002364	; =FUN_06002234
 	bx	ip
 _06002364:	.word	FUN_06002234
 
-	arm_func_start FUN_06002368
-FUN_06002368: ; 0x06002368
+	arm_func_start WMSP_WL_DevClass1
+WMSP_WL_DevClass1: ; 0x06002368
 	ldr	r1, _06002378	; =0x00000303
 	mov	r2, #1
 	ldr	ip, _0600237C	; =FUN_06002234
@@ -2656,8 +2656,8 @@ FUN_06002368: ; 0x06002368
 _06002378:	.word	0x00000303
 _0600237C:	.word	FUN_06002234
 
-	arm_func_start FUN_06002380
-FUN_06002380: ; 0x06002380
+	arm_func_start WMSP_WL_DevIdle
+WMSP_WL_DevIdle: ; 0x06002380
 	ldr	r1, _06002390	; =0x00000302
 	mov	r2, #1
 	ldr	ip, _06002394	; =FUN_06002234
@@ -2665,8 +2665,8 @@ FUN_06002380: ; 0x06002380
 _06002390:	.word	0x00000302
 _06002394:	.word	FUN_06002234
 
-	arm_func_start FUN_06002398
-FUN_06002398: ; 0x06002398
+	arm_func_start WMSP_WL_DevShutdown
+WMSP_WL_DevShutdown: ; 0x06002398
 	ldr	r1, _060023A8	; =0x00000301
 	mov	r2, #1
 	ldr	ip, _060023AC	; =FUN_06002234
@@ -2674,16 +2674,16 @@ FUN_06002398: ; 0x06002398
 _060023A8:	.word	0x00000301
 _060023AC:	.word	FUN_06002234
 
-	arm_func_start FUN_060023B0
-FUN_060023B0: ; 0x060023B0
+	arm_func_start WMSP_WL_ParamGetMode
+WMSP_WL_ParamGetMode: ; 0x060023B0
 	mov	r1, #644	; 0x284
 	mov	r2, #2
 	ldr	ip, _060023C0	; =FUN_06002234
 	bx	ip
 _060023C0:	.word	FUN_06002234
 
-	arm_func_start FUN_060023C4
-FUN_060023C4: ; 0x060023C4
+	arm_func_start WMSP_WL_ParamGetEnableChannel
+WMSP_WL_ParamGetEnableChannel: ; 0x060023C4
 	ldr	r1, _060023D4	; =0x00000283
 	mov	r2, #3
 	ldr	ip, _060023D8	; =FUN_06002234
@@ -2691,8 +2691,8 @@ FUN_060023C4: ; 0x060023C4
 _060023D4:	.word	0x00000283
 _060023D8:	.word	FUN_06002234
 
-	arm_func_start FUN_060023DC
-FUN_060023DC: ; 0x060023DC
+	arm_func_start WMSP_WL_ParamGetMacAddress
+WMSP_WL_ParamGetMacAddress: ; 0x060023DC
 	ldr	r1, _060023EC	; =0x00000281
 	mov	r2, #4
 	ldr	ip, _060023F0	; =FUN_06002234
@@ -2700,8 +2700,8 @@ FUN_060023DC: ; 0x060023DC
 _060023EC:	.word	0x00000281
 _060023F0:	.word	FUN_06002234
 
-	arm_func_start FUN_060023F4
-FUN_060023F4: ; 0x060023F4
+	arm_func_start WMSP_WL_ParamSetGameInfo
+WMSP_WL_ParamSetGameInfo: ; 0x060023F4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r0
 	mov	r6, r1
@@ -2733,14 +2733,14 @@ FUN_060023F4: ; 0x060023F4
 	mov	r0, #1
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r5
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _06002480:	.word	0x00000245
 
-	arm_func_start FUN_06002484
-FUN_06002484: ; 0x06002484
+	arm_func_start WMSP_WL_ParamSetBeaconPeriod
+WMSP_WL_ParamSetBeaconPeriod: ; 0x06002484
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2760,14 +2760,14 @@ FUN_06002484: ; 0x06002484
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060024E0:	.word	0x00000242
 
-	arm_func_start FUN_060024E4
-FUN_060024E4: ; 0x060024E4
+	arm_func_start WMSP_WL_ParamSetNullKeyResponseMode
+WMSP_WL_ParamSetNullKeyResponseMode: ; 0x060024E4
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2787,14 +2787,14 @@ FUN_060024E4: ; 0x060024E4
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06002540:	.word	0x00000216
 
-	arm_func_start FUN_06002544
-FUN_06002544: ; 0x06002544
+	arm_func_start WMSP_WL_ParamSetBeaconSendRecvInd
+WMSP_WL_ParamSetBeaconSendRecvInd: ; 0x06002544
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2814,14 +2814,14 @@ FUN_06002544: ; 0x06002544
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060025A0:	.word	0x00000215
 
-	arm_func_start FUN_060025A4
-FUN_060025A4: ; 0x060025A4
+	arm_func_start WMSP_WL_ParamSetMaxConnectableChild
+WMSP_WL_ParamSetMaxConnectableChild: ; 0x060025A4
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2841,14 +2841,14 @@ FUN_060025A4: ; 0x060025A4
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06002600:	.word	0x00000212
 
-	arm_func_start FUN_06002604
-FUN_06002604: ; 0x06002604
+	arm_func_start WMSP_WL_ParamSetLifeTime
+WMSP_WL_ParamSetLifeTime: ; 0x06002604
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -2871,14 +2871,14 @@ FUN_06002604: ; 0x06002604
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600266C:	.word	0x00000211
 
-	arm_func_start FUN_06002670
-FUN_06002670: ; 0x06002670
+	arm_func_start WMSP_WL_ParamSetPreambleType
+WMSP_WL_ParamSetPreambleType: ; 0x06002670
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2898,14 +2898,14 @@ FUN_06002670: ; 0x06002670
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060026CC:	.word	0x0000020E
 
-	arm_func_start FUN_060026D0
-FUN_060026D0: ; 0x060026D0
+	arm_func_start WMSP_WL_ParamSetSsidMask
+WMSP_WL_ParamSetSsidMask: ; 0x060026D0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -2932,15 +2932,15 @@ FUN_060026D0: ; 0x060026D0
 	mov	r0, #1
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600274C:	.word	0x0000020D
 
-	arm_func_start FUN_06002750
-FUN_06002750: ; 0x06002750
+	arm_func_start WMSP_WL_ParamSetBeaconLostThreshold
+WMSP_WL_ParamSetBeaconLostThreshold: ; 0x06002750
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2960,14 +2960,14 @@ FUN_06002750: ; 0x06002750
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060027AC:	.word	0x0000020B
 
-	arm_func_start FUN_060027B0
-FUN_060027B0: ; 0x060027B0
+	arm_func_start WMSP_WL_ParamSetWepKeyId
+WMSP_WL_ParamSetWepKeyId: ; 0x060027B0
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -2987,14 +2987,14 @@ FUN_060027B0: ; 0x060027B0
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600280C:	.word	0x00000207
 
-	arm_func_start FUN_06002810
-FUN_06002810: ; 0x06002810
+	arm_func_start WMSP_WL_ParamSetAll
+WMSP_WL_ParamSetAll: ; 0x06002810
 	stmdb	sp!, {r4, lr}
 	mov	r1, #0
 	strh	r1, [r0]
@@ -3014,13 +3014,13 @@ FUN_06002810: ; 0x06002810
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_0600286C
-FUN_0600286C: ; 0x0600286C
+	arm_func_start WMSP_WL_MaClearData
+WMSP_WL_MaClearData: ; 0x0600286C
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -3040,13 +3040,13 @@ FUN_0600286C: ; 0x0600286C
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_060028C8
-FUN_060028C8: ; 0x060028C8
+	arm_func_start WMSP_WL_MaMp
+WMSP_WL_MaMp: ; 0x060028C8
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -3081,14 +3081,14 @@ FUN_060028C8: ; 0x060028C8
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06002960:	.word	0x00000102
 
-	arm_func_start FUN_06002964
-FUN_06002964: ; 0x06002964
+	arm_func_start WMSP_WL_MaKeyData
+WMSP_WL_MaKeyData: ; 0x06002964
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -3111,14 +3111,14 @@ FUN_06002964: ; 0x06002964
 	strh	r1, [r2, #16]
 	mov	r1, #1
 	strh	r1, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _060029CC:	.word	0x00000101
 
-	arm_func_start FUN_060029D0
-FUN_060029D0: ; 0x060029D0
+	arm_func_start WMSP_WL_MaData
+WMSP_WL_MaData: ; 0x060029D0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -3160,14 +3160,14 @@ FUN_060029D0: ; 0x060029D0
 	mov	r0, #2
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06002A88
-FUN_06002A88: ; 0x06002A88
+	arm_func_start WMSP_WL_MlmeMeasureChannel
+WMSP_WL_MlmeMeasureChannel: ; 0x06002A88
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -3198,14 +3198,14 @@ FUN_06002A88: ; 0x06002A88
 	mov	r0, #18
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06002B14
-FUN_06002B14: ; 0x06002B14
+	arm_func_start WMSP_WL_MlmeStart
+WMSP_WL_MlmeStart: ; 0x06002B14
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -3254,14 +3254,14 @@ FUN_06002B14: ; 0x06002B14
 	mov	r0, #1
 	strh	r0, [r4, #2]
 	mov	r0, r7
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUN_06002BE8
-FUN_06002BE8: ; 0x06002BE8
+	arm_func_start WMSP_WL_MlmeAssociate
+WMSP_WL_MlmeAssociate: ; 0x06002BE8
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r0
 	mov	r6, r2
@@ -3290,13 +3290,13 @@ FUN_06002BE8: ; 0x06002BE8
 	mov	r0, #3
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r5
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_06002C68
-FUN_06002C68: ; 0x06002C68
+	arm_func_start WMSP_WL_MlmeDeAuthenticate
+WMSP_WL_MlmeDeAuthenticate: ; 0x06002C68
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -3325,14 +3325,14 @@ FUN_06002C68: ; 0x06002C68
 	mov	r0, #4
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06002CEC
-FUN_06002CEC: ; 0x06002CEC
+	arm_func_start WMSP_WL_MlmeAuthenticate
+WMSP_WL_MlmeAuthenticate: ; 0x06002CEC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r0
 	mov	r6, r2
@@ -3362,13 +3362,13 @@ FUN_06002CEC: ; 0x06002CEC
 	mov	r0, #6
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r5
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_06002D70
-FUN_06002D70: ; 0x06002D70
+	arm_func_start WMSP_WL_MlmeJoin
+WMSP_WL_MlmeJoin: ; 0x06002D70
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -3397,14 +3397,14 @@ FUN_06002D70: ; 0x06002D70
 	mov	r0, #5
 	strh	r0, [r5, #2]
 	mov	r0, r4
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r5
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06002DF4
-FUN_06002DF4: ; 0x06002DF4
+	arm_func_start WMSP_WL_MlmeScan
+WMSP_WL_MlmeScan: ; 0x06002DF4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r5, r0
 	mov	r4, r1
@@ -3448,13 +3448,13 @@ FUN_06002DF4: ; 0x06002DF4
 	sub	r0, r0, #44	; 0x2c
 	strh	r0, [r6, #2]
 	mov	r0, r5
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r6
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_06002EB0
-FUN_06002EB0: ; 0x06002EB0
+	arm_func_start WMSP_WL_MlmePowerManagement
+WMSP_WL_MlmePowerManagement: ; 0x06002EB0
 	stmdb	sp!, {r4, lr}
 	mov	ip, #0
 	strh	ip, [r0]
@@ -3476,13 +3476,13 @@ FUN_06002EB0: ; 0x06002EB0
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	lr, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_06002F14
-FUN_06002F14: ; 0x06002F14
+	arm_func_start WMSP_WL_MlmeReset
+WMSP_WL_MlmeReset: ; 0x06002F14
 	stmdb	sp!, {r4, lr}
 	mov	r2, #0
 	strh	r2, [r0]
@@ -3501,13 +3501,13 @@ FUN_06002F14: ; 0x06002F14
 	ldrh	r1, [r0, #12]
 	strh	r1, [r2, #16]
 	strh	r3, [r4, #2]
-	bl	FUN_06000700
+	bl	WMSP_WlRequest
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_06002F6C
-FUN_06002F6C: ; 0x06002F6C
+	arm_func_start WMSP_Initialize
+WMSP_Initialize: ; 0x06002F6C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	ldr	r4, [r0, #4]
@@ -3518,7 +3518,7 @@ FUN_06002F6C: ; 0x06002F6C
 	str	r2, [r4]
 	ldr	r0, [r0, #12]
 	str	r0, [r4, #8]
-	bl	FUN_06008124
+	bl	WMSPi_CommonInit
 	mov	r0, #15
 	bl	FUN_0600301C
 	mov	r1, #1
@@ -3526,7 +3526,7 @@ FUN_06002F6C: ; 0x06002F6C
 	strh	r1, [r0]
 	add	r0, sp, #0
 	add	r1, sp, #2
-	bl	FUN_06008380
+	bl	WMSPi_CommonWlIdle
 	cmp	r0, #0
 	bne	_06002FEC
 	bl	FUN_060001E8
@@ -3557,8 +3557,8 @@ _06003018:	.word	_0601A960
 
 	arm_func_start FUN_0600301C
 FUN_0600301C: ; 0x0600301C
-	ldr	pc, _06003020	; =FUN_03802BC8
-_06003020:	.word	FUN_03802BC8
+	ldr	pc, _06003020	; =PM_SetLEDPattern
+_06003020:	.word	PM_SetLEDPattern
 
 	arm_func_start FUN_06003024
 FUN_06003024: ; 0x06003024
@@ -3577,8 +3577,8 @@ FUN_06003024: ; 0x06003024
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_0600305C
-FUN_0600305C: ; 0x0600305C
+	arm_func_start WMSP_Reset
+WMSP_Reset: ; 0x0600305C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #532	; 0x214
 	ldr	r0, _06003448	; =_0601A960
@@ -3592,8 +3592,8 @@ FUN_0600305C: ; 0x0600305C
 	mov	r0, r5
 	str	r0, [r7, #12]
 	mov	r5, #1
-	bl	FUN_06006978
-	bl	FUN_06000288
+	bl	WMSP_CancelVAlarm
+	bl	WMSP_SetThreadPriorityLow
 	ldrh	r0, [r7]
 	cmp	r0, #10
 	moveq	r0, #8
@@ -3632,7 +3632,7 @@ _060030F0:
 	cmp	r5, #0
 	beq	_06003128
 	ldr	r0, _06003450	; =0x0000FFFF
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 _06003128:
 	cmp	sl, #0
 	movne	r0, #0
@@ -3656,7 +3656,7 @@ _06003154:
 	mov	r0, sl
 	mov	r1, r8, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUN_06004C5C
+	bl	WMSP_IndicateDisconnectionFromMyself
 _06003180:
 	add	r8, r8, #1
 	cmp	r8, #16
@@ -3667,7 +3667,7 @@ _0600318C:
 	mov	r2, #90	; 0x5a
 	bl	FUN_06000D08
 	add	r0, sp, #16
-	bl	FUN_060022F8
+	bl	WMSP_WL_DevGetStationState
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060031BC
@@ -3677,7 +3677,7 @@ _0600318C:
 _060031BC:
 	ldrh	r4, [r0, #6]
 	add	r0, sp, #16
-	bl	FUN_060023B0
+	bl	WMSP_WL_ParamGetMode
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060031E0
@@ -3736,7 +3736,7 @@ _0600328C:
 	add	r0, sp, #16
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUN_06002C68
+	bl	WMSP_WL_MlmeDeAuthenticate
 	ldrh	r0, [r0, #4]
 	cmp	r0, #0
 	beq	_060032BC
@@ -3765,7 +3765,7 @@ _060032D8:
 	add	r0, sp, #16
 	add	r1, sp, #10
 	mov	r2, #3
-	bl	FUN_06002C68
+	bl	WMSP_WL_MlmeDeAuthenticate
 	ldrh	r0, [r0, #4]
 	cmp	r0, #0
 	moveq	r0, #3
@@ -3773,7 +3773,7 @@ _060032D8:
 _06003310:
 	add	r0, sp, #16
 	mov	r1, #1
-	bl	FUN_06002F14
+	bl	WMSP_WL_MlmeReset
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003334
@@ -3782,7 +3782,7 @@ _06003310:
 	b	_0600343C
 _06003334:
 	add	r0, sp, #16
-	bl	FUN_06002380
+	bl	WMSP_WL_DevIdle
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003354
@@ -3796,7 +3796,7 @@ _06003354:
 	bne	_06003394
 	add	r0, sp, #16
 	mov	r1, #1
-	bl	FUN_06002670
+	bl	WMSP_WL_ParamSetPreambleType
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003388
@@ -3812,7 +3812,7 @@ _06003394:
 	strh	r0, [r7]
 	mov	r0, #0
 	str	r0, [r7, #408]	; 0x198
-	bl	FUN_06000100
+	bl	WMSP_ResetSizeVars
 	b	_06003424
 _060033AC:
 	cmp	r1, #0
@@ -3823,7 +3823,7 @@ _060033AC:
 	mov	r1, #0
 	mov	r2, r1
 	mov	r3, #20
-	bl	FUN_06002284
+	bl	WMSP_WL_DevTestSignal
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060033E8
@@ -3832,7 +3832,7 @@ _060033AC:
 	b	_0600343C
 _060033E8:
 	add	r0, sp, #16
-	bl	FUN_06002380
+	bl	WMSP_WL_DevIdle
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003408
@@ -3886,8 +3886,8 @@ FUN_06003468: ; 0x06003468
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_060034A4
-FUN_060034A4: ; 0x060034A4
+	arm_func_start WMSP_End
+WMSP_End: ; 0x060034A4
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #512	; 0x200
 	ldr	r0, _06003534	; =_0601A960
@@ -3904,7 +3904,7 @@ FUN_060034A4: ; 0x060034A4
 	b	_06003528
 _060034DC:
 	add	r0, sp, #0
-	bl	FUN_06002398
+	bl	WMSP_WL_DevShutdown
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060034FC
@@ -3948,8 +3948,8 @@ FUN_0600353C: ; 0x0600353C
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06003578
-FUN_06003578: ; 0x06003578
+	arm_func_start WMSP_SetParentParam
+WMSP_SetParentParam: ; 0x06003578
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #512	; 0x200
 	ldr	r1, _06003618	; =_0601A960
@@ -3975,7 +3975,7 @@ FUN_06003578: ; 0x06003578
 _060035D0:
 	add	r0, sp, #0
 	ldrh	r1, [r4, #248]	; 0xf8
-	bl	FUN_060025A4
+	bl	WMSP_WL_ParamSetMaxConnectableChild
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060035F4
@@ -4016,8 +4016,8 @@ FUN_06003620: ; 0x06003620
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06003664
-FUN_06003664: ; 0x06003664
+	arm_func_start WMSP_StartParent
+WMSP_StartParent: ; 0x06003664
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #696	; 0x2b8
 	ldr	r1, _060038E0	; =_0601A960
@@ -4069,11 +4069,11 @@ _060036F0:
 	strh	r1, [r0, #238]	; 0xee
 	mov	r0, #8
 	mov	r1, r6
-	bl	FUN_06000408
+	bl	WMSP_SetAllParams
 	cmp	r0, #0
 	beq	_060038D4
 	mov	r0, r6
-	bl	FUN_06002368
+	bl	WMSP_WL_DevClass1
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003754
@@ -4090,7 +4090,7 @@ _06003754:
 	mov	r1, r5
 	mov	r2, #0
 	mov	r3, #1
-	bl	FUN_06002EB0
+	bl	WMSP_WL_MlmePowerManagement
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003794
@@ -4106,7 +4106,7 @@ _06003794:
 	bl	FUN_0600055C
 	add	r0, sp, #568	; 0x238
 	mov	r1, r5
-	bl	FUN_06000564
+	bl	WMSP_CopyParentParam
 	mov	r0, #0
 	add	r1, sp, #24
 	mov	r2, #32
@@ -4138,7 +4138,7 @@ _06003794:
 	mov	r1, #32
 	add	r2, sp, #24
 	ldrh	r3, [r5, #24]
-	bl	FUN_06002B14
+	bl	WMSP_WL_MlmeStart
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003850
@@ -4154,7 +4154,7 @@ _06003850:
 	add	r0, r0, r1
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_060000B0
+	bl	WMSP_SetParentMaxSize
 	ldrh	r0, [r5, #20]
 	cmp	r0, #0
 	movne	r1, #6
@@ -4163,7 +4163,7 @@ _06003850:
 	add	r0, r0, r1
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_06000060
+	bl	WMSP_SetChildMaxSize
 	bl	FUN_060001E8
 	mov	r1, #7
 	strh	r1, [r4]
@@ -4204,8 +4204,8 @@ FUN_060038E8: ; 0x060038E8
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06003924
-FUN_06003924: ; 0x06003924
+	arm_func_start WMSP_EndParent
+WMSP_EndParent: ; 0x06003924
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #532	; 0x214
 	ldr	r0, _06003AF0	; =_0601A960
@@ -4248,7 +4248,7 @@ _060039B4:
 	add	r0, sp, #16
 	add	r1, sp, #8
 	ldr	r2, [sp]
-	bl	FUN_06002C68
+	bl	WMSP_WL_MlmeDeAuthenticate
 	ldrh	r0, [r0, #4]
 	cmp	r0, #0
 	beq	_060039EC
@@ -4281,7 +4281,7 @@ _060039EC:
 	mov	r1, sl, lsl #16
 	mov	r1, r1, lsr #16
 	add	r2, sp, #8
-	bl	FUN_06004C5C
+	bl	WMSP_IndicateDisconnectionFromMyself
 	b	_06003A44
 _06003A40:
 	bl	FUN_060001AC
@@ -4291,7 +4291,7 @@ _06003A44:
 	blt	_06003980
 	add	r0, sp, #16
 	mov	r1, #1
-	bl	FUN_06002F14
+	bl	WMSP_WL_MlmeReset
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003A74
@@ -4304,7 +4304,7 @@ _06003A74:
 	mov	r0, #3
 	strh	r0, [r8]
 	add	r0, sp, #16
-	bl	FUN_06002380
+	bl	WMSP_WL_DevIdle
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003AA4
@@ -4321,7 +4321,7 @@ _06003AA4:
 	add	r0, r8, #412	; 0x19c
 	mov	r2, #80	; 0x50
 	bl	FUN_06000D08
-	bl	FUN_06000100
+	bl	WMSP_ResetSizeVars
 	bl	FUN_060001E8
 	mov	r1, #9
 	strh	r1, [r0]
@@ -4398,8 +4398,8 @@ _06003BAC:
 	mov	r0, #0
 	bx	lr
 
-	arm_func_start FUN_06003BBC
-FUN_06003BBC: ; 0x06003BBC
+	arm_func_start WMSP_StartScanEx
+WMSP_StartScanEx: ; 0x06003BBC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	ldr	ip, _060040D8	; =0x000004CC
 	sub	sp, sp, ip
@@ -4504,7 +4504,7 @@ _06003D2C:
 	mov	r0, #2
 	strh	r0, [r4, #230]	; 0xe6
 	add	r0, sp, #116	; 0x74
-	bl	FUN_060022F8
+	bl	WMSP_WL_DevGetStationState
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003D58
@@ -4518,11 +4518,11 @@ _06003D58:
 	bne	_06003DDC
 	mov	r0, #38	; 0x26
 	add	r1, sp, #116	; 0x74
-	bl	FUN_06000408
+	bl	WMSP_SetAllParams
 	cmp	r0, #0
 	beq	_060040C8
 	add	r0, sp, #116	; 0x74
-	bl	FUN_06002368
+	bl	WMSP_WL_DevClass1
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003D9C
@@ -4537,7 +4537,7 @@ _06003D9C:
 	mov	r1, #1
 	mov	r2, #0
 	mov	r3, r1
-	bl	FUN_06002EB0
+	bl	WMSP_WL_MlmePowerManagement
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003DD4
@@ -4557,7 +4557,7 @@ _06003DDC:
 	bne	_06003E70
 	add	r0, sp, #116	; 0x74
 	mov	r1, #0
-	bl	FUN_06002670
+	bl	WMSP_WL_ParamSetPreambleType
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003E1C
@@ -4577,7 +4577,7 @@ _06003E2C:
 	bne	_06003E70
 	add	r0, sp, #116	; 0x74
 	mov	r1, #1
-	bl	FUN_06002670
+	bl	WMSP_WL_ParamSetPreambleType
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003E64
@@ -4605,7 +4605,7 @@ _06003E70:
 _06003EA0:
 	add	r0, sp, #116	; 0x74
 	add	r1, sp, #66	; 0x42
-	bl	FUN_060026D0
+	bl	WMSP_WL_ParamSetSsidMask
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06003EC8
@@ -4648,7 +4648,7 @@ _06003EF0:
 	add	r0, sp, #116	; 0x74
 	add	r2, sp, #28
 	mov	r3, r9
-	bl	FUN_06002DF4
+	bl	WMSP_WL_MlmeScan
 	mov	r8, r0
 	ldrh	r1, [r8, #4]
 	cmp	r1, #0
@@ -4716,7 +4716,7 @@ _06004020:
 	addeq	r0, r0, #25
 	andeq	fp, r0, #255	; 0xff
 	mov	r0, fp
-	bl	FUN_060002E8
+	bl	WMSP_GetLinkLevel
 	add	r1, r7, r6, lsl #1
 	strh	r0, [r1, #80]	; 0x50
 	ldr	r0, _060040F0	; =0x027FFF98
@@ -4762,8 +4762,8 @@ _060040E8:	.word	0x0000020E
 _060040EC:	.word	0x0000020D
 _060040F0:	.word	0x027FFF98
 
-	arm_func_start FUN_060040F4
-FUN_060040F4: ; 0x060040F4
+	arm_func_start WMSP_StartScan
+WMSP_StartScan: ; 0x060040F4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #588	; 0x24c
 	add	r6, sp, #72	; 0x48
@@ -4835,7 +4835,7 @@ _060041F4:
 	mov	r0, #2
 	strh	r0, [r4, #230]	; 0xe6
 	mov	r0, r6
-	bl	FUN_060022F8
+	bl	WMSP_WL_DevGetStationState
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004220
@@ -4849,11 +4849,11 @@ _06004220:
 	bne	_060042A4
 	mov	r0, #10
 	mov	r1, r6
-	bl	FUN_06000408
+	bl	WMSP_SetAllParams
 	cmp	r0, #0
 	beq	_06004470
 	mov	r0, r6
-	bl	FUN_06002368
+	bl	WMSP_WL_DevClass1
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004264
@@ -4868,7 +4868,7 @@ _06004264:
 	mov	r1, #1
 	mov	r2, #0
 	mov	r3, r1
-	bl	FUN_06002EB0
+	bl	WMSP_WL_MlmePowerManagement
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_0600429C
@@ -4902,7 +4902,7 @@ _060042A4:
 	ldr	r1, _06004488	; =0x0000011E
 	add	r2, sp, #16
 	mov	r3, #0
-	bl	FUN_06002DF4
+	bl	WMSP_WL_MlmeScan
 	mov	r6, r0
 	ldrh	r1, [r6, #4]
 	cmp	r1, #0
@@ -4954,7 +4954,7 @@ _06004358:
 	addeq	r0, r0, #25
 	andeq	r4, r0, #255	; 0xff
 	mov	r0, r4
-	bl	FUN_060002E8
+	bl	WMSP_GetLinkLevel
 	strh	r0, [r5, #18]
 	ldr	r1, _0600448C	; =0x027FFF98
 	ldrh	r0, [r1]
@@ -5027,8 +5027,8 @@ FUN_06004490: ; 0x06004490
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_060044CC
-FUN_060044CC: ; 0x060044CC
+	arm_func_start WMSP_EndScan
+WMSP_EndScan: ; 0x060044CC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	add	r5, sp, #0
@@ -5046,7 +5046,7 @@ FUN_060044CC: ; 0x060044CC
 	b	_06004588
 _06004508:
 	mov	r0, r5
-	bl	FUN_06002380
+	bl	WMSP_WL_DevIdle
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004528
@@ -5062,7 +5062,7 @@ _06004528:
 	bne	_06004570
 	mov	r0, r5
 	mov	r1, #1
-	bl	FUN_06002670
+	bl	WMSP_WL_ParamSetPreambleType
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004564
@@ -5106,8 +5106,8 @@ FUN_060045A0: ; 0x060045A0
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_060045DC
-FUN_060045DC: ; 0x060045DC
+	arm_func_start WMSP_StartConnectEx
+WMSP_StartConnectEx: ; 0x060045DC
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #592	; 0x250
 	mov	r6, r0
@@ -5212,12 +5212,12 @@ _06004724:
 	strneh	r0, [r5, #230]	; 0xe6
 	mov	r0, #12
 	mov	r1, r4
-	bl	FUN_06000408
+	bl	WMSP_SetAllParams
 	cmp	r0, #0
 	beq	_06004B9C
 	mov	r0, r4
 	mov	r1, #0
-	bl	FUN_060024E4
+	bl	WMSP_WL_ParamSetNullKeyResponseMode
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004798
@@ -5242,7 +5242,7 @@ _060047C0:
 	cmp	r1, #255	; 0xff
 	movhi	r1, #255	; 0xff
 	mov	r0, r4
-	bl	FUN_06002750
+	bl	WMSP_WL_ParamSetBeaconLostThreshold
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060047F4
@@ -5252,7 +5252,7 @@ _060047C0:
 	b	_06004B9C
 _060047F4:
 	mov	r0, r4
-	bl	FUN_06002368
+	bl	WMSP_WL_DevClass1
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004818
@@ -5273,7 +5273,7 @@ _06004818:
 	mov	r1, r8
 	mov	r2, #0
 	mov	r3, #1
-	bl	FUN_06002EB0
+	bl	WMSP_WL_MlmePowerManagement
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004868
@@ -5310,7 +5310,7 @@ _060048C8:
 	mov	r0, r4
 	mov	r1, #2000	; 0x7d0
 	add	r2, sp, #524	; 0x20c
-	bl	FUN_06002D70
+	bl	WMSP_WL_MlmeJoin
 	mov	r2, r0
 	ldrh	r1, [r2, #4]
 	cmp	r1, #0
@@ -5338,7 +5338,7 @@ _06004904:
 	add	r1, sp, #0
 	ldrh	r2, [r6, #38]	; 0x26
 	mov	r3, #2000	; 0x7d0
-	bl	FUN_06002CEC
+	bl	WMSP_WL_MlmeAuthenticate
 	mov	r2, r0
 	ldrh	r1, [r2, #4]
 	cmp	r1, #12
@@ -5375,7 +5375,7 @@ _060049A0:
 	add	r1, sp, #6
 	mov	r2, #1
 	mov	r3, #2000	; 0x7d0
-	bl	FUN_06002BE8
+	bl	WMSP_WL_MlmeAssociate
 	mov	r4, r0
 	bl	FUN_060001A4
 	mov	r6, r0
@@ -5427,10 +5427,10 @@ _06004A40:
 	addeq	r0, r0, #25
 	andeq	r4, r0, #255	; 0xff
 	mov	r0, r4
-	bl	FUN_060002E8
+	bl	WMSP_GetLinkLevel
 	strh	r0, [r5, #188]	; 0xbc
 	mov	r0, r4
-	bl	FUN_0600038C
+	bl	WMSP_FillRssiIntoList
 	bl	FUN_060001A4
 	mov	r4, r0
 	mov	r1, #1
@@ -5459,7 +5459,7 @@ _06004ADC:
 	add	r0, r0, r1
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_060000B0
+	bl	WMSP_SetParentMaxSize
 	ldrb	r0, [r7, #91]	; 0x5b
 	ands	r0, r0, #4
 	movne	r1, #6
@@ -5468,7 +5468,7 @@ _06004ADC:
 	add	r0, r0, r1
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_06000060
+	bl	WMSP_SetChildMaxSize
 	mov	r0, r4
 	bl	FUN_060001AC
 	mov	r0, #1
@@ -5553,8 +5553,8 @@ FUN_06004C10: ; 0x06004C10
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUN_06004C5C
-FUN_06004C5C: ; 0x06004C5C
+	arm_func_start WMSP_IndicateDisconnectionFromMyself
+WMSP_IndicateDisconnectionFromMyself: ; 0x06004C5C
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r8, r0
 	mov	r7, r1
@@ -5609,8 +5609,8 @@ _06004D10:
 _06004D20:	.word	_0601A960
 _06004D24:	.word	0x0000F001
 
-	arm_func_start FUN_06004D28
-FUN_06004D28: ; 0x06004D28
+	arm_func_start WMSP_DisconnectCore
+WMSP_DisconnectCore: ; 0x06004D28
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #580	; 0x244
 	movs	sl, r1
@@ -5673,8 +5673,8 @@ _06004DF4:
 	mov	r0, #0
 	str	r0, [r5, #12]
 	mov	r7, #1
-	bl	FUN_06006978
-	bl	FUN_06000288
+	bl	WMSP_CancelVAlarm
+	bl	WMSP_SetThreadPriorityLow
 	ldrh	r0, [r5]
 	cmp	r0, #10
 	moveq	r0, #8
@@ -5727,7 +5727,7 @@ _06004EC0:
 	add	r0, sp, #68	; 0x44
 	mov	r1, r6
 	mov	r2, r4
-	bl	FUN_06002C68
+	bl	WMSP_WL_MlmeDeAuthenticate
 	ldrh	r1, [r0, #4]
 	cmp	r1, #7
 	bgt	_06004F08
@@ -5765,7 +5765,7 @@ _06004F44:
 	cmp	r7, #0
 	beq	_06004F54
 	mov	r0, #1
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 _06004F54:
 	mov	r0, #0
 	b	_06005310
@@ -5780,7 +5780,7 @@ _06004F64:
 	strh	r0, [r5]
 	add	r0, sp, #68	; 0x44
 	mov	r1, r8
-	bl	FUN_06002F14
+	bl	WMSP_WL_MlmeReset
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06004FD4
@@ -5800,13 +5800,13 @@ _06004FBC:
 	cmp	r7, #0
 	beq	_06004FCC
 	mov	r0, #1
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 _06004FCC:
 	mov	r0, #0
 	b	_06005310
 _06004FD4:
 	add	r0, sp, #68	; 0x44
-	bl	FUN_06002380
+	bl	WMSP_WL_DevIdle
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_0600502C
@@ -5826,7 +5826,7 @@ _06005014:
 	cmp	r7, #0
 	beq	_06005024
 	mov	r0, #1
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 _06005024:
 	mov	r0, #0
 	b	_06005310
@@ -5840,7 +5840,7 @@ _0600502C:
 	add	r0, r5, #412	; 0x19c
 	mov	r2, #80	; 0x50
 	bl	FUN_06000D08
-	bl	FUN_06000100
+	bl	WMSP_ResetSizeVars
 	cmp	sl, #1
 	bne	_060050BC
 	bl	FUN_060001E8
@@ -5871,12 +5871,12 @@ _060050BC:
 	mov	r0, #0
 	mov	r1, r0
 	add	r2, sp, #56	; 0x38
-	bl	FUN_06004C5C
+	bl	WMSP_IndicateDisconnectionFromMyself
 _060050CC:
 	cmp	r7, #0
 	beq	_06005300
 	mov	r0, #1
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 	b	_06005300
 _060050E0:
 	mov	r6, #1
@@ -5919,7 +5919,7 @@ _0600516C:
 	add	r0, sp, #68	; 0x44
 	add	r1, sp, #62	; 0x3e
 	ldr	r2, [sp, #28]
-	bl	FUN_06002C68
+	bl	WMSP_WL_MlmeDeAuthenticate
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060051F8
@@ -5949,7 +5949,7 @@ _060051D4:
 	cmp	r7, #0
 	beq	_060051E4
 	mov	r0, #1
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 _060051E4:
 	mov	r0, #0
 	b	_06005310
@@ -6014,13 +6014,13 @@ _060052C4:
 	mov	r1, r6, lsl #16
 	mov	r1, r1, lsr #16
 	add	r2, sp, #62	; 0x3e
-	bl	FUN_06004C5C
+	bl	WMSP_IndicateDisconnectionFromMyself
 _060052D8:
 	cmp	r7, #0
 	beq	_060052F4
 	mov	r0, r4, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 	b	_060052F4
 _060052F0:
 	bl	FUN_060001AC
@@ -6042,8 +6042,8 @@ _0600531C:	.word	_0601A960
 _06005320:	.word	0x0000018A
 _06005324:	.word	0x00000302
 
-	arm_func_start FUN_06005328
-FUN_06005328: ; 0x06005328
+	arm_func_start WMSP_Disconnect
+WMSP_Disconnect: ; 0x06005328
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	ldr	r1, [r0, #4]
@@ -6051,7 +6051,7 @@ FUN_06005328: ; 0x06005328
 	mov	r4, r1, lsr #16
 	mov	r1, #0
 	add	r2, sp, #0
-	bl	FUN_06004D28
+	bl	WMSP_DisconnectCore
 	cmp	r0, #1
 	bne	_06005374
 	bl	FUN_060001E8
@@ -6068,11 +6068,11 @@ _06005374:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_06005380
-FUN_06005380: ; 0x06005380
+	arm_func_start WMSP_StartMP
+WMSP_StartMP: ; 0x06005380
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	sub	sp, sp, #512	; 0x200
-	ldr	r1, _06005630	; =_06019960
+	ldr	r1, _06005630	; =wmspW
 	ldr	r2, _06005634	; =_0601A960
 	ldr	r4, [r2, #1360]	; 0x550
 	mov	sl, #0
@@ -6139,12 +6139,12 @@ _06005464:
 	cmp	r1, #0
 	beq	_06005488
 	ldr	r0, _06005638	; =0x0000FFFF
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 _06005488:
-	bl	FUN_06007F20
+	bl	WMSP_InitSendQueue
 	mov	r0, r5
 	mov	r1, #0
-	bl	FUN_060086D0
+	bl	WMSP_SetMPParameterCore
 	bl	FUN_060001A4
 	mov	r5, r0
 	ldrh	r2, [r4]
@@ -6194,10 +6194,10 @@ _06005540:
 	add	r2, r2, #1
 	cmp	r2, #16
 	blt	_06005540
-	bl	FUN_06000210
+	bl	WMSP_SetThreadPriorityHigh
 	mov	r0, #0
 	strh	r0, [r4, #206]	; 0xce
-	bl	FUN_060068E0
+	bl	WMSP_SetVAlarm
 	ldrh	r0, [r4]
 	cmp	r0, #8
 	moveq	r0, #10
@@ -6221,7 +6221,7 @@ _06005588:
 	bl	FUN_060001AC
 	add	r0, sp, #0
 	mov	r1, #1
-	bl	FUN_060024E4
+	bl	WMSP_WL_ParamSetNullKeyResponseMode
 	mov	r4, r0
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
@@ -6251,14 +6251,14 @@ _06005624:
 	add	sp, sp, #512	; 0x200
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	bx	lr
-_06005630:	.word	_06019960
+_06005630:	.word	wmspW
 _06005634:	.word	_0601A960
 _06005638:	.word	0x0000FFFF
 _0600563C:	.word	0x0000FFF9
 _06005640:	.word	0x00000216
 
-	arm_func_start FUN_06005644
-FUN_06005644: ; 0x06005644
+	arm_func_start WMSP_SetMPData
+WMSP_SetMPData: ; 0x06005644
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #20
 	ldr	r1, _06005784	; =_0601A960
@@ -6296,7 +6296,7 @@ FUN_06005644: ; 0x06005644
 	mov	r0, r5
 	ldr	r2, [sp, #16]
 	mov	r3, r8
-	bl	FUN_060074AC
+	bl	WMSP_PutSendQueue
 	mov	r6, r0
 _060056E0:
 	cmp	r6, #2
@@ -6362,8 +6362,8 @@ FUN_0600578C: ; 0x0600578C
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_060057C8
-FUN_060057C8: ; 0x060057C8
+	arm_func_start WMSP_EndMP
+WMSP_EndMP: ; 0x060057C8
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #512	; 0x200
 	ldr	r0, _060058DC	; =_0601A960
@@ -6389,8 +6389,8 @@ _0600580C:
 	moveq	r6, #1
 	mov	r0, #0
 	str	r0, [r4, #12]
-	bl	FUN_06006978
-	bl	FUN_06000288
+	bl	WMSP_CancelVAlarm
+	bl	WMSP_SetThreadPriorityLow
 	ldrh	r0, [r4]
 	cmp	r0, #10
 	moveq	r0, #8
@@ -6404,7 +6404,7 @@ _06005850:
 	bl	FUN_060001AC
 	add	r0, sp, #0
 	mov	r1, #0
-	bl	FUN_060024E4
+	bl	WMSP_WL_ParamSetNullKeyResponseMode
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_0600587C
@@ -6414,7 +6414,7 @@ _06005850:
 _0600587C:
 	add	r0, sp, #0
 	mov	r1, #7
-	bl	FUN_0600286C
+	bl	WMSP_WL_MaClearData
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060058A0
@@ -6427,7 +6427,7 @@ _060058A0:
 	cmp	r6, #0
 	beq	_060058B8
 	ldr	r0, _060058E4	; =0x0000FFFF
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 _060058B8:
 	bl	FUN_060001E8
 	mov	r1, #16
@@ -6443,8 +6443,8 @@ _060058DC:	.word	_0601A960
 _060058E0:	.word	0x00000216
 _060058E4:	.word	0x0000FFFF
 
-	arm_func_start FUN_060058E8
-FUN_060058E8: ; 0x060058E8
+	arm_func_start WMSP_StartDCF
+WMSP_StartDCF: ; 0x060058E8
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	ldr	r1, _06005970	; =_0601A960
 	ldr	r5, [r1, #1360]	; 0x550
@@ -6481,8 +6481,8 @@ FUN_060058E8: ; 0x060058E8
 	bx	lr
 _06005970:	.word	_0601A960
 
-	arm_func_start FUN_06005974
-FUN_06005974: ; 0x06005974
+	arm_func_start WMSP_SetDCFData
+WMSP_SetDCFData: ; 0x06005974
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #564	; 0x234
 	mov	r5, r0
@@ -6524,7 +6524,7 @@ FUN_06005974: ; 0x06005974
 	str	r0, [sp, #44]	; 0x2c
 	add	r0, sp, #48	; 0x30
 	add	r1, sp, #0
-	bl	FUN_060029D0
+	bl	WMSP_WL_MaData
 	mov	r4, r0
 	bl	FUN_060001E8
 	mov	r1, #18
@@ -6564,8 +6564,8 @@ FUN_06005A6C: ; 0x06005A6C
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06005AA8
-FUN_06005AA8: ; 0x06005AA8
+	arm_func_start WMSP_EndDCF
+WMSP_EndDCF: ; 0x06005AA8
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #512	; 0x200
 	ldr	r0, _06005B44	; =_0601A960
@@ -6590,7 +6590,7 @@ _06005AE8:
 	bl	FUN_060001AC
 	add	r0, sp, #0
 	mov	r1, #7
-	bl	FUN_0600286C
+	bl	WMSP_WL_MaClearData
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06005B20
@@ -6628,8 +6628,8 @@ FUN_06005B48: ; 0x06005B48
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06005B84
-FUN_06005B84: ; 0x06005B84
+	arm_func_start WMSP_SetWEPKeyEx
+WMSP_SetWEPKeyEx: ; 0x06005B84
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r5, r0
@@ -6676,7 +6676,7 @@ _06005C14:
 	strh	r0, [r4, #196]	; 0xc4
 	add	r0, sp, #0
 	ldrh	r1, [r4, #196]	; 0xc4
-	bl	FUN_060027B0
+	bl	WMSP_WL_ParamSetWepKeyId
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06005C3C
@@ -6695,8 +6695,8 @@ _06005C3C:
 _06005C60:	.word	_0601A960
 _06005C64:	.word	0x00000207
 
-	arm_func_start FUN_06005C68
-FUN_06005C68: ; 0x06005C68
+	arm_func_start WMSP_SetWEPKey
+WMSP_SetWEPKey: ; 0x06005C68
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _06005D18	; =_0601A960
@@ -6749,8 +6749,8 @@ _06005CF4:
 	bx	lr
 _06005D18:	.word	_0601A960
 
-	arm_func_start FUN_06005D1C
-FUN_06005D1C: ; 0x06005D1C
+	arm_func_start WMSP_SetGameInfo
+WMSP_SetGameInfo: ; 0x06005D1C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #640	; 0x280
 	ldr	r1, _06005E08	; =_0601A960
@@ -6783,14 +6783,14 @@ FUN_06005D1C: ; 0x06005D1C
 	strh	r0, [r4, #254]	; 0xfe
 	add	r0, sp, #512	; 0x200
 	add	r1, r4, #232	; 0xe8
-	bl	FUN_06000564
+	bl	WMSP_CopyParentParam
 	add	r0, sp, #0
 	ldrh	r1, [r4, #236]	; 0xec
 	add	r1, r1, #16
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
 	add	r2, sp, #512	; 0x200
-	bl	FUN_060023F4
+	bl	WMSP_WL_ParamSetGameInfo
 	mov	r4, r0
 	bl	FUN_060001E8
 	mov	r1, #24
@@ -6831,8 +6831,8 @@ FUN_06005E10: ; 0x06005E10
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06005E4C
-FUN_06005E4C: ; 0x06005E4C
+	arm_func_start WMSP_SetBeaconTxRxInd
+WMSP_SetBeaconTxRxInd: ; 0x06005E4C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r1, r0
@@ -6840,7 +6840,7 @@ FUN_06005E4C: ; 0x06005E4C
 	ldr	r1, [r1, #4]
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUN_06002544
+	bl	WMSP_WL_ParamSetBeaconSendRecvInd
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06005E84
@@ -6860,8 +6860,8 @@ _06005E9C:
 	bx	lr
 _06005EA8:	.word	0x00000215
 
-	arm_func_start FUN_06005EAC
-FUN_06005EAC: ; 0x06005EAC
+	arm_func_start WMSP_StartTestMode
+WMSP_StartTestMode: ; 0x06005EAC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	bl	FUN_060001E8
@@ -6874,8 +6874,8 @@ FUN_06005EAC: ; 0x06005EAC
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_06005ED8
-FUN_06005ED8: ; 0x06005ED8
+	arm_func_start WMSP_StopTestMode
+WMSP_StopTestMode: ; 0x06005ED8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	bl	FUN_060001E8
@@ -6906,8 +6906,8 @@ FUN_06005F04: ; 0x06005F04
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06005F40
-FUN_06005F40: ; 0x06005F40
+	arm_func_start WMSP_SetLifeTime
+WMSP_SetLifeTime: ; 0x06005F40
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r3, r0
@@ -6926,7 +6926,7 @@ FUN_06005F40: ; 0x06005F40
 	ldr	r3, [r3, #12]
 	mov	r3, r3, lsl #16
 	mov	r3, r3, lsr #16
-	bl	FUN_06002604
+	bl	WMSP_WL_ParamSetLifeTime
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06005FA4
@@ -7005,8 +7005,8 @@ FUN_06006060: ; 0x06006060
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_0600609C
-FUN_0600609C: ; 0x0600609C
+	arm_func_start WMSP_MeasureChannel
+WMSP_MeasureChannel: ; 0x0600609C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #532	; 0x214
 	mov	r8, r0
@@ -7025,7 +7025,7 @@ FUN_0600609C: ; 0x0600609C
 	b	_06006238
 _060060DC:
 	mov	r0, r7
-	bl	FUN_060022F8
+	bl	WMSP_WL_DevGetStationState
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060060FC
@@ -7040,11 +7040,11 @@ _060060FC:
 	bne	_06006180
 	mov	r0, #10
 	mov	r1, r7
-	bl	FUN_06000408
+	bl	WMSP_SetAllParams
 	cmp	r0, #0
 	beq	_06006238
 	mov	r0, r7
-	bl	FUN_06002368
+	bl	WMSP_WL_DevClass1
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06006144
@@ -7058,7 +7058,7 @@ _06006144:
 	mov	r1, #1
 	mov	r2, #0
 	mov	r3, r1
-	bl	FUN_06002EB0
+	bl	WMSP_WL_MlmePowerManagement
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06006178
@@ -7084,7 +7084,7 @@ _06006180:
 	mov	r1, r6
 	mov	r2, r5
 	mov	r3, r8
-	bl	FUN_06002A88
+	bl	WMSP_WL_MlmeMeasureChannel
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060061D8
@@ -7099,7 +7099,7 @@ _060061D8:
 	mov	r0, r1, lsl #8
 	mov	r6, r0, lsr #16
 	mov	r0, r7
-	bl	FUN_06002380
+	bl	WMSP_WL_DevIdle
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06006210
@@ -7143,12 +7143,12 @@ FUN_06006250: ; 0x06006250
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_0600628C
-FUN_0600628C: ; 0x0600628C
+	arm_func_start WMSP_InitWirelessCounter
+WMSP_InitWirelessCounter: ; 0x0600628C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #516	; 0x204
 	add	r0, sp, #0
-	bl	FUN_0600233C
+	bl	WMSP_WL_DevSetInitializeWirelessCounter
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060062B4
@@ -7186,12 +7186,12 @@ FUN_060062DC: ; 0x060062DC
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06006318
-FUN_06006318: ; 0x06006318
+	arm_func_start WMSP_GetWirelessCounter
+WMSP_GetWirelessCounter: ; 0x06006318
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	add	r0, sp, #0
-	bl	FUN_0600230C
+	bl	WMSP_WL_DevGetWirelessCounter
 	mov	r5, r0
 	ldrh	r1, [r5, #4]
 	cmp	r1, #0
@@ -7222,7 +7222,7 @@ _06006380:	.word	0x00000307
 FUN_06006384: ; 0x06006384
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
-	ldr	r5, _06006434	; =_06019960
+	ldr	r5, _06006434	; =wmspW
 	ldr	r0, _06006438	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
 	bl	FUN_060001A4
@@ -7235,7 +7235,7 @@ _060063B0:
 	mov	r1, #1
 	strh	r1, [r4, #206]	; 0xce
 	bl	FUN_060001AC
-	bl	FUN_06000134
+	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_060063E0
@@ -7267,7 +7267,7 @@ _06006428:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
-_06006434:	.word	_06019960
+_06006434:	.word	wmspW
 _06006438:	.word	_0601A960
 
 	arm_func_start FUN_0600643C
@@ -7362,7 +7362,7 @@ FUN_060064EC: ; 0x060064EC
 	bls	_060065D8
 	str	r2, [r4, #1848]	; 0x738
 	str	r2, [r4, #1852]	; 0x73c
-	bl	FUN_06000134
+	bl	WMSP_GetInternalRequestBuf
 	movs	r1, r0
 	moveq	r0, #0
 	beq	_060065A4
@@ -7617,11 +7617,11 @@ _060068D4:	.word	0x00000107
 
 	arm_func_start FUN_060068D8
 FUN_060068D8: ; 0x060068D8
-	ldr	pc, _060068DC	; =FUN_037FAE20
-_060068DC:	.word	FUN_037FAE20
+	ldr	pc, _060068DC	; =OS_SetVAlarm
+_060068DC:	.word	OS_SetVAlarm
 
-	arm_func_start FUN_060068E0
-FUN_060068E0: ; 0x060068E0
+	arm_func_start WMSP_SetVAlarm
+WMSP_SetVAlarm: ; 0x060068E0
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06006960	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
@@ -7665,27 +7665,27 @@ _0600696C:	.word	FUN_06006634
 
 	arm_func_start FUN_06006970
 FUN_06006970: ; 0x06006970
-	ldr	pc, _06006974	; =FUN_037FACAC
-_06006974:	.word	FUN_037FACAC
+	ldr	pc, _06006974	; =OS_CancelVAlarm
+_06006974:	.word	OS_CancelVAlarm
 
-	arm_func_start FUN_06006978
-FUN_06006978: ; 0x06006978
+	arm_func_start WMSP_CancelVAlarm
+WMSP_CancelVAlarm: ; 0x06006978
 	ldr	r0, _06006984	; =_0380B904
-	ldr	ip, _06006988	; =FUN_037FACAC
+	ldr	ip, _06006988	; =OS_CancelVAlarm
 	bx	ip
 _06006984:	.word	_0380B904
-_06006988:	.word	FUN_037FACAC
+_06006988:	.word	OS_CancelVAlarm
 
-	arm_func_start FUN_0600698C
-FUN_0600698C: ; 0x0600698C
+	arm_func_start WMSP_InitVAlarm
+WMSP_InitVAlarm: ; 0x0600698C
 	ldr	r0, _06006998	; =_0380B904
-	ldr	ip, _0600699C	; =FUN_037FAEB8
+	ldr	ip, _0600699C	; =OS_CreateVAlarm
 	bx	ip
 _06006998:	.word	_0380B904
-_0600699C:	.word	FUN_037FAEB8
+_0600699C:	.word	OS_CreateVAlarm
 
-	arm_func_start FUN_060069A0
-FUN_060069A0: ; 0x060069A0
+	arm_func_start WMSP_KickNextMP_Resume
+WMSP_KickNextMP_Resume: ; 0x060069A0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _060069D8	; =_0601A960
@@ -7696,15 +7696,15 @@ FUN_060069A0: ; 0x060069A0
 	ldr	r0, [r0, #4]
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_06007B44
+	bl	WMSP_ResumeMaMP
 _060069CC:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060069D8:	.word	_0601A960
 
-	arm_func_start FUN_060069DC
-FUN_060069DC: ; 0x060069DC
+	arm_func_start WMSP_KickNextMP_Child
+WMSP_KickNextMP_Child: ; 0x060069DC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006A08	; =_0601A960
@@ -7712,15 +7712,15 @@ FUN_060069DC: ; 0x060069DC
 	ldrh	r0, [r0]
 	cmp	r0, #10
 	bne	_060069FC
-	bl	FUN_06007E50
+	bl	WMSP_SendMaKeyData
 _060069FC:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06006A08:	.word	_0601A960
 
-	arm_func_start FUN_06006A0C
-FUN_06006A0C: ; 0x06006A0C
+	arm_func_start WMSP_KickNextMP_Parent
+WMSP_KickNextMP_Parent: ; 0x06006A0C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _06006A44	; =_0601A960
@@ -7731,15 +7731,15 @@ FUN_06006A0C: ; 0x06006A0C
 	ldr	r0, [r0, #4]
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_06007C50
+	bl	WMSP_SendMaMP
 _06006A38:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06006A44:	.word	_0601A960
 
-	arm_func_start FUN_06006A48
-FUN_06006A48: ; 0x06006A48
+	arm_func_start WMSP_VAlarmSetMPData
+WMSP_VAlarmSetMPData: ; 0x06006A48
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06006BE8	; =_0601A960
@@ -7761,8 +7761,8 @@ FUN_06006A48: ; 0x06006A48
 	streqh	r0, [r4, #190]	; 0xbe
 	ldrh	r0, [r4, #190]	; 0xbe
 	and	r0, r0, #255	; 0xff
-	bl	FUN_060003C4
-	bl	FUN_06000350
+	bl	WMSP_AddRssiToList
+	bl	WMSP_GetAverageLinkLevel
 	strh	r0, [r4, #188]	; 0xbc
 	ldr	r0, _06006BEC	; =0x0000FFFF
 	strh	r0, [r4, #190]	; 0xbe
@@ -7819,7 +7819,7 @@ _06006B60:
 	cmp	r5, #0
 	beq	_06006B74
 	ldr	r0, _06006BEC	; =0x0000FFFF
-	bl	FUN_06007C50
+	bl	WMSP_SendMaMP
 _06006B74:
 	ldrh	r0, [r4, #146]	; 0x92
 	cmp	r0, #1
@@ -7847,7 +7847,7 @@ _06006BA8:
 	bl	FUN_060001AC
 	cmp	r5, #1
 	bne	_06006BDC
-	bl	FUN_06007E50
+	bl	WMSP_SendMaKeyData
 _06006BDC:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -7907,11 +7907,11 @@ _06006CA0:	.word	0x66666667
 
 	arm_func_start FUN_06006CA4
 FUN_06006CA4: ; 0x06006CA4
-	ldr	pc, _06006CA8	; =FUN_03806B34
-_06006CA8:	.word	FUN_03806B34
+	ldr	pc, _06006CA8	; =MATH_CountPopulation
+_06006CA8:	.word	MATH_CountPopulation
 
-	arm_func_start FUN_06006CAC
-FUN_06006CAC: ; 0x06006CAC
+	arm_func_start WMSP_ParsePortPacket
+WMSP_ParsePortPacket: ; 0x06006CAC
 	stmdb	sp!, {r0, r1, r2, r3}
 
 	arm_func_start FUN_06006CB0
@@ -8087,8 +8087,8 @@ _06006F28:
 _06006F40:	.word	_0601A960
 _06006F44:	.word	0x0000FFFF
 
-	arm_func_start FUN_06006F48
-FUN_06006F48: ; 0x06006F48
+	arm_func_start WMSP_CleanSendQueue
+WMSP_CleanSendQueue: ; 0x06006F48
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #36	; 0x24
 	ldr	r1, _06007148	; =_0601A960
@@ -8229,16 +8229,16 @@ _06007154:	.word	0x0000FFFF
 
 	arm_func_start FUN_06007158
 FUN_06007158: ; 0x06007158
-	ldr	pc, _0600715C	; =FUN_037F9ADC
-_0600715C:	.word	FUN_037F9ADC
+	ldr	pc, _0600715C	; =OS_LockMutex
+_0600715C:	.word	OS_LockMutex
 
 	arm_func_start FUN_06007160
 FUN_06007160: ; 0x06007160
-	ldr	pc, _06007164	; =FUN_037F9A6C
-_06007164:	.word	FUN_037F9A6C
+	ldr	pc, _06007164	; =OS_UnlockMutex
+_06007164:	.word	OS_UnlockMutex
 
-	arm_func_start FUN_06007168
-FUN_06007168: ; 0x06007168
+	arm_func_start WMSP_FlushSendQueue
+WMSP_FlushSendQueue: ; 0x06007168
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #44	; 0x2c
 	str	r0, [sp]
@@ -8460,8 +8460,8 @@ _060074A0:	.word	0x0000071C
 _060074A4:	.word	0x000006FC
 _060074A8:	.word	0x0000FFFF
 
-	arm_func_start FUN_060074AC
-FUN_060074AC: ; 0x060074AC
+	arm_func_start WMSP_PutSendQueue
+WMSP_PutSendQueue: ; 0x060074AC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r8, r0
@@ -8906,8 +8906,8 @@ _06007B38:	.word	0x000006FC
 _06007B3C:	.word	0x0000FFFF
 _06007B40:	.word	0x00007FFF
 
-	arm_func_start FUN_06007B44
-FUN_06007B44: ; 0x06007B44
+	arm_func_start WMSP_ResumeMaMP
+WMSP_ResumeMaMP: ; 0x06007B44
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #536	; 0x218
 	mov	r7, r0
@@ -8933,7 +8933,7 @@ FUN_06007B44: ; 0x06007B44
 	bge	_06007BB8
 	mov	r0, #2
 	bl	FUN_06007C48
-	bl	FUN_06001964
+	bl	WMSP_RequestResumeMP
 	add	sp, sp, #536	; 0x218
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
@@ -8970,7 +8970,7 @@ _06007BF4:
 	add	r0, sp, #24
 	ldr	r1, _06007C44	; =0x0000800C
 	mov	r3, r2
-	bl	FUN_060028C8
+	bl	WMSP_WL_MaMp
 	add	sp, sp, #536	; 0x218
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
@@ -8980,11 +8980,11 @@ _06007C44:	.word	0x0000800C
 
 	arm_func_start FUN_06007C48
 FUN_06007C48: ; 0x06007C48
-	ldr	pc, _06007C4C	; =FUN_037F8E14
-_06007C4C:	.word	FUN_037F8E14
+	ldr	pc, _06007C4C	; =OS_Sleep
+_06007C4C:	.word	OS_Sleep
 
-	arm_func_start FUN_06007C50
-FUN_06007C50: ; 0x06007C50
+	arm_func_start WMSP_SendMaMP
+WMSP_SendMaMP: ; 0x06007C50
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #552	; 0x228
 	mov	r8, r0
@@ -9038,7 +9038,7 @@ FUN_06007C50: ; 0x06007C50
 	mov	r0, #0
 	mov	r1, r8, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUN_06007168
+	bl	WMSP_FlushSendQueue
 	mov	r0, #0
 	strh	r0, [r4, #98]	; 0x62
 	strh	r0, [r4, #100]	; 0x64
@@ -9104,7 +9104,7 @@ _06007DC8:
 	mov	r2, r1
 	mov	r3, r6, lsl #16
 	mov	r3, r3, lsr #16
-	bl	FUN_060028C8
+	bl	WMSP_WL_MaMp
 	strh	r8, [r4, #104]	; 0x68
 	ldrh	r0, [sp, #24]
 	strh	r0, [r4, #106]	; 0x6a
@@ -9119,8 +9119,8 @@ _06007E44:	.word	0x0000FFFF
 _06007E48:	.word	0x000080D6
 _06007E4C:	.word	0x048080F8
 
-	arm_func_start FUN_06007E50
-FUN_06007E50: ; 0x06007E50
+	arm_func_start WMSP_SendMaKeyData
+WMSP_SendMaKeyData: ; 0x06007E50
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #536	; 0x218
 	ldr	r0, _06007F1C	; =_0601A960
@@ -9160,7 +9160,7 @@ FUN_06007E50: ; 0x06007E50
 	mov	r1, r1, lsr #16
 	ldrh	r2, [sp, #8]
 	ldr	r3, [r4, #124]	; 0x7c
-	bl	FUN_06002964
+	bl	WMSP_WL_MaKeyData
 	ldrh	r0, [r0, #4]
 	cmp	r0, #0
 	addeq	sp, sp, #536	; 0x218
@@ -9174,8 +9174,8 @@ FUN_06007E50: ; 0x06007E50
 	bx	lr
 _06007F1C:	.word	_0601A960
 
-	arm_func_start FUN_06007F20
-FUN_06007F20: ; 0x06007F20
+	arm_func_start WMSP_InitSendQueue
+WMSP_InitSendQueue: ; 0x06007F20
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06007FD4	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
@@ -9227,8 +9227,8 @@ _06007FD4:	.word	_0601A960
 _06007FD8:	.word	0x0000071C
 _06007FDC:	.word	0x0000FFFF
 
-	arm_func_start FUN_06007FE0
-FUN_06007FE0: ; 0x06007FE0
+	arm_func_start WMSP_SetEntry
+WMSP_SetEntry: ; 0x06007FE0
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #640	; 0x280
 	ldr	r1, _0600806C	; =_0601A960
@@ -9237,14 +9237,14 @@ FUN_06007FE0: ; 0x06007FE0
 	strh	r0, [r4, #246]	; 0xf6
 	add	r0, sp, #512	; 0x200
 	add	r1, r4, #232	; 0xe8
-	bl	FUN_06000564
+	bl	WMSP_CopyParentParam
 	add	r0, sp, #0
 	ldrh	r1, [r4, #236]	; 0xec
 	add	r1, r1, #16
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
 	add	r2, sp, #512	; 0x200
-	bl	FUN_060023F4
+	bl	WMSP_WL_ParamSetGameInfo
 	mov	r4, r0
 	bl	FUN_060001E8
 	mov	r1, #33	; 0x21
@@ -9268,8 +9268,8 @@ _0600805C:
 _0600806C:	.word	_0601A960
 _06008070:	.word	0x00000245
 
-	arm_func_start FUN_06008074
-FUN_06008074: ; 0x06008074
+	arm_func_start WMSP_AutoDeAuth
+WMSP_AutoDeAuth: ; 0x06008074
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #520	; 0x208
 	add	r0, r0, #4
@@ -9285,7 +9285,7 @@ _060080A0:
 	mov	r0, r7
 	mov	r1, r6
 	mov	r2, r5
-	bl	FUN_06002C68
+	bl	WMSP_WL_MlmeDeAuthenticate
 	mov	r4, r0
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
@@ -9320,8 +9320,8 @@ _06008114:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 
-	arm_func_start FUN_06008124
-FUN_06008124: ; 0x06008124
+	arm_func_start WMSPi_CommonInit
+WMSPi_CommonInit: ; 0x06008124
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06008270	; =_0601A960
@@ -9336,8 +9336,8 @@ FUN_06008124: ; 0x06008124
 	mov	r0, r6
 	str	r0, [r4, #12]
 	mov	r6, #1
-	bl	FUN_06006978
-	bl	FUN_06000288
+	bl	WMSP_CancelVAlarm
+	bl	WMSP_SetThreadPriorityLow
 _06008164:
 	mov	r1, #0
 	add	r0, r4, #256	; 0x100
@@ -9363,7 +9363,7 @@ _06008164:
 	add	r0, r4, #412	; 0x19c
 	mov	r2, #80	; 0x50
 	bl	FUN_06000D08
-	bl	FUN_06000100
+	bl	WMSP_ResetSizeVars
 	mov	r0, #260	; 0x104
 	strh	r0, [r4, #64]	; 0x40
 	mov	r0, #240	; 0xf0
@@ -9386,7 +9386,7 @@ _06008164:
 	cmp	r6, #0
 	beq	_06008224
 	ldr	r0, _06008278	; =0x0000FFFF
-	bl	FUN_06006F48
+	bl	WMSP_CleanSendQueue
 _06008224:
 	mov	r2, #0
 	mov	r1, #32768	; 0x8000
@@ -9400,11 +9400,11 @@ _0600822C:
 	add	r1, r4, #504	; 0x1f8
 	mov	r2, #256	; 0x100
 	bl	FUN_0600055C
-	bl	FUN_060009D8
+	bl	WMSP_InitAlarm
 	ldr	r0, _0600827C	; =0x0000071C
 	add	r0, r4, r0
 	bl	FUN_0600096C
-	bl	FUN_0600698C
+	bl	WMSP_InitVAlarm
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
@@ -9413,8 +9413,8 @@ _06008274:	.word	0x0000020B
 _06008278:	.word	0x0000FFFF
 _0600827C:	.word	0x0000071C
 
-	arm_func_start FUN_06008280
-FUN_06008280: ; 0x06008280
+	arm_func_start WMSP_Enable
+WMSP_Enable: ; 0x06008280
 	stmdb	sp!, {r4, lr}
 	ldr	r4, [r0, #4]
 	ldr	r1, _060082DC	; =_0601A960
@@ -9424,7 +9424,7 @@ FUN_06008280: ; 0x06008280
 	str	r2, [r4]
 	ldr	r0, [r0, #12]
 	str	r0, [r4, #8]
-	bl	FUN_06008124
+	bl	WMSPi_CommonInit
 	mov	r0, #15
 	bl	FUN_0600301C
 	mov	r1, #1
@@ -9440,8 +9440,8 @@ FUN_06008280: ; 0x06008280
 	bx	lr
 _060082DC:	.word	_0601A960
 
-	arm_func_start FUN_060082E0
-FUN_060082E0: ; 0x060082E0
+	arm_func_start WMSP_Disable
+WMSP_Disable: ; 0x060082E0
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06008344	; =_0601A960
 	ldr	r4, [r0, #1360]	; 0x550
@@ -9488,8 +9488,8 @@ _06008374:	.word	0x04808128
 _06008378:	.word	0x00000202
 _0600837C:	.word	0x04808150
 
-	arm_func_start FUN_06008380
-FUN_06008380: ; 0x06008380
+	arm_func_start WMSPi_CommonWlIdle
+WMSPi_CommonWlIdle: ; 0x06008380
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r7, r0
@@ -9497,7 +9497,7 @@ FUN_06008380: ; 0x06008380
 	ldr	r0, _06008550	; =_0601A960
 	ldr	r5, [r0, #1360]	; 0x550
 	add	r0, sp, #0
-	bl	FUN_06002354
+	bl	WMSP_WL_DevRestart
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060083C4
@@ -9509,7 +9509,7 @@ FUN_06008380: ; 0x06008380
 	b	_06008544
 _060083C4:
 	add	r0, sp, #0
-	bl	FUN_06002380
+	bl	WMSP_WL_DevIdle
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_060083F0
@@ -9522,7 +9522,7 @@ _060083C4:
 _060083F0:
 	bl	FUN_06008348
 	add	r0, sp, #0
-	bl	FUN_060023C4
+	bl	WMSP_WL_ParamGetEnableChannel
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008420
@@ -9545,7 +9545,7 @@ _06008420:
 	ldr	r1, _0600855C	; =0x0000FFFF
 	mov	r2, #40	; 0x28
 	mov	r3, #5
-	bl	FUN_06002604
+	bl	WMSP_WL_ParamSetLifeTime
 	ldr	r1, _06008560	; =0x001FF621
 	mov	r0, #0
 	str	r1, [r5, #1976]	; 0x7b8
@@ -9556,7 +9556,7 @@ _06008420:
 	mov	r1, #1
 	strh	r1, [r0, #238]	; 0xee
 	add	r0, sp, #0
-	bl	FUN_06002324
+	bl	WMSP_WL_DevGetVersion
 	mov	r4, r0
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
@@ -9581,7 +9581,7 @@ _060084A8:
 	ldrh	r0, [r4, #20]
 	strh	r0, [r5, #42]	; 0x2a
 	add	r0, sp, #0
-	bl	FUN_060023DC
+	bl	WMSP_WL_ParamGetMacAddress
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008504
@@ -9598,7 +9598,7 @@ _06008504:
 	bl	FUN_06000554
 	add	r0, sp, #0
 	mov	r1, #1
-	bl	FUN_06002544
+	bl	WMSP_WL_ParamSetBeaconSendRecvInd
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	moveq	r0, #1
@@ -9623,11 +9623,11 @@ _0600856C:	.word	0x00000215
 
 	arm_func_start FUN_06008570
 FUN_06008570: ; 0x06008570
-	ldr	pc, _06008574	; =FUN_03807408
-_06008574:	.word	FUN_03807408
+	ldr	pc, _06008574	; =WMSP_GetAllowedChannel
+_06008574:	.word	WMSP_GetAllowedChannel
 
-	arm_func_start FUN_06008578
-FUN_06008578: ; 0x06008578
+	arm_func_start WMSP_PowerOn
+WMSP_PowerOn: ; 0x06008578
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	ldr	r0, _0600861C	; =_0601A960
@@ -9645,7 +9645,7 @@ FUN_06008578: ; 0x06008578
 _060085B0:
 	add	r0, sp, #0
 	add	r1, sp, #2
-	bl	FUN_06008380
+	bl	WMSPi_CommonWlIdle
 	cmp	r0, #0
 	bne	_060085F0
 	bl	FUN_060001E8
@@ -9674,8 +9674,8 @@ _06008610:
 	bx	lr
 _0600861C:	.word	_0601A960
 
-	arm_func_start FUN_06008620
-FUN_06008620: ; 0x06008620
+	arm_func_start WMSP_PowerOff
+WMSP_PowerOff: ; 0x06008620
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #516	; 0x204
 	ldr	r0, _060086C8	; =_0601A960
@@ -9692,7 +9692,7 @@ FUN_06008620: ; 0x06008620
 	b	_060086BC
 _06008658:
 	add	r0, sp, #0
-	bl	FUN_06002398
+	bl	WMSP_WL_DevShutdown
 	mov	r4, r0
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
@@ -9724,8 +9724,8 @@ _060086BC:
 _060086C8:	.word	_0601A960
 _060086CC:	.word	0x00000301
 
-	arm_func_start FUN_060086D0
-FUN_060086D0: ; 0x060086D0
+	arm_func_start WMSP_SetMPParameterCore
+WMSP_SetMPParameterCore: ; 0x060086D0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r9, r0
@@ -9818,7 +9818,7 @@ _06008800:
 	cmp	r2, r1
 	movhi	r6, #6
 	bhi	_06008830
-	bl	FUN_06000030
+	bl	WMSP_SetParentSize
 _06008830:
 	ands	r0, r5, #16
 	beq	_06008860
@@ -9831,7 +9831,7 @@ _06008830:
 	cmp	r2, r1
 	movhi	r6, #6
 	bhi	_06008860
-	bl	FUN_06000000
+	bl	WMSP_SetChildSize
 _06008860:
 	ands	r0, r5, #32
 	beq	_060088B4
@@ -9937,14 +9937,14 @@ _060089D0:	.word	0x00002710
 _060089D4:	.word	0x000082EA
 _060089D8:	.word	0x00000106
 
-	arm_func_start FUN_060089DC
-FUN_060089DC: ; 0x060089DC
+	arm_func_start WMSP_SetMPParameter
+WMSP_SetMPParameter: ; 0x060089DC
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #32
 	mov	r6, r0
 	add	r0, r6, #4
 	add	r1, sp, #0
-	bl	FUN_060086D0
+	bl	WMSP_SetMPParameterCore
 	mov	r5, r0
 	bl	FUN_060001E8
 	mov	r4, r0
@@ -9981,8 +9981,8 @@ FUN_06008A38: ; 0x06008A38
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 
-	arm_func_start FUN_06008A74
-FUN_06008A74: ; 0x06008A74
+	arm_func_start WMSP_SetBeaconPeriod
+WMSP_SetBeaconPeriod: ; 0x06008A74
 	stmfd	sp!, {lr}
 	sub	sp, sp, #516	; 0x204
 	mov	r1, r0
@@ -9990,7 +9990,7 @@ FUN_06008A74: ; 0x06008A74
 	ldr	r1, [r1, #4]
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUN_06002484
+	bl	WMSP_WL_ParamSetBeaconPeriod
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008AAC
@@ -10010,16 +10010,16 @@ _06008AC4:
 	bx	lr
 _06008AD0:	.word	0x00000242
 
-	arm_func_start FUN_06008AD4
-FUN_06008AD4: ; 0x06008AD4
+	arm_func_start WMSP_AutoDisconnect
+WMSP_AutoDisconnect: ; 0x06008AD4
 	mov	r1, #1
 	mov	r2, #0
-	ldr	ip, _06008AE4	; =FUN_06004D28
+	ldr	ip, _06008AE4	; =WMSP_DisconnectCore
 	bx	ip
-_06008AE4:	.word	FUN_06004D28
+_06008AE4:	.word	WMSP_DisconnectCore
 
-	arm_func_start FUN_06008AE8
-FUN_06008AE8: ; 0x06008AE8
+	arm_func_start WMSP_SetPowerSaveMode
+WMSP_SetPowerSaveMode: ; 0x06008AE8
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #564	; 0x234
 	mov	r7, r0
@@ -10047,7 +10047,7 @@ _06008B2C:
 	mov	r1, r1, lsr #16
 	mov	r2, #0
 	mov	r3, #1
-	bl	FUN_06002EB0
+	bl	WMSP_WL_MlmePowerManagement
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008B80
@@ -10097,7 +10097,7 @@ _06008B80:
 	add	r0, sp, #48	; 0x30
 	str	r0, [sp, #44]	; 0x2c
 	add	r1, sp, #0
-	bl	FUN_060029D0
+	bl	WMSP_WL_MaData
 	ldrh	r1, [r0, #4]
 	cmp	r1, #0
 	beq	_06008C48
@@ -10122,8 +10122,8 @@ _06008C58:
 _06008C64:	.word	_0601A960
 _06008C68:	.word	0x0000018A
 
-	arm_func_start FUN_06008C6C
-FUN_06008C6C: ; 0x06008C6C
+	arm_func_start WMSP_StartTestRxMode
+WMSP_StartTestRxMode: ; 0x06008C6C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	bl	FUN_060001E8
@@ -10136,8 +10136,8 @@ FUN_06008C6C: ; 0x06008C6C
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_06008C98
-FUN_06008C98: ; 0x06008C98
+	arm_func_start WMSP_StopTestRxMode
+WMSP_StopTestRxMode: ; 0x06008C98
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	bl	FUN_060001E8
@@ -10150,17 +10150,17 @@ FUN_06008C98: ; 0x06008C98
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_06008CC4
-FUN_06008CC4: ; 0x06008CC4
+	arm_func_start WL_Terminate
+WL_Terminate: ; 0x06008CC4
 	stmdb	sp!, {r4, lr}
-	bl	FUN_06008D18
+	bl	WL_GetThreadStruct
 	mov	r4, r0
 	bl	FUN_06008D08
 	cmp	r0, #1
 	beq	_06008D00
 	mov	r0, #2
 	mov	r1, #22
-	bl	FUN_06009078
+	bl	AddTask
 	mov	r0, r4
 	bl	FUN_06008D10
 _06008CF0:
@@ -10174,24 +10174,24 @@ _06008D00:
 
 	arm_func_start FUN_06008D08
 FUN_06008D08: ; 0x06008D08
-	ldr	pc, _06008D0C	; =FUN_037F90B8
-_06008D0C:	.word	FUN_037F90B8
+	ldr	pc, _06008D0C	; =OS_IsThreadTerminated
+_06008D0C:	.word	OS_IsThreadTerminated
 
 	arm_func_start FUN_06008D10
 FUN_06008D10: ; 0x06008D10
-	ldr	pc, _06008D14	; =FUN_037F90CC
-_06008D14:	.word	FUN_037F90CC
+	ldr	pc, _06008D14	; =OS_JoinThread
+_06008D14:	.word	OS_JoinThread
 
-	arm_func_start FUN_06008D18
-FUN_06008D18: ; 0x06008D18
+	arm_func_start WL_GetThreadStruct
+WL_GetThreadStruct: ; 0x06008D18
 	ldr	r0, _06008D28	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #24
 	bx	lr
 _06008D28:	.word	0x0380FFF4
 
-	arm_func_start FUN_06008D2C
-FUN_06008D2C: ; 0x06008D2C
+	arm_func_start WL_InitDriver
+WL_InitDriver: ; 0x06008D2C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #16
 	mov	r4, r0
@@ -10218,8 +10218,8 @@ FUN_06008D2C: ; 0x06008D2C
 	mvneq	r0, #0
 	streq	r0, [r1, #784]	; 0x310
 	add	r0, r4, #32
-	bl	FUN_06009334
-	bl	FUN_06018FB0
+	bl	InitializeHeapBuf
+	bl	FLASH_MakeImage
 	ldr	r1, _06008EF8	; =0x04000304
 	ldrh	r0, [r1]
 	orr	r0, r0, #2
@@ -10236,13 +10236,13 @@ FUN_06008D2C: ; 0x06008D2C
 	ldr	r3, [r2]
 	ldr	r2, _06008F00	; =0x00000692
 	add	r2, r3, r2
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	mov	r0, #62	; 0x3e
 	mov	r1, #2
 	ldr	r2, _06008EF0	; =0x0380FFF4
 	ldr	r2, [r2]
 	add	r2, r2, #1680	; 0x690
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	ldr	r1, [r4, #16]
 	ldr	r2, _06008EF0	; =0x0380FFF4
 	ldr	r0, [r2]
@@ -10255,14 +10255,14 @@ FUN_06008D2C: ; 0x06008D2C
 	bl	FUN_06003B68
 	mov	r1, r0
 	ldr	r0, [r4, #44]	; 0x2c
-	bl	FUN_0600C338
-	bl	FUN_060091F8
-	bl	FUN_0600F858
-	bl	FUN_0600FC8C
-	bl	FUN_0600EA9C
-	bl	FUN_0600A0D0
+	bl	InitializeParam
+	bl	InitializeTask
+	bl	InitializeCmdIf
+	bl	InitializeMLME
+	bl	InitializeCAM
+	bl	InitializeAlarm
 	add	r0, sp, #8
-	bl	FUN_060191BC
+	bl	FLASH_VerifyCheckSum
 	cmp	r0, #0
 	beq	_06008E6C
 	ldr	r0, _06008EF0	; =0x0380FFF4
@@ -10273,16 +10273,16 @@ FUN_06008D2C: ; 0x06008D2C
 	strh	r1, [r0, #62]	; 0x3e
 	b	_06008E94
 _06008E6C:
-	bl	FUN_0600A36C
-	bl	FUN_0600C834
-	bl	FUN_0600B2D8
-	bl	FUN_0600A334
-	bl	FUN_0600A134
-	bl	FUN_0600C6B0
-	bl	FUN_0600C3B8
-	bl	FUN_0600A2C4
-	bl	FUN_0600B80C
-	bl	FUN_0600B36C
+	bl	WConfigDevice
+	bl	DiagMacRegister
+	bl	WWakeUp
+	bl	InitMac
+	bl	InitRF
+	bl	DiagMacMemory
+	bl	DiagBaseBand
+	bl	InitBaseBand
+	bl	WSetDefaultParameters
+	bl	WShutdown
 _06008E94:
 	ldr	r0, [r4, #8]
 	str	r0, [sp]
@@ -10291,7 +10291,7 @@ _06008E94:
 	ldr	r0, _06008EF0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #24
-	ldr	r1, _06008F04	; =FUN_06009138
+	ldr	r1, _06008F04	; =MainTaskRoutine
 	mov	r2, #0
 	ldr	r3, [r4, #4]
 	bl	FUN_06000974
@@ -10299,7 +10299,7 @@ _06008E94:
 	ldr	r0, [r0]
 	add	r0, r0, #24
 	bl	FUN_0600097C
-	bl	FUN_0600CA10
+	bl	InitializeIntr
 	ldr	r0, _06008EF0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -10312,44 +10312,44 @@ _06008EF4:	.word	0x00000694
 _06008EF8:	.word	0x04000304
 _06008EFC:	.word	0x04000206
 _06008F00:	.word	0x00000692
-_06008F04:	.word	FUN_06009138
+_06008F04:	.word	MainTaskRoutine
 
 	arm_func_start FUN_06008F08
 FUN_06008F08: ; 0x06008F08
-	ldr	pc, _06008F0C	; =FUN_037FB360
-_06008F0C:	.word	FUN_037FB360
+	ldr	pc, _06008F0C	; =MIi_CpuClearFast
+_06008F0C:	.word	MIi_CpuClearFast
 
 	arm_func_start FUN_06008F10
 FUN_06008F10: ; 0x06008F10
-	ldr	pc, _06008F14	; =FUN_037F8A24
-_06008F14:	.word	FUN_037F8A24
+	ldr	pc, _06008F14	; =OS_GetLockID
+_06008F14:	.word	OS_GetLockID
 
-	arm_func_start FUN_06008F18
-FUN_06008F18: ; 0x06008F18
+	arm_func_start WlessLibReboot
+WlessLibReboot: ; 0x06008F18
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_06009E28
-	bl	FUN_0600B36C
-	bl	FUN_0600A334
-	bl	FUN_060092D8
-	bl	FUN_060091F8
+	bl	ClearTimeOut
+	bl	WShutdown
+	bl	InitMac
+	bl	ReleaseAllWlHeapBuf
+	bl	InitializeTask
 	ldr	r0, _06008F68	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, [r1, #796]	; 0x31c
 	add	r1, r1, #768	; 0x300
 	ldrh	r1, [r1, #32]
-	bl	FUN_0600C338
-	bl	FUN_0600F858
-	bl	FUN_0600FC8C
-	bl	FUN_0600EA9C
-	bl	FUN_0600B80C
+	bl	InitializeParam
+	bl	InitializeCmdIf
+	bl	InitializeMLME
+	bl	InitializeCAM
+	bl	WSetDefaultParameters
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06008F68:	.word	0x0380FFF4
 
-	arm_func_start FUN_06008F6C
-FUN_06008F6C: ; 0x06008F6C
+	arm_func_start ExecuteMessage
+ExecuteMessage: ; 0x06008F6C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, [r0]
@@ -10358,18 +10358,18 @@ FUN_06008F6C: ; 0x06008F6C
 	ldr	r0, _06008FA8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #512	; 0x200
-	bl	FUN_060095B4
+	bl	NewHeapBuf
 	mov	r0, #2
 	mov	r1, #11
-	bl	FUN_06009078
+	bl	AddTask
 _06008F9C:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06008FA8:	.word	0x0380FFF4
 
-	arm_func_start FUN_06008FAC
-FUN_06008FAC: ; 0x06008FAC
+	arm_func_start LowestIdleTask
+LowestIdleTask: ; 0x06008FAC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06008FEC	; =0x0380FFF4
@@ -10379,17 +10379,17 @@ FUN_06008FAC: ; 0x06008FAC
 	mov	r2, #1
 	bl	FUN_06000780
 	add	r0, sp, #0
-	bl	FUN_06008F6C
+	bl	ExecuteMessage
 	mov	r0, #3
 	mov	r1, #12
-	bl	FUN_06009078
+	bl	AddTask
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06008FEC:	.word	0x0380FFF4
 
-	arm_func_start FUN_06008FF0
-FUN_06008FF0: ; 0x06008FF0
+	arm_func_start DeleteTask
+DeleteTask: ; 0x06008FF0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r0
 	ldr	r0, _0600905C	; =0x0380FFF4
@@ -10424,16 +10424,16 @@ _06009064:	.word	0x0000FFFF
 
 	arm_func_start FUN_06009068
 FUN_06009068: ; 0x06009068
-	ldr	pc, _0600906C	; =FUN_037F8858
-_0600906C:	.word	FUN_037F8858
+	ldr	pc, _0600906C	; =OS_DisableIrqMask
+_0600906C:	.word	OS_DisableIrqMask
 
 	arm_func_start FUN_06009070
 FUN_06009070: ; 0x06009070
-	ldr	pc, _06009074	; =FUN_037F8894
-_06009074:	.word	FUN_037F8894
+	ldr	pc, _06009074	; =OS_EnableIrqMask
+_06009074:	.word	OS_EnableIrqMask
 
-	arm_func_start FUN_06009078
-FUN_06009078: ; 0x06009078
+	arm_func_start AddTask
+AddTask: ; 0x06009078
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -10485,8 +10485,8 @@ _0600912C:	.word	0x0380FFF4
 _06009130:	.word	0x01000010
 _06009134:	.word	0x0000FFFF
 
-	arm_func_start FUN_06009138
-FUN_06009138: ; 0x06009138
+	arm_func_start MainTaskRoutine
+MainTaskRoutine: ; 0x06009138
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 
 	arm_func_start FUN_0600913C
@@ -10510,7 +10510,7 @@ _06009164:
 	cmp	r0, #0
 	beq	_06009188
 	mov	r0, r6
-	bl	FUN_06008F6C
+	bl	ExecuteMessage
 _06009188:
 	mov	r0, r5
 	bl	FUN_06009068
@@ -10529,7 +10529,7 @@ _06009188:
 _060091C0:
 	bl	FUN_06009070
 	ldrh	r0, [r9, #18]
-	bl	FUN_06008FF0
+	bl	DeleteTask
 	strh	r0, [r9, #20]
 	ldrh	r0, [r9, #20]
 	add	r0, r9, r0, lsl #3
@@ -10542,8 +10542,8 @@ _060091EC:	.word	0x0380FFF4
 _060091F0:	.word	0x01000010
 _060091F4:	.word	0x0000FFFF
 
-	arm_func_start FUN_060091F8
-FUN_060091F8: ; 0x060091F8
+	arm_func_start InitializeTask
+InitializeTask: ; 0x060091F8
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06009278	; =0x0380FFF4
 	ldr	r4, [r0]
@@ -10575,15 +10575,15 @@ _06009244:
 	bcc	_06009244
 	mov	r0, #3
 	mov	r1, #12
-	bl	FUN_06009078
+	bl	AddTask
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06009278:	.word	0x0380FFF4
 _0600927C:	.word	0x0000FFFF
 _06009280:	.word	_06019320
 
-	arm_func_start FUN_06009284
-FUN_06009284: ; 0x06009284
+	arm_func_start ReleaseAllHeapBuf
+ReleaseAllHeapBuf: ; 0x06009284
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -10595,11 +10595,11 @@ FUN_06009284: ; 0x06009284
 	b	_060092C4
 _060092A8:
 	mov	r0, r6
-	bl	FUN_06009434
+	bl	GetHeapBufNextAdrs
 	mov	r5, r0
 	mov	r0, r7
 	mov	r1, r6
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	mov	r6, r5
 _060092C4:
 	cmp	r6, r4
@@ -10609,34 +10609,34 @@ _060092CC:
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 
-	arm_func_start FUN_060092D8
-FUN_060092D8: ; 0x060092D8
+	arm_func_start ReleaseAllWlHeapBuf
+ReleaseAllWlHeapBuf: ; 0x060092D8
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06009330	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #380	; 0x17c
 	add	r0, r4, #24
-	bl	FUN_06009284
+	bl	ReleaseAllHeapBuf
 	add	r0, r4, #36	; 0x24
-	bl	FUN_06009284
+	bl	ReleaseAllHeapBuf
 	add	r0, r4, #48	; 0x30
-	bl	FUN_06009284
+	bl	ReleaseAllHeapBuf
 	add	r0, r4, #60	; 0x3c
-	bl	FUN_06009284
+	bl	ReleaseAllHeapBuf
 	add	r0, r4, #72	; 0x48
-	bl	FUN_06009284
+	bl	ReleaseAllHeapBuf
 	add	r0, r4, #84	; 0x54
-	bl	FUN_06009284
+	bl	ReleaseAllHeapBuf
 	add	r0, r4, #96	; 0x60
-	bl	FUN_06009284
+	bl	ReleaseAllHeapBuf
 	add	r0, r4, #108	; 0x6c
-	bl	FUN_06009284
+	bl	ReleaseAllHeapBuf
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06009330:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009334
-FUN_06009334: ; 0x06009334
+	arm_func_start InitializeHeapBuf
+InitializeHeapBuf: ; 0x06009334
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r1, _06009414	; =0x0380FFF4
@@ -10651,40 +10651,40 @@ FUN_06009334: ; 0x06009334
 	str	r0, [r5, #8]
 	add	r0, r5, #12
 	mov	r1, #2
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #24
 	mov	r1, #3
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #36	; 0x24
 	mov	r1, #4
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #48	; 0x30
 	mov	r1, #5
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #60	; 0x3c
 	mov	r1, #6
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #72	; 0x48
 	mov	r1, #7
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #84	; 0x54
 	mov	r1, #8
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #96	; 0x60
 	mov	r1, #9
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #108	; 0x6c
 	mov	r1, #10
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #120	; 0x78
 	mov	r1, #11
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #132	; 0x84
 	mov	r1, #12
-	bl	FUN_06009418
+	bl	InitHeapBufMan
 	add	r0, r5, #12
 	mov	r1, #129	; 0x81
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	add	r0, r0, #12
 	str	r0, [r4, #156]	; 0x9c
 	mov	r0, #0
@@ -10695,8 +10695,8 @@ FUN_06009334: ; 0x06009334
 	bx	lr
 _06009414:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009418
-FUN_06009418: ; 0x06009418
+	arm_func_start InitHeapBufMan
+InitHeapBufMan: ; 0x06009418
 	mvn	r2, #0
 	str	r2, [r0]
 	str	r2, [r0, #4]
@@ -10705,13 +10705,13 @@ FUN_06009418: ; 0x06009418
 	strh	r1, [r0, #10]
 	bx	lr
 
-	arm_func_start FUN_06009434
-FUN_06009434: ; 0x06009434
+	arm_func_start GetHeapBufNextAdrs
+GetHeapBufNextAdrs: ; 0x06009434
 	ldr	r0, [r0, #4]
 	bx	lr
 
-	arm_func_start FUN_0600943C
-FUN_0600943C: ; 0x0600943C
+	arm_func_start DeleteHeapBuf
+DeleteHeapBuf: ; 0x0600943C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -10774,8 +10774,8 @@ _06009510:
 	bx	lr
 _0600951C:	.word	0x0000BF1D
 
-	arm_func_start FUN_06009520
-FUN_06009520: ; 0x06009520
+	arm_func_start AddHeapBuf
+AddHeapBuf: ; 0x06009520
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -10815,8 +10815,8 @@ _060095A4:
 	bx	lr
 _060095B0:	.word	0x0000BF1D
 
-	arm_func_start FUN_060095B4
-FUN_060095B4: ; 0x060095B4
+	arm_func_start NewHeapBuf
+NewHeapBuf: ; 0x060095B4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -10848,8 +10848,8 @@ FUN_060095B4: ; 0x060095B4
 	bx	lr
 _06009628:	.word	0x0000BF1D
 
-	arm_func_start FUN_0600962C
-FUN_0600962C: ; 0x0600962C
+	arm_func_start MoveHeapBuf
+MoveHeapBuf: ; 0x0600962C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -10865,12 +10865,12 @@ FUN_0600962C: ; 0x0600962C
 	mov	r4, r0
 	mov	r0, r5
 	mov	r1, r6
-	bl	FUN_0600943C
+	bl	DeleteHeapBuf
 	movs	r5, r0
 	bne	_06009684
 	mov	r0, r7
 	mov	r1, r6
-	bl	FUN_06009520
+	bl	AddHeapBuf
 	mov	r5, r0
 _06009684:
 	mov	r0, r4
@@ -10882,8 +10882,8 @@ _06009690:
 	bx	lr
 _0600969C:	.word	0x0000BF1D
 
-	arm_func_start FUN_060096A0
-FUN_060096A0: ; 0x060096A0
+	arm_func_start ReleaseHeapBuf
+ReleaseHeapBuf: ; 0x060096A0
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r4, r1
 	ldr	r2, _0600971C	; =0x0380FFF4
@@ -10894,7 +10894,7 @@ FUN_060096A0: ; 0x060096A0
 	cmp	r3, r2
 	movne	r0, #1
 	bne	_06009714
-	bl	FUN_0600943C
+	bl	DeleteHeapBuf
 	movs	r5, r0
 	bne	_06009710
 	ldr	r0, [r6]
@@ -10922,8 +10922,8 @@ _06009714:
 _0600971C:	.word	0x0380FFF4
 _06009720:	.word	0x0000BF1D
 
-	arm_func_start FUN_06009724
-FUN_06009724: ; 0x06009724
+	arm_func_start AllocateHeapBuf
+AllocateHeapBuf: ; 0x06009724
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -10962,7 +10962,7 @@ _0600978C:
 	strh	r0, [r4, #8]
 	mov	r0, r5
 	mov	r1, r4
-	bl	FUN_06009520
+	bl	AddHeapBuf
 	mov	r0, r4
 _060097B8:
 	add	sp, sp, #4
@@ -10971,32 +10971,32 @@ _060097B8:
 _060097C4:	.word	0x0380FFF4
 _060097C8:	.word	0x0000BF1D
 
-	arm_func_start FUN_060097CC
-FUN_060097CC: ; 0x060097CC
+	arm_func_start ReleaseWlTask
+ReleaseWlTask: ; 0x060097CC
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600981C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #380	; 0x17c
-	bl	FUN_0600C9E0
+	bl	ReleaseIntr
 	add	r0, r4, #12
 	ldr	r1, _0600981C	; =0x0380FFF4
 	ldr	r1, [r1]
 	ldr	r1, [r1, #792]	; 0x318
 	sub	r1, r1, #12
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	add	r0, r4, #12
 	ldr	r1, _0600981C	; =0x0380FFF4
 	ldr	r1, [r1]
 	ldr	r1, [r1, #992]	; 0x3e0
 	sub	r1, r1, #12
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	bl	FUN_0600217C
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600981C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009820
-FUN_06009820: ; 0x06009820
+	arm_func_start TerminateWlTask
+TerminateWlTask: ; 0x06009820
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r2, _060098BC	; =0x0380FFF4
@@ -11010,7 +11010,7 @@ FUN_06009820: ; 0x06009820
 	ldrh	r0, [r0, #76]	; 0x4c
 	cmp	r0, #0
 	beq	_06009890
-	bl	FUN_0600A4EC
+	bl	WStop
 	ldr	r2, _060098BC	; =0x0380FFF4
 	ldr	r0, [r2]
 	add	r0, r0, #1024	; 0x400
@@ -11023,26 +11023,26 @@ FUN_06009820: ; 0x06009820
 	ldr	r0, [r2]
 	ldr	r0, [r0, #1056]	; 0x420
 	strh	r1, [r0, #4]
-	bl	FUN_06010228
+	bl	IssueMlmeConfirm
 _0600988C:
-	bl	FUN_0600B36C
+	bl	WShutdown
 _06009890:
 	mov	r0, #3
-	bl	FUN_06008FF0
+	bl	DeleteTask
 	ldr	r1, _060098C0	; =0x0000FFFF
 	cmp	r0, r1
 	bne	_06009890
 	mov	r0, #3
 	mov	r1, #23
-	bl	FUN_06009078
+	bl	AddTask
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060098BC:	.word	0x0380FFF4
 _060098C0:	.word	0x0000FFFF
 
-	arm_func_start FUN_060098C4
-FUN_060098C4: ; 0x060098C4
+	arm_func_start SendFatalErrMsgTask
+SendFatalErrMsgTask: ; 0x060098C4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06009944	; =0x0380FFF4
@@ -11053,7 +11053,7 @@ FUN_060098C4: ; 0x060098C4
 	beq	_06009938
 	add	r0, r1, #392	; 0x188
 	mov	r1, #18
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	beq	_06009938
 	ldr	r0, _06009948	; =0x00000186
@@ -11071,7 +11071,7 @@ FUN_060098C4: ; 0x060098C4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 _06009938:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -11079,8 +11079,8 @@ _06009938:
 _06009944:	.word	0x0380FFF4
 _06009948:	.word	0x00000186
 
-	arm_func_start FUN_0600994C
-FUN_0600994C: ; 0x0600994C
+	arm_func_start SetFatalErr
+SetFatalErr: ; 0x0600994C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #16777216	; 0x1000000
@@ -11094,13 +11094,13 @@ FUN_0600994C: ; 0x0600994C
 	bl	FUN_06009070
 	mov	r0, #2
 	mov	r1, #21
-	bl	FUN_06009078
+	bl	AddTask
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600998C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009990
-FUN_06009990: ; 0x06009990
+	arm_func_start WCheckTxBuf
+WCheckTxBuf: ; 0x06009990
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06009A8C	; =0x0380FFF4
@@ -11122,7 +11122,7 @@ _060099CC:
 	cmp	r0, #0
 	beq	_060099E4
 	bl	FUN_06009AE4
-	bl	FUN_0601477C
+	bl	MakeBeaconFrame
 _060099E4:
 	add	r0, r4, #40	; 0x28
 	bl	FUN_06009B28
@@ -11144,7 +11144,7 @@ _06009A00:
 	bl	FUN_06009AE4
 _06009A28:
 	ldrh	r0, [r5, #106]	; 0x6a
-	bl	FUN_06013E48
+	bl	MakePsPollFrame
 	ldrh	r0, [r5, #184]	; 0xb8
 	add	r0, r0, #1
 	strh	r0, [r5, #184]	; 0xb8
@@ -11186,7 +11186,7 @@ FUN_06009A98: ; 0x06009A98
 	ldr	r0, [r4, #8]
 	ldr	r1, [r4, #12]
 	sub	r1, r1, #16
-	bl	FUN_06015B0C
+	bl	CopyTxFrmToMacBuf
 	ldr	r0, _06009AE0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -11263,8 +11263,8 @@ _06009BB0:	.word	0x0000B6B8
 _06009BB4:	.word	0x00001D46
 _06009BB8:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009BBC
-FUN_06009BBC: ; 0x06009BBC
+	arm_func_start calc_NextCRC
+calc_NextCRC: ; 0x06009BBC
 	and	r2, r1, #15
 	mov	r3, r2, lsl #1
 	ldr	r2, _06009C2C	; =_060193E4
@@ -11296,8 +11296,8 @@ FUN_06009BBC: ; 0x06009BBC
 _06009C2C:	.word	_060193E4
 _06009C30:	.word	0x00000FFF
 
-	arm_func_start FUN_06009C34
-FUN_06009C34: ; 0x06009C34
+	arm_func_start RND_rand
+RND_rand: ; 0x06009C34
 	ldr	r0, _06009C60	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r3, r0, #1520	; 0x5f0
@@ -11311,8 +11311,8 @@ FUN_06009C34: ; 0x06009C34
 	bx	lr
 _06009C60:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009C64
-FUN_06009C64: ; 0x06009C64
+	arm_func_start RND_seed
+RND_seed: ; 0x06009C64
 	ldr	r1, _06009C78	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #1280	; 0x500
@@ -11320,8 +11320,8 @@ FUN_06009C64: ; 0x06009C64
 	bx	lr
 _06009C78:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009C7C
-FUN_06009C7C: ; 0x06009C7C
+	arm_func_start RND_init
+RND_init: ; 0x06009C7C
 	ldr	r2, _06009CA8	; =0x0380FFF4
 	ldr	r3, [r2]
 	add	ip, r3, #1520	; 0x5f0
@@ -11336,8 +11336,8 @@ FUN_06009C7C: ; 0x06009C7C
 _06009CA8:	.word	0x0380FFF4
 _06009CAC:	.word	0x0000FFF8
 
-	arm_func_start FUN_06009CB0
-FUN_06009CB0: ; 0x06009CB0
+	arm_func_start WL_ReadByte
+WL_ReadByte: ; 0x06009CB0
 	ands	r1, r0, #1
 	ldrneh	r0, [r0, #-1]
 	movne	r0, r0, asr #8
@@ -11347,8 +11347,8 @@ FUN_06009CB0: ; 0x06009CB0
 	and	r0, r0, #255	; 0xff
 	bx	lr
 
-	arm_func_start FUN_06009CD0
-FUN_06009CD0: ; 0x06009CD0
+	arm_func_start WL_WriteByte
+WL_WriteByte: ; 0x06009CD0
 	ands	r2, r0, #1
 	ldrneh	r2, [r0, #-1]
 	andne	r2, r2, #255	; 0xff
@@ -11361,64 +11361,64 @@ FUN_06009CD0: ; 0x06009CD0
 	streqh	r1, [r0]
 	bx	lr
 
-	arm_func_start FUN_06009CFC
-FUN_06009CFC: ; 0x06009CFC
+	arm_func_start DMA_WepWriteHeaderData
+DMA_WepWriteHeaderData: ; 0x06009CFC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r2
 	mov	r4, r3
 	mov	r2, #18
-	bl	FUN_06009D88
+	bl	DMA_WriteCore
 	cmp	r4, #0
 	beq	_06009D30
 	add	r0, r6, #40	; 0x28
 	mov	r1, r5
 	add	r2, r4, #1
 	mov	r2, r2, lsr #1
-	bl	FUN_06009D88
+	bl	DMA_WriteCore
 _06009D30:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_06009D38
-FUN_06009D38: ; 0x06009D38
+	arm_func_start DMA_WriteHeaderData
+DMA_WriteHeaderData: ; 0x06009D38
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r2
 	mov	r4, r3
 	mov	r2, #18
-	bl	FUN_06009D88
+	bl	DMA_WriteCore
 	cmp	r4, #0
 	beq	_06009D6C
 	add	r0, r6, #36	; 0x24
 	mov	r1, r5
 	add	r2, r4, #1
 	mov	r2, r2, lsr #1
-	bl	FUN_06009D88
+	bl	DMA_WriteCore
 _06009D6C:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 
-	arm_func_start FUN_06009D74
-FUN_06009D74: ; 0x06009D74
+	arm_func_start DMA_Write
+DMA_Write: ; 0x06009D74
 	add	r2, r2, #1
 	mov	r2, r2, lsr #1
-	ldr	ip, _06009D84	; =FUN_06009D88
+	ldr	ip, _06009D84	; =DMA_WriteCore
 	bx	ip
-_06009D84:	.word	FUN_06009D88
+_06009D84:	.word	DMA_WriteCore
 
-	arm_func_start FUN_06009D88
-FUN_06009D88: ; 0x06009D88
+	arm_func_start DMA_WriteCore
+DMA_WriteCore: ; 0x06009D88
 	mov	r3, r0
 	mov	r0, r1
 	mov	r1, r3
 	mov	r2, r2, lsl #1
-	ldr	ip, _06009DA0	; =FUN_037FB318
+	ldr	ip, _06009DA0	; =MIi_CpuCopy16
 	bx	ip
-_06009DA0:	.word	FUN_037FB318
+_06009DA0:	.word	MIi_CpuCopy16
 
-	arm_func_start FUN_06009DA4
-FUN_06009DA4: ; 0x06009DA4
+	arm_func_start DMA_Read
+DMA_Read: ; 0x06009DA4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -11454,20 +11454,20 @@ _06009E14:
 _06009E20:	.word	0x04805F60
 _06009E24:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009E28
-FUN_06009E28: ; 0x06009E28
+	arm_func_start ClearTimeOut
+ClearTimeOut: ; 0x06009E28
 	ldr	r0, _06009E40	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _06009E44	; =0x00000634
 	add	r0, r1, r0
-	ldr	ip, _06009E48	; =FUN_037FA650
+	ldr	ip, _06009E48	; =OS_CancelAlarm
 	bx	ip
 _06009E40:	.word	0x0380FFF4
 _06009E44:	.word	0x00000634
-_06009E48:	.word	FUN_037FA650
+_06009E48:	.word	OS_CancelAlarm
 
-	arm_func_start FUN_06009E4C
-FUN_06009E4C: ; 0x06009E4C
+	arm_func_start SetupUsTimeOut
+SetupUsTimeOut: ; 0x06009E4C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -11510,8 +11510,8 @@ FUN_06009EDC: ; 0x06009EDC
 	ldr	pc, _06009EE0	; =_ll_udiv
 _06009EE0:	.word	_ll_udiv
 
-	arm_func_start FUN_06009EE4
-FUN_06009EE4: ; 0x06009EE4
+	arm_func_start SetupTimeOut
+SetupTimeOut: ; 0x06009EE4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -11543,8 +11543,8 @@ _06009F50:	.word	0x0380FFF4
 _06009F54:	.word	0x00000634
 _06009F58:	.word	0x000082EA
 
-	arm_func_start FUN_06009F5C
-FUN_06009F5C: ; 0x06009F5C
+	arm_func_start WIntervalTimer
+WIntervalTimer: ; 0x06009F5C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06009FD8	; =0x0380FFF4
 	ldr	r4, [r0]
@@ -11553,20 +11553,20 @@ FUN_06009F5C: ; 0x06009F5C
 	str	r0, [r4, #1004]	; 0x3ec
 	mov	r0, #1
 	mov	r1, #10
-	bl	FUN_06009078
+	bl	AddTask
 	mov	r0, #2
 	mov	r1, #18
-	bl	FUN_06009078
+	bl	AddTask
 	mov	r0, #1
 	mov	r1, #17
-	bl	FUN_06009078
+	bl	AddTask
 	add	r0, r4, #256	; 0x100
 	ldrh	r0, [r0, #252]	; 0xfc
 	cmp	r0, #0
 	beq	_06009FB4
 	mov	r0, #2
 	mov	r1, #19
-	bl	FUN_06009078
+	bl	AddTask
 _06009FB4:
 	add	r0, r4, #768	; 0x300
 	ldrh	r0, [r0, #244]	; 0xf4
@@ -11574,26 +11574,26 @@ _06009FB4:
 	beq	_06009FD0
 	mov	r0, #2
 	mov	r1, #21
-	bl	FUN_06009078
+	bl	AddTask
 _06009FD0:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06009FD8:	.word	0x0380FFF4
 
-	arm_func_start FUN_06009FDC
-FUN_06009FDC: ; 0x06009FDC
+	arm_func_start ClearPeriodicTimeOut
+ClearPeriodicTimeOut: ; 0x06009FDC
 	ldr	r0, _06009FF4	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _06009FF8	; =0x00000608
 	add	r0, r1, r0
-	ldr	ip, _06009FFC	; =FUN_037FA650
+	ldr	ip, _06009FFC	; =OS_CancelAlarm
 	bx	ip
 _06009FF4:	.word	0x0380FFF4
 _06009FF8:	.word	0x00000608
-_06009FFC:	.word	FUN_037FA650
+_06009FFC:	.word	OS_CancelAlarm
 
-	arm_func_start FUN_0600A000
-FUN_0600A000: ; 0x0600A000
+	arm_func_start SetupPeriodicTimeOut
+SetupPeriodicTimeOut: ; 0x0600A000
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #16
 	mov	r5, r0
@@ -11633,25 +11633,25 @@ _0600A08C:	.word	0x000082EA
 
 	arm_func_start FUN_0600A090
 FUN_0600A090: ; 0x0600A090
-	ldr	pc, _0600A094	; =FUN_037FA6E0
-_0600A094:	.word	FUN_037FA6E0
+	ldr	pc, _0600A094	; =OS_SetPeriodicAlarm
+_0600A094:	.word	OS_SetPeriodicAlarm
 
-	arm_func_start FUN_0600A098
-FUN_0600A098: ; 0x0600A098
+	arm_func_start WWaitus
+WWaitus: ; 0x0600A098
 	ldr	r1, _0600A0A4	; =_0600A0C4
-	ldr	ip, _0600A0A8	; =FUN_0600F7A0
+	ldr	ip, _0600A0A8	; =WaitLoop_Waitus
 	bx	ip
 _0600A0A4:	.word	_0600A0C4
-_0600A0A8:	.word	FUN_0600F7A0
+_0600A0A8:	.word	WaitLoop_Waitus
 
-	arm_func_start FUN_0600A0AC
-FUN_0600A0AC: ; 0x0600A0AC
+	arm_func_start WWait
+WWait: ; 0x0600A0AC
 	mov	r1, #1000	; 0x3e8
 	mul	r1, r0, r1
 	mov	r0, r1
-	ldr	ip, _0600A0C0	; =FUN_0600A098
+	ldr	ip, _0600A0C0	; =WWaitus
 	bx	ip
-_0600A0C0:	.word	FUN_0600A098
+_0600A0C0:	.word	WWaitus
 _0600A0C4:
 	mov	r1, #0
 
@@ -11660,8 +11660,8 @@ FUN_0600A0C8: ; 0x0600A0C8
 	str	r1, [r0]
 	bx	lr
 
-	arm_func_start FUN_0600A0D0
-FUN_0600A0D0: ; 0x0600A0D0
+	arm_func_start InitializeAlarm
+InitializeAlarm: ; 0x0600A0D0
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600A120	; =0x0380FFF4
 	ldr	r4, [r0]
@@ -11689,11 +11689,11 @@ _0600A128:	.word	0x00000634
 
 	arm_func_start FUN_0600A12C
 FUN_0600A12C: ; 0x0600A12C
-	ldr	pc, _0600A130	; =FUN_037FA910
-_0600A130:	.word	FUN_037FA910
+	ldr	pc, _0600A130	; =OS_IsAlarmAvailable
+_0600A130:	.word	OS_IsAlarmAvailable
 
-	arm_func_start FUN_0600A134
-FUN_0600A134: ; 0x0600A134
+	arm_func_start InitRF
+InitRF: ; 0x0600A134
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #12
 	ldr	r0, _0600A2B4	; =0x0380FFF4
@@ -11710,7 +11710,7 @@ _0600A160:
 	add	r0, r0, #68	; 0x44
 	mov	r1, r6
 	mov	r2, r5
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	ldr	r1, [sp, #4]
 	mov	r0, r8, lsl #1
 	ldrh	r0, [r4, r0]
@@ -11744,7 +11744,7 @@ _0600A160:
 	add	r0, r4, #206	; 0xce
 	mov	r1, #1
 	add	r2, r7, #8
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	mov	r9, #0
 	mov	r8, r9
 	mov	r7, #1
@@ -11755,13 +11755,13 @@ _0600A210:
 	mov	r0, r5
 	mov	r1, r7
 	mov	r2, r6
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	ldr	r1, [sp]
 	mov	r0, r9, lsl #8
 	add	r0, r0, #327680	; 0x50000
 	orr	r0, r1, r0
 	str	r0, [sp]
-	bl	FUN_0600A450
+	bl	RF_Write
 	add	r9, r9, #1
 	add	r5, r5, #1
 _0600A244:
@@ -11777,9 +11777,9 @@ _0600A260:
 	mov	r0, r5
 	mov	r1, r8
 	mov	r2, r6
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	ldr	r0, [sp]
-	bl	FUN_0600A450
+	bl	RF_Write
 	ldrh	r0, [r7]
 	cmp	r0, #2
 	bne	_0600A298
@@ -11803,8 +11803,8 @@ _0600A2B8:	.word	0x000005F8
 _0600A2BC:	.word	_06019404
 _0600A2C0:	.word	0x04808184
 
-	arm_func_start FUN_0600A2C4
-FUN_0600A2C4: ; 0x0600A2C4
+	arm_func_start InitBaseBand
+InitBaseBand: ; 0x0600A2C4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r1, #256	; 0x100
@@ -11819,24 +11819,24 @@ _0600A2EC:
 	mov	r0, r6
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	mov	r0, r7
 	ldr	r1, [sp]
-	bl	FUN_0600A478
+	bl	BBP_Write
 	add	r6, r6, #1
 	add	r7, r7, #1
 	cmp	r7, #105	; 0x69
 	bcc	_0600A2EC
 	mov	r0, #90	; 0x5a
 	mov	r1, #2
-	bl	FUN_0600A478
+	bl	BBP_Write
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 _0600A330:	.word	0x04808160
 
-	arm_func_start FUN_0600A334
-FUN_0600A334: ; 0x0600A334
+	arm_func_start InitMac
+InitMac: ; 0x0600A334
 	mov	ip, #0
 	ldr	r2, _0600A368	; =_06019474
 _0600A33C:
@@ -11853,8 +11853,8 @@ _0600A33C:
 	bx	lr
 _0600A368:	.word	_06019474
 
-	arm_func_start FUN_0600A36C
-FUN_0600A36C: ; 0x0600A36C
+	arm_func_start WConfigDevice
+WConfigDevice: ; 0x0600A36C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600A3D8	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -11867,26 +11867,26 @@ FUN_0600A36C: ; 0x0600A36C
 	mov	r0, #64	; 0x40
 	mov	r1, #1
 	mov	r2, r4
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	mov	r0, #65	; 0x41
 	mov	r1, #1
 	add	r2, r4, #2
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	mov	r0, #66	; 0x42
 	mov	r1, #1
 	add	r2, r4, #4
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	mov	r0, #67	; 0x43
 	mov	r1, #1
 	add	r2, r4, #6
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600A3D8:	.word	0x0380FFF4
 _0600A3DC:	.word	0x000005F8
 
-	arm_func_start FUN_0600A3E0
-FUN_0600A3E0: ; 0x0600A3E0
+	arm_func_start CalcBbpCRC
+CalcBbpCRC: ; 0x0600A3E0
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	sub	sp, sp, #8
 	mov	r8, #100	; 0x64
@@ -11899,7 +11899,7 @@ _0600A400:
 	mov	r0, r8
 	mov	r1, r5
 	mov	r2, r4
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	cmp	r7, #1
 	ldreq	r0, [sp]
 	andeq	r0, r0, #128	; 0x80
@@ -11907,7 +11907,7 @@ _0600A400:
 	ldr	r0, [sp]
 	and	r0, r0, #255	; 0xff
 	mov	r1, r6
-	bl	FUN_06009BBC
+	bl	calc_NextCRC
 	mov	r6, r0
 	add	r8, r8, #1
 	add	r7, r7, #1
@@ -11917,8 +11917,8 @@ _0600A400:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
 	bx	lr
 
-	arm_func_start FUN_0600A450
-FUN_0600A450: ; 0x0600A450
+	arm_func_start RF_Write
+RF_Write: ; 0x0600A450
 	ldr	r1, _0600A46C	; =0x0480817E
 	strh	r0, [r1]
 	mov	r1, r0, lsr #16
@@ -11930,8 +11930,8 @@ _0600A46C:	.word	0x0480817E
 _0600A470:	.word	0x0480817C
 _0600A474:	.word	_0600F6B0
 
-	arm_func_start FUN_0600A478
-FUN_0600A478: ; 0x0600A478
+	arm_func_start BBP_Write
+BBP_Write: ; 0x0600A478
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r2, _0600A4B0	; =0x0480815A
@@ -11939,7 +11939,7 @@ FUN_0600A478: ; 0x0600A478
 	orr	r1, r0, #20480	; 0x5000
 	ldr	r0, _0600A4B4	; =0x04808158
 	strh	r1, [r0]
-	bl	FUN_0600F6E4
+	bl	WaitLoop_BbpAccess
 	cmp	r0, #0
 	mvnne	r0, #0
 	moveq	r0, #0
@@ -11949,14 +11949,14 @@ FUN_0600A478: ; 0x0600A478
 _0600A4B0:	.word	0x0480815A
 _0600A4B4:	.word	0x04808158
 
-	arm_func_start FUN_0600A4B8
-FUN_0600A4B8: ; 0x0600A4B8
+	arm_func_start BBP_Read
+BBP_Read: ; 0x0600A4B8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	orr	r1, r0, #24576	; 0x6000
 	ldr	r0, _0600A4E4	; =0x04808158
 	strh	r1, [r0]
-	bl	FUN_0600F6E4
+	bl	WaitLoop_BbpAccess
 	ldr	r0, _0600A4E8	; =0x0480815C
 	ldrh	r0, [r0]
 	add	sp, sp, #4
@@ -11965,16 +11965,16 @@ FUN_0600A4B8: ; 0x0600A4B8
 _0600A4E4:	.word	0x04808158
 _0600A4E8:	.word	0x0480815C
 
-	arm_func_start FUN_0600A4EC
-FUN_0600A4EC: ; 0x0600A4EC
+	arm_func_start WStop
+WStop: ; 0x0600A4EC
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600A57C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #836	; 0x344
-	bl	FUN_06009FDC
-	bl	FUN_06009E28
+	bl	ClearPeriodicTimeOut
+	bl	ClearTimeOut
 	mov	r0, #32
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	mov	r1, #0
 	strh	r1, [r4, #164]	; 0xa4
 	strh	r1, [r4, #18]
@@ -11993,15 +11993,15 @@ FUN_0600A4EC: ; 0x0600A4EC
 	ldrh	r0, [r4, #12]
 	cmp	r0, #1
 	bne	_0600A558
-	bl	FUN_06014AE8
+	bl	StopBeaconFrame
 _0600A558:
 	ldr	r1, _0600A598	; =0x0000FFFF
 	ldr	r0, _0600A59C	; =0x048080AC
 	strh	r1, [r0]
 	ldr	r0, _0600A5A0	; =0x048080B4
 	strh	r1, [r0]
-	bl	FUN_06014D24
-	bl	FUN_060092D8
+	bl	DeleteAllTxFrames
+	bl	ReleaseAllWlHeapBuf
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600A57C:	.word	0x0380FFF4
@@ -12015,21 +12015,21 @@ _0600A598:	.word	0x0000FFFF
 _0600A59C:	.word	0x048080AC
 _0600A5A0:	.word	0x048080B4
 
-	arm_func_start FUN_0600A5A4
-FUN_0600A5A4: ; 0x0600A5A4
+	arm_func_start WStart
+WStart: ; 0x0600A5A4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #12
 	ldr	r0, _0600A9B8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r7, r0, #836	; 0x344
 	add	r4, r0, #796	; 0x31c
-	bl	FUN_0600A4EC
+	bl	WStop
 	ldr	r2, _0600A9BC	; =0x04808044
 	ldrh	r1, [r2]
 	ldrh	r0, [r2]
 	add	r0, r1, r0, lsl #8
 	ldrh	r1, [r2]
-	bl	FUN_06009C7C
+	bl	RND_init
 	mov	r0, #1
 	strh	r0, [r7, #124]	; 0x7c
 	ldrh	r0, [r4, #30]
@@ -12059,10 +12059,10 @@ FUN_0600A5A4: ; 0x0600A5A4
 	mov	r1, #15
 	ldr	r0, _0600A9D4	; =0x04808038
 	strh	r1, [r0]
-	bl	FUN_0600EA10
-	bl	FUN_06018E38
-	bl	FUN_0601373C
-	bl	FUN_06015EC8
+	bl	InitCAM
+	bl	InitApList
+	bl	InitTxCtrl
+	bl	InitRxCtrl
 	mov	r1, #32768	; 0x8000
 	ldr	r0, _0600A9D8	; =0x04808030
 	strh	r1, [r0]
@@ -12183,8 +12183,8 @@ _0600A728:
 	ldr	r0, _0600AA30	; =0x048080EA
 	strh	r2, [r0]
 	mov	r0, #64	; 0x40
-	bl	FUN_0600AF68
-	bl	FUN_06014B10
+	bl	WSetStaState
+	bl	StartBeaconFrame
 	mov	r1, #2
 	ldr	r0, _0600AA34	; =0x048080AE
 	strh	r1, [r0]
@@ -12226,7 +12226,7 @@ _0600A88C:
 	ldr	r0, _0600AA30	; =0x048080EA
 	strh	r1, [r0]
 	mov	r0, #32
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	b	_0600A97C
 _0600A8E0:
 	ldr	r1, _0600A9C4	; =0x0000FFFF
@@ -12257,7 +12257,7 @@ _0600A8E0:
 	ldr	r0, _0600AA4C	; =0x04808048
 	strh	r1, [r0]
 	mov	r0, #32
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	b	_0600A97C
 _0600A958:
 	ldr	r0, _0600A9F4	; =0x04808012
@@ -12268,21 +12268,21 @@ _0600A958:
 	ldr	r0, _0600AA04	; =0x04808004
 	strh	r1, [r0]
 	mov	r0, #32
-	bl	FUN_0600AF68
+	bl	WSetStaState
 _0600A97C:
 	mov	r1, #0
 	ldr	r0, _0600AA4C	; =0x04808048
 	strh	r1, [r0]
-	bl	FUN_0600B21C
+	bl	WDisableTmpttPowerSave
 	mov	r0, #2
 	ldr	r1, _0600AA34	; =0x048080AE
 	strh	r0, [r1]
 	ldrh	r1, [r7, #14]
 	cmp	r1, #1
 	bne	_0600A9A8
-	bl	FUN_0600B3F4
+	bl	WSetPowerState
 _0600A9A8:
-	bl	FUN_0600F82C
+	bl	WaitLoop_Rxpe
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
@@ -12325,8 +12325,8 @@ _0600AA44:	.word	0x0000C03F
 _0600AA48:	.word	0x00000401
 _0600AA4C:	.word	0x04808048
 
-	arm_func_start FUN_0600AA50
-FUN_0600AA50: ; 0x0600AA50
+	arm_func_start WCalcManRate
+WCalcManRate: ; 0x0600AA50
 	ldr	r0, _0600AA98	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -12350,8 +12350,8 @@ _0600AA90:
 	bx	lr
 _0600AA98:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600AA9C
-FUN_0600AA9C: ; 0x0600AA9C
+	arm_func_start WElement2RateSet
+WElement2RateSet: ; 0x0600AA9C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	mov	r4, r0
 	mov	sl, r1
@@ -12359,17 +12359,17 @@ FUN_0600AA9C: ; 0x0600AA9C
 	strh	r0, [sl]
 	strh	r0, [sl, #2]
 	add	r0, r4, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r8, r0
 	mov	r9, #0
-	ldr	r6, _0600AB54	; =_060194D8
+	ldr	r6, _0600AB54	; =RateElement2Bit
 	add	r7, r4, #2
 	add	r4, sl, #2
 	mov	r5, #1
 	b	_0600AB44
 _0600AAD8:
 	add	r0, r7, r9
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	and	r1, r0, #127	; 0x7f
 	sub	r1, r1, #1
 	cmp	r1, #120	; 0x78
@@ -12402,10 +12402,10 @@ _0600AB44:
 	bcc	_0600AAD8
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	bx	lr
-_0600AB54:	.word	_060194D8
+_0600AB54:	.word	RateElement2Bit
 
-	arm_func_start FUN_0600AB58
-FUN_0600AB58: ; 0x0600AB58
+	arm_func_start CheckEnableChannel
+CheckEnableChannel: ; 0x0600AB58
 	mov	r2, #1
 	ldr	r1, _0600AB74	; =0x0380FFF4
 	ldr	r1, [r1]
@@ -12415,8 +12415,8 @@ FUN_0600AB58: ; 0x0600AB58
 	bx	lr
 _0600AB74:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600AB78
-FUN_0600AB78: ; 0x0600AB78
+	arm_func_start MatchMacAdrs
+MatchMacAdrs: ; 0x0600AB78
 	ldrh	r3, [r0, #4]
 	ldrh	r2, [r1, #4]
 	cmp	r3, r2
@@ -12434,8 +12434,8 @@ _0600ABAC:
 	mov	r0, #0
 	bx	lr
 
-	arm_func_start FUN_0600ABB4
-FUN_0600ABB4: ; 0x0600ABB4
+	arm_func_start WCheckSSID
+WCheckSSID: ; 0x0600ABB4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	mov	r9, r0
 	mov	r8, r1
@@ -12469,15 +12469,15 @@ _0600AC18:
 	b	_0600AC6C
 _0600AC28:
 	mov	r0, r6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r4, r0
 	add	r6, r6, #1
 	mov	r0, r8
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	sl, r0
 	add	r8, r8, #1
 	mov	r0, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	add	r7, r7, #1
 	orr	r1, sl, r4
 	orr	r0, r0, r4
@@ -12494,8 +12494,8 @@ _0600AC78:
 	bx	lr
 _0600AC80:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600AC84
-FUN_0600AC84: ; 0x0600AC84
+	arm_func_start WUpdateCounter
+WUpdateCounter: ; 0x0600AC84
 	ldr	r0, _0600AE7C	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _0600AE80	; =0x0000053C
@@ -12626,11 +12626,11 @@ _0600AE7C:	.word	0x0380FFF4
 _0600AE80:	.word	0x0000053C
 _0600AE84:	.word	0x048081B0
 
-	arm_func_start FUN_0600AE88
-FUN_0600AE88: ; 0x0600AE88
+	arm_func_start WInitCounter
+WInitCounter: ; 0x0600AE88
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_0600AC84
+	bl	WUpdateCounter
 	mov	r0, #0
 	ldr	r1, _0600AEBC	; =0x0380FFF4
 	ldr	r2, [r1]
@@ -12646,11 +12646,11 @@ _0600AEC0:	.word	0x0000053C
 
 	arm_func_start FUN_0600AEC4
 FUN_0600AEC4: ; 0x0600AEC4
-	ldr	pc, _0600AEC8	; =FUN_037FB334
-_0600AEC8:	.word	FUN_037FB334
+	ldr	pc, _0600AEC8	; =MIi_CpuClear32
+_0600AEC8:	.word	MIi_CpuClear32
 
-	arm_func_start FUN_0600AECC
-FUN_0600AECC: ; 0x0600AECC
+	arm_func_start WSetMacAdrs3
+WSetMacAdrs3: ; 0x0600AECC
 	ldrh	ip, [r1]
 	strh	ip, [r0]
 	ldrh	ip, [r1, #2]
@@ -12685,8 +12685,8 @@ _0600AF18:
 	strh	r1, [r0, #10]
 	bx	lr
 
-	arm_func_start FUN_0600AF4C
-FUN_0600AF4C: ; 0x0600AF4C
+	arm_func_start WSetMacAdrs1
+WSetMacAdrs1: ; 0x0600AF4C
 	ldrh	r2, [r1]
 	strh	r2, [r0]
 	ldrh	r2, [r1, #2]
@@ -12695,8 +12695,8 @@ FUN_0600AF4C: ; 0x0600AF4C
 	strh	r1, [r0, #4]
 	bx	lr
 
-	arm_func_start FUN_0600AF68
-FUN_0600AF68: ; 0x0600AF68
+	arm_func_start WSetStaState
+WSetStaState: ; 0x0600AF68
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -12708,7 +12708,7 @@ FUN_0600AF68: ; 0x0600AF68
 	beq	_0600AFF0
 	cmp	r0, #64	; 0x40
 	bne	_0600AF98
-	bl	FUN_06009E28
+	bl	ClearTimeOut
 _0600AF98:
 	cmp	r5, #0
 	beq	_0600AFB4
@@ -12718,23 +12718,23 @@ _0600AF98:
 	beq	_0600AFD0
 	b	_0600AFEC
 _0600AFB4:
-	bl	FUN_0600B36C
+	bl	WShutdown
 	b	_0600AFEC
 _0600AFBC:
 	mov	r0, #0
-	bl	FUN_0600B3E0
-	bl	FUN_0600A4EC
-	bl	FUN_0600B2D8
+	bl	WSetForcePowerState
+	bl	WStop
+	bl	WWakeUp
 	b	_0600AFEC
 _0600AFD0:
 	ldrh	r0, [r4, #12]
 	cmp	r0, #2
 	bne	_0600AFE0
-	bl	FUN_0600B1EC
+	bl	WEnableTmpttPowerSave
 _0600AFE0:
 	mov	r0, #100	; 0x64
-	ldr	r1, _0600B000	; =FUN_06009F5C
-	bl	FUN_0600A000
+	ldr	r1, _0600B000	; =WIntervalTimer
+	bl	SetupPeriodicTimeOut
 _0600AFEC:
 	strh	r5, [r4, #8]
 _0600AFF0:
@@ -12742,25 +12742,25 @@ _0600AFF0:
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600AFFC:	.word	0x0380FFF4
-_0600B000:	.word	FUN_06009F5C
+_0600B000:	.word	WIntervalTimer
 
-	arm_func_start FUN_0600B004
-FUN_0600B004: ; 0x0600B004
+	arm_func_start WClearKSID
+WClearKSID: ; 0x0600B004
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600B02C	; =0x04808094
 	ldrh	r0, [r0]
 	ands	r0, r0, #32768	; 0x8000
 	bne	_0600B020
-	bl	FUN_0600F718
+	bl	WaitLoop_ClrAid
 _0600B020:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0600B02C:	.word	0x04808094
 
-	arm_func_start FUN_0600B030
-FUN_0600B030: ; 0x0600B030
+	arm_func_start WSetKSID
+WSetKSID: ; 0x0600B030
 	ldr	r0, _0600B04C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -12771,25 +12771,25 @@ FUN_0600B030: ; 0x0600B030
 _0600B04C:	.word	0x0380FFF4
 _0600B050:	.word	0x04808028
 
-	arm_func_start FUN_0600B054
-FUN_0600B054: ; 0x0600B054
+	arm_func_start WClearAids
+WClearAids: ; 0x0600B054
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600B0A8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #836	; 0x344
 	mov	r0, #0
 	strh	r0, [r4, #106]	; 0x6a
-	bl	FUN_0600F718
+	bl	WaitLoop_ClrAid
 	mov	r1, #0
 	ldr	r0, _0600B0AC	; =0x0480802A
 	strh	r1, [r0]
 	ldrh	r0, [r4, #136]	; 0x88
 	cmp	r0, #0
 	beq	_0600B0A0
-	bl	FUN_06014EB8
+	bl	DeleteTxFrames
 	ldrh	r0, [r4, #136]	; 0x88
 	mov	r1, #32
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	mov	r0, #0
 	strh	r0, [r4, #136]	; 0x88
 _0600B0A0:
@@ -12798,8 +12798,8 @@ _0600B0A0:
 _0600B0A8:	.word	0x0380FFF4
 _0600B0AC:	.word	0x0480802A
 
-	arm_func_start FUN_0600B0B0
-FUN_0600B0B0: ; 0x0600B0B0
+	arm_func_start WSetAids
+WSetAids: ; 0x0600B0B0
 	ldr	r2, _0600B0E8	; =0x0380FFF4
 	ldr	r1, [r2]
 	add	r1, r1, #768	; 0x300
@@ -12818,8 +12818,8 @@ _0600B0E8:	.word	0x0380FFF4
 _0600B0EC:	.word	0x0480802A
 _0600B0F0:	.word	0x04808028
 
-	arm_func_start FUN_0600B0F4
-FUN_0600B0F4: ; 0x0600B0F4
+	arm_func_start WSetGameInfo
+WSetGameInfo: ; 0x0600B0F4
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -12837,16 +12837,16 @@ FUN_0600B0F4: ; 0x0600B0F4
 	ldr	r8, [r4, #156]	; 0x9c
 	mov	r0, r8
 	mov	r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r8, r8, #1
 	mov	r7, #0
 	b	_0600B168
 _0600B148:
 	mov	r0, r5
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r8, r8, #1
 	add	r5, r5, #1
 	add	r7, r7, #1
@@ -12869,8 +12869,8 @@ _0600B194:
 	bx	lr
 _0600B19C:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600B1A0
-FUN_0600B1A0: ; 0x0600B1A0
+	arm_func_start WInitGameInfo
+WInitGameInfo: ; 0x0600B1A0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -12892,8 +12892,8 @@ _0600B1DC:
 	bx	lr
 _0600B1E8:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600B1EC
-FUN_0600B1EC: ; 0x0600B1EC
+	arm_func_start WEnableTmpttPowerSave
+WEnableTmpttPowerSave: ; 0x0600B1EC
 	mov	r1, #0
 	ldr	r0, _0600B214	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -12907,8 +12907,8 @@ FUN_0600B1EC: ; 0x0600B1EC
 _0600B214:	.word	0x0380FFF4
 _0600B218:	.word	0x04808038
 
-	arm_func_start FUN_0600B21C
-FUN_0600B21C: ; 0x0600B21C
+	arm_func_start WDisableTmpttPowerSave
+WDisableTmpttPowerSave: ; 0x0600B21C
 	mov	r2, #1
 	ldr	r1, _0600B264	; =0x0380FFF4
 	ldr	r0, [r1]
@@ -12931,8 +12931,8 @@ _0600B264:	.word	0x0380FFF4
 _0600B268:	.word	0x04808038
 _0600B26C:	.word	0x04808048
 
-	arm_func_start FUN_0600B270
-FUN_0600B270: ; 0x0600B270
+	arm_func_start WSetFrameLifeTime
+WSetFrameLifeTime: ; 0x0600B270
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _0600B2D0	; =0x0380FFF4
@@ -12962,14 +12962,14 @@ _0600B2C8:
 _0600B2D0:	.word	0x0380FFF4
 _0600B2D4:	.word	0x0000FFFF
 
-	arm_func_start FUN_0600B2D8
-FUN_0600B2D8: ; 0x0600B2D8
+	arm_func_start WWakeUp
+WWakeUp: ; 0x0600B2D8
 	stmdb	sp!, {r4, lr}
 	mov	r1, #0
 	ldr	r0, _0600B360	; =0x04808036
 	strh	r1, [r0]
 	mov	r0, #8
-	bl	FUN_0600A0AC
+	bl	WWait
 	mov	r1, #0
 	ldr	r0, _0600B364	; =0x04808168
 	strh	r1, [r0]
@@ -12984,20 +12984,20 @@ FUN_0600B2D8: ; 0x0600B2D8
 	b	_0600B358
 _0600B320:
 	mov	r0, #1
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	mov	r4, r0
 	mov	r0, #1
 	and	r1, r4, #127	; 0x7f
-	bl	FUN_0600A478
+	bl	BBP_Write
 	mov	r0, #1
 	mov	r1, r4
-	bl	FUN_0600A478
+	bl	BBP_Write
 	mov	r0, #40	; 0x28
-	bl	FUN_0600A0AC
-	bl	FUN_0600A134
+	bl	WWait
+	bl	InitRF
 	b	_0600B358
 _0600B354:
-	bl	FUN_0600A134
+	bl	InitRF
 _0600B358:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -13005,8 +13005,8 @@ _0600B360:	.word	0x04808036
 _0600B364:	.word	0x04808168
 _0600B368:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600B36C
-FUN_0600B36C: ; 0x0600B36C
+	arm_func_start WShutdown
+WShutdown: ; 0x0600B36C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600B3CC	; =0x0380FFF4
@@ -13016,13 +13016,13 @@ FUN_0600B36C: ; 0x0600B36C
 	cmp	r0, #2
 	bne	_0600B394
 	ldr	r0, _0600B3D0	; =0x0000C008
-	bl	FUN_0600A450
+	bl	RF_Write
 _0600B394:
 	mov	r0, #30
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	orr	r1, r0, #63	; 0x3f
 	mov	r0, #30
-	bl	FUN_0600A478
+	bl	BBP_Write
 	ldr	r1, _0600B3D4	; =0x0000800D
 	ldr	r0, _0600B3D8	; =0x04808168
 	strh	r1, [r0]
@@ -13038,16 +13038,16 @@ _0600B3D4:	.word	0x0000800D
 _0600B3D8:	.word	0x04808168
 _0600B3DC:	.word	0x04808036
 
-	arm_func_start FUN_0600B3E0
-FUN_0600B3E0: ; 0x0600B3E0
+	arm_func_start WSetForcePowerState
+WSetForcePowerState: ; 0x0600B3E0
 	ldr	r1, _0600B3F0	; =0x04808040
 	strh	r0, [r1]
 	mov	r0, #0
 	bx	lr
 _0600B3F0:	.word	0x04808040
 
-	arm_func_start FUN_0600B3F4
-FUN_0600B3F4: ; 0x0600B3F4
+	arm_func_start WSetPowerState
+WSetPowerState: ; 0x0600B3F4
 	mov	r2, r0, lsr #1
 	ldr	r1, _0600B418	; =0x0380FFF4
 	ldr	r1, [r1]
@@ -13060,8 +13060,8 @@ FUN_0600B3F4: ; 0x0600B3F4
 _0600B418:	.word	0x0380FFF4
 _0600B41C:	.word	0x0480803C
 
-	arm_func_start FUN_0600B420
-FUN_0600B420: ; 0x0600B420
+	arm_func_start WSetPowerMgtMode
+WSetPowerMgtMode: ; 0x0600B420
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _0600B48C	; =0x0380FFF4
@@ -13085,7 +13085,7 @@ _0600B460:
 	strh	r0, [r1]
 	ldrh	r0, [r2, #32]
 	mov	r1, #0
-	bl	FUN_0600BEFC
+	bl	WSetActiveZoneTime
 _0600B47C:
 	mov	r0, #0
 	add	sp, sp, #4
@@ -13094,8 +13094,8 @@ _0600B47C:
 _0600B48C:	.word	0x0380FFF4
 _0600B490:	.word	0x04808006
 
-	arm_func_start FUN_0600B494
-FUN_0600B494: ; 0x0600B494
+	arm_func_start WSetTxTimeStampOffset
+WSetTxTimeStampOffset: ; 0x0600B494
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600B510	; =0x0000E2E2
@@ -13103,12 +13103,12 @@ FUN_0600B494: ; 0x0600B494
 	mov	r0, #88	; 0x58
 	mov	r1, #2
 	add	r2, sp, #0
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	ldr	r1, [sp]
 	ldr	r0, _0600B514	; =0x00000202
 	add	r0, r1, r0
 	str	r0, [sp]
-	bl	FUN_0600AA50
+	bl	WCalcManRate
 	cmp	r0, #20
 	bne	_0600B4F8
 	ldr	r1, [sp]
@@ -13135,8 +13135,8 @@ _0600B51C:	.word	0x048080BC
 _0600B520:	.word	0x00006060
 _0600B524:	.word	0x04808140
 
-	arm_func_start FUN_0600B528
-FUN_0600B528: ; 0x0600B528
+	arm_func_start WSetRateSet
+WSetRateSet: ; 0x0600B528
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _0600B56C	; =0x0380FFF4
@@ -13149,23 +13149,23 @@ FUN_0600B528: ; 0x0600B528
 	ldrh	r0, [r0]
 	orr	r0, r1, r0
 	strh	r0, [r3, #2]
-	bl	FUN_0600B494
+	bl	WSetTxTimeStampOffset
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0600B56C:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600B570
-FUN_0600B570: ; 0x0600B570
+	arm_func_start WSetChannel
+WSetChannel: ; 0x0600B570
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	sl, r0
 	cmp	r1, #0
-	ldrne	r9, _0600B7E8	; =FUN_060190BC
-	ldreq	r9, _0600B7EC	; =FUN_0601910C
+	ldrne	r9, _0600B7E8	; =FLASH_DirectRead
+	ldreq	r9, _0600B7EC	; =FLASH_Read
 	mov	r0, sl
-	bl	FUN_0600AB58
+	bl	CheckEnableChannel
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_0600B7DC
@@ -13211,14 +13211,14 @@ _0600B60C:
 	mov	lr, pc
 	bx	r9
 	ldr	r0, [sp]
-	bl	FUN_0600A450
+	bl	RF_Write
 	add	r0, r5, #245	; 0xf5
 	mov	r1, #3
 	add	r2, sp, #0
 	mov	lr, pc
 	bx	r9
 	ldr	r0, [sp]
-	bl	FUN_0600A450
+	bl	RF_Write
 	mov	r0, #0
 	str	r0, [sp]
 	ldr	r0, _0600B800	; =0x0380FFF4
@@ -13240,7 +13240,7 @@ _0600B60C:
 	and	r0, r0, #31
 	orr	r0, r1, r0, lsl #10
 	str	r0, [sp]
-	bl	FUN_0600A450
+	bl	RF_Write
 	b	_0600B7C4
 _0600B6B4:
 	ldr	r0, _0600B804	; =0x00000146
@@ -13251,7 +13251,7 @@ _0600B6B4:
 	bx	r9
 	mov	r0, #30
 	ldr	r1, [sp]
-	bl	FUN_0600A478
+	bl	BBP_Write
 	b	_0600B7C4
 _0600B6DC:
 	ldrh	r0, [r0, #252]	; 0xfc
@@ -13275,7 +13275,7 @@ _0600B6F4:
 	bx	r9
 	ldr	r0, [sp, #4]
 	ldr	r1, [sp]
-	bl	FUN_0600A478
+	bl	BBP_Write
 	add	r7, r7, #15
 	add	r6, r6, #1
 _0600B738:
@@ -13307,7 +13307,7 @@ _0600B760:
 	ldr	r0, [sp]
 	orr	r0, r0, #327680	; 0x50000
 	str	r0, [sp]
-	bl	FUN_0600A450
+	bl	RF_Write
 	add	r7, r7, #15
 	add	r6, r6, #1
 _0600B7B0:
@@ -13327,8 +13327,8 @@ _0600B7DC:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	bx	lr
-_0600B7E8:	.word	FUN_060190BC
-_0600B7EC:	.word	FUN_0601910C
+_0600B7E8:	.word	FLASH_DirectRead
+_0600B7EC:	.word	FLASH_Read
 _0600B7F0:	.word	0x04808040
 _0600B7F4:	.word	0x00008001
 _0600B7F8:	.word	0x0480803C
@@ -13337,77 +13337,77 @@ _0600B800:	.word	0x0380FFF4
 _0600B804:	.word	0x00000146
 _0600B808:	.word	0x04808048
 
-	arm_func_start FUN_0600B80C
-FUN_0600B80C: ; 0x0600B80C
+	arm_func_start WSetDefaultParameters
+WSetDefaultParameters: ; 0x0600B80C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #12
 	mov	r0, #54	; 0x36
 	mov	r1, #6
 	add	r2, sp, #2
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	mov	r0, #60	; 0x3c
 	mov	r1, #2
 	add	r2, sp, #0
-	bl	FUN_0601910C
+	bl	FLASH_Read
 	add	r0, sp, #2
-	bl	FUN_0600C2D8
+	bl	WSetMacAdrs
 	mov	r0, #7
-	bl	FUN_0600C2A4
+	bl	WSetRetryLimit
 	ldrh	r1, [sp]
 	ldr	r0, _0600B940	; =0x00007FFE
 	and	r0, r1, r0
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_0600C264
+	bl	WSetEnableChannel
 	mov	r0, #2
-	bl	FUN_0600C1DC
+	bl	WSetMode
 	mov	r0, #0
-	bl	FUN_0600C1A0
+	bl	WSetRate
 	mov	r0, #0
-	bl	FUN_0600C0EC
+	bl	WSetWepMode
 	mov	r0, #0
-	bl	FUN_0600C0C8
+	bl	WSetWepKeyId
 	ldr	r0, _0600B944	; =_06019424
-	bl	FUN_0600C064
+	bl	WSetWepKey
 	mov	r0, #500	; 0x1f4
-	bl	FUN_0600B9DC
+	bl	WSetBeaconPeriod
 	mov	r0, #0
-	bl	FUN_0600C02C
+	bl	WSetBeaconType
 	mov	r0, #0
-	bl	FUN_0600BFF4
+	bl	WSetBcSsidResponse
 	mov	r0, #16
-	bl	FUN_0600BFBC
+	bl	WSetBeaconLostThreshold
 	ldr	r0, _0600B948	; =0x0000FFFF
 	mov	r1, #0
-	bl	FUN_0600BEFC
+	bl	WSetActiveZoneTime
 	ldr	r0, _0600B94C	; =_060193C4
-	bl	FUN_0600BECC
+	bl	WSetSsidMask
 	mov	r0, #1
-	bl	FUN_0600BE0C
+	bl	WSetPreambleType
 	mov	r0, #0
-	bl	FUN_0600BDE8
+	bl	WSetAuthAlgo
 	ldr	r0, _0600B950	; =_06019380
-	bl	FUN_0600B528
+	bl	WSetRateSet
 	mov	r0, #0
 	mov	r1, #31
-	bl	FUN_0600BDA0
+	bl	WSetCCA_ED
 	mov	r0, #5
-	bl	FUN_0600B270
+	bl	WSetFrameLifeTime
 	mov	r0, #0
 	mov	r1, r0
-	bl	FUN_0600BC5C
+	bl	WSetDiversity
 	mov	r0, #0
-	bl	FUN_0600BD38
+	bl	WSetMainAntenna
 	mov	r0, #0
-	bl	FUN_0600BC1C
+	bl	WSetBeaconSendRecvIndicate
 	mov	r0, #0
-	bl	FUN_0600BBC0
+	bl	WSetNullKeyMode
 	ldr	r2, _0600B954	; =0x04808044
 	ldrh	r1, [r2]
 	ldrh	r0, [r2]
 	add	r0, r1, r0, lsl #8
 	ldrh	r1, [r2]
-	bl	FUN_06009C7C
+	bl	RND_init
 	mov	r1, #1
 	ldr	r0, _0600B958	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -13424,8 +13424,8 @@ _0600B950:	.word	_06019380
 _0600B954:	.word	0x04808044
 _0600B958:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600B95C
-FUN_0600B95C: ; 0x0600B95C
+	arm_func_start WSetListenInterval
+WSetListenInterval: ; 0x0600B95C
 	cmp	r0, #1
 	bcc	_0600B96C
 	cmp	r0, #255	; 0xff
@@ -13442,8 +13442,8 @@ _0600B974:
 	bx	lr
 _0600B98C:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600B990
-FUN_0600B990: ; 0x0600B990
+	arm_func_start WSetDTIMPeriod
+WSetDTIMPeriod: ; 0x0600B990
 	cmp	r0, #1
 	bcc	_0600B9A0
 	cmp	r0, #255	; 0xff
@@ -13466,8 +13466,8 @@ _0600B9D0:	.word	0x0380FFF4
 _0600B9D4:	.word	0x0480808E
 _0600B9D8:	.word	0x04808088
 
-	arm_func_start FUN_0600B9DC
-FUN_0600B9DC: ; 0x0600B9DC
+	arm_func_start WSetBeaconPeriod
+WSetBeaconPeriod: ; 0x0600B9DC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	cmp	r0, #10
@@ -13487,7 +13487,7 @@ _0600B9FC:
 	ldr	r0, [r2]
 	add	r0, r0, #768	; 0x300
 	ldrh	r0, [r0, #56]	; 0x38
-	bl	FUN_0600B270
+	bl	WSetFrameLifeTime
 	mov	r0, #0
 _0600BA28:
 	add	sp, sp, #4
@@ -13496,8 +13496,8 @@ _0600BA28:
 _0600BA34:	.word	0x0380FFF4
 _0600BA38:	.word	0x0480808C
 
-	arm_func_start FUN_0600BA3C
-FUN_0600BA3C: ; 0x0600BA3C
+	arm_func_start WSetSsid
+WSetSsid: ; 0x0600BA3C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r8, r0
@@ -13529,10 +13529,10 @@ _0600BAA0:
 	b	_0600BAC8
 _0600BAAC:
 	mov	r0, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r9, r5
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r7, r7, #1
 	add	r5, r5, #1
 _0600BAC8:
@@ -13544,7 +13544,7 @@ _0600BAC8:
 _0600BADC:
 	add	r0, r9, r5
 	mov	r1, r7
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r5, r5, #1
 _0600BAEC:
 	cmp	r5, #32
@@ -13563,10 +13563,10 @@ _0600BAEC:
 	b	_0600BB3C
 _0600BB24:
 	add	r0, r4, r5
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r7, r5
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r5, r5, #1
 _0600BB3C:
 	cmp	r5, r8
@@ -13579,18 +13579,18 @@ _0600BB48:
 	bx	lr
 _0600BB54:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600BB58
-FUN_0600BB58: ; 0x0600BB58
+	arm_func_start WSetBssid
+WSetBssid: ; 0x0600BB58
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldr	r0, _0600BBB4	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #936	; 0x3a8
 	mov	r1, r4
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldr	r0, _0600BBB8	; =0x04808020
 	mov	r1, r4
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldrh	r0, [r4]
 	ands	r0, r0, #1
 	ldrne	r1, _0600BBBC	; =0x048080D0
@@ -13608,8 +13608,8 @@ _0600BBB4:	.word	0x0380FFF4
 _0600BBB8:	.word	0x04808020
 _0600BBBC:	.word	0x048080D0
 
-	arm_func_start FUN_0600BBC0
-FUN_0600BBC0: ; 0x0600BBC0
+	arm_func_start WSetNullKeyMode
+WSetNullKeyMode: ; 0x0600BBC0
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13634,8 +13634,8 @@ _0600BC10:	.word	0x0380FFF4
 _0600BC14:	.word	0x0480802A
 _0600BC18:	.word	0x04808028
 
-	arm_func_start FUN_0600BC1C
-FUN_0600BC1C: ; 0x0600BC1C
+	arm_func_start WSetBeaconSendRecvIndicate
+WSetBeaconSendRecvIndicate: ; 0x0600BC1C
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13653,8 +13653,8 @@ FUN_0600BC1C: ; 0x0600BC1C
 	bx	lr
 _0600BC58:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600BC5C
-FUN_0600BC5C: ; 0x0600BC5C
+	arm_func_start WSetDiversity
+WSetDiversity: ; 0x0600BC5C
 	cmp	r0, #1
 	bhi	_0600BC6C
 	cmp	r1, #1
@@ -13716,8 +13716,8 @@ _0600BCDC:
 _0600BD30:	.word	0x0380FFF4
 _0600BD34:	.word	0x04808290
 
-	arm_func_start FUN_0600BD38
-FUN_0600BD38: ; 0x0600BD38
+	arm_func_start WSetMainAntenna
+WSetMainAntenna: ; 0x0600BD38
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13745,8 +13745,8 @@ FUN_0600BD38: ; 0x0600BD38
 _0600BD98:	.word	0x0380FFF4
 _0600BD9C:	.word	0x04808290
 
-	arm_func_start FUN_0600BDA0
-FUN_0600BDA0: ; 0x0600BDA0
+	arm_func_start WSetCCA_ED
+WSetCCA_ED: ; 0x0600BDA0
 	stmdb	sp!, {r4, lr}
 	mov	r2, r0
 	mov	r4, r1
@@ -13758,17 +13758,17 @@ FUN_0600BDA0: ; 0x0600BDA0
 	bhi	_0600BDE0
 	mov	r0, #19
 	mov	r1, r2
-	bl	FUN_0600A478
+	bl	BBP_Write
 	mov	r0, #53	; 0x35
 	mov	r1, r4
-	bl	FUN_0600A478
+	bl	BBP_Write
 	mov	r0, #0
 _0600BDE0:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_0600BDE8
-FUN_0600BDE8: ; 0x0600BDE8
+	arm_func_start WSetAuthAlgo
+WSetAuthAlgo: ; 0x0600BDE8
 	cmp	r0, #1
 	movhi	r0, #5
 	ldrls	r1, _0600BE08	; =0x0380FFF4
@@ -13779,8 +13779,8 @@ FUN_0600BDE8: ; 0x0600BDE8
 	bx	lr
 _0600BE08:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600BE0C
-FUN_0600BE0C: ; 0x0600BE0C
+	arm_func_start WSetPreambleType
+WSetPreambleType: ; 0x0600BE0C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _0600BEC4	; =0x0380FFF4
@@ -13823,7 +13823,7 @@ _0600BE8C:
 	ldrneh	r0, [r1]
 	orrne	r0, r0, #6
 	strneh	r0, [r1]
-	bl	FUN_0600B494
+	bl	WSetTxTimeStampOffset
 	mov	r0, #0
 _0600BEB8:
 	add	sp, sp, #4
@@ -13832,8 +13832,8 @@ _0600BEB8:
 _0600BEC4:	.word	0x0380FFF4
 _0600BEC8:	.word	0x048080BC
 
-	arm_func_start FUN_0600BECC
-FUN_0600BECC: ; 0x0600BECC
+	arm_func_start WSetSsidMask
+WSetSsidMask: ; 0x0600BECC
 	ldr	r1, _0600BEF8	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r2, r1, #900	; 0x384
@@ -13848,8 +13848,8 @@ _0600BEDC:
 	bx	lr
 _0600BEF8:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600BEFC
-FUN_0600BEFC: ; 0x0600BEFC
+	arm_func_start WSetActiveZoneTime
+WSetActiveZoneTime: ; 0x0600BEFC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -13880,19 +13880,19 @@ FUN_0600BEFC: ; 0x0600BEFC
 	bne	_0600BF8C
 	mov	r0, r5
 	and	r1, r4, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r5, #1
 	mov	r1, r4, asr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	b	_0600BFA4
 _0600BF8C:
 	mov	r0, r5
 	mov	r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r5, #1
 	mov	r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 _0600BFA4:
 	mov	r0, #0
 _0600BFA8:
@@ -13902,8 +13902,8 @@ _0600BFA8:
 _0600BFB4:	.word	0x0380FFF4
 _0600BFB8:	.word	0x04808134
 
-	arm_func_start FUN_0600BFBC
-FUN_0600BFBC: ; 0x0600BFBC
+	arm_func_start WSetBeaconLostThreshold
+WSetBeaconLostThreshold: ; 0x0600BFBC
 	cmp	r0, #255	; 0xff
 	movhi	r0, #5
 	bxhi	lr
@@ -13919,8 +13919,8 @@ FUN_0600BFBC: ; 0x0600BFBC
 	bx	lr
 _0600BFF0:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600BFF4
-FUN_0600BFF4: ; 0x0600BFF4
+	arm_func_start WSetBcSsidResponse
+WSetBcSsidResponse: ; 0x0600BFF4
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13936,8 +13936,8 @@ FUN_0600BFF4: ; 0x0600BFF4
 	bx	lr
 _0600C028:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600C02C
-FUN_0600C02C: ; 0x0600C02C
+	arm_func_start WSetBeaconType
+WSetBeaconType: ; 0x0600C02C
 	cmp	r0, #1
 	movhi	r0, #5
 	bxhi	lr
@@ -13953,26 +13953,26 @@ FUN_0600C02C: ; 0x0600C02C
 	bx	lr
 _0600C060:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600C064
-FUN_0600C064: ; 0x0600C064
+	arm_func_start WSetWepKey
+WSetWepKey: ; 0x0600C064
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldr	r0, _0600C0B8	; =0x04805F80
 	mov	r1, r4
 	mov	r2, #20
-	bl	FUN_06009D74
+	bl	DMA_Write
 	ldr	r0, _0600C0BC	; =0x04805FA0
 	add	r1, r4, #20
 	mov	r2, #20
-	bl	FUN_06009D74
+	bl	DMA_Write
 	ldr	r0, _0600C0C0	; =0x04805FC0
 	add	r1, r4, #40	; 0x28
 	mov	r2, #20
-	bl	FUN_06009D74
+	bl	DMA_Write
 	ldr	r0, _0600C0C4	; =0x04805FE0
 	add	r1, r4, #60	; 0x3c
 	mov	r2, #20
-	bl	FUN_06009D74
+	bl	DMA_Write
 	mov	r0, #0
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -13981,8 +13981,8 @@ _0600C0BC:	.word	0x04805FA0
 _0600C0C0:	.word	0x04805FC0
 _0600C0C4:	.word	0x04805FE0
 
-	arm_func_start FUN_0600C0C8
-FUN_0600C0C8: ; 0x0600C0C8
+	arm_func_start WSetWepKeyId
+WSetWepKeyId: ; 0x0600C0C8
 	cmp	r0, #3
 	movhi	r0, #5
 	ldrls	r1, _0600C0E8	; =0x0380FFF4
@@ -13993,8 +13993,8 @@ FUN_0600C0C8: ; 0x0600C0C8
 	bx	lr
 _0600C0E8:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600C0EC
-FUN_0600C0EC: ; 0x0600C0EC
+	arm_func_start WSetWepMode
+WSetWepMode: ; 0x0600C0EC
 	ldr	r1, _0600C194	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r2, r1, #836	; 0x344
@@ -14044,8 +14044,8 @@ _0600C194:	.word	0x0380FFF4
 _0600C198:	.word	0x04808006
 _0600C19C:	.word	0x0000FFC7
 
-	arm_func_start FUN_0600C1A0
-FUN_0600C1A0: ; 0x0600C1A0
+	arm_func_start WSetRate
+WSetRate: ; 0x0600C1A0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	cmp	r0, #2
@@ -14055,7 +14055,7 @@ FUN_0600C1A0: ; 0x0600C1A0
 	ldr	r1, [r1]
 	add	r1, r1, #768	; 0x300
 	strh	r0, [r1, #48]	; 0x30
-	bl	FUN_0600B494
+	bl	WSetTxTimeStampOffset
 	mov	r0, #0
 _0600C1CC:
 	add	sp, sp, #4
@@ -14063,8 +14063,8 @@ _0600C1CC:
 	bx	lr
 _0600C1D8:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600C1DC
-FUN_0600C1DC: ; 0x0600C1DC
+	arm_func_start WSetMode
+WSetMode: ; 0x0600C1DC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	cmp	r0, #3
@@ -14086,7 +14086,7 @@ FUN_0600C1DC: ; 0x0600C1DC
 	ldr	r0, [ip]
 	add	r0, r0, #768	; 0x300
 	ldrh	r0, [r0, #82]	; 0x52
-	bl	FUN_0600B420
+	bl	WSetPowerMgtMode
 	ldr	r0, _0600C258	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, [r1, #832]	; 0x340
@@ -14101,8 +14101,8 @@ _0600C258:	.word	0x0380FFF4
 _0600C25C:	.word	0x04808006
 _0600C260:	.word	0x0000FFF8
 
-	arm_func_start FUN_0600C264
-FUN_0600C264: ; 0x0600C264
+	arm_func_start WSetEnableChannel
+WSetEnableChannel: ; 0x0600C264
 	ldr	r1, _0600C29C	; =0x00007FFE
 	ands	r1, r0, r1
 	moveq	r0, #5
@@ -14120,8 +14120,8 @@ FUN_0600C264: ; 0x0600C264
 _0600C29C:	.word	0x00007FFE
 _0600C2A0:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600C2A4
-FUN_0600C2A4: ; 0x0600C2A4
+	arm_func_start WSetRetryLimit
+WSetRetryLimit: ; 0x0600C2A4
 	cmp	r0, #255	; 0xff
 	movhi	r0, #5
 	bxhi	lr
@@ -14136,8 +14136,8 @@ FUN_0600C2A4: ; 0x0600C2A4
 _0600C2D0:	.word	0x0380FFF4
 _0600C2D4:	.word	0x0480802C
 
-	arm_func_start FUN_0600C2D8
-FUN_0600C2D8: ; 0x0600C2D8
+	arm_func_start WSetMacAdrs
+WSetMacAdrs: ; 0x0600C2D8
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	ldrh	r0, [r4]
@@ -14148,10 +14148,10 @@ FUN_0600C2D8: ; 0x0600C2D8
 	ldr	r0, [r0]
 	add	r0, r0, #804	; 0x324
 	mov	r1, r4
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldr	r0, _0600C334	; =0x04808018
 	mov	r1, r4
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldr	r0, _0600C330	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, [r1, #832]	; 0x340
@@ -14164,8 +14164,8 @@ _0600C328:
 _0600C330:	.word	0x0380FFF4
 _0600C334:	.word	0x04808018
 
-	arm_func_start FUN_0600C338
-FUN_0600C338: ; 0x0600C338
+	arm_func_start InitializeParam
+InitializeParam: ; 0x0600C338
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -14199,8 +14199,8 @@ FUN_0600C338: ; 0x0600C338
 	bx	lr
 _0600C3B4:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600C3B8
-FUN_0600C3B8: ; 0x0600C3B8
+	arm_func_start DiagBaseBand
+DiagBaseBand: ; 0x0600C3B8
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	r9, #0
@@ -14218,7 +14218,7 @@ FUN_0600C3B8: ; 0x0600C3B8
 _0600C3F0:
 	mov	r0, r6
 	mov	r1, r5
-	bl	FUN_0600A478
+	bl	BBP_Write
 	cmp	r0, r4
 	moveq	r9, #1
 	beq	_0600C678
@@ -14236,7 +14236,7 @@ _0600C420:
 	addeq	r5, r5, #1
 	beq	_0600C458
 	mov	r0, r4
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	cmp	r0, #255	; 0xff
@@ -14254,7 +14254,7 @@ _0600C45C:
 _0600C46C:
 	mov	r0, r5
 	mov	r1, r4
-	bl	FUN_0600A478
+	bl	BBP_Write
 	add	r5, r5, #1
 	cmp	r5, #105	; 0x69
 	bcc	_0600C46C
@@ -14268,7 +14268,7 @@ _0600C490:
 	addeq	r4, r4, #1
 	beq	_0600C4C4
 	mov	r0, r5
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	mov	r0, r0, lsl #16
 	movs	r0, r0, lsr #16
 	beq	_0600C4C4
@@ -14285,7 +14285,7 @@ _0600C4C8:
 _0600C4D8:
 	mov	r0, r4
 	mov	r1, r5
-	bl	FUN_0600A478
+	bl	BBP_Write
 	add	r4, r4, #1
 	mvn	r0, r5
 	mov	r0, r0, lsl #16
@@ -14303,7 +14303,7 @@ _0600C50C:
 	addeq	r4, r4, #1
 	beq	_0600C544
 	mov	r0, r6
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	cmp	r0, r5
@@ -14325,7 +14325,7 @@ _0600C558:
 _0600C568:
 	mov	r0, r5
 	mov	r1, r4
-	bl	FUN_0600A478
+	bl	BBP_Write
 	add	r5, r5, #1
 	sub	r0, r4, #1
 	mov	r0, r0, lsl #16
@@ -14343,7 +14343,7 @@ _0600C59C:
 	addeq	r4, r4, #1
 	beq	_0600C5D4
 	mov	r0, r6
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	cmp	r0, r5
@@ -14376,9 +14376,9 @@ _0600C600:
 _0600C620:
 	mov	r0, r6
 	mov	r1, r7
-	bl	FUN_0600A478
+	bl	BBP_Write
 	mov	r0, r6
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	cmp	r0, r7
@@ -14417,8 +14417,8 @@ _0600C6A4:	.word	0x0380FFF4
 _0600C6A8:	.word	_060195D0
 _0600C6AC:	.word	_06019604
 
-	arm_func_start FUN_0600C6B0
-FUN_0600C6B0: ; 0x0600C6B0
+	arm_func_start DiagMacMemory
+DiagMacMemory: ; 0x0600C6B0
 	mov	r0, #0
 	ldr	r3, _0600C820	; =0x04804000
 	ldr	r1, _0600C824	; =0x0000FFFF
@@ -14530,8 +14530,8 @@ _0600C828:	.word	0x00005A5A
 _0600C82C:	.word	0x0000A5A5
 _0600C830:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600C834
-FUN_0600C834: ; 0x0600C834
+	arm_func_start DiagMacRegister
+DiagMacRegister: ; 0x0600C834
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r3, #0
@@ -14654,8 +14654,8 @@ _0600C9D4:	.word	_060195C8
 _0600C9D8:	.word	0x00001234
 _0600C9DC:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600C9E0
-FUN_0600C9E0: ; 0x0600C9E0
+	arm_func_start ReleaseIntr
+ReleaseIntr: ; 0x0600C9E0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #16777216	; 0x1000000
@@ -14669,22 +14669,22 @@ FUN_0600C9E0: ; 0x0600C9E0
 
 	arm_func_start FUN_0600CA08
 FUN_0600CA08: ; 0x0600CA08
-	ldr	pc, _0600CA0C	; =FUN_037F894C
-_0600CA0C:	.word	FUN_037F894C
+	ldr	pc, _0600CA0C	; =OS_SetIrqFunction
+_0600CA0C:	.word	OS_SetIrqFunction
 
-	arm_func_start FUN_0600CA10
-FUN_0600CA10: ; 0x0600CA10
+	arm_func_start InitializeIntr
+InitializeIntr: ; 0x0600CA10
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #16777216	; 0x1000000
-	ldr	r1, _0600CA38	; =FUN_0600E000
+	ldr	r1, _0600CA38	; =WlIntr
 	bl	FUN_0600CA08
 	mov	r0, #16777216	; 0x1000000
 	bl	FUN_06009070
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
-_0600CA38:	.word	FUN_0600E000
+_0600CA38:	.word	WlIntr
 
 	arm_func_start FUN_0600CA3C
 FUN_0600CA3C: ; 0x0600CA3C
@@ -14705,7 +14705,7 @@ FUN_0600CA3C: ; 0x0600CA3C
 	ldrh	r1, [r1]
 	cmp	r2, r1
 	beq	_0600CA8C
-	bl	FUN_06015270
+	bl	TxEndKeyData
 	mov	r0, #1
 	b	_0600CA90
 _0600CA8C:
@@ -14771,8 +14771,8 @@ _0600CB50:	.word	0x0000FFFF
 _0600CB54:	.word	0x04808094
 _0600CB58:	.word	0x04808030
 
-	arm_func_start FUN_0600CB5C
-FUN_0600CB5C: ; 0x0600CB5C
+	arm_func_start AdjustRingPointer
+AdjustRingPointer: ; 0x0600CB5C
 	ldr	r1, _0600CB7C	; =0x04805F60
 	cmp	r0, r1
 	ldrcs	r1, _0600CB80	; =0x0380FFF4
@@ -14784,8 +14784,8 @@ FUN_0600CB5C: ; 0x0600CB5C
 _0600CB7C:	.word	0x04805F60
 _0600CB80:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600CB84
-FUN_0600CB84: ; 0x0600CB84
+	arm_func_start MacBugTxMp
+MacBugTxMp: ; 0x0600CB84
 	stmdb	sp!, {r4, lr}
 	mov	r0, #16777216	; 0x1000000
 	bl	FUN_06009068
@@ -14827,11 +14827,11 @@ FUN_0600CBF0: ; 0x0600CBF0
 	add	r5, r1, r0
 	mov	r4, #0
 	mov	r0, #2
-	bl	FUN_06014FC8
+	bl	ResetTxqPri
 	mov	r0, #1
-	bl	FUN_06014FC8
+	bl	ResetTxqPri
 	mov	r0, r4
-	bl	FUN_06014FC8
+	bl	ResetTxqPri
 	ldrh	r0, [r5, #40]	; 0x28
 	cmp	r0, #0
 	beq	_0600CC48
@@ -14866,11 +14866,11 @@ _0600CC90:
 	beq	_0600CCA4
 	mov	r0, #0
 	mov	r1, #14
-	bl	FUN_06009078
+	bl	AddTask
 _0600CCA4:
 	mov	r0, #0
 	mov	r1, #20
-	bl	FUN_06009078
+	bl	AddTask
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
@@ -14915,16 +14915,16 @@ FUN_0600CCC4: ; 0x0600CCC4
 	ldr	r0, _0600CF18	; =0x04804000
 	add	r0, r0, r6, lsl #1
 	add	r0, r0, #8
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	add	r0, r0, #4
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	ldrh	r2, [r0]
 	ldr	r1, _0600CF1C	; =0x0000E7FF
 	and	r1, r2, r1
 	cmp	r1, #552	; 0x228
 	bne	_0600CEEC
 	add	r0, r0, #2
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	ldr	r2, _0600CF20	; =0x048080F8
 	ldrh	r1, [r2]
 	sub	r7, r1, #65536	; 0x10000
@@ -14953,7 +14953,7 @@ _0600CDD4:
 	mov	r8, #0
 	b	_0600CE04
 _0600CDE0:
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	mov	r1, r0
 	add	r0, r1, #2
 	ldrh	r2, [r1]
@@ -14966,7 +14966,7 @@ _0600CE04:
 	cmp	r8, #3
 	bcc	_0600CDE0
 	add	r0, r0, #10
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	ldr	r3, _0600CF20	; =0x048080F8
 	ldr	r1, _0600CF08	; =0x04808268
 _0600CE1C:
@@ -15109,7 +15109,7 @@ _0600D018:
 	add	r3, r3, #1
 	bls	_0600D030
 	mov	r0, #64	; 0x40
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	b	_0600D03C
 _0600D030:
 	ldrh	r0, [r1]
@@ -15182,8 +15182,8 @@ _0600D104:
 	add	r0, r0, r1, lsl #2
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	ldr	r1, _0600D17C	; =FUN_0600CB84
-	bl	FUN_06009E4C
+	ldr	r1, _0600D17C	; =MacBugTxMp
+	bl	SetupUsTimeOut
 	ldr	r0, _0600D168	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1024	; 0x400
@@ -15194,7 +15194,7 @@ _0600D104:
 _0600D150:
 	mov	r0, #0
 	mov	r1, #16
-	bl	FUN_06009078
+	bl	AddTask
 _0600D15C:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
@@ -15204,7 +15204,7 @@ _0600D16C:	.word	0x0000042C
 _0600D170:	.word	0x04808010
 _0600D174:	.word	0x048080B6
 _0600D178:	.word	0x04808214
-_0600D17C:	.word	FUN_0600CB84
+_0600D17C:	.word	MacBugTxMp
 
 	arm_func_start FUN_0600D180
 FUN_0600D180: ; 0x0600D180
@@ -15256,23 +15256,23 @@ _0600D1DC:
 	ldr	r0, _0600D5DC	; =0x000008EF
 	cmp	r7, r0
 	bhi	_0600D240
-	bl	FUN_0600AC84
+	bl	WUpdateCounter
 _0600D240:
 	mov	r0, r7, lsl #1
 	str	r0, [sp, #8]
 	ldr	r0, _0600D5E0	; =0x04804000
 	add	r8, r0, r7, lsl #1
 	add	r0, r8, #2
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	mov	r4, r0
 	add	r0, r4, #2
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	str	r0, [sp, #12]
 	add	r0, r0, #4
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	str	r0, [sp, #16]
 	add	r0, r8, #14
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	str	r0, [sp, #4]
 	ldr	r0, [sp, #8]
 	add	r0, r0, #75497472	; 0x4800000
@@ -15351,10 +15351,10 @@ _0600D390:
 	cmp	r0, #12
 	bne	_0600D4EC
 	add	r0, r8, #12
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	ldrh	fp, [r0]
 	add	r0, r8, #34	; 0x22
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	ldrh	r6, [r0]
 	ldrh	r0, [r9]
 	cmp	r0, r6
@@ -15411,7 +15411,7 @@ _0600D3EC:
 	ldr	r0, [r0]
 	add	r0, r0, #1632	; 0x660
 	mov	r1, r3
-	ldr	r3, _0600D600	; =FUN_0600B004
+	ldr	r3, _0600D600	; =WClearKSID
 	bl	FUN_0600144C
 	b	_0600D4C4
 _0600D49C:
@@ -15479,7 +15479,7 @@ _0600D558:
 	cmp	r4, r0
 	bne	_0600D58C
 	mov	r0, #32
-	bl	FUN_0600994C
+	bl	SetFatalErr
 _0600D58C:
 	ldr	r0, _0600D5CC	; =0x0480805A
 	ldrh	r1, [r0]
@@ -15489,7 +15489,7 @@ _0600D58C:
 	beq	_0600D5B0
 	mov	r0, #0
 	mov	r1, #15
-	bl	FUN_06009078
+	bl	AddTask
 _0600D5B0:
 	add	sp, sp, #28
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -15511,7 +15511,7 @@ _0600D5F0:	.word	0x00000FFF
 _0600D5F4:	.word	0x04808028
 _0600D5F8:	.word	0x04808098
 _0600D5FC:	.word	0x000082EA
-_0600D600:	.word	FUN_0600B004
+_0600D600:	.word	WClearKSID
 _0600D604:	.word	0x04805F7E
 _0600D608:	.word	0x0480824C
 _0600D60C:	.word	0x0480824E
@@ -15532,7 +15532,7 @@ FUN_0600D610: ; 0x0600D610
 	ldrh	r1, [r1, #76]	; 0x4c
 	cmp	r1, #18
 	bne	_0600D650
-	bl	FUN_0601269C
+	bl	IntrCarrierSuppresionSignal
 	b	_0600D870
 _0600D650:
 	ldr	r1, _0600D888	; =0x048080B8
@@ -15558,7 +15558,7 @@ _0600D688:
 	str	r0, [r1, #1368]	; 0x558
 	mov	r0, #0
 	mov	r1, #8
-	bl	FUN_06009078
+	bl	AddTask
 	b	_0600D7F0
 _0600D6AC:
 	ldrh	r2, [r5, #158]	; 0x9e
@@ -15682,7 +15682,7 @@ _0600D858:
 _0600D864:
 	mov	r0, #0
 	mov	r1, #14
-	bl	FUN_06009078
+	bl	AddTask
 _0600D870:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -15808,7 +15808,7 @@ _0600DA1C:
 	ldr	r0, _0600DA7C	; =0x04808030
 	strh	r1, [r0]
 _0600DA38:
-	bl	FUN_06009990
+	bl	WCheckTxBuf
 _0600DA3C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -15914,7 +15914,7 @@ _0600DBA8:	.word	0x04808032
 FUN_0600DBAC: ; 0x0600DBAC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_0600AC84
+	bl	WUpdateCounter
 	ldr	r1, _0600DBDC	; =0x0000FFFF
 	ldr	r0, _0600DBE0	; =0x048081AC
 	strh	r1, [r0]
@@ -16001,11 +16001,11 @@ _0600DCC4:
 	ldrh	r5, [r0]
 	mov	r0, r6
 	and	r1, r5, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #1
 	mov	r1, r5, lsr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	ldrh	r0, [sl, #14]
 	cmp	r0, #1
 	bne	_0600DD20
@@ -16060,7 +16060,7 @@ _0600DDB0:
 	cmp	r0, #2
 	bne	_0600DDC4
 	mov	r0, #2
-	bl	FUN_0600B3F4
+	bl	WSetPowerState
 _0600DDC4:
 	ldrh	r0, [sl, #8]
 	cmp	r0, #64	; 0x40
@@ -16146,12 +16146,12 @@ _0600DEF4:
 	bls	_0600DF24
 _0600DEFC:
 	mov	r0, r8
-	bl	FUN_06014FC8
+	bl	ResetTxqPri
 	ldr	r0, [r7, #8]
 	strh	r6, [r0]
 	mov	r0, fp
 	mov	r1, r5
-	bl	FUN_06009078
+	bl	AddTask
 	ldrh	r0, [r9, #174]	; 0xae
 	add	r0, r0, #1
 	strh	r0, [r9, #174]	; 0xae
@@ -16208,7 +16208,7 @@ FUN_0600DF74: ; 0x0600DF74
 	strh	r0, [r4, #128]	; 0x80
 	mov	r0, #1
 	mov	r1, #13
-	bl	FUN_06009078
+	bl	AddTask
 _0600DFE8:
 	mov	r0, #1
 	strh	r0, [r4, #16]
@@ -16217,8 +16217,8 @@ _0600DFE8:
 _0600DFF8:	.word	0x0380FFF4
 _0600DFFC:	.word	0x04808010
 
-	arm_func_start FUN_0600E000
-FUN_0600E000: ; 0x0600E000
+	arm_func_start WlIntr
+WlIntr: ; 0x0600E000
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 
 	arm_func_start FUN_0600E004
@@ -16302,7 +16302,7 @@ FUN_0600E0E4: ; 0x0600E0E4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	add	r1, r5, #34	; 0x22
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	cmp	r0, #0
 	moveq	r0, #0
 	beq	_0600E14C
@@ -16310,7 +16310,7 @@ FUN_0600E0E4: ; 0x0600E0E4
 	add	r0, r4, #8
 	mov	r1, r6
 	add	r2, r5, #12
-	bl	FUN_06009DA4
+	bl	DMA_Read
 	sub	r0, r5, #24
 	strh	r0, [r4, #6]
 	ldrh	r0, [r4, #14]
@@ -16326,8 +16326,8 @@ _0600E14C:
 	bx	lr
 _0600E154:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600E158
-FUN_0600E158: ; 0x0600E158
+	arm_func_start SetParentTbttTxqTask
+SetParentTbttTxqTask: ; 0x0600E158
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600E210	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -16343,7 +16343,7 @@ FUN_0600E158: ; 0x0600E158
 	ldr	r0, _0600E218	; =0x048080AE
 	strh	r1, [r0]
 	mov	r0, #2
-	bl	FUN_06015C78
+	bl	TxqPri
 	b	_0600E208
 _0600E19C:
 	add	r0, r1, #1280	; 0x500
@@ -16359,7 +16359,7 @@ _0600E19C:
 	cmp	r0, #0
 	beq	_0600E1D4
 	mov	r0, #2
-	bl	FUN_06015C78
+	bl	TxqPri
 _0600E1D4:
 	mov	r1, #5
 	ldr	r0, _0600E218	; =0x048080AE
@@ -16368,13 +16368,13 @@ _0600E1D4:
 	cmp	r0, #0
 	beq	_0600E1F4
 	mov	r0, #1
-	bl	FUN_06015C78
+	bl	TxqPri
 _0600E1F4:
 	ldrh	r0, [r4, #32]
 	cmp	r0, #0
 	beq	_0600E208
 	mov	r0, #0
-	bl	FUN_06015C78
+	bl	TxqPri
 _0600E208:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -16382,8 +16382,8 @@ _0600E210:	.word	0x0380FFF4
 _0600E214:	.word	0x04808088
 _0600E218:	.word	0x048080AE
 
-	arm_func_start FUN_0600E21C
-FUN_0600E21C: ; 0x0600E21C
+	arm_func_start WlIntrMpEndTask
+WlIntrMpEndTask: ; 0x0600E21C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0600E300	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -16398,7 +16398,7 @@ FUN_0600E21C: ; 0x0600E21C
 	ldrh	r0, [r0, #2]
 	cmp	r1, r0
 	beq	_0600E258
-	bl	FUN_0600E308
+	bl	WlIntrRxEndTask
 _0600E258:
 	ldr	r0, [r4, #68]	; 0x44
 	ldrh	r0, [r0, #4]
@@ -16435,21 +16435,21 @@ _0600E290:
 	ldrh	r0, [r0, #234]	; 0xea
 	cmp	r0, #0
 	beq	_0600E2E4
-	bl	FUN_0600B21C
+	bl	WDisableTmpttPowerSave
 _0600E2E4:
 	ldr	r0, _0600E300	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	ldr	r1, [r4, #144]	; 0x90
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 _0600E2F8:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _0600E300:	.word	0x0380FFF4
 _0600E304:	.word	0x0000042C
 
-	arm_func_start FUN_0600E308
-FUN_0600E308: ; 0x0600E308
+	arm_func_start WlIntrRxEndTask
+WlIntrRxEndTask: ; 0x0600E308
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #52	; 0x34
 	ldr	sl, _0600E6B8	; =0x0380FFF4
@@ -16489,13 +16489,13 @@ _0600E380:
 	ldr	r0, _0600E6C4	; =0x000008C6
 	cmp	r5, r0
 	bcc	_0600E3A4
-	bl	FUN_0600AC84
+	bl	WUpdateCounter
 _0600E3A4:
 	mov	r4, r5, lsl #1
 	ldr	r0, _0600E6C8	; =0x04804000
 	add	r5, r0, r5, lsl #1
 	add	r0, r5, #2
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	ldrh	r9, [r0]
 	add	r0, r4, #75497472	; 0x4800000
 	add	r0, r0, #16384	; 0x4000
@@ -16506,7 +16506,7 @@ _0600E3A4:
 	streqh	r9, [r0]
 	beq	_0600E69C
 	add	r0, r5, #8
-	bl	FUN_0600CB5C
+	bl	AdjustRingPointer
 	ldrh	r1, [r0]
 	mov	r0, r5
 	bl	FUN_0600E0E4
@@ -16519,11 +16519,11 @@ _0600E3A4:
 	cmp	r0, #12
 	bne	_0600E41C
 	ldr	r0, [sp, #4]
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	b	_0600E69C
 _0600E41C:
 	ldr	r0, [sp, #8]
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	b	_0600E69C
 _0600E428:
 	ldr	r0, [sl]
@@ -16554,10 +16554,10 @@ _0600E480:
 	add	r0, r6, #12
 	add	r1, r6, #108	; 0x6c
 	sub	r2, r4, #16
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, fp
 	ldr	r1, [sp, #20]
-	bl	FUN_06009078
+	bl	AddTask
 	b	_0600E644
 _0600E4A4:
 	and	r0, r1, #15
@@ -16589,17 +16589,17 @@ _0600E4F4:
 	add	r0, r6, #12
 	add	r1, r6, #72	; 0x48
 	sub	r2, r4, #16
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, fp
 	ldr	r1, [sp, #28]
-	bl	FUN_06009078
+	bl	AddTask
 	b	_0600E644
 _0600E528:
 	ldrh	r0, [r4, #20]
 	cmp	r0, #128	; 0x80
 	bne	_0600E644
 	mov	r0, r4
-	bl	FUN_06017FDC
+	bl	RxBeaconFrame
 	b	_0600E644
 _0600E540:
 	ldrh	r0, [r4, #20]
@@ -16609,10 +16609,10 @@ _0600E540:
 	add	r0, r6, #12
 	add	r1, r6, #96	; 0x60
 	sub	r2, r4, #16
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, r8
 	ldr	r1, [sp, #36]	; 0x24
-	bl	FUN_06009078
+	bl	AddTask
 	b	_0600E644
 _0600E570:
 	ldrh	r1, [r4, #20]
@@ -16624,10 +16624,10 @@ _0600E570:
 	add	r0, r6, #12
 	add	r1, r6, #96	; 0x60
 	sub	r2, r4, #16
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, r8
 	ldr	r1, [sp, #36]	; 0x24
-	bl	FUN_06009078
+	bl	AddTask
 	b	_0600E644
 _0600E5A8:
 	ldrh	r1, [r4, #20]
@@ -16636,7 +16636,7 @@ _0600E5A8:
 	cmp	r0, #280	; 0x118
 	bne	_0600E644
 	mov	r0, r4
-	bl	FUN_06018780
+	bl	RxKeyDataFrame
 	b	_0600E644
 _0600E5C8:
 	ldrh	r1, [r4, #20]
@@ -16655,7 +16655,7 @@ _0600E5C8:
 	add	r0, r0, #1
 	str	r0, [r1, #1452]	; 0x5ac
 	mov	r0, r4
-	bl	FUN_06018944
+	bl	RxMpFrame
 	mov	r9, r0
 	b	_0600E644
 _0600E614:
@@ -16669,14 +16669,14 @@ _0600E614:
 	add	r0, r0, #1
 	str	r0, [r1, #1456]	; 0x5b0
 	mov	r0, r4
-	bl	FUN_0601869C
+	bl	RxMpAckFrame
 	mov	r9, r0
 _0600E644:
 	cmp	r9, #0
 	beq	_0600E658
 	add	r0, r6, #12
 	sub	r1, r4, #16
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 _0600E658:
 	ldr	r0, [sl]
 	add	r0, r0, #1536	; 0x600
@@ -16716,8 +16716,8 @@ _0600E6D4:	.word	0x0000E7BF
 _0600E6D8:	.word	0x0480803C
 _0600E6DC:	.word	0x04805F60
 
-	arm_func_start FUN_0600E6E0
-FUN_0600E6E0: ; 0x0600E6E0
+	arm_func_start WlIntrTxEndTask
+WlIntrTxEndTask: ; 0x0600E6E0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600E8D8	; =0x0380FFF4
@@ -16856,8 +16856,8 @@ _0600E8DC:	.word	0x0000042C
 _0600E8E0:	.word	0x048080A0
 _0600E8E4:	.word	0x04808032
 
-	arm_func_start FUN_0600E8E8
-FUN_0600E8E8: ; 0x0600E8E8
+	arm_func_start WlIntrTxBeaconTask
+WlIntrTxBeaconTask: ; 0x0600E8E8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600E938	; =0x0380FFF4
@@ -16866,7 +16866,7 @@ FUN_0600E8E8: ; 0x0600E8E8
 	ldrh	r0, [r0, #232]	; 0xe8
 	cmp	r0, #0
 	beq	_0600E90C
-	bl	FUN_06014670
+	bl	UpdateGameInfoElement
 _0600E90C:
 	ldr	r0, _0600E938	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -16875,7 +16875,7 @@ _0600E90C:
 	mov	r0, r0, lsl #25
 	movs	r0, r0, lsr #31
 	beq	_0600E92C
-	bl	FUN_0600FDE4
+	bl	MLME_IssueBeaconSendIndication
 _0600E92C:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
@@ -16914,12 +16914,12 @@ FUN_0600E93C: ; 0x0600E93C
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #0
-	bl	FUN_0600F218
+	bl	CAM_SetPowerMgtMode
 	mov	r0, r6
-	bl	FUN_0600F1B4
+	bl	CAM_SetAwake
 	add	r0, r4, #4
 	mov	r1, r5
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldr	r0, _0600EA0C	; =0x0000FFFF
 	strh	r0, [r4, #20]
 	ldr	r0, _0600EA08	; =0x0380FFF4
@@ -16932,14 +16932,14 @@ FUN_0600E93C: ; 0x0600E93C
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600EA08:	.word	0x0380FFF4
 _0600EA0C:	.word	0x0000FFFF
 
-	arm_func_start FUN_0600EA10
-FUN_0600EA10: ; 0x0600EA10
+	arm_func_start InitCAM
+InitCAM: ; 0x0600EA10
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	ldr	r0, _0600EA90	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -16978,8 +16978,8 @@ _0600EA90:	.word	0x0380FFF4
 _0600EA94:	.word	0x0000052C
 _0600EA98:	.word	0x0000FFFE
 
-	arm_func_start FUN_0600EA9C
-FUN_0600EA9C: ; 0x0600EA9C
+	arm_func_start InitializeCAM
+InitializeCAM: ; 0x0600EA9C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600EB34	; =0x0380FFF4
@@ -17012,24 +17012,24 @@ _0600EB08:
 	cmp	r3, r4
 	bcc	_0600EAFC
 	mov	r0, #0
-	ldr	r1, _0600EB40	; =_06019384
+	ldr	r1, _0600EB40	; =BC_ADRS
 	bl	FUN_0600E93C
 	mov	r0, #0
 	mov	r1, #64	; 0x40
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600EB34:	.word	0x0380FFF4
 _0600EB38:	.word	0x0000052C
 _0600EB3C:	.word	0x0000FFFF
-_0600EB40:	.word	_06019384
+_0600EB40:	.word	BC_ADRS
 
-	arm_func_start FUN_0600EB44
-FUN_0600EB44: ; 0x0600EB44
+	arm_func_start CAM_Delete
+CAM_Delete: ; 0x0600EB44
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
-	bl	FUN_06014EB8
+	bl	DeleteTxFrames
 	mov	r3, #0
 	ldr	r2, _0600EB88	; =0x0380FFF4
 	ldr	r0, [r2]
@@ -17046,8 +17046,8 @@ FUN_0600EB44: ; 0x0600EB44
 	bx	lr
 _0600EB88:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600EB8C
-FUN_0600EB8C: ; 0x0600EB8C
+	arm_func_start CAM_TimerTask
+CAM_TimerTask: ; 0x0600EB8C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #44	; 0x2c
 	ldr	r0, _0600ED6C	; =0x0380FFF4
@@ -17090,14 +17090,14 @@ _0600EBE8:
 	cmp	r0, #32
 	bcc	_0600ED24
 	mov	r0, r8
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	mov	r5, r0
 	mov	r0, r8, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, r4
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	mov	r0, r8
-	bl	FUN_06014EB8
+	bl	DeleteTxFrames
 	add	r0, sl, #768	; 0x300
 	ldrh	r1, [r0, #80]	; 0x50
 	cmp	r1, #1
@@ -17113,24 +17113,24 @@ _0600EBE8:
 	mov	r0, r8, lsl #16
 	mov	r0, r0, lsr #16
 	ldr	r1, [sp]
-	bl	FUN_0600F218
+	bl	CAM_SetPowerMgtMode
 	mov	r0, r8
-	bl	FUN_0600F1B4
+	bl	CAM_SetAwake
 	add	r0, r9, #4
 	ldr	r1, [sp, #4]
 	ldr	r2, [sp, #8]
-	bl	FUN_06013E9C
+	bl	MakeDeAuthFrame
 	cmp	r0, #0
 	beq	_0600ECC4
 	ldr	r1, [sp, #12]
 	strh	r1, [r0]
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	add	r7, r7, #1
 	b	_0600ED48
 _0600ECC4:
 	add	r0, r9, #4
 	ldr	r1, [sp, #16]
-	bl	FUN_06010130
+	bl	MLME_IssueDeAuthIndication
 	b	_0600ED24
 _0600ECD4:
 	ldrh	r0, [r0, #204]	; 0xcc
@@ -17139,21 +17139,21 @@ _0600ECD4:
 	add	r0, r9, #4
 	ldr	r1, [sp, #20]
 	ldr	r2, [sp, #24]
-	bl	FUN_06013E9C
+	bl	MakeDeAuthFrame
 	cmp	r0, #0
 	beq	_0600ED0C
 	ldr	r1, [sp, #28]
 	strh	r1, [r0]
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	add	r7, r7, #1
 	b	_0600ED48
 _0600ED0C:
 	mov	r0, r4
-	bl	FUN_0600AF68
-	bl	FUN_0600B054
+	bl	WSetStaState
+	bl	WClearAids
 	add	r0, r9, #4
 	ldr	r1, [sp, #32]
-	bl	FUN_06010130
+	bl	MLME_IssueDeAuthIndication
 _0600ED24:
 	ldr	r0, [sp, #36]	; 0x24
 	strh	r0, [r9]
@@ -17181,11 +17181,11 @@ _0600ED60:
 _0600ED6C:	.word	0x0380FFF4
 _0600ED70:	.word	0x0000FFFF
 
-	arm_func_start FUN_0600ED74
-FUN_0600ED74: ; 0x0600ED74
+	arm_func_start CAM_ClrTIMElementBitmap
+CAM_ClrTIMElementBitmap: ; 0x0600ED74
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r5, r0
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	bne	_0600EE10
 	ldr	r0, _0600EE18	; =0x0380FFF4
@@ -17200,27 +17200,27 @@ FUN_0600ED74: ; 0x0600ED74
 	cmp	r5, #0
 	bne	_0600EDD0
 	add	r0, r6, #4
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	and	r1, r0, #254	; 0xfe
 	add	r0, r6, #4
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	b	_0600EE08
 _0600EDD0:
 	mov	r0, r5
-	bl	FUN_0600EF18
+	bl	CAM_GetAID
 	mov	r5, r0
 	add	r0, r6, #5
 	add	r6, r0, r5, lsr #3
 	mov	r0, r6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r2, #1
 	and	r1, r5, #7
 	mvn	r1, r2, lsl r1
 	and	r1, r1, r0
 	mov	r0, r6
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 _0600EE08:
 	mov	r0, r4
 	bl	FUN_06009070
@@ -17230,11 +17230,11 @@ _0600EE10:
 _0600EE18:	.word	0x0380FFF4
 _0600EE1C:	.word	0x0480425C
 
-	arm_func_start FUN_0600EE20
-FUN_0600EE20: ; 0x0600EE20
+	arm_func_start CAM_SetTIMElementBitmap
+CAM_SetTIMElementBitmap: ; 0x0600EE20
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r5, r0
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	bne	_0600EED0
 	ldr	r0, _0600EED8	; =0x0380FFF4
@@ -17255,26 +17255,26 @@ FUN_0600EE20: ; 0x0600EE20
 	cmp	r5, #0
 	bne	_0600EE94
 	add	r0, r6, #4
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	orr	r1, r0, #1
 	add	r0, r6, #4
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	b	_0600EEC8
 _0600EE94:
 	mov	r0, r5
-	bl	FUN_0600EF18
+	bl	CAM_GetAID
 	mov	r5, r0
 	add	r0, r6, #5
 	add	r6, r0, r5, lsr #3
 	mov	r0, r6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r2, #1
 	and	r1, r5, #7
 	orr	r1, r0, r2, lsl r1
 	mov	r0, r6
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 _0600EEC8:
 	mov	r0, r4
 	bl	FUN_06009070
@@ -17284,8 +17284,8 @@ _0600EED0:
 _0600EED8:	.word	0x0380FFF4
 _0600EEDC:	.word	0x0480425C
 
-	arm_func_start FUN_0600EEE0
-FUN_0600EEE0: ; 0x0600EEE0
+	arm_func_start CAM_GetTbl
+CAM_GetTbl: ; 0x0600EEE0
 	ldr	r1, _0600EEF8	; =0x0380FFF4
 	ldr	r1, [r1]
 	ldr	r2, [r1, #796]	; 0x31c
@@ -17294,31 +17294,31 @@ FUN_0600EEE0: ; 0x0600EEE0
 	bx	lr
 _0600EEF8:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600EEFC
-FUN_0600EEFC: ; 0x0600EEFC
+	arm_func_start CAM_GetFrameCount
+CAM_GetFrameCount: ; 0x0600EEFC
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	ldrh	r0, [r0, #22]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_0600EF18
-FUN_0600EF18: ; 0x0600EF18
+	arm_func_start CAM_GetAID
+CAM_GetAID: ; 0x0600EF18
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	ldrh	r0, [r0, #2]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_0600EF34
-FUN_0600EF34: ; 0x0600EF34
+	arm_func_start CAM_GetTxRate
+CAM_GetTxRate: ; 0x0600EF34
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	ldrh	r0, [r0, #16]
 	ands	r0, r0, #2
 	movne	r0, #20
@@ -17327,38 +17327,38 @@ FUN_0600EF34: ; 0x0600EF34
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_0600EF5C
-FUN_0600EF5C: ; 0x0600EF5C
+	arm_func_start CAM_GetLastSeqCtrl
+CAM_GetLastSeqCtrl: ; 0x0600EF5C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	ldrh	r0, [r0, #20]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_0600EF78
-FUN_0600EF78: ; 0x0600EF78
+	arm_func_start CAM_GetAuthSeed
+CAM_GetAuthSeed: ; 0x0600EF78
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	ldrh	r0, [r0, #14]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_0600EF94
-FUN_0600EF94: ; 0x0600EF94
+	arm_func_start CAM_GetMacAdrs
+CAM_GetMacAdrs: ; 0x0600EF94
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	add	r0, r0, #4
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_0600EFB0
-FUN_0600EFB0: ; 0x0600EFB0
+	arm_func_start CAM_GetPowerMgtMode
+CAM_GetPowerMgtMode: ; 0x0600EFB0
 	ldr	r1, _0600EFCC	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #1280	; 0x500
@@ -17368,8 +17368,8 @@ FUN_0600EFB0: ; 0x0600EFB0
 	bx	lr
 _0600EFCC:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600EFD0
-FUN_0600EFD0: ; 0x0600EFD0
+	arm_func_start CAM_IsActive
+CAM_IsActive: ; 0x0600EFD0
 	ldr	r1, _0600EFEC	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #1280	; 0x500
@@ -17379,29 +17379,29 @@ FUN_0600EFD0: ; 0x0600EFD0
 	bx	lr
 _0600EFEC:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600EFF0
-FUN_0600EFF0: ; 0x0600EFF0
+	arm_func_start CAM_GetStaState
+CAM_GetStaState: ; 0x0600EFF0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	ldrh	r0, [r0]
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_0600F00C
-FUN_0600F00C: ; 0x0600F00C
+	arm_func_start CAM_ReleaseAID
+CAM_ReleaseAID: ; 0x0600F00C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r1, _0600F07C	; =0x0380FFF4
 	ldr	r5, [r1]
-	bl	FUN_0600ED74
+	bl	CAM_ClrTIMElementBitmap
 	mov	r0, r6
-	bl	FUN_0600EF18
+	bl	CAM_GetAID
 	movs	r4, r0
 	beq	_0600F074
 	mov	r0, r6
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	mov	r1, #0
 	strh	r1, [r0, #2]
 	add	r0, r5, #1280	; 0x500
@@ -17416,14 +17416,14 @@ FUN_0600F00C: ; 0x0600F00C
 	ldrh	r0, [r0, #56]	; 0x38
 	cmp	r0, #0
 	bne	_0600F074
-	bl	FUN_0600B21C
+	bl	WDisableTmpttPowerSave
 _0600F074:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600F07C:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F080
-FUN_0600F080: ; 0x0600F080
+	arm_func_start CAM_AllocateAID
+CAM_AllocateAID: ; 0x0600F080
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -17449,10 +17449,10 @@ _0600F0B4:
 	ldrh	r0, [r6, #12]
 	cmp	r0, #1
 	bne	_0600F0E4
-	bl	FUN_0600B1EC
+	bl	WEnableTmpttPowerSave
 _0600F0E4:
 	mov	r0, r7
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	strh	r5, [r0, #2]
 	mov	r0, r4
 	bl	FUN_06009070
@@ -17474,8 +17474,8 @@ _0600F11C:
 _0600F128:	.word	0x0380FFF4
 _0600F12C:	.word	0x0000052C
 
-	arm_func_start FUN_0600F130
-FUN_0600F130: ; 0x0600F130
+	arm_func_start CAM_UpdateLifeTime
+CAM_UpdateLifeTime: ; 0x0600F130
 	mov	r1, #28
 	ldr	r2, _0600F150	; =0x0380FFF4
 	ldr	r2, [r2]
@@ -17486,44 +17486,44 @@ FUN_0600F130: ; 0x0600F130
 	bx	lr
 _0600F150:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F154
-FUN_0600F154: ; 0x0600F154
+	arm_func_start CAM_SetAuthSeed
+CAM_SetAuthSeed: ; 0x0600F154
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	strh	r4, [r0, #14]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_0600F16C
-FUN_0600F16C: ; 0x0600F16C
+	arm_func_start CAM_SetLastSeqCtrl
+CAM_SetLastSeqCtrl: ; 0x0600F16C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	strh	r4, [r0, #20]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_0600F184
-FUN_0600F184: ; 0x0600F184
+	arm_func_start CAM_SetSupRate
+CAM_SetSupRate: ; 0x0600F184
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	strh	r4, [r0, #16]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_0600F19C
-FUN_0600F19C: ; 0x0600F19C
+	arm_func_start CAM_SetCapaInfo
+CAM_SetCapaInfo: ; 0x0600F19C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	strh	r4, [r0, #12]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_0600F1B4
-FUN_0600F1B4: ; 0x0600F1B4
+	arm_func_start CAM_SetAwake
+CAM_SetAwake: ; 0x0600F1B4
 	ldr	r1, _0600F1D4	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #1280	; 0x500
@@ -17534,11 +17534,11 @@ FUN_0600F1B4: ; 0x0600F1B4
 	bx	lr
 _0600F1D4:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F1D8
-FUN_0600F1D8: ; 0x0600F1D8
+	arm_func_start CAM_SetDoze
+CAM_SetDoze: ; 0x0600F1D8
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	bne	_0600F20C
 	ldr	r0, _0600F214	; =0x0380FFF4
@@ -17554,8 +17554,8 @@ _0600F20C:
 	bx	lr
 _0600F214:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F218
-FUN_0600F218: ; 0x0600F218
+	arm_func_start CAM_SetPowerMgtMode
+CAM_SetPowerMgtMode: ; 0x0600F218
 	ldr	r2, _0600F26C	; =0x0380FFF4
 	ldr	r3, [r2]
 	ldr	r2, _0600F270	; =0x0000052C
@@ -17582,17 +17582,17 @@ _0600F270:	.word	0x0000052C
 _0600F274:	.word	0x048080AC
 _0600F278:	.word	0x048080AE
 
-	arm_func_start FUN_0600F27C
-FUN_0600F27C: ; 0x0600F27C
+	arm_func_start CAM_SetRSSI
+CAM_SetRSSI: ; 0x0600F27C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	strh	r4, [r0, #10]
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_0600F294
-FUN_0600F294: ; 0x0600F294
+	arm_func_start CAM_SetStaState
+CAM_SetStaState: ; 0x0600F294
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -17602,7 +17602,7 @@ FUN_0600F294: ; 0x0600F294
 	cmp	r5, #64	; 0x40
 	bcs	_0600F308
 	mov	r0, r6
-	bl	FUN_0600F1B4
+	bl	CAM_SetAwake
 	ldr	r3, _0600F35C	; =0x0380FFF4
 	ldr	r0, [r3]
 	add	r0, r0, #1280	; 0x500
@@ -17616,11 +17616,11 @@ FUN_0600F294: ; 0x0600F294
 	cmp	r0, #1
 	bne	_0600F340
 	mov	r0, r6
-	bl	FUN_0600EF18
+	bl	CAM_GetAID
 	cmp	r0, #0
 	beq	_0600F340
 	mov	r0, r6
-	bl	FUN_0600F00C
+	bl	CAM_ReleaseAID
 	b	_0600F340
 _0600F308:
 	ldr	r0, _0600F35C	; =0x0380FFF4
@@ -17632,14 +17632,14 @@ _0600F308:
 	and	r1, r2, r1
 	strh	r1, [r0, #50]	; 0x32
 	mov	r0, r6
-	bl	FUN_0600EFB0
+	bl	CAM_GetPowerMgtMode
 	cmp	r0, #0
 	beq	_0600F340
 	mov	r0, r6
-	bl	FUN_0600F1D8
+	bl	CAM_SetDoze
 _0600F340:
 	mov	r0, r6
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	strh	r5, [r0]
 	mov	r0, r4
 	bl	FUN_06009070
@@ -17647,12 +17647,12 @@ _0600F340:
 	bx	lr
 _0600F35C:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F360
-FUN_0600F360: ; 0x0600F360
+	arm_func_start CAM_DecFrameCount
+CAM_DecFrameCount: ; 0x0600F360
 	stmdb	sp!, {r4, r5, r6, lr}
 	ldrh	r4, [r0, #2]
 	mov	r0, r4
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	mov	r6, r0
 	mov	r0, #16777216	; 0x1000000
 	bl	FUN_06009068
@@ -17667,7 +17667,7 @@ FUN_0600F360: ; 0x0600F360
 	cmp	r0, #1
 	bne	_0600F3AC
 	mov	r0, r4
-	bl	FUN_0600ED74
+	bl	CAM_ClrTIMElementBitmap
 _0600F3AC:
 	ldrh	r0, [r6, #22]
 	sub	r0, r0, #1
@@ -17678,12 +17678,12 @@ _0600F3AC:
 	bx	lr
 _0600F3C8:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F3CC
-FUN_0600F3CC: ; 0x0600F3CC
+	arm_func_start CAM_IncFrameCount
+CAM_IncFrameCount: ; 0x0600F3CC
 	stmdb	sp!, {r4, r5, r6, lr}
 	ldrh	r4, [r0, #2]
 	mov	r0, r4
-	bl	FUN_0600EEE0
+	bl	CAM_GetTbl
 	mov	r6, r0
 	mov	r0, #16777216	; 0x1000000
 	bl	FUN_06009068
@@ -17698,7 +17698,7 @@ FUN_0600F3CC: ; 0x0600F3CC
 	cmp	r0, #0
 	bne	_0600F418
 	mov	r0, r4
-	bl	FUN_0600EE20
+	bl	CAM_SetTIMElementBitmap
 _0600F418:
 	ldrh	r0, [r6, #22]
 	add	r0, r0, #1
@@ -17718,8 +17718,8 @@ _0600F418:
 	bx	lr
 _0600F458:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F45C
-FUN_0600F45C: ; 0x0600F45C
+	arm_func_start CAM_AddBcFrame
+CAM_AddBcFrame: ; 0x0600F45C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -17734,12 +17734,12 @@ FUN_0600F45C: ; 0x0600F45C
 	cmp	r0, #0
 	bne	_0600F498
 	mov	r0, #0
-	bl	FUN_0600EE20
+	bl	CAM_SetTIMElementBitmap
 _0600F498:
 	mov	r0, r7
 	mov	r1, r5
 	mov	r2, r6
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, r4
 	bl	FUN_06009070
 	add	sp, sp, #4
@@ -17747,8 +17747,8 @@ _0600F498:
 	bx	lr
 _0600F4BC:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F4C0
-FUN_0600F4C0: ; 0x0600F4C0
+	arm_func_start CAM_SearchAdd
+CAM_SearchAdd: ; 0x0600F4C0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	mov	r9, r0
 	ldr	sl, _0600F604	; =0x0380FFF4
@@ -17774,7 +17774,7 @@ _0600F50C:
 	beq	_0600F54C
 	add	r0, r7, #4
 	mov	r1, r9
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	movne	r0, r6
 	bne	_0600F5FC
@@ -17844,8 +17844,8 @@ _0600F5FC:
 	bx	lr
 _0600F604:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F608
-FUN_0600F608: ; 0x0600F608
+	arm_func_start CAM_Search
+CAM_Search: ; 0x0600F608
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r8, r0
 	ldrh	r0, [r8]
@@ -17869,7 +17869,7 @@ _0600F64C:
 	beq	_0600F688
 	add	r0, r7, #4
 	mov	r1, r8
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	movne	r0, r6
 	bne	_0600F6A4
@@ -17913,8 +17913,8 @@ _0600F6D0:
 	bx	lr
 _0600F6E0:	.word	0x04808180
 
-	arm_func_start FUN_0600F6E4
-FUN_0600F6E4: ; 0x0600F6E4
+	arm_func_start WaitLoop_BbpAccess
+WaitLoop_BbpAccess: ; 0x0600F6E4
 	mov	r2, #0
 	ldr	r1, _0600F714	; =0x0480815E
 	b	_0600F704
@@ -17931,8 +17931,8 @@ _0600F704:
 	bx	lr
 _0600F714:	.word	0x0480815E
 
-	arm_func_start FUN_0600F718
-FUN_0600F718: ; 0x0600F718
+	arm_func_start WaitLoop_ClrAid
+WaitLoop_ClrAid: ; 0x0600F718
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, #1
@@ -17971,8 +17971,8 @@ _0600F794:	.word	0x04808214
 _0600F798:	.word	0x04000208
 _0600F79C:	.word	0x0480819C
 
-	arm_func_start FUN_0600F7A0
-FUN_0600F7A0: ; 0x0600F7A0
+	arm_func_start WaitLoop_Waitus
+WaitLoop_Waitus: ; 0x0600F7A0
 	stmdb	sp!, {r4, lr}
 
 	arm_func_start FUN_0600F7A4
@@ -18013,8 +18013,8 @@ _0600F820:	.word	0x000082EA
 _0600F824:	.word	0x0380FFF4
 _0600F828:	.word	0x00000634
 
-	arm_func_start FUN_0600F82C
-FUN_0600F82C: ; 0x0600F82C
+	arm_func_start WaitLoop_Rxpe
+WaitLoop_Rxpe: ; 0x0600F82C
 	mov	r2, #4000	; 0xfa0
 	ldr	r1, _0600F854	; =0x0480819C
 	b	_0600F848
@@ -18029,8 +18029,8 @@ _0600F848:
 	bx	lr
 _0600F854:	.word	0x0480819C
 
-	arm_func_start FUN_0600F858
-FUN_0600F858: ; 0x0600F858
+	arm_func_start InitializeCmdIf
+InitializeCmdIf: ; 0x0600F858
 	mov	r1, #0
 	ldr	r0, _0600F870	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -18039,8 +18039,8 @@ FUN_0600F858: ; 0x0600F858
 	bx	lr
 _0600F870:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F874
-FUN_0600F874: ; 0x0600F874
+	arm_func_start SendMessageToWmTask
+SendMessageToWmTask: ; 0x0600F874
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r6, _0600F8D8	; =0x0380FFF4
@@ -18059,7 +18059,7 @@ _0600F894:
 	ldr	r0, [r6]
 	add	r0, r0, #500	; 0x1f4
 	mov	r1, r7
-	bl	FUN_0600943C
+	bl	DeleteHeapBuf
 	ldr	r0, [r6]
 	ldr	r7, [r0, #500]	; 0x1f4
 _0600F8C4:
@@ -18071,8 +18071,8 @@ _0600F8CC:
 	bx	lr
 _0600F8D8:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F8DC
-FUN_0600F8DC: ; 0x0600F8DC
+	arm_func_start SendMessageToWmDirect
+SendMessageToWmDirect: ; 0x0600F8DC
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -18085,10 +18085,10 @@ FUN_0600F8DC: ; 0x0600F8DC
 	beq	_0600F920
 	add	r1, r3, #500	; 0x1f4
 	mov	r2, r4
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, #2
 	mov	r1, #19
-	bl	FUN_06009078
+	bl	AddTask
 	b	_0600F95C
 _0600F920:
 	ldr	r0, [r3, #772]	; 0x304
@@ -18098,7 +18098,7 @@ _0600F920:
 	beq	_0600F944
 	mov	r0, r5
 	mov	r1, r4
-	bl	FUN_0600943C
+	bl	DeleteHeapBuf
 	b	_0600F95C
 _0600F944:
 	mov	r0, r5
@@ -18106,20 +18106,20 @@ _0600F944:
 	ldr	r1, [r1]
 	add	r1, r1, #500	; 0x1f4
 	mov	r2, r4
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 _0600F95C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _0600F968:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600F96C
-FUN_0600F96C: ; 0x0600F96C
+	arm_func_start CMD_ReservedReqCmd
+CMD_ReservedReqCmd: ; 0x0600F96C
 	mov	r0, #3
 	bx	lr
 
-	arm_func_start FUN_0600F974
-FUN_0600F974: ; 0x0600F974
+	arm_func_start RequestCmdTask
+RequestCmdTask: ; 0x0600F974
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r1, _0600FC68	; =0x0380FFF4
@@ -18310,7 +18310,7 @@ _0600FC14:
 	ldr	r0, [r0]
 	add	r0, r0, #512	; 0x200
 	ldr	r1, [r6]
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 _0600FC38:
 	ldr	r0, _0600FC68	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -18320,7 +18320,7 @@ _0600FC38:
 	beq	_0600FC5C
 	mov	r0, #2
 	mov	r1, #11
-	bl	FUN_06009078
+	bl	AddTask
 _0600FC5C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -18335,22 +18335,22 @@ _0600FC80:	.word	_060197E0
 _0600FC84:	.word	_060196D0
 _0600FC88:	.word	_06019788
 
-	arm_func_start FUN_0600FC8C
-FUN_0600FC8C: ; 0x0600FC8C
+	arm_func_start InitializeMLME
+InitializeMLME: ; 0x0600FC8C
 	mov	r0, #0
 	ldr	r1, _0600FCAC	; =0x0380FFF4
 	ldr	r2, [r1]
 	ldr	r1, _0600FCB0	; =0x00000404
 	add	r1, r2, r1
 	mov	r2, #32
-	ldr	ip, _0600FCB4	; =FUN_037FB300
+	ldr	ip, _0600FCB4	; =MIi_CpuClear16
 	bx	ip
 _0600FCAC:	.word	0x0380FFF4
 _0600FCB0:	.word	0x00000404
-_0600FCB4:	.word	FUN_037FB300
+_0600FCB4:	.word	MIi_CpuClear16
 
-	arm_func_start FUN_0600FCB8
-FUN_0600FCB8: ; 0x0600FCB8
+	arm_func_start MLME_IssueBeaconRecvIndication
+MLME_IssueBeaconRecvIndication: ; 0x0600FCB8
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r6, r0
@@ -18361,11 +18361,11 @@ FUN_0600FCB8: ; 0x0600FCB8
 	add	r1, r1, #768	; 0x300
 	ldrh	r1, [r1, #228]	; 0xe4
 	add	r1, r1, #62	; 0x3e
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_0600FCFC
 	mov	r0, #1
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, #0
 	b	_0600FDD4
 _0600FCFC:
@@ -18380,14 +18380,14 @@ _0600FCFC:
 	add	r0, r4, #31
 	ldrh	r1, [r6, #18]
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r4, #30
 	ldrh	r1, [r6, #14]
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r4, #46	; 0x2e
 	add	r1, r6, #30
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldrh	r0, [r5, #160]	; 0xa0
 	strh	r0, [r4, #22]
 	ldrh	r2, [r4, #22]
@@ -18403,10 +18403,10 @@ _0600FCFC:
 	b	_0600FD9C
 _0600FD7C:
 	mov	r0, r6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, r5
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r6, r6, #1
 	add	r5, r5, #1
 	add	r7, r7, #1
@@ -18425,7 +18425,7 @@ _0600FDBC:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #1
 _0600FDD4:
 	add	sp, sp, #4
@@ -18433,19 +18433,19 @@ _0600FDD4:
 	bx	lr
 _0600FDE0:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600FDE4
-FUN_0600FDE4: ; 0x0600FDE4
+	arm_func_start MLME_IssueBeaconSendIndication
+MLME_IssueBeaconSendIndication: ; 0x0600FDE4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0600FE48	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #16
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r1, r0
 	bne	_0600FE18
 	mov	r0, #1
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, #0
 	b	_0600FE3C
 _0600FE18:
@@ -18456,7 +18456,7 @@ _0600FE18:
 	ldr	r0, _0600FE48	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #1
 _0600FE3C:
 	add	sp, sp, #4
@@ -18464,8 +18464,8 @@ _0600FE3C:
 	bx	lr
 _0600FE48:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600FE4C
-FUN_0600FE4C: ; 0x0600FE4C
+	arm_func_start MLME_IssueBeaconLostIndication
+MLME_IssueBeaconLostIndication: ; 0x0600FE4C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -18473,11 +18473,11 @@ FUN_0600FE4C: ; 0x0600FE4C
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #22
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_0600FE84
 	mov	r0, #1
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, #0
 	b	_0600FEB8
 _0600FE84:
@@ -18487,12 +18487,12 @@ _0600FE84:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r5
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldr	r0, _0600FEC4	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #1
 _0600FEB8:
 	add	sp, sp, #4
@@ -18500,8 +18500,8 @@ _0600FEB8:
 	bx	lr
 _0600FEC4:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600FEC8
-FUN_0600FEC8: ; 0x0600FEC8
+	arm_func_start MLME_IssueDisAssIndication
+MLME_IssueDisAssIndication: ; 0x0600FEC8
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -18509,11 +18509,11 @@ FUN_0600FEC8: ; 0x0600FEC8
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #24
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_0600FF00
 	mov	r0, #1
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, #0
 	b	_0600FF38
 _0600FF00:
@@ -18523,21 +18523,21 @@ _0600FF00:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r6
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	strh	r5, [r4, #22]
 	ldr	r0, _0600FF40	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #1
 _0600FF38:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _0600FF40:	.word	0x0380FFF4
 
-	arm_func_start FUN_0600FF44
-FUN_0600FF44: ; 0x0600FF44
+	arm_func_start MLME_IssueReAssIndication
+MLME_IssueReAssIndication: ; 0x0600FF44
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -18547,11 +18547,11 @@ FUN_0600FF44: ; 0x0600FF44
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #58	; 0x3a
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_0600FF84
 	mov	r0, #1
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, #0
 	b	_06010024
 _0600FF84:
@@ -18561,10 +18561,10 @@ _0600FF84:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r7
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	strh	r6, [r4, #22]
 	add	r0, r5, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	strh	r0, [r4, #24]
 	mov	r7, #0
 	add	r6, r5, #2
@@ -18574,10 +18574,10 @@ _0600FFC0:
 	cmp	r7, #32
 	bcs	_06010004
 	add	r0, r6, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r5, r7
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r7, r7, #1
 _0600FFE0:
 	ldrh	r0, [r4, #24]
@@ -18588,7 +18588,7 @@ _0600FFF0:
 	add	r0, r4, #26
 	add	r0, r0, r7
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r7, r7, #1
 _06010004:
 	cmp	r7, #32
@@ -18597,7 +18597,7 @@ _06010004:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #1
 _06010024:
 	add	sp, sp, #4
@@ -18605,8 +18605,8 @@ _06010024:
 	bx	lr
 _06010030:	.word	0x0380FFF4
 
-	arm_func_start FUN_06010034
-FUN_06010034: ; 0x06010034
+	arm_func_start MLME_IssueAssIndication
+MLME_IssueAssIndication: ; 0x06010034
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -18616,11 +18616,11 @@ FUN_06010034: ; 0x06010034
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #58	; 0x3a
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_06010074
 	mov	r0, #1
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, #0
 	b	_0601011C
 _06010074:
@@ -18630,12 +18630,12 @@ _06010074:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r7
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldr	r0, _0601012C	; =0x00000FFF
 	and	r0, r6, r0
 	strh	r0, [r4, #22]
 	add	r0, r5, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	strh	r0, [r4, #24]
 	mov	r7, #0
 	add	r6, r5, #2
@@ -18645,10 +18645,10 @@ _060100B8:
 	cmp	r7, #32
 	bcs	_060100FC
 	add	r0, r6, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r5, r7
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r7, r7, #1
 _060100D8:
 	ldrh	r0, [r4, #24]
@@ -18659,7 +18659,7 @@ _060100E8:
 	add	r0, r4, #26
 	add	r0, r0, r7
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r7, r7, #1
 _060100FC:
 	cmp	r7, #32
@@ -18668,7 +18668,7 @@ _060100FC:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #1
 _0601011C:
 	add	sp, sp, #4
@@ -18677,8 +18677,8 @@ _0601011C:
 _06010128:	.word	0x0380FFF4
 _0601012C:	.word	0x00000FFF
 
-	arm_func_start FUN_06010130
-FUN_06010130: ; 0x06010130
+	arm_func_start MLME_IssueDeAuthIndication
+MLME_IssueDeAuthIndication: ; 0x06010130
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -18686,11 +18686,11 @@ FUN_06010130: ; 0x06010130
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #24
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_06010168
 	mov	r0, #1
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, #0
 	b	_060101A0
 _06010168:
@@ -18700,21 +18700,21 @@ _06010168:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r6
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	strh	r5, [r4, #22]
 	ldr	r0, _060101A8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #1
 _060101A0:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _060101A8:	.word	0x0380FFF4
 
-	arm_func_start FUN_060101AC
-FUN_060101AC: ; 0x060101AC
+	arm_func_start MLME_IssueAuthIndication
+MLME_IssueAuthIndication: ; 0x060101AC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -18722,11 +18722,11 @@ FUN_060101AC: ; 0x060101AC
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #24
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_060101E4
 	mov	r0, #1
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, #0
 	b	_0601021C
 _060101E4:
@@ -18736,21 +18736,21 @@ _060101E4:
 	strh	r0, [r4, #14]
 	add	r0, r4, #16
 	mov	r1, r6
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	strh	r5, [r4, #22]
 	ldr	r0, _06010224	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, r4
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #1
 _0601021C:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _06010224:	.word	0x0380FFF4
 
-	arm_func_start FUN_06010228
-FUN_06010228: ; 0x06010228
+	arm_func_start IssueMlmeConfirm
+IssueMlmeConfirm: ; 0x06010228
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06010278	; =0x0380FFF4
 	ldr	r2, [r0]
@@ -18762,30 +18762,30 @@ FUN_06010228: ; 0x06010228
 	strh	r0, [r1, #4]
 	add	r0, r4, #132	; 0x84
 	ldr	r1, [r2, #1060]	; 0x424
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	ldrh	r0, [r4, #140]	; 0x8c
 	cmp	r0, #0
 	beq	_06010270
 	mov	r0, #2
 	mov	r1, #11
-	bl	FUN_06009078
+	bl	AddTask
 _06010270:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06010278:	.word	0x0380FFF4
 _0601027C:	.word	0x00000424
 
-	arm_func_start FUN_06010280
-FUN_06010280: ; 0x06010280
+	arm_func_start MLME_BeaconLostTask
+MLME_BeaconLostTask: ; 0x06010280
 	ldr	r0, _06010298	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _0601029C	; =0x000003C6
 	add	r0, r1, r0
-	ldr	ip, _060102A0	; =FUN_0600FE4C
+	ldr	ip, _060102A0	; =MLME_IssueBeaconLostIndication
 	bx	ip
 _06010298:	.word	0x0380FFF4
 _0601029C:	.word	0x000003C6
-_060102A0:	.word	FUN_0600FE4C
+_060102A0:	.word	MLME_IssueBeaconLostIndication
 
 	arm_func_start FUN_060102A4
 FUN_060102A4: ; 0x060102A4
@@ -18796,13 +18796,13 @@ FUN_060102A4: ; 0x060102A4
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, #5
-	ldr	ip, _060102CC	; =FUN_06009078
+	ldr	ip, _060102CC	; =AddTask
 	bx	ip
 _060102C8:	.word	0x0380FFF4
-_060102CC:	.word	FUN_06009078
+_060102CC:	.word	AddTask
 
-	arm_func_start FUN_060102D0
-FUN_060102D0: ; 0x060102D0
+	arm_func_start MLME_MeasChannelTask
+MLME_MeasChannelTask: ; 0x060102D0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06010544	; =0x0380FFF4
@@ -18825,15 +18825,15 @@ _06010318:
 	mov	r0, #0
 	strh	r0, [r4, #20]
 	mov	r0, #19
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	strh	r0, [r4, #14]
 	mov	r0, #53	; 0x35
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	strh	r0, [r4, #16]
 	ldr	r1, [r4, #24]
 	ldrh	r0, [r1, #18]
 	ldrh	r1, [r1, #20]
-	bl	FUN_0600BDA0
+	bl	WSetCCA_ED
 	mov	r0, #4
 	strh	r0, [r5, #12]
 	mov	r0, #0
@@ -18846,7 +18846,7 @@ _06010358:
 	add	r1, r0, #24
 	ldrh	r0, [r4, #20]
 	add	r0, r1, r0
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	movs	r5, r0
 	beq	_0601038C
 	ldrh	r0, [r4, #20]
@@ -18858,7 +18858,7 @@ _0601038C:
 	b	_06010520
 _06010398:
 	mov	r0, #0
-	bl	FUN_060191BC
+	bl	FLASH_VerifyCheckSum
 	cmp	r0, #0
 	movne	r0, #14
 	strneh	r0, [r4, #22]
@@ -18871,26 +18871,26 @@ _06010398:
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #0
-	bl	FUN_0600B570
-	bl	FUN_0600A5A4
+	bl	WSetChannel
+	bl	WStart
 	ldr	r0, _0601054C	; =0x04808040
 	ldrh	r0, [r0]
 	strh	r0, [r4, #12]
 	mov	r0, #32768	; 0x8000
-	bl	FUN_0600B3E0
+	bl	WSetForcePowerState
 	b	_06010400
 _060103F0:
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #0
-	bl	FUN_0600B570
+	bl	WSetChannel
 _06010400:
 	mov	r0, #130	; 0x82
 	strh	r0, [r4]
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #22]
 	ldr	r1, _06010550	; =FUN_060102A4
-	bl	FUN_06009EE4
+	bl	SetupTimeOut
 _06010418:
 	ldr	r0, [r4, #4]
 	add	r0, r0, #1
@@ -18907,7 +18907,7 @@ _06010440:
 	add	r1, r0, #24
 	ldrh	r0, [r4, #20]
 	add	r0, r1, r0
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r5, r0
 	mov	r2, #0
 	ldr	r1, [r4, #4]
@@ -18933,7 +18933,7 @@ _06010484:
 	strh	r0, [r4]
 	b	_06010520
 _060104B0:
-	bl	FUN_0600A4EC
+	bl	WStop
 	ldr	r0, _06010544	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -18941,12 +18941,12 @@ _060104B0:
 	strh	r0, [r5, #12]
 	mov	r0, #19
 	ldrh	r1, [r4, #14]
-	bl	FUN_0600A478
+	bl	BBP_Write
 	mov	r0, #53	; 0x35
 	ldrh	r1, [r4, #16]
-	bl	FUN_0600A478
+	bl	BBP_Write
 	ldrh	r0, [r4, #12]
-	bl	FUN_0600B3E0
+	bl	WSetForcePowerState
 	ldrh	r1, [r4, #22]
 	ldr	r0, [r4, #28]
 	strh	r1, [r0, #4]
@@ -18962,14 +18962,14 @@ _06010504:
 _06010514:
 	cmp	r2, #16
 	bcc	_06010504
-	bl	FUN_06010228
+	bl	IssueMlmeConfirm
 _06010520:
 	ldrh	r0, [r4]
 	cmp	r0, #0
 	beq	_06010538
 	mov	r0, #2
 	mov	r1, #5
-	bl	FUN_06009078
+	bl	AddTask
 _06010538:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -18994,14 +18994,14 @@ FUN_06010558: ; 0x06010558
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, #4
-	ldr	ip, _06010598	; =FUN_06009078
+	ldr	ip, _06010598	; =AddTask
 	bx	ip
 _06010590:	.word	0x0380FFF4
 _06010594:	.word	0x00000404
-_06010598:	.word	FUN_06009078
+_06010598:	.word	AddTask
 
-	arm_func_start FUN_0601059C
-FUN_0601059C: ; 0x0601059C
+	arm_func_start MLME_ReAssTask
+MLME_ReAssTask: ; 0x0601059C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _0601064C	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19017,7 +19017,7 @@ FUN_0601059C: ; 0x0601059C
 _060105CC:
 	ldr	r0, [r4, #24]
 	add	r0, r0, #16
-	bl	FUN_06014458
+	bl	MakeReAssReqFrame
 	cmp	r0, #0
 	bne	_06010604
 	mov	r1, #8
@@ -19027,26 +19027,26 @@ _060105CC:
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, #4
-	bl	FUN_06009078
+	bl	AddTask
 	b	_06010644
 _06010604:
 	mov	r1, #97	; 0x61
 	strh	r1, [r4]
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #24]
 	ldr	r1, _06010654	; =FUN_06010558
-	bl	FUN_06009EE4
+	bl	SetupTimeOut
 	b	_06010644
 _06010624:
 	mov	r0, #1
-	bl	FUN_06015060
+	bl	ClearQueuedPri
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUN_06010228
+	bl	IssueMlmeConfirm
 _06010644:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -19068,14 +19068,14 @@ FUN_06010658: ; 0x06010658
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, #3
-	ldr	ip, _06010698	; =FUN_06009078
+	ldr	ip, _06010698	; =AddTask
 	bx	ip
 _06010690:	.word	0x0380FFF4
 _06010694:	.word	0x00000404
-_06010698:	.word	FUN_06009078
+_06010698:	.word	AddTask
 
-	arm_func_start FUN_0601069C
-FUN_0601069C: ; 0x0601069C
+	arm_func_start MLME_AssTask
+MLME_AssTask: ; 0x0601069C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06010754	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19091,7 +19091,7 @@ FUN_0601069C: ; 0x0601069C
 _060106CC:
 	ldr	r0, [r4, #24]
 	add	r0, r0, #16
-	bl	FUN_06014510
+	bl	MakeAssReqFrame
 	cmp	r0, #0
 	bne	_06010704
 	mov	r1, #8
@@ -19101,28 +19101,28 @@ _060106CC:
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, #3
-	bl	FUN_06009078
+	bl	AddTask
 	b	_0601074C
 _06010704:
 	mov	r1, #81	; 0x51
 	strh	r1, [r4]
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #24]
 	ldr	r1, _0601075C	; =FUN_06010658
-	bl	FUN_06009EE4
+	bl	SetupTimeOut
 	b	_0601074C
 _06010724:
 	mov	r0, #1
-	bl	FUN_06014FC8
+	bl	ResetTxqPri
 	mov	r0, #1
-	bl	FUN_06015060
+	bl	ClearQueuedPri
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUN_06010228
+	bl	IssueMlmeConfirm
 _0601074C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -19144,14 +19144,14 @@ FUN_06010760: ; 0x06010760
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, r0
-	ldr	ip, _060107A0	; =FUN_06009078
+	ldr	ip, _060107A0	; =AddTask
 	bx	ip
 _06010798:	.word	0x0380FFF4
 _0601079C:	.word	0x00000404
-_060107A0:	.word	FUN_06009078
+_060107A0:	.word	AddTask
 
-	arm_func_start FUN_060107A4
-FUN_060107A4: ; 0x060107A4
+	arm_func_start MLME_AuthTask
+MLME_AuthTask: ; 0x060107A4
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06010880	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19169,7 +19169,7 @@ _060107D4:
 	add	r0, r0, #16
 	mov	r1, #0
 	mov	r2, r1
-	bl	FUN_06013F38
+	bl	MakeAuthFrame
 	cmp	r0, #0
 	bne	_06010814
 	mov	r1, #8
@@ -19179,7 +19179,7 @@ _060107D4:
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, r0
-	bl	FUN_06009078
+	bl	AddTask
 	b	_06010878
 _06010814:
 	ldr	r1, [r4, #24]
@@ -19191,23 +19191,23 @@ _06010814:
 	strh	r1, [r0, #48]	; 0x30
 	mov	r1, #49	; 0x31
 	strh	r1, [r4]
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #24]
 	ldr	r1, _06010888	; =FUN_06010760
-	bl	FUN_06009EE4
+	bl	SetupTimeOut
 	b	_06010878
 _06010850:
 	mov	r0, #1
-	bl	FUN_06014FC8
+	bl	ResetTxqPri
 	mov	r0, #1
-	bl	FUN_06015060
+	bl	ClearQueuedPri
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUN_06010228
+	bl	IssueMlmeConfirm
 _06010878:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -19228,14 +19228,14 @@ FUN_0601088C: ; 0x0601088C
 	strh	r1, [r0, #4]
 	mov	r0, #2
 	mov	r1, #1
-	ldr	ip, _060108C8	; =FUN_06009078
+	ldr	ip, _060108C8	; =AddTask
 	bx	ip
 _060108C0:	.word	0x0380FFF4
 _060108C4:	.word	0x00000404
-_060108C8:	.word	FUN_06009078
+_060108C8:	.word	AddTask
 
-	arm_func_start FUN_060108CC
-FUN_060108CC: ; 0x060108CC
+	arm_func_start MLME_JoinTask
+MLME_JoinTask: ; 0x060108CC
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06010964	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19249,7 +19249,7 @@ FUN_060108CC: ; 0x060108CC
 	beq	_06010928
 	b	_0601095C
 _060108FC:
-	bl	FUN_0600A5A4
+	bl	WStart
 	mov	r0, #0
 	strh	r0, [r4, #4]
 	strh	r0, [r4, #6]
@@ -19258,7 +19258,7 @@ _060108FC:
 	ldr	r0, [r4, #24]
 	ldrh	r0, [r0, #16]
 	ldr	r1, _0601096C	; =FUN_0601088C
-	bl	FUN_06009EE4
+	bl	SetupTimeOut
 	b	_0601095C
 _06010928:
 	ldrh	r1, [r4, #4]
@@ -19270,11 +19270,11 @@ _06010928:
 	ldrh	r0, [r4, #4]
 	cmp	r0, #0
 	beq	_06010950
-	bl	FUN_0600A4EC
+	bl	WStop
 _06010950:
 	mov	r0, #0
 	strh	r0, [r4]
-	bl	FUN_06010228
+	bl	IssueMlmeConfirm
 _0601095C:
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -19306,14 +19306,14 @@ FUN_06010970: ; 0x06010970
 _060109BC:
 	mov	r0, #2
 	mov	r1, #0
-	ldr	ip, _060109D4	; =FUN_06009078
+	ldr	ip, _060109D4	; =AddTask
 	bx	ip
 _060109CC:	.word	0x0380FFF4
 _060109D0:	.word	0x00000404
-_060109D4:	.word	FUN_06009078
+_060109D4:	.word	AddTask
 
-	arm_func_start FUN_060109D8
-FUN_060109D8: ; 0x060109D8
+	arm_func_start MLME_ScanTask
+MLME_ScanTask: ; 0x060109D8
 	stmdb	sp!, {r4, r5, r6, lr}
 	ldr	r0, _06010BC8	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -19335,7 +19335,7 @@ FUN_060109D8: ; 0x060109D8
 	b	_06010B8C
 _06010A24:
 	mov	r0, #32
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	mov	r0, #2
 	strh	r0, [r5, #12]
 	mov	r1, r4
@@ -19371,7 +19371,7 @@ _06010A9C:
 	add	r1, r0, #58	; 0x3a
 	ldrh	r0, [r6, #6]
 	add	r0, r1, r0
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	movs	r5, r0
 	moveq	r0, #21
 	streqh	r0, [r6]
@@ -19382,7 +19382,7 @@ _06010A9C:
 	strh	r0, [r6, #6]
 	mov	r0, #0
 	strh	r0, [r6, #10]
-	bl	FUN_060191BC
+	bl	FLASH_VerifyCheckSum
 	cmp	r0, #0
 	beq	_06010B00
 	mov	r1, #14
@@ -19398,13 +19398,13 @@ _06010B00:
 	bne	_06010B20
 	mov	r0, r5
 	mov	r1, #0
-	bl	FUN_0600B570
-	bl	FUN_0600A5A4
+	bl	WSetChannel
+	bl	WStart
 	b	_06010B2C
 _06010B20:
 	mov	r0, r5
 	mov	r1, #0
-	bl	FUN_0600B570
+	bl	WSetChannel
 _06010B2C:
 	mov	r0, #18
 	strh	r0, [r6]
@@ -19416,7 +19416,7 @@ _06010B34:
 	cmp	r0, #0
 	bne	_06010B7C
 	add	r0, r1, #16
-	bl	FUN_060140E4
+	bl	MakeProbeReqFrame
 	cmp	r0, #0
 	bne	_06010B78
 	mov	r1, #8
@@ -19427,27 +19427,27 @@ _06010B34:
 	mov	r4, #1
 	b	_06010BAC
 _06010B78:
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 _06010B7C:
 	ldrh	r0, [r6, #12]
 	ldr	r1, _06010BD0	; =FUN_06010970
-	bl	FUN_06009EE4
+	bl	SetupTimeOut
 	b	_06010BAC
 _06010B8C:
 	strh	r4, [r6]
-	bl	FUN_0600A4EC
+	bl	WStop
 	ldr	r0, _06010BC8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
 	ldrh	r0, [r0, #46]	; 0x2e
 	strh	r0, [r5, #12]
-	bl	FUN_06010228
+	bl	IssueMlmeConfirm
 _06010BAC:
 	cmp	r4, #0
 	beq	_06010BC0
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUN_06009078
+	bl	AddTask
 _06010BC0:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
@@ -19455,8 +19455,8 @@ _06010BC8:	.word	0x0380FFF4
 _06010BCC:	.word	0x00000404
 _06010BD0:	.word	FUN_06010970
 
-	arm_func_start FUN_06010BD4
-FUN_06010BD4: ; 0x06010BD4
+	arm_func_start MLME_MeasChanReqCmd
+MLME_MeasChanReqCmd: ; 0x06010BD4
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -19492,10 +19492,10 @@ FUN_06010BD4: ; 0x06010BD4
 	b	_06010C7C
 _06010C58:
 	add	r0, r7, r8
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	cmp	r0, #0
 	beq	_06010C84
-	bl	FUN_0600AB58
+	bl	CheckEnableChannel
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06010CAC
@@ -19512,7 +19512,7 @@ _06010C84:
 	mov	r0, #128	; 0x80
 	strh	r0, [r4]
 	strh	r0, [r5, #4]
-	bl	FUN_060102D0
+	bl	MLME_MeasChannelTask
 	mov	r0, #128	; 0x80
 _06010CAC:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -19520,8 +19520,8 @@ _06010CAC:
 _06010CB4:	.word	0x0380FFF4
 _06010CB8:	.word	0x00000404
 
-	arm_func_start FUN_06010CBC
-FUN_06010CBC: ; 0x06010CBC
+	arm_func_start MLME_StartReqCmd
+MLME_StartReqCmd: ; 0x06010CBC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _06010E54	; =0x0380FFF4
@@ -19567,7 +19567,7 @@ _06010CF4:
 	ands	r1, r0, r1
 	movne	r0, #5
 	bne	_06010E4C
-	bl	FUN_0600AB58
+	bl	CheckEnableChannel
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06010E4C
@@ -19592,48 +19592,48 @@ _06010CF4:
 	movhi	r0, #5
 	bhi	_06010E4C
 	mov	r0, #0
-	bl	FUN_060191BC
+	bl	FLASH_VerifyCheckSum
 	cmp	r0, #0
 	movne	r0, #14
 	bne	_06010E4C
 	ldrh	r0, [r4, #18]
 	cmp	r0, #0
 	bne	_06010DF8
-	ldr	r0, _06010E5C	; =_06019384
-	bl	FUN_0600BB58
+	ldr	r0, _06010E5C	; =BC_ADRS
+	bl	WSetBssid
 	b	_06010E00
 _06010DF8:
 	add	r0, r4, #8
-	bl	FUN_0600BB58
+	bl	WSetBssid
 _06010E00:
 	ldrh	r0, [r6, #16]
 	add	r1, r6, #18
-	bl	FUN_0600BA3C
+	bl	WSetSsid
 	ldrh	r0, [r6, #50]	; 0x32
-	bl	FUN_0600B9DC
+	bl	WSetBeaconPeriod
 	ldrh	r0, [r6, #52]	; 0x34
-	bl	FUN_0600B990
+	bl	WSetDTIMPeriod
 	ldrh	r0, [r6, #54]	; 0x36
 	mov	r1, #0
-	bl	FUN_0600B570
+	bl	WSetChannel
 	add	r0, r6, #56	; 0x38
-	bl	FUN_0600B528
+	bl	WSetRateSet
 	ldrh	r0, [r6, #60]	; 0x3c
 	add	r1, r6, #62	; 0x3e
-	bl	FUN_0600B1A0
+	bl	WInitGameInfo
 	mov	r0, #0
 	strh	r0, [r5, #164]	; 0xa4
-	bl	FUN_0600A5A4
+	bl	WStart
 	mov	r0, #0
 _06010E4C:
 	ldmia	sp!, {r4, r5, r6, lr}
 	bx	lr
 _06010E54:	.word	0x0380FFF4
 _06010E58:	.word	0x0000FFF0
-_06010E5C:	.word	_06019384
+_06010E5C:	.word	BC_ADRS
 
-	arm_func_start FUN_06010E60
-FUN_06010E60: ; 0x06010E60
+	arm_func_start MLME_DisAssReqCmd
+MLME_DisAssReqCmd: ; 0x06010E60
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -19664,7 +19664,7 @@ _06010EB8:
 	bne	_06010F64
 	add	r0, r7, #16
 	ldrh	r1, [r7, #22]
-	bl	FUN_060145BC
+	bl	MakeDisAssFrame
 	movs	r4, r0
 	moveq	r0, #8
 	beq	_06010F64
@@ -19683,7 +19683,7 @@ _06010EB8:
 	ldr	r0, [r1]
 	add	r0, r0, #392	; 0x188
 	sub	r1, r4, #16
-	bl	FUN_0600F45C
+	bl	CAM_AddBcFrame
 	ldr	r0, _06010F70	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -19693,13 +19693,13 @@ _06010EB8:
 	ands	r0, r1, r0
 	bne	_06010F60
 	mov	r0, #2
-	bl	FUN_06015C78
+	bl	TxqPri
 	b	_06010F60
 _06010F50:
 	add	r0, r7, #16
-	bl	FUN_06014E14
+	bl	DeleteTxFrameByAdrs
 	mov	r0, r4
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 _06010F60:
 	mov	r0, #128	; 0x80
 _06010F64:
@@ -19709,8 +19709,8 @@ _06010F64:
 _06010F70:	.word	0x0380FFF4
 _06010F74:	.word	0x00000404
 
-	arm_func_start FUN_06010F78
-FUN_06010F78: ; 0x06010F78
+	arm_func_start MLME_ReAssReqCmd
+MLME_ReAssReqCmd: ; 0x06010F78
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r2, _06011040	; =0x0380FFF4
@@ -19757,7 +19757,7 @@ _06010FB8:
 	str	r1, [r2, #28]
 	mov	r0, #96	; 0x60
 	strh	r0, [r2]
-	bl	FUN_0601059C
+	bl	MLME_ReAssTask
 	mov	r0, #128	; 0x80
 _06011034:
 	add	sp, sp, #4
@@ -19766,8 +19766,8 @@ _06011034:
 _06011040:	.word	0x0380FFF4
 _06011044:	.word	0x00000404
 
-	arm_func_start FUN_06011048
-FUN_06011048: ; 0x06011048
+	arm_func_start MLME_AssReqCmd
+MLME_AssReqCmd: ; 0x06011048
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -19810,8 +19810,8 @@ _06011090:
 	movcc	r0, #5
 	bcc	_0601111C
 	mov	r0, #48	; 0x30
-	bl	FUN_0600AF68
-	bl	FUN_0600B054
+	bl	WSetStaState
+	bl	WClearAids
 	ldrh	r0, [r7, #22]
 	strh	r0, [r5, #112]	; 0x70
 	ldrh	r0, [r7, #22]
@@ -19820,7 +19820,7 @@ _06011090:
 	str	r6, [r4, #28]
 	mov	r0, #80	; 0x50
 	strh	r0, [r4]
-	bl	FUN_0601069C
+	bl	MLME_AssTask
 	mov	r0, #128	; 0x80
 _0601111C:
 	add	sp, sp, #4
@@ -19829,8 +19829,8 @@ _0601111C:
 _06011128:	.word	0x0380FFF4
 _0601112C:	.word	0x00000404
 
-	arm_func_start FUN_06011130
-FUN_06011130: ; 0x06011130
+	arm_func_start MLME_DeAuthReqCmd
+MLME_DeAuthReqCmd: ; 0x06011130
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -19870,11 +19870,11 @@ _06011180:
 _060111BC:
 	add	r0, r6, #6
 	add	r1, r7, #16
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	add	r0, r6, #6
 	ldrh	r1, [r7, #22]
 	mov	r2, #0
-	bl	FUN_06013E9C
+	bl	MakeDeAuthFrame
 	movs	r4, r0
 	moveq	r0, #8
 	beq	_06011264
@@ -19893,7 +19893,7 @@ _060111BC:
 	ldr	r0, [r1]
 	add	r0, r0, #392	; 0x188
 	sub	r1, r4, #16
-	bl	FUN_0600F45C
+	bl	CAM_AddBcFrame
 	ldr	r0, _06011270	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -19903,13 +19903,13 @@ _060111BC:
 	ands	r0, r1, r0
 	bne	_06011260
 	mov	r0, #2
-	bl	FUN_06015C78
+	bl	TxqPri
 	b	_06011260
 _06011250:
 	add	r0, r7, #16
-	bl	FUN_06014E14
+	bl	DeleteTxFrameByAdrs
 	mov	r0, r4
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 _06011260:
 	mov	r0, #128	; 0x80
 _06011264:
@@ -19920,8 +19920,8 @@ _06011270:	.word	0x0380FFF4
 _06011274:	.word	0x00000404
 _06011278:	.word	0x0000FFFE
 
-	arm_func_start FUN_0601127C
-FUN_0601127C: ; 0x0601127C
+	arm_func_start MLME_AuthReqCmd
+MLME_AuthReqCmd: ; 0x0601127C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -19960,7 +19960,7 @@ _060112C0:
 	movcc	r0, #5
 	bcc	_06011348
 	mov	r0, #32
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	str	r6, [r4, #24]
 	str	r5, [r4, #28]
 	mov	r0, #48	; 0x30
@@ -19971,8 +19971,8 @@ _060112C0:
 	add	r0, r5, #8
 	ldr	r1, [r4, #24]
 	add	r1, r1, #16
-	bl	FUN_0600AF4C
-	bl	FUN_060107A4
+	bl	WSetMacAdrs1
+	bl	MLME_AuthTask
 	mov	r0, #128	; 0x80
 _06011348:
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -19980,8 +19980,8 @@ _06011348:
 _06011350:	.word	0x0380FFF4
 _06011354:	.word	0x00000404
 
-	arm_func_start FUN_06011358
-FUN_06011358: ; 0x06011358
+	arm_func_start MLME_JoinReqCmd
+MLME_JoinReqCmd: ; 0x06011358
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -20005,7 +20005,7 @@ _0601139C:
 	movcc	r0, #1
 	bcc	_06011504
 	mov	r0, #32
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	ldrh	r0, [r6, #24]
 	ands	r0, r0, #1
 	movne	r0, #5
@@ -20033,7 +20033,7 @@ _0601139C:
 	ands	r1, r0, r1
 	movne	r0, #5
 	bne	_06011504
-	bl	FUN_0600AB58
+	bl	CheckEnableChannel
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06011504
@@ -20058,7 +20058,7 @@ _0601139C:
 	movhi	r0, #5
 	bhi	_06011504
 	mov	r0, #0
-	bl	FUN_060191BC
+	bl	FLASH_VerifyCheckSum
 	cmp	r0, #0
 	movne	r0, #14
 	bne	_06011504
@@ -20066,31 +20066,31 @@ _0601139C:
 	ands	r0, r0, #32
 	beq	_060114AC
 	mov	r0, #1
-	bl	FUN_0600BE0C
+	bl	WSetPreambleType
 	b	_060114B4
 _060114AC:
 	mov	r0, #0
-	bl	FUN_0600BE0C
+	bl	WSetPreambleType
 _060114B4:
 	add	r0, r6, #24
-	bl	FUN_0600BB58
+	bl	WSetBssid
 	ldrh	r0, [r6, #30]
 	add	r1, r6, #32
-	bl	FUN_0600BA3C
+	bl	WSetSsid
 	ldrh	r0, [r6, #70]	; 0x46
-	bl	FUN_0600B9DC
+	bl	WSetBeaconPeriod
 	ldrh	r0, [r6, #74]	; 0x4a
 	mov	r1, #0
-	bl	FUN_0600B570
+	bl	WSetChannel
 	add	r0, r6, #66	; 0x42
-	bl	FUN_0600B528
+	bl	WSetRateSet
 	str	r6, [r4, #24]
 	str	r5, [r4, #28]
 	mov	r0, #32
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, #1
-	bl	FUN_06009078
+	bl	AddTask
 	mov	r0, #128	; 0x80
 _06011504:
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -20099,8 +20099,8 @@ _0601150C:	.word	0x0380FFF4
 _06011510:	.word	0x00000404
 _06011514:	.word	0x0000FFF0
 
-	arm_func_start FUN_06011518
-FUN_06011518: ; 0x06011518
+	arm_func_start MLME_ScanReqCmd
+MLME_ScanReqCmd: ; 0x06011518
 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -20139,7 +20139,7 @@ _0601156C:
 	movhi	r0, #5
 	bhi	_06011654
 	add	r0, r6, #58	; 0x3a
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06011654
@@ -20159,10 +20159,10 @@ _0601156C:
 	b	_06011618
 _060115F4:
 	add	r0, r7, r8
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	cmp	r0, #0
 	beq	_06011620
-	bl	FUN_0600AB58
+	bl	CheckEnableChannel
 	cmp	r0, #0
 	moveq	r0, #5
 	beq	_06011654
@@ -20172,17 +20172,17 @@ _06011618:
 	bcc	_060115F4
 _06011620:
 	add	r0, r6, #16
-	bl	FUN_0600BB58
+	bl	WSetBssid
 	ldrh	r0, [r6, #22]
 	add	r1, r6, #24
-	bl	FUN_0600BA3C
+	bl	WSetSsid
 	str	r6, [r4, #24]
 	str	r5, [r4, #28]
 	mov	r0, #16
 	strh	r0, [r4]
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUN_06009078
+	bl	AddTask
 	mov	r0, #128	; 0x80
 _06011654:
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -20190,8 +20190,8 @@ _06011654:
 _0601165C:	.word	0x0380FFF4
 _06011660:	.word	0x00000404
 
-	arm_func_start FUN_06011664
-FUN_06011664: ; 0x06011664
+	arm_func_start MLME_PwrMgtReqCmd
+MLME_PwrMgtReqCmd: ; 0x06011664
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #9
@@ -20208,7 +20208,7 @@ FUN_06011664: ; 0x06011664
 	cmp	r1, #1
 	movhi	r0, #5
 	bhi	_06011700
-	bl	FUN_0600B420
+	bl	WSetPowerMgtMode
 	ldrh	r0, [r4, #16]
 	cmp	r0, #1
 	bne	_060116EC
@@ -20216,11 +20216,11 @@ FUN_06011664: ; 0x06011664
 	cmp	r0, #1
 	bne	_060116CC
 	ldr	r0, _06011708	; =0x00008001
-	bl	FUN_0600B3E0
+	bl	WSetForcePowerState
 	b	_060116D4
 _060116CC:
 	mov	r0, #0
-	bl	FUN_0600B3E0
+	bl	WSetForcePowerState
 _060116D4:
 	ldrh	r1, [r4, #20]
 	ldr	r0, _0601170C	; =0x0380FFF4
@@ -20230,9 +20230,9 @@ _060116D4:
 	b	_060116FC
 _060116EC:
 	mov	r0, #32768	; 0x8000
-	bl	FUN_0600B3E0
+	bl	WSetForcePowerState
 	mov	r0, #2
-	bl	FUN_0600B3F4
+	bl	WSetPowerState
 _060116FC:
 	mov	r0, #0
 _06011700:
@@ -20241,8 +20241,8 @@ _06011700:
 _06011708:	.word	0x00008001
 _0601170C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011710
-FUN_06011710: ; 0x06011710
+	arm_func_start MLME_ResetReqCmd
+MLME_ResetReqCmd: ; 0x06011710
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #1
@@ -20251,19 +20251,19 @@ FUN_06011710: ; 0x06011710
 	cmp	r0, #1
 	movhi	r0, #5
 	bhi	_06011748
-	bl	FUN_0600A4EC
+	bl	WStop
 	ldrh	r0, [r4, #16]
 	cmp	r0, #1
 	bne	_06011744
-	bl	FUN_0600AE88
+	bl	WInitCounter
 _06011744:
 	mov	r0, #0
 _06011748:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_06011750
-FUN_06011750: ; 0x06011750
+	arm_func_start PARAMGET_GameInfoReqCmd
+PARAMGET_GameInfoReqCmd: ; 0x06011750
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r4, r1
@@ -20296,10 +20296,10 @@ FUN_06011750: ; 0x06011750
 	b	_060117E8
 _060117C8:
 	mov	r0, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, r6
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r6, r6, #1
 	add	r7, r7, #1
 	add	r5, r5, #1
@@ -20327,8 +20327,8 @@ _06011824:
 	bx	lr
 _06011830:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011834
-FUN_06011834: ; 0x06011834
+	arm_func_start PARAMGET_ListenIntervalReqCmd
+PARAMGET_ListenIntervalReqCmd: ; 0x06011834
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011858	; =0x0380FFF4
@@ -20340,8 +20340,8 @@ FUN_06011834: ; 0x06011834
 	bx	lr
 _06011858:	.word	0x0380FFF4
 
-	arm_func_start FUN_0601185C
-FUN_0601185C: ; 0x0601185C
+	arm_func_start PARAMGET_DTIMPeriodReqCmd
+PARAMGET_DTIMPeriodReqCmd: ; 0x0601185C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011880	; =0x0380FFF4
@@ -20353,8 +20353,8 @@ FUN_0601185C: ; 0x0601185C
 	bx	lr
 _06011880:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011884
-FUN_06011884: ; 0x06011884
+	arm_func_start PARAMGET_BeaconPeriodReqCmd
+PARAMGET_BeaconPeriodReqCmd: ; 0x06011884
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _060118A8	; =0x0380FFF4
@@ -20366,8 +20366,8 @@ FUN_06011884: ; 0x06011884
 	bx	lr
 _060118A8:	.word	0x0380FFF4
 
-	arm_func_start FUN_060118AC
-FUN_060118AC: ; 0x060118AC
+	arm_func_start PARAMGET_SSIDReqCmd
+PARAMGET_SSIDReqCmd: ; 0x060118AC
 	mov	r0, #18
 	strh	r0, [r1, #2]
 	ldr	r2, _060118F4	; =0x0380FFF4
@@ -20389,8 +20389,8 @@ _060118D8:
 	bx	lr
 _060118F4:	.word	0x0380FFF4
 
-	arm_func_start FUN_060118F8
-FUN_060118F8: ; 0x060118F8
+	arm_func_start PARAMGET_BSSIDReqCmd
+PARAMGET_BSSIDReqCmd: ; 0x060118F8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #4
@@ -20399,15 +20399,15 @@ FUN_060118F8: ; 0x060118F8
 	ldr	r1, _0601192C	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #936	; 0x3a8
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0601192C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011930
-FUN_06011930: ; 0x06011930
+	arm_func_start PARAMGET_NullKeyModeReqCmd
+PARAMGET_NullKeyModeReqCmd: ; 0x06011930
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011968	; =0x0380FFF4
@@ -20424,8 +20424,8 @@ FUN_06011930: ; 0x06011930
 	bx	lr
 _06011968:	.word	0x0380FFF4
 
-	arm_func_start FUN_0601196C
-FUN_0601196C: ; 0x0601196C
+	arm_func_start PARAMGET_BcnSendRecvIndReqCmd
+PARAMGET_BcnSendRecvIndReqCmd: ; 0x0601196C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _060119A4	; =0x0380FFF4
@@ -20442,8 +20442,8 @@ FUN_0601196C: ; 0x0601196C
 	bx	lr
 _060119A4:	.word	0x0380FFF4
 
-	arm_func_start FUN_060119A8
-FUN_060119A8: ; 0x060119A8
+	arm_func_start PARAMGET_DiversityReqCmd
+PARAMGET_DiversityReqCmd: ; 0x060119A8
 	mov	r0, #3
 	strh	r0, [r1, #2]
 	ldr	r3, _06011A04	; =0x0380FFF4
@@ -20469,8 +20469,8 @@ FUN_060119A8: ; 0x060119A8
 	bx	lr
 _06011A04:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011A08
-FUN_06011A08: ; 0x06011A08
+	arm_func_start PARAMGET_MainAntennaReqCmd
+PARAMGET_MainAntennaReqCmd: ; 0x06011A08
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011A40	; =0x0380FFF4
@@ -20487,8 +20487,8 @@ FUN_06011A08: ; 0x06011A08
 	bx	lr
 _06011A40:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011A44
-FUN_06011A44: ; 0x06011A44
+	arm_func_start PARAMGET_MaxConnReqCmd
+PARAMGET_MaxConnReqCmd: ; 0x06011A44
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011A6C	; =0x0380FFF4
@@ -20501,20 +20501,20 @@ FUN_06011A44: ; 0x06011A44
 	bx	lr
 _06011A6C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011A70
-FUN_06011A70: ; 0x06011A70
+	arm_func_start PARAMGET_CCAModeEDThReqCmd
+PARAMGET_CCAModeEDThReqCmd: ; 0x06011A70
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	mov	r0, #4
 	strh	r0, [r4, #2]
 	mov	r0, #19
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	strh	r0, [r4, #6]
 	mov	r0, #53	; 0x35
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	strh	r0, [r4, #8]
 	mov	r0, #46	; 0x2e
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	strh	r0, [r4, #10]
 	mov	r0, #0
 	ldmia	sp!, {r4, lr}
@@ -20530,8 +20530,8 @@ FUN_06011A70: ; 0x06011A70
 	bx	lr
 _06011AD4:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011AD8
-FUN_06011AD8: ; 0x06011AD8
+	arm_func_start PARAMGET_PreambleTypeReqCmd
+PARAMGET_PreambleTypeReqCmd: ; 0x06011AD8
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011B04	; =0x0380FFF4
@@ -20545,8 +20545,8 @@ FUN_06011AD8: ; 0x06011AD8
 	bx	lr
 _06011B04:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011B08
-FUN_06011B08: ; 0x06011B08
+	arm_func_start PARAMGET_SSIDMaskReqCmd
+PARAMGET_SSIDMaskReqCmd: ; 0x06011B08
 	mov	r0, #17
 	strh	r0, [r1, #2]
 	add	r2, r1, #6
@@ -20564,8 +20564,8 @@ _06011B24:
 	bx	lr
 _06011B40:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011B44
-FUN_06011B44: ; 0x06011B44
+	arm_func_start PARAMGET_ActiveZoneReqCmd
+PARAMGET_ActiveZoneReqCmd: ; 0x06011B44
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011B68	; =0x0380FFF4
@@ -20577,8 +20577,8 @@ FUN_06011B44: ; 0x06011B44
 	bx	lr
 _06011B68:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011B6C
-FUN_06011B6C: ; 0x06011B6C
+	arm_func_start PARAMGET_BeaconLostThReqCmd
+PARAMGET_BeaconLostThReqCmd: ; 0x06011B6C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011B90	; =0x0380FFF4
@@ -20590,8 +20590,8 @@ FUN_06011B6C: ; 0x06011B6C
 	bx	lr
 _06011B90:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011B94
-FUN_06011B94: ; 0x06011B94
+	arm_func_start PARAMGET_ResBcSsidReqCmd
+PARAMGET_ResBcSsidReqCmd: ; 0x06011B94
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011BC0	; =0x0380FFF4
@@ -20605,8 +20605,8 @@ FUN_06011B94: ; 0x06011B94
 	bx	lr
 _06011BC0:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011BC4
-FUN_06011BC4: ; 0x06011BC4
+	arm_func_start PARAMGET_BeaconTypeReqCmd
+PARAMGET_BeaconTypeReqCmd: ; 0x06011BC4
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011BF0	; =0x0380FFF4
@@ -20620,8 +20620,8 @@ FUN_06011BC4: ; 0x06011BC4
 	bx	lr
 _06011BF0:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011BF4
-FUN_06011BF4: ; 0x06011BF4
+	arm_func_start PARAMGET_WepKeyIdReqCmd
+PARAMGET_WepKeyIdReqCmd: ; 0x06011BF4
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011C18	; =0x0380FFF4
@@ -20633,8 +20633,8 @@ FUN_06011BF4: ; 0x06011BF4
 	bx	lr
 _06011C18:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011C1C
-FUN_06011C1C: ; 0x06011C1C
+	arm_func_start PARAMGET_WepModeReqCmd
+PARAMGET_WepModeReqCmd: ; 0x06011C1C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011C40	; =0x0380FFF4
@@ -20646,8 +20646,8 @@ FUN_06011C1C: ; 0x06011C1C
 	bx	lr
 _06011C40:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011C44
-FUN_06011C44: ; 0x06011C44
+	arm_func_start PARAMGET_RateReqCmd
+PARAMGET_RateReqCmd: ; 0x06011C44
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011C68	; =0x0380FFF4
@@ -20659,8 +20659,8 @@ FUN_06011C44: ; 0x06011C44
 	bx	lr
 _06011C68:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011C6C
-FUN_06011C6C: ; 0x06011C6C
+	arm_func_start PARAMGET_ModeReqCmd
+PARAMGET_ModeReqCmd: ; 0x06011C6C
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011C90	; =0x0380FFF4
@@ -20672,8 +20672,8 @@ FUN_06011C6C: ; 0x06011C6C
 	bx	lr
 _06011C90:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011C94
-FUN_06011C94: ; 0x06011C94
+	arm_func_start PARAMGET_EnableChannelReqCmd
+PARAMGET_EnableChannelReqCmd: ; 0x06011C94
 	mov	r0, #3
 	strh	r0, [r1, #2]
 	ldr	r2, _06011CC8	; =0x0380FFF4
@@ -20689,8 +20689,8 @@ FUN_06011C94: ; 0x06011C94
 	bx	lr
 _06011CC8:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011CCC
-FUN_06011CCC: ; 0x06011CCC
+	arm_func_start PARAMGET_RetryReqCmd
+PARAMGET_RetryReqCmd: ; 0x06011CCC
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06011CF0	; =0x0380FFF4
@@ -20702,8 +20702,8 @@ FUN_06011CCC: ; 0x06011CCC
 	bx	lr
 _06011CF0:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011CF4
-FUN_06011CF4: ; 0x06011CF4
+	arm_func_start PARAMGET_MacAdrsReqCmd
+PARAMGET_MacAdrsReqCmd: ; 0x06011CF4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #4
@@ -20712,15 +20712,15 @@ FUN_06011CF4: ; 0x06011CF4
 	ldr	r1, _06011D28	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #804	; 0x324
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06011D28:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011D2C
-FUN_06011D2C: ; 0x06011D2C
+	arm_func_start PARAMGET_AllReqCmd
+PARAMGET_AllReqCmd: ; 0x06011D2C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	mov	r0, #33	; 0x21
@@ -20729,7 +20729,7 @@ FUN_06011D2C: ; 0x06011D2C
 	ldr	r1, _06011E60	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #804	; 0x324
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldr	r0, _06011E60	; =0x0380FFF4
 	ldr	r1, [r0]
 	add	r1, r1, #768	; 0x300
@@ -20800,8 +20800,8 @@ FUN_06011D2C: ; 0x06011D2C
 	bx	lr
 _06011E60:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011E64
-FUN_06011E64: ; 0x06011E64
+	arm_func_start PARAMSET_GameInfoReqCmd
+PARAMSET_GameInfoReqCmd: ; 0x06011E64
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -20825,15 +20825,15 @@ FUN_06011E64: ; 0x06011E64
 	blt	_06011EC4
 	mov	r0, r5
 	add	r1, r4, #18
-	bl	FUN_0600B0F4
+	bl	WSetGameInfo
 _06011EC4:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06011ED0:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011ED4
-FUN_06011ED4: ; 0x06011ED4
+	arm_func_start PARAMSET_ListenIntervalReqCmd
+PARAMSET_ListenIntervalReqCmd: ; 0x06011ED4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20849,15 +20849,15 @@ FUN_06011ED4: ; 0x06011ED4
 	bne	_06011F10
 _06011F08:
 	ldrh	r0, [r0, #16]
-	bl	FUN_0600B95C
+	bl	WSetListenInterval
 _06011F10:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06011F1C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011F20
-FUN_06011F20: ; 0x06011F20
+	arm_func_start PARAMSET_DTIMPeriodReqCmd
+PARAMSET_DTIMPeriodReqCmd: ; 0x06011F20
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20870,15 +20870,15 @@ FUN_06011F20: ; 0x06011F20
 	movne	r0, #11
 	bne	_06011F54
 	ldrh	r0, [r0, #16]
-	bl	FUN_0600B990
+	bl	WSetDTIMPeriod
 _06011F54:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06011F60:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011F64
-FUN_06011F64: ; 0x06011F64
+	arm_func_start PARAMSET_BeaconPeriodReqCmd
+PARAMSET_BeaconPeriodReqCmd: ; 0x06011F64
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20891,35 +20891,35 @@ FUN_06011F64: ; 0x06011F64
 	movne	r0, #11
 	bne	_06011F98
 	ldrh	r0, [r0, #16]
-	bl	FUN_0600B9DC
+	bl	WSetBeaconPeriod
 _06011F98:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06011FA4:	.word	0x0380FFF4
 
-	arm_func_start FUN_06011FA8
-FUN_06011FA8: ; 0x06011FA8
+	arm_func_start PARAMSET_SSIDReqCmd
+PARAMSET_SSIDReqCmd: ; 0x06011FA8
 	mov	r2, r0
 	mov	r0, #1
 	strh	r0, [r1, #2]
 	ldrh	r0, [r2, #16]
 	add	r1, r2, #18
-	ldr	ip, _06011FC4	; =FUN_0600BA3C
+	ldr	ip, _06011FC4	; =WSetSsid
 	bx	ip
-_06011FC4:	.word	FUN_0600BA3C
+_06011FC4:	.word	WSetSsid
 
-	arm_func_start FUN_06011FC8
-FUN_06011FC8: ; 0x06011FC8
+	arm_func_start PARAMSET_BSSIDReqCmd
+PARAMSET_BSSIDReqCmd: ; 0x06011FC8
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	add	r0, r0, #16
-	ldr	ip, _06011FDC	; =FUN_0600BB58
+	ldr	ip, _06011FDC	; =WSetBssid
 	bx	ip
-_06011FDC:	.word	FUN_0600BB58
+_06011FDC:	.word	WSetBssid
 
-	arm_func_start FUN_06011FE0
-FUN_06011FE0: ; 0x06011FE0
+	arm_func_start PARAMSET_NullKeyModeReqCmd
+PARAMSET_NullKeyModeReqCmd: ; 0x06011FE0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20931,7 +20931,7 @@ FUN_06011FE0: ; 0x06011FE0
 	cmp	r1, #16
 	bcc	_06012014
 	ldrh	r0, [r0, #16]
-	bl	FUN_0600BBC0
+	bl	WSetNullKeyMode
 	mov	r2, r0
 _06012014:
 	mov	r0, r2
@@ -20940,8 +20940,8 @@ _06012014:
 	bx	lr
 _06012024:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012028
-FUN_06012028: ; 0x06012028
+	arm_func_start PARAMSET_BcnSendRecvIndReqCmd
+PARAMSET_BcnSendRecvIndReqCmd: ; 0x06012028
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20953,7 +20953,7 @@ FUN_06012028: ; 0x06012028
 	cmp	r1, #16
 	bcc	_0601205C
 	ldrh	r0, [r0, #16]
-	bl	FUN_0600BC1C
+	bl	WSetBeaconSendRecvIndicate
 	mov	r2, r0
 _0601205C:
 	mov	r0, r2
@@ -20962,8 +20962,8 @@ _0601205C:
 	bx	lr
 _0601206C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012070
-FUN_06012070: ; 0x06012070
+	arm_func_start PARAMSET_DiversityReqCmd
+PARAMSET_DiversityReqCmd: ; 0x06012070
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, r0
@@ -20977,15 +20977,15 @@ FUN_06012070: ; 0x06012070
 	bcc	_060120A8
 	ldrh	r0, [r2, #16]
 	ldrh	r1, [r2, #18]
-	bl	FUN_0600BC5C
+	bl	WSetDiversity
 _060120A8:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _060120B4:	.word	0x0380FFF4
 
-	arm_func_start FUN_060120B8
-FUN_060120B8: ; 0x060120B8
+	arm_func_start PARAMSET_MainAntennaReqCmd
+PARAMSET_MainAntennaReqCmd: ; 0x060120B8
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -20997,7 +20997,7 @@ FUN_060120B8: ; 0x060120B8
 	cmp	r1, #16
 	bcc	_060120EC
 	ldrh	r0, [r0, #16]
-	bl	FUN_0600BD38
+	bl	WSetMainAntenna
 	mov	r2, r0
 _060120EC:
 	mov	r0, r2
@@ -21006,8 +21006,8 @@ _060120EC:
 	bx	lr
 _060120FC:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012100
-FUN_06012100: ; 0x06012100
+	arm_func_start PARAMSET_MaxConnReqCmd
+PARAMSET_MaxConnReqCmd: ; 0x06012100
 	mov	r3, #1
 	strh	r3, [r1, #2]
 	ldr	r2, _06012154	; =0x0380FFF4
@@ -21031,8 +21031,8 @@ FUN_06012100: ; 0x06012100
 	bx	lr
 _06012154:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012158
-FUN_06012158: ; 0x06012158
+	arm_func_start PARAMSET_LifeTimeReqCmd
+PARAMSET_LifeTimeReqCmd: ; 0x06012158
 	stmdb	sp!, {r4, lr}
 	ldr	ip, _0601225C	; =0x0380FFF4
 	ldr	r2, [ip]
@@ -21100,7 +21100,7 @@ _06012240:
 	ldrh	r0, [r0, #20]
 	cmp	r0, #0
 	beq	_06012250
-	bl	FUN_0600B270
+	bl	WSetFrameLifeTime
 _06012250:
 	mov	r0, #0
 _06012254:
@@ -21109,8 +21109,8 @@ _06012254:
 _0601225C:	.word	0x0380FFF4
 _06012260:	.word	0x0000FFFF
 
-	arm_func_start FUN_06012264
-FUN_06012264: ; 0x06012264
+	arm_func_start PARAMSET_CCAModeEDThReqCmd
+PARAMSET_CCAModeEDThReqCmd: ; 0x06012264
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -21122,12 +21122,12 @@ FUN_06012264: ; 0x06012264
 	bhi	_060122AC
 	ldrh	r0, [r5, #16]
 	ldrh	r1, [r5, #18]
-	bl	FUN_0600BDA0
+	bl	WSetCCA_ED
 	movs	r4, r0
 	bne	_060122A8
 	mov	r0, #46	; 0x2e
 	ldrh	r1, [r5, #20]
-	bl	FUN_0600A478
+	bl	BBP_Write
 _060122A8:
 	mov	r0, r4
 _060122AC:
@@ -21137,58 +21137,58 @@ _060122AC:
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060122CC	; =FUN_0600BDE8
+	ldr	ip, _060122CC	; =WSetAuthAlgo
 	bx	ip
-_060122CC:	.word	FUN_0600BDE8
+_060122CC:	.word	WSetAuthAlgo
 
-	arm_func_start FUN_060122D0
-FUN_060122D0: ; 0x060122D0
+	arm_func_start PARAMSET_PreambleTypeReqCmd
+PARAMSET_PreambleTypeReqCmd: ; 0x060122D0
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060122E4	; =FUN_0600BE0C
+	ldr	ip, _060122E4	; =WSetPreambleType
 	bx	ip
-_060122E4:	.word	FUN_0600BE0C
+_060122E4:	.word	WSetPreambleType
 
-	arm_func_start FUN_060122E8
-FUN_060122E8: ; 0x060122E8
+	arm_func_start PARAMSET_SSIDMaskReqCmd
+PARAMSET_SSIDMaskReqCmd: ; 0x060122E8
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	add	r0, r0, #16
-	ldr	ip, _060122FC	; =FUN_0600BECC
+	ldr	ip, _060122FC	; =WSetSsidMask
 	bx	ip
-_060122FC:	.word	FUN_0600BECC
+_060122FC:	.word	WSetSsidMask
 
-	arm_func_start FUN_06012300
-FUN_06012300: ; 0x06012300
+	arm_func_start PARAMSET_ActiveZoneReqCmd
+PARAMSET_ActiveZoneReqCmd: ; 0x06012300
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
 	mov	r1, #0
-	ldr	ip, _06012318	; =FUN_0600BEFC
+	ldr	ip, _06012318	; =WSetActiveZoneTime
 	bx	ip
-_06012318:	.word	FUN_0600BEFC
+_06012318:	.word	WSetActiveZoneTime
 
-	arm_func_start FUN_0601231C
-FUN_0601231C: ; 0x0601231C
+	arm_func_start PARAMSET_BeaconLostThReqCmd
+PARAMSET_BeaconLostThReqCmd: ; 0x0601231C
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _06012330	; =FUN_0600BFBC
+	ldr	ip, _06012330	; =WSetBeaconLostThreshold
 	bx	ip
-_06012330:	.word	FUN_0600BFBC
+_06012330:	.word	WSetBeaconLostThreshold
 
-	arm_func_start FUN_06012334
-FUN_06012334: ; 0x06012334
+	arm_func_start PARAMSET_ResBcSsidReqCmd
+PARAMSET_ResBcSsidReqCmd: ; 0x06012334
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _06012348	; =FUN_0600BFF4
+	ldr	ip, _06012348	; =WSetBcSsidResponse
 	bx	ip
-_06012348:	.word	FUN_0600BFF4
+_06012348:	.word	WSetBcSsidResponse
 
-	arm_func_start FUN_0601234C
-FUN_0601234C: ; 0x0601234C
+	arm_func_start PARAMSET_BeaconTypeReqCmd
+PARAMSET_BeaconTypeReqCmd: ; 0x0601234C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -21200,7 +21200,7 @@ FUN_0601234C: ; 0x0601234C
 	cmp	r1, #32
 	bhi	_06012380
 	ldrh	r0, [r0, #16]
-	bl	FUN_0600C02C
+	bl	WSetBeaconType
 	mov	r2, r0
 _06012380:
 	mov	r0, r2
@@ -21209,44 +21209,44 @@ _06012380:
 	bx	lr
 _06012390:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012394
-FUN_06012394: ; 0x06012394
+	arm_func_start PARAMSET_WepKeyReqCmd
+PARAMSET_WepKeyReqCmd: ; 0x06012394
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	add	r0, r0, #16
-	ldr	ip, _060123A8	; =FUN_0600C064
+	ldr	ip, _060123A8	; =WSetWepKey
 	bx	ip
-_060123A8:	.word	FUN_0600C064
+_060123A8:	.word	WSetWepKey
 
-	arm_func_start FUN_060123AC
-FUN_060123AC: ; 0x060123AC
+	arm_func_start PARAMSET_WepKeyIdReqCmd
+PARAMSET_WepKeyIdReqCmd: ; 0x060123AC
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060123C0	; =FUN_0600C0C8
+	ldr	ip, _060123C0	; =WSetWepKeyId
 	bx	ip
-_060123C0:	.word	FUN_0600C0C8
+_060123C0:	.word	WSetWepKeyId
 
-	arm_func_start FUN_060123C4
-FUN_060123C4: ; 0x060123C4
+	arm_func_start PARAMSET_WepModeReqCmd
+PARAMSET_WepModeReqCmd: ; 0x060123C4
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060123D8	; =FUN_0600C0EC
+	ldr	ip, _060123D8	; =WSetWepMode
 	bx	ip
-_060123D8:	.word	FUN_0600C0EC
+_060123D8:	.word	WSetWepMode
 
-	arm_func_start FUN_060123DC
-FUN_060123DC: ; 0x060123DC
+	arm_func_start PARAMSET_RateReqCmd
+PARAMSET_RateReqCmd: ; 0x060123DC
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060123F0	; =FUN_0600C1A0
+	ldr	ip, _060123F0	; =WSetRate
 	bx	ip
-_060123F0:	.word	FUN_0600C1A0
+_060123F0:	.word	WSetRate
 
-	arm_func_start FUN_060123F4
-FUN_060123F4: ; 0x060123F4
+	arm_func_start PARAMSET_ModeReqCmd
+PARAMSET_ModeReqCmd: ; 0x060123F4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r3, #1
@@ -21266,15 +21266,15 @@ FUN_060123F4: ; 0x060123F4
 	bne	_06012440
 _06012438:
 	ldrh	r0, [r0, #16]
-	bl	FUN_0600C1DC
+	bl	WSetMode
 _06012440:
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _0601244C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012450
-FUN_06012450: ; 0x06012450
+	arm_func_start PARAMSET_EnableChannelReqCmd
+PARAMSET_EnableChannelReqCmd: ; 0x06012450
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -21286,7 +21286,7 @@ FUN_06012450: ; 0x06012450
 	cmp	r1, #16
 	bne	_06012484
 	ldrh	r0, [r0, #16]
-	bl	FUN_0600C264
+	bl	WSetEnableChannel
 	mov	r2, r0
 _06012484:
 	mov	r0, r2
@@ -21295,17 +21295,17 @@ _06012484:
 	bx	lr
 _06012494:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012498
-FUN_06012498: ; 0x06012498
+	arm_func_start PARAMSET_RetryReqCmd
+PARAMSET_RetryReqCmd: ; 0x06012498
 	mov	r2, #1
 	strh	r2, [r1, #2]
 	ldrh	r0, [r0, #16]
-	ldr	ip, _060124AC	; =FUN_0600C2A4
+	ldr	ip, _060124AC	; =WSetRetryLimit
 	bx	ip
-_060124AC:	.word	FUN_0600C2A4
+_060124AC:	.word	WSetRetryLimit
 
-	arm_func_start FUN_060124B0
-FUN_060124B0: ; 0x060124B0
+	arm_func_start PARAMSET_MacAdrsReqCmd
+PARAMSET_MacAdrsReqCmd: ; 0x060124B0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r2, #1
@@ -21317,7 +21317,7 @@ FUN_060124B0: ; 0x060124B0
 	cmp	r1, #16
 	bne	_060124E4
 	add	r0, r0, #16
-	bl	FUN_0600C2D8
+	bl	WSetMacAdrs
 	mov	r2, r0
 _060124E4:
 	mov	r0, r2
@@ -21326,8 +21326,8 @@ _060124E4:
 	bx	lr
 _060124F4:	.word	0x0380FFF4
 
-	arm_func_start FUN_060124F8
-FUN_060124F8: ; 0x060124F8
+	arm_func_start PARAMSET_AllReqCmd
+PARAMSET_AllReqCmd: ; 0x060124F8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -21340,50 +21340,50 @@ FUN_060124F8: ; 0x060124F8
 	cmp	r1, #16
 	bne	_060125DC
 	add	r0, r5, #16
-	bl	FUN_0600C2D8
+	bl	WSetMacAdrs
 	mov	r4, r0
 	ldrh	r0, [r5, #22]
-	bl	FUN_0600C2A4
+	bl	WSetRetryLimit
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #24]
-	bl	FUN_0600C264
+	bl	WSetEnableChannel
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #28]
-	bl	FUN_0600C1DC
+	bl	WSetMode
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #30]
-	bl	FUN_0600C1A0
+	bl	WSetRate
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #32]
-	bl	FUN_0600C0EC
+	bl	WSetWepMode
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #34]	; 0x22
-	bl	FUN_0600C0C8
+	bl	WSetWepKeyId
 	orr	r4, r4, r0
 	add	r0, r5, #36	; 0x24
-	bl	FUN_0600C064
+	bl	WSetWepKey
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #116]	; 0x74
-	bl	FUN_0600C02C
+	bl	WSetBeaconType
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #118]	; 0x76
-	bl	FUN_0600BFF4
+	bl	WSetBcSsidResponse
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #120]	; 0x78
-	bl	FUN_0600BFBC
+	bl	WSetBeaconLostThreshold
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #122]	; 0x7a
 	mov	r1, #0
-	bl	FUN_0600BEFC
+	bl	WSetActiveZoneTime
 	orr	r4, r4, r0
 	add	r0, r5, #124	; 0x7c
-	bl	FUN_0600BECC
+	bl	WSetSsidMask
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #156]	; 0x9c
-	bl	FUN_0600BE0C
+	bl	WSetPreambleType
 	orr	r4, r4, r0
 	ldrh	r0, [r5, #158]	; 0x9e
-	bl	FUN_0600BDE8
+	bl	WSetAuthAlgo
 	orr	r0, r4, r0
 _060125DC:
 	add	sp, sp, #4
@@ -21391,8 +21391,8 @@ _060125DC:
 	bx	lr
 _060125E8:	.word	0x0380FFF4
 
-	arm_func_start FUN_060125EC
-FUN_060125EC: ; 0x060125EC
+	arm_func_start DEV_TestRxReqCmd
+DEV_TestRxReqCmd: ; 0x060125EC
 	stmdb	sp!, {r4, lr}
 	ldr	r2, _06012698	; =0x0380FFF4
 	ldr	r2, [r2]
@@ -21414,12 +21414,12 @@ FUN_060125EC: ; 0x060125EC
 	bne	_06012690
 	ldrh	r0, [r0, #18]
 	mov	r1, r3
-	bl	FUN_0600B570
+	bl	WSetChannel
 	mov	r0, #0
 	strh	r0, [r4, #12]
-	bl	FUN_0600A5A4
+	bl	WStart
 	mov	r0, #32768	; 0x8000
-	bl	FUN_0600B3E0
+	bl	WSetForcePowerState
 	mov	r0, #17
 	strh	r0, [r4, #8]
 	b	_0601268C
@@ -21427,8 +21427,8 @@ _06012664:
 	cmp	r2, #17
 	bne	_0601267C
 	mov	r0, #0
-	bl	FUN_0600B3E0
-	bl	FUN_0600A4EC
+	bl	WSetForcePowerState
+	bl	WStop
 	b	_06012684
 _0601267C:
 	mov	r0, r3
@@ -21443,8 +21443,8 @@ _06012690:
 	bx	lr
 _06012698:	.word	0x0380FFF4
 
-	arm_func_start FUN_0601269C
-FUN_0601269C: ; 0x0601269C
+	arm_func_start IntrCarrierSuppresionSignal
+IntrCarrierSuppresionSignal: ; 0x0601269C
 	ldr	r0, _0601271C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -21497,17 +21497,17 @@ FUN_06012744: ; 0x06012744
 	ldr	r0, _0601285C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r4, r0, #836	; 0x344
-	bl	FUN_0600A5A4
-	bl	FUN_0600A4EC
+	bl	WStart
+	bl	WStop
 	mov	r0, #6
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	strh	r0, [r4, #172]	; 0xac
 	ldrh	r0, [r5, #18]
 	cmp	r0, #4
 	bne	_06012788
 	mov	r0, #6
 	mov	r1, #0
-	bl	FUN_0600A478
+	bl	BBP_Write
 _06012788:
 	mov	r0, #0
 	ldr	r1, _06012860	; =0x04804000
@@ -21538,12 +21538,12 @@ _060127BC:
 	mov	r1, #1
 	strh	r1, [r4, #24]
 	ldrh	r0, [r5, #22]
-	bl	FUN_0600B570
+	bl	WSetChannel
 	mov	r1, #32768	; 0x8000
 	ldr	r0, _06012870	; =0x04808040
 	strh	r1, [r0]
 	ldr	r0, _06012874	; =0x000005DC
-	bl	FUN_0600A098
+	bl	WWaitus
 	mov	r1, #2
 	ldr	r0, _06012878	; =0x04808012
 	strh	r1, [r0]
@@ -21576,8 +21576,8 @@ _06012880:	.word	0x048080AE
 _06012884:	.word	0x00003FFF
 _06012888:	.word	0x048080A0
 
-	arm_func_start FUN_0601288C
-FUN_0601288C: ; 0x0601288C
+	arm_func_start DEV_TestSignalReqCmd
+DEV_TestSignalReqCmd: ; 0x0601288C
 	stmdb	sp!, {r4, r5, r6, lr}
 	sub	sp, sp, #8
 	mov	r5, r0
@@ -21606,7 +21606,7 @@ _060128E4:
 	movhi	r0, #5
 	bhi	_06012AD0
 	mov	r0, #0
-	bl	FUN_060191BC
+	bl	FLASH_VerifyCheckSum
 	cmp	r0, #0
 	movne	r0, #14
 	bne	_06012AD0
@@ -21624,17 +21624,17 @@ _060128E4:
 	mov	r0, #101	; 0x65
 	mov	r1, #1
 	add	r2, sp, #0
-	bl	FUN_060190BC
+	bl	FLASH_DirectRead
 	ldr	r6, [sp]
 	mov	r0, #1
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	cmp	r6, r0
 	beq	_0601296C
 	mov	r0, #1
 	mov	r1, r6
-	bl	FUN_0600A478
+	bl	BBP_Write
 	ldr	r0, _06012AE0	; =0x00001388
-	bl	FUN_0600A098
+	bl	WWaitus
 _0601296C:
 	ldrh	r0, [r5, #18]
 	cmp	r0, #4
@@ -21650,16 +21650,16 @@ _06012990:
 	strh	r0, [r4, #8]
 	ldrh	r0, [r5, #22]
 	mov	r1, #1
-	bl	FUN_0600B570
+	bl	WSetChannel
 	mov	r1, #32768	; 0x8000
 	ldr	r0, _06012AE4	; =0x04808040
 	strh	r1, [r0]
 	ldr	r0, _06012AE8	; =0x000005DC
-	bl	FUN_0600A098
+	bl	WWaitus
 	ldrh	r0, [r5, #20]
 	strh	r0, [r4, #22]
 	mov	r0, #2
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	str	r0, [sp]
 	ldrh	r1, [r5, #18]
 	cmp	r1, #1
@@ -21682,7 +21682,7 @@ _06012990:
 _06012A14:
 	mov	r0, #2
 	ldr	r1, [sp]
-	bl	FUN_0600A478
+	bl	BBP_Write
 	ldr	r1, _06012AF4	; =0x00000823
 	ldr	r0, _06012AF8	; =0x048081A0
 	strh	r1, [r0]
@@ -21695,7 +21695,7 @@ _06012A3C:
 	ldrh	r0, [r4, #8]
 	cmp	r0, #17
 	bne	_06012A8C
-	bl	FUN_06009FDC
+	bl	ClearPeriodicTimeOut
 	mov	r2, #0
 	ldr	r0, _06012AF8	; =0x048081A0
 	strh	r2, [r0]
@@ -21705,12 +21705,12 @@ _06012A3C:
 	ldr	r0, _06012AE4	; =0x04808040
 	strh	r2, [r0]
 	mov	r0, #2
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	str	r0, [sp]
 	bic	r1, r0, #48	; 0x30
 	str	r1, [sp]
 	mov	r0, #2
-	bl	FUN_0600A478
+	bl	BBP_Write
 	b	_06012AC4
 _06012A8C:
 	cmp	r0, #18
@@ -21724,7 +21724,7 @@ _06012AA0:
 	bne	_06012AA0
 	mov	r0, #6
 	ldrh	r1, [r4, #172]	; 0xac
-	bl	FUN_0600A478
+	bl	BBP_Write
 	b	_06012AC4
 _06012ABC:
 	mov	r0, #1
@@ -21748,8 +21748,8 @@ _06012AF4:	.word	0x00000823
 _06012AF8:	.word	0x048081A0
 _06012AFC:	.word	0x04808004
 
-	arm_func_start FUN_06012B00
-FUN_06012B00: ; 0x06012B00
+	arm_func_start DEV_GetStateReqCmd
+DEV_GetStateReqCmd: ; 0x06012B00
 	mov	r0, #2
 	strh	r0, [r1, #2]
 	ldr	r0, _06012B24	; =0x0380FFF4
@@ -21761,8 +21761,8 @@ FUN_06012B00: ; 0x06012B00
 	bx	lr
 _06012B24:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012B28
-FUN_06012B28: ; 0x06012B28
+	arm_func_start DEV_GetWlInfoReqCmd
+DEV_GetWlInfoReqCmd: ; 0x06012B28
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	ldr	r0, _06012B80	; =0x0380FFF4
@@ -21774,7 +21774,7 @@ FUN_06012B28: ; 0x06012B28
 	beq	_06012B78
 	mov	r0, #92	; 0x5c
 	strh	r0, [r4, #2]
-	bl	FUN_0600AC84
+	bl	WUpdateCounter
 	ldr	r0, _06012B80	; =0x0380FFF4
 	ldr	r1, [r0]
 	ldr	r0, _06012B84	; =0x0000053C
@@ -21791,11 +21791,11 @@ _06012B84:	.word	0x0000053C
 
 	arm_func_start FUN_06012B88
 FUN_06012B88: ; 0x06012B88
-	ldr	pc, _06012B8C	; =FUN_037FB348
-_06012B8C:	.word	FUN_037FB348
+	ldr	pc, _06012B8C	; =MIi_CpuCopy32
+_06012B8C:	.word	MIi_CpuCopy32
 
-	arm_func_start FUN_06012B90
-FUN_06012B90: ; 0x06012B90
+	arm_func_start DEV_GetVerInfoReqCmd
+DEV_GetVerInfoReqCmd: ; 0x06012B90
 	stmdb	sp!, {r4, lr}
 	mov	r4, r1
 	mov	r0, #9
@@ -21818,9 +21818,9 @@ FUN_06012B90: ; 0x06012B90
 	streqh	r0, [r4, #18]
 	beq	_06012BF8
 	mov	r0, #0
-	bl	FUN_0600A4B8
+	bl	BBP_Read
 	strh	r0, [r4, #16]
-	bl	FUN_0600A3E0
+	bl	CalcBbpCRC
 	strh	r0, [r4, #18]
 _06012BF8:
 	ldr	r0, _06012C34	; =0x0380FFF4
@@ -21841,8 +21841,8 @@ _06012C30:	.word	0x04808000
 _06012C34:	.word	0x0380FFF4
 _06012C38:	.word	0x0000933D
 
-	arm_func_start FUN_06012C3C
-FUN_06012C3C: ; 0x06012C3C
+	arm_func_start DEV_ClearWlInfoReqCmd
+DEV_ClearWlInfoReqCmd: ; 0x06012C3C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _06012C7C	; =0x0380FFF4
@@ -21854,7 +21854,7 @@ FUN_06012C3C: ; 0x06012C3C
 	beq	_06012C70
 	mov	r0, #1
 	strh	r0, [r1, #2]
-	bl	FUN_0600AE88
+	bl	WInitCounter
 	mov	r0, #0
 _06012C70:
 	add	sp, sp, #4
@@ -21862,8 +21862,8 @@ _06012C70:
 	bx	lr
 _06012C7C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012C80
-FUN_06012C80: ; 0x06012C80
+	arm_func_start DEV_RebootReqCmd
+DEV_RebootReqCmd: ; 0x06012C80
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #1
@@ -21874,17 +21874,17 @@ FUN_06012C80: ; 0x06012C80
 	ldrh	r0, [r0, #76]	; 0x4c
 	cmp	r0, #32
 	bcc	_06012CAC
-	bl	FUN_0600A4EC
+	bl	WStop
 _06012CAC:
-	bl	FUN_06008F18
+	bl	WlessLibReboot
 	mov	r0, #0
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 _06012CC0:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012CC4
-FUN_06012CC4: ; 0x06012CC4
+	arm_func_start DEV_Class1ReqCmd
+DEV_Class1ReqCmd: ; 0x06012CC4
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #1
@@ -21902,7 +21902,7 @@ FUN_06012CC4: ; 0x06012CC4
 	bne	_06012D10
 _06012D00:
 	mov	r0, #32
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	mov	r0, #0
 	b	_06012D14
 _06012D10:
@@ -21913,8 +21913,8 @@ _06012D14:
 	bx	lr
 _06012D20:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012D24
-FUN_06012D24: ; 0x06012D24
+	arm_func_start DEV_IdleReqCmd
+DEV_IdleReqCmd: ; 0x06012D24
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #1
@@ -21929,12 +21929,12 @@ FUN_06012D24: ; 0x06012D24
 	cmp	r1, #0
 	bne	_06012D78
 	mov	r0, #0
-	bl	FUN_060191BC
+	bl	FLASH_VerifyCheckSum
 	cmp	r0, #0
 	movne	r0, #14
 	bne	_06012D78
 	mov	r0, #16
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	mov	r0, #0
 _06012D78:
 	add	sp, sp, #4
@@ -21942,8 +21942,8 @@ _06012D78:
 	bx	lr
 _06012D84:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012D88
-FUN_06012D88: ; 0x06012D88
+	arm_func_start DEV_ShutdownReqCmd
+DEV_ShutdownReqCmd: ; 0x06012D88
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	mov	r0, #1
@@ -21958,7 +21958,7 @@ FUN_06012D88: ; 0x06012D88
 	bne	_06012DC4
 _06012DB8:
 	mov	r0, #0
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	mov	r0, #0
 _06012DC4:
 	add	sp, sp, #4
@@ -21966,8 +21966,8 @@ _06012DC4:
 	bx	lr
 _06012DD0:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012DD4
-FUN_06012DD4: ; 0x06012DD4
+	arm_func_start IssueMaDataConfirm
+IssueMaDataConfirm: ; 0x06012DD4
 	ldrh	r2, [r1, #14]
 	add	r2, r1, r2, lsl #1
 	add	r3, r2, #16
@@ -21979,12 +21979,12 @@ FUN_06012DD4: ; 0x06012DD4
 	strh	r2, [r3, #4]
 	ldrh	r2, [r1, #24]
 	strh	r2, [r3, #6]
-	ldr	ip, _06012E08	; =FUN_0600F8DC
+	ldr	ip, _06012E08	; =SendMessageToWmDirect
 	bx	ip
-_06012E08:	.word	FUN_0600F8DC
+_06012E08:	.word	SendMessageToWmDirect
 
-	arm_func_start FUN_06012E0C
-FUN_06012E0C: ; 0x06012E0C
+	arm_func_start MA_ClrDataReqCmd
+MA_ClrDataReqCmd: ; 0x06012E0C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #1
@@ -21992,24 +21992,24 @@ FUN_06012E0C: ; 0x06012E0C
 	ldrh	r0, [r4, #16]
 	ands	r0, r0, #1
 	beq	_06012E2C
-	bl	FUN_060151F0
+	bl	ClearTxKeyData
 _06012E2C:
 	ldrh	r0, [r4, #16]
 	ands	r0, r0, #2
 	beq	_06012E3C
-	bl	FUN_06015190
+	bl	ClearTxMp
 _06012E3C:
 	ldrh	r0, [r4, #16]
 	ands	r0, r0, #4
 	beq	_06012E4C
-	bl	FUN_060150D8
+	bl	ClearTxData
 _06012E4C:
 	mov	r0, #0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 
-	arm_func_start FUN_06012E58
-FUN_06012E58: ; 0x06012E58
+	arm_func_start MA_TestDataReqCmd
+MA_TestDataReqCmd: ; 0x06012E58
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r0, #1
@@ -22021,23 +22021,23 @@ FUN_06012E58: ; 0x06012E58
 	strh	r1, [r0, #2]
 	ldrh	r1, [r0, #6]
 	strh	r1, [r0, #18]
-	bl	FUN_0600F3CC
+	bl	CAM_IncFrameCount
 	ldr	r0, _06012EB8	; =0x0380FFF4
 	ldr	r1, [r0]
 	add	r0, r1, #512	; 0x200
 	add	r1, r1, #404	; 0x194
 	mov	r2, r4
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, #0
-	bl	FUN_06015C78
+	bl	TxqPri
 	mov	r0, #0
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06012EB4:	.word	0x0000FFFF
 _06012EB8:	.word	0x0380FFF4
 
-	arm_func_start FUN_06012EBC
-FUN_06012EBC: ; 0x06012EBC
+	arm_func_start MA_MpReqCmd
+MA_MpReqCmd: ; 0x06012EBC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	r5, r0
@@ -22145,7 +22145,7 @@ _06013038:
 	add	r0, sl, #12
 	ldr	r1, [sp, #8]
 	add	r1, r1, #26
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	str	r0, [r9, #144]	; 0x90
 	ldr	r0, [r9, #144]	; 0x90
 	cmp	r0, #0
@@ -22183,11 +22183,11 @@ _06013038:
 	mla	r1, r0, r6, r1
 	strh	r1, [r4, #14]
 	add	r0, r4, #16
-	ldr	r1, _06013388	; =_0601939C
+	ldr	r1, _06013388	; =MP_ADRS
 	ldr	r2, [sp]
 	add	r2, r2, #100	; 0x64
 	add	r3, r7, #8
-	bl	FUN_0600AECC
+	bl	WSetMacAdrs3
 	ldrh	r0, [r5, #16]
 	ands	r0, r0, #32768	; 0x8000
 	beq	_06013120
@@ -22213,11 +22213,11 @@ _0601312C:
 	ldrh	r0, [r5, #28]
 	cmp	r0, #0
 	beq	_06013170
-	bl	FUN_0600AC84
+	bl	WUpdateCounter
 	add	r0, r4, #42	; 0x2a
 	ldr	r1, [r5, #32]
 	ldrh	r2, [r5, #28]
-	bl	FUN_06009D74
+	bl	DMA_Write
 _06013170:
 	ands	r0, r8, #4
 	beq	_060131A0
@@ -22342,7 +22342,7 @@ _06013338:
 	bl	FUN_060001AC
 	add	r0, sl, #12
 	ldr	r1, [r9, #144]	; 0x90
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	mov	r0, #0
 	strh	r0, [r9, #60]	; 0x3c
 	ldrh	r0, [r9, #62]	; 0x3e
@@ -22360,7 +22360,7 @@ _06013378:	.word	0x0380FFF4
 _0601337C:	.word	0x0000042C
 _06013380:	.word	0x00007FFF
 _06013384:	.word	0x00000206
-_06013388:	.word	_0601939C
+_06013388:	.word	MP_ADRS
 _0601338C:	.word	0x0000FFFF
 _06013390:	.word	0x0000B6B8
 _06013394:	.word	0x00001D46
@@ -22372,8 +22372,8 @@ _060133A8:	.word	0x00003FFF
 _060133AC:	.word	0x04808090
 _060133B0:	.word	0x048080F8
 
-	arm_func_start FUN_060133B4
-FUN_060133B4: ; 0x060133B4
+	arm_func_start MA_KeyDataReqCmd
+MA_KeyDataReqCmd: ; 0x060133B4
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -22425,8 +22425,8 @@ FUN_060133B4: ; 0x060133B4
 	add	r0, r5, #16
 	add	r1, r2, #100	; 0x64
 	add	r2, r8, #8
-	ldr	r3, _06013548	; =_0601938C
-	bl	FUN_0600AECC
+	ldr	r3, _06013548	; =MPKEY_ADRS
+	bl	WSetMacAdrs3
 	ldrh	r0, [sl, #18]
 	strh	r0, [r5, #36]	; 0x24
 	ldrh	r0, [sl, #16]
@@ -22434,12 +22434,12 @@ FUN_060133B4: ; 0x060133B4
 	beq	_060134B8
 	cmp	r9, #0
 	bne	_060134A8
-	bl	FUN_0600AC84
+	bl	WUpdateCounter
 _060134A8:
 	add	r0, r5, #38	; 0x26
 	ldr	r1, [sl, #20]
 	ldrh	r2, [sl, #16]
-	bl	FUN_06009D74
+	bl	DMA_Write
 _060134B8:
 	ands	r0, r6, #4
 	beq	_060134E8
@@ -22470,7 +22470,7 @@ _060134E8:
 	mov	r0, r0, lsl #24
 	movs	r0, r0, lsr #31
 	bne	_0601352C
-	bl	FUN_0600B030
+	bl	WSetKSID
 _0601352C:
 	mov	r0, #0
 _06013530:
@@ -22480,13 +22480,13 @@ _06013530:
 _0601353C:	.word	0x0380FFF4
 _06013540:	.word	0x0000042C
 _06013544:	.word	0x04808094
-_06013548:	.word	_0601938C
+_06013548:	.word	MPKEY_ADRS
 _0601354C:	.word	0x0000B6B8
 _06013550:	.word	0x00001D46
 _06013554:	.word	0x00003FFF
 
-	arm_func_start FUN_06013558
-FUN_06013558: ; 0x06013558
+	arm_func_start MA_DataReqCmd
+MA_DataReqCmd: ; 0x06013558
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r9, r0
@@ -22505,11 +22505,11 @@ FUN_06013558: ; 0x06013558
 	cmp	r0, #1
 	bne	_060135C4
 	add	r0, r5, #24
-	bl	FUN_0600F608
+	bl	CAM_Search
 	mov	r4, r0
 	cmp	r4, #255	; 0xff
 	beq	_060135BC
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	beq	_060135C8
 _060135BC:
@@ -22530,7 +22530,7 @@ _060135C8:
 	strneh	r0, [r5, #14]
 	bne	_06013600
 	mov	r0, r4
-	bl	FUN_0600EF34
+	bl	CAM_GetTxRate
 	strh	r0, [r5, #16]
 _06013600:
 	ldrh	r0, [r5, #6]
@@ -22566,15 +22566,15 @@ _06013650:
 _06013670:
 	add	r0, r5, #36	; 0x24
 	add	r1, r5, #30
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	add	r0, r5, #30
 	add	r1, r8, #100	; 0x64
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	cmp	r4, #0
 	bne	_060136C8
 	add	r0, r6, #132	; 0x84
 	mov	r1, r9
-	bl	FUN_0600F45C
+	bl	CAM_AddBcFrame
 	ldr	r0, _06013734	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1280	; 0x500
@@ -22584,33 +22584,33 @@ _06013670:
 	ands	r0, r1, r0
 	bne	_06013724
 	mov	r0, #2
-	bl	FUN_06015C78
+	bl	TxqPri
 	b	_06013724
 _060136C8:
 	mov	r0, r5
-	bl	FUN_0600F3CC
+	bl	CAM_IncFrameCount
 	add	r0, r6, #132	; 0x84
 	add	r1, r6, #24
 	mov	r2, r9
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, #0
-	bl	FUN_06015C78
+	bl	TxqPri
 	b	_06013724
 _060136EC:
 	add	r0, r5, #36	; 0x24
 	add	r1, r5, #24
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	add	r0, r5, #24
 	add	r1, r8, #100	; 0x64
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	mov	r0, r5
-	bl	FUN_0600F3CC
+	bl	CAM_IncFrameCount
 	add	r0, r6, #132	; 0x84
 	add	r1, r6, #24
 	mov	r2, r9
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, #0
-	bl	FUN_06015C78
+	bl	TxqPri
 _06013724:
 	mov	r0, #129	; 0x81
 _06013728:
@@ -22620,8 +22620,8 @@ _06013728:
 _06013734:	.word	0x0380FFF4
 _06013738:	.word	0x000005E4
 
-	arm_func_start FUN_0601373C
-FUN_0601373C: ; 0x0601373C
+	arm_func_start InitTxCtrl
+InitTxCtrl: ; 0x0601373C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06013A30	; =0x0380FFF4
@@ -22660,9 +22660,9 @@ _060137B8:
 	str	r0, [r6, #28]
 	ldr	r0, _06013A44	; =0x04804000
 	str	r0, [r6, #48]	; 0x30
-	ldr	r0, _06013A48	; =FUN_06015974
+	ldr	r0, _06013A48	; =TxqEndData
 	str	r0, [r6, #16]
-	ldr	r0, _06013A4C	; =FUN_06015458
+	ldr	r0, _06013A4C	; =TxqEndManCtrl
 	str	r0, [r6, #36]	; 0x24
 	ldr	r0, _06013A50	; =_060153E4
 	str	r0, [r6, #56]	; 0x38
@@ -22693,11 +22693,11 @@ _06013838:
 	str	r0, [r6, #28]
 	ldr	r0, _06013A80	; =0x04804334
 	str	r0, [r6, #48]	; 0x30
-	ldr	r0, _06013A48	; =FUN_06015974
+	ldr	r0, _06013A48	; =TxqEndData
 	str	r0, [r6, #16]
-	ldr	r0, _06013A4C	; =FUN_06015458
+	ldr	r0, _06013A4C	; =TxqEndManCtrl
 	str	r0, [r6, #36]	; 0x24
-	ldr	r0, _06013A84	; =FUN_060152C4
+	ldr	r0, _06013A84	; =TxqEndBroadCast
 	str	r0, [r6, #56]	; 0x38
 	ldr	r2, _06013A88	; =0x04804238
 	str	r2, [r6, #128]	; 0x80
@@ -22728,7 +22728,7 @@ _06013838:
 	mov	r0, #520	; 0x208
 	strh	r0, [r5, #138]	; 0x8a
 	str	r2, [r6, #128]	; 0x80
-	bl	FUN_0601477C
+	bl	MakeBeaconFrame
 	b	_06013A10
 _060138E4:
 	ldr	r0, _06013AB4	; =0x048045D8
@@ -22737,9 +22737,9 @@ _060138E4:
 	str	r0, [r6, #28]
 	ldr	r0, _06013ABC	; =0x04804468
 	str	r0, [r6, #48]	; 0x30
-	ldr	r0, _06013A48	; =FUN_06015974
+	ldr	r0, _06013A48	; =TxqEndData
 	str	r0, [r6, #16]
-	ldr	r0, _06013A4C	; =FUN_06015458
+	ldr	r0, _06013A4C	; =TxqEndManCtrl
 	str	r0, [r6, #36]	; 0x24
 	ldr	r0, _06013A50	; =_060153E4
 	str	r0, [r6, #56]	; 0x38
@@ -22782,9 +22782,9 @@ _06013994:
 	str	r0, [r6, #28]
 	ldr	r0, _06013A44	; =0x04804000
 	str	r0, [r6, #48]	; 0x30
-	ldr	r0, _06013A48	; =FUN_06015974
+	ldr	r0, _06013A48	; =TxqEndData
 	str	r0, [r6, #16]
-	ldr	r0, _06013A4C	; =FUN_06015458
+	ldr	r0, _06013A4C	; =TxqEndManCtrl
 	str	r0, [r6, #36]	; 0x24
 	ldr	r0, _06013A50	; =_060153E4
 	str	r0, [r6, #56]	; 0x38
@@ -22822,8 +22822,8 @@ _06013A38:	.word	0x0000FFFF
 _06013A3C:	.word	0x04804170
 _06013A40:	.word	0x04804028
 _06013A44:	.word	0x04804000
-_06013A48:	.word	FUN_06015974
-_06013A4C:	.word	FUN_06015458
+_06013A48:	.word	TxqEndData
+_06013A4C:	.word	TxqEndManCtrl
 _06013A50:	.word	_060153E4
 _06013A54:	.word	0x0000B6B8
 _06013A58:	.word	0x04804024
@@ -22837,7 +22837,7 @@ _06013A74:	.word	0x048080AE
 _06013A78:	.word	0x04804AA0
 _06013A7C:	.word	0x04804958
 _06013A80:	.word	0x04804334
-_06013A84:	.word	FUN_060152C4
+_06013A84:	.word	TxqEndBroadCast
 _06013A88:	.word	0x04804238
 _06013A8C:	.word	0x04804234
 _06013A90:	.word	0x04804236
@@ -22873,7 +22873,7 @@ FUN_06013AE8: ; 0x06013AE8
 	add	r5, r1, #796	; 0x31c
 	mov	r4, #0
 	mov	r1, #221	; 0xdd
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r7, #1
 	ldr	r1, _06013C04	; =0x0380FFF4
 	ldr	r1, [r1]
@@ -22881,37 +22881,37 @@ FUN_06013AE8: ; 0x06013AE8
 	ldrh	r1, [r1, #228]	; 0xe4
 	add	r1, r1, #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r7, #2
 	mov	r1, r4
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r7, #3
 	mov	r1, #9
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r7, #4
 	mov	r1, #191	; 0xbf
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r7, #5
 	mov	r1, r4
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r7, #6
 	ldrh	r1, [r5, #32]
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r7, #7
 	ldrh	r1, [r5, #32]
 	mov	r1, r1, asr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	ldr	r0, _06013C08	; =0x0380FFF0
 	ldrh	r5, [r0]
 	add	r0, r7, #8
 	and	r1, r5, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r7, #9
 	mov	r1, r5, lsr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r4, r4, #10
 	ldrh	r0, [r6, #160]	; 0xa0
 	cmp	r0, #0
@@ -22924,10 +22924,10 @@ FUN_06013AE8: ; 0x06013AE8
 	b	_06013BEC
 _06013BCC:
 	mov	r0, r5
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r7, r4
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r4, r4, #1
 	add	r5, r5, #1
 	add	r8, r8, #1
@@ -22947,17 +22947,17 @@ FUN_06013C0C: ; 0x06013C0C
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	mov	r1, #3
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r4, #1
 	mov	r1, #1
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r4, #2
 	ldr	r1, _06013C50	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #768	; 0x300
 	ldrh	r1, [r1, #190]	; 0xbe
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	mov	r0, #3
 	ldmia	sp!, {r4, lr}
 	bx	lr
@@ -22973,10 +22973,10 @@ FUN_06013C54: ; 0x06013C54
 	add	r8, r1, #836	; 0x344
 	mov	r7, #0
 	mov	r1, #1
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r7, r7, #2
 	mov	r6, #0
-	ldr	r4, _06013D08	; =_060193A4
+	ldr	r4, _06013D08	; =RateBit2Element
 	mov	r5, #1
 _06013C88:
 	mov	r1, r5, lsl r6
@@ -22991,14 +22991,14 @@ _06013C88:
 	ldrh	r1, [r4, r1]
 	orr	r1, r1, #128	; 0x80
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	b	_06013CD4
 _06013CC0:
 	add	r0, r9, r7
 	mov	r1, r6, lsl #1
 	ldrh	r1, [r4, r1]
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 _06013CD4:
 	add	r7, r7, #1
 _06013CD8:
@@ -23008,13 +23008,13 @@ _06013CD8:
 	add	r0, r9, #1
 	sub	r1, r7, #2
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	mov	r0, r7
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	bx	lr
 _06013D04:	.word	0x0380FFF4
-_06013D08:	.word	_060193A4
+_06013D08:	.word	RateBit2Element
 
 	arm_func_start FUN_06013D0C
 FUN_06013D0C: ; 0x06013D0C
@@ -23026,20 +23026,20 @@ FUN_06013D0C: ; 0x06013D0C
 	mov	r8, #0
 	ldrh	r7, [r5, #30]
 	mov	r1, r8
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r4, #1
 	and	r1, r7, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r8, r8, #2
 	mov	r6, #0
 	add	r5, r5, #32
 	b	_06013D68
 _06013D4C:
 	add	r0, r5, r6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r4, r8
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r8, r8, #1
 	add	r6, r6, #1
 _06013D68:
@@ -23050,8 +23050,8 @@ _06013D68:
 	bx	lr
 _06013D7C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06013D80
-FUN_06013D80: ; 0x06013D80
+	arm_func_start IsExistManFrame
+IsExistManFrame: ; 0x06013D80
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -23068,13 +23068,13 @@ _06013DA4:
 	bne	_06013DCC
 	add	r0, r1, #24
 	mov	r1, r5
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	movne	r0, #1
 	bne	_06013DE4
 _06013DCC:
 	mov	r0, r7
-	bl	FUN_06009434
+	bl	GetHeapBufNextAdrs
 	mov	r7, r0
 _06013DD8:
 	cmp	r7, r6
@@ -23086,8 +23086,8 @@ _06013DE4:
 	bx	lr
 _06013DF0:	.word	0x0380FFF4
 
-	arm_func_start FUN_06013DF4
-FUN_06013DF4: ; 0x06013DF4
+	arm_func_start InitManHeader
+InitManHeader: ; 0x06013DF4
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -23096,7 +23096,7 @@ FUN_06013DF4: ; 0x06013DF4
 	mov	r1, r5
 	mov	r2, #44	; 0x2c
 	bl	FUN_0600055C
-	bl	FUN_0600AA50
+	bl	WCalcManRate
 	strh	r0, [r5, #16]
 	ldr	r0, _06013E44	; =0x0380FFF4
 	ldr	r3, [r0]
@@ -23104,14 +23104,14 @@ FUN_06013DF4: ; 0x06013DF4
 	mov	r1, r4
 	add	r2, r3, #804	; 0x324
 	add	r3, r3, #936	; 0x3a8
-	bl	FUN_0600AECC
+	bl	WSetMacAdrs3
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06013E44:	.word	0x0380FFF4
 
-	arm_func_start FUN_06013E48
-FUN_06013E48: ; 0x06013E48
+	arm_func_start MakePsPollFrame
+MakePsPollFrame: ; 0x06013E48
 	ldr	r2, _06013E94	; =0x0380FFF4
 	ldr	r1, [r2]
 	ldr	r3, [r1, #1116]	; 0x45c
@@ -23134,8 +23134,8 @@ FUN_06013E48: ; 0x06013E48
 _06013E94:	.word	0x0380FFF4
 _06013E98:	.word	_0600AF18
 
-	arm_func_start FUN_06013E9C
-FUN_06013E9C: ; 0x06013E9C
+	arm_func_start MakeDeAuthFrame
+MakeDeAuthFrame: ; 0x06013E9C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -23150,11 +23150,11 @@ _06013EC0:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #54	; 0x36
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_06013EEC
 	mov	r0, #2
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, r4
 	b	_06013F28
 _06013EEC:
@@ -23163,7 +23163,7 @@ _06013EEC:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUN_06013DF4
+	bl	InitManHeader
 	strh	r5, [r4, #44]	; 0x2c
 	mov	r0, #2
 	strh	r0, [r4, #6]
@@ -23179,8 +23179,8 @@ _06013F28:
 _06013F30:	.word	0x0380FFF4
 _06013F34:	.word	0x0000FFFF
 
-	arm_func_start FUN_06013F38
-FUN_06013F38: ; 0x06013F38
+	arm_func_start MakeAuthFrame
+MakeAuthFrame: ; 0x06013F38
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -23195,11 +23195,11 @@ _06013F5C:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	add	r1, r5, #61	; 0x3d
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_06013F88
 	mov	r0, #2
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, r4
 	b	_06013FEC
 _06013F88:
@@ -23208,15 +23208,15 @@ _06013F88:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUN_06013DF4
+	bl	InitManHeader
 	cmp	r5, #0
 	beq	_06013FCC
 	add	r0, r4, #50	; 0x32
 	mov	r1, #16
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r4, #51	; 0x33
 	and	r1, r5, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r5, #2
 	mov	r0, r0, lsl #16
 	mov	r5, r0, lsr #16
@@ -23235,8 +23235,8 @@ _06013FEC:
 _06013FF4:	.word	0x0380FFF4
 _06013FF8:	.word	0x0000FFFF
 
-	arm_func_start FUN_06013FFC
-FUN_06013FFC: ; 0x06013FFC
+	arm_func_start MakeProbeResFrame
+MakeProbeResFrame: ; 0x06013FFC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _060140DC	; =0x0380FFF4
@@ -23251,11 +23251,11 @@ FUN_06013FFC: ; 0x06013FFC
 	add	r0, r0, #392	; 0x188
 	ldrh	r1, [r5, #160]	; 0xa0
 	add	r1, r1, #120	; 0x78
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_06014050
 	mov	r0, #2
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, r4
 	b	_060140D4
 _06014050:
@@ -23264,7 +23264,7 @@ _06014050:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUN_06013DF4
+	bl	InitManHeader
 	ldrh	r0, [r5, #110]	; 0x6e
 	strh	r0, [r4, #52]	; 0x34
 	ldrh	r0, [r5, #124]	; 0x7c
@@ -23298,19 +23298,19 @@ _060140D4:
 _060140DC:	.word	0x0380FFF4
 _060140E0:	.word	0x0000FFFF
 
-	arm_func_start FUN_060140E4
-FUN_060140E4: ; 0x060140E4
+	arm_func_start MakeProbeReqFrame
+MakeProbeReqFrame: ; 0x060140E4
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _0601416C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #90	; 0x5a
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_06014118
 	mov	r0, #2
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, r4
 	b	_06014164
 _06014118:
@@ -23319,7 +23319,7 @@ _06014118:
 	add	r5, r4, #16
 	mov	r0, r5
 	mov	r1, r6
-	bl	FUN_06013DF4
+	bl	InitManHeader
 	add	r0, r5, #44	; 0x2c
 	bl	FUN_06013D0C
 	mov	r4, r0
@@ -23339,8 +23339,8 @@ _06014164:
 _0601416C:	.word	0x0380FFF4
 _06014170:	.word	0x0000FFFF
 
-	arm_func_start FUN_06014174
-FUN_06014174: ; 0x06014174
+	arm_func_start MakeReAssResFrame
+MakeReAssResFrame: ; 0x06014174
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r8, r0
@@ -23350,11 +23350,11 @@ FUN_06014174: ; 0x06014174
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #96	; 0x60
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_060141B4
 	mov	r0, #2
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, r4
 	b	_060142CC
 _060141B4:
@@ -23364,7 +23364,7 @@ _060141B4:
 	cmp	r7, #0
 	bne	_060141DC
 	mov	r0, r8
-	bl	FUN_0600F080
+	bl	CAM_AllocateAID
 	movs	r4, r0
 	moveq	r7, #19
 	b	_060141E0
@@ -23372,10 +23372,10 @@ _060141DC:
 	mov	r4, #0
 _060141E0:
 	mov	r0, r8
-	bl	FUN_0600EF94
+	bl	CAM_GetMacAdrs
 	mov	r1, r0
 	mov	r0, r5
-	bl	FUN_06013DF4
+	bl	InitManHeader
 	ldr	r0, _060142D8	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -23399,26 +23399,26 @@ _060141E0:
 	cmp	r6, #0
 	beq	_060142B0
 	add	r0, r6, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r7, r0
 	mov	r0, r6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r8, #1
 	and	r1, r7, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r8, r8, #2
 	mov	r9, #0
 	add	r4, r6, #2
 	b	_060142A4
 _06014288:
 	add	r0, r4, r9
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r8, r8, #1
 	add	r9, r9, #1
 _060142A4:
@@ -23428,10 +23428,10 @@ _060142A4:
 _060142B0:
 	mov	r0, r8
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r8, #1
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 _060142C8:
 	mov	r0, r5
 _060142CC:
@@ -23441,8 +23441,8 @@ _060142CC:
 _060142D8:	.word	0x0380FFF4
 _060142DC:	.word	0x0000FFFF
 
-	arm_func_start FUN_060142E0
-FUN_060142E0: ; 0x060142E0
+	arm_func_start MakeAssResFrame
+MakeAssResFrame: ; 0x060142E0
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub	sp, sp, #4
 	mov	r8, r0
@@ -23452,11 +23452,11 @@ FUN_060142E0: ; 0x060142E0
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #96	; 0x60
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_06014320
 	mov	r0, #2
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, r4
 	b	_06014444
 _06014320:
@@ -23466,7 +23466,7 @@ _06014320:
 	cmp	r7, #0
 	bne	_06014348
 	mov	r0, r8
-	bl	FUN_0600F080
+	bl	CAM_AllocateAID
 	movs	r4, r0
 	moveq	r7, #19
 	b	_0601434C
@@ -23474,10 +23474,10 @@ _06014348:
 	mov	r4, #0
 _0601434C:
 	mov	r0, r8
-	bl	FUN_0600EF94
+	bl	CAM_GetMacAdrs
 	mov	r1, r0
 	mov	r0, r5
-	bl	FUN_06013DF4
+	bl	InitManHeader
 	ldr	r0, _06014450	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #768	; 0x300
@@ -23504,26 +23504,26 @@ _0601434C:
 	cmp	r6, #0
 	beq	_06014428
 	add	r0, r6, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r7, r0
 	mov	r0, r6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r8, #1
 	add	r8, r8, #2
 	and	r1, r7, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	mov	r9, #0
 	add	r4, r6, #2
 	b	_0601441C
 _06014400:
 	add	r0, r4, r9
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, r8
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r9, r9, #1
 	add	r8, r8, #1
 _0601441C:
@@ -23533,10 +23533,10 @@ _0601441C:
 _06014428:
 	mov	r0, r8
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r8, #1
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 _06014440:
 	mov	r0, r5
 _06014444:
@@ -23546,8 +23546,8 @@ _06014444:
 _06014450:	.word	0x0380FFF4
 _06014454:	.word	0x0000FFFF
 
-	arm_func_start FUN_06014458
-FUN_06014458: ; 0x06014458
+	arm_func_start MakeReAssReqFrame
+MakeReAssReqFrame: ; 0x06014458
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _06014508	; =0x0380FFF4
@@ -23555,11 +23555,11 @@ FUN_06014458: ; 0x06014458
 	add	r5, r0, #836	; 0x344
 	add	r0, r0, #392	; 0x188
 	mov	r1, #100	; 0x64
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_06014490
 	mov	r0, #2
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, r4
 	b	_06014500
 _06014490:
@@ -23568,14 +23568,14 @@ _06014490:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUN_06013DF4
+	bl	InitManHeader
 	ldrh	r0, [r5, #124]	; 0x7c
 	strh	r0, [r4, #44]	; 0x2c
 	ldrh	r0, [r5, #112]	; 0x70
 	strh	r0, [r4, #46]	; 0x2e
 	add	r0, r4, #48	; 0x30
 	add	r1, r5, #130	; 0x82
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	add	r0, r4, #54	; 0x36
 	bl	FUN_06013D0C
 	mov	r5, r0
@@ -23597,8 +23597,8 @@ _06014500:
 _06014508:	.word	0x0380FFF4
 _0601450C:	.word	0x0000FFFF
 
-	arm_func_start FUN_06014510
-FUN_06014510: ; 0x06014510
+	arm_func_start MakeAssReqFrame
+MakeAssReqFrame: ; 0x06014510
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _060145B4	; =0x0380FFF4
@@ -23606,11 +23606,11 @@ FUN_06014510: ; 0x06014510
 	add	r5, r0, #836	; 0x344
 	add	r0, r0, #392	; 0x188
 	mov	r1, #94	; 0x5e
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_06014548
 	mov	r0, #2
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, r4
 	b	_060145AC
 _06014548:
@@ -23619,7 +23619,7 @@ _06014548:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUN_06013DF4
+	bl	InitManHeader
 	ldrh	r0, [r5, #124]	; 0x7c
 	strh	r0, [r4, #44]	; 0x2c
 	ldrh	r0, [r5, #112]	; 0x70
@@ -23645,8 +23645,8 @@ _060145AC:
 _060145B4:	.word	0x0380FFF4
 _060145B8:	.word	0x0000FFFF
 
-	arm_func_start FUN_060145BC
-FUN_060145BC: ; 0x060145BC
+	arm_func_start MakeDisAssFrame
+MakeDisAssFrame: ; 0x060145BC
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -23654,11 +23654,11 @@ FUN_060145BC: ; 0x060145BC
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	mov	r1, #54	; 0x36
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r4, r0
 	bne	_060145F4
 	mov	r0, #2
-	bl	FUN_0600994C
+	bl	SetFatalErr
 	mov	r0, r4
 	b	_06014630
 _060145F4:
@@ -23667,7 +23667,7 @@ _060145F4:
 	add	r4, r4, #16
 	mov	r0, r4
 	mov	r1, r6
-	bl	FUN_06013DF4
+	bl	InitManHeader
 	strh	r5, [r4, #44]	; 0x2c
 	mov	r0, #2
 	strh	r0, [r4, #6]
@@ -23698,8 +23698,8 @@ FUN_06014640: ; 0x06014640
 	bx	lr
 _0601466C:	.word	0x0380FFF4
 
-	arm_func_start FUN_06014670
-FUN_06014670: ; 0x06014670
+	arm_func_start UpdateGameInfoElement
+UpdateGameInfoElement: ; 0x06014670
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _0601476C	; =0x0380FFF4
@@ -23719,19 +23719,19 @@ FUN_06014670: ; 0x06014670
 	sub	r0, r0, #1
 	ldr	r1, [r5, #156]	; 0x9c
 	add	r2, r2, #2
-	bl	FUN_06009D74
+	bl	DMA_Write
 	add	r0, r4, #9
 	ldr	r1, _06014770	; =0x0380FFF0
 	ldrh	r1, [r1]
 	mov	r1, r1, asr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	b	_060146EC
 _060146DC:
 	add	r0, r4, #10
 	ldr	r1, [r5, #156]	; 0x9c
 	add	r2, r2, #1
-	bl	FUN_06009D74
+	bl	DMA_Write
 _060146EC:
 	ldrh	r0, [r5, #150]	; 0x96
 	add	r1, r0, #38	; 0x26
@@ -23745,7 +23745,7 @@ _060146EC:
 	ldrh	r1, [r5, #160]	; 0xa0
 	add	r1, r1, #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	ldr	r0, _0601476C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1536	; 0x600
@@ -23771,8 +23771,8 @@ _06014770:	.word	0x0380FFF0
 _06014774:	.word	0x0000B6B8
 _06014778:	.word	0x00001D46
 
-	arm_func_start FUN_0601477C
-FUN_0601477C: ; 0x0601477C
+	arm_func_start MakeBeaconFrame
+MakeBeaconFrame: ; 0x0601477C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	ldr	r0, _06014AD0	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -23784,17 +23784,17 @@ FUN_0601477C: ; 0x0601477C
 	strh	r0, [sl, #2]
 	strh	r0, [sl, #4]
 	strh	r0, [sl, #6]
-	bl	FUN_0600AA50
+	bl	WCalcManRate
 	strh	r0, [sl, #8]
 	mov	r0, #128	; 0x80
 	strh	r0, [sl, #12]
 	mov	r0, #0
 	strh	r0, [sl, #14]
 	add	r0, sl, #16
-	ldr	r1, _06014AD4	; =_06019384
+	ldr	r1, _06014AD4	; =BC_ADRS
 	add	r2, r9, #8
 	mov	r3, r2
-	bl	FUN_0600AECC
+	bl	WSetMacAdrs3
 	mov	r1, #0
 	strh	r1, [sl, #34]	; 0x22
 	add	r7, sl, #36	; 0x24
@@ -23812,21 +23812,21 @@ FUN_0601477C: ; 0x0601477C
 	sub	r0, r6, r7
 	strh	r0, [r8, #146]	; 0x92
 	mov	r0, r6
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #1
 	add	r6, r6, #2
 	ldrh	r1, [r8, #30]
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	mov	r5, #0
 	add	r4, r8, #32
 	b	_06014858
 _0601483C:
 	add	r0, r4, r5
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, r6
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r6, r6, #1
 	add	r5, r5, #1
 _06014858:
@@ -23837,7 +23837,7 @@ _06014858:
 	sub	r0, r0, r5
 	add	r0, r6, r0
 	and	r1, r5, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	b	_06014880
 _0601487C:
 	strh	r1, [r8, #146]	; 0x92
@@ -23847,14 +23847,14 @@ _06014880:
 	add	r6, r6, r0
 	mov	r0, r6
 	mov	r1, #3
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #1
 	mov	r1, #1
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #2
 	ldrh	r1, [r8, #122]	; 0x7a
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #3
 	sub	r1, r0, r7
 	strh	r1, [r8, #148]	; 0x94
@@ -23863,26 +23863,26 @@ _06014880:
 	ldr	r1, _06014AD8	; =0x04808084
 	strh	r2, [r1]
 	mov	r1, #5
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #4
 	mov	r1, #5
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #5
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #6
 	ldrh	r1, [r8, #116]	; 0x74
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #7
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #8
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #9
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #10
 	sub	r1, r0, r7
 	strh	r1, [r8, #150]	; 0x96
@@ -23890,66 +23890,66 @@ _06014880:
 	and	r1, r1, #1
 	strh	r1, [r8, #162]	; 0xa2
 	mov	r1, #221	; 0xdd
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #11
 	ldrh	r1, [r8, #160]	; 0xa0
 	add	r1, r1, #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #12
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #13
 	mov	r1, #9
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #14
 	mov	r1, #191	; 0xbf
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #15
 	mov	r1, #0
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	ldrh	r0, [r8, #14]
 	cmp	r0, #1
 	bne	_060149C0
 	add	r0, r6, #16
 	ldrh	r1, [r9, #32]
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #17
 	add	r6, r6, #18
 	ldrh	r1, [r9, #32]
 	mov	r1, r1, asr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	b	_060149DC
 _060149C0:
 	add	r0, r6, #16
 	mov	r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #17
 	add	r6, r6, #18
 	mov	r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 _060149DC:
 	ldr	r0, _06014ADC	; =0x0380FFF0
 	ldrh	r4, [r0]
 	mov	r0, r6
 	and	r1, r4, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r6, #1
 	add	r6, r6, #2
 	mov	r1, r4, lsr #8
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	ldr	r5, [r8, #156]	; 0x9c
 	mov	r4, #0
 	b	_06014A30
 _06014A10:
 	mov	r0, r5
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, r6
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r6, r6, #1
 	add	r5, r5, #1
 	add	r4, r4, #1
@@ -23967,10 +23967,10 @@ _06014A30:
 	b	_06014A78
 _06014A5C:
 	mov	r0, r4
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r4, #1
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r5, r5, #1
 	sub	r4, r4, #1
 _06014A78:
@@ -23999,14 +23999,14 @@ _06014AB4:
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	bx	lr
 _06014AD0:	.word	0x0380FFF4
-_06014AD4:	.word	_06019384
+_06014AD4:	.word	BC_ADRS
 _06014AD8:	.word	0x04808084
 _06014ADC:	.word	0x0380FFF0
 _06014AE0:	.word	0x0000B6B8
 _06014AE4:	.word	0x00001D46
 
-	arm_func_start FUN_06014AE8
-FUN_06014AE8: ; 0x06014AE8
+	arm_func_start StopBeaconFrame
+StopBeaconFrame: ; 0x06014AE8
 	ldr	r0, _06014B08	; =0x0380FFF4
 	ldr	r2, [r0]
 	mov	r1, #0
@@ -24018,8 +24018,8 @@ FUN_06014AE8: ; 0x06014AE8
 _06014B08:	.word	0x0380FFF4
 _06014B0C:	.word	0x04808080
 
-	arm_func_start FUN_06014B10
-FUN_06014B10: ; 0x06014B10
+	arm_func_start StartBeaconFrame
+StartBeaconFrame: ; 0x06014B10
 	ldr	r0, _06014B4C	; =0x0380FFF4
 	ldr	r2, [r0]
 	ldr	r0, _06014B50	; =0x000004A4
@@ -24040,8 +24040,8 @@ _06014B50:	.word	0x000004A4
 _06014B54:	.word	0x00003FFF
 _06014B58:	.word	0x04808080
 
-	arm_func_start FUN_06014B5C
-FUN_06014B5C: ; 0x06014B5C
+	arm_func_start TxPsPollFrame
+TxPsPollFrame: ; 0x06014B5C
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06014BE8	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -24064,7 +24064,7 @@ FUN_06014B5C: ; 0x06014B5C
 	strh	r1, [r0]
 	ldr	r0, [r4, #8]
 	strh	r1, [r0, #4]
-	bl	FUN_0600AA50
+	bl	WCalcManRate
 	ldr	r1, [r4, #8]
 	strh	r0, [r1, #8]
 	ldr	r1, [r4, #8]
@@ -24083,12 +24083,12 @@ _06014BEC:	.word	0x00000454
 _06014BF0:	.word	0x00003FFF
 _06014BF4:	.word	0x048080A8
 
-	arm_func_start FUN_06014BF8
-FUN_06014BF8: ; 0x06014BF8
+	arm_func_start SetManCtrlFrame
+SetManCtrlFrame: ; 0x06014BF8
 	stmdb	sp!, {r4, lr}
 	mov	r4, r0
 	add	r0, r4, #24
-	bl	FUN_0600F608
+	bl	CAM_Search
 	strh	r0, [r4, #2]
 	ldrh	r0, [r4, #2]
 	cmp	r0, #255	; 0xff
@@ -24104,30 +24104,30 @@ FUN_06014BF8: ; 0x06014BF8
 	addne	r0, r0, #8
 	strneh	r0, [r4, #18]
 	mov	r0, r4
-	bl	FUN_0600F3CC
+	bl	CAM_IncFrameCount
 	ldr	r0, _06014C68	; =0x0380FFF4
 	ldr	r1, [r0]
 	add	r0, r1, #392	; 0x188
 	add	r1, r1, #416	; 0x1a0
 	sub	r2, r4, #16
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06014C68:	.word	0x0380FFF4
 
-	arm_func_start FUN_06014C6C
-FUN_06014C6C: ; 0x06014C6C
+	arm_func_start TxManCtrlFrame
+TxManCtrlFrame: ; 0x06014C6C
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
-	bl	FUN_06014BF8
+	bl	SetManCtrlFrame
 	mov	r0, #1
-	bl	FUN_06015C78
+	bl	TxqPri
 	add	sp, sp, #4
 	ldmfd	sp!, {lr}
 	bx	lr
 
-	arm_func_start FUN_06014C8C
-FUN_06014C8C: ; 0x06014C8C
+	arm_func_start MessageDeleteTx
+MessageDeleteTx: ; 0x06014C8C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	sl, r0
@@ -24144,13 +24144,13 @@ FUN_06014C8C: ; 0x06014C8C
 	mov	r5, #2
 _06014CC4:
 	mov	r0, r8
-	bl	FUN_06009434
+	bl	GetHeapBufNextAdrs
 	mov	fp, r0
 	add	r7, r8, #16
 	cmp	sl, #2
 	beq	_06014CE4
 	mov	r0, r7
-	bl	FUN_0600F360
+	bl	CAM_DecFrameCount
 _06014CE4:
 	strh	r5, [r7, #8]
 	cmp	r9, #0
@@ -24160,7 +24160,7 @@ _06014CE4:
 	add	r0, r0, #404	; 0x194
 	add	r0, r0, r6
 	mov	r1, r8
-	bl	FUN_06012DD4
+	bl	IssueMaDataConfirm
 _06014D08:
 	mov	r8, fp
 	cmp	fp, r4
@@ -24171,8 +24171,8 @@ _06014D14:
 	bx	lr
 _06014D20:	.word	0x0380FFF4
 
-	arm_func_start FUN_06014D24
-FUN_06014D24: ; 0x06014D24
+	arm_func_start DeleteAllTxFrames
+DeleteAllTxFrames: ; 0x06014D24
 	stmdb	sp!, {r4, lr}
 	ldr	r0, _06014E0C	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -24190,13 +24190,13 @@ FUN_06014D24: ; 0x06014D24
 _06014D5C:
 	mov	r0, #0
 	mov	r1, #1
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, #2
 	mov	r1, #1
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	ldrh	r0, [r4, #60]	; 0x3c
 	cmp	r0, #0
 	beq	_06014E04
@@ -24209,37 +24209,37 @@ _06014D5C:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	ldr	r1, [r4, #144]	; 0x90
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	b	_06014E04
 _06014DB8:
 	mov	r0, #0
 	mov	r1, #1
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	b	_06014E04
 _06014DE0:
 	mov	r0, #0
 	mov	r1, r0
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, #1
 	mov	r1, #0
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 _06014E04:
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _06014E0C:	.word	0x0380FFF4
 _06014E10:	.word	0x0000042C
 
-	arm_func_start FUN_06014E14
-FUN_06014E14: ; 0x06014E14
+	arm_func_start DeleteTxFrameByAdrs
+DeleteTxFrameByAdrs: ; 0x06014E14
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldrh	r1, [r0]
@@ -24250,7 +24250,7 @@ FUN_06014E14: ; 0x06014E14
 	b	_06014E40
 _06014E34:
 	mov	r0, r5
-	bl	FUN_06014EB8
+	bl	DeleteTxFrames
 	add	r5, r5, #1
 _06014E40:
 	ldr	r0, [r4]
@@ -24260,11 +24260,11 @@ _06014E40:
 	bcc	_06014E34
 	b	_06014EA8
 _06014E58:
-	bl	FUN_0600F608
+	bl	CAM_Search
 	mov	r4, r0
 	cmp	r4, #255	; 0xff
 	beq	_06014E6C
-	bl	FUN_06014EB8
+	bl	DeleteTxFrames
 _06014E6C:
 	ldr	r0, _06014EB4	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -24273,27 +24273,27 @@ _06014E6C:
 	cmp	r0, #1
 	bne	_06014EA8
 	mov	r0, r4
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	bne	_06014EA8
 	mov	r0, r4, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUN_0600F294
-	bl	FUN_060151F0
+	bl	CAM_SetStaState
+	bl	ClearTxKeyData
 _06014EA8:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06014EB4:	.word	0x0380FFF4
 
-	arm_func_start FUN_06014EB8
-FUN_06014EB8: ; 0x06014EB8
+	arm_func_start DeleteTxFrames
+DeleteTxFrames: ; 0x06014EB8
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	mov	fp, r0
 	mov	r8, #0
-	bl	FUN_0600EEFC
+	bl	CAM_GetFrameCount
 	cmp	r0, #0
 	beq	_06014FB8
 	mov	r7, r8
@@ -24315,7 +24315,7 @@ _06014EE8:
 	mul	r6, r7, r0
 _06014F14:
 	mov	r0, sl
-	bl	FUN_06009434
+	bl	GetHeapBufNextAdrs
 	str	r0, [sp]
 	add	r9, sl, #16
 	ldrh	r0, [r9, #2]
@@ -24331,22 +24331,22 @@ _06014F14:
 	bne	_06014F6C
 _06014F50:
 	mov	r0, r9
-	bl	FUN_0600F360
+	bl	CAM_DecFrameCount
 	ldr	r0, [sp, #4]
 	strh	r0, [r9, #2]
 	mov	r0, r9
-	bl	FUN_0600F3CC
+	bl	CAM_IncFrameCount
 	b	_06014F98
 _06014F6C:
 	strh	r4, [r9, #8]
 	mov	r0, r9
-	bl	FUN_0600F360
+	bl	CAM_DecFrameCount
 	ldr	r0, _06014FC4	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #404	; 0x194
 	add	r0, r0, r5
 	mov	r1, sl
-	bl	FUN_06012DD4
+	bl	IssueMaDataConfirm
 	cmp	r8, #0
 	ldreq	r8, [sp, #8]
 _06014F98:
@@ -24365,8 +24365,8 @@ _06014FB8:
 	bx	lr
 _06014FC4:	.word	0x0380FFF4
 
-	arm_func_start FUN_06014FC8
-FUN_06014FC8: ; 0x06014FC8
+	arm_func_start ResetTxqPri
+ResetTxqPri: ; 0x06014FC8
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -24407,8 +24407,8 @@ _06015054:	.word	0x0000042C
 _06015058:	.word	_06019958
 _0601505C:	.word	0x048080B4
 
-	arm_func_start FUN_06015060
-FUN_06015060: ; 0x06015060
+	arm_func_start ClearQueuedPri
+ClearQueuedPri: ; 0x06015060
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r1, _060150D0	; =0x0380FFF4
@@ -24441,8 +24441,8 @@ _060150C4:
 _060150D0:	.word	0x0380FFF4
 _060150D4:	.word	0x0000042C
 
-	arm_func_start FUN_060150D8
-FUN_060150D8: ; 0x060150D8
+	arm_func_start ClearTxData
+ClearTxData: ; 0x060150D8
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06015184	; =0x0380FFF4
@@ -24465,11 +24465,11 @@ FUN_060150D8: ; 0x060150D8
 	cmp	r0, #0
 	beq	_06015134
 	mov	r0, #2
-	bl	FUN_06015060
+	bl	ClearQueuedPri
 _06015134:
 	mov	r0, #2
 	mov	r1, #1
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	b	_06015150
 _06015144:
 	mov	r1, #1
@@ -24480,11 +24480,11 @@ _06015150:
 	cmp	r0, #0
 	beq	_06015164
 	mov	r0, #0
-	bl	FUN_06015060
+	bl	ClearQueuedPri
 _06015164:
 	mov	r0, #0
 	mov	r1, #1
-	bl	FUN_06014C8C
+	bl	MessageDeleteTx
 	mov	r0, r4
 	bl	FUN_06009070
 	add	sp, sp, #4
@@ -24494,8 +24494,8 @@ _06015184:	.word	0x0380FFF4
 _06015188:	.word	0x0000042C
 _0601518C:	.word	0x048080B4
 
-	arm_func_start FUN_06015190
-FUN_06015190: ; 0x06015190
+	arm_func_start ClearTxMp
+ClearTxMp: ; 0x06015190
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _060151E4	; =0x0380FFF4
@@ -24511,7 +24511,7 @@ FUN_06015190: ; 0x06015190
 	ldrh	r0, [r5, #60]	; 0x3c
 	cmp	r0, #0
 	beq	_060151D0
-	bl	FUN_0600E21C
+	bl	WlIntrMpEndTask
 _060151D0:
 	mov	r0, r4
 	bl	FUN_06009070
@@ -24522,8 +24522,8 @@ _060151E4:	.word	0x0380FFF4
 _060151E8:	.word	0x0000042C
 _060151EC:	.word	0x048080B4
 
-	arm_func_start FUN_060151F0
-FUN_060151F0: ; 0x060151F0
+	arm_func_start ClearTxKeyData
+ClearTxKeyData: ; 0x060151F0
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	ldr	r0, _06015264	; =0x0380FFF4
@@ -24541,7 +24541,7 @@ FUN_060151F0: ; 0x060151F0
 	movs	r0, r0, lsr #31
 	bne	_06015238
 	mov	r0, #0
-	bl	FUN_0600B004
+	bl	WClearKSID
 _06015238:
 	mov	r1, #192	; 0xc0
 	ldr	r0, _0601526C	; =0x048080B4
@@ -24558,8 +24558,8 @@ _06015264:	.word	0x0380FFF4
 _06015268:	.word	0x0000042C
 _0601526C:	.word	0x048080B4
 
-	arm_func_start FUN_06015270
-FUN_06015270: ; 0x06015270
+	arm_func_start TxEndKeyData
+TxEndKeyData: ; 0x06015270
 	ldr	r1, [r0, #8]
 	ldrh	r1, [r1, #4]
 	ands	r3, r1, #255	; 0xff
@@ -24582,8 +24582,8 @@ FUN_06015270: ; 0x06015270
 _060152BC:	.word	0x0380FFF4
 _060152C0:	.word	0x0000053C
 
-	arm_func_start FUN_060152C4
-FUN_060152C4: ; 0x060152C4
+	arm_func_start TxqEndBroadCast
+TxqEndBroadCast: ; 0x060152C4
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 
 	arm_func_start FUN_060152C8
@@ -24602,19 +24602,19 @@ FUN_060152C8: ; 0x060152C8
 	mov	r1, r1, lsl #28
 	movs	r1, r1, lsr #30
 	bne	_06015324
-	bl	FUN_0600F3CC
+	bl	CAM_IncFrameCount
 	mov	r0, r4
 	add	r1, r5, #36	; 0x24
 	sub	r2, r7, #16
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, r7
 	mov	r1, #0
-	bl	FUN_06015458
+	bl	TxqEndManCtrl
 	b	_06015330
 _06015324:
 	mov	r0, r4
 	sub	r1, r7, #16
-	bl	FUN_06012DD4
+	bl	IssueMaDataConfirm
 _06015330:
 	mov	r2, #0
 	ldr	r1, _060153D8	; =0x0380FFF4
@@ -24639,13 +24639,13 @@ _06015330:
 	cmp	r0, #0
 	beq	_06015390
 	mov	r0, #1
-	bl	FUN_06015C78
+	bl	TxqPri
 _06015390:
 	ldrh	r0, [r5, #32]
 	cmp	r0, #0
 	beq	_060153A4
 	mov	r0, #0
-	bl	FUN_06015C78
+	bl	TxqPri
 _060153A4:
 	ldrh	r0, [r4, #8]
 	cmp	r0, #0
@@ -24653,11 +24653,11 @@ _060153A4:
 	cmp	r6, #0
 	beq	_060153CC
 	mov	r0, #2
-	bl	FUN_06015C78
+	bl	TxqPri
 	b	_060153CC
 _060153C4:
 	mov	r0, #0
-	bl	FUN_0600ED74
+	bl	CAM_ClrTIMElementBitmap
 _060153CC:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -24700,8 +24700,8 @@ _06015438:
 _06015450:	.word	0x0380FFF4
 _06015454:	.word	0x0000053C
 
-	arm_func_start FUN_06015458
-FUN_06015458: ; 0x06015458
+	arm_func_start TxqEndManCtrl
+TxqEndManCtrl: ; 0x06015458
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 
 	arm_func_start FUN_0601545C
@@ -24733,14 +24733,14 @@ FUN_0601545C: ; 0x0601545C
 	addeq	r0, r0, #1
 	streq	r0, [r5, #16]
 	mov	r0, r6
-	bl	FUN_0600EFB0
+	bl	CAM_GetPowerMgtMode
 	cmp	r0, #0
 	beq	_060154F8
 	ldrh	r0, [sl, #20]
 	ands	r0, r0, #8192	; 0x2000
 	bne	_060154F8
 	mov	r0, r6
-	bl	FUN_0600F1D8
+	bl	CAM_SetDoze
 	b	_060154F8
 _060154EC:
 	ldr	r0, [r5, #4]
@@ -24801,10 +24801,10 @@ _0601557C:
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #48	; 0x30
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	add	r0, sl, #24
 	ldrh	r1, [sl, #44]	; 0x2c
-	bl	FUN_060101AC
+	bl	MLME_IssueAuthIndication
 	b	_06015918
 _060155D4:
 	cmp	r1, #1
@@ -24818,10 +24818,10 @@ _060155D4:
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #48	; 0x30
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	add	r0, sl, #24
 	ldrh	r1, [sl, #44]	; 0x2c
-	bl	FUN_060101AC
+	bl	MLME_IssueAuthIndication
 	b	_06015918
 _06015614:
 	cmp	r6, #0
@@ -24833,13 +24833,13 @@ _06015614:
 	cmp	r0, #0
 	bne	_06015918
 	mov	r0, r6
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #48	; 0x30
 	bne	_06015918
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #64	; 0x40
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	cmp	r5, #16
 	bne	_06015678
 	add	r0, sl, #24
@@ -24847,7 +24847,7 @@ _06015614:
 	add	r3, sl, #20
 	ldrh	r2, [sl, #18]
 	add	r2, r3, r2
-	bl	FUN_06010034
+	bl	MLME_IssueAssIndication
 	b	_06015918
 _06015678:
 	add	r0, sl, #24
@@ -24855,26 +24855,26 @@ _06015678:
 	add	r3, sl, #20
 	ldrh	r2, [sl, #18]
 	add	r2, r3, r2
-	bl	FUN_0600FF44
+	bl	MLME_IssueReAssIndication
 	b	_06015918
 _06015694:
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_0600F00C
+	bl	CAM_ReleaseAID
 	add	r0, sl, #24
 	mov	r1, #1
 	mov	r2, #0
-	bl	FUN_06013E9C
+	bl	MakeDeAuthFrame
 	cmp	r0, #0
 	beq	_06015918
 	mov	r1, #2
 	strh	r1, [r0]
 	cmp	r9, #0
 	beq	_060156D0
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	b	_06015918
 _060156D0:
-	bl	FUN_06014BF8
+	bl	SetManCtrlFrame
 	b	_06015918
 _060156D8:
 	ldrh	r0, [r4, #12]
@@ -24883,13 +24883,13 @@ _060156D8:
 	cmp	r6, #0
 	beq	_06015710
 	mov	r0, r6
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #48	; 0x30
 	bls	_06015780
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #48	; 0x30
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	b	_06015780
 _06015710:
 	ldrh	r0, [sl, #24]
@@ -24901,13 +24901,13 @@ _06015710:
 	b	_06015750
 _0601572C:
 	mov	r0, r6
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #48	; 0x30
 	bls	_0601574C
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, r5
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 _0601574C:
 	add	r6, r6, #1
 _06015750:
@@ -24922,8 +24922,8 @@ _06015768:
 	cmp	r0, #48	; 0x30
 	bls	_06015780
 	mov	r0, #48	; 0x30
-	bl	FUN_0600AF68
-	bl	FUN_0600B054
+	bl	WSetStaState
+	bl	WClearAids
 _06015780:
 	ldrh	r0, [r8]
 	cmp	r0, #113	; 0x71
@@ -24941,7 +24941,7 @@ _06015780:
 	strneh	r1, [r0, #4]
 	mov	r0, #0
 	strh	r0, [r8]
-	bl	FUN_06010228
+	bl	IssueMlmeConfirm
 	b	_06015918
 _060157C8:
 	ldrh	r0, [r4, #12]
@@ -24950,13 +24950,13 @@ _060157C8:
 	cmp	r6, #0
 	beq	_06015800
 	mov	r0, r6
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #32
 	bls	_06015870
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	b	_06015870
 _06015800:
 	ldrh	r0, [sl, #24]
@@ -24968,13 +24968,13 @@ _06015800:
 	b	_06015840
 _0601581C:
 	mov	r0, r5
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #32
 	bls	_0601583C
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, r4
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 _0601583C:
 	add	r5, r5, #1
 _06015840:
@@ -24989,8 +24989,8 @@ _06015858:
 	cmp	r0, #32
 	bls	_06015870
 	mov	r0, #32
-	bl	FUN_0600AF68
-	bl	FUN_0600B054
+	bl	WSetStaState
+	bl	WClearAids
 _06015870:
 	ldrh	r0, [r8]
 	cmp	r0, #65	; 0x41
@@ -25008,7 +25008,7 @@ _06015870:
 	strneh	r1, [r0, #4]
 	mov	r0, #0
 	strh	r0, [r8]
-	bl	FUN_06010228
+	bl	IssueMlmeConfirm
 _060158B4:
 	ldrh	r0, [sl]
 	cmp	r0, #1
@@ -25025,24 +25025,24 @@ _060158B4:
 	strh	r1, [r0, #52]	; 0x34
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_0600EB44
+	bl	CAM_Delete
 _060158F4:
 	add	r0, sl, #24
 	mov	r1, #1
-	bl	FUN_06010130
+	bl	MLME_IssueDeAuthIndication
 	b	_06015918
 _06015904:
 	cmp	r0, #2
 	bne	_06015918
 	add	r0, sl, #24
 	ldrh	r1, [sl, #44]	; 0x2c
-	bl	FUN_06010130
+	bl	MLME_IssueDeAuthIndication
 _06015918:
 	mov	r0, sl
-	bl	FUN_0600F360
+	bl	CAM_DecFrameCount
 	mov	r0, r7
 	sub	r1, sl, #16
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	mov	r1, #0
 	ldr	r0, _06015968	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -25054,7 +25054,7 @@ _06015918:
 	cmp	r0, #0
 	beq	_0601595C
 	mov	r0, #1
-	bl	FUN_06015C78
+	bl	TxqPri
 _0601595C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -25063,8 +25063,8 @@ _06015968:	.word	0x0380FFF4
 _0601596C:	.word	0x00000404
 _06015970:	.word	0x0000053C
 
-	arm_func_start FUN_06015974
-FUN_06015974: ; 0x06015974
+	arm_func_start TxqEndData
+TxqEndData: ; 0x06015974
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
 
 	arm_func_start FUN_06015978
@@ -25079,7 +25079,7 @@ FUN_06015978: ; 0x06015978
 	ldr	r1, _06015B04	; =0x0000053C
 	add	r5, r2, r1
 	sub	r4, r9, #16
-	bl	FUN_0600F360
+	bl	CAM_DecFrameCount
 	ldrh	r0, [r9, #8]
 	ands	r0, r0, #2
 	bne	_06015A14
@@ -25122,21 +25122,21 @@ _06015A20:
 	strne	r0, [r5, #24]
 	mov	r0, r7
 	mov	r1, r4
-	bl	FUN_06012DD4
+	bl	IssueMaDataConfirm
 	mov	r1, #0
 	ldr	r0, _06015B00	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #1024	; 0x400
 	strh	r1, [r0, #44]	; 0x2c
 	ldrh	r0, [r9, #2]
-	bl	FUN_0600EFB0
+	bl	CAM_GetPowerMgtMode
 	cmp	r0, #0
 	beq	_06015A7C
 	ldrh	r0, [r9, #20]
 	ands	r0, r0, #8192	; 0x2000
 	bne	_06015A7C
 	ldrh	r0, [r9, #2]
-	bl	FUN_0600F1D8
+	bl	CAM_SetDoze
 _06015A7C:
 	cmp	r8, #0
 	beq	_06015AF4
@@ -25144,7 +25144,7 @@ _06015A7C:
 	cmp	r0, #0
 	beq	_06015A9C
 	mov	r0, #0
-	bl	FUN_06015C78
+	bl	TxqPri
 	b	_06015AF4
 _06015A9C:
 	ldrh	r1, [r6, #12]
@@ -25161,14 +25161,14 @@ _06015A9C:
 	cmp	r0, #0
 	beq	_06015AF4
 	ldrh	r0, [r6, #136]	; 0x88
-	bl	FUN_0600EEFC
+	bl	CAM_GetFrameCount
 	cmp	r0, #0
 	bne	_06015AF4
 	ldrh	r0, [r6, #142]	; 0x8e
 	cmp	r0, #0
 	bne	_06015AF4
 	mov	r0, #1
-	bl	FUN_0600B3F4
+	bl	WSetPowerState
 _06015AF4:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -25177,8 +25177,8 @@ _06015B00:	.word	0x0380FFF4
 _06015B04:	.word	0x0000053C
 _06015B08:	.word	0x0000FFFE
 
-	arm_func_start FUN_06015B0C
-FUN_06015B0C: ; 0x06015B0C
+	arm_func_start CopyTxFrmToMacBuf
+CopyTxFrmToMacBuf: ; 0x06015B0C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	mov	r5, r1
@@ -25192,7 +25192,7 @@ FUN_06015B0C: ; 0x06015B0C
 	ldrh	r0, [r0, #80]	; 0x50
 	cmp	r0, #3
 	bne	_06015B44
-	bl	FUN_0600AC84
+	bl	WUpdateCounter
 _06015B44:
 	ldrh	r1, [r5, #12]
 	ldr	r0, _06015C68	; =0x0000FFFF
@@ -25202,14 +25202,14 @@ _06015B44:
 	add	r1, r4, #8
 	add	r2, r4, #44	; 0x2c
 	ldrh	r3, [r4, #6]
-	bl	FUN_06009CFC
+	bl	DMA_WepWriteHeaderData
 	b	_06015B80
 _06015B6C:
 	mov	r0, r6
 	add	r1, r4, #8
 	ldr	r2, [r4, #44]	; 0x2c
 	ldrh	r3, [r4, #6]
-	bl	FUN_06009CFC
+	bl	DMA_WepWriteHeaderData
 _06015B80:
 	ldr	r2, _06015C6C	; =0x04808044
 	ldrh	r1, [r2]
@@ -25246,13 +25246,13 @@ _06015BEC:
 	add	r1, r4, #8
 	ldrh	r2, [r4, #6]
 	add	r2, r2, #36	; 0x24
-	bl	FUN_06009D74
+	bl	DMA_Write
 	b	_06015C20
 _06015C10:
 	add	r1, r4, #8
 	ldr	r2, [r4, #44]	; 0x2c
 	ldrh	r3, [r4, #6]
-	bl	FUN_06009D38
+	bl	DMA_WriteHeaderData
 _06015C20:
 	ldr	r0, _06015C64	; =0x0380FFF4
 	ldr	r0, [r0]
@@ -25278,8 +25278,8 @@ _06015C6C:	.word	0x04808044
 _06015C70:	.word	0x0000B6B8
 _06015C74:	.word	0x00001D46
 
-	arm_func_start FUN_06015C78
-FUN_06015C78: ; 0x06015C78
+	arm_func_start TxqPri
+TxqPri: ; 0x06015C78
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #20
 	mov	sl, r0
@@ -25320,7 +25320,7 @@ _06015CEC:
 	b	_06015EAC
 _06015D08:
 	str	r0, [sp]
-	bl	FUN_06009434
+	bl	GetHeapBufNextAdrs
 	str	r0, [sp, #4]
 	ldr	r0, [sp]
 	add	r6, r0, #16
@@ -25360,24 +25360,24 @@ _06015D8C:
 	cmp	sl, #1
 	bne	_06015DE8
 	mov	r0, r5
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	bne	_06015DE8
 _06015DAC:
 	mov	r0, r5
-	bl	FUN_0600EFD0
+	bl	CAM_IsActive
 	cmp	r0, #0
 	beq	_06015CEC
 	mov	r0, r5
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	beq	_06015DE8
 	strh	r4, [r6, #8]
 	mov	r0, fp
 	sub	r1, r6, #16
-	bl	FUN_06012DD4
+	bl	IssueMaDataConfirm
 	mov	r0, r6
-	bl	FUN_0600F360
+	bl	CAM_DecFrameCount
 	b	_06015CEC
 _06015DE8:
 	mov	r0, #1
@@ -25391,16 +25391,16 @@ _06015DE8:
 	cmp	r0, #0
 	bne	_06015E18
 	mov	r0, #2
-	bl	FUN_0600B3F4
+	bl	WSetPowerState
 _06015E18:
 	mov	r0, r4
 	ldr	r1, [sp]
-	bl	FUN_06015B0C
+	bl	CopyTxFrmToMacBuf
 	ldrh	r0, [r9, #12]
 	cmp	r0, #1
 	bne	_06015E48
 	mov	r0, r5
-	bl	FUN_0600EEFC
+	bl	CAM_GetFrameCount
 	cmp	r0, #1
 	ldrhih	r0, [r4, #12]
 	orrhi	r0, r0, #8192	; 0x2000
@@ -25441,8 +25441,8 @@ _06015EBC:	.word	0x0000042C
 _06015EC0:	.word	0x048080A0
 _06015EC4:	.word	0x00003FFF
 
-	arm_func_start FUN_06015EC8
-FUN_06015EC8: ; 0x06015EC8
+	arm_func_start InitRxCtrl
+InitRxCtrl: ; 0x06015EC8
 	stmdb	sp!, {r4, r5, r6, lr}
 	ldr	r0, _06015FE0	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -25542,8 +25542,8 @@ _06016030:	.word	0x04805F72
 _06016034:	.word	0x04805F7E
 _06016038:	.word	0x04805F76
 
-	arm_func_start FUN_0601603C
-FUN_0601603C: ; 0x0601603C
+	arm_func_start DefragTimerTask
+DefragTimerTask: ; 0x0601603C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	ldr	r4, _060160AC	; =0x0380FFF4
@@ -25566,7 +25566,7 @@ _0601605C:
 	ldr	r0, [r4]
 	add	r0, r0, #392	; 0x188
 	ldr	r1, [r1, #20]
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 _06016094:
 	add	r5, r5, #1
 	cmp	r5, #3
@@ -25603,12 +25603,12 @@ _060160EC:
 	beq	_06016188
 	add	r0, r4, #4
 	mov	r1, r9
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06016188
 	add	r0, r4, #10
 	add	r1, r9, #6
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06016188
 	ldrh	r0, [r9, #12]
@@ -25653,7 +25653,7 @@ _06016194:
 	bls	_060161DC
 	add	r0, r8, #12
 	sub	r1, r6, #16
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	mov	r0, #0
 	strh	r0, [r7, r4]
 	b	_060162DC
@@ -25706,24 +25706,24 @@ _060161DC:
 	add	r0, r8, #12
 	add	r1, r8, #72	; 0x48
 	sub	r2, r6, #16
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, #2
 	mov	r1, #6
-	bl	FUN_06009078
+	bl	AddTask
 	b	_060162DC
 _060162B0:
 	add	r0, r8, #12
 	add	r1, r8, #96	; 0x60
 	sub	r2, r6, #16
-	bl	FUN_0600962C
+	bl	MoveHeapBuf
 	mov	r0, #1
 	mov	r1, #7
-	bl	FUN_06009078
+	bl	AddTask
 	b	_060162DC
 _060162D0:
 	add	r0, r8, #12
 	sub	r1, r6, #16
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 _060162DC:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -25756,12 +25756,12 @@ _0601632C:
 	beq	_06016434
 	add	r0, r4, #4
 	mov	r1, r9
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06016438
 	add	r0, r4, #10
 	ldr	r1, [sp]
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06016438
 	ldrh	r0, [r9, #12]
@@ -25829,7 +25829,7 @@ _0601643C:
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
 	ldr	r1, _06016540	; =0x00000622
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	movs	r5, r0
 	beq	_06016524
 	mov	r0, #24
@@ -25880,7 +25880,7 @@ _0601643C:
 	b	_0601652C
 _06016524:
 	mov	r0, #4
-	bl	FUN_0600994C
+	bl	SetFatalErr
 _0601652C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -25891,11 +25891,11 @@ _06016540:	.word	0x00000622
 
 	arm_func_start FUN_06016544
 FUN_06016544: ; 0x06016544
-	ldr	pc, _06016548	; =FUN_037FB290
-_06016548:	.word	FUN_037FB290
+	ldr	pc, _06016548	; =MI_WaitDma
+_06016548:	.word	MI_WaitDma
 
-	arm_func_start FUN_0601654C
-FUN_0601654C: ; 0x0601654C
+	arm_func_start DefragTask
+DefragTask: ; 0x0601654C
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #20
 	ldr	r0, _06016660	; =0x0380FFF4
@@ -25919,27 +25919,27 @@ FUN_0601654C: ; 0x0601654C
 	beq	_060165C4
 	add	r0, sp, #0
 	add	r1, r5, #36	; 0x24
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ands	r0, r4, #512	; 0x200
 	bne	_06016630
 	add	r0, sp, #6
 	add	r1, r5, #30
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	b	_060165F4
 _060165C4:
 	add	r0, sp, #0
 	add	r1, r5, #24
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ands	r0, r4, #512	; 0x200
 	beq	_060165E8
 	add	r0, sp, #6
 	add	r1, r5, #36	; 0x24
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	b	_060165F4
 _060165E8:
 	add	r0, sp, #6
 	add	r1, r5, #30
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 _060165F4:
 	ldrh	r0, [r5, #42]	; 0x2a
 	strh	r0, [sp, #12]
@@ -25960,13 +25960,13 @@ _06016624:
 _06016630:
 	add	r0, r7, #108	; 0x6c
 	mov	r1, r6
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	ldrh	r0, [r7, #116]	; 0x74
 	cmp	r0, #0
 	beq	_06016654
 	mov	r0, #2
 	mov	r1, #9
-	bl	FUN_06009078
+	bl	AddTask
 _06016654:
 	add	sp, sp, #20
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -25980,17 +25980,17 @@ FUN_06016668: ; 0x06016668
 	sub	sp, sp, #4
 	mov	r4, r0
 	ldrh	r0, [r4, #2]
-	bl	FUN_0600EF78
-	bl	FUN_06009C64
+	bl	CAM_GetAuthSeed
+	bl	RND_seed
 	add	r5, r4, #52	; 0x34
 	add	r0, r4, #51	; 0x33
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r6, r0
 	mov	r7, #0
 	mov	r4, r6, lsr #1
 	b	_060166B4
 _0601669C:
-	bl	FUN_06009C34
+	bl	RND_rand
 	ldrh	r1, [r5], #2
 	cmp	r1, r0
 	movne	r0, #0
@@ -26001,7 +26001,7 @@ _060166B4:
 	bcc	_0601669C
 	ands	r0, r6, #1
 	beq	_060166E0
-	bl	FUN_06009C34
+	bl	RND_rand
 	ldrh	r1, [r5]
 	and	r1, r1, #255	; 0xff
 	and	r0, r0, #255	; 0xff
@@ -26028,18 +26028,18 @@ FUN_060166F0: ; 0x060166F0
 	movs	r6, r0, lsr #16
 	moveq	r6, #1
 	mov	r0, r6
-	bl	FUN_06009C64
+	bl	RND_seed
 	mov	r0, r5
 	mov	r1, r6
-	bl	FUN_0600F154
+	bl	CAM_SetAuthSeed
 	add	r5, r4, #52	; 0x34
 	add	r0, r4, #51	; 0x33
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r4, r0
 	mov	r6, #0
 	b	_06016750
 _06016744:
-	bl	FUN_06009C34
+	bl	RND_rand
 	strh	r0, [r5], #2
 	add	r6, r6, #2
 _06016750:
@@ -26049,8 +26049,8 @@ _06016750:
 	bx	lr
 _06016760:	.word	0x04808044
 
-	arm_func_start FUN_06016764
-FUN_06016764: ; 0x06016764
+	arm_func_start RxManCtrlTask
+RxManCtrlTask: ; 0x06016764
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #12
 	ldr	r0, _06016AA8	; =0x0380FFF4
@@ -26089,7 +26089,7 @@ FUN_06016764: ; 0x06016764
 	mov	r0, r0, lsl #24
 	mov	r4, r0, lsr #28
 	add	r0, sl, #10
-	bl	FUN_0600F4C0
+	bl	CAM_SearchAdd
 	mov	fp, r0
 	strh	fp, [r6, #2]
 	cmp	fp, #255	; 0xff
@@ -26118,20 +26118,20 @@ _06016858:
 	bl	FUN_06017D0C
 	b	_06016A78
 _06016864:
-	bl	FUN_0600F130
+	bl	CAM_UpdateLifeTime
 	mov	r0, fp, lsl #16
 	mov	r0, r0, lsr #16
 	ldrh	r1, [r6, #18]
 	and	r1, r1, #255	; 0xff
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUN_0600F27C
+	bl	CAM_SetRSSI
 	cmp	r5, #0
 	bne	_060168BC
 	ldrh	r0, [r6, #42]	; 0x2a
 	str	r0, [sp, #4]
 	mov	r0, fp
-	bl	FUN_0600EF5C
+	bl	CAM_GetLastSeqCtrl
 	ldr	r1, [sp, #4]
 	cmp	r1, r0
 	ldreq	r0, [r8, #60]	; 0x3c
@@ -26139,7 +26139,7 @@ _06016864:
 	streq	r0, [r8, #60]	; 0x3c
 	beq	_06016A78
 	mov	r0, fp
-	bl	FUN_0600F16C
+	bl	CAM_SetLastSeqCtrl
 _060168BC:
 	cmp	r7, #1
 	beq	_060168D8
@@ -26154,7 +26154,7 @@ _060168D8:
 	ldrh	r1, [sl]
 	mov	r1, r1, lsl #19
 	mov	r1, r1, lsr #31
-	bl	FUN_0600F218
+	bl	CAM_SetPowerMgtMode
 	cmp	r5, #0
 	bne	_0601699C
 	cmp	r4, #12
@@ -26175,7 +26175,7 @@ _060168D8:
 	b	_06016990
 _06016938:
 	mov	r0, r6
-	bl	FUN_06017FDC
+	bl	RxBeaconFrame
 	b	_06016A78
 _06016944:
 	mov	r0, r6
@@ -26235,7 +26235,7 @@ _060169B8:
 	b	_06016A4C
 _06016A00:
 	mov	r0, r6
-	bl	FUN_06017FDC
+	bl	RxBeaconFrame
 	b	_06016A78
 _06016A0C:
 	mov	r0, r6
@@ -26275,13 +26275,13 @@ _06016A70:
 _06016A78:
 	add	r0, r9, #96	; 0x60
 	ldr	r1, [sp]
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	ldrh	r0, [r9, #104]	; 0x68
 	cmp	r0, #0
 	beq	_06016A9C
 	mov	r0, #1
 	mov	r1, #7
-	bl	FUN_06009078
+	bl	AddTask
 _06016A9C:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -26311,11 +26311,11 @@ FUN_06016AB0: ; 0x06016AB0
 	b	_06016D5C
 _06016AF8:
 	mov	r0, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	sl, r0
 	add	r0, r7, #1
 	add	r7, r7, #2
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r5, r0
 	cmp	sl, #6
 	addls	pc, pc, sl, lsl #2
@@ -26354,7 +26354,7 @@ _06016B84:
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, r7
-	bl	FUN_0600ABB4
+	bl	WCheckSSID
 	cmp	r0, #0
 	ldrneh	r0, [r9, #10]
 	orrne	r0, r0, #1
@@ -26368,7 +26368,7 @@ _06016BB4:
 	strh	r0, [r4]
 	sub	r0, r7, #2
 	mov	r1, fp
-	bl	FUN_0600AA9C
+	bl	WElement2RateSet
 	ldrh	r1, [r9, #20]
 	ldrh	r0, [r8, #96]	; 0x60
 	ldrh	r2, [r8, #98]	; 0x62
@@ -26396,7 +26396,7 @@ _06016C20:
 	orr	r0, r0, #2
 	strh	r0, [r4]
 	mov	r0, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	strh	r0, [r9, #18]
 	ldrh	r1, [r9, #18]
 	ldr	r0, _06016DEC	; =0x0380FFF4
@@ -26433,19 +26433,19 @@ _06016CB4:
 	cmp	r5, #8
 	bcc	_06016CFC
 	mov	r0, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	cmp	r0, #0
 	bne	_06016CFC
 	add	r0, r7, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	cmp	r0, #9
 	bne	_06016CFC
 	add	r0, r7, #2
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	cmp	r0, #191	; 0xbf
 	bne	_06016CFC
 	add	r0, r7, #3
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	cmp	r0, #0
 	beq	_06016D1C
 _06016CFC:
@@ -26531,22 +26531,22 @@ FUN_06016DF4: ; 0x06016DF4
 	add	r5, r1, #380	; 0x17c
 	ldrh	r4, [r0, #2]
 	mov	r0, r4
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	bne	_06016E4C
 	mov	r0, r4
-	bl	FUN_0600F1B4
+	bl	CAM_SetAwake
 	ldrh	r0, [r5, #44]	; 0x2c
 	cmp	r0, #0
 	beq	_06016E38
 	mov	r0, #1
-	bl	FUN_06015C78
+	bl	TxqPri
 _06016E38:
 	ldrh	r0, [r5, #32]
 	cmp	r0, #0
 	beq	_06016E4C
 	mov	r0, #0
-	bl	FUN_06015C78
+	bl	TxqPri
 _06016E4C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -26572,18 +26572,18 @@ FUN_06016E5C: ; 0x06016E5C
 	b	_06016F08
 _06016E98:
 	mov	r0, r5
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #32
 	bls	_06016F08
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	add	r0, r4, #30
 	ldrh	r1, [r4, #44]	; 0x2c
-	bl	FUN_06010130
+	bl	MLME_IssueDeAuthIndication
 	mov	r0, r5
-	bl	FUN_06014EB8
+	bl	DeleteTxFrames
 	b	_06016F08
 _06016ED0:
 	ldrh	r0, [r1, #8]
@@ -26591,15 +26591,15 @@ _06016ED0:
 	bls	_06016F08
 	add	r0, r4, #30
 	add	r1, r1, #130	; 0x82
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06016F08
 	mov	r0, #32
-	bl	FUN_0600AF68
-	bl	FUN_0600B054
+	bl	WSetStaState
+	bl	WClearAids
 	add	r0, r4, #30
 	ldrh	r1, [r4, #44]	; 0x2c
-	bl	FUN_06010130
+	bl	MLME_IssueDeAuthIndication
 _06016F08:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
@@ -26659,7 +26659,7 @@ _06016F98:
 _06016FCC:
 	add	r0, sl, #30
 	mov	r1, #176	; 0xb0
-	bl	FUN_06013D80
+	bl	IsExistManFrame
 	cmp	r0, #0
 	bne	_06017438
 	mov	r5, #0
@@ -26676,22 +26676,22 @@ _06016FCC:
 	cmp	r0, #1
 	bne	_0601707C
 	mov	r0, r6
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #32
 	bls	_06017040
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	add	r0, sl, #30
 	mov	r1, #1
-	bl	FUN_06010130
+	bl	MLME_IssueDeAuthIndication
 _06017040:
 	ldrh	r0, [sl, #8]
 	ands	r0, r0, #1024	; 0x400
 	beq	_0601707C
 	mov	r0, r6
-	bl	FUN_0600EF78
+	bl	CAM_GetAuthSeed
 	cmp	r0, #0
 	beq	_0601707C
 	mov	r5, #1
@@ -26700,7 +26700,7 @@ _06017040:
 	mov	fp, #4
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUN_0600F154
+	bl	CAM_SetAuthSeed
 	b	_060173FC
 _0601707C:
 	ldrh	r0, [r7]
@@ -26744,18 +26744,18 @@ _060170E8:
 	bne	_060173FC
 	add	r0, r1, #16
 	add	r1, sl, #30
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_060173FC
 	ldrh	r0, [r8]
 	cmp	r0, #49	; 0x31
 	bne	_060173FC
-	bl	FUN_06009E28
+	bl	ClearTimeOut
 	ldrh	r0, [r7, #4]
 	cmp	r0, #0
 	bne	_0601715C
 	mov	r0, #48	; 0x30
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	mov	r1, #0
 	ldr	r0, [r8, #28]
 	strh	r1, [r0, #4]
@@ -26774,7 +26774,7 @@ _06017174:
 	strh	r0, [r8]
 	mov	r0, #2
 	mov	r1, r0
-	bl	FUN_06009078
+	bl	AddTask
 	b	_060173FC
 _0601718C:
 	ldrh	r0, [r9, #12]
@@ -26783,14 +26783,14 @@ _0601718C:
 	mov	r0, r6, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #32
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	ldrh	r0, [r7, #2]
 	cmp	r0, #1
 	bne	_060171F8
 	add	r0, sl, #30
 	mov	r1, #128	; 0x80
 	mov	r2, #1
-	bl	FUN_06013F38
+	bl	MakeAuthFrame
 	movs	r8, r0
 	beq	_060173FC
 	ldrh	r0, [r7]
@@ -26802,17 +26802,17 @@ _0601718C:
 	mov	r1, r8
 	bl	FUN_060166F0
 	mov	r0, r8
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	b	_060173FC
 _060171F8:
 	cmp	r0, #3
 	bne	_0601726C
 	mov	r0, r6
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #32
 	bne	_06017220
 	mov	r0, r6
-	bl	FUN_0600EF78
+	bl	CAM_GetAuthSeed
 	cmp	r0, #0
 	bne	_0601722C
 _06017220:
@@ -26828,19 +26828,19 @@ _0601722C:
 	mov	r5, #1
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUN_0600F154
+	bl	CAM_SetAuthSeed
 	b	_060173FC
 _06017254:
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUN_0600F154
+	bl	CAM_SetAuthSeed
 	mov	r4, #0
 	mov	r5, #1
 	b	_060173FC
 _0601726C:
 	mov	r0, r6
 	mov	r1, #0
-	bl	FUN_0600F154
+	bl	CAM_SetAuthSeed
 	mov	r4, #14
 	mov	fp, #2
 	mov	r5, #1
@@ -26852,7 +26852,7 @@ _06017288:
 	bne	_060173FC
 	add	r0, r1, #16
 	add	r1, sl, #30
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_060173FC
 	ldrh	r0, [r7, #2]
@@ -26864,7 +26864,7 @@ _06017288:
 	ldrh	r0, [r7, #4]
 	cmp	r0, #0
 	beq	_0601730C
-	bl	FUN_06009E28
+	bl	ClearTimeOut
 	mov	r0, #53	; 0x35
 	strh	r0, [r8]
 	mov	r1, #12
@@ -26875,19 +26875,19 @@ _06017288:
 	strh	r1, [r0, #6]
 	mov	r0, #2
 	mov	r1, r0
-	bl	FUN_06009078
+	bl	AddTask
 	mov	r0, #32
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	b	_060173FC
 _0601730C:
 	mov	r0, #51	; 0x33
 	strh	r0, [r8]
 	add	r0, sl, #51	; 0x33
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, sl, #30
 	mov	r2, #1
-	bl	FUN_06013F38
+	bl	MakeAuthFrame
 	movs	r6, r0
 	beq	_060173FC
 	ldrh	r0, [r6, #20]
@@ -26905,7 +26905,7 @@ _0601730C:
 	mov	r0, #0
 	strh	r0, [r6, #48]	; 0x30
 	mov	r0, r6
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	b	_060173FC
 _06017378:
 	cmp	r0, #4
@@ -26913,12 +26913,12 @@ _06017378:
 	ldrh	r0, [r8]
 	cmp	r0, #51	; 0x33
 	bne	_060173FC
-	bl	FUN_06009E28
+	bl	ClearTimeOut
 	ldrh	r0, [r7, #4]
 	cmp	r0, #0
 	bne	_060173BC
 	mov	r0, #48	; 0x30
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	mov	r1, #0
 	ldr	r0, [r8, #28]
 	strh	r1, [r0, #4]
@@ -26937,7 +26937,7 @@ _060173D4:
 	strh	r0, [r8]
 	mov	r0, #2
 	mov	r1, r0
-	bl	FUN_06009078
+	bl	AddTask
 	b	_060173FC
 _060173EC:
 	ldrh	r0, [r9, #12]
@@ -26952,14 +26952,14 @@ _060173FC:
 	moveq	r2, #0
 	add	r0, sl, #30
 	mov	r1, #0
-	bl	FUN_06013F38
+	bl	MakeAuthFrame
 	cmp	r0, #0
 	beq	_06017438
 	ldrh	r1, [r7]
 	strh	r1, [r0, #44]	; 0x2c
 	strh	fp, [r0, #46]	; 0x2e
 	strh	r4, [r0, #48]	; 0x30
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 _06017438:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -26995,7 +26995,7 @@ FUN_0601745C: ; 0x0601745C
 _060174A8:
 	mov	r0, r6
 	mov	r1, fp
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	ldrneh	r1, [r8, #6]
 	movne	r0, #1
@@ -27016,7 +27016,7 @@ _060174D4:
 _060174F4:
 	mov	r0, fp
 	add	r1, r7, #4
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	bne	_06017834
 	ldrh	r0, [r7]
@@ -27063,7 +27063,7 @@ _06017590:
 	streqh	r0, [r7]
 	beq	_060175CC
 	add	r0, r0, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	sub	r0, r0, #8
 	strh	r0, [r7, #60]	; 0x3c
 	ldrh	r0, [r7, #60]	; 0x3c
@@ -27086,7 +27086,7 @@ _060175CC:
 	strh	r0, [r7, #44]	; 0x2c
 	add	r0, r7, #4
 	add	r1, r5, #36	; 0x24
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	ldrh	r0, [r4, #8]
 	strh	r0, [r7, #50]	; 0x32
 	ldrh	r0, [r5, #18]
@@ -27102,10 +27102,10 @@ _06017638:
 	ldr	r0, [sl, #40]	; 0x28
 	add	r0, r0, #10
 	add	r0, r0, r4
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r5, r4
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r4, r4, #1
 _06017658:
 	ldrh	r0, [r7, #60]	; 0x3c
@@ -27125,10 +27125,10 @@ _06017668:
 	b	_06017704
 _06017690:
 	mov	r0, r6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r4, r0
 	add	r0, r6, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	cmp	r4, #6
 	bls	_060176FC
 	ldr	r1, [sl, #40]	; 0x28
@@ -27140,10 +27140,10 @@ _06017690:
 	b	_060176E8
 _060176C8:
 	mov	r0, r6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	mov	r0, fp
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	fp, fp, #1
 	add	r6, r6, #1
 	add	r4, r4, #1
@@ -27165,7 +27165,7 @@ _06017710:
 	cmp	r0, #0
 	beq	_06017764
 	add	r0, r0, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	strh	r0, [r7, #10]
 	mov	r4, #0
 	add	r5, r7, #12
@@ -27174,10 +27174,10 @@ _06017734:
 	ldr	r0, [sl, #28]
 	add	r0, r0, #2
 	add	r0, r0, r4
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r5, r4
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r4, r4, #1
 _06017754:
 	ldrh	r0, [r7, #10]
@@ -27192,7 +27192,7 @@ _06017764:
 _06017774:
 	add	r0, r5, r6
 	mov	r1, r4
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r6, r6, #1
 	cmp	r6, #32
 	bcc	_06017774
@@ -27207,14 +27207,14 @@ _0601778C:
 	cmp	r0, #0
 	beq	_060177BC
 	add	r0, r0, #3
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	strh	r0, [r7, #56]	; 0x38
 _060177BC:
 	ldr	r0, [sl, #36]	; 0x24
 	cmp	r0, #0
 	beq	_060177D4
 	add	r0, r0, #3
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	strh	r0, [r7, #52]	; 0x34
 _060177D4:
 	ldrh	r1, [r8, #2]
@@ -27231,24 +27231,24 @@ _060177D4:
 	ldrh	r0, [r9, #4]
 	cmp	r0, #32
 	bcs	_06017834
-	bl	FUN_06009E28
+	bl	ClearTimeOut
 	mov	r0, #21
 	strh	r0, [r9]
 	mov	r0, #2
 	mov	r1, #0
-	bl	FUN_06009078
+	bl	AddTask
 	b	_06017834
 _06017828:
 	add	r0, r7, #4
-	ldr	r1, _06017848	; =_06019394
-	bl	FUN_0600AF4C
+	ldr	r1, _06017848	; =NULL_ADRS
+	bl	WSetMacAdrs1
 _06017834:
 	add	sp, sp, #52	; 0x34
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	bx	lr
 _06017840:	.word	0x0380FFF4
 _06017844:	.word	0x00000404
-_06017848:	.word	_06019394
+_06017848:	.word	NULL_ADRS
 
 	arm_func_start FUN_0601784C
 FUN_0601784C: ; 0x0601784C
@@ -27257,7 +27257,7 @@ FUN_0601784C: ; 0x0601784C
 	mov	r4, r0
 	add	r0, r4, #30
 	mov	r1, #80	; 0x50
-	bl	FUN_06013D80
+	bl	IsExistManFrame
 	cmp	r0, #0
 	bne	_060178F0
 	ldrh	r0, [r4, #36]	; 0x24
@@ -27290,10 +27290,10 @@ _06017884:
 	cmp	r0, #1
 	bne	_060178F0
 	add	r0, r4, #30
-	bl	FUN_06013FFC
+	bl	MakeProbeResFrame
 	cmp	r0, #0
 	beq	_060178F0
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 _060178F0:
 	add	sp, sp, #48	; 0x30
 	ldmia	sp!, {r4, lr}
@@ -27323,10 +27323,10 @@ _06017938:
 	ldr	r0, [r5, #24]
 	add	r0, r0, #16
 	add	r1, r7, #30
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06017A1C
-	bl	FUN_06009E28
+	bl	ClearTimeOut
 	ldrh	r0, [r4, #2]
 	cmp	r0, #0
 	bne	_060179B8
@@ -27335,20 +27335,20 @@ _06017938:
 	and	r0, r1, r0
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_0600B0B0
+	bl	WSetAids
 	ldrh	r0, [r6, #106]	; 0x6a
-	bl	FUN_06013E48
+	bl	MakePsPollFrame
 	add	r0, r6, #130	; 0x82
 	add	r1, r7, #30
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	add	r0, r7, #30
-	bl	FUN_0600F608
+	bl	CAM_Search
 	strh	r0, [r6, #136]	; 0x88
 	ldrh	r0, [r6, #136]	; 0x88
 	mov	r1, #64	; 0x40
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	mov	r0, #64	; 0x40
-	bl	FUN_0600AF68
+	bl	WSetStaState
 _060179B8:
 	ldrh	r0, [r4, #2]
 	cmp	r0, #0
@@ -27359,7 +27359,7 @@ _060179B8:
 	ldr	r0, [r5, #28]
 	strh	r1, [r0, #6]
 	mov	r0, #64	; 0x40
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	b	_060179FC
 _060179E4:
 	mov	r1, #12
@@ -27376,7 +27376,7 @@ _060179FC:
 	strh	r0, [r5]
 	mov	r0, #2
 	mov	r1, #4
-	bl	FUN_06009078
+	bl	AddTask
 _06017A1C:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -27402,42 +27402,42 @@ FUN_06017A34: ; 0x06017A34
 	bne	_06017BCC
 	add	r0, r8, #30
 	mov	r1, #48	; 0x30
-	bl	FUN_06013D80
+	bl	IsExistManFrame
 	cmp	r0, #0
 	bne	_06017BCC
 	ldrh	r4, [r8, #2]
 	mov	r0, r4
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #48	; 0x30
 	bcs	_06017AC4
 	add	r0, r8, #30
 	mov	r1, #192	; 0xc0
-	bl	FUN_06013D80
+	bl	IsExistManFrame
 	cmp	r0, #0
 	bne	_06017BCC
 	add	r0, r8, #30
 	mov	r1, #6
 	mov	r2, #1
-	bl	FUN_06013E9C
+	bl	MakeDeAuthFrame
 	cmp	r0, #0
 	beq	_06017BCC
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	b	_06017BCC
 _06017AC4:
 	mov	r0, r4
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	bne	_06017AF0
 	mov	r0, r4
 	mov	r1, #48	; 0x30
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	add	r0, r8, #30
 	mov	r1, #1
-	bl	FUN_0600FEC8
+	bl	MLME_IssueDisAssIndication
 	b	_06017B00
 _06017AF0:
 	mov	r0, r4
-	bl	FUN_0600EF18
+	bl	CAM_GetAID
 	cmp	r0, #0
 	bne	_06017BCC
 _06017B00:
@@ -27477,7 +27477,7 @@ _06017B78:
 	b	_06017BB4
 _06017B80:
 	mov	r0, r4
-	bl	FUN_0600F19C
+	bl	CAM_SetCapaInfo
 	ldrh	r1, [sp, #10]
 	ands	r0, r1, #1
 	moveq	r1, #1
@@ -27487,15 +27487,15 @@ _06017B80:
 	beq	_06017BB4
 	mov	r0, r4
 	ldrh	r1, [sp, #22]
-	bl	FUN_0600F184
+	bl	CAM_SetSupRate
 	mov	r1, #0
 _06017BB4:
 	mov	r0, r4
 	ldr	r2, [sp, #28]
-	bl	FUN_06014174
+	bl	MakeReAssResFrame
 	cmp	r0, #0
 	beq	_06017BCC
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 _06017BCC:
 	add	sp, sp, #48	; 0x30
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -27526,10 +27526,10 @@ _06017C18:
 	ldr	r0, [r5, #24]
 	add	r0, r0, #16
 	add	r1, r7, #30
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06017CF4
-	bl	FUN_06009E28
+	bl	ClearTimeOut
 	ldrh	r0, [r4, #2]
 	cmp	r0, #0
 	bne	_06017C90
@@ -27538,18 +27538,18 @@ _06017C18:
 	and	r0, r1, r0
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
-	bl	FUN_0600B0B0
+	bl	WSetAids
 	ldrh	r0, [r6, #106]	; 0x6a
-	bl	FUN_06013E48
+	bl	MakePsPollFrame
 	add	r0, r6, #130	; 0x82
 	add	r1, r7, #30
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	add	r0, r7, #30
-	bl	FUN_0600F608
+	bl	CAM_Search
 	strh	r0, [r6, #136]	; 0x88
 	ldrh	r0, [r6, #136]	; 0x88
 	mov	r1, #64	; 0x40
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 _06017C90:
 	ldrh	r0, [r4, #2]
 	cmp	r0, #0
@@ -27560,7 +27560,7 @@ _06017C90:
 	ldr	r0, [r5, #28]
 	strh	r1, [r0, #6]
 	mov	r0, #64	; 0x40
-	bl	FUN_0600AF68
+	bl	WSetStaState
 	b	_06017CD4
 _06017CBC:
 	mov	r1, #12
@@ -27577,7 +27577,7 @@ _06017CD4:
 	strh	r0, [r5]
 	mov	r0, #2
 	mov	r1, #3
-	bl	FUN_06009078
+	bl	AddTask
 _06017CF4:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -27604,45 +27604,45 @@ FUN_06017D0C: ; 0x06017D0C
 	bne	_06017ED4
 	add	r0, r8, #30
 	mov	r1, #16
-	bl	FUN_06013D80
+	bl	IsExistManFrame
 	cmp	r0, #0
 	bne	_06017ED4
 	ldrh	r4, [r8, #2]
 	cmp	r4, #0
 	beq	_06017D74
 	mov	r0, r4
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #48	; 0x30
 	bcs	_06017DA8
 _06017D74:
 	add	r0, r8, #30
 	mov	r1, #192	; 0xc0
-	bl	FUN_06013D80
+	bl	IsExistManFrame
 	cmp	r0, #0
 	bne	_06017ED4
 	add	r0, r8, #30
 	mov	r1, #6
 	mov	r2, #1
-	bl	FUN_06013E9C
+	bl	MakeDeAuthFrame
 	cmp	r0, #0
 	beq	_06017ED4
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	b	_06017ED4
 _06017DA8:
 	mov	r0, r4
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	bne	_06017DD4
 	mov	r0, r4
 	mov	r1, #48	; 0x30
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	add	r0, r8, #30
 	mov	r1, #1
-	bl	FUN_0600FEC8
+	bl	MLME_IssueDisAssIndication
 	b	_06017DE4
 _06017DD4:
 	mov	r0, r4
-	bl	FUN_0600EF18
+	bl	CAM_GetAID
 	cmp	r0, #0
 	bne	_06017ED4
 _06017DE4:
@@ -27692,7 +27692,7 @@ _06017E80:
 	b	_06017EBC
 _06017E88:
 	mov	r0, r4
-	bl	FUN_0600F19C
+	bl	CAM_SetCapaInfo
 	ldrh	r1, [sp, #10]
 	ands	r0, r1, #1
 	moveq	r1, #1
@@ -27702,15 +27702,15 @@ _06017E88:
 	beq	_06017EBC
 	mov	r0, r4
 	ldrh	r1, [sp, #22]
-	bl	FUN_0600F184
+	bl	CAM_SetSupRate
 	mov	r1, #0
 _06017EBC:
 	mov	r0, r4
 	ldr	r2, [sp, #28]
-	bl	FUN_060142E0
+	bl	MakeAssResFrame
 	cmp	r0, #0
 	beq	_06017ED4
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 _06017ED4:
 	add	sp, sp, #48	; 0x30
 	ldmia	sp!, {r4, r5, r6, r7, r8, lr}
@@ -27737,35 +27737,35 @@ FUN_06017EE8: ; 0x06017EE8
 	b	_06017FCC
 _06017F24:
 	mov	r0, r5
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	bne	_06017F5C
 	mov	r0, r5, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #48	; 0x30
-	bl	FUN_0600F294
+	bl	CAM_SetStaState
 	add	r0, r4, #30
 	ldrh	r1, [r4, #44]	; 0x2c
-	bl	FUN_0600FEC8
+	bl	MLME_IssueDisAssIndication
 	mov	r0, r5
-	bl	FUN_06014EB8
+	bl	DeleteTxFrames
 	b	_06017FCC
 _06017F5C:
 	cmp	r0, #48	; 0x30
 	bne	_06017F74
 	add	r0, r4, #30
 	mov	r1, #7
-	bl	FUN_060145BC
+	bl	MakeDisAssFrame
 	b	_06017F84
 _06017F74:
 	add	r0, r4, #30
 	mov	r1, #7
 	mov	r2, #1
-	bl	FUN_06013E9C
+	bl	MakeDeAuthFrame
 _06017F84:
 	cmp	r0, #0
 	beq	_06017FCC
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	b	_06017FCC
 _06017F94:
 	ldrh	r0, [r1, #8]
@@ -27773,23 +27773,23 @@ _06017F94:
 	bne	_06017FCC
 	add	r0, r4, #30
 	add	r1, r1, #130	; 0x82
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06017FCC
 	mov	r0, #48	; 0x30
-	bl	FUN_0600AF68
-	bl	FUN_0600B054
+	bl	WSetStaState
+	bl	WClearAids
 	add	r0, r4, #30
 	ldrh	r1, [r4, #44]	; 0x2c
-	bl	FUN_0600FEC8
+	bl	MLME_IssueDisAssIndication
 _06017FCC:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, lr}
 	bx	lr
 _06017FD8:	.word	0x0380FFF4
 
-	arm_func_start FUN_06017FDC
-FUN_06017FDC: ; 0x06017FDC
+	arm_func_start RxBeaconFrame
+RxBeaconFrame: ; 0x06017FDC
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #68	; 0x44
 	mov	sl, r0
@@ -27804,7 +27804,7 @@ FUN_06017FDC: ; 0x06017FDC
 	add	r0, r0, #1
 	str	r0, [r1, #1392]	; 0x570
 	add	r0, sl, #30
-	bl	FUN_0600F4C0
+	bl	CAM_SearchAdd
 	mov	r4, r0
 	mov	r0, r4, lsl #16
 	mov	r0, r0, lsr #16
@@ -27812,7 +27812,7 @@ FUN_06017FDC: ; 0x06017FDC
 	cmp	r4, #255	; 0xff
 	beq	_06018650
 	ldrh	r1, [sl, #18]
-	bl	FUN_0600F27C
+	bl	CAM_SetRSSI
 	add	r9, sl, #44	; 0x2c
 	ldrh	fp, [sl, #6]
 	cmp	fp, #12
@@ -27847,10 +27847,10 @@ FUN_06017FDC: ; 0x06017FDC
 	ands	r0, r0, #32768	; 0x8000
 	beq	_060180DC
 	add	r0, r9, #6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	fp, r0
 	add	r0, r9, #7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	add	r1, fp, r0, lsl #8
 	ldr	r0, _06018664	; =0x0480810C
 	strh	r1, [r0]
@@ -27876,7 +27876,7 @@ _06018118:
 	beq	_06018638
 	cmp	r1, #33	; 0x21
 	bne	_060182A0
-	bl	FUN_06009E28
+	bl	ClearTimeOut
 	ldrh	r0, [sp, #34]	; 0x22
 	and	r0, r0, #48	; 0x30
 	cmp	r0, #48	; 0x30
@@ -27901,11 +27901,11 @@ _06018118:
 	ands	r0, r0, #2
 	bne	_06018194
 	ldrh	r0, [sp, #42]	; 0x2a
-	bl	FUN_0600B570
+	bl	WSetChannel
 _06018194:
 	mov	r0, r4
 	ldrh	r1, [sp, #46]	; 0x2e
-	bl	FUN_0600F184
+	bl	CAM_SetSupRate
 	ldrh	r0, [r8, #12]
 	cmp	r0, #2
 	bne	_06018224
@@ -27913,22 +27913,22 @@ _06018194:
 	cmp	r9, #0
 	beq	_0601820C
 	add	r0, r9, #6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	fp, r0
 	add	r0, r9, #7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	add	r0, fp, r0, lsl #8
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #1
-	bl	FUN_0600BEFC
+	bl	WSetActiveZoneTime
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #8
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r9, r0
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #9
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	add	r1, r9, r0, lsl #8
 	ldr	r0, _06018668	; =0x0380FFF0
 	strh	r1, [r0]
@@ -27936,21 +27936,21 @@ _06018194:
 _0601820C:
 	ldr	r0, _0601866C	; =0x0000FFFF
 	mov	r1, #1
-	bl	FUN_0600BEFC
+	bl	WSetActiveZoneTime
 	mov	r1, #0
 	ldr	r0, _06018668	; =0x0380FFF0
 	strh	r1, [r0]
 _06018224:
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #3
-	bl	FUN_06009CB0
-	bl	FUN_0600B990
+	bl	WL_ReadByte
+	bl	WSetDTIMPeriod
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #2
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	strh	r0, [r8, #118]	; 0x76
 	ldrh	r0, [sl, #52]	; 0x34
-	bl	FUN_0600B9DC
+	bl	WSetBeaconPeriod
 	mov	r0, #1
 	strh	r0, [r8, #18]
 	strh	r0, [r8, #26]
@@ -27967,12 +27967,12 @@ _0601827C:
 	ldr	r0, [r7, #28]
 	add	r0, r0, #8
 	add	r1, sl, #30
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	mov	r0, #37	; 0x25
 	strh	r0, [r7]
 	mov	r0, #2
 	mov	r1, #1
-	bl	FUN_06009078
+	bl	AddTask
 _060182A0:
 	ldrh	r0, [r8, #12]
 	cmp	r0, #2
@@ -27985,28 +27985,28 @@ _060182B8:
 	cmp	r9, #0
 	beq	_06018374
 	add	r0, r9, #6
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r7, r0
 	add	r0, r9, #7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	add	r0, r7, r0, lsl #8
 	mov	r0, r0, lsl #16
 	mov	r0, r0, lsr #16
 	mov	r1, #0
-	bl	FUN_0600BEFC
+	bl	WSetActiveZoneTime
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #8
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r7, r0
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #9
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	add	r1, r7, r0, lsl #8
 	ldr	r0, _06018668	; =0x0380FFF0
 	strh	r1, [r0]
 	ldr	r0, [sp, #64]	; 0x40
 	add	r0, r0, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	sub	r0, r0, #8
 	strh	r0, [r8, #160]	; 0xa0
 	ldrh	r2, [r8, #160]	; 0xa0
@@ -28033,7 +28033,7 @@ _06018374:
 	mov	r0, #0
 	strh	r0, [r8, #128]	; 0x80
 	mov	r0, r4
-	bl	FUN_0600F130
+	bl	CAM_UpdateLifeTime
 	add	r0, sl, #44	; 0x2c
 	ldmia	r0, {r2, r3}
 	add	r0, sp, #0
@@ -28148,7 +28148,7 @@ _06018518:
 	cmp	r0, #1
 	bne	_06018620
 	add	r0, r1, #2
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	ldrh	r1, [r8, #118]	; 0x76
 	cmp	r1, r0
 	strneh	r0, [r8, #118]	; 0x76
@@ -28158,7 +28158,7 @@ _06018518:
 	bne	_0601857C
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #4
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	ands	r0, r0, #1
 	ldrneh	r0, [r8, #142]	; 0x8e
 	orrne	r0, r0, #1
@@ -28166,12 +28166,12 @@ _06018518:
 _0601857C:
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #4
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	and	r7, r0, #254	; 0xfe
 	mov	r4, r7, lsl #3
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	add	r0, r7, r0
 	sub	r0, r0, #3
 	mov	r1, r0, lsl #3
@@ -28184,7 +28184,7 @@ _0601857C:
 	ldr	r0, [sp, #60]	; 0x3c
 	add	r0, r0, #5
 	add	r0, r0, r4, lsr #3
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r2, #1
 	and	r1, r4, #7
 	mov	r1, r2, lsl r1
@@ -28193,7 +28193,7 @@ _0601857C:
 	ldrh	r0, [r8, #142]	; 0x8e
 	orr	r0, r0, #2
 	strh	r0, [r8, #142]	; 0x8e
-	bl	FUN_06014B5C
+	bl	TxPsPollFrame
 _060185F4:
 	ldrh	r0, [r5, #32]
 	cmp	r0, #0
@@ -28205,21 +28205,21 @@ _060185F4:
 	cmp	r0, #0
 	bne	_06018620
 	mov	r0, #1
-	bl	FUN_0600B3F4
+	bl	WSetPowerState
 _06018620:
 	ldrh	r0, [r6, #30]
 	mov	r0, r0, lsl #25
 	movs	r0, r0, lsr #31
 	beq	_06018638
 	mov	r0, sl
-	bl	FUN_0600FCB8
+	bl	MLME_IssueBeaconRecvIndication
 _06018638:
 	ldr	r2, [sp, #52]	; 0x34
 	cmp	r2, #0
 	beq	_06018650
 	ldrh	r0, [sp, #42]	; 0x2a
 	mov	r1, sl
-	bl	FUN_06018E5C
+	bl	UpdateApList
 _06018650:
 	add	sp, sp, #68	; 0x44
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -28241,8 +28241,8 @@ _06018690:	.word	0x048080FC
 _06018694:	.word	0x048080FE
 _06018698:	.word	0x04808134
 
-	arm_func_start FUN_0601869C
-FUN_0601869C: ; 0x0601869C
+	arm_func_start RxMpAckFrame
+RxMpAckFrame: ; 0x0601869C
 	stmdb	sp!, {r4, r5, lr}
 	sub	sp, sp, #4
 	mov	r4, r0
@@ -28256,12 +28256,12 @@ FUN_0601869C: ; 0x0601869C
 	bne	_06018764
 	add	r0, r4, #30
 	add	r1, r5, #100	; 0x64
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_060186F0
 	add	r0, r4, #36	; 0x24
 	add	r1, r5, #130	; 0x82
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	bne	_060186F8
 _060186F0:
@@ -28293,7 +28293,7 @@ _060186F8:
 	strh	r0, [r1, #24]
 	ldr	r0, [r4]
 	add	r0, r0, #392	; 0x188
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #0
 _06018764:
 	add	sp, sp, #4
@@ -28304,8 +28304,8 @@ _06018774:	.word	0x00000185
 _06018778:	.word	0x04808094
 _0601877C:	.word	0x04808098
 
-	arm_func_start FUN_06018780
-FUN_06018780: ; 0x06018780
+	arm_func_start RxKeyDataFrame
+RxKeyDataFrame: ; 0x06018780
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r7, r0
@@ -28320,7 +28320,7 @@ FUN_06018780: ; 0x06018780
 	beq	_06018930
 	add	r0, r7, #24
 	add	r1, r1, #936	; 0x3a8
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06018930
 	ldrh	r0, [r7, #16]
@@ -28330,30 +28330,30 @@ FUN_06018780: ; 0x06018780
 	cmp	r1, r0
 	bgt	_06018930
 	add	r0, r7, #30
-	bl	FUN_0600F608
+	bl	CAM_Search
 	mov	r4, r0
 	cmp	r4, #255	; 0xff
 	beq	_06018804
 	cmp	r4, #0
 	beq	_06018840
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	beq	_06018840
 _06018804:
 	add	r0, r7, #30
 	mov	r1, #192	; 0xc0
-	bl	FUN_06013D80
+	bl	IsExistManFrame
 	cmp	r0, #0
 	bne	_06018930
 	add	r0, r7, #30
 	mov	r1, #7
 	mov	r2, #0
-	bl	FUN_06013E9C
+	bl	MakeDeAuthFrame
 	cmp	r0, #0
 	beq	_06018930
 	mov	r1, #2
 	strh	r1, [r0]
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	b	_06018930
 _06018840:
 	cmp	r4, #0
@@ -28363,11 +28363,11 @@ _06018840:
 	ldrh	r1, [r7, #20]
 	mov	r1, r1, lsl #19
 	mov	r1, r1, lsr #31
-	bl	FUN_0600F218
+	bl	CAM_SetPowerMgtMode
 	mov	r0, r4
-	bl	FUN_0600F130
+	bl	CAM_UpdateLifeTime
 	mov	r0, r4
-	bl	FUN_0600EF18
+	bl	CAM_GetAID
 	mov	r1, #1
 	mov	r0, r1, lsl r0
 	mov	r0, r0, lsl #16
@@ -28405,12 +28405,12 @@ _060188D8:
 	ldrh	r1, [r7, #18]
 	and	r1, r1, #255	; 0xff
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r0, r4, #2
 	ldrh	r1, [r7, #14]
 	and	r1, r1, #255	; 0xff
 	and	r1, r1, #255	; 0xff
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	ldrh	r2, [r4]
 	cmp	r2, #0
 	beq	_06018930
@@ -28425,8 +28425,8 @@ _06018930:
 _0601893C:	.word	0x0380FFF4
 _06018940:	.word	0x0000042C
 
-	arm_func_start FUN_06018944
-FUN_06018944: ; 0x06018944
+	arm_func_start RxMpFrame
+RxMpFrame: ; 0x06018944
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r0
 	ldr	r0, _06018AC0	; =0x0380FFF4
@@ -28440,12 +28440,12 @@ FUN_06018944: ; 0x06018944
 	bne	_06018AB8
 	add	r0, r6, #30
 	add	r1, r5, #100	; 0x64
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	beq	_06018998
 	add	r0, r6, #36	; 0x24
 	add	r1, r5, #130	; 0x82
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	bne	_060189A0
 _06018998:
@@ -28479,7 +28479,7 @@ _060189A0:
 	strneh	r0, [r4, #6]
 _06018A04:
 	ldrh	r0, [r5, #136]	; 0x88
-	bl	FUN_0600F130
+	bl	CAM_UpdateLifeTime
 	ldrh	r0, [r6, #16]
 	sub	r0, r0, #28
 	strh	r0, [r6, #6]
@@ -28523,7 +28523,7 @@ _06018A50:
 	ldr	r0, _06018AC0	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	mov	r0, #0
 _06018AB8:
 	ldmia	sp!, {r4, r5, r6, lr}
@@ -28535,8 +28535,8 @@ _06018ACC:	.word	0x00007FFF
 _06018AD0:	.word	0x00000182
 _06018AD4:	.word	0x04808094
 
-	arm_func_start FUN_06018AD8
-FUN_06018AD8: ; 0x06018AD8
+	arm_func_start RxDataFrameTask
+RxDataFrameTask: ; 0x06018AD8
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	ldr	r0, _06018DE0	; =0x0380FFF4
 	ldr	r1, [r0]
@@ -28553,7 +28553,7 @@ FUN_06018AD8: ; 0x06018AD8
 	beq	_06018B20
 	add	r0, r7, #72	; 0x48
 	mov	r1, sl
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 	b	_06018DD8
 _06018B20:
 	add	r9, sl, #16
@@ -28602,41 +28602,41 @@ _06018BBC:
 	ands	r0, r0, #1
 	bne	_06018D44
 	add	r0, r9, #30
-	bl	FUN_0600F608
+	bl	CAM_Search
 	mov	r5, r0
 	cmp	r5, #255	; 0xff
 	beq	_06018BE8
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #64	; 0x40
 	beq	_06018C50
 _06018BE8:
 	mov	r0, r5
-	bl	FUN_0600EFF0
+	bl	CAM_GetStaState
 	cmp	r0, #48	; 0x30
 	bne	_06018C1C
 	add	r0, r9, #30
 	mov	r1, #160	; 0xa0
-	bl	FUN_06013D80
+	bl	IsExistManFrame
 	cmp	r0, #0
 	bne	_06018D44
 	add	r0, r9, #30
 	mov	r1, #7
-	bl	FUN_060145BC
+	bl	MakeDisAssFrame
 	b	_06018C40
 _06018C1C:
 	add	r0, r9, #30
 	mov	r1, #192	; 0xc0
-	bl	FUN_06013D80
+	bl	IsExistManFrame
 	cmp	r0, #0
 	bne	_06018D44
 	add	r0, r9, #30
 	mov	r1, #7
 	mov	r2, #1
-	bl	FUN_06013E9C
+	bl	MakeDeAuthFrame
 _06018C40:
 	cmp	r0, #0
 	beq	_06018D44
-	bl	FUN_06014C6C
+	bl	TxManCtrlFrame
 	b	_06018D44
 _06018C50:
 	mov	r0, r5, lsl #16
@@ -28644,9 +28644,9 @@ _06018C50:
 	ldrh	r1, [r9, #20]
 	mov	r1, r1, lsl #19
 	mov	r1, r1, lsr #31
-	bl	FUN_0600F218
+	bl	CAM_SetPowerMgtMode
 	mov	r0, r5
-	bl	FUN_0600EF5C
+	bl	CAM_GetLastSeqCtrl
 	ldrh	r1, [r9, #42]	; 0x2a
 	cmp	r1, r0
 	ldreq	r0, [r6, #60]	; 0x3c
@@ -28655,7 +28655,7 @@ _06018C50:
 	beq	_06018D44
 	add	r0, r9, #24
 	add	r1, r9, #36	; 0x24
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	mov	r4, #0
 	b	_06018D44
 _06018C9C:
@@ -28688,11 +28688,11 @@ _06018CE4:
 	cmp	r0, #0
 	bne	_06018D10
 	mov	r0, #1
-	bl	FUN_0600B3F4
+	bl	WSetPowerState
 _06018D10:
 	ldrh	r5, [r8, #136]	; 0x88
 	mov	r0, r5
-	bl	FUN_0600EF5C
+	bl	CAM_GetLastSeqCtrl
 	ldrh	r1, [r9, #42]	; 0x2a
 	cmp	r1, r0
 	ldreq	r0, [r6, #60]	; 0x3c
@@ -28701,7 +28701,7 @@ _06018D10:
 	beq	_06018D44
 	add	r0, r9, #30
 	add	r1, r9, #36	; 0x24
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	mov	r4, #0
 _06018D44:
 	cmp	r4, #0
@@ -28713,12 +28713,12 @@ _06018D44:
 	and	r1, r1, #255	; 0xff
 	mov	r1, r1, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUN_0600F27C
+	bl	CAM_SetRSSI
 	mov	r0, r5
 	ldrh	r1, [r9, #42]	; 0x2a
-	bl	FUN_0600F16C
+	bl	CAM_SetLastSeqCtrl
 	mov	r0, r5
-	bl	FUN_0600F130
+	bl	CAM_UpdateLifeTime
 	ldrh	r0, [r9, #16]
 	sub	r0, r0, #24
 	strh	r0, [r9, #6]
@@ -28730,27 +28730,27 @@ _06018D44:
 	strh	r0, [sl, #14]
 	add	r0, r7, #72	; 0x48
 	mov	r1, sl
-	bl	FUN_0600F8DC
+	bl	SendMessageToWmDirect
 	b	_06018DC0
 _06018DB4:
 	add	r0, r7, #72	; 0x48
 	mov	r1, sl
-	bl	FUN_060096A0
+	bl	ReleaseHeapBuf
 _06018DC0:
 	ldrh	r0, [r7, #80]	; 0x50
 	cmp	r0, #0
 	beq	_06018DD8
 	mov	r0, #2
 	mov	r1, #6
-	bl	FUN_06009078
+	bl	AddTask
 _06018DD8:
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
 	bx	lr
 _06018DE0:	.word	0x0380FFF4
 _06018DE4:	.word	0x0000053C
 
-	arm_func_start FUN_06018DE8
-FUN_06018DE8: ; 0x06018DE8
+	arm_func_start UpdateApListTask
+UpdateApListTask: ; 0x06018DE8
 	ldr	r0, _06018E34	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	ip, r0, #572	; 0x23c
@@ -28774,20 +28774,20 @@ _06018E24:
 	bx	lr
 _06018E34:	.word	0x0380FFF4
 
-	arm_func_start FUN_06018E38
-FUN_06018E38: ; 0x06018E38
+	arm_func_start InitApList
+InitApList: ; 0x06018E38
 	mov	r0, #0
 	ldr	r1, _06018E54	; =0x0380FFF4
 	ldr	r1, [r1]
 	add	r1, r1, #572	; 0x23c
 	mov	r2, #200	; 0xc8
-	ldr	ip, _06018E58	; =FUN_037FB300
+	ldr	ip, _06018E58	; =MIi_CpuClear16
 	bx	ip
 _06018E54:	.word	0x0380FFF4
-_06018E58:	.word	FUN_037FB300
+_06018E58:	.word	MIi_CpuClear16
 
-	arm_func_start FUN_06018E5C
-FUN_06018E5C: ; 0x06018E5C
+	arm_func_start UpdateApList
+UpdateApList: ; 0x06018E5C
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 	sub	sp, sp, #4
 	mov	fp, r0
@@ -28797,7 +28797,7 @@ FUN_06018E5C: ; 0x06018E5C
 	ldr	r0, [r0]
 	add	r8, r0, #572	; 0x23c
 	add	r0, r9, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	cmp	r0, #32
 	bhi	_06018FA0
 	mov	r6, #4
@@ -28813,7 +28813,7 @@ _06018EA8:
 	beq	_06018EDC
 	add	r0, r8, #6
 	ldr	r1, [sp]
-	bl	FUN_0600AB78
+	bl	MatchMacAdrs
 	cmp	r0, #0
 	bne	_06018F08
 	ldrh	r0, [r8, #48]	; 0x30
@@ -28853,9 +28853,9 @@ _06018F08:
 	strh	fp, [r6, #2]
 	add	r0, r6, #6
 	add	r1, sl, #36	; 0x24
-	bl	FUN_0600AF4C
+	bl	WSetMacAdrs1
 	add	r0, r9, #1
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	strh	r0, [r6, #12]
 	mov	r7, #0
 	add	r5, r9, #2
@@ -28863,10 +28863,10 @@ _06018F08:
 	b	_06018F84
 _06018F6C:
 	add	r0, r5, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	mov	r1, r0
 	add	r0, r4, r7
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r7, r7, #1
 _06018F84:
 	ldrh	r0, [r6, #12]
@@ -28882,15 +28882,15 @@ _06018FA0:
 	bx	lr
 _06018FAC:	.word	0x0380FFF4
 
-	arm_func_start FUN_06018FB0
-FUN_06018FB0: ; 0x06018FB0
+	arm_func_start FLASH_MakeImage
+FLASH_MakeImage: ; 0x06018FB0
 	stmfd	sp!, {lr}
 	sub	sp, sp, #4
 	ldr	r0, _0601909C	; =0x0380FFF4
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
 	bl	FUN_060190A4
-	bl	FUN_0601916C
+	bl	FLASH_Wait
 	mov	r0, #0
 	str	r0, [sp]
 	mov	r0, #44	; 0x2c
@@ -28916,7 +28916,7 @@ _06019014:
 	ldr	r0, _0601909C	; =0x0380FFF4
 	ldr	r0, [r0]
 	add	r0, r0, #392	; 0x188
-	bl	FUN_06009724
+	bl	AllocateHeapBuf
 	ldr	r2, _0601909C	; =0x0380FFF4
 	ldr	r1, [r2]
 	str	r0, [r1, #792]	; 0x318
@@ -28930,7 +28930,7 @@ _06019014:
 	ldr	r0, [r2]
 	ldr	r0, [r0, #788]	; 0x314
 	bl	FUN_060190A4
-	bl	FUN_0601916C
+	bl	FLASH_Wait
 	mov	r0, #42	; 0x2a
 	ldr	r1, [sp]
 	ldr	r2, _0601909C	; =0x0380FFF4
@@ -28951,21 +28951,21 @@ _060190A0:	.word	0x000001D6
 
 	arm_func_start FUN_060190A4
 FUN_060190A4: ; 0x060190A4
-	ldr	pc, _060190A8	; =FUN_038014E0
-_060190A8:	.word	FUN_038014E0
+	ldr	pc, _060190A8	; =SPI_Lock
+_060190A8:	.word	SPI_Lock
 
 	arm_func_start FUN_060190AC
 FUN_060190AC: ; 0x060190AC
-	ldr	pc, _060190B0	; =FUN_03804E50
-_060190B0:	.word	FUN_03804E50
+	ldr	pc, _060190B0	; =NVRAM_ReadDataBytes
+_060190B0:	.word	NVRAM_ReadDataBytes
 
 	arm_func_start FUN_060190B4
 FUN_060190B4: ; 0x060190B4
-	ldr	pc, _060190B8	; =FUN_03801474
-_060190B8:	.word	FUN_03801474
+	ldr	pc, _060190B8	; =SPI_Unlock
+_060190B8:	.word	SPI_Unlock
 
-	arm_func_start FUN_060190BC
-FUN_060190BC: ; 0x060190BC
+	arm_func_start FLASH_DirectRead
+FLASH_DirectRead: ; 0x060190BC
 	stmdb	sp!, {r4, r5, r6, lr}
 
 	arm_func_start FUN_060190C0
@@ -28977,7 +28977,7 @@ FUN_060190C0: ; 0x060190C0
 	ldr	r0, [r0]
 	ldr	r0, [r0, #788]	; 0x314
 	bl	FUN_060190A4
-	bl	FUN_0601916C
+	bl	FLASH_Wait
 	mov	r0, r6
 	mov	r1, r5
 	mov	r2, r4
@@ -28990,8 +28990,8 @@ FUN_060190C0: ; 0x060190C0
 	bx	lr
 _06019108:	.word	0x0380FFF4
 
-	arm_func_start FUN_0601910C
-FUN_0601910C: ; 0x0601910C
+	arm_func_start FLASH_Read
+FLASH_Read: ; 0x0601910C
 	stmdb	sp!, {r4, r5, r6, lr}
 	mov	r6, r1
 	mov	r5, r2
@@ -29005,11 +29005,11 @@ FUN_0601910C: ; 0x0601910C
 	b	_06019158
 _06019138:
 	mov	r0, r4
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	add	r4, r4, #1
 	mov	r1, r0
 	mov	r0, r5
-	bl	FUN_06009CD0
+	bl	WL_WriteByte
 	add	r5, r5, #1
 	sub	r6, r6, #1
 _06019158:
@@ -29020,8 +29020,8 @@ _06019160:
 	bx	lr
 _06019168:	.word	0x0380FFF4
 
-	arm_func_start FUN_0601916C
-FUN_0601916C: ; 0x0601916C
+	arm_func_start FLASH_Wait
+FLASH_Wait: ; 0x0601916C
 	stmdb	sp!, {r4, lr}
 	sub	sp, sp, #8
 	add	r4, sp, #0
@@ -29043,16 +29043,16 @@ _06019194:
 
 	arm_func_start FUN_060191AC
 FUN_060191AC: ; 0x060191AC
-	ldr	pc, _060191B0	; =FUN_03804F70
-_060191B0:	.word	FUN_03804F70
+	ldr	pc, _060191B0	; =NVRAM_ReadStatusRegister
+_060191B0:	.word	NVRAM_ReadStatusRegister
 
 	arm_func_start FUN_060191B4
 FUN_060191B4: ; 0x060191B4
-	ldr	pc, _060191B8	; =FUN_03804798
-_060191B8:	.word	FUN_03804798
+	ldr	pc, _060191B8	; =NVRAM_SoftwareReset
+_060191B8:	.word	NVRAM_SoftwareReset
 
-	arm_func_start FUN_060191BC
-FUN_060191BC: ; 0x060191BC
+	arm_func_start FLASH_VerifyCheckSum
+FLASH_VerifyCheckSum: ; 0x060191BC
 	stmdb	sp!, {r4, r5, r6, r7, lr}
 	sub	sp, sp, #4
 	mov	r5, r0
@@ -29074,12 +29074,12 @@ _060191F4:
 	b	_06019224
 _06019200:
 	mov	r0, r7
-	bl	FUN_06009CB0
+	bl	WL_ReadByte
 	add	r7, r7, #1
 	and	r0, r0, #255	; 0xff
 	mov	r1, r4, lsl #16
 	mov	r1, r1, lsr #16
-	bl	FUN_06009BBC
+	bl	calc_NextCRC
 	mov	r4, r0
 	sub	r6, r6, #1
 _06019224:
@@ -29102,94 +29102,94 @@ _06019254:
 _06019260:	.word	0x0380FFF4
 _06019264:	.word	0x000001D6
 _06019268:
-	.word	FUN_06002F6C
+	.word	WMSP_Initialize
 
 _0601926C: ; 0x0601926C
-	.word	FUN_0600305C
-	.word	FUN_060034A4
-	.word	FUN_06008280
-	.word	FUN_060082E0
-	.word	FUN_06008578
-	.word	FUN_06008620
-	.word	FUN_06003578
-	.word	FUN_06003664
-	.word	FUN_06003924
-	.word	FUN_060040F4
-	.word	FUN_060044CC
-	.word	FUN_060045DC
-	.word	FUN_06005328
-	.word	FUN_06005380
-	.word	FUN_06005644
-	.word	FUN_060057C8
-	.word	FUN_060058E8
-	.word	FUN_06005974
-	.word	FUN_06005AA8
-	.word	FUN_06005C68
+	.word	WMSP_Reset
+	.word	WMSP_End
+	.word	WMSP_Enable
+	.word	WMSP_Disable
+	.word	WMSP_PowerOn
+	.word	WMSP_PowerOff
+	.word	WMSP_SetParentParam
+	.word	WMSP_StartParent
+	.word	WMSP_EndParent
+	.word	WMSP_StartScan
+	.word	WMSP_EndScan
+	.word	WMSP_StartConnectEx
+	.word	WMSP_Disconnect
+	.word	WMSP_StartMP
+	.word	WMSP_SetMPData
+	.word	WMSP_EndMP
+	.word	WMSP_StartDCF
+	.word	WMSP_SetDCFData
+	.word	WMSP_EndDCF
+	.word	WMSP_SetWEPKey
 	.word	FUN_06002184
 	.word	FUN_06002184
 	.word	FUN_06002184
-	.word	FUN_06005D1C
-	.word	FUN_06005E4C
-	.word	FUN_06005EAC
-	.word	FUN_06005ED8
-	.word	FUN_06006A48
-	.word	FUN_06005F40
-	.word	FUN_0600609C
-	.word	FUN_0600628C
-	.word	FUN_06006318
-	.word	FUN_06007FE0
-	.word	FUN_06008074
-	.word	FUN_060089DC
-	.word	FUN_06008A74
-	.word	FUN_06008AD4
-	.word	FUN_06003BBC
-	.word	FUN_06005B84
-	.word	FUN_06008AE8
-	.word	FUN_06008C6C
-	.word	FUN_06008C98
-	.word	FUN_06006A0C
-	.word	FUN_060069DC
-	.word	FUN_060069A0
+	.word	WMSP_SetGameInfo
+	.word	WMSP_SetBeaconTxRxInd
+	.word	WMSP_StartTestMode
+	.word	WMSP_StopTestMode
+	.word	WMSP_VAlarmSetMPData
+	.word	WMSP_SetLifeTime
+	.word	WMSP_MeasureChannel
+	.word	WMSP_InitWirelessCounter
+	.word	WMSP_GetWirelessCounter
+	.word	WMSP_SetEntry
+	.word	WMSP_AutoDeAuth
+	.word	WMSP_SetMPParameter
+	.word	WMSP_SetBeaconPeriod
+	.word	WMSP_AutoDisconnect
+	.word	WMSP_StartScanEx
+	.word	WMSP_SetWEPKeyEx
+	.word	WMSP_SetPowerSaveMode
+	.word	WMSP_StartTestRxMode
+	.word	WMSP_StopTestRxMode
+	.word	WMSP_KickNextMP_Parent
+	.word	WMSP_KickNextMP_Child
+	.word	WMSP_KickNextMP_Resume
 _06019320:
-	.word	FUN_060109D8
-	.word	FUN_060108CC
-	.word	FUN_060107A4
-	.word	FUN_0601069C
-	.word	FUN_0601059C
-	.word	FUN_060102D0
-	.word	FUN_06018AD8
-	.word	FUN_06016764
-	.word	FUN_0600E8E8
-	.word	FUN_0601654C
-	.word	FUN_0600EB8C
-	.word	FUN_0600F974
-	.word	FUN_06008FAC
-	.word	FUN_06010280
-	.word	FUN_0600E6E0
-	.word	FUN_0600E308
-	.word	FUN_0600E21C
-	.word	FUN_0601603C
-	.word	FUN_06018DE8
-	.word	FUN_0600F874
-	.word	FUN_0600E158
-	.word	FUN_060098C4
-	.word	FUN_06009820
-	.word	FUN_060097CC
+	.word	MLME_ScanTask
+	.word	MLME_JoinTask
+	.word	MLME_AuthTask
+	.word	MLME_AssTask
+	.word	MLME_ReAssTask
+	.word	MLME_MeasChannelTask
+	.word	RxDataFrameTask
+	.word	RxManCtrlTask
+	.word	WlIntrTxBeaconTask
+	.word	DefragTask
+	.word	CAM_TimerTask
+	.word	RequestCmdTask
+	.word	LowestIdleTask
+	.word	MLME_BeaconLostTask
+	.word	WlIntrTxEndTask
+	.word	WlIntrRxEndTask
+	.word	WlIntrMpEndTask
+	.word	DefragTimerTask
+	.word	UpdateApListTask
+	.word	SendMessageToWmTask
+	.word	SetParentTbttTxqTask
+	.word	SendFatalErrMsgTask
+	.word	TerminateWlTask
+	.word	ReleaseWlTask
 _06019380:
 	.word	0x00030003
-_06019384:
+BC_ADRS:
 	.word	0xFFFFFFFF
 	.word	0x0000FFFF
-_0601938C:
+MPKEY_ADRS:
 	.word	0x00BF0903
 	.word	0x00001000
-_06019394:
+NULL_ADRS:
 	.word	0x00000000
 	.word	0x00000000
-_0601939C:
+MP_ADRS:
 	.word	0x00BF0903
 	.word	0x00000000
-_060193A4:
+RateBit2Element:
 	.word	0x00040002
 	.word	0x000C000B
 	.word	0x00160012
@@ -29272,7 +29272,7 @@ _06019474:
 	.word	0x060200DA
 	.word	0x00000076
 	.word	0x01460130
-_060194D8:
+RateElement2Bit:
 	.word	0x000000FF
 	.word	0x000100FF
 	.word	0x00FF00FF
@@ -29395,181 +29395,181 @@ _0601963C:
 	.word	0xFFFF0142
 _060196A8:
 	.word	0x00020018
-	.word	FUN_06013558
+	.word	MA_DataReqCmd
 	.word	0x00010004
-	.word	FUN_060133B4
+	.word	MA_KeyDataReqCmd
 	.word	0x0001000A
-	.word	FUN_06012EBC
+	.word	MA_MpReqCmd
 	.word	0x0001000C
-	.word	FUN_06012E58
+	.word	MA_TestDataReqCmd
 	.word	0x00010001
-	.word	FUN_06012E0C
+	.word	MA_ClrDataReqCmd
 _060196D0:
 	.word	0x00040000
-	.word	FUN_060118F8
+	.word	PARAMGET_BSSIDReqCmd
 	.word	0x00120000
-	.word	FUN_060118AC
+	.word	PARAMGET_SSIDReqCmd
 	.word	0x00020000
-	.word	FUN_06011884
+	.word	PARAMGET_BeaconPeriodReqCmd
 	.word	0x00020000
-	.word	FUN_0601185C
+	.word	PARAMGET_DTIMPeriodReqCmd
 	.word	0x00020000
-	.word	FUN_06011834
+	.word	PARAMGET_ListenIntervalReqCmd
 	.word	0x00010000
-	.word	FUN_06011750
+	.word	PARAMGET_GameInfoReqCmd
 _06019700:
 	.word	0x00010003
-	.word	FUN_06011FC8
+	.word	PARAMSET_BSSIDReqCmd
 	.word	0x00010011
-	.word	FUN_06011FA8
+	.word	PARAMSET_SSIDReqCmd
 	.word	0x00010001
-	.word	FUN_06011F64
+	.word	PARAMSET_BeaconPeriodReqCmd
 	.word	0x00010001
-	.word	FUN_06011F20
+	.word	PARAMSET_DTIMPeriodReqCmd
 	.word	0x00010001
-	.word	FUN_06011ED4
+	.word	PARAMSET_ListenIntervalReqCmd
 	.word	0x00010000
-	.word	FUN_06011E64
+	.word	PARAMSET_GameInfoReqCmd
 _06019730:
 	.word	0x00010001
-	.word	FUN_06011710
+	.word	MLME_ResetReqCmd
 	.word	0x00010003
-	.word	FUN_06011664
+	.word	MLME_PwrMgtReqCmd
 	.word	0x0023001F
-	.word	FUN_06011518
+	.word	MLME_ScanReqCmd
 	.word	0x00050022
-	.word	FUN_06011358
+	.word	MLME_JoinReqCmd
 	.word	0x00060005
-	.word	FUN_0601127C
+	.word	MLME_AuthReqCmd
 	.word	0x00040004
-	.word	FUN_06011130
+	.word	MLME_DeAuthReqCmd
 	.word	0x00030005
-	.word	FUN_06011048
+	.word	MLME_AssReqCmd
 	.word	0x00030005
-	.word	FUN_06010F78
+	.word	MLME_ReAssReqCmd
 	.word	0x00010004
-	.word	FUN_06010E60
+	.word	MLME_DisAssReqCmd
 	.word	0x00010017
-	.word	FUN_06010CBC
+	.word	MLME_StartReqCmd
 	.word	0x0012000C
-	.word	FUN_06010BD4
+	.word	MLME_MeasChanReqCmd
 _06019788:
 	.word	0x00010000
-	.word	FUN_0600F96C
+	.word	CMD_ReservedReqCmd
 	.word	0x00010000
-	.word	FUN_06012D88
+	.word	DEV_ShutdownReqCmd
 	.word	0x00010000
-	.word	FUN_06012D24
+	.word	DEV_IdleReqCmd
 	.word	0x00010000
-	.word	FUN_06012CC4
+	.word	DEV_Class1ReqCmd
 	.word	0x00010000
-	.word	FUN_06012C80
+	.word	DEV_RebootReqCmd
 	.word	0x00010000
-	.word	FUN_06012C3C
+	.word	DEV_ClearWlInfoReqCmd
 	.word	0x00090000
-	.word	FUN_06012B90
+	.word	DEV_GetVerInfoReqCmd
 	.word	0x005C0000
-	.word	FUN_06012B28
+	.word	DEV_GetWlInfoReqCmd
 	.word	0x00020000
-	.word	FUN_06012B00
+	.word	DEV_GetStateReqCmd
 	.word	0x00010004
-	.word	FUN_0601288C
+	.word	DEV_TestSignalReqCmd
 	.word	0x00010002
-	.word	FUN_060125EC
+	.word	DEV_TestRxReqCmd
 _060197E0:
 	.word	0x00210000
-	.word	FUN_06011D2C
+	.word	PARAMGET_AllReqCmd
 	.word	0x00040000
-	.word	FUN_06011CF4
+	.word	PARAMGET_MacAdrsReqCmd
 	.word	0x00020000
-	.word	FUN_06011CCC
+	.word	PARAMGET_RetryReqCmd
 	.word	0x00030000
-	.word	FUN_06011C94
+	.word	PARAMGET_EnableChannelReqCmd
 	.word	0x00020000
-	.word	FUN_06011C6C
+	.word	PARAMGET_ModeReqCmd
 	.word	0x00020000
-	.word	FUN_06011C44
+	.word	PARAMGET_RateReqCmd
 	.word	0x00020000
-	.word	FUN_06011C1C
+	.word	PARAMGET_WepModeReqCmd
 	.word	0x00020000
-	.word	FUN_06011BF4
+	.word	PARAMGET_WepKeyIdReqCmd
 	.word	0x00010000
-	.word	FUN_0600F96C
+	.word	CMD_ReservedReqCmd
 	.word	0x00020000
-	.word	FUN_06011BC4
+	.word	PARAMGET_BeaconTypeReqCmd
 	.word	0x00020000
-	.word	FUN_06011B94
+	.word	PARAMGET_ResBcSsidReqCmd
 	.word	0x00020000
-	.word	FUN_06011B6C
+	.word	PARAMGET_BeaconLostThReqCmd
 	.word	0x00020000
-	.word	FUN_06011B44
+	.word	PARAMGET_ActiveZoneReqCmd
 	.word	0x00110000
-	.word	FUN_06011B08
+	.word	PARAMGET_SSIDMaskReqCmd
 	.word	0x00020000
-	.word	FUN_06011AD8
+	.word	PARAMGET_PreambleTypeReqCmd
 	.word	0x00020000
 	.word	0x06011AB0
 	.word	0x00040000
-	.word	FUN_06011A70
+	.word	PARAMGET_CCAModeEDThReqCmd
 	.word	0x00010000
-	.word	FUN_0600F96C
+	.word	CMD_ReservedReqCmd
 	.word	0x00020000
-	.word	FUN_06011A44
+	.word	PARAMGET_MaxConnReqCmd
 	.word	0x00020000
-	.word	FUN_06011A08
+	.word	PARAMGET_MainAntennaReqCmd
 	.word	0x00030000
-	.word	FUN_060119A8
+	.word	PARAMGET_DiversityReqCmd
 	.word	0x00020000
-	.word	FUN_0601196C
+	.word	PARAMGET_BcnSendRecvIndReqCmd
 	.word	0x00020000
-	.word	FUN_06011930
+	.word	PARAMGET_NullKeyModeReqCmd
 _06019898:
 	.word	0x00010048
-	.word	FUN_060124F8
+	.word	PARAMSET_AllReqCmd
 	.word	0x00010003
-	.word	FUN_060124B0
+	.word	PARAMSET_MacAdrsReqCmd
 	.word	0x00010001
-	.word	FUN_06012498
+	.word	PARAMSET_RetryReqCmd
 	.word	0x00010001
-	.word	FUN_06012450
+	.word	PARAMSET_EnableChannelReqCmd
 	.word	0x00010001
-	.word	FUN_060123F4
+	.word	PARAMSET_ModeReqCmd
 	.word	0x00010001
-	.word	FUN_060123DC
+	.word	PARAMSET_RateReqCmd
 	.word	0x00010001
-	.word	FUN_060123C4
+	.word	PARAMSET_WepModeReqCmd
 	.word	0x00010001
-	.word	FUN_060123AC
+	.word	PARAMSET_WepKeyIdReqCmd
 	.word	0x00010028
-	.word	FUN_06012394
+	.word	PARAMSET_WepKeyReqCmd
 	.word	0x00010001
-	.word	FUN_0601234C
+	.word	PARAMSET_BeaconTypeReqCmd
 	.word	0x00010001
-	.word	FUN_06012334
+	.word	PARAMSET_ResBcSsidReqCmd
 	.word	0x00010001
-	.word	FUN_0601231C
+	.word	PARAMSET_BeaconLostThReqCmd
 	.word	0x00010001
-	.word	FUN_06012300
+	.word	PARAMSET_ActiveZoneReqCmd
 	.word	0x00010010
-	.word	FUN_060122E8
+	.word	PARAMSET_SSIDMaskReqCmd
 	.word	0x00010001
-	.word	FUN_060122D0
+	.word	PARAMSET_PreambleTypeReqCmd
 	.word	0x00010001
 	.word	0x060122B8
 	.word	0x00010003
-	.word	FUN_06012264
+	.word	PARAMSET_CCAModeEDThReqCmd
 	.word	0x00010003
-	.word	FUN_06012158
+	.word	PARAMSET_LifeTimeReqCmd
 	.word	0x00010001
-	.word	FUN_06012100
+	.word	PARAMSET_MaxConnReqCmd
 	.word	0x00010001
-	.word	FUN_060120B8
+	.word	PARAMSET_MainAntennaReqCmd
 	.word	0x00010002
-	.word	FUN_06012070
+	.word	PARAMSET_DiversityReqCmd
 	.word	0x00010001
-	.word	FUN_06012028
+	.word	PARAMSET_BcnSendRecvIndReqCmd
 	.word	0x00010001
-	.word	FUN_06011FE0
+	.word	PARAMSET_NullKeyModeReqCmd
 _06019950:
 	.word	0x38372E32
 	.word	0x0030302E
@@ -29579,8 +29579,8 @@ _06019958:
 
  	.section .bss
  	.balign 16, 0
- 	.global _06019960
-_06019960:
+ 	.global wmspW
+wmspW:
 	.space 32
 _06019980:
 	.space 8

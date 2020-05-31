@@ -1,12 +1,12 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 	.section .bss
-	.global _0380770C
-_0380770C: ;0x0380770C
+	.global OSi_IrqThreadQueue
+OSi_IrqThreadQueue: ;0x0380770C
 	.space 0x03807714 - 0x0380770C
 
-	.global _03807714
-_03807714: ;0x03807714
+	.global OSi_IrqCallbackInfo
+OSi_IrqCallbackInfo: ;0x03807714
 	.space 0x03807718 - 0x03807714
 
 	.global _03807718
@@ -37,52 +37,52 @@ _03807774: ;0x03807774
 _03807780: ;0x03807780
 	.space 0x03807784 - 0x03807780
 
-	.global _03807784
-_03807784: ;0x03807784
+	.global OSi_StackForDestructor
+OSi_StackForDestructor: ;0x03807784
 	.space 0x03807788 - 0x03807784
 
-	.global _03807788
-_03807788: ;0x03807788
+	.global OSi_RescheduleCount
+OSi_RescheduleCount: ;0x03807788
 	.space 0x0380778C - 0x03807788
 
 	.global _0380778C
 _0380778C: ;0x0380778C
 	.space 0x03807790 - 0x0380778C
 
-	.global _03807790
-_03807790: ;0x03807790
+	.global OSi_SystemCallbackInSwitchThread
+OSi_SystemCallbackInSwitchThread: ;0x03807790
 	.space 0x03807794 - 0x03807790
 
-	.global _03807794
-_03807794: ;0x03807794
+	.global OSi_CurrentThreadPtr
+OSi_CurrentThreadPtr: ;0x03807794
 	.space 0x03807798 - 0x03807794
 
-	.global _03807798
-_03807798: ;0x03807798
+	.global OSi_IsThreadInitialized
+OSi_IsThreadInitialized: ;0x03807798
 	.space 0x0380779C - 0x03807798
 
-	.global _0380779C
-_0380779C: ;0x0380779C
+	.global OSi_ThreadInfo
+OSi_ThreadInfo: ;0x0380779C
 	.space 0x038077A0 - 0x0380779C
 
 	.global _038077A0
 _038077A0: ;0x038077A0
 	.space 0x038077AC - 0x038077A0
 
-	.global _038077AC
-_038077AC: ;0x038077AC
+	.global OSi_IdleThread
+OSi_IdleThread: ;0x038077AC
 	.space 0x03807850 - 0x038077AC
 
-	.global _03807850
-_03807850: ;0x03807850
+	.global OSi_LauncherThread
+OSi_LauncherThread: ;0x03807850
 	.space 0x038078F4 - 0x03807850
 
 	.global _038078F4
 _038078F4: ;0x038078F4
 	.space 0x038078F8 - 0x038078F4
 
-	.global _038078F8
-_038078F8: ;0x038078F8
+	.global OSiHeapInfo
+OSiHeapInfo: ;0x038078F8
 	.space 0x0380791C - 0x038078F8
 
 	.global _0380791C
@@ -93,12 +93,12 @@ _0380791C: ;0x0380791C
 _03807920: ;0x03807920
 	.space 0x03807924 - 0x03807920
 
-	.global _03807924
-_03807924: ;0x03807924
+	.global OSi_NeedResetTimer
+OSi_NeedResetTimer: ;0x03807924
 	.space 0x03807928 - 0x03807924
 
-	.global _03807928
-_03807928: ;0x03807928
+	.global OSi_TickCounter
+OSi_TickCounter: ;0x03807928
 	.space 0x03807930 - 0x03807928
 
 	.global _03807930
@@ -141,24 +141,24 @@ _03807958: ;0x03807958
 _0380795C: ;0x0380795C
 	.space 0x038079DC - 0x0380795C
 
-	.global _038079DC
-_038079DC: ;0x038079DC
+	.global PADi_XYButtonAvailable
+PADi_XYButtonAvailable: ;0x038079DC
 	.space 0x038079E0 - 0x038079DC
 
 	.global _038079E0
 _038079E0: ;0x038079E0
 	.space 0x03807A0C - 0x038079E0
 
-	.global _03807A0C
-_03807A0C: ;0x03807A0C
+	.global sSurroundDecay
+sSurroundDecay: ;0x03807A0C
 	.space 0x03807A10 - 0x03807A0C
 
-	.global _03807A10
-_03807A10: ;0x03807A10
+	.global sOrgPan
+sOrgPan: ;0x03807A10
 	.space 0x03807A20 - 0x03807A10
 
-	.global _03807A20
-_03807A20: ;0x03807A20
+	.global sOrgVolume
+sOrgVolume: ;0x03807A20
 	.space 0x03807A30 - 0x03807A20
 
 	.global _03807A30
@@ -201,12 +201,12 @@ _03807F50: ;0x03807F50
 _03807F58: ;0x03807F58
 	.space 0x03807F68 - 0x03807F58
 
-	.global _03807F68
-_03807F68: ;0x03807F68
+	.global SNDi_SharedWork
+SNDi_SharedWork: ;0x03807F68
 	.space 0x03807F6C - 0x03807F68
 
-	.global _03807F6C
-_03807F6C: ;0x03807F6C
+	.global SNDi_Work
+SNDi_Work: ;0x03807F6C
 	.space 0x038084AC - 0x03807F6C
 
 	.global _038084AC
@@ -233,8 +233,8 @@ _0380910C: ;0x0380910C
 _0380912C: ;0x0380912C
 	.space 0x03809140 - 0x0380912C
 
-	.global _03809140
-_03809140: ;0x03809140
+	.global cardi_common
+cardi_common: ;0x03809140
 	.space 0x03809188 - 0x03809140
 
 	.global _03809188
@@ -249,12 +249,12 @@ _03809760: ;0x03809760
 _03809764: ;0x03809764
 	.space 0x03809774 - 0x03809764
 
-	.global _03809774
-_03809774: ;0x03809774
+	.global cardi_rom_base
+cardi_rom_base: ;0x03809774
 	.space 0x03809780 - 0x03809774
 
-	.global _03809780
-_03809780: ;0x03809780
+	.global rom_stat
+rom_stat: ;0x03809780
 	.space 0x038099A0 - 0x03809780
 
 	.global _038099A0
@@ -321,28 +321,28 @@ _03809E80: ;0x03809E80
 _03809F28: ;0x03809F28
 	.space 0x03809F2C - 0x03809F28
 
-	.global _03809F2C
-_03809F2C: ;0x03809F2C
+	.global PMi_KeyPattern
+PMi_KeyPattern: ;0x03809F2C
 	.space 0x03809F30 - 0x03809F2C
 
-	.global _03809F30
-_03809F30: ;0x03809F30
+	.global PMi_TriggerBL
+PMi_TriggerBL: ;0x03809F30
 	.space 0x03809F34 - 0x03809F30
 
-	.global _03809F34
-_03809F34: ;0x03809F34
+	.global PMi_Initialized
+PMi_Initialized: ;0x03809F34
 	.space 0x03809F38 - 0x03809F34
 
-	.global _03809F38
-_03809F38: ;0x03809F38
+	.global PMi_Work
+PMi_Work: ;0x03809F38
 	.space 0x03809F64 - 0x03809F38
 
 	.global _03809F64
 _03809F64: ;0x03809F64
 	.space 0x03809F68 - 0x03809F64
 
-	.global _03809F68
-_03809F68: ;0x03809F68
+	.global PMi_BlinkPatternNo
+PMi_BlinkPatternNo: ;0x03809F68
 	.space 0x03809F6C - 0x03809F68
 
 	.global _03809F6C
@@ -353,16 +353,16 @@ _03809F6C: ;0x03809F6C
 _03809FA8: ;0x03809FA8
 	.space 0x03809FB8 - 0x03809FA8
 
-	.global _03809FB8
-_03809FB8: ;0x03809FB8
+	.global CTRDGi_Work
+CTRDGi_Work: ;0x03809FB8
 	.space 0x03809FBC - 0x03809FB8
 
 	.global _03809FBC
 _03809FBC: ;0x03809FBC
 	.space 0x03809FC0 - 0x03809FBC
 
-	.global _03809FC0
-_03809FC0: ;0x03809FC0
+	.global current_vib
+current_vib: ;0x03809FC0
 	.space 0x03809FC4 - 0x03809FC0
 
 	.global _03809FC4
