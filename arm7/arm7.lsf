@@ -20,6 +20,11 @@ Autoload WRAM
 	Object OS_interrupt.o
 	Object OS_spinLock.o
 	Object OS_thread.o
+	Object OS_context.o
+	Object OS_message.o
+	Object OS_mutex.o
+	Object OS_init.o
+	Object OS_arena.o
 	Object dtcm.o
 	Object libsyscall.o
 	Object dtcm2.o

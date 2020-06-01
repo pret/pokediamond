@@ -40,9 +40,11 @@
 .extern OS_GetProcMode
 .extern OS_Init
 .extern OS_InitAlloc
+.extern OS_InitArena
 .extern OS_InitContext
 .extern OS_InitIrqTable
 .extern OS_InitLock
+.extern OS_InitReset
 .extern OS_InitThread
 .extern OS_IsResetOccurred
 .extern OS_LoadContext
