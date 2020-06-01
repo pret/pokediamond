@@ -25,6 +25,9 @@ Autoload WRAM
 	Object OS_mutex.o
 	Object OS_init.o
 	Object OS_arena.o
+	Object OS_alloc.o
+	Object OS_timer.o
+	Object OS_tick.o
 	Object dtcm.o
 	Object libsyscall.o
 	Object dtcm2.o

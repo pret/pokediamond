@@ -26,6 +26,7 @@
 .extern OSi_IrqDma1
 .extern OSi_IrqDma0
 .extern OSi_RemoveMutexLinkFromQueue
+.extern OSi_SetTimerReserved
 .extern OSi_UnlockAllMutex
 .extern OS_IrqDummy
 .extern OS_CheckHeap
@@ -47,6 +48,7 @@
 .extern OS_InitReset
 .extern OS_InitThread
 .extern OS_IsResetOccurred
+.extern OS_IsTickAvailable
 .extern OS_LoadContext
 .extern OS_ResetRequestIrqMask
 .extern OS_ResetSystem
