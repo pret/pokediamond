@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+	.text
 
 	arm_func_start OSi_AlarmHandler
 OSi_AlarmHandler: ; 0x037FA540
