@@ -1,0 +1,6 @@
+#ifndef POKEDIAMOND_OS_INIT_H
+#define POKEDIAMOND_OS_INIT_H
+
+void OS_Init(void);
+
+#endif //POKEDIAMOND_OS_INIT_H

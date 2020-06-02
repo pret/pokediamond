@@ -46,15 +46,21 @@ LD_SPEC := $(TARGET).lsf
 LD_TEMPLATE := ARM7-TS.lcf.template
 
 # Directories containing source files
-SRC_DIRS := src
+SRC_DIRS := src lib lib/src
 ASM_DIRS := asm data files
 
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
 
+C_OBJS = $(C_FILES:%.c=$(BUILD_DIR)/%.o)
+S_OBJS = $(S_FILES:%.s=$(BUILD_DIR)/%.o)
+
 # Object files
-O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
-           $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
+O_FILES := $(C_OBJS) $(S_OBJS)
+
+.SECONDARY:
+.DELETE_ON_ERROR:
+.SECONDEXPANSION:
 
 ##################### Compiler Options #######################
 
@@ -83,7 +89,7 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm7_thumb.s -o arm7.o
 ASFLAGS = -proc arm4t -i  ..
-CFLAGS = -O4,p -proc v4t -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir ../arm9/lib/include -W all # temporary fix while arm7 libos hasn't been decomped
+CFLAGS = -O4,p -proc arm7tdmi -fp soft -lang c99 -Cpp_exceptions off -ir ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all
 LDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
@@ -92,6 +98,7 @@ LDFLAGS = -map -nodead -w off -proc v4t -interworking -map -symtab -m _start
 SHA1SUM = sha1sum
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
+SCANINC = $(TOOLS_DIR)/scaninc/scaninc$(EXE)
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
@@ -99,6 +106,7 @@ TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
+export MWCIncludes := lib/include
 
 ######################### Targets ###########################
 
@@ -112,6 +120,7 @@ else
 NODEP := 1
 endif
 
+.PRECIOUS: $(ROM)
 .PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
 
 MAKEFLAGS += --no-print-directory
@@ -142,17 +151,31 @@ patch_mwasmarm:
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
-$(BUILD_DIR)/%.o: %.c
+######################## Special Rules ########################
+
+# TODO: Move out to lib/Makefile
+build/lib/src/%.o: MWCCVERSION = 1.2/sp2p3
+
+####################### Everything Else ######################
+
+ifeq (,$(NODEP))
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $(filter $*.c,$(C_FILES)) $(filter $*.s,$(S_FILES)))
+else
+$(BUILD_DIR)/%.o: dep :=
+endif
+
+$(C_OBJS): $(BUILD_DIR)/%.o: %.c $$(dep)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.o: %.s
-	$(AS) $(ASFLAGS) $< -o $@
+$(S_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
+	$(AS) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
 	$(MAKELSF) $< $(LD_TEMPLATE) $@
 
-$(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT)
-	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES)
+$(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
+	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
+	$(OBJCOPY) --update-section arm7=$@ -j arm7 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
@@ -172,7 +195,12 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.png: ;
 %.pal: ;
 
-$(BUILD_DIR)/data/icon.o: graphics/icon.4bpp graphics/icon.gbapal
+# Included files
+baserom.%: ;
+%.h: ;
+%.inc: ;
+
+$(BIN_FILES): ;
 
 ### Debug Print ###
 
