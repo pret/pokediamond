@@ -65,18 +65,12 @@ BOOL FUN_02046420(struct UnkStruct_0204639C * r5)
 
 BOOL FUN_0204646C(struct UnkStruct_0204639C * r0)
 {
-    if (r0->unk10 != NULL)
-        return TRUE;
-    else
-        return FALSE;
+    return (r0->unk10 != NULL);
 }
 
 BOOL FUN_0204647C(void * r4)
 {
-    if (FUN_0203739C(r4) || FUN_020373C4(r4))
-        return TRUE;
-    else
-        return FALSE;
+    return (FUN_0203739C(r4) || FUN_020373C4(r4));
 }
 
 void FUN_0204649C(void * r0)
@@ -86,10 +80,7 @@ void FUN_0204649C(void * r0)
 
 BOOL FUN_020464A4(void * r0)
 {
-    if (FUN_020373AC(r0))
-        return TRUE;
-    else
-        return FALSE;
+    return (FUN_020373AC(r0) != FALSE);
 }
 
 BOOL FUN_020464B8(struct UnkStruct_0204639C * r4)
