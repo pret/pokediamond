@@ -3,66 +3,6 @@
 	.section .text
 
 	; OS
-	arm_func_start OSi_ReloadRomData  ;OS_reset.c
-OSi_ReloadRomData: ; 0x01FF83C4
-	stmdb sp!,	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-	sub	sp, sp, #4
-	ldr	r0, _01FF8484
-	ldr	sl, [r0]
-	cmp	sl, #32768	; 0x8000
-	bcc	_01FF83EC
-	ldr	r1, _01FF8488
-	mov	r0, sl
-	mov	r2, #352	; 0x160
-	bl	OSi_ReadCardRom32
-_01FF83EC:
-	ldr	r5, _01FF848C
-	ldr	r4, _01FF8490
-	ldr	r3, _01FF8494
-	ldr	r2, _01FF8498
-	ldr	r1, _01FF849C
-	ldr	r9, [r5]
-	ldr	r0, _01FF84A0
-	ldr	r8, [r4]
-	ldr	r7, [r3]
-	ldr	r6, [r2]
-	ldr	r5, [r1]
-	ldr	r4, [r0]
-	bl	OS_DisableInterrupts ; 0x1e02b0
-	mov	fp, r0
-	bl	DC_StoreAll ; 0x1df064
-	bl	DC_InvalidateAll ; 0x1df058
-	mov	r0, fp
-	bl	OS_RestoreInterrupts ; 0x1e02c4
-	bl	IC_InvalidateAll ; 0x1df12c
-	bl	DC_WaitWriteBufferEmpty ; 0x1df120
-	add	r9, r9, sl
-	cmp	r9, #32768	; 0x8000
-	rsbcc	r0, r9, #32768	; 0x8000
-	addcc	r8, r8, r0
-	subcc	r7, r7, r0
-	movcc	r9, #32768	; 0x8000
-	add	r6, r6, sl
-	mov	r0, r9
-	mov	r1, r8
-	mov	r2, r7
-	bl	OSi_ReadCardRom32 ; 0x10b234
-	mov	r0, r6
-	mov	r1, r5
-	mov	r2, r4
-	bl	OSi_ReadCardRom32
-	add	sp, sp, #4
-	ldmia sp!,	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
-	bx	lr
-_01FF8484:	.word 0x027FFC2C
-_01FF8488:	.word 0x027FFE00
-_01FF848C:	.word 0x027FFE20
-_01FF8490:	.word 0x027FFE28
-_01FF8494:	.word 0x027FFE2C
-_01FF8498:	.word 0x027FFE30
-_01FF849C:	.word 0x027FFE38
-_01FF84A0:	.word 0x027FFE3C
-
 	arm_func_start OSi_DoResetSystem  ;OS_reset.c
 OSi_DoResetSystem: ; 0x01FF84A4
 	stmfd	sp!, {lr}
