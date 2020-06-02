@@ -266,6 +266,7 @@ SECTIONS {
 		unk_020377F0.o (.text)
 		script.o (.text)
 		unk_02038C78.o (.text)
+		scrcmd_c.o (.text)
 		scrcmd.o (.text)
 		scrcmd_2.o (.text)
 		scrcmd_3.o (.text)

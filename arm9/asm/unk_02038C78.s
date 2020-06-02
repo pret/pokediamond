@@ -149,29 +149,29 @@ UNK_020F3538: ; 0x020F3538
 
     .global gScriptCmdTable
 gScriptCmdTable: ; 0x020F355C
-    .word FUN_020399A0
-    .word FUN_020399A4
-    .word FUN_020399A8
-    .word FUN_020399B4
-    .word FUN_02039A28
-    .word FUN_02039A40
-    .word FUN_02039A5C
-    .word FUN_02039A78
-    .word FUN_02039A90
-    .word FUN_02039AAC
-    .word FUN_02039ACC
-    .word FUN_02039AF8
-    .word FUN_02039B28
-    .word FUN_02039B50
-    .word FUN_02039B78
-    .word FUN_02039BA0
-    .word FUN_02039BBC
-    .word FUN_02039BDC
-    .word FUN_02039C08
-    .word FUN_02039C40
-    .word FUN_02039C78
-    .word FUN_02039CE4
-    .word FUN_02039CF8
+    .word ScrCmd_Nop
+    .word ScrCmd_Dummy
+    .word ScrCmd_End
+    .word ScrCmd_TimeWait
+    .word ScrCmd_LoadRegValue
+    .word ScrCmd_LoadRegWData
+    .word ScrCmd_LoadRegAdrs
+    .word ScrCmd_LoadAdrsValue
+    .word ScrCmd_LoadAdrsReg
+    .word ScrCmd_LoadRegReg
+    .word ScrCmd_LoadAdrsAdrs
+    .word ScrCmd_CmpRegReg
+    .word ScrCmd_CmpRegValue
+    .word ScrCmd_CmpRegAdrs
+    .word ScrCmd_CmpAdrsReg
+    .word ScrCmd_CmpAdrsValue
+    .word ScrCmd_CmpAdrsAdrs
+    .word ScrCmd_CmpWkValue
+    .word ScrCmd_CmpWkWk
+    .word ScrCmd_VMMachineAdd
+    .word ScrCmd_ChangeCommonScr
+    .word ScrCmd_ChangeLocalScr
+    .word ScrCmd_GlobalJump
     .word FUN_02039D10
     .word FUN_02039D48
     .word FUN_02039D78
@@ -654,7 +654,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0204469C
     .word FUN_02044658
     .word FUN_0203BC2C
-    .word FUN_02039A10
+    .word ScrCmd_DebugWatch
     .word FUN_0203A04C
     .word FUN_0203A098
     .word FUN_0203A0FC
