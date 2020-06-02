@@ -14,6 +14,20 @@ Autoload MAIN
 Autoload WRAM
 {
 	Address 0x037F8000
+	Object main.o
+	Object OS_irqHandler.o
+	Object OS_irqTable.o
+	Object OS_interrupt.o
+	Object OS_spinLock.o
+	Object OS_thread.o
+	Object OS_context.o
+	Object OS_message.o
+	Object OS_mutex.o
+	Object OS_init.o
+	Object OS_arena.o
+	Object OS_alloc.o
+	Object OS_timer.o
+	Object OS_tick.o
 	Object dtcm.o
 	Object libsyscall.o
 	Object dtcm2.o
