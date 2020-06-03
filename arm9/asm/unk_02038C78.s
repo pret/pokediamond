@@ -129,10 +129,15 @@ UNK_020F34DC: ; 0x020F34DC
 UNK_020F34E0: ; 0x020F34E0
 	.byte 0x03, 0x19, 0x0D, 0x06, 0x04, 0x0D, 0x15, 0x03
 
-	.global UNK_020F34E8
-UNK_020F34E8: ; 0x020F34E8
-	.byte 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x01, 0x01, 0x00, 0x00, 0x01, 0x01, 0x01
-	.byte 0x00, 0x01, 0x00, 0x00
+	.global ConditionLookup
+ConditionLookup: ; 0x020F34E8
+	.byte 0x01, 0x00, 0x00
+	.byte 0x00, 0x01, 0x00
+	.byte 0x00, 0x00, 0x01
+	.byte 0x01, 0x01, 0x00
+	.byte 0x00, 0x01, 0x01
+	.byte 0x01, 0x00, 0x01
+	.byte 0x00, 0x00  ; padding
 
 	.global UNK_020F34FC
 UNK_020F34FC: ; 0x020F34FC
@@ -172,21 +177,21 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_ChangeCommonScr
     .word ScrCmd_ChangeLocalScr
     .word ScrCmd_GlobalJump
-    .word FUN_02039D10
-    .word FUN_02039D48
-    .word FUN_02039D78
-    .word FUN_02039DAC
-    .word FUN_02039DC4
-    .word FUN_02039DD0
-    .word FUN_02039E04
-    .word FUN_02039E38
-    .word FUN_02039E50
-    .word FUN_02039E68
-    .word FUN_02039E84
-    .word FUN_02039EC0
-    .word FUN_02039EE8
-    .word FUN_02039F0C
-    .word FUN_02039F30
+    .word ScrCmd_ObjIDJump
+    .word ScrCmd_BgIDJump
+    .word ScrCmd_PlayerDirJump
+    .word ScrCmd_GlobalCall
+    .word ScrCmd_Ret
+    .word ScrCmd_IfJump
+    .word ScrCmd_IfCall
+    .word ScrCmd_FlagSet
+    .word ScrCmd_FlagReset
+    .word ScrCmd_FlagCheck
+    .word ScrCmd_FlagCheckWk
+    .word ScrCmd_FlagSetWk
+    .word ScrCmd_TrainerFlagSet
+    .word ScrCmd_TrainerFlagReset
+    .word ScrCmd_TrainerFlagCheck
     .word FUN_02039F58
     .word FUN_02039F88
     .word FUN_02039FB8

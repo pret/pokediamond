@@ -3,15 +3,26 @@
 #include "script.h"
 #include "types.h"
 
+// External data
+extern u8 ConditionLookup[6][3];
+
 // External funcs
 extern u16* FUN_020394B8(u32 arg, u16 wk);
 extern u16 FUN_020394F0(u32 arg, u16 wk);
 extern void* FUN_02039438(u32 arg, u16 id);
 extern void* FUN_02038EB0(u32 arg, u16 id);
+extern u8 FUN_02058448(u32 arg);
+extern u32 FUN_02046534(u32 arg);
+extern void FUN_0203953C(u32 arg, u16 flag);
+extern void FUN_02039550(u32 arg, u16 flag);
+extern BOOL FUN_02039528(u32 arg, u16 flag);
+extern void FUN_0203965C(u32 arg, u16 wk);
+extern void FUN_02039678(u32 arg, u16 wk);
+extern BOOL FUN_02039640(u32 arg, u16 wk);
 
 // Early definitions
-extern BOOL FUN_020399E8(struct ScriptContext* ctx);
-extern BOOL FUN_02039CC8(struct ScriptContext* ctx);
+BOOL FUN_020399E8(struct ScriptContext* ctx);
+BOOL FUN_02039CC8(struct ScriptContext* ctx);
 
 // Functions
 // Names taken from
@@ -214,5 +225,129 @@ THUMB_FUNC BOOL ScrCmd_ChangeLocalScr(struct ScriptContext* ctx) {
 THUMB_FUNC BOOL ScrCmd_GlobalJump(struct ScriptContext* ctx) {
     s32 offset = (s32)ScriptReadWord(ctx);  // Using s32 since it's also used negative
     ScriptJump(ctx, ctx->scriptPtr + offset);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_ObjIDJump(struct ScriptContext* ctx) {
+    u32* unk = FUN_02039438(ctx->unk80, 0xa);
+    u8 id = ScriptReadByte(ctx);
+    s32 offset = (s32)ScriptReadWord(ctx);
+    if (FUN_02058448(*unk) == id) {
+        ScriptJump(ctx, ctx->scriptPtr + offset);
+    }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_BgIDJump(struct ScriptContext* ctx) {
+    u32 unk = FUN_02046534(ctx->unk74);
+    u8 id = ScriptReadByte(ctx);
+    s32 offset = (s32)ScriptReadWord(ctx);
+
+    if (unk == id) {
+        ScriptJump(ctx, ctx->scriptPtr + offset);
+    }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_PlayerDirJump(struct ScriptContext* ctx) {
+    u32* unk = FUN_02039438(ctx->unk80, 0x9);
+    u8 dir = ScriptReadByte(ctx);
+    s32 offset = (s32)ScriptReadWord(ctx);
+
+    if (*unk == dir) {
+        ScriptJump(ctx, ctx->scriptPtr + offset);
+    }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_GlobalCall(struct ScriptContext* ctx) {
+    s32 offset = (s32)ScriptReadWord(ctx);
+    ScriptCall(ctx, ctx->scriptPtr + offset);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_Ret(struct ScriptContext* ctx) {
+    ScriptReturn(ctx);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_IfJump(struct ScriptContext* ctx) {
+    u8 compareType = ScriptReadByte(ctx);
+    s32 offset = (s32) ScriptReadWord(ctx);
+
+    // ConditionLookup[compareType][ctx->comparisonResult]
+    if (ConditionLookup[compareType][ctx->comparisonResult] == TRUE) {
+        ScriptJump(ctx, ctx->scriptPtr + offset);
+    }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_IfCall(struct ScriptContext* ctx) {
+    u8 compareType = ScriptReadByte(ctx);
+    s32 offset = (s32) ScriptReadWord(ctx);
+
+    // ConditionLookup[compareType][ctx->comparisonResult]
+    if (ConditionLookup[compareType][ctx->comparisonResult] == TRUE) {
+        ScriptCall(ctx, ctx->scriptPtr + offset);
+    }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_FlagSet(struct ScriptContext* ctx) {
+    u32 unk80 = ctx->unk80;
+    u16 flag = ScriptReadHalfword(ctx);
+    FUN_0203953C(unk80, flag);
+    return FALSE;
+}
+
+
+THUMB_FUNC BOOL ScrCmd_FlagReset(struct ScriptContext* ctx) {
+    u32 unk80 = ctx->unk80;
+    u16 flag = ScriptReadHalfword(ctx);
+    FUN_02039550(unk80, flag);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_FlagCheck(struct ScriptContext* ctx) {
+    u32 unk80 = ctx->unk80;
+    u16 flag = ScriptReadHalfword(ctx);
+    ctx->comparisonResult = FUN_02039528(unk80, flag);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_FlagCheckWk(struct ScriptContext* ctx) {
+    u32 unk80 = ctx->unk80;
+    u16* wk1 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
+    u16* wk2 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
+    *wk2 = FUN_02039528(unk80, *wk1);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_FlagSetWk(struct ScriptContext* ctx) {
+    u32 unk80 = ctx->unk80;
+    u16* wk = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
+    FUN_0203953C(unk80, *wk);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TrainerFlagSet(struct ScriptContext* ctx) {
+    u32 unk80 = ctx->unk80;
+    u16 wk = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    FUN_0203965C(unk80,  wk);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TrainerFlagReset(struct ScriptContext* ctx) {
+    u32 unk80 = ctx->unk80;
+    u16 wk = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    FUN_02039678(unk80,  wk);
+    return FALSE;
+}
+
+
+THUMB_FUNC BOOL ScrCmd_TrainerFlagCheck(struct ScriptContext* ctx) {
+    u32 unk80 = ctx->unk80;
+    u16 wk = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    ctx->comparisonResult = FUN_02039640(unk80,  wk);
     return FALSE;
 }
