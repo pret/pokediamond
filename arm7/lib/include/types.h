@@ -1,5 +1,5 @@
-#ifndef POKEDIAMOND_ARM9_TYPES_H
-#define POKEDIAMOND_ARM9_TYPES_H
+#ifndef POKEDIAMOND_ARM7_TYPES_H
+#define POKEDIAMOND_ARM7_TYPES_H
 
 typedef unsigned char u8;
 typedef unsigned short int u16;
@@ -47,4 +47,4 @@ typedef int BOOL;
 #endif // __cplusplus
 #endif
 
-#endif //POKEDIAMOND_ARM9_TYPES_H
+#endif //POKEDIAMOND_NITRO_TYPES_H

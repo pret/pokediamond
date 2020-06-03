@@ -1,9 +1,5 @@
-//
-// Created by mart on 4/12/20.
-//
-
-#ifndef POKEDIAMOND_OS_INIT_H
-#define POKEDIAMOND_OS_INIT_H
+#ifndef POKEDIAMOND_ARM9_OS_INIT_H
+#define POKEDIAMOND_ARM9_OS_INIT_H
 
 #include "types.h"
 #include "consts.h"
@@ -29,4 +25,4 @@
 
 void OS_Init(void);
 
-#endif //POKEDIAMOND_OS_INIT_H
+#endif //POKEDIAMOND_ARM9_OS_INIT_H

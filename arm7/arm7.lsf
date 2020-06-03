@@ -29,6 +29,8 @@ Autoload WRAM
 	Object OS_timer.o
 	Object OS_tick.o
 	Object OS_alarm.o
+	Object OS_valarm.o
+	Object OS_system.o
 	Object dtcm.o
 	Object libsyscall.o
 	Object dtcm2.o
