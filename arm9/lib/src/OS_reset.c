@@ -7,6 +7,7 @@
 #include "MB_mb.h"
 #include "OS_terminate_proc.h"
 #include "OS_interrupt.h"
+#include "OS_system.h"
 #include "sections.h"
 
 static u16 OSi_IsInitReset = 0;
@@ -18,6 +19,10 @@ extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
 extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 extern void CARD_LockRom(u16 lockId);
 extern void MI_StopDma(u32 dma);
+extern void DC_StoreAll(void);
+extern void DC_InvalidateAll(void);
+extern void IC_InvalidateAll(void);
+extern void DC_WaitWriteBufferEmpty(void);
 extern void OSi_DoResetSystem(void); //in itcm, should technically be in this file
 
 ARM_FUNC void OS_InitReset(void) {
@@ -136,7 +141,48 @@ enum
     CARD_ENUM_END
 };
 
-void OSi_ReadCardRom32(u32 src, void *dst, s32 len) //should be static, can't mark as such
+
+ARM_FUNC void OSi_ReloadRomData(void)
+{
+    u32 header = (u32)HW_ROM_HEADER_BUF;
+    const u32 rom_base = *(u32 *)HW_ROM_BASE_OFFSET_BUF;
+
+    if (rom_base >= 0x8000)
+    {
+        OSi_ReadCardRom32(rom_base, (void *)header, 0x160);
+    }
+
+    u32 src_arm9 = *(u32 *)(header + 0x20);
+    u32 dst_arm9 = *(u32 *)(header + 0x28);
+    u32 len_arm9 = *(u32 *)(header + 0x2c);
+    u32 src_arm7 = *(u32 *)(header + 0x30);
+    u32 dst_arm7 = *(u32 *)(header + 0x38);
+    u32 len_arm7 = *(u32 *)(header + 0x3c);
+
+    OSIntrMode prevIntrMode = OS_DisableInterrupts();
+    DC_StoreAll();
+    DC_InvalidateAll();
+    (void)OS_RestoreInterrupts(prevIntrMode);
+
+    IC_InvalidateAll();
+    DC_WaitWriteBufferEmpty();
+
+    src_arm9 += rom_base;
+    src_arm7 += rom_base;
+
+    if (src_arm9 < 0x8000)
+    {
+        u32 diff = 0x8000 - src_arm9;
+        src_arm9 = 0x8000;
+        dst_arm9 += diff;
+        len_arm9 -= diff;
+    }
+    OSi_ReadCardRom32(src_arm9, (void *)dst_arm9, (s32)len_arm9);
+
+    OSi_ReadCardRom32(src_arm7, (void *)dst_arm7, (s32)len_arm7);
+}
+
+ARM_FUNC void OSi_ReadCardRom32(u32 src, void *dst, s32 len) //should be static, can't mark as such
 {
     vu32 *const hdr_GAME_BUF = (vu32 *)(HW_ROM_HEADER_BUF + 0x60);
 
