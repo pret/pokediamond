@@ -8,6 +8,30 @@ struct ScriptContext;
 typedef u8 (*ScrCmdFunc)(struct ScriptContext *);
 typedef u8 Script[];
 
+struct UnkStruct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+};
+
+struct UnkSubStruct90 {
+    u16 unk0[4];
+    u8 filler8[0x108];
+}; // size = 0x110
+
+struct UnkSubStructA8 {
+    u8 filler0[0x90];
+    struct UnkSubStruct90 unksubstruct[1]; // unk size
+};
+
+// TODO: What is this struct?
+struct UnkStruct80 {
+    u8 filler0[0xC];
+    u32 unkC;
+    u8 filler10[0x98];
+    struct UnkSubStructA8 *unkA8;
+};
+
 struct ScriptContext
 {
     u8 stackDepth;
@@ -22,7 +46,7 @@ struct ScriptContext
 	u32 unk74;
 	u32 unk78;
 	u32 unk7C;
-	u32 unk80;
+	struct UnkStruct80* unk80;
 };
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

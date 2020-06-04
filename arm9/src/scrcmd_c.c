@@ -7,29 +7,35 @@
 extern u8 ConditionLookup[6][3];
 
 // External funcs
-extern u16* FUN_020394B8(u32 arg, u16 wk);
-extern u16 FUN_020394F0(u32 arg, u16 wk);
-extern void* FUN_02039438(u32 arg, u16 id);
-extern void* FUN_02038EB0(u32 arg, u16 id);
+extern u16* FUN_020394B8(struct UnkStruct80* arg, u16 wk);
+extern u16 FUN_020394F0(struct UnkStruct80* arg, u16 wk);
+extern void* FUN_02039438(struct UnkStruct80* arg, u32 id);
+extern void* FUN_02038EB0(struct UnkStruct80* arg, u16 id);
 extern u8 FUN_02058448(u32 arg);
 extern u32 FUN_02046534(u32 arg);
-extern void FUN_0203953C(u32 arg, u16 flag);
-extern void FUN_02039550(u32 arg, u16 flag);
-extern BOOL FUN_02039528(u32 arg, u16 flag);
-extern void FUN_0203965C(u32 arg, u16 wk);
-extern void FUN_02039678(u32 arg, u16 wk);
-extern BOOL FUN_02039640(u32 arg, u16 wk);
+extern void FUN_0203953C(struct UnkStruct80* arg, u16 flag);
+extern void FUN_02039550(struct UnkStruct80* arg, u16 flag);
+extern BOOL FUN_02039528(struct UnkStruct80* arg, u16 flag);
+extern void FUN_0203965C(struct UnkStruct80* arg, u16 wk);
+extern void FUN_02039678(struct UnkStruct80* arg, u16 wk);
+extern BOOL FUN_02039640(struct UnkStruct80* arg, u16 wk);
 extern void MOD05_021E2C24(struct ScriptContext* ctx, u32 arg, u16 id);
-extern void MOD05_021E2BD0(struct ScriptContext* ctx, u32 arg, u16 id, u8 unk1, u32 unk2);
+extern void MOD05_021E2BD0(struct ScriptContext* ctx, u32 arg, u16 id, u8 unk1, struct UnkStruct* unk2);
 extern void MOD05_021E2C58(struct ScriptContext* ctx, u16 typ, u16 id, u16 word1, s16 word2, u8 unk);
 extern u32 FUN_0200A86C(u32 a, u32 b, u32 id, u32 d);
 extern void FUN_0200A8B8(u32 arg);
 extern BOOL FUN_020546C8(u8 arg);
+extern u32 MOD06_02244210(u32 unkC, u16 poke, u16 sex, u8 flag, u8* unk);
+extern void MOD05_021E2CBC(struct ScriptContext* ctx, u32 unk, u8 unk2, u8 unk3);
+extern void FUN_0200AB18(u32 unk);
+extern void MOD05_021E2BB8(struct UnkStruct* unk, struct ScriptContext* ctx);
+extern u32 FUN_02058488(u32);
+extern BOOL FUN_02030F40();
 
 // Early definitions
 BOOL FUN_020399E8(struct ScriptContext* ctx);
 BOOL FUN_02039CC8(struct ScriptContext* ctx);
-extern BOOL FUN_0203A2F0(struct ScriptContext* ctx);
+BOOL FUN_0203A2F0(struct ScriptContext* ctx);
 
 // Functions
 // Names taken from
@@ -49,7 +55,7 @@ THUMB_FUNC BOOL ScrCmd_End(struct ScriptContext* ctx) {
 }
 
 THUMB_FUNC BOOL ScrCmd_TimeWait(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u16 num = ScriptReadHalfword(ctx);
     u16 wk = ScriptReadHalfword(ctx);
     u16* unk = FUN_020394B8(unk80, wk);
@@ -190,7 +196,7 @@ THUMB_FUNC BOOL ScrCmd_CmpWkWk(struct ScriptContext* ctx) {
 }
 
 THUMB_FUNC BOOL ScrCmd_VMMachineAdd(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u8* unk1 = FUN_02039438(unk80, 0x7);
     u32** unk2 = FUN_02039438(unk80, 0xe);
     u16 id = ScriptReadHalfword(ctx);
@@ -201,7 +207,7 @@ THUMB_FUNC BOOL ScrCmd_VMMachineAdd(struct ScriptContext* ctx) {
 }
 
 THUMB_FUNC BOOL ScrCmd_ChangeCommonScr(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u8* unk_flag_0x5 = FUN_02039438(unk80, 0x5);
     u8* unk2 = FUN_02039438(unk80, 0x7);
     u32** unk3 = FUN_02039438(unk80, 0xe);
@@ -302,7 +308,7 @@ THUMB_FUNC BOOL ScrCmd_IfCall(struct ScriptContext* ctx) {
 }
 
 THUMB_FUNC BOOL ScrCmd_FlagSet(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u16 flag = ScriptReadHalfword(ctx);
     FUN_0203953C(unk80, flag);
     return FALSE;
@@ -310,21 +316,21 @@ THUMB_FUNC BOOL ScrCmd_FlagSet(struct ScriptContext* ctx) {
 
 
 THUMB_FUNC BOOL ScrCmd_FlagReset(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u16 flag = ScriptReadHalfword(ctx);
     FUN_02039550(unk80, flag);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_FlagCheck(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u16 flag = ScriptReadHalfword(ctx);
     ctx->comparisonResult = FUN_02039528(unk80, flag);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_FlagCheckWk(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u16* wk1 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
     u16* wk2 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
     *wk2 = FUN_02039528(unk80, *wk1);
@@ -332,21 +338,21 @@ THUMB_FUNC BOOL ScrCmd_FlagCheckWk(struct ScriptContext* ctx) {
 }
 
 THUMB_FUNC BOOL ScrCmd_FlagSetWk(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u16* wk = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
     FUN_0203953C(unk80, *wk);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_TrainerFlagSet(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u16 wk = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
     FUN_0203965C(unk80,  wk);
     return FALSE;
 }
 
 THUMB_FUNC BOOL ScrCmd_TrainerFlagReset(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u16 wk = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
     FUN_02039678(unk80,  wk);
     return FALSE;
@@ -354,7 +360,7 @@ THUMB_FUNC BOOL ScrCmd_TrainerFlagReset(struct ScriptContext* ctx) {
 
 
 THUMB_FUNC BOOL ScrCmd_TrainerFlagCheck(struct ScriptContext* ctx) {
-    u32 unk80 = ctx->unk80;
+    struct UnkStruct80* unk80 = ctx->unk80;
     u16 wk = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
     ctx->comparisonResult = FUN_02039640(unk80,  wk);
     return FALSE;
@@ -413,7 +419,7 @@ THUMB_FUNC BOOL ScrCmd_TalkMsgOtherArc(struct ScriptContext* ctx) {
     u16 arc = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
     u16 msg = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
     u32 unk = FUN_0200A86C(0x1, 0x1a, arc, 0x20);
-    MOD05_021E2BD0(ctx, unk, msg, 1, 0);
+    MOD05_021E2BD0(ctx, unk, msg, 1, NULL);
     FUN_0200A8B8(unk);
     SetupNativeScript(ctx, FUN_0203A2F0);
     return TRUE;
@@ -440,10 +446,115 @@ THUMB_FUNC BOOL ScrCmd_TalkMsgPMS(struct ScriptContext* ctx) {
     return TRUE;
 }
 
-/*
-// Commented out as it comes later in the file
-BOOL FUN_0203A2F0(struct ScriptContext* ctx) {
+THUMB_FUNC u8 ScrCmd_TalkMsgTowerApper(struct ScriptContext* ctx) {
+    u8 id = ScriptReadByte(ctx);  // Even though this returns an u8 storing as u16 matches better?
+
+    if (ctx->unk80->unkA8 == NULL) {
+        return FALSE;
+    }
+
+    u16 *unkArr = ctx->unk80->unkA8->unksubstruct[id].unk0;
+    if (unkArr[0] == 0xFFFF) {
+        u32 unk3 = FUN_0200A86C(0x1, 0x1a, 0x22b, 0x20);
+        MOD05_021E2BD0(ctx, unk3, unkArr[1], 1, NULL);
+        FUN_0200A8B8(unk3);
+    } else {
+        MOD05_021E2C58(ctx, unkArr[0], unkArr[1], unkArr[2], unkArr[3], 1);
+    }
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgNgPokeName(struct ScriptContext* ctx) {
+    struct UnkStruct80* unk80 = ctx->unk80;
+    u8 msg = ScriptReadByte(ctx);
+    u16 poke = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 sex = ScriptReadHalfword(ctx);
+    u8 flag = ScriptReadByte(ctx);
+    u8 unk = 0;
+
+    u32 unk2 = MOD06_02244210(unk80->unkC, poke, sex, flag, &unk);
+    MOD05_021E2CBC(ctx, unk2, msg + unk, 1);
+    FUN_0200AB18(unk2);
+
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgUnknownFont(struct ScriptContext* ctx) {
+    struct UnkStruct myLocalStruct;
+    u16 msg = ScriptReadHalfword(ctx);
+
+    MOD05_021E2BB8(&myLocalStruct, ctx);
+    myLocalStruct.unk2 = 3;
+
+    MOD05_021E2BD0(ctx, ctx->unk78, msg, 0, &myLocalStruct);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsg(struct ScriptContext* ctx) {
+    u8 msg = ScriptReadByte(ctx);
+    MOD05_021E2BD0(ctx, ctx->unk78, msg, 1, NULL);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL FUN_0203A2F0(struct ScriptContext* ctx) {
     u8* unk = FUN_02039438(ctx->unk80, 0x3);
     return FUN_020546C8(*unk);
 }
-*/
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgSp(struct ScriptContext* ctx) {
+    u16 msg = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    MOD05_021E2BD0(ctx, ctx->unk78, (u8)msg, 1, NULL);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgSpAuto(struct ScriptContext* ctx) {
+    struct UnkStruct myLocalStruct;
+    u16 msg = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+
+    MOD05_021E2BB8(&myLocalStruct, ctx);
+    myLocalStruct.unk1 = 1;
+
+    MOD05_021E2BD0(ctx, ctx->unk78, (u8)msg, 1, &myLocalStruct);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgNoSkip(struct ScriptContext* ctx) {
+    u16 msg = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    MOD05_021E2BD0(ctx, ctx->unk78, (u8)msg, 0, NULL);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_MsgAutoGet(struct ScriptContext* ctx) {
+    u32* unk = FUN_02039438(ctx->unk80, 0xa);
+    u8 msg = FUN_02058488(*unk);
+    MOD05_021E2BD0(ctx, ctx->unk78, (u8)msg, 1, NULL);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+
+THUMB_FUNC BOOL ScrCmd_TalkConSioMsg(struct ScriptContext* ctx) {
+    u8 msg = ScriptReadByte(ctx);
+
+    if (FUN_02030F40() == FALSE) {
+        MOD05_021E2BD0(ctx, ctx->unk78, msg, 1, NULL);
+    } else {
+        struct UnkStruct myLocalStruct;
+        MOD05_021E2BB8(&myLocalStruct, ctx);
+        myLocalStruct.unk0 = 1;
+        myLocalStruct.unk1 = 1;
+        MOD05_021E2BD0(ctx, ctx->unk78, msg, 0, &myLocalStruct);
+    }
+
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}

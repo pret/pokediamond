@@ -198,10 +198,10 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_LoadWkWk
     .word ScrCmd_LoadWkWkValue
     .word ScrCmd_TalkMsgAllPut
-    .word FUN_0203A2C4
-    .word FUN_0203A304
-    .word FUN_0203A388
-    .word FUN_0203A400
+    .word ScrCmd_TalkMsg
+    .word ScrCmd_TalkMsgSp
+    .word ScrCmd_TalkMsgNoSkip
+    .word ScrCmd_TalkConSioMsg
     .word FUN_0203A45C
     .word FUN_0203A4D0
     .word FUN_0203A560
@@ -664,8 +664,8 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_TalkMsgOtherArc
     .word ScrCmd_TalkMsgAllPutPMS
     .word ScrCmd_TalkMsgPMS
-    .word FUN_0203A188
-    .word FUN_0203A210
+    .word ScrCmd_TalkMsgTowerApper
+    .word ScrCmd_TalkMsgNgPokeName
     .word FUN_0203C7F4
     .word FUN_0203C820
     .word FUN_0203E5DC
@@ -678,7 +678,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203BE50
     .word FUN_0203BECC
     .word FUN_0203BF00
-    .word FUN_0203A3C4
+    .word ScrCmd_MsgAutoGet
     .word FUN_0203E684
     .word FUN_0203E6B4
     .word FUN_0203E6C4
@@ -775,7 +775,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203F110
     .word FUN_0203F174
     .word FUN_0203F19C
-    .word FUN_0203A288
+    .word ScrCmd_TalkMsgUnknownFont
     .word FUN_0203F234
     .word FUN_0203F254
     .word FUN_0203F26C
@@ -858,7 +858,7 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_0203D0A4
     .word FUN_0203FC58
     .word FUN_0203CAE8
-    .word FUN_0203A340
+    .word ScrCmd_TalkMsgSpAuto
     .word FUN_0203FC80
     .word FUN_0203FCB0
     .word FUN_0203FCDC
