@@ -192,12 +192,12 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_TrainerFlagSet
     .word ScrCmd_TrainerFlagReset
     .word ScrCmd_TrainerFlagCheck
-    .word FUN_02039F58
-    .word FUN_02039F88
-    .word FUN_02039FB8
-    .word FUN_02039FDC
-    .word FUN_0203A00C
-    .word FUN_0203A038
+    .word ScrCmd_WkAdd
+    .word ScrCmd_WkSub
+    .word ScrCmd_LoadWkValue
+    .word ScrCmd_LoadWkWk
+    .word ScrCmd_LoadWkWkValue
+    .word ScrCmd_TalkMsgAllPut
     .word FUN_0203A2C4
     .word FUN_0203A304
     .word FUN_0203A388
@@ -660,10 +660,10 @@ gScriptCmdTable: ; 0x020F355C
     .word FUN_02044658
     .word FUN_0203BC2C
     .word ScrCmd_DebugWatch
-    .word FUN_0203A04C
-    .word FUN_0203A098
-    .word FUN_0203A0FC
-    .word FUN_0203A13C
+    .word ScrCmd_TalkMsgAllPutOtherArc
+    .word ScrCmd_TalkMsgOtherArc
+    .word ScrCmd_TalkMsgAllPutPMS
+    .word ScrCmd_TalkMsgPMS
     .word FUN_0203A188
     .word FUN_0203A210
     .word FUN_0203C7F4

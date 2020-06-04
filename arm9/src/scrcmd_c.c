@@ -19,14 +19,22 @@ extern BOOL FUN_02039528(u32 arg, u16 flag);
 extern void FUN_0203965C(u32 arg, u16 wk);
 extern void FUN_02039678(u32 arg, u16 wk);
 extern BOOL FUN_02039640(u32 arg, u16 wk);
+extern void MOD05_021E2C24(struct ScriptContext* ctx, u32 arg, u16 id);
+extern void MOD05_021E2BD0(struct ScriptContext* ctx, u32 arg, u16 id, u8 unk1, u32 unk2);
+extern void MOD05_021E2C58(struct ScriptContext* ctx, u16 typ, u16 id, u16 word1, s16 word2, u8 unk);
+extern u32 FUN_0200A86C(u32 a, u32 b, u32 id, u32 d);
+extern void FUN_0200A8B8(u32 arg);
+extern BOOL FUN_020546C8(u8 arg);
 
 // Early definitions
 BOOL FUN_020399E8(struct ScriptContext* ctx);
 BOOL FUN_02039CC8(struct ScriptContext* ctx);
+extern BOOL FUN_0203A2F0(struct ScriptContext* ctx);
 
 // Functions
 // Names taken from
 // https://docs.google.com/spreadsheets/d/16OKEM1UjX8BWE3Gab1DCRChs4jOIPXj06CA5aHee9KQ/edit?usp=sharing
+
 THUMB_FUNC BOOL ScrCmd_Nop(struct ScriptContext* ctx) {
     return FALSE;
 }
@@ -351,3 +359,91 @@ THUMB_FUNC BOOL ScrCmd_TrainerFlagCheck(struct ScriptContext* ctx) {
     ctx->comparisonResult = FUN_02039640(unk80,  wk);
     return FALSE;
 }
+
+THUMB_FUNC BOOL ScrCmd_WkAdd(struct ScriptContext* ctx) {
+    u16* wk1 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 wk2 = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    *wk1 = *wk1 + wk2;
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_WkSub(struct ScriptContext* ctx) {
+    u16* wk1 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 wk2 = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    *wk1 = *wk1 - wk2;
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_LoadWkValue(struct ScriptContext* ctx) {
+    u16* wk1 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
+    *wk1 = ScriptReadHalfword(ctx);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_LoadWkWk(struct ScriptContext* ctx) {
+    u16* wk1 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
+    u16* wk2 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
+    *wk1 = *wk2;
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_LoadWkWkValue(struct ScriptContext* ctx) {
+    u16* wk1 = FUN_020394B8(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 wk2 = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    *wk1 = wk2;
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgAllPut(struct ScriptContext* ctx) {
+    u8 id = ScriptReadByte(ctx);
+    MOD05_021E2C24(ctx, ctx->unk78, id);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgAllPutOtherArc(struct ScriptContext* ctx) {
+    u16 arc = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 msg = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    u32 unk = FUN_0200A86C(0x1, 0x1a, arc, 0x20);
+    MOD05_021E2C24(ctx, unk, msg);
+    FUN_0200A8B8(unk);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgOtherArc(struct ScriptContext* ctx) {
+    u16 arc = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    u16 msg = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    u32 unk = FUN_0200A86C(0x1, 0x1a, arc, 0x20);
+    MOD05_021E2BD0(ctx, unk, msg, 1, 0);
+    FUN_0200A8B8(unk);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgAllPutPMS(struct ScriptContext* ctx) {
+    u16 typ = ScriptReadHalfword(ctx);
+    u16 id = ScriptReadHalfword(ctx);
+    u16 word1 = ScriptReadHalfword(ctx);
+    u16 word2 = ScriptReadHalfword(ctx);
+
+    MOD05_021E2C58(ctx, typ, id, word1, word2, 0xff);
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkMsgPMS(struct ScriptContext* ctx) {
+    u16 typ = ScriptReadHalfword(ctx);
+    u16 id = ScriptReadHalfword(ctx);
+    u16 word1 = ScriptReadHalfword(ctx);
+    u16 word2 = ScriptReadHalfword(ctx);
+
+    MOD05_021E2C58(ctx, typ, id, word1, word2, 0x1);
+    SetupNativeScript(ctx, FUN_0203A2F0);
+    return TRUE;
+}
+
+/*
+// Commented out as it comes later in the file
+BOOL FUN_0203A2F0(struct ScriptContext* ctx) {
+    u8* unk = FUN_02039438(ctx->unk80, 0x3);
+    return FUN_020546C8(*unk);
+}
+*/
