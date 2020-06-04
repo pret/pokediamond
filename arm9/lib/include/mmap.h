@@ -29,6 +29,7 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_DOWNLOAD_PARAMETER_SIZE      0x00000020
 
 #define HW_RESET_PARAMETER_BUF  (HW_MAIN_MEM + 0x007ffc20)
+#define HW_ROM_BASE_OFFSET_BUF  (HW_MAIN_MEM + 0x007ffc2c)
 #define HW_WM_BOOT_BUF          (HW_MAIN_MEM + 0x007ffc40)
 #define HW_ARENA_INFO_BUF       (HW_MAIN_MEM + 0x007ffda0)      // Arena data structure
 #define HW_ROM_HEADER_BUF       (HW_MAIN_MEM + 0x007ffe00)      // ROM registration area data buffer
