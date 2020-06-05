@@ -1,11 +1,7 @@
-//
-// Created by red031000 on 2020-05-03.
-//
-
 #ifndef POKEDIAMOND_OS_SPINLOCK_H
 #define POKEDIAMOND_OS_SPINLOCK_H
 
-#include "types.h"
+#include "nitro/types.h"
 #include "syscall.h"
 
 typedef volatile struct OSLockWord {

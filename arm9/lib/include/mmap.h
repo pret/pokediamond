@@ -1,7 +1,7 @@
 #ifndef NITRO_MMAP_H
 #define NITRO_MMAP_H
 
-#include "types.h"
+#include "nitro/types.h"
 
 extern u32 SDK_AUTOLOAD_DTCM_START[];
 

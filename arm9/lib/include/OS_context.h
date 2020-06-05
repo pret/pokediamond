@@ -1,11 +1,7 @@
-//
-// Created by red031000 on 2020-05-17.
-//
-
 #ifndef POKEDIAMOND_OS_CONTEXT_H
 #define POKEDIAMOND_OS_CONTEXT_H
 
-#include "types.h"
+#include "nitro/types.h"
 #include "CP_context.h"
 
 typedef struct OSContext

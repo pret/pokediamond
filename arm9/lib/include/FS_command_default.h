@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_FS_COMMAND_DEFAULT_H
 #define POKEDIAMOND_FS_COMMAND_DEFAULT_H
 
-#include "types.h"
+#include "nitro/types.h"
 #include "FS_archive.h"
 
 typedef struct

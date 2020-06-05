@@ -1,6 +1,5 @@
 #include "global.h"
-#include "main.h"
-#include "GX.h"
+#include "gx.h"
 
 struct GX_State gGXState;
 

@@ -1,6 +1,5 @@
 #include "global.h"
-#include "main.h"
-#include "GX.h"
+#include "gx.h"
 
 ARM_FUNC void G2x_SetBGyAffine_(u32 *ptr, struct Mtx22 *mtx, fx32 a, fx32 b, fx32 c, fx32 d){
     fx32 temp0, temp1, temp2, temp3;

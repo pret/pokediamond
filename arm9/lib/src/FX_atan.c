@@ -1,5 +1,4 @@
 #include "global.h"
-#include "main.h"
 #include "fx.h"
 
 const fx16 FX_AtanTable_[] = {

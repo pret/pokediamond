@@ -1,5 +1,4 @@
 #include "global.h"
-#include "main.h"
 #include "fx.h"
 
 ARM_FUNC void FX_Init(){

@@ -3,6 +3,7 @@
 
 #include "fx.h"
 #include "MI_memory.h"
+#include "MI_dma.h"
 
 //temporary while other files aren't decompiled
 

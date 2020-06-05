@@ -1,5 +1,12 @@
-#ifndef POKEDIAMOND_ARM7_TYPES_H
-#define POKEDIAMOND_ARM7_TYPES_H
+/*
+ * NOTE:
+ * This file is shared between ARM9 and ARM7
+ * DO NOT PUT PROC SPECIFIC CODE IN HERE
+ * Thank You!
+ */
+
+#ifndef POKEDIAMOND_TYPES_H
+#define POKEDIAMOND_TYPES_H
 
 typedef unsigned char u8;
 typedef unsigned short int u16;
@@ -47,4 +54,4 @@ typedef int BOOL;
 #endif // __cplusplus
 #endif
 
-#endif //POKEDIAMOND_NITRO_TYPES_H
+#endif //POKEDIAMOND_TYPES_H

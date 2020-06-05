@@ -1,11 +1,7 @@
-//
-// Created by red031000 on 2020-04-24.
-//
-
 #ifndef POKEDIAMOND_OS_PROTECTIONREGION_H
 #define POKEDIAMOND_OS_PROTECTIONREGION_H
 
-#include "types.h"
+#include "nitro/types.h"
 #include "consts.h"
 
 void OS_SetDPermissionsForProtectionRegion(register u32 setMask, register u32 flags);

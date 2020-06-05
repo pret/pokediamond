@@ -2,7 +2,7 @@
 #define GUARD_MATH_DGT_H
 
 #include "dgt.h"
-#include "types.h"
+#include "nitro/types.h"
 
 typedef struct DGTHash1Context MATHMD5Context;
 typedef struct DGTHash2Context MATHSHA1Context;
