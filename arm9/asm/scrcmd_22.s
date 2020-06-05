@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02045784
-FUN_02045784: ; 0x02045784
+	thumb_func_start ScrCmd_AddItem
+ScrCmd_AddItem: ; 0x02045784
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -42,8 +42,8 @@ FUN_02045784: ; 0x02045784
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020457DC
-FUN_020457DC: ; 0x020457DC
+	thumb_func_start ScrCmd_SubItem
+ScrCmd_SubItem: ; 0x020457DC
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -81,8 +81,8 @@ FUN_020457DC: ; 0x020457DC
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02045834
-FUN_02045834: ; 0x02045834
+	thumb_func_start ScrCmd_AddItemChk
+ScrCmd_AddItemChk: ; 0x02045834
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -120,8 +120,8 @@ FUN_02045834: ; 0x02045834
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0204588C
-FUN_0204588C: ; 0x0204588C
+	thumb_func_start ScrCmd_CheckItem
+ScrCmd_CheckItem: ; 0x0204588C
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -159,8 +159,8 @@ FUN_0204588C: ; 0x0204588C
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020458E4
-FUN_020458E4: ; 0x020458E4
+	thumb_func_start ScrCmd_WazaMachineItemNoCheck
+ScrCmd_WazaMachineItemNoCheck: ; 0x020458E4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -183,8 +183,8 @@ FUN_020458E4: ; 0x020458E4
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02045918
-FUN_02045918: ; 0x02045918
+	thumb_func_start ScrCmd_GetPocketNo
+ScrCmd_GetPocketNo: ; 0x02045918
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -209,12 +209,12 @@ FUN_02045918: ; 0x02045918
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02045950
-FUN_02045950: ; 0x02045950
+	thumb_func_start ScrCmd_AddPCBoxItem
+ScrCmd_AddPCBoxItem: ; 0x02045950
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_02045954
-FUN_02045954: ; 0x02045954
+	thumb_func_start ScrCmd_CheckPCBoxItem
+ScrCmd_CheckPCBoxItem: ; 0x02045954
 	mov r0, #0x0
 	bx lr

@@ -47,8 +47,8 @@ FUN_02042D10: ; 0x02042D10
 	bl FUN_0202B020
 	pop {r3, pc}
 
-	thumb_func_start FUN_02042D1C
-FUN_02042D1C: ; 0x02042D1C
+	thumb_func_start ScrCmd_MysteryPostMan
+ScrCmd_MysteryPostMan: ; 0x02042D1C
 	push {r3-r7, lr}
 	sub sp, #0x20
 	add r4, r0, #0x0

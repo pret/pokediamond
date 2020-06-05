@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_020413C0
-FUN_020413C0: ; 0x020413C0
+	thumb_func_start ScrCmd_BgmPlayCheck
+ScrCmd_BgmPlayCheck: ; 0x020413C0
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -22,8 +22,8 @@ FUN_020413C0: ; 0x020413C0
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_020413E8
-FUN_020413E8: ; 0x020413E8
+	thumb_func_start ScrCmd_BgmPlay
+ScrCmd_BgmPlay: ; 0x020413E8
 	push {r3, lr}
 	bl ScriptReadHalfword
 	bl FUN_0200521C
@@ -31,8 +31,8 @@ FUN_020413E8: ; 0x020413E8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020413F8
-FUN_020413F8: ; 0x020413F8
+	thumb_func_start ScrCmd_BgmStop
+ScrCmd_BgmStop: ; 0x020413F8
 	push {r3, lr}
 	bl ScriptReadHalfword
 	bl FUN_02004124
@@ -41,8 +41,8 @@ FUN_020413F8: ; 0x020413F8
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0204140C
-FUN_0204140C: ; 0x0204140C
+	thumb_func_start ScrCmd_BgmNowMapPlay
+ScrCmd_BgmNowMapPlay: ; 0x0204140C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -54,8 +54,8 @@ FUN_0204140C: ; 0x0204140C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041424
-FUN_02041424: ; 0x02041424
+	thumb_func_start ScrCmd_BgmSpecialSet
+ScrCmd_BgmSpecialSet: ; 0x02041424
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -67,8 +67,8 @@ FUN_02041424: ; 0x02041424
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204143C
-FUN_0204143C: ; 0x0204143C
+	thumb_func_start ScrCmd_BgmFadeOut
+ScrCmd_BgmFadeOut: ; 0x0204143C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -99,8 +99,8 @@ _02041472:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041478
-FUN_02041478: ; 0x02041478
+	thumb_func_start ScrCmd_BgmFadeIn
+ScrCmd_BgmFadeIn: ; 0x02041478
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -116,8 +116,8 @@ FUN_02041478: ; 0x02041478
 	nop
 _02041498: .word FUN_02041464
 
-	thumb_func_start FUN_0204149C
-FUN_0204149C: ; 0x0204149C
+	thumb_func_start ScrCmd_BgmPlayerPause
+ScrCmd_BgmPlayerPause: ; 0x0204149C
 	push {r3, lr}
 	ldr r1, [r0, #0x8]
 	add r3, r1, #0x1
@@ -132,8 +132,8 @@ FUN_0204149C: ; 0x0204149C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020414B8
-FUN_020414B8: ; 0x020414B8
+	thumb_func_start ScrCmd_PlayerFieldDemoBgmPlay
+ScrCmd_PlayerFieldDemoBgmPlay: ; 0x020414B8
 	push {r3, lr}
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
@@ -143,8 +143,8 @@ FUN_020414B8: ; 0x020414B8
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020414CC
-FUN_020414CC: ; 0x020414CC
+	thumb_func_start ScrCmd_CtrlBgmFlagSet
+ScrCmd_CtrlBgmFlagSet: ; 0x020414CC
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -155,8 +155,8 @@ FUN_020414CC: ; 0x020414CC
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020414E0
-FUN_020414E0: ; 0x020414E0
+	thumb_func_start ScrCmd_SePlay
+ScrCmd_SePlay: ; 0x020414E0
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -169,8 +169,8 @@ FUN_020414E0: ; 0x020414E0
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_020414FC
-FUN_020414FC: ; 0x020414FC
+	thumb_func_start ScrCmd_SeStop
+ScrCmd_SeStop: ; 0x020414FC
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -183,8 +183,8 @@ FUN_020414FC: ; 0x020414FC
 	mov r0, #0x0
 	pop {r4, pc}
 
-	thumb_func_start FUN_02041518
-FUN_02041518: ; 0x02041518
+	thumb_func_start ScrCmd_SeWait
+ScrCmd_SeWait: ; 0x02041518
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -217,8 +217,8 @@ _02041554:
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02041558
-FUN_02041558: ; 0x02041558
+	thumb_func_start ScrCmd_VoicePlay
+ScrCmd_VoicePlay: ; 0x02041558
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -239,8 +239,8 @@ FUN_02041558: ; 0x02041558
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02041588
-FUN_02041588: ; 0x02041588
+	thumb_func_start ScrCmd_VoicePlayWait
+ScrCmd_VoicePlayWait: ; 0x02041588
 	push {r3, lr}
 	ldr r1, _02041594 ; =FUN_02041598
 	bl SetupNativeScript
@@ -262,8 +262,8 @@ _020415A6:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020415AC
-FUN_020415AC: ; 0x020415AC
+	thumb_func_start ScrCmd_MePlay
+ScrCmd_MePlay: ; 0x020415AC
 	push {r3, lr}
 	bl ScriptReadHalfword
 	bl FUN_02005C28
@@ -271,8 +271,8 @@ FUN_020415AC: ; 0x020415AC
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020415BC
-FUN_020415BC: ; 0x020415BC
+	thumb_func_start ScrCmd_MeWait
+ScrCmd_MeWait: ; 0x020415BC
 	push {r3, lr}
 	ldr r1, _020415C8 ; =FUN_020415CC
 	bl SetupNativeScript
@@ -294,8 +294,8 @@ _020415DA:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020415E0
-FUN_020415E0: ; 0x020415E0
+	thumb_func_start ScrCmd_PerapDataCheck
+ScrCmd_PerapDataCheck: ; 0x020415E0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -322,8 +322,8 @@ _02041610:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041618
-FUN_02041618: ; 0x02041618
+	thumb_func_start ScrCmd_PerapRecStart
+ScrCmd_PerapRecStart: ; 0x02041618
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -345,16 +345,16 @@ _0204163C:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041644
-FUN_02041644: ; 0x02041644
+	thumb_func_start ScrCmd_PerapRecStop
+ScrCmd_PerapRecStop: ; 0x02041644
 	push {r3, lr}
 	bl FUN_02005E64
 	mov r0, #0x1
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041650
-FUN_02041650: ; 0x02041650
+	thumb_func_start ScrCmd_PerapSave
+ScrCmd_PerapSave: ; 0x02041650
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -364,8 +364,8 @@ FUN_02041650: ; 0x02041650
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_02041664
-FUN_02041664: ; 0x02041664
+	thumb_func_start ScrCmd_SndClimaxDataLoad
+ScrCmd_SndClimaxDataLoad: ; 0x02041664
 	push {r3, lr}
 	mov r1, #0x0
 	mov r0, #0x3f
@@ -374,8 +374,8 @@ FUN_02041664: ; 0x02041664
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_02041674
-FUN_02041674: ; 0x02041674
+	thumb_func_start ScrCmd_SndInitialVolSet
+ScrCmd_SndInitialVolSet: ; 0x02041674
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword

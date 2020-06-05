@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_020416A8
-FUN_020416A8: ; 0x020416A8
+	thumb_func_start ScrCmd_EyeTrainerMoveSet
+ScrCmd_EyeTrainerMoveSet: ; 0x020416A8
 	push {r3-r7, lr}
 	sub sp, #0x18
 	add r5, r0, #0x0
@@ -91,8 +91,8 @@ _02041748:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041770
-FUN_02041770: ; 0x02041770
+	thumb_func_start ScrCmd_EyeTrainerMoveCheck
+ScrCmd_EyeTrainerMoveCheck: ; 0x02041770
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -146,8 +146,8 @@ _020417DC:
 	mov r0, #0x1
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_020417E0
-FUN_020417E0: ; 0x020417E0
+	thumb_func_start ScrCmd_EyeTrainerTypeGet
+ScrCmd_EyeTrainerTypeGet: ; 0x020417E0
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -166,8 +166,8 @@ FUN_020417E0: ; 0x020417E0
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02041808
-FUN_02041808: ; 0x02041808
+	thumb_func_start ScrCmd_EyeTrainerIdGet
+ScrCmd_EyeTrainerIdGet: ; 0x02041808
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -207,8 +207,8 @@ _02041854:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204185C
-FUN_0204185C: ; 0x0204185C
+	thumb_func_start ScrCmd_TrainerIdGet
+ScrCmd_TrainerIdGet: ; 0x0204185C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -230,8 +230,8 @@ FUN_0204185C: ; 0x0204185C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204188C
-FUN_0204188C: ; 0x0204188C
+	thumb_func_start ScrCmd_TrainerBattleSet
+ScrCmd_TrainerBattleSet: ; 0x0204188C
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r5, r0, #0x0
@@ -287,8 +287,8 @@ _020418F2:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204190C
-FUN_0204190C: ; 0x0204190C
+	thumb_func_start ScrCmd_TrainerMultiBattleSet
+ScrCmd_TrainerMultiBattleSet: ; 0x0204190C
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -332,8 +332,8 @@ FUN_0204190C: ; 0x0204190C
 	add sp, #0x8
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02041970
-FUN_02041970: ; 0x02041970
+	thumb_func_start ScrCmd_TrainerTalkTypeGet
+ScrCmd_TrainerTalkTypeGet: ; 0x02041970
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -396,8 +396,8 @@ _020419EC:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020419F8
-FUN_020419F8: ; 0x020419F8
+	thumb_func_start ScrCmd_RevengeTrainerTalkTypeGet
+ScrCmd_RevengeTrainerTalkTypeGet: ; 0x020419F8
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -460,8 +460,8 @@ _02041A74:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041A80
-FUN_02041A80: ; 0x02041A80
+	thumb_func_start ScrCmd_TrainerTypeGet
+ScrCmd_TrainerTypeGet: ; 0x02041A80
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -484,8 +484,8 @@ FUN_02041A80: ; 0x02041A80
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041AB4
-FUN_02041AB4: ; 0x02041AB4
+	thumb_func_start ScrCmd_TrainerBgmSet
+ScrCmd_TrainerBgmSet: ; 0x02041AB4
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -499,16 +499,16 @@ FUN_02041AB4: ; 0x02041AB4
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041AD4
-FUN_02041AD4: ; 0x02041AD4
+	thumb_func_start ScrCmd_TrainerLose
+ScrCmd_TrainerLose: ; 0x02041AD4
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl FUN_02048498
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start FUN_02041AE0
-FUN_02041AE0: ; 0x02041AE0
+	thumb_func_start ScrCmd_TrainerLoseCheck
+ScrCmd_TrainerLoseCheck: ; 0x02041AE0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -530,8 +530,8 @@ FUN_02041AE0: ; 0x02041AE0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041B10
-FUN_02041B10: ; 0x02041B10
+	thumb_func_start ScrCmd_SeacretPokeRetryCheck
+ScrCmd_SeacretPokeRetryCheck: ; 0x02041B10
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -553,8 +553,8 @@ FUN_02041B10: ; 0x02041B10
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041B40
-FUN_02041B40: ; 0x02041B40
+	thumb_func_start ScrCmd_HaifuPokeRetryCheck
+ScrCmd_HaifuPokeRetryCheck: ; 0x02041B40
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -576,8 +576,8 @@ FUN_02041B40: ; 0x02041B40
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041B70
-FUN_02041B70: ; 0x02041B70
+	thumb_func_start ScrCmd_EvCmd2vs2BattleCheck,
+ScrCmd_EvCmd2vs2BattleCheck,: ; 0x02041B70
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -597,8 +597,8 @@ FUN_02041B70: ; 0x02041B70
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02041B9C
-FUN_02041B9C: ; 0x02041B9C
+	thumb_func_start ScrCmd_DebugBattleSet
+ScrCmd_DebugBattleSet: ; 0x02041B9C
 	push {r4, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -618,8 +618,8 @@ FUN_02041B9C: ; 0x02041B9C
 	add sp, #0x8
 	pop {r4, pc}
 
-	thumb_func_start FUN_02041BC4
-FUN_02041BC4: ; 0x02041BC4
+	thumb_func_start ScrCmd_DebugTrainerFlagSet
+ScrCmd_DebugTrainerFlagSet: ; 0x02041BC4
 	push {r3-r5, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -639,8 +639,8 @@ FUN_02041BC4: ; 0x02041BC4
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02041BF0
-FUN_02041BF0: ; 0x02041BF0
+	thumb_func_start ScrCmd_DebugTrainerFlagOnJump
+ScrCmd_DebugTrainerFlagOnJump: ; 0x02041BF0
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	add r0, #0x80

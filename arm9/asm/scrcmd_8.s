@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02041C38
-FUN_02041C38: ; 0x02041C38
+	thumb_func_start ScrCmd_RandomGroup
+ScrCmd_RandomGroup: ; 0x02041C38
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0

@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02045D88
-FUN_02045D88: ; 0x02045D88
+	thumb_func_start ScrCmd_WazaListSetProc
+ScrCmd_WazaListSetProc: ; 0x02045D88
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -36,8 +36,8 @@ FUN_02045D88: ; 0x02045D88
 	nop
 _02045DCC: .word FUN_0203BC04
 
-	thumb_func_start FUN_02045DD0
-FUN_02045DD0: ; 0x02045DD0
+	thumb_func_start ScrCmd_WazaListGetResult
+ScrCmd_WazaListGetResult: ; 0x02045DD0
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -73,13 +73,13 @@ _02045E0E:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045E1C
-FUN_02045E1C: ; 0x02045E1C
+	thumb_func_start ScrCmd_OshieWazaCount
+ScrCmd_OshieWazaCount: ; 0x02045E1C
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_02045E20
-FUN_02045E20: ; 0x02045E20
+	thumb_func_start ScrCmd_RemaindWazaCount
+ScrCmd_RemaindWazaCount: ; 0x02045E20
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -163,13 +163,13 @@ FUN_02045E74: ; 0x02045E74
 	.balign 4
 _02045EDC: .word FUN_0203BC04
 
-	thumb_func_start FUN_02045EE0
-FUN_02045EE0: ; 0x02045EE0
+	thumb_func_start ScrCmd_OshieWazaListSetProc
+ScrCmd_OshieWazaListSetProc: ; 0x02045EE0
 	mov r0, #0x1
 	bx lr
 
-	thumb_func_start FUN_02045EE4
-FUN_02045EE4: ; 0x02045EE4
+	thumb_func_start ScrCmd_RemaindWazaListSetProc
+ScrCmd_RemaindWazaListSetProc: ; 0x02045EE4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -197,8 +197,8 @@ FUN_02045EE4: ; 0x02045EE4
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02045F24
-FUN_02045F24: ; 0x02045F24
+	thumb_func_start ScrCmd_NormalWazaListSetProc
+ScrCmd_NormalWazaListSetProc: ; 0x02045F24
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -240,13 +240,13 @@ FUN_02045F24: ; 0x02045F24
 	.balign 4
 _02045F80: .word 0x0000FFFF
 
-	thumb_func_start FUN_02045F84
-FUN_02045F84: ; 0x02045F84
+	thumb_func_start ScrCmd_OshieWazaListGetResult
+ScrCmd_OshieWazaListGetResult: ; 0x02045F84
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_02045F88
-FUN_02045F88: ; 0x02045F88
+	thumb_func_start ScrCmd_RemaindWazaListGetResult
+ScrCmd_RemaindWazaListGetResult: ; 0x02045F88
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -280,8 +280,8 @@ _02045FBE:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045FCC
-FUN_02045FCC: ; 0x02045FCC
+	thumb_func_start ScrCmd_NormalWazaListGetResult
+ScrCmd_NormalWazaListGetResult: ; 0x02045FCC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword

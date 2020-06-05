@@ -9,8 +9,8 @@ UNK_020F4574: ; 0x020F4574
 
 	.text
 
-	thumb_func_start FUN_020453F4
-FUN_020453F4: ; 0x020453F4
+	thumb_func_start ScrCmd_SysFlagZukanGet
+ScrCmd_SysFlagZukanGet: ; 0x020453F4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -32,8 +32,8 @@ FUN_020453F4: ; 0x020453F4
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045424
-FUN_02045424: ; 0x02045424
+	thumb_func_start ScrCmd_SysFlagZukanSet
+ScrCmd_SysFlagZukanSet: ; 0x02045424
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -43,8 +43,8 @@ FUN_02045424: ; 0x02045424
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02045438
-FUN_02045438: ; 0x02045438
+	thumb_func_start ScrCmd_SysFlagShoesGet
+ScrCmd_SysFlagShoesGet: ; 0x02045438
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -65,8 +65,8 @@ FUN_02045438: ; 0x02045438
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045468
-FUN_02045468: ; 0x02045468
+	thumb_func_start ScrCmd_SysFlagShoesSet
+ScrCmd_SysFlagShoesSet: ; 0x02045468
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -79,8 +79,8 @@ FUN_02045468: ; 0x02045468
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045484
-FUN_02045484: ; 0x02045484
+	thumb_func_start ScrCmd_SysFlagBadgeGet
+ScrCmd_SysFlagBadgeGet: ; 0x02045484
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -112,8 +112,8 @@ _020454B6:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_020454CC
-FUN_020454CC: ; 0x020454CC
+	thumb_func_start ScrCmd_SysFlagBadgeSet
+ScrCmd_SysFlagBadgeSet: ; 0x020454CC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -137,8 +137,8 @@ _020454EA:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045500
-FUN_02045500: ; 0x02045500
+	thumb_func_start ScrCmd_SysFlagBagGet
+ScrCmd_SysFlagBagGet: ; 0x02045500
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -158,8 +158,8 @@ FUN_02045500: ; 0x02045500
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204552C
-FUN_0204552C: ; 0x0204552C
+	thumb_func_start ScrCmd_SysFlagBadgeCount
+ScrCmd_SysFlagBadgeCount: ; 0x0204552C
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	bl ScriptReadHalfword
@@ -198,8 +198,8 @@ _02045564:
 	nop
 _02045578: .word UNK_020F4574
 
-	thumb_func_start FUN_0204557C
-FUN_0204557C: ; 0x0204557C
+	thumb_func_start ScrCmd_SysFlagBagSet
+ScrCmd_SysFlagBagSet: ; 0x0204557C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -209,8 +209,8 @@ FUN_0204557C: ; 0x0204557C
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02045590
-FUN_02045590: ; 0x02045590
+	thumb_func_start ScrCmd_SysFlagPairGet
+ScrCmd_SysFlagPairGet: ; 0x02045590
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -230,8 +230,8 @@ FUN_02045590: ; 0x02045590
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020455BC
-FUN_020455BC: ; 0x020455BC
+	thumb_func_start ScrCmd_SysFlagPairSet
+ScrCmd_SysFlagPairSet: ; 0x020455BC
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -241,8 +241,8 @@ FUN_020455BC: ; 0x020455BC
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_020455D0
-FUN_020455D0: ; 0x020455D0
+	thumb_func_start ScrCmd_SysFlagPairReset
+ScrCmd_SysFlagPairReset: ; 0x020455D0
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -252,8 +252,8 @@ FUN_020455D0: ; 0x020455D0
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_020455E4
-FUN_020455E4: ; 0x020455E4
+	thumb_func_start ScrCmd_SysFlagOneStepGet
+ScrCmd_SysFlagOneStepGet: ; 0x020455E4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -273,8 +273,8 @@ FUN_020455E4: ; 0x020455E4
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045610
-FUN_02045610: ; 0x02045610
+	thumb_func_start ScrCmd_SysFlagOneStepSet
+ScrCmd_SysFlagOneStepSet: ; 0x02045610
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -284,8 +284,8 @@ FUN_02045610: ; 0x02045610
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02045624
-FUN_02045624: ; 0x02045624
+	thumb_func_start ScrCmd_SysFlagOneStepReset
+ScrCmd_SysFlagOneStepReset: ; 0x02045624
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -295,8 +295,8 @@ FUN_02045624: ; 0x02045624
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02045638
-FUN_02045638: ; 0x02045638
+	thumb_func_start ScrCmd_SysFlagGameClearGet
+ScrCmd_SysFlagGameClearGet: ; 0x02045638
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -316,8 +316,8 @@ FUN_02045638: ; 0x02045638
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02045664
-FUN_02045664: ; 0x02045664
+	thumb_func_start ScrCmd_SysFlagGameClearSet
+ScrCmd_SysFlagGameClearSet: ; 0x02045664
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -327,8 +327,8 @@ FUN_02045664: ; 0x02045664
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_02045678
-FUN_02045678: ; 0x02045678
+	thumb_func_start ScrCmd_SysFlagKairiki
+ScrCmd_SysFlagKairiki: ; 0x02045678
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -374,8 +374,8 @@ _020456D0:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_020456D4
-FUN_020456D4: ; 0x020456D4
+	thumb_func_start ScrCmd_SysFlagFlash
+ScrCmd_SysFlagFlash: ; 0x020456D4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -419,8 +419,8 @@ _02045726:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204572C
-FUN_0204572C: ; 0x0204572C
+	thumb_func_start ScrCmd_SysFlagKiribarai
+ScrCmd_SysFlagKiribarai: ; 0x0204572C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80

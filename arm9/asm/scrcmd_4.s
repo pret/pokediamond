@@ -5,8 +5,8 @@
 
 	.text
 
-	thumb_func_start FUN_020406CC
-FUN_020406CC: ; 0x020406CC
+	thumb_func_start ScrCmd_PlayerName
+ScrCmd_PlayerName: ; 0x020406CC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -30,8 +30,8 @@ FUN_020406CC: ; 0x020406CC
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040700
-FUN_02040700: ; 0x02040700
+	thumb_func_start ScrCmd_RivalName
+ScrCmd_RivalName: ; 0x02040700
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -49,8 +49,8 @@ FUN_02040700: ; 0x02040700
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02040724
-FUN_02040724: ; 0x02040724
+	thumb_func_start ScrCmd_SupportName
+ScrCmd_SupportName: ; 0x02040724
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -68,8 +68,8 @@ FUN_02040724: ; 0x02040724
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02040748
-FUN_02040748: ; 0x02040748
+	thumb_func_start ScrCmd_PokemonName
+ScrCmd_PokemonName: ; 0x02040748
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -101,8 +101,8 @@ FUN_02040748: ; 0x02040748
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040790
-FUN_02040790: ; 0x02040790
+	thumb_func_start ScrCmd_ItemName
+ScrCmd_ItemName: ; 0x02040790
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -128,8 +128,8 @@ FUN_02040790: ; 0x02040790
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020407C8
-FUN_020407C8: ; 0x020407C8
+	thumb_func_start ScrCmd_PocketName
+ScrCmd_PocketName: ; 0x020407C8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -155,8 +155,8 @@ FUN_020407C8: ; 0x020407C8
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040800
-FUN_02040800: ; 0x02040800
+	thumb_func_start ScrCmd_ItemWazaName
+ScrCmd_ItemWazaName: ; 0x02040800
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -183,8 +183,8 @@ FUN_02040800: ; 0x02040800
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204083C
-FUN_0204083C: ; 0x0204083C
+	thumb_func_start ScrCmd_WazaName
+ScrCmd_WazaName: ; 0x0204083C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -210,8 +210,8 @@ FUN_0204083C: ; 0x0204083C
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040874
-FUN_02040874: ; 0x02040874
+	thumb_func_start ScrCmd_NumberName
+ScrCmd_NumberName: ; 0x02040874
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -244,8 +244,8 @@ FUN_02040874: ; 0x02040874
 	add sp, #0x8
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_020408BC
-FUN_020408BC: ; 0x020408BC
+	thumb_func_start ScrCmd_NumberNameEx
+ScrCmd_NumberNameEx: ; 0x020408BC
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -291,8 +291,8 @@ _02040904:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204091C
-FUN_0204091C: ; 0x0204091C
+	thumb_func_start ScrCmd_NickName
+ScrCmd_NickName: ; 0x0204091C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -324,8 +324,8 @@ FUN_0204091C: ; 0x0204091C
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040964
-FUN_02040964: ; 0x02040964
+	thumb_func_start ScrCmd_NickNamePC
+ScrCmd_NickNamePC: ; 0x02040964
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -365,8 +365,8 @@ FUN_02040964: ; 0x02040964
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020409C0
-FUN_020409C0: ; 0x020409C0
+	thumb_func_start ScrCmd_PoketchName
+ScrCmd_PoketchName: ; 0x020409C0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -392,8 +392,8 @@ FUN_020409C0: ; 0x020409C0
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020409F8
-FUN_020409F8: ; 0x020409F8
+	thumb_func_start ScrCmd_TrTypeName
+ScrCmd_TrTypeName: ; 0x020409F8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -419,8 +419,8 @@ FUN_020409F8: ; 0x020409F8
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040A30
-FUN_02040A30: ; 0x02040A30
+	thumb_func_start ScrCmd_MyTrTypeName
+ScrCmd_MyTrTypeName: ; 0x02040A30
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r0, #0x80
@@ -453,8 +453,8 @@ FUN_02040A30: ; 0x02040A30
 	mov r0, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02040A7C
-FUN_02040A7C: ; 0x02040A7C
+	thumb_func_start ScrCmd_PokemonNameExtra
+ScrCmd_PokemonNameExtra: ; 0x02040A7C
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
@@ -521,8 +521,8 @@ FUN_02040AE4: ; 0x02040AE4
 	.balign 4
 _02040B08: .word 0x0000016A
 
-	thumb_func_start FUN_02040B0C
-FUN_02040B0C: ; 0x02040B0C
+	thumb_func_start ScrCmd_FirstPokemonName
+ScrCmd_FirstPokemonName: ; 0x02040B0C
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -558,8 +558,8 @@ FUN_02040B0C: ; 0x02040B0C
 	add sp, #0x8
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02040B5C
-FUN_02040B5C: ; 0x02040B5C
+	thumb_func_start ScrCmd_RivalPokemonName
+ScrCmd_RivalPokemonName: ; 0x02040B5C
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -595,8 +595,8 @@ FUN_02040B5C: ; 0x02040B5C
 	add sp, #0x8
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02040BAC
-FUN_02040BAC: ; 0x02040BAC
+	thumb_func_start ScrCmd_SupportPokemonName
+ScrCmd_SupportPokemonName: ; 0x02040BAC
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -632,8 +632,8 @@ FUN_02040BAC: ; 0x02040BAC
 	add sp, #0x8
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02040BFC
-FUN_02040BFC: ; 0x02040BFC
+	thumb_func_start ScrCmd_GoodsName
+ScrCmd_GoodsName: ; 0x02040BFC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -659,8 +659,8 @@ FUN_02040BFC: ; 0x02040BFC
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040C34
-FUN_02040C34: ; 0x02040C34
+	thumb_func_start ScrCmd_TrapName
+ScrCmd_TrapName: ; 0x02040C34
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -686,8 +686,8 @@ FUN_02040C34: ; 0x02040C34
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040C6C
-FUN_02040C6C: ; 0x02040C6C
+	thumb_func_start ScrCmd_TamaName
+ScrCmd_TamaName: ; 0x02040C6C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -713,8 +713,8 @@ FUN_02040C6C: ; 0x02040C6C
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040CA4
-FUN_02040CA4: ; 0x02040CA4
+	thumb_func_start ScrCmd_ZoneName
+ScrCmd_ZoneName: ; 0x02040CA4
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -757,8 +757,8 @@ FUN_02040CA4: ; 0x02040CA4
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040D04
-FUN_02040D04: ; 0x02040D04
+	thumb_func_start ScrCmd_NutsName
+ScrCmd_NutsName: ; 0x02040D04
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
@@ -814,8 +814,8 @@ _02040D5C:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040D7C
-FUN_02040D7C: ; 0x02040D7C
+	thumb_func_start ScrCmd_SeikakuName
+ScrCmd_SeikakuName: ; 0x02040D7C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -841,8 +841,8 @@ FUN_02040D7C: ; 0x02040D7C
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040DB4
-FUN_02040DB4: ; 0x02040DB4
+	thumb_func_start ScrCmd_AcceName
+ScrCmd_AcceName: ; 0x02040DB4
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -868,8 +868,8 @@ FUN_02040DB4: ; 0x02040DB4
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040DEC
-FUN_02040DEC: ; 0x02040DEC
+	thumb_func_start ScrCmd_MonumantName
+ScrCmd_MonumantName: ; 0x02040DEC
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -911,8 +911,8 @@ FUN_02040DEC: ; 0x02040DEC
 	nop
 _02040E48: .word gGameLanguage
 
-	thumb_func_start FUN_02040E4C
-FUN_02040E4C: ; 0x02040E4C
+	thumb_func_start ScrCmd_TemotiWazaName
+ScrCmd_TemotiWazaName: ; 0x02040E4C
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -957,8 +957,8 @@ FUN_02040E4C: ; 0x02040E4C
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040EB4
-FUN_02040EB4: ; 0x02040EB4
+	thumb_func_start ScrCmd_RibbonName
+ScrCmd_RibbonName: ; 0x02040EB4
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -989,8 +989,8 @@ FUN_02040EB4: ; 0x02040EB4
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040EF8
-FUN_02040EF8: ; 0x02040EF8
+	thumb_func_start ScrCmd_SealName
+ScrCmd_SealName: ; 0x02040EF8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80

@@ -16,8 +16,8 @@ UNK_020F4494: ; 0x020F4494
 
 	.text
 
-	thumb_func_start FUN_02044158
-FUN_02044158: ; 0x02044158
+	thumb_func_start ScrCmd_NaturalParkWalkCountClear
+ScrCmd_NaturalParkWalkCountClear: ; 0x02044158
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -27,8 +27,8 @@ FUN_02044158: ; 0x02044158
 	mov r0, #0x0
 	pop {r3, pc}
 
-	thumb_func_start FUN_0204416C
-FUN_0204416C: ; 0x0204416C
+	thumb_func_start ScrCmd_NaturalParkWalkCountGet
+ScrCmd_NaturalParkWalkCountGet: ; 0x0204416C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -48,8 +48,8 @@ FUN_0204416C: ; 0x0204416C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044198
-FUN_02044198: ; 0x02044198
+	thumb_func_start ScrCmd_NaturalParkAccessoryNoGet
+ScrCmd_NaturalParkAccessoryNoGet: ; 0x02044198
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword

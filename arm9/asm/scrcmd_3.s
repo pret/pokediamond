@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0203FE90
-FUN_0203FE90: ; 0x0203FE90
+	thumb_func_start ScrCmd_ConSioTimingSend
+ScrCmd_ConSioTimingSend: ; 0x0203FE90
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -26,8 +26,8 @@ FUN_0203FE90: ; 0x0203FE90
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_0203FEC0
-FUN_0203FEC0: ; 0x0203FEC0
+	thumb_func_start ScrCmd_ConSioTimingCheck
+ScrCmd_ConSioTimingCheck: ; 0x0203FEC0
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -65,8 +65,8 @@ FUN_0203FEF4: ; 0x0203FEF4
 	bl FUN_02082158
 	pop {r4, pc}
 
-	thumb_func_start FUN_0203FF10
-FUN_0203FF10: ; 0x0203FF10
+	thumb_func_start ScrCmd_ConSystemCreate
+ScrCmd_ConSystemCreate: ; 0x0203FF10
 	push {r3-r7, lr}
 	sub sp, #0x38
 	add r5, r0, #0x0
@@ -185,8 +185,8 @@ FUN_0203FF10: ; 0x0203FF10
 	add sp, #0x38
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_02040028
-FUN_02040028: ; 0x02040028
+	thumb_func_start ScrCmd_ConSystemExit
+ScrCmd_ConSystemExit: ; 0x02040028
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -220,8 +220,8 @@ FUN_02040028: ; 0x02040028
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02040074
-FUN_02040074: ; 0x02040074
+	thumb_func_start ScrCmd_ConJudgeNameGet
+ScrCmd_ConJudgeNameGet: ; 0x02040074
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -258,8 +258,8 @@ FUN_02040074: ; 0x02040074
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020400C8
-FUN_020400C8: ; 0x020400C8
+	thumb_func_start ScrCmd_ConBreederNameGet
+ScrCmd_ConBreederNameGet: ; 0x020400C8
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -296,8 +296,8 @@ FUN_020400C8: ; 0x020400C8
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204011C
-FUN_0204011C: ; 0x0204011C
+	thumb_func_start ScrCmd_ConNickNameGet
+ScrCmd_ConNickNameGet: ; 0x0204011C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -334,8 +334,8 @@ FUN_0204011C: ; 0x0204011C
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040170
-FUN_02040170: ; 0x02040170
+	thumb_func_start ScrCmd_ConNumTagSet
+ScrCmd_ConNumTagSet: ; 0x02040170
 	push {r4-r6, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -376,8 +376,8 @@ FUN_02040170: ; 0x02040170
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020401CC
-FUN_020401CC: ; 0x020401CC
+	thumb_func_start ScrCmd_ConSioParamInitSet
+ScrCmd_ConSioParamInitSet: ; 0x020401CC
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -405,8 +405,8 @@ FUN_020401F0: ; 0x020401F0
 	bl FUN_02081EB8
 	pop {r3, pc}
 
-	thumb_func_start FUN_02040204
-FUN_02040204: ; 0x02040204
+	thumb_func_start ScrCmd_ContestProc
+ScrCmd_ContestProc: ; 0x02040204
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -420,8 +420,8 @@ FUN_02040204: ; 0x02040204
 	mov r0, #0x1
 	pop {r4, pc}
 
-	thumb_func_start FUN_02040220
-FUN_02040220: ; 0x02040220
+	thumb_func_start ScrCmd_ConRankNameGet
+ScrCmd_ConRankNameGet: ; 0x02040220
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -448,8 +448,8 @@ FUN_02040220: ; 0x02040220
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_0204025C
-FUN_0204025C: ; 0x0204025C
+	thumb_func_start ScrCmd_ConTypeNameGet
+ScrCmd_ConTypeNameGet: ; 0x0204025C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -476,8 +476,8 @@ FUN_0204025C: ; 0x0204025C
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02040298
-FUN_02040298: ; 0x02040298
+	thumb_func_start ScrCmd_ConVictoryBreederNameGet
+ScrCmd_ConVictoryBreederNameGet: ; 0x02040298
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -504,8 +504,8 @@ FUN_02040298: ; 0x02040298
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_020402D4
-FUN_020402D4: ; 0x020402D4
+	thumb_func_start ScrCmd_ConVictoryItemNoGet
+ScrCmd_ConVictoryItemNoGet: ; 0x020402D4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -527,8 +527,8 @@ FUN_020402D4: ; 0x020402D4
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040304
-FUN_02040304: ; 0x02040304
+	thumb_func_start ScrCmd_ConVictoryNickNameGet
+ScrCmd_ConVictoryNickNameGet: ; 0x02040304
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -555,8 +555,8 @@ FUN_02040304: ; 0x02040304
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02040340
-FUN_02040340: ; 0x02040340
+	thumb_func_start ScrCmd_ConRankingCheck
+ScrCmd_ConRankingCheck: ; 0x02040340
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -578,8 +578,8 @@ FUN_02040340: ; 0x02040340
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040370
-FUN_02040370: ; 0x02040370
+	thumb_func_start ScrCmd_ConVictoryEntryNoGet
+ScrCmd_ConVictoryEntryNoGet: ; 0x02040370
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -601,8 +601,8 @@ FUN_02040370: ; 0x02040370
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020403A0
-FUN_020403A0: ; 0x020403A0
+	thumb_func_start ScrCmd_ConMyEntryNoGet
+ScrCmd_ConMyEntryNoGet: ; 0x020403A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -624,8 +624,8 @@ FUN_020403A0: ; 0x020403A0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020403D0
-FUN_020403D0: ; 0x020403D0
+	thumb_func_start ScrCmd_ConObjCodeGet
+ScrCmd_ConObjCodeGet: ; 0x020403D0
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -655,8 +655,8 @@ FUN_020403D0: ; 0x020403D0
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02040414
-FUN_02040414: ; 0x02040414
+	thumb_func_start ScrCmd_ConPopularityGet
+ScrCmd_ConPopularityGet: ; 0x02040414
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -686,8 +686,8 @@ FUN_02040414: ; 0x02040414
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02040458
-FUN_02040458: ; 0x02040458
+	thumb_func_start ScrCmd_ConDeskModeGet
+ScrCmd_ConDeskModeGet: ; 0x02040458
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -709,8 +709,8 @@ FUN_02040458: ; 0x02040458
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040488
-FUN_02040488: ; 0x02040488
+	thumb_func_start ScrCmd_ConEntryParamGet
+ScrCmd_ConEntryParamGet: ; 0x02040488
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -760,8 +760,8 @@ FUN_02040488: ; 0x02040488
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_020404FC
-FUN_020404FC: ; 0x020404FC
+	thumb_func_start ScrCmd_ConHaveRibbonCheck
+ScrCmd_ConHaveRibbonCheck: ; 0x020404FC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -783,8 +783,8 @@ FUN_020404FC: ; 0x020404FC
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204052C
-FUN_0204052C: ; 0x0204052C
+	thumb_func_start ScrCmd_ConRibbonNameGet
+ScrCmd_ConRibbonNameGet: ; 0x0204052C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -813,8 +813,8 @@ FUN_0204052C: ; 0x0204052C
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204056C
-FUN_0204056C: ; 0x0204056C
+	thumb_func_start ScrCmd_ConAcceNoGet
+ScrCmd_ConAcceNoGet: ; 0x0204056C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -836,8 +836,8 @@ FUN_0204056C: ; 0x0204056C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204059C
-FUN_0204059C: ; 0x0204059C
+	thumb_func_start ScrCmd_ConMsgPrintFlagSet
+ScrCmd_ConMsgPrintFlagSet: ; 0x0204059C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -849,8 +849,8 @@ FUN_0204059C: ; 0x0204059C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020405B4
-FUN_020405B4: ; 0x020405B4
+	thumb_func_start ScrCmd_ConMsgPrintFlagReset
+ScrCmd_ConMsgPrintFlagReset: ; 0x020405B4
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -862,8 +862,8 @@ FUN_020405B4: ; 0x020405B4
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_020405CC
-FUN_020405CC: ; 0x020405CC
+	thumb_func_start ScrCmd_ConCameraFlashSet
+ScrCmd_ConCameraFlashSet: ; 0x020405CC
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -883,8 +883,8 @@ FUN_020405CC: ; 0x020405CC
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_020405F8
-FUN_020405F8: ; 0x020405F8
+	thumb_func_start ScrCmd_ConCameraFlashCheck
+ScrCmd_ConCameraFlashCheck: ; 0x020405F8
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -917,8 +917,8 @@ _02040632:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040638
-FUN_02040638: ; 0x02040638
+	thumb_func_start ScrCmd_ConHBlankStop
+ScrCmd_ConHBlankStop: ; 0x02040638
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -929,8 +929,8 @@ FUN_02040638: ; 0x02040638
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0204064C
-FUN_0204064C: ; 0x0204064C
+	thumb_func_start ScrCmd_ConHBlankStart
+ScrCmd_ConHBlankStart: ; 0x0204064C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -941,8 +941,8 @@ FUN_0204064C: ; 0x0204064C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02040660
-FUN_02040660: ; 0x02040660
+	thumb_func_start ScrCmd_ConEndingSkipCheck
+ScrCmd_ConEndingSkipCheck: ; 0x02040660
 	push {r4-r5, lr}
 	sub sp, #0x1c
 	add r5, r0, #0x0
@@ -991,8 +991,8 @@ _020406BA:
 	add sp, #0x1c
 	pop {r4-r5, pc}
 
-	thumb_func_start FUN_020406C0
-FUN_020406C0: ; 0x020406C0
+	thumb_func_start ScrCmd_ConRecordDisp
+ScrCmd_ConRecordDisp: ; 0x020406C0
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl MOD06_0224D3E8

@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_02043E00
-FUN_02043E00: ; 0x02043E00
+	thumb_func_start ScrCmd_GetSodateyaName
+ScrCmd_GetSodateyaName: ; 0x02043E00
 	push {r3-r5, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -19,8 +19,8 @@ FUN_02043E00: ; 0x02043E00
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02043E20
-FUN_02043E20: ; 0x02043E20
+	thumb_func_start ScrCmd_GetSodateyaZiisan
+ScrCmd_GetSodateyaZiisan: ; 0x02043E20
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -42,8 +42,8 @@ FUN_02043E20: ; 0x02043E20
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043E50
-FUN_02043E50: ; 0x02043E50
+	thumb_func_start ScrCmd_DelSodateyaEgg
+ScrCmd_DelSodateyaEgg: ; 0x02043E50
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -55,8 +55,8 @@ FUN_02043E50: ; 0x02043E50
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043E68
-FUN_02043E68: ; 0x02043E68
+	thumb_func_start ScrCmd_GetSodateyaEgg
+ScrCmd_GetSodateyaEgg: ; 0x02043E68
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -79,8 +79,8 @@ FUN_02043E68: ; 0x02043E68
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02043E9C
-FUN_02043E9C: ; 0x02043E9C
+	thumb_func_start ScrCmd_HikitoriPoke
+ScrCmd_HikitoriPoke: ; 0x02043E9C
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -122,8 +122,8 @@ FUN_02043E9C: ; 0x02043E9C
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043EFC
-FUN_02043EFC: ; 0x02043EFC
+	thumb_func_start ScrCmd_HikitoriRyoukin
+ScrCmd_HikitoriRyoukin: ; 0x02043EFC
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -160,8 +160,8 @@ FUN_02043EFC: ; 0x02043EFC
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043F50
-FUN_02043F50: ; 0x02043F50
+	thumb_func_start ScrCmd_SodatePokeLevelStr
+ScrCmd_SodatePokeLevelStr: ; 0x02043F50
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -196,8 +196,8 @@ FUN_02043F50: ; 0x02043F50
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043FA0
-FUN_02043FA0: ; 0x02043FA0
+	thumb_func_start ScrCmd_MsgAzukeSet
+ScrCmd_MsgAzukeSet: ; 0x02043FA0
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r0, #0x80
@@ -233,8 +233,8 @@ FUN_02043FA0: ; 0x02043FA0
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02043FF4
-FUN_02043FF4: ; 0x02043FF4
+	thumb_func_start ScrCmd_SetSodateyaPoke
+ScrCmd_SetSodateyaPoke: ; 0x02043FF4
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r1, r6, #0x0
@@ -263,8 +263,8 @@ FUN_02043FF4: ; 0x02043FF4
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044034
-FUN_02044034: ; 0x02044034
+	thumb_func_start ScrCmd_HikitoriListNameSet
+ScrCmd_HikitoriListNameSet: ; 0x02044034
 	push {r3-r7, lr}
 	sub sp, #0x10
 	add r4, r0, #0x0
@@ -325,8 +325,8 @@ FUN_02044034: ; 0x02044034
 	add sp, #0x10
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020440C0
-FUN_020440C0: ; 0x020440C0
+	thumb_func_start ScrCmd_GetSodateyaAishou
+ScrCmd_GetSodateyaAishou: ; 0x020440C0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -348,8 +348,8 @@ FUN_020440C0: ; 0x020440C0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_020440F0
-FUN_020440F0: ; 0x020440F0
+	thumb_func_start ScrCmd_GetSodateyaTamagoCheck
+ScrCmd_GetSodateyaTamagoCheck: ; 0x020440F0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r1, r5, #0x0
@@ -371,8 +371,8 @@ FUN_020440F0: ; 0x020440F0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044120
-FUN_02044120: ; 0x02044120
+	thumb_func_start ScrCmd_HikitoriList
+ScrCmd_HikitoriList: ; 0x02044120
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword
@@ -384,18 +384,18 @@ FUN_02044120: ; 0x02044120
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02044138
-FUN_02044138: ; 0x02044138
+	thumb_func_start ScrCmd_MsgSodateyaAishou
+ScrCmd_MsgSodateyaAishou: ; 0x02044138
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_0204413C
-FUN_0204413C: ; 0x0204413C
+	thumb_func_start ScrCmd_MsgExpandBuf
+ScrCmd_MsgExpandBuf: ; 0x0204413C
 	mov r0, #0x0
 	bx lr
 
-	thumb_func_start FUN_02044140
-FUN_02044140: ; 0x02044140
+	thumb_func_start ScrCmd_SodateyaPokeList
+ScrCmd_SodateyaPokeList: ; 0x02044140
 	push {r4, lr}
 	add r4, r0, #0x0
 	bl ScriptReadHalfword

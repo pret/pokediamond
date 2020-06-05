@@ -169,8 +169,8 @@ UNK_02105E10: ; 0x02105E10
 
 	.text
 
-	thumb_func_start FUN_0203FCF4
-FUN_0203FCF4: ; 0x0203FCF4
+	thumb_func_start ScrCmd_ShopCall
+ScrCmd_ShopCall: ; 0x0203FCF4
 	push {r4-r7, lr}
 	sub sp, #0x84
 	add r7, r0, #0x0
@@ -279,8 +279,8 @@ _0203FD8E:
 _0203FDB4: .word UNK_020F4218
 _0203FDB8: .word 0x0000FFFF
 
-	thumb_func_start FUN_0203FDBC
-FUN_0203FDBC: ; 0x0203FDBC
+	thumb_func_start ScrCmd_FixShopCall
+ScrCmd_FixShopCall: ; 0x0203FDBC
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -318,8 +318,8 @@ _0203FDE6:
 _0203FE00: .word 0x0000FFF8
 _0203FE04: .word UNK_02105E10
 
-	thumb_func_start FUN_0203FE08
-FUN_0203FE08: ; 0x0203FE08
+	thumb_func_start ScrCmd_FixGoodsCall
+ScrCmd_FixGoodsCall: ; 0x0203FE08
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -352,8 +352,8 @@ _0203FE2A:
 	.balign 4
 _0203FE44: .word UNK_02105DEC
 
-	thumb_func_start FUN_0203FE48
-FUN_0203FE48: ; 0x0203FE48
+	thumb_func_start ScrCmd_FixSealCall
+ScrCmd_FixSealCall: ; 0x0203FE48
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -380,8 +380,8 @@ FUN_0203FE48: ; 0x0203FE48
 	.balign 4
 _0203FE7C: .word UNK_02105DF4
 
-	thumb_func_start FUN_0203FE80
-FUN_0203FE80: ; 0x0203FE80
+	thumb_func_start ScrCmd_AcceShopCall
+ScrCmd_AcceShopCall: ; 0x0203FE80
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
