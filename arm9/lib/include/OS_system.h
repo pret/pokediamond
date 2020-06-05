@@ -1,9 +1,5 @@
-//
-// Created by mart on 4/23/20.
-//
-
-#ifndef POKEDIAMOND_OS_SYSTEM_H
-#define POKEDIAMOND_OS_SYSTEM_H
+#ifndef POKEDIAMOND_ARM9_OS_SYSTEM_H
+#define POKEDIAMOND_ARM9_OS_SYSTEM_H
 
 #include "function_target.h"
 #include "consts.h"
@@ -36,4 +32,4 @@ OSProcMode OS_GetProcMode(void);
 void OS_SpinWait(u32 cycles);
 void OS_WaitVBlankIntr(void);
 
-#endif //POKEDIAMOND_OS_SYSTEM_H
+#endif //POKEDIAMOND_ARM9_OS_SYSTEM_H
