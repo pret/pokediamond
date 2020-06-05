@@ -51,9 +51,12 @@ struct UnkSubStructA8 {
 
 // TODO: What is this struct?
 struct UnkStruct80 {
-    u8 filler0[0xC];
+    u8 filler0[0x8];
+    u32 unk8;
     u32 unkC;
-    u8 filler10[0x98];
+    u8 filler10[0x28];
+    u32 unk38;
+    u8 filler3C[0x6C];
     struct UnkSubStructA8 *unkA8;
 };
 

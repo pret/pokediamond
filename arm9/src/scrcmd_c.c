@@ -31,12 +31,22 @@ extern void FUN_0200AB18(u32 unk);
 extern void MOD05_021E2BB8(struct UnkStruct* unk, struct ScriptContext* ctx);
 extern u32 FUN_02058488(u32);
 extern BOOL FUN_02030F40();
+extern void FUN_02039460(struct UnkStruct80* unk);
+extern void FUN_02055304(u32 a, u32 b);
+extern void FUN_020545B8(u32 a, void* b, u32 c);
+extern void FUN_02054608(void* a, u32 b);
+extern u32 LoadPlayerDataAddress(u32 a);
+extern void FUN_0200D0E0(u32* a, u32 b);
+extern void FUN_02019178(u32* a);
 
 // Early definitions
 BOOL FUN_020399E8(struct ScriptContext* ctx);
 BOOL FUN_02039CC8(struct ScriptContext* ctx);
 BOOL FUN_0203A2F0(struct ScriptContext* ctx);
 BOOL FUN_0203A46C(struct ScriptContext* ctx);
+BOOL FUN_0203A4AC(struct ScriptContext* ctx);
+BOOL FUN_0203A4E0(struct ScriptContext* ctx);
+BOOL FUN_0203A570(struct ScriptContext* ctx);
 
 // Functions
 // Names taken from
@@ -569,5 +579,82 @@ THUMB_FUNC BOOL FUN_0203A46C(struct ScriptContext* ctx) {
     if (gUnknown21C48B8.unk48 & 0x3) {   // Mask (A | B) ?
         return TRUE;
     }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_ABKeyTimeWait(struct ScriptContext* ctx) {
+    ctx->data[0] = FUN_020394F0(ctx->unk80, ScriptReadHalfword(ctx));
+    SetupNativeScript(ctx, FUN_0203A4AC);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL FUN_0203A4AC(struct ScriptContext* ctx) {
+    if (gUnknown21C48B8.unk48 & 0x3) {   // Mask (A | B) ?
+        return TRUE;
+    }
+    ctx->data[0] = ctx->data[0] - 1;
+
+    if (ctx->data[0] == 0) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_LastKeyWait(struct ScriptContext* ctx) {
+    SetupNativeScript(ctx, FUN_0203A4E0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL FUN_0203A4E0(struct ScriptContext* ctx) {
+    if (gUnknown21C48B8.unk48 & 3) {
+        return TRUE;
+    } else if (gUnknown21C48B8.unk48 & 0x40) {
+        FUN_02055304(ctx->unk80->unk38, 0);
+    } else if (gUnknown21C48B8.unk48 & 0x80) {
+        FUN_02055304(ctx->unk80->unk38, 1);
+    } else if (gUnknown21C48B8.unk48 & 0x20) {
+        FUN_02055304(ctx->unk80->unk38, 2);
+    } else if (gUnknown21C48B8.unk48 & 0x10) {
+        FUN_02055304(ctx->unk80->unk38, 3);
+    } else if (gUnknown21C48B8.unk48 & 0x400) {
+        FUN_02039460(ctx->unk80);
+    } else {
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_NextAnmLastKeyWait(struct ScriptContext* ctx) {
+    SetupNativeScript(ctx, FUN_0203A570);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL FUN_0203A570(struct ScriptContext* ctx) {
+    if (gUnknown21C48B8.unk48 & 0x3) {
+        return TRUE;
+    } else if (gUnknown21C48B8.unk48 & 0xf0) {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkWinOpen(struct ScriptContext* ctx) {
+    struct UnkStruct80* unk80 = ctx->unk80;
+    u8* unk = FUN_02039438(unk80, 0x6);
+    FUN_020545B8(unk80->unk8, FUN_02039438(unk80, 1), 3);
+    FUN_02054608(FUN_02039438(unk80, 1), LoadPlayerDataAddress(ctx->unk80->unkC));
+    *unk = 1;
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkWinClose(struct ScriptContext* ctx) {
+    struct UnkStruct80* unk80 = ctx->unk80;
+    u32* unk = FUN_02039438(unk80, 0x1);
+    u8* unk2 = FUN_02039438(unk80, 0x6);
+    FUN_0200D0E0(unk, 0);
+    FUN_02019178(unk);
+    *unk2 = 0;
     return FALSE;
 }
