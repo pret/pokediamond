@@ -1,6 +1,5 @@
 #include "global.h"
-#include "main.h"
-#include "GX.h"
+#include "gx.h"
 
 
 ARM_FUNC void G3i_PerspectiveW_(fx32 fovsin, fx32 fovcos, fx32 ratio, fx32 near, fx32 far, fx32 scale, u32 load, struct Mtx44 *mtx){

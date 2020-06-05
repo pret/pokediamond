@@ -1,5 +1,4 @@
 #include "global.h"
-#include "main.h"
 #include "fx.h"
 
 ARM_FUNC void VEC_Add(struct Vecx32 *a, struct Vecx32 *b, struct Vecx32 *dst){

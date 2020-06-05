@@ -1,11 +1,7 @@
-//
-// Created by mart on 4/23/20.
-//
-
 #ifndef POKEDIAMOND_OS_ALLOC_H
 #define POKEDIAMOND_OS_ALLOC_H
 
-#include "types.h"
+#include "nitro/types.h"
 #include "OS_arena.h"
 
 typedef int OSHeapHandle;

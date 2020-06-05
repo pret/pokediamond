@@ -1,6 +1,5 @@
 #include "global.h"
-#include "main.h"
-#include "GX.h"
+#include "gx.h"
 
 
 ARM_FUNC void G3_BeginMakeDL(struct GXDLInfo *displaylist, void *r1, u32 r2){

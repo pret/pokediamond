@@ -1,7 +1,7 @@
 #ifndef GUARD_DGT_H
 #define GUARD_DGT_H
 
-#include "types.h"
+#include "nitro/types.h"
 
 struct DGTHash1Context {
     union {

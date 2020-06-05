@@ -1,11 +1,7 @@
-//
-// Created by red031000 on 2020-05-07.
-//
-
 #ifndef POKEDIAMOND_OS_INTERRUPT_H
 #define POKEDIAMOND_OS_INTERRUPT_H
 
-#include "types.h"
+#include "nitro/types.h"
 
 typedef void (*OSIrqFunction) (void);
 

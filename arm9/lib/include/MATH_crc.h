@@ -1,7 +1,7 @@
 #ifndef GUARD_MATH_CRC_H
 #define GUARD_MATH_CRC_H
 
-#include "types.h"
+#include "nitro/types.h"
 
 typedef u8 MATHCRC8Context;
 typedef u16 MATHCRC16Context;

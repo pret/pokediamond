@@ -5,6 +5,8 @@
 #ifndef POKEDIAMOND_OS_TERMINATE_PROC_H
 #define POKEDIAMOND_OS_TERMINATE_PROC_H
 
+#include "nitro/types.h"
+
 void OS_Terminate(void);
 void OS_Halt(void);
 

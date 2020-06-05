@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_FILESYSTEM_H
 #define POKEDIAMOND_FILESYSTEM_H
 
+#include "nitro/types.h"
+
 typedef struct NARC
 {
     FSFile file;

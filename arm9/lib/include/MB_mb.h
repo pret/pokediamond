@@ -1,7 +1,3 @@
-//
-// Created by red031000 on 2020-05-06.
-//
-
 #ifndef POKEDIAMOND_MB_MB_H
 #define POKEDIAMOND_MB_MB_H
 
