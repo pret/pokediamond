@@ -56,7 +56,9 @@ struct UnkStruct80 {
     u32 unkC;
     u8 filler10[0x28];
     u32 unk38;
-    u8 filler3C[0x6C];
+    u8 filler3C[0x24];
+    u32 unk60;
+    u8 filler64[0x44];
     struct UnkSubStructA8 *unkA8;
 };
 

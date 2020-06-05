@@ -38,6 +38,17 @@ extern void FUN_02054608(void* a, u32 b);
 extern u32 LoadPlayerDataAddress(u32 a);
 extern void FUN_0200D0E0(u32* a, u32 b);
 extern void FUN_02019178(u32* a);
+extern void FUN_020179E0(u32 unk8, u8 a, u8 b, u32 c);
+extern u32 FUN_02058510(u32 unk80, u32 param);
+extern void MOD05_021E8128(u32 unk60, u16 typ, u16 map);
+extern void MOD05_021E8130(u32 unk60, u8 unk);
+extern u32 MOD05_021E8140(u32 unk60);
+extern void MOD05_021E8158(struct UnkStruct80* unk80);
+extern void FUN_0200A8E0(u32 unk78, u32 msg, u32 unk);
+extern void FUN_0200B7B8(u32 unk1, u32 unk2, u32 unk3);
+extern BOOL MOD05_021E8148(u32 unk60);
+extern void FUN_0201BD84(u32 unk1, u32 unk2, u32 unk3, u32 unk4, u32 unk5, u32 unk6, u32 unk7);
+
 
 // Early definitions
 BOOL FUN_020399E8(struct ScriptContext* ctx);
@@ -47,6 +58,8 @@ BOOL FUN_0203A46C(struct ScriptContext* ctx);
 BOOL FUN_0203A4AC(struct ScriptContext* ctx);
 BOOL FUN_0203A4E0(struct ScriptContext* ctx);
 BOOL FUN_0203A570(struct ScriptContext* ctx);
+BOOL FUN_0203A6C8(struct ScriptContext* ctx);
+BOOL FUN_0203A8A0(struct ScriptContext* ctx);
 
 // Functions
 // Names taken from
@@ -653,8 +666,139 @@ THUMB_FUNC BOOL ScrCmd_TalkWinClose(struct ScriptContext* ctx) {
     struct UnkStruct80* unk80 = ctx->unk80;
     u32* unk = FUN_02039438(unk80, 0x1);
     u8* unk2 = FUN_02039438(unk80, 0x6);
-    FUN_0200D0E0(unk, 0);
+    FUN_0200D0E0(unk, 0);  // This one handles the Clear part since it's missing from TalkWinCloseNoClear
     FUN_02019178(unk);
     *unk2 = 0;
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_TalkWinCloseNoClear(struct ScriptContext* ctx) {
+    struct UnkStruct80* unk80 = ctx->unk80;
+    u32* unk = FUN_02039438(unk80, 0x1);
+    u8* unk2 = FUN_02039438(unk80, 0x6);
+    FUN_02019178(unk);
+    *unk2 = 0;
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_BgScroll(struct ScriptContext* ctx) {
+    struct UnkStruct80* unk80 = ctx->unk80;
+    u16* xval = FUN_02039438(unk80, 0x31);
+    u16* xcnt = FUN_02039438(unk80, 0x2d);
+    u16* xdir = FUN_02039438(unk80, 0x32);
+    u16* yval = FUN_02039438(unk80, 0x33);
+    u16* ycnt = FUN_02039438(unk80, 0x2e);
+    u16* ydir = FUN_02039438(unk80, 0x34);
+
+    *xval = ScriptReadByte(ctx);
+    *xcnt = ScriptReadByte(ctx);
+    *xdir = ScriptReadByte(ctx);
+    *yval = ScriptReadByte(ctx);
+    *ycnt = ScriptReadByte(ctx);
+    *ydir = ScriptReadByte(ctx);
+
+    SetupNativeScript(ctx, FUN_0203A6C8);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL FUN_0203A6C8(struct ScriptContext* ctx) {
+    struct UnkStruct80* unk80 = ctx->unk80;
+    u16* xval = FUN_02039438(unk80, 0x31);
+    u16* xdir = FUN_02039438(unk80, 0x32);
+    u16* yval = FUN_02039438(unk80, 0x33);
+    u16* ydir = FUN_02039438(unk80, 0x34);
+    u16* xcnt = FUN_02039438(unk80, 0x2d);
+    u16* ycnt = FUN_02039438(unk80, 0x2e);
+
+    if (*xcnt == 0 && *ycnt == 0) {
+        return TRUE;
+    }
+
+    if (*xval != 0) {
+        if (*xdir == 0) {
+            FUN_020179E0(unk80->unk8, 3, 1, *xval);
+        } else {
+            FUN_020179E0(unk80->unk8, 3, 2, *xval);
+        }
+    }
+
+    if(*yval != 0){
+        if(*ydir == 0){
+            FUN_020179E0(unk80->unk8, 3, 4, *yval);
+        } else {
+            FUN_020179E0(unk80->unk8, 3, 5, *yval);
+        }
+    }
+
+    if (*xcnt != 0) {
+        *xcnt = *xcnt - 1;
+    }
+
+    if (*ycnt != 0) {
+        *ycnt = *ycnt - 1;
+    }
+
+    return FALSE;
+}
+
+THUMB_FUNC BOOL ScrCmd_BoardMake(struct ScriptContext* ctx) {
+    struct UnkStruct80* unk80 = ctx->unk80;
+    u32* unk1 = FUN_02039438(unk80, 0x11);
+    u32* unk2 = FUN_02039438(unk80, 0x10);
+    u32* unk3 = FUN_02039438(unk80, 0x0f);
+    u16 map;
+    u16 wk;  // Unused?? Maybe leftover debugging?
+    u8 typ;
+    u8 msg;
+
+    msg = ScriptReadByte(ctx);
+    typ = ScriptReadByte(ctx);
+    map = ScriptReadHalfword(ctx);
+    wk = ScriptReadHalfword(ctx);
+
+    if (map == 0) {
+        u32* unk4 = FUN_02039438(unk80, 0xa);
+        map = FUN_02058510(*unk4, 0);
+    }
+
+    MOD05_021E8128(unk80->unk60, typ, map);
+    MOD05_021E8130(unk80->unk60, 0x1);
+    MOD05_021E8158(unk80);
+    FUN_0200A8E0(ctx->unk78, msg, *unk1);
+    FUN_0200B7B8(*unk3, *unk2, *unk1);
+    FUN_0201BD84(MOD05_021E8140(unk80->unk60), 0x1, *unk2, 0, 0, 0, 0);
+
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_InfoBoardMake(struct ScriptContext* ctx) {
+    struct UnkStruct80* unk80 = ctx->unk80;
+    u8 typ = ScriptReadByte(ctx);
+    u16 map = ScriptReadHalfword(ctx);
+    MOD05_021E8128(unk80->unk60, typ, map);
+    MOD05_021E8130(unk80->unk60, 0x1);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_BoardReq(struct ScriptContext* ctx) {
+    struct UnkStruct80* unk80 = ctx->unk80;
+    u8 req = ScriptReadByte(ctx);
+    MOD05_021E8130(unk80->unk60, req);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_BoardWait(struct ScriptContext* ctx) {
+    if (MOD05_021E8148(ctx->unk80->unk60) == TRUE) {
+        return FALSE;
+    }
+
+    SetupNativeScript(ctx, FUN_0203A8A0);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL FUN_0203A8A0(struct ScriptContext* ctx) {
+    if (MOD05_021E8148(ctx->unk80->unk60) == TRUE) {
+        return TRUE;
+    }
     return FALSE;
 }
