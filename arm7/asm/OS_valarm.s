@@ -114,7 +114,7 @@ _037FAB4C:
 _037FAB8C:
 	ldr	r7, [sl]
 	mov	r0, sl
-	bl	FUN_037FAECC
+	bl	OSi_DetachVAlarm
 	str	r4, [sl]
 	cmp	r7, #0
 	beq	_037FABB0
@@ -137,7 +137,7 @@ _037FABB0:
 	b	_037FAC00
 _037FABE4:
 	mov	r0, sl
-	bl	FUN_037FAECC
+	bl	OSi_DetachVAlarm
 	mov	r0, sl
 	bl	OSi_AppendVAlarm
 	ldr	r0, [fp]
@@ -167,7 +167,7 @@ OS_CancelVAlarms: ; 0x037FAC30
 	mov	r5, r0
 	cmp	r7, #0
 	bne	_037FAC50
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _037FAC50:
 	ldr	r0, _037FACA8	; =_03807948
 	ldr	r0, [r0]
@@ -212,7 +212,7 @@ OS_CancelVAlarm: ; 0x037FACAC
 	b	_037FACF4
 _037FACDC:
 	mov	r0, r5
-	bl	FUN_037FAECC
+	bl	OSi_DetachVAlarm
 	mov	r0, #0
 	str	r0, [r5]
 	mov	r0, r4
@@ -229,7 +229,7 @@ OS_SetVAlarmTag: ; 0x037FAD00
 	mov	r5, r0
 	movs	r4, r1
 	bne	_037FAD18
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _037FAD18:
 	cmp	r5, #0
 	strne	r4, [r5, #8]
@@ -279,7 +279,7 @@ OS_SetPeriodicVAlarm: ; 0x037FAD88
 	cmp	r0, #0
 	beq	_037FADC0
 _037FADBC:
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _037FADC0:
 	ldr	r0, _037FAE1C	; =0x04000006
 	ldrh	r9, [r0]
@@ -322,7 +322,7 @@ OS_SetVAlarm: ; 0x037FAE20
 	cmp	r0, #0
 	beq	_037FAE58
 _037FAE54:
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _037FAE58:
 	ldr	r0, _037FAEB4	; =0x04000006
 	ldrh	r9, [r0]
@@ -357,8 +357,8 @@ OS_CreateVAlarm: ; 0x037FAEB8
 	str	r1, [r0, #32]
 	bx	lr
 
-	arm_func_start FUN_037FAECC
-FUN_037FAECC: ; 0x037FAECC
+	arm_func_start OSi_DetachVAlarm
+OSi_DetachVAlarm: ; 0x037FAECC
 	cmp	r0, #0
 	bxeq	lr
 	ldr	r2, [r0, #20]

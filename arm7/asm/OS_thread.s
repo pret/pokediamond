@@ -322,7 +322,7 @@ _037F9138:
 	bl	OS_WakeupThread
 	bl	OS_EnableScheduler
 	bl	OS_RescheduleThread
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 	ldmia	sp!, {r4, lr}
 	bx	lr
 _037F9164:	.word	OSi_CurrentThreadPtr

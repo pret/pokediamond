@@ -601,8 +601,8 @@ _0600078C:	.word	SND_BeginSleep
 
 	arm_func_start FUN_06000790
 FUN_06000790: ; 0x06000790
-	ldr	pc, _06000794	; =FUN_037FB1F0
-_06000794:	.word	FUN_037FB1F0
+	ldr	pc, _06000794	; =OS_Terminate
+_06000794:	.word	OS_Terminate
 
 	arm_func_start WM_sp_init
 WM_sp_init: ; 0x06000798
