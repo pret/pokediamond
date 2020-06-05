@@ -7661,6 +7661,15 @@
 .extern Unk_02106900
 .extern Unk_02106A00
 .extern Unk_02106A04
+.extern UNK_020FFA38
+.extern UNK_02105BB8
+.extern UNK_021064BC
+.extern UNK_021064C4
+.extern gUnknown21C48B8
+.extern UNK_021CED20
+.extern UNK_021CED98
+.extern UNK_021CEDD4
+.extern UNK_021CEF70
 .extern UnloadOverlayByID
 .extern VEC_Add
 .extern VEC_CrossProduct
