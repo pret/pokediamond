@@ -7291,6 +7291,7 @@
 .extern OSi_PreviousVCount
 .extern OSi_ReadCardRom32
 .extern OSi_ReferSymbol
+.extern OSi_ReloadRomData
 .extern OSi_RemoveMutexLinkFromQueue
 .extern OSi_RescheduleCount
 .extern OSi_SetTimerReserved

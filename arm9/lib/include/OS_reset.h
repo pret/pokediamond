@@ -18,6 +18,7 @@ static void OSi_SendToPxi(u16 data);
 void OS_ResetSystem(u32 parameter);
 void OSi_DoBoot(void);
 static void OSi_CpuClear32(register u32 data, register void *destp, register u32 size);
+void OSi_ReloadRomData(void);
 void OSi_ReadCardRom32(u32 src, void *dst, s32 len);
 
 static inline u32 OS_GetResetParameter(void)
