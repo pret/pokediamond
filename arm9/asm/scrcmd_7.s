@@ -576,8 +576,8 @@ ScrCmd_HaifuPokeRetryCheck: ; 0x02041B40
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmd2vs2BattleCheck,
-ScrCmd_EvCmd2vs2BattleCheck,: ; 0x02041B70
+	thumb_func_start ScrCmd_2vs2BattleCheck
+ScrCmd_2vs2BattleCheck: ; 0x02041B70
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword

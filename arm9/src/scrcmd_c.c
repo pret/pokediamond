@@ -36,6 +36,7 @@ extern BOOL FUN_02030F40();
 BOOL FUN_020399E8(struct ScriptContext* ctx);
 BOOL FUN_02039CC8(struct ScriptContext* ctx);
 BOOL FUN_0203A2F0(struct ScriptContext* ctx);
+BOOL FUN_0203A46C(struct ScriptContext* ctx);
 
 // Functions
 // Names taken from
@@ -557,4 +558,16 @@ THUMB_FUNC BOOL ScrCmd_TalkConSioMsg(struct ScriptContext* ctx) {
 
     SetupNativeScript(ctx, FUN_0203A2F0);
     return TRUE;
+}
+
+THUMB_FUNC BOOL ScrCmd_ABKeyWait(struct ScriptContext* ctx) {
+    SetupNativeScript(ctx, FUN_0203A46C);
+    return TRUE;
+}
+
+THUMB_FUNC BOOL FUN_0203A46C(struct ScriptContext* ctx) {
+    if (gUnknown21C48B8.unk48 & 0x3) {   // Mask (A | B) ?
+        return TRUE;
+    }
+    return FALSE;
 }

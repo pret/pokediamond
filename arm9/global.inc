@@ -2757,7 +2757,7 @@
 .extern ScrCmd_BmpMenuInit
 .extern ScrCmd_BmpMenuInitEx
 .extern ScrCmd_BmpMenuMakeList
-.extern ScrCmd_EvCmdBmpMenuMakeList16,
+.extern ScrCmd_BmpMenuMakeList16
 .extern ScrCmd_BmpMenuStart
 .extern ScrCmd_UnionBmpMenuStart
 .extern ScrCmd_BmpListInit
@@ -2809,8 +2809,8 @@
 .extern ScrCmd_SetMapProc
 .extern ScrCmd_FinishMapProc
 .extern ScrCmd_WiFiAutoReg
-.extern ScrCmd_EvCmdWiFiP2PMatchEventCall,
-.extern ScrCmd_EvCmdWiFiP2PMatchSetDel,
+.extern ScrCmd_WiFiP2PMatchEventCall
+.extern ScrCmd_WiFiP2PMatchSetDel
 .extern ScrCmd_CommGetCurrentID
 .extern ScrCmd_PokeWindowPut
 .extern ScrCmd_PokeWindowPutPP
@@ -2949,8 +2949,8 @@
 .extern ScrCmd_ObjDirChange
 .extern ScrCmd_ReturnScriptWkSet
 .extern ScrCmd_SetUpDoorAnime
-.extern ScrCmd_EvCmdWait3DAnime,
-.extern ScrCmd_EvCmdFree3DAnime,
+.extern ScrCmd_Wait3DAnime
+.extern ScrCmd_Free3DAnime
 .extern ScrCmd_OpenDoor
 .extern ScrCmd_CloseDoor
 .extern ScrCmd_InitWaterGym
@@ -3052,7 +3052,7 @@
 .extern ScrCmd_GetNowHour
 .extern ScrCmd_ObjShakeAnm
 .extern ScrCmd_ObjBlinkAnm
-.extern ScrCmd_EvCmd_D20R0106Legend_IsUnseal,
+.extern ScrCmd_D20R0106Legend_IsUnseal
 .extern ScrCmd_DressingImcAcceCheck
 .extern ScrCmd_AgbCartridgeVerGet
 .extern ScrCmd_UnderGroundTalkCountClear
@@ -3061,14 +3061,14 @@
 .extern ScrCmd_SlotRentyanChk
 .extern ScrCmd_LevelJijiiNo
 .extern ScrCmd_ImcAcceSubItem
-.extern ScrCmd_EvCmdc08r0801ScopeCameraSet,
+.extern ScrCmd_c08r0801ScopeCameraSet
 .extern ScrCmd_LevelJijiiInit
 .extern ScrCmd_NewNankaiWordSet
 .extern ScrCmd_NankaiWordCompleteCheck
 .extern ScrCmd_RegularCheck
 .extern ScrCmd_BirthDayCheck
 .extern ScrCmd_AnoonSeeNum
-.extern ScrCmd_EvCmdD17SystemMapSelect,
+.extern ScrCmd_D17SystemMapSelect
 .extern ScrCmd_UnderGroundToolGiveCount
 .extern ScrCmd_UnderGroundKasekiDigCount
 .extern ScrCmd_UnderGroundTrapHitCount
@@ -3080,7 +3080,7 @@
 .extern ScrCmd_SodateyaPokeListGetResult
 .extern ScrCmd_GetRandomHit
 .extern ScrCmd_HidenEffStart
-.extern ScrCmd_EvCmdUnderGroundTalkCount2,
+.extern ScrCmd_UnderGroundTalkCount2
 .extern ScrCmd_Zishin
 .extern ScrCmd_CheckMyGSID
 .extern ScrCmd_GetFriendDataNum
@@ -3218,7 +3218,7 @@
 .extern ScrCmd_TrainerLoseCheck
 .extern ScrCmd_SeacretPokeRetryCheck
 .extern ScrCmd_HaifuPokeRetryCheck
-.extern ScrCmd_EvCmd2vs2BattleCheck,
+.extern ScrCmd_2vs2BattleCheck
 .extern ScrCmd_DebugBattleSet
 .extern ScrCmd_DebugTrainerFlagSet
 .extern ScrCmd_DebugTrainerFlagOnJump
@@ -3318,9 +3318,9 @@
 .extern ScrCmd_FrontPokemon
 .extern ScrCmd_TemotiPokeType
 .extern ScrCmd_GetPokeCount
-.extern ScrCmd_EvCmdGetPokeCount2,
-.extern ScrCmd_EvCmdGetPokeCount3,
-.extern ScrCmd_EvCmdGetPokeCount4,
+.extern ScrCmd_GetPokeCount2
+.extern ScrCmd_GetPokeCount3
+.extern ScrCmd_GetPokeCount4
 .extern ScrCmd_GetTamagoCount
 .extern ScrCmd_ChkTemotiPokerus
 .extern ScrCmd_TemotiPokeSexGet

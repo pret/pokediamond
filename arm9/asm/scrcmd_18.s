@@ -988,8 +988,8 @@ ScrCmd_GetPokeCount: ; 0x02044B00
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmdGetPokeCount2,
-ScrCmd_EvCmdGetPokeCount2,: ; 0x02044B2C
+	thumb_func_start ScrCmd_GetPokeCount2
+ScrCmd_GetPokeCount2: ; 0x02044B2C
 	push {r3-r7, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
@@ -1031,8 +1031,8 @@ _02044B7A:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmdGetPokeCount3,
-ScrCmd_EvCmdGetPokeCount3,: ; 0x02044B84
+	thumb_func_start ScrCmd_GetPokeCount3
+ScrCmd_GetPokeCount3: ; 0x02044B84
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0
@@ -1095,8 +1095,8 @@ _02044C00:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmdGetPokeCount4,
-ScrCmd_EvCmdGetPokeCount4,: ; 0x02044C0C
+	thumb_func_start ScrCmd_GetPokeCount4
+ScrCmd_GetPokeCount4: ; 0x02044C0C
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r4, r0, #0x0

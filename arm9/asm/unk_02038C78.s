@@ -317,8 +317,8 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_GetTemotiPokeNum
     .word ScrCmd_SetMapProc
     .word ScrCmd_WiFiAutoReg
-    .word ScrCmd_EvCmdWiFiP2PMatchEventCall,
-    .word ScrCmd_EvCmdWiFiP2PMatchSetDel,
+    .word ScrCmd_WiFiP2PMatchEventCall
+    .word ScrCmd_WiFiP2PMatchSetDel
     .word ScrCmd_MsgBoyEvent
     .word ScrCmd_ImageClipSetProc
     .word ScrCmd_ImageClipPreviewTvProc
@@ -392,7 +392,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_TrainerLose
     .word ScrCmd_TrainerLoseCheck
     .word ScrCmd_SeacretPokeRetryCheck
-    .word ScrCmd_EvCmd2vs2BattleCheck,
+    .word ScrCmd_2vs2BattleCheck
     .word ScrCmd_DebugBattleSet
     .word ScrCmd_DebugTrainerFlagSet
     .word ScrCmd_DebugTrainerFlagOnJump
@@ -515,8 +515,8 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_SysFlagGameClearGet
     .word ScrCmd_SysFlagGameClearSet
     .word ScrCmd_SetUpDoorAnime
-    .word ScrCmd_EvCmdWait3DAnime,
-    .word ScrCmd_EvCmdFree3DAnime,
+    .word ScrCmd_Wait3DAnime
+    .word ScrCmd_Free3DAnime
     .word ScrCmd_OpenDoor
     .word ScrCmd_CloseDoor
     .word ScrCmd_GetSodateyaName
@@ -564,9 +564,9 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_PokeStatusGetResult
     .word ScrCmd_TemotiMonsNo
     .word ScrCmd_MonsOwnChk
-    .word ScrCmd_EvCmdGetPokeCount2,
-    .word ScrCmd_EvCmdGetPokeCount3,
-    .word ScrCmd_EvCmdGetPokeCount4,
+    .word ScrCmd_GetPokeCount2
+    .word ScrCmd_GetPokeCount3
+    .word ScrCmd_GetPokeCount4
     .word ScrCmd_GetTamagoCount
     .word ScrCmd_UgShopMenuInit
     .word ScrCmd_UgShopTalkStart
@@ -773,7 +773,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_GetNowHour
     .word ScrCmd_ObjShakeAnm
     .word ScrCmd_ObjBlinkAnm
-    .word ScrCmd_EvCmd_D20R0106Legend_IsUnseal,
+    .word ScrCmd_D20R0106Legend_IsUnseal
     .word ScrCmd_DressingImcAcceCheck
     .word ScrCmd_TalkMsgUnknownFont
     .word ScrCmd_AgbCartridgeVerGet
@@ -788,7 +788,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_LevelJijiiNo
     .word ScrCmd_PokeLevelGet
     .word ScrCmd_ImcAcceSubItem
-    .word ScrCmd_EvCmdc08r0801ScopeCameraSet,
+    .word ScrCmd_c08r0801ScopeCameraSet
     .word ScrCmd_LevelJijiiInit
     .word ScrCmd_TVEntryParkInfo
     .word ScrCmd_NewNankaiWordSet
@@ -799,7 +799,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_BirthDayCheck
     .word ScrCmd_SndInitialVolSet
     .word ScrCmd_AnoonSeeNum
-    .word ScrCmd_EvCmdD17SystemMapSelect,
+    .word ScrCmd_D17SystemMapSelect
     .word ScrCmd_UnderGroundToolGiveCount
     .word ScrCmd_UnderGroundKasekiDigCount
     .word ScrCmd_UnderGroundTrapHitCount
@@ -813,7 +813,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_SodateyaPokeListSetProc
     .word ScrCmd_SodateyaPokeListGetResult
     .word ScrCmd_GetRandomHit
-    .word ScrCmd_EvCmdUnderGroundTalkCount2,
+    .word ScrCmd_UnderGroundTalkCount2
     .word ScrCmd_BtlPointWinWrite
     .word ScrCmd_BtlPointWinDel
     .word ScrCmd_BtlPointWrite
@@ -823,7 +823,7 @@ gScriptCmdTable: ; 0x020F355C
     .word ScrCmd_CompBtlPoint
     .word ScrCmd_GetBtlPointGift
     .word ScrCmd_UnionViewGetTrainerTypeNo
-    .word ScrCmd_EvCmdBmpMenuMakeList16,
+    .word ScrCmd_BmpMenuMakeList16
     .word ScrCmd_HidenEffStart
     .word ScrCmd_Zishin
     .word ScrCmd_TrainerMultiBattleSet

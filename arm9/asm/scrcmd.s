@@ -18,31 +18,6 @@ UNK_021C5A0C: ; 0x021C5A0C
 
 	.text
 
-	thumb_func_start ScrCmd_ABKeyWait
-ScrCmd_ABKeyWait: ; 0x0203A45C
-	push {r3, lr}
-	ldr r1, _0203A468 ; =FUN_0203A46C
-	bl SetupNativeScript
-	mov r0, #0x1
-	pop {r3, pc}
-	.balign 4
-_0203A468: .word FUN_0203A46C 
-
-	thumb_func_start FUN_0203A46C
-FUN_0203A46C: ; 0x0203A46C
-	ldr r0, _0203A480 ; =gUnknown21C48B8
-	ldr r1, [r0, #0x48]
-	mov r0, #0x3
-	tst r0, r1
-	beq _0203A47A
-	mov r0, #0x1
-	bx lr
-_0203A47A:
-	mov r0, #0x0
-	bx lr
-	nop
-_0203A480: .word gUnknown21C48B8
-
 	thumb_func_start ScrCmd_ABKeyTimeWait
 ScrCmd_ABKeyTimeWait: ; 0x0203A484
 	push {r4, lr}
@@ -1098,8 +1073,8 @@ ScrCmd_BmpMenuMakeList: ; 0x0203AC9C
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmdBmpMenuMakeList16,
-ScrCmd_EvCmdBmpMenuMakeList16,: ; 0x0203ACC4
+	thumb_func_start ScrCmd_BmpMenuMakeList16
+ScrCmd_BmpMenuMakeList16: ; 0x0203ACC4
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -3077,16 +3052,16 @@ ScrCmd_WiFiAutoReg: ; 0x0203BCBC
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmdWiFiP2PMatchEventCall,
-ScrCmd_EvCmdWiFiP2PMatchEventCall,: ; 0x0203BCCC
+	thumb_func_start ScrCmd_WiFiP2PMatchEventCall
+ScrCmd_WiFiP2PMatchEventCall: ; 0x0203BCCC
 	push {r3, lr}
 	ldr r0, [r0, #0x74]
 	bl FUN_0206F3B8
 	mov r0, #0x1
 	pop {r3, pc}
 
-	thumb_func_start ScrCmd_EvCmdWiFiP2PMatchSetDel,
-ScrCmd_EvCmdWiFiP2PMatchSetDel,: ; 0x0203BCD8
+	thumb_func_start ScrCmd_WiFiP2PMatchSetDel
+ScrCmd_WiFiP2PMatchSetDel: ; 0x0203BCD8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80
@@ -6971,8 +6946,8 @@ ScrCmd_SetUpDoorAnime: ; 0x0203DC00
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmdWait3DAnime,
-ScrCmd_EvCmdWait3DAnime,: ; 0x0203DC58
+	thumb_func_start ScrCmd_Wait3DAnime
+ScrCmd_Wait3DAnime: ; 0x0203DC58
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -6985,8 +6960,8 @@ ScrCmd_EvCmdWait3DAnime,: ; 0x0203DC58
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmdFree3DAnime,
-ScrCmd_EvCmdFree3DAnime,: ; 0x0203DC70
+	thumb_func_start ScrCmd_Free3DAnime
+ScrCmd_Free3DAnime: ; 0x0203DC70
 	push {r3, lr}
 	ldr r2, [r0, #0x8]
 	add r1, r2, #0x1
@@ -9617,8 +9592,8 @@ _0203F164:
 	mov r0, #0x1
 	pop {r3-r7, pc}
 
-	thumb_func_start ScrCmd_EvCmd_D20R0106Legend_IsUnseal,
-ScrCmd_EvCmd_D20R0106Legend_IsUnseal,: ; 0x0203F174
+	thumb_func_start ScrCmd_D20R0106Legend_IsUnseal
+ScrCmd_D20R0106Legend_IsUnseal: ; 0x0203F174
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl ScriptReadHalfword
@@ -9883,8 +9858,8 @@ ScrCmd_ImcAcceSubItem: ; 0x0203F348
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start ScrCmd_EvCmdc08r0801ScopeCameraSet,
-ScrCmd_EvCmdc08r0801ScopeCameraSet,: ; 0x0203F38C
+	thumb_func_start ScrCmd_c08r0801ScopeCameraSet
+ScrCmd_c08r0801ScopeCameraSet: ; 0x0203F38C
 	push {r3, lr}
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
@@ -10070,8 +10045,8 @@ ScrCmd_AnoonSeeNum: ; 0x0203F4D8
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmdD17SystemMapSelect,
-ScrCmd_EvCmdD17SystemMapSelect,: ; 0x0203F508
+	thumb_func_start ScrCmd_D17SystemMapSelect
+ScrCmd_D17SystemMapSelect: ; 0x0203F508
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	bl ScriptReadHalfword
@@ -10590,8 +10565,8 @@ _0203F91E:
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start ScrCmd_EvCmdUnderGroundTalkCount2,
-ScrCmd_EvCmdUnderGroundTalkCount2,: ; 0x0203F924
+	thumb_func_start ScrCmd_UnderGroundTalkCount2
+ScrCmd_UnderGroundTalkCount2: ; 0x0203F924
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, #0x80

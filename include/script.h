@@ -8,6 +8,31 @@ struct ScriptContext;
 typedef u8 (*ScrCmdFunc)(struct ScriptContext *);
 typedef u8 Script[];
 
+struct Unk21C48B8
+{
+    void (*unk0)(s32);
+    s32 unk4;
+    s32 unk8;
+    s32 unkC;
+    s32 unk10;
+    s32 unk14;
+    s32 unk18;
+    s32 unk1C;
+    s32 unk20;
+    s32 unk24;
+    s32 unk28;
+    u32 unk2C;
+    s32 unk30;
+    s32 unk34;
+    s32 unk38;
+    u8 filler3C[0xC];
+    s32 unk48;
+    u8 filler4C[0x20];
+    s32 unk6C;
+};
+
+extern struct Unk21C48B8 gUnknown21C48B8;
+
 struct UnkStruct {
     u8 unk0;
     u8 unk1;
