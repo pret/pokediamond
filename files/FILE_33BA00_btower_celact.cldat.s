@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x33BA00, 0x40
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/btower_celact.cldat"
+	.balign 4, 255

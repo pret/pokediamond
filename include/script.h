@@ -20,6 +20,9 @@ struct ScriptContext
     ScrCmdFunc *cmdTableEnd;
     u32 data[4];
 	u32 unk74;
+	u32 unk78;
+	u32 unk7C;
+	void * unk80;
 };
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))

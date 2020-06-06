@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x441400, 0x2DC
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/tmap_flags.dat"
+	.balign 4, 255

@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x1C22400, 0x3EA
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/poketool/personal/pms.narc"
+	.balign 4, 255

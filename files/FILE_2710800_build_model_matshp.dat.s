@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x2710800, 0x1724
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/fielddata/build_model/build_model_matshp.dat"
+	.balign 4, 255

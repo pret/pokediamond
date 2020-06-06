@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x424800, 0x4C
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/porucase_canm.resdat"
+	.balign 4, 255

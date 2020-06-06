@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x409600, 0x7F4
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/fs_kanban.nsbca"
+	.balign 4, 255

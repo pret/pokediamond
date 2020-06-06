@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x33C000, 0x34
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/btower_pal.resdat"
+	.balign 4, 255

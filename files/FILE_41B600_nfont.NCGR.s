@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x41B600, 0x8030
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/nfont.NCGR"
+	.balign 4, 255

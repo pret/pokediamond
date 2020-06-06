@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "files/FILE_33A400_area02light.txt"
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/area02light.txt"
+	.balign 4, 255

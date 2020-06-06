@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x33E800, 0x6F
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/clact_default.NANR"
+	.balign 4, 255

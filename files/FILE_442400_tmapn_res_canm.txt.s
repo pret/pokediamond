@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "files/FILE_442400_tmapn_res_canm.txt"
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/tmapn_res_canm.txt"
+	.balign 4, 255

@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x1D0E400, 0x3E04C
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/wazaeffect/we.arc"
+	.balign 4, 255
