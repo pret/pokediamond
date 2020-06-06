@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x499400, 0x4C
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/uground_cell.resdat"
+	.balign 4, 255

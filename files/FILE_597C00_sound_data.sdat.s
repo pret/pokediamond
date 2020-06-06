@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x597C00, 0x723560
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/sound/sound_data.sdat"
+	.balign 4, 255

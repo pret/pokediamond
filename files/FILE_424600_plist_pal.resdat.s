@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x424600, 0x94
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/plist_pal.resdat"
+	.balign 4, 255

@@ -172,6 +172,8 @@ MWCCARM  = tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # only dependency should be MWCCARM.
 MWLDARM  = tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
+NARCCOMP = tools/narccomp/narccomp$(EXE)
+SCANINC = tools/scaninc/scaninc$(EXE)
 
 AS      = $(WINE) $(MWASMARM)
 CC      = $(WINE) $(MWCCARM)
@@ -215,6 +217,9 @@ else
 NODEP := 1
 endif
 
+.SECONDARY:
+.DELETE_ON_ERROR:
+.SECONDEXPANSION:
 .PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
 
 MAKEFLAGS += --no-print-directory
@@ -252,10 +257,16 @@ patch_mwasmarm:
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 
-$(BUILD_DIR)/%.o: %.c
+ifeq (,$(NODEP))
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I include -I include-mw -I arm9/lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)))
+else
+$(BUILD_DIR)/%.o: dep :=
+endif
+
+$(BUILD_DIR)/%.o: %.c $$(dep)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.o: %.s
+$(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) $< -o $@
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
@@ -296,6 +307,12 @@ DUMMY != mkdir -p $(ALL_DIRS)
 
 %.png: ;
 %.pal: ;
+
+%.narc: members = $(shell find $(@D)/$*/*)
+%.narc: $$(members)
+	$(NARCCOMP) -o $@ -p 255 $^
+
+files/poketool/personal/pms.narc: ;
 
 $(BUILD_DIR)/pokediamond_bnr.bin: pokediamond.bsf graphics/icon.4bpp graphics/icon.gbapal
 	$(MAKEBANNER) $< $@

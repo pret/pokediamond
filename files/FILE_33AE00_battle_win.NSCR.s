@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x33AE00, 0x824
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/battle_win.NSCR"
+	.balign 4, 255

@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x408200, 0x48
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/fld_anime1.bin"
+	.balign 4, 255

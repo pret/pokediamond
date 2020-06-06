@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "files/FILE_3B4000_dt_test_res_multianm.txt"
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/dt_test_res_multianm.txt"
+	.balign 4, 255

@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x499C00, 0x60
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/uground_clact.cldat"
+	.balign 4, 255

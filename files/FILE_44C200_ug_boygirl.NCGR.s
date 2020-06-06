@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x44C200, 0x1230
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/ug_boygirl.NCGR"
+	.balign 4, 255

@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x43E600, 0x228
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/smptm_nemuri.NCLR"
+	.balign 4, 255

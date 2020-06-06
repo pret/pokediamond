@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x452000, 0xA2
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/ug_hole.NCER"
+	.balign 4, 255

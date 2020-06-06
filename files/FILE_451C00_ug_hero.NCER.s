@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x451C00, 0x109
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/ug_hero.NCER"
+	.balign 4, 255

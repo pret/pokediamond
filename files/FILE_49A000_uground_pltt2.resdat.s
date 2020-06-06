@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x49A000, 0x34
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/uground_pltt2.resdat"
+	.balign 4, 255

@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "baserom.nds", 0x43EA00, 0x250
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/t3_fl_b.nsbtx"
+	.balign 4, 255

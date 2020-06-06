@@ -1,4 +1,3 @@
-	.include "asm/macros.inc"
-	.text
-	.incbin "files/FILE_3B4200_dt_test_res_pltt.txt"
-	.balign 512, 255
+	.section .rodata
+	.incbin "files/data/dt_test_res_pltt.txt"
+	.balign 4, 255
