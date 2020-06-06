@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 11)
 
 enable_language(ASM)
 
+add_compile_options(-fms-extensions)
+
 file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c" "*.cpp")
 
 add_executable(PokeDiamond ${SOURCES})

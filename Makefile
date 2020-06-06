@@ -204,6 +204,7 @@ TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
 export MWCIncludes := arm9/lib/include
+export MWLibraries := arm9/lib
 
 ######################### Targets ###########################
 
@@ -220,7 +221,7 @@ endif
 .SECONDARY:
 .DELETE_ON_ERROR:
 .SECONDEXPANSION:
-.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
+.PHONY: all libs clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
 
 MAKEFLAGS += --no-print-directory
 
@@ -230,18 +231,18 @@ ifeq ($(COMPARE),1)
 endif
 
 clean: mostlyclean
-	make -C arm9 clean
-	make -C arm7 clean
-	make -C tools/mwasmarm_patcher clean
+	$(MAKE) -C arm9 clean
+	$(MAKE) -C arm7 clean
+	$(MAKE) -C tools/mwasmarm_patcher clean
 
 mostlyclean: tidy
-	make -C arm9 mostlyclean
-	make -C arm7 mostlyclean
+	$(MAKE) -C arm9 mostlyclean
+	$(MAKE) -C arm7 mostlyclean
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 
 tidy:
-	make -C arm9 tidy
-	make -C arm7 tidy
+	$(MAKE) -C arm9 tidy
+	$(MAKE) -C arm7 tidy
 	$(RM) -r $(BUILD_DIR)
 
 tools: $(TOOLDIRS)

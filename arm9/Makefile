@@ -186,7 +186,8 @@ OBJCOPY := $(CROSS)objcopy
 ASFLAGS = -proc arm5te -i ..
 CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
-LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
+LDFLAGS = -nodead -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start
+# LIBS := -Llib -lsyscall
 
 ####################### Other Tools #########################
 
@@ -202,7 +203,8 @@ TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
-export MWCIncludes := lib/include
+export MWCIncludes := $(CURDIR)/lib/include
+export MWLibraries := $(CURDIR)/lib
 
 ######################### Targets ###########################
 
@@ -217,24 +219,28 @@ NODEP := 1
 endif
 
 .PRECIOUS: $(ROM)
-.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
+.PHONY: all libs clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
 
 MAKEFLAGS += --no-print-directory
 
-all: $(ROM)
+all: libs $(ROM)
 ifeq ($(COMPARE),1)
 	@$(SHA1SUM) -c $(TARGET).sha1
 	@echo $(ROM): OK
 endif
 
+libs:
+	$(MAKE) -C lib
+
 clean: mostlyclean
-	make -C $(TOOLS_DIR)/mwasmarm_patcher clean
+	$(MAKE) -C $(TOOLS_DIR)/mwasmarm_patcher clean
 
 mostlyclean: tidy
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 
 tidy:
 	$(RM) -r $(BUILD_DIR)
+	$(MAKE) clean -C lib
 
 tools: $(TOOLDIRS)
 
@@ -277,7 +283,7 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
-	$(LD) $(LDFLAGS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
+	$(LD) $(LDFLAGS) $(LIBS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
 	$(OBJCOPY) --update-section arm9=$@ -j arm9 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 # Make sure build directory exists before compiling anything

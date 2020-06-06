@@ -54,4 +54,6 @@ typedef int BOOL;
 #endif // __cplusplus
 #endif
 
+#define SDK_FORCE_EXPORT __declspec(force_export)
+
 #endif //POKEDIAMOND_TYPES_H
