@@ -234,6 +234,7 @@ clean: mostlyclean
 	$(MAKE) -C arm9 clean
 	$(MAKE) -C arm7 clean
 	$(MAKE) -C tools/mwasmarm_patcher clean
+	$(RM) $(filter-out poketool/personal/pms.narc,$(filter %.narc %.arc,$(NITROFS_FILES)))
 
 mostlyclean: tidy
 	$(MAKE) -C arm9 mostlyclean
