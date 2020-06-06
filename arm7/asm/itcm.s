@@ -29,7 +29,7 @@ _027E0014:
 	add	r0, r3, r2
 	cmp	r1, r0
 	beq	_027E0060
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _027E0060:
 	ldr	r0, _027E00D0	; =0x0380A3F4
 	ldr	r3, [r0]

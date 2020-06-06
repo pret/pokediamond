@@ -95,7 +95,6 @@
 .extern OS_DisableInterrupts
 .extern OS_RestoreInterrupts
 .extern OS_SpinWait
-.extern FUN_037FB1F0
 .extern MIi_CpuClear32
 .extern MIi_CpuClearFast
 .extern MIi_CpuCopyFast
@@ -106,9 +105,10 @@
 .extern PXI_SetFifoRecvCallback
 .extern EXIi_SelectRcnt
 .extern EXIi_SetBitRcnt0L
-.extern SND_EndSleep
 .extern SND_BeginSleep
+.extern SND_EndSleep
 .extern SND_Init
+.extern SND_Shutdown
 .extern SPI_Init
 .extern PMi_ResetControl
 .extern PMi_SetControl
@@ -156,7 +156,8 @@
 .extern OS_InitVAlarm
 .extern OS_DisableInterrupts
 .extern OS_RestoreInterrupts
-.extern FUN_037FB1F0
+.extern OS_Terminate
+.extern MI_StopDma
 .extern MI_WaitDma
 .extern MIi_CpuClear16
 .extern MIi_CpuCopy16
