@@ -1,11 +1,7 @@
-//
-// Created by red031000 on 2020-05-06.
-//
-
 #ifndef POKEDIAMOND_REGISTERS_H
 #define POKEDIAMOND_REGISTERS_H
 
-#include "types.h"
+#include "nitro/types.h"
 
 #define reg_GX_DISPCNT             (*(REGType32v *)0x4000000)
 #define reg_GX_DISPSTAT            (*(REGType16v *)0x4000004)

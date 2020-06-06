@@ -5,7 +5,7 @@
 #define OS_TPanic(...) OS_Terminate()
 #define OS_TWarning(...) ((void)0)
 
-#include "types.h"
+#include "nitro/types.h"
 
 s32 OS_SPrintf(s8 *buffer, const s8 *format, ...);
 s32 OS_VSPrintf(s8 *buffer, const s8 *format, void *args);

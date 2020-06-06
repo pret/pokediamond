@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_ARM9_OS_INIT_H
 #define POKEDIAMOND_ARM9_OS_INIT_H
 
-#include "types.h"
+#include "nitro/types.h"
 #include "consts.h"
 #include "OS_tcm.h"
 #include "OS_spinLock.h"

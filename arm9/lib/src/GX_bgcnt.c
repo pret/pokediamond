@@ -1,6 +1,5 @@
 #include "global.h"
-#include "main.h"
-#include "GX.h"
+#include "gx.h"
 
 ARM_FUNC void *G2_GetBG0ScrPtr(){
     u32 temp = (u32)(((reg_G2_BG0CNT & 0x1F00) >> 0x8) << 0xB);

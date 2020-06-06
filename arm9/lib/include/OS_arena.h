@@ -1,11 +1,7 @@
-//
-// Created by red031000 on 2020-04-27.
-//
-
 #ifndef POKEDIAMOND_OS_ARENA_H
 #define POKEDIAMOND_OS_ARENA_H
 
-#include "types.h"
+#include "nitro/types.h"
 
 typedef enum {
     OS_ARENA_MAIN = 0,

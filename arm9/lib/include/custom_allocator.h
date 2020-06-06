@@ -1,7 +1,7 @@
 #ifndef POKEDIAMOND_CUSTOM_ALLOCATOR_H
 #define POKEDIAMOND_CUSTOM_ALLOCATOR_H
 
-#include "types.h"
+#include "nitro/types.h"
 
 typedef void * (* AllocFunc)(u32 size);
 typedef void (* FreeFunc)(void * ptr);

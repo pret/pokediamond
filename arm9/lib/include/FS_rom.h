@@ -4,7 +4,7 @@
 #include "FS_archive.h"
 #include "FS_file.h"
 #include "CARD_rom.h"
-#include "types.h"
+#include "nitro/types.h"
 
 extern FSArchive fsi_arc_rom;
 extern s32 fsi_card_lock_id;

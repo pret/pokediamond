@@ -1,6 +1,6 @@
 #include "global.h"
 #include "main.h"
-#include "GX.h"
+#include "gx.h"
 
 extern u32 GXi_DmaId;
 

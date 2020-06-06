@@ -1,6 +1,7 @@
 #ifndef NITRO_CARD_ROM_H_
 #define NITRO_CARD_ROM_H_
 
+#include "nitro/types.h"
 #include "MI_exMemory.h"
 #include "MI_dma.h"
 

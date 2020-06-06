@@ -1,18 +1,9 @@
-//
-// Created by mart on 4/15/20.
-//
+#ifndef POKEDIAMOND_ARM9_CONSTS_H
+#define POKEDIAMOND_ARM9_CONSTS_H
 
-#ifndef POKEDIAMOND_CONSTS_H
-#define POKEDIAMOND_CONSTS_H
-
+#include "nitro/consts_shared.h"
 #include "mmap.h"
 #include "registers.h"
-
-#define HW_PSR_CPU_MODE_MASK       0x1f // CPU mode
-
-#define HW_PSR_DISABLE_FIQ         0x40 // Disable FIQ
-#define HW_PSR_DISABLE_IRQ         0x80 // Disable IRQ
-#define HW_PSR_DISABLE_IRQ_FIQ     0xc0 // Disable FIQ and IRQ
 
 #define HW_C6_PR_4KB               0x16
 #define HW_C6_PR_8KB               0x18
@@ -53,4 +44,4 @@
 
 #define OS_IE_V_BLANK       (1UL << 0)
 
-#endif //POKEDIAMOND_CONSTS_H
+#endif //POKEDIAMOND_ARM9_CONSTS_H

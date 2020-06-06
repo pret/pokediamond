@@ -5,7 +5,7 @@
 #ifndef POKEDIAMOND_CP_CONTEXT_H
 #define POKEDIAMOND_CP_CONTEXT_H
 
-#include "types.h"
+#include "nitro/types.h"
 
 typedef struct CPContext {
     u64 div_numer;

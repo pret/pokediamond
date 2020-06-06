@@ -8,7 +8,7 @@ extern "C" {
 // Include all nitro files
 #include "sections.h"
 #include "misc.h"
-#include "types.h"
+#include "nitro/types.h"
 #include "consts.h"
 #include "OS_init.h"
 #include "mmap.h"

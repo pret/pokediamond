@@ -1,11 +1,7 @@
-//
-// Created by red031000 on 2020-05-03.
-//
-
 #ifndef POKEDIAMOND_OS_THREAD_H
 #define POKEDIAMOND_OS_THREAD_H
 
-#include "types.h"
+#include "nitro/types.h"
 #include "OS_context.h"
 
 typedef struct OSiAlarm OSAlarm;

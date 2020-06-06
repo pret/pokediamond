@@ -1,8 +1,3 @@
-//
-// Created by red031000 on 2020-05-07.
-//
-
-#include "types.h"
 #include "OS_terminate_proc.h"
 #include "function_target.h"
 #include "OS_system.h"
