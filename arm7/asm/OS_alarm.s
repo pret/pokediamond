@@ -137,7 +137,7 @@ OS_SetPeriodicAlarm: ; 0x037FA6E0
 	cmp	r0, #0
 	beq	_037FA710
 _037FA70C:
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _037FA710:
 	bl	OS_DisableInterrupts
 	mov	r5, r0
@@ -171,7 +171,7 @@ OS_SetAlarm: ; 0x037FA75C
 	cmp	r0, #0
 	beq	_037FA784
 _037FA780:
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _037FA784:
 	bl	OS_DisableInterrupts
 	mov	r4, r0

@@ -313,7 +313,7 @@ FUN_037F83B0: ; 0x037F83B0
 	bl	OS_CreateHeap
 	movs	r4, r0
 	bpl	_037F8438
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _037F8438:
 	mov	r0, #8
 	mov	r1, r4
@@ -323,7 +323,7 @@ _037F8438:
 	bl	OS_CheckHeap
 	cmp	r0, #8448	; 0x2100
 	bcs	_037F845C
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _037F845C:
 	mov	r0, r4
 	ldmia	sp!, {r4, lr}

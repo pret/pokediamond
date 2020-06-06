@@ -31,6 +31,8 @@ Autoload WRAM
 	Object OS_alarm.o
 	Object OS_valarm.o
 	Object OS_system.o
+	Object OS_reset.o
+	Object OS_terminate_proc.o
 	Object dtcm.o
 	Object libsyscall.o
 	Object dtcm2.o

@@ -1022,7 +1022,7 @@ _03801F20:
 	strh	r1, [r0]
 	b	_03801F40
 _03801F3C:
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _03801F40:
 	add	sp, sp, #12
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -1719,7 +1719,7 @@ _03802878:
 	bl	PMi_SetControl
 	b	_03802890
 _0380288C:
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _03802890:
 	ldr	r0, _038028A0	;@ =PMi_LEDStatus
 	str	r4, [r0]
@@ -3161,7 +3161,7 @@ _03803C24:
 	bne	_03803C1C
 	b	_03803C44
 _03803C40:
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _03803C44:
 	add	sp, sp, #4
 	ldmia	sp!, {r4, r5, r6, r7, lr}
@@ -3177,7 +3177,7 @@ FUN_03803C58: ;@ 0x03803C58
 	bl	CTRDG_VibPulseEdgeUpdate
 	bl	SND_BeginSleep
 	bl	WVR_Shutdown
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 	add	sp, sp, #4
 	ldmia	sp!, {lr}
 	bx	lr
@@ -3488,7 +3488,7 @@ FUN_03804094: ;@ 0x03804094
 	bl	FUN_03803C58
 	b	_038040B4
 _038040B0:
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _038040B4:
 	add	sp, sp, #4
 	ldmia	sp!, {lr}
@@ -3505,7 +3505,7 @@ FUN_038040C0: ;@ 0x038040C0
 	moveq	r1, #1
 	streq	r1, [r0, #16]
 	beq	_038040E8
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _038040E8:
 	add	sp, sp, #4
 	ldmia	sp!, {lr}
@@ -6221,7 +6221,7 @@ _03806548:
 	orr	r1, r6, r5
 	orrs	r0, r0, r1
 	beq	_03806590
-	bl	FUN_037FB1F0
+	bl	OS_Terminate
 _03806590:
 	bl	FUN_03806680
 	add	r7, r4, #40	;@ 0x28
