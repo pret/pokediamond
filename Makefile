@@ -312,6 +312,10 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.narc: $$(members)
 	$(NARCCOMP) -o $@ -p 255 $^
 
+%.arc: members = $(wildcard $(@D)/$*/*)
+%.arc: $$(members)
+	$(NARCCOMP) -o $@ -p 255 $^
+
 files/poketool/personal/pms.narc: ;
 
 $(BUILD_DIR)/pokediamond_bnr.bin: pokediamond.bsf graphics/icon.4bpp graphics/icon.gbapal
