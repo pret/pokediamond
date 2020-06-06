@@ -308,7 +308,7 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.png: ;
 %.pal: ;
 
-%.narc: members = $(shell find $(@D)/$*/*)
+%.narc: members = $(wildcard $(@D)/$*/*)
 %.narc: $$(members)
 	$(NARCCOMP) -o $@ -p 255 $^
 
