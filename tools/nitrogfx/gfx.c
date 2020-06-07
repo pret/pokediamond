@@ -376,7 +376,7 @@ void WriteGbaPalette(char *path, struct Palette *palette)
 	fclose(fp);
 }
 
-void WriteNtrNCLRPalette(char *path, struct Palette *palette)
+void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -384,73 +384,10 @@ void WriteNtrNCLRPalette(char *path, struct Palette *palette)
         FATAL_ERROR("Failed too open \"%s\" for writing.\n", path);
 
     uint32_t size = palette->numColors * 2;
-    uint32_t extSize = size + 0x18;
+    uint32_t extSize = size + (ncpr ? 0x10 : 0x18);
 
     //NCLR header
-    WriteGenericNtrHeader(fp, "RLCN", extSize, true);
-
-    //PLTT header
-    //magic number
-    fputs("TTLP", fp);
-
-    //section size
-    fputc(extSize & 0xFF, fp);
-    fputc((extSize >> 8) & 0xFF, fp);
-    fputc((extSize >> 16) & 0xFF, fp);
-    fputc((extSize >> 24) & 0xFF, fp);
-
-    //bit depth
-    char bitDepth = palette->bitDepth == 4 ? 0x03: 0x04;
-    fputc(bitDepth, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-
-    //padding
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-
-    //size
-    fputc(size & 0xFF, fp);
-    fputc((size >> 8) & 0xFF, fp);
-    fputc((size >> 16) & 0xFF, fp);
-    fputc((size >> 24) & 0xFF, fp);
-
-    //colours per palette
-    fputc(0x10, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-
-    //palette data
-    for (int i = 0; i < palette->numColors; i++) {
-        unsigned char red = DOWNCONVERT_BIT_DEPTH(palette->colors[i].red);
-        unsigned char green = DOWNCONVERT_BIT_DEPTH(palette->colors[i].green);
-        unsigned char blue = DOWNCONVERT_BIT_DEPTH(palette->colors[i].blue);
-
-        uint16_t paletteEntry = SET_GBA_PAL(red, green, blue);
-
-        fputc(paletteEntry & 0xFF, fp);
-        fputc(paletteEntry >> 8, fp);
-    }
-
-    fclose(fp);
-}
-
-void WriteNtrNCPRPalette(char *path, struct Palette *palette)
-{
-    FILE *fp = fopen(path, "wb");
-
-    if (fp == NULL)
-        FATAL_ERROR("Failed too open \"%s\" for writing.\n", path);
-
-    uint32_t size = palette->numColors * 2;
-    uint32_t extSize = size + 0x10;
-
-    //NCLR header
-    WriteGenericNtrHeader(fp, "RPCN", extSize, false);
+    WriteGenericNtrHeader(fp, (ncpr ? "RPCN" : "RLCN"), extSize, !ncpr);
 
     //PLTT header
     //magic number

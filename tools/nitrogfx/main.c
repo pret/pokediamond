@@ -371,7 +371,7 @@ void HandleJascToGbaPaletteCommand(char *inputPath, char *outputPath, int argc, 
     WriteGbaPalette(outputPath, &palette);
 }
 
-void HandleJascToNtrNCLRPaletteCommand(char *inputPath, char *outputPath, int argc, char **argv)
+void HandleJascToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, char **argv)
 {
     int numColors = 0;
     bool ncpr = false;
@@ -410,10 +410,7 @@ void HandleJascToNtrNCLRPaletteCommand(char *inputPath, char *outputPath, int ar
     if (numColors != 0)
         palette.numColors = numColors;
 
-    if (ncpr)
-        WriteNtrNCPRPalette(outputPath, &palette);
-    else
-        WriteNtrNCLRPalette(outputPath, &palette);
+    WriteNtrPalette(outputPath, &palette, ncpr);
 }
 
 void HandleLatinFontToPngCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
@@ -666,7 +663,7 @@ int main(int argc, char **argv)
         { "nclr", "pal", HandleNtrToJascPaletteCommand },
         { "ncpr", "pal", HandleNtrToJascPaletteCommand },
         { "pal", "gbapal", HandleJascToGbaPaletteCommand },
-        { "pal", "nclr", HandleJascToNtrNCLRPaletteCommand },
+        { "pal", "nclr", HandleJascToNtrPaletteCommand },
         { "latfont", "png", HandleLatinFontToPngCommand },
         { "png", "latfont", HandlePngToLatinFontCommand },
         { "hwjpnfont", "png", HandleHalfwidthJapaneseFontToPngCommand },
