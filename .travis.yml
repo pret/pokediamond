@@ -13,6 +13,7 @@ addons:
             - wine32
             - wine-stable
             - gcc-8
+            - g++-8
 cache:
     apt: true
 install:
