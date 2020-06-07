@@ -3,6 +3,11 @@
 include config.mk
 include filesystem.mk
 
+HOSTCC = $(CC)
+HOSTCXX = $(CXX)
+HOSTCFLAGS = $(CFLAGS)
+HOSTCXXFLAGS = $(CXXFLAGS)
+
 .PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
@@ -234,7 +239,8 @@ clean: mostlyclean
 	$(MAKE) -C arm9 clean
 	$(MAKE) -C arm7 clean
 	$(MAKE) -C tools/mwasmarm_patcher clean
-	$(RM) $(filter-out poketool/personal/pms.narc,$(filter %.narc %.arc,$(NITROFS_FILES)))
+	$(RM) $(filter-out files/poketool/personal/pms.narc,$(filter %.narc %.arc,$(HOSTFS_FILES)))
+	$(MAKE) -C files/poketool/personal/growtbl clean
 
 mostlyclean: tidy
 	$(MAKE) -C arm9 mostlyclean
@@ -310,15 +316,23 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.png: ;
 %.pal: ;
 
-%.narc: members = $(wildcard $(@D)/$*/*)
+##################### Filesystem #####################
+
+%.narc: members = $(wildcard $(@D)/$*/*.bin)
 %.narc: $$(members)
 	$(NARCCOMP) -o $@ -p 255 $^
 
-%.arc: members = $(wildcard $(@D)/$*/*)
+%.arc: members = $(wildcard $(@D)/$*/*.bin)
 %.arc: $$(members)
 	$(NARCCOMP) -o $@ -p 255 $^
 
 files/poketool/personal/pms.narc: ;
+
+files/poketool/personal/growtbl.narc: $(wildcard files/poketool/personal/growtbl/*.txt)
+	$(MAKE) -C $(<D)
+	$(NARCCOMP) -o $@ -p 255 $(^:%.txt=%.bin)
+
+######################## Misc #######################
 
 $(BUILD_DIR)/pokediamond_bnr.bin: pokediamond.bsf graphics/icon.4bpp graphics/icon.gbapal
 	$(MAKEBANNER) $< $@
