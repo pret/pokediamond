@@ -415,6 +415,7 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
 
     fwrite(palHeader, 1, 0x18, fp);
 
+    unsigned char colours[palette->numColors * 2];
     //palette data
     for (int i = 0; i < palette->numColors; i++)
     {
@@ -424,9 +425,11 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
 
         uint16_t paletteEntry = SET_GBA_PAL(red, green, blue);
 
-        fputc(paletteEntry & 0xFF, fp);
-        fputc(paletteEntry >> 8, fp);
+        colours[i * 2] = paletteEntry & 0xFF;
+        colours[i * 2 + 1] = paletteEntry >> 8;
     }
+
+    fwrite(colours, 1, palette->numColors * 2, fp);
 
     fclose(fp);
 }
