@@ -1,5 +1,6 @@
 // Copyright (c) 2015 YamaArashi
 
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -327,15 +328,17 @@ void ReadNtrPalette(char *path, struct Palette *palette)
     int fileSize;
     unsigned char *data = ReadWholeFile(path, &fileSize);
 
-    uint32_t magicNumber = (data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0];
-    if (magicNumber != 0x4E434C52 && magicNumber != 0x4E435052) //NCLR / NCPR
-        FATAL_ERROR("Not a valid NCLR or NCPR palette file. Magic number (%x).\n", magicNumber);
+    if (memcmp(data, "RLCN", 4) != 0 && memcmp(data, "RPCN", 4) != 0) //NCLR / NCPR
+    {
+        FATAL_ERROR("Not a valid NCLR or NCPR palette file.\n");
+    }
 
     unsigned char *paletteHeader = data + 0x10;
 
-    magicNumber = (paletteHeader[3] << 24) | (paletteHeader[2] << 16) | (paletteHeader[1] << 8) | paletteHeader[0];
-    if (magicNumber != 0x504C5454) //PLTT
-        FATAL_ERROR("No valid PLTT file after NCLR header. Magic number (%x).\n", magicNumber);
+    if (memcmp(paletteHeader, "TTLP", 4) != 0)
+    {
+        FATAL_ERROR("No valid PLTT file after NCLR header.\n");
+    }
 
     if ((fileSize - 0x28) % 2 != 0)
         FATAL_ERROR("The file size (%d) is not a multiple of 2.\n", fileSize);
@@ -389,43 +392,32 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
     //NCLR header
     WriteGenericNtrHeader(fp, (ncpr ? "RPCN" : "RLCN"), extSize, !ncpr);
 
-    //PLTT header
-    //magic number
-    fputs("TTLP", fp);
+    unsigned char palHeader[0x18] =
+            {
+                0x54, 0x54, 0x4C, 0x50, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00
+            };
 
     //section size
-    fputc(extSize & 0xFF, fp);
-    fputc((extSize >> 8) & 0xFF, fp);
-    fputc((extSize >> 16) & 0xFF, fp);
-    fputc((extSize >> 24) & 0xFF, fp);
+    palHeader[4] = extSize & 0xFF;
+    palHeader[5] = (extSize >> 8) & 0xFF;
+    palHeader[6] = (extSize >> 16) & 0xFF;
+    palHeader[7] = (extSize >> 24) & 0xFF;
 
     //bit depth
-    char bitDepth = palette->bitDepth == 4 ? 0x03: 0x04;
-    fputc(bitDepth, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-
-    //padding
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
+    palHeader[8] = palette->bitDepth == 4 ? 0x03: 0x04;
 
     //size
-    fputc(size & 0xFF, fp);
-    fputc((size >> 8) & 0xFF, fp);
-    fputc((size >> 16) & 0xFF, fp);
-    fputc((size >> 24) & 0xFF, fp);
+    palHeader[16] = size & 0xFF;
+    palHeader[17] = (size >> 8) & 0xFF;
+    palHeader[18] = (size >> 16) & 0xFF;
+    palHeader[19] = (size >> 24) & 0xFF;
 
-    //colours per palette
-    fputc(0x10, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
-    fputc(0x00, fp);
+    fwrite(palHeader, 1, 0x18, fp);
 
     //palette data
-    for (int i = 0; i < palette->numColors; i++) {
+    for (int i = 0; i < palette->numColors; i++)
+    {
         unsigned char red = DOWNCONVERT_BIT_DEPTH(palette->colors[i].red);
         unsigned char green = DOWNCONVERT_BIT_DEPTH(palette->colors[i].green);
         unsigned char blue = DOWNCONVERT_BIT_DEPTH(palette->colors[i].blue);

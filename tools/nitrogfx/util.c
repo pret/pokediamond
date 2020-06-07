@@ -126,37 +126,23 @@ void WriteWholeFile(char *path, void *buffer, int bufferSize)
 
 void WriteGenericNtrHeader(FILE* fp, const char* magicNumber, uint32_t size, bool byteorder)
 {
+    unsigned char header[0x10] =
+            { 0x00, 0x00, 0x00, 0x00, 0xFF, 0xFE, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x01, 0x00 };
     //magic number
-    fputs(magicNumber, fp);
+    memcpy(header, magicNumber, 4);
 
     //byte order
-    if (byteorder)
+    if (!byteorder)
     {
-        fputc(0xFF, fp); //LE
-        fputc(0xFE, fp);
+        memset(header + 4, 0, 2);
     }
-    else
-    {
-        fputc(0x00, fp);
-        fputc(0x00, fp);
-    }
-
-    //version
-    fputc(0x00, fp);
-    fputc(0x01, fp);
 
     //size
     size += 0x10; //add header size
-    fputc(size & 0xFF, fp);
-    fputc((size >> 8) & 0xFF, fp);
-    fputc((size >> 16) & 0xFF, fp);
-    fputc((size >> 24) & 0xFF, fp);
+    header[8] = size & 0xFF;
+    header[9] = (size >> 8) & 0xFF;
+    header[10] = (size >> 16) & 0xFF;
+    header[11] = (size >> 24) & 0xFF;
 
-    //header size
-    fputc(0x10, fp);
-    fputc(0x00, fp);
-
-    //sections
-    fputc(0x01, fp);
-    fputc(0x00, fp);
+    fwrite(header, 1, 0x10, fp);
 }
