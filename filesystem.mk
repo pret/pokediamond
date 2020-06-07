@@ -271,3 +271,5 @@ NITROFS_FILES := data/UTF16.dat \
 ifeq ($(GAME_VERSION),PEARL)
 NITROFS_FILES = $(NITROFS_FILES:poketool/personal/personal.narc=poketool/personal_pearl/personal.narc)
 endif
+
+HOSTFS_FILES = $(NITROFS_FILES:%=files/%)
