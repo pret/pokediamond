@@ -43,3 +43,8 @@ asmdiff.sh
 
 # Symbols CSV
 symbols.csv
+
+# NARCs
+*.narc
+*.arc
+!files/poketool/personal/pms.narc

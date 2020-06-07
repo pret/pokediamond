@@ -4103,12 +4103,12 @@ FUN_02068758: ; 0x02068758
 	mov r1, #0x15
 	bl FUN_02068678
 	add r1, r4, #0x0
-	bl FUN_02068788
+	bl GetExpByGrowthRateAndLevel
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206876C
-FUN_0206876C: ; 0x0206876C
+	thumb_func_start LoadGrowthTable
+LoadGrowthTable: ; 0x0206876C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -4117,14 +4117,14 @@ FUN_0206876C: ; 0x0206876C
 	bl ErrorHandling
 _0206877A:
 	add r0, r4, #0x0
-	mov r1, #0x3
+	mov r1, #0x3 ; NARC_POKETOOL_PERSONAL_GROWTBL
 	add r2, r5, #0x0
 	bl ReadWholeNarcMemberByIdPair
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068788
-FUN_02068788: ; 0x02068788
+	thumb_func_start GetExpByGrowthRateAndLevel
+GetExpByGrowthRateAndLevel: ; 0x02068788
 	push {r4-r6, lr}
 	add r6, r0, #0x0
 	add r5, r1, #0x0
@@ -4143,7 +4143,7 @@ _0206879E:
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_0206876C
+	bl LoadGrowthTable
 	lsl r0, r5, #0x2
 	ldr r5, [r4, r0]
 	add r0, r4, #0x0
@@ -4209,7 +4209,7 @@ FUN_02068824: ; 0x02068824
 	add r4, r2, #0x0
 	bl FUN_02068538
 	ldr r1, _0206884C ; =UNK_021C5AC0
-	bl FUN_0206876C
+	bl LoadGrowthTable
 	ldr r2, _02068850 ; =UNK_021C5AC0 + 4
 	mov r1, #0x1
 _02068838:
@@ -5169,7 +5169,7 @@ _02068F1A:
 	lsr r1, r2, #0x1
 	add r1, #0x48
 	lsl r0, r3, #0x1
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, r1, r0
 	b _02068FCA
 _02068F26:
@@ -5180,7 +5180,7 @@ _02068F2C:
 	lsr r1, r2, #0x1
 	add r1, #0x4e
 	lsl r0, r3, #0x1
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, r1, r0
 	b _02068FCA
 _02068F38:
@@ -5189,7 +5189,7 @@ _02068F38:
 	mov r3, #0x0
 _02068F3E:
 	add r2, #0x54
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, r2, r3
 	b _02068FCA
 _02068F46:
@@ -5198,7 +5198,7 @@ _02068F46:
 	mov r3, #0x0
 _02068F4C:
 	add r2, #0x58
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, r2, r3
 	b _02068FCA
 _02068F54:
@@ -5207,7 +5207,7 @@ _02068F54:
 	mov r3, #0x0
 _02068F5A:
 	add r2, #0x5c
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, r2, r3
 	b _02068FCA
 _02068F62:
@@ -5218,7 +5218,7 @@ _02068F68:
 	lsr r1, r2, #0x1
 	add r1, #0x60
 	lsl r0, r3, #0x1
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, r1, r0
 	b _02068FCA
 _02068F74:
@@ -5228,7 +5228,7 @@ _02068F74:
 _02068F7A:
 	lsl r0, r2, #0x1
 	add r0, #0x40
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, r3, r0
 	b _02068FCA
 _02068F84:
@@ -5238,7 +5238,7 @@ _02068F84:
 _02068F8A:
 	lsr r1, r2, #0x1
 	lsl r0, r3, #0x1
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, r1, r0
 	b _02068FCA
 _02068F94:
@@ -5249,7 +5249,7 @@ _02068F9A:
 	lsr r1, r2, #0x1
 	add r1, #0x8
 	lsl r0, r3, #0x1
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, r1, r0
 	b _02068FCA
 _02068FA6:
@@ -5257,15 +5257,15 @@ _02068FA6:
 	bls _02068FAC
 	mov r3, #0x0
 _02068FAC:
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	add r3, #0x84
 	b _02068FCA
 _02068FB2:
-	mov r4, #0x79
+	mov r4, #0x79 ; NARC_POKETOOL_POKEGRA_HEIGHT_O
 	mov r3, #0x84
 	b _02068FCA
 _02068FB8:
-	mov r4, #0x5
+	mov r4, #0x5 ; NARC_POKETOOL_POKEGRA_HEIGHT
 	cmp r1, #0x1
 	beq _02068FC2
 	mov r1, #0x1
@@ -5324,7 +5324,7 @@ FUN_02069010: ; 0x02069010
 	add r4, r0, #0x0
 	str r3, [sp, #0x0]
 	add r0, sp, #0x4
-	mov r1, #0x72
+	mov r1, #0x72 ; NARC_POKETOOL_POKEANM_POKEANM
 	mov r2, #0x0
 	mul r3, r5
 	bl ReadFromNarcMemberByIdPair
@@ -5348,7 +5348,7 @@ FUN_02069038: ; 0x02069038
 	add r7, r1, #0x0
 	str r3, [sp, #0x0]
 	add r0, #0x2
-	mov r1, #0x72
+	mov r1, #0x72 ; NARC_POKETOOL_POKEANM_POKEANM
 	mov r2, #0x0
 	mul r3, r6
 	bl ReadFromNarcMemberByIdPair
@@ -5470,7 +5470,7 @@ FUN_020690E8: ; 0x020690E8
 	bl FUN_02068678
 	mov r1, #0x64
 	add r5, r0, #0x0
-	bl FUN_02068788
+	bl GetExpByGrowthRateAndLevel
 	ldr r1, [sp, #0x4]
 	cmp r1, r0
 	bls _02069138
@@ -5489,7 +5489,7 @@ _02069138:
 	pop {r3-r5, pc}
 _02069146:
 	add r0, r5, #0x0
-	bl FUN_02068788
+	bl GetExpByGrowthRateAndLevel
 	ldr r1, [sp, #0x4]
 	cmp r1, r0
 	blo _02069162
@@ -6781,7 +6781,7 @@ FUN_02069B40: ; 0x02069B40
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	add r0, sp, #0x4
-	mov r1, #0x6d
+	mov r1, #0x6d ; NARC_POKETOOL_POKEZUKAN
 	mov r2, #0x0
 	lsl r3, r3, #0x1
 	bl ReadFromNarcMemberByIdPair
@@ -6804,7 +6804,7 @@ FUN_02069B60: ; 0x02069B60
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	add r0, sp, #0x4
-	mov r1, #0x91
+	mov r1, #0x91 ; NARC_POKETOOL_SHINZUKAN
 	lsl r3, r3, #0x1
 	bl ReadFromNarcMemberByIdPair
 _02069B7E:
@@ -7396,7 +7396,7 @@ FUN_02069F9C: ; 0x02069F9C
 	bl ConvertUnownOrArceusSpecies
 	add r2, r0, #0x0
 	add r0, r4, #0x0
-	mov r1, #0x21
+	mov r1, #0x21 ; NARC_POKETOOL_PERSONAL_WOTBL
 	bl ReadWholeNarcMemberByIdPair
 	pop {r4, pc}
 
@@ -7875,7 +7875,7 @@ FUN_0206A370: ; 0x0206A370
 	ldr r3, _0206A37C ; =ReadWholeNarcMemberByIdPair
 	add r2, r0, #0x0
 	add r0, r1, #0x0
-	mov r1, #0x2
+	mov r1, #0x2 ; NARC_POKETOOL_PERSONAL_PERSONAL
 	bx r3
 	nop
 _0206A37C: .word ReadWholeNarcMemberByIdPair
@@ -7887,7 +7887,7 @@ FUN_0206A380: ; 0x0206A380
 	bl ConvertUnownOrArceusSpecies
 	add r2, r0, #0x0
 	add r0, r4, #0x0
-	mov r1, #0x2
+	mov r1, #0x2 ; NARC_POKETOOL_PERSONAL_PERSONAL
 	bl ReadWholeNarcMemberByIdPair
 	pop {r4, pc}
 
@@ -7896,7 +7896,7 @@ FUN_0206A394: ; 0x0206A394
 	ldr r3, _0206A3A0 ; =ReadWholeNarcMemberByIdPair
 	add r2, r0, #0x0
 	add r0, r1, #0x0
-	mov r1, #0x22
+	mov r1, #0x22 ; NARC_POKETOOL_PERSONAL_EVO
 	bx r3
 	nop
 _0206A3A0: .word ReadWholeNarcMemberByIdPair
