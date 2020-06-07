@@ -374,6 +374,7 @@ void HandleJascToGbaPaletteCommand(char *inputPath, char *outputPath, int argc, 
 void HandleJascToNtrNCLRPaletteCommand(char *inputPath, char *outputPath, int argc, char **argv)
 {
     int numColors = 0;
+    bool ncpr = false;
 
     for (int i = 3; i < argc; i++)
     {
@@ -392,42 +393,9 @@ void HandleJascToNtrNCLRPaletteCommand(char *inputPath, char *outputPath, int ar
             if (numColors < 1)
                 FATAL_ERROR("Number of colors must be positive.\n");
         }
-        else
+        else if (strcmp(option, "-ncpr") == 0)
         {
-            FATAL_ERROR("Unrecognized option \"%s\".\n", option);
-        }
-    }
-
-    struct Palette palette;
-
-    ReadJascPalette(inputPath, &palette);
-
-    if (numColors != 0)
-        palette.numColors = numColors;
-
-    WriteNtrNCLRPalette(outputPath, &palette);
-}
-
-void HandleJascToNtrNCPRPaletteCommand(char *inputPath, char *outputPath, int argc, char **argv)
-{
-    int numColors = 0;
-
-    for (int i = 3; i < argc; i++)
-    {
-        char *option = argv[i];
-
-        if (strcmp(option, "-num_colors") == 0)
-        {
-            if (i + 1 >= argc)
-                FATAL_ERROR("No number of colors following \"-num_colors\".\n");
-
-            i++;
-
-            if (!ParseNumber(argv[i], NULL, 10, &numColors))
-                FATAL_ERROR("Failed to parse number of colors.\n");
-
-            if (numColors < 1)
-                FATAL_ERROR("Number of colors must be positive.\n");
+            ncpr = true;
         }
         else
         {
@@ -442,7 +410,10 @@ void HandleJascToNtrNCPRPaletteCommand(char *inputPath, char *outputPath, int ar
     if (numColors != 0)
         palette.numColors = numColors;
 
-    WriteNtrNCPRPalette(outputPath, &palette);
+    if (ncpr)
+        WriteNtrNCPRPalette(outputPath, &palette);
+    else
+        WriteNtrNCLRPalette(outputPath, &palette);
 }
 
 void HandleLatinFontToPngCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
@@ -696,7 +667,6 @@ int main(int argc, char **argv)
         { "ncpr", "pal", HandleNtrToJascPaletteCommand },
         { "pal", "gbapal", HandleJascToGbaPaletteCommand },
         { "pal", "nclr", HandleJascToNtrNCLRPaletteCommand },
-        { "pal", "ncpr", HandleJascToNtrNCPRPaletteCommand },
         { "latfont", "png", HandleLatinFontToPngCommand },
         { "png", "latfont", HandlePngToLatinFontCommand },
         { "hwjpnfont", "png", HandleHalfwidthJapaneseFontToPngCommand },
