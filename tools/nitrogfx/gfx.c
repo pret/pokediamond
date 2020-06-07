@@ -384,7 +384,7 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
     FILE *fp = fopen(path, "wb");
 
     if (fp == NULL)
-        FATAL_ERROR("Failed too open \"%s\" for writing.\n", path);
+        FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
 
     uint32_t size = palette->numColors * 2;
     uint32_t extSize = size + (ncpr ? 0x10 : 0x18);
