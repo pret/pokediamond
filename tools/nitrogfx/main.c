@@ -44,39 +44,6 @@ void ConvertGbaToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
     FreeImage(&image);
 }
 
-void ConvertNtrToPng(char *inputPath UNUSED, char *outputPath UNUSED, struct GbaToPngOptions *options) //todo finish
-{
-    struct Image image;
-
-    if (options->paletteFilePath != NULL)
-    {
-        ReadNtrPalette(options->paletteFilePath, &image.palette);
-        image.hasPalette = true;
-    }
-    else
-    {
-        image.hasPalette = false;
-    }
-
-    if (image.hasPalette)
-    {
-        printf("Image has palette!\n");
-        printf("Colours: %d\n", image.palette.numColors);
-        for (int i = 0; i < image.palette.numColors; i++)
-        {
-            printf("Red: %d ", image.palette.colors[i].red);
-            printf("Green: %d ", image.palette.colors[i].green);
-            printf("Blue: %d\n", image.palette.colors[i].blue);
-        }
-    }
-    else
-    {
-        printf("No palette detected!\n");
-    }
-
-    FreeImage(&image);
-}
-
 void ConvertPngToGba(char *inputPath, char *outputPath, struct PngToGbaOptions *options)
 {
     struct Image image;
@@ -229,85 +196,6 @@ void HandlePngToGbaCommand(char *inputPath, char *outputPath, int argc, char **a
     }
 
     ConvertPngToGba(inputPath, outputPath, &options);
-}
-
-void HandleNtrToPngCommand(char *inputPath, char *outputPath, int argc, char **argv)
-{
-    //char *inputFileExtension = GetFileExtension(inputPath);
-    struct GbaToPngOptions options;
-    options.paletteFilePath = NULL;
-    options.bitDepth = 4; //todo read from header
-    options.hasTransparency = false;
-    options.width = 1;
-    options.metatileWidth = 1;
-    options.metatileHeight = 1;
-
-    for (int i = 3; i < argc; i++)
-    {
-        char *option = argv[i];
-
-        if (strcmp(option, "-palette") == 0)
-        {
-            if (i + 1 >= argc)
-                FATAL_ERROR("No palette file path following \"-palette\".\n");
-
-            i++;
-
-            options.paletteFilePath = argv[i];
-        }
-        else if (strcmp(option, "-object") == 0)
-        {
-            options.hasTransparency = true;
-        }
-        else if (strcmp(option, "-width") == 0)
-        {
-            if (i + 1 >= argc)
-                FATAL_ERROR("No width following \"-width\".\n");
-
-            i++;
-
-            if (!ParseNumber(argv[i], NULL, 10, &options.width))
-                FATAL_ERROR("Failed to parse width.\n");
-
-            if (options.width < 1)
-                FATAL_ERROR("Width must be positive.\n");
-        }
-        else if (strcmp(option, "-mwidth") == 0)
-        {
-            if (i + 1 >= argc)
-                FATAL_ERROR("No metatile width value following \"-mwidth\".\n");
-
-            i++;
-
-            if (!ParseNumber(argv[i], NULL, 10, &options.metatileWidth))
-                FATAL_ERROR("Failed to parse metatile width.\n");
-
-            if (options.metatileWidth < 1)
-                FATAL_ERROR("metatile width must be positive.\n");
-        }
-        else if (strcmp(option, "-mheight") == 0)
-        {
-            if (i + 1 >= argc)
-                FATAL_ERROR("No metatile height value following \"-mheight\".\n");
-
-            i++;
-
-            if (!ParseNumber(argv[i], NULL, 10, &options.metatileHeight))
-                FATAL_ERROR("Failed to parse metatile height.\n");
-
-            if (options.metatileHeight < 1)
-                FATAL_ERROR("metatile height must be positive.\n");
-        }
-        else
-        {
-            FATAL_ERROR("Unrecognized option \"%s\".\n", option);
-        }
-    }
-
-    if (options.metatileWidth > options.width)
-        options.width = options.metatileWidth;
-
-    ConvertNtrToPng(inputPath, outputPath, &options);
 }
 
 void HandlePngToGbaPaletteCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
@@ -653,17 +541,15 @@ int main(int argc, char **argv)
         { "1bpp", "png", HandleGbaToPngCommand },
         { "4bpp", "png", HandleGbaToPngCommand },
         { "8bpp", "png", HandleGbaToPngCommand },
-        //{ "ncgr", "png", HandleNtrToPngCommand },
         { "png", "1bpp", HandlePngToGbaCommand },
         { "png", "4bpp", HandlePngToGbaCommand },
         { "png", "8bpp", HandlePngToGbaCommand },
-        //{ "png", "ncgr", HandlePngToNtrCommand },
         { "png", "gbapal", HandlePngToGbaPaletteCommand },
         { "gbapal", "pal", HandleGbaToJascPaletteCommand },
-        { "nclr", "pal", HandleNtrToJascPaletteCommand },
-        { "ncpr", "pal", HandleNtrToJascPaletteCommand },
+        { "NCLR", "pal", HandleNtrToJascPaletteCommand },
+        { "NCPR", "pal", HandleNtrToJascPaletteCommand },
         { "pal", "gbapal", HandleJascToGbaPaletteCommand },
-        { "pal", "nclr", HandleJascToNtrPaletteCommand },
+        { "pal", "NCLR", HandleJascToNtrPaletteCommand },
         { "latfont", "png", HandleLatinFontToPngCommand },
         { "png", "latfont", HandlePngToLatinFontCommand },
         { "hwjpnfont", "png", HandleHalfwidthJapaneseFontToPngCommand },
