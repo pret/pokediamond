@@ -3,6 +3,11 @@
 include config.mk
 include filesystem.mk
 
+HOSTCC = $(CC)
+HOSTCXX = $(CXX)
+HOSTCFLAGS = $(CFLAGS)
+HOSTCXXFLAGS = $(CXXFLAGS)
+
 .PHONY: clean tidy all default patch_mwasmarm
 
 # Try to include devkitarm if installed
@@ -204,6 +209,7 @@ TOOLS = $(foreach tool,$(TOOLBASE),$(TOOLS_DIR)/$(tool)/$(tool)$(EXE))
 
 export LM_LICENSE_FILE := $(TOOLS_DIR)/mwccarm/license.dat
 export MWCIncludes := arm9/lib/include
+export MWLibraries := arm9/lib
 
 ######################### Targets ###########################
 
@@ -220,7 +226,7 @@ endif
 .SECONDARY:
 .DELETE_ON_ERROR:
 .SECONDEXPANSION:
-.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
+.PHONY: all libs clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
 
 MAKEFLAGS += --no-print-directory
 
@@ -230,18 +236,20 @@ ifeq ($(COMPARE),1)
 endif
 
 clean: mostlyclean
-	make -C arm9 clean
-	make -C arm7 clean
-	make -C tools/mwasmarm_patcher clean
+	$(MAKE) -C arm9 clean
+	$(MAKE) -C arm7 clean
+	$(MAKE) -C tools/mwasmarm_patcher clean
+	$(RM) $(filter-out files/poketool/personal/pms.narc,$(filter %.narc %.arc,$(HOSTFS_FILES)))
+	$(MAKE) -C files/poketool/personal/growtbl clean
 
 mostlyclean: tidy
-	make -C arm9 mostlyclean
-	make -C arm7 mostlyclean
+	$(MAKE) -C arm9 mostlyclean
+	$(MAKE) -C arm7 mostlyclean
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 
 tidy:
-	make -C arm9 tidy
-	make -C arm7 tidy
+	$(MAKE) -C arm9 tidy
+	$(MAKE) -C arm7 tidy
 	$(RM) -r $(BUILD_DIR)
 
 tools: $(TOOLDIRS)
@@ -308,15 +316,23 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.png: ;
 %.pal: ;
 
-%.narc: members = $(wildcard $(@D)/$*/*)
+##################### Filesystem #####################
+
+%.narc: members = $(wildcard $(@D)/$*/*.bin)
 %.narc: $$(members)
 	$(NARCCOMP) -o $@ -p 255 $^
 
-%.arc: members = $(wildcard $(@D)/$*/*)
+%.arc: members = $(wildcard $(@D)/$*/*.bin)
 %.arc: $$(members)
 	$(NARCCOMP) -o $@ -p 255 $^
 
 files/poketool/personal/pms.narc: ;
+
+files/poketool/personal/growtbl.narc: $(wildcard files/poketool/personal/growtbl/*.txt)
+	$(MAKE) -C $(<D)
+	$(NARCCOMP) -o $@ -p 255 $(^:%.txt=%.bin)
+
+######################## Misc #######################
 
 $(BUILD_DIR)/pokediamond_bnr.bin: pokediamond.bsf graphics/icon.4bpp graphics/icon.gbapal
 	$(MAKEBANNER) $< $@
