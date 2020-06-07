@@ -12,6 +12,7 @@ addons:
             - binutils-arm-none-eabi
             - wine32
             - wine-stable
+            - g++-8
 cache:
     apt: true
 install:
