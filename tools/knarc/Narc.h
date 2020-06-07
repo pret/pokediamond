@@ -1,10 +1,17 @@
 #pragma once
 
 #include <cstdint>
-#include <experimental/filesystem>
 #include <fstream>
 #include <string>
 #include <vector>
+
+#if __GNUC__ <= 7
+#include <experimental/filesystem>
+namespace fs = std::experimental::filesystem;
+#else
+#include <filesystem>
+namespace fs = std::filesystem;
+#endif
 
 enum class NarcError
 {
@@ -71,8 +78,8 @@ class Narc
 	public:
 		NarcError GetError() const;
 
-		bool Pack(const std::experimental::filesystem::path& fileName, const std::experimental::filesystem::path& directory);
-		bool Unpack(const std::experimental::filesystem::path& fileName, const std::experimental::filesystem::path& directory);
+		bool Pack(const fs::path& fileName, const fs::path& directory);
+		bool Unpack(const fs::path& fileName, const fs::path& directory);
 
 	private:
 		NarcError error = NarcError::None;
@@ -82,5 +89,5 @@ class Narc
 		bool Cleanup(std::ifstream& ifs, const NarcError& e);
 		bool Cleanup(std::ofstream& ofs, const NarcError& e);
 
-		std::vector<std::experimental::filesystem::directory_entry> OrderedDirectoryIterator(const std::experimental::filesystem::path& path, bool recursive) const;
+		std::vector<fs::directory_entry> OrderedDirectoryIterator(const fs::path& path, bool recursive) const;
 };

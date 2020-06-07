@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <cstddef>
 #include <cstdint>
-#include <experimental/filesystem>
 #include <fstream>
 #include <iomanip>
 #include <ios>
@@ -14,6 +13,14 @@
 #include <stack>
 #include <string>
 #include <vector>
+
+#if __GNUC__ <= 7
+#include <experimental/filesystem>
+namespace fs = std::experimental::filesystem;
+#else
+#include <filesystem>
+namespace fs = std::filesystem;
+#endif
 
 using namespace std;
 
@@ -46,16 +53,16 @@ bool Narc::Cleanup(ofstream& ofs, const NarcError& e)
 	return false;
 }
 
-vector<experimental::filesystem::directory_entry> Narc::OrderedDirectoryIterator(const experimental::filesystem::path& path, bool recursive) const
+vector<fs::directory_entry> Narc::OrderedDirectoryIterator(const fs::path& path, bool recursive) const
 {
-	vector<experimental::filesystem::directory_entry> v;
+	vector<fs::directory_entry> v;
 
-	for (const auto& de : experimental::filesystem::directory_iterator(path))
+	for (const auto& de : fs::directory_iterator(path))
 	{
 		v.push_back(de);
 	}
 
-	sort(v.begin(), v.end(), [](const experimental::filesystem::directory_entry& a, const experimental::filesystem::directory_entry& b)
+	sort(v.begin(), v.end(), [](const fs::directory_entry& a, const fs::directory_entry& b)
 		{
 			// I fucking hate C++
 			string aStr = a.path().filename().string();
@@ -82,7 +89,7 @@ vector<experimental::filesystem::directory_entry> Narc::OrderedDirectoryIterator
 		{
 			if (is_directory(v[i]))
 			{
-				vector<experimental::filesystem::directory_entry> temp = OrderedDirectoryIterator(v[i], true);
+				vector<fs::directory_entry> temp = OrderedDirectoryIterator(v[i], true);
 
 				v.insert(v.end(), temp.begin(), temp.end());
 			}
@@ -97,7 +104,7 @@ NarcError Narc::GetError() const
 	return error;
 }
 
-bool Narc::Pack(const experimental::filesystem::path& fileName, const experimental::filesystem::path& directory)
+bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 {
 	ofstream ofs(fileName, ios::binary);
 
@@ -142,8 +149,8 @@ bool Narc::Pack(const experimental::filesystem::path& fileName, const experiment
 		.Reserved = 0x0
 	};
 
-	map<experimental::filesystem::path, string> subTables;
-	vector<experimental::filesystem::path> paths;
+	map<fs::path, string> subTables;
+	vector<fs::path> paths;
 
 	directoryCounter = 0;
 
@@ -178,7 +185,7 @@ bool Narc::Pack(const experimental::filesystem::path& fileName, const experiment
 
 	vector<FileNameTableEntry> fntEntries;
 
-	if (!regex_match(experimental::filesystem::directory_iterator(directory)->path().string(), regex(".*_\\d{4,8}\\.bin")))
+	if (!regex_match(fs::directory_iterator(directory)->path().string(), regex(".*_\\d{4,8}\\.bin")))
 	{
 		fntEntries.push_back(
 			{
@@ -228,7 +235,7 @@ bool Narc::Pack(const experimental::filesystem::path& fileName, const experiment
 		.ChunkSize = sizeof(FileNameTable) + (fntEntries.size() * sizeof(FileNameTableEntry))
 	};
 
-	if (!regex_match(experimental::filesystem::directory_iterator(directory)->path().string(), regex(".*_\\d{4,8}\\.bin")))
+	if (!regex_match(fs::directory_iterator(directory)->path().string(), regex(".*_\\d{4,8}\\.bin")))
 	{
 		for (const auto& subTable : subTables)
 		{
@@ -277,7 +284,7 @@ bool Narc::Pack(const experimental::filesystem::path& fileName, const experiment
 		ofs.write(reinterpret_cast<char*>(&entry), sizeof(FileNameTableEntry));
 	}
 
-	if (!regex_match(experimental::filesystem::directory_iterator(directory)->path().string(), regex(".*_\\d{4,8}\\.bin")))
+	if (!regex_match(fs::directory_iterator(directory)->path().string(), regex(".*_\\d{4,8}\\.bin")))
 	{
 		for (const auto& path : paths)
 		{
@@ -322,7 +329,7 @@ bool Narc::Pack(const experimental::filesystem::path& fileName, const experiment
 	return error == NarcError::None ? true : false;
 }
 
-bool Narc::Unpack(const experimental::filesystem::path& fileName, const experimental::filesystem::path& directory)
+bool Narc::Unpack(const fs::path& fileName, const fs::path& directory)
 {
 	ifstream ifs(fileName, ios::binary);
 
@@ -428,8 +435,8 @@ bool Narc::Unpack(const experimental::filesystem::path& fileName, const experime
 
 	if (fi.Id != 0x46494D47) { return Cleanup(ifs, NarcError::InvalidFileImagesId); }
 
-	experimental::filesystem::create_directory(directory);
-	experimental::filesystem::current_path(directory);
+	fs::create_directory(directory);
+	fs::current_path(directory);
 
 	if (fnt.ChunkSize == 0x10)
 	{
@@ -458,11 +465,11 @@ bool Narc::Unpack(const experimental::filesystem::path& fileName, const experime
 	}
 	else
 	{
-		experimental::filesystem::path absolutePath = experimental::filesystem::absolute(experimental::filesystem::current_path());
+		fs::path absolutePath = fs::absolute(fs::current_path());
 
 		for (size_t i = 0; i < fntEntries.size(); ++i)
 		{
-			experimental::filesystem::current_path(absolutePath);
+			fs::current_path(absolutePath);
 			stack<string> directories;
 
 			for (uint16_t j = fntEntries[i].Utility; j > 0xF000; j = fntEntries[j - 0xF000].Utility)
@@ -472,14 +479,14 @@ bool Narc::Unpack(const experimental::filesystem::path& fileName, const experime
 
 			for (; !directories.empty(); directories.pop())
 			{
-				experimental::filesystem::create_directory(directories.top());
-				experimental::filesystem::current_path(directories.top());
+				fs::create_directory(directories.top());
+				fs::current_path(directories.top());
 			}
 
 			if (fntEntries[i].Utility >= 0xF000)
 			{
-				experimental::filesystem::create_directory(fileNames.get()[0xF000 + i]);
-				experimental::filesystem::current_path(fileNames.get()[0xF000 + i]);
+				fs::create_directory(fileNames.get()[0xF000 + i]);
+				fs::current_path(fileNames.get()[0xF000 + i]);
 			}
 
 			ifs.seekg(static_cast<uint64_t>(header.ChunkSize) + fat.ChunkSize + sizeof(FileNameTable) + fntEntries[i].Offset);
