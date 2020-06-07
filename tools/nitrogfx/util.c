@@ -124,14 +124,22 @@ void WriteWholeFile(char *path, void *buffer, int bufferSize)
 	fclose(fp);
 }
 
-void WriteGenericNtrHeader(FILE* fp, const char* magicNumber, uint32_t size)
+void WriteGenericNtrHeader(FILE* fp, const char* magicNumber, uint32_t size, bool byteorder)
 {
     //magic number
     fputs(magicNumber, fp);
 
     //byte order
-    fputc(0xFF, fp);
-    fputc(0xFE, fp);
+    if (byteorder)
+    {
+        fputc(0xFF, fp); //LE
+        fputc(0xFE, fp);
+    }
+    else
+    {
+        fputc(0x00, fp);
+        fputc(0x00, fp);
+    }
 
     //version
     fputc(0x00, fp);

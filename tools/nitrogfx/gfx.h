@@ -34,6 +34,7 @@ void FreeImage(struct Image *image);
 void ReadGbaPalette(char *path, struct Palette *palette);
 void ReadNtrPalette(char *path, struct Palette *palette);
 void WriteGbaPalette(char *path, struct Palette *palette);
-void WriteNtrPalette(char *path, struct Palette *palette);
+void WriteNtrNCLRPalette(char *path, struct Palette *palette);
+void WriteNtrNCPRPalette(char *path, struct Palette *palette);
 
 #endif // GFX_H
