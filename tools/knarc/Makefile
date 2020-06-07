@@ -9,9 +9,9 @@ HEADERS := Narc.h
 
 all: knarc
 	@:
-	
+
 knarc: $(SRCS) $(HEADERS)
-	$(CXX) $(CXXFLAGS) $(SRCS) -o $@ $(LDFLAGS)
+	$(CXX) $(SRCS) -o $@ $(LDFLAGS) $(CXXFLAGS)
 
 clean:
 	$(RM) knarc knarc.exe
