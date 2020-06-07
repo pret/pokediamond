@@ -4,7 +4,7 @@ language: c
 env:
     global:
         - LM_LICENSE_FILE="$TRAVIS_BUILD_DIR/tools/mwccarm/license.dat"
-addons:
+addons: &gcc9
     apt:
         packages:
             - gcc-multilib
@@ -12,8 +12,8 @@ addons:
             - binutils-arm-none-eabi
             - wine32
             - wine-stable
-            - gcc-8
-            - g++-8
+            - gcc-9
+            - g++-9
 cache:
     apt: true
 install:
@@ -29,8 +29,8 @@ install:
     - mv NITRO\ SDK\ v3.0/include/nitro/specfiles/ARM9-TS.lcf.template arm9
 
 script:
-    - sudo ln -s /usr/bin/gcc-8 /usr/local/bin/gcc
-    - sudo ln -s /usr/bin/g++-8 /usr/local/bin/g++
+    - sudo ln -s /usr/bin/gcc-9 /usr/local/bin/gcc
+    - sudo ln -s /usr/bin/g++-9 /usr/local/bin/g++
     - make
 
 notifications:
