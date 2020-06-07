@@ -400,7 +400,8 @@ void WriteNtrPalette(char *path, struct Palette *palette)
     fputc((extSize >> 24) & 0xFF, fp);
 
     //bit depth
-    fputc(0x03, fp); //todo figure out a way to determine bit depth
+    char bitDepth = palette->bitDepth == 4 ? 0x03: 0x04;
+    fputc(bitDepth, fp);
     fputc(0x00, fp);
     fputc(0x00, fp);
     fputc(0x00, fp);

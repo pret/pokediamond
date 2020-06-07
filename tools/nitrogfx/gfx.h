@@ -15,6 +15,7 @@ struct Color {
 struct Palette {
 	struct Color colors[256];
 	int numColors;
+	int bitDepth;
 };
 
 struct Image {
