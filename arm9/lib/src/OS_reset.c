@@ -23,7 +23,6 @@ extern void DC_StoreAll(void);
 extern void DC_InvalidateAll(void);
 extern void IC_InvalidateAll(void);
 extern void DC_WaitWriteBufferEmpty(void);
-extern void OSi_DoResetSystem(void); //in itcm, should technically be in this file
 
 ARM_FUNC void OS_InitReset(void) {
     if (OSi_IsInitReset) {
@@ -64,10 +63,19 @@ ARM_FUNC void OS_ResetSystem(u32 parameter) {
     (void)OS_ResetRequestIrqMask((u32)~0);
     *(u32 *)HW_RESET_PARAMETER_BUF = parameter;
     OSi_SendToPxi(OS_PXI_COMMAND_RESET);
-    OSi_DoResetSystem(); //oh boy this is in itcm, that's gonna be fun to deal with Kappa
+    OSi_DoResetSystem();
 }
 
 #pragma section ITCM begin
+ARM_FUNC static void OSi_DoResetSystem(void)
+{
+    while (!OSi_IsResetOccurred) { }
+
+    reg_OS_IME = 0;
+    OSi_ReloadRomData();
+    OSi_DoBoot();
+}
+
 ARM_FUNC asm void OSi_DoBoot(void)
 {
     mov ip, #0x04000000
@@ -127,22 +135,7 @@ _01FF8284:
     bx lr
 }
 
-enum
-{
-    CARD_MASTER_SELECT_ROM = 0x0,
-    CARD_MASTER_ENABLE = 0x80,
-    CARD_CMD_READ_PAGE = 0xb7,
-    CARD_CTRL_CMD_MASK = 0x07000000,
-    CARD_CTRL_CMD_PAGE = 0x01000000,
-    CARD_CTRL_READ = 0x00000000,
-    CARD_CTRL_RESET_HI = 0x20000000,
-    CARD_CTRL_START = 0x80000000,
-    CARD_CTRL_READY = 0x00800000,
-    CARD_ENUM_END
-};
-
-
-ARM_FUNC void OSi_ReloadRomData(void)
+ARM_FUNC static void OSi_ReloadRomData(void)
 {
     u32 header = (u32)HW_ROM_HEADER_BUF;
     const u32 rom_base = *(u32 *)HW_ROM_BASE_OFFSET_BUF;
@@ -182,7 +175,21 @@ ARM_FUNC void OSi_ReloadRomData(void)
     OSi_ReadCardRom32(src_arm7, (void *)dst_arm7, (s32)len_arm7);
 }
 
-ARM_FUNC void OSi_ReadCardRom32(u32 src, void *dst, s32 len) //should be static, can't mark as such
+enum
+{
+    CARD_MASTER_SELECT_ROM = 0x0,
+    CARD_MASTER_ENABLE = 0x80,
+    CARD_CMD_READ_PAGE = 0xb7,
+    CARD_CTRL_CMD_MASK = 0x07000000,
+    CARD_CTRL_CMD_PAGE = 0x01000000,
+    CARD_CTRL_READ = 0x00000000,
+    CARD_CTRL_RESET_HI = 0x20000000,
+    CARD_CTRL_START = 0x80000000,
+    CARD_CTRL_READY = 0x00800000,
+    CARD_ENUM_END
+};
+
+ARM_FUNC static void OSi_ReadCardRom32(u32 src, void *dst, s32 len)
 {
     vu32 *const hdr_GAME_BUF = (vu32 *)(HW_ROM_HEADER_BUF + 0x60);
 

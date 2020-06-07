@@ -2,27 +2,6 @@
 	.include "global.inc"
 	.section .text
 
-	; OS
-	arm_func_start OSi_DoResetSystem  ;OS_reset.c
-OSi_DoResetSystem: ; 0x01FF84A4
-	stmfd	sp!, {lr}
-	sub	sp, sp, #4
-	ldr	r0, _01FF84DC
-_01FF84B0:
-	ldrh	r1, [r0]
-	cmp	r1, #0
-	beq	_01FF84B0
-	ldr	r0, _01FF84E0
-	mov	r1, #0
-	strh	r1, [r0]
-	bl	OSi_ReloadRomData
-	bl	OSi_DoBoot
-	add	sp, sp, #4
-	ldmfd	sp!, {lr}
-	bx	lr
-_01FF84DC:	.word OSi_IsResetOccurred
-_01FF84E0:	.word 0x04000208
-
 	; MI
 	arm_func_start MIi_DmaSetParams_wait_noInt
 MIi_DmaSetParams_wait_noInt: ; 0x01FF84E4
