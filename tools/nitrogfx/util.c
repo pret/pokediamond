@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <errno.h>
 #include <limits.h>
 #include "global.h"
@@ -121,4 +122,27 @@ void WriteWholeFile(char *path, void *buffer, int bufferSize)
 		FATAL_ERROR("Failed to write to \"%s\".\n", path);
 
 	fclose(fp);
+}
+
+void WriteGenericNtrHeader(FILE* fp, const char* magicNumber, uint32_t size, bool byteorder)
+{
+    unsigned char header[0x10] =
+            { 0x00, 0x00, 0x00, 0x00, 0xFF, 0xFE, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x01, 0x00 };
+    //magic number
+    memcpy(header, magicNumber, 4);
+
+    //byte order
+    if (!byteorder)
+    {
+        memset(header + 4, 0, 2);
+    }
+
+    //size
+    size += 0x10; //add header size
+    header[8] = size & 0xFF;
+    header[9] = (size >> 8) & 0xFF;
+    header[10] = (size >> 16) & 0xFF;
+    header[11] = (size >> 24) & 0xFF;
+
+    fwrite(header, 1, 0x10, fp);
 }
