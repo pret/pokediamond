@@ -1,7 +1,15 @@
-all: knarc
+CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch -lstdc++fs
 
-knarc: Source.cpp Narc.cpp
-	g++ -std=c++17 -o knarc Source.cpp Narc.cpp -lstdc++fs
+SRCS := Source.cpp Narc.cpp
+HEADERS := Narc.h
+
+.PHONY: all clean
+
+all: knarc
+	@:
+	
+knarc: $(SRCS) $(HEADERS)
+	g++-8 $(CXXFLAGS) $(SRCS) -o $@ $(LDFLAGS)
 
 clean:
-	rm knarc
+	$(RM) knarc knarc.exe
