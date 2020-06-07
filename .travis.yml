@@ -6,14 +6,18 @@ env:
         - LM_LICENSE_FILE="$TRAVIS_BUILD_DIR/tools/mwccarm/license.dat"
 addons:
     apt:
+    sources:
+        - sourceline: 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-9 main'
+          key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
+        - sourceline: 'ppa:ubuntu-toolchain-r/test'
         packages:
             - gcc-multilib
             - linux-libc-dev
             - binutils-arm-none-eabi
             - wine32
             - wine-stable
-            - gcc-8
-            - g++-8
+            - gcc-9
+            - g++-9
 cache:
     apt: true
 install:
@@ -29,8 +33,6 @@ install:
     - mv NITRO\ SDK\ v3.0/include/nitro/specfiles/ARM9-TS.lcf.template arm9
 
 script:
-    - sudo ln -s /usr/bin/gcc-8 /usr/local/bin/gcc
-    - sudo ln -s /usr/bin/g++-8 /usr/local/bin/g++
     - make
 
 notifications:
