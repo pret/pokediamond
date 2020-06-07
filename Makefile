@@ -26,9 +26,9 @@ endif
 
 ifeq ($(OS),Windows_NT)
 EXE := .exe
-WINE := 
+WINE :=
 else
-EXE := 
+EXE :=
 WINE := wine
 endif
 
@@ -170,9 +170,9 @@ MWCCARM  = tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # have to use mwldarm for now.
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
+KNARC = tools/knarc/knarc$(EXE)
 MWLDARM  = tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
-NARCCOMP = tools/narccomp/narccomp$(EXE)
 SCANINC = tools/scaninc/scaninc$(EXE)
 
 AS      = $(WINE) $(MWASMARM)
@@ -308,13 +308,11 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.png: ;
 %.pal: ;
 
-%.narc: members = $(wildcard $(@D)/$*/*)
-%.narc: $$(members)
-	$(NARCCOMP) -o $@ -p 255 $^
+%.narc:
+	$(KNARC) -d $(basename $@)/ -p $@
 
-%.arc: members = $(wildcard $(@D)/$*/*)
-%.arc: $$(members)
-	$(NARCCOMP) -o $@ -p 255 $^
+%.arc:
+	$(KNARC) -d $(basename $@)/ -p $@
 
 files/poketool/personal/pms.narc: ;
 
