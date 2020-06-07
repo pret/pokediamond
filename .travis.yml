@@ -4,7 +4,7 @@ language: c
 env:
     global:
         - LM_LICENSE_FILE="$TRAVIS_BUILD_DIR/tools/mwccarm/license.dat"
-addons: &gcc9
+addons:
     apt:
         packages:
             - gcc-multilib
@@ -12,8 +12,7 @@ addons: &gcc9
             - binutils-arm-none-eabi
             - wine32
             - wine-stable
-            - gcc-9
-            - g++-9
+            - gcc-8
 cache:
     apt: true
 install:
