@@ -7,7 +7,7 @@ env:
 addons:
     apt:
         packages:
-            - gcc-8
+            - gcc-9
             - linux-libc-dev
             - binutils-arm-none-eabi
             - wine32
