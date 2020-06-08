@@ -3,8 +3,8 @@
 include config.mk
 include filesystem.mk
 
-HOSTCC = $(CC)
-HOSTCXX = $(CXX)
+HOSTCC := $(CC)
+HOSTCXX := $(CXX)
 HOSTCFLAGS = $(CFLAGS)
 HOSTCXXFLAGS = $(CXXFLAGS)
 

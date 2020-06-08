@@ -1,4 +1,4 @@
-CXX ?= g++-9
+CXX := g++
 
 CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch -lstdc++fs
 
