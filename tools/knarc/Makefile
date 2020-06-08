@@ -1,5 +1,3 @@
-CXX := g++
-
 CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch -lstdc++fs
 
 SRCS := Source.cpp Narc.cpp
