@@ -273,3 +273,15 @@ NITROFS_FILES = $(NITROFS_FILES:poketool/personal/personal.narc=poketool/persona
 endif
 
 HOSTFS_FILES = $(NITROFS_FILES:%=files/%)
+
+%.narc:
+	$(KNARC) -d $(basename $@)/ -p $@
+
+%.arc:
+	$(KNARC) -d $(basename $@)/ -p $@
+
+files/poketool/personal/pms.narc: ;
+
+files/poketool/personal/growtbl.narc: $(wildcard files/poketool/personal/growtbl/*.txt)
+	$(MAKE) -C $(<D)
+	$(NARCCOMP) -o $@ -p 255 $(^:%.txt=%.bin)
