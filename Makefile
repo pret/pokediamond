@@ -1,7 +1,6 @@
 # Makefile to build Pokemon Diamond image
 
 include config.mk
-include filesystem.mk
 
 HOSTCC = $(CC)
 HOSTCXX = $(CXX)
@@ -308,6 +307,8 @@ $(ROM): $(ELF)
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
+
+include filesystem.mk
 
 %.4bpp: %.png
 	$(GFX) $< $@
