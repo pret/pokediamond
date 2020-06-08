@@ -443,7 +443,7 @@ _02066BDE:
 	bl FUN_02067960
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x28]
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x8
@@ -451,7 +451,7 @@ _02066BDE:
 	bl FUN_02067960
 	ldr r0, [sp, #0x24]
 	mov r1, #0x14
-	bl FUN_02068678
+	bl GetMonBaseStat
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x9
@@ -561,11 +561,11 @@ _02066C94:
 _02066D18:
 	ldr r0, [sp, #0x24]
 	mov r1, #0x18
-	bl FUN_02068678
+	bl GetMonBaseStat
 	str r0, [sp, #0x8]
 	ldr r0, [sp, #0x24]
 	mov r1, #0x19
-	bl FUN_02068678
+	bl GetMonBaseStat
 	str r0, [sp, #0x4]
 	cmp r0, #0x0
 	beq _02066D50
@@ -731,7 +731,7 @@ FUN_02066E74: ; 0x02066E74
 	add r5, r1, #0x0
 	mov r1, #0x12
 	add r4, r2, #0x0
-	bl FUN_02068678
+	bl GetMonBaseStat
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	beq _02066EA0
@@ -896,7 +896,7 @@ FUN_02066F04: ; 0x02066F04
 	ldr r1, [sp, #0x38]
 	add r0, r7, #0x0
 	add r2, r6, #0x0
-	bl FUN_0206A380
+	bl LoadMonBaseStats_HandleUnownOrArceus
 	mov r0, #0x49
 	lsl r0, r0, #0x2
 	cmp r7, r0
@@ -1588,7 +1588,7 @@ _0206753C:
 _02067540:
 	ldrh r0, [r5, #0x0]
 	ldr r1, [r5, #0x8]
-	bl FUN_02068800
+	bl CalcMonLevel
 	add r4, r0, #0x0
 	b _0206781A
 _0206754C:
@@ -2003,7 +2003,7 @@ _020677FC:
 	sub r2, #0xaa
 	lsr r1, r1, #0x1b
 	str r2, [sp, #0x4]
-	bl FUN_02068654
+	bl GetMonBaseStat_HandleUnownOrArceus
 	add r4, r0, #0x0
 	b _0206781A
 _02067810:
@@ -3436,14 +3436,14 @@ _0206814E: ; jump table (using 16-bit offset)
 _020682B4:
 	ldrh r0, [r4, #0x0]
 	mov r1, #0x64
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	ldr r1, [r4, #0x8]
 	add r1, r1, r6
 	cmp r1, r0
 	bls _020682D2
 	ldrh r0, [r4, #0x0]
 	mov r1, #0x64
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	add sp, #0xc
 	str r0, [r4, #0x8]
 	pop {r4-r7, pc}
@@ -3773,8 +3773,8 @@ _02068510: .word 0xFFF07FFF
 _02068514: .word 0xFE0FFFFF
 _02068518: .word 0xC1FFFFFF
 
-	thumb_func_start FUN_0206851C
-FUN_0206851C: ; 0x0206851C
+	thumb_func_start AllocAndLoadMonPersonal
+AllocAndLoadMonPersonal: ; 0x0206851C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r0, r1, #0x0
@@ -3788,8 +3788,8 @@ FUN_0206851C: ; 0x0206851C
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068538
-FUN_02068538: ; 0x02068538
+	thumb_func_start GetPersonalAttr
+GetPersonalAttr: ; 0x02068538
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r6, r1, #0x0
@@ -3958,8 +3958,8 @@ _0206863A:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068640
-FUN_02068640: ; 0x02068640
+	thumb_func_start FreeMonPersonal
+FreeMonPersonal: ; 0x02068640
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _0206864A
@@ -3970,35 +3970,35 @@ _0206864A:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068654
-FUN_02068654: ; 0x02068654
+	thumb_func_start GetMonBaseStat_HandleUnownOrArceus
+GetMonBaseStat_HandleUnownOrArceus: ; 0x02068654
 	push {r3-r5, lr}
 	add r4, r2, #0x0
 	bl ConvertUnownOrArceusSpecies
 	mov r1, #0x0
-	bl FUN_0206851C
+	bl AllocAndLoadMonPersonal
 	add r5, r0, #0x0
 	add r1, r4, #0x0
-	bl FUN_02068538
+	bl GetPersonalAttr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02068640
+	bl FreeMonPersonal
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068678
-FUN_02068678: ; 0x02068678
+	thumb_func_start GetMonBaseStat
+GetMonBaseStat: ; 0x02068678
 	push {r3-r5, lr}
 	add r4, r1, #0x0
 	mov r1, #0x0
-	bl FUN_0206851C
+	bl AllocAndLoadMonPersonal
 	add r5, r0, #0x0
 	add r1, r4, #0x0
-	bl FUN_02068538
+	bl GetPersonalAttr
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_02068640
+	bl FreeMonPersonal
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -4023,11 +4023,11 @@ FUN_02068698: ; 0x02068698
 	lsr r7, r0, #0x18
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r7, #0x1
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x8
@@ -4074,7 +4074,7 @@ FUN_02068700: ; 0x02068700
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	sub r0, r0, r4
 	pop {r4-r6, pc}
 
@@ -4092,16 +4092,16 @@ FUN_02068734: ; 0x02068734
 	bl FUN_020671BC
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068758
-FUN_02068758: ; 0x02068758
+	thumb_func_start GetMonExpByLevel
+GetMonExpByLevel: ; 0x02068758
 	push {r4, lr}
 	add r4, r1, #0x0
 	mov r1, #0x15
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r1, r4, #0x0
 	bl GetExpByGrowthRateAndLevel
 	pop {r4, pc}
@@ -4180,34 +4180,34 @@ FUN_020687C8: ; 0x020687C8
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
 	add r1, r7, #0x0
-	bl FUN_02068800
+	bl CalcMonLevel
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068800
-FUN_02068800: ; 0x02068800
+	thumb_func_start CalcMonLevel
+CalcMonLevel: ; 0x02068800
 	push {r4-r6, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	mov r1, #0x0
-	bl FUN_0206851C
+	bl AllocAndLoadMonPersonal
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_02068824
+	bl CalcMonLevelInternal
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02068640
+	bl FreeMonPersonal
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068824
-FUN_02068824: ; 0x02068824
+	thumb_func_start CalcMonLevelInternal
+CalcMonLevelInternal: ; 0x02068824
 	push {r4, lr}
 	mov r1, #0x15
 	add r4, r2, #0x0
-	bl FUN_02068538
+	bl GetPersonalAttr
 	ldr r1, _0206884C ; =UNK_021C5AC0
 	bl LoadGrowthTable
 	ldr r2, _02068850 ; =UNK_021C5AC0 + 4
@@ -4475,14 +4475,14 @@ FUN_02068A20: ; 0x02068A20
 	add r4, r1, #0x0
 	add r5, r0, #0x0
 	mov r1, #0x0
-	bl FUN_0206851C
+	bl AllocAndLoadMonPersonal
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	bl FUN_02068A44
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_02068640
+	bl FreeMonPersonal
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
 	.balign 4
@@ -4492,7 +4492,7 @@ FUN_02068A44: ; 0x02068A44
 	push {r4, lr}
 	mov r1, #0x12
 	add r4, r2, #0x0
-	bl FUN_02068538
+	bl GetPersonalAttr
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	beq _02068A5E
@@ -5467,7 +5467,7 @@ FUN_020690E8: ; 0x020690E8
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	mov r1, #0x15
-	bl FUN_02068678
+	bl GetMonBaseStat
 	mov r1, #0x64
 	add r5, r0, #0x0
 	bl GetExpByGrowthRateAndLevel
@@ -5575,7 +5575,7 @@ _020691EA:
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x2c]
 	ldr r1, [sp, #0x18]
-	bl FUN_0206A394
+	bl LoadMonEvolutionTable
 	cmp r4, #0x3
 	bls _02069202
 	b _0206954A
@@ -6029,8 +6029,8 @@ _0206954A:
 	pop {r4-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02069558
-FUN_02069558: ; 0x02069558
+	thumb_func_start ReadFromPersonalPmsNarc
+ReadFromPersonalPmsNarc: ; 0x02069558
 	push {r3-r4, lr}
 	sub sp, #0x4c
 	add r4, r0, #0x0
@@ -6065,8 +6065,8 @@ _0206956E:
 _020695A0: .word 0x000001EE
 _020695A4: .word UNK_02105FC8
 
-	thumb_func_start FUN_020695A8
-FUN_020695A8: ; 0x020695A8
+	thumb_func_start GetEggSpecies
+GetEggSpecies: ; 0x020695A8
 	push {r3, lr}
 	cmp r0, #0xb9
 	bgt _020695CC
@@ -6105,7 +6105,7 @@ _020695E2:
 	cmp r0, r1
 	beq _020695EC
 _020695E8:
-	bl FUN_02069558
+	bl ReadFromPersonalPmsNarc
 _020695EC:
 	pop {r3, pc}
 	nop
@@ -7540,13 +7540,13 @@ FUN_0206A094: ; 0x0206A094
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
 	mov r2, #0x10
-	bl FUN_02068654
+	bl GetMonBaseStat_HandleUnownOrArceus
 	add r1, sp, #0x4
 	strh r0, [r1, #0x2]
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
 	mov r2, #0x11
-	bl FUN_02068654
+	bl GetMonBaseStat_HandleUnownOrArceus
 	add r1, sp, #0x4
 	strh r0, [r1, #0x0]
 	ldrh r2, [r1, #0x2]
@@ -7658,7 +7658,7 @@ _0206A1A6:
 	lsl r4, r2
 	mov r2, #0x20
 _0206A1B0:
-	bl FUN_02068654
+	bl GetMonBaseStat_HandleUnownOrArceus
 	tst r0, r4
 	beq _0206A1BC
 	mov r0, #0x1
@@ -7695,11 +7695,11 @@ FUN_0206A1CC: ; 0x0206A1CC
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x18
-	bl FUN_02068678
+	bl GetMonBaseStat
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x19
-	bl FUN_02068678
+	bl GetMonBaseStat
 	str r0, [sp, #0x0]
 	cmp r0, #0x0
 	beq _0206A226
@@ -7880,8 +7880,8 @@ FUN_0206A370: ; 0x0206A370
 	nop
 _0206A37C: .word ReadWholeNarcMemberByIdPair
 
-	thumb_func_start FUN_0206A380
-FUN_0206A380: ; 0x0206A380
+	thumb_func_start LoadMonBaseStats_HandleUnownOrArceus
+LoadMonBaseStats_HandleUnownOrArceus: ; 0x0206A380
 	push {r4, lr}
 	add r4, r2, #0x0
 	bl ConvertUnownOrArceusSpecies
@@ -7891,8 +7891,8 @@ FUN_0206A380: ; 0x0206A380
 	bl ReadWholeNarcMemberByIdPair
 	pop {r4, pc}
 
-	thumb_func_start FUN_0206A394
-FUN_0206A394: ; 0x0206A394
+	thumb_func_start LoadMonEvolutionTable
+LoadMonEvolutionTable: ; 0x0206A394
 	ldr r3, _0206A3A0 ; =ReadWholeNarcMemberByIdPair
 	add r2, r0, #0x0
 	add r0, r1, #0x0

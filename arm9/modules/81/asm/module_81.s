@@ -199,7 +199,7 @@ MOD81_02237FE8: ; 0x02237FE8
 	mov r2, #0
 	bl FUN_020672BC
 	mov r1, #0x1c
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0
 	bne _02238000
 	mov r0, #1

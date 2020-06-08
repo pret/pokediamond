@@ -925,7 +925,7 @@ _02254F00:
 	beq _02254F36
 	ldrh r0, [r6, #0x1c]
 	mov r1, #0x1c
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0
 	ldr r0, [r7, #0x24]
 	beq _02254F30

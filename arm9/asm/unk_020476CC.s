@@ -677,7 +677,7 @@ _02047C40:
 	mov r2, #0x0
 	bl FUN_020671BC
 	add r1, r7, #0x0
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	mov r1, #0x8

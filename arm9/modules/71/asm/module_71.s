@@ -1387,7 +1387,7 @@ MOD71_0222E118: ; 0x0222E118
 	cmp r0, #0
 	beq _0222E18E
 	mov r1, #0x1c
-	bl FUN_02068678
+	bl GetMonBaseStat
 	strh r0, [r4, #0xa]
 _0222E18E:
 	cmp r6, #0

@@ -1893,7 +1893,7 @@ _0207D00C:
 	lsl r0, r0, #0x2
 	ldrh r0, [r4, r0]
 	mov r1, #0x1c
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r2, r0, #0x0
 	ldr r0, _0207D068 ; =0x00000454
 	mov r1, #0x1

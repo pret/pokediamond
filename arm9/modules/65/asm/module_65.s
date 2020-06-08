@@ -3388,7 +3388,7 @@ MOD65_021D8F34: ; 0x021D8F34
 	strb r0, [r1]
 	ldrh r0, [r4, #0x34]
 	mov r1, #0x1c
-	bl FUN_02068678
+	bl GetMonBaseStat
 	mov r1, #1
 	eor r1, r0
 	add r0, r4, #0

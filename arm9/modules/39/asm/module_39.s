@@ -1008,7 +1008,7 @@ MOD39_02254FA4: ; 0x02254FA4
 _02254FBA:
 	add r0, r7, #0
 	mov r1, #0x1c
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0
 	beq _02254FCA
 	mov r1, #4

@@ -2588,7 +2588,7 @@ _022132C2:
 	ldrh r0, [r4, #8]
 	lsl r1, r1, #0x19
 	lsr r1, r1, #0x19
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	str r0, [r4, #0x24]
 	ldrb r0, [r6, r5]
 	lsl r0, r0, #0x19
@@ -2604,7 +2604,7 @@ _0221335A:
 	add r1, r1, #1
 	add r4, r0, r5
 	ldrh r0, [r4, #8]
-	bl FUN_02068758
+	bl GetMonExpByLevel
 _02213366:
 	str r0, [r4, #0x28]
 	ldr r0, [r4, #4]
