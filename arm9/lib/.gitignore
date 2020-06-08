@@ -1,0 +1,3 @@
+libsyscall.a
+
+syscall/*.o
