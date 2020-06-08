@@ -3,10 +3,11 @@
 include config.mk
 include filesystem.mk
 
-HOSTCC := $(CC)
-HOSTCXX := $(CXX)
+HOSTCC = $(CC)
+HOSTCXX = $(CXX)
 HOSTCFLAGS = $(CFLAGS)
 HOSTCXXFLAGS = $(CXXFLAGS)
+HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS=$(HOSTCFLAGS) CXXFLAGS=$(HOSTCXXFLAGS)
 
 .PHONY: clean tidy all default patch_mwasmarm
 
@@ -219,7 +220,7 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
 ifeq (,$(filter-out all,$(MAKECMDGOALS)))
-$(call infoshell, $(MAKE) tools patch_mwasmarm)
+$(call infoshell, $(HOST_VARS) $(MAKE) tools patch_mwasmarm)
 else
 NODEP := 1
 endif
@@ -256,7 +257,7 @@ tidy:
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
-	@$(MAKE) -C $@
+	@$(HOST_VARS) $(MAKE) -C $@
 
 $(MWASMARM): patch_mwasmarm
 	@:
