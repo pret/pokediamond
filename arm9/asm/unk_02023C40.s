@@ -975,7 +975,7 @@ FUN_020242C8: ; 0x020242C8
 	add r0, r6, #0x0
 	mov r1, #0x12
 	add r4, r2, #0x0
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0xff
 	bne _020242EA
 	cmp r4, #0x0

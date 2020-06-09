@@ -6567,7 +6567,7 @@ MOD06_0223C854: ; 0x0223C854
 	bne _0223C8BE
 	ldr r0, [sp, #0x10]
 	mov r1, #0x12
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0
 	beq _0223C8E0
 	cmp r0, #0xfe
@@ -6690,7 +6690,7 @@ MOD06_0223C968: ; 0x0223C968
 	add r0, r7, #0
 	mov r1, #0x12
 	mov r6, #1
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0
 	beq _0223C996
 	cmp r0, #0xfe
@@ -7320,14 +7320,14 @@ _0223CE6A:
 	str r0, [sp, #0xc]
 	ldr r0, [r6, r0]
 	mov r1, #6
-	bl FUN_02068678
+	bl GetMonBaseStat
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [sp, #0xc]
 	mov r1, #7
 	ldr r0, [r6, r0]
-	bl FUN_02068678
+	bl GetMonBaseStat
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	ldr r0, [sp, #8]
@@ -22165,7 +22165,7 @@ _022445A6:
 	mov r2, #0
 	bl FUN_020671BC
 	mov r1, #0x32
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #8
@@ -22672,7 +22672,7 @@ _0224499C:
 	ldrh r0, [r5]
 	lsl r0, r0, #0x15
 	lsr r0, r0, #0x15
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0
 	beq _022449E0
 	ldr r2, [r5, #0x10]
@@ -22688,7 +22688,7 @@ _022449CC:
 	mov r1, #0x18
 	lsl r0, r0, #0x15
 	lsr r0, r0, #0x15
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r1, r5, #0
 	add r1, #0x20
 	strb r0, [r1]
@@ -22698,7 +22698,7 @@ _022449E0:
 	mov r1, #0x18
 	lsl r0, r0, #0x15
 	lsr r0, r0, #0x15
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r1, r5, #0
 	add r1, #0x20
 	strb r0, [r1]
@@ -23233,7 +23233,7 @@ MOD06_02244DC4: ; 0x02244DC4
 	str r1, [r7, r0]
 	add r0, r4, #0
 	mov r1, #0x12
-	bl FUN_02068678
+	bl GetMonBaseStat
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	beq _02244DEC

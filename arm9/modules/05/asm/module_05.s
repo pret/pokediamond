@@ -44333,7 +44333,7 @@ _021ECE8C:
 	lsl r1, r0, #1
 	add r0, sp, #0xc
 	ldrh r0, [r0, r1]
-	bl FUN_02069558
+	bl ReadFromPersonalPmsNarc
 	add r4, r0, #0
 	cmp r4, #0x1d
 	bne _021ECEBC
@@ -44403,7 +44403,7 @@ MOD05_021ECF14: ; 0x021ECF14
 	add r0, r6, #0
 	mov r1, #0x13
 	add r4, r3, #0
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r1, sp, #0x10
 	strb r0, [r1]
 	mov r0, #0
@@ -44514,7 +44514,7 @@ MOD05_021ED00C: ; 0x021ED00C
 	mov r1, #0x13
 	add r5, r2, #0
 	add r6, r3, #0
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r1, sp, #0x14
 	strb r0, [r1]
 	add r0, r5, #0
@@ -44783,11 +44783,11 @@ _021ED228:
 	stmia r7!, {r0}
 	ldrh r0, [r4]
 	mov r1, #0x16
-	bl FUN_02068678
+	bl GetMonBaseStat
 	strh r0, [r6]
 	ldrh r0, [r4]
 	mov r1, #0x17
-	bl FUN_02068678
+	bl GetMonBaseStat
 	strh r0, [r6, #2]
 	ldr r0, [sp]
 	add r5, r5, #4

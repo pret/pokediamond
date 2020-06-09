@@ -30379,12 +30379,12 @@ MOD16_021E5554: ; 0x021E5554
 	ldr r1, [sp, #0x30]
 	add r0, r7, #0
 	mov r2, #6
-	bl FUN_02068654
+	bl GetMonBaseStat_HandleUnownOrArceus
 	add r6, r0, #0
 	ldr r1, [sp, #0x30]
 	add r0, r7, #0
 	mov r2, #7
-	bl FUN_02068654
+	bl GetMonBaseStat_HandleUnownOrArceus
 	add r7, r0, #0
 	add r0, r6, #0
 	bl MOD16_021E563C
@@ -32759,7 +32759,7 @@ MOD16_021E66F4: ; 0x021E66F4
 	add r4, r1, #0
 	mov r1, #0x12
 	add r5, r0, #0
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0
 	bne _021E6708
 	mov r0, #1
@@ -51949,11 +51949,11 @@ MOD16_021EF6E0: ; 0x021EF6E0
 	mov r1, #6
 	str r2, [sp]
 	str r3, [sp, #4]
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r4, r0, #0
 	ldr r0, [sp, #0x60]
 	mov r1, #7
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r6, r0, #0
 	add r0, r4, #0
 	bl MOD16_021E563C
@@ -55170,11 +55170,11 @@ _021F0F88:
 	add r7, r5, r3
 	ldrh r0, [r7, r6]
 	mov r1, #0x18
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r4, r0, #0
 	ldrh r0, [r7, r6]
 	mov r1, #0x19
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r6, r0, #0
 	cmp r4, #0
 	beq _021F0FC2
@@ -55281,12 +55281,12 @@ _021F1046:
 	ldrh r0, [r6, r1]
 	str r1, [sp]
 	mov r1, #0x18
-	bl FUN_02068678
+	bl GetMonBaseStat
 	add r4, r0, #0
 	ldr r0, [sp]
 	mov r1, #0x19
 	ldrh r0, [r6, r0]
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r4, #0
 	beq _021F108C
 	cmp r0, #0

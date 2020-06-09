@@ -12644,7 +12644,7 @@ _022339C6:
 	lsl r0, r0, #6
 	ldrh r0, [r1, r0]
 	mov r1, #9
-	bl FUN_02068678
+	bl GetMonBaseStat
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	ldr r2, [r5, #0x74]
@@ -20687,7 +20687,7 @@ _02237900:
 	ldr r0, [sp, #4]
 	add r1, r6, #0
 	mov r2, #1
-	bl FUN_02068654
+	bl GetMonBaseStat_HandleUnownOrArceus
 	ldr r1, _02237AB0 ; =0x00002144
 	ldr r2, _02237AB4 ; =0x00003044
 	str r0, [r5, r1]
@@ -20719,7 +20719,7 @@ _02237900:
 	mov r2, #2
 	lsl r1, r1, #0x1b
 	lsr r1, r1, #0x1b
-	bl FUN_02068654
+	bl GetMonBaseStat_HandleUnownOrArceus
 	add r1, r0, #0
 	ldr r0, _02237AB0 ; =0x00002144
 	ldr r0, [r5, r0]
@@ -27984,7 +27984,7 @@ MOD11_0223B2DC: ; 0x0223B2DC
 	add r0, r2, #0
 	mov r1, #5
 	mov r4, #0
-	bl FUN_0206851C
+	bl AllocAndLoadMonPersonal
 	add r7, r0, #0
 	ldr r0, [sp]
 	ldr r1, [sp, #4]
@@ -28063,7 +28063,7 @@ _0223B37A: ; jump table
 _0223B386:
 	add r0, r7, #0
 	mov r1, #0xa
-	bl FUN_02068538
+	bl GetPersonalAttr
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
 	cmp r5, #0x79
@@ -28075,7 +28075,7 @@ _0223B386:
 _0223B39E:
 	add r0, r7, #0
 	mov r1, #0xb
-	bl FUN_02068538
+	bl GetPersonalAttr
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
 	cmp r5, #0x74
@@ -28087,7 +28087,7 @@ _0223B39E:
 _0223B3B6:
 	add r0, r7, #0
 	mov r1, #0xc
-	bl FUN_02068538
+	bl GetPersonalAttr
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
 	cmp r5, #0x75
@@ -28099,7 +28099,7 @@ _0223B3B6:
 _0223B3CE:
 	add r0, r7, #0
 	mov r1, #0xd
-	bl FUN_02068538
+	bl GetPersonalAttr
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
 	cmp r5, #0x78
@@ -28111,7 +28111,7 @@ _0223B3CE:
 _0223B3E6:
 	add r0, r7, #0
 	mov r1, #0xe
-	bl FUN_02068538
+	bl GetPersonalAttr
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
 	cmp r5, #0x76
@@ -28123,7 +28123,7 @@ _0223B3E6:
 _0223B3FE:
 	add r0, r7, #0
 	mov r1, #0xf
-	bl FUN_02068538
+	bl GetPersonalAttr
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
 	cmp r5, #0x77
@@ -28195,7 +28195,7 @@ _0223B45A:
 	b _0223B35E
 _0223B48C:
 	add r0, r7, #0
-	bl FUN_02068640
+	bl FreeMonPersonal
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -29533,7 +29533,7 @@ _0223BFEE:
 	lsl r0, r0, #6
 	ldrh r0, [r1, r0]
 	mov r1, #8
-	bl FUN_02068678
+	bl GetMonBaseStat
 	ldr r1, _0223C200 ; =0x0000311C
 	ldr r2, _0223C204 ; =0x0225DCF0
 	ldrb r1, [r4, r1]
@@ -29554,7 +29554,7 @@ _0223C026:
 	lsl r0, r0, #6
 	ldrh r0, [r1, r0]
 	mov r1, #8
-	bl FUN_02068678
+	bl GetMonBaseStat
 	str r0, [sp]
 _0223C03A:
 	ldr r1, [r4, #0x6c]
@@ -72923,7 +72923,7 @@ MOD11_02250F94: ; 0x02250F94
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0x1a
-	bl FUN_02068678
+	bl GetMonBaseStat
 	ldr r2, _0225100C ; =0x0225E830
 	lsl r1, r5, #1
 	ldrb r2, [r2, r1]
@@ -81124,7 +81124,7 @@ _022550D0:
 _022550EA:
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0xc]
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	mov r1, #0xc0
 	mul r1, r4
 	add r2, r5, r1
@@ -81135,11 +81135,11 @@ _022550EA:
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #0x10]
 	add r1, r1, #1
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	add r5, r0, #0
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0xc]
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	sub r0, r5, r0
 	str r0, [sp, #0x20]
 	ldrh r1, [r7, r6]
@@ -82432,7 +82432,7 @@ _02255B04:
 _02255B12:
 	add r0, r7, #0
 	add r1, r6, #0
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	ldr r1, _02255B64 ; =0x00002DA4
 	add r2, r5, r4
 	ldr r1, [r2, r1]
@@ -82440,11 +82440,11 @@ _02255B12:
 	str r0, [sp, #0x18]
 	add r0, r7, #0
 	add r1, r6, #1
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	add r4, r0, #0
 	add r0, r7, #0
 	add r1, r6, #0
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	sub r0, r4, r0
 	str r0, [sp, #0x1c]
 	mov r0, #0x14
@@ -82494,7 +82494,7 @@ MOD11_02255B68: ; 0x02255B68
 	add r1, r6, #0
 	str r0, [sp, #0x10]
 	add r0, r7, #0
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	mov r1, #0xc0
 	mul r1, r4
 	add r2, r5, r1
@@ -82504,11 +82504,11 @@ MOD11_02255B68: ; 0x02255B68
 	str r0, [sp, #0x14]
 	add r0, r7, #0
 	add r1, r6, #1
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	add r5, r0, #0
 	add r0, r7, #0
 	add r1, r6, #0
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	sub r0, r5, r0
 	str r0, [sp, #0x18]
 	mov r0, #0x10
@@ -83183,7 +83183,7 @@ _022560BA:
 _022560D4:
 	ldr r0, [sp, #0xc]
 	ldr r1, [sp, #8]
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	mov r1, #0xc0
 	mul r1, r4
 	add r2, r5, r1
@@ -83194,11 +83194,11 @@ _022560D4:
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0xc]
 	add r1, r1, #1
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	add r5, r0, #0
 	ldr r0, [sp, #0xc]
 	ldr r1, [sp, #8]
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	sub r0, r5, r0
 	str r0, [sp, #0x1c]
 	ldrh r1, [r7, r6]

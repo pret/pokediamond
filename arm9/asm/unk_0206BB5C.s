@@ -70,7 +70,7 @@ _0206BBD0:
 	cmp r0, #0x0
 	bne _0206BBEA
 	add r0, r6, #0x0
-	bl FUN_020695A8
+	bl GetEggSpecies
 	cmp r6, r0
 	beq _0206BBEA
 	mov r0, #0x0

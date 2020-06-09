@@ -760,7 +760,7 @@ _02254DDC:
 _02254DE0:
 	ldrh r0, [r4, #8]
 	mov r1, #0x1c
-	bl FUN_02068678
+	bl GetMonBaseStat
 	mov r1, #0x59
 	lsl r1, r1, #2
 	strb r0, [r5, r1]

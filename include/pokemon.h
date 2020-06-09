@@ -196,4 +196,11 @@ struct PokemonData {
     PokemonDataBlock block4;
 };
 
+int GetMonBaseStat_HandleUnownOrArceus(int species, int form, int stat_id);
+int GetMonBaseStat(int species, int stat_id);
+int GetMonExpByLevel(int species, int level);
+void LoadGrowthTable(int species, int * table);
+int GetExpByGrowthRateAndLevel(int rate, int level);
+int CalcMonLevel(int species, int experience);
+
 #endif //POKEDIAMOND_POKEMON_H

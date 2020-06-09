@@ -2013,7 +2013,7 @@ _0207AC1E:
 	ldrh r0, [r5, #0xc]
 	lsl r1, r1, #0x19
 	lsr r1, r1, #0x19
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	str r0, [r5, #0x1c]
 	ldrb r0, [r5, #0x12]
 	lsl r0, r0, #0x19
@@ -2025,7 +2025,7 @@ _0207AC1E:
 _0207ACAA:
 	ldrh r0, [r5, #0xc]
 	add r1, r1, #0x1
-	bl FUN_02068758
+	bl GetMonExpByLevel
 _0207ACB2:
 	str r0, [r5, #0x20]
 	add r0, r6, #0x0

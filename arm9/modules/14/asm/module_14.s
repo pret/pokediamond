@@ -9216,7 +9216,7 @@ MOD14_021DBEAC: ; 0x021DBEAC
 	strb r0, [r4, #0xf]
 	ldrh r0, [r4, #4]
 	mov r1, #9
-	bl FUN_0206851C
+	bl AllocAndLoadMonPersonal
 	add r7, r0, #0
 	add r0, r5, #0
 	mov r1, #8
@@ -9225,7 +9225,7 @@ MOD14_021DBEAC: ; 0x021DBEAC
 	add r2, r0, #0
 	ldrh r1, [r4, #4]
 	add r0, r7, #0
-	bl FUN_02068824
+	bl CalcMonLevelInternal
 	strb r0, [r4, #0xa]
 	add r0, r5, #0
 	mov r1, #0xb
@@ -9320,7 +9320,7 @@ _021DBFB8:
 	ldr r2, [r4, #0x24]
 	bl FUN_0200A8E0
 	add r0, r7, #0
-	bl FUN_02068640
+	bl FreeMonPersonal
 	ldr r1, [sp]
 	add r0, r5, #0
 	bl FUN_02066A94
@@ -21843,7 +21843,7 @@ _021E204A:
 	lsr r1, r0, #0x10
 	add r0, r7, #0
 	mov r2, #0x1b
-	bl FUN_02068654
+	bl GetMonBaseStat_HandleUnownOrArceus
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	b _021E20AA
