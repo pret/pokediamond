@@ -1,7 +1,25 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _03807744
+_03807744: ;0x03807744
+	.space 0x03807748 - 0x03807744
+
+	.global _03807748
+_03807748: ;0x03807748
+	.space 0x0380774C - 0x03807748
+
+	.global _0380774C
+_0380774C: ;0x0380774C
+	.space 0x03807774 - 0x0380774C
+
+	.global _03807774
+_03807774: ;0x03807774
+	.space 0x03807780 - 0x03807774
+
+    .section .text
 
 	arm_func_start OS_ResetRequestIrqMask
 OS_ResetRequestIrqMask: ; 0x037F8824

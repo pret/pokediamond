@@ -1,7 +1,17 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _038090EC
+_038090EC: ;0x038090EC
+	.space 0x0380910C - 0x038090EC
+
+	.global _0380910C
+_0380910C: ;0x0380910C
+	.space 0x0380912C - 0x0380910C
+
+    .section .text
 
 	arm_func_start ReadDriverInfo
 ReadDriverInfo: ; 0x037FF6E4

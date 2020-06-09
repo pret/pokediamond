@@ -1,8 +1,6 @@
 #include "function_target.h"
 #include "OS_system.h"
 
-#pragma optimize_for_size on
-
 extern void FUN_037F8CB4(s32 count);
 
 ARM_FUNC asm OSIntrMode OS_EnableInterrupts(void)

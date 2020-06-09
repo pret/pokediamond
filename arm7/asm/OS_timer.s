@@ -1,7 +1,13 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _0380791C
+_0380791C: ;0x0380791C
+	.space 0x03807920 - 0x0380791C
+
+    .section .text
 
 	arm_func_start OSi_SetTimerReserved
 OSi_SetTimerReserved: ; 0x037FA348

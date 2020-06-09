@@ -1,7 +1,13 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _03807F48
+_03807F48: ;0x03807F48
+	.space 0x03807F4C - 0x03807F48
+
+    .section .text
 
 	arm_func_start SND_GetLockedChannel
 SND_GetLockedChannel: ; 0x037FC964

@@ -1,7 +1,49 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global OSi_StackForDestructor
+OSi_StackForDestructor: ;0x03807784
+	.space 0x03807788 - 0x03807784
+
+	.global OSi_RescheduleCount
+OSi_RescheduleCount: ;0x03807788
+	.space 0x0380778C - 0x03807788
+
+	.global _0380778C
+_0380778C: ;0x0380778C
+	.space 0x03807790 - 0x0380778C
+
+	.global OSi_SystemCallbackInSwitchThread
+OSi_SystemCallbackInSwitchThread: ;0x03807790
+	.space 0x03807794 - 0x03807790
+
+	.global OSi_CurrentThreadPtr
+OSi_CurrentThreadPtr: ;0x03807794
+	.space 0x03807798 - 0x03807794
+
+	.global OSi_IsThreadInitialized
+OSi_IsThreadInitialized: ;0x03807798
+	.space 0x0380779C - 0x03807798
+
+	.global OSi_ThreadInfo
+OSi_ThreadInfo: ;0x0380779C
+	.space 0x038077A0 - 0x0380779C
+
+	.global _038077A0
+_038077A0: ;0x038077A0
+	.space 0x038077AC - 0x038077A0
+
+	.global OSi_IdleThread
+OSi_IdleThread: ;0x038077AC
+	.space 0x03807850 - 0x038077AC
+
+	.global OSi_LauncherThread
+OSi_LauncherThread: ;0x03807850
+	.space 0x038078F4 - 0x03807850
+
+    .section .text
 
 	arm_func_start OS_SetThreadDestructor
 OS_SetThreadDestructor: ; 0x037F8D48
