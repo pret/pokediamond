@@ -21843,7 +21843,7 @@ _021E204A:
 	lsr r1, r0, #0x10
 	add r0, r7, #0
 	mov r2, #0x1b
-	bl GetMonBaseStat_HandleUnownOrArceus
+	bl GetMonBaseStat_HandleFormeConversion
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	b _021E20AA

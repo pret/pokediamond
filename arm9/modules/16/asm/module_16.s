@@ -30379,12 +30379,12 @@ MOD16_021E5554: ; 0x021E5554
 	ldr r1, [sp, #0x30]
 	add r0, r7, #0
 	mov r2, #6
-	bl GetMonBaseStat_HandleUnownOrArceus
+	bl GetMonBaseStat_HandleFormeConversion
 	add r6, r0, #0
 	ldr r1, [sp, #0x30]
 	add r0, r7, #0
 	mov r2, #7
-	bl GetMonBaseStat_HandleUnownOrArceus
+	bl GetMonBaseStat_HandleFormeConversion
 	add r7, r0, #0
 	add r0, r6, #0
 	bl MOD16_021E563C

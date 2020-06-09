@@ -4727,7 +4727,7 @@
 .extern AllocAndLoadMonPersonal
 .extern GetPersonalAttr
 .extern FreeMonPersonal
-.extern GetMonBaseStat_HandleUnownOrArceus
+.extern GetMonBaseStat_HandleFormeConversion
 .extern GetMonBaseStat
 .extern FUN_02068698
 .extern FUN_020686F8

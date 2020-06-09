@@ -5,6 +5,8 @@
 
 // Enums
 
+#include "constants/species.h"
+
 typedef enum {
     EGG = 0,
     EVENT = 0,
@@ -196,7 +198,7 @@ struct PokemonData {
     PokemonDataBlock block4;
 };
 
-int GetMonBaseStat_HandleUnownOrArceus(int species, int form, int stat_id);
+int GetMonBaseStat_HandleFormeConversion(int species, int form, int stat_id);
 int GetMonBaseStat(int species, int stat_id);
 int GetMonExpByLevel(int species, int level);
 void LoadGrowthTable(int species, int * table);

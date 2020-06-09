@@ -1,5 +1,6 @@
     .include "asm/macros.inc"
     .include "global.inc"
+    .include "constants/species.h"
 
 	.extern gGameLanguage
 	.extern gGameVersion
@@ -26,24 +27,24 @@ UNK_020F7ED4: ; 0x020F7ED4
 
 	.global sLegendaryMonsList
 sLegendaryMonsList: ; 0x020F7EF2
-	.short 0x0096 ; MEWTWO
-	.short 0x0097 ; MEW
-	.short 0x00FA ; LUGIA
-	.short 0x00F9 ; HO-OH
-	.short 0x00FB ; CELEBI
-	.short 0x017E ; KYOGRE
-	.short 0x017F ; GROUDON
-	.short 0x0180 ; RAYQUAZA
-	.short 0x0181 ; JIRACHI
-	.short 0x0182 ; DEOXYS
-	.short 0x01E3 ; DIALGA
-	.short 0x01E4 ; PALKIA
-	.short 0x01E7 ; GIRATINA
-	.short 0x01E9 ; PHIONE
-	.short 0x01EA ; MANAPHY
-	.short 0x01EB ; DARKRAI
-	.short 0x01EC ; SHAYMIN
-	.short 0x01ED ; ARCEUS
+	.short SPECIES_MEWTWO
+	.short SPECIES_MEW
+	.short SPECIES_HO_OH
+	.short SPECIES_LUGIA
+	.short SPECIES_CELEBI
+	.short SPECIES_KYOGRE
+	.short SPECIES_GROUDON
+	.short SPECIES_RAYQUAZA
+	.short SPECIES_JIRACHI
+	.short SPECIES_DEOXYS
+	.short SPECIES_DIALGA
+	.short SPECIES_PALKIA
+	.short SPECIES_GIRATINA
+	.short SPECIES_PHIONE
+	.short SPECIES_MANAPHY
+	.short SPECIES_DARKRAI
+	.short SPECIES_SHAYMIN
+	.short SPECIES_ARCEUS
 
 	.global UNK_020F7F16
 UNK_020F7F16: ; 0x020F7F16
@@ -1583,7 +1584,7 @@ _02067522:
 _0206753A:
 	b _0206781A
 _0206753C:
-	ldr r4, _02067820 ; =0x000001EE
+	ldr r4, _02067820 ; =SPECIES_EGG
 	b _0206781A
 _02067540:
 	ldrh r0, [r5, #0x0]
@@ -1597,7 +1598,7 @@ _0206754C:
 	lsl r0, r0, #0x1d
 	lsr r0, r0, #0x1f
 	beq _0206755A
-	ldr r4, _02067820 ; =0x000001EE
+	ldr r4, _02067820 ; =SPECIES_EGG
 	b _0206781A
 _0206755A:
 	ldrh r4, [r5, #0x0]
@@ -1804,7 +1805,7 @@ _0206769C:
 	lsl r0, r0, #0x1d
 	lsr r0, r0, #0x1f
 	beq _020676B2
-	ldr r0, _02067824 ; =0x000001EF
+	ldr r0, _02067824 ; =SPECIES_MANAPHY_EGG
 	ldr r2, [sp, #0x8]
 	add r1, r4, #0x0
 	bl FUN_0200A99C
@@ -1833,7 +1834,7 @@ _020676D0:
 	lsl r0, r0, #0x1d
 	lsr r0, r0, #0x1f
 	beq _020676F4
-	ldr r0, _02067824 ; =0x000001EF
+	ldr r0, _02067824 ; =SPECIES_MANAPHY_EGG
 	mov r1, #0x0
 	bl FUN_0200AA50
 	add r5, r0, #0x0
@@ -1981,7 +1982,7 @@ _020677D4:
 	b _0206781A
 _020677D8:
 	ldrh r0, [r5, #0x0]
-	ldr r1, _0206782C ; =0x000001ED
+	ldr r1, _0206782C ; =SPECIES_ARCEUS
 	cmp r0, r1
 	bne _020677FC
 	ldrb r1, [r5, #0xd]
@@ -2003,7 +2004,7 @@ _020677FC:
 	sub r2, #0xaa
 	lsr r1, r1, #0x1b
 	str r2, [sp, #0x4]
-	bl GetMonBaseStat_HandleUnownOrArceus
+	bl GetMonBaseStat_HandleFormeConversion
 	add r4, r0, #0x0
 	b _0206781A
 _02067810:
@@ -2016,10 +2017,10 @@ _0206781A:
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
-_02067820: .word 0x000001EE
-_02067824: .word 0x000001EF
+_02067820: .word SPECIES_EGG
+_02067824: .word SPECIES_MANAPHY_EGG
 _02067828: .word 0x0000FFFF
-_0206782C: .word 0x000001ED
+_0206782C: .word SPECIES_ARCEUS
 
 	thumb_func_start FUN_02067830
 FUN_02067830: ; 0x02067830
@@ -3970,11 +3971,11 @@ _0206864A:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start GetMonBaseStat_HandleUnownOrArceus
-GetMonBaseStat_HandleUnownOrArceus: ; 0x02068654
+	thumb_func_start GetMonBaseStat_HandleFormeConversion
+GetMonBaseStat_HandleFormeConversion: ; 0x02068654
 	push {r3-r5, lr}
 	add r4, r2, #0x0
-	bl ConvertUnownOrArceusSpecies
+	bl ResolveMonForme
 	mov r1, #0x0
 	bl AllocAndLoadMonPersonal
 	add r5, r0, #0x0
@@ -4331,7 +4332,7 @@ _02068900:
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	beq _020689D4
-	ldr r0, _020689D8 ; =0x000001EE
+	ldr r0, _020689D8 ; =SPECIES_EGG
 	cmp r1, r0
 	beq _020689D4
 	add r0, r5, #0x0
@@ -4433,7 +4434,7 @@ _020689D4:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4
-_020689D8: .word 0x000001EE
+_020689D8: .word SPECIES_EGG
 _020689DC: .word UNK_020F7ED4
 
 	thumb_func_start FUN_020689E0
@@ -4680,7 +4681,7 @@ FUN_02068B70: ; 0x02068B70
 	add r2, r1, #0x0
 	bl FUN_020672BC
 	add r6, r0, #0x0
-	ldr r0, _02068BF8 ; =0x000001EE
+	ldr r0, _02068BF8 ; =SPECIES_EGG
 	cmp r4, r0
 	bne _02068BCA
 	add r0, r5, #0x0
@@ -4717,7 +4718,7 @@ _02068BD8:
 	add sp, #0x1c
 	pop {r4-r7, pc}
 	nop
-_02068BF8: .word 0x000001EE
+_02068BF8: .word SPECIES_EGG
 _02068BFC: .word 0x000001EA
 
 	thumb_func_start FUN_02068C00
@@ -5050,7 +5051,7 @@ FUN_02068E1C: ; 0x02068E1C
 	add r2, r1, #0x0
 	bl FUN_020672BC
 	add r6, r0, #0x0
-	ldr r0, _02068E80 ; =0x000001EE
+	ldr r0, _02068E80 ; =SPECIES_EGG
 	cmp r4, r0
 	bne _02068E62
 	add r0, r5, #0x0
@@ -5081,7 +5082,7 @@ _02068E70:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4
-_02068E80: .word 0x000001EE
+_02068E80: .word SPECIES_EGG
 _02068E84: .word 0x000001EA
 
 	thumb_func_start FUN_02068E88
@@ -6037,7 +6038,7 @@ ReadFromPersonalPmsNarc: ; 0x02069558
 	mov r1, #0x0
 	add r0, sp, #0x0
 	strh r1, [r0, #0x0]
-	ldr r0, _020695A0 ; =0x000001EE
+	ldr r0, _020695A0 ; =SPECIES_EGG
 	cmp r4, r0
 	blo _0206956E
 	bl ErrorHandling
@@ -6062,46 +6063,46 @@ _0206956E:
 	add sp, #0x4c
 	pop {r3-r4, pc}
 	nop
-_020695A0: .word 0x000001EE
+_020695A0: .word SPECIES_EGG
 _020695A4: .word UNK_02105FC8
 
 	thumb_func_start GetEggSpecies
 GetEggSpecies: ; 0x020695A8
 	push {r3, lr}
-	cmp r0, #0xb9
+	cmp r0, #SPECIES_SUDOWOODO
 	bgt _020695CC
-	cmp r0, #0xb7
+	cmp r0, #SPECIES_MARILL
 	blt _020695BA
 	beq _020695EC
-	cmp r0, #0xb9
+	cmp r0, #SPECIES_SUDOWOODO
 	beq _020695EC
 	b _020695E8
 _020695BA:
-	cmp r0, #0x7a
+	cmp r0, #SPECIES_MR_MIME
 	bgt _020695C6
 	bge _020695EC
-	cmp r0, #0x71
+	cmp r0, #SPECIES_CHANSEY
 	beq _020695EC
 	b _020695E8
 _020695C6:
-	cmp r0, #0x8f
+	cmp r0, #SPECIES_SNORLAX
 	beq _020695EC
 	b _020695E8
 _020695CC:
-	cmp r0, #0xe2
+	cmp r0, #SPECIES_MANTINE
 	bgt _020695D8
 	bge _020695EC
-	cmp r0, #0xca
+	cmp r0, #SPECIES_WOBBUFFET
 	beq _020695EC
 	b _020695E8
 _020695D8:
-	ldr r1, _020695F0 ; =0x0000013B
+	ldr r1, _020695F0 ; =SPECIES_ROSELIA
 	cmp r0, r1
 	bgt _020695E2
 	beq _020695EC
 	b _020695E8
 _020695E2:
-	add r1, #0x2b
+	add r1, #SPECIES_CHIMECHO-SPECIES_ROSELIA
 	cmp r0, r1
 	beq _020695EC
 _020695E8:
@@ -6109,7 +6110,7 @@ _020695E8:
 _020695EC:
 	pop {r3, pc}
 	nop
-_020695F0: .word 0x0000013B
+_020695F0: .word SPECIES_ROSELIA
 
 	thumb_func_start FUN_020695F4
 FUN_020695F4: ; 0x020695F4
@@ -7284,7 +7285,7 @@ FUN_02069ECC: ; 0x02069ECC
 	mov r1, #0x6
 	mov r2, #0x0
 	bl FUN_020672BC
-	ldr r1, _02069F20 ; =0x000001ED
+	ldr r1, _02069F20 ; =SPECIES_ARCEUS
 	cmp r4, r1
 	bne _02069F1C
 	cmp r6, #0x79
@@ -7306,7 +7307,7 @@ _02069F1C:
 	add sp, #0x4
 	pop {r3-r6, pc}
 	.balign 4
-_02069F20: .word 0x000001ED
+_02069F20: .word SPECIES_ARCEUS
 
 	thumb_func_start GetArceusTypeByPlate
 GetArceusTypeByPlate: ; 0x02069F24
@@ -7393,7 +7394,7 @@ _02069F96:
 FUN_02069F9C: ; 0x02069F9C
 	push {r4, lr}
 	add r4, r2, #0x0
-	bl ConvertUnownOrArceusSpecies
+	bl ResolveMonForme
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x21 ; NARC_POKETOOL_PERSONAL_WOTBL
@@ -7540,13 +7541,13 @@ FUN_0206A094: ; 0x0206A094
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
 	mov r2, #0x10
-	bl GetMonBaseStat_HandleUnownOrArceus
+	bl GetMonBaseStat_HandleFormeConversion
 	add r1, sp, #0x4
 	strh r0, [r1, #0x2]
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
 	mov r2, #0x11
-	bl GetMonBaseStat_HandleUnownOrArceus
+	bl GetMonBaseStat_HandleFormeConversion
 	add r1, sp, #0x4
 	strh r0, [r1, #0x0]
 	ldrh r2, [r1, #0x2]
@@ -7620,7 +7621,7 @@ FUN_0206A144: ; 0x0206A144
 	thumb_func_start FUN_0206A16C
 FUN_0206A16C: ; 0x0206A16C
 	push {r4, lr}
-	ldr r3, _0206A1C0 ; =0x000001EE
+	ldr r3, _0206A1C0 ; =SPECIES_EGG
 	cmp r0, r3
 	bne _0206A178
 	mov r0, #0x0
@@ -7658,7 +7659,7 @@ _0206A1A6:
 	lsl r4, r2
 	mov r2, #0x20
 _0206A1B0:
-	bl GetMonBaseStat_HandleUnownOrArceus
+	bl GetMonBaseStat_HandleFormeConversion
 	tst r0, r4
 	beq _0206A1BC
 	mov r0, #0x1
@@ -7667,7 +7668,7 @@ _0206A1BC:
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
-_0206A1C0: .word 0x000001EE
+_0206A1C0: .word SPECIES_EGG
 
 	thumb_func_start FUN_0206A1C4
 FUN_0206A1C4: ; 0x0206A1C4
@@ -7884,7 +7885,7 @@ _0206A37C: .word ReadWholeNarcMemberByIdPair
 LoadMonBaseStats_HandleUnownOrArceus: ; 0x0206A380
 	push {r4, lr}
 	add r4, r2, #0x0
-	bl ConvertUnownOrArceusSpecies
+	bl ResolveMonForme
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x2 ; NARC_POKETOOL_PERSONAL_PERSONAL
@@ -8755,13 +8756,13 @@ _0206A8F8:
 	add r0, r1, #0x0
 	pop {r3, pc}
 
-	thumb_func_start ConvertUnownOrArceusSpecies
-ConvertUnownOrArceusSpecies: ; 0x0206A8FC
-	ldr r3, _0206A928 ; =0x00000182
+	thumb_func_start ResolveMonForme
+ResolveMonForme: ; 0x0206A8FC
+	ldr r3, _0206A928 ; =SPECIES_DEOXYS
 	cmp r0, r3
 	beq _0206A90C
 	add r2, r3, #0x0
-	add r2, #0x1b
+	add r2, #SPECIES_WORMADAM-SPECIES_DEOXYS
 	cmp r0, r2
 	beq _0206A91A
 	bx lr
@@ -8770,7 +8771,7 @@ _0206A90C:
 	beq _0206A926
 	cmp r1, #0x3
 	bgt _0206A926
-	add r3, #0x6d
+	add r3, #SPECIES_DEOXYS_ATK-SPECIES_DEOXYS-1
 	add r0, r1, r3
 	bx lr
 _0206A91A:
@@ -8778,12 +8779,12 @@ _0206A91A:
 	beq _0206A926
 	cmp r1, #0x2
 	bgt _0206A926
-	add r3, #0x70
+	add r3, #SPECIES_WORMADAM_SANDY-SPECIES_DEOXYS-1
 	add r0, r1, r3
 _0206A926:
 	bx lr
 	.balign 4
-_0206A928: .word 0x00000182
+_0206A928: .word SPECIES_DEOXYS
 
 	thumb_func_start MaskOfFlagNo
 MaskOfFlagNo: ; 0x0206A92C
