@@ -1,7 +1,21 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global SNDi_Work
+SNDi_Work: ;0x03807F6C
+	.space 0x038084AC - 0x03807F6C
+#todo unsure if these two belong here
+	.global _038084AC
+_038084AC: ;0x038084AC
+	.space 0x038086EC - 0x038084AC
+
+	.global _038086EC
+_038086EC: ;0x038086EC
+	.space 0x03808EEC - 0x038086EC
+
+    .section .text
 
 	arm_func_start SND_UpdateSharedWork
 SND_UpdateSharedWork: ; 0x037FF448

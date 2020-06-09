@@ -1,7 +1,13 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _03808EEC
+_03808EEC: ;0x03808EEC
+	.space 0x038090EC - 0x03808EEC
+
+    .section .text
 
 	arm_func_start AlarmHandler
 AlarmHandler: ; 0x037FF524

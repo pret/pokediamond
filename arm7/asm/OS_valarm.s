@@ -1,7 +1,25 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _0380793C
+_0380793C: ;0x0380793C
+	.space 0x03807940 - 0x0380793C
+
+	.global _03807940
+_03807940: ;0x03807940
+	.space 0x03807944 - 0x03807940
+
+	.global _03807944
+_03807944: ;0x03807944
+	.space 0x03807948 - 0x03807944
+
+	.global _03807948
+_03807948: ;0x03807948
+	.space 0x03807950 - 0x03807948
+
+    .section .text
 
 	arm_func_start OSi_GetVFrame
 OSi_GetVFrame: ; 0x037FAA0C

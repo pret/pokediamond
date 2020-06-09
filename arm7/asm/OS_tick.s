@@ -1,7 +1,21 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _03807920
+_03807920: ;0x03807920
+	.space 0x03807924 - 0x03807920
+
+	.global OSi_NeedResetTimer
+OSi_NeedResetTimer: ;0x03807924
+	.space 0x03807928 - 0x03807924
+
+	.global OSi_TickCounter
+OSi_TickCounter: ;0x03807928
+	.space 0x03807930 - 0x03807928
+
+    .section .text
 
 	arm_func_start OS_GetTick
 OS_GetTick: ; 0x037FA364

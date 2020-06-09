@@ -3,7 +3,21 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global sSurroundDecay
+sSurroundDecay: ;0x03807A0C
+	.space 0x03807A10 - 0x03807A0C
+
+	.global sOrgPan
+sOrgPan: ;0x03807A10
+	.space 0x03807A20 - 0x03807A10
+
+	.global sOrgVolume
+sOrgVolume: ;0x03807A20
+	.space 0x03807A30 - 0x03807A20
+
+    .section .text
 
 	arm_func_start SND_SetOutputSelector
 SND_SetOutputSelector: ; 0x037FBA0C

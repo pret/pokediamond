@@ -1,7 +1,33 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _03807A30
+_03807A30: ;0x03807A30
+	.space 0x03807A34 - 0x03807A30
+
+	.global _03807A34
+_03807A34: ;0x03807A34
+	.space 0x03807A54 - 0x03807A34
+
+	.global _03807A54
+_03807A54: ;0x03807A54
+	.space 0x03807A74 - 0x03807A54
+
+	.global _03807A74
+_03807A74: ;0x03807A74
+	.space 0x03807AA0 - 0x03807A74
+
+	.global _03807AA0
+_03807AA0: ;0x03807AA0
+	.space 0x03807F44 - 0x03807AA0
+
+	.global _03807F44
+_03807F44: ;0x03807F44
+	.space 0x03807F48 - 0x03807F44
+
+    .section .text
 
 	arm_func_start SndThread
 SndThread: ; 0x037FC2B0
