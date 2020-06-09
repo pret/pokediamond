@@ -33,6 +33,28 @@ Autoload WRAM
 	Object OS_system.o
 	Object OS_reset.o
 	Object OS_terminate_proc.o
+	Object MI_dma.o
+	Object MI_memory.o
+	Object MI_swap.o
+	Object PXI_init.o
+	Object PXI_fifo.o
+	Object EXI_genPort.o
+	Object PAD_xyButton.o
+	Object SND.o
+	Object SND_util.o
+	Object SND_main.o
+	Object SND_capture.o
+	Object SND_channel.o
+	Object SND_lfo.o
+	Object SND_wave.o
+	Object SND_lockChannel.o
+	Object SND_exChannel.o
+	Object SND_unk_037FD440.o
+	Object SND_seq.o
+	Object SND_bank.o
+	Object SND_work.o
+	Object SND_alarm.o
+	Object SND_command.o
 	Object dtcm.o
 	Object libsyscall.o
 	Object dtcm2.o
