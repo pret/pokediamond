@@ -1,7 +1,17 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-	.text
+    .section .bss
+
+	.global _03807930
+_03807930: ;0x03807930
+	.space 0x03807934 - 0x03807930
+
+	.global _03807934
+_03807934: ;0x03807934
+	.space 0x0380793C - 0x03807934
+
+	.section .text
 
 	arm_func_start OSi_AlarmHandler
 OSi_AlarmHandler: ; 0x037FA540

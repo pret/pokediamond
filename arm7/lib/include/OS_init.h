@@ -3,6 +3,7 @@
 
 #include "nitro/types.h"
 #include "OS_system.h"
+#include "OS_arena.h"
 
 void OS_Init(void);
 

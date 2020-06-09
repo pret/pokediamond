@@ -1,7 +1,17 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _03807950
+_03807950: ;0x03807950
+	.space 0x03807954 - 0x03807950
+
+	.global _03807954
+_03807954: ;0x03807954
+	.space 0x03807958 - 0x03807954
+
+    .section .text
 
 	arm_func_start OS_ResetSystem
 OS_ResetSystem: ; 0x037FB0E0

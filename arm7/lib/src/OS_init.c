@@ -1,7 +1,6 @@
 #include "function_target.h"
 #include "OS_init.h"
 
-extern void OS_InitArena(void);
 extern void PXI_Init(void);
 extern void OS_InitLock(void);
 extern void OS_InitIrqTable(void);
