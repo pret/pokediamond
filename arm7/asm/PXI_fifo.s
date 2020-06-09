@@ -1,7 +1,17 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _03807958
+_03807958: ;0x03807958
+	.space 0x0380795C - 0x03807958
+
+	.global _0380795C
+_0380795C: ;0x0380795C
+	.space 0x038079DC - 0x0380795C
+
+    .section .text
 
 	arm_func_start PXIi_HandlerRecvFifoNotEmpty
 PXIi_HandlerRecvFifoNotEmpty: ; 0x037FB5BC

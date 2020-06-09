@@ -2,7 +2,7 @@
 Static arm7
 {
 	Address 0x02380000
-	StackSize 1024 512
+	StackSize 1024 1024
 }
 
 Autoload MAIN

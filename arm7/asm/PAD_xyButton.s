@@ -1,7 +1,17 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global PADi_XYButtonAvailable
+PADi_XYButtonAvailable: ;0x038079DC
+	.space 0x038079E0 - 0x038079DC
+
+	.global _038079E0
+_038079E0: ;0x038079E0
+	.space 0x03807A0C - 0x038079E0
+
+    .section .text
 
 	arm_func_start PAD_InitXYButton
 PAD_InitXYButton: ; 0x037FB96C

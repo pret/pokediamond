@@ -1,7 +1,25 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global OSi_IrqThreadQueue
+OSi_IrqThreadQueue: ;0x0380770C
+	.space 0x03807714 - 0x0380770C
+
+	.global OSi_IrqCallbackInfo
+OSi_IrqCallbackInfo: ;0x03807714
+	.space 0x03807718 - 0x03807714
+
+	.global _03807718
+_03807718: ;0x03807718
+	.space 0x0380771C - 0x03807718
+
+	.global _0380771C
+_0380771C: ;0x0380771C
+	.space 0x03807744 - 0x0380771C
+
+    .section .text
 
 	arm_func_start OSi_IrqVBlank
 OSi_IrqVBlank: ; 0x037F86B4
