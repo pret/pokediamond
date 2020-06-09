@@ -2,7 +2,25 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _03807F4C
+_03807F4C: ;0x03807F4C
+	.space 0x03807F50 - 0x03807F4C
+
+	.global _03807F50
+_03807F50: ;0x03807F50
+	.space 0x03807F58 - 0x03807F50
+
+	.global _03807F58
+_03807F58: ;0x03807F58
+	.space 0x03807F68 - 0x03807F58
+
+	.global SNDi_SharedWork
+SNDi_SharedWork: ;0x03807F68
+	.space 0x03807F6C - 0x03807F68
+
+    .section .text
 
 	arm_func_start FUN_037FD440
 FUN_037FD440: ; 0x037FD440
