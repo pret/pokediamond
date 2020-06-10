@@ -7,6 +7,68 @@
 
 #include "constants/species.h"
 
+// TODO: Identify the rest of these
+enum BaseStat {
+    BASE_HP = 0,
+    BASE_ATK,
+    BASE_DEF,
+    BASE_SPEED,
+    BASE_SPATK,
+    BASE_SPDEF,
+    BASE_TYPE1,
+    BASE_TYPE2,
+    BASE_CATCH_RATE,
+    BASE_EXP_YIELD,
+    BASE_HP_YIELD,
+    BASE_ATK_YIELD,
+    BASE_DEF_YIELD,
+    BASE_SPEED_YIELD,
+    BASE_SPATK_YIELD,
+    BASE_SPDEF_YIELD,
+    BASE_GENDER_RATIO = 18,
+    BASE_FIRENDSHIP = 20,
+    BASE_GROWTH_RATE = 21,
+    BASE_ABILITY_1 = 24,
+    BASE_ABILITY_2,
+};
+
+struct BaseStats {
+    u8 hp;
+    u8 atk;
+    u8 def;
+    u8 speed;
+    u8 spatk;
+    u8 spdef;
+    u8 types[2];
+    u8 catchRate;
+    u8 expYield;
+    u16 hp_yield:2;
+    u16 atk_yield:2;
+    u16 def_yield:2;
+    u16 speed_yield:2;
+    u16 spatk_yield:2;
+    u16 spdef_yield:2;
+    u16 unkB_4:2;
+    u16 padding_B_6:2;
+    u16 unkC;
+    u16 unkE;
+    u8 genderRatio;
+    u8 unk11;
+    u8 friendship;
+    u8 growthRate;
+    u8 unk14;
+    u8 unk15;
+    u8 abilities[2];
+    u8 unk18;
+    u8 unk19_0:7;
+    u8 unk19_7:1;
+    u8 padding_1A[2];
+    u32 unk1C;
+    u32 unk20;
+    u32 unk24;
+    u32 unk28;
+};
+
 typedef enum {
     EGG = 0,
     EVENT = 0,
@@ -188,7 +250,7 @@ typedef union {
     PokemonDataBlockD blockD;
 } PokemonDataBlock;
 
-struct PokemonData {
+struct BoxPokemon {
     u32 personalityValue;
     u16 Unused;    // Might be used for validity checks
     u16 checksum;  // Stored checksum of pokemon
@@ -196,6 +258,17 @@ struct PokemonData {
     PokemonDataBlock block2;
     PokemonDataBlock block3;
     PokemonDataBlock block4;
+};
+
+struct Pokemon {
+    u16 boxMonKey;
+    u16 unused;
+    u16 decrypted:1;
+    u16 unkBitfield:15;
+    u16 ramMonKey;
+    struct BoxPokemon box;
+    // TODO: RAM struct attributes
+    u8 filler_88[100];
 };
 
 int GetMonBaseStat_HandleFormeConversion(int species, int form, int stat_id);

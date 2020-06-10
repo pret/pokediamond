@@ -178,7 +178,7 @@ _02085A7C:
 	beq _02085A9A
 	add r1, r7, #0x0
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0x0
 	beq _02085A9A
 	lsl r0, r0, #0x3
@@ -675,7 +675,7 @@ _02085EA6:
 	mov r1, #0xa1
 	add r2, sp, #0x8
 	add r5, r0, #0x0
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 	ldr r1, [sp, #0x8]
 	ldr r0, [r7, #0x20]
 	sub r1, r1, #0x1
@@ -683,7 +683,7 @@ _02085EA6:
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xaa
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 	ldr r1, [sp, #0x8]
 	ldr r0, [r7, #0x20]
 	sub r1, r1, #0x1

@@ -225,13 +225,13 @@ _02211FA2:
 	mov r1, #0xa2
 	mov r2, #0
 	add r6, r0, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0
 	beq _02211FC8
 	add r0, r6, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0
 	bne _02211FC8
 	add r5, r5, #1
@@ -2005,13 +2005,13 @@ _02212E52:
 	mov r1, #5
 	mov r2, #0
 	add r7, r0, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	ldr r1, [r5, #4]
 	mov r2, #0
 	strh r0, [r1, r4]
 	add r0, r7, #0
 	mov r1, #6
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	ldr r1, [r5, #4]
 	add r6, r6, #1
 	add r1, r1, r4

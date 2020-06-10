@@ -4719,9 +4719,9 @@
 .extern FUN_02066EA4
 .extern FUN_02066ED8
 .extern FUN_02066F04
-.extern FUN_020671BC
+.extern GetMonDataEncrypted
 .extern FUN_020672BC
-.extern FUN_02067830
+.extern SetBoxMonDataEncrypted
 .extern FUN_02067960
 .extern FUN_02068018
 .extern AllocAndLoadMonPersonal
