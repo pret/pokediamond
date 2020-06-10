@@ -25,11 +25,19 @@ enum BaseStat {
     BASE_SPEED_YIELD,
     BASE_SPATK_YIELD,
     BASE_SPDEF_YIELD,
-    BASE_GENDER_RATIO = 18,
-    BASE_FIRENDSHIP = 20,
-    BASE_GROWTH_RATE = 21,
-    BASE_ABILITY_1 = 24,
+    BASE_ITEM_1 = 16,
+    BASE_ITEM_2,
+    BASE_GENDER_RATIO,
+    BASE_EGG_CYCLES,
+    BASE_FIRENDSHIP,
+    BASE_GROWTH_RATE,
+    BASE_EGG_GROUP_1,
+    GASE_EGG_GROUP_2,
+    BASE_ABILITY_1,
     BASE_ABILITY_2,
+    BASE_GREAT_MARSH_RATE,
+    BASE_COLOR,
+    BASE_FLIP,
 };
 
 struct BaseStats {
@@ -50,18 +58,17 @@ struct BaseStats {
     u16 spdef_yield:2;
     u16 unkB_4:2;
     u16 padding_B_6:2;
-    u16 unkC;
-    u16 unkE;
+    u16 item1;
+    u16 item2;
     u8 genderRatio;
-    u8 unk11;
+    u8 eggCycles;
     u8 friendship;
     u8 growthRate;
-    u8 unk14;
-    u8 unk15;
+    u8 eggGroups[2];
     u8 abilities[2];
-    u8 unk18;
-    u8 unk19_0:7;
-    u8 unk19_7:1;
+    u8 greatMarshRate;
+    u8 color:7;
+    u8 flip:1;
     u8 padding_1A[2];
     u32 unk1C;
     u32 unk20;
@@ -251,25 +258,40 @@ typedef union {
 } PokemonDataBlock;
 
 struct BoxPokemon {
-    u32 personalityValue;
-    u16 Unused;    // Might be used for validity checks
-    u16 checksum;  // Stored checksum of pokemon
-    PokemonDataBlock block1;  // Blocks A-D; Order based on personalityValue
-    PokemonDataBlock block2;
-    PokemonDataBlock block3;
-    PokemonDataBlock block4;
+    /* 0x000 */ u32 personalityValue;
+    /* 0x004 */ u16 control_4_0:1;
+                u16 control_4_1:1;
+                u16 control_4_2:1;
+                u16 Unused:13;    // Might be used for validity checks
+    /* 0x006 */ u16 checksum;  // Stored checksum of pokemon
+    /* 0x008 */ PokemonDataBlock block1;  // Blocks A-D; Order based on personalityValue
+    /* 0x028 */ PokemonDataBlock block2;
+    /* 0x048 */ PokemonDataBlock block3;
+    /* 0x068 */ PokemonDataBlock block4;
 };
 
 struct Pokemon {
-    u16 boxMonKey;
-    u16 unused;
-    u16 decrypted:1;
-    u16 unkBitfield:15;
-    u16 ramMonKey;
-    struct BoxPokemon box;
-    // TODO: RAM struct attributes
-    u8 filler_88[100];
-};
+    /* 0x000 */ struct BoxPokemon box;
+    /* 0x088 */ u8 slp:3;
+                u8 psn:1;
+                u8 brn:1;
+                u8 frz:1;
+                u8 prz:1;
+                u8 tox:1;
+    /* 0x089 */ u8 unk89;
+    /* 0x08A */ u8 filler8A[2];
+    /* 0x08C */ u8 level;
+    /* 0x08D */ u8 capsule;
+    /* 0x08E */ u16 hp;
+    /* 0x090 */ u16 maxHp;
+    /* 0x092 */ u16 atk;
+    /* 0x094 */ u16 def;
+    /* 0x096 */ u16 speed;
+    /* 0x098 */ u16 spatk;
+    /* 0x09A */ u16 spdef;
+    /* 0x09C */ u8 filler9C[0x38];
+    /* 0x0D4 */ u8 sealCoords[0x18];
+}; // size: 0xEC
 
 int GetMonBaseStat_HandleFormeConversion(int species, int form, int stat_id);
 int GetMonBaseStat(int species, int stat_id);
