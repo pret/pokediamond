@@ -302,7 +302,7 @@ _02054E02:
 	bl FUN_0206B9B0
 	add r1, r7, #0x0
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0x0
 	bne _02054E1E
 	add r0, r4, #0x0
@@ -338,7 +338,7 @@ _02054E4A:
 	bl FUN_0206B9B0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strh r0, [r5, #0x0]
 	add r6, r6, #0x1
 	add r5, r5, #0x2

@@ -198,7 +198,7 @@ _0204BB3C:
 	add r0, r4, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	strh r0, [r5, #0x0]
@@ -220,12 +220,12 @@ _0204BB72:
 	ldrb r0, [r7, #0x2]
 	strh r0, [r5, #0x4]
 	add r0, r4, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strb r0, [r5, #0x6]
 	add r0, r4, #0x0
 	mov r1, #0xb1
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strb r0, [r5, #0x7]
 	add r6, r6, #0x1
 	add r5, #0x8

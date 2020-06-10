@@ -242,7 +242,7 @@ _020604D0:
 	ldr r0, [sp, #0x1c]
 	mov r1, #0xae
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x2
@@ -250,7 +250,7 @@ _020604D0:
 	mov r1, #0x0
 	ldr r0, [sp, #0x1c]
 	add r2, r1, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x3
@@ -258,7 +258,7 @@ _020604D0:
 	ldr r0, [sp, #0x1c]
 	mov r1, #0xa3
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x5
