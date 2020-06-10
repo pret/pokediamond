@@ -622,7 +622,7 @@ _0206B030:
 	ldr r0, [sp, #0x40]
 	mov r1, #0x6
 	add r2, r7, #0x6
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 	ldr r0, [sp, #0x34]
 	ldr r1, [sp, #0x40]
 	ldr r0, [r0, #0x4]
@@ -709,7 +709,7 @@ _0206B0DA:
 	ldr r0, [sp, #0x40]
 	mov r1, #0x6
 	add r2, r2, #0x6
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 	ldr r7, [sp, #0x3c]
 	mov r6, #0x0
 _0206B120:

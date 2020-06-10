@@ -91,13 +91,13 @@ _0204123C:
 	mov r1, #0x4c
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0x0
 	bne _0204127C
 	add r0, r4, #0x0
 	mov r1, #0x7
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	lsl r1, r1, #0x10
