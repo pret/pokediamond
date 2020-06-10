@@ -11,7 +11,7 @@ FUN_0202C144: ; 0x0202C144
 	add r0, r4, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0x0
 	bne _0202C194
 	add r0, r5, #0x0
@@ -23,7 +23,7 @@ FUN_0202C144: ; 0x0202C144
 	add r0, r4, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r2, r0, #0x0
 	lsl r2, r2, #0x10
 	add r0, r7, #0x0

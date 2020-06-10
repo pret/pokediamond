@@ -2218,17 +2218,17 @@ _0222E5EC:
 	add r0, r7, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	str r0, [sp, #0x10]
 	add r0, r7, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	str r0, [sp, #0x14]
 	add r0, r7, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r1, r0, #0
 	ldr r0, [sp, #0x10]
 	ldr r2, [sp, #0x14]
@@ -3004,7 +3004,7 @@ MOD62_0222EC54: ; 0x0222EC54
 	ldr r0, [r0, #4]
 	mov r1, #0xa1
 	add r2, sp, #0xc
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 _0222EC80:
 	cmp r7, #0xff
 	beq _0222EC9A
@@ -3017,7 +3017,7 @@ _0222EC80:
 	add r0, r1, r0
 	ldr r0, [r0, #4]
 	mov r1, #0xa1
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 _0222EC9A:
 	add r2, r5, #4
 	ldr r1, [r2, r6]
@@ -4492,7 +4492,7 @@ _0222F83E:
 	mov r1, #0x4c
 	add r0, r7, #0
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0
 	bne _0222F85C
 	ldr r1, _0222F86C ; =0x00000428
@@ -5701,7 +5701,7 @@ MOD62_022301AC: ; 0x022301AC
 	mov r1, #5
 	ldr r0, [r5, r0]
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r4, r0, #0
 	ldr r0, _02230214 ; =0x00000428
 	mov r1, #2
@@ -5749,7 +5749,7 @@ MOD62_0223021C: ; 0x0223021C
 	mov r1, #5
 	ldr r0, [r5, r0]
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r4, r0, #0
 	ldr r0, _02230268 ; =0x00000428
 	ldr r0, [r5, r0]
@@ -6199,7 +6199,7 @@ _0223059A:
 	str r0, [sp, #0x9c]
 	ldr r0, _02230724 ; =0x00000428
 	ldr r0, [r4, r0]
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	str r0, [sp, #0x8c]
 	add r0, sp, #0x7c
 	bl MOD08_02229918
@@ -6235,12 +6235,12 @@ _022305E2:
 	mov r1, #0xa1
 	ldr r0, [r4, r0]
 	add r2, sp, #0x18
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 	ldr r0, _02230724 ; =0x00000428
 	mov r1, #0xaa
 	ldr r0, [r4, r0]
 	add r2, sp, #0x64
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 	mov r0, #0x35
 	add r1, sp, #0x58
 	bl MOD08_02228218
@@ -6396,7 +6396,7 @@ _0223072C:
 	str r0, [sp, #0x50]
 	ldr r0, [r4, r1]
 	mov r1, #0x9a
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	str r0, [sp, #0x40]
 	add r0, sp, #0x30
 	bl MOD08_02229918
@@ -6531,7 +6531,7 @@ _02230860:
 	add r2, r0, #0
 	add r0, r5, #0
 	mov r1, #0xaa
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 _022308A8:
 	mov r0, #0xf5
 	mov r1, #8
@@ -7091,7 +7091,7 @@ MOD62_02230D38: ; 0x02230D38
 	ldr r0, [r0, #4]
 	mov r1, #0xa1
 	add r2, sp, #0
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 _02230D5C:
 	mov r0, #0xff
 	str r0, [r4, r6]

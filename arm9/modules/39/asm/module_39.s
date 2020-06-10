@@ -85,12 +85,12 @@ _022548CC:
 	add r0, r7, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strh r0, [r5, #0x1c]
 	add r0, r7, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strh r0, [r5, #0x28]
 	ldr r0, [sp, #4]
 	str r7, [r4, #0x48]
