@@ -27,6 +27,8 @@
 #define HW_C6_PR_2GB               0x3c
 #define HW_C6_PR_4GB               0x3e
 
+#define HW_SYSTEM_CLOCK            33514000
+
 #define PXI_PROC_ARM7              0x01
 
 #define OSi_CONSOLE_NOT_DETECT     0xffffffff
@@ -35,6 +37,12 @@
 #define OS_CONSOLE_DEV_CARD        0x02000000
 #define OS_CONSOLE_SIZE_MASK       0x00000003
 #define OS_CONSOLE_SIZE_4MB        0x00000001
+
+#define OS_THREAD_LAUNCHER_PRIORITY 0x10
+#define OS_THREAD_PRIORITY_MIN     0x00
+#define OS_THREAD_PRIORITY_MAX     0x1F
+
+#define OS_THREAD_SPECIFIC_MAX     0x03
 
 #define OSi_TCM_REGION_BASE_MASK   0xfffff000
 

@@ -3,6 +3,7 @@
 
 #include "nitro/types.h"
 #include "OS_thread.h"
+#include "OS_tick.h"
 
 typedef void (*OSAlarmHandler) (void *);
 
@@ -19,5 +20,9 @@ struct OSiAlarm
     OSTick period;
     OSTick start;
 };
+
+void OS_CancelAlarm(OSAlarm *alarm);
+void OS_CreateAlarm(OSAlarm *alarm);
+void OS_SetAlarm(OSAlarm *alarm, OSTick tick, OSAlarmHandler handler, void *arg);
 
 #endif //POKEDIAMOND_OS_ALARM_H
