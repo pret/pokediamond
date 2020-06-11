@@ -21798,7 +21798,7 @@ MOD83_02237EDC: ; 0x02237EDC
 	add r1, r0, #0
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_02068800
+	bl CalcMonLevel
 	pop {r3, r4, r5, pc}
 	thumb_func_end MOD83_02237EDC
 
@@ -21819,7 +21819,7 @@ MOD83_02237F04: ; 0x02237F04
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #0x19
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0
 	beq _02237F5E
 	ldr r2, _02237F68 ; =0x0223B4C0
@@ -21830,7 +21830,7 @@ _02237F32:
 	bne _02237F42
 	add r0, r5, #0
 	mov r1, #0x18
-	bl FUN_02068678
+	bl GetMonBaseStat
 	b _02237F4A
 _02237F42:
 	add r4, r4, #1
@@ -21845,12 +21845,12 @@ _02237F4A:
 	bne _02237F66
 	add r0, r5, #0
 	mov r1, #0x18
-	bl FUN_02068678
+	bl GetMonBaseStat
 	pop {r4, r5, r6, pc}
 _02237F5E:
 	add r0, r5, #0
 	mov r1, #0x18
-	bl FUN_02068678
+	bl GetMonBaseStat
 _02237F66:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -23908,7 +23908,7 @@ MOD83_02238F94: ; 0x02238F94
 	mov r1, #0
 	ldr r0, [sp, #0x20]
 	add r2, r1, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	mov r3, #0
 	str r3, [sp]
 	mov r1, #0xa
@@ -24027,12 +24027,12 @@ _022390C2:
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r6, r0, #0
 	add r0, r4, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r2, r0, #0
 	mov r0, #0xe9
 	lsl r0, r0, #4

@@ -5058,12 +5058,12 @@ MOD80_0222FD88: ; 0x0222FD88
 	mov r1, #0
 	add r0, r5, #0
 	add r2, r1, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	mov r3, #0
 	str r3, [sp]
 	mov r1, #0xa
@@ -6811,7 +6811,7 @@ _02230BD4:
 	cmp r0, #0
 	beq _02230C04
 	mov r1, #0x12
-	bl FUN_02068678
+	bl GetMonBaseStat
 	mov r1, #0xfe
 	lsl r1, r1, #4
 	ldr r2, [r4, r1]
@@ -7821,7 +7821,7 @@ _0223138C:
 	bl MOD80_02233EA4
 	add r0, r5, #0
 	mov r1, #0x12
-	bl FUN_02068678
+	bl GetMonBaseStat
 	mov r1, #0xfe
 	lsl r1, r1, #4
 	ldr r2, [r4, r1]
@@ -9979,7 +9979,7 @@ _022325CE:
 	bl FUN_0206B9B0
 	mov r1, #0xa1
 	add r2, r4, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0
 	beq _022325FE
 	mov r0, #0xe
@@ -10219,7 +10219,7 @@ _022327CE:
 	bl FUN_0206B9B0
 	mov r1, #0xa1
 	add r2, r4, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0
 	beq _022327FE
 	mov r0, #0xb
@@ -11076,7 +11076,7 @@ _02232E4A:
 	ldr r0, [sp, #0x24]
 	mov r1, #0xa1
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0
 	ldr r0, _02232F90 ; =0x00000E54
 	beq _02232EB4
@@ -11524,7 +11524,7 @@ MOD80_022331F8: ; 0x022331F8
 	push {r3, lr}
 	mov r1, #6
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bl FUN_0206EA98
@@ -12478,7 +12478,7 @@ _0223398C:
 	bl FUN_020054C8
 	add r0, r5, #0
 	mov r1, #0x12
-	bl FUN_02068678
+	bl GetMonBaseStat
 	mov r1, #0xfe
 	lsl r1, r1, #4
 	ldr r2, [r4, r1]
@@ -16152,7 +16152,7 @@ MOD80_022355F0: ; 0x022355F0
 	mov r1, #6
 	mov r2, #0
 	add r6, r3, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	ldr r0, [r5]
 	add r1, r4, #0
 	ldr r0, [r0, #0x20]
@@ -16175,7 +16175,7 @@ _02235624:
 	add r0, r4, #0
 	mov r1, #9
 	add r2, sp, #0
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 	ldr r0, [r5]
 	ldr r0, [r0]
 	bl MOD80_02235754
@@ -16258,7 +16258,7 @@ _022356D2:
 	add r0, r4, #0
 	mov r1, #9
 	add r2, sp, #0
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 	ldr r0, [sp, #0x20]
 	cmp r0, #0x12
 	bne _02235706
@@ -16364,7 +16364,7 @@ MOD80_022357A0: ; 0x022357A0
 	add r0, r4, #0
 	mov r1, #0x74
 	add r2, sp, #4
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r0, r4, #0
 	bl FUN_020689E0
 	add r3, r0, #0
@@ -17434,7 +17434,7 @@ _02235FDE:
 	mov r1, #6
 	mov r2, #0
 	add r7, r0, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r3, r0, #0
 	add r0, sp, #0x30
 	lsl r3, r3, #0x10
@@ -17502,30 +17502,30 @@ _02236068:
 	add r0, r7, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r5, r0, #0
 	ldr r0, [sp, #0x20]
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r5, r0
 	bne _022360B6
 	mov r1, #0
 	add r0, r7, #0
 	add r2, r1, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r5, r0, #0
 	mov r1, #0
 	ldr r0, [sp, #0x20]
 	add r2, r1, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r5, r0
 	beq _02236126
 _022360B6:
 	add r0, r7, #0
 	mov r1, #6
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r3, r0, #0
 	add r0, sp, #0x2c
 	lsl r3, r3, #0x10

@@ -85,12 +85,12 @@ _022548CC:
 	add r0, r7, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strh r0, [r5, #0x1c]
 	add r0, r7, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strh r0, [r5, #0x28]
 	ldr r0, [sp, #4]
 	str r7, [r4, #0x48]
@@ -1008,7 +1008,7 @@ MOD39_02254FA4: ; 0x02254FA4
 _02254FBA:
 	add r0, r7, #0
 	mov r1, #0x1c
-	bl FUN_02068678
+	bl GetMonBaseStat
 	cmp r0, #0
 	beq _02254FCA
 	mov r1, #4

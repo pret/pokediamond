@@ -91,6 +91,8 @@ void ReadJascPalette(char *path, struct Palette *palette)
     if (palette->numColors < 1 || palette->numColors > 256)
         FATAL_ERROR("%d is an invalid number of colors. The number of colors must be in the range [1, 256].\n", palette->numColors);
 
+    palette->bitDepth = 4;
+
     for (int i = 0; i < palette->numColors; i++)
     {
         ReadJascPaletteLine(fp, line);
@@ -146,6 +148,11 @@ void ReadJascPalette(char *path, struct Palette *palette)
         palette->colors[i].red = red;
         palette->colors[i].green = green;
         palette->colors[i].blue = blue;
+        if (i >= 16)
+        {
+            if (red || green || blue)
+                palette->bitDepth = 8;
+        }
     }
 
     if (fgetc(fp) != EOF)

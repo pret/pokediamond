@@ -15,4 +15,8 @@ typedef struct OSContext
     CPContext cp_context;
 } OSContext;
 
+extern u32 OS_SaveContext(OSContext *context);
+extern void OS_LoadContext(OSContext *context);
+extern void OS_InitContext(OSContext *context, u32 func, u32 stack);
+
 #endif //POKEDIAMOND_OS_CONTEXT_H

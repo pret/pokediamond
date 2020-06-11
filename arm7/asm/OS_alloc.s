@@ -1,7 +1,13 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global OSiHeapInfo
+OSiHeapInfo: ;0x038078F8
+	.space 0x0380791C - 0x038078F8
+
+    .section .text
 
 	arm_func_start OS_CheckHeap
 OS_CheckHeap: ; 0x037F9D88

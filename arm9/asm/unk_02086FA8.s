@@ -164,7 +164,7 @@ _020870D2:
 	mov r1, #0x5
 	ldr r0, [r0, #0xc]
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bl FUN_02005578
@@ -447,7 +447,7 @@ _02087322:
 	mov r1, #0x5
 	ldr r0, [r0, #0xc]
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bl FUN_02005578

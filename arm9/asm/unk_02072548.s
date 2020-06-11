@@ -1987,37 +1987,37 @@ FUN_020734C0: ; 0x020734C0
 	mov r1, #0xa3
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r1, sp, #0x20
 	strh r0, [r1, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0xa4
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r1, sp, #0x20
 	strh r0, [r1, #0x2]
 	add r0, r4, #0x0
 	mov r1, #0xa5
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r1, sp, #0x20
 	strh r0, [r1, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0xa7
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r1, sp, #0x20
 	strh r0, [r1, #0x6]
 	add r0, r4, #0x0
 	mov r1, #0xa8
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r1, sp, #0x20
 	strh r0, [r1, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0xa6
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r1, sp, #0x20
 	strh r0, [r1, #0xa]
 	mov r3, #0x1

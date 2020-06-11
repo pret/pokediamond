@@ -1,5 +1,6 @@
 // Copyright (c) 2015 YamaArashi
 
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -322,6 +323,41 @@ void ReadGbaPalette(char *path, struct Palette *palette)
 	free(data);
 }
 
+void ReadNtrPalette(char *path, struct Palette *palette)
+{
+    int fileSize;
+    unsigned char *data = ReadWholeFile(path, &fileSize);
+
+    if (memcmp(data, "RLCN", 4) != 0 && memcmp(data, "RPCN", 4) != 0) //NCLR / NCPR
+    {
+        FATAL_ERROR("Not a valid NCLR or NCPR palette file.\n");
+    }
+
+    unsigned char *paletteHeader = data + 0x10;
+
+    if (memcmp(paletteHeader, "TTLP", 4) != 0)
+    {
+        FATAL_ERROR("No valid PLTT file after NCLR header.\n");
+    }
+
+    if ((fileSize - 0x28) % 2 != 0)
+        FATAL_ERROR("The file size (%d) is not a multiple of 2.\n", fileSize);
+
+    palette->numColors = (fileSize - 0x28) / 2; //remove header and divide by 2
+
+    unsigned char *paletteData = paletteHeader + 0x18;
+
+    for (int i = 0; i < palette->numColors; i++)
+    {
+        uint16_t paletteEntry = (paletteData[i * 2 + 1] << 8) | paletteData[i * 2];
+        palette->colors[i].red = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_RED(paletteEntry));
+        palette->colors[i].green = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_GREEN(paletteEntry));
+        palette->colors[i].blue = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_BLUE(paletteEntry));
+    }
+
+    free(data);
+}
+
 void WriteGbaPalette(char *path, struct Palette *palette)
 {
 	FILE *fp = fopen(path, "wb");
@@ -341,4 +377,59 @@ void WriteGbaPalette(char *path, struct Palette *palette)
 	}
 
 	fclose(fp);
+}
+
+void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
+{
+    FILE *fp = fopen(path, "wb");
+
+    if (fp == NULL)
+        FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
+
+    uint32_t size = palette->numColors * 2;
+    uint32_t extSize = size + (ncpr ? 0x10 : 0x18);
+
+    //NCLR header
+    WriteGenericNtrHeader(fp, (ncpr ? "RPCN" : "RLCN"), extSize, !ncpr);
+
+    unsigned char palHeader[0x18] =
+            {
+                0x54, 0x54, 0x4C, 0x50, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00
+            };
+
+    //section size
+    palHeader[4] = extSize & 0xFF;
+    palHeader[5] = (extSize >> 8) & 0xFF;
+    palHeader[6] = (extSize >> 16) & 0xFF;
+    palHeader[7] = (extSize >> 24) & 0xFF;
+
+    //bit depth
+    palHeader[8] = palette->bitDepth == 4 ? 0x03: 0x04;
+
+    //size
+    palHeader[16] = size & 0xFF;
+    palHeader[17] = (size >> 8) & 0xFF;
+    palHeader[18] = (size >> 16) & 0xFF;
+    palHeader[19] = (size >> 24) & 0xFF;
+
+    fwrite(palHeader, 1, 0x18, fp);
+
+    unsigned char colours[palette->numColors * 2];
+    //palette data
+    for (int i = 0; i < palette->numColors; i++)
+    {
+        unsigned char red = DOWNCONVERT_BIT_DEPTH(palette->colors[i].red);
+        unsigned char green = DOWNCONVERT_BIT_DEPTH(palette->colors[i].green);
+        unsigned char blue = DOWNCONVERT_BIT_DEPTH(palette->colors[i].blue);
+
+        uint16_t paletteEntry = SET_GBA_PAL(red, green, blue);
+
+        colours[i * 2] = paletteEntry & 0xFF;
+        colours[i * 2 + 1] = paletteEntry >> 8;
+    }
+
+    fwrite(colours, 1, palette->numColors * 2, fp);
+
+    fclose(fp);
 }

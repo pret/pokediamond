@@ -34,7 +34,7 @@ FUN_0206BB84: ; 0x0206BB84
 	add r0, r7, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	cmp r4, #0x0
@@ -49,7 +49,7 @@ _0206BBA2:
 	add r0, r7, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, r5
 	bls _0206BBBE
 	mov r0, #0x0
@@ -58,7 +58,7 @@ _0206BBBE:
 	add r0, r7, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r0, #0x0
 	beq _0206BBD0
 	mov r0, #0x0
@@ -70,7 +70,7 @@ _0206BBD0:
 	cmp r0, #0x0
 	bne _0206BBEA
 	add r0, r6, #0x0
-	bl FUN_020695A8
+	bl GetEggSpecies
 	cmp r6, r0
 	beq _0206BBEA
 	mov r0, #0x0
@@ -208,17 +208,17 @@ _0206BCE2:
 	add r0, r4, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strh r0, [r7, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0x6
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strh r0, [r6, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	ldr r1, [sp, #0x10]
 	add r0, r1, r0
 	str r0, [sp, #0x10]
@@ -427,12 +427,12 @@ _0206BE72:
 	str r0, [sp, #0x24]
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strh r0, [r4, #0x0]
 	ldr r0, [sp, #0x24]
 	mov r1, #0xa0
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	strh r0, [r5, #0x0]
 	ldr r0, [sp, #0xc]
 	ldr r1, [sp, #0x24]

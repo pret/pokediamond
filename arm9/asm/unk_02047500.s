@@ -242,7 +242,7 @@ FUN_02047668: ; 0x02047668
 	bl FUN_0204A1D8
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	ldr r1, _020476C8 ; =0x000001DF
 	sub r0, r0, r1
 	cmp r0, #0xe

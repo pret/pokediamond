@@ -1,12 +1,12 @@
 # Makefile to build Pokemon Diamond image
 
 include config.mk
-include filesystem.mk
 
 HOSTCC = $(CC)
 HOSTCXX = $(CXX)
 HOSTCFLAGS = $(CFLAGS)
 HOSTCXXFLAGS = $(CXXFLAGS)
+HOST_VARS := CC=$(HOSTCC) CXX=$(HOSTCXX) CFLAGS='$(HOSTCFLAGS)' CXXFLAGS='$(HOSTCXXFLAGS)'
 
 .PHONY: clean tidy all default patch_mwasmarm
 
@@ -31,9 +31,9 @@ endif
 
 ifeq ($(OS),Windows_NT)
 EXE := .exe
-WINE := 
+WINE :=
 else
-EXE := 
+EXE :=
 WINE := wine
 endif
 
@@ -175,6 +175,7 @@ MWCCARM  = tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # have to use mwldarm for now.
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
+KNARC = tools/knarc/knarc$(EXE)
 MWLDARM  = tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 NARCCOMP = tools/narccomp/narccomp$(EXE)
@@ -202,6 +203,7 @@ JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 MAKEBANNER = $(WINE) $(TOOLS_DIR)/bin/makebanner.exe
+MAKEROM    = $(WIND) $(TOOLS_DIR)/bin/makerom.exe
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -218,7 +220,7 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
 ifeq (,$(filter-out all,$(MAKECMDGOALS)))
-$(call infoshell, $(MAKE) tools patch_mwasmarm)
+$(call infoshell, $(HOST_VARS) $(MAKE) tools patch_mwasmarm)
 else
 NODEP := 1
 endif
@@ -255,7 +257,7 @@ tidy:
 tools: $(TOOLDIRS)
 
 $(TOOLDIRS):
-	@$(MAKE) -C $@
+	@$(HOST_VARS) $(MAKE) -C $@
 
 $(MWASMARM): patch_mwasmarm
 	@:
@@ -298,8 +300,15 @@ $(ELF): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(BINFILES) $(BUILD_DIR)/pokediamon
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@
 
+# TODO: Rules for Pearl
+# FIXME: Computed secure area CRC in header is incorrect due to first 8 bytes of header not actually being "encryObj"
+#$(ROM): pokediamond.rsf $(BUILD_DIR)/pokediamond_bnr.bin $(SBINFILES) $(HOSTFS_FILES)
+#	$(MAKEROM) -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
+
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
+
+include filesystem.mk
 
 %.4bpp: %.png
 	$(GFX) $< $@
@@ -315,22 +324,6 @@ DUMMY != mkdir -p $(ALL_DIRS)
 
 %.png: ;
 %.pal: ;
-
-##################### Filesystem #####################
-
-%.narc: members = $(wildcard $(@D)/$*/*.bin)
-%.narc: $$(members)
-	$(NARCCOMP) -o $@ -p 255 $^
-
-%.arc: members = $(wildcard $(@D)/$*/*.bin)
-%.arc: $$(members)
-	$(NARCCOMP) -o $@ -p 255 $^
-
-files/poketool/personal/pms.narc: ;
-
-files/poketool/personal/growtbl.narc: $(wildcard files/poketool/personal/growtbl/*.txt)
-	$(MAKE) -C $(<D)
-	$(NARCCOMP) -o $@ -p 255 $(^:%.txt=%.bin)
 
 ######################## Misc #######################
 

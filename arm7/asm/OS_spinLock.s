@@ -1,7 +1,13 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .bss
+
+	.global _03807780
+_03807780: ;0x03807780
+	.space 0x03807784 - 0x03807780
+
+    .section .text
 
 	arm_func_start OS_UnLockCartridge
 OS_UnLockCartridge: ; 0x037F8A18

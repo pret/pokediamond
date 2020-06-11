@@ -667,7 +667,7 @@ _02047C40:
 	add r0, r5, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	cmp r7, r0
 	beq _02047C82
 	cmp r7, #0x0
@@ -675,14 +675,14 @@ _02047C40:
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020671BC
+	bl GetMonDataEncrypted
 	add r1, r7, #0x0
-	bl FUN_02068758
+	bl GetMonExpByLevel
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	mov r1, #0x8
 	add r2, sp, #0x18
-	bl FUN_02067830
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
 	bl FUN_02066ED8
 _02047C82:

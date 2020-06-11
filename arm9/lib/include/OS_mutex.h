@@ -11,4 +11,6 @@ struct OSMutex {
     OSMutexLink link;
 };
 
+void OSi_UnlockAllMutex(OSThread * thread);
+
 #endif //POKEDIAMOND_OS_MUTEX_H

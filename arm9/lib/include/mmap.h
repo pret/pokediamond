@@ -1,15 +1,12 @@
-#ifndef NITRO_MMAP_H
-#define NITRO_MMAP_H
+#ifndef POKEDIAMOND_ARM9_MMAP_H
+#define POKEDIAMOND_ARM9_MMAP_H
 
 #include "nitro/types.h"
+#include "nitro/mmap_shared.h"
 
 extern u32 SDK_AUTOLOAD_DTCM_START[];
 
-#define HW_MAIN_MEM             0x02000000
-#define HW_MAIN_MEM_SIZE        0x00400000
 #define HW_MAIN_MEM_EX_SIZE     0x00800000
-#define HW_MAIN_MEM_MAIN_SIZE   0x003E0000
-#define HW_MAIN_MEM_SHARED_SIZE 0x00001000
 #define HW_MAIN_MEM_DEBUGGER_OFFSET     0x00700000
 
 #define HW_ITCM_IMAGE 0x01000000
@@ -31,11 +28,9 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_RESET_PARAMETER_BUF  (HW_MAIN_MEM + 0x007ffc20)
 #define HW_ROM_BASE_OFFSET_BUF  (HW_MAIN_MEM + 0x007ffc2c)
 #define HW_WM_BOOT_BUF          (HW_MAIN_MEM + 0x007ffc40)
-#define HW_ARENA_INFO_BUF       (HW_MAIN_MEM + 0x007ffda0)      // Arena data structure
 #define HW_ROM_HEADER_BUF       (HW_MAIN_MEM + 0x007ffe00)      // ROM registration area data buffer
 #define HW_RED_RESERVED         (HW_MAIN_MEM + 0x007ff800)      // Some kind of reserved data for shared memory
 #define HW_MAIN_MEM_SYSTEM      (HW_MAIN_MEM + 0x007ffc00)
-#define HW_MAIN_MEM_MAIN_END    (HW_MAIN_MEM + HW_MAIN_MEM_MAIN_SIZE)
 #define HW_MAIN_MEM_EX_END      (HW_MAIN_MEM + HW_MAIN_MEM_EX_SIZE)
 #define HW_MAIN_MEM_SHARED      (HW_MAIN_MEM_EX_END - HW_MAIN_MEM_SHARED_SIZE)
 #define HW_DTCM_SVC_STACK_END   (HW_DTCM + 0x00003fc0)
@@ -115,4 +110,4 @@ typedef struct {
 
 #define OS_GetSystemWork()      ((OSSystemWork *)HW_MAIN_MEM_SYSTEM)
 
-#endif
+#endif //POKEDIAMOND_ARM9_MMAP_H

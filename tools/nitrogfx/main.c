@@ -214,6 +214,14 @@ void HandleGbaToJascPaletteCommand(char *inputPath, char *outputPath, int argc U
     WriteJascPalette(outputPath, &palette);
 }
 
+void HandleNtrToJascPaletteCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
+{
+    struct Palette palette;
+
+    ReadNtrPalette(inputPath, &palette);
+    WriteJascPalette(outputPath, &palette);
+}
+
 void HandleJascToGbaPaletteCommand(char *inputPath, char *outputPath, int argc, char **argv)
 {
     int numColors = 0;
@@ -249,6 +257,48 @@ void HandleJascToGbaPaletteCommand(char *inputPath, char *outputPath, int argc, 
         palette.numColors = numColors;
 
     WriteGbaPalette(outputPath, &palette);
+}
+
+void HandleJascToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, char **argv)
+{
+    int numColors = 0;
+    bool ncpr = false;
+
+    for (int i = 3; i < argc; i++)
+    {
+        char *option = argv[i];
+
+        if (strcmp(option, "-num_colors") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No number of colors following \"-num_colors\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &numColors))
+                FATAL_ERROR("Failed to parse number of colors.\n");
+
+            if (numColors < 1)
+                FATAL_ERROR("Number of colors must be positive.\n");
+        }
+        else if (strcmp(option, "-ncpr") == 0)
+        {
+            ncpr = true;
+        }
+        else
+        {
+            FATAL_ERROR("Unrecognized option \"%s\".\n", option);
+        }
+    }
+
+    struct Palette palette;
+
+    ReadJascPalette(inputPath, &palette);
+
+    if (numColors != 0)
+        palette.numColors = numColors;
+
+    WriteNtrPalette(outputPath, &palette, ncpr);
 }
 
 void HandleLatinFontToPngCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
@@ -496,7 +546,10 @@ int main(int argc, char **argv)
         { "png", "8bpp", HandlePngToGbaCommand },
         { "png", "gbapal", HandlePngToGbaPaletteCommand },
         { "gbapal", "pal", HandleGbaToJascPaletteCommand },
+        { "NCLR", "pal", HandleNtrToJascPaletteCommand },
+        { "NCPR", "pal", HandleNtrToJascPaletteCommand },
         { "pal", "gbapal", HandleJascToGbaPaletteCommand },
+        { "pal", "NCLR", HandleJascToNtrPaletteCommand },
         { "latfont", "png", HandleLatinFontToPngCommand },
         { "png", "latfont", HandlePngToLatinFontCommand },
         { "hwjpnfont", "png", HandleHalfwidthJapaneseFontToPngCommand },
