@@ -23888,7 +23888,7 @@ MOD83_02238F94: ; 0x02238F94
 	bl GetMonGenderEncrypted
 	str r0, [sp, #0x24]
 	ldr r0, [sp, #0x20]
-	bl FUN_02068A80
+	bl MonIsShiny
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp]

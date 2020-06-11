@@ -44526,7 +44526,7 @@ MOD05_021ED00C: ; 0x021ED00C
 	beq _021ED05E
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_02068AAC
+	bl CalcShininessByOtIdAndPersonality
 	cmp r0, #0
 	bne _021ED05E
 	mov r5, #0
@@ -44536,7 +44536,7 @@ _021ED044:
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_02068AAC
+	bl CalcShininessByOtIdAndPersonality
 	cmp r0, #0
 	bne _021ED05E
 	add r5, r5, #1
@@ -45429,7 +45429,7 @@ _021ED6B4:
 	bne _021ED788
 	ldr r0, [sp, #0x2c]
 	add r1, r7, #0
-	bl FUN_02068AAC
+	bl CalcShininessByOtIdAndPersonality
 	cmp r0, #0
 	beq _021ED788
 _021ED774:
@@ -45438,7 +45438,7 @@ _021ED774:
 	add r7, r0, #0
 	ldr r0, [sp, #0x2c]
 	add r1, r7, #0
-	bl FUN_02068AAC
+	bl CalcShininessByOtIdAndPersonality
 	cmp r0, #0
 	bne _021ED774
 _021ED788:

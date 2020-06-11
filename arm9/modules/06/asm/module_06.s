@@ -6612,7 +6612,7 @@ _0223C8D2:
 	mov r7, #1
 _0223C8E0:
 	add r0, r5, #0
-	bl FUN_02068AD8
+	bl GenerateShinyPersonality
 	add r4, r0, #0
 	cmp r7, #0
 	beq _0223C92E
@@ -6632,7 +6632,7 @@ _0223C904:
 	cmp r7, r0
 	bne _0223C92E
 	add r0, r5, #0
-	bl FUN_02068AD8
+	bl GenerateShinyPersonality
 	add r4, r0, #0
 	b _0223C8EC
 _0223C914:
@@ -6644,7 +6644,7 @@ _0223C914:
 	cmp r0, r1
 	beq _0223C92E
 	add r0, r5, #0
-	bl FUN_02068AD8
+	bl GenerateShinyPersonality
 	add r4, r0, #0
 	b _0223C8EC
 _0223C92E:
@@ -7622,7 +7622,7 @@ MOD06_0223D044: ; 0x0223D044
 	add r0, r4, #0
 	lsr r1, r1, #0x10
 	add r2, r7, #0
-	bl FUN_02066EA4
+	bl CreateMonWithFixedIVs
 	add r0, r4, #0
 	mov r1, #7
 	add r2, sp, #0x30
@@ -21909,7 +21909,7 @@ MOD06_02244388: ; 0x02244388
 	lsr r1, r1, #0x15
 	mov r2, #0x32
 	and r3, r4
-	bl FUN_02066EA4
+	bl CreateMonWithFixedIVs
 	ldrh r0, [r6]
 	add r2, sp, #8
 	add r2, #1
@@ -22165,7 +22165,7 @@ _022445A6:
 	mov r2, #0
 	bl GetMonDataEncrypted
 	mov r1, #0x32
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #8
@@ -22587,7 +22587,7 @@ _022448EC:
 	beq _0224491A
 	ldr r0, [sp]
 	add r1, r7, #0
-	bl FUN_02068AAC
+	bl CalcShininessByOtIdAndPersonality
 	cmp r0, #1
 	beq _022448EC
 _0224491A:
@@ -31215,7 +31215,7 @@ MOD06_022489D4: ; 0x022489D4
 	add r0, r5, #0
 	bl UpdateMonLevelAndRecalcStats
 	add r0, r5, #0
-	bl FUN_02068A80
+	bl MonIsShiny
 	cmp r0, #0
 	beq _02248B08
 	bl ErrorHandling
