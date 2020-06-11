@@ -35,14 +35,12 @@ ARM_FUNC Cell *DLInsert(Cell *original, Cell *inserted)
 {
     Cell *prevCell = NULL;
     Cell *nextCell = original;
-    
 
-    while (nextCell != NULL)
+
+    for (nextCell = original, prevCell = NULL; nextCell; prevCell = nextCell, nextCell = nextCell->next)
     {
         if (inserted <= nextCell)
             break;
-        prevCell = nextCell;
-        nextCell = nextCell->next;
     }
 
     inserted->next = nextCell;
