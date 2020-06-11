@@ -55,11 +55,17 @@ Autoload WRAM
 	Object SND_work.o
 	Object SND_alarm.o
 	Object SND_command.o
-	Object dtcm.o
+	Object FS_file.o
+	Object CARD_common.o
+	Object CARD_spi.o
+	Object CARD_rom.o
+	Object CARD_thread.o
+	Object CARD_fifo.o
+	Object CARD_pullOut.o
 	Object libsyscall.o
-	Object dtcm2.o
-	Object dtcm_data.o
-	Object dtcm_bss.o
+	Object wram2.o
+	Object wram_data.o
+	Object wram_bss.o
 }
 
 Autoload EXT

@@ -13,7 +13,23 @@
 ; .itcm
 .extern WVR_ShelterExtWram
 
-; .dtcm
+; .wram
+.extern CARDi_EraseBackupSectorCore
+.extern CARDi_EraseChipCore
+.extern CARDi_InitCommon
+.extern CARDi_InitStatusRegister
+.extern CARDi_OnFifoRecv
+.extern CARDi_ProgramBackupCore
+.extern CARDi_ReadBackupCore
+.extern CARDi_ReadRomID
+.extern CARDi_ReadRomIDCore
+.extern CARDi_TaskThread
+.extern CARDi_VerifyBackupCore
+.extern CARDi_WriteBackupCore
+.extern CARD_GetRomHeader
+.extern CARD_Init
+.extern CARD_InitPulledOutCallback
+.extern FUN_03800E0C
 .extern OS_IrqHandler_ThreadSwitch
 .extern OSi_EnterTimerCallback
 .extern OSi_IrqVBlank
