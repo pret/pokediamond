@@ -18454,7 +18454,7 @@ _02236736:
 	ldrb r0, [r4, #0xd]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl FUN_02068A80
+	bl MonIsShiny
 	str r0, [sp, #0x20]
 	ldr r0, [r4]
 	mov r2, #0
@@ -18492,7 +18492,7 @@ _02236736:
 	ldr r0, [r4]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, r5]
-	bl FUN_02068A80
+	bl MonIsShiny
 	str r0, [sp, #0x10]
 	ldr r0, [r4]
 	mov r1, #0x70

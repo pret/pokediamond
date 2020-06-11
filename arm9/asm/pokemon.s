@@ -336,7 +336,7 @@ CreateMon: ; 0x02066ACC
 	add r2, sp, #0x48
 	bl SetMonDataEncrypted
 	mov r0, #0x0
-	bl FUN_020256BC
+	bl CreateNewSealsObject
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xa9
@@ -390,6 +390,7 @@ _02066B8E:
 	mov r1, #0x0
 	add r2, sp, #0x34
 	bl SetBoxMonDataEncrypted
+	// If otIdType == 2, generate a random OT ID that prevents shininess
 	ldr r0, [sp, #0x38]
 	cmp r0, #0x2
 	bne _02066BD6
@@ -444,7 +445,7 @@ _02066BDE:
 	bl SetBoxMonDataEncrypted
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x28]
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x8
@@ -709,7 +710,7 @@ _02066E4C:
 	ldr r0, [sp, #0x14]
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_02066E74
+	bl AdjustPersonalityToForceGenderAndNature
 	add r4, r0, #0x0
 _02066E58:
 	mov r0, #0x1
@@ -726,8 +727,8 @@ _02066E58:
 	add sp, #0x24
 	pop {r4-r7, pc}
 
-	thumb_func_start FUN_02066E74
-FUN_02066E74: ; 0x02066E74
+	thumb_func_start AdjustPersonalityToForceGenderAndNature
+AdjustPersonalityToForceGenderAndNature: ; 0x02066E74
 	push {r3-r5, lr}
 	add r5, r1, #0x0
 	mov r1, #0x12
@@ -752,8 +753,8 @@ _02066EA0:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02066EA4
-FUN_02066EA4: ; 0x02066EA4
+	thumb_func_start CreateMonWithFixedIVs
+CreateMonWithFixedIVs: ; 0x02066EA4
 	push {r0-r3}
 	push {r4, lr}
 	sub sp, #0x10
@@ -1239,7 +1240,7 @@ _02067298:
 _0206729E:
 	add r0, #0x9c
 	add r1, r2, #0x0
-	bl FUN_020256D0
+	bl CopySealsObject
 	mov r0, #0x1
 	pop {r3, pc}
 _020672AA:
@@ -2176,7 +2177,7 @@ _02067940:
 	add r3, #0x9c
 	add r0, r2, #0x0
 	add r1, r3, #0x0
-	bl FUN_020256D0
+	bl CopySealsObject
 	pop {r3, pc}
 _0206794C:
 	add r3, #0xd4
@@ -3142,7 +3143,7 @@ _02068066:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl AddMonPartyStat
+	bl AddMonData
 	ldrh r0, [r5, #0x4]
 	lsl r0, r0, #0x1f
 	lsr r0, r0, #0x1f
@@ -3166,8 +3167,8 @@ _0206809C:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start AddMonPartyStat
-AddMonPartyStat: ; 0x020680A0
+	thumb_func_start AddMonData
+AddMonData: ; 0x020680A0
 	push {r3, lr}
 	add r3, r1, #0x0
 	sub r3, #0x9f
@@ -3216,12 +3217,12 @@ _020680F2:
 	bl ErrorHandling
 	pop {r3, pc}
 _020680F8:
-	bl FUN_02068100
+	bl AddBoxMonData
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068100
-FUN_02068100: ; 0x02068100
+	thumb_func_start AddBoxMonData
+AddBoxMonData: ; 0x02068100
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r7, r1, #0x0
@@ -3441,14 +3442,14 @@ _0206814E: ; jump table (using 16-bit offset)
 _020682B4:
 	ldrh r0, [r4, #0x0]
 	mov r1, #0x64
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	ldr r1, [r4, #0x8]
 	add r1, r1, r6
 	cmp r1, r0
 	bls _020682D2
 	ldrh r0, [r4, #0x0]
 	mov r1, #0x64
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	add sp, #0xc
 	str r0, [r4, #0x8]
 	pop {r4-r7, pc}
@@ -4008,8 +4009,8 @@ GetMonBaseStat: ; 0x02068678
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068698
-FUN_02068698: ; 0x02068698
+	thumb_func_start GetPercentProgressTowardsNextLevel
+GetPercentProgressTowardsNextLevel: ; 0x02068698
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl TryDecryptMon
@@ -4028,11 +4029,11 @@ FUN_02068698: ; 0x02068698
 	lsr r7, r0, #0x18
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r7, #0x1
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x8
@@ -4079,12 +4080,12 @@ CalcBoxMonExpToNextLevelEncrypted: ; 0x02068700
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	sub r0, r0, r4
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_02068734
-FUN_02068734: ; 0x02068734
+	thumb_func_start GetMonBaseExperienceAtCurrentLevel
+GetMonBaseExperienceAtCurrentLevel: ; 0x02068734
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r1, #0x5
@@ -4097,12 +4098,12 @@ FUN_02068734: ; 0x02068734
 	bl GetMonDataEncrypted
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start GetMonExpByLevel
-GetMonExpByLevel: ; 0x02068758
+	thumb_func_start GetMonExpBySpeciesAndLevel
+GetMonExpBySpeciesAndLevel: ; 0x02068758
 	push {r4, lr}
 	add r4, r1, #0x0
 	mov r1, #0x15
@@ -4530,15 +4531,15 @@ _02068A78:
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068A80
-FUN_02068A80: ; 0x02068A80
-	ldr r3, _02068A84 ; =FUN_02068A88
+	thumb_func_start MonIsShiny
+MonIsShiny: ; 0x02068A80
+	ldr r3, _02068A84 ; =BoxMonIsShiny
 	bx r3
 	.balign 4
-_02068A84: .word FUN_02068A88
+_02068A84: .word BoxMonIsShiny
 
-	thumb_func_start FUN_02068A88
-FUN_02068A88: ; 0x02068A88
+	thumb_func_start BoxMonIsShiny
+BoxMonIsShiny: ; 0x02068A88
 	push {r3-r5, lr}
 	mov r1, #0x7
 	mov r2, #0x0
@@ -4551,12 +4552,12 @@ FUN_02068A88: ; 0x02068A88
 	bl GetBoxMonDataEncrypted
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02068AAC
+	bl CalcShininessByOtIdAndPersonality
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068AAC
-FUN_02068AAC: ; 0x02068AAC
+	thumb_func_start CalcShininessByOtIdAndPersonality
+CalcShininessByOtIdAndPersonality: ; 0x02068AAC
 	ldr r3, _02068AD4 ; =0xFFFF0000
 	lsl r2, r1, #0x10
 	and r1, r3
@@ -4582,8 +4583,8 @@ _02068ACE:
 	.balign 4
 _02068AD4: .word 0xFFFF0000
 
-	thumb_func_start FUN_02068AD8
-FUN_02068AD8: ; 0x02068AD8
+	thumb_func_start GenerateShinyPersonality
+GenerateShinyPersonality: ; 0x02068AD8
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	ldr r0, _02068B64 ; =0xFFFF0000
@@ -4678,7 +4679,7 @@ FUN_02068B70: ; 0x02068B70
 	bl GetBoxMonGenderEncrypted
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
-	bl FUN_02068A88
+	bl BoxMonIsShiny
 	mov r1, #0x0
 	add r7, r0, #0x0
 	add r0, r5, #0x0
@@ -4692,7 +4693,7 @@ FUN_02068B70: ; 0x02068B70
 	mov r1, #0x5
 	mov r2, #0x0
 	bl GetBoxMonDataEncrypted
-	ldr r1, _02068BFC ; =0x000001EA
+	ldr r1, _02068BFC ; =SPECIES_MANAPHY
 	cmp r0, r1
 	bne _02068BC6
 	mov r0, #0x1
@@ -4723,7 +4724,7 @@ _02068BD8:
 	pop {r4-r7, pc}
 	nop
 _02068BF8: .word SPECIES_EGG
-_02068BFC: .word 0x000001EA
+_02068BFC: .word SPECIES_MANAPHY
 
 	thumb_func_start FUN_02068C00
 FUN_02068C00: ; 0x02068C00
@@ -4738,30 +4739,30 @@ FUN_02068C00: ; 0x02068C00
 	strh r1, [r4, #0x6]
 	strb r1, [r4, #0x8]
 	str r1, [r4, #0xc]
-	ldr r1, _02068E0C ; =0x000001A5
+	ldr r1, _02068E0C ; =SPECIES_CHERRIM
 	cmp r0, r1
 	bgt _02068C68
 	bge _02068D1E
 	add r6, r1, #0x0
-	sub r6, #0x46
+	sub r6, #SPECIES_CHERRIM-SPECIES_CASTFORM
 	cmp r0, r6
 	bgt _02068C36
-	sub r1, #0x46
+	sub r1, #SPECIES_CHERRIM-SPECIES_CASTFORM
 	cmp r0, r1
 	blt _02068C2E
 	b _02068D58
 _02068C2E:
-	cmp r0, #0xc9
+	cmp r0, #SPECIES_UNOWN
 	bne _02068C34
 	b _02068D90
 _02068C34:
 	b _02068DD4
 _02068C36:
 	add r6, r1, #0x0
-	sub r6, #0x23
+	sub r6, #SPECIES_CHERRIM-SPECIES_DEOXYS
 	cmp r0, r6
 	bgt _02068C48
-	sub r1, #0x23
+	sub r1, #SPECIES_CHERRIM-SPECIES_DEOXYS
 	cmp r0, r1
 	bne _02068C46
 	b _02068D76
@@ -4769,56 +4770,56 @@ _02068C46:
 	b _02068DD4
 _02068C48:
 	add r6, r1, #0x0
-	sub r6, #0x8
+	sub r6, #SPECIES_CHERRIM-SPECIES_WORMADAM
 	cmp r0, r6
 	bgt _02068C66
 	add r6, r1, #0x0
-	sub r6, #0x9
+	sub r6, #SPECIES_CHERRIM-SPECIES_BURMY
 	cmp r0, r6
 	blt _02068C66
 	add r6, r1, #0x0
-	sub r6, #0x9
+	sub r6, #SPECIES_CHERRIM-SPECIES_BURMY
 	cmp r0, r6
 	beq _02068CAA
-	sub r1, #0x8
+	sub r1, #SPECIES_CHERRIM-SPECIES_WORMADAM
 	cmp r0, r1
 	beq _02068CC8
 _02068C66:
 	b _02068DD4
 _02068C68:
 	add r6, r1, #0x0
-	add r6, #0x48
+	add r6, #SPECIES_ARCEUS-SPECIES_CHERRIM
 	cmp r0, r6
 	bgt _02068C8E
 	add r6, r1, #0x0
-	add r6, #0x48
+	add r6, #SPECIES_ARCEUS-SPECIES_CHERRIM
 	cmp r0, r6
 	bge _02068D3A
-	add r6, r1, #0x2
+	add r6, r1, #SPECIES_GASTRODON-SPECIES_CHERRIM
 	cmp r0, r6
 	bgt _02068C8C
-	add r6, r1, #0x1
+	add r6, r1, #SPECIES_SHELLOS-SPECIES_CHERRIM
 	cmp r0, r6
 	blt _02068C8C
 	beq _02068CE6
-	add r1, r1, #0x2
+	add r1, r1, #SPECIES_GASTRODON-SPECIES_CHERRIM
 	cmp r0, r1
 	beq _02068D02
 _02068C8C:
 	b _02068DD4
 _02068C8E:
 	add r6, r1, #0x0
-	add r6, #0x49
+	add r6, #SPECIES_EGG-SPECIES_CHERRIM
 	cmp r0, r6
 	bgt _02068CA0
-	add r1, #0x49
+	add r1, #SPECIES_EGG-SPECIES_CHERRIM
 	cmp r0, r1
 	bne _02068C9E
 	b _02068DAC
 _02068C9E:
 	b _02068DD4
 _02068CA0:
-	add r1, #0x4a
+	add r1, #SPECIES_MANAPHY_EGG-SPECIES_CHERRIM
 	cmp r0, r1
 	bne _02068CA8
 	b _02068DC4
@@ -5012,7 +5013,7 @@ _02068DE2:
 	strh r2, [r4, #0x2]
 	add r1, r3, r1
 	strh r1, [r4, #0x4]
-	ldr r1, _02068E10 ; =0x00000147
+	ldr r1, _02068E10 ; =SPECIES_SPINDA
 	cmp r0, r1
 	bne _02068E06
 	cmp r5, #0x2
@@ -5026,8 +5027,8 @@ _02068E06:
 	pop {r4-r7}
 	bx lr
 	nop
-_02068E0C: .word 0x000001A5
-_02068E10: .word 0x00000147
+_02068E0C: .word SPECIES_CHERRIM
+_02068E10: .word SPECIES_SPINDA
 
 	thumb_func_start FUN_02068E14
 FUN_02068E14: ; 0x02068E14
@@ -5062,7 +5063,7 @@ FUN_02068E1C: ; 0x02068E1C
 	mov r1, #0x5
 	mov r2, #0x0
 	bl GetBoxMonDataEncrypted
-	ldr r1, _02068E84 ; =0x000001EA
+	ldr r1, _02068E84 ; =SPECIES_MANAPHY
 	cmp r0, r1
 	bne _02068E5E
 	mov r3, #0x1
@@ -5092,7 +5093,7 @@ _02068E84: .word 0x000001EA
 	thumb_func_start FUN_02068E88
 FUN_02068E88: ; 0x02068E88
 	push {r3-r5, lr}
-	ldr r4, _02068FDC ; =0x000001A5
+	ldr r4, _02068FDC ; =SPECIES_CHERRIM
 	cmp r0, r4
 	bgt _02068ED6
 	bge _02068F54
@@ -5290,7 +5291,7 @@ _02068FCA:
 	ldrb r0, [r0, #0x0]
 	pop {r3-r5, pc}
 	nop
-_02068FDC: .word 0x000001A5
+_02068FDC: .word SPECIES_CHERRIM
 
 	thumb_func_start FUN_02068FE0
 FUN_02068FE0: ; 0x02068FE0
@@ -6710,7 +6711,7 @@ _02069A8E:
 	add r2, sp, #0x0
 	bl SetMonDataEncrypted
 	mov r0, #0x0
-	bl FUN_020256BC
+	bl CreateNewSealsObject
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0xa9

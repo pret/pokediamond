@@ -26891,7 +26891,7 @@ _0223A9D6:
 	bl GetMonDataEncrypted
 	str r0, [sp, #0x48]
 	add r0, r6, #0
-	bl FUN_02068734
+	bl GetMonBaseExperienceAtCurrentLevel
 	ldr r1, [sp, #0x48]
 	sub r0, r1, r0
 	str r0, [r4, #0x3c]
@@ -43626,7 +43626,7 @@ _02242D2E:
 	ldr r0, _02242FA8 ; =0x00002D66
 	add r6, r7, r0
 	add r0, r4, #0
-	bl FUN_02068A80
+	bl MonIsShiny
 	ldrb r1, [r6, r5]
 	mov r2, #0x20
 	lsl r0, r0, #0x1f
@@ -81124,7 +81124,7 @@ _022550D0:
 _022550EA:
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0xc]
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	mov r1, #0xc0
 	mul r1, r4
 	add r2, r5, r1
@@ -81135,11 +81135,11 @@ _022550EA:
 	str r0, [sp, #0x1c]
 	ldr r0, [sp, #0x10]
 	add r1, r1, #1
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	add r5, r0, #0
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0xc]
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	sub r0, r5, r0
 	str r0, [sp, #0x20]
 	ldrh r1, [r7, r6]
@@ -81323,7 +81323,7 @@ _02255284:
 	b _02255294
 _0225528E:
 	add r0, r4, #0
-	bl FUN_02068698
+	bl GetPercentProgressTowardsNextLevel
 _02255294:
 	strb r0, [r5, #2]
 	add r5, r5, #1
@@ -82432,7 +82432,7 @@ _02255B04:
 _02255B12:
 	add r0, r7, #0
 	add r1, r6, #0
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	ldr r1, _02255B64 ; =0x00002DA4
 	add r2, r5, r4
 	ldr r1, [r2, r1]
@@ -82440,11 +82440,11 @@ _02255B12:
 	str r0, [sp, #0x18]
 	add r0, r7, #0
 	add r1, r6, #1
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	add r4, r0, #0
 	add r0, r7, #0
 	add r1, r6, #0
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	sub r0, r4, r0
 	str r0, [sp, #0x1c]
 	mov r0, #0x14
@@ -82494,7 +82494,7 @@ MOD11_02255B68: ; 0x02255B68
 	add r1, r6, #0
 	str r0, [sp, #0x10]
 	add r0, r7, #0
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	mov r1, #0xc0
 	mul r1, r4
 	add r2, r5, r1
@@ -82504,11 +82504,11 @@ MOD11_02255B68: ; 0x02255B68
 	str r0, [sp, #0x14]
 	add r0, r7, #0
 	add r1, r6, #1
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	add r5, r0, #0
 	add r0, r7, #0
 	add r1, r6, #0
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	sub r0, r5, r0
 	str r0, [sp, #0x18]
 	mov r0, #0x10
@@ -83183,7 +83183,7 @@ _022560BA:
 _022560D4:
 	ldr r0, [sp, #0xc]
 	ldr r1, [sp, #8]
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	mov r1, #0xc0
 	mul r1, r4
 	add r2, r5, r1
@@ -83194,11 +83194,11 @@ _022560D4:
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0xc]
 	add r1, r1, #1
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	add r5, r0, #0
 	ldr r0, [sp, #0xc]
 	ldr r1, [sp, #8]
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	sub r0, r5, r0
 	str r0, [sp, #0x1c]
 	ldrh r1, [r7, r6]

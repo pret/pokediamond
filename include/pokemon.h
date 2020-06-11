@@ -99,7 +99,7 @@
 #define MON_DATA_SPEED              166
 #define MON_DATA_SPATK              167
 #define MON_DATA_SPDEF              168
-#define MON_DATA_SEAL_TYPES_MAYBE   169
+#define MON_DATA_SEAL_STRUCT        169
 #define MON_DATA_SEAL_COORDS        170
 #define MON_DATA_SPECIES_EXISTS     171
 #define MON_DATA_SANITY_CHECK_172   172
@@ -381,9 +381,28 @@ struct Pokemon {
 
 int GetMonBaseStat_HandleFormeConversion(int species, int form, int stat_id);
 int GetMonBaseStat(int species, int stat_id);
-int GetMonExpByLevel(int species, int level);
+int GetMonExpBySpeciesAndLevel(int species, int level);
 void LoadGrowthTable(int species, int * table);
 int GetExpByGrowthRateAndLevel(int rate, int level);
 int CalcLevelBySpeciesAndExp(int species, int experience);
+void CreateMon(struct Pokemon * pokemon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId, ...);
+void CreateBoxMon(struct BoxPokemon * boxPokemon, u16 species, u8 level, u8 fixedIV, u8 hasFixedPersonality, u32 fixedPersonality, u8 otIdType, u32 fixedOtId, ...);
+void CreateMonWithNatureGenderLetter(struct Pokemon * pokemon, u16 species, u8 level, u8 nature, u8 gender, u8 letter);
+
+#ifndef IN_POKEMON_C
+u32 GetMonData();
+u32 GetMonDataEncrypted();
+u32 GetBoxMonData();
+u32 GetBoxMonDataEncrypted();
+#else
+u32 GetMonData(struct Pokemon * pokemon, u32 attr, void * ptr);
+u32 GetMonDataEncrypted(struct Pokemon * pokemon, u32 attr, void * ptr);
+u32 GetBoxMonData(struct BoxPokemon * pokemon, u32 attr, void * ptr);
+u32 GetBoxMonDataEncrypted(struct BoxPokemon * pokemon, u32 attr, void * ptr);
+#endif
+void SetMonData(struct Pokemon * pokemon, u32 attr, void * ptr);
+void SetBoxMonData(struct BoxPokemon * pokemon, u32 attr, void * ptr);
+void AddMonData(struct Pokemon * pokemon, u32 attr, u32 amount);
+void AddBoxMonData(struct Pokemon * pokemon, u32 attr, u32 amount);
 
 #endif //POKEDIAMOND_POKEMON_H

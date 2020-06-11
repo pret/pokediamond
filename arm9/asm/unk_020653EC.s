@@ -1617,7 +1617,7 @@ FUN_02066070: ; 0x02066070
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
 	add r0, r5, #0x0
-	bl FUN_020256BC
+	bl CreateNewSealsObject
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	str r0, [sp, #0x10]

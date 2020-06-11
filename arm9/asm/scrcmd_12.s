@@ -371,7 +371,7 @@ FUN_02042F6C: ; 0x02042F6C
 	cmp r0, #0x1
 	bne _02042FE6
 	add r0, r6, #0x0
-	bl FUN_02068AAC
+	bl CalcShininessByOtIdAndPersonality
 	cmp r0, #0x0
 	beq _02042FE8
 _02042FD0:
@@ -380,7 +380,7 @@ _02042FD0:
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	str r1, [sp, #0x34]
-	bl FUN_02068AAC
+	bl CalcShininessByOtIdAndPersonality
 	cmp r0, #0x0
 	bne _02042FD0
 	b _02042FE8
