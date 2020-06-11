@@ -4712,7 +4712,7 @@ MOD17_021D9918: ; 0x021D9918
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0xd
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r1, [sp, #0x14]
 	add r6, r0, #0
 	bl FUN_0200A914
@@ -4731,7 +4731,7 @@ MOD17_021D9918: ; 0x021D9918
 	add r0, r4, #0
 	bl FUN_02021A20
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, _021D99D4 ; =0x000006A8
 	ldr r0, [r5, r0]
 	bl FUN_020191D0
@@ -4758,7 +4758,7 @@ MOD17_021D99E0: ; 0x021D99E0
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0xd
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r7, r0, #0
 	bl FUN_0200A914
@@ -4789,7 +4789,7 @@ MOD17_021D99E0: ; 0x021D99E0
 	add r0, r6, #0
 	bl FUN_02021A20
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, _021D9A58 ; =0x000006A8
 	ldr r0, [r5, r0]
 	bl FUN_020191D0
@@ -4823,7 +4823,7 @@ _021D9A7E:
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0xd
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r7, r0, #0
 	bl FUN_0200A914
@@ -4868,7 +4868,7 @@ _021D9AD0:
 	add r0, r4, #0
 	bl FUN_02021A20
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, _021D9B08 ; =0x000006A8
 	ldr r0, [r5, r0]
 	bl FUN_020191D0
@@ -11254,7 +11254,7 @@ MOD17_021DC880: ; 0x021DC880
 	add r4, r3, #0
 	mov r0, #0
 	mov r3, #0xd
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	bne _021DC898
 	bl ErrorHandling
@@ -11294,7 +11294,7 @@ _021DC898:
 	add r0, r7, #0
 	bl FUN_02021A20
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -11933,7 +11933,7 @@ MOD17_021DCD80: ; 0x021DCD80
 	add r4, r3, #0
 	mov r0, #0
 	mov r3, #0xd
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0
 	bne _021DCD98
 	bl ErrorHandling
@@ -11959,7 +11959,7 @@ _021DCD98:
 	add r0, r4, #0
 	bl FUN_02021A20
 	add r0, r5, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r6, #0
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
@@ -11984,7 +11984,7 @@ _021DCDEC:
 	add r1, r5, #0
 	add r2, r6, #0
 	mov r3, #0xd
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0
 	bne _021DCE00
 	bl ErrorHandling
@@ -12008,7 +12008,7 @@ _021DCE00:
 	bl FUN_0201BDE0
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
@@ -13208,7 +13208,7 @@ MOD17_021DD6DC: ; 0x021DD6DC
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0x68]
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	mov r1, #0x8a
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -13278,7 +13278,7 @@ MOD17_021DD778: ; 0x021DD778
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0x68]
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	mov r1, #0x8a
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -14340,7 +14340,7 @@ MOD17_021DDFDC: ; 0x021DDFDC
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0xd
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x10]
 	cmp r0, #0
 	bne _021DDFF8
@@ -14443,7 +14443,7 @@ _021DDFF8:
 	add r0, r7, #0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r6, #0
 	bl FUN_0200AB18
 	add sp, #0x20
@@ -14501,7 +14501,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	add r3, r6, #0
 	bl FUN_0200ABB4
 	mov r0, #0xd
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r6, r0, #0
 	ldr r0, [r5, #4]
 	add r1, r6, #0
@@ -14518,7 +14518,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0xd
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x10]
 	cmp r0, #0
 	bne _021DE1A0
@@ -14591,7 +14591,7 @@ _021DE1A0:
 	add r0, r4, #0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r7, #0
 	bl FUN_0200AB18
 	add sp, #0x14

@@ -286,7 +286,7 @@ _020862D6:
 	add r0, r5, #0x0
 	mov r1, #0x4c
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0xb
 	str r0, [sp, #0x0]
 	ldr r3, [sp, #0x4]
@@ -297,7 +297,7 @@ _020862D6:
 	add r0, r5, #0x0
 	mov r1, #0xb2
 	mov r2, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r6, #0x0
 	bl FUN_020377AC
 	ldr r1, [r4, #0xc]
@@ -359,7 +359,7 @@ _02086396:
 	ldr r0, [r4, #0xc]
 	ldr r2, [r2, #0x18]
 	mov r1, #0x77
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _020863A8:
 	ldr r0, [r4, #0x8]
 	bl FUN_02077AC4

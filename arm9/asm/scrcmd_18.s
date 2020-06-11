@@ -193,7 +193,7 @@ FUN_02044414: ; 0x02044414
 	cmp r0, #0x6
 	bhs _02044494
 	mov r0, #0xb
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r4, r0, #0x0
 	bl ZeroMonData
 	mov r0, #0x1
@@ -609,7 +609,7 @@ _020447D2:
 	pop {r4-r6, pc}
 _020447F2:
 	add r0, r5, #0x0
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
 	pop {r4-r6, pc}
@@ -659,7 +659,7 @@ _02044848:
 	cmp r0, #0x0
 	bne _02044874
 	add r0, r4, #0x0
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	ldr r1, [sp, #0x0]
 	cmp r1, r0
 	bne _02044874
@@ -804,7 +804,7 @@ _02044994:
 	add r0, r5, #0x0
 	mov r1, #0x9
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -853,7 +853,7 @@ _020449FA:
 	add r0, r5, #0x0
 	mov r1, #0x9
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -1484,7 +1484,7 @@ FUN_02044F20: ; 0x02044F20
 	strh r2, [r1, #0x0]
 	mov r1, #0x6
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	pop {r3-r5, pc}
 
@@ -1777,7 +1777,7 @@ FUN_02045170: ; 0x02045170
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	add sp, #0x4
 	pop {r3-r6, pc}

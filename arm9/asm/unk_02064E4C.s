@@ -23,7 +23,7 @@ FUN_02064E60: ; 0x02064E60
 	ldr r2, _02064E8C ; =0x0000017E
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_02034824
@@ -32,7 +32,7 @@ FUN_02064E60: ; 0x02064E60
 	add r2, r6, #0x0
 	bl FUN_02064E4C
 	add r0, r4, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4-r6, pc}
 	.balign 4
 _02064E8C: .word 0x0000017E

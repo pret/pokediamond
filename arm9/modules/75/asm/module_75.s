@@ -434,15 +434,15 @@ MOD75_021E6F00: ; 0x021E6F00
 	mov r0, #0x12
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x47
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x45
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x11
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -938,7 +938,7 @@ MOD75_021E737C: ; 0x021E737C
 	mov r1, #0x1a
 	mov r2, #7
 	mov r3, #6
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x45
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -959,7 +959,7 @@ MOD75_021E737C: ; 0x021E737C
 	mov r1, #0x1a
 	add r2, #0x40
 	mov r3, #6
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x47
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -968,7 +968,7 @@ MOD75_021E737C: ; 0x021E737C
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #6
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x12
 	lsl r1, r1, #4
 	str r0, [r4, r1]
@@ -7623,7 +7623,7 @@ MOD75_021EA7BC: ; 0x021EA7BC
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #6
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r7, _021EA7F4 ; =0x00000404
 	add r6, r0, #0
 	mov r4, #0
@@ -7640,7 +7640,7 @@ _021EA7D4:
 	cmp r4, #8
 	blo _021EA7D4
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _021EA7F4: .word 0x00000404

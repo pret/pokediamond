@@ -140,10 +140,10 @@ FUN_02060790: ; 0x02060790
 	str r5, [r4, #0x0]
 	ldr r0, [sp, #0x0]
 	str r6, [r4, #0x8]
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	str r0, [r4, #0x24]
 	ldr r0, [sp, #0x0]
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	str r0, [r4, #0x28]
 	ldr r1, _020607D0 ; =FUN_020606D0
 	add r0, r7, #0x0

@@ -3,22 +3,22 @@
 
 	.text
 
-	thumb_func_start FUN_0200A384
-FUN_0200A384: ; 0x0200A384
+	thumb_func_start LoadSingleElementFromNarc
+LoadSingleElementFromNarc: ; 0x0200A384
 	ldr r3, _0200A388 ; =AllocAndReadWholeNarcMemberByIdPair
 	bx r3
 	.balign 4
 _0200A388: .word AllocAndReadWholeNarcMemberByIdPair
 
-	thumb_func_start FUN_0200A38C
-FUN_0200A38C: ; 0x0200A38C
+	thumb_func_start FreeMsgDataRawData
+FreeMsgDataRawData: ; 0x0200A38C
 	ldr r3, _0200A390 ; =FreeToHeap
 	bx r3
 	.balign 4
 _0200A390: .word FreeToHeap
 
-	thumb_func_start FUN_0200A394
-FUN_0200A394: ; 0x0200A394
+	thumb_func_start DecryptMessageDirect
+DecryptMessageDirect: ; 0x0200A394
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r3, r0, #0x0
@@ -50,7 +50,7 @@ FUN_0200A394: ; 0x0200A394
 	add r1, r3, r2
 	add r0, r4, #0x0
 	add r2, sp, #0x0
-	bl FUN_0200A4C0
+	bl CopyEncryptedMessage16
 	ldr r2, [sp, #0x4]
 	ldr r0, _0200A410 ; =0x00091BD3
 	add r1, r7, #0x0
@@ -85,8 +85,12 @@ _0200A40C: .word 0x000002FD
 _0200A410: .word 0x00091BD3
 _0200A414: .word 0x0000493D
 
-	thumb_func_start FUN_0200A418
-FUN_0200A418: ; 0x0200A418
+	thumb_func_start DecryptMessageViaNewNarcHandle
+DecryptMessageViaNewNarcHandle: ; 0x0200A418
+	; r0: narc_id
+	; r1: ???
+	; r2: ???
+	; r3: heap_id
 	push {r4-r6, lr}
 	sub sp, #0x10
 	add r5, r1, #0x0
@@ -167,8 +171,8 @@ _0200A4B4: .word 0x000002FD
 _0200A4B8: .word 0x00091BD3
 _0200A4BC: .word 0x0000493D
 
-	thumb_func_start FUN_0200A4C0
-FUN_0200A4C0: ; 0x0200A4C0
+	thumb_func_start CopyEncryptedMessage16
+CopyEncryptedMessage16: ; 0x0200A4C0
 	add r3, r0, #0x0
 	add r0, r1, #0x0
 	add r1, r3, #0x0
@@ -636,8 +640,24 @@ FUN_0200A84C: ; 0x0200A84C
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0200A86C
-FUN_0200A86C: ; 0x0200A86C
+; struct MsgData
+; {
+; 	u16 unk0;
+; 	u16 unk2;
+; 	u16 unk4;
+; 	u16 unk6;
+; 	union {
+; 		u16 * raw;
+; 		NARC * narc;
+; 	} data;
+; };
+
+	thumb_func_start NewMsgDataFromNarc
+NewMsgDataFromNarc: ; 0x0200A86C
+	; r0: msg data type
+	; r1: NARC ID
+	; r2: File ID
+	; r3: heap_id
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r6, r1, #0x0
@@ -653,7 +673,7 @@ FUN_0200A86C: ; 0x0200A86C
 	ldr r2, [sp, #0x0]
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_0200A384
+	bl LoadSingleElementFromNarc
 	str r0, [r4, #0x8]
 	cmp r0, #0x0
 	bne _0200A8AA
@@ -676,8 +696,8 @@ _0200A8B4:
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_0200A8B8
-FUN_0200A8B8: ; 0x0200A8B8
+	thumb_func_start DestroyMsgData
+DestroyMsgData: ; 0x0200A8B8
 	push {r4, lr}
 	add r4, r0, #0x0
 	beq _0200A8DE
@@ -689,7 +709,7 @@ FUN_0200A8B8: ; 0x0200A8B8
 	b _0200A8D8
 _0200A8CA:
 	ldr r0, [r4, #0x8]
-	bl FUN_0200A38C
+	bl FreeMsgDataRawData
 	b _0200A8D8
 _0200A8D2:
 	ldr r0, [r4, #0x8]
@@ -779,8 +799,8 @@ _0200A962:
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_0200A968
-FUN_0200A968: ; 0x0200A968
+	thumb_func_start DecryptCopyString
+DecryptCopyString: ; 0x0200A968
 	push {r3-r4, lr}
 	sub sp, #0x4
 	add r4, r0, #0x0
@@ -794,7 +814,7 @@ FUN_0200A968: ; 0x0200A968
 	pop {r3-r4, pc}
 _0200A97E:
 	ldr r0, [r4, #0x8]
-	bl FUN_0200A394
+	bl DecryptMessageDirect
 	add sp, #0x4
 	pop {r3-r4, pc}
 _0200A988:
@@ -803,27 +823,30 @@ _0200A988:
 	ldrh r0, [r4, #0x4]
 	ldrh r1, [r4, #0x6]
 	ldrh r3, [r4, #0x2]
-	bl FUN_0200A418
+	bl DecryptMessageViaNewNarcHandle
 	add sp, #0x4
 	pop {r3-r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_0200A99C
-FUN_0200A99C: ; 0x0200A99C
+	thumb_func_start GetSpeciesName
+GetSpeciesName: ; 0x0200A99C
+	; r0: species
+	; r1: heap_id
+	; r2: dest
 	push {r4-r6, lr}
 	add r4, r2, #0x0
 	add r5, r0, #0x0
 	add r3, r1, #0x0
 	ldr r2, _0200A9C0 ; =0x0000016A
 	mov r0, #0x1
-	mov r1, #0x1a
-	bl FUN_0200A86C
+	mov r1, #0x1a ; NARC_MSGDATA_MSG
+	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_0200A968
+	bl DecryptCopyString
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4-r6, pc}
 	.balign 4
 _0200A9C0: .word 0x0000016A
@@ -877,7 +900,7 @@ FUN_0200AA14: ; 0x0200AA14
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
 	add r3, r5, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0x0
 	beq _0200AA4C
 	mov r0, #0x10
@@ -891,7 +914,7 @@ FUN_0200AA14: ; 0x0200AA14
 	bl FUN_0200A8E0
 _0200AA42:
 	add r0, r4, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r5, #0x0
 	pop {r4-r6, pc}
 _0200AA4C:
@@ -906,14 +929,14 @@ FUN_0200AA50: ; 0x0200AA50
 	add r3, r1, #0x0
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0x0
 	beq _0200AA76
 	add r1, r4, #0x0
 	bl FUN_0200A914
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 _0200AA76:

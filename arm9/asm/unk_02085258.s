@@ -113,13 +113,13 @@ FUN_020852E8: ; 0x020852E8
 	add r3, r1, #0x0
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0x0
 	add r1, r4, #0x0
 	bl FUN_0200A914
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -134,13 +134,13 @@ FUN_02085310: ; 0x02085310
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0x0
 	add r1, r4, #0x0
 	bl FUN_0200A914
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4

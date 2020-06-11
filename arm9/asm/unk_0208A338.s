@@ -33,7 +33,7 @@ FUN_0208A338: ; 0x0208A338
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r3, #0x20
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0x20
 	bl FUN_02013690
@@ -81,7 +81,7 @@ FUN_0208A3C8: ; 0x0208A3C8
 	ldr r0, [r4, #0xc]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0x0
 	bl FUN_0208A400
 	add r0, r4, #0x0

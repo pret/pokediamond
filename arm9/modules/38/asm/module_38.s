@@ -527,7 +527,7 @@ MOD38_02254BC4: ; 0x02254BC4
 	mov r0, #1
 	mov r1, #0x1a
 	mov r3, #8
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r1, #0xb4
 	str r0, [r1]
@@ -535,7 +535,7 @@ MOD38_02254BC4: ; 0x02254BC4
 	mov r0, #1
 	mov r1, #0x1a
 	mov r3, #8
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r1, #0xb8
 	str r0, [r1]
@@ -675,11 +675,11 @@ MOD38_02254D04: ; 0x02254D04
 	add r0, r4, #0
 	add r0, #0xb4
 	ldr r0, [r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0
 	add r0, #0xb8
 	ldr r0, [r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0
 	bl MOD38_02254CC4
 	add r0, r4, #0

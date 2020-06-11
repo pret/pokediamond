@@ -2825,7 +2825,7 @@ MOD73_021D8BDC: ; 0x021D8BDC
 	ldr r3, [r5]
 	mov r0, #0
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r1, _021D8CE4 ; =0x00001574
 	str r0, [r5, r1]
 	ldr r2, [r5]
@@ -3019,7 +3019,7 @@ _021D8D92:
 	bl FUN_0200AB18
 	ldr r0, _021D8DF0 ; =0x00001574
 	ldr r0, [r6, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021D8DBC: .word 0x000015A8

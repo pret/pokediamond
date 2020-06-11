@@ -33,7 +33,7 @@ FUN_02014518: ; 0x02014518
 	mov r0, #0x0
 	mov r1, #0x1a
 	add r3, r7, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r6, #0x0]
 	mov r4, #0x0
 	add r5, r6, #0x0
@@ -69,7 +69,7 @@ _0201456E:
 	sub r4, r4, #0x1
 	bpl _0201456E
 	ldr r0, [r6, #0x0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r6, #0x0
 	bl FreeToHeap
 	pop {r4-r6, pc}

@@ -242,7 +242,7 @@ FUN_0200AC0C: ; 0x0200AC0C
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	bl FUN_020239CC
@@ -265,7 +265,7 @@ _0200AC48:
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r4, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r3-r7, pc}
 	.balign 4
 _0200AC5C: .word 0x000001F1
@@ -280,12 +280,12 @@ FUN_0200AC60: ; 0x0200AC60
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, r0, #0x0
 	ldr r2, [r5, #0xc]
 	add r0, r4, #0x0
@@ -296,7 +296,7 @@ FUN_0200AC60: ; 0x0200AC60
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r4, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r3-r7, pc}
 	nop
 _0200ACA0: .word 0x0000016A
@@ -309,7 +309,7 @@ FUN_0200ACA4: ; 0x0200ACA4
 	add r0, r2, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -326,7 +326,7 @@ FUN_0200ACC0: ; 0x0200ACC0
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r2, [r5, #0xc]
 	add r1, r6, #0x0
 	add r7, r0, #0x0
@@ -337,7 +337,7 @@ FUN_0200ACC0: ; 0x0200ACC0
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r3-r7, pc}
 	nop
 _0200ACF4: .word 0x0000016B
@@ -350,7 +350,7 @@ FUN_0200ACF8: ; 0x0200ACF8
 	add r4, r1, #0x0
 	ldr r2, [r5, #0xc]
 	mov r1, #0x76
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -367,7 +367,7 @@ FUN_0200AD18: ; 0x0200AD18
 	add r4, r1, #0x0
 	ldr r2, [r5, #0xc]
 	mov r1, #0x90
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -406,7 +406,7 @@ FUN_0200AD5C: ; 0x0200AD5C
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AD90
 	ldr r2, [r5, #0xc]
@@ -418,7 +418,7 @@ FUN_0200AD5C: ; 0x0200AD5C
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AD90:
 	pop {r3-r7, pc}
 	.balign 4
@@ -434,7 +434,7 @@ FUN_0200AD94: ; 0x0200AD94
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200ADC8
 	ldr r2, [r5, #0xc]
@@ -446,7 +446,7 @@ FUN_0200AD94: ; 0x0200AD94
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200ADC8:
 	pop {r3-r7, pc}
 	.balign 4
@@ -462,7 +462,7 @@ FUN_0200ADCC: ; 0x0200ADCC
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AE00
 	ldr r2, [r5, #0xc]
@@ -474,7 +474,7 @@ FUN_0200ADCC: ; 0x0200ADCC
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AE00:
 	pop {r3-r7, pc}
 	.balign 4
@@ -489,7 +489,7 @@ FUN_0200AE04: ; 0x0200AE04
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xbe
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r2, [r5, #0xc]
 	add r1, r6, #0x0
 	add r7, r0, #0x0
@@ -500,7 +500,7 @@ FUN_0200AE04: ; 0x0200AE04
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -515,7 +515,7 @@ FUN_0200AE38: ; 0x0200AE38
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AE6C
 	ldr r2, [r5, #0xc]
@@ -527,7 +527,7 @@ FUN_0200AE38: ; 0x0200AE38
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AE6C:
 	pop {r3-r7, pc}
 	.balign 4
@@ -542,7 +542,7 @@ FUN_0200AE70: ; 0x0200AE70
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AEA2
 	ldr r2, [r5, #0xc]
@@ -554,7 +554,7 @@ FUN_0200AE70: ; 0x0200AE70
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AEA2:
 	pop {r3-r7, pc}
 	.balign 4
@@ -570,7 +570,7 @@ FUN_0200AEA8: ; 0x0200AEA8
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AEDA
 	ldr r2, [r5, #0xc]
@@ -582,7 +582,7 @@ FUN_0200AEA8: ; 0x0200AEA8
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AEDA:
 	pop {r3-r7, pc}
 	.balign 4
@@ -598,7 +598,7 @@ FUN_0200AEE0: ; 0x0200AEE0
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AF12
 	ldr r2, [r5, #0xc]
@@ -610,7 +610,7 @@ FUN_0200AEE0: ; 0x0200AEE0
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AF12:
 	pop {r3-r7, pc}
 	.balign 4
@@ -626,7 +626,7 @@ FUN_0200AF18: ; 0x0200AF18
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AF4A
 	ldr r2, [r5, #0xc]
@@ -638,7 +638,7 @@ FUN_0200AF18: ; 0x0200AF18
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AF4A:
 	pop {r3-r7, pc}
 	.balign 4
@@ -654,7 +654,7 @@ FUN_0200AF50: ; 0x0200AF50
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AF82
 	ldr r2, [r5, #0xc]
@@ -666,7 +666,7 @@ FUN_0200AF50: ; 0x0200AF50
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AF82:
 	pop {r3-r7, pc}
 	.balign 4
@@ -682,7 +682,7 @@ FUN_0200AF88: ; 0x0200AF88
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xcd
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AFBA
 	ldr r2, [r5, #0xc]
@@ -694,7 +694,7 @@ FUN_0200AF88: ; 0x0200AF88
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AFBA:
 	pop {r3-r7, pc}
 
@@ -709,7 +709,7 @@ FUN_0200AFBC: ; 0x0200AFBC
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200AFF0
 	ldr r2, [r5, #0xc]
@@ -721,7 +721,7 @@ FUN_0200AFBC: ; 0x0200AFBC
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200AFF0:
 	pop {r3-r7, pc}
 	.balign 4
@@ -736,7 +736,7 @@ FUN_0200AFF4: ; 0x0200AFF4
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B026
 	ldr r2, [r5, #0xc]
@@ -748,7 +748,7 @@ FUN_0200AFF4: ; 0x0200AFF4
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B026:
 	pop {r3-r7, pc}
 	.balign 4
@@ -764,7 +764,7 @@ FUN_0200B02C: ; 0x0200B02C
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B05E
 	ldr r2, [r5, #0xc]
@@ -776,7 +776,7 @@ FUN_0200B02C: ; 0x0200B02C
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B05E:
 	pop {r3-r7, pc}
 	.balign 4
@@ -793,7 +793,7 @@ FUN_0200B064: ; 0x0200B064
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B098
 	ldr r2, [r5, #0xc]
@@ -805,7 +805,7 @@ FUN_0200B064: ; 0x0200B064
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B098:
 	pop {r3-r7, pc}
 	.balign 4
@@ -820,7 +820,7 @@ FUN_0200B09C: ; 0x0200B09C
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B0CE
 	ldr r2, [r5, #0xc]
@@ -832,7 +832,7 @@ FUN_0200B09C: ; 0x0200B09C
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B0CE:
 	pop {r3-r7, pc}
 	.balign 4
@@ -849,7 +849,7 @@ FUN_0200B0D4: ; 0x0200B0D4
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B108
 	ldrb r1, [r4, #0x1]
@@ -861,7 +861,7 @@ FUN_0200B0D4: ; 0x0200B0D4
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B108:
 	pop {r3-r7, pc}
 	.balign 4
@@ -876,7 +876,7 @@ FUN_0200B10C: ; 0x0200B10C
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B13E
 	ldr r2, [r5, #0xc]
@@ -888,7 +888,7 @@ FUN_0200B10C: ; 0x0200B10C
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B13E:
 	pop {r3-r7, pc}
 	.balign 4
@@ -921,7 +921,7 @@ FUN_0200B164: ; 0x0200B164
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B196
 	ldr r2, [r5, #0xc]
@@ -933,7 +933,7 @@ FUN_0200B164: ; 0x0200B164
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B196:
 	pop {r3-r7, pc}
 	.balign 4
@@ -949,7 +949,7 @@ FUN_0200B19C: ; 0x0200B19C
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B1CE
 	ldr r2, [r5, #0xc]
@@ -961,7 +961,7 @@ FUN_0200B19C: ; 0x0200B19C
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B1CE:
 	pop {r3-r7, pc}
 	.balign 4
@@ -977,7 +977,7 @@ FUN_0200B1D4: ; 0x0200B1D4
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B206
 	ldr r2, [r5, #0xc]
@@ -989,7 +989,7 @@ FUN_0200B1D4: ; 0x0200B1D4
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B206:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1006,7 +1006,7 @@ FUN_0200B20C: ; 0x0200B20C
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B240
 	ldr r2, [r5, #0xc]
@@ -1018,7 +1018,7 @@ FUN_0200B20C: ; 0x0200B20C
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B240:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1033,7 +1033,7 @@ FUN_0200B244: ; 0x0200B244
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xc2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B276
 	ldr r2, [r5, #0xc]
@@ -1045,7 +1045,7 @@ FUN_0200B244: ; 0x0200B244
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B276:
 	pop {r3-r7, pc}
 
@@ -1059,7 +1059,7 @@ FUN_0200B278: ; 0x0200B278
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xbf
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B2AA
 	ldr r2, [r5, #0xc]
@@ -1071,7 +1071,7 @@ FUN_0200B278: ; 0x0200B278
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B2AA:
 	pop {r3-r7, pc}
 
@@ -1085,7 +1085,7 @@ FUN_0200B2AC: ; 0x0200B2AC
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xbf
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B2DE
 	ldr r2, [r5, #0xc]
@@ -1097,7 +1097,7 @@ FUN_0200B2AC: ; 0x0200B2AC
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B2DE:
 	pop {r3-r7, pc}
 
@@ -1111,7 +1111,7 @@ FUN_0200B2E0: ; 0x0200B2E0
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B312
 	ldr r2, [r5, #0xc]
@@ -1123,7 +1123,7 @@ FUN_0200B2E0: ; 0x0200B2E0
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B312:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1139,7 +1139,7 @@ FUN_0200B318: ; 0x0200B318
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B34A
 	ldr r2, [r5, #0xc]
@@ -1151,7 +1151,7 @@ FUN_0200B318: ; 0x0200B318
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B34A:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1167,7 +1167,7 @@ FUN_0200B350: ; 0x0200B350
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B382
 	ldr r2, [r5, #0xc]
@@ -1179,7 +1179,7 @@ FUN_0200B350: ; 0x0200B350
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B382:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1196,7 +1196,7 @@ FUN_0200B388: ; 0x0200B388
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B3BC
 	ldr r2, [r5, #0xc]
@@ -1208,7 +1208,7 @@ FUN_0200B388: ; 0x0200B388
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B3BC:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1223,7 +1223,7 @@ FUN_0200B3C0: ; 0x0200B3C0
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xc7
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	cmp r4, #0x0
 	beq _0200B3E0
@@ -1250,7 +1250,7 @@ _0200B3FA:
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r3-r7, pc}
 	.balign 4
 
@@ -1281,7 +1281,7 @@ FUN_0200B430: ; 0x0200B430
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B462
 	ldr r2, [r5, #0xc]
@@ -1293,7 +1293,7 @@ FUN_0200B430: ; 0x0200B430
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B462:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1309,7 +1309,7 @@ FUN_0200B468: ; 0x0200B468
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B49A
 	ldr r2, [r5, #0xc]
@@ -1321,7 +1321,7 @@ FUN_0200B468: ; 0x0200B468
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B49A:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1338,7 +1338,7 @@ FUN_0200B4A0: ; 0x0200B4A0
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B4D4
 	ldr r2, [r5, #0xc]
@@ -1350,7 +1350,7 @@ FUN_0200B4A0: ; 0x0200B4A0
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B4D4:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1370,7 +1370,7 @@ FUN_0200B4D8: ; 0x0200B4D8
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B516
 	ldr r2, [r5, #0xc]
@@ -1382,7 +1382,7 @@ FUN_0200B4D8: ; 0x0200B4D8
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B516:
 	pop {r3-r7, pc}
 
@@ -1411,7 +1411,7 @@ FUN_0200B534: ; 0x0200B534
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xa
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B566
 	ldr r2, [r5, #0xc]
@@ -1423,7 +1423,7 @@ FUN_0200B534: ; 0x0200B534
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B566:
 	pop {r3-r7, pc}
 
@@ -1437,7 +1437,7 @@ FUN_0200B568: ; 0x0200B568
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xb
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B59A
 	ldr r2, [r5, #0xc]
@@ -1449,7 +1449,7 @@ FUN_0200B568: ; 0x0200B568
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B59A:
 	pop {r3-r7, pc}
 
@@ -1471,7 +1471,7 @@ FUN_0200B59C: ; 0x0200B59C
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	beq _0200B61E
 	bl FUN_0200A940
@@ -1487,16 +1487,16 @@ FUN_0200B59C: ; 0x0200B59C
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r3-r7, pc}
 _0200B5EE:
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r2, _0200B624 ; =0x0000017E
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0x0
 	beq _0200B61E
 	ldr r2, [r5, #0xc]
@@ -1508,7 +1508,7 @@ _0200B5EE:
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r4, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B61E:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1525,7 +1525,7 @@ FUN_0200B628: ; 0x0200B628
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B65A
 	ldr r2, [r5, #0xc]
@@ -1537,7 +1537,7 @@ FUN_0200B628: ; 0x0200B628
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B65A:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1553,7 +1553,7 @@ FUN_0200B660: ; 0x0200B660
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B692
 	ldr r2, [r5, #0xc]
@@ -1565,7 +1565,7 @@ FUN_0200B660: ; 0x0200B660
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B692:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1581,7 +1581,7 @@ FUN_0200B698: ; 0x0200B698
 	ldr r3, [r5, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B6CA
 	ldr r2, [r5, #0xc]
@@ -1593,7 +1593,7 @@ FUN_0200B698: ; 0x0200B698
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B6CA:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1610,7 +1610,7 @@ FUN_0200B6D0: ; 0x0200B6D0
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	beq _0200B704
 	ldr r2, [r5, #0xc]
@@ -1622,7 +1622,7 @@ FUN_0200B6D0: ; 0x0200B6D0
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B704:
 	pop {r3-r7, pc}
 	.balign 4
@@ -1679,7 +1679,7 @@ FUN_0200B764: ; 0x0200B764
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	beq _0200B7A4
 	cmp r4, #0x1
@@ -1699,7 +1699,7 @@ _0200B788:
 	mov r3, #0x0
 	bl FUN_0200AB70
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0200B7A4:
 	pop {r3-r7, pc}
 	.balign 4

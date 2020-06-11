@@ -921,7 +921,7 @@ FUN_02062C80: ; 0x02062C80
 	ldr r3, [r5, #0x0]
 	mov r0, #0x0
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r5, #0x2c]
 	ldr r2, [r5, #0x0]
 	mov r0, #0x2
@@ -1054,7 +1054,7 @@ _02062D84:
 	ldr r0, [r6, #0x30]
 	bl FUN_0200AB18
 	ldr r0, [r6, #0x2c]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4-r6, pc}
 
 	thumb_func_start FUN_02062DB0

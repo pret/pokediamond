@@ -1536,7 +1536,7 @@ FUN_0207E190: ; 0x0207E190
 	cmp r1, #0x2
 	bne _0207E1E8
 	mov r0, #0x13
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0
@@ -1782,7 +1782,7 @@ FUN_0207E200: ; 0x0207E200
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r3, #0x13
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r1, _0207E490 ; =0x00000282
 	mov r2, #0x1a
 	lsl r2, r2, #0x6
@@ -1791,7 +1791,7 @@ FUN_0207E200: ; 0x0207E200
 	add r5, r0, #0x0
 	bl FUN_0200A8E0
 	add r0, r5, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r1, #0x91
 	lsl r1, r1, #0x2
 	ldr r1, [r4, r1]
@@ -2733,7 +2733,7 @@ _0207EC1C:
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r3, #0x13
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #0x1a
 	lsl r2, r2, #0x6
 	ldr r2, [r5, r2]
@@ -2749,7 +2749,7 @@ _0207EC1C:
 	mov r3, #0x0
 	bl FUN_0207D998
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
@@ -2987,7 +2987,7 @@ FUN_0207EE2C: ; 0x0207EE2C
 	mov r1, #0x1a
 	mov r2, #0xc5
 	mov r3, #0x13
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #0x1a
 	lsl r2, r2, #0x6
 	ldr r2, [r5, r2]
@@ -3011,7 +3011,7 @@ FUN_0207EE2C: ; 0x0207EE2C
 	add r3, r1, #0x0
 	bl FUN_0201BDE0
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x75
 	lsl r0, r0, #0x2
 	add r0, r5, r0

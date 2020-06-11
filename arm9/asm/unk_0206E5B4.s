@@ -538,13 +538,13 @@ FUN_0206E768: ; 0x0206E768
 	mov r0, #0x1
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	add r1, r4, #0x0
 	add r2, r5, #0x0
 	bl FUN_0200A8E0
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4-r6, pc}
 	.balign 4
 
@@ -557,13 +557,13 @@ FUN_0206E790: ; 0x0206E790
 	ldr r2, _0206E7B4 ; =0x00000157
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	add r1, r4, #0x0
 	add r2, r5, #0x0
 	bl FUN_0200A8E0
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4-r6, pc}
 	.balign 4
 _0206E7B4: .word 0x00000157

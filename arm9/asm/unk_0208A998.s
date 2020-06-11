@@ -172,7 +172,7 @@ _0208A9C6:
 	mov r1, #0x1a
 	mov r2, #0xc8
 	mov r3, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0xc]
 	mov r0, #0x6
 	lsl r0, r0, #0x6
@@ -264,7 +264,7 @@ _0208AB9C:
 	add r0, sp, #0x14
 	bl FUN_02019178
 	ldr r0, [sp, #0xc]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [sp, #0x10]
 	bl FreeToHeap
 	mov r0, #0x0

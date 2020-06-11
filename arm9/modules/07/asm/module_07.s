@@ -3758,7 +3758,7 @@ _02213CEA:
 	ldr r0, _02213D28 ; =0x00000222
 	strb r1, [r7, r0]
 	add r0, r4, #0
-	bl FUN_020689E0
+	bl GetMonGenderEncrypted
 	ldr r1, _02213D2C ; =0x00000221
 	strb r0, [r5, r1]
 	add r0, r4, #0
@@ -4965,7 +4965,7 @@ MOD07_0221469C: ; 0x0221469C
 	ldr r3, [r3, #0x24]
 	mov r0, #0
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r3, [r6]
 	str r0, [sp, #0x10]
 	ldr r3, [r3, #0x24]
@@ -5006,7 +5006,7 @@ _022146F6:
 	add r0, r7, #0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
 	bl FUN_0200B990
 	ldr r0, [sp, #8]
