@@ -2,46 +2,6 @@
 	.include "global.inc"
 	.section .bss
 
-	.global _0380912C
-_0380912C: ;0x0380912C
-	.space 0x03809140 - 0x0380912C
-
-	.global cardi_common
-cardi_common: ;0x03809140
-	.space 0x03809188 - 0x03809140
-
-	.global _03809188
-_03809188: ;0x03809188
-	.space 0x03809760 - 0x03809188
-
-	.global _03809760
-_03809760: ;0x03809760
-	.space 0x03809764 - 0x03809760
-
-	.global _03809764
-_03809764: ;0x03809764
-	.space 0x03809774 - 0x03809764
-
-	.global cardi_rom_base
-cardi_rom_base: ;0x03809774
-	.space 0x03809780 - 0x03809774
-
-	.global rom_stat
-rom_stat: ;0x03809780
-	.space 0x038099A0 - 0x03809780
-
-	.global _038099A0
-_038099A0: ;0x038099A0
-	.space 0x038099A4 - 0x038099A0
-
-	.global _038099A4
-_038099A4: ;0x038099A4
-	.space 0x038099A8 - 0x038099A4
-
-	.global _038099A8
-_038099A8: ;0x038099A8
-	.space 0x038099AC - 0x038099A8
-
 	.global _038099AC
 _038099AC: ;0x038099AC
 	.space 0x038099B0 - 0x038099AC
