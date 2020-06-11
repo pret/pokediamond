@@ -430,7 +430,7 @@ _020772FE:
 	mov r1, #0x1a
 	add r2, #0xb
 	mov r3, #0x12
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #0x5b
 	lsl r2, r2, #0x2
 	str r0, [r4, r2]
@@ -438,7 +438,7 @@ _020772FE:
 	mov r1, #0x1a
 	add r2, #0xc
 	mov r3, #0x12
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #0x17
 	lsl r2, r2, #0x4
 	str r0, [r4, r2]
@@ -446,7 +446,7 @@ _020772FE:
 	mov r1, #0x1a
 	sub r2, #0x2c
 	mov r3, #0x12
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x5d
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -1228,15 +1228,15 @@ _02077A0C:
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x5b
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x5a
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]

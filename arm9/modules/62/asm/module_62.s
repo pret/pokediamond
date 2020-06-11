@@ -1157,7 +1157,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	mov r1, #0x1a
 	mov r2, #8
 	mov r3, #0x35
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #5
 	str r0, [sp, #0x14]
 	bl FUN_0200A914
@@ -1247,7 +1247,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	ldr r0, [sp, #0x18]
 	bl FUN_02021A20
 	ldr r0, [sp, #0x14]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, sp, #0x1c
 	bl FUN_02019178
 	add sp, #0x5c
@@ -1977,7 +1977,7 @@ _0222E442:
 	mov r1, #0x1a
 	mov r2, #8
 	mov r3, #0x35
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r6, #0
 	str r0, [sp, #0x20]
 	cmp r7, #0
@@ -2010,7 +2010,7 @@ _0222E49A:
 	blt _0222E49A
 _0222E4D0:
 	ldr r0, [sp, #0x20]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r1, #0x67
 	ldr r0, [sp, #0x1c]
 	lsl r1, r1, #2
@@ -3272,7 +3272,7 @@ _0222EE96:
 	mov r1, #0x1a
 	mov r2, #8
 	mov r3, #0x35
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r5, #0
 	add r6, r0, #0
 	bl FUN_0200A914
@@ -3293,7 +3293,7 @@ _0222EE96:
 	add r0, r5, #0
 	bl FUN_02021A20
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0
@@ -3714,7 +3714,7 @@ _0222F226:
 	mov r1, #0x1a
 	mov r2, #0xa
 	mov r3, #0x35
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r5, #0
 	add r6, r0, #0
 	bl FUN_0200A914
@@ -3735,7 +3735,7 @@ _0222F226:
 	add r0, r5, #0
 	bl FUN_02021A20
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	.align 2, 0

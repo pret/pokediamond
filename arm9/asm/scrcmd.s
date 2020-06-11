@@ -938,14 +938,14 @@ FUN_0203A04C: ; 0x0203A04C
 	mov r1, #0x1a
 	add r2, r5, #0x0
 	mov r3, #0x20
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	add r2, r6, #0x0
 	bl MOD05_021E2C24
 	add r0, r5, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x0
 	pop {r4-r6, pc}
 
@@ -973,7 +973,7 @@ FUN_0203A098: ; 0x0203A098
 	mov r1, #0x1a
 	add r2, r5, #0x0
 	mov r3, #0x20
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -983,7 +983,7 @@ FUN_0203A098: ; 0x0203A098
 	mov r3, #0x1
 	bl MOD05_021E2BD0
 	add r0, r5, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r1, _0203A0F8 ; =FUN_0203A2F0
 	add r0, r4, #0x0
 	bl SetupNativeScript
@@ -1090,7 +1090,7 @@ _0203A1AA:
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r3, #0x20
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -1100,7 +1100,7 @@ _0203A1AA:
 	mov r3, #0x1
 	bl MOD05_021E2BD0
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	b _0203A1F4
 _0203A1E2:
 	mov r2, #0x6
@@ -12179,7 +12179,7 @@ FUN_0203FA58: ; 0x0203FA58
 	mov r0, #0x0
 	mov r1, #0x1a
 	mov r3, #0x20
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0x0
 	ldr r2, [sp, #0x4]
 	add r0, r4, #0x0
@@ -12223,7 +12223,7 @@ _0203FB26:
 	ldr r0, [sp, #0x0]
 	bl FUN_02021A20
 	add r0, r5, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0x0
 	bl FUN_0200AB18
 	mov r0, #0x0

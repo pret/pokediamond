@@ -26,7 +26,7 @@ FUN_0206ABC4: ; 0x0206ABC4
 	ldr r3, [sp, #0x4]
 	mov r0, #0x1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x10]
 	add r0, r4, #0x0
 	bl FUN_02024EC0
@@ -94,7 +94,7 @@ _0206AC48:
 	ldr r0, [sp, #0x0]
 	str r1, [r0, #0x0]
 	ldr r0, [sp, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add sp, #0x48
 	pop {r3-r7, pc}
 	nop

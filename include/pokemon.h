@@ -62,9 +62,53 @@
 // TODO: ribbon flags through 109
 #define MON_DATA_FATEFUL_ENCOUNTER  110
 #define MON_DATA_GENDER             111
+#define MON_DATA_FORME              112
+#define MON_DATA_RESERVED_113       113 // HGSS
+#define MON_DATA_RESERVED_114       114 // Plat
+#define MON_DATA_UNUSED_115         115
+#define MON_DATA_NICKNAME           116
+#define MON_DATA_UNUSED_117         117
+#define MON_DATA_NICKNAME_2         118 // ???
+#define MON_DATA_NICKNAME_3         119 // ???
+#define MON_DATA_UNK_120            120
 #define MON_DATA_GAME_VERSION       121
-#define MON_TYPE_1                  176
-#define MON_TYPE_2                  177
+// TODO: ribbon flags 122-142
+#define MON_DATA_OT_NAME            143
+#define MON_DATA_OT_NAME_2          144 // ???
+#define MON_DATA_EGG_MET_YEAR       145
+#define MON_DATA_EGG_MET_MONTH      146
+#define MON_DATA_EGG_MET_DAY        147
+#define MON_DATA_MET_YEAR           148
+#define MON_DATA_MET_MONTH          149
+#define MON_DATA_MET_DAY            150
+#define MON_DATA_EGG_MET_LOCATION   151
+#define MON_DATA_MET_LOCATION       152
+#define MON_DATA_POKERUS            153
+#define MON_DATA_POKEBALL           154
+#define MON_DATA_MET_LEVEL          155
+#define MON_DATA_MET_GENDER         156
+#define MON_DATA_ENCOUNTER_TYPE     157
+#define MON_DATA_RESERVED_158       158 // HGSS
+#define MON_DATA_STATUS             159
+#define MON_DATA_LEVEL              160
+#define MON_DATA_CAPSULE            161
+#define MON_DATA_HP                 162
+#define MON_DATA_MAXHP              163
+#define MON_DATA_ATK                164
+#define MON_DATA_DEF                165
+#define MON_DATA_SPEED              166
+#define MON_DATA_SPATK              167
+#define MON_DATA_SPDEF              168
+#define MON_DATA_SEAL_TYPES_MAYBE   169
+#define MON_DATA_SEAL_COORDS        170
+#define MON_DATA_SPECIES_EXISTS     171
+#define MON_DATA_SANITY_CHECK_172   172
+#define MON_DATA_SANITY_CHECK_173   173
+#define MON_DATA_IVS_WORD           174
+#define MON_DATA_IS_FEMALE          175
+#define MON_DATA_TYPE_1             176
+#define MON_DATA_TYPE_2             177
+#define MON_DATA_SPECIES_NAME       178
 
 // TODO: Identify the rest of these
 enum BaseStat {
@@ -226,28 +270,28 @@ typedef enum {
 // Structs
 
 typedef struct {
-    u16 species;
-    u16 heldItem;
-    u32 otID; // low 16: visible; high 16: secret
-    u32 exp;
-    u8 friendship;
-    u8 ability;
-    u8 markings; // circle, triangle, square, heart, star, diamond
-    u8 originLanguage;
-    u8 hpEV;
-    u8 atkEV;
-    u8 defEV;
-    u8 spdEV;
-    u8 spatkEV;
-    u8 spdefEV;
-    u8 coolStat;
-    u8 beautyStat;
-    u8 cuteStat;
-    u8 smartStat;
-    u8 toughStat;
-    u8 sheen;
+    /* 0x00 */ u16 species;
+    /* 0x02 */ u16 heldItem;
+    /* 0x04 */ u32 otID; // low 16: visible; high 16: secret
+    /* 0x08 */ u32 exp;
+    /* 0x0C */ u8 friendship;
+    /* 0x0D */ u8 ability;
+    /* 0x0E */ u8 markings; // circle, triangle, square, heart, star, diamond
+    /* 0x0F */ u8 originLanguage;
+    /* 0x10 */ u8 hpEV;
+    /* 0x11 */ u8 atkEV;
+    /* 0x12 */ u8 defEV;
+    /* 0x13 */ u8 spdEV;
+    /* 0x14 */ u8 spatkEV;
+    /* 0x15 */ u8 spdefEV;
+    /* 0x16 */ u8 coolStat;
+    /* 0x17 */ u8 beautyStat;
+    /* 0x18 */ u8 cuteStat;
+    /* 0x19 */ u8 smartStat;
+    /* 0x1A */ u8 toughStat;
+    /* 0x1B */ u8 sheen;
     // TODO: Finish SinnohRibbonSet1
-    u32 sinnohRibbons;
+    /* 0x1C */ u32 sinnohRibbons;
 //    u8 sinnohChampRibbon:1, abilityRibbon:1;
 //    u8 field_0x1d;
 //    u8 gorgeousRoyalRibbon:1, footprintRibbon:1;
@@ -255,45 +299,38 @@ typedef struct {
 } PokemonDataBlockA;
 
 typedef struct {
-    u16 moves[4];
-    u8 movePP[4];
-    u8 movePpUps[4];
-    u32 hpIV:5, atkIV:5, defIV:5, spdIV:5, spatkIV:5, spdefIV:5, isEgg:1, isNicknamed:1;
+    /* 0x00 */ u16 moves[4];
+    /* 0x08 */ u8 movePP[4];
+    /* 0x0C */ u8 movePpUps[4];
+    /* 0x10 */ u32 hpIV:5, atkIV:5, defIV:5, spdIV:5, spatkIV:5, spdefIV:5, isEgg:1, isNicknamed:1;
     // TODO: Finish HoennRibbonSet
-    u32 ribbonFlags; // cool, ...
-    u8 fatefulEncounter:1, female:1, genderless:1, alternateForm:5;
-    u8 HGSS_shinyLeaves; // TODO: Turn into bitfield
-    u16 Unused;
-    u16 Platinum_EggLocation;
-    u16 Platinum_MetLocation;
+    /* 0x14 */ u32 ribbonFlags; // cool, ...
+    /* 0x18 */ u8 fatefulEncounter:1, female:1, genderless:1, alternateForm:5;
+    /* 0x19 */ u8 HGSS_shinyLeaves; // TODO: Turn into bitfield
+    /* 0x1A */ u16 Unused;
+    /* 0x1C */ u16 Platinum_EggLocation;
+    /* 0x1E */ u16 Platinum_MetLocation;
 } PokemonDataBlockB;
 
 typedef struct {
-    u16 nickname[11];
-    u8 Unused;
-    u8 originGame;
+    /* 0x00 */ u16 nickname[11];
+    /* 0x1A */ u8 Unused;
+    /* 0x1B */ u8 originGame;
     // TODO: Finish SinnohRibbonSet2
-    u8 coolRibbon:1;
-    u8 field_0x19;
-    u8 field_0x1a;
-    u8 field_0x1b;
-    u32 Unused2;
+    /* 0x1C */ u32 sinnohRibbons2; // cool, ...
 } PokemonDataBlockC;
 
 typedef struct {
-    u16 otTrainerName[8];
-    u8 dateEggReceived[3];
-    u8 dateMet[3];
-    u16 DP_EggLocation;
-    u16 DP_MetLocation;
-    u8 pokerus;
-    u8 pokeball;
-    u8 flags;
-    u8 padding[3];
-    EncounterType encounterType;
-    u8 HGSS_Pokeball;
-    u8 HGSS_Performance;
-    u8 padding2[2];
+    /* 0x00 */ u16 otTrainerName[8];
+    /* 0x10 */ u8 dateEggReceived[3];
+    /* 0x13 */ u8 dateMet[3];
+    /* 0x16 */ u16 DP_EggLocation;
+    /* 0x18 */ u16 DP_MetLocation;
+    /* 0x1A */ u8 pokerus;
+    /* 0x1B */ u8 pokeball;
+    /* 0x1C */ u8 flags;
+    /* 0x1D */ u8 encounterType;
+    /* 0x1E */ u16 HGSS_Pokeball;
 } PokemonDataBlockD;
 
 typedef union {
@@ -333,8 +370,8 @@ struct PartyPokemon
     /* 0x096 */ u16 speed;
     /* 0x098 */ u16 spatk;
     /* 0x09A */ u16 spdef;
-    /* 0x09C */ u8 filler9C[0x38];
-    /* 0x0D4 */ u8 sealCoords[0x18];
+    /* 0x09C */ u8 seal_something[0x38]; // a struct?
+    /* 0x0D4 */ u8 sealCoords[0x18];     // u8 pairs?
 };
 
 struct Pokemon {

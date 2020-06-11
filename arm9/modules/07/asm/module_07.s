@@ -4965,7 +4965,7 @@ MOD07_0221469C: ; 0x0221469C
 	ldr r3, [r3, #0x24]
 	mov r0, #0
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r3, [r6]
 	str r0, [sp, #0x10]
 	ldr r3, [r3, #0x24]
@@ -5006,7 +5006,7 @@ _022146F6:
 	add r0, r7, #0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [sp, #0xc]
 	bl FUN_0200B990
 	ldr r0, [sp, #8]

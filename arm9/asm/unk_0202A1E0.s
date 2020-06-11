@@ -897,7 +897,7 @@ FUN_0202A798: ; 0x0202A798
 	mov r1, #0x1a
 	mov r2, #0x11
 	mov r3, #0xb
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r5, r4
 	add r1, #0xc8
 	ldrb r1, [r1, #0x0]
@@ -907,9 +907,9 @@ FUN_0202A798: ; 0x0202A798
 	lsr r1, r1, #0x1f
 	add r1, #0x16
 	add r2, #0x8
-	bl FUN_0200A968
+	bl DecryptCopyString
 	ldr r0, [sp, #0x0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	b _0202A7FC
 _0202A7EE:
 	add r0, r5, r4

@@ -798,7 +798,7 @@ _02082D9A:
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xc0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldrh r1, [r7, #0x16]
 	add r4, r0, #0x0
 	bl FUN_0200A914
@@ -820,7 +820,7 @@ _02082D9A:
 	ldr r0, [sp, #0x14]
 	bl FUN_02021A20
 	add r0, r4, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r2, sp, #0x1c
 	ldrb r1, [r7, #0x1a]
 	add r0, sp, #0x18

@@ -196,7 +196,7 @@ FUN_02047814: ; 0x02047814
 	mov r0, #0x1
 	mov r1, #0x1a
 	add r3, r6, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x18]
 	mov r0, #0x8
 	add r1, r6, #0x0
@@ -220,7 +220,7 @@ FUN_02047814: ; 0x02047814
 	add r0, r7, #0x0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x18]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [sp, #0x10]
 	bl FUN_020239CC
 	add r2, r0, #0x0

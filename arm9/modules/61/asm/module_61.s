@@ -881,7 +881,7 @@ MOD61_021D7B84: ; 0x021D7B84
 	add r0, #0x24
 	beq _021D7B98
 	ldr r0, [r4, #0x20]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _021D7B98:
 	add r0, r4, #0
 	bl MOD61_021D80F4
@@ -1575,7 +1575,7 @@ _021D8164:
 	ldr r3, [r4]
 	mov r0, #1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x20]
 	ldr r1, [r4]
 	mov r0, #0x10

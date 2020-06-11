@@ -429,7 +429,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0x3d
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #6
 	lsl r2, r2, #6
 	str r0, [r4, r2]
@@ -437,7 +437,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	mov r1, #0x1a
 	sub r2, #0x16
 	mov r3, #0x3d
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #0x61
 	lsl r2, r2, #2
 	str r0, [r4, r2]
@@ -445,7 +445,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	mov r1, #0x1a
 	add r2, #0xc8
 	mov r3, #0x3d
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x62
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -513,15 +513,15 @@ MOD70_021D78A0: ; 0x021D78A0
 	mov r0, #0x62
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x61
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x34]
 	bl FUN_0201FD58
 	bl FUN_02009FA0

@@ -568,7 +568,7 @@ MOD55_021D7994: ; 0x021D7994
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0x34
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r6, #0x10]
 	mov r4, #0
 	add r5, r6, #0
@@ -640,7 +640,7 @@ MOD55_021D7A38: ; 0x021D7A38
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
 	ldr r0, [r6, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r6, #0xc]
 	bl FUN_0200AB18
 	mov r4, #0

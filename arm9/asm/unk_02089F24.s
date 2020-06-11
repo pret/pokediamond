@@ -121,7 +121,7 @@ FUN_02089F24: ; 0x02089F24
 	mov r1, #0x1a
 	mov r2, #0x5
 	add r3, r4, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	mov r0, #0x6
 	lsl r0, r0, #0x6
@@ -290,7 +290,7 @@ _0208A0C8:
 	mov r1, #0x1a
 	mov r2, #0x6
 	add r3, r4, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	mov r0, #0x6
 	lsl r0, r0, #0x6

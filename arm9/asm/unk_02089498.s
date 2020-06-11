@@ -341,7 +341,7 @@ FUN_02089734: ; 0x02089734
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0x4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x18]
 	bl FUN_0201BD5C
 	mov r0, #0x0
@@ -373,7 +373,7 @@ FUN_0208977C: ; 0x0208977C
 	add r0, #0x1c
 	bl FUN_02019178
 	ldr r0, [r4, #0x18]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4, pc}
 	.balign 4
 

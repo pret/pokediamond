@@ -62,7 +62,7 @@ _0206B1BC:
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r2, #0xe
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	beq _0206B1F8
 	ldr r1, _0206B208 ; =0x00011EE4
@@ -73,13 +73,13 @@ _0206B1E0:
 	add r0, r6, #0x0
 	add r1, r5, #0x6
 	add r2, r4, #0x0
-	bl FUN_0200A968
+	bl DecryptCopyString
 	add r5, r5, #0x1
 	add r4, #0x28
 	cmp r5, #0x12
 	blo _0206B1E0
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _0206B1F8:
 	ldr r0, [sp, #0x0]
 	mov r1, #0x0

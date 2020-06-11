@@ -52,7 +52,7 @@ _02237E84:
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0x39
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #0x39
 	bl FUN_0200AA80
@@ -226,7 +226,7 @@ MOD81_02238004: ; 0x02238004
 	ldr r0, [r4, #0xc]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
 	bl FUN_02021A20
 	ldr r0, [r4, #8]

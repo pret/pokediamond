@@ -526,13 +526,13 @@
 .extern FUN_0200A344
 .extern FUN_0200A648
 .extern FUN_0200A738
-.extern FUN_0200A86C
-.extern FUN_0200A8B8
+.extern NewMsgDataFromNarc
+.extern DestroyMsgData
 .extern FUN_0200A8E0
 .extern FUN_0200A914
 .extern FUN_0200A940
-.extern FUN_0200A968
-.extern FUN_0200A99C
+.extern DecryptCopyString
+.extern GetSpeciesName
 .extern FUN_0200A9C4
 .extern FUN_0200AA14
 .extern FUN_0200AA50

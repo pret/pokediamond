@@ -283,7 +283,7 @@ MOD56_02211FD4: ; 0x02211FD4
 	mov r1, #0x1a
 	lsl r2, r2, #4
 	mov r3, #0x36
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r1, #0xcc
 	str r0, [r1]
@@ -291,7 +291,7 @@ MOD56_02211FD4: ; 0x02211FD4
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0x36
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r1, #0xd0
 	str r0, [r1]
@@ -521,11 +521,11 @@ _022121EC:
 	add r0, r6, #0
 	add r0, #0xd0
 	ldr r0, [r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r6, #0
 	add r0, #0xcc
 	ldr r0, [r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r6, #0xc8
 	ldr r0, [r6]
 	bl FUN_0200AB18

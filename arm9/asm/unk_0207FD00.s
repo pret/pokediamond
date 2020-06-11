@@ -32,7 +32,7 @@ FUN_0207FD00: ; 0x0207FD00
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
 	add r3, r7, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x4]
 	ldr r2, [r4, #0x0]
 	mov r0, #0x9
@@ -461,7 +461,7 @@ _020800CA:
 	ldr r0, [r4, #0x8]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x4]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0x0
 	bl FreeToHeap
 	pop {r4, pc}

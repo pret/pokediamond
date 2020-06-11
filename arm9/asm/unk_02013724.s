@@ -160,7 +160,7 @@ _02013800:
 	ldr r2, _0201383C ; =UNK_020ED54C
 	ldrh r2, [r2, r3]
 	ldr r3, [sp, #0x4]
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0x0
 	ldr r2, [sp, #0x0]
 	ldr r3, [sp, #0x4]
@@ -170,7 +170,7 @@ _02013800:
 	bl FUN_0200A9C4
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r6, #0x0
 	bl FUN_0200AB18
 	add r0, r4, #0x0

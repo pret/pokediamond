@@ -582,7 +582,7 @@ FUN_020422C0: ; 0x020422C0
 	ldrh r0, [r0, #0x2]
 	mov r1, #0x4
 	add r2, sp, #0x8
-	bl FUN_0200A99C
+	bl GetSpeciesName
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	mov r0, #0x1

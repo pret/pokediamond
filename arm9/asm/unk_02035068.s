@@ -629,7 +629,7 @@ FUN_0203549C: ; 0x0203549C
 	mov r0, #0x0
 	mov r1, #0x1a
 	mov r3, #0xb
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x14]
 	mov r1, #0xb
@@ -717,7 +717,7 @@ _020355BC:
 	add r0, #0x8c
 	str r1, [r0, #0x0]
 	ldr r0, [sp, #0x18]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x24]
 	mov r1, #0x1
 	str r0, [sp, #0x24]
@@ -965,7 +965,7 @@ _0203576C:
 	mov r0, #0x0
 	mov r1, #0x1a
 	mov r3, #0xb
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x1c]
 	cmp r6, #0x0
 	bne _020357D0
@@ -1049,7 +1049,7 @@ _0203584C:
 	add r0, r7, #0x0
 	bl FUN_0200AB18
 	ldr r0, [sp, #0x1c]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r5, #0x10
 	add r0, r5, #0x0
 	bl FUN_02019220

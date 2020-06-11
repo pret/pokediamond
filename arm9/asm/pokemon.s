@@ -1812,7 +1812,7 @@ _0206769C:
 	ldr r0, _02067824 ; =SPECIES_MANAPHY_EGG
 	ldr r2, [sp, #0x8]
 	add r1, r4, #0x0
-	bl FUN_0200A99C
+	bl GetSpeciesName
 	b _0206781A
 _020676B2:
 	ldr r1, [sp, #0x8]
@@ -2015,7 +2015,7 @@ _02067810:
 	ldrh r0, [r5, #0x0]
 	ldr r2, [sp, #0x8]
 	add r1, r4, #0x0
-	bl FUN_0200A99C
+	bl GetSpeciesName
 _0206781A:
 	add r0, r4, #0x0
 	add sp, #0xc
@@ -2832,7 +2832,7 @@ _02067E0E:
 	ldrh r0, [r7, #0x0]
 	mov r1, #0x0
 	add r2, sp, #0x34
-	bl FUN_0200A99C
+	bl GetSpeciesName
 	add r0, sp, #0x34
 	add r1, r4, #0x0
 	bl StringNotEqual
@@ -2859,7 +2859,7 @@ _02067E40:
 	add r2, sp, #0x1c
 	mov r1, #0x0
 	add r2, #0x2
-	bl FUN_0200A99C
+	bl GetSpeciesName
 	add r0, r4, #0x0
 	add r1, sp, #0x8
 	mov r2, #0xb

@@ -27,7 +27,7 @@ MOD69_0222D5C0: ; 0x0222D5C0
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #0x3f
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r1, _0222D710 ; =0x00001B5C
 	str r0, [r4, r1]
 	mov r0, #0x7d
@@ -209,7 +209,7 @@ _0222D762:
 	bl FUN_02021A20
 	ldr r0, _0222D7F0 ; =0x00001B5C
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r6, #0
 	bl FUN_0200627C
 	mov r0, #0x3f

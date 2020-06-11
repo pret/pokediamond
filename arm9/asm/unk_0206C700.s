@@ -174,7 +174,7 @@ FUN_0206C700: ; 0x0206C700
 	mov r1, #0x1a
 	lsl r2, r2, #0x2
 	add r3, r5, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x8]
 	add r0, r5, #0x0
 	bl FUN_0200AA80
@@ -321,7 +321,7 @@ FUN_0206C92C: ; 0x0206C92C
 	ldr r0, [r4, #0x0]
 	bl FUN_0206DC48
 	ldr r0, [r4, #0x8]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0xc]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x10]

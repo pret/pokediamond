@@ -1002,7 +1002,7 @@ _0206FAFC:
 	blo _0206FAFC
 	ldr r0, _0206FB4C ; =0x0000069C
 	ldr r0, [r6, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, _0206FB50 ; =0x00000698
 	ldr r0, [r6, r0]
 	bl FUN_0200B990
@@ -1431,7 +1431,7 @@ _0206FEC2:
 	mov r0, #0x0
 	mov r1, #0x1a
 	mov r3, #0xc
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r1, _0206FF60 ; =0x0000069C
 	mov r2, #0x0
 	str r0, [r6, r1]

@@ -63,7 +63,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	mov r0, #0
 	sub r2, #0x44
 	add r3, r1, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x61
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1754,7 +1754,7 @@ MOD71_0222E438: ; 0x0222E438
 	mov r0, #0x61
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
@@ -4657,7 +4657,7 @@ _0222FC2C:
 	bne _0222FC70
 	add r0, #0xc
 	ldr r0, [r6, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, _0222FCEC ; =0x00003674
 	ldr r0, [r6, r0]
 	bl FUN_0200AB18
@@ -4786,7 +4786,7 @@ _0222FD48:
 	mov r1, #0x1a
 	mov r0, #0
 	add r3, r1, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r1, _0222FD90 ; =0x00003678
 	str r0, [r4, r1]
 	ldr r0, [r4, #4]

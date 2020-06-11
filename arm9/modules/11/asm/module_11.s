@@ -893,13 +893,13 @@ _0222DC42:
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #5
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0xc]
 	mov r0, #1
 	mov r1, #0x1a
 	mov r2, #0
 	mov r3, #5
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	mov r0, #5
 	bl FUN_0200AA80
@@ -1303,9 +1303,9 @@ _0222E10A:
 	ldr r0, [r4, #0x28]
 	bl FUN_02002FEC
 	ldr r0, [r4, #0xc]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
 	bl FUN_0200AB18
 	mov r0, #0x71
@@ -3586,7 +3586,7 @@ _0222F30E:
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #5
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	mov r0, #1
 	lsl r0, r0, #8
@@ -3608,7 +3608,7 @@ _0222F30E:
 	add r0, r6, #0
 	bl FUN_02021A20
 	add r0, r4, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, _0222F4D8 ; =MOD11_0222F0D4
 	add r1, r5, #0
 	bl FUN_02015F10
@@ -8274,7 +8274,7 @@ _02231708:
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #5
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r7, r0, #0
 	bl FUN_0200A914
@@ -8296,7 +8296,7 @@ _02231708:
 	add r0, r4, #0
 	bl FUN_02021A20
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	b _02231778
 _0223174C:
 	ldr r2, [r5, #0x18]

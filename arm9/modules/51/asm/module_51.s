@@ -111,7 +111,7 @@ MOD51_022548F0: ; 0x022548F0
 	mov r1, #0x1a
 	lsl r2, r2, #6
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x1c]
 	mov r0, #4
 	add r3, r4, #0
@@ -345,7 +345,7 @@ _02254AEC:
 	ldr r0, [r6, #0x28]
 	bl FUN_0201FD58
 	ldr r0, [r6, #0x1c]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r6, #0x18]
 	bl FUN_0200AB18
 	mov r0, #0x72

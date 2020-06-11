@@ -1043,7 +1043,7 @@ MOD65_021D7CC8: ; 0x021D7CC8
 	mov r0, #0
 	mov r1, #0x1a
 	lsl r2, r2, #2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r5, #0x2c]
 	ldr r0, [r5]
 	bl FUN_02014518
@@ -1146,7 +1146,7 @@ _021D7D94:
 	ldr r0, [r6, #0x28]
 	bl FUN_02014564
 	ldr r0, [r6, #0x2c]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #2
 	bl FUN_02002CF8
 	pop {r4, r5, r6, pc}
@@ -3311,7 +3311,7 @@ MOD65_021D8EC4: ; 0x021D8EC4
 	ldr r3, [r6]
 	mov r0, #0
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r6, #0x18]
 	ldr r2, [r6]
 	mov r0, #1
@@ -3356,7 +3356,7 @@ _021D8F10:
 	ldr r0, [r6, #0x1c]
 	bl FUN_0200AB18
 	ldr r0, [r6, #0x18]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 	thumb_func_end MOD65_021D8F08

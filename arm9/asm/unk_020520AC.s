@@ -1795,7 +1795,7 @@ FUN_02052D08: ; 0x02052D08
 	mov r1, #0x1a
 	lsl r2, r2, #0x6
 	mov r3, #0x4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	cmp r4, #0x0
 	bne _02052D30
@@ -1891,7 +1891,7 @@ _02052DBA:
 	add r0, r6, #0x0
 	bl FreeToHeap
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _02052DE0:
 	add sp, #0xc
 	pop {r4-r7, pc}

@@ -845,7 +845,7 @@ MOD74_021D7B20: ; 0x021D7B20
 	mov r0, #0
 	mov r1, #0x1a
 	mov r2, #0x11
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r5, #0x28]
 	ldr r2, [r5]
 	mov r0, #2
@@ -938,7 +938,7 @@ _021D7BEC:
 	ldr r0, [r6, #0x2c]
 	bl FUN_0200AB18
 	ldr r0, [r6, #0x28]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 	thumb_func_end MOD74_021D7BB4

@@ -1107,7 +1107,7 @@ FUN_02038E48: ; 0x02038E48
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x78]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x7c]
 	bl FreeToHeap
 	add r0, r4, #0x0
@@ -1641,7 +1641,7 @@ FUN_020392B4: ; 0x020392B4
 	mov r1, #0x1a
 	add r2, r4, #0x0
 	mov r3, #0xb
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r5, #0x78]
 	pop {r3-r5, pc}
 	.balign 4
@@ -1662,7 +1662,7 @@ FUN_020392D8: ; 0x020392D8
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r3, #0xb
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x78]
 	pop {r3-r5, pc}
 

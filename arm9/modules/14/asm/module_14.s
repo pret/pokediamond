@@ -7543,7 +7543,7 @@ MOD14_021DB220: ; 0x021DB220
 	mov r2, #0xf
 	mov r3, #9
 	str r0, [r4, #8]
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #0x63
 	lsl r2, r2, #2
 	str r0, [r5, r2]
@@ -7551,7 +7551,7 @@ MOD14_021DB220: ; 0x021DB220
 	mov r1, #0x1a
 	sub r2, #0x22
 	mov r3, #9
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x19
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -7559,7 +7559,7 @@ MOD14_021DB220: ; 0x021DB220
 	mov r1, #0x1a
 	mov r2, #0xbe
 	mov r3, #9
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #0x65
 	lsl r2, r2, #2
 	str r0, [r5, r2]
@@ -7567,7 +7567,7 @@ MOD14_021DB220: ; 0x021DB220
 	mov r1, #0x1a
 	add r2, #0x94
 	mov r3, #9
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x66
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -7706,19 +7706,19 @@ _021DB3BE:
 	mov r0, #0x63
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x19
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x65
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x66
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x4a
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
@@ -20658,7 +20658,7 @@ MOD14_021E1750: ; 0x021E1750
 	mov r3, #0xa
 	str r0, [r4, #0x10]
 	mov r0, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x14]
 	mov r0, #0x40
 	mov r1, #0xa
@@ -20724,7 +20724,7 @@ _021E17EC:
 	ldr r0, [r5, #0x14]
 	cmp r0, #0
 	beq _021E17F6
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _021E17F6:
 	ldr r0, [r5, #0x30]
 	cmp r0, #0
@@ -21579,7 +21579,7 @@ _021E1DBC:
 	strh r1, [r0]
 	mov r0, #1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r1, _021E1EE8 ; =0x00004BF8
 	add r2, r5, #0
 	str r0, [r5, r1]
@@ -21662,7 +21662,7 @@ MOD14_021E1F20: ; 0x021E1F20
 	ldr r0, [r5, r0]
 	cmp r0, #0
 	beq _021E1F30
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _021E1F30:
 	ldr r0, [r5, #0x14]
 	cmp r0, #0
@@ -28213,7 +28213,7 @@ _021E5064:
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #0xa
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x70]
 	mov r0, #0x20
 	mov r1, #0xa
@@ -28246,7 +28246,7 @@ MOD14_021E50EC: ; 0x021E50EC
 	ldr r0, [r4, r0]
 	bl FreeToHeap
 	ldr r0, [r4, #0x70]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0
 	bl MOD14_021E5C04
 	add r0, r4, #0
