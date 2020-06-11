@@ -3,6 +3,12 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+    .section .data
+
+	.global sMasterPan
+sMasterPan:
+	.word	0xFFFFFFFF
+
     .section .bss
 
 	.global sSurroundDecay
