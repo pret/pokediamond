@@ -514,7 +514,7 @@ MOD76_021D7900: ; 0x021D7900
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0x43
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r1, #0xf8
 	str r0, [r1]
@@ -541,7 +541,7 @@ MOD76_021D7938: ; 0x021D7938
 	add r4, r0, #0
 	add r0, #0xf8
 	ldr r0, [r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0
 	add r0, #0xfc
 	ldr r0, [r0]
@@ -801,7 +801,7 @@ MOD76_021D7B2C: ; 0x021D7B2C
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x36
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0
 	str r0, [sp]
 	ldr r1, [r4]
@@ -809,7 +809,7 @@ MOD76_021D7B2C: ; 0x021D7B2C
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x3e
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r4, #0
 	bl MOD76_021D8514
 	mov r1, #0
@@ -820,7 +820,7 @@ MOD76_021D7B2C: ; 0x021D7B2C
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x3a
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, [r4]
 	mov r1, #0
 	strb r1, [r0, #0x16]
@@ -1266,7 +1266,7 @@ MOD76_021D7ECC: ; 0x021D7ECC
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #0x43
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	mov r0, #0x61
 	lsl r0, r0, #2
@@ -1311,7 +1311,7 @@ _021D7F42:
 	blo _021D7F0E
 _021D7F50:
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r4, _021D7FA8 ; =0x021D8EFC
 	add r3, sp, #0
 	add r2, r3, #0
@@ -1523,7 +1523,7 @@ _021D80BE:
 	mov r0, #1
 	mov r1, #0x1a
 	mov r3, #0x43
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #1
 	lsl r2, r2, #8
 	ldr r2, [r5, r2]
@@ -1537,7 +1537,7 @@ _021D80BE:
 	str r2, [sp]
 	bl MOD76_021D7CC8
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	lsl r1, r4, #0x10
 	add r0, r5, #0
 	lsr r1, r1, #0x10
@@ -1615,7 +1615,7 @@ MOD76_021D81AC: ; 0x021D81AC
 	mov r1, #0x1a
 	mov r2, #0xc5
 	mov r3, #0x43
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r2, #1
 	lsl r2, r2, #8
 	ldr r2, [r5, r2]
@@ -1636,7 +1636,7 @@ MOD76_021D81AC: ; 0x021D81AC
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	lsl r1, r4, #0x10
 	add r0, r5, #0
 	lsr r1, r1, #0x10

@@ -1986,13 +1986,13 @@ _02049884:
 	mov r1, #0x1a
 	mov r2, #0xcf
 	mov r3, #0xb
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	mov r1, #0x7c
 	bl FUN_0200A914
 	str r0, [r4, #0x34]
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x8]
 	add r1, #0x24

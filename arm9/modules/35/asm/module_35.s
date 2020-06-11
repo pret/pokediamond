@@ -330,7 +330,7 @@ _02254A7A:
 	str r0, [sp, #8]
 	bl FUN_02023C7C
 	add r4, r0, #0
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	str r0, [sp, #0xc]
 	add r0, r4, #0
 	bl FUN_0206B688
@@ -338,22 +338,22 @@ _02254A7A:
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	strh r0, [r6, #0x1c]
 	add r0, r4, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	strh r0, [r6, #0x20]
 	ldr r0, [sp, #8]
 	bl MOD05_021EC7B4
 	str r0, [r5, #0xc]
 	add r0, r4, #0
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	str r0, [r5, #0x14]
 	ldr r1, [sp, #0xc]
 	add r0, r4, #0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	ldr r0, [sp]
 	add r7, r7, #1
 	ldrb r0, [r0]

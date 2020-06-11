@@ -481,7 +481,7 @@ MOD86_021D78D4: ; 0x021D78D4
 	ldr r3, [r4]
 	mov r1, #0x1a
 	add r2, r0, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x34]
 	ldr r0, [r4]
 	bl FUN_0200AA80
@@ -542,7 +542,7 @@ MOD86_021D7964: ; 0x021D7964
 	ldr r0, [r4, #0x38]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x34]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4, pc}
 	thumb_func_end MOD86_021D7964
 

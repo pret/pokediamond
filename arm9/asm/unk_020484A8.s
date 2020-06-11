@@ -461,7 +461,7 @@ FUN_02048864: ; 0x02048864
 	mov r1, #0x1a
 	mov r2, #0xc7
 	mov r3, #0x4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0x0
 	cmp r6, #0x2
 	bne _020488AC
@@ -489,7 +489,7 @@ _020488AC:
 	str r0, [r4, #0x2c]
 _020488B4:
 	add r0, r7, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r5, #0xc]
 	bl LoadPlayerDataAddress
 	add r2, r0, #0x0

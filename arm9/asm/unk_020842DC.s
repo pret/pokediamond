@@ -717,7 +717,7 @@ _020848C0:
 	add r0, r5, #0x0
 	mov r1, #0x9f
 	add r2, sp, #0x54
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r6, #0x1
 _020848D4:
 	add r0, r5, #0x0
@@ -797,13 +797,13 @@ _0208495C:
 	cmp r0, #0x64
 	bge _020849B2
 	add r0, r5, #0x0
-	bl FUN_020686F8
+	bl CalcMonExpToNextLevelEncrypted
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x8
-	bl FUN_02068018
+	bl AddMonPartyStatEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	ldr r0, [sp, #0x50]
 	cmp r0, #0x0
 	bne _020849B0
@@ -985,9 +985,9 @@ _02084A66:
 	add r0, r5, #0x0
 	mov r1, #0xd
 	add r2, sp, #0x50
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	mov r6, #0x1
 _02084B18:
 	ldr r0, [sp, #0x6c]
@@ -1030,9 +1030,9 @@ _02084B20:
 	add r0, r5, #0x0
 	mov r1, #0xe
 	add r2, sp, #0x54
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	mov r6, #0x1
 _02084B78:
 	ldr r0, [sp, #0x6c]
@@ -1075,9 +1075,9 @@ _02084B80:
 	add r0, r5, #0x0
 	mov r1, #0xf
 	add r2, sp, #0x58
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	mov r6, #0x1
 _02084BD8:
 	ldr r0, [sp, #0x6c]
@@ -1120,9 +1120,9 @@ _02084BE0:
 	add r0, r5, #0x0
 	mov r1, #0x10
 	add r2, sp, #0x5c
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	mov r6, #0x1
 _02084C38:
 	ldr r0, [sp, #0x6c]
@@ -1165,9 +1165,9 @@ _02084C40:
 	add r0, r5, #0x0
 	mov r1, #0x11
 	add r2, sp, #0x60
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	mov r6, #0x1
 _02084C98:
 	ldr r0, [sp, #0x6c]
@@ -1210,9 +1210,9 @@ _02084CA0:
 	add r0, r5, #0x0
 	mov r1, #0x12
 	add r2, sp, #0x64
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	mov r6, #0x1
 _02084CF8:
 	ldr r0, [sp, #0x6c]
@@ -1429,7 +1429,7 @@ _02084EA8:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r3-r7, pc}
@@ -1511,12 +1511,12 @@ _02084F34:
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r2, sp, #0x8
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, #0x1
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x1
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -1556,7 +1556,7 @@ _02084F96:
 _02084F98:
 	mov r1, #0xa2
 	add r2, sp, #0xc
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	pop {r3}
 	pop {r3}
 	add sp, #0x10
@@ -1775,7 +1775,7 @@ _0208512C:
 	add r0, r5, #0x0
 	mov r1, #0x9
 	add r2, sp, #0x18
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x1
 	pop {r4-r6}
 	pop {r3}
@@ -1811,13 +1811,13 @@ _02085154:
 	add r0, r5, #0x0
 	mov r1, #0xa2
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x9f
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r4, #0x0
 _02085190:
 	add r0, r5, #0x0

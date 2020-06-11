@@ -2044,7 +2044,7 @@ _021D844C:
 	mov r0, #1
 	mov r1, #0x1a
 	add r3, r4, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	mov r0, #0x40
 	add r1, r4, #0
@@ -2094,7 +2094,7 @@ _021D844C:
 	add r0, r4, #0
 	bl FUN_02021A20
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r1, #0x15
 	add r0, sp, #0x1c
 	strh r1, [r0, #2]

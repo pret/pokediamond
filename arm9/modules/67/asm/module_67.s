@@ -438,7 +438,7 @@ MOD67_021D7880: ; 0x021D7880
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0x2a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x50]
 	mov r0, #0x2a
 	bl FUN_0200AA80
@@ -457,7 +457,7 @@ MOD67_021D78AC: ; 0x021D78AC
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x50]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x54]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x58]
@@ -3298,7 +3298,7 @@ MOD67_021D8F00: ; 0x021D8F00
 	str r3, [sp, #0xc]
 	mov r0, #0x2a
 	add r7, r1, #0
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	str r4, [sp]
 	mov r1, #0
 	str r1, [sp, #4]
@@ -3307,7 +3307,7 @@ MOD67_021D8F00: ; 0x021D8F00
 	add r1, r7, #0
 	mov r2, #1
 	mov r3, #0x20
-	bl FUN_02066DD4
+	bl CreateMonWithNatureGenderLetter
 	add r0, r6, #0
 	bl FUN_020690E4
 	add r2, r0, #0

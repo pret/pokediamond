@@ -180,7 +180,7 @@ FUN_0204BB20: ; 0x0204BB20
 	bl FUN_02022528
 	str r0, [sp, #0x4]
 	mov r0, #0x4
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	ldr r5, [sp, #0x0]
 	add r4, r0, #0x0
 	mov r6, #0x0
@@ -473,7 +473,7 @@ FUN_0204BD40: ; 0x0204BD40
 	add r5, r0, #0x0
 	mov r0, #0x20
 	add r6, r1, #0x0
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl FUN_02022528

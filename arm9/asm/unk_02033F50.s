@@ -170,7 +170,7 @@ _02033FA4:
 	mov r1, #0x1a
 	mov r2, #0xc8
 	add r3, r4, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x10]
 	mov r0, #0x6
 	lsl r0, r0, #0x6
@@ -243,7 +243,7 @@ _02033FA4:
 	add r0, sp, #0x18
 	bl FUN_02019178
 	ldr r0, [sp, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0x0
 	bl FUN_0200AB18
 	add r0, r6, #0x0

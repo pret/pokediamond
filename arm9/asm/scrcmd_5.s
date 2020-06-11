@@ -132,19 +132,19 @@ _02041290:
 	mov r1, #0x5
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	beq _020412E0
 	add r0, r4, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	bne _020412E0
 	add r0, r4, #0x0
 	mov r1, #0x7
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	lsl r1, r1, #0x10

@@ -2360,7 +2360,7 @@ MOD09_02213138: ; 0x02213138
 	ldr r3, [r3, #0xc]
 	mov r1, #0x1a
 	mov r2, #3
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r1, _02213180 ; =0x00001FA8
 	mov r2, #0
 	str r0, [r4, r1]
@@ -2396,7 +2396,7 @@ MOD09_02213190: ; 0x02213190
 	add r4, r0, #0
 	ldr r0, _022131B8 ; =0x00001FA8
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, _022131BC ; =0x00001FA4
 	ldr r0, [r4, r0]
 	bl FUN_0200B990
@@ -2535,7 +2535,7 @@ _022132C2:
 	add r6, r0, #0
 	ldr r0, [r4, #4]
 	add r6, #0x1b
-	bl FUN_020689E0
+	bl GetMonGenderEncrypted
 	ldrb r1, [r6, r5]
 	mov r2, #7
 	bic r1, r2
@@ -5747,7 +5747,7 @@ MOD09_02214D24: ; 0x02214D24
 	ldr r3, [r3, #0xc]
 	mov r0, #1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x50
 	mul r1, r6
 	add r1, r5, r1
@@ -5773,7 +5773,7 @@ MOD09_02214D24: ; 0x02214D24
 	add r0, r6, #0
 	bl FUN_02021A20
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, _02214D9C ; =0x00002070
 	ldr r0, [r5, r0]
 	add r0, r0, r4
@@ -6072,7 +6072,7 @@ MOD09_02215000: ; 0x02215000
 	ldr r3, [r3, #0xc]
 	mov r0, #1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r6, #0
 	add r7, r0, #0
 	bl FUN_0200A914
@@ -6091,7 +6091,7 @@ MOD09_02215000: ; 0x02215000
 	add r0, r6, #0
 	bl FUN_02021A20
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r5, r4
 	bl FUN_02019220
 	add sp, #0x10
@@ -6119,7 +6119,7 @@ MOD09_02215060: ; 0x02215060
 	mov r0, #0
 	mov r1, #0x1a
 	mov r2, #0xc5
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r7, #0
 	str r0, [sp, #0x10]
 	bl FUN_0200A914
@@ -6138,7 +6138,7 @@ MOD09_02215060: ; 0x02215060
 	add r0, r6, #0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r5, r4
 	bl FUN_02019220
 	add sp, #0x14
@@ -13408,7 +13408,7 @@ _02218D22:
 	add r0, r1, #0
 	mov r1, #0x1a
 	mov r2, #0xc7
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	mov r1, #0x24
 	add r7, r0, #0
 	bl FUN_0200A914
@@ -13424,7 +13424,7 @@ _02218D22:
 	add r0, r6, #0
 	bl FUN_02021A20
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r5, #0
 	bl MOD09_02219BE0
 	ldr r0, _02218E40 ; =0x0000114B
@@ -14088,7 +14088,7 @@ MOD09_022192A4: ; 0x022192A4
 	ldr r3, [r3, #0xc]
 	mov r1, #0x1a
 	mov r2, #2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x10]
 	ldr r3, [r4]
 	mov r0, #0xf
@@ -14115,7 +14115,7 @@ MOD09_022192E4: ; 0x022192E4
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x10]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0xc]
 	bl FUN_0200B990
 	ldr r0, [r4, #0x14]

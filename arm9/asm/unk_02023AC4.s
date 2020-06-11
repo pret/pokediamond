@@ -227,14 +227,14 @@ FUN_02023C04: ; 0x02023C04
 	ldr r2, _02023C3C ; =0x0000013A
 	mov r0, #0x0
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, #0x38
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
 	bl FUN_0200A8E0
 	add r0, r6, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4-r6, pc}
 _02023C2C:
 	mov r1, #0x0

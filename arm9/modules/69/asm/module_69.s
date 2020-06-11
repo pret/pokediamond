@@ -27,7 +27,7 @@ MOD69_0222D5C0: ; 0x0222D5C0
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #0x3f
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r1, _0222D710 ; =0x00001B5C
 	str r0, [r4, r1]
 	mov r0, #0x7d
@@ -209,7 +209,7 @@ _0222D762:
 	bl FUN_02021A20
 	ldr r0, _0222D7F0 ; =0x00001B5C
 	ldr r0, [r4, r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r6, #0
 	bl FUN_0200627C
 	mov r0, #0x3f
@@ -2360,7 +2360,7 @@ MOD69_0222E8FC: ; 0x0222E8FC
 	mov r1, #0
 	bl FUN_0200AC60
 	ldr r0, [r4, #0x24]
-	bl FUN_020687C0
+	bl CalcMonLevelEncrypted
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -2370,7 +2370,7 @@ MOD69_0222E8FC: ; 0x0222E8FC
 	mov r3, #3
 	bl FUN_0200AD38
 	ldr r0, [r4, #0x24]
-	bl FUN_020689E0
+	bl GetMonGenderEncrypted
 	cmp r0, #0
 	beq _0222E93C
 	cmp r0, #1
@@ -4037,7 +4037,7 @@ MOD69_0222F6C4: ; 0x0222F6C4
 	add r5, r0, #0
 	add r0, r4, #0
 	add r6, r2, #0
-	bl FUN_020669D4
+	bl TryDecryptMon
 	str r0, [sp]
 	add r0, r4, #0
 	mov r1, #0x79
@@ -4124,7 +4124,7 @@ _0222F778:
 _0222F77A:
 	ldr r1, [sp]
 	add r0, r4, #0
-	bl FUN_02066A20
+	bl TryEncryptMon
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

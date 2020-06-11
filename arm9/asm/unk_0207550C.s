@@ -3080,14 +3080,14 @@ FUN_02076F2C: ; 0x02076F2C
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	add r1, r6, #0x0
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	add r1, #0x3e
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, _02076FAC ; =0x000005A4
 	mov r1, #0x0
 	ldr r0, [r5, r0]
@@ -3098,7 +3098,7 @@ FUN_02076F2C: ; 0x02076F2C
 	add r0, r4, #0x0
 	add r1, r6, #0x0
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, _02076FAC ; =0x000005A4
 	ldr r1, [r5, r0]
 	ldrh r0, [r1, #0x24]
@@ -3121,7 +3121,7 @@ _02076F98:
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_020688E8
+	bl MonApplyFriendshipModEncrypted
 _02076FA8:
 	add sp, #0x4
 	pop {r3-r6, pc}

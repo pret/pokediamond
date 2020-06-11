@@ -1313,7 +1313,7 @@ _0205188E:
 	mov r1, #0x1a
 	mov r2, #0x9
 	mov r3, #0xb
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x2c]
 	mov r0, #0xc8
 	mov r1, #0xb
@@ -1434,7 +1434,7 @@ _020519B0:
 	bl FreeToHeap
 _020519BA:
 	ldr r0, [r4, #0x2c]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x28]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0xc]
@@ -1680,7 +1680,7 @@ FUN_02051B68: ; 0x02051B68
 	mov r0, #0x1
 	mov r1, #0x1a
 	mov r3, #0x4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x18]
 	bl FUN_020690C4
 	str r0, [sp, #0x1c]
@@ -1756,7 +1756,7 @@ _02051BD6:
 	mov r3, #0x10
 	bl FUN_0201BD84
 	ldr r0, [sp, #0x18]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 _02051C34:
 	mov r0, #0x10
 	str r0, [sp, #0x0]
@@ -2130,7 +2130,7 @@ _02051EF2:
 	mov r1, #0x1a
 	mov r2, #0x9
 	mov r3, #0x4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x1c]
 	mov r0, #0xc8
 	mov r1, #0x4
@@ -2192,7 +2192,7 @@ _02051F7C:
 	tst r0, r1
 	beq _0205203A
 	ldr r0, [r4, #0x1c]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x18]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x0]

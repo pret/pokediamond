@@ -43,7 +43,7 @@ FUN_0204A048: ; 0x0204A048
 	bl FUN_0206BB1C
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r4, r0, #0x0
 	bl ZeroMonData
 	mov r0, #0x0
@@ -70,7 +70,7 @@ FUN_0204A048: ; 0x0204A048
 	add r2, sp, #0x1c
 	str r0, [sp, #0x1c]
 	add r0, r4, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, [sp, #0x18]
 	add r1, r4, #0x0
 	bl FUN_0206B900
@@ -100,7 +100,7 @@ FUN_0204A0C8: ; 0x0204A0C8
 	bl FUN_0206BB1C
 	add r6, r0, #0x0
 	mov r0, #0x20
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r4, r0, #0x0
 	bl ZeroMonData
 	ldr r0, [sp, #0x20]
@@ -320,7 +320,7 @@ _0204A272:
 	add r0, r4, #0x0
 	mov r1, #0x19
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _0204A292:
 	add r5, r5, #0x1
 	cmp r5, r6
@@ -370,7 +370,7 @@ _0204A2EA:
 	add r0, r5, #0x0
 	mov r1, #0xa2
 	add r2, sp, #0xc
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, [sp, #0xc]
 	cmp r0, #0x1
 	bne _0204A306
@@ -378,7 +378,7 @@ _0204A2EA:
 	add r0, r5, #0x0
 	mov r1, #0x7
 	add r6, r6, #0x1
-	bl FUN_020688E8
+	bl MonApplyFriendshipModEncrypted
 _0204A306:
 	add r7, r7, #0x1
 _0204A308:
@@ -426,7 +426,7 @@ FUN_0204A32C: ; 0x0204A32C
 	add r0, r4, #0x0
 	mov r1, #0x9f
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add sp, #0x4
 	mov r0, #0x1
 	pop {r3-r4, pc}

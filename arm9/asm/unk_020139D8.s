@@ -115,7 +115,7 @@ _020139EA:
 	ldrh r2, [r4, #0x0]
 	mov r0, #0x1
 	add r3, r6, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r5, #0x4]
 	add r7, r7, #0x1
 	add r4, r4, #0x2
@@ -135,7 +135,7 @@ FUN_02013A10: ; 0x02013A10
 	add r5, r6, #0x0
 _02013A18:
 	ldr r0, [r5, #0x4]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0xb

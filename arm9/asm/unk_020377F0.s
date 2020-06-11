@@ -1910,7 +1910,7 @@ _02038590:
 	ldr r2, [r4, #0xc]
 	mov r1, #0x75
 	add r2, #0x1c
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	pop {r3-r5, pc}
 _020385A8:
 	ldr r0, [r5, #0xc]

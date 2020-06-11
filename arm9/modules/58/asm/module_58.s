@@ -62,7 +62,7 @@ _021D9A36:
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #0x27
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x14]
 	mov r0, #4
 	mov r1, #8
@@ -258,7 +258,7 @@ _021D9C40:
 	bl MOD58_021D9ED8
 	bl FUN_0201CD04
 	ldr r0, [r6, #0x14]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r6, #0x10]
 	bl FUN_0200AB18
 	add r0, r6, #0
