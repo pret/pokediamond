@@ -4714,10 +4714,10 @@
 .extern TryEncryptBoxMon
 .extern CreateMon
 .extern CreateMonWithNature
-.extern FUN_02066DD4
+.extern CreateMonWithNatureGenderLetter
 .extern FUN_02066E74
 .extern FUN_02066EA4
-.extern FUN_02066ED8
+.extern UpdateMonLevelAndRecalcStats
 .extern CalcMonStatsMaybeEncrypted
 .extern GetMonDataEncrypted
 .extern GetBoxMonDataEncrypted
@@ -4741,10 +4741,10 @@
 .extern GetBoxMonNatureEncrypted
 .extern GetNatureFromPersonality
 .extern MonApplyFriendshipModEncrypted
-.extern FUN_020689E0
-.extern FUN_020689E8
-.extern FUN_02068A20
-.extern FUN_02068A44
+.extern GetMonGenderEncrypted
+.extern GetBoxMonGenderEncrypted
+.extern GetGenderBySpeciesAndPersonality
+.extern GetGenderBySpeciesAndPersonality_PreloadedPersonal
 .extern FUN_02068A80
 .extern FUN_02068AAC
 .extern FUN_02068AD8
@@ -4793,7 +4793,7 @@
 .extern FUN_02069EC4
 .extern FUN_02069ECC
 .extern GetArceusTypeByPlate
-.extern FUN_02069F9C
+.extern LoadWotbl_HandleAlternateForme
 .extern FUN_02069FB0
 .extern FUN_0206A014
 .extern FUN_0206A094

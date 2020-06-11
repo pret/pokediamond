@@ -824,7 +824,7 @@ MOD64_021D7BB4: ; 0x021D7BB4
 	add r4, r1, #0
 	lsr r0, r0, #0x10
 	mov r1, #0
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]

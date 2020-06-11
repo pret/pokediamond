@@ -1044,7 +1044,7 @@ _0206CF7E:
 	ldr r0, [r4, #0x28]
 	bl FUN_0206A1C4
 	ldr r0, [r4, #0x28]
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	ldr r0, [r4, #0x28]
 	bl FUN_020690E4
 	add r2, r0, #0x0
@@ -2192,7 +2192,7 @@ _0206D8EA:
 	add r0, r5, #0x0
 	bl FUN_0206A1C4
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	ldr r0, [r4, #0x24]
 	add r1, r5, #0x0
 	bl FUN_0206B900
@@ -2583,7 +2583,7 @@ FUN_0206DC80: ; 0x0206DC80
 	add r2, #0x62
 	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add r0, sp, #0x10
 	add r1, r5, #0x0
 	mov r2, #0x2

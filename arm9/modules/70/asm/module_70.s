@@ -1191,7 +1191,7 @@ _021D7DC8:
 	bl FUN_0201BD84
 	ldrh r0, [r7, #0x10]
 	ldr r1, [r7, #8]
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	cmp r0, #0
 	beq _021D7E3A
 	cmp r0, #1

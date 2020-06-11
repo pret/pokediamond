@@ -6622,7 +6622,7 @@ _0223C8EC:
 	bne _0223C914
 	ldr r0, [sp, #0x10]
 	add r1, r4, #0
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	add r7, r0, #0
 	cmp r7, #2
 	bne _0223C904
@@ -6748,7 +6748,7 @@ _0223C9E4:
 	add r0, r4, #0
 	add r1, r7, #0
 	mov r3, #0x20
-	bl FUN_02066DD4
+	bl CreateMonWithNatureGenderLetter
 	add r0, r4, #0
 	mov r1, #7
 	add r2, r5, #0
@@ -22071,7 +22071,7 @@ _02244508:
 	add r2, r6, #0
 	bl SetMonDataEncrypted
 	add r0, r5, #0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -22172,7 +22172,7 @@ _022445A6:
 	add r2, sp, #8
 	bl SetMonDataEncrypted
 	add r0, r4, #0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 _022445E8:
 	add r0, r7, #0
 	add r1, r4, #0
@@ -31213,7 +31213,7 @@ MOD06_022489D4: ; 0x022489D4
 	mov r2, #1
 	bl FUN_0208089C
 	add r0, r5, #0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add r0, r5, #0
 	bl FUN_02068A80
 	cmp r0, #0

@@ -43275,7 +43275,7 @@ _021EC64E:
 	blt _021EC616
 _021EC658:
 	add r0, r5, #0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -43564,7 +43564,7 @@ MOD05_021EC8A8: ; 0x021EC8A8
 	add r5, sp, #4
 _021EC8BC:
 	ldr r0, [r5]
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	cmp r0, #1
 	bne _021EC8C8
 	str r4, [sp]
@@ -44316,7 +44316,7 @@ _021ECE56:
 	b _021ECE8C
 _021ECE7A:
 	ldr r0, [r7, r6]
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	cmp r0, #1
 	bne _021ECE8C
 	mov r0, #1
@@ -44377,7 +44377,7 @@ _021ECEDE:
 	lsl r1, r0, #2
 	add r0, sp, #4
 	ldr r0, [r0, r1]
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	cmp r0, #1
 	beq _021ECF02
 	ldrb r1, [r5, #1]
@@ -44779,7 +44779,7 @@ _021ED228:
 	bl GetBoxMonDataEncrypted
 	add r1, r0, #0
 	ldrh r0, [r4]
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	stmia r7!, {r0}
 	ldrh r0, [r4]
 	mov r1, #0x16
@@ -45678,7 +45678,7 @@ MOD05_021ED940: ; 0x021ED940
 	add r2, sp, #0
 	bl SetMonDataEncrypted
 	add r0, r4, #0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add sp, #0x1c
 	pop {r4, r5, pc}
 	.balign 4, 0

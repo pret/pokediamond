@@ -9258,7 +9258,7 @@ MOD14_021DBEAC: ; 0x021DBEAC
 	add r2, r0, #0
 	ldrh r1, [r4, #4]
 	add r0, r7, #0
-	bl FUN_02068A44
+	bl GetGenderBySpeciesAndPersonality_PreloadedPersonal
 	strb r0, [r4, #0xe]
 	b _021DBF6C
 _021DBF68:

@@ -1961,7 +1961,7 @@ _0207AC16:
 	strb r0, [r5, #0x12]
 _0207AC1E:
 	add r0, r6, #0x0
-	bl FUN_020689E0
+	bl GetMonGenderEncrypted
 	ldrb r1, [r5, #0x13]
 	mov r2, #0x3
 	bic r1, r2

@@ -16366,7 +16366,7 @@ MOD80_022357A0: ; 0x022357A0
 	add r2, sp, #4
 	bl GetMonDataEncrypted
 	add r0, r4, #0
-	bl FUN_020689E0
+	bl GetMonGenderEncrypted
 	add r3, r0, #0
 	mov r0, #0x3e
 	str r0, [sp]

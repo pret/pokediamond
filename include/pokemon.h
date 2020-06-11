@@ -7,6 +7,65 @@
 
 #include "constants/species.h"
 
+#define MON_DATA_PERSONALITY          0
+#define MON_DATA_IS_ENCRYPTED         1
+#define MON_DATA_CONTROL_4_1          2
+#define MON_DATA_CONTROL_4_2          3
+#define MON_DATA_CHECKSUM             4
+#define MON_DATA_SPECIES              5
+#define MON_DATA_HELD_ITEM            6
+#define MON_DATA_OTID                 7
+#define MON_DATA_EXPERIENCE           8
+#define MON_DATA_FRIENDSHIP           9
+#define MON_DATA_ABILITY             10
+#define MON_DATA_MARKINGS            11
+#define MON_DATA_GAME_LANGUAGE       12
+#define MON_DATA_HP_EV               13
+#define MON_DATA_ATK_EV              14
+#define MON_DATA_DEF_EV              15
+#define MON_DATA_SPEED_EV            16
+#define MON_DATA_SPATK_EV            17
+#define MON_DATA_SPDEF_EV            18
+#define MON_DATA_COOL                19
+#define MON_DATA_BEAUTY              20
+#define MON_DATA_CUTE                21
+#define MON_DATA_SMART               22
+#define MON_DATA_TOUGH               23
+#define MON_DATA_SHEEN               24
+#define MON_DATA_SINNOH_CHAMP_RIBBON 25
+// TODO: ribbon flags through 53
+#define MON_DATA_MOVE1               54
+#define MON_DATA_MOVE2               55
+#define MON_DATA_MOVE3               56
+#define MON_DATA_MOVE4               57
+#define MON_DATA_MOVE1PP             58
+#define MON_DATA_MOVE2PP             59
+#define MON_DATA_MOVE3PP             60
+#define MON_DATA_MOVE4PP             61
+#define MON_DATA_MOVE1PPUP           62
+#define MON_DATA_MOVE2PPUP           63
+#define MON_DATA_MOVE3PPUP           64
+#define MON_DATA_MOVE4PPUP           65
+#define MON_DATA_MOVE1MAXPP          66
+#define MON_DATA_MOVE2MAXPP          67
+#define MON_DATA_MOVE3MAXPP          68
+#define MON_DATA_MOVE4MAXPP          69
+#define MON_DATA_HP_IV               70
+#define MON_DATA_ATK_IV              71
+#define MON_DATA_DEF_IV              72
+#define MON_DATA_SPEED_IV            73
+#define MON_DATA_SPATK_IV            74
+#define MON_DATA_SPDEF_IV            75
+#define MON_DATA_IS_EGG              76
+#define MON_DATA_HAS_NICKNAME        77
+#define MON_DATA_COOL_RIBBON         78
+// TODO: ribbon flags through 109
+#define MON_DATA_FATEFUL_ENCOUNTER  110
+#define MON_DATA_GENDER             111
+#define MON_DATA_GAME_VERSION       121
+#define MON_TYPE_1                  176
+#define MON_TYPE_2                  177
+
 // TODO: Identify the rest of these
 enum BaseStat {
     BASE_HP = 0,
@@ -169,14 +228,12 @@ typedef enum {
 typedef struct {
     u16 species;
     u16 heldItem;
-    u16 otID;
-    u16 otSecretID;
+    u32 otID; // low 16: visible; high 16: secret
     u32 exp;
     u8 friendship;
     u8 ability;
-    u8 circleMarking:1, triangleMarking:1, squareMarking:1, heartMarking:1, starMarking:1, diamondMarking:1;
-    u8 padding;
-    OriginLanguage originLanguage;
+    u8 markings; // circle, triangle, square, heart, star, diamond
+    u8 originLanguage;
     u8 hpEV;
     u8 atkEV;
     u8 defEV;
@@ -190,31 +247,20 @@ typedef struct {
     u8 toughStat;
     u8 sheen;
     // TODO: Finish SinnohRibbonSet1
-    u8 sinnohChampRibbon:1, abilityRibbon:1;
-    u8 field_0x1d;
-    u8 gorgeousRoyalRibbon:1, footprintRibbon:1;
-    u8 field_0x1f;
+    u32 sinnohRibbons;
+//    u8 sinnohChampRibbon:1, abilityRibbon:1;
+//    u8 field_0x1d;
+//    u8 gorgeousRoyalRibbon:1, footprintRibbon:1;
+//    u8 field_0x1f;
 } PokemonDataBlockA;
 
 typedef struct {
-    u16 move1;
-    u16 move2;
-    u16 move3;
-    u16 move4;
-    u8 move1pp;
-    u8 move2pp;
-    u8 move3pp;
-    u8 move4pp;
-    u8 move1ppUps;
-    u8 move2ppUps;
-    u8 move3ppUps;
-    u8 move4ppUps;
+    u16 moves[4];
+    u8 movePP[4];
+    u8 movePpUps[4];
     u32 hpIV:5, atkIV:5, defIV:5, spdIV:5, spatkIV:5, spdefIV:5, isEgg:1, isNicknamed:1;
     // TODO: Finish HoennRibbonSet
-    u8 coolRibbon:1;
-    u8 field_0x15;
-    u8 field_0x16;
-    u8 field_0x17;
+    u32 ribbonFlags; // cool, ...
     u8 fatefulEncounter:1, female:1, genderless:1, alternateForm:5;
     u8 HGSS_shinyLeaves; // TODO: Turn into bitfield
     u16 Unused;

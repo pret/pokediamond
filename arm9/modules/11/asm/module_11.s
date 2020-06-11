@@ -43613,7 +43613,7 @@ _02242D2E:
 	add r0, r7, r1
 	str r0, [sp, #0x1c]
 	add r0, r4, #0
-	bl FUN_020689E0
+	bl GetMonGenderEncrypted
 	ldr r1, [sp, #0x1c]
 	mov r2, #0xf
 	ldrb r1, [r1, r5]

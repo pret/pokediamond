@@ -3376,7 +3376,7 @@ MOD65_021D8F34: ; 0x021D8F34
 	strh r0, [r4, #0x34]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl FUN_020689E0
+	bl GetMonGenderEncrypted
 	add r1, r4, #0
 	add r1, #0x37
 	strb r0, [r1]

@@ -7,8 +7,8 @@
 
 	.section .rodata
 
-	.global UNK_020F7ECC
-UNK_020F7ECC: ; 0x020F7ECC
+	.global sItemOdds
+sItemOdds: ; 0x020F7ECC
 	.short 0x002D, 0x005F
 	.short 0x0014, 0x0050
 
@@ -359,7 +359,7 @@ CreateMon: ; 0x02066ACC
 	add r2, sp, #0x14
 	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add sp, #0x2c
 	pop {r3-r6}
 	pop {r3}
@@ -592,14 +592,14 @@ _02066D50:
 	bl SetBoxMonDataEncrypted
 _02066D5A:
 	add r0, r5, #0x0
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x6f
 	add r2, sp, #0x8
 	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_020695F4
+	bl InitBoxMonMoveset
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
 	bl TryEncryptBoxMon
@@ -647,8 +647,8 @@ _02066D9E:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02066DD4
-FUN_02066DD4: ; 0x02066DD4
+	thumb_func_start CreateMonWithNatureGenderLetter
+CreateMonWithNatureGenderLetter: ; 0x02066DD4
 	push {r4-r7, lr}
 	sub sp, #0x24
 	str r1, [sp, #0x14]
@@ -698,7 +698,7 @@ _02066DF4:
 	bne _02066DF4
 	ldr r0, [sp, #0x14]
 	add r1, r4, #0x0
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	cmp r6, r0
 	bne _02066DF4
 	ldr r0, [sp, #0x20]
@@ -771,15 +771,15 @@ FUN_02066EA4: ; 0x02066EA4
 	add r2, sp, #0x24
 	bl SetMonDataEncrypted
 	add r0, r4, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add sp, #0x10
 	pop {r4}
 	pop {r3}
 	add sp, #0x10
 	bx r3
 
-	thumb_func_start FUN_02066ED8
-FUN_02066ED8: ; 0x02066ED8
+	thumb_func_start UpdateMonLevelAndRecalcStats
+UpdateMonLevelAndRecalcStats: ; 0x02066ED8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	bl TryDecryptMon
@@ -1314,24 +1314,28 @@ GetBoxMonData: ; 0x0206731C
 	add r2, r4, #0x0
 	bl GetSubstruct
 	add r5, r0, #0x0
+
 	ldr r0, [sp, #0x0]
 	mov r2, #0x1
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
 	bl GetSubstruct
 	add r6, r0, #0x0
+
 	ldr r0, [sp, #0x0]
 	mov r2, #0x2
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
 	bl GetSubstruct
 	add r7, r0, #0x0
+
 	ldr r0, [sp, #0x0]
 	mov r2, #0x3
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
 	bl GetSubstruct
 	add r1, r0, #0x0
+
 	ldr r0, [sp, #0x4]
 	cmp r0, #0xb2
 	bls _02067366
@@ -4437,15 +4441,15 @@ _020689D4:
 _020689D8: .word SPECIES_EGG
 _020689DC: .word sFriendshipModTable
 
-	thumb_func_start FUN_020689E0
-FUN_020689E0: ; 0x020689E0
-	ldr r3, _020689E4 ; =FUN_020689E8
+	thumb_func_start GetMonGenderEncrypted
+GetMonGenderEncrypted: ; 0x020689E0
+	ldr r3, _020689E4 ; =GetBoxMonGenderEncrypted
 	bx r3
 	.balign 4
-_020689E4: .word FUN_020689E8
+_020689E4: .word GetBoxMonGenderEncrypted
 
-	thumb_func_start FUN_020689E8
-FUN_020689E8: ; 0x020689E8
+	thumb_func_start GetBoxMonGenderEncrypted
+GetBoxMonGenderEncrypted: ; 0x020689E8
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	bl TryDecryptBoxMon
@@ -4466,12 +4470,12 @@ FUN_020689E8: ; 0x020689E8
 	bl TryEncryptBoxMon
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068A20
-FUN_02068A20: ; 0x02068A20
+	thumb_func_start GetGenderBySpeciesAndPersonality
+GetGenderBySpeciesAndPersonality: ; 0x02068A20
 	push {r4-r6, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -4480,7 +4484,7 @@ FUN_02068A20: ; 0x02068A20
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_02068A44
+	bl GetGenderBySpeciesAndPersonality_PreloadedPersonal
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl FreeMonPersonal
@@ -4488,8 +4492,8 @@ FUN_02068A20: ; 0x02068A20
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068A44
-FUN_02068A44: ; 0x02068A44
+	thumb_func_start GetGenderBySpeciesAndPersonality_PreloadedPersonal
+GetGenderBySpeciesAndPersonality_PreloadedPersonal: ; 0x02068A44
 	push {r4, lr}
 	mov r1, #0x12
 	add r4, r2, #0x0
@@ -4671,7 +4675,7 @@ FUN_02068B70: ; 0x02068B70
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r5, #0x0
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
 	bl FUN_02068A88
@@ -5044,7 +5048,7 @@ FUN_02068E1C: ; 0x02068E1C
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r5, #0x0
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	mov r1, #0x0
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
@@ -6112,8 +6116,8 @@ _020695EC:
 	nop
 _020695F0: .word SPECIES_ROSELIA
 
-	thumb_func_start FUN_020695F4
-FUN_020695F4: ; 0x020695F4
+	thumb_func_start InitBoxMonMoveset
+InitBoxMonMoveset: ; 0x020695F4
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -6142,7 +6146,7 @@ FUN_020695F4: ; 0x020695F4
 	ldr r2, [sp, #0x0]
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl FUN_02069F9C
+	bl LoadWotbl_HandleAlternateForme
 	ldr r0, [sp, #0x0]
 	ldrh r1, [r0, #0x0]
 	ldr r0, _02069690 ; =0x0000FFFF
@@ -6414,7 +6418,7 @@ FUN_02069818: ; 0x02069818
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0xc]
 	add r2, r4, #0x0
-	bl FUN_02069F9C
+	bl LoadWotbl_HandleAlternateForme
 	ldr r0, [r5, #0x0]
 	lsl r0, r0, #0x1
 	ldrh r2, [r4, r0]
@@ -6727,7 +6731,7 @@ _02069A8E:
 	add r2, sp, #0x4
 	bl SetMonDataEncrypted
 	add r0, r4, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add sp, #0x1c
 	pop {r4-r5, pc}
 
@@ -6904,7 +6908,7 @@ FUN_02069BFC: ; 0x02069BFC
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	add r2, r6, #0x0
-	bl FUN_02069F9C
+	bl LoadWotbl_HandleAlternateForme
 	ldrh r1, [r6, #0x0]
 	ldr r0, _02069C44 ; =0x0000FFFF
 	mov r4, #0x0
@@ -7390,8 +7394,8 @@ _02069F96:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02069F9C
-FUN_02069F9C: ; 0x02069F9C
+	thumb_func_start LoadWotbl_HandleAlternateForme
+LoadWotbl_HandleAlternateForme: ; 0x02069F9C
 	push {r4, lr}
 	add r4, r2, #0x0
 	bl ResolveMonForme
@@ -7564,12 +7568,12 @@ FUN_0206A094: ; 0x0206A094
 	add sp, #0x8
 	pop {r3-r7, pc}
 _0206A104:
-	ldr r0, _0206A134 ; =UNK_020F7ECC
+	ldr r0, _0206A134 ; =sItemOdds
 	lsl r1, r7, #0x2
 	ldrh r0, [r0, r1]
 	cmp r4, r0
 	blo _0206A12E
-	ldr r0, _0206A138 ; =UNK_020F7ECC + 2
+	ldr r0, _0206A138 ; =sItemOdds + 2
 	ldrh r0, [r0, r1]
 	cmp r4, r0
 	add r2, sp, #0x4
@@ -7588,8 +7592,8 @@ _0206A12E:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
-_0206A134: .word UNK_020F7ECC
-_0206A138: .word UNK_020F7ECC + 2
+_0206A134: .word sItemOdds
+_0206A138: .word sItemOdds + 2
 
 	thumb_func_start FUN_0206A13C
 FUN_0206A13C: ; 0x0206A13C

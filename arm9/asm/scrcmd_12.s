@@ -391,7 +391,7 @@ _02042FE8:
 	add r0, r4, #0x0
 	bl FUN_0206A23C
 	add r0, r4, #0x0
-	bl FUN_020689E0
+	bl GetMonGenderEncrypted
 	str r0, [sp, #0x30]
 	add r0, r4, #0x0
 	mov r1, #0x6f
@@ -653,7 +653,7 @@ _0204322C:
 	mov r2, #0x4
 	bl FUN_0208089C
 	add r0, r4, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C

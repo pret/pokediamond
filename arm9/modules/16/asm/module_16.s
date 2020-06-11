@@ -2392,7 +2392,7 @@ _021D873A:
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	add r4, r0, #0
 _021D874E:
 	ldr r0, [sp, #0x40]
