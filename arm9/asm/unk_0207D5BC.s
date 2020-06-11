@@ -1536,7 +1536,7 @@ FUN_0207E190: ; 0x0207E190
 	cmp r1, #0x2
 	bne _0207E1E8
 	mov r0, #0x13
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r4, #0x0

@@ -1343,7 +1343,7 @@ MOD71_0222E118: ; 0x0222E118
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	bl FUN_020669D4
+	bl TryDecryptMon
 	add r7, r0, #0
 	add r0, r5, #0
 	mov r1, #0x9a
@@ -1382,7 +1382,7 @@ MOD71_0222E118: ; 0x0222E118
 	add r6, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
-	bl FUN_02066A20
+	bl TryEncryptMon
 	ldrh r0, [r4]
 	cmp r0, #0
 	beq _0222E18E
@@ -6320,10 +6320,10 @@ MOD71_022309E8: ; 0x022309E8
 	add r6, r2, #0
 	str r3, [sp, #0xc]
 	ldr r5, [sp, #0x28]
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r7, r0, #0
 	mov r0, #0x1a
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	add r1, r6, #0
@@ -6347,7 +6347,7 @@ MOD71_022309E8: ; 0x022309E8
 	add r0, r4, #0
 	mov r1, #9
 	add r2, sp, #0x10
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _02230A40:
 	bl FUN_02031190
 	bl FUN_0202DFA4

@@ -10474,7 +10474,7 @@ FUN_0203ED2C: ; 0x0203ED2C
 	bl FUN_02024DA0
 	add r6, r0, #0x0
 	mov r0, #0x20
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r4, r0, #0x0
 	bl ZeroMonData
 	mov r0, #0x0
@@ -10727,7 +10727,7 @@ _0203EF18:
 	add r0, r4, #0x0
 	mov r1, #0x70
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r4, #0x0
 	bl FUN_02066ED8
 	add r0, r7, #0x0

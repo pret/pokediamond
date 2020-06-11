@@ -340,7 +340,7 @@ FUN_0206AE0C: ; 0x0206AE0C
 	bl AllocFromHeap
 	str r0, [sp, #0x4c]
 	add r0, r5, #0x0
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	str r0, [sp, #0x40]
 	add r0, r4, r6
 	ldr r0, [r0, #0x18]
@@ -622,7 +622,7 @@ _0206B030:
 	ldr r0, [sp, #0x40]
 	mov r1, #0x6
 	add r2, r7, #0x6
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, [sp, #0x34]
 	ldr r1, [sp, #0x40]
 	ldr r0, [r0, #0x4]
@@ -709,7 +709,7 @@ _0206B0DA:
 	ldr r0, [sp, #0x40]
 	mov r1, #0x6
 	add r2, r2, #0x6
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r7, [sp, #0x3c]
 	mov r6, #0x0
 _0206B120:

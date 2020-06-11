@@ -479,7 +479,7 @@ FUN_02060F3C: ; 0x02060F3C
 	mov r0, #0x0
 	strb r0, [r4, #0x1f]
 	add r0, r5, #0x0
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	strb r0, [r4, #0x1e]
 	add r0, r4, #0x6
 	str r0, [sp, #0x0]

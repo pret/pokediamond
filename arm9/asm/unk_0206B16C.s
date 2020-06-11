@@ -28,7 +28,7 @@ _0206B188:
 	add r5, r6, #0x0
 _0206B18C:
 	add r0, r5, #0x0
-	bl FUN_020669A0
+	bl WipeBoxMonDataAndEncrypt
 	add r4, r4, #0x1
 	add r5, #0x88
 	cmp r4, #0x1e
@@ -149,7 +149,7 @@ _0206B270:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	bne _0206B2A0
 	mov r0, #0x88
@@ -241,7 +241,7 @@ _0206B308:
 	mov r0, #0x88
 	mul r0, r2
 	add r0, r1, r0
-	bl FUN_020669A0
+	bl WipeBoxMonDataAndEncrypt
 	bl FUN_02022830
 	pop {r3, pc}
 _0206B32A:
@@ -274,7 +274,7 @@ _0206B350:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	bne _0206B364
 	add sp, #0x8
@@ -327,7 +327,7 @@ _0206B3A2:
 	add r0, r1, r0
 	mov r1, #0xab
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	bne _0206B3C6
 	ldr r0, [sp, #0x0]
@@ -371,7 +371,7 @@ _0206B3F6:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	beq _0206B406
 	add r6, r6, #0x1
@@ -521,7 +521,7 @@ _0206B504:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	beq _0206B514
 	add r4, r4, #0x1
@@ -560,13 +560,13 @@ _0206B548:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	beq _0206B566
 	add r0, r5, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	bne _0206B566
 	add r4, r4, #0x1
@@ -635,7 +635,7 @@ _0206B5C4:
 	add r0, r1, r0
 	ldr r2, [sp, #0x18]
 	add r1, r7, #0x0
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	bl FUN_02022830
 	pop {r3-r7, pc}
 	.balign 4

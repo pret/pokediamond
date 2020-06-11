@@ -113,7 +113,7 @@ FUN_020859C0: ; 0x020859C0
 	bl FUN_0200628C
 	str r0, [r4, #0x0]
 	mov r0, #0x35
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	ldr r1, _02085BA4 ; =0x00000428
 	mov r2, #0xff
 	str r0, [r4, r1]
@@ -675,7 +675,7 @@ _02085EA6:
 	mov r1, #0xa1
 	add r2, sp, #0x8
 	add r5, r0, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r1, [sp, #0x8]
 	ldr r0, [r7, #0x20]
 	sub r1, r1, #0x1
@@ -683,7 +683,7 @@ _02085EA6:
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xaa
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r1, [sp, #0x8]
 	ldr r0, [r7, #0x20]
 	sub r1, r1, #0x1

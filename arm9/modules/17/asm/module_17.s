@@ -13208,7 +13208,7 @@ MOD17_021DD6DC: ; 0x021DD6DC
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0x68]
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	mov r1, #0x8a
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -13278,7 +13278,7 @@ MOD17_021DD778: ; 0x021DD778
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 	ldr r0, [r5, #0x68]
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	mov r1, #0x8a
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -14501,7 +14501,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	add r3, r6, #0
 	bl FUN_0200ABB4
 	mov r0, #0xd
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r6, r0, #0
 	ldr r0, [r5, #4]
 	add r1, r6, #0

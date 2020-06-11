@@ -396,7 +396,7 @@ _02042FE8:
 	add r0, r4, #0x0
 	mov r1, #0x6f
 	add r2, sp, #0x30
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r4, #0x0
 	mov r1, #0x4b
 	mov r2, #0x0
@@ -445,7 +445,7 @@ _02042FE8:
 	add r0, r4, #0x0
 	mov r1, #0x46
 	add r2, sp, #0x34
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x3e
 	lsl r0, r0, #0x4
 	and r0, r6
@@ -454,7 +454,7 @@ _02042FE8:
 	add r0, r4, #0x0
 	mov r1, #0x47
 	add r2, sp, #0x34
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x1f
 	lsl r0, r0, #0xa
 	and r0, r6
@@ -463,7 +463,7 @@ _02042FE8:
 	add r0, r4, #0x0
 	mov r1, #0x48
 	add r2, sp, #0x34
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	bl rand_LC
 	add r6, r0, #0x0
 	mov r0, #0x1f
@@ -472,7 +472,7 @@ _02042FE8:
 	add r0, r4, #0x0
 	mov r1, #0x49
 	add r2, sp, #0x34
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x3e
 	lsl r0, r0, #0x4
 	and r0, r6
@@ -481,7 +481,7 @@ _02042FE8:
 	add r0, r4, #0x0
 	mov r1, #0x4a
 	add r2, sp, #0x34
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x1f
 	lsl r0, r0, #0xa
 	and r0, r6
@@ -490,7 +490,7 @@ _02042FE8:
 	add r0, r4, #0x0
 	mov r1, #0x4b
 	add r2, sp, #0x34
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _020430DA:
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
@@ -621,7 +621,7 @@ _020431D4:
 	bl FUN_020239CC
 	str r0, [sp, #0x28]
 	mov r0, #0x20
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r7, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r7, #0x0
@@ -629,15 +629,15 @@ _020431D4:
 	add r0, r7, #0x0
 	mov r1, #0x90
 	add r2, r5, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r7, #0x0
 	mov r1, #0x7
 	add r2, sp, #0x2c
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r7, #0x0
 	mov r1, #0x9c
 	add r2, sp, #0x28
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
 	add r4, r7, #0x0
 	bl FUN_02021A20

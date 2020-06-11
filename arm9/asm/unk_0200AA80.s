@@ -285,7 +285,7 @@ FUN_0200AC60: ; 0x0200AC60
 	add r0, r7, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, r0, #0x0
 	ldr r2, [r5, #0xc]
 	add r0, r4, #0x0
@@ -309,7 +309,7 @@ FUN_0200ACA4: ; 0x0200ACA4
 	add r0, r2, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -350,7 +350,7 @@ FUN_0200ACF8: ; 0x0200ACF8
 	add r4, r1, #0x0
 	ldr r2, [r5, #0xc]
 	mov r1, #0x76
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -367,7 +367,7 @@ FUN_0200AD18: ; 0x0200AD18
 	add r4, r1, #0x0
 	ldr r2, [r5, #0xc]
 	mov r1, #0x90
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0

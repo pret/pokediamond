@@ -305,7 +305,7 @@ _02254A62:
 	add r1, r6, #0
 	bl FUN_0206B9B0
 	add r4, r0, #0
-	bl FUN_020669D4
+	bl TryDecryptMon
 	add r7, r0, #0
 	add r0, r4, #0
 	bl FUN_0206B688
@@ -354,7 +354,7 @@ _02254ABE:
 	strb r0, [r5, #0x13]
 	add r0, r4, #0
 	add r1, r7, #0
-	bl FUN_02066A20
+	bl TryEncryptMon
 	ldr r0, [sp]
 	add r6, r6, #1
 	ldr r0, [r0]

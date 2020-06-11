@@ -3382,7 +3382,7 @@ MOD65_021D8F34: ; 0x021D8F34
 	strb r0, [r1]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	add r1, r4, #0
 	add r1, #0x36
 	strb r0, [r1]

@@ -497,7 +497,7 @@ _0204C138:
 	add r0, r6, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, r5, r4
 	add r1, #0xb6
 	strh r0, [r1, #0x0]

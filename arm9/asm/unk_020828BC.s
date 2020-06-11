@@ -789,7 +789,7 @@ _02082D9A:
 	add r0, r6, #0x0
 	add r1, #0x36
 	add r2, #0x2
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r4, r4, #0x1
 	add r5, r5, #0x2
 	cmp r4, #0x4
@@ -810,11 +810,11 @@ _02082D9A:
 	add r0, r6, #0x0
 	mov r1, #0x76
 	add r2, r5, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r2, [sp, #0x14]
 	add r0, r6, #0x0
 	mov r1, #0x90
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x14]
@@ -838,30 +838,30 @@ _02082D9A:
 	strb r1, [r0, #0x0]
 	add r0, r6, #0x0
 	mov r1, #0x13
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r6, #0x0
 	mov r1, #0x14
 	add r2, sp, #0x1c
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r2, sp, #0x18
 	add r0, r6, #0x0
 	mov r1, #0x15
 	add r2, #0x3
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r2, sp, #0x18
 	add r0, r6, #0x0
 	mov r1, #0x16
 	add r2, #0x2
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r2, sp, #0x18
 	add r0, r6, #0x0
 	mov r1, #0x17
 	add r2, #0x1
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r6, #0x0
 	mov r1, #0x18
 	add r2, sp, #0x18
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add sp, #0x20
 	pop {r3-r7, pc}
 	nop

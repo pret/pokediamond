@@ -469,7 +469,7 @@ MOD70_021D77CC: ; 0x021D77CC
 	lsl r1, r1, #2
 	str r0, [r4, r1]
 	mov r0, #0x3d
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	mov r1, #0x66
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -1562,7 +1562,7 @@ _021D80F4:
 	ldr r0, [r7, r0]
 	ldr r2, [sp, #0x1c]
 	mov r1, #0x70
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r1, #0x66
 	lsl r1, r1, #2
 	ldr r1, [r7, r1]

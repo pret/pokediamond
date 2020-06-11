@@ -284,7 +284,7 @@ FUN_02083694: ; 0x02083694
 	push {r3-r5, lr}
 	add r5, r2, #0x0
 	add r4, r3, #0x0
-	bl FUN_020669BC
+	bl SizeOfStructPokemon
 	add r2, r0, #0x0
 	ldrb r1, [r5, r2]
 	add r0, r5, #0x0
@@ -304,7 +304,7 @@ FUN_020836BC: ; 0x020836BC
 	push {r3-r7, lr}
 	add r6, r1, #0x0
 	add r7, r2, #0x0
-	bl FUN_020669BC
+	bl SizeOfStructPokemon
 	add r4, r0, #0x0
 	mov r0, #0x14
 	add r1, r4, #0x1
@@ -337,7 +337,7 @@ FUN_020836FC: ; 0x020836FC
 	sub sp, #0x8
 	str r2, [sp, #0x0]
 	str r3, [sp, #0x4]
-	bl FUN_020669BC
+	bl SizeOfStructPokemon
 	mov r7, #0x0
 	ldr r4, [sp, #0x4]
 	add r6, r0, #0x0
@@ -370,7 +370,7 @@ FUN_0208373C: ; 0x0208373C
 	sub sp, #0x8
 	add r4, r0, #0x0
 	add r5, r1, #0x0
-	bl FUN_020669BC
+	bl SizeOfStructPokemon
 	add r6, r0, #0x0
 	lsl r0, r6, #0x2
 	str r0, [sp, #0x0]

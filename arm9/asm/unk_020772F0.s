@@ -1071,7 +1071,7 @@ FUN_02077894: ; 0x02077894
 	cmp r0, #0x1
 	bne _020778DE
 	mov r0, #0x12
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	mov r3, #0xa
 	str r3, [sp, #0x0]
 	str r3, [sp, #0x4]
@@ -1642,7 +1642,7 @@ _02077D88:
 	cmp r0, #0x1
 	bne _02077DCE
 	mov r0, #0x12
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	mov r3, #0xa
 	str r3, [sp, #0x0]
 	str r3, [sp, #0x4]
@@ -1822,7 +1822,7 @@ _02077F04:
 	beq _02077F50
 _02077F1A:
 	mov r0, #0x12
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	str r3, [sp, #0x4]

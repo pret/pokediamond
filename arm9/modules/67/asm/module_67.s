@@ -3298,7 +3298,7 @@ MOD67_021D8F00: ; 0x021D8F00
 	str r3, [sp, #0xc]
 	mov r0, #0x2a
 	add r7, r1, #0
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	str r4, [sp]
 	mov r1, #0
 	str r1, [sp, #4]

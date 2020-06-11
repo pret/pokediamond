@@ -259,18 +259,16 @@ typedef union {
 
 struct BoxPokemon {
     /* 0x000 */ u32 personalityValue;
-    /* 0x004 */ u16 control_4_0:1;
+    /* 0x004 */ u16 no_encrypt:1;
                 u16 control_4_1:1;
                 u16 control_4_2:1;
                 u16 Unused:13;    // Might be used for validity checks
     /* 0x006 */ u16 checksum;  // Stored checksum of pokemon
-    /* 0x008 */ PokemonDataBlock block1;  // Blocks A-D; Order based on personalityValue
-    /* 0x028 */ PokemonDataBlock block2;
-    /* 0x048 */ PokemonDataBlock block3;
-    /* 0x068 */ PokemonDataBlock block4;
+    /* 0x008 */ PokemonDataBlock box[4];
 };
 
-struct Pokemon {
+struct PartyPokemon
+{
     /* 0x000 */ struct BoxPokemon box;
     /* 0x088 */ u8 slp:3;
                 u8 psn:1;
@@ -291,6 +289,11 @@ struct Pokemon {
     /* 0x09A */ u16 spdef;
     /* 0x09C */ u8 filler9C[0x38];
     /* 0x0D4 */ u8 sealCoords[0x18];
+};
+
+struct Pokemon {
+    /* 0x000 */ struct BoxPokemon box;
+    /* 0x088 */ struct PartyPokemon party;
 }; // size: 0xEC
 
 int GetMonBaseStat_HandleFormeConversion(int species, int form, int stat_id);
@@ -298,6 +301,6 @@ int GetMonBaseStat(int species, int stat_id);
 int GetMonExpByLevel(int species, int level);
 void LoadGrowthTable(int species, int * table);
 int GetExpByGrowthRateAndLevel(int rate, int level);
-int CalcMonLevel(int species, int experience);
+int CalcLevelBySpeciesAndExp(int species, int experience);
 
 #endif //POKEDIAMOND_POKEMON_H
