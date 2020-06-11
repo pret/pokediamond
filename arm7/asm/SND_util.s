@@ -1,7 +1,13 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .text
+    .section .data
+
+	.global _03807660
+_03807660:
+	.word	0x12345678
+
+    .section .text
 
 	arm_func_start SND_CalcRandom
 SND_CalcRandom: ; 0x037FC058
