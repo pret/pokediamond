@@ -1,0 +1,15 @@
+#ifndef GUARD_MI_MEMORY_H
+#define GUARD_MI_MEMORY_H
+
+#include "nitro/types.h"
+
+void MIi_CpuClear16(register u16 value, register u16 * dst, register u32 size);
+void MIi_CpuCopy16(register u16 * src, register u16 * dst, register u32 size);
+void MIi_CpuClear32(register u32 value, register u32 * dst, register u32 size);
+void MIi_CpuCopy32(register u32 * src, register u32 * dst, register u32 size);
+void MIi_CpuClearFast(register u32 value, register u32 * dst, register u32 size);
+void MIi_CpuCopyFast(register u32 * src, register u32 * dst, register u32 size);
+void MI_CpuFill8(register u8 value, register u8 * dst, register u32 size);
+void MI_CpuCopy8(register u8 * src, register u8 * dst, register u32 size);
+
+#endif
