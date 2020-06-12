@@ -43275,7 +43275,7 @@ _021EC64E:
 	blt _021EC616
 _021EC658:
 	add r0, r5, #0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -45678,7 +45678,7 @@ MOD05_021ED940: ; 0x021ED940
 	add r2, sp, #0
 	bl SetMonDataEncrypted
 	add r0, r4, #0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	add sp, #0x1c
 	pop {r4, r5, pc}
 	.balign 4, 0

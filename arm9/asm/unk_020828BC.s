@@ -765,7 +765,7 @@ FUN_02082D60: ; 0x02082D60
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
 	mov r2, #0x0
-	bl AdjustPersonalityToForceGenderAndNature
+	bl GenPersonalityByGenderAndNature
 	mov r1, #0x1
 	str r1, [sp, #0x0]
 	str r0, [sp, #0x4]

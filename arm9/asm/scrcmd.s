@@ -10729,7 +10729,7 @@ _0203EF18:
 	add r2, sp, #0x4
 	bl SetMonDataEncrypted
 	add r0, r4, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	add r0, r7, #0x0
 	add r1, r4, #0x0
 	bl FUN_02024AF0

@@ -1,0 +1,6 @@
+#ifndef POKEDIAMOND_MATH_UTIL_H
+#define POKEDIAMOND_MATH_UTIL_H
+
+u16 rand_LC(void);
+
+#endif //POKEDIAMOND_MATH_UTIL_H

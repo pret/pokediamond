@@ -653,7 +653,7 @@ _0204322C:
 	mov r2, #0x4
 	bl FUN_0208089C
 	add r0, r4, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	ldr r0, [sp, #0x4]
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C

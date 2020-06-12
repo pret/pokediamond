@@ -4714,10 +4714,10 @@
 .extern TryEncryptBoxMon
 .extern CreateMon
 .extern CreateMonWithNature
-.extern CreateMonWithNatureGenderLetter
-.extern AdjustPersonalityToForceGenderAndNature
+.extern CreateMonWithGenderNatureLetter
+.extern GenPersonalityByGenderAndNature
 .extern CreateMonWithFixedIVs
-.extern UpdateMonLevelAndRecalcStats
+.extern CalcMonStats
 .extern CalcMonStatsMaybeEncrypted
 .extern GetMonDataEncrypted
 .extern GetBoxMonDataEncrypted

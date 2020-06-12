@@ -803,7 +803,7 @@ _0208495C:
 	mov r1, #0x8
 	bl AddMonPartyStatEncrypted
 	add r0, r5, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	ldr r0, [sp, #0x50]
 	cmp r0, #0x0
 	bne _020849B0
@@ -987,7 +987,7 @@ _02084A66:
 	add r2, sp, #0x50
 	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	mov r6, #0x1
 _02084B18:
 	ldr r0, [sp, #0x6c]
@@ -1032,7 +1032,7 @@ _02084B20:
 	add r2, sp, #0x54
 	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	mov r6, #0x1
 _02084B78:
 	ldr r0, [sp, #0x6c]
@@ -1077,7 +1077,7 @@ _02084B80:
 	add r2, sp, #0x58
 	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	mov r6, #0x1
 _02084BD8:
 	ldr r0, [sp, #0x6c]
@@ -1122,7 +1122,7 @@ _02084BE0:
 	add r2, sp, #0x5c
 	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	mov r6, #0x1
 _02084C38:
 	ldr r0, [sp, #0x6c]
@@ -1167,7 +1167,7 @@ _02084C40:
 	add r2, sp, #0x60
 	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	mov r6, #0x1
 _02084C98:
 	ldr r0, [sp, #0x6c]
@@ -1212,7 +1212,7 @@ _02084CA0:
 	add r2, sp, #0x64
 	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 	mov r6, #0x1
 _02084CF8:
 	ldr r0, [sp, #0x6c]

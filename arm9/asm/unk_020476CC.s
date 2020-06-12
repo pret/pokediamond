@@ -684,7 +684,7 @@ _02047C40:
 	add r2, sp, #0x18
 	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl UpdateMonLevelAndRecalcStats
+	bl CalcMonStats
 _02047C82:
 	add r0, r6, #0x0
 	add r1, r5, #0x0

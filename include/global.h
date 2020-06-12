@@ -29,4 +29,7 @@ extern void ErrorHandling(void);
 
 #define GF_ASSERT(expr) do {if (!(expr)) ErrorHandling();} while (0)
 
+extern const enum GameLanguage gGameLanguage;
+extern const enum GameVersion gGameVersion;
+
 #endif //GUARD_GLOBAL_H
