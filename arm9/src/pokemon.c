@@ -31,6 +31,102 @@ int ApplyNatureModToStat(u8 nature, u16 statval, u32 statno);
     < 8u)
 #define CALC_UNOWN_LETTER(pid) ((u32)((((pid) & 0x3000000) >> 18) | (((pid) & 0x30000) >> 12) | (((pid) & 0x300) >> 6) | (((pid) & 0x3) >> 0)) % 28u)
 
+const u16 sItemOdds[2][2] = {
+    { 45, 95 },
+    { 20, 80 },
+};
+
+const s8 sFriendshipModTable[][3] = {
+    {  5,  3,   2 },
+    {  5,  3,   2 },
+    {  1,  1,   0 },
+    {  3,  2,   1 },
+    {  1,  1,   0 },
+    {  1,  1,   1 },
+    { -1, -1,  -1 },
+    { -5, -5, -10 },
+    { -5, -5, -10 },
+    {  3,  2,   1 },
+};
+
+const u16 sLegendaryMonsList[] = {
+    SPECIES_MEWTWO,
+    SPECIES_MEW,
+    SPECIES_HO_OH,
+    SPECIES_LUGIA,
+    SPECIES_CELEBI,
+    SPECIES_KYOGRE,
+    SPECIES_GROUDON,
+    SPECIES_RAYQUAZA,
+    SPECIES_JIRACHI,
+    SPECIES_DEOXYS,
+    SPECIES_DIALGA,
+    SPECIES_PALKIA,
+    SPECIES_GIRATINA,
+    SPECIES_PHIONE,
+    SPECIES_MANAPHY,
+    SPECIES_DARKRAI,
+    SPECIES_SHAYMIN,
+    SPECIES_ARCEUS,
+};
+
+const s8 UNK_020F7F16[][5] = {
+    // Atk, Def, Spd, SpA, SpD
+    {    0,   0,   0,   0,   0},
+    {    1,   0,   0,   0,  -1},
+    {    1,   0,  -1,   0,   0},
+    {    1,  -1,   0,   0,   0},
+    {    1,   0,   0,  -1,   0},
+    {   -1,   0,   0,   0,   1},
+    {    0,   0,   0,   0,   0},
+    {    0,   0,  -1,   0,   1},
+    {    0,  -1,   0,   0,   1},
+    {    0,   0,   0,  -1,   1},
+    {   -1,   0,   1,   0,   0},
+    {    0,   0,   1,   0,  -1},
+    {    0,   0,   0,   0,   0},
+    {    0,  -1,   1,   0,   0},
+    {    0,   0,   1,  -1,   0},
+    {   -1,   1,   0,   0,   0},
+    {    0,   1,   0,   0,  -1},
+    {    0,   1,  -1,   0,   0},
+    {    0,   0,   0,   0,   0},
+    {    0,   1,   0,  -1,   0},
+    {   -1,   0,   0,   1,   0},
+    {    0,   0,   0,   1,  -1},
+    {    0,   0,  -1,   1,   0},
+    {    0,  -1,   0,   1,   0},
+    {    0,   0,   0,   0,   0},
+};
+
+const u8 sNatureStatMods[][5] = {
+    {  0,  0,  0,  0,  0 },
+    {  1, -1,  0,  0,  0 },
+    {  1,  0, -1,  0,  0 },
+    {  1,  0,  0, -1,  0 },
+    {  1,  0,  0,  0, -1 },
+    { -1,  1,  0,  0,  0 },
+    {  0,  0,  0,  0,  0 },
+    {  0,  1, -1,  0,  0 },
+    {  0,  1,  0, -1,  0 },
+    {  0,  1,  0,  0, -1 },
+    { -1,  0,  1,  0,  0 },
+    {  0, -1,  1,  0,  0 },
+    {  0,  0,  0,  0,  0 },
+    {  0,  0,  1, -1,  0 },
+    {  0,  0,  1,  0, -1 },
+    { -1,  0,  0,  1,  0 },
+    {  0, -1,  0,  1,  0 },
+    {  0,  0, -1,  1,  0 },
+    {  0,  0,  0,  0,  0 },
+    {  0,  0,  0,  1, -1 },
+    { -1,  0,  0,  0,  1 },
+    {  0, -1,  0,  0,  1 },
+    {  0,  0, -1,  0,  1 },
+    {  0,  0,  0, -1,  1 },
+    {  0,  0,  0,  0,  0 },
+};
+
 void ZeroMonData(struct Pokemon * pokemon)
 {
     MIi_CpuClearFast(0, pokemon, sizeof(struct Pokemon));

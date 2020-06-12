@@ -4,103 +4,11 @@
 
 	.extern gGameLanguage
 	.extern gGameVersion
-
-	.section .rodata
-
-	.global sItemOdds
-sItemOdds: ; 0x020F7ECC
-	.short 0x002D, 0x005F
-	.short 0x0014, 0x0050
-
-	.global sFriendshipModTable
-sFriendshipModTable: ; 0x020F7ED4
-	.byte  5,  3,  2
-	.byte  5,  3,  2
-	.byte  1,  1,  0
-	.byte  3,  2,  1
-	.byte  1,  1,  0
-	.byte  1,  1,  1
-	.byte -1, -1, -1
-	.byte -5, -5, -10
-	.byte -5, -5, -10
-	.byte  3,  2,  1
-
-	.global sLegendaryMonsList
-sLegendaryMonsList: ; 0x020F7EF2
-	.short SPECIES_MEWTWO
-	.short SPECIES_MEW
-	.short SPECIES_HO_OH
-	.short SPECIES_LUGIA
-	.short SPECIES_CELEBI
-	.short SPECIES_KYOGRE
-	.short SPECIES_GROUDON
-	.short SPECIES_RAYQUAZA
-	.short SPECIES_JIRACHI
-	.short SPECIES_DEOXYS
-	.short SPECIES_DIALGA
-	.short SPECIES_PALKIA
-	.short SPECIES_GIRATINA
-	.short SPECIES_PHIONE
-	.short SPECIES_MANAPHY
-	.short SPECIES_DARKRAI
-	.short SPECIES_SHAYMIN
-	.short SPECIES_ARCEUS
-
-	.global UNK_020F7F16
-UNK_020F7F16: ; 0x020F7F16
-	.byte  0,  0,  0,  0,  0
-	.byte  1,  0,  0,  0, -1
-	.byte  1,  0, -1,  0,  0
-	.byte  1, -1,  0,  0,  0
-	.byte  1,  0,  0, -1,  0
-	.byte -1,  0,  0,  0,  1
-	.byte  0,  0,  0,  0,  0
-	.byte  0,  0, -1,  0,  1
-	.byte  0, -1,  0,  0,  1
-	.byte  0,  0,  0, -1,  1
-	.byte -1,  0,  1,  0,  0
-	.byte  0,  0,  1,  0, -1
-	.byte  0,  0,  0,  0,  0
-	.byte  0, -1,  1,  0,  0
-	.byte  0,  0,  1, -1,  0
-	.byte -1,  1,  0,  0,  0
-	.byte  0,  1,  0,  0, -1
-	.byte  0,  1, -1,  0,  0
-	.byte  0,  0,  0,  0,  0
-	.byte  0,  1,  0, -1,  0
-	.byte -1,  0,  0,  1,  0
-	.byte  0,  0,  0,  1, -1
-	.byte  0,  0, -1,  1,  0
-	.byte  0, -1,  0,  1,  0
-	.byte  0,  0,  0,  0,  0
-
-	.global sNatureStatMods
-sNatureStatMods: ; 0x020F7F93
-	.byte  0,  0,  0,  0,  0
-	.byte  1, -1,  0,  0,  0
-	.byte  1,  0, -1,  0,  0
-	.byte  1,  0,  0, -1,  0
-	.byte  1,  0,  0,  0, -1
-	.byte -1,  1,  0,  0,  0
-	.byte  0,  0,  0,  0,  0
-	.byte  0,  1, -1,  0,  0
-	.byte  0,  1,  0, -1,  0
-	.byte  0,  1,  0,  0, -1
-	.byte -1,  0,  1,  0,  0
-	.byte  0, -1,  1,  0,  0
-	.byte  0,  0,  0,  0,  0
-	.byte  0,  0,  1, -1,  0
-	.byte  0,  0,  1,  0, -1
-	.byte -1,  0,  0,  1,  0
-	.byte  0, -1,  0,  1,  0
-	.byte  0,  0, -1,  1,  0
-	.byte  0,  0,  0,  0,  0
-	.byte  0,  0,  0,  1, -1
-	.byte -1,  0,  0,  0,  1
-	.byte  0, -1,  0,  0,  1
-	.byte  0,  0, -1,  0,  1
-	.byte  0,  0,  0, -1,  1
-	.byte  0,  0,  0,  0,  0
+	.extern sItemOdds
+    .extern sFriendshipModTable
+    .extern sLegendaryMonsList
+    .extern UNK_020F7F16
+    .extern sNatureStatMods
 
 	.section .data
 
