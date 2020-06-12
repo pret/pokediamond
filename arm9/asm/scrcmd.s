@@ -4635,7 +4635,7 @@ FUN_0203BDB8: ; 0x0203BDB8
 	add r0, r4, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r0, #0x0
 	add r5, #0x80
 	lsl r1, r1, #0x10
@@ -5530,7 +5530,7 @@ FUN_0203C520: ; 0x0203C520
 	mov r1, #0x74
 	add r2, sp, #0xc
 	add r7, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r5, #0x0
 	bl ScriptReadHalfword
 	add r1, r0, #0x0
@@ -5542,7 +5542,7 @@ FUN_0203C520: ; 0x0203C520
 	add r0, r7, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r0, #0x0
 	str r6, [sp, #0x0]
 	add r0, sp, #0xc
@@ -10085,32 +10085,32 @@ FUN_0203E9CC: ; 0x0203E9CC
 	add r5, r0, #0x0
 	mov r1, #0xd
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xe
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xf
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x10
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	mov r1, #0x11
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x12
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r4, r6
 	add r2, r7, r1
 	ldr r1, [sp, #0x4]
@@ -10196,7 +10196,7 @@ FUN_0203EAB0: ; 0x0203EAB0
 	bl FUN_0206B9B0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r5, #0x0
@@ -10720,16 +10720,16 @@ _0203EF18:
 	mov r1, #0x5
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r1, _0203EF54 ; =0x00000182
 	cmp r0, r1
 	bne _0203EF48
 	add r0, r4, #0x0
 	mov r1, #0x70
 	add r2, sp, #0x4
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r4, #0x0
-	bl CalcMonStats
+	bl CalcMonLevelAndStats
 	add r0, r7, #0x0
 	add r1, r4, #0x0
 	bl FUN_02024AF0
@@ -10786,12 +10786,12 @@ _0203EFA2:
 	add r6, r0, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x10]
 	add r0, r6, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r3, r0, #0x0
 	mov r0, #0x67
 	ldr r1, [sp, #0x10]

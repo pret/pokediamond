@@ -7,11 +7,15 @@
 
 #pragma thumb on
 
-void MonEncryptSegment(void * datap, u32 size, u32 key, ...);
-void MonDecryptSegment(void * datap, u32 size, u32 key, ...);
+void MonEncryptSegment(void * datap, u32 size, u32 key);
+void MonDecryptSegment(void * datap, u32 size, u32 key);
 u16 MonEncryptionLCRNG(u32 * seed);
 u16 CalcMonChecksum(void * datap, u32 size);
 void InitBoxMonMoveset(struct BoxPokemon * boxmon);
+u32 GetMonDataInternal(struct Pokemon * pokemon, u32 attr, void * ptr);
+u32 GetBoxMonDataInternal(struct BoxPokemon * pokemon, u32 attr, void * ptr);
+void LoadMonBaseStats_HandleAlternateForme(u32 species, u32 forme, struct BaseStats * baseStats);
+int ApplyNatureModToStat(u8 nature, u16 statval, u32 statno);
 
 #define ENCRY_ARGS_PTY(mon) &(mon)->party, sizeof((mon)->party), (mon)->box.pid
 #define ENCRY_ARGS_BOX(boxmon) &(boxmon)->substructs, sizeof((boxmon)->substructs), (boxmon)->checksum
@@ -109,7 +113,7 @@ BOOL TryEncryptBoxMon(struct BoxPokemon * mon, BOOL decrypt_result)
     return ret;
 }
 
-void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId, ...)
+void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId)
 {
     struct SealStruct * seal;
     u32 capsule;
@@ -119,18 +123,18 @@ void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, in
     // Not your average encryption call
     MonEncryptSegment(&pokemon->party, sizeof(pokemon->party), 0);
     ENCRYPT_PTY(pokemon);
-    SetMonDataEncrypted(pokemon, MON_DATA_LEVEL, &level);
+    SetMonData(pokemon, MON_DATA_LEVEL, &level);
     seal = CreateNewSealsObject(0);
-    SetMonDataEncrypted(pokemon, MON_DATA_SEAL_STRUCT, seal);
+    SetMonData(pokemon, MON_DATA_SEAL_STRUCT, seal);
     FreeToHeap(seal);
     capsule = 0;
-    SetMonDataEncrypted(pokemon, MON_DATA_CAPSULE, &capsule);
+    SetMonData(pokemon, MON_DATA_CAPSULE, &capsule);
     MIi_CpuClearFast(0, seal_coords, sizeof(seal_coords));
-    SetMonDataEncrypted(pokemon, MON_DATA_SEAL_COORDS, seal_coords);
-    CalcMonStats(pokemon);
+    SetMonData(pokemon, MON_DATA_SEAL_COORDS, seal_coords);
+    CalcMonLevelAndStats(pokemon);
 }
 
-void CreateBoxMon(struct BoxPokemon * boxPokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId, ...)
+void CreateBoxMon(struct BoxPokemon * boxPokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId)
 {
     BOOL decry;
     u32 exp;
@@ -256,4 +260,112 @@ u32 GenPersonalityByGenderAndNature(u16 species, u8 gender, u8 nature)
         break;
     }
     return (u32)pid;
+}
+
+void CreateMonWithFixedIVs(struct Pokemon * pokemon, int species, int level, int ivs, int personality)
+{
+    CreateMon(pokemon, species, level, 0, 1, personality, 0, 0);
+    SetMonData(pokemon, MON_DATA_IVS_WORD, &ivs);
+    CalcMonLevelAndStats(pokemon);
+}
+
+void CalcMonLevelAndStats(struct Pokemon * pokemon)
+{
+    BOOL decry = TryDecryptMon(pokemon);
+    u32 level = CalcMonLevelEncrypted(pokemon);
+    SetMonData(pokemon, MON_DATA_LEVEL, &level);
+    CalcMonStats(pokemon);
+    TryEncryptMon(pokemon, decry);
+}
+
+void CalcMonStats(struct Pokemon * pokemon)
+{
+    struct BaseStats * baseStats;
+    int level;
+    int maxHp;
+    int hpIv;
+    int hpEv;
+    int atkIv;
+    int defIv;
+    int speedIv;
+    int spatkIv;
+    int spdefIv;
+    int atkEv;
+    int defEv;
+    int speedEv;
+    int spatkEv;
+    int spdefEv;
+    int forme;
+    int hp;
+    int species;
+    int newMaxHp;
+    int newAtk;
+    int newDef;
+    int newSpeed;
+    int newSpatk;
+    int newSpdef;
+    BOOL decry = TryDecryptMon(pokemon);
+    level = (int)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+    maxHp = (int)GetMonData(pokemon, MON_DATA_MAXHP, NULL);
+    hp = (int)GetMonData(pokemon, MON_DATA_HP, NULL);
+    hpIv = (int)GetMonData(pokemon, MON_DATA_HP_IV, NULL);
+    hpEv = (int)GetMonData(pokemon, MON_DATA_HP_EV, NULL);
+    atkIv = (int)GetMonData(pokemon, MON_DATA_ATK_IV, NULL);
+    atkEv = (int)GetMonData(pokemon, MON_DATA_ATK_EV, NULL);
+    defIv = (int)GetMonData(pokemon, MON_DATA_DEF_IV, NULL);
+    defEv = (int)GetMonData(pokemon, MON_DATA_DEF_EV, NULL);
+    speedIv = (int)GetMonData(pokemon, MON_DATA_SPEED_IV, NULL);
+    speedEv = (int)GetMonData(pokemon, MON_DATA_SPEED_EV, NULL);
+    spatkIv = (int)GetMonData(pokemon, MON_DATA_SPATK_IV, NULL);
+    spatkEv = (int)GetMonData(pokemon, MON_DATA_SPATK_EV, NULL);
+    spdefIv = (int)GetMonData(pokemon, MON_DATA_SPDEF_IV, NULL);
+    spdefEv = (int)GetMonData(pokemon, MON_DATA_SPDEF_EV, NULL);
+    forme = (int)GetMonData(pokemon, MON_DATA_FORME, NULL);
+    species = (int)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+
+    baseStats = (struct BaseStats *)AllocFromHeap(0, sizeof(struct BaseStats));
+    LoadMonBaseStats_HandleAlternateForme(species, forme, baseStats);
+
+    if (species == SPECIES_SHEDINJA)
+        newMaxHp = 1;
+    else
+    {
+        newMaxHp = (baseStats->hp * 2 + hpIv + hpEv / 4) * level / 100 + level + 10;
+    }
+    SetMonData(pokemon, MON_DATA_MAXHP, &newMaxHp);
+
+    newAtk = (baseStats->atk * 2 + atkIv + atkEv / 4) * level / 100 + 5;
+    newAtk = ApplyNatureModToStat(GetMonNature(pokemon), newAtk, 1);
+    SetMonData(pokemon, MON_DATA_ATK, &newAtk);
+
+    newDef = (baseStats->def * 2 + defIv + defEv / 4) * level / 100 + 5;
+    newDef = ApplyNatureModToStat(GetMonNature(pokemon), newDef, 2);
+    SetMonData(pokemon, MON_DATA_DEF, &newDef);
+
+    newSpeed = (baseStats->speed * 2 + speedIv + speedEv / 4) * level / 100 + 5;
+    newSpeed = ApplyNatureModToStat(GetMonNature(pokemon), newSpeed, 3);
+    SetMonData(pokemon, MON_DATA_SPEED, &newSpeed);
+
+    newSpatk = (baseStats->spatk * 2 + spatkIv + spatkEv / 4) * level / 100 + 5;
+    newSpatk = ApplyNatureModToStat(GetMonNature(pokemon), newSpatk, 4);
+    SetMonData(pokemon, MON_DATA_SPATK, &newSpatk);
+
+    newSpdef = (baseStats->spdef * 2 + spdefIv + spdefEv / 4) * level / 100 + 5;
+    newSpdef = ApplyNatureModToStat(GetMonNature(pokemon), newSpdef, 5);
+    SetMonData(pokemon, MON_DATA_SPDEF, &newSpdef);
+
+    FreeToHeap(baseStats);
+
+    if (hp != 0 || maxHp == 0)
+    {
+        if (species == SPECIES_SHEDINJA)
+            hp = 1;
+        else if (hp == 0)
+            hp = newMaxHp;
+        else
+            hp += newMaxHp - maxHp;
+    }
+    if (hp != 0)
+        SetMonData(pokemon, MON_DATA_HP, &hp);
+    TryEncryptMon(pokemon, decry);
 }

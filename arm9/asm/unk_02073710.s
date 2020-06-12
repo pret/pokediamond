@@ -248,7 +248,7 @@ FUN_020737D0: ; 0x020737D0
 	ldr r0, [sp, #0x10]
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r0, #0x0
 	str r7, [sp, #0x14]
 	add r0, sp, #0x14

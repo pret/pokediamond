@@ -4717,11 +4717,11 @@
 .extern CreateMonWithGenderNatureLetter
 .extern GenPersonalityByGenderAndNature
 .extern CreateMonWithFixedIVs
+.extern CalcMonLevelAndStats
 .extern CalcMonStats
-.extern CalcMonStatsMaybeEncrypted
-.extern GetMonDataEncrypted
-.extern GetBoxMonDataEncrypted
-.extern SetMonDataEncrypted
+.extern GetMonData
+.extern GetBoxMonData
+.extern SetMonData
 .extern SetBoxMonDataEncrypted
 .extern AddMonPartyStatEncrypted
 .extern AllocAndLoadMonPersonal
@@ -4737,8 +4737,8 @@
 .extern CalcBoxMonLevelEncrypted
 .extern CalcLevelBySpeciesAndExp
 .extern CalcLevelBySpeciesAndExp_PreloadedPersonal
-.extern GetMonNatureEncrypted
-.extern GetBoxMonNatureEncrypted
+.extern GetMonNature
+.extern GetBoxMonNature
 .extern GetNatureFromPersonality
 .extern MonApplyFriendshipModEncrypted
 .extern GetMonGenderEncrypted

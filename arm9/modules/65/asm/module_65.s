@@ -3372,7 +3372,7 @@ MOD65_021D8F34: ; 0x021D8F34
 	str r0, [r4, #0x30]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x34]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
@@ -3382,7 +3382,7 @@ MOD65_021D8F34: ; 0x021D8F34
 	strb r0, [r1]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl GetMonNatureEncrypted
+	bl GetMonNature
 	add r1, r4, #0
 	add r1, #0x36
 	strb r0, [r1]
@@ -3402,7 +3402,7 @@ MOD65_021D8F34: ; 0x021D8F34
 	ldr r2, [r4, #0x3c]
 	ldr r0, [r0]
 	mov r1, #0x76
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r4, #0
 	ldr r0, [r4, #0x10]
 	add r1, #0x36

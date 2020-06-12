@@ -51,12 +51,12 @@ FUN_0206B688: ; 0x0206B688
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0206B754
@@ -158,7 +158,7 @@ FUN_0206B754: ; 0x0206B754
 	mov r1, #0xad
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	ldr r2, _0206B7B8 ; =0x0000019D
 	cmp r0, r2
 	bhi _0206B784
@@ -201,7 +201,7 @@ _0206B7A4:
 	add r0, r4, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	pop {r4, pc}
@@ -297,12 +297,12 @@ FUN_0206B83C: ; 0x0206B83C
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	add r1, r4, #0x0

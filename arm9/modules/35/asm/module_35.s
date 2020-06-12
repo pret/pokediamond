@@ -338,12 +338,12 @@ _02254A7A:
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	strh r0, [r6, #0x1c]
 	add r0, r4, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	strh r0, [r6, #0x20]
 	ldr r0, [sp, #8]
 	bl MOD05_021EC7B4

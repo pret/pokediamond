@@ -1720,7 +1720,7 @@ _02051BD6:
 	mov r1, #0x5
 	add r0, r0, r6
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x18]
 	ldr r2, [r5, #0xc]

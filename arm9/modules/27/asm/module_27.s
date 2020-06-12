@@ -313,27 +313,27 @@ _02254A62:
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #8]
 	add r0, r4, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0xa]
 	add r0, r4, #0
 	mov r1, #0xa3
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0xc]
 	add r0, r4, #0
 	mov r1, #6
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0xe]
 	add r0, r4, #0
 	mov r1, #0x9f
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0
 	beq _02254ABC
 	mov r0, #1
@@ -345,12 +345,12 @@ _02254ABE:
 	add r0, r4, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r5, #0x12]
 	add r0, r4, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r5, #0x13]
 	add r0, r4, #0
 	add r1, r7, #0

@@ -2457,7 +2457,7 @@ _020363F6:
 	ldr r0, [sp, #0xc]
 	mov r1, #0x6
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	bne _02036474
 	add r0, r5, #0x0

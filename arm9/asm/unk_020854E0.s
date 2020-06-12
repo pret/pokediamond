@@ -111,7 +111,7 @@ FUN_02085578: ; 0x02085578
 	ldr r2, [r4, #0x14]
 	add r0, r6, #0x0
 	mov r1, #0xa9
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -180,7 +180,7 @@ _0208561E:
 	ldr r2, [r5, #0x14]
 	add r0, r4, #0x0
 	mov r1, #0xa9
-	bl SetMonDataEncrypted
+	bl SetMonData
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
@@ -218,7 +218,7 @@ FUN_02085644: ; 0x02085644
 	add r0, r5, #0x0
 	mov r1, #0xa9
 	add r2, r4, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r7, #0x0
 	mov r1, #0x0
 	add r2, r6, #0x0
@@ -229,11 +229,11 @@ FUN_02085644: ; 0x02085644
 	add r0, r5, #0x0
 	mov r1, #0xa9
 	add r2, r4, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r5, #0x0
 	mov r1, #0x6
 	add r2, sp, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add r0, r6, #0x0
@@ -262,11 +262,11 @@ _020856BC:
 	add r0, r4, #0x0
 	mov r1, #0xa9
 	add r2, r6, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r4, #0x0
 	mov r1, #0x6
 	add r2, sp, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r7, #0x0
 	mov r1, #0x0
 	add r2, r5, #0x0

@@ -667,7 +667,7 @@ _02047C40:
 	add r0, r5, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r7, r0
 	beq _02047C82
 	cmp r7, #0x0
@@ -675,16 +675,16 @@ _02047C40:
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r7, #0x0
 	bl GetMonExpBySpeciesAndLevel
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	mov r1, #0x8
 	add r2, sp, #0x18
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r5, #0x0
-	bl CalcMonStats
+	bl CalcMonLevelAndStats
 _02047C82:
 	add r0, r6, #0x0
 	add r1, r5, #0x0

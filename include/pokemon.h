@@ -398,14 +398,19 @@ BOOL TryDecryptMon(struct Pokemon * mon);
 BOOL TryEncryptMon(struct Pokemon * mon, BOOL decrypt_result);
 BOOL TryDecryptBoxMon(struct BoxPokemon * mon);
 BOOL TryEncryptBoxMon(struct BoxPokemon * mon, BOOL decrypt_result);
-void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId, ...);
-void CreateBoxMon(struct BoxPokemon * boxPokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId, ...);
+void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId);
+void CreateBoxMon(struct BoxPokemon * boxPokemon, int species, int level, int fixedIV, int hasFixedPersonality, int fixedPersonality, int otIdType, int fixedOtId);
 void CreateMonWithNature(struct Pokemon * pokemon, u16 species, u8 level, u8 fixedIv, u8 nature);
 void CreateMonWithGenderNatureLetter(struct Pokemon * pokemon, u16 species, u8 level, u8 fixedIv, u8 gender, u8 nature, u8 letter);
+u32 GenPersonalityByGenderAndNature(u16 species, u8 gender, u8 nature);
+void CreateMonWithFixedIVs(struct Pokemon * pokemon, int species, int level, int ivs, int personality);
+void CalcMonLevelAndStats(struct Pokemon * pokemon);
+void CalcMonStats(struct Pokemon * pokemon);
+u32 CalcMonLevelEncrypted(struct Pokemon * pokemon);
+u8 GetBoxMonNature(struct BoxPokemon * boxmon);
+u8 GetMonNature(struct Pokemon * mon);
 u8 GetNatureFromPersonality(u32 pid);
 u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid);
-u32 GenPersonalityByGenderAndNature(u16 species, u8 gender, u8 nature);
-void CalcMonStats(struct Pokemon * pokemon);
 u32 GetBoxMonGenderEncrypted(struct BoxPokemon * boxmon);
 int GetMonBaseStat_HandleFormeConversion(int species, int form, enum BaseStat stat_id);
 u32 GetMonBaseStat(int species, enum BaseStat stat_id);
@@ -416,17 +421,13 @@ int CalcLevelBySpeciesAndExp(int species, int experience);
 
 #ifndef IN_POKEMON_C
 u32 GetMonData();
-u32 GetMonDataEncrypted();
 u32 GetBoxMonData();
-u32 GetBoxMonDataEncrypted();
 #else
 u32 GetMonData(struct Pokemon * pokemon, u32 attr, void * ptr);
-u32 GetMonDataEncrypted(struct Pokemon * pokemon, u32 attr, void * ptr);
 u32 GetBoxMonData(struct BoxPokemon * pokemon, u32 attr, void * ptr);
-u32 GetBoxMonDataEncrypted(struct BoxPokemon * pokemon, u32 attr, void * ptr);
 #endif
+void SetMonDataInternal(struct Pokemon * pokemon, u32 attr, const void * ptr);
 void SetMonData(struct Pokemon * pokemon, u32 attr, const void * ptr);
-void SetMonDataEncrypted(struct Pokemon * pokemon, u32 attr, const void * ptr);
 void SetBoxMonData(struct BoxPokemon * pokemon, u32 attr, const void * ptr);
 void SetBoxMonDataEncrypted(struct BoxPokemon * pokemon, u32 attr, const void * ptr);
 void AddMonData(struct Pokemon * pokemon, u32 attr, u32 amount);

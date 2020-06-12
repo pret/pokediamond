@@ -211,12 +211,12 @@ _0206BA00:
 	add r0, r4, #0x0
 	mov r1, #0xab
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0xab
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	sub r2, r7, r0
 	mov r3, #0x1d
 _0206BA24:
@@ -340,7 +340,7 @@ _0206BAF6:
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r7, r0
 	beq _0206BB0E
 	ldr r0, [r6, #0x4]

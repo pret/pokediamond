@@ -120,19 +120,19 @@ _0202572A:
 	mov r1, #0x5
 	mov r2, #0x0
 	add r7, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x4]
 	add r0, r7, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x8]
 	add r0, r7, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0xc]
 	add r0, r7, #0x0
 	bl FUN_0206B6C8
