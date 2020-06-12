@@ -7,23 +7,23 @@
 
 	.section .rodata
 
-	.global UNK_020F7ECC
-UNK_020F7ECC: ; 0x020F7ECC
+	.global sItemOdds
+sItemOdds: ; 0x020F7ECC
 	.short 0x002D, 0x005F
 	.short 0x0014, 0x0050
 
-	.global UNK_020F7ED4
-UNK_020F7ED4: ; 0x020F7ED4
-	.byte 0x05, 0x03, 0x02
-	.byte 0x05, 0x03, 0x02
-	.byte 0x01, 0x01, 0x00
-	.byte 0x03, 0x02, 0x01
-	.byte 0x01, 0x01, 0x00
-	.byte 0x01, 0x01, 0x01
-	.byte 0xFF, 0xFF, 0xFF
-	.byte 0xFB, 0xFB, 0xF6
-	.byte 0xFB, 0xFB, 0xF6
-	.byte 0x03, 0x02, 0x01
+	.global sFriendshipModTable
+sFriendshipModTable: ; 0x020F7ED4
+	.byte  5,  3,  2
+	.byte  5,  3,  2
+	.byte  1,  1,  0
+	.byte  3,  2,  1
+	.byte  1,  1,  0
+	.byte  1,  1,  1
+	.byte -1, -1, -1
+	.byte -5, -5, -10
+	.byte -5, -5, -10
+	.byte  3,  2,  1
 
 	.global sLegendaryMonsList
 sLegendaryMonsList: ; 0x020F7EF2
@@ -74,8 +74,8 @@ UNK_020F7F16: ; 0x020F7F16
 	.byte  0, -1,  0,  1,  0
 	.byte  0,  0,  0,  0,  0
 
-	.global UNK_020F7F93
-UNK_020F7F93: ; 0x020F7F93
+	.global sNatureStatMods
+sNatureStatMods: ; 0x020F7F93
 	.byte  0,  0,  0,  0,  0
 	.byte  1, -1,  0,  0,  0
 	.byte  1,  0, -1,  0,  0
@@ -104,8 +104,8 @@ UNK_020F7F93: ; 0x020F7F93
 
 	.section .data
 
-	.global UNK_02105FC8
-UNK_02105FC8: ; 0x02105FC8
+	.global __local_str_poketool_personal_pms_narc
+__local_str_poketool_personal_pms_narc: ; 0x02105FC8
 	.asciz "poketool/personal/pms.narc"
 
 	.section .bss
@@ -128,16 +128,16 @@ ZeroMonData: ; 0x02066978
 	ldrh r2, [r4, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 	add r0, r4, #0x0
 	ldr r2, [r4, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl EncryptMon
+	bl MonEncryptSegment
 	pop {r4, pc}
 
-	thumb_func_start FUN_020669A0
-FUN_020669A0: ; 0x020669A0
+	thumb_func_start WipeBoxMonDataAndEncrypt
+WipeBoxMonDataAndEncrypt: ; 0x020669A0
 	push {r4, lr}
 	add r4, r0, #0x0
 	mov r0, #0x0
@@ -148,16 +148,16 @@ FUN_020669A0: ; 0x020669A0
 	ldrh r2, [r4, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 	pop {r4, pc}
 
-	thumb_func_start FUN_020669BC
-FUN_020669BC: ; 0x020669BC
+	thumb_func_start SizeOfStructPokemon
+SizeOfStructPokemon: ; 0x020669BC
 	mov r0, #0xec
 	bx lr
 
-	thumb_func_start FUN_020669C0
-FUN_020669C0: ; 0x020669C0
+	thumb_func_start AllocMonZeroed
+AllocMonZeroed: ; 0x020669C0
 	push {r4, lr}
 	mov r1, #0xec
 	bl AllocFromHeap
@@ -167,8 +167,8 @@ FUN_020669C0: ; 0x020669C0
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_020669D4
-FUN_020669D4: ; 0x020669D4
+	thumb_func_start TryDecryptMon
+TryDecryptMon: ; 0x020669D4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldrh r0, [r5, #0x4]
@@ -196,19 +196,19 @@ _020669EE:
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl DecryptMon
+	bl MonDecryptSegment
 _02066A1A:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
 
-	thumb_func_start FUN_02066A20
-FUN_02066A20: ; 0x02066A20
+	thumb_func_start TryEncryptMon
+TryEncryptMon: ; 0x02066A20
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldrh r2, [r5, #0x4]
@@ -231,23 +231,23 @@ FUN_02066A20: ; 0x02066A20
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl EncryptMon
+	bl MonEncryptSegment
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	strh r0, [r5, #0x6]
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 _02066A68:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02066A6C
-FUN_02066A6C: ; 0x02066A6C
+	thumb_func_start TryDecryptBoxMon
+TryDecryptBoxMon: ; 0x02066A6C
 	push {r4, lr}
 	add r2, r0, #0x0
 	ldrh r1, [r2, #0x4]
@@ -263,14 +263,14 @@ FUN_02066A6C: ; 0x02066A6C
 	add r0, #0x8
 	mov r1, #0x80
 	mov r4, #0x1
-	bl DecryptMon
+	bl MonDecryptSegment
 _02066A8E:
 	add r0, r4, #0x0
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_02066A94
-FUN_02066A94: ; 0x02066A94
+	thumb_func_start TryEncryptBoxMon
+TryEncryptBoxMon: ; 0x02066A94
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	ldrh r2, [r5, #0x4]
@@ -288,13 +288,13 @@ FUN_02066A94: ; 0x02066A94
 	add r0, #0x8
 	mov r1, #0x80
 	mov r4, #0x1
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	strh r0, [r5, #0x6]
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 _02066AC8:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
@@ -325,23 +325,23 @@ CreateMon: ; 0x02066ACC
 	add r0, #0x88
 	mov r1, #0x64
 	mov r2, #0x0
-	bl EncryptMon
+	bl MonEncryptSegment
 	add r0, r5, #0x0
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl EncryptMon
+	bl MonEncryptSegment
 	add r0, r5, #0x0
 	mov r1, #0xa0
 	add r2, sp, #0x48
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	bl FUN_020256BC
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xa9
 	add r2, r4, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x0
@@ -349,7 +349,7 @@ CreateMon: ; 0x02066ACC
 	add r0, r5, #0x0
 	mov r1, #0xa1
 	add r2, sp, #0x10
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	add r1, sp, #0x14
 	mov r2, #0x18
@@ -357,9 +357,9 @@ CreateMon: ; 0x02066ACC
 	add r0, r5, #0x0
 	mov r1, #0xaa
 	add r2, sp, #0x14
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add sp, #0x2c
 	pop {r3-r6}
 	pop {r3}
@@ -372,9 +372,9 @@ CreateBoxMon: ; 0x02066B64
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
-	bl FUN_020669A0
+	bl WipeBoxMonDataAndEncrypt
 	add r0, r5, #0x0
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	str r0, [sp, #0x0]
 	ldr r0, [sp, #0x30]
 	cmp r0, #0x0
@@ -389,7 +389,7 @@ _02066B8E:
 	add r0, r5, #0x0
 	mov r1, #0x0
 	add r2, sp, #0x34
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	ldr r0, [sp, #0x38]
 	cmp r0, #0x2
 	bne _02066BD6
@@ -429,19 +429,19 @@ _02066BDE:
 	add r0, r5, #0x0
 	mov r1, #0x7
 	add r2, sp, #0x3c
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	ldr r2, _02066D88 ; =gGameLanguage
 	add r0, r5, #0x0
 	mov r1, #0xc
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
 	mov r1, #0x5
 	add r2, sp, #0x24
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
 	mov r1, #0xb2
 	mov r2, #0x0
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x28]
 	bl GetMonExpByLevel
@@ -449,7 +449,7 @@ _02066BDE:
 	add r0, r5, #0x0
 	mov r1, #0x8
 	add r2, sp, #0x8
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	ldr r0, [sp, #0x24]
 	mov r1, #0x14
 	bl GetMonBaseStat
@@ -457,48 +457,48 @@ _02066BDE:
 	add r0, r5, #0x0
 	mov r1, #0x9
 	add r2, sp, #0x8
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
 	mov r1, #0x9b
 	add r2, sp, #0x28
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	ldr r2, _02066D8C ; =gGameVersion
 	add r0, r5, #0x0
 	mov r1, #0x79
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	mov r0, #0x4
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x9a
 	add r2, sp, #0x8
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	ldr r0, [sp, #0x2c]
 	cmp r0, #0x20
 	bge _02066C94
 	add r0, r5, #0x0
 	mov r1, #0x46
 	add r2, sp, #0x2c
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
 	mov r1, #0x47
 	add r2, sp, #0x2c
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
 	mov r1, #0x48
 	add r2, sp, #0x2c
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
 	mov r1, #0x49
 	add r2, sp, #0x2c
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
 	mov r1, #0x4a
 	add r2, sp, #0x2c
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
 	mov r1, #0x4b
 	add r2, sp, #0x2c
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	b _02066D18
 _02066C94:
 	bl rand_LC
@@ -509,7 +509,7 @@ _02066C94:
 	add r0, r5, #0x0
 	mov r1, #0x46
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	mov r0, #0x3e
 	ldr r1, [sp, #0x8]
 	lsl r0, r0, #0x4
@@ -519,7 +519,7 @@ _02066C94:
 	add r0, r5, #0x0
 	mov r1, #0x47
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	mov r0, #0x1f
 	ldr r1, [sp, #0x8]
 	lsl r0, r0, #0xa
@@ -529,7 +529,7 @@ _02066C94:
 	add r0, r5, #0x0
 	mov r1, #0x48
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	bl rand_LC
 	mov r1, #0x1f
 	str r0, [sp, #0x8]
@@ -538,7 +538,7 @@ _02066C94:
 	add r0, r5, #0x0
 	mov r1, #0x49
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	mov r0, #0x3e
 	ldr r1, [sp, #0x8]
 	lsl r0, r0, #0x4
@@ -548,7 +548,7 @@ _02066C94:
 	add r0, r5, #0x0
 	mov r1, #0x4a
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	mov r0, #0x1f
 	ldr r1, [sp, #0x8]
 	lsl r0, r0, #0xa
@@ -558,7 +558,7 @@ _02066C94:
 	add r0, r5, #0x0
 	mov r1, #0x4b
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 _02066D18:
 	ldr r0, [sp, #0x24]
 	mov r1, #0x18
@@ -577,32 +577,32 @@ _02066D18:
 	add r0, r5, #0x0
 	mov r1, #0xa
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	b _02066D5A
 _02066D44:
 	add r0, r5, #0x0
 	mov r1, #0xa
 	add r2, sp, #0x8
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	b _02066D5A
 _02066D50:
 	add r0, r5, #0x0
 	mov r1, #0xa
 	add r2, sp, #0x8
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 _02066D5A:
 	add r0, r5, #0x0
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x6f
 	add r2, sp, #0x8
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_020695F4
+	bl InitBoxMonMoveset
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	add sp, #0xc
 	pop {r4-r7}
 	pop {r3}
@@ -647,8 +647,8 @@ _02066D9E:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02066DD4
-FUN_02066DD4: ; 0x02066DD4
+	thumb_func_start CreateMonWithNatureGenderLetter
+CreateMonWithNatureGenderLetter: ; 0x02066DD4
 	push {r4-r7, lr}
 	sub sp, #0x24
 	str r1, [sp, #0x14]
@@ -698,7 +698,7 @@ _02066DF4:
 	bne _02066DF4
 	ldr r0, [sp, #0x14]
 	add r1, r4, #0x0
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	cmp r6, r0
 	bne _02066DF4
 	ldr r0, [sp, #0x20]
@@ -769,41 +769,41 @@ FUN_02066EA4: ; 0x02066EA4
 	add r0, r4, #0x0
 	mov r1, #0xae
 	add r2, sp, #0x24
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r4, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add sp, #0x10
 	pop {r4}
 	pop {r3}
 	add sp, #0x10
 	bx r3
 
-	thumb_func_start FUN_02066ED8
-FUN_02066ED8: ; 0x02066ED8
+	thumb_func_start UpdateMonLevelAndRecalcStats
+UpdateMonLevelAndRecalcStats: ; 0x02066ED8
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl FUN_020669D4
+	bl TryDecryptMon
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020687C0
+	bl CalcMonLevelEncrypted
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0xa0
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066F04
+	bl CalcMonStatsMaybeEncrypted
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_02066A20
+	bl TryEncryptMon
 	pop {r3-r5, pc}
 
-	thumb_func_start FUN_02066F04
-FUN_02066F04: ; 0x02066F04
+	thumb_func_start CalcMonStatsMaybeEncrypted
+CalcMonStatsMaybeEncrypted: ; 0x02066F04
 	push {r3-r7, lr}
 	sub sp, #0x58
 	add r5, r0, #0x0
-	bl FUN_020669D4
+	bl TryDecryptMon
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0xa0
@@ -897,7 +897,7 @@ FUN_02066F04: ; 0x02066F04
 	ldr r1, [sp, #0x38]
 	add r0, r7, #0x0
 	add r2, r6, #0x0
-	bl LoadMonBaseStats_HandleUnownOrArceus
+	bl LoadMonBaseStats_HandleAlternateForme
 	mov r0, #0x49
 	lsl r0, r0, #0x2
 	cmp r7, r0
@@ -926,7 +926,7 @@ _0206701E:
 	add r0, r5, #0x0
 	mov r1, #0xa3
 	add r2, sp, #0x50
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, [sp, #0x14]
 	asr r0, r0, #0x1
 	lsr r1, r0, #0x1e
@@ -944,17 +944,17 @@ _0206701E:
 	add r0, r0, #0x5
 	str r0, [sp, #0x4c]
 	add r0, r5, #0x0
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	ldr r1, [sp, #0x4c]
 	mov r2, #0x1
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02068894
+	bl ApplyNatureModToStat
 	str r0, [sp, #0x4c]
 	add r0, r5, #0x0
 	mov r1, #0xa4
 	add r2, sp, #0x4c
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, [sp, #0x10]
 	asr r0, r0, #0x1
 	lsr r1, r0, #0x1e
@@ -972,17 +972,17 @@ _0206701E:
 	add r0, r0, #0x5
 	str r0, [sp, #0x48]
 	add r0, r5, #0x0
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	ldr r1, [sp, #0x48]
 	mov r2, #0x2
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02068894
+	bl ApplyNatureModToStat
 	str r0, [sp, #0x48]
 	add r0, r5, #0x0
 	mov r1, #0xa5
 	add r2, sp, #0x48
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, [sp, #0xc]
 	asr r0, r0, #0x1
 	lsr r1, r0, #0x1e
@@ -1000,17 +1000,17 @@ _0206701E:
 	add r0, r0, #0x5
 	str r0, [sp, #0x44]
 	add r0, r5, #0x0
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	ldr r1, [sp, #0x44]
 	mov r2, #0x3
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02068894
+	bl ApplyNatureModToStat
 	str r0, [sp, #0x44]
 	add r0, r5, #0x0
 	mov r1, #0xa6
 	add r2, sp, #0x44
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, [sp, #0x8]
 	asr r0, r0, #0x1
 	lsr r1, r0, #0x1e
@@ -1028,17 +1028,17 @@ _0206701E:
 	add r0, r0, #0x5
 	str r0, [sp, #0x40]
 	add r0, r5, #0x0
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	ldr r1, [sp, #0x40]
 	mov r2, #0x4
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02068894
+	bl ApplyNatureModToStat
 	str r0, [sp, #0x40]
 	add r0, r5, #0x0
 	mov r1, #0xa7
 	add r2, sp, #0x40
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	ldr r0, [sp, #0x4]
 	asr r0, r0, #0x1
 	lsr r1, r0, #0x1e
@@ -1056,17 +1056,17 @@ _0206701E:
 	add r0, r0, #0x5
 	str r0, [sp, #0x3c]
 	add r0, r5, #0x0
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	ldr r1, [sp, #0x3c]
 	mov r2, #0x5
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
-	bl FUN_02068894
+	bl ApplyNatureModToStat
 	str r0, [sp, #0x3c]
 	add r0, r5, #0x0
 	mov r1, #0xa8
 	add r2, sp, #0x3c
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r6, #0x0
 	bl FreeToHeap
 	ldr r1, [sp, #0x54]
@@ -1103,11 +1103,11 @@ _020671A0:
 	add r0, r5, #0x0
 	mov r1, #0xa2
 	add r2, sp, #0x54
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _020671B0:
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02066A20
+	bl TryEncryptMon
 	add sp, #0x58
 	pop {r3-r7, pc}
 
@@ -1125,16 +1125,16 @@ GetMonDataEncrypted: ; 0x020671BC
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	ldrh r1, [r5, #0x6]
 	cmp r0, r1
 	beq _02067204
@@ -1160,12 +1160,12 @@ _02067204:
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl EncryptMon
+	bl MonEncryptSegment
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 _02067230:
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
@@ -1252,8 +1252,8 @@ _020672B6:
 	bl GetBoxMonData
 	pop {r3, pc}
 
-	thumb_func_start FUN_020672BC
-FUN_020672BC: ; 0x020672BC
+	thumb_func_start GetBoxMonDataEncrypted
+GetBoxMonDataEncrypted: ; 0x020672BC
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldrh r0, [r5, #0x4]
@@ -1266,11 +1266,11 @@ FUN_020672BC: ; 0x020672BC
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	ldrh r1, [r5, #0x6]
 	cmp r0, r1
 	beq _020672F8
@@ -1296,7 +1296,7 @@ _020672F8:
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 _02067318:
 	add r0, r4, #0x0
 	pop {r4-r6, pc}
@@ -1314,24 +1314,28 @@ GetBoxMonData: ; 0x0206731C
 	add r2, r4, #0x0
 	bl GetSubstruct
 	add r5, r0, #0x0
+
 	ldr r0, [sp, #0x0]
 	mov r2, #0x1
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
 	bl GetSubstruct
 	add r6, r0, #0x0
+
 	ldr r0, [sp, #0x0]
 	mov r2, #0x2
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
 	bl GetSubstruct
 	add r7, r0, #0x0
+
 	ldr r0, [sp, #0x0]
 	mov r2, #0x3
 	add r1, r0, #0x0
 	ldr r1, [r1, #0x0]
 	bl GetSubstruct
 	add r1, r0, #0x0
+
 	ldr r0, [sp, #0x4]
 	cmp r0, #0xb2
 	bls _02067366
@@ -1589,7 +1593,7 @@ _0206753C:
 _02067540:
 	ldrh r0, [r5, #0x0]
 	ldr r1, [r5, #0x8]
-	bl CalcMonLevel
+	bl CalcLevelBySpeciesAndExp
 	add r4, r0, #0x0
 	b _0206781A
 _0206754C:
@@ -1808,7 +1812,7 @@ _0206769C:
 	ldr r0, _02067824 ; =SPECIES_MANAPHY_EGG
 	ldr r2, [sp, #0x8]
 	add r1, r4, #0x0
-	bl FUN_0200A99C
+	bl GetSpeciesName
 	b _0206781A
 _020676B2:
 	ldr r1, [sp, #0x8]
@@ -2011,7 +2015,7 @@ _02067810:
 	ldrh r0, [r5, #0x0]
 	ldr r2, [sp, #0x8]
 	add r1, r4, #0x0
-	bl FUN_0200A99C
+	bl GetSpeciesName
 _0206781A:
 	add r0, r4, #0x0
 	add sp, #0xc
@@ -2022,8 +2026,8 @@ _02067824: .word SPECIES_MANAPHY_EGG
 _02067828: .word 0x0000FFFF
 _0206782C: .word SPECIES_ARCEUS
 
-	thumb_func_start SetBoxMonDataEncrypted
-SetBoxMonDataEncrypted: ; 0x02067830
+	thumb_func_start SetMonDataEncrypted
+SetMonDataEncrypted: ; 0x02067830
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldrh r0, [r5, #0x4]
@@ -2036,16 +2040,16 @@ SetBoxMonDataEncrypted: ; 0x02067830
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	ldrh r1, [r5, #0x6]
 	cmp r0, r1
 	beq _02067886
@@ -2061,7 +2065,7 @@ _02067870:
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 	pop {r4-r6, pc}
 _02067886:
 	add r0, r5, #0x0
@@ -2076,17 +2080,17 @@ _02067886:
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl EncryptMon
+	bl MonEncryptSegment
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	strh r0, [r5, #0x6]
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 _020678BC:
 	pop {r4-r6, pc}
 	.balign 4
@@ -2185,8 +2189,8 @@ _02067958:
 	bl SetBoxMonData
 	pop {r3, pc}
 
-	thumb_func_start FUN_02067960
-FUN_02067960: ; 0x02067960
+	thumb_func_start SetBoxMonDataEncrypted
+SetBoxMonDataEncrypted: ; 0x02067960
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldrh r0, [r5, #0x4]
@@ -2199,11 +2203,11 @@ FUN_02067960: ; 0x02067960
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	ldrh r1, [r5, #0x6]
 	cmp r0, r1
 	beq _020679AA
@@ -2219,7 +2223,7 @@ _02067994:
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 	pop {r4-r6, pc}
 _020679AA:
 	add r0, r5, #0x0
@@ -2233,13 +2237,13 @@ _020679AA:
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	strh r0, [r5, #0x6]
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 _020679D4:
 	pop {r4-r6, pc}
 	.balign 4
@@ -2828,7 +2832,7 @@ _02067E0E:
 	ldrh r0, [r7, #0x0]
 	mov r1, #0x0
 	add r2, sp, #0x34
-	bl FUN_0200A99C
+	bl GetSpeciesName
 	add r0, sp, #0x34
 	add r1, r4, #0x0
 	bl StringNotEqual
@@ -2855,7 +2859,7 @@ _02067E40:
 	add r2, sp, #0x1c
 	mov r1, #0x0
 	add r2, #0x2
-	bl FUN_0200A99C
+	bl GetSpeciesName
 	add r0, r4, #0x0
 	add r1, sp, #0x8
 	mov r2, #0xb
@@ -3097,8 +3101,8 @@ _0206800C: .word 0xC1FFFFFF
 _02068010: .word 0xBFFFFFFF
 _02068014: .word 0x7FFFFFFF
 
-	thumb_func_start FUN_02068018
-FUN_02068018: ; 0x02068018
+	thumb_func_start AddMonPartyStatEncrypted
+AddMonPartyStatEncrypted: ; 0x02068018
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	ldrh r0, [r5, #0x4]
@@ -3111,16 +3115,16 @@ FUN_02068018: ; 0x02068018
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	ldrh r1, [r5, #0x6]
 	cmp r0, r1
 	beq _02068066
@@ -3132,13 +3136,13 @@ _02068058:
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 	pop {r4-r6, pc}
 _02068066:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_020680A0
+	bl AddMonPartyStat
 	ldrh r0, [r5, #0x4]
 	lsl r0, r0, #0x1f
 	lsr r0, r0, #0x1f
@@ -3147,23 +3151,23 @@ _02068066:
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl EncryptMon
+	bl MonEncryptSegment
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	strh r0, [r5, #0x6]
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 _0206809C:
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_020680A0
-FUN_020680A0: ; 0x020680A0
+	thumb_func_start AddMonPartyStat
+AddMonPartyStat: ; 0x020680A0
 	push {r3, lr}
 	add r3, r1, #0x0
 	sub r3, #0x9f
@@ -3784,7 +3788,7 @@ AllocAndLoadMonPersonal: ; 0x0206851C
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0206A370
+	bl LoadMonPersonal
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
@@ -4008,7 +4012,7 @@ GetMonBaseStat: ; 0x02068678
 FUN_02068698: ; 0x02068698
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl FUN_020669D4
+	bl TryDecryptMon
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x5
@@ -4037,7 +4041,7 @@ FUN_02068698: ; 0x02068698
 	add r7, r0, #0x0
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02066A20
+	bl TryEncryptMon
 	sub r1, r7, r4
 	mov r0, #0x64
 	mul r0, r1
@@ -4047,31 +4051,31 @@ FUN_02068698: ; 0x02068698
 	lsr r0, r0, #0x18
 	pop {r3-r7, pc}
 
-	thumb_func_start FUN_020686F8
-FUN_020686F8: ; 0x020686F8
-	ldr r3, _020686FC ; =FUN_02068700
+	thumb_func_start CalcMonExpToNextLevelEncrypted
+CalcMonExpToNextLevelEncrypted: ; 0x020686F8
+	ldr r3, _020686FC ; =CalcBoxMonExpToNextLevelEncrypted
 	bx r3
 	.balign 4
-_020686FC: .word FUN_02068700
+_020686FC: .word CalcBoxMonExpToNextLevelEncrypted
 
-	thumb_func_start FUN_02068700
-FUN_02068700: ; 0x02068700
+	thumb_func_start CalcBoxMonExpToNextLevelEncrypted
+CalcBoxMonExpToNextLevelEncrypted: ; 0x02068700
 	push {r4-r6, lr}
 	mov r1, #0x5
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r4, #0x0
-	bl FUN_020687C8
+	bl CalcBoxMonLevelEncrypted
 	add r0, r0, #0x1
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r4, #0x0
 	mov r1, #0x8
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r1, r5, #0x0
@@ -4152,41 +4156,41 @@ _0206879E:
 	add r0, r5, #0x0
 	pop {r4-r6, pc}
 
-	thumb_func_start FUN_020687C0
-FUN_020687C0: ; 0x020687C0
-	ldr r3, _020687C4 ; =FUN_020687C8
+	thumb_func_start CalcMonLevelEncrypted
+CalcMonLevelEncrypted: ; 0x020687C0
+	ldr r3, _020687C4 ; =CalcBoxMonLevelEncrypted
 	bx r3
 	.balign 4
-_020687C4: .word FUN_020687C8
+_020687C4: .word CalcBoxMonLevelEncrypted
 
-	thumb_func_start FUN_020687C8
-FUN_020687C8: ; 0x020687C8
+	thumb_func_start CalcBoxMonLevelEncrypted
+CalcBoxMonLevelEncrypted: ; 0x020687C8
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x8
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
 	add r1, r7, #0x0
-	bl CalcMonLevel
+	bl CalcLevelBySpeciesAndExp
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start CalcMonLevel
-CalcMonLevel: ; 0x02068800
+	thumb_func_start CalcLevelBySpeciesAndExp
+CalcLevelBySpeciesAndExp: ; 0x02068800
 	push {r4-r6, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -4195,7 +4199,7 @@ CalcMonLevel: ; 0x02068800
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl CalcMonLevelInternal
+	bl CalcLevelBySpeciesAndExp_PreloadedPersonal
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl FreeMonPersonal
@@ -4203,8 +4207,8 @@ CalcMonLevel: ; 0x02068800
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start CalcMonLevelInternal
-CalcMonLevelInternal: ; 0x02068824
+	thumb_func_start CalcLevelBySpeciesAndExp_PreloadedPersonal
+CalcLevelBySpeciesAndExp_PreloadedPersonal: ; 0x02068824
 	push {r4, lr}
 	mov r1, #0x15
 	add r4, r2, #0x0
@@ -4228,27 +4232,27 @@ _02068846:
 _0206884C: .word UNK_021C5AC0
 _02068850: .word UNK_021C5AC0 + 4
 
-	thumb_func_start FUN_02068854
-FUN_02068854: ; 0x02068854
-	ldr r3, _02068858 ; =FUN_0206885C
+	thumb_func_start GetMonNatureEncrypted
+GetMonNatureEncrypted: ; 0x02068854
+	ldr r3, _02068858 ; =GetBoxMonNatureEncrypted
 	bx r3
 	.balign 4
-_02068858: .word FUN_0206885C
+_02068858: .word GetBoxMonNatureEncrypted
 
-	thumb_func_start FUN_0206885C
-FUN_0206885C: ; 0x0206885C
+	thumb_func_start GetBoxMonNatureEncrypted
+GetBoxMonNatureEncrypted: ; 0x0206885C
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	mov r1, #0x0
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	add r0, r6, #0x0
 	bl GetNatureFromPersonality
 	pop {r4-r6, pc}
@@ -4264,8 +4268,8 @@ GetNatureFromPersonality: ; 0x02068884
 	pop {r3, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068894
-FUN_02068894: ; 0x02068894
+	thumb_func_start ApplyNatureModToStat
+ApplyNatureModToStat: ; 0x02068894
 	push {r3, lr}
 	cmp r2, #0x1
 	blo _0206889E
@@ -4277,7 +4281,7 @@ _0206889E:
 _020688A2:
 	lsl r3, r0, #0x2
 	add r3, r0, r3
-	ldr r0, _020688E4 ; =UNK_020F7F93
+	ldr r0, _020688E4 ; =sNatureStatMods
 	sub r2, r2, #0x1
 	add r0, r0, r3
 	ldrsb r2, [r2, r0]
@@ -4287,21 +4291,21 @@ _020688A2:
 	beq _020688CE
 	cmp r2, #0x1
 	bne _020688E0
-	mov r0, #0x6e
+	mov r0, #110
 	mul r0, r1
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	mov r1, #0x64
+	mov r1, #100
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	b _020688E0
 _020688CE:
-	mov r0, #0x5a
+	mov r0, #90
 	mul r0, r1
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	mov r1, #0x64
+	mov r1, #100
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
@@ -4309,10 +4313,10 @@ _020688E0:
 	add r0, r1, #0x0
 	pop {r3, pc}
 	.balign 4
-_020688E4: .word UNK_020F7F93
+_020688E4: .word sNatureStatMods
 
-	thumb_func_start FUN_020688E8
-FUN_020688E8: ; 0x020688E8
+	thumb_func_start MonApplyFriendshipModEncrypted
+MonApplyFriendshipModEncrypted: ; 0x020688E8
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r6, r1, #0x0
@@ -4369,7 +4373,7 @@ _0206894E:
 _02068958:
 	lsl r0, r6, #0x1
 	add r1, r6, r0
-	ldr r0, _020689DC ; =UNK_020F7ED4
+	ldr r0, _020689DC ; =sFriendshipModTable
 	add r0, r0, r1
 	ldrsb r4, [r4, r0]
 	cmp r4, #0x0
@@ -4429,49 +4433,49 @@ _020689CA:
 	add r0, r5, #0x0
 	mov r1, #0x9
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _020689D4:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4
 _020689D8: .word SPECIES_EGG
-_020689DC: .word UNK_020F7ED4
+_020689DC: .word sFriendshipModTable
 
-	thumb_func_start FUN_020689E0
-FUN_020689E0: ; 0x020689E0
-	ldr r3, _020689E4 ; =FUN_020689E8
+	thumb_func_start GetMonGenderEncrypted
+GetMonGenderEncrypted: ; 0x020689E0
+	ldr r3, _020689E4 ; =GetBoxMonGenderEncrypted
 	bx r3
 	.balign 4
-_020689E4: .word FUN_020689E8
+_020689E4: .word GetBoxMonGenderEncrypted
 
-	thumb_func_start FUN_020689E8
-FUN_020689E8: ; 0x020689E8
+	thumb_func_start GetBoxMonGenderEncrypted
+GetBoxMonGenderEncrypted: ; 0x020689E8
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x10
 	mov r1, #0x0
 	lsr r4, r0, #0x10
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r6, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068A20
-FUN_02068A20: ; 0x02068A20
+	thumb_func_start GetGenderBySpeciesAndPersonality
+GetGenderBySpeciesAndPersonality: ; 0x02068A20
 	push {r4-r6, lr}
 	add r4, r1, #0x0
 	add r5, r0, #0x0
@@ -4480,7 +4484,7 @@ FUN_02068A20: ; 0x02068A20
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_02068A44
+	bl GetGenderBySpeciesAndPersonality_PreloadedPersonal
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	bl FreeMonPersonal
@@ -4488,8 +4492,8 @@ FUN_02068A20: ; 0x02068A20
 	pop {r4-r6, pc}
 	.balign 4
 
-	thumb_func_start FUN_02068A44
-FUN_02068A44: ; 0x02068A44
+	thumb_func_start GetGenderBySpeciesAndPersonality_PreloadedPersonal
+GetGenderBySpeciesAndPersonality_PreloadedPersonal: ; 0x02068A44
 	push {r4, lr}
 	mov r1, #0x12
 	add r4, r2, #0x0
@@ -4539,12 +4543,12 @@ FUN_02068A88: ; 0x02068A88
 	mov r1, #0x7
 	mov r2, #0x0
 	add r5, r0, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	mov r1, #0x0
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	bl FUN_02068AAC
@@ -4662,16 +4666,16 @@ FUN_02068B70: ; 0x02068B70
 	str r0, [sp, #0xc]
 	add r0, r5, #0x0
 	str r2, [sp, #0x10]
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	str r0, [sp, #0x18]
 	add r0, r5, #0x0
 	mov r1, #0xad
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r5, #0x0
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	str r0, [sp, #0x14]
 	add r0, r5, #0x0
 	bl FUN_02068A88
@@ -4679,7 +4683,7 @@ FUN_02068B70: ; 0x02068B70
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r6, r0, #0x0
 	ldr r0, _02068BF8 ; =SPECIES_EGG
 	cmp r4, r0
@@ -4687,7 +4691,7 @@ FUN_02068B70: ; 0x02068B70
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	ldr r1, _02068BFC ; =0x000001EA
 	cmp r0, r1
 	bne _02068BC6
@@ -4700,7 +4704,7 @@ _02068BCA:
 	add r0, r5, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 _02068BD8:
@@ -4714,7 +4718,7 @@ _02068BD8:
 	bl FUN_02068C00
 	ldr r1, [sp, #0x18]
 	add r0, r5, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	add sp, #0x1c
 	pop {r4-r7, pc}
 	nop
@@ -5040,16 +5044,16 @@ FUN_02068E1C: ; 0x02068E1C
 	mov r1, #0xad
 	mov r2, #0x0
 	add r5, r0, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r5, #0x0
-	bl FUN_020689E8
+	bl GetBoxMonGenderEncrypted
 	mov r1, #0x0
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r6, r0, #0x0
 	ldr r0, _02068E80 ; =SPECIES_EGG
 	cmp r4, r0
@@ -5057,7 +5061,7 @@ FUN_02068E1C: ; 0x02068E1C
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	ldr r1, _02068E84 ; =0x000001EA
 	cmp r0, r1
 	bne _02068E5E
@@ -5070,7 +5074,7 @@ _02068E62:
 	add r0, r5, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x18
 	lsr r3, r0, #0x18
 _02068E70:
@@ -5434,7 +5438,7 @@ FUN_020690D4: ; 0x020690D4
 	push {r3, lr}
 	mov r1, #0x70
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	pop {r3, pc}
@@ -5479,7 +5483,7 @@ FUN_020690E8: ; 0x020690E8
 	add r0, r4, #0x0
 	mov r1, #0x8
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _02069138:
 	add r0, sp, #0x0
 	ldrb r1, [r0, #0x0]
@@ -5497,7 +5501,7 @@ _02069146:
 	add r0, r4, #0x0
 	mov r1, #0xa0
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add sp, #0x8
 	mov r0, #0x1
 	pop {r3-r5, pc}
@@ -6045,7 +6049,7 @@ ReadFromPersonalPmsNarc: ; 0x02069558
 _0206956E:
 	add r0, sp, #0x4
 	bl FS_InitFile
-	ldr r1, _020695A4 ; =UNK_02105FC8
+	ldr r1, _020695A4 ; =__local_str_poketool_personal_pms_narc
 	add r0, sp, #0x4
 	bl FS_OpenFile
 	add r0, sp, #0x4
@@ -6064,7 +6068,7 @@ _0206956E:
 	pop {r3-r4, pc}
 	nop
 _020695A0: .word SPECIES_EGG
-_020695A4: .word UNK_02105FC8
+_020695A4: .word __local_str_poketool_personal_pms_narc
 
 	thumb_func_start GetEggSpecies
 GetEggSpecies: ; 0x020695A8
@@ -6112,8 +6116,8 @@ _020695EC:
 	nop
 _020695F0: .word SPECIES_ROSELIA
 
-	thumb_func_start FUN_020695F4
-FUN_020695F4: ; 0x020695F4
+	thumb_func_start InitBoxMonMoveset
+InitBoxMonMoveset: ; 0x020695F4
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
@@ -6122,27 +6126,27 @@ FUN_020695F4: ; 0x020695F4
 	bl AllocFromHeap
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	str r0, [sp, #0x4]
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r5, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r7, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020687C8
+	bl CalcBoxMonLevelEncrypted
 	lsl r0, r0, #0x18
 	lsr r6, r0, #0x18
 	ldr r2, [sp, #0x0]
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl FUN_02069F9C
+	bl LoadWotbl_HandleAlternateForme
 	ldr r0, [sp, #0x0]
 	ldrh r1, [r0, #0x0]
 	ldr r0, _02069690 ; =0x0000FFFF
@@ -6181,7 +6185,7 @@ _0206967C:
 	bl FreeToHeap
 	ldr r1, [sp, #0x4]
 	add r0, r5, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
@@ -6205,7 +6209,7 @@ FUN_020696A8: ; 0x020696A8
 	ldr r1, _02069700 ; =0x0000FFFF
 	add r6, r0, #0x0
 	str r1, [sp, #0x4]
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	mov r4, #0x0
 	str r0, [sp, #0x0]
 	add r7, r4, #0x0
@@ -6214,7 +6218,7 @@ _020696BE:
 	add r0, r6, #0x0
 	add r1, #0x36
 	add r2, r7, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bne _020696E0
@@ -6238,7 +6242,7 @@ _020696EA:
 _020696F0:
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	ldr r0, [sp, #0x4]
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -6261,7 +6265,7 @@ FUN_02069718: ; 0x02069718
 	sub sp, #0x20
 	add r5, r0, #0x0
 	str r1, [sp, #0x0]
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	str r0, [sp, #0xc]
 	add r0, sp, #0x18
 	mov r4, #0x0
@@ -6273,20 +6277,20 @@ _02069730:
 	add r0, r5, #0x0
 	add r1, #0x37
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	ldr r1, [sp, #0x4]
 	mov r2, #0x0
 	strh r0, [r1, #0x0]
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3b
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, r4, #0x0
 	strb r0, [r7, #0x0]
 	add r0, r5, #0x0
 	add r1, #0x3f
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	strb r0, [r6, #0x0]
 	ldr r0, [sp, #0x4]
 	add r4, r4, #0x1
@@ -6315,17 +6319,17 @@ _0206978A:
 	ldr r2, [sp, #0x8]
 	add r0, r5, #0x0
 	add r1, #0x36
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3a
 	add r2, r7, #0x0
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3e
 	add r2, r6, #0x0
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	ldr r0, [sp, #0x8]
 	add r4, r4, #0x1
 	add r0, r0, #0x2
@@ -6336,7 +6340,7 @@ _0206978A:
 	blt _0206978A
 	ldr r1, [sp, #0xc]
 	add r0, r5, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	add sp, #0x20
 	pop {r3-r7, pc}
 	.balign 4
@@ -6357,12 +6361,12 @@ FUN_020697D4: ; 0x020697D4
 	add r1, #0x36
 	add r2, sp, #0x14
 	add r5, r0, #0x0
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3e
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	add r0, sp, #0x10
@@ -6374,7 +6378,7 @@ FUN_020697D4: ; 0x020697D4
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, sp, #0x0
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	pop {r3-r5}
 	pop {r3}
 	add sp, #0x10
@@ -6414,7 +6418,7 @@ FUN_02069818: ; 0x02069818
 	ldr r0, [sp, #0x4]
 	ldr r1, [sp, #0xc]
 	add r2, r4, #0x0
-	bl FUN_02069F9C
+	bl LoadWotbl_HandleAlternateForme
 	ldr r0, [r5, #0x0]
 	lsl r0, r0, #0x1
 	ldrh r2, [r4, r0]
@@ -6495,42 +6499,42 @@ FUN_020698E8: ; 0x020698E8
 	add r1, #0x36
 	mov r2, #0x0
 	add r5, r0, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, sp, #0x0
 	strh r0, [r1, #0x4]
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3a
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, sp, #0x0
 	strb r0, [r1, #0x2]
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3e
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, sp, #0x0
 	strb r0, [r1, #0x0]
 	add r1, r6, #0x0
 	add r0, r5, #0x0
 	add r1, #0x36
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, sp, #0x0
 	strh r0, [r1, #0x6]
 	add r1, r6, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3a
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, sp, #0x0
 	strb r0, [r1, #0x3]
 	add r1, r6, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3e
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, sp, #0x0
 	strb r0, [r1, #0x1]
 	add r1, r4, #0x0
@@ -6538,35 +6542,35 @@ FUN_020698E8: ; 0x020698E8
 	add r0, r5, #0x0
 	add r1, #0x36
 	add r2, #0x2
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r1, r4, #0x0
 	add r2, sp, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3a
 	add r2, #0x3
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r4, #0x3e
 	add r2, sp, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, #0x1
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r1, r6, #0x0
 	add r0, r5, #0x0
 	add r1, #0x36
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r1, r6, #0x0
 	add r2, sp, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3a
 	add r2, #0x2
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r6, #0x3e
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, sp, #0x0
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add sp, #0x8
 	pop {r4-r6, pc}
 	.balign 4
@@ -6604,18 +6608,18 @@ _020699B2:
 	add r0, r5, #0x0
 	add r1, #0x36
 	add r2, #0x2
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r1, r4, #0x0
 	add r2, sp, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3a
 	add r2, #0x1
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3e
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r4, r4, #0x1
 	cmp r4, #0x3
 	blo _020699B2
@@ -6629,16 +6633,16 @@ _02069A0A:
 	add r0, r5, #0x0
 	mov r1, #0x39
 	add r2, #0x2
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r2, sp, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x3d
 	add r2, #0x1
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
 	mov r1, #0x41
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	pop {r3-r7, pc}
 
 	thumb_func_start FUN_02069A38
@@ -6696,28 +6700,28 @@ _02069A8E:
 	add r0, r4, #0x0
 	mov r1, #0x9f
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r4, #0x0
 	mov r1, #0xa2
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r4, #0x0
 	mov r1, #0xa3
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	bl FUN_020256BC
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0xa9
 	add r2, r5, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
 	bl FreeToHeap
 	add r0, r4, #0x0
 	mov r1, #0xa1
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	add r1, sp, #0x4
 	mov r2, #0x18
@@ -6725,9 +6729,9 @@ _02069A8E:
 	add r0, r4, #0x0
 	mov r1, #0xaa
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r4, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 	add sp, #0x1c
 	pop {r4-r5, pc}
 
@@ -6872,7 +6876,7 @@ FUN_02069BD0: ; 0x02069BD0
 	add r4, r1, #0x0
 	mov r1, #0x0
 	add r2, r1, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, r4, #0x0
 	bl FUN_02069BE4
 	pop {r4, pc}
@@ -6904,7 +6908,7 @@ FUN_02069BFC: ; 0x02069BFC
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	add r2, r6, #0x0
-	bl FUN_02069F9C
+	bl LoadWotbl_HandleAlternateForme
 	ldrh r1, [r6, #0x0]
 	ldr r0, _02069C44 ; =0x0000FFFF
 	mov r4, #0x0
@@ -7008,7 +7012,7 @@ _02069CD0:
 	strb r0, [r1, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0x99
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _02069CF2:
 	pop {r3-r7, pc}
 
@@ -7115,7 +7119,7 @@ _02069DB0:
 	add r0, r7, #0x0
 	mov r1, #0x99
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _02069DBA:
 	ldr r0, [sp, #0x4]
 	add r6, r6, #0x1
@@ -7179,7 +7183,7 @@ _02069DEC:
 	add r0, r6, #0x0
 	mov r1, #0x99
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _02069E40:
 	ldr r0, [sp, #0x0]
 	cmp r4, r0
@@ -7197,7 +7201,7 @@ _02069E40:
 	add r0, r6, #0x0
 	mov r1, #0x99
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r4, r4, #0x1
 _02069E6A:
 	add r4, r4, #0x1
@@ -7219,7 +7223,7 @@ FUN_02069E7C: ; 0x02069E7C
 	push {r3, lr}
 	mov r1, #0x99
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	mov r1, #0xf
 	tst r0, r1
 	beq _02069E90
@@ -7241,7 +7245,7 @@ FUN_02069E9C: ; 0x02069E9C
 	push {r3, lr}
 	mov r1, #0x99
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	mov r0, #0xf
@@ -7274,17 +7278,17 @@ FUN_02069ECC: ; 0x02069ECC
 	add r5, r0, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xa
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x6
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	ldr r1, _02069F20 ; =SPECIES_ARCEUS
 	cmp r4, r1
 	bne _02069F1C
@@ -7302,7 +7306,7 @@ FUN_02069ECC: ; 0x02069ECC
 	add r0, r5, #0x0
 	mov r1, #0x70
 	add r2, sp, #0x0
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 _02069F1C:
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -7390,8 +7394,8 @@ _02069F96:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_02069F9C
-FUN_02069F9C: ; 0x02069F9C
+	thumb_func_start LoadWotbl_HandleAlternateForme
+LoadWotbl_HandleAlternateForme: ; 0x02069F9C
 	push {r4, lr}
 	add r4, r2, #0x0
 	bl ResolveMonForme
@@ -7471,13 +7475,13 @@ FUN_0206A014: ; 0x0206A014
 	add r0, r5, #0x0
 	mov r1, #0xa2
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	mov r0, #0x0
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0x9f
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _0206A050:
 	add sp, #0xc
 	pop {r3-r6, pc}
@@ -7495,15 +7499,15 @@ FUN_0206A054: ; 0x0206A054
 	ldr r2, _0206A090 ; =gGameVersion
 	add r0, r4, #0x0
 	mov r1, #0x79
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r4, #0x0
 	mov r1, #0x9a
 	add r2, sp, #0x18
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add r0, r4, #0x0
 	mov r1, #0x9d
 	add r2, sp, #0x20
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	add sp, #0x4
 	pop {r3-r4}
 	pop {r3}
@@ -7560,16 +7564,16 @@ FUN_0206A094: ; 0x0206A094
 	add r0, r5, #0x0
 	mov r1, #0x6
 	add r2, #0x2
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add sp, #0x8
 	pop {r3-r7, pc}
 _0206A104:
-	ldr r0, _0206A134 ; =UNK_020F7ECC
+	ldr r0, _0206A134 ; =sItemOdds
 	lsl r1, r7, #0x2
 	ldrh r0, [r0, r1]
 	cmp r4, r0
 	blo _0206A12E
-	ldr r0, _0206A138 ; =UNK_020F7ECC + 2
+	ldr r0, _0206A138 ; =sItemOdds + 2
 	ldrh r0, [r0, r1]
 	cmp r4, r0
 	add r2, sp, #0x4
@@ -7577,19 +7581,19 @@ _0206A104:
 	add r0, r5, #0x0
 	mov r1, #0x6
 	add r2, #0x2
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add sp, #0x8
 	pop {r3-r7, pc}
 _0206A126:
 	add r0, r5, #0x0
 	mov r1, #0x6
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _0206A12E:
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
-_0206A134: .word UNK_020F7ECC
-_0206A138: .word UNK_020F7ECC + 2
+_0206A134: .word sItemOdds
+_0206A138: .word sItemOdds + 2
 
 	thumb_func_start FUN_0206A13C
 FUN_0206A13C: ; 0x0206A13C
@@ -7605,13 +7609,13 @@ FUN_0206A144: ; 0x0206A144
 	mov r1, #0xad
 	mov r2, #0x0
 	add r5, r0, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	add r0, r5, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r2, r6, #0x0
@@ -7682,17 +7686,17 @@ FUN_0206A1CC: ; 0x0206A1CC
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	mov r1, #0x0
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r2, r1, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x18
@@ -7710,23 +7714,23 @@ FUN_0206A1CC: ; 0x0206A1CC
 	add r0, r5, #0x0
 	mov r1, #0xa
 	add r2, sp, #0x0
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	b _0206A230
 _0206A21A:
 	add r0, r5, #0x0
 	mov r1, #0xa
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 	b _0206A230
 _0206A226:
 	add r0, r5, #0x0
 	mov r1, #0xa
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 _0206A230:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	add sp, #0x8
 	pop {r3-r7, pc}
 
@@ -7737,7 +7741,7 @@ FUN_0206A23C: ; 0x0206A23C
 	add r5, r0, #0x0
 	mov r0, #0x0
 	str r1, [sp, #0x0]
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	str r0, [sp, #0x4]
 	ldr r1, [sp, #0x4]
 	add r0, r5, #0x0
@@ -7787,17 +7791,17 @@ FUN_0206A23C: ; 0x0206A23C
 	ldrh r2, [r2, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl DecryptMon
+	bl MonDecryptSegment
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl DecryptMon
+	bl MonDecryptSegment
 	ldr r0, [sp, #0x0]
 	str r0, [r5, #0x0]
 	ldr r2, [sp, #0xc]
@@ -7854,25 +7858,25 @@ _0206A32E:
 	add r0, r5, #0x0
 	add r0, #0x8
 	mov r1, #0x80
-	bl FUN_0206A3F8
+	bl CalcMonChecksum
 	strh r0, [r5, #0x6]
 	add r0, r5, #0x0
 	ldrh r2, [r5, #0x6]
 	add r0, #0x8
 	mov r1, #0x80
-	bl EncryptMon
+	bl MonEncryptSegment
 	add r0, r5, #0x0
 	ldr r2, [r5, #0x0]
 	add r0, #0x88
 	mov r1, #0x64
-	bl EncryptMon
+	bl MonEncryptSegment
 	ldr r0, [sp, #0x4]
 	bl FreeToHeap
 	add sp, #0x1c
 	pop {r4-r7, pc}
 
-	thumb_func_start FUN_0206A370
-FUN_0206A370: ; 0x0206A370
+	thumb_func_start LoadMonPersonal
+LoadMonPersonal: ; 0x0206A370
 	ldr r3, _0206A37C ; =ReadWholeNarcMemberByIdPair
 	add r2, r0, #0x0
 	add r0, r1, #0x0
@@ -7881,8 +7885,8 @@ FUN_0206A370: ; 0x0206A370
 	nop
 _0206A37C: .word ReadWholeNarcMemberByIdPair
 
-	thumb_func_start LoadMonBaseStats_HandleUnownOrArceus
-LoadMonBaseStats_HandleUnownOrArceus: ; 0x0206A380
+	thumb_func_start LoadMonBaseStats_HandleAlternateForme
+LoadMonBaseStats_HandleAlternateForme: ; 0x0206A380
 	push {r4, lr}
 	add r4, r2, #0x0
 	bl ResolveMonForme
@@ -7902,8 +7906,8 @@ LoadMonEvolutionTable: ; 0x0206A394
 	nop
 _0206A3A0: .word ReadWholeNarcMemberByIdPair
 
-	thumb_func_start EncryptMon
-EncryptMon: ; 0x0206A3A4
+	thumb_func_start MonEncryptSegment
+MonEncryptSegment: ; 0x0206A3A4
 	push {r0-r3}
 	push {r3-r7, lr}
 	add r5, r0, #0x0
@@ -7928,12 +7932,12 @@ _0206A3C6:
 	bx r3
 	.balign 4
 
-	thumb_func_start DecryptMon
-DecryptMon: ; 0x0206A3D0
-	ldr r3, _0206A3D4 ; =EncryptMon
+	thumb_func_start MonDecryptSegment
+MonDecryptSegment: ; 0x0206A3D0
+	ldr r3, _0206A3D4 ; =MonEncryptSegment
 	bx r3
 	.balign 4
-_0206A3D4: .word EncryptMon
+_0206A3D4: .word MonEncryptSegment
 
 	thumb_func_start MonEncryptionLCRNG
 MonEncryptionLCRNG: ; 0x0206A3D8
@@ -7952,8 +7956,8 @@ MonEncryptionLCRNG: ; 0x0206A3D8
 _0206A3F0: .word 0x41C64E6D
 _0206A3F4: .word 0x00006073
 
-	thumb_func_start FUN_0206A3F8
-FUN_0206A3F8: ; 0x0206A3F8
+	thumb_func_start CalcMonChecksum
+CalcMonChecksum: ; 0x0206A3F8
 	push {r3-r4}
 	mov r3, #0x0
 	add r2, r3, #0x0
@@ -8881,7 +8885,7 @@ FUN_0206A9AC: ; 0x0206A9AC
 	add r0, r5, #0x0
 	mov r1, #0x7
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl FUN_020239CC
@@ -8889,7 +8893,7 @@ FUN_0206A9AC: ; 0x0206A9AC
 	add r0, r5, #0x0
 	mov r1, #0x9c
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	str r0, [sp, #0xc]
 	add r0, r4, #0x0
 	add r1, r6, #0x0
@@ -8903,7 +8907,7 @@ FUN_0206A9AC: ; 0x0206A9AC
 	mov r1, #0x90
 	add r2, r6, #0x0
 	mov r4, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	ldr r1, [sp, #0x0]
 	ldr r0, [sp, #0x4]
 	cmp r1, r0
@@ -8995,12 +8999,12 @@ FUN_0206AA84: ; 0x0206AA84
 	add r0, r4, #0x0
 	mov r1, #0xa1
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r2, sp, #0x0
 	add r0, r4, #0x0
 	mov r1, #0xaa
 	add r2, #0x1
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add sp, #0x1c
 	pop {r3-r4, pc}
 
@@ -9009,7 +9013,7 @@ FUN_0206AAB4: ; 0x0206AAB4
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0
-	bl FUN_02066A6C
+	bl TryDecryptBoxMon
 	mov r4, #0x0
 	str r0, [sp, #0x0]
 	add r7, r4, #0x0
@@ -9019,27 +9023,27 @@ _0206AAC6:
 	add r0, r5, #0x0
 	add r1, #0x36
 	add r2, r7, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	cmp r0, #0x0
 	beq _0206AAF0
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x42
 	mov r2, #0x0
-	bl FUN_020672BC
+	bl GetBoxMonDataEncrypted
 	add r1, r4, #0x0
 	strb r0, [r6, #0x0]
 	add r0, r5, #0x0
 	add r1, #0x3a
 	add r2, sp, #0x4
-	bl FUN_02067960
+	bl SetBoxMonDataEncrypted
 _0206AAF0:
 	add r4, r4, #0x1
 	cmp r4, #0x4
 	blt _0206AAC6
 	ldr r1, [sp, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02066A94
+	bl TryEncryptBoxMon
 	add sp, #0x8
 	pop {r3-r7, pc}
 	.balign 4

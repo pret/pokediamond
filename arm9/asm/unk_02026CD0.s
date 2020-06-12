@@ -2125,12 +2125,12 @@ _02027B9C:
 	add r0, r4, #0x0
 	mov r1, #0x74
 	add r2, #0x12
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r5, #0x3b
 	add r0, r4, #0x0
 	mov r1, #0x70
 	add r2, r5, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add sp, #0x10
 	pop {r3-r5, pc}
 	nop
@@ -2300,12 +2300,12 @@ FUN_02027CB8: ; 0x02027CB8
 	add r0, r4, #0x0
 	mov r1, #0x74
 	add r2, #0xa
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r5, #0x33
 	add r0, r4, #0x0
 	mov r1, #0x70
 	add r2, r5, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add sp, #0x10
 	pop {r3-r5, pc}
 	.balign 4

@@ -907,7 +907,7 @@ _020812B6:
 	add r5, r4, #0x0
 _020812F2:
 	mov r0, #0x14
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r7, r7, #0x1
 	stmia r5!, {r0}
 	cmp r7, #0x4
@@ -3599,7 +3599,7 @@ _020826DE:
 	add r1, r6, #0x0
 	ldr r0, [r4, r0]
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 _020826EA:
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
@@ -3748,7 +3748,7 @@ _02082820:
 	lsl r2, r2, #0x10
 	mov r1, #0x9
 	lsr r2, r2, #0x10
-	bl FUN_020688E8
+	bl MonApplyFriendshipModEncrypted
 _0208283A:
 	add sp, #0xc
 	pop {r4-r7, pc}

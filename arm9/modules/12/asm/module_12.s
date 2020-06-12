@@ -162,25 +162,25 @@ MOD12_0222D5C0: ; 0x0222D5C0
 	mov r1, #0x1a
 	mov r2, #0xbf
 	mov r3, #0x15
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x44]
 	mov r0, #0
 	mov r1, #0x1a
 	mov r2, #0xc0
 	mov r3, #0x15
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x48]
 	mov r0, #0
 	mov r1, #0x1a
 	mov r2, #0xc5
 	mov r3, #0x15
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x4c]
 	mov r0, #0
 	mov r1, #0x1a
 	mov r2, #0xc6
 	mov r3, #0x15
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x50]
 	mov r0, #8
 	mov r1, #0x15
@@ -500,13 +500,13 @@ MOD12_0222D9B0: ; 0x0222D9B0
 	ldr r0, [r4, #0x54]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x44]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x48]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x4c]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x50]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x30]
 	bl FreeToHeap
 	ldr r0, [r4, #4]
@@ -3283,7 +3283,7 @@ MOD12_0222EF04: ; 0x0222EF04
 	mov r1, #0x1a
 	mov r2, #0xc4
 	mov r3, #0x16
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r5, #0x44]
 	mov r0, #0x16
 	bl FUN_0200AA80
@@ -3671,7 +3671,7 @@ _0222F3AE:
 	ldr r0, [r4, #0x4c]
 	bl FUN_02021A20
 	ldr r0, [r4, #0x44]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x30]
 	bl FreeToHeap
 	ldr r0, [r4, #4]
@@ -5151,7 +5151,7 @@ MOD12_0222FE4C: ; 0x0222FE4C
 	mov r1, #0x1a
 	mov r2, #0xc1
 	mov r3, #0x17
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r5, #0
 	add r1, #0x98
 	str r0, [r1]
@@ -5515,7 +5515,7 @@ _02230296:
 	add r0, r4, #0
 	add r0, #0x98
 	ldr r0, [r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x74]
 	bl FreeToHeap
 	ldr r0, [r4, #4]
@@ -7695,13 +7695,13 @@ MOD12_022314A8: ; 0x022314A8
 	mov r0, #1
 	mov r1, #0x1a
 	mov r2, #0xc2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0
 	add r1, r4, #0
 	bl FUN_0200A914
 	add r4, r0, #0
 	add r0, r5, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 
@@ -29420,7 +29420,7 @@ MOD12_0223B940: ; 0x0223B940
 	mov r1, #0x1a
 	mov r2, #0xbf
 	mov r3, #0x17
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	ldr r0, [r5, #4]
 	mov r2, #0x12
@@ -29489,7 +29489,7 @@ MOD12_0223B940: ; 0x0223B940
 	add r0, r7, #0
 	bl FUN_02021A20
 	add r0, r4, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -41222,7 +41222,7 @@ MOD12_02241210: ; 0x02241210
 	mov r1, #0x1a
 	mov r2, #0xcc
 	mov r3, #0x18
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r5, #0
 	add r1, #0xc4
 	str r0, [r1]
@@ -41550,7 +41550,7 @@ _022415D4:
 	add r0, r4, #0
 	add r0, #0xc4
 	ldr r0, [r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [r4, #0x30]
 	bl FreeToHeap
 	ldr r0, [r4, #4]

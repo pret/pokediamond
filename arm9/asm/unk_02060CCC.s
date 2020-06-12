@@ -372,7 +372,7 @@ FUN_02060E70: ; 0x02060E70
 	mov r1, #0x4
 	add r2, sp, #0x8
 	add r6, r3, #0x0
-	bl FUN_0200A99C
+	bl GetSpeciesName
 	add r0, sp, #0x20
 	ldrb r0, [r0, #0x10]
 	add r1, r4, #0x0
@@ -396,7 +396,7 @@ FUN_02060EA0: ; 0x02060EA0
 	add r0, r2, #0x0
 	mov r1, #0x4
 	add r2, sp, #0x8
-	bl FUN_0200A99C
+	bl GetSpeciesName
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	mov r0, #0x1
@@ -479,7 +479,7 @@ FUN_02060F3C: ; 0x02060F3C
 	mov r0, #0x0
 	strb r0, [r4, #0x1f]
 	add r0, r5, #0x0
-	bl FUN_02068854
+	bl GetMonNatureEncrypted
 	strb r0, [r4, #0x1e]
 	add r0, r4, #0x6
 	str r0, [sp, #0x0]

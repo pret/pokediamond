@@ -215,7 +215,7 @@ _020604D0:
 	bl FUN_020238F4
 	str r0, [sp, #0x18]
 	mov r0, #0x4
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	str r0, [sp, #0x1c]
 	bl ZeroMonData
 	ldr r0, [sp, #0x18]

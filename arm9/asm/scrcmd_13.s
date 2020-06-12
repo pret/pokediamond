@@ -53,7 +53,7 @@ FUN_020438D0: ; 0x020438D0
 	bl FUN_02022528
 	add r6, r0, #0x0
 	mov r0, #0x20
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	bl ScriptReadHalfword
@@ -95,7 +95,7 @@ FUN_02043918: ; 0x02043918
 	bl FUN_02022510
 	str r0, [sp, #0x8]
 	mov r0, #0x20
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r4, r0, #0x0
 	add r0, r6, #0x0
 	add r0, #0x80

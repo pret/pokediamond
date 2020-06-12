@@ -196,7 +196,7 @@ FUN_02047814: ; 0x02047814
 	mov r0, #0x1
 	mov r1, #0x1a
 	add r3, r6, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x18]
 	mov r0, #0x8
 	add r1, r6, #0x0
@@ -220,7 +220,7 @@ FUN_02047814: ; 0x02047814
 	add r0, r7, #0x0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x18]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [sp, #0x10]
 	bl FUN_020239CC
 	add r2, r0, #0x0
@@ -250,7 +250,7 @@ FUN_02047814: ; 0x02047814
 	add r3, r6, #0x0
 	bl FUN_0206ED38
 	add r0, r6, #0x0
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r6, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl FUN_020462AC
@@ -646,7 +646,7 @@ FUN_02047BC0: ; 0x02047BC0
 	mov r2, #0x0
 	bl FUN_02047A44
 	mov r0, #0xb
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x14]
 	bl FUN_0206B9AC
@@ -682,9 +682,9 @@ _02047C40:
 	add r0, r5, #0x0
 	mov r1, #0x8
 	add r2, sp, #0x18
-	bl SetBoxMonDataEncrypted
+	bl SetMonDataEncrypted
 	add r0, r5, #0x0
-	bl FUN_02066ED8
+	bl UpdateMonLevelAndRecalcStats
 _02047C82:
 	add r0, r6, #0x0
 	add r1, r5, #0x0
@@ -844,7 +844,7 @@ _02047DC2:
 	b _02047E14
 _02047DD8:
 	mov r0, #0xb
-	bl FUN_020669C0
+	bl AllocMonZeroed
 	str r0, [sp, #0x8]
 	ldr r0, [r5, #0x4]
 	add r1, r4, #0x0

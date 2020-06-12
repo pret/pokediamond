@@ -824,7 +824,7 @@ MOD64_021D7BB4: ; 0x021D7BB4
 	add r4, r1, #0
 	lsr r0, r0, #0x10
 	mov r1, #0
-	bl FUN_02068A20
+	bl GetGenderBySpeciesAndPersonality
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -2307,7 +2307,7 @@ MOD64_021D86DC: ; 0x021D86DC
 	mov r0, #0
 	mov r1, #0x1a
 	add r3, r4, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	bne _021D86F8
 	bl ErrorHandling
@@ -2340,7 +2340,7 @@ _021D86F8:
 	add r0, r6, #0
 	bl FUN_02021A20
 	add r0, r4, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r7, #0
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -2364,7 +2364,7 @@ _021D875C:
 	mov r1, #0x1a
 	add r2, r7, #0
 	add r3, r6, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	bne _021D8770
 	bl ErrorHandling
@@ -2395,7 +2395,7 @@ _021D8770:
 	add r3, r1, #0
 	bl FUN_0200D0BC
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
@@ -3498,7 +3498,7 @@ MOD64_021D8FD0: ; 0x021D8FD0
 	mov r0, #0
 	mov r1, #0x1a
 	add r3, r4, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	bne _021D8FEC
 	bl ErrorHandling
@@ -3526,7 +3526,7 @@ _021D8FEC:
 	add r0, r6, #0
 	bl FUN_02021A20
 	add r0, r4, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0

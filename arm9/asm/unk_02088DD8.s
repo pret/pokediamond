@@ -78,7 +78,7 @@ _02088E34:
 	ldr r0, [sp, #0xc]
 	ldr r1, [sp, #0x8]
 	add r2, r7, #0x0
-	bl FUN_02069F9C
+	bl LoadWotbl_HandleAlternateForme
 	mov r2, #0x0
 	mov r12, r2
 _02088E70:

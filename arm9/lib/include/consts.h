@@ -46,9 +46,6 @@
 
 #define OSi_TCM_REGION_BASE_MASK   0xfffff000
 
-#define OSi_TRUNC(n, a)            (((u32) (n)) & ~((a) - 1))
-#define OSi_ROUND(n, a)            (((u32) (n) + (a) - 1) & ~((a) - 1))
-
 #define OS_IE_V_BLANK       (1UL << 0)
 
 #endif //POKEDIAMOND_ARM9_CONSTS_H

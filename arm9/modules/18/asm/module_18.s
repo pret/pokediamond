@@ -29544,7 +29544,7 @@ MOD18_02247AA8: ; 0x02247AA8
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	ldr r4, _02247B5C ; =0x02250548
 	add r7, r0, #0
 	mov r6, #0
@@ -29559,7 +29559,7 @@ _02247AFA:
 	cmp r6, #4
 	blo _02247AFA
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	bl MOD18_0224DAD8
 	add r1, sp, #0x14
 	mov r2, #0x20
@@ -29670,7 +29670,7 @@ MOD18_02247BB8: ; 0x02247BB8
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	mov r4, #0
 	add r7, sp, #0x14
@@ -29707,7 +29707,7 @@ _02247C40:
 	cmp r4, #4
 	blt _02247C0A
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r4, _02247C94 ; =0x02250528
 	add r3, sp, #0x18
 	add r2, r3, #0
@@ -29843,7 +29843,7 @@ MOD18_02247D1C: ; 0x02247D1C
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	mov r4, #0
 _02247D6C:
@@ -29860,7 +29860,7 @@ _02247D6C:
 	cmp r4, #4
 	blt _02247D6C
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r4, _02247DD4 ; =0x02250528
 	add r3, sp, #0x14
 	add r2, r3, #0
@@ -31214,7 +31214,7 @@ MOD18_02248820: ; 0x02248820
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	mov r4, #0
 _02248870:
@@ -31236,7 +31236,7 @@ _02248870:
 	mov r3, #0x33
 	bl FUN_02012880
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r4, _022488EC ; =0x02250528
 	add r3, sp, #0x14
 	add r2, r3, #0
@@ -36642,7 +36642,7 @@ _0224B374:
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	ldr r0, [sp, #0x18]
 	mov r4, #0
@@ -36673,7 +36673,7 @@ _0224B3F4:
 	blt _0224B3D4
 _0224B3FC:
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	bl MOD18_0224DAD8
 	add r1, sp, #0x20
 	mov r2, #0x20
@@ -36765,7 +36765,7 @@ MOD18_0224B464: ; 0x0224B464
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	ldr r0, [sp, #0x1c]
 	mov r4, #0
@@ -36794,7 +36794,7 @@ _0224B4F0:
 	blt _0224B4D0
 _0224B4F8:
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	bl MOD18_0224DAD8
 	add r1, sp, #0x20
 	mov r2, #0x20
@@ -39102,7 +39102,7 @@ MOD18_0224C7D4: ; 0x0224C7D4
 	mov r1, #0x1a
 	sub r2, #0xd
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	bl MOD18_0223D678
 	ldr r1, _0224C938 ; =0x0000023B
@@ -39116,7 +39116,7 @@ _0224C83C:
 	mov r1, #0x1a
 	sub r2, #0x11
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	bl MOD18_0223D678
 	ldr r1, _0224C93C ; =0x00000237
@@ -39128,7 +39128,7 @@ _0224C85C:
 	mov r1, #0x1a
 	sub r2, #0xf
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r6, r0, #0
 	bl MOD18_0223D678
 	ldr r1, _0224C940 ; =0x00000239
@@ -39154,7 +39154,7 @@ _0224C87C:
 	sub r3, r2, #2
 	bl FUN_02012880
 	add r0, r6, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	bl MOD18_0224DAD8
 	add r1, sp, #0x14
 	mov r2, #0x20
@@ -40806,7 +40806,7 @@ MOD18_0224D5CC: ; 0x0224D5CC
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r5, r0, #0
 	add r0, r4, #0
 	add r0, #8
@@ -40844,7 +40844,7 @@ _0224D64A:
 	ldr r0, [r1]
 	str r4, [r0]
 	add r0, r5, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -41311,7 +41311,7 @@ MOD18_0224DA00: ; 0x0224DA00
 	mov r1, #0x1a
 	lsl r2, r2, #2
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0
 	add r0, r5, #0
 	add r0, #8
@@ -41332,7 +41332,7 @@ MOD18_0224DA00: ; 0x0224DA00
 	add r0, #8
 	bl FUN_02019220
 	add r0, r4, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r5, #0
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
@@ -41413,7 +41413,7 @@ _0224DB08:
 	mov r0, #1
 	mov r1, #0x1a
 	add r3, r5, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x24]
 	str r5, [r4, #0x34]
 	add r0, r4, #0
@@ -41446,7 +41446,7 @@ MOD18_0224DB5C: ; 0x0224DB5C
 	ldr r0, [r4, #0x28]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x24]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r4, #0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -41463,12 +41463,12 @@ MOD18_0224DB80: ; 0x0224DB80
 	beq _0224DBAC
 	str r4, [r5, #0x2c]
 	ldr r0, [r5, #0x24]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r3, [r5, #0x34]
 	add r0, r6, #0
 	mov r1, #0x1a
 	add r2, r4, #0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r5, #0x24]
 	cmp r0, #0
 	bne _0224DBAC
@@ -42324,7 +42324,7 @@ MOD18_0224E0CC: ; 0x0224E0CC
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r7, r0, #0
 	add r0, r5, #0
 	add r0, #0x14
@@ -42359,7 +42359,7 @@ _0224E186:
 	cmp r6, #4
 	blt _0224E186
 	add r0, r7, #0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r4, _0224E208 ; =0x022507D0
 	add r3, sp, #0x24
 	add r2, r3, #0
@@ -42777,13 +42777,13 @@ _0224E454:
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x18]
 	ldr r2, _0224E690 ; =0x00000242
 	mov r0, #0
 	mov r1, #0x1a
 	mov r3, #4
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0x24]
 	add r0, r5, #0
 	add r0, #0x18
@@ -42856,7 +42856,7 @@ _0224E454:
 	add r0, r4, #0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x24]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	ldr r0, [sp, #0x20]
 	mov r4, #0
 	cmp r0, #0
@@ -42897,7 +42897,7 @@ _0224E5CE:
 	add r3, r3, #1
 	bl FUN_02012880
 	ldr r0, [sp, #0x18]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	bl MOD18_0223D678
 	ldr r1, _0224E68C ; =0x00000237
 	mov r2, #0

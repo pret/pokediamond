@@ -118,7 +118,7 @@ FUN_02034188: ; 0x02034188
 	mov r0, #0x1
 	mov r1, #0x1a
 	add r3, r4, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [sp, #0xc]
 	mov r0, #0x6
 	lsl r0, r0, #0x6
@@ -191,7 +191,7 @@ _02034308:
 	add r0, sp, #0x14
 	bl FUN_02019178
 	ldr r0, [sp, #0xc]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	mov r0, #0x0
 	add r1, r0, #0x0
 	bl FUN_0201797C

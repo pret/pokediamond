@@ -600,7 +600,7 @@ MOD59_021D79F8: ; 0x021D79F8
 	ldr r3, [r4]
 	mov r0, #1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #0x4c]
 	bl FUN_0201BD5C
 	mov r0, #0
@@ -630,7 +630,7 @@ MOD59_021D7A34: ; 0x021D7A34
 	ldr r0, [r4, #0x60]
 	bl FUN_020143D0
 	ldr r0, [r4, #0x4c]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r4, pc}
 	thumb_func_end MOD59_021D7A34
 
@@ -4875,7 +4875,7 @@ MOD59_021D9C48: ; 0x021D9C48
 	ldr r3, [r4]
 	mov r0, #1
 	mov r1, #0x1a
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	str r0, [r4, #8]
 	bl FUN_0201BD5C
 	mov r0, #0
@@ -4887,11 +4887,11 @@ _021D9C64: .word 0x00000225
 
 	thumb_func_start MOD59_021D9C68
 MOD59_021D9C68: ; 0x021D9C68
-	ldr r3, _021D9C70 ; =FUN_0200A8B8
+	ldr r3, _021D9C70 ; =DestroyMsgData
 	ldr r0, [r0, #8]
 	bx r3
 	nop
-_021D9C70: .word FUN_0200A8B8
+_021D9C70: .word DestroyMsgData
 	thumb_func_end MOD59_021D9C68
 
 	thumb_func_start MOD59_021D9C74

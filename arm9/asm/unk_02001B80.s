@@ -768,7 +768,7 @@ FUN_020020EC: ; 0x020020EC
 	mov r0, #0x1
 	mov r1, #0x1a
 	add r3, r5, #0x0
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r4, r0, #0x0
 	mov r0, #0x2
 	add r1, r5, #0x0
@@ -785,7 +785,7 @@ FUN_020020EC: ; 0x020020EC
 	sub r3, #0x2c
 	bl FUN_02012880
 	add r0, r4, #0x0
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r0, r5, #0x0
 	mov r1, #0x1
 	str r6, [sp, #0x14]

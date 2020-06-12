@@ -239,7 +239,7 @@ _021D7694:
 	str r0, [r4, #0x1c]
 	ldr r3, [r4, #4]
 	mov r0, #1
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r1, #0x80
 	str r0, [r1]
@@ -248,7 +248,7 @@ _021D7694:
 	mov r0, #1
 	mov r1, #0x1a
 	lsl r2, r2, #2
-	bl FUN_0200A86C
+	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r1, #0x84
 	str r0, [r1]
@@ -353,10 +353,10 @@ _021D7782:
 	add r0, r5, #0
 	add r0, #0x84
 	ldr r0, [r0]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	add r5, #0x80
 	ldr r0, [r5]
-	bl FUN_0200A8B8
+	bl DestroyMsgData
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 	thumb_func_end MOD66_021D7750
