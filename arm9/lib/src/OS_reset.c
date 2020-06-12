@@ -1,7 +1,3 @@
-//
-// Created by red031000 on 2020-05-06.
-//
-
 #include "function_target.h"
 #include "OS_reset.h"
 #include "MB_mb.h"

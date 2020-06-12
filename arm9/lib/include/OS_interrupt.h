@@ -1,7 +1,8 @@
-#ifndef POKEDIAMOND_OS_INTERRUPT_H
-#define POKEDIAMOND_OS_INTERRUPT_H
+#ifndef POKEDIAMOND_ARM9_OS_INTERRUPT_H
+#define POKEDIAMOND_ARM9_OS_INTERRUPT_H
 
 #include "nitro/types.h"
+#include "nitro/OS_interrupt_shared.h"
 
 typedef void (*OSIrqFunction) (void);
 
@@ -11,8 +12,6 @@ typedef struct
     u32 enable;
     void* arg;
 } OSIrqCallbackInfo;
-
-typedef u32 OSIrqMask;
 
 extern OSIrqFunction OS_IRQTable[];
 extern OSIrqCallbackInfo OSi_IrqCallbackInfo[8];
@@ -28,4 +27,4 @@ OSIrqMask OS_DisableIrqMask(OSIrqMask mask);
 OSIrqMask OS_ResetRequestIrqMask(OSIrqMask mask);
 void OS_SetIrqStackChecker(void);
 
-#endif //POKEDIAMOND_OS_INTERRUPT_H
+#endif //POKEDIAMOND_ARM9_OS_INTERRUPT_H

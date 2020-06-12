@@ -27,7 +27,6 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 
 #define HW_RESET_PARAMETER_BUF  (HW_MAIN_MEM + 0x007ffc20)
 #define HW_ROM_BASE_OFFSET_BUF  (HW_MAIN_MEM + 0x007ffc2c)
-#define HW_WM_BOOT_BUF          (HW_MAIN_MEM + 0x007ffc40)
 #define HW_ROM_HEADER_BUF       (HW_MAIN_MEM + 0x007ffe00)      // ROM registration area data buffer
 #define HW_RED_RESERVED         (HW_MAIN_MEM + 0x007ff800)      // Some kind of reserved data for shared memory
 #define HW_MAIN_MEM_SYSTEM      (HW_MAIN_MEM + 0x007ffc00)
