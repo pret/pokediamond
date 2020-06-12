@@ -356,7 +356,7 @@ struct BoxPokemon {
     /* 0x000 */ u32 pid;
     /* 0x004 */ u16 party_lock:1;
                 u16 box_lock:1;
-                u16 control_4_2:1;
+                u16 checksum_fail:1;
                 u16 Unused:13;    // Might be used for validity checks
     /* 0x006 */ u16 checksum;  // Stored checksum of pokemon
     /* 0x008 */ PokemonDataBlock substructs[4];
@@ -364,14 +364,7 @@ struct BoxPokemon {
 
 struct PartyPokemon
 {
-    /* 0x088 */ u8 slp:3;
-                u8 psn:1;
-                u8 brn:1;
-                u8 frz:1;
-                u8 prz:1;
-                u8 tox:1;
-    /* 0x089 */ u8 unk89;
-    /* 0x08A */ u8 filler8A[2];
+    /* 0x088 */ u32 status; // slp:3, psn:1, brn:1, frz:1, prz:1, tox:1, ...
     /* 0x08C */ u8 level;
     /* 0x08D */ u8 capsule;
     /* 0x08E */ u16 hp;

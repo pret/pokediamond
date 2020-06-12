@@ -369,3 +369,84 @@ void CalcMonStats(struct Pokemon * pokemon)
         SetMonData(pokemon, MON_DATA_HP, &hp);
     TryEncryptMon(pokemon, decry);
 }
+
+u32 GetMonData(struct Pokemon * pokemon, u32 attr, void * dest)
+{
+    u32 ret;
+    u32 checksum;
+    if (!pokemon->box.party_lock)
+    {
+        DECRYPT_PTY(pokemon);
+        DECRYPT_BOX(&pokemon->box);
+        checksum = CalcMonChecksum(&pokemon->box.substructs, sizeof(pokemon->box.substructs));
+        if (checksum != pokemon->box.checksum)
+        {
+            GF_ASSERT(checksum == pokemon->box.checksum);
+            pokemon->box.checksum_fail = TRUE;
+        }
+    }
+    ret = GetMonDataInternal(pokemon, attr, dest);
+    if (!pokemon->box.party_lock)
+    {
+        ENCRYPT_PTY(pokemon);
+        ENCRYPT_BOX(&pokemon->box);
+    }
+    return ret;
+}
+
+u32 GetMonDataInternal(struct Pokemon * pokemon, u32 attr, void * dest)
+{
+    switch (attr)
+    {
+    case MON_DATA_STATUS:
+        return pokemon->party.status;
+    case MON_DATA_LEVEL:
+        return pokemon->party.level;
+    case MON_DATA_CAPSULE:
+        return pokemon->party.capsule;
+    case MON_DATA_HP:
+        return pokemon->party.hp;
+    case MON_DATA_MAXHP:
+        return pokemon->party.maxHp;
+    case MON_DATA_ATK:
+        return pokemon->party.atk;
+    case MON_DATA_DEF:
+        return pokemon->party.def;
+    case MON_DATA_SPEED:
+        return pokemon->party.speed;
+    case MON_DATA_SPATK:
+        return pokemon->party.spatk;
+    case MON_DATA_SPDEF:
+        return pokemon->party.spdef;
+    case MON_DATA_SEAL_STRUCT:
+        CopySealsObject(&pokemon->party.seal_something, dest);
+        return 1;
+    case MON_DATA_SEAL_COORDS:
+        FUN_02029C74(pokemon->party.sealCoords, dest);
+        return 1;
+    default:
+        return GetBoxMonDataInternal(&pokemon->box, attr, dest);
+    }
+}
+
+u32 GetBoxMonData(struct BoxPokemon * boxmon, u32 attr, void * dest)
+{
+    u32 ret;
+    u32 checksum;
+    if (!boxmon->box_lock)
+    {
+        DECRYPT_BOX(boxmon);
+        checksum = CalcMonChecksum(&boxmon->substructs, sizeof(boxmon->substructs));
+        if (checksum != boxmon->checksum)
+        {
+            GF_ASSERT(checksum == boxmon->checksum);
+            boxmon->checksum_fail = TRUE;
+        }
+    }
+    ret = GetBoxMonDataInternal(boxmon, attr, dest);
+    if (!boxmon->box_lock)
+    {
+        ENCRYPT_BOX(boxmon);
+    }
+    return ret;
+}
