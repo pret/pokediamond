@@ -7,7 +7,6 @@ extern void OS_InitIrqTable(void);
 extern void OS_InitTick(void);
 extern void OS_InitAlarm(void);
 extern void OS_InitThread(void);
-extern void OS_InitReset(void);
 extern void CTRDG_Init(void);
 
 ARM_FUNC void OS_Init(void)

@@ -1,0 +1,6 @@
+#ifndef POKEDIAMOND_ARM7_OS_INTERRUPT_H
+#define POKEDIAMOND_ARM7_OS_INTERRUPT_H
+
+#include "nitro/OS_interrupt_shared.h"
+
+#endif //POKEDIAMOND_ARM7_OS_INTERRUPT_H
