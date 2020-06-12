@@ -27,4 +27,6 @@ enum GameLanguage {
 
 extern void ErrorHandling(void);
 
+#define GF_ASSERT(expr) do {if (!(expr)) ErrorHandling();} while (0)
+
 #endif //GUARD_GLOBAL_H

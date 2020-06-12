@@ -28,7 +28,7 @@ _0206B188:
 	add r5, r6, #0x0
 _0206B18C:
 	add r0, r5, #0x0
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	add r4, r4, #0x1
 	add r5, #0x88
 	cmp r4, #0x1e
@@ -241,7 +241,7 @@ _0206B308:
 	mov r0, #0x88
 	mul r0, r2
 	add r0, r1, r0
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	bl FUN_02022830
 	pop {r3, pc}
 _0206B32A:

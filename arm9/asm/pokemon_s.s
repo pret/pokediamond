@@ -116,97 +116,6 @@ UNK_021C5AC0: ; 0x021C5AC0
 
 	.text
 
-	thumb_func_start ZeroMonData
-ZeroMonData: ; 0x02066978
-	push {r4, lr}
-	add r4, r0, #0x0
-	mov r0, #0x0
-	add r1, r4, #0x0
-	mov r2, #0xec
-	bl MIi_CpuClearFast
-	add r0, r4, #0x0
-	ldrh r2, [r4, #0x6]
-	add r0, #0x8
-	mov r1, #0x80
-	bl MonEncryptSegment
-	add r0, r4, #0x0
-	ldr r2, [r4, #0x0]
-	add r0, #0x88
-	mov r1, #0x64
-	bl MonEncryptSegment
-	pop {r4, pc}
-
-	thumb_func_start WipeBoxMonDataAndEncrypt
-WipeBoxMonDataAndEncrypt: ; 0x020669A0
-	push {r4, lr}
-	add r4, r0, #0x0
-	mov r0, #0x0
-	add r1, r4, #0x0
-	mov r2, #0x88
-	bl MIi_CpuClearFast
-	add r0, r4, #0x0
-	ldrh r2, [r4, #0x6]
-	add r0, #0x8
-	mov r1, #0x80
-	bl MonEncryptSegment
-	pop {r4, pc}
-
-	thumb_func_start SizeOfStructPokemon
-SizeOfStructPokemon: ; 0x020669BC
-	mov r0, #0xec
-	bx lr
-
-	thumb_func_start AllocMonZeroed
-AllocMonZeroed: ; 0x020669C0
-	push {r4, lr}
-	mov r1, #0xec
-	bl AllocFromHeap
-	add r4, r0, #0x0
-	bl ZeroMonData
-	add r0, r4, #0x0
-	pop {r4, pc}
-	.balign 4
-
-	thumb_func_start TryDecryptMon
-TryDecryptMon: ; 0x020669D4
-	push {r3-r5, lr}
-	add r5, r0, #0x0
-	ldrh r0, [r5, #0x4]
-	mov r4, #0x0
-	lsl r1, r0, #0x1f
-	lsr r1, r1, #0x1f
-	bne _02066A1A
-	lsl r0, r0, #0x1e
-	mov r4, #0x1
-	lsr r0, r0, #0x1f
-	beq _020669EE
-	bl ErrorHandling
-_020669EE:
-	ldrh r1, [r5, #0x4]
-	mov r0, #0x1
-	bic r1, r0
-	mov r0, #0x1
-	orr r0, r1
-	strh r0, [r5, #0x4]
-	ldrh r1, [r5, #0x4]
-	mov r0, #0x2
-	orr r0, r1
-	strh r0, [r5, #0x4]
-	add r0, r5, #0x0
-	ldr r2, [r5, #0x0]
-	add r0, #0x88
-	mov r1, #0x64
-	bl MonDecryptSegment
-	add r0, r5, #0x0
-	ldrh r2, [r5, #0x6]
-	add r0, #0x8
-	mov r1, #0x80
-	bl MonDecryptSegment
-_02066A1A:
-	add r0, r4, #0x0
-	pop {r3-r5, pc}
-	.balign 4
-
 	thumb_func_start TryEncryptMon
 TryEncryptMon: ; 0x02066A20
 	push {r3-r5, lr}
@@ -372,7 +281,7 @@ CreateBoxMon: ; 0x02066B64
 	push {r4-r7, lr}
 	sub sp, #0xc
 	add r5, r0, #0x0
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	add r0, r5, #0x0
 	bl TryDecryptBoxMon
 	str r0, [sp, #0x0]

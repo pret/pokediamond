@@ -9122,7 +9122,7 @@ MOD14_021DBE34: ; 0x021DBE34
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, [r4, #0x14]
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	mov r0, #1
 	strb r0, [r4, #0x13]
 	add r0, r4, #0

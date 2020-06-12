@@ -26,10 +26,10 @@ FUN_02023C48: ; 0x02023C48
 	lsl r2, r2, #0x4
 	bl memset
 	add r0, r4, #0x0
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	add r0, r4, #0x0
 	add r0, #0xec
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	mov r0, #0x76
 	mov r1, #0x0
 	lsl r0, r0, #0x2
@@ -187,7 +187,7 @@ _02023D38: .word 0x0000FFFF
 FUN_02023D3C: ; 0x02023D3C
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x0
 	add r0, #0xe8

@@ -4705,7 +4705,7 @@
 .extern FUN_02066818
 .extern FUN_02066840
 .extern ZeroMonData
-.extern WipeBoxMonDataAndEncrypt
+.extern ZeroBoxMonData
 .extern SizeOfStructPokemon
 .extern AllocMonZeroed
 .extern TryDecryptMon

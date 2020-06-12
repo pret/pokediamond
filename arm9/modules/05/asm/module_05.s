@@ -43348,7 +43348,7 @@ _021EC6FA:
 	add r1, r4, #0
 	bl FUN_0206B900
 	add r0, r5, #0
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	add r0, r6, #0
 	mov r1, #0
 	bl FUN_02023CA0

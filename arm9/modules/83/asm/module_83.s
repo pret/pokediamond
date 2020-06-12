@@ -21864,7 +21864,7 @@ MOD83_02237F6C: ; 0x02237F6C
 	add r4, r1, #0
 	add r6, r0, #0
 	add r0, r4, #0
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	add r0, r4, #0
 	bl TryDecryptBoxMon
 	mov r1, #0

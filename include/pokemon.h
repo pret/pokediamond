@@ -103,12 +103,16 @@
 #define MON_DATA_SEAL_COORDS        170
 #define MON_DATA_SPECIES_EXISTS     171
 #define MON_DATA_SANITY_CHECK_172   172
-#define MON_DATA_SANITY_CHECK_173   173
+#define MON_DATA_SPECIES2           173
 #define MON_DATA_IVS_WORD           174
 #define MON_DATA_IS_FEMALE          175
 #define MON_DATA_TYPE_1             176
 #define MON_DATA_TYPE_2             177
 #define MON_DATA_SPECIES_NAME       178
+
+#define MON_MALE                 0
+#define MON_FEMALE             254
+#define MON_GENDER_UNKNOWN     255
 
 // TODO: Identify the rest of these
 enum BaseStat {
@@ -202,69 +206,69 @@ typedef enum GameLanguage OriginLanguage;
 
 typedef enum {
     ARCEUS_NORMAL = 0,
-    ARCEUS_FIST = 8,
-    ARCEUS_SKY = 16,
-    ARCEUS_TOXIC = 24,
-    ARCEUS_EARTH = 32,
-    ARCEUS_STONE = 40,
-    ARCEUS_INSECT = 48,
-    ARCEUS_SPOOKY = 56,
-    ARCEUS_IRON = 64,
-    ARCEUS_FLAME = 72,
-    ARCEUS_SPLASH = 80,
-    ARCEUS_MEADOW = 88,
-    ARCEUS_ZAP = 96,
-    ARCEUS_MIND = 104,
-    ARCEUS_ICICLE = 112,
-    ARCEUS_DRACO = 120,
-    ARCEUS_DREAD = 128,
+    ARCEUS_FIST = 1,
+    ARCEUS_SKY = 2,
+    ARCEUS_TOXIC = 3,
+    ARCEUS_EARTH = 4,
+    ARCEUS_STONE = 5,
+    ARCEUS_INSECT = 6,
+    ARCEUS_SPOOKY = 7,
+    ARCEUS_IRON = 8,
+    ARCEUS_FLAME = 9,
+    ARCEUS_SPLASH = 10,
+    ARCEUS_MEADOW = 11,
+    ARCEUS_ZAP = 12,
+    ARCEUS_MIND = 13,
+    ARCEUS_ICICLE = 14,
+    ARCEUS_DRACO = 15,
+    ARCEUS_DREAD = 16,
     BURMY_PLANT = 0,
-    BURMY_SANDY = 8,
-    BURMY_TRASH = 16,
+    BURMY_SANDY = 1,
+    BURMY_TRASH = 2,
     DEOXYS_NORMAL = 0,
-    DEOXYS_ATTACK = 8,
-    DEOXYS_DEFENSE = 16,
-    DEOXYS_SPEED = 24,
+    DEOXYS_ATTACK = 1,
+    DEOXYS_DEFENSE = 2,
+    DEOXYS_SPEED = 3,
     GIRATINA_ALTERED = 0,
-    GIRATINA_ORIGIN = 8,
+    GIRATINA_ORIGIN = 1,
     ROTOM_NORMAL = 0,
-    ROTOM_HEAT = 8,
-    ROTOM_WASH = 16,
-    ROTOM_FROST = 24,
-    ROTOM_FAN = 32,
-    ROTOM_MOW = 40,
+    ROTOM_HEAT = 1,
+    ROTOM_WASH = 2,
+    ROTOM_FROST = 3,
+    ROTOM_FAN = 4,
+    ROTOM_MOW = 5,
     SHAYMIN_LAND = 0,
-    SHAYMIN_SKY = 8,
+    SHAYMIN_SKY = 1,
     SHELLOS_WEST = 0,
-    SHELLOS_EAST = 8,
+    SHELLOS_EAST = 1,
     UNOWN_A = 0,
-    UNOWN_B = 8,
-    UNOWN_C = 16,
-    UNOWN_D = 24,
-    UNOWN_E = 32,
-    UNOWN_F = 40,
-    UNOWN_G = 48,
-    UNOWN_H = 56,
-    UNOWN_I = 64,
-    UNOWN_J = 72,
-    UNOWN_K = 80,
-    UNOWN_L = 88,
-    UNOWN_M = 96,
-    UNOWN_N = 104,
-    UNOWN_O = 112,
-    UNOWN_P = 120,
-    UNOWN_Q = 128,
-    UNOWN_R = 136,
-    UNOWN_S = 144,
-    UNOWN_T = 152,
-    UNOWN_U = 160,
-    UNOWN_V = 168,
-    UNOWN_W = 176,
-    UNOWN_X = 184,
-    UNOWN_Y = 192,
-    UNOWN_Z = 200,
-    UNOWN_EXCLAMATION_MARK = 208,
-    UNOWN_QUESTION_MARK = 216
+    UNOWN_B = 1,
+    UNOWN_C = 2,
+    UNOWN_D = 3,
+    UNOWN_E = 4,
+    UNOWN_F = 5,
+    UNOWN_G = 6,
+    UNOWN_H = 7,
+    UNOWN_I = 8,
+    UNOWN_J = 9,
+    UNOWN_K = 10,
+    UNOWN_L = 11,
+    UNOWN_M = 12,
+    UNOWN_N = 13,
+    UNOWN_O = 14,
+    UNOWN_P = 15,
+    UNOWN_Q = 16,
+    UNOWN_R = 17,
+    UNOWN_S = 18,
+    UNOWN_T = 19,
+    UNOWN_U = 20,
+    UNOWN_V = 21,
+    UNOWN_W = 22,
+    UNOWN_X = 23,
+    UNOWN_Y = 24,
+    UNOWN_Z = 25,
+    UNOWN_EXCLAMATION_MARK = 26,
+    UNOWN_QUESTION_MARK = 27
 } AlternateForms;
 
 // Structs
@@ -341,18 +345,17 @@ typedef union {
 } PokemonDataBlock;
 
 struct BoxPokemon {
-    /* 0x000 */ u32 personalityValue;
+    /* 0x000 */ u32 pid;
     /* 0x004 */ u16 no_encrypt:1;
                 u16 control_4_1:1;
                 u16 control_4_2:1;
                 u16 Unused:13;    // Might be used for validity checks
     /* 0x006 */ u16 checksum;  // Stored checksum of pokemon
-    /* 0x008 */ PokemonDataBlock box[4];
+    /* 0x008 */ PokemonDataBlock substructs[4];
 };
 
 struct PartyPokemon
 {
-    /* 0x000 */ struct BoxPokemon box;
     /* 0x088 */ u8 slp:3;
                 u8 psn:1;
                 u8 brn:1;
@@ -379,6 +382,11 @@ struct Pokemon {
     /* 0x088 */ struct PartyPokemon party;
 }; // size: 0xEC
 
+void ZeroMonData(struct Pokemon * pokemon);
+void ZeroBoxMonData(struct BoxPokemon * boxmon);
+u32 SizeOfStructPokemon(void);
+struct Pokemon * AllocMonZeroed(u32 heap_id);
+BOOL TryDecryptMon(struct Pokemon * mon);
 int GetMonBaseStat_HandleFormeConversion(int species, int form, int stat_id);
 int GetMonBaseStat(int species, int stat_id);
 int GetMonExpBySpeciesAndLevel(int species, int level);
