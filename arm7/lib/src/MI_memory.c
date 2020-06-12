@@ -1,20 +1,17 @@
-	.include "asm/macros.inc"
-	.include "global.inc"
+#include "function_target.h"
+#include "MI_memory.h"
 
-    .text
-
-	arm_func_start MIi_CpuClear16
-MIi_CpuClear16: ; 0x037FB300
-	mov	r3, #0
-_037FB304:
+asm void MIi_CpuClear16(register u16 value, register u16 * dst, register u32 size) {
+    mov	r3, #0
+loop:
 	cmp	r3, r2
 	strlth	r0, [r1, r3]
 	addlt	r3, r3, #2
-	blt	_037FB304
+	blt	loop
 	bx	lr
+}
 
-	arm_func_start MIi_CpuCopy16
-MIi_CpuCopy16: ; 0x037FB318
+asm void MIi_CpuCopy16(register u16 * src, register u16 * dst, register u32 size) {
 	mov	ip, #0
 _037FB31C:
 	cmp	ip, r2
@@ -23,18 +20,18 @@ _037FB31C:
 	addlt	ip, ip, #2
 	blt	_037FB31C
 	bx	lr
+}
 
-	arm_func_start MIi_CpuClear32
-MIi_CpuClear32: ; 0x037FB334
+asm void MIi_CpuClear32(register u32 value, register u32 * dst, register u32 size) {
 	add	ip, r1, r2
 _037FB338:
 	cmp	r1, ip
 	stmltia	r1!, {r0}
 	blt	_037FB338
 	bx	lr
+}
 
-	arm_func_start MIi_CpuCopy32
-MIi_CpuCopy32: ; 0x037FB348
+asm void MIi_CpuCopy32(register u32 * src, register u32 * dst, register u32 size) {
 	add	ip, r1, r2
 _037FB34C:
 	cmp	r1, ip
@@ -42,9 +39,9 @@ _037FB34C:
 	stmltia	r1!, {r2}
 	blt	_037FB34C
 	bx	lr
+}
 
-	arm_func_start MIi_CpuClearFast
-MIi_CpuClearFast: ; 0x037FB360
+asm void MIi_CpuClearFast(register u32 value, register u32 * dst, register u32 size) {
 	stmdb	sp!, {r4, r5, r6, r7, r8, r9}
 	add	r9, r1, r2
 	mov	ip, r2, lsr #5
@@ -66,34 +63,34 @@ _037FB398:
 	blt	_037FB398
 	ldmia	sp!, {r4, r5, r6, r7, r8, r9}
 	bx	lr
+}
 
-	arm_func_start MIi_CpuCopyFast
-MIi_CpuCopyFast: ; 0x037FB3AC
-	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl}
-	add	sl, r1, r2
+asm void MIi_CpuCopyFast(register u32 * src, register u32 * dst, register u32 size) {
+	stmdb	sp!, {r4-r9, r10}
+	add	r10, r1, r2
 	mov	ip, r2, lsr #5
 	add	ip, r1, ip, lsl #5
 _037FB3BC:
 	cmp	r1, ip
-	ldmltia	r0!, {r2, r3, r4, r5, r6, r7, r8, r9}
-	stmltia	r1!, {r2, r3, r4, r5, r6, r7, r8, r9}
+	ldmltia	r0!, {r2-r9}
+	stmltia	r1!, {r2-r9}
 	blt	_037FB3BC
 _037FB3CC:
-	cmp	r1, sl
+	cmp	r1, r10
 	ldmltia	r0!, {r2}
 	stmltia	r1!, {r2}
 	blt	_037FB3CC
-	ldmia	sp!, {r4, r5, r6, r7, r8, r9, sl}
+	ldmia	sp!, {r4-r9, r10}
 	bx	lr
+}
 
-	arm_func_start MI_CpuFill8
-MI_CpuFill8: ; 0x037FB3E4
+asm void MI_CpuFill8(register u8 value, register u8 * dst, register u32 size) {
 	cmp	r2, #0
 	bxeq	lr
 	tst	r0, #1
 	beq	_037FB410
 	ldrh	ip, [r0, #-1]
-	and	ip, ip, #255	; 0xff
+	and	ip, ip, #0xff
 	orr	r3, ip, r1, lsl #8
 	strh	r3, [r0, #-1]
 	add	r0, r0, #1
@@ -125,20 +122,20 @@ _037FB458:
 	tst	r2, #1
 	bxeq	lr
 	ldrh	r3, [r0]
-	and	r3, r3, #65280	; 0xff00
-	and	r1, r1, #255	; 0xff
+	and	r3, r3, #0xff00
+	and	r1, r1, #0xff
 	orr	r1, r1, r3
 	strh	r1, [r0]
 	bx	lr
+}
 
-	arm_func_start MI_CpuCopy8
-MI_CpuCopy8: ; 0x037FB478
+asm void MI_CpuCopy8(register u8 * src, register u8 * dst, register u32 size) {
 	cmp	r2, #0
 	bxeq	lr
 	tst	r1, #1
 	beq	_037FB4B8
 	ldrh	ip, [r1, #-1]
-	and	ip, ip, #255	; 0xff
+	and	ip, ip, #0xff
 	tst	r0, #1
 	ldrneh	r3, [r0, #-1]
 	movne	r3, r3, lsr #8
@@ -169,7 +166,7 @@ _037FB4F0:
 	tst	r2, #1
 	bxeq	lr
 	ldrh	ip, [r1]
-	and	ip, ip, #65280	; 0xff00
+	and	ip, ip, #0xff00
 	orr	ip, ip, r3
 	strh	ip, [r1]
 	bx	lr
@@ -214,8 +211,9 @@ _037FB584:
 	bxeq	lr
 	ldrh	r2, [r1]
 	ldrh	r0, [r0]
-	and	r2, r2, #65280	; 0xff00
-	and	r0, r0, #255	; 0xff
+	and	r2, r2, #0xff00
+	and	r0, r0, #0xff
 	orr	r0, r2, r0
 	strh	r0, [r1]
 	bx	lr
+}
