@@ -4,6 +4,8 @@
 #include "nitro/types.h"
 #include "OS_system.h"
 #include "OS_arena.h"
+#include "OS_alloc.h"
+#include "OS_reset.h"
 
 void OS_Init(void);
 
