@@ -7,12 +7,11 @@ env:
 addons:
     apt:
         packages:
-            - gcc-9
+            - gcc-multilib
             - linux-libc-dev
             - binutils-arm-none-eabi
             - wine32
             - wine-stable
-            - g++-8
 cache:
     apt: true
 install:
