@@ -25,6 +25,7 @@ u16 ModifyStatByNature(u8 nature, u16 statval, u8 statno);
 u8 GetGenderBySpeciesAndPersonality_PreloadedPersonal(struct BaseStats * personal, u16 species, u32 pid);
 u8 BoxMonIsShiny(struct BoxPokemon * boxmon);
 u8 CalcShininessByOtIdAndPersonality(u32 otid, u32 pid);
+u32 MaskOfFlagNo(int flagno);
 void LoadMonPersonal(int species, struct BaseStats * personal);
 
 int ResolveMonForme(int species, int forme);
@@ -2116,4 +2117,30 @@ u8 BoxMonIsShiny(struct BoxPokemon * boxmon)
 u8 CalcShininessByOtIdAndPersonality(u32 otid, u32 pid)
 {
     return SHINY_CHECK(otid, pid);
+}
+
+u32 GenerateShinyPersonality(u32 otid)
+{
+    int r4;
+    u16 r6;
+    u16 r5;
+    otid = (u32)((((otid & 0xFFFF0000) >> 16) ^ (otid & 0xFFFF)) >> 3u);
+    r6 = (u16)(rand_LC() & 7);
+    r5 = (u16)(rand_LC() & 7);
+    for (r4 = 0; r4 < 13; r4++)
+    {
+        if (MaskOfFlagNo(r4) & otid)
+        {
+            if (rand_LC() & 1)
+                r6 |= MaskOfFlagNo(r4 + 3);
+            else
+                r5 |= MaskOfFlagNo(r4 + 3);
+        }
+        else if (rand_LC() & 1)
+        {
+            r6 |= MaskOfFlagNo(r4 + 3);
+            r5 |= MaskOfFlagNo(r4 + 3);
+        }
+    }
+    return (u32)((r5 << 16) | r6);
 }

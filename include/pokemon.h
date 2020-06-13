@@ -516,5 +516,6 @@ u8 GetMonGender(struct Pokemon * pokemon);
 u8 GetBoxMonGender(struct BoxPokemon * boxmon);
 u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid);
 u8 MonIsShiny(struct Pokemon * pokemon);
+u32 GenerateShinyPersonality(u32 otid);
 
 #endif //POKEDIAMOND_POKEMON_H
