@@ -12,14 +12,21 @@
 
 #pragma thumb on
 
+u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
+u32 GetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
+void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
+void SetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
+void AddMonDataInternal(struct Pokemon * pokemon, int attr, int amount);
+void AddBoxMonData(struct BoxPokemon * pokemon, int attr, int amount);
+void LoadMonPersonal(int species, struct BaseStats * personal);
+int ResolveMonForme(int species, int forme);
+
 void MonEncryptSegment(void * datap, u32 size, u32 key);
 void MonDecryptSegment(void * datap, u32 size, u32 key);
 u16 MonEncryptionLCRNG(u32 * seed);
 u16 CalcMonChecksum(void * datap, u32 size);
 void InitBoxMonMoveset(struct BoxPokemon * boxmon);
-u32 GetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
 PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u32 which_struct);
-u32 GetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
 void LoadMonBaseStats_HandleAlternateForme(u32 species, u32 forme, struct BaseStats * baseStats);
 int ApplyNatureModToStat(u8 nature, u16 statval, u32 statno);
 
@@ -1733,4 +1740,144 @@ void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
     default:
         GF_ASSERT(0);
     }
+}
+
+struct BaseStats * AllocAndLoadMonPersonal(int species, u32 heap_id)
+{
+    struct BaseStats * baseStats = (struct BaseStats *)AllocFromHeap(heap_id, sizeof(struct BaseStats));
+    LoadMonPersonal(species, baseStats);
+    return baseStats;
+}
+
+int GetPersonalAttr(struct BaseStats * baseStats, enum BaseStat attr)
+{
+    int ret;
+    GF_ASSERT(baseStats != NULL);
+    switch (attr)
+    {
+    case BASE_HP:
+        ret = baseStats->hp;
+        break;
+    case BASE_ATK:
+        ret = baseStats->atk;
+        break;
+    case BASE_DEF:
+        ret = baseStats->def;
+        break;
+    case BASE_SPEED:
+        ret = baseStats->speed;
+        break;
+    case BASE_SPATK:
+        ret = baseStats->spatk;
+        break;
+    case BASE_SPDEF:
+        ret = baseStats->spdef;
+        break;
+    case BASE_TYPE1:
+        ret = baseStats->types[0];
+        break;
+    case BASE_TYPE2:
+        ret = baseStats->types[1];
+        break;
+    case BASE_CATCH_RATE:
+        ret = baseStats->catchRate;
+        break;
+    case BASE_EXP_YIELD:
+        ret = baseStats->expYield;
+        break;
+    case BASE_HP_YIELD:
+        ret = baseStats->hp_yield;
+        break;
+    case BASE_ATK_YIELD:
+        ret = baseStats->atk_yield;
+        break;
+    case BASE_DEF_YIELD:
+        ret = baseStats->def_yield;
+        break;
+    case BASE_SPEED_YIELD:
+        ret = baseStats->speed_yield;
+        break;
+    case BASE_SPATK_YIELD:
+        ret = baseStats->spatk_yield;
+        break;
+    case BASE_SPDEF_YIELD:
+        ret = baseStats->spdef_yield;
+        break;
+    case BASE_ITEM_1:
+        ret = baseStats->item1;
+        break;
+    case BASE_ITEM_2:
+        ret = baseStats->item2;
+        break;
+    case BASE_GENDER_RATIO:
+        ret = baseStats->genderRatio;
+        break;
+    case BASE_EGG_CYCLES:
+        ret = baseStats->eggCycles;
+        break;
+    case BASE_FRIENDSHIP:
+        ret = baseStats->friendship;
+        break;
+    case BASE_GROWTH_RATE:
+        ret = baseStats->growthRate;
+        break;
+    case BASE_EGG_GROUP_1:
+        ret = baseStats->eggGroups[0];
+        break;
+    case GASE_EGG_GROUP_2:
+        ret = baseStats->eggGroups[1];
+        break;
+    case BASE_ABILITY_1:
+        ret = baseStats->abilities[0];
+        break;
+    case BASE_ABILITY_2:
+        ret = baseStats->abilities[1];
+        break;
+    case BASE_GREAT_MARSH_RATE:
+        ret = baseStats->greatMarshRate;
+        break;
+    case BASE_COLOR:
+        ret = baseStats->color;
+        break;
+    case BASE_FLIP:
+        ret = baseStats->flip;
+        break;
+    case BASE_UNKNOWN_29:
+        ret = baseStats->unk1C;
+        break;
+    case BASE_UNKNOWN_30:
+        ret = baseStats->unk20;
+        break;
+    case BASE_UNKNOWN_31:
+        ret = baseStats->unk24;
+        break;
+    case BASE_UNKNOWN_32:
+        ret = baseStats->unk28;
+        break;
+    }
+    return ret;
+}
+
+void FreeMonPersonal(struct BaseStats * personal)
+{
+    GF_ASSERT(personal != NULL);
+    FreeToHeap(personal);
+}
+
+int GetMonBaseStat_HandleFormeConversion(int species, int forme, enum BaseStat attr)
+{
+    int ret;
+    struct BaseStats * personal = AllocAndLoadMonPersonal(ResolveMonForme(species, forme), 0);
+    ret = GetPersonalAttr(personal, attr);
+    FreeMonPersonal(personal);
+    return ret;
+}
+
+int GetMonBaseStat(int species, enum BaseStat attr)
+{
+    int ret;
+    struct BaseStats * personal = AllocAndLoadMonPersonal(species, 0);
+    ret = GetPersonalAttr(personal, attr);
+    FreeMonPersonal(personal);
+    return ret;
 }

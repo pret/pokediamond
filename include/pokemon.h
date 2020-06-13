@@ -220,7 +220,7 @@ enum BaseStat {
     BASE_SPEED_YIELD,
     BASE_SPATK_YIELD,
     BASE_SPDEF_YIELD,
-    BASE_ITEM_1 = 16,
+    BASE_ITEM_1,
     BASE_ITEM_2,
     BASE_GENDER_RATIO,
     BASE_EGG_CYCLES,
@@ -233,42 +233,45 @@ enum BaseStat {
     BASE_GREAT_MARSH_RATE,
     BASE_COLOR,
     BASE_FLIP,
+    BASE_UNKNOWN_29,
+    BASE_UNKNOWN_30,
+    BASE_UNKNOWN_31,
+    BASE_UNKNOWN_32,
 };
 
 struct BaseStats {
-    u8 hp;
-    u8 atk;
-    u8 def;
-    u8 speed;
-    u8 spatk;
-    u8 spdef;
-    u8 types[2];
-    u8 catchRate;
-    u8 expYield;
-    u16 hp_yield:2;
-    u16 atk_yield:2;
-    u16 def_yield:2;
-    u16 speed_yield:2;
-    u16 spatk_yield:2;
-    u16 spdef_yield:2;
-    u16 unkB_4:2;
-    u16 padding_B_6:2;
-    u16 item1;
-    u16 item2;
-    u8 genderRatio;
-    u8 eggCycles;
-    u8 friendship;
-    u8 growthRate;
-    u8 eggGroups[2];
-    u8 abilities[2];
-    u8 greatMarshRate;
-    u8 color:7;
-    u8 flip:1;
-    u8 padding_1A[2];
-    u32 unk1C;
-    u32 unk20;
-    u32 unk24;
-    u32 unk28;
+    /* 0x00 */ u8 hp;
+    /* 0x01 */ u8 atk;
+    /* 0x02 */ u8 def;
+    /* 0x03 */ u8 speed;
+    /* 0x04 */ u8 spatk;
+    /* 0x05 */ u8 spdef;
+    /* 0x06 */ u8 types[2];
+    /* 0x08 */ u8 catchRate;
+    /* 0x09 */ u8 expYield;
+    /* 0x0A */ u16 hp_yield:2;
+               u16 atk_yield:2;
+               u16 def_yield:2;
+               u16 speed_yield:2;
+    /* 0x0B */ u16 spatk_yield:2;
+               u16 spdef_yield:2;
+               u16 padding_B_4:4;
+    /* 0x0C */ u16 item1;
+    /* 0x0E */ u16 item2;
+    /* 0x10 */ u8 genderRatio;
+    /* 0x11 */ u8 eggCycles;
+    /* 0x12 */ u8 friendship;
+    /* 0x13 */ u8 growthRate;
+    /* 0x14 */ u8 eggGroups[2];
+    /* 0x16 */ u8 abilities[2];
+    /* 0x18 */ u8 greatMarshRate;
+    /* 0x19 */ u8 color:7;
+               u8 flip:1;
+               u8 padding_1A[2];
+    /* 0x1C */ u32 unk1C;
+    /* 0x20 */ u32 unk20;
+    /* 0x24 */ u32 unk24;
+    /* 0x28 */ u32 unk28;
 };
 
 typedef enum {
@@ -480,19 +483,6 @@ u32 GenPersonalityByGenderAndNature(u16 species, u8 gender, u8 nature);
 void CreateMonWithFixedIVs(struct Pokemon * pokemon, int species, int level, int ivs, int personality);
 void CalcMonLevelAndStats(struct Pokemon * pokemon);
 void CalcMonStats(struct Pokemon * pokemon);
-u32 CalcMonLevelEncrypted(struct Pokemon * pokemon);
-u8 GetBoxMonNature(struct BoxPokemon * boxmon);
-u8 GetMonNature(struct Pokemon * mon);
-u8 GetNatureFromPersonality(u32 pid);
-u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid);
-u32 GetBoxMonGenderEncrypted(struct BoxPokemon * boxmon);
-int GetMonBaseStat_HandleFormeConversion(int species, int form, enum BaseStat stat_id);
-u32 GetMonBaseStat(int species, enum BaseStat stat_id);
-u32 GetMonExpBySpeciesAndLevel(int species, int level);
-void LoadGrowthTable(int species, int * table);
-int GetExpByGrowthRateAndLevel(int rate, int level);
-int CalcLevelBySpeciesAndExp(int species, int experience);
-
 #ifndef IN_POKEMON_C
 u32 GetMonData();
 u32 GetBoxMonData();
@@ -500,12 +490,22 @@ u32 GetBoxMonData();
 u32 GetMonData(struct Pokemon * pokemon, int attr, void * ptr);
 u32 GetBoxMonData(struct BoxPokemon * pokemon, int attr, void * ptr);
 #endif
-void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
 void SetMonData(struct Pokemon * pokemon, int attr, void * ptr);
-void SetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
 void SetBoxMonData(struct BoxPokemon * pokemon, int attr, void * ptr);
 void AddMonData(struct Pokemon * pokemon, int attr, int amount);
-void AddMonDataInternal(struct Pokemon * pokemon, int attr, int amount);
-void AddBoxMonData(struct BoxPokemon * pokemon, int attr, int amount);
+struct BaseStats * AllocAndLoadMonPersonal(int species, u32 heap_id);
+
+u32 CalcMonLevelEncrypted(struct Pokemon * pokemon);
+u8 GetBoxMonNature(struct BoxPokemon * boxmon);
+u8 GetMonNature(struct Pokemon * mon);
+u8 GetNatureFromPersonality(u32 pid);
+u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid);
+u32 GetBoxMonGenderEncrypted(struct BoxPokemon * boxmon);
+int GetMonBaseStat_HandleFormeConversion(int species, int form, enum BaseStat stat_id);
+int GetMonBaseStat(int species, enum BaseStat stat_id);
+u32 GetMonExpBySpeciesAndLevel(int species, int level);
+void LoadGrowthTable(int species, int * table);
+int GetExpByGrowthRateAndLevel(int rate, int level);
+int CalcLevelBySpeciesAndExp(int species, int experience);
 
 #endif //POKEDIAMOND_POKEMON_H
