@@ -23,6 +23,7 @@
 #include "OS_interrupt.h"
 #include "OS_reset.h"
 #include "OS_spinLock.h"
+#include "OS_tick.h"
 
 void OS_Init(void);
 
