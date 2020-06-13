@@ -1393,3 +1393,344 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
     }
 #undef VALUE
 }
+
+void AddMonData(struct Pokemon * pokemon, int attr, int value)
+{
+    u16 checksum;
+    if (!pokemon->box.party_lock)
+    {
+        DECRYPT_PTY(pokemon);
+        DECRYPT_BOX(&pokemon->box);
+        checksum = CHECKSUM(&pokemon->box);
+        if (checksum != pokemon->box.checksum)
+        {
+            GF_ASSERT(checksum == pokemon->box.checksum);
+            ENCRYPT_BOX(&pokemon->box);
+            return;
+        }
+    }
+    AddMonDataInternal(pokemon, attr, value);
+    if (!pokemon->box.party_lock)
+    {
+        ENCRYPT_PTY(pokemon);
+        pokemon->box.checksum = CHECKSUM(&pokemon->box);
+        ENCRYPT_BOX(&pokemon->box);
+    }
+}
+
+void AddMonDataInternal(struct Pokemon * pokemon, int attr, int value)
+{
+    s32 maxHp;
+    switch (attr)
+    {
+    case MON_DATA_HP:
+        maxHp = pokemon->party.maxHp;
+        if ((s32)(pokemon->party.hp + value) > maxHp)
+            pokemon->party.hp = maxHp;
+        else
+            pokemon->party.hp += value;
+        break;
+    case MON_DATA_STATUS:
+    case MON_DATA_LEVEL:
+    case MON_DATA_CAPSULE:
+    case MON_DATA_MAXHP:
+    case MON_DATA_ATK:
+    case MON_DATA_DEF:
+    case MON_DATA_SPEED:
+    case MON_DATA_SPATK:
+    case MON_DATA_SPDEF:
+    case MON_DATA_SEAL_STRUCT:
+    // case MON_DATA_SEAL_COORDS:
+        GF_ASSERT(0);
+        break;
+    default:
+        AddBoxMonData(&pokemon->box, attr, value);
+        break;
+    }
+}
+
+void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
+{
+    PokemonDataBlockA *blockA = &GetSubstruct(boxmon, boxmon->pid, 0)->blockA;
+    PokemonDataBlockB *blockB = &GetSubstruct(boxmon, boxmon->pid, 1)->blockB;
+    PokemonDataBlockC *blockC = &GetSubstruct(boxmon, boxmon->pid, 2)->blockC;
+    PokemonDataBlockD *blockD = &GetSubstruct(boxmon, boxmon->pid, 3)->blockD;
+
+    switch (attr)
+    {
+    case MON_DATA_EXPERIENCE:
+        if (blockA->exp + value > GetMonExpBySpeciesAndLevel(blockA->species, 100))
+            blockA->exp = GetMonExpBySpeciesAndLevel(blockA->species, 100);
+        else
+            blockA->exp += value;
+        break;
+    case MON_DATA_FRIENDSHIP:
+        if (blockA->friendship + value > 255)
+            blockA->friendship = 255;
+        else
+            blockA->friendship += value;
+        break;
+    case MON_DATA_HP_EV:
+        blockA->hpEV += value;
+        break;
+    case MON_DATA_ATK_EV:
+        blockA->atkEV += value;
+        break;
+    case MON_DATA_DEF_EV:
+        blockA->defEV += value;
+        break;
+    case MON_DATA_SPEED_EV:
+        blockA->spdEV += value;
+        break;
+    case MON_DATA_SPATK_EV:
+        blockA->spatkEV += value;
+        break;
+    case MON_DATA_SPDEF_EV:
+        blockA->spdefEV += value;
+        break;
+    case MON_DATA_COOL:
+        if (blockA->coolStat + value > 255)
+            blockA->coolStat = 255;
+        else
+            blockA->coolStat += value;
+        break;
+    case MON_DATA_BEAUTY:
+        if (blockA->beautyStat + value > 255)
+            blockA->beautyStat = 255;
+        else
+            blockA->beautyStat += value;
+        break;
+    case MON_DATA_CUTE:
+        if (blockA->cuteStat + value > 255)
+            blockA->cuteStat = 255;
+        else
+            blockA->cuteStat += value;
+        break;
+    case MON_DATA_SMART:
+        if (blockA->smartStat + value > 255)
+            blockA->smartStat = 255;
+        else
+            blockA->smartStat += value;
+        break;
+    case MON_DATA_TOUGH:
+        if (blockA->toughStat + value > 255)
+            blockA->toughStat = 255;
+        else
+            blockA->toughStat += value;
+        break;
+    case MON_DATA_SHEEN:
+        if (blockA->sheen + value > 255)
+            blockA->sheen = 255;
+        else
+            blockA->sheen += value;
+        break;
+    case MON_DATA_MOVE1PP:
+    case MON_DATA_MOVE2PP:
+    case MON_DATA_MOVE3PP:
+    case MON_DATA_MOVE4PP:
+        if (blockB->movePP[attr - MON_DATA_MOVE1PP] + value > FUN_0206AB30(blockB->moves[attr - MON_DATA_MOVE1PP], blockB->movePpUps[attr - MON_DATA_MOVE1PP]))
+            blockB->movePP[attr - MON_DATA_MOVE1PP] = FUN_0206AB30(blockB->moves[attr - MON_DATA_MOVE1PP], blockB->movePpUps[attr - MON_DATA_MOVE1PP]);
+        else
+            blockB->movePP[attr - MON_DATA_MOVE1PP] += value;
+        break;
+    case MON_DATA_MOVE1PPUP:
+    case MON_DATA_MOVE2PPUP:
+    case MON_DATA_MOVE3PPUP:
+    case MON_DATA_MOVE4PPUP:
+        if (blockB->movePpUps[attr - MON_DATA_MOVE1PPUP] + value > 3)
+            blockB->movePpUps[attr - MON_DATA_MOVE1PPUP] = 3;
+        else
+            blockB->movePpUps[attr - MON_DATA_MOVE1PPUP] += value;
+        break;
+    case MON_DATA_MOVE1MAXPP:
+    case MON_DATA_MOVE2MAXPP:
+    case MON_DATA_MOVE3MAXPP:
+    case MON_DATA_MOVE4MAXPP:
+        break;
+    case MON_DATA_HP_IV:
+        if (blockB->hpIV + value > 31)
+            blockB->hpIV = 31;
+        else
+            blockB->hpIV += value;
+        break;
+    case MON_DATA_ATK_IV:
+        if (blockB->atkIV + value > 31)
+            blockB->atkIV = 31;
+        else
+            blockB->atkIV += value;
+        break;
+    case MON_DATA_DEF_IV:
+        if (blockB->defIV + value > 31)
+            blockB->defIV = 31;
+        else
+            blockB->defIV += value;
+        break;
+    case MON_DATA_SPEED_IV:
+        if (blockB->spdIV + value > 31)
+            blockB->spdIV = 31;
+        else
+            blockB->spdIV += value;
+        break;
+    case MON_DATA_SPATK_IV:
+        if (blockB->spatkIV + value > 31)
+            blockB->spatkIV = 31;
+        else
+            blockB->spatkIV += value;
+        break;
+    case MON_DATA_SPDEF_IV:
+        if (blockB->spdefIV + value > 31)
+            blockB->spdefIV = 31;
+        else
+            blockB->spdefIV += value;
+        break;
+    case MON_DATA_PERSONALITY:
+    case MON_DATA_PARTY_LOCK:
+    case MON_DATA_BOX_LOCK:
+    case MON_DATA_CHECKSUM_FAILED:
+    case MON_DATA_CHECKSUM:
+    case MON_DATA_SPECIES:
+    case MON_DATA_HELD_ITEM:
+    case MON_DATA_OTID:
+    case MON_DATA_ABILITY:
+    case MON_DATA_MARKINGS:
+    case MON_DATA_GAME_LANGUAGE:
+    case MON_DATA_SINNOH_CHAMP_RIBBON:
+    case MON_DATA_SINNOH_RIBBON_26:
+    case MON_DATA_SINNOH_RIBBON_27:
+    case MON_DATA_SINNOH_RIBBON_28:
+    case MON_DATA_SINNOH_RIBBON_29:
+    case MON_DATA_SINNOH_RIBBON_30:
+    case MON_DATA_SINNOH_RIBBON_31:
+    case MON_DATA_SINNOH_RIBBON_32:
+    case MON_DATA_SINNOH_RIBBON_33:
+    case MON_DATA_SINNOH_RIBBON_34:
+    case MON_DATA_SINNOH_RIBBON_35:
+    case MON_DATA_SINNOH_RIBBON_36:
+    case MON_DATA_SINNOH_RIBBON_37:
+    case MON_DATA_SINNOH_RIBBON_38:
+    case MON_DATA_SINNOH_RIBBON_39:
+    case MON_DATA_SINNOH_RIBBON_40:
+    case MON_DATA_SINNOH_RIBBON_41:
+    case MON_DATA_SINNOH_RIBBON_42:
+    case MON_DATA_SINNOH_RIBBON_43:
+    case MON_DATA_SINNOH_RIBBON_44:
+    case MON_DATA_SINNOH_RIBBON_45:
+    case MON_DATA_SINNOH_RIBBON_46:
+    case MON_DATA_SINNOH_RIBBON_47:
+    case MON_DATA_SINNOH_RIBBON_48:
+    case MON_DATA_SINNOH_RIBBON_49:
+    case MON_DATA_SINNOH_RIBBON_50:
+    case MON_DATA_SINNOH_RIBBON_51:
+    case MON_DATA_SINNOH_RIBBON_52:
+    case MON_DATA_SINNOH_RIBBON_53:
+    case MON_DATA_MOVE1:
+    case MON_DATA_MOVE2:
+    case MON_DATA_MOVE3:
+    case MON_DATA_MOVE4:
+    case MON_DATA_IS_EGG:
+    case MON_DATA_HAS_NICKNAME:
+    case MON_DATA_COOL_RIBBON:
+    case MON_DATA_HOENN_RIBBON_79:
+    case MON_DATA_HOENN_RIBBON_80:
+    case MON_DATA_HOENN_RIBBON_81:
+    case MON_DATA_HOENN_RIBBON_82:
+    case MON_DATA_HOENN_RIBBON_83:
+    case MON_DATA_HOENN_RIBBON_84:
+    case MON_DATA_HOENN_RIBBON_85:
+    case MON_DATA_HOENN_RIBBON_86:
+    case MON_DATA_HOENN_RIBBON_87:
+    case MON_DATA_HOENN_RIBBON_88:
+    case MON_DATA_HOENN_RIBBON_89:
+    case MON_DATA_HOENN_RIBBON_90:
+    case MON_DATA_HOENN_RIBBON_91:
+    case MON_DATA_HOENN_RIBBON_92:
+    case MON_DATA_HOENN_RIBBON_93:
+    case MON_DATA_HOENN_RIBBON_94:
+    case MON_DATA_HOENN_RIBBON_95:
+    case MON_DATA_HOENN_RIBBON_96:
+    case MON_DATA_HOENN_RIBBON_97:
+    case MON_DATA_HOENN_RIBBON_98:
+    case MON_DATA_HOENN_RIBBON_99:
+    case MON_DATA_HOENN_RIBBON_100:
+    case MON_DATA_HOENN_RIBBON_101:
+    case MON_DATA_HOENN_RIBBON_102:
+    case MON_DATA_HOENN_RIBBON_103:
+    case MON_DATA_HOENN_RIBBON_104:
+    case MON_DATA_HOENN_RIBBON_105:
+    case MON_DATA_HOENN_RIBBON_106:
+    case MON_DATA_HOENN_RIBBON_107:
+    case MON_DATA_HOENN_RIBBON_108:
+    case MON_DATA_HOENN_RIBBON_109:
+    case MON_DATA_FATEFUL_ENCOUNTER:
+    case MON_DATA_GENDER:
+    case MON_DATA_FORME:
+    case MON_DATA_RESERVED_113:
+    case MON_DATA_RESERVED_114:
+    case MON_DATA_UNUSED_115:
+    case MON_DATA_NICKNAME:
+    case MON_DATA_NICKNAME_2:
+    case MON_DATA_NICKNAME_3:
+    case MON_DATA_NICKNAME_4:
+    case MON_DATA_UNK_120:
+    case MON_DATA_GAME_VERSION:
+    case MON_DATA_SINNOH_RIBBON_122:
+    case MON_DATA_SINNOH_RIBBON_123:
+    case MON_DATA_SINNOH_RIBBON_124:
+    case MON_DATA_SINNOH_RIBBON_125:
+    case MON_DATA_SINNOH_RIBBON_126:
+    case MON_DATA_SINNOH_RIBBON_127:
+    case MON_DATA_SINNOH_RIBBON_128:
+    case MON_DATA_SINNOH_RIBBON_129:
+    case MON_DATA_SINNOH_RIBBON_130:
+    case MON_DATA_SINNOH_RIBBON_131:
+    case MON_DATA_SINNOH_RIBBON_132:
+    case MON_DATA_SINNOH_RIBBON_133:
+    case MON_DATA_SINNOH_RIBBON_134:
+    case MON_DATA_SINNOH_RIBBON_135:
+    case MON_DATA_SINNOH_RIBBON_136:
+    case MON_DATA_SINNOH_RIBBON_137:
+    case MON_DATA_SINNOH_RIBBON_138:
+    case MON_DATA_SINNOH_RIBBON_139:
+    case MON_DATA_SINNOH_RIBBON_140:
+    case MON_DATA_SINNOH_RIBBON_141:
+    case MON_DATA_SINNOH_RIBBON_142:
+    case MON_DATA_OT_NAME:
+    case MON_DATA_OT_NAME_2:
+    case MON_DATA_EGG_MET_YEAR:
+    case MON_DATA_EGG_MET_MONTH:
+    case MON_DATA_EGG_MET_DAY:
+    case MON_DATA_MET_YEAR:
+    case MON_DATA_MET_MONTH:
+    case MON_DATA_MET_DAY:
+    case MON_DATA_EGG_MET_LOCATION:
+    case MON_DATA_MET_LOCATION:
+    case MON_DATA_POKERUS:
+    case MON_DATA_POKEBALL:
+    case MON_DATA_MET_LEVEL:
+    case MON_DATA_MET_GENDER:
+    case MON_DATA_ENCOUNTER_TYPE:
+    case MON_DATA_RESERVED_158:
+    case MON_DATA_STATUS:
+    case MON_DATA_LEVEL:
+    case MON_DATA_CAPSULE:
+    case MON_DATA_HP:
+    case MON_DATA_MAXHP:
+    case MON_DATA_ATK:
+    case MON_DATA_DEF:
+    case MON_DATA_SPEED:
+    case MON_DATA_SPATK:
+    case MON_DATA_SPDEF:
+    case MON_DATA_SEAL_STRUCT:
+    case MON_DATA_SEAL_COORDS:
+    case MON_DATA_SPECIES_EXISTS:
+    case MON_DATA_SANITY_IS_EGG:
+    case MON_DATA_SPECIES2:
+    case MON_DATA_IVS_WORD:
+    case MON_DATA_UNK_175:
+    case MON_DATA_TYPE_1:
+    case MON_DATA_TYPE_2:
+    case MON_DATA_SPECIES_NAME:
+    default:
+        GF_ASSERT(0);
+    }
+}

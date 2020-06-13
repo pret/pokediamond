@@ -801,7 +801,7 @@ _0208495C:
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x8
-	bl AddMonPartyStatEncrypted
+	bl AddMonData
 	add r0, r5, #0x0
 	bl CalcMonLevelAndStats
 	ldr r0, [sp, #0x50]

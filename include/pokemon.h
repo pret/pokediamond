@@ -504,7 +504,8 @@ void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
 void SetMonData(struct Pokemon * pokemon, int attr, void * ptr);
 void SetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
 void SetBoxMonData(struct BoxPokemon * pokemon, int attr, void * ptr);
-void AddMonData(struct Pokemon * pokemon, int attr, u32 amount);
-void AddBoxMonData(struct Pokemon * pokemon, int attr, u32 amount);
+void AddMonData(struct Pokemon * pokemon, int attr, int amount);
+void AddMonDataInternal(struct Pokemon * pokemon, int attr, int amount);
+void AddBoxMonData(struct BoxPokemon * pokemon, int attr, int amount);
 
 #endif //POKEDIAMOND_POKEMON_H

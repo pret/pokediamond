@@ -6313,7 +6313,7 @@ _022308C4:
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0x20]
 	add r1, #0x3a
-	bl AddMonPartyStatEncrypted
+	bl AddMonData
 	ldr r0, [sp, #0x10]
 	cmp r0, r5
 	beq _0223091C
@@ -6384,7 +6384,7 @@ _0223097E:
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0x20]
 	add r1, #0x3a
-	bl AddMonPartyStatEncrypted
+	bl AddMonData
 	ldr r0, [sp, #0x10]
 	cmp r0, r5
 	beq _022309B4
@@ -6524,7 +6524,7 @@ _02230AC2:
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0x20]
 	mov r1, #0xa2
-	bl AddMonPartyStatEncrypted
+	bl AddMonData
 	ldr r0, [sp, #0x38]
 	mov r1, #0x17
 	lsl r0, r0, #0x10
@@ -6692,7 +6692,7 @@ _02230C28:
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #8]
 	mov r1, #9
-	bl AddMonPartyStatEncrypted
+	bl AddMonData
 	ldr r0, [sp, #0x10]
 	cmp r0, r5
 	beq _02230C3E
