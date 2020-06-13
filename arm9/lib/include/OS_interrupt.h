@@ -1,8 +1,10 @@
 #ifndef POKEDIAMOND_ARM9_OS_INTERRUPT_H
 #define POKEDIAMOND_ARM9_OS_INTERRUPT_H
 
-#include "nitro/types.h"
+#include "consts.h"
 #include "nitro/OS_interrupt_shared.h"
+
+#define OS_IE_TIMER0        (1UL << REG_OS_IE_T0_SHIFT)
 
 typedef void (*OSIrqFunction) (void);
 
