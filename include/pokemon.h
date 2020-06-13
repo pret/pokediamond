@@ -494,8 +494,13 @@ void SetMonData(struct Pokemon * pokemon, int attr, void * ptr);
 void SetBoxMonData(struct BoxPokemon * pokemon, int attr, void * ptr);
 void AddMonData(struct Pokemon * pokemon, int attr, int amount);
 struct BaseStats * AllocAndLoadMonPersonal(int species, u32 heap_id);
+int GetPersonalAttr(struct BaseStats * baseStats, enum BaseStat attr);
+void FreeMonPersonal(struct BaseStats * personal);
 int GetMonBaseStat_HandleFormeConversion(int species, int form, enum BaseStat stat_id);
 int GetMonBaseStat(int species, enum BaseStat stat_id);
+u8 GetPercentProgressTowardsNextLevel(struct Pokemon * pokemon);
+u32 CalcMonExpToNextLevel(struct Pokemon * pokemon);
+u32 GetMonBaseExperienceAtCurrentLevel(struct Pokemon * pokemon);
 u32 GetMonExpBySpeciesAndLevel(int species, int level);
 void LoadGrowthTable(int growthRate, u32 * table);
 u32 GetExpByGrowthRateAndLevel(int rate, int level);
@@ -503,11 +508,13 @@ int CalcMonLevel(struct Pokemon * pokemon);
 int CalcBoxMonLevel(struct BoxPokemon * boxmon);
 int CalcLevelBySpeciesAndExp(u16 species, u32 experience);
 int CalcLevelBySpeciesAndExp_PreloadedPersonal(struct BaseStats * personal, u16 species, u32 experience);
-
 u8 GetBoxMonNature(struct BoxPokemon * boxmon);
 u8 GetMonNature(struct Pokemon * mon);
 u8 GetNatureFromPersonality(u32 pid);
+void MonApplyFriendshipMod(struct Pokemon * pokemon, u32 kind, u32 location);
+u8 GetMonGender(struct Pokemon * pokemon);
 u8 GetBoxMonGender(struct BoxPokemon * boxmon);
 u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid);
+u8 MonIsShiny(struct Pokemon * pokemon);
 
 #endif //POKEDIAMOND_POKEMON_H
