@@ -356,6 +356,12 @@
 #define reg_MI_MCD1                (*(REGType32v *)0x4100010)
 #define reg_CARD_DATA              (*(REGType32v *)0x4100010) //?
 
+#define REG_OS_TM0CNT_H_PS_SHIFT                           0
+#define REG_OS_IE_T0_SHIFT                                 3
+
+#define REG_OS_TM0CNT_H_I_MASK                             0x0040
+#define REG_OS_TM0CNT_H_E_MASK                             0x0080
+
 #define REG_PAD_KEYINPUT_L_SHIFT                           9
 #define REG_PAD_KEYINPUT_L_SIZE                            1
 #define REG_PAD_KEYINPUT_L_MASK                            0x0200
