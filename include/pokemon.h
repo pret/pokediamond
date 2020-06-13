@@ -467,6 +467,17 @@ struct Pokemon {
     /* 0x088 */ struct PartyPokemon party;
 }; // size: 0xEC
 
+struct SomeDrawPokemonStruct
+{
+    u16 unk0;
+    u16 unk2;
+    u16 unk4;
+    u16 unk6;
+    u8 unk8;
+    u8 filler_9[3];
+    u32 unkC;
+};
+
 void ZeroMonData(struct Pokemon * pokemon);
 void ZeroBoxMonData(struct BoxPokemon * boxmon);
 u32 SizeOfStructPokemon(void);
@@ -517,5 +528,7 @@ u8 GetBoxMonGender(struct BoxPokemon * boxmon);
 u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid);
 u8 MonIsShiny(struct Pokemon * pokemon);
 u32 GenerateShinyPersonality(u32 otid);
+void FUN_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon, u8 sp10);
+void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8 sp10, u8 shiny, u8 forme, u32 personality);
 
 #endif //POKEDIAMOND_POKEMON_H

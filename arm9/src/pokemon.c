@@ -2144,3 +2144,125 @@ u32 GenerateShinyPersonality(u32 otid)
     }
     return (u32)((r5 << 16) | r6);
 }
+
+void FUN_02068B68(struct SomeDrawPokemonStruct * spC, struct Pokemon * pokemon, u8 sp10)
+{
+    FUN_02068B70(spC, &pokemon->box, sp10);
+}
+
+void FUN_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon, u8 sp10)
+{
+    BOOL decry = AcquireBoxMonLock(boxmon);
+    u16 species = GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
+    u8 gender = GetBoxMonGender(boxmon);
+    u8 shiny = BoxMonIsShiny(boxmon);
+    u32 personality = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
+    u8 forme;
+    if (species == SPECIES_EGG)
+    {
+        if (GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL) == SPECIES_MANAPHY)
+            forme = 1;
+        else
+            forme = 0;
+    }
+    else
+        forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+    FUN_02068C00(spC, species, gender, sp10, shiny, forme, personality);
+    ReleaseBoxMonLock(boxmon, decry);
+}
+
+void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8 sp10, u8 shiny, u8 forme, u32 personality)
+{
+    spC->unk6 = 0;
+    spC->unk8 = 0;
+    spC->unkC = 0;
+    switch (species)
+    {
+    case SPECIES_BURMY:
+        if (forme > 2)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = sp10 / 2 + 0x48 + forme * 2;
+        spC->unk4 = shiny + 0x92 + forme * 2;
+        break;
+    case SPECIES_WORMADAM:
+        if (forme > 2)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = sp10 / 2 + 0x4E + forme * 2;
+        spC->unk4 = shiny + 0x98 + forme * 2;
+        break;
+    case SPECIES_SHELLOS:
+        if (forme > 1)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = sp10 + 0x54 + forme;
+        spC->unk4 = shiny + 0x9E + forme * 2;
+        break;
+    case SPECIES_GASTRODON:
+        if (forme > 1)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = sp10 + 0x58 + forme;
+        spC->unk4 = shiny + 0xA2 + forme * 2;
+        break;
+    case SPECIES_CHERRIM:
+        if (forme > 1)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = sp10 + 0x5C + forme;
+        spC->unk4 = shiny * 2 + 0xA6 + forme;
+        break;
+    case SPECIES_ARCEUS:
+        if (forme > 17)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = sp10 / 2 + 0x60 + forme * 2;
+        spC->unk4 = shiny + 0xAA + forme * 2;
+        break;
+    case SPECIES_CASTFORM:
+        if (forme > 3)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = sp10 * 2 + 0x40 + forme;
+        spC->unk4 = shiny * 4 + 0x8A + forme;
+        break;
+    case SPECIES_DEOXYS:
+        if (forme > 3)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = sp10 / 2 + forme * 2;
+        spC->unk4 = shiny + 0x86;
+        break;
+    case SPECIES_UNOWN:
+        if (forme >= 28)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = sp10 / 2 + 0x8 + forme * 2;
+        spC->unk4 = shiny + 0x88;
+        break;
+    case SPECIES_EGG:
+        if (forme > 1)
+            forme = 0;
+        spC->unk0 = 0x75;
+        spC->unk2 = 0x84 + forme;
+        spC->unk4 = 0xCE + forme;
+        break;
+    case SPECIES_MANAPHY_EGG:
+        spC->unk0 = 0x75;
+        spC->unk2 = 0x84;
+        spC->unk4 = 0xCE;
+        break;
+    default:
+        spC->unk0 = 0x4;
+        spC->unk2 = species * 6 + sp10 + (gender == MON_FEMALE ? 0 : 1);
+        spC->unk4 = shiny + (species * 6 + 4);
+        if (species == SPECIES_SPINDA && sp10 == 2)
+        {
+            spC->unk6 = SPECIES_SPINDA;
+            spC->unk8 = 0;
+            spC->unkC = personality;
+        }
+        break;
+    }
+}
