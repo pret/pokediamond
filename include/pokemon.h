@@ -9,9 +9,9 @@
 #include "seals.h"
 
 #define MON_DATA_PERSONALITY          0
-#define MON_DATA_IS_ENCRYPTED         1
-#define MON_DATA_CONTROL_4_1          2
-#define MON_DATA_CONTROL_4_2          3
+#define MON_DATA_PARTY_LOCK           1
+#define MON_DATA_BOX_LOCK             2
+#define MON_DATA_CHECKSUM_FAILED      3
 #define MON_DATA_CHECKSUM             4
 #define MON_DATA_SPECIES              5
 #define MON_DATA_HELD_ITEM            6
@@ -34,7 +34,34 @@
 #define MON_DATA_TOUGH               23
 #define MON_DATA_SHEEN               24
 #define MON_DATA_SINNOH_CHAMP_RIBBON 25
-// TODO: ribbon flags through 53
+#define MON_DATA_SINNOH_RIBBON_26    26
+#define MON_DATA_SINNOH_RIBBON_27    27
+#define MON_DATA_SINNOH_RIBBON_28    28
+#define MON_DATA_SINNOH_RIBBON_29    29
+#define MON_DATA_SINNOH_RIBBON_30    30
+#define MON_DATA_SINNOH_RIBBON_31    31
+#define MON_DATA_SINNOH_RIBBON_32    32
+#define MON_DATA_SINNOH_RIBBON_33    33
+#define MON_DATA_SINNOH_RIBBON_34    34
+#define MON_DATA_SINNOH_RIBBON_35    35
+#define MON_DATA_SINNOH_RIBBON_36    36
+#define MON_DATA_SINNOH_RIBBON_37    37
+#define MON_DATA_SINNOH_RIBBON_38    38
+#define MON_DATA_SINNOH_RIBBON_39    39
+#define MON_DATA_SINNOH_RIBBON_40    40
+#define MON_DATA_SINNOH_RIBBON_41    41
+#define MON_DATA_SINNOH_RIBBON_42    42
+#define MON_DATA_SINNOH_RIBBON_43    43
+#define MON_DATA_SINNOH_RIBBON_44    44
+#define MON_DATA_SINNOH_RIBBON_45    45
+#define MON_DATA_SINNOH_RIBBON_46    46
+#define MON_DATA_SINNOH_RIBBON_47    47
+#define MON_DATA_SINNOH_RIBBON_48    48
+#define MON_DATA_SINNOH_RIBBON_49    49
+#define MON_DATA_SINNOH_RIBBON_50    50
+#define MON_DATA_SINNOH_RIBBON_51    51
+#define MON_DATA_SINNOH_RIBBON_52    52
+#define MON_DATA_SINNOH_RIBBON_53    53
 #define MON_DATA_MOVE1               54
 #define MON_DATA_MOVE2               55
 #define MON_DATA_MOVE3               56
@@ -60,7 +87,37 @@
 #define MON_DATA_IS_EGG              76
 #define MON_DATA_HAS_NICKNAME        77
 #define MON_DATA_COOL_RIBBON         78
-// TODO: ribbon flags through 109
+#define MON_DATA_HOENN_RIBBON_79     79
+#define MON_DATA_HOENN_RIBBON_80     80
+#define MON_DATA_HOENN_RIBBON_81     81
+#define MON_DATA_HOENN_RIBBON_82     82
+#define MON_DATA_HOENN_RIBBON_83     83
+#define MON_DATA_HOENN_RIBBON_84     84
+#define MON_DATA_HOENN_RIBBON_85     85
+#define MON_DATA_HOENN_RIBBON_86     86
+#define MON_DATA_HOENN_RIBBON_87     87
+#define MON_DATA_HOENN_RIBBON_88     88
+#define MON_DATA_HOENN_RIBBON_89     89
+#define MON_DATA_HOENN_RIBBON_90     90
+#define MON_DATA_HOENN_RIBBON_91     91
+#define MON_DATA_HOENN_RIBBON_92     92
+#define MON_DATA_HOENN_RIBBON_93     93
+#define MON_DATA_HOENN_RIBBON_94     94
+#define MON_DATA_HOENN_RIBBON_95     95
+#define MON_DATA_HOENN_RIBBON_96     96
+#define MON_DATA_HOENN_RIBBON_97     97
+#define MON_DATA_HOENN_RIBBON_98     98
+#define MON_DATA_HOENN_RIBBON_99     99
+#define MON_DATA_HOENN_RIBBON_100   100
+#define MON_DATA_HOENN_RIBBON_101   101
+#define MON_DATA_HOENN_RIBBON_102   102
+#define MON_DATA_HOENN_RIBBON_103   103
+#define MON_DATA_HOENN_RIBBON_104   104
+#define MON_DATA_HOENN_RIBBON_105   105
+#define MON_DATA_HOENN_RIBBON_106   106
+#define MON_DATA_HOENN_RIBBON_107   107
+#define MON_DATA_HOENN_RIBBON_108   108
+#define MON_DATA_HOENN_RIBBON_109   109
 #define MON_DATA_FATEFUL_ENCOUNTER  110
 #define MON_DATA_GENDER             111
 #define MON_DATA_FORME              112
@@ -73,7 +130,27 @@
 #define MON_DATA_NICKNAME_3         119 // ???
 #define MON_DATA_UNK_120            120
 #define MON_DATA_GAME_VERSION       121
-// TODO: ribbon flags 122-142
+#define MON_DATA_SINNOH_RIBBON_122  122
+#define MON_DATA_SINNOH_RIBBON_123  123
+#define MON_DATA_SINNOH_RIBBON_124  124
+#define MON_DATA_SINNOH_RIBBON_125  125
+#define MON_DATA_SINNOH_RIBBON_126  126
+#define MON_DATA_SINNOH_RIBBON_127  127
+#define MON_DATA_SINNOH_RIBBON_128  128
+#define MON_DATA_SINNOH_RIBBON_129  129
+#define MON_DATA_SINNOH_RIBBON_130  130
+#define MON_DATA_SINNOH_RIBBON_131  131
+#define MON_DATA_SINNOH_RIBBON_132  132
+#define MON_DATA_SINNOH_RIBBON_133  133
+#define MON_DATA_SINNOH_RIBBON_134  134
+#define MON_DATA_SINNOH_RIBBON_135  135
+#define MON_DATA_SINNOH_RIBBON_136  136
+#define MON_DATA_SINNOH_RIBBON_137  137
+#define MON_DATA_SINNOH_RIBBON_138  138
+#define MON_DATA_SINNOH_RIBBON_139  139
+#define MON_DATA_SINNOH_RIBBON_140  140
+#define MON_DATA_SINNOH_RIBBON_141  141
+#define MON_DATA_SINNOH_RIBBON_142  142
 #define MON_DATA_OT_NAME            143
 #define MON_DATA_OT_NAME_2          144 // ???
 #define MON_DATA_EGG_MET_YEAR       145
@@ -103,10 +180,10 @@
 #define MON_DATA_SEAL_STRUCT        169
 #define MON_DATA_SEAL_COORDS        170
 #define MON_DATA_SPECIES_EXISTS     171
-#define MON_DATA_SANITY_CHECK_172   172
+#define MON_DATA_SANITY_IS_EGG      172
 #define MON_DATA_SPECIES2           173
 #define MON_DATA_IVS_WORD           174
-#define MON_DATA_IS_FEMALE          175
+#define MON_DATA_UNK_175            175
 #define MON_DATA_TYPE_1             176
 #define MON_DATA_TYPE_2             177
 #define MON_DATA_SPECIES_NAME       178
@@ -114,6 +191,9 @@
 #define MON_RATIO_MALE           0
 #define MON_RATIO_FEMALE       254
 #define MON_RATIO_UNKNOWN      255
+
+#define POKEMON_NAME_LENGTH 10
+#define OT_NAME_LENGTH       7
 
 enum MonGender
 {
@@ -317,7 +397,7 @@ typedef struct {
     /* 0x10 */ u32 hpIV:5, atkIV:5, defIV:5, spdIV:5, spatkIV:5, spdefIV:5, isEgg:1, isNicknamed:1;
     // TODO: Finish HoennRibbonSet
     /* 0x14 */ u32 ribbonFlags; // cool, ...
-    /* 0x18 */ u8 fatefulEncounter:1, female:1, genderless:1, alternateForm:5;
+    /* 0x18 */ u8 fatefulEncounter:1, gender:2, alternateForm:5;
     /* 0x19 */ u8 HGSS_shinyLeaves; // TODO: Turn into bitfield
     /* 0x1A */ u16 Unused;
     /* 0x1C */ u16 Platinum_EggLocation;
@@ -326,10 +406,10 @@ typedef struct {
 
 typedef struct {
     /* 0x00 */ u16 nickname[11];
-    /* 0x1A */ u8 Unused;
-    /* 0x1B */ u8 originGame;
+    /* 0x16 */ u8 Unused;
+    /* 0x17 */ u8 originGame;
     // TODO: Finish SinnohRibbonSet2
-    /* 0x1C */ u32 sinnohRibbons2; // cool, ...
+    /* 0x18 */ u64 sinnohRibbons2; // cool, ...
 } PokemonDataBlockC;
 
 typedef struct {
@@ -340,7 +420,8 @@ typedef struct {
     /* 0x18 */ u16 DP_MetLocation;
     /* 0x1A */ u8 pokerus;
     /* 0x1B */ u8 pokeball;
-    /* 0x1C */ u8 flags;
+    /* 0x1C */ u8 metLevel:7;
+               u8 metGender:1;
     /* 0x1D */ u8 encounterType;
     /* 0x1E */ u16 HGSS_Pokeball;
 } PokemonDataBlockD;
@@ -416,14 +497,14 @@ int CalcLevelBySpeciesAndExp(int species, int experience);
 u32 GetMonData();
 u32 GetBoxMonData();
 #else
-u32 GetMonData(struct Pokemon * pokemon, u32 attr, void * ptr);
-u32 GetBoxMonData(struct BoxPokemon * pokemon, u32 attr, void * ptr);
+u32 GetMonData(struct Pokemon * pokemon, int attr, void * ptr);
+u32 GetBoxMonData(struct BoxPokemon * pokemon, int attr, void * ptr);
 #endif
-void SetMonDataInternal(struct Pokemon * pokemon, u32 attr, const void * ptr);
-void SetMonData(struct Pokemon * pokemon, u32 attr, const void * ptr);
-void SetBoxMonData(struct BoxPokemon * pokemon, u32 attr, const void * ptr);
-void SetBoxMonDataEncrypted(struct BoxPokemon * pokemon, u32 attr, const void * ptr);
-void AddMonData(struct Pokemon * pokemon, u32 attr, u32 amount);
-void AddBoxMonData(struct Pokemon * pokemon, u32 attr, u32 amount);
+void SetMonDataInternal(struct Pokemon * pokemon, int attr, const void * ptr);
+void SetMonData(struct Pokemon * pokemon, int attr, const void * ptr);
+void SetBoxMonData(struct BoxPokemon * pokemon, int attr, const void * ptr);
+void SetBoxMonDataEncrypted(struct BoxPokemon * pokemon, int attr, const void * ptr);
+void AddMonData(struct Pokemon * pokemon, int attr, u32 amount);
+void AddBoxMonData(struct Pokemon * pokemon, int attr, u32 amount);
 
 #endif //POKEDIAMOND_POKEMON_H

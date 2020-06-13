@@ -7,6 +7,9 @@
 
 #include "global.h"
 
+#define EOS 0xFFFF
+#define NON_DIGIT 0xE2
+
 enum PrintingMode {
     NORMAL,
     PAD_SPACE,
