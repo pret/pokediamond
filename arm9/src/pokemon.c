@@ -2266,3 +2266,106 @@ void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8
         break;
     }
 }
+
+u8 FUN_02068E14(struct Pokemon * pokemon, u32 a1)
+{
+    return FUN_02068E1C(&pokemon->box, a1);
+}
+
+u8 FUN_02068E1C(struct BoxPokemon * boxmon, u32 a1)
+{
+    u16 species = GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
+    u8 gender = GetBoxMonGender(boxmon);
+    u32 pid = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
+    u8 forme;
+    if (species == SPECIES_EGG)
+    {
+        if (GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL) == SPECIES_MANAPHY)
+            forme = 1;
+        else
+            forme = 0;
+    }
+    else
+        forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+    return FUN_02068E88(species, gender, a1, forme, pid);
+}
+
+u8 FUN_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
+{
+    u8 ret;
+    s32 fileId;
+    enum NarcId narc;
+    switch (species)
+    {
+    case SPECIES_BURMY:
+        if (forme > 2)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = a1 / 2 + 0x48 + forme * 2;
+        break;
+    case SPECIES_WORMADAM:
+        if (forme > 2)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = a1 / 2 + 0x4E + forme * 2;
+        break;
+    case SPECIES_SHELLOS:
+        if (forme > 1)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = a1 + 0x54 + forme;
+        break;
+    case SPECIES_GASTRODON:
+        if (forme > 1)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = a1 + 0x58 + forme;
+        break;
+    case SPECIES_CHERRIM:
+        if (forme > 1)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = a1 + 0x5C + forme;
+        break;
+    case SPECIES_ARCEUS:
+        if (forme > 17)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = a1 / 2 + 0x60 + 2 * forme;
+        break;
+    case SPECIES_CASTFORM:
+        if (forme > 3)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = a1 * 2 + 0x40 + forme;
+        break;
+    case SPECIES_DEOXYS:
+        if (forme > 3)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = a1 / 2 + forme * 2;
+        break;
+    case SPECIES_UNOWN:
+        if (forme >= 28)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = a1 / 2 + 0x8 + forme * 2;
+        break;
+    case SPECIES_EGG:
+        if (forme > 1)
+            forme = 0;
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = 0x84 + forme;
+        break;
+    case SPECIES_MANAPHY_EGG:
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
+        fileId = 0x84;
+        break;
+    default:
+        narc = NARC_POKETOOL_POKEGRA_HEIGHT;
+        fileId = 4 * species + a1 + (gender != MON_FEMALE ? 1 : 0);
+        break;
+    }
+    ReadWholeNarcMemberByIdPair(&ret, narc, fileId);
+    return ret;
+}

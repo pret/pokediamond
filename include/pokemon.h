@@ -530,5 +530,8 @@ u8 MonIsShiny(struct Pokemon * pokemon);
 u32 GenerateShinyPersonality(u32 otid);
 void FUN_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon, u8 sp10);
 void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8 sp10, u8 shiny, u8 forme, u32 personality);
+u8 FUN_02068E14(struct Pokemon * pokemon, u32 a1);
+u8 FUN_02068E1C(struct BoxPokemon * boxmon, u32 a1);
+u8 FUN_02068E88(int species, u8 gender, u32 a2, u8 forme, u32 pid);
 
 #endif //POKEDIAMOND_POKEMON_H
