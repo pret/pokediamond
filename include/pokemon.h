@@ -533,5 +533,6 @@ void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8
 u8 FUN_02068E14(struct Pokemon * pokemon, u32 a1);
 u8 FUN_02068E1C(struct BoxPokemon * boxmon, u32 a1);
 u8 FUN_02068E88(int species, u8 gender, u32 a2, u8 forme, u32 pid);
+int FUN_0206AA30(int a0);
 
 #endif //POKEDIAMOND_POKEMON_H

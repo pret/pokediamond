@@ -2369,3 +2369,26 @@ u8 FUN_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
     ReadWholeNarcMemberByIdPair(&ret, narc, fileId);
     return ret;
 }
+
+void FUN_02068FE0(struct SomeDrawPokemonStruct * a0, u16 a1, int a2)
+{
+    if (a2 == 2)
+        a0->unk0 = 60;
+    else
+    {
+        a0->unk0 = 6;
+        a1 = FUN_0206AA30(a1);
+    }
+    a0->unk2 = a1 * 2;
+    a0->unk4 = a1 * 2 + 1;
+    a0->unk6 = 0;
+    a0->unk8 = 0;
+    a0->unkC = 0;
+}
+
+void FUN_02069010(void * dest, int a1)
+{
+    u8 buffer[28];
+    ReadFromNarcMemberByIdPair(buffer, NARC_POKETOOL_POKEANM_POKEANM, 0, 28 * a1, 28);
+    MI_CpuCopy8(buffer + 8, dest, 20);
+}
