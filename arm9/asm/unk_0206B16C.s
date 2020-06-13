@@ -635,7 +635,7 @@ _0206B5C4:
 	add r0, r1, r0
 	ldr r2, [sp, #0x18]
 	add r1, r7, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	bl FUN_02022830
 	pop {r3-r7, pc}
 	.balign 4

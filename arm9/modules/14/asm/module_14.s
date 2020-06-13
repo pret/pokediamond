@@ -9557,7 +9557,7 @@ MOD14_021DC1AC: ; 0x021DC1AC
 	ldr r0, [r4, #0x4c]
 	mov r1, #0xb
 	add r2, sp, #0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0
 	bl MOD14_021DC3CC
 	cmp r0, #0
@@ -9623,7 +9623,7 @@ _021DC24A:
 	ldr r0, [r4]
 	mov r1, #6
 	add r2, sp, #0x1c
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 _021DC254:
 	ldr r0, [r4]
 	mov r1, #5

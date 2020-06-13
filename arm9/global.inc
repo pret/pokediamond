@@ -4722,7 +4722,7 @@
 .extern GetMonData
 .extern GetBoxMonData
 .extern SetMonData
-.extern SetBoxMonDataEncrypted
+.extern SetBoxMonData
 .extern AddMonPartyStatEncrypted
 .extern AllocAndLoadMonPersonal
 .extern GetPersonalAttr

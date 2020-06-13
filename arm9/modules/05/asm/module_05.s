@@ -43401,7 +43401,7 @@ MOD05_021EC744: ; 0x021EC744
 	add r0, r4, #0
 	mov r1, #8
 	add r2, sp, #0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0
 	bl CalcBoxMonLevelEncrypted
 	add r4, r0, #0

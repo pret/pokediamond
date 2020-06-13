@@ -125,9 +125,9 @@
 #define MON_DATA_RESERVED_114       114 // Plat
 #define MON_DATA_UNUSED_115         115
 #define MON_DATA_NICKNAME           116
-#define MON_DATA_UNUSED_117         117
-#define MON_DATA_NICKNAME_2         118 // ???
-#define MON_DATA_NICKNAME_3         119 // ???
+#define MON_DATA_NICKNAME_2         117
+#define MON_DATA_NICKNAME_3         118 // ???
+#define MON_DATA_NICKNAME_4         119 // ???
 #define MON_DATA_UNK_120            120
 #define MON_DATA_GAME_VERSION       121
 #define MON_DATA_SINNOH_RIBBON_122  122
@@ -500,10 +500,10 @@ u32 GetBoxMonData();
 u32 GetMonData(struct Pokemon * pokemon, int attr, void * ptr);
 u32 GetBoxMonData(struct BoxPokemon * pokemon, int attr, void * ptr);
 #endif
-void SetMonDataInternal(struct Pokemon * pokemon, int attr, const void * ptr);
-void SetMonData(struct Pokemon * pokemon, int attr, const void * ptr);
-void SetBoxMonData(struct BoxPokemon * pokemon, int attr, const void * ptr);
-void SetBoxMonDataEncrypted(struct BoxPokemon * pokemon, int attr, const void * ptr);
+void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
+void SetMonData(struct Pokemon * pokemon, int attr, void * ptr);
+void SetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
+void SetBoxMonData(struct BoxPokemon * pokemon, int attr, void * ptr);
 void AddMonData(struct Pokemon * pokemon, int attr, u32 amount);
 void AddBoxMonData(struct Pokemon * pokemon, int attr, u32 amount);
 

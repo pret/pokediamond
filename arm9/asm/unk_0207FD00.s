@@ -1662,7 +1662,7 @@ _02080A66:
 	add r0, r4, #0x0
 	mov r1, #0x97
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x94
 	mov r2, #0x0
@@ -1671,7 +1671,7 @@ _02080A66:
 	add r0, r4, #0x0
 	mov r1, #0x91
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x95
 	mov r2, #0x0
@@ -1680,7 +1680,7 @@ _02080A66:
 	add r0, r4, #0x0
 	mov r1, #0x92
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x96
 	mov r2, #0x0
@@ -1689,7 +1689,7 @@ _02080A66:
 	add r0, r4, #0x0
 	mov r1, #0x93
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 _02080ACC:
 	add r0, r4, #0x0
 	add r1, r5, #0x0
@@ -1723,15 +1723,15 @@ FUN_02080AE4: ; 0x02080AE4
 	add r0, r5, #0x0
 	mov r1, #0x7
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r5, #0x0
 	mov r1, #0x9c
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r5, #0x0
 	mov r1, #0x90
 	add r2, r4, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	bl FUN_02021A20
 	add sp, #0x8
@@ -1751,19 +1751,19 @@ FUN_02080B30: ; 0x02080B30
 	bne _02080B76
 	add r0, r5, #0x0
 	mov r1, #0x97
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r5, #0x0
 	mov r1, #0x91
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r5, #0x0
 	mov r1, #0x92
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r5, #0x0
 	mov r1, #0x93
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add sp, #0x10
 	pop {r3-r5}
 	pop {r3}
@@ -1772,19 +1772,19 @@ FUN_02080B30: ; 0x02080B30
 _02080B76:
 	add r0, r5, #0x0
 	mov r1, #0x98
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r5, #0x0
 	mov r1, #0x94
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r5, #0x0
 	mov r1, #0x95
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r5, #0x0
 	mov r1, #0x96
 	add r2, sp, #0x8
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add sp, #0x10
 	pop {r3-r5}
 	pop {r3}
@@ -1803,36 +1803,36 @@ FUN_02080BA8: ; 0x02080BA8
 	add r2, sp, #0x0
 	bne _02080BE0
 	mov r1, #0x97
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x91
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x92
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x93
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add sp, #0x4
 	pop {r3-r4, pc}
 _02080BE0:
 	mov r1, #0x98
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x94
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x95
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x96
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add sp, #0x4
 	pop {r3-r4, pc}
 
@@ -1848,7 +1848,7 @@ FUN_02080C08: ; 0x02080C08
 	add r0, r4, #0x0
 	mov r1, #0x9b
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add sp, #0x4
 	pop {r3-r4, pc}
 	.balign 4
@@ -1860,5 +1860,5 @@ FUN_02080C28: ; 0x02080C28
 	str r1, [sp, #0x0]
 	mov r1, #0x6e
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	pop {r3, pc}

@@ -24,1081 +24,6 @@ UNK_021C5AC0: ; 0x021C5AC0
 
 	.text
 
-	thumb_func_start SetMonData
-SetMonData: ; 0x02067830
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	ldrh r0, [r5, #0x4]
-	add r4, r1, #0x0
-	add r6, r2, #0x0
-	lsl r0, r0, #0x1f
-	lsr r0, r0, #0x1f
-	bne _02067886
-	add r0, r5, #0x0
-	ldr r2, [r5, #0x0]
-	add r0, #0x88
-	mov r1, #0x64
-	bl MonDecryptSegment
-	add r0, r5, #0x0
-	ldrh r2, [r5, #0x6]
-	add r0, #0x8
-	mov r1, #0x80
-	bl MonDecryptSegment
-	add r0, r5, #0x0
-	add r0, #0x8
-	mov r1, #0x80
-	bl CalcMonChecksum
-	ldrh r1, [r5, #0x6]
-	cmp r0, r1
-	beq _02067886
-	cmp r0, r1
-	beq _02067870
-	bl ErrorHandling
-_02067870:
-	ldrh r1, [r5, #0x4]
-	mov r0, #0x4
-	orr r0, r1
-	strh r0, [r5, #0x4]
-	ldrh r2, [r5, #0x6]
-	add r0, r5, #0x0
-	add r0, #0x8
-	mov r1, #0x80
-	bl MonEncryptSegment
-	pop {r4-r6, pc}
-_02067886:
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	add r2, r6, #0x0
-	bl SetMonDataInternal
-	ldrh r0, [r5, #0x4]
-	lsl r0, r0, #0x1f
-	lsr r0, r0, #0x1f
-	bne _020678BC
-	add r0, r5, #0x0
-	ldr r2, [r5, #0x0]
-	add r0, #0x88
-	mov r1, #0x64
-	bl MonEncryptSegment
-	add r0, r5, #0x0
-	add r0, #0x8
-	mov r1, #0x80
-	bl CalcMonChecksum
-	strh r0, [r5, #0x6]
-	add r0, r5, #0x0
-	ldrh r2, [r5, #0x6]
-	add r0, #0x8
-	mov r1, #0x80
-	bl MonEncryptSegment
-_020678BC:
-	pop {r4-r6, pc}
-	.balign 4
-
-	thumb_func_start SetMonDataInternal
-SetMonDataInternal: ; 0x020678C0
-	push {r3, lr}
-	add r3, r0, #0x0
-	add r0, r1, #0x0
-	sub r0, #0x9f
-	cmp r0, #0xb
-	bhi _02067958
-	add r0, r0, r0
-	add r0, pc
-	ldrh r0, [r0, #0x6]
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	add pc, r0
-_020678D8: ; jump table (using 16-bit offset)
-	.short _020678F0 - _020678D8 - 2; case 0
-	.short _020678F8 - _020678D8 - 2; case 1
-	.short _02067900 - _020678D8 - 2; case 2
-	.short _02067908 - _020678D8 - 2; case 3
-	.short _02067910 - _020678D8 - 2; case 4
-	.short _02067918 - _020678D8 - 2; case 5
-	.short _02067920 - _020678D8 - 2; case 6
-	.short _02067928 - _020678D8 - 2; case 7
-	.short _02067930 - _020678D8 - 2; case 8
-	.short _02067938 - _020678D8 - 2; case 9
-	.short _02067940 - _020678D8 - 2; case 10
-	.short _0206794C - _020678D8 - 2; case 11
-_020678F0:
-	ldr r0, [r2, #0x0]
-	add r3, #0x88
-	str r0, [r3, #0x0]
-	pop {r3, pc}
-_020678F8:
-	ldrb r0, [r2, #0x0]
-	add r3, #0x8c
-	strb r0, [r3, #0x0]
-	pop {r3, pc}
-_02067900:
-	ldrb r0, [r2, #0x0]
-	add r3, #0x8d
-	strb r0, [r3, #0x0]
-	pop {r3, pc}
-_02067908:
-	ldrh r0, [r2, #0x0]
-	add r3, #0x8e
-	strh r0, [r3, #0x0]
-	pop {r3, pc}
-_02067910:
-	ldrh r0, [r2, #0x0]
-	add r3, #0x90
-	strh r0, [r3, #0x0]
-	pop {r3, pc}
-_02067918:
-	ldrh r0, [r2, #0x0]
-	add r3, #0x92
-	strh r0, [r3, #0x0]
-	pop {r3, pc}
-_02067920:
-	ldrh r0, [r2, #0x0]
-	add r3, #0x94
-	strh r0, [r3, #0x0]
-	pop {r3, pc}
-_02067928:
-	ldrh r0, [r2, #0x0]
-	add r3, #0x96
-	strh r0, [r3, #0x0]
-	pop {r3, pc}
-_02067930:
-	ldrh r0, [r2, #0x0]
-	add r3, #0x98
-	strh r0, [r3, #0x0]
-	pop {r3, pc}
-_02067938:
-	ldrh r0, [r2, #0x0]
-	add r3, #0x9a
-	strh r0, [r3, #0x0]
-	pop {r3, pc}
-_02067940:
-	add r3, #0x9c
-	add r0, r2, #0x0
-	add r1, r3, #0x0
-	bl CopySealsObject
-	pop {r3, pc}
-_0206794C:
-	add r3, #0xd4
-	add r0, r2, #0x0
-	add r1, r3, #0x0
-	bl FUN_02029C74
-	pop {r3, pc}
-_02067958:
-	add r0, r3, #0x0
-	bl SetBoxMonData
-	pop {r3, pc}
-
-	thumb_func_start SetBoxMonDataEncrypted
-SetBoxMonDataEncrypted: ; 0x02067960
-	push {r4-r6, lr}
-	add r5, r0, #0x0
-	ldrh r0, [r5, #0x4]
-	add r4, r1, #0x0
-	add r6, r2, #0x0
-	lsl r0, r0, #0x1e
-	lsr r0, r0, #0x1f
-	bne _020679AA
-	ldrh r2, [r5, #0x6]
-	add r0, r5, #0x0
-	add r0, #0x8
-	mov r1, #0x80
-	bl MonDecryptSegment
-	add r0, r5, #0x0
-	add r0, #0x8
-	mov r1, #0x80
-	bl CalcMonChecksum
-	ldrh r1, [r5, #0x6]
-	cmp r0, r1
-	beq _020679AA
-	cmp r0, r1
-	beq _02067994
-	bl ErrorHandling
-_02067994:
-	ldrh r1, [r5, #0x4]
-	mov r0, #0x4
-	orr r0, r1
-	strh r0, [r5, #0x4]
-	ldrh r2, [r5, #0x6]
-	add r0, r5, #0x0
-	add r0, #0x8
-	mov r1, #0x80
-	bl MonEncryptSegment
-	pop {r4-r6, pc}
-_020679AA:
-	add r0, r5, #0x0
-	add r1, r4, #0x0
-	add r2, r6, #0x0
-	bl SetBoxMonData
-	ldrh r0, [r5, #0x4]
-	lsl r0, r0, #0x1e
-	lsr r0, r0, #0x1f
-	bne _020679D4
-	add r0, r5, #0x0
-	add r0, #0x8
-	mov r1, #0x80
-	bl CalcMonChecksum
-	strh r0, [r5, #0x6]
-	add r0, r5, #0x0
-	ldrh r2, [r5, #0x6]
-	add r0, #0x8
-	mov r1, #0x80
-	bl MonEncryptSegment
-_020679D4:
-	pop {r4-r6, pc}
-	.balign 4
-
-	thumb_func_start SetBoxMonData
-SetBoxMonData: ; 0x020679D8
-	push {r4-r7, lr}
-	sub sp, #0x4c
-	str r1, [sp, #0x4]
-	add r1, r0, #0x0
-	add r4, r2, #0x0
-	ldr r1, [r1, #0x0]
-	str r0, [sp, #0x0]
-	mov r2, #0x0
-	bl GetSubstruct
-	add r7, r0, #0x0
-	ldr r0, [sp, #0x0]
-	mov r2, #0x1
-	add r1, r0, #0x0
-	ldr r1, [r1, #0x0]
-	bl GetSubstruct
-	add r5, r0, #0x0
-	ldr r0, [sp, #0x0]
-	mov r2, #0x2
-	add r1, r0, #0x0
-	ldr r1, [r1, #0x0]
-	bl GetSubstruct
-	add r6, r0, #0x0
-	ldr r0, [sp, #0x0]
-	mov r2, #0x3
-	add r1, r0, #0x0
-	ldr r1, [r1, #0x0]
-	bl GetSubstruct
-	add r1, r0, #0x0
-	ldr r0, [sp, #0x4]
-	cmp r0, #0xb2
-	bls _02067A20
-	b _02067FF6
-_02067A20:
-	add r0, r0, r0
-	add r0, pc
-	ldrh r0, [r0, #0x6]
-	lsl r0, r0, #0x10
-	asr r0, r0, #0x10
-	add pc, r0
-_02067A2C: ; jump table (using 16-bit offset)
-	.short _02067B92 - _02067A2C - 2; case 0
-	.short _02067B9C - _02067A2C - 2; case 1
-	.short _02067BBA - _02067A2C - 2; case 2
-	.short _02067BD6 - _02067A2C - 2; case 3
-	.short _02067BEE - _02067A2C - 2; case 4
-	.short _02067BF8 - _02067A2C - 2; case 5
-	.short _02067C00 - _02067A2C - 2; case 6
-	.short _02067C08 - _02067A2C - 2; case 7
-	.short _02067C10 - _02067A2C - 2; case 8
-	.short _02067C18 - _02067A2C - 2; case 9
-	.short _02067C20 - _02067A2C - 2; case 10
-	.short _02067C28 - _02067A2C - 2; case 11
-	.short _02067C30 - _02067A2C - 2; case 12
-	.short _02067C38 - _02067A2C - 2; case 13
-	.short _02067C40 - _02067A2C - 2; case 14
-	.short _02067C48 - _02067A2C - 2; case 15
-	.short _02067C50 - _02067A2C - 2; case 16
-	.short _02067C58 - _02067A2C - 2; case 17
-	.short _02067C60 - _02067A2C - 2; case 18
-	.short _02067C68 - _02067A2C - 2; case 19
-	.short _02067C70 - _02067A2C - 2; case 20
-	.short _02067C78 - _02067A2C - 2; case 21
-	.short _02067C80 - _02067A2C - 2; case 22
-	.short _02067C88 - _02067A2C - 2; case 23
-	.short _02067C90 - _02067A2C - 2; case 24
-	.short _02067C98 - _02067A2C - 2; case 25
-	.short _02067C98 - _02067A2C - 2; case 26
-	.short _02067C98 - _02067A2C - 2; case 27
-	.short _02067C98 - _02067A2C - 2; case 28
-	.short _02067C98 - _02067A2C - 2; case 29
-	.short _02067C98 - _02067A2C - 2; case 30
-	.short _02067C98 - _02067A2C - 2; case 31
-	.short _02067C98 - _02067A2C - 2; case 32
-	.short _02067C98 - _02067A2C - 2; case 33
-	.short _02067C98 - _02067A2C - 2; case 34
-	.short _02067C98 - _02067A2C - 2; case 35
-	.short _02067C98 - _02067A2C - 2; case 36
-	.short _02067C98 - _02067A2C - 2; case 37
-	.short _02067C98 - _02067A2C - 2; case 38
-	.short _02067C98 - _02067A2C - 2; case 39
-	.short _02067C98 - _02067A2C - 2; case 40
-	.short _02067C98 - _02067A2C - 2; case 41
-	.short _02067C98 - _02067A2C - 2; case 42
-	.short _02067C98 - _02067A2C - 2; case 43
-	.short _02067C98 - _02067A2C - 2; case 44
-	.short _02067C98 - _02067A2C - 2; case 45
-	.short _02067C98 - _02067A2C - 2; case 46
-	.short _02067C98 - _02067A2C - 2; case 47
-	.short _02067C98 - _02067A2C - 2; case 48
-	.short _02067C98 - _02067A2C - 2; case 49
-	.short _02067C98 - _02067A2C - 2; case 50
-	.short _02067C98 - _02067A2C - 2; case 51
-	.short _02067C98 - _02067A2C - 2; case 52
-	.short _02067C98 - _02067A2C - 2; case 53
-	.short _02067CC6 - _02067A2C - 2; case 54
-	.short _02067CC6 - _02067A2C - 2; case 55
-	.short _02067CC6 - _02067A2C - 2; case 56
-	.short _02067CC6 - _02067A2C - 2; case 57
-	.short _02067CD6 - _02067A2C - 2; case 58
-	.short _02067CD6 - _02067A2C - 2; case 59
-	.short _02067CD6 - _02067A2C - 2; case 60
-	.short _02067CD6 - _02067A2C - 2; case 61
-	.short _02067CE6 - _02067A2C - 2; case 62
-	.short _02067CE6 - _02067A2C - 2; case 63
-	.short _02067CE6 - _02067A2C - 2; case 64
-	.short _02067CE6 - _02067A2C - 2; case 65
-	.short _02067FF6 - _02067A2C - 2; case 66
-	.short _02067FF6 - _02067A2C - 2; case 67
-	.short _02067FF6 - _02067A2C - 2; case 68
-	.short _02067FF6 - _02067A2C - 2; case 69
-	.short _02067CF6 - _02067A2C - 2; case 70
-	.short _02067D0A - _02067A2C - 2; case 71
-	.short _02067D1E - _02067A2C - 2; case 72
-	.short _02067D32 - _02067A2C - 2; case 73
-	.short _02067D46 - _02067A2C - 2; case 74
-	.short _02067D5A - _02067A2C - 2; case 75
-	.short _02067D6E - _02067A2C - 2; case 76
-	.short _02067D82 - _02067A2C - 2; case 77
-	.short _02067D94 - _02067A2C - 2; case 78
-	.short _02067D94 - _02067A2C - 2; case 79
-	.short _02067D94 - _02067A2C - 2; case 80
-	.short _02067D94 - _02067A2C - 2; case 81
-	.short _02067D94 - _02067A2C - 2; case 82
-	.short _02067D94 - _02067A2C - 2; case 83
-	.short _02067D94 - _02067A2C - 2; case 84
-	.short _02067D94 - _02067A2C - 2; case 85
-	.short _02067D94 - _02067A2C - 2; case 86
-	.short _02067D94 - _02067A2C - 2; case 87
-	.short _02067D94 - _02067A2C - 2; case 88
-	.short _02067D94 - _02067A2C - 2; case 89
-	.short _02067D94 - _02067A2C - 2; case 90
-	.short _02067D94 - _02067A2C - 2; case 91
-	.short _02067D94 - _02067A2C - 2; case 92
-	.short _02067D94 - _02067A2C - 2; case 93
-	.short _02067D94 - _02067A2C - 2; case 94
-	.short _02067D94 - _02067A2C - 2; case 95
-	.short _02067D94 - _02067A2C - 2; case 96
-	.short _02067D94 - _02067A2C - 2; case 97
-	.short _02067D94 - _02067A2C - 2; case 98
-	.short _02067D94 - _02067A2C - 2; case 99
-	.short _02067D94 - _02067A2C - 2; case 100
-	.short _02067D94 - _02067A2C - 2; case 101
-	.short _02067D94 - _02067A2C - 2; case 102
-	.short _02067D94 - _02067A2C - 2; case 103
-	.short _02067D94 - _02067A2C - 2; case 104
-	.short _02067D94 - _02067A2C - 2; case 105
-	.short _02067D94 - _02067A2C - 2; case 106
-	.short _02067D94 - _02067A2C - 2; case 107
-	.short _02067D94 - _02067A2C - 2; case 108
-	.short _02067D94 - _02067A2C - 2; case 109
-	.short _02067DC2 - _02067A2C - 2; case 110
-	.short _02067DD6 - _02067A2C - 2; case 111
-	.short _02067DEA - _02067A2C - 2; case 112
-	.short _02067DFE - _02067A2C - 2; case 113
-	.short _02067E06 - _02067A2C - 2; case 114
-	.short _02067FF6 - _02067A2C - 2; case 115
-	.short _02067E2C - _02067A2C - 2; case 116
-	.short _02067E0E - _02067A2C - 2; case 117
-	.short _02067E6C - _02067A2C - 2; case 118
-	.short _02067E40 - _02067A2C - 2; case 119
-	.short _02067E7A - _02067A2C - 2; case 120
-	.short _02067E82 - _02067A2C - 2; case 121
-	.short _02067E8A - _02067A2C - 2; case 122
-	.short _02067E8A - _02067A2C - 2; case 123
-	.short _02067E8A - _02067A2C - 2; case 124
-	.short _02067E8A - _02067A2C - 2; case 125
-	.short _02067E8A - _02067A2C - 2; case 126
-	.short _02067E8A - _02067A2C - 2; case 127
-	.short _02067E8A - _02067A2C - 2; case 128
-	.short _02067E8A - _02067A2C - 2; case 129
-	.short _02067E8A - _02067A2C - 2; case 130
-	.short _02067E8A - _02067A2C - 2; case 131
-	.short _02067E8A - _02067A2C - 2; case 132
-	.short _02067E8A - _02067A2C - 2; case 133
-	.short _02067E8A - _02067A2C - 2; case 134
-	.short _02067E8A - _02067A2C - 2; case 135
-	.short _02067E8A - _02067A2C - 2; case 136
-	.short _02067E8A - _02067A2C - 2; case 137
-	.short _02067E8A - _02067A2C - 2; case 138
-	.short _02067E8A - _02067A2C - 2; case 139
-	.short _02067E8A - _02067A2C - 2; case 140
-	.short _02067E8A - _02067A2C - 2; case 141
-	.short _02067E8A - _02067A2C - 2; case 142
-	.short _02067ECE - _02067A2C - 2; case 143
-	.short _02067EE2 - _02067A2C - 2; case 144
-	.short _02067EEE - _02067A2C - 2; case 145
-	.short _02067EF6 - _02067A2C - 2; case 146
-	.short _02067EFE - _02067A2C - 2; case 147
-	.short _02067F06 - _02067A2C - 2; case 148
-	.short _02067F0E - _02067A2C - 2; case 149
-	.short _02067F16 - _02067A2C - 2; case 150
-	.short _02067F1E - _02067A2C - 2; case 151
-	.short _02067F26 - _02067A2C - 2; case 152
-	.short _02067F2E - _02067A2C - 2; case 153
-	.short _02067F36 - _02067A2C - 2; case 154
-	.short _02067F3E - _02067A2C - 2; case 155
-	.short _02067F52 - _02067A2C - 2; case 156
-	.short _02067F66 - _02067A2C - 2; case 157
-	.short _02067F6E - _02067A2C - 2; case 158
-	.short _02067FF6 - _02067A2C - 2; case 159
-	.short _02067FF6 - _02067A2C - 2; case 160
-	.short _02067FF6 - _02067A2C - 2; case 161
-	.short _02067FF6 - _02067A2C - 2; case 162
-	.short _02067FF6 - _02067A2C - 2; case 163
-	.short _02067FF6 - _02067A2C - 2; case 164
-	.short _02067FF6 - _02067A2C - 2; case 165
-	.short _02067FF6 - _02067A2C - 2; case 166
-	.short _02067FF6 - _02067A2C - 2; case 167
-	.short _02067FF6 - _02067A2C - 2; case 168
-	.short _02067FF6 - _02067A2C - 2; case 169
-	.short _02067FF6 - _02067A2C - 2; case 170
-	.short _02067FF6 - _02067A2C - 2; case 171
-	.short _02067FF6 - _02067A2C - 2; case 172
-	.short _02067FF6 - _02067A2C - 2; case 173
-	.short _02067F76 - _02067A2C - 2; case 174
-	.short _02067FF6 - _02067A2C - 2; case 175
-	.short _02067FF6 - _02067A2C - 2; case 176
-	.short _02067FF6 - _02067A2C - 2; case 177
-	.short _02067FDE - _02067A2C - 2; case 178
-_02067B92:
-	ldr r0, [sp, #0x0]
-	ldr r1, [r4, #0x0]
-	add sp, #0x4c
-	str r1, [r0, #0x0]
-	pop {r4-r7, pc}
-_02067B9C:
-	bl ErrorHandling
-	ldr r0, [sp, #0x0]
-	ldrb r1, [r4, #0x0]
-	ldrh r2, [r0, #0x4]
-	mov r0, #0x1
-	bic r2, r0
-	mov r0, #0x1
-	and r0, r1
-	add r1, r2, #0x0
-	orr r1, r0
-	ldr r0, [sp, #0x0]
-	add sp, #0x4c
-	strh r1, [r0, #0x4]
-	pop {r4-r7, pc}
-_02067BBA:
-	bl ErrorHandling
-	ldr r0, [sp, #0x0]
-	ldrh r1, [r0, #0x4]
-	mov r0, #0x2
-	bic r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1f
-	lsr r0, r0, #0x1e
-	orr r1, r0
-	ldr r0, [sp, #0x0]
-	add sp, #0x4c
-	strh r1, [r0, #0x4]
-	pop {r4-r7, pc}
-_02067BD6:
-	ldr r0, [sp, #0x0]
-	ldrh r1, [r0, #0x4]
-	mov r0, #0x4
-	bic r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1f
-	lsr r0, r0, #0x1d
-	orr r1, r0
-	ldr r0, [sp, #0x0]
-	add sp, #0x4c
-	strh r1, [r0, #0x4]
-	pop {r4-r7, pc}
-_02067BEE:
-	ldrh r1, [r4, #0x0]
-	ldr r0, [sp, #0x0]
-	add sp, #0x4c
-	strh r1, [r0, #0x6]
-	pop {r4-r7, pc}
-_02067BF8:
-	ldrh r0, [r4, #0x0]
-	add sp, #0x4c
-	strh r0, [r7, #0x0]
-	pop {r4-r7, pc}
-_02067C00:
-	ldrh r0, [r4, #0x0]
-	add sp, #0x4c
-	strh r0, [r7, #0x2]
-	pop {r4-r7, pc}
-_02067C08:
-	ldr r0, [r4, #0x0]
-	add sp, #0x4c
-	str r0, [r7, #0x4]
-	pop {r4-r7, pc}
-_02067C10:
-	ldr r0, [r4, #0x0]
-	add sp, #0x4c
-	str r0, [r7, #0x8]
-	pop {r4-r7, pc}
-_02067C18:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0xc]
-	pop {r4-r7, pc}
-_02067C20:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0xd]
-	pop {r4-r7, pc}
-_02067C28:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0xe]
-	pop {r4-r7, pc}
-_02067C30:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0xf]
-	pop {r4-r7, pc}
-_02067C38:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x10]
-	pop {r4-r7, pc}
-_02067C40:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x11]
-	pop {r4-r7, pc}
-_02067C48:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x12]
-	pop {r4-r7, pc}
-_02067C50:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x13]
-	pop {r4-r7, pc}
-_02067C58:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x14]
-	pop {r4-r7, pc}
-_02067C60:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x15]
-	pop {r4-r7, pc}
-_02067C68:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x16]
-	pop {r4-r7, pc}
-_02067C70:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x17]
-	pop {r4-r7, pc}
-_02067C78:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x18]
-	pop {r4-r7, pc}
-_02067C80:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x19]
-	pop {r4-r7, pc}
-_02067C88:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x1a]
-	pop {r4-r7, pc}
-_02067C90:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r7, #0x1b]
-	pop {r4-r7, pc}
-_02067C98:
-	ldrb r4, [r4, #0x0]
-	ldr r2, [sp, #0x4]
-	mov r1, #0x0
-	sub r2, #0x19
-	add r0, r4, #0x0
-	str r2, [sp, #0x4]
-	bl _ll_shl
-	cmp r4, #0x0
-	beq _02067CB6
-	ldr r1, [r7, #0x1c]
-	add sp, #0x4c
-	orr r0, r1
-	str r0, [r7, #0x1c]
-	pop {r4-r7, pc}
-_02067CB6:
-	mov r1, #0x0
-	sub r1, r1, #0x1
-	ldr r2, [r7, #0x1c]
-	eor r0, r1
-	and r0, r2
-	add sp, #0x4c
-	str r0, [r7, #0x1c]
-	pop {r4-r7, pc}
-_02067CC6:
-	ldr r0, [sp, #0x4]
-	ldrh r1, [r4, #0x0]
-	sub r0, #0x36
-	str r0, [sp, #0x4]
-	lsl r0, r0, #0x1
-	add sp, #0x4c
-	strh r1, [r5, r0]
-	pop {r4-r7, pc}
-_02067CD6:
-	ldr r0, [sp, #0x4]
-	ldrb r1, [r4, #0x0]
-	sub r0, #0x3a
-	str r0, [sp, #0x4]
-	add r0, r5, r0
-	strb r1, [r0, #0x8]
-	add sp, #0x4c
-	pop {r4-r7, pc}
-_02067CE6:
-	ldr r0, [sp, #0x4]
-	ldrb r1, [r4, #0x0]
-	sub r0, #0x3e
-	str r0, [sp, #0x4]
-	add r0, r5, r0
-	strb r1, [r0, #0xc]
-	add sp, #0x4c
-	pop {r4-r7, pc}
-_02067CF6:
-	ldr r2, [r5, #0x10]
-	mov r0, #0x1f
-	bic r2, r0
-	ldrb r1, [r4, #0x0]
-	mov r0, #0x1f
-	add sp, #0x4c
-	and r0, r1
-	orr r0, r2
-	str r0, [r5, #0x10]
-	pop {r4-r7, pc}
-_02067D0A:
-	ldr r1, [r5, #0x10]
-	ldr r0, _02067FFC ; =0xFFFFFC1F
-	add sp, #0x4c
-	and r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x16
-	orr r0, r1
-	str r0, [r5, #0x10]
-	pop {r4-r7, pc}
-_02067D1E:
-	ldr r1, [r5, #0x10]
-	ldr r0, _02068000 ; =0xFFFF83FF
-	add sp, #0x4c
-	and r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x11
-	orr r0, r1
-	str r0, [r5, #0x10]
-	pop {r4-r7, pc}
-_02067D32:
-	ldr r1, [r5, #0x10]
-	ldr r0, _02068004 ; =0xFFF07FFF
-	add sp, #0x4c
-	and r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0xc
-	orr r0, r1
-	str r0, [r5, #0x10]
-	pop {r4-r7, pc}
-_02067D46:
-	ldr r1, [r5, #0x10]
-	ldr r0, _02068008 ; =0xFE0FFFFF
-	add sp, #0x4c
-	and r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x7
-	orr r0, r1
-	str r0, [r5, #0x10]
-	pop {r4-r7, pc}
-_02067D5A:
-	ldr r1, [r5, #0x10]
-	ldr r0, _0206800C ; =0xC1FFFFFF
-	add sp, #0x4c
-	and r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x2
-	orr r0, r1
-	str r0, [r5, #0x10]
-	pop {r4-r7, pc}
-_02067D6E:
-	ldr r1, [r5, #0x10]
-	ldr r0, _02068010 ; =0xBFFFFFFF
-	add sp, #0x4c
-	and r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1f
-	lsr r0, r0, #0x1
-	orr r0, r1
-	str r0, [r5, #0x10]
-	pop {r4-r7, pc}
-_02067D82:
-	ldr r1, [r5, #0x10]
-	ldr r0, _02068014 ; =0x7FFFFFFF
-	add sp, #0x4c
-	and r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1f
-	orr r0, r1
-	str r0, [r5, #0x10]
-	pop {r4-r7, pc}
-_02067D94:
-	ldrb r4, [r4, #0x0]
-	ldr r2, [sp, #0x4]
-	mov r1, #0x0
-	sub r2, #0x4e
-	add r0, r4, #0x0
-	str r2, [sp, #0x4]
-	bl _ll_shl
-	cmp r4, #0x0
-	beq _02067DB2
-	ldr r1, [r5, #0x14]
-	add sp, #0x4c
-	orr r0, r1
-	str r0, [r5, #0x14]
-	pop {r4-r7, pc}
-_02067DB2:
-	mov r1, #0x0
-	sub r1, r1, #0x1
-	ldr r2, [r5, #0x14]
-	eor r0, r1
-	and r0, r2
-	add sp, #0x4c
-	str r0, [r5, #0x14]
-	pop {r4-r7, pc}
-_02067DC2:
-	ldrb r2, [r5, #0x18]
-	ldrb r1, [r4, #0x0]
-	mov r0, #0x1
-	bic r2, r0
-	mov r0, #0x1
-	and r0, r1
-	orr r0, r2
-	add sp, #0x4c
-	strb r0, [r5, #0x18]
-	pop {r4-r7, pc}
-_02067DD6:
-	ldrb r1, [r5, #0x18]
-	mov r0, #0x6
-	add sp, #0x4c
-	bic r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1e
-	lsr r0, r0, #0x1d
-	orr r0, r1
-	strb r0, [r5, #0x18]
-	pop {r4-r7, pc}
-_02067DEA:
-	ldrb r1, [r5, #0x18]
-	mov r0, #0xf8
-	add sp, #0x4c
-	bic r1, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x18
-	orr r0, r1
-	strb r0, [r5, #0x18]
-	pop {r4-r7, pc}
-_02067DFE:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r5, #0x19]
-	pop {r4-r7, pc}
-_02067E06:
-	ldrh r0, [r4, #0x0]
-	add sp, #0x4c
-	strh r0, [r5, #0x1a]
-	pop {r4-r7, pc}
-_02067E0E:
-	ldrh r0, [r7, #0x0]
-	mov r1, #0x0
-	add r2, sp, #0x34
-	bl GetSpeciesName
-	add r0, sp, #0x34
-	add r1, r4, #0x0
-	bl StringNotEqual
-	ldr r2, [r5, #0x10]
-	ldr r1, _02068014 ; =0x7FFFFFFF
-	lsl r0, r0, #0x1f
-	and r1, r2
-	orr r0, r1
-	str r0, [r5, #0x10]
-_02067E2C:
-	mov r1, #0x0
-_02067E2E:
-	ldrh r0, [r4, #0x0]
-	add r1, r1, #0x1
-	add r4, r4, #0x2
-	strh r0, [r6, #0x0]
-	add r6, r6, #0x2
-	cmp r1, #0xb
-	blo _02067E2E
-	add sp, #0x4c
-	pop {r4-r7, pc}
-_02067E40:
-	ldrh r0, [r7, #0x0]
-	add r2, sp, #0x1c
-	mov r1, #0x0
-	add r2, #0x2
-	bl GetSpeciesName
-	add r0, r4, #0x0
-	add r1, sp, #0x8
-	mov r2, #0xb
-	bl FUN_02021EF0
-	add r0, sp, #0x1c
-	add r0, #0x2
-	add r1, sp, #0x8
-	bl StringNotEqual
-	ldr r2, [r5, #0x10]
-	ldr r1, _02068014 ; =0x7FFFFFFF
-	lsl r0, r0, #0x1f
-	and r1, r2
-	orr r0, r1
-	str r0, [r5, #0x10]
-_02067E6C:
-	add r0, r4, #0x0
-	add r1, r6, #0x0
-	mov r2, #0xb
-	bl FUN_02021EF0
-	add sp, #0x4c
-	pop {r4-r7, pc}
-_02067E7A:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r6, #0x16]
-	pop {r4-r7, pc}
-_02067E82:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r6, #0x17]
-	pop {r4-r7, pc}
-_02067E8A:
-	ldrb r4, [r4, #0x0]
-	ldr r2, [sp, #0x4]
-	mov r1, #0x0
-	sub r2, #0x7a
-	add r0, r4, #0x0
-	str r2, [sp, #0x4]
-	bl _ll_shl
-	cmp r4, #0x0
-	beq _02067EB2
-	add r4, r6, #0x0
-	add r4, #0x18
-	ldr r3, [r6, #0x18]
-	ldr r2, [r4, #0x4]
-	orr r0, r3
-	orr r1, r2
-	str r0, [r6, #0x18]
-	add sp, #0x4c
-	str r1, [r4, #0x4]
-	pop {r4-r7, pc}
-_02067EB2:
-	add r4, r6, #0x0
-	mov r5, #0x0
-	mvn r5, r5
-	add r4, #0x18
-	ldr r3, [r6, #0x18]
-	eor r0, r5
-	ldr r2, [r4, #0x4]
-	eor r1, r5
-	and r0, r3
-	and r1, r2
-	str r0, [r6, #0x18]
-	add sp, #0x4c
-	str r1, [r4, #0x4]
-	pop {r4-r7, pc}
-_02067ECE:
-	mov r2, #0x0
-_02067ED0:
-	ldrh r0, [r4, #0x0]
-	add r2, r2, #0x1
-	add r4, r4, #0x2
-	strh r0, [r1, #0x0]
-	add r1, r1, #0x2
-	cmp r2, #0x8
-	blo _02067ED0
-	add sp, #0x4c
-	pop {r4-r7, pc}
-_02067EE2:
-	add r0, r4, #0x0
-	mov r2, #0x8
-	bl FUN_02021EF0
-	add sp, #0x4c
-	pop {r4-r7, pc}
-_02067EEE:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r1, #0x10]
-	pop {r4-r7, pc}
-_02067EF6:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r1, #0x11]
-	pop {r4-r7, pc}
-_02067EFE:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r1, #0x12]
-	pop {r4-r7, pc}
-_02067F06:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r1, #0x13]
-	pop {r4-r7, pc}
-_02067F0E:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r1, #0x14]
-	pop {r4-r7, pc}
-_02067F16:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r1, #0x15]
-	pop {r4-r7, pc}
-_02067F1E:
-	ldrh r0, [r4, #0x0]
-	add sp, #0x4c
-	strh r0, [r1, #0x16]
-	pop {r4-r7, pc}
-_02067F26:
-	ldrh r0, [r4, #0x0]
-	add sp, #0x4c
-	strh r0, [r1, #0x18]
-	pop {r4-r7, pc}
-_02067F2E:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r1, #0x1a]
-	pop {r4-r7, pc}
-_02067F36:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r1, #0x1b]
-	pop {r4-r7, pc}
-_02067F3E:
-	ldrb r3, [r1, #0x1c]
-	ldrb r2, [r4, #0x0]
-	mov r0, #0x7f
-	bic r3, r0
-	mov r0, #0x7f
-	and r0, r2
-	orr r0, r3
-	strb r0, [r1, #0x1c]
-	add sp, #0x4c
-	pop {r4-r7, pc}
-_02067F52:
-	ldrb r2, [r1, #0x1c]
-	mov r0, #0x80
-	add sp, #0x4c
-	bic r2, r0
-	ldrb r0, [r4, #0x0]
-	lsl r0, r0, #0x1f
-	lsr r0, r0, #0x18
-	orr r0, r2
-	strb r0, [r1, #0x1c]
-	pop {r4-r7, pc}
-_02067F66:
-	ldrb r0, [r4, #0x0]
-	add sp, #0x4c
-	strb r0, [r1, #0x1d]
-	pop {r4-r7, pc}
-_02067F6E:
-	ldrh r0, [r4, #0x0]
-	add sp, #0x4c
-	strh r0, [r1, #0x1e]
-	pop {r4-r7, pc}
-_02067F76:
-	ldr r2, [r5, #0x10]
-	mov r0, #0x1f
-	bic r2, r0
-	ldr r1, [r4, #0x0]
-	mov r0, #0x1f
-	and r1, r0
-	and r0, r1
-	add r1, r2, #0x0
-	orr r1, r0
-	ldr r0, _02067FFC ; =0xFFFFFC1F
-	str r1, [r5, #0x10]
-	and r1, r0
-	ldr r0, [r4, #0x0]
-	add sp, #0x4c
-	lsr r0, r0, #0x5
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x16
-	orr r1, r0
-	ldr r0, _02068000 ; =0xFFFF83FF
-	str r1, [r5, #0x10]
-	and r1, r0
-	ldr r0, [r4, #0x0]
-	lsr r0, r0, #0xa
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x11
-	orr r1, r0
-	ldr r0, _02068004 ; =0xFFF07FFF
-	str r1, [r5, #0x10]
-	and r1, r0
-	ldr r0, [r4, #0x0]
-	lsr r0, r0, #0xf
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0xc
-	orr r1, r0
-	ldr r0, _02068008 ; =0xFE0FFFFF
-	str r1, [r5, #0x10]
-	and r1, r0
-	ldr r0, [r4, #0x0]
-	lsr r0, r0, #0x14
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x7
-	orr r1, r0
-	ldr r0, _0206800C ; =0xC1FFFFFF
-	str r1, [r5, #0x10]
-	and r1, r0
-	ldr r0, [r4, #0x0]
-	lsr r0, r0, #0x19
-	lsl r0, r0, #0x1b
-	lsr r0, r0, #0x2
-	orr r0, r1
-	str r0, [r5, #0x10]
-	pop {r4-r7, pc}
-_02067FDE:
-	ldrh r0, [r7, #0x0]
-	mov r1, #0x0
-	bl FUN_0200AA50
-	add r4, r0, #0x0
-	add r1, r6, #0x0
-	mov r2, #0xb
-	bl FUN_02021EF0
-	add r0, r4, #0x0
-	bl FUN_02021A20
-_02067FF6:
-	add sp, #0x4c
-	pop {r4-r7, pc}
-	nop
-_02067FFC: .word 0xFFFFFC1F
-_02068000: .word 0xFFFF83FF
-_02068004: .word 0xFFF07FFF
-_02068008: .word 0xFE0FFFFF
-_0206800C: .word 0xC1FFFFFF
-_02068010: .word 0xBFFFFFFF
-_02068014: .word 0x7FFFFFFF
-
 	thumb_func_start AddMonPartyStatEncrypted
 AddMonPartyStatEncrypted: ; 0x02068018
 	push {r4-r6, lr}
@@ -4317,17 +3242,17 @@ _0206978A:
 	ldr r2, [sp, #0x8]
 	add r0, r5, #0x0
 	add r1, #0x36
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3a
 	add r2, r7, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3e
 	add r2, r6, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	ldr r0, [sp, #0x8]
 	add r4, r4, #0x1
 	add r0, r0, #0x2
@@ -4359,7 +3284,7 @@ FUN_020697D4: ; 0x020697D4
 	add r1, #0x36
 	add r2, sp, #0x14
 	add r5, r0, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r1, r4, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3e
@@ -4376,7 +3301,7 @@ FUN_020697D4: ; 0x020697D4
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	pop {r3-r5}
 	pop {r3}
 	add sp, #0x10
@@ -4540,35 +3465,35 @@ FUN_020698E8: ; 0x020698E8
 	add r0, r5, #0x0
 	add r1, #0x36
 	add r2, #0x2
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r1, r4, #0x0
 	add r2, sp, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3a
 	add r2, #0x3
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r4, #0x3e
 	add r2, sp, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r2, #0x1
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r1, r6, #0x0
 	add r0, r5, #0x0
 	add r1, #0x36
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r1, r6, #0x0
 	add r2, sp, #0x0
 	add r0, r5, #0x0
 	add r1, #0x3a
 	add r2, #0x2
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r6, #0x3e
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add sp, #0x8
 	pop {r4-r6, pc}
 	.balign 4
@@ -5304,7 +4229,7 @@ FUN_02069ECC: ; 0x02069ECC
 	add r0, r5, #0x0
 	mov r1, #0x70
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 _02069F1C:
 	add sp, #0x4
 	pop {r3-r6, pc}
@@ -5497,15 +4422,15 @@ FUN_0206A054: ; 0x0206A054
 	ldr r2, _0206A090 ; =gGameVersion
 	add r0, r4, #0x0
 	mov r1, #0x79
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x9a
 	add r2, sp, #0x18
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x9d
 	add r2, sp, #0x20
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	add sp, #0x4
 	pop {r3-r4}
 	pop {r3}
@@ -5712,19 +4637,19 @@ FUN_0206A1CC: ; 0x0206A1CC
 	add r0, r5, #0x0
 	mov r1, #0xa
 	add r2, sp, #0x0
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	b _0206A230
 _0206A21A:
 	add r0, r5, #0x0
 	mov r1, #0xa
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 	b _0206A230
 _0206A226:
 	add r0, r5, #0x0
 	mov r1, #0xa
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 _0206A230:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
@@ -7034,7 +5959,7 @@ _0206AAC6:
 	add r0, r5, #0x0
 	add r1, #0x3a
 	add r2, sp, #0x4
-	bl SetBoxMonDataEncrypted
+	bl SetBoxMonData
 _0206AAF0:
 	add r4, r4, #0x1
 	cmp r4, #0x4

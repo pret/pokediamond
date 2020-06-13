@@ -9,7 +9,7 @@ struct SealStruct
 
 struct SealStruct * CreateNewSealsObject(u32 heap_id);
 
-void CopySealsObject(struct SealStruct *, struct SealStruct *);
-void FUN_02029C74(u8 *, u8 *);
+void CopySealsObject(const struct SealStruct *, struct SealStruct *);
+void FUN_02029C74(const u8 *, u8 *);
 
 #endif //POKEDIAMOND_SEALS_H
