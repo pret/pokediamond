@@ -3121,7 +3121,7 @@ _02076F98:
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 _02076FA8:
 	add sp, #0x4
 	pop {r3-r6, pc}

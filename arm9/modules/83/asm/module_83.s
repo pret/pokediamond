@@ -22397,7 +22397,7 @@ _02238332:
 	add r2, sp, #8
 	bl SetBoxMonData
 	add r0, r4, #0
-	bl GetBoxMonGenderEncrypted
+	bl GetBoxMonGender
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x6f
@@ -23885,7 +23885,7 @@ MOD83_02238F94: ; 0x02238F94
 	add r7, r2, #0
 	add r6, r3, #0
 	ldr r4, [sp, #0x40]
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	str r0, [sp, #0x24]
 	ldr r0, [sp, #0x20]
 	bl MonIsShiny

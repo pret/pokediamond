@@ -3758,7 +3758,7 @@ _02213CEA:
 	ldr r0, _02213D28 ; =0x00000222
 	strb r1, [r7, r0]
 	add r0, r4, #0
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	ldr r1, _02213D2C ; =0x00000221
 	strb r0, [r5, r1]
 	add r0, r4, #0

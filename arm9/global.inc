@@ -4740,9 +4740,9 @@
 .extern GetMonNature
 .extern GetBoxMonNature
 .extern GetNatureFromPersonality
-.extern MonApplyFriendshipModEncrypted
-.extern GetMonGenderEncrypted
-.extern GetBoxMonGenderEncrypted
+.extern MonApplyFriendshipMod
+.extern GetMonGender
+.extern GetBoxMonGender
 .extern GetGenderBySpeciesAndPersonality
 .extern GetGenderBySpeciesAndPersonality_PreloadedPersonal
 .extern MonIsShiny

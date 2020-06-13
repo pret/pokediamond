@@ -10,6 +10,7 @@
 #include "string_util.h"
 #include "text.h"
 #include "constants/abilities.h"
+#include "constants/items.h"
 
 #pragma thumb on
 
@@ -20,9 +21,13 @@ void SetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
 void AddMonDataInternal(struct Pokemon * pokemon, int attr, int amount);
 void AddBoxMonData(struct BoxPokemon * pokemon, int attr, int amount);
 u32 CalcBoxMonExpToNextLevel(struct BoxPokemon * boxmon);
+u16 ModifyStatByNature(u8 nature, u16 statval, u8 statno);
+u8 GetGenderBySpeciesAndPersonality_PreloadedPersonal(struct BaseStats * personal, u16 species, u32 pid);
+u8 BoxMonIsShiny(struct BoxPokemon * boxmon);
+u8 CalcShininessByOtIdAndPersonality(u32 otid, u32 pid);
 void LoadMonPersonal(int species, struct BaseStats * personal);
-int ResolveMonForme(int species, int forme);
 
+int ResolveMonForme(int species, int forme);
 void MonEncryptSegment(void * datap, u32 size, u32 key);
 void MonDecryptSegment(void * datap, u32 size, u32 key);
 u16 MonEncryptionLCRNG(u32 * seed);
@@ -30,7 +35,6 @@ u16 CalcMonChecksum(void * datap, u32 size);
 void InitBoxMonMoveset(struct BoxPokemon * boxmon);
 PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u32 which_struct);
 void LoadMonBaseStats_HandleAlternateForme(u32 species, u32 forme, struct BaseStats * baseStats);
-u16 ModifyStatByNature(u8 nature, u16 statval, u8 statno);
 
 #define ENCRY_ARGS_PTY(mon) &(mon)->party, sizeof((mon)->party), (mon)->box.pid
 #define ENCRY_ARGS_BOX(boxmon) &(boxmon)->substructs, sizeof((boxmon)->substructs), (boxmon)->checksum
@@ -316,7 +320,7 @@ void CreateBoxMon(struct BoxPokemon * boxPokemon, int species, int level, int fi
     }
     else
         SetBoxMonData(boxPokemon, MON_DATA_ABILITY, &exp);
-    exp = GetBoxMonGenderEncrypted(boxPokemon);
+    exp = GetBoxMonGender(boxPokemon);
     SetBoxMonData(boxPokemon, MON_DATA_GENDER, &exp);
     InitBoxMonMoveset(boxPokemon);
     ReleaseBoxMonLock(boxPokemon, decry);
@@ -2016,4 +2020,99 @@ u16 ModifyStatByNature(u8 nature, u16 n, u8 statIndex)
         break;
     }
     return retVal;
+}
+
+void MonApplyFriendshipMod(struct Pokemon * pokemon, u32 kind, u32 location)
+{
+    u16 species;
+    u8 effect;
+    u8 r4;
+    s16 friendship;
+    s8 mod;
+
+    if (kind == 5 && (rand_LC() & 1))
+        return;
+
+    species = GetMonData(pokemon, MON_DATA_SPECIES2, NULL);
+    if (species == SPECIES_NONE || species == SPECIES_EGG)
+        return;
+
+    effect = FUN_0206E7B8(GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL), 1, 0);
+    r4 = 0;
+    friendship = GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
+    if (friendship >= 100)
+        r4++;
+    if (friendship >= 200)
+        r4++;
+    mod = sFriendshipModTable[kind][r4];
+    if (mod > 0 && GetMonData(pokemon, MON_DATA_POKEBALL, NULL) == ITEM_LUXURY_BALL)
+        mod++;
+    if (mod > 0 && GetMonData(pokemon, MON_DATA_EGG_MET_LOCATION, NULL) == location)
+        mod++;
+    if (mod > 0 && effect == 52) // Soothe Bell effect?
+        mod = mod * 150 / 100;
+    friendship += mod;
+    if (friendship < 0)
+        friendship = 0;
+    if (friendship > 255)
+        friendship = 255;
+    SetMonData(pokemon, MON_DATA_FRIENDSHIP, &friendship);
+}
+
+u8 GetMonGender(struct Pokemon * pokemon)
+{
+    return GetBoxMonGender(&pokemon->box);
+}
+
+u8 GetBoxMonGender(struct BoxPokemon * boxmon)
+{
+    BOOL decry = AcquireBoxMonLock(boxmon);
+    u16 species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
+    u32 personality = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
+    ReleaseBoxMonLock(boxmon, decry);
+    return GetGenderBySpeciesAndPersonality(species, personality);
+}
+
+u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid)
+{
+    struct BaseStats * personal = AllocAndLoadMonPersonal(species, 0);
+    u8 gender = GetGenderBySpeciesAndPersonality_PreloadedPersonal(personal, species, pid);
+    FreeMonPersonal(personal);
+    return gender;
+}
+
+u8 GetGenderBySpeciesAndPersonality_PreloadedPersonal(struct BaseStats * personal, u16 species, u32 pid)
+{
+    u8 ratio = GetPersonalAttr(personal, BASE_GENDER_RATIO);
+    switch (ratio)
+    {
+    case MON_RATIO_MALE:
+        return MON_MALE;
+    case MON_RATIO_FEMALE:
+        return MON_FEMALE;
+    case MON_RATIO_UNKNOWN:
+        return MON_GENDERLESS;
+    default:
+        if (ratio > (u8)pid)
+            return MON_FEMALE;
+        else
+            return MON_MALE;
+    }
+}
+
+u8 MonIsShiny(struct Pokemon * pokemon)
+{
+    return BoxMonIsShiny(&pokemon->box);
+}
+
+u8 BoxMonIsShiny(struct BoxPokemon * boxmon)
+{
+    u32 otid = GetBoxMonData(boxmon, MON_DATA_OTID, NULL);
+    u32 pid = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
+    return CalcShininessByOtIdAndPersonality(otid, pid);
+}
+
+u8 CalcShininessByOtIdAndPersonality(u32 otid, u32 pid)
+{
+    return SHINY_CHECK(otid, pid);
 }

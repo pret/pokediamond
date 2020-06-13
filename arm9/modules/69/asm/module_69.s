@@ -2370,7 +2370,7 @@ MOD69_0222E8FC: ; 0x0222E8FC
 	mov r3, #3
 	bl FUN_0200AD38
 	ldr r0, [r4, #0x24]
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	cmp r0, #0
 	beq _0222E93C
 	cmp r0, #1

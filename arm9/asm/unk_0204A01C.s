@@ -378,7 +378,7 @@ _0204A2EA:
 	add r0, r5, #0x0
 	mov r1, #0x7
 	add r6, r6, #0x1
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 _0204A306:
 	add r7, r7, #0x1
 _0204A308:

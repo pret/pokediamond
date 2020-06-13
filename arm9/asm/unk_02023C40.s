@@ -1926,7 +1926,7 @@ FUN_0202498C: ; 0x0202498C
 	bl GetMonData
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	add r6, r0, #0x0
 	ldr r1, [r5, #0x0]
 	ldr r0, _02024AE4 ; =0xBEEFCAFE
@@ -2113,7 +2113,7 @@ FUN_02024AF0: ; 0x02024AF0
 	bl GetMonData
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	add r7, r0, #0x0
 	ldr r1, [r4, #0x0]
 	ldr r0, _02024C78 ; =0xBEEFCAFE

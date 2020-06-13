@@ -391,7 +391,7 @@ _02042FE8:
 	add r0, r4, #0x0
 	bl FUN_0206A23C
 	add r0, r4, #0x0
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	str r0, [sp, #0x30]
 	add r0, r4, #0x0
 	mov r1, #0x6f

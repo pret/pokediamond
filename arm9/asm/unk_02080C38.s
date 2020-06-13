@@ -3748,7 +3748,7 @@ _02082820:
 	lsl r2, r2, #0x10
 	mov r1, #0x9
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 _0208283A:
 	add sp, #0xc
 	pop {r4-r7, pc}

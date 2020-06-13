@@ -1775,7 +1775,7 @@ _0207018E:
 	ldr r0, _020701FC ; =0x0000070E
 	add r6, r5, r0
 	add r0, r7, #0x0
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	lsl r0, r0, #0x1e
 	ldrh r2, [r6, r4]
 	ldr r1, _02070204 ; =0xFFFF9FFF

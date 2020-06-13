@@ -3290,7 +3290,7 @@ _021D8FF6:
 	bl FUN_0206B9B0
 	mov r1, #5
 	add r2, r5, #0
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 	add r4, r4, #1
 	cmp r4, r7
 	blt _021D8FF6
@@ -43564,7 +43564,7 @@ MOD05_021EC8A8: ; 0x021EC8A8
 	add r5, sp, #4
 _021EC8BC:
 	ldr r0, [r5]
-	bl GetBoxMonGenderEncrypted
+	bl GetBoxMonGender
 	cmp r0, #1
 	bne _021EC8C8
 	str r4, [sp]
@@ -44316,7 +44316,7 @@ _021ECE56:
 	b _021ECE8C
 _021ECE7A:
 	ldr r0, [r7, r6]
-	bl GetBoxMonGenderEncrypted
+	bl GetBoxMonGender
 	cmp r0, #1
 	bne _021ECE8C
 	mov r0, #1
@@ -44377,7 +44377,7 @@ _021ECEDE:
 	lsl r1, r0, #2
 	add r0, sp, #4
 	ldr r0, [r0, r1]
-	bl GetBoxMonGenderEncrypted
+	bl GetBoxMonGender
 	cmp r0, #1
 	beq _021ECF02
 	ldrb r1, [r5, #1]

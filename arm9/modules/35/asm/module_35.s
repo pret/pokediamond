@@ -349,7 +349,7 @@ _02254A7A:
 	bl MOD05_021EC7B4
 	str r0, [r5, #0xc]
 	add r0, r4, #0
-	bl GetBoxMonGenderEncrypted
+	bl GetBoxMonGender
 	str r0, [r5, #0x14]
 	ldr r1, [sp, #0xc]
 	add r0, r4, #0

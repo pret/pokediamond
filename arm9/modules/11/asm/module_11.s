@@ -2898,7 +2898,7 @@ _0222EE8C:
 	add r1, r7, #0
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 	ldr r0, [r4, #0x68]
 	add r5, r5, #1
 	bl FUN_0206B9AC
@@ -2920,7 +2920,7 @@ _0222EEBC:
 	add r1, r7, #0
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 	ldr r0, [r4, #0x70]
 	add r5, r5, #1
 	bl FUN_0206B9AC
@@ -27099,7 +27099,7 @@ _0223AB58:
 	add r0, r6, #0
 	mov r1, #0
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 	add r0, r6, #0
 	bl CalcMonStats
 	ldr r1, [r4, #4]
@@ -31697,7 +31697,7 @@ _0223D148:
 	add r0, r7, #0
 	mov r1, #8
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 	pop {r3, r4, r5, r6, r7, pc}
 _0223D18E:
 	add r0, r5, #0
@@ -31707,7 +31707,7 @@ _0223D18E:
 	add r0, r7, #0
 	mov r1, #6
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 	pop {r3, r4, r5, r6, r7, pc}
 _0223D1A4:
 	add r0, r5, #0
@@ -31717,7 +31717,7 @@ _0223D1A4:
 	add r0, r7, #0
 	mov r1, #6
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 _0223D1B8:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -43613,7 +43613,7 @@ _02242D2E:
 	add r0, r7, r1
 	str r0, [sp, #0x1c]
 	add r0, r4, #0
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	ldr r1, [sp, #0x1c]
 	mov r2, #0xf
 	ldrb r1, [r1, r5]

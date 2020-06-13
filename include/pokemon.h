@@ -507,7 +507,7 @@ int CalcLevelBySpeciesAndExp_PreloadedPersonal(struct BaseStats * personal, u16 
 u8 GetBoxMonNature(struct BoxPokemon * boxmon);
 u8 GetMonNature(struct Pokemon * mon);
 u8 GetNatureFromPersonality(u32 pid);
+u8 GetBoxMonGender(struct BoxPokemon * boxmon);
 u8 GetGenderBySpeciesAndPersonality(u16 species, u32 pid);
-u32 GetBoxMonGenderEncrypted(struct BoxPokemon * boxmon);
 
 #endif //POKEDIAMOND_POKEMON_H

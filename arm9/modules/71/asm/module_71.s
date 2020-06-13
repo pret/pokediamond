@@ -6435,7 +6435,7 @@ MOD71_02230AE4: ; 0x02230AE4
 	bl FUN_020239CC
 	add r5, r0, #0
 	add r0, r4, #0
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	add r3, r0, #0
 	mov r0, #0x1a
 	lsl r1, r5, #0x18
