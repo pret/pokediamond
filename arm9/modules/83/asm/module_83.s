@@ -21866,7 +21866,7 @@ MOD83_02237F6C: ; 0x02237F6C
 	add r0, r4, #0
 	bl ZeroBoxMonData
 	add r0, r4, #0
-	bl TryDecryptBoxMon
+	bl AcquireBoxMonLock
 	mov r1, #0
 	str r0, [sp]
 	add r0, r6, #0
@@ -22580,7 +22580,7 @@ _0223853E:
 	bl SetBoxMonData
 	ldr r1, [sp]
 	add r0, r4, #0
-	bl TryEncryptBoxMon
+	bl ReleaseBoxMonLock
 	add sp, #0x30
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

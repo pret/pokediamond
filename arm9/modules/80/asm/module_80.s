@@ -10777,7 +10777,7 @@ MOD80_02232BD4: ; 0x02232BD4
 MOD80_02232C2C: ; 0x02232C2C
 	push {r4, lr}
 	add r4, r1, #0
-	bl CalcBoxMonLevelEncrypted
+	bl CalcBoxMonLevel
 	strb r0, [r4, #3]
 	pop {r4, pc}
 	thumb_func_end MOD80_02232C2C
@@ -10832,7 +10832,7 @@ MOD80_02232C88: ; 0x02232C88
 	add r7, r2, #0
 	add r6, r3, #0
 	ldr r4, [sp, #0x40]
-	bl TryDecryptBoxMon
+	bl AcquireBoxMonLock
 	add r0, r5, #0
 	mov r1, #0xab
 	mov r2, #0
@@ -10874,7 +10874,7 @@ MOD80_02232C88: ; 0x02232C88
 _02232CF2:
 	add r0, r5, #0
 	mov r1, #1
-	bl TryEncryptBoxMon
+	bl ReleaseBoxMonLock
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0
 	beq _02232D60
@@ -11266,7 +11266,7 @@ MOD80_02233018: ; 0x02233018
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	mov r4, #0
-	bl TryDecryptBoxMon
+	bl AcquireBoxMonLock
 	ldr r5, _02233050 ; =0x02237220
 	str r0, [sp]
 	add r6, r4, #0
@@ -11282,7 +11282,7 @@ _02233028:
 	blt _02233028
 	ldr r1, [sp]
 	add r0, r7, #0
-	bl TryEncryptBoxMon
+	bl ReleaseBoxMonLock
 	cmp r4, #0
 	beq _0223304C
 	mov r0, #1
@@ -11397,7 +11397,7 @@ MOD80_022330E4: ; 0x022330E4
 	add r0, sp, #0
 	strb r1, [r0, #2]
 	add r0, r5, #0
-	bl CalcBoxMonLevelEncrypted
+	bl CalcBoxMonLevel
 	add r1, sp, #0
 	strb r0, [r1, #3]
 	add r0, sp, #0
@@ -11433,7 +11433,7 @@ MOD80_0223311C: ; 0x0223311C
 	add r0, r5, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl CalcBoxMonLevelEncrypted
+	bl CalcBoxMonLevel
 	add r1, sp, #0
 	strb r0, [r1, #9]
 	add r0, r4, #0
@@ -13381,7 +13381,7 @@ MOD80_022340DC: ; 0x022340DC
 	bl GetBoxMonData
 	add r6, r0, #1
 	ldr r0, [sp, #0xc]
-	bl CalcBoxMonLevelEncrypted
+	bl CalcBoxMonLevel
 	str r0, [sp, #0x10]
 	add r0, r4, #0
 	mov r1, #0x64

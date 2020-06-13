@@ -330,7 +330,7 @@ _02254A7A:
 	str r0, [sp, #8]
 	bl FUN_02023C7C
 	add r4, r0, #0
-	bl TryDecryptBoxMon
+	bl AcquireBoxMonLock
 	str r0, [sp, #0xc]
 	add r0, r4, #0
 	bl FUN_0206B688
@@ -353,7 +353,7 @@ _02254A7A:
 	str r0, [r5, #0x14]
 	ldr r1, [sp, #0xc]
 	add r0, r4, #0
-	bl TryEncryptBoxMon
+	bl ReleaseBoxMonLock
 	ldr r0, [sp]
 	add r7, r7, #1
 	ldrb r0, [r0]

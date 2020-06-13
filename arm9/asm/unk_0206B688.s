@@ -46,7 +46,7 @@ UNK_020F8074: ; 0x020F8074
 FUN_0206B688: ; 0x0206B688
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl TryDecryptBoxMon
+	bl AcquireBoxMonLock
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x5
@@ -67,7 +67,7 @@ FUN_0206B688: ; 0x0206B688
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r7, #0x0
-	bl TryEncryptBoxMon
+	bl ReleaseBoxMonLock
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 
@@ -289,7 +289,7 @@ _0206B838: .word UNK_020F8074
 FUN_0206B83C: ; 0x0206B83C
 	push {r3-r7, lr}
 	add r5, r0, #0x0
-	bl TryDecryptBoxMon
+	bl AcquireBoxMonLock
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl FUN_0206B754
@@ -306,7 +306,7 @@ FUN_0206B83C: ; 0x0206B83C
 	str r0, [sp, #0x0]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl TryEncryptBoxMon
+	bl ReleaseBoxMonLock
 	ldr r2, [sp, #0x0]
 	add r0, r7, #0x0
 	add r1, r6, #0x0

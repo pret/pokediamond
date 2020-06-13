@@ -2,6 +2,7 @@
 #define IN_POKEMON_C
 #include "proto.h"
 #include "pokemon.h"
+#include "filesystem.h"
 #include "heap.h"
 #include "MI_memory.h"
 #include "math_util.h"
@@ -18,6 +19,7 @@ void SetMonDataInternal(struct Pokemon * pokemon, int attr, void * ptr);
 void SetBoxMonDataInternal(struct BoxPokemon * pokemon, int attr, void * ptr);
 void AddMonDataInternal(struct Pokemon * pokemon, int attr, int amount);
 void AddBoxMonData(struct BoxPokemon * pokemon, int attr, int amount);
+u32 CalcBoxMonExpToNextLevel(struct BoxPokemon * boxmon);
 void LoadMonPersonal(int species, struct BaseStats * personal);
 int ResolveMonForme(int species, int forme);
 
@@ -28,7 +30,7 @@ u16 CalcMonChecksum(void * datap, u32 size);
 void InitBoxMonMoveset(struct BoxPokemon * boxmon);
 PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u32 which_struct);
 void LoadMonBaseStats_HandleAlternateForme(u32 species, u32 forme, struct BaseStats * baseStats);
-int ApplyNatureModToStat(u8 nature, u16 statval, u32 statno);
+u16 ModifyStatByNature(u8 nature, u16 statval, u8 statno);
 
 #define ENCRY_ARGS_PTY(mon) &(mon)->party, sizeof((mon)->party), (mon)->box.pid
 #define ENCRY_ARGS_BOX(boxmon) &(boxmon)->substructs, sizeof((boxmon)->substructs), (boxmon)->checksum
@@ -113,7 +115,7 @@ const s8 UNK_020F7F16[][5] = {
     {    0,   0,   0,   0,   0},
 };
 
-const u8 sNatureStatMods[][5] = {
+const s8 sNatureStatMods[][5] = {
     {  0,  0,  0,  0,  0 },
     {  1, -1,  0,  0,  0 },
     {  1,  0, -1,  0,  0 },
@@ -166,7 +168,7 @@ struct Pokemon * AllocMonZeroed(u32 heap_id)
     return pokemon;
 }
 
-BOOL TryDecryptMon(struct Pokemon * mon)
+BOOL AcquireMonLock(struct Pokemon * mon)
 {
     BOOL ret = FALSE;
 
@@ -182,7 +184,7 @@ BOOL TryDecryptMon(struct Pokemon * mon)
     return ret;
 }
 
-BOOL TryEncryptMon(struct Pokemon * mon, BOOL decrypt_result)
+BOOL ReleaseMonLock(struct Pokemon * mon, BOOL decrypt_result)
 {
     BOOL ret = FALSE;
     if (mon->box.party_lock == TRUE && decrypt_result == TRUE)
@@ -197,7 +199,7 @@ BOOL TryEncryptMon(struct Pokemon * mon, BOOL decrypt_result)
     return ret;
 }
 
-BOOL TryDecryptBoxMon(struct BoxPokemon * mon)
+BOOL AcquireBoxMonLock(struct BoxPokemon * mon)
 {
     BOOL ret = FALSE;
 
@@ -210,7 +212,7 @@ BOOL TryDecryptBoxMon(struct BoxPokemon * mon)
     return ret;
 }
 
-BOOL TryEncryptBoxMon(struct BoxPokemon * mon, BOOL decrypt_result)
+BOOL ReleaseBoxMonLock(struct BoxPokemon * mon, BOOL decrypt_result)
 {
     BOOL ret = FALSE;
     if (mon->box_lock == TRUE && decrypt_result == TRUE)
@@ -250,7 +252,7 @@ void CreateBoxMon(struct BoxPokemon * boxPokemon, int species, int level, int fi
     u32 exp;
     u32 iv;
     ZeroBoxMonData(boxPokemon);
-    decry = TryDecryptBoxMon(boxPokemon);
+    decry = AcquireBoxMonLock(boxPokemon);
     if (hasFixedPersonality == 0)
     {
         fixedPersonality = (rand_LC() | (rand_LC() << 16));
@@ -317,7 +319,7 @@ void CreateBoxMon(struct BoxPokemon * boxPokemon, int species, int level, int fi
     exp = GetBoxMonGenderEncrypted(boxPokemon);
     SetBoxMonData(boxPokemon, MON_DATA_GENDER, &exp);
     InitBoxMonMoveset(boxPokemon);
-    TryEncryptBoxMon(boxPokemon, decry);
+    ReleaseBoxMonLock(boxPokemon, decry);
 }
 
 void CreateMonWithNature(struct Pokemon * pokemon, u16 species, u8 level, u8 fixedIv, u8 nature)
@@ -381,11 +383,11 @@ void CreateMonWithFixedIVs(struct Pokemon * pokemon, int species, int level, int
 
 void CalcMonLevelAndStats(struct Pokemon * pokemon)
 {
-    BOOL decry = TryDecryptMon(pokemon);
-    u32 level = CalcMonLevelEncrypted(pokemon);
+    BOOL decry = AcquireMonLock(pokemon);
+    u32 level = CalcMonLevel(pokemon);
     SetMonData(pokemon, MON_DATA_LEVEL, &level);
     CalcMonStats(pokemon);
-    TryEncryptMon(pokemon, decry);
+    ReleaseMonLock(pokemon, decry);
 }
 
 void CalcMonStats(struct Pokemon * pokemon)
@@ -414,7 +416,7 @@ void CalcMonStats(struct Pokemon * pokemon)
     int newSpeed;
     int newSpatk;
     int newSpdef;
-    BOOL decry = TryDecryptMon(pokemon);
+    BOOL decry = AcquireMonLock(pokemon);
     level = (int)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
     maxHp = (int)GetMonData(pokemon, MON_DATA_MAXHP, NULL);
     hp = (int)GetMonData(pokemon, MON_DATA_HP, NULL);
@@ -445,23 +447,23 @@ void CalcMonStats(struct Pokemon * pokemon)
     SetMonData(pokemon, MON_DATA_MAXHP, &newMaxHp);
 
     newAtk = (baseStats->atk * 2 + atkIv + atkEv / 4) * level / 100 + 5;
-    newAtk = ApplyNatureModToStat(GetMonNature(pokemon), newAtk, 1);
+    newAtk = ModifyStatByNature(GetMonNature(pokemon), newAtk, 1);
     SetMonData(pokemon, MON_DATA_ATK, &newAtk);
 
     newDef = (baseStats->def * 2 + defIv + defEv / 4) * level / 100 + 5;
-    newDef = ApplyNatureModToStat(GetMonNature(pokemon), newDef, 2);
+    newDef = ModifyStatByNature(GetMonNature(pokemon), newDef, 2);
     SetMonData(pokemon, MON_DATA_DEF, &newDef);
 
     newSpeed = (baseStats->speed * 2 + speedIv + speedEv / 4) * level / 100 + 5;
-    newSpeed = ApplyNatureModToStat(GetMonNature(pokemon), newSpeed, 3);
+    newSpeed = ModifyStatByNature(GetMonNature(pokemon), newSpeed, 3);
     SetMonData(pokemon, MON_DATA_SPEED, &newSpeed);
 
     newSpatk = (baseStats->spatk * 2 + spatkIv + spatkEv / 4) * level / 100 + 5;
-    newSpatk = ApplyNatureModToStat(GetMonNature(pokemon), newSpatk, 4);
+    newSpatk = ModifyStatByNature(GetMonNature(pokemon), newSpatk, 4);
     SetMonData(pokemon, MON_DATA_SPATK, &newSpatk);
 
     newSpdef = (baseStats->spdef * 2 + spdefIv + spdefEv / 4) * level / 100 + 5;
-    newSpdef = ApplyNatureModToStat(GetMonNature(pokemon), newSpdef, 5);
+    newSpdef = ModifyStatByNature(GetMonNature(pokemon), newSpdef, 5);
     SetMonData(pokemon, MON_DATA_SPDEF, &newSpdef);
 
     FreeToHeap(baseStats);
@@ -477,7 +479,7 @@ void CalcMonStats(struct Pokemon * pokemon)
     }
     if (hp != 0)
         SetMonData(pokemon, MON_DATA_HP, &hp);
-    TryEncryptMon(pokemon, decry);
+    ReleaseMonLock(pokemon, decry);
 }
 
 u32 GetMonData(struct Pokemon * pokemon, int attr, void * dest)
@@ -1880,4 +1882,138 @@ int GetMonBaseStat(int species, enum BaseStat attr)
     ret = GetPersonalAttr(personal, attr);
     FreeMonPersonal(personal);
     return ret;
+}
+
+u8 GetPercentProgressTowardsNextLevel(struct Pokemon * pokemon)
+{
+    BOOL decry = AcquireMonLock(pokemon);
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    u8 level = GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+    u32 lo = GetMonExpBySpeciesAndLevel(species, level);
+    u32 hi = GetMonExpBySpeciesAndLevel(species, level + 1);
+    u32 cur = GetMonData(pokemon, MON_DATA_EXPERIENCE, NULL);
+    ReleaseMonLock(pokemon, decry);
+    return 100 * (cur - lo) / (hi - lo);
+}
+
+u32 CalcMonExpToNextLevel(struct Pokemon * pokemon)
+{
+    return CalcBoxMonExpToNextLevel(&pokemon->box);
+}
+
+u32 CalcBoxMonExpToNextLevel(struct BoxPokemon * boxmon)
+{
+    u16 species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
+    u16 level = CalcBoxMonLevel(boxmon) + 1;
+    u32 cur = GetBoxMonData(boxmon, MON_DATA_EXPERIENCE, NULL);
+    u32 hi = GetMonExpBySpeciesAndLevel(species, level);
+    return hi - cur;
+}
+
+u32 GetMonBaseExperienceAtCurrentLevel(struct Pokemon * pokemon)
+{
+    int species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    int level = GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+    return GetMonExpBySpeciesAndLevel(species, level);
+}
+
+u32 GetMonExpBySpeciesAndLevel(int species, int level)
+{
+    return GetExpByGrowthRateAndLevel(GetMonBaseStat(species, BASE_GROWTH_RATE), level);
+}
+
+void LoadGrowthTable(int growthRate, u32 * dest)
+{
+    GF_ASSERT(growthRate < 8);
+    ReadWholeNarcMemberByIdPair(dest, NARC_POKETOOL_PERSONAL_GROWTBL, growthRate);
+}
+
+u32 GetExpByGrowthRateAndLevel(int growthRate, int level)
+{
+    u32 * table;
+    u32 ret;
+    GF_ASSERT(growthRate < 8);
+    GF_ASSERT(level <= 101);
+    table = (u32 *)AllocFromHeap(0, 101 * sizeof(u32));
+    LoadGrowthTable(growthRate, table);
+    ret = table[level];
+    FreeToHeap(table);
+    return ret;
+}
+
+int CalcMonLevel(struct Pokemon * pokemon)
+{
+    return CalcBoxMonLevel(&pokemon->box);
+}
+
+int CalcBoxMonLevel(struct BoxPokemon * boxmon)
+{
+    BOOL decry = AcquireBoxMonLock(boxmon);
+    int species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
+    int exp = GetBoxMonData(boxmon, MON_DATA_EXPERIENCE, NULL);
+    ReleaseBoxMonLock(boxmon, decry);
+    return CalcLevelBySpeciesAndExp(species, exp);
+}
+
+int CalcLevelBySpeciesAndExp(u16 species, u32 exp)
+{
+    int level;
+    struct BaseStats * personal = AllocAndLoadMonPersonal(species, 0);
+    level = CalcLevelBySpeciesAndExp_PreloadedPersonal(personal, species, exp);
+    FreeMonPersonal(personal);
+    return level;
+}
+
+int CalcLevelBySpeciesAndExp_PreloadedPersonal(struct BaseStats * personal, u16 species, u32 exp)
+{
+    static u32 table[101];
+    int i;
+    LoadGrowthTable(GetPersonalAttr(personal, BASE_GROWTH_RATE), table);
+    for (i = 1; i < 101; i++)
+    {
+        if (table[i] > exp)
+            break;
+    }
+    return i - 1;
+}
+
+u8 GetMonNature(struct Pokemon * pokemon)
+{
+    return GetBoxMonNature(&pokemon->box);
+}
+
+u8 GetBoxMonNature(struct BoxPokemon * boxmon)
+{
+    BOOL decry = AcquireBoxMonLock(boxmon);
+    u32 personality = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
+    ReleaseBoxMonLock(boxmon, decry);
+    return GetNatureFromPersonality(personality);
+}
+
+u8 GetNatureFromPersonality(u32 pid)
+{
+    return pid % 25;
+}
+
+u16 ModifyStatByNature(u8 nature, u16 n, u8 statIndex)
+{
+    u16 retVal;
+
+    // Dont modify HP, Accuracy, or Evasion by nature
+    if (statIndex < 1 || statIndex > 5)
+        return n;
+
+    switch (sNatureStatMods[nature][statIndex - 1])
+    {
+    case 1:
+        retVal = (u16)(n * 110) / 100; // NOTE: will overflow for n > 595 because the intermediate value is cast to u16 before the division. Fix by removing (u16) cast
+        break;
+    case -1:
+        retVal = (u16)(n * 90) / 100; // NOTE: will overflow for n > 728, see above
+        break;
+    default:
+        retVal = n;
+        break;
+    }
+    return retVal;
 }

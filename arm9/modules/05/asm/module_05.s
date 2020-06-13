@@ -43403,7 +43403,7 @@ MOD05_021EC744: ; 0x021EC744
 	add r2, sp, #0
 	bl SetBoxMonData
 	add r0, r4, #0
-	bl CalcBoxMonLevelEncrypted
+	bl CalcBoxMonLevel
 	add r4, r0, #0
 	add r0, r7, #0
 	bl FreeToHeap
@@ -43416,7 +43416,7 @@ MOD05_021EC78C: ; 0x021EC78C
 	add r5, r0, #0
 	bl FUN_02023C7C
 	add r6, r0, #0
-	bl CalcBoxMonLevelEncrypted
+	bl CalcBoxMonLevel
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	add r0, r5, #0

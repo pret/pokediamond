@@ -999,7 +999,7 @@ _0223860E:
 	ldr r4, [r0, #4]
 _02238610:
 	add r0, r4, #0
-	bl TryDecryptBoxMon
+	bl AcquireBoxMonLock
 	str r0, [sp, #0x20]
 	add r0, sp, #0x34
 	add r1, r4, #0
@@ -1051,7 +1051,7 @@ _02238648:
 	bl FUN_02017E14
 	ldr r1, [sp, #0x20]
 	add r0, r4, #0
-	bl TryEncryptBoxMon
+	bl ReleaseBoxMonLock
 	add r0, r7, #0
 	bl FreeToHeap
 _02238690:

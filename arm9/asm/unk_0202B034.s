@@ -79,7 +79,7 @@ _0202B0BA:
 	add r1, r7, #0x0
 	bl FUN_0206B9B0
 	add r4, r0, #0x0
-	bl TryDecryptMon
+	bl AcquireMonLock
 	str r0, [sp, #0xc]
 	add r0, r4, #0x0
 	mov r1, #0x4c
@@ -162,7 +162,7 @@ _0202B17C:
 _0202B17E:
 	ldr r1, [sp, #0xc]
 	add r0, r4, #0x0
-	bl TryEncryptMon
+	bl ReleaseMonLock
 	ldr r0, [sp, #0x10]
 	add r7, r7, #0x1
 	cmp r7, r0

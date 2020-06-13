@@ -2,6 +2,7 @@
 #define POKEDIAMOND_FILESYSTEM_H
 
 #include "nitro/types.h"
+#include "FS_file.h"
 
 typedef struct NARC
 {

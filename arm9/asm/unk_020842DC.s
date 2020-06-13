@@ -797,7 +797,7 @@ _0208495C:
 	cmp r0, #0x64
 	bge _020849B2
 	add r0, r5, #0x0
-	bl CalcMonExpToNextLevelEncrypted
+	bl CalcMonExpToNextLevel
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x8

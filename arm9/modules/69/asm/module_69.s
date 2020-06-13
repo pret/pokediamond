@@ -2360,7 +2360,7 @@ MOD69_0222E8FC: ; 0x0222E8FC
 	mov r1, #0
 	bl FUN_0200AC60
 	ldr r0, [r4, #0x24]
-	bl CalcMonLevelEncrypted
+	bl CalcMonLevel
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -4037,7 +4037,7 @@ MOD69_0222F6C4: ; 0x0222F6C4
 	add r5, r0, #0
 	add r0, r4, #0
 	add r6, r2, #0
-	bl TryDecryptMon
+	bl AcquireMonLock
 	str r0, [sp]
 	add r0, r4, #0
 	mov r1, #0x79
@@ -4124,7 +4124,7 @@ _0222F778:
 _0222F77A:
 	ldr r1, [sp]
 	add r0, r4, #0
-	bl TryEncryptMon
+	bl ReleaseMonLock
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

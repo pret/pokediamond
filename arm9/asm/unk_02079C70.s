@@ -1843,7 +1843,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	add r5, r2, #0x0
-	bl TryDecryptMon
+	bl AcquireMonLock
 	str r0, [sp, #0x4]
 	add r0, r6, #0x0
 	mov r1, #0x5
@@ -2308,7 +2308,7 @@ _0207AF04:
 	blo _0207AECC
 	ldr r1, [sp, #0x4]
 	add r0, r6, #0x0
-	bl TryEncryptMon
+	bl ReleaseMonLock
 	add sp, #0x8
 	pop {r3-r7, pc}
 	nop
