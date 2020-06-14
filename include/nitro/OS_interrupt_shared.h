@@ -17,4 +17,13 @@
 
 typedef u32 OSIrqMask;
 
+typedef void (*OSIrqFunction) (void);
+
+typedef struct
+{
+    void (*func) (void *);
+    u32 enable;
+    void* arg;
+} OSIrqCallbackInfo;
+
 #endif //POKEDIAMOND_OS_INTERRUPT_SHARED_H

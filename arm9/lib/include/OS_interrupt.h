@@ -6,15 +6,6 @@
 
 #define OS_IE_TIMER0        (1UL << REG_OS_IE_T0_SHIFT)
 
-typedef void (*OSIrqFunction) (void);
-
-typedef struct
-{
-    void (*func) (void *);
-    u32 enable;
-    void* arg;
-} OSIrqCallbackInfo;
-
 extern OSIrqFunction OS_IRQTable[];
 extern OSIrqCallbackInfo OSi_IrqCallbackInfo[8];
 
