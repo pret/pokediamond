@@ -1,14 +1,9 @@
-#ifndef POKEDIAMOND_OS_SPINLOCK_H
-#define POKEDIAMOND_OS_SPINLOCK_H
+#ifndef POKEDIAMOND_ARM9_OS_SPINLOCK_H
+#define POKEDIAMOND_ARM9_OS_SPINLOCK_H
 
 #include "nitro/types.h"
+#include "nitro/OS_spinLock_shared.h"
 #include "syscall.h"
-
-typedef volatile struct OSLockWord {
-    u32 lockFlag;
-    u16 ownerID;
-    u16 extension;
-} OSLockWord;
 
 static inline void OSi_WaitByLoop(void)
 {
@@ -38,4 +33,4 @@ s32 OS_UnLockCartridge(u16 lockID);
 s32 OS_GetLockID(void);
 void OS_ReleaseLockID(register u16 lockID);
 
-#endif //POKEDIAMOND_OS_SPINLOCK_H
+#endif //POKEDIAMOND_ARM9_OS_SPINLOCK_H
