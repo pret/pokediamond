@@ -2285,8 +2285,8 @@ _02012752:
 	.balign 4
 _02012778: .word UNK_020ED4B2
 
-	thumb_func_start FUN_0201277C
-FUN_0201277C: ; 0x0201277C
+	thumb_func_start IsNighttime
+IsNighttime: ; 0x0201277C
 	push {r3, lr}
 	bl FUN_02012794
 	cmp r0, #0x3

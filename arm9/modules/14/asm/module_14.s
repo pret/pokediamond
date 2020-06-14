@@ -116,7 +116,7 @@ MOD14_021D75B8: ; 0x021D75B8
 	lsl r1, r1, #2
 	ldr r0, [r4, r1]
 	add r1, #0x95
-	bl FUN_0206BAE4
+	bl PartyHasMon
 	cmp r0, #0
 	bne _021D75DE
 	mov r0, #0x47

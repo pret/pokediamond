@@ -541,7 +541,7 @@ _0205F036:
 	bl FUN_0205EC94
 	cmp r0, #0x1
 	bne _0205F054
-	bl FUN_0201277C
+	bl IsNighttime
 	cmp r0, #0x0
 	bne _0205F050
 	mov r5, #0xfe
@@ -566,7 +566,7 @@ _0205F06A:
 	bl FUN_0205EC94
 	cmp r0, #0x1
 	bne _0205F0E0
-	bl FUN_0201277C
+	bl IsNighttime
 	cmp r0, #0x0
 	bne _0205F080
 	ldr r5, _0205F128 ; =0x000003F5
@@ -579,7 +579,7 @@ _0205F084:
 	bl FUN_0205EC94
 	cmp r0, #0x1
 	bne _0205F0E0
-	bl FUN_0201277C
+	bl IsNighttime
 	cmp r0, #0x0
 	bne _0205F09A
 	ldr r5, _0205F134 ; =0x000003FF
@@ -592,7 +592,7 @@ _0205F09E:
 	bl FUN_0205EC94
 	cmp r0, #0x1
 	bne _0205F0E0
-	bl FUN_0201277C
+	bl IsNighttime
 	cmp r0, #0x0
 	bne _0205F0B4
 	ldr r5, _0205F140 ; =0x000003EE
@@ -605,7 +605,7 @@ _0205F0B8:
 	bl FUN_0205EC94
 	cmp r0, #0x1
 	bne _0205F0E0
-	bl FUN_0201277C
+	bl IsNighttime
 	cmp r0, #0x0
 	bne _0205F0CE
 	ldr r5, _0205F140 ; =0x000003EE

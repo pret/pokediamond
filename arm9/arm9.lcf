@@ -367,7 +367,7 @@ SECTIONS {
 		unk_0206ABC4.o (.text)
 		unk_0206B16C.o (.text)
 		unk_0206B688.o (.text)
-		unk_0206B8A4.o (.text)
+		party.o (.text)
 		unk_0206BB28.o (.text)
 		unk_0206BB5C.o (.text)
 		unk_0206BF90.o (.text)

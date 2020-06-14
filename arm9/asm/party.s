@@ -325,8 +325,8 @@ _0206BAD8:
 	pop {r3-r4}
 	bx lr
 
-	thumb_func_start FUN_0206BAE4
-FUN_0206BAE4: ; 0x0206BAE4
+	thumb_func_start PartyHasMon
+PartyHasMon: ; 0x0206BAE4
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	ldr r0, [r6, #0x4]

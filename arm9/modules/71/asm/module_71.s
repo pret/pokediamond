@@ -138,7 +138,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	mov r0, #0x1a
 	bl FUN_020335F0
 	bl FUN_02033E74
-	bl FUN_0201277C
+	bl IsNighttime
 	cmp r0, #0
 	bne _0222D71A
 	ldr r1, _0222D748 ; =0x0000043D
@@ -6375,7 +6375,7 @@ _02230A40:
 	ldr r0, [sp, #4]
 	ldr r1, _02230AE0 ; =0x000001B9
 	str r6, [r5, #0x2c]
-	bl FUN_0206BAE4
+	bl PartyHasMon
 	cmp r0, #0
 	bne _02230A98
 	ldr r0, [r5, #0x10]

@@ -16121,7 +16121,7 @@ _02235590:
 	ldr r0, [r5]
 	ldr r1, _022355EC ; =0x000001B9
 	ldr r0, [r0, #8]
-	bl FUN_0206BAE4
+	bl PartyHasMon
 	cmp r0, #0
 	bne _022355DC
 	ldr r0, [r5]

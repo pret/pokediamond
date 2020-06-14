@@ -362,6 +362,37 @@ typedef enum {
     UNOWN_QUESTION_MARK = 27
 } AlternateForms;
 
+typedef enum EvoMethod
+{
+    EVO_NONE = 0,
+    EVO_FRIENDSHIP,
+    EVO_FRIENDSHIP_DAY,
+    EVO_FRIENDSHIP_NIGHT,
+    EVO_LEVEL,
+    EVO_TRADE,
+    EVO_TRADE_ITEM,
+    EVO_STONE,
+    EVO_LEVEL_ATK_GT_DEF,
+    EVO_LEVEL_ATK_EQ_DEF,
+    EVO_LEVEL_ATK_LT_DEF,
+    EVO_LEVEL_PID_LO,
+    EVO_LEVEL_PID_HI,
+    EVO_LEVEL_NINJASK,
+    EVO_LEVEL_SHEDINJA,
+    EVO_BEAUTY,
+    EVO_STONE_MALE,
+    EVO_STONE_FEMALE,
+    EVO_ITEM_DAY,
+    EVO_ITEM_NIGHT,
+    EVO_HAS_MOVE,
+    EVO_OTHER_PARTY_MON,
+    EVO_LEVEL_MALE,
+    EVO_LEVEL_FEMALE,
+    EVO_CORONET,
+    EVO_ETERNA,
+    EVO_ROUTE217,
+} EvoMethod;
+
 // Structs
 
 typedef struct {
@@ -497,6 +528,22 @@ struct UnkStruct_02069038
     u8 unk4;
     u8 padding;
     struct Pokeanm anim;
+};
+
+struct Evolution
+{
+    u16 method;
+    u16 param;
+    u16 target;
+};
+
+#define PARTY_SIZE 6
+
+struct PlayerParty
+{
+    u32 maxCount;
+    u32 curCount;
+    struct Pokemon mons[PARTY_SIZE];
 };
 
 void ZeroMonData(struct Pokemon * pokemon);

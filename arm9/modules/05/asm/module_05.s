@@ -43155,7 +43155,7 @@ _021EC544:
 	bl FUN_0206B938
 	ldr r1, _021EC578 ; =0x000001B9
 	add r0, r6, #0
-	bl FUN_0206BAE4
+	bl PartyHasMon
 	cmp r0, #0
 	bne _021EC572
 	add r0, r7, #0

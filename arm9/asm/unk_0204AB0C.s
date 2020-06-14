@@ -117,7 +117,7 @@ FUN_0204ABA8: ; 0x0204ABA8
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl FUN_0201277C
+	bl IsNighttime
 	cmp r0, #0x0
 	bne _0204ABBE
 	add r0, r4, #0x0
@@ -334,7 +334,7 @@ _0204AD40: .word UNK_020F471A
 FUN_0204AD44: ; 0x0204AD44
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl FUN_0201277C
+	bl IsNighttime
 	cmp r0, #0x0
 	bne _0204AD58
 	add r0, r4, #0x0

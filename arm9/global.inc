@@ -805,7 +805,7 @@
 .extern FUN_020126D8
 .extern FUN_020126FC
 .extern FUN_02012710
-.extern FUN_0201277C
+.extern IsNighttime
 .extern FUN_02012794
 .extern FUN_020127A8
 .extern FUN_020127C0
@@ -4867,7 +4867,7 @@
 .extern FUN_0206B9DC
 .extern FUN_0206BA38
 .extern FUN_0206BAD0
-.extern FUN_0206BAE4
+.extern PartyHasMon
 .extern FUN_0206BB1C
 .extern FUN_0206BB28
 .extern FUN_0206BB34

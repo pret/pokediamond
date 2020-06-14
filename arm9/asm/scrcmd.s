@@ -10679,7 +10679,7 @@ FUN_0203EE98: ; 0x0203EE98
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r6, #0x0
-	bl FUN_0206BAE4
+	bl PartyHasMon
 	strh r0, [r4, #0x0]
 	mov r0, #0x1
 	pop {r4-r6, pc}

@@ -27,6 +27,8 @@ u8 BoxMonIsShiny(struct BoxPokemon * boxmon);
 u8 CalcShininessByOtIdAndPersonality(u32 otid, u32 pid);
 u32 MaskOfFlagNo(int flagno);
 void LoadMonPersonal(int species, struct BaseStats * personal);
+void LoadMonEvolutionTable(u16 species, struct Evolution * dest);
+BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
 
 int ResolveMonForme(int species, int forme);
 void MonEncryptSegment(void * datap, u32 size, u32 key);
@@ -2471,4 +2473,250 @@ BOOL FUN_020690E8(struct Pokemon * pokemon)
         return TRUE;
     }
     return FALSE;
+}
+
+u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 context, u32 usedItem, u32 * method_ret)
+{
+    u16 target = SPECIES_NONE;
+    u32 sp40;
+    u16 species;
+    u16 heldItem;
+    u32 personality;
+    int i;
+    u8 beauty;
+    u8 level;
+    u16 friendship;
+    u16 pid_hi;
+    struct Evolution * evoTable;
+    u8 r1;
+
+    species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    heldItem = GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL);
+    personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
+    beauty = GetMonData(pokemon, MON_DATA_BEAUTY, NULL);
+    pid_hi = (personality & 0xFFFF0000) >> 16;
+    r1 = FUN_0206E7B8(heldItem, 1, 0);
+    if (species != SPECIES_KADABRA && r1 == 0x3F && context != 3)
+        return SPECIES_NONE;
+    if (method_ret == NULL)
+        method_ret = &sp40;
+    evoTable = AllocFromHeap(0, 7 * sizeof(struct Evolution));
+    LoadMonEvolutionTable(species, evoTable);
+    switch (context)
+    {
+    case 0:
+        level = GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+        friendship = GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
+        for (i = 0; i < 7; i++)
+        {
+            switch (evoTable[i].method)
+            {
+            case EVO_NONE:
+                break;
+            case EVO_FRIENDSHIP:
+                if (friendship >= 220)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_FRIENDSHIP;
+                }
+                break;
+            case EVO_FRIENDSHIP_DAY:
+                if (IsNighttime() == 0 && friendship >= 220)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_FRIENDSHIP_DAY;
+                }
+                break;
+            case EVO_FRIENDSHIP_NIGHT:
+                if (IsNighttime() == 1 && friendship >= 220)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_FRIENDSHIP_NIGHT;
+                }
+                break;
+            case EVO_LEVEL:
+                if (evoTable[i].param <= level)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_LEVEL;
+                }
+                break;
+            case EVO_TRADE:
+                break;
+            case EVO_TRADE_ITEM:
+                break;
+            case EVO_STONE:
+                break;
+            case EVO_LEVEL_ATK_GT_DEF:
+                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATK, NULL) > GetMonData(pokemon, MON_DATA_DEF, NULL))
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_LEVEL_ATK_GT_DEF;
+                }
+                break;
+            case EVO_LEVEL_ATK_EQ_DEF:
+                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATK, NULL) == GetMonData(pokemon, MON_DATA_DEF, NULL))
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_LEVEL_ATK_EQ_DEF;
+                }
+                break;
+            case EVO_LEVEL_ATK_LT_DEF:
+                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATK, NULL) < GetMonData(pokemon, MON_DATA_DEF, NULL))
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_LEVEL_ATK_LT_DEF;
+                }
+                break;
+            case EVO_LEVEL_PID_LO:
+                if (evoTable[i].param <= level && pid_hi % 10 < 5)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_LEVEL_PID_LO;
+                }
+                break;
+            case EVO_LEVEL_PID_HI:
+                if (evoTable[i].param <= level && pid_hi % 10 >= 5)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_LEVEL_PID_HI;
+                }
+                break;
+            case EVO_LEVEL_NINJASK:
+                if (evoTable[i].param <= level)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_LEVEL_NINJASK;
+                }
+                break;
+            case EVO_LEVEL_SHEDINJA:
+                *method_ret = EVO_LEVEL_SHEDINJA;
+                break;
+            case EVO_BEAUTY:
+                if (evoTable[i].param <= beauty)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_BEAUTY;
+                }
+                break;
+            case EVO_STONE_MALE:
+                break;
+            case EVO_STONE_FEMALE:
+                break;
+            case EVO_ITEM_DAY:
+                if (IsNighttime() == 0 && evoTable[i].param == heldItem)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_ITEM_DAY;
+                }
+                break;
+            case EVO_ITEM_NIGHT:
+                if (IsNighttime() == 1 && evoTable[i].param == heldItem)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_ITEM_NIGHT;
+                }
+                break;
+            case EVO_HAS_MOVE:
+                if (MonHasMove(pokemon, evoTable[i].param) == TRUE)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_HAS_MOVE;
+                }
+                break;
+            case EVO_OTHER_PARTY_MON:
+                if (party != NULL && PartyHasMon(party, evoTable[i].param) == 1)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_OTHER_PARTY_MON;
+                }
+                break;
+            case EVO_LEVEL_MALE:
+                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == MON_MALE && evoTable[i].param <= level)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_LEVEL_MALE;
+                }
+                break;
+            case EVO_LEVEL_FEMALE:
+                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == MON_FEMALE && evoTable[i].param <= level)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_LEVEL_FEMALE;
+                }
+                break;
+            case EVO_CORONET:
+                if (usedItem == evoTable[i].method)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_CORONET;
+                }
+                break;
+            case EVO_ETERNA:
+                if (usedItem == evoTable[i].method)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_ETERNA;
+                }
+                break;
+            case EVO_ROUTE217:
+                if (usedItem == evoTable[i].method)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_ROUTE217;
+                }
+                break;
+            }
+            if (target != SPECIES_NONE)
+                break;
+        }
+        break;
+    case 1:
+        for (i = 0; i < 7; i++)
+        {
+            switch (evoTable[i].method)
+            {
+            case EVO_TRADE:
+                target = evoTable[i].target;
+                *method_ret = EVO_TRADE;
+                break;
+            case EVO_TRADE_ITEM:
+                if (heldItem == evoTable[i].param)
+                {
+                    target = evoTable[i].target;
+                    *method_ret = EVO_TRADE_ITEM;
+                }
+                break;
+            }
+            if (target != SPECIES_NONE)
+                break;
+        }
+        break;
+    case 2:
+    case 3:
+        for (i = 0; i < 7; i++)
+        {
+            if (evoTable[i].method == EVO_STONE && usedItem == evoTable[i].param)
+            {
+                target = evoTable[i].target;
+                *method_ret = 0;
+                break;
+            }
+            if (evoTable[i].method == EVO_STONE_MALE && GetMonData(pokemon, MON_DATA_GENDER, NULL) == MON_MALE && usedItem == evoTable[i].param)
+            {
+                target = evoTable[i].target;
+                *method_ret = 0;
+                break;
+            }
+            if (evoTable[i].method == EVO_STONE_FEMALE && GetMonData(pokemon, MON_DATA_GENDER, NULL) == MON_FEMALE && usedItem == evoTable[i].param)
+            {
+                target = evoTable[i].target;
+                *method_ret = 0;
+                break;
+            }
+        }
+        break;
+    }
+    FreeToHeap(evoTable);
+    return target;
 }
