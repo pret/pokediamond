@@ -4792,7 +4792,7 @@
 .extern FUN_02069E94
 .extern FUN_02069EC4
 .extern FUN_02069ECC
-.extern GetArceusTypeByPlate
+.extern GetArceusTypeByHeldItemEffect
 .extern LoadWotbl_HandleAlternateForme
 .extern FUN_02069FB0
 .extern FUN_0206A014

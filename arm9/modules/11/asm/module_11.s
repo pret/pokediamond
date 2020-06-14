@@ -61031,7 +61031,7 @@ _0224B1D8:
 	bl FUN_0206E7B8
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl GetArceusTypeByPlate
+	bl GetArceusTypeByHeldItemEffect
 	mov r1, #0x46
 	lsl r1, r1, #2
 	ldr r1, [r5, r1]

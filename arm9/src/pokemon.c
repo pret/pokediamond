@@ -36,7 +36,11 @@ void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
 s8 FUN_02069BD0(struct BoxPokemon * boxmon, int flavor);
 s8 FUN_02069BE4(u32 personality, int flavor);
 u8 FUN_02069CF4(struct PlayerParty * party_p, u8 mask);
+BOOL FUN_02069E7C(struct BoxPokemon * boxmon);
+BOOL FUN_02069E9C(struct BoxPokemon * boxmon);
+void FUN_02069ECC(struct BoxPokemon * boxmon);
 void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
+void FUN_0206A054(struct BoxPokemon *  boxmon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5);
 u32 MaskOfFlagNo(int flagno);
 void LoadMonPersonal(int species, struct BaseStats * personal);
 void LoadMonEvolutionTable(u16 species, struct Evolution * dest);
@@ -963,7 +967,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_TYPE_1:
     case MON_DATA_TYPE_2:
         if (blockA->species == SPECIES_ARCEUS && blockA->ability == ABILITY_MULTITYPE)
-            ret = (u32)GetArceusTypeByPlate((u16)FUN_0206E7B8(blockA->heldItem, 1, 0));
+            ret = (u32)GetArceusTypeByHeldItemEffect((u16)FUN_0206E7B8(blockA->heldItem, 1, 0));
         else
         {
             ret = (u32)GetMonBaseStat_HandleFormeConversion(blockA->species, blockB->alternateForm, (enum BaseStat)(attr - MON_DATA_TYPE_1 + BASE_TYPE1));
@@ -3137,4 +3141,199 @@ u8 FUN_02069CF4(struct PlayerParty * party, u8 mask)
             ret++;
     }
     return ret;
+}
+
+void FUN_02069D50(struct PlayerParty * party, int r5)
+{
+    int i;
+    u8 pokerus;
+    struct Pokemon * pokemon;
+    int count = GetPartyCount(party);
+    for (i = 0; i < count; i++)
+    {
+        pokemon = GetPartyMonByIndex(party, i);
+        if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE)
+        {
+            pokerus = GetMonData(pokemon, MON_DATA_POKERUS, NULL);
+            if (pokerus & 0xF)
+            {
+                if ((pokerus & 0xF) < r5 || r5 > 4)
+                    pokerus &= 0xF0;
+                else
+                    pokerus -= r5;
+                if (pokerus == 0)
+                    pokerus = 0x10; // immune
+                SetMonData(pokemon, MON_DATA_POKERUS, &pokerus);
+            }
+        }
+    }
+}
+
+void FUN_02069DC8(struct PlayerParty * party)
+{
+    int count = GetPartyCount(party);
+    int i;
+    struct Pokemon * pokemon;
+    u8 pokerus;
+    if ((rand_LC() % 3) == 0)
+    {
+        for (i = 0; i < count; i++)
+        {
+            pokemon = GetPartyMonByIndex(party, i);
+            if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE)
+            {
+                pokerus = GetMonData(pokemon, MON_DATA_POKERUS, NULL);
+                if (pokerus & 0xF)
+                {
+                    if (i != 0)
+                    {
+                        pokemon = GetPartyMonByIndex(party, i - 1);
+                        if (!(GetMonData(pokemon, MON_DATA_POKERUS, NULL) & 0xF0))
+                            SetMonData(pokemon, MON_DATA_POKERUS, &pokerus);
+                    }
+                    if (i < count - 1)
+                    {
+                        pokemon = GetPartyMonByIndex(party, i + 1);
+                        if (!(GetMonData(pokemon, MON_DATA_POKERUS, NULL) & 0xF0))
+                        {
+                            SetMonData(pokemon, MON_DATA_POKERUS, &pokerus);
+                            i++; // don't infect the rest of the party
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+BOOL FUN_02069E74(struct Pokemon * pokemon)
+{
+    return FUN_02069E7C(&pokemon->box);
+}
+
+BOOL FUN_02069E7C(struct BoxPokemon * boxmon)
+{
+    return !!(GetBoxMonData(boxmon, MON_DATA_POKERUS, NULL) & 0xF);
+}
+
+BOOL FUN_02069E94(struct Pokemon * pokemon)
+{
+    return FUN_02069E9C(&pokemon->box);
+}
+
+BOOL FUN_02069E9C(struct BoxPokemon * boxmon)
+{
+    u8 pokerus = GetBoxMonData(boxmon, MON_DATA_POKERUS, NULL);
+    if (pokerus & 0xF)
+        return FALSE;
+    if (pokerus & 0xF0)
+        return TRUE;
+    return FALSE;
+}
+
+void FUN_02069EC4(struct Pokemon * pokemon)
+{
+    FUN_02069ECC(&pokemon->box);
+}
+
+void FUN_02069ECC(struct BoxPokemon * boxmon)
+{
+    u32 species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
+    u32 ability = GetBoxMonData(boxmon, MON_DATA_ABILITY, NULL);
+    u32 heldItem = GetBoxMonData(boxmon, MON_DATA_HELD_ITEM, NULL);
+    u32 forme;
+    if (species == SPECIES_ARCEUS && ability == ABILITY_MULTITYPE)
+    {
+        forme = GetArceusTypeByHeldItemEffect(FUN_0206E7B8(heldItem, 1, 0));
+        SetBoxMonData(boxmon, MON_DATA_FORME, &forme);
+    }
+}
+
+u32 GetArceusTypeByHeldItemEffect(u16 heldEffect)
+{
+    switch (heldEffect)
+    {
+    case 0x7D:
+        return TYPE_FIRE;
+    case 0x7E:
+        return TYPE_WATER;
+    case 0x7F:
+        return TYPE_ELECTRIC;
+    case 0x80:
+        return TYPE_GRASS;
+    case 0x81:
+        return TYPE_ICE;
+    case 0x82:
+        return TYPE_FIGHTING;
+    case 0x83:
+        return TYPE_POISON;
+    case 0x84:
+        return TYPE_GROUND;
+    case 0x85:
+        return TYPE_FLYING;
+    case 0x86:
+        return TYPE_PSYCHIC;
+    case 0x87:
+        return TYPE_BUG;
+    case 0x88:
+        return TYPE_ROCK;
+    case 0x89:
+        return TYPE_GHOST;
+    case 0x8A:
+        return TYPE_DRAGON;
+    case 0x8B:
+        return TYPE_DARK;
+    case 0x8C:
+        return TYPE_STEEL;
+    default:
+        return TYPE_NORMAL;
+    }
+}
+
+void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl)
+{
+    ReadWholeNarcMemberByIdPair(wotbl, NARC_POKETOOL_PERSONAL_WOTBL, ResolveMonForme(species, forme));
+}
+
+void FUN_02069FB0(u32 r7, u32 r5, u32 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20)
+{
+    if (r4 == SPECIES_CHATOT)
+    {
+        if (!FUN_02005F14(r5))
+        {
+            FUN_02005E80(1);
+            FUN_020056AC(r5, r4, r6, sp18, sp20);
+        }
+        else
+        {
+            if (sp1C)
+                FUN_02005E80(1);
+            FUN_02005E90(r7, 0, sp18, r6);
+        }
+    }
+    else
+    {
+        FUN_020056AC(r5, r4, r6, sp18, sp20);
+    }
+}
+
+void FUN_0206A014(struct Pokemon * pokemon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5)
+{
+    u32 hp;
+    FUN_0206A054(&pokemon->box, a1, pokeball, a3, encounterType, a5);
+    if (pokeball == ITEM_HEAL_BALL)
+    {
+        hp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
+        SetMonData(pokemon, MON_DATA_HP, &hp);
+        hp = 0;
+        SetMonData(pokemon, MON_DATA_STATUS, &hp);
+    }
+}
+
+void FUN_0206A054(struct BoxPokemon *  boxmon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5)
+{
+    FUN_020808AC(boxmon, a1, 0, a3, a5);
+    SetBoxMonData(boxmon, MON_DATA_GAME_VERSION, (void *)&gGameVersion);
+    SetBoxMonData(boxmon, MON_DATA_POKEBALL, &pokeball);
+    SetBoxMonData(boxmon, MON_DATA_ENCOUNTER_TYPE, &encounterType);
 }
