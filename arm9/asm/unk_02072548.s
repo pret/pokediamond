@@ -1219,7 +1219,7 @@ _02072E98:
 	ldr r3, [r5, r3]
 	mov r2, #0x3
 	ldrh r3, [r3, #0x24]
-	bl FUN_02069168
+	bl GetMonEvolution
 	cmp r0, #0x0
 	bne _02072ED0
 	add r0, r5, #0x0

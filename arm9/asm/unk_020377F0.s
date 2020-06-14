@@ -1594,7 +1594,7 @@ _020382F6:
 	mov r0, #0x0
 	mov r2, #0x1
 	lsr r3, r3, #0x10
-	bl FUN_02069168
+	bl GetMonEvolution
 	str r0, [sp, #0x20]
 	cmp r0, #0x0
 	beq _02038380

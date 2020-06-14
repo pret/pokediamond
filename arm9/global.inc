@@ -4764,7 +4764,7 @@
 .extern FUN_020690D4
 .extern FUN_020690E4
 .extern FUN_020690E8
-.extern FUN_02069168
+.extern GetMonEvolution
 .extern ReadFromPersonalPmsNarc
 .extern GetEggSpecies
 .extern FUN_02069698

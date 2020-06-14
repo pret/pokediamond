@@ -2260,7 +2260,7 @@ _02076814:
 	ldr r0, [r1, #0x0]
 	add r1, r5, #0x0
 	lsr r3, r3, #0x10
-	bl FUN_02069168
+	bl GetMonEvolution
 	ldr r1, _02076878 ; =0x000005A4
 	ldr r2, [r4, r1]
 	strh r0, [r2, #0x38]

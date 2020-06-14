@@ -175,7 +175,7 @@ _0208443A:
 	ldr r3, [sp, #0x4]
 	add r1, r6, #0x0
 	mov r2, #0x3
-	bl FUN_02069168
+	bl GetMonEvolution
 	cmp r0, #0x0
 	beq _02084464
 	add r0, r4, #0x0

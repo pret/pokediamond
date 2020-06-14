@@ -2388,7 +2388,87 @@ void FUN_02068FE0(struct SomeDrawPokemonStruct * a0, u16 a1, int a2)
 
 void FUN_02069010(void * dest, int a1)
 {
-    u8 buffer[28];
-    ReadFromNarcMemberByIdPair(buffer, NARC_POKETOOL_POKEANM_POKEANM, 0, 28 * a1, 28);
-    MI_CpuCopy8(buffer + 8, dest, 20);
+    struct Pokeanm buffer;
+    ReadFromNarcMemberByIdPair(&buffer, NARC_POKETOOL_POKEANM_POKEANM, 0, 28 * a1, 28);
+    MI_CpuCopy8(buffer.unk8, dest, 20);
+}
+
+void FUN_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6)
+{
+    struct UnkStruct_02069038 sp4;
+    ReadFromNarcMemberByIdPair(&sp4.anim, NARC_POKETOOL_POKEANM_POKEANM, 0, a2 * 28, 28);
+    if (a3 == 2)
+    {
+        sp4.unk0 = sp4.anim.unk0[0].unk0;
+        sp4.unk2 = sp4.anim.unk0[0].unk1;
+        sp4.unk4 = a5;
+    }
+    else
+    {
+        a3 = FUN_02014C3C(a4);
+        GF_ASSERT(a3 < 3);
+        sp4.unk0 = sp4.anim.unk0[a3 + 1].unk0;
+        sp4.unk2 = sp4.anim.unk0[a3 + 1].unk1;
+        sp4.unk4 = a5;
+    }
+    FUN_02014C54(a0, a1, &sp4, a6);
+}
+
+void FUN_020690AC(struct SomeDrawPokemonStruct * a0, u32 a1)
+{
+    a0->unk0 = 60;
+    a0->unk2 = a1 * 2;
+    a0->unk4 = a1 * 2 + 1;
+    a0->unk6 = 0;
+    a0->unk8 = 0;
+    a0->unkC = 0;
+}
+
+u32 FUN_020690C4(void)
+{
+    return sizeof(struct Pokemon);
+}
+
+u32 FUN_020690C8(void)
+{
+    return sizeof(struct BoxPokemon);
+}
+
+u8 FUN_020690D4(struct BoxPokemon * boxmon);
+
+u8 FUN_020690CC(struct Pokemon * pokemon)
+{
+    return FUN_020690D4(&pokemon->box);
+}
+
+u8 FUN_020690D4(struct BoxPokemon * boxmon)
+{
+    return GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+}
+
+void FUN_020690E4(void)
+{
+
+}
+
+BOOL FUN_020690E8(struct Pokemon * pokemon)
+{
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    u8 level = GetMonData(pokemon, MON_DATA_LEVEL, NULL) + 1;
+    u32 exp = GetMonData(pokemon, MON_DATA_EXPERIENCE, NULL);
+    u32 growthrate = GetMonBaseStat(species, BASE_GROWTH_RATE);
+    u32 maxexp = GetExpByGrowthRateAndLevel(growthrate, 100);
+    if (exp > maxexp)
+    {
+        exp = maxexp;
+        SetMonData(pokemon, MON_DATA_EXPERIENCE, &exp);
+    }
+    if (level > 100)
+        return FALSE;
+    if (exp >= GetExpByGrowthRateAndLevel(growthrate, level))
+    {
+        SetMonData(pokemon, MON_DATA_LEVEL, &level);
+        return TRUE;
+    }
+    return FALSE;
 }

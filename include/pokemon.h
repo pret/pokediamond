@@ -478,6 +478,27 @@ struct SomeDrawPokemonStruct
     u32 unkC;
 };
 
+struct PokeanmSub
+{
+    s8 unk0;
+    u8 unk1;
+};
+
+struct Pokeanm
+{
+    struct PokeanmSub unk0[4];
+    u8 unk8[20];
+};
+
+struct UnkStruct_02069038
+{
+    u16 unk0;
+    u16 unk2;
+    u8 unk4;
+    u8 padding;
+    struct Pokeanm anim;
+};
+
 void ZeroMonData(struct Pokemon * pokemon);
 void ZeroBoxMonData(struct BoxPokemon * boxmon);
 u32 SizeOfStructPokemon(void);

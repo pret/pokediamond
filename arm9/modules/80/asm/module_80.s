@@ -17443,7 +17443,7 @@ _02235FDE:
 	add r1, r7, #0
 	mov r2, #1
 	lsr r3, r3, #0x10
-	bl FUN_02069168
+	bl GetMonEvolution
 	str r0, [sp, #0x24]
 	cmp r0, #0
 	beq _02236052
@@ -17534,7 +17534,7 @@ _022360B6:
 	add r1, r7, #0
 	mov r2, #1
 	lsr r3, r3, #0x10
-	bl FUN_02069168
+	bl GetMonEvolution
 	str r0, [sp, #0x28]
 	cmp r0, #0
 	beq _02236118

@@ -5436,7 +5436,7 @@ _02071E5A:
 	str r0, [sp, #0x0]
 	ldrh r3, [r3, #0x24]
 	mov r0, #0x0
-	bl FUN_02069168
+	bl GetMonEvolution
 	ldr r1, _02071F1C ; =0x000005A4
 	ldr r2, [r5, r1]
 	strh r0, [r2, #0x38]

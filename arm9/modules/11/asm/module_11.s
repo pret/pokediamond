@@ -6911,7 +6911,7 @@ _02230D9C:
 	ldr r0, [r5, #4]
 	mov r2, #0
 	lsr r3, r3, #0x10
-	bl FUN_02069168
+	bl GetMonEvolution
 	str r0, [sp, #4]
 	cmp r0, #0
 	bne _02230DD0
