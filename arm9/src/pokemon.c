@@ -11,6 +11,7 @@
 #include "text.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
+#include "constants/moves.h"
 
 #pragma thumb on
 
@@ -25,6 +26,11 @@ u16 ModifyStatByNature(u8 nature, u16 statval, u8 statno);
 u8 GetGenderBySpeciesAndPersonality_PreloadedPersonal(struct BaseStats * personal, u16 species, u32 pid);
 u8 BoxMonIsShiny(struct BoxPokemon * boxmon);
 u8 CalcShininessByOtIdAndPersonality(u32 otid, u32 pid);
+void InitBoxMonMoveset(struct BoxPokemon * boxmon);
+u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move);
+void FUN_02069718(struct BoxPokemon * boxmon, u16 move);
+void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot);
+void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
 u32 MaskOfFlagNo(int flagno);
 void LoadMonPersonal(int species, struct BaseStats * personal);
 void LoadMonEvolutionTable(u16 species, struct Evolution * dest);
@@ -35,7 +41,6 @@ void MonEncryptSegment(void * datap, u32 size, u32 key);
 void MonDecryptSegment(void * datap, u32 size, u32 key);
 u16 MonEncryptionLCRNG(u32 * seed);
 u16 CalcMonChecksum(void * datap, u32 size);
-void InitBoxMonMoveset(struct BoxPokemon * boxmon);
 PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u32 which_struct);
 void LoadMonBaseStats_HandleAlternateForme(u32 species, u32 forme, struct BaseStats * baseStats);
 
@@ -2448,9 +2453,9 @@ u8 FUN_020690D4(struct BoxPokemon * boxmon)
     return GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
 }
 
-void FUN_020690E4(void)
+struct BoxPokemon * FUN_020690E4(struct Pokemon * pokemon)
 {
-
+    return &pokemon->box;
 }
 
 BOOL FUN_020690E8(struct Pokemon * pokemon)
@@ -2719,4 +2724,153 @@ u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 co
     }
     FreeToHeap(evoTable);
     return target;
+}
+
+u16 ReadFromPersonalPmsNarc(u16 species)
+{
+    u16 ret = SPECIES_NONE;
+    GF_ASSERT(species < SPECIES_EGG);
+    {
+    FSFile file;
+    FS_InitFile(&file);
+    FS_OpenFile(&file, "poketool/personal/pms.narc");
+    FS_SeekFile(&file, species * sizeof(u16), FS_SEEK_SET);
+    FS_ReadFile(&file, &ret, sizeof(u16));
+    FS_CloseFile(&file);
+    }
+    return ret;
+}
+
+u16 GetEggSpecies(u16 species)
+{
+    switch (species)
+    {
+    case SPECIES_SUDOWOODO:
+    case SPECIES_MARILL:
+    case SPECIES_MR_MIME:
+    case SPECIES_CHANSEY:
+    case SPECIES_SNORLAX:
+    case SPECIES_MANTINE:
+    case SPECIES_WOBBUFFET:
+    case SPECIES_ROSELIA:
+    case SPECIES_CHIMECHO:
+        return species;
+    default:
+        return ReadFromPersonalPmsNarc(species);
+    }
+}
+
+#define WOTBL_END           0xFFFF
+#define WOTBL_MOVE_MASK     0x01FF
+#define WOTBL_MOVE_SHIFT         0
+#define WOTBL_LVL_MASK      0xFE00
+#define WOTBL_LVL_SHIFT          9
+#define WOTBL_MOVE(x) (((x) & WOTBL_MOVE_MASK) >> WOTBL_MOVE_SHIFT)
+#define WOTBL_LVL(x) (((x) & WOTBL_LVL_MASK) >> WOTBL_LVL_SHIFT)
+
+void InitBoxMonMoveset(struct BoxPokemon * boxmon)
+{
+    BOOL decry;
+    u16 * wotbl;
+    int i;
+    u16 species;
+    u32 forme;
+    u8 level;
+    u16 move;
+    wotbl = AllocFromHeap(0, 22 * sizeof(u16));
+    decry = AcquireBoxMonLock(boxmon);
+    species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
+    forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+    level = CalcBoxMonLevel(boxmon);
+    LoadWotbl_HandleAlternateForme(species, forme, wotbl);
+    for (i = 0; wotbl[i] != WOTBL_END; i++)
+    {
+        if ((wotbl[i] & WOTBL_LVL_MASK) > (level << WOTBL_LVL_SHIFT))
+            break;
+        move = WOTBL_MOVE(wotbl[i]);
+        if (FUN_020696A8(boxmon, move) == 0xFFFF)
+            FUN_02069718(boxmon, move);
+    }
+    FreeToHeap(wotbl);
+    ReleaseBoxMonLock(boxmon, decry);
+}
+
+u32 FUN_02069698(struct Pokemon * pokemon, u16 move)
+{
+    return FUN_020696A8(FUN_020690E4(pokemon), move);
+}
+
+u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move)
+{
+    u32 ret = 0xFFFF;
+    int i;
+    BOOL decry = AcquireBoxMonLock(boxmon);
+    u16 cur_move;
+    for (i = 0; i < 4; i++)
+    {
+        cur_move = GetBoxMonData(boxmon, MON_DATA_MOVE1 + i, NULL);
+        if (cur_move == MOVE_NONE)
+        {
+            FUN_020697D4(boxmon, move, i);
+            ret = move;
+            break;
+        }
+        if (cur_move == move)
+        {
+            ret = 0xFFFE;
+            break;
+        }
+    }
+    ReleaseBoxMonLock(boxmon, decry);
+    return ret;
+}
+
+void FUN_02069708(struct Pokemon * pokemon, u16 move)
+{
+    FUN_02069718(FUN_020690E4(pokemon), move);
+}
+
+void FUN_02069718(struct BoxPokemon * boxmon, u16 move)
+{
+    BOOL decry = AcquireBoxMonLock(boxmon);
+    int i;
+    u16 moves[4];
+    u8 pp[4];
+    u8 ppUp[4];
+
+    for (i = 0; i < 3; i++)
+    {
+        moves[i] = GetBoxMonData(boxmon, MON_DATA_MOVE1 + i + 1, NULL);
+        pp[i] = GetBoxMonData(boxmon, MON_DATA_MOVE1PP + i + 1, NULL);
+        ppUp[i] = GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + i + 1, NULL);
+    }
+
+    moves[3] = move;
+    pp[3] = FUN_0206AB18(move, 5);
+    ppUp[3] = 0;
+
+    for (i = 0; i < 4; i++)
+    {
+        SetBoxMonData(boxmon, MON_DATA_MOVE1 + i, &moves[i]);
+        SetBoxMonData(boxmon, MON_DATA_MOVE1PP + i, &pp[i]);
+        SetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + i, &ppUp[i]);
+    }
+
+    ReleaseBoxMonLock(boxmon, decry);
+}
+
+void FUN_020697CC(struct Pokemon * pokemon, u16 move, u8 slot)
+{
+    FUN_020697D4(&pokemon->box, move, slot);
+}
+
+void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot)
+{
+    u8 ppUp;
+    u8 pp;
+
+    SetBoxMonData(boxmon, MON_DATA_MOVE1 + slot, &move);
+    ppUp = GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot, NULL);
+    pp = FUN_0206AB30(move, ppUp);
+    SetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot, &pp);
 }

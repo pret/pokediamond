@@ -2,5 +2,6 @@
 #define POKEDIAMOND_MOVE_DATA_H
 
 int FUN_0206AB30(u16 move, u8 ppUp);
+u32 FUN_0206AB18(u16 move, u32 attr);
 
 #endif //POKEDIAMOND_MOVE_DATA_H
