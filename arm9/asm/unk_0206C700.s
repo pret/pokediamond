@@ -2085,7 +2085,7 @@ _0206D854:
 	cmp r0, #0x0
 	beq _0206D86C
 	ldr r0, [r4, #0x24]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0x6
 	blt _0206D86E
 _0206D86C:

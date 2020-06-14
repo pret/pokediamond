@@ -253,7 +253,7 @@ FUN_02042000: ; 0x02042000
 	bl FUN_020394F0
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r5, #0x80
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -417,7 +417,7 @@ _02042170:
 	bl FUN_020394F0
 	add r1, r0, #0x0
 	add r0, r6, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	mov r2, #0x4

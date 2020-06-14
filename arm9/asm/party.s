@@ -153,13 +153,13 @@ _0206B992:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206B9AC
-FUN_0206B9AC: ; 0x0206B9AC
+	thumb_func_start GetPartyCount
+GetPartyCount: ; 0x0206B9AC
 	ldr r0, [r0, #0x4]
 	bx lr
 
-	thumb_func_start FUN_0206B9B0
-FUN_0206B9B0: ; 0x0206B9B0
+	thumb_func_start GetPartyMonByIndex
+GetPartyMonByIndex: ; 0x0206B9B0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0

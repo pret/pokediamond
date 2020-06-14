@@ -50,7 +50,7 @@ FUN_02050E48: ; 0x02050E48
 	ldr r0, [sp, #0x4]
 	strb r0, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r4, #0x13]
 	mov r0, #0x0
 	strh r0, [r4, #0x18]
@@ -957,7 +957,7 @@ _020515BA:
 	add r1, #0x84
 	ldrb r1, [r1, #0x0]
 	ldr r0, [r4, #0x50]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	bl FUN_020690E4
 	add r2, r0, #0x0
 	ldr r0, [r4, #0x28]
@@ -1482,7 +1482,7 @@ _02051A16:
 	ldrb r1, [r1, #0x0]
 	ldr r0, [sp, #0x0]
 	sub r1, r1, #0x1
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r4, #0x0
 	add r2, r6, #0x0
 	bl MI_CpuCopy8

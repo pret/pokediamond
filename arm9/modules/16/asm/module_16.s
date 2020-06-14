@@ -55018,7 +55018,7 @@ _021F0E5A:
 _021F0E68:
 	ldr r0, [sp, #0xc]
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	ldr r1, [sp, #8]
 	add r6, r0, #0
 	cmp r4, r1
@@ -55568,7 +55568,7 @@ _021F1276:
 _021F128E:
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	ldr r1, [sp, #8]
 	add r4, r0, #0
 	cmp r5, r1
@@ -55683,7 +55683,7 @@ _021F136A:
 _021F1382:
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	ldr r1, [sp, #8]
 	add r4, r0, #0
 	cmp r5, r1
@@ -62866,13 +62866,13 @@ _021F4A94:
 	bl MOD11_0222FF88
 	add r7, r0, #0
 	mov r5, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	ble _021F4AF2
 _021F4AA8:
 	add r0, r7, #0
 	add r1, r5, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0xa2
 	mov r2, #0
 	add r6, r0, #0
@@ -62900,7 +62900,7 @@ _021F4AA8:
 _021F4AE6:
 	add r0, r7, #0
 	add r5, r5, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r5, r0
 	blt _021F4AA8
 _021F4AF2:

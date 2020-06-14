@@ -14,7 +14,7 @@ FUN_0206439C: ; 0x0206439C
 	add r0, r6, #0x0
 	bl FUN_0206BB1C
 	add r1, r5, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [r4, #0x0]
 	mov r0, #0x0
 	str r0, [r4, #0x4]

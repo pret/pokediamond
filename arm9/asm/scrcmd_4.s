@@ -92,7 +92,7 @@ FUN_02040748: ; 0x02040748
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	add r1, r5, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r2, r0, #0x0
 	ldr r0, [r7, #0x0]
 	add r1, r4, #0x0
@@ -315,7 +315,7 @@ FUN_0204091C: ; 0x0204091C
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	add r1, r5, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r2, r0, #0x0
 	ldr r0, [r7, #0x0]
 	add r1, r4, #0x0
@@ -943,7 +943,7 @@ FUN_02040E4C: ; 0x02040E4C
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	ldr r1, [sp, #0x0]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, #0x36
 	add r1, r4, #0x0
 	mov r2, #0x0

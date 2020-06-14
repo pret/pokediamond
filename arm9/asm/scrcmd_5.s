@@ -75,7 +75,7 @@ FUN_020411C4: ; 0x020411C4
 	str r0, [sp, #0x0]
 	ldr r0, [r7, #0xc]
 	bl FUN_0206BB1C
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	ldr r0, _0204133C ; =0x00000000
@@ -87,7 +87,7 @@ _0204123C:
 	ldr r0, [r7, #0xc]
 	bl FUN_0206BB1C
 	add r1, r5, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x4c
 	mov r2, #0x0
 	add r4, r0, #0x0

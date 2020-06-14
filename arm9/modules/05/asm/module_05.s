@@ -3279,7 +3279,7 @@ MOD05_021D8FD0: ; 0x021D8FD0
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	add r0, r6, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r7, r0, #0
 	mov r4, #0
 	cmp r7, #0
@@ -3287,7 +3287,7 @@ MOD05_021D8FD0: ; 0x021D8FD0
 _021D8FF6:
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #5
 	add r2, r5, #0
 	bl MonApplyFriendshipMod
@@ -32853,7 +32853,7 @@ MOD05_021E72E8: ; 0x021E72E8
 	add r4, r1, #0
 	bl FUN_0206BB1C
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -43117,7 +43117,7 @@ MOD05_021EC4F0: ; 0x021EC4F0
 	add r6, r0, #0
 	str r1, [sp]
 	add r7, r3, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, r0, #0
 	add r0, r5, #0
 	bl FUN_02023C80
@@ -44679,7 +44679,7 @@ _021ED168:
 MOD05_021ED190: ; 0x021ED190
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r6, r0, #0
 	mov r4, #0
 	cmp r6, #0
@@ -44688,7 +44688,7 @@ MOD05_021ED190: ; 0x021ED190
 _021ED1A2:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r7, #0
 	mov r2, #0
 	bl GetMonData
@@ -44696,7 +44696,7 @@ _021ED1A2:
 	bne _021ED1D6
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0xa
 	mov r2, #0
 	bl GetMonData
@@ -45017,13 +45017,13 @@ _021ED3F8:
 	add r6, r0, #0
 	add r0, r7, #0
 	mov r5, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	bls _021ED490
 _021ED430:
 	add r0, r7, #0
 	add r1, r5, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x4c
 	mov r2, #0
 	add r4, r0, #0
@@ -45064,7 +45064,7 @@ _021ED47E:
 _021ED484:
 	add r0, r7, #0
 	add r5, r5, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r5, r0
 	blo _021ED430
 _021ED490:
@@ -45078,7 +45078,7 @@ _021ED498: .word 0x0000FFFF
 MOD05_021ED49C: ; 0x021ED49C
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r6, r0, #0
 	mov r5, #0
 	cmp r6, #0
@@ -45086,7 +45086,7 @@ MOD05_021ED49C: ; 0x021ED49C
 _021ED4AC:
 	add r0, r7, #0
 	add r1, r5, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x4c
 	mov r2, #0
 	add r4, r0, #0
@@ -45222,7 +45222,7 @@ _021ED5B4:
 MOD05_021ED5C4: ; 0x021ED5C4
 	push {r3, r4, r5, lr}
 	add r5, r2, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, r0, #0
 	bl FUN_020690E4
 	add r2, r0, #0
@@ -58275,7 +58275,7 @@ MOD05_021F3A18: ; 0x021F3A18
 	add r5, r1, #0
 	bl FUN_0206BB1C
 	add r1, r5, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #5
 	mov r2, #0
 	str r0, [sp]
@@ -58344,7 +58344,7 @@ MOD05_021F3AB4: ; 0x021F3AB4
 	add r5, r1, #0
 	bl FUN_0206BB1C
 	add r1, r5, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	bl MOD05_021F38CC
 	add r1, sp, #0
 	strh r0, [r1]
@@ -58440,7 +58440,7 @@ MOD05_021F3B7C: ; 0x021F3B7C
 	add r7, r1, #0
 	bl FUN_0206BB1C
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r6, r0, #0
@@ -62943,7 +62943,7 @@ _021F5CBA:
 	bne _021F5D10
 	ldr r0, [r0, #8]
 	mov r1, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	ldr r2, [r5, #4]
 	add r3, r0, #0
 	lsl r2, r2, #0x10

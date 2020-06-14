@@ -649,19 +649,19 @@ FUN_02047BC0: ; 0x02047BC0
 	bl AllocMonZeroed
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x14]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r1, r0, #0x0
 	ldr r0, [r6, #0x4]
 	bl FUN_0206B8CC
 	ldr r0, [sp, #0x14]
 	mov r4, #0x0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0x0
 	ble _02047C98
 _02047C40:
 	ldr r0, [sp, #0x14]
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r5, #0x0
 	bl FUN_02069B88
 	add r0, r5, #0x0
@@ -692,7 +692,7 @@ _02047C82:
 	bl FUN_020479FC
 	ldr r0, [sp, #0x14]
 	add r4, r4, #0x1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	blt _02047C40
 _02047C98:
@@ -856,7 +856,7 @@ _02047DEE:
 	ldrb r1, [r7, r6]
 	ldr r0, [sp, #0x4]
 	sub r1, r1, #0x1
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	ldr r1, [sp, #0x8]
 	bl FUN_02069B88
 	ldr r1, [sp, #0x8]

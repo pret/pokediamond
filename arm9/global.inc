@@ -4862,8 +4862,8 @@
 .extern FUN_0206B8CC
 .extern FUN_0206B900
 .extern FUN_0206B938
-.extern FUN_0206B9AC
-.extern FUN_0206B9B0
+.extern GetPartyCount
+.extern GetPartyMonByIndex
 .extern FUN_0206B9DC
 .extern FUN_0206BA38
 .extern FUN_0206BAD0

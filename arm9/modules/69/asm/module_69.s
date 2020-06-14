@@ -50,7 +50,7 @@ MOD69_0222D5C0: ; 0x0222D5C0
 	str r0, [r4, #4]
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #4]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r6, r0, #0
 	mov r5, #0
 	cmp r6, #0
@@ -61,7 +61,7 @@ _0222D63A:
 	ldr r0, [r4, #0xc]
 	add r1, r5, #0
 	ldr r0, [r0, #4]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x4c
 	mov r2, #0
 	bl GetMonData
@@ -1224,7 +1224,7 @@ _0222DF98:
 	lsl r1, r1, #2
 	ldr r0, [r0, #4]
 	ldr r1, [r5, r1]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [sp, #0x2c]
 	ldr r1, [sp, #0x2c]
 	add r0, sp, #0xc4
@@ -2281,7 +2281,7 @@ _0222E860:
 	lsl r1, r1, #2
 	ldr r0, [r0, #4]
 	ldr r1, [r2, r1]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [r4, #0x24]
 	ldr r0, [r5, #0xc]
 	mov r2, #0

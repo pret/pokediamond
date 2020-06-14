@@ -175,7 +175,7 @@ FUN_0205FB34: ; 0x0205FB34
 	ldrb r0, [r6, #0xd]
 	strb r0, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r4, #0x13]
 	mov r0, #0x0
 	strh r0, [r4, #0x18]

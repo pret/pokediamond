@@ -58,7 +58,7 @@ _0202B07E:
 	add r0, r0, r2
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x4]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	str r0, [sp, #0x10]
 	mov r0, #0xb
 	mov r1, #0x0
@@ -77,7 +77,7 @@ _0202B07E:
 _0202B0BA:
 	ldr r0, [sp, #0x4]
 	add r1, r7, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, r0, #0x0
 	bl AcquireMonLock
 	str r0, [sp, #0xc]

@@ -212,7 +212,7 @@ MOD56_02211F88: ; 0x02211F88
 	ldr r0, [r0]
 	bl FUN_0206BB1C
 	str r0, [sp]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	mov r5, #0
 	add r7, r0, #0
 	add r4, r5, #0
@@ -221,7 +221,7 @@ MOD56_02211F88: ; 0x02211F88
 _02211FA2:
 	ldr r0, [sp]
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0xa2
 	mov r2, #0
 	add r6, r0, #0
@@ -1992,7 +1992,7 @@ MOD56_02212E0C: ; 0x02212E0C
 	bl FUN_02029AFC
 	str r0, [sp, #8]
 	ldr r0, [sp, #0xc]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	mov r6, #0
 	str r0, [sp, #4]
 	cmp r0, #0
@@ -2001,7 +2001,7 @@ MOD56_02212E0C: ; 0x02212E0C
 _02212E52:
 	ldr r0, [sp, #0xc]
 	add r1, r6, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r7, r0, #0

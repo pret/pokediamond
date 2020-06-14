@@ -3953,7 +3953,7 @@ FUN_0203B8A0: ; 0x0203B8A0
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r6, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	bl FUN_020690CC
 	strh r0, [r4, #0x0]
 	mov r0, #0x0
@@ -4602,7 +4602,7 @@ FUN_0203BDB8: ; 0x0203BDB8
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, r0, #0x0
 	mov r0, #0x0
 	str r0, [sp, #0x0]
@@ -5526,7 +5526,7 @@ FUN_0203C520: ; 0x0203C520
 	ldr r0, [r4, #0xc]
 	bl FUN_0206BB1C
 	add r1, r6, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x74
 	add r2, sp, #0xc
 	add r7, r0, #0x0
@@ -6063,7 +6063,7 @@ FUN_0203C990: ; 0x0203C990
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r6, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -10081,7 +10081,7 @@ FUN_0203E9CC: ; 0x0203E9CC
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r5, r0, #0x0
 	mov r1, #0xd
 	mov r2, #0x0
@@ -10193,7 +10193,7 @@ FUN_0203EAB0: ; 0x0203EAB0
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r7, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x5
 	mov r2, #0x0
 	bl GetMonData
@@ -10703,7 +10703,7 @@ FUN_0203EED8: ; 0x0203EED8
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	str r0, [sp, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r4, #0x80
 	add r6, r0, #0x0
 	ldr r0, [r4, #0x0]
@@ -10716,7 +10716,7 @@ FUN_0203EED8: ; 0x0203EED8
 _0203EF18:
 	ldr r0, [sp, #0x0]
 	add r1, r5, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x5
 	mov r2, #0x0
 	add r4, r0, #0x0
@@ -10761,7 +10761,7 @@ FUN_0203EF58: ; 0x0203EF58
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	str r0, [sp, #0xc]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r2, sp, #0x18
 	mov r4, #0x0
 	ldr r3, _0203F008 ; =UNK_020F34FC
@@ -10782,7 +10782,7 @@ FUN_0203EF58: ; 0x0203EF58
 _0203EFA2:
 	ldr r0, [sp, #0xc]
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r6, r0, #0x0
 	mov r1, #0x5
 	mov r2, #0x0

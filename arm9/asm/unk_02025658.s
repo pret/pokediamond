@@ -109,14 +109,14 @@ FUN_020256DC: ; 0x020256DC
 	str r0, [r5, #0x0]
 	ldr r0, [sp, #0x0]
 	mov r6, #0x0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	bge _020257AE
 	add r5, #0x18
 _0202572A:
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x5
 	mov r2, #0x0
 	add r7, r0, #0x0
@@ -170,7 +170,7 @@ _0202572A:
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	ldr r0, [sp, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	blt _0202572A
 _020257AE:

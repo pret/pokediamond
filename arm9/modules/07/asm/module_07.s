@@ -2305,7 +2305,7 @@ MOD07_02213104: ; 0x02213104
 	str r1, [sp]
 	str r2, [sp, #4]
 	add r7, r3, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
@@ -2329,7 +2329,7 @@ _0221312A:
 	bls _022131B0
 	ldr r0, [sp]
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #5
 	mov r2, #0
 	add r7, r0, #0
@@ -3643,7 +3643,7 @@ MOD07_02213BEC: ; 0x02213BEC
 	add r0, r1, #0
 	str r1, [sp]
 	add r5, r2, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #8]
@@ -3672,7 +3672,7 @@ _02213C0C:
 _02213C2E:
 	ldr r0, [sp]
 	add r1, r6, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x18
 	add r2, r6, #0
 	mul r2, r1
@@ -4488,13 +4488,13 @@ MOD07_0221428C: ; 0x0221428C
 	bhs _022142B4
 	ldr r0, [r0, #4]
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [sp, #0x18]
 	b _022142BE
 _022142B4:
 	ldr r0, [r0, #0xc]
 	sub r1, r4, #3
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [sp, #0x18]
 _022142BE:
 	add r1, r4, #0

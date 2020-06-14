@@ -573,7 +573,7 @@ _02085DDC:
 	ldr r0, [r6, #0x10]
 	bl FUN_0206BB1C
 	str r0, [r7, #0x1c]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	mov r4, #0x0
 	str r0, [sp, #0x0]
 	str r0, [r7, #0x0]
@@ -583,7 +583,7 @@ _02085DDC:
 _02085E0A:
 	ldr r0, [r7, #0x1c]
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [r5, #0x4]
 	ldr r0, [sp, #0x0]
 	add r4, r4, #0x1

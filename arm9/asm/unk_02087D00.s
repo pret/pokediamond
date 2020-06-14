@@ -446,7 +446,7 @@ _02087FFE:
 	strb r0, [r4, #0x11]
 	strb r6, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r4, #0x13]
 	mov r1, #0x0
 	strh r1, [r4, #0x18]
@@ -540,7 +540,7 @@ FUN_020880A0: ; 0x020880A0
 	ldr r0, [r5, #0xc]
 	ldrb r1, [r5, #0x8]
 	ldr r0, [r0, #0x10]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x18]
@@ -608,7 +608,7 @@ FUN_02088130: ; 0x02088130
 	ldrb r0, [r5, #0x8]
 	strb r0, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r4, #0x13]
 	mov r1, #0x0
 	strh r1, [r4, #0x18]

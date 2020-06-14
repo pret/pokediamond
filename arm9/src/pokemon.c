@@ -1,6 +1,7 @@
 #include "global.h"
 #define IN_POKEMON_C
 #include "proto.h"
+#include "party.h"
 #include "pokemon.h"
 #include "filesystem.h"
 #include "heap.h"
@@ -12,6 +13,7 @@
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "constants/sinnoh_dex.h"
 
 #pragma thumb on
 
@@ -30,6 +32,10 @@ void InitBoxMonMoveset(struct BoxPokemon * boxmon);
 u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move);
 void FUN_02069718(struct BoxPokemon * boxmon, u16 move);
 void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot);
+void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2);
+s8 FUN_02069BD0(struct BoxPokemon * boxmon, int flavor);
+s8 FUN_02069BE4(u32 personality, int flavor);
+u8 FUN_02069CF4(struct PlayerParty * party_p, u8 mask);
 void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
 u32 MaskOfFlagNo(int flagno);
 void LoadMonPersonal(int species, struct BaseStats * personal);
@@ -2873,4 +2879,262 @@ void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot)
     ppUp = GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot, NULL);
     pp = FUN_0206AB30(move, ppUp);
     SetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot, &pp);
+}
+
+u32 FUN_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
+{
+    u32 ret = 0;
+    u16 * wotbl = AllocFromHeap(0, 22 * sizeof(u16));
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    u32 forme = GetMonData(pokemon, MON_DATA_FORME, NULL);
+    u8 level = GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+    LoadWotbl_HandleAlternateForme(species, forme, wotbl);
+
+
+    if (wotbl[*r5] == 0xFFFF)
+    {
+        FreeToHeap(wotbl);
+        return 0;
+    }
+    while ((wotbl[*r5] & WOTBL_LVL_MASK) != (level << WOTBL_LVL_SHIFT))
+    {
+        (*r5)++;
+        if (wotbl[*r5] == 0xFFFF)
+        {
+            FreeToHeap(wotbl);
+            return 0;
+        }
+    }
+    if ((wotbl[*r5] & WOTBL_LVL_MASK) == (level << WOTBL_LVL_SHIFT))
+    {
+        *sp0 = WOTBL_MOVE(wotbl[*r5]);
+        (*r5)++;
+        ret = FUN_02069698(pokemon, *sp0);
+    }
+    FreeToHeap(wotbl);
+    return ret;
+}
+
+void FUN_020698E0(struct Pokemon * pokemon, int slot1, int slot2)
+{
+    FUN_020698E8(&pokemon->box, slot1, slot2);
+}
+
+void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2)
+{
+    u16 moves[2];
+    u8 pp[2];
+    u8 ppUp[2];
+
+    moves[0] = GetBoxMonData(boxmon, MON_DATA_MOVE1 + slot1, NULL);
+    pp[0] = GetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot1, NULL);
+    ppUp[0] = GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot1, NULL);
+    moves[1] = GetBoxMonData(boxmon, MON_DATA_MOVE1 + slot2, NULL);
+    pp[1] = GetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot2, NULL);
+    ppUp[1] = GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot2, NULL);
+
+    SetBoxMonData(boxmon, MON_DATA_MOVE1 + slot1, &moves[1]);
+    SetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot1, &pp[1]);
+    SetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot1, &ppUp[1]);
+    SetBoxMonData(boxmon, MON_DATA_MOVE1 + slot2, &moves[0]);
+    SetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot2, &pp[0]);
+    SetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot2, &ppUp[0]);
+}
+
+void FUN_020699A4(struct Pokemon * pokemon, u32 slot)
+{
+    u16 move;
+    u8 pp;
+    u8 ppUp;
+    for (; slot < 3; slot++)
+    {
+        move = GetMonData(pokemon, MON_DATA_MOVE1 + slot + 1, NULL);
+        pp = GetMonData(pokemon, MON_DATA_MOVE1PP + slot + 1, NULL);
+        ppUp = GetMonData(pokemon, MON_DATA_MOVE1PPUP + slot + 1, NULL);
+        SetMonData(pokemon, MON_DATA_MOVE1 + slot, &move);
+        SetMonData(pokemon, MON_DATA_MOVE1PP + slot, &pp);
+        SetMonData(pokemon, MON_DATA_MOVE1PPUP + slot, &ppUp);
+    }
+    move = MOVE_NONE;
+    pp = 0;
+    ppUp = 0;
+    SetMonData(pokemon, MON_DATA_MOVE1 + 3, &move);
+    SetMonData(pokemon, MON_DATA_MOVE1PP + 3, &pp);
+    SetMonData(pokemon, MON_DATA_MOVE1PPUP + 3, &ppUp);
+}
+
+BOOL MonHasMove(struct Pokemon * pokemon, u16 move)
+{
+    int i;
+    for (i = 0; i < 4; i++)
+    {
+        if (GetMonData(pokemon, MON_DATA_MOVE1 + i, NULL) == move)
+            break;
+    }
+    if (i != 4)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+void FUN_02069A64(struct BoxPokemon * src, struct Pokemon * dest)
+{
+    u32 sp0 = 0;
+    u8 sp4[12][2];
+    struct SealStruct * seals;
+    dest->box = *src;
+    if (dest->box.box_lock)
+        dest->box.party_lock = TRUE;
+    SetMonData(dest, MON_DATA_STATUS, &sp0);
+    SetMonData(dest, MON_DATA_HP, &sp0);
+    SetMonData(dest, MON_DATA_MAXHP, &sp0);
+    seals = CreateNewSealsObject(0);
+    SetMonData(dest, MON_DATA_SEAL_STRUCT, seals);
+    FreeToHeap(seals);
+    SetMonData(dest, MON_DATA_CAPSULE, &sp0);
+    MIi_CpuClearFast(0, sp4, sizeof(sp4));
+    SetMonData(dest, MON_DATA_SEAL_COORDS, sp4);
+    CalcMonLevelAndStats(dest);
+}
+
+u8 FUN_02069AEC(struct PlayerParty * party)
+{
+    int i;
+    int r7 = GetPartyCount(party);
+    u8 ret = 1;
+    u8 level;
+    for (i = 0; i < r7; i++)
+    {
+        struct Pokemon * pokemon = GetPartyMonByIndex(party, i);
+        if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE
+         && !GetMonData(pokemon, MON_DATA_IS_EGG, NULL))
+        {
+            level = GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+            if (level > ret)
+                ret = level;
+        }
+    }
+    return ret;
+}
+
+u16 FUN_02069B40(u16 species)
+{
+    u16 ret;
+    ReadFromNarcMemberByIdPair(&ret, NARC_POKETOOL_POKEZUKAN, 0, species * sizeof(u16), sizeof(u16));
+    return ret;
+}
+
+u16 FUN_02069B60(u16 sinnoh_dex)
+{
+    u16 ret = SPECIES_NONE;
+    if (sinnoh_dex <= SINNOH_DEX_COUNT)
+        ReadFromNarcMemberByIdPair(&ret, NARC_POKETOOL_SHINZUKAN, 0, sinnoh_dex * sizeof(u16), sizeof(u16));
+    return ret;
+}
+
+void FUN_02069B88(struct Pokemon * src, struct Pokemon * dest)
+{
+    *dest = *src;
+}
+
+void FUN_02069BA0(struct Pokemon * src, struct BoxPokemon * dest)
+{
+    *dest = src->box;
+}
+
+void FUN_02069BB4(struct BoxPokemon * src, struct BoxPokemon * dest)
+{
+    *dest = *src;
+}
+
+s8 FUN_02069BC8(struct Pokemon * pokemon, int flavor)
+{
+    return FUN_02069BD0(&pokemon->box, flavor);
+}
+
+s8 FUN_02069BD0(struct BoxPokemon * boxmon, int flavor)
+{
+    u32 personality = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
+    return FUN_02069BE4(personality, flavor);
+}
+
+s8 FUN_02069BE4(u32 personality, int flavor)
+{
+    return UNK_020F7F16[GetNatureFromPersonality(personality)][flavor];
+}
+
+int FUN_02069BFC(u16 species, u32 forme, u16 * dest)
+{
+    int i;
+    u16 * wotbl = AllocFromHeap(0, 22 * sizeof(u16));
+    LoadWotbl_HandleAlternateForme(species, forme, wotbl);
+    for (i = 0; wotbl[i] != WOTBL_END; i++)
+    {
+        dest[i] = WOTBL_MOVE(wotbl[i]);
+    }
+    FreeToHeap(wotbl);
+    return i;
+}
+
+void FUN_02069C4C(struct PlayerParty * party)
+{
+    int count = GetPartyCount(party);
+    int idx;
+    struct Pokemon * pokemon;
+    u8 sp0;
+    switch (rand_LC())
+    {
+    case 0x4000:
+    case 0x8000:
+    case 0xC000:
+        do
+        {
+            idx = rand_LC() % count;
+            pokemon = GetPartyMonByIndex(party, idx);
+        } while (GetMonData(pokemon, MON_DATA_SPECIES, NULL) == SPECIES_NONE || GetMonData(pokemon, MON_DATA_IS_EGG, NULL));
+        if (!FUN_02069CF4(party, MaskOfFlagNo(idx)))
+        {
+            do
+            {
+                sp0 = rand_LC();
+            } while (!(sp0 & 7));
+            if (sp0 & 0xF0)
+                sp0 &= 7;
+            sp0 |= sp0 << 4;
+            sp0 &= 0xF3;
+            sp0++;
+            SetMonData(pokemon, MON_DATA_POKERUS, &sp0);
+        }
+    }
+}
+
+u8 FUN_02069CF4(struct PlayerParty * party, u8 mask)
+{
+    int i = 0;
+    u32 flag = 1;
+    u8 ret = 0;
+    struct Pokemon * pokemon;
+    if (mask != 0)
+    {
+        do
+        {
+            if (mask & 1)
+            {
+                pokemon = GetPartyMonByIndex(party, i);
+                if (GetMonData(pokemon, MON_DATA_POKERUS, NULL))
+                    ret |= flag;
+            }
+            i++;
+            flag <<= 1;
+            mask >>= 1;
+        }
+        while (mask != 0);
+    }
+    else
+    {
+        pokemon = GetPartyMonByIndex(party, 0);
+        if (GetMonData(pokemon, MON_DATA_POKERUS, NULL))
+            ret++;
+    }
+    return ret;
 }

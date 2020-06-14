@@ -17,6 +17,5 @@ u32 GetArceusTypeByPlate(u16 plate);
 int FUN_02014C3C(u8);
 void FUN_02014C54(int, int, struct UnkStruct_02069038 *, u8);
 u32 IsNighttime(void); // is day or night
-u32 PartyHasMon(struct PlayerParty *, u16);
 
 #endif //POKEDIAMOND_PROTO_H

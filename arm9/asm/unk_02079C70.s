@@ -3169,7 +3169,7 @@ _0207B588:
 _0207B58E:
 	ldr r0, [r1, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x5
 	mov r2, #0x0
 	add r6, r0, #0x0
@@ -3269,7 +3269,7 @@ _0207B640:
 _0207B64E:
 	ldrb r1, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	pop {r4, pc}
 _0207B658:
 	bl FUN_020690C8

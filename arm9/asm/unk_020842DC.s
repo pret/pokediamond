@@ -616,7 +616,7 @@ FUN_020847F8: ; 0x020847F8
 	add r5, r1, #0x0
 	add r1, r2, #0x0
 	add r4, r3, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	ldr r3, [sp, #0x10]
 	add r1, r5, #0x0
 	add r2, r4, #0x0
@@ -1320,7 +1320,7 @@ FUN_02084DD0: ; 0x02084DD0
 	add r5, r1, #0x0
 	add r1, r2, #0x0
 	add r4, r3, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	ldr r1, [sp, #0x14]
 	add r3, sp, #0x0
 	str r1, [sp, #0x0]
@@ -1787,7 +1787,7 @@ FUN_02085140: ; 0x02085140
 	push {r4-r7, lr}
 	sub sp, #0xc
 	str r0, [sp, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	mov r7, #0x0
 	str r0, [sp, #0x4]
 	cmp r0, #0x0
@@ -1796,7 +1796,7 @@ FUN_02085140: ; 0x02085140
 _02085154:
 	ldr r0, [sp, #0x0]
 	add r1, r7, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0xab
 	mov r2, #0x0
 	add r5, r0, #0x0

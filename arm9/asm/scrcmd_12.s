@@ -284,7 +284,7 @@ FUN_02042F10: ; 0x02042F10
 	push {r3, lr}
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0x6
 	bge _02042F24
 	mov r0, #0x1

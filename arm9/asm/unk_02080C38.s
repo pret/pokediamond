@@ -108,7 +108,7 @@ _02080CB4:
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	mov r1, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_020377AC

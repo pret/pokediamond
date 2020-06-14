@@ -537,15 +537,6 @@ struct Evolution
     u16 target;
 };
 
-#define PARTY_SIZE 6
-
-struct PlayerParty
-{
-    u32 maxCount;
-    u32 curCount;
-    struct Pokemon mons[PARTY_SIZE];
-};
-
 void ZeroMonData(struct Pokemon * pokemon);
 void ZeroBoxMonData(struct BoxPokemon * boxmon);
 u32 SizeOfStructPokemon(void);

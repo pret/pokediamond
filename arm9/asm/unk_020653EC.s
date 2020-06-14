@@ -1810,7 +1810,7 @@ FUN_020661F8: ; 0x020661F8
 	bl FUN_020377AC
 	bl FUN_0206BB1C
 	add r1, r7, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r2, r0, #0x0
 	mov r0, #0x6b
 	lsl r0, r0, #0x2
