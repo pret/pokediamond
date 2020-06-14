@@ -49,7 +49,6 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_LOCK_ID_FLAG_MAIN    (HW_MAIN_MEM + 0x007fffb0)
 #define HW_SHARED_LOCK_BUF      (HW_MAIN_MEM + 0x007fffc0)
 #define HW_CARD_LOCK_BUF        (HW_MAIN_MEM + 0x007fffe0)
-#define HW_CTRDG_LOCK_BUF       (HW_MAIN_MEM + 0x007fffe8)
 
 #define HW_BUTTON_XY_BUF        (HW_MAIN_MEM + 0x007fffa8)
 
