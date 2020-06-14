@@ -1,7 +1,6 @@
 #include "function_target.h"
 #include "OS_system.h"
-
-extern void FUN_037F8CB4(s32 count);
+#include "OS_spinLock.h"
 
 ARM_FUNC asm OSIntrMode OS_EnableInterrupts(void)
 {

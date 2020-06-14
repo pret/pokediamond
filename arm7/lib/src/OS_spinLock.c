@@ -1,52 +1,37 @@
-//
-// Created by red031000 on 2020-05-21.
-//
-
+#include "function_target.h"
 #include "OS_spinLock.h"
 #include "OS_system.h"
-#include "function_target.h"
-#include "consts.h"
-#include "MI_exMemory.h"
-
-extern void MIi_CpuClear32(u32 param1, void * addr, u32 length); //not too sure about names
-extern u32 MI_SwapWord(u32 data, volatile u32* destp);
+#include "MI_swap.h"
 
 ARM_FUNC void OS_InitLock(void)
 {
     static BOOL isInitialized = FALSE;
 
     if (isInitialized)
-    {
         return;
-    }
     isInitialized = TRUE;
 
-    OSLockWord* lockp = (OSLockWord *)HW_INIT_LOCK_BUF;
+    OSLockWord *lockp = (OSLockWord *)HW_INIT_LOCK_BUF;
 
-    lockp->lockFlag = 0;
-
-    (void)OS_TryLockByWord(0x7e, lockp, NULL);
-
-    while (lockp->extension)
+    lockp->extension = 0;
+    while (lockp->ownerID != 0x7f)
     {
         OSi_WaitByLoop();
     }
 
-    ((u32 *)HW_LOCK_ID_FLAG_MAIN)[0] = 0xffffffff;
-    ((u32 *)HW_LOCK_ID_FLAG_MAIN)[1] = 0xffff0000;
+    ((u32 *)HW_LOCK_ID_FLAG_SUB)[0] = 0xffffffff;
+    ((u32 *)HW_LOCK_ID_FLAG_SUB)[1] = 0xffff0000;
 
-    MIi_CpuClear32(0x0, (void *)HW_SHARED_LOCK_BUF, 0x28);
+    lockp->extension = 0xbf;
+}
 
-    MIi_SetCardProcessor(MI_PROCESSOR_ARM7);
-
-    MIi_SetCartridgeProcessor(MI_PROCESSOR_ARM7);
-
-    (void)OS_UnlockByWord(0x7e, lockp, NULL);
-    (void)OS_TryLockByWord(0x7f, lockp, NULL);
+ARM_FUNC void FUN_037F8CB4(s32 ct)
+{
+    SVC_WaitByLoop((u32)ct); //todo this should be linker generated, figure out why it broke
 }
 
 ARM_FUNC s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void),
-                                     BOOL disableFiq)
+                              BOOL disableFiq)
 {
     s32 lastLockFlag;
     while ((lastLockFlag = OSi_DoTryLockByWord(lockId, lockp, ctrlFuncp, disableFiq)) > 0) {
@@ -56,13 +41,8 @@ ARM_FUNC s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (
     return lastLockFlag;
 }
 
-ARM_FUNC s32 OS_TryLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void))
-{
-    return OSi_DoLockByWord(lockId, lockp, ctrlFuncp, FALSE);
-}
-
 ARM_FUNC s32 OSi_DoUnlockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void),
-                                        BOOL disableFIQ)
+                                BOOL disableFIQ)
 {
     if (lockID != lockp->ownerID)
     {
@@ -87,17 +67,12 @@ ARM_FUNC s32 OSi_DoUnlockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp)
     return 0;
 }
 
-ARM_FUNC s32 OS_UnlockByWord(u16 lockID, OSLockWord* lockp, void (*ctrlFuncp) (void))
-{
-    return OSi_DoUnlockByWord(lockID, lockp, ctrlFuncp, FALSE);
-}
-
 ARM_FUNC s32 OSi_DoTryLockByWord(u16 lockID, OSLockWord *lockp, void (*ctrlFuncp) (void),
-        BOOL disableFiq)
+                                 BOOL disableFiq)
 {
     OSIntrMode lastIntrMode = (disableFiq) ? OS_DisableInterrupts_IrqAndFiq() : OS_DisableInterrupts();
 
-    s32 lastLockFlag = (s32)MI_SwapWord(lockID, &lockp->lockFlag);
+    s32 lastLockFlag = (s32)MI_SwapWord(lockID, (u32 *)&lockp->lockFlag);
 
     if (!lastLockFlag)
     {
@@ -137,32 +112,12 @@ ARM_FUNC s32 OS_TryLockCartridge(u16 lockID)
 
 ARM_FUNC void OSi_AllocateCartridgeBus(void)
 {
-    MIi_SetCartridgeProcessor(MI_PROCESSOR_ARM9);
+    //noop
 }
 
 ARM_FUNC void OSi_FreeCartridgeBus(void)
 {
-    MIi_SetCartridgeProcessor(MI_PROCESSOR_ARM7);
-}
-
-ARM_FUNC s32 OS_TryLockCard(u16 lockID)
-{
-    return OS_TryLockByWord(lockID, (OSLockWord *)HW_CARD_LOCK_BUF, OSi_AllocateCardBus);
-}
-
-ARM_FUNC s32 OS_UnlockCard(u16 lockID)
-{
-    return OS_UnlockByWord(lockID, (OSLockWord *)HW_CARD_LOCK_BUF, OSi_FreeCardBus);
-}
-
-ARM_FUNC void OSi_AllocateCardBus(void)
-{
-    MIi_SetCardProcessor(MI_PROCESSOR_ARM9);
-}
-
-ARM_FUNC void OSi_FreeCardBus(void)
-{
-    MIi_SetCardProcessor(MI_PROCESSOR_ARM7);
+    //noop
 }
 
 ARM_FUNC u16 OS_ReadOwnerOfLockWord(OSLockWord * lock)
@@ -178,36 +133,56 @@ ARM_FUNC asm s32 OS_UnLockCartridge(u16 lockID)
 
 ARM_FUNC asm s32 OS_GetLockID(void)
 {
-    ldr r3, =HW_LOCK_ID_FLAG_MAIN
-    ldr r1, [r3, #0x0]
-    clz r2, r1
-    cmp r2, #0x20
-    movne r0, #0x40
-    bne _020CA0D4
-    add r3, r3, #0x4
-    ldr r1, [r3, #0x0]
-    clz r2, r1
-    cmp r2, #0x20
-    ldr r0, =0xFFFFFFFD
-    bxeq lr
-    mov r0, #0x60
-_020CA0D4:
-    add r0, r0, r2
-    mov r1, #0x80000000
-    mov r1, r1, lsr r2
-    ldr r2, [r3, #0x0]
-    bic r2, r2, r1
-    str r2, [r3, #0x0]
-    bx lr
+    ldr	r3, =HW_LOCK_ID_FLAG_SUB
+    ldr	r1, [r3]
+    mov	r2, #0
+    mov	r0, #0x80000000
+_037F8A34:
+    tst	r1, r0
+    bne	_037F8A50
+    add	r2, r2, #1
+    cmp	r2, #32
+    beq	_037F8A50
+    mov	r0, r0, lsr #1
+    b	_037F8A34
+_037F8A50:
+    cmp	r2, #32
+    movne	r0, #0x80
+    bne	_037F8A98
+    add	r3, r3, #4
+    ldr	r1, [r3]
+    mov	r2, #0
+    mov	r0, #0x80000000
+_037F8A6C:
+    tst	r1, r0
+    bne	_037F8A88
+    add	r2, r2, #1
+    cmp	r2, #32
+    beq	_037F8A88
+    mov	r0, r0, lsr #1
+    b	_037F8A6C
+_037F8A88:
+    cmp	r2, #32
+    ldr	r0, =0xFFFFFFFD
+    bxeq	lr
+    mov	r0, #160
+_037F8A98:
+    add	r0, r0, r2
+    mov	r1, #0x80000000
+    mov	r1, r1, lsr r2
+    ldr	r2, [r3]
+    bic	r2, r2, r1
+    str	r2, [r3]
+    bx	lr
 }
 
 ARM_FUNC asm void OS_ReleaseLockID(register u16 lockID)
 {
-    ldr r3, =HW_LOCK_ID_FLAG_MAIN
-    cmp r0, #0x60
+    ldr r3, =HW_LOCK_ID_FLAG_SUB
+    cmp r0, #0xa0
     addpl r3, r3, #0x4
-    subpl r0, r0, #0x60
-    submi r0, r0, #0x40
+    subpl r0, r0, #0xa0
+    submi r0, r0, #0x80
     mov r1, #0x80000000
     mov r1, r1, lsr r0
     ldr r2, [r3, #0x0]
