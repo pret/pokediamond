@@ -944,8 +944,9 @@ ARM_FUNC s32 OS_VSNPrintf(s8 *buffer, s32 bufsz, const s8 *format, void *args)
                         *va_arg(args, s32 *) = count;
                     }
                 }
-                ++format;
             }
+            ++s;
+            break;
             case '%':
                 if (p_start + 1 != s)
                     goto put_invalid;
@@ -970,13 +971,13 @@ ARM_FUNC s32 OS_VSNPrintf(s8 *buffer, s32 bufsz, const s8 *format, void *args)
                 {
                     flag &= ~zero;
                 }
-                if (precision >= 0)
+                if (precision < 0)
                 {
-                    flag &= ~zero;
+                    precision = 1;
                 }
                 else
                 {
-                    precision = 1;
+                    flag &= ~zero;
                 }
                 if (flag & usigned)
                 {
@@ -1054,7 +1055,7 @@ ARM_FUNC s32 OS_VSNPrintf(s8 *buffer, s32 bufsz, const s8 *format, void *args)
                             }
                             break;
                         case 10:
-                            if (value >> 32 == 0) {
+                            if ((value >> 32) == 0) {
                                 u32 v = (u32) value;
                                 while (v) {
                                     u32 div10 = v / 10;
@@ -1086,54 +1087,54 @@ ARM_FUNC s32 OS_VSNPrintf(s8 *buffer, s32 bufsz, const s8 *format, void *args)
                         }
                     }
                 }
-                    goto put_to_stream;
+            }
+            goto put_to_stream;
 
-                    put_to_stream:
+        put_to_stream:
+            {
+                s32 n_pad = (s32)(precision - n_buf);
+                if (flag & zero)
+                {
+                    if (n_pad < width - n_buf - n_prefix)
                     {
-                        s32 n_pad = (s32)(precision - n_buf);
-                        if (flag & zero)
-                        {
-                            if (n_pad < width - n_buf - n_prefix)
-                            {
-                                n_pad = (s32)(width - n_buf - n_prefix);
-                            }
-                        }
-                        if (n_pad > 0)
-                        {
-                            width -= n_pad;
-                        }
-
-                        width -= n_prefix + n_buf;
-                        if (!(flag & minus))
-                        {
-                            string_fill_char(&str, ' ', width);
-                        }
-                        while (n_prefix > 0)
-                        {
-                            string_put_char(&str, prefix[--n_prefix]);
-                        }
-                        string_fill_char(&str, '0', n_pad);
-                        while (n_buf > 0)
-                        {
-                            string_put_char(&str, buf[--n_buf]);
-                        }
-                        if (flag & minus)
-                        {
-                            string_fill_char(&str, ' ', width);
-                        }
-                        ++s;
+                        n_pad = (s32)(width - n_buf - n_prefix);
                     }
                 }
-                break;
+                if (n_pad > 0)
+                {
+                    width -= n_pad;
+                }
+
+                width -= n_prefix + n_buf;
+                if (!(flag & minus))
+                {
+                    string_fill_char(&str, ' ', width);
+                }
+                while (n_prefix > 0)
+                {
+                    string_put_char(&str, prefix[--n_prefix]);
+                }
+                string_fill_char(&str, '0', n_pad);
+                while (n_buf > 0)
+                {
+                    string_put_char(&str, buf[--n_buf]);
+                }
+                if (flag & minus)
+                {
+                    string_fill_char(&str, ' ', width);
+                }
+                ++s;
+            }
+            break;
             }
         }
     }
 
-    if (str.spaceLeft > 0)
+    if (str.spaceLeft != 0)
     {
         *str.stringEnd = '\0';
     }
-    else if (bufsz > 0)
+    else if (bufsz != 0)
     {
         str.stringStart[bufsz - 1] = '\0';
     }
