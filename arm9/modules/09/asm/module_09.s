@@ -576,7 +576,7 @@ _022122BA:
 	add r0, r5, r1
 	ldr r0, [r0, #4]
 	mov r1, #0xa2
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x20]
 	ldrb r1, [r4, #0x11]
 	mov r0, #0x50
@@ -1630,7 +1630,7 @@ _02212B0A:
 	ldr r0, [r0, #4]
 	add r1, #0x3a
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r7, #4
 	strh r0, [r4, r1]
 	mov r2, #2
@@ -1686,7 +1686,7 @@ _02212BAA:
 	add r0, r4, r0
 	ldr r0, [r0, #4]
 	mov r1, #0xa2
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r1, _02212C84 ; =0x0000207E
 	mov r2, #4
 	strh r0, [r4, r1]
@@ -1841,7 +1841,7 @@ _02212CD0:
 	add r1, r7, #0
 	add r1, #0x3a
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	mov r1, #0x82
 	lsl r1, r1, #6
 	strh r0, [r4, r1]
@@ -2423,7 +2423,7 @@ MOD09_022131C8: ; 0x022131C8
 	ldr r0, [sp]
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	bgt _022131E2
 	b _02213476
@@ -2437,11 +2437,11 @@ _022131E2:
 	ldr r0, [r0]
 	ldr r1, [sp, #8]
 	ldr r0, [r0]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [r4, #4]
 	mov r1, #5
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #8]
 	ldrh r0, [r4, #8]
 	cmp r0, #0
@@ -2457,54 +2457,54 @@ _0221320C:
 	add r4, r0, r5
 	ldr r0, [r4, #4]
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0xa]
 	ldr r0, [r4, #4]
 	mov r1, #0xa5
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0xc]
 	ldr r0, [r4, #4]
 	mov r1, #0xa6
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0xe]
 	ldr r0, [r4, #4]
 	mov r1, #0xa7
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x10]
 	ldr r0, [r4, #4]
 	mov r1, #0xa8
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x12]
 	ldr r0, [r4, #4]
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x14]
 	ldr r0, [r4, #4]
 	mov r1, #0xa3
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x16]
 	ldr r0, [r4, #4]
 	mov r1, #0xb0
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r4, #0x18]
 	ldr r0, [r4, #4]
 	mov r1, #0xb1
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r6, [sp]
 	strb r0, [r4, #0x19]
 	ldr r0, [r4, #4]
 	add r6, #0x1a
 	mov r1, #0xa0
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldrb r1, [r6, r5]
 	mov r2, #0x7f
 	lsl r0, r0, #0x18
@@ -2517,7 +2517,7 @@ _0221320C:
 	ldr r0, [r4, #4]
 	mov r1, #0xaf
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #1
 	ldrb r1, [r6, r5]
 	bne _022132BC
@@ -2535,7 +2535,7 @@ _022132C2:
 	add r6, r0, #0
 	ldr r0, [r4, #4]
 	add r6, #0x1b
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	ldrb r1, [r6, r5]
 	mov r2, #7
 	bic r1, r2
@@ -2557,7 +2557,7 @@ _022132C2:
 	ldr r0, [r4, #4]
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	lsl r0, r0, #0x1f
@@ -2570,17 +2570,17 @@ _022132C2:
 	ldr r0, [r4, #4]
 	mov r1, #0xa
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x1c]
 	ldr r0, [r4, #4]
 	mov r1, #6
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x1e]
 	ldr r0, [r4, #4]
 	mov r1, #8
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r6, [sp]
 	str r0, [r4, #0x20]
 	add r6, #0x1a
@@ -2588,7 +2588,7 @@ _022132C2:
 	ldrh r0, [r4, #8]
 	lsl r1, r1, #0x19
 	lsr r1, r1, #0x19
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 	str r0, [r4, #0x24]
 	ldrb r0, [r6, r5]
 	lsl r0, r0, #0x19
@@ -2604,55 +2604,55 @@ _0221335A:
 	add r1, r1, #1
 	add r4, r0, r5
 	ldrh r0, [r4, #8]
-	bl GetMonExpByLevel
+	bl GetMonExpBySpeciesAndLevel
 _02213366:
 	str r0, [r4, #0x28]
 	ldr r0, [r4, #4]
 	mov r1, #0x13
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r4, #0
 	add r1, #0x2c
 	strb r0, [r1]
 	ldr r0, [r4, #4]
 	mov r1, #0x14
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r4, #0
 	add r1, #0x2d
 	strb r0, [r1]
 	ldr r0, [r4, #4]
 	mov r1, #0x15
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r4, #0
 	add r1, #0x2e
 	strb r0, [r1]
 	ldr r0, [r4, #4]
 	mov r1, #0x16
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r4, #0
 	add r1, #0x2f
 	strb r0, [r1]
 	ldr r0, [r4, #4]
 	mov r1, #0x17
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r4, #0
 	add r1, #0x30
 	strb r0, [r1]
 	ldr r0, [r4, #4]
 	mov r1, #0xa1
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r4, #0
 	add r1, #0x31
 	strb r0, [r1]
 	ldr r0, [r4, #4]
 	mov r1, #0x70
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r4, #0x32
 	strb r0, [r4]
 	ldr r1, [sp]
@@ -2670,7 +2670,7 @@ _022133E4:
 	ldr r0, [r6, #4]
 	add r1, #0x36
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r1, [sp, #0xc]
 	strh r0, [r7, r1]
 	add r0, r1, #0
@@ -2681,13 +2681,13 @@ _022133E4:
 	ldr r0, [r6, #4]
 	add r1, #0x3a
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r5, #2]
 	add r1, r4, #0
 	ldr r0, [r6, #4]
 	add r1, #0x3e
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r5, #3]
 	ldrh r0, [r5]
 	ldrb r1, [r5, #3]
@@ -2724,7 +2724,7 @@ _0221345A:
 	ldr r0, [sp]
 	ldr r0, [r0]
 	ldr r0, [r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	ldr r1, [sp, #8]
 	cmp r1, r0
 	bge _02213476
@@ -6734,7 +6734,7 @@ MOD09_022155D0: ; 0x022155D0
 	ldr r0, [r5]
 	mov r4, #0
 	ldr r0, [r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	ble _02215656
 	add r0, r4, #0
@@ -6788,7 +6788,7 @@ _0221563E:
 	add r7, #0x50
 	ldr r0, [r0]
 	add r4, r4, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	blt _022155EE
 _02215656:
@@ -8336,7 +8336,7 @@ MOD09_02216378: ; 0x02216378
 	mov r1, #0xa2
 	mov r2, #0
 	add r7, r0, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #8]
@@ -10495,7 +10495,7 @@ MOD09_02217580: ; 0x02217580
 	ldr r0, [r5]
 	mov r4, #0
 	ldr r0, [r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	ble _022175D8
 	add r7, r5, #4
@@ -10528,7 +10528,7 @@ _022175C6:
 	lsr r4, r0, #0x10
 	ldr r0, [r5]
 	ldr r0, [r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	blt _02217594
 _022175D8:
@@ -13506,7 +13506,7 @@ _02218DF2:
 	bl MOD11_02230290
 	add r4, r0, #0
 	add r0, r6, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #6
 	bne _02218E32
 	add r0, r4, #0

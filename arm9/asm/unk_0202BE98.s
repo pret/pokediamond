@@ -27,7 +27,7 @@ _0202BEB4:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	beq _0202BECC
 	bl ErrorHandling
@@ -57,7 +57,7 @@ _0202BEF0:
 	add r0, r5, #0x0
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	beq _0202BF08
 	bl ErrorHandling
@@ -205,7 +205,7 @@ _0202C00A:
 	add r0, r5, #0x0
 	add r1, r7, #0x0
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	beq _0202C01A
 	add r4, r4, #0x1

@@ -33,21 +33,21 @@ FUN_02088DF8: ; 0x02088DF8
 	mov r1, #0x5
 	mov r2, #0x0
 	add r5, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0xc]
 	add r0, r5, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	mov r4, #0x0
@@ -59,7 +59,7 @@ _02088E34:
 	add r0, r5, #0x0
 	add r1, #0x36
 	add r2, r7, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r1, r4, #0x1
 	strh r0, [r6, r1]
 	add r0, r4, #0x1

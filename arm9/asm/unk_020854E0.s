@@ -46,9 +46,9 @@ FUN_020854E0: ; 0x020854E0
 	strh r0, [r4, #0xc]
 	ldr r0, [sp, #0x20]
 	str r5, [r4, #0x10]
-	bl FUN_020256BC
+	bl CreateNewSealsObject
 	str r0, [r4, #0x14]
-	bl FUN_02025658
+	bl InitSealsObject
 	ldr r0, [r4, #0x14]
 	mov r1, #0xff
 	add r2, r6, #0x0
@@ -106,12 +106,12 @@ FUN_02085578: ; 0x02085578
 	strh r0, [r4, #0x0]
 	str r5, [r4, #0x10]
 	add r0, r7, #0x0
-	bl FUN_020256BC
+	bl CreateNewSealsObject
 	str r0, [r4, #0x14]
 	ldr r2, [r4, #0x14]
 	add r0, r6, #0x0
 	mov r1, #0xa9
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r4, #0x0
 	pop {r3-r7, pc}
 	.balign 4
@@ -133,7 +133,7 @@ FUN_020855B0: ; 0x020855B0
 	strh r0, [r4, #0x0]
 	add r0, r7, #0x0
 	str r5, [r4, #0x10]
-	bl FUN_020256BC
+	bl CreateNewSealsObject
 	add r1, r6, #0x0
 	str r0, [r4, #0x14]
 	bl FUN_020257D0
@@ -180,7 +180,7 @@ _0208561E:
 	ldr r2, [r5, #0x14]
 	add r0, r4, #0x0
 	mov r1, #0xa9
-	bl SetMonDataEncrypted
+	bl SetMonData
 	mov r0, #0x1
 	pop {r3-r5, pc}
 
@@ -213,27 +213,27 @@ FUN_02085644: ; 0x02085644
 	cmp r6, r0
 	beq _0208569E
 	add r0, r4, #0x0
-	bl FUN_020256BC
+	bl CreateNewSealsObject
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xa9
 	add r2, r4, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r7, #0x0
 	mov r1, #0x0
 	add r2, r6, #0x0
 	add r3, r4, #0x0
 	bl FUN_02025888
 	add r0, r4, #0x0
-	bl FUN_02025658
+	bl InitSealsObject
 	add r0, r5, #0x0
 	mov r1, #0xa9
 	add r2, r4, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r5, #0x0
 	mov r1, #0x6
 	add r2, sp, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r4, #0x0
 	bl FreeToHeap
 	add r0, r6, #0x0
@@ -262,11 +262,11 @@ _020856BC:
 	add r0, r4, #0x0
 	mov r1, #0xa9
 	add r2, r6, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r4, #0x0
 	mov r1, #0x6
 	add r2, sp, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r7, #0x0
 	mov r1, #0x0
 	add r2, r5, #0x0

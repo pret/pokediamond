@@ -293,7 +293,7 @@ MOD27_02254A48: ; 0x02254A48
 	str r0, [sp]
 	add r0, r1, #0
 	str r1, [sp, #4]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	ldr r1, [sp]
 	mov r6, #0
 	str r0, [r1]
@@ -303,9 +303,9 @@ MOD27_02254A48: ; 0x02254A48
 _02254A62:
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, r0, #0
-	bl TryDecryptMon
+	bl AcquireMonLock
 	add r7, r0, #0
 	add r0, r4, #0
 	bl FUN_0206B688
@@ -313,27 +313,27 @@ _02254A62:
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #8]
 	add r0, r4, #0
 	mov r1, #0xa2
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0xa]
 	add r0, r4, #0
 	mov r1, #0xa3
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0xc]
 	add r0, r4, #0
 	mov r1, #6
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0xe]
 	add r0, r4, #0
 	mov r1, #0x9f
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0
 	beq _02254ABC
 	mov r0, #1
@@ -345,16 +345,16 @@ _02254ABE:
 	add r0, r4, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r5, #0x12]
 	add r0, r4, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r5, #0x13]
 	add r0, r4, #0
 	add r1, r7, #0
-	bl TryEncryptMon
+	bl ReleaseMonLock
 	ldr r0, [sp]
 	add r6, r6, #1
 	ldr r0, [r0]

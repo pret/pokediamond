@@ -15,27 +15,27 @@ FUN_02026CD0: ; 0x02026CD0
 	mov r1, #0x5
 	mov r2, #0x0
 	add r7, r3, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r5, #0x0
 	strh r0, [r5, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0x74
 	add r2, #0xa
-	bl GetMonDataEncrypted
+	bl GetMonData
 	mov r1, #0x0
 	add r0, r4, #0x0
 	add r2, r1, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [r5, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0x7
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [r5, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r5, #0x0
 	add r1, #0x33
 	strb r0, [r1, #0x0]
@@ -2125,12 +2125,12 @@ _02027B9C:
 	add r0, r4, #0x0
 	mov r1, #0x74
 	add r2, #0x12
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r5, #0x3b
 	add r0, r4, #0x0
 	mov r1, #0x70
 	add r2, r5, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add sp, #0x10
 	pop {r3-r5, pc}
 	nop
@@ -2300,12 +2300,12 @@ FUN_02027CB8: ; 0x02027CB8
 	add r0, r4, #0x0
 	mov r1, #0x74
 	add r2, #0xa
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r5, #0x33
 	add r0, r4, #0x0
 	mov r1, #0x70
 	add r2, r5, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add sp, #0x10
 	pop {r3-r5, pc}
 	.balign 4

@@ -1,8 +1,5 @@
 #include "string_util.h"
 
-#define EOS 0xFFFF
-#define NON_DIGIT 0xE2
-
 const u16 gDigitTable[] = {
     0xA2,
     0xA3,

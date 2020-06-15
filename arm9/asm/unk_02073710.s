@@ -218,7 +218,7 @@ FUN_020737D0: ; 0x020737D0
 	add r4, r2, #0x0
 	ldr r0, [r0, #0x0]
 	add r7, r1, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	lsl r1, r4, #0x10
 	asr r6, r1, #0x10
 	mov r1, #0x2c
@@ -248,7 +248,7 @@ FUN_020737D0: ; 0x020737D0
 	ldr r0, [sp, #0x10]
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r0, #0x0
 	str r7, [sp, #0x14]
 	add r0, sp, #0x14

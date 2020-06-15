@@ -63,7 +63,7 @@ MOD39_0225489C: ; 0x0225489C
 	bl MOD20_02252C40
 	bl FUN_0206BB1C
 	str r0, [sp, #0x10]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	ldr r1, [sp, #4]
 	mov r6, #0
 	add r1, #0x34
@@ -78,19 +78,19 @@ MOD39_0225489C: ; 0x0225489C
 _022548CC:
 	ldr r0, [sp, #0x10]
 	add r1, r6, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r7, r0, #0
 	bl FUN_0206B688
 	str r0, [r4, #4]
 	add r0, r7, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0x1c]
 	add r0, r7, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0x28]
 	ldr r0, [sp, #4]
 	str r7, [r4, #0x48]

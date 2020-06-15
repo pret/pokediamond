@@ -22,4 +22,6 @@ static inline void MI_CpuClear32(void *dest, u32 size)
     MI_CpuFill32(dest, 0, size);
 }
 
+void MIi_CpuClearFast(u32 data, void *destp, u32 size);
+
 #endif //NITRO_MI_MEMORY_H_

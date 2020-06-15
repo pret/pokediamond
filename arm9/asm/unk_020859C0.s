@@ -178,7 +178,7 @@ _02085A7C:
 	beq _02085A9A
 	add r1, r7, #0x0
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	beq _02085A9A
 	lsl r0, r0, #0x3
@@ -573,7 +573,7 @@ _02085DDC:
 	ldr r0, [r6, #0x10]
 	bl FUN_0206BB1C
 	str r0, [r7, #0x1c]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	mov r4, #0x0
 	str r0, [sp, #0x0]
 	str r0, [r7, #0x0]
@@ -583,7 +583,7 @@ _02085DDC:
 _02085E0A:
 	ldr r0, [r7, #0x1c]
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [r5, #0x4]
 	ldr r0, [sp, #0x0]
 	add r4, r4, #0x1
@@ -675,7 +675,7 @@ _02085EA6:
 	mov r1, #0xa1
 	add r2, sp, #0x8
 	add r5, r0, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	ldr r1, [sp, #0x8]
 	ldr r0, [r7, #0x20]
 	sub r1, r1, #0x1
@@ -683,7 +683,7 @@ _02085EA6:
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xaa
-	bl SetMonDataEncrypted
+	bl SetMonData
 	ldr r1, [sp, #0x8]
 	ldr r0, [r7, #0x20]
 	sub r1, r1, #0x1

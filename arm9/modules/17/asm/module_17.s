@@ -8856,7 +8856,7 @@ MOD17_021DB700: ; 0x021DB700
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r6, #0
 	add r1, r4, #0
 	mov r2, #2

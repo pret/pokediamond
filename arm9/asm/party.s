@@ -153,13 +153,13 @@ _0206B992:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0206B9AC
-FUN_0206B9AC: ; 0x0206B9AC
+	thumb_func_start GetPartyCount
+GetPartyCount: ; 0x0206B9AC
 	ldr r0, [r0, #0x4]
 	bx lr
 
-	thumb_func_start FUN_0206B9B0
-FUN_0206B9B0: ; 0x0206B9B0
+	thumb_func_start GetPartyMonByIndex
+GetPartyMonByIndex: ; 0x0206B9B0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -211,12 +211,12 @@ _0206BA00:
 	add r0, r4, #0x0
 	mov r1, #0xab
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0xab
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	sub r2, r7, r0
 	mov r3, #0x1d
 _0206BA24:
@@ -325,8 +325,8 @@ _0206BAD8:
 	pop {r3-r4}
 	bx lr
 
-	thumb_func_start FUN_0206BAE4
-FUN_0206BAE4: ; 0x0206BAE4
+	thumb_func_start PartyHasMon
+PartyHasMon: ; 0x0206BAE4
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	ldr r0, [r6, #0x4]
@@ -340,7 +340,7 @@ _0206BAF6:
 	add r0, r5, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r7, r0
 	beq _0206BB0E
 	ldr r0, [r6, #0x4]

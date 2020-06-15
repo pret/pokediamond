@@ -119,7 +119,7 @@ FUN_0203FF10: ; 0x0203FF10
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r6, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [sp, #0x10]
 	add r0, r4, #0x0
 	mov r1, #0x4

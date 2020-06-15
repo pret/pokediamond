@@ -801,7 +801,7 @@ MOD76_021D7B2C: ; 0x021D7B2C
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x36
-	bl SetMonDataEncrypted
+	bl SetMonData
 	mov r0, #0
 	str r0, [sp]
 	ldr r1, [r4]
@@ -809,7 +809,7 @@ MOD76_021D7B2C: ; 0x021D7B2C
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x3e
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r4, #0
 	bl MOD76_021D8514
 	mov r1, #0
@@ -820,7 +820,7 @@ MOD76_021D7B2C: ; 0x021D7B2C
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x3a
-	bl SetMonDataEncrypted
+	bl SetMonData
 	ldr r0, [r4]
 	mov r1, #0
 	strb r1, [r0, #0x16]
@@ -2028,7 +2028,7 @@ MOD76_021D8524: ; 0x021D8524
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x36
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	pop {r3, pc}
@@ -2131,7 +2131,7 @@ _021D85EC:
 	ldr r0, [r0]
 	add r1, #0x36
 	add r2, r6, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0
 	beq _021D8608
 	add r0, r4, #1

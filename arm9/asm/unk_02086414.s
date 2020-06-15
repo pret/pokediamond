@@ -1441,7 +1441,7 @@ FUN_02086EE8: ; 0x02086EE8
 	ldr r4, [r0, #0xc]
 	mov r2, #0x0
 	add r0, r4, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x2
@@ -1452,7 +1452,7 @@ FUN_02086EE8: ; 0x02086EE8
 	add r0, r4, #0x0
 	mov r1, #0x4c
 	add r2, sp, #0x10
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, sp, #0x28
 	add r1, r4, #0x0
 	mov r2, #0x2
@@ -1487,11 +1487,11 @@ FUN_02086F4C: ; 0x02086F4C
 	mov r1, #0x5
 	ldr r0, [r0, #0xc]
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
-	bl GetMonNatureEncrypted
+	bl GetMonNature
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x68]
 	mov r1, #0x1

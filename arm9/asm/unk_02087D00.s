@@ -446,7 +446,7 @@ _02087FFE:
 	strb r0, [r4, #0x11]
 	strb r6, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r4, #0x13]
 	mov r1, #0x0
 	strh r1, [r4, #0x18]
@@ -540,7 +540,7 @@ FUN_020880A0: ; 0x020880A0
 	ldr r0, [r5, #0xc]
 	ldrb r1, [r5, #0x8]
 	ldr r0, [r0, #0x10]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [r4, #0x0]
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x18]
@@ -608,7 +608,7 @@ FUN_02088130: ; 0x02088130
 	ldrb r0, [r5, #0x8]
 	strb r0, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r4, #0x13]
 	mov r1, #0x0
 	strh r1, [r4, #0x18]
@@ -704,7 +704,7 @@ FUN_0208821C: ; 0x0208821C
 	add r6, r1, #0x0
 	add r4, r0, #0x0
 	add r0, r6, #0x0
-	bl GetMonNatureEncrypted
+	bl GetMonNature
 	lsl r1, r0, #0x1
 	ldr r0, _02088310 ; =UNK_020FD17C
 	ldrb r0, [r0, r1]
@@ -723,7 +723,7 @@ _02088246:
 	add r0, r6, #0x0
 	add r1, #0x13
 	add r2, r7, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r1, r4, #0x2
 	str r0, [r5, r1]
 	add r0, r4, #0x1
@@ -791,7 +791,7 @@ _020882D4:
 	add r0, r6, #0x0
 	add r1, #0x13
 	add r2, r4, r2
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r5, #0x1
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
@@ -800,7 +800,7 @@ _020882D4:
 	add r0, r6, #0x0
 	mov r1, #0x9
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, sp, #0x8
 	strb r0, [r1, #0x0]
 	ldrb r0, [r1, #0x0]
@@ -811,7 +811,7 @@ _020882D4:
 	add r0, r6, #0x0
 	mov r1, #0x9
 	add r2, sp, #0x8
-	bl SetMonDataEncrypted
+	bl SetMonData
 _0208830C:
 	add sp, #0x30
 	pop {r3-r7, pc}

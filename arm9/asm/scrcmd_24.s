@@ -102,7 +102,7 @@ FUN_02045E20: ; 0x02045E20
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r6, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x20
 	bl FUN_02088DF8
 	add r5, r0, #0x0
@@ -185,7 +185,7 @@ FUN_02045EE4: ; 0x02045EE4
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, r0, #0x0
 	mov r1, #0x20
 	bl FUN_02088DF8
@@ -222,7 +222,7 @@ FUN_02045F24: ; 0x02045F24
 	ldr r0, [r0, #0xc]
 	bl FUN_0206BB1C
 	add r1, r6, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r6, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0x4

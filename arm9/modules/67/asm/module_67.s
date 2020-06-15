@@ -3307,7 +3307,7 @@ MOD67_021D8F00: ; 0x021D8F00
 	add r1, r7, #0
 	mov r2, #1
 	mov r3, #0x20
-	bl CreateMonWithNatureGenderLetter
+	bl CreateMonWithGenderNatureLetter
 	add r0, r6, #0
 	bl FUN_020690E4
 	add r2, r0, #0
