@@ -2,6 +2,8 @@
 #define GUARD_GLOBAL_H
 
 #include "config.h"
+
+#include "MWC_string.h"
 #include "function_target.h"
 #include "nitro.h"
 #include "constants/global.h"
