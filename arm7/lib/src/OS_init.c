@@ -2,8 +2,6 @@
 #include "OS_init.h"
 
 extern void PXI_Init(void);
-extern void OS_InitLock(void);
-extern void OS_InitIrqTable(void);
 extern void OS_InitTick(void);
 extern void OS_InitAlarm(void);
 extern void OS_InitThread(void);

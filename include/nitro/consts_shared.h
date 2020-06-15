@@ -15,6 +15,7 @@
 
 #include "nitro/types.h"
 #include "nitro/mmap_shared.h"
+#include "nitro/registers_shared.h"
 
 //Shared Consts
 
