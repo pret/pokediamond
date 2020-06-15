@@ -3523,25 +3523,27 @@ u16 CalcMonChecksum(u16 * data, u32 size)
     return ret;
 }
 
-#define SUBSTRUCT_CASE(v1, v2, v3, v4)({                                  \
-        PokemonDataBlock *substructs = boxMon->substructs; \
+#define SUBSTRUCT_CASE(v1, v2, v3, v4)                                  \
+{                                                                       \
+        PokemonDataBlock *substructs = boxMon->substructs;              \
         switch (substructType)                                          \
         {                                                               \
         case 0:                                                         \
-            result = &substructs[v1];                                 \
+            result = &substructs[v1];                                   \
             break;                                                      \
         case 1:                                                         \
-            result = &substructs[v2];                                 \
+            result = &substructs[v2];                                   \
             break;                                                      \
         case 2:                                                         \
-            result = &substructs[v3];                                 \
+            result = &substructs[v3];                                   \
             break;                                                      \
         case 3:                                                         \
-            result = &substructs[v4];                                 \
+            result = &substructs[v4];                                   \
             break;                                                      \
         }                                                               \
-});\
+                                                                        \
         break;                                                          \
+}
 
 PokemonDataBlock *GetSubstruct(struct BoxPokemon *boxMon, u32 personality, u8 substructType)
 {
@@ -3607,4 +3609,68 @@ PokemonDataBlock *GetSubstruct(struct BoxPokemon *boxMon, u32 personality, u8 su
         SUBSTRUCT_CASE(3,2,1,0)
     }
     return result;
+}
+
+int ResolveMonForme(int species, int forme)
+{
+    switch (species)
+    {
+    case SPECIES_DEOXYS:
+        if (forme != 0 && forme <= 3)
+            return SPECIES_DEOXYS_ATK + forme - 1;
+        break;
+    case SPECIES_WORMADAM:
+        if (forme != 0 && forme <= 2)
+            return SPECIES_WORMADAM_SANDY + forme - 1;
+        break;
+    }
+    return species;
+}
+
+u32 MaskOfFlagNo(int flagno)
+{
+    // This is completely inane.
+    int i;
+    u32 ret = 1;
+    GF_ASSERT(flagno < 32);
+    for (i = 0; i < flagno; i++)
+        ret <<= 1;
+    return ret;
+}
+
+int LowestFlagNo(u32 mask)
+{
+    int i;
+    u32 bit = 1;
+    for (i = 0; i < 32; i++)
+    {
+        if (mask & bit)
+            break;
+        bit <<= 1;
+    }
+    return i;
+}
+
+BOOL IsPokemonLegendaryOrMythical(u16 species)
+{
+    int i;
+    for (i = 0; i < NELEMS(sLegendaryMonsList); i++)
+    {
+        if (species == sLegendaryMonsList[i])
+            return TRUE;
+    }
+    return FALSE;
+}
+
+u16 GetLegendaryMon(u32 idx)
+{
+    if (idx >= NELEMS(sLegendaryMonsList))
+        idx = 0;
+    return sLegendaryMonsList[idx];
+}
+
+BOOL FUN_0206A998(struct Pokemon * pokemon)
+{
+    u16 species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    return IsPokemonLegendaryOrMythical(species);
 }

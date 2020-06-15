@@ -5,6 +5,8 @@
 #include "function_target.h"
 #include "nitro.h"
 
+#define NELEMS(a) (sizeof(a) / sizeof(*(a)))
+
 enum GameVersion {
     VERSION_SAPPHIRE   =  1,
     VERSION_RUBY       =  2,
