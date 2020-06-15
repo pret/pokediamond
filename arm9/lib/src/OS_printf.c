@@ -359,7 +359,7 @@ ARM_FUNC s32 OS_VSNPrintf(s8 *buffer, s32 bufsz, const s8 *format, void *args)
                         {
                             if (value != 0)
                             {
-                                prefix[0] = (u8)(hex + (10 + 'x' - 'a'));
+                                prefix[0] = (s8)(hex + (10 + 'x' - 'a'));
                                 prefix[1] = '0';
                                 n_prefix = 2;
                             }
