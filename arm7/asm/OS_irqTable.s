@@ -1,6 +1,44 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
+    .section .data
+
+	.global _038075E4
+_038075E4:
+	.word	0x00090008
+	.word	0x000B000A
+	.word	0x00040003
+	.word	0x00060005
+	.word	0x00000000
+
+	.global OS_IRQTable
+OS_IRQTable:
+	.word	OSi_IrqVBlank
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OSi_IrqTimer0
+	.word	OSi_IrqTimer1
+	.word	OSi_IrqTimer2
+	.word	OSi_IrqTimer3
+	.word	OS_IrqDummy
+	.word	OSi_IrqDma0
+	.word	OSi_IrqDma1
+	.word	OSi_IrqDma2
+	.word	OSi_IrqDma3
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+	.word	OS_IrqDummy
+
     .section .bss
 
 	.global OSi_IrqThreadQueue
@@ -18,6 +56,22 @@ _03807718: ;0x03807718
 	.global _0380771C
 _0380771C: ;0x0380771C
 	.space 0x03807744 - 0x0380771C
+
+	.global _03807744
+_03807744: ;0x03807744
+	.space 0x03807748 - 0x03807744
+
+	.global _03807748
+_03807748: ;0x03807748
+	.space 0x0380774C - 0x03807748
+
+	.global _0380774C
+_0380774C: ;0x0380774C
+	.space 0x03807774 - 0x0380774C
+
+	.global _03807774
+_03807774: ;0x03807774
+	.space 0x03807780 - 0x03807774
 
     .section .text
 
