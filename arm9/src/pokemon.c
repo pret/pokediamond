@@ -3674,3 +3674,68 @@ BOOL FUN_0206A998(struct Pokemon * pokemon)
     u16 species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
     return IsPokemonLegendaryOrMythical(species);
 }
+
+BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct SaveBlock2 * sb2, u32 heap_id)
+{
+    u32 myId = FUN_020239BC(sb2);
+    u32 otId = GetBoxMonData(boxmon, MON_DATA_OTID, NULL);
+    u32 myGender = FUN_020239CC(sb2);
+    u32 otGender = GetBoxMonData(boxmon, MON_DATA_MET_GENDER, NULL);
+    struct String * r7 = FUN_020239A0(sb2, heap_id);
+    struct String * r6 = FUN_020219F4(OT_NAME_LENGTH + 1, heap_id);
+    BOOL ret = FALSE;
+    GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
+    if (myId == otId && myGender == otGender && FUN_02021CE0(r7, r6) == 0)
+        ret = TRUE;
+    FUN_02021A20(r6);
+    FUN_02021A20(r7);
+    return ret;
+}
+
+int FUN_0206AA30(int x)
+{
+    switch (x)
+    {
+    case 63:
+        return 2;
+    case 90:
+    case 91:
+    case 92:
+    case 93:
+    case 94:
+        return x - 87;
+    default:
+        if (FUN_0206AE00(x) == 1)
+            return 1;
+        else
+            return 0;
+    case 0:
+    case 1:
+        return x;
+    }
+}
+
+void FUN_0206AA84(struct Pokemon * pokemon)
+{
+    u8 sp0 = 0;
+    u8 sp1[12][2];
+    MIi_CpuClearFast(0, sp1, sizeof(sp1));
+    SetMonData(pokemon, MON_DATA_CAPSULE, &sp0);
+    SetMonData(pokemon, MON_DATA_SEAL_COORDS, sp1);
+}
+
+void FUN_0206AAB4(struct BoxPokemon * boxmon)
+{
+    int i;
+    u8 pp;
+    BOOL decry = AcquireBoxMonLock(boxmon);
+    for (i = 0; i < 4; i++)
+    {
+        if (GetBoxMonData(boxmon, MON_DATA_MOVE1 + i, NULL) != MOVE_NONE)
+        {
+            pp = GetBoxMonData(boxmon, MON_DATA_MOVE1MAXPP + i, NULL);
+            SetBoxMonData(boxmon, MON_DATA_MOVE1PP + i, &pp);
+        }
+    }
+    ReleaseBoxMonLock(boxmon, decry);
+}
