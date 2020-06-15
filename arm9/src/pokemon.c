@@ -41,26 +41,29 @@ BOOL FUN_02069E9C(struct BoxPokemon * boxmon);
 void FUN_02069ECC(struct BoxPokemon * boxmon);
 void LoadWotbl_HandleAlternateForme(int species, int forme, u16 * wotbl);
 void FUN_0206A054(struct BoxPokemon *  boxmon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5);
+BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
+BOOL FUN_0206A144(struct BoxPokemon * boxmon, u32 a1);
+BOOL FUN_0206A16C(u16 species, int forme, u32 a2);
+void FUN_0206A1CC(struct BoxPokemon * boxmon);
 u32 MaskOfFlagNo(int flagno);
 void LoadMonPersonal(int species, struct BaseStats * personal);
 void LoadMonEvolutionTable(u16 species, struct Evolution * dest);
-BOOL MonHasMove(struct Pokemon * pokemon, u16 move);
 
 int ResolveMonForme(int species, int forme);
-void MonEncryptSegment(void * datap, u32 size, u32 key);
-void MonDecryptSegment(void * datap, u32 size, u32 key);
+void MonEncryptSegment(u16 * datap, u32 size, u32 key);
+void MonDecryptSegment(u16 * datap, u32 size, u32 key);
 u16 MonEncryptionLCRNG(u32 * seed);
-u16 CalcMonChecksum(void * datap, u32 size);
-PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u32 which_struct);
-void LoadMonBaseStats_HandleAlternateForme(u32 species, u32 forme, struct BaseStats * baseStats);
+u16 CalcMonChecksum(u16 * datap, u32 size);
+PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u8 which_struct);
+void LoadMonBaseStats_HandleAlternateForme(int species, int forme, struct BaseStats * baseStats);
 
-#define ENCRY_ARGS_PTY(mon) &(mon)->party, sizeof((mon)->party), (mon)->box.pid
-#define ENCRY_ARGS_BOX(boxmon) &(boxmon)->substructs, sizeof((boxmon)->substructs), (boxmon)->checksum
+#define ENCRY_ARGS_PTY(mon) (u16 *)&(mon)->party, sizeof((mon)->party), (mon)->box.pid
+#define ENCRY_ARGS_BOX(boxmon) (u16 *)&(boxmon)->substructs, sizeof((boxmon)->substructs), (boxmon)->checksum
 #define ENCRYPT_PTY(mon) MonEncryptSegment(ENCRY_ARGS_PTY(mon))
 #define ENCRYPT_BOX(boxmon) MonEncryptSegment(ENCRY_ARGS_BOX(boxmon))
 #define DECRYPT_PTY(mon) MonDecryptSegment(ENCRY_ARGS_PTY(mon))
 #define DECRYPT_BOX(boxmon) MonDecryptSegment(ENCRY_ARGS_BOX(boxmon))
-#define CHECKSUM(boxmon) CalcMonChecksum((boxmon)->substructs, sizeof((boxmon)->substructs))
+#define CHECKSUM(boxmon) CalcMonChecksum((u16 *)(boxmon)->substructs, sizeof((boxmon)->substructs))
 #define SHINY_CHECK(otid, pid) (( \
     ((((otid) & 0xFFFF0000u) >> 16u)) ^ \
     (((otid) & 0xFFFFu)) ^ \
@@ -255,7 +258,7 @@ void CreateMon(struct Pokemon * pokemon, int species, int level, int fixedIV, in
     ZeroMonData(pokemon);
     CreateBoxMon(&pokemon->box, species, level, fixedIV, hasFixedPersonality, fixedPersonality, otIdType, fixedOtId);
     // Not your average encryption call
-    MonEncryptSegment(&pokemon->party, sizeof(pokemon->party), 0);
+    MonEncryptSegment((u16 *)&pokemon->party, sizeof(pokemon->party), 0);
     ENCRYPT_PTY(pokemon);
     SetMonData(pokemon, MON_DATA_LEVEL, &level);
     seal = CreateNewSealsObject(0);
@@ -3336,4 +3339,272 @@ void FUN_0206A054(struct BoxPokemon *  boxmon, u32 a1, u32 pokeball, u32 a3, u32
     SetBoxMonData(boxmon, MON_DATA_GAME_VERSION, (void *)&gGameVersion);
     SetBoxMonData(boxmon, MON_DATA_POKEBALL, &pokeball);
     SetBoxMonData(boxmon, MON_DATA_ENCOUNTER_TYPE, &encounterType);
+}
+
+void FUN_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2)
+{
+    u32 chance;
+    u16 species;
+    u16 forme;
+    u16 item1;
+    u16 item2;
+    if (!(a1 & 0x81)) {
+        chance = rand_LC() % 100;
+        species = GetMonData(pokemon, MON_DATA_SPECIES, 0);
+        forme = GetMonData(pokemon, MON_DATA_FORME, 0);
+        item1 = GetMonBaseStat_HandleFormeConversion(species, forme, BASE_ITEM_1);
+        item2 = GetMonBaseStat_HandleFormeConversion(species, forme, BASE_ITEM_2);
+        if (item1 == item2 && item1 != ITEM_NONE)
+        {
+            SetMonData(pokemon, MON_DATA_HELD_ITEM, &item1);
+        }
+        else
+        {
+            if (chance >= sItemOdds[a2][0])
+            {
+                if (chance < sItemOdds[a2][1])
+                {
+                    SetMonData(pokemon, MON_DATA_HELD_ITEM, &item1);
+                }
+                else
+                {
+                    SetMonData(pokemon, MON_DATA_HELD_ITEM, &item2);
+                }
+            }
+        }
+    }
+}
+
+BOOL FUN_0206A13C(struct Pokemon * pokemon, u32 a1)
+{
+    return FUN_0206A144(&pokemon->box, a1);
+}
+
+BOOL FUN_0206A144(struct BoxPokemon * boxmon, u32 a1)
+{
+    u16 species = GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
+    int forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+    return FUN_0206A16C(species, forme, a1);
+}
+
+BOOL FUN_0206A16C(u16 species, int forme, u32 a2)
+{
+    u32 r4;
+    enum BaseStat r2;
+    if (species == SPECIES_EGG)
+        return FALSE;
+    if (a2 < 32)
+    {
+        r4 = 1 << a2;
+        r2 = BASE_UNKNOWN_29;
+    }
+    else if (a2 < 64)
+    {
+        r4 = 1 << (a2 - 32);
+        r2 = BASE_UNKNOWN_30;
+    }
+    else if (a2 < 96)
+    {
+        r4 = 1 << (a2 - 64);
+        r2 = BASE_UNKNOWN_31;
+    }
+    else
+    {
+        r4 = 1 << (a2 - 96);
+        r2 = BASE_UNKNOWN_32;
+    }
+    return !!(GetMonBaseStat_HandleFormeConversion(species, forme, r2) & r4);
+}
+
+void FUN_0206A1C4(struct Pokemon * pokemon)
+{
+    FUN_0206A1CC(&pokemon->box);
+}
+
+void FUN_0206A1CC(struct BoxPokemon * boxmon)
+{
+    BOOL decry = AcquireBoxMonLock(boxmon);
+    int species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
+    int pid = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
+    int ability1 = GetMonBaseStat(species, BASE_ABILITY_1);
+    int ability2 = GetMonBaseStat(species, BASE_ABILITY_2);
+
+    if (ability2 != ABILITY_NONE)
+    {
+        if (pid & 1)
+            SetBoxMonData(boxmon, MON_DATA_ABILITY, &ability2);
+        else
+            SetBoxMonData(boxmon, MON_DATA_ABILITY, &ability1);
+    }
+    else
+        SetBoxMonData(boxmon, MON_DATA_ABILITY, &ability1);
+    ReleaseBoxMonLock(boxmon, decry);
+}
+
+void FUN_0206A23C(struct Pokemon * r5, u32 personality)
+{
+    PokemonDataBlockA * r4;
+    PokemonDataBlockB * r6;
+    PokemonDataBlockC * r7;
+    PokemonDataBlockD * sp8;
+    PokemonDataBlockA * spC;
+    PokemonDataBlockB * sp10;
+    PokemonDataBlockC * sp14;
+    PokemonDataBlockD * sp18;
+    struct Pokemon * sp4;
+
+    sp4 = AllocMonZeroed(0);
+    FUN_02069B88(r5, sp4);
+    r4 = &GetSubstruct(&sp4->box, r5->box.pid, 0)->blockA;
+    r6 = &GetSubstruct(&sp4->box, r5->box.pid, 1)->blockB;
+    r7 = &GetSubstruct(&sp4->box, r5->box.pid, 2)->blockC;
+    sp8 = &GetSubstruct(&sp4->box, r5->box.pid, 3)->blockD;
+    spC = &GetSubstruct(&r5->box, personality, 0)->blockA;
+    sp10 = &GetSubstruct(&r5->box, personality, 1)->blockB;
+    sp14 = &GetSubstruct(&r5->box, personality, 2)->blockC;
+    sp18 = &GetSubstruct(&r5->box, personality, 3)->blockD;
+
+    DECRYPT_BOX(&sp4->box);
+    DECRYPT_PTY(r5);
+    DECRYPT_BOX(&r5->box);
+    r5->box.pid = personality;
+    *spC = *r4;
+    *sp10 = *r6;
+    *sp14 = *r7;
+    *sp18 = *sp8;
+    r5->box.checksum = CHECKSUM(&r5->box);
+    ENCRYPT_BOX(&r5->box);
+    ENCRYPT_PTY(r5);
+    FreeToHeap(sp4);
+}
+
+void LoadMonPersonal(int species, struct BaseStats * personal)
+{
+    ReadWholeNarcMemberByIdPair(personal, NARC_POKETOOL_PERSONAL_PERSONAL, species);
+}
+
+void LoadMonBaseStats_HandleAlternateForme(int species, int forme, struct BaseStats * personal)
+{
+    ReadWholeNarcMemberByIdPair(personal, NARC_POKETOOL_PERSONAL_PERSONAL, ResolveMonForme(species, forme));
+}
+
+void LoadMonEvolutionTable(u16 species, struct Evolution * evo)
+{
+    ReadWholeNarcMemberByIdPair(evo, NARC_POKETOOL_PERSONAL_EVO, species);
+}
+
+
+void MonEncryptSegment(u16 * data, u32 size, u32 seed) {
+    int i;
+    for (i = 0; i < size / 2; i++)
+    {
+        data[i] ^= MonEncryptionLCRNG(&seed);
+    }
+}
+
+void MonDecryptSegment(u16 * data, u32 size, u32 seed) {
+    MonEncryptSegment(data, size, seed);
+}
+
+u16 MonEncryptionLCRNG(u32 * seed)
+{
+    *seed = *seed * 1103515245 + 24691;
+    return *seed >> 16;
+}
+
+u16 CalcMonChecksum(u16 * data, u32 size)
+{
+    int i;
+    u16 ret = 0;
+    for (i = 0; i < size / 2; i++)
+    {
+        ret += data[i];
+    }
+    return ret;
+}
+
+#define SUBSTRUCT_CASE(v1, v2, v3, v4)({                                  \
+        PokemonDataBlock *substructs = boxMon->substructs; \
+        switch (substructType)                                          \
+        {                                                               \
+        case 0:                                                         \
+            result = &substructs[v1];                                 \
+            break;                                                      \
+        case 1:                                                         \
+            result = &substructs[v2];                                 \
+            break;                                                      \
+        case 2:                                                         \
+            result = &substructs[v3];                                 \
+            break;                                                      \
+        case 3:                                                         \
+            result = &substructs[v4];                                 \
+            break;                                                      \
+        }                                                               \
+});\
+        break;                                                          \
+
+PokemonDataBlock *GetSubstruct(struct BoxPokemon *boxMon, u32 personality, u8 substructType)
+{
+    PokemonDataBlock *result;
+
+    switch ((personality & 0x3E000) >> 13)
+    {
+    case  0:
+    case 24:
+        SUBSTRUCT_CASE(0,1,2,3)
+    case  1:
+    case 25:
+        SUBSTRUCT_CASE(0,1,3,2)
+    case  2:
+    case 26:
+        SUBSTRUCT_CASE(0,2,1,3)
+    case  3:
+    case 27:
+        SUBSTRUCT_CASE(0,3,1,2)
+    case  4:
+    case 28:
+        SUBSTRUCT_CASE(0,2,3,1)
+    case  5:
+    case 29:
+        SUBSTRUCT_CASE(0,3,2,1)
+    case  6:
+    case 30:
+        SUBSTRUCT_CASE(1,0,2,3)
+    case  7:
+    case 31:
+        SUBSTRUCT_CASE(1,0,3,2)
+    case  8:
+        SUBSTRUCT_CASE(2,0,1,3)
+    case  9:
+        SUBSTRUCT_CASE(3,0,1,2)
+    case 10:
+        SUBSTRUCT_CASE(2,0,3,1)
+    case 11:
+        SUBSTRUCT_CASE(3,0,2,1)
+    case 12:
+        SUBSTRUCT_CASE(1,2,0,3)
+    case 13:
+        SUBSTRUCT_CASE(1,3,0,2)
+    case 14:
+        SUBSTRUCT_CASE(2,1,0,3)
+    case 15:
+        SUBSTRUCT_CASE(3,1,0,2)
+    case 16:
+        SUBSTRUCT_CASE(2,3,0,1)
+    case 17:
+        SUBSTRUCT_CASE(3,2,0,1)
+    case 18:
+        SUBSTRUCT_CASE(1,2,3,0)
+    case 19:
+        SUBSTRUCT_CASE(1,3,2,0)
+    case 20:
+        SUBSTRUCT_CASE(2,1,3,0)
+    case 21:
+        SUBSTRUCT_CASE(3,1,2,0)
+    case 22:
+        SUBSTRUCT_CASE(2,3,1,0)
+    case 23:
+        SUBSTRUCT_CASE(3,2,1,0)
+    }
+    return result;
 }
