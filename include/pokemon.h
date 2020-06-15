@@ -182,8 +182,6 @@ struct Pokemon {
     /* 0x088 */ struct PartyPokemon party;
 }; // size: 0xEC
 
-#include "party.h"
-
 struct SomeDrawPokemonStruct
 {
     u16 unk0;
@@ -221,6 +219,15 @@ struct Evolution
     u16 method;
     u16 param;
     u16 target;
+};
+
+#define PARTY_SIZE 6
+
+struct PlayerParty
+{
+    int maxCount;
+    int curCount;
+    struct Pokemon mons[PARTY_SIZE];
 };
 
 void ZeroMonData(struct Pokemon * pokemon);
@@ -289,6 +296,7 @@ u32 FUN_020690C4(void);
 u32 FUN_020690C8(void);
 u8 FUN_020690CC(struct Pokemon * pokemon);
 struct BoxPokemon * FUN_020690E4(struct Pokemon * pokemon);
+
 u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 context, u32 usedItem, u32 * method_ret);
 u16 ReadFromPersonalPmsNarc(u16 species);
 u16 GetEggSpecies(u16 species);
