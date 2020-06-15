@@ -56,6 +56,7 @@ u16 MonEncryptionLCRNG(u32 * seed);
 u16 CalcMonChecksum(u16 * datap, u32 size);
 PokemonDataBlock * GetSubstruct(struct BoxPokemon * boxmon, u32 personality, u8 which_struct);
 void LoadMonBaseStats_HandleAlternateForme(int species, int forme, struct BaseStats * baseStats);
+u8 FUN_020690D4(struct BoxPokemon * boxmon);
 
 #define ENCRY_ARGS_PTY(mon) (u16 *)&(mon)->party, sizeof((mon)->party), (mon)->box.pid
 #define ENCRY_ARGS_BOX(boxmon) (u16 *)&(boxmon)->substructs, sizeof((boxmon)->substructs), (boxmon)->checksum
@@ -461,7 +462,7 @@ void CalcMonStats(struct Pokemon * pokemon)
     species = (int)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
 
     baseStats = (struct BaseStats *)AllocFromHeap(0, sizeof(struct BaseStats));
-    LoadMonBaseStats_HandleAlternateForme((u32)species, (u32)forme, baseStats);
+    LoadMonBaseStats_HandleAlternateForme(species, forme, baseStats);
 
     if (species == SPECIES_SHEDINJA)
         newMaxHp = 1;
@@ -2173,7 +2174,7 @@ void FUN_02068B68(struct SomeDrawPokemonStruct * spC, struct Pokemon * pokemon, 
 void FUN_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon, u8 sp10)
 {
     BOOL decry = AcquireBoxMonLock(boxmon);
-    u16 species = GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
+    u16 species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
     u8 gender = GetBoxMonGender(boxmon);
     u8 shiny = BoxMonIsShiny(boxmon);
     u32 personality = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
@@ -2186,7 +2187,7 @@ void FUN_02068B70(struct SomeDrawPokemonStruct * spC, struct BoxPokemon * boxmon
             forme = 0;
     }
     else
-        forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+        forme = (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
     FUN_02068C00(spC, species, gender, sp10, shiny, forme, personality);
     ReleaseBoxMonLock(boxmon, decry);
 }
@@ -2202,71 +2203,71 @@ void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8
         if (forme > 2)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = sp10 / 2 + 0x48 + forme * 2;
-        spC->unk4 = shiny + 0x92 + forme * 2;
+        spC->unk2 = (u16)(sp10 / 2 + 0x48 + forme * 2);
+        spC->unk4 = (u16)(shiny + 0x92 + forme * 2);
         break;
     case SPECIES_WORMADAM:
         if (forme > 2)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = sp10 / 2 + 0x4E + forme * 2;
-        spC->unk4 = shiny + 0x98 + forme * 2;
+        spC->unk2 = (u16)(sp10 / 2 + 0x4E + forme * 2);
+        spC->unk4 = (u16)(shiny + 0x98 + forme * 2);
         break;
     case SPECIES_SHELLOS:
         if (forme > 1)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = sp10 + 0x54 + forme;
-        spC->unk4 = shiny + 0x9E + forme * 2;
+        spC->unk2 = (u16)(sp10 + 0x54 + forme);
+        spC->unk4 = (u16)(shiny + 0x9E + forme * 2);
         break;
     case SPECIES_GASTRODON:
         if (forme > 1)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = sp10 + 0x58 + forme;
-        spC->unk4 = shiny + 0xA2 + forme * 2;
+        spC->unk2 = (u16)(sp10 + 0x58 + forme);
+        spC->unk4 = (u16)(shiny + 0xA2 + forme * 2);
         break;
     case SPECIES_CHERRIM:
         if (forme > 1)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = sp10 + 0x5C + forme;
-        spC->unk4 = shiny * 2 + 0xA6 + forme;
+        spC->unk2 = (u16)(sp10 + 0x5C + forme);
+        spC->unk4 = (u16)(shiny * 2 + 0xA6 + forme);
         break;
     case SPECIES_ARCEUS:
         if (forme > 17)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = sp10 / 2 + 0x60 + forme * 2;
-        spC->unk4 = shiny + 0xAA + forme * 2;
+        spC->unk2 = (u16)(sp10 / 2 + 0x60 + forme * 2);
+        spC->unk4 = (u16)(shiny + 0xAA + forme * 2);
         break;
     case SPECIES_CASTFORM:
         if (forme > 3)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = sp10 * 2 + 0x40 + forme;
-        spC->unk4 = shiny * 4 + 0x8A + forme;
+        spC->unk2 = (u16)(sp10 * 2 + 0x40 + forme);
+        spC->unk4 = (u16)(shiny * 4 + 0x8A + forme);
         break;
     case SPECIES_DEOXYS:
         if (forme > 3)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = sp10 / 2 + forme * 2;
-        spC->unk4 = shiny + 0x86;
+        spC->unk2 = (u16)(sp10 / 2 + forme * 2);
+        spC->unk4 = (u16)(shiny + 0x86);
         break;
     case SPECIES_UNOWN:
         if (forme >= 28)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = sp10 / 2 + 0x8 + forme * 2;
-        spC->unk4 = shiny + 0x88;
+        spC->unk2 = (u16)(sp10 / 2 + 0x8 + forme * 2);
+        spC->unk4 = (u16)(shiny + 0x88);
         break;
     case SPECIES_EGG:
         if (forme > 1)
             forme = 0;
         spC->unk0 = 0x75;
-        spC->unk2 = 0x84 + forme;
-        spC->unk4 = 0xCE + forme;
+        spC->unk2 = (u16)(0x84 + forme);
+        spC->unk4 = (u16)(0xCE + forme);
         break;
     case SPECIES_MANAPHY_EGG:
         spC->unk0 = 0x75;
@@ -2275,8 +2276,8 @@ void FUN_02068C00(struct SomeDrawPokemonStruct * spC, int species, u8 gender, u8
         break;
     default:
         spC->unk0 = 0x4;
-        spC->unk2 = species * 6 + sp10 + (gender == MON_FEMALE ? 0 : 1);
-        spC->unk4 = shiny + (species * 6 + 4);
+        spC->unk2 = (u16)(species * 6 + sp10 + (gender == MON_FEMALE ? 0 : 1));
+        spC->unk4 = (u16)(shiny + (species * 6 + 4));
         if (species == SPECIES_SPINDA && sp10 == 2)
         {
             spC->unk6 = SPECIES_SPINDA;
@@ -2294,7 +2295,7 @@ u8 FUN_02068E14(struct Pokemon * pokemon, u32 a1)
 
 u8 FUN_02068E1C(struct BoxPokemon * boxmon, u32 a1)
 {
-    u16 species = GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
+    u16 species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
     u8 gender = GetBoxMonGender(boxmon);
     u32 pid = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
     u8 forme;
@@ -2306,12 +2307,13 @@ u8 FUN_02068E1C(struct BoxPokemon * boxmon, u32 a1)
             forme = 0;
     }
     else
-        forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+        forme = (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
     return FUN_02068E88(species, gender, a1, forme, pid);
 }
 
 u8 FUN_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
 {
+#pragma unused(pid)
     u8 ret;
     s32 fileId;
     enum NarcId narc;
@@ -2321,61 +2323,61 @@ u8 FUN_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
         if (forme > 2)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = a1 / 2 + 0x48 + forme * 2;
+        fileId = (s32)(a1 / 2 + 0x48 + forme * 2);
         break;
     case SPECIES_WORMADAM:
         if (forme > 2)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = a1 / 2 + 0x4E + forme * 2;
+        fileId = (s32)(a1 / 2 + 0x4E + forme * 2);
         break;
     case SPECIES_SHELLOS:
         if (forme > 1)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = a1 + 0x54 + forme;
+        fileId = (s32)(a1 + 0x54 + forme);
         break;
     case SPECIES_GASTRODON:
         if (forme > 1)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = a1 + 0x58 + forme;
+        fileId = (s32)(a1 + 0x58 + forme);
         break;
     case SPECIES_CHERRIM:
         if (forme > 1)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = a1 + 0x5C + forme;
+        fileId = (s32)(a1 + 0x5C + forme);
         break;
     case SPECIES_ARCEUS:
         if (forme > 17)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = a1 / 2 + 0x60 + 2 * forme;
+        fileId = (s32)(a1 / 2 + 0x60 + 2 * forme);
         break;
     case SPECIES_CASTFORM:
         if (forme > 3)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = a1 * 2 + 0x40 + forme;
+        fileId = (s32)(a1 * 2 + 0x40 + forme);
         break;
     case SPECIES_DEOXYS:
         if (forme > 3)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = a1 / 2 + forme * 2;
+        fileId = (s32)(a1 / 2 + forme * 2);
         break;
     case SPECIES_UNOWN:
         if (forme >= 28)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = a1 / 2 + 0x8 + forme * 2;
+        fileId = (s32)(a1 / 2 + 0x8 + forme * 2);
         break;
     case SPECIES_EGG:
         if (forme > 1)
             forme = 0;
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
-        fileId = 0x84 + forme;
+        fileId = (s32)(0x84 + forme);
         break;
     case SPECIES_MANAPHY_EGG:
         narc = NARC_POKETOOL_POKEGRA_HEIGHT_O;
@@ -2383,7 +2385,7 @@ u8 FUN_02068E88(int species, u8 gender, u32 a1, u8 forme, u32 pid)
         break;
     default:
         narc = NARC_POKETOOL_POKEGRA_HEIGHT;
-        fileId = 4 * species + a1 + (gender != MON_FEMALE ? 1 : 0);
+        fileId = (s32)(4 * species + a1 + (gender != MON_FEMALE ? 1 : 0));
         break;
     }
     ReadWholeNarcMemberByIdPair(&ret, narc, fileId);
@@ -2397,10 +2399,10 @@ void FUN_02068FE0(struct SomeDrawPokemonStruct * a0, u16 a1, int a2)
     else
     {
         a0->unk0 = 6;
-        a1 = FUN_0206AA30(a1);
+        a1 = (u16)FUN_0206AA30(a1);
     }
-    a0->unk2 = a1 * 2;
-    a0->unk4 = a1 * 2 + 1;
+    a0->unk2 = (u16)(a1 * 2);
+    a0->unk4 = (u16)(a1 * 2 + 1);
     a0->unk6 = 0;
     a0->unk8 = 0;
     a0->unkC = 0;
@@ -2409,36 +2411,36 @@ void FUN_02068FE0(struct SomeDrawPokemonStruct * a0, u16 a1, int a2)
 void FUN_02069010(void * dest, int a1)
 {
     struct Pokeanm buffer;
-    ReadFromNarcMemberByIdPair(&buffer, NARC_POKETOOL_POKEANM_POKEANM, 0, 28 * a1, 28);
+    ReadFromNarcMemberByIdPair(&buffer, NARC_POKETOOL_POKEANM_POKEANM, 0, (u32)(28 * a1), 28);
     MI_CpuCopy8(buffer.unk8, dest, 20);
 }
 
 void FUN_02069038(u32 a0, u32 a1, u32 a2, s32 a3, u32 a4, u32 a5, u32 a6)
 {
     struct UnkStruct_02069038 sp4;
-    ReadFromNarcMemberByIdPair(&sp4.anim, NARC_POKETOOL_POKEANM_POKEANM, 0, a2 * 28, 28);
+    ReadFromNarcMemberByIdPair(&sp4.anim, NARC_POKETOOL_POKEANM_POKEANM, 0, (u32)(a2 * 28), 28);
     if (a3 == 2)
     {
         sp4.unk0 = sp4.anim.unk0[0].unk0;
         sp4.unk2 = sp4.anim.unk0[0].unk1;
-        sp4.unk4 = a5;
+        sp4.unk4 = (u8)a5;
     }
     else
     {
-        a3 = FUN_02014C3C(a4);
+        a3 = FUN_02014C3C((u8)a4);
         GF_ASSERT(a3 < 3);
         sp4.unk0 = sp4.anim.unk0[a3 + 1].unk0;
         sp4.unk2 = sp4.anim.unk0[a3 + 1].unk1;
-        sp4.unk4 = a5;
+        sp4.unk4 = (u8)a5;
     }
-    FUN_02014C54(a0, a1, &sp4, a6);
+    FUN_02014C54((int)a0, (int)a1, &sp4, (u8)a6);
 }
 
 void FUN_020690AC(struct SomeDrawPokemonStruct * a0, u32 a1)
 {
     a0->unk0 = 60;
-    a0->unk2 = a1 * 2;
-    a0->unk4 = a1 * 2 + 1;
+    a0->unk2 = (u16)(a1 * 2);
+    a0->unk4 = (u16)(a1 * 2 + 1);
     a0->unk6 = 0;
     a0->unk8 = 0;
     a0->unkC = 0;
@@ -2454,8 +2456,6 @@ u32 FUN_020690C8(void)
     return sizeof(struct BoxPokemon);
 }
 
-u8 FUN_020690D4(struct BoxPokemon * boxmon);
-
 u8 FUN_020690CC(struct Pokemon * pokemon)
 {
     return FUN_020690D4(&pokemon->box);
@@ -2463,7 +2463,7 @@ u8 FUN_020690CC(struct Pokemon * pokemon)
 
 u8 FUN_020690D4(struct BoxPokemon * boxmon)
 {
-    return GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+    return (u8)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
 }
 
 struct BoxPokemon * FUN_020690E4(struct Pokemon * pokemon)
@@ -2473,11 +2473,11 @@ struct BoxPokemon * FUN_020690E4(struct Pokemon * pokemon)
 
 BOOL FUN_020690E8(struct Pokemon * pokemon)
 {
-    u16 species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-    u8 level = GetMonData(pokemon, MON_DATA_LEVEL, NULL) + 1;
+    u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    u8 level = (u8)(GetMonData(pokemon, MON_DATA_LEVEL, NULL) + 1);
     u32 exp = GetMonData(pokemon, MON_DATA_EXPERIENCE, NULL);
-    u32 growthrate = GetMonBaseStat(species, BASE_GROWTH_RATE);
-    u32 maxexp = GetExpByGrowthRateAndLevel(growthrate, 100);
+    u32 growthrate = (u32)GetMonBaseStat(species, BASE_GROWTH_RATE);
+    u32 maxexp = GetExpByGrowthRateAndLevel((int)growthrate, 100);
     if (exp > maxexp)
     {
         exp = maxexp;
@@ -2485,7 +2485,7 @@ BOOL FUN_020690E8(struct Pokemon * pokemon)
     }
     if (level > 100)
         return FALSE;
-    if (exp >= GetExpByGrowthRateAndLevel(growthrate, level))
+    if (exp >= GetExpByGrowthRateAndLevel((int)growthrate, level))
     {
         SetMonData(pokemon, MON_DATA_LEVEL, &level);
         return TRUE;
@@ -2508,12 +2508,12 @@ u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 co
     struct Evolution * evoTable;
     u8 r1;
 
-    species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
-    heldItem = GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL);
+    species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    heldItem = (u16)GetMonData(pokemon, MON_DATA_HELD_ITEM, NULL);
     personality = GetMonData(pokemon, MON_DATA_PERSONALITY, NULL);
-    beauty = GetMonData(pokemon, MON_DATA_BEAUTY, NULL);
-    pid_hi = (personality & 0xFFFF0000) >> 16;
-    r1 = FUN_0206E7B8(heldItem, 1, 0);
+    beauty = (u8)GetMonData(pokemon, MON_DATA_BEAUTY, NULL);
+    pid_hi = (u16)((personality & 0xFFFF0000) >> 16);
+    r1 = (u8)FUN_0206E7B8(heldItem, 1, 0);
     if (species != SPECIES_KADABRA && r1 == 0x3F && context != 3)
         return SPECIES_NONE;
     if (method_ret == NULL)
@@ -2523,8 +2523,8 @@ u16 GetMonEvolution(struct PlayerParty * party, struct Pokemon * pokemon, u32 co
     switch (context)
     {
     case 0:
-        level = GetMonData(pokemon, MON_DATA_LEVEL, NULL);
-        friendship = GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
+        level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+        friendship = (u16)GetMonData(pokemon, MON_DATA_FRIENDSHIP, NULL);
         for (i = 0; i < 7; i++)
         {
             switch (evoTable[i].method)
@@ -2747,7 +2747,7 @@ u16 ReadFromPersonalPmsNarc(u16 species)
     FSFile file;
     FS_InitFile(&file);
     FS_OpenFile(&file, "poketool/personal/pms.narc");
-    FS_SeekFile(&file, species * sizeof(u16), FS_SEEK_SET);
+    FS_SeekFile(&file, (s32)(species * sizeof(u16)), FS_SEEK_SET);
     FS_ReadFile(&file, &ret, sizeof(u16));
     FS_CloseFile(&file);
     }
@@ -2778,8 +2778,8 @@ u16 GetEggSpecies(u16 species)
 #define WOTBL_MOVE_SHIFT         0
 #define WOTBL_LVL_MASK      0xFE00
 #define WOTBL_LVL_SHIFT          9
-#define WOTBL_MOVE(x) (((x) & WOTBL_MOVE_MASK) >> WOTBL_MOVE_SHIFT)
-#define WOTBL_LVL(x) (((x) & WOTBL_LVL_MASK) >> WOTBL_LVL_SHIFT)
+#define WOTBL_MOVE(x) ((u16)(((x) & WOTBL_MOVE_MASK) >> WOTBL_MOVE_SHIFT))
+#define WOTBL_LVL(x) ((u8)(((x) & WOTBL_LVL_MASK) >> WOTBL_LVL_SHIFT))
 
 void InitBoxMonMoveset(struct BoxPokemon * boxmon)
 {
@@ -2792,10 +2792,10 @@ void InitBoxMonMoveset(struct BoxPokemon * boxmon)
     u16 move;
     wotbl = AllocFromHeap(0, 22 * sizeof(u16));
     decry = AcquireBoxMonLock(boxmon);
-    species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
+    species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
     forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
-    level = CalcBoxMonLevel(boxmon);
-    LoadWotbl_HandleAlternateForme(species, forme, wotbl);
+    level = (u8)CalcBoxMonLevel(boxmon);
+    LoadWotbl_HandleAlternateForme(species, (int)forme, wotbl);
     for (i = 0; wotbl[i] != WOTBL_END; i++)
     {
         if ((wotbl[i] & WOTBL_LVL_MASK) > (level << WOTBL_LVL_SHIFT))
@@ -2821,10 +2821,10 @@ u32 FUN_020696A8(struct BoxPokemon * boxmon, u16 move)
     u16 cur_move;
     for (i = 0; i < 4; i++)
     {
-        cur_move = GetBoxMonData(boxmon, MON_DATA_MOVE1 + i, NULL);
+        cur_move = (u16)GetBoxMonData(boxmon, MON_DATA_MOVE1 + i, NULL);
         if (cur_move == MOVE_NONE)
         {
-            FUN_020697D4(boxmon, move, i);
+            FUN_020697D4(boxmon, move, (u8)i);
             ret = move;
             break;
         }
@@ -2853,13 +2853,13 @@ void FUN_02069718(struct BoxPokemon * boxmon, u16 move)
 
     for (i = 0; i < 3; i++)
     {
-        moves[i] = GetBoxMonData(boxmon, MON_DATA_MOVE1 + i + 1, NULL);
-        pp[i] = GetBoxMonData(boxmon, MON_DATA_MOVE1PP + i + 1, NULL);
-        ppUp[i] = GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + i + 1, NULL);
+        moves[i] = (u16)GetBoxMonData(boxmon, MON_DATA_MOVE1 + i + 1, NULL);
+        pp[i] = (u8)GetBoxMonData(boxmon, MON_DATA_MOVE1PP + i + 1, NULL);
+        ppUp[i] = (u8)GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + i + 1, NULL);
     }
 
     moves[3] = move;
-    pp[3] = FUN_0206AB18(move, 5);
+    pp[3] = (u8)FUN_0206AB18(move, 5);
     ppUp[3] = 0;
 
     for (i = 0; i < 4; i++)
@@ -2883,8 +2883,8 @@ void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot)
     u8 pp;
 
     SetBoxMonData(boxmon, MON_DATA_MOVE1 + slot, &move);
-    ppUp = GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot, NULL);
-    pp = FUN_0206AB30(move, ppUp);
+    ppUp = (u8)GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot, NULL);
+    pp = (u8)FUN_0206AB30(move, ppUp);
     SetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot, &pp);
 }
 
@@ -2892,10 +2892,10 @@ u32 FUN_02069818(struct Pokemon * pokemon, u32 * r5, u16 * sp0)
 {
     u32 ret = 0;
     u16 * wotbl = AllocFromHeap(0, 22 * sizeof(u16));
-    u16 species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
     u32 forme = GetMonData(pokemon, MON_DATA_FORME, NULL);
-    u8 level = GetMonData(pokemon, MON_DATA_LEVEL, NULL);
-    LoadWotbl_HandleAlternateForme(species, forme, wotbl);
+    u8 level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+    LoadWotbl_HandleAlternateForme(species, (int)forme, wotbl);
 
 
     if (wotbl[*r5] == 0xFFFF)
@@ -2933,12 +2933,12 @@ void FUN_020698E8(struct BoxPokemon * boxmon, int slot1, int slot2)
     u8 pp[2];
     u8 ppUp[2];
 
-    moves[0] = GetBoxMonData(boxmon, MON_DATA_MOVE1 + slot1, NULL);
-    pp[0] = GetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot1, NULL);
-    ppUp[0] = GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot1, NULL);
-    moves[1] = GetBoxMonData(boxmon, MON_DATA_MOVE1 + slot2, NULL);
-    pp[1] = GetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot2, NULL);
-    ppUp[1] = GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot2, NULL);
+    moves[0] = (u16)GetBoxMonData(boxmon, MON_DATA_MOVE1 + slot1, NULL);
+    pp[0] = (u8)GetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot1, NULL);
+    ppUp[0] = (u8)GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot1, NULL);
+    moves[1] = (u16)GetBoxMonData(boxmon, MON_DATA_MOVE1 + slot2, NULL);
+    pp[1] = (u8)GetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot2, NULL);
+    ppUp[1] = (u8)GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot2, NULL);
 
     SetBoxMonData(boxmon, MON_DATA_MOVE1 + slot1, &moves[1]);
     SetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot1, &pp[1]);
@@ -2955,12 +2955,12 @@ void FUN_020699A4(struct Pokemon * pokemon, u32 slot)
     u8 ppUp;
     for (; slot < 3; slot++)
     {
-        move = GetMonData(pokemon, MON_DATA_MOVE1 + slot + 1, NULL);
-        pp = GetMonData(pokemon, MON_DATA_MOVE1PP + slot + 1, NULL);
-        ppUp = GetMonData(pokemon, MON_DATA_MOVE1PPUP + slot + 1, NULL);
-        SetMonData(pokemon, MON_DATA_MOVE1 + slot, &move);
-        SetMonData(pokemon, MON_DATA_MOVE1PP + slot, &pp);
-        SetMonData(pokemon, MON_DATA_MOVE1PPUP + slot, &ppUp);
+        move = (u16)GetMonData(pokemon, (int)(MON_DATA_MOVE1 + slot + 1), NULL);
+        pp = (u8)GetMonData(pokemon, (int)(MON_DATA_MOVE1PP + slot + 1), NULL);
+        ppUp = (u8)GetMonData(pokemon, (int)(MON_DATA_MOVE1PPUP + slot + 1), NULL);
+        SetMonData(pokemon, (int)(MON_DATA_MOVE1 + slot), &move);
+        SetMonData(pokemon, (int)(MON_DATA_MOVE1PP + slot), &pp);
+        SetMonData(pokemon, (int)(MON_DATA_MOVE1PPUP + slot), &ppUp);
     }
     move = MOVE_NONE;
     pp = 0;
@@ -3016,7 +3016,7 @@ u8 FUN_02069AEC(struct PlayerParty * party)
         if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE
          && !GetMonData(pokemon, MON_DATA_IS_EGG, NULL))
         {
-            level = GetMonData(pokemon, MON_DATA_LEVEL, NULL);
+            level = (u8)GetMonData(pokemon, MON_DATA_LEVEL, NULL);
             if (level > ret)
                 ret = level;
         }
@@ -3074,7 +3074,7 @@ int FUN_02069BFC(u16 species, u32 forme, u16 * dest)
 {
     int i;
     u16 * wotbl = AllocFromHeap(0, 22 * sizeof(u16));
-    LoadWotbl_HandleAlternateForme(species, forme, wotbl);
+    LoadWotbl_HandleAlternateForme(species, (int)forme, wotbl);
     for (i = 0; wotbl[i] != WOTBL_END; i++)
     {
         dest[i] = WOTBL_MOVE(wotbl[i]);
@@ -3099,11 +3099,11 @@ void FUN_02069C4C(struct PlayerParty * party)
             idx = rand_LC() % count;
             pokemon = GetPartyMonByIndex(party, idx);
         } while (GetMonData(pokemon, MON_DATA_SPECIES, NULL) == SPECIES_NONE || GetMonData(pokemon, MON_DATA_IS_EGG, NULL));
-        if (!FUN_02069CF4(party, MaskOfFlagNo(idx)))
+        if (!FUN_02069CF4(party, (u8)MaskOfFlagNo(idx)))
         {
             do
             {
-                sp0 = rand_LC();
+                sp0 = (u8)rand_LC();
             } while (!(sp0 & 7));
             if (sp0 & 0xF0)
                 sp0 &= 7;
@@ -3157,7 +3157,7 @@ void FUN_02069D50(struct PlayerParty * party, int r5)
         pokemon = GetPartyMonByIndex(party, i);
         if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE)
         {
-            pokerus = GetMonData(pokemon, MON_DATA_POKERUS, NULL);
+            pokerus = (u8)GetMonData(pokemon, MON_DATA_POKERUS, NULL);
             if (pokerus & 0xF)
             {
                 if ((pokerus & 0xF) < r5 || r5 > 4)
@@ -3185,7 +3185,7 @@ void FUN_02069DC8(struct PlayerParty * party)
             pokemon = GetPartyMonByIndex(party, i);
             if (GetMonData(pokemon, MON_DATA_SPECIES, NULL) != SPECIES_NONE)
             {
-                pokerus = GetMonData(pokemon, MON_DATA_POKERUS, NULL);
+                pokerus = (u8)GetMonData(pokemon, MON_DATA_POKERUS, NULL);
                 if (pokerus & 0xF)
                 {
                     if (i != 0)
@@ -3226,7 +3226,7 @@ BOOL FUN_02069E94(struct Pokemon * pokemon)
 
 BOOL FUN_02069E9C(struct BoxPokemon * boxmon)
 {
-    u8 pokerus = GetBoxMonData(boxmon, MON_DATA_POKERUS, NULL);
+    u8 pokerus = (u8)GetBoxMonData(boxmon, MON_DATA_POKERUS, NULL);
     if (pokerus & 0xF)
         return FALSE;
     if (pokerus & 0xF0)
@@ -3247,7 +3247,7 @@ void FUN_02069ECC(struct BoxPokemon * boxmon)
     u32 forme;
     if (species == SPECIES_ARCEUS && ability == ABILITY_MULTITYPE)
     {
-        forme = GetArceusTypeByHeldItemEffect(FUN_0206E7B8(heldItem, 1, 0));
+        forme = GetArceusTypeByHeldItemEffect((u16)FUN_0206E7B8((u16)heldItem, 1, 0));
         SetBoxMonData(boxmon, MON_DATA_FORME, &forme);
     }
 }
@@ -3302,21 +3302,21 @@ void FUN_02069FB0(u32 r7, u32 r5, u32 r4, u32 r6, u32 sp18, u32 sp1C, u32 sp20)
 {
     if (r4 == SPECIES_CHATOT)
     {
-        if (!FUN_02005F14(r5))
+        if (!FUN_02005F14((int)r5))
         {
             FUN_02005E80(1);
-            FUN_020056AC(r5, r4, r6, sp18, sp20);
+            FUN_020056AC((int)r5, (int)r4, (int)r6, (int)sp18, (int)sp20);
         }
         else
         {
             if (sp1C)
                 FUN_02005E80(1);
-            FUN_02005E90(r7, 0, sp18, r6);
+            FUN_02005E90((int)r7, 0, (int)sp18, (int)r6);
         }
     }
     else
     {
-        FUN_020056AC(r5, r4, r6, sp18, sp20);
+        FUN_020056AC((int)r5, (int)r4, (int)r6, (int)sp18, (int)sp20);
     }
 }
 
@@ -3335,7 +3335,7 @@ void FUN_0206A014(struct Pokemon * pokemon, u32 a1, u32 pokeball, u32 a3, u32 en
 
 void FUN_0206A054(struct BoxPokemon *  boxmon, u32 a1, u32 pokeball, u32 a3, u32 encounterType, u32 a5)
 {
-    FUN_020808AC(boxmon, a1, 0, a3, a5);
+    FUN_020808AC(boxmon, (int)a1, 0, (int)a3, (int)a5);
     SetBoxMonData(boxmon, MON_DATA_GAME_VERSION, (void *)&gGameVersion);
     SetBoxMonData(boxmon, MON_DATA_POKEBALL, &pokeball);
     SetBoxMonData(boxmon, MON_DATA_ENCOUNTER_TYPE, &encounterType);
@@ -3349,11 +3349,11 @@ void FUN_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2)
     u16 item1;
     u16 item2;
     if (!(a1 & 0x81)) {
-        chance = rand_LC() % 100;
-        species = GetMonData(pokemon, MON_DATA_SPECIES, 0);
-        forme = GetMonData(pokemon, MON_DATA_FORME, 0);
-        item1 = GetMonBaseStat_HandleFormeConversion(species, forme, BASE_ITEM_1);
-        item2 = GetMonBaseStat_HandleFormeConversion(species, forme, BASE_ITEM_2);
+        chance = (u32)(rand_LC() % 100);
+        species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, 0);
+        forme = (u16)GetMonData(pokemon, MON_DATA_FORME, 0);
+        item1 = (u16)GetMonBaseStat_HandleFormeConversion(species, forme, BASE_ITEM_1);
+        item2 = (u16)GetMonBaseStat_HandleFormeConversion(species, forme, BASE_ITEM_2);
         if (item1 == item2 && item1 != ITEM_NONE)
         {
             SetMonData(pokemon, MON_DATA_HELD_ITEM, &item1);
@@ -3382,8 +3382,8 @@ BOOL FUN_0206A13C(struct Pokemon * pokemon, u32 a1)
 
 BOOL FUN_0206A144(struct BoxPokemon * boxmon, u32 a1)
 {
-    u16 species = GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
-    int forme = GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
+    u16 species = (u16)GetBoxMonData(boxmon, MON_DATA_SPECIES2, NULL);
+    int forme = (int)GetBoxMonData(boxmon, MON_DATA_FORME, NULL);
     return FUN_0206A16C(species, forme, a1);
 }
 
@@ -3395,22 +3395,22 @@ BOOL FUN_0206A16C(u16 species, int forme, u32 a2)
         return FALSE;
     if (a2 < 32)
     {
-        r4 = 1 << a2;
+        r4 = 1ul << a2;
         r2 = BASE_UNKNOWN_29;
     }
     else if (a2 < 64)
     {
-        r4 = 1 << (a2 - 32);
+        r4 = 1ul << (a2 - 32);
         r2 = BASE_UNKNOWN_30;
     }
     else if (a2 < 96)
     {
-        r4 = 1 << (a2 - 64);
+        r4 = 1ul << (a2 - 64);
         r2 = BASE_UNKNOWN_31;
     }
     else
     {
-        r4 = 1 << (a2 - 96);
+        r4 = 1ul << (a2 - 96);
         r2 = BASE_UNKNOWN_32;
     }
     return !!(GetMonBaseStat_HandleFormeConversion(species, forme, r2) & r4);
@@ -3424,10 +3424,10 @@ void FUN_0206A1C4(struct Pokemon * pokemon)
 void FUN_0206A1CC(struct BoxPokemon * boxmon)
 {
     BOOL decry = AcquireBoxMonLock(boxmon);
-    int species = GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
-    int pid = GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
-    int ability1 = GetMonBaseStat(species, BASE_ABILITY_1);
-    int ability2 = GetMonBaseStat(species, BASE_ABILITY_2);
+    int species = (int)GetBoxMonData(boxmon, MON_DATA_SPECIES, NULL);
+    int pid = (int)GetBoxMonData(boxmon, MON_DATA_PERSONALITY, NULL);
+    int ability1 = (int)GetMonBaseStat(species, BASE_ABILITY_1);
+    int ability2 = (int)GetMonBaseStat(species, BASE_ABILITY_2);
 
     if (ability2 != ABILITY_NONE)
     {
@@ -3509,7 +3509,7 @@ void MonDecryptSegment(u16 * data, u32 size, u32 seed) {
 u16 MonEncryptionLCRNG(u32 * seed)
 {
     *seed = *seed * 1103515245 + 24691;
-    return *seed >> 16;
+    return (u16)(*seed >> 16);
 }
 
 u16 CalcMonChecksum(u16 * data, u32 size)
@@ -3671,7 +3671,7 @@ u16 GetLegendaryMon(u32 idx)
 
 BOOL FUN_0206A998(struct Pokemon * pokemon)
 {
-    u16 species = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
+    u16 species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, NULL);
     return IsPokemonLegendaryOrMythical(species);
 }
 
@@ -3733,7 +3733,7 @@ void FUN_0206AAB4(struct BoxPokemon * boxmon)
     {
         if (GetBoxMonData(boxmon, MON_DATA_MOVE1 + i, NULL) != MOVE_NONE)
         {
-            pp = GetBoxMonData(boxmon, MON_DATA_MOVE1MAXPP + i, NULL);
+            pp = (u8)GetBoxMonData(boxmon, MON_DATA_MOVE1MAXPP + i, NULL);
             SetBoxMonData(boxmon, MON_DATA_MOVE1PP + i, &pp);
         }
     }

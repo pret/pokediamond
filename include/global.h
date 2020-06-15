@@ -4,6 +4,7 @@
 #include "config.h"
 #include "function_target.h"
 #include "nitro.h"
+#include "constants/global.h"
 
 #define NELEMS(a) (sizeof(a) / sizeof(*(a)))
 

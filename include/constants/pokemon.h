@@ -272,9 +272,6 @@
 #define MON_RATIO_FEMALE       254
 #define MON_RATIO_UNKNOWN      255
 
-#define POKEMON_NAME_LENGTH 10
-#define OT_NAME_LENGTH       7
-
 enum MonGender
 {
     MON_MALE = 0,
