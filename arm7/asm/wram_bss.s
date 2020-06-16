@@ -2,10 +2,6 @@
 	.include "global.inc"
 	.section .bss
 
-	.global CTRDGi_Work
-CTRDGi_Work: ;0x03809FB8
-	.space 0x03809FBC - 0x03809FB8
-
 	.global _03809FBC
 _03809FBC: ;0x03809FBC
 	.space 0x03809FC0 - 0x03809FBC
