@@ -2532,7 +2532,7 @@ _0207EA76:
 	mov r1, #0x0
 	ldrh r0, [r0, #0x18]
 	str r0, [sp, #0x20]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	str r0, [sp, #0x1c]
 	str r0, [sp, #0x18]
 _0207EA88:
@@ -2674,7 +2674,7 @@ FUN_0207EB64: ; 0x0207EB64
 	bl FUN_02019620
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r2, r0, #0x0
 	cmp r2, #0x1
 	bhi _0207EBD2
@@ -2703,7 +2703,7 @@ _0207EBE0:
 	bl FUN_0207D998
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r2, r0, #0x0
 	bne _0207EC0E
 	ldr r2, _0207EC88 ; =0x00000674
@@ -2980,7 +2980,7 @@ FUN_0207EE2C: ; 0x0207EE2C
 	bl FUN_02019620
 	add r0, r4, #0x0
 	mov r1, #0xa
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	bl FUN_0208315C
 	add r4, r0, #0x0
 	mov r0, #0x0

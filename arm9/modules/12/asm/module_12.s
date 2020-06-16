@@ -979,7 +979,7 @@ _0222DE9E:
 	cmp r0, #0
 	beq _0222DEBE
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r3, r0, #0
 	b _0222DEC0
 _0222DEBE:
@@ -10758,13 +10758,13 @@ _02232C2C:
 	ldr r1, [sp, #0x20]
 	add r4, r6, r1
 	mov r1, #0xa
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	mov r1, #0x4b
 	lsl r1, r1, #2
 	strb r0, [r4, r1]
 	ldrh r0, [r7]
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	mov r1, #0x13
 	lsl r1, r1, #4
 	strb r0, [r4, r1]
@@ -16965,7 +16965,7 @@ MOD12_02235C44: ; 0x02235C44
 	add r4, r0, #0
 	add r0, r1, #0
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	lsl r1, r4, #2
 	add r2, r4, r1
 	ldr r1, _02235C5C ; =0x022454E4
@@ -21837,7 +21837,7 @@ _022380B8:
 	ldr r0, _022380F8 ; =0x00000236
 	ldrh r0, [r7, r0]
 	strh r0, [r5]
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	strb r0, [r5, #2]
 	mov r0, #0x23
 	lsl r0, r0, #4
@@ -22518,7 +22518,7 @@ _022385D2:
 	ldr r0, [sp, #0xc]
 	mov r1, #0xb
 	ldrh r0, [r0]
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	bl MOD12_02235AC4
 	strb r0, [r7, #0xc]
 	ldr r0, [sp, #8]
@@ -22554,7 +22554,7 @@ _0223862C:
 	ldr r0, [sp, #0xc]
 	mov r1, #0xb
 	ldrh r0, [r0]
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	bl MOD12_02235AF0
 	strb r0, [r7, #0xc]
 _0223863E:
@@ -23983,11 +23983,11 @@ _02239080:
 	bne _022390BA
 	ldrh r0, [r5]
 	mov r1, #0xa
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	strb r0, [r5, #0xa]
 	ldrh r0, [r5]
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	strb r0, [r5, #0xb]
 	b _022390BE
 _022390BA:

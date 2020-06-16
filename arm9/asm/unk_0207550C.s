@@ -3092,7 +3092,7 @@ FUN_02076F2C: ; 0x02076F2C
 	mov r1, #0x0
 	ldr r0, [r5, r0]
 	ldrh r0, [r0, #0x26]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	add r6, #0x3a
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0

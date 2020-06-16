@@ -24831,7 +24831,7 @@ MOD11_022399C8: ; 0x022399C8
 	ldr r0, [r4, r0]
 	lsl r0, r0, #4
 	add r0, r2, r0
-	bl FUN_0206AB58
+	bl GetAttrFromWazaTbl
 	mov r1, #0x4d
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -31770,7 +31770,7 @@ MOD11_0223D1DC: ; 0x0223D1DC
 _0223D216:
 	ldr r0, _0223D230 ; =0x000003DE
 	add r0, r4, r0
-	bl FUN_0206AB04
+	bl LoadAllWazaTbl
 	mov r0, #5
 	bl FUN_0206EB50
 	ldr r1, _0223D234 ; =0x00002120
@@ -44615,7 +44615,7 @@ _022435AA:
 	add r1, #0x30
 	ldrh r0, [r0, #0xc]
 	ldrb r1, [r1]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	pop {r4, r5, r6, pc}
 _022435BE:
 	add r4, #0x34
@@ -46006,7 +46006,7 @@ _02243F70:
 	add r1, #0x30
 	ldrh r0, [r0, #0xc]
 	ldrb r1, [r1]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	add r4, #0x2c
 	ldrb r1, [r4, r6]
 	add r1, r5, r1
@@ -58785,7 +58785,7 @@ _0224A0C8:
 	add r2, r5, r1
 	ldr r1, _0224A338 ; =0x00002D70
 	ldrb r1, [r2, r1]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	add r1, r4, r7
 	add r2, r5, r1
 	ldr r1, _0224A33C ; =0x00002D6C
@@ -59496,7 +59496,7 @@ _0224A61E:
 	add r2, r6, r1
 	ldr r1, _0224A868 ; =0x00002D70
 	ldrb r1, [r2, r1]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	ldr r1, [sp, #8]
 	add r1, r4, r1
 	add r2, r6, r1
@@ -79668,7 +79668,7 @@ MOD11_022545B4: ; 0x022545B4
 	ldrh r6, [r0, #0x10]
 	mov r1, #9
 	add r0, r6, #0
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	mov r1, #0x40
 	tst r0, r1
 	bne _022545D4
@@ -79680,7 +79680,7 @@ _022545D6:
 	strb r0, [r4]
 	add r0, r6, #0
 	mov r1, #9
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	mov r1, #0x80
 	tst r0, r1
 	beq _022545EC
@@ -81704,7 +81704,7 @@ _0225557E:
 	ldr r0, _022555D8 ; =0x00002D4C
 	ldrb r1, [r4, r1]
 	ldrh r0, [r6, r0]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	strb r0, [r5, #0x10]
 	ldr r0, [sp, #0x10]
 	add r6, r6, #2
@@ -90106,7 +90106,7 @@ _0225978A:
 	cmp r0, #0
 	beq _022597A4
 	add r1, r7, #0
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0
@@ -92090,7 +92090,7 @@ _0225A7CE:
 	cmp r0, #0
 	beq _0225A814
 	mov r1, #3
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	str r0, [sp, #0x3c]
 	bl FUN_0206E12C
 	str r0, [sp, #0x40]
@@ -92378,7 +92378,7 @@ _0225AA24:
 	cmp r0, #0
 	beq _0225AA9E
 	mov r1, #3
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r2, r0, #0
 	ldr r0, _0225AAB4 ; =0x00004E35
 	ldr r1, _0225AAB8 ; =0x0225F72C

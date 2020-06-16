@@ -210,7 +210,7 @@ _0208447C:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0x0
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	cmp r0, #0x5
 	blo _020844B2
 	add r0, r4, #0x0
@@ -1360,7 +1360,7 @@ _02084E08:
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	add r0, r7, #0x0
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	cmp r4, r0
 	bhs _02084E36
 	mov r0, #0x1
@@ -1409,7 +1409,7 @@ _02084E5E:
 	lsl r1, r1, #0x18
 	add r0, r7, #0x0
 	lsr r1, r1, #0x18
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	add r1, sp, #0x4
 	ldrb r2, [r1, #0x0]
 	cmp r2, r0
@@ -1469,7 +1469,7 @@ _02084EE6:
 	lsr r0, r0, #0x10
 	mov r1, #0x0
 	str r0, [sp, #0x4]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	cmp r0, #0x5
 	bhs _02084F08
 	add sp, #0xc
@@ -1485,7 +1485,7 @@ _02084F08:
 	strb r0, [r1, #0x1]
 	ldrb r1, [r1, #0x0]
 	ldr r0, [sp, #0x4]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	add r7, r0, #0x0
 	add r0, sp, #0x8
 	ldrb r0, [r0, #0x0]
@@ -1502,7 +1502,7 @@ _02084F34:
 	strb r0, [r1, #0x0]
 	ldrb r1, [r1, #0x0]
 	ldr r0, [sp, #0x4]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	add r1, sp, #0x8
 	ldrb r2, [r1, #0x1]
 	add r0, r2, r0

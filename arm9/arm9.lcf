@@ -362,7 +362,7 @@ SECTIONS {
 		unk_020653EC.o (.text)
 		unk_02066840.o (.text)
 		pokemon.o (.text)
-		unk_0206AB04.o (.text)
+		waza.o (.text)
 		unk_0206ABC4.o (.text)
 		unk_0206B16C.o (.text)
 		unk_0206B688.o (.text)
