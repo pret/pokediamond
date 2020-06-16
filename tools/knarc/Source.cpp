@@ -37,7 +37,7 @@ static inline void usage() {
     cout << "\t-d DIRECTORY\tDirectory to pack from/unpack to" << endl;
     cout << "\t-p TARGET\tPack to the target NARC" << endl;
     cout << "\t-u SOURCE\tUnpack from the source NARC" << endl;
-    cout << "\t-n\tSuppress building the filename table" << endl;
+    cout << "\t-n\tBuild the filename table (default: discards filenames)" << endl;
     cout << "\t-D/--debug\tPrint additional debug messages" << endl;
     cout << "\t-h/--help\tPrint this message and exit" << endl;
 }

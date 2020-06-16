@@ -177,7 +177,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 	FileAllocationTable fat
 	{
 		.Id = 0x46415442, // BTAF
-		.ChunkSize = sizeof(FileAllocationTable) + ((uint32_t)fatEntries.size() * sizeof(FileAllocationTableEntry)),
+		.ChunkSize = static_cast<uint32_t>(sizeof(FileAllocationTable) + ((uint32_t)fatEntries.size() * sizeof(FileAllocationTableEntry))),
 		.FileCount = static_cast<uint16_t>(fatEntries.size()),
 		.Reserved = 0x0
 	};
@@ -222,7 +222,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 	{
 		fntEntries.push_back(
 			{
-				.Offset = (directoryCounter + 1) * sizeof(FileNameTableEntry),
+				.Offset = static_cast<uint32_t>((directoryCounter + 1) * sizeof(FileNameTableEntry)),
 				.FirstFileId = 0x0,
 				.Utility = static_cast<uint16_t>(directoryCounter + 1)
 			});
@@ -231,7 +231,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 		{
 			fntEntries.push_back(
 				{
-					.Offset = fntEntries.back().Offset + subTables[paths[i]].size(),
+					.Offset = static_cast<uint32_t>(fntEntries.back().Offset + subTables[paths[i]].size()),
 					.FirstFileId = fntEntries.back().FirstFileId,
 					.Utility = 0x0
 				});
@@ -265,7 +265,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 	FileNameTable fnt
 	{
 		.Id = 0x464E5442, // BTNF
-		.ChunkSize = sizeof(FileNameTable) + (fntEntries.size() * sizeof(FileNameTableEntry))
+		.ChunkSize = static_cast<uint32_t>(sizeof(FileNameTable) + (fntEntries.size() * sizeof(FileNameTableEntry)))
 	};
 
 	if (!pack_no_fnt)
@@ -284,7 +284,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 	FileImages fi
 	{
 		.Id = 0x46494D47, // GMIF
-		.ChunkSize = sizeof(FileImages) + fatEntries.back().End
+		.ChunkSize = static_cast<uint32_t>(sizeof(FileImages) + fatEntries.back().End)
 	};
 
 	if ((fi.ChunkSize % 4) != 0)
@@ -297,7 +297,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 		.Id = 0x4352414E, // NARC
 		.ByteOrderMark = 0xFFFE,
 		.Version = 0x100,
-		.FileSize = sizeof(Header) + fat.ChunkSize + fnt.ChunkSize + fi.ChunkSize,
+		.FileSize = static_cast<uint32_t>(sizeof(Header) + fat.ChunkSize + fnt.ChunkSize + fi.ChunkSize),
 		.ChunkSize = sizeof(Header),
 		.ChunkCount = 0x3
 	};
