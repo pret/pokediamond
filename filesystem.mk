@@ -283,5 +283,5 @@ HOSTFS_FILES = $(NITROFS_FILES:%=files/%)
 files/poketool/personal/pms.narc: ;
 
 files/poketool/personal/growtbl.narc: $(wildcard files/poketool/personal/growtbl/*.txt)
-	$(MAKE) -C $(<D)
-	$(NARCCOMP) -o $@ -p 255 $(^:%.txt=%.bin)
+	$(foreach file,$^,$(CSV2BIN) $(file);)
+	$(KNARC) -d $(basename $@)/ -p $@

@@ -199,6 +199,7 @@ LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 # DS TOOLS
 TOOLS_DIR = tools
 SHA1SUM = sha1sum
+CSV2BIN = $(TOOLS_DIR)/csv2bin/csv2bin
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q

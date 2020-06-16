@@ -6,6 +6,9 @@
 
 using namespace std;
 
+bool debug = false;
+bool pack_no_fnt = true;
+
 void PrintError(NarcError error)
 {
 	switch (error)
@@ -27,20 +30,20 @@ void PrintError(NarcError error)
 	}
 }
 
+static inline void usage() {
+    cout << "OVERVIEW: Knarc" << endl << endl;
+    cout << "USAGE: knarc [options] -d DIRECTORY [-p TARGET | -u SOURCE]" << endl << endl;
+    cout << "OPTIONS:" << endl;
+    cout << "\t-d DIRECTORY\tDirectory to pack from/unpack to" << endl;
+    cout << "\t-p TARGET\tPack to the target NARC" << endl;
+    cout << "\t-u SOURCE\tUnpack from the source NARC" << endl;
+    cout << "\t-n\tSuppress building the filename table" << endl;
+    cout << "\t-D/--debug\tPrint additional debug messages" << endl;
+    cout << "\t-h/--help\tPrint this message and exit" << endl;
+}
+
 int main(int argc, char* argv[])
 {
-	if (argc != 5)
-	{
-		cout << "OVERVIEW: Knarc" << endl << endl;
-		cout << "USAGE: knarc [options] <inputs>" << endl << endl;
-		cout << "OPTIONS:" << endl;
-		cout << "\t-d\tDirectory to pack from/unpack to" << endl;
-		cout << "\t-p\tPack" << endl;
-		cout << "\t-u\tUnpack" << endl;
-
-		return 1;
-	}
-
 	string directory = "";
 	string fileName = "";
 	bool pack = false;
@@ -56,6 +59,10 @@ int main(int argc, char* argv[])
 				return 1;
 			}
 
+			if (!directory.empty()) {
+			    cerr << "ERROR: Multiple directories specified" << endl;
+			    return 1;
+			}
 			directory = argv[++i];
 		}
 		else if (!strcmp(argv[i], "-p"))
@@ -67,6 +74,10 @@ int main(int argc, char* argv[])
 				return 1;
 			}
 
+            if (!fileName.empty()) {
+                cerr << "ERROR: Multiple files specified" << endl;
+                return 1;
+            }
 			fileName = argv[++i];
 			pack = true;
 		}
@@ -79,8 +90,34 @@ int main(int argc, char* argv[])
 				return 1;
 			}
 
+			if (!fileName.empty()) {
+			    cerr << "ERROR: Multiple files specified" << endl;
+			    return 1;
+			}
 			fileName = argv[++i];
+		} else if (!strcmp(argv[i], "-D") || !strcmp(argv[i], "--debug")) {
+		    debug = true;
+		} else if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {
+		    usage();
+		    return 0;
 		}
+		else if (!strcmp(argv[i], "-n")) {
+		    pack_no_fnt = false;
+		}
+		else {
+		    usage();
+		    cerr << "ERROR: Unrecognized argument: " << argv[i] << endl;
+		    return 1;
+		}
+	}
+
+	if (fileName.empty()) {
+	    cerr << "ERROR: Missing -u or -p" << endl;
+	    return 1;
+	}
+	if (directory.empty()) {
+	    cerr << "ERROR: Missing -d" << endl;
+	    return 1;
 	}
 
 	Narc narc;
