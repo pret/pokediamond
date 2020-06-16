@@ -8193,7 +8193,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	bl FUN_02021A20
 	ldr r0, [sp, #0x10]
 	mov r1, #0
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	add r7, r0, #0
 	mov r0, #0x45
 	lsl r0, r0, #2
@@ -8237,7 +8237,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	bl FUN_0201BDE0
 	ldr r0, [sp, #0x10]
 	mov r1, #2
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	lsl r0, r0, #0x10
 	lsr r7, r0, #0x10
 	cmp r7, #1
@@ -8292,7 +8292,7 @@ _021EACC6:
 	bl FUN_0201BDE0
 	ldr r0, [sp, #0x10]
 	mov r1, #4
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	lsl r0, r0, #0x10
 	lsr r7, r0, #0x10
 	bne _021EAD30
@@ -10986,12 +10986,12 @@ MOD75_021EC2B8: ; 0x021EC2B8
 	bl FUN_0206EA30
 	mov r1, #3
 	add r4, r0, #0
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	bl FUN_0206E12C

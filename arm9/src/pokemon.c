@@ -761,7 +761,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_MOVE2MAXPP:
     case MON_DATA_MOVE3MAXPP:
     case MON_DATA_MOVE4MAXPP:
-        ret = (u32)FUN_0206AB30(blockB->moves[attr - MON_DATA_MOVE1MAXPP], blockB->movePpUps[attr - MON_DATA_MOVE1MAXPP]);
+        ret = (u32)WazaGetMaxPp(blockB->moves[attr - MON_DATA_MOVE1MAXPP], blockB->movePpUps[attr - MON_DATA_MOVE1MAXPP]);
         break;
     case MON_DATA_HP_IV:
         ret = blockB->hpIV;
@@ -1562,8 +1562,8 @@ void AddBoxMonData(struct BoxPokemon * boxmon, int attr, int value)
     case MON_DATA_MOVE2PP:
     case MON_DATA_MOVE3PP:
     case MON_DATA_MOVE4PP:
-        if (blockB->movePP[attr - MON_DATA_MOVE1PP] + value > FUN_0206AB30(blockB->moves[attr - MON_DATA_MOVE1PP], blockB->movePpUps[attr - MON_DATA_MOVE1PP]))
-            blockB->movePP[attr - MON_DATA_MOVE1PP] = (u8)FUN_0206AB30(blockB->moves[attr - MON_DATA_MOVE1PP], blockB->movePpUps[attr - MON_DATA_MOVE1PP]);
+        if (blockB->movePP[attr - MON_DATA_MOVE1PP] + value > WazaGetMaxPp(blockB->moves[attr - MON_DATA_MOVE1PP], blockB->movePpUps[attr - MON_DATA_MOVE1PP]))
+            blockB->movePP[attr - MON_DATA_MOVE1PP] = (u8)WazaGetMaxPp(blockB->moves[attr - MON_DATA_MOVE1PP], blockB->movePpUps[attr - MON_DATA_MOVE1PP]);
         else
             blockB->movePP[attr - MON_DATA_MOVE1PP] += value;
         break;
@@ -2859,7 +2859,7 @@ void FUN_02069718(struct BoxPokemon * boxmon, u16 move)
     }
 
     moves[3] = move;
-    pp[3] = (u8)FUN_0206AB18(move, 5);
+    pp[3] = (u8)GetWazaAttr(move, 5);
     ppUp[3] = 0;
 
     for (i = 0; i < 4; i++)
@@ -2884,7 +2884,7 @@ void FUN_020697D4(struct BoxPokemon * boxmon, u16 move, u8 slot)
 
     SetBoxMonData(boxmon, MON_DATA_MOVE1 + slot, &move);
     ppUp = (u8)GetBoxMonData(boxmon, MON_DATA_MOVE1PPUP + slot, NULL);
-    pp = (u8)FUN_0206AB30(move, ppUp);
+    pp = (u8)WazaGetMaxPp(move, ppUp);
     SetBoxMonData(boxmon, MON_DATA_MOVE1PP + slot, &pp);
 }
 

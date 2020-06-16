@@ -4810,10 +4810,10 @@
 .extern FUN_0206AA30
 .extern FUN_0206AA84
 .extern FUN_0206AAB4
-.extern FUN_0206AB04
-.extern FUN_0206AB18
-.extern FUN_0206AB30
-.extern FUN_0206AB58
+.extern LoadAllWazaTbl
+.extern GetWazaAttr
+.extern WazaGetMaxPp
+.extern GetAttrFromWazaTbl
 .extern FUN_0206ABC4
 .extern FUN_0206AC74
 .extern FUN_0206ACD4

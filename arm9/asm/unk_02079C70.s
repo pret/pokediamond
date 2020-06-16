@@ -2104,7 +2104,7 @@ _0207AD26:
 	lsr r1, r0, #0x18
 	ldr r0, [sp, #0x0]
 	ldrh r0, [r0, #0x34]
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	add r1, r5, r4
 	add r1, #0x40
 	strb r0, [r1, #0x0]
@@ -4153,7 +4153,7 @@ FUN_0207BD84: ; 0x0207BD84
 	beq _0207BDCC
 	add r0, r4, #0x0
 	mov r1, #0xa
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	bl FUN_02083114
 	mov r1, #0xa
 	bl _s32_div_f

@@ -847,7 +847,7 @@ _0207C7FC:
 	cmp r0, #0x0
 	beq _0207C826
 	add r1, r7, #0x0
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r3, r0, #0x0
 	add r1, r4, #0x0
 	add r1, #0xd
@@ -943,7 +943,7 @@ _0207C8BA:
 	cmp r0, #0x0
 	beq _0207C904
 	mov r1, #0x3
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r3, r0, #0x0
 	add r1, r4, #0x0
 	add r1, #0xd
@@ -983,7 +983,7 @@ _0207C904:
 	cmp r0, #0x0
 	beq _0207C946
 	mov r1, #0x3
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r3, r0, #0x0
 	lsl r3, r3, #0x18
 	add r0, r5, #0x0
@@ -1029,7 +1029,7 @@ _0207C974:
 	cmp r0, #0x0
 	beq _0207C9C0
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r3, r0, #0x0
 	add r1, r4, #0x0
 	add r1, #0xd
@@ -1070,7 +1070,7 @@ _0207C9C0:
 	cmp r0, #0x0
 	beq _0207CA04
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r3, r0, #0x0
 	add r3, #0x12
 	lsl r3, r3, #0x18
@@ -1270,7 +1270,7 @@ FUN_0207CB70: ; 0x0207CB70
 	add r5, r0, #0x0
 	add r0, r1, #0x0
 	mov r1, #0x1
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r4, r0, #0x0
 	bl FUN_0206E2A8
 	add r6, r0, #0x0
