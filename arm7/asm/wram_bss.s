@@ -2,38 +2,6 @@
 	.include "global.inc"
 	.section .bss
 
-	.global _03809FBC
-_03809FBC: ;0x03809FBC
-	.space 0x03809FC0 - 0x03809FBC
-
-	.global current_vib
-current_vib: ;0x03809FC0
-	.space 0x03809FC4 - 0x03809FC0
-
-	.global _03809FC4
-_03809FC4: ;0x03809FC4
-	.space 0x03809FC8 - 0x03809FC4
-
-	.global _03809FC8
-_03809FC8: ;0x03809FC8
-	.space 0x03809FCC - 0x03809FC8
-
-	.global _03809FCC
-_03809FCC: ;0x03809FCC
-	.space 0x03809FD0 - 0x03809FCC
-
-	.global _03809FD0
-_03809FD0: ;0x03809FD0
-	.space 0x03809FD4 - 0x03809FD0
-
-	.global _03809FD4
-_03809FD4: ;0x03809FD4
-	.space 0x03809FEC - 0x03809FD4
-
-	.global _03809FEC
-_03809FEC: ;0x03809FEC
-	.space 0x0380A018 - 0x03809FEC
-
 	.global _0380A018
 _0380A018: ;0x0380A018
 	.space 0x0380A038 - 0x0380A018
