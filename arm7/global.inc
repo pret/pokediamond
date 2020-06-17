@@ -244,9 +244,13 @@
 .extern TP_AnalyzeCommand
 .extern TP_ExecuteProcess
 .extern TP_Init
+.extern CTRDGi_InitCommon
+.extern CTRDGi_SendtoPxi
 .extern CTRDG_CheckPullOut_Polling
 .extern CTRDG_VibPulseEdgeUpdate
 .extern CTRDG_Init
+.extern CTRDG_IsExisting
+.extern CTRDG_IsPulledOut
 .extern NVRAM_AnalyzeCommand
 .extern NVRAM_ExecuteProcess
 .extern NVRAM_Init
