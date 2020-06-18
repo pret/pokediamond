@@ -139,7 +139,7 @@ public:
             memset(ret + sym.st_size, 0, size - sym.st_size);
         return ret;
     }
-    
+
     void * read(Elf32_Shdr & sec) {
         // Reads the contents of an ELF section
         if (sec.sh_size == 0)
