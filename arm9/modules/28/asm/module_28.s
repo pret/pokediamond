@@ -820,12 +820,12 @@ _02254E50: .word 0x00000165
 MOD28_02254E54: ; 0x02254E54
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x3f
 	and r0, r1
 	sub r0, #0x20
 	lsl r4, r0, #0xc
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x3f
 	and r0, r1
 	sub r0, #0x20
@@ -2216,7 +2216,7 @@ _022558A6:
 	add r0, r4, #0
 	add r0, #0x35
 	ldrb r0, [r0]
-	bl FUN_0201B93C
+	bl Sin
 	mov r1, #0x13
 	mvn r1, r1
 	mul r1, r0

@@ -260,7 +260,7 @@ _0204BBB8:
 FUN_0204BBC4: ; 0x0204BBC4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0204BBE4 ; =0x0000199A
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -384,7 +384,7 @@ _0204BC94:
 	mov r4, #0x0
 	b _0204BCD8
 _0204BCA4:
-	bl rand_LC
+	bl LCRandom
 	add r1, r6, #0x0
 	add r1, #0x14
 	add r4, r0, #0x0

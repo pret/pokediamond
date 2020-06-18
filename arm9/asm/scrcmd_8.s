@@ -213,7 +213,7 @@ _02041DCE:
 	mov r1, #0x0
 	mov r2, #0x2
 	bl FUN_02028810
-	bl rand_MT
+	bl MTRandom
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0

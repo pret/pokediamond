@@ -8823,7 +8823,7 @@ FUN_0203DFA8: ; 0x0203DFA8
 	ldr r0, [r5, #0x0]
 	bl FUN_020394F0
 	add r5, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r1, r5, #0x0
 	bl _s32_div_f
 	strh r1, [r4, #0x0]
@@ -8848,7 +8848,7 @@ FUN_0203DFE0: ; 0x0203DFE0
 	ldr r0, [r5, #0x0]
 	bl FUN_020394F0
 	add r5, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r1, r5, #0x0
 	bl _s32_div_f
 	strh r1, [r4, #0x0]
@@ -9776,7 +9776,7 @@ FUN_0203E774: ; 0x0203E774
 	add r0, r7, #0x0
 	bl FUN_020244A4
 	add r4, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0x0
 	bl _s32_div_f
 	lsl r0, r1, #0x10
@@ -11070,7 +11070,7 @@ _0203F1E0:
 	mov r0, #0x0
 	pop {r4-r7, pc}
 _0203F1F8:
-	bl rand_LC
+	bl LCRandom
 	add r1, r6, #0x0
 	bl _s32_div_f
 	mov r4, #0x0
@@ -11496,7 +11496,7 @@ _0203F54C:
 	lsl r7, r7, #0x2
 	b _0203F582
 _0203F556:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, #0x19
@@ -11504,7 +11504,7 @@ _0203F556:
 	ldr r7, _0203F5CC ; =0x0000010D
 	b _0203F582
 _0203F568:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x6
 	bl _s32_div_f
 	lsl r0, r1, #0x10
@@ -11911,7 +11911,7 @@ FUN_0203F880: ; 0x0203F880
 	bls _0203F8A2
 	mov r4, #0x64
 _0203F8A2:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x65
 	bl _s32_div_f
 	lsl r0, r1, #0x10

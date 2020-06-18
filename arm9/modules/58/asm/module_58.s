@@ -2148,7 +2148,7 @@ MOD58_021DAB34: ; 0x021DAB34
 	strh r1, [r0]
 _021DAB4A:
 	ldrh r0, [r0]
-	bl FUN_0201B970
+	bl Sin_Wrap
 	mov r1, #0xa
 	mul r1, r0
 	asr r0, r1, #0xb

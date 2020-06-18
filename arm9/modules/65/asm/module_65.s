@@ -4239,7 +4239,7 @@ MOD65_021D95A4: ; 0x021D95A4
 	orr r1, r0
 	lsl r0, r1, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, _021D9678 ; =0xFFFC0000
 	asr r1, r0, #0x1f
 	asr r3, r2, #0x12
@@ -5018,7 +5018,7 @@ MOD65_021D9BD8: ; 0x021D9BD8
 	orr r1, r0
 	lsl r0, r1, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, _021D9CD8 ; =0xFFFFA000
 	asr r1, r0, #0x1f
 	asr r3, r2, #0xf
@@ -5240,7 +5240,7 @@ MOD65_021D9E20: ; 0x021D9E20
 	add r0, r4, #0
 	add r0, #0x50
 	ldrh r0, [r0]
-	bl FUN_0201B970
+	bl Sin_Wrap
 	asr r1, r0, #0x1f
 	lsr r2, r0, #0x13
 	lsl r1, r1, #0xd

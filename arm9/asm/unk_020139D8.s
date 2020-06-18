@@ -344,7 +344,7 @@ _02013B8A:
 	blo _02013B80
 	cmp r4, #0x0
 	beq _02013BC4
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0x0
 	bl _u32_div_f
 	ldr r4, [r5, #0x4]
