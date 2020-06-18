@@ -215,4 +215,3 @@ _038010C0:
 	bx	lr
 _038010CC:	.word	_038099A4
 _038010D0:	.word	FUN_03801048
-	.balign 2, 0 ; Don't pad with nop
