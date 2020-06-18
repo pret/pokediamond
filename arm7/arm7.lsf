@@ -68,8 +68,8 @@ Autoload WRAM
 	Object SPI_pm.o
 	Object SPI_mic.o
 	Object CTRDG.o
+	Object CTRDG_sp.o
 	Object wram2.o
-	Object wram_data.o
 	Object wram_bss.o
 }
 
