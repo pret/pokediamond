@@ -1,0 +1,12 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+
+u32 __size = 101 * sizeof(u32);
+
+const u32 growtbl[][101] = {
+## for tbl in growtbl
+    // {{ tbl.name }}
+    { {% for x in tbl.table %}{{ x }},{% endfor %} },
+## endfor
+};

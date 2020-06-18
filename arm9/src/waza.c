@@ -27,8 +27,8 @@ u8 WazaGetMaxPp(u16 waza, u8 ppUp)
     u8 pp;
     if (ppUp > 3)
         ppUp = 3;
-    pp = GetWazaAttr(waza, 5);
-    return pp + (pp * 20 * ppUp) / 100;
+    pp = (u8)GetWazaAttr(waza, 5);
+    return (u8)(pp + (pp * 20 * ppUp) / 100);
 }
 
 u32 GetAttrFromWazaTbl(struct WazaTbl * wazaTbl, u32 attr)

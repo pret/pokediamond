@@ -1,0 +1,21 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+#include "constants/moves.h"
+
+u32 __size[] = {
+##for mon in wotbl
+    ({{ length(mon.moves) }} * 2 + 5) & ~3,
+##endfor
+};
+
+const u16 moveset[] = {
+##for mon in wotbl
+	// {{ mon.species }}
+##for move in mon.moves
+    MOVE_{{ move.move }} | ({{ move.level }} << 9),
+##endfor
+    0xFFFF,
+	{% if even(length(mon.moves)) %}0x0000,{% endif %}
+##endfor
+};
