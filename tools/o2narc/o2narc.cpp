@@ -309,7 +309,11 @@ int main(int argc, char ** argv) {
         delete[] _data;
     }
     // NARC members are contiguous in memory
-    ofile.write(_rodata, (rodata_sec.sh_size + 3) & ~3);
+    ofile.write(_rodata, rodata_sec.sh_size);
+    if (!flatten && (rodata_sec.sh_size & 3)) {
+        for (int i = rodata_sec.sh_size & 3; i < 4; i++)
+            ofile.put(padding);
+    }
     // Cleanup
     delete[] _rodata;
     ofile.close();

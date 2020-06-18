@@ -280,19 +280,17 @@ HOSTFS_FILES = $(NITROFS_FILES:%=files/%)
 %.arc:
 	$(KNARC) -d $(basename $@)/ -p $@
 
-files/poketool/personal/pms.narc: ;
-
 O2NARC_TARGETS := \
 	files/poketool/personal/personal.narc \
 	files/poketool/personal/wotbl.narc \
 	files/poketool/personal/evo.narc \
+	files/poketool/personal/growtbl.narc \
+	files/poketool/personal/pms.narc \
+
+files/poketool/personal/pms.narc: O2NARCFLAGS = -f
 
 $(O2NARC_TARGETS): %.narc: %.json %.json.txt
 	$(JSONPROC) $^ $*.c
 	$(CC) $(CFLAGS) -c -o $*.o $*.c
-	$(O2NARC) $*.o $@
+	$(O2NARC) $(O2NARCFLAGS) $*.o $@
 	@$(RM) $*.o $*.c
-
-files/poketool/personal/growtbl.narc: $(wildcard files/poketool/personal/growtbl/*.txt)
-	$(foreach file,$^,$(CSV2BIN) $(file);)
-	$(KNARC) -d $(basename $@)/ -p $@
