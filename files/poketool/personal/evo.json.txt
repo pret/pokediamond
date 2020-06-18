@@ -1,0 +1,22 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+#include "pokemon.h"
+#include "constants/pokemon.h"
+#include "constants/species.h"
+#include "constants/moves.h"
+#include "constants/items.h"
+
+u32 __size = 44;
+
+const u16 data[][22] = {
+## for evo in evos
+    // {{ evo.species }}
+    {
+## for method in evo.evos
+        {{ method.method }}, {% if existsIn(method, "param") %}{{ method.param }}{% else %}0{% endif %}, SPECIES_{{ method.target }},
+## endfor
+        EVO_NONE
+    },
+## endfor
+};

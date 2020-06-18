@@ -295,3 +295,8 @@ files/poketool/personal/wotbl.narc: files/poketool/personal/wotbl.json files/pok
 	$(JSONPROC) $^ $(@:%.narc=%.c)
 	$(CC) $(CFLAGS) -c -o $(@:%.narc=%.o) $(@:%.narc=%.c)
 	$(O2NARC) $(@:%.narc=%.o) $@
+
+files/poketool/personal/evo.narc: files/poketool/personal/evo.json files/poketool/personal/evo.json.txt
+	$(JSONPROC) $^ $(@:%.narc=%.c)
+	$(CC) $(CFLAGS) -c -o $(@:%.narc=%.o) $(@:%.narc=%.c)
+	$(O2NARC) $(@:%.narc=%.o) $@

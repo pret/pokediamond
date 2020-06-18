@@ -191,7 +191,7 @@ OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
 ASFLAGS = -proc arm5te
-CFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/include -W all
+CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i include -ir include-mw -ir arm9/lib/include -W all
 LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 
 ####################### Other Tools #########################
@@ -244,12 +244,12 @@ clean: mostlyclean
 	$(MAKE) -C arm7 clean
 	$(MAKE) -C tools/mwasmarm_patcher clean
 	$(RM) $(filter-out files/poketool/personal/pms.narc,$(filter %.narc %.arc,$(HOSTFS_FILES)))
-	$(MAKE) -C files/poketool/personal/growtbl clean
 
 mostlyclean: tidy
 	$(MAKE) -C arm9 mostlyclean
 	$(MAKE) -C arm7 mostlyclean
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
+	find files \( -name '*.c' -o -name '*.o' \) -exec $(RM) {} +
 
 tidy:
 	$(MAKE) -C arm9 tidy
