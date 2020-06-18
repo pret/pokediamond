@@ -17,3 +17,8 @@ add_executable(calcrom .travis/calcrom/calcrom.cpp)
 target_include_directories(calcrom PRIVATE /usr/local/include)
 
 add_executable(knarc tools/knarc/Source.cpp tools/knarc/Narc.cpp)
+
+add_executable(jsonproc tools/jsonproc/jsonproc.cpp)
+target_include_directories(jsonproc PRIVATE SYSTEM tools/jsonproc)
+
+add_executable(o2narc tools/o2narc/o2narc.cpp)

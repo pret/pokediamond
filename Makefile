@@ -201,6 +201,7 @@ TOOLS_DIR = tools
 SHA1SUM = sha1sum
 CSV2BIN = $(TOOLS_DIR)/csv2bin/csv2bin
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
+O2NARC = $(TOOLS_DIR)/o2narc/o2narc
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 MAKEBANNER = $(WINE) $(TOOLS_DIR)/bin/makebanner.exe

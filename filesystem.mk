@@ -285,3 +285,13 @@ files/poketool/personal/pms.narc: ;
 files/poketool/personal/growtbl.narc: $(wildcard files/poketool/personal/growtbl/*.txt)
 	$(foreach file,$^,$(CSV2BIN) $(file);)
 	$(KNARC) -d $(basename $@)/ -p $@
+
+files/poketool/personal/personal.narc: files/poketool/personal/personal.json files/poketool/personal/personal.json.txt
+	$(JSONPROC) $^ $(@:%.narc=%.c)
+	$(CC) $(CFLAGS) -c -o $(@:%.narc=%.o) $(@:%.narc=%.c)
+	$(O2NARC) $(@:%.narc=%.o) $@
+
+files/poketool/personal/wotbl.narc: files/poketool/personal/wotbl.json files/poketool/personal/wotbl.json.txt
+	$(JSONPROC) $^ $(@:%.narc=%.c)
+	$(CC) $(CFLAGS) -c -o $(@:%.narc=%.o) $(@:%.narc=%.c)
+	$(O2NARC) $(@:%.narc=%.o) $@

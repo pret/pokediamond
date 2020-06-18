@@ -48,3 +48,5 @@ symbols.csv
 *.narc
 *.arc
 !files/poketool/personal/pms.narc
+files/**/*.c
+*.o
