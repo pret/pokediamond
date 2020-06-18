@@ -3248,7 +3248,7 @@ MOD81_022396E8: ; 0x022396E8
 	str r1, [r4, r0]
 	add r0, r0, #4
 	str r1, [r4, r0]
-	bl rand_MT
+	bl MTRandom
 	add r1, r4, #0
 	add r1, #0xbc
 	str r0, [r1]
@@ -3300,7 +3300,7 @@ _02239790:
 	add r0, r5, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl seedr_MT
+	bl SetMTRNGSeed
 	add r0, r5, #0
 	bl FreeToHeap
 _022397A0:
@@ -4154,17 +4154,17 @@ MOD81_02239E00: ; 0x02239E00
 	add r3, sp, #0x60
 	bl MOD81_022387A8
 	ldr r0, _02239F18 ; =0x035947D1
-	bl seedr_MT
+	bl SetMTRNGSeed
 	mov r0, #0
 	str r0, [sp, #0x14]
 	add r4, r7, #0
 _02239E9A:
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xe8
 	bl _u32_div_f
 	add r6, r1, #0
 	add r6, #0xc
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x71
 	lsl r1, r1, #2
 	bl _u32_div_f

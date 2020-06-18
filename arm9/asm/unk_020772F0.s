@@ -965,7 +965,7 @@ FUN_020777D4: ; 0x020777D4
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	bne _020777FE
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x12
 	bl _s32_div_f
 	mov r0, #0x17
@@ -977,7 +977,7 @@ FUN_020777D4: ; 0x020777D4
 _020777FE:
 	cmp r0, #0x1
 	bne _0207781A
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x12
 	bl _s32_div_f
 	mov r0, #0x17
@@ -3699,7 +3699,7 @@ FUN_02078E3C: ; 0x02078E3C
 	strh r1, [r0, #0x0]
 _02078E52:
 	ldrh r0, [r0, #0x0]
-	bl FUN_0201B970
+	bl Sin_Wrap
 	mov r1, #0xa
 	mul r1, r0
 	asr r0, r1, #0xb

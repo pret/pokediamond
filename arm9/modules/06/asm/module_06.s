@@ -5149,7 +5149,7 @@ _0223BD2E:
 	add r2, sp, #0x20
 	bl MOD06_0223CF14
 	add r6, r0, #0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -6016,7 +6016,7 @@ MOD06_0223C470: ; 0x0223C470
 	add r0, r5, #0
 	add r0, #0x74
 	strh r1, [r0]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -6060,7 +6060,7 @@ _0223C4D4:
 	bls _0223C4EC
 	mov r4, #0x64
 _0223C4EC:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -6144,7 +6144,7 @@ _0223C580:
 MOD06_0223C584: ; 0x0223C584
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -6165,7 +6165,7 @@ _0223C5A8:
 	thumb_func_start MOD06_0223C5AC
 MOD06_0223C5AC: ; 0x0223C5AC
 	push {r4, lr}
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -6255,7 +6255,7 @@ _0223C644:
 	thumb_func_start MOD06_0223C648
 MOD06_0223C648: ; 0x0223C648
 	push {r4, lr}
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -6300,7 +6300,7 @@ MOD06_0223C694: ; 0x0223C694
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	mov r4, #0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -6452,7 +6452,7 @@ MOD06_0223C78C: ; 0x0223C78C
 	ldrb r0, [r1, #0xe]
 	cmp r0, #0x1c
 	bne _0223C7C6
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #1
 	lsr r5, r0, #0x10
 	cmp r5, #2
@@ -6471,7 +6471,7 @@ _0223C7AC:
 	lsr r0, r0, #0x18
 	pop {r3, r4, r5, pc}
 _0223C7C6:
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0223C7E4 ; =0x00000A3E
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -6504,7 +6504,7 @@ _0223C7FC:
 	lsl r0, r2, #0x18
 _0223C802:
 	lsr r4, r0, #0x18
-	bl rand_LC
+	bl LCRandom
 	sub r1, r4, r5
 	add r1, r1, #1
 	lsl r1, r1, #0x18
@@ -6523,7 +6523,7 @@ _0223C802:
 	cmp r0, #0x2e
 	bne _0223C84C
 _0223C82C:
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #1
 	lsr r7, r0, #0x10
 	cmp r7, #2
@@ -6574,7 +6574,7 @@ MOD06_0223C854: ; 0x0223C854
 	beq _0223C8E0
 	cmp r0, #0xff
 	beq _0223C8E0
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0223C964 ; =0x00005556
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -6597,7 +6597,7 @@ _0223C8A6:
 _0223C8BE:
 	cmp r0, #0x1c
 	bne _0223C8E0
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #1
 	lsr r4, r0, #0x10
 	cmp r4, #2
@@ -6708,7 +6708,7 @@ _0223C998:
 	ldrb r0, [r5, #0xe]
 	cmp r0, #0x38
 	bne _0223CA28
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0223CA68 ; =0x00005556
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -7125,7 +7125,7 @@ MOD06_0223CCDC: ; 0x0223CCDC
 	mov r2, #0
 	add r3, sp, #0x10
 	bl MOD06_0223D2DC
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0223CD78 ; =0x00001746
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -7149,7 +7149,7 @@ _0223CD1A:
 	cmp r0, #0x2e
 	bne _0223CD4C
 _0223CD36:
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #1
 	lsr r6, r0, #0x10
 	cmp r6, #2
@@ -7360,7 +7360,7 @@ _0223CEB6:
 	mov r0, #0
 	pop {r4, r5, r6, r7, pc}
 _0223CEBC:
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0
 	bl _s32_div_f
 	add r0, sp, #0x10
@@ -7384,7 +7384,7 @@ MOD06_0223CED4: ; 0x0223CED4
 	ldrb r0, [r0, #0x14]
 	cmp r1, r0
 	bne _0223CF0E
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #1
 	lsr r4, r0, #0x10
 	cmp r4, #2
@@ -7499,7 +7499,7 @@ _0223CFAC:
 	sub r0, r0, #5
 	cmp r4, r0
 	bgt _0223CFCA
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #1
 	lsr r4, r0, #0x10
 	cmp r4, #2
@@ -7698,7 +7698,7 @@ _0223D134:
 	mov r0, #0
 	pop {r4, r5, r6, r7, pc}
 _0223D148:
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #1
 	lsr r4, r0, #0x10
 	cmp r4, #2
@@ -7722,7 +7722,7 @@ _0223D16E:
 	mov r4, #0
 	b _0223D19E
 _0223D176:
-	bl rand_LC
+	bl LCRandom
 	add r4, r0, #0
 	ldr r0, _0223D1B8 ; =0x0000FFFF
 	add r1, r5, #0
@@ -7823,7 +7823,7 @@ _0223D222:
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #4]
-	bl rand_LC
+	bl LCRandom
 	ldr r1, [sp, #4]
 	bl _s32_div_f
 	ldrb r0, [r5, #0x11]
@@ -7870,7 +7870,7 @@ MOD06_0223D27C: ; 0x0223D27C
 	cmp r0, #0x2e
 	bne _0223D2D8
 _0223D296:
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #1
 	lsr r6, r0, #0x10
 	cmp r6, #2
@@ -23252,7 +23252,7 @@ _02244DF4:
 	mov r2, #2
 	b _02244E10
 _02244DF8:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1f
 	sub r1, r1, r2
@@ -23611,7 +23611,7 @@ _02245098:
 	add r2, sp, #0x24
 	add r3, sp, #0x28
 	bl MOD06_0224CDB8
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _02245110 ; =0x00001556
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -23644,7 +23644,7 @@ MOD06_02245114: ; 0x02245114
 	add r7, r0, #0
 	mov r4, #0
 _02245132:
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0224518C ; =0x0000071D
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -25503,7 +25503,7 @@ MOD06_02245EC0: ; 0x02245EC0
 	add r1, sp, #0x10
 	bl FUN_02020064
 	mov r0, #0
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_02020088
@@ -25715,7 +25715,7 @@ MOD06_02246034: ; 0x02246034
 	lsl r0, r3, #0x11
 	str r0, [r4, #0x4c]
 	mov r0, #0x2d
-	bl FUN_0201B988
+	bl Cos_Wrap
 	ldr r2, [r4, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -25729,7 +25729,7 @@ MOD06_02246034: ; 0x02246034
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, [r4, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -25757,7 +25757,7 @@ MOD06_02246034: ; 0x02246034
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	ldr r0, [r4, #0x68]
 	bl FUN_02020088
@@ -25801,7 +25801,7 @@ MOD06_02246034: ; 0x02246034
 	add r1, sp, #0
 	bl FUN_02020064
 	mov r0, #0
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_02020088
@@ -25851,7 +25851,7 @@ _022461C6:
 	str r0, [r5, #0x4c]
 _022461D2:
 	mov r0, #0x2d
-	bl FUN_0201B988
+	bl Cos_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -25865,7 +25865,7 @@ _022461D2:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -26005,7 +26005,7 @@ _022462F4:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B988
+	bl Cos_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -26014,7 +26014,7 @@ _022462F4:
 	mul r0, r1
 	str r0, [r5, #0x14]
 	mov r0, #0x80
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -26042,7 +26042,7 @@ _02246338:
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
 	str r1, [r5, #0x38]
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_02020088
@@ -26185,7 +26185,7 @@ _022463F6:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	ldr r0, [r4, #0x68]
 	bl FUN_02020088
@@ -26235,7 +26235,7 @@ _022464C4:
 	str r0, [r5, #0x48]
 _022464CE:
 	ldr r0, _022465AC ; =0x0000013B
-	bl FUN_0201B988
+	bl Cos_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -26249,7 +26249,7 @@ _022464CE:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -26314,7 +26314,7 @@ _02246560:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_02020088
@@ -28322,7 +28322,7 @@ MOD06_0224743C: ; 0x0224743C
 	add r1, sp, #0x10
 	bl FUN_02020064
 	add r0, r7, #0
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_02020088
@@ -29398,7 +29398,7 @@ MOD06_02247C0C: ; 0x02247C0C
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	ldr r0, [r4, #0x58]
 	bl FUN_02020088
@@ -29431,7 +29431,7 @@ MOD06_02247CB4: ; 0x02247CB4
 	str r0, [r5, #0x4c]
 _02247CD4:
 	ldr r0, _02247DB4 ; =0x0000013B
-	bl FUN_0201B988
+	bl Cos_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -29445,7 +29445,7 @@ _02247CD4:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -29509,7 +29509,7 @@ _02247D64:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_02020088
@@ -29610,7 +29610,7 @@ MOD06_02247DC4: ; 0x02247DC4
 	lsl r0, r7, #0x11
 	str r0, [r4, #0x4c]
 	lsr r0, r6, #0xc
-	bl FUN_0201B988
+	bl Cos_Wrap
 	ldr r2, [r4, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -29624,7 +29624,7 @@ MOD06_02247DC4: ; 0x02247DC4
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, [r4, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -29652,7 +29652,7 @@ MOD06_02247DC4: ; 0x02247DC4
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	ldr r0, [r4, #0x58]
 	bl FUN_02020088
@@ -29701,7 +29701,7 @@ MOD06_02247DC4: ; 0x02247DC4
 	add r1, sp, #0
 	bl FUN_02020064
 	mov r0, #0
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_02020088
@@ -29746,7 +29746,7 @@ _02247F58:
 	str r0, [r5, #0x4c]
 _02247F64:
 	ldr r0, _02248098 ; =0x0000013B
-	bl FUN_0201B988
+	bl Cos_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -29760,7 +29760,7 @@ _02247F64:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -29827,7 +29827,7 @@ _02247FFA:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_02020088
@@ -29973,7 +29973,7 @@ _02248120:
 	add r0, r1, r0
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B988
+	bl Cos_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -29982,7 +29982,7 @@ _02248120:
 	mul r0, r1
 	str r0, [r5, #0x14]
 	mov r0, #0x80
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, [r5, #0x48]
 	asr r1, r2, #0xb
 	lsr r1, r1, #0x14
@@ -30818,7 +30818,7 @@ _0224879E:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 _022487AC:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -31661,7 +31661,7 @@ _02248E32:
 	ldrb r0, [r0]
 	pop {r3, r4, r5, pc}
 _02248E3E:
-	bl rand_MT
+	bl MTRandom
 	add r1, r4, #0
 	bl _u32_div_f
 	add r0, sp, #0
@@ -32194,7 +32194,7 @@ MOD06_022491FC: ; 0x022491FC
 	mov r0, #0
 	pop {r4, pc}
 _0224921E:
-	bl rand_MT
+	bl MTRandom
 	add r1, r4, #0
 	bl _u32_div_f
 	add r0, sp, #0
@@ -39651,7 +39651,7 @@ _0224CBE0:
 _0224CBF0:
 	mov r7, #0
 _0224CBF2:
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #4
 	lsr r5, r0, #0x10
 	cmp r5, #0x10
@@ -39709,7 +39709,7 @@ MOD06_0224CC60: ; 0x0224CC60
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x4c
 	add r5, r0, #0
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #1
 	lsr r4, r0, #0x10
 	cmp r4, #2

@@ -13157,7 +13157,7 @@ _021DD9CC:
 	ldr r4, [r6, #8]
 	mov r0, #0
 	str r0, [r4]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	bl _u32_div_f
 	add r5, r1, #0
@@ -13165,7 +13165,7 @@ _021DD9CC:
 	ldr r0, [r6, #4]
 	lsr r1, r1, #0x10
 	bl FUN_02020208
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	add r2, r5, #1
@@ -13197,12 +13197,12 @@ _021DDA12:
 _021DDA32:
 	mov r0, #0
 	str r0, [r4, #0xc]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	bl _u32_div_f
 	add r0, r1, #1
 	str r0, [r4, #4]
-	bl rand_MT
+	bl MTRandom
 	ldr r1, _021DDA74 ; =0x0000010E
 	bl _u32_div_f
 	mov r0, #0xf
@@ -13266,7 +13266,7 @@ _021DDAA2:
 	ldr r0, [r5, #4]
 	cmp r1, r0
 	ble _021DDAE4
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xa
 	bl _u32_div_f
 	cmp r1, #7
@@ -13637,7 +13637,7 @@ _021DDD9A:
 	add r4, r0, #0
 	beq _021DDE6A
 	ldr r5, [r4, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	and r1, r0
 	lsl r1, r1, #0x10
@@ -13650,7 +13650,7 @@ _021DDD9A:
 	str r0, [r5, #0x14]
 	str r0, [r5, #0x18]
 	str r0, [r5, #0x20]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x3c
 	str r0, [sp, #0x14]
 	bl _s32_div_f
@@ -13672,12 +13672,12 @@ _021DDDEC:
 	sub r0, #0x20
 _021DDDF0:
 	str r0, [r5, #4]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #1
 	and r0, r1
 	add r0, r0, #4
 	str r0, [r5, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #1
 	and r0, r1
 	add r0, r0, #1
@@ -13686,7 +13686,7 @@ _021DDDF0:
 	str r0, [r5]
 	ldr r0, [sp, #8]
 	str r0, [r5, #0x1c]
-	bl rand_MT
+	bl MTRandom
 	ldr r1, _021DDE74 ; =0x0000019E
 	bl _u32_div_f
 	sub r1, #0x20
@@ -13700,7 +13700,7 @@ _021DDDF0:
 	ldr r0, [sp, #4]
 	cmp r6, r0
 	blt _021DDE48
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	mov r0, #0x27
@@ -13710,7 +13710,7 @@ _021DDDF0:
 	str r0, [sp, #0x1c]
 	b _021DDE5C
 _021DDE48:
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	mov r0, #7
@@ -14228,7 +14228,7 @@ _021DE22E:
 	str r0, [r5, #0x14]
 	mov r0, #0
 	str r0, [r5]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x2a
 	bl _u32_div_f
 	add r0, r1, #4
@@ -14260,7 +14260,7 @@ _021DE22E:
 	stmia r2!, {r0, r1}
 	ldr r0, [r3]
 	str r0, [r2]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x69
 	lsl r1, r1, #2
 	bl _u32_div_f
@@ -15589,7 +15589,7 @@ _021DECE4:
 	ldr r5, [r4, #8]
 	mov r0, #0
 	str r0, [r5]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	add r1, #0xf
@@ -15614,7 +15614,7 @@ _021DECE4:
 	ldr r0, _021DEDA8 ; =0x021F683C
 	ldr r0, [r0, r6]
 	str r0, [r5, #0x14]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xfa
 	lsl r1, r1, #2
 	bl _u32_div_f
@@ -15636,7 +15636,7 @@ _021DED4E:
 	add r0, sp, #0xc
 	add r1, r4, #0
 	bl MOD05_021DD168
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x18
 	bl _u32_div_f
 	ldr r0, _021DEDB0 ; =0x00000106
@@ -15644,7 +15644,7 @@ _021DED4E:
 	str r0, [sp, #0xc]
 	lsl r0, r0, #0xc
 	str r0, [sp, #0xc]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xc0
 	bl _u32_div_f
 	sub r1, #0x40
@@ -16498,12 +16498,12 @@ _021DF430:
 	ldr r5, [r6, #8]
 	mov r0, #0
 	str r0, [r5]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #6
 	bl _u32_div_f
 	add r1, #0x12
 	str r1, [r5, #4]
-	bl rand_MT
+	bl MTRandom
 	add r7, r0, #0
 	mov r1, #3
 	and r7, r1
@@ -16547,14 +16547,14 @@ _021DF492:
 	stmia r2!, {r0, r1}
 	ldr r0, [r3]
 	str r0, [r2]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x18
 	bl _u32_div_f
 	mov r0, #1
 	lsl r0, r0, #8
 	add r0, r1, r0
 	str r0, [sp, #0x18]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xa8
 	bl _u32_div_f
 	ldr r0, [sp, #0x18]
@@ -16951,12 +16951,12 @@ _021DF7D6:
 	ldr r5, [r4, #8]
 	mov r0, #0
 	str r0, [r5]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #5
 	bl _u32_div_f
 	add r0, r1, #7
 	str r0, [r5, #4]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xfa
 	lsl r1, r1, #2
 	bl _u32_div_f
@@ -16976,30 +16976,30 @@ _021DF80C:
 	str r0, [r5, #8]
 	mov r0, #1
 	str r0, [r5, #0xc]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #6
 	bl _u32_div_f
 	add r0, r1, #3
 	str r0, [r5, #0x10]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #5
 	bl _u32_div_f
 	add r0, r1, #4
 	str r0, [r5, #0x14]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	str r1, [sp, #8]
 	add r0, sp, #0x10
 	add r1, r4, #0
 	bl MOD05_021DD168
-	bl rand_MT
+	bl MTRandom
 	mov r1, #6
 	lsl r1, r1, #6
 	bl _u32_div_f
 	sub r1, #0x40
 	str r1, [sp, #0x10]
-	bl rand_MT
+	bl MTRandom
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	ldr r0, [sp, #0x10]
@@ -17027,13 +17027,13 @@ _021DF80C:
 	mov r1, #0xce
 	sub r7, r1, r0
 	bpl _021DF89E
-	bl rand_MT
+	bl MTRandom
 	neg r1, r7
 	bl _u32_div_f
 	sub r1, r6, r1
 	b _021DF8AA
 _021DF89E:
-	bl rand_MT
+	bl MTRandom
 	add r1, r7, #0
 	bl _u32_div_f
 	add r1, r6, r1
@@ -17048,7 +17048,7 @@ _021DF8AA:
 	str r0, [r5, #4]
 	b _021DF8C6
 _021DF8BC:
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	and r0, r1
 	str r0, [sp, #8]
@@ -17150,12 +17150,12 @@ _021DF958:
 _021DF978:
 	b _021DFA96
 _021DF97A:
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	add r1, #0xa
 	str r1, [r4, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	bl _u32_div_f
 	add r0, r1, #5
@@ -17178,12 +17178,12 @@ _021DF9A2:
 	ldr r0, [r4, #4]
 	mov r1, #0x10
 	bl MOD05_021DC6D4
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	add r1, #0xa
 	str r1, [r4, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	bl _u32_div_f
 	add r0, r1, #5
@@ -17212,12 +17212,12 @@ _021DF9E2:
 	ldr r0, [r4, #0xc]
 	cmp r1, r0
 	bgt _021DFA50
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xf
 	bl _u32_div_f
 	add r1, #0xa
 	str r1, [r4, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	bl _u32_div_f
 	add r0, r1, #7
@@ -17231,12 +17231,12 @@ _021DFA26:
 	ldr r0, [r4, #0xc]
 	cmp r1, r0
 	blt _021DFA50
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	add r1, #0xa
 	str r1, [r4, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	bl _u32_div_f
 	add r0, r1, #5
@@ -17840,7 +17840,7 @@ _021DFEF6:
 	ldr r5, [r4, #8]
 	mov r0, #0
 	str r0, [r5]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	bl _u32_div_f
 	add r7, r1, #0
@@ -17888,7 +17888,7 @@ _021DFEF6:
 	str r0, [r5, #8]
 	mov r0, #0
 	str r0, [r5, #0xc]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	and r1, r0
 	mov r0, #0x64
@@ -17915,11 +17915,11 @@ _021DFEF6:
 	stmia r2!, {r0, r1}
 	ldr r0, [r3]
 	str r0, [r2]
-	bl rand_MT
+	bl MTRandom
 	ldr r1, _021DFFFC ; =0x000001FF
 	and r0, r1
 	str r0, [sp, #0x18]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x30
 	bl _u32_div_f
 	mov r0, #0
@@ -17992,7 +17992,7 @@ _021E0032:
 	ldr r0, [r4, #4]
 	cmp r1, r0
 	ble _021E0076
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xa
 	bl _u32_div_f
 	cmp r1, #5
@@ -18496,7 +18496,7 @@ _021E0436:
 	add r4, r0, #0
 	beq _021E050E
 	ldr r5, [r4, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	and r1, r0
 	lsl r1, r1, #0x10
@@ -18507,7 +18507,7 @@ _021E0436:
 	str r0, [r5, #0x10]
 	mov r0, #0
 	str r0, [r5, #0x14]
-	bl rand_MT
+	bl MTRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x1f
 	sub r2, r2, r1
@@ -18522,14 +18522,14 @@ _021E0474:
 	mvn r0, r0
 _021E0478:
 	str r0, [r5, #4]
-	bl rand_MT
+	bl MTRandom
 	mov r0, #1
 	str r0, [r5, #0xc]
 	ldr r0, [sp, #0xc]
 	str r0, [r5]
 	ldr r0, [sp, #8]
 	str r0, [r5, #0x18]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	add r1, #0xa
@@ -18543,7 +18543,7 @@ _021E0478:
 	stmia r2!, {r0, r1}
 	ldr r0, [r3]
 	str r0, [r2]
-	bl rand_MT
+	bl MTRandom
 	ldr r1, _021E0518 ; =0x0000019E
 	bl _u32_div_f
 	ldr r0, [sp, #0x10]
@@ -18556,7 +18556,7 @@ _021E0478:
 	ldr r0, [sp, #4]
 	cmp r6, r0
 	blt _021E04DE
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	mov r0, #0x27
@@ -18565,7 +18565,7 @@ _021E0478:
 	str r0, [sp, #0x24]
 	b _021E04F0
 _021E04DE:
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x14
 	bl _u32_div_f
 	mov r0, #7
@@ -18731,7 +18731,7 @@ _021E060E:
 	str r0, [r4, #4]
 	mov r0, #0
 	str r0, [r4, #0x14]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x1e
 	lsl r1, r1, #4
 	bl _u32_div_f
@@ -18739,7 +18739,7 @@ _021E060E:
 	str r1, [r4, #0x18]
 	mov r0, #0
 	str r0, [r4, #0x1c]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #3
 	bl _u32_div_f
 	cmp r1, #0
@@ -18788,13 +18788,13 @@ _021E0678:
 	ldr r0, [r4, #8]
 	cmp r0, #0xc8
 	bne _021E069E
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xf
 	bl _u32_div_f
 	str r1, [r4, #0x10]
 	b _021E06BE
 _021E069E:
-	bl rand_MT
+	bl MTRandom
 	add r7, r0, #0
 	ldr r1, [r4, #0x18]
 	mov r0, #0x32
@@ -19012,7 +19012,7 @@ _021E084C:
 	add r5, r0, #0
 	beq _021E0932
 	ldr r4, [r5, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xe
 	bl _u32_div_f
 	add r6, r1, #0
@@ -19024,7 +19024,7 @@ _021E084C:
 	lsr r0, r0, #0x1e
 	add r0, r6, r0
 	asr r6, r0, #2
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x19
 	bl _u32_div_f
 	add r2, r1, #0
@@ -19038,7 +19038,7 @@ _021E084C:
 	str r0, [r4, #4]
 	mov r0, #0
 	str r0, [r4, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #1
 	and r0, r1
 	str r0, [r4, #0xc]
@@ -19060,36 +19060,36 @@ _021E08BA: ; jump table
 	.short _021E08E0 - _021E08BA - 2 ; case 3
 	.short _021E08FA - _021E08BA - 2 ; case 4
 _021E08C4:
-	bl rand_MT
+	bl MTRandom
 	ldr r1, _021E0938 ; =0x000001FF
 	and r0, r1
 	sub r0, #0x80
 	str r0, [sp, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xc0
 	bl _u32_div_f
 	add r1, #8
 	str r1, [sp, #0xc]
 	b _021E0912
 _021E08E0:
-	bl rand_MT
+	bl MTRandom
 	ldr r1, _021E0938 ; =0x000001FF
 	and r0, r1
 	sub r0, #0x80
 	str r0, [sp, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x7f
 	and r0, r1
 	add r0, #0x40
 	str r0, [sp, #0xc]
 	b _021E0912
 _021E08FA:
-	bl rand_MT
+	bl MTRandom
 	ldr r1, _021E0938 ; =0x000001FF
 	and r0, r1
 	sub r0, #0x80
 	str r0, [sp, #8]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x1f
 	and r0, r1
 	add r0, #0xa0
@@ -21000,7 +21000,7 @@ _021E17BE:
 	mov r7, #1
 	b _021E182E
 _021E17DE:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, #0x32
@@ -43595,7 +43595,7 @@ _021EC8EC:
 	blt _021EC8D8
 	cmp r7, #2
 	bne _021EC90E
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _021EC940 ; =0x00007FFF
 	cmp r0, r1
 	blo _021EC90A
@@ -43615,7 +43615,7 @@ _021EC90E:
 	bl GetBoxMonData
 	cmp r0, #0xe5
 	bne _021EC938
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _021EC940 ; =0x00007FFF
 	cmp r0, r1
 	blo _021EC932
@@ -43642,7 +43642,7 @@ MOD05_021EC944: ; 0x021EC944
 	bl MOD05_021EC8A8
 	add r1, r0, #0
 	bpl _021EC960
-	bl rand_MT
+	bl MTRandom
 	add r1, r0, #0
 	ldr r0, [sp]
 	bl FUN_02023CB8
@@ -43658,7 +43658,7 @@ _021EC960:
 	add r6, r0, #0
 	lsl r7, r7, #4
 _021EC978:
-	bl rand_MT
+	bl MTRandom
 	add r4, r0, #0
 	bl GetNatureFromPersonality
 	cmp r6, r0
@@ -43730,7 +43730,7 @@ _021EC9E0:
 	add r6, sp, #8
 	add r7, #2
 _021EC9F4:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #6
 	sub r1, r1, r5
 	bl _s32_div_f
@@ -43749,7 +43749,7 @@ _021EC9F4:
 	add r6, #1
 	mov r7, #0x1f
 _021ECA1E:
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r0, r0, #0x1f
 	sub r0, r0, r1
@@ -44532,7 +44532,7 @@ MOD05_021ED00C: ; 0x021ED00C
 	mov r5, #0
 _021ED044:
 	add r0, r4, #0
-	bl rand_ALT
+	bl PRandom
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r4, #0
@@ -44987,7 +44987,7 @@ _021ED3AC:
 	ldr r0, [sp]
 	bl MOD05_021ED320
 	add r4, r0, #0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	mul r1, r0
 	add r0, r1, #0
@@ -45434,7 +45434,7 @@ _021ED6B4:
 	beq _021ED788
 _021ED774:
 	add r0, r7, #0
-	bl rand_ALT
+	bl PRandom
 	add r7, r0, #0
 	ldr r0, [sp, #0x2c]
 	add r1, r7, #0
@@ -52111,7 +52111,7 @@ MOD05_021F0ADC: ; 0x021F0ADC
 	mov r0, #0
 	mvn r0, r0
 	strb r0, [r4]
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1c
 	sub r1, r1, r2
@@ -52240,7 +52240,7 @@ _021F0BE0:
 	blt _021F0C0C
 	mov r0, #0
 	strb r0, [r4, #1]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x1c
 	sub r2, r2, r1
@@ -60929,7 +60929,7 @@ _021F4DDE:
 	bl FUN_0202A9C0
 	cmp r5, r0
 	bne _021F4E42
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -61031,7 +61031,7 @@ MOD05_021F4EE4: ; 0x021F4EE4
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
 	add r5, r1, #0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -61085,7 +61085,7 @@ _021F4F3E:
 MOD05_021F4F44: ; 0x021F4F44
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -61148,7 +61148,7 @@ _021F4FA8:
 MOD05_021F4FAC: ; 0x021F4FAC
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -63125,7 +63125,7 @@ _021F5E24:
 MOD05_021F5E30: ; 0x021F5E30
 	push {r4, lr}
 	add r4, r0, #0
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r0, r0, #0x1e
 	sub r0, r0, r1

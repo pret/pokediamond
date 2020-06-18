@@ -733,7 +733,7 @@ _02212450:
 _02212454:
 	sub r0, r0, #6
 	ldrsb r4, [r5, r0]
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0
 	bl _s32_div_f
 	lsr r0, r4, #0x1f
@@ -744,7 +744,7 @@ _02212454:
 	asr r6, r0, #0x10
 	ldr r0, _02212580 ; =0x00000B7D
 	ldrsb r4, [r5, r0]
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0
 	bl _s32_div_f
 	lsr r0, r4, #0x1f

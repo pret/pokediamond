@@ -434,9 +434,9 @@ _0205F5F8: .word 0x0000403D
 FUN_0205F5FC: ; 0x0205F5FC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r4, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r1, r0, #0x0
 	lsl r1, r1, #0x10
 	add r0, r5, #0x0
@@ -489,7 +489,7 @@ FUN_0205F668: ; 0x0205F668
 	push {r4, lr}
 	bl FUN_020462AC
 	add r4, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x62
 	bl _s32_div_f
 	add r1, r1, #0x2

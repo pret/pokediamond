@@ -2352,7 +2352,7 @@ FUN_02017C6C: ; 0x02017C6C
 	add r0, sp, #0x4
 	add r3, r2, #0x0
 	str r1, [sp, #0x0]
-	bl FUN_0201BB74
+	bl MTX22_2DAffine
 	mov r3, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -9036,7 +9036,7 @@ _0201ACEA:
 	ldr r2, [r4, #0x7c]
 	ldr r3, [r3, #0x0]
 	add r0, sp, #0x38
-	bl FUN_0201BB74
+	bl MTX22_2DAffine
 	ldr r0, [r4, #0x6c]
 	add r2, r4, #0x0
 	str r0, [sp, #0x0]
@@ -9088,7 +9088,7 @@ _0201AD4E:
 	ldr r2, [r2, #0x0]
 	ldr r3, [r3, #0x0]
 	add r0, sp, #0x28
-	bl FUN_0201BB74
+	bl MTX22_2DAffine
 	add r0, r4, #0x0
 	add r0, #0x98
 	ldr r0, [r0, #0x0]
@@ -9180,7 +9180,7 @@ _0201AE04:
 	ldr r2, [r4, r2]
 	ldr r3, [r4, r3]
 	add r0, sp, #0x18
-	bl FUN_0201BB74
+	bl MTX22_2DAffine
 	mov r3, #0x47
 	lsl r3, r3, #0x2
 	ldr r0, [r4, r3]
@@ -9235,7 +9235,7 @@ _0201AE72:
 	ldr r2, [r4, r2]
 	ldr r3, [r4, r3]
 	add r0, sp, #0x8
-	bl FUN_0201BB74
+	bl MTX22_2DAffine
 	mov r3, #0x52
 	lsl r3, r3, #0x2
 	ldr r0, [r4, r3]

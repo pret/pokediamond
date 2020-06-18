@@ -387,7 +387,7 @@ _02084280:
 	blt _02084280
 	ldr r0, _020842AC ; =0x00000F6C
 	str r3, [r4, r0]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xf7
 	lsl r1, r1, #0x4
 	str r0, [r4, r1]
