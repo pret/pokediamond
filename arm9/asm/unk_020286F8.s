@@ -76,7 +76,7 @@ _0202875C:
 	bls _02028770
 _02028762:
 	ldr r0, [r5, #0x28]
-	bl rand_ALT
+	bl PRandom
 	add r4, r4, #0x1
 	str r0, [r5, #0x28]
 	cmp r4, r6
@@ -108,7 +108,7 @@ FUN_02028788: ; 0x02028788
 	add r0, r5, r4
 	str r2, [r0, #0x24]
 	add r0, r2, #0x0
-	bl rand_ALT
+	bl PRandom
 	add r1, r5, r4
 	str r0, [r1, #0x28]
 	pop {r3-r5, pc}

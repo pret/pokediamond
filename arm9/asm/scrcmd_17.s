@@ -66,7 +66,7 @@ FUN_02044198: ; 0x02044198
 	ldr r0, [r5, #0x0]
 	bl FUN_020394F0
 	add r5, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	lsl r0, r1, #0x10

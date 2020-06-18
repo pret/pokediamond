@@ -6823,11 +6823,11 @@ _021EA18A:
 	sub r0, r7, r0
 	sub r2, r7, r2
 	sub r3, r3, r4
-	bl FUN_0201BBD0
+	bl CircularDistance
 	add r4, r0, #0
 	mov r0, #0x50
 	lsl r1, r4, #1
-	bl FUN_0201BC84
+	bl MathUtil_0201BC84
 	lsl r0, r0, #8
 	mov r1, #0xb6
 	bl _s32_div_f

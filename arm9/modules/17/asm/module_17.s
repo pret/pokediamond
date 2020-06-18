@@ -6601,7 +6601,7 @@ _021DA6B8:
 	str r0, [r5]
 	mov r0, #0x12
 	str r0, [r4]
-	bl rand_MT
+	bl MTRandom
 	ldr r2, [sp, #0x10]
 	mov r1, #0x6c
 	sub r1, r1, r2
@@ -6609,7 +6609,7 @@ _021DA6B8:
 	ldr r0, [r5]
 	add r0, r0, r1
 	str r0, [r5]
-	bl rand_MT
+	bl MTRandom
 	ldr r2, [sp, #0x14]
 	mov r1, #0x7d
 	sub r1, r1, r2
@@ -8316,14 +8316,14 @@ _021DB2C2:
 	add r1, sp, #0x14
 	add r2, sp, #0x10
 	bl MOD17_021DBC08
-	bl rand_MT
+	bl MTRandom
 	ldr r2, [sp, #0x14]
 	mov r1, #0x6c
 	sub r1, r1, r2
 	bl _u32_div_f
 	add r1, #0xa
 	str r1, [sp, #0xc]
-	bl rand_MT
+	bl MTRandom
 	ldr r2, [sp, #0x10]
 	mov r1, #0x7d
 	sub r1, r1, r2

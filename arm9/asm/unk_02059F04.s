@@ -1627,7 +1627,7 @@ FUN_0205AAB0: ; 0x0205AAB0
 	push {r4-r6, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r6, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1646,7 +1646,7 @@ FUN_0205AAD4: ; 0x0205AAD4
 	add r5, r1, #0x0
 	bl FUN_0205AAFC
 	add r4, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r1, r5, #0x0

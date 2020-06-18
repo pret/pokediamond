@@ -17075,7 +17075,7 @@ _021DFB5E:
 	str r0, [r4, #0x18]
 	lsl r0, r0, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	ldr r1, [r4, #0x24]
 	add r2, r1, #0
 	mul r2, r0

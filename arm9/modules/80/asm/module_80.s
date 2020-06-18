@@ -15859,7 +15859,7 @@ MOD80_022353B4: ; 0x022353B4
 	bl FUN_02022840
 	mov r0, #0x1f
 	str r0, [r4, #0x2c]
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _022353EC ; =0x00000445
 	bl _s32_div_f
 	lsl r0, r0, #0x10
