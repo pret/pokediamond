@@ -396,7 +396,7 @@ FUN_02054EA0: ; 0x02054EA0
 	str r0, [sp, #0x8]
 	ldrh r0, [r4, #0xe]
 	ldr r5, [r4, #0x4]
-	bl FUN_0201B93C
+	bl Sin
 	asr r1, r0, #0x1f
 	asr r3, r5, #0x1f
 	add r2, r5, #0x0
@@ -412,7 +412,7 @@ FUN_02054EA0: ; 0x02054EA0
 	str r1, [sp, #0x0]
 	ldrh r0, [r4, #0xe]
 	ldr r5, [r4, #0x8]
-	bl FUN_0201B93C
+	bl Sin
 	asr r1, r0, #0x1f
 	asr r3, r5, #0x1f
 	add r2, r5, #0x0

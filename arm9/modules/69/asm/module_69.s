@@ -3422,10 +3422,10 @@ MOD69_0222F1B0: ; 0x0222F1B0
 	mov r0, #0x3f
 	bl AllocFromHeap
 	str r0, [sp, #0x28]
-	bl rand_LC
+	bl LCRandom
 	str r0, [sp, #0x20]
 	ldr r0, _0222F348 ; =0x00003594
-	bl seedr_LC
+	bl SetLCRNGSeed
 	mov r0, #0
 	ldr r4, [sp, #0x28]
 	str r0, [sp, #0x24]
@@ -3458,7 +3458,7 @@ _0222F1EE:
 	mov r0, #0
 	str r0, [sp, #0x1c]
 _0222F206:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x13
 	sub r1, r1, r2
@@ -3471,7 +3471,7 @@ _0222F206:
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
 	str r0, [sp, #8]
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x13
 	sub r1, r1, r2
@@ -3484,7 +3484,7 @@ _0222F206:
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
 	str r0, [sp, #4]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -3517,7 +3517,7 @@ _0222F25C:
 	strh r0, [r4, #0x28]
 	strh r0, [r4, #0x2a]
 	strh r0, [r4, #0x2c]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x17
 	sub r2, r2, r1
@@ -3528,7 +3528,7 @@ _0222F25C:
 	lsl r0, r0, #8
 	add r0, r1, r0
 	strh r0, [r4, #0x2e]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x17
 	sub r2, r2, r1
@@ -3539,7 +3539,7 @@ _0222F25C:
 	lsl r0, r0, #8
 	add r0, r1, r0
 	strh r0, [r4, #0x30]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x17
 	sub r2, r2, r1
@@ -3557,7 +3557,7 @@ _0222F25C:
 	add r6, r6, #6
 	cmp r7, #4
 	blt _0222F25C
-	bl rand_LC
+	bl LCRandom
 	mov r1, #7
 	and r0, r1
 	sub r5, r0, #1
@@ -3594,7 +3594,7 @@ _0222F2FA:
 	b _0222F1EE
 _0222F320:
 	ldr r0, [sp, #0x20]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	ldr r0, [sp, #0x28]
 	mov r2, #0
 	str r2, [r0]

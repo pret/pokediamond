@@ -170,7 +170,7 @@ MOD52_021D7604: ; 0x021D7604
 	add r0, r5, #0
 	bl FUN_0202881C
 	add r4, r0, #0
-	bl rand_MT
+	bl MTRandom
 	add r2, r0, #0
 	add r0, r4, #0
 	mov r1, #1
@@ -180,7 +180,7 @@ MOD52_021D7604: ; 0x021D7604
 	add r0, r5, #0
 	bl FUN_020238F4
 	add r4, r0, #0
-	bl rand_MT
+	bl MTRandom
 	add r7, r0, #0
 	cmp r6, #0
 	beq _021D7656

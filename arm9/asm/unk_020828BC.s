@@ -1717,7 +1717,7 @@ FUN_02083454: ; 0x02083454
 	cmp r1, #0x1
 	bne _02083474
 _02083464:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xc
 	bl _s32_div_f
 	add sp, #0xc
@@ -1762,7 +1762,7 @@ _020834A6:
 	add r4, r4, #0x3
 	strb r0, [r2, r1]
 _020834BE:
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0x0
 	bl _s32_div_f
 	add r0, sp, #0x0

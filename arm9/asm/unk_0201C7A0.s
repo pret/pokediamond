@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020EDF50
+	.extern gSineTable
 	.extern UNK_020FFA38
 
 	.text
@@ -459,7 +459,7 @@ FUN_0201CB20: ; 0x0201CB20
 	add r6, r1, #0x0
 	add r5, r2, #0x0
 	lsl r1, r6, #0x2
-	ldr r2, _0201CB78 ; =UNK_020EDF50
+	ldr r2, _0201CB78 ; =gSineTable
 	add r6, #0x5a
 	add r4, r3, #0x0
 	lsl r3, r6, #0x2
@@ -468,7 +468,7 @@ FUN_0201CB20: ; 0x0201CB20
 	add r7, r0, #0x0
 	bl MTX_RotX33_
 	lsl r1, r5, #0x2
-	ldr r3, _0201CB78 ; =UNK_020EDF50
+	ldr r3, _0201CB78 ; =gSineTable
 	add r5, #0x5a
 	lsl r2, r5, #0x2
 	ldr r1, [r3, r1]
@@ -480,7 +480,7 @@ FUN_0201CB20: ; 0x0201CB20
 	add r2, r7, #0x0
 	bl MTX_Concat33
 	lsl r1, r4, #0x2
-	ldr r3, _0201CB78 ; =UNK_020EDF50
+	ldr r3, _0201CB78 ; =gSineTable
 	add r4, #0x5a
 	lsl r2, r4, #0x2
 	ldr r1, [r3, r1]
@@ -494,7 +494,7 @@ FUN_0201CB20: ; 0x0201CB20
 	add sp, #0x24
 	pop {r4-r7, pc}
 	.balign 4
-_0201CB78: .word UNK_020EDF50
+_0201CB78: .word gSineTable
 
 	thumb_func_start FUN_0201CB7C
 FUN_0201CB7C: ; 0x0201CB7C

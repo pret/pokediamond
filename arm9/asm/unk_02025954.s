@@ -300,7 +300,7 @@ _02025B28:
 	ldr r1, [r0, #0x0]
 	ldr r0, [sp, #0x0]
 	add r0, r1, r0
-	bl rand_ALT
+	bl PRandom
 	add r1, r6, #0x0
 	add r1, #0x94
 	str r0, [r1, #0x0]

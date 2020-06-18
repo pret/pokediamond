@@ -88,7 +88,7 @@ _020603F6:
 	bl FUN_0202AA74
 	cmp r0, #0x0
 	beq _02060430
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #0x4
 	lsr r6, r0, #0x10
 	cmp r6, #0x10
@@ -289,7 +289,7 @@ FUN_02060588: ; 0x02060588
 	lsl r0, r0, #0x2
 	ldr r4, [r7, r0]
 _0206059C:
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _020605D4 ; =0x000008D4
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -361,7 +361,7 @@ _02060628:
 	mov r6, #0x0
 	b _02060658
 _02060630:
-	bl rand_LC
+	bl LCRandom
 	add r6, r0, #0x0
 	ldr r0, _02060684 ; =0x0000FFFF
 	add r1, r5, #0x0
