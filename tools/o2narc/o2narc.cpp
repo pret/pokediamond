@@ -8,16 +8,9 @@
 
 using namespace std;
 
-static Elf32_Sym NullSym {
-    .st_name = -1u,
-    .st_value = -1u,
-    .st_size = 0
-};
+static Elf32_Sym NullSym { 0 };
 
-static Elf32_Shdr NullShdr {
-    .sh_name = -1u,
-    .sh_offset = -1u
-};
+static Elf32_Shdr NullShdr { 0 };
 
 class Symtab : public vector<Elf32_Sym> {
 public:
