@@ -397,7 +397,7 @@ THUMB_FUNC s32 CircularDistance(s32 x1, s32 y1, s32 x2, s32 y2)
     VEC_Subtract(&v2, &v1, &v4);
     f2 = VEC_DotProduct(&v3, &v4);
     ret = f2 >> FX32_INT_SHIFT;
-	ret = (ret < 0) ? -ret : ret;
+    ret = (ret < 0) ? -ret : ret;
 
     if (f1 <= 0)
         ret *= -1;

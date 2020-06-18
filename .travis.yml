@@ -34,3 +34,6 @@ notifications:
 
 after_success:
     - .travis/calcrom/webhook.sh pokediamond
+
+after_failure:
+    - .travis/post_failed.sh pokediamond

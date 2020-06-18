@@ -13,6 +13,8 @@
 #include <stack>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <fnmatch.h>
 
 #if __GNUC__ <= 7
 #include <experimental/filesystem>
@@ -23,6 +25,9 @@ namespace fs = std::filesystem;
 #endif
 
 using namespace std;
+
+extern bool debug;
+extern bool pack_no_fnt;
 
 void Narc::AlignDword(ofstream& ofs, uint8_t paddingChar)
 {
@@ -104,6 +109,26 @@ NarcError Narc::GetError() const
 	return error;
 }
 
+class WildcardVector : public vector<string> {
+public:
+    WildcardVector(fs::path fp) {
+        fstream infile;
+        if (!fs::exists(fp)) return;
+        infile.open(fp, ios_base::in);
+        string line;
+        while (getline(infile, line)) {
+            push_back(line);
+        }
+    }
+    bool matches(string fp) {
+        for (string& pattern : *this) {
+            if (fnmatch(pattern.c_str(), fp.c_str(), FNM_PERIOD) == 0)
+                return true;
+        }
+        return false;
+    }
+};
+
 bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 {
 	ofstream ofs(fileName, ios::binary);
@@ -113,14 +138,22 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 	vector<FileAllocationTableEntry> fatEntries;
 	uint16_t directoryCounter = 1;
 
+	WildcardVector ignore_patterns(directory / ".knarcignore");
+	ignore_patterns.push_back(".*ignore");
+	ignore_patterns.push_back(".*keep");
+	WildcardVector keep_patterns(directory / ".knarckeep");
+
 	for (const auto& de : OrderedDirectoryIterator(directory, true))
 	{
 		if (is_directory(de))
 		{
 			++directoryCounter;
 		}
-		else
+		else if (keep_patterns.matches(de.path().filename()) || !ignore_patterns.matches(de.path().filename()))
 		{
+		    if (debug) {
+		        cerr << "DEBUG: adding file " << de.path() << endl;
+		    }
 			fatEntries.push_back(FileAllocationTableEntry
 				{
 					.Start = 0x0,
@@ -143,8 +176,8 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 
 	FileAllocationTable fat
 	{
-		.Id = 0x46415442,
-		.ChunkSize = sizeof(FileAllocationTable) + ((uint32_t)fatEntries.size() * sizeof(FileAllocationTableEntry)),
+		.Id = 0x46415442, // BTAF
+		.ChunkSize = static_cast<uint32_t>(sizeof(FileAllocationTable) + ((uint32_t)fatEntries.size() * sizeof(FileAllocationTableEntry))),
 		.FileCount = static_cast<uint16_t>(fatEntries.size()),
 		.Reserved = 0x0
 	};
@@ -156,7 +189,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 
 	for (const auto& de : OrderedDirectoryIterator(directory, true))
 	{
-		if (!subTables.count(de.path().parent_path()))
+		if (!subTables.count(de.path().parent_path()) && (keep_patterns.matches(de.path().filename()) || !ignore_patterns.matches(de.path().filename())))
 		{
 			subTables.insert({ de.path().parent_path(), "" });
 			paths.push_back(de.path().parent_path());
@@ -171,7 +204,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 			subTables[de.path().parent_path()] += (0xF000 + directoryCounter) & 0xFF;
 			subTables[de.path().parent_path()] += (0xF000 + directoryCounter) >> 8;
 		}
-		else
+		else if (keep_patterns.matches(de.path().filename()) || !ignore_patterns.matches(de.path().filename()))
 		{
 			subTables[de.path().parent_path()] += static_cast<uint8_t>(de.path().filename().string().size());
 			subTables[de.path().parent_path()] += de.path().filename().string();
@@ -185,11 +218,11 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 
 	vector<FileNameTableEntry> fntEntries;
 
-	if (!regex_match(fs::directory_iterator(directory)->path().string(), regex(".*_\\d{4,8}\\.bin")))
+	if (!pack_no_fnt)
 	{
 		fntEntries.push_back(
 			{
-				.Offset = (directoryCounter + 1) * sizeof(FileNameTableEntry),
+				.Offset = static_cast<uint32_t>((directoryCounter + 1) * sizeof(FileNameTableEntry)),
 				.FirstFileId = 0x0,
 				.Utility = static_cast<uint16_t>(directoryCounter + 1)
 			});
@@ -198,7 +231,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 		{
 			fntEntries.push_back(
 				{
-					.Offset = fntEntries.back().Offset + subTables[paths[i]].size(),
+					.Offset = static_cast<uint32_t>(fntEntries.back().Offset + subTables[paths[i]].size()),
 					.FirstFileId = fntEntries.back().FirstFileId,
 					.Utility = 0x0
 				});
@@ -231,11 +264,11 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 
 	FileNameTable fnt
 	{
-		.Id = 0x464E5442,
-		.ChunkSize = sizeof(FileNameTable) + (fntEntries.size() * sizeof(FileNameTableEntry))
+		.Id = 0x464E5442, // BTNF
+		.ChunkSize = static_cast<uint32_t>(sizeof(FileNameTable) + (fntEntries.size() * sizeof(FileNameTableEntry)))
 	};
 
-	if (!regex_match(fs::directory_iterator(directory)->path().string(), regex(".*_\\d{4,8}\\.bin")))
+	if (!pack_no_fnt)
 	{
 		for (const auto& subTable : subTables)
 		{
@@ -250,8 +283,8 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 
 	FileImages fi
 	{
-		.Id = 0x46494D47,
-		.ChunkSize = sizeof(FileImages) + fatEntries.back().End
+		.Id = 0x46494D47, // GMIF
+		.ChunkSize = static_cast<uint32_t>(sizeof(FileImages) + fatEntries.back().End)
 	};
 
 	if ((fi.ChunkSize % 4) != 0)
@@ -261,10 +294,10 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 
 	Header header
 	{
-		.Id = 0x4352414E,
+		.Id = 0x4352414E, // NARC
 		.ByteOrderMark = 0xFFFE,
 		.Version = 0x100,
-		.FileSize = sizeof(Header) + fat.ChunkSize + fnt.ChunkSize + fi.ChunkSize,
+		.FileSize = static_cast<uint32_t>(sizeof(Header) + fat.ChunkSize + fnt.ChunkSize + fi.ChunkSize),
 		.ChunkSize = sizeof(Header),
 		.ChunkCount = 0x3
 	};
@@ -284,7 +317,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 		ofs.write(reinterpret_cast<char*>(&entry), sizeof(FileNameTableEntry));
 	}
 
-	if (!regex_match(fs::directory_iterator(directory)->path().string(), regex(".*_\\d{4,8}\\.bin")))
+	if (!pack_no_fnt)
 	{
 		for (const auto& path : paths)
 		{
@@ -302,6 +335,11 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 		{
 			continue;
 		}
+
+		if (!(keep_patterns.matches(de.path().filename()) || !ignore_patterns.matches(de.path().filename())))
+        {
+		    continue;
+        }
 
 		ifstream ifs(de.path(), ios::binary | ios::ate);
 
