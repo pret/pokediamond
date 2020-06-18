@@ -267,8 +267,8 @@ THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
 }
 
 extern void FUN_0201265C(struct Unk21C4818 *, struct Unk21C4828 *);
-extern void seedr_MT(u32);
-extern void seedr_LC(u32);
+extern void SetMTRNGSeed(u32);
+extern void SetLCRNGSeed(u32);
 
 THUMB_FUNC void InitializeMainRNG(void)
 {
@@ -278,8 +278,8 @@ THUMB_FUNC void InitializeMainRNG(void)
     {
         u32 r4 = gUnknown21C48B8.unk2C;
         u32 r5 = ((sp0.unk4 + sp0.unk8) << 24) + (spC.unk0 + ((256 * spC.unk4 * spC.unk8) << 16) + (sp0.unk0 << 16));
-        seedr_MT(r4 + r5);
-        seedr_LC(r4 + r5);
+        SetMTRNGSeed(r4 + r5);
+        SetLCRNGSeed(r4 + r5);
     }
 }
 

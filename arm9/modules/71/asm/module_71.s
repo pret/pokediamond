@@ -957,7 +957,7 @@ _0222DDD8:
 	bl FUN_02031190
 	cmp r0, #0
 	bne _0222DE04
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0222E0F0 ; =0x00000445
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -3488,7 +3488,7 @@ MOD71_0222F2D8: ; 0x0222F2D8
 	strh r1, [r0]
 _0222F2EE:
 	ldrh r0, [r0]
-	bl FUN_0201B970
+	bl Sin_Wrap
 	mov r1, #0xa
 	mul r1, r0
 	asr r0, r1, #0xb

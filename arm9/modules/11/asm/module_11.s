@@ -671,7 +671,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	mov r0, #0
 	add r2, r5, #0
 	bl MIi_CpuClear16
-	bl getseed_LC
+	bl GetLCRNGSeed
 	ldr r1, _0222DF0C ; =0x00002430
 	str r0, [r4, r1]
 	add r0, sp, #0x20
@@ -695,7 +695,7 @@ MOD11_0222DB50: ; 0x0222DB50
 	add r0, r2, r0
 	add r0, r3, r0
 	add r0, r5, r0
-	bl seedr_LC
+	bl SetLCRNGSeed
 	bl MOD11_0222EF30
 	str r0, [r4]
 	bl FUN_02015F1C
@@ -1381,7 +1381,7 @@ _0222E1AC:
 	bl MOD11_0222EFD4
 	ldr r0, _0222E254 ; =0x00002430
 	ldr r0, [r4, r0]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r4, #0
 	bl MOD11_02231474
 	cmp r0, #0
@@ -3095,7 +3095,7 @@ MOD11_0222F01C: ; 0x0222F01C
 	push {r3, r4, r5, lr}
 	sub sp, #0x50
 	add r4, r0, #0
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0222F0B8 ; =0x000023FB
 	ldrb r2, [r4, r1]
 	lsl r0, r2, #0x1f
@@ -13196,7 +13196,7 @@ MOD11_02233DE4: ; 0x02233DE4
 	mov r4, #5
 	b _02233E36
 _02233E1C:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #3
 	and r0, r1
 	cmp r0, #2
@@ -13204,7 +13204,7 @@ _02233E1C:
 	add r4, r0, #2
 	b _02233E36
 _02233E2C:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #3
 	and r0, r1
 	add r4, r0, #2
@@ -14440,7 +14440,7 @@ MOD11_022347B0: ; 0x022347B0
 	add r0, r5, #0
 	bl MOD11_0223A404
 	add r6, r0, #0
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #1
 	bl _s32_div_f
 	mov r0, #0x4d
@@ -14886,7 +14886,7 @@ _02234AF6:
 	ldr r6, _02234BD0 ; =0x0000308C
 	mov r7, #0x1e
 _02234B22:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r0, r0, #0x1e
 	ldr r1, [r5, #0x64]
@@ -15701,7 +15701,7 @@ _0223518E:
 _0223519E:
 	ldr r7, _02235238 ; =0x00002D4C
 _022351A0:
-	bl rand_LC
+	bl LCRandom
 	add r1, r6, #0
 	bl _s32_div_f
 	ldr r2, [r4, #0x64]
@@ -16386,7 +16386,7 @@ _022356AA:
 	add r0, r1, r0
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, r5
@@ -16474,7 +16474,7 @@ _02235784:
 	add r0, r1, r0
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, r5
@@ -16800,7 +16800,7 @@ MOD11_02235A2C: ; 0x02235A2C
 	ldr r4, _02235A7C ; =0x00002D4C
 	mov r7, #0xc0
 _02235A3C:
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _02235A80 ; =0x000001D3
 	bl _s32_div_f
 	add r0, r1, #1
@@ -16892,7 +16892,7 @@ MOD11_02235A84: ; 0x02235A84
 	mul r2, r7
 	add r1, r5, r2
 	strh r3, [r1, r0]
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _02235B3C ; =0x00002DC8
 	ldr r4, [r5, #0x6c]
 	add r3, r5, r1
@@ -17250,7 +17250,7 @@ _02235D7E:
 	add r1, r5, r1
 	add r0, r3, #2
 	strh r4, [r1, r0]
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _02235E14 ; =0x00002DC8
 	ldr r2, [r5, #0x6c]
 	add r4, r5, r1
@@ -17716,7 +17716,7 @@ _02236156:
 _02236180:
 	mov r7, #0x1e
 _02236182:
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r0, r0, #0x1e
 	sub r0, r0, r1
@@ -18218,7 +18218,7 @@ _02236572:
 	add r4, r6, r0
 	mov r0, #0xc0
 	mul r5, r0
-	bl rand_LC
+	bl LCRandom
 	ldr r1, [r4, r5]
 	lsl r1, r1, #0x13
 	lsr r1, r1, #0x1e
@@ -18519,7 +18519,7 @@ _022367DE:
 	beq _02236844
 	mov r7, #5
 _022367EA:
-	bl rand_LC
+	bl LCRandom
 	add r1, r6, #0
 	bl _s32_div_f
 	ldr r0, [sp, #0xc]
@@ -19809,7 +19809,7 @@ MOD11_02237220: ; 0x02237220
 	add r0, r5, #0
 	bl MOD11_0223A404
 	add r4, r0, #0
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	cmp r0, #0x66
@@ -19865,7 +19865,7 @@ MOD11_02237290: ; 0x02237290
 	ldrb r0, [r4, r0]
 	cmp r0, #0
 	bne _0223731C
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	ldr r0, _0223732C ; =0x00003120
@@ -21218,7 +21218,7 @@ _02237D7E:
 _02237D8A:
 	cmp r7, #0
 	beq _02237DA8
-	bl rand_LC
+	bl LCRandom
 	add r1, r7, #0
 	bl _s32_div_f
 	lsl r1, r1, #1
@@ -23903,12 +23903,12 @@ _02239222:
 	ldr r0, [sp, #8]
 	cmp r0, #0
 	bne _022392EC
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	cmp r1, #0
 	bne _022392EC
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	add r5, r1, #0
@@ -23997,7 +23997,7 @@ _02239324:
 	blt _0223932E
 	bl ErrorHandling
 _0223932E:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	ldr r2, [sp, #0xc]
@@ -24714,7 +24714,7 @@ _022398F0:
 	bne _022398F8
 	bl ErrorHandling
 _022398F8:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, r4
@@ -24797,7 +24797,7 @@ _0223999C:
 _022399A0:
 	mov r4, #0x1e
 _022399A2:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, r4
@@ -25527,7 +25527,7 @@ _02239F82:
 	blt _02239F74
 	cmp r4, #0
 	beq _02239FB0
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0
 	bl _s32_div_f
 	lsl r1, r1, #2
@@ -25719,7 +25719,7 @@ MOD11_0223A0D8: ; 0x0223A0D8
 	str r0, [sp]
 	cmp r6, #0x40
 	bne _0223A126
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	ldr r0, [sp]
@@ -29776,7 +29776,7 @@ _0223C1CC:
 	add r6, r0, #0
 	mov r5, #0
 _0223C1E0:
-	bl rand_LC
+	bl LCRandom
 	cmp r0, r6
 	bhs _0223C1EE
 	add r5, r5, #1
@@ -33367,7 +33367,7 @@ _0223DE26:
 	mov r6, #0
 	add r5, r4, #0
 _0223DE2A:
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0223DE70 ; =0x0000310C
 	add r6, r6, #1
 	strh r0, [r5, r1]
@@ -36661,7 +36661,7 @@ MOD11_0223F770: ; 0x0223F770
 	str r0, [r4, #8]
 	mov r0, #0x27
 	str r0, [r4, #0xc]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	mov r0, #0x4e
@@ -36707,7 +36707,7 @@ MOD11_0223F7CC: ; 0x0223F7CC
 	str r0, [r4, #8]
 	mov r0, #0x27
 	str r0, [r4, #0xc]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	mov r0, #0x4e
@@ -36857,7 +36857,7 @@ _0223F8F6:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _0223F90E:
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #0x18
 	ldr r1, _0223FAEC ; =0x00002D74
 	add r2, r4, r7
@@ -36911,7 +36911,7 @@ _0223F968:
 	ldr r0, _0223FAEC ; =0x00002D74
 	ldrb r0, [r1, r0]
 	str r0, [sp, #0x1c]
-	bl rand_LC
+	bl LCRandom
 	ldr r1, [sp, #0x1c]
 	lsl r0, r0, #0x18
 	add r1, r5, r1
@@ -36942,7 +36942,7 @@ _0223F968:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _0223F9B6:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #3
 	add r7, r0, #0
 	and r7, r1
@@ -37004,7 +37004,7 @@ _0223FA2E:
 	sub r0, r0, r5
 	lsl r0, r0, #0x18
 	lsr r5, r0, #0x18
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
 	cmp r7, r5
@@ -37665,7 +37665,7 @@ _0223FF42:
 	mov r0, #0x20
 	tst r0, r1
 	beq _0223FF9E
-	bl rand_LC
+	bl LCRandom
 	mov r1, #5
 	bl _s32_div_f
 	cmp r1, #0
@@ -37990,7 +37990,7 @@ _022401CA:
 	mov r0, #7
 	tst r0, r1
 	beq _02240276
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _02240204
@@ -38084,7 +38084,7 @@ _0224028C:
 	bl MOD11_02246D1C
 	cmp r0, #0x62
 	beq _022402E0
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x1e
 	sub r2, r2, r1
@@ -38130,7 +38130,7 @@ _022402E8:
 	mov r1, #0x46
 	lsl r1, r1, #2
 	str r0, [r4, r1]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _02240326
@@ -38799,7 +38799,7 @@ _0224082A:
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 _02240846:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	add r0, r1, #1
@@ -39874,7 +39874,7 @@ _0224106A:
 	bne _022410D0
 	cmp r7, #0x40
 	bne _022410A4
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	ldr r0, [sp]
@@ -42995,7 +42995,7 @@ MOD11_02242870: ; 0x02242870
 	cmp r0, #0
 	beq _0224290A
 _022428B8:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, r6
@@ -47053,7 +47053,7 @@ _02244760:
 _02244776:
 	cmp r6, r4
 	bne _02244784
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	bne _02244786
@@ -47098,7 +47098,7 @@ _022447B0:
 _022447C6:
 	cmp r6, r4
 	bne _022448B4
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _022448B4
@@ -47140,7 +47140,7 @@ _022447FE:
 _02244814:
 	cmp r6, r4
 	bne _022448B4
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _022448B4
@@ -47182,7 +47182,7 @@ _0224484C:
 _02244862:
 	cmp r6, r4
 	bne _022448B4
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _022448B4
@@ -47197,7 +47197,7 @@ _02244876:
 _0224487E:
 	cmp r6, r4
 	bne _022448B4
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _022448B4
@@ -47515,7 +47515,7 @@ _02244AF4:
 	bne _02244AFC
 	bl ErrorHandling
 _02244AFC:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, r6
@@ -47584,7 +47584,7 @@ _02244B7C:
 	bne _02244B84
 	bl ErrorHandling
 _02244B84:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, r7
@@ -47803,7 +47803,7 @@ _02244D26:
 	mov r1, #2
 	tst r0, r1
 	beq _02244D6E
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1f
 	sub r1, r1, r2
@@ -47974,7 +47974,7 @@ _02244E72:
 	ldr r1, [r1, r2]
 	cmp r1, #0
 	beq _02244EA0
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #0x1f
 	lsr r1, r0, #0x1d
 	add r0, sp, #0x14
@@ -48897,7 +48897,7 @@ _02245594:
 	ldr r0, _022455F4 ; =0x000021A0
 	mov r1, #6
 	strb r1, [r2, r0]
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _022455F8 ; =0x0000310C
 	add r4, r4, #1
 	strh r0, [r5, r1]
@@ -51716,7 +51716,7 @@ MOD11_02246B58: ; 0x02246B58
 	mov r0, #1
 	cmp r6, #0x70
 	blo _02246B76
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x70
 	bl _u32_div_f
 	add r6, r1, #0
@@ -51925,7 +51925,7 @@ MOD11_02246CCC: ; 0x02246CCC
 	mov r6, #1
 	b _02246D14
 _02246CF0:
-	bl rand_LC
+	bl LCRandom
 	ldr r2, [r5, #0x64]
 	mov r1, #0xc0
 	mul r1, r2
@@ -52489,7 +52489,7 @@ _0224711C:
 	add r0, r1, r0
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x18
 	sub r2, r2, r1
@@ -53154,7 +53154,7 @@ _02247616:
 	ldr r0, [r0, r1]
 	cmp r0, #0
 	beq _02247696
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	cmp r1, #3
@@ -54095,7 +54095,7 @@ _02247D2C:
 	cmp r5, #0x96
 	blo _02247D3C
 	bne _02247DCE
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _02247DCE
@@ -54109,7 +54109,7 @@ _02247D46:
 	cmp r5, #0x78
 	blo _02247D56
 	bne _02247DCE
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _02247DCE
@@ -54138,7 +54138,7 @@ _02247D98:
 	cmp r5, #0x50
 	blo _02247DA8
 	bne _02247DCE
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _02247DCE
@@ -54154,7 +54154,7 @@ _02247DB2:
 	blo _02247DC6
 	cmp r5, r0
 	bne _02247DCE
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _02247DCE
@@ -54209,7 +54209,7 @@ _02247E08:
 	add r2, r5, #0
 	bl MOD11_022473F8
 	add r6, r0, #0
-	bl rand_LC
+	bl LCRandom
 	add r1, r6, #0
 	bl _s32_div_f
 	mov r0, #0xc0
@@ -54329,7 +54329,7 @@ _02247E88:
 	ldrh r0, [r0, r2]
 	cmp r0, #0
 	beq _02247F38
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #0x1f
 	lsr r1, r0, #0x1d
 	add r0, sp, #0xc0
@@ -54826,7 +54826,7 @@ MOD11_022482A4: ; 0x022482A4
 	mov r2, #2
 	bl MOD11_02230308
 	str r0, [sp, #4]
-	bl rand_LC
+	bl LCRandom
 	mov r3, #1
 	add r2, r0, #0
 	and r2, r3
@@ -54972,7 +54972,7 @@ _022483C6:
 	mov r0, #1
 	tst r0, r1
 	beq _022483E6
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	cmp r1, #3
@@ -55212,12 +55212,12 @@ _0224859A:
 	mov r0, #1
 	tst r0, r1
 	beq _02248650
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	cmp r1, #3
 	bge _02248650
-	bl rand_LC
+	bl LCRandom
 	mov r1, #3
 	bl _s32_div_f
 	cmp r1, #0
@@ -55320,7 +55320,7 @@ _02248688:
 	mov r0, #1
 	tst r0, r1
 	beq _02248770
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	cmp r1, #3
@@ -55394,7 +55394,7 @@ _02248712:
 	mov r0, #1
 	tst r0, r1
 	beq _02248770
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	cmp r1, #3
@@ -55480,7 +55480,7 @@ _022487AC:
 	ldr r0, [r1, r0]
 	cmp r0, #0
 	beq _0224887A
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	cmp r1, #3
@@ -56763,7 +56763,7 @@ _02249168:
 	add r5, r4, r5
 	mov r7, #5
 _02249172:
-	bl rand_LC
+	bl LCRandom
 	add r1, r7, #0
 	bl _s32_div_f
 	add r0, r5, r1
@@ -57892,7 +57892,7 @@ _02249A12:
 	ldr r7, _02249A64 ; =0x00002D59
 	add r5, r4, r5
 _02249A1A:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #5
 	bl _s32_div_f
 	add r0, r5, r1
@@ -59201,7 +59201,7 @@ _0224A3F2:
 	mov r7, #5
 	mov r6, #0xc0
 _0224A3FC:
-	bl rand_LC
+	bl LCRandom
 	add r1, r7, #0
 	bl _s32_div_f
 	ldr r0, [r4, #0x64]
@@ -60051,7 +60051,7 @@ _0224AA5A:
 	mov r7, #5
 	mov r6, #0xc0
 _0224AA64:
-	bl rand_LC
+	bl LCRandom
 	add r1, r7, #0
 	bl _s32_div_f
 	ldr r0, [r4, #0x6c]
@@ -62697,7 +62697,7 @@ MOD11_0224BF10: ; 0x0224BF10
 	push {r4, lr}
 	add r4, r1, #0
 	beq _0224BF36
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1c
 	sub r1, r1, r2
@@ -62809,7 +62809,7 @@ _0224BFC4:
 	bls _0224BFE0
 	mov r5, #4
 _0224BFE0:
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0224C040 ; =0x0225E244
 	ldrb r1, [r1, r5]
 	bl _s32_div_f
@@ -64007,7 +64007,7 @@ MOD11_0224C84C: ; 0x0224C84C
 	beq _0224C890
 	cmp r2, #0x79
 	beq _0224C890
-	bl rand_LC
+	bl LCRandom
 	mov r1, #1
 	tst r0, r1
 	beq _0224C88C
@@ -72933,7 +72933,7 @@ MOD11_02250F94: ; 0x02250F94
 	ldrb r1, [r2, r1]
 	bl _s32_div_f
 	add r5, r0, #0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xff
 	bl _s32_div_f
 	cmp r1, r5
@@ -73222,7 +73222,7 @@ _0225122E:
 	add r4, r4, #1
 	cmp r4, #4
 	blt _0225121C
-	bl rand_LC
+	bl LCRandom
 	add r1, r7, #0
 	bl _s32_div_f
 	lsl r1, r1, #2
@@ -79818,7 +79818,7 @@ _022546D4:
 	mov r0, #0x67
 	lsl r0, r0, #2
 	ldrh r0, [r4, r0]
-	bl FUN_0201B93C
+	bl Sin
 	mov r2, #6
 	asr r1, r0, #0x1f
 	lsl r2, r2, #0xa
@@ -87488,7 +87488,7 @@ _022581FC:
 	add r0, r4, #0
 	add r0, #0x54
 	ldrh r0, [r0]
-	bl FUN_0201B93C
+	bl Sin
 	mov r2, #6
 	asr r1, r0, #0x1f
 	lsl r2, r2, #0xa
@@ -88682,7 +88682,7 @@ _02258C1E:
 	strb r0, [r4, #4]
 	mov r0, #0xa
 	strb r0, [r4, #5]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r3, r0, #0x1d
 	ldrb r2, [r4, #5]
@@ -98500,7 +98500,7 @@ _0225D886:
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	mov r2, #0xe
 	asr r1, r0, #0x1f
 	lsl r2, r2, #0xc

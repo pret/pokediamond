@@ -16250,7 +16250,7 @@ _022356DA:
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B954
+	bl Cos
 	str r0, [sp]
 	lsl r6, r4, #0xc
 	ldrh r0, [r5, #0x1e]
@@ -16259,7 +16259,7 @@ _022356DA:
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	str r0, [sp, #4]
 	ldr r0, [sp]
 	add r2, r6, #0
@@ -16534,14 +16534,14 @@ _0223591A:
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	add r4, r0, #0
 	ldrh r0, [r5, #0xc]
 	mov r1, #0x64
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B954
+	bl Cos
 	add r6, r0, #0
 	ldr r0, [r5, #0x20]
 	mov r2, #3
@@ -25318,7 +25318,7 @@ MOD12_02239980: ; 0x02239980
 	cmp r0, #0
 	bne _022399EE
 	ldr r0, [r4, #0x10]
-	bl FUN_0201B9B8
+	bl Sin32
 	lsl r1, r0, #3
 	asr r0, r1, #0xb
 	lsr r0, r0, #0x14
@@ -34508,7 +34508,7 @@ _0223E01C:
 	mov r5, #3
 	lsl r0, r0, #8
 	lsr r0, r0, #0x10
-	bl FUN_0201B954
+	bl Cos
 	add r1, r5, #0
 	mul r1, r0
 	ldrb r2, [r4, #0x19]
@@ -34988,7 +34988,7 @@ MOD12_0223E3DC: ; 0x0223E3DC
 	bl _u32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	mov r1, #0xa
 	mul r1, r0
 	asr r0, r1, #0xb
@@ -35344,7 +35344,7 @@ _0223E6B6:
 	strb r0, [r4, #0x10]
 _0223E6C6:
 	ldr r0, [r4, #0x20]
-	bl FUN_0201B9B8
+	bl Sin32
 	lsl r1, r0, #2
 	asr r0, r1, #0xb
 	lsr r0, r0, #0x14
@@ -44552,7 +44552,7 @@ _02242E62:
 	add r0, r1, r0
 	lsl r0, r0, #8
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	asr r1, r0, #0x1f
 	asr r3, r5, #0x1f
 	add r2, r5, #0

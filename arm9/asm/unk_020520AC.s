@@ -1208,7 +1208,7 @@ _0205289C:
 	ldr r0, [r0, r1]
 	pop {r4-r6, pc}
 _020528A4:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1f
 	sub r1, r1, r2
@@ -1222,7 +1222,7 @@ _020528A4:
 	ldr r0, [r1, r0]
 	pop {r4-r6, pc}
 _020528C0:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1e
 	sub r1, r1, r2
@@ -1236,7 +1236,7 @@ _020528C0:
 	ldr r0, [r1, r0]
 	pop {r4-r6, pc}
 _020528DC:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1f
 	sub r1, r1, r2
@@ -1250,7 +1250,7 @@ _020528DC:
 	ldr r0, [r1, r0]
 	pop {r4-r6, pc}
 _020528F8:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1e
 	sub r1, r1, r2
@@ -1264,7 +1264,7 @@ _020528F8:
 	ldr r0, [r1, r0]
 	pop {r4-r6, pc}
 _02052914:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1e
 	sub r1, r1, r2
@@ -1278,7 +1278,7 @@ _02052914:
 	ldr r0, [r1, r0]
 	pop {r4-r6, pc}
 _02052930:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1e
 	sub r1, r1, r2

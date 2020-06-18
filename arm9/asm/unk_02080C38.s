@@ -810,7 +810,7 @@ FUN_02081214: ; 0x02081214
 	bl FUN_0201681C
 	bl FUN_020811D8
 	add r4, r0, #0x0
-	bl getseed_LC
+	bl GetLCRNGSeed
 	mov r1, #0x67
 	lsl r1, r1, #0x6
 	str r0, [r4, r1]
@@ -1187,7 +1187,7 @@ _020814FE:
 	mov r0, #0x67
 	lsl r0, r0, #0x6
 	ldr r0, [r7, r0]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r7, #0x0
 	bl FUN_0208120C
 	mov r0, #0x14
@@ -3766,27 +3766,27 @@ FUN_0208285C: ; 0x0208285C
 	push {r4, lr}
 	bl FUN_020126D8
 	add r4, r0, #0x0
-	bl getseed_LC
+	bl GetLCRNGSeed
 	add r0, #0xa
 	mul r0, r4
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl seedr_LC
+	bl SetLCRNGSeed
 	pop {r4, pc}
 	.balign 4
 
 	thumb_func_start FUN_02082878
 FUN_02082878: ; 0x02082878
-	ldr r3, _0208287C ; =rand_LC
+	ldr r3, _0208287C ; =LCRandom
 	bx r3
 	.balign 4
-_0208287C: .word rand_LC
+_0208287C: .word LCRandom
 
 	thumb_func_start FUN_02082880
 FUN_02082880: ; 0x02082880
 	push {r4, lr}
 	add r4, r1, #0x0
-	bl rand_ALT
+	bl PRandom
 	str r0, [r4, #0x0]
 	lsr r0, r0, #0x10
 	lsl r0, r0, #0x10
