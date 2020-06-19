@@ -18,6 +18,9 @@
 #define HW_MAIN_MEM_MAIN_SIZE   0x003E0000
 #define HW_MAIN_MEM_SHARED_SIZE 0x00001000
 
+#define HW_WRAM                 0x037F8000
+
+#define HW_MAIN_MEM_SYSTEM      (HW_MAIN_MEM + 0x007ffc00)
 #define HW_WM_BOOT_BUF          (HW_MAIN_MEM + 0x007ffc40)
 #define HW_ARENA_INFO_BUF       (HW_MAIN_MEM + 0x007ffda0)
 #define HW_CTRDG_LOCK_BUF       (HW_MAIN_MEM + 0x007fffe8)
