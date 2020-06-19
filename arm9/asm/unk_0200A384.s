@@ -3,87 +3,9 @@
 
 	.text
 
-	thumb_func_start LoadSingleElementFromNarc
-LoadSingleElementFromNarc: ; 0x0200A384
-	ldr r3, _0200A388 ; =AllocAndReadWholeNarcMemberByIdPair
-	bx r3
-	.balign 4
-_0200A388: .word AllocAndReadWholeNarcMemberByIdPair
-
-	thumb_func_start FreeMsgDataRawData
-FreeMsgDataRawData: ; 0x0200A38C
-	ldr r3, _0200A390 ; =FreeToHeap
-	bx r3
-	.balign 4
-_0200A390: .word FreeToHeap
-
-	thumb_func_start DecryptMessageDirect
-DecryptMessageDirect: ; 0x0200A394
-	push {r3-r7, lr}
-	sub sp, #0x8
-	add r3, r0, #0x0
-	ldrh r0, [r3, #0x0]
-	add r5, r1, #0x0
-	add r4, r2, #0x0
-	cmp r5, r0
-	bhs _0200A404
-	lsl r0, r5, #0x3
-	add r0, r3, r0
-	ldr r2, [r0, #0x4]
-	ldr r1, [r0, #0x8]
-	ldr r6, _0200A40C ; =0x000002FD
-	str r2, [sp, #0x0]
-	str r1, [sp, #0x4]
-	ldrh r0, [r3, #0x2]
-	add r7, r5, #0x1
-	mul r6, r0
-	add r0, r7, #0x0
-	mul r0, r6
-	lsl r0, r0, #0x10
-	lsr r6, r0, #0x10
-	lsl r0, r6, #0x10
-	orr r0, r6
-	eor r2, r0
-	eor r0, r1
-	str r0, [sp, #0x4]
-	str r2, [sp, #0x0]
-	add r1, r3, r2
-	add r0, r4, #0x0
-	add r2, sp, #0x0
-	bl CopyEncryptedMessage16
-	ldr r2, [sp, #0x4]
-	ldr r0, _0200A410 ; =0x00091BD3
-	add r1, r7, #0x0
-	mul r0, r1
-	lsl r0, r0, #0x10
-	lsr r5, r0, #0x10
-	sub r3, r2, #0x1
-	cmp r2, #0x0
-	beq _0200A408
-	ldr r0, _0200A414 ; =0x0000493D
-_0200A3EA:
-	ldrh r1, [r4, #0x0]
-	eor r1, r5
-	strh r1, [r4, #0x0]
-	add r1, r5, r0
-	lsl r1, r1, #0x10
-	lsr r5, r1, #0x10
-	add r1, r3, #0x0
-	add r4, r4, #0x2
-	sub r3, r3, #0x1
-	cmp r1, #0x0
-	bne _0200A3EA
-	add sp, #0x8
-	pop {r3-r7, pc}
-_0200A404:
-	bl ErrorHandling
-_0200A408:
-	add sp, #0x8
-	pop {r3-r7, pc}
-	.balign 4
-_0200A40C: .word 0x000002FD
-_0200A410: .word 0x00091BD3
-_0200A414: .word 0x0000493D
+.extern LoadSingleElementFromNarc
+.extern FreeMsgDataRawData
+.extern DecryptMessageDirect
 
 	thumb_func_start DecryptMessageViaNewNarcHandle
 DecryptMessageViaNewNarcHandle: ; 0x0200A418

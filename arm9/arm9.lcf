@@ -144,6 +144,7 @@ SECTIONS {
 		unk_02008AA4.o (.text)
 		unk_02008DEC.o (.text)
 		unk_02009EAC.o (.text)
+		msgdata.o (.text)
 		unk_0200A384.o (.text)
 		unk_0200AA80.o (.text)
 		unk_0200BA78.o (.text)
