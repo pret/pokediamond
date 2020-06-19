@@ -78,7 +78,7 @@ FUN_02025128: ; 0x02025128
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r7, r0, #0x0
-	bl FUN_02085258
+	bl OpenNutsDataNarc
 	str r0, [sp, #0x0]
 	add r0, r7, #0x0
 	mov r1, #0xc0
@@ -90,18 +90,18 @@ _02025142:
 	ldr r0, [sp, #0x0]
 	add r1, r6, #0x0
 	add r2, r7, #0x0
-	bl FUN_02085264
+	bl ReadNutDataFromNarc
 	add r4, r0, #0x0
 	mov r1, #0x3
-	bl FUN_02085290
+	bl GetNutAttr
 	strb r0, [r5, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0x4
-	bl FUN_02085290
+	bl GetNutAttr
 	strb r0, [r5, #0x1]
 	add r0, r4, #0x0
 	mov r1, #0x2
-	bl FUN_02085290
+	bl GetNutAttr
 	strb r0, [r5, #0x2]
 	add r0, r4, #0x0
 	bl FreeToHeap
@@ -110,7 +110,7 @@ _02025142:
 	cmp r6, #0x40
 	blt _02025142
 	ldr r0, [sp, #0x0]
-	bl FUN_0208526C
+	bl CloseNutsDataNarc
 	ldr r0, [sp, #0x4]
 	add sp, #0x8
 	pop {r3-r7, pc}

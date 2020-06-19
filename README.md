@@ -8,6 +8,8 @@ It builds the following ROM:
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
+For contributor instructions, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## See also
 
 Other disassembly and/or decompilation projects:

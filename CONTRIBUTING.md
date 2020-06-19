@@ -105,11 +105,11 @@ OBJDUMP_MODE="${OBJDUMP_MODE:-force-thumb}"
 OBJDUMP_VMA="${OBJDUMP_VMA:-0x02000000}"
 OBJDUMP="arm-none-eabi-objdump -Drz -bbinary -m${OBJDUMP_ARCH} -M${OBJDUMP_MODE}"
 OPTIONS="--start-address=$(($1 + OBJDUMP_VMA)) --stop-address=$(($1 + $2 + OBJDUMP_VMA))"
-$OBJDUMP $OPTIONS baserom.sbin > baserom.dump || exit 1
-$OBJDUMP $OPTIONS build/arm9.sbin > arm9.dump
-diff -u baserom.dump arm9.dump
+$OBJDUMP $OPTIONS $(dirname $0)/baserom.sbin > $(dirname $0)/baserom.dump || exit 1
+$OBJDUMP $OPTIONS $(dirname $0)/build/arm9.sbin > $(dirname $0)/arm9.dump
+diff -u $(dirname $0)/baserom.dump $(dirname $0)/arm9.dump
 ```
-Place a clean version of the ARM9 binary as arm9/baserom.sbin. In your terminal, navigate to the arm9 directory and run `./asmdiff.sh 0 $(wc -c baserom.sbin) | less`, then scroll through to where the grievances begin. Fix any obvious problems in your code/tree, and rerun. If the differences are extensive, you may have induced a shift in the binary either by writing incorrect code or placing it incorrectly into the LCF.  *Tip: you can specify a start address and size to only compare the portion of the ROM you are working on.*
+Place a clean version of the ARM9 binary as arm9/baserom.sbin (arm9/build/arm9.bin from a successful build should suffice). In your terminal, navigate to the arm9 directory and run `./asmdiff.sh 0 $(wc -c baserom.sbin) | less`, then scroll through to where the grievances begin. Fix any obvious problems in your code/tree, and rerun. If the differences are extensive, you may have induced a shift in the binary either by writing incorrect code or placing it incorrectly into the LCF.  *Tip: you can specify a start address and size to only compare the portion of the ROM you are working on.*
 
 ## Decompiling data
 

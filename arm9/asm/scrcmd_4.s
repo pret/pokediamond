@@ -790,7 +790,7 @@ FUN_02040D04: ; 0x02040D04
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0x20
-	bl FUN_020852E8
+	bl GetNutName
 	add r5, r0, #0x0
 	cmp r4, #0x2
 	bhs _02040D5A
