@@ -2859,7 +2859,7 @@ void FUN_02069718(struct BoxPokemon * boxmon, u16 move)
     }
 
     moves[3] = move;
-    pp[3] = (u8)GetWazaAttr(move, 5);
+    pp[3] = (u8)GetWazaAttr(move, MOVEATTR_PP);
     ppUp[3] = 0;
 
     for (i = 0; i < 4; i++)

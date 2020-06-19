@@ -9161,7 +9161,7 @@ _021DBA56:
 	lsl r4, r0, #2
 	ldr r0, [sp, #0x24]
 	ldr r0, [r0, r4]
-	bl FUN_02085284
+	bl LoadNutDataSingleByItemId
 	mov r3, #0
 	add r7, r0, #0
 	add r2, r3, #0
@@ -9196,7 +9196,7 @@ _021DBAA0:
 _021DBAA4:
 	add r0, r7, #0
 	add r1, r5, #5
-	bl FUN_02085290
+	bl GetNutAttr
 	ldr r1, [r4]
 	add r5, r5, #1
 	add r0, r1, r0
@@ -9205,7 +9205,7 @@ _021DBAA4:
 	blt _021DBAA4
 	add r0, r7, #0
 	mov r1, #0xa
-	bl FUN_02085290
+	bl GetNutAttr
 	ldr r1, [sp, #0x20]
 	add r0, r1, r0
 	str r0, [sp, #0x20]

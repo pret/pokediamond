@@ -32,9 +32,19 @@ endif
 ifeq ($(OS),Windows_NT)
 EXE := .exe
 WINE :=
+GREP := grep -P
+SED := sed -r
 else
 EXE :=
 WINE := wine
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+GREP := grep -E
+SED := perl -p -e
+else
+GREP := grep -P
+SED := sed -r
+endif
 endif
 
 ifeq ($(NOWINE),1)
@@ -333,7 +343,7 @@ $(BUILD_DIR)/pokediamond_bnr.bin: pokediamond.bsf graphics/icon.4bpp graphics/ic
 	$(MAKEBANNER) $< $@
 
 symbols.csv: arm9 arm7
-	(echo "Name,Location"; grep -P " *[0-9A-F]{8} [0-9A-F]{8} \S+ +\w+\t\(\w+\.o\)" arm9/build/arm9.elf.xMAP arm7/build/arm7.elf.xMAP | sed -r 's/ *([0-9A-F]{8}) [0-9A-F]{8} \S+ +(\w+)\t\(\w+\.o\)/\2,\1/g' | cut -d: -f2) > $@
+	(echo "Name,Location"; $(GREP) " *[0-9A-F]{8} [0-9A-F]{8} \S+ +\w+\t\(\w+\.o\)" arm9/build/arm9.elf.xMAP arm7/build/arm7.elf.xMAP | $(SED) 's/ *([0-9A-F]{8}) [0-9A-F]{8} \S+ +(\w+)\t\(\w+\.o\)/\2,\1/g' | cut -d: -f2) > $@
 
 ### Debug Print ###
 

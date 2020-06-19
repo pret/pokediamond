@@ -309,7 +309,6 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.pal: ;
 
 # Included files
-baserom.%: ;
 %.h: ;
 %.inc: ;
 
