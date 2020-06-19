@@ -38,7 +38,7 @@ const struct BaseStats __data[] = {
         {{ mon.genderRatio }}, // Gender ratio
         {{ mon.eggCycles }}, // Egg cycles
         {{ mon.friendship }}, // Friendship
-        {{ mon.growthRate }}, // Growth rate
+        GROWTH_{{ mon.growthRate }}, // Growth rate
         // Egg groups
         { {{ mon.eggGroups.0 }}, {{ mon.eggGroups.1 }} },
         // Abilities

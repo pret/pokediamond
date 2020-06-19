@@ -435,4 +435,14 @@ typedef enum EvoMethod
     EVO_ROUTE217,
 } EvoMethod;
 
+enum GrowthRate
+{
+    GROWTH_MEDIUM_FAST = 0,
+    GROWTH_ERRATIC,
+    GROWTH_FLUCTUATING,
+    GROWTH_MEDIUM_SLOW,
+    GROWTH_FAST,
+    GROWTH_SLOW,
+};
+
 #endif //POKEDIAMOND_CONSTANTS_POKEMON_H

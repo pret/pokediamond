@@ -27,7 +27,7 @@
       "genderRatio": 0,
       "eggCycles": 0,
       "friendship": 0,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_NONE",
         "EGG_GROUP_NONE"
@@ -69,7 +69,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -141,7 +141,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -213,7 +213,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -290,7 +290,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_DRAGON"
@@ -369,7 +369,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_DRAGON"
@@ -448,7 +448,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_DRAGON"
@@ -538,7 +538,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -615,7 +615,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -692,7 +692,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -778,7 +778,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -820,7 +820,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -862,7 +862,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -942,7 +942,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -984,7 +984,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -1026,7 +1026,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -1107,7 +1107,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -1177,7 +1177,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -1247,7 +1247,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -1319,7 +1319,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -1398,7 +1398,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -1482,7 +1482,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -1552,7 +1552,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -1624,7 +1624,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_DRAGON"
@@ -1700,7 +1700,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_DRAGON"
@@ -1778,7 +1778,7 @@
       "genderRatio": 127,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FAIRY"
@@ -1854,7 +1854,7 @@
       "genderRatio": 127,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FAIRY"
@@ -1934,7 +1934,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -2016,7 +2016,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -2102,7 +2102,7 @@
       "genderRatio": 254,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -2180,7 +2180,7 @@
       "genderRatio": 254,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -2258,7 +2258,7 @@
       "genderRatio": 254,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -2358,7 +2358,7 @@
       "genderRatio": 0,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -2435,7 +2435,7 @@
       "genderRatio": 0,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -2512,7 +2512,7 @@
       "genderRatio": 0,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -2611,7 +2611,7 @@
       "genderRatio": 191,
       "eggCycles": 10,
       "friendship": 140,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_FAIRY"
@@ -2705,7 +2705,7 @@
       "genderRatio": 191,
       "eggCycles": 10,
       "friendship": 140,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_FAIRY"
@@ -2802,7 +2802,7 @@
       "genderRatio": 191,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -2873,7 +2873,7 @@
       "genderRatio": 191,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -2949,7 +2949,7 @@
       "genderRatio": 191,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_FAIRY"
@@ -3041,7 +3041,7 @@
       "genderRatio": 191,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_FAIRY"
@@ -3136,7 +3136,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -3213,7 +3213,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -3292,7 +3292,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -3362,7 +3362,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -3434,7 +3434,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -3508,7 +3508,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_GRASS"
@@ -3585,7 +3585,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_GRASS"
@@ -3664,7 +3664,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -3731,7 +3731,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -3807,7 +3807,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -3880,7 +3880,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -3956,7 +3956,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -4038,7 +4038,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -4124,7 +4124,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -4205,7 +4205,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -4290,7 +4290,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -4374,7 +4374,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -4461,7 +4461,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -4533,7 +4533,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -4610,7 +4610,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_1"
@@ -4680,7 +4680,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_1"
@@ -4756,7 +4756,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_1"
@@ -4841,7 +4841,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -4928,7 +4928,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -5015,7 +5015,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -5105,7 +5105,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -5184,7 +5184,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -5263,7 +5263,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -5345,7 +5345,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -5416,7 +5416,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -5487,7 +5487,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -5560,7 +5560,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -5635,7 +5635,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -5712,7 +5712,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -5791,7 +5791,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -5870,7 +5870,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -5953,7 +5953,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -6021,7 +6021,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -6092,7 +6092,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -6179,7 +6179,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -6275,7 +6275,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -6347,7 +6347,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -6421,7 +6421,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FIELD"
@@ -6496,7 +6496,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -6563,7 +6563,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -6635,7 +6635,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -6706,7 +6706,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -6780,7 +6780,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -6861,7 +6861,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -6949,7 +6949,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -7018,7 +7018,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -7092,7 +7092,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -7172,7 +7172,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -7255,7 +7255,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -7348,7 +7348,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -7430,7 +7430,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -7513,7 +7513,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -7599,7 +7599,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -7678,7 +7678,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -7759,7 +7759,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -7829,7 +7829,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -7901,7 +7901,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -7980,7 +7980,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -8061,7 +8061,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -8143,7 +8143,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -8229,7 +8229,7 @@
       "genderRatio": 0,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -8305,7 +8305,7 @@
       "genderRatio": 0,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -8381,7 +8381,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -8473,7 +8473,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -8550,7 +8550,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -8629,7 +8629,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -8716,7 +8716,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -8813,7 +8813,7 @@
       "genderRatio": 254,
       "eggCycles": 40,
       "friendship": 140,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_FAIRY"
@@ -8914,7 +8914,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -8991,7 +8991,7 @@
       "genderRatio": 254,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -9087,7 +9087,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_DRAGON"
@@ -9157,7 +9157,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_DRAGON"
@@ -9229,7 +9229,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -9297,7 +9297,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -9367,7 +9367,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -9444,7 +9444,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -9528,7 +9528,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -9622,7 +9622,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -9699,7 +9699,7 @@
       "genderRatio": 254,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -9788,7 +9788,7 @@
       "genderRatio": 63,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -9868,7 +9868,7 @@
       "genderRatio": 63,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -9945,7 +9945,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -10028,7 +10028,7 @@
       "genderRatio": 0,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -10112,7 +10112,7 @@
       "genderRatio": 127,
       "eggCycles": 5,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_DRAGON"
@@ -10154,7 +10154,7 @@
       "genderRatio": 127,
       "eggCycles": 5,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_DRAGON"
@@ -10241,7 +10241,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -10323,7 +10323,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_DITTO",
         "EGG_GROUP_DITTO"
@@ -10365,7 +10365,7 @@
       "genderRatio": 31,
       "eggCycles": 35,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -10429,7 +10429,7 @@
       "genderRatio": 31,
       "eggCycles": 35,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -10506,7 +10506,7 @@
       "genderRatio": 31,
       "eggCycles": 35,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -10583,7 +10583,7 @@
       "genderRatio": 31,
       "eggCycles": 35,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -10657,7 +10657,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -10736,7 +10736,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_3"
@@ -10812,7 +10812,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_3"
@@ -10892,7 +10892,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_3"
@@ -10969,7 +10969,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_3"
@@ -11055,7 +11055,7 @@
       "genderRatio": 31,
       "eggCycles": 35,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -11143,7 +11143,7 @@
       "genderRatio": 31,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -11231,7 +11231,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -11309,7 +11309,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -11388,7 +11388,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -11466,7 +11466,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_DRAGON"
@@ -11544,7 +11544,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_DRAGON"
@@ -11622,7 +11622,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_DRAGON"
@@ -11720,7 +11720,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -11831,7 +11831,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 100,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -11975,7 +11975,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -12048,7 +12048,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -12123,7 +12123,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -12202,7 +12202,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -12270,7 +12270,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -12343,7 +12343,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -12427,7 +12427,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -12505,7 +12505,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -12586,7 +12586,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -12675,7 +12675,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -12756,7 +12756,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -12844,7 +12844,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -12920,7 +12920,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -12998,7 +12998,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -13075,7 +13075,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -13158,7 +13158,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -13226,7 +13226,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -13296,7 +13296,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -13377,7 +13377,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -13451,7 +13451,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -13527,7 +13527,7 @@
       "genderRatio": 127,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -13597,7 +13597,7 @@
       "genderRatio": 191,
       "eggCycles": 10,
       "friendship": 140,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -13677,7 +13677,7 @@
       "genderRatio": 191,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -13756,7 +13756,7 @@
       "genderRatio": 31,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -13835,7 +13835,7 @@
       "genderRatio": 31,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FAIRY"
@@ -13925,7 +13925,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -14007,7 +14007,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -14094,7 +14094,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -14162,7 +14162,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -14236,7 +14236,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -14314,7 +14314,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -14389,7 +14389,7 @@
       "genderRatio": 127,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FAIRY"
@@ -14464,7 +14464,7 @@
       "genderRatio": 127,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FAIRY"
@@ -14542,7 +14542,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -14622,7 +14622,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_1"
@@ -14702,7 +14702,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_GRASS"
@@ -14772,7 +14772,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_GRASS"
@@ -14842,7 +14842,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_GRASS"
@@ -14914,7 +14914,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -15000,7 +15000,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -15072,7 +15072,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -15146,7 +15146,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -15220,7 +15220,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -15294,7 +15294,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -15378,7 +15378,7 @@
       "genderRatio": 31,
       "eggCycles": 35,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -15456,7 +15456,7 @@
       "genderRatio": 31,
       "eggCycles": 35,
       "friendship": 35,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -15533,7 +15533,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -15614,7 +15614,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -15710,7 +15710,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 35,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -15793,7 +15793,7 @@
       "genderRatio": 255,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -15835,7 +15835,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -15877,7 +15877,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -15962,7 +15962,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -16038,7 +16038,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -16118,7 +16118,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -16207,7 +16207,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -16298,7 +16298,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -16384,7 +16384,7 @@
       "genderRatio": 191,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FAIRY"
@@ -16470,7 +16470,7 @@
       "genderRatio": 191,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FAIRY"
@@ -16564,7 +16564,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -16641,7 +16641,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -16722,7 +16722,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -16797,7 +16797,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -16878,7 +16878,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -16970,7 +16970,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -17051,7 +17051,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -17138,7 +17138,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -17208,7 +17208,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -17289,7 +17289,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -17364,7 +17364,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -17443,7 +17443,7 @@
       "genderRatio": 191,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_3"
@@ -17528,7 +17528,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_2"
@@ -17604,7 +17604,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_2"
@@ -17685,7 +17685,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -17760,7 +17760,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_1"
@@ -17836,7 +17836,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -17919,7 +17919,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -17998,7 +17998,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -18080,7 +18080,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_DRAGON"
@@ -18152,7 +18152,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -18222,7 +18222,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -18298,7 +18298,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -18377,7 +18377,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -18460,7 +18460,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -18502,7 +18502,7 @@
       "genderRatio": 0,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -18571,7 +18571,7 @@
       "genderRatio": 0,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -18645,7 +18645,7 @@
       "genderRatio": 254,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -18725,7 +18725,7 @@
       "genderRatio": 63,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -18799,7 +18799,7 @@
       "genderRatio": 63,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -18871,7 +18871,7 @@
       "genderRatio": 254,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -18959,7 +18959,7 @@
       "genderRatio": 254,
       "eggCycles": 40,
       "friendship": 140,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_FAIRY"
@@ -19062,7 +19062,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -19143,7 +19143,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -19224,7 +19224,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -19305,7 +19305,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -19382,7 +19382,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -19459,7 +19459,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -19560,7 +19560,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -19658,7 +19658,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -19751,7 +19751,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 100,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -19840,7 +19840,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_DRAGON"
@@ -19921,7 +19921,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_DRAGON"
@@ -20004,7 +20004,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_DRAGON"
@@ -20095,7 +20095,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -20169,7 +20169,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -20249,7 +20249,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -20336,7 +20336,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -20409,7 +20409,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -20486,7 +20486,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_WATER_1"
@@ -20571,7 +20571,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -20645,7 +20645,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -20722,7 +20722,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -20801,7 +20801,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -20885,7 +20885,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -20927,7 +20927,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -20969,7 +20969,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -21045,7 +21045,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -21087,7 +21087,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -21164,7 +21164,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_GRASS"
@@ -21239,7 +21239,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_GRASS"
@@ -21320,7 +21320,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_GRASS"
@@ -21406,7 +21406,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_GRASS"
@@ -21478,7 +21478,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_GRASS"
@@ -21563,7 +21563,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_GRASS"
@@ -21654,7 +21654,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -21724,7 +21724,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -21796,7 +21796,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FLYING"
@@ -21871,7 +21871,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FLYING"
@@ -21951,7 +21951,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -22034,7 +22034,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -22117,7 +22117,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -22204,7 +22204,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_BUG"
@@ -22274,7 +22274,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_BUG"
@@ -22353,7 +22353,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_GRASS"
@@ -22423,7 +22423,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_GRASS"
@@ -22509,7 +22509,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -22592,7 +22592,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -22680,7 +22680,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -22770,7 +22770,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -22839,7 +22839,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -22918,7 +22918,7 @@
       "genderRatio": 255,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -22993,7 +22993,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -23064,7 +23064,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -23145,7 +23145,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -23232,7 +23232,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -23308,7 +23308,7 @@
       "genderRatio": 63,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -23389,7 +23389,7 @@
       "genderRatio": 191,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -23457,7 +23457,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -23534,7 +23534,7 @@
       "genderRatio": 191,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FAIRY"
@@ -23614,7 +23614,7 @@
       "genderRatio": 191,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FAIRY"
@@ -23699,7 +23699,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 35,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -23787,7 +23787,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FAIRY"
@@ -23875,7 +23875,7 @@
       "genderRatio": 127,
       "eggCycles": 35,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -23953,7 +23953,7 @@
       "genderRatio": 127,
       "eggCycles": 35,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -24032,7 +24032,7 @@
       "genderRatio": 127,
       "eggCycles": 35,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -24134,7 +24134,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -24217,7 +24217,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -24303,7 +24303,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -24376,7 +24376,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -24452,7 +24452,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_FAIRY"
@@ -24522,7 +24522,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_FAIRY"
@@ -24592,7 +24592,7 @@
       "genderRatio": 0,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_HUMAN_LIKE"
@@ -24673,7 +24673,7 @@
       "genderRatio": 254,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_HUMAN_LIKE"
@@ -24754,7 +24754,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_GRASS"
@@ -24828,7 +24828,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -24903,7 +24903,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -24981,7 +24981,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -25054,7 +25054,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -25136,7 +25136,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_WATER_2"
@@ -25210,7 +25210,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_WATER_2"
@@ -25286,7 +25286,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -25359,7 +25359,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -25440,7 +25440,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -25519,7 +25519,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -25601,7 +25601,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -25691,7 +25691,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_HUMAN_LIKE"
@@ -25776,7 +25776,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -25847,7 +25847,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -25925,7 +25925,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -26010,7 +26010,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_HUMAN_LIKE"
@@ -26087,7 +26087,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_HUMAN_LIKE"
@@ -26169,7 +26169,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_DRAGON"
@@ -26243,7 +26243,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_DRAGON"
@@ -26326,7 +26326,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -26421,7 +26421,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_DRAGON"
@@ -26498,7 +26498,7 @@
       "genderRatio": 255,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -26584,7 +26584,7 @@
       "genderRatio": 255,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -26673,7 +26673,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -26743,7 +26743,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -26819,7 +26819,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_3"
@@ -26901,7 +26901,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_3"
@@ -26987,7 +26987,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -27071,7 +27071,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -27161,7 +27161,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -27234,7 +27234,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -27314,7 +27314,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -27389,7 +27389,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_3",
         "EGG_GROUP_WATER_3"
@@ -27471,7 +27471,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_DRAGON"
@@ -27538,7 +27538,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_DRAGON"
@@ -27612,7 +27612,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_AMORPHOUS"
@@ -27691,7 +27691,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -27787,7 +27787,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 35,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -27869,7 +27869,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 35,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -27955,7 +27955,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 35,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -28036,7 +28036,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 35,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -28127,7 +28127,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -28209,7 +28209,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -28290,7 +28290,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 35,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -28390,7 +28390,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -28432,7 +28432,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_MINERAL"
@@ -28501,7 +28501,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_MINERAL"
@@ -28579,7 +28579,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -28653,7 +28653,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -28728,7 +28728,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -28806,7 +28806,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_1"
@@ -28874,7 +28874,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_1"
@@ -28946,7 +28946,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_1"
@@ -29020,7 +29020,7 @@
       "genderRatio": 31,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_WATER_2"
@@ -29101,7 +29101,7 @@
       "genderRatio": 191,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -29171,7 +29171,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_DRAGON",
         "EGG_GROUP_DRAGON"
@@ -29246,7 +29246,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_DRAGON",
         "EGG_GROUP_DRAGON"
@@ -29321,7 +29321,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_DRAGON",
         "EGG_GROUP_DRAGON"
@@ -29405,7 +29405,7 @@
       "genderRatio": 255,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -29447,7 +29447,7 @@
       "genderRatio": 255,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -29530,7 +29530,7 @@
       "genderRatio": 255,
       "eggCycles": 40,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -29614,7 +29614,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -29699,7 +29699,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -29784,7 +29784,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -29870,7 +29870,7 @@
       "genderRatio": 254,
       "eggCycles": 120,
       "friendship": 90,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -29967,7 +29967,7 @@
       "genderRatio": 0,
       "eggCycles": 120,
       "friendship": 90,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -30064,7 +30064,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -30147,7 +30147,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -30241,7 +30241,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -30339,7 +30339,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 100,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -30427,7 +30427,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -30529,7 +30529,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -30606,7 +30606,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -30683,7 +30683,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -30769,7 +30769,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_HUMAN_LIKE"
@@ -30852,7 +30852,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_HUMAN_LIKE"
@@ -30939,7 +30939,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_HUMAN_LIKE"
@@ -31033,7 +31033,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -31111,7 +31111,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -31192,7 +31192,7 @@
       "genderRatio": 31,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -31283,7 +31283,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -31353,7 +31353,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -31423,7 +31423,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -31495,7 +31495,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -31574,7 +31574,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -31662,7 +31662,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -31704,7 +31704,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -31778,7 +31778,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -31850,7 +31850,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 100,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -31922,7 +31922,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -31996,7 +31996,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -32069,7 +32069,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_GRASS"
@@ -32145,7 +32145,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -32232,7 +32232,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -32327,7 +32327,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -32411,7 +32411,7 @@
       "genderRatio": 31,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -32498,7 +32498,7 @@
       "genderRatio": 127,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -32540,7 +32540,7 @@
       "genderRatio": 254,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -32616,7 +32616,7 @@
       "genderRatio": 0,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -32696,7 +32696,7 @@
       "genderRatio": 31,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -32738,7 +32738,7 @@
       "genderRatio": 254,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -32813,7 +32813,7 @@
       "genderRatio": 127,
       "eggCycles": 10,
       "friendship": 100,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FAIRY"
@@ -32887,7 +32887,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -32963,7 +32963,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FIELD"
@@ -33046,7 +33046,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_GRASS"
@@ -33114,7 +33114,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_GRASS"
@@ -33184,7 +33184,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_AMORPHOUS"
@@ -33251,7 +33251,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_AMORPHOUS"
@@ -33331,7 +33331,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 100,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -33419,7 +33419,7 @@
       "genderRatio": 127,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -33503,7 +33503,7 @@
       "genderRatio": 127,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 2,
+      "growthRate": "FLUCTUATING",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -33590,7 +33590,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 0,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_HUMAN_LIKE"
@@ -33668,7 +33668,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 140,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_HUMAN_LIKE"
@@ -33752,7 +33752,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 35,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -33838,7 +33838,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -33921,7 +33921,7 @@
       "genderRatio": 191,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -34002,7 +34002,7 @@
       "genderRatio": 191,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -34086,7 +34086,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -34166,7 +34166,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -34246,7 +34246,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -34330,7 +34330,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -34413,7 +34413,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -34502,7 +34502,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -34573,7 +34573,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -34661,7 +34661,7 @@
       "genderRatio": 254,
       "eggCycles": 40,
       "friendship": 140,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -34740,7 +34740,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FLYING"
@@ -34812,7 +34812,7 @@
       "genderRatio": 127,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -34892,7 +34892,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_DRAGON"
@@ -34972,7 +34972,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_DRAGON"
@@ -35053,7 +35053,7 @@
       "genderRatio": 127,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_DRAGON"
@@ -35142,7 +35142,7 @@
       "genderRatio": 31,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -35227,7 +35227,7 @@
       "genderRatio": 31,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -35307,7 +35307,7 @@
       "genderRatio": 31,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_HUMAN_LIKE"
@@ -35398,7 +35398,7 @@
       "genderRatio": 127,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -35469,7 +35469,7 @@
       "genderRatio": 127,
       "eggCycles": 30,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -35543,7 +35543,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_WATER_3"
@@ -35626,7 +35626,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_WATER_3"
@@ -35715,7 +35715,7 @@
       "genderRatio": 127,
       "eggCycles": 10,
       "friendship": 100,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -35800,7 +35800,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -35890,7 +35890,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -35965,7 +35965,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -36040,7 +36040,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 1,
+      "growthRate": "ERRATIC",
       "eggGroups": [
         "EGG_GROUP_WATER_2",
         "EGG_GROUP_WATER_2"
@@ -36117,7 +36117,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -36186,7 +36186,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -36262,7 +36262,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_GRASS"
@@ -36351,7 +36351,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -36446,7 +36446,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -36520,7 +36520,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_MONSTER"
@@ -36615,7 +36615,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_MONSTER",
         "EGG_GROUP_FIELD"
@@ -36713,7 +36713,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_GRASS",
         "EGG_GROUP_GRASS"
@@ -36800,7 +36800,7 @@
       "genderRatio": 63,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -36887,7 +36887,7 @@
       "genderRatio": 63,
       "eggCycles": 25,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_HUMAN_LIKE",
         "EGG_GROUP_HUMAN_LIKE"
@@ -36971,7 +36971,7 @@
       "genderRatio": 31,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_FLYING",
         "EGG_GROUP_FAIRY"
@@ -37062,7 +37062,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -37139,7 +37139,7 @@
       "genderRatio": 31,
       "eggCycles": 35,
       "friendship": 35,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -37218,7 +37218,7 @@
       "genderRatio": 31,
       "eggCycles": 35,
       "friendship": 35,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -37293,7 +37293,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -37386,7 +37386,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_FIELD",
         "EGG_GROUP_FIELD"
@@ -37466,7 +37466,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -37547,7 +37547,7 @@
       "genderRatio": 0,
       "eggCycles": 20,
       "friendship": 35,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -37650,7 +37650,7 @@
       "genderRatio": 127,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_MINERAL",
         "EGG_GROUP_MINERAL"
@@ -37730,7 +37730,7 @@
       "genderRatio": 127,
       "eggCycles": 25,
       "friendship": 35,
-      "growthRate": 4,
+      "growthRate": "FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -37822,7 +37822,7 @@
       "genderRatio": 254,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_FAIRY",
         "EGG_GROUP_MINERAL"
@@ -37906,7 +37906,7 @@
       "genderRatio": 255,
       "eggCycles": 20,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_AMORPHOUS",
         "EGG_GROUP_AMORPHOUS"
@@ -37980,7 +37980,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 140,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -38068,7 +38068,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 140,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -38156,7 +38156,7 @@
       "genderRatio": 255,
       "eggCycles": 80,
       "friendship": 140,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -38248,7 +38248,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -38341,7 +38341,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -38437,7 +38437,7 @@
       "genderRatio": 127,
       "eggCycles": 10,
       "friendship": 100,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -38522,7 +38522,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -38603,7 +38603,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -38696,7 +38696,7 @@
       "genderRatio": 254,
       "eggCycles": 120,
       "friendship": 100,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -38777,7 +38777,7 @@
       "genderRatio": 255,
       "eggCycles": 40,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FAIRY"
@@ -38848,7 +38848,7 @@
       "genderRatio": 255,
       "eggCycles": 10,
       "friendship": 70,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_WATER_1",
         "EGG_GROUP_FAIRY"
@@ -38929,7 +38929,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -39029,7 +39029,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 100,
-      "growthRate": 3,
+      "growthRate": "MEDIUM_SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -39099,7 +39099,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -39222,7 +39222,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -39264,7 +39264,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -39306,7 +39306,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -39408,7 +39408,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -39510,7 +39510,7 @@
       "genderRatio": 255,
       "eggCycles": 120,
       "friendship": 0,
-      "growthRate": 5,
+      "growthRate": "SLOW",
       "eggGroups": [
         "EGG_GROUP_UNDISCOVERED",
         "EGG_GROUP_UNDISCOVERED"
@@ -39612,7 +39612,7 @@
       "genderRatio": 254,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
@@ -39687,7 +39687,7 @@
       "genderRatio": 254,
       "eggCycles": 15,
       "friendship": 70,
-      "growthRate": 0,
+      "growthRate": "MEDIUM_FAST",
       "eggGroups": [
         "EGG_GROUP_BUG",
         "EGG_GROUP_BUG"
