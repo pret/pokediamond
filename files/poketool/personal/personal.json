@@ -1,7 +1,7 @@
 {
   "baseStats": [
     {
-      "species": "SPECIES_NONE",
+      "species": "NONE",
       "hp": 0,
       "atk": 0,
       "def": 0,
@@ -24,7 +24,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 0,
       "friendship": 0,
       "growthRate": "MEDIUM_FAST",
@@ -43,7 +43,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_BULBASAUR",
+      "species": "BULBASAUR",
       "hp": 45,
       "atk": 49,
       "def": 49,
@@ -66,7 +66,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -115,7 +115,7 @@
       ]
     },
     {
-      "species": "SPECIES_IVYSAUR",
+      "species": "IVYSAUR",
       "hp": 60,
       "atk": 62,
       "def": 63,
@@ -138,7 +138,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -187,7 +187,7 @@
       ]
     },
     {
-      "species": "SPECIES_VENUSAUR",
+      "species": "VENUSAUR",
       "hp": 80,
       "atk": 82,
       "def": 83,
@@ -210,7 +210,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -264,7 +264,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHARMANDER",
+      "species": "CHARMANDER",
       "hp": 39,
       "atk": 52,
       "def": 43,
@@ -287,7 +287,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -343,7 +343,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHARMELEON",
+      "species": "CHARMELEON",
       "hp": 58,
       "atk": 64,
       "def": 58,
@@ -366,7 +366,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -422,7 +422,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHARIZARD",
+      "species": "CHARIZARD",
       "hp": 78,
       "atk": 84,
       "def": 78,
@@ -445,7 +445,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -512,7 +512,7 @@
       ]
     },
     {
-      "species": "SPECIES_SQUIRTLE",
+      "species": "SQUIRTLE",
       "hp": 44,
       "atk": 48,
       "def": 65,
@@ -535,7 +535,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -589,7 +589,7 @@
       ]
     },
     {
-      "species": "SPECIES_WARTORTLE",
+      "species": "WARTORTLE",
       "hp": 59,
       "atk": 63,
       "def": 80,
@@ -612,7 +612,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -666,7 +666,7 @@
       ]
     },
     {
-      "species": "SPECIES_BLASTOISE",
+      "species": "BLASTOISE",
       "hp": 79,
       "atk": 83,
       "def": 100,
@@ -689,7 +689,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -752,7 +752,7 @@
       ]
     },
     {
-      "species": "SPECIES_CATERPIE",
+      "species": "CATERPIE",
       "hp": 45,
       "atk": 30,
       "def": 35,
@@ -775,7 +775,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -794,7 +794,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_METAPOD",
+      "species": "METAPOD",
       "hp": 50,
       "atk": 20,
       "def": 55,
@@ -817,7 +817,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -836,7 +836,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_BUTTERFREE",
+      "species": "BUTTERFREE",
       "hp": 60,
       "atk": 45,
       "def": 50,
@@ -859,7 +859,7 @@
         "ITEM_NONE",
         "ITEM_SILVERPOWDER"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -916,7 +916,7 @@
       ]
     },
     {
-      "species": "SPECIES_WEEDLE",
+      "species": "WEEDLE",
       "hp": 40,
       "atk": 35,
       "def": 30,
@@ -939,7 +939,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -958,7 +958,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_KAKUNA",
+      "species": "KAKUNA",
       "hp": 45,
       "atk": 25,
       "def": 50,
@@ -981,7 +981,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1000,7 +1000,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_BEEDRILL",
+      "species": "BEEDRILL",
       "hp": 65,
       "atk": 80,
       "def": 40,
@@ -1023,7 +1023,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1081,7 +1081,7 @@
       ]
     },
     {
-      "species": "SPECIES_PIDGEY",
+      "species": "PIDGEY",
       "hp": 40,
       "atk": 45,
       "def": 40,
@@ -1104,7 +1104,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -1151,7 +1151,7 @@
       ]
     },
     {
-      "species": "SPECIES_PIDGEOTTO",
+      "species": "PIDGEOTTO",
       "hp": 63,
       "atk": 60,
       "def": 55,
@@ -1174,7 +1174,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -1221,7 +1221,7 @@
       ]
     },
     {
-      "species": "SPECIES_PIDGEOT",
+      "species": "PIDGEOT",
       "hp": 83,
       "atk": 80,
       "def": 75,
@@ -1244,7 +1244,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -1293,7 +1293,7 @@
       ]
     },
     {
-      "species": "SPECIES_RATTATA",
+      "species": "RATTATA",
       "hp": 30,
       "atk": 56,
       "def": 35,
@@ -1316,7 +1316,7 @@
         "ITEM_NONE",
         "ITEM_CHILAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1372,7 +1372,7 @@
       ]
     },
     {
-      "species": "SPECIES_RATICATE",
+      "species": "RATICATE",
       "hp": 55,
       "atk": 81,
       "def": 60,
@@ -1395,7 +1395,7 @@
         "ITEM_NONE",
         "ITEM_CHILAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1456,7 +1456,7 @@
       ]
     },
     {
-      "species": "SPECIES_SPEAROW",
+      "species": "SPEAROW",
       "hp": 40,
       "atk": 60,
       "def": 30,
@@ -1479,7 +1479,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1526,7 +1526,7 @@
       ]
     },
     {
-      "species": "SPECIES_FEAROW",
+      "species": "FEAROW",
       "hp": 65,
       "atk": 90,
       "def": 65,
@@ -1549,7 +1549,7 @@
         "ITEM_NONE",
         "ITEM_SHARP_BEAK"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1598,7 +1598,7 @@
       ]
     },
     {
-      "species": "SPECIES_EKANS",
+      "species": "EKANS",
       "hp": 35,
       "atk": 60,
       "def": 44,
@@ -1621,7 +1621,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1674,7 +1674,7 @@
       ]
     },
     {
-      "species": "SPECIES_ARBOK",
+      "species": "ARBOK",
       "hp": 60,
       "atk": 85,
       "def": 69,
@@ -1697,7 +1697,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1752,7 +1752,7 @@
       ]
     },
     {
-      "species": "SPECIES_PIKACHU",
+      "species": "PIKACHU",
       "hp": 35,
       "atk": 55,
       "def": 30,
@@ -1775,7 +1775,7 @@
         "ITEM_ORAN_BERRY",
         "ITEM_LIGHT_BALL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1828,7 +1828,7 @@
       ]
     },
     {
-      "species": "SPECIES_RAICHU",
+      "species": "RAICHU",
       "hp": 60,
       "atk": 90,
       "def": 55,
@@ -1851,7 +1851,7 @@
         "ITEM_NONE",
         "ITEM_ORAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1908,7 +1908,7 @@
       ]
     },
     {
-      "species": "SPECIES_SANDSHREW",
+      "species": "SANDSHREW",
       "hp": 50,
       "atk": 75,
       "def": 85,
@@ -1931,7 +1931,7 @@
         "ITEM_NONE",
         "ITEM_QUICK_CLAW"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -1990,7 +1990,7 @@
       ]
     },
     {
-      "species": "SPECIES_SANDSLASH",
+      "species": "SANDSLASH",
       "hp": 75,
       "atk": 100,
       "def": 110,
@@ -2013,7 +2013,7 @@
         "ITEM_NONE",
         "ITEM_QUICK_CLAW"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -2076,7 +2076,7 @@
       ]
     },
     {
-      "species": "SPECIES_NIDORAN_F",
+      "species": "NIDORAN_F",
       "hp": 55,
       "atk": 47,
       "def": 52,
@@ -2099,7 +2099,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -2154,7 +2154,7 @@
       ]
     },
     {
-      "species": "SPECIES_NIDORINA",
+      "species": "NIDORINA",
       "hp": 70,
       "atk": 62,
       "def": 67,
@@ -2177,7 +2177,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -2232,7 +2232,7 @@
       ]
     },
     {
-      "species": "SPECIES_NIDOQUEEN",
+      "species": "NIDOQUEEN",
       "hp": 90,
       "atk": 82,
       "def": 87,
@@ -2255,7 +2255,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -2332,7 +2332,7 @@
       ]
     },
     {
-      "species": "SPECIES_NIDORAN_M",
+      "species": "NIDORAN_M",
       "hp": 46,
       "atk": 57,
       "def": 40,
@@ -2355,7 +2355,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -2409,7 +2409,7 @@
       ]
     },
     {
-      "species": "SPECIES_NIDORINO",
+      "species": "NIDORINO",
       "hp": 61,
       "atk": 72,
       "def": 57,
@@ -2432,7 +2432,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -2486,7 +2486,7 @@
       ]
     },
     {
-      "species": "SPECIES_NIDOKING",
+      "species": "NIDOKING",
       "hp": 81,
       "atk": 92,
       "def": 77,
@@ -2509,7 +2509,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -2585,7 +2585,7 @@
       ]
     },
     {
-      "species": "SPECIES_CLEFAIRY",
+      "species": "CLEFAIRY",
       "hp": 70,
       "atk": 45,
       "def": 48,
@@ -2608,7 +2608,7 @@
         "ITEM_LEPPA_BERRY",
         "ITEM_MOON_STONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 10,
       "friendship": 140,
       "growthRate": "FAST",
@@ -2679,7 +2679,7 @@
       ]
     },
     {
-      "species": "SPECIES_CLEFABLE",
+      "species": "CLEFABLE",
       "hp": 95,
       "atk": 70,
       "def": 73,
@@ -2702,7 +2702,7 @@
         "ITEM_LEPPA_BERRY",
         "ITEM_MOON_STONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 10,
       "friendship": 140,
       "growthRate": "FAST",
@@ -2776,7 +2776,7 @@
       ]
     },
     {
-      "species": "SPECIES_VULPIX",
+      "species": "VULPIX",
       "hp": 38,
       "atk": 41,
       "def": 40,
@@ -2799,7 +2799,7 @@
         "ITEM_RAWST_BERRY",
         "ITEM_RAWST_BERRY"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -2847,7 +2847,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_NINETALES",
+      "species": "NINETALES",
       "hp": 73,
       "atk": 76,
       "def": 75,
@@ -2870,7 +2870,7 @@
         "ITEM_RAWST_BERRY",
         "ITEM_RAWST_BERRY"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -2923,7 +2923,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_JIGGLYPUFF",
+      "species": "JIGGLYPUFF",
       "hp": 115,
       "atk": 45,
       "def": 20,
@@ -2946,7 +2946,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "FAST",
@@ -3015,7 +3015,7 @@
       ]
     },
     {
-      "species": "SPECIES_WIGGLYTUFF",
+      "species": "WIGGLYTUFF",
       "hp": 140,
       "atk": 70,
       "def": 45,
@@ -3038,7 +3038,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "FAST",
@@ -3110,7 +3110,7 @@
       ]
     },
     {
-      "species": "SPECIES_ZUBAT",
+      "species": "ZUBAT",
       "hp": 40,
       "atk": 45,
       "def": 35,
@@ -3133,7 +3133,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -3187,7 +3187,7 @@
       ]
     },
     {
-      "species": "SPECIES_GOLBAT",
+      "species": "GOLBAT",
       "hp": 75,
       "atk": 80,
       "def": 70,
@@ -3210,7 +3210,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -3266,7 +3266,7 @@
       ]
     },
     {
-      "species": "SPECIES_ODDISH",
+      "species": "ODDISH",
       "hp": 45,
       "atk": 50,
       "def": 55,
@@ -3289,7 +3289,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -3336,7 +3336,7 @@
       ]
     },
     {
-      "species": "SPECIES_GLOOM",
+      "species": "GLOOM",
       "hp": 60,
       "atk": 65,
       "def": 70,
@@ -3359,7 +3359,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -3408,7 +3408,7 @@
       ]
     },
     {
-      "species": "SPECIES_VILEPLUME",
+      "species": "VILEPLUME",
       "hp": 75,
       "atk": 80,
       "def": 85,
@@ -3431,7 +3431,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -3482,7 +3482,7 @@
       ]
     },
     {
-      "species": "SPECIES_PARAS",
+      "species": "PARAS",
       "hp": 35,
       "atk": 70,
       "def": 55,
@@ -3505,7 +3505,7 @@
         "ITEM_TINYMUSHROOM",
         "ITEM_BIG_MUSHROOM"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -3559,7 +3559,7 @@
       ]
     },
     {
-      "species": "SPECIES_PARASECT",
+      "species": "PARASECT",
       "hp": 60,
       "atk": 95,
       "def": 80,
@@ -3582,7 +3582,7 @@
         "ITEM_TINYMUSHROOM",
         "ITEM_BIG_MUSHROOM"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -3638,7 +3638,7 @@
       ]
     },
     {
-      "species": "SPECIES_VENONAT",
+      "species": "VENONAT",
       "hp": 60,
       "atk": 55,
       "def": 50,
@@ -3661,7 +3661,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -3705,7 +3705,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_VENOMOTH",
+      "species": "VENOMOTH",
       "hp": 70,
       "atk": 65,
       "def": 60,
@@ -3728,7 +3728,7 @@
         "ITEM_NONE",
         "ITEM_SHED_SHELL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -3781,7 +3781,7 @@
       ]
     },
     {
-      "species": "SPECIES_DIGLETT",
+      "species": "DIGLETT",
       "hp": 10,
       "atk": 55,
       "def": 25,
@@ -3804,7 +3804,7 @@
         "ITEM_NONE",
         "ITEM_SOFT_SAND"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -3854,7 +3854,7 @@
       ]
     },
     {
-      "species": "SPECIES_DUGTRIO",
+      "species": "DUGTRIO",
       "hp": 35,
       "atk": 80,
       "def": 50,
@@ -3877,7 +3877,7 @@
         "ITEM_NONE",
         "ITEM_SOFT_SAND"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -3930,7 +3930,7 @@
       ]
     },
     {
-      "species": "SPECIES_MEOWTH",
+      "species": "MEOWTH",
       "hp": 40,
       "atk": 45,
       "def": 35,
@@ -3953,7 +3953,7 @@
         "ITEM_NONE",
         "ITEM_QUICK_CLAW"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -4012,7 +4012,7 @@
       ]
     },
     {
-      "species": "SPECIES_PERSIAN",
+      "species": "PERSIAN",
       "hp": 65,
       "atk": 70,
       "def": 60,
@@ -4035,7 +4035,7 @@
         "ITEM_NONE",
         "ITEM_QUICK_CLAW"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -4098,7 +4098,7 @@
       ]
     },
     {
-      "species": "SPECIES_PSYDUCK",
+      "species": "PSYDUCK",
       "hp": 50,
       "atk": 52,
       "def": 48,
@@ -4121,7 +4121,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -4179,7 +4179,7 @@
       ]
     },
     {
-      "species": "SPECIES_GOLDUCK",
+      "species": "GOLDUCK",
       "hp": 80,
       "atk": 82,
       "def": 78,
@@ -4202,7 +4202,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -4264,7 +4264,7 @@
       ]
     },
     {
-      "species": "SPECIES_MANKEY",
+      "species": "MANKEY",
       "hp": 40,
       "atk": 80,
       "def": 35,
@@ -4287,7 +4287,7 @@
         "ITEM_NONE",
         "ITEM_PAYAPA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -4348,7 +4348,7 @@
       ]
     },
     {
-      "species": "SPECIES_PRIMEAPE",
+      "species": "PRIMEAPE",
       "hp": 65,
       "atk": 105,
       "def": 60,
@@ -4371,7 +4371,7 @@
         "ITEM_NONE",
         "ITEM_PAYAPA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -4435,7 +4435,7 @@
       ]
     },
     {
-      "species": "SPECIES_GROWLITHE",
+      "species": "GROWLITHE",
       "hp": 55,
       "atk": 70,
       "def": 45,
@@ -4458,7 +4458,7 @@
         "ITEM_RAWST_BERRY",
         "ITEM_RAWST_BERRY"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -4507,7 +4507,7 @@
       ]
     },
     {
-      "species": "SPECIES_ARCANINE",
+      "species": "ARCANINE",
       "hp": 90,
       "atk": 110,
       "def": 80,
@@ -4530,7 +4530,7 @@
         "ITEM_RAWST_BERRY",
         "ITEM_RAWST_BERRY"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -4584,7 +4584,7 @@
       ]
     },
     {
-      "species": "SPECIES_POLIWAG",
+      "species": "POLIWAG",
       "hp": 40,
       "atk": 50,
       "def": 40,
@@ -4607,7 +4607,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -4654,7 +4654,7 @@
       ]
     },
     {
-      "species": "SPECIES_POLIWHIRL",
+      "species": "POLIWHIRL",
       "hp": 65,
       "atk": 65,
       "def": 65,
@@ -4677,7 +4677,7 @@
         "ITEM_NONE",
         "ITEM_KINGS_ROCK"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -4730,7 +4730,7 @@
       ]
     },
     {
-      "species": "SPECIES_POLIWRATH",
+      "species": "POLIWRATH",
       "hp": 90,
       "atk": 85,
       "def": 95,
@@ -4753,7 +4753,7 @@
         "ITEM_NONE",
         "ITEM_KINGS_ROCK"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -4815,7 +4815,7 @@
       ]
     },
     {
-      "species": "SPECIES_ABRA",
+      "species": "ABRA",
       "hp": 25,
       "atk": 20,
       "def": 15,
@@ -4838,7 +4838,7 @@
         "ITEM_NONE",
         "ITEM_TWISTEDSPOON"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -4902,7 +4902,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_KADABRA",
+      "species": "KADABRA",
       "hp": 40,
       "atk": 35,
       "def": 30,
@@ -4925,7 +4925,7 @@
         "ITEM_NONE",
         "ITEM_TWISTEDSPOON"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -4989,7 +4989,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ALAKAZAM",
+      "species": "ALAKAZAM",
       "hp": 55,
       "atk": 50,
       "def": 45,
@@ -5012,7 +5012,7 @@
         "ITEM_NONE",
         "ITEM_TWISTEDSPOON"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5079,7 +5079,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_MACHOP",
+      "species": "MACHOP",
       "hp": 70,
       "atk": 80,
       "def": 50,
@@ -5102,7 +5102,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5158,7 +5158,7 @@
       ]
     },
     {
-      "species": "SPECIES_MACHOKE",
+      "species": "MACHOKE",
       "hp": 80,
       "atk": 100,
       "def": 70,
@@ -5181,7 +5181,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5237,7 +5237,7 @@
       ]
     },
     {
-      "species": "SPECIES_MACHAMP",
+      "species": "MACHAMP",
       "hp": 90,
       "atk": 130,
       "def": 80,
@@ -5260,7 +5260,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5319,7 +5319,7 @@
       ]
     },
     {
-      "species": "SPECIES_BELLSPROUT",
+      "species": "BELLSPROUT",
       "hp": 50,
       "atk": 75,
       "def": 35,
@@ -5342,7 +5342,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5390,7 +5390,7 @@
       ]
     },
     {
-      "species": "SPECIES_WEEPINBELL",
+      "species": "WEEPINBELL",
       "hp": 65,
       "atk": 90,
       "def": 50,
@@ -5413,7 +5413,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5461,7 +5461,7 @@
       ]
     },
     {
-      "species": "SPECIES_VICTREEBEL",
+      "species": "VICTREEBEL",
       "hp": 80,
       "atk": 105,
       "def": 65,
@@ -5484,7 +5484,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5534,7 +5534,7 @@
       ]
     },
     {
-      "species": "SPECIES_TENTACOOL",
+      "species": "TENTACOOL",
       "hp": 40,
       "atk": 40,
       "def": 35,
@@ -5557,7 +5557,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -5609,7 +5609,7 @@
       ]
     },
     {
-      "species": "SPECIES_TENTACRUEL",
+      "species": "TENTACRUEL",
       "hp": 80,
       "atk": 70,
       "def": 65,
@@ -5632,7 +5632,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -5686,7 +5686,7 @@
       ]
     },
     {
-      "species": "SPECIES_GEODUDE",
+      "species": "GEODUDE",
       "hp": 40,
       "atk": 80,
       "def": 100,
@@ -5709,7 +5709,7 @@
         "ITEM_NONE",
         "ITEM_EVERSTONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5765,7 +5765,7 @@
       ]
     },
     {
-      "species": "SPECIES_GRAVELER",
+      "species": "GRAVELER",
       "hp": 55,
       "atk": 95,
       "def": 115,
@@ -5788,7 +5788,7 @@
         "ITEM_NONE",
         "ITEM_EVERSTONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5844,7 +5844,7 @@
       ]
     },
     {
-      "species": "SPECIES_GOLEM",
+      "species": "GOLEM",
       "hp": 80,
       "atk": 110,
       "def": 130,
@@ -5867,7 +5867,7 @@
         "ITEM_NONE",
         "ITEM_EVERSTONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -5927,7 +5927,7 @@
       ]
     },
     {
-      "species": "SPECIES_PONYTA",
+      "species": "PONYTA",
       "hp": 50,
       "atk": 85,
       "def": 55,
@@ -5950,7 +5950,7 @@
         "ITEM_NONE",
         "ITEM_SHUCA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -5995,7 +5995,7 @@
       ]
     },
     {
-      "species": "SPECIES_RAPIDASH",
+      "species": "RAPIDASH",
       "hp": 65,
       "atk": 100,
       "def": 70,
@@ -6018,7 +6018,7 @@
         "ITEM_NONE",
         "ITEM_SHUCA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6066,7 +6066,7 @@
       ]
     },
     {
-      "species": "SPECIES_SLOWPOKE",
+      "species": "SLOWPOKE",
       "hp": 90,
       "atk": 65,
       "def": 65,
@@ -6089,7 +6089,7 @@
         "ITEM_NONE",
         "ITEM_LAGGING_TAIL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6153,7 +6153,7 @@
       ]
     },
     {
-      "species": "SPECIES_SLOWBRO",
+      "species": "SLOWBRO",
       "hp": 95,
       "atk": 75,
       "def": 110,
@@ -6176,7 +6176,7 @@
         "ITEM_NONE",
         "ITEM_KINGS_ROCK"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6249,7 +6249,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAGNEMITE",
+      "species": "MAGNEMITE",
       "hp": 25,
       "atk": 35,
       "def": 70,
@@ -6272,7 +6272,7 @@
         "ITEM_NONE",
         "ITEM_METAL_COAT"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6321,7 +6321,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_MAGNETON",
+      "species": "MAGNETON",
       "hp": 50,
       "atk": 60,
       "def": 95,
@@ -6344,7 +6344,7 @@
         "ITEM_NONE",
         "ITEM_METAL_COAT"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6395,7 +6395,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_FARFETCHD",
+      "species": "FARFETCHD",
       "hp": 52,
       "atk": 65,
       "def": 55,
@@ -6418,7 +6418,7 @@
         "ITEM_NONE",
         "ITEM_STICK"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6470,7 +6470,7 @@
       ]
     },
     {
-      "species": "SPECIES_DODUO",
+      "species": "DODUO",
       "hp": 35,
       "atk": 85,
       "def": 45,
@@ -6493,7 +6493,7 @@
         "ITEM_NONE",
         "ITEM_SHARP_BEAK"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6537,7 +6537,7 @@
       ]
     },
     {
-      "species": "SPECIES_DODRIO",
+      "species": "DODRIO",
       "hp": 60,
       "atk": 110,
       "def": 70,
@@ -6560,7 +6560,7 @@
         "ITEM_NONE",
         "ITEM_SHARP_BEAK"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6609,7 +6609,7 @@
       ]
     },
     {
-      "species": "SPECIES_SEEL",
+      "species": "SEEL",
       "hp": 65,
       "atk": 45,
       "def": 55,
@@ -6632,7 +6632,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6680,7 +6680,7 @@
       ]
     },
     {
-      "species": "SPECIES_DEWGONG",
+      "species": "DEWGONG",
       "hp": 90,
       "atk": 70,
       "def": 80,
@@ -6703,7 +6703,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6754,7 +6754,7 @@
       ]
     },
     {
-      "species": "SPECIES_GRIMER",
+      "species": "GRIMER",
       "hp": 80,
       "atk": 80,
       "def": 50,
@@ -6777,7 +6777,7 @@
         "ITEM_NONE",
         "ITEM_NUGGET"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6835,7 +6835,7 @@
       ]
     },
     {
-      "species": "SPECIES_MUK",
+      "species": "MUK",
       "hp": 105,
       "atk": 105,
       "def": 75,
@@ -6858,7 +6858,7 @@
         "ITEM_NONE",
         "ITEM_NUGGET"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -6923,7 +6923,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHELLDER",
+      "species": "SHELLDER",
       "hp": 30,
       "atk": 65,
       "def": 100,
@@ -6946,7 +6946,7 @@
         "ITEM_PEARL",
         "ITEM_BIG_PEARL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -6992,7 +6992,7 @@
       ]
     },
     {
-      "species": "SPECIES_CLOYSTER",
+      "species": "CLOYSTER",
       "hp": 50,
       "atk": 95,
       "def": 180,
@@ -7015,7 +7015,7 @@
         "ITEM_PEARL",
         "ITEM_BIG_PEARL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -7066,7 +7066,7 @@
       ]
     },
     {
-      "species": "SPECIES_GASTLY",
+      "species": "GASTLY",
       "hp": 30,
       "atk": 35,
       "def": 30,
@@ -7089,7 +7089,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -7146,7 +7146,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_HAUNTER",
+      "species": "HAUNTER",
       "hp": 45,
       "atk": 50,
       "def": 45,
@@ -7169,7 +7169,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -7229,7 +7229,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_GENGAR",
+      "species": "GENGAR",
       "hp": 60,
       "atk": 65,
       "def": 60,
@@ -7252,7 +7252,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -7322,7 +7322,7 @@
       ]
     },
     {
-      "species": "SPECIES_ONIX",
+      "species": "ONIX",
       "hp": 35,
       "atk": 45,
       "def": 160,
@@ -7345,7 +7345,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -7404,7 +7404,7 @@
       ]
     },
     {
-      "species": "SPECIES_DROWZEE",
+      "species": "DROWZEE",
       "hp": 60,
       "atk": 48,
       "def": 45,
@@ -7427,7 +7427,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -7487,7 +7487,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_HYPNO",
+      "species": "HYPNO",
       "hp": 85,
       "atk": 73,
       "def": 70,
@@ -7510,7 +7510,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -7573,7 +7573,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_KRABBY",
+      "species": "KRABBY",
       "hp": 30,
       "atk": 105,
       "def": 90,
@@ -7596,7 +7596,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -7652,7 +7652,7 @@
       ]
     },
     {
-      "species": "SPECIES_KINGLER",
+      "species": "KINGLER",
       "hp": 55,
       "atk": 130,
       "def": 115,
@@ -7675,7 +7675,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -7733,7 +7733,7 @@
       ]
     },
     {
-      "species": "SPECIES_VOLTORB",
+      "species": "VOLTORB",
       "hp": 40,
       "atk": 30,
       "def": 50,
@@ -7756,7 +7756,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -7803,7 +7803,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ELECTRODE",
+      "species": "ELECTRODE",
       "hp": 60,
       "atk": 50,
       "def": 70,
@@ -7826,7 +7826,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -7875,7 +7875,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_EXEGGCUTE",
+      "species": "EXEGGCUTE",
       "hp": 60,
       "atk": 40,
       "def": 80,
@@ -7898,7 +7898,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -7954,7 +7954,7 @@
       ]
     },
     {
-      "species": "SPECIES_EXEGGUTOR",
+      "species": "EXEGGUTOR",
       "hp": 95,
       "atk": 95,
       "def": 85,
@@ -7977,7 +7977,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -8035,7 +8035,7 @@
       ]
     },
     {
-      "species": "SPECIES_CUBONE",
+      "species": "CUBONE",
       "hp": 50,
       "atk": 50,
       "def": 95,
@@ -8058,7 +8058,7 @@
         "ITEM_NONE",
         "ITEM_THICK_CLUB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -8117,7 +8117,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAROWAK",
+      "species": "MAROWAK",
       "hp": 60,
       "atk": 80,
       "def": 110,
@@ -8140,7 +8140,7 @@
         "ITEM_NONE",
         "ITEM_THICK_CLUB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -8203,7 +8203,7 @@
       ]
     },
     {
-      "species": "SPECIES_HITMONLEE",
+      "species": "HITMONLEE",
       "hp": 50,
       "atk": 120,
       "def": 53,
@@ -8226,7 +8226,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -8279,7 +8279,7 @@
       ]
     },
     {
-      "species": "SPECIES_HITMONCHAN",
+      "species": "HITMONCHAN",
       "hp": 50,
       "atk": 105,
       "def": 79,
@@ -8302,7 +8302,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -8355,7 +8355,7 @@
       ]
     },
     {
-      "species": "SPECIES_LICKITUNG",
+      "species": "LICKITUNG",
       "hp": 90,
       "atk": 55,
       "def": 75,
@@ -8378,7 +8378,7 @@
         "ITEM_NONE",
         "ITEM_LAGGING_TAIL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -8447,7 +8447,7 @@
       ]
     },
     {
-      "species": "SPECIES_KOFFING",
+      "species": "KOFFING",
       "hp": 40,
       "atk": 65,
       "def": 95,
@@ -8470,7 +8470,7 @@
         "ITEM_NONE",
         "ITEM_SMOKE_BALL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -8524,7 +8524,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_WEEZING",
+      "species": "WEEZING",
       "hp": 65,
       "atk": 90,
       "def": 120,
@@ -8547,7 +8547,7 @@
         "ITEM_NONE",
         "ITEM_SMOKE_BALL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -8603,7 +8603,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_RHYHORN",
+      "species": "RHYHORN",
       "hp": 80,
       "atk": 85,
       "def": 95,
@@ -8626,7 +8626,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -8690,7 +8690,7 @@
       ]
     },
     {
-      "species": "SPECIES_RHYDON",
+      "species": "RHYDON",
       "hp": 105,
       "atk": 130,
       "def": 120,
@@ -8713,7 +8713,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -8787,7 +8787,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHANSEY",
+      "species": "CHANSEY",
       "hp": 250,
       "atk": 5,
       "def": 5,
@@ -8810,7 +8810,7 @@
         "ITEM_OVAL_STONE",
         "ITEM_LUCKY_EGG"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 40,
       "friendship": 140,
       "growthRate": "FAST",
@@ -8888,7 +8888,7 @@
       ]
     },
     {
-      "species": "SPECIES_TANGELA",
+      "species": "TANGELA",
       "hp": 65,
       "atk": 55,
       "def": 115,
@@ -8911,7 +8911,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -8965,7 +8965,7 @@
       ]
     },
     {
-      "species": "SPECIES_KANGASKHAN",
+      "species": "KANGASKHAN",
       "hp": 105,
       "atk": 95,
       "def": 80,
@@ -8988,7 +8988,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9061,7 +9061,7 @@
       ]
     },
     {
-      "species": "SPECIES_HORSEA",
+      "species": "HORSEA",
       "hp": 30,
       "atk": 40,
       "def": 70,
@@ -9084,7 +9084,7 @@
         "ITEM_NONE",
         "ITEM_DRAGON_SCALE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9131,7 +9131,7 @@
       ]
     },
     {
-      "species": "SPECIES_SEADRA",
+      "species": "SEADRA",
       "hp": 55,
       "atk": 65,
       "def": 95,
@@ -9154,7 +9154,7 @@
         "ITEM_NONE",
         "ITEM_DRAGON_SCALE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9203,7 +9203,7 @@
       ]
     },
     {
-      "species": "SPECIES_GOLDEEN",
+      "species": "GOLDEEN",
       "hp": 45,
       "atk": 67,
       "def": 60,
@@ -9226,7 +9226,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9271,7 +9271,7 @@
       ]
     },
     {
-      "species": "SPECIES_SEAKING",
+      "species": "SEAKING",
       "hp": 80,
       "atk": 92,
       "def": 65,
@@ -9294,7 +9294,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9341,7 +9341,7 @@
       ]
     },
     {
-      "species": "SPECIES_STARYU",
+      "species": "STARYU",
       "hp": 30,
       "atk": 45,
       "def": 55,
@@ -9364,7 +9364,7 @@
         "ITEM_STARDUST",
         "ITEM_STAR_PIECE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -9418,7 +9418,7 @@
       ]
     },
     {
-      "species": "SPECIES_STARMIE",
+      "species": "STARMIE",
       "hp": 60,
       "atk": 75,
       "def": 85,
@@ -9441,7 +9441,7 @@
         "ITEM_STARDUST",
         "ITEM_STAR_PIECE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -9502,7 +9502,7 @@
       ]
     },
     {
-      "species": "SPECIES_MR_MIME",
+      "species": "MR_MIME",
       "hp": 40,
       "atk": 45,
       "def": 65,
@@ -9525,7 +9525,7 @@
         "ITEM_NONE",
         "ITEM_LEPPA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9596,7 +9596,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SCYTHER",
+      "species": "SCYTHER",
       "hp": 70,
       "atk": 110,
       "def": 80,
@@ -9619,7 +9619,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9673,7 +9673,7 @@
       ]
     },
     {
-      "species": "SPECIES_JYNX",
+      "species": "JYNX",
       "hp": 65,
       "atk": 50,
       "def": 35,
@@ -9696,7 +9696,7 @@
         "ITEM_ASPEAR_BERRY",
         "ITEM_ASPEAR_BERRY"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9762,7 +9762,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ELECTABUZZ",
+      "species": "ELECTABUZZ",
       "hp": 65,
       "atk": 83,
       "def": 57,
@@ -9785,7 +9785,7 @@
         "ITEM_ELECTIRIZER",
         "ITEM_NONE"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9842,7 +9842,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAGMAR",
+      "species": "MAGMAR",
       "hp": 65,
       "atk": 95,
       "def": 57,
@@ -9865,7 +9865,7 @@
         "ITEM_NONE",
         "ITEM_MAGMARIZER"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -9919,7 +9919,7 @@
       ]
     },
     {
-      "species": "SPECIES_PINSIR",
+      "species": "PINSIR",
       "hp": 65,
       "atk": 125,
       "def": 100,
@@ -9942,7 +9942,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -10002,7 +10002,7 @@
       ]
     },
     {
-      "species": "SPECIES_TAUROS",
+      "species": "TAUROS",
       "hp": 75,
       "atk": 100,
       "def": 95,
@@ -10025,7 +10025,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -10086,7 +10086,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAGIKARP",
+      "species": "MAGIKARP",
       "hp": 20,
       "atk": 10,
       "def": 55,
@@ -10109,7 +10109,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 5,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -10128,7 +10128,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_GYARADOS",
+      "species": "GYARADOS",
       "hp": 95,
       "atk": 125,
       "def": 79,
@@ -10151,7 +10151,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 5,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -10215,7 +10215,7 @@
       ]
     },
     {
-      "species": "SPECIES_LAPRAS",
+      "species": "LAPRAS",
       "hp": 130,
       "atk": 85,
       "def": 80,
@@ -10238,7 +10238,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -10297,7 +10297,7 @@
       ]
     },
     {
-      "species": "SPECIES_DITTO",
+      "species": "DITTO",
       "hp": 48,
       "atk": 48,
       "def": 48,
@@ -10320,7 +10320,7 @@
         "ITEM_QUICK_POWDER",
         "ITEM_METAL_POWDER"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -10339,7 +10339,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_EEVEE",
+      "species": "EEVEE",
       "hp": 55,
       "atk": 55,
       "def": 50,
@@ -10362,7 +10362,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 35,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -10403,7 +10403,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_VAPOREON",
+      "species": "VAPOREON",
       "hp": 130,
       "atk": 65,
       "def": 60,
@@ -10426,7 +10426,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 35,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -10480,7 +10480,7 @@
       ]
     },
     {
-      "species": "SPECIES_JOLTEON",
+      "species": "JOLTEON",
       "hp": 65,
       "atk": 65,
       "def": 60,
@@ -10503,7 +10503,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 35,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -10557,7 +10557,7 @@
       ]
     },
     {
-      "species": "SPECIES_FLAREON",
+      "species": "FLAREON",
       "hp": 65,
       "atk": 130,
       "def": 60,
@@ -10580,7 +10580,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 35,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -10631,7 +10631,7 @@
       ]
     },
     {
-      "species": "SPECIES_PORYGON",
+      "species": "PORYGON",
       "hp": 65,
       "atk": 60,
       "def": 70,
@@ -10654,7 +10654,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -10710,7 +10710,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_OMANYTE",
+      "species": "OMANYTE",
       "hp": 35,
       "atk": 40,
       "def": 100,
@@ -10733,7 +10733,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -10786,7 +10786,7 @@
       ]
     },
     {
-      "species": "SPECIES_OMASTAR",
+      "species": "OMASTAR",
       "hp": 70,
       "atk": 60,
       "def": 125,
@@ -10809,7 +10809,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -10866,7 +10866,7 @@
       ]
     },
     {
-      "species": "SPECIES_KABUTO",
+      "species": "KABUTO",
       "hp": 30,
       "atk": 80,
       "def": 90,
@@ -10889,7 +10889,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -10943,7 +10943,7 @@
       ]
     },
     {
-      "species": "SPECIES_KABUTOPS",
+      "species": "KABUTOPS",
       "hp": 60,
       "atk": 115,
       "def": 105,
@@ -10966,7 +10966,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -11029,7 +11029,7 @@
       ]
     },
     {
-      "species": "SPECIES_AERODACTYL",
+      "species": "AERODACTYL",
       "hp": 80,
       "atk": 105,
       "def": 65,
@@ -11052,7 +11052,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 35,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -11117,7 +11117,7 @@
       ]
     },
     {
-      "species": "SPECIES_SNORLAX",
+      "species": "SNORLAX",
       "hp": 160,
       "atk": 110,
       "def": 65,
@@ -11140,7 +11140,7 @@
         "ITEM_LEFTOVERS",
         "ITEM_LEFTOVERS"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -11205,7 +11205,7 @@
       ]
     },
     {
-      "species": "SPECIES_ARTICUNO",
+      "species": "ARTICUNO",
       "hp": 90,
       "atk": 85,
       "def": 100,
@@ -11228,7 +11228,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -11283,7 +11283,7 @@
       ]
     },
     {
-      "species": "SPECIES_ZAPDOS",
+      "species": "ZAPDOS",
       "hp": 90,
       "atk": 90,
       "def": 85,
@@ -11306,7 +11306,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -11362,7 +11362,7 @@
       ]
     },
     {
-      "species": "SPECIES_MOLTRES",
+      "species": "MOLTRES",
       "hp": 90,
       "atk": 100,
       "def": 90,
@@ -11385,7 +11385,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -11440,7 +11440,7 @@
       ]
     },
     {
-      "species": "SPECIES_DRATINI",
+      "species": "DRATINI",
       "hp": 41,
       "atk": 64,
       "def": 45,
@@ -11463,7 +11463,7 @@
         "ITEM_NONE",
         "ITEM_DRAGON_SCALE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -11518,7 +11518,7 @@
       ]
     },
     {
-      "species": "SPECIES_DRAGONAIR",
+      "species": "DRAGONAIR",
       "hp": 61,
       "atk": 84,
       "def": 65,
@@ -11541,7 +11541,7 @@
         "ITEM_NONE",
         "ITEM_DRAGON_SCALE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -11596,7 +11596,7 @@
       ]
     },
     {
-      "species": "SPECIES_DRAGONITE",
+      "species": "DRAGONITE",
       "hp": 91,
       "atk": 134,
       "def": 95,
@@ -11619,7 +11619,7 @@
         "ITEM_NONE",
         "ITEM_DRAGON_SCALE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -11694,7 +11694,7 @@
       ]
     },
     {
-      "species": "SPECIES_MEWTWO",
+      "species": "MEWTWO",
       "hp": 106,
       "atk": 110,
       "def": 90,
@@ -11717,7 +11717,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -11805,7 +11805,7 @@
       ]
     },
     {
-      "species": "SPECIES_MEW",
+      "species": "MEW",
       "hp": 100,
       "atk": 100,
       "def": 100,
@@ -11828,7 +11828,7 @@
         "ITEM_LUM_BERRY",
         "ITEM_LUM_BERRY"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 100,
       "growthRate": "MEDIUM_SLOW",
@@ -11949,7 +11949,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHIKORITA",
+      "species": "CHIKORITA",
       "hp": 45,
       "atk": 49,
       "def": 65,
@@ -11972,7 +11972,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -12022,7 +12022,7 @@
       ]
     },
     {
-      "species": "SPECIES_BAYLEEF",
+      "species": "BAYLEEF",
       "hp": 60,
       "atk": 62,
       "def": 80,
@@ -12045,7 +12045,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -12097,7 +12097,7 @@
       ]
     },
     {
-      "species": "SPECIES_MEGANIUM",
+      "species": "MEGANIUM",
       "hp": 80,
       "atk": 82,
       "def": 100,
@@ -12120,7 +12120,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -12176,7 +12176,7 @@
       ]
     },
     {
-      "species": "SPECIES_CYNDAQUIL",
+      "species": "CYNDAQUIL",
       "hp": 39,
       "atk": 52,
       "def": 43,
@@ -12199,7 +12199,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -12244,7 +12244,7 @@
       ]
     },
     {
-      "species": "SPECIES_QUILAVA",
+      "species": "QUILAVA",
       "hp": 58,
       "atk": 64,
       "def": 58,
@@ -12267,7 +12267,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -12317,7 +12317,7 @@
       ]
     },
     {
-      "species": "SPECIES_TYPHLOSION",
+      "species": "TYPHLOSION",
       "hp": 78,
       "atk": 84,
       "def": 78,
@@ -12340,7 +12340,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -12401,7 +12401,7 @@
       ]
     },
     {
-      "species": "SPECIES_TOTODILE",
+      "species": "TOTODILE",
       "hp": 50,
       "atk": 65,
       "def": 64,
@@ -12424,7 +12424,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -12479,7 +12479,7 @@
       ]
     },
     {
-      "species": "SPECIES_CROCONAW",
+      "species": "CROCONAW",
       "hp": 65,
       "atk": 80,
       "def": 80,
@@ -12502,7 +12502,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -12560,7 +12560,7 @@
       ]
     },
     {
-      "species": "SPECIES_FERALIGATR",
+      "species": "FERALIGATR",
       "hp": 85,
       "atk": 105,
       "def": 100,
@@ -12583,7 +12583,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -12649,7 +12649,7 @@
       ]
     },
     {
-      "species": "SPECIES_SENTRET",
+      "species": "SENTRET",
       "hp": 35,
       "atk": 46,
       "def": 34,
@@ -12672,7 +12672,7 @@
         "ITEM_NONE",
         "ITEM_ORAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -12730,7 +12730,7 @@
       ]
     },
     {
-      "species": "SPECIES_FURRET",
+      "species": "FURRET",
       "hp": 85,
       "atk": 76,
       "def": 64,
@@ -12753,7 +12753,7 @@
         "ITEM_ORAN_BERRY",
         "ITEM_SITRUS_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -12818,7 +12818,7 @@
       ]
     },
     {
-      "species": "SPECIES_HOOTHOOT",
+      "species": "HOOTHOOT",
       "hp": 60,
       "atk": 30,
       "def": 30,
@@ -12841,7 +12841,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -12894,7 +12894,7 @@
       ]
     },
     {
-      "species": "SPECIES_NOCTOWL",
+      "species": "NOCTOWL",
       "hp": 100,
       "atk": 50,
       "def": 50,
@@ -12917,7 +12917,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -12972,7 +12972,7 @@
       ]
     },
     {
-      "species": "SPECIES_LEDYBA",
+      "species": "LEDYBA",
       "hp": 40,
       "atk": 20,
       "def": 30,
@@ -12995,7 +12995,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FAST",
@@ -13049,7 +13049,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_LEDIAN",
+      "species": "LEDIAN",
       "hp": 55,
       "atk": 35,
       "def": 50,
@@ -13072,7 +13072,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FAST",
@@ -13132,7 +13132,7 @@
       ]
     },
     {
-      "species": "SPECIES_SPINARAK",
+      "species": "SPINARAK",
       "hp": 40,
       "atk": 60,
       "def": 40,
@@ -13155,7 +13155,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FAST",
@@ -13200,7 +13200,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ARIADOS",
+      "species": "ARIADOS",
       "hp": 70,
       "atk": 90,
       "def": 70,
@@ -13223,7 +13223,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FAST",
@@ -13270,7 +13270,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_CROBAT",
+      "species": "CROBAT",
       "hp": 85,
       "atk": 90,
       "def": 80,
@@ -13293,7 +13293,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -13351,7 +13351,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHINCHOU",
+      "species": "CHINCHOU",
       "hp": 75,
       "atk": 38,
       "def": 38,
@@ -13374,7 +13374,7 @@
         "ITEM_NONE",
         "ITEM_DEEPSEASCALE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -13425,7 +13425,7 @@
       ]
     },
     {
-      "species": "SPECIES_LANTURN",
+      "species": "LANTURN",
       "hp": 125,
       "atk": 58,
       "def": 58,
@@ -13448,7 +13448,7 @@
         "ITEM_NONE",
         "ITEM_DEEPSEASCALE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -13501,7 +13501,7 @@
       ]
     },
     {
-      "species": "SPECIES_PICHU",
+      "species": "PICHU",
       "hp": 20,
       "atk": 40,
       "def": 15,
@@ -13524,7 +13524,7 @@
         "ITEM_NONE",
         "ITEM_ORAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -13571,7 +13571,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_CLEFFA",
+      "species": "CLEFFA",
       "hp": 50,
       "atk": 25,
       "def": 28,
@@ -13594,7 +13594,7 @@
         "ITEM_LEPPA_BERRY",
         "ITEM_MOON_STONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 10,
       "friendship": 140,
       "growthRate": "FAST",
@@ -13651,7 +13651,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_IGGLYBUFF",
+      "species": "IGGLYBUFF",
       "hp": 90,
       "atk": 30,
       "def": 15,
@@ -13674,7 +13674,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "FAST",
@@ -13730,7 +13730,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_TOGEPI",
+      "species": "TOGEPI",
       "hp": 35,
       "atk": 20,
       "def": 65,
@@ -13753,7 +13753,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "FAST",
@@ -13809,7 +13809,7 @@
       ]
     },
     {
-      "species": "SPECIES_TOGETIC",
+      "species": "TOGETIC",
       "hp": 55,
       "atk": 40,
       "def": 85,
@@ -13832,7 +13832,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "FAST",
@@ -13899,7 +13899,7 @@
       ]
     },
     {
-      "species": "SPECIES_NATU",
+      "species": "NATU",
       "hp": 40,
       "atk": 50,
       "def": 45,
@@ -13922,7 +13922,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -13981,7 +13981,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_XATU",
+      "species": "XATU",
       "hp": 65,
       "atk": 75,
       "def": 70,
@@ -14004,7 +14004,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -14068,7 +14068,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAREEP",
+      "species": "MAREEP",
       "hp": 55,
       "atk": 40,
       "def": 40,
@@ -14091,7 +14091,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -14136,7 +14136,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_FLAAFFY",
+      "species": "FLAAFFY",
       "hp": 70,
       "atk": 55,
       "def": 55,
@@ -14159,7 +14159,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -14210,7 +14210,7 @@
       ]
     },
     {
-      "species": "SPECIES_AMPHAROS",
+      "species": "AMPHAROS",
       "hp": 90,
       "atk": 75,
       "def": 75,
@@ -14233,7 +14233,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -14288,7 +14288,7 @@
       ]
     },
     {
-      "species": "SPECIES_BELLOSSOM",
+      "species": "BELLOSSOM",
       "hp": 75,
       "atk": 80,
       "def": 85,
@@ -14311,7 +14311,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -14363,7 +14363,7 @@
       ]
     },
     {
-      "species": "SPECIES_MARILL",
+      "species": "MARILL",
       "hp": 70,
       "atk": 20,
       "def": 50,
@@ -14386,7 +14386,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "FAST",
@@ -14438,7 +14438,7 @@
       ]
     },
     {
-      "species": "SPECIES_AZUMARILL",
+      "species": "AZUMARILL",
       "hp": 100,
       "atk": 50,
       "def": 80,
@@ -14461,7 +14461,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "FAST",
@@ -14516,7 +14516,7 @@
       ]
     },
     {
-      "species": "SPECIES_SUDOWOODO",
+      "species": "SUDOWOODO",
       "hp": 70,
       "atk": 100,
       "def": 115,
@@ -14539,7 +14539,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -14596,7 +14596,7 @@
       ]
     },
     {
-      "species": "SPECIES_POLITOED",
+      "species": "POLITOED",
       "hp": 90,
       "atk": 75,
       "def": 75,
@@ -14619,7 +14619,7 @@
         "ITEM_NONE",
         "ITEM_KINGS_ROCK"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -14676,7 +14676,7 @@
       ]
     },
     {
-      "species": "SPECIES_HOPPIP",
+      "species": "HOPPIP",
       "hp": 35,
       "atk": 35,
       "def": 40,
@@ -14699,7 +14699,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -14746,7 +14746,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SKIPLOOM",
+      "species": "SKIPLOOM",
       "hp": 55,
       "atk": 45,
       "def": 50,
@@ -14769,7 +14769,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -14816,7 +14816,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_JUMPLUFF",
+      "species": "JUMPLUFF",
       "hp": 75,
       "atk": 55,
       "def": 70,
@@ -14839,7 +14839,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -14888,7 +14888,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_AIPOM",
+      "species": "AIPOM",
       "hp": 55,
       "atk": 70,
       "def": 55,
@@ -14911,7 +14911,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -14974,7 +14974,7 @@
       ]
     },
     {
-      "species": "SPECIES_SUNKERN",
+      "species": "SUNKERN",
       "hp": 30,
       "atk": 30,
       "def": 30,
@@ -14997,7 +14997,7 @@
         "ITEM_NONE",
         "ITEM_COBA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -15046,7 +15046,7 @@
       ]
     },
     {
-      "species": "SPECIES_SUNFLORA",
+      "species": "SUNFLORA",
       "hp": 75,
       "atk": 75,
       "def": 55,
@@ -15069,7 +15069,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -15120,7 +15120,7 @@
       ]
     },
     {
-      "species": "SPECIES_YANMA",
+      "species": "YANMA",
       "hp": 65,
       "atk": 65,
       "def": 45,
@@ -15143,7 +15143,7 @@
         "ITEM_NONE",
         "ITEM_WIDE_LENS"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -15194,7 +15194,7 @@
       ]
     },
     {
-      "species": "SPECIES_WOOPER",
+      "species": "WOOPER",
       "hp": 55,
       "atk": 45,
       "def": 45,
@@ -15217,7 +15217,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -15268,7 +15268,7 @@
       ]
     },
     {
-      "species": "SPECIES_QUAGSIRE",
+      "species": "QUAGSIRE",
       "hp": 95,
       "atk": 85,
       "def": 85,
@@ -15291,7 +15291,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -15352,7 +15352,7 @@
       ]
     },
     {
-      "species": "SPECIES_ESPEON",
+      "species": "ESPEON",
       "hp": 65,
       "atk": 65,
       "def": 60,
@@ -15375,7 +15375,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 35,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -15430,7 +15430,7 @@
       ]
     },
     {
-      "species": "SPECIES_UMBREON",
+      "species": "UMBREON",
       "hp": 95,
       "atk": 65,
       "def": 110,
@@ -15453,7 +15453,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 35,
       "friendship": 35,
       "growthRate": "MEDIUM_FAST",
@@ -15507,7 +15507,7 @@
       ]
     },
     {
-      "species": "SPECIES_MURKROW",
+      "species": "MURKROW",
       "hp": 60,
       "atk": 85,
       "def": 42,
@@ -15530,7 +15530,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "MEDIUM_SLOW",
@@ -15588,7 +15588,7 @@
       ]
     },
     {
-      "species": "SPECIES_SLOWKING",
+      "species": "SLOWKING",
       "hp": 95,
       "atk": 75,
       "def": 80,
@@ -15611,7 +15611,7 @@
         "ITEM_NONE",
         "ITEM_KINGS_ROCK"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -15684,7 +15684,7 @@
       ]
     },
     {
-      "species": "SPECIES_MISDREAVUS",
+      "species": "MISDREAVUS",
       "hp": 60,
       "atk": 60,
       "def": 60,
@@ -15707,7 +15707,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 35,
       "growthRate": "FAST",
@@ -15767,7 +15767,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_UNOWN",
+      "species": "UNOWN",
       "hp": 48,
       "atk": 72,
       "def": 48,
@@ -15790,7 +15790,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -15809,7 +15809,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_WOBBUFFET",
+      "species": "WOBBUFFET",
       "hp": 190,
       "atk": 33,
       "def": 58,
@@ -15832,7 +15832,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -15851,7 +15851,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_GIRAFARIG",
+      "species": "GIRAFARIG",
       "hp": 70,
       "atk": 80,
       "def": 65,
@@ -15874,7 +15874,7 @@
         "ITEM_NONE",
         "ITEM_PERSIM_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -15936,7 +15936,7 @@
       ]
     },
     {
-      "species": "SPECIES_PINECO",
+      "species": "PINECO",
       "hp": 50,
       "atk": 65,
       "def": 90,
@@ -15959,7 +15959,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -16012,7 +16012,7 @@
       ]
     },
     {
-      "species": "SPECIES_FORRETRESS",
+      "species": "FORRETRESS",
       "hp": 75,
       "atk": 90,
       "def": 140,
@@ -16035,7 +16035,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -16092,7 +16092,7 @@
       ]
     },
     {
-      "species": "SPECIES_DUNSPARCE",
+      "species": "DUNSPARCE",
       "hp": 100,
       "atk": 70,
       "def": 70,
@@ -16115,7 +16115,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -16181,7 +16181,7 @@
       ]
     },
     {
-      "species": "SPECIES_GLIGAR",
+      "species": "GLIGAR",
       "hp": 65,
       "atk": 75,
       "def": 105,
@@ -16204,7 +16204,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -16272,7 +16272,7 @@
       ]
     },
     {
-      "species": "SPECIES_STEELIX",
+      "species": "STEELIX",
       "hp": 75,
       "atk": 85,
       "def": 200,
@@ -16295,7 +16295,7 @@
         "ITEM_NONE",
         "ITEM_METAL_COAT"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -16358,7 +16358,7 @@
       ]
     },
     {
-      "species": "SPECIES_SNUBBULL",
+      "species": "SNUBBULL",
       "hp": 60,
       "atk": 80,
       "def": 50,
@@ -16381,7 +16381,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -16444,7 +16444,7 @@
       ]
     },
     {
-      "species": "SPECIES_GRANBULL",
+      "species": "GRANBULL",
       "hp": 90,
       "atk": 120,
       "def": 75,
@@ -16467,7 +16467,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -16538,7 +16538,7 @@
       ]
     },
     {
-      "species": "SPECIES_QWILFISH",
+      "species": "QWILFISH",
       "hp": 65,
       "atk": 95,
       "def": 75,
@@ -16561,7 +16561,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -16615,7 +16615,7 @@
       ]
     },
     {
-      "species": "SPECIES_SCIZOR",
+      "species": "SCIZOR",
       "hp": 70,
       "atk": 130,
       "def": 100,
@@ -16638,7 +16638,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -16696,7 +16696,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHUCKLE",
+      "species": "SHUCKLE",
       "hp": 20,
       "atk": 10,
       "def": 230,
@@ -16719,7 +16719,7 @@
         "ITEM_ORAN_BERRY",
         "ITEM_ORAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -16771,7 +16771,7 @@
       ]
     },
     {
-      "species": "SPECIES_HERACROSS",
+      "species": "HERACROSS",
       "hp": 80,
       "atk": 125,
       "def": 75,
@@ -16794,7 +16794,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -16852,7 +16852,7 @@
       ]
     },
     {
-      "species": "SPECIES_SNEASEL",
+      "species": "SNEASEL",
       "hp": 55,
       "atk": 95,
       "def": 55,
@@ -16875,7 +16875,7 @@
         "ITEM_GRIP_CLAW",
         "ITEM_QUICK_CLAW"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "MEDIUM_SLOW",
@@ -16944,7 +16944,7 @@
       ]
     },
     {
-      "species": "SPECIES_TEDDIURSA",
+      "species": "TEDDIURSA",
       "hp": 60,
       "atk": 80,
       "def": 50,
@@ -16967,7 +16967,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -17025,7 +17025,7 @@
       ]
     },
     {
-      "species": "SPECIES_URSARING",
+      "species": "URSARING",
       "hp": 90,
       "atk": 130,
       "def": 75,
@@ -17048,7 +17048,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -17112,7 +17112,7 @@
       ]
     },
     {
-      "species": "SPECIES_SLUGMA",
+      "species": "SLUGMA",
       "hp": 40,
       "atk": 40,
       "def": 40,
@@ -17135,7 +17135,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -17182,7 +17182,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAGCARGO",
+      "species": "MAGCARGO",
       "hp": 50,
       "atk": 50,
       "def": 120,
@@ -17205,7 +17205,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -17263,7 +17263,7 @@
       ]
     },
     {
-      "species": "SPECIES_SWINUB",
+      "species": "SWINUB",
       "hp": 50,
       "atk": 50,
       "def": 40,
@@ -17286,7 +17286,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -17338,7 +17338,7 @@
       ]
     },
     {
-      "species": "SPECIES_PILOSWINE",
+      "species": "PILOSWINE",
       "hp": 100,
       "atk": 100,
       "def": 80,
@@ -17361,7 +17361,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -17417,7 +17417,7 @@
       ]
     },
     {
-      "species": "SPECIES_CORSOLA",
+      "species": "CORSOLA",
       "hp": 55,
       "atk": 55,
       "def": 85,
@@ -17440,7 +17440,7 @@
         "ITEM_NONE",
         "ITEM_HARD_STONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -17502,7 +17502,7 @@
       ]
     },
     {
-      "species": "SPECIES_REMORAID",
+      "species": "REMORAID",
       "hp": 35,
       "atk": 65,
       "def": 35,
@@ -17525,7 +17525,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -17578,7 +17578,7 @@
       ]
     },
     {
-      "species": "SPECIES_OCTILLERY",
+      "species": "OCTILLERY",
       "hp": 75,
       "atk": 105,
       "def": 75,
@@ -17601,7 +17601,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -17659,7 +17659,7 @@
       ]
     },
     {
-      "species": "SPECIES_DELIBIRD",
+      "species": "DELIBIRD",
       "hp": 45,
       "atk": 55,
       "def": 45,
@@ -17682,7 +17682,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -17734,7 +17734,7 @@
       ]
     },
     {
-      "species": "SPECIES_MANTINE",
+      "species": "MANTINE",
       "hp": 65,
       "atk": 40,
       "def": 70,
@@ -17757,7 +17757,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -17810,7 +17810,7 @@
       ]
     },
     {
-      "species": "SPECIES_SKARMORY",
+      "species": "SKARMORY",
       "hp": 65,
       "atk": 80,
       "def": 140,
@@ -17833,7 +17833,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -17893,7 +17893,7 @@
       ]
     },
     {
-      "species": "SPECIES_HOUNDOUR",
+      "species": "HOUNDOUR",
       "hp": 45,
       "atk": 60,
       "def": 30,
@@ -17916,7 +17916,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -17972,7 +17972,7 @@
       ]
     },
     {
-      "species": "SPECIES_HOUNDOOM",
+      "species": "HOUNDOOM",
       "hp": 75,
       "atk": 90,
       "def": 50,
@@ -17995,7 +17995,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -18054,7 +18054,7 @@
       ]
     },
     {
-      "species": "SPECIES_KINGDRA",
+      "species": "KINGDRA",
       "hp": 75,
       "atk": 95,
       "def": 95,
@@ -18077,7 +18077,7 @@
         "ITEM_NONE",
         "ITEM_DRAGON_SCALE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -18126,7 +18126,7 @@
       ]
     },
     {
-      "species": "SPECIES_PHANPY",
+      "species": "PHANPY",
       "hp": 90,
       "atk": 60,
       "def": 60,
@@ -18149,7 +18149,7 @@
         "ITEM_NONE",
         "ITEM_PASSHO_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -18196,7 +18196,7 @@
       ]
     },
     {
-      "species": "SPECIES_DONPHAN",
+      "species": "DONPHAN",
       "hp": 90,
       "atk": 120,
       "def": 120,
@@ -18219,7 +18219,7 @@
         "ITEM_NONE",
         "ITEM_PASSHO_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -18272,7 +18272,7 @@
       ]
     },
     {
-      "species": "SPECIES_PORYGON2",
+      "species": "PORYGON2",
       "hp": 85,
       "atk": 80,
       "def": 90,
@@ -18295,7 +18295,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -18351,7 +18351,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_STANTLER",
+      "species": "STANTLER",
       "hp": 73,
       "atk": 95,
       "def": 62,
@@ -18374,7 +18374,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -18434,7 +18434,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SMEARGLE",
+      "species": "SMEARGLE",
       "hp": 55,
       "atk": 20,
       "def": 35,
@@ -18457,7 +18457,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -18476,7 +18476,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_TYROGUE",
+      "species": "TYROGUE",
       "hp": 35,
       "atk": 35,
       "def": 35,
@@ -18499,7 +18499,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -18545,7 +18545,7 @@
       ]
     },
     {
-      "species": "SPECIES_HITMONTOP",
+      "species": "HITMONTOP",
       "hp": 50,
       "atk": 95,
       "def": 95,
@@ -18568,7 +18568,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -18619,7 +18619,7 @@
       ]
     },
     {
-      "species": "SPECIES_SMOOCHUM",
+      "species": "SMOOCHUM",
       "hp": 45,
       "atk": 30,
       "def": 15,
@@ -18642,7 +18642,7 @@
         "ITEM_ASPEAR_BERRY",
         "ITEM_ASPEAR_BERRY"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -18699,7 +18699,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ELEKID",
+      "species": "ELEKID",
       "hp": 45,
       "atk": 63,
       "def": 37,
@@ -18722,7 +18722,7 @@
         "ITEM_ELECTIRIZER",
         "ITEM_NONE"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -18773,7 +18773,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAGBY",
+      "species": "MAGBY",
       "hp": 45,
       "atk": 75,
       "def": 37,
@@ -18796,7 +18796,7 @@
         "ITEM_NONE",
         "ITEM_MAGMARIZER"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -18845,7 +18845,7 @@
       ]
     },
     {
-      "species": "SPECIES_MILTANK",
+      "species": "MILTANK",
       "hp": 95,
       "atk": 80,
       "def": 105,
@@ -18868,7 +18868,7 @@
         "ITEM_MOOMOO_MILK",
         "ITEM_MOOMOO_MILK"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -18933,7 +18933,7 @@
       ]
     },
     {
-      "species": "SPECIES_BLISSEY",
+      "species": "BLISSEY",
       "hp": 255,
       "atk": 10,
       "def": 10,
@@ -18956,7 +18956,7 @@
         "ITEM_OVAL_STONE",
         "ITEM_LUCKY_EGG"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 40,
       "friendship": 140,
       "growthRate": "FAST",
@@ -19036,7 +19036,7 @@
       ]
     },
     {
-      "species": "SPECIES_RAIKOU",
+      "species": "RAIKOU",
       "hp": 90,
       "atk": 85,
       "def": 75,
@@ -19059,7 +19059,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -19117,7 +19117,7 @@
       ]
     },
     {
-      "species": "SPECIES_ENTEI",
+      "species": "ENTEI",
       "hp": 115,
       "atk": 115,
       "def": 85,
@@ -19140,7 +19140,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -19198,7 +19198,7 @@
       ]
     },
     {
-      "species": "SPECIES_SUICUNE",
+      "species": "SUICUNE",
       "hp": 100,
       "atk": 75,
       "def": 115,
@@ -19221,7 +19221,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -19279,7 +19279,7 @@
       ]
     },
     {
-      "species": "SPECIES_LARVITAR",
+      "species": "LARVITAR",
       "hp": 50,
       "atk": 64,
       "def": 50,
@@ -19302,7 +19302,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -19356,7 +19356,7 @@
       ]
     },
     {
-      "species": "SPECIES_PUPITAR",
+      "species": "PUPITAR",
       "hp": 70,
       "atk": 84,
       "def": 70,
@@ -19379,7 +19379,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -19433,7 +19433,7 @@
       ]
     },
     {
-      "species": "SPECIES_TYRANITAR",
+      "species": "TYRANITAR",
       "hp": 100,
       "atk": 134,
       "def": 110,
@@ -19456,7 +19456,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -19534,7 +19534,7 @@
       ]
     },
     {
-      "species": "SPECIES_LUGIA",
+      "species": "LUGIA",
       "hp": 106,
       "atk": 90,
       "def": 130,
@@ -19557,7 +19557,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -19632,7 +19632,7 @@
       ]
     },
     {
-      "species": "SPECIES_HO_OH",
+      "species": "HO_OH",
       "hp": 106,
       "atk": 130,
       "def": 90,
@@ -19655,7 +19655,7 @@
         "ITEM_SACRED_ASH",
         "ITEM_SACRED_ASH"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -19725,7 +19725,7 @@
       ]
     },
     {
-      "species": "SPECIES_CELEBI",
+      "species": "CELEBI",
       "hp": 100,
       "atk": 100,
       "def": 100,
@@ -19748,7 +19748,7 @@
         "ITEM_LUM_BERRY",
         "ITEM_LUM_BERRY"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 100,
       "growthRate": "MEDIUM_SLOW",
@@ -19814,7 +19814,7 @@
       ]
     },
     {
-      "species": "SPECIES_TREECKO",
+      "species": "TREECKO",
       "hp": 40,
       "atk": 45,
       "def": 35,
@@ -19837,7 +19837,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -19895,7 +19895,7 @@
       ]
     },
     {
-      "species": "SPECIES_GROVYLE",
+      "species": "GROVYLE",
       "hp": 50,
       "atk": 65,
       "def": 45,
@@ -19918,7 +19918,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -19978,7 +19978,7 @@
       ]
     },
     {
-      "species": "SPECIES_SCEPTILE",
+      "species": "SCEPTILE",
       "hp": 70,
       "atk": 85,
       "def": 65,
@@ -20001,7 +20001,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -20069,7 +20069,7 @@
       ]
     },
     {
-      "species": "SPECIES_TORCHIC",
+      "species": "TORCHIC",
       "hp": 45,
       "atk": 60,
       "def": 40,
@@ -20092,7 +20092,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -20143,7 +20143,7 @@
       ]
     },
     {
-      "species": "SPECIES_COMBUSKEN",
+      "species": "COMBUSKEN",
       "hp": 60,
       "atk": 85,
       "def": 60,
@@ -20166,7 +20166,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -20223,7 +20223,7 @@
       ]
     },
     {
-      "species": "SPECIES_BLAZIKEN",
+      "species": "BLAZIKEN",
       "hp": 80,
       "atk": 120,
       "def": 70,
@@ -20246,7 +20246,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -20310,7 +20310,7 @@
       ]
     },
     {
-      "species": "SPECIES_MUDKIP",
+      "species": "MUDKIP",
       "hp": 50,
       "atk": 70,
       "def": 50,
@@ -20333,7 +20333,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -20383,7 +20383,7 @@
       ]
     },
     {
-      "species": "SPECIES_MARSHTOMP",
+      "species": "MARSHTOMP",
       "hp": 70,
       "atk": 85,
       "def": 70,
@@ -20406,7 +20406,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -20460,7 +20460,7 @@
       ]
     },
     {
-      "species": "SPECIES_SWAMPERT",
+      "species": "SWAMPERT",
       "hp": 100,
       "atk": 110,
       "def": 90,
@@ -20483,7 +20483,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -20545,7 +20545,7 @@
       ]
     },
     {
-      "species": "SPECIES_POOCHYENA",
+      "species": "POOCHYENA",
       "hp": 35,
       "atk": 55,
       "def": 35,
@@ -20568,7 +20568,7 @@
         "ITEM_NONE",
         "ITEM_PECHA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -20619,7 +20619,7 @@
       ]
     },
     {
-      "species": "SPECIES_MIGHTYENA",
+      "species": "MIGHTYENA",
       "hp": 70,
       "atk": 90,
       "def": 70,
@@ -20642,7 +20642,7 @@
         "ITEM_NONE",
         "ITEM_PECHA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -20696,7 +20696,7 @@
       ]
     },
     {
-      "species": "SPECIES_ZIGZAGOON",
+      "species": "ZIGZAGOON",
       "hp": 38,
       "atk": 30,
       "def": 41,
@@ -20719,7 +20719,7 @@
         "ITEM_NONE",
         "ITEM_ORAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -20775,7 +20775,7 @@
       ]
     },
     {
-      "species": "SPECIES_LINOONE",
+      "species": "LINOONE",
       "hp": 78,
       "atk": 70,
       "def": 61,
@@ -20798,7 +20798,7 @@
         "ITEM_ORAN_BERRY",
         "ITEM_SITRUS_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -20859,7 +20859,7 @@
       ]
     },
     {
-      "species": "SPECIES_WURMPLE",
+      "species": "WURMPLE",
       "hp": 45,
       "atk": 45,
       "def": 35,
@@ -20882,7 +20882,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -20901,7 +20901,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SILCOON",
+      "species": "SILCOON",
       "hp": 50,
       "atk": 35,
       "def": 55,
@@ -20924,7 +20924,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -20943,7 +20943,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_BEAUTIFLY",
+      "species": "BEAUTIFLY",
       "hp": 60,
       "atk": 70,
       "def": 50,
@@ -20966,7 +20966,7 @@
         "ITEM_NONE",
         "ITEM_SHED_SHELL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -21019,7 +21019,7 @@
       ]
     },
     {
-      "species": "SPECIES_CASCOON",
+      "species": "CASCOON",
       "hp": 50,
       "atk": 35,
       "def": 55,
@@ -21042,7 +21042,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -21061,7 +21061,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_DUSTOX",
+      "species": "DUSTOX",
       "hp": 60,
       "atk": 50,
       "def": 70,
@@ -21084,7 +21084,7 @@
         "ITEM_NONE",
         "ITEM_SHED_SHELL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -21138,7 +21138,7 @@
       ]
     },
     {
-      "species": "SPECIES_LOTAD",
+      "species": "LOTAD",
       "hp": 40,
       "atk": 30,
       "def": 30,
@@ -21161,7 +21161,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -21213,7 +21213,7 @@
       ]
     },
     {
-      "species": "SPECIES_LOMBRE",
+      "species": "LOMBRE",
       "hp": 60,
       "atk": 50,
       "def": 50,
@@ -21236,7 +21236,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -21294,7 +21294,7 @@
       ]
     },
     {
-      "species": "SPECIES_LUDICOLO",
+      "species": "LUDICOLO",
       "hp": 80,
       "atk": 70,
       "def": 70,
@@ -21317,7 +21317,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -21380,7 +21380,7 @@
       ]
     },
     {
-      "species": "SPECIES_SEEDOT",
+      "species": "SEEDOT",
       "hp": 40,
       "atk": 40,
       "def": 50,
@@ -21403,7 +21403,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -21452,7 +21452,7 @@
       ]
     },
     {
-      "species": "SPECIES_NUZLEAF",
+      "species": "NUZLEAF",
       "hp": 70,
       "atk": 70,
       "def": 40,
@@ -21475,7 +21475,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -21537,7 +21537,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHIFTRY",
+      "species": "SHIFTRY",
       "hp": 90,
       "atk": 100,
       "def": 60,
@@ -21560,7 +21560,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -21628,7 +21628,7 @@
       ]
     },
     {
-      "species": "SPECIES_TAILLOW",
+      "species": "TAILLOW",
       "hp": 40,
       "atk": 55,
       "def": 30,
@@ -21651,7 +21651,7 @@
         "ITEM_NONE",
         "ITEM_CHARTI_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -21698,7 +21698,7 @@
       ]
     },
     {
-      "species": "SPECIES_SWELLOW",
+      "species": "SWELLOW",
       "hp": 60,
       "atk": 85,
       "def": 60,
@@ -21721,7 +21721,7 @@
         "ITEM_NONE",
         "ITEM_CHARTI_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -21770,7 +21770,7 @@
       ]
     },
     {
-      "species": "SPECIES_WINGULL",
+      "species": "WINGULL",
       "hp": 40,
       "atk": 30,
       "def": 30,
@@ -21793,7 +21793,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -21845,7 +21845,7 @@
       ]
     },
     {
-      "species": "SPECIES_PELIPPER",
+      "species": "PELIPPER",
       "hp": 60,
       "atk": 50,
       "def": 100,
@@ -21868,7 +21868,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -21925,7 +21925,7 @@
       ]
     },
     {
-      "species": "SPECIES_RALTS",
+      "species": "RALTS",
       "hp": 28,
       "atk": 25,
       "def": 25,
@@ -21948,7 +21948,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -22008,7 +22008,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_KIRLIA",
+      "species": "KIRLIA",
       "hp": 38,
       "atk": 35,
       "def": 35,
@@ -22031,7 +22031,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -22091,7 +22091,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_GARDEVOIR",
+      "species": "GARDEVOIR",
       "hp": 68,
       "atk": 65,
       "def": 65,
@@ -22114,7 +22114,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -22178,7 +22178,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SURSKIT",
+      "species": "SURSKIT",
       "hp": 40,
       "atk": 30,
       "def": 32,
@@ -22201,7 +22201,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -22248,7 +22248,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_MASQUERAIN",
+      "species": "MASQUERAIN",
       "hp": 70,
       "atk": 60,
       "def": 62,
@@ -22271,7 +22271,7 @@
         "ITEM_NONE",
         "ITEM_SILVERPOWDER"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -22327,7 +22327,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHROOMISH",
+      "species": "SHROOMISH",
       "hp": 60,
       "atk": 40,
       "def": 60,
@@ -22350,7 +22350,7 @@
         "ITEM_NONE",
         "ITEM_KEBIA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -22397,7 +22397,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_BRELOOM",
+      "species": "BRELOOM",
       "hp": 60,
       "atk": 130,
       "def": 80,
@@ -22420,7 +22420,7 @@
         "ITEM_NONE",
         "ITEM_KEBIA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -22483,7 +22483,7 @@
       ]
     },
     {
-      "species": "SPECIES_SLAKOTH",
+      "species": "SLAKOTH",
       "hp": 60,
       "atk": 60,
       "def": 60,
@@ -22506,7 +22506,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -22566,7 +22566,7 @@
       ]
     },
     {
-      "species": "SPECIES_VIGOROTH",
+      "species": "VIGOROTH",
       "hp": 80,
       "atk": 80,
       "def": 80,
@@ -22589,7 +22589,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -22654,7 +22654,7 @@
       ]
     },
     {
-      "species": "SPECIES_SLAKING",
+      "species": "SLAKING",
       "hp": 150,
       "atk": 160,
       "def": 100,
@@ -22677,7 +22677,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -22744,7 +22744,7 @@
       ]
     },
     {
-      "species": "SPECIES_NINCADA",
+      "species": "NINCADA",
       "hp": 31,
       "atk": 45,
       "def": 90,
@@ -22767,7 +22767,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -22813,7 +22813,7 @@
       ]
     },
     {
-      "species": "SPECIES_NINJASK",
+      "species": "NINJASK",
       "hp": 61,
       "atk": 90,
       "def": 45,
@@ -22836,7 +22836,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -22892,7 +22892,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHEDINJA",
+      "species": "SHEDINJA",
       "hp": 1,
       "atk": 90,
       "def": 45,
@@ -22915,7 +22915,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -22967,7 +22967,7 @@
       ]
     },
     {
-      "species": "SPECIES_WHISMUR",
+      "species": "WHISMUR",
       "hp": 64,
       "atk": 51,
       "def": 23,
@@ -22990,7 +22990,7 @@
         "ITEM_NONE",
         "ITEM_CHESTO_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -23038,7 +23038,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_LOUDRED",
+      "species": "LOUDRED",
       "hp": 84,
       "atk": 71,
       "def": 43,
@@ -23061,7 +23061,7 @@
         "ITEM_NONE",
         "ITEM_CHESTO_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -23119,7 +23119,7 @@
       ]
     },
     {
-      "species": "SPECIES_EXPLOUD",
+      "species": "EXPLOUD",
       "hp": 104,
       "atk": 91,
       "def": 63,
@@ -23142,7 +23142,7 @@
         "ITEM_NONE",
         "ITEM_CHESTO_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -23206,7 +23206,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAKUHITA",
+      "species": "MAKUHITA",
       "hp": 72,
       "atk": 60,
       "def": 30,
@@ -23229,7 +23229,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -23282,7 +23282,7 @@
       ]
     },
     {
-      "species": "SPECIES_HARIYAMA",
+      "species": "HARIYAMA",
       "hp": 144,
       "atk": 120,
       "def": 60,
@@ -23305,7 +23305,7 @@
         "ITEM_NONE",
         "ITEM_KINGS_ROCK"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -23363,7 +23363,7 @@
       ]
     },
     {
-      "species": "SPECIES_AZURILL",
+      "species": "AZURILL",
       "hp": 50,
       "atk": 20,
       "def": 40,
@@ -23386,7 +23386,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "FAST",
@@ -23431,7 +23431,7 @@
       ]
     },
     {
-      "species": "SPECIES_NOSEPASS",
+      "species": "NOSEPASS",
       "hp": 30,
       "atk": 45,
       "def": 135,
@@ -23454,7 +23454,7 @@
         "ITEM_NONE",
         "ITEM_HARD_STONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -23508,7 +23508,7 @@
       ]
     },
     {
-      "species": "SPECIES_SKITTY",
+      "species": "SKITTY",
       "hp": 50,
       "atk": 45,
       "def": 45,
@@ -23531,7 +23531,7 @@
         "ITEM_NONE",
         "ITEM_LEPPA_BERRY"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FAST",
@@ -23588,7 +23588,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_DELCATTY",
+      "species": "DELCATTY",
       "hp": 70,
       "atk": 65,
       "def": 65,
@@ -23611,7 +23611,7 @@
         "ITEM_NONE",
         "ITEM_LEPPA_BERRY"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FAST",
@@ -23673,7 +23673,7 @@
       ]
     },
     {
-      "species": "SPECIES_SABLEYE",
+      "species": "SABLEYE",
       "hp": 50,
       "atk": 75,
       "def": 75,
@@ -23696,7 +23696,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 35,
       "growthRate": "MEDIUM_SLOW",
@@ -23761,7 +23761,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAWILE",
+      "species": "MAWILE",
       "hp": 50,
       "atk": 85,
       "def": 85,
@@ -23784,7 +23784,7 @@
         "ITEM_NONE",
         "ITEM_OCCA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -23849,7 +23849,7 @@
       ]
     },
     {
-      "species": "SPECIES_ARON",
+      "species": "ARON",
       "hp": 50,
       "atk": 70,
       "def": 100,
@@ -23872,7 +23872,7 @@
         "ITEM_NONE",
         "ITEM_HARD_STONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 35,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -23927,7 +23927,7 @@
       ]
     },
     {
-      "species": "SPECIES_LAIRON",
+      "species": "LAIRON",
       "hp": 60,
       "atk": 90,
       "def": 140,
@@ -23950,7 +23950,7 @@
         "ITEM_NONE",
         "ITEM_HARD_STONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 35,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -24006,7 +24006,7 @@
       ]
     },
     {
-      "species": "SPECIES_AGGRON",
+      "species": "AGGRON",
       "hp": 70,
       "atk": 110,
       "def": 180,
@@ -24029,7 +24029,7 @@
         "ITEM_NONE",
         "ITEM_HARD_STONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 35,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -24108,7 +24108,7 @@
       ]
     },
     {
-      "species": "SPECIES_MEDITITE",
+      "species": "MEDITITE",
       "hp": 30,
       "atk": 40,
       "def": 55,
@@ -24131,7 +24131,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -24191,7 +24191,7 @@
       ]
     },
     {
-      "species": "SPECIES_MEDICHAM",
+      "species": "MEDICHAM",
       "hp": 60,
       "atk": 60,
       "def": 75,
@@ -24214,7 +24214,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -24277,7 +24277,7 @@
       ]
     },
     {
-      "species": "SPECIES_ELECTRIKE",
+      "species": "ELECTRIKE",
       "hp": 40,
       "atk": 45,
       "def": 40,
@@ -24300,7 +24300,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -24350,7 +24350,7 @@
       ]
     },
     {
-      "species": "SPECIES_MANECTRIC",
+      "species": "MANECTRIC",
       "hp": 70,
       "atk": 75,
       "def": 60,
@@ -24373,7 +24373,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -24426,7 +24426,7 @@
       ]
     },
     {
-      "species": "SPECIES_PLUSLE",
+      "species": "PLUSLE",
       "hp": 60,
       "atk": 50,
       "def": 40,
@@ -24449,7 +24449,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -24496,7 +24496,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_MINUN",
+      "species": "MINUN",
       "hp": 60,
       "atk": 40,
       "def": 50,
@@ -24519,7 +24519,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -24566,7 +24566,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_VOLBEAT",
+      "species": "VOLBEAT",
       "hp": 65,
       "atk": 73,
       "def": 55,
@@ -24589,7 +24589,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -24647,7 +24647,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ILLUMISE",
+      "species": "ILLUMISE",
       "hp": 65,
       "atk": 47,
       "def": 55,
@@ -24670,7 +24670,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -24728,7 +24728,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ROSELIA",
+      "species": "ROSELIA",
       "hp": 50,
       "atk": 60,
       "def": 45,
@@ -24751,7 +24751,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -24802,7 +24802,7 @@
       ]
     },
     {
-      "species": "SPECIES_GULPIN",
+      "species": "GULPIN",
       "hp": 70,
       "atk": 43,
       "def": 53,
@@ -24825,7 +24825,7 @@
         "ITEM_NONE",
         "ITEM_BIG_PEARL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -24877,7 +24877,7 @@
       ]
     },
     {
-      "species": "SPECIES_SWALOT",
+      "species": "SWALOT",
       "hp": 100,
       "atk": 73,
       "def": 83,
@@ -24900,7 +24900,7 @@
         "ITEM_NONE",
         "ITEM_BIG_PEARL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -24955,7 +24955,7 @@
       ]
     },
     {
-      "species": "SPECIES_CARVANHA",
+      "species": "CARVANHA",
       "hp": 45,
       "atk": 90,
       "def": 20,
@@ -24978,7 +24978,7 @@
         "ITEM_NONE",
         "ITEM_DEEPSEATOOTH"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -25028,7 +25028,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHARPEDO",
+      "species": "SHARPEDO",
       "hp": 70,
       "atk": 120,
       "def": 40,
@@ -25051,7 +25051,7 @@
         "ITEM_NONE",
         "ITEM_DEEPSEATOOTH"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -25110,7 +25110,7 @@
       ]
     },
     {
-      "species": "SPECIES_WAILMER",
+      "species": "WAILMER",
       "hp": 130,
       "atk": 70,
       "def": 35,
@@ -25133,7 +25133,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -25184,7 +25184,7 @@
       ]
     },
     {
-      "species": "SPECIES_WAILORD",
+      "species": "WAILORD",
       "hp": 170,
       "atk": 90,
       "def": 45,
@@ -25207,7 +25207,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -25260,7 +25260,7 @@
       ]
     },
     {
-      "species": "SPECIES_NUMEL",
+      "species": "NUMEL",
       "hp": 60,
       "atk": 60,
       "def": 40,
@@ -25283,7 +25283,7 @@
         "ITEM_RAWST_BERRY",
         "ITEM_RAWST_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -25333,7 +25333,7 @@
       ]
     },
     {
-      "species": "SPECIES_CAMERUPT",
+      "species": "CAMERUPT",
       "hp": 70,
       "atk": 100,
       "def": 70,
@@ -25356,7 +25356,7 @@
         "ITEM_RAWST_BERRY",
         "ITEM_RAWST_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -25414,7 +25414,7 @@
       ]
     },
     {
-      "species": "SPECIES_TORKOAL",
+      "species": "TORKOAL",
       "hp": 70,
       "atk": 85,
       "def": 140,
@@ -25437,7 +25437,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -25493,7 +25493,7 @@
       ]
     },
     {
-      "species": "SPECIES_SPOINK",
+      "species": "SPOINK",
       "hp": 60,
       "atk": 25,
       "def": 35,
@@ -25516,7 +25516,7 @@
         "ITEM_NONE",
         "ITEM_TANGA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -25575,7 +25575,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_GRUMPIG",
+      "species": "GRUMPIG",
       "hp": 80,
       "atk": 45,
       "def": 65,
@@ -25598,7 +25598,7 @@
         "ITEM_NONE",
         "ITEM_TANGA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -25665,7 +25665,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SPINDA",
+      "species": "SPINDA",
       "hp": 60,
       "atk": 60,
       "def": 60,
@@ -25688,7 +25688,7 @@
         "ITEM_NONE",
         "ITEM_CHESTO_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FAST",
@@ -25750,7 +25750,7 @@
       ]
     },
     {
-      "species": "SPECIES_TRAPINCH",
+      "species": "TRAPINCH",
       "hp": 45,
       "atk": 100,
       "def": 45,
@@ -25773,7 +25773,7 @@
         "ITEM_NONE",
         "ITEM_SOFT_SAND"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -25821,7 +25821,7 @@
       ]
     },
     {
-      "species": "SPECIES_VIBRAVA",
+      "species": "VIBRAVA",
       "hp": 50,
       "atk": 70,
       "def": 50,
@@ -25844,7 +25844,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -25899,7 +25899,7 @@
       ]
     },
     {
-      "species": "SPECIES_FLYGON",
+      "species": "FLYGON",
       "hp": 80,
       "atk": 100,
       "def": 80,
@@ -25922,7 +25922,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -25984,7 +25984,7 @@
       ]
     },
     {
-      "species": "SPECIES_CACNEA",
+      "species": "CACNEA",
       "hp": 50,
       "atk": 85,
       "def": 40,
@@ -26007,7 +26007,7 @@
         "ITEM_NONE",
         "ITEM_STICKY_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "MEDIUM_SLOW",
@@ -26061,7 +26061,7 @@
       ]
     },
     {
-      "species": "SPECIES_CACTURNE",
+      "species": "CACTURNE",
       "hp": 70,
       "atk": 115,
       "def": 60,
@@ -26084,7 +26084,7 @@
         "ITEM_NONE",
         "ITEM_STICKY_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "MEDIUM_SLOW",
@@ -26143,7 +26143,7 @@
       ]
     },
     {
-      "species": "SPECIES_SWABLU",
+      "species": "SWABLU",
       "hp": 45,
       "atk": 40,
       "def": 60,
@@ -26166,7 +26166,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -26217,7 +26217,7 @@
       ]
     },
     {
-      "species": "SPECIES_ALTARIA",
+      "species": "ALTARIA",
       "hp": 75,
       "atk": 70,
       "def": 90,
@@ -26240,7 +26240,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -26300,7 +26300,7 @@
       ]
     },
     {
-      "species": "SPECIES_ZANGOOSE",
+      "species": "ZANGOOSE",
       "hp": 73,
       "atk": 115,
       "def": 60,
@@ -26323,7 +26323,7 @@
         "ITEM_NONE",
         "ITEM_QUICK_CLAW"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -26395,7 +26395,7 @@
       ]
     },
     {
-      "species": "SPECIES_SEVIPER",
+      "species": "SEVIPER",
       "hp": 73,
       "atk": 100,
       "def": 60,
@@ -26418,7 +26418,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -26472,7 +26472,7 @@
       ]
     },
     {
-      "species": "SPECIES_LUNATONE",
+      "species": "LUNATONE",
       "hp": 70,
       "atk": 55,
       "def": 65,
@@ -26495,7 +26495,7 @@
         "ITEM_NONE",
         "ITEM_MOON_STONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "FAST",
@@ -26558,7 +26558,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SOLROCK",
+      "species": "SOLROCK",
       "hp": 70,
       "atk": 95,
       "def": 85,
@@ -26581,7 +26581,7 @@
         "ITEM_NONE",
         "ITEM_SUN_STONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "FAST",
@@ -26647,7 +26647,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_BARBOACH",
+      "species": "BARBOACH",
       "hp": 50,
       "atk": 48,
       "def": 43,
@@ -26670,7 +26670,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -26717,7 +26717,7 @@
       ]
     },
     {
-      "species": "SPECIES_WHISCASH",
+      "species": "WHISCASH",
       "hp": 110,
       "atk": 78,
       "def": 73,
@@ -26740,7 +26740,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -26793,7 +26793,7 @@
       ]
     },
     {
-      "species": "SPECIES_CORPHISH",
+      "species": "CORPHISH",
       "hp": 43,
       "atk": 80,
       "def": 65,
@@ -26816,7 +26816,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -26875,7 +26875,7 @@
       ]
     },
     {
-      "species": "SPECIES_CRAWDAUNT",
+      "species": "CRAWDAUNT",
       "hp": 63,
       "atk": 120,
       "def": 85,
@@ -26898,7 +26898,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -26961,7 +26961,7 @@
       ]
     },
     {
-      "species": "SPECIES_BALTOY",
+      "species": "BALTOY",
       "hp": 40,
       "atk": 40,
       "def": 55,
@@ -26984,7 +26984,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -27045,7 +27045,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_CLAYDOL",
+      "species": "CLAYDOL",
       "hp": 60,
       "atk": 70,
       "def": 105,
@@ -27068,7 +27068,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -27135,7 +27135,7 @@
       ]
     },
     {
-      "species": "SPECIES_LILEEP",
+      "species": "LILEEP",
       "hp": 66,
       "atk": 41,
       "def": 77,
@@ -27158,7 +27158,7 @@
         "ITEM_NONE",
         "ITEM_BIG_ROOT"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -27208,7 +27208,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_CRADILY",
+      "species": "CRADILY",
       "hp": 86,
       "atk": 81,
       "def": 97,
@@ -27231,7 +27231,7 @@
         "ITEM_NONE",
         "ITEM_BIG_ROOT"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -27288,7 +27288,7 @@
       ]
     },
     {
-      "species": "SPECIES_ANORITH",
+      "species": "ANORITH",
       "hp": 45,
       "atk": 95,
       "def": 50,
@@ -27311,7 +27311,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -27363,7 +27363,7 @@
       ]
     },
     {
-      "species": "SPECIES_ARMALDO",
+      "species": "ARMALDO",
       "hp": 75,
       "atk": 125,
       "def": 100,
@@ -27386,7 +27386,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -27445,7 +27445,7 @@
       ]
     },
     {
-      "species": "SPECIES_FEEBAS",
+      "species": "FEEBAS",
       "hp": 20,
       "atk": 15,
       "def": 20,
@@ -27468,7 +27468,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -27512,7 +27512,7 @@
       ]
     },
     {
-      "species": "SPECIES_MILOTIC",
+      "species": "MILOTIC",
       "hp": 95,
       "atk": 60,
       "def": 79,
@@ -27535,7 +27535,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -27586,7 +27586,7 @@
       ]
     },
     {
-      "species": "SPECIES_CASTFORM",
+      "species": "CASTFORM",
       "hp": 70,
       "atk": 70,
       "def": 70,
@@ -27609,7 +27609,7 @@
         "ITEM_MYSTIC_WATER",
         "ITEM_MYSTIC_WATER"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -27665,7 +27665,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_KECLEON",
+      "species": "KECLEON",
       "hp": 60,
       "atk": 90,
       "def": 70,
@@ -27688,7 +27688,7 @@
         "ITEM_NONE",
         "ITEM_PERSIM_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -27761,7 +27761,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHUPPET",
+      "species": "SHUPPET",
       "hp": 44,
       "atk": 75,
       "def": 35,
@@ -27784,7 +27784,7 @@
         "ITEM_NONE",
         "ITEM_SPELL_TAG"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 35,
       "growthRate": "FAST",
@@ -27843,7 +27843,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_BANETTE",
+      "species": "BANETTE",
       "hp": 64,
       "atk": 115,
       "def": 65,
@@ -27866,7 +27866,7 @@
         "ITEM_NONE",
         "ITEM_SPELL_TAG"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 35,
       "growthRate": "FAST",
@@ -27929,7 +27929,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_DUSKULL",
+      "species": "DUSKULL",
       "hp": 20,
       "atk": 40,
       "def": 90,
@@ -27952,7 +27952,7 @@
         "ITEM_NONE",
         "ITEM_KASIB_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 35,
       "growthRate": "FAST",
@@ -28010,7 +28010,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_DUSCLOPS",
+      "species": "DUSCLOPS",
       "hp": 40,
       "atk": 70,
       "def": 130,
@@ -28033,7 +28033,7 @@
         "ITEM_NONE",
         "ITEM_KASIB_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 35,
       "growthRate": "FAST",
@@ -28101,7 +28101,7 @@
       ]
     },
     {
-      "species": "SPECIES_TROPIUS",
+      "species": "TROPIUS",
       "hp": 99,
       "atk": 68,
       "def": 83,
@@ -28124,7 +28124,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -28183,7 +28183,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHIMECHO",
+      "species": "CHIMECHO",
       "hp": 65,
       "atk": 50,
       "def": 70,
@@ -28206,7 +28206,7 @@
         "ITEM_NONE",
         "ITEM_COLBUR_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "FAST",
@@ -28264,7 +28264,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ABSOL",
+      "species": "ABSOL",
       "hp": 65,
       "atk": 130,
       "def": 60,
@@ -28287,7 +28287,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 35,
       "growthRate": "MEDIUM_SLOW",
@@ -28364,7 +28364,7 @@
       ]
     },
     {
-      "species": "SPECIES_WYNAUT",
+      "species": "WYNAUT",
       "hp": 95,
       "atk": 23,
       "def": 48,
@@ -28387,7 +28387,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -28406,7 +28406,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SNORUNT",
+      "species": "SNORUNT",
       "hp": 50,
       "atk": 50,
       "def": 50,
@@ -28429,7 +28429,7 @@
         "ITEM_NONE",
         "ITEM_BABIRI_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -28475,7 +28475,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_GLALIE",
+      "species": "GLALIE",
       "hp": 80,
       "atk": 80,
       "def": 80,
@@ -28498,7 +28498,7 @@
         "ITEM_NONE",
         "ITEM_BABIRI_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -28553,7 +28553,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SPHEAL",
+      "species": "SPHEAL",
       "hp": 70,
       "atk": 40,
       "def": 50,
@@ -28576,7 +28576,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -28627,7 +28627,7 @@
       ]
     },
     {
-      "species": "SPECIES_SEALEO",
+      "species": "SEALEO",
       "hp": 90,
       "atk": 60,
       "def": 70,
@@ -28650,7 +28650,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -28702,7 +28702,7 @@
       ]
     },
     {
-      "species": "SPECIES_WALREIN",
+      "species": "WALREIN",
       "hp": 110,
       "atk": 80,
       "def": 90,
@@ -28725,7 +28725,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -28780,7 +28780,7 @@
       ]
     },
     {
-      "species": "SPECIES_CLAMPERL",
+      "species": "CLAMPERL",
       "hp": 35,
       "atk": 64,
       "def": 85,
@@ -28803,7 +28803,7 @@
         "ITEM_NONE",
         "ITEM_BIG_PEARL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -28848,7 +28848,7 @@
       ]
     },
     {
-      "species": "SPECIES_HUNTAIL",
+      "species": "HUNTAIL",
       "hp": 55,
       "atk": 104,
       "def": 105,
@@ -28871,7 +28871,7 @@
         "ITEM_NONE",
         "ITEM_DEEPSEATOOTH"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -28920,7 +28920,7 @@
       ]
     },
     {
-      "species": "SPECIES_GOREBYSS",
+      "species": "GOREBYSS",
       "hp": 55,
       "atk": 84,
       "def": 105,
@@ -28943,7 +28943,7 @@
         "ITEM_NONE",
         "ITEM_DEEPSEASCALE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -28994,7 +28994,7 @@
       ]
     },
     {
-      "species": "SPECIES_RELICANTH",
+      "species": "RELICANTH",
       "hp": 100,
       "atk": 90,
       "def": 130,
@@ -29017,7 +29017,7 @@
         "ITEM_NONE",
         "ITEM_DEEPSEASCALE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -29075,7 +29075,7 @@
       ]
     },
     {
-      "species": "SPECIES_LUVDISC",
+      "species": "LUVDISC",
       "hp": 43,
       "atk": 30,
       "def": 55,
@@ -29098,7 +29098,7 @@
         "ITEM_HEART_SCALE",
         "ITEM_NONE"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -29145,7 +29145,7 @@
       ]
     },
     {
-      "species": "SPECIES_BAGON",
+      "species": "BAGON",
       "hp": 45,
       "atk": 75,
       "def": 60,
@@ -29168,7 +29168,7 @@
         "ITEM_NONE",
         "ITEM_DRAGON_FANG"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -29220,7 +29220,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHELGON",
+      "species": "SHELGON",
       "hp": 65,
       "atk": 95,
       "def": 100,
@@ -29243,7 +29243,7 @@
         "ITEM_NONE",
         "ITEM_DRAGON_FANG"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -29295,7 +29295,7 @@
       ]
     },
     {
-      "species": "SPECIES_SALAMENCE",
+      "species": "SALAMENCE",
       "hp": 95,
       "atk": 135,
       "def": 80,
@@ -29318,7 +29318,7 @@
         "ITEM_NONE",
         "ITEM_DRAGON_FANG"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -29379,7 +29379,7 @@
       ]
     },
     {
-      "species": "SPECIES_BELDUM",
+      "species": "BELDUM",
       "hp": 40,
       "atk": 55,
       "def": 80,
@@ -29402,7 +29402,7 @@
         "ITEM_NONE",
         "ITEM_METAL_COAT"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -29421,7 +29421,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_METANG",
+      "species": "METANG",
       "hp": 60,
       "atk": 75,
       "def": 100,
@@ -29444,7 +29444,7 @@
         "ITEM_NONE",
         "ITEM_METAL_COAT"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -29504,7 +29504,7 @@
       ]
     },
     {
-      "species": "SPECIES_METAGROSS",
+      "species": "METAGROSS",
       "hp": 80,
       "atk": 135,
       "def": 130,
@@ -29527,7 +29527,7 @@
         "ITEM_NONE",
         "ITEM_METAL_COAT"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 40,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -29588,7 +29588,7 @@
       ]
     },
     {
-      "species": "SPECIES_REGIROCK",
+      "species": "REGIROCK",
       "hp": 80,
       "atk": 100,
       "def": 200,
@@ -29611,7 +29611,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -29673,7 +29673,7 @@
       ]
     },
     {
-      "species": "SPECIES_REGICE",
+      "species": "REGICE",
       "hp": 80,
       "atk": 50,
       "def": 100,
@@ -29696,7 +29696,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -29758,7 +29758,7 @@
       ]
     },
     {
-      "species": "SPECIES_REGISTEEL",
+      "species": "REGISTEEL",
       "hp": 80,
       "atk": 75,
       "def": 150,
@@ -29781,7 +29781,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -29844,7 +29844,7 @@
       ]
     },
     {
-      "species": "SPECIES_LATIAS",
+      "species": "LATIAS",
       "hp": 80,
       "atk": 80,
       "def": 90,
@@ -29867,7 +29867,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 120,
       "friendship": 90,
       "growthRate": "SLOW",
@@ -29941,7 +29941,7 @@
       ]
     },
     {
-      "species": "SPECIES_LATIOS",
+      "species": "LATIOS",
       "hp": 80,
       "atk": 90,
       "def": 80,
@@ -29964,7 +29964,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 120,
       "friendship": 90,
       "growthRate": "SLOW",
@@ -30038,7 +30038,7 @@
       ]
     },
     {
-      "species": "SPECIES_KYOGRE",
+      "species": "KYOGRE",
       "hp": 100,
       "atk": 100,
       "def": 90,
@@ -30061,7 +30061,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -30121,7 +30121,7 @@
       ]
     },
     {
-      "species": "SPECIES_GROUDON",
+      "species": "GROUDON",
       "hp": 100,
       "atk": 150,
       "def": 140,
@@ -30144,7 +30144,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -30215,7 +30215,7 @@
       ]
     },
     {
-      "species": "SPECIES_RAYQUAZA",
+      "species": "RAYQUAZA",
       "hp": 105,
       "atk": 150,
       "def": 90,
@@ -30238,7 +30238,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -30313,7 +30313,7 @@
       ]
     },
     {
-      "species": "SPECIES_JIRACHI",
+      "species": "JIRACHI",
       "hp": 100,
       "atk": 100,
       "def": 100,
@@ -30336,7 +30336,7 @@
         "ITEM_STAR_PIECE",
         "ITEM_STAR_PIECE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 100,
       "growthRate": "SLOW",
@@ -30401,7 +30401,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_DEOXYS",
+      "species": "DEOXYS",
       "hp": 50,
       "atk": 150,
       "def": 50,
@@ -30424,7 +30424,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -30503,7 +30503,7 @@
       ]
     },
     {
-      "species": "SPECIES_TURTWIG",
+      "species": "TURTWIG",
       "hp": 55,
       "atk": 68,
       "def": 64,
@@ -30526,7 +30526,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -30580,7 +30580,7 @@
       ]
     },
     {
-      "species": "SPECIES_GROTLE",
+      "species": "GROTLE",
       "hp": 75,
       "atk": 89,
       "def": 85,
@@ -30603,7 +30603,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -30657,7 +30657,7 @@
       ]
     },
     {
-      "species": "SPECIES_TORTERRA",
+      "species": "TORTERRA",
       "hp": 95,
       "atk": 109,
       "def": 105,
@@ -30680,7 +30680,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -30743,7 +30743,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHIMCHAR",
+      "species": "CHIMCHAR",
       "hp": 44,
       "atk": 58,
       "def": 44,
@@ -30766,7 +30766,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -30826,7 +30826,7 @@
       ]
     },
     {
-      "species": "SPECIES_MONFERNO",
+      "species": "MONFERNO",
       "hp": 64,
       "atk": 78,
       "def": 52,
@@ -30849,7 +30849,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -30913,7 +30913,7 @@
       ]
     },
     {
-      "species": "SPECIES_INFERNAPE",
+      "species": "INFERNAPE",
       "hp": 76,
       "atk": 104,
       "def": 71,
@@ -30936,7 +30936,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31007,7 +31007,7 @@
       ]
     },
     {
-      "species": "SPECIES_PIPLUP",
+      "species": "PIPLUP",
       "hp": 53,
       "atk": 51,
       "def": 53,
@@ -31030,7 +31030,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31085,7 +31085,7 @@
       ]
     },
     {
-      "species": "SPECIES_PRINPLUP",
+      "species": "PRINPLUP",
       "hp": 64,
       "atk": 66,
       "def": 68,
@@ -31108,7 +31108,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31166,7 +31166,7 @@
       ]
     },
     {
-      "species": "SPECIES_EMPOLEON",
+      "species": "EMPOLEON",
       "hp": 84,
       "atk": 86,
       "def": 88,
@@ -31189,7 +31189,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31257,7 +31257,7 @@
       ]
     },
     {
-      "species": "SPECIES_STARLY",
+      "species": "STARLY",
       "hp": 40,
       "atk": 55,
       "def": 30,
@@ -31280,7 +31280,7 @@
         "ITEM_NONE",
         "ITEM_YACHE_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31327,7 +31327,7 @@
       ]
     },
     {
-      "species": "SPECIES_STARAVIA",
+      "species": "STARAVIA",
       "hp": 55,
       "atk": 75,
       "def": 50,
@@ -31350,7 +31350,7 @@
         "ITEM_NONE",
         "ITEM_YACHE_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31397,7 +31397,7 @@
       ]
     },
     {
-      "species": "SPECIES_STARAPTOR",
+      "species": "STARAPTOR",
       "hp": 85,
       "atk": 120,
       "def": 70,
@@ -31420,7 +31420,7 @@
         "ITEM_NONE",
         "ITEM_YACHE_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31469,7 +31469,7 @@
       ]
     },
     {
-      "species": "SPECIES_BIDOOF",
+      "species": "BIDOOF",
       "hp": 59,
       "atk": 45,
       "def": 40,
@@ -31492,7 +31492,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -31548,7 +31548,7 @@
       ]
     },
     {
-      "species": "SPECIES_BIBAREL",
+      "species": "BIBAREL",
       "hp": 79,
       "atk": 85,
       "def": 60,
@@ -31571,7 +31571,7 @@
         "ITEM_ORAN_BERRY",
         "ITEM_SITRUS_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -31636,7 +31636,7 @@
       ]
     },
     {
-      "species": "SPECIES_KRICKETOT",
+      "species": "KRICKETOT",
       "hp": 37,
       "atk": 25,
       "def": 41,
@@ -31659,7 +31659,7 @@
         "ITEM_NONE",
         "ITEM_METRONOME"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31678,7 +31678,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_KRICKETUNE",
+      "species": "KRICKETUNE",
       "hp": 77,
       "atk": 85,
       "def": 51,
@@ -31701,7 +31701,7 @@
         "ITEM_NONE",
         "ITEM_METRONOME"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31752,7 +31752,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHINX",
+      "species": "SHINX",
       "hp": 45,
       "atk": 65,
       "def": 34,
@@ -31775,7 +31775,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31824,7 +31824,7 @@
       ]
     },
     {
-      "species": "SPECIES_LUXIO",
+      "species": "LUXIO",
       "hp": 60,
       "atk": 85,
       "def": 49,
@@ -31847,7 +31847,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 100,
       "growthRate": "MEDIUM_SLOW",
@@ -31896,7 +31896,7 @@
       ]
     },
     {
-      "species": "SPECIES_LUXRAY",
+      "species": "LUXRAY",
       "hp": 80,
       "atk": 120,
       "def": 79,
@@ -31919,7 +31919,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -31970,7 +31970,7 @@
       ]
     },
     {
-      "species": "SPECIES_BUDEW",
+      "species": "BUDEW",
       "hp": 40,
       "atk": 30,
       "def": 35,
@@ -31993,7 +31993,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -32043,7 +32043,7 @@
       ]
     },
     {
-      "species": "SPECIES_ROSERADE",
+      "species": "ROSERADE",
       "hp": 60,
       "atk": 70,
       "def": 55,
@@ -32066,7 +32066,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -32119,7 +32119,7 @@
       ]
     },
     {
-      "species": "SPECIES_CRANIDOS",
+      "species": "CRANIDOS",
       "hp": 67,
       "atk": 125,
       "def": 40,
@@ -32142,7 +32142,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -32206,7 +32206,7 @@
       ]
     },
     {
-      "species": "SPECIES_RAMPARDOS",
+      "species": "RAMPARDOS",
       "hp": 97,
       "atk": 165,
       "def": 60,
@@ -32229,7 +32229,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -32301,7 +32301,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHIELDON",
+      "species": "SHIELDON",
       "hp": 30,
       "atk": 42,
       "def": 118,
@@ -32324,7 +32324,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -32385,7 +32385,7 @@
       ]
     },
     {
-      "species": "SPECIES_BASTIODON",
+      "species": "BASTIODON",
       "hp": 60,
       "atk": 52,
       "def": 168,
@@ -32408,7 +32408,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -32472,7 +32472,7 @@
       ]
     },
     {
-      "species": "SPECIES_BURMY",
+      "species": "BURMY",
       "hp": 40,
       "atk": 29,
       "def": 45,
@@ -32495,7 +32495,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -32514,7 +32514,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_WORMADAM",
+      "species": "WORMADAM",
       "hp": 60,
       "atk": 59,
       "def": 85,
@@ -32537,7 +32537,7 @@
         "ITEM_NONE",
         "ITEM_SILVERPOWDER"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -32590,7 +32590,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_MOTHIM",
+      "species": "MOTHIM",
       "hp": 70,
       "atk": 94,
       "def": 50,
@@ -32613,7 +32613,7 @@
         "ITEM_NONE",
         "ITEM_SILVERPOWDER"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -32670,7 +32670,7 @@
       ]
     },
     {
-      "species": "SPECIES_COMBEE",
+      "species": "COMBEE",
       "hp": 30,
       "atk": 30,
       "def": 42,
@@ -32693,7 +32693,7 @@
         "ITEM_HONEY",
         "ITEM_HONEY"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -32712,7 +32712,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_VESPIQUEN",
+      "species": "VESPIQUEN",
       "hp": 70,
       "atk": 80,
       "def": 102,
@@ -32735,7 +32735,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -32787,7 +32787,7 @@
       ]
     },
     {
-      "species": "SPECIES_PACHIRISU",
+      "species": "PACHIRISU",
       "hp": 60,
       "atk": 45,
       "def": 70,
@@ -32810,7 +32810,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 10,
       "friendship": 100,
       "growthRate": "MEDIUM_FAST",
@@ -32861,7 +32861,7 @@
       ]
     },
     {
-      "species": "SPECIES_BUIZEL",
+      "species": "BUIZEL",
       "hp": 55,
       "atk": 65,
       "def": 35,
@@ -32884,7 +32884,7 @@
         "ITEM_NONE",
         "ITEM_WACAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -32937,7 +32937,7 @@
       ]
     },
     {
-      "species": "SPECIES_FLOATZEL",
+      "species": "FLOATZEL",
       "hp": 85,
       "atk": 105,
       "def": 55,
@@ -32960,7 +32960,7 @@
         "ITEM_NONE",
         "ITEM_WACAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -33020,7 +33020,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHERUBI",
+      "species": "CHERUBI",
       "hp": 45,
       "atk": 35,
       "def": 45,
@@ -33043,7 +33043,7 @@
         "ITEM_NONE",
         "ITEM_MIRACLE_SEED"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -33088,7 +33088,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_CHERRIM",
+      "species": "CHERRIM",
       "hp": 70,
       "atk": 60,
       "def": 70,
@@ -33111,7 +33111,7 @@
         "ITEM_NONE",
         "ITEM_MIRACLE_SEED"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -33158,7 +33158,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_SHELLOS",
+      "species": "SHELLOS",
       "hp": 76,
       "atk": 48,
       "def": 48,
@@ -33181,7 +33181,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -33225,7 +33225,7 @@
       ]
     },
     {
-      "species": "SPECIES_GASTRODON",
+      "species": "GASTRODON",
       "hp": 111,
       "atk": 83,
       "def": 68,
@@ -33248,7 +33248,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -33305,7 +33305,7 @@
       ]
     },
     {
-      "species": "SPECIES_AMBIPOM",
+      "species": "AMBIPOM",
       "hp": 75,
       "atk": 100,
       "def": 66,
@@ -33328,7 +33328,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 100,
       "growthRate": "FAST",
@@ -33393,7 +33393,7 @@
       ]
     },
     {
-      "species": "SPECIES_DRIFLOON",
+      "species": "DRIFLOON",
       "hp": 90,
       "atk": 50,
       "def": 34,
@@ -33416,7 +33416,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -33477,7 +33477,7 @@
       ]
     },
     {
-      "species": "SPECIES_DRIFBLIM",
+      "species": "DRIFBLIM",
       "hp": 150,
       "atk": 80,
       "def": 44,
@@ -33500,7 +33500,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "FLUCTUATING",
@@ -33564,7 +33564,7 @@
       ]
     },
     {
-      "species": "SPECIES_BUNEARY",
+      "species": "BUNEARY",
       "hp": 55,
       "atk": 66,
       "def": 44,
@@ -33587,7 +33587,7 @@
         "ITEM_NONE",
         "ITEM_CHOPLE_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 0,
       "growthRate": "MEDIUM_FAST",
@@ -33642,7 +33642,7 @@
       ]
     },
     {
-      "species": "SPECIES_LOPUNNY",
+      "species": "LOPUNNY",
       "hp": 65,
       "atk": 76,
       "def": 84,
@@ -33665,7 +33665,7 @@
         "ITEM_NONE",
         "ITEM_CHOPLE_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 140,
       "growthRate": "MEDIUM_FAST",
@@ -33726,7 +33726,7 @@
       ]
     },
     {
-      "species": "SPECIES_MISMAGIUS",
+      "species": "MISMAGIUS",
       "hp": 60,
       "atk": 60,
       "def": 60,
@@ -33749,7 +33749,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 35,
       "growthRate": "FAST",
@@ -33812,7 +33812,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_HONCHKROW",
+      "species": "HONCHKROW",
       "hp": 100,
       "atk": 125,
       "def": 52,
@@ -33835,7 +33835,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "MEDIUM_SLOW",
@@ -33895,7 +33895,7 @@
       ]
     },
     {
-      "species": "SPECIES_GLAMEOW",
+      "species": "GLAMEOW",
       "hp": 49,
       "atk": 55,
       "def": 42,
@@ -33918,7 +33918,7 @@
         "ITEM_NONE",
         "ITEM_CHERI_BERRY"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -33976,7 +33976,7 @@
       ]
     },
     {
-      "species": "SPECIES_PURUGLY",
+      "species": "PURUGLY",
       "hp": 71,
       "atk": 82,
       "def": 64,
@@ -33999,7 +33999,7 @@
         "ITEM_NONE",
         "ITEM_CHERI_BERRY"
       ],
-      "genderRatio": 191,
+      "genderRatio": 0.75,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "FAST",
@@ -34060,7 +34060,7 @@
       ]
     },
     {
-      "species": "SPECIES_CHINGLING",
+      "species": "CHINGLING",
       "hp": 45,
       "atk": 30,
       "def": 50,
@@ -34083,7 +34083,7 @@
         "ITEM_NONE",
         "ITEM_COLBUR_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "FAST",
@@ -34140,7 +34140,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_STUNKY",
+      "species": "STUNKY",
       "hp": 63,
       "atk": 63,
       "def": 47,
@@ -34163,7 +34163,7 @@
         "ITEM_NONE",
         "ITEM_PECHA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -34220,7 +34220,7 @@
       ]
     },
     {
-      "species": "SPECIES_SKUNTANK",
+      "species": "SKUNTANK",
       "hp": 103,
       "atk": 93,
       "def": 67,
@@ -34243,7 +34243,7 @@
         "ITEM_NONE",
         "ITEM_PECHA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -34304,7 +34304,7 @@
       ]
     },
     {
-      "species": "SPECIES_BRONZOR",
+      "species": "BRONZOR",
       "hp": 57,
       "atk": 24,
       "def": 86,
@@ -34327,7 +34327,7 @@
         "ITEM_NONE",
         "ITEM_METAL_COAT"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -34387,7 +34387,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_BRONZONG",
+      "species": "BRONZONG",
       "hp": 67,
       "atk": 89,
       "def": 116,
@@ -34410,7 +34410,7 @@
         "ITEM_NONE",
         "ITEM_METAL_COAT"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -34476,7 +34476,7 @@
       ]
     },
     {
-      "species": "SPECIES_BONSLY",
+      "species": "BONSLY",
       "hp": 50,
       "atk": 80,
       "def": 95,
@@ -34499,7 +34499,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -34547,7 +34547,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_MIME_JR",
+      "species": "MIME_JR",
       "hp": 20,
       "atk": 25,
       "def": 45,
@@ -34570,7 +34570,7 @@
         "ITEM_NONE",
         "ITEM_LEPPA_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -34635,7 +34635,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_HAPPINY",
+      "species": "HAPPINY",
       "hp": 100,
       "atk": 5,
       "def": 5,
@@ -34658,7 +34658,7 @@
         "ITEM_OVAL_STONE",
         "ITEM_LUCKY_PUNCH"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 40,
       "friendship": 140,
       "growthRate": "FAST",
@@ -34714,7 +34714,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_CHATOT",
+      "species": "CHATOT",
       "hp": 76,
       "atk": 65,
       "def": 45,
@@ -34737,7 +34737,7 @@
         "ITEM_NONE",
         "ITEM_METRONOME"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "MEDIUM_SLOW",
@@ -34786,7 +34786,7 @@
       ]
     },
     {
-      "species": "SPECIES_SPIRITOMB",
+      "species": "SPIRITOMB",
       "hp": 50,
       "atk": 92,
       "def": 108,
@@ -34809,7 +34809,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -34866,7 +34866,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_GIBLE",
+      "species": "GIBLE",
       "hp": 58,
       "atk": 70,
       "def": 45,
@@ -34889,7 +34889,7 @@
         "ITEM_NONE",
         "ITEM_HABAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -34946,7 +34946,7 @@
       ]
     },
     {
-      "species": "SPECIES_GABITE",
+      "species": "GABITE",
       "hp": 68,
       "atk": 90,
       "def": 65,
@@ -34969,7 +34969,7 @@
         "ITEM_NONE",
         "ITEM_HABAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -35027,7 +35027,7 @@
       ]
     },
     {
-      "species": "SPECIES_GARCHOMP",
+      "species": "GARCHOMP",
       "hp": 108,
       "atk": 130,
       "def": 95,
@@ -35050,7 +35050,7 @@
         "ITEM_NONE",
         "ITEM_HABAN_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -35116,7 +35116,7 @@
       ]
     },
     {
-      "species": "SPECIES_MUNCHLAX",
+      "species": "MUNCHLAX",
       "hp": 135,
       "atk": 85,
       "def": 40,
@@ -35139,7 +35139,7 @@
         "ITEM_LEFTOVERS",
         "ITEM_LEFTOVERS"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -35201,7 +35201,7 @@
       ]
     },
     {
-      "species": "SPECIES_RIOLU",
+      "species": "RIOLU",
       "hp": 40,
       "atk": 70,
       "def": 40,
@@ -35224,7 +35224,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -35281,7 +35281,7 @@
       ]
     },
     {
-      "species": "SPECIES_LUCARIO",
+      "species": "LUCARIO",
       "hp": 70,
       "atk": 110,
       "def": 70,
@@ -35304,7 +35304,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -35372,7 +35372,7 @@
       ]
     },
     {
-      "species": "SPECIES_HIPPOPOTAS",
+      "species": "HIPPOPOTAS",
       "hp": 68,
       "atk": 72,
       "def": 78,
@@ -35395,7 +35395,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -35443,7 +35443,7 @@
       ]
     },
     {
-      "species": "SPECIES_HIPPOWDON",
+      "species": "HIPPOWDON",
       "hp": 108,
       "atk": 112,
       "def": 118,
@@ -35466,7 +35466,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 30,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -35517,7 +35517,7 @@
       ]
     },
     {
-      "species": "SPECIES_SKORUPI",
+      "species": "SKORUPI",
       "hp": 40,
       "atk": 50,
       "def": 90,
@@ -35540,7 +35540,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -35600,7 +35600,7 @@
       ]
     },
     {
-      "species": "SPECIES_DRAPION",
+      "species": "DRAPION",
       "hp": 70,
       "atk": 90,
       "def": 110,
@@ -35623,7 +35623,7 @@
         "ITEM_NONE",
         "ITEM_POISON_BARB"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -35689,7 +35689,7 @@
       ]
     },
     {
-      "species": "SPECIES_CROAGUNK",
+      "species": "CROAGUNK",
       "hp": 48,
       "atk": 61,
       "def": 40,
@@ -35712,7 +35712,7 @@
         "ITEM_NONE",
         "ITEM_BLACK_SLUDGE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 10,
       "friendship": 100,
       "growthRate": "MEDIUM_FAST",
@@ -35774,7 +35774,7 @@
       ]
     },
     {
-      "species": "SPECIES_TOXICROAK",
+      "species": "TOXICROAK",
       "hp": 83,
       "atk": 106,
       "def": 65,
@@ -35797,7 +35797,7 @@
         "ITEM_NONE",
         "ITEM_BLACK_SLUDGE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -35864,7 +35864,7 @@
       ]
     },
     {
-      "species": "SPECIES_CARNIVINE",
+      "species": "CARNIVINE",
       "hp": 74,
       "atk": 100,
       "def": 72,
@@ -35887,7 +35887,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -35939,7 +35939,7 @@
       ]
     },
     {
-      "species": "SPECIES_FINNEON",
+      "species": "FINNEON",
       "hp": 49,
       "atk": 49,
       "def": 56,
@@ -35962,7 +35962,7 @@
         "ITEM_NONE",
         "ITEM_RINDO_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -36014,7 +36014,7 @@
       ]
     },
     {
-      "species": "SPECIES_LUMINEON",
+      "species": "LUMINEON",
       "hp": 69,
       "atk": 69,
       "def": 76,
@@ -36037,7 +36037,7 @@
         "ITEM_NONE",
         "ITEM_RINDO_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "ERRATIC",
@@ -36091,7 +36091,7 @@
       ]
     },
     {
-      "species": "SPECIES_MANTYKE",
+      "species": "MANTYKE",
       "hp": 45,
       "atk": 20,
       "def": 50,
@@ -36114,7 +36114,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -36160,7 +36160,7 @@
       ]
     },
     {
-      "species": "SPECIES_SNOVER",
+      "species": "SNOVER",
       "hp": 60,
       "atk": 62,
       "def": 50,
@@ -36183,7 +36183,7 @@
         "ITEM_NONE",
         "ITEM_NEVERMELTICE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -36236,7 +36236,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ABOMASNOW",
+      "species": "ABOMASNOW",
       "hp": 90,
       "atk": 92,
       "def": 75,
@@ -36259,7 +36259,7 @@
         "ITEM_NONE",
         "ITEM_NEVERMELTICE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -36325,7 +36325,7 @@
       ]
     },
     {
-      "species": "SPECIES_WEAVILE",
+      "species": "WEAVILE",
       "hp": 70,
       "atk": 120,
       "def": 65,
@@ -36348,7 +36348,7 @@
         "ITEM_GRIP_CLAW",
         "ITEM_QUICK_CLAW"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "MEDIUM_SLOW",
@@ -36420,7 +36420,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAGNEZONE",
+      "species": "MAGNEZONE",
       "hp": 70,
       "atk": 70,
       "def": 115,
@@ -36443,7 +36443,7 @@
         "ITEM_NONE",
         "ITEM_METAL_COAT"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -36494,7 +36494,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_LICKILICKY",
+      "species": "LICKILICKY",
       "hp": 110,
       "atk": 85,
       "def": 95,
@@ -36517,7 +36517,7 @@
         "ITEM_NONE",
         "ITEM_LAGGING_TAIL"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -36589,7 +36589,7 @@
       ]
     },
     {
-      "species": "SPECIES_RHYPERIOR",
+      "species": "RHYPERIOR",
       "hp": 115,
       "atk": 140,
       "def": 130,
@@ -36612,7 +36612,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -36687,7 +36687,7 @@
       ]
     },
     {
-      "species": "SPECIES_TANGROWTH",
+      "species": "TANGROWTH",
       "hp": 100,
       "atk": 100,
       "def": 125,
@@ -36710,7 +36710,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -36774,7 +36774,7 @@
       ]
     },
     {
-      "species": "SPECIES_ELECTIVIRE",
+      "species": "ELECTIVIRE",
       "hp": 75,
       "atk": 123,
       "def": 67,
@@ -36797,7 +36797,7 @@
         "ITEM_ELECTIRIZER",
         "ITEM_NONE"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -36861,7 +36861,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAGMORTAR",
+      "species": "MAGMORTAR",
       "hp": 75,
       "atk": 95,
       "def": 67,
@@ -36884,7 +36884,7 @@
         "ITEM_NONE",
         "ITEM_MAGMARIZER"
       ],
-      "genderRatio": 63,
+      "genderRatio": 0.25,
       "eggCycles": 25,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -36945,7 +36945,7 @@
       ]
     },
     {
-      "species": "SPECIES_TOGEKISS",
+      "species": "TOGEKISS",
       "hp": 85,
       "atk": 50,
       "def": 95,
@@ -36968,7 +36968,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "FAST",
@@ -37036,7 +37036,7 @@
       ]
     },
     {
-      "species": "SPECIES_YANMEGA",
+      "species": "YANMEGA",
       "hp": 86,
       "atk": 76,
       "def": 86,
@@ -37059,7 +37059,7 @@
         "ITEM_NONE",
         "ITEM_WIDE_LENS"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -37113,7 +37113,7 @@
       ]
     },
     {
-      "species": "SPECIES_LEAFEON",
+      "species": "LEAFEON",
       "hp": 65,
       "atk": 110,
       "def": 130,
@@ -37136,7 +37136,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 35,
       "friendship": 35,
       "growthRate": "MEDIUM_FAST",
@@ -37192,7 +37192,7 @@
       ]
     },
     {
-      "species": "SPECIES_GLACEON",
+      "species": "GLACEON",
       "hp": 65,
       "atk": 60,
       "def": 110,
@@ -37215,7 +37215,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 31,
+      "genderRatio": 0.125,
       "eggCycles": 35,
       "friendship": 35,
       "growthRate": "MEDIUM_FAST",
@@ -37267,7 +37267,7 @@
       ]
     },
     {
-      "species": "SPECIES_GLISCOR",
+      "species": "GLISCOR",
       "hp": 75,
       "atk": 95,
       "def": 125,
@@ -37290,7 +37290,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_SLOW",
@@ -37360,7 +37360,7 @@
       ]
     },
     {
-      "species": "SPECIES_MAMOSWINE",
+      "species": "MAMOSWINE",
       "hp": 110,
       "atk": 130,
       "def": 80,
@@ -37383,7 +37383,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -37440,7 +37440,7 @@
       ]
     },
     {
-      "species": "SPECIES_PORYGON_Z",
+      "species": "PORYGON_Z",
       "hp": 85,
       "atk": 80,
       "def": 70,
@@ -37463,7 +37463,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -37521,7 +37521,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_GALLADE",
+      "species": "GALLADE",
       "hp": 68,
       "atk": 125,
       "def": 65,
@@ -37544,7 +37544,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 0,
+      "genderRatio": 0.0,
       "eggCycles": 20,
       "friendship": 35,
       "growthRate": "SLOW",
@@ -37624,7 +37624,7 @@
       ]
     },
     {
-      "species": "SPECIES_PROBOPASS",
+      "species": "PROBOPASS",
       "hp": 60,
       "atk": 55,
       "def": 145,
@@ -37647,7 +37647,7 @@
         "ITEM_NONE",
         "ITEM_HARD_STONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -37704,7 +37704,7 @@
       ]
     },
     {
-      "species": "SPECIES_DUSKNOIR",
+      "species": "DUSKNOIR",
       "hp": 45,
       "atk": 100,
       "def": 135,
@@ -37727,7 +37727,7 @@
         "ITEM_NONE",
         "ITEM_KASIB_BERRY"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 25,
       "friendship": 35,
       "growthRate": "FAST",
@@ -37796,7 +37796,7 @@
       ]
     },
     {
-      "species": "SPECIES_FROSLASS",
+      "species": "FROSLASS",
       "hp": 70,
       "atk": 80,
       "def": 70,
@@ -37819,7 +37819,7 @@
         "ITEM_NONE",
         "ITEM_BABIRI_BERRY"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -37880,7 +37880,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ROTOM",
+      "species": "ROTOM",
       "hp": 50,
       "atk": 50,
       "def": 77,
@@ -37903,7 +37903,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 20,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -37954,7 +37954,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_UXIE",
+      "species": "UXIE",
       "hp": 75,
       "atk": 75,
       "def": 130,
@@ -37977,7 +37977,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 140,
       "growthRate": "SLOW",
@@ -38042,7 +38042,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_MESPRIT",
+      "species": "MESPRIT",
       "hp": 80,
       "atk": 105,
       "def": 105,
@@ -38065,7 +38065,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 140,
       "growthRate": "SLOW",
@@ -38130,7 +38130,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_AZELF",
+      "species": "AZELF",
       "hp": 75,
       "atk": 125,
       "def": 70,
@@ -38153,7 +38153,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 80,
       "friendship": 140,
       "growthRate": "SLOW",
@@ -38222,7 +38222,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_DIALGA",
+      "species": "DIALGA",
       "hp": 100,
       "atk": 120,
       "def": 120,
@@ -38245,7 +38245,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -38315,7 +38315,7 @@
       ]
     },
     {
-      "species": "SPECIES_PALKIA",
+      "species": "PALKIA",
       "hp": 90,
       "atk": 120,
       "def": 100,
@@ -38338,7 +38338,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -38411,7 +38411,7 @@
       ]
     },
     {
-      "species": "SPECIES_HEATRAN",
+      "species": "HEATRAN",
       "hp": 91,
       "atk": 90,
       "def": 106,
@@ -38434,7 +38434,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 127,
+      "genderRatio": 0.5,
       "eggCycles": 10,
       "friendship": 100,
       "growthRate": "SLOW",
@@ -38496,7 +38496,7 @@
       ]
     },
     {
-      "species": "SPECIES_REGIGIGAS",
+      "species": "REGIGIGAS",
       "hp": 110,
       "atk": 160,
       "def": 110,
@@ -38519,7 +38519,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -38577,7 +38577,7 @@
       ]
     },
     {
-      "species": "SPECIES_GIRATINA",
+      "species": "GIRATINA",
       "hp": 150,
       "atk": 100,
       "def": 120,
@@ -38600,7 +38600,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -38670,7 +38670,7 @@
       ]
     },
     {
-      "species": "SPECIES_CRESSELIA",
+      "species": "CRESSELIA",
       "hp": 120,
       "atk": 70,
       "def": 120,
@@ -38693,7 +38693,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 120,
       "friendship": 100,
       "growthRate": "SLOW",
@@ -38751,7 +38751,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_PHIONE",
+      "species": "PHIONE",
       "hp": 80,
       "atk": 80,
       "def": 80,
@@ -38774,7 +38774,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 40,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -38822,7 +38822,7 @@
       ]
     },
     {
-      "species": "SPECIES_MANAPHY",
+      "species": "MANAPHY",
       "hp": 100,
       "atk": 100,
       "def": 100,
@@ -38845,7 +38845,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 10,
       "friendship": 70,
       "growthRate": "SLOW",
@@ -38903,7 +38903,7 @@
       ]
     },
     {
-      "species": "SPECIES_DARKRAI",
+      "species": "DARKRAI",
       "hp": 70,
       "atk": 90,
       "def": 90,
@@ -38926,7 +38926,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -39003,7 +39003,7 @@
       ]
     },
     {
-      "species": "SPECIES_SHAYMIN",
+      "species": "SHAYMIN",
       "hp": 100,
       "atk": 100,
       "def": 100,
@@ -39026,7 +39026,7 @@
         "ITEM_LUM_BERRY",
         "ITEM_LUM_BERRY"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 100,
       "growthRate": "MEDIUM_SLOW",
@@ -39073,7 +39073,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_ARCEUS",
+      "species": "ARCEUS",
       "hp": 120,
       "atk": 120,
       "def": 120,
@@ -39096,7 +39096,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -39196,7 +39196,7 @@
       ]
     },
     {
-      "species": "SPECIES_EGG",
+      "species": "EGG",
       "hp": 10,
       "atk": 10,
       "def": 10,
@@ -39219,7 +39219,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -39238,7 +39238,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_MANAPHY_EGG",
+      "species": "MANAPHY_EGG",
       "hp": 10,
       "atk": 10,
       "def": 10,
@@ -39261,7 +39261,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -39280,7 +39280,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_DEOXYS_ATK",
+      "species": "DEOXYS_ATK",
       "hp": 50,
       "atk": 180,
       "def": 20,
@@ -39303,7 +39303,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -39382,7 +39382,7 @@
       ]
     },
     {
-      "species": "SPECIES_DEOXYS_DEF",
+      "species": "DEOXYS_DEF",
       "hp": 50,
       "atk": 70,
       "def": 160,
@@ -39405,7 +39405,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -39484,7 +39484,7 @@
       ]
     },
     {
-      "species": "SPECIES_DEOXYS_SPD",
+      "species": "DEOXYS_SPD",
       "hp": 50,
       "atk": 95,
       "def": 90,
@@ -39507,7 +39507,7 @@
         "ITEM_NONE",
         "ITEM_NONE"
       ],
-      "genderRatio": 255,
+      "genderRatio": 2,
       "eggCycles": 120,
       "friendship": 0,
       "growthRate": "SLOW",
@@ -39586,7 +39586,7 @@
       ]
     },
     {
-      "species": "SPECIES_WORMADAM_SANDY",
+      "species": "WORMADAM_SANDY",
       "hp": 60,
       "atk": 79,
       "def": 105,
@@ -39609,7 +39609,7 @@
         "ITEM_NONE",
         "ITEM_SILVERPOWDER"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",
@@ -39661,7 +39661,7 @@
       "hms": []
     },
     {
-      "species": "SPECIES_WORMADAM_TRASH",
+      "species": "WORMADAM_TRASH",
       "hp": 60,
       "atk": 69,
       "def": 95,
@@ -39684,7 +39684,7 @@
         "ITEM_NONE",
         "ITEM_SILVERPOWDER"
       ],
-      "genderRatio": 254,
+      "genderRatio": 1.0,
       "eggCycles": 15,
       "friendship": 70,
       "growthRate": "MEDIUM_FAST",

@@ -269,8 +269,14 @@
 #define MON_DATA_SPECIES_NAME       178
 
 #define MON_RATIO_MALE           0
+#define MON_RATIO_EIGHTH        31
+#define MON_RATIO_QUARTER       63
+#define MON_RATIO_HALF         127
+#define MON_RATIO_THREEQUARTER 191
 #define MON_RATIO_FEMALE       254
 #define MON_RATIO_UNKNOWN      255
+
+#define GENDER_RATIO(frac) ( (frac) <= 1 ? (u8)((frac) * 254.75) : 255 )
 
 enum MonGender
 {
