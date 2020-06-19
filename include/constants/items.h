@@ -128,7 +128,9 @@
 #define ITEM_AIR_MAIL            146
 #define ITEM_MOSAIC_MAIL         147
 #define ITEM_BRICK_MAIL          148
+
 #define ITEM_CHERI_BERRY         149
+#define FIRST_BERRY_IDX ITEM_CHERI_BERRY
 #define ITEM_CHESTO_BERRY        150
 #define ITEM_PECHA_BERRY         151
 #define ITEM_RAWST_BERRY         152

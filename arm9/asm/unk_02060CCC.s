@@ -1535,7 +1535,7 @@ FUN_02061750: ; 0x02061750
 	sub r0, #0x95
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_020852E8
+	bl GetNutName
 	add r4, r0, #0x0
 	mov r1, #0x1
 	str r1, [sp, #0x0]
