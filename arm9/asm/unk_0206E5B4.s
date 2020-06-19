@@ -723,21 +723,21 @@ _0206E72C:
 	ldr r1, _0206E75C ; =UNK_020F85B4
 	lsl r3, r3, #0x3
 	ldrh r1, [r1, r3]
-	mov r0, #0xf
+	mov r0, #0xf ; NARC_ITEMTOOL_ITEMDATA_ITEM_DATA
 	bl AllocAndReadWholeNarcMemberByIdPair
 	pop {r3, pc}
 _0206E73A:
 	ldr r1, _0206E760 ; =UNK_020F85B4 + 2
 	lsl r3, r3, #0x3
 	ldrh r1, [r1, r3]
-	mov r0, #0x10
+	mov r0, #0x10 ; NARC_ITEMTOOL_ITEMDATA_ITEM_ICON
 	bl AllocAndReadWholeNarcMemberByIdPair
 	pop {r3, pc}
 _0206E748:
 	ldr r1, _0206E764 ; =UNK_020F85B4 + 4
 	lsl r3, r3, #0x3
 	ldrh r1, [r1, r3]
-	mov r0, #0x10
+	mov r0, #0x10 ; NARC_ITEMTOOL_ITEMDATA_ITEM_ICON
 	bl AllocAndReadWholeNarcMemberByIdPair
 	pop {r3, pc}
 _0206E756:
@@ -756,7 +756,7 @@ FUN_0206E768: ; 0x0206E768
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	mov r0, #0x1
-	mov r1, #0x1a
+	mov r1, #0x1a ; NARC_MSGDATA_MSG
 	lsl r2, r2, #0x2
 	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
@@ -776,7 +776,7 @@ FUN_0206E790: ; 0x0206E790
 	add r4, r1, #0x0
 	ldr r2, _0206E7B4 ; =0x00000157
 	mov r0, #0x1
-	mov r1, #0x1a
+	mov r1, #0x1a ; NARC_MSGDATA_MSG
 	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	add r1, r4, #0x0
@@ -1376,7 +1376,7 @@ FUN_0206EB50: ; 0x0206EB50
 	mul r1, r0
 	str r1, [sp, #0x0]
 	mov r1, #0x0
-	mov r0, #0xf
+	mov r0, #0xf ; NARC_ITEMTOOL_ITEMDATA_ITEM_DATA
 	add r2, r4, #0x0
 	add r3, r1, #0x0
 	bl AllocAndReadFromNarcMemberByIdPair
