@@ -20,12 +20,12 @@ void CloseNutsDataNarc(NARC * narc)
     NARC_dtor(narc);
 }
 
-struct NutData * LoadNutDataSingle(u32 berry_idx, u32 heap_id)
+struct NutData * LoadNutDataSingle(s32 berry_idx, u32 heap_id)
 {
     return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_NUTS_DATA, berry_idx, heap_id);
 }
 
-struct NutData * LoadNutDataSingleByItemId(u32 item_id, u32 heap_id)
+struct NutData * LoadNutDataSingleByItemId(s32 item_id, u32 heap_id)
 {
     return LoadNutDataSingle(item_id - FIRST_BERRY_IDX, heap_id);
 }
