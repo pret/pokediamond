@@ -119,13 +119,3 @@ _037F9B50:
 	ldmia	sp!, {r4, r5, r6, r7, lr}
 	bx	lr
 _037F9B64:	.word	OSi_ThreadInfo
-
-	arm_func_start OS_InitMutex
-OS_InitMutex: ; 0x037F9B68
-	mov	r2, #0
-	str	r2, [r0, #4]
-	ldr	r1, [r0, #4]
-	str	r1, [r0]
-	str	r2, [r0, #8]
-	str	r2, [r0, #12]
-	bx	lr
