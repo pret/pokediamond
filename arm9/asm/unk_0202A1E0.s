@@ -907,7 +907,7 @@ FUN_0202A798: ; 0x0202A798
 	lsr r1, r1, #0x1f
 	add r1, #0x16
 	add r2, #0x8
-	bl DecryptCopyString
+	bl ReadMsgDataIntoU16Array
 	ldr r0, [sp, #0x0]
 	bl DestroyMsgData
 	b _0202A7FC

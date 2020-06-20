@@ -794,7 +794,7 @@ MOD85_021D7B28: ; 0x021D7B28
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0x4f
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x18]
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -824,7 +824,7 @@ MOD85_021D7BB8: ; 0x021D7BB8
 	ldr r0, [r4, #4]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x18]
-	bl FUN_02021A20
+	bl String_dtor
 	pop {r4, r5, r6, pc}
 	nop
 _021D7BE8: .word 0x00000408
@@ -852,7 +852,7 @@ MOD85_021D7BEC: ; 0x021D7BEC
 	ldr r2, [r4, #0x18]
 	ldr r0, [r5, r0]
 	add r1, r6, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff

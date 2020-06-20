@@ -4336,7 +4336,7 @@ MOD15_021D95E8: ; 0x021D95E8
 	str r0, [r4, #0x44]
 	mov r0, #0x80
 	mov r1, #0x23
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x4c]
 	ldr r2, _021D9630 ; =0x00000182
 	mov r0, #0
@@ -4384,7 +4384,7 @@ _021D966A:
 	ldr r0, [r4, #0x4c]
 	cmp r0, #0
 	beq _021D9674
-	bl FUN_02021A20
+	bl String_dtor
 _021D9674:
 	add r0, r4, #0
 	add r0, #0xc
@@ -4933,7 +4933,7 @@ _021D9ADE:
 	str r0, [sp, #0x10]
 	bl MOD15_021D9B30
 	ldr r0, [sp, #0x1c]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x18]
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
@@ -4949,7 +4949,7 @@ MOD15_021D9B04: ; 0x021D9B04
 	mov r1, #0x23
 	bl MOD15_021D8720
 	str r0, [r4]
-	bl FUN_02021F2C
+	bl String_c_str
 	str r0, [r4, #4]
 	ldrh r1, [r0]
 	ldr r0, _021D9B2C ; =0x0000FFFE
@@ -4967,11 +4967,11 @@ _021D9B2C: .word 0x0000FFFE
 
 	thumb_func_start MOD15_021D9B30
 MOD15_021D9B30: ; 0x021D9B30
-	ldr r3, _021D9B38 ; =FUN_02021A20
+	ldr r3, _021D9B38 ; =String_dtor
 	ldr r0, [r0]
 	bx r3
 	nop
-_021D9B38: .word FUN_02021A20
+_021D9B38: .word String_dtor
 
 	thumb_func_start MOD15_021D9B3C
 MOD15_021D9B3C: ; 0x021D9B3C
@@ -5217,7 +5217,7 @@ _021D9CDC:
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0
-	bl FUN_020219F4
+	bl String_ctor
 	mov r1, #0
 	add r6, r0, #0
 	add r0, r5, #0
@@ -5228,11 +5228,11 @@ _021D9CDC:
 	add r1, r0, #0
 	ldr r0, [r4, #0x48]
 	ldr r2, [r4, #0x4c]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r2, [r4, #0x4c]
 	add r0, r5, #0
 	add r1, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -5246,7 +5246,7 @@ _021D9CDC:
 	str r3, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r5, #0
 	bl FUN_0200AB18
 	b _021D9DB0
@@ -5254,7 +5254,7 @@ _021D9D40:
 	ldr r0, [r4, #0x48]
 	ldr r2, [r4, #0x4c]
 	mov r1, #6
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -5272,7 +5272,7 @@ _021D9D66:
 	ldr r0, [r4, #0x48]
 	ldr r2, [r4, #0x4c]
 	mov r1, #7
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -5290,7 +5290,7 @@ _021D9D8C:
 	ldr r0, [r4, #0x48]
 	ldr r2, [r4, #0x4c]
 	mov r1, #8
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -5466,7 +5466,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	ldr r0, [r5, #0x48]
 	ldr r2, [r5, #0x4c]
 	mov r1, #9
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -5482,7 +5482,7 @@ MOD15_021D9ECC: ; 0x021D9ECC
 	ldr r0, [r5, #0x48]
 	ldr r2, [r5, #0x4c]
 	mov r1, #0xa
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0x10
 	str r0, [sp]
 	mov r0, #0xff
@@ -5655,7 +5655,7 @@ MOD15_021DA044: ; 0x021DA044
 	mov r0, #0x1a
 	add r2, r4, #0
 	mov r3, #0x23
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	add r4, r0, #0
 	mov r0, #0
 	add r1, r4, #0
@@ -5678,7 +5678,7 @@ MOD15_021DA044: ; 0x021DA044
 	add r0, sp, #0x10
 	bl FUN_02019548
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, sp, #0x10
 	bl FUN_02019178
 	add sp, #0x20
@@ -5982,7 +5982,7 @@ _021DA2E4:
 	beq _021DA302
 	ldr r0, [sp, #0x20]
 	add r1, r4, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	ldr r0, _021DA3A8 ; =0x0001020F
 	str r0, [sp, #0x1c]
@@ -5990,7 +5990,7 @@ _021DA2E4:
 _021DA302:
 	ldr r0, [sp, #0x20]
 	mov r1, #0xc
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	ldr r0, _021DA3AC ; =0x0003040F
 	str r0, [sp, #0x1c]
@@ -6046,7 +6046,7 @@ _021DA31A:
 	add r0, sp, #0x28
 	bl FUN_02019548
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, sp, #0x28
 	bl FUN_02019178
 	add r4, r4, #1
@@ -6098,7 +6098,7 @@ _021DA3CC:
 	bl FUN_02019064
 	mov r0, #4
 	mov r1, #0x23
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0
 	add r0, sp, #0x20
 	mov r1, #0xf
@@ -6147,7 +6147,7 @@ _021DA452:
 	add r0, sp, #0x20
 	bl FUN_02019270
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, sp, #0x20
 	bl FUN_02019178
 	ldr r0, [sp, #0x14]
@@ -6173,7 +6173,7 @@ MOD15_021DA480: ; 0x021DA480
 	bl NewMsgDataFromNarc
 	mov r1, #0xd
 	str r0, [sp, #0x20]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [sp, #0x1c]
 	mov r0, #0
 	ldr r1, [sp, #0x1c]
@@ -6241,7 +6241,7 @@ _021DA4C2:
 	cmp r7, #2
 	blo _021DA4B6
 	ldr r0, [sp, #0x1c]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x20]
 	bl DestroyMsgData
 	add r0, r5, #0
@@ -6667,7 +6667,7 @@ MOD15_021DA828: ; 0x021DA828
 	str r0, [r4, #0xc]
 	mov r0, #0x20
 	mov r1, #0x23
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x3c]
 	mov r0, #0
 	str r0, [sp]
@@ -6730,7 +6730,7 @@ _021DA8C6:
 	ldr r0, [r4, #0x3c]
 	cmp r0, #0
 	beq _021DA8D0
-	bl FUN_02021A20
+	bl String_dtor
 _021DA8D0:
 	add r0, r4, #0
 	add r0, #0x20
@@ -7649,25 +7649,25 @@ MOD15_021DAFF8: ; 0x021DAFF8
 	mov r0, #0x1a
 	mov r2, #0xb
 	mov r3, #0x23
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	str r0, [sp, #4]
 	ldr r1, _021DB0F8 ; =0x00000182
 	mov r0, #0x1a
 	mov r2, #0xc
 	mov r3, #0x23
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	add r7, r0, #0
 	ldr r1, _021DB0F8 ; =0x00000182
 	mov r0, #0x1a
 	mov r2, #0xd
 	mov r3, #0x23
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	add r6, r0, #0
 	ldr r1, _021DB0F8 ; =0x00000182
 	mov r0, #0x1a
 	mov r2, #0xe
 	mov r3, #0x23
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	add r4, r0, #0
 	mov r0, #0x23
 	str r0, [sp]
@@ -7737,13 +7737,13 @@ MOD15_021DAFF8: ; 0x021DAFF8
 	bl FreeToHeap
 _021DB0D4:
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #4]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #2
 	bl FUN_02002CF8
 	add sp, #0x20

@@ -40,12 +40,12 @@ FUN_02014518: ; 0x02014518
 _0201453E:
 	mov r0, #0x16
 	add r1, r7, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r5, #0x4]
 	ldr r0, [r6, #0x0]
 	ldr r2, [r5, #0x4]
 	add r1, r4, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x1d
@@ -64,7 +64,7 @@ FUN_02014564: ; 0x02014564
 	add r5, #0x70
 _0201456E:
 	ldr r0, [r5, #0x4]
-	bl FUN_02021A20
+	bl String_dtor
 	sub r5, r5, #0x4
 	sub r4, r4, #0x1
 	bpl _0201456E

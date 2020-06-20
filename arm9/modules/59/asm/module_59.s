@@ -960,17 +960,17 @@ _021D7C5E:
 	mov r0, #1
 	ldr r1, [r5]
 	lsl r0, r0, #0xa
-	bl FUN_020219F4
+	bl String_ctor
 	add r6, r0, #0
 	mov r0, #1
 	ldr r1, [r5]
 	lsl r0, r0, #0xa
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r5, #0x5c]
 	ldr r0, [r5, #0x4c]
 	add r1, r7, #0
 	add r2, r6, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #2
@@ -995,9 +995,9 @@ _021D7C5E:
 	ldr r0, [r5, #0x64]
 	ldr r1, [r5, #0x5c]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r5, #8]
 	bl FUN_02024FF4
 	add r3, r4, #0
@@ -1021,7 +1021,7 @@ _021D7D1C:
 	cmp r0, #0
 	bne _021D7D54
 	ldr r0, [r5, #0x5c]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #2
 	str r0, [r5, #0x50]
 	b _021D7D54
@@ -1258,12 +1258,12 @@ _021D7EFA:
 	mov r0, #1
 	ldr r1, [r4]
 	lsl r0, r0, #0xa
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x5c]
 	ldr r0, [r4, #0x4c]
 	ldr r1, [sp, #0x10]
 	ldr r2, [r4, #0x5c]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	cmp r6, #1
 	add r0, sp, #0x14
 	bne _021D7F7C
@@ -1350,7 +1350,7 @@ _021D7F7C:
 	bl FUN_0201BDE0
 _021D7FCC:
 	ldr r0, [r4, #0x5c]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #1
 	str r0, [r4, #0x54]
 	b _021D803C
@@ -4008,7 +4008,7 @@ _021D9532:
 _021D953C:
 	ldr r0, [r4, #0x70]
 	ldr r0, [r0, #0x18]
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	mov r0, #0x3f
 	str r0, [r4, #0x10]
 	mov r0, #0x51
@@ -4155,14 +4155,14 @@ _021D964C:
 _021D9652:
 	ldr r1, [r0, r1]
 	ldr r0, [r4, #0x4c]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	ldr r0, [r4, #0x74]
 	add r1, r6, #0
 	ldr r0, [r0, #0x18]
-	bl FUN_02021A74
+	bl StringCopy
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x5b
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -4257,7 +4257,7 @@ _021D971C:
 _021D972A:
 	ldr r0, [r4, #0x74]
 	ldr r0, [r0, #0x18]
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	mov r0, #0x58
 	str r0, [r4, #0xc]
 	b _021D985C
@@ -4923,12 +4923,12 @@ _021D9C9A:
 	mov r0, #1
 	ldr r1, [r4]
 	lsl r0, r0, #0xa
-	bl FUN_020219F4
+	bl String_ctor
 	add r6, r0, #0
 	ldr r0, [r4, #8]
 	ldr r1, [sp, #0x10]
 	add r2, r6, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r1, r4, #0
 	ldr r0, [r4, #4]
 	ldr r2, _021D9D6C ; =0x021DA04C
@@ -4964,7 +4964,7 @@ _021D9C9A:
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0
 	add r0, #0x10
 	bl FUN_020191D0

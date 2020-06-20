@@ -1562,7 +1562,7 @@ _0225548C:
 	sub r5, r4, #2
 	mov r0, #0xa
 	mov r1, #0x59
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r5, #0
@@ -1581,13 +1581,13 @@ _0225548C:
 	add r3, r1, #0
 	bl FUN_0200ABB4
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 _022554CA:
 	ldr r1, [sp, #8]
 	add r0, r7, #0
 	mov r2, #0xce
 	mov r3, #0x59
-	bl FUN_0200A9C4
+	bl ReadMsgData_ExpandPlaceholders
 	str r0, [sp, #0xc]
 _022554D8:
 	ldr r0, [sp, #0xc]
@@ -1629,7 +1629,7 @@ _0225550A:
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _0225551E
-	bl FUN_02021A20
+	bl String_dtor
 _0225551E:
 	ldr r1, [r5]
 	mov r0, #0x1c
@@ -1638,7 +1638,7 @@ _0225551E:
 	ldr r0, [r0, #8]
 	cmp r0, #0
 	beq _02255530
-	bl FUN_02021A20
+	bl String_dtor
 _02255530:
 	ldr r0, [sp, #8]
 	bl FUN_0202398C

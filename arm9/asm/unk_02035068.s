@@ -651,7 +651,7 @@ _02035526:
 	add r6, r0, #0x0
 	mov r0, #0x8
 	mov r1, #0xb
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r4, r5
 	add r1, #0x30
 	ldrb r1, [r1, #0x0]
@@ -660,7 +660,7 @@ _02035526:
 	lsl r2, r1, #0x3
 	ldr r1, _02035664 ; =UNK_020F2ACC
 	ldr r1, [r1, r2]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x1c]
 	ldr r0, [r0, #0xc]
@@ -672,7 +672,7 @@ _02035526:
 	ldr r2, [sp, #0x20]
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r2, r4, r5
 	add r2, #0x30
 	ldrb r2, [r2, #0x0]
@@ -680,9 +680,9 @@ _02035526:
 	add r1, r7, #0x0
 	bl FUN_020128A0
 	ldr r0, [sp, #0x20]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r6, #0x0
 	bl FUN_0200AB18
 	b _020355A2
@@ -970,11 +970,11 @@ _0203576C:
 	cmp r6, #0x0
 	bne _020357D0
 	mov r1, #0x9
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	b _020357D6
 _020357D0:
 	mov r1, #0xa
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 _020357D6:
 	mov r1, #0x0
 	add r7, r0, #0x0
@@ -988,17 +988,17 @@ _020357D6:
 	str r1, [sp, #0x8]
 	bl FUN_0201BD84
 	add r0, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0xb
 	bl FUN_0200AA80
 	add r7, r0, #0x0
 	mov r0, #0x20
 	mov r1, #0xb
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x1c]
 	mov r1, #0xb
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [sp, #0x14]
 	cmp r6, #0x0
 	bne _02035834
@@ -1030,7 +1030,7 @@ _0203584C:
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x14]
 	add r0, r7, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x10
 	str r0, [sp, #0x0]
 	mov r0, #0xff
@@ -1043,9 +1043,9 @@ _0203584C:
 	str r1, [sp, #0x8]
 	bl FUN_0201BD84
 	ldr r0, [sp, #0x18]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x14]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r7, #0x0
 	bl FUN_0200AB18
 	ldr r0, [sp, #0x1c]

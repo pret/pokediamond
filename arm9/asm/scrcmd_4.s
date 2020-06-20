@@ -495,7 +495,7 @@ FUN_02040A7C: ; 0x02040A7C
 	add r2, r6, #0x0
 	bl FUN_0200ABB4
 	add r0, r6, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -512,7 +512,7 @@ FUN_02040AE4: ; 0x02040AE4
 	bl NewMsgDataFromNarc
 	add r5, r0, #0x0
 	add r1, r4, #0x0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl DestroyMsgData
@@ -553,7 +553,7 @@ FUN_02040B0C: ; 0x02040B0C
 	mov r3, #0x0
 	bl FUN_0200ABB4
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -590,7 +590,7 @@ FUN_02040B5C: ; 0x02040B5C
 	mov r3, #0x0
 	bl FUN_0200ABB4
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -627,7 +627,7 @@ FUN_02040BAC: ; 0x02040BAC
 	mov r3, #0x0
 	bl FUN_0200ABB4
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r4-r6, pc}
@@ -720,7 +720,7 @@ FUN_02040CA4: ; 0x02040CA4
 	add r5, r0, #0x0
 	mov r0, #0x16
 	mov r1, #0x4
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x80
@@ -751,7 +751,7 @@ FUN_02040CA4: ; 0x02040CA4
 	mov r3, #0x0
 	bl FUN_0200ABB4
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -808,7 +808,7 @@ _02040D5C:
 	mov r3, #0x0
 	bl FUN_0200ABB4
 	add r0, r5, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r3-r7, pc}
@@ -884,7 +884,7 @@ FUN_02040DEC: ; 0x02040DEC
 	mov r0, #0xb
 	ldrb r6, [r1, #0x0]
 	add r1, r0, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	add r5, #0x80
 	add r4, r0, #0x0
 	ldr r0, [r5, #0x0]
@@ -904,7 +904,7 @@ FUN_02040DEC: ; 0x02040DEC
 	add r2, r4, #0x0
 	bl FUN_0200ABB4
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	add sp, #0x8
 	pop {r3-r7, pc}

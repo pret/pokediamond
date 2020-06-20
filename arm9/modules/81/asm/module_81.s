@@ -46,7 +46,7 @@ _02237E84:
 	mov r0, #0x19
 	lsl r0, r0, #4
 	mov r1, #0x39
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x14]
 	ldr r2, _02237FD4 ; =0x00000137
 	mov r0, #0
@@ -228,7 +228,7 @@ MOD81_02238004: ; 0x02238004
 	ldr r0, [r4, #0x10]
 	bl DestroyMsgData
 	ldr r0, [r4, #0x14]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #8]
 	bl FreeToHeap
 	ldr r0, [r4, #0x18]
@@ -2026,12 +2026,12 @@ MOD81_02238D18: ; 0x02238D18
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0x3a
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x54]
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0x3a
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x58]
 	mov r0, #0
 	str r0, [r4, #0x64]
@@ -2052,9 +2052,9 @@ MOD81_02238D64: ; 0x02238D64
 	add r0, r4, #0
 	bl MOD81_02239498
 	ldr r0, [r4, #0x54]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x58]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x5c]
 	bl MOD81_0223890C
 	ldr r0, [r4, #0x40]
@@ -2463,11 +2463,11 @@ _022390F0:
 _022390F4:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r4, #0x54]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0x58]
 	ldr r2, [r4, #0x54]
 	add r0, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -2505,11 +2505,11 @@ _02239138:
 	ldr r2, [r4, #0x54]
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0x58]
 	ldr r2, [r4, #0x54]
 	add r0, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4]
 	bl MOD81_02238818
 	mov r1, #0x4c
@@ -9081,12 +9081,12 @@ MOD81_0223C530: ; 0x0223C530
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0x3a
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x58]
 	mov r0, #0x4b
 	lsl r0, r0, #2
 	mov r1, #0x3a
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x5c]
 	mov r0, #0
 	str r0, [r4, #0x68]
@@ -9109,9 +9109,9 @@ MOD81_0223C580: ; 0x0223C580
 	ldr r0, [r4, #0x6c]
 	bl MOD81_0223CDE0
 	ldr r0, [r4, #0x58]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x5c]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x60]
 	cmp r0, #0
 	beq _0223C5AC
@@ -9587,11 +9587,11 @@ _0223C97E:
 _0223C982:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r4, #0x58]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0x5c]
 	ldr r2, [r4, #0x58]
 	add r0, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -9632,11 +9632,11 @@ _0223C9D0:
 	ldr r2, [r4, #0x58]
 	add r0, r6, #0
 	mov r1, #3
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r1, [r4, #0x5c]
 	ldr r2, [r4, #0x58]
 	add r0, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #0xf

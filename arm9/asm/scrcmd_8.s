@@ -188,7 +188,7 @@ _02041DC8:
 _02041DCE:
 	mov r0, #0x40
 	mov r1, #0x20
-	bl FUN_020219F4
+	bl String_ctor
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x80
@@ -219,7 +219,7 @@ _02041DCE:
 	mov r1, #0x0
 	bl FUN_02028788
 	add r0, r6, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r5, #0x0
 	mov r1, #0x0
 	mov r2, #0x1

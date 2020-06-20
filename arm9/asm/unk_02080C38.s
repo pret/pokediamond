@@ -137,7 +137,7 @@ _02080CB4:
 	bl FUN_02081214
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x0]
 	bl FUN_02081DC4
 	ldr r0, [r4, #0x4]
@@ -933,7 +933,7 @@ _02081304:
 	bl FUN_02069B88
 	mov r0, #0x8
 	mov r1, #0x14
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r4, #0x0
 	add r1, #0xe8
 	str r0, [r1, #0x0]
@@ -941,7 +941,7 @@ _02081304:
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
 	ldr r1, [r6, #0xc]
-	bl FUN_02021A74
+	bl StringCopy
 	ldr r0, [r6, #0x10]
 	bl FUN_020239CC
 	mov r1, #0x42
@@ -1073,7 +1073,7 @@ _0208143C:
 	bne _02081454
 	add r0, r7, #0x0
 	mov r1, #0x14
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r4, #0x0
 	add r1, #0xe8
 	str r0, [r1, #0x0]
@@ -1173,7 +1173,7 @@ _020814FE:
 	add r0, r5, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r5, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
@@ -1787,7 +1787,7 @@ _020819A2:
 	add r0, r6, #0x0
 	add r0, #0xe8
 	ldr r0, [r0, #0x0]
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	add r1, r6, #0x0
 	add r1, #0xe8
 	ldr r1, [r1, #0x0]

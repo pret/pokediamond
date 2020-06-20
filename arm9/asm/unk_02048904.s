@@ -1989,7 +1989,7 @@ _02049884:
 	bl NewMsgDataFromNarc
 	add r6, r0, #0x0
 	mov r1, #0x7c
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r4, #0x34]
 	add r0, r6, #0x0
 	bl DestroyMsgData
@@ -2026,7 +2026,7 @@ _020498DC:
 	cmp r0, #0x1
 	bne _0204992C
 	ldr r0, [r4, #0x34]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	mov r3, #0xb
