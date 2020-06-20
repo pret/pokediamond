@@ -192,7 +192,11 @@ LDFLAGS = -nodead -w off -proc v5te -interworking -map closure,unused -symtab so
 ####################### Other Tools #########################
 
 # DS TOOLS
+ifndef BUSYBOX
 SHA1SUM = sha1sum --quiet
+else
+SHA1SUM = sha1sum
+endif
 JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
 GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx$(EXE)
 SCANINC = $(TOOLS_DIR)/scaninc/scaninc$(EXE)
