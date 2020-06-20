@@ -1,8 +1,19 @@
-#ifndef GUARD_OS_THREAD_SHARED_H
-#define GUARD_OS_THREAD_SHARED_H
+/*
+ * NOTE:
+ * This file is shared between ARM9 and ARM7
+ * DO NOT PUT PROC SPECIFIC CODE IN HERE
+ * Thank You!
+ */
+
+/*
+ * DO NOT INCLUDE THIS FILE DIRECTLY
+ * Include OS_thread.h from the specific proc's lib
+ */
+
+#ifndef POKEDIAMOND_OS_THREAD_SHARED_H
+#define POKEDIAMOND_OS_THREAD_SHARED_H
 
 #include "nitro/types.h"
-#include "nitro/OS_context_shared.h"
 
 typedef struct OSiAlarm OSAlarm;
 
@@ -85,9 +96,33 @@ struct _OSThread
     u32 systemErrno;
 };
 
+extern OSThreadInfo OSi_ThreadInfo;
+
+static inline OSThreadInfo *OS_GetThreadInfo(void)
+{
+    return &OSi_ThreadInfo;
+}
+
+static inline BOOL OS_IsThreadRunnable(const OSThread *thread)
+{
+    return thread->state == OS_THREAD_STATE_READY;
+}
+
 static inline void OS_InitThreadQueue(OSThreadQueue * queue)
 {
     queue->head = queue->tail = NULL;
 }
 
-#endif
+static inline OSThread *OS_GetCurrentThread(void)
+{
+    return OS_GetThreadInfo()->current;
+}
+
+static inline void OS_SetCurrentThread(OSThread *thread)
+{
+    OS_GetThreadInfo()->current = thread;
+}
+
+#define OSi_GetCurrentThread()          (*OSi_CurrentThreadPtr)
+
+#endif //POKEDIAMOND_OS_THREAD_SHARED_H

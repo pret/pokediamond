@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start FUN_02025658
-FUN_02025658: ; 0x02025658
+	thumb_func_start InitSealsObject
+InitSealsObject: ; 0x02025658
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	mov r0, #0x0
@@ -61,19 +61,19 @@ _020256B6:
 	bx lr
 	.balign 4
 
-	thumb_func_start FUN_020256BC
-FUN_020256BC: ; 0x020256BC
+	thumb_func_start CreateNewSealsObject
+CreateNewSealsObject: ; 0x020256BC
 	push {r4, lr}
 	mov r1, #0x38
 	bl AllocFromHeapAtEnd
 	add r4, r0, #0x0
-	bl FUN_02025658
+	bl InitSealsObject
 	add r0, r4, #0x0
 	pop {r4, pc}
 	.balign 4
 
-	thumb_func_start FUN_020256D0
-FUN_020256D0: ; 0x020256D0
+	thumb_func_start CopySealsObject
+CopySealsObject: ; 0x020256D0
 	ldr r3, _020256D8 ; =MI_CpuCopy8
 	mov r2, #0x38
 	bx r3
@@ -88,7 +88,7 @@ FUN_020256DC: ; 0x020256DC
 	add r5, r0, #0x0
 	add r6, r1, #0x0
 	add r4, r2, #0x0
-	bl FUN_02025658
+	bl InitSealsObject
 	add r0, r7, #0x0
 	strb r6, [r5, #0x7]
 	bl FUN_0206BB1C
@@ -109,30 +109,30 @@ FUN_020256DC: ; 0x020256DC
 	str r0, [r5, #0x0]
 	ldr r0, [sp, #0x0]
 	mov r6, #0x0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	bge _020257AE
 	add r5, #0x18
 _0202572A:
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x5
 	mov r2, #0x0
 	add r7, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x4]
 	add r0, r7, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x8]
 	add r0, r7, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0xc]
 	add r0, r7, #0x0
 	bl FUN_0206B6C8
@@ -170,7 +170,7 @@ _0202572A:
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	ldr r0, [sp, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	blt _0202572A
 _020257AE:
@@ -299,7 +299,7 @@ FUN_0202584C: ; 0x0202584C
 	mov r4, #0x0
 _02025852:
 	add r0, r5, #0x0
-	bl FUN_02025658
+	bl InitSealsObject
 	add r4, r4, #0x1
 	add r5, #0x38
 	cmp r4, #0x14
@@ -326,7 +326,7 @@ FUN_02025878: ; 0x02025878
 	bl FUN_02025940
 	cmp r0, #0x0
 	beq _02025886
-	bl FUN_02025658
+	bl InitSealsObject
 _02025886:
 	pop {r3, pc}
 
@@ -338,7 +338,7 @@ FUN_02025888: ; 0x02025888
 	add r1, r0, #0x0
 	beq _0202589A
 	add r0, r4, #0x0
-	bl FUN_020256D0
+	bl CopySealsObject
 _0202589A:
 	pop {r4, pc}
 
@@ -362,13 +362,13 @@ FUN_020258B0: ; 0x020258B0
 	bl FUN_02025940
 	add r4, r0, #0x0
 	add r0, r5, #0x0
-	bl FUN_020256BC
+	bl CreateNewSealsObject
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	beq _020258CE
 	add r0, r4, #0x0
 	add r1, r5, #0x0
-	bl FUN_020256D0
+	bl CopySealsObject
 _020258CE:
 	add r0, r5, #0x0
 	pop {r3-r5, pc}
@@ -382,11 +382,11 @@ FUN_020258D4: ; 0x020258D4
 	cmp r0, #0x0
 	bne _020258E8
 	add r0, r4, #0x0
-	bl FUN_02025658
+	bl InitSealsObject
 	pop {r4, pc}
 _020258E8:
 	add r1, r4, #0x0
-	bl FUN_020256D0
+	bl CopySealsObject
 	pop {r4, pc}
 
 	thumb_func_start FUN_020258F0

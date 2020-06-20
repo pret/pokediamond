@@ -323,7 +323,7 @@ FUN_02060E04: ; 0x02060E04
 	add r0, r6, #0x0
 	mov r1, #0x76
 	add r2, r4, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	mov r2, #0xb
@@ -342,22 +342,22 @@ FUN_02060E34: ; 0x02060E34
 	mov r1, #0x5
 	mov r2, #0x0
 	add r7, r3, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x6f
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r6, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0xc
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r7, #0x0]
 	add r0, r5, #0x0
 	mov r1, #0x79
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r1, [sp, #0x18]
 	strb r0, [r1, #0x0]
 	pop {r3-r7, pc}
@@ -420,7 +420,7 @@ FUN_02060ECC: ; 0x02060ECC
 	mov r1, #0x4d
 	mov r2, #0x0
 	add r7, r3, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r4, #0x0]
 	ldrb r0, [r4, #0x0]
 	cmp r0, #0x0
@@ -432,7 +432,7 @@ FUN_02060ECC: ; 0x02060ECC
 	add r0, r5, #0x0
 	mov r1, #0x76
 	add r2, r4, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	mov r2, #0xb
@@ -479,7 +479,7 @@ FUN_02060F3C: ; 0x02060F3C
 	mov r0, #0x0
 	strb r0, [r4, #0x1f]
 	add r0, r5, #0x0
-	bl GetMonNatureEncrypted
+	bl GetMonNature
 	strb r0, [r4, #0x1e]
 	add r0, r4, #0x6
 	str r0, [sp, #0x0]
@@ -491,7 +491,7 @@ FUN_02060F3C: ; 0x02060F3C
 	add r0, r5, #0x0
 	mov r1, #0x4d
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r4, #0x7]
 	add r2, r4, #0x7
 	add r4, #0x8
@@ -624,7 +624,7 @@ FUN_02061028: ; 0x02061028
 	add r0, r4, #0x0
 	mov r1, #0x9a
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0x22]
 	ldrh r0, [r5, #0x22]
 	cmp r0, #0x0
@@ -1200,7 +1200,7 @@ FUN_02061498: ; 0x02061498
 	ldrb r3, [r4, #0x2]
 	add r0, r5, #0x0
 	bl FUN_02060D90
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _020614F8 ; =0x00003334
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -1535,7 +1535,7 @@ FUN_02061750: ; 0x02061750
 	sub r0, #0x95
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_020852E8
+	bl GetNutName
 	add r4, r0, #0x0
 	mov r1, #0x1
 	str r1, [sp, #0x0]
@@ -1559,7 +1559,7 @@ FUN_02061798: ; 0x02061798
 	add r0, sp, #0x4
 	add r4, r1, #0x0
 	strb r2, [r0, #0x6]
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x3
 	bl _u32_div_f
 	add r0, sp, #0x4
@@ -1608,7 +1608,7 @@ FUN_020617D8: ; 0x020617D8
 	ldrb r3, [r4, #0x2]
 	add r0, r5, #0x0
 	bl FUN_02060E70
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _02061830 ; =0x00005556
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -2728,7 +2728,7 @@ FUN_020620A0: ; 0x020620A0
 _020620BE:
 	cmp r4, #0x1
 	ble _020620D0
-	bl rand_MT
+	bl MTRandom
 	add r1, r4, #0x0
 	bl _u32_div_f
 	add r5, r1, #0x0
@@ -2762,7 +2762,7 @@ _020620F8:
 	beq _02062100
 	bl ErrorHandling
 _02062100:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xf1
 	lsl r1, r1, #0x4
 	bl _s32_div_f
@@ -2821,7 +2821,7 @@ FUN_02062170: ; 0x02062170
 	push {r3-r7, lr}
 	add r6, r0, #0x0
 	add r7, r1, #0x0
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _02062234 ; =0x00003334
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -2865,7 +2865,7 @@ _020621BC: ; jump table (using 16-bit offset)
 	.short _0206222C - _020621BC - 2; case 10
 	.short _02062228 - _020621BC - 2; case 11
 _020621D4:
-	bl rand_LC
+	bl LCRandom
 	lsl r0, r0, #0x2
 	lsr r4, r0, #0x10
 	cmp r4, #0x4
@@ -3006,7 +3006,7 @@ _020622C0: .word UNK_020F78A6
 FUN_020622C4: ; 0x020622C4
 	push {r4-r6, lr}
 	add r6, r1, #0x0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xf1
 	lsl r1, r1, #0x4
 	bl _s32_div_f
@@ -3020,7 +3020,7 @@ _020622E0:
 	blt _020622E6
 	add r5, r5, #0x1
 _020622E6:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xf1
 	lsl r1, r1, #0x4
 	bl _s32_div_f
@@ -3130,7 +3130,7 @@ _020623A4:
 	mov r5, #0x0
 	b _020623DE
 _020623B0:
-	bl rand_LC
+	bl LCRandom
 	add r5, r0, #0x0
 	lsl r1, r4, #0x10
 	ldr r0, _020623F0 ; =0x0000FFFF
@@ -3251,7 +3251,7 @@ _02062496:
 	mov r5, #0x0
 	b _020624C6
 _0206249E:
-	bl rand_LC
+	bl LCRandom
 	add r5, r0, #0x0
 	ldr r0, _02062504 ; =0x0000FFFF
 	add r1, r4, #0x0
@@ -3335,7 +3335,7 @@ FUN_0206252C: ; 0x0206252C
 	add r4, r0, #0x0
 	cmp r4, #0x1
 	ble _02062552
-	bl rand_MT
+	bl MTRandom
 	add r1, r4, #0x0
 	bl _u32_div_f
 	add r5, r1, #0x0

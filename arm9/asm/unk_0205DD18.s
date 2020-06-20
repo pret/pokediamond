@@ -108,7 +108,7 @@ _0205DDC2:
 	mov r6, #0x0
 	b _0205DDF2
 _0205DDCA:
-	bl rand_LC
+	bl LCRandom
 	add r6, r0, #0x0
 	ldr r0, _0205DED0 ; =0x0000FFFF
 	add r1, r4, #0x0
@@ -259,7 +259,7 @@ _0205DEE0:
 	str r0, [r5, #0x2c]
 	cmp r0, #0x0
 	bne _0205DF24
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #0x4
 	bl _s32_div_f
@@ -806,7 +806,7 @@ _0205E2D6:
 	bne _0205E2DC
 	add r6, r7, #0x0
 _0205E2DC:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #0x4
 	bl _s32_div_f
@@ -979,7 +979,7 @@ _0205E430:
 	mov r4, #0x0
 	b _0205E46A
 _0205E43C:
-	bl rand_LC
+	bl LCRandom
 	add r4, r0, #0x0
 	lsl r1, r5, #0x10
 	ldr r0, _0205E47C ; =0x0000FFFF

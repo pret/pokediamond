@@ -1562,7 +1562,7 @@ _021D80F4:
 	ldr r0, [r7, r0]
 	ldr r2, [sp, #0x1c]
 	mov r1, #0x70
-	bl SetMonDataEncrypted
+	bl SetMonData
 	mov r1, #0x66
 	lsl r1, r1, #2
 	ldr r1, [r7, r1]

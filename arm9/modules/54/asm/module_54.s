@@ -2724,7 +2724,7 @@ MOD54_021D8A90: ; 0x021D8A90
 	strh r1, [r0]
 _021D8AA6:
 	ldrh r0, [r0]
-	bl FUN_0201B970
+	bl Sin_Wrap
 	mov r1, #0xa
 	add r2, r0, #0
 	mul r2, r1

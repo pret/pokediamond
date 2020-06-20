@@ -198,7 +198,7 @@ _0204BB3C:
 	add r0, r4, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	strh r0, [r5, #0x0]
@@ -220,12 +220,12 @@ _0204BB72:
 	ldrb r0, [r7, #0x2]
 	strh r0, [r5, #0x4]
 	add r0, r4, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r5, #0x6]
 	add r0, r4, #0x0
 	mov r1, #0xb1
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r5, #0x7]
 	add r6, r6, #0x1
 	add r5, #0x8
@@ -260,7 +260,7 @@ _0204BBB8:
 FUN_0204BBC4: ; 0x0204BBC4
 	push {r3-r5, lr}
 	add r4, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0204BBE4 ; =0x0000199A
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -384,7 +384,7 @@ _0204BC94:
 	mov r4, #0x0
 	b _0204BCD8
 _0204BCA4:
-	bl rand_LC
+	bl LCRandom
 	add r1, r6, #0x0
 	add r1, #0x14
 	add r4, r0, #0x0

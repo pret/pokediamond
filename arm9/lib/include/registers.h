@@ -1,7 +1,8 @@
-#ifndef POKEDIAMOND_REGISTERS_H
-#define POKEDIAMOND_REGISTERS_H
+#ifndef POKEDIAMOND_ARM9_REGISTERS_H
+#define POKEDIAMOND_ARM9_REGISTERS_H
 
 #include "nitro/types.h"
+#include "nitro/registers_shared.h"
 
 #define reg_GX_DISPCNT             (*(REGType32v *)0x4000000)
 #define reg_GX_DISPSTAT            (*(REGType16v *)0x4000004)
@@ -103,9 +104,6 @@
 #define reg_MI_MCCMD1              (*(REGType32v *)0x40001ac)
 #define reg_MI_EXMEMCNT            (*(REGType16v *)0x4000204)
 
-#define reg_OS_IME                 (*(REGType16v *)0x4000208)
-#define reg_OS_IE                  (*(REGType32v *)0x4000210)
-#define reg_OS_IF                  (*(REGType32v *)0x4000214)
 #define reg_OS_PAUSE               (*(REGType16v *)0x4000300)
 
 #define reg_GX_VRAMCNT             (*(REGType32v *)0x4000240)
@@ -356,6 +354,12 @@
 #define reg_MI_MCD1                (*(REGType32v *)0x4100010)
 #define reg_CARD_DATA              (*(REGType32v *)0x4100010) //?
 
+#define REG_OS_TM0CNT_H_PS_SHIFT                           0
+#define REG_OS_IE_T0_SHIFT                                 3
+
+#define REG_OS_TM0CNT_H_I_MASK                             0x0040
+#define REG_OS_TM0CNT_H_E_MASK                             0x0080
+
 #define REG_PAD_KEYINPUT_L_SHIFT                           9
 #define REG_PAD_KEYINPUT_L_SIZE                            1
 #define REG_PAD_KEYINPUT_L_MASK                            0x0200
@@ -476,4 +480,4 @@
     ((u32)(a) << REG_PAD_KEYCNT_A_SHIFT))
 #endif
 
-#endif //POKEDIAMOND_REGISTERS_H
+#endif //POKEDIAMOND_ARM9_REGISTERS_H

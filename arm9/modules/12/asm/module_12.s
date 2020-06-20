@@ -217,7 +217,7 @@ _0222D7BC:
 	ldr r0, [r1, r0]
 	add r1, r6, #0
 	add r1, #0x36
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5]
 	add r6, r6, #1
 	add r5, r5, #2
@@ -975,11 +975,11 @@ _0222DE9E:
 	ldr r0, [r1, r0]
 	add r1, r4, #0
 	add r1, #0x36
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0
 	beq _0222DEBE
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r3, r0, #0
 	b _0222DEC0
 _0222DEBE:
@@ -5972,7 +5972,7 @@ _0223072E:
 	mov r1, #5
 	ldr r0, [r0, r6]
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	bl MOD12_0223EE70
 	add r1, r5, r4
 	add r4, r4, #1
@@ -7750,7 +7750,7 @@ _0223151C:
 	ldr r0, [r4]
 	mov r1, #6
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	mov r6, #0x64
 	add r5, r0, #0
 	add r0, r6, #0
@@ -7777,17 +7777,17 @@ _0223154E:
 	ldr r0, [r4]
 	mov r1, #0x13
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0xc]
 	ldr r0, [r4]
 	mov r1, #0x17
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	mov r1, #0x14
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0
 	add r0, r6, #0
 	add r0, #0xa0
@@ -7812,17 +7812,17 @@ _02231594:
 	ldr r0, [r4]
 	mov r1, #0x14
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0xc]
 	ldr r0, [r4]
 	mov r1, #0x13
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	mov r1, #0x15
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0
 	add r0, r6, #0
 	add r0, #0xa0
@@ -7847,17 +7847,17 @@ _022315DA:
 	ldr r0, [r4]
 	mov r1, #0x15
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0xc]
 	ldr r0, [r4]
 	mov r1, #0x14
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	mov r1, #0x16
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0
 	add r0, r6, #0
 	add r0, #0xa1
@@ -7882,17 +7882,17 @@ _02231620:
 	ldr r0, [r4]
 	mov r1, #0x16
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0xc]
 	ldr r0, [r4]
 	mov r1, #0x15
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	mov r1, #0x17
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0
 	add r0, r6, #0
 	add r0, #0xa2
@@ -7917,17 +7917,17 @@ _02231666:
 	ldr r0, [r4]
 	mov r1, #0x17
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0xc]
 	ldr r0, [r4]
 	mov r1, #0x16
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	mov r1, #0x13
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0
 	add r0, r6, #0
 	add r0, #0xa0
@@ -7954,7 +7954,7 @@ _022316B2:
 	ldr r0, [r4]
 	mov r1, #0x18
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r1, [sp, #8]
 	add r1, r1, r7
 	add r1, r0, r1
@@ -8951,7 +8951,7 @@ _02231E5E:
 	ldr r0, [r0, r1]
 	add r1, r4, #0
 	add r1, #0x36
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r1, r4, #1
 	add r2, sp, #0x3c
 	strh r0, [r2, r1]
@@ -9369,7 +9369,7 @@ _022321A6:
 	ldr r0, [r1, r0]
 	add r1, r5, #0
 	add r1, #0x36
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0
 	beq _022321C8
 	ldr r0, _0223220C ; =0x000002E1
@@ -10201,7 +10201,7 @@ _022327EC:
 	ldr r0, [r0, r1]
 	add r1, r6, #0
 	add r1, #0x36
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5]
 	add r6, r6, #1
 	add r5, r5, #2
@@ -10758,13 +10758,13 @@ _02232C2C:
 	ldr r1, [sp, #0x20]
 	add r4, r6, r1
 	mov r1, #0xa
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	mov r1, #0x4b
 	lsl r1, r1, #2
 	strb r0, [r4, r1]
 	ldrh r0, [r7]
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	mov r1, #0x13
 	lsl r1, r1, #4
 	strb r0, [r4, r1]
@@ -11076,7 +11076,7 @@ _02232EB2:
 	ldr r0, [r0, r1]
 	add r1, r4, #0
 	add r1, #0x36
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r2, r4, #1
 	add r1, sp, #0x10
 	strh r0, [r1, r2]
@@ -12221,7 +12221,7 @@ _022336D4:
 	mov r1, #5
 	ldr r0, [r0, r4]
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	bl MOD08_0222A6C8
 	cmp r0, #1
 	bne _02233750
@@ -12296,7 +12296,7 @@ _0223377C:
 	ldr r0, [r0]
 	mov r2, #0
 	ldr r0, [r0, r4]
-	bl GetMonDataEncrypted
+	bl GetMonData
 	bl MOD08_0222A6C8
 	cmp r0, #1
 	bne _022337E6
@@ -15395,7 +15395,7 @@ MOD12_02235038: ; 0x02235038
 	ldr r0, [r1, r0]
 	ldr r2, [sp, #0x30]
 	mov r1, #0x76
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r1, [r5]
 	ldr r0, _022350E8 ; =0x00000123
 	ldrb r0, [r1, r0]
@@ -16250,7 +16250,7 @@ _022356DA:
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B954
+	bl Cos
 	str r0, [sp]
 	lsl r6, r4, #0xc
 	ldrh r0, [r5, #0x1e]
@@ -16259,7 +16259,7 @@ _022356DA:
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	str r0, [sp, #4]
 	ldr r0, [sp]
 	add r2, r6, #0
@@ -16534,14 +16534,14 @@ _0223591A:
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	add r4, r0, #0
 	ldrh r0, [r5, #0xc]
 	mov r1, #0x64
 	bl _s32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B954
+	bl Cos
 	add r6, r0, #0
 	ldr r0, [r5, #0x20]
 	mov r2, #3
@@ -16862,12 +16862,12 @@ _02235B9C:
 	ldr r0, [r6, r5]
 	mov r1, #0xb0
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0
 	ldr r0, [r6, r5]
 	mov r1, #0xb1
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r7, #7
 	beq _02235BBC
 	cmp r0, #7
@@ -16965,7 +16965,7 @@ MOD12_02235C44: ; 0x02235C44
 	add r4, r0, #0
 	add r0, r1, #0
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	lsl r1, r4, #2
 	add r2, r4, r1
 	ldr r1, _02235C5C ; =0x022454E4
@@ -18438,7 +18438,7 @@ _02236736:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #5
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r0, #0
 	ldr r0, [r4]
 	mov r2, #0
@@ -18447,14 +18447,14 @@ _02236736:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #0x6f
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0
 	ldr r0, [r4]
 	ldr r1, [r0, #0xc]
 	ldrb r0, [r4, #0xd]
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
-	bl FUN_02068A80
+	bl MonIsShiny
 	str r0, [sp, #0x20]
 	ldr r0, [r4]
 	mov r2, #0
@@ -18463,7 +18463,7 @@ _02236736:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #0x70
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x1c]
 	ldr r0, [r4]
 	ldr r1, [r0, #0xc]
@@ -18472,7 +18472,7 @@ _02236736:
 	ldr r0, [r1, r0]
 	mov r1, #0
 	add r2, r1, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #8]
 	ldr r0, [r4]
 	lsl r5, r5, #2
@@ -18480,33 +18480,33 @@ _02236736:
 	mov r1, #5
 	ldr r0, [r0, r5]
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x18]
 	ldr r0, [r4]
 	mov r1, #0x6f
 	ldr r0, [r0, #0xc]
 	mov r2, #0
 	ldr r0, [r0, r5]
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x14]
 	ldr r0, [r4]
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, r5]
-	bl FUN_02068A80
+	bl MonIsShiny
 	str r0, [sp, #0x10]
 	ldr r0, [r4]
 	mov r1, #0x70
 	ldr r0, [r0, #0xc]
 	mov r2, #0
 	ldr r0, [r0, r5]
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0xc]
 	ldr r0, [r4]
 	mov r1, #0
 	ldr r0, [r0, #0xc]
 	add r2, r1, #0
 	ldr r0, [r0, r5]
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #4]
 	mov r2, #0x47
 	mov r0, #0
@@ -19010,7 +19010,7 @@ _02236BD0:
 	lsl r0, r0, #2
 	ldr r0, [r2, r0]
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x10]
 	ldr r0, _02236CF0 ; =0x000005DD
 	bl FUN_020054C8
@@ -21837,7 +21837,7 @@ _022380B8:
 	ldr r0, _022380F8 ; =0x00000236
 	ldrh r0, [r7, r0]
 	strh r0, [r5]
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	strb r0, [r5, #2]
 	mov r0, #0x23
 	lsl r0, r0, #4
@@ -22518,7 +22518,7 @@ _022385D2:
 	ldr r0, [sp, #0xc]
 	mov r1, #0xb
 	ldrh r0, [r0]
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	bl MOD12_02235AC4
 	strb r0, [r7, #0xc]
 	ldr r0, [sp, #8]
@@ -22554,7 +22554,7 @@ _0223862C:
 	ldr r0, [sp, #0xc]
 	mov r1, #0xb
 	ldrh r0, [r0]
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	bl MOD12_02235AF0
 	strb r0, [r7, #0xc]
 _0223863E:
@@ -23971,7 +23971,7 @@ _02239080:
 	ldr r0, [r0, r1]
 	add r1, r4, #0
 	add r1, #0x36
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5]
 	mov r0, #0x23
 	lsl r0, r0, #4
@@ -23983,11 +23983,11 @@ _02239080:
 	bne _022390BA
 	ldrh r0, [r5]
 	mov r1, #0xa
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	strb r0, [r5, #0xa]
 	ldrh r0, [r5]
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	strb r0, [r5, #0xb]
 	b _022390BE
 _022390BA:
@@ -25318,7 +25318,7 @@ MOD12_02239980: ; 0x02239980
 	cmp r0, #0
 	bne _022399EE
 	ldr r0, [r4, #0x10]
-	bl FUN_0201B9B8
+	bl Sin32
 	lsl r1, r0, #3
 	asr r0, r1, #0xb
 	lsr r0, r0, #0x14
@@ -27801,7 +27801,7 @@ _0223AC68:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #5
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r0, #0
 	mov r0, #0x7f
 	str r0, [sp]
@@ -34508,7 +34508,7 @@ _0223E01C:
 	mov r5, #3
 	lsl r0, r0, #8
 	lsr r0, r0, #0x10
-	bl FUN_0201B954
+	bl Cos
 	add r1, r5, #0
 	mul r1, r0
 	ldrb r2, [r4, #0x19]
@@ -34988,7 +34988,7 @@ MOD12_0223E3DC: ; 0x0223E3DC
 	bl _u32_div_f
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	mov r1, #0xa
 	mul r1, r0
 	asr r0, r1, #0xb
@@ -35344,7 +35344,7 @@ _0223E6B6:
 	strb r0, [r4, #0x10]
 _0223E6C6:
 	ldr r0, [r4, #0x20]
-	bl FUN_0201B9B8
+	bl Sin32
 	lsl r1, r0, #2
 	asr r0, r1, #0xb
 	lsr r0, r0, #0x14
@@ -43888,7 +43888,7 @@ _022428E6:
 	str r0, [sp, #0x10]
 	ldr r0, [r1, r0]
 	mov r1, #0x76
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r5, #1
 	lsl r0, r0, #4
 	str r0, [sp, #0x14]
@@ -44552,7 +44552,7 @@ _02242E62:
 	add r0, r1, r0
 	lsl r0, r0, #8
 	lsr r0, r0, #0x10
-	bl FUN_0201B93C
+	bl Sin
 	asr r1, r0, #0x1f
 	asr r3, r5, #0x1f
 	add r2, r5, #0
@@ -47346,7 +47346,7 @@ _022443A4:
 	lsl r0, r0, #2
 	ldr r0, [r1, r0]
 	mov r1, #5
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r0, #0
 	mov r0, #0x7f
 	str r0, [sp]

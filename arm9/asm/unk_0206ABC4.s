@@ -328,7 +328,7 @@ FUN_0206AE0C: ; 0x0206AE0C
 	add r7, r1, #0x0
 	add r4, r0, #0x0
 	add r5, r2, #0x0
-	bl getseed_LC
+	bl GetLCRNGSeed
 	lsl r6, r7, #0x2
 	str r0, [sp, #0x44]
 	add r0, r4, r6
@@ -402,7 +402,7 @@ _0206AE96:
 	add r0, r0, r2
 	add r7, r1, r0
 	add r0, r7, #0x0
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r4, r5
 	add r0, #0x29
 	ldrb r0, [r0, #0x0]
@@ -410,7 +410,7 @@ _0206AE96:
 	cmp r0, #0x0
 	ble _0206AECE
 _0206AEBC:
-	bl rand_LC
+	bl LCRandom
 	add r7, r0, #0x0
 	add r0, r4, r5
 	add r0, #0x29
@@ -486,7 +486,7 @@ _0206AF3E:
 	add r0, r0, r2
 	add r7, r1, r0
 	add r0, r7, #0x0
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r4, r5
 	add r0, #0x29
 	ldrb r0, [r0, #0x0]
@@ -494,7 +494,7 @@ _0206AF3E:
 	cmp r0, #0x0
 	ble _0206AF76
 _0206AF64:
-	bl rand_LC
+	bl LCRandom
 	add r7, r0, #0x0
 	add r0, r4, r5
 	add r0, #0x29
@@ -579,7 +579,7 @@ _0206AFFC:
 	add r0, r0, r2
 	add r0, r1, r0
 	str r0, [sp, #0x14]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r4, r5
 	add r0, #0x29
 	ldrb r0, [r0, #0x0]
@@ -587,7 +587,7 @@ _0206AFFC:
 	cmp r0, #0x0
 	ble _0206B030
 _0206B01E:
-	bl rand_LC
+	bl LCRandom
 	str r0, [sp, #0x14]
 	add r0, r4, r5
 	add r0, #0x29
@@ -622,7 +622,7 @@ _0206B030:
 	ldr r0, [sp, #0x40]
 	mov r1, #0x6
 	add r2, r7, #0x6
-	bl SetMonDataEncrypted
+	bl SetMonData
 	ldr r0, [sp, #0x34]
 	ldr r1, [sp, #0x40]
 	ldr r0, [r0, #0x4]
@@ -663,7 +663,7 @@ _0206B0A2:
 	add r0, r0, r2
 	add r7, r1, r0
 	add r0, r7, #0x0
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r4, r5
 	add r0, #0x29
 	ldrb r0, [r0, #0x0]
@@ -671,7 +671,7 @@ _0206B0A2:
 	cmp r0, #0x0
 	ble _0206B0DA
 _0206B0C8:
-	bl rand_LC
+	bl LCRandom
 	add r7, r0, #0x0
 	add r0, r4, r5
 	add r0, #0x29
@@ -709,7 +709,7 @@ _0206B0DA:
 	ldr r0, [sp, #0x40]
 	mov r1, #0x6
 	add r2, r2, #0x6
-	bl SetMonDataEncrypted
+	bl SetMonData
 	ldr r7, [sp, #0x3c]
 	mov r6, #0x0
 _0206B120:
@@ -744,6 +744,6 @@ _0206B156:
 	ldr r0, [sp, #0x40]
 	bl FreeToHeap
 	ldr r0, [sp, #0x44]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add sp, #0x50
 	pop {r3-r7, pc}

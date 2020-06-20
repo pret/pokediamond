@@ -732,7 +732,7 @@ FUN_02037C00: ; 0x02037C00
 	strb r0, [r4, #0x11]
 	strb r6, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r4, #0x13]
 	mov r0, #0x0
 	strh r0, [r4, #0x18]
@@ -789,7 +789,7 @@ FUN_02037C7C: ; 0x02037C7C
 	mov r0, #0x0
 	strb r0, [r4, #0x14]
 	ldr r0, [r4, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r4, #0x13]
 	mov r0, #0x0
 	strh r0, [r4, #0x18]
@@ -1231,7 +1231,7 @@ FUN_0203800C: ; 0x0203800C
 	add r0, r5, #0x0
 	bl FUN_0206BB1C
 	add r1, r7, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	str r0, [r4, #0x0]
 	add r0, r5, #0x0
 	bl FUN_02027E24
@@ -1585,7 +1585,7 @@ _020382F6:
 	ldr r0, [r4, #0x44]
 	mov r1, #0x6
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r3, r0, #0x0
 	add r0, sp, #0x30
 	str r0, [sp, #0x0]
@@ -1594,7 +1594,7 @@ _020382F6:
 	mov r0, #0x0
 	mov r2, #0x1
 	lsr r3, r3, #0x10
-	bl FUN_02069168
+	bl GetMonEvolution
 	str r0, [sp, #0x20]
 	cmp r0, #0x0
 	beq _02038380
@@ -1652,7 +1652,7 @@ _02038386:
 	beq _020383C8
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x30]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x44]
 	bl FUN_02069B88
@@ -1906,11 +1906,11 @@ _02038590:
 	ldr r0, [r5, #0xc]
 	bl FUN_0206BB1C
 	ldr r1, [r4, #0x4]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	ldr r2, [r4, #0xc]
 	mov r1, #0x75
 	add r2, #0x1c
-	bl SetMonDataEncrypted
+	bl SetMonData
 	pop {r3-r5, pc}
 _020385A8:
 	ldr r0, [r5, #0xc]
@@ -1973,17 +1973,17 @@ _02038620:
 	ldr r0, [r7, #0xc]
 	bl FUN_0206BB1C
 	ldr r1, [r4, #0x4]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x6f
 	mov r2, #0x0
 	add r6, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r1, [r4, #0xc]
 	mov r2, #0x0
 	str r0, [r1, #0x10]
 	add r0, r6, #0x0
 	mov r1, #0x70
-	bl GetMonDataEncrypted
+	bl GetMonData
 	ldr r1, [r4, #0xc]
 	cmp r5, #0x0
 	str r0, [r1, #0x8]
@@ -2472,11 +2472,11 @@ FUN_02038A3C: ; 0x02038A3C
 	str r1, [sp, #0x0]
 	bl FUN_0202881C
 	add r4, r0, #0x0
-	bl getseed_LC
+	bl GetLCRNGSeed
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl FUN_020287A4
-	bl seedr_LC
+	bl SetLCRNGSeed
 	ldr r0, _02038AAC ; =UNK_020F2BE8
 	add r1, sp, #0x8
 	mov r2, #0xc
@@ -2491,7 +2491,7 @@ _02038A68:
 	cmp r5, #0xc
 	bhs _02038A92
 _02038A72:
-	bl rand_LC
+	bl LCRandom
 	add r1, r7, #0x0
 	bl _s32_div_f
 	lsl r0, r1, #0x18
@@ -2512,7 +2512,7 @@ _02038A92:
 	cmp r4, #0xc
 	blo _02038A68
 	ldr r0, [sp, #0x4]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	ldr r0, [sp, #0x0]
 	add r1, sp, #0x8
 	ldrb r0, [r1, r0]

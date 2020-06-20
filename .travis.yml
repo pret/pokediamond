@@ -17,7 +17,6 @@ cache:
 install:
     # These files are only accessible from Travis CI IP Addresses to prevent piracy.
     - wget http://private.martmists.com/mwccarm.zip
-    - wget http://private.martmists.com/baserom.nds
     - wget http://private.martmists.com/nitro.zip
     - unzip mwccarm.zip
     - mv mwccarm tools
@@ -34,3 +33,6 @@ notifications:
 
 after_success:
     - .travis/calcrom/webhook.sh pokediamond
+
+after_failure:
+    - .travis/post_failed.sh pokediamond

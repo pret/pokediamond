@@ -58,7 +58,7 @@ _0202B07E:
 	add r0, r0, r2
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x4]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	str r0, [sp, #0x10]
 	mov r0, #0xb
 	mov r1, #0x0
@@ -77,67 +77,67 @@ _0202B07E:
 _0202B0BA:
 	ldr r0, [sp, #0x4]
 	add r1, r7, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, r0, #0x0
-	bl TryDecryptMon
+	bl AcquireMonLock
 	str r0, [sp, #0xc]
 	add r0, r4, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	bne _0202B17E
 	add r0, r4, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0xa0
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r5, #0x2]
 	add r0, r4, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	mov r1, #0x0
 	strb r0, [r5, #0x3]
 	add r0, r4, #0x0
 	add r2, r1, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [r5, #0x4]
 	add r0, r4, #0x0
 	mov r1, #0x7
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [r5, #0x8]
 	add r0, r4, #0x0
 	mov r1, #0x36
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0x32]
 	add r0, r4, #0x0
 	mov r1, #0x37
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0x34]
 	add r0, r4, #0x0
 	mov r1, #0x38
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0x36]
 	add r0, r4, #0x0
 	mov r1, #0x39
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r5, #0x38]
 	cmp r6, #0x0
 	beq _0202B176
 	add r0, r4, #0x0
 	mov r1, #0x76
 	add r2, r6, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r5, #0x0
 	add r0, r6, #0x0
 	add r1, #0xc
@@ -146,7 +146,7 @@ _0202B0BA:
 	add r0, r4, #0x0
 	mov r1, #0x90
 	add r2, r6, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r5, #0x0
 	add r0, r6, #0x0
 	add r1, #0x22
@@ -162,7 +162,7 @@ _0202B17C:
 _0202B17E:
 	ldr r1, [sp, #0xc]
 	add r0, r4, #0x0
-	bl TryEncryptMon
+	bl ReleaseMonLock
 	ldr r0, [sp, #0x10]
 	add r7, r7, #0x1
 	cmp r7, r0

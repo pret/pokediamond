@@ -21,7 +21,7 @@ ARM_FUNC void OS_InitLock(void)
     }
     isInitialized = TRUE;
 
-    OSLockWord* lockp = (OSLockWord *)0x027FFFF0;
+    OSLockWord* lockp = (OSLockWord *)HW_INIT_LOCK_BUF;
 
     lockp->lockFlag = 0;
 
@@ -45,7 +45,7 @@ ARM_FUNC void OS_InitLock(void)
     (void)OS_TryLockByWord(0x7f, lockp, NULL);
 }
 
-ARM_FUNC s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void), //should be static
+ARM_FUNC s32 OSi_DoLockByWord(u16 lockId, OSLockWord *lockp, void (*ctrlFuncp) (void),
                                      BOOL disableFiq)
 {
     s32 lastLockFlag;

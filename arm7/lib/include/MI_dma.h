@@ -1,7 +1,7 @@
-#ifndef GUARD_MI_DMA_H
-#define GUARD_MI_DMA_H
+#ifndef POKEDIAMOND_ARM7_MI_DMA_H
+#define POKEDIAMOND_ARM7_MI_DMA_H
 
-#include "nitro/dma.h"
+#include "nitro/MI_dma_shared.h"
 #include "nitro/types.h"
 
 void MI_StopDma(u32 channel);

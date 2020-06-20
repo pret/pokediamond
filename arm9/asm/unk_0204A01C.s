@@ -9,7 +9,7 @@ FUN_0204A01C: ; 0x0204A01C
 	mov r1, #0xa2
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	bne _0204A030
 	mov r0, #0x0
@@ -18,7 +18,7 @@ _0204A030:
 	add r0, r4, #0x0
 	mov r1, #0x4c
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	bne _0204A042
 	mov r0, #0x1
@@ -70,7 +70,7 @@ FUN_0204A048: ; 0x0204A048
 	add r2, sp, #0x1c
 	str r0, [sp, #0x1c]
 	add r0, r4, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	ldr r0, [sp, #0x18]
 	add r1, r4, #0x0
 	bl FUN_0206B900
@@ -130,7 +130,7 @@ FUN_0204A120: ; 0x0204A120
 	push {r3-r5, lr}
 	add r5, r2, #0x0
 	add r4, r3, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	lsl r2, r5, #0x18
 	add r1, r4, #0x0
 	lsr r2, r2, #0x18
@@ -143,7 +143,7 @@ FUN_0204A138: ; 0x0204A138
 	push {r3-r7, lr}
 	str r0, [sp, #0x0]
 	add r5, r1, #0x0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r7, r0, #0x0
 	mov r6, #0x0
 	cmp r7, #0x0
@@ -151,35 +151,35 @@ FUN_0204A138: ; 0x0204A138
 _0204A14A:
 	ldr r0, [sp, #0x0]
 	add r1, r6, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x4c
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	bne _0204A19C
 	add r0, r4, #0x0
 	mov r1, #0x36
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r5, r0
 	beq _0204A198
 	add r0, r4, #0x0
 	mov r1, #0x37
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r5, r0
 	beq _0204A198
 	add r0, r4, #0x0
 	mov r1, #0x38
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r5, r0
 	beq _0204A198
 	add r0, r4, #0x0
 	mov r1, #0x39
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r5, r0
 	bne _0204A19C
 _0204A198:
@@ -198,7 +198,7 @@ _0204A1A2:
 FUN_0204A1A8: ; 0x0204A1A8
 	push {r3-r7, lr}
 	add r7, r0, #0x0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	mov r5, #0x0
 	add r6, r0, #0x0
 	add r4, r5, #0x0
@@ -207,7 +207,7 @@ FUN_0204A1A8: ; 0x0204A1A8
 _0204A1BA:
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	bl FUN_0204A01C
 	cmp r0, #0x0
 	beq _0204A1CC
@@ -225,7 +225,7 @@ _0204A1D2:
 FUN_0204A1D8: ; 0x0204A1D8
 	push {r3-r7, lr}
 	add r6, r0, #0x0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r5, r0, #0x0
 	mov r4, #0x0
 	cmp r5, #0x0
@@ -233,7 +233,7 @@ FUN_0204A1D8: ; 0x0204A1D8
 _0204A1E8:
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r7, r0, #0x0
 	bl FUN_0204A01C
 	cmp r0, #0x0
@@ -253,7 +253,7 @@ _0204A204:
 FUN_0204A20C: ; 0x0204A20C
 	push {r3-r7, lr}
 	add r6, r0, #0x0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	lsl r0, r0, #0x10
 	lsr r5, r0, #0x10
 	ldr r4, _0204A244 ; =0x00000000
@@ -261,11 +261,11 @@ FUN_0204A20C: ; 0x0204A20C
 _0204A21C:
 	add r0, r6, #0x0
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x4c
 	mov r2, #0x0
 	add r7, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	bne _0204A236
 	add r0, r7, #0x0
@@ -302,7 +302,7 @@ FUN_0204A25C: ; 0x0204A25C
 	add r1, sp, #0x0
 	add r7, r0, #0x0
 	strb r2, [r1, #0x0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r6, r0, #0x0
 	mov r5, #0x0
 	cmp r6, #0x0
@@ -310,17 +310,17 @@ FUN_0204A25C: ; 0x0204A25C
 _0204A272:
 	add r0, r7, #0x0
 	add r1, r5, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x4c
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	bne _0204A292
 	add r0, r4, #0x0
 	mov r1, #0x19
 	add r2, sp, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 _0204A292:
 	add r5, r5, #0x1
 	cmp r5, r6
@@ -337,7 +337,7 @@ FUN_0204A29C: ; 0x0204A29C
 	str r0, [sp, #0x0]
 	str r1, [sp, #0x4]
 	add r6, r7, #0x0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r4, r7, #0x0
 	str r0, [sp, #0x8]
 	cmp r0, #0x0
@@ -345,7 +345,7 @@ FUN_0204A29C: ; 0x0204A29C
 _0204A2B4:
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r5, r0, #0x0
 	bl FUN_0204A01C
 	cmp r0, #0x0
@@ -353,14 +353,14 @@ _0204A2B4:
 	add r0, r5, #0x0
 	mov r1, #0x9f
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	mov r1, #0x88
 	tst r0, r1
 	beq _0204A308
 	add r0, r5, #0x0
 	mov r1, #0xa2
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0xc]
 	cmp r0, #0x1
 	bls _0204A2EA
@@ -370,7 +370,7 @@ _0204A2EA:
 	add r0, r5, #0x0
 	mov r1, #0xa2
 	add r2, sp, #0xc
-	bl SetMonDataEncrypted
+	bl SetMonData
 	ldr r0, [sp, #0xc]
 	cmp r0, #0x1
 	bne _0204A306
@@ -378,7 +378,7 @@ _0204A2EA:
 	add r0, r5, #0x0
 	mov r1, #0x7
 	add r6, r6, #0x1
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 _0204A306:
 	add r7, r7, #0x1
 _0204A308:
@@ -411,14 +411,14 @@ FUN_0204A32C: ; 0x0204A32C
 	mov r1, #0x9f
 	mov r2, #0x0
 	add r4, r0, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	mov r1, #0x88
 	tst r0, r1
 	beq _0204A362
 	add r0, r4, #0x0
 	mov r1, #0xa2
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x1
 	bne _0204A362
 	mov r0, #0x0
@@ -426,7 +426,7 @@ FUN_0204A32C: ; 0x0204A32C
 	add r0, r4, #0x0
 	mov r1, #0x9f
 	add r2, sp, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add sp, #0x4
 	mov r0, #0x1
 	pop {r3-r4, pc}

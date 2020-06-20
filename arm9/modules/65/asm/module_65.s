@@ -3372,17 +3372,17 @@ MOD65_021D8F34: ; 0x021D8F34
 	str r0, [r4, #0x30]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #0x34]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	add r1, r4, #0
 	add r1, #0x37
 	strb r0, [r1]
 	ldr r0, [r4, #0x10]
 	ldr r0, [r0]
-	bl GetMonNatureEncrypted
+	bl GetMonNature
 	add r1, r4, #0
 	add r1, #0x36
 	strb r0, [r1]
@@ -3402,7 +3402,7 @@ MOD65_021D8F34: ; 0x021D8F34
 	ldr r2, [r4, #0x3c]
 	ldr r0, [r0]
 	mov r1, #0x76
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r1, r4, #0
 	ldr r0, [r4, #0x10]
 	add r1, #0x36
@@ -4239,7 +4239,7 @@ MOD65_021D95A4: ; 0x021D95A4
 	orr r1, r0
 	lsl r0, r1, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, _021D9678 ; =0xFFFC0000
 	asr r1, r0, #0x1f
 	asr r3, r2, #0x12
@@ -5018,7 +5018,7 @@ MOD65_021D9BD8: ; 0x021D9BD8
 	orr r1, r0
 	lsl r0, r1, #4
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	ldr r2, _021D9CD8 ; =0xFFFFA000
 	asr r1, r0, #0x1f
 	asr r3, r2, #0xf
@@ -5240,7 +5240,7 @@ MOD65_021D9E20: ; 0x021D9E20
 	add r0, r4, #0
 	add r0, #0x50
 	ldrh r0, [r0]
-	bl FUN_0201B970
+	bl Sin_Wrap
 	asr r1, r0, #0x1f
 	lsr r2, r0, #0x13
 	lsl r1, r1, #0xd

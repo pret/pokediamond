@@ -26,10 +26,10 @@ FUN_02023C48: ; 0x02023C48
 	lsl r2, r2, #0x4
 	bl memset
 	add r0, r4, #0x0
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	add r0, r4, #0x0
 	add r0, #0xec
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	mov r0, #0x76
 	mov r1, #0x0
 	lsl r0, r0, #0x2
@@ -120,13 +120,13 @@ FUN_02023CC8: ; 0x02023CC8
 	add r5, r0, #0x0
 	mov r1, #0xc
 	mov r2, #0x0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	add r5, #0xec
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0xc
 	mov r2, #0x0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	cmp r4, r0
 	beq _02023CEA
 	mov r0, #0x1
@@ -187,7 +187,7 @@ _02023D38: .word 0x0000FFFF
 FUN_02023D3C: ; 0x02023D3C
 	push {r4, lr}
 	add r4, r0, #0x0
-	bl WipeBoxMonDataAndEncrypt
+	bl ZeroBoxMonData
 	add r0, r4, #0x0
 	mov r1, #0x0
 	add r0, #0xe8
@@ -785,7 +785,7 @@ FUN_0202415C: ; 0x0202415C
 	add r0, r2, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
 	ldr r0, _02024198 ; =0x00000182
@@ -884,7 +884,7 @@ _02024210:
 	add r0, r2, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -897,7 +897,7 @@ _0202422E:
 	add r0, r2, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -911,7 +911,7 @@ _0202424A:
 	add r0, r2, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -925,7 +925,7 @@ _02024268:
 	add r0, r2, #0x0
 	mov r1, #0x70
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1916,17 +1916,17 @@ FUN_0202498C: ; 0x0202498C
 	add r0, r1, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	str r0, [sp, #0x4]
 	mov r1, #0x0
 	ldr r0, [sp, #0x0]
 	add r2, r1, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	add r6, r0, #0x0
 	ldr r1, [r5, #0x0]
 	ldr r0, _02024AE4 ; =0xBEEFCAFE
@@ -2099,21 +2099,21 @@ FUN_02024AF0: ; 0x02024AF0
 	add r0, r1, #0x0
 	mov r1, #0x5
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
 	ldr r0, [sp, #0x0]
 	mov r1, #0xc
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x8]
 	mov r1, #0x0
 	ldr r0, [sp, #0x0]
 	add r2, r1, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [sp, #0x4]
 	ldr r0, [sp, #0x0]
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	add r7, r0, #0x0
 	ldr r1, [r4, #0x0]
 	ldr r0, _02024C78 ; =0xBEEFCAFE

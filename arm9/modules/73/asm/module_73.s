@@ -6714,17 +6714,17 @@ _021DA900:
 	ldr r0, [sp, #0x60]
 	bl MOD73_021DAB30
 _021DA906:
-	bl rand_MT
+	bl MTRandom
 	lsl r0, r0, #0x10
 	lsr r6, r0, #0x10
-	bl rand_MT
+	bl MTRandom
 	add r1, sp, #0x9c
 	ldrb r1, [r1, #0x11]
 	bl _u32_div_f
 	add r0, sp, #0x9c
 	ldrb r0, [r0, #0x10]
 	add r4, r0, r1
-	bl rand_MT
+	bl MTRandom
 	add r1, sp, #0x9c
 	ldrb r1, [r1, #0x13]
 	bl _u32_div_f
@@ -6752,7 +6752,7 @@ _021DA906:
 	str r3, [sp, #0x68]
 	ldrsh r4, [r1, r2]
 	str r0, [sp, #0x78]
-	bl rand_MT
+	bl MTRandom
 	ldr r1, [sp, #0xa0]
 	bl _u32_div_f
 	ldr r0, [sp, #0x9c]
@@ -8078,7 +8078,7 @@ MOD73_021DB2D0: ; 0x021DB2D0
 	sub r2, r5, r6
 	sub r0, r0, r6
 	add r3, r4, #0
-	bl FUN_0201BBD0
+	bl CircularDistance
 	mov r1, #0xa0
 	mul r1, r0
 	add r0, r1, #0
@@ -8365,7 +8365,7 @@ _021DB4E4:
 	bl _s32_div_f
 	add r1, r0, #0
 	mov r0, #0x44
-	bl FUN_0201BC84
+	bl MathUtil_0201BC84
 	ldr r1, [r5, #8]
 	add r0, r1, r0
 	str r0, [r5, #8]
@@ -8639,7 +8639,7 @@ MOD73_021DB698: ; 0x021DB698
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bge _021DB70A
-	bl rand_MT
+	bl MTRandom
 	mov r1, #5
 	add r6, r0, #0
 	bl _u32_div_f
@@ -9161,7 +9161,7 @@ _021DBA56:
 	lsl r4, r0, #2
 	ldr r0, [sp, #0x24]
 	ldr r0, [r0, r4]
-	bl FUN_02085284
+	bl LoadNutDataSingleByItemId
 	mov r3, #0
 	add r7, r0, #0
 	add r2, r3, #0
@@ -9196,7 +9196,7 @@ _021DBAA0:
 _021DBAA4:
 	add r0, r7, #0
 	add r1, r5, #5
-	bl FUN_02085290
+	bl GetNutAttr
 	ldr r1, [r4]
 	add r5, r5, #1
 	add r0, r1, r0
@@ -9205,7 +9205,7 @@ _021DBAA4:
 	blt _021DBAA4
 	add r0, r7, #0
 	mov r1, #0xa
-	bl FUN_02085290
+	bl GetNutAttr
 	ldr r1, [sp, #0x20]
 	add r0, r1, r0
 	str r0, [sp, #0x20]

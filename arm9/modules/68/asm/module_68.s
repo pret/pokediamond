@@ -56,7 +56,7 @@ MOD68_021D74E0: ; 0x021D74E0
 	ldr r0, [r5, r0]
 	mov r1, #0x24
 	ldrb r0, [r0, #8]
-	bl FUN_02085274
+	bl LoadNutDataSingle
 	mov r1, #0x7f
 	lsl r1, r1, #2
 	str r0, [r5, r1]
@@ -720,7 +720,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	ldr r0, [r5, r0]
 	mov r1, #0x24
 	ldrb r0, [r0, #8]
-	bl FUN_020852E8
+	bl GetNutName
 	add r5, r0, #0
 	mov r1, #0
 	str r1, [sp]
@@ -758,7 +758,7 @@ MOD68_021D7AE4: ; 0x021D7AE4
 	ldr r0, [r4, r0]
 	mov r1, #0x24
 	ldrb r0, [r0, #8]
-	bl FUN_02085310
+	bl GetNutDesc
 	mov r1, #0
 	add r4, r0, #0
 	str r1, [sp]
@@ -831,7 +831,7 @@ MOD68_021D7B80: ; 0x021D7B80
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
 	mov r1, #1
-	bl FUN_02085290
+	bl GetNutAttr
 	add r1, r0, #0
 	beq _021D7BA4
 	sub r1, r1, #1
@@ -912,7 +912,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #0
-	bl FUN_02085290
+	bl GetNutAttr
 	mov r1, #0xfa
 	lsl r1, r1, #2
 	mul r1, r0
@@ -1381,7 +1381,7 @@ MOD68_021D7F98: ; 0x021D7F98
 	ldr r0, [r4, r0]
 	mov r1, #0x24
 	ldrb r0, [r0, #8]
-	bl FUN_02085274
+	bl LoadNutDataSingle
 	mov r1, #0x7f
 	lsl r1, r1, #2
 	str r0, [r4, r1]
@@ -2159,7 +2159,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #5
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	mov r1, #0x65
 	lsl r1, r1, #2
@@ -2172,7 +2172,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #6
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	ldr r1, _021D8860 ; =0x0000019A
 	lsl r2, r2, #0x18
@@ -2184,7 +2184,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #7
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	ldr r1, _021D8868 ; =0x000001A6
 	lsl r2, r2, #0x18
@@ -2202,7 +2202,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #9
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	mov r1, #0x6b
 	lsl r1, r1, #2
@@ -2215,7 +2215,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #5
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	ldr r1, _021D8878 ; =0x000001B2
 	lsl r2, r2, #0x18
@@ -2232,7 +2232,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #8
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	mov r1, #0x6e
 	lsl r1, r1, #2
@@ -2245,7 +2245,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #9
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	mov r1, #0x71
 	lsl r1, r1, #2
@@ -2263,7 +2263,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #7
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	ldr r1, _021D8898 ; =0x000001D6
 	lsl r2, r2, #0x18
@@ -2275,7 +2275,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #8
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	mov r1, #0x1d
 	lsl r1, r1, #4
@@ -2294,7 +2294,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #6
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	ldr r1, _021D88A8 ; =0x000001E2
 	lsl r2, r2, #0x18
@@ -2306,7 +2306,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #7
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	ldr r1, _021D88B0 ; =0x000001EE
 	lsl r2, r2, #0x18
@@ -2318,7 +2318,7 @@ MOD68_021D85F4: ; 0x021D85F4
 	lsl r0, r0, #2
 	ldr r0, [r5, r0]
 	mov r1, #8
-	bl FUN_02085290
+	bl GetNutAttr
 	add r2, r0, #0
 	mov r1, #0x7a
 	lsl r1, r1, #2

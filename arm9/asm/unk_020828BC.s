@@ -765,7 +765,7 @@ FUN_02082D60: ; 0x02082D60
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
 	mov r2, #0x0
-	bl FUN_02066E74
+	bl GenPersonalityByGenderAndNature
 	mov r1, #0x1
 	str r1, [sp, #0x0]
 	str r0, [sp, #0x4]
@@ -789,7 +789,7 @@ _02082D9A:
 	add r0, r6, #0x0
 	add r1, #0x36
 	add r2, #0x2
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r4, r4, #0x1
 	add r5, r5, #0x2
 	cmp r4, #0x4
@@ -810,11 +810,11 @@ _02082D9A:
 	add r0, r6, #0x0
 	mov r1, #0x76
 	add r2, r5, #0x0
-	bl SetMonDataEncrypted
+	bl SetMonData
 	ldr r2, [sp, #0x14]
 	add r0, r6, #0x0
 	mov r1, #0x90
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r5, #0x0
 	bl FUN_02021A20
 	ldr r0, [sp, #0x14]
@@ -838,30 +838,30 @@ _02082D9A:
 	strb r1, [r0, #0x0]
 	add r0, r6, #0x0
 	mov r1, #0x13
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r6, #0x0
 	mov r1, #0x14
 	add r2, sp, #0x1c
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r2, sp, #0x18
 	add r0, r6, #0x0
 	mov r1, #0x15
 	add r2, #0x3
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r2, sp, #0x18
 	add r0, r6, #0x0
 	mov r1, #0x16
 	add r2, #0x2
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r2, sp, #0x18
 	add r0, r6, #0x0
 	mov r1, #0x17
 	add r2, #0x1
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r6, #0x0
 	mov r1, #0x18
 	add r2, sp, #0x18
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add sp, #0x20
 	pop {r3-r7, pc}
 	nop
@@ -1717,7 +1717,7 @@ FUN_02083454: ; 0x02083454
 	cmp r1, #0x1
 	bne _02083474
 _02083464:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xc
 	bl _s32_div_f
 	add sp, #0xc
@@ -1762,7 +1762,7 @@ _020834A6:
 	add r4, r4, #0x3
 	strb r0, [r2, r1]
 _020834BE:
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0x0
 	bl _s32_div_f
 	add r0, sp, #0x0

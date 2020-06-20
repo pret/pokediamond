@@ -1,44 +1,6 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .section .data
-
-	.global _038075E4
-_038075E4:
-	.word	0x00090008
-	.word	0x000B000A
-	.word	0x00040003
-	.word	0x00060005
-	.word	0x00000000
-
-	.global OS_IRQTable
-OS_IRQTable:
-	.word	OSi_IrqVBlank
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OSi_IrqTimer0
-	.word	OSi_IrqTimer1
-	.word	OSi_IrqTimer2
-	.word	OSi_IrqTimer3
-	.word	OS_IrqDummy
-	.word	OSi_IrqDma0
-	.word	OSi_IrqDma1
-	.word	OSi_IrqDma2
-	.word	OSi_IrqDma3
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-	.word	OS_IrqDummy
-
     .section .text
 
 	arm_func_start OS_IrqHandler

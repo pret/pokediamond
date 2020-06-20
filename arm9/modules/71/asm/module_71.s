@@ -138,7 +138,7 @@ MOD71_0222D5C0: ; 0x0222D5C0
 	mov r0, #0x1a
 	bl FUN_020335F0
 	bl FUN_02033E74
-	bl FUN_0201277C
+	bl IsNighttime
 	cmp r0, #0
 	bne _0222D71A
 	ldr r1, _0222D748 ; =0x0000043D
@@ -420,11 +420,11 @@ MOD71_0222D93C: ; 0x0222D93C
 	bl MOD71_0222DB94
 	ldr r0, _0222D9B8 ; =0x00002218
 	ldr r0, [r5, r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r4, r0, #0
 	ldr r0, _0222D9BC ; =0x0000221C
 	ldr r0, [r5, r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r2, r0, #0
 	mov r0, #0x5d
 	lsl r0, r0, #2
@@ -644,13 +644,13 @@ MOD71_0222DB5C: ; 0x0222DB5C
 	add r0, r5, #0
 	add r6, r2, #0
 	mov r4, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	ble _0222DB92
 _0222DB70:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	bl FUN_020690E4
 	add r2, r0, #0
 	add r0, r7, #0
@@ -658,7 +658,7 @@ _0222DB70:
 	bl FUN_0200ACF8
 	add r0, r5, #0
 	add r4, r4, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	blt _0222DB70
 _0222DB92:
@@ -676,7 +676,7 @@ MOD71_0222DB94: ; 0x0222DB94
 	str r3, [sp, #0x10]
 	ldr r6, [sp, #0x28]
 	mov r4, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	ble _0222DBE6
 	add r7, r6, #1
@@ -701,7 +701,7 @@ _0222DBB0:
 	ldr r0, [sp, #0x10]
 	add r5, #0x10
 	add r4, r4, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	blt _0222DBB0
 _0222DBE6:
@@ -718,7 +718,7 @@ MOD71_0222DBEC: ; 0x0222DBEC
 	str r1, [sp, #0xc]
 	str r2, [sp, #0x20]
 	mov r7, #0
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	bgt _0222DC02
 	b _0222DD10
@@ -847,7 +847,7 @@ _0222DCE2:
 _0222DD02:
 	ldr r0, [sp, #8]
 	add r7, r7, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r7, r0
 	bge _0222DD10
 	b _0222DC0C
@@ -957,7 +957,7 @@ _0222DDD8:
 	bl FUN_02031190
 	cmp r0, #0
 	bne _0222DE04
-	bl rand_LC
+	bl LCRandom
 	ldr r1, _0222E0F0 ; =0x00000445
 	bl _s32_div_f
 	lsl r0, r0, #0x10
@@ -1086,7 +1086,7 @@ _0222DED6:
 	blt _0222DED6
 	ldr r0, _0222E0F8 ; =0x00002218
 	ldr r0, [r4, r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	ble _0222DF12
 	mov r0, #0x69
@@ -1097,20 +1097,20 @@ _0222DEF4:
 	ldr r0, _0222E0F8 ; =0x00002218
 	add r1, r5, #0
 	ldr r0, [r4, r0]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r6, #0
 	bl MOD71_0222E118
 	ldr r0, [r4, r7]
 	add r6, #0x10
 	add r5, r5, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r5, r0
 	blt _0222DEF4
 _0222DF12:
 	ldr r0, _0222E0FC ; =0x0000221C
 	mov r5, #0
 	ldr r0, [r4, r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	ble _0222DF48
 	mov r0, #0x69
@@ -1121,14 +1121,14 @@ _0222DF28:
 	ldr r0, _0222E0FC ; =0x0000221C
 	add r1, r5, #0
 	ldr r0, [r4, r0]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r5, #6
 	lsl r1, r1, #4
 	add r1, r6, r1
 	bl MOD71_0222E118
 	ldr r0, [r4, r7]
 	add r5, r5, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r5, r0
 	blt _0222DF28
 _0222DF48:
@@ -1233,7 +1233,7 @@ _0222E010:
 	ldr r0, _0222E0F8 ; =0x00002218
 	mov r1, #0
 	ldr r0, [r4, r0]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r2, #0x7f
 	ldr r3, _0222E104 ; =0x000020F0
 	lsl r2, r2, #4
@@ -1343,46 +1343,46 @@ MOD71_0222E118: ; 0x0222E118
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	bl TryDecryptMon
+	bl AcquireMonLock
 	add r7, r0, #0
 	add r0, r5, #0
 	mov r1, #0x9a
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r4, #4]
 	add r0, r5, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4]
 	add r0, r5, #0
 	mov r1, #0x70
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r4, #6]
 	add r0, r5, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strb r0, [r4, #5]
 	add r0, r5, #0
 	mov r1, #0x6f
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	strh r0, [r4, #8]
 	add r0, r5, #0
 	mov r1, #0xa1
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	str r0, [r4, #0xc]
 	add r0, r5, #0
 	mov r1, #6
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
-	bl TryEncryptMon
+	bl ReleaseMonLock
 	ldrh r0, [r4]
 	cmp r0, #0
 	beq _0222E18E
@@ -1412,7 +1412,7 @@ MOD71_0222E1A0: ; 0x0222E1A0
 	ldr r0, _0222E20C ; =0x0000221C
 	add r7, r1, #0
 	ldr r0, [r5, r0]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r6, r0, #0
 	add r0, r4, #0
 	mov r1, #6
@@ -1473,7 +1473,7 @@ MOD71_0222E224: ; 0x0222E224
 	bge _0222E29E
 	ldr r0, _0222E2BC ; =0x00002218
 	ldr r0, [r5, r0]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, r0, #0
 	add r0, r5, #0
 	add r0, #0x88
@@ -1675,7 +1675,7 @@ MOD71_0222E3D4: ; 0x0222E3D4
 	ldr r0, _0222E42C ; =0x00002218
 	mov r4, #0
 	ldr r0, [r6, r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	ble _0222E402
 	ldr r7, _0222E42C ; =0x00002218
@@ -1688,14 +1688,14 @@ _0222E3EA:
 	ldr r0, [r6, r7]
 	add r5, r5, #4
 	add r4, r4, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r4, r0
 	blt _0222E3EA
 _0222E402:
 	ldr r0, _0222E430 ; =0x0000221C
 	mov r5, #0
 	ldr r0, [r6, r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r0, #0
 	ble _0222E42A
 	ldr r7, _0222E430 ; =0x0000221C
@@ -1707,7 +1707,7 @@ _0222E414:
 	ldr r0, [r6, r7]
 	add r4, r4, #4
 	add r5, r5, #1
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	cmp r5, r0
 	blt _0222E414
 _0222E42A:
@@ -2647,12 +2647,12 @@ MOD71_0222EBFC: ; 0x0222EBFC
 	mov r1, #0
 	add r0, r6, #0
 	add r2, r1, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r7, r0, #0
 	add r0, r6, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	mov r3, #0
 	str r3, [sp]
 	mov r1, #0xa
@@ -2694,10 +2694,10 @@ MOD71_0222EC5C: ; 0x0222EC5C
 	add r4, r0, #0
 	add r0, r6, #0
 	add r1, r7, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x76
 	add r2, r4, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r5, #0
 	mov r1, #0
 	bl FUN_02019620
@@ -2728,10 +2728,10 @@ MOD71_0222ECA8: ; 0x0222ECA8
 _0222ECB6:
 	add r0, r1, #0
 	add r1, r2, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0x4d
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0
 	bne _0222ECCE
 	mov r0, #2
@@ -2753,7 +2753,7 @@ MOD71_0222ECD4: ; 0x0222ECD4
 	str r2, [sp, #8]
 	str r3, [sp, #0xc]
 	ldr r4, [sp, #0x50]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #2
 	bl FUN_02068E14
 	str r0, [sp, #0x10]
@@ -2929,10 +2929,10 @@ _0222EE14:
 	bl MOD71_02230EFC
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #0xa0
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	mov r0, #1
@@ -2975,10 +2975,10 @@ _0222EEA6:
 	bl MOD71_02230EFC
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	mov r1, #6
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r5, #0x20
 	lsl r0, r0, #0x10
 	lsl r4, r5, #4
@@ -3488,7 +3488,7 @@ MOD71_0222F2D8: ; 0x0222F2D8
 	strh r1, [r0]
 _0222F2EE:
 	ldrh r0, [r0]
-	bl FUN_0201B970
+	bl Sin_Wrap
 	mov r1, #0xa
 	mul r1, r0
 	asr r0, r1, #0xb
@@ -3864,7 +3864,7 @@ MOD71_0222F59C: ; 0x0222F59C
 	str r0, [r5, #0xc]
 	ldr r0, [r5, #8]
 	ldr r0, [r0, #8]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r5, #0x1f]
 	mov r0, #0
 	str r0, [r5, #0x34]
@@ -3880,7 +3880,7 @@ _0222F5CC:
 	ldr r1, [r5, r0]
 	str r1, [r5, #0xc]
 	ldr r0, [r5, r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	strb r0, [r5, #0x1f]
 	bl FUN_02031190
 	mov r2, #1
@@ -4875,7 +4875,7 @@ MOD71_0222FDD8: ; 0x0222FDD8
 	add r1, #0x88
 	ldr r0, [r4, r0]
 	ldr r1, [r1]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	bl FUN_020690E4
 	add r2, r0, #0
 	mov r0, #0x5f
@@ -5694,7 +5694,7 @@ MOD71_022304AC: ; 0x022304AC
 	add r1, #0x88
 	ldr r0, [r4, r0]
 	ldr r1, [r1]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	bl FUN_020690E4
 	add r2, r0, #0
 	mov r0, #0x5f
@@ -5708,7 +5708,7 @@ MOD71_022304AC: ; 0x022304AC
 	ldr r1, [r1]
 	ldr r0, [r4, r0]
 	sub r1, r1, #6
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	bl FUN_020690E4
 	add r2, r0, #0
 	mov r0, #0x5f
@@ -6121,7 +6121,7 @@ MOD71_02230810: ; 0x02230810
 	ldr r1, [r1]
 	ldr r0, [r4, r0]
 	sub r1, r1, #6
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	bl FUN_020690E4
 	add r2, r0, #0
 	mov r0, #0x5f
@@ -6327,18 +6327,18 @@ MOD71_022309E8: ; 0x022309E8
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r7, #0
 	bl FUN_02069B88
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r4, #0
 	bl FUN_02069B88
 	add r0, r4, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0
 	bne _02230A40
 	mov r1, #0x46
@@ -6347,7 +6347,7 @@ MOD71_022309E8: ; 0x022309E8
 	add r0, r4, #0
 	mov r1, #9
 	add r2, sp, #0x10
-	bl SetMonDataEncrypted
+	bl SetMonData
 _02230A40:
 	bl FUN_02031190
 	bl FUN_0202DFA4
@@ -6375,7 +6375,7 @@ _02230A40:
 	ldr r0, [sp, #4]
 	ldr r1, _02230AE0 ; =0x000001B9
 	str r6, [r5, #0x2c]
-	bl FUN_0206BAE4
+	bl PartyHasMon
 	cmp r0, #0
 	bne _02230A98
 	ldr r0, [r5, #0x10]
@@ -6387,13 +6387,13 @@ _02230A98:
 	bl FUN_0202C144
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r0, #0
 	add r0, r4, #0
 	bl FUN_02069B88
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r1, r0, #0
 	add r0, r7, #0
 	bl FUN_02069B88
@@ -6427,7 +6427,7 @@ MOD71_02230AE4: ; 0x02230AE4
 	add r0, r4, #0
 	mov r1, #0x74
 	add r2, sp, #4
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r0, r5, #0
 	bl FUN_0202398C
 	add r7, r0, #0
@@ -6435,7 +6435,7 @@ MOD71_02230AE4: ; 0x02230AE4
 	bl FUN_020239CC
 	add r5, r0, #0
 	add r0, r4, #0
-	bl GetMonGenderEncrypted
+	bl GetMonGender
 	add r3, r0, #0
 	mov r0, #0x1a
 	lsl r1, r5, #0x18
@@ -6538,7 +6538,7 @@ MOD71_02230BC4: ; 0x02230BC4
 	ldr r0, _02230C00 ; =0x00002218
 	mov r4, #0
 	ldr r0, [r5, r0]
-	bl FUN_0206B9AC
+	bl GetPartyCount
 	add r3, r4, #0
 	cmp r0, #0
 	ble _02230BF0

@@ -1,8 +1,20 @@
-#ifndef GUARD_OS_SHARED_MUTEX_H
-#define GUARD_OS_SHARED_MUTEX_H
+/*
+ * NOTE:
+ * This file is shared between ARM9 and ARM7
+ * DO NOT PUT PROC SPECIFIC CODE IN HERE
+ * Thank You!
+ */
 
-#include "nitro/types.h"
+/*
+ * DO NOT INCLUDE THIS FILE DIRECTLY
+ * Include OS_mutex.h from the specific proc's lib
+ */
+
+#ifndef POKEDIAMOND_OS_MUTEX_SHARED_H
+#define POKEDIAMOND_OS_MUTEX_SHARED_H
+
 #include "nitro/OS_thread_shared.h"
+#include "nitro/types.h"
 
 struct OSMutex {
     OSThreadQueue queue;
@@ -11,4 +23,4 @@ struct OSMutex {
     OSMutexLink link;
 };
 
-#endif
+#endif //POKEDIAMOND_OS_MUTEX_SHARED_H

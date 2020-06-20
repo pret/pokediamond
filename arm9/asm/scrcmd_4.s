@@ -92,7 +92,7 @@ FUN_02040748: ; 0x02040748
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	add r1, r5, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r2, r0, #0x0
 	ldr r0, [r7, #0x0]
 	add r1, r4, #0x0
@@ -315,7 +315,7 @@ FUN_0204091C: ; 0x0204091C
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	add r1, r5, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r2, r0, #0x0
 	ldr r0, [r7, #0x0]
 	add r1, r4, #0x0
@@ -790,7 +790,7 @@ FUN_02040D04: ; 0x02040D04
 	lsl r0, r5, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0x20
-	bl FUN_020852E8
+	bl GetNutName
 	add r5, r0, #0x0
 	cmp r4, #0x2
 	bhs _02040D5A
@@ -943,11 +943,11 @@ FUN_02040E4C: ; 0x02040E4C
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	ldr r1, [sp, #0x0]
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r4, #0x36
 	add r1, r4, #0x0
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r2, r0, #0x10
 	ldr r0, [r7, #0x0]

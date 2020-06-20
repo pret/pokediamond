@@ -213,7 +213,7 @@ _022549AC:
 	bl MOD37_02254A18
 	cmp r0, #0
 	beq _022549DE
-	bl rand_MT
+	bl MTRandom
 	mov r1, #1
 	and r0, r1
 	str r0, [r4, #8]

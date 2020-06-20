@@ -2,8 +2,13 @@
 #define GUARD_GLOBAL_H
 
 #include "config.h"
+
+#include "MWC_string.h"
 #include "function_target.h"
 #include "nitro.h"
+#include "constants/global.h"
+
+#define NELEMS(a) (sizeof(a) / sizeof(*(a)))
 
 enum GameVersion {
     VERSION_SAPPHIRE   =  1,
@@ -26,5 +31,10 @@ enum GameLanguage {
 };
 
 extern void ErrorHandling(void);
+
+#define GF_ASSERT(expr) do {if (!(expr)) ErrorHandling();} while (0)
+
+extern const enum GameLanguage gGameLanguage;
+extern const enum GameVersion gGameVersion;
 
 #endif //GUARD_GLOBAL_H

@@ -1,89 +1,9 @@
-#ifndef POKEDIAMOND_OS_THREAD_H
-#define POKEDIAMOND_OS_THREAD_H
+#ifndef POKEDIAMOND_ARM9_OS_THREAD_H
+#define POKEDIAMOND_ARM9_OS_THREAD_H
 
 #include "nitro/types.h"
 #include "OS_context.h"
-
-typedef struct OSiAlarm OSAlarm;
-
-typedef struct _OSThread OSThread;
-
-typedef struct _OSThreadQueue OSThreadQueue;
-typedef struct _OSThreadLink OSThreadLink;
-typedef struct _OSMutexQueue OSMutexQueue;
-typedef struct _OSMutexLink OSMutexLink;
-typedef struct OSMutex OSMutex;
-
-struct _OSThreadQueue
-{
-    OSThread *head;
-    OSThread *tail;
-};
-
-struct _OSThreadLink
-{
-    OSThread *prev;
-    OSThread *next;
-};
-
-struct _OSMutexQueue
-{
-    OSMutex *head;
-    OSMutex *tail;
-};
-
-struct _OSMutexLink
-{
-    OSMutex *next;
-    OSMutex *prev;
-};
-
-typedef struct OSThreadInfo {
-    u16 isNeedRescheduling;
-    u16 irqDepth;
-    OSThread* current;
-    OSThread* list;
-    void* switchCallback; // type: OSSwitchThreadCallback
-} OSThreadInfo;
-
-typedef enum {
-    OS_THREAD_STATE_WAITING = 0,
-    OS_THREAD_STATE_READY = 1,
-    OS_THREAD_STATE_TERMINATED = 2
-} OSThreadState;
-
-typedef void (*OSSwitchThreadCallback) (OSThread *from, OSThread *to);
-
-typedef void (*OSThreadDestructor) (void *);
-
-struct _OSThread
-{
-    OSContext context;
-    OSThreadState state;
-    OSThread *next;
-    u32 id;
-    u32 priority;
-    void *profiler;
-
-    OSThreadQueue *queue;
-    OSThreadLink link;
-
-    OSMutex *mutex;
-    OSMutexQueue mutexQueue;
-
-    u32 stackTop;
-    u32 stackBottom;
-    u32 stackWarningOffset;
-
-    OSThreadQueue joinQueue;
-
-    void *specific[3];
-    OSAlarm *alarmForSleep;
-    OSThreadDestructor destructor;
-    void *userParameter;
-
-    u32 systemErrno;
-};
+#include "nitro/OS_thread_shared.h"
 
 static s32 OSi_GetUnusedThreadId(void);
 static void OSi_InsertLinkToQueue(OSThreadQueue *queue, OSThread *thread);
@@ -119,33 +39,4 @@ u32 OS_DisableScheduler(void);
 u32 OS_EnableScheduler(void);
 void OS_SetThreadDestructor(OSThread *thread, OSThreadDestructor dtor);
 
-extern OSThreadInfo OSi_ThreadInfo;
-
-static inline OSThreadInfo *OS_GetThreadInfo(void)
-{
-    return &OSi_ThreadInfo;
-}
-
-static inline BOOL OS_IsThreadRunnable(const OSThread *thread)
-{
-    return thread->state == OS_THREAD_STATE_READY;
-}
-
-static inline void OS_InitThreadQueue(OSThreadQueue * queue)
-{
-    queue->head = queue->tail = NULL;
-}
-
-static inline OSThread *OS_GetCurrentThread(void)
-{
-    return OS_GetThreadInfo()->current;
-}
-
-static inline void OS_SetCurrentThread(OSThread *thread)
-{
-    OS_GetThreadInfo()->current = thread;
-}
-
-#define OSi_GetCurrentThread()          (*OSi_CurrentThreadPtr)
-
-#endif //POKEDIAMOND_OS_THREAD_H
+#endif //POKEDIAMOND_ARM9_OS_THREAD_H

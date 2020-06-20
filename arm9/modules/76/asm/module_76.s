@@ -801,7 +801,7 @@ MOD76_021D7B2C: ; 0x021D7B2C
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x36
-	bl SetMonDataEncrypted
+	bl SetMonData
 	mov r0, #0
 	str r0, [sp]
 	ldr r1, [r4]
@@ -809,18 +809,18 @@ MOD76_021D7B2C: ; 0x021D7B2C
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x3e
-	bl SetMonDataEncrypted
+	bl SetMonData
 	add r0, r4, #0
 	bl MOD76_021D8514
 	mov r1, #0
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	str r0, [sp]
 	ldr r1, [r4]
 	add r2, sp, #0
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x3a
-	bl SetMonDataEncrypted
+	bl SetMonData
 	ldr r0, [r4]
 	mov r1, #0
 	strb r1, [r0, #0x16]
@@ -1444,7 +1444,7 @@ MOD76_021D800C: ; 0x021D800C
 _021D8050:
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r2, r0, #0
 	cmp r2, #1
 	bhi _021D8072
@@ -1474,7 +1474,7 @@ _021D8080:
 	bl MOD76_021D7CC8
 	add r0, r4, #0
 	mov r1, #4
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r2, r0, #0
 	bne _021D80B0
 	mov r1, #0x21
@@ -1504,7 +1504,7 @@ _021D80BE:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #0
-	bl FUN_0206AB30
+	bl WazaGetMaxPp
 	add r2, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -1608,7 +1608,7 @@ MOD76_021D81AC: ; 0x021D81AC
 	beq _021D8222
 	add r0, r4, #0
 	mov r1, #0xa
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	bl FUN_0208315C
 	add r6, r0, #0
 	mov r0, #0
@@ -1770,7 +1770,7 @@ MOD76_021D8300: ; 0x021D8300
 	beq _021D8344
 	add r0, r4, #0
 	mov r1, #0xa
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	bl FUN_02083114
 	mov r1, #0xa
 	bl _s32_div_f
@@ -2028,7 +2028,7 @@ MOD76_021D8524: ; 0x021D8524
 	ldr r0, [r1]
 	ldrb r1, [r1, #0x17]
 	add r1, #0x36
-	bl GetMonDataEncrypted
+	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	pop {r3, pc}
@@ -2131,7 +2131,7 @@ _021D85EC:
 	ldr r0, [r0]
 	add r1, #0x36
 	add r2, r6, #0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0
 	beq _021D8608
 	add r0, r4, #1
@@ -2656,13 +2656,13 @@ MOD76_021D89E4: ; 0x021D89E4
 	bne _021D8A00
 	add r0, r1, #0
 	mov r1, #3
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r6, r0, #0
 	b _021D8A0C
 _021D8A00:
 	add r0, r1, #0
 	mov r1, #0xb
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r6, r0, #0
 	add r6, #0x12
 _021D8A0C:
@@ -2925,7 +2925,7 @@ MOD76_021D8BF8: ; 0x021D8BF8
 	add r5, r0, #0
 	add r0, r1, #0
 	mov r1, #1
-	bl FUN_0206AB18
+	bl GetWazaAttr
 	add r4, r0, #0
 	bl FUN_0206E2A8
 	add r6, r0, #0

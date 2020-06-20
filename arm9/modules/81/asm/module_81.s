@@ -136,7 +136,7 @@ _02237F22:
 	mov r1, #5
 	ldr r0, [r0]
 	mov r2, #0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	mov r1, #0x53
 	lsl r1, r1, #2
 	strh r0, [r4, r1]
@@ -144,7 +144,7 @@ _02237F22:
 	mov r1, #5
 	ldr r0, [r0, #4]
 	mov r2, #0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	ldr r1, _02237FD8 ; =0x0000014E
 	strh r0, [r4, r1]
 	mov r0, #0
@@ -197,7 +197,7 @@ MOD81_02237FE8: ; 0x02237FE8
 	push {r3, lr}
 	mov r1, #5
 	mov r2, #0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	mov r1, #0x1c
 	bl GetMonBaseStat
 	cmp r0, #0
@@ -999,7 +999,7 @@ _0223860E:
 	ldr r4, [r0, #4]
 _02238610:
 	add r0, r4, #0
-	bl TryDecryptBoxMon
+	bl AcquireBoxMonLock
 	str r0, [sp, #0x20]
 	add r0, sp, #0x34
 	add r1, r4, #0
@@ -1008,12 +1008,12 @@ _02238610:
 	mov r1, #0
 	add r0, r4, #0
 	add r2, r1, #0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	str r0, [sp, #0x1c]
 	add r0, r4, #0
 	mov r1, #5
 	mov r2, #0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	lsl r0, r0, #0x10
 	ldr r1, [sp, #0x58]
 	lsr r0, r0, #0x10
@@ -1051,7 +1051,7 @@ _02238648:
 	bl FUN_02017E14
 	ldr r1, [sp, #0x20]
 	add r0, r4, #0
-	bl TryEncryptBoxMon
+	bl ReleaseBoxMonLock
 	add r0, r7, #0
 	bl FreeToHeap
 _02238690:
@@ -2514,7 +2514,7 @@ _02239138:
 	bl MOD81_02238818
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	cmp r0, #0
 	bne _0223918A
 	ldr r0, [r4, #0x10]
@@ -3248,7 +3248,7 @@ MOD81_022396E8: ; 0x022396E8
 	str r1, [r4, r0]
 	add r0, r0, #4
 	str r1, [r4, r0]
-	bl rand_MT
+	bl MTRandom
 	add r1, r4, #0
 	add r1, #0xbc
 	str r0, [r1]
@@ -3300,7 +3300,7 @@ _02239790:
 	add r0, r5, #0
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl seedr_MT
+	bl SetMTRNGSeed
 	add r0, r5, #0
 	bl FreeToHeap
 _022397A0:
@@ -4154,17 +4154,17 @@ MOD81_02239E00: ; 0x02239E00
 	add r3, sp, #0x60
 	bl MOD81_022387A8
 	ldr r0, _02239F18 ; =0x035947D1
-	bl seedr_MT
+	bl SetMTRNGSeed
 	mov r0, #0
 	str r0, [sp, #0x14]
 	add r4, r7, #0
 _02239E9A:
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0xe8
 	bl _u32_div_f
 	add r6, r1, #0
 	add r6, #0xc
-	bl rand_MT
+	bl MTRandom
 	mov r1, #0x71
 	lsl r1, r1, #2
 	bl _u32_div_f
@@ -9501,7 +9501,7 @@ _0223C8D6:
 	bl MOD81_02238820
 	mov r1, #0x4c
 	mov r2, #0
-	bl GetBoxMonDataEncrypted
+	bl GetBoxMonData
 	cmp r0, #0
 	bne _0223C902
 	ldr r0, [r4]

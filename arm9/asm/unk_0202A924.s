@@ -18,9 +18,9 @@ FUN_0202A92C: ; 0x0202A92C
 	mov r1, #0x0
 	lsl r2, r2, #0x2
 	bl memset
-	bl rand_MT
+	bl MTRandom
 	str r0, [r4, #0x0]
-	bl rand_MT
+	bl MTRandom
 	str r0, [r4, #0x4]
 	mov r1, #0x0
 	add r3, r4, #0x0

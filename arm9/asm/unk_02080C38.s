@@ -108,7 +108,7 @@ _02080CB4:
 	ldr r0, [r6, #0xc]
 	bl FUN_0206BB1C
 	mov r1, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_020377AC
@@ -810,7 +810,7 @@ FUN_02081214: ; 0x02081214
 	bl FUN_0201681C
 	bl FUN_020811D8
 	add r4, r0, #0x0
-	bl getseed_LC
+	bl GetLCRNGSeed
 	mov r1, #0x67
 	lsl r1, r1, #0x6
 	str r0, [r4, r1]
@@ -1083,7 +1083,7 @@ _02081454:
 	ldr r0, [r4, #0x0]
 	ldr r2, [r2, #0x0]
 	mov r1, #0x90
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r6, #0x1
 	add r4, r4, #0x4
 	cmp r6, #0x4
@@ -1187,7 +1187,7 @@ _020814FE:
 	mov r0, #0x67
 	lsl r0, r0, #0x6
 	ldr r0, [r7, r0]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r7, #0x0
 	bl FUN_0208120C
 	mov r0, #0x14
@@ -1223,7 +1223,7 @@ _02081566:
 	add r0, r5, #0x0
 	add r1, #0x7a
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r0, #0x0
 	b _020815BA
 _02081576:
@@ -1231,7 +1231,7 @@ _02081576:
 	add r0, r5, #0x0
 	add r1, #0x7e
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r0, #0x0
 	b _020815BA
 _02081586:
@@ -1239,7 +1239,7 @@ _02081586:
 	add r0, r5, #0x0
 	add r1, #0x82
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r0, #0x0
 	b _020815BA
 _02081596:
@@ -1247,7 +1247,7 @@ _02081596:
 	add r0, r5, #0x0
 	add r1, #0x86
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r0, #0x0
 	b _020815BA
 _020815A6:
@@ -1255,7 +1255,7 @@ _020815A6:
 	add r0, r5, #0x0
 	add r1, #0x8a
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	add r6, r0, #0x0
 	b _020815BA
 _020815B6:
@@ -2973,7 +2973,7 @@ FUN_02082254: ; 0x02082254
 	ldr r0, _02082280 ; =0x00001990
 	mov r2, #0x0
 	ldr r0, [r4, r0]
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	beq _0208227A
 	mov r0, #0x1
@@ -3590,7 +3590,7 @@ _020826AC:
 	add r1, r6, #0x0
 	ldr r0, [r4, r0]
 	mov r2, #0x0
-	bl GetMonDataEncrypted
+	bl GetMonData
 	cmp r0, #0x0
 	bne _020826DE
 	mov r5, #0x1
@@ -3599,7 +3599,7 @@ _020826DE:
 	add r1, r6, #0x0
 	ldr r0, [r4, r0]
 	add r2, sp, #0x8
-	bl SetMonDataEncrypted
+	bl SetMonData
 _020826EA:
 	ldr r0, _02082848 ; =0x0000198C
 	ldr r0, [r4, r0]
@@ -3748,7 +3748,7 @@ _02082820:
 	lsl r2, r2, #0x10
 	mov r1, #0x9
 	lsr r2, r2, #0x10
-	bl MonApplyFriendshipModEncrypted
+	bl MonApplyFriendshipMod
 _0208283A:
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -3766,27 +3766,27 @@ FUN_0208285C: ; 0x0208285C
 	push {r4, lr}
 	bl FUN_020126D8
 	add r4, r0, #0x0
-	bl getseed_LC
+	bl GetLCRNGSeed
 	add r0, #0xa
 	mul r0, r4
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl seedr_LC
+	bl SetLCRNGSeed
 	pop {r4, pc}
 	.balign 4
 
 	thumb_func_start FUN_02082878
 FUN_02082878: ; 0x02082878
-	ldr r3, _0208287C ; =rand_LC
+	ldr r3, _0208287C ; =LCRandom
 	bx r3
 	.balign 4
-_0208287C: .word rand_LC
+_0208287C: .word LCRandom
 
 	thumb_func_start FUN_02082880
 FUN_02082880: ; 0x02082880
 	push {r4, lr}
 	add r4, r1, #0x0
-	bl rand_ALT
+	bl PRandom
 	str r0, [r4, #0x0]
 	lsr r0, r0, #0x10
 	lsl r0, r0, #0x10

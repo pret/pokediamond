@@ -1617,7 +1617,7 @@ FUN_02066070: ; 0x02066070
 	lsl r1, r1, #0x4
 	str r0, [r6, r1]
 	add r0, r5, #0x0
-	bl FUN_020256BC
+	bl CreateNewSealsObject
 	add r7, r0, #0x0
 	add r0, r6, #0x0
 	str r0, [sp, #0x10]
@@ -1810,7 +1810,7 @@ FUN_020661F8: ; 0x020661F8
 	bl FUN_020377AC
 	bl FUN_0206BB1C
 	add r1, r7, #0x0
-	bl FUN_0206B9B0
+	bl GetPartyMonByIndex
 	add r2, r0, #0x0
 	mov r0, #0x6b
 	lsl r0, r0, #0x2

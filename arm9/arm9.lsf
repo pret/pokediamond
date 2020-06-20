@@ -242,11 +242,11 @@ Static arm9
     Object unk_020653EC.o
     Object unk_02066840.o
     Object unk_02066978.o
-    Object unk_0206AB04.o
+    Object waza.o
     Object unk_0206ABC4.o
     Object unk_0206B16C.o
     Object unk_0206B688.o
-    Object unk_0206B8A4.o
+    Object party.o
     Object unk_0206BB28.o
     Object unk_0206BB5C.o
     Object unk_0206BF90.o
