@@ -1963,7 +1963,7 @@ MOD84_021D84F8: ; 0x021D84F8
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0x4b
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x30]
 	mov r0, #0x4b
 	mov r1, #1
@@ -2032,7 +2032,7 @@ MOD84_021D85B8: ; 0x021D85B8
 	bl FUN_0200CAB4
 _021D85C6:
 	ldr r0, [r4, #0x30]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x24]
 	bl FUN_02019178
 	ldr r0, [r4, #0x28]
@@ -2076,7 +2076,7 @@ _021D8600:
 	ldr r0, [r5, #0x2c]
 	ldrh r1, [r2, r1]
 	ldr r2, [r5, #0x30]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r1, [r5, #0xc]
 	mov r0, #6
 	add r2, r1, #0
@@ -2297,7 +2297,7 @@ _021D87D0:
 	ldr r0, [r5, #0x2c]
 	ldr r2, [r5, #0x30]
 	mov r1, #0xd7
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0
 	ldr r1, [r5, #0x30]
 	add r2, r0, #0

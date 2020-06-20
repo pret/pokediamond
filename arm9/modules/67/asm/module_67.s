@@ -445,7 +445,7 @@ MOD67_021D7880: ; 0x021D7880
 	str r0, [r4, #0x54]
 	mov r0, #0x80
 	mov r1, #0x2a
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x58]
 	pop {r4, pc}
 	nop
@@ -461,7 +461,7 @@ MOD67_021D78AC: ; 0x021D78AC
 	ldr r0, [r4, #0x54]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x58]
-	bl FUN_02021A20
+	bl String_dtor
 	pop {r4, pc}
 	thumb_func_end MOD67_021D78AC
 
@@ -1181,7 +1181,7 @@ MOD67_021D7E00: ; 0x021D7E00
 _021D7E32:
 	ldr r0, [r5, #0x50]
 	mov r1, #1
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	ldr r2, [sp, #0x14]
 	add r4, r0, #0
 	lsl r2, r2, #0x15
@@ -1202,9 +1202,9 @@ _021D7E32:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -1226,7 +1226,7 @@ _021D7E32:
 	lsr r1, r1, #0x1d
 	ldr r0, [r5, #0x50]
 	add r1, r1, #2
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	mov r1, #0
 	add r4, #0xc
@@ -1241,10 +1241,10 @@ _021D7E32:
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r5, #0x50]
 	mov r1, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	ldr r0, [sp, #0x14]
 	lsr r0, r0, #0x13
@@ -1256,7 +1256,7 @@ _021D7E32:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -1269,7 +1269,7 @@ _021D7E32:
 	ldr r2, [r5, #0x58]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #1
 	add sp, #0x18
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1690,12 +1690,12 @@ _021D822A:
 	ldr r1, _021D8338 ; =0x0000017E
 	mov r0, #0x1a
 	mov r3, #0x2a
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	add r6, r0, #0
 	bl FUN_02021D3C
 	add r5, r0, #0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, sp, #0x10
 	ldrh r0, [r0]
 	mov r1, #1
@@ -1706,7 +1706,7 @@ _021D822A:
 	bne _021D828A
 	ldr r0, [r4, #0x50]
 	mov r1, #0x38
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	ldr r0, [r4, #0x54]
 	ldr r2, [r4, #0x4c]
@@ -1715,12 +1715,12 @@ _021D822A:
 	ldr r0, [r4, #0x54]
 	ldr r1, [r4, #0x58]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0x58]
 	bl FUN_02021D3C
 	add r5, r5, r0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	b _021D82BA
 _021D828A:
 	add r2, sp, #0x10
@@ -1730,12 +1730,12 @@ _021D828A:
 	lsl r2, r2, #0x10
 	lsr r2, r2, #0x11
 	mov r3, #0x2a
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	add r6, r0, #0
 	bl FUN_02021D3C
 	add r5, r5, r0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r2, sp, #0x10
 	ldrh r2, [r2]
 	ldr r0, [r4, #0x54]
@@ -1748,7 +1748,7 @@ _021D82BA:
 	bhi _021D82CA
 	ldr r0, [r4, #0x50]
 	mov r1, #0x34
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	b _021D82F2
 _021D82CA:
@@ -1756,7 +1756,7 @@ _021D82CA:
 	bhi _021D82DA
 	ldr r0, [r4, #0x50]
 	mov r1, #0x35
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	b _021D82F2
 _021D82DA:
@@ -1764,12 +1764,12 @@ _021D82DA:
 	ldr r0, [r4, #0x50]
 	bhi _021D82EA
 	mov r1, #0x36
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	b _021D82F2
 _021D82EA:
 	mov r1, #0x37
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 _021D82F2:
 	add r0, sp, #0x10
@@ -1782,7 +1782,7 @@ _021D82F2:
 	ldr r0, [r4, #0x54]
 	ldr r1, [r4, #0x58]
 	add r2, r5, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x60
 	str r0, [sp]
 	mov r0, #0xff
@@ -1796,7 +1796,7 @@ _021D82F2:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 _021D832E:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
@@ -2002,7 +2002,7 @@ MOD67_021D84A8: ; 0x021D84A8
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #9
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2018,7 +2018,7 @@ MOD67_021D84A8: ; 0x021D84A8
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2033,7 +2033,7 @@ MOD67_021D84E4: ; 0x021D84E4
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0xa
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2049,7 +2049,7 @@ MOD67_021D84E4: ; 0x021D84E4
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2064,7 +2064,7 @@ MOD67_021D8520: ; 0x021D8520
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0xb
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2080,7 +2080,7 @@ MOD67_021D8520: ; 0x021D8520
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2095,7 +2095,7 @@ MOD67_021D855C: ; 0x021D855C
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0xc
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2111,7 +2111,7 @@ MOD67_021D855C: ; 0x021D855C
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2126,7 +2126,7 @@ MOD67_021D8598: ; 0x021D8598
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0xd
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2142,7 +2142,7 @@ MOD67_021D8598: ; 0x021D8598
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2157,7 +2157,7 @@ MOD67_021D85D4: ; 0x021D85D4
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0xe
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2173,7 +2173,7 @@ MOD67_021D85D4: ; 0x021D85D4
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2188,7 +2188,7 @@ MOD67_021D8610: ; 0x021D8610
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0xf
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2204,7 +2204,7 @@ MOD67_021D8610: ; 0x021D8610
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2219,7 +2219,7 @@ MOD67_021D864C: ; 0x021D864C
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x10
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2235,7 +2235,7 @@ MOD67_021D864C: ; 0x021D864C
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2252,7 +2252,7 @@ MOD67_021D8688: ; 0x021D8688
 	add r4, r2, #0
 	mov r1, #0x11
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r2, [r4, #2]
 	ldr r0, [r5, #0x54]
@@ -2261,7 +2261,7 @@ MOD67_021D8688: ; 0x021D8688
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2276,7 +2276,7 @@ MOD67_021D8688: ; 0x021D8688
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2293,7 +2293,7 @@ MOD67_021D86DC: ; 0x021D86DC
 	add r4, r2, #0
 	mov r1, #0x12
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r2, [r4, #2]
 	ldr r0, [r5, #0x54]
@@ -2306,7 +2306,7 @@ MOD67_021D86DC: ; 0x021D86DC
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2321,7 +2321,7 @@ MOD67_021D86DC: ; 0x021D86DC
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2338,7 +2338,7 @@ MOD67_021D873C: ; 0x021D873C
 	add r4, r2, #0
 	mov r1, #0x13
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r2, [r4, #4]
 	ldr r0, [r5, #0x54]
@@ -2347,7 +2347,7 @@ MOD67_021D873C: ; 0x021D873C
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2362,7 +2362,7 @@ MOD67_021D873C: ; 0x021D873C
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2379,7 +2379,7 @@ MOD67_021D8790: ; 0x021D8790
 	add r4, r2, #0
 	mov r1, #0x14
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r2, [r4, #4]
 	ldr r0, [r5, #0x54]
@@ -2388,7 +2388,7 @@ MOD67_021D8790: ; 0x021D8790
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2403,7 +2403,7 @@ MOD67_021D8790: ; 0x021D8790
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2420,7 +2420,7 @@ MOD67_021D87E4: ; 0x021D87E4
 	add r4, r2, #0
 	mov r1, #0x15
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -2431,7 +2431,7 @@ MOD67_021D87E4: ; 0x021D87E4
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2446,7 +2446,7 @@ MOD67_021D87E4: ; 0x021D87E4
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2470,13 +2470,13 @@ MOD67_021D8840: ; 0x021D8840
 _021D8858:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x17
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D886E
 _021D8864:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x16
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 _021D886E:
 	ldr r0, [r5, #0x54]
@@ -2486,7 +2486,7 @@ _021D886E:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2501,7 +2501,7 @@ _021D886E:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2522,11 +2522,11 @@ MOD67_021D88AC: ; 0x021D88AC
 	ldr r0, [r5, #0x50]
 	bne _021D88CC
 	mov r1, #0x17
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	b _021D88D2
 _021D88CC:
 	mov r1, #0x18
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 _021D88D2:
 	add r6, r0, #0
 	ldr r0, [r5, #0x54]
@@ -2536,7 +2536,7 @@ _021D88D2:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r4, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2551,7 +2551,7 @@ _021D88D2:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2566,7 +2566,7 @@ MOD67_021D8914: ; 0x021D8914
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x19
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2582,7 +2582,7 @@ MOD67_021D8914: ; 0x021D8914
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2597,7 +2597,7 @@ MOD67_021D8950: ; 0x021D8950
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x1a
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -2613,7 +2613,7 @@ MOD67_021D8950: ; 0x021D8950
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2630,7 +2630,7 @@ MOD67_021D898C: ; 0x021D898C
 	add r4, r2, #0
 	mov r1, #0x1d
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r2, [r4, #6]
 	ldr r0, [r5, #0x54]
@@ -2639,7 +2639,7 @@ MOD67_021D898C: ; 0x021D898C
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2654,7 +2654,7 @@ MOD67_021D898C: ; 0x021D898C
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2671,7 +2671,7 @@ MOD67_021D89E0: ; 0x021D89E0
 	add r4, r2, #0
 	mov r1, #0x23
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -2682,7 +2682,7 @@ MOD67_021D89E0: ; 0x021D89E0
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2697,7 +2697,7 @@ MOD67_021D89E0: ; 0x021D89E0
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2714,7 +2714,7 @@ MOD67_021D8A3C: ; 0x021D8A3C
 	add r4, r2, #0
 	mov r1, #0x1e
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -2725,7 +2725,7 @@ MOD67_021D8A3C: ; 0x021D8A3C
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2740,7 +2740,7 @@ MOD67_021D8A3C: ; 0x021D8A3C
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2757,7 +2757,7 @@ MOD67_021D8A98: ; 0x021D8A98
 	add r4, r2, #0
 	mov r1, #0x1f
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -2768,7 +2768,7 @@ MOD67_021D8A98: ; 0x021D8A98
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2783,7 +2783,7 @@ MOD67_021D8A98: ; 0x021D8A98
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2800,7 +2800,7 @@ MOD67_021D8AF4: ; 0x021D8AF4
 	add r4, r2, #0
 	mov r1, #0x26
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -2811,7 +2811,7 @@ MOD67_021D8AF4: ; 0x021D8AF4
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2826,7 +2826,7 @@ MOD67_021D8AF4: ; 0x021D8AF4
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2843,7 +2843,7 @@ MOD67_021D8B50: ; 0x021D8B50
 	add r4, r2, #0
 	mov r1, #0x21
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -2854,7 +2854,7 @@ MOD67_021D8B50: ; 0x021D8B50
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2869,7 +2869,7 @@ MOD67_021D8B50: ; 0x021D8B50
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2886,7 +2886,7 @@ MOD67_021D8BAC: ; 0x021D8BAC
 	add r4, r2, #0
 	mov r1, #0x20
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -2897,7 +2897,7 @@ MOD67_021D8BAC: ; 0x021D8BAC
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2912,7 +2912,7 @@ MOD67_021D8BAC: ; 0x021D8BAC
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2929,7 +2929,7 @@ MOD67_021D8C08: ; 0x021D8C08
 	add r4, r2, #0
 	mov r1, #0x25
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -2940,7 +2940,7 @@ MOD67_021D8C08: ; 0x021D8C08
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2955,7 +2955,7 @@ MOD67_021D8C08: ; 0x021D8C08
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -2972,7 +2972,7 @@ MOD67_021D8C64: ; 0x021D8C64
 	add r4, r2, #0
 	mov r1, #0x24
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -2983,7 +2983,7 @@ MOD67_021D8C64: ; 0x021D8C64
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -2998,7 +2998,7 @@ MOD67_021D8C64: ; 0x021D8C64
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3015,7 +3015,7 @@ MOD67_021D8CC0: ; 0x021D8CC0
 	add r4, r2, #0
 	mov r1, #0x22
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -3026,7 +3026,7 @@ MOD67_021D8CC0: ; 0x021D8CC0
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -3041,7 +3041,7 @@ MOD67_021D8CC0: ; 0x021D8CC0
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3058,7 +3058,7 @@ MOD67_021D8D1C: ; 0x021D8D1C
 	add r4, r2, #0
 	mov r1, #0x29
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -3069,7 +3069,7 @@ MOD67_021D8D1C: ; 0x021D8D1C
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -3084,7 +3084,7 @@ MOD67_021D8D1C: ; 0x021D8D1C
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3101,7 +3101,7 @@ MOD67_021D8D78: ; 0x021D8D78
 	add r4, r2, #0
 	mov r1, #0x27
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #2]
 	bl FUN_02034824
@@ -3112,7 +3112,7 @@ MOD67_021D8D78: ; 0x021D8D78
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x10
 	str r0, [sp]
@@ -3127,7 +3127,7 @@ MOD67_021D8D78: ; 0x021D8D78
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3142,7 +3142,7 @@ MOD67_021D8DD4: ; 0x021D8DD4
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x28
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -3158,7 +3158,7 @@ MOD67_021D8DD4: ; 0x021D8DD4
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3173,7 +3173,7 @@ MOD67_021D8E10: ; 0x021D8E10
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x2a
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -3189,7 +3189,7 @@ MOD67_021D8E10: ; 0x021D8E10
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3204,7 +3204,7 @@ MOD67_021D8E4C: ; 0x021D8E4C
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x2b
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -3220,7 +3220,7 @@ MOD67_021D8E4C: ; 0x021D8E4C
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3235,7 +3235,7 @@ MOD67_021D8E88: ; 0x021D8E88
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x1b
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -3251,7 +3251,7 @@ MOD67_021D8E88: ; 0x021D8E88
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3266,7 +3266,7 @@ MOD67_021D8EC4: ; 0x021D8EC4
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x1c
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x10
@@ -3282,7 +3282,7 @@ MOD67_021D8EC4: ; 0x021D8EC4
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3337,13 +3337,13 @@ MOD67_021D8F40: ; 0x021D8F40
 _021D8F58:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x2c
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	b _021D8F9A
 _021D8F64:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x2d
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	b _021D8F9A
 _021D8F70:
@@ -3352,7 +3352,7 @@ _021D8F70:
 	bne _021D8F82
 	ldr r0, [r5, #0x50]
 	mov r1, #0x2e
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	b _021D8F9A
 _021D8F82:
@@ -3360,12 +3360,12 @@ _021D8F82:
 	ldr r0, [r5, #0x50]
 	bne _021D8F92
 	mov r1, #0x2f
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	b _021D8F9A
 _021D8F92:
 	mov r1, #0x2c
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 _021D8F9A:
 	ldrb r2, [r4, #1]
@@ -3384,7 +3384,7 @@ _021D8F9A:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x50
 	str r0, [sp]
 	mov r0, #0xff
@@ -3398,7 +3398,7 @@ _021D8F9A:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -3422,13 +3422,13 @@ MOD67_021D8FEC: ; 0x021D8FEC
 _021D9004:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x30
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	b _021D9046
 _021D9010:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x31
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	b _021D9046
 _021D901C:
@@ -3437,7 +3437,7 @@ _021D901C:
 	bne _021D902E
 	ldr r0, [r5, #0x50]
 	mov r1, #0x32
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	b _021D9046
 _021D902E:
@@ -3445,12 +3445,12 @@ _021D902E:
 	ldr r0, [r5, #0x50]
 	bne _021D903E
 	mov r1, #0x33
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	b _021D9046
 _021D903E:
 	mov r1, #0x30
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 _021D9046:
 	ldrb r2, [r4, #1]
@@ -3469,7 +3469,7 @@ _021D9046:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x50
 	str r0, [sp]
 	mov r0, #0xff
@@ -3483,7 +3483,7 @@ _021D9046:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -3500,7 +3500,7 @@ MOD67_021D9098: ; 0x021D9098
 	mov r1, #0x2a
 	add r7, r2, #0
 	str r3, [sp, #8]
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r6, #0
 	add r4, r0, #0
 	bl FUN_02021E28
@@ -3514,7 +3514,7 @@ MOD67_021D9098: ; 0x021D9098
 	add r3, r7, #0
 	bl FUN_0200ABB4
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3540,19 +3540,19 @@ MOD67_021D90D4: ; 0x021D90D4
 _021D90F2:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x39
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D9114
 _021D90FE:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3a
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D9114
 _021D910A:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3b
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 _021D9114:
 	ldrb r2, [r4, #1]
@@ -3565,7 +3565,7 @@ _021D9114:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -3580,7 +3580,7 @@ _021D9114:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3607,19 +3607,19 @@ MOD67_021D9158: ; 0x021D9158
 _021D9176:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3c
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D9198
 _021D9182:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3d
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D9198
 _021D918E:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3e
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 _021D9198:
 	ldrb r2, [r4, #1]
@@ -3632,7 +3632,7 @@ _021D9198:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -3647,7 +3647,7 @@ _021D9198:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3674,19 +3674,19 @@ MOD67_021D91DC: ; 0x021D91DC
 _021D91FA:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x3f
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D921C
 _021D9206:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x40
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D921C
 _021D9212:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x41
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 _021D921C:
 	ldrb r2, [r4, #1]
@@ -3707,7 +3707,7 @@ _021D921C:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -3722,7 +3722,7 @@ _021D921C:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3749,19 +3749,19 @@ MOD67_021D9274: ; 0x021D9274
 _021D9292:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x42
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D92B4
 _021D929E:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x43
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D92B4
 _021D92AA:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x44
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 _021D92B4:
 	ldrb r2, [r4, #1]
@@ -3774,7 +3774,7 @@ _021D92B4:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -3789,7 +3789,7 @@ _021D92B4:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3816,19 +3816,19 @@ MOD67_021D92F8: ; 0x021D92F8
 _021D9316:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x45
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D9338
 _021D9322:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x46
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D9338
 _021D932E:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x47
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 _021D9338:
 	ldrb r2, [r4, #1]
@@ -3849,7 +3849,7 @@ _021D9338:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -3864,7 +3864,7 @@ _021D9338:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3881,7 +3881,7 @@ MOD67_021D9390: ; 0x021D9390
 	add r4, r2, #0
 	mov r1, #0x48
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	ldrb r2, [r4, #1]
 	add r7, r0, #0
 	add r0, r5, #0
@@ -3893,7 +3893,7 @@ MOD67_021D9390: ; 0x021D9390
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -3908,7 +3908,7 @@ MOD67_021D9390: ; 0x021D9390
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -3925,7 +3925,7 @@ MOD67_021D93EC: ; 0x021D93EC
 	add r4, r2, #0
 	mov r1, #0x49
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	ldrb r2, [r4, #1]
 	add r7, r0, #0
 	add r0, r5, #0
@@ -3945,7 +3945,7 @@ MOD67_021D93EC: ; 0x021D93EC
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -3960,7 +3960,7 @@ MOD67_021D93EC: ; 0x021D93EC
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3975,7 +3975,7 @@ MOD67_021D9458: ; 0x021D9458
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x4a
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x70
@@ -3991,7 +3991,7 @@ MOD67_021D9458: ; 0x021D9458
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4008,7 +4008,7 @@ MOD67_021D9494: ; 0x021D9494
 	add r4, r2, #0
 	mov r1, #0x4b
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	ldrb r2, [r4, #1]
 	add r1, r4, #0
 	add r7, r0, #0
@@ -4021,7 +4021,7 @@ MOD67_021D9494: ; 0x021D9494
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -4036,7 +4036,7 @@ MOD67_021D9494: ; 0x021D9494
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4051,7 +4051,7 @@ MOD67_021D94F0: ; 0x021D94F0
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x4c
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x70
@@ -4067,7 +4067,7 @@ MOD67_021D94F0: ; 0x021D94F0
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4094,19 +4094,19 @@ MOD67_021D952C: ; 0x021D952C
 _021D954A:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x4d
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D956C
 _021D9556:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x4e
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	b _021D956C
 _021D9562:
 	ldr r0, [r5, #0x50]
 	mov r1, #0x4f
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 _021D956C:
 	ldrb r2, [r4, #1]
@@ -4119,7 +4119,7 @@ _021D956C:
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -4134,7 +4134,7 @@ _021D956C:
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4149,7 +4149,7 @@ MOD67_021D95B0: ; 0x021D95B0
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x50
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x70
@@ -4165,7 +4165,7 @@ MOD67_021D95B0: ; 0x021D95B0
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4182,7 +4182,7 @@ MOD67_021D95EC: ; 0x021D95EC
 	mov r1, #0x51
 	add r4, r2, #0
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	mov r1, #0
 	str r1, [sp]
 	mov r3, #1
@@ -4196,7 +4196,7 @@ MOD67_021D95EC: ; 0x021D95EC
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -4211,7 +4211,7 @@ MOD67_021D95EC: ; 0x021D95EC
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
@@ -4226,7 +4226,7 @@ MOD67_021D964C: ; 0x021D964C
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x52
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x70
@@ -4242,7 +4242,7 @@ MOD67_021D964C: ; 0x021D964C
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4259,7 +4259,7 @@ MOD67_021D9688: ; 0x021D9688
 	add r4, r2, #0
 	mov r1, #0x53
 	add r6, r3, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	ldrb r2, [r4, #1]
 	add r7, r0, #0
 	add r0, r5, #0
@@ -4279,7 +4279,7 @@ MOD67_021D9688: ; 0x021D9688
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	lsl r0, r6, #4
 	add r0, #0x70
 	str r0, [sp]
@@ -4294,7 +4294,7 @@ MOD67_021D9688: ; 0x021D9688
 	add r3, r1, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -4309,7 +4309,7 @@ MOD67_021D96F4: ; 0x021D96F4
 	add r6, r1, #0
 	add r5, r3, #0
 	mov r1, #0x54
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	lsl r0, r5, #4
 	add r0, #0x70
@@ -4325,7 +4325,7 @@ MOD67_021D96F4: ; 0x021D96F4
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 	.align 2, 0

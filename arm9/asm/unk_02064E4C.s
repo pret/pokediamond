@@ -7,7 +7,7 @@
 FUN_02064E4C: ; 0x02064E4C
 	push {r4, lr}
 	add r4, r2, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0x0
 	add r1, r4, #0x0
 	add r2, r0, #0x0

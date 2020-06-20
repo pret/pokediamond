@@ -161,7 +161,7 @@ FUN_02013A30: ; 0x02013A30
 	add r0, r5, r0
 	ldr r0, [r0, #0x4]
 	add r2, r4, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add sp, #0x8
 	pop {r3-r5, pc}
 	.balign 4
@@ -187,12 +187,12 @@ FUN_02013A58: ; 0x02013A58
 	ldr r1, [sp, #0x8]
 	ldr r2, [sp, #0x4]
 	mov r0, #0x1a
-	bl FUN_0200A648
+	bl ReadMsgData_NewNarc_ExistingString
 	add sp, #0xc
 	pop {r3-r4, pc}
 _02013A88:
 	add r0, r4, #0x0
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	add sp, #0xc
 	pop {r3-r4, pc}
 	nop

@@ -1160,7 +1160,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	bl NewMsgDataFromNarc
 	add r1, r4, #5
 	str r0, [sp, #0x14]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [sp, #0x18]
 	add r0, sp, #0x1c
 	bl FUN_0201901C
@@ -1245,7 +1245,7 @@ MOD62_0222DE00: ; 0x0222DE00
 	ldr r1, [sp, #0x70]
 	bl FUN_02011AC0
 	ldr r0, [sp, #0x18]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x14]
 	bl DestroyMsgData
 	add r0, sp, #0x1c
@@ -1989,7 +1989,7 @@ _0222E49A:
 	lsl r2, r1, #3
 	ldr r1, _0222E538 ; =0x02231358
 	ldr r1, [r1, r2]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	ldr r2, [r5]
 	add r4, r0, #0
 	lsl r3, r2, #3
@@ -2003,7 +2003,7 @@ _0222E49A:
 	add r1, r4, #0
 	bl FUN_020128A0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r6, r6, #1
 	add r5, r5, #4
 	cmp r6, r7
@@ -3275,7 +3275,7 @@ _0222EE96:
 	bl NewMsgDataFromNarc
 	add r1, r5, #0
 	add r6, r0, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0xf
@@ -3291,7 +3291,7 @@ _0222EE96:
 	add r0, r4, #0
 	bl FUN_020191D0
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0xc
@@ -3573,7 +3573,7 @@ _0222F0FE:
 	bl FUN_02019620
 	mov r0, #0x64
 	mov r1, #0x35
-	bl FUN_020219F4
+	bl String_ctor
 	ldr r1, [sp, #0x10]
 	add r4, r0, #0
 	ldr r0, [r7, #0x64]
@@ -3602,7 +3602,7 @@ _0222F0FE:
 	add r0, r5, #0
 	bl FUN_020191D0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 _0222F152:
 	add r6, r6, #1
 	add r5, #0x10
@@ -3643,7 +3643,7 @@ _0222F194:
 	bl FUN_02019620
 	mov r0, #0x64
 	mov r1, #0x35
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [sp, #0x10]
 	ldr r0, [r6, #0x64]
 	sub r1, r7, #1
@@ -3668,7 +3668,7 @@ _0222F194:
 	add r0, r5, r4
 	bl FUN_020191D0
 	ldr r0, [sp, #0x10]
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3717,7 +3717,7 @@ _0222F226:
 	bl NewMsgDataFromNarc
 	add r1, r5, #0
 	add r6, r0, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #0xf
@@ -3733,7 +3733,7 @@ _0222F226:
 	add r0, r4, #0
 	bl FUN_020191D0
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r6, #0
 	bl DestroyMsgData
 	add sp, #0xc

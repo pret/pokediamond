@@ -640,7 +640,7 @@ _020431D4:
 	bl SetMonData
 	add r0, r5, #0x0
 	add r4, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 _0204322C:
 	ldr r1, [sp, #0x8]
 	mov r0, #0x2
@@ -894,7 +894,7 @@ FUN_020433DC: ; 0x020433DC
 	mov r3, #0x0
 	bl FUN_0200ABB4
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x8
 	pop {r3-r7, pc}
 

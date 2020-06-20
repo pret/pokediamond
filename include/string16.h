@@ -10,11 +10,11 @@ struct String
     u16 data[1];
 };
 
-struct String * FUN_020219F4(u32 count, u32 heap_id);
+struct String * String_ctor(u32 count, u32 heap_id);
 int FUN_02021CE0(struct String *, struct String *);
 int FUN_0206AE00(int x);
 void FUN_02021E8C(struct String *, u16 *, u32); // copy
-void FUN_02021A4C(struct String *); // set empty
-struct String * FUN_02021ACC(struct String *, struct String *);
+void StringSetEmpty(struct String *); // set empty
+struct String * StringDup(struct String *, u32 heap_id);
 
 #endif //POKEDIAMOND_STRING16_H

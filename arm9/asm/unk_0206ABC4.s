@@ -61,18 +61,18 @@ _0206AC08:
 	bne _0206AC26
 	ldr r1, [sp, #0xc]
 	add r0, r5, #0x0
-	bl StringCopy
+	bl CopyU16StringArray
 	b _0206AC3E
 _0206AC26:
 	ldr r0, [sp, #0x10]
 	ldr r1, [r4, #0x18]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	mov r2, #0x8
 	bl FUN_02021EF0
 	add r0, r6, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 _0206AC3E:
 	ldr r0, [sp, #0x0]
 	ldr r2, [sp, #0x4]
@@ -269,7 +269,7 @@ _0206AD84:
 	ldr r3, [sp, #0x8]
 	mov r0, #0x1a
 	lsr r2, r2, #0x2
-	bl FUN_0200A648
+	bl ReadMsgData_NewNarc_ExistingString
 	b _0206ADC2
 _0206ADB6:
 	ldrh r0, [r4, #0x0]
@@ -286,7 +286,7 @@ _0206ADC2:
 	cmp r0, r5
 	bne _0206ADD6
 	ldr r0, [sp, #0x4]
-	bl FUN_02021A4C
+	bl StringSetEmpty
 _0206ADD6:
 	add sp, #0x18
 	pop {r3-r7, pc}

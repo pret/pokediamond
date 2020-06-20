@@ -524,7 +524,7 @@ FUN_0204224C: ; 0x0204224C
 	mov r0, #0x40
 	mov r1, #0x4
 	str r3, [sp, #0x8]
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r7, #0x0
 	add r4, r0, #0x0
 	bl FUN_02021E28
@@ -538,7 +538,7 @@ FUN_0204224C: ; 0x0204224C
 	add r2, r4, #0x0
 	bl FUN_0200ABB4
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0xc
 	pop {r4-r7, pc}
 	.balign 4
@@ -582,7 +582,7 @@ FUN_020422C0: ; 0x020422C0
 	ldrh r0, [r0, #0x2]
 	mov r1, #0x4
 	add r2, sp, #0x8
-	bl GetSpeciesName
+	bl GetSpeciesNameIntoArray
 	mov r0, #0x2
 	str r0, [sp, #0x0]
 	mov r0, #0x1

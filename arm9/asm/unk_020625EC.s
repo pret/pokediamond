@@ -930,23 +930,23 @@ FUN_02062C80: ; 0x02062C80
 	str r0, [r5, #0x30]
 	ldr r1, [r5, #0x0]
 	mov r0, #0x4c
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r5, #0x34]
 	ldr r0, [r5, #0x2c]
 	mov r1, #0xd
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r5, #0x38]
 	ldr r0, [r5, #0x2c]
 	mov r1, #0x16
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r5, #0x3c]
 	ldr r0, [r5, #0x2c]
 	mov r1, #0x24
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r5, #0x40]
 	ldr r0, [r5, #0x2c]
 	mov r1, #0xe
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r5, #0x44]
 	ldrb r0, [r5, #0x18]
 	mov r4, #0x0
@@ -957,13 +957,13 @@ _02062CDA:
 	ldrb r1, [r5, #0x19]
 	ldr r0, [r5, #0x2c]
 	add r1, r1, r4
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r6, #0x64]
 	ldrb r1, [r5, #0x19]
 	ldr r0, [r5, #0x2c]
 	add r1, #0x17
 	add r1, r1, r4
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r6, #0x7c]
 	ldrb r0, [r5, #0x18]
 	add r4, r4, #0x1
@@ -977,7 +977,7 @@ _02062D02:
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x2c]
 	add r1, #0xf
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r6, #0x48]
 	add r4, r4, #0x1
 	add r6, r6, #0x4
@@ -989,7 +989,7 @@ _02062D1A:
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x2c]
 	add r1, #0x25
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r1, r6, #0x0
 	add r1, #0x94
 	add r4, r4, #0x1
@@ -1011,7 +1011,7 @@ _02062D40:
 	add r0, r5, #0x0
 	add r0, #0x94
 	ldr r0, [r0, #0x0]
-	bl FUN_02021A20
+	bl String_dtor
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x3
@@ -1020,7 +1020,7 @@ _02062D40:
 	add r4, r6, #0x0
 _02062D56:
 	ldr r0, [r4, #0x48]
-	bl FUN_02021A20
+	bl String_dtor
 	add r5, r5, #0x1
 	add r4, r4, #0x4
 	cmp r5, #0x7
@@ -1032,9 +1032,9 @@ _02062D56:
 	add r4, r6, #0x0
 _02062D6E:
 	ldr r0, [r4, #0x64]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x7c]
-	bl FUN_02021A20
+	bl String_dtor
 	ldrb r0, [r6, #0x18]
 	add r5, r5, #0x1
 	add r4, r4, #0x4
@@ -1042,15 +1042,15 @@ _02062D6E:
 	blt _02062D6E
 _02062D84:
 	ldr r0, [r6, #0x44]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r6, #0x40]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r6, #0x3c]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r6, #0x38]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r6, #0x34]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r6, #0x30]
 	bl FUN_0200AB18
 	ldr r0, [r6, #0x2c]
@@ -1734,7 +1734,7 @@ _02063318:
 	ldr r0, [r4, #0x30]
 	ldr r1, [r4, #0x34]
 	ldr r2, [r4, #0x44]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x30]
 	mov r1, #0x0
 	str r0, [sp, #0x0]
@@ -1764,7 +1764,7 @@ _02063318:
 	lsl r2, r2, #0x2
 	add r2, r4, r2
 	ldr r2, [r2, #0xc]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x0
 	ldr r1, [r4, #0x34]
 	add r2, r0, #0x0

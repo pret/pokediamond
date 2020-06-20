@@ -21,7 +21,7 @@ FUN_02002F08: ; 0x02002F08
 	bl ErrorHandling
 _02002F22:
 	add r0, r5, #0x0
-	bl FUN_02021F2C
+	bl String_c_str
 	add r1, r0, #0x0
 	ldr r0, _02002F3C ; =UNK_02106FC8
 	add r2, r6, #0x0
@@ -87,7 +87,7 @@ _02002F8C: .word 0x0000FFFF
 	thumb_func_start FUN_02002F90
 FUN_02002F90: ; 0x02002F90
 	push {r3, lr}
-	bl FUN_02021F2C
+	bl String_c_str
 	bl FUN_02002F58
 	pop {r3, pc}
 
@@ -106,7 +106,7 @@ FUN_02002F9C: ; 0x02002F9C
 	bl ErrorHandling
 _02002FB4:
 	add r0, r5, #0x0
-	bl FUN_02021F2C
+	bl String_c_str
 	add r1, r0, #0x0
 	ldr r0, _02002FCC ; =UNK_02106FC8
 	ldr r0, [r0, #0x0]

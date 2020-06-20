@@ -716,7 +716,7 @@ MOD47_02254D14: ; 0x02254D14
 	str r0, [r4, #0x58]
 	mov r0, #0x60
 	mov r1, #8
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x5c]
 	add r0, r4, #0
 	add r1, r5, #0
@@ -737,7 +737,7 @@ MOD47_02254D6C: ; 0x02254D6C
 	add r4, r0, #0
 	beq _02254D8A
 	ldr r0, [r4, #0x5c]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x58]
 	bl DestroyMsgData
 	add r0, r4, #0
@@ -1178,7 +1178,7 @@ MOD47_022550FC: ; 0x022550FC
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0
 	ldr r1, [r4, #0x5c]
 	add r2, r0, #0
@@ -1201,7 +1201,7 @@ MOD47_022550FC: ; 0x022550FC
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #0xa
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0
 	ldr r1, [r4, #0x5c]
 	add r2, r0, #0
@@ -1241,7 +1241,7 @@ MOD47_02255184: ; 0x02255184
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #1
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0
 	ldr r1, [r4, #0x5c]
 	add r2, r0, #0
@@ -1281,7 +1281,7 @@ MOD47_022551D8: ; 0x022551D8
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #2
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0
 	ldr r1, [r4, #0x5c]
 	add r2, r0, #0
@@ -1304,7 +1304,7 @@ MOD47_022551D8: ; 0x022551D8
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #3
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0x18
 	str r0, [sp]
 	mov r0, #0xff
@@ -1338,7 +1338,7 @@ MOD47_02255250: ; 0x02255250
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #2
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0
 	ldr r1, [r4, #0x5c]
 	add r2, r0, #0
@@ -1361,7 +1361,7 @@ MOD47_02255250: ; 0x02255250
 	ldr r0, [r4, #0x58]
 	ldr r2, [r4, #0x5c]
 	mov r1, #4
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0
 	ldr r1, [r4, #0x5c]
 	add r2, r0, #0
@@ -1402,7 +1402,7 @@ MOD47_022552D8: ; 0x022552D8
 	ldr r0, [r5, #0x58]
 	ldr r2, [r5, #0x5c]
 	mov r1, #5
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0
 	ldr r1, [r5, #0x5c]
 	add r2, r0, #0
@@ -1434,7 +1434,7 @@ _0225532C:
 	ldrb r1, [r6]
 	ldr r0, [r5, #0x58]
 	ldr r2, [r5, #0x5c]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	str r4, [sp]
 	mov r0, #0xff
 	str r0, [sp, #4]

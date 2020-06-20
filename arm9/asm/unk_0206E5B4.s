@@ -762,7 +762,7 @@ FUN_0206E768: ; 0x0206E768
 	add r6, r0, #0x0
 	add r1, r4, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r0, r6, #0x0
 	bl DestroyMsgData
 	pop {r4-r6, pc}
@@ -781,7 +781,7 @@ FUN_0206E790: ; 0x0206E790
 	add r6, r0, #0x0
 	add r1, r4, #0x0
 	add r2, r5, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r0, r6, #0x0
 	bl DestroyMsgData
 	pop {r4-r6, pc}

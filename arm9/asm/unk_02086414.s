@@ -579,11 +579,11 @@ FUN_020867EC: ; 0x020867EC
 	add r5, r0, #0x0
 	add r0, r7, #0x0
 	add r1, r4, #0x0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [sp, #0x14]
 	mov r0, #0xff
 	mov r1, #0x47
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0x0
 	ldr r0, [sp, #0x10]
 	bl FUN_020690E4
@@ -594,7 +594,7 @@ FUN_020867EC: ; 0x020867EC
 	ldr r2, [sp, #0x14]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	str r6, [sp, #0x4]
@@ -607,9 +607,9 @@ FUN_020867EC: ; 0x020867EC
 	add r0, r7, #0x0
 	bl DestroyMsgData
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x14]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r5, #0x0
 	bl FUN_0200AB18
 	add r0, r6, #0x0
@@ -670,14 +670,14 @@ FUN_02086878: ; 0x02086878
 _020868DE:
 	add r0, r7, #0x0
 	add r1, r4, #0x2
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 	ldr r0, [r5, #0x44]
 	add r1, r6, #0x0
 	add r2, r4, #0x0
 	bl FUN_020128A0
 	add r0, r6, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add r4, r4, #0x1
 	cmp r4, #0x2
 	blt _020868DE

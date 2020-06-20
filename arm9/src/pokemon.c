@@ -10,7 +10,7 @@
 #include "move_data.h"
 #include "string_util.h"
 #include "text.h"
-#include "msg_data.h"
+#include "msgdata.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -844,7 +844,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         break;
     case MON_DATA_NICKNAME:
         if (boxmon->checksum_fail)
-            GetSpeciesName(SPECIES_MANAPHY_EGG, 0, dest);
+            GetSpeciesNameIntoArray(SPECIES_MANAPHY_EGG, 0, dest);
         else
         {
             u16 * dest16 = (u16 *)dest;
@@ -861,9 +861,9 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_NICKNAME_3:
         if (boxmon->checksum_fail)
         {
-            struct String * buffer = FUN_0200AA50(SPECIES_MANAPHY_EGG, 0);
-            FUN_02021A74(dest, buffer);
-            FUN_02021A20(buffer);
+            struct String * buffer = GetSpeciesName(SPECIES_MANAPHY_EGG, 0);
+            StringCopy(dest, buffer);
+            String_dtor(buffer);
         }
         else
         {
@@ -979,7 +979,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         }
         break;
     case MON_DATA_SPECIES_NAME:
-        GetSpeciesName(blockA->species, 0, dest);
+        GetSpeciesNameIntoArray(blockA->species, 0, dest);
         break;
     }
     return ret;
@@ -1310,7 +1310,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         blockB->Unused = VALUE(u16);
         break;
     case MON_DATA_NICKNAME_2:
-        GetSpeciesName(blockA->species, 0, namebuf);
+        GetSpeciesNameIntoArray(blockA->species, 0, namebuf);
         blockB->isNicknamed = StringNotEqual(namebuf, value);
         // fallthrough
     case MON_DATA_NICKNAME:
@@ -1320,7 +1320,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         }
         break;
     case MON_DATA_NICKNAME_4:
-        GetSpeciesName(blockA->species, 0, namebuf2);
+        GetSpeciesNameIntoArray(blockA->species, 0, namebuf2);
         FUN_02021EF0(value, namebuf3, POKEMON_NAME_LENGTH + 1);
         blockB->isNicknamed = StringNotEqual(namebuf2, namebuf3);
         // fallthrough
@@ -1421,9 +1421,9 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         blockB->spdefIV = (VALUE(u32) >> 25) & 0x1F;
         break;
     case MON_DATA_SPECIES_NAME:
-        speciesName = FUN_0200AA50(blockA->species, 0);
+        speciesName = GetSpeciesName(blockA->species, 0);
         FUN_02021EF0(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
-        FUN_02021A20(speciesName);
+        String_dtor(speciesName);
         break;
     }
 #undef VALUE
@@ -3683,13 +3683,13 @@ BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct SaveBlock2 * sb2, u32 heap_
     u32 myGender = FUN_020239CC(sb2);
     u32 otGender = GetBoxMonData(boxmon, MON_DATA_MET_GENDER, NULL);
     struct String * r7 = FUN_020239A0(sb2, heap_id);
-    struct String * r6 = FUN_020219F4(OT_NAME_LENGTH + 1, heap_id);
+    struct String * r6 = String_ctor(OT_NAME_LENGTH + 1, heap_id);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
     if (myId == otId && myGender == otGender && FUN_02021CE0(r7, r6) == 0)
         ret = TRUE;
-    FUN_02021A20(r6);
-    FUN_02021A20(r7);
+    String_dtor(r6);
+    String_dtor(r7);
     return ret;
 }
 

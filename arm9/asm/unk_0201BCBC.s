@@ -345,7 +345,7 @@ _0201BEF4:
 	ldmia r3!, {r0-r1}
 	stmia r2!, {r0-r1}
 	ldr r0, [r4, #0x0]
-	bl FUN_02021F2C
+	bl String_c_str
 	str r0, [r4, #0x0]
 	ldr r0, _0201BFD4 ; =UNK_021C570C
 	str r5, [r4, #0x18]

@@ -400,7 +400,7 @@ FUN_020487E4: ; 0x020487E4
 	mov r1, #0xc7
 	mov r2, #0xf
 	mov r3, #0x20
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	str r0, [r4, #0x2c]
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x8]
@@ -442,7 +442,7 @@ FUN_02048848: ; 0x02048848
 	push {r4, lr}
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x2c]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x30]
 	bl FUN_0200DBFC
 	add r4, #0x1c
@@ -478,14 +478,14 @@ FUN_02048864: ; 0x02048864
 	add r1, r7, #0x0
 	mov r2, #0x10
 	mov r3, #0x4
-	bl FUN_0200A9C4
+	bl ReadMsgData_ExpandPlaceholders
 	str r0, [r4, #0x2c]
 	add r0, r6, #0x0
 	bl FUN_0200AB18
 	b _020488B4
 _020488AC:
 	mov r1, #0x12
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r4, #0x2c]
 _020488B4:
 	add r0, r7, #0x0
@@ -510,7 +510,7 @@ FUN_020488D4: ; 0x020488D4
 	ldr r0, [r4, #0x2c]
 	cmp r0, #0x0
 	beq _020488E4
-	bl FUN_02021A20
+	bl String_dtor
 _020488E4:
 	add r0, r4, #0x0
 	add r0, #0x1c
