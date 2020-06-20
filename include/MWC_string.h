@@ -4,5 +4,6 @@
 #include "nitro/types.h"
 
 void * memset(void *, int, u32);
+void * memcpy(void *, const void *, u32);
 
 #endif //GUARD_MWC_STRING_H

@@ -1,15 +1,13 @@
 #ifndef _ELF_H
 #define	_ELF_H 1
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /* Standard ELF types.  */
 
 #include <inttypes.h>
 
-__BEGIN_DECLS
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Type for a 16-bit quantity.  */
 typedef uint16_t Elf32_Half;
@@ -2425,10 +2423,8 @@ typedef Elf32_Addr Elf32_Conflict;
 
 #define R_X86_64_NUM        24
 
-__END_DECLS
-
 #ifdef __cplusplus
 };
-#endif //__cplusplus
+#endif
 
 #endif	/* elf.h */
