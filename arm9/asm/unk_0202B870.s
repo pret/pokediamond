@@ -288,7 +288,7 @@ _0202BA38:
 	ldr r0, [sp, #0x0]
 	bl FreeToHeap
 	add r0, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x4]
 	add sp, #0xc
 	pop {r4-r7, pc}
@@ -809,7 +809,7 @@ _0202BE14:
 	str r0, [r1, #0x8]
 	mov r0, #0x8
 	add r1, r7, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	ldr r2, [r4, #0x0]
 	mov r1, #0xc
 	mul r1, r2
@@ -844,7 +844,7 @@ _0202BE74:
 	ldr r0, [r5, #0xc]
 	cmp r0, #0x0
 	beq _0202BE7E
-	bl FUN_02021A20
+	bl String_dtor
 _0202BE7E:
 	add r4, r4, #0x1
 	add r5, #0xc

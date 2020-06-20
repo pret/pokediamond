@@ -254,7 +254,7 @@ _021D7694:
 	str r0, [r1]
 	ldr r1, [r4, #4]
 	mov r0, #0x16
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r4, #0
 	add r1, #0x88
 	str r0, [r1]
@@ -349,7 +349,7 @@ _021D7782:
 	add r0, r5, #0
 	add r0, #0x88
 	ldr r0, [r0]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r5, #0
 	add r0, #0x84
 	ldr r0, [r0]
@@ -1299,7 +1299,7 @@ _021D7EF8:
 	add r0, r6, #0
 	add r0, #0x88
 	ldr r0, [r0]
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	ldr r2, [r4, #0x18]
 	ldr r3, [r4, #0x1c]
 	add r0, r6, #0
@@ -1717,7 +1717,7 @@ MOD66_021D820C: ; 0x021D820C
 	ldr r6, [r5, #0x34]
 	add r7, r2, #0
 	str r3, [sp, #0x10]
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	add r0, r4, #0
 	mov r1, #0
 	bl FUN_02019620
@@ -1766,7 +1766,7 @@ _021D8278:
 	add r5, #0x84
 	ldr r0, [r5]
 	mov r1, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	mov r0, #6
 	str r0, [sp]
@@ -1781,7 +1781,7 @@ _021D8278:
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 _021D82AA:
 	add r0, r4, #0
 	bl FUN_020191D0
@@ -1830,7 +1830,7 @@ _021D8300:
 	add r0, r5, #0
 	add r0, #0x84
 	ldr r0, [r0]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	ldrh r0, [r4, #0xe]
 	mov r1, #0
@@ -1845,7 +1845,7 @@ _021D8300:
 	add r0, r6, #0
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 _021D832C:
 	ldrh r1, [r4, #0xa]
 	ldr r0, _021D8378 ; =0x0000FFFF
@@ -1864,7 +1864,7 @@ _021D832C:
 _021D8348:
 	add r5, #0x84
 	ldr r0, [r5]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	ldrh r0, [r4, #0x12]
 	mov r1, #0
@@ -1879,7 +1879,7 @@ _021D8348:
 	add r0, r6, #0
 	bl FUN_0201BDE0
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 _021D8372:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -2094,7 +2094,7 @@ MOD66_021D84C8: ; 0x021D84C8
 	add r4, #0x84
 	ldr r0, [r4]
 	mov r1, #1
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	mov r0, #0
 	add r1, r6, #0
@@ -2119,7 +2119,7 @@ MOD66_021D84C8: ; 0x021D84C8
 	add r0, r5, #0
 	bl FUN_020191D0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x1c
 	pop {r3, r4, r5, r6, pc}
 	nop

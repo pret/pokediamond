@@ -1500,7 +1500,7 @@ FUN_02013690: ; 0x02013690
 	add r1, r5, #0x0
 	str r0, [r4, #0x0]
 	mov r0, #0x4
-	bl FUN_020219F4
+	bl String_ctor
 	ldr r1, _020136BC ; =UNK_020ED548
 	str r0, [r4, #0x4]
 	bl FUN_02021E28
@@ -1523,7 +1523,7 @@ _020136CA:
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	beq _020136D8
-	bl FUN_02021A20
+	bl String_dtor
 _020136D8:
 	add r0, r4, #0x0
 	bl FreeToHeap

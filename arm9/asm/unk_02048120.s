@@ -253,12 +253,12 @@ FUN_020482F4: ; 0x020482F4
 	lsl r0, r0, #0xa
 	mov r1, #0xb
 	add r7, r3, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	add r6, r0, #0x0
 	mov r0, #0x1
 	lsl r0, r0, #0xa
 	mov r1, #0xb
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0xc
@@ -267,11 +267,11 @@ FUN_020482F4: ; 0x020482F4
 	ldr r0, [r5, #0x1c]
 	ldr r1, [sp, #0x10]
 	add r2, r6, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r0, [r5, #0x20]
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x0
 	add r1, r4, #0x0
 	add r2, r0, #0x0
@@ -297,9 +297,9 @@ FUN_020482F4: ; 0x020482F4
 	lsr r3, r3, #0x18
 	bl FUN_0201BDE0
 	add r0, r6, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x14
 	pop {r4-r7, pc}
 	.balign 4

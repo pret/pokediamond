@@ -440,7 +440,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	mov r0, #0x1a
 	mov r2, #0
 	mov r3, #8
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	add r4, r0, #0
 	beq _02254B94
 	mov r0, #0
@@ -464,7 +464,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	add r0, sp, #0x1c
 	bl FUN_02019548
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 _02254B94:
 	add r0, sp, #0x1c
 	bl FUN_02019178

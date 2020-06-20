@@ -1385,7 +1385,7 @@ FUN_0205D8B8: ; 0x0205D8B8
 	strh r0, [r4, #0x16]
 	mov r0, #0x80
 	mov r1, #0xb
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]
@@ -1473,7 +1473,7 @@ _0205D984:
 	add r0, r4, #0x0
 	bl FUN_02019178
 	ldr r0, [r4, #0x10]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x1
@@ -1782,7 +1782,7 @@ FUN_0205DBF0: ; 0x0205DBF0
 	strh r0, [r4, #0x16]
 	mov r0, #0x80
 	mov r1, #0xb
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x0]
 	ldr r0, [r0, #0xc]

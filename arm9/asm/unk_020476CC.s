@@ -200,7 +200,7 @@ FUN_02047814: ; 0x02047814
 	str r0, [sp, #0x18]
 	mov r0, #0x8
 	add r1, r6, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x10]
 	bl FUN_020239CC
@@ -209,16 +209,16 @@ FUN_02047814: ; 0x02047814
 	eor r1, r2
 	ldr r0, [sp, #0x18]
 	add r2, r7, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r0, r7, #0x0
-	bl FUN_02021F2C
+	bl String_c_str
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0xf8
 	ldr r0, [r0, #0x0]
 	bl FUN_0202395C
 	add r0, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x18]
 	bl DestroyMsgData
 	ldr r0, [sp, #0x10]
@@ -967,7 +967,7 @@ _02047E2C:
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x3c
-	bl StringCopy
+	bl CopyU16StringArray
 	add r3, r5, #0x0
 	add r3, #0x28
 	add r5, #0x90
@@ -1244,7 +1244,7 @@ FUN_020480E4: ; 0x020480E4
 	add r1, r0, #0x0
 	add r0, r4, #0x0
 	add r0, #0x3c
-	bl StringCopy
+	bl CopyU16StringArray
 	add r3, r4, #0x0
 	add r3, #0x28
 	add r4, #0x90

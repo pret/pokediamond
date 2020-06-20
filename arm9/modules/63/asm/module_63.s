@@ -2048,7 +2048,7 @@ _021D844C:
 	add r7, r0, #0
 	mov r0, #0x40
 	add r1, r4, #0
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r6, #0
 	add r4, r0, #0
 	ldr r2, _021D85D0 ; =0x021DB9A0
@@ -2068,7 +2068,7 @@ _021D844C:
 	add r0, r7, #0
 	mov r1, #0
 	add r2, r4, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r3, r6, #0
 	add r3, #0xb3
 	ldrb r3, [r3]
@@ -2092,7 +2092,7 @@ _021D844C:
 	str r1, [sp, #0x14]
 	bl FUN_0201BE3C
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r7, #0
 	bl DestroyMsgData
 	mov r1, #0x15

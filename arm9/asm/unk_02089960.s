@@ -476,12 +476,12 @@ _02089CE8:
 	mov r0, #0x1
 	ldr r1, [r5, #0x0]
 	lsl r0, r0, #0xa
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r5, #0x14]
 	ldr r0, [r5, #0x1c]
 	ldr r2, [r5, #0x14]
 	add r1, r7, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r3, r6, #0x0
 	str r3, [sp, #0x0]
 	str r4, [sp, #0x4]
@@ -495,7 +495,7 @@ _02089CE8:
 	cmp r4, #0x0
 	bne _02089D48
 	ldr r0, [r5, #0x14]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r5, #0xc]
 	add r0, r0, #0x1
 	str r0, [r5, #0xc]
@@ -512,7 +512,7 @@ _02089D50:
 	cmp r0, #0x0
 	bne _02089D80
 	ldr r0, [r5, #0x14]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r5, #0xc]
 	add r0, r0, #0x1
 	str r0, [r5, #0xc]

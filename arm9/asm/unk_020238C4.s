@@ -109,7 +109,7 @@ FUN_0202395C: ; 0x0202395C
 _02023970:
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl StringCopy
+	bl CopyU16StringArray
 	pop {r3-r5, pc}
 	.balign 4
 
@@ -144,7 +144,7 @@ FUN_020239A0: ; 0x020239A0
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r0, #0x8
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	add r1, r4, #0x0

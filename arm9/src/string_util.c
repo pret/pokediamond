@@ -32,7 +32,7 @@ const s32 gPowersOfTen[] = {
     1000000000,
 };
 
-THUMB_FUNC void StringCopy(u16 *dest, const u16 *src)
+THUMB_FUNC void CopyU16StringArray(u16 *dest, const u16 *src)
 {
     u16 c = *src;
     while (c != EOS) {
@@ -44,7 +44,7 @@ THUMB_FUNC void StringCopy(u16 *dest, const u16 *src)
     *dest = EOS;
 }
 
-THUMB_FUNC u16 *StringCopyN(u16 *dest, const u16 *src, u32 num)
+THUMB_FUNC u16 *CopyU16StringArrayN(u16 *dest, const u16 *src, u32 num)
 {
     u32 copied = 0;
     if (num > copied) {

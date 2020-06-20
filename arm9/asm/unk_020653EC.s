@@ -1538,7 +1538,7 @@ FUN_02065FF8: ; 0x02065FF8
 	ldr r0, [r0, #0x8]
 	cmp r0, #0x0
 	beq _0206600E
-	bl FUN_02021A4C
+	bl StringSetEmpty
 _0206600E:
 	pop {r3, pc}
 
@@ -1554,7 +1554,7 @@ FUN_02066010: ; 0x02066010
 _0206601E:
 	mov r0, #0x8
 	add r1, r7, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	mov r1, #0xc
 	mul r1, r4
 	add r1, r5, r1
@@ -1586,7 +1586,7 @@ _02066050:
 	ldr r0, [r0, #0x8]
 	cmp r0, #0x0
 	beq _02066060
-	bl FUN_02021A20
+	bl String_dtor
 _02066060:
 	add r0, r4, #0x1
 	lsl r0, r0, #0x18
@@ -1868,21 +1868,21 @@ FUN_02066270: ; 0x02066270
 	str r0, [r6, r1]
 	ldr r1, [r6, #0x0]
 	mov r0, #0x80
-	bl FUN_020219F4
+	bl String_ctor
 	mov r1, #0x45
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
 	sub r1, #0x8
 	ldr r0, [r6, r1]
 	mov r1, #0x4
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	mov r1, #0x46
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
 	sub r1, #0xc
 	ldr r0, [r6, r1]
 	mov r1, #0x0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	mov r1, #0x47
 	lsl r1, r1, #0x2
 	str r0, [r6, r1]
@@ -1894,7 +1894,7 @@ _020662CC:
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
 	add r1, r4, #0x6
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r5, r7]
 	add r4, r4, #0x1
 	add r5, r5, #0x4
@@ -1912,7 +1912,7 @@ FUN_020662E4: ; 0x020662E4
 	lsl r7, r7, #0x4
 _020662F0:
 	ldr r0, [r5, r7]
-	bl FUN_02021A20
+	bl String_dtor
 	add r4, r4, #0x1
 	add r5, r5, #0x4
 	cmp r4, #0x6
@@ -1920,15 +1920,15 @@ _020662F0:
 	mov r0, #0x47
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x46
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r0, [r6, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x11
 	lsl r0, r0, #0x4
 	ldr r0, [r6, r0]
@@ -2076,7 +2076,7 @@ _02066426:
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	mov r0, #0x2
@@ -2101,7 +2101,7 @@ _02066426:
 	add r2, #0x10
 	ldr r1, [r5, r1]
 	ldr r2, [r3, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r2, [r5, r0]

@@ -100,7 +100,7 @@ FUN_020256DC: ; 0x020256DC
 	add r1, r0, #0x0
 	add r0, r5, #0x0
 	add r0, #0x8
-	bl StringCopy
+	bl CopyU16StringArray
 	add r0, r6, #0x0
 	bl FUN_020239CC
 	strb r0, [r5, #0x4]

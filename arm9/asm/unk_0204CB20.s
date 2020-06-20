@@ -6048,7 +6048,7 @@ _0204F96E:
 	add r4, r0, #0x0
 	mov r0, #0x14
 	mov r1, #0xf
-	bl FUN_020219F4
+	bl String_ctor
 	add r5, r0, #0x0
 	cmp r4, #0x0
 	bne _0204F988
@@ -6065,7 +6065,7 @@ _0204F990:
 	add r1, r4, #0x0
 	bl FUN_020311D0
 	add r0, r5, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0x0
 	bl FreeToHeap
 	pop {r3-r5, pc}
@@ -6141,7 +6141,7 @@ _0204FA26:
 	mov r2, #0x1
 	bl FUN_02030BC4
 	ldr r0, [sp, #0x0]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, _0204FA54 ; =UNK_021C5A68
 	mov r2, #0x1
 	ldr r1, [r0, #0x0]
