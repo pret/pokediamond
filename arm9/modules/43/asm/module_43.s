@@ -645,7 +645,7 @@ MOD43_02254CD0: ; 0x02254CD0
 	lsl r1, r1, #2
 	mov r2, #0
 	mov r3, #8
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	add r6, r0, #0
 	beq _02254D44
 	mov r0, #0x14
@@ -685,7 +685,7 @@ MOD43_02254CD0: ; 0x02254CD0
 	add r0, sp, #0x14
 	bl FUN_02019178
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 _02254D44:
 	add sp, #0x24
 	pop {r3, r4, r5, r6, pc}

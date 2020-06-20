@@ -564,7 +564,7 @@ MOD54_021D799C: ; 0x021D799C
 _021D79A6:
 	mov r0, #8
 	mov r1, #0x33
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x2c]
 	mov r0, #0xd9
 	mov r1, #0
@@ -582,11 +582,11 @@ _021D79A6:
 	blt _021D79A6
 	mov r0, #0xb4
 	mov r1, #0x33
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r7, #0x44]
 	mov r0, #0x28
 	mov r1, #0x33
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r7, #0x48]
 	mov r0, #0xd1
 	mov r1, #0
@@ -595,7 +595,7 @@ _021D79A6:
 	ldr r0, [r7, #0x28]
 	ldr r2, [r7, #0x48]
 	mov r1, #0x11
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r0, r7, #0
 	bl MOD54_021D8E64
 	mov r0, #0x33
@@ -643,15 +643,15 @@ MOD54_021D7A34: ; 0x021D7A34
 	add r5, r6, #0
 _021D7A50:
 	ldr r0, [r5, #0x2c]
-	bl FUN_02021A20
+	bl String_dtor
 	add r4, r4, #1
 	add r5, r5, #4
 	cmp r4, #5
 	blt _021D7A50
 	ldr r0, [r6, #0x48]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r6, #0x44]
-	bl FUN_02021A20
+	bl String_dtor
 	pop {r4, r5, r6, pc}
 	thumb_func_end MOD54_021D7A34
 
@@ -1898,7 +1898,7 @@ MOD54_021D844C: ; 0x021D844C
 	ldr r0, [r4, #0x28]
 	ldr r2, [r4, #0x48]
 	mov r1, #0x12
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r0, #0xc2
 	lsl r0, r0, #2
 	ldr r1, [r4, #0x48]
@@ -2822,7 +2822,7 @@ _021D8B2A:
 	ldr r1, [r1, #0x28]
 	mov r2, #1
 	mov r3, #0x33
-	bl FUN_0200A9C4
+	bl ReadMsgData_ExpandPlaceholders
 	str r0, [sp, #0x18]
 	ldr r1, [sp, #0x1c]
 	ldr r0, [sp, #0x20]
@@ -2879,7 +2879,7 @@ _021D8BAC:
 	bl FUN_0201BDE0
 _021D8BDE:
 	ldr r0, [sp, #0x18]
-	bl FUN_02021A20
+	bl String_dtor
 _021D8BE4:
 	ldr r0, [sp, #0x20]
 	add r7, #8
@@ -2997,18 +2997,18 @@ MOD54_021D8C90: ; 0x021D8C90
 	mov r0, #0xb4
 	mov r1, #0x33
 	add r6, r2, #0
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0
 	ldr r0, [r5, #0x28]
 	add r1, r7, #0
 	add r2, r4, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r0, [r5, #0x24]
 	ldr r1, [r5, #0x44]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0xba
 	lsl r0, r0, #2
 	add r0, r5, r0
@@ -3745,7 +3745,7 @@ _021D91DC:
 	add r0, r5, #0
 	add r0, #8
 	mov r2, #8
-	bl StringCopyN
+	bl CopyU16StringArrayN
 	add r3, r5, #0
 	ldr r6, [sp]
 	add r3, #0x18

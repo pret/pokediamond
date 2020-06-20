@@ -874,7 +874,7 @@ FUN_02053598: ; 0x02053598
 	add r4, r0, #0x0
 	mov r0, #0x8
 	mov r1, #0x59
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x0]
 	mov r1, #0x0
 	add r0, r4, #0x0
@@ -917,12 +917,12 @@ FUN_020535E0: ; 0x020535E0
 	ldr r0, [r4, #0x4]
 	cmp r0, #0x0
 	beq _020535F4
-	bl FUN_02021A20
+	bl String_dtor
 _020535F4:
 	ldr r0, [r4, #0x8]
 	cmp r0, #0x0
 	beq _020535FE
-	bl FUN_02021A20
+	bl String_dtor
 _020535FE:
 	pop {r4, pc}
 

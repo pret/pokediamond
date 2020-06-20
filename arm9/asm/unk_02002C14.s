@@ -341,7 +341,7 @@ FUN_02002E14: ; 0x02002E14
 	bl ErrorHandling
 _02002E2E:
 	add r0, r5, #0x0
-	bl FUN_02021F2C
+	bl String_c_str
 	add r1, r0, #0x0
 	ldr r0, _02002E48 ; =UNK_02106FC8
 	add r2, r6, #0x0

@@ -993,7 +993,7 @@ FUN_0206C66C: ; 0x0206C66C
 	bl FUN_0202398C
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl StringCopy
+	bl CopyU16StringArray
 	add r0, r6, #0x0
 	bl FUN_020239BC
 	str r0, [r4, #0x10]

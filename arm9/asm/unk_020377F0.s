@@ -1828,7 +1828,7 @@ _020384F2:
 	cmp r0, #0x5
 	bne _02038514
 	ldr r0, [r1, #0x18]
-	bl FUN_02021F2C
+	bl String_c_str
 	add r7, r0, #0x0
 	ldr r0, [r6, #0xc]
 	bl FUN_0202881C
@@ -1857,7 +1857,7 @@ _0203852E:
 	ldr r0, [r4, #0xc]
 	bl FUN_02077AC4
 	ldr r0, [r4, #0x10]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x1
@@ -1962,7 +1962,7 @@ FUN_020385CC: ; 0x020385CC
 	str r0, [r4, #0xc]
 	mov r0, #0xc
 	mov r1, #0xb
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x10]
 	cmp r6, #0x1
 	beq _02038620

@@ -206,7 +206,7 @@ FUN_02073EEC: ; 0x02073EEC
 	add r2, #0xc
 	ldr r2, [r5, r2]
 	mov r1, #0x51
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r0, r6, #0x0
 	bl FUN_020690E4
 	add r2, r0, #0x0
@@ -222,7 +222,7 @@ FUN_02073EEC: ; 0x02073EEC
 	add r2, #0x8
 	ldr r1, [r5, r1]
 	ldr r2, [r5, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	b _02074018
 _02073F66:
 	ldr r0, [r5, r0]
@@ -252,7 +252,7 @@ _02073F66:
 	ldr r0, [r5, r2]
 	add r2, #0xc
 	ldr r2, [r5, r2]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r0, r6, #0x0
 	bl FUN_020690E4
 	add r2, r0, #0x0
@@ -280,7 +280,7 @@ _02073F66:
 	add r2, #0x8
 	ldr r1, [r5, r1]
 	ldr r2, [r5, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, _0207404C ; =0x00000B25
 	mov r2, #0x2c
 	ldrb r3, [r5, r1]
@@ -303,7 +303,7 @@ _0207400A:
 	ldr r0, [r5, r2]
 	add r2, #0x8
 	ldr r2, [r5, r2]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 _02074018:
 	mov r0, #0x89
 	lsl r0, r0, #0x2
@@ -2394,7 +2394,7 @@ FUN_02075118: ; 0x02075118
 	add r2, #0x8
 	ldr r2, [r4, r2]
 	mov r1, #0x81
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r0, _02075194 ; =0x00000B25
 	ldrb r0, [r4, r0]
 	add r0, #0x16
@@ -2411,7 +2411,7 @@ _0207515C:
 	add r2, #0x8
 	ldr r2, [r4, r2]
 	mov r1, #0x82
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r0, _02075194 ; =0x00000B25
 	mov r1, #0x7
 	strb r1, [r4, r0]

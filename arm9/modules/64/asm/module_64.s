@@ -2314,7 +2314,7 @@ MOD64_021D86DC: ; 0x021D86DC
 _021D86F8:
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #0xf
@@ -2338,7 +2338,7 @@ _021D86F8:
 	add r3, r1, #0
 	bl FUN_0200D0BC
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0
 	bl DestroyMsgData
 	add r0, r7, #0
@@ -2371,7 +2371,7 @@ _021D875C:
 _021D8770:
 	ldr r1, [sp, #0x10]
 	add r0, r6, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r4]
 	add r0, r5, #0
 	mov r1, #0xf
@@ -2408,7 +2408,7 @@ MOD64_021D87B8: ; 0x021D87B8
 	add r4, r0, #0
 	add r0, #0xac
 	ldr r0, [r0]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0
 	add r4, #0xac
 	str r0, [r4]
@@ -3505,7 +3505,7 @@ MOD64_021D8FD0: ; 0x021D8FD0
 _021D8FEC:
 	add r0, r4, #0
 	add r1, r6, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	ldr r1, [sp, #0x20]
 	add r6, r0, #0
 	lsl r1, r1, #0x18
@@ -3524,7 +3524,7 @@ _021D8FEC:
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0
 	bl DestroyMsgData
 	add sp, #0x10

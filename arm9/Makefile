@@ -158,7 +158,7 @@ OVERLAYS :=   \
 
 ##################### Compiler Options #######################
 
-MWCCVERSION = 2.0/base
+MWCCVERSION = 2.0/sp1
 TOOLS_DIR = ../tools
 
 CROSS   := arm-none-eabi-

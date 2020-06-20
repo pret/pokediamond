@@ -1,7 +1,7 @@
 #include "global.h"
 #include "filesystem.h"
 #include "itemtool.h"
-#include "msg_data.h"
+#include "msgdata.h"
 
 #pragma thumb on
 
@@ -20,12 +20,12 @@ void CloseNutsDataNarc(NARC * narc)
     NARC_dtor(narc);
 }
 
-struct NutData * LoadNutDataSingle(u32 berry_idx, u32 heap_id)
+struct NutData * LoadNutDataSingle(s32 berry_idx, u32 heap_id)
 {
     return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_NUTS_DATA, berry_idx, heap_id);
 }
 
-struct NutData * LoadNutDataSingleByItemId(u32 item_id, u32 heap_id)
+struct NutData * LoadNutDataSingleByItemId(s32 item_id, u32 heap_id)
 {
     return LoadNutDataSingle(item_id - FIRST_BERRY_IDX, heap_id);
 }
@@ -61,18 +61,18 @@ u32 GetNutAttr(struct NutData * nut, u32 attr)
     }
 }
 
-u16 * GetNutName(u32 berry_idx, u32 heap_id)
+struct String * GetNutName(u32 berry_idx, u32 heap_id)
 {
     struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 373, heap_id);
-    u16 * ret = FUN_0200A914(msgData, berry_idx);
+    struct String * ret = NewString_ReadMsgData(msgData, berry_idx);
     DestroyMsgData(msgData);
     return ret;
 }
 
-u16 * GetNutDesc(u32 berry_idx, u32 heap_id)
+struct String * GetNutDesc(u32 berry_idx, u32 heap_id)
 {
     struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 372, heap_id);
-    u16 * ret = FUN_0200A914(msgData, berry_idx);
+    struct String * ret = NewString_ReadMsgData(msgData, berry_idx);
     DestroyMsgData(msgData);
     return ret;
 }

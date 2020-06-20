@@ -1878,7 +1878,7 @@ _02052DB8:
 	mov r1, #0xd7
 _02052DBA:
 	add r0, r7, #0x0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 	mov r0, #0x1
 	str r0, [sp, #0x0]

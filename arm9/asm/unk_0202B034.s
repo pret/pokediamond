@@ -62,7 +62,7 @@ _0202B07E:
 	str r0, [sp, #0x10]
 	mov r0, #0xb
 	mov r1, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	mov r2, #0x5a
 	add r6, r0, #0x0
 	ldr r1, [sp, #0x14]
@@ -206,7 +206,7 @@ _0202B1C6:
 	str r2, [r0, r1]
 	beq _0202B1DC
 	add r0, r6, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 _0202B1DC:
 	add sp, #0x18
 	pop {r3-r7, pc}

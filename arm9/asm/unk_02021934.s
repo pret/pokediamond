@@ -128,8 +128,8 @@ _020219E8:
 _020219EC: .word 0x0000FFFF
 _020219F0: .word 0x00000203
 
-	thumb_func_start FUN_020219F4
-FUN_020219F4: ; 0x020219F4
+	thumb_func_start String_ctor
+String_ctor: ; 0x020219F4
 	push {r4, lr}
 	add r4, r0, #0x0
 	add r0, r1, #0x0
@@ -151,8 +151,8 @@ _02021A14:
 _02021A18: .word 0xB6F8D2EC
 _02021A1C: .word 0x0000FFFF
 
-	thumb_func_start FUN_02021A20
-FUN_02021A20: ; 0x02021A20
+	thumb_func_start String_dtor
+String_dtor: ; 0x02021A20
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02021A2A
@@ -173,8 +173,8 @@ _02021A36:
 _02021A44: .word 0xB6F8D2EC
 _02021A48: .word 0xB6F8D2ED
 
-	thumb_func_start FUN_02021A4C
-FUN_02021A4C: ; 0x02021A4C
+	thumb_func_start StringSetEmpty
+StringSetEmpty: ; 0x02021A4C
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02021A56
@@ -195,8 +195,8 @@ _02021A62:
 _02021A6C: .word 0xB6F8D2EC
 _02021A70: .word 0x0000FFFF
 
-	thumb_func_start FUN_02021A74
-FUN_02021A74: ; 0x02021A74
+	thumb_func_start StringCopy
+StringCopy: ; 0x02021A74
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -240,8 +240,8 @@ _02021AC0:
 	nop
 _02021AC8: .word 0xB6F8D2EC
 
-	thumb_func_start FUN_02021ACC
-FUN_02021ACC: ; 0x02021ACC
+	thumb_func_start StringDup
+StringDup: ; 0x02021ACC
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	add r4, r1, #0x0
@@ -258,11 +258,11 @@ _02021AE6:
 	ldrh r0, [r5, #0x2]
 	add r1, r4, #0x0
 	add r0, r0, #0x1
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0x0
 	beq _02021AFA
 	add r1, r5, #0x0
-	bl FUN_02021A74
+	bl StringCopy
 _02021AFA:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
@@ -312,7 +312,7 @@ _02021B48:
 	str r0, [sp, #0x4]
 _02021B4C:
 	add r0, r5, #0x0
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	cmp r4, #0x0
 	beq _02021B74
 	mov r0, #0x0
@@ -680,7 +680,7 @@ _02021DEC:
 	blt _02021DDE
 _02021DF6:
 	add r0, r7, #0x0
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	ldrh r0, [r5, #0x2]
 	cmp r4, r0
 	bge _02021E20
@@ -843,8 +843,8 @@ _02021F22:
 	.balign 4
 _02021F28: .word 0xB6F8D2EC
 
-	thumb_func_start FUN_02021F2C
-FUN_02021F2C: ; 0x02021F2C
+	thumb_func_start String_c_str
+String_c_str: ; 0x02021F2C
 	push {r4, lr}
 	add r4, r0, #0x0
 	bne _02021F36
