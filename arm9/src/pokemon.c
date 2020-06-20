@@ -10,6 +10,7 @@
 #include "move_data.h"
 #include "string_util.h"
 #include "text.h"
+#include "msg_data.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -860,7 +861,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_NICKNAME_3:
         if (boxmon->checksum_fail)
         {
-            u16 * buffer = FUN_0200AA50(SPECIES_MANAPHY_EGG, 0);
+            struct String * buffer = FUN_0200AA50(SPECIES_MANAPHY_EGG, 0);
             FUN_02021A74(dest, buffer);
             FUN_02021A20(buffer);
         }
@@ -1090,7 +1091,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
     u16 namebuf[POKEMON_NAME_LENGTH + 1];
     u16 namebuf2[POKEMON_NAME_LENGTH + 1];
     u16 namebuf3[POKEMON_NAME_LENGTH + 1];
-    u16 * speciesName;
+    struct String * speciesName;
 
     PokemonDataBlockA *blockA = &GetSubstruct(boxmon, boxmon->pid, 0)->blockA;
     PokemonDataBlockB *blockB = &GetSubstruct(boxmon, boxmon->pid, 1)->blockB;

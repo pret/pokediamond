@@ -15,5 +15,6 @@ int FUN_02021CE0(struct String *, struct String *);
 int FUN_0206AE00(int x);
 void FUN_02021E8C(struct String *, u16 *, u32); // copy
 void FUN_02021A4C(struct String *); // set empty
+struct String * FUN_02021ACC(struct String *, struct String *);
 
 #endif //POKEDIAMOND_STRING16_H
