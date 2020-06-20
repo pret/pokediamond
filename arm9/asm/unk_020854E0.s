@@ -296,7 +296,7 @@ FUN_020856F0: ; 0x020856F0
 	str r0, [r6, #0x8]
 	mov r0, #0x8
 	add r1, r5, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r6, #0x10]
 	add r0, r4, #0x0
 	bl FUN_020257C4
@@ -355,7 +355,7 @@ FUN_0208578C: ; 0x0208578C
 	ldr r0, [r4, #0x10]
 	cmp r0, #0x0
 	beq _0208579A
-	bl FUN_02021A20
+	bl String_dtor
 _0208579A:
 	add r0, r4, #0x0
 	bl FreeToHeap

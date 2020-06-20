@@ -525,7 +525,7 @@ _021D7906:
 	add r5, r6, #0
 _021D7914:
 	ldr r0, [r5, #0x60]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r6, #0
 	add r0, #0x5c
 	ldrh r0, [r0]
@@ -1000,12 +1000,12 @@ MOD60_021D7D18: ; 0x021D7D18
 	add r6, r0, #0
 	ldr r1, [r6]
 	mov r0, #0x28
-	bl FUN_020219F4
+	bl String_ctor
 	add r5, r0, #0
 	ldr r0, [r6, #0x20]
 	mov r1, #0
 	add r2, r5, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r3, #2
 	str r3, [sp]
 	mov r1, #0
@@ -1018,13 +1018,13 @@ MOD60_021D7D18: ; 0x021D7D18
 	str r1, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r5, #0
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	ldr r1, _021D7DF0 ; =gGameVersion
 	ldr r0, [r6, #0x20]
 	ldrb r1, [r1]
 	add r2, r5, #0
 	sub r1, #9
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r1, #0
 	str r1, [sp]
 	ldr r0, _021D7DF4 ; =0x0001020F
@@ -1042,11 +1042,11 @@ MOD60_021D7D18: ; 0x021D7D18
 	add r7, #0x3c
 _021D7D7E:
 	add r0, r5, #0
-	bl FUN_02021A4C
+	bl StringSetEmpty
 	ldr r0, [r6, #0x20]
 	add r1, r4, #3
 	add r2, r5, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	lsl r0, r4, #4
 	str r0, [sp]
 	mov r0, #0xff
@@ -1085,7 +1085,7 @@ _021D7DB6:
 	add r0, r6, #0
 	bl FUN_020191D0
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -1123,7 +1123,7 @@ _021D7E1E:
 	lsr r5, r0, #0x10
 	ldr r0, [r6, #0x20]
 	add r1, #0xa
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	ldr r1, [sp]
 	lsl r2, r4, #2
 	add r1, r1, r2

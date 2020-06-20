@@ -1,0 +1,8 @@
+{{ doNotModifyHeader }}
+
+#include "global.h"
+#include "constants/species.h"
+
+const u16 pms[] = {
+    {% for pm in pms %}SPECIES_{{ pm }},{% endfor %}
+};

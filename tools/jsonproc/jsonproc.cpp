@@ -5,6 +5,7 @@
 #include <map>
 
 #include <string>
+#include <sstream>
 using std::string; using std::to_string;
 
 #include <inja.hpp>
@@ -53,6 +54,21 @@ int main(int argc, char *argv[])
         return minuend - subtrahend;
     });
 
+    env.add_callback("add", 2, [](Arguments& args) {
+        int x = args.at(0)->get<int>();
+        int y = args.at(1)->get<int>();
+
+        return x + y;
+    });
+
+    env.add_callback("setBit", 2, [=](Arguments& args) {
+        string key = args.at(0)->get<string>();
+        unsigned long value = std::stoul(get_custom_var(key));
+        value |= (1 << (args.at(1)->get<int>()));
+        set_custom_var(key, to_string(value));
+        return "";
+    });
+
     env.add_callback("setVar", 2, [=](Arguments& args) {
         string key = args.at(0)->get<string>();
         string value = args.at(1)->get<string>();
@@ -70,6 +86,15 @@ int main(int argc, char *argv[])
     env.add_callback("getVar", 1, [=](Arguments& args) {
         string key = args.at(0)->get<string>();
         return get_custom_var(key);
+    });
+
+    env.add_callback("getVarHex", 1, [=](Arguments& args) {
+        string key = args.at(0)->get<string>();
+        unsigned long value = std::stoul(get_custom_var(key));
+        std::stringstream ss;
+        ss << "0x" << std::hex << (value & 0xFFFFFFFFul);
+        string s = ss.str();
+        return s;
     });
 
     env.add_callback("concat", 2, [](Arguments& args) {

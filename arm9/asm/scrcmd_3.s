@@ -180,7 +180,7 @@ FUN_0203FF10: ; 0x0203FF10
 	ldr r1, [sp, #0x0]
 	str r0, [r1, #0x0]
 	add r0, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	add sp, #0x38
 	pop {r3-r7, pc}

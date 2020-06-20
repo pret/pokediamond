@@ -1006,12 +1006,12 @@ _02038D68:
 	mov r0, #0x1
 	lsl r0, r0, #0xa
 	mov r1, #0xb
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x44]
 	mov r0, #0x1
 	lsl r0, r0, #0xa
 	mov r1, #0xb
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x48]
 	ldrb r0, [r4, #0x4]
 	add r0, r0, #0x1
@@ -1058,9 +1058,9 @@ _02038DD2:
 	ldr r0, [r4, #0x40]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x44]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x48]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x0
 	str r0, [r4, #0x0]
 	add r0, r4, #0x0

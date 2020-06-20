@@ -1828,7 +1828,7 @@ _020384F2:
 	cmp r0, #0x5
 	bne _02038514
 	ldr r0, [r1, #0x18]
-	bl FUN_02021F2C
+	bl String_c_str
 	add r7, r0, #0x0
 	ldr r0, [r6, #0xc]
 	bl FUN_0202881C
@@ -1857,7 +1857,7 @@ _0203852E:
 	ldr r0, [r4, #0xc]
 	bl FUN_02077AC4
 	ldr r0, [r4, #0x10]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0x0
 	bl FreeToHeap
 	mov r0, #0x1
@@ -1962,7 +1962,7 @@ FUN_020385CC: ; 0x020385CC
 	str r0, [r4, #0xc]
 	mov r0, #0xc
 	mov r1, #0xb
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x10]
 	cmp r6, #0x1
 	beq _02038620
@@ -2472,11 +2472,11 @@ FUN_02038A3C: ; 0x02038A3C
 	str r1, [sp, #0x0]
 	bl FUN_0202881C
 	add r4, r0, #0x0
-	bl getseed_LC
+	bl GetLCRNGSeed
 	str r0, [sp, #0x4]
 	add r0, r4, #0x0
 	bl FUN_020287A4
-	bl seedr_LC
+	bl SetLCRNGSeed
 	ldr r0, _02038AAC ; =UNK_020F2BE8
 	add r1, sp, #0x8
 	mov r2, #0xc
@@ -2491,7 +2491,7 @@ _02038A68:
 	cmp r5, #0xc
 	bhs _02038A92
 _02038A72:
-	bl rand_LC
+	bl LCRandom
 	add r1, r7, #0x0
 	bl _s32_div_f
 	lsl r0, r1, #0x18
@@ -2512,7 +2512,7 @@ _02038A92:
 	cmp r4, #0xc
 	blo _02038A68
 	ldr r0, [sp, #0x4]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	ldr r0, [sp, #0x0]
 	add r1, sp, #0x8
 	ldrb r0, [r1, r0]

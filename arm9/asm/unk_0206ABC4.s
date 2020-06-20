@@ -61,18 +61,18 @@ _0206AC08:
 	bne _0206AC26
 	ldr r1, [sp, #0xc]
 	add r0, r5, #0x0
-	bl StringCopy
+	bl CopyU16StringArray
 	b _0206AC3E
 _0206AC26:
 	ldr r0, [sp, #0x10]
 	ldr r1, [r4, #0x18]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	mov r2, #0x8
 	bl FUN_02021EF0
 	add r0, r6, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 _0206AC3E:
 	ldr r0, [sp, #0x0]
 	ldr r2, [sp, #0x4]
@@ -269,7 +269,7 @@ _0206AD84:
 	ldr r3, [sp, #0x8]
 	mov r0, #0x1a
 	lsr r2, r2, #0x2
-	bl FUN_0200A648
+	bl ReadMsgData_NewNarc_ExistingString
 	b _0206ADC2
 _0206ADB6:
 	ldrh r0, [r4, #0x0]
@@ -286,7 +286,7 @@ _0206ADC2:
 	cmp r0, r5
 	bne _0206ADD6
 	ldr r0, [sp, #0x4]
-	bl FUN_02021A4C
+	bl StringSetEmpty
 _0206ADD6:
 	add sp, #0x18
 	pop {r3-r7, pc}
@@ -328,7 +328,7 @@ FUN_0206AE0C: ; 0x0206AE0C
 	add r7, r1, #0x0
 	add r4, r0, #0x0
 	add r5, r2, #0x0
-	bl getseed_LC
+	bl GetLCRNGSeed
 	lsl r6, r7, #0x2
 	str r0, [sp, #0x44]
 	add r0, r4, r6
@@ -402,7 +402,7 @@ _0206AE96:
 	add r0, r0, r2
 	add r7, r1, r0
 	add r0, r7, #0x0
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r4, r5
 	add r0, #0x29
 	ldrb r0, [r0, #0x0]
@@ -410,7 +410,7 @@ _0206AE96:
 	cmp r0, #0x0
 	ble _0206AECE
 _0206AEBC:
-	bl rand_LC
+	bl LCRandom
 	add r7, r0, #0x0
 	add r0, r4, r5
 	add r0, #0x29
@@ -486,7 +486,7 @@ _0206AF3E:
 	add r0, r0, r2
 	add r7, r1, r0
 	add r0, r7, #0x0
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r4, r5
 	add r0, #0x29
 	ldrb r0, [r0, #0x0]
@@ -494,7 +494,7 @@ _0206AF3E:
 	cmp r0, #0x0
 	ble _0206AF76
 _0206AF64:
-	bl rand_LC
+	bl LCRandom
 	add r7, r0, #0x0
 	add r0, r4, r5
 	add r0, #0x29
@@ -579,7 +579,7 @@ _0206AFFC:
 	add r0, r0, r2
 	add r0, r1, r0
 	str r0, [sp, #0x14]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r4, r5
 	add r0, #0x29
 	ldrb r0, [r0, #0x0]
@@ -587,7 +587,7 @@ _0206AFFC:
 	cmp r0, #0x0
 	ble _0206B030
 _0206B01E:
-	bl rand_LC
+	bl LCRandom
 	str r0, [sp, #0x14]
 	add r0, r4, r5
 	add r0, #0x29
@@ -663,7 +663,7 @@ _0206B0A2:
 	add r0, r0, r2
 	add r7, r1, r0
 	add r0, r7, #0x0
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r4, r5
 	add r0, #0x29
 	ldrb r0, [r0, #0x0]
@@ -671,7 +671,7 @@ _0206B0A2:
 	cmp r0, #0x0
 	ble _0206B0DA
 _0206B0C8:
-	bl rand_LC
+	bl LCRandom
 	add r7, r0, #0x0
 	add r0, r4, r5
 	add r0, #0x29
@@ -744,6 +744,6 @@ _0206B156:
 	ldr r0, [sp, #0x40]
 	bl FreeToHeap
 	ldr r0, [sp, #0x44]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add sp, #0x50
 	pop {r3-r7, pc}

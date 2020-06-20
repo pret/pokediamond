@@ -541,7 +541,7 @@ MOD38_02254BC4: ; 0x02254BC4
 	str r0, [r1]
 	mov r0, #0x80
 	mov r1, #8
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r4, #0
 	add r1, #0xbc
 	str r0, [r1]
@@ -671,7 +671,7 @@ MOD38_02254D04: ; 0x02254D04
 	beq _02254D32
 	add r0, #0xbc
 	ldr r0, [r0]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0
 	add r0, #0xb4
 	ldr r0, [r0]
@@ -1068,7 +1068,7 @@ MOD38_0225500C: ; 0x0225500C
 	ldr r0, [r0]
 	ldr r2, [r2]
 	mov r1, #6
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	b _02255048
 _02255036:
 	add r0, r5, #0
@@ -1078,7 +1078,7 @@ _02255036:
 	ldr r0, [r0]
 	ldr r2, [r2]
 	add r1, r6, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 _02255048:
 	add r1, r5, #0
 	add r1, #0xbc
@@ -1126,7 +1126,7 @@ MOD38_02255084: ; 0x02255084
 	ldr r0, [r0]
 	ldr r2, [r2]
 	add r1, r6, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff

@@ -356,7 +356,7 @@ FUN_02065178: ; 0x02065178
 	add r0, #0x8
 	mov r2, #0x8
 	add r5, r3, #0x0
-	bl StringCopyN
+	bl CopyU16StringArrayN
 	ldr r0, [sp, #0x10]
 	str r5, [r4, #0x1c]
 	str r0, [r4, #0x20]

@@ -15,7 +15,7 @@ void LoadAllWazaTbl(struct WazaTbl * dest)
     ReadFromNarcMemberByIdPair(dest, NARC_POKETOOL_WAZA_WAZA_TBL, 0, 0, (NUM_MOVES + 1) * sizeof(struct WazaTbl));
 }
 
-u32 GetWazaAttr(u16 waza, u32 attr)
+u32 GetWazaAttr(u16 waza, MoveAttr attr)
 {
     struct WazaTbl wazaTbl;
     LoadWazaEntry(waza, &wazaTbl);
@@ -27,38 +27,40 @@ u8 WazaGetMaxPp(u16 waza, u8 ppUp)
     u8 pp;
     if (ppUp > 3)
         ppUp = 3;
-    pp = GetWazaAttr(waza, 5);
-    return pp + (pp * 20 * ppUp) / 100;
+    pp = (u8)GetWazaAttr(waza, MOVEATTR_PP);
+    return (u8)(pp + (pp * 20 * ppUp) / 100);
 }
 
-u32 GetAttrFromWazaTbl(struct WazaTbl * wazaTbl, u32 attr)
+u32 GetAttrFromWazaTbl(struct WazaTbl * wazaTbl, MoveAttr attr)
 {
     switch (attr)
     {
-    case 0:
-        return wazaTbl->unk0;
-    case 1:
+    case MOVEATTR_EFFECT:
+        return wazaTbl->effect;
+    case MOVEATTR_UNK1:
         return wazaTbl->unk2;
-    case 2:
-        return wazaTbl->unk3;
-    case 3:
-        return wazaTbl->unk4;
-    case 4:
-        return wazaTbl->unk5;
-    case 5:
+    case MOVEATTR_POWER:
+        return wazaTbl->power;
+    case MOVEATTR_TYPE:
+        return wazaTbl->type;
+    case MOVEATTR_ACCURACY:
+        return wazaTbl->accuracy;
+    case MOVEATTR_PP:
         return wazaTbl->pp;
-    case 6:
-        return wazaTbl->unk7;
-    case 7:
+    case MOVEATTR_EFFECT_CHANCE:
+        return wazaTbl->effectChance;
+    case MOVEATTR_UNK7:
         return wazaTbl->unk8;
-    case 8:
-        return wazaTbl->unkA;
-    case 9:
+    case MOVEATTR_PRIORTY:
+        return wazaTbl->priority;
+    case MOVEATTR_UNK9:
         return wazaTbl->unkB;
-    case 10:
+    case MOVEATTR_UNK10:
         return wazaTbl->unkC;
-    case 11:
-        return wazaTbl->unkD;
+    case MOVEATTR_CONTEST_TYPE:
+        return wazaTbl->contestType;
+    default:
+        return (u32)wazaTbl;
     }
 }
 

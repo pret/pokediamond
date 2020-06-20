@@ -733,7 +733,7 @@ _02212450:
 _02212454:
 	sub r0, r0, #6
 	ldrsb r4, [r5, r0]
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0
 	bl _s32_div_f
 	lsr r0, r4, #0x1f
@@ -744,7 +744,7 @@ _02212454:
 	asr r6, r0, #0x10
 	ldr r0, _02212580 ; =0x00000B7D
 	ldrsb r4, [r5, r0]
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0
 	bl _s32_div_f
 	lsr r0, r4, #0x1f
@@ -4500,7 +4500,7 @@ _022142BE:
 	add r1, r4, #0
 	ldr r0, [sp, #0x10]
 	add r1, #8
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x18]
 	bl FUN_020690E4
@@ -4511,9 +4511,9 @@ _022142BE:
 	ldr r0, [sp, #0x14]
 	ldr r2, [sp, #0x20]
 	add r1, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x20]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -4540,7 +4540,7 @@ _022142BE:
 	ldr r0, [sp, #0x10]
 	mov r1, #0x1b
 	add r2, r6, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -4562,7 +4562,7 @@ _02214344:
 	ldr r0, [sp, #0x10]
 	mov r1, #0x1c
 	add r2, r6, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -4606,7 +4606,7 @@ MOD07_0221437C: ; 0x0221437C
 	ldr r1, [sp, #0x2c]
 	add r0, r7, #0
 	add r1, r1, #2
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	mov r1, #0
 	add r7, r0, #0
 	ldr r3, [sp, #0x2c]
@@ -4625,9 +4625,9 @@ MOD07_0221437C: ; 0x0221437C
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0x28]
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -4662,7 +4662,7 @@ MOD07_022143FC: ; 0x022143FC
 	str r3, [sp, #0x18]
 	ldr r4, [sp, #0x40]
 	add r7, #0x10
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [sp, #0x20]
 	mov r0, #0x18
 	mul r0, r5
@@ -4682,9 +4682,9 @@ MOD07_022143FC: ; 0x022143FC
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0x20]
 	add r1, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [sp, #0x20]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -4707,7 +4707,7 @@ MOD07_022143FC: ; 0x022143FC
 	ldr r0, [sp, #0x14]
 	mov r1, #0x1a
 	add r2, r4, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -4728,7 +4728,7 @@ MOD07_022143FC: ; 0x022143FC
 	add r5, #0xe
 	ldr r0, [sp, #0x14]
 	add r1, r5, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0
 	ldr r3, [sp, #0x10]
 	ldr r2, [sp, #0x1c]
@@ -4746,9 +4746,9 @@ MOD07_022143FC: ; 0x022143FC
 	ldr r0, [sp, #0x18]
 	add r1, r4, #0
 	add r2, r5, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r1, #0
 	ldr r3, [sp, #0x24]
 	str r1, [sp]
@@ -4981,7 +4981,7 @@ MOD07_0221469C: ; 0x0221469C
 	str r0, [sp, #8]
 	ldr r1, [r1, #0x24]
 	mov r0, #0x20
-	bl FUN_020219F4
+	bl String_ctor
 	add r7, r0, #0
 	mov r4, #0
 	add r5, r6, #0
@@ -5004,7 +5004,7 @@ _022146F6:
 	cmp r4, #6
 	blo _022146DC
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	ldr r0, [sp, #0xc]

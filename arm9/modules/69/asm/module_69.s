@@ -33,13 +33,13 @@ MOD69_0222D5C0: ; 0x0222D5C0
 	mov r0, #0x7d
 	lsl r0, r0, #2
 	mov r1, #0x3f
-	bl FUN_020219F4
+	bl String_ctor
 	ldr r1, _0222D714 ; =0x00001B54
 	str r0, [r4, r1]
 	mov r0, #0x7d
 	lsl r0, r0, #2
 	mov r1, #0x3f
-	bl FUN_020219F4
+	bl String_ctor
 	ldr r1, _0222D718 ; =0x00001B58
 	str r0, [r4, r1]
 	mov r0, #0x3f
@@ -203,10 +203,10 @@ _0222D762:
 	bl FUN_0200AB18
 	ldr r0, _0222D7E8 ; =0x00001B54
 	ldr r0, [r4, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, _0222D7EC ; =0x00001B58
 	ldr r0, [r4, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, _0222D7F0 ; =0x00001B5C
 	ldr r0, [r4, r0]
 	bl DestroyMsgData
@@ -2381,24 +2381,24 @@ _0222E93C:
 	ldr r0, [r4, #0x20]
 	ldr r2, [r4, #0x18]
 	mov r1, #1
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	b _0222E95E
 _0222E948:
 	ldr r0, [r4, #0x20]
 	ldr r2, [r4, #0x18]
 	mov r1, #2
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	b _0222E95E
 _0222E954:
 	ldr r0, [r4, #0x20]
 	ldr r2, [r4, #0x18]
 	mov r1, #3
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 _0222E95E:
 	ldr r0, [r4, #0x14]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add sp, #8
 	pop {r4, pc}
 
@@ -2427,11 +2427,11 @@ _0222E996:
 	ldr r0, [r5, #0x20]
 	ldr r2, [r5, #0x18]
 	add r1, r4, #5
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x1c]
 	ldr r2, [r5, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD69_0222E9AC
@@ -2464,7 +2464,7 @@ _0222E9D8:
 	ldr r0, [r4, #0x20]
 	ldr r2, [r4, #0x1c]
 	mov r1, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r0, r4, #0
 	mov r1, #0x18
 	bl MOD69_0222E89C
@@ -2507,11 +2507,11 @@ _0222EA2E:
 	ldr r0, [r4, #0x20]
 	ldr r2, [r4, #0x18]
 	mov r1, #4
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r0, [r4, #0x14]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x18]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r4, #0
 	mov r1, #0x78
 	bl MOD69_0222E89C
@@ -2641,7 +2641,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	sub r2, #8
 	ldr r2, [r4, r2]
 	mov r1, #0xc
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r1, _0222EC54 ; =0x00001B54
 	mov r0, #0
 	ldr r1, [r4, r1]
@@ -2712,14 +2712,14 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	ldr r0, [r4, r2]
 	sub r2, r2, #4
 	ldr r2, [r4, r2]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r2, _0222EC5C ; =0x00001B50
 	add r1, r2, #4
 	ldr r0, [r4, r2]
 	add r2, #8
 	ldr r1, [r4, r1]
 	ldr r2, [r4, r2]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r1, _0222EC54 ; =0x00001B54
 	mov r0, #0
 	ldr r1, [r4, r1]
@@ -3422,10 +3422,10 @@ MOD69_0222F1B0: ; 0x0222F1B0
 	mov r0, #0x3f
 	bl AllocFromHeap
 	str r0, [sp, #0x28]
-	bl rand_LC
+	bl LCRandom
 	str r0, [sp, #0x20]
 	ldr r0, _0222F348 ; =0x00003594
-	bl seedr_LC
+	bl SetLCRNGSeed
 	mov r0, #0
 	ldr r4, [sp, #0x28]
 	str r0, [sp, #0x24]
@@ -3458,7 +3458,7 @@ _0222F1EE:
 	mov r0, #0
 	str r0, [sp, #0x1c]
 _0222F206:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x13
 	sub r1, r1, r2
@@ -3471,7 +3471,7 @@ _0222F206:
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
 	str r0, [sp, #8]
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x13
 	sub r1, r1, r2
@@ -3484,7 +3484,7 @@ _0222F206:
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
 	str r0, [sp, #4]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x29
 	lsl r1, r1, #4
 	bl _s32_div_f
@@ -3517,7 +3517,7 @@ _0222F25C:
 	strh r0, [r4, #0x28]
 	strh r0, [r4, #0x2a]
 	strh r0, [r4, #0x2c]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x17
 	sub r2, r2, r1
@@ -3528,7 +3528,7 @@ _0222F25C:
 	lsl r0, r0, #8
 	add r0, r1, r0
 	strh r0, [r4, #0x2e]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x17
 	sub r2, r2, r1
@@ -3539,7 +3539,7 @@ _0222F25C:
 	lsl r0, r0, #8
 	add r0, r1, r0
 	strh r0, [r4, #0x30]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x17
 	sub r2, r2, r1
@@ -3557,7 +3557,7 @@ _0222F25C:
 	add r6, r6, #6
 	cmp r7, #4
 	blt _0222F25C
-	bl rand_LC
+	bl LCRandom
 	mov r1, #7
 	and r0, r1
 	sub r5, r0, #1
@@ -3594,7 +3594,7 @@ _0222F2FA:
 	b _0222F1EE
 _0222F320:
 	ldr r0, [sp, #0x20]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	ldr r0, [sp, #0x28]
 	mov r2, #0
 	str r2, [r0]

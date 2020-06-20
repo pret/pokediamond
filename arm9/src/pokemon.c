@@ -10,6 +10,7 @@
 #include "move_data.h"
 #include "string_util.h"
 #include "text.h"
+#include "msgdata.h"
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -281,14 +282,14 @@ void CreateBoxMon(struct BoxPokemon * boxPokemon, int species, int level, int fi
     decry = AcquireBoxMonLock(boxPokemon);
     if (hasFixedPersonality == 0)
     {
-        fixedPersonality = (rand_LC() | (rand_LC() << 16));
+        fixedPersonality = (LCRandom() | (LCRandom() << 16));
     }
     SetBoxMonData(boxPokemon, MON_DATA_PERSONALITY, &fixedPersonality);
     if (otIdType == 2)
     {
         do
         {
-            fixedOtId = (rand_LC() | (rand_LC() << 16));
+            fixedOtId = (LCRandom() | (LCRandom() << 16));
         } while (SHINY_CHECK(fixedOtId, fixedPersonality));
     }
     else if (otIdType != 1)
@@ -316,14 +317,14 @@ void CreateBoxMon(struct BoxPokemon * boxPokemon, int species, int level, int fi
     }
     else
     {
-        exp = rand_LC();
+        exp = LCRandom();
         iv = exp & 0x1F;
         SetBoxMonData(boxPokemon, MON_DATA_HP_IV, &iv);
         iv = (exp & 0x3E0) >> 5;
         SetBoxMonData(boxPokemon, MON_DATA_ATK_IV, &iv);
         iv = (exp & 0x7C00) >> 10;
         SetBoxMonData(boxPokemon, MON_DATA_DEF_IV, &iv);
-        exp = rand_LC();
+        exp = LCRandom();
         iv = exp & 0x1F;
         SetBoxMonData(boxPokemon, MON_DATA_SPEED_IV, &iv);
         iv = (exp & 0x3E0) >> 5;
@@ -353,7 +354,7 @@ void CreateMonWithNature(struct Pokemon * pokemon, u16 species, u8 level, u8 fix
     u32 personality;
     do
     {
-        personality = (u32)(rand_LC() | (rand_LC() << 16));
+        personality = (u32)(LCRandom() | (LCRandom() << 16));
     } while (nature != GetNatureFromPersonality(personality));
     CreateMon(pokemon, (int)species, (int)level, (int)fixedIv, 1, (int)personality, (int)0, (int)0);
 }
@@ -366,7 +367,7 @@ void CreateMonWithGenderNatureLetter(struct Pokemon * pokemon, u16 species, u8 l
     if (letter != 0 && letter < 29)
     {
         do {
-            pid = (u32)(rand_LC() | (rand_LC() << 16));
+            pid = (u32)(LCRandom() | (LCRandom() << 16));
             test = (u16)CALC_UNOWN_LETTER(pid);
         } while (nature != GetNatureFromPersonality(pid) || gender != GetGenderBySpeciesAndPersonality(species, pid) || test != letter - 1);
     }
@@ -843,7 +844,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         break;
     case MON_DATA_NICKNAME:
         if (boxmon->checksum_fail)
-            GetSpeciesName(SPECIES_MANAPHY_EGG, 0, dest);
+            GetSpeciesNameIntoArray(SPECIES_MANAPHY_EGG, 0, dest);
         else
         {
             u16 * dest16 = (u16 *)dest;
@@ -860,9 +861,9 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     case MON_DATA_NICKNAME_3:
         if (boxmon->checksum_fail)
         {
-            u16 * buffer = FUN_0200AA50(SPECIES_MANAPHY_EGG, 0);
-            FUN_02021A74(dest, buffer);
-            FUN_02021A20(buffer);
+            struct String * buffer = GetSpeciesName(SPECIES_MANAPHY_EGG, 0);
+            StringCopy(dest, buffer);
+            String_dtor(buffer);
         }
         else
         {
@@ -978,7 +979,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         }
         break;
     case MON_DATA_SPECIES_NAME:
-        GetSpeciesName(blockA->species, 0, dest);
+        GetSpeciesNameIntoArray(blockA->species, 0, dest);
         break;
     }
     return ret;
@@ -1090,7 +1091,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
     u16 namebuf[POKEMON_NAME_LENGTH + 1];
     u16 namebuf2[POKEMON_NAME_LENGTH + 1];
     u16 namebuf3[POKEMON_NAME_LENGTH + 1];
-    u16 * speciesName;
+    struct String * speciesName;
 
     PokemonDataBlockA *blockA = &GetSubstruct(boxmon, boxmon->pid, 0)->blockA;
     PokemonDataBlockB *blockB = &GetSubstruct(boxmon, boxmon->pid, 1)->blockB;
@@ -1309,7 +1310,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         blockB->Unused = VALUE(u16);
         break;
     case MON_DATA_NICKNAME_2:
-        GetSpeciesName(blockA->species, 0, namebuf);
+        GetSpeciesNameIntoArray(blockA->species, 0, namebuf);
         blockB->isNicknamed = StringNotEqual(namebuf, value);
         // fallthrough
     case MON_DATA_NICKNAME:
@@ -1319,7 +1320,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         }
         break;
     case MON_DATA_NICKNAME_4:
-        GetSpeciesName(blockA->species, 0, namebuf2);
+        GetSpeciesNameIntoArray(blockA->species, 0, namebuf2);
         FUN_02021EF0(value, namebuf3, POKEMON_NAME_LENGTH + 1);
         blockB->isNicknamed = StringNotEqual(namebuf2, namebuf3);
         // fallthrough
@@ -1420,9 +1421,9 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         blockB->spdefIV = (VALUE(u32) >> 25) & 0x1F;
         break;
     case MON_DATA_SPECIES_NAME:
-        speciesName = FUN_0200AA50(blockA->species, 0);
+        speciesName = GetSpeciesName(blockA->species, 0);
         FUN_02021EF0(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
-        FUN_02021A20(speciesName);
+        String_dtor(speciesName);
         break;
     }
 #undef VALUE
@@ -2052,7 +2053,7 @@ void MonApplyFriendshipMod(struct Pokemon * pokemon, u32 kind, u32 location)
     s16 friendship;
     s8 mod;
 
-    if (kind == 5 && (rand_LC() & 1))
+    if (kind == 5 && (LCRandom() & 1))
         return;
 
     species = (u16)GetMonData(pokemon, MON_DATA_SPECIES2, NULL);
@@ -2146,18 +2147,18 @@ u32 GenerateShinyPersonality(u32 otid)
     u16 r6;
     u16 r5;
     otid = (u32)((((otid & 0xFFFF0000) >> 16) ^ (otid & 0xFFFF)) >> 3u);
-    r6 = (u16)(rand_LC() & 7);
-    r5 = (u16)(rand_LC() & 7);
+    r6 = (u16)(LCRandom() & 7);
+    r5 = (u16)(LCRandom() & 7);
     for (r4 = 0; r4 < 13; r4++)
     {
         if (MaskOfFlagNo(r4) & otid)
         {
-            if (rand_LC() & 1)
+            if (LCRandom() & 1)
                 r6 |= MaskOfFlagNo(r4 + 3);
             else
                 r5 |= MaskOfFlagNo(r4 + 3);
         }
-        else if (rand_LC() & 1)
+        else if (LCRandom() & 1)
         {
             r6 |= MaskOfFlagNo(r4 + 3);
             r5 |= MaskOfFlagNo(r4 + 3);
@@ -2859,7 +2860,7 @@ void FUN_02069718(struct BoxPokemon * boxmon, u16 move)
     }
 
     moves[3] = move;
-    pp[3] = (u8)GetWazaAttr(move, 5);
+    pp[3] = (u8)GetWazaAttr(move, MOVEATTR_PP);
     ppUp[3] = 0;
 
     for (i = 0; i < 4; i++)
@@ -3089,21 +3090,21 @@ void FUN_02069C4C(struct PlayerParty * party)
     int idx;
     struct Pokemon * pokemon;
     u8 sp0;
-    switch (rand_LC())
+    switch (LCRandom())
     {
     case 0x4000:
     case 0x8000:
     case 0xC000:
         do
         {
-            idx = rand_LC() % count;
+            idx = LCRandom() % count;
             pokemon = GetPartyMonByIndex(party, idx);
         } while (GetMonData(pokemon, MON_DATA_SPECIES, NULL) == SPECIES_NONE || GetMonData(pokemon, MON_DATA_IS_EGG, NULL));
         if (!FUN_02069CF4(party, (u8)MaskOfFlagNo(idx)))
         {
             do
             {
-                sp0 = (u8)rand_LC();
+                sp0 = (u8)LCRandom();
             } while (!(sp0 & 7));
             if (sp0 & 0xF0)
                 sp0 &= 7;
@@ -3178,7 +3179,7 @@ void FUN_02069DC8(struct PlayerParty * party)
     int i;
     struct Pokemon * pokemon;
     u8 pokerus;
-    if ((rand_LC() % 3) == 0)
+    if ((LCRandom() % 3) == 0)
     {
         for (i = 0; i < count; i++)
         {
@@ -3349,7 +3350,7 @@ void FUN_0206A094(struct Pokemon * pokemon, u32 a1, u32 a2)
     u16 item1;
     u16 item2;
     if (!(a1 & 0x81)) {
-        chance = (u32)(rand_LC() % 100);
+        chance = (u32)(LCRandom() % 100);
         species = (u16)GetMonData(pokemon, MON_DATA_SPECIES, 0);
         forme = (u16)GetMonData(pokemon, MON_DATA_FORME, 0);
         item1 = (u16)GetMonBaseStat_HandleFormeConversion(species, forme, BASE_ITEM_1);
@@ -3682,13 +3683,13 @@ BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct SaveBlock2 * sb2, u32 heap_
     u32 myGender = FUN_020239CC(sb2);
     u32 otGender = GetBoxMonData(boxmon, MON_DATA_MET_GENDER, NULL);
     struct String * r7 = FUN_020239A0(sb2, heap_id);
-    struct String * r6 = FUN_020219F4(OT_NAME_LENGTH + 1, heap_id);
+    struct String * r6 = String_ctor(OT_NAME_LENGTH + 1, heap_id);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
     if (myId == otId && myGender == otGender && FUN_02021CE0(r7, r6) == 0)
         ret = TRUE;
-    FUN_02021A20(r6);
-    FUN_02021A20(r7);
+    String_dtor(r6);
+    String_dtor(r7);
     return ret;
 }
 

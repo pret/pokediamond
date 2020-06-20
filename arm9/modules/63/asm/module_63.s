@@ -2048,7 +2048,7 @@ _021D844C:
 	add r7, r0, #0
 	mov r0, #0x40
 	add r1, r4, #0
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r6, #0
 	add r4, r0, #0
 	ldr r2, _021D85D0 ; =0x021DB9A0
@@ -2068,7 +2068,7 @@ _021D844C:
 	add r0, r7, #0
 	mov r1, #0
 	add r2, r4, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r3, r6, #0
 	add r3, #0xb3
 	ldrb r3, [r3]
@@ -2092,7 +2092,7 @@ _021D844C:
 	str r1, [sp, #0x14]
 	bl FUN_0201BE3C
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r7, #0
 	bl DestroyMsgData
 	mov r1, #0x15
@@ -3077,10 +3077,10 @@ MOD63_021D8D10: ; 0x021D8D10
 	ldr r0, _021D8D94 ; =0x021C4918
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
-	bl getseed_LC
+	bl GetLCRNGSeed
 	str r0, [r4, #0x14]
 	mov r0, #0
-	bl seedr_LC
+	bl SetLCRNGSeed
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
@@ -3205,7 +3205,7 @@ MOD63_021D8E68: ; 0x021D8E68
 	add r4, r0, #0
 	bl FUN_0200E31C
 	ldr r0, [r4, #0x14]
-	bl seedr_LC
+	bl SetLCRNGSeed
 	add r0, r5, #0
 	bl FUN_0200627C
 	mov r0, #0x4c
@@ -7639,7 +7639,7 @@ _021DB248:
 	stmia r2!, {r0, r1}
 	ldr r0, [r3]
 	str r0, [r2]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x19
 	sub r2, r2, r1
@@ -7649,7 +7649,7 @@ _021DB248:
 	add r0, #0x40
 	lsl r0, r0, #0xc
 	str r0, [sp, #4]
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x1a
 	sub r2, r2, r1
@@ -7823,13 +7823,13 @@ _021DB3A8:
 	stmia r2!, {r0, r1}
 	ldr r0, [r3]
 	str r0, [r2]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xe0
 	bl _s32_div_f
 	add r1, #0xa
 	lsl r0, r1, #0xc
 	str r0, [sp, #4]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x38
 	bl _s32_div_f
 	ldr r0, _021DB41C ; =0x0000013A

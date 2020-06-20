@@ -16,8 +16,8 @@ enum PrintingMode {
     PAD_ZEROES
 };
 
-void StringCopy(u16 *dest, const u16 *src);
-u16 *StringCopyN(u16 *dest, const u16 *src, u32 num);
+void CopyU16StringArray(u16 *dest, const u16 *src);
+u16 *CopyU16StringArrayN(u16 *dest, const u16 *src, u32 num);
 u32 StringLength(const u16 *s);
 BOOL StringNotEqual(const u16 *s1, const u16 *s2);
 BOOL StringNotEqualN(const u16 *s1, const u16 *s2, u32 num);

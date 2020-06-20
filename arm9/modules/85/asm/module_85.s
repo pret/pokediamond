@@ -794,7 +794,7 @@ MOD85_021D7B28: ; 0x021D7B28
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0x4f
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x18]
 	add sp, #8
 	pop {r3, r4, r5, pc}
@@ -824,7 +824,7 @@ MOD85_021D7BB8: ; 0x021D7BB8
 	ldr r0, [r4, #4]
 	bl FUN_0200AB18
 	ldr r0, [r4, #0x18]
-	bl FUN_02021A20
+	bl String_dtor
 	pop {r4, r5, r6, pc}
 	nop
 _021D7BE8: .word 0x00000408
@@ -852,7 +852,7 @@ MOD85_021D7BEC: ; 0x021D7BEC
 	ldr r2, [r4, #0x18]
 	ldr r0, [r5, r0]
 	add r1, r6, #0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -1587,7 +1587,7 @@ MOD85_021D81C8: ; 0x021D81C8
 	mov r4, #0
 	lsl r6, r7, #0x11
 _021D81D2:
-	bl rand_LC
+	bl LCRandom
 	add r1, r7, #0
 	bl _s32_div_f
 	add r0, r5, #0
@@ -6759,7 +6759,7 @@ _021DA7B4:
 	thumb_func_start MOD85_021DA7B8
 MOD85_021DA7B8: ; 0x021DA7B8
 	push {r3, lr}
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _u32_div_f
 	add r0, r1, #0
@@ -7481,7 +7481,7 @@ _021DAD08: .word 0x021E0240
 MOD85_021DAD0C: ; 0x021DAD0C
 	push {r4, lr}
 	add r4, r0, #0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #6
 	bl _s32_div_f
 	str r1, [r4, #0x34]
@@ -11751,7 +11751,7 @@ MOD85_021DCB6C: ; 0x021DCB6C
 	add r1, sp, #0x1c
 	bl FUN_02020064
 	mov r0, #0
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	ldr r0, [r4, #4]
 	bl FUN_02020088
@@ -12308,7 +12308,7 @@ MOD85_021DCF88: ; 0x021DCF88
 	add r1, sp, #0x1c
 	bl FUN_02020054
 	mov r0, #0
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	ldr r0, [r4, #0x28]
 	bl FUN_02020088
@@ -13715,7 +13715,7 @@ MOD85_021DDA60: ; 0x021DDA60
 	add r1, sp, #0x1c
 	bl FUN_02020064
 	mov r0, #0
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FUN_02020088
@@ -13933,7 +13933,7 @@ MOD85_021DDBFC: ; 0x021DDBFC
 	add r1, sp, #0x1c
 	bl FUN_02020064
 	mov r0, #0
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	ldr r0, [r4, #0xc]
 	bl FUN_02020088
@@ -14473,7 +14473,7 @@ _021DE036:
 	add r1, sp, #0x20
 	bl FUN_02020064
 	mov r0, #0
-	bl FUN_0201B9A0
+	bl MathUtil_0201B9A0
 	add r1, r0, #0
 	ldr r0, [r4, #0x1c]
 	bl FUN_02020088

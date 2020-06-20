@@ -4,6 +4,7 @@
 #include "OS_terminate_proc.h"
 #include "OS_interrupt.h"
 #include "OS_system.h"
+#include "OS_spinLock.h"
 #include "sections.h"
 
 static u16 OSi_IsInitReset = 0;

@@ -269,8 +269,14 @@
 #define MON_DATA_SPECIES_NAME       178
 
 #define MON_RATIO_MALE           0
+#define MON_RATIO_EIGHTH        31
+#define MON_RATIO_QUARTER       63
+#define MON_RATIO_HALF         127
+#define MON_RATIO_THREEQUARTER 191
 #define MON_RATIO_FEMALE       254
 #define MON_RATIO_UNKNOWN      255
+
+#define GENDER_RATIO(frac) ( (frac) <= 1 ? (u8)((frac) * 254.75) : 255 )
 
 enum MonGender
 {
@@ -403,5 +409,46 @@ typedef enum {
     UNOWN_EXCLAMATION_MARK = 26,
     UNOWN_QUESTION_MARK = 27
 } AlternateForms;
+
+typedef enum EvoMethod
+{
+    EVO_NONE = 0,
+    EVO_FRIENDSHIP,
+    EVO_FRIENDSHIP_DAY,
+    EVO_FRIENDSHIP_NIGHT,
+    EVO_LEVEL,
+    EVO_TRADE,
+    EVO_TRADE_ITEM,
+    EVO_STONE,
+    EVO_LEVEL_ATK_GT_DEF,
+    EVO_LEVEL_ATK_EQ_DEF,
+    EVO_LEVEL_ATK_LT_DEF,
+    EVO_LEVEL_PID_LO,
+    EVO_LEVEL_PID_HI,
+    EVO_LEVEL_NINJASK,
+    EVO_LEVEL_SHEDINJA,
+    EVO_BEAUTY,
+    EVO_STONE_MALE,
+    EVO_STONE_FEMALE,
+    EVO_ITEM_DAY,
+    EVO_ITEM_NIGHT,
+    EVO_HAS_MOVE,
+    EVO_OTHER_PARTY_MON,
+    EVO_LEVEL_MALE,
+    EVO_LEVEL_FEMALE,
+    EVO_CORONET,
+    EVO_ETERNA,
+    EVO_ROUTE217,
+} EvoMethod;
+
+enum GrowthRate
+{
+    GROWTH_MEDIUM_FAST = 0,
+    GROWTH_ERRATIC,
+    GROWTH_FLUCTUATING,
+    GROWTH_MEDIUM_SLOW,
+    GROWTH_FAST,
+    GROWTH_SLOW,
+};
 
 #endif //POKEDIAMOND_CONSTANTS_POKEMON_H

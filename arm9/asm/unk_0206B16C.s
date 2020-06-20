@@ -73,7 +73,7 @@ _0206B1E0:
 	add r0, r6, #0x0
 	add r1, r5, #0x6
 	add r2, r4, #0x0
-	bl DecryptCopyString
+	bl ReadMsgDataIntoU16Array
 	add r5, r5, #0x1
 	add r4, #0x28
 	cmp r5, #0x12

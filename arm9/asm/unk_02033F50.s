@@ -175,12 +175,12 @@ _02033FA4:
 	mov r0, #0x6
 	lsl r0, r0, #0x6
 	add r1, r4, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	add r7, r0, #0x0
 	mov r0, #0x6
 	lsl r0, r0, #0x6
 	add r1, r4, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [sp, #0x14]
 	bl FUN_0201BD5C
 	add r0, r4, #0x0
@@ -216,11 +216,11 @@ _02033FA4:
 	ldr r0, [sp, #0x10]
 	ldr r2, [sp, #0x14]
 	add r1, r5, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r2, [sp, #0x14]
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	str r1, [sp, #0x4]
@@ -230,7 +230,7 @@ _02033FA4:
 	str r1, [sp, #0x8]
 	bl FUN_0201BD84
 	add r0, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	bl FUN_0201E788
 	mov r0, #0x0
 	bl FUN_0200E394

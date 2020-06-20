@@ -965,33 +965,33 @@ FUN_020777D4: ; 0x020777D4
 	ldr r0, [r5, #0x4]
 	cmp r0, #0x0
 	bne _020777FE
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x12
 	bl _s32_div_f
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 	b _0207781A
 _020777FE:
 	cmp r0, #0x1
 	bne _0207781A
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x12
 	bl _s32_div_f
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	add r1, #0x12
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 _0207781A:
 	ldr r0, [r4, #0x18]
 	add r1, r6, #0x0
-	bl FUN_02021A74
+	bl StringCopy
 	add r0, r6, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x18]
 	add r4, #0x1c
 	add r1, r4, #0x0
@@ -1005,13 +1005,13 @@ _02077836:
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
 	mov r1, #0x58
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0x0
-	bl FUN_02021A74
+	bl StringCopy
 	add r0, r5, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r4, #0x18]
 	add r4, #0x1c
 	add r1, r4, #0x0
@@ -1112,12 +1112,12 @@ _0207790E:
 	add r1, r4, #0x0
 	add r0, r4, r0
 	add r1, #0xd8
-	bl StringCopy
+	bl CopyU16StringArray
 	add r0, r5, #0x0
 	add r1, r4, #0x0
 	add r0, #0x1c
 	add r1, #0xd8
-	bl StringCopy
+	bl CopyU16StringArray
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x18]
 	add r1, #0xd8
@@ -1126,7 +1126,7 @@ _02077932:
 	mov r0, #0x61
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r7, #0xe7
 	mov r6, #0x0
 	add r5, r4, #0x0
@@ -1215,16 +1215,16 @@ _020779C2:
 	ldr r0, [r4, r0]
 	cmp r0, #0x0
 	beq _02077A0C
-	bl FUN_02021A20
+	bl String_dtor
 _02077A0C:
 	mov r0, #0x5e
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x5f
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x5d
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -1282,7 +1282,7 @@ FUN_02077A84: ; 0x02077A84
 	ldr r1, [sp, #0x0]
 	strh r0, [r4, #0x1c]
 	add r0, r5, #0x1
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x18]
 	mov r1, #0x0
 	str r1, [r4, #0x44]
@@ -1310,7 +1310,7 @@ _02077AD2:
 	bl ErrorHandling
 _02077ADA:
 	ldr r0, [r4, #0x18]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r4, #0x0
 	bl FreeToHeap
 	pop {r4, pc}
@@ -1679,7 +1679,7 @@ _02077DD8:
 	ldr r2, [r2, r3]
 	ldr r1, [r4, r1]
 	mov r3, #0x12
-	bl FUN_0200A9C4
+	bl ReadMsgData_ExpandPlaceholders
 	mov r1, #0x5e
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -1690,14 +1690,14 @@ _02077DD8:
 	ldr r1, [r4, r1]
 	mov r2, #0x8
 	mov r3, #0x12
-	bl FUN_0200A9C4
+	bl ReadMsgData_ExpandPlaceholders
 	mov r1, #0x5f
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
 	sub r1, #0x10
 	ldr r0, [r4, r1]
 	mov r1, #0x7
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	mov r1, #0x61
 	lsl r1, r1, #0x2
 	str r0, [r4, r1]
@@ -1768,7 +1768,7 @@ FUN_02077E90: ; 0x02077E90
 	beq _02077FA0
 	mov r0, #0xc8
 	mov r1, #0x12
-	bl FUN_020219F4
+	bl String_ctor
 	add r7, r0, #0x0
 	mov r0, #0x6
 	mov r1, #0x0
@@ -1873,14 +1873,14 @@ _02077F7E:
 	ldr r1, [r5, r1]
 	ldr r2, [r4, #0x44]
 	mov r3, #0x12
-	bl FUN_0200A9C4
+	bl ReadMsgData_ExpandPlaceholders
 	mov r1, #0x6
 	lsl r1, r1, #0x6
 	str r0, [r5, r1]
 	mov r0, #0x1
 	str r0, [r5, #0x14]
 	add r0, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 _02077FA0:
 	add sp, #0x14
 	pop {r4-r7, pc}
@@ -3264,7 +3264,7 @@ _02078A90:
 	add r0, r5, #0x0
 	add r0, #0xd8
 	add r1, r5, r1
-	bl StringCopy
+	bl CopyU16StringArray
 	mov r0, #0xc
 	str r0, [sp, #0x0]
 	mov r2, #0x0
@@ -3699,7 +3699,7 @@ FUN_02078E3C: ; 0x02078E3C
 	strh r1, [r0, #0x0]
 _02078E52:
 	ldrh r0, [r0, #0x0]
-	bl FUN_0201B970
+	bl Sin_Wrap
 	mov r1, #0xa
 	mul r1, r0
 	asr r0, r1, #0xb
@@ -3729,7 +3729,7 @@ FUN_02078E7C: ; 0x02078E7C
 	str r2, [sp, #0x1c]
 	str r3, [sp, #0x20]
 	mov r4, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [sp, #0x28]
 	ldrh r1, [r7, #0x0]
 	ldr r0, _02078F6C ; =0x0000FFFF
@@ -3837,7 +3837,7 @@ _02078F58:
 	bne _02078EB4
 _02078F62:
 	ldr r0, [sp, #0x28]
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x3c
 	pop {r4-r7, pc}
 	.balign 4
@@ -3916,7 +3916,7 @@ _02078FD0:
 	blo _02078FD0
 	mov r0, #0x15
 	mov r1, #0x12
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0x0
 	mov r5, #0x0
 _02079012:
@@ -3955,7 +3955,7 @@ _02079012:
 	cmp r5, #0x3
 	blo _02079012
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x38
 	pop {r3-r7, pc}
 	nop

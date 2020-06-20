@@ -167,7 +167,7 @@ _02013800:
 	ldrh r2, [r2, #0x2]
 	add r0, r6, #0x0
 	add r1, r5, #0x0
-	bl FUN_0200A9C4
+	bl ReadMsgData_ExpandPlaceholders
 	add r4, r0, #0x0
 	add r0, r5, #0x0
 	bl DestroyMsgData
@@ -191,7 +191,7 @@ FUN_02013840: ; 0x02013840
 	ldr r1, _02013858 ; =UNK_020ED54C
 	ldrh r1, [r1, r2]
 	ldrh r2, [r4, #0x2]
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	pop {r4, pc}
 	.balign 4
 _02013858: .word UNK_020ED54C
@@ -259,9 +259,9 @@ _020138BC:
 	mov r0, #0x1a
 	add r2, r4, #0x0
 	mov r3, #0x0
-	bl FUN_0200A738
+	bl ReadMsgData_NewNarc_NewString
 	str r0, [sp, #0x0]
-	bl FUN_02021F2C
+	bl String_c_str
 	add r4, r0, #0x0
 	ldrh r1, [r4, #0x0]
 	ldr r0, _02013914 ; =0x0000FFFF
@@ -291,7 +291,7 @@ _020138FE:
 	bne _020138E2
 _02013904:
 	ldr r0, [sp, #0x0]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r5, #0x0
 	pop {r3-r7, pc}
 	nop

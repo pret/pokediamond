@@ -1877,13 +1877,13 @@ _0203A7E0:
 	ldr r0, [r5, #0x78]
 	ldr r1, [sp, #0xc]
 	ldr r2, [r2, #0x0]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r0, [sp, #0x14]
 	ldr r2, [sp, #0x18]
 	ldr r0, [r0, #0x0]
 	ldr r1, [r7, #0x0]
 	ldr r2, [r2, #0x0]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0x60]
 	bl MOD05_021E8140
 	mov r3, #0x0
@@ -2006,12 +2006,12 @@ FUN_0203A8B8: ; 0x0203A8B8
 	ldr r0, [r5, #0x78]
 	ldr r1, [sp, #0x0]
 	ldr r2, [r6, #0x0]
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	ldr r0, [sp, #0x8]
 	ldr r1, [r7, #0x0]
 	ldr r0, [r0, #0x0]
 	ldr r2, [r6, #0x0]
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, [r4, #0x60]
 	bl MOD05_021E8140
 	add r4, r0, #0x0
@@ -8823,7 +8823,7 @@ FUN_0203DFA8: ; 0x0203DFA8
 	ldr r0, [r5, #0x0]
 	bl FUN_020394F0
 	add r5, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r1, r5, #0x0
 	bl _s32_div_f
 	strh r1, [r4, #0x0]
@@ -8848,7 +8848,7 @@ FUN_0203DFE0: ; 0x0203DFE0
 	ldr r0, [r5, #0x0]
 	bl FUN_020394F0
 	add r5, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r1, r5, #0x0
 	bl _s32_div_f
 	strh r1, [r4, #0x0]
@@ -9776,7 +9776,7 @@ FUN_0203E774: ; 0x0203E774
 	add r0, r7, #0x0
 	bl FUN_020244A4
 	add r4, r0, #0x0
-	bl rand_LC
+	bl LCRandom
 	add r1, r4, #0x0
 	bl _s32_div_f
 	lsl r0, r1, #0x10
@@ -11070,7 +11070,7 @@ _0203F1E0:
 	mov r0, #0x0
 	pop {r4-r7, pc}
 _0203F1F8:
-	bl rand_LC
+	bl LCRandom
 	add r1, r6, #0x0
 	bl _s32_div_f
 	mov r4, #0x0
@@ -11496,7 +11496,7 @@ _0203F54C:
 	lsl r7, r7, #0x2
 	b _0203F582
 _0203F556:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x64
 	bl _s32_div_f
 	cmp r1, #0x19
@@ -11504,7 +11504,7 @@ _0203F556:
 	ldr r7, _0203F5CC ; =0x0000010D
 	b _0203F582
 _0203F568:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x6
 	bl _s32_div_f
 	lsl r0, r1, #0x10
@@ -11911,7 +11911,7 @@ FUN_0203F880: ; 0x0203F880
 	bls _0203F8A2
 	mov r4, #0x64
 _0203F8A2:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x65
 	bl _s32_div_f
 	lsl r0, r1, #0x10
@@ -12201,11 +12201,11 @@ FUN_0203FA58: ; 0x0203FA58
 	add r1, r5, #0x0
 	mov r2, #0x1
 	mov r3, #0x20
-	bl FUN_0200A9C4
+	bl ReadMsgData_ExpandPlaceholders
 	add r7, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r7, #0x0
@@ -12219,9 +12219,9 @@ _0203FB24:
 _0203FB26:
 	strh r0, [r6, #0x0]
 	add r0, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x0]
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r5, #0x0
 	bl DestroyMsgData
 	add r0, r4, #0x0

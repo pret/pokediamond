@@ -2442,7 +2442,7 @@ FUN_02012880: ; 0x02012880
 	beq _0201289E
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r4, #0x0]
 	str r5, [r4, #0x4]
 _0201289E:
@@ -2460,7 +2460,7 @@ FUN_020128A0: ; 0x020128A0
 	beq _020128BE
 	ldr r1, [sp, #0x0]
 	add r0, r6, #0x0
-	bl FUN_02021ACC
+	bl StringDup
 	str r0, [r4, #0x0]
 	str r5, [r4, #0x4]
 _020128BE:
@@ -2537,7 +2537,7 @@ _0201292E:
 	ldr r0, [r5, #0x0]
 	cmp r0, #0x0
 	beq _02012942
-	bl FUN_02021A20
+	bl String_dtor
 	str r4, [r5, #0x0]
 	add r5, #0x8
 	ldr r0, [r5, #0x0]

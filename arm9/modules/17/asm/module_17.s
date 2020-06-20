@@ -4260,7 +4260,7 @@ MOD17_021D95AC: ; 0x021D95AC
 	add r1, r5, #0
 	bl FUN_020274F0
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 _021D95EC:
 	ldr r0, [sp]
 	mov r5, #0
@@ -4347,7 +4347,7 @@ MOD17_021D964C: ; 0x021D964C
 	add r1, r5, #0
 	bl FUN_02027A58
 	add r0, r5, #0
-	bl FUN_02021A20
+	bl String_dtor
 _021D969A:
 	ldr r1, [sp]
 	add r0, r6, #0
@@ -4715,7 +4715,7 @@ MOD17_021D9918: ; 0x021D9918
 	bl NewMsgDataFromNarc
 	ldr r1, [sp, #0x14]
 	add r6, r0, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	mov r3, #0
 	str r3, [sp]
@@ -4729,7 +4729,7 @@ MOD17_021D9918: ; 0x021D9918
 	add r2, r4, #0
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r6, #0
 	bl DestroyMsgData
 	ldr r0, _021D99D4 ; =0x000006A8
@@ -4761,18 +4761,18 @@ MOD17_021D99E0: ; 0x021D99E0
 	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r7, r0, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0xd
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0
 	ldr r0, _021D9A60 ; =0x000006D4
 	add r1, r4, #0
 	ldr r0, [r5, r0]
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r3, #0
 	str r3, [sp]
 	ldr r0, _021D9A64 ; =0x0001020F
@@ -4785,9 +4785,9 @@ MOD17_021D99E0: ; 0x021D99E0
 	add r2, r4, #0
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, _021D9A58 ; =0x000006A8
@@ -4826,12 +4826,12 @@ _021D9A7E:
 	bl NewMsgDataFromNarc
 	add r1, r4, #0
 	add r7, r0, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	mov r0, #1
 	lsl r0, r0, #8
 	mov r1, #0xd
-	bl FUN_020219F4
+	bl String_ctor
 	mov r1, #0x6d
 	lsl r1, r1, #4
 	str r0, [r5, r1]
@@ -4839,7 +4839,7 @@ _021D9A7E:
 	ldr r0, [r5, r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	ldr r0, _021D9B10 ; =0x000006C4
 	ldr r1, [r5, r0]
 	ldrb r1, [r1, #0x16]
@@ -4866,7 +4866,7 @@ _021D9AD0:
 	bl FUN_0201BDE0
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r7, #0
 	bl DestroyMsgData
 	ldr r0, _021D9B08 ; =0x000006A8
@@ -4889,7 +4889,7 @@ MOD17_021D9B18: ; 0x021D9B18
 	mov r0, #0x6d
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x6d
 	mov r1, #0
 	lsl r0, r0, #4
@@ -6601,7 +6601,7 @@ _021DA6B8:
 	str r0, [r5]
 	mov r0, #0x12
 	str r0, [r4]
-	bl rand_MT
+	bl MTRandom
 	ldr r2, [sp, #0x10]
 	mov r1, #0x6c
 	sub r1, r1, r2
@@ -6609,7 +6609,7 @@ _021DA6B8:
 	ldr r0, [r5]
 	add r0, r0, r1
 	str r0, [r5]
-	bl rand_MT
+	bl MTRandom
 	ldr r2, [sp, #0x14]
 	mov r1, #0x7d
 	sub r1, r1, r2
@@ -8316,14 +8316,14 @@ _021DB2C2:
 	add r1, sp, #0x14
 	add r2, sp, #0x10
 	bl MOD17_021DBC08
-	bl rand_MT
+	bl MTRandom
 	ldr r2, [sp, #0x14]
 	mov r1, #0x6c
 	sub r1, r1, r2
 	bl _u32_div_f
 	add r1, #0xa
 	str r1, [sp, #0xc]
-	bl rand_MT
+	bl MTRandom
 	ldr r2, [sp, #0x10]
 	mov r1, #0x7d
 	sub r1, r1, r2
@@ -11261,7 +11261,7 @@ MOD17_021DC880: ; 0x021DC880
 _021DC898:
 	add r0, r6, #0
 	add r1, r4, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	mov r0, #0xe
 	mov r1, #1
@@ -11292,7 +11292,7 @@ _021DC898:
 	str r3, [sp, #0xc]
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r6, #0
 	bl DestroyMsgData
 	add r0, r4, #0
@@ -11681,7 +11681,7 @@ MOD17_021DCBC0: ; 0x021DCBC0
 	mov r0, #0x51
 	lsl r0, r0, #2
 	ldr r0, [r4, r0]
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0x51
 	mov r1, #0
 	lsl r0, r0, #2
@@ -11940,7 +11940,7 @@ MOD17_021DCD80: ; 0x021DCD80
 _021DCD98:
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r4, r0, #0
 	ldr r0, [sp, #0x24]
 	ldr r3, [sp, #0x20]
@@ -11957,7 +11957,7 @@ _021DCD98:
 	bl FUN_0201BDE0
 	add r6, r0, #0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r5, #0
 	bl DestroyMsgData
 	add r0, r6, #0
@@ -11991,7 +11991,7 @@ _021DCDEC:
 _021DCE00:
 	ldr r1, [sp, #0x10]
 	add r0, r5, #0
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	str r0, [r4]
 	ldr r0, [sp, #0x2c]
 	ldr r3, [sp, #0x28]
@@ -14369,7 +14369,7 @@ _021DDFF8:
 	bl FUN_02020044
 	mov r0, #0xc
 	mov r1, #0xd
-	bl FUN_020219F4
+	bl String_ctor
 	add r7, r0, #0
 	ldr r0, [r5]
 	add r1, r7, #0
@@ -14397,7 +14397,7 @@ _021DDFF8:
 	sub r3, r3, r4
 	bl FUN_0201BDE0
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [r5]
 	bl FUN_0202769C
 	add r2, r0, #0
@@ -14406,16 +14406,16 @@ _021DDFF8:
 	bl FUN_0200B518
 	mov r0, #0xc8
 	mov r1, #0xd
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0
 	ldr r0, [sp, #0x10]
 	mov r1, #0x2d
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r7, r0, #0
 	add r0, r6, #0
 	add r1, r4, #0
 	add r2, r7, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -14439,9 +14439,9 @@ _021DDFF8:
 	sub r3, r3, r5
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	add r0, r7, #0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r6, #0
@@ -14471,7 +14471,7 @@ MOD17_021DE0F4: ; 0x021DE0F4
 	add r7, r0, #0
 	mov r0, #0xc8
 	mov r1, #0xd
-	bl FUN_020219F4
+	bl String_ctor
 	add r4, r0, #0
 	ldr r0, [r5, #8]
 	bl FUN_02083298
@@ -14526,14 +14526,14 @@ MOD17_021DE0F4: ; 0x021DE0F4
 _021DE1A0:
 	ldr r0, [sp, #0x10]
 	mov r1, #0x2b
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	add r0, r7, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -14558,14 +14558,14 @@ _021DE1A0:
 	bl FUN_0201BDE0
 	ldr r0, [sp, #0x10]
 	mov r1, #0x2c
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r6, r0, #0
 	add r0, r7, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r6, #0
-	bl FUN_02021A20
+	bl String_dtor
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -14589,7 +14589,7 @@ _021DE1A0:
 	sub r3, r3, r5
 	bl FUN_0201BDE0
 	add r0, r4, #0
-	bl FUN_02021A20
+	bl String_dtor
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r7, #0

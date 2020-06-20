@@ -61,7 +61,7 @@ FUN_02023AF4: ; 0x02023AF4
 	push {r3-r5, lr}
 	add r5, r0, #0x0
 	mov r0, #0x18
-	bl FUN_020219F4
+	bl String_ctor
 	add r1, r5, #0x0
 	add r4, r0, #0x0
 	bl FUN_02021E28
@@ -232,7 +232,7 @@ FUN_02023C04: ; 0x02023C04
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	add r2, r4, #0x0
-	bl FUN_0200A8E0
+	bl ReadMsgDataIntoString
 	add r0, r6, #0x0
 	bl DestroyMsgData
 	pop {r4-r6, pc}

@@ -7,115 +7,115 @@
 	; Secure area
 	.space 0x800
 
-	non_word_aligned_thumb_func_start SVC_SoftReset
+	.global SVC_SoftReset
+	.thumb
 SVC_SoftReset:
 	swi 0
 	bx lr
-	thumb_func_end SVC_SoftReset
 
-	non_word_aligned_thumb_func_start SVC_WaitByLoop
+	.global SVC_WaitByLoop
+	.thumb
 SVC_WaitByLoop:
 	swi 3
 	bx lr
-	thumb_func_end SVC_WaitByLoop
 
-	non_word_aligned_thumb_func_start SVC_WaitIntr
+	.global SVC_WaitIntr
+	.thumb
 SVC_WaitIntr:
 	mov r2, #0
 	swi 4
 	bx lr
-	thumb_func_end SVC_WaitIntr
 
-	non_word_aligned_thumb_func_start SVC_WaitVBlankIntr
+	.global SVC_WaitVBlankIntr
+	.thumb
 SVC_WaitVBlankIntr:
 	mov r2, #0
 	swi 5
 	bx lr
-	thumb_func_end SVC_WaitVBlankIntr
 
-	non_word_aligned_thumb_func_start SVC_Halt
+	.global SVC_Halt
+	.thumb
 SVC_Halt:
 	swi 6
 	bx lr
-	thumb_func_end SVC_Halt
 
-	non_word_aligned_thumb_func_start SVC_Div
+	.global SVC_Div
+	.thumb
 SVC_Div:
 	swi 9
 	bx lr
-	thumb_func_end SVC_Div
 
-	non_word_aligned_thumb_func_start SVC_DimRem
+	.global SVC_DivRem
+	.thumb
 SVC_DivRem:
 	swi 9
 	add r0, r1, #0
 	bx lr
-	thumb_func_end SVC_DivRem
 
-	non_word_aligned_thumb_func_start SVC_CpuSet
+	.global SVC_CpuSet
+	.thumb
 SVC_CpuSet:
 	swi 11
 	bx lr
-	thumb_func_end SVC_CpuSet
 
-	non_word_aligned_thumb_func_start SVC_CpuFastSet
-SVC_CpuFastSet:
+	.global SVC_CpuSetFast
+	.thumb
+SVC_CpuSetFast:
 	swi 12
 	bx lr
-	thumb_func_end SVC_CpuFastSet
 
-	non_word_aligned_thumb_func_start SVC_Sqrt
+	.global SVC_Sqrt
+	.thumb
 SVC_Sqrt:
 	swi 13
 	bx lr
-	thumb_func_end SVC_Sqrt
 
-	non_word_aligned_thumb_func_start SVC_GetCRC16
+	.global SVC_GetCRC16
+	.thumb
 SVC_GetCRC16:
 	swi 14
 	bx lr
-	thumb_func_end SVC_GetCRC16
 
-	non_word_aligned_thumb_func_start IsMemExpanded
-IsMemExpanded:
+	.global IsMmemExpanded
+	.thumb
+IsMmemExpanded:
 	swi 15
 	bx lr
-	thumb_func_end IsMemExpanded
 
-	non_word_aligned_thumb_func_start SVC_UnpackBits
+	.global SVC_UnpackBits
+	.thumb
 SVC_UnpackBits:
 	swi 16
 	bx lr
-	thumb_func_end SVC_UnpackBits
 
-	non_word_aligned_thumb_func_start SVC_UncompressLZ8
+	.global SVC_UncompressLZ8
+	.thumb
 SVC_UncompressLZ8:
 	swi 17
 	bx lr
-	thumb_func_end SVC_UncompressLZ8
 
-	non_word_aligned_thumb_func_start SVC_UncompressLZ16FromDevice
+	.global SVC_UncompressLZ16FromDevice
+	.thumb
 SVC_UncompressLZ16FromDevice:
 	swi 18
 	bx lr
-	thumb_func_end SVC_UncompressLZ16FromDevice
 
-	non_word_aligned_thumb_func_start SVC_UncompressHuffmanFromDevice
+	.global SVC_UncompressHuffmanFromDevice
+	.thumb
 SVC_UncompressHuffmanFromDevice:
 	swi 19
 	bx lr
-	thumb_func_end SVC_UncompressHuffmanFromDevice
 
-	non_word_aligned_thumb_func_start SVC_UncompressRL8
+	.global SVC_UncompressRL8
+	.thumb
 SVC_UncompressRL8:
 	swi 20
 	bx lr
-	thumb_func_end SVC_UncompressRL8
 
-	non_word_aligned_thumb_func_start SVC_UncompressRL16FromDevice
+	.global SVC_UncompressRL16FromDevice
+	.thumb
 SVC_UncompressRL16FromDevice:
 	swi 21
 	bx lr
-	thumb_func_end SVC_UncompressRL16FromDevice
 
 	.balign 4, 0 ; Don't pad with nop

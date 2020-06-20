@@ -20939,7 +20939,7 @@ _0221BD76:
 	str r0, [r5, #0x2c]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0201B970
+	bl Sin_Wrap
 	mov r1, #0xaa
 	ldrsh r2, [r5, r1]
 	mov r1, #0xac
@@ -22324,7 +22324,7 @@ _0221C8F4:
 	ldr r1, _0221CAF4 ; =0x0000A0C0
 	add r0, #0x44
 	strh r1, [r0]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #5
 	bl _s32_div_f
 	add r1, #0x23
@@ -22364,7 +22364,7 @@ _0221C94E:
 	ldr r1, _0221CAF8 ; =0x000056C0
 	add r0, #0x44
 	strh r1, [r0]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #5
 	bl _s32_div_f
 	add r1, #0x23
@@ -22372,7 +22372,7 @@ _0221C94E:
 	str r1, [r4, #0x3c]
 	pop {r3, r4, r5, r6, pc}
 _0221C9A0:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1f
 	sub r1, r1, r2
@@ -22407,7 +22407,7 @@ _0221C9D2:
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 _0221C9E4:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1f
 	sub r1, r1, r2
@@ -22439,7 +22439,7 @@ _0221CA0E:
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 _0221CA26:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1f
 	sub r1, r1, r2
@@ -22471,7 +22471,7 @@ _0221CA50:
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
 _0221CA68:
-	bl rand_LC
+	bl LCRandom
 	lsr r2, r0, #0x1f
 	lsl r1, r0, #0x1f
 	sub r1, r1, r2
@@ -29035,7 +29035,7 @@ _02220010:
 	strb r0, [r4, #0xc]
 	b _02220092
 _02220020:
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	add r5, r1, #0
@@ -29290,7 +29290,7 @@ _022201FE:
 	add r1, r5, #0
 	add r1, #0x21
 	strb r0, [r1]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0xa
 	bl _s32_div_f
 	ldr r0, [sp, #0x14]
@@ -29299,7 +29299,7 @@ _022201FE:
 	add r0, r5, #0
 	add r0, #0x22
 	strb r1, [r0]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #6
 	bl _s32_div_f
 	add r0, r5, #0
@@ -29321,7 +29321,7 @@ _022201FE:
 	lsl r0, r0, #3
 	str r0, [sp, #0x18]
 	add r7, r1, r0
-	bl rand_LC
+	bl LCRandom
 	mov r1, #6
 	ldrsh r1, [r7, r1]
 	bl _s32_div_f
@@ -29331,7 +29331,7 @@ _022201FE:
 	lsl r0, r0, #0x10
 	asr r0, r0, #0x10
 	str r0, [sp, #0x10]
-	bl rand_LC
+	bl LCRandom
 	mov r1, #4
 	ldrsh r1, [r7, r1]
 	bl _s32_div_f
@@ -30100,7 +30100,7 @@ MOD08_022208A0: ; 0x022208A0
 	add r6, r4, #2
 	add r5, r4, #4
 _022208D4:
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r2, r0, #0x1e
 	sub r2, r2, r1
@@ -47110,7 +47110,7 @@ _02229136:
 	bl MOD08_022280C4
 	cmp r0, #1
 	bne _0222928C
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x14
 	bl _s32_div_f
 	add r1, #0xa
@@ -47458,7 +47458,7 @@ _022293F6:
 	bl MOD08_022280C4
 	cmp r0, #1
 	bne _0222954C
-	bl rand_LC
+	bl LCRandom
 	mov r1, #0x14
 	bl _s32_div_f
 	add r1, #0xa
@@ -48137,7 +48137,7 @@ _0222993C:
 	add r0, #0x21
 	strb r2, [r0]
 	bl MOD08_0221268C
-	bl rand_LC
+	bl LCRandom
 	lsr r1, r0, #0x1f
 	lsl r0, r0, #0x1f
 	sub r0, r0, r1

@@ -117,7 +117,7 @@ FUN_02027ED0: ; 0x02027ED0
 	mov r6, #0x2
 	mov r7, #0x5
 _02027EDC:
-	bl rand_LC
+	bl LCRandom
 	add r1, r7, #0x0
 	bl _s32_div_f
 	lsl r0, r1, #0x18

@@ -182,7 +182,7 @@ FUN_0206C700: ; 0x0206C700
 	mov r0, #0x5
 	lsl r0, r0, #0x6
 	add r1, r5, #0x0
-	bl FUN_020219F4
+	bl String_ctor
 	str r0, [r4, #0x10]
 	add r0, r5, #0x0
 	mov r1, #0x30
@@ -2663,12 +2663,12 @@ FUN_0206DD6C: ; 0x0206DD6C
 	sub sp, #0xc
 	add r4, r0, #0x0
 	ldr r0, [r4, #0x8]
-	bl FUN_0200A914
+	bl NewString_ReadMsgData
 	add r5, r0, #0x0
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x10]
 	add r2, r5, #0x0
-	bl FUN_0200B7B8
+	bl StringExpandPlaceholders
 	add r0, r5, #0x0
 	bl FreeToHeap
 	ldr r0, [r4, #0x4]

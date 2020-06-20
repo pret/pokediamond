@@ -362,7 +362,7 @@ FUN_02042F6C: ; 0x02042F6C
 	bl GetMonData
 	add r6, r0, #0x0
 	bl OS_GetTick
-	bl rand_ALT
+	bl PRandom
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x14]
 	str r1, [sp, #0x34]
@@ -376,7 +376,7 @@ FUN_02042F6C: ; 0x02042F6C
 	beq _02042FE8
 _02042FD0:
 	ldr r0, [sp, #0x34]
-	bl rand_ALT
+	bl PRandom
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	str r1, [sp, #0x34]
@@ -437,7 +437,7 @@ _02042FE8:
 	add r0, r0, r1
 	str r0, [sp, #0x30]
 	bne _020430DA
-	bl rand_LC
+	bl LCRandom
 	add r6, r0, #0x0
 	mov r0, #0x1f
 	and r0, r6
@@ -464,7 +464,7 @@ _02042FE8:
 	mov r1, #0x48
 	add r2, sp, #0x34
 	bl SetMonData
-	bl rand_LC
+	bl LCRandom
 	add r6, r0, #0x0
 	mov r0, #0x1f
 	and r0, r6
@@ -640,7 +640,7 @@ _020431D4:
 	bl SetMonData
 	add r0, r5, #0x0
 	add r4, r7, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 _0204322C:
 	ldr r1, [sp, #0x8]
 	mov r0, #0x2
@@ -894,7 +894,7 @@ FUN_020433DC: ; 0x020433DC
 	mov r3, #0x0
 	bl FUN_0200ABB4
 	add r0, r4, #0x0
-	bl FUN_02021A20
+	bl String_dtor
 	add sp, #0x8
 	pop {r3-r7, pc}
 
