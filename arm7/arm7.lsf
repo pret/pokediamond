@@ -22,7 +22,6 @@ Autoload WRAM
 	Object OS_thread.o
 	Object OS_context.o
 	Object OS_message.o
-	Object OS_mutex_s.o
 	Object OS_mutex.o
 	Object OS_init.o
 	Object OS_arena.o
