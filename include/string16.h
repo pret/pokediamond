@@ -3,11 +3,11 @@
 
 struct String
 {
-    u16 len;
-    u16 pos;
+    u16 maxsize;
+    u16 size;
     u32 magic;
-    u16 unk8;
     u16 data[1];
+    u8 padding[2];
 };
 
 struct String * String_ctor(u32 count, u32 heap_id);
