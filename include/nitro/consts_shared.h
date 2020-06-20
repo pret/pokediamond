@@ -30,6 +30,14 @@
 #define OSi_InRange(targ, a, b)    ((u32)(a) <= (u32)(targ) && (u32)(targ) < (u32)(b))
 #define OSi_OFFSET(n, a)           (((u32) (n)) & ((a) - 1))
 
+#define OS_THREAD_SPECIFIC_MAX     0x03
+
+#define OS_THREAD_LAUNCHER_PRIORITY 0x10
+#define OS_THREAD_PRIORITY_MIN     0x00
+#define OS_THREAD_PRIORITY_MAX     0x1F
+
+#define HW_SYSTEM_CLOCK            33514000
+
 #define OSi_GetArenaInfo()         (*(OSArenaInfo*)HW_ARENA_INFO_BUF)
 
 #endif //POKEDIAMOND_CONSTS_SHARED_H
