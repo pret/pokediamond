@@ -14160,7 +14160,7 @@ _021DE1B8: .word 0x00000F66
 MOD05_021DE1BC: ; 0x021DE1BC
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x58
-	ldr r3, _021DE2D4 ; =0x021F67D8
+	ldr r3, _021DE2D4 ; =UNK05_021F67D8
 	add r2, sp, #0x48
 	str r0, [sp]
 	str r1, [sp, #4]
@@ -14292,7 +14292,7 @@ _021DE2D0:
 	add sp, #0x58
 	pop {r3, r4, r5, r6, r7, pc}
 	.balign 4, 0
-_021DE2D4: .word 0x021F67D8
+_021DE2D4: .word UNK05_021F67D8
 _021DE2D8: .word UNK05_021F67C8
 _021DE2DC: .word 0x00000F58
 
@@ -15605,13 +15605,13 @@ _021DECE4:
 	ldr r1, [r1, r6]
 	mul r1, r0
 	str r1, [r5, #8]
-	ldr r1, _021DEDA8 ; =0x021F683C
+	ldr r1, _021DEDA8 ; =UNK05_021F683C
 	ldr r1, [r1, r6]
 	mul r1, r0
 	str r1, [r5, #0x10]
 	mov r0, #0
 	str r0, [r5, #0xc]
-	ldr r0, _021DEDA8 ; =0x021F683C
+	ldr r0, _021DEDA8 ; =UNK05_021F683C
 	ldr r0, [r0, r6]
 	str r0, [r5, #0x14]
 	bl MTRandom
@@ -15666,7 +15666,7 @@ _021DED9A:
 	nop
 _021DEDA0: .word 0x00000F58
 _021DEDA4: .word 0x021F687C
-_021DEDA8: .word 0x021F683C
+_021DEDA8: .word UNK05_021F683C
 _021DEDAC: .word 0x00000309
 _021DEDB0: .word 0x00000106
 
@@ -15921,7 +15921,7 @@ _021DEF8A:
 	mov r1, #0x28
 	bl _s32_div_f
 	lsl r1, r0, #2
-	ldr r0, _021DF10C ; =0x021F681C
+	ldr r0, _021DF10C ; =UNK05_021F681C
 	ldr r1, [r0, r1]
 	add r0, r4, #0
 	add r0, #0xc0
@@ -16094,7 +16094,7 @@ _021DF0FC: .word 0x0000169A
 _021DF100: .word 0x00000F64
 _021DF104: .word 0x00000F62
 _021DF108: .word MOD05_021DEDB4
-_021DF10C: .word 0x021F681C
+_021DF10C: .word UNK05_021F681C
 _021DF110: .word 0x00000F66
 _021DF114: .word 0x000001FF
 _021DF118: .word 0x04000018
@@ -16285,7 +16285,7 @@ _021DF270:
 	add r0, r2, r0
 	asr r0, r0, #9
 	lsl r2, r0, #2
-	ldr r0, _021DF3D8 ; =0x021F67F8
+	ldr r0, _021DF3D8 ; =UNK05_021F67F8
 	ldr r0, [r0, r2]
 	cmp r0, r1
 	bgt _021DF2A4
@@ -16445,7 +16445,7 @@ _021DF3C8: .word 0x00006318
 _021DF3CC: .word 0x00000F64
 _021DF3D0: .word 0x00000F62
 _021DF3D4: .word MOD05_021DF500
-_021DF3D8: .word 0x021F67F8
+_021DF3D8: .word UNK05_021F67F8
 _021DF3DC: .word 0x00000F66
 _021DF3E0: .word 0x000001FF
 _021DF3E4: .word 0x04000018
@@ -16511,12 +16511,12 @@ _021DF430:
 	ldr r0, [r6, #4]
 	lsr r1, r1, #0x10
 	bl FUN_02020208
-	ldr r1, _021DF4F8 ; =0x021F67F8
+	ldr r1, _021DF4F8 ; =UNK05_021F67F8
 	add r0, r7, #1
 	ldr r1, [r1, r4]
 	mul r1, r0
 	str r1, [r5, #0x10]
-	ldr r1, _021DF4FC ; =0x021F67E8
+	ldr r1, _021DF4FC ; =UNK05_021F67E8
 	ldr r1, [r1, r4]
 	mul r1, r0
 	mov r0, #0
@@ -16524,18 +16524,18 @@ _021DF430:
 	str r0, [r5, #0xc]
 	cmp r7, #3
 	bne _021DF492
-	ldr r0, _021DF4F8 ; =0x021F67F8
+	ldr r0, _021DF4F8 ; =UNK05_021F67F8
 	ldr r1, [r5, #0x10]
 	ldr r0, [r0, r4]
 	add r0, r1, r0
 	str r0, [r5, #0x10]
-	ldr r0, _021DF4FC ; =0x021F67E8
+	ldr r0, _021DF4FC ; =UNK05_021F67E8
 	ldr r1, [r5, #8]
 	ldr r0, [r0, r4]
 	add r0, r1, r0
 	str r0, [r5, #8]
 _021DF492:
-	ldr r0, _021DF4F8 ; =0x021F67F8
+	ldr r0, _021DF4F8 ; =UNK05_021F67F8
 	add r1, r6, #0
 	ldr r0, [r0, r4]
 	str r0, [r5, #0x14]
@@ -16580,8 +16580,8 @@ _021DF4EE:
 	pop {r4, r5, r6, r7, pc}
 	nop
 _021DF4F4: .word 0x00000F58
-_021DF4F8: .word 0x021F67F8
-_021DF4FC: .word 0x021F67E8
+_021DF4F8: .word UNK05_021F67F8
+_021DF4FC: .word UNK05_021F67E8
 
 	thumb_func_start MOD05_021DF500
 MOD05_021DF500: ; 0x021DF500
@@ -17862,7 +17862,7 @@ _021DFEF6:
 	mov r1, #0x3c
 	bl _s32_div_f
 	lsl r2, r0, #2
-	ldr r0, _021DFFF8 ; =0x021F6808
+	ldr r0, _021DFFF8 ; =UNK05_021F6808
 	ldr r1, [r5, #0x10]
 	ldr r0, [r0, r2]
 	mul r0, r1
@@ -17873,7 +17873,7 @@ _021DFEF6:
 	mov r1, #0x3c
 	bl _s32_div_f
 	lsl r2, r0, #2
-	ldr r0, _021DFFF8 ; =0x021F6808
+	ldr r0, _021DFFF8 ; =UNK05_021F6808
 	ldr r1, [r5, #8]
 	ldr r0, [r0, r2]
 	mul r0, r1
@@ -17901,7 +17901,7 @@ _021DFEF6:
 	bl _s32_div_f
 	add r1, r0, #0
 	lsl r2, r1, #2
-	ldr r1, _021DFFF8 ; =0x021F6808
+	ldr r1, _021DFFF8 ; =UNK05_021F6808
 	ldr r0, [r5, #4]
 	ldr r1, [r1, r2]
 	bl _s32_div_f
@@ -17945,7 +17945,7 @@ _021DFFEE:
 	pop {r4, r5, r6, r7, pc}
 	nop
 _021DFFF4: .word 0x00000F58
-_021DFFF8: .word 0x021F6808
+_021DFFF8: .word UNK05_021F6808
 _021DFFFC: .word 0x000001FF
 
 	thumb_func_start MOD05_021E0000
@@ -64075,14 +64075,32 @@ UNK05_021F6794: ; 0x021F6794
 
 	.global UNK05_021F67C8
 UNK05_021F67C8: ; 0x021F67C8
-	.byte 0x02, 0x00, 0x00, 0x00
-	.byte 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00
-	.byte 0x20, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
-	.byte 0x04, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0xFC, 0xFF, 0xFF, 0xFF
-	.byte 0xFA, 0xFF, 0xFF, 0xFF, 0xF8, 0xFF, 0xFF, 0xFF, 0xF6, 0xFF, 0xFF, 0xFF, 0x64, 0x00, 0x00, 0x00
-	.byte 0x64, 0x00, 0x00, 0x00, 0xC8, 0x00, 0x00, 0x00, 0x64, 0x00, 0x00, 0x00, 0x2C, 0x01, 0x00, 0x00
-	.byte 0xFD, 0xFF, 0xFF, 0xFF, 0xFB, 0xFF, 0xFF, 0xFF, 0xFB, 0xFF, 0xFF, 0xFF, 0xFD, 0xFF, 0xFF, 0xFF
-	.byte 0xFB, 0xFF, 0xFF, 0xFF, 0xFA, 0xFF, 0xFF, 0xFF, 0xF6, 0xFF, 0xFF, 0xFF, 0xFA, 0xFF, 0xFF, 0xFF
+	.word 0x00000002, 0x00000002, 0x00000002, 0x00000002
+
+	.global UNK05_021F67D8
+UNK05_021F67D8: ; 0x021F67D8
+	.word 0x00000010, 0x00000020, 0x00000010, 0x0000000A
+
+	.global UNK05_021F67E8
+UNK05_021F67E8: ; 0x021F67E8
+	.word 0x00000002, 0x00000004, 0x00000002, 0x00000004
+
+	.global UNK05_021F67F8
+UNK05_021F67F8: ; 0x021F67F8
+	.word -4, -6, -8, -10
+
+	.global UNK05_021F6808
+UNK05_021F6808: ; 0x021F6808
+	.word 0x00000064, 0x00000064, 0x000000C8, 0x00000064
+	.word 0x0000012C
+
+	.global UNK05_021F681C
+UNK05_021F681C: ; 0x021F681C
+	.word -3, -5, -5, -3
+	.word -5, -6, -10, -6
+
+	.global UNK05_021F683C
+UNK05_021F683C: ; 0x021F683C
 	.byte 0xFD, 0xFF, 0xFF, 0xFF, 0xFB, 0xFF, 0xFF, 0xFF, 0xFB, 0xFF, 0xFF, 0xFF, 0xFC, 0xFF, 0xFF, 0xFF
 	.byte 0xFB, 0xFF, 0xFF, 0xFF, 0xFA, 0xFF, 0xFF, 0xFF, 0xF6, 0xFF, 0xFF, 0xFF, 0xFA, 0xFF, 0xFF, 0xFF
 	.byte 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
