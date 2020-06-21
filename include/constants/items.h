@@ -35,10 +35,12 @@
 #define ITEM_SODA_POP             31
 #define ITEM_LEMONADE             32
 #define ITEM_MOOMOO_MILK          33
+
 #define ITEM_ENERGYPOWDER         34
 #define ITEM_ENERGY_ROOT          35
 #define ITEM_HEAL_POWDER          36
 #define ITEM_REVIVAL_HERB         37
+
 #define ITEM_ETHER                38
 #define ITEM_MAX_ETHER            39
 #define ITEM_ELIXIR               40
@@ -130,7 +132,6 @@
 #define ITEM_BRICK_MAIL          148
 
 #define ITEM_CHERI_BERRY         149
-#define FIRST_BERRY_IDX ITEM_CHERI_BERRY
 #define ITEM_CHESTO_BERRY        150
 #define ITEM_PECHA_BERRY         151
 #define ITEM_RAWST_BERRY         152
@@ -194,6 +195,11 @@
 #define ITEM_CUSTAP_BERRY        210
 #define ITEM_JABOCA_BERRY        211
 #define ITEM_ROWAP_BERRY         212
+
+#define FIRST_BERRY_IDX ITEM_CHERI_BERRY
+#define LAST_BERRY_IDX ITEM_ROWAP_BERRY
+#define NUM_BERRIES (LAST_BERRY_IDX - FIRST_BERRY_IDX + 1)
+
 #define ITEM_BRIGHTPOWDER        213
 #define ITEM_WHITE_HERB          214
 #define ITEM_MACHO_BRACE         215
@@ -468,7 +474,7 @@
 #define TM_GIGA_DRAIN   ITEM_TM19
 #define TM_SAFEGUARD    ITEM_TM20
 #define TM_FRUSTRATION  ITEM_TM21
-#define TM_SOLARBEAM    ITEM_TM22
+#define TM_SOLAR_BEAM   ITEM_TM22
 #define TM_IRON_TAIL    ITEM_TM23
 #define TM_THUNDERBOLT  ITEM_TM24
 #define TM_THUNDER      ITEM_TM25
@@ -544,7 +550,6 @@
 #define HM_SURF         ITEM_HM03
 #define HM_STRENGTH     ITEM_HM04
 #define HM_DEFOG        ITEM_HM05
-#define HM_WHIRLPOOL    ITEM_HM05
 #define HM_ROCK_SMASH   ITEM_HM06
 #define HM_WATERFALL    ITEM_HM07
 #define HM_ROCK_CLIMB   ITEM_HM08
