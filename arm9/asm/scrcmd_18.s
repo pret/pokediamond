@@ -761,7 +761,7 @@ FUN_020448D4: ; 0x020448D4
 	lsr r0, r0, #0x10
 	mov r1, #0x1
 	mov r2, #0xb
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0x34
 	bne _0204495A
 	mov r0, #0x96

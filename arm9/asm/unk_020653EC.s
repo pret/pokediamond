@@ -1665,7 +1665,7 @@ _020660AE:
 	bl FUN_020257CC
 	strb r0, [r5, #0x5]
 	ldrb r0, [r5, #0x5]
-	bl FUN_0206EAD8
+	bl MailToItemId
 	strh r0, [r5, #0x6]
 	add r0, r7, #0x0
 	bl FUN_020257C4

@@ -4905,7 +4905,7 @@ MOD80_0222FBC0: ; 0x0222FBC0
 	ldr r0, [sp, #0x18]
 	lsr r1, r1, #0x10
 	mov r2, #0x3e
-	bl FUN_0206E768
+	bl GetItemNameIntoString
 	mov r4, #0
 	add r5, r6, #0
 	add r7, r4, #0
@@ -10901,7 +10901,7 @@ _02232CF2:
 	ldr r0, [sp, #0x18]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	beq _02232D48
 	add r0, r7, #0
@@ -11527,7 +11527,7 @@ MOD80_022331F8: ; 0x022331F8
 	bl GetMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	beq _02233212
 	mov r0, #1

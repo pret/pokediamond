@@ -3975,7 +3975,7 @@ _02213E50:
 	bl FUN_0200C644
 	b _02213EC0
 _02213E9A:
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #1
 	bne _02213EB2
 	mov r0, #0x67

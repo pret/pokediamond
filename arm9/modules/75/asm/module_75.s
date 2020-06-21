@@ -1057,7 +1057,7 @@ MOD75_021E7458: ; 0x021E7458
 	add r5, r0, #0
 	add r4, r1, #0
 	add r0, r2, #0
-	bl FUN_0206EA30
+	bl TMHMGetMove
 	add r1, r0, #0
 	add r0, r5, #0
 	add r2, r4, #0
@@ -3896,7 +3896,7 @@ MOD75_021E89F0: ; 0x021E89F0
 	ldr r0, [r0]
 	lsr r1, r1, #0x10
 	lsr r2, r2, #0x10
-	bl FUN_0206E5B4
+	bl MoveItemSlotInList
 	mov r0, #0x16
 	lsl r0, r0, #4
 	ldr r0, [r4, r0]
@@ -4066,7 +4066,7 @@ MOD75_021E8B70: ; 0x021E8B70
 	add r0, #0x66
 	ldrh r0, [r0]
 	mov r2, #6
-	bl FUN_0206E710
+	bl LoadItemDataOrGfx
 	add r7, r0, #0
 	add r0, r5, #0
 	add r0, #0xc4
@@ -4123,7 +4123,7 @@ _021E8BB4:
 _021E8BEC:
 	add r0, r7, #0
 	mov r1, #6
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0
 	beq _021E8C66
 	add r0, r5, #0
@@ -4188,7 +4188,7 @@ _021E8C64:
 _021E8C66:
 	add r0, r7, #0
 	mov r1, #3
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0
 	bne _021E8C84
 	mov r0, #8
@@ -4203,7 +4203,7 @@ _021E8C66:
 _021E8C84:
 	add r0, r7, #0
 	mov r1, #4
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0
 	beq _021E8CCC
 	add r0, r5, #0
@@ -4423,7 +4423,7 @@ MOD75_021E8E1C: ; 0x021E8E1C
 	add r0, #0x66
 	ldrh r0, [r0]
 	add r2, r1, #0
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	add r1, r0, #0
 	lsl r1, r1, #0x10
 	mov r0, #2
@@ -4652,7 +4652,7 @@ _021E8FFA:
 	ldr r0, [r0]
 	add r0, #0x66
 	ldrh r0, [r0]
-	bl FUN_0206EA30
+	bl TMHMGetMove
 	add r5, r0, #0
 	mov r0, #0x46
 	lsl r0, r0, #2
@@ -4661,7 +4661,7 @@ _021E8FFA:
 	add r2, r5, #0
 	bl FUN_0200AD5C
 	add r0, r5, #0
-	bl FUN_0206EA54
+	bl MoveIsHM
 	cmp r0, #1
 	bne _021E9034
 	mov r0, #0x45
@@ -4959,7 +4959,7 @@ _021E9286:
 	add r0, r5, #0
 	mov r1, #2
 	mov r2, #6
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	add r1, r0, #0
 	lsl r1, r1, #0x18
 	add r0, r4, #0
@@ -5705,7 +5705,7 @@ _021E9872:
 	add r0, #0x66
 	ldrh r0, [r0]
 	mov r2, #6
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _021E98FC
 	add r0, r5, #0
@@ -5891,7 +5891,7 @@ _021E99C6:
 	add r0, #0x66
 	ldrh r0, [r0]
 	mov r2, #6
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	ldr r1, _021E9B40 ; =0x0000048C
 	mov r2, #6
 	str r0, [r5, r1]
@@ -5901,7 +5901,7 @@ _021E99C6:
 	mov r1, #3
 	add r0, #0x66
 	ldrh r0, [r0]
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	bne _021E9A38
 	ldr r1, _021E9B40 ; =0x0000048C
@@ -6633,7 +6633,7 @@ _021EA016:
 	ldrh r0, [r0]
 	mov r1, #6
 	add r2, r1, #0
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0xd
 	beq _021EA090
 	mov r3, #6
@@ -8052,7 +8052,7 @@ MOD75_021EAAE8: ; 0x021EAAE8
 	add r1, r6, #0
 	mov r2, #6
 	add r4, r0, #0
-	bl FUN_0206E790
+	bl GetItemDescIntoString
 	b _021EAB18
 _021EAB0A:
 	mov r0, #0x45
@@ -8091,7 +8091,7 @@ MOD75_021EAB44: ; 0x021EAB44
 	add r4, r5, #0
 	add r0, r1, #0
 	add r4, #0x14
-	bl FUN_0206EA30
+	bl TMHMGetMove
 	str r0, [sp, #0x10]
 	mov r0, #0x45
 	lsl r0, r0, #2
@@ -8548,7 +8548,7 @@ MOD75_021EAF0C: ; 0x021EAF0C
 	add r5, r0, #0
 	ldrh r0, [r4]
 	add r6, r2, #0
-	bl FUN_0206EB0C
+	bl ItemToBerryId
 	mov r1, #2
 	add r2, r0, #0
 	str r1, [sp]
@@ -10057,7 +10057,7 @@ _021EBA98:
 	bl FUN_0200C00C
 	mov r0, #0
 	mov r1, #1
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r3, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -10130,7 +10130,7 @@ _021EBA98:
 	bl FUN_0200C06C
 	mov r0, #0
 	mov r1, #2
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r3, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -10629,7 +10629,7 @@ MOD75_021EC034: ; 0x021EC034
 	add r5, r0, #0
 	add r0, r4, #0
 	mov r1, #1
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r3, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -10645,7 +10645,7 @@ MOD75_021EC034: ; 0x021EC034
 	bl FUN_0200C9D8
 	add r0, r4, #0
 	mov r1, #2
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r3, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -10983,7 +10983,7 @@ MOD75_021EC2B8: ; 0x021EC2B8
 	cmp r4, #0
 	beq _021EC374
 	add r0, r6, #0
-	bl FUN_0206EA30
+	bl TMHMGetMove
 	mov r1, #3
 	add r4, r0, #0
 	bl GetWazaAttr

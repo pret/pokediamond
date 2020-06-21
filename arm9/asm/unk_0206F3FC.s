@@ -3833,7 +3833,7 @@ _02071210:
 	add r1, r0, r2
 	ldr r0, _02071270 ; =0x0000070C
 	ldrh r0, [r1, r0]
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0x1
 	bne _0207123E
 	mov r1, #0x5
@@ -5357,15 +5357,15 @@ FUN_02071DF4: ; 0x02071DF4
 	ldr r0, [r5, r0]
 	mov r2, #0xc
 	ldrh r0, [r0, #0x24]
-	bl FUN_0206E710
+	bl LoadItemDataOrGfx
 	mov r1, #0x22
 	add r4, r0, #0x0
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	bne _02071E1E
 	add r0, r4, #0x0
 	mov r1, #0x23
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _02071E30
 _02071E1E:
@@ -5379,12 +5379,12 @@ _02071E1E:
 _02071E30:
 	add r0, r4, #0x0
 	mov r1, #0x24
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _02071E5A
 	add r0, r4, #0x0
 	mov r1, #0x25
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	bne _02071E5A
 	add r0, r4, #0x0
@@ -5418,7 +5418,7 @@ _02071E5A:
 	bl FUN_0206EDD4
 	add r0, r4, #0x0
 	mov r1, #0x1a
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	ldr r0, _02071F1C ; =0x000005A4
 	beq _02071ECC
@@ -5449,7 +5449,7 @@ _02071E5A:
 _02071ECC:
 	ldr r0, [r5, r0]
 	ldrh r0, [r0, #0x24]
-	bl FUN_0206EB34
+	bl ItemIsBitter
 	cmp r0, #0x1
 	bne _02071EFA
 	ldr r0, _02071F1C ; =0x000005A4
@@ -5505,7 +5505,7 @@ FUN_02071F28: ; 0x02071F28
 	mov r0, #0x0
 	pop {r3, pc}
 _02071F40:
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0x1
 	bne _02071F4C
 	mov r0, #0x2
@@ -5543,7 +5543,7 @@ _02071F84:
 	ldr r0, _02072074 ; =0x000005A4
 	ldr r0, [r5, r0]
 	ldrh r0, [r0, #0x24]
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0x1
 	bne _02071FA0
 	ldr r0, _02072074 ; =0x000005A4
@@ -5844,7 +5844,7 @@ _0207220C:
 	ldr r0, _020722A8 ; =0x000005A4
 	ldr r0, [r5, r0]
 	ldrh r0, [r0, #0x24]
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0x1
 	bne _02072246
 	ldr r0, _020722A8 ; =0x000005A4

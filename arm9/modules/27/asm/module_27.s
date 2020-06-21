@@ -933,7 +933,7 @@ _02254F58:
 	ldrh r0, [r6, #0xe]
 	cmp r0, #0
 	beq _02254F92
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	beq _02254F6A
 	mov r1, #1

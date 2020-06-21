@@ -3,8 +3,8 @@
 
 	.text
 
-	thumb_func_start FUN_0206E5B4
-FUN_0206E5B4: ; 0x0206E5B4
+	thumb_func_start MoveItemSlotInList
+MoveItemSlotInList: ; 0x0206E5B4
 	push {r3-r6}
 	add r3, r0, #0x0
 	add r0, r2, #0x0

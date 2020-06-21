@@ -174,7 +174,7 @@ FUN_02040800: ; 0x02040800
 	add r1, r0, #0x0
 	ldr r0, [r5, #0x0]
 	bl FUN_020394F0
-	bl FUN_0206EA30
+	bl TMHMGetMove
 	add r2, r0, #0x0
 	ldr r0, [r6, #0x0]
 	add r1, r4, #0x0

@@ -9197,7 +9197,7 @@ _0223DD0C:
 	lsr r1, r1, #0x10
 	mov r2, #0xb
 	add r6, r0, #0
-	bl FUN_0206E790
+	bl GetItemDescIntoString
 	b _0223DD86
 _0223DD3C:
 	cmp r0, #1
@@ -10291,7 +10291,7 @@ _0223E67C:
 	mov r1, #5
 	ldrh r0, [r5, r0]
 	mov r2, #0xb
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	add r2, r0, #0
 	add r0, r5, #0
 	add r0, #0x8c
@@ -10728,7 +10728,7 @@ MOD06_0223EA08: ; 0x0223EA08
 	add r0, r1, #0
 	mov r1, #0
 	mov r2, #0xb
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	pop {r3, pc}
 _0223EA1E:
 	cmp r0, #1
@@ -11016,7 +11016,7 @@ _0223EC5A:
 	add r5, r0, #0
 	add r0, r6, #0
 	mov r1, #1
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r3, r0, #0
 	mov r0, #0
 	str r0, [sp]
@@ -11038,7 +11038,7 @@ _0223EC5A:
 	add r5, r0, #0
 	add r0, r6, #0
 	mov r1, #2
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r3, r0, #0
 	mov r0, #0
 	str r0, [sp]

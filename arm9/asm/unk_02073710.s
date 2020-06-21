@@ -536,7 +536,7 @@ FUN_02073A78: ; 0x02073A78
 	pop {r3-r5, pc}
 _02073A92:
 	add r0, r2, #0x0
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0x1
 	ldr r0, [r5, r4]
 	bne _02073AA6

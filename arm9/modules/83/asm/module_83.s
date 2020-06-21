@@ -17289,7 +17289,7 @@ _02235CCA:
 	beq _02235DAC
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206E6D8
+	bl UpConvertItemId_Gen3to4
 	add r7, r0, #0
 	mov r0, #0x40
 	mov r1, #0x4e
@@ -17298,7 +17298,7 @@ _02235CCA:
 	lsr r1, r1, #0x10
 	mov r2, #0x4e
 	add r6, r0, #0
-	bl FUN_0206E768
+	bl GetItemNameIntoString
 	mov r0, #0
 	mvn r0, r0
 	str r0, [sp, #0x60]
@@ -21897,7 +21897,7 @@ MOD83_02237F6C: ; 0x02237F6C
 	beq _02237FCE
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206E6D8
+	bl UpConvertItemId_Gen3to4
 	str r0, [sp, #8]
 _02237FCE:
 	add r0, r4, #0
@@ -24117,12 +24117,12 @@ _02239168:
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #1
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r7, r0, #0
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #2
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r4, r0, #0
 	bl FUN_0206E708
 	add r6, r0, #0

@@ -605,7 +605,7 @@ MOD14_021D7998: ; 0x021D7998
 	bl MOD14_021DC430
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	beq _021D79B6
 	mov r0, #0x1e
@@ -2823,7 +2823,7 @@ _021D8C12:
 	bl MOD14_021DC430
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	beq _021D8C42
 	ldr r0, _021D8D58 ; =0x000005F3
@@ -2868,7 +2868,7 @@ _021D8C7C:
 	bl MOD14_021DC430
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	beq _021D8CAC
 	ldr r0, _021D8D58 ; =0x000005F3
@@ -4789,7 +4789,7 @@ _021D9C36:
 	bl MOD14_021DC430
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	beq _021D9C56
 	mov r0, #0x1e
@@ -6025,7 +6025,7 @@ _021DA614:
 	str r0, [r1, #4]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	beq _021DA648
 	ldr r0, _021DA7B8 ; =0x000005F3
@@ -6247,7 +6247,7 @@ _021DA7EA:
 	str r0, [r1]
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	beq _021DA81E
 	ldr r0, _021DA9C4 ; =0x000005F3
@@ -9291,7 +9291,7 @@ _021DBF9A:
 	beq _021DBFAA
 	ldr r0, [r4, #0x1c]
 	mov r2, #9
-	bl FUN_0206E768
+	bl GetItemNameIntoString
 	b _021DBFB8
 _021DBFAA:
 	mov r0, #0x63
@@ -9588,7 +9588,7 @@ MOD14_021DC1E8: ; 0x021DC1E8
 	beq _021DC20A
 	ldr r0, [r4, #0x1c]
 	mov r2, #9
-	bl FUN_0206E768
+	bl GetItemNameIntoString
 	b _021DC218
 _021DC20A:
 	mov r0, #0x63
@@ -22991,7 +22991,7 @@ MOD14_021E2940: ; 0x021E2940
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #1
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r1, r0, #0
 	mov r0, #0xa
 	str r0, [sp]
@@ -23016,7 +23016,7 @@ MOD14_021E2940: ; 0x021E2940
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #2
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r1, r0, #0
 	mov r0, #0x20
 	str r0, [sp]
@@ -27175,7 +27175,7 @@ MOD14_021E4890: ; 0x021E4890
 	bl MOD14_021DDDB4
 	mov r0, #1
 	add r1, r0, #0
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r1, r0, #0
 	mov r0, #0xa
 	str r0, [sp]
@@ -27396,7 +27396,7 @@ _021E4A54:
 	lsr r0, r0, #0x10
 	mov r1, #1
 	lsl r4, r6, #3
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	mov r2, #0
 	ldr r3, _021E4ACC ; =0x021E68E8
 	str r2, [sp]
@@ -27410,7 +27410,7 @@ _021E4A54:
 	lsl r0, r7, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #2
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	ldr r3, _021E4AD0 ; =0x021E68EC
 	add r1, r0, #0
 	mov r0, #0x20
@@ -27527,7 +27527,7 @@ MOD14_021E4B58: ; 0x021E4B58
 	lsr r0, r0, #0x10
 	mov r1, #1
 	lsl r6, r4, #3
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	mov r2, #0
 	ldr r3, _021E4BD8 ; =0x021E68E8
 	str r2, [sp]
@@ -27541,7 +27541,7 @@ MOD14_021E4B58: ; 0x021E4B58
 	lsl r0, r7, #0x10
 	lsr r0, r0, #0x10
 	mov r1, #2
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	ldr r3, _021E4BDC ; =0x021E68EC
 	add r1, r0, #0
 	mov r0, #0x20

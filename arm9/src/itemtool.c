@@ -6,7 +6,7 @@
 
 #pragma thumb on
 
-const u16 UNK_020F8454[] = {
+static const u16 sMailIdxs[] = {
     ITEM_GRASS_MAIL,
     ITEM_FLAME_MAIL,
     ITEM_BUBBLE_MAIL,
@@ -21,7 +21,7 @@ const u16 UNK_020F8454[] = {
     ITEM_BRICK_MAIL,
 };
 
-const u16 UNK_020F846C[] = {
+static const u16 sBerryIdxs[] = {
     ITEM_CHERI_BERRY,
     ITEM_CHESTO_BERRY,
     ITEM_PECHA_BERRY,
@@ -88,7 +88,7 @@ const u16 UNK_020F846C[] = {
     ITEM_ROWAP_BERRY,
 };
 
-const u16 UNK_020F84EC[] = {
+static const u16 sTMHMMoves[] = {
     MOVE_FOCUS_PUNCH,
     MOVE_DRAGON_CLAW,
     MOVE_WATER_PULSE,
@@ -191,7 +191,12 @@ const u16 UNK_020F84EC[] = {
     MOVE_ROCK_CLIMB,
 };
 
-const u16 UNK_020F85B4[][4] = {
+static const u16 sItemIndexMappings[][4] = {
+    /* Col 1: Offset in item_data.narc
+     * Col 2: Gfx offset in item_icon.narc
+     * Col 3: Pal offset in item_icon.narc
+     * Col 4: Gen 3 item index (for Pal Park conversion)
+     */
     {     0,   699,   700,     0 },
     {     1,     2,     3,     1 },
     {     2,     4,     5,     2 },
@@ -658,7 +663,7 @@ const u16 UNK_020F85B4[][4] = {
     {   440,   598,   599,   285 },
     {   441,   600,   601,     0 },
 };
-//
+
 //static inline void ShiftItemSlots(struct ItemSlot * itemSlots, s16 from, s16 to, s32 direction)
 //{
 //    for (; direction > 0 ? from < to : from > to; from += direction)
@@ -667,7 +672,7 @@ const u16 UNK_020F85B4[][4] = {
 //    }
 //}
 //
-//void FUN_0206E5B4(struct ItemSlot * itemSlots, u16 from, u16 to)
+//void MoveItemSlotInList(struct ItemSlot * itemSlots, u16 from, u16 to)
 //{
 //    if (from != to)
 //    {
@@ -685,7 +690,7 @@ const u16 UNK_020F85B4[][4] = {
 //    }
 //}
 
-u16 FUN_0206E640(u16 a0, u16 a1)
+u16 GetItemIndexMapping(u16 a0, u16 a1)
 {
     switch (a1)
     {
@@ -694,35 +699,35 @@ u16 FUN_0206E640(u16 a0, u16 a1)
             break;
         if (a0 == 0xFFFF)
             break;
-        return UNK_020F85B4[a0][0];
+        return sItemIndexMappings[a0][0];
     case 1:
         if (a0 == 0)
             return 699;
         if (a0 == 0xFFFF)
             return 701;
-        return UNK_020F85B4[a0][1];
+        return sItemIndexMappings[a0][1];
     case 2:
         if (a0 == 0)
             return 700;
         if (a0 == 0xFFFF)
             return 702;
-        return UNK_020F85B4[a0][2];
+        return sItemIndexMappings[a0][2];
     case 3:
         if (a0 == 0)
             break;
         if (a0 == 0xFFFF)
             break;
-        return UNK_020F85B4[a0][3];
+        return sItemIndexMappings[a0][3];
     }
     return 0;
 }
 
-u16 FUN_0206E6D8(u16 a0)
+u16 UpConvertItemId_Gen3to4(u16 a0)
 {
     u16 i;
-    for (i = 1; i <= NELEMS(UNK_020F85B4) - 1; i++)
+    for (i = 1; i <= NELEMS(sItemIndexMappings) - 1; i++)
     {
-        if (a0 == UNK_020F85B4[i][3])
+        if (a0 == sItemIndexMappings[i][3])
             return i;
     }
     return 0;
@@ -738,53 +743,47 @@ int FUN_0206E70C()
     return 0;
 }
 
-void * FUN_0206E710(u16 a0, u16 a1, u32 heap_id)
+void * LoadItemDataOrGfx(u16 a0, u16 a1, u32 heap_id)
 {
-    if (a0 > NELEMS(UNK_020F85B4) - 1)
+    if (a0 > NELEMS(sItemIndexMappings) - 1)
         a0 = 0;
     switch (a1)
     {
     case 0:
-        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_DATA, UNK_020F85B4[a0][0], heap_id);
+        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_DATA, sItemIndexMappings[a0][0], heap_id);
     case 1:
-        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_ICON, UNK_020F85B4[a0][1], heap_id);
+        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_ICON, sItemIndexMappings[a0][1], heap_id);
     case 2:
-        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_ICON, UNK_020F85B4[a0][2], heap_id);
+        return AllocAndReadWholeNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_ICON, sItemIndexMappings[a0][2], heap_id);
     default:
         return NULL;
     }
 }
 
-void FUN_0206E768(struct String * dest, u16 item_id, u32 heap_no)
+void GetItemNameIntoString(struct String * dest, u16 item_id, u32 heap_no)
 {
     struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 344, heap_no);
     ReadMsgDataIntoString(msgData, item_id, dest);
     DestroyMsgData(msgData);
 }
 
-void FUN_0206E790(struct String * dest, u16 item_id, u32 heap_no)
+void GetItemDescIntoString(struct String * dest, u16 item_id, u32 heap_no)
 {
     struct MsgData * msgData = NewMsgDataFromNarc(1, NARC_MSGDATA_MSG, 343, heap_no);
     ReadMsgDataIntoString(msgData, item_id, dest);
     DestroyMsgData(msgData);
 }
 
-struct ItemData;
-
-u32 FUN_0206E7DC(struct ItemData * itemData, u32 attr);
-
-u32 FUN_0206E7B8(u16 item, u32 attr, u32 heap_id)
+u32 GetItemAttr(u16 item, u32 attr, u32 heap_id)
 {
     u32 ret;
-    struct ItemData * itemData = (struct ItemData *)FUN_0206E710(item, 0, heap_id);
-    ret = FUN_0206E7DC(itemData, attr);
+    struct ItemData * itemData = (struct ItemData *)LoadItemDataOrGfx(item, 0, heap_id);
+    ret = GetItemAttr_PreloadedItemData(itemData, attr);
     FUN_02016A8C(heap_id, itemData);
     return ret;
 }
 
-u32 FUN_0206E878(struct ItemDataSub * a0, u32 attr);
-
-u32 FUN_0206E7DC(struct ItemData * itemData, u32 attr)
+u32 GetItemAttr_PreloadedItemData(struct ItemData * itemData, u32 attr)
 {
     switch (attr)
     {
@@ -824,14 +823,14 @@ u32 FUN_0206E7DC(struct ItemData * itemData, u32 attr)
         case 0:
             return itemData->unkE.flat;
         case 1:
-            return FUN_0206E878(&itemData->unkE.sub, attr);
+            return GetItemAttrSub(&itemData->unkE.sub, attr);
         default:
             return 0;
         }
     }
 }
 
-u32 FUN_0206E878(struct ItemDataSub * sub, u32 attr)
+u32 GetItemAttrSub(struct ItemDataSub * sub, u32 attr)
 {
     switch (attr)
     {
@@ -928,101 +927,101 @@ u32 FUN_0206E878(struct ItemDataSub * sub, u32 attr)
     }
 }
 
-u16 FUN_0206EA30(u16 a0)
+u16 TMHMGetMove(u16 a0)
 {
     if (a0 < ITEM_TM01 || a0 > ITEM_HM08)
         return MOVE_NONE;
     a0 -= ITEM_TM01;
-    return UNK_020F84EC[a0];
+    return sTMHMMoves[a0];
 }
 
-BOOL FUN_0206EA54(u16 a0)
+BOOL MoveIsHM(u16 a0)
 {
     u8 i;
     for (i = 0; i < 8; i++)
     {
-        if (a0 == UNK_020F84EC[i + NUM_TMS])
+        if (a0 == sTMHMMoves[i + NUM_TMS])
             return TRUE;
     }
 
     return FALSE;
 }
 
-u8 FUN_0206EA7C(u16 a0)
+u8 ItemToTMHMId(u16 a0)
 {
     if (a0 < ITEM_TM01 || a0 > ITEM_HM08)
         return 0;
     return (u8)(a0 - ITEM_TM01);
 }
 
-BOOL FUN_0206EA98(u16 a0)
+BOOL ItemIdIsMail(u16 a0)
 {
     u32 i;
     for (i = 0; i < 12; i++)
     {
-        if (a0 == UNK_020F8454[i])
+        if (a0 == sMailIdxs[i])
             return TRUE;
     }
     return FALSE;
 }
 
-u8 FUN_0206EAB8(u16 a0)
+u8 ItemToMailId(u16 a0)
 {
     u32 i;
     for (i = 0; i < 12; i++)
     {
-        if (a0 == UNK_020F8454[i])
+        if (a0 == sMailIdxs[i])
             return (u8)i;
     }
     return 0;
 }
 
-u16 FUN_0206EAD8(u8 i)
+u16 MailToItemId(u8 i)
 {
     if (i >= 12)
         return 0;
-    return UNK_020F8454[i];
+    return sMailIdxs[i];
 }
 
-BOOL FUN_0206EAEC(u16 a0)
+BOOL ItemIdIsBerry(u16 a0)
 {
     u32 i;
     for (i = 0; i < 64; i++)
     {
-        if (a0 == UNK_020F846C[i])
+        if (a0 == sBerryIdxs[i])
             return TRUE;
     }
     return FALSE;
 }
 
-u8 FUN_0206EB0C(u16 a0)
+u8 ItemToBerryId(u16 item_id)
 {
-    if (a0 < FIRST_BERRY_IDX)
+    if (item_id < FIRST_BERRY_IDX)
         return 0xFF;
-    return (u8)(a0 - FIRST_BERRY_IDX);
+    return (u8)(item_id - FIRST_BERRY_IDX);
 }
 
-u16 FUN_0206EB1C(u8 a0)
+u16 BerryToItemId(u8 a0)
 {
     if (a0 >= NUM_BERRIES)
         return 0xFFFF;
-    return UNK_020F846C[a0];
+    return sBerryIdxs[a0];
 }
 
-u8 FUN_0206EB34(u16 a0)
+u8 ItemIsBitter(u16 item_id)
 {
-    return a0 == ITEM_ENERGYPOWDER ||
-           a0 == ITEM_ENERGY_ROOT  ||
-           a0 == ITEM_HEAL_POWDER  ||
-           a0 == ITEM_REVIVAL_HERB;
+    return item_id == ITEM_ENERGYPOWDER ||
+           item_id == ITEM_ENERGY_ROOT  ||
+           item_id == ITEM_HEAL_POWDER  ||
+           item_id == ITEM_REVIVAL_HERB;
 }
 
-struct ItemData * FUN_0206EB50(u16 a0)
+struct ItemData * LoadAllItemData(u32 heap_id)
 {
-    return AllocAndReadFromNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_DATA, 0, a0, 0, sizeof(struct ItemData) * FUN_0206E640(ITEM_SECRETPOTION, 0));
+    return AllocAndReadFromNarcMemberByIdPair(NARC_ITEMTOOL_ITEMDATA_ITEM_DATA, 0, heap_id, 0, sizeof(struct ItemData) * GetItemIndexMapping(ITEM_SECRETPOTION, 0));
 }
 
-struct ItemData * FUN_0206EB78(struct ItemData * a0, u16 a1)
+struct ItemData * GetItemDataPtrFromArray(struct ItemData * a0, u16 item_id)
 {
-    return a0 + a1;
+    return a0 + item_id;
 }

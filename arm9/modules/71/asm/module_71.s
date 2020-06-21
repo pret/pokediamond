@@ -1394,7 +1394,7 @@ _0222E18E:
 	beq _0222E19E
 	lsl r0, r6, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	add r0, r0, #1
 	strh r0, [r4, #2]
 _0222E19E:
@@ -2992,7 +2992,7 @@ _0222EEA6:
 	add r1, r7, #0
 	mov r2, #0x1a
 	add r5, r0, #0
-	bl FUN_0206E768
+	bl GetItemNameIntoString
 	mov r0, #3
 	str r0, [sp]
 	mov r3, #0
