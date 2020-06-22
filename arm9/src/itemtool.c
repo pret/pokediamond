@@ -788,17 +788,17 @@ u32 GetItemAttr_PreloadedItemData(struct ItemData * itemData, u32 attr)
     switch (attr)
     {
     case 0:
-        return itemData->unk0;
+        return itemData->price;
     case 1:
-        return itemData->unk2;
+        return itemData->holdEffect;
     case 2:
-        return itemData->unk3;
+        return itemData->holdEffectParam;
     case 3:
         return itemData->unk8_5;
     case 4:
         return itemData->unk8_6;
     case 5:
-        return itemData->unk8_7;
+        return itemData->pocket;
     case 6:
         return itemData->unkA;
     case 7:
@@ -814,7 +814,7 @@ u32 GetItemAttr_PreloadedItemData(struct ItemData * itemData, u32 attr)
     case 12:
         return itemData->unk8_0;
     case 13:
-        return itemData->unk8_11;
+        return itemData->unk8_B;
     case 14:
         return itemData->unkC;
     default:

@@ -1,6 +1,15 @@
 #ifndef POKEDIAMOND_CONSTANTS_ITEMS_H
 #define POKEDIAMOND_CONSTANTS_ITEMS_H
 
+#define POCKET_ITEMS        0
+#define POCKET_MEDICINE     1
+#define POCKET_BALLS        2
+#define POCKET_TMHMS        3
+#define POCKET_BERRIES      4
+#define POCKET_MAIL         5
+#define POCKET_BATTLE_ITEMS 6
+#define POCKET_KEY_ITEMS    7
+
 #define ITEM_NONE                  0
 #define ITEM_MASTER_BALL           1
 #define ITEM_ULTRA_BALL            2

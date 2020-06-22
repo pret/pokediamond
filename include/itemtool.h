@@ -79,9 +79,9 @@ struct ItemDataSub
 
 struct ItemData
 {
-    u16 unk0;
-    u8 unk2;
-    u8 unk3;
+    u16 price;
+    u8 holdEffect;
+    u8 holdEffectParam;
     u8 unk4;
     u8 unk5;
     u8 unk6;
@@ -89,12 +89,12 @@ struct ItemData
     u16 unk8_0:5;
     u16 unk8_5:1;
     u16 unk8_6:1;
-    u16 unk8_7:4;
-    u16 unk8_11:5;
+    u16 pocket:4;
+    u16 unk8_B:5;
     u8 unkA;
     u8 unkB;
     u8 unkC;
-    u8 unkD;
+    u8 padding;
     union {
         u8 flat;
         struct ItemDataSub sub;
