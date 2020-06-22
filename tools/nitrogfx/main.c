@@ -80,6 +80,19 @@ void ConvertPngToGba(char *inputPath, char *outputPath, struct PngToGbaOptions *
     FreeImage(&image);
 }
 
+void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *options)
+{
+    struct Image image;
+
+    image.bitDepth = options->bitDepth;
+
+    ReadPng(inputPath, &image);
+
+    WriteNtrImage(outputPath, options->numTiles, options->bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder);
+
+    FreeImage(&image);
+}
+
 void HandleGbaToPngCommand(char *inputPath, char *outputPath, int argc, char **argv)
 {
     char *inputFileExtension = GetFileExtension(inputPath);
@@ -298,12 +311,118 @@ void HandlePngToGbaCommand(char *inputPath, char *outputPath, int argc, char **a
     ConvertPngToGba(inputPath, outputPath, &options);
 }
 
+void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **argv)
+{
+    struct PngToNtrOptions options;
+    options.numTiles = 0;
+    options.bitDepth = 4;
+    options.metatileWidth = 1;
+    options.metatileHeight = 1;
+    options.clobberSize = false;
+    options.byteOrder = true;
+
+    for (int i = 3; i < argc; i++)
+    {
+        char *option = argv[i];
+
+        if (strcmp(option, "-num_tiles") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No number of tiles following \"-num_tiles\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &options.numTiles))
+                FATAL_ERROR("Failed to parse number of tiles.\n");
+
+            if (options.numTiles < 1)
+                FATAL_ERROR("Number of tiles must be positive.\n");
+        }
+        else if (strcmp(option, "-mwidth") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No metatile width value following \"-mwidth\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &options.metatileWidth))
+                FATAL_ERROR("Failed to parse metatile width.\n");
+
+            if (options.metatileWidth < 1)
+                FATAL_ERROR("metatile width must be positive.\n");
+        }
+        else if (strcmp(option, "-mheight") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No metatile height value following \"-mheight\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &options.metatileHeight))
+                FATAL_ERROR("Failed to parse metatile height.\n");
+
+            if (options.metatileHeight < 1)
+                FATAL_ERROR("metatile height must be positive.\n");
+        }
+        else if (strcmp(option, "-bitdepth") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No bitdepth value following \"-bitdepth\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &options.bitDepth))
+                FATAL_ERROR("Failed to parse bitdepth.\n");
+
+            if (options.bitDepth != 4 && options.bitDepth != 8)
+                FATAL_ERROR("bitdepth must be either 4 or 8.\n");
+        }
+        else if (strcmp(option, "-clobbersize") == 0)
+        {
+            options.clobberSize = true;
+        }
+        else if (strcmp(option, "-nobyteorder") == 0)
+        {
+            options.byteOrder = false;
+        }
+        else
+        {
+            FATAL_ERROR("Unrecognized option \"%s\".\n", option);
+        }
+    }
+
+    ConvertPngToNtr(inputPath, outputPath, &options);
+}
+
 void HandlePngToGbaPaletteCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
 {
     struct Palette palette;
 
     ReadPngPalette(inputPath, &palette);
     WriteGbaPalette(outputPath, &palette);
+}
+
+void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, char **argv)
+{
+    struct Palette palette;
+    bool ncpr = false;
+
+    for (int i = 3; i < argc; i++)
+    {
+        char *option = argv[i];
+
+        if (strcmp(option, "-ncpr") == 0)
+        {
+            ncpr = true;
+        }
+        else
+        {
+            FATAL_ERROR("Unrecognized option \"%s\".\n", option);
+        }
+    }
+
+    ReadPngPalette(inputPath, &palette);
+    WriteNtrPalette(outputPath, &palette, ncpr);
 }
 
 void HandleGbaToJascPaletteCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
@@ -645,7 +764,9 @@ int main(int argc, char **argv)
         { "png", "1bpp", HandlePngToGbaCommand },
         { "png", "4bpp", HandlePngToGbaCommand },
         { "png", "8bpp", HandlePngToGbaCommand },
+        { "png", "NCGR", HandlePngToNtrCommand },
         { "png", "gbapal", HandlePngToGbaPaletteCommand },
+        { "png", "NCLR", HandlePngToNtrPaletteCommand },
         { "gbapal", "pal", HandleGbaToJascPaletteCommand },
         { "NCLR", "pal", HandleNtrToJascPaletteCommand },
         { "NCPR", "pal", HandleNtrToJascPaletteCommand },
