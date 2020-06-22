@@ -246,6 +246,68 @@ void ReadImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int 
 	free(buffer);
 }
 
+void ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors)
+{
+    int fileSize;
+    unsigned char *buffer = ReadWholeFile(path, &fileSize);
+
+    if (memcmp(buffer, "RGCN", 4) != 0)
+    {
+        FATAL_ERROR("Not a valid NCGR character file.\n");
+    }
+
+    unsigned char *charHeader = buffer + 0x10;
+
+    if (memcmp(charHeader, "RAHC", 4) != 0)
+    {
+        FATAL_ERROR("No valid CHAR file after NCLR header.\n");
+    }
+
+    bitDepth = bitDepth ? bitDepth : (charHeader[0xC] == 3 ? 4 : 8);
+
+    if (bitDepth == 4)
+    {
+        image->palette.numColors = 16;
+    }
+
+    unsigned char *imageData = charHeader + 0x20;
+
+    int tileSize = bitDepth * 8;
+
+    int numTiles = (charHeader[0x18] + (charHeader[0x19] << 8) + (charHeader[0x1A] << 16) + (charHeader[0x1B] << 24))
+            / (64 / (8 / bitDepth));
+
+    int tilesHeight = (numTiles + tilesWidth - 1) / tilesWidth;
+
+    if (tilesWidth % metatileWidth != 0)
+        FATAL_ERROR("The width in tiles (%d) isn't a multiple of the specified metatile width (%d)", tilesWidth, metatileWidth);
+
+    if (tilesHeight % metatileHeight != 0)
+        FATAL_ERROR("The height in tiles (%d) isn't a multiple of the specified metatile height (%d)", tilesHeight, metatileHeight);
+
+
+    image->width = tilesWidth * 8;
+    image->height = tilesHeight * 8;
+    image->bitDepth = bitDepth;
+    image->pixels = calloc(tilesWidth * tilesHeight, tileSize);
+
+    if (image->pixels == NULL)
+        FATAL_ERROR("Failed to allocate memory for pixels.\n");
+    
+    int metatilesWide = tilesWidth / metatileWidth;
+
+    switch (bitDepth) {
+        case 4:
+            ConvertFromTiles4Bpp(imageData, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+            break;
+        case 8:
+            ConvertFromTiles8Bpp(imageData, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+            break;
+    }
+
+    free(buffer);
+}
+
 void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors)
 {
 	int tileSize = bitDepth * 8;
@@ -343,7 +405,9 @@ void ReadNtrPalette(char *path, struct Palette *palette)
     if ((fileSize - 0x28) % 2 != 0)
         FATAL_ERROR("The file size (%d) is not a multiple of 2.\n", fileSize);
 
-    palette->numColors = (fileSize - 0x28) / 2; //remove header and divide by 2
+    palette->bitDepth = paletteHeader[0x8] == 3 ? 4 : 8;
+
+    palette->numColors = palette->bitDepth == 4 ? 16 : 256; //remove header and divide by 2
 
     unsigned char *paletteData = paletteHeader + 0x18;
 
@@ -404,6 +468,8 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
     palHeader[6] = (extSize >> 16) & 0xFF;
     palHeader[7] = (extSize >> 24) & 0xFF;
 
+    if (!palette->bitDepth)
+        palette->bitDepth = 4;
     //bit depth
     palHeader[8] = palette->bitDepth == 4 ? 0x03: 0x04;
 
