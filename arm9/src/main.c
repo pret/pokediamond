@@ -50,7 +50,7 @@ extern void FUN_0200E2D8(void);
 extern void FUN_02003C10(void);
 
 extern struct Unk21DBE18 MOD63_UNK_021DBE18; 
-extern struct Unk21DBE18 MOD52_UNK_021D76C8;
+extern struct Unk21DBE18 MOD52_021D76C8;
 
 extern u8 SDK_STATIC_BSS_START[];
 
@@ -93,7 +93,7 @@ THUMB_FUNC void NitroMain(void)
             break;
         case 1:
             gBacklightTop.unk1C = 1;
-            FUN_02000E7C(FS_OVERLAY_ID(MODULE_52), &MOD52_UNK_021D76C8);
+            FUN_02000E7C(FS_OVERLAY_ID(MODULE_52), &MOD52_021D76C8);
             break;
         default:
             ErrorHandling();
