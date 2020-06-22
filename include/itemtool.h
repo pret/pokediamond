@@ -85,7 +85,7 @@ struct ItemData
     u8 unk4;
     u8 unk5;
     u8 unk6;
-    u8 unk7;
+    u8 naturalGiftPower;
     u16 unk8_0:5;
     u16 unk8_5:1;
     u16 unk8_6:1;
