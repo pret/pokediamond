@@ -2005,7 +2005,7 @@ _02035FD0:
 	b _0203625E
 _02036056:
 	ldrh r0, [r6, #0x24]
-	bl FUN_0206EAB8
+	bl ItemToMailId
 	add r3, r0, #0x0
 	mov r0, #0xb
 	add r2, r6, #0x0
@@ -2365,7 +2365,7 @@ _02036340:
 	ldrh r0, [r1, #0x4]
 	mov r1, #0x6
 	mov r2, #0xb
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	add r1, r0, #0x0
 	lsl r1, r1, #0x10
 	mov r0, #0x0
@@ -2451,7 +2451,7 @@ _020363F6:
 	ldr r0, [r4, r0]
 	bl FreeToHeap
 	add r0, r5, #0x0
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0x1
 	bne _02036474
 	ldr r0, [sp, #0xc]
@@ -2461,7 +2461,7 @@ _020363F6:
 	cmp r0, #0x0
 	bne _02036474
 	add r0, r5, #0x0
-	bl FUN_0206EAB8
+	bl ItemToMailId
 	add r3, r0, #0x0
 	mov r0, #0xb
 	lsl r2, r7, #0x18
@@ -3104,7 +3104,7 @@ FUN_0203695C: ; 0x0203695C
 	add r4, r5, #0x0
 _0203699A:
 	add r0, r4, #0x0
-	bl FUN_0206EB1C
+	bl BerryToItemId
 	add r7, r0, #0x0
 	ldr r0, [sp, #0x0]
 	add r1, r7, #0x0

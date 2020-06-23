@@ -204,7 +204,7 @@ FUN_02045918: ; 0x02045918
 	add r0, r4, #0x0
 	mov r1, #0x5
 	mov r2, #0xb
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	strh r0, [r5, #0x0]
 	mov r0, #0x0
 	pop {r3-r5, pc}

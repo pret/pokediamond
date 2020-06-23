@@ -31,3 +31,6 @@ MOD13_02211E60: ; 0x02211E60
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02211EA0: .word 0x04000208
+	.rodata
+	.data
+	.bss
