@@ -43106,7 +43106,7 @@ MOD05_021EC4DC: ; 0x021EC4DC
 	bl GetBoxMonData
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	pop {r3, pc}
 
 	thumb_func_start MOD05_021EC4F0
@@ -44043,7 +44043,7 @@ _021ECC60:
 	add r0, r5, r0
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_0206EA30
+	bl TMHMGetMove
 	ldr r1, [r4, r6]
 	cmp r1, r0
 	bne _021ECCA2

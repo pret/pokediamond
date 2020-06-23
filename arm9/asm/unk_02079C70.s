@@ -1294,7 +1294,7 @@ _0207A6C0:
 	mov r0, #0xa1
 	lsl r0, r0, #0x2
 	ldrh r0, [r1, r0]
-	bl FUN_0206EA54
+	bl MoveIsHM
 	cmp r0, #0x1
 	bne _0207A712
 	mov r0, #0x93

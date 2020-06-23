@@ -303,10 +303,10 @@ arm7:
 	$(MAKE) -C arm7 COMPARE=$(COMPARE)
 
 $(BINFILES): %.bin: %.sbin
+	@# Hack because mwldarm doesn't like the sbin suffix
 	@cp $< $@
 
 $(ELF): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(BINFILES) $(BUILD_DIR)/pokediamond_bnr.bin
-	# Hack because mwldarm doesn't like the sbin suffix
 	$(LD) $(LDFLAGS) -o $@ $^
 
 $(ROM): $(ELF)

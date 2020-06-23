@@ -264,7 +264,7 @@ FUN_02088C3C: ; 0x02088C3C
 	add r4, r6, #0x0
 _02088C70:
 	add r0, r4, #0x0
-	bl FUN_0206EB1C
+	bl BerryToItemId
 	lsl r0, r0, #0x18
 	lsr r7, r0, #0x18
 	ldr r0, [sp, #0x0]
