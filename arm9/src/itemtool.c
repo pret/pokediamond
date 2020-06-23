@@ -664,31 +664,30 @@ static const u16 sItemIndexMappings[][4] = {
     {   441,   600,   601,     0 },
 };
 
-//static inline void ShiftItemSlots(struct ItemSlot * itemSlots, s16 from, s16 to, s32 direction)
-//{
-//    for (; direction > 0 ? from < to : from > to; from += direction)
-//    {
-//        itemSlots[from] = itemSlots[from + direction];
-//    }
-//}
-//
-//void MoveItemSlotInList(struct ItemSlot * itemSlots, u16 from, u16 to)
-//{
-//    if (from != to)
-//    {
-//        struct ItemSlot firstSlot = itemSlots[from];
-//        if (to > from)
-//        {
-//            to--;
-//            ShiftItemSlots(itemSlots, from, to, 1);
-//        }
-//        else
-//        {
-//            ShiftItemSlots(itemSlots, from, to, -1);
-//        }
-//        itemSlots[to] = firstSlot;
-//    }
-//}
+void MoveItemSlotInList(struct ItemSlot * itemSlots, u16 from, u16 to)
+{
+    if (from != to)
+    {
+        s16 i;
+        struct ItemSlot firstSlot = itemSlots[from];
+        if (to > from)
+        {
+            to--;
+            for (i = (s16)from; i < (s16)to; i++)
+            {
+                itemSlots[i] = itemSlots[i + 1];
+            }
+        }
+        else
+        {
+            for (i = (s16)from; i > (s16)to; i--)
+            {
+                itemSlots[i] = itemSlots[i - 1];
+            }
+        }
+        itemSlots[to] = firstSlot;
+    }
+}
 
 u16 GetItemIndexMapping(u16 a0, u16 a1)
 {
