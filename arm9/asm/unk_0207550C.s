@@ -10,10 +10,10 @@ FUN_0207550C: ; 0x0207550C
 	push {r3-r5, lr}
 	mov r1, #0x0
 	mov r2, #0xc
-	bl FUN_0206E710
+	bl LoadItemDataOrGfx
 	mov r1, #0xe
 	add r4, r0, #0x0
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x1
 	beq _0207552C
 	add r0, r4, #0x0
@@ -23,37 +23,37 @@ FUN_0207550C: ; 0x0207550C
 _0207552C:
 	add r0, r4, #0x0
 	mov r1, #0x1b
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	bne _02075580
 	add r0, r4, #0x0
 	mov r1, #0x1c
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	bne _02075580
 	add r0, r4, #0x0
 	mov r1, #0x1d
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	bne _02075580
 	add r0, r4, #0x0
 	mov r1, #0x1e
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	bne _02075580
 	add r0, r4, #0x0
 	mov r1, #0x1f
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	bne _02075580
 	add r0, r4, #0x0
 	mov r1, #0x20
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	bne _02075580
 	add r0, r4, #0x0
 	mov r1, #0x21
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _0207558A
 _02075580:
@@ -64,7 +64,7 @@ _02075580:
 _0207558A:
 	add r0, r4, #0x0
 	mov r1, #0x18
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _020755A0
 	add r0, r4, #0x0
@@ -74,7 +74,7 @@ _0207558A:
 _020755A0:
 	add r0, r4, #0x0
 	mov r1, #0x19
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _020755B6
 	add r0, r4, #0x0
@@ -84,31 +84,31 @@ _020755A0:
 _020755B6:
 	add r0, r4, #0x0
 	mov r1, #0xf
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	add r5, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x10
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	lsl r0, r0, #0x1
 	add r5, r5, r0
 	add r0, r4, #0x0
 	mov r1, #0x11
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	lsl r0, r0, #0x2
 	add r5, r5, r0
 	add r0, r4, #0x0
 	mov r1, #0x12
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	lsl r0, r0, #0x3
 	add r5, r5, r0
 	add r0, r4, #0x0
 	mov r1, #0x13
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	lsl r0, r0, #0x4
 	add r5, r5, r0
 	add r0, r4, #0x0
 	mov r1, #0x14
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	lsl r0, r0, #0x5
 	add r5, r5, r0
 	cmp r5, #0x10
@@ -174,7 +174,7 @@ _02075664:
 _0207566E:
 	add r0, r4, #0x0
 	mov r1, #0x26
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _02075684
 	add r0, r4, #0x0
@@ -189,7 +189,7 @@ _02075684:
 _0207568E:
 	add r0, r4, #0x0
 	mov r1, #0x15
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _020756A4
 	add r0, r4, #0x0
@@ -199,7 +199,7 @@ _0207568E:
 _020756A4:
 	add r0, r4, #0x0
 	mov r1, #0x26
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _020756BA
 	add r0, r4, #0x0
@@ -209,7 +209,7 @@ _020756A4:
 _020756BA:
 	add r0, r4, #0x0
 	mov r1, #0x30
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	ble _020756D0
 	add r0, r4, #0x0
@@ -225,7 +225,7 @@ _020756D0:
 _020756DC:
 	add r0, r4, #0x0
 	mov r1, #0x31
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	ble _020756F2
 	add r0, r4, #0x0
@@ -241,7 +241,7 @@ _020756F2:
 _020756FE:
 	add r0, r4, #0x0
 	mov r1, #0x32
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	ble _02075714
 	add r0, r4, #0x0
@@ -257,7 +257,7 @@ _02075714:
 _02075720:
 	add r0, r4, #0x0
 	mov r1, #0x33
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	ble _02075736
 	add r0, r4, #0x0
@@ -273,7 +273,7 @@ _02075736:
 _02075742:
 	add r0, r4, #0x0
 	mov r1, #0x34
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	ble _02075758
 	add r0, r4, #0x0
@@ -289,7 +289,7 @@ _02075758:
 _02075764:
 	add r0, r4, #0x0
 	mov r1, #0x35
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	ble _0207577A
 	add r0, r4, #0x0
@@ -305,7 +305,7 @@ _0207577A:
 _02075786:
 	add r0, r4, #0x0
 	mov r1, #0x1a
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _0207579C
 	add r0, r4, #0x0
@@ -315,7 +315,7 @@ _02075786:
 _0207579C:
 	add r0, r4, #0x0
 	mov r1, #0x22
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _020757B2
 	add r0, r4, #0x0
@@ -325,7 +325,7 @@ _0207579C:
 _020757B2:
 	add r0, r4, #0x0
 	mov r1, #0x23
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _020757C8
 	add r0, r4, #0x0
@@ -335,12 +335,12 @@ _020757B2:
 _020757C8:
 	add r0, r4, #0x0
 	mov r1, #0x24
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	bne _020757E0
 	add r0, r4, #0x0
 	mov r1, #0x25
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	cmp r0, #0x0
 	beq _020757EA
 _020757E0:
@@ -1444,7 +1444,7 @@ FUN_02076144: ; 0x02076144
 	push {r3, lr}
 	mov r1, #0x18
 	mov r2, #0xc
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0x0
 	beq _02076156
 	mov r0, #0x1
@@ -2559,7 +2559,7 @@ _02076AC6:
 	blo _02076AAA
 _02076AD4:
 	ldrh r0, [r0, #0x24]
-	bl FUN_0206EA7C
+	bl ItemToTMHMId
 	add r1, r0, #0x0
 	add r0, r6, #0x0
 	bl FUN_0206A13C
@@ -3105,7 +3105,7 @@ FUN_02076F2C: ; 0x02076F2C
 	cmp r0, #0x0
 	beq _02076FA8
 	ldrh r0, [r1, #0x26]
-	bl FUN_0206EA54
+	bl MoveIsHM
 	cmp r0, #0x0
 	bne _02076F98
 	ldr r0, _02076FAC ; =0x000005A4

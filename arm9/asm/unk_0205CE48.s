@@ -802,7 +802,7 @@ FUN_0205D400: ; 0x0205D400
 	add r0, #0x22
 	strb r1, [r0, #0x0]
 	ldrh r0, [r6, #0x4]
-	bl FUN_0206EA30
+	bl TMHMGetMove
 	strh r0, [r4, #0x26]
 	ldr r1, _0205D490 ; =UNK_020F96DC
 	add r0, r5, #0x0
@@ -830,7 +830,7 @@ FUN_0205D498: ; 0x0205D498
 	bl FUN_0204652C
 	add r4, r0, #0x0
 	ldrh r0, [r5, #0x4]
-	bl FUN_0206EAB8
+	bl ItemToMailId
 	add r2, r0, #0x0
 	add r0, r6, #0x0
 	mov r1, #0x3
@@ -1711,7 +1711,7 @@ _0205DB66:
 	mov r1, #0x6
 	mov r2, #0xb
 	str r0, [sp, #0x0]
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
 	mov r0, #0x2

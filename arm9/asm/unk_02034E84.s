@@ -1,12 +1,6 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern UNK_020F222A
-	.extern UNK_020F2228
-	.extern UNK_020F2232
-	.extern UNK_020F222E
-	.extern UNK_020F2226
-	.extern UNK_020F222C
 	.extern UNK_020F2224
 
 	.text
@@ -36,25 +30,25 @@ FUN_02034E90: ; 0x02034E90
 	add r4, r1, #0x0
 	bl FUN_02034E78
 	lsl r1, r0, #0x4
-	ldr r0, _02034EB8 ; =UNK_020F222A
+	ldr r0, _02034EB8 ; =UNK_020F2224 + 6
 	ldrh r0, [r0, r1]
 	str r0, [r4, #0x0]
 	mov r0, #0x0
 	mvn r0, r0
 	str r0, [r4, #0x4]
-	ldr r0, _02034EBC ; =UNK_020F222C
+	ldr r0, _02034EBC ; =UNK_020F2224 + 8
 	ldrh r0, [r0, r1]
 	str r0, [r4, #0x8]
-	ldr r0, _02034EC0 ; =UNK_020F222E
+	ldr r0, _02034EC0 ; =UNK_020F2224 + 10
 	ldrh r0, [r0, r1]
 	str r0, [r4, #0xc]
 	mov r0, #0x1
 	str r0, [r4, #0x10]
 	pop {r4, pc}
 	.balign 4
-_02034EB8: .word UNK_020F222A
-_02034EBC: .word UNK_020F222C
-_02034EC0: .word UNK_020F222E
+_02034EB8: .word UNK_020F2224 + 6
+_02034EBC: .word UNK_020F2224 + 8
+_02034EC0: .word UNK_020F2224 + 10
 
 	thumb_func_start FUN_02034EC4
 FUN_02034EC4: ; 0x02034EC4
@@ -68,10 +62,10 @@ FUN_02034EC4: ; 0x02034EC4
 	mov r0, #0x0
 	mvn r0, r0
 	str r0, [r4, #0x4]
-	ldr r0, _02034EF0 ; =UNK_020F2226
+	ldr r0, _02034EF0 ; =UNK_020F2224 + 2
 	ldrh r0, [r0, r1]
 	str r0, [r4, #0x8]
-	ldr r0, _02034EF4 ; =UNK_020F2228
+	ldr r0, _02034EF4 ; =UNK_020F2224 + 4
 	ldrh r0, [r0, r1]
 	str r0, [r4, #0xc]
 	mov r0, #0x0
@@ -79,8 +73,8 @@ FUN_02034EC4: ; 0x02034EC4
 	pop {r4, pc}
 	.balign 4
 _02034EEC: .word UNK_020F2224
-_02034EF0: .word UNK_020F2226
-_02034EF4: .word UNK_020F2228
+_02034EF0: .word UNK_020F2224 + 2
+_02034EF4: .word UNK_020F2224 + 4
 
 	thumb_func_start FUN_02034EF8
 FUN_02034EF8: ; 0x02034EF8
@@ -183,7 +177,7 @@ _02034F8E:
 	beq _02034FAE
 	ldr r0, [r0, #0xc]
 	bl FUN_020462AC
-	ldr r2, _02034FBC ; =UNK_020F2232
+	ldr r2, _02034FBC ; =UNK_020F2224 + 14
 	lsl r3, r4, #0x4
 	ldrh r2, [r2, r3]
 	mov r1, #0x1
@@ -197,7 +191,7 @@ _02034FAE:
 	pop {r4, pc}
 	.balign 4
 _02034FB8: .word UNK_020F2224
-_02034FBC: .word UNK_020F2232
+_02034FBC: .word UNK_020F2224 + 14
 
 	thumb_func_start FUN_02034FC0
 FUN_02034FC0: ; 0x02034FC0
@@ -208,11 +202,11 @@ FUN_02034FC0: ; 0x02034FC0
 	add r4, r0, #0x0
 	ldr r0, [r5, #0xc]
 	bl FUN_020462AC
-	ldr r2, _02034FE0 ; =UNK_020F2232
+	ldr r2, _02034FE0 ; =UNK_020F2224 + 14
 	lsl r3, r4, #0x4
 	ldrh r2, [r2, r3]
 	mov r1, #0x2
 	bl FUN_0205F2E4
 	pop {r3-r5, pc}
 	.balign 4
-_02034FE0: .word UNK_020F2232
+_02034FE0: .word UNK_020F2224 + 14

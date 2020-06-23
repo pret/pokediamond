@@ -65,7 +65,7 @@ FUN_0206EBD4: ; 0x0206EBD4
 	ldr r2, [sp, #0x10]
 	mov r1, #0x5
 	add r6, r3, #0x0
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0x7
 	bhi _0206EC64
 	add r1, r0, r0

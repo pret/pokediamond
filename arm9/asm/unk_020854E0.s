@@ -257,7 +257,7 @@ FUN_020856A0: ; 0x020856A0
 	pop {r3-r7, pc}
 _020856BC:
 	bl FUN_020257CC
-	bl FUN_0206EAD8
+	bl MailToItemId
 	str r0, [sp, #0x0]
 	add r0, r4, #0x0
 	mov r1, #0xa9

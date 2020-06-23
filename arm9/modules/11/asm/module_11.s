@@ -5697,7 +5697,7 @@ _022303E4:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230478
 	ldr r0, [sp, #0x18]
@@ -5759,7 +5759,7 @@ _02230478:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _022304DC
 	ldr r0, [sp, #0x18]
@@ -5807,7 +5807,7 @@ _022304DC:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230540
 	ldr r0, [sp, #0x18]
@@ -5855,7 +5855,7 @@ _02230540:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _022305A4
 	ldr r0, [sp, #0x18]
@@ -5903,7 +5903,7 @@ _022305A4:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230608
 	ldr r0, [sp, #0x18]
@@ -5951,7 +5951,7 @@ _02230608:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230650
 	ldr r0, [sp, #0x10]
@@ -5986,7 +5986,7 @@ _02230650:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _022306AC
 	ldr r0, [sp, #0x10]
@@ -6029,7 +6029,7 @@ _022306AC:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230706
 	ldr r0, [sp, #4]
@@ -6070,7 +6070,7 @@ _02230706:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230744
 	ldr r0, [sp, #0x10]
@@ -6100,7 +6100,7 @@ _02230744:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230782
 	ldr r0, [sp, #0x10]
@@ -6130,7 +6130,7 @@ _02230782:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _022307C0
 	ldr r0, [sp, #0x10]
@@ -6160,7 +6160,7 @@ _022307C0:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _022307FE
 	ldr r0, [sp, #0x10]
@@ -6190,7 +6190,7 @@ _022307FE:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _0223083C
 	ldr r0, [sp, #0x10]
@@ -6220,7 +6220,7 @@ _0223083C:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _0223087A
 	ldr r0, [sp, #0x10]
@@ -6250,7 +6250,7 @@ _0223087A:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _022308C4
 	ldr r0, [sp, #0x10]
@@ -6286,7 +6286,7 @@ _022308C4:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _0223095A
 	ldr r0, [sp, #0x38]
@@ -6294,7 +6294,7 @@ _022308C4:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	str r0, [sp, #0x20]
 	add r1, r4, #0
 	ldr r0, [sp, #0x18]
@@ -6355,7 +6355,7 @@ _0223095A:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _022309F8
 	ldr r0, [sp, #0x38]
@@ -6363,7 +6363,7 @@ _0223095A:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	str r0, [sp, #0x20]
 	mov r4, #0
 _0223097E:
@@ -6430,7 +6430,7 @@ _022309F8:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	bne _02230A0C
 	b _02230B14
@@ -6442,7 +6442,7 @@ _02230A0C:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230A36
 	ldr r0, [sp, #0x18]
@@ -6480,7 +6480,7 @@ _02230A42:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	str r0, [sp, #0x20]
 	cmp r0, #0xfd
 	beq _02230AA2
@@ -6530,7 +6530,7 @@ _02230AC2:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	bne _02230B10
 	ldr r0, [sp, #4]
@@ -6566,7 +6566,7 @@ _02230B14:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230B4A
 	ldr r0, [sp, #0x18]
@@ -6583,7 +6583,7 @@ _02230B14:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	str r0, [sp, #8]
 _02230B4A:
 	ldr r0, [sp, #0x38]
@@ -6591,7 +6591,7 @@ _02230B4A:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230B8E
 	ldr r0, [sp, #0x18]
@@ -6614,7 +6614,7 @@ _02230B4A:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	str r0, [sp, #8]
 _02230B8E:
 	ldr r0, [sp, #0x38]
@@ -6622,7 +6622,7 @@ _02230B8E:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02230BC4
 	ldr r0, [sp, #0x18]
@@ -6639,7 +6639,7 @@ _02230B8E:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	str r0, [sp, #8]
 _02230BC4:
 	ldr r0, [sp, #8]
@@ -6679,7 +6679,7 @@ _02230BFC:
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0x34
 	bne _02230C28
 	ldr r1, [sp, #8]
@@ -26647,7 +26647,7 @@ _0223A7D6:
 	lsr r0, r0, #0x10
 	mov r1, #1
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0x32
 	beq _0223A81E
 	add r0, r5, #0
@@ -26751,7 +26751,7 @@ _0223A8B0:
 	lsr r0, r0, #0x10
 	mov r1, #1
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	str r0, [sp, #0x18]
 	ldr r0, [sp, #0x38]
 	mov r1, #1
@@ -27998,12 +27998,12 @@ MOD11_0223B2DC: ; 0x0223B2DC
 	add r0, r6, #0
 	mov r1, #1
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	add r5, r0, #0
 	add r0, r6, #0
 	mov r1, #2
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	add r6, r0, #0
 	add r0, r4, #0
 	str r0, [sp, #0x18]
@@ -31772,7 +31772,7 @@ _0223D216:
 	add r0, r4, r0
 	bl LoadAllWazaTbl
 	mov r0, #5
-	bl FUN_0206EB50
+	bl LoadAllItemData
 	ldr r1, _0223D234 ; =0x00002120
 	str r0, [r4, r1]
 	add r0, r4, #0
@@ -51873,7 +51873,7 @@ MOD11_02246C50: ; 0x02246C50
 	bne _02246C9E
 	ldr r0, [sp, #4]
 	ldrh r0, [r4, r0]
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	bne _02246C9E
 	mov r7, #1
@@ -51893,7 +51893,7 @@ MOD11_02246CAC: ; 0x02246CAC
 	add r1, r0, r2
 	ldr r0, _02246CC8 ; =0x00002DB8
 	ldrh r0, [r1, r0]
-	bl FUN_0206EA98
+	bl ItemIdIsMail
 	cmp r0, #0
 	bne _02246CC4
 	mov r0, #1
@@ -59246,7 +59246,7 @@ _0224A444:
 	ldr r0, _0224A4DC ; =0x00002DB8
 	add r1, r4, r1
 	ldrh r0, [r1, r0]
-	bl FUN_0206EAEC
+	bl ItemIdIsBerry
 	cmp r0, #1
 	bne _0224A45A
 	mov r6, #1
@@ -61028,7 +61028,7 @@ _0224B1D8:
 	mov r2, #5
 	ldrh r0, [r0, r1]
 	mov r1, #1
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bl GetArceusTypeByHeldItemEffect
@@ -62999,13 +62999,13 @@ MOD11_0224C12C: ; 0x0224C12C
 	add r0, r1, #0
 	mov r1, #0
 	add r4, r2, #0
-	bl FUN_0206E640
+	bl GetItemIndexMapping
 	add r1, r0, #0
 	ldr r0, _0224C14C ; =0x00002120
 	ldr r0, [r5, r0]
-	bl FUN_0206EB78
+	bl GetItemDataPtrFromArray
 	add r1, r4, #0
-	bl FUN_0206E7DC
+	bl GetItemAttr_PreloadedItemData
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _0224C14C: .word 0x00002120
@@ -74093,7 +74093,7 @@ _0225191C:
 	mov r1, #0x26
 	ldrh r0, [r0, #0x1c]
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02251954
 	ldr r0, [r4]
@@ -74762,7 +74762,7 @@ _02251E6A:
 	str r0, [sp, #0x24]
 	ldr r0, [r4, #4]
 	ldrh r0, [r0, #0x1c]
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02251E9E
 	mov r6, #0
@@ -74772,7 +74772,7 @@ _02251E9E:
 	mov r1, #0x10
 	ldrh r0, [r0, #0x1c]
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02251EB2
 	mov r6, #1
@@ -74782,7 +74782,7 @@ _02251EB2:
 	mov r1, #0x11
 	ldrh r0, [r0, #0x1c]
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02251EC6
 	mov r6, #2
@@ -74792,7 +74792,7 @@ _02251EC6:
 	mov r1, #0x12
 	ldrh r0, [r0, #0x1c]
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02251EDA
 	mov r6, #3
@@ -74802,7 +74802,7 @@ _02251EDA:
 	mov r1, #0x13
 	ldrh r0, [r0, #0x1c]
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02251EEE
 	mov r6, #4
@@ -74812,7 +74812,7 @@ _02251EEE:
 	mov r1, #0x14
 	ldrh r0, [r0, #0x1c]
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02251F02
 	mov r6, #5
@@ -74822,7 +74822,7 @@ _02251F02:
 	mov r1, #0x15
 	ldrh r0, [r0, #0x1c]
 	mov r2, #5
-	bl FUN_0206E7B8
+	bl GetItemAttr
 	cmp r0, #0
 	beq _02251F16
 	mov r6, #6
