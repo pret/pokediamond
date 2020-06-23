@@ -162,6 +162,8 @@ void ReadPngPalette(char *path, struct Palette *palette)
         palette->colors[i].blue = colors[i].blue;
     }
 
+    palette->bitDepth = png_get_bit_depth(png_ptr, info_ptr);
+
     png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
 
     fclose(fp);

@@ -246,6 +246,68 @@ void ReadImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int 
 	free(buffer);
 }
 
+void ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors)
+{
+    int fileSize;
+    unsigned char *buffer = ReadWholeFile(path, &fileSize);
+
+    if (memcmp(buffer, "RGCN", 4) != 0)
+    {
+        FATAL_ERROR("Not a valid NCGR character file.\n");
+    }
+
+    unsigned char *charHeader = buffer + 0x10;
+
+    if (memcmp(charHeader, "RAHC", 4) != 0)
+    {
+        FATAL_ERROR("No valid CHAR file after NCLR header.\n");
+    }
+
+    bitDepth = bitDepth ? bitDepth : (charHeader[0xC] == 3 ? 4 : 8);
+
+    if (bitDepth == 4)
+    {
+        image->palette.numColors = 16;
+    }
+
+    unsigned char *imageData = charHeader + 0x20;
+
+    int tileSize = bitDepth * 8;
+
+    int numTiles = (charHeader[0x18] + (charHeader[0x19] << 8) + (charHeader[0x1A] << 16) + (charHeader[0x1B] << 24))
+            / (64 / (8 / bitDepth));
+
+    int tilesHeight = (numTiles + tilesWidth - 1) / tilesWidth;
+
+    if (tilesWidth % metatileWidth != 0)
+        FATAL_ERROR("The width in tiles (%d) isn't a multiple of the specified metatile width (%d)", tilesWidth, metatileWidth);
+
+    if (tilesHeight % metatileHeight != 0)
+        FATAL_ERROR("The height in tiles (%d) isn't a multiple of the specified metatile height (%d)", tilesHeight, metatileHeight);
+
+
+    image->width = tilesWidth * 8;
+    image->height = tilesHeight * 8;
+    image->bitDepth = bitDepth;
+    image->pixels = calloc(tilesWidth * tilesHeight, tileSize);
+
+    if (image->pixels == NULL)
+        FATAL_ERROR("Failed to allocate memory for pixels.\n");
+    
+    int metatilesWide = tilesWidth / metatileWidth;
+
+    switch (bitDepth) {
+        case 4:
+            ConvertFromTiles4Bpp(imageData, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+            break;
+        case 8:
+            ConvertFromTiles8Bpp(imageData, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+            break;
+    }
+
+    free(buffer);
+}
+
 void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors)
 {
 	int tileSize = bitDepth * 8;
@@ -297,6 +359,97 @@ void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int m
 	free(buffer);
 }
 
+void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder)
+{
+    FILE *fp = fopen(path, "wb");
+
+    if (fp == NULL)
+        FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
+
+    int tileSize = bitDepth * 8;
+
+    if (image->width % 8 != 0)
+        FATAL_ERROR("The width in pixels (%d) isn't a multiple of 8.\n", image->width);
+
+    if (image->height % 8 != 0)
+        FATAL_ERROR("The height in pixels (%d) isn't a multiple of 8.\n", image->height);
+
+    int tilesWidth = image->width / 8;
+    int tilesHeight = image->height / 8;
+
+    if (tilesWidth % metatileWidth != 0)
+        FATAL_ERROR("The width in tiles (%d) isn't a multiple of the specified metatile width (%d)", tilesWidth, metatileWidth);
+
+    if (tilesHeight % metatileHeight != 0)
+        FATAL_ERROR("The height in tiles (%d) isn't a multiple of the specified metatile height (%d)", tilesHeight, metatileHeight);
+
+    int maxNumTiles = tilesWidth * tilesHeight;
+
+    if (numTiles == 0)
+        numTiles = maxNumTiles;
+    else if (numTiles > maxNumTiles)
+        FATAL_ERROR("The specified number of tiles (%d) is greater than the maximum possible value (%d).\n", numTiles, maxNumTiles);
+
+    int bufferSize = numTiles * tileSize;
+    unsigned char *pixelBuffer = malloc(bufferSize);
+
+    if (pixelBuffer == NULL)
+        FATAL_ERROR("Failed to allocate memory for pixels.\n");
+
+    int metatilesWide = tilesWidth / metatileWidth;
+
+    switch (bitDepth) {
+        case 4:
+            ConvertToTiles4Bpp(image->pixels, pixelBuffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+            break;
+        case 8:
+            ConvertToTiles8Bpp(image->pixels, pixelBuffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
+            break;
+    }
+
+    WriteGenericNtrHeader(fp, "RGCN", bufferSize + 0x20, byteOrder);
+
+    unsigned char charHeader[0x20] = { 0x52, 0x41, 0x48, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                       0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00 };
+
+    charHeader[4] = (bufferSize + 0x20) & 0xFF;
+    charHeader[5] = ((bufferSize + 0x20) >> 8) & 0xFF;
+    charHeader[6] = ((bufferSize + 0x20) >> 16) & 0xFF;
+    charHeader[7] = ((bufferSize + 0x20) >> 24) & 0xFF;
+
+    if (!clobberSize)
+    {
+        charHeader[8] = numTiles & 0xFF;
+        charHeader[9] = (numTiles >> 8) & 0xFF;
+
+        charHeader[10] = tileSize & 0xFF;
+        charHeader[11] = (tileSize >> 8) & 0xFF;
+    }
+    else
+    {
+        charHeader[8] = 0xFF;
+        charHeader[9] = 0xFF;
+        charHeader[10] = 0xFF;
+        charHeader[11] = 0xFF;
+
+        charHeader[16] = 0x10; //seems to be set when size is clobbered
+    }
+
+    charHeader[12] = bitDepth == 4 ? 3 : 4;
+
+    charHeader[24] = bufferSize & 0xFF;
+    charHeader[25] = (bufferSize >> 8) & 0xFF;
+    charHeader[26] = (bufferSize >> 16) & 0xFF;
+    charHeader[27] = (bufferSize >> 24) & 0xFF;
+
+    fwrite(charHeader, 1, 0x20, fp);
+
+    fwrite(pixelBuffer, 1, bufferSize, fp);
+
+    free(pixelBuffer);
+    fclose(fp);
+}
+
 void FreeImage(struct Image *image)
 {
 	free(image->pixels);
@@ -343,7 +496,9 @@ void ReadNtrPalette(char *path, struct Palette *palette)
     if ((fileSize - 0x28) % 2 != 0)
         FATAL_ERROR("The file size (%d) is not a multiple of 2.\n", fileSize);
 
-    palette->numColors = (fileSize - 0x28) / 2; //remove header and divide by 2
+    palette->bitDepth = paletteHeader[0x8] == 3 ? 4 : 8;
+
+    palette->numColors = palette->bitDepth == 4 ? 16 : 256; //remove header and divide by 2
 
     unsigned char *paletteData = paletteHeader + 0x18;
 
@@ -386,7 +541,7 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
     if (fp == NULL)
         FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
 
-    uint32_t size = palette->numColors * 2;
+    uint32_t size = 256 * 2; //todo check if there's a better way to detect :/
     uint32_t extSize = size + (ncpr ? 0x10 : 0x18);
 
     //NCLR header
@@ -404,6 +559,8 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
     palHeader[6] = (extSize >> 16) & 0xFF;
     palHeader[7] = (extSize >> 24) & 0xFF;
 
+    if (!palette->bitDepth)
+        palette->bitDepth = 4;
     //bit depth
     palHeader[8] = palette->bitDepth == 4 ? 0x03: 0x04;
 
@@ -415,21 +572,29 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
 
     fwrite(palHeader, 1, 0x18, fp);
 
-    unsigned char colours[palette->numColors * 2];
+    unsigned char colours[256 * 2];
     //palette data
-    for (int i = 0; i < palette->numColors; i++)
+    for (int i = 0; i < 256; i++)
     {
-        unsigned char red = DOWNCONVERT_BIT_DEPTH(palette->colors[i].red);
-        unsigned char green = DOWNCONVERT_BIT_DEPTH(palette->colors[i].green);
-        unsigned char blue = DOWNCONVERT_BIT_DEPTH(palette->colors[i].blue);
+        if (i < palette->numColors)
+        {
+            unsigned char red = DOWNCONVERT_BIT_DEPTH(palette->colors[i].red);
+            unsigned char green = DOWNCONVERT_BIT_DEPTH(palette->colors[i].green);
+            unsigned char blue = DOWNCONVERT_BIT_DEPTH(palette->colors[i].blue);
 
-        uint16_t paletteEntry = SET_GBA_PAL(red, green, blue);
+            uint16_t paletteEntry = SET_GBA_PAL(red, green, blue);
 
-        colours[i * 2] = paletteEntry & 0xFF;
-        colours[i * 2 + 1] = paletteEntry >> 8;
+            colours[i * 2] = paletteEntry & 0xFF;
+            colours[i * 2 + 1] = paletteEntry >> 8;
+        }
+        else
+        {
+            colours[i * 2] = 0x00;
+            colours[i * 2 + 1] = 0x00;
+        }
     }
 
-    fwrite(colours, 1, palette->numColors * 2, fp);
+    fwrite(colours, 1, 256 * 2, fp);
 
     fclose(fp);
 }
