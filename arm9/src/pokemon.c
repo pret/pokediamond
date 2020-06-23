@@ -3257,37 +3257,37 @@ u32 GetArceusTypeByHeldItemEffect(u16 heldEffect)
 {
     switch (heldEffect)
     {
-    case 0x7D:
+    case HOLD_EFFECT_ARCEUS_FIRE:
         return TYPE_FIRE;
-    case 0x7E:
+    case HOLD_EFFECT_ARCEUS_WATER:
         return TYPE_WATER;
-    case 0x7F:
+    case HOLD_EFFECT_ARCEUS_ELECTRIC:
         return TYPE_ELECTRIC;
-    case 0x80:
+    case HOLD_EFFECT_ARCEUS_GRASS:
         return TYPE_GRASS;
-    case 0x81:
+    case HOLD_EFFECT_ARCEUS_ICE:
         return TYPE_ICE;
-    case 0x82:
+    case HOLD_EFFECT_ARCEUS_FIGHT:
         return TYPE_FIGHTING;
-    case 0x83:
+    case HOLD_EFFECT_ARCEUS_POISON:
         return TYPE_POISON;
-    case 0x84:
+    case HOLD_EFFECT_ARCEUS_GROUND:
         return TYPE_GROUND;
-    case 0x85:
+    case HOLD_EFFECT_ARCEUS_FLYING:
         return TYPE_FLYING;
-    case 0x86:
+    case HOLD_EFFECT_ARCEUS_PSYCHIC:
         return TYPE_PSYCHIC;
-    case 0x87:
+    case HOLD_EFFECT_ARCEUS_BUG:
         return TYPE_BUG;
-    case 0x88:
+    case HOLD_EFFECT_ARCEUS_ROCK:
         return TYPE_ROCK;
-    case 0x89:
+    case HOLD_EFFECT_ARCEUS_GHOST:
         return TYPE_GHOST;
-    case 0x8A:
+    case HOLD_EFFECT_ARCEUS_DRAGON:
         return TYPE_DRAGON;
-    case 0x8B:
+    case HOLD_EFFECT_ARCEUS_DARK:
         return TYPE_DARK;
-    case 0x8C:
+    case HOLD_EFFECT_ARCEUS_STEEL:
         return TYPE_STEEL;
     default:
         return TYPE_NORMAL;
