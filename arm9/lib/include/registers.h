@@ -73,15 +73,6 @@
 #define reg_MI_DMA2_CLR_DATA       (*(REGType32v *)0x40000e8)
 #define reg_MI_DMA3_CLR_DATA       (*(REGType32v *)0x40000ec)
 
-#define reg_OS_TM0CNT_L            (*(REGType16v *)0x4000100)
-#define reg_OS_TM0CNT_H            (*(REGType16v *)0x4000102)
-#define reg_OS_TM1CNT_L            (*(REGType16v *)0x4000104)
-#define reg_OS_TM1CNT_H            (*(REGType16v *)0x4000106)
-#define reg_OS_TM2CNT_L            (*(REGType16v *)0x4000108)
-#define reg_OS_TM2CNT_H            (*(REGType16v *)0x400010a)
-#define reg_OS_TM3CNT_L            (*(REGType16v *)0x400010c)
-#define reg_OS_TM3CNT_H            (*(REGType16v *)0x400010e)
-
 #define reg_EXI_SIODATA32          (*(REGType32v *)0x4000120)
 #define reg_EXI_SIOCNT             (*(REGType16v *)0x4000128)
 #define reg_EXI_SIOSEL             (*(REGType32v *)0x400012c)
@@ -354,7 +345,6 @@
 #define reg_MI_MCD1                (*(REGType32v *)0x4100010)
 #define reg_CARD_DATA              (*(REGType32v *)0x4100010) //?
 
-#define REG_OS_TM0CNT_H_PS_SHIFT                           0
 #define REG_OS_IE_T0_SHIFT                                 3
 
 #define REG_OS_TM0CNT_H_I_MASK                             0x0040
