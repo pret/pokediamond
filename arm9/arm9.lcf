@@ -635,6 +635,7 @@ SECTIONS {
 		unk_02033F50.o (.rodata)
 		unk_02034188.o (.rodata)
 		unk_02034710.o (.rodata)
+		unk_02034E84.o (.rodata)
 		unk_02034FE4.o (.rodata)
 		unk_02035068.o (.rodata)
 		unk_020377B0.o (.rodata)

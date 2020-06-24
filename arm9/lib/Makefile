@@ -7,10 +7,6 @@ ifneq (,$(wildcard $(TOOLCHAIN)/base_tools))
 include $(TOOLCHAIN)/base_tools
 endif
 
-### Default target ###
-
-default: all
-
 # If you are using WSL, it is recommended you build with NOWINE=1.
 WSLENV ?= no
 ifeq ($(WSLENV),)
@@ -73,6 +69,7 @@ LIBS := libsyscall.a
 .PHONY: all clean
 
 all: $(LIBS)
+	@:
 
 clean:
 	$(RM) $(LIBS) $(LIBS:%.a=%/*.o)
