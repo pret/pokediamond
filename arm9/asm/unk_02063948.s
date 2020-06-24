@@ -1265,7 +1265,7 @@ FUN_020642B4: ; 0x020642B4
 	add r0, r5, #0x0
 	bl FUN_0204649C
 	mov r0, #0x72
-	ldr r1, _0206430C ; =0x021F6361
+	ldr r1, _0206430C ; =MOD05_021F6360
 	lsl r0, r0, #0x2
 	str r1, [r4, r0]
 	add r0, #0x30
@@ -1286,7 +1286,7 @@ FUN_020642B4: ; 0x020642B4
 	bl FUN_02028AD4
 	pop {r4-r6, pc}
 	.balign 4
-_0206430C: .word 0x021F6361
+_0206430C: .word MOD05_021F6360
 
 	thumb_func_start FUN_02064310
 FUN_02064310: ; 0x02064310
