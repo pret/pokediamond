@@ -1,12 +1,13 @@
 #include "OS_interrupt.h"
 #include "OS_system.h"
 #include "OS_tick.h"
+#include "OS_timer.h"
 #include "function_target.h"
 
 extern void OSi_SetTimerReserved(u32);
 
 static u16 OSi_UseTick;
-static u64 OSi_TickCounter;
+static OSTick OSi_TickCounter;
 static BOOL OSi_NeedResetTimer;
 
 ARM_FUNC void OS_InitTick(void) {
@@ -38,7 +39,7 @@ ARM_FUNC void OSi_CountUpTick(void) {
     OSi_EnterTimerCallback(0, (void(*)(void*))OSi_CountUpTick, NULL);
 }
 
-ARM_FUNC u64 OS_GetTick(void) {
+ARM_FUNC OSTick OS_GetTick(void) {
     OSIntrMode prev = OS_DisableInterrupts();
     vu16 countL = *(REGType16 *)((u32)&reg_OS_TM0CNT_L + OS_TIMER_0 * 4);
     vu64 countH = OSi_TickCounter & 0xffffffffffffULL;
