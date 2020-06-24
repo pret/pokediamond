@@ -6,6 +6,7 @@
 #include "MWC_string.h"
 #include "function_target.h"
 #include "nitro.h"
+#include "global.fieldmap.h"
 #include "constants/global.h"
 
 #define NELEMS(a) (sizeof(a) / sizeof(*(a)))
@@ -35,6 +36,6 @@ extern void ErrorHandling(void);
 #define GF_ASSERT(expr) do {if (!(expr)) ErrorHandling();} while (0)
 
 extern const enum GameLanguage gGameLanguage;
-extern const enum GameVersion gGameVersion;
+extern const u8 gGameVersion;
 
 #endif //GUARD_GLOBAL_H
