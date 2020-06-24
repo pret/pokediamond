@@ -21,4 +21,14 @@ struct PngToGbaOptions {
     int metatileHeight;
 };
 
+struct PngToNtrOptions {
+    int numTiles;
+    int bitDepth;
+    int metatileWidth;
+    int metatileHeight;
+    bool clobberSize;
+    bool byteOrder;
+};
+
+
 #endif // OPTIONS_H
