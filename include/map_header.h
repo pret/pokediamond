@@ -1,12 +1,6 @@
 #ifndef POKEDIAMOND_MAP_HEADER_H
 #define POKEDIAMOND_MAP_HEADER_H
 
-struct UnkStruct_020EED78
-{
-    u16 unk0;
-    u16 unk2;
-};
-
 u8 FUN_02034724(u32 mapno);
 u8 FUN_02034738(u32 mapno);
 u16 FUN_0203474C(u32 mapno);
