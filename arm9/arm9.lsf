@@ -519,6 +519,7 @@ Overlay MODULE_13
 }
 Overlay MODULE_14
 {
+	/* Menu? */
 	Address 0x021D74E0
 	Object module_14.o
 }
@@ -764,6 +765,7 @@ Overlay MODULE_62
 }
 Overlay MODULE_63
 {
+	/* Title Demo */
 	Address 0x021D74E0
 	Object module_63.o
 }
@@ -824,6 +826,7 @@ Overlay MODULE_74
 }
 Overlay MODULE_75
 {
+	/* Player's bag */
 	Address 0x021E6BA0
 	Object module_75.o
 }
