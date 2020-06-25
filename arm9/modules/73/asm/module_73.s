@@ -1059,7 +1059,7 @@ _021D7D94:
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _021D7DAE
-	ldr r0, _021D7F54 ; =0x021C48B8
+	ldr r0, _021D7F54 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -1108,7 +1108,7 @@ _021D7DF4:
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	blt _021D7E14
-	ldr r0, _021D7F54 ; =0x021C48B8
+	ldr r0, _021D7F54 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -1221,7 +1221,7 @@ _021D7ED6:
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	blt _021D7EF4
-	ldr r0, _021D7F54 ; =0x021C48B8
+	ldr r0, _021D7F54 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -1272,7 +1272,7 @@ _021D7F44: .word 0x0000063C
 _021D7F48: .word 0x00001410
 _021D7F4C: .word 0x000006C3
 _021D7F50: .word 0x021C48F8
-_021D7F54: .word 0x021C48B8
+_021D7F54: .word gUnknown21C48B8
 _021D7F58: .word 0x0000152C
 _021D7F5C: .word 0x00001420
 _021D7F60: .word 0x00001418

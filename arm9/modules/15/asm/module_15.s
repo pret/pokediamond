@@ -68,7 +68,7 @@ MOD15_021D7558: ; 0x021D7558
 	push {r4, lr}
 	bl FUN_02006278
 	add r4, r0, #0
-	ldr r0, _021D7594 ; =0x021C48B8
+	ldr r0, _021D7594 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	strh r1, [r4, #0x30]
 	ldr r1, [r0, #0x44]
@@ -94,7 +94,7 @@ _021D7586:
 	blx r2
 	pop {r4, pc}
 	nop
-_021D7594: .word 0x021C48B8
+_021D7594: .word gUnknown21C48B8
 
 	thumb_func_start MOD15_021D7598
 MOD15_021D7598: ; 0x021D7598

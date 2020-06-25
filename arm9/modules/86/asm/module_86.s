@@ -174,7 +174,7 @@ _021D764E:
 	str r0, [r5]
 	b _021D76A0
 _021D765C:
-	ldr r0, _021D76A8 ; =0x021C48B8
+	ldr r0, _021D76A8 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	and r0, r1
@@ -213,7 +213,7 @@ _021D76A0:
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	nop
-_021D76A8: .word 0x021C48B8
+_021D76A8: .word gUnknown21C48B8
 _021D76AC: .word 0x021C48F8
 	thumb_func_end MOD86_021D758C
 

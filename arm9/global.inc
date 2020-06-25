@@ -5448,6 +5448,7 @@
 .extern FUN_02089D90
 .extern FUN_02089F24
 .extern FUN_0208A0B8
+.extern FUN_0208A258
 .extern FUN_0208A300
 .extern FUN_0208A320
 .extern FUN_0208A328
