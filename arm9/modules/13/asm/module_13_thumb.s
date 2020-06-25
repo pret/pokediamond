@@ -373,7 +373,7 @@ MOD13_02217530: ; 0x02217530
 	pop {r3}
 	bx r3
 _0221756A:
-	ldr r5, _02217590 ; =0x021C8F04
+	ldr r5, _02217590 ; =CPSMyIp
 	ldr r0, [r5]
 	cmp r0, #0
 	bne _02217580
@@ -392,7 +392,7 @@ _02217580:
 	bx r3
 	nop
 _0221758C: .word MOD13_0223F7C8
-_02217590: .word 0x021C8F04
+_02217590: .word CPSMyIp
 
 	thumb_func_start MOD13_02217594
 MOD13_02217594: ; 0x02217594
