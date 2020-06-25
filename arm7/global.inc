@@ -380,7 +380,7 @@
 .extern _038078F4
 .extern OSiHeapInfo
 .extern _0380791C
-.extern _03807920
+.extern OSi_UseTick
 .extern OSi_NeedResetTimer
 .extern OSi_TickCounter
 .extern _03807930
