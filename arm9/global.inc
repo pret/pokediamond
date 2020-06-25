@@ -5448,6 +5448,7 @@
 .extern FUN_02089D90
 .extern FUN_02089F24
 .extern FUN_0208A0B8
+.extern FUN_0208A258
 .extern FUN_0208A300
 .extern FUN_0208A320
 .extern FUN_0208A328
@@ -5744,6 +5745,7 @@
 .extern FUN_020C1180
 .extern FUN_020C13C4
 .extern FUN_020C1430
+.extern FUN_020C1458
 .extern FUN_020C14AC
 .extern FUN_020C1674
 .extern FUN_020C169C
@@ -7584,6 +7586,7 @@
 .extern SOCLiSocketList
 .extern SOCLiSocketListTrash
 .extern SOCLiUDPSendSocket
+.extern SOCLiYieldWait
 .extern SOCLi_CleanupCommandPacketQueue
 .extern SOCLi_CommandPacketHandler
 .extern SOCLi_CreateCommandPacket
@@ -7700,7 +7703,11 @@
 .extern UNK_021C93A0
 .extern UNK_021C9520
 .extern UNK_021C9EE0
+.extern UNK_021D74A8
 .extern Unk_0210683C
+.extern UNK_0210420C
+.extern UNK_0210428C
+.extern UNK_0210430C
 .extern Unk_02106840
 .extern Unk_02106900
 .extern Unk_02106A00
@@ -7950,6 +7957,8 @@
 .extern wcstombs
 .extern wctomb
 .extern wmemcpy
+.extern WCM_Bssid_Any
+.extern WCM_Essid_Any
 .extern WCMi_GetSystemWork
 .extern WCM_CompareBssID
 .extern WCMi_ResetKeepAliveAlarm
