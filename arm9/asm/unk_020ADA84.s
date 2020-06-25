@@ -6370,24 +6370,16 @@ _020B13B8:
 	cmp r0, #0x8
 	addls pc, pc, r0, lsl #0x2
 	b _020B1444
-_020B13E4:
-	b _020B1444
-_020B13E8:
-	b _020B1414
-_020B13EC:
-	b _020B141C
-_020B13F0:
-	b _020B1444
-_020B13F4:
-	b _020B1424
-_020B13F8:
-	b _020B1444
-_020B13FC:
-	b _020B1444
-_020B1400:
-	b _020B1444
-_020B1404:
-	b _020B142C
+	; Jump table
+	b _020B1444 ; case 0
+	b _020B1414 ; case 1
+	b _020B141C ; case 2
+	b _020B1444 ; case 3
+	b _020B1424 ; case 4
+	b _020B1444 ; case 5
+	b _020B1444 ; case 6
+	b _020B1444 ; case 7
+	b _020B142C ; case 8
 _020B1408:
 	cmp r0, #0x20
 	beq _020B143C
@@ -6422,24 +6414,16 @@ _020B1448:
 	cmp r0, #0x8
 	addls pc, pc, r0, lsl #0x2
 	b _020B14CC
-_020B146C:
-	b _020B14CC
-_020B1470:
-	b _020B149C
-_020B1474:
-	b _020B14A4
-_020B1478:
-	b _020B14CC
-_020B147C:
-	b _020B14AC
-_020B1480:
-	b _020B14CC
-_020B1484:
-	b _020B14CC
-_020B1488:
-	b _020B14CC
-_020B148C:
-	b _020B14B4
+	; Jump table
+	b _020B14CC ; case 0
+	b _020B149C ; case 1
+	b _020B14A4 ; case 2
+	b _020B14CC ; case 3
+	b _020B14AC ; case 4
+	b _020B14CC ; case 5
+	b _020B14CC ; case 6
+	b _020B14CC ; case 7
+	b _020B14B4 ; case 8
 _020B1490:
 	cmp r0, #0x20
 	beq _020B14C4
@@ -6563,24 +6547,16 @@ _020B15F8:
 	cmp r0, #0x8
 	addls pc, pc, r0, lsl #0x2
 	b _020B1684
-_020B1624:
-	b _020B1684
-_020B1628:
-	b _020B1654
-_020B162C:
-	b _020B165C
-_020B1630:
-	b _020B1684
-_020B1634:
-	b _020B1664
-_020B1638:
-	b _020B1684
-_020B163C:
-	b _020B1684
-_020B1640:
-	b _020B1684
-_020B1644:
-	b _020B166C
+	; Jump table
+	b _020B1684 ; case 0
+	b _020B1654 ; case 1
+	b _020B165C ; case 2
+	b _020B1684 ; case 3
+	b _020B1664 ; case 4
+	b _020B1684 ; case 5
+	b _020B1684 ; case 6
+	b _020B1684 ; case 7
+	b _020B166C ; case 8
 _020B1648:
 	cmp r0, #0x20
 	beq _020B167C
@@ -6615,24 +6591,16 @@ _020B1688:
 	cmp r0, #0x8
 	addls pc, pc, r0, lsl #0x2
 	b _020B170C
-_020B16AC:
-	b _020B170C
-_020B16B0:
-	b _020B16DC
-_020B16B4:
-	b _020B16E4
-_020B16B8:
-	b _020B170C
-_020B16BC:
-	b _020B16EC
-_020B16C0:
-	b _020B170C
-_020B16C4:
-	b _020B170C
-_020B16C8:
-	b _020B170C
-_020B16CC:
-	b _020B16F4
+	; Jump table
+	b _020B170C ; case 0
+	b _020B16DC ; case 1
+	b _020B16E4 ; case 2
+	b _020B170C ; case 3
+	b _020B16EC ; case 4
+	b _020B170C ; case 5
+	b _020B170C ; case 6
+	b _020B170C ; case 7
+	b _020B16F4 ; case 8
 _020B16D0:
 	cmp r0, #0x20
 	beq _020B1704
@@ -6756,24 +6724,16 @@ _020B1838:
 	cmp r0, #0x8
 	addls pc, pc, r0, lsl #0x2
 	b _020B18C4
-_020B1864:
-	b _020B18C4
-_020B1868:
-	b _020B1894
-_020B186C:
-	b _020B189C
-_020B1870:
-	b _020B18C4
-_020B1874:
-	b _020B18A4
-_020B1878:
-	b _020B18C4
-_020B187C:
-	b _020B18C4
-_020B1880:
-	b _020B18C4
-_020B1884:
-	b _020B18AC
+	; Jump table
+	b _020B18C4 ; case 0
+	b _020B1894 ; case 1
+	b _020B189C ; case 2
+	b _020B18C4 ; case 3
+	b _020B18A4 ; case 4
+	b _020B18C4 ; case 5
+	b _020B18C4 ; case 6
+	b _020B18C4 ; case 7
+	b _020B18AC ; case 8
 _020B1888:
 	cmp r0, #0x20
 	beq _020B18BC
@@ -6808,24 +6768,16 @@ _020B18C8:
 	cmp r0, #0x8
 	addls pc, pc, r0, lsl #0x2
 	b _020B194C
-_020B18EC:
-	b _020B194C
-_020B18F0:
-	b _020B191C
-_020B18F4:
-	b _020B1924
-_020B18F8:
-	b _020B194C
-_020B18FC:
-	b _020B192C
-_020B1900:
-	b _020B194C
-_020B1904:
-	b _020B194C
-_020B1908:
-	b _020B194C
-_020B190C:
-	b _020B1934
+	; Jump table
+	b _020B194C ; case 0
+	b _020B191C ; case 1
+	b _020B1924 ; case 2
+	b _020B194C ; case 3
+	b _020B192C ; case 4
+	b _020B194C ; case 5
+	b _020B194C ; case 6
+	b _020B194C ; case 7
+	b _020B1934 ; case 8
 _020B1910:
 	cmp r0, #0x20
 	beq _020B1944
@@ -7959,14 +7911,11 @@ _020B2828:
 	cmp r0, #0x3
 	addls pc, pc, r0, lsl #0x2
 	b _020B288C
-_020B2860:
-	b _020B2870
-_020B2864:
-	b _020B288C
-_020B2868:
-	b _020B2870
-_020B286C:
-	b _020B2870
+	; Jump table
+	b _020B2870 ; case 0
+	b _020B288C ; case 1
+	b _020B2870 ; case 2
+	b _020B2870 ; case 3
 _020B2870:
 	ldr r0, _020B28B0 ; =UNK_021CDD64
 	mov r1, #0x1
@@ -8056,14 +8005,11 @@ _020B297C:
 	cmp r0, #0x3
 	addls pc, pc, r0, lsl #0x2
 	b _020B29E0
-_020B29B4:
-	b _020B29C4
-_020B29B8:
-	b _020B29E0
-_020B29BC:
-	b _020B29C4
-_020B29C0:
-	b _020B29C4
+	; Jump table
+	b _020B29C4 ; case 0
+	b _020B29E0 ; case 1
+	b _020B29C4 ; case 2
+	b _020B29C4 ; case 3
 _020B29C4:
 	ldr r0, _020B2A04 ; =UNK_021CDD64
 	mov r1, #0x1
@@ -10529,14 +10475,11 @@ _020B4C7C:
 	cmp r0, #0x3
 	addls pc, pc, r0, lsl #0x2
 	b _020B4CB8
-_020B4C8C:
-	b _020B4C9C
-_020B4C90:
-	b _020B4CAC
-_020B4C94:
-	b _020B4CAC
-_020B4C98:
-	b _020B4CB8
+	; Jump table
+	b _020B4C9C ; case 0
+	b _020B4CAC ; case 1
+	b _020B4CAC ; case 2
+	b _020B4CB8 ; case 3
 _020B4C9C:
 	mov r0, r5
 	mov r1, r6
@@ -10588,14 +10531,11 @@ _020B4D24:
 	cmp r0, #0x3
 	addls pc, pc, r0, lsl #0x2
 	b _020B4D74
-_020B4D48:
-	b _020B4D58
-_020B4D4C:
-	b _020B4D68
-_020B4D50:
-	b _020B4D68
-_020B4D54:
-	b _020B4D74
+	; Jump table
+	b _020B4D58 ; case 0
+	b _020B4D68 ; case 1
+	b _020B4D68 ; case 2
+	b _020B4D74 ; case 3
 _020B4D58:
 	mov r0, r4
 	mov r1, r5
@@ -27356,14 +27296,11 @@ _020C3500:
 	cmp r0, #0x3
 	addls pc, pc, r0, lsl #0x2
 	b _020C35C0
-_020C3510:
-	b _020C3520
-_020C3514:
-	b _020C3570
-_020C3518:
-	b _020C3598
-_020C351C:
-	b _020C3548
+	; Jump table
+	b _020C3520 ; case 0
+	b _020C3570 ; case 1
+	b _020C3598 ; case 2
+	b _020C3548 ; case 3
 _020C3520:
 	str r5, [sp, #0x0]
 	ldrb r1, [r6, #0x1]
