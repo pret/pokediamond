@@ -7,7 +7,7 @@
 
 struct SoundData
 {
-    struct SDATHeader header;
+    struct SDATFileMgr header;
     void * unk_00090;
     u8 unk_00094[0xBBC00];
     u32 unk_BBC94[9];

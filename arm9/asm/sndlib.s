@@ -196,8 +196,8 @@ _020C01A8:
 	bl SND_FlushCommand
 	ldmia sp!, {r4,pc}
 
-	arm_func_start FUN_020C01D0
-FUN_020C01D0: ; 0x020C01D0
+	arm_func_start SDAT_Init
+SDAT_Init: ; 0x020C01D0
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
 	ldr r0, _020C0254 ; =UNK_021D1C94
@@ -1374,7 +1374,7 @@ FUN_020C10B4:
 	ldr r2, _020C1140 ; =FUN_020C072C
 	add r1, r5, #0x14
 	str r3, [sp, #0x0]
-	bl FUN_020C2958
+	bl SDATi_AllocAndInitChunk
 	movs r4, r0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0
@@ -2524,20 +2524,20 @@ FUN_020C1FF0: ; 0x020C1FF0
 	.balign 4
 _020C2098: .word UNK_021D27CC
 
-	arm_func_start FUN_020C209C
-FUN_020C209C: ; 0x020C209C
+	arm_func_start SDATi_SymbDtor
+SDATi_SymbDtor: ; 0x020C209C
 	mov r0, #0x0
 	str r0, [r2, #0x88]
 	bx lr
 
-	arm_func_start FUN_020C20A8
-FUN_020C20A8: ; 0x020C20A8
+	arm_func_start SDATi_FatDtor
+SDATi_FatDtor: ; 0x020C20A8
 	mov r0, #0x0
 	str r0, [r2, #0x84]
 	bx lr
 
-	arm_func_start FUN_020C20B4
-FUN_020C20B4: ; 0x020C20B4
+	arm_func_start SDATi_InfoDtor
+SDATi_InfoDtor: ; 0x020C20B4
 	mov r0, #0x0
 	str r0, [r2, #0x8c]
 	bx lr
@@ -2874,8 +2874,8 @@ _020C24F0:
 	.balign 4
 _020C2508: .word UNK_021D28C0
 
-	arm_func_start FUN_020C250C
-FUN_020C250C:
+	arm_func_start SDATi_ReadHeaders
+SDATi_ReadHeaders:
 	stmdb sp!, {r4-r6,lr}
 	sub sp, sp, #0x8
 	mov r6, r0
@@ -2902,10 +2902,10 @@ FUN_020C250C:
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r1, [r6, #0x1c]
-	ldr r2, _020C26EC ; =FUN_020C20B4
+	ldr r2, _020C26EC ; =SDATi_InfoDtor
 	mov r0, r5
 	mov r3, r6
-	bl FUN_020C2958
+	bl SDATi_AllocAndInitChunk
 	str r0, [r6, #0x8c]
 	ldr r0, [r6, #0x8c]
 	cmp r0, #0x0
@@ -2932,10 +2932,10 @@ FUN_020C250C:
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r1, [r6, #0x24]
-	ldr r2, _020C26F0 ; =FUN_020C20A8
+	ldr r2, _020C26F0 ; =SDATi_FatDtor
 	mov r0, r5
 	mov r3, r6
-	bl FUN_020C2958
+	bl SDATi_AllocAndInitChunk
 	str r0, [r6, #0x84]
 	ldr r0, [r6, #0x84]
 	cmp r0, #0x0
@@ -2965,11 +2965,11 @@ FUN_020C250C:
 	cmp r1, #0x0
 	beq _020C26E0
 	mov r4, #0x0
-	ldr r2, _020C26F4 ; =FUN_020C209C
+	ldr r2, _020C26F4 ; =SDATi_SymbDtor
 	mov r0, r5
 	mov r3, r6
 	str r4, [sp, #0x0]
-	bl FUN_020C2958
+	bl SDATi_AllocAndInitChunk
 	str r0, [r6, #0x88]
 	ldr r0, [r6, #0x88]
 	cmp r0, #0x0
@@ -2998,12 +2998,12 @@ _020C26E0:
 	add sp, sp, #0x8
 	ldmia sp!, {r4-r6,pc}
 	.balign 4
-_020C26EC: .word FUN_020C20B4
-_020C26F0: .word FUN_020C20A8
-_020C26F4: .word FUN_020C209C
+_020C26EC: .word SDATi_InfoDtor
+_020C26F0: .word SDATi_FatDtor
+_020C26F4: .word SDATi_SymbDtor
 
-	arm_func_start FUN_020C26F8
-FUN_020C26F8: ; 0x020C26F8
+	arm_func_start SDAT_Open
+SDAT_Open: ; 0x020C26F8
 	; r0: &sSoundDataBuffer
 	; r1: char* filename
 	; r2: (&sSoundDataBuffer)->unk_0090
@@ -3033,7 +3033,7 @@ FUN_020C26F8: ; 0x020C26F8
 	mov r1, r5
 	mov r2, r4
 	str r3, [r6, #0x30]
-	bl FUN_020C250C
+	bl SDATi_ReadHeaders
 	cmp r0, #0x0
 	ldrne r0, _020C2770 ; =UNK_021D28C0
 	strne r6, [r0, #0x0]
@@ -3188,8 +3188,8 @@ FUN_020C290C: ; 0x020C290C
 	mvn r0, #0x0
 	ldmia sp!, {r4,pc}
 
-	arm_func_start FUN_020C2958
-FUN_020C2958: ; 0x020C2958
+	arm_func_start SDATi_AllocAndInitChunk
+SDATi_AllocAndInitChunk: ; 0x020C2958
 	stmdb sp!, {r4-r8,lr}
 	mov r7, r1
 	mov r8, r0
@@ -3200,7 +3200,7 @@ FUN_020C2958: ; 0x020C2958
 	add r1, r1, #0x20
 	mov r2, #0x20
 	mov r5, r3
-	bl FUN_020AE638
+	bl FUN_020AE638 // some allocator?
 	movs r4, r0
 	moveq r0, #0x0
 	ldmeqia sp!, {r4-r8,pc}
@@ -3407,7 +3407,7 @@ FUN_020C2BE0:
 	mov r3, r7
 	add r1, r9, #0x20
 	str r6, [sp, #0x0]
-	bl FUN_020C2958
+	bl SDATi_AllocAndInitChunk
 	movs r4, r0
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
@@ -3585,7 +3585,7 @@ _020C2EB0:
 	mov r0, r8
 	add r1, r5, #0x20
 	str r9, [sp, #0x0]
-	bl FUN_020C2958
+	bl SDATi_AllocAndInitChunk
 	movs r6, r0
 	addeq sp, sp, #0x4
 	moveq r0, #0x0
@@ -3791,7 +3791,7 @@ FUN_020C3134: ; 0x020C3134
 	mov r3, r6
 	add r1, r5, #0x20
 	str r4, [sp, #0x0]
-	bl FUN_020C2958
+	bl SDATi_AllocAndInitChunk
 	movs r4, r0
 	addeq sp, sp, #0x8
 	moveq r0, #0x0

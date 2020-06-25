@@ -2347,7 +2347,7 @@ _021D86CE:
 	str r1, [r2, r0]
 	mov r0, #1
 	bl FUN_020AA770
-	bl FUN_020C01D0
+	bl SDAT_Init
 	ldr r0, _021D8718 ; =UNK04_0220FBC8
 	ldr r1, [r0, #4]
 	ldr r0, _021D8728 ; =0x00003504
