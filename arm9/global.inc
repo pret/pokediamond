@@ -264,7 +264,7 @@
 .extern FUN_02003A30
 .extern FUN_02003A64
 .extern FUN_02003B40
-.extern FUN_02003B98
+.extern InitSoundData
 .extern FUN_02003C10
 .extern FUN_02003CE8
 .extern FUN_02003D38

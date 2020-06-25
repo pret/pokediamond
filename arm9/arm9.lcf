@@ -131,7 +131,7 @@ SECTIONS {
 		unk_02002C14.o (.text)
 		unk_02002F08.o (.text)
 		unk_020030E8.o (.text)
-		unk_02003B98.o (.text)
+		sound.o (.text)
 		unk_020040F4.o (.text)
 		unk_020051F4.o (.text)
 		unk_02005CFC.o (.text)
@@ -772,7 +772,7 @@ SECTIONS {
 		SDK_STATIC_TEXT_END = .;
 
 		SDK_STATIC_DATA_START = .;
-		unk_02003B98.o (.data)
+		sound.o (.data)
 		filesystem.o (.data)
 		unk_02006D98.o (.data)
 		unk_0200E850.o (.data)
@@ -846,7 +846,7 @@ SECTIONS {
 		main.o (.bss)
 		unk_020023C0.o (.bss)
 		unk_02002C14.o (.bss)
-		unk_02003B98.o (.bss)
+		sound.o (.bss)
 		unk_020040F4.o (.bss)
 		poke_overlay.o (.bss)
 		unk_02009EAC.o (.bss)

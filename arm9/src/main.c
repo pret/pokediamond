@@ -6,6 +6,8 @@
 #include "PAD_pad.h"
 #include "main.h"
 #include "poke_overlay.h"
+#include "options.h"
+#include "sound.h"
 
 FS_EXTERN_OVERLAY(MODULE_52);
 FS_EXTERN_OVERLAY(MODULE_63);
@@ -31,9 +33,7 @@ extern void FUN_0201259C(void);
 extern void FUN_02002C14(void);
 extern void FUN_02002C50(int, int);
 extern struct UnkStruct_021C59C8 * FUN_0202254C(void);
-extern void FUN_02003B98(int, int);
-extern int FUN_02029EF8(struct UnkStruct_021C59C8 *);
-extern int LoadPlayerDataAddress(struct UnkStruct_021C59C8 *);
+extern u32 FUN_02029EF8(struct UnkStruct_021C59C8 *);
 extern void FUN_02020AFC(void);
 extern int FUN_020337E8(int);
 extern void FUN_02034188(int, int);
@@ -75,7 +75,7 @@ THUMB_FUNC void NitroMain(void)
     FUN_02002C50(3, 3);
     gBacklightTop.unk18 = -1;
     gBacklightTop.unk20 = FUN_0202254C();
-    FUN_02003B98(FUN_02029EF8(gBacklightTop.unk20), LoadPlayerDataAddress(gBacklightTop.unk20));
+    InitSoundData(FUN_02029EF8(gBacklightTop.unk20), LoadPlayerDataAddress(gBacklightTop.unk20));
     FUN_02020AFC();
     if (FUN_020337E8(3) == 3)
         FUN_02034188(3, 0);
