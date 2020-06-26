@@ -123,7 +123,7 @@ UNK_020F2DB4: ; 0x020F2DB4
 
 	.global UNK_020F34DC
 UNK_020F34DC: ; 0x020F34DC
-	.byte 0xD1, 0x02, 0x00, 0x00
+	.word 721 ; NELEMS(gScriptCmdTable)
 
 	.global UNK_020F34E0
 UNK_020F34E0: ; 0x020F34E0
@@ -1925,7 +1925,7 @@ FUN_02039484: ; 0x02039484
 	thumb_func_start FUN_0203949C
 FUN_0203949C: ; 0x0203949C
 	push {r3, lr}
-	bl FUN_02034788
+	bl MapHeader_GetScrSeqReleaseNo
 	add r1, r0, #0x0
 	mov r0, #0xa
 	mov r2, #0xb
@@ -1935,10 +1935,10 @@ FUN_0203949C: ; 0x0203949C
 
 	thumb_func_start FUN_020394B0
 FUN_020394B0: ; 0x020394B0
-	ldr r3, _020394B4 ; =FUN_02034774
+	ldr r3, _020394B4 ; =MapHeader_GetMsgBank
 	bx r3
 	.balign 4
-_020394B4: .word FUN_02034774 
+_020394B4: .word MapHeader_GetMsgBank 
 
 	thumb_func_start FUN_020394B8
 FUN_020394B8: ; 0x020394B8

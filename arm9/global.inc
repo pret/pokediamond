@@ -2478,8 +2478,8 @@
 .extern FUN_02034724
 .extern FUN_02034738
 .extern FUN_0203474C
-.extern FUN_02034774
-.extern FUN_02034788
+.extern MapHeader_GetMsgBank
+.extern MapHeader_GetScrSeqReleaseNo
 .extern FUN_0203479C
 .extern FUN_020347B0
 .extern FUN_020347C4

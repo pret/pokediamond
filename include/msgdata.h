@@ -1,6 +1,7 @@
 #ifndef POKEDIAMOND_MSG_DATA_H
 #define POKEDIAMOND_MSG_DATA_H
 
+#include "filesystem.h"
 #include "string16.h"
 
 struct MsgDataAlloc

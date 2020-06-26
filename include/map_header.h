@@ -4,8 +4,8 @@
 u8 FUN_02034724(u32 mapno);
 u8 FUN_02034738(u32 mapno);
 u16 FUN_0203474C(u32 mapno);
-u16 FUN_02034774(u32 mapno);
-u16 FUN_02034788(u32 mapno);
+u16 MapHeader_GetMsgBank(u32 mapno);
+u16 MapHeader_GetScrSeqReleaseNo(u32 mapno);
 u16 FUN_0203479C(u32 mapno);
 u16 FUN_020347B0(u32 mapno);
 u16 FUN_020347C4(u32 mapno);

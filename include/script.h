@@ -2,6 +2,7 @@
 #define _SCRIPT_H_
 
 #include "global.h"
+#include "msgdata.h"
 
 struct ScriptContext;
 
@@ -17,17 +18,17 @@ struct ScriptContext
     const u8 *scriptPtr;
     const u8 *stack[20];
     ScrCmdFunc *cmdTable;
-    ScrCmdFunc *cmdTableEnd;
+    u32 cmdCount;
     u32 data[4];
 	u32 unk74;
-	u32 unk78;
-	u32 unk7C;
+	struct MsgData * unk78;
+	u8 *unk7C;
 	void * unk80;
 };
 
 #define ScriptReadByte(ctx) (*(ctx->scriptPtr++))
 
-void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, void *cmdTableEnd);
+void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32 cmdCount);
 u8 SetupBytecodeScript(struct ScriptContext *ctx, const u8 *ptr);
 void SetupNativeScript(struct ScriptContext *ctx, u8 (*ptr)(struct ScriptContext *));
 void StopScript(struct ScriptContext *ctx);
