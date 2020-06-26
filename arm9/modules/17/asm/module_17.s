@@ -411,19 +411,19 @@ MOD17_021D7794: ; 0x021D7794
 	bl MOD17_021D7D08
 	bl MOD17_021D7D28
 	bl MOD17_021D7DB0
-	ldr r0, _021D77B0 ; =0x021C4918
+	ldr r0, _021D77B0 ; =gUnk021C4918
 	mov r1, #1
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
 	pop {r3, pc}
 	nop
-_021D77B0: .word 0x021C4918
+_021D77B0: .word gUnk021C4918
 	thumb_func_end MOD17_021D7794
 
 	thumb_func_start MOD17_021D77B4
 MOD17_021D77B4: ; 0x021D77B4
 	push {r3, lr}
-	ldr r0, _021D77D0 ; =0x021C4918
+	ldr r0, _021D77D0 ; =gUnk021C4918
 	mov r1, #0
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -432,7 +432,7 @@ MOD17_021D77B4: ; 0x021D77B4
 	bl GX_ResetBankForTex
 	pop {r3, pc}
 	nop
-_021D77D0: .word 0x021C4918
+_021D77D0: .word gUnk021C4918
 	thumb_func_end MOD17_021D77B4
 
 	thumb_func_start MOD17_021D77D4
@@ -5151,12 +5151,12 @@ _021D9CD0: .word 0x000006A4
 
 	thumb_func_start MOD17_021D9CD4
 MOD17_021D9CD4: ; 0x021D9CD4
-	ldr r3, _021D9CDC ; =0x020DF4A4
+	ldr r3, _021D9CDC ; =memset
 	mov r1, #0
 	mov r2, #0xac
 	bx r3
 	.align 2, 0
-_021D9CDC: .word 0x020DF4A4
+_021D9CDC: .word memset
 	thumb_func_end MOD17_021D9CD4
 
 	thumb_func_start MOD17_021D9CE0
@@ -13821,7 +13821,7 @@ _021DDBBC:
 	ldr r0, [r5, #8]
 	str r0, [r4, #0xc]
 	bl MOD17_021D7794
-	ldr r0, _021DDC2C ; =0x021C4918
+	ldr r0, _021DDC2C ; =gUnk021C4918
 	mov r1, #0
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -13864,7 +13864,7 @@ _021DDC02:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021DDC28: .word MOD17_021DDD40
-_021DDC2C: .word 0x021C4918
+_021DDC2C: .word gUnk021C4918
 	thumb_func_end MOD17_021DDB58
 
 	thumb_func_start MOD17_021DDC30

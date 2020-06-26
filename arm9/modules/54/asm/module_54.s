@@ -1968,7 +1968,7 @@ MOD54_021D84D4: ; 0x021D84D4
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
-	ldr r0, _021D8514 ; =0x021C4918
+	ldr r0, _021D8514 ; =gUnk021C4918
 	mov r1, #1
 	strb r1, [r0, #8]
 	mov r0, #0x33
@@ -1993,7 +1993,7 @@ MOD54_021D84D4: ; 0x021D84D4
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D8514: .word 0x021C4918
+_021D8514: .word gUnk021C4918
 	thumb_func_end MOD54_021D84D4
 
 	thumb_func_start MOD54_021D8518
@@ -2035,7 +2035,7 @@ _021D852A:
 	str r1, [r5, #0xc]
 	lsl r0, r0, #4
 	str r1, [r5, r0]
-	ldr r0, _021D8580 ; =0x021C4918
+	ldr r0, _021D8580 ; =gUnk021C4918
 	strb r1, [r0, #8]
 	ldr r0, _021D8584 ; =0x00004A40
 	strb r1, [r5, r0]
@@ -2044,7 +2044,7 @@ _021D8576:
 	pop {r3, r4, r5, pc}
 	nop
 _021D857C: .word 0x00000658
-_021D8580: .word 0x021C4918
+_021D8580: .word gUnk021C4918
 _021D8584: .word 0x00004A40
 	thumb_func_end MOD54_021D8518
 

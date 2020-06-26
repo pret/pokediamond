@@ -4684,6 +4684,8 @@
 .extern FUN_0206475C
 .extern FUN_0206476C
 .extern FUN_0206477C
+.extern FUN_02064794
+.extern FUN_02064798
 .extern FUN_020647A4
 .extern FUN_0206486C
 .extern FUN_020649B0
@@ -7717,6 +7719,7 @@
 .extern UNK_021064BC
 .extern UNK_021064C4
 .extern gUnknown21C48B8
+.extern gUnk021C4918
 .extern UNK_021CED20
 .extern UNK_021CED98
 .extern UNK_021CEDD4
