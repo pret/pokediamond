@@ -269,10 +269,10 @@ NITROFS_FILES := data/UTF16.dat \
                  dwc/utility.bin
 
 ifeq ($(GAME_VERSION),PEARL)
-NITROFS_FILES = $(NITROFS_FILES:poketool/personal/personal.narc=poketool/personal_pearl/personal.narc)
+NITROFS_FILES := $(NITROFS_FILES:poketool/personal/personal.narc=poketool/personal_pearl/personal.narc)
 endif
 
-HOSTFS_FILES = $(NITROFS_FILES:%=files/%)
+HOSTFS_FILES := $(NITROFS_FILES:%=files/%)
 
 %.narc:
 	$(KNARC) -d $(basename $@)/ -p $@
@@ -289,8 +289,14 @@ O2NARC_TARGETS := \
 
 files/poketool/personal/pms.narc: O2NARCFLAGS = -f
 
-$(O2NARC_TARGETS): %.narc: %.json %.json.txt
-	$(JSONPROC) $^ $*.c
+ifeq (,$(NODEP))
+$(O2NARC_TARGETS): dep = $(shell $(SCANINC) -I include -I include-mw -I arm9/lib/include $(patsubst %.narc,%.json.txt,$@))
+else
+$(O2NARC_TARGETS): dep :=
+endif
+
+$(O2NARC_TARGETS): %.narc: %.json %.json.txt $$(dep)
+	$(JSONPROC) $*.json $*.json.txt $*.c
 	$(CC) $(CFLAGS) -c -o $*.o $*.c
 	$(O2NARC) $(O2NARCFLAGS) $*.o $@
 	@$(RM) $*.o $*.c

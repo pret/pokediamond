@@ -39,8 +39,18 @@ SourceFileType GetFileType(std::string& path)
         return SourceFileType::Header;
     else if (extension == "inc")
         return SourceFileType::Inc;
-    else
-        FATAL_ERROR("Unrecognized extension \"%s\"\n", extension.c_str());
+    else if (extension == "txt")
+    {
+        std::string trunc = path.substr(0, pos);
+        pos = trunc.find_last_of('.');
+        if (pos != std::string::npos)
+        {
+            std::string ext2 = trunc.substr(pos + 1);
+            if (ext2 == "json")
+                return SourceFileType::Cpp;
+        }
+    }
+    FATAL_ERROR("Unrecognized extension \"%s\"\n", extension.c_str());
     
     // Unreachable
     return SourceFileType::Cpp;

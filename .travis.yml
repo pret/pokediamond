@@ -12,6 +12,7 @@ addons:
             - binutils-arm-none-eabi
             - wine32
             - wine-stable
+            - jq
 cache:
     apt: true
 install:
@@ -33,6 +34,3 @@ notifications:
 
 after_success:
     - .travis/calcrom/webhook.sh pokediamond
-
-after_failure:
-    - .travis/post_failed.sh pokediamond
