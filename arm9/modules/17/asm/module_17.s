@@ -1920,7 +1920,7 @@ MOD17_021D82E4: ; 0x021D82E4
 	add r0, r4, #0
 	add r2, r1, #0
 	blx r3
-	ldr r3, _021D8340 ; =0x021064C0
+	ldr r3, _021D8340 ; =UNK_021064C0
 	add r4, r0, #0
 	ldr r3, [r3]
 	add r0, r6, #0
@@ -1949,7 +1949,7 @@ MOD17_021D82E4: ; 0x021D82E4
 	pop {r4, r5, r6, pc}
 	nop
 _021D833C: .word 0x021064B8
-_021D8340: .word 0x021064C0
+_021D8340: .word UNK_021064C0
 _021D8344: .word 0x7FFF0000
 _021D8348: .word 0xFFFF0000
 	thumb_func_end MOD17_021D82E4

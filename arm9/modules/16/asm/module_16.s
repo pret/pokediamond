@@ -3552,7 +3552,7 @@ MOD16_021D8F9C: ; 0x021D8F9C
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _021D9034 ; =0x021064C0
+	ldr r3, _021D9034 ; =UNK_021064C0
 	add r4, r0, #0
 	ldr r3, [r3]
 	mov r0, #0x80
@@ -3608,7 +3608,7 @@ _021D9004:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _021D9030: .word 0x021064B8
-_021D9034: .word 0x021064C0
+_021D9034: .word UNK_021064C0
 _021D9038: .word 0x7FFF0000
 _021D903C: .word 0xFFFF0000
 _021D9040: .word MOD16_021FF490

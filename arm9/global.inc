@@ -7674,6 +7674,7 @@
 .extern UNK_020FB740
 .extern UNK_020FB764
 .extern UNK_020FD144
+.extern UNK_021064C0
 .extern UNK_021C8ECC
 .extern UNK_021C8ED0
 .extern UNK_021C8ED4
@@ -7714,6 +7715,8 @@
 .extern Unk_02106900
 .extern Unk_02106A00
 .extern Unk_02106A04
+.extern UNK_020FF368
+.extern UNK_020FF3D4
 .extern UNK_020FFA38
 .extern UNK_02105BB8
 .extern UNK_021064BC
