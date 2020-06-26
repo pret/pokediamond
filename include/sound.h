@@ -61,5 +61,6 @@ BOOL FUN_02003FC4(u32 * a0);
 BOOL FUN_02003FDC(u32 * a0);
 u32 * FUN_02003FF4(int a0);
 u32 FUN_02004018(u32 a0);
+void DoSoundUpdateFrame(void);
 
 #endif //POKEDIAMOND_SOUND_H

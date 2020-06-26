@@ -41,7 +41,7 @@ void InitSoundData(u32 a0, struct Options * a1)
     FUN_02004D60(a1->unk0_4);
 }
 
-void FUN_02003C10(void)
+void DoSoundUpdateFrame(void)
 {
     struct SoundData * sdat = GetSoundDataPointer();
     if (!FUN_02003D04())

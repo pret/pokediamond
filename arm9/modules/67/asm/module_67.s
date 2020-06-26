@@ -482,7 +482,7 @@ _021D78D2:
 	thumb_func_start MOD67_021D78D8
 MOD67_021D78D8: ; 0x021D78D8
 	push {r3, lr}
-	ldr r1, _021D7954 ; =0x021C48B8
+	ldr r1, _021D7954 ; =gUnknown21C48B8
 	ldr r3, [r1, #0x48]
 	mov r1, #0x20
 	add r2, r3, #0
@@ -532,7 +532,7 @@ _021D792E:
 	mov r0, #4
 	pop {r3, pc}
 _021D793A:
-	ldr r0, _021D7954 ; =0x021C48B8
+	ldr r0, _021D7954 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #8
 	tst r0, r1
@@ -546,7 +546,7 @@ _021D7950:
 	mov r0, #1
 	pop {r3, pc}
 	.align 2, 0
-_021D7954: .word 0x021C48B8
+_021D7954: .word gUnknown21C48B8
 _021D7958: .word 0x0000105C
 	thumb_func_end MOD67_021D78D8
 

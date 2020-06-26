@@ -2238,7 +2238,7 @@ _021D858A:
 	str r0, [r5]
 	b _021D8710
 _021D85AA:
-	ldr r0, _021D8728 ; =0x021C48B8
+	ldr r0, _021D8728 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	and r1, r0
@@ -2423,7 +2423,7 @@ _021D8710:
 _021D871C: .word 0x00000554
 _021D8720: .word 0x00000151
 _021D8724: .word 0x000006CC
-_021D8728: .word 0x021C48B8
+_021D8728: .word gUnknown21C48B8
 _021D872C: .word 0x021C48F8
 _021D8730: .word 0x0000069C
 _021D8734: .word 0x0000048C
@@ -13928,7 +13928,7 @@ _021DDC9C:
 	str r0, [r4]
 	b _021DDCEA
 _021DDCAC:
-	ldr r1, _021DDCF0 ; =0x021C48B8
+	ldr r1, _021DDCF0 ; =gUnknown21C48B8
 	ldr r2, [r1, #0x48]
 	mov r1, #3
 	tst r1, r2
@@ -13964,7 +13964,7 @@ _021DDCEA:
 	add sp, #0xc
 	pop {r4, r5, pc}
 	.align 2, 0
-_021DDCF0: .word 0x021C48B8
+_021DDCF0: .word gUnknown21C48B8
 	thumb_func_end MOD17_021DDC30
 
 	thumb_func_start MOD17_021DDCF4

@@ -1596,7 +1596,7 @@ MOD55_021D81DC: ; 0x021D81DC
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
 _021D81EE:
-	ldr r2, _021D82B8 ; =0x021C48B8
+	ldr r2, _021D82B8 ; =gUnknown21C48B8
 	mov r1, #1
 	ldr r0, [r2, #0x48]
 	tst r1, r0
@@ -1700,7 +1700,7 @@ _021D82B2:
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D82B8: .word 0x021C48B8
+_021D82B8: .word gUnknown21C48B8
 _021D82BC: .word 0x000005DC
 	thumb_func_end MOD55_021D81DC
 
@@ -2194,7 +2194,7 @@ MOD55_021D868C: ; 0x021D868C
 	bl FUN_0201BD70
 	cmp r0, #0
 	bne _021D86CA
-	ldr r0, _021D86D0 ; =0x021C48B8
+	ldr r0, _021D86D0 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -2216,7 +2216,7 @@ _021D86CA:
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D86D0: .word 0x021C48B8
+_021D86D0: .word gUnknown21C48B8
 	thumb_func_end MOD55_021D868C
 
 	thumb_func_start MOD55_021D86D4
@@ -3024,7 +3024,7 @@ MOD55_021D8D14: ; 0x021D8D14
 	ldrb r1, [r5, r1]
 	cmp r1, #0
 	beq _021D8D52
-	ldr r1, _021D8E5C ; =0x021C48B8
+	ldr r1, _021D8E5C ; =gUnknown21C48B8
 	ldr r1, [r1, #0x48]
 	cmp r1, #0
 	beq _021D8D52
@@ -3045,7 +3045,7 @@ MOD55_021D8D14: ; 0x021D8D14
 	strb r1, [r5, r0]
 	b _021D8E36
 _021D8D52:
-	ldr r2, _021D8E5C ; =0x021C48B8
+	ldr r2, _021D8E5C ; =gUnknown21C48B8
 	mov r0, #1
 	ldr r3, [r2, #0x48]
 	add r1, r3, #0
@@ -3175,7 +3175,7 @@ _021D8E58:
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_021D8E5C: .word 0x021C48B8
+_021D8E5C: .word gUnknown21C48B8
 _021D8E60: .word 0x000005DC
 _021D8E64: .word 0x000003CB
 _021D8E68: .word 0x000003C9
@@ -3824,7 +3824,7 @@ _021D93D8: .word 0x00010200
 
 	thumb_func_start MOD55_021D93DC
 MOD55_021D93DC: ; 0x021D93DC
-	ldr r2, _021D93F4 ; =0x021C48B8
+	ldr r2, _021D93F4 ; =gUnknown21C48B8
 	ldr r3, [r2, #0x48]
 	mov r2, #3
 	tst r2, r3
@@ -3837,7 +3837,7 @@ _021D93EE:
 	add r0, r1, #0
 	bx lr
 	nop
-_021D93F4: .word 0x021C48B8
+_021D93F4: .word gUnknown21C48B8
 	thumb_func_end MOD55_021D93DC
 
 	thumb_func_start MOD55_021D93F8
@@ -4822,7 +4822,7 @@ MOD55_021D9C50: ; 0x021D9C50
 	add r0, r4, #0
 	pop {r4, r5, pc}
 _021D9C82:
-	ldr r0, _021D9CBC ; =0x021C48B8
+	ldr r0, _021D9CBC ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -4850,7 +4850,7 @@ _021D9CB2:
 	pop {r4, r5, pc}
 	.align 2, 0
 _021D9CB8: .word 0x04000540
-_021D9CBC: .word 0x021C48B8
+_021D9CBC: .word gUnknown21C48B8
 _021D9CC0: .word 0x000005DC
 	thumb_func_end MOD55_021D9C50
 

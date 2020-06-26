@@ -1669,7 +1669,7 @@ _021D8282:
 _021D8288:
 	cmp r6, #0
 	bne _021D82A2
-	ldr r0, _021D82B8 ; =0x021C48B8
+	ldr r0, _021D82B8 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -1689,7 +1689,7 @@ _021D82A8: .word 0x000030D4
 _021D82AC: .word 0x021C48F8
 _021D82B0: .word MOD57_021D9754
 _021D82B4: .word 0x00003318
-_021D82B8: .word 0x021C48B8
+_021D82B8: .word gUnknown21C48B8
 	thumb_func_end MOD57_021D81F8
 
 	thumb_func_start MOD57_021D82BC

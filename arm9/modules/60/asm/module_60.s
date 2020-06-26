@@ -273,7 +273,7 @@ _021D7706:
 	mov r0, #0
 	pop {r3, r4, pc}
 _021D7714:
-	ldr r0, _021D77AC ; =0x021C48B8
+	ldr r0, _021D77AC ; =gUnknown21C48B8
 	mov r1, #1
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -352,7 +352,7 @@ _021D77A0:
 	add sp, #0xc
 	pop {r3, r4, pc}
 	.align 2, 0
-_021D77AC: .word 0x021C48B8
+_021D77AC: .word gUnknown21C48B8
 _021D77B0: .word 0x0000061B
 	thumb_func_end MOD60_021D76B8
 
@@ -1388,7 +1388,7 @@ MOD60_021D801C: ; 0x021D801C
 	add r4, r1, r0
 	cmp r2, #6
 	beq _021D8080
-	ldr r0, _021D80F8 ; =0x021C48B8
+	ldr r0, _021D80F8 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #0x10
 	tst r0, r1
@@ -1424,7 +1424,7 @@ _021D805C:
 	lsr r1, r1, #0x10
 	bl MOD60_021D7EA4
 _021D8080:
-	ldr r0, _021D80F8 ; =0x021C48B8
+	ldr r0, _021D80F8 ; =gUnknown21C48B8
 	ldr r1, [r0, #0x48]
 	mov r0, #0x40
 	tst r0, r1
@@ -1483,7 +1483,7 @@ _021D80BE:
 _021D80F6:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_021D80F8: .word 0x021C48B8
+_021D80F8: .word gUnknown21C48B8
 	thumb_func_end MOD60_021D801C
 
 	.rodata
