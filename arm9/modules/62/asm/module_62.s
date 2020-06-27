@@ -1826,7 +1826,7 @@ _0222E35C: .word 0x04000580
 	thumb_func_start MOD62_0222E360
 MOD62_0222E360: ; 0x0222E360
 	push {r3, r4, r5, lr}
-	ldr r3, _0222E398 ; =0x021064B8
+	ldr r3, _0222E398 ; =UNK_021064B8
 	mov r0, #2
 	mov r1, #0
 	ldr r3, [r3]
@@ -1852,7 +1852,7 @@ _0222E390:
 	bl FUN_02012CC8
 	pop {r3, r4, r5, pc}
 	nop
-_0222E398: .word 0x021064B8
+_0222E398: .word UNK_021064B8
 _0222E39C: .word UNK_021064C0
 	thumb_func_end MOD62_0222E360
 

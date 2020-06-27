@@ -1914,7 +1914,7 @@ MOD17_021D82E4: ; 0x021D82E4
 	add r6, r3, #0
 	bl FUN_02006D98
 	str r0, [r5, #0x20]
-	ldr r3, _021D833C ; =0x021064B8
+	ldr r3, _021D833C ; =UNK_021064B8
 	mov r1, #0
 	ldr r3, [r3]
 	add r0, r4, #0
@@ -1948,7 +1948,7 @@ MOD17_021D82E4: ; 0x021D82E4
 	str r0, [r5, #0x24]
 	pop {r4, r5, r6, pc}
 	nop
-_021D833C: .word 0x021064B8
+_021D833C: .word UNK_021064B8
 _021D8340: .word UNK_021064C0
 _021D8344: .word 0x7FFF0000
 _021D8348: .word 0xFFFF0000
