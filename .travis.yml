@@ -18,13 +18,13 @@ cache:
 install:
     # These files are only accessible from Travis CI IP Addresses to prevent piracy.
     - wget http://private.martmists.com/mwccarm.zip
-    - wget http://private.martmists.com/nitro.zip
+    - wget http://private.martmists.com/nitro.tar.gz
     - unzip mwccarm.zip
     - mv mwccarm tools
-    - unzip nitro.zip
-    - mv NITRO\ SDK\ v3.0/tools/bin tools
-    - mv NITRO\ SDK\ v3.0/include/nitro/specfiles/ARM7-TS.lcf.template arm7
-    - mv NITRO\ SDK\ v3.0/include/nitro/specfiles/ARM9-TS.lcf.template arm9
+    - tar xzvf nitro.tar.gz
+    - mv NitroSDK-3_2-060901/tools/bin tools
+    - mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM7-TS.lcf.template arm7
+    - mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM9-TS.lcf.template arm9
 
 script:
     - make
