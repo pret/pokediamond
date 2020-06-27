@@ -300,7 +300,7 @@ include filesystem.mk
 # TODO: Rules for Pearl
 # FIXME: Computed secure area CRC in header is incorrect due to first 8 bytes of header not actually being "encryObj"
 $(ROM): rom.rsf $(BNR) $(SBINFILES) $(HOSTFS_FILES) tools/bin/rom_header.template.sbin
-	$(MAKEROM) -DBNR="$(BNR)" -DTITLE_NAME="$(TITLE_NAME)" -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
+	$(MAKEROM) -DBUILD_DIR="$(BUILD_DIR)" -DBNR="$(BNR)" -DTITLE_NAME="$(TITLE_NAME)" -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
 	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
 
 # Make sure build directory exists before compiling anything

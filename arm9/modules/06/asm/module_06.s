@@ -1,5 +1,6 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
+	.include "config.h"
 	.section .text
 	.balign 4, 0
 
@@ -1209,19 +1210,30 @@ MOD06_02239F80: ; 0x02239F80
 	ldr r1, _0223A01C ; =0x000022A2
 	add r0, sp, #0
 	strh r1, [r0]
+	.ifdef DIAMOND
 	mov r1, #0x3e
 	lsl r1, r1, #0xa
+	.else
+	ldr r1, _0223A01C_PEARL ; =0x0000090C
+	.endif
 	strh r1, [r0, #2]
 	mov r1, #0
 	strh r1, [r0, #4]
 	ldr r1, [r5, #0x20]
 	add r0, sp, #0
 	bl FUN_0201EF90
+	.ifdef DIAMOND
 	mov r0, #2
 	mov r1, #0x7d
+	.else
+	mov r0, #0xe
+	ldr r1, _0223A020_PEARL ; 0x007EF000
+	.endif
 	ldr r2, [r5, #0x20]
 	lsl r0, r0, #0xc
+	.ifdef DIAMOND
 	lsl r1, r1, #0x10
+	.endif
 	bl FUN_0201EC94
 	mov r0, #4
 	bl MOD06_0223B574
@@ -1245,12 +1257,23 @@ MOD06_02239F80: ; 0x02239F80
 	add sp, #0x14
 	pop {r4, r5, pc}
 	nop
+	.ifdef DIAMOND
 _0223A008: .word 0x00001701
 _0223A00C: .word 0x000C8A55
 _0223A010: .word 0x002280EF
 _0223A014: .word 0x000CA424
 _0223A018: .word 0x00268C50
 _0223A01C: .word 0x000022A2
+	.else
+_0223A008: .word 0x000010C1
+_0223A00C: .word 0x000D5052
+_0223A010: .word 0x001BFFBD
+_0223A014: .word 0x000AA361
+_0223A018: .word 0x0025DFDC
+_0223A01C: .word 0x000019A3
+_0223A01C_PEARL: .word 0x0000090C
+_0223A020_PEARL: .word 0x007EF000
+	.endif
 
 	thumb_func_start MOD06_0223A020
 MOD06_0223A020: ; 0x0223A020
@@ -4163,10 +4186,20 @@ MOD06_0223B598: ; 0x0223B598
 	str r4, [sp]
 	ldr r4, _0223B5C0 ; =0x000080B5
 	str r4, [sp, #4]
+	.ifdef DIAMOND
 	sub r4, r4, #7
+	.else
+	ldr r4, _0223B5C4 ; =0x000085A8
+	.endif
 	str r4, [sp, #8]
+	.ifdef DIAMOND
 	ldr r4, _0223B5C4 ; =0x00029BA8
 	add r1, r1, r4
+	.else
+	mov r4, #0x4b
+	lsl r4, r4, #0xc
+	sub r1, r1, r4
+	.endif
 	ldr r4, _0223B5C8 ; =0x00037294
 	sub r2, r2, r4
 	ldr r4, _0223B5CC ; =0x000B6876
@@ -4174,12 +4207,24 @@ MOD06_0223B598: ; 0x0223B598
 	bl MOD06_0223B514
 	add sp, #0xc
 	pop {r3, r4, pc}
+	.ifdef DIAMOND
 	.align 2, 0
+	.else
+	nop
+	.endif
+.ifdef DIAMOND
 _0223B5BC: .word 0x0000F49F
 _0223B5C0: .word 0x000080B5
 _0223B5C4: .word 0x00029BA8
 _0223B5C8: .word 0x00037294
 _0223B5CC: .word 0x000B6876
+.else
+_0223B5BC: .word 0x0000E667
+_0223B5C0: .word 0x0000760B
+_0223B5C4: .word 0x000085A8
+_0223B5C8: .word 0x000156B1
+_0223B5CC: .word 0x00099919
+.endif
 
 	thumb_func_start MOD06_0223B5D0
 MOD06_0223B5D0: ; 0x0223B5D0
@@ -4274,8 +4319,13 @@ MOD06_0223B66C: ; 0x0223B66C
 	str r4, [sp, #4]
 	ldr r4, _0223B6A0 ; =0x000080B5
 	str r4, [sp, #8]
+	.ifdef DIAMOND
 	sub r4, r4, #7
+	.else
+	ldr r4, _0223B6AC_PEARL ; =0x000085A8
+	.endif
 	str r4, [sp, #0xc]
+	.ifdef DIAMOND
 	mov r4, #0x11
 	lsl r4, r4, #0xc
 	add r1, r1, r4
@@ -4284,13 +4334,29 @@ MOD06_0223B66C: ; 0x0223B66C
 	sub r2, r2, r4
 	mov r4, #0xcb
 	lsl r4, r4, #0xc
+	.else
+	mov r4, #0x3e
+	lsl r4, r4, #0xc
+	sub r1, r1, r4
+	mov r4, #0x4f
+	lsl r4, r4, #0xc
+	sub r2, r2, r4
+	mov r4, #0xd
+	lsl r4, r4, #0x10
+	.endif
 	sub r3, r3, r4
 	bl MOD06_0223B20C
 	add sp, #0x10
 	pop {r4, pc}
 	nop
+	.ifdef DIAMOND
 _0223B69C: .word 0x0000F49F
 _0223B6A0: .word 0x000080B5
+	.else
+_0223B69C: .word 0x0000E667
+_0223B6A0: .word 0x0000760B
+_0223B6AC_PEARL: .word 0x000085A8
+	.endif
 
 	thumb_func_start MOD06_0223B6A4
 MOD06_0223B6A4: ; 0x0223B6A4
@@ -31366,7 +31432,7 @@ MOD06_02248BC0: ; 0x02248BC0
 	mov r1, #2
 	bl MOD06_02248B1C
 	add r0, r4, #0
-	mov r1, #0xa
+	mov r1, #GAME_VERSION
 	bl MOD06_02248B20
 	add r0, r6, #0
 	bl FUN_0202B544
@@ -31403,7 +31469,7 @@ MOD06_02248C18: ; 0x02248C18
 	mov r1, #2
 	bl MOD06_02248B1C
 	add r0, r4, #0
-	mov r1, #0xa
+	mov r1, #GAME_VERSION
 	bl MOD06_02248B20
 	mov r0, #0
 	str r0, [r4, #0x14]
