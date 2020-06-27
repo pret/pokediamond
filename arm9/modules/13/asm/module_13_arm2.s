@@ -25832,7 +25832,7 @@ MOD13_022342A0: ; 0x022342A0
 	ldr r1, _0223432C ; =0x02243154
 	ldr r1, [r1]
 	str r0, [r1, #0x94]
-	bl FUN_020C01D0
+	bl SDAT_Init
 	ldr r0, _0223432C ; =0x02243154
 	ldr r0, [r0]
 	ldr r1, [r0, #0x94]

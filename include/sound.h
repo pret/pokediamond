@@ -7,7 +7,7 @@
 
 struct SoundData
 {
-    struct SDATHeader header;
+    struct SDATFileMgr header;
     void * unk_00090;
     u8 unk_00094[0xBBC00];
     u32 unk_BBC94[9];
@@ -61,5 +61,6 @@ BOOL FUN_02003FC4(u32 * a0);
 BOOL FUN_02003FDC(u32 * a0);
 u32 * FUN_02003FF4(int a0);
 u32 FUN_02004018(u32 a0);
+void DoSoundUpdateFrame(void);
 
 #endif //POKEDIAMOND_SOUND_H

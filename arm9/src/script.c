@@ -1,21 +1,21 @@
 #include "script.h"
 
-THUMB_FUNC void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, void *cmdTableEnd)
+THUMB_FUNC void InitScriptContext(struct ScriptContext *ctx, void *cmdTable, u32 cmdCount)
 {
-    u32 i;
+    int i;
 
     ctx->mode = 0;
-    ctx->scriptPtr = 0;
+    ctx->scriptPtr = NULL;
     ctx->stackDepth = 0;
-    ctx->nativePtr = 0;
+    ctx->nativePtr = NULL;
     ctx->cmdTable = cmdTable;
-    ctx->cmdTableEnd = cmdTableEnd;
+    ctx->cmdCount = cmdCount;
 
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < NELEMS(ctx->data); i++)
         ctx->data[i] = 0;
 
-    for (i = 0; i < 20; i++)
-        ctx->stack[i] = 0;
+    for (i = 0; i < NELEMS(ctx->stack); i++)
+        ctx->stack[i] = NULL;
 
     ctx->unk74 = 0;
 }
@@ -74,8 +74,7 @@ THUMB_FUNC u8 RunScriptCommand(struct ScriptContext *ctx)
             }
 
             cmdCode = ScriptReadHalfword(ctx);
-            u32 cmdTableEnd = (u32)ctx->cmdTableEnd;
-            if (cmdCode >= cmdTableEnd)
+            if (cmdCode >= ctx->cmdCount)
             {
                 ErrorHandling();
                 ctx->mode = 0;
