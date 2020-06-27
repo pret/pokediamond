@@ -12,19 +12,21 @@ addons:
             - binutils-arm-none-eabi
             - wine32
             - wine-stable
-            - jq
 cache:
     apt: true
 install:
     # These files are only accessible from Travis CI IP Addresses to prevent piracy.
+    - mkdir -p $HOME/download
+    - pushd $HOME/download
     - wget http://private.martmists.com/mwccarm.zip
     - wget http://private.martmists.com/nitro.tar.gz
     - unzip mwccarm.zip
-    - mv mwccarm tools
-    - tar xzvf nitro.tar.gz
-    - mv NitroSDK-3_2-060901/tools/bin tools
-    - mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM7-TS.lcf.template arm7
-    - mv NitroSDK-3_2-060901/include/nitro/specfiles/ARM9-TS.lcf.template arm9
+    - mv mwccarm $TRAVIS_BUILD_DIR/tools
+    - tar xzf nitro.tar.gz
+    - mv tools/bin $TRAVIS_BUILD_DIR/tools
+    - mv include/nitro/specfiles/ARM7-TS.lcf.template $TRAVIS_BUILD_DIR/arm7
+    - mv include/nitro/specfiles/ARM9-TS.lcf.template $TRAVIS_BUILD_DIR/arm9
+    - popd
 
 script:
     - make
