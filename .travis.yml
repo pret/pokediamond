@@ -16,14 +16,17 @@ cache:
     apt: true
 install:
     # These files are only accessible from Travis CI IP Addresses to prevent piracy.
+    - mkdir -p $HOME/download
+    - pushd $HOME/download
     - wget http://private.martmists.com/mwccarm.zip
-    - wget http://private.martmists.com/nitro.zip
+    - wget http://private.martmists.com/nitro.tar.gz
     - unzip mwccarm.zip
-    - mv mwccarm tools
-    - unzip nitro.zip
-    - mv NITRO\ SDK\ v3.0/tools/bin tools
-    - mv NITRO\ SDK\ v3.0/include/nitro/specfiles/ARM7-TS.lcf.template arm7
-    - mv NITRO\ SDK\ v3.0/include/nitro/specfiles/ARM9-TS.lcf.template arm9
+    - mv mwccarm $TRAVIS_BUILD_DIR/tools
+    - tar xzf nitro.tar.gz
+    - mv tools/bin $TRAVIS_BUILD_DIR/tools
+    - mv include/nitro/specfiles/ARM7-TS.lcf.template $TRAVIS_BUILD_DIR/arm7
+    - mv include/nitro/specfiles/ARM9-TS.lcf.template $TRAVIS_BUILD_DIR/arm9
+    - popd
 
 script:
     - make
@@ -33,6 +36,3 @@ notifications:
 
 after_success:
     - .travis/calcrom/webhook.sh pokediamond
-
-after_failure:
-    - .travis/post_failed.sh pokediamond

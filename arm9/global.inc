@@ -265,7 +265,7 @@
 .extern FUN_02003A64
 .extern FUN_02003B40
 .extern InitSoundData
-.extern FUN_02003C10
+.extern DoSoundUpdateFrame
 .extern FUN_02003CE8
 .extern FUN_02003D38
 .extern FUN_02003F3C
@@ -2478,8 +2478,8 @@
 .extern FUN_02034724
 .extern FUN_02034738
 .extern FUN_0203474C
-.extern FUN_02034774
-.extern FUN_02034788
+.extern MapHeader_GetMsgBank
+.extern MapHeader_GetScrSeqReleaseNo
 .extern FUN_0203479C
 .extern FUN_020347B0
 .extern FUN_020347C4
@@ -5720,7 +5720,7 @@
 .extern FUN_020BC4C8
 .extern FUN_020C0174
 .extern FUN_020C01A0
-.extern FUN_020C01D0
+.extern SDAT_Init
 .extern FUN_020C03B8
 .extern FUN_020C041C
 .extern FUN_020C044C
@@ -5765,7 +5765,7 @@
 .extern FUN_020C22D0
 .extern FUN_020C23FC
 .extern FUN_020C2444
-.extern FUN_020C26F8
+.extern SDAT_Open
 .extern FUN_020C2828
 .extern FUN_020C290C
 .extern FUN_020C2A94

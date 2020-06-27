@@ -47,7 +47,6 @@ extern void FUN_02015E60(void);
 extern void FUN_020222C4(void);
 extern void FUN_0200A318(void);
 extern void FUN_0200E2D8(void);
-extern void FUN_02003C10(void);
 
 extern struct Unk21DBE18 MOD63_UNK_021DBE18; 
 extern struct Unk21DBE18 MOD52_021D76C8;
@@ -137,7 +136,7 @@ THUMB_FUNC void NitroMain(void)
         FUN_0200E2D8();
         if (gUnknown21C48B8.unk0)
             gUnknown21C48B8.unk0(gUnknown21C48B8.unk4);
-        FUN_02003C10();
+        DoSoundUpdateFrame();
         FUN_0201B5CC(gUnknown21C48B8.unk20);
     }
 }

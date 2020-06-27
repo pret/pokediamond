@@ -15,17 +15,22 @@ struct SDATHeader
     u32 info_offset, info_size;
     u32 fat_offset, fat_size;
     u32 file_offset, file_size;
-    u32 unk_00030;
-    FSFile file; // 00034
-    FSFileID fileID; // 7C
-    u32 unk_00084;
-    u32 unk_00088;
-    void * unk_0008C;
 };
 
-void FUN_020C01D0(void);
+struct SDATFileMgr
+{
+    struct SDATHeader header;
+    BOOL is_init;
+    FSFile file; // 00034
+    FSFileID fileID; // 7C
+    void * fat_p;
+    void * symb_p;
+    void * info_p;
+};
+
+void SDAT_Init(void);
 void * FUN_020C2A94(void *, u32);
-void FUN_020C26F8(struct SDATHeader *, char *, void *, u32);
+void SDAT_Open(struct SDATFileMgr *, char *, void *, u32);
 void FUN_020C39CC(void *);
 void FUN_020C01A0(void);
 int FUN_020C290C(void *);

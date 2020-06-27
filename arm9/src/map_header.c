@@ -5,7 +5,7 @@
 #pragma thumb on
 
 // Static decls
-u32 FUN_02034710(u32 mapno);
+u32 MapNumberBoundsCheck(u32 mapno);
 
 const u16 UNK_020EED54[] = {
     0x01A5, 0x01AD, 0x01B4, 0x01BC, 0x01C5, 0x01CC, 0x0007, 0x0025,
@@ -33,7 +33,7 @@ const u16 UNK_020EED78[] = {
     0x00DD, 0x0018,
 };
 
-const struct MapHeader UNK_020EEDBC[] = {
+const struct MapHeader sMapHeaders[] = {
     { 0x0, 0x0, 0x0, 0x170, 0x33b, 0x12, 0x3e8, 0x3e8, 0xffff, 0x0, MAPSEC_MYSTERY_ZONE, 0x0, 0x0, 0x2, 3, TRUE, TRUE, TRUE, FALSE },
     { 0x0, 0x0, 0x0, 0x170, 0x33b, 0x12, 0x3e8, 0x3e8, 0xffff, 0x0, MAPSEC_MYSTERY_ZONE, 0x0, 0x0, 0x0, 3, FALSE, FALSE, FALSE, FALSE },
     { 0x2, 0x2, 0x2, 0x413, 0x3ca, 0x236, 0x424, 0x424, 0xffff, 0x1, MAPSEC_MYSTERY_ZONE, 0x0, 0x0, 0x6, 3, FALSE, FALSE, FALSE, FALSE },
@@ -595,9 +595,9 @@ const struct MapHeader UNK_020EEDBC[] = {
     { 0x20, 0xf, 0xa6, 0x74, 0x243, 0x79, 0x441, 0x441, 0xffff, 0x1ff, MAPSEC_CONTEST_HALL, 0x0, 0x0, 0x4, 7, FALSE, FALSE, FALSE, FALSE },
 };
 
-u32 FUN_02034710(u32 mapno)
+u32 MapNumberBoundsCheck(u32 mapno)
 {
-    if (mapno >= NELEMS(UNK_020EEDBC))
+    if (mapno >= NELEMS(sMapHeaders))
     {
         GF_ASSERT(0);
         mapno = 3;
@@ -607,121 +607,121 @@ u32 FUN_02034710(u32 mapno)
 
 u8 FUN_02034724(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk0;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk0;
 }
 
 u8 FUN_02034738(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk1;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk1;
 }
 
 u16 FUN_0203474C(u32 mapno)
 {
     u16 ret;
-    mapno = FUN_02034710(mapno);
-    ret = UNK_020EEDBC[mapno].unk2;
+    mapno = MapNumberBoundsCheck(mapno);
+    ret = sMapHeaders[mapno].unk2;
     // Spear Pillar
     if (ret == 22 && gGameVersion == VERSION_PEARL)
         ret = 23;
     return ret;
 }
 
-u16 FUN_02034774(u32 mapno)
+u16 MapHeader_GetMsgBank(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk8;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk8;
 }
 
-u16 FUN_02034788(u32 mapno)
+u16 MapHeader_GetScrSeqReleaseNo(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk4;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk4;
 }
 
 u16 FUN_0203479C(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk6;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk6;
 }
 
 u16 FUN_020347B0(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unkA;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unkA;
 }
 
 u16 FUN_020347C4(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unkC;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unkC;
 }
 
 BOOL FUN_020347D8(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unkE != 0xFFFF;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unkE != 0xFFFF;
 }
 
 u16 FUN_020347FC(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unkE;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unkE;
 }
 
 u16 FUN_02034810(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk10;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk10;
 }
 
 u16 FUN_02034824(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].mapsec;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].mapsec;
 }
 
 u8 FUN_02034838(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk14;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk14;
 }
 
 u8 FUN_0203484C(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk15;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk15;
 }
 
 u8 FUN_02034860(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk17_0;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk17_0;
 }
 
 u8 FUN_0203487C(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk17_6;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk17_6;
 }
 
 u8 FUN_02034898(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk17_7;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk17_7;
 }
 
 u8 FUN_020348B4(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk17_4;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk17_4;
 }
 
 u8 FUN_020348D0(u32 mapno)
 {
-    mapno = FUN_02034710(mapno);
-    return UNK_020EEDBC[mapno].unk16;
+    mapno = MapNumberBoundsCheck(mapno);
+    return sMapHeaders[mapno].unk16;
 }
 
 BOOL FUN_020348E4(u32 mapno)

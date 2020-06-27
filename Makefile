@@ -209,13 +209,14 @@ LDFLAGS = -map -nodead -w off -proc v5te -interworking -map -symtab -m _start
 # DS TOOLS
 TOOLS_DIR = tools
 SHA1SUM = sha1sum
-CSV2BIN = $(TOOLS_DIR)/csv2bin/csv2bin
-JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc
-O2NARC = $(TOOLS_DIR)/o2narc/o2narc
-GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx
+CSV2BIN = $(TOOLS_DIR)/csv2bin/csv2bin$(EXE)
+JSONPROC = $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
+O2NARC = $(TOOLS_DIR)/o2narc/o2narc$(EXE)
+GFX = $(TOOLS_DIR)/nitrogfx/nitrogfx$(EXE)
 MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 MAKEBANNER = $(WINE) $(TOOLS_DIR)/bin/makebanner.exe
-MAKEROM    = $(WIND) $(TOOLS_DIR)/bin/makerom.exe
+MAKEROM    = $(WINE) $(TOOLS_DIR)/bin/makerom.exe
+FIXROM     = $(TOOLS_DIR)/fixrom/fixrom$(EXE)
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -291,9 +292,6 @@ $(BUILD_DIR)/%.o: %.c $$(dep)
 $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) $< -o $@
 
-$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
-	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
-
 $(SBINFILES): arm9 arm7
 
 arm9:
@@ -302,25 +300,16 @@ arm9:
 arm7:
 	$(MAKE) -C arm7 COMPARE=$(COMPARE)
 
-$(BINFILES): %.bin: %.sbin
-	@# Hack because mwldarm doesn't like the sbin suffix
-	@cp $< $@
-
-$(ELF): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(BINFILES) $(BUILD_DIR)/pokediamond_bnr.bin
-	$(LD) $(LDFLAGS) -o $@ $^
-
-$(ROM): $(ELF)
-	$(OBJCOPY) -O binary --gap-fill=0xFF --pad-to=0x04000000 $< $@
+include filesystem.mk
 
 # TODO: Rules for Pearl
 # FIXME: Computed secure area CRC in header is incorrect due to first 8 bytes of header not actually being "encryObj"
-#$(ROM): pokediamond.rsf $(BUILD_DIR)/pokediamond_bnr.bin $(SBINFILES) $(HOSTFS_FILES)
-#	$(MAKEROM) -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
+$(ROM): pokediamond.rsf $(BUILD_DIR)/pokediamond_bnr.bin $(SBINFILES) $(HOSTFS_FILES) tools/bin/rom_header.template.sbin
+	$(MAKEROM) -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
+	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
-
-include filesystem.mk
 
 %.4bpp: %.png
 	$(GFX) $< $@

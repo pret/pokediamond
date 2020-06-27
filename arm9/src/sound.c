@@ -28,11 +28,11 @@ extern void FUN_02005CFC(void);
 void InitSoundData(u32 a0, struct Options * a1)
 {
     struct SoundData * sdat = GetSoundDataPointer();
-    FUN_020C01D0();
+    SDAT_Init();
     FUN_020040C8();
     FUN_02004064(sdat);
     sdat->unk_00090 = FUN_020C2A94(sdat->unk_00094, sizeof(sdat->unk_00094));
-    FUN_020C26F8(&sdat->header, "data/sound/sound_data.sdat", sdat->unk_00090, 0);
+    SDAT_Open(&sdat->header, "data/sound/sound_data.sdat", sdat->unk_00090, 0);
     FUN_020C39CC(sdat->unk_00090);
     FUN_02004088(sdat);
     FUN_020040A4(sdat);
@@ -41,7 +41,7 @@ void InitSoundData(u32 a0, struct Options * a1)
     FUN_02004D60(a1->unk0_4);
 }
 
-void FUN_02003C10(void)
+void DoSoundUpdateFrame(void)
 {
     struct SoundData * sdat = GetSoundDataPointer();
     if (!FUN_02003D04())
