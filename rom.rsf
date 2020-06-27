@@ -16,13 +16,13 @@ Arm7
 Property
 {
 	RomHeaderTemplate tools/bin/rom_header.template.sbin
-	TitleName "POKEMON D"
+	TitleName "$(TITLE_NAME)"
 	MakerCode "01"
 	RemasterVersion 5
 	RomSpeedType 1TROM
 	RomSize 512M
 	RomFootPadding TRUE
-	BannerFile build/pokediamond_bnr.bin
+	BannerFile $(BNR)
 }
 
 RomSpec

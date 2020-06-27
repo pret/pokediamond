@@ -51,18 +51,15 @@ ifeq ($(NOWINE),1)
 WINE :=
 endif
 
-# Compare result of arm9, arm7, and ROM to sha1 hash(s)
-COMPARE ?= 1
-
 ################ Target Executable and Sources ###############
 
-BUILD_DIR := build
+BUILD_DIR := build/$(BUILD_NAME)
 
-TARGET := pokediamond.us
+TARGET := $(BUILD_TARGET)
 
 ROM := $(BUILD_DIR)/$(TARGET).nds
 ELF := $(BUILD_DIR)/$(TARGET).elf
-LD_SCRIPT := pokediamond.lcf
+BNR := $(BUILD_DIR)/$(TARGET).bnr
 
 # Directories containing source files
 SRC_DIRS := src
@@ -75,103 +72,101 @@ S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
 
-ARM9SBIN := arm9/build/arm9.sbin
+ARM9SBIN := arm9/$(BUILD_DIR)/arm9.sbin
 ARM7SBIN := arm7/build/arm7.sbin
 
-BINFILES = \
-	arm9/build/arm9.bin \
-	arm9/build/arm9_table.bin \
-	arm9/build/arm9_defs.bin \
-	arm7/build/arm7.bin \
-	arm9/build/MODULE_00.bin \
-	arm9/build/MODULE_01.bin \
-	arm9/build/MODULE_02.bin \
-	arm9/build/MODULE_03.bin \
-	arm9/build/MODULE_04.bin \
-	arm9/build/MODULE_05.bin \
-	arm9/build/MODULE_06.bin \
-	arm9/build/MODULE_07.bin \
-	arm9/build/MODULE_08.bin \
-	arm9/build/MODULE_09.bin \
-	arm9/build/MODULE_10.bin \
-	arm9/build/MODULE_11.bin \
-	arm9/build/MODULE_12.bin \
-	arm9/build/MODULE_13.bin \
-	arm9/build/MODULE_14.bin \
-	arm9/build/MODULE_15.bin \
-	arm9/build/MODULE_16.bin \
-	arm9/build/MODULE_17.bin \
-	arm9/build/MODULE_18.bin \
-	arm9/build/MODULE_19.bin \
-	arm9/build/MODULE_20.bin \
-	arm9/build/MODULE_21.bin \
-	arm9/build/MODULE_22.bin \
-	arm9/build/MODULE_23.bin \
-	arm9/build/MODULE_24.bin \
-	arm9/build/MODULE_25.bin \
-	arm9/build/MODULE_26.bin \
-	arm9/build/MODULE_27.bin \
-	arm9/build/MODULE_28.bin \
-	arm9/build/MODULE_29.bin \
-	arm9/build/MODULE_30.bin \
-	arm9/build/MODULE_31.bin \
-	arm9/build/MODULE_32.bin \
-	arm9/build/MODULE_33.bin \
-	arm9/build/MODULE_34.bin \
-	arm9/build/MODULE_35.bin \
-	arm9/build/MODULE_36.bin \
-	arm9/build/MODULE_37.bin \
-	arm9/build/MODULE_38.bin \
-	arm9/build/MODULE_39.bin \
-	arm9/build/MODULE_40.bin \
-	arm9/build/MODULE_41.bin \
-	arm9/build/MODULE_42.bin \
-	arm9/build/MODULE_43.bin \
-	arm9/build/MODULE_44.bin \
-	arm9/build/MODULE_45.bin \
-	arm9/build/MODULE_46.bin \
-	arm9/build/MODULE_47.bin \
-	arm9/build/MODULE_48.bin \
-	arm9/build/MODULE_49.bin \
-	arm9/build/MODULE_50.bin \
-	arm9/build/MODULE_51.bin \
-	arm9/build/MODULE_52.bin \
-	arm9/build/MODULE_53.bin \
-	arm9/build/MODULE_54.bin \
-	arm9/build/MODULE_55.bin \
-	arm9/build/MODULE_56.bin \
-	arm9/build/MODULE_57.bin \
-	arm9/build/MODULE_58.bin \
-	arm9/build/MODULE_59.bin \
-	arm9/build/MODULE_60.bin \
-	arm9/build/MODULE_61.bin \
-	arm9/build/MODULE_62.bin \
-	arm9/build/MODULE_63.bin \
-	arm9/build/MODULE_64.bin \
-	arm9/build/MODULE_65.bin \
-	arm9/build/MODULE_66.bin \
-	arm9/build/MODULE_67.bin \
-	arm9/build/MODULE_68.bin \
-	arm9/build/MODULE_69.bin \
-	arm9/build/MODULE_70.bin \
-	arm9/build/MODULE_71.bin \
-	arm9/build/MODULE_72.bin \
-	arm9/build/MODULE_73.bin \
-	arm9/build/MODULE_74.bin \
-	arm9/build/MODULE_75.bin \
-	arm9/build/MODULE_76.bin \
-	arm9/build/MODULE_77.bin \
-	arm9/build/MODULE_78.bin \
-	arm9/build/MODULE_79.bin \
-	arm9/build/MODULE_80.bin \
-	arm9/build/MODULE_81.bin \
-	arm9/build/MODULE_82.bin \
-	arm9/build/MODULE_83.bin \
-	arm9/build/MODULE_84.bin \
-	arm9/build/MODULE_85.bin \
-	arm9/build/MODULE_86.bin
-
-SBINFILES = $(BINFILES:%.bin=%.sbin)
+SBINFILES = \
+	$(ARM9SBIN) \
+	$(ARM9SBIN:%.sbin=%_table.sbin) \
+	$(ARM9SBIN:%.sbin=%_defs.sbin) \
+	$(ARM7SBIN) \
+	arm9/$(BUILD_DIR)/MODULE_00.sbin \
+	arm9/$(BUILD_DIR)/MODULE_01.sbin \
+	arm9/$(BUILD_DIR)/MODULE_02.sbin \
+	arm9/$(BUILD_DIR)/MODULE_03.sbin \
+	arm9/$(BUILD_DIR)/MODULE_04.sbin \
+	arm9/$(BUILD_DIR)/MODULE_05.sbin \
+	arm9/$(BUILD_DIR)/MODULE_06.sbin \
+	arm9/$(BUILD_DIR)/MODULE_07.sbin \
+	arm9/$(BUILD_DIR)/MODULE_08.sbin \
+	arm9/$(BUILD_DIR)/MODULE_09.sbin \
+	arm9/$(BUILD_DIR)/MODULE_10.sbin \
+	arm9/$(BUILD_DIR)/MODULE_11.sbin \
+	arm9/$(BUILD_DIR)/MODULE_12.sbin \
+	arm9/$(BUILD_DIR)/MODULE_13.sbin \
+	arm9/$(BUILD_DIR)/MODULE_14.sbin \
+	arm9/$(BUILD_DIR)/MODULE_15.sbin \
+	arm9/$(BUILD_DIR)/MODULE_16.sbin \
+	arm9/$(BUILD_DIR)/MODULE_17.sbin \
+	arm9/$(BUILD_DIR)/MODULE_18.sbin \
+	arm9/$(BUILD_DIR)/MODULE_19.sbin \
+	arm9/$(BUILD_DIR)/MODULE_20.sbin \
+	arm9/$(BUILD_DIR)/MODULE_21.sbin \
+	arm9/$(BUILD_DIR)/MODULE_22.sbin \
+	arm9/$(BUILD_DIR)/MODULE_23.sbin \
+	arm9/$(BUILD_DIR)/MODULE_24.sbin \
+	arm9/$(BUILD_DIR)/MODULE_25.sbin \
+	arm9/$(BUILD_DIR)/MODULE_26.sbin \
+	arm9/$(BUILD_DIR)/MODULE_27.sbin \
+	arm9/$(BUILD_DIR)/MODULE_28.sbin \
+	arm9/$(BUILD_DIR)/MODULE_29.sbin \
+	arm9/$(BUILD_DIR)/MODULE_30.sbin \
+	arm9/$(BUILD_DIR)/MODULE_31.sbin \
+	arm9/$(BUILD_DIR)/MODULE_32.sbin \
+	arm9/$(BUILD_DIR)/MODULE_33.sbin \
+	arm9/$(BUILD_DIR)/MODULE_34.sbin \
+	arm9/$(BUILD_DIR)/MODULE_35.sbin \
+	arm9/$(BUILD_DIR)/MODULE_36.sbin \
+	arm9/$(BUILD_DIR)/MODULE_37.sbin \
+	arm9/$(BUILD_DIR)/MODULE_38.sbin \
+	arm9/$(BUILD_DIR)/MODULE_39.sbin \
+	arm9/$(BUILD_DIR)/MODULE_40.sbin \
+	arm9/$(BUILD_DIR)/MODULE_41.sbin \
+	arm9/$(BUILD_DIR)/MODULE_42.sbin \
+	arm9/$(BUILD_DIR)/MODULE_43.sbin \
+	arm9/$(BUILD_DIR)/MODULE_44.sbin \
+	arm9/$(BUILD_DIR)/MODULE_45.sbin \
+	arm9/$(BUILD_DIR)/MODULE_46.sbin \
+	arm9/$(BUILD_DIR)/MODULE_47.sbin \
+	arm9/$(BUILD_DIR)/MODULE_48.sbin \
+	arm9/$(BUILD_DIR)/MODULE_49.sbin \
+	arm9/$(BUILD_DIR)/MODULE_50.sbin \
+	arm9/$(BUILD_DIR)/MODULE_51.sbin \
+	arm9/$(BUILD_DIR)/MODULE_52.sbin \
+	arm9/$(BUILD_DIR)/MODULE_53.sbin \
+	arm9/$(BUILD_DIR)/MODULE_54.sbin \
+	arm9/$(BUILD_DIR)/MODULE_55.sbin \
+	arm9/$(BUILD_DIR)/MODULE_56.sbin \
+	arm9/$(BUILD_DIR)/MODULE_57.sbin \
+	arm9/$(BUILD_DIR)/MODULE_58.sbin \
+	arm9/$(BUILD_DIR)/MODULE_59.sbin \
+	arm9/$(BUILD_DIR)/MODULE_60.sbin \
+	arm9/$(BUILD_DIR)/MODULE_61.sbin \
+	arm9/$(BUILD_DIR)/MODULE_62.sbin \
+	arm9/$(BUILD_DIR)/MODULE_63.sbin \
+	arm9/$(BUILD_DIR)/MODULE_64.sbin \
+	arm9/$(BUILD_DIR)/MODULE_65.sbin \
+	arm9/$(BUILD_DIR)/MODULE_66.sbin \
+	arm9/$(BUILD_DIR)/MODULE_67.sbin \
+	arm9/$(BUILD_DIR)/MODULE_68.sbin \
+	arm9/$(BUILD_DIR)/MODULE_69.sbin \
+	arm9/$(BUILD_DIR)/MODULE_70.sbin \
+	arm9/$(BUILD_DIR)/MODULE_71.sbin \
+	arm9/$(BUILD_DIR)/MODULE_72.sbin \
+	arm9/$(BUILD_DIR)/MODULE_73.sbin \
+	arm9/$(BUILD_DIR)/MODULE_74.sbin \
+	arm9/$(BUILD_DIR)/MODULE_75.sbin \
+	arm9/$(BUILD_DIR)/MODULE_76.sbin \
+	arm9/$(BUILD_DIR)/MODULE_77.sbin \
+	arm9/$(BUILD_DIR)/MODULE_78.sbin \
+	arm9/$(BUILD_DIR)/MODULE_79.sbin \
+	arm9/$(BUILD_DIR)/MODULE_80.sbin \
+	arm9/$(BUILD_DIR)/MODULE_81.sbin \
+	arm9/$(BUILD_DIR)/MODULE_82.sbin \
+	arm9/$(BUILD_DIR)/MODULE_83.sbin \
+	arm9/$(BUILD_DIR)/MODULE_84.sbin \
+	arm9/$(BUILD_DIR)/MODULE_85.sbin \
+	arm9/$(BUILD_DIR)/MODULE_86.sbin
 
 ##################### Compiler Options #######################
 
@@ -295,17 +290,17 @@ $(BUILD_DIR)/%.o: %.s $$(dep)
 $(SBINFILES): arm9 arm7
 
 arm9:
-	$(MAKE) -C arm9 COMPARE=$(COMPARE)
+	$(MAKE) -C arm9 COMPARE=$(COMPARE) GAME_LANGUAGE=$(GAME_LANGUAGE) GAME_VERSION=$(GAME_VERSION)
 
 arm7:
-	$(MAKE) -C arm7 COMPARE=$(COMPARE)
+	$(MAKE) -C arm7 COMPARE=$(COMPARE) GAME_LANGUAGE=$(GAME_LANGUAGE) GAME_VERSION=$(GAME_VERSION)
 
 include filesystem.mk
 
 # TODO: Rules for Pearl
 # FIXME: Computed secure area CRC in header is incorrect due to first 8 bytes of header not actually being "encryObj"
-$(ROM): pokediamond.rsf $(BUILD_DIR)/pokediamond_bnr.bin $(SBINFILES) $(HOSTFS_FILES) tools/bin/rom_header.template.sbin
-	$(MAKEROM) -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
+$(ROM): rom.rsf $(BNR) $(SBINFILES) $(HOSTFS_FILES) tools/bin/rom_header.template.sbin
+	$(MAKEROM) -DBNR="$(BNR)" -DTITLE_NAME="$(TITLE_NAME)" -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
 	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
 
 # Make sure build directory exists before compiling anything
@@ -328,12 +323,19 @@ DUMMY != mkdir -p $(ALL_DIRS)
 
 ######################## Misc #######################
 
-$(BUILD_DIR)/pokediamond_bnr.bin: pokediamond.bsf graphics/icon.4bpp graphics/icon.gbapal
+$(BNR): $(TARGET).bsf $(ICON_FILE:%.png=%.gbapal) $(ICON_FILE:%.png=%.4bpp)
 	$(MAKEBANNER) $< $@
 
 symbols.csv: arm9 arm7
-	(echo "Name,Location"; $(GREP) " *[0-9A-F]{8} [0-9A-F]{8} \S+ +\w+\t\(\w+\.o\)" arm9/build/arm9.elf.xMAP arm7/build/arm7.elf.xMAP | $(SED) 's/ *([0-9A-F]{8}) [0-9A-F]{8} \S+ +(\w+)\t\(\w+\.o\)/\2,\1/g' | cut -d: -f2) > $@
+	(echo "Name,Location"; $(GREP) " *[0-9A-F]{8} [0-9A-F]{8} \S+ +\w+\t\(\w+\.o\)" arm9/$(BUILD_DIR)/arm9.elf.xMAP arm7/$(BUILD_DIR)/arm7.elf.xMAP | $(SED) 's/ *([0-9A-F]{8}) [0-9A-F]{8} \S+ +(\w+)\t\(\w+\.o\)/\2,\1/g' | cut -d: -f2) > $@
 
 ### Debug Print ###
 
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
+
+### Other targets
+
+diamond:          ; @$(MAKE) GAME_VERSION=DIAMOND
+pearl:            ; @$(MAKE) GAME_VERSION=PEARL
+compare_diamond:  ; @$(MAKE) GAME_VERSION=DIAMOND COMPARE=1
+compare_pearl:    ; @$(MAKE) GAME_VERSION=PEARL COMPARE=1

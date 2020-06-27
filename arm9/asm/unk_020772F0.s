@@ -971,6 +971,9 @@ FUN_020777D4: ; 0x020777D4
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
+	.ifdef PEARL
+	add r1, #0x2c
+	.endif
 	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 	b _0207781A
@@ -1004,7 +1007,11 @@ _02077836:
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
+	.ifdef DIAMOND
 	mov r1, #0x58
+	.else
+	mov r1, #0x59
+	.endif
 	bl NewString_ReadMsgData
 	add r5, r0, #0x0
 	ldr r0, [r4, #0x18]
