@@ -30,6 +30,7 @@ install:
 
 script:
     - make
+    - make pearl
 
 notifications:
   email: false
