@@ -2584,6 +2584,10 @@
 .extern FUN_020371D0
 .extern FUN_02037230
 .extern FUN_02037264
+.extern FUN_020372D4
+.extern FUN_02037304
+.extern FUN_0203731C
+.extern FUN_02037334
 .extern FUN_02037394
 .extern FUN_0203739C
 .extern FUN_020373AC
@@ -7173,6 +7177,7 @@
 .extern MOD81_02237E40
 .extern MOD81_02238004
 .extern MOD81_02238064
+.extern MOD83_0223A360
 .extern MTX_Concat33
 .extern MTX_Concat43
 .extern MTX_Concat44
@@ -7667,6 +7672,8 @@
 .extern UNK05_021F9194
 .extern UNK05_021F9494
 .extern MOD63_021DBAB8
+.extern UNK_020F2B7C
+.extern UNK_020F2B8C
 .extern UNK_020FB6F8
 .extern UNK_020FB704
 .extern UNK_020FB710
