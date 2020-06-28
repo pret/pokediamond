@@ -48,7 +48,7 @@ extern void FUN_020222C4(void);
 extern void FUN_0200A318(void);
 extern void FUN_0200E2D8(void);
 
-extern struct Unk21DBE18 MOD63_UNK_021DBE18; 
+extern struct Unk21DBE18 MOD63_021DBE18;
 extern struct Unk21DBE18 MOD52_021D76C8;
 
 extern u8 SDK_STATIC_BSS_START[];
@@ -88,7 +88,7 @@ THUMB_FUNC void NitroMain(void)
         {
         case 0:
             gBacklightTop.unk1C = 0;
-            FUN_02000E7C(FS_OVERLAY_ID(MODULE_63), &MOD63_UNK_021DBE18);
+            FUN_02000E7C(FS_OVERLAY_ID(MODULE_63), &MOD63_021DBE18);
             break;
         case 1:
             gBacklightTop.unk1C = 1;

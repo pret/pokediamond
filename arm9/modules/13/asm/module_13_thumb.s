@@ -278,10 +278,10 @@ MOD13_022174A4: ; 0x022174A4
 MOD13_022174C0: ; 0x022174C0
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
-	ldr r3, _022174C8 ; =0x020CE34C
+	ldr r3, _022174C8 ; =MI_CpuFill8
 	bx r3
 	.align 2, 0
-_022174C8: .word 0x020CE34C
+_022174C8: .word MI_CpuFill8
 
 	thumb_func_start MOD13_022174CC
 MOD13_022174CC: ; 0x022174CC

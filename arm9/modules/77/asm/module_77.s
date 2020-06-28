@@ -39,7 +39,7 @@ MOD77_021D74E0: ; 0x021D74E0
 	bl memset
 	mov r0, #0x32
 	str r0, [r5]
-	ldr r0, _021D75E0 ; =0x020ECAC4
+	ldr r0, _021D75E0 ; =gGameLanguage
 	ldrb r0, [r0]
 	cmp r0, #1
 	bne _021D753E
@@ -94,7 +94,7 @@ _021D7540:
 	mov r0, #0
 	add r1, #0x1c
 	str r0, [r5, r1]
-	ldr r0, _021D7600 ; =0x021C4918
+	ldr r0, _021D7600 ; =gUnk021C4918
 	mov r1, #1
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -109,7 +109,7 @@ _021D7540:
 _021D75D4: .word 0xFFFFE0FF
 _021D75D8: .word 0x04001000
 _021D75DC: .word 0x0000C32C
-_021D75E0: .word 0x020ECAC4
+_021D75E0: .word gGameLanguage
 _021D75E4: .word 0x0000C2F0
 _021D75E8: .word 0x0000C314
 _021D75EC: .word 0x0000C318
@@ -117,7 +117,7 @@ _021D75F0: .word 0x0000C324
 _021D75F4: .word 0x0000C010
 _021D75F8: .word 0x0000C070
 _021D75FC: .word 0x0000C2CC
-_021D7600: .word 0x021C4918
+_021D7600: .word gUnk021C4918
 	thumb_func_end MOD77_021D74E0
 
 	thumb_func_start MOD77_021D7604
@@ -832,7 +832,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 	bl FUN_0200627C
 	add r0, r5, #0
 	bl FUN_020168D0
-	ldr r0, _021D7C20 ; =0x021C4918
+	ldr r0, _021D7C20 ; =gUnk021C4918
 	mov r1, #0
 	strb r1, [r0, #5]
 	mov r0, #1
@@ -841,7 +841,7 @@ MOD77_021D7BAC: ; 0x021D7BAC
 _021D7C14: .word 0x0000C2CC
 _021D7C18: .word 0x0000C070
 _021D7C1C: .word 0x0000C010
-_021D7C20: .word 0x021C4918
+_021D7C20: .word gUnk021C4918
 	thumb_func_end MOD77_021D7BAC
 
 	thumb_func_start MOD77_021D7C24

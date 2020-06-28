@@ -5490,12 +5490,12 @@ _02216B6C:
 
 	arm_func_start MOD13_02216B80
 MOD13_02216B80: ; 0x02216B80
-	ldr ip, _02216B90 ; =0x020CE34C
+	ldr ip, _02216B90 ; =MI_CpuFill8
 	mov r1, #0
 	mov r2, #0x70
 	bx ip
 	.align 2, 0
-_02216B90: .word 0x020CE34C
+_02216B90: .word MI_CpuFill8
 
 	arm_func_start MOD13_02216B94
 MOD13_02216B94: ; 0x02216B94
@@ -5651,12 +5651,12 @@ MOD13_02216D78: ; 0x02216D78
 
 	arm_func_start MOD13_02216D90
 MOD13_02216D90: ; 0x02216D90
-	ldr ip, _02216DA0 ; =0x020CE34C
+	ldr ip, _02216DA0 ; =MI_CpuFill8
 	mov r1, #0
 	mov r2, #0x20
 	bx ip
 	.align 2, 0
-_02216DA0: .word 0x020CE34C
+_02216DA0: .word MI_CpuFill8
 
 	arm_func_start MOD13_02216DA4
 MOD13_02216DA4: ; 0x02216DA4
@@ -6022,14 +6022,14 @@ _0221727C: .word MOD13_02240B24
 	arm_func_start MOD13_02217280
 MOD13_02217280: ; 0x02217280
 	ldr r3, _02217298 ; =0x02240B24
-	ldr ip, _0221729C ; =0x020CE34C
+	ldr ip, _0221729C ; =MI_CpuFill8
 	mov r1, #0
 	mov r2, #0x21c
 	str r0, [r3]
 	bx ip
 	.align 2, 0
 _02217298: .word MOD13_02240B24
-_0221729C: .word 0x020CE34C
+_0221729C: .word MI_CpuFill8
 
 	arm_func_start MOD13_022172A0
 MOD13_022172A0: ; 0x022172A0
