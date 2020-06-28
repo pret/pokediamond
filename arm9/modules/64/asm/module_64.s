@@ -1149,7 +1149,7 @@ MOD64_021D7E34: ; 0x021D7E34
 	add r0, r4, #0
 	add r0, #0x90
 	ldrh r0, [r0]
-	ldr r3, _021D7ECC ; =0x020FFA38
+	ldr r3, _021D7ECC ; =UNK_020FFA38
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1166,7 +1166,7 @@ MOD64_021D7E34: ; 0x021D7E34
 	add r0, r4, #0
 	add r0, #0x92
 	ldrh r0, [r0]
-	ldr r3, _021D7ECC ; =0x020FFA38
+	ldr r3, _021D7ECC ; =UNK_020FFA38
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1183,7 +1183,7 @@ MOD64_021D7E34: ; 0x021D7E34
 	add r0, r4, #0
 	add r0, #0x94
 	ldrh r0, [r0]
-	ldr r3, _021D7ECC ; =0x020FFA38
+	ldr r3, _021D7ECC ; =UNK_020FFA38
 	asr r0, r0, #4
 	lsl r2, r0, #1
 	lsl r1, r2, #1
@@ -1211,7 +1211,7 @@ _021D7EC8:
 	add sp, #0x48
 	pop {r4, pc}
 	.align 2, 0
-_021D7ECC: .word 0x020FFA38
+_021D7ECC: .word UNK_020FFA38
 	thumb_func_end MOD64_021D7E34
 
 	thumb_func_start MOD64_021D7ED0
@@ -2795,7 +2795,7 @@ MOD64_021D8A90: ; 0x021D8A90
 	lsr r0, r0, #0x10
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _021D8ADC ; =0x020FFA38
+	ldr r0, _021D8ADC ; =UNK_020FFA38
 	ldr r2, [r4, #4]
 	ldrsh r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -2818,7 +2818,7 @@ MOD64_021D8A90: ; 0x021D8A90
 	pop {r4, pc}
 	nop
 _021D8AD8: .word 0x0000FFFF
-_021D8ADC: .word 0x020FFA38
+_021D8ADC: .word UNK_020FFA38
 	thumb_func_end MOD64_021D8A90
 
 	thumb_func_start MOD64_021D8AE0

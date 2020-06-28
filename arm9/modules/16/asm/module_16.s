@@ -29023,7 +29023,7 @@ _021E4ACE:
 	lsr r0, r0, #0x10
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _021E4B10 ; =0x020FFA38
+	ldr r0, _021E4B10 ; =UNK_020FFA38
 	mov r2, #3
 	ldrsh r0, [r0, r1]
 	lsl r2, r2, #0x10
@@ -29044,7 +29044,7 @@ _021E4ACE:
 	pop {r3, pc}
 	.align 2, 0
 _021E4B0C: .word 0x00007FFF
-_021E4B10: .word 0x020FFA38
+_021E4B10: .word UNK_020FFA38
 	thumb_func_end MOD16_021E4AC0
 
 	thumb_func_start MOD16_021E4B14
@@ -49298,7 +49298,7 @@ MOD16_021EE2A4: ; 0x021EE2A4
 	lsl r4, r0, #1
 	add r0, r4, #1
 	lsl r1, r0, #1
-	ldr r0, _021EE354 ; =0x020FFA38
+	ldr r0, _021EE354 ; =UNK_020FFA38
 	mov r3, #0
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
@@ -49312,7 +49312,7 @@ MOD16_021EE2A4: ; 0x021EE2A4
 	lsr r5, r2, #0xc
 	orr r5, r0
 	mov r2, #0xe
-	ldr r0, _021EE354 ; =0x020FFA38
+	ldr r0, _021EE354 ; =UNK_020FFA38
 	lsl r1, r4, #1
 	ldrsh r0, [r0, r1]
 	lsl r2, r2, #0xe
@@ -49364,7 +49364,7 @@ MOD16_021EE2A4: ; 0x021EE2A4
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-_021EE354: .word 0x020FFA38
+_021EE354: .word UNK_020FFA38
 	thumb_func_end MOD16_021EE2A4
 
 	thumb_func_start MOD16_021EE358
