@@ -117,8 +117,7 @@ SECTIONS {
 		ALIGNALL(4); . = ALIGN(32);
 		SDK_STATIC_START = .;
 		SDK_STATIC_TEXT_START = .;
-		/* libsyscall.a (.text) */
-		secure.o (.text) /* is actually libsyscall with nitro encryption */
+		libsyscall.a (.text)
 		crt0.o (.text)
 		crt0.o (.rodata)
 		* (.version)
