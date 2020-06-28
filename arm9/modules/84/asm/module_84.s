@@ -6308,7 +6308,11 @@ MOD84_021DA700: ; 0x021DA700
 
 	.global MOD84_021DA764
 MOD84_021DA764: ; 0x021DA764
-	.byte 0x00, 0x00
+	.ifdef DIAMOND
+	.short 0
+	.else
+	.short 1
+	.endif
 
 	.global MOD84_021DA766
 MOD84_021DA766: ; 0x021DA766

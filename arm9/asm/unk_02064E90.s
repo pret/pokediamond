@@ -33,7 +33,7 @@ FUN_02064E90: ; 0x02064E90
 	ldr r0, [sp, #0x10]
 	ldr r2, [sp, #0x24]
 	ldr r3, [sp, #0x18]
-	mov r1, #0xa
+	mov r1, #GAME_VERSION
 	bl FUN_02065154
 	add r0, r7, #0x0
 	bl FUN_020239C0

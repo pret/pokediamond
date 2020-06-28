@@ -3735,7 +3735,7 @@ _021D91DC:
 	add r0, r4, #0
 	bl FUN_020239CC
 	strb r0, [r5, #4]
-	mov r0, #0xa
+	mov r0, #GAME_VERSION
 	strb r0, [r5, #5]
 	mov r0, #2
 	strb r0, [r5, #6]

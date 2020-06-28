@@ -1,6 +1,5 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
-	.include "config.h"
 	.section .text
 	.balign 4, 0
 

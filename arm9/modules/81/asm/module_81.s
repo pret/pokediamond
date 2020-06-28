@@ -2735,14 +2735,14 @@ MOD81_022392D8: ; 0x022392D8
 	lsl r0, r0, #0xe
 	mov r1, #1
 	bl FUN_020AEDF4
-	ldr r3, _02239394 ; =0x021064B8
+	ldr r3, _02239394 ; =UNK_021064B8
 	mov r0, #1
 	mov r1, #0
 	ldr r3, [r3]
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _02239398 ; =0x021064C0
+	ldr r3, _02239398 ; =UNK_021064C0
 	add r4, r0, #0
 	ldr r3, [r3]
 	mov r0, #0x80
@@ -2774,8 +2774,8 @@ _02239384: .word 0xFFFFCFFD
 _02239388: .word 0x0000CFFB
 _0223938C: .word 0x04000540
 _02239390: .word 0xBFFF0000
-_02239394: .word 0x021064B8
-_02239398: .word 0x021064C0
+_02239394: .word UNK_021064B8
+_02239398: .word UNK_021064C0
 _0223939C: .word 0x7FFF0000
 _022393A0: .word 0xFFFF0000
 	thumb_func_end MOD81_022392D8
@@ -9787,14 +9787,14 @@ MOD81_0223CAC4: ; 0x0223CAC4
 	lsl r0, r0, #0xe
 	mov r1, #1
 	bl FUN_020AEDF4
-	ldr r3, _0223CB80 ; =0x021064B8
+	ldr r3, _0223CB80 ; =UNK_021064B8
 	mov r0, #1
 	mov r1, #0
 	ldr r3, [r3]
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _0223CB84 ; =0x021064C0
+	ldr r3, _0223CB84 ; =UNK_021064C0
 	add r4, r0, #0
 	ldr r3, [r3]
 	mov r0, #0x80
@@ -9826,8 +9826,8 @@ _0223CB70: .word 0xFFFFCFFD
 _0223CB74: .word 0x0000CFFB
 _0223CB78: .word 0x04000540
 _0223CB7C: .word 0xBFFF0000
-_0223CB80: .word 0x021064B8
-_0223CB84: .word 0x021064C0
+_0223CB80: .word UNK_021064B8
+_0223CB84: .word UNK_021064C0
 _0223CB88: .word 0x7FFF0000
 _0223CB8C: .word 0xFFFF0000
 	thumb_func_end MOD81_0223CAC4

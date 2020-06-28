@@ -986,7 +986,11 @@ _020777FE:
 	mov r0, #0x17
 	lsl r0, r0, #0x4
 	ldr r0, [r5, r0]
+	.ifdef DIAMOND
 	add r1, #0x12
+	.else
+	add r1, #0x3e
+	.endif
 	bl NewString_ReadMsgData
 	add r6, r0, #0x0
 _0207781A:

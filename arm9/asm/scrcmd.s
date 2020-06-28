@@ -10299,7 +10299,7 @@ FUN_0203EBC8: ; 0x0203EBC8
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl FUN_020394B8
-	mov r1, #0xa
+	mov r1, #GAME_VERSION
 	strh r1, [r0, #0x0]
 	mov r0, #0x0
 	pop {r4, pc}
