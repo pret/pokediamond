@@ -8607,7 +8607,7 @@ FUN_0203DE00: ; 0x0203DE00
 	add r0, #0x80
 	ldr r0, [r0, #0x0]
 	bl FUN_020394F0
-	bl MOD06_0224CA58
+	bl MOD18_0224CA58
 	strb r0, [r4, #0x0]
 	ldr r1, _0203DE34 ; =FUN_0203DE38
 	add r0, r5, #0x0
@@ -10299,7 +10299,7 @@ FUN_0203EBC8: ; 0x0203EBC8
 	add r1, r0, #0x0
 	ldr r0, [r4, #0x0]
 	bl FUN_020394B8
-	mov r1, #0xa
+	mov r1, #GAME_VERSION
 	strh r1, [r0, #0x0]
 	mov r0, #0x0
 	pop {r4, pc}

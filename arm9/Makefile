@@ -37,7 +37,7 @@ endif
 
 ################ Target Executable and Sources ###############
 
-BUILD_DIR := build
+BUILD_DIR := build/$(BUILD_NAME)
 
 TARGET := arm9
 
@@ -183,7 +183,7 @@ OBJDUMP := $(CROSS)objdump
 OBJCOPY := $(CROSS)objcopy
 
 # ./tools/mwccarm/2.0/base/mwasmarm.exe -proc arm5te asm/arm9_thumb.s -o arm9.o
-ASFLAGS = -proc arm5te -i ../include -i ..
+ASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 LDFLAGS = -nodead -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start
@@ -229,7 +229,7 @@ MAKEFLAGS += --no-print-directory
 
 all: libs $(ROM)
 ifeq ($(COMPARE),1)
-	@$(SHA1SUM) -c $(TARGET).sha1
+	@$(SHA1SUM) -c $(BUILD_TARGET).sha1
 	@echo $(ROM): OK
 endif
 
@@ -261,7 +261,7 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 ######################## Special Rules ########################
 
 # TODO: Move out to lib/Makefile
-build/lib/src/%.o: MWCCVERSION = 1.2/sp2p3
+$(BUILD_DIR)/lib/src/%.o: MWCCVERSION = 1.2/sp2p3
 
 ####################### Everything Else ######################
 

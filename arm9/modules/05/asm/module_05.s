@@ -66803,8 +66803,11 @@ UNK05_021FC634: ; 0x021FC634
 
 	.global UNK05_021FC644
 UNK05_021FC644: ; 0x021FC644
-	.byte 0x02, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00
-	.byte 0x04, 0x00, 0x00, 0x00
+.ifdef DIAMOND
+	.word 2, 3, 4
+.else
+	.word 5, 6, 7
+.endif
 
 	.global UNK05_021FC650
 UNK05_021FC650: ; 0x021FC650

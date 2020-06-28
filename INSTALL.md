@@ -46,8 +46,10 @@ Install them using either the Cygwin package manager or using pacman on Msys2.
 
 ### 4. Build ROM
 
-Run `make` to build the ROM.
+Run `make` to build the ROM. The ROM will be output as `build/diamond.us/pokediamond.us.nds`
+
+To build Pokemon Pearl, run `make pearl`. You do not need to clean your working tree in between compiling. Pokemon Pearl will be built as `build/pearl.us/pokepearl.us.nds`.
 
 Windows Users:
 
-If you get an error in saving configuration settings when specifying the license file, you need to add a system environment variable called LM_LICENSE_FILE and point it to the license.dat file.
+If you get an error in saving configuration settings when specifying the license file, you need to add a system environment variable called LM_LICENSE_FILE and point it to the license.dat file. Alternatively, run mwccarm.exe from an Administrator command prompt, PowerShell, or WSL session.

@@ -11565,7 +11565,11 @@ _022332E8:
 	mov r4, #0
 	mvn r4, r4
 _022332F0:
+	.ifdef DIAMOND
 	mov r0, #1
+	.else
+	mov r0, #2
+	.endif
 	lsl r0, r0, #0xa
 	tst r0, r4
 	bne _022332FC
@@ -18703,7 +18707,11 @@ _02236926:
 	ldr r0, _02236B50 ; =0x0000E88C
 	ldr r0, [r4, r0]
 	bl FUN_020146C4
+	.ifdef DIAMOND
 	mov r0, #0x22
+	.else
+	mov r0, #0x23
+	.endif
 	str r0, [r4, #8]
 	mov r0, #4
 	str r0, [r5]
@@ -19190,7 +19198,11 @@ _02236D12:
 	bl FUN_020054C8
 	cmp r6, #0xb
 	bne _02236D34
+	.ifdef DIAMOND
 	mov r1, #0x1d
+	.else
+	mov r1, #0x1e
+	.endif
 	b _02236D36
 _02236D34:
 	mov r1, #0x24
@@ -26871,8 +26883,20 @@ MOD83_0223B280: ; 0x0223B280
 
 	.global MOD83_0223B288
 MOD83_0223B288: ; 0x0223B288
-	.byte 0x00, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00, 0x00, 0x12, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00
-	.byte 0x18, 0x00, 0x00, 0x00, 0x1A, 0x00, 0x00, 0x00
+	.word 0x00
+	.ifdef DIAMOND
+	.word 0x14
+	.word 0x12
+	.word 0x16
+	.word 0x18
+	.word 0x1A
+	.else
+	.word 0x15
+	.word 0x13
+	.word 0x17
+	.word 0x19
+	.word 0x1B
+	.endif
 
 	.global MOD83_0223B2A0
 MOD83_0223B2A0: ; 0x0223B2A0

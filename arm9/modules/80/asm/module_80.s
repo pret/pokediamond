@@ -13623,7 +13623,7 @@ _022342BC:
 	add r1, #0xf6
 	strb r0, [r1]
 	ldr r0, _0223432C ; =0x00000122
-	mov r1, #0xa
+	mov r1, #GAME_VERSION
 	strb r1, [r5, r0]
 	mov r1, #2
 	add r0, r0, #1

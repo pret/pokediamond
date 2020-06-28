@@ -9771,7 +9771,12 @@ MOD16_021DBC48: ; 0x021DBC48
 _021DBC6C:
 	add r0, r5, r4
 	str r0, [sp, #4]
+	.ifdef DIAMOND
 	ldr r0, _021DBC98 ; =0x00000267
+	.else
+	mov r0, #0x9a
+	lsl r0, r0, #2
+	.endif
 	b _021DBC8C
 _021DBC74:
 	cmp r4, #1
@@ -9792,8 +9797,11 @@ _021DBC8C:
 	bl MOD16_021DBCA0
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
-	.align 2, 0
+	.ifdef DIAMOND
 _021DBC98: .word 0x00000267
+	.else
+	nop
+	.endif
 _021DBC9C: .word 0x00000269
 	thumb_func_end MOD16_021DBC48
 
@@ -9935,7 +9943,11 @@ _021DBD82:
 	str r2, [sp]
 	add r0, sp, #8
 	str r0, [sp, #4]
+	.ifdef DIAMOND
 	mov r0, #0x8b
+	.else
+	mov r0, #0x8c
+	.endif
 	add r1, r5, r1
 	bl FUN_02006D18
 	str r0, [r4]
@@ -9986,7 +9998,11 @@ MOD16_021DBDE4: ; 0x021DBDE4
 	str r1, [sp]
 	add r0, sp, #8
 	str r0, [sp, #4]
+	.ifdef DIAMOND
 	mov r0, #0x8b
+	.else
+	mov r0, #0x8c
+	.endif
 	add r2, r1, #0
 	bl FUN_02006D18
 	cmp r4, #0
@@ -10010,7 +10026,11 @@ MOD16_021DBE0C: ; 0x021DBE0C
 	str r2, [sp]
 	add r0, sp, #8
 	str r0, [sp, #4]
+	.ifdef DIAMOND
 	mov r0, #0x8b
+	.else
+	mov r0, #0x8c
+	.endif
 	mov r1, #2
 	bl FUN_02006D18
 	add r5, r0, #0

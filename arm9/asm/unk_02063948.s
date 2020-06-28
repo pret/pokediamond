@@ -1103,14 +1103,14 @@ FUN_02064174: ; 0x02064174
 	add r6, r0, #0x0
 	add r0, r4, #0x0
 	bl FreeToHeap
-	ldr r1, _020641A8 ; =0x0224CB55
+	ldr r1, _020641A8 ; =MOD06_0224CB54
 	add r0, r5, #0x0
 	add r2, r6, #0x0
 	bl FUN_020463EC
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_020641A8: .word 0x0224CB55
+_020641A8: .word MOD06_0224CB54
 
 	thumb_func_start FUN_020641AC
 FUN_020641AC: ; 0x020641AC
@@ -1207,14 +1207,14 @@ FUN_02064230: ; 0x02064230
 	bl FUN_02028AD4
 	add r0, r6, #0x0
 	bl FreeToHeap
-	ldr r1, _02064280 ; =0x0224CAAD
+	ldr r1, _02064280 ; =MOD06_0224CAAC
 	add r0, r5, #0x0
 	add r2, r7, #0x0
 	bl FUN_020463EC
 	mov r0, #0x0
 	pop {r3-r7, pc}
 	nop
-_02064280: .word 0x0224CAAD
+_02064280: .word MOD06_0224CAAC
 
 	thumb_func_start FUN_02064284
 FUN_02064284: ; 0x02064284
