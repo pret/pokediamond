@@ -1619,7 +1619,7 @@ FUN_0205DAAC: ; 0x0205DAAC
 	mov r0, #0x0
 	pop {r4, pc}
 	.balign 4
-_0205DAC8: .word 0x0224C721
+_0205DAC8: .word MOD06_0224C720
 
 	thumb_func_start FUN_0205DACC
 FUN_0205DACC: ; 0x0205DACC
