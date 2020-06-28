@@ -9782,8 +9782,8 @@
       "spatk_yield": 0,
       "spdef_yield": 0,
       "items": [
-        "ITEM_ELECTIRIZER",
-        "ITEM_NONE"
+        "ITEM_NONE",
+        "ITEM_ELECTIRIZER"
       ],
       "genderRatio": 0.25,
       "eggCycles": 25,
@@ -9862,8 +9862,8 @@
       "spatk_yield": 2,
       "spdef_yield": 0,
       "items": [
-        "ITEM_NONE",
-        "ITEM_MAGMARIZER"
+        "ITEM_MAGMARIZER",
+        "ITEM_NONE"
       ],
       "genderRatio": 0.25,
       "eggCycles": 25,
@@ -18719,8 +18719,8 @@
       "spatk_yield": 0,
       "spdef_yield": 0,
       "items": [
-        "ITEM_ELECTIRIZER",
-        "ITEM_NONE"
+        "ITEM_NONE",
+        "ITEM_ELECTIRIZER"
       ],
       "genderRatio": 0.25,
       "eggCycles": 25,
@@ -18793,8 +18793,8 @@
       "spatk_yield": 0,
       "spdef_yield": 0,
       "items": [
-        "ITEM_NONE",
-        "ITEM_MAGMARIZER"
+        "ITEM_MAGMARIZER",
+        "ITEM_NONE"
       ],
       "genderRatio": 0.25,
       "eggCycles": 25,
@@ -36794,8 +36794,8 @@
       "spatk_yield": 0,
       "spdef_yield": 0,
       "items": [
-        "ITEM_ELECTIRIZER",
-        "ITEM_NONE"
+        "ITEM_NONE",
+        "ITEM_ELECTIRIZER"
       ],
       "genderRatio": 0.25,
       "eggCycles": 25,
@@ -36881,8 +36881,8 @@
       "spatk_yield": 3,
       "spdef_yield": 0,
       "items": [
-        "ITEM_NONE",
-        "ITEM_MAGMARIZER"
+        "ITEM_MAGMARIZER",
+        "ITEM_NONE"
       ],
       "genderRatio": 0.25,
       "eggCycles": 25,
