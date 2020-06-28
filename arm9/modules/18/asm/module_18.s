@@ -3032,20 +3032,36 @@ MOD18_0223AE88: ; 0x0223AE88
 	mov r1, #0
 	cmp r0, #0
 	beq _0223AEB6
+	.ifdef DIAMOND
 	ldrh r0, [r5, #8]
+	.else
+	ldrh r0, [r5, #0xa]
+	.endif
 	b _0223AEB8
 _0223AEB6:
+	.ifdef DIAMOND
 	ldrh r0, [r5, #4]
+	.else
+	ldrh r0, [r5, #6]
+	.endif
 _0223AEB8:
 	add r0, r1, r0
 	cmp r4, #0
 	beq _0223AECC
 	ldrb r1, [r5, #0xe]
+	.ifdef DIAMOND
 	cmp r1, #6
+	.else
+	cmp r1, #7
+	.endif
 	bne _0223AEC6
 	add r0, #0x21
 _0223AEC6:
+	.ifdef DIAMOND
 	cmp r1, #1
+	.else
+	cmp r1, #2
+	.endif
 	bne _0223AECC
 	add r0, #0x42
 _0223AECC:

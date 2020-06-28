@@ -413,7 +413,11 @@ FUN_02034CB4: ; 0x02034CB4
 	bl FUN_020347FC
 	add r2, r0, #0x0
 	add r0, r5, #0x0
+	.ifdef DIAMOND
 	mov r1, #0x25
+	.else
+	mov r1, #0x8f
+	.endif
 	bl ReadWholeNarcMemberByIdPair
 _02034CDE:
 	pop {r3-r5, pc}

@@ -282,6 +282,7 @@ HOSTFS_FILES := $(NITROFS_FILES:%=files/%)
 
 O2NARC_TARGETS := \
 	files/poketool/personal/personal.narc \
+	files/poketool/personal_pearl/personal.narc \
 	files/poketool/personal/wotbl.narc \
 	files/poketool/personal/evo.narc \
 	files/poketool/personal/growtbl.narc \

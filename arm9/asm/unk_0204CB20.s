@@ -1861,14 +1861,14 @@ _0204D90A:
 	cmp r0, #0x0
 	bne _0204D93C
 	add r0, r5, #0x0
-	bl MOD06_02247544
+	bl MOD18_02247544
 	cmp r0, #0x0
 	bne _0204D976
 _0204D93C:
 	ldr r0, [sp, #0x4]
 	cmp r0, #0x0
 	beq _0204D94A
-	bl MOD06_02244DB0
+	bl MOD18_02244DB0
 	cmp r0, #0x0
 	beq _0204D976
 _0204D94A:
@@ -4003,7 +4003,7 @@ _0204E936:
 	ldr r1, [r1, #0x0]
 	ldr r0, _0204E968 ; =FUN_0204D308
 	ldr r1, [r1, #0x54]
-	bl MOD06_0224A7C8
+	bl MOD18_0224A7C8
 _0204E962:
 	pop {r4, pc}
 	.balign 4

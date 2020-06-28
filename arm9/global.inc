@@ -1,3 +1,5 @@
+.include "config.h"
+
 .extern CARD_CancelBackupAsync
 .extern CARD_CheckEnabled
 .extern CARD_GetResultCode
@@ -8060,3 +8062,14 @@
 .extern DWCi_BACKUPlWriteAll
 .extern DWCi_BM_SetWiFiInfo
 .extern DWC_Auth_CheckWiFiIDNeedCreate
+.extern UNK_021064B8
+.extern UNK_021064C0
+.extern MOD18_0224CA58
+.extern MOD18_0223DFB4
+.extern MOD18_02245FA0
+.extern MOD18_02247808
+.extern MOD18_02244DB0
+.extern MOD18_02247544
+.extern MOD18_0224A7C8
+.extern MOD06_0224CAAC
+.extern MOD06_0224CB54

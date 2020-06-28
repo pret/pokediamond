@@ -154,7 +154,7 @@ ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
 ######################## Special Rules ########################
 
 # TODO: Move out to lib/Makefile
-build/lib/src/%.o: MWCCVERSION = 1.2/sp2p3
+$(BUILD_DIR)/lib/src/%.o: MWCCVERSION = 1.2/sp2p3
 
 ####################### Everything Else ######################
 

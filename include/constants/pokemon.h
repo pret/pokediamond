@@ -341,7 +341,7 @@ typedef enum {
     GIFT_EEVEE = 12
 } EncounterType;
 
-typedef enum GameLanguage OriginLanguage;
+typedef int OriginLanguage;
 
 typedef enum {
     ARCEUS_NORMAL = 0,
