@@ -327,7 +327,7 @@ $(BNR): $(TARGET).bsf $(ICON_FILE:%.png=%.gbapal) $(ICON_FILE:%.png=%.4bpp)
 	$(MAKEBANNER) $< $@
 
 symbols.csv: arm9 arm7
-	(echo "Name,Location"; $(GREP) " *[0-9A-F]{8} [0-9A-F]{8} \S+ +\w+\t\(\w+\.o\)" arm9/$(BUILD_DIR)/arm9.elf.xMAP arm7/$(BUILD_DIR)/arm7.elf.xMAP | $(SED) 's/ *([0-9A-F]{8}) [0-9A-F]{8} \S+ +(\w+)\t\(\w+\.o\)/\2,\1/g' | cut -d: -f2) > $@
+	(echo "Name,Location"; $(GREP) " *[0-9A-F]{8} [0-9A-F]{8} \S+ +\w+\t\(\w+\.o\)" arm9/$(BUILD_DIR)/arm9.elf.xMAP arm7/build/arm7.elf.xMAP | $(SED) 's/ *([0-9A-F]{8}) [0-9A-F]{8} \S+ +(\w+)\t\(\w+\.o\)/\2,\1/g' | cut -d: -f2) > $@
 
 ### Debug Print ###
 
