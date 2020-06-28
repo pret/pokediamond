@@ -47,22 +47,22 @@ UNK_021D5510: ; 0x021D5510
 
 	arm_func_start PM_DeletePostSleepCallback
 PM_DeletePostSleepCallback: ; 0x020D4AE8
-	ldr ip, _020D4AF8 ; =0x020D4B78
+	ldr ip, _020D4AF8 ; =PMi_DeleteList
 	mov r1, r0
 	ldr r0, _020D4AFC ; =UNK_021D54E0
 	bx r12
 	.balign 4
-_020D4AF8: .word 0x020D4B78
+_020D4AF8: .word PMi_DeleteList
 _020D4AFC: .word UNK_021D54E0
 
 	arm_func_start PM_DeletePreSleepCallback
 PM_DeletePreSleepCallback: ; 0x020D4B00
-	ldr ip, _020D4B10 ; =0x020D4B78
+	ldr ip, _020D4B10 ; =PMi_DeleteList
 	mov r1, r0
 	ldr r0, _020D4B14 ; =UNK_021D54D8
 	bx r12
 	.balign 4
-_020D4B10: .word 0x020D4B78
+_020D4B10: .word PMi_DeleteList
 _020D4B14: .word UNK_021D54D8
 
 	arm_func_start PM_AppendPostSleepCallback
@@ -102,7 +102,7 @@ _020D4B58:
 	bx lr
 
 	arm_func_start PMi_DeleteList
-PMi_DeleteList:
+PMi_DeleteList: ; 0x020D4B78
 	cmp r0, #0x0
 	bxeq lr
 	ldr r3, [r0]
@@ -160,7 +160,7 @@ PMi_PrependList: ; 0x020D4C0C
 PM_GetLEDPattern: ; 0x020D4C20
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020D4C58 ; =0x020D587C
+	ldr r1, _020D4C58 ; =PMi_DummyCallback
 	add r2, sp, #0x0
 	bl PM_GetLEDPatternAsync
 _020D4C34:
@@ -173,7 +173,7 @@ _020D4C34:
 	add sp, sp, #0x4
 	ldmfd sp!, {lr}
 	bx lr
-_020D4C58: .word 0x020D587C
+_020D4C58: .word PMi_DummyCallback
 
 	arm_func_start PM_GetLEDPatternAsync
 PM_GetLEDPatternAsync:
@@ -203,7 +203,7 @@ _020D4CA8: .word 0x03006700
 PMi_SendLEDPatternCommand: ; 0x020D4CAC
 	stmdb sp!, {lr}
 	sub sp, sp, #0x4
-	ldr r1, _020D4CE4 ; =0x020D587C
+	ldr r1, _020D4CE4 ; =PMi_DummyCallback
 	add r2, sp, #0x0
 	bl PMi_SendLEDPatternCommandAsync
 _020D4CC0:
@@ -216,7 +216,7 @@ _020D4CC0:
 	add sp, sp, #0x4
 	ldmfd sp!, {lr}
 	bx lr
-_020D4CE4: .word 0x020D587C
+_020D4CE4: .word PMi_DummyCallback
 
 	arm_func_start PMi_SendLEDPatternCommandAsync
 PMi_SendLEDPatternCommandAsync:
@@ -1115,7 +1115,7 @@ PMi_CallCallbackAndUnlock: ; 0x020D5828
 _020D5878: .word UNK_021D54E4
 
 	arm_func_start PMi_DummyCallback
-PMi_DummyCallback: ; 0x020D587C
+PMi_DummyCallback: ; PMi_DummyCallback
 	str r0, [r1, #0x0]
 	bx lr
 
