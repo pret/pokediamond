@@ -335,7 +335,7 @@ print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
 ### Other targets
 
-diamond:          ; @$(MAKE) $(HOST_VARS) GAME_VERSION=DIAMOND
-pearl:            ; @$(MAKE) $(HOST_VARS) GAME_VERSION=PEARL
-compare_diamond:  ; @$(MAKE) $(HOST_VARS) GAME_VERSION=DIAMOND COMPARE=1
-compare_pearl:    ; @$(MAKE) $(HOST_VARS) GAME_VERSION=PEARL COMPARE=1
+diamond:          ; @$(HOST_VARS) $(MAKE) GAME_VERSION=DIAMOND
+pearl:            ; @$(HOST_VARS) $(MAKE) GAME_VERSION=PEARL
+compare_diamond:  ; @$(HOST_VARS) $(MAKE) GAME_VERSION=DIAMOND COMPARE=1
+compare_pearl:    ; @$(HOST_VARS) $(MAKE) GAME_VERSION=PEARL COMPARE=1
