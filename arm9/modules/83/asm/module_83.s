@@ -147,7 +147,7 @@ _0222D6BE:
 	cmp r0, #0
 	beq _0222D6E6
 	bl MOD83_02236EA8
-	ldr r1, _0222D6E8 ; =0x020ECAC4
+	ldr r1, _0222D6E8 ; =gGameLanguage
 	ldrb r1, [r1]
 	cmp r1, r0
 	bne _0222D6E6
@@ -158,7 +158,7 @@ _0222D6BE:
 _0222D6E6:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_0222D6E8: .word 0x020ECAC4
+_0222D6E8: .word gGameLanguage
 	thumb_func_end MOD83_0222D67C
 
 	thumb_func_start MOD83_0222D6EC
@@ -16263,7 +16263,7 @@ _02235512:
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x1c]
 	bl MOD83_02237EBC
-	ldr r2, _0223563C ; =0x021C4918
+	ldr r2, _0223563C ; =gUnk021C4918
 	ldr r1, [sp, #0x20]
 	ldrb r2, [r2, #6]
 	bl MOD83_02235350
@@ -16360,7 +16360,7 @@ _02235602:
 	nop
 _02235634: .word 0x0000E880
 _02235638: .word 0x0000E884
-_0223563C: .word 0x021C4918
+_0223563C: .word gUnk021C4918
 _02235640: .word MOD83_022354AC
 _02235644: .word 0x00012604
 	thumb_func_end MOD83_022354F0
@@ -17522,7 +17522,7 @@ _02235F48:
 	bl FUN_0201E66C
 	ldr r0, [r4, #0x20]
 	bl MOD83_02235E68
-	ldr r0, _02235FB8 ; =0x021C4918
+	ldr r0, _02235FB8 ; =gUnk021C4918
 	mov r1, #1
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -17562,7 +17562,7 @@ _02235F48:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _02235FB4: .word MOD83_0223A59C
-_02235FB8: .word 0x021C4918
+_02235FB8: .word gUnk021C4918
 	thumb_func_end MOD83_02235F3C
 
 	thumb_func_start MOD83_02235FBC
@@ -17814,7 +17814,7 @@ _02236148:
 	ldr r0, _02236288 ; =0x00000414
 	str r7, [sp]
 	ldr r0, [r4, r0]
-	ldr r3, _0223628C ; =0x021C4918
+	ldr r3, _0223628C ; =gUnk021C4918
 	str r0, [sp, #4]
 	ldrb r3, [r3, #6]
 	ldr r0, [sp, #0x14]
@@ -17901,7 +17901,7 @@ _02236148:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _02236288: .word 0x00000414
-_0223628C: .word 0x021C4918
+_0223628C: .word gUnk021C4918
 _02236290: .word MOD83_0223B280
 _02236294: .word 0x000003D2
 	thumb_func_end MOD83_022360C8
@@ -18086,7 +18086,7 @@ _022363E2:
 	ldr r0, _02236448 ; =0x0000E88C
 	ldr r0, [r6, r0]
 	bl FUN_020145A8
-	ldr r0, _0223644C ; =0x021C4918
+	ldr r0, _0223644C ; =gUnk021C4918
 	mov r1, #0
 	strb r1, [r0, #5]
 	bl FUN_0201E7A0
@@ -18108,7 +18108,7 @@ _0223643C: .word 0x00000478
 _02236440: .word 0x00000488
 _02236444: .word 0x00000498
 _02236448: .word 0x0000E88C
-_0223644C: .word 0x021C4918
+_0223644C: .word gUnk021C4918
 	thumb_func_end MOD83_02236330
 
 	thumb_func_start MOD83_02236450
@@ -22445,7 +22445,7 @@ _022384AE:
 	ldr r1, _022385F0 ; =0x00000182
 	cmp r0, r1
 	bne _022384FE
-	ldr r0, _022385F4 ; =0x021C4918
+	ldr r0, _022385F4 ; =gUnk021C4918
 	ldrb r0, [r0, #6]
 	cmp r0, #5
 	bhi _022384DE
@@ -22500,7 +22500,7 @@ _022384FE:
 	mov r1, #3
 	mov r2, #0
 	bl MOD83_02237A10
-	ldr r1, _022385F8 ; =0x020ECAC4
+	ldr r1, _022385F8 ; =gGameLanguage
 	ldrb r1, [r1]
 	cmp r1, r0
 	beq _0223853E
@@ -22585,8 +22585,8 @@ _0223853E:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _022385F0: .word 0x00000182
-_022385F4: .word 0x021C4918
-_022385F8: .word 0x020ECAC4
+_022385F4: .word gUnk021C4918
+_022385F8: .word gGameLanguage
 	thumb_func_end MOD83_02237F6C
 
 	thumb_func_start MOD83_022385FC

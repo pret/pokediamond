@@ -3155,7 +3155,7 @@ _0221380C: .word 0x00000B58
 	thumb_func_start MOD07_02213810
 MOD07_02213810: ; 0x02213810
 	push {r4, lr}
-	ldr r3, _02213830 ; =0x021064B8
+	ldr r3, _02213830 ; =UNK_021064B8
 	mov r2, #0
 	ldr r3, [r3]
 	blx r3
@@ -3169,12 +3169,12 @@ _02213828:
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02213830: .word 0x021064B8
+_02213830: .word UNK_021064B8
 
 	thumb_func_start MOD07_02213834
 MOD07_02213834: ; 0x02213834
 	push {r4, lr}
-	ldr r3, _02213854 ; =0x021064C0
+	ldr r3, _02213854 ; =UNK_021064C0
 	mov r2, #1
 	ldr r3, [r3]
 	blx r3
@@ -3188,7 +3188,7 @@ _0221384C:
 	lsr r0, r0, #0xd
 	pop {r4, pc}
 	nop
-_02213854: .word 0x021064C0
+_02213854: .word UNK_021064C0
 
 	thumb_func_start MOD07_02213858
 MOD07_02213858: ; 0x02213858

@@ -3061,14 +3061,14 @@ _0222EFD8: .word FUN_020223BC
 	thumb_func_start MOD11_0222EFDC
 MOD11_0222EFDC: ; 0x0222EFDC
 	push {r3, r4, r5, lr}
-	ldr r3, _0222F014 ; =0x021064B8
+	ldr r3, _0222F014 ; =UNK_021064B8
 	mov r0, #2
 	mov r1, #0
 	ldr r3, [r3]
 	lsl r0, r0, #0xe
 	add r2, r1, #0
 	blx r3
-	ldr r3, _0222F018 ; =0x021064C0
+	ldr r3, _0222F018 ; =UNK_021064C0
 	mov r1, #0
 	add r4, r0, #0
 	ldr r3, [r3]
@@ -3087,8 +3087,8 @@ _0222F00C:
 	bl FUN_02012CC8
 	pop {r3, r4, r5, pc}
 	nop
-_0222F014: .word 0x021064B8
-_0222F018: .word 0x021064C0
+_0222F014: .word UNK_021064B8
+_0222F018: .word UNK_021064C0
 
 	thumb_func_start MOD11_0222F01C
 MOD11_0222F01C: ; 0x0222F01C
@@ -26862,7 +26862,7 @@ _0223A994:
 	mov r1, #0xc
 	mov r2, #0
 	bl GetMonData
-	ldr r1, _0223ABAC ; =0x020ECAC4
+	ldr r1, _0223ABAC ; =gGameLanguage
 	ldrb r1, [r1]
 	cmp r1, r0
 	beq _0223A9C2
@@ -27111,7 +27111,7 @@ _0223AB9C: .word 0x00002E4C
 _0223ABA0: .word 0x00002FCC
 _0223ABA4: .word 0x00003144
 _0223ABA8: .word 0x00000467
-_0223ABAC: .word 0x020ECAC4
+_0223ABAC: .word gGameLanguage
 _0223ABB0: .word 0x0000219C
 _0223ABB4: .word 0x00002DA4
 _0223ABB8: .word 0x0225DCC0
@@ -78236,13 +78236,13 @@ MOD11_02253A74: ; 0x02253A74
 
 	thumb_func_start MOD11_02253A78
 MOD11_02253A78: ; 0x02253A78
-	ldr r3, _02253A84 ; =0x020CE34C
+	ldr r3, _02253A84 ; =MI_CpuFill8
 	add r0, #0x80
 	mov r1, #0
 	mov r2, #8
 	bx r3
 	nop
-_02253A84: .word 0x020CE34C
+_02253A84: .word MI_CpuFill8
 
 	thumb_func_start MOD11_02253A88
 MOD11_02253A88: ; 0x02253A88

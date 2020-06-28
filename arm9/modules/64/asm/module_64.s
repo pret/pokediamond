@@ -741,13 +741,13 @@ MOD64_021D7B04: ; 0x021D7B04
 	mov r1, #2
 	lsl r1, r1, #8
 	str r0, [r5, r1]
-	ldr r3, _021D7BA4 ; =0x021064B8
+	ldr r3, _021D7BA4 ; =UNK_021064B8
 	lsl r0, r1, #6
 	mov r1, #0
 	ldr r3, [r3]
 	add r2, r1, #0
 	blx r3
-	ldr r3, _021D7BA8 ; =0x021064C0
+	ldr r3, _021D7BA8 ; =UNK_021064C0
 	add r4, r0, #0
 	ldr r3, [r3]
 	mov r0, #0x80
@@ -808,8 +808,8 @@ _021D7B8E:
 	blt _021D7B8E
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_021D7BA4: .word 0x021064B8
-_021D7BA8: .word 0x021064C0
+_021D7BA4: .word UNK_021064B8
+_021D7BA8: .word UNK_021064C0
 _021D7BAC: .word 0x7FFF0000
 _021D7BB0: .word 0xFFFF0000
 	thumb_func_end MOD64_021D7B04
