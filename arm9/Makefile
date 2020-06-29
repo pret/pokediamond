@@ -190,7 +190,7 @@ ASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 LDFLAGS = -nodead -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start
-LIBS := -L$(BUILD_DIR)/lib -lsyscall
+LIBS := -Llib -lsyscall
 ARFLAGS = rcS
 STATIC_LIBS := $(addprefix $(BUILD_DIR)/lib/,libsyscall.a)
 
@@ -289,7 +289,7 @@ $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)
-	$(LD) $(LDFLAGS) $(LIBS) -o $(ELF) $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES)
+	cd $(BUILD_DIR) && $(WINE) ../../$(MWLDARM) $(LDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) $(O_FILES:$(BUILD_DIR)/%=%)
 	$(OBJCOPY) --update-section arm9=$@ -j arm9 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 $(BUILD_DIR)/lib/libsyscall.a: $(BUILD_DIR)/lib/syscall/secure.o
