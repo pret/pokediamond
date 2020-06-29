@@ -212,6 +212,7 @@ MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 MAKEBANNER = $(WINE) $(TOOLS_DIR)/bin/makebanner.exe
 MAKEROM    = $(WINE) $(TOOLS_DIR)/bin/makerom.exe
 FIXROM     = $(TOOLS_DIR)/fixrom/fixrom$(EXE)
+NTRCOMP    = $(WINE) $(TOOLS_DIR)/bin/ntrcomp.exe
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -316,7 +317,23 @@ DUMMY != mkdir -p $(ALL_DIRS)
 	$(GFX) $< $@
 
 %.lz: %
-	$(GFX) $< $@
+	$(NTRCOMP) -l2 -s -o $@ $<
+
+#
+LZ8_FILES := $(wildcard \
+	files/battle/graphic/batt_bg/*.lz \
+	files/battle/graphic/batt_obj/*.lz \
+	files/wazaeffect/effectclact/wecell/*.lz \
+	files/wazaeffect/effectclact/wecellanm/*.lz \
+	files/wazaeffect/effectclact/wechar/*.lz \
+	files/graphic/poketch/*.lz \
+	files/contest/graphic/contest_bg/*.lz \
+	files/contest/graphic/contest_obj/*.lz \
+	files/application/custom_ball/data/cb_data/*.lz \
+	files/demo/egg/data/egg_data/*.lz)
+
+$(LZ8_FILES): %.lz: %
+	$(NTRCOMP) -l4 -s -o $@ $<
 
 %.png: ;
 %.pal: ;
