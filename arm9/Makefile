@@ -49,15 +49,18 @@ LD_TEMPLATE := ARM9-TS.lcf.template
 
 # Directories containing source files
 SRC_DIRS := src lib lib/src $(wildcard modules/*/src)
-ASM_DIRS := asm lib/syscall data files $(wildcard modules/*/asm)
+ASM_DIRS := asm data files $(wildcard modules/*/asm)
+LIBASM_DIRS := lib/syscall
 
-C_FILES   := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-CXX_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
-S_FILES   := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+C_FILES    := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
+CXX_FILES  := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
+S_FILES    := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+LIBS_FILES := $(foreach dir,$(LIBASM_DIRS),$(wildcard $(dir)/*.s))
 
 C_OBJS = $(C_FILES:%.c=$(BUILD_DIR)/%.o)
 CXX_OBJS = $(CXX_FILES:%.cpp=$(BUILD_DIR)/%.o)
 S_OBJS = $(S_FILES:%.s=$(BUILD_DIR)/%.o)
+LIBS_OBJS = $(LIBS_FILES:%.s=$(BUILD_DIR)/%.o)
 
 # Object files
 O_FILES := $(C_OBJS) $(CXX_OBJS) $(S_OBJS)
@@ -255,7 +258,7 @@ $(MWASMARM): patch_mwasmarm
 patch_mwasmarm:
 	$(MWASMARM_PATCHER) $(MWASMARM)
 
-ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
+ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS) $(LIBASM_DIRS))
 
 ######################## Special Rules ########################
 
@@ -276,7 +279,7 @@ $(C_OBJS): $(BUILD_DIR)/%.o: %.c $$(dep)
 $(CXX_OBJS): $(BUILD_DIR)/%.o: %.cpp $$(dep)
 	$(CXX) -c $(CXXFLAGS) -o $@ $<
 
-$(S_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
+$(S_OBJS) $(LIBS_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
 
 # $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
@@ -285,8 +288,8 @@ $(S_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
 	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES) $(STATIC_LIBS)
-	$(LD) $(LDFLAGS) $(LIBS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
+$(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)
+	$(LD) $(LDFLAGS) $(LIBS) -o $(ELF) $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES)
 	$(OBJCOPY) --update-section arm9=$@ -j arm9 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
 $(BUILD_DIR)/lib/libsyscall.a: $(BUILD_DIR)/lib/syscall/secure.o
@@ -313,8 +316,6 @@ DUMMY != mkdir -p $(ALL_DIRS)
 # Included files
 %.h: ;
 %.inc: ;
-
-$(BIN_FILES): ;
 
 ### Debug Print ###
 

@@ -1,5 +1,5 @@
 dist: bionic
-sudo: false
+os: linux
 language: c
 env:
     global:

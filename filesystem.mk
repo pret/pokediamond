@@ -2217,3 +2217,7 @@ files/data/namein.narc: \
         files/data/namein/narc_0012.bin.lz \
         files/data/namein/narc_0013.bin.lz \
         files/data/namein/narc_0007.bin.lz
+
+.PHONY: filesystem
+
+filesystem: $(HOSTFS_FILES)
