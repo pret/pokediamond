@@ -2567,7 +2567,7 @@ MOD77_021D8A30: ; 0x021D8A30
 	sub sp, #0x24
 	add r4, r1, #0
 	ldr r1, [r4, #4]
-	ldr r3, _021D8AA4 ; =0x020FFA38
+	ldr r3, _021D8AA4 ; =UNK_020FFA38
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	asr r1, r1, #4
@@ -2580,7 +2580,7 @@ MOD77_021D8A30: ; 0x021D8A30
 	add r5, r0, #0
 	bl MTX_RotY33_
 	ldr r0, [r4]
-	ldr r3, _021D8AA4 ; =0x020FFA38
+	ldr r3, _021D8AA4 ; =UNK_020FFA38
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	asr r0, r0, #4
@@ -2597,7 +2597,7 @@ MOD77_021D8A30: ; 0x021D8A30
 	add r2, r5, #0
 	bl MTX_Concat33
 	ldr r0, [r4, #8]
-	ldr r3, _021D8AA4 ; =0x020FFA38
+	ldr r3, _021D8AA4 ; =UNK_020FFA38
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	asr r0, r0, #4
@@ -2616,7 +2616,7 @@ MOD77_021D8A30: ; 0x021D8A30
 	add sp, #0x24
 	pop {r4, r5, pc}
 	nop
-_021D8AA4: .word 0x020FFA38
+_021D8AA4: .word UNK_020FFA38
 	thumb_func_end MOD77_021D8A30
 
 	thumb_func_start MOD77_021D8AA8
@@ -2625,7 +2625,7 @@ MOD77_021D8AA8: ; 0x021D8AA8
 	sub sp, #0x24
 	add r4, r1, #0
 	ldr r1, [r4]
-	ldr r3, _021D8B1C ; =0x020FFA38
+	ldr r3, _021D8B1C ; =UNK_020FFA38
 	lsl r1, r1, #0x10
 	lsr r1, r1, #0x10
 	asr r1, r1, #4
@@ -2638,7 +2638,7 @@ MOD77_021D8AA8: ; 0x021D8AA8
 	add r5, r0, #0
 	bl MTX_RotY33_
 	ldr r0, [r4, #4]
-	ldr r3, _021D8B1C ; =0x020FFA38
+	ldr r3, _021D8B1C ; =UNK_020FFA38
 	neg r0, r0
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
@@ -2656,7 +2656,7 @@ MOD77_021D8AA8: ; 0x021D8AA8
 	add r2, r5, #0
 	bl MTX_Concat33
 	ldr r0, [r4, #8]
-	ldr r3, _021D8B1C ; =0x020FFA38
+	ldr r3, _021D8B1C ; =UNK_020FFA38
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	asr r0, r0, #4
@@ -2675,7 +2675,7 @@ MOD77_021D8AA8: ; 0x021D8AA8
 	add sp, #0x24
 	pop {r4, r5, pc}
 	.align 2, 0
-_021D8B1C: .word 0x020FFA38
+_021D8B1C: .word UNK_020FFA38
 	thumb_func_end MOD77_021D8AA8
 
 	thumb_func_start MOD77_021D8B20

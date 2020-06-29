@@ -17178,7 +17178,7 @@ _02241A30:
 	lsl r2, r2, #0xa
 	asr r0, r0, #4
 	lsl r6, r0, #1
-	ldr r0, _02241AAC ; =0x020FFA38
+	ldr r0, _02241AAC ; =UNK_020FFA38
 	lsl r1, r6, #1
 	ldrsh r0, [r0, r1]
 	mov r3, #0
@@ -17194,7 +17194,7 @@ _02241A30:
 	orr r4, r0
 	add r0, r6, #1
 	lsl r1, r0, #1
-	ldr r0, _02241AAC ; =0x020FFA38
+	ldr r0, _02241AAC ; =UNK_020FFA38
 	mov r2, #0xa
 	ldrsh r0, [r0, r1]
 	lsl r2, r2, #0xa
@@ -17233,7 +17233,7 @@ _02241AA8:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-_02241AAC: .word 0x020FFA38
+_02241AAC: .word UNK_020FFA38
 _02241AB0: .word MOD18_022513A0
 	thumb_func_end MOD18_02241A04
 
@@ -17478,7 +17478,7 @@ _02241C70:
 	ldr r2, [sp]
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _02241D34 ; =0x020FFA38
+	ldr r0, _02241D34 ; =UNK_020FFA38
 	asr r3, r2, #0x1f
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
@@ -17504,7 +17504,7 @@ _02241C70:
 	lsl r0, r0, #1
 	add r0, r0, #1
 	lsl r1, r0, #1
-	ldr r0, _02241D34 ; =0x020FFA38
+	ldr r0, _02241D34 ; =UNK_020FFA38
 	ldrsh r0, [r0, r1]
 	asr r1, r0, #0x1f
 	bl _ll_mul
@@ -17561,7 +17561,7 @@ _02241D24: .word MOD18_02241AB4
 _02241D28: .word MOD18_022513A0
 _02241D2C: .word 0x00000B3B
 _02241D30: .word 0x00000000
-_02241D34: .word 0x020FFA38
+_02241D34: .word UNK_020FFA38
 	thumb_func_end MOD18_02241AD0
 
 	thumb_func_start MOD18_02241D38
@@ -18343,7 +18343,7 @@ MOD18_02242320: ; 0x02242320
 	ldrh r0, [r2, r1]
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _022423AC ; =0x020FFA38
+	ldr r0, _022423AC ; =UNK_020FFA38
 	ldrsh r1, [r0, r1]
 	mov r0, #1
 	lsl r0, r0, #0xc
@@ -18373,7 +18373,7 @@ _022423A4:
 	pop {r4, r5, pc}
 	.align 2, 0
 _022423A8: .word MOD18_022513A0
-_022423AC: .word 0x020FFA38
+_022423AC: .word UNK_020FFA38
 	thumb_func_end MOD18_02242320
 
 	thumb_func_start MOD18_022423B0
@@ -18529,7 +18529,7 @@ _022424D4:
 	ldrh r0, [r4, #0x1c]
 	asr r0, r0, #4
 	lsl r1, r0, #2
-	ldr r0, _02242594 ; =0x020FFA38
+	ldr r0, _02242594 ; =UNK_020FFA38
 	ldrsh r1, [r0, r1]
 	ldr r0, [r5, #0x48]
 	sub r0, r0, r1
@@ -18538,7 +18538,7 @@ _022424D4:
 	ldr r0, [r5, #0x44]
 	asr r1, r1, #4
 	lsl r2, r1, #2
-	ldr r1, _02242594 ; =0x020FFA38
+	ldr r1, _02242594 ; =UNK_020FFA38
 	add r2, r1, r2
 	mov r1, #2
 	ldrsh r1, [r2, r1]
@@ -18616,7 +18616,7 @@ _02242584: .word 0x00000000
 _02242588: .word MOD18_022500C0
 _0224258C: .word 0x00000626
 _02242590: .word MOD18_022513A0
-_02242594: .word 0x020FFA38
+_02242594: .word UNK_020FFA38
 _02242598: .word 0x0000FFFF
 	thumb_func_end MOD18_022423B0
 
