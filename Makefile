@@ -314,24 +314,22 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.gbapal: %.pal
 	$(GFX) $< $@
 
+PADDED_LZ_FILES := $(addsuffix .lz,$(wildcard \
+	files/battle/graphic/batt_bg/*.bin \
+	files/battle/graphic/batt_obj/*.bin \
+	files/wazaeffect/effectclact/wecell/*.bin \
+	files/wazaeffect/effectclact/wecellanm/*.bin \
+	files/wazaeffect/effectclact/wechar/*.bin \
+	files/contest/graphic/contest_bg/*.bin \
+	files/contest/graphic/contest_obj/*.bin \
+	files/application/custom_ball/data/cb_data/*.bin \
+	files/demo/egg/data/egg_data/*.bin))
+
 %.lz: %
 	$(NTRCOMP) -l2 -s -o $@ $<
 
-#
-LZ8_FILES := $(wildcard \
-	files/battle/graphic/batt_bg/*.lz \
-	files/battle/graphic/batt_obj/*.lz \
-	files/wazaeffect/effectclact/wecell/*.lz \
-	files/wazaeffect/effectclact/wecellanm/*.lz \
-	files/wazaeffect/effectclact/wechar/*.lz \
-	files/graphic/poketch/*.lz \
-	files/contest/graphic/contest_bg/*.lz \
-	files/contest/graphic/contest_obj/*.lz \
-	files/application/custom_ball/data/cb_data/*.lz \
-	files/demo/egg/data/egg_data/*.lz)
-
-$(LZ8_FILES): %.lz: %
-	$(NTRCOMP) -l4 -s -o $@ $<
+$(PADDED_LZ_FILES): %.lz: %
+	$(NTRCOMP) -l2 -s -A4 -o $@ $<
 
 %.png: ;
 %.pal: ;

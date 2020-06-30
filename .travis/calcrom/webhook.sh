@@ -6,7 +6,7 @@ if [[ "$TRAVIS_BRANCH" != "master" || "$TRAVIS_PULL_REQUEST" != "false" ]]; then
 fi
 
 build_name=$1
-map_file=$(dirname "$0")/../../arm9/build/arm9.elf.xMAP
+map_file=$(dirname "$0")/../../arm9/build/diamond.us/arm9.elf.xMAP
 if [ ! -f $map_file ]; then
   echo "$map_file does not exist!"
   exit 1
