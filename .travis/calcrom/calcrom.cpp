@@ -47,7 +47,7 @@ public:
     }
 };
 
-void analyze(string basedir, string subdir) {
+void analyze(string basedir, string subdir, string version) {
     fstream elf;
     Elf32_Ehdr ehdr;
     vector<Elf32_Shdr> shdr;
@@ -61,7 +61,7 @@ void analyze(string basedir, string subdir) {
     char * shstrtab = NULL;
     size_t shstrsz = 0;
     stringstream builddir;
-    builddir << subdir << "/build";
+    builddir << subdir << "/build/" << version;
     pattern << basedir << "/" << subdir << "/{src,asm,lib/{src,asm},modules/*/{src,asm}}/*.{c,s,cpp}";
     for (char const * & fname : Glob(pattern.str()))
     {
@@ -71,6 +71,10 @@ void analyze(string basedir, string subdir) {
         fname_s = fname_s.replace(fname_s.find(subdir), 4, builddir.str());
         fname_s = fname_s.replace(fname_s.rfind('.'), 4, ".o");
         elf.open(fname_s, ios_base::in | ios_base::binary);
+        if (!elf.good()) {
+            cerr << "Error: file not found: " << fname_s << endl;
+            return;
+        }
         elf.read((char *)&ehdr, sizeof(ehdr));
         if (memcmp(ehdr.e_ident, ELFMAG, SELFMAG) != 0
             || ehdr.e_ehsize != sizeof(Elf32_Ehdr)
@@ -109,7 +113,7 @@ void analyze(string basedir, string subdir) {
     }
     free(shstrtab);
 
-    cout << "Analysis of " << subdir << " binary:" << endl;
+    cout << "Analysis of " << (version.empty() ? subdir : version) << " binary:" << endl;
     // Report code
     unsigned total_text = sizes[1][0] + sizes[1][1];
     double total_text_d = total_text;
@@ -137,9 +141,11 @@ int main(int argc, char ** argv)
         throw invalid_argument("missing required argument: PROJECT_DIR\n");
     }
 
-    analyze(argv[1], "arm9");
+    analyze(argv[1], "arm9", "diamond.us");
     cout << endl;
-    analyze(argv[1], "arm7");
+    analyze(argv[1], "arm9", "pearl.us");
+    cout << endl;
+    analyze(argv[1], "arm7", "");
 
     return 0;
 }
