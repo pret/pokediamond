@@ -39,7 +39,7 @@ UNK_021C4D20: ; 0x021C4D20
 	thumb_func_start FUN_02015EA0
 FUN_02015EA0: ; 0x02015EA0
 	push {r3, lr}
-	ldr r3, _02015EC8 ; =0x027E0000
+	ldr r3, _02015EC8 ; =OS_IRQTable
 	ldr r1, _02015ECC ; =0x00003FF8
 	mov r0, #0x1
 	ldr r2, [r3, r1]
@@ -56,13 +56,13 @@ FUN_02015EA0: ; 0x02015EA0
 	str r1, [r0, #0x30]
 	pop {r3, pc}
 	nop
-_02015EC8: .word 0x027E0000
+_02015EC8: .word OS_IRQTable
 _02015ECC: .word 0x00003FF8
 _02015ED0: .word gUnknown21C48B8
 
 	thumb_func_start FUN_02015ED4
 FUN_02015ED4: ; 0x02015ED4
-	ldr r3, _02015EE8 ; =0x027E0000
+	ldr r3, _02015EE8 ; =OS_IRQTable
 	ldr r1, _02015EEC ; =0x00003FF8
 	mov r0, #0x1
 	ldr r2, [r3, r1]
@@ -72,7 +72,7 @@ FUN_02015ED4: ; 0x02015ED4
 	mov r0, #0x3
 	bx r3
 	nop
-_02015EE8: .word 0x027E0000
+_02015EE8: .word OS_IRQTable
 _02015EEC: .word 0x00003FF8
 _02015EF0: .word MI_WaitDma
 

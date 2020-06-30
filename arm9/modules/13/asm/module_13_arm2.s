@@ -34409,7 +34409,7 @@ MOD13_0223B770: ; 0x0223B770
 	sub sp, sp, #4
 	mov r0, #1
 	bl MOD13_0223C1E0
-	ldr r0, _0223B79C ; =0x027E0000
+	ldr r0, _0223B79C ; =OS_IRQTable
 	add r0, r0, #0x3000
 	ldr r1, [r0, #0xff8]
 	orr r1, r1, #1
@@ -34417,7 +34417,7 @@ MOD13_0223B770: ; 0x0223B770
 	add sp, sp, #4
 	ldmia sp!, {pc}
 	.align 2, 0
-_0223B79C: .word 0x027E0000
+_0223B79C: .word OS_IRQTable
 
 	arm_func_start MOD13_0223B7A0
 MOD13_0223B7A0: ; 0x0223B7A0

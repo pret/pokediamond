@@ -143,7 +143,7 @@ _021D75DE:
 	bl MOD66_021D9220
 	ldr r0, [r4, #0x28]
 	bl FUN_0201AB60
-	ldr r3, _021D7600 ; =0x027E0000
+	ldr r3, _021D7600 ; =OS_IRQTable
 	ldr r1, _021D7604 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -152,7 +152,7 @@ _021D75DE:
 	pop {r4, pc}
 	.align 2, 0
 _021D75FC: .word MOD66_021D95E8
-_021D7600: .word 0x027E0000
+_021D7600: .word OS_IRQTable
 _021D7604: .word 0x00003FF8
 	thumb_func_end MOD66_021D75C8
 
@@ -1402,7 +1402,7 @@ _021D7FCE:
 	strh r1, [r0]
 	add r0, sp, #4
 	str r0, [sp]
-	ldr r3, _021D7FF8 ; =0x021C48F8
+	ldr r3, _021D7FF8 ; =UNK_021C48F8
 	ldr r0, [r5, #0x28]
 	ldrh r2, [r3, #0x1c]
 	ldrh r3, [r3, #0x1e]
@@ -1418,7 +1418,7 @@ _021D7FEE:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _021D7FF4: .word MOD66_021D9720
-_021D7FF8: .word 0x021C48F8
+_021D7FF8: .word UNK_021C48F8
 	thumb_func_end MOD66_021D7FA4
 
 	thumb_func_start MOD66_021D7FFC

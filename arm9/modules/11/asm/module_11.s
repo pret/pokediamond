@@ -3158,7 +3158,7 @@ _0222F088:
 	bl FUN_0200372C
 	ldr r0, [r4, #4]
 	bl FUN_0201AB60
-	ldr r3, _0222F0CC ; =0x027E0000
+	ldr r3, _0222F0CC ; =OS_IRQTable
 	ldr r1, _0222F0D0 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -3172,7 +3172,7 @@ _0222F0BC: .word 0x04000050
 _0222F0C0: .word 0x04001050
 _0222F0C4: .word 0x0225DA90
 _0222F0C8: .word 0x0225DAB8
-_0222F0CC: .word 0x027E0000
+_0222F0CC: .word OS_IRQTable
 _0222F0D0: .word 0x00003FF8
 
 	thumb_func_start MOD11_0222F0D4
@@ -3184,7 +3184,7 @@ MOD11_0222F0D4: ; 0x0222F0D4
 	bl FUN_0201C30C
 	ldr r0, [r4, #4]
 	bl FUN_0201AB60
-	ldr r3, _0222F0F8 ; =0x027E0000
+	ldr r3, _0222F0F8 ; =OS_IRQTable
 	ldr r1, _0222F0FC ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -3192,7 +3192,7 @@ MOD11_0222F0D4: ; 0x0222F0D4
 	str r0, [r3, r1]
 	pop {r4, pc}
 	nop
-_0222F0F8: .word 0x027E0000
+_0222F0F8: .word OS_IRQTable
 _0222F0FC: .word 0x00003FF8
 
 	thumb_func_start MOD11_0222F100
@@ -94196,7 +94196,7 @@ MOD11_0225B824: ; 0x0225B824
 	mov r1, #1
 	bl FUN_02003204
 	add r4, r0, #0
-	ldr r0, _0225B8AC ; =0x021C48F8
+	ldr r0, _0225B8AC ; =UNK_021C48F8
 	ldrh r0, [r0, #0x22]
 	cmp r0, #0
 	beq _0225B888
@@ -94238,7 +94238,7 @@ _0225B888:
 _0225B8A8:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_0225B8AC: .word 0x021C48F8
+_0225B8AC: .word UNK_021C48F8
 
 	thumb_func_start MOD11_0225B8B0
 MOD11_0225B8B0: ; 0x0225B8B0

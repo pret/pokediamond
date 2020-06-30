@@ -38,7 +38,7 @@ UNK_021C8C58: ; 0x021C8C58
 
 	thumb_func_start FUN_0208A998
 FUN_0208A998: ; 0x0208A998
-	ldr r3, _0208A9AC ; =0x027E0000
+	ldr r3, _0208A9AC ; =OS_IRQTable
 	ldr r1, _0208A9B0 ; =0x00003FF8
 	mov r0, #0x1
 	ldr r2, [r3, r1]
@@ -48,7 +48,7 @@ FUN_0208A998: ; 0x0208A998
 	mov r0, #0x3
 	bx r3
 	nop
-_0208A9AC: .word 0x027E0000
+_0208A9AC: .word OS_IRQTable
 _0208A9B0: .word 0x00003FF8
 _0208A9B4: .word MI_WaitDma
 

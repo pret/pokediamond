@@ -28,7 +28,7 @@ UNK_020EECD0: ; 0x020EECD0
 
 	thumb_func_start FUN_02033F50
 FUN_02033F50: ; 0x02033F50
-	ldr r3, _02033F64 ; =0x027E0000
+	ldr r3, _02033F64 ; =OS_IRQTable
 	ldr r1, _02033F68 ; =0x00003FF8
 	mov r0, #0x1
 	ldr r2, [r3, r1]
@@ -38,7 +38,7 @@ FUN_02033F50: ; 0x02033F50
 	mov r0, #0x3
 	bx r3
 	nop
-_02033F64: .word 0x027E0000
+_02033F64: .word OS_IRQTable
 _02033F68: .word 0x00003FF8
 _02033F6C: .word MI_WaitDma
 

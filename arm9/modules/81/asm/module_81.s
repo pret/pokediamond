@@ -328,7 +328,7 @@ MOD81_022380F4: ; 0x022380F4
 	ldr r0, [r1, #0x18]
 	bl FUN_0201FDEC
 	bl FUN_02009F80
-	ldr r3, _02238110 ; =0x027E0000
+	ldr r3, _02238110 ; =OS_IRQTable
 	ldr r1, _02238114 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -336,7 +336,7 @@ MOD81_022380F4: ; 0x022380F4
 	str r0, [r3, r1]
 	pop {r3, pc}
 	nop
-_02238110: .word 0x027E0000
+_02238110: .word OS_IRQTable
 _02238114: .word 0x00003FF8
 	thumb_func_end MOD81_022380F4
 

@@ -1037,7 +1037,7 @@ FUN_0206FB58: ; 0x0206FB58
 	bl FUN_0201AB60
 	bl FUN_0201C30C
 	bl FUN_0200BC30
-	ldr r3, _0206FB78 ; =0x027E0000
+	ldr r3, _0206FB78 ; =OS_IRQTable
 	ldr r1, _0206FB7C ; =0x00003FF8
 	mov r0, #0x1
 	ldr r2, [r3, r1]
@@ -1045,7 +1045,7 @@ FUN_0206FB58: ; 0x0206FB58
 	str r0, [r3, r1]
 	pop {r3, pc}
 	nop
-_0206FB78: .word 0x027E0000
+_0206FB78: .word OS_IRQTable
 _0206FB7C: .word 0x00003FF8
 
 	thumb_func_start FUN_0206FB80

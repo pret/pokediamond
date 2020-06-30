@@ -275,7 +275,7 @@ _021D772C: .word FUN_0201AB60
 	thumb_func_start MOD59_021D7730
 MOD59_021D7730: ; 0x021D7730
 	push {r3, r4}
-	ldr r2, _021D7788 ; =0x021C48F8
+	ldr r2, _021D7788 ; =UNK_021C48F8
 	mov r0, #0
 	ldrh r1, [r2, #0x20]
 	cmp r1, #0
@@ -324,7 +324,7 @@ _021D7784:
 	pop {r3, r4}
 	bx lr
 	.align 2, 0
-_021D7788: .word 0x021C48F8
+_021D7788: .word UNK_021C48F8
 	thumb_func_end MOD59_021D7730
 
 	thumb_func_start MOD59_021D778C

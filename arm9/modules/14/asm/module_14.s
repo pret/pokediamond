@@ -11004,7 +11004,7 @@ MOD14_021DCBFC: ; 0x021DCBFC
 	pop {r4, pc}
 	.align 2, 0
 _021DCC20: .word 0x000065A0
-_021DCC24: .word 0x027E0000
+_021DCC24: .word OS_IRQTable
 _021DCC28: .word 0x00003FF8
 
 	thumb_func_start MOD14_021DCC2C

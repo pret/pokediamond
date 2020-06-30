@@ -55,7 +55,7 @@ FUN_02020B30: ; 0x02020B30
 	strh r1, [r2, #0x0]
 	str r3, [r0, #0x0]
 _02020B54:
-	ldr r3, _02020B70 ; =0x027E0000
+	ldr r3, _02020B70 ; =OS_IRQTable
 	ldr r1, _02020B74 ; =0x00003FF8
 	mov r0, #0x40
 	ldr r2, [r3, r1]
@@ -67,7 +67,7 @@ _02020B54:
 	nop
 _02020B68: .word UNK_021C59B0
 _02020B6C: .word 0x0400010E
-_02020B70: .word 0x027E0000
+_02020B70: .word OS_IRQTable
 _02020B74: .word 0x00003FF8
 _02020B78: .word OS_SetIrqFunction
 _02020B7C: .word FUN_02020B30

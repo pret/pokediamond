@@ -437,7 +437,7 @@ MOD53_021D78A8: ; 0x021D78A8
 	bl FUN_02009F80
 	add r0, r4, #0
 	bl FUN_0201AB60
-	ldr r3, _021D78C8 ; =0x027E0000
+	ldr r3, _021D78C8 ; =OS_IRQTable
 	ldr r1, _021D78CC ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -445,7 +445,7 @@ MOD53_021D78A8: ; 0x021D78A8
 	str r0, [r3, r1]
 	pop {r4, pc}
 	.align 2, 0
-_021D78C8: .word 0x027E0000
+_021D78C8: .word OS_IRQTable
 _021D78CC: .word 0x00003FF8
 	thumb_func_end MOD53_021D78A8
 
@@ -1716,7 +1716,7 @@ _021D8316:
 	bl FUN_02031190
 	lsl r1, r0, #2
 	ldr r0, [sp]
-	ldr r2, _021D83D0 ; =0x021C48F8
+	ldr r2, _021D83D0 ; =UNK_021C48F8
 	add r1, r0, r1
 	mov r0, #0x76
 	lsl r0, r0, #2
@@ -1774,7 +1774,7 @@ _021D83C0: .word 0x0000438B
 _021D83C4: .word 0x00004377
 _021D83C8: .word 0x000005E5
 _021D83CC: .word MOD53_021D94F0
-_021D83D0: .word 0x021C48F8
+_021D83D0: .word UNK_021C48F8
 _021D83D4: .word 0x00004378
 _021D83D8: .word 0x00004380
 	thumb_func_end MOD53_021D81B0
