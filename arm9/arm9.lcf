@@ -972,7 +972,7 @@ SECTIONS {
 		OS_irqHandler.o (.itcm)
 		OS_reset.o (.itcm)
 		MI_dma.o (.itcm)
-		arm9_itcm.o (.text)
+		MI_dma_gxcommand.o (.itcm)
 		. = ALIGN(32);
 		SDK_AUTOLOAD.ITCM.END = .;
 		SDK_AUTOLOAD.ITCM.SIZE = SDK_AUTOLOAD.ITCM.END - SDK_AUTOLOAD.ITCM.START;
