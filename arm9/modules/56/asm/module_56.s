@@ -578,7 +578,7 @@ MOD56_0221228C: ; 0x0221228C
 	bl FUN_0201AB60
 	bl FUN_0201C30C
 	bl FUN_02009F80
-	ldr r3, _022122AC ; =OS_IRQTable
+	ldr r3, _022122AC ; =0x027E0000
 	ldr r1, _022122B0 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -586,7 +586,7 @@ MOD56_0221228C: ; 0x0221228C
 	str r0, [r3, r1]
 	pop {r3, pc}
 	.align 2, 0
-_022122AC: .word OS_IRQTable
+_022122AC: .word 0x027E0000
 _022122B0: .word 0x00003FF8
 	thumb_func_end MOD56_0221228C
 

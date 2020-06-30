@@ -176,7 +176,7 @@ MOD67_021D7660: ; 0x021D7660
 	push {r3, lr}
 	ldr r0, [r0]
 	bl FUN_0201AB60
-	ldr r3, _021D7678 ; =OS_IRQTable
+	ldr r3, _021D7678 ; =0x027E0000
 	ldr r1, _021D767C ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -184,7 +184,7 @@ MOD67_021D7660: ; 0x021D7660
 	str r0, [r3, r1]
 	pop {r3, pc}
 	nop
-_021D7678: .word OS_IRQTable
+_021D7678: .word 0x027E0000
 _021D767C: .word 0x00003FF8
 	thumb_func_end MOD67_021D7660
 

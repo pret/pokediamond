@@ -1942,7 +1942,7 @@ MOD57_021D848C: ; 0x021D848C
 	push {r3, lr}
 	bl FUN_0201C30C
 	bl FUN_02009F80
-	ldr r3, _021D84A4 ; =OS_IRQTable
+	ldr r3, _021D84A4 ; =0x027E0000
 	ldr r1, _021D84A8 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -1950,7 +1950,7 @@ MOD57_021D848C: ; 0x021D848C
 	str r0, [r3, r1]
 	pop {r3, pc}
 	.align 2, 0
-_021D84A4: .word OS_IRQTable
+_021D84A4: .word 0x027E0000
 _021D84A8: .word 0x00003FF8
 	thumb_func_end MOD57_021D848C
 

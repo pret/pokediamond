@@ -547,7 +547,7 @@ MOD12_0222DAE4: ; 0x0222DAE4
 	bl FUN_0200372C
 	ldr r0, [r4, #0x30]
 	bl FUN_0201AB60
-	ldr r3, _0222DB10 ; =OS_IRQTable
+	ldr r3, _0222DB10 ; =0x027E0000
 	ldr r1, _0222DB14 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -555,7 +555,7 @@ MOD12_0222DAE4: ; 0x0222DAE4
 	str r0, [r3, r1]
 	pop {r4, pc}
 	.align 2, 0
-_0222DB10: .word OS_IRQTable
+_0222DB10: .word 0x027E0000
 _0222DB14: .word 0x00003FF8
 
 	thumb_func_start MOD12_0222DB18
@@ -3760,7 +3760,7 @@ _0222F4BA:
 	bl FUN_0200372C
 	ldr r0, [r6, #0x30]
 	bl FUN_0201AB60
-	ldr r3, _0222F4EC ; =OS_IRQTable
+	ldr r3, _0222F4EC ; =0x027E0000
 	ldr r1, _0222F4F0 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -3770,7 +3770,7 @@ _0222F4BA:
 	.align 2, 0
 _0222F4E4: .word 0x00000F63
 _0222F4E8: .word 0x04000040
-_0222F4EC: .word OS_IRQTable
+_0222F4EC: .word 0x027E0000
 _0222F4F0: .word 0x00003FF8
 
 	thumb_func_start MOD12_0222F4F4
@@ -5643,7 +5643,7 @@ _02230464:
 	bl FUN_0200372C
 	ldr r0, [r4, #0x74]
 	bl FUN_0201AB60
-	ldr r3, _022304A8 ; =OS_IRQTable
+	ldr r3, _022304A8 ; =0x027E0000
 	ldr r1, _022304AC ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -5656,7 +5656,7 @@ _02230498: .word 0x00000AF8
 _0223049C: .word 0x00001388
 _022304A0: .word 0x0000114C
 _022304A4: .word 0x00001138
-_022304A8: .word OS_IRQTable
+_022304A8: .word 0x027E0000
 _022304AC: .word 0x00003FF8
 
 	thumb_func_start MOD12_022304B0
@@ -41666,7 +41666,7 @@ MOD12_02241754: ; 0x02241754
 	bl FUN_0200372C
 	ldr r0, [r4, #0x30]
 	bl FUN_0201AB60
-	ldr r3, _022417D4 ; =OS_IRQTable
+	ldr r3, _022417D4 ; =0x027E0000
 	ldr r1, _022417D8 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -41676,7 +41676,7 @@ MOD12_02241754: ; 0x02241754
 	nop
 _022417CC: .word 0x00000854
 _022417D0: .word 0x04000040
-_022417D4: .word OS_IRQTable
+_022417D4: .word 0x027E0000
 _022417D8: .word 0x00003FF8
 
 	thumb_func_start MOD12_022417DC

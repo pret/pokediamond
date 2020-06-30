@@ -1713,7 +1713,7 @@ MOD80_0222E2E0: ; 0x0222E2E0
 _0222E2F4:
 	bl FUN_0201C30C
 	bl FUN_02009F80
-	ldr r3, _0222E310 ; =OS_IRQTable
+	ldr r3, _0222E310 ; =0x027E0000
 	ldr r1, _0222E314 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -1722,7 +1722,7 @@ _0222E2F4:
 	pop {r4, pc}
 	nop
 _0222E30C: .word 0x00001014
-_0222E310: .word OS_IRQTable
+_0222E310: .word 0x027E0000
 _0222E314: .word 0x00003FF8
 	thumb_func_end MOD80_0222E2E0
 

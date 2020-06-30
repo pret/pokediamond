@@ -7523,7 +7523,7 @@ MOD62_022310CC: ; 0x022310CC
 	add r4, #0xe4
 	ldr r0, [r4]
 	bl FUN_0201AB60
-	ldr r3, _02231104 ; =OS_IRQTable
+	ldr r3, _02231104 ; =0x027E0000
 	ldr r1, _02231108 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -7531,7 +7531,7 @@ MOD62_022310CC: ; 0x022310CC
 	str r0, [r3, r1]
 	pop {r4, pc}
 	nop
-_02231104: .word OS_IRQTable
+_02231104: .word 0x027E0000
 _02231108: .word 0x00003FF8
 	thumb_func_end MOD62_022310CC
 

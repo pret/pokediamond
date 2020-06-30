@@ -381,7 +381,7 @@ FUN_02086664: ; 0x02086664
 	bl FUN_0200372C
 	ldr r0, [r4, #0x4]
 	bl FUN_0201AB60
-	ldr r3, _02086690 ; =OS_IRQTable
+	ldr r3, _02086690 ; =0x027E0000
 	ldr r1, _02086694 ; =0x00003FF8
 	mov r0, #0x1
 	ldr r2, [r3, r1]
@@ -389,7 +389,7 @@ FUN_02086664: ; 0x02086664
 	str r0, [r3, r1]
 	pop {r4, pc}
 	.balign 4
-_02086690: .word OS_IRQTable
+_02086690: .word 0x027E0000
 _02086694: .word 0x00003FF8
 
 	thumb_func_start FUN_02086698

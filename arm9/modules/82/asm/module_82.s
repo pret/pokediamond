@@ -901,7 +901,7 @@ MOD82_0222DCC4: ; 0x0222DCC4
 	push {r3, lr}
 	bl FUN_0201C30C
 	bl FUN_02009F80
-	ldr r3, _0222DCDC ; =OS_IRQTable
+	ldr r3, _0222DCDC ; =0x027E0000
 	ldr r1, _0222DCE0 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -909,7 +909,7 @@ MOD82_0222DCC4: ; 0x0222DCC4
 	str r0, [r3, r1]
 	pop {r3, pc}
 	.align 2, 0
-_0222DCDC: .word OS_IRQTable
+_0222DCDC: .word 0x027E0000
 _0222DCE0: .word 0x00003FF8
 	thumb_func_end MOD82_0222DCC4
 

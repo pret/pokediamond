@@ -406,7 +406,7 @@ _021D7804:
 	bl FUN_020AEEB8
 	ldr r0, [r4, #0x14]
 	bl FUN_0201AB60
-	ldr r3, _021D782C ; =OS_IRQTable
+	ldr r3, _021D782C ; =0x027E0000
 	ldr r1, _021D7830 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -417,7 +417,7 @@ _021D7804:
 	nop
 _021D7824: .word 0x00000202
 _021D7828: .word 0xFFDFFFFF
-_021D782C: .word OS_IRQTable
+_021D782C: .word 0x027E0000
 _021D7830: .word 0x00003FF8
 	thumb_func_end MOD60_021D77D4
 

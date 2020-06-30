@@ -29,7 +29,7 @@ OSi_ArrangeTimer: ; 0x020CCE10
 	mov r0, #0x10
 	strh r2, [r1, #0x0]
 	bl OS_DisableIrqMask
-	ldr r0, _020CCF20 ; =OS_IRQTable
+	ldr r0, _020CCF20 ; =0x027E0000
 	add r0, r0, #0x3000
 	ldr r1, [r0, #0xff8]
 	orr r1, r1, #0x10
@@ -94,7 +94,7 @@ _020CCEF4:
 	bx lr
 	.balign 4
 _020CCF1C: .word 0x04000106
-_020CCF20: .word OS_IRQTable
+_020CCF20: .word 0x027E0000
 _020CCF24: .word OSi_AlarmQueue
 
 	arm_func_start OS_CancelAlarm

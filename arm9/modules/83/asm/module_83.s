@@ -1895,7 +1895,7 @@ MOD83_0222E464: ; 0x0222E464
 	bl FUN_02009F80
 	add r0, r4, #0
 	bl FUN_0201AB60
-	ldr r3, _0222E484 ; =OS_IRQTable
+	ldr r3, _0222E484 ; =0x027E0000
 	ldr r1, _0222E488 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -1903,7 +1903,7 @@ MOD83_0222E464: ; 0x0222E464
 	str r0, [r3, r1]
 	pop {r4, pc}
 	.align 2, 0
-_0222E484: .word OS_IRQTable
+_0222E484: .word 0x027E0000
 _0222E488: .word 0x00003FF8
 	thumb_func_end MOD83_0222E464
 
@@ -18219,7 +18219,7 @@ _02236520:
 	bl FUN_02009F80
 	ldr r0, [r4, #0x20]
 	bl FUN_0201AB60
-	ldr r3, _02236540 ; =OS_IRQTable
+	ldr r3, _02236540 ; =0x027E0000
 	ldr r1, _02236544 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -18228,7 +18228,7 @@ _02236520:
 	pop {r4, pc}
 	.align 2, 0
 _0223653C: .word 0x00012604
-_02236540: .word OS_IRQTable
+_02236540: .word 0x027E0000
 _02236544: .word 0x00003FF8
 	thumb_func_end MOD83_0223650C
 
@@ -23826,7 +23826,7 @@ MOD83_02238F00: ; 0x02238F00
 _02238F1E:
 	bl FUN_0201C30C
 	bl FUN_02009F80
-	ldr r3, _02238F3C ; =OS_IRQTable
+	ldr r3, _02238F3C ; =0x027E0000
 	ldr r1, _02238F40 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -23836,7 +23836,7 @@ _02238F1E:
 	.align 2, 0
 _02238F34: .word MOD83_0223CAB0
 _02238F38: .word MOD83_0223BC30
-_02238F3C: .word OS_IRQTable
+_02238F3C: .word 0x027E0000
 _02238F40: .word 0x00003FF8
 	thumb_func_end MOD83_02238F00
 

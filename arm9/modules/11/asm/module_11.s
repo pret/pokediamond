@@ -3158,7 +3158,7 @@ _0222F088:
 	bl FUN_0200372C
 	ldr r0, [r4, #4]
 	bl FUN_0201AB60
-	ldr r3, _0222F0CC ; =OS_IRQTable
+	ldr r3, _0222F0CC ; =0x027E0000
 	ldr r1, _0222F0D0 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -3172,7 +3172,7 @@ _0222F0BC: .word 0x04000050
 _0222F0C0: .word 0x04001050
 _0222F0C4: .word 0x0225DA90
 _0222F0C8: .word 0x0225DAB8
-_0222F0CC: .word OS_IRQTable
+_0222F0CC: .word 0x027E0000
 _0222F0D0: .word 0x00003FF8
 
 	thumb_func_start MOD11_0222F0D4
@@ -3184,7 +3184,7 @@ MOD11_0222F0D4: ; 0x0222F0D4
 	bl FUN_0201C30C
 	ldr r0, [r4, #4]
 	bl FUN_0201AB60
-	ldr r3, _0222F0F8 ; =OS_IRQTable
+	ldr r3, _0222F0F8 ; =0x027E0000
 	ldr r1, _0222F0FC ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -3192,7 +3192,7 @@ MOD11_0222F0D4: ; 0x0222F0D4
 	str r0, [r3, r1]
 	pop {r4, pc}
 	nop
-_0222F0F8: .word OS_IRQTable
+_0222F0F8: .word 0x027E0000
 _0222F0FC: .word 0x00003FF8
 
 	thumb_func_start MOD11_0222F100
@@ -29068,7 +29068,7 @@ _0223BBEE:
 	mov r2, #0
 	bl GetMonData
 	str r0, [r5, #0x10]
-	ldr r0, _0223BF18 ; =0x020FA5FC
+	ldr r0, _0223BF18 ; =UNK_020FA5FC
 	add r1, r5, #0
 	mov r2, #5
 	bl FUN_02006234
@@ -29423,7 +29423,7 @@ _0223BF06:
 	ldr r0, _0223BF30 ; =0x0000035F
 	b _0223BF34
 	nop
-_0223BF18: .word 0x020FA5FC
+_0223BF18: .word UNK_020FA5FC
 _0223BF1C: .word 0x0000219C
 _0223BF20: .word 0x0000FFFF
 _0223BF24: .word 0x00000496

@@ -1873,7 +1873,7 @@ MOD07_02212D68: ; 0x02212D68
 	bl FUN_0200372C
 	bl FUN_0201C30C
 	bl FUN_0200BC30
-	ldr r3, _02212D90 ; =OS_IRQTable
+	ldr r3, _02212D90 ; =0x027E0000
 	ldr r1, _02212D94 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -1881,7 +1881,7 @@ MOD07_02212D68: ; 0x02212D68
 	str r0, [r3, r1]
 	pop {r4, pc}
 	nop
-_02212D90: .word OS_IRQTable
+_02212D90: .word 0x027E0000
 _02212D94: .word 0x00003FF8
 
 	thumb_func_start MOD07_02212D98

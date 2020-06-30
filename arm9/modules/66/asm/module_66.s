@@ -143,7 +143,7 @@ _021D75DE:
 	bl MOD66_021D9220
 	ldr r0, [r4, #0x28]
 	bl FUN_0201AB60
-	ldr r3, _021D7600 ; =OS_IRQTable
+	ldr r3, _021D7600 ; =0x027E0000
 	ldr r1, _021D7604 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -152,7 +152,7 @@ _021D75DE:
 	pop {r4, pc}
 	.align 2, 0
 _021D75FC: .word MOD66_021D95E8
-_021D7600: .word OS_IRQTable
+_021D7600: .word 0x027E0000
 _021D7604: .word 0x00003FF8
 	thumb_func_end MOD66_021D75C8
 

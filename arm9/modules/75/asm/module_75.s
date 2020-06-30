@@ -533,7 +533,7 @@ MOD75_021E700C: ; 0x021E700C
 	bl FUN_0201AB60
 	bl FUN_0201C30C
 	bl FUN_0200BC30
-	ldr r3, _021E702C ; =OS_IRQTable
+	ldr r3, _021E702C ; =0x027E0000
 	ldr r1, _021E7030 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
@@ -541,7 +541,7 @@ MOD75_021E700C: ; 0x021E700C
 	str r0, [r3, r1]
 	pop {r3, pc}
 	nop
-_021E702C: .word OS_IRQTable
+_021E702C: .word 0x027E0000
 _021E7030: .word 0x00003FF8
 	thumb_func_end MOD75_021E700C
 

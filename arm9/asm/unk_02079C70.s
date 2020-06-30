@@ -357,7 +357,7 @@ FUN_02079F24: ; 0x02079F24
 	bl FUN_020081C4
 	bl FUN_0201C30C
 	bl FUN_0200BC30
-	ldr r3, _02079F50 ; =OS_IRQTable
+	ldr r3, _02079F50 ; =0x027E0000
 	ldr r1, _02079F54 ; =0x00003FF8
 	mov r0, #0x1
 	ldr r2, [r3, r1]
@@ -365,7 +365,7 @@ FUN_02079F24: ; 0x02079F24
 	str r0, [r3, r1]
 	pop {r4, pc}
 	nop
-_02079F50: .word OS_IRQTable
+_02079F50: .word 0x027E0000
 _02079F54: .word 0x00003FF8
 
 	thumb_func_start FUN_02079F58
