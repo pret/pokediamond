@@ -117,7 +117,16 @@ public:
         infile.open(fp, ios_base::in);
         string line;
         while (getline(infile, line)) {
-            push_back(line);
+            if (!line.empty())
+            {
+                // strip CR
+                size_t i;
+                for (i = line.size() - 1; line[i] == '\r'; i--)
+                    ;
+                if (i < line.size() - 1)
+                    line.erase(i + 1);
+                push_back(line);
+            }
         }
     }
     bool matches(string fp) {
