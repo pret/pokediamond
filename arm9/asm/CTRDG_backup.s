@@ -35,6 +35,7 @@
 	.extern UNK_021D6B0C
 	.extern UNK_021D6B34
 	.extern UNK_021D6B2C
+	.extern UNK_021D6B4C
 	.extern UNK_021D6B18
 
 	.section .rodata
@@ -181,10 +182,6 @@ UNK_021041D0: ; 0x021041D0
 	.byte 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x32, 0x00, 0x1B, 0x00
 
 	.section .bss
-
-	.global UNK_021D6B4C
-UNK_021D6B4C: ; 0x021D6B4C
-	.space 0x4
 
     .text
 

@@ -50,14 +50,17 @@ LD_TEMPLATE := ARM9-TS.lcf.template
 # Directories containing source files
 SRC_DIRS := src lib lib/src $(wildcard modules/*/src)
 ASM_DIRS := asm data files $(wildcard modules/*/asm)
+LIBASM_DIRS := lib/syscall
 
-C_FILES   := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-CXX_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
-S_FILES   := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+C_FILES    := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
+CXX_FILES  := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
+S_FILES    := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+LIBS_FILES := $(foreach dir,$(LIBASM_DIRS),$(wildcard $(dir)/*.s))
 
 C_OBJS = $(C_FILES:%.c=$(BUILD_DIR)/%.o)
 CXX_OBJS = $(CXX_FILES:%.cpp=$(BUILD_DIR)/%.o)
 S_OBJS = $(S_FILES:%.s=$(BUILD_DIR)/%.o)
+LIBS_OBJS = $(LIBS_FILES:%.s=$(BUILD_DIR)/%.o)
 
 # Object files
 O_FILES := $(C_OBJS) $(CXX_OBJS) $(S_OBJS)
@@ -187,7 +190,9 @@ ASFLAGS = -proc arm5te -i ../include -i .. -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 CFLAGS = -O4,p -gccext,on -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 CXXFLAGS = -O4,p -proc arm946e -fp soft -lang c99 -Cpp_exceptions off -i ../include -ir ../include-mw -ir lib/include -interworking -DFS_IMPLEMENT -enum int -W all -D$(GAME_VERSION) -D$(GAME_LANGUAGE)
 LDFLAGS = -nodead -w off -proc v5te -interworking -map closure,unused -symtab sort -m _start
-# LIBS := -Llib -lsyscall
+LIBS := -Llib -lsyscall
+ARFLAGS = rcS
+STATIC_LIBS := $(addprefix $(BUILD_DIR)/lib/,libsyscall.a)
 
 ####################### Other Tools #########################
 
@@ -223,18 +228,15 @@ NODEP := 1
 endif
 
 .PRECIOUS: $(ROM)
-.PHONY: all libs clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
+.PHONY: all clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm
 
 MAKEFLAGS += --no-print-directory
 
-all: libs $(ROM)
+all: $(ROM)
 ifeq ($(COMPARE),1)
 	@$(SHA1SUM) -c $(BUILD_TARGET).sha1
 	@echo $(ROM): OK
 endif
-
-libs:
-	$(MAKE) -C lib
 
 clean: mostlyclean
 	$(MAKE) -C $(TOOLS_DIR)/mwasmarm_patcher clean
@@ -256,17 +258,17 @@ $(MWASMARM): patch_mwasmarm
 patch_mwasmarm:
 	$(MWASMARM_PATCHER) $(MWASMARM)
 
-ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
+ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS) $(LIBASM_DIRS))
 
 ######################## Special Rules ########################
 
 # TODO: Move out to lib/Makefile
-$(BUILD_DIR)/lib/src/%.o: MWCCVERSION = 1.2/sp2p3
+$(BUILD_DIR)/lib/%.o: MWCCVERSION = 1.2/sp2p3
 
 ####################### Everything Else ######################
 
 ifeq (,$(NODEP))
-$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)))
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)) $(filter $*.s,$(LIBS_FILES)))
 else
 $(BUILD_DIR)/%.o: dep :=
 endif
@@ -277,18 +279,21 @@ $(C_OBJS): $(BUILD_DIR)/%.o: %.c $$(dep)
 $(CXX_OBJS): $(BUILD_DIR)/%.o: %.cpp $$(dep)
 	$(CXX) -c $(CXXFLAGS) -o $@ $<
 
-$(S_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
+$(S_OBJS) $(LIBS_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) -o $@ $<
 
-# $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
-# 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
+$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
+	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
 
-$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
-	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
+#$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
+#	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
-$(ROM): $(O_FILES) $(BUILD_DIR)/$(LD_SCRIPT) $(BIN_FILES)
-	$(LD) $(LDFLAGS) $(LIBS) $(BUILD_DIR)/$(LD_SCRIPT) -o $(ELF) $(O_FILES) $(BIN_FILES)
+$(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)
+	cd $(BUILD_DIR) && LM_LICENSE_FILE=../../$(LM_LICENSE_FILE) $(WINE) ../../$(MWLDARM) $(LDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) $(O_FILES:$(BUILD_DIR)/%=%)
 	$(OBJCOPY) --update-section arm9=$@ -j arm9 $(foreach ov,$(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
+
+$(BUILD_DIR)/lib/libsyscall.a: $(BUILD_DIR)/lib/syscall/secure.o
+	$(AR) $(ARFLAGS) -o $@ $^
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
@@ -311,8 +316,6 @@ DUMMY != mkdir -p $(ALL_DIRS)
 # Included files
 %.h: ;
 %.inc: ;
-
-$(BIN_FILES): ;
 
 ### Debug Print ###
 

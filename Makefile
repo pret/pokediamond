@@ -212,6 +212,7 @@ MWASMARM_PATCHER = $(TOOLS_DIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE) -q
 MAKEBANNER = $(WINE) $(TOOLS_DIR)/bin/makebanner.exe
 MAKEROM    = $(WINE) $(TOOLS_DIR)/bin/makerom.exe
 FIXROM     = $(TOOLS_DIR)/fixrom/fixrom$(EXE)
+NTRCOMP    = $(WINE) $(TOOLS_DIR)/bin/ntrcomp.exe
 
 TOOLDIRS = $(filter-out $(TOOLS_DIR)/mwccarm $(TOOLS_DIR)/bin,$(wildcard $(TOOLS_DIR)/*))
 TOOLBASE = $(TOOLDIRS:$(TOOLS_DIR)/%=%)
@@ -287,8 +288,6 @@ $(BUILD_DIR)/%.o: %.c $$(dep)
 $(BUILD_DIR)/%.o: %.s $$(dep)
 	$(AS) $(ASFLAGS) $< -o $@
 
-$(SBINFILES): arm9 arm7
-
 arm9:
 	$(MAKE) -C arm9 COMPARE=$(COMPARE) GAME_LANGUAGE=$(GAME_LANGUAGE) GAME_VERSION=$(GAME_VERSION)
 
@@ -299,7 +298,7 @@ include filesystem.mk
 
 # TODO: Rules for Pearl
 # FIXME: Computed secure area CRC in header is incorrect due to first 8 bytes of header not actually being "encryObj"
-$(ROM): rom.rsf $(BNR) $(SBINFILES) $(HOSTFS_FILES) tools/bin/rom_header.template.sbin
+$(ROM): rom.rsf arm9 arm7 filesystem $(BNR) tools/bin/rom_header.template.sbin
 	$(MAKEROM) -DBUILD_DIR="$(BUILD_DIR)" -DBNR="$(BNR)" -DTITLE_NAME="$(TITLE_NAME)" -DNITROFS_FILES="$(NITROFS_FILES)" $< $@
 	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
 
@@ -315,8 +314,22 @@ DUMMY != mkdir -p $(ALL_DIRS)
 %.gbapal: %.pal
 	$(GFX) $< $@
 
+PADDED_LZ_FILES := $(addsuffix .lz,$(wildcard \
+	files/battle/graphic/batt_bg/*.bin \
+	files/battle/graphic/batt_obj/*.bin \
+	files/wazaeffect/effectclact/wecell/*.bin \
+	files/wazaeffect/effectclact/wecellanm/*.bin \
+	files/wazaeffect/effectclact/wechar/*.bin \
+	files/contest/graphic/contest_bg/*.bin \
+	files/contest/graphic/contest_obj/*.bin \
+	files/application/custom_ball/data/cb_data/*.bin \
+	files/demo/egg/data/egg_data/*.bin))
+
 %.lz: %
-	$(GFX) $< $@
+	$(NTRCOMP) -l2 -s -o $@ $<
+
+$(PADDED_LZ_FILES): %.lz: %
+	$(NTRCOMP) -l2 -s -A4 -o $@ $<
 
 %.png: ;
 %.pal: ;

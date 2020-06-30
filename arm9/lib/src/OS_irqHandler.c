@@ -5,9 +5,7 @@
 #include "sections.h"
 #include "CP_context.h"
 
-#pragma section DTCM begin
 OSThreadQueue OSi_IrqThreadQueue = { NULL, NULL };
-#pragma section DTCM end
 
 #pragma section ITCM begin
 ARM_FUNC asm void OS_IrqHandler(void)
