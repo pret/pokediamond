@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD 17)
 
 enable_language(ASM)
 
+if(APPLE)
+    include_directories(/usr/local/include)
+endif(APPLE)
+
 add_compile_options(-fms-extensions)
 
 file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c" "*.cpp")

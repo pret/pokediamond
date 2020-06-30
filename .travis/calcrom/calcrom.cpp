@@ -15,8 +15,10 @@
  *      Initial implementation
  *  - 0.1.1 (26 May 2020):
  *      Allow program to be run from wherever
- *    0.1.2 (27 May 2020):
+ *  - 0.1.2 (27 May 2020):
  *      Extra security on ELF header
+ *  - 0.1.3 (30 Jun 2020):
+ *      Account for diamond/pearl split
  */
 
 #include <iostream>
