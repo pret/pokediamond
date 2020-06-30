@@ -1,6 +1,8 @@
 #ifndef GUARD_GX_G3X_H
 #define GUARD_GX_G3X_H
 
+#include "fx.h"
+
 void GXi_NopClearFifo128_(void *reg);
 void G3X_Init();
 void G3X_ResetMtxStack();
@@ -65,5 +67,18 @@ typedef enum
     GX_FIFOSTAT_FULL = 1
 }
 GXFifoStat;
+
+static inline void G3X_SetFifoIntrCond(GXFifoIntrCond cond)
+{
+    reg_G3X_GXSTAT = ((reg_G3X_GXSTAT & ~0xc0000000) |
+                      (cond << 30));
+}
+
+static inline GXFifoStat G3X_GetCommandFifoStatus(void)
+{
+    return (GXFifoStat)((reg_G3X_GXSTAT & (0x01000000 |
+                                           0x02000000 |
+                                           0x04000000)) >> 24);
+}
 
 #endif //GUARD_GX_G3X_H
