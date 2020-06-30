@@ -63,6 +63,10 @@ UNK_021D6B3C: ; 0x021D6B3C
 UNK_021D6B44: ; 0x021D6B44
 	.space 0x8
 
+	.global UNK_021D6B4C
+UNK_021D6B4C: ; 0x021D6B4C
+	.space 0x4
+
     .text
 
 	arm_func_start CTRDG_WriteAndVerifyAgbFlashAsync

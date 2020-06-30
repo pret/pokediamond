@@ -24,12 +24,12 @@ root
       `- ...
    `- src
    `- global.inc
-   `- arm9.lcf
+   `- arm9.lsf
    `- Makefile
 `- arm7
    `- asm
    `- global.inc
-   `- arm7.lcf
+   `- arm7.lsf
    `- Makefile
 `- files
 `- data
@@ -68,24 +68,18 @@ Most functions in the codebase will be longer and more complicated than this.
 
 ## Creating a new C file
 
-Section link order is specified in the Linker Command File, arm9/arm9.lcf. Only the basenames of each object (.o) file are specified in the lcf and recognized by the project linker, mwldarm. Therefore, no two compiled objects can have the same name. When decompiling asm/foo.s, please create the C file with a different name (basename minus extension i.e. src/foo_c.c). You must explicitly specify the .text, .data, .rodata, and .bss sections in their respective locations in the lcf. For instance:
+Section link order is specified in the Linker Spec File, arm9/arm9.lsf. Only the basenames of each object (.o) file are specified in the lsf and recognized by the project linker, mwldarm. Therefore, no two compiled objects can have the same name. When decompiling asm/foo.s, please create the C file with a different name (basename minus extension i.e. src/foo_c.c). Except in rare cases, you need only insert "Object <basename>.o" into the "Static" container. For instance:
 ```diff
-    file1.o (.text)
-    file2.o (.text)
-+   file3_c.o (.text)
-    file3.o (.text)
-    file4.o (.text)
---
-    file1.o (.rodata)
-    file2.o (.rodata)
-+   file3_c.o (.rodata)
-    file3.o (.rodata)
-    file4.o (.rodata)
+    Object file1.o
+    Object file2.o
++   Object file3_c.o
+    Object file3.o
+    Object file4.o
 ```
 
 ## Testing the build
 
-After placing your C file into the LCF as described above, test your build by running `make`. Here are some common errors you may encounter and how to resolve them:
+After placing your C file into the LSF as described above, test your build by running `make`. Here are some common errors you may encounter and how to resolve them:
 
     Unknown identifier, FUN_0201B578
 
@@ -109,7 +103,7 @@ $OBJDUMP $OPTIONS $(dirname $0)/baserom.sbin > $(dirname $0)/baserom.dump || exi
 $OBJDUMP $OPTIONS $(dirname $0)/build/arm9.sbin > $(dirname $0)/arm9.dump
 diff -u $(dirname $0)/baserom.dump $(dirname $0)/arm9.dump
 ```
-Place a clean version of the ARM9 binary as arm9/baserom.sbin (arm9/build/arm9.bin from a successful build should suffice). In your terminal, navigate to the arm9 directory and run `./asmdiff.sh 0 $(wc -c baserom.sbin) | less`, then scroll through to where the grievances begin. Fix any obvious problems in your code/tree, and rerun. If the differences are extensive, you may have induced a shift in the binary either by writing incorrect code or placing it incorrectly into the LCF.  *Tip: you can specify a start address and size to only compare the portion of the ROM you are working on.*
+Place a clean version of the ARM9 binary as arm9/baserom.sbin (arm9/build/arm9.bin from a successful build should suffice). In your terminal, navigate to the arm9 directory and run `./asmdiff.sh 0 $(wc -c baserom.sbin) | less`, then scroll through to where the grievances begin. Fix any obvious problems in your code/tree, and rerun. If the differences are extensive, you may have induced a shift in the binary either by writing incorrect code or placing it incorrectly into the LSF.  *Tip: you can specify a start address and size to only compare the portion of the ROM you are working on.*
 
 ## Decompiling data
 
