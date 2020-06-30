@@ -42,10 +42,6 @@ ARM_FUNC void MI_SendGXCommand(u32 dmaNo, const void *src, u32 commandLength)
 
 ARM_FUNC void MI_SendGXCommandAsync(u32 dmaNo, const void *src, u32 commandLength, MIDmaCallback callback, void *arg)
 {
-    vu32 *dmaCntp;
-    u32 leftLength = commandLength;
-    u32 currentSrc = (u32)src;
-
     if (!commandLength)
     {
         MIi_CallCallback(callback, arg);
