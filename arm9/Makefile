@@ -268,7 +268,7 @@ $(BUILD_DIR)/lib/%.o: MWCCVERSION = 1.2/sp2p3
 ####################### Everything Else ######################
 
 ifeq (,$(NODEP))
-$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)) $(filter %*.s,$(LIBS_FILES)))
+$(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I ../include -I ../include-mw -I lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)) $(filter $*.s,$(LIBS_FILES)))
 else
 $(BUILD_DIR)/%.o: dep :=
 endif
