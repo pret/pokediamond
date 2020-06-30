@@ -1,2 +1,4 @@
 *.bin binary
 *.txt eol=crlf
+.knarcignore eol=lf
+.knarckeep eol=lf
