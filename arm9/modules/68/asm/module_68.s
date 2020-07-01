@@ -1183,7 +1183,7 @@ _021D7E50:
 	mov r0, #2
 	tst r0, r1
 	bne _021D7E60
-	ldr r0, _021D7E74 ; =0x021C48F8
+	ldr r0, _021D7E74 ; =UNK_021C48F8
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	beq _021D7E6C
@@ -1198,7 +1198,7 @@ _021D7E6C:
 	pop {r4, pc}
 	.align 2, 0
 _021D7E70: .word gUnknown21C48B8
-_021D7E74: .word 0x021C48F8
+_021D7E74: .word UNK_021C48F8
 	thumb_func_end MOD68_021D7D9C
 
 	thumb_func_start MOD68_021D7E78

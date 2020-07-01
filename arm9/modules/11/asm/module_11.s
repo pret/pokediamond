@@ -29068,7 +29068,7 @@ _0223BBEE:
 	mov r2, #0
 	bl GetMonData
 	str r0, [r5, #0x10]
-	ldr r0, _0223BF18 ; =0x020FA5FC
+	ldr r0, _0223BF18 ; =UNK_020FA5FC
 	add r1, r5, #0
 	mov r2, #5
 	bl FUN_02006234
@@ -29423,7 +29423,7 @@ _0223BF06:
 	ldr r0, _0223BF30 ; =0x0000035F
 	b _0223BF34
 	nop
-_0223BF18: .word 0x020FA5FC
+_0223BF18: .word UNK_020FA5FC
 _0223BF1C: .word 0x0000219C
 _0223BF20: .word 0x0000FFFF
 _0223BF24: .word 0x00000496
@@ -94196,7 +94196,7 @@ MOD11_0225B824: ; 0x0225B824
 	mov r1, #1
 	bl FUN_02003204
 	add r4, r0, #0
-	ldr r0, _0225B8AC ; =0x021C48F8
+	ldr r0, _0225B8AC ; =UNK_021C48F8
 	ldrh r0, [r0, #0x22]
 	cmp r0, #0
 	beq _0225B888
@@ -94238,7 +94238,7 @@ _0225B888:
 _0225B8A8:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_0225B8AC: .word 0x021C48F8
+_0225B8AC: .word UNK_021C48F8
 
 	thumb_func_start MOD11_0225B8B0
 MOD11_0225B8B0: ; 0x0225B8B0

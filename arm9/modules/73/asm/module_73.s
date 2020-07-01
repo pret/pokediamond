@@ -1055,7 +1055,7 @@ _021D7D94:
 	sub r0, r0, #1
 	str r0, [r4, #0x1c]
 	bmi _021D7DAE
-	ldr r0, _021D7F50 ; =0x021C48F8
+	ldr r0, _021D7F50 ; =UNK_021C48F8
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _021D7DAE
@@ -1101,7 +1101,7 @@ _021D7DF4:
 	ldr r0, [r4, #0x1c]
 	sub r0, r0, #1
 	str r0, [r4, #0x1c]
-	ldr r0, _021D7F50 ; =0x021C48F8
+	ldr r0, _021D7F50 ; =UNK_021C48F8
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _021D7E14
@@ -1214,7 +1214,7 @@ _021D7ED6:
 	ldr r0, [r4, #0x1c]
 	sub r0, r0, #1
 	str r0, [r4, #0x1c]
-	ldr r0, _021D7F50 ; =0x021C48F8
+	ldr r0, _021D7F50 ; =UNK_021C48F8
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _021D7EF4
@@ -1271,7 +1271,7 @@ _021D7F3E:
 _021D7F44: .word 0x0000063C
 _021D7F48: .word 0x00001410
 _021D7F4C: .word 0x000006C3
-_021D7F50: .word 0x021C48F8
+_021D7F50: .word UNK_021C48F8
 _021D7F54: .word gUnknown21C48B8
 _021D7F58: .word 0x0000152C
 _021D7F5C: .word 0x00001420
@@ -8110,7 +8110,7 @@ MOD73_021DB318: ; 0x021DB318
 	push {r4, lr}
 	sub sp, #8
 	add r4, r0, #0
-	ldr r0, _021DB364 ; =0x021C48F8
+	ldr r0, _021DB364 ; =UNK_021C48F8
 	ldrh r1, [r0, #0x22]
 	cmp r1, #0
 	beq _021DB33C
@@ -8140,13 +8140,13 @@ _021DB33C:
 	str r0, [r4, #8]
 	ldr r0, [r4, #4]
 	str r0, [r4, #0xc]
-	ldr r0, _021DB364 ; =0x021C48F8
+	ldr r0, _021DB364 ; =UNK_021C48F8
 	ldrh r0, [r0, #0x22]
 	str r0, [r4, #0x14]
 	add sp, #8
 	pop {r4, pc}
 	.align 2, 0
-_021DB364: .word 0x021C48F8
+_021DB364: .word UNK_021C48F8
 	thumb_func_end MOD73_021DB318
 
 	thumb_func_start MOD73_021DB368

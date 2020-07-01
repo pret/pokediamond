@@ -2320,7 +2320,7 @@ _021DAC6E:
 	thumb_func_start MOD58_021DAC7C
 MOD58_021DAC7C: ; 0x021DAC7C
 	push {r3, r4, r5, lr}
-	ldr r1, _021DAD28 ; =0x021C48F8
+	ldr r1, _021DAD28 ; =UNK_021C48F8
 	add r4, r0, #0
 	ldrh r0, [r1, #0x1c]
 	ldr r3, _021DAD2C ; =0x0000FFFF
@@ -2353,7 +2353,7 @@ _021DACB0:
 	blt _021DACE6
 	cmp r3, #0x28
 	bgt _021DACE6
-	ldr r0, _021DAD28 ; =0x021C48F8
+	ldr r0, _021DAD28 ; =UNK_021C48F8
 	ldrh r2, [r0, #0x1e]
 	ldr r0, _021DAD34 ; =0x00005CAC
 	ldr r1, [r4, r0]
@@ -2378,7 +2378,7 @@ _021DACD4:
 _021DACE6:
 	cmp r3, #0x28
 	bgt _021DAD16
-	ldr r0, _021DAD28 ; =0x021C48F8
+	ldr r0, _021DAD28 ; =UNK_021C48F8
 	ldrh r2, [r0, #0x1e]
 	ldr r0, _021DAD34 ; =0x00005CAC
 	ldr r1, [r4, r0]
@@ -2402,7 +2402,7 @@ _021DAD02:
 	add r0, r4, r0
 	bl MOD58_021DAD3C
 _021DAD16:
-	ldr r1, _021DAD28 ; =0x021C48F8
+	ldr r1, _021DAD28 ; =UNK_021C48F8
 	ldr r0, _021DAD30 ; =0x00005CA8
 	ldrh r2, [r1, #0x1c]
 	str r2, [r4, r0]
@@ -2411,7 +2411,7 @@ _021DAD16:
 	str r1, [r4, r0]
 	pop {r3, r4, r5, pc}
 	nop
-_021DAD28: .word 0x021C48F8
+_021DAD28: .word UNK_021C48F8
 _021DAD2C: .word 0x0000FFFF
 _021DAD30: .word 0x00005CA8
 _021DAD34: .word 0x00005CAC

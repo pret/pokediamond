@@ -28412,7 +28412,7 @@ _0223B14C:
 	mov r0, #1
 	tst r0, r1
 	bne _0223B174
-	ldr r0, _0223B34C ; =0x021C48F8
+	ldr r0, _0223B34C ; =UNK_021C48F8
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	beq _0223B186
@@ -28665,7 +28665,7 @@ _0223B340:
 	.align 2, 0
 _0223B344: .word 0x00000171
 _0223B348: .word gUnknown21C48B8
-_0223B34C: .word 0x021C48F8
+_0223B34C: .word UNK_021C48F8
 _0223B350: .word 0x000006ED
 _0223B354: .word 0x02245F84
 _0223B358: .word 0x02245F8C

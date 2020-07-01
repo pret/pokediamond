@@ -7110,6 +7110,9 @@
 .extern MOD20_02254488
 .extern MOD51_02254A68
 .extern MOD51_02254AB8
+.extern MOD52_021D76C8
+.extern MOD52_021D76D8
+.extern MOD52_021D76E8
 .extern MOD53_021D74E0
 .extern MOD53_021D7654
 .extern MOD53_021D7764
@@ -7279,6 +7282,7 @@
 .extern MTX_ScaleApply43
 .extern MTX_TransApply44
 .extern NitroMain
+.extern gBacklightTop
 .extern OS_AllocFromArenaHi
 .extern OS_AllocFromArenaLo
 .extern OS_AllocFromHeap
@@ -7748,6 +7752,7 @@
 .extern MOD63_021DBAB8
 .extern UNK_020F2B7C
 .extern UNK_020F2B8C
+.extern UNK_020FA5FC
 .extern UNK_020FB6F8
 .extern UNK_020FB704
 .extern UNK_020FB710
@@ -7755,8 +7760,10 @@
 .extern UNK_020FB740
 .extern UNK_020FB764
 .extern UNK_020FD144
+.extern UNK_020FD6D4
 .extern UNK_021064B8
 .extern UNK_021064C0
+.extern UNK_021C48F8
 .extern UNK_021C8ECC
 .extern UNK_021C8ED0
 .extern UNK_021C8ED4

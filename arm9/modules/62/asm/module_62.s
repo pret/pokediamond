@@ -50,7 +50,7 @@ MOD62_0222D5F8: ; 0x0222D5F8
 	beq _0222D64C
 	cmp r2, #1
 	bne _0222D628
-	ldr r3, _0222D650 ; =0x021C48F8
+	ldr r3, _0222D650 ; =UNK_021C48F8
 	mov r1, #0x1c
 	mov r2, #0x1e
 	ldrsh r1, [r3, r1]
@@ -85,7 +85,7 @@ _0222D628:
 _0222D64C:
 	pop {r3, r4, r5, pc}
 	nop
-_0222D650: .word 0x021C48F8
+_0222D650: .word UNK_021C48F8
 	thumb_func_end MOD62_0222D5F8
 
 	thumb_func_start MOD62_0222D654

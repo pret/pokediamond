@@ -5619,7 +5619,7 @@ _021DA256:
 _021DA2BC:
 	pop {r3, r4, r5, pc}
 	nop
-_021DA2C0: .word 0x020FA5FC
+_021DA2C0: .word UNK_020FA5FC
 _021DA2C4: .word MOD14_021D76E8
 
 	thumb_func_start MOD14_021DA2C8
@@ -10995,7 +10995,7 @@ MOD14_021DCBFC: ; 0x021DCBFC
 	ldr r0, [r4, #0x18]
 	bl FUN_0201FDEC
 	bl FUN_02009F80
-	ldr r3, _021DCC24 ; =MOD14_027E0000
+	ldr r3, _021DCC24 ; =0x027E0000
 	ldr r1, _021DCC28 ; =0x00003FF8
 	mov r0, #1
 	ldr r2, [r3, r1]
