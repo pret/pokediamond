@@ -122,7 +122,7 @@ int main(int argc, char ** argv)
                 fatal_error("multiple --secure-crc options specified");
             }
             char * endptr;
-            ulong secure_crc_l = strtoul(argv[++i], &endptr, 0);
+            unsigned long secure_crc_l = strtoul(argv[++i], &endptr, 0);
             if (secure_crc_l == 0 && endptr == argv[i])
             {
                 fatal_error("argument to --secure-crc must be an integer");

@@ -246,16 +246,18 @@ ifeq ($(COMPARE),1)
 	@$(SHA1SUM) -c $(TARGET).sha1
 endif
 
-clean: mostlyclean
+clean: mostlyclean clean-fs
 	$(MAKE) -C arm9 clean
 	$(MAKE) -C arm7 clean
 	$(MAKE) -C tools/mwasmarm_patcher clean
-	$(RM) $(filter-out files/poketool/personal/pms.narc,$(filter %.narc %.arc,$(HOSTFS_FILES)))
+
+clean-fs:
+	$(RM) $(filter %.narc %.arc,$(HOSTFS_FILES))
+	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 
 mostlyclean: tidy
 	$(MAKE) -C arm9 mostlyclean
 	$(MAKE) -C arm7 mostlyclean
-	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 	find files \( -name '*.c' -o -name '*.o' \) -exec $(RM) {} +
 
 tidy:
@@ -315,15 +317,15 @@ DUMMY != mkdir -p $(ALL_DIRS)
 	$(GFX) $< $@
 
 PADDED_LZ_FILES := $(addsuffix .lz,$(wildcard \
-	files/battle/graphic/batt_bg/*.bin \
-	files/battle/graphic/batt_obj/*.bin \
-	files/wazaeffect/effectclact/wecell/*.bin \
-	files/wazaeffect/effectclact/wecellanm/*.bin \
-	files/wazaeffect/effectclact/wechar/*.bin \
-	files/contest/graphic/contest_bg/*.bin \
-	files/contest/graphic/contest_obj/*.bin \
-	files/application/custom_ball/data/cb_data/*.bin \
-	files/demo/egg/data/egg_data/*.bin))
+	files/battle/graphic/batt_bg/* \
+	files/battle/graphic/batt_obj/* \
+	files/wazaeffect/effectclact/wecell/* \
+	files/wazaeffect/effectclact/wecellanm/* \
+	files/wazaeffect/effectclact/wechar/* \
+	files/contest/graphic/contest_bg/* \
+	files/contest/graphic/contest_obj/* \
+	files/application/custom_ball/data/cb_data/* \
+	files/demo/egg/data/egg_data/*))
 
 %.lz: %
 	$(NTRCOMP) -l2 -s -o $@ $<
