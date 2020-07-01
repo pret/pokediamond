@@ -305,37 +305,37 @@ $(O2NARC_TARGETS): %.narc: %.json %.json.txt $$(dep)
 files/battle/graphic/batt_bg.narc: \
         files/battle/graphic/batt_bg/narc_0156.bin.lz \
         files/battle/graphic/batt_bg/narc_0142.bin.lz \
-        files/battle/graphic/batt_bg/narc_0022.bin.lz \
+        files/battle/graphic/batt_bg/narc_0022.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0036.bin.lz \
         files/battle/graphic/batt_bg/narc_0037.bin.lz \
-        files/battle/graphic/batt_bg/narc_0023.bin.lz \
-        files/battle/graphic/batt_bg/narc_0143.bin.lz \
-        files/battle/graphic/batt_bg/narc_0141.bin.lz \
+        files/battle/graphic/batt_bg/narc_0023.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0143.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0141.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0155.bin.lz \
         files/battle/graphic/batt_bg/narc_0035.bin.lz \
-        files/battle/graphic/batt_bg/narc_0021.bin.lz \
-        files/battle/graphic/batt_bg/narc_0009.bin.lz \
-        files/battle/graphic/batt_bg/narc_0008.bin.lz \
-        files/battle/graphic/batt_bg/narc_0020.bin.lz \
+        files/battle/graphic/batt_bg/narc_0021.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0009.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0008.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0020.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0034.bin.lz \
-        files/battle/graphic/batt_bg/narc_0154.bin.lz \
+        files/battle/graphic/batt_bg/narc_0154.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0140.bin.lz \
         files/battle/graphic/batt_bg/narc_0144.bin.lz \
         files/battle/graphic/batt_bg/narc_0150.bin.lz \
-        files/battle/graphic/batt_bg/narc_0018.bin.lz \
+        files/battle/graphic/batt_bg/narc_0018.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0030.bin.lz \
-        files/battle/graphic/batt_bg/narc_0024.bin.lz \
-        files/battle/graphic/batt_bg/narc_0025.bin.lz \
+        files/battle/graphic/batt_bg/narc_0024.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0025.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0031.bin.lz \
-        files/battle/graphic/batt_bg/narc_0019.bin.lz \
-        files/battle/graphic/batt_bg/narc_0151.bin.lz \
+        files/battle/graphic/batt_bg/narc_0019.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0151.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0145.bin.lz \
         files/battle/graphic/batt_bg/narc_0153.bin.lz \
         files/battle/graphic/batt_bg/narc_0147.bin.lz \
-        files/battle/graphic/batt_bg/narc_0027.bin.lz \
+        files/battle/graphic/batt_bg/narc_0027.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0033.bin.lz \
         files/battle/graphic/batt_bg/narc_0032.bin.lz \
-        files/battle/graphic/batt_bg/narc_0026.bin.lz \
+        files/battle/graphic/batt_bg/narc_0026.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0146.bin.lz \
         files/battle/graphic/batt_bg/narc_0152.bin.lz \
         files/battle/graphic/batt_bg/narc_0135.bin.lz \
@@ -345,46 +345,46 @@ files/battle/graphic/batt_bg.narc: \
         files/battle/graphic/batt_bg/narc_0096.bin.lz \
         files/battle/graphic/batt_bg/narc_0041.bin.lz \
         files/battle/graphic/batt_bg/narc_0055.bin.lz \
-        files/battle/graphic/batt_bg/narc_0069.bin.lz \
+        files/battle/graphic/batt_bg/narc_0069.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0068.bin.lz \
         files/battle/graphic/batt_bg/narc_0054.bin.lz \
-        files/battle/graphic/batt_bg/narc_0040.bin.lz \
+        files/battle/graphic/batt_bg/narc_0040.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0097.bin.lz \
-        files/battle/graphic/batt_bg/narc_0083.bin.lz \
-        files/battle/graphic/batt_bg/narc_0108.bin.lz \
+        files/battle/graphic/batt_bg/narc_0083.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0108.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0120.bin.lz \
-        files/battle/graphic/batt_bg/narc_0134.bin.lz \
-        files/battle/graphic/batt_bg/narc_0122.bin.lz \
+        files/battle/graphic/batt_bg/narc_0134.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0122.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0136.bin.lz \
         files/battle/graphic/batt_bg/narc_0095.bin.lz \
         files/battle/graphic/batt_bg/narc_0081.bin.lz \
         files/battle/graphic/batt_bg/narc_0056.bin.lz \
-        files/battle/graphic/batt_bg/narc_0042.bin.lz \
+        files/battle/graphic/batt_bg/narc_0042.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0043.bin.lz \
-        files/battle/graphic/batt_bg/narc_0057.bin.lz \
+        files/battle/graphic/batt_bg/narc_0057.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0080.bin.lz \
         files/battle/graphic/batt_bg/narc_0094.bin.lz \
         files/battle/graphic/batt_bg/narc_0137.bin.lz \
         files/battle/graphic/batt_bg/narc_0123.bin.lz \
-        files/battle/graphic/batt_bg/narc_0127.bin.lz \
+        files/battle/graphic/batt_bg/narc_0127.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0133.bin.lz \
-        files/battle/graphic/batt_bg/narc_0090.bin.lz \
+        files/battle/graphic/batt_bg/narc_0090.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0084.bin.lz \
-        files/battle/graphic/batt_bg/narc_0053.bin.lz \
+        files/battle/graphic/batt_bg/narc_0053.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0047.bin.lz \
-        files/battle/graphic/batt_bg/narc_0046.bin.lz \
+        files/battle/graphic/batt_bg/narc_0046.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0052.bin.lz \
         files/battle/graphic/batt_bg/narc_0085.bin.lz \
         files/battle/graphic/batt_bg/narc_0091.bin.lz \
         files/battle/graphic/batt_bg/narc_0132.bin.lz \
-        files/battle/graphic/batt_bg/narc_0126.bin.lz \
+        files/battle/graphic/batt_bg/narc_0126.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0118.bin.lz \
         files/battle/graphic/batt_bg/narc_0130.bin.lz \
         files/battle/graphic/batt_bg/narc_0124.bin.lz \
-        files/battle/graphic/batt_bg/narc_0087.bin.lz \
-        files/battle/graphic/batt_bg/narc_0093.bin.lz \
-        files/battle/graphic/batt_bg/narc_0078.bin.lz \
-        files/battle/graphic/batt_bg/narc_0044.bin.lz \
+        files/battle/graphic/batt_bg/narc_0087.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0093.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0078.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0044.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0050.bin.lz \
         files/battle/graphic/batt_bg/narc_0051.bin.lz \
         files/battle/graphic/batt_bg/narc_0045.bin.lz \
@@ -393,165 +393,165 @@ files/battle/graphic/batt_bg.narc: \
         files/battle/graphic/batt_bg/narc_0086.bin.lz \
         files/battle/graphic/batt_bg/narc_0125.bin.lz \
         files/battle/graphic/batt_bg/narc_0131.bin.lz \
-        files/battle/graphic/batt_bg/narc_0119.bin.lz \
-        files/battle/graphic/batt_bg/narc_0114.bin.lz \
-        files/battle/graphic/batt_bg/narc_0100.bin.lz \
+        files/battle/graphic/batt_bg/narc_0119.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0114.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0100.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0128.bin.lz \
         files/battle/graphic/batt_bg/narc_0060.bin.lz \
         files/battle/graphic/batt_bg/narc_0074.bin.lz \
-        files/battle/graphic/batt_bg/narc_0048.bin.lz \
+        files/battle/graphic/batt_bg/narc_0048.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0049.bin.lz \
         files/battle/graphic/batt_bg/narc_0075.bin.lz \
         files/battle/graphic/batt_bg/narc_0061.bin.lz \
-        files/battle/graphic/batt_bg/narc_0129.bin.lz \
+        files/battle/graphic/batt_bg/narc_0129.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0101.bin.lz \
         files/battle/graphic/batt_bg/narc_0115.bin.lz \
         files/battle/graphic/batt_bg/narc_0103.bin.lz \
-        files/battle/graphic/batt_bg/narc_0117.bin.lz \
-        files/battle/graphic/batt_bg/narc_0088.bin.lz \
-        files/battle/graphic/batt_bg/narc_0077.bin.lz \
+        files/battle/graphic/batt_bg/narc_0117.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0088.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0077.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0063.bin.lz \
         files/battle/graphic/batt_bg/narc_0062.bin.lz \
         files/battle/graphic/batt_bg/narc_0076.bin.lz \
         files/battle/graphic/batt_bg/narc_0089.bin.lz \
         files/battle/graphic/batt_bg/narc_0116.bin.lz \
-        files/battle/graphic/batt_bg/narc_0102.bin.lz \
+        files/battle/graphic/batt_bg/narc_0102.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0106.bin.lz \
-        files/battle/graphic/batt_bg/narc_0112.bin.lz \
-        files/battle/graphic/batt_bg/narc_0099.bin.lz \
+        files/battle/graphic/batt_bg/narc_0112.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0099.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0072.bin.lz \
-        files/battle/graphic/batt_bg/narc_0066.bin.lz \
+        files/battle/graphic/batt_bg/narc_0066.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0067.bin.lz \
-        files/battle/graphic/batt_bg/narc_0073.bin.lz \
+        files/battle/graphic/batt_bg/narc_0073.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0098.bin.lz \
         files/battle/graphic/batt_bg/narc_0113.bin.lz \
-        files/battle/graphic/batt_bg/narc_0107.bin.lz \
-        files/battle/graphic/batt_bg/narc_0139.bin.lz \
+        files/battle/graphic/batt_bg/narc_0107.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0139.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0111.bin.lz \
         files/battle/graphic/batt_bg/narc_0105.bin.lz \
         files/battle/graphic/batt_bg/narc_0059.bin.lz \
         files/battle/graphic/batt_bg/narc_0065.bin.lz \
         files/battle/graphic/batt_bg/narc_0071.bin.lz \
         files/battle/graphic/batt_bg/narc_0070.bin.lz \
-        files/battle/graphic/batt_bg/narc_0064.bin.lz \
-        files/battle/graphic/batt_bg/narc_0058.bin.lz \
+        files/battle/graphic/batt_bg/narc_0064.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0058.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0104.bin.lz \
-        files/battle/graphic/batt_bg/narc_0110.bin.lz \
-        files/battle/graphic/batt_bg/narc_0138.bin.lz \
-        files/battle/graphic/batt_bg/narc_0003.bin.lz \
-        files/battle/graphic/batt_bg/narc_0017.bin.lz \
+        files/battle/graphic/batt_bg/narc_0110.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0138.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0003.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0017.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0016.bin.lz \
         files/battle/graphic/batt_bg/narc_0002.bin.lz \
-        files/battle/graphic/batt_bg/narc_0148.bin.lz \
-        files/battle/graphic/batt_bg/narc_0014.bin.lz \
-        files/battle/graphic/batt_bg/narc_0000.bin.lz \
-        files/battle/graphic/batt_bg/narc_0028.bin.lz \
-        files/battle/graphic/batt_bg/narc_0029.bin.lz \
+        files/battle/graphic/batt_bg/narc_0148.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0014.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0000.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0028.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0029.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0001.bin.lz \
-        files/battle/graphic/batt_bg/narc_0015.bin.lz \
-        files/battle/graphic/batt_bg/narc_0149.bin.lz \
-        files/battle/graphic/batt_bg/narc_0039.bin.lz \
-        files/battle/graphic/batt_bg/narc_0011.bin.lz \
-        files/battle/graphic/batt_bg/narc_0005.bin.lz \
-        files/battle/graphic/batt_bg/narc_0004.bin.lz \
-        files/battle/graphic/batt_bg/narc_0010.bin.lz \
-        files/battle/graphic/batt_bg/narc_0038.bin.lz \
-        files/battle/graphic/batt_bg/narc_0006.bin.lz \
-        files/battle/graphic/batt_bg/narc_0012.bin.lz \
-        files/battle/graphic/batt_bg/narc_0013.bin.lz \
-        files/battle/graphic/batt_bg/narc_0007.bin.lz
+        files/battle/graphic/batt_bg/narc_0015.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0149.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0039.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0011.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0005.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0004.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0010.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0038.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0006.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0012.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0013.NCGR.lz \
+        files/battle/graphic/batt_bg/narc_0007.NCGR.lz
 
 files/battle/graphic/batt_obj.narc: \
-        files/battle/graphic/batt_obj/narc_0195.bin.lz \
-        files/battle/graphic/batt_obj/narc_0181.bin.lz \
-        files/battle/graphic/batt_obj/narc_0156.bin.lz \
+        files/battle/graphic/batt_obj/narc_0195.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0181.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0156.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0142.bin.lz \
         files/battle/graphic/batt_obj/narc_0220.bin.lz \
         files/battle/graphic/batt_obj/narc_0234.bin.lz \
         files/battle/graphic/batt_obj/narc_0208.bin.lz \
         files/battle/graphic/batt_obj/narc_0209.bin.lz \
         files/battle/graphic/batt_obj/narc_0235.bin.lz \
-        files/battle/graphic/batt_obj/narc_0221.bin.lz \
+        files/battle/graphic/batt_obj/narc_0221.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0143.bin.lz \
-        files/battle/graphic/batt_obj/narc_0157.bin.lz \
-        files/battle/graphic/batt_obj/narc_0180.bin.lz \
+        files/battle/graphic/batt_obj/narc_0157.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0180.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0194.bin.lz \
-        files/battle/graphic/batt_obj/narc_0182.bin.lz \
-        files/battle/graphic/batt_obj/narc_0196.bin.lz \
-        files/battle/graphic/batt_obj/narc_0141.bin.lz \
-        files/battle/graphic/batt_obj/narc_0155.bin.lz \
-        files/battle/graphic/batt_obj/narc_0169.bin.lz \
+        files/battle/graphic/batt_obj/narc_0182.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0196.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0141.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0155.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0169.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0237.bin.lz \
         files/battle/graphic/batt_obj/narc_0223.bin.lz \
         files/battle/graphic/batt_obj/narc_0222.bin.lz \
-        files/battle/graphic/batt_obj/narc_0236.bin.lz \
-        files/battle/graphic/batt_obj/narc_0168.bin.lz \
+        files/battle/graphic/batt_obj/narc_0236.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0168.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0154.bin.lz \
         files/battle/graphic/batt_obj/narc_0140.bin.lz \
-        files/battle/graphic/batt_obj/narc_0197.bin.lz \
-        files/battle/graphic/batt_obj/narc_0183.bin.lz \
+        files/battle/graphic/batt_obj/narc_0197.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0183.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0187.bin.lz \
         files/battle/graphic/batt_obj/narc_0193.bin.lz \
         files/battle/graphic/batt_obj/narc_0178.bin.lz \
-        files/battle/graphic/batt_obj/narc_0144.bin.lz \
-        files/battle/graphic/batt_obj/narc_0150.bin.lz \
+        files/battle/graphic/batt_obj/narc_0144.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0150.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0232.bin.lz \
         files/battle/graphic/batt_obj/narc_0226.bin.lz \
-        files/battle/graphic/batt_obj/narc_0227.bin.lz \
-        files/battle/graphic/batt_obj/narc_0233.bin.lz \
+        files/battle/graphic/batt_obj/narc_0227.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0233.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0151.bin.lz \
         files/battle/graphic/batt_obj/narc_0145.bin.lz \
         files/battle/graphic/batt_obj/narc_0179.bin.lz \
-        files/battle/graphic/batt_obj/narc_0192.bin.lz \
-        files/battle/graphic/batt_obj/narc_0186.bin.lz \
+        files/battle/graphic/batt_obj/narc_0192.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0186.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0190.bin.lz \
         files/battle/graphic/batt_obj/narc_0184.bin.lz \
-        files/battle/graphic/batt_obj/narc_0153.bin.lz \
-        files/battle/graphic/batt_obj/narc_0147.bin.lz \
+        files/battle/graphic/batt_obj/narc_0153.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0147.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0219.bin.lz \
         files/battle/graphic/batt_obj/narc_0225.bin.lz \
         files/battle/graphic/batt_obj/narc_0231.bin.lz \
-        files/battle/graphic/batt_obj/narc_0230.bin.lz \
-        files/battle/graphic/batt_obj/narc_0224.bin.lz \
+        files/battle/graphic/batt_obj/narc_0230.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0224.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0218.bin.lz \
         files/battle/graphic/batt_obj/narc_0146.bin.lz \
         files/battle/graphic/batt_obj/narc_0152.bin.lz \
         files/battle/graphic/batt_obj/narc_0185.bin.lz \
         files/battle/graphic/batt_obj/narc_0191.bin.lz \
         files/battle/graphic/batt_obj/narc_0135.bin.lz \
-        files/battle/graphic/batt_obj/narc_0121.bin.lz \
-        files/battle/graphic/batt_obj/narc_0109.bin.lz \
+        files/battle/graphic/batt_obj/narc_0121.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0109.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0082.bin.lz \
-        files/battle/graphic/batt_obj/narc_0096.bin.lz \
+        files/battle/graphic/batt_obj/narc_0096.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0243.bin.lz \
-        files/battle/graphic/batt_obj/narc_0257.bin.lz \
+        files/battle/graphic/batt_obj/narc_0257.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0256.bin.lz \
-        files/battle/graphic/batt_obj/narc_0242.bin.lz \
-        files/battle/graphic/batt_obj/narc_0097.bin.lz \
+        files/battle/graphic/batt_obj/narc_0242.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0097.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0083.bin.lz \
-        files/battle/graphic/batt_obj/narc_0108.bin.lz \
+        files/battle/graphic/batt_obj/narc_0108.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0120.bin.lz \
         files/battle/graphic/batt_obj/narc_0134.bin.lz \
         files/battle/graphic/batt_obj/narc_0122.bin.lz \
-        files/battle/graphic/batt_obj/narc_0136.bin.lz \
-        files/battle/graphic/batt_obj/narc_0095.bin.lz \
-        files/battle/graphic/batt_obj/narc_0081.bin.lz \
-        files/battle/graphic/batt_obj/narc_0254.bin.lz \
+        files/battle/graphic/batt_obj/narc_0136.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0095.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0081.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0254.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0240.bin.lz \
         files/battle/graphic/batt_obj/narc_0268.bin.lz \
-        files/battle/graphic/batt_obj/narc_0269.bin.lz \
+        files/battle/graphic/batt_obj/narc_0269.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0241.bin.lz \
         files/battle/graphic/batt_obj/narc_0255.bin.lz \
-        files/battle/graphic/batt_obj/narc_0080.bin.lz \
-        files/battle/graphic/batt_obj/narc_0094.bin.lz \
+        files/battle/graphic/batt_obj/narc_0080.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0094.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0137.bin.lz \
         files/battle/graphic/batt_obj/narc_0123.bin.lz \
-        files/battle/graphic/batt_obj/narc_0127.bin.lz \
-        files/battle/graphic/batt_obj/narc_0133.bin.lz \
-        files/battle/graphic/batt_obj/narc_0090.bin.lz \
-        files/battle/graphic/batt_obj/narc_0084.bin.lz \
-        files/battle/graphic/batt_obj/narc_0251.bin.lz \
-        files/battle/graphic/batt_obj/narc_0245.bin.lz \
+        files/battle/graphic/batt_obj/narc_0127.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0133.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0090.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0084.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0251.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0245.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0244.bin.lz \
         files/battle/graphic/batt_obj/narc_0250.bin.lz \
         files/battle/graphic/batt_obj/narc_0278.bin.lz \
@@ -559,11 +559,11 @@ files/battle/graphic/batt_obj.narc: \
         files/battle/graphic/batt_obj/narc_0091.bin.lz \
         files/battle/graphic/batt_obj/narc_0132.bin.lz \
         files/battle/graphic/batt_obj/narc_0126.bin.lz \
-        files/battle/graphic/batt_obj/narc_0118.bin.lz \
-        files/battle/graphic/batt_obj/narc_0130.bin.lz \
-        files/battle/graphic/batt_obj/narc_0124.bin.lz \
-        files/battle/graphic/batt_obj/narc_0087.bin.lz \
-        files/battle/graphic/batt_obj/narc_0093.bin.lz \
+        files/battle/graphic/batt_obj/narc_0118.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0130.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0124.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0087.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0093.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0078.bin.lz \
         files/battle/graphic/batt_obj/narc_0246.bin.lz \
         files/battle/graphic/batt_obj/narc_0252.bin.lz \
@@ -576,106 +576,106 @@ files/battle/graphic/batt_obj.narc: \
         files/battle/graphic/batt_obj/narc_0131.bin.lz \
         files/battle/graphic/batt_obj/narc_0119.bin.lz \
         files/battle/graphic/batt_obj/narc_0114.bin.lz \
-        files/battle/graphic/batt_obj/narc_0100.bin.lz \
+        files/battle/graphic/batt_obj/narc_0100.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0128.bin.lz \
         files/battle/graphic/batt_obj/narc_0262.bin.lz \
-        files/battle/graphic/batt_obj/narc_0276.bin.lz \
+        files/battle/graphic/batt_obj/narc_0276.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0277.bin.lz \
-        files/battle/graphic/batt_obj/narc_0263.bin.lz \
+        files/battle/graphic/batt_obj/narc_0263.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0075.bin.lz \
         files/battle/graphic/batt_obj/narc_0129.bin.lz \
-        files/battle/graphic/batt_obj/narc_0101.bin.lz \
-        files/battle/graphic/batt_obj/narc_0115.bin.lz \
-        files/battle/graphic/batt_obj/narc_0103.bin.lz \
+        files/battle/graphic/batt_obj/narc_0101.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0115.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0103.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0117.bin.lz \
         files/battle/graphic/batt_obj/narc_0088.bin.lz \
-        files/battle/graphic/batt_obj/narc_0077.bin.lz \
-        files/battle/graphic/batt_obj/narc_0275.bin.lz \
+        files/battle/graphic/batt_obj/narc_0077.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0275.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0261.bin.lz \
         files/battle/graphic/batt_obj/narc_0249.bin.lz \
-        files/battle/graphic/batt_obj/narc_0248.bin.lz \
-        files/battle/graphic/batt_obj/narc_0260.bin.lz \
+        files/battle/graphic/batt_obj/narc_0248.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0260.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0274.bin.lz \
         files/battle/graphic/batt_obj/narc_0076.bin.lz \
         files/battle/graphic/batt_obj/narc_0089.bin.lz \
         files/battle/graphic/batt_obj/narc_0116.bin.lz \
-        files/battle/graphic/batt_obj/narc_0102.bin.lz \
-        files/battle/graphic/batt_obj/narc_0106.bin.lz \
-        files/battle/graphic/batt_obj/narc_0112.bin.lz \
-        files/battle/graphic/batt_obj/narc_0099.bin.lz \
+        files/battle/graphic/batt_obj/narc_0102.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0106.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0112.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0099.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0258.bin.lz \
         files/battle/graphic/batt_obj/narc_0270.bin.lz \
         files/battle/graphic/batt_obj/narc_0264.bin.lz \
         files/battle/graphic/batt_obj/narc_0265.bin.lz \
         files/battle/graphic/batt_obj/narc_0271.bin.lz \
         files/battle/graphic/batt_obj/narc_0259.bin.lz \
-        files/battle/graphic/batt_obj/narc_0098.bin.lz \
+        files/battle/graphic/batt_obj/narc_0098.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0113.bin.lz \
-        files/battle/graphic/batt_obj/narc_0107.bin.lz \
-        files/battle/graphic/batt_obj/narc_0139.bin.lz \
-        files/battle/graphic/batt_obj/narc_0111.bin.lz \
-        files/battle/graphic/batt_obj/narc_0105.bin.lz \
+        files/battle/graphic/batt_obj/narc_0107.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0139.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0111.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0105.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0267.bin.lz \
         files/battle/graphic/batt_obj/narc_0273.bin.lz \
-        files/battle/graphic/batt_obj/narc_0272.bin.lz \
-        files/battle/graphic/batt_obj/narc_0266.bin.lz \
-        files/battle/graphic/batt_obj/narc_0104.bin.lz \
-        files/battle/graphic/batt_obj/narc_0110.bin.lz \
+        files/battle/graphic/batt_obj/narc_0272.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0266.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0104.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0110.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0138.bin.lz \
         files/battle/graphic/batt_obj/narc_0188.bin.lz \
-        files/battle/graphic/batt_obj/narc_0177.bin.lz \
-        files/battle/graphic/batt_obj/narc_0163.bin.lz \
-        files/battle/graphic/batt_obj/narc_0201.bin.lz \
+        files/battle/graphic/batt_obj/narc_0177.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0163.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0201.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0215.bin.lz \
         files/battle/graphic/batt_obj/narc_0229.bin.lz \
         files/battle/graphic/batt_obj/narc_0228.bin.lz \
         files/battle/graphic/batt_obj/narc_0214.bin.lz \
-        files/battle/graphic/batt_obj/narc_0200.bin.lz \
-        files/battle/graphic/batt_obj/narc_0162.bin.lz \
-        files/battle/graphic/batt_obj/narc_0176.bin.lz \
-        files/battle/graphic/batt_obj/narc_0189.bin.lz \
-        files/battle/graphic/batt_obj/narc_0160.bin.lz \
-        files/battle/graphic/batt_obj/narc_0174.bin.lz \
+        files/battle/graphic/batt_obj/narc_0200.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0162.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0176.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0189.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0160.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0174.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0148.bin.lz \
         files/battle/graphic/batt_obj/narc_0216.bin.lz \
-        files/battle/graphic/batt_obj/narc_0202.bin.lz \
+        files/battle/graphic/batt_obj/narc_0202.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0203.bin.lz \
         files/battle/graphic/batt_obj/narc_0217.bin.lz \
         files/battle/graphic/batt_obj/narc_0149.bin.lz \
-        files/battle/graphic/batt_obj/narc_0175.bin.lz \
-        files/battle/graphic/batt_obj/narc_0161.bin.lz \
-        files/battle/graphic/batt_obj/narc_0159.bin.lz \
-        files/battle/graphic/batt_obj/narc_0165.bin.lz \
-        files/battle/graphic/batt_obj/narc_0171.bin.lz \
+        files/battle/graphic/batt_obj/narc_0175.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0161.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0159.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0165.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0171.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0213.bin.lz \
         files/battle/graphic/batt_obj/narc_0207.bin.lz \
         files/battle/graphic/batt_obj/narc_0206.bin.lz \
         files/battle/graphic/batt_obj/narc_0212.bin.lz \
-        files/battle/graphic/batt_obj/narc_0170.bin.lz \
-        files/battle/graphic/batt_obj/narc_0164.bin.lz \
-        files/battle/graphic/batt_obj/narc_0158.bin.lz \
-        files/battle/graphic/batt_obj/narc_0199.bin.lz \
-        files/battle/graphic/batt_obj/narc_0172.bin.lz \
-        files/battle/graphic/batt_obj/narc_0166.bin.lz \
+        files/battle/graphic/batt_obj/narc_0170.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0164.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0158.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0199.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0172.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0166.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0238.bin.lz \
         files/battle/graphic/batt_obj/narc_0204.bin.lz \
         files/battle/graphic/batt_obj/narc_0210.bin.lz \
         files/battle/graphic/batt_obj/narc_0211.bin.lz \
         files/battle/graphic/batt_obj/narc_0205.bin.lz \
-        files/battle/graphic/batt_obj/narc_0239.bin.lz \
-        files/battle/graphic/batt_obj/narc_0167.bin.lz \
-        files/battle/graphic/batt_obj/narc_0173.bin.lz \
-        files/battle/graphic/batt_obj/narc_0198.bin.lz
+        files/battle/graphic/batt_obj/narc_0239.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0167.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0173.NCGR.lz \
+        files/battle/graphic/batt_obj/narc_0198.NCGR.lz
 
 files/demo/egg/data/egg_data.narc: \
         files/demo/egg/data/egg_data/narc_0003.bin.lz \
         files/demo/egg/data/egg_data/narc_0002.bin.lz \
-        files/demo/egg/data/egg_data/narc_0000.bin.lz \
+        files/demo/egg/data/egg_data/narc_0000.NCGR.lz \
         files/demo/egg/data/egg_data/narc_0001.bin.lz \
         files/demo/egg/data/egg_data/narc_0005.bin.lz \
-        files/demo/egg/data/egg_data/narc_0004.bin.lz \
+        files/demo/egg/data/egg_data/narc_0004.NCGR.lz \
         files/demo/egg/data/egg_data/narc_0006.bin.lz \
-        files/demo/egg/data/egg_data/narc_0007.bin.lz
+        files/demo/egg/data/egg_data/narc_0007.NCGR.lz
 
 files/wazaeffect/effectclact/wecell.narc: \
         files/wazaeffect/effectclact/wecell/narc_0022.bin.lz \
@@ -717,43 +717,43 @@ files/wazaeffect/effectclact/wecell.narc: \
         files/wazaeffect/effectclact/wecell/narc_0007.bin.lz
 
 files/wazaeffect/effectclact/wechar.narc: \
-        files/wazaeffect/effectclact/wechar/narc_0022.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0036.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0023.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0035.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0021.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0009.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0008.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0020.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0034.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0018.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0030.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0024.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0025.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0031.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0019.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0027.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0033.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0032.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0026.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0003.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0017.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0016.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0002.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0014.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0000.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0028.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0029.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0001.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0015.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0011.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0005.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0004.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0010.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0006.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0012.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0013.bin.lz \
-        files/wazaeffect/effectclact/wechar/narc_0007.bin.lz
+        files/wazaeffect/effectclact/wechar/narc_0022.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0036.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0023.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0035.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0021.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0009.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0008.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0020.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0034.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0018.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0030.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0024.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0025.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0031.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0019.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0027.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0033.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0032.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0026.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0003.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0017.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0016.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0002.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0014.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0000.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0028.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0029.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0001.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0015.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0011.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0005.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0004.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0010.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0006.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0012.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0013.NCGR.lz \
+        files/wazaeffect/effectclact/wechar/narc_0007.NCGR.lz
 
 files/wazaeffect/effectclact/wecellanm.narc: \
         files/wazaeffect/effectclact/wecellanm/narc_0022.bin.lz \
@@ -798,59 +798,59 @@ files/graphic/box.narc: \
         files/graphic/box/narc_0022.bin.lz \
         files/graphic/box/narc_0036.bin.lz \
         files/graphic/box/narc_0023.bin.lz \
-        files/graphic/box/narc_0035.bin.lz \
+        files/graphic/box/narc_0035.NCGR.lz \
         files/graphic/box/narc_0021.bin.lz \
-        files/graphic/box/narc_0009.bin.lz \
+        files/graphic/box/narc_0009.NCGR.lz \
         files/graphic/box/narc_0008.bin.lz \
         files/graphic/box/narc_0018.bin.lz \
         files/graphic/box/narc_0030.bin.lz \
         files/graphic/box/narc_0024.bin.lz \
-        files/graphic/box/narc_0025.bin.lz \
+        files/graphic/box/narc_0025.NCGR.lz \
         files/graphic/box/narc_0019.bin.lz \
         files/graphic/box/narc_0033.bin.lz \
-        files/graphic/box/narc_0032.bin.lz \
+        files/graphic/box/narc_0032.NCGR.lz \
         files/graphic/box/narc_0096.bin.lz \
-        files/graphic/box/narc_0041.bin.lz \
+        files/graphic/box/narc_0041.NCGR.lz \
         files/graphic/box/narc_0069.bin.lz \
-        files/graphic/box/narc_0068.bin.lz \
+        files/graphic/box/narc_0068.NCGR.lz \
         files/graphic/box/narc_0054.bin.lz \
-        files/graphic/box/narc_0083.bin.lz \
-        files/graphic/box/narc_0108.bin.lz \
-        files/graphic/box/narc_0095.bin.lz \
+        files/graphic/box/narc_0083.NCGR.lz \
+        files/graphic/box/narc_0108.NCGR.lz \
+        files/graphic/box/narc_0095.NCGR.lz \
         files/graphic/box/narc_0081.bin.lz \
-        files/graphic/box/narc_0056.bin.lz \
+        files/graphic/box/narc_0056.NCGR.lz \
         files/graphic/box/narc_0042.bin.lz \
         files/graphic/box/narc_0057.bin.lz \
-        files/graphic/box/narc_0080.bin.lz \
+        files/graphic/box/narc_0080.NCGR.lz \
         files/graphic/box/narc_0090.bin.lz \
         files/graphic/box/narc_0084.bin.lz \
-        files/graphic/box/narc_0053.bin.lz \
-        files/graphic/box/narc_0047.bin.lz \
+        files/graphic/box/narc_0053.NCGR.lz \
+        files/graphic/box/narc_0047.NCGR.lz \
         files/graphic/box/narc_0118.bin.lz \
         files/graphic/box/narc_0087.bin.lz \
         files/graphic/box/narc_0093.bin.lz \
         files/graphic/box/narc_0078.bin.lz \
-        files/graphic/box/narc_0044.bin.lz \
-        files/graphic/box/narc_0050.bin.lz \
+        files/graphic/box/narc_0044.NCGR.lz \
+        files/graphic/box/narc_0050.NCGR.lz \
         files/graphic/box/narc_0051.bin.lz \
         files/graphic/box/narc_0045.bin.lz \
-        files/graphic/box/narc_0092.bin.lz \
-        files/graphic/box/narc_0086.bin.lz \
+        files/graphic/box/narc_0092.NCGR.lz \
+        files/graphic/box/narc_0086.NCGR.lz \
         files/graphic/box/narc_0119.bin.lz \
-        files/graphic/box/narc_0114.bin.lz \
+        files/graphic/box/narc_0114.NCGR.lz \
         files/graphic/box/narc_0100.bin.lz \
         files/graphic/box/narc_0060.bin.lz \
-        files/graphic/box/narc_0074.bin.lz \
+        files/graphic/box/narc_0074.NCGR.lz \
         files/graphic/box/narc_0048.bin.lz \
         files/graphic/box/narc_0075.bin.lz \
         files/graphic/box/narc_0101.bin.lz \
         files/graphic/box/narc_0115.bin.lz \
-        files/graphic/box/narc_0103.bin.lz \
-        files/graphic/box/narc_0117.bin.lz \
-        files/graphic/box/narc_0077.bin.lz \
+        files/graphic/box/narc_0103.NCGR.lz \
+        files/graphic/box/narc_0117.NCGR.lz \
+        files/graphic/box/narc_0077.NCGR.lz \
         files/graphic/box/narc_0063.bin.lz \
-        files/graphic/box/narc_0062.bin.lz \
-        files/graphic/box/narc_0089.bin.lz \
+        files/graphic/box/narc_0062.NCGR.lz \
+        files/graphic/box/narc_0089.NCGR.lz \
         files/graphic/box/narc_0116.bin.lz \
         files/graphic/box/narc_0102.bin.lz \
         files/graphic/box/narc_0106.bin.lz \
@@ -858,93 +858,93 @@ files/graphic/box.narc: \
         files/graphic/box/narc_0099.bin.lz \
         files/graphic/box/narc_0072.bin.lz \
         files/graphic/box/narc_0066.bin.lz \
-        files/graphic/box/narc_0098.bin.lz \
+        files/graphic/box/narc_0098.NCGR.lz \
         files/graphic/box/narc_0107.bin.lz \
         files/graphic/box/narc_0111.bin.lz \
         files/graphic/box/narc_0105.bin.lz \
-        files/graphic/box/narc_0059.bin.lz \
-        files/graphic/box/narc_0065.bin.lz \
-        files/graphic/box/narc_0071.bin.lz \
-        files/graphic/box/narc_0110.bin.lz \
+        files/graphic/box/narc_0059.NCGR.lz \
+        files/graphic/box/narc_0065.NCGR.lz \
+        files/graphic/box/narc_0071.NCGR.lz \
+        files/graphic/box/narc_0110.NCGR.lz \
         files/graphic/box/narc_0003.bin.lz \
-        files/graphic/box/narc_0017.bin.lz \
+        files/graphic/box/narc_0017.NCGR.lz \
         files/graphic/box/narc_0016.bin.lz \
         files/graphic/box/narc_0002.bin.lz \
         files/graphic/box/narc_0014.bin.lz \
         files/graphic/box/narc_0000.bin.lz \
-        files/graphic/box/narc_0029.bin.lz \
-        files/graphic/box/narc_0001.bin.lz \
-        files/graphic/box/narc_0015.bin.lz \
+        files/graphic/box/narc_0029.NCGR.lz \
+        files/graphic/box/narc_0001.NCGR.lz \
+        files/graphic/box/narc_0015.NCGR.lz \
         files/graphic/box/narc_0039.bin.lz \
         files/graphic/box/narc_0011.bin.lz \
-        files/graphic/box/narc_0004.bin.lz \
+        files/graphic/box/narc_0004.NCGR.lz \
         files/graphic/box/narc_0010.bin.lz \
-        files/graphic/box/narc_0038.bin.lz \
+        files/graphic/box/narc_0038.NCGR.lz \
         files/graphic/box/narc_0006.bin.lz \
-        files/graphic/box/narc_0012.bin.lz \
+        files/graphic/box/narc_0012.NCGR.lz \
         files/graphic/box/narc_0013.bin.lz \
         files/graphic/box/narc_0007.bin.lz
 
 files/graphic/record.narc: \
-        files/graphic/record/narc_0009.bin.lz \
+        files/graphic/record/narc_0009.NCGR.lz \
         files/graphic/record/narc_0003.bin.lz \
-        files/graphic/record/narc_0002.bin.lz \
+        files/graphic/record/narc_0002.NCGR.lz \
         files/graphic/record/narc_0014.bin.lz \
         files/graphic/record/narc_0011.bin.lz \
         files/graphic/record/narc_0005.bin.lz \
-        files/graphic/record/narc_0004.bin.lz \
+        files/graphic/record/narc_0004.NCGR.lz \
         files/graphic/record/narc_0010.bin.lz \
         files/graphic/record/narc_0006.bin.lz \
-        files/graphic/record/narc_0012.bin.lz \
+        files/graphic/record/narc_0012.NCGR.lz \
         files/graphic/record/narc_0013.bin.lz
 
 files/graphic/mysign.narc: \
         files/graphic/mysign/narc_0009.bin.lz \
         files/graphic/mysign/narc_0008.bin.lz \
-        files/graphic/mysign/narc_0003.bin.lz \
+        files/graphic/mysign/narc_0003.NCGR.lz \
         files/graphic/mysign/narc_0005.bin.lz \
-        files/graphic/mysign/narc_0004.bin.lz \
+        files/graphic/mysign/narc_0004.NCGR.lz \
         files/graphic/mysign/narc_0006.bin.lz \
-        files/graphic/mysign/narc_0007.bin.lz
+        files/graphic/mysign/narc_0007.NCGR.lz
 
 files/graphic/mystery.narc: \
-        files/graphic/mystery/narc_0022.bin.lz \
+        files/graphic/mystery/narc_0022.NCGR.lz \
         files/graphic/mystery/narc_0037.bin.lz \
-        files/graphic/mystery/narc_0035.bin.lz \
+        files/graphic/mystery/narc_0035.NCGR.lz \
         files/graphic/mystery/narc_0021.bin.lz \
         files/graphic/mystery/narc_0009.bin.lz \
         files/graphic/mystery/narc_0008.bin.lz \
         files/graphic/mystery/narc_0020.bin.lz \
         files/graphic/mystery/narc_0034.bin.lz \
         files/graphic/mystery/narc_0018.bin.lz \
-        files/graphic/mystery/narc_0030.bin.lz \
+        files/graphic/mystery/narc_0030.NCGR.lz \
         files/graphic/mystery/narc_0024.bin.lz \
         files/graphic/mystery/narc_0025.bin.lz \
         files/graphic/mystery/narc_0031.bin.lz \
-        files/graphic/mystery/narc_0027.bin.lz \
+        files/graphic/mystery/narc_0027.NCGR.lz \
         files/graphic/mystery/narc_0033.bin.lz \
-        files/graphic/mystery/narc_0026.bin.lz \
-        files/graphic/mystery/narc_0017.bin.lz \
+        files/graphic/mystery/narc_0026.NCGR.lz \
+        files/graphic/mystery/narc_0017.NCGR.lz \
         files/graphic/mystery/narc_0002.bin.lz \
         files/graphic/mystery/narc_0014.bin.lz \
         files/graphic/mystery/narc_0028.bin.lz \
-        files/graphic/mystery/narc_0001.bin.lz \
-        files/graphic/mystery/narc_0015.bin.lz \
-        files/graphic/mystery/narc_0039.bin.lz \
+        files/graphic/mystery/narc_0001.NCGR.lz \
+        files/graphic/mystery/narc_0015.NCGR.lz \
+        files/graphic/mystery/narc_0039.NCGR.lz \
         files/graphic/mystery/narc_0005.bin.lz \
         files/graphic/mystery/narc_0004.bin.lz \
-        files/graphic/mystery/narc_0010.bin.lz \
+        files/graphic/mystery/narc_0010.NCGR.lz \
         files/graphic/mystery/narc_0038.bin.lz \
-        files/graphic/mystery/narc_0006.bin.lz \
+        files/graphic/mystery/narc_0006.NCGR.lz \
         files/graphic/mystery/narc_0013.bin.lz
 
 files/graphic/oekaki.narc: \
         files/graphic/oekaki/narc_0008.bin.lz \
-        files/graphic/oekaki/narc_0003.bin.lz \
-        files/graphic/oekaki/narc_0002.bin.lz \
+        files/graphic/oekaki/narc_0003.NCGR.lz \
+        files/graphic/oekaki/narc_0002.NCGR.lz \
         files/graphic/oekaki/narc_0005.bin.lz \
         files/graphic/oekaki/narc_0004.bin.lz \
-        files/graphic/oekaki/narc_0006.bin.lz \
+        files/graphic/oekaki/narc_0006.NCGR.lz \
         files/graphic/oekaki/narc_0007.bin.lz
 
 files/graphic/worldtrade.narc: \
@@ -952,11 +952,11 @@ files/graphic/worldtrade.narc: \
         files/graphic/worldtrade/narc_0036.bin.lz \
         files/graphic/worldtrade/narc_0037.bin.lz \
         files/graphic/worldtrade/narc_0023.bin.lz \
-        files/graphic/worldtrade/narc_0035.bin.lz \
+        files/graphic/worldtrade/narc_0035.NCGR.lz \
         files/graphic/worldtrade/narc_0021.bin.lz \
         files/graphic/worldtrade/narc_0020.bin.lz \
         files/graphic/worldtrade/narc_0034.bin.lz \
-        files/graphic/worldtrade/narc_0018.bin.lz \
+        files/graphic/worldtrade/narc_0018.NCGR.lz \
         files/graphic/worldtrade/narc_0030.bin.lz \
         files/graphic/worldtrade/narc_0024.bin.lz \
         files/graphic/worldtrade/narc_0025.bin.lz \
@@ -964,29 +964,29 @@ files/graphic/worldtrade.narc: \
         files/graphic/worldtrade/narc_0019.bin.lz \
         files/graphic/worldtrade/narc_0027.bin.lz \
         files/graphic/worldtrade/narc_0033.bin.lz \
-        files/graphic/worldtrade/narc_0032.bin.lz \
+        files/graphic/worldtrade/narc_0032.NCGR.lz \
         files/graphic/worldtrade/narc_0026.bin.lz \
-        files/graphic/worldtrade/narc_0017.bin.lz \
-        files/graphic/worldtrade/narc_0016.bin.lz \
-        files/graphic/worldtrade/narc_0014.bin.lz \
+        files/graphic/worldtrade/narc_0017.NCGR.lz \
+        files/graphic/worldtrade/narc_0016.NCGR.lz \
+        files/graphic/worldtrade/narc_0014.NCGR.lz \
         files/graphic/worldtrade/narc_0028.bin.lz \
         files/graphic/worldtrade/narc_0029.bin.lz \
-        files/graphic/worldtrade/narc_0015.bin.lz \
-        files/graphic/worldtrade/narc_0011.bin.lz \
-        files/graphic/worldtrade/narc_0010.bin.lz \
-        files/graphic/worldtrade/narc_0012.bin.lz \
-        files/graphic/worldtrade/narc_0013.bin.lz
+        files/graphic/worldtrade/narc_0015.NCGR.lz \
+        files/graphic/worldtrade/narc_0011.NCGR.lz \
+        files/graphic/worldtrade/narc_0010.NCGR.lz \
+        files/graphic/worldtrade/narc_0012.NCGR.lz \
+        files/graphic/worldtrade/narc_0013.NCGR.lz
 
 files/graphic/unionroom.narc: \
         files/graphic/unionroom/narc_0003.bin.lz \
-        files/graphic/unionroom/narc_0002.bin.lz \
-        files/graphic/unionroom/narc_0005.bin.lz \
+        files/graphic/unionroom/narc_0002.NCGR.lz \
+        files/graphic/unionroom/narc_0005.NCGR.lz \
         files/graphic/unionroom/narc_0004.bin.lz \
         files/graphic/unionroom/narc_0006.bin.lz \
         files/graphic/unionroom/narc_0007.bin.lz
 
 files/graphic/dendou_demo.narc: \
-        files/graphic/dendou_demo/narc_0003.bin.lz \
+        files/graphic/dendou_demo/narc_0003.NCGR.lz \
         files/graphic/dendou_demo/narc_0002.bin.lz \
         files/graphic/dendou_demo/narc_0000.bin.lz \
         files/graphic/dendou_demo/narc_0001.bin.lz
@@ -994,57 +994,57 @@ files/graphic/dendou_demo.narc: \
 files/graphic/pmsi.narc: \
         files/graphic/pmsi/narc_0022.bin.lz \
         files/graphic/pmsi/narc_0023.bin.lz \
-        files/graphic/pmsi/narc_0009.bin.lz \
+        files/graphic/pmsi/narc_0009.NCGR.lz \
         files/graphic/pmsi/narc_0008.bin.lz \
-        files/graphic/pmsi/narc_0020.bin.lz \
+        files/graphic/pmsi/narc_0020.NCGR.lz \
         files/graphic/pmsi/narc_0018.bin.lz \
-        files/graphic/pmsi/narc_0024.bin.lz \
+        files/graphic/pmsi/narc_0024.NCGR.lz \
         files/graphic/pmsi/narc_0019.bin.lz \
-        files/graphic/pmsi/narc_0003.bin.lz \
+        files/graphic/pmsi/narc_0003.NCGR.lz \
         files/graphic/pmsi/narc_0017.bin.lz \
         files/graphic/pmsi/narc_0016.bin.lz \
         files/graphic/pmsi/narc_0002.bin.lz \
         files/graphic/pmsi/narc_0014.bin.lz \
         files/graphic/pmsi/narc_0000.bin.lz \
-        files/graphic/pmsi/narc_0001.bin.lz \
+        files/graphic/pmsi/narc_0001.NCGR.lz \
         files/graphic/pmsi/narc_0015.bin.lz \
         files/graphic/pmsi/narc_0011.bin.lz \
-        files/graphic/pmsi/narc_0005.bin.lz \
+        files/graphic/pmsi/narc_0005.NCGR.lz \
         files/graphic/pmsi/narc_0004.bin.lz \
         files/graphic/pmsi/narc_0012.bin.lz \
         files/graphic/pmsi/narc_0013.bin.lz \
         files/graphic/pmsi/narc_0007.bin.lz
 
 files/graphic/demo_trade.narc: \
-        files/graphic/demo_trade/narc_0022.bin.lz \
+        files/graphic/demo_trade/narc_0022.NCGR.lz \
         files/graphic/demo_trade/narc_0021.bin.lz \
-        files/graphic/demo_trade/narc_0009.bin.lz \
+        files/graphic/demo_trade/narc_0009.NCGR.lz \
         files/graphic/demo_trade/narc_0008.bin.lz \
         files/graphic/demo_trade/narc_0018.bin.lz \
         files/graphic/demo_trade/narc_0024.bin.lz \
-        files/graphic/demo_trade/narc_0025.bin.lz \
-        files/graphic/demo_trade/narc_0019.bin.lz \
-        files/graphic/demo_trade/narc_0016.bin.lz \
-        files/graphic/demo_trade/narc_0002.bin.lz \
+        files/graphic/demo_trade/narc_0025.NCGR.lz \
+        files/graphic/demo_trade/narc_0019.NCGR.lz \
+        files/graphic/demo_trade/narc_0016.NCGR.lz \
+        files/graphic/demo_trade/narc_0002.NCGR.lz \
         files/graphic/demo_trade/narc_0000.bin.lz \
         files/graphic/demo_trade/narc_0001.bin.lz \
         files/graphic/demo_trade/narc_0015.bin.lz \
         files/graphic/demo_trade/narc_0011.bin.lz \
-        files/graphic/demo_trade/narc_0005.bin.lz \
+        files/graphic/demo_trade/narc_0005.NCGR.lz \
         files/graphic/demo_trade/narc_0004.bin.lz \
         files/graphic/demo_trade/narc_0012.bin.lz \
-        files/graphic/demo_trade/narc_0013.bin.lz \
+        files/graphic/demo_trade/narc_0013.NCGR.lz \
         files/graphic/demo_trade/narc_0007.bin.lz
 
 files/graphic/font.narc: \
-        files/graphic/font/narc_0004.bin.lz
+        files/graphic/font/narc_0004.NCGR.lz
 
 files/graphic/touch_subwindow.narc: \
         files/graphic/touch_subwindow/narc_0009.bin.lz \
         files/graphic/touch_subwindow/narc_0008.bin.lz \
         files/graphic/touch_subwindow/narc_0003.bin.lz \
         files/graphic/touch_subwindow/narc_0002.bin.lz \
-        files/graphic/touch_subwindow/narc_0001.bin.lz \
+        files/graphic/touch_subwindow/narc_0001.NCGR.lz \
         files/graphic/touch_subwindow/narc_0005.bin.lz \
         files/graphic/touch_subwindow/narc_0004.bin.lz \
         files/graphic/touch_subwindow/narc_0006.bin.lz \
@@ -1052,583 +1052,583 @@ files/graphic/touch_subwindow.narc: \
 
 files/graphic/dendou_pc.narc: \
         files/graphic/dendou_pc/narc_0000.bin.lz \
-        files/graphic/dendou_pc/narc_0001.bin.lz
+        files/graphic/dendou_pc/narc_0001.NCGR.lz
 
 files/poketool/pokefoot/pokefoot.narc: \
-        files/poketool/pokefoot/pokefoot/narc_0397.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0383.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0354.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0432.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0426.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0340.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0368.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0195.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0181.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0156.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0142.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0022.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0036.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0220.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0234.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0208.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0209.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0235.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0221.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0037.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0023.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0143.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0157.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0180.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0194.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0369.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0427.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0341.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0355.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0433.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0382.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0396.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0380.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0394.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0343.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0425.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0431.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0357.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0419.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0182.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0196.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0141.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0155.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0169.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0035.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0021.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0009.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0237.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0223.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0222.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0236.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0008.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0020.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0034.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0168.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0154.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0140.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0197.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0183.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0418.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0430.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0356.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0342.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0424.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0395.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0381.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0385.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0391.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0408.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0420.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0346.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0352.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0434.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0187.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0193.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0178.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0144.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0150.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0018.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0030.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0024.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0232.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0226.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0227.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0233.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0025.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0031.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0019.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0151.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0145.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0179.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0192.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0186.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0353.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0435.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0421.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0347.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0409.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0390.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0384.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0392.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0386.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0379.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0437.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0351.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0345.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0423.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0190.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0184.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0153.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0147.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0027.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0033.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0219.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0225.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0231.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0230.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0224.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0218.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0032.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0026.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0146.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0152.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0185.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0191.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0344.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0422.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0436.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0350.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0378.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0387.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0393.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0492.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0486.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0451.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0337.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0323.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0445.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0479.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0135.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0121.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0109.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0082.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0096.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0041.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0055.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0069.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0280.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0294.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0243.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0257.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0256.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0242.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0295.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0281.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0068.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0054.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0040.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0097.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0083.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0108.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0120.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0134.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0478.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0322.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0444.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0450.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0336.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0487.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0493.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0485.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0491.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0446.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0320.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0334.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0452.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0308.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0122.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0136.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0095.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0081.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0056.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0042.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0297.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0283.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0254.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0240.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0268.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0269.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0241.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0255.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0282.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0296.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0043.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0057.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0080.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0094.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0137.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0123.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0309.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0335.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0453.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0447.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0321.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0490.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0484.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0480.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0494.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0319.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0325.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0443.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0457.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0331.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0127.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0133.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0090.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0084.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0053.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0047.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0292.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0286.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0279.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0251.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0245.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0244.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0250.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0278.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0287.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0293.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0046.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0052.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0085.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0091.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0132.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0126.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0456.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0330.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0324.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0442.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0318.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0495.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0481.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0483.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0468.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0332.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0454.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0440.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0326.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0118.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0130.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0124.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0087.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0093.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0078.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0044.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0050.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0285.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0291.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0246.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0252.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0253.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0247.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0290.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0284.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0051.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0045.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0079.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0092.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0086.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0125.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0131.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0119.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0441.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0327.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0333.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0455.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0469.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0482.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0496.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0470.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0316.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0302.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0464.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0458.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0114.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0100.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0128.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0060.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0074.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0048.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0289.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0262.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0276.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0277.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0263.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0288.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0049.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0075.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0061.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0129.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0101.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0115.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0459.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0303.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0465.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0471.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0317.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0467.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0301.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0315.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0473.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0329.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0103.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0117.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0088.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0077.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0063.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0275.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0261.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0249.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0248.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0260.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0274.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0062.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0076.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0089.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0116.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0102.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0328.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0314.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0472.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0466.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0300.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0489.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0338.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0304.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0462.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0476.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0310.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0106.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0112.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0099.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0072.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0066.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0258.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0270.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0264.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0265.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0271.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0259.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0067.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0073.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0098.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0113.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0107.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0477.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0311.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0305.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0463.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0339.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0488.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0449.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0313.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0475.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0461.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0307.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0139.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0111.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0105.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0059.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0065.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0071.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0298.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0267.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0273.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0272.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0266.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0299.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0070.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0064.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0058.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0104.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0110.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0138.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0460.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0306.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0312.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0474.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0448.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0375.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0413.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0407.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0361.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0349.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0188.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0177.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0163.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0003.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0017.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0201.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0215.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0229.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0228.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0214.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0200.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0016.bin.lz \
+        files/poketool/pokefoot/pokefoot/narc_0397.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0383.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0354.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0432.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0426.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0340.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0368.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0195.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0181.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0156.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0142.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0022.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0036.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0220.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0234.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0208.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0209.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0235.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0221.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0037.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0023.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0143.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0157.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0180.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0194.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0369.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0427.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0341.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0355.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0433.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0382.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0396.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0380.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0394.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0343.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0425.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0431.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0357.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0419.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0182.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0196.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0141.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0155.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0169.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0035.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0021.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0009.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0237.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0223.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0222.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0236.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0008.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0020.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0034.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0168.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0154.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0140.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0197.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0183.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0418.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0430.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0356.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0342.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0424.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0395.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0381.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0385.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0391.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0408.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0420.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0346.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0352.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0434.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0187.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0193.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0178.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0144.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0150.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0018.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0030.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0024.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0232.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0226.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0227.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0233.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0025.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0031.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0019.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0151.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0145.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0179.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0192.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0186.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0353.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0435.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0421.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0347.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0409.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0390.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0384.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0392.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0386.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0379.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0437.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0351.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0345.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0423.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0190.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0184.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0153.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0147.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0027.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0033.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0219.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0225.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0231.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0230.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0224.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0218.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0032.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0026.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0146.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0152.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0185.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0191.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0344.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0422.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0436.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0350.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0378.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0387.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0393.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0492.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0486.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0451.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0337.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0323.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0445.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0479.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0135.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0121.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0109.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0082.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0096.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0041.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0055.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0069.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0280.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0294.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0243.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0257.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0256.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0242.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0295.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0281.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0068.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0054.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0040.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0097.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0083.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0108.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0120.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0134.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0478.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0322.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0444.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0450.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0336.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0487.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0493.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0485.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0491.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0446.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0320.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0334.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0452.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0308.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0122.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0136.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0095.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0081.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0056.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0042.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0297.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0283.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0254.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0240.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0268.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0269.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0241.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0255.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0282.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0296.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0043.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0057.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0080.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0094.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0137.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0123.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0309.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0335.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0453.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0447.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0321.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0490.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0484.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0480.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0494.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0319.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0325.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0443.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0457.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0331.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0127.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0133.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0090.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0084.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0053.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0047.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0292.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0286.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0279.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0251.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0245.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0244.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0250.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0278.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0287.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0293.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0046.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0052.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0085.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0091.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0132.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0126.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0456.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0330.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0324.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0442.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0318.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0495.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0481.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0483.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0468.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0332.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0454.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0440.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0326.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0118.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0130.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0124.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0087.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0093.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0078.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0044.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0050.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0285.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0291.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0246.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0252.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0253.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0247.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0290.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0284.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0051.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0045.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0079.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0092.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0086.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0125.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0131.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0119.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0441.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0327.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0333.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0455.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0469.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0482.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0496.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0470.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0316.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0302.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0464.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0458.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0114.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0100.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0128.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0060.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0074.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0048.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0289.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0262.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0276.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0277.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0263.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0288.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0049.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0075.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0061.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0129.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0101.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0115.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0459.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0303.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0465.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0471.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0317.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0467.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0301.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0315.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0473.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0329.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0103.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0117.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0088.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0077.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0063.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0275.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0261.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0249.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0248.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0260.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0274.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0062.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0076.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0089.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0116.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0102.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0328.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0314.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0472.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0466.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0300.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0489.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0338.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0304.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0462.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0476.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0310.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0106.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0112.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0099.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0072.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0066.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0258.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0270.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0264.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0265.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0271.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0259.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0067.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0073.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0098.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0113.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0107.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0477.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0311.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0305.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0463.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0339.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0488.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0449.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0313.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0475.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0461.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0307.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0139.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0111.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0105.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0059.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0065.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0071.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0298.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0267.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0273.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0272.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0266.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0299.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0070.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0064.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0058.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0104.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0110.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0138.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0460.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0306.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0312.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0474.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0448.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0375.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0413.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0407.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0361.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0349.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0188.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0177.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0163.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0003.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0017.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0201.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0215.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0229.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0228.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0214.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0200.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0016.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0002.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0162.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0176.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0189.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0348.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0406.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0360.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0374.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0412.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0389.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0362.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0404.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0410.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0376.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0438.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0160.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0174.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0148.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0014.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0028.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0216.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0202.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0203.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0217.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0029.bin.lz \
+        files/poketool/pokefoot/pokefoot/narc_0162.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0176.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0189.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0348.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0406.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0360.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0374.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0412.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0389.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0362.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0404.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0410.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0376.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0438.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0160.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0174.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0148.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0014.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0028.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0216.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0202.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0203.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0217.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0029.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0001.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0015.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0149.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0175.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0161.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0439.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0411.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0377.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0363.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0405.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0388.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0398.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0429.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0401.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0367.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0373.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0415.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0159.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0165.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0171.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0039.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0011.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0005.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0213.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0207.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0206.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0212.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0004.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0010.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0038.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0170.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0164.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0158.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0372.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0414.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0400.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0366.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0428.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0399.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0358.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0416.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0370.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0364.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0402.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0199.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0172.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0166.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0006.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0012.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0238.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0204.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0210.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0211.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0205.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0239.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0013.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0007.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0167.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0173.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0198.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0365.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0403.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0417.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0371.bin.lz \
-        files/poketool/pokefoot/pokefoot/narc_0359.bin.lz
+        files/poketool/pokefoot/pokefoot/narc_0015.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0149.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0175.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0161.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0439.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0411.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0377.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0363.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0405.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0388.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0398.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0429.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0401.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0367.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0373.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0415.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0159.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0165.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0171.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0039.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0011.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0005.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0213.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0207.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0206.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0212.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0004.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0010.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0038.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0170.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0164.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0158.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0372.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0414.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0400.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0366.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0428.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0399.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0358.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0416.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0370.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0364.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0402.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0199.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0172.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0166.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0006.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0012.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0238.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0204.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0210.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0211.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0205.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0239.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0013.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0007.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0167.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0173.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0198.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0365.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0403.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0417.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0371.NCGR.lz \
+        files/poketool/pokefoot/pokefoot/narc_0359.NCGR.lz
 
 files/application/custom_ball/data/cb_data.narc: \
-        files/application/custom_ball/data/cb_data/narc_0195.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0195.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0181.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0156.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0142.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0022.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0036.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0220.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0234.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0208.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0209.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0235.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0221.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0220.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0234.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0208.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0209.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0235.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0221.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0037.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0023.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0143.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0157.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0180.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0194.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0194.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0182.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0196.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0196.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0141.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0155.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0169.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0035.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0021.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0009.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0237.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0223.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0222.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0236.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0237.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0223.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0222.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0236.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0008.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0020.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0034.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0168.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0154.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0140.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0197.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0197.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0183.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0187.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0193.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0187.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0193.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0178.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0144.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0150.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0018.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0030.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0024.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0232.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0226.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0227.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0233.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0232.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0226.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0227.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0233.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0025.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0031.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0019.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0151.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0145.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0179.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0192.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0186.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0190.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0184.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0192.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0186.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0190.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0184.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0153.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0147.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0027.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0033.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0219.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0225.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0231.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0230.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0224.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0218.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0219.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0225.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0231.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0230.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0224.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0218.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0032.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0026.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0146.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0152.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0185.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0191.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0185.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0191.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0135.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0121.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0109.bin.lz \
@@ -1637,12 +1637,12 @@ files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0041.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0055.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0069.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0280.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0243.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0257.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0256.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0242.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0281.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0280.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0243.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0257.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0256.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0242.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0281.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0068.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0054.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0040.bin.lz \
@@ -1658,12 +1658,12 @@ files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0056.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0042.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0283.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0254.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0240.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0268.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0269.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0241.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0255.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0254.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0240.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0268.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0269.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0241.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0255.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0282.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0043.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0057.bin.lz \
@@ -1677,12 +1677,12 @@ files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0084.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0053.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0047.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0279.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0251.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0245.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0244.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0250.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0278.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0279.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0251.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0245.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0244.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0250.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0278.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0046.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0052.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0085.bin.lz \
@@ -1698,10 +1698,10 @@ files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0044.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0050.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0285.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0246.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0252.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0253.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0247.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0246.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0252.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0253.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0247.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0284.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0051.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0045.bin.lz \
@@ -1717,10 +1717,10 @@ files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0060.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0074.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0048.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0262.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0276.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0277.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0263.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0262.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0276.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0277.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0263.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0049.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0075.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0061.bin.lz \
@@ -1732,12 +1732,12 @@ files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0088.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0077.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0063.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0275.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0261.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0249.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0248.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0260.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0274.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0275.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0261.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0249.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0248.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0260.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0274.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0062.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0076.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0089.bin.lz \
@@ -1748,12 +1748,12 @@ files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0099.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0072.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0066.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0258.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0270.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0264.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0265.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0271.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0259.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0258.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0270.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0264.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0265.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0271.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0259.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0067.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0073.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0098.bin.lz \
@@ -1765,42 +1765,42 @@ files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0059.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0065.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0071.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0267.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0273.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0272.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0266.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0267.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0273.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0272.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0266.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0070.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0064.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0058.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0104.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0110.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0138.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0188.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0188.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0177.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0163.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0003.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0017.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0201.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0215.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0229.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0228.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0214.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0200.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0201.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0215.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0229.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0228.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0214.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0200.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0016.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0002.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0162.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0176.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0189.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0189.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0160.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0174.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0148.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0014.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0000.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0028.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0216.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0202.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0203.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0217.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0216.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0202.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0203.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0217.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0029.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0001.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0015.bin.lz \
@@ -1813,47 +1813,47 @@ files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0039.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0011.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0005.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0213.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0207.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0206.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0212.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0213.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0207.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0206.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0212.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0004.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0010.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0038.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0170.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0164.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0158.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0199.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0199.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0172.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0166.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0006.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0012.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0238.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0204.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0210.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0211.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0205.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0239.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0238.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0204.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0210.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0211.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0205.NCGR.lz \
+        files/application/custom_ball/data/cb_data/narc_0239.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0013.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0007.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0167.bin.lz \
         files/application/custom_ball/data/cb_data/narc_0173.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0198.bin.lz
+        files/application/custom_ball/data/cb_data/narc_0198.NCGR.lz
 
 files/resource/eng/zukan/zukan.narc: \
-        files/resource/eng/zukan/zukan/narc_0036.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0036.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0037.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0035.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0034.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0030.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0031.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0027.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0033.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0032.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0035.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0034.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0030.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0031.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0027.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0033.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0032.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0121.bin.lz \
         files/resource/eng/zukan/zukan/narc_0109.bin.lz \
         files/resource/eng/zukan/zukan/narc_0082.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0096.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0096.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0041.bin.lz \
         files/resource/eng/zukan/zukan/narc_0055.bin.lz \
         files/resource/eng/zukan/zukan/narc_0069.bin.lz \
@@ -1862,11 +1862,11 @@ files/resource/eng/zukan/zukan.narc: \
         files/resource/eng/zukan/zukan/narc_0040.bin.lz \
         files/resource/eng/zukan/zukan/narc_0097.bin.lz \
         files/resource/eng/zukan/zukan/narc_0083.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0108.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0108.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0120.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0122.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0122.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0095.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0081.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0081.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0056.bin.lz \
         files/resource/eng/zukan/zukan/narc_0042.bin.lz \
         files/resource/eng/zukan/zukan/narc_0043.bin.lz \
@@ -1875,8 +1875,8 @@ files/resource/eng/zukan/zukan.narc: \
         files/resource/eng/zukan/zukan/narc_0094.bin.lz \
         files/resource/eng/zukan/zukan/narc_0123.bin.lz \
         files/resource/eng/zukan/zukan/narc_0127.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0090.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0084.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0090.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0084.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0053.bin.lz \
         files/resource/eng/zukan/zukan/narc_0047.bin.lz \
         files/resource/eng/zukan/zukan/narc_0046.bin.lz \
@@ -1886,9 +1886,9 @@ files/resource/eng/zukan/zukan.narc: \
         files/resource/eng/zukan/zukan/narc_0126.bin.lz \
         files/resource/eng/zukan/zukan/narc_0118.bin.lz \
         files/resource/eng/zukan/zukan/narc_0124.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0087.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0093.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0078.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0087.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0093.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0078.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0044.bin.lz \
         files/resource/eng/zukan/zukan/narc_0050.bin.lz \
         files/resource/eng/zukan/zukan/narc_0051.bin.lz \
@@ -1896,11 +1896,11 @@ files/resource/eng/zukan/zukan.narc: \
         files/resource/eng/zukan/zukan/narc_0079.bin.lz \
         files/resource/eng/zukan/zukan/narc_0092.bin.lz \
         files/resource/eng/zukan/zukan/narc_0086.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0125.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0119.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0125.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0119.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0114.bin.lz \
         files/resource/eng/zukan/zukan/narc_0100.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0128.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0128.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0060.bin.lz \
         files/resource/eng/zukan/zukan/narc_0074.bin.lz \
         files/resource/eng/zukan/zukan/narc_0048.bin.lz \
@@ -1918,20 +1918,20 @@ files/resource/eng/zukan/zukan.narc: \
         files/resource/eng/zukan/zukan/narc_0062.bin.lz \
         files/resource/eng/zukan/zukan/narc_0076.bin.lz \
         files/resource/eng/zukan/zukan/narc_0089.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0116.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0102.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0116.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0102.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0106.bin.lz \
         files/resource/eng/zukan/zukan/narc_0112.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0099.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0099.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0072.bin.lz \
         files/resource/eng/zukan/zukan/narc_0066.bin.lz \
         files/resource/eng/zukan/zukan/narc_0067.bin.lz \
         files/resource/eng/zukan/zukan/narc_0073.bin.lz \
         files/resource/eng/zukan/zukan/narc_0098.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0113.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0113.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0107.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0111.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0105.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0111.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0105.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0059.bin.lz \
         files/resource/eng/zukan/zukan/narc_0065.bin.lz \
         files/resource/eng/zukan/zukan/narc_0071.bin.lz \
@@ -1940,125 +1940,125 @@ files/resource/eng/zukan/zukan.narc: \
         files/resource/eng/zukan/zukan/narc_0058.bin.lz \
         files/resource/eng/zukan/zukan/narc_0104.bin.lz \
         files/resource/eng/zukan/zukan/narc_0110.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0028.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0029.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0028.NCGR.lz \
+        files/resource/eng/zukan/zukan/narc_0029.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0039.bin.lz \
         files/resource/eng/zukan/zukan/narc_0038.bin.lz
 
 files/contest/graphic/contest_bg.narc: \
-        files/contest/graphic/contest_bg/narc_0022.bin.lz \
-        files/contest/graphic/contest_bg/narc_0023.bin.lz \
+        files/contest/graphic/contest_bg/narc_0022.NCGR.lz \
+        files/contest/graphic/contest_bg/narc_0023.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0021.bin.lz \
-        files/contest/graphic/contest_bg/narc_0009.bin.lz \
+        files/contest/graphic/contest_bg/narc_0009.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0008.bin.lz \
         files/contest/graphic/contest_bg/narc_0020.bin.lz \
-        files/contest/graphic/contest_bg/narc_0018.bin.lz \
+        files/contest/graphic/contest_bg/narc_0018.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0024.bin.lz \
         files/contest/graphic/contest_bg/narc_0025.bin.lz \
         files/contest/graphic/contest_bg/narc_0019.bin.lz \
         files/contest/graphic/contest_bg/narc_0027.bin.lz \
-        files/contest/graphic/contest_bg/narc_0026.bin.lz \
-        files/contest/graphic/contest_bg/narc_0003.bin.lz \
-        files/contest/graphic/contest_bg/narc_0017.bin.lz \
+        files/contest/graphic/contest_bg/narc_0026.NCGR.lz \
+        files/contest/graphic/contest_bg/narc_0003.NCGR.lz \
+        files/contest/graphic/contest_bg/narc_0017.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0016.bin.lz \
         files/contest/graphic/contest_bg/narc_0002.bin.lz \
         files/contest/graphic/contest_bg/narc_0014.bin.lz \
         files/contest/graphic/contest_bg/narc_0000.bin.lz \
         files/contest/graphic/contest_bg/narc_0028.bin.lz \
-        files/contest/graphic/contest_bg/narc_0001.bin.lz \
-        files/contest/graphic/contest_bg/narc_0015.bin.lz \
-        files/contest/graphic/contest_bg/narc_0011.bin.lz \
+        files/contest/graphic/contest_bg/narc_0001.NCGR.lz \
+        files/contest/graphic/contest_bg/narc_0015.NCGR.lz \
+        files/contest/graphic/contest_bg/narc_0011.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0005.bin.lz \
         files/contest/graphic/contest_bg/narc_0004.bin.lz \
         files/contest/graphic/contest_bg/narc_0010.bin.lz \
         files/contest/graphic/contest_bg/narc_0006.bin.lz \
         files/contest/graphic/contest_bg/narc_0012.bin.lz \
-        files/contest/graphic/contest_bg/narc_0013.bin.lz \
+        files/contest/graphic/contest_bg/narc_0013.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0007.bin.lz
 
 files/contest/graphic/contest_obj.narc: \
         files/contest/graphic/contest_obj/narc_0022.bin.lz \
         files/contest/graphic/contest_obj/narc_0036.bin.lz \
-        files/contest/graphic/contest_obj/narc_0037.bin.lz \
-        files/contest/graphic/contest_obj/narc_0023.bin.lz \
+        files/contest/graphic/contest_obj/narc_0037.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0023.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0035.bin.lz \
         files/contest/graphic/contest_obj/narc_0021.bin.lz \
-        files/contest/graphic/contest_obj/narc_0020.bin.lz \
-        files/contest/graphic/contest_obj/narc_0034.bin.lz \
+        files/contest/graphic/contest_obj/narc_0020.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0034.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0018.bin.lz \
         files/contest/graphic/contest_obj/narc_0030.bin.lz \
         files/contest/graphic/contest_obj/narc_0024.bin.lz \
         files/contest/graphic/contest_obj/narc_0025.bin.lz \
-        files/contest/graphic/contest_obj/narc_0031.bin.lz \
+        files/contest/graphic/contest_obj/narc_0031.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0019.bin.lz \
         files/contest/graphic/contest_obj/narc_0027.bin.lz \
         files/contest/graphic/contest_obj/narc_0033.bin.lz \
         files/contest/graphic/contest_obj/narc_0032.bin.lz \
-        files/contest/graphic/contest_obj/narc_0026.bin.lz \
+        files/contest/graphic/contest_obj/narc_0026.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0082.bin.lz \
-        files/contest/graphic/contest_obj/narc_0096.bin.lz \
+        files/contest/graphic/contest_obj/narc_0096.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0041.bin.lz \
-        files/contest/graphic/contest_obj/narc_0055.bin.lz \
+        files/contest/graphic/contest_obj/narc_0055.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0069.bin.lz \
         files/contest/graphic/contest_obj/narc_0068.bin.lz \
-        files/contest/graphic/contest_obj/narc_0054.bin.lz \
+        files/contest/graphic/contest_obj/narc_0054.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0040.bin.lz \
         files/contest/graphic/contest_obj/narc_0083.bin.lz \
         files/contest/graphic/contest_obj/narc_0095.bin.lz \
-        files/contest/graphic/contest_obj/narc_0081.bin.lz \
+        files/contest/graphic/contest_obj/narc_0081.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0056.bin.lz \
-        files/contest/graphic/contest_obj/narc_0042.bin.lz \
+        files/contest/graphic/contest_obj/narc_0042.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0043.bin.lz \
         files/contest/graphic/contest_obj/narc_0057.bin.lz \
         files/contest/graphic/contest_obj/narc_0080.bin.lz \
         files/contest/graphic/contest_obj/narc_0094.bin.lz \
-        files/contest/graphic/contest_obj/narc_0090.bin.lz \
-        files/contest/graphic/contest_obj/narc_0084.bin.lz \
-        files/contest/graphic/contest_obj/narc_0053.bin.lz \
+        files/contest/graphic/contest_obj/narc_0090.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0084.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0053.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0047.bin.lz \
         files/contest/graphic/contest_obj/narc_0046.bin.lz \
-        files/contest/graphic/contest_obj/narc_0052.bin.lz \
+        files/contest/graphic/contest_obj/narc_0052.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0085.bin.lz \
         files/contest/graphic/contest_obj/narc_0091.bin.lz \
-        files/contest/graphic/contest_obj/narc_0087.bin.lz \
-        files/contest/graphic/contest_obj/narc_0093.bin.lz \
+        files/contest/graphic/contest_obj/narc_0087.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0093.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0078.bin.lz \
         files/contest/graphic/contest_obj/narc_0044.bin.lz \
         files/contest/graphic/contest_obj/narc_0050.bin.lz \
-        files/contest/graphic/contest_obj/narc_0051.bin.lz \
-        files/contest/graphic/contest_obj/narc_0045.bin.lz \
+        files/contest/graphic/contest_obj/narc_0051.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0045.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0079.bin.lz \
         files/contest/graphic/contest_obj/narc_0092.bin.lz \
         files/contest/graphic/contest_obj/narc_0086.bin.lz \
-        files/contest/graphic/contest_obj/narc_0060.bin.lz \
+        files/contest/graphic/contest_obj/narc_0060.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0074.bin.lz \
-        files/contest/graphic/contest_obj/narc_0048.bin.lz \
+        files/contest/graphic/contest_obj/narc_0048.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0049.bin.lz \
         files/contest/graphic/contest_obj/narc_0075.bin.lz \
-        files/contest/graphic/contest_obj/narc_0061.bin.lz \
+        files/contest/graphic/contest_obj/narc_0061.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0088.bin.lz \
         files/contest/graphic/contest_obj/narc_0077.bin.lz \
         files/contest/graphic/contest_obj/narc_0063.bin.lz \
         files/contest/graphic/contest_obj/narc_0062.bin.lz \
-        files/contest/graphic/contest_obj/narc_0076.bin.lz \
+        files/contest/graphic/contest_obj/narc_0076.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0089.bin.lz \
         files/contest/graphic/contest_obj/narc_0072.bin.lz \
         files/contest/graphic/contest_obj/narc_0066.bin.lz \
-        files/contest/graphic/contest_obj/narc_0067.bin.lz \
-        files/contest/graphic/contest_obj/narc_0073.bin.lz \
-        files/contest/graphic/contest_obj/narc_0059.bin.lz \
+        files/contest/graphic/contest_obj/narc_0067.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0073.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0059.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0065.bin.lz \
         files/contest/graphic/contest_obj/narc_0071.bin.lz \
-        files/contest/graphic/contest_obj/narc_0070.bin.lz \
-        files/contest/graphic/contest_obj/narc_0064.bin.lz \
-        files/contest/graphic/contest_obj/narc_0058.bin.lz \
-        files/contest/graphic/contest_obj/narc_0017.bin.lz \
+        files/contest/graphic/contest_obj/narc_0070.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0064.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0058.NCGR.lz \
+        files/contest/graphic/contest_obj/narc_0017.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0016.bin.lz \
-        files/contest/graphic/contest_obj/narc_0014.bin.lz \
+        files/contest/graphic/contest_obj/narc_0014.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0028.bin.lz \
-        files/contest/graphic/contest_obj/narc_0029.bin.lz \
+        files/contest/graphic/contest_obj/narc_0029.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0015.bin.lz \
-        files/contest/graphic/contest_obj/narc_0039.bin.lz \
+        files/contest/graphic/contest_obj/narc_0039.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0038.bin.lz \
         files/contest/graphic/contest_obj/narc_0012.bin.lz \
         files/contest/graphic/contest_obj/narc_0013.bin.lz
@@ -2067,30 +2067,30 @@ files/data/tradelist.narc: \
         files/data/tradelist/narc_0009.bin.lz \
         files/data/tradelist/narc_0008.bin.lz \
         files/data/tradelist/narc_0003.bin.lz \
-        files/data/tradelist/narc_0002.bin.lz \
-        files/data/tradelist/narc_0001.bin.lz \
+        files/data/tradelist/narc_0002.NCGR.lz \
+        files/data/tradelist/narc_0001.NCGR.lz \
         files/data/tradelist/narc_0011.bin.lz \
         files/data/tradelist/narc_0005.bin.lz \
         files/data/tradelist/narc_0004.bin.lz \
-        files/data/tradelist/narc_0010.bin.lz \
+        files/data/tradelist/narc_0010.NCGR.lz \
         files/data/tradelist/narc_0006.bin.lz \
         files/data/tradelist/narc_0012.bin.lz \
-        files/data/tradelist/narc_0007.bin.lz
+        files/data/tradelist/narc_0007.NCGR.lz
 
 files/data/namein.narc: \
         files/data/namein/narc_0009.bin.lz \
         files/data/namein/narc_0008.bin.lz \
         files/data/namein/narc_0018.bin.lz \
-        files/data/namein/narc_0003.bin.lz \
+        files/data/namein/narc_0003.NCGR.lz \
         files/data/namein/narc_0017.bin.lz \
-        files/data/namein/narc_0016.bin.lz \
-        files/data/namein/narc_0002.bin.lz \
+        files/data/namein/narc_0016.NCGR.lz \
+        files/data/namein/narc_0002.NCGR.lz \
         files/data/namein/narc_0014.bin.lz \
         files/data/namein/narc_0015.bin.lz \
-        files/data/namein/narc_0011.bin.lz \
+        files/data/namein/narc_0011.NCGR.lz \
         files/data/namein/narc_0005.bin.lz \
         files/data/namein/narc_0004.bin.lz \
-        files/data/namein/narc_0010.bin.lz \
+        files/data/namein/narc_0010.NCGR.lz \
         files/data/namein/narc_0006.bin.lz \
         files/data/namein/narc_0012.bin.lz \
         files/data/namein/narc_0013.bin.lz \
