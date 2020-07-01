@@ -1,0 +1,10 @@
+#ifndef POKEDIAMOND_UNK_0200CA44_H
+#define POKEDIAMOND_UNK_0200CA44_H
+
+void FUN_0200CA44(u16 r0, u16 r1, u16 r2);
+void FUN_0200CA60(u16 r0, u16 r1, u16 r2);
+void FUN_0200CA7C(u16 r0, u16 r1, u16 r2);
+void FUN_0200CA98(u16 r0, u16 r1, u16 r2);
+void FUN_0200CAB4(s32 unk1);
+
+#endif //POKEDIAMOND_UNK_0200CA44_H
