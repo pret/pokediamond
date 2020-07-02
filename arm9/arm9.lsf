@@ -613,12 +613,14 @@ Overlay MODULE_19
 
 Overlay MODULE_20
 {
+	##Pokétch##
 	After MODULE_06
 	Object module_20.o
 }
 
 Overlay MODULE_21
 {
+	##Pokétch##
 	After MODULE_20
 	Object module_21.o
 	Object module_21_sinit.o
