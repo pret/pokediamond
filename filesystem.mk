@@ -303,151 +303,151 @@ $(O2NARC_TARGETS): %.narc: %.json %.json.txt $$(dep)
 	@$(RM) $*.o $*.c
 
 files/battle/graphic/batt_bg.narc: \
-        files/battle/graphic/batt_bg/narc_0156.bin.lz \
-        files/battle/graphic/batt_bg/narc_0142.bin.lz \
+        files/battle/graphic/batt_bg/narc_0156.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0142.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0022.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0036.bin.lz \
-        files/battle/graphic/batt_bg/narc_0037.bin.lz \
+        files/battle/graphic/batt_bg/narc_0036.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0037.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0023.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0143.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0141.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0155.bin.lz \
-        files/battle/graphic/batt_bg/narc_0035.bin.lz \
+        files/battle/graphic/batt_bg/narc_0155.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0035.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0021.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0009.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0008.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0020.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0034.bin.lz \
+        files/battle/graphic/batt_bg/narc_0034.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0154.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0140.bin.lz \
-        files/battle/graphic/batt_bg/narc_0144.bin.lz \
-        files/battle/graphic/batt_bg/narc_0150.bin.lz \
+        files/battle/graphic/batt_bg/narc_0140.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0144.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0150.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0018.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0030.bin.lz \
+        files/battle/graphic/batt_bg/narc_0030.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0024.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0025.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0031.bin.lz \
+        files/battle/graphic/batt_bg/narc_0031.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0019.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0151.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0145.bin.lz \
-        files/battle/graphic/batt_bg/narc_0153.bin.lz \
-        files/battle/graphic/batt_bg/narc_0147.bin.lz \
+        files/battle/graphic/batt_bg/narc_0145.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0153.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0147.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0027.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0033.bin.lz \
-        files/battle/graphic/batt_bg/narc_0032.bin.lz \
+        files/battle/graphic/batt_bg/narc_0033.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0032.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0026.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0146.bin.lz \
-        files/battle/graphic/batt_bg/narc_0152.bin.lz \
-        files/battle/graphic/batt_bg/narc_0135.bin.lz \
-        files/battle/graphic/batt_bg/narc_0121.bin.lz \
-        files/battle/graphic/batt_bg/narc_0109.bin.lz \
-        files/battle/graphic/batt_bg/narc_0082.bin.lz \
-        files/battle/graphic/batt_bg/narc_0096.bin.lz \
-        files/battle/graphic/batt_bg/narc_0041.bin.lz \
-        files/battle/graphic/batt_bg/narc_0055.bin.lz \
+        files/battle/graphic/batt_bg/narc_0146.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0152.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0135.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0121.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0109.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0082.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0096.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0041.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0055.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0069.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0068.bin.lz \
-        files/battle/graphic/batt_bg/narc_0054.bin.lz \
+        files/battle/graphic/batt_bg/narc_0068.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0054.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0040.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0097.bin.lz \
+        files/battle/graphic/batt_bg/narc_0097.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0083.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0108.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0120.bin.lz \
+        files/battle/graphic/batt_bg/narc_0120.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0134.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0122.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0136.bin.lz \
-        files/battle/graphic/batt_bg/narc_0095.bin.lz \
-        files/battle/graphic/batt_bg/narc_0081.bin.lz \
-        files/battle/graphic/batt_bg/narc_0056.bin.lz \
+        files/battle/graphic/batt_bg/narc_0136.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0095.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0081.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0056.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0042.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0043.bin.lz \
+        files/battle/graphic/batt_bg/narc_0043.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0057.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0080.bin.lz \
-        files/battle/graphic/batt_bg/narc_0094.bin.lz \
-        files/battle/graphic/batt_bg/narc_0137.bin.lz \
-        files/battle/graphic/batt_bg/narc_0123.bin.lz \
+        files/battle/graphic/batt_bg/narc_0080.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0094.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0137.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0123.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0127.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0133.bin.lz \
+        files/battle/graphic/batt_bg/narc_0133.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0090.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0084.bin.lz \
+        files/battle/graphic/batt_bg/narc_0084.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0053.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0047.bin.lz \
+        files/battle/graphic/batt_bg/narc_0047.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0046.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0052.bin.lz \
-        files/battle/graphic/batt_bg/narc_0085.bin.lz \
-        files/battle/graphic/batt_bg/narc_0091.bin.lz \
-        files/battle/graphic/batt_bg/narc_0132.bin.lz \
+        files/battle/graphic/batt_bg/narc_0052.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0085.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0091.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0132.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0126.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0118.bin.lz \
-        files/battle/graphic/batt_bg/narc_0130.bin.lz \
-        files/battle/graphic/batt_bg/narc_0124.bin.lz \
+        files/battle/graphic/batt_bg/narc_0118.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0130.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0124.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0087.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0093.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0078.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0044.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0050.bin.lz \
-        files/battle/graphic/batt_bg/narc_0051.bin.lz \
-        files/battle/graphic/batt_bg/narc_0045.bin.lz \
-        files/battle/graphic/batt_bg/narc_0079.bin.lz \
-        files/battle/graphic/batt_bg/narc_0092.bin.lz \
-        files/battle/graphic/batt_bg/narc_0086.bin.lz \
-        files/battle/graphic/batt_bg/narc_0125.bin.lz \
-        files/battle/graphic/batt_bg/narc_0131.bin.lz \
+        files/battle/graphic/batt_bg/narc_0050.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0051.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0045.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0079.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0092.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0086.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0125.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0131.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0119.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0114.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0100.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0128.bin.lz \
-        files/battle/graphic/batt_bg/narc_0060.bin.lz \
-        files/battle/graphic/batt_bg/narc_0074.bin.lz \
+        files/battle/graphic/batt_bg/narc_0128.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0060.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0074.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0048.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0049.bin.lz \
-        files/battle/graphic/batt_bg/narc_0075.bin.lz \
-        files/battle/graphic/batt_bg/narc_0061.bin.lz \
+        files/battle/graphic/batt_bg/narc_0049.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0075.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0061.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0129.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0101.bin.lz \
-        files/battle/graphic/batt_bg/narc_0115.bin.lz \
-        files/battle/graphic/batt_bg/narc_0103.bin.lz \
+        files/battle/graphic/batt_bg/narc_0101.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0115.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0103.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0117.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0088.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0077.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0063.bin.lz \
-        files/battle/graphic/batt_bg/narc_0062.bin.lz \
-        files/battle/graphic/batt_bg/narc_0076.bin.lz \
-        files/battle/graphic/batt_bg/narc_0089.bin.lz \
-        files/battle/graphic/batt_bg/narc_0116.bin.lz \
+        files/battle/graphic/batt_bg/narc_0063.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0062.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0076.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0089.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0116.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0102.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0106.bin.lz \
+        files/battle/graphic/batt_bg/narc_0106.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0112.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0099.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0072.bin.lz \
+        files/battle/graphic/batt_bg/narc_0072.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0066.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0067.bin.lz \
+        files/battle/graphic/batt_bg/narc_0067.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0073.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0098.bin.lz \
-        files/battle/graphic/batt_bg/narc_0113.bin.lz \
+        files/battle/graphic/batt_bg/narc_0098.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0113.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0107.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0139.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0111.bin.lz \
-        files/battle/graphic/batt_bg/narc_0105.bin.lz \
-        files/battle/graphic/batt_bg/narc_0059.bin.lz \
-        files/battle/graphic/batt_bg/narc_0065.bin.lz \
-        files/battle/graphic/batt_bg/narc_0071.bin.lz \
-        files/battle/graphic/batt_bg/narc_0070.bin.lz \
+        files/battle/graphic/batt_bg/narc_0111.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0105.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0059.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0065.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0071.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0070.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0064.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0058.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0104.bin.lz \
+        files/battle/graphic/batt_bg/narc_0104.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0110.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0138.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0003.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0017.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0016.bin.lz \
-        files/battle/graphic/batt_bg/narc_0002.bin.lz \
+        files/battle/graphic/batt_bg/narc_0016.NSCR.lz \
+        files/battle/graphic/batt_bg/narc_0002.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0148.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0014.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0000.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0028.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0029.NCGR.lz \
-        files/battle/graphic/batt_bg/narc_0001.bin.lz \
+        files/battle/graphic/batt_bg/narc_0001.NSCR.lz \
         files/battle/graphic/batt_bg/narc_0015.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0149.NCGR.lz \
         files/battle/graphic/batt_bg/narc_0039.NCGR.lz \
@@ -465,256 +465,256 @@ files/battle/graphic/batt_obj.narc: \
         files/battle/graphic/batt_obj/narc_0195.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0181.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0156.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0142.bin.lz \
-        files/battle/graphic/batt_obj/narc_0220.bin.lz \
-        files/battle/graphic/batt_obj/narc_0234.bin.lz \
-        files/battle/graphic/batt_obj/narc_0208.bin.lz \
-        files/battle/graphic/batt_obj/narc_0209.bin.lz \
-        files/battle/graphic/batt_obj/narc_0235.bin.lz \
+        files/battle/graphic/batt_obj/narc_0142.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0220.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0234.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0208.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0209.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0235.NCER.lz \
         files/battle/graphic/batt_obj/narc_0221.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0143.bin.lz \
+        files/battle/graphic/batt_obj/narc_0143.NCER.lz \
         files/battle/graphic/batt_obj/narc_0157.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0180.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0194.bin.lz \
+        files/battle/graphic/batt_obj/narc_0194.NANR.lz \
         files/battle/graphic/batt_obj/narc_0182.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0196.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0141.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0155.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0169.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0237.bin.lz \
-        files/battle/graphic/batt_obj/narc_0223.bin.lz \
-        files/battle/graphic/batt_obj/narc_0222.bin.lz \
+        files/battle/graphic/batt_obj/narc_0237.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0223.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0222.NANR.lz \
         files/battle/graphic/batt_obj/narc_0236.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0168.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0154.bin.lz \
-        files/battle/graphic/batt_obj/narc_0140.bin.lz \
+        files/battle/graphic/batt_obj/narc_0154.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0140.NCER.lz \
         files/battle/graphic/batt_obj/narc_0197.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0183.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0187.bin.lz \
-        files/battle/graphic/batt_obj/narc_0193.bin.lz \
-        files/battle/graphic/batt_obj/narc_0178.bin.lz \
+        files/battle/graphic/batt_obj/narc_0187.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0193.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0178.NCER.lz \
         files/battle/graphic/batt_obj/narc_0144.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0150.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0232.bin.lz \
-        files/battle/graphic/batt_obj/narc_0226.bin.lz \
+        files/battle/graphic/batt_obj/narc_0232.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0226.NCER.lz \
         files/battle/graphic/batt_obj/narc_0227.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0233.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0151.bin.lz \
-        files/battle/graphic/batt_obj/narc_0145.bin.lz \
-        files/battle/graphic/batt_obj/narc_0179.bin.lz \
+        files/battle/graphic/batt_obj/narc_0151.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0145.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0179.NANR.lz \
         files/battle/graphic/batt_obj/narc_0192.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0186.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0190.bin.lz \
-        files/battle/graphic/batt_obj/narc_0184.bin.lz \
+        files/battle/graphic/batt_obj/narc_0190.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0184.NCER.lz \
         files/battle/graphic/batt_obj/narc_0153.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0147.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0219.bin.lz \
-        files/battle/graphic/batt_obj/narc_0225.bin.lz \
-        files/battle/graphic/batt_obj/narc_0231.bin.lz \
+        files/battle/graphic/batt_obj/narc_0219.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0225.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0231.NANR.lz \
         files/battle/graphic/batt_obj/narc_0230.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0224.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0218.bin.lz \
-        files/battle/graphic/batt_obj/narc_0146.bin.lz \
-        files/battle/graphic/batt_obj/narc_0152.bin.lz \
-        files/battle/graphic/batt_obj/narc_0185.bin.lz \
-        files/battle/graphic/batt_obj/narc_0191.bin.lz \
-        files/battle/graphic/batt_obj/narc_0135.bin.lz \
+        files/battle/graphic/batt_obj/narc_0218.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0146.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0152.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0185.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0191.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0135.NCER.lz \
         files/battle/graphic/batt_obj/narc_0121.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0109.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0082.bin.lz \
+        files/battle/graphic/batt_obj/narc_0082.NCER.lz \
         files/battle/graphic/batt_obj/narc_0096.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0243.bin.lz \
+        files/battle/graphic/batt_obj/narc_0243.NANR.lz \
         files/battle/graphic/batt_obj/narc_0257.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0256.bin.lz \
+        files/battle/graphic/batt_obj/narc_0256.NCER.lz \
         files/battle/graphic/batt_obj/narc_0242.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0097.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0083.bin.lz \
+        files/battle/graphic/batt_obj/narc_0083.NANR.lz \
         files/battle/graphic/batt_obj/narc_0108.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0120.bin.lz \
-        files/battle/graphic/batt_obj/narc_0134.bin.lz \
-        files/battle/graphic/batt_obj/narc_0122.bin.lz \
+        files/battle/graphic/batt_obj/narc_0120.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0134.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0122.NANR.lz \
         files/battle/graphic/batt_obj/narc_0136.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0095.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0081.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0254.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0240.bin.lz \
-        files/battle/graphic/batt_obj/narc_0268.bin.lz \
+        files/battle/graphic/batt_obj/narc_0240.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0268.NCER.lz \
         files/battle/graphic/batt_obj/narc_0269.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0241.bin.lz \
-        files/battle/graphic/batt_obj/narc_0255.bin.lz \
+        files/battle/graphic/batt_obj/narc_0241.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0255.NANR.lz \
         files/battle/graphic/batt_obj/narc_0080.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0094.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0137.bin.lz \
-        files/battle/graphic/batt_obj/narc_0123.bin.lz \
+        files/battle/graphic/batt_obj/narc_0137.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0123.NCER.lz \
         files/battle/graphic/batt_obj/narc_0127.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0133.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0090.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0084.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0251.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0245.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0244.bin.lz \
-        files/battle/graphic/batt_obj/narc_0250.bin.lz \
-        files/battle/graphic/batt_obj/narc_0278.bin.lz \
-        files/battle/graphic/batt_obj/narc_0085.bin.lz \
-        files/battle/graphic/batt_obj/narc_0091.bin.lz \
-        files/battle/graphic/batt_obj/narc_0132.bin.lz \
-        files/battle/graphic/batt_obj/narc_0126.bin.lz \
+        files/battle/graphic/batt_obj/narc_0244.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0250.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0278.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0085.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0091.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0132.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0126.NCER.lz \
         files/battle/graphic/batt_obj/narc_0118.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0130.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0124.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0087.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0093.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0078.bin.lz \
-        files/battle/graphic/batt_obj/narc_0246.bin.lz \
-        files/battle/graphic/batt_obj/narc_0252.bin.lz \
-        files/battle/graphic/batt_obj/narc_0253.bin.lz \
-        files/battle/graphic/batt_obj/narc_0247.bin.lz \
-        files/battle/graphic/batt_obj/narc_0079.bin.lz \
-        files/battle/graphic/batt_obj/narc_0092.bin.lz \
-        files/battle/graphic/batt_obj/narc_0086.bin.lz \
-        files/battle/graphic/batt_obj/narc_0125.bin.lz \
-        files/battle/graphic/batt_obj/narc_0131.bin.lz \
-        files/battle/graphic/batt_obj/narc_0119.bin.lz \
-        files/battle/graphic/batt_obj/narc_0114.bin.lz \
+        files/battle/graphic/batt_obj/narc_0078.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0246.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0252.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0253.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0247.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0079.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0092.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0086.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0125.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0131.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0119.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0114.NCER.lz \
         files/battle/graphic/batt_obj/narc_0100.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0128.bin.lz \
-        files/battle/graphic/batt_obj/narc_0262.bin.lz \
+        files/battle/graphic/batt_obj/narc_0128.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0262.NCER.lz \
         files/battle/graphic/batt_obj/narc_0276.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0277.bin.lz \
+        files/battle/graphic/batt_obj/narc_0277.NCER.lz \
         files/battle/graphic/batt_obj/narc_0263.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0075.bin.lz \
-        files/battle/graphic/batt_obj/narc_0129.bin.lz \
+        files/battle/graphic/batt_obj/narc_0075.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0129.NCER.lz \
         files/battle/graphic/batt_obj/narc_0101.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0115.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0103.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0117.bin.lz \
-        files/battle/graphic/batt_obj/narc_0088.bin.lz \
+        files/battle/graphic/batt_obj/narc_0117.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0088.NCER.lz \
         files/battle/graphic/batt_obj/narc_0077.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0275.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0261.bin.lz \
-        files/battle/graphic/batt_obj/narc_0249.bin.lz \
+        files/battle/graphic/batt_obj/narc_0261.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0249.NANR.lz \
         files/battle/graphic/batt_obj/narc_0248.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0260.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0274.bin.lz \
-        files/battle/graphic/batt_obj/narc_0076.bin.lz \
-        files/battle/graphic/batt_obj/narc_0089.bin.lz \
-        files/battle/graphic/batt_obj/narc_0116.bin.lz \
+        files/battle/graphic/batt_obj/narc_0274.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0076.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0089.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0116.NANR.lz \
         files/battle/graphic/batt_obj/narc_0102.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0106.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0112.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0099.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0258.bin.lz \
-        files/battle/graphic/batt_obj/narc_0270.bin.lz \
-        files/battle/graphic/batt_obj/narc_0264.bin.lz \
-        files/battle/graphic/batt_obj/narc_0265.bin.lz \
-        files/battle/graphic/batt_obj/narc_0271.bin.lz \
-        files/battle/graphic/batt_obj/narc_0259.bin.lz \
+        files/battle/graphic/batt_obj/narc_0258.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0270.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0264.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0265.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0271.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0259.NCER.lz \
         files/battle/graphic/batt_obj/narc_0098.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0113.bin.lz \
+        files/battle/graphic/batt_obj/narc_0113.NANR.lz \
         files/battle/graphic/batt_obj/narc_0107.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0139.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0111.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0105.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0267.bin.lz \
-        files/battle/graphic/batt_obj/narc_0273.bin.lz \
+        files/battle/graphic/batt_obj/narc_0267.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0273.NANR.lz \
         files/battle/graphic/batt_obj/narc_0272.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0266.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0104.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0110.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0138.bin.lz \
-        files/battle/graphic/batt_obj/narc_0188.bin.lz \
+        files/battle/graphic/batt_obj/narc_0138.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0188.NANR.lz \
         files/battle/graphic/batt_obj/narc_0177.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0163.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0201.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0215.bin.lz \
-        files/battle/graphic/batt_obj/narc_0229.bin.lz \
-        files/battle/graphic/batt_obj/narc_0228.bin.lz \
-        files/battle/graphic/batt_obj/narc_0214.bin.lz \
+        files/battle/graphic/batt_obj/narc_0215.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0229.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0228.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0214.NANR.lz \
         files/battle/graphic/batt_obj/narc_0200.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0162.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0176.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0189.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0160.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0174.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0148.bin.lz \
-        files/battle/graphic/batt_obj/narc_0216.bin.lz \
+        files/battle/graphic/batt_obj/narc_0148.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0216.NANR.lz \
         files/battle/graphic/batt_obj/narc_0202.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0203.bin.lz \
-        files/battle/graphic/batt_obj/narc_0217.bin.lz \
-        files/battle/graphic/batt_obj/narc_0149.bin.lz \
+        files/battle/graphic/batt_obj/narc_0203.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0217.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0149.NCER.lz \
         files/battle/graphic/batt_obj/narc_0175.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0161.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0159.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0165.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0171.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0213.bin.lz \
-        files/battle/graphic/batt_obj/narc_0207.bin.lz \
-        files/battle/graphic/batt_obj/narc_0206.bin.lz \
-        files/battle/graphic/batt_obj/narc_0212.bin.lz \
+        files/battle/graphic/batt_obj/narc_0213.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0207.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0206.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0212.NANR.lz \
         files/battle/graphic/batt_obj/narc_0170.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0164.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0158.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0199.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0172.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0166.NCGR.lz \
-        files/battle/graphic/batt_obj/narc_0238.bin.lz \
-        files/battle/graphic/batt_obj/narc_0204.bin.lz \
-        files/battle/graphic/batt_obj/narc_0210.bin.lz \
-        files/battle/graphic/batt_obj/narc_0211.bin.lz \
-        files/battle/graphic/batt_obj/narc_0205.bin.lz \
+        files/battle/graphic/batt_obj/narc_0238.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0204.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0210.NCER.lz \
+        files/battle/graphic/batt_obj/narc_0211.NANR.lz \
+        files/battle/graphic/batt_obj/narc_0205.NCER.lz \
         files/battle/graphic/batt_obj/narc_0239.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0167.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0173.NCGR.lz \
         files/battle/graphic/batt_obj/narc_0198.NCGR.lz
 
 files/demo/egg/data/egg_data.narc: \
-        files/demo/egg/data/egg_data/narc_0003.bin.lz \
-        files/demo/egg/data/egg_data/narc_0002.bin.lz \
+        files/demo/egg/data/egg_data/narc_0003.NCER.lz \
+        files/demo/egg/data/egg_data/narc_0002.NANR.lz \
         files/demo/egg/data/egg_data/narc_0000.NCGR.lz \
-        files/demo/egg/data/egg_data/narc_0001.bin.lz \
-        files/demo/egg/data/egg_data/narc_0005.bin.lz \
+        files/demo/egg/data/egg_data/narc_0001.NSCR.lz \
+        files/demo/egg/data/egg_data/narc_0005.NANR.lz \
         files/demo/egg/data/egg_data/narc_0004.NCGR.lz \
-        files/demo/egg/data/egg_data/narc_0006.bin.lz \
+        files/demo/egg/data/egg_data/narc_0006.NCER.lz \
         files/demo/egg/data/egg_data/narc_0007.NCGR.lz
 
 files/wazaeffect/effectclact/wecell.narc: \
-        files/wazaeffect/effectclact/wecell/narc_0022.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0036.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0023.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0035.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0021.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0009.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0008.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0020.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0034.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0018.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0030.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0024.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0025.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0031.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0019.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0027.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0033.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0032.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0026.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0003.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0017.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0016.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0002.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0014.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0000.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0028.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0029.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0001.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0015.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0011.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0005.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0004.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0010.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0006.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0012.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0013.bin.lz \
-        files/wazaeffect/effectclact/wecell/narc_0007.bin.lz
+        files/wazaeffect/effectclact/wecell/narc_0022.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0036.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0023.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0035.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0021.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0009.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0008.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0020.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0034.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0018.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0030.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0024.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0025.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0031.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0019.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0027.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0033.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0032.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0026.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0003.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0017.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0016.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0002.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0014.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0000.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0028.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0029.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0001.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0015.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0011.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0005.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0004.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0010.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0006.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0012.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0013.NCER.lz \
+        files/wazaeffect/effectclact/wecell/narc_0007.NCER.lz
 
 files/wazaeffect/effectclact/wechar.narc: \
         files/wazaeffect/effectclact/wechar/narc_0022.NCGR.lz \
@@ -756,221 +756,221 @@ files/wazaeffect/effectclact/wechar.narc: \
         files/wazaeffect/effectclact/wechar/narc_0007.NCGR.lz
 
 files/wazaeffect/effectclact/wecellanm.narc: \
-        files/wazaeffect/effectclact/wecellanm/narc_0022.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0036.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0023.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0035.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0021.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0009.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0008.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0020.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0034.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0018.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0030.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0024.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0025.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0031.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0019.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0027.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0033.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0032.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0026.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0003.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0017.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0016.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0002.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0014.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0000.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0028.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0029.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0001.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0015.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0011.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0005.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0004.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0010.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0006.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0012.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0013.bin.lz \
-        files/wazaeffect/effectclact/wecellanm/narc_0007.bin.lz
+        files/wazaeffect/effectclact/wecellanm/narc_0022.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0036.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0023.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0035.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0021.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0009.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0008.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0020.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0034.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0018.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0030.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0024.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0025.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0031.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0019.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0027.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0033.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0032.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0026.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0003.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0017.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0016.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0002.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0014.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0000.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0028.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0029.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0001.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0015.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0011.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0005.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0004.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0010.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0006.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0012.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0013.NANR.lz \
+        files/wazaeffect/effectclact/wecellanm/narc_0007.NANR.lz
 
 files/graphic/box.narc: \
-        files/graphic/box/narc_0022.bin.lz \
-        files/graphic/box/narc_0036.bin.lz \
-        files/graphic/box/narc_0023.bin.lz \
+        files/graphic/box/narc_0022.NANR.lz \
+        files/graphic/box/narc_0036.NSCR.lz \
+        files/graphic/box/narc_0023.NCER.lz \
         files/graphic/box/narc_0035.NCGR.lz \
-        files/graphic/box/narc_0021.bin.lz \
+        files/graphic/box/narc_0021.NCER.lz \
         files/graphic/box/narc_0009.NCGR.lz \
-        files/graphic/box/narc_0008.bin.lz \
-        files/graphic/box/narc_0018.bin.lz \
-        files/graphic/box/narc_0030.bin.lz \
-        files/graphic/box/narc_0024.bin.lz \
+        files/graphic/box/narc_0008.NSCR.lz \
+        files/graphic/box/narc_0018.NCER.lz \
+        files/graphic/box/narc_0030.NSCR.lz \
+        files/graphic/box/narc_0024.NANR.lz \
         files/graphic/box/narc_0025.NCGR.lz \
-        files/graphic/box/narc_0019.bin.lz \
-        files/graphic/box/narc_0033.bin.lz \
+        files/graphic/box/narc_0019.NANR.lz \
+        files/graphic/box/narc_0033.NSCR.lz \
         files/graphic/box/narc_0032.NCGR.lz \
-        files/graphic/box/narc_0096.bin.lz \
+        files/graphic/box/narc_0096.NSCR.lz \
         files/graphic/box/narc_0041.NCGR.lz \
-        files/graphic/box/narc_0069.bin.lz \
+        files/graphic/box/narc_0069.NSCR.lz \
         files/graphic/box/narc_0068.NCGR.lz \
-        files/graphic/box/narc_0054.bin.lz \
+        files/graphic/box/narc_0054.NSCR.lz \
         files/graphic/box/narc_0083.NCGR.lz \
         files/graphic/box/narc_0108.NCGR.lz \
         files/graphic/box/narc_0095.NCGR.lz \
-        files/graphic/box/narc_0081.bin.lz \
+        files/graphic/box/narc_0081.NSCR.lz \
         files/graphic/box/narc_0056.NCGR.lz \
-        files/graphic/box/narc_0042.bin.lz \
-        files/graphic/box/narc_0057.bin.lz \
+        files/graphic/box/narc_0042.NSCR.lz \
+        files/graphic/box/narc_0057.NSCR.lz \
         files/graphic/box/narc_0080.NCGR.lz \
-        files/graphic/box/narc_0090.bin.lz \
-        files/graphic/box/narc_0084.bin.lz \
+        files/graphic/box/narc_0090.NSCR.lz \
+        files/graphic/box/narc_0084.NSCR.lz \
         files/graphic/box/narc_0053.NCGR.lz \
         files/graphic/box/narc_0047.NCGR.lz \
-        files/graphic/box/narc_0118.bin.lz \
-        files/graphic/box/narc_0087.bin.lz \
-        files/graphic/box/narc_0093.bin.lz \
-        files/graphic/box/narc_0078.bin.lz \
+        files/graphic/box/narc_0118.NCER.lz \
+        files/graphic/box/narc_0087.NSCR.lz \
+        files/graphic/box/narc_0093.NSCR.lz \
+        files/graphic/box/narc_0078.NSCR.lz \
         files/graphic/box/narc_0044.NCGR.lz \
         files/graphic/box/narc_0050.NCGR.lz \
-        files/graphic/box/narc_0051.bin.lz \
-        files/graphic/box/narc_0045.bin.lz \
+        files/graphic/box/narc_0051.NSCR.lz \
+        files/graphic/box/narc_0045.NSCR.lz \
         files/graphic/box/narc_0092.NCGR.lz \
         files/graphic/box/narc_0086.NCGR.lz \
-        files/graphic/box/narc_0119.bin.lz \
+        files/graphic/box/narc_0119.NANR.lz \
         files/graphic/box/narc_0114.NCGR.lz \
-        files/graphic/box/narc_0100.bin.lz \
-        files/graphic/box/narc_0060.bin.lz \
+        files/graphic/box/narc_0100.NSCR.lz \
+        files/graphic/box/narc_0060.NSCR.lz \
         files/graphic/box/narc_0074.NCGR.lz \
-        files/graphic/box/narc_0048.bin.lz \
-        files/graphic/box/narc_0075.bin.lz \
-        files/graphic/box/narc_0101.bin.lz \
-        files/graphic/box/narc_0115.bin.lz \
+        files/graphic/box/narc_0048.NSCR.lz \
+        files/graphic/box/narc_0075.NSCR.lz \
+        files/graphic/box/narc_0101.NSCR.lz \
+        files/graphic/box/narc_0115.NCER.lz \
         files/graphic/box/narc_0103.NCGR.lz \
         files/graphic/box/narc_0117.NCGR.lz \
         files/graphic/box/narc_0077.NCGR.lz \
-        files/graphic/box/narc_0063.bin.lz \
+        files/graphic/box/narc_0063.NSCR.lz \
         files/graphic/box/narc_0062.NCGR.lz \
         files/graphic/box/narc_0089.NCGR.lz \
-        files/graphic/box/narc_0116.bin.lz \
-        files/graphic/box/narc_0102.bin.lz \
-        files/graphic/box/narc_0106.bin.lz \
-        files/graphic/box/narc_0112.bin.lz \
-        files/graphic/box/narc_0099.bin.lz \
-        files/graphic/box/narc_0072.bin.lz \
-        files/graphic/box/narc_0066.bin.lz \
+        files/graphic/box/narc_0116.NANR.lz \
+        files/graphic/box/narc_0102.NSCR.lz \
+        files/graphic/box/narc_0106.NSCR.lz \
+        files/graphic/box/narc_0112.NANR.lz \
+        files/graphic/box/narc_0099.NSCR.lz \
+        files/graphic/box/narc_0072.NSCR.lz \
+        files/graphic/box/narc_0066.NSCR.lz \
         files/graphic/box/narc_0098.NCGR.lz \
-        files/graphic/box/narc_0107.bin.lz \
-        files/graphic/box/narc_0111.bin.lz \
-        files/graphic/box/narc_0105.bin.lz \
+        files/graphic/box/narc_0107.NSCR.lz \
+        files/graphic/box/narc_0111.NCER.lz \
+        files/graphic/box/narc_0105.NSCR.lz \
         files/graphic/box/narc_0059.NCGR.lz \
         files/graphic/box/narc_0065.NCGR.lz \
         files/graphic/box/narc_0071.NCGR.lz \
         files/graphic/box/narc_0110.NCGR.lz \
-        files/graphic/box/narc_0003.bin.lz \
+        files/graphic/box/narc_0003.NSCR.lz \
         files/graphic/box/narc_0017.NCGR.lz \
-        files/graphic/box/narc_0016.bin.lz \
-        files/graphic/box/narc_0002.bin.lz \
-        files/graphic/box/narc_0014.bin.lz \
-        files/graphic/box/narc_0000.bin.lz \
+        files/graphic/box/narc_0016.NCER.lz \
+        files/graphic/box/narc_0002.NSCR.lz \
+        files/graphic/box/narc_0014.NANR.lz \
+        files/graphic/box/narc_0000.NSCR.lz \
         files/graphic/box/narc_0029.NCGR.lz \
         files/graphic/box/narc_0001.NCGR.lz \
         files/graphic/box/narc_0015.NCGR.lz \
-        files/graphic/box/narc_0039.bin.lz \
-        files/graphic/box/narc_0011.bin.lz \
+        files/graphic/box/narc_0039.NSCR.lz \
+        files/graphic/box/narc_0011.NANR.lz \
         files/graphic/box/narc_0004.NCGR.lz \
-        files/graphic/box/narc_0010.bin.lz \
+        files/graphic/box/narc_0010.NCER.lz \
         files/graphic/box/narc_0038.NCGR.lz \
-        files/graphic/box/narc_0006.bin.lz \
+        files/graphic/box/narc_0006.NSCR.lz \
         files/graphic/box/narc_0012.NCGR.lz \
-        files/graphic/box/narc_0013.bin.lz \
-        files/graphic/box/narc_0007.bin.lz
+        files/graphic/box/narc_0013.NCER.lz \
+        files/graphic/box/narc_0007.NSCR.lz
 
 files/graphic/record.narc: \
         files/graphic/record/narc_0009.NCGR.lz \
-        files/graphic/record/narc_0003.bin.lz \
+        files/graphic/record/narc_0003.NSCR.lz \
         files/graphic/record/narc_0002.NCGR.lz \
-        files/graphic/record/narc_0014.bin.lz \
-        files/graphic/record/narc_0011.bin.lz \
-        files/graphic/record/narc_0005.bin.lz \
+        files/graphic/record/narc_0014.NANR.lz \
+        files/graphic/record/narc_0011.NANR.lz \
+        files/graphic/record/narc_0005.NCER.lz \
         files/graphic/record/narc_0004.NCGR.lz \
-        files/graphic/record/narc_0010.bin.lz \
-        files/graphic/record/narc_0006.bin.lz \
+        files/graphic/record/narc_0010.NCER.lz \
+        files/graphic/record/narc_0006.NANR.lz \
         files/graphic/record/narc_0012.NCGR.lz \
-        files/graphic/record/narc_0013.bin.lz
+        files/graphic/record/narc_0013.NCER.lz
 
 files/graphic/mysign.narc: \
-        files/graphic/mysign/narc_0009.bin.lz \
-        files/graphic/mysign/narc_0008.bin.lz \
+        files/graphic/mysign/narc_0009.NANR.lz \
+        files/graphic/mysign/narc_0008.NCER.lz \
         files/graphic/mysign/narc_0003.NCGR.lz \
-        files/graphic/mysign/narc_0005.bin.lz \
+        files/graphic/mysign/narc_0005.NSCR.lz \
         files/graphic/mysign/narc_0004.NCGR.lz \
-        files/graphic/mysign/narc_0006.bin.lz \
+        files/graphic/mysign/narc_0006.NSCR.lz \
         files/graphic/mysign/narc_0007.NCGR.lz
 
 files/graphic/mystery.narc: \
         files/graphic/mystery/narc_0022.NCGR.lz \
-        files/graphic/mystery/narc_0037.bin.lz \
+        files/graphic/mystery/narc_0037.NANR.lz \
         files/graphic/mystery/narc_0035.NCGR.lz \
-        files/graphic/mystery/narc_0021.bin.lz \
-        files/graphic/mystery/narc_0009.bin.lz \
-        files/graphic/mystery/narc_0008.bin.lz \
-        files/graphic/mystery/narc_0020.bin.lz \
-        files/graphic/mystery/narc_0034.bin.lz \
-        files/graphic/mystery/narc_0018.bin.lz \
+        files/graphic/mystery/narc_0021.NSCR.lz \
+        files/graphic/mystery/narc_0009.NCER.lz \
+        files/graphic/mystery/narc_0008.NANR.lz \
+        files/graphic/mystery/narc_0020.NSCR.lz \
+        files/graphic/mystery/narc_0034.NCER.lz \
+        files/graphic/mystery/narc_0018.NSCR.lz \
         files/graphic/mystery/narc_0030.NCGR.lz \
-        files/graphic/mystery/narc_0024.bin.lz \
-        files/graphic/mystery/narc_0025.bin.lz \
-        files/graphic/mystery/narc_0031.bin.lz \
+        files/graphic/mystery/narc_0024.NANR.lz \
+        files/graphic/mystery/narc_0025.NCER.lz \
+        files/graphic/mystery/narc_0031.NSCR.lz \
         files/graphic/mystery/narc_0027.NCGR.lz \
-        files/graphic/mystery/narc_0033.bin.lz \
+        files/graphic/mystery/narc_0033.NANR.lz \
         files/graphic/mystery/narc_0026.NCGR.lz \
         files/graphic/mystery/narc_0017.NCGR.lz \
-        files/graphic/mystery/narc_0002.bin.lz \
-        files/graphic/mystery/narc_0014.bin.lz \
-        files/graphic/mystery/narc_0028.bin.lz \
+        files/graphic/mystery/narc_0002.NSCR.lz \
+        files/graphic/mystery/narc_0014.NCER.lz \
+        files/graphic/mystery/narc_0028.NSCR.lz \
         files/graphic/mystery/narc_0001.NCGR.lz \
         files/graphic/mystery/narc_0015.NCGR.lz \
         files/graphic/mystery/narc_0039.NCGR.lz \
-        files/graphic/mystery/narc_0005.bin.lz \
-        files/graphic/mystery/narc_0004.bin.lz \
+        files/graphic/mystery/narc_0005.NSCR.lz \
+        files/graphic/mystery/narc_0004.NSCR.lz \
         files/graphic/mystery/narc_0010.NCGR.lz \
-        files/graphic/mystery/narc_0038.bin.lz \
+        files/graphic/mystery/narc_0038.NCER.lz \
         files/graphic/mystery/narc_0006.NCGR.lz \
-        files/graphic/mystery/narc_0013.bin.lz
+        files/graphic/mystery/narc_0013.NANR.lz
 
 files/graphic/oekaki.narc: \
-        files/graphic/oekaki/narc_0008.bin.lz \
+        files/graphic/oekaki/narc_0008.NANR.lz \
         files/graphic/oekaki/narc_0003.NCGR.lz \
         files/graphic/oekaki/narc_0002.NCGR.lz \
-        files/graphic/oekaki/narc_0005.bin.lz \
-        files/graphic/oekaki/narc_0004.bin.lz \
+        files/graphic/oekaki/narc_0005.NSCR.lz \
+        files/graphic/oekaki/narc_0004.NSCR.lz \
         files/graphic/oekaki/narc_0006.NCGR.lz \
-        files/graphic/oekaki/narc_0007.bin.lz
+        files/graphic/oekaki/narc_0007.NCER.lz
 
 files/graphic/worldtrade.narc: \
-        files/graphic/worldtrade/narc_0022.bin.lz \
-        files/graphic/worldtrade/narc_0036.bin.lz \
-        files/graphic/worldtrade/narc_0037.bin.lz \
-        files/graphic/worldtrade/narc_0023.bin.lz \
+        files/graphic/worldtrade/narc_0022.NSCR.lz \
+        files/graphic/worldtrade/narc_0036.NCER.lz \
+        files/graphic/worldtrade/narc_0037.NANR.lz \
+        files/graphic/worldtrade/narc_0023.NSCR.lz \
         files/graphic/worldtrade/narc_0035.NCGR.lz \
-        files/graphic/worldtrade/narc_0021.bin.lz \
-        files/graphic/worldtrade/narc_0020.bin.lz \
-        files/graphic/worldtrade/narc_0034.bin.lz \
+        files/graphic/worldtrade/narc_0021.NSCR.lz \
+        files/graphic/worldtrade/narc_0020.NANR.lz \
+        files/graphic/worldtrade/narc_0034.NANR.lz \
         files/graphic/worldtrade/narc_0018.NCGR.lz \
-        files/graphic/worldtrade/narc_0030.bin.lz \
-        files/graphic/worldtrade/narc_0024.bin.lz \
-        files/graphic/worldtrade/narc_0025.bin.lz \
-        files/graphic/worldtrade/narc_0031.bin.lz \
-        files/graphic/worldtrade/narc_0019.bin.lz \
-        files/graphic/worldtrade/narc_0027.bin.lz \
-        files/graphic/worldtrade/narc_0033.bin.lz \
+        files/graphic/worldtrade/narc_0030.NSCR.lz \
+        files/graphic/worldtrade/narc_0024.NSCR.lz \
+        files/graphic/worldtrade/narc_0025.NSCR.lz \
+        files/graphic/worldtrade/narc_0031.NSCR.lz \
+        files/graphic/worldtrade/narc_0019.NCER.lz \
+        files/graphic/worldtrade/narc_0027.NSCR.lz \
+        files/graphic/worldtrade/narc_0033.NCER.lz \
         files/graphic/worldtrade/narc_0032.NCGR.lz \
-        files/graphic/worldtrade/narc_0026.bin.lz \
+        files/graphic/worldtrade/narc_0026.NSCR.lz \
         files/graphic/worldtrade/narc_0017.NCGR.lz \
         files/graphic/worldtrade/narc_0016.NCGR.lz \
         files/graphic/worldtrade/narc_0014.NCGR.lz \
-        files/graphic/worldtrade/narc_0028.bin.lz \
-        files/graphic/worldtrade/narc_0029.bin.lz \
+        files/graphic/worldtrade/narc_0028.NSCR.lz \
+        files/graphic/worldtrade/narc_0029.NSCR.lz \
         files/graphic/worldtrade/narc_0015.NCGR.lz \
         files/graphic/worldtrade/narc_0011.NCGR.lz \
         files/graphic/worldtrade/narc_0010.NCGR.lz \
@@ -978,80 +978,80 @@ files/graphic/worldtrade.narc: \
         files/graphic/worldtrade/narc_0013.NCGR.lz
 
 files/graphic/unionroom.narc: \
-        files/graphic/unionroom/narc_0003.bin.lz \
+        files/graphic/unionroom/narc_0003.NSCR.lz \
         files/graphic/unionroom/narc_0002.NCGR.lz \
         files/graphic/unionroom/narc_0005.NCGR.lz \
-        files/graphic/unionroom/narc_0004.bin.lz \
-        files/graphic/unionroom/narc_0006.bin.lz \
-        files/graphic/unionroom/narc_0007.bin.lz
+        files/graphic/unionroom/narc_0004.NSCR.lz \
+        files/graphic/unionroom/narc_0006.NCER.lz \
+        files/graphic/unionroom/narc_0007.NANR.lz
 
 files/graphic/dendou_demo.narc: \
         files/graphic/dendou_demo/narc_0003.NCGR.lz \
-        files/graphic/dendou_demo/narc_0002.bin.lz \
-        files/graphic/dendou_demo/narc_0000.bin.lz \
-        files/graphic/dendou_demo/narc_0001.bin.lz
+        files/graphic/dendou_demo/narc_0002.NSCR.lz \
+        files/graphic/dendou_demo/narc_0000.NSCR.lz \
+        files/graphic/dendou_demo/narc_0001.NSCR.lz
 
 files/graphic/pmsi.narc: \
-        files/graphic/pmsi/narc_0022.bin.lz \
-        files/graphic/pmsi/narc_0023.bin.lz \
+        files/graphic/pmsi/narc_0022.NCER.lz \
+        files/graphic/pmsi/narc_0023.NANR.lz \
         files/graphic/pmsi/narc_0009.NCGR.lz \
-        files/graphic/pmsi/narc_0008.bin.lz \
+        files/graphic/pmsi/narc_0008.NANR.lz \
         files/graphic/pmsi/narc_0020.NCGR.lz \
-        files/graphic/pmsi/narc_0018.bin.lz \
+        files/graphic/pmsi/narc_0018.NSCR.lz \
         files/graphic/pmsi/narc_0024.NCGR.lz \
-        files/graphic/pmsi/narc_0019.bin.lz \
+        files/graphic/pmsi/narc_0019.NSCR.lz \
         files/graphic/pmsi/narc_0003.NCGR.lz \
-        files/graphic/pmsi/narc_0017.bin.lz \
-        files/graphic/pmsi/narc_0016.bin.lz \
-        files/graphic/pmsi/narc_0002.bin.lz \
-        files/graphic/pmsi/narc_0014.bin.lz \
-        files/graphic/pmsi/narc_0000.bin.lz \
+        files/graphic/pmsi/narc_0017.NSCR.lz \
+        files/graphic/pmsi/narc_0016.NSCR.lz \
+        files/graphic/pmsi/narc_0002.NSCR.lz \
+        files/graphic/pmsi/narc_0014.NSCR.lz \
+        files/graphic/pmsi/narc_0000.NSCR.lz \
         files/graphic/pmsi/narc_0001.NCGR.lz \
-        files/graphic/pmsi/narc_0015.bin.lz \
-        files/graphic/pmsi/narc_0011.bin.lz \
+        files/graphic/pmsi/narc_0015.NSCR.lz \
+        files/graphic/pmsi/narc_0011.NSCR.lz \
         files/graphic/pmsi/narc_0005.NCGR.lz \
-        files/graphic/pmsi/narc_0004.bin.lz \
-        files/graphic/pmsi/narc_0012.bin.lz \
-        files/graphic/pmsi/narc_0013.bin.lz \
-        files/graphic/pmsi/narc_0007.bin.lz
+        files/graphic/pmsi/narc_0004.NSCR.lz \
+        files/graphic/pmsi/narc_0012.NSCR.lz \
+        files/graphic/pmsi/narc_0013.NSCR.lz \
+        files/graphic/pmsi/narc_0007.NCER.lz
 
 files/graphic/demo_trade.narc: \
         files/graphic/demo_trade/narc_0022.NCGR.lz \
-        files/graphic/demo_trade/narc_0021.bin.lz \
+        files/graphic/demo_trade/narc_0021.NSCR.lz \
         files/graphic/demo_trade/narc_0009.NCGR.lz \
-        files/graphic/demo_trade/narc_0008.bin.lz \
-        files/graphic/demo_trade/narc_0018.bin.lz \
-        files/graphic/demo_trade/narc_0024.bin.lz \
+        files/graphic/demo_trade/narc_0008.NANR.lz \
+        files/graphic/demo_trade/narc_0018.NSCR.lz \
+        files/graphic/demo_trade/narc_0024.NSCR.lz \
         files/graphic/demo_trade/narc_0025.NCGR.lz \
         files/graphic/demo_trade/narc_0019.NCGR.lz \
         files/graphic/demo_trade/narc_0016.NCGR.lz \
         files/graphic/demo_trade/narc_0002.NCGR.lz \
-        files/graphic/demo_trade/narc_0000.bin.lz \
-        files/graphic/demo_trade/narc_0001.bin.lz \
-        files/graphic/demo_trade/narc_0015.bin.lz \
-        files/graphic/demo_trade/narc_0011.bin.lz \
+        files/graphic/demo_trade/narc_0000.NSCR.lz \
+        files/graphic/demo_trade/narc_0001.NSCR.lz \
+        files/graphic/demo_trade/narc_0015.NSCR.lz \
+        files/graphic/demo_trade/narc_0011.NCER.lz \
         files/graphic/demo_trade/narc_0005.NCGR.lz \
-        files/graphic/demo_trade/narc_0004.bin.lz \
-        files/graphic/demo_trade/narc_0012.bin.lz \
+        files/graphic/demo_trade/narc_0004.NSCR.lz \
+        files/graphic/demo_trade/narc_0012.NANR.lz \
         files/graphic/demo_trade/narc_0013.NCGR.lz \
-        files/graphic/demo_trade/narc_0007.bin.lz
+        files/graphic/demo_trade/narc_0007.NCER.lz
 
 files/graphic/font.narc: \
         files/graphic/font/narc_0004.NCGR.lz
 
 files/graphic/touch_subwindow.narc: \
-        files/graphic/touch_subwindow/narc_0009.bin.lz \
-        files/graphic/touch_subwindow/narc_0008.bin.lz \
-        files/graphic/touch_subwindow/narc_0003.bin.lz \
-        files/graphic/touch_subwindow/narc_0002.bin.lz \
+        files/graphic/touch_subwindow/narc_0009.NSCR.lz \
+        files/graphic/touch_subwindow/narc_0008.NSCR.lz \
+        files/graphic/touch_subwindow/narc_0003.NSCR.lz \
+        files/graphic/touch_subwindow/narc_0002.NSCR.lz \
         files/graphic/touch_subwindow/narc_0001.NCGR.lz \
-        files/graphic/touch_subwindow/narc_0005.bin.lz \
-        files/graphic/touch_subwindow/narc_0004.bin.lz \
-        files/graphic/touch_subwindow/narc_0006.bin.lz \
-        files/graphic/touch_subwindow/narc_0007.bin.lz
+        files/graphic/touch_subwindow/narc_0005.NSCR.lz \
+        files/graphic/touch_subwindow/narc_0004.NSCR.lz \
+        files/graphic/touch_subwindow/narc_0006.NSCR.lz \
+        files/graphic/touch_subwindow/narc_0007.NSCR.lz
 
 files/graphic/dendou_pc.narc: \
-        files/graphic/dendou_pc/narc_0000.bin.lz \
+        files/graphic/dendou_pc/narc_0000.NSCR.lz \
         files/graphic/dendou_pc/narc_0001.NCGR.lz
 
 files/poketool/pokefoot/pokefoot.narc: \
@@ -1461,7 +1461,7 @@ files/poketool/pokefoot/pokefoot.narc: \
         files/poketool/pokefoot/pokefoot/narc_0214.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0200.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0016.NCGR.lz \
-        files/poketool/pokefoot/pokefoot/narc_0002.bin.lz \
+        files/poketool/pokefoot/pokefoot/narc_0002.NCER.lz \
         files/poketool/pokefoot/pokefoot/narc_0162.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0176.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0189.NCGR.lz \
@@ -1486,7 +1486,7 @@ files/poketool/pokefoot/pokefoot.narc: \
         files/poketool/pokefoot/pokefoot/narc_0203.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0217.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0029.NCGR.lz \
-        files/poketool/pokefoot/pokefoot/narc_0001.bin.lz \
+        files/poketool/pokefoot/pokefoot/narc_0001.NANR.lz \
         files/poketool/pokefoot/pokefoot/narc_0015.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0149.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0175.NCGR.lz \
@@ -1554,295 +1554,295 @@ files/poketool/pokefoot/pokefoot.narc: \
 
 files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0195.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0181.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0156.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0142.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0022.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0036.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0181.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0156.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0142.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0022.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0036.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0220.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0234.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0208.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0209.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0235.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0221.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0037.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0023.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0143.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0157.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0180.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0037.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0023.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0143.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0157.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0180.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0194.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0182.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0182.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0196.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0141.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0155.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0169.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0035.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0021.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0009.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0141.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0155.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0169.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0035.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0021.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0009.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0237.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0223.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0222.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0236.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0008.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0020.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0034.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0168.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0154.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0140.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0008.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0020.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0034.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0168.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0154.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0140.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0197.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0183.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0183.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0187.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0193.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0178.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0144.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0150.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0018.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0030.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0024.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0178.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0144.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0150.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0018.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0030.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0024.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0232.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0226.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0227.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0233.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0025.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0031.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0019.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0151.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0145.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0179.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0025.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0031.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0019.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0151.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0145.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0179.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0192.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0186.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0190.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0184.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0153.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0147.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0027.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0033.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0153.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0147.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0027.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0033.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0219.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0225.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0231.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0230.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0224.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0218.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0032.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0026.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0146.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0152.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0032.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0026.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0146.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0152.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0185.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0191.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0135.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0121.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0109.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0082.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0096.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0041.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0055.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0069.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0135.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0121.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0109.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0082.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0096.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0041.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0055.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0069.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0280.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0243.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0257.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0256.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0242.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0281.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0068.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0054.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0040.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0097.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0083.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0108.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0120.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0134.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0122.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0136.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0095.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0081.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0056.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0042.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0283.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0068.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0054.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0040.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0097.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0083.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0108.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0120.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0134.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0122.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0136.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0095.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0081.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0056.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0042.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0283.NSCR.lz \
         files/application/custom_ball/data/cb_data/narc_0254.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0240.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0268.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0269.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0241.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0255.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0282.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0043.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0057.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0080.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0094.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0137.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0123.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0127.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0133.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0090.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0084.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0053.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0047.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0282.NSCR.lz \
+        files/application/custom_ball/data/cb_data/narc_0043.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0057.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0080.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0094.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0137.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0123.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0127.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0133.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0090.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0084.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0053.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0047.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0279.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0251.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0245.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0244.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0250.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0278.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0046.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0052.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0085.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0091.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0132.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0126.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0118.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0130.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0124.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0087.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0093.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0078.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0044.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0050.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0285.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0046.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0052.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0085.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0091.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0132.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0126.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0118.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0130.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0124.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0087.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0093.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0078.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0044.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0050.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0285.NSCR.lz \
         files/application/custom_ball/data/cb_data/narc_0246.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0252.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0253.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0247.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0284.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0051.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0045.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0079.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0092.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0086.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0125.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0131.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0119.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0114.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0100.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0128.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0060.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0074.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0048.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0284.NSCR.lz \
+        files/application/custom_ball/data/cb_data/narc_0051.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0045.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0079.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0092.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0086.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0125.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0131.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0119.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0114.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0100.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0128.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0060.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0074.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0048.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0262.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0276.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0277.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0263.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0049.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0075.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0061.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0129.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0101.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0115.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0103.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0117.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0088.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0077.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0063.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0049.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0075.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0061.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0129.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0101.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0115.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0103.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0117.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0088.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0077.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0063.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0275.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0261.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0249.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0248.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0260.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0274.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0062.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0076.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0089.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0116.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0102.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0106.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0112.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0099.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0072.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0066.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0062.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0076.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0089.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0116.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0102.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0106.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0112.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0099.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0072.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0066.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0258.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0270.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0264.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0265.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0271.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0259.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0067.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0073.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0098.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0113.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0107.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0139.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0111.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0105.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0059.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0065.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0071.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0067.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0073.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0098.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0113.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0107.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0139.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0111.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0105.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0059.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0065.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0071.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0267.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0273.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0272.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0266.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0070.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0064.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0058.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0104.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0110.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0138.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0070.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0064.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0058.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0104.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0110.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0138.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0188.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0177.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0163.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0003.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0017.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0177.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0163.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0003.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0017.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0201.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0215.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0229.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0228.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0214.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0200.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0016.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0002.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0162.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0176.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0016.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0002.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0162.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0176.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0189.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0160.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0174.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0148.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0014.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0000.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0028.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0160.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0174.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0148.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0014.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0000.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0028.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0216.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0202.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0203.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0217.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0029.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0001.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0015.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0149.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0175.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0161.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0159.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0165.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0171.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0039.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0011.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0005.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0029.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0001.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0015.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0149.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0175.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0161.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0159.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0165.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0171.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0039.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0011.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0005.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0213.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0207.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0206.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0212.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0004.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0010.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0038.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0170.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0164.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0158.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0004.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0010.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0038.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0170.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0164.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0158.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0199.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0172.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0166.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0006.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0012.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0172.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0166.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0006.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0012.NANR.lz \
         files/application/custom_ball/data/cb_data/narc_0238.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0204.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0210.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0211.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0205.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0239.NCGR.lz \
-        files/application/custom_ball/data/cb_data/narc_0013.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0007.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0167.bin.lz \
-        files/application/custom_ball/data/cb_data/narc_0173.bin.lz \
+        files/application/custom_ball/data/cb_data/narc_0013.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0007.NANR.lz \
+        files/application/custom_ball/data/cb_data/narc_0167.NCER.lz \
+        files/application/custom_ball/data/cb_data/narc_0173.NCER.lz \
         files/application/custom_ball/data/cb_data/narc_0198.NCGR.lz
 
 files/resource/eng/zukan/zukan.narc: \
         files/resource/eng/zukan/zukan/narc_0036.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0037.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0037.NSCR.lz \
         files/resource/eng/zukan/zukan/narc_0035.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0034.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0030.NCGR.lz \
@@ -1850,251 +1850,251 @@ files/resource/eng/zukan/zukan.narc: \
         files/resource/eng/zukan/zukan/narc_0027.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0033.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0032.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0121.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0109.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0082.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0121.NANR.lz \
+        files/resource/eng/zukan/zukan/narc_0109.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0082.NCER.lz \
         files/resource/eng/zukan/zukan/narc_0096.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0041.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0055.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0069.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0068.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0054.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0040.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0097.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0083.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0041.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0055.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0069.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0068.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0054.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0040.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0097.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0083.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0108.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0120.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0120.NCER.lz \
         files/resource/eng/zukan/zukan/narc_0122.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0095.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0095.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0081.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0056.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0042.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0043.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0057.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0080.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0094.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0123.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0127.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0056.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0042.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0043.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0057.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0080.NANR.lz \
+        files/resource/eng/zukan/zukan/narc_0094.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0123.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0127.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0090.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0084.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0053.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0047.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0046.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0052.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0085.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0091.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0126.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0118.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0124.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0053.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0047.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0046.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0052.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0085.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0091.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0126.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0118.NANR.lz \
+        files/resource/eng/zukan/zukan/narc_0124.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0087.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0093.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0078.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0044.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0050.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0051.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0045.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0079.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0092.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0086.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0044.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0050.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0051.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0045.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0079.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0092.NANR.lz \
+        files/resource/eng/zukan/zukan/narc_0086.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0125.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0119.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0114.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0100.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0114.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0100.NCER.lz \
         files/resource/eng/zukan/zukan/narc_0128.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0060.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0074.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0048.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0049.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0075.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0061.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0129.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0101.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0115.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0103.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0117.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0088.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0077.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0063.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0062.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0076.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0089.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0060.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0074.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0048.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0049.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0075.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0061.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0129.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0101.NANR.lz \
+        files/resource/eng/zukan/zukan/narc_0115.NANR.lz \
+        files/resource/eng/zukan/zukan/narc_0103.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0117.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0088.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0077.NANR.lz \
+        files/resource/eng/zukan/zukan/narc_0063.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0062.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0076.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0089.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0116.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0102.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0106.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0112.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0106.NCER.lz \
+        files/resource/eng/zukan/zukan/narc_0112.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0099.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0072.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0066.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0067.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0073.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0098.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0072.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0066.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0067.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0073.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0098.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0113.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0107.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0107.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0111.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0105.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0059.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0065.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0071.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0070.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0064.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0058.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0104.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0110.bin.lz \
+        files/resource/eng/zukan/zukan/narc_0059.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0065.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0071.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0070.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0064.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0058.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0104.NANR.lz \
+        files/resource/eng/zukan/zukan/narc_0110.NANR.lz \
         files/resource/eng/zukan/zukan/narc_0028.NCGR.lz \
         files/resource/eng/zukan/zukan/narc_0029.NCGR.lz \
-        files/resource/eng/zukan/zukan/narc_0039.bin.lz \
-        files/resource/eng/zukan/zukan/narc_0038.bin.lz
+        files/resource/eng/zukan/zukan/narc_0039.NSCR.lz \
+        files/resource/eng/zukan/zukan/narc_0038.NSCR.lz
 
 files/contest/graphic/contest_bg.narc: \
         files/contest/graphic/contest_bg/narc_0022.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0023.NCGR.lz \
-        files/contest/graphic/contest_bg/narc_0021.bin.lz \
+        files/contest/graphic/contest_bg/narc_0021.NSCR.lz \
         files/contest/graphic/contest_bg/narc_0009.NCGR.lz \
-        files/contest/graphic/contest_bg/narc_0008.bin.lz \
-        files/contest/graphic/contest_bg/narc_0020.bin.lz \
+        files/contest/graphic/contest_bg/narc_0008.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0020.NSCR.lz \
         files/contest/graphic/contest_bg/narc_0018.NCGR.lz \
-        files/contest/graphic/contest_bg/narc_0024.bin.lz \
-        files/contest/graphic/contest_bg/narc_0025.bin.lz \
-        files/contest/graphic/contest_bg/narc_0019.bin.lz \
-        files/contest/graphic/contest_bg/narc_0027.bin.lz \
+        files/contest/graphic/contest_bg/narc_0024.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0025.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0019.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0027.NSCR.lz \
         files/contest/graphic/contest_bg/narc_0026.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0003.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0017.NCGR.lz \
-        files/contest/graphic/contest_bg/narc_0016.bin.lz \
-        files/contest/graphic/contest_bg/narc_0002.bin.lz \
-        files/contest/graphic/contest_bg/narc_0014.bin.lz \
-        files/contest/graphic/contest_bg/narc_0000.bin.lz \
-        files/contest/graphic/contest_bg/narc_0028.bin.lz \
+        files/contest/graphic/contest_bg/narc_0016.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0002.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0014.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0000.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0028.NSCR.lz \
         files/contest/graphic/contest_bg/narc_0001.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0015.NCGR.lz \
         files/contest/graphic/contest_bg/narc_0011.NCGR.lz \
-        files/contest/graphic/contest_bg/narc_0005.bin.lz \
-        files/contest/graphic/contest_bg/narc_0004.bin.lz \
-        files/contest/graphic/contest_bg/narc_0010.bin.lz \
-        files/contest/graphic/contest_bg/narc_0006.bin.lz \
-        files/contest/graphic/contest_bg/narc_0012.bin.lz \
+        files/contest/graphic/contest_bg/narc_0005.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0004.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0010.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0006.NSCR.lz \
+        files/contest/graphic/contest_bg/narc_0012.NSCR.lz \
         files/contest/graphic/contest_bg/narc_0013.NCGR.lz \
-        files/contest/graphic/contest_bg/narc_0007.bin.lz
+        files/contest/graphic/contest_bg/narc_0007.NSCR.lz
 
 files/contest/graphic/contest_obj.narc: \
-        files/contest/graphic/contest_obj/narc_0022.bin.lz \
-        files/contest/graphic/contest_obj/narc_0036.bin.lz \
+        files/contest/graphic/contest_obj/narc_0022.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0036.NANR.lz \
         files/contest/graphic/contest_obj/narc_0037.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0023.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0035.bin.lz \
-        files/contest/graphic/contest_obj/narc_0021.bin.lz \
+        files/contest/graphic/contest_obj/narc_0035.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0021.NANR.lz \
         files/contest/graphic/contest_obj/narc_0020.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0034.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0018.bin.lz \
-        files/contest/graphic/contest_obj/narc_0030.bin.lz \
-        files/contest/graphic/contest_obj/narc_0024.bin.lz \
-        files/contest/graphic/contest_obj/narc_0025.bin.lz \
+        files/contest/graphic/contest_obj/narc_0018.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0030.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0024.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0025.NCER.lz \
         files/contest/graphic/contest_obj/narc_0031.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0019.bin.lz \
-        files/contest/graphic/contest_obj/narc_0027.bin.lz \
-        files/contest/graphic/contest_obj/narc_0033.bin.lz \
-        files/contest/graphic/contest_obj/narc_0032.bin.lz \
+        files/contest/graphic/contest_obj/narc_0019.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0027.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0033.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0032.NCER.lz \
         files/contest/graphic/contest_obj/narc_0026.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0082.bin.lz \
+        files/contest/graphic/contest_obj/narc_0082.NANR.lz \
         files/contest/graphic/contest_obj/narc_0096.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0041.bin.lz \
+        files/contest/graphic/contest_obj/narc_0041.NANR.lz \
         files/contest/graphic/contest_obj/narc_0055.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0069.bin.lz \
-        files/contest/graphic/contest_obj/narc_0068.bin.lz \
+        files/contest/graphic/contest_obj/narc_0069.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0068.NCER.lz \
         files/contest/graphic/contest_obj/narc_0054.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0040.bin.lz \
-        files/contest/graphic/contest_obj/narc_0083.bin.lz \
-        files/contest/graphic/contest_obj/narc_0095.bin.lz \
+        files/contest/graphic/contest_obj/narc_0040.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0083.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0095.NCER.lz \
         files/contest/graphic/contest_obj/narc_0081.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0056.bin.lz \
+        files/contest/graphic/contest_obj/narc_0056.NCER.lz \
         files/contest/graphic/contest_obj/narc_0042.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0043.bin.lz \
-        files/contest/graphic/contest_obj/narc_0057.bin.lz \
-        files/contest/graphic/contest_obj/narc_0080.bin.lz \
-        files/contest/graphic/contest_obj/narc_0094.bin.lz \
+        files/contest/graphic/contest_obj/narc_0043.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0057.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0080.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0094.NANR.lz \
         files/contest/graphic/contest_obj/narc_0090.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0084.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0053.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0047.bin.lz \
-        files/contest/graphic/contest_obj/narc_0046.bin.lz \
+        files/contest/graphic/contest_obj/narc_0047.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0046.NCER.lz \
         files/contest/graphic/contest_obj/narc_0052.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0085.bin.lz \
-        files/contest/graphic/contest_obj/narc_0091.bin.lz \
+        files/contest/graphic/contest_obj/narc_0085.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0091.NANR.lz \
         files/contest/graphic/contest_obj/narc_0087.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0093.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0078.bin.lz \
-        files/contest/graphic/contest_obj/narc_0044.bin.lz \
-        files/contest/graphic/contest_obj/narc_0050.bin.lz \
+        files/contest/graphic/contest_obj/narc_0078.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0044.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0050.NANR.lz \
         files/contest/graphic/contest_obj/narc_0051.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0045.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0079.bin.lz \
-        files/contest/graphic/contest_obj/narc_0092.bin.lz \
-        files/contest/graphic/contest_obj/narc_0086.bin.lz \
+        files/contest/graphic/contest_obj/narc_0079.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0092.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0086.NCER.lz \
         files/contest/graphic/contest_obj/narc_0060.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0074.bin.lz \
+        files/contest/graphic/contest_obj/narc_0074.NCER.lz \
         files/contest/graphic/contest_obj/narc_0048.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0049.bin.lz \
-        files/contest/graphic/contest_obj/narc_0075.bin.lz \
+        files/contest/graphic/contest_obj/narc_0049.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0075.NANR.lz \
         files/contest/graphic/contest_obj/narc_0061.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0088.bin.lz \
-        files/contest/graphic/contest_obj/narc_0077.bin.lz \
-        files/contest/graphic/contest_obj/narc_0063.bin.lz \
-        files/contest/graphic/contest_obj/narc_0062.bin.lz \
+        files/contest/graphic/contest_obj/narc_0088.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0077.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0063.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0062.NCER.lz \
         files/contest/graphic/contest_obj/narc_0076.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0089.bin.lz \
-        files/contest/graphic/contest_obj/narc_0072.bin.lz \
-        files/contest/graphic/contest_obj/narc_0066.bin.lz \
+        files/contest/graphic/contest_obj/narc_0089.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0072.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0066.NANR.lz \
         files/contest/graphic/contest_obj/narc_0067.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0073.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0059.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0065.bin.lz \
-        files/contest/graphic/contest_obj/narc_0071.bin.lz \
+        files/contest/graphic/contest_obj/narc_0065.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0071.NANR.lz \
         files/contest/graphic/contest_obj/narc_0070.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0064.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0058.NCGR.lz \
         files/contest/graphic/contest_obj/narc_0017.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0016.bin.lz \
+        files/contest/graphic/contest_obj/narc_0016.NCER.lz \
         files/contest/graphic/contest_obj/narc_0014.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0028.bin.lz \
+        files/contest/graphic/contest_obj/narc_0028.NCER.lz \
         files/contest/graphic/contest_obj/narc_0029.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0015.bin.lz \
+        files/contest/graphic/contest_obj/narc_0015.NANR.lz \
         files/contest/graphic/contest_obj/narc_0039.NCGR.lz \
-        files/contest/graphic/contest_obj/narc_0038.bin.lz \
-        files/contest/graphic/contest_obj/narc_0012.bin.lz \
-        files/contest/graphic/contest_obj/narc_0013.bin.lz
+        files/contest/graphic/contest_obj/narc_0038.NCER.lz \
+        files/contest/graphic/contest_obj/narc_0012.NANR.lz \
+        files/contest/graphic/contest_obj/narc_0013.NCER.lz
 
 files/data/tradelist.narc: \
-        files/data/tradelist/narc_0009.bin.lz \
-        files/data/tradelist/narc_0008.bin.lz \
-        files/data/tradelist/narc_0003.bin.lz \
+        files/data/tradelist/narc_0009.NANR.lz \
+        files/data/tradelist/narc_0008.NCER.lz \
+        files/data/tradelist/narc_0003.NSCR.lz \
         files/data/tradelist/narc_0002.NCGR.lz \
         files/data/tradelist/narc_0001.NCGR.lz \
-        files/data/tradelist/narc_0011.bin.lz \
-        files/data/tradelist/narc_0005.bin.lz \
-        files/data/tradelist/narc_0004.bin.lz \
+        files/data/tradelist/narc_0011.NCER.lz \
+        files/data/tradelist/narc_0005.NSCR.lz \
+        files/data/tradelist/narc_0004.NSCR.lz \
         files/data/tradelist/narc_0010.NCGR.lz \
-        files/data/tradelist/narc_0006.bin.lz \
-        files/data/tradelist/narc_0012.bin.lz \
+        files/data/tradelist/narc_0006.NSCR.lz \
+        files/data/tradelist/narc_0012.NANR.lz \
         files/data/tradelist/narc_0007.NCGR.lz
 
 files/data/namein.narc: \
-        files/data/namein/narc_0009.bin.lz \
-        files/data/namein/narc_0008.bin.lz \
-        files/data/namein/narc_0018.bin.lz \
+        files/data/namein/narc_0009.NSCR.lz \
+        files/data/namein/narc_0008.NSCR.lz \
+        files/data/namein/narc_0018.NSCR.lz \
         files/data/namein/narc_0003.NCGR.lz \
-        files/data/namein/narc_0017.bin.lz \
+        files/data/namein/narc_0017.NSCR.lz \
         files/data/namein/narc_0016.NCGR.lz \
         files/data/namein/narc_0002.NCGR.lz \
-        files/data/namein/narc_0014.bin.lz \
-        files/data/namein/narc_0015.bin.lz \
+        files/data/namein/narc_0014.NANR.lz \
+        files/data/namein/narc_0015.NANR.lz \
         files/data/namein/narc_0011.NCGR.lz \
-        files/data/namein/narc_0005.bin.lz \
-        files/data/namein/narc_0004.bin.lz \
+        files/data/namein/narc_0005.NSCR.lz \
+        files/data/namein/narc_0004.NSCR.lz \
         files/data/namein/narc_0010.NCGR.lz \
-        files/data/namein/narc_0006.bin.lz \
-        files/data/namein/narc_0012.bin.lz \
-        files/data/namein/narc_0013.bin.lz \
-        files/data/namein/narc_0007.bin.lz
+        files/data/namein/narc_0006.NSCR.lz \
+        files/data/namein/narc_0012.NCER.lz \
+        files/data/namein/narc_0013.NCER.lz \
+        files/data/namein/narc_0007.NSCR.lz
 
 .PHONY: filesystem
 
