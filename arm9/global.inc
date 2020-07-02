@@ -7225,6 +7225,7 @@
 .extern MOD75_021E6BA0
 .extern MOD75_021E6D6C
 .extern MOD75_021E6F00
+.extern MOD75_021EC68C
 .extern MOD76_021D74E0
 .extern MOD76_021D7568
 .extern MOD76_021D761C
@@ -7760,6 +7761,7 @@
 .extern UNK_020F2B7C
 .extern UNK_020F2B8C
 .extern UNK_020FA5FC
+.extern UNK_020FA6E8
 .extern UNK_020FB6F8
 .extern UNK_020FB704
 .extern UNK_020FB710
@@ -8087,3 +8089,4 @@
 .extern MOD18_0224A7C8
 .extern MOD06_0224CAAC
 .extern MOD06_0224CB54
+.extern gSineTable

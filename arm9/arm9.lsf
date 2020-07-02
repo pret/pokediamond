@@ -574,7 +574,7 @@ Overlay MODULE_13
 
 Overlay MODULE_14
 {
-	### Menu? ###
+	##PC##
 	After arm9
 	Object module_14.o
 }
@@ -587,7 +587,7 @@ Overlay MODULE_15
 
 Overlay MODULE_16
 {
-	##Battle Graphics##
+	##Pokedex/Battle Sprites##
 	After arm9
 	Object module_16.o
 }
@@ -613,12 +613,14 @@ Overlay MODULE_19
 
 Overlay MODULE_20
 {
+	##Pokétch##
 	After MODULE_06
 	Object module_20.o
 }
 
 Overlay MODULE_21
 {
+	##Pokétch##
 	After MODULE_20
 	Object module_21.o
 	Object module_21_sinit.o

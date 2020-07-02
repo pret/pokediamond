@@ -3205,7 +3205,7 @@ _0222EFE4:
 	add r0, r6, #0
 	add r0, #0x5a
 	lsl r1, r0, #2
-	ldr r0, _0222F104 ; =0x020EDF50
+	ldr r0, _0222F104 ; =gSineTable
 	mov r3, #0
 	ldr r0, [r0, r1]
 	asr r1, r0, #0x1f
@@ -3221,7 +3221,7 @@ _0222EFE4:
 	orr r1, r0
 	add r4, r2, r1
 	mov r2, #0xa
-	ldr r0, _0222F104 ; =0x020EDF50
+	ldr r0, _0222F104 ; =gSineTable
 	lsl r1, r6, #2
 	ldr r0, [r0, r1]
 	lsl r2, r2, #0xa
@@ -3330,7 +3330,7 @@ _0222F0EC:
 	.align 2, 0
 _0222F0FC: .word MOD69_0222F940
 _0222F100: .word 0x00000808
-_0222F104: .word 0x020EDF50
+_0222F104: .word gSineTable
 _0222F108: .word 0x00000818
 _0222F10C: .word 0x0000081A
 _0222F110: .word 0x0000082C

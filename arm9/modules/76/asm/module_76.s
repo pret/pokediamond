@@ -3162,7 +3162,7 @@ MOD76_021D8D5C: ; 0x021D8D5C
 	bl FUN_0207B000
 	mov r1, #0x53
 	lsl r1, r1, #2
-	ldr r0, _021D8DE8 ; =0x020FA6E8
+	ldr r0, _021D8DE8 ; =UNK_020FA6E8
 	add r1, r4, r1
 	mov r2, #0x43
 	bl FUN_02006234
@@ -3174,7 +3174,7 @@ MOD76_021D8D5C: ; 0x021D8D5C
 	pop {r3, r4, pc}
 	nop
 _021D8DE4: .word MOD76_021D8E48
-_021D8DE8: .word 0x020FA6E8
+_021D8DE8: .word UNK_020FA6E8
 	thumb_func_end MOD76_021D8D5C
 
 	thumb_func_start MOD76_021D8DEC

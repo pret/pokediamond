@@ -4963,7 +4963,7 @@ _0223A4AE:
 	add r0, r4, #0
 	add r0, #0x5a
 	lsl r1, r0, #2
-	ldr r0, _0223A578 ; =0x020EDF50
+	ldr r0, _0223A578 ; =gSineTable
 	ldr r2, [r5, #0x38]
 	ldr r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -4981,7 +4981,7 @@ _0223A4AE:
 	add r0, r2, r1
 	str r0, [r5, #0x14]
 	ldr r2, [r5, #0x3c]
-	ldr r0, _0223A578 ; =0x020EDF50
+	ldr r0, _0223A578 ; =gSineTable
 	lsl r1, r4, #2
 	ldr r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -5063,7 +5063,7 @@ _0223A54A:
 	strh r0, [r5, #0x24]
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-_0223A578: .word 0x020EDF50
+_0223A578: .word gSineTable
 	thumb_func_end MOD81_0223A434
 
 	thumb_func_start MOD81_0223A57C
@@ -6260,7 +6260,7 @@ _0223AEE4:
 	add r0, r4, #0
 	add r0, #0x5a
 	lsl r1, r0, #2
-	ldr r0, _0223AF58 ; =0x020EDF50
+	ldr r0, _0223AF58 ; =gSineTable
 	ldr r2, [r5, #0x44]
 	ldr r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -6276,7 +6276,7 @@ _0223AEE4:
 	orr r1, r0
 	str r1, [r5, #0x1c]
 	ldr r2, [r5, #0x48]
-	ldr r0, _0223AF58 ; =0x020EDF50
+	ldr r0, _0223AF58 ; =gSineTable
 	lsl r1, r4, #2
 	ldr r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -6311,7 +6311,7 @@ _0223AEE4:
 	bl VEC_Add
 	pop {r3, r4, r5, pc}
 	nop
-_0223AF58: .word 0x020EDF50
+_0223AF58: .word gSineTable
 	thumb_func_end MOD81_0223AE90
 
 	thumb_func_start MOD81_0223AF5C
@@ -7807,7 +7807,7 @@ _0223BB3C:
 	add r0, r4, #0
 	add r0, #0x5a
 	lsl r1, r0, #2
-	ldr r0, _0223BBC4 ; =0x020EDF50
+	ldr r0, _0223BBC4 ; =gSineTable
 	ldr r2, [r5, #0x44]
 	ldr r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -7823,7 +7823,7 @@ _0223BB3C:
 	orr r1, r0
 	str r1, [r5, #0x1c]
 	ldr r2, [r5, #0x48]
-	ldr r0, _0223BBC4 ; =0x020EDF50
+	ldr r0, _0223BBC4 ; =gSineTable
 	lsl r1, r4, #2
 	ldr r0, [r0, r1]
 	asr r3, r2, #0x1f
@@ -7868,7 +7868,7 @@ _0223BBAE:
 	pop {r3, r4, r5, pc}
 	nop
 _0223BBC0: .word MOD81_0223D3A0
-_0223BBC4: .word 0x020EDF50
+_0223BBC4: .word gSineTable
 	thumb_func_end MOD81_0223BAD0
 
 	thumb_func_start MOD81_0223BBC8

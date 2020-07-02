@@ -3934,7 +3934,7 @@ _0222F606:
 	add r0, #0xc
 	bl FUN_0207B000
 	add r1, r5, #0
-	ldr r0, _0222F670 ; =0x020FA6E8
+	ldr r0, _0222F670 ; =UNK_020FA6E8
 	add r1, #0xc
 	mov r2, #0x1a
 	bl FUN_02006234
@@ -3946,7 +3946,7 @@ _0222F660: .word 0x00002218
 _0222F664: .word 0x0000221C
 _0222F668: .word 0x00002E14
 _0222F66C: .word MOD71_022313C0
-_0222F670: .word 0x020FA6E8
+_0222F670: .word UNK_020FA6E8
 	thumb_func_end MOD71_0222F59C
 
 	thumb_func_start MOD71_0222F674
