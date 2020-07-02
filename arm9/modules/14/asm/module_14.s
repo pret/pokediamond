@@ -21842,7 +21842,7 @@ _021E204A:
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	add r0, r7, #0
-	mov r2, #0x1b
+	mov r2, #0x1b ; BASE_COLOR
 	bl GetMonBaseStat_HandleFormeConversion
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18

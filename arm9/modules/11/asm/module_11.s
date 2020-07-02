@@ -12643,7 +12643,7 @@ _022339C6:
 	mov r0, #0xb5
 	lsl r0, r0, #6
 	ldrh r0, [r1, r0]
-	mov r1, #9
+	mov r1, #9 ; BASE_EXP_YIELD
 	bl GetMonBaseStat
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
@@ -20686,7 +20686,7 @@ _02237900:
 	add r4, r0, #0
 	ldr r0, [sp, #4]
 	add r1, r6, #0
-	mov r2, #1
+	mov r2, #1 ; BASE_ATK
 	bl GetMonBaseStat_HandleFormeConversion
 	ldr r1, _02237AB0 ; =0x00002144
 	ldr r2, _02237AB4 ; =0x00003044
@@ -20716,7 +20716,7 @@ _02237900:
 	ldrh r0, [r2, r1]
 	add r1, #0x26
 	ldrb r1, [r2, r1]
-	mov r2, #2
+	mov r2, #2 ; BASE_DEF
 	lsl r1, r1, #0x1b
 	lsr r1, r1, #0x1b
 	bl GetMonBaseStat_HandleFormeConversion
@@ -29532,7 +29532,7 @@ _0223BFEE:
 	mov r0, #0xb5
 	lsl r0, r0, #6
 	ldrh r0, [r1, r0]
-	mov r1, #8
+	mov r1, #8 ; BASE_CATCH_RATE
 	bl GetMonBaseStat
 	ldr r1, _0223C200 ; =0x0000311C
 	ldr r2, _0223C204 ; =MOD11_0225DCF0
@@ -29541,7 +29541,7 @@ _0223BFEE:
 	ldrb r2, [r2, r1]
 	mul r2, r0
 	add r0, r2, #0
-	ldr r2, _0223C208 ; =MOD11_0225DCF1
+	ldr r2, _0223C208 ; =MOD11_0225DCF0 + 1
 	ldrb r1, [r2, r1]
 	bl _u32_div_f
 	str r0, [sp]
@@ -29553,7 +29553,7 @@ _0223C026:
 	mov r0, #0xb5
 	lsl r0, r0, #6
 	ldrh r0, [r1, r0]
-	mov r1, #8
+	mov r1, #8 ; BASE_CATCH_RATE
 	bl GetMonBaseStat
 	str r0, [sp]
 _0223C03A:
@@ -29795,7 +29795,7 @@ _0223C1FA:
 	nop
 _0223C200: .word 0x0000311C
 _0223C204: .word MOD11_0225DCF0
-_0223C208: .word MOD11_0225DCF1
+_0223C208: .word MOD11_0225DCF0 + 1
 _0223C20C: .word 0x00002D74
 _0223C210: .word MOD11_0225DC28
 _0223C214: .word 0x00002D90
@@ -72922,7 +72922,7 @@ MOD11_02250F94: ; 0x02250F94
 	bl MOD11_02243420
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
-	mov r1, #0x1a
+	mov r1, #0x1a ; BASE_GREAT_MARSH_RATE
 	bl GetMonBaseStat
 	ldr r2, _0225100C ; =MOD11_0225E830
 	lsl r1, r5, #1
@@ -98802,13 +98802,19 @@ MOD11_0225DCD8: ; 0x0225DCD8
 
 	.global MOD11_0225DCF0
 MOD11_0225DCF0: ; 0x0225DCF0
-	.byte 0x0A
-
-	.global MOD11_0225DCF1
-MOD11_0225DCF1: ; 0x0225DCF1
-	.byte 0x28, 0x0A, 0x23, 0x0A, 0x1E, 0x0A, 0x19
-	.byte 0x0A, 0x14, 0x0A, 0x0F, 0x0A, 0x0A, 0x0F, 0x0A, 0x14, 0x0A, 0x19, 0x0A, 0x1E, 0x0A, 0x23, 0x0A
-	.byte 0x28, 0x0A
+	.byte 10, 40
+	.byte 10, 35
+	.byte 10, 30
+	.byte 10, 25
+	.byte 10, 20
+	.byte 10, 15
+	.byte 10, 10
+	.byte 15, 10
+	.byte 20, 10
+	.byte 25, 10
+	.byte 30, 10
+	.byte 35, 10
+	.byte 40, 10
 
 	.global MOD11_0225DD0A
 MOD11_0225DD0A: ; 0x0225DD0A

@@ -30398,12 +30398,12 @@ MOD16_021E5554: ; 0x021E5554
 	str r0, [sp, #0x30]
 	ldr r1, [sp, #0x30]
 	add r0, r7, #0
-	mov r2, #6
+	mov r2, #6 ; BASE_TYPE1
 	bl GetMonBaseStat_HandleFormeConversion
 	add r6, r0, #0
 	ldr r1, [sp, #0x30]
 	add r0, r7, #0
-	mov r2, #7
+	mov r2, #7 ; BASE_TYPE2
 	bl GetMonBaseStat_HandleFormeConversion
 	add r7, r0, #0
 	add r0, r6, #0
@@ -32777,7 +32777,7 @@ _021E66EC:
 MOD16_021E66F4: ; 0x021E66F4
 	push {r3, r4, r5, lr}
 	add r4, r1, #0
-	mov r1, #0x12
+	mov r1, #0x12 ; BASE_GENDER_RATIO
 	add r5, r0, #0
 	bl GetMonBaseStat
 	cmp r0, #0
@@ -51966,13 +51966,13 @@ MOD16_021EF6E0: ; 0x021EF6E0
 	add r5, r0, #0
 	add r7, r1, #0
 	ldr r0, [sp, #0x60]
-	mov r1, #6
+	mov r1, #6 ; BASE_TYPE1
 	str r2, [sp]
 	str r3, [sp, #4]
 	bl GetMonBaseStat
 	add r4, r0, #0
 	ldr r0, [sp, #0x60]
-	mov r1, #7
+	mov r1, #7 ; BASE_TYPE2
 	bl GetMonBaseStat
 	add r6, r0, #0
 	add r0, r4, #0
@@ -55189,11 +55189,11 @@ _021F0F88:
 	sub r3, #0x80
 	add r7, r5, r3
 	ldrh r0, [r7, r6]
-	mov r1, #0x18
+	mov r1, #0x18 ; BASE_ABILITY_1
 	bl GetMonBaseStat
 	add r4, r0, #0
 	ldrh r0, [r7, r6]
-	mov r1, #0x19
+	mov r1, #0x19 ; BASE_ABILITY_2
 	bl GetMonBaseStat
 	add r6, r0, #0
 	cmp r4, #0
@@ -55300,11 +55300,11 @@ _021F1046:
 	mul r1, r0
 	ldrh r0, [r6, r1]
 	str r1, [sp]
-	mov r1, #0x18
+	mov r1, #0x18 ; BASE_ABILITY_1
 	bl GetMonBaseStat
 	add r4, r0, #0
 	ldr r0, [sp]
-	mov r1, #0x19
+	mov r1, #0x19 ; BASE_ABILITY_2
 	ldrh r0, [r6, r0]
 	bl GetMonBaseStat
 	cmp r4, #0

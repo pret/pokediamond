@@ -1870,16 +1870,16 @@ int GetPersonalAttr(struct BaseStats * baseStats, enum BaseStat attr)
     case BASE_FLIP:
         ret = baseStats->flip;
         break;
-    case BASE_UNKNOWN_29:
+    case BASE_TMHM_1:
         ret = (int)baseStats->unk1C;
         break;
-    case BASE_UNKNOWN_30:
+    case BASE_TMHM_2:
         ret = (int)baseStats->unk20;
         break;
-    case BASE_UNKNOWN_31:
+    case BASE_TMHM_3:
         ret = (int)baseStats->unk24;
         break;
-    case BASE_UNKNOWN_32:
+    case BASE_TMHM_4:
         ret = (int)baseStats->unk28;
         break;
     }
@@ -3397,22 +3397,22 @@ BOOL FUN_0206A16C(u16 species, int forme, u32 a2)
     if (a2 < 32)
     {
         r4 = 1ul << a2;
-        r2 = BASE_UNKNOWN_29;
+        r2 = BASE_TMHM_1;
     }
     else if (a2 < 64)
     {
         r4 = 1ul << (a2 - 32);
-        r2 = BASE_UNKNOWN_30;
+        r2 = BASE_TMHM_2;
     }
     else if (a2 < 96)
     {
         r4 = 1ul << (a2 - 64);
-        r2 = BASE_UNKNOWN_31;
+        r2 = BASE_TMHM_3;
     }
     else
     {
         r4 = 1ul << (a2 - 96);
-        r2 = BASE_UNKNOWN_32;
+        r2 = BASE_TMHM_4;
     }
     return !!(GetMonBaseStat_HandleFormeConversion(species, forme, r2) & r4);
 }

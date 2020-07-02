@@ -316,10 +316,10 @@ enum BaseStat {
     BASE_GREAT_MARSH_RATE,
     BASE_COLOR,
     BASE_FLIP,
-    BASE_UNKNOWN_29,
-    BASE_UNKNOWN_30,
-    BASE_UNKNOWN_31,
-    BASE_UNKNOWN_32,
+    BASE_TMHM_1,
+    BASE_TMHM_2,
+    BASE_TMHM_3,
+    BASE_TMHM_4,
 };
 
 typedef enum {

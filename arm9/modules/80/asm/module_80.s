@@ -6810,7 +6810,7 @@ _02230BD4:
 	ldrsh r0, [r4, r0]
 	cmp r0, #0
 	beq _02230C04
-	mov r1, #0x12
+	mov r1, #0x12 ; BASE_GENDER_RATIO
 	bl GetMonBaseStat
 	mov r1, #0xfe
 	lsl r1, r1, #4
@@ -7820,7 +7820,7 @@ _0223138C:
 	mov r3, #2
 	bl MOD80_02233EA4
 	add r0, r5, #0
-	mov r1, #0x12
+	mov r1, #0x12 ; BASE_GENDER_RATIO
 	bl GetMonBaseStat
 	mov r1, #0xfe
 	lsl r1, r1, #4
@@ -12477,7 +12477,7 @@ _0223398C:
 	ldr r0, _02233A5C ; =0x000005DC
 	bl FUN_020054C8
 	add r0, r5, #0
-	mov r1, #0x12
+	mov r1, #0x12 ; BASE_GENDER_RATIO
 	bl GetMonBaseStat
 	mov r1, #0xfe
 	lsl r1, r1, #4

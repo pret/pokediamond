@@ -1007,7 +1007,7 @@ MOD39_02254FA4: ; 0x02254FA4
 	b _02254FCC
 _02254FBA:
 	add r0, r7, #0
-	mov r1, #0x1c
+	mov r1, #0x1c ; BASE_FLIP
 	bl GetMonBaseStat
 	cmp r0, #0
 	beq _02254FCA

@@ -21830,7 +21830,7 @@ MOD83_02237F04: ; 0x02237F04
 	bl MOD83_02237A10
 	add r6, r0, #0
 	add r0, r5, #0
-	mov r1, #0x19
+	mov r1, #0x19 ; BASE_ABILITY_2
 	bl GetMonBaseStat
 	cmp r0, #0
 	beq _02237F5E
@@ -21841,7 +21841,7 @@ _02237F32:
 	cmp r5, r1
 	bne _02237F42
 	add r0, r5, #0
-	mov r1, #0x18
+	mov r1, #0x18 ; BASE_ABILITY_1
 	bl GetMonBaseStat
 	b _02237F4A
 _02237F42:
@@ -21856,12 +21856,12 @@ _02237F4A:
 	tst r1, r6
 	bne _02237F66
 	add r0, r5, #0
-	mov r1, #0x18
+	mov r1, #0x18 ; BASE_ABILITY_1
 	bl GetMonBaseStat
 	pop {r4, r5, r6, pc}
 _02237F5E:
 	add r0, r5, #0
-	mov r1, #0x18
+	mov r1, #0x18 ; BASE_ABILITY_1
 	bl GetMonBaseStat
 _02237F66:
 	pop {r4, r5, r6, pc}
