@@ -198,7 +198,7 @@ MOD81_02237FE8: ; 0x02237FE8
 	mov r1, #5
 	mov r2, #0
 	bl GetBoxMonData
-	mov r1, #0x1c
+	mov r1, #0x1c ; BASE_FLIP
 	bl GetMonBaseStat
 	cmp r0, #0
 	bne _02238000

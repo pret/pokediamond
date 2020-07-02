@@ -759,7 +759,7 @@ _02254DDC:
 	bl ErrorHandling
 _02254DE0:
 	ldrh r0, [r4, #8]
-	mov r1, #0x1c
+	mov r1, #0x1c ; BASE_FLIP
 	bl GetMonBaseStat
 	mov r1, #0x59
 	lsl r1, r1, #2

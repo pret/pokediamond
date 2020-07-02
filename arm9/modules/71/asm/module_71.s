@@ -1386,7 +1386,7 @@ MOD71_0222E118: ; 0x0222E118
 	ldrh r0, [r4]
 	cmp r0, #0
 	beq _0222E18E
-	mov r1, #0x1c
+	mov r1, #0x1c ; BASE_FLIP
 	bl GetMonBaseStat
 	strh r0, [r4, #0xa]
 _0222E18E:

@@ -44401,7 +44401,7 @@ MOD05_021ECF14: ; 0x021ECF14
 	add r6, r1, #0
 	add r5, r0, #0
 	add r0, r6, #0
-	mov r1, #0x13
+	mov r1, #0x13 ; BASE_EGG_CYCLES
 	add r4, r3, #0
 	bl GetMonBaseStat
 	add r1, sp, #0x10
@@ -44511,7 +44511,7 @@ MOD05_021ED00C: ; 0x021ED00C
 	str r1, [sp, #0x10]
 	add r7, r0, #0
 	ldr r0, [sp, #0x10]
-	mov r1, #0x13
+	mov r1, #0x13 ; BASE_EGG_CYCLES
 	add r5, r2, #0
 	add r6, r3, #0
 	bl GetMonBaseStat
@@ -44782,11 +44782,11 @@ _021ED228:
 	bl GetGenderBySpeciesAndPersonality
 	stmia r7!, {r0}
 	ldrh r0, [r4]
-	mov r1, #0x16
+	mov r1, #0x16 ; BASE_EGG_GROUP_1
 	bl GetMonBaseStat
 	strh r0, [r6]
 	ldrh r0, [r4]
-	mov r1, #0x17
+	mov r1, #0x17 ; GASE_EGG_GROUP_2
 	bl GetMonBaseStat
 	strh r0, [r6, #2]
 	ldr r0, [sp]

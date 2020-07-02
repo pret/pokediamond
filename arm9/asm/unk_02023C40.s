@@ -973,7 +973,7 @@ FUN_020242C8: ; 0x020242C8
 	add r6, r1, #0x0
 	add r5, r0, #0x0
 	add r0, r6, #0x0
-	mov r1, #0x12
+	mov r1, #0x12 ; BASE_GENDER_RATIO
 	add r4, r2, #0x0
 	bl GetMonBaseStat
 	cmp r0, #0xff

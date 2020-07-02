@@ -6631,7 +6631,7 @@ MOD06_0223C854: ; 0x0223C854
 	cmp r0, #0x38
 	bne _0223C8BE
 	ldr r0, [sp, #0x10]
-	mov r1, #0x12
+	mov r1, #0x12 ; BASE_GENDER_RATIO
 	bl GetMonBaseStat
 	cmp r0, #0
 	beq _0223C8E0
@@ -6753,7 +6753,7 @@ MOD06_0223C968: ; 0x0223C968
 	add r4, r0, #0
 	bl ZeroMonData
 	add r0, r7, #0
-	mov r1, #0x12
+	mov r1, #0x12 ; BASE_GENDER_RATIO
 	mov r6, #1
 	bl GetMonBaseStat
 	cmp r0, #0
@@ -7384,13 +7384,13 @@ _0223CE6A:
 	lsl r0, r5, #3
 	str r0, [sp, #0xc]
 	ldr r0, [r6, r0]
-	mov r1, #6
+	mov r1, #6 ; BASE_TYPE1
 	bl GetMonBaseStat
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
 	str r0, [sp, #8]
 	ldr r0, [sp, #0xc]
-	mov r1, #7
+	mov r1, #7 ; BASE_TYPE2
 	ldr r0, [r6, r0]
 	bl GetMonBaseStat
 	lsl r0, r0, #0x18
@@ -22731,7 +22731,7 @@ _0224499C:
 	mov r0, #0
 	strb r0, [r5, #0x1e]
 	ldr r0, _02244A30 ; =gGameLanguage
-	mov r1, #0x19
+	mov r1, #0x19 ; BASE_ABILITY_2
 	ldrb r0, [r0]
 	strb r0, [r5, #0x1f]
 	ldrh r0, [r5]
@@ -22750,7 +22750,7 @@ _0224499C:
 	b _022449F2
 _022449CC:
 	ldrh r0, [r5]
-	mov r1, #0x18
+	mov r1, #0x18 ; BASE_ABILITY_1
 	lsl r0, r0, #0x15
 	lsr r0, r0, #0x15
 	bl GetMonBaseStat
@@ -22760,7 +22760,7 @@ _022449CC:
 	b _022449F2
 _022449E0:
 	ldrh r0, [r5]
-	mov r1, #0x18
+	mov r1, #0x18 ; BASE_ABILITY_1
 	lsl r0, r0, #0x15
 	lsr r0, r0, #0x15
 	bl GetMonBaseStat
@@ -23297,7 +23297,7 @@ MOD06_02244DC4: ; 0x02244DC4
 	lsl r0, r0, #2
 	str r1, [r7, r0]
 	add r0, r4, #0
-	mov r1, #0x12
+	mov r1, #0x12 ; BASE_GENDER_RATIO
 	bl GetMonBaseStat
 	lsl r0, r0, #0x18
 	lsr r0, r0, #0x18
