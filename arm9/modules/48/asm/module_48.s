@@ -626,7 +626,7 @@ _02254CC6:
 	add r3, r4, r3
 	asr r3, r3, #0xc
 	lsl r4, r3, #2
-	ldr r3, _02254D28 ; =0x020EDF50
+	ldr r3, _02254D28 ; =gSineTable
 	add r0, #0x9c
 	ldr r4, [r3, r4]
 	add r1, #0xa4
@@ -658,7 +658,7 @@ _02254CFE:
 	bl MOD48_02254B1C
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_02254D28: .word 0x020EDF50
+_02254D28: .word gSineTable
 	thumb_func_end MOD48_02254C60
 
 	thumb_func_start MOD48_02254D2C

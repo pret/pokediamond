@@ -17143,7 +17143,7 @@ MOD80_02235D34: ; 0x02235D34
 	add r0, #0x60
 	bl FUN_0207C2A4
 	add r1, r4, #0
-	ldr r0, _02235DD0 ; =0x020FA6E8
+	ldr r0, _02235DD0 ; =UNK_020FA6E8
 	add r1, #0x60
 	mov r2, #0x3e
 	bl FUN_02006234
@@ -17155,7 +17155,7 @@ MOD80_02235D34: ; 0x02235D34
 	pop {r4, pc}
 	nop
 _02235DCC: .word MOD80_022375E4
-_02235DD0: .word 0x020FA6E8
+_02235DD0: .word UNK_020FA6E8
 	thumb_func_end MOD80_02235D34
 
 	thumb_func_start MOD80_02235DD4

@@ -3645,7 +3645,7 @@ _021D9230:
 	ldr r0, [r4, #0x34]
 	asr r2, r2, #0xc
 	lsl r3, r2, #2
-	ldr r2, _021D9274 ; =0x020EDF50
+	ldr r2, _021D9274 ; =gSineTable
 	ldr r1, [r4, #0x30]
 	ldr r2, [r2, r3]
 	mul r2, r0
@@ -3674,7 +3674,7 @@ _021D9230:
 _021D9270:
 	pop {r4, pc}
 	nop
-_021D9274: .word 0x020EDF50
+_021D9274: .word gSineTable
 	thumb_func_end MOD84_021D920C
 
 	thumb_func_start MOD84_021D9278
