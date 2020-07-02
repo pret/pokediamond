@@ -514,12 +514,14 @@ Overlay MODULE_04
 
 Overlay MODULE_05
 {
+	##Overworld##
 	After arm9
 	Object module_05.o
 }
 
 Overlay MODULE_06
 {
+	##Overworld##
 	After MODULE_05
 	Object module_06.o
 }
@@ -549,6 +551,7 @@ Overlay MODULE_10
 
 Overlay MODULE_11
 {
+	##Battles##
 	After MODULE_08
 	Object module_11.o
 	Object module_11_sinit.o
@@ -584,6 +587,7 @@ Overlay MODULE_15
 
 Overlay MODULE_16
 {
+	##Battle Graphics##
 	After arm9
 	Object module_16.o
 }
@@ -602,6 +606,7 @@ Overlay MODULE_18
 
 Overlay MODULE_19
 {
+	##Overworld (models?)##
 	After MODULE_06
 	Object module_19.o
 }
@@ -815,6 +820,7 @@ Overlay MODULE_51
 
 Overlay MODULE_52
 {
+	##Some kind of transition overlay for intro##
 	After arm9
 	Object module_52.o
 }
@@ -845,6 +851,7 @@ Overlay MODULE_56
 
 Overlay MODULE_57
 {
+	##Trainer card##
 	After arm9
 	Object module_57.o
 }
@@ -857,12 +864,14 @@ Overlay MODULE_58
 
 Overlay MODULE_59
 {
+	##Rowan's intro##
 	After arm9
 	Object module_59.o
 }
 
 Overlay MODULE_60
 {
+	##Options##
 	After arm9
 	Object module_60.o
 }
@@ -888,6 +897,7 @@ Overlay MODULE_63
 
 Overlay MODULE_64
 {
+	##Pokemon Selection##
 	After arm9
 	Object module_64.o
 }
@@ -954,7 +964,7 @@ Overlay MODULE_74
 Overlay MODULE_75
 {
 	### Player's bag ###
-	Address 0x021E6BA0
+	After MODULE_14
 	Object module_75.o
 }
 
@@ -1003,6 +1013,7 @@ Overlay MODULE_82
 
 Overlay MODULE_83
 {
+	##Load Screen##
 	After MODULE_08
 	Object module_83.o
 }
