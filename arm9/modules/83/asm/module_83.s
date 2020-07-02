@@ -15391,7 +15391,7 @@ _02234E86:
 	mul r1, r2
 	add r0, r0, r1
 	add r1, r6, #0
-	bl MOD83_02237F6C
+	bl MigrateBoxMon
 	ldr r0, [sp]
 	add r1, r6, #0
 	add r2, r4, #0
@@ -15880,13 +15880,13 @@ MOD83_0223526C: ; 0x0223526C
 	mov r0, #0x50
 	mul r0, r2
 	add r0, r1, r0
-	ldr r3, _0223528C ; =MOD83_02237A10
+	ldr r3, _0223528C ; =AGB_GetBoxMonData
 	mov r1, #0xb
 	mov r2, #0
 	bx r3
 	.align 2, 0
 _02235288: .word 0x0000E880
-_0223528C: .word MOD83_02237A10
+_0223528C: .word AGB_GetBoxMonData
 	thumb_func_end MOD83_0223526C
 
 	thumb_func_start MOD83_02235290
@@ -15901,13 +15901,13 @@ MOD83_02235290: ; 0x02235290
 	mov r0, #0x50
 	mul r0, r2
 	add r0, r1, r0
-	ldr r3, _022352B0 ; =MOD83_02237A10
+	ldr r3, _022352B0 ; =AGB_GetBoxMonData
 	mov r1, #0x2d
 	mov r2, #0
 	bx r3
 	.align 2, 0
 _022352AC: .word 0x0000E880
-_022352B0: .word MOD83_02237A10
+_022352B0: .word AGB_GetBoxMonData
 	thumb_func_end MOD83_02235290
 
 	thumb_func_start MOD83_022352B4
@@ -15923,12 +15923,12 @@ MOD83_022352B4: ; 0x022352B4
 	mul r0, r2
 	add r0, r1, r0
 	mov r1, #0
-	ldr r3, _022352D4 ; =MOD83_02237A10
+	ldr r3, _022352D4 ; =AGB_GetBoxMonData
 	add r2, r1, #0
 	bx r3
 	.align 2, 0
 _022352D0: .word 0x0000E880
-_022352D4: .word MOD83_02237A10
+_022352D4: .word AGB_GetBoxMonData
 	thumb_func_end MOD83_022352B4
 
 	thumb_func_start MOD83_022352D8
@@ -16244,7 +16244,7 @@ _02235512:
 	add r0, r0, r7
 	mov r1, #5
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	cmp r0, #0
 	beq _022355D2
 	ldr r1, _02235638 ; =0x0000E884
@@ -16302,7 +16302,7 @@ _02235512:
 	add r0, r0, r7
 	mov r1, #0xc
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	cmp r0, #0
 	beq _022355C4
 	mov r0, #0x6b
@@ -16667,7 +16667,7 @@ MOD83_0223588C: ; 0x0223588C
 	add r0, r2, r0
 	mov r1, #0x41
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	mov r1, #0x67
 	lsl r1, r1, #2
 	cmp r0, r1
@@ -16703,7 +16703,7 @@ _022358E2:
 	add r0, r4, r6
 	add r1, #0xd
 	add r2, r7, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	ldr r3, _02235914 ; =0x0223B2B8
 	add r2, r0, #0
 	mov r1, #0
@@ -16745,7 +16745,7 @@ MOD83_02235918: ; 0x02235918
 	add r0, r2, r0
 	mov r1, #0xc
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	ldr r1, _02235960 ; =0x0223B2C8
 	ldrh r1, [r1, #0x30]
 	cmp r1, #0
@@ -16788,7 +16788,7 @@ MOD83_02235968: ; 0x02235968
 	add r0, r2, r0
 	mov r1, #0xb
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	bl MOD83_02234C74
 	pop {r3, pc}
 	.align 2, 0
@@ -17123,7 +17123,7 @@ MOD83_02235BF4: ; 0x02235BF4
 	add r0, r6, #0
 	mov r1, #8
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	b _02235C1A
@@ -17226,11 +17226,11 @@ _02235CCA:
 	add r0, r4, #0
 	mov r1, #2
 	add r2, #2
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r0, r4, #0
 	mov r1, #3
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r3, r0, #0
 	add r0, sp, #0x1c
 	add r0, #2
@@ -17263,7 +17263,7 @@ _02235CCA:
 	add r0, r4, #0
 	mov r1, #0xb
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	bl MOD83_02237EBC
 	str r0, [sp, #4]
 	ldr r1, [sp, #4]
@@ -17288,7 +17288,7 @@ _02235CCA:
 	add r0, r4, #0
 	mov r1, #0xc
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	cmp r0, #0
 	beq _02235DAC
 	lsl r0, r0, #0x10
@@ -18289,7 +18289,7 @@ _022365A6:
 	add r0, r0, #4
 	add r0, r0, r7
 	add r0, r0, r5
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	cmp r0, #0
 	beq _022365C0
 	add r6, r6, #1
@@ -21094,8 +21094,8 @@ _022379FA:
 	.align 2, 0
 	thumb_func_end MOD83_02237988
 
-	thumb_func_start MOD83_02237A10
-MOD83_02237A10: ; 0x02237A10
+	thumb_func_start AGB_GetBoxMonData
+AGB_GetBoxMonData: ; 0x02237A10
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	mov r4, #0
@@ -21613,7 +21613,7 @@ _02237D88:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-	thumb_func_end MOD83_02237A10
+	thumb_func_end AGB_GetBoxMonData
 
 	thumb_func_start MOD83_02237D90
 MOD83_02237D90: ; 0x02237D90
@@ -21800,13 +21800,13 @@ MOD83_02237EDC: ; 0x02237EDC
 	add r5, r0, #0
 	mov r1, #0xb
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	bl MOD83_02237EBC
 	add r4, r0, #0
 	add r0, r5, #0
 	mov r1, #0x19
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r1, r0, #0
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
@@ -21827,7 +21827,7 @@ MOD83_02237F04: ; 0x02237F04
 	add r0, r4, #0
 	mov r1, #0x2e
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r6, r0, #0
 	add r0, r5, #0
 	mov r1, #0x19 ; BASE_ABILITY_2
@@ -21869,8 +21869,8 @@ _02237F66:
 _02237F68: .word MOD83_0223B4C0
 	thumb_func_end MOD83_02237F04
 
-	thumb_func_start MOD83_02237F6C
-MOD83_02237F6C: ; 0x02237F6C
+	thumb_func_start MigrateBoxMon
+MigrateBoxMon: ; 0x02237F6C
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x30
 	add r4, r1, #0
@@ -21883,7 +21883,7 @@ MOD83_02237F6C: ; 0x02237F6C
 	str r0, [sp]
 	add r0, r6, #0
 	add r2, r1, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0
@@ -21892,7 +21892,7 @@ MOD83_02237F6C: ; 0x02237F6C
 	add r0, r6, #0
 	mov r1, #0xb
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	bl MOD83_02237EBC
 	str r0, [sp, #8]
@@ -21903,7 +21903,7 @@ MOD83_02237F6C: ; 0x02237F6C
 	add r0, r6, #0
 	mov r1, #0xc
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	cmp r0, #0
 	beq _02237FCE
@@ -21919,7 +21919,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #1
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #7
@@ -21928,7 +21928,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x19
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #8
@@ -21951,7 +21951,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #8
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0xb
@@ -21960,7 +21960,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #3
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #4]
 	add r0, r4, #0
 	mov r1, #0xc
@@ -21969,7 +21969,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x1a
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0xd
@@ -21978,7 +21978,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x1b
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0xe
@@ -21987,7 +21987,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x1c
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0xf
@@ -21996,7 +21996,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x1d
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x10
@@ -22005,7 +22005,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x1e
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x11
@@ -22014,7 +22014,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x1f
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x12
@@ -22023,7 +22023,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x16
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x13
@@ -22032,7 +22032,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x17
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x14
@@ -22041,7 +22041,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x18
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x15
@@ -22050,7 +22050,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x21
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x16
@@ -22059,7 +22059,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x2f
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x17
@@ -22068,7 +22068,7 @@ _02237FCE:
 	add r0, r6, #0
 	mov r1, #0x30
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x18
@@ -22081,7 +22081,7 @@ _0223815E:
 	add r0, r6, #0
 	add r1, #0xd
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r1, r5, #0
 	str r0, [sp, #8]
 	add r0, r4, #0
@@ -22091,7 +22091,7 @@ _0223815E:
 	add r0, r6, #0
 	mov r1, #0x15
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	mov r1, #3
 	lsl r1, r7
 	str r0, [sp, #8]
@@ -22121,7 +22121,7 @@ _0223815E:
 	add r0, r6, #0
 	mov r1, #0x27
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x46
@@ -22130,7 +22130,7 @@ _0223815E:
 	add r0, r6, #0
 	mov r1, #0x28
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x47
@@ -22139,7 +22139,7 @@ _0223815E:
 	add r0, r6, #0
 	mov r1, #0x29
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x48
@@ -22148,7 +22148,7 @@ _0223815E:
 	add r0, r6, #0
 	mov r1, #0x2a
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x49
@@ -22157,7 +22157,7 @@ _0223815E:
 	add r0, r6, #0
 	mov r1, #0x2b
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x4a
@@ -22166,7 +22166,7 @@ _0223815E:
 	add r0, r6, #0
 	mov r1, #0x2c
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x4b
@@ -22175,7 +22175,7 @@ _0223815E:
 	add r0, r6, #0
 	mov r1, #0x2d
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x4c
@@ -22184,7 +22184,7 @@ _0223815E:
 	add r0, r6, #0
 	mov r1, #0x32
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r7, r0, #0
 	cmp r7, #4
 	bgt _02238282
@@ -22206,7 +22206,7 @@ _02238282:
 	add r0, r6, #0
 	mov r1, #0x33
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r7, r0, #0
 	cmp r7, #4
 	bgt _022382AE
@@ -22228,7 +22228,7 @@ _022382AE:
 	add r0, r6, #0
 	mov r1, #0x34
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r7, r0, #0
 	cmp r7, #4
 	bgt _022382DA
@@ -22250,7 +22250,7 @@ _022382DA:
 	add r0, r6, #0
 	mov r1, #0x35
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r7, r0, #0
 	cmp r7, #4
 	bgt _02238306
@@ -22272,7 +22272,7 @@ _02238306:
 	add r0, r6, #0
 	mov r1, #0x36
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r7, r0, #0
 	cmp r7, #4
 	bgt _02238332
@@ -22294,7 +22294,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x43
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x62
@@ -22303,7 +22303,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x44
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x63
@@ -22312,7 +22312,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x45
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x64
@@ -22321,7 +22321,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x46
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x65
@@ -22330,7 +22330,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x47
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x66
@@ -22339,7 +22339,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x48
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x67
@@ -22348,7 +22348,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x49
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x68
@@ -22357,7 +22357,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x4a
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x69
@@ -22366,7 +22366,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x4b
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x6a
@@ -22375,7 +22375,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x4c
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x6b
@@ -22384,7 +22384,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x4d
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x6c
@@ -22393,7 +22393,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x4e
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x6d
@@ -22402,7 +22402,7 @@ _02238332:
 	add r0, r6, #0
 	mov r1, #0x50
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x6e
@@ -22424,7 +22424,7 @@ _02238332:
 	mov r1, #0
 	add r0, r6, #0
 	add r2, r1, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	add r3, r0, #0
 	mov r7, #3
 	lsl r0, r7, #8
@@ -22498,7 +22498,7 @@ _022384FE:
 	add r0, r6, #0
 	mov r1, #2
 	add r2, sp, #0x24
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	ldr r3, [sp, #4]
 	add r0, sp, #0x24
 	add r1, sp, #0xc
@@ -22511,7 +22511,7 @@ _022384FE:
 	add r0, r6, #0
 	mov r1, #3
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	ldr r1, _022385F8 ; =gGameLanguage
 	ldrb r1, [r1]
 	cmp r1, r0
@@ -22526,7 +22526,7 @@ _0223853E:
 	add r0, r6, #0
 	mov r1, #0x25
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x79
@@ -22535,7 +22535,7 @@ _0223853E:
 	add r0, r6, #0
 	mov r1, #7
 	add r2, sp, #0x24
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	ldr r3, [sp, #4]
 	add r0, sp, #0x24
 	add r1, sp, #0xc
@@ -22548,7 +22548,7 @@ _0223853E:
 	add r0, r6, #0
 	mov r1, #0x23
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x98
@@ -22557,7 +22557,7 @@ _0223853E:
 	add r0, r6, #0
 	mov r1, #0x22
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x99
@@ -22566,7 +22566,7 @@ _0223853E:
 	add r0, r6, #0
 	mov r1, #0x26
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x9a
@@ -22575,7 +22575,7 @@ _0223853E:
 	add r0, r6, #0
 	mov r1, #0x24
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x9b
@@ -22584,7 +22584,7 @@ _0223853E:
 	add r0, r6, #0
 	mov r1, #0x31
 	mov r2, #0
-	bl MOD83_02237A10
+	bl AGB_GetBoxMonData
 	str r0, [sp, #8]
 	add r0, r4, #0
 	mov r1, #0x9c
@@ -22599,7 +22599,7 @@ _0223853E:
 _022385F0: .word 0x00000182
 _022385F4: .word gUnk021C4918
 _022385F8: .word gGameLanguage
-	thumb_func_end MOD83_02237F6C
+	thumb_func_end MigrateBoxMon
 
 	thumb_func_start MOD83_022385FC
 MOD83_022385FC: ; 0x022385FC
