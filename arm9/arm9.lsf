@@ -934,6 +934,7 @@ Overlay MODULE_68
 
 Overlay MODULE_69
 {
+	##Hall of Fame##
 	After MODULE_08
 	Object module_69.o
 }
