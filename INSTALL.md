@@ -1,12 +1,12 @@
 ### 1. Install MWCC compiler
 
-The build system requires the use of the Metrowerk C Compiler 2.0/base to compile matching files. We cannot distribute the correct compiler here so join the PRET discord and download the pinned mwccarm.zip zip in #pokediamond and extract it to tools/. Run each of the executables so they ask for a license.dat and provide the one in the rar (it may also ask for it when compiling). This only needs to be done once.
+The build system requires the use of the Metrowerk C Compiler versions 2.0/sp1 and 1.2/sp2p3 to compile matching files. We cannot distribute the correct compiler here so join the PRET discord and download the pinned mwccarm.zip zip in #pokediamond and extract it to tools/. Run each of the executables so they ask for a license.dat and provide the one in the rar (it may also ask for it when compiling). This only needs to be done once.
 
 In the future, a GCC option will be available so MWCC is not required to build, however it is required for a matching ROM.
 
 ### 2. Install Nitro SDK
 
-As with the compiler, the Nitro SDK is proprietary and cannot be distributed here. Opened the pinned Mega folder in the PRET discord and download "NITRO SDK v3.0.zip" and "NITRO SDK V3.0 Plus 2.zip" from the "SDK System Libraries" folder. Extract v3.0.zip into a separate folder, then extract v3.0 Plus 2.zip into the same folder, overwriting when prompted. Copy the contents of tools/bin from the Nitro SDK to tools/bin in your pokediamond clone. Finally, copy include/nitro/specfiles/ARM7-TS.lcf.template into the arm7 subdirectory, and include/nitro/specfiles/ARM9-TS.lcf.template into the arm9 subdirectory.
+As with the compiler, the Nitro SDK is proprietary and cannot be distributed here. Download the "NitroSDK-3_2-060901.7z" file pinned in the PRET discord. Extract and copy the contents of tools/bin from the Nitro SDK to tools/bin in your pokediamond clone. Finally, copy include/nitro/specfiles/ARM7-TS.lcf.template into the arm7 subdirectory, and include/nitro/specfiles/ARM9-TS.lcf.template into the arm9 subdirectory.
 
 ### 3. Dependencies
 
@@ -22,6 +22,8 @@ Building the ROM requires the following packages:
 * libpng-devel (libpng-dev on Ubuntu)
 
 NOTE: If you are using Arch/Manjaro or Void you will only need base-devel instead of build-essentials or make or git. You will still need wine.
+
+Currently WSL2 has an issue with mwldarm not being able to locate it's executable. Please use WSL1 or another build environment to mitigate this issue until a solution is found.
 
 #### Windows
 
