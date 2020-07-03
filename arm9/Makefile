@@ -285,9 +285,6 @@ $(S_OBJS) $(LIBS_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
 
-#$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
-#	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
-
 $(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)
 	cd $(BUILD_DIR) && LM_LICENSE_FILE=../../$(LM_LICENSE_FILE) $(WINE) ../../$(MWLDARM) $(LDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) $(O_FILES:$(BUILD_DIR)/%=%)
 	$(OBJCOPY) $(foreach ov,arm9 $(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
