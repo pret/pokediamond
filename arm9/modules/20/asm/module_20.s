@@ -197,7 +197,7 @@ MOD20_0225257C: ; 0x0225257C
 	add r0, r4, #0
 	bl MOD20_02252A08
 	add r0, r4, #0
-	bl MOD20_022528FC
+	bl ClosePoketchApp
 	ldr r0, [r4, #0x1c]
 	bl MOD20_02252E18
 	pop {r4, pc}
@@ -443,7 +443,7 @@ _02252750:
 	cmp r0, #0
 	beq _022527AA
 	add r0, r4, #0
-	bl MOD20_022528FC
+	bl ClosePoketchApp
 	bl FUN_020893E0
 	add r0, r4, #0
 	mov r1, #2
@@ -610,7 +610,7 @@ _02252890:
 	cmp r0, #0
 	beq _022528AC
 	add r0, r4, #0
-	bl MOD20_022528FC
+	bl ClosePoketchApp
 	bl FUN_0201CD04
 	add r0, r4, #0
 	mov r1, #4
@@ -663,8 +663,8 @@ _022528F4: .word sPoketchAppOverlayMapping
 _022528F8: .word sPoketchAppOverlayMapping + 4
 	thumb_func_end LoadPoketchApp
 
-	thumb_func_start MOD20_022528FC
-MOD20_022528FC: ; 0x022528FC
+	thumb_func_start ClosePoketchApp
+ClosePoketchApp: ; 0x022528FC
 	push {r4, lr}
 	add r4, r0, #0
 	mov r0, #0
@@ -679,7 +679,7 @@ MOD20_022528FC: ; 0x022528FC
 	str r0, [r4, #0x14]
 _02252916:
 	pop {r4, pc}
-	thumb_func_end MOD20_022528FC
+	thumb_func_end ClosePoketchApp
 
 	thumb_func_start MOD20_02252918
 MOD20_02252918: ; 0x02252918
