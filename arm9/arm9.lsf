@@ -620,7 +620,7 @@ Overlay MODULE_20
 
 Overlay MODULE_21
 {
-	##Pokétch##
+	##Pokétch Clock##
 	After MODULE_20
 	Object module_21.o
 	Object module_21_sinit.o
@@ -634,6 +634,7 @@ Overlay MODULE_22
 
 Overlay MODULE_23
 {
+	##Pokétch Calculator##
 	After MODULE_20
 	Object module_23.o
 	Object module_23_sinit.o
@@ -659,6 +660,7 @@ Overlay MODULE_26
 
 Overlay MODULE_27
 {
+	##Pokétch Party##
 	After MODULE_20
 	Object module_27.o
 	Object module_27_sinit.o
@@ -687,6 +689,7 @@ Overlay MODULE_30
 
 Overlay MODULE_31
 {
+	##Pokétch Counter##
 	After MODULE_20
 	Object module_31.o
 }
@@ -912,6 +915,7 @@ Overlay MODULE_65
 
 Overlay MODULE_66
 {
+	##Weather effects?##
 	After arm9
 	Object module_66.o
 }
