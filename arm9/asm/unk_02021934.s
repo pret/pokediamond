@@ -269,8 +269,8 @@ _02021AFA:
 	nop
 _02021B00: .word 0xB6F8D2EC
 
-	thumb_func_start FUN_02021B04
-FUN_02021B04: ; 0x02021B04
+	thumb_func_start String16_FormatInteger
+String16_FormatInteger: ; 0x02021B04
 	push {r3-r7, lr}
 	sub sp, #0x8
 	add r5, r0, #0x0

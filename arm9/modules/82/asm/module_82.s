@@ -4265,7 +4265,7 @@ MOD82_0222F694: ; 0x0222F694
 	add r1, r6, #0
 	add r2, r7, #0
 	mov r3, #2
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r3, #1
 	ldr r0, _0222F6CC ; =0x00010200
 	str r3, [sp]

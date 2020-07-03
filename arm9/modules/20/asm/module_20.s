@@ -220,7 +220,7 @@ _022525B2:
 	ldrb r1, [r4]
 	add r0, r4, #0
 	lsl r2, r1, #2
-	ldr r1, _022525EC ; =0x022544CC
+	ldr r1, _022525EC ; =MOD20_022544CC
 	ldr r1, [r1, r2]
 	blx r1
 	pop {r3, r4, r5, pc}
@@ -299,7 +299,7 @@ _0225262E:
 	add r5, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
-	bl MOD20_022528B0
+	bl LoadPoketchApp
 	add r0, r4, #0
 	add r1, r5, #0
 	bl MOD20_02252918
@@ -504,7 +504,7 @@ _022527C0:
 	add r5, r0, #0
 	add r0, r4, #0
 	add r1, r5, #0
-	bl MOD20_022528B0
+	bl LoadPoketchApp
 	add r0, r4, #0
 	add r1, r5, #0
 	bl MOD20_02252918
@@ -620,8 +620,8 @@ _022528AC:
 	.align 2, 0
 	thumb_func_end MOD20_02252818
 
-	thumb_func_start MOD20_022528B0
-MOD20_022528B0: ; 0x022528B0
+	thumb_func_start LoadPoketchApp
+LoadPoketchApp: ; 0x022528B0
 	push {r4, r5, r6, lr}
 	add r5, r0, #0
 	add r4, r1, #0
@@ -636,13 +636,13 @@ _022528C0:
 	mvn r0, r0
 	cmp r1, r0
 	bne _022528F0
-	ldr r2, _022528F4 ; =0x022544DC
+	ldr r2, _022528F4 ; =sPoketchAppOverlayMapping
 	mov r1, #0
 _022528CE:
 	ldr r0, [r2]
 	cmp r4, r0
 	bne _022528E8
-	ldr r0, _022528F8 ; =0x022544E0
+	ldr r0, _022528F8 ; =sPoketchAppOverlayMapping + 4
 	lsl r1, r1, #3
 	ldr r6, [r0, r1]
 	mov r1, #2
@@ -659,9 +659,9 @@ _022528E8:
 _022528F0:
 	pop {r4, r5, r6, pc}
 	nop
-_022528F4: .word MOD20_022544DC
-_022528F8: .word MOD20_022544E0
-	thumb_func_end MOD20_022528B0
+_022528F4: .word sPoketchAppOverlayMapping
+_022528F8: .word sPoketchAppOverlayMapping + 4
+	thumb_func_end LoadPoketchApp
 
 	thumb_func_start MOD20_022528FC
 MOD20_022528FC: ; 0x022528FC
@@ -806,7 +806,7 @@ MOD20_022529C4: ; 0x022529C4
 	add r4, r0, #0
 	mov r0, #7
 	str r0, [sp]
-	ldr r0, _02252A00 ; =0x022544C4
+	ldr r0, _02252A00 ; =MOD20_022544C4
 	ldr r2, _02252A04 ; =MOD20_02252A24
 	mov r1, #2
 	add r3, r4, #0
@@ -1469,7 +1469,7 @@ _02252E58:
 MOD20_02252E5C: ; 0x02252E5C
 	push {r4, r5}
 	mov r2, #0xf
-	ldr r5, _02252E7C ; =0x022545EC
+	ldr r5, _02252E7C ; =MOD20_022545EC
 	mov r4, #0
 	lsl r2, r2, #0xc
 _02252E66:
@@ -1499,7 +1499,7 @@ MOD20_02252E80: ; 0x02252E80
 	str r0, [sp, #4]
 	mov r0, #7
 	str r0, [sp, #8]
-	ldr r0, _02252EA0 ; =0x02254644
+	ldr r0, _02252EA0 ; =MOD20_02254644
 	ldr r3, [r2]
 	bl MOD20_022537E0
 	add sp, #0xc
@@ -1567,14 +1567,14 @@ MOD20_02252ED0: ; 0x02252ED0
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
-	ldr r2, _02252FE0 ; =0x022545B4
+	ldr r2, _02252FE0 ; =MOD20_022545B4
 	mov r1, #4
 	mov r3, #0
 	bl FUN_02016C18
 	mov r0, #6
 	lsl r0, r0, #6
 	ldr r0, [r4, r0]
-	ldr r2, _02252FE4 ; =0x022545D0
+	ldr r2, _02252FE4 ; =MOD20_022545D0
 	mov r1, #5
 	mov r3, #0
 	bl FUN_02016C18
@@ -2247,7 +2247,7 @@ MOD20_02253430: ; 0x02253430
 	bl MOD20_022534D4
 	add r2, r4, #0
 	ldr r0, [r4, #4]
-	ldr r1, _022534D0 ; =0x022545A4
+	ldr r1, _022534D0 ; =MOD20_022545A4
 	add r2, #8
 	bl MOD20_02253E74
 	str r0, [r4, #0x1c]
@@ -2255,7 +2255,7 @@ MOD20_02253430: ; 0x02253430
 	beq _022534CC
 	add r2, r4, #0
 	ldr r0, [r4, #4]
-	ldr r1, _022534D0 ; =0x022545A4
+	ldr r1, _022534D0 ; =MOD20_022545A4
 	add r2, #8
 	bl MOD20_02253E74
 	str r0, [r4, #0x20]
@@ -2922,7 +2922,7 @@ _02253910:
 	bls _02253948
 	mov r1, #3
 _02253948:
-	ldr r0, _02253968 ; =0x0225470C
+	ldr r0, _02253968 ; =MOD20_0225470C
 	add r4, r4, #1
 	ldrb r0, [r0, r1]
 	lsl r0, r0, #1
@@ -3025,7 +3025,7 @@ MOD20_02253A04: ; 0x02253A04
 	str r0, [sp, #0xc]
 	add r6, r1, #0
 	str r2, [sp, #8]
-	ldr r2, _02253A9C ; =0x02254708
+	ldr r2, _02253A9C ; =MOD20_02254708
 	ldr r1, [sp, #0xc]
 	mov r0, #8
 	ldrh r1, [r2, r1]
@@ -3043,11 +3043,11 @@ MOD20_02253A04: ; 0x02253A04
 	ldr r0, [sp, #8]
 	cmp r0, #0
 	bls _02253A8C
-	ldr r1, _02253AA0 ; =0x02254704
+	ldr r1, _02253AA0 ; =MOD20_02254704
 	ldr r0, [sp, #0xc]
 	ldr r4, [sp, #0x18]
 	ldrh r5, [r1, r0]
-	ldr r1, _02253A9C ; =0x02254708
+	ldr r1, _02253A9C ; =MOD20_02254708
 	ldrh r0, [r1, r0]
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #4]
@@ -4166,7 +4166,7 @@ _02254232:
 	mov r6, #0
 	cmp r1, #0
 	bls _02254278
-	ldr r7, _022542A8 ; =0x02254710
+	ldr r7, _022542A8 ; =MOD20_02254710
 	add r4, r6, #0
 _0225423C:
 	ldr r3, [r5, #0x14]
@@ -4209,7 +4209,7 @@ _02254278:
 	bhs _022542A2
 	mov r0, #0xe
 	add r4, r6, #0
-	ldr r7, _022542A8 ; =0x02254710
+	ldr r7, _022542A8 ; =MOD20_02254710
 	mul r4, r0
 _02254288:
 	ldr r3, [r5, #0x14]
@@ -4495,12 +4495,12 @@ _02254440:
 	blo _02254446
 	mov r4, #0
 _02254446:
-	ldr r0, _02254458 ; =0x02254744
+	ldr r0, _02254458 ; =MOD20_02254744
 	lsl r1, r5, #1
 	ldrh r0, [r0, r1]
 	lsl r1, r4, #1
 	str r0, [r6]
-	ldr r0, _0225445C ; =0x02254780
+	ldr r0, _0225445C ; =MOD20_02254780
 	ldrh r0, [r0, r1]
 	str r0, [r7]
 	pop {r3, r4, r5, r6, r7, pc}
@@ -4519,11 +4519,11 @@ MOD20_02254460: ; 0x02254460
 	blo _02254470
 	bl ErrorHandling
 _02254470:
-	ldr r0, _02254480 ; =0x02254724
+	ldr r0, _02254480 ; =MOD20_02254724
 	lsl r1, r5, #3
 	ldr r0, [r0, r1]
 	str r0, [r4]
-	ldr r0, _02254484 ; =0x02254728
+	ldr r0, _02254484 ; =MOD20_02254728
 	ldr r0, [r0, r1]
 	str r0, [r6]
 	pop {r4, r5, r6, pc}
@@ -4535,17 +4535,17 @@ _02254484: .word MOD20_02254728
 	thumb_func_start MOD20_02254488
 MOD20_02254488: ; 0x02254488
 	push {r4, r5}
-	ldr r5, _022544B8 ; =0x022547C2
+	ldr r5, _022544B8 ; =MOD20_022547C2
 	mov r4, #0
 _0225448E:
 	ldrh r3, [r5]
 	cmp r0, r3
 	bne _022544A8
-	ldr r0, _022544BC ; =0x022547C4
+	ldr r0, _022544BC ; =MOD20_022547C4
 	lsl r3, r4, #2
 	ldrb r0, [r0, r3]
 	str r0, [r1]
-	ldr r0, _022544C0 ; =0x022547C5
+	ldr r0, _022544C0 ; =MOD20_022547C5
 	ldrb r0, [r0, r3]
 	str r0, [r2]
 	mov r0, #1
@@ -4574,25 +4574,33 @@ MOD20_022544C4: ; 0x022544C4
 MOD20_022544CC: ; 0x022544CC
 	.word MOD20_02252600, MOD20_02252688, MOD20_022527AC, MOD20_02252818
 
-	.global MOD20_022544DC
-MOD20_022544DC: ; 0x022544DC
-	.byte 0x00, 0x00, 0x00, 0x00
-
-	.global MOD20_022544E0
-MOD20_022544E0: ; 0x022544E0
-	.byte 0x15, 0x00, 0x00, 0x00, 0x17, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.byte 0x17, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00, 0x0B, 0x00, 0x00, 0x00
-	.byte 0x19, 0x00, 0x00, 0x00, 0x11, 0x00, 0x00, 0x00, 0x1A, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
-	.byte 0x1B, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x1C, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00
-	.byte 0x1D, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x1E, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00
-	.byte 0x1F, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x23, 0x00, 0x00, 0x00, 0x12, 0x00, 0x00, 0x00
-	.byte 0x24, 0x00, 0x00, 0x00, 0x0E, 0x00, 0x00, 0x00, 0x25, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x00
-	.byte 0x26, 0x00, 0x00, 0x00, 0x16, 0x00, 0x00, 0x00, 0x27, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00
-	.byte 0x28, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00, 0x00, 0x29, 0x00, 0x00, 0x00, 0x0C, 0x00, 0x00, 0x00
-	.byte 0x2A, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x2B, 0x00, 0x00, 0x00, 0x15, 0x00, 0x00, 0x00
-	.byte 0x2C, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x2D, 0x00, 0x00, 0x00, 0x0D, 0x00, 0x00, 0x00
-	.byte 0x2F, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00
-	.byte 0x31, 0x00, 0x00, 0x00
+	.global sPoketchAppOverlayMapping
+sPoketchAppOverlayMapping: ; 0x022544DC
+	.word  0, SDK_OVERLAY_MODULE_21_ID
+	.word 23, SDK_OVERLAY_MODULE_22_ID
+	.word  1, SDK_OVERLAY_MODULE_23_ID
+	.word  2, SDK_OVERLAY_MODULE_24_ID
+	.word 11, SDK_OVERLAY_MODULE_25_ID
+	.word 17, SDK_OVERLAY_MODULE_26_ID
+	.word  4, SDK_OVERLAY_MODULE_27_ID
+	.word  5, SDK_OVERLAY_MODULE_28_ID
+	.word  6, SDK_OVERLAY_MODULE_29_ID
+	.word 10, SDK_OVERLAY_MODULE_30_ID
+	.word  3, SDK_OVERLAY_MODULE_31_ID
+	.word  8, SDK_OVERLAY_MODULE_35_ID
+	.word 18, SDK_OVERLAY_MODULE_36_ID
+	.word 14, SDK_OVERLAY_MODULE_37_ID
+	.word 15, SDK_OVERLAY_MODULE_38_ID
+	.word 22, SDK_OVERLAY_MODULE_39_ID
+	.word 24, SDK_OVERLAY_MODULE_40_ID
+	.word 20, SDK_OVERLAY_MODULE_41_ID
+	.word 12, SDK_OVERLAY_MODULE_42_ID
+	.word  7, SDK_OVERLAY_MODULE_43_ID
+	.word 21, SDK_OVERLAY_MODULE_44_ID
+	.word 16, SDK_OVERLAY_MODULE_45_ID
+	.word 13, SDK_OVERLAY_MODULE_47_ID
+	.word 19, SDK_OVERLAY_MODULE_48_ID
+	.word  9, SDK_OVERLAY_MODULE_49_ID
 
 	.global MOD20_022545A4
 MOD20_022545A4: ; 0x022545A4

@@ -3,8 +3,8 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD69_0222D5C0
-MOD69_0222D5C0: ; 0x0222D5C0
+	thumb_func_start HOF_OverlayInit
+HOF_OverlayInit: ; 0x0222D5C0
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	mov r0, #0
@@ -169,8 +169,8 @@ _0222D744: .word MOD69_0222DB2C
 _0222D748: .word 0x00001B34
 _0222D74C: .word 0x00000493
 
-	thumb_func_start MOD69_0222D750
-MOD69_0222D750: ; 0x0222D750
+	thumb_func_start HOF_OverlayTeardown
+HOF_OverlayTeardown: ; 0x0222D750
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	ldr r1, [r5]
@@ -236,8 +236,8 @@ _0222D7E8: .word 0x00001B54
 _0222D7EC: .word 0x00001B58
 _0222D7F0: .word 0x00001B5C
 
-	thumb_func_start MOD69_0222D7F4
-MOD69_0222D7F4: ; 0x0222D7F4
+	thumb_func_start HOF_OverlayRun
+HOF_OverlayRun: ; 0x0222D7F4
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	bl FUN_02006278
@@ -2348,8 +2348,8 @@ _0222E8F2:
 	nop
 _0222E8F8: .word 0x00010200
 
-	thumb_func_start MOD69_0222E8FC
-MOD69_0222E8FC: ; 0x0222E8FC
+	thumb_func_start HOF_MonGetUIStrings
+HOF_MonGetUIStrings: ; 0x0222E8FC
 	push {r4, lr}
 	sub sp, #8
 	add r4, r0, #0
@@ -2402,14 +2402,14 @@ _0222E95E:
 	add sp, #8
 	pop {r4, pc}
 
-	thumb_func_start MOD69_0222E96C
-MOD69_0222E96C: ; 0x0222E96C
+	thumb_func_start HOF_MonGetMetLocationString
+HOF_MonGetMetLocationString: ; 0x0222E96C
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #8]
 	ldr r1, [r5, #0x24]
 	ldr r2, [r5, #0x28]
-	bl MOD69_0222F6C4
+	bl HOF_MonGetMetLocationStringId
 	add r4, r0, #0
 	beq _0222E982
 	cmp r4, #1
@@ -2422,7 +2422,7 @@ _0222E982:
 	add r2, r0, #0
 	ldr r0, [r5, #0x14]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 _0222E996:
 	ldr r0, [r5, #0x20]
 	ldr r2, [r5, #0x18]
@@ -2485,7 +2485,7 @@ _0222E9FC:
 	mov r1, #0x48
 	bl MOD69_0222E89C
 	add r0, r4, #0
-	bl MOD69_0222E8FC
+	bl HOF_MonGetUIStrings
 	add r0, r4, #0
 	mov r1, #0x58
 	bl MOD69_0222E89C
@@ -2516,7 +2516,7 @@ _0222EA2E:
 	mov r1, #0x78
 	bl MOD69_0222E89C
 	add r0, r4, #0
-	bl MOD69_0222E96C
+	bl HOF_MonGetMetLocationString
 	add r0, r4, #0
 	mov r1, #0x88
 	bl MOD69_0222E89C
@@ -4030,8 +4030,8 @@ MOD69_0222F6C0: ; 0x0222F6C0
 	ldr r0, [r0, #0x10]
 	bx lr
 
-	thumb_func_start MOD69_0222F6C4
-MOD69_0222F6C4: ; 0x0222F6C4
+	thumb_func_start HOF_MonGetMetLocationStringId
+HOF_MonGetMetLocationStringId: ; 0x0222F6C4
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r1, #0
 	add r5, r0, #0

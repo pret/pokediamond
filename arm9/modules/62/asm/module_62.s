@@ -3585,7 +3585,7 @@ _0222F0FE:
 	add r0, r4, #0
 	mov r2, #3
 	mov r3, #1
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xff
@@ -3653,7 +3653,7 @@ _0222F194:
 	ldr r0, [sp, #0x10]
 	mov r2, #3
 	str r3, [sp]
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff

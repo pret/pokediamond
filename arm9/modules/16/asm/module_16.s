@@ -1167,7 +1167,7 @@ MOD16_021D7D9C: ; 0x021D7D9C
 	mov r2, #3
 	mov r3, #2
 	add r4, r0, #0
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	ldr r2, [sp, #0x10]
 	add r0, r7, #0
 	mov r1, #2
@@ -11571,7 +11571,7 @@ MOD16_021DC958: ; 0x021DC958
 	add r1, r7, #0
 	mov r2, #3
 	mov r3, #2
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r0, #0xaa
 	str r0, [sp]
 	mov r1, #0
@@ -11589,7 +11589,7 @@ MOD16_021DC958: ; 0x021DC958
 	add r0, r4, #0
 	mov r2, #3
 	mov r3, #2
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r0, #0xaa
 	str r0, [sp]
 	mov r1, #0
@@ -11651,7 +11651,7 @@ MOD16_021DCA2C: ; 0x021DCA2C
 	add r1, r7, #0
 	mov r2, #3
 	mov r3, #2
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r0, #0xaa
 	str r0, [sp]
 	mov r1, #0
@@ -12840,7 +12840,7 @@ MOD16_021DD370: ; 0x021DD370
 	add r0, r7, #0
 	mov r2, #3
 	mov r3, #2
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff

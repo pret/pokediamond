@@ -1056,7 +1056,7 @@ FUN_0206139C: ; 0x0206139C
 	ldrh r2, [r4, #0x2]
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	add r0, r5, #0x0
 	mov r1, #0x1
 	add r2, r6, #0x0
@@ -1108,7 +1108,7 @@ FUN_02061404: ; 0x02061404
 	ldrh r2, [r4, #0x6]
 	add r0, r5, #0x0
 	mov r1, #0x1
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	add r0, r5, #0x0
 	mov r1, #0x0
 	add r2, r6, #0x0
@@ -2842,7 +2842,7 @@ _0206218C:
 	add r2, r0, #0x0
 	add r0, r7, #0x0
 	mov r1, #0x0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	cmp r4, #0xb
 	bhi _0206222C
 	add r0, r4, r4
@@ -2953,7 +2953,7 @@ FUN_02062240: ; 0x02062240
 	add r2, r0, #0x0
 	add r0, r4, #0x0
 	mov r1, #0x0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	add r2, sp, #0x0
 	ldrh r2, [r2, #0x0]
 	add r0, r4, #0x0
@@ -3180,7 +3180,7 @@ FUN_020623F4: ; 0x020623F4
 	add r2, r0, #0x0
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	add r0, r6, #0x0
 	add r1, r4, #0x0
 	bl FUN_02025238

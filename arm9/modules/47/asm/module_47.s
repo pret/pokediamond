@@ -1453,7 +1453,7 @@ _0225532C:
 	ldr r0, [r5, #0x5c]
 	ldr r1, [r7]
 	add r3, r2, #0
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	str r4, [sp]
 	mov r0, #0xff
 	str r0, [sp, #4]
