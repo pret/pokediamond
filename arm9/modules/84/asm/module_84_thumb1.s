@@ -1426,7 +1426,7 @@ _021D806E:
 	str r0, [r4, #0x2c]
 	mov r0, #0
 	str r0, [r4, #0x10]
-	ldr r0, _021D80B4 ; =MOD54_021D8150
+	ldr r0, _021D80B4 ; =MOD84_021D8150
 	add r1, r4, #0
 	mov r2, #1
 	bl FUN_0200CA98
@@ -1443,7 +1443,7 @@ _021D80A4: .word MOD84_021D80B8
 _021D80A8: .word MOD84_021D80F0
 _021D80AC: .word MOD84_021D8104
 _021D80B0: .word MOD84_021D813C
-_021D80B4: .word MOD54_021D8150
+_021D80B4: .word MOD84_021D8150
 	thumb_func_end MOD84_021D801C
 
 	.rodata
