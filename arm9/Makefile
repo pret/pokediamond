@@ -66,94 +66,7 @@ LIBS_OBJS = $(LIBS_FILES:%.s=$(BUILD_DIR)/%.o)
 O_FILES := $(C_OBJS) $(CXX_OBJS) $(S_OBJS)
 
 # Overlay modules
-OVERLAYS :=   \
-	MODULE_00 \
-    MODULE_01 \
-    MODULE_02 \
-    MODULE_03 \
-    MODULE_04 \
-    MODULE_05 \
-    MODULE_06 \
-    MODULE_07 \
-    MODULE_08 \
-    MODULE_09 \
-    MODULE_10 \
-    MODULE_11 \
-    MODULE_12 \
-    MODULE_13 \
-    MODULE_14 \
-    MODULE_15 \
-    MODULE_16 \
-    MODULE_17 \
-    MODULE_18 \
-    MODULE_19 \
-    MODULE_20 \
-    MODULE_21 \
-    MODULE_22 \
-    MODULE_23 \
-    MODULE_24 \
-    MODULE_25 \
-    MODULE_26 \
-    MODULE_27 \
-    MODULE_28 \
-    MODULE_29 \
-    MODULE_30 \
-    MODULE_31 \
-    MODULE_32 \
-    MODULE_33 \
-    MODULE_34 \
-    MODULE_35 \
-    MODULE_36 \
-    MODULE_37 \
-    MODULE_38 \
-    MODULE_39 \
-    MODULE_40 \
-    MODULE_41 \
-    MODULE_42 \
-    MODULE_43 \
-    MODULE_44 \
-    MODULE_45 \
-    MODULE_46 \
-    MODULE_47 \
-    MODULE_48 \
-    MODULE_49 \
-    MODULE_50 \
-    MODULE_51 \
-    MODULE_52 \
-    MODULE_53 \
-    MODULE_54 \
-    MODULE_55 \
-    MODULE_56 \
-    MODULE_57 \
-    MODULE_58 \
-    MODULE_59 \
-    MODULE_60 \
-    MODULE_61 \
-    MODULE_62 \
-    MODULE_63 \
-    MODULE_64 \
-    MODULE_65 \
-    MODULE_66 \
-    MODULE_67 \
-    MODULE_68 \
-    MODULE_69 \
-    MODULE_70 \
-    MODULE_71 \
-    MODULE_72 \
-    MODULE_73 \
-    MODULE_74 \
-    MODULE_75 \
-    MODULE_76 \
-    MODULE_77 \
-    MODULE_78 \
-    MODULE_79 \
-    MODULE_80 \
-    MODULE_81 \
-    MODULE_82 \
-    MODULE_83 \
-    MODULE_84 \
-    MODULE_85 \
-    MODULE_86 \
+OVERLAYS := $(shell grep -oE "Overlay \w+" $(LD_SPEC) | cut -d' ' -f2)
 
 .SECONDARY:
 .DELETE_ON_ERROR:
@@ -284,9 +197,6 @@ $(S_OBJS) $(LIBS_OBJS): $(BUILD_DIR)/%.o: %.s $$(dep)
 
 $(BUILD_DIR)/$(LD_SCRIPT): $(LD_SPEC) $(LD_TEMPLATE)
 	$(MAKELCF) $(MAKELCF_FLAGS) $^ $@
-
-#$(BUILD_DIR)/$(LD_SCRIPT): $(LD_SCRIPT)
-#	$(CPP) $(VERSION_CFLAGS) -MMD -MP -MT $@ -MF $@.d -I include/ -I . -DBUILD_DIR=$(BUILD_DIR) -o $@ $<
 
 $(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)
 	cd $(BUILD_DIR) && LM_LICENSE_FILE=../../$(LM_LICENSE_FILE) $(WINE) ../../$(MWLDARM) $(LDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) $(O_FILES:$(BUILD_DIR)/%=%)

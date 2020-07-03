@@ -44,7 +44,6 @@ MWCCARM  = ../../tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # only dependency should be MWCCARM.
 MWLDARM  = ../../tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = ../../tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
-NARCCOMP = ../../tools/narccomp/narccomp$(EXE)
 SCANINC = ../../tools/scaninc/scaninc$(EXE)
 
 AS      = $(WINE) $(MWASMARM)
