@@ -642,12 +642,14 @@ Overlay MODULE_23
 
 Overlay MODULE_24
 {
+	##Memo Pad##
 	After MODULE_20
 	Object module_24.o
 }
 
 Overlay MODULE_25
 {
+	##Analogue Watch##
 	After MODULE_20
 	Object module_25.o
 }
@@ -668,6 +670,7 @@ Overlay MODULE_27
 
 Overlay MODULE_28
 {
+	##Friendship Checker##
 	After MODULE_20
 	Object module_28.o
 	Object module_28_sinit.o
@@ -675,6 +678,7 @@ Overlay MODULE_28
 
 Overlay MODULE_29
 {
+	##Dowsing Machine##
 	After MODULE_20
 	Object module_29.o
 	Object module_29_sinit.o
@@ -716,6 +720,7 @@ Overlay MODULE_34
 
 Overlay MODULE_35
 {
+	##Daycare Checker##
 	After MODULE_20
 	Object module_35.o
 }
@@ -729,12 +734,14 @@ Overlay MODULE_36
 
 Overlay MODULE_37
 {
+	##Coin Toss##
 	After MODULE_20
 	Object module_37.o
 }
 
 Overlay MODULE_38
 {
+	##Move Checker##
 	After MODULE_20
 	Object module_38.o
 }
@@ -761,6 +768,7 @@ Overlay MODULE_41
 
 Overlay MODULE_42
 {
+	##Marking Map##
 	After MODULE_20
 	Object module_42.o
 	Object module_42_sinit.o
@@ -768,6 +776,7 @@ Overlay MODULE_42
 
 Overlay MODULE_43
 {
+	##Berry Searcher##
 	After MODULE_20
 	Object module_43.o
 	Object module_43_sinit.o
@@ -794,6 +803,7 @@ Overlay MODULE_46
 
 Overlay MODULE_47
 {
+	##Link Searcher##
 	After MODULE_20
 	Object module_47.o
 	Object module_47_sinit.o
@@ -807,6 +817,7 @@ Overlay MODULE_48
 
 Overlay MODULE_49
 {
+	##Pokemon History##
 	After MODULE_20
 	Object module_49.o
 }
@@ -915,7 +926,7 @@ Overlay MODULE_65
 
 Overlay MODULE_66
 {
-	##Weather effects?##
+	##Fly Map##
 	After arm9
 	Object module_66.o
 }
@@ -1027,8 +1038,11 @@ Overlay MODULE_83
 
 Overlay MODULE_84
 {
+	##Credits##
 	After arm9
-	Object module_84.o
+	Object module_84_thumb1.o
+	Object module_84_arm.o
+	Object module_84_thumb2.o
 }
 
 Overlay MODULE_85
