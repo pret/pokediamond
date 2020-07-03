@@ -72,102 +72,6 @@ S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
 
-ARM9SBIN := arm9/$(BUILD_DIR)/arm9.sbin
-ARM7SBIN := arm7/build/arm7.sbin
-
-SBINFILES = \
-	$(ARM9SBIN) \
-	$(ARM9SBIN:%.sbin=%_table.sbin) \
-	$(ARM9SBIN:%.sbin=%_defs.sbin) \
-	$(ARM7SBIN) \
-	arm9/$(BUILD_DIR)/MODULE_00.sbin \
-	arm9/$(BUILD_DIR)/MODULE_01.sbin \
-	arm9/$(BUILD_DIR)/MODULE_02.sbin \
-	arm9/$(BUILD_DIR)/MODULE_03.sbin \
-	arm9/$(BUILD_DIR)/MODULE_04.sbin \
-	arm9/$(BUILD_DIR)/MODULE_05.sbin \
-	arm9/$(BUILD_DIR)/MODULE_06.sbin \
-	arm9/$(BUILD_DIR)/MODULE_07.sbin \
-	arm9/$(BUILD_DIR)/MODULE_08.sbin \
-	arm9/$(BUILD_DIR)/MODULE_09.sbin \
-	arm9/$(BUILD_DIR)/MODULE_10.sbin \
-	arm9/$(BUILD_DIR)/MODULE_11.sbin \
-	arm9/$(BUILD_DIR)/MODULE_12.sbin \
-	arm9/$(BUILD_DIR)/MODULE_13.sbin \
-	arm9/$(BUILD_DIR)/MODULE_14.sbin \
-	arm9/$(BUILD_DIR)/MODULE_15.sbin \
-	arm9/$(BUILD_DIR)/MODULE_16.sbin \
-	arm9/$(BUILD_DIR)/MODULE_17.sbin \
-	arm9/$(BUILD_DIR)/MODULE_18.sbin \
-	arm9/$(BUILD_DIR)/MODULE_19.sbin \
-	arm9/$(BUILD_DIR)/MODULE_20.sbin \
-	arm9/$(BUILD_DIR)/MODULE_21.sbin \
-	arm9/$(BUILD_DIR)/MODULE_22.sbin \
-	arm9/$(BUILD_DIR)/MODULE_23.sbin \
-	arm9/$(BUILD_DIR)/MODULE_24.sbin \
-	arm9/$(BUILD_DIR)/MODULE_25.sbin \
-	arm9/$(BUILD_DIR)/MODULE_26.sbin \
-	arm9/$(BUILD_DIR)/MODULE_27.sbin \
-	arm9/$(BUILD_DIR)/MODULE_28.sbin \
-	arm9/$(BUILD_DIR)/MODULE_29.sbin \
-	arm9/$(BUILD_DIR)/MODULE_30.sbin \
-	arm9/$(BUILD_DIR)/MODULE_31.sbin \
-	arm9/$(BUILD_DIR)/MODULE_32.sbin \
-	arm9/$(BUILD_DIR)/MODULE_33.sbin \
-	arm9/$(BUILD_DIR)/MODULE_34.sbin \
-	arm9/$(BUILD_DIR)/MODULE_35.sbin \
-	arm9/$(BUILD_DIR)/MODULE_36.sbin \
-	arm9/$(BUILD_DIR)/MODULE_37.sbin \
-	arm9/$(BUILD_DIR)/MODULE_38.sbin \
-	arm9/$(BUILD_DIR)/MODULE_39.sbin \
-	arm9/$(BUILD_DIR)/MODULE_40.sbin \
-	arm9/$(BUILD_DIR)/MODULE_41.sbin \
-	arm9/$(BUILD_DIR)/MODULE_42.sbin \
-	arm9/$(BUILD_DIR)/MODULE_43.sbin \
-	arm9/$(BUILD_DIR)/MODULE_44.sbin \
-	arm9/$(BUILD_DIR)/MODULE_45.sbin \
-	arm9/$(BUILD_DIR)/MODULE_46.sbin \
-	arm9/$(BUILD_DIR)/MODULE_47.sbin \
-	arm9/$(BUILD_DIR)/MODULE_48.sbin \
-	arm9/$(BUILD_DIR)/MODULE_49.sbin \
-	arm9/$(BUILD_DIR)/MODULE_50.sbin \
-	arm9/$(BUILD_DIR)/MODULE_51.sbin \
-	arm9/$(BUILD_DIR)/MODULE_52.sbin \
-	arm9/$(BUILD_DIR)/MODULE_53.sbin \
-	arm9/$(BUILD_DIR)/MODULE_54.sbin \
-	arm9/$(BUILD_DIR)/MODULE_55.sbin \
-	arm9/$(BUILD_DIR)/MODULE_56.sbin \
-	arm9/$(BUILD_DIR)/MODULE_57.sbin \
-	arm9/$(BUILD_DIR)/MODULE_58.sbin \
-	arm9/$(BUILD_DIR)/MODULE_59.sbin \
-	arm9/$(BUILD_DIR)/MODULE_60.sbin \
-	arm9/$(BUILD_DIR)/MODULE_61.sbin \
-	arm9/$(BUILD_DIR)/MODULE_62.sbin \
-	arm9/$(BUILD_DIR)/MODULE_63.sbin \
-	arm9/$(BUILD_DIR)/MODULE_64.sbin \
-	arm9/$(BUILD_DIR)/MODULE_65.sbin \
-	arm9/$(BUILD_DIR)/MODULE_66.sbin \
-	arm9/$(BUILD_DIR)/MODULE_67.sbin \
-	arm9/$(BUILD_DIR)/MODULE_68.sbin \
-	arm9/$(BUILD_DIR)/MODULE_69.sbin \
-	arm9/$(BUILD_DIR)/MODULE_70.sbin \
-	arm9/$(BUILD_DIR)/MODULE_71.sbin \
-	arm9/$(BUILD_DIR)/MODULE_72.sbin \
-	arm9/$(BUILD_DIR)/MODULE_73.sbin \
-	arm9/$(BUILD_DIR)/MODULE_74.sbin \
-	arm9/$(BUILD_DIR)/MODULE_75.sbin \
-	arm9/$(BUILD_DIR)/MODULE_76.sbin \
-	arm9/$(BUILD_DIR)/MODULE_77.sbin \
-	arm9/$(BUILD_DIR)/MODULE_78.sbin \
-	arm9/$(BUILD_DIR)/MODULE_79.sbin \
-	arm9/$(BUILD_DIR)/MODULE_80.sbin \
-	arm9/$(BUILD_DIR)/MODULE_81.sbin \
-	arm9/$(BUILD_DIR)/MODULE_82.sbin \
-	arm9/$(BUILD_DIR)/MODULE_83.sbin \
-	arm9/$(BUILD_DIR)/MODULE_84.sbin \
-	arm9/$(BUILD_DIR)/MODULE_85.sbin \
-	arm9/$(BUILD_DIR)/MODULE_86.sbin
-
 ##################### Compiler Options #######################
 
 MWCCVERSION = 2.0/sp1
@@ -183,7 +87,6 @@ MWCCARM  = tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 KNARC = tools/knarc/knarc$(EXE)
 MWLDARM  = tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
-NARCCOMP = tools/narccomp/narccomp$(EXE)
 SCANINC = tools/scaninc/scaninc$(EXE)
 
 AS      = $(WINE) $(MWASMARM)
