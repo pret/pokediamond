@@ -6590,7 +6590,7 @@ _02230C1E:
 	mov r0, #0xab
 	lsl r0, r0, #4
 	str r1, [r4, r0]
-	ldr r0, _02230D88 ; =MOD12_02244BEA
+	ldr r0, _02230D88 ; =MOD12_02244BE8 + 2
 	ldrh r7, [r0, r6]
 	ldr r0, _02230D8C ; =0x0112A880
 	add r1, r7, #0
@@ -6614,7 +6614,7 @@ _02230C1E:
 	strh r7, [r4, r0]
 	sub r0, r1, #4
 	ldr r2, [r4, r0]
-	ldr r0, _02230D9C ; =MOD12_02244BEE
+	ldr r0, _02230D9C ; =MOD12_02244BE8 + 6
 	add r3, r2, #0
 	ldrb r0, [r0, r6]
 	mul r3, r0
@@ -6622,7 +6622,7 @@ _02230C1E:
 	str r3, [r4, r0]
 	sub r0, r1, #4
 	ldr r2, [r4, r0]
-	ldr r0, _02230DA0 ; =MOD12_02244BEF
+	ldr r0, _02230DA0 ; =MOD12_02244BE8 + 7
 	add r3, r2, #0
 	ldrb r0, [r0, r6]
 	mul r3, r0
@@ -6635,7 +6635,7 @@ _02230C1E:
 	bl _u32_div_f
 	ldr r1, _02230DA4 ; =0x00000AF8
 	str r0, [r4, r1]
-	ldr r0, _02230DA8 ; =MOD12_02244BED
+	ldr r0, _02230DA8 ; =MOD12_02244BE8 + 5
 	ldrb r2, [r0, r6]
 	add r0, r1, #6
 	strb r2, [r4, r0]
@@ -6762,15 +6762,15 @@ _02230D80:
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
 _02230D84: .word MOD12_02244BE8
-_02230D88: .word MOD12_02244BEA
+_02230D88: .word MOD12_02244BE8 + 2
 _02230D8C: .word 0x0112A880
 _02230D90: .word 0x00000AE8
 _02230D94: .word 0x00001388
 _02230D98: .word 0x00000AEC
-_02230D9C: .word MOD12_02244BEE
-_02230DA0: .word MOD12_02244BEF
+_02230D9C: .word MOD12_02244BE8 + 6
+_02230DA0: .word MOD12_02244BE8 + 7
 _02230DA4: .word 0x00000AF8
-_02230DA8: .word MOD12_02244BED
+_02230DA8: .word MOD12_02244BE8 + 5
 _02230DAC: .word 0x00001158
 _02230DB0: .word 0x00000127
 
@@ -48209,25 +48209,8 @@ MOD12_02244BD4: ; 0x02244BD4
 
 	.global MOD12_02244BE8
 MOD12_02244BE8: ; 0x02244BE8
-	.byte 0x99, 0x04
-
-	.global MOD12_02244BEA
-MOD12_02244BEA: ; 0x02244BEA
-	.byte 0x78, 0x00
-	.byte 0x02
-
-	.global MOD12_02244BED
-MOD12_02244BED: ; 0x02244BED
-	.byte 0x03
-
-	.global MOD12_02244BEE
-MOD12_02244BEE: ; 0x02244BEE
-	.byte 0x04
-
-	.global MOD12_02244BEF
-MOD12_02244BEF: ; 0x02244BEF
-	.byte 0x04
-	.byte 0x02, 0x02, 0x03, 0x03, 0x9B, 0x04, 0x78, 0x00, 0x02, 0x04, 0x04, 0x04
+	.byte 0x99, 0x04, 0x78, 0x00
+	.byte 0x02, 0x03, 0x04, 0x04, 0x02, 0x02, 0x03, 0x03, 0x9B, 0x04, 0x78, 0x00, 0x02, 0x04, 0x04, 0x04
 	.byte 0x02, 0x02, 0x03, 0x03
 
 	.global MOD12_02244C00
