@@ -391,7 +391,7 @@ FUN_0200AD38: ; 0x0200AD38
 	add r2, r3, #0x0
 	ldr r0, [r5, #0xc]
 	ldr r3, [sp, #0x10]
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -730,8 +730,8 @@ _0200AFF0:
 	pop {r3-r7, pc}
 	.balign 4
 
-	thumb_func_start FUN_0200AFF4
-FUN_0200AFF4: ; 0x0200AFF4
+	thumb_func_start GetLandmarkName
+GetLandmarkName: ; 0x0200AFF4
 	push {r3-r7, lr}
 	add r5, r0, #0x0
 	add r6, r2, #0x0

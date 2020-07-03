@@ -17329,7 +17329,7 @@ _02235DAC:
 	mov r2, #3
 	add r4, r0, #0
 	str r3, [sp]
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r0, #0
 	mvn r0, r0
 	str r0, [sp, #0x60]

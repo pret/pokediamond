@@ -35063,7 +35063,7 @@ MOD05_021E835C: ; 0x021E835C
 	ldr r2, [r4, #4]
 	mov r1, #0
 	add r5, r0, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r2, [r4, #8]
 	add r0, r5, #0
 	mov r1, #1

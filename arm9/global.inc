@@ -563,7 +563,7 @@
 .extern FUN_0200AF50
 .extern FUN_0200AF88
 .extern FUN_0200AFBC
-.extern FUN_0200AFF4
+.extern GetLandmarkName
 .extern FUN_0200B02C
 .extern FUN_0200B064
 .extern FUN_0200B09C
@@ -1395,7 +1395,7 @@
 .extern StringSetEmpty
 .extern StringCopy
 .extern StringDup
-.extern FUN_02021B04
+.extern String16_FormatInteger
 .extern FUN_02021C38
 .extern FUN_02021CE0
 .extern FUN_02021D3C
@@ -7189,9 +7189,9 @@
 .extern MOD68_021D74E0
 .extern MOD68_021D75D8
 .extern MOD68_021D762C
-.extern MOD69_0222D5C0
-.extern MOD69_0222D7F4
-.extern MOD69_0222D750
+.extern HOF_OverlayInit
+.extern HOF_OverlayRun
+.extern HOF_OverlayTeardown
 .extern MOD69_0222EC60
 .extern MOD70_021D74E0
 .extern MOD70_021D758C

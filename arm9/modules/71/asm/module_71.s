@@ -2940,7 +2940,7 @@ _0222EE14:
 	add r0, r7, #0
 	mov r2, #3
 	mov r3, #0
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r0, #0x1e
 	str r0, [sp]
 	ldr r0, [sp, #0x30]

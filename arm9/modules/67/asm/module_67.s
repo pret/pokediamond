@@ -1252,7 +1252,7 @@ _021D7E32:
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r4, #0
@@ -1778,7 +1778,7 @@ _021D82F2:
 	add r2, r0, #0
 	ldr r0, [r4, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r4, #0x54]
 	ldr r1, [r4, #0x58]
 	add r2, r5, #0
@@ -2427,7 +2427,7 @@ MOD67_021D87E4: ; 0x021D87E4
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2482,7 +2482,7 @@ _021D886E:
 	ldr r0, [r5, #0x54]
 	mov r1, #0
 	add r2, r4, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2532,7 +2532,7 @@ _021D88D2:
 	ldr r0, [r5, #0x54]
 	ldr r2, [sp, #0x10]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r6, #0
@@ -2678,7 +2678,7 @@ MOD67_021D89E0: ; 0x021D89E0
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2721,7 +2721,7 @@ MOD67_021D8A3C: ; 0x021D8A3C
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2764,7 +2764,7 @@ MOD67_021D8A98: ; 0x021D8A98
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2807,7 +2807,7 @@ MOD67_021D8AF4: ; 0x021D8AF4
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2850,7 +2850,7 @@ MOD67_021D8B50: ; 0x021D8B50
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2893,7 +2893,7 @@ MOD67_021D8BAC: ; 0x021D8BAC
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2936,7 +2936,7 @@ MOD67_021D8C08: ; 0x021D8C08
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -2979,7 +2979,7 @@ MOD67_021D8C64: ; 0x021D8C64
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -3022,7 +3022,7 @@ MOD67_021D8CC0: ; 0x021D8CC0
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -3065,7 +3065,7 @@ MOD67_021D8D1C: ; 0x021D8D1C
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0
@@ -3108,7 +3108,7 @@ MOD67_021D8D78: ; 0x021D8D78
 	add r2, r0, #0
 	ldr r0, [r5, #0x54]
 	mov r1, #0
-	bl FUN_0200AFF4
+	bl GetLandmarkName
 	ldr r0, [r5, #0x54]
 	ldr r1, [r5, #0x58]
 	add r2, r7, #0

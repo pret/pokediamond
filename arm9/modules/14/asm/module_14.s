@@ -29199,7 +29199,7 @@ _021E5872:
 	ldr r0, [r5, #0x74]
 	mov r2, #3
 	mov r3, #0
-	bl FUN_02021B04
+	bl String16_FormatInteger
 	mov r0, #0
 	ldr r1, [r5, #0x74]
 	add r2, r0, #0
