@@ -202,7 +202,12 @@ $(ROM): $(BUILD_DIR)/$(LD_SCRIPT) $(O_FILES) $(STATIC_LIBS)
 	cd $(BUILD_DIR) && LM_LICENSE_FILE=../../$(LM_LICENSE_FILE) $(WINE) ../../$(MWLDARM) $(LDFLAGS) $(LIBS) -o ../../$(ELF) $(LD_SCRIPT) $(O_FILES:$(BUILD_DIR)/%=%)
 	$(OBJCOPY) $(foreach ov,arm9 $(OVERLAYS),--update-section $(ov)=$(BUILD_DIR)/$(ov).sbin -j $(ov)) $(ELF) 2>/dev/null
 
-$(BUILD_DIR)/lib/libsyscall.a: $(BUILD_DIR)/lib/syscall/secure.o
+ifeq ($(SHIFTED),0)
+SYSCALL_OBJS := $(BUILD_DIR)/lib/syscall/secure.o
+else
+SYSCALL_OBJS := $(BUILD_DIR)/lib/syscall/_svc_mw.o
+endif
+$(BUILD_DIR)/lib/libsyscall.a: $(SYSCALL_OBJS)
 	$(AR) $(ARFLAGS) -o $@ $^
 
 # Make sure build directory exists before compiling anything
