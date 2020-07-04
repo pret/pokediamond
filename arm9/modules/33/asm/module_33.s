@@ -5,12 +5,12 @@
 
 	thumb_func_start MOD33_02254840
 MOD33_02254840: ; 0x02254840
-	ldr r3, _02254848 ; =MOD20_02252978
+	ldr r3, _02254848 ; =Poketch_InitApp
 	ldr r0, _0225484C ; =MOD33_02254854
 	ldr r1, _02254850 ; =MOD33_02254908
 	bx r3
 	.align 2, 0
-_02254848: .word MOD20_02252978
+_02254848: .word Poketch_InitApp
 _0225484C: .word MOD33_02254854
 _02254850: .word MOD33_02254908
 	thumb_func_end MOD33_02254840
