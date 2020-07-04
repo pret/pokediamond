@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#if __GNUC__ <= 7
+#if (__GNUC__ <= 7) && !defined _MSC_VER
 #include <experimental/filesystem>
 namespace fs = std::experimental::filesystem;
 #else
@@ -75,19 +75,19 @@ struct FileImages
 
 class Narc
 {
-	public:
-		NarcError GetError() const;
+public:
+	NarcError GetError() const;
 
-		bool Pack(const fs::path& fileName, const fs::path& directory);
-		bool Unpack(const fs::path& fileName, const fs::path& directory);
+	bool Pack(const fs::path& fileName, const fs::path& directory);
+	bool Unpack(const fs::path& fileName, const fs::path& directory);
 
-	private:
-		NarcError error = NarcError::None;
+private:
+	NarcError error = NarcError::None;
 
-		void AlignDword(std::ofstream& ofs, uint8_t paddingChar);
+	void AlignDword(std::ofstream& ofs, uint8_t paddingChar);
 
-		bool Cleanup(std::ifstream& ifs, const NarcError& e);
-		bool Cleanup(std::ofstream& ofs, const NarcError& e);
+	bool Cleanup(std::ifstream& ifs, const NarcError& e);
+	bool Cleanup(std::ofstream& ofs, const NarcError& e);
 
-		std::vector<fs::directory_entry> OrderedDirectoryIterator(const fs::path& path, bool recursive) const;
+	std::vector<fs::directory_entry> OrderedDirectoryIterator(const fs::path& path, bool recursive) const;
 };

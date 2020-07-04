@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iomanip>
 #include <ios>
+#include <iostream>
 #include <map>
 #include <memory>
 #include <regex>
@@ -13,10 +14,10 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include <iostream>
-#include <fnmatch.h>
 
-#if __GNUC__ <= 7
+#include "fnmatch.h"
+
+#if (__GNUC__ <= 7) && !defined _MSC_VER
 #include <experimental/filesystem>
 namespace fs = std::experimental::filesystem;
 #else
@@ -111,31 +112,31 @@ NarcError Narc::GetError() const
 
 class WildcardVector : public vector<string> {
 public:
-    WildcardVector(fs::path fp) {
-        fstream infile;
-        if (!fs::exists(fp)) return;
-        infile.open(fp, ios_base::in);
-        string line;
-        while (getline(infile, line)) {
-            if (!line.empty())
-            {
-                // strip CR
-                size_t i;
-                for (i = line.size() - 1; line[i] == '\r'; i--)
-                    ;
-                if (i < line.size() - 1)
-                    line.erase(i + 1);
-                push_back(line);
-            }
-        }
-    }
-    bool matches(string fp) {
-        for (string& pattern : *this) {
-            if (fnmatch(pattern.c_str(), fp.c_str(), FNM_PERIOD) == 0)
-                return true;
-        }
-        return false;
-    }
+	WildcardVector(fs::path fp) {
+		fstream infile;
+		if (!fs::exists(fp)) return;
+		infile.open(fp, ios_base::in);
+		string line;
+		while (getline(infile, line)) {
+			if (!line.empty())
+			{
+				// strip CR
+				size_t i;
+				for (i = line.size() - 1; line[i] == '\r'; i--)
+					;
+				if (i < line.size() - 1)
+					line.erase(i + 1);
+				push_back(line);
+			}
+		}
+	}
+	bool matches(string fp) {
+		for (string& pattern : *this) {
+			if (fnmatch(pattern.c_str(), fp.c_str(), FNM_PERIOD) == 0)
+				return true;
+		}
+		return false;
+	}
 };
 
 bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
@@ -158,11 +159,11 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 		{
 			++directoryCounter;
 		}
-		else if (keep_patterns.matches(de.path().filename()) || !ignore_patterns.matches(de.path().filename()))
+		else if (keep_patterns.matches(de.path().filename().string()) || !ignore_patterns.matches(de.path().filename().string()))
 		{
-		    if (debug) {
-		        cerr << "DEBUG: adding file " << de.path() << endl;
-		    }
+			if (debug) {
+				cerr << "DEBUG: adding file " << de.path() << endl;
+			}
 			fatEntries.push_back(FileAllocationTableEntry
 				{
 					.Start = 0x0,
@@ -198,7 +199,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 
 	for (const auto& de : OrderedDirectoryIterator(directory, true))
 	{
-		if (!subTables.count(de.path().parent_path()) && (keep_patterns.matches(de.path().filename()) || !ignore_patterns.matches(de.path().filename())))
+		if (!subTables.count(de.path().parent_path()) && (keep_patterns.matches(de.path().filename().string()) || !ignore_patterns.matches(de.path().filename().string())))
 		{
 			subTables.insert({ de.path().parent_path(), "" });
 			paths.push_back(de.path().parent_path());
@@ -213,7 +214,7 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 			subTables[de.path().parent_path()] += (0xF000 + directoryCounter) & 0xFF;
 			subTables[de.path().parent_path()] += (0xF000 + directoryCounter) >> 8;
 		}
-		else if (keep_patterns.matches(de.path().filename()) || !ignore_patterns.matches(de.path().filename()))
+		else if (keep_patterns.matches(de.path().filename().string()) || !ignore_patterns.matches(de.path().filename().string()))
 		{
 			subTables[de.path().parent_path()] += static_cast<uint8_t>(de.path().filename().string().size());
 			subTables[de.path().parent_path()] += de.path().filename().string();
@@ -345,10 +346,10 @@ bool Narc::Pack(const fs::path& fileName, const fs::path& directory)
 			continue;
 		}
 
-		if (!(keep_patterns.matches(de.path().filename()) || !ignore_patterns.matches(de.path().filename())))
-        {
-		    continue;
-        }
+		if (!(keep_patterns.matches(de.path().filename().string()) || !ignore_patterns.matches(de.path().filename().string())))
+		{
+			continue;
+		}
 
 		ifstream ifs(de.path(), ios::binary | ios::ate);
 
