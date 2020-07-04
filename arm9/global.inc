@@ -7058,7 +7058,7 @@
 .extern MOD20_022524DC
 .extern MOD20_02252534
 .extern MOD20_02252538
-.extern MOD20_02252978
+.extern Poketch_InitApp
 .extern MOD20_0225298C
 .extern MOD20_022529A0
 .extern MOD20_022529B4
