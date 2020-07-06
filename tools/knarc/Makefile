@@ -1,7 +1,7 @@
 CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch -lstdc++fs
 
-SRCS := Source.cpp Narc.cpp
-HEADERS := Narc.h
+SRCS := Source.cpp Narc.cpp fnmatch.c
+HEADERS := Narc.h fnmatch.h
 
 .PHONY: all clean
 
