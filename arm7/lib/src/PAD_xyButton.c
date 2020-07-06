@@ -29,5 +29,5 @@ void PADi_xyButtonAlarmHandler(void) {
     EXIi_SelectRcnt(0x8000);
     r1 = reg_EXTKEYIN;
     if(r1 & EXTKEYIN_HINGE) r4 = 0x8000;
-    BUTTON_XY_BUF = r4 | ((r1 & (EXTKEYIN_X | EXTKEYIN_Y | EXTKEYIN_DEBUG)) << 10);
+    BUTTON_XY_BUF = (u16)(r4 | ((r1 & (EXTKEYIN_X | EXTKEYIN_Y | EXTKEYIN_DEBUG)) << 10));
 }
