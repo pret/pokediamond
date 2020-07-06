@@ -123,7 +123,7 @@
 .extern PXI_SetFifoRecvCallback
 .extern EXIi_SelectRcnt
 .extern EXIi_SetBitRcnt0L
-.extern FUN_037FB92C
+.extern PADi_xyButtonAlarmHandler
 .extern SNDi_LockMutex
 .extern SNDi_SetPlayerParam
 .extern SNDi_SetSurroundDecay
