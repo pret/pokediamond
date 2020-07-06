@@ -1,7 +1,7 @@
 #include "function_target.h"
 #include "OS_alarm.h"
 #include "OS_tick.h"
-#include "pad.h"
+#include "PAD_xyButton.h"
 
 static BOOL PADi_XYButtonAvailable;
 static OSAlarm PADi_Alarm;
