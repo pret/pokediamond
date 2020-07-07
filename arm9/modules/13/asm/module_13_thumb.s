@@ -182,25 +182,25 @@ _0221741C: .word 0x0000FF00
 
 	thumb_func_start MOD13_02217420
 MOD13_02217420: ; 0x02217420
-	ldr r3, _02217424 ; =0x0209A7B8
+	ldr r3, _02217424 ; =SOC_Close
 	bx r3
 	.align 2, 0
-_02217424: .word 0x0209A7B8
+_02217424: .word SOC_Close
 
 	thumb_func_start MOD13_02217428
 MOD13_02217428: ; 0x02217428
 	strb r2, [r1]
-	ldr r3, _02217430 ; =0x0209A9A4
+	ldr r3, _02217430 ; =SOC_Bind
 	bx r3
 	nop
-_02217430: .word 0x0209A9A4
+_02217430: .word SOC_Bind
 
 	thumb_func_start MOD13_02217434
 MOD13_02217434: ; 0x02217434
-	ldr r3, _02217438 ; =0x0209A9D0
+	ldr r3, _02217438 ; =SOC_Socket
 	bx r3
 	.align 2, 0
-_02217438: .word 0x0209A9D0
+_02217438: .word SOC_Socket
 
 	thumb_func_start MOD13_0221743C
 MOD13_0221743C: ; 0x0221743C
@@ -288,10 +288,10 @@ MOD13_022174CC: ; 0x022174CC
 	add r3, r0, #0
 	add r0, r1, #0
 	add r1, r3, #0
-	ldr r3, _022174D8 ; =0x020CE3E0
+	ldr r3, _022174D8 ; =MI_CpuCopy8
 	bx r3
 	nop
-_022174D8: .word 0x020CE3E0
+_022174D8: .word MI_CpuCopy8
 
 	thumb_func_start MOD13_022174DC
 MOD13_022174DC: ; 0x022174DC
@@ -4871,10 +4871,10 @@ _022198E0: .word MOD13_02241904
 
 	thumb_func_start MOD13_022198E4
 MOD13_022198E4: ; 0x022198E4
-	ldr r3, _022198E8 ; =0x020CAFC0
+	ldr r3, _022198E8 ; =OS_Sleep
 	bx r3
 	.align 2, 0
-_022198E8: .word 0x020CAFC0
+_022198E8: .word OS_Sleep
 
 	thumb_func_start MOD13_022198EC
 MOD13_022198EC: ; 0x022198EC
@@ -5575,22 +5575,22 @@ MOD13_02219E48: ; 0x02219E48
 	add r1, r0, #0
 	ldr r0, _02219E54 ; =0x02241920
 	mov r2, #0
-	ldr r3, _02219E58 ; =0x020CBDC4
+	ldr r3, _02219E58 ; =OS_SendMessage
 	bx r3
 	nop
 _02219E54: .word MOD13_02241920
-_02219E58: .word 0x020CBDC4
+_02219E58: .word OS_SendMessage
 
 	thumb_func_start MOD13_02219E5C
 MOD13_02219E5C: ; 0x02219E5C
 	add r1, r0, #0
 	ldr r0, _02219E68 ; =0x02241920
 	mov r2, #0
-	ldr r3, _02219E6C ; =0x020CBDC4
+	ldr r3, _02219E6C ; =OS_SendMessage
 	bx r3
 	nop
 _02219E68: .word MOD13_02241920
-_02219E6C: .word 0x020CBDC4
+_02219E6C: .word OS_SendMessage
 
 	thumb_func_start MOD13_02219E70
 MOD13_02219E70: ; 0x02219E70
@@ -6063,7 +6063,7 @@ _0221A21E:
 	mov r1, #0xff
 	mov r2, #6
 	bl MI_CpuFill8
-	ldr r1, _0221A2E8 ; =0x020FF590
+	ldr r1, _0221A2E8 ; =WCM_Bssid_Any
 	ldr r0, _0221A2E4 ; =0x02241A70
 	str r1, [r0]
 _0221A22E:
@@ -6107,7 +6107,7 @@ _0221A26C:
 	mov r1, #0xff
 	mov r2, #0x20
 	bl MI_CpuFill8
-	ldr r1, _0221A2F4 ; =0x020FF598
+	ldr r1, _0221A2F4 ; =WCM_Essid_Any
 	ldr r0, _0221A2F0 ; =0x02241A74
 	str r1, [r0]
 _0221A27C:
@@ -6160,10 +6160,10 @@ _0221A2CC:
 _0221A2DC: .word MOD13_02241A64
 _0221A2E0: .word MOD13_02241A88
 _0221A2E4: .word MOD13_02241A70
-_0221A2E8: .word 0x020FF590
+_0221A2E8: .word WCM_Bssid_Any
 _0221A2EC: .word MOD13_02241A90
 _0221A2F0: .word MOD13_02241A74
-_0221A2F4: .word 0x020FF598
+_0221A2F4: .word WCM_Essid_Any
 _0221A2F8: .word MOD13_02241A78
 
 	thumb_func_start MOD13_0221A2FC
@@ -14026,7 +14026,7 @@ _0221DFD0:
 	mov r1, #0xff
 	mov r2, #6
 	bl MI_CpuFill8
-	ldr r1, _0221E094 ; =0x020FF590
+	ldr r1, _0221E094 ; =WCM_Bssid_Any
 	ldr r0, _0221E090 ; =0x02241AF4
 	str r1, [r0]
 _0221DFDE:
@@ -14068,7 +14068,7 @@ _0221E01A:
 	mov r1, #0xff
 	mov r2, #0x20
 	bl MI_CpuFill8
-	ldr r1, _0221E0A0 ; =0x020FF598
+	ldr r1, _0221E0A0 ; =WCM_Essid_Any
 	ldr r0, _0221E09C ; =0x02241AF8
 	str r1, [r0]
 _0221E02A:
@@ -14120,10 +14120,10 @@ _0221E078:
 _0221E088: .word MOD13_02241B10
 _0221E08C: .word MOD13_02241B44
 _0221E090: .word MOD13_02241AF4
-_0221E094: .word 0x020FF590
+_0221E094: .word WCM_Bssid_Any
 _0221E098: .word MOD13_02241BA4
 _0221E09C: .word MOD13_02241AF8
-_0221E0A0: .word 0x020FF598
+_0221E0A0: .word WCM_Essid_Any
 _0221E0A4: .word MOD13_02241ADC
 
 	thumb_func_start MOD13_0221E0A8
@@ -15474,7 +15474,8 @@ MOD13_0223F7C4: ; 0x0223F7C4
 
 	.global MOD13_0223F7C8
 MOD13_0223F7C8: ; 0x0223F7C8
-	.byte 0x00, 0x00, 0x00, 0x01, 0xAD, 0x75, 0x21, 0x02, 0x95, 0x75, 0x21, 0x02, 0x00, 0x00, 0x00, 0x00
+	.word 0x01000000, MOD13_022175AC, MOD13_02217594
+	.byte 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -15499,7 +15500,7 @@ MOD13_0223F834: ; 0x0223F834
 
 	.global MOD13_0223F864
 MOD13_0223F864: ; 0x0223F864
-	.byte 0xEC, 0x1F, 0x24, 0x02
+	.word MOD13_02241FEC
 
 	.global MOD13_0223F868
 MOD13_0223F868: ; 0x0223F868
@@ -15524,7 +15525,11 @@ MOD13_0223F878: ; 0x0223F878
 	.balign 4
 	.global MOD13_0223F880
 MOD13_0223F880: ; 0x0223F880
-	.byte 0x06, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x00, 0x4E, 0x49, 0x4E, 0x54, 0x45, 0x4E, 0x44, 0x4F
+	.byte 0x06, 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x00
+
+	.global MOD13_0223F888
+MOD13_0223F888: ; 0x0223F888
+	.byte 0x4E, 0x49, 0x4E, 0x54, 0x45, 0x4E, 0x44, 0x4F
 	.byte 0x2D, 0x44, 0x53, 0x00
 
 	.global MOD13_0223F894
@@ -15536,11 +15541,12 @@ MOD13_0223F894: ; 0x0223F894
 
 	.global MOD13_0223F8D4
 MOD13_0223F8D4: ; 0x0223F8D4
-	.byte 0x00, 0x00, 0x00, 0x01, 0x09, 0xDD, 0x21, 0x02, 0xD9, 0xDC, 0x21, 0x02, 0x00, 0x00, 0x00, 0x00
+	.word 0x01000000, MOD13_0221DD08, MOD13_0221DCD8
+	.byte 0x00, 0x00, 0x00, 0x00
 	.byte 0xC0, 0xA8, 0x00, 0xB0, 0xFF, 0xFF, 0xFF, 0x00, 0xC0, 0xA8, 0x00, 0xC8, 0xC0, 0xA8, 0x00, 0x20
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x88, 0xF8, 0x23, 0x02, 0x04, 0x00, 0x00, 0x00
+	.word 0x00000000, 0x00000000, MOD13_0223F888, 0x00000004
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
 	.global MOD13_0223F92C
@@ -15910,7 +15916,11 @@ MOD13_02241F8C: ; 0x02241F8C
 
 	.global MOD13_02241FE4
 MOD13_02241FE4: ; 0x02241FE4
-	.space 0x800
+	.space 0x8
+
+	.global MOD13_02241FEC
+MOD13_02241FEC: ; 0x02241FEC
+	.space 0x7F8
 
 	.global MOD13_022427E4
 MOD13_022427E4: ; 0x022427E4

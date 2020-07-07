@@ -5741,6 +5741,7 @@
 .extern FUN_020C0EA4
 .extern FUN_020C0EF4
 .extern FUN_020C0F30
+.extern FUN_020C0F40
 .extern FUN_020C0F50
 .extern FUN_020C0F68
 .extern FUN_020C0F80
@@ -5780,6 +5781,7 @@
 .extern FUN_020C3640
 .extern FUN_020C3674
 .extern FUN_020C36A8
+.extern FUN_020C3888
 .extern FUN_020C3910
 .extern FUN_020C3980
 .extern FUN_020C39CC
@@ -7907,6 +7909,7 @@
 .extern WM_GetMPSendBufferSize
 .extern WM_GetNextTgid
 .extern WM_GetOtherElements
+.extern WM_GetSharedDataAddress
 .extern WM_Init
 .extern WM_Initialize
 .extern WM_MeasureChannel
@@ -7947,6 +7950,7 @@
 .extern WMi_SendCommandDirect
 .extern WMi_SetCallbackTable
 .extern WMi_StartParentEx
+.extern _start_AutoloadDoneCallback
 .extern _ExitProcess
 .extern __FileWrite
 .extern __StringWrite
