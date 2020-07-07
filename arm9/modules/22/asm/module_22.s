@@ -197,7 +197,7 @@ _0225499E:
 	ldrb r1, [r4]
 	add r0, r4, #0
 	lsl r2, r1, #2
-	ldr r1, _022549D4 ; =0x0225561C
+	ldr r1, _022549D4 ; =MOD22_0225561C
 	ldr r1, [r1, r2]
 	blx r1
 	cmp r0, #0
@@ -211,7 +211,7 @@ _0225499E:
 _022549D2:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_022549D4: .word 0x0225561C
+_022549D4: .word MOD22_0225561C
 	thumb_func_end MOD22_0225497C
 
 	thumb_func_start MOD22_022549D8
@@ -593,7 +593,7 @@ MOD22_02254C88: ; 0x02254C88
 	add r4, r0, #0
 	mov r0, #8
 	str r0, [sp]
-	ldr r0, _02254CCC ; =0x02255618
+	ldr r0, _02254CCC ; =MOD22_02255618
 	ldr r2, _02254CD0 ; =MOD22_02254CE0
 	mov r1, #1
 	add r3, r4, #0
@@ -620,7 +620,7 @@ _02254CC4:
 	add sp, #4
 	pop {r3, r4, pc}
 	nop
-_02254CCC: .word 0x02255618
+_02254CCC: .word MOD22_02255618
 _02254CD0: .word MOD22_02254CE0
 	thumb_func_end MOD22_02254C88
 
@@ -1113,13 +1113,13 @@ MOD22_02255048: ; 0x02255048
 	str r0, [sp, #4]
 	mov r0, #8
 	str r0, [sp, #8]
-	ldr r0, _02255068 ; =0x02255670
+	ldr r0, _02255068 ; =MOD22_02255670
 	ldr r3, [r2]
 	bl MOD20_022537E0
 	add sp, #0xc
 	pop {pc}
 	nop
-_02255068: .word 0x02255670
+_02255068: .word MOD22_02255670
 	thumb_func_end MOD22_02255048
 
 	thumb_func_start MOD22_0225506C
@@ -1161,7 +1161,7 @@ MOD22_02255098: ; 0x02255098
 	bl MOD20_022538A0
 	add r5, r0, #0
 	ldr r0, [r5, #4]
-	ldr r2, _0225515C ; =0x02255654
+	ldr r2, _0225515C ; =MOD22_02255654
 	mov r1, #6
 	mov r3, #0
 	bl FUN_02016C18
@@ -1239,7 +1239,7 @@ _02255136:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
-_0225515C: .word 0x02255654
+_0225515C: .word MOD22_02255654
 _02255160: .word MOD22_02254F28
 _02255164: .word 0x04001000
 _02255168: .word 0xFFFFE0FF
@@ -1282,7 +1282,7 @@ MOD22_022551A4: ; 0x022551A4
 	add r7, r0, #0
 	str r0, [sp, #4]
 	add r0, #0x48
-	ldr r4, _022551FC ; =0x022556A0
+	ldr r4, _022551FC ; =MOD22_022556A0
 	str r1, [sp]
 	mov r6, #0
 	add r5, r7, #0
@@ -1298,7 +1298,7 @@ _022551B8:
 	add r5, r5, #4
 	cmp r6, #7
 	bls _022551B8
-	ldr r2, _022551FC ; =0x022556A0
+	ldr r2, _022551FC ; =MOD22_022556A0
 	lsl r1, r6, #4
 	add r1, r2, r1
 	add r2, r7, #0
@@ -1320,7 +1320,7 @@ _022551F6:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_022551FC: .word 0x022556A0
+_022551FC: .word MOD22_022556A0
 	thumb_func_end MOD22_022551A4
 
 	thumb_func_start MOD22_02255200
@@ -1334,19 +1334,19 @@ MOD22_02255200: ; 0x02255200
 	ldr r1, [r4, #0x18]
 	add r0, r5, #0
 	lsl r2, r1, #2
-	ldr r1, _0225522C ; =0x02255638
+	ldr r1, _0225522C ; =MOD22_02255638
 	ldr r1, [r1, r2]
 	bl FUN_0201B6C4
 	ldr r2, [r4, #0x18]
 	add r0, r5, #0
 	lsl r3, r2, #2
-	ldr r2, _0225522C ; =0x02255638
+	ldr r2, _0225522C ; =MOD22_02255638
 	add r1, r6, #0
 	ldr r2, [r2, r3]
 	blx r2
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0225522C: .word 0x02255638
+_0225522C: .word MOD22_02255638
 	thumb_func_end MOD22_02255200
 
 	thumb_func_start MOD22_02255230
@@ -1717,7 +1717,7 @@ MOD22_02255510: ; 0x02255510
 	strb r2, [r0, #2]
 _0225552E:
 	ldrb r2, [r0, #2]
-	ldr r1, _02255540 ; =0x02255634
+	ldr r1, _02255540 ; =MOD22_02255634
 	ldrb r1, [r1, r2]
 	strb r1, [r0, #3]
 	mov r0, #1
@@ -1726,7 +1726,7 @@ _0225553A:
 	mov r0, #0
 	bx lr
 	nop
-_02255540: .word 0x02255634
+_02255540: .word MOD22_02255634
 	thumb_func_end MOD22_02255510
 
 	thumb_func_start MOD22_02255544
@@ -1841,16 +1841,41 @@ _02255604:
 	thumb_func_end MOD22_022555FC
 
 	.section .rodata
-	; 0x02255618
-	.byte 0xFE, 0x70, 0x70, 0x27, 0xFD, 0x49, 0x25, 0x02, 0x4D, 0x4A, 0x25, 0x02, 0xCD, 0x4A, 0x25, 0x02
-	.byte 0x51, 0x4B, 0x25, 0x02, 0xB5, 0x4B, 0x25, 0x02, 0x51, 0x4C, 0x25, 0x02, 0x02, 0x03, 0x04, 0x00
-	.byte 0x31, 0x52, 0x25, 0x02, 0x69, 0x52, 0x25, 0x02, 0xAD, 0x52, 0x25, 0x02, 0x01, 0x53, 0x25, 0x02
-	.byte 0x81, 0x53, 0x25, 0x02, 0x01, 0x54, 0x25, 0x02, 0x9D, 0x54, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD22_02255618
+MOD22_02255618: ; 0x02255618
+	.byte 0xFE, 0x70, 0x70, 0x27
+
+	.global MOD22_0225561C
+MOD22_0225561C: ; 0x0225561C
+	.word MOD22_022549FC, MOD22_02254A4C, MOD22_02254ACC, MOD22_02254B50
+	.word MOD22_02254BB4, MOD22_02254C50
+
+	.global MOD22_02255634
+MOD22_02255634: ; 0x02255634
+	.byte 0x02, 0x03, 0x04, 0x00
+
+	.global MOD22_02255638
+MOD22_02255638: ; 0x02255638
+	.word MOD22_02255230, MOD22_02255268, MOD22_022552AC, MOD22_02255300
+	.word MOD22_02255380, MOD22_02255400, MOD22_0225549C
+
+	.global MOD22_02255654
+MOD22_02255654: ; 0x02255654
+	.byte 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x0E, 0x00
-	.byte 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x99, 0x50, 0x25, 0x02
-	.byte 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x52, 0x25, 0x02, 0x04, 0x00, 0x00, 0x00
-	.byte 0x03, 0x00, 0x00, 0x00, 0xA5, 0x55, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x80, 0x02, 0x00
+	.byte 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD22_02255670
+MOD22_02255670: ; 0x02255670
+	.word 0x00, MOD22_02255098, 0x00
+	.word 0x01, MOD22_02255200, 0x04
+	.word 0x03, MOD22_022555A4, 0x00
+	.word 0x00, 0x00000000, 0x00
+
+	.global MOD22_022556A0
+MOD22_022556A0: ; 0x022556A0
+	.byte 0x00, 0x00, 0x02, 0x00, 0x00, 0x80, 0x02, 0x00
 	.byte 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x80, 0x02, 0x00
 	.byte 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x80, 0x02, 0x00
 	.byte 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x80, 0x02, 0x00
