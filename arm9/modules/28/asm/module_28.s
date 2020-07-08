@@ -176,7 +176,7 @@ _02254986:
 
 	thumb_func_start MOD28_0225498C
 MOD28_0225498C: ; 0x0225498C
-	ldr r3, _022549A8 ; =0x02255E78
+	ldr r3, _022549A8 ; =MOD28_02255E78
 	mov r2, #0
 _02254990:
 	ldrb r1, [r3]
@@ -192,7 +192,7 @@ _0225499A:
 	mov r0, #6
 	bx lr
 	nop
-_022549A8: .word 0x02255E78
+_022549A8: .word MOD28_02255E78
 	thumb_func_end MOD28_0225498C
 
 	thumb_func_start MOD28_022549AC
@@ -216,7 +216,7 @@ MOD28_022549C0: ; 0x022549C0
 	cmp r1, #3
 	bhs _022549EC
 	lsl r2, r1, #2
-	ldr r1, _022549F0 ; =0x02255E80
+	ldr r1, _022549F0 ; =MOD28_02255E80
 	add r0, r4, #0
 	ldr r1, [r1, r2]
 	blx r1
@@ -231,7 +231,7 @@ MOD28_022549C0: ; 0x022549C0
 _022549EC:
 	pop {r3, r4, r5, pc}
 	nop
-_022549F0: .word 0x02255E80
+_022549F0: .word MOD28_02255E80
 	thumb_func_end MOD28_022549C0
 
 	thumb_func_start MOD28_022549F4
@@ -508,13 +508,13 @@ MOD28_02254BC8: ; 0x02254BC8
 	str r0, [sp, #4]
 	mov r0, #8
 	str r0, [sp, #8]
-	ldr r0, _02254BE8 ; =0x02255EF4
+	ldr r0, _02254BE8 ; =MOD28_02255EF4
 	ldr r3, [r2]
 	bl MOD20_022537E0
 	add sp, #0xc
 	pop {pc}
 	nop
-_02254BE8: .word 0x02255EF4
+_02254BE8: .word MOD28_02255EF4
 	thumb_func_end MOD28_02254BC8
 
 	thumb_func_start MOD28_02254BEC
@@ -556,7 +556,7 @@ MOD28_02254C18: ; 0x02254C18
 	bl MOD20_022538A0
 	add r5, r0, #0
 	ldr r0, [r5, #4]
-	ldr r2, _02254CA8 ; =0x02255ED8
+	ldr r2, _02254CA8 ; =MOD28_02255ED8
 	mov r1, #6
 	mov r3, #0
 	bl FUN_02016C18
@@ -613,7 +613,7 @@ MOD28_02254C18: ; 0x02254C18
 	add sp, #0x14
 	pop {r4, r5, pc}
 	.align 2, 0
-_02254CA8: .word 0x02255ED8
+_02254CA8: .word MOD28_02255ED8
 _02254CAC: .word 0x04001000
 _02254CB0: .word 0xFFFFE0FF
 	thumb_func_end MOD28_02254C18
@@ -673,7 +673,7 @@ _02254D08:
 	str r0, [sp, #0x28]
 	add r0, #0x48
 	ldr r4, [sp, #0x10]
-	ldr r6, _02254E4C ; =0x02255EC0
+	ldr r6, _02254E4C ; =MOD28_02255EC0
 	str r0, [sp, #0x28]
 _02254D24:
 	ldr r0, [sp, #0x1c]
@@ -812,7 +812,7 @@ _02254E46:
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_02254E4C: .word 0x02255EC0
+_02254E4C: .word MOD28_02255EC0
 _02254E50: .word 0x00000165
 	thumb_func_end MOD28_02254CB4
 
@@ -1062,7 +1062,7 @@ _0225500C:
 	ldr r2, [r2]
 	add r0, r5, #0
 	lsl r3, r2, #2
-	ldr r2, _0225503C ; =0x02255E94
+	ldr r2, _0225503C ; =MOD28_02255E94
 	add r1, r4, #0
 	ldr r2, [r2, r3]
 	blx r2
@@ -1080,7 +1080,7 @@ _0225500C:
 _02255038:
 	pop {r3, r4, r5, pc}
 	nop
-_0225503C: .word 0x02255E94
+_0225503C: .word MOD28_02255E94
 	thumb_func_end MOD28_02254F84
 
 	thumb_func_start MOD28_02255040
@@ -1334,7 +1334,7 @@ _022551D4:
 	ldr r0, _0225521C ; =0x00000163
 	strb r1, [r5, r0]
 	ldrb r2, [r5, r2]
-	ldr r0, _02255220 ; =0x02255F20
+	ldr r0, _02255220 ; =MOD28_02255F20
 	add r1, r4, #0
 	bl MOD28_022551BC
 	b _02255208
@@ -1345,7 +1345,7 @@ _022551F4:
 	ldr r0, [sp]
 	add r1, r7, #0
 	lsl r6, r3, #2
-	ldr r3, _02255224 ; =0x02255EA8
+	ldr r3, _02255224 ; =MOD28_02255EA8
 	add r2, r4, #0
 	ldr r3, [r3, r6]
 	blx r3
@@ -1356,14 +1356,14 @@ _02255208:
 	cmp r4, r0
 	blt _022551D4
 _02255212:
-	ldr r0, _02255228 ; =0x02255F34
+	ldr r0, _02255228 ; =MOD28_02255F34
 	bl MOD28_022551BC
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _0225521C: .word 0x00000163
-_02255220: .word 0x02255F20
-_02255224: .word 0x02255EA8
-_02255228: .word 0x02255F34
+_02255220: .word MOD28_02255F20
+_02255224: .word MOD28_02255EA8
+_02255228: .word MOD28_02255F34
 	thumb_func_end MOD28_022551C4
 
 	thumb_func_start MOD28_0225522C
@@ -1594,7 +1594,7 @@ MOD28_022553B4: ; 0x022553B4
 	add r5, r0, #0
 	add r4, r2, #0
 	add r6, r1, #0
-	ldr r0, _02255498 ; =0x02255F44
+	ldr r0, _02255498 ; =MOD28_02255F44
 	add r1, r4, #0
 	bl MOD28_022551BC
 	add r0, r6, #0
@@ -1699,7 +1699,7 @@ _0225548A:
 _02255494:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_02255498: .word 0x02255F44
+_02255498: .word MOD28_02255F44
 	thumb_func_end MOD28_022553B4
 
 	thumb_func_start MOD28_0225549C
@@ -1709,7 +1709,7 @@ MOD28_0225549C: ; 0x0225549C
 	add r5, r0, #0
 	add r4, r2, #0
 	add r6, r1, #0
-	ldr r0, _022555AC ; =0x02255F58
+	ldr r0, _022555AC ; =MOD28_02255F58
 	add r1, r4, #0
 	bl MOD28_022551BC
 	add r0, r6, #0
@@ -1787,7 +1787,7 @@ _02255516:
 	mul r7, r0
 	add r6, #0xf
 	ldrb r2, [r6, r7]
-	ldr r0, _022555B0 ; =0x02255E90
+	ldr r0, _022555B0 ; =MOD28_02255E90
 	ldr r1, [sp, #4]
 	ldrb r0, [r0, r2]
 	mul r0, r1
@@ -1795,7 +1795,7 @@ _02255516:
 	bl _s32_div_f
 	str r0, [sp, #4]
 	ldrb r2, [r6, r7]
-	ldr r0, _022555B0 ; =0x02255E90
+	ldr r0, _022555B0 ; =MOD28_02255E90
 	ldr r1, [sp, #8]
 	ldrb r0, [r0, r2]
 	mul r0, r1
@@ -1835,8 +1835,8 @@ _022555A6:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_022555AC: .word 0x02255F58
-_022555B0: .word 0x02255E90
+_022555AC: .word MOD28_02255F58
+_022555B0: .word MOD28_02255E90
 	thumb_func_end MOD28_0225549C
 
 	thumb_func_start MOD28_022555B4
@@ -1846,7 +1846,7 @@ MOD28_022555B4: ; 0x022555B4
 	add r5, r0, #0
 	add r6, r2, #0
 	add r4, r1, #0
-	ldr r0, _02255688 ; =0x02255F6C
+	ldr r0, _02255688 ; =MOD28_02255F6C
 	add r1, r6, #0
 	bl MOD28_022551BC
 	add r0, r4, #0
@@ -1895,7 +1895,7 @@ MOD28_022555B4: ; 0x022555B4
 	mul r7, r0
 	add r4, #0xf
 	ldrb r2, [r4, r7]
-	ldr r0, _0225568C ; =0x02255E8C
+	ldr r0, _0225568C ; =MOD28_02255E8C
 	ldr r1, [sp, #4]
 	ldrb r0, [r0, r2]
 	mul r0, r1
@@ -1903,7 +1903,7 @@ MOD28_022555B4: ; 0x022555B4
 	bl _s32_div_f
 	str r0, [sp, #4]
 	ldrb r2, [r4, r7]
-	ldr r0, _0225568C ; =0x02255E8C
+	ldr r0, _0225568C ; =MOD28_02255E8C
 	ldr r1, [sp, #8]
 	ldrb r0, [r0, r2]
 	mul r0, r1
@@ -1942,8 +1942,8 @@ _0225567A:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
-_02255688: .word 0x02255F6C
-_0225568C: .word 0x02255E8C
+_02255688: .word MOD28_02255F6C
+_0225568C: .word MOD28_02255E8C
 	thumb_func_end MOD28_022555B4
 
 	thumb_func_start MOD28_02255690
@@ -1953,7 +1953,7 @@ MOD28_02255690: ; 0x02255690
 	add r5, r0, #0
 	add r7, r2, #0
 	add r4, r1, #0
-	ldr r0, _02255764 ; =0x02255F80
+	ldr r0, _02255764 ; =MOD28_02255F80
 	add r1, r7, #0
 	bl MOD28_022551BC
 	add r4, #0x4c
@@ -2050,7 +2050,7 @@ _02255756:
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02255764: .word 0x02255F80
+_02255764: .word MOD28_02255F80
 	thumb_func_end MOD28_02255690
 
 	thumb_func_start MOD28_02255768
@@ -2059,7 +2059,7 @@ MOD28_02255768: ; 0x02255768
 	add r5, r0, #0
 	add r7, r2, #0
 	add r4, r1, #0
-	ldr r0, _02255808 ; =0x02255F94
+	ldr r0, _02255808 ; =MOD28_02255F94
 	add r1, r7, #0
 	bl MOD28_022551BC
 	add r4, #0x4c
@@ -2131,7 +2131,7 @@ _022557FA:
 	bl MOD28_0225522C
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_02255808: .word 0x02255F94
+_02255808: .word MOD28_02255F94
 	thumb_func_end MOD28_02255768
 
 	thumb_func_start MOD28_0225580C
@@ -2145,7 +2145,7 @@ MOD28_0225580C: ; 0x0225580C
 	mov r0, #0x38
 	mul r0, r6
 	add r4, r1, r0
-	ldr r0, _02255918 ; =0x02255FA8
+	ldr r0, _02255918 ; =MOD28_02255FA8
 	add r1, r6, #0
 	bl MOD28_022551BC
 	add r0, r4, #0
@@ -2266,7 +2266,7 @@ _022558A6:
 _02255916:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_02255918: .word 0x02255FA8
+_02255918: .word MOD28_02255FA8
 _0225591C: .word 0x00000669
 	thumb_func_end MOD28_0225580C
 
@@ -2965,27 +2965,87 @@ _02255E74: .word 0x00000163
 	thumb_func_end MOD28_02255920
 
 	.section .rodata
-	; 0x02255E78
-	.byte 0x01, 0x23, 0x46, 0x96, 0xC8, 0xFF, 0x00, 0x00, 0x11, 0x4A, 0x25, 0x02, 0x51, 0x4A, 0x25, 0x02
-	.byte 0xC1, 0x4A, 0x25, 0x02, 0x64, 0x96, 0xAF, 0xC8, 0x64, 0x96, 0xAF, 0xC8, 0xC5, 0x50, 0x25, 0x02
-	.byte 0xE5, 0x50, 0x25, 0x02, 0x29, 0x51, 0x25, 0x02, 0x3D, 0x51, 0x25, 0x02, 0x89, 0x51, 0x25, 0x02
-	.byte 0xB5, 0x53, 0x25, 0x02, 0x9D, 0x54, 0x25, 0x02, 0xB5, 0x55, 0x25, 0x02, 0x91, 0x56, 0x25, 0x02
-	.byte 0x69, 0x57, 0x25, 0x02, 0x0D, 0x58, 0x25, 0x02, 0x30, 0x00, 0x2C, 0x00, 0xB0, 0x00, 0x2C, 0x00
+
+	.global MOD28_02255E78
+MOD28_02255E78: ; 0x02255E78
+	.byte 0x01, 0x23, 0x46, 0x96, 0xC8, 0xFF, 0x00, 0x00
+
+	.global MOD28_02255E80
+MOD28_02255E80: ; 0x02255E80
+	.word MOD28_02254A10, MOD28_02254A50, MOD28_02254AC0
+
+	.global MOD28_02255E8C
+MOD28_02255E8C: ; 0x02255E8C
+	.byte 0x64, 0x96, 0xAF, 0xC8
+
+	.global MOD28_02255E90
+MOD28_02255E90: ; 0x02255E90
+	.byte 0x64, 0x96, 0xAF, 0xC8
+
+	.global MOD28_02255E94
+MOD28_02255E94: ; 0x02255E94
+	.word MOD28_022550C4, MOD28_022550E4, MOD28_02255128, MOD28_0225513C
+	.word MOD28_02255188
+
+	.global MOD28_02255EA8
+MOD28_02255EA8: ; 0x02255EA8
+	.word MOD28_022553B4, MOD28_0225549C, MOD28_022555B4, MOD28_02255690
+	.word MOD28_02255768, MOD28_0225580C
+
+	.global MOD28_02255EC0
+MOD28_02255EC0: ; 0x02255EC0
+	.byte 0x30, 0x00, 0x2C, 0x00, 0xB0, 0x00, 0x2C, 0x00
 	.byte 0x30, 0x00, 0x5C, 0x00, 0xB0, 0x00, 0x5C, 0x00, 0x30, 0x00, 0x8C, 0x00, 0xB0, 0x00, 0x8C, 0x00
+
+	.global MOD28_02255ED8
+MOD28_02255ED8: ; 0x02255ED8
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x01, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x19, 0x4C, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x19, 0x4F, 0x25, 0x02
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x01, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD28_02255EF4
+MOD28_02255EF4: ; 0x02255EF4
+	.word 0x00, MOD28_02254C18, 0x00
+	.word 0x01, MOD28_02254F18, 0x00
+	.word 0x00, 0x00000000, 0x00
 
 	.section .data
-	; 0x02255F20
-	.byte 0x69, 0x63, 0x6F, 0x6E, 0x5B, 0x25, 0x64, 0x5D, 0x20, 0x52, 0x45, 0x46, 0x5B, 0x25, 0x64, 0x5D
-	.byte 0x0A, 0x00, 0x00, 0x00, 0x2D, 0x2D, 0x2D, 0x2D, 0x2D, 0x2D, 0x2D, 0x2D, 0x2D, 0x2D, 0x2D, 0x2D
-	.byte 0x0A, 0x00, 0x00, 0x00, 0x20, 0x69, 0x63, 0x6F, 0x6E, 0x5B, 0x25, 0x64, 0x5D, 0x20, 0x44, 0x65
-	.byte 0x66, 0x61, 0x75, 0x6C, 0x74, 0x0A, 0x00, 0x00, 0x20, 0x69, 0x63, 0x6F, 0x6E, 0x5B, 0x25, 0x64
-	.byte 0x5D, 0x20, 0x52, 0x65, 0x61, 0x4C, 0x69, 0x6B, 0x65, 0x0A, 0x00, 0x00, 0x20, 0x69, 0x63, 0x6F
-	.byte 0x6E, 0x5B, 0x25, 0x64, 0x5D, 0x20, 0x52, 0x65, 0x61, 0x48, 0x61, 0x74, 0x65, 0x0A, 0x00, 0x00
-	.byte 0x20, 0x69, 0x63, 0x6F, 0x6E, 0x5B, 0x25, 0x64, 0x5D, 0x20, 0x54, 0x63, 0x67, 0x4C, 0x69, 0x6B
-	.byte 0x65, 0x0A, 0x00, 0x00, 0x20, 0x69, 0x63, 0x6F, 0x6E, 0x5B, 0x25, 0x64, 0x5D, 0x20, 0x54, 0x63
-	.byte 0x68, 0x48, 0x61, 0x74, 0x65, 0x0A, 0x00, 0x00, 0x20, 0x69, 0x63, 0x6F, 0x6E, 0x5B, 0x25, 0x64
-	.byte 0x5D, 0x20, 0x52, 0x65, 0x73, 0x65, 0x74, 0x21, 0x21, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD28_02255F20
+MOD28_02255F20: ; 0x02255F20
+	.asciz "icon[%d] REF[%d]\n"
+
+	.balign 4
+	.global MOD28_02255F34
+MOD28_02255F34: ; 0x02255F34
+	.asciz "------------\n"
+
+	.balign 4
+	.global MOD28_02255F44
+MOD28_02255F44: ; 0x02255F44
+	.asciz " icon[%d] Default\n"
+
+	.balign 4
+	.global MOD28_02255F58
+MOD28_02255F58: ; 0x02255F58
+	.asciz " icon[%d] ReaLike\n"
+
+	.balign 4
+	.global MOD28_02255F6C
+MOD28_02255F6C: ; 0x02255F6C
+	.asciz " icon[%d] ReaHate\n"
+
+	.balign 4
+	.global MOD28_02255F80
+MOD28_02255F80: ; 0x02255F80
+	.asciz " icon[%d] TcgLike\n"
+
+	.balign 4
+	.global MOD28_02255F94
+MOD28_02255F94: ; 0x02255F94
+	.asciz " icon[%d] TchHate\n"
+
+	.balign 4
+	.global MOD28_02255FA8
+MOD28_02255FA8: ; 0x02255FA8
+	.asciz " icon[%d] Reset!!\n"
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00
