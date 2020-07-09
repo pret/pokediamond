@@ -110,7 +110,7 @@ MOD27_022548F8: ; 0x022548F8
 	cmp r1, #3
 	bhs _02254924
 	lsl r2, r1, #2
-	ldr r1, _02254928 ; =0x0225533C
+	ldr r1, _02254928 ; =MOD27_0225533C
 	add r0, r4, #0
 	ldr r1, [r1, r2]
 	blx r1
@@ -125,7 +125,7 @@ MOD27_022548F8: ; 0x022548F8
 _02254924:
 	pop {r3, r4, r5, pc}
 	nop
-_02254928: .word 0x0225533C
+_02254928: .word MOD27_0225533C
 	thumb_func_end MOD27_022548F8
 
 	thumb_func_start MOD27_0225492C
@@ -477,13 +477,13 @@ MOD27_02254BB8: ; 0x02254BB8
 	str r0, [sp, #4]
 	mov r0, #8
 	str r0, [sp, #8]
-	ldr r0, _02254BD8 ; =0x02255394
+	ldr r0, _02254BD8 ; =MOD27_02255394
 	ldr r3, [r2]
 	bl MOD20_022537E0
 	add sp, #0xc
 	pop {pc}
 	nop
-_02254BD8: .word 0x02255394
+_02254BD8: .word MOD27_02255394
 	thumb_func_end MOD27_02254BB8
 
 	thumb_func_start MOD27_02254BDC
@@ -525,7 +525,7 @@ MOD27_02254C08: ; 0x02254C08
 	bl MOD20_022538A0
 	add r4, r0, #0
 	ldr r0, [r4, #4]
-	ldr r2, _02254CBC ; =0x02255378
+	ldr r2, _02254CBC ; =MOD27_02255378
 	mov r1, #6
 	mov r3, #0
 	bl FUN_02016C18
@@ -595,7 +595,7 @@ MOD27_02254C08: ; 0x02254C08
 	add sp, #0x14
 	pop {r3, r4, r5, r6, pc}
 	nop
-_02254CBC: .word 0x02255378
+_02254CBC: .word MOD27_02255378
 _02254CC0: .word 0x04001000
 _02254CC4: .word 0xFFFFE0FF
 	thumb_func_end MOD27_02254C08
@@ -615,7 +615,7 @@ MOD27_02254CC8: ; 0x02254CC8
 	ble _02254D54
 	ldr r4, [sp, #0x14]
 	ldr r7, [sp, #0x20]
-	ldr r5, _02254D5C ; =0x02255360
+	ldr r5, _02254D5C ; =MOD27_02255360
 	ldr r6, [sp, #0x18]
 	add r4, #0x3c
 _02254CE8:
@@ -673,7 +673,7 @@ _02254D54:
 	add sp, #0x24
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02254D5C: .word 0x02255360
+_02254D5C: .word MOD27_02255360
 	thumb_func_end MOD27_02254CC8
 
 	thumb_func_start MOD27_02254D60
@@ -927,7 +927,7 @@ MOD27_02254F18: ; 0x02254F18
 	add r0, r7, #0
 	str r0, [sp, #0x14]
 	add r0, #0xe0
-	ldr r5, _02254FA8 ; =0x02255348
+	ldr r5, _02254FA8 ; =MOD27_02255348
 	str r0, [sp, #0x14]
 _02254F58:
 	ldrh r0, [r6, #0xe]
@@ -972,7 +972,7 @@ _02254FA2:
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_02254FA8: .word 0x02255348
+_02254FA8: .word MOD27_02255348
 	thumb_func_end MOD27_02254F18
 
 	thumb_func_start MOD27_02254FAC
@@ -1013,7 +1013,7 @@ MOD27_02254FAC: ; 0x02254FAC
 	str r0, [sp, #0x1c]
 	add r0, #0xcc
 	ldr r4, [sp, #8]
-	ldr r6, _022550C4 ; =0x02255348
+	ldr r6, _022550C4 ; =MOD27_02255348
 	add r7, #0xff
 	str r0, [sp, #0x1c]
 _02254FFC:
@@ -1112,7 +1112,7 @@ _022550C0:
 	add sp, #0x34
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_022550C4: .word 0x02255348
+_022550C4: .word MOD27_02255348
 	thumb_func_end MOD27_02254FAC
 
 	thumb_func_start MOD27_022550C8
@@ -1218,8 +1218,8 @@ _02255164:
 	beq _022551A6
 _02255186:
 	ldrb r0, [r5, #0xa]
-	ldr r1, _022551EC ; =0x02255348
-	ldr r3, _022551F0 ; =0x0225534A
+	ldr r1, _022551EC ; =MOD27_02255348
+	ldr r3, _022551F0 ; =MOD27_02255348 + 2
 	lsl r2, r0, #2
 	add r0, r6, r2
 	ldrh r1, [r1, r2]
@@ -1237,8 +1237,8 @@ _022551A6:
 	cmp r0, #0
 	bne _022551E6
 	ldrb r0, [r5, #0xa]
-	ldr r1, _022551EC ; =0x02255348
-	ldr r3, _022551F0 ; =0x0225534A
+	ldr r1, _022551EC ; =MOD27_02255348
+	ldr r3, _022551F0 ; =MOD27_02255348 + 2
 	lsl r2, r0, #2
 	add r0, r6, r2
 	ldrh r1, [r1, r2]
@@ -1271,8 +1271,8 @@ _022551E6:
 _022551EA:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_022551EC: .word 0x02255348
-_022551F0: .word 0x0225534A
+_022551EC: .word MOD27_02255348
+_022551F0: .word MOD27_02255348 + 2
 	thumb_func_end MOD27_022550F8
 
 	thumb_func_start MOD27_022551F4
@@ -1283,7 +1283,7 @@ MOD27_022551F4: ; 0x022551F4
 	add r7, r2, #0
 	ldr r6, _02255248 ; =0x00000000
 	beq _02255242
-	ldr r3, _0225524C ; =0x02255348
+	ldr r3, _0225524C ; =MOD27_02255348
 _02255202:
 	ldrh r1, [r3]
 	ldrh r4, [r3, #2]
@@ -1327,7 +1327,7 @@ _02255242:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _02255248: .word 0x00000000
-_0225524C: .word 0x02255348
+_0225524C: .word MOD27_02255348
 	thumb_func_end MOD27_022551F4
 
 	thumb_func_start MOD27_02255250
@@ -1449,13 +1449,30 @@ _02255338: .word 0x00000669
 	thumb_func_end MOD27_022552D0
 
 	.section .rodata
-	; 0x0225533C
-	.byte 0x49, 0x49, 0x25, 0x02, 0x89, 0x49, 0x25, 0x02, 0x15, 0x4A, 0x25, 0x02, 0x40, 0x00, 0x24, 0x00
-	.byte 0xA0, 0x00, 0x24, 0x00, 0x40, 0x00, 0x54, 0x00, 0xA0, 0x00, 0x54, 0x00, 0x40, 0x00, 0x84, 0x00
-	.byte 0xA0, 0x00, 0x84, 0x00, 0x04, 0x00, 0x08, 0x00, 0x10, 0x00, 0x08, 0x00, 0x04, 0x00, 0x0E, 0x00
-	.byte 0x10, 0x00, 0x0E, 0x00, 0x04, 0x00, 0x14, 0x00, 0x10, 0x00, 0x14, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD27_0225533C
+MOD27_0225533C: ; 0x0225533C
+	.word MOD27_02254948, MOD27_02254988, MOD27_02254A14
+
+	.global MOD27_02255348
+MOD27_02255348: ; 0x02255348
+	.short 0x40, 0x24, 0xA0, 0x24, 0x40, 0x54, 0xA0, 0x54
+	.short 0x40, 0x84, 0xA0, 0x84
+
+	.global MOD27_02255360
+MOD27_02255360: ; 0x02255360
+	.short 0x04, 0x08, 0x10, 0x08, 0x04, 0x0E, 0x10, 0x0E
+	.short 0x04, 0x14, 0x10, 0x14
+
+	.global MOD27_02255378
+MOD27_02255378: ; 0x02255378
+	.byte 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x0E, 0x00
-	.byte 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x09, 0x4C, 0x25, 0x02
-	.byte 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0xB5, 0x52, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00
-	.byte 0x02, 0x00, 0x00, 0x00, 0xD1, 0x52, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD27_02255394
+MOD27_02255394: ; 0x02255394
+	.word 0x00, MOD27_02254C08, 0x00
+	.word 0x01, MOD27_022552B4, 0x00
+	.word 0x02, MOD27_022552D0, 0x00
+	.word 0x00, 0x00000000, 0x00

@@ -86,7 +86,7 @@ _022548BE:
 	strb r0, [r5, #2]
 	mov r0, #8
 	str r0, [sp]
-	ldr r0, _022548FC ; =0x02254DA0
+	ldr r0, _022548FC ; =MOD30_02254DA0
 	ldr r2, _02254900 ; =MOD30_02254904
 	mov r1, #1
 	add r3, r5, #0
@@ -101,7 +101,7 @@ _022548F6:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_022548FC: .word 0x02254DA0
+_022548FC: .word MOD30_02254DA0
 _02254900: .word MOD30_02254904
 	thumb_func_end MOD30_0225489C
 
@@ -146,7 +146,7 @@ MOD30_02254930: ; 0x02254930
 	ldrb r1, [r4]
 	add r0, r4, #0
 	lsl r2, r1, #2
-	ldr r1, _02254968 ; =0x02254DA4
+	ldr r1, _02254968 ; =MOD30_02254DA4
 	ldr r1, [r1, r2]
 	blx r1
 	cmp r0, #0
@@ -160,7 +160,7 @@ MOD30_02254930: ; 0x02254930
 _02254966:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_02254968: .word 0x02254DA4
+_02254968: .word MOD30_02254DA4
 	thumb_func_end MOD30_02254930
 
 	thumb_func_start MOD30_0225496C
@@ -418,7 +418,7 @@ MOD30_02254AE0: ; 0x02254AE0
 	bl MOD20_02253FBC
 	add r2, r7, #0
 	ldr r0, [r7, #0x20]
-	ldr r1, _02254B8C ; =0x02254DB0
+	ldr r1, _02254B8C ; =MOD30_02254DB0
 	add r2, #0x38
 	bl MOD20_02253E74
 	mov r1, #0x50
@@ -434,7 +434,7 @@ MOD30_02254AE0: ; 0x02254AE0
 	str r0, [sp, #0x10]
 _02254B5C:
 	ldr r0, [r7, #0x20]
-	ldr r1, _02254B90 ; =0x02254DC0
+	ldr r1, _02254B90 ; =MOD30_02254DC0
 	ldr r2, [sp, #0x10]
 	bl MOD20_02253E74
 	mov r2, #1
@@ -455,8 +455,8 @@ _02254B5C:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_02254B8C: .word 0x02254DB0
-_02254B90: .word 0x02254DC0
+_02254B8C: .word MOD30_02254DB0
+_02254B90: .word MOD30_02254DC0
 	thumb_func_end MOD30_02254AE0
 
 	thumb_func_start MOD30_02254B94
@@ -497,13 +497,13 @@ MOD30_02254BC8: ; 0x02254BC8
 	str r0, [sp, #4]
 	mov r0, #8
 	str r0, [sp, #8]
-	ldr r0, _02254BE8 ; =0x02254DEC
+	ldr r0, _02254BE8 ; =MOD30_02254DEC
 	ldr r3, [r2]
 	bl MOD20_022537E0
 	add sp, #0xc
 	pop {pc}
 	nop
-_02254BE8: .word 0x02254DEC
+_02254BE8: .word MOD30_02254DEC
 	thumb_func_end MOD30_02254BC8
 
 	thumb_func_start MOD30_02254BEC
@@ -545,7 +545,7 @@ MOD30_02254C18: ; 0x02254C18
 	bl MOD20_022538A0
 	add r5, r0, #0
 	ldr r0, [r5, #4]
-	ldr r2, _02254C9C ; =0x02254DD0
+	ldr r2, _02254C9C ; =MOD30_02254DD0
 	mov r1, #6
 	mov r3, #0
 	bl FUN_02016C18
@@ -597,7 +597,7 @@ MOD30_02254C18: ; 0x02254C18
 	add sp, #0x14
 	pop {r4, r5, pc}
 	nop
-_02254C9C: .word 0x02254DD0
+_02254C9C: .word MOD30_02254DD0
 _02254CA0: .word 0x04001000
 _02254CA4: .word 0xFFFFE0FF
 	thumb_func_end MOD30_02254C18
@@ -730,13 +730,32 @@ _02254D9C: .word 0x040002A8
 	thumb_func_end MOD30_02254D28
 
 	.section .rodata
-	; 0x02254DA0
-	.byte 0x64, 0x9C, 0x52, 0x92, 0x89, 0x49, 0x25, 0x02, 0xC9, 0x49, 0x25, 0x02, 0x5D, 0x4A, 0x25, 0x02
+
+	.global MOD30_02254DA0
+MOD30_02254DA0: ; 0x02254DA0
+	.byte 0x64, 0x9C, 0x52, 0x92
+
+	.global MOD30_02254DA4
+MOD30_02254DA4: ; 0x02254DA4
+	.word MOD30_02254988, MOD30_022549C8, MOD30_02254A5C
+
+	.global MOD30_02254DB0
+MOD30_02254DB0: ; 0x02254DB0
 	.byte 0x00, 0x20, 0x07, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD30_02254DC0
+MOD30_02254DC0: ; 0x02254DC0
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD30_02254DD0
+MOD30_02254DD0: ; 0x02254DD0
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x01, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x19, 0x4C, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0xA9, 0x4C, 0x25, 0x02
-	.byte 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0xC5, 0x4C, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00
-	.byte 0x03, 0x00, 0x00, 0x00, 0x05, 0x4D, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x01, 0x00, 0x0E, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD30_02254DEC
+MOD30_02254DEC: ; 0x02254DEC
+	.word 0x00, MOD30_02254C18, 0x00
+	.word 0x01, MOD30_02254CA8, 0x00
+	.word 0x02, MOD30_02254CC4, 0x00
+	.word 0x03, MOD30_02254D04, 0x00
+	.word 0x00, 0x00000000, 0x00

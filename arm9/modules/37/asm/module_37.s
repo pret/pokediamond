@@ -116,7 +116,7 @@ MOD37_02254900: ; 0x02254900
 	cmp r1, #3
 	bhs _0225492C
 	lsl r2, r1, #2
-	ldr r1, _02254930 ; =0x02254D28
+	ldr r1, _02254930 ; =MOD37_02254D28
 	add r0, r4, #0
 	ldr r1, [r1, r2]
 	blx r1
@@ -131,7 +131,7 @@ MOD37_02254900: ; 0x02254900
 _0225492C:
 	pop {r3, r4, r5, pc}
 	nop
-_02254930: .word 0x02254D28
+_02254930: .word MOD37_02254D28
 	thumb_func_end MOD37_02254900
 
 	thumb_func_start MOD37_02254934
@@ -324,7 +324,7 @@ MOD37_02254A54: ; 0x02254A54
 	add r0, r4, #0
 	bl MOD37_02254AA0
 	ldr r1, _02254A98 ; =0xFFFF5800
-	ldr r0, _02254A9C ; =0x02254DA0
+	ldr r0, _02254A9C ; =MOD37_02254DA0
 	str r1, [r0]
 	mov r1, #0xb
 	lsl r1, r1, #8
@@ -337,7 +337,7 @@ _02254A94:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _02254A98: .word 0xFFFF5800
-_02254A9C: .word 0x02254DA0
+_02254A9C: .word MOD37_02254DA0
 	thumb_func_end MOD37_02254A54
 
 	thumb_func_start MOD37_02254AA0
@@ -364,7 +364,7 @@ MOD37_02254AA0: ; 0x02254AA0
 	bl MOD20_02253FBC
 	add r2, r4, #0
 	ldr r0, [r4, #0x20]
-	ldr r1, _02254AF0 ; =0x02254D34
+	ldr r1, _02254AF0 ; =MOD37_02254D34
 	add r2, #0x28
 	bl MOD20_02253E74
 	str r0, [r4, #0x24]
@@ -379,7 +379,7 @@ _02254AEA:
 	add sp, #0xc
 	pop {r3, r4, pc}
 	nop
-_02254AF0: .word 0x02254D34
+_02254AF0: .word MOD37_02254D34
 	thumb_func_end MOD37_02254AA0
 
 	thumb_func_start MOD37_02254AF4
@@ -420,13 +420,13 @@ MOD37_02254B20: ; 0x02254B20
 	str r0, [sp, #4]
 	mov r0, #8
 	str r0, [sp, #8]
-	ldr r0, _02254B40 ; =0x02254D60
+	ldr r0, _02254B40 ; =MOD37_02254D60
 	ldr r3, [r2]
 	bl MOD20_022537E0
 	add sp, #0xc
 	pop {pc}
 	nop
-_02254B40: .word 0x02254D60
+_02254B40: .word MOD37_02254D60
 	thumb_func_end MOD37_02254B20
 
 	thumb_func_start MOD37_02254B44
@@ -468,7 +468,7 @@ MOD37_02254B70: ; 0x02254B70
 	bl MOD20_022538A0
 	add r5, r0, #0
 	ldr r0, [r5, #4]
-	ldr r2, _02254BF4 ; =0x02254D44
+	ldr r2, _02254BF4 ; =MOD37_02254D44
 	mov r1, #6
 	mov r3, #0
 	bl FUN_02016C18
@@ -520,7 +520,7 @@ MOD37_02254B70: ; 0x02254B70
 	add sp, #0x14
 	pop {r4, r5, pc}
 	nop
-_02254BF4: .word 0x02254D44
+_02254BF4: .word MOD37_02254D44
 _02254BF8: .word 0x04001000
 _02254BFC: .word 0xFFFFE0FF
 	thumb_func_end MOD37_02254B70
@@ -588,7 +588,7 @@ _02254C6C:
 	mov r0, #9
 	lsl r0, r0, #0x10
 	str r0, [r4, #0x3c]
-	ldr r0, _02254D1C ; =0x02254DA0
+	ldr r0, _02254D1C ; =MOD37_02254DA0
 	ldr r0, [r0]
 	str r0, [r4, #0x40]
 	mov r0, #0
@@ -607,7 +607,7 @@ _02254C9E:
 	ldr r0, [r4, #0x40]
 	add r0, r1, r0
 	str r0, [r4, #0x3c]
-	ldr r0, _02254D1C ; =0x02254DA0
+	ldr r0, _02254D1C ; =MOD37_02254DA0
 	ldr r1, [r4, #0x40]
 	ldr r0, [r0, #4]
 	add r1, r1, r0
@@ -664,24 +664,39 @@ _02254D10:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _02254D18: .word 0x00000675
-_02254D1C: .word 0x02254DA0
+_02254D1C: .word MOD37_02254DA0
 _02254D20: .word 0xFFFFE000
 _02254D24: .word 0x00000676
 	thumb_func_end MOD37_02254C44
 
 	.section .rodata
-	; 0x02254D28
-	.byte 0x51, 0x49, 0x25, 0x02, 0x91, 0x49, 0x25, 0x02, 0xE5, 0x49, 0x25, 0x02, 0x00, 0x00, 0x07, 0x00
-	.byte 0x00, 0x00, 0x09, 0x00, 0x01, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD37_02254D28
+MOD37_02254D28: ; 0x02254D28
+	.word MOD37_02254950, MOD37_02254990, MOD37_022549E4
+
+	.global MOD37_02254D34
+MOD37_02254D34: ; 0x02254D34
+	.byte 0x00, 0x00, 0x07, 0x00
+	.byte 0x00, 0x00, 0x09, 0x00, 0x01, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD37_02254D44
+MOD37_02254D44: ; 0x02254D44
+	.byte 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x0E, 0x00
-	.byte 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x71, 0x4B, 0x25, 0x02
-	.byte 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x4C, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00
-	.byte 0x02, 0x00, 0x00, 0x00, 0x45, 0x4C, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD37_02254D60
+MOD37_02254D60: ; 0x02254D60
+	.word 0x00, MOD37_02254B70, 0x00
+	.word 0x01, MOD37_02254C00, 0x00
+	.word 0x02, MOD37_02254C44, 0x00
+	.word 0x00, 0x00000000, 0x00
 
 	.section .sinit
 	.word MOD37_02254840
 
 	.section .bss
-	; 0x02254DA0
+	.global MOD37_02254DA0
+MOD37_02254DA0: ; 0x02254DA0
 	.space 8
