@@ -96,7 +96,7 @@ MOD50_022548D4: ; 0x022548D4
 	cmp r1, #3
 	bhs _02254900
 	lsl r2, r1, #2
-	ldr r1, _02254904 ; =0x02254B04
+	ldr r1, _02254904 ; =MOD50_02254B04
 	add r0, r4, #0
 	ldr r1, [r1, r2]
 	blx r1
@@ -111,7 +111,7 @@ MOD50_022548D4: ; 0x022548D4
 _02254900:
 	pop {r3, r4, r5, pc}
 	nop
-_02254904: .word 0x02254B04
+_02254904: .word MOD50_02254B04
 	thumb_func_end MOD50_022548D4
 
 	thumb_func_start MOD50_02254908
@@ -273,13 +273,13 @@ MOD50_022549F8: ; 0x022549F8
 	str r0, [sp, #4]
 	mov r0, #8
 	str r0, [sp, #8]
-	ldr r0, _02254A18 ; =0x02254B2C
+	ldr r0, _02254A18 ; =MOD50_02254B2C
 	ldr r3, [r2]
 	bl MOD20_022537E0
 	add sp, #0xc
 	pop {pc}
 	nop
-_02254A18: .word 0x02254B2C
+_02254A18: .word MOD50_02254B2C
 	thumb_func_end MOD50_022549F8
 
 	thumb_func_start MOD50_02254A1C
@@ -321,7 +321,7 @@ MOD50_02254A48: ; 0x02254A48
 	bl MOD20_022538A0
 	add r5, r0, #0
 	ldr r0, [r5, #4]
-	ldr r2, _02254ADC ; =0x02254B10
+	ldr r2, _02254ADC ; =MOD50_02254B10
 	mov r1, #6
 	mov r3, #0
 	bl FUN_02016C18
@@ -381,7 +381,7 @@ MOD50_02254A48: ; 0x02254A48
 	add sp, #0x14
 	pop {r4, r5, pc}
 	.align 2, 0
-_02254ADC: .word 0x02254B10
+_02254ADC: .word MOD50_02254B10
 _02254AE0: .word 0x04001000
 _02254AE4: .word 0xFFFFE0FF
 	thumb_func_end MOD50_02254A48
@@ -402,12 +402,22 @@ MOD50_02254AE8: ; 0x02254AE8
 	thumb_func_end MOD50_02254AE8
 
 	.section .rodata
-	; 0x02254B04
-	.byte 0x25, 0x49, 0x25, 0x02, 0x65, 0x49, 0x25, 0x02, 0x79, 0x49, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD50_02254B04
+MOD50_02254B04: ; 0x02254B04
+	.word MOD50_02254924, MOD50_02254964, MOD50_02254978
+
+	.global MOD50_02254B10
+MOD50_02254B10: ; 0x02254B10
+	.byte 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x0E, 0x00
-	.byte 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x49, 0x4A, 0x25, 0x02
-	.byte 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0xE9, 0x4A, 0x25, 0x02, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.global MOD50_02254B2C
+MOD50_02254B2C: ; 0x02254B2C
+	.word 0x00, MOD50_02254A48, 0x00
+	.word 0x01, MOD50_02254AE8, 0x00
+	.word 0x00, 0x00000000, 0x00
 
 	.section .sinit
 	.word MOD50_02254840
