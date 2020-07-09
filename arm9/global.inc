@@ -2004,6 +2004,7 @@
 .extern FUN_0202A170
 .extern FUN_0202A1B8
 .extern FUN_0202A1C4
+.extern FUN_0202A1E0
 .extern FUN_0202A1E4
 .extern FUN_0202A240
 .extern FUN_0202A2C4
@@ -2145,6 +2146,7 @@
 .extern FUN_0202B8B8
 .extern FUN_0202B8E4
 .extern FUN_0202B8F0
+.extern FUN_0202B934
 .extern FUN_0202B9EC
 .extern FUN_0202BCF4
 .extern FUN_0202BD6C
