@@ -1,6 +1,7 @@
 # Makefile to build Pokemon Diamond image
 
 include config.mk
+include graphics_rules.mk
 
 HOSTCC = $(CC)
 HOSTCXX = $(CXX)
@@ -156,6 +157,7 @@ clean: mostlyclean clean-fs
 
 clean-fs:
 	$(RM) $(filter %.narc %.arc,$(HOSTFS_FILES))
+	$(RM) $(NCGR_CLEAN_LIST) $(NCLR_CLEAN_LIST)
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
 
 mostlyclean: tidy
@@ -239,6 +241,21 @@ PADDED_LZ_FILES := $(addsuffix .lz,$(wildcard \
 
 $(PADDED_LZ_FILES): %.lz: %
 	$(NTRCOMP) -l2 -s -A4 -o $@ $<
+
+%.NCGR: %.png
+	$(GFX) $< $@
+
+$(CLOBBER_SIZE_NCGR_FILES): %.NCGR: %.png
+	$(GFX) $< $@ -clobbersize
+
+$(CLOBBER_SIZE_VERSION101_NCGR_FILES): %.NCGR: %.png
+	$(GFX) $< $@ -clobbersize -version101
+
+%.NCLR: %.png
+	$(GFX) $< $@
+
+%.NCLR: %.pal
+	$(GFX) $< $@
 
 %.png: ;
 %.pal: ;

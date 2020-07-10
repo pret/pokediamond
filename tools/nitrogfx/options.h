@@ -28,6 +28,7 @@ struct PngToNtrOptions {
     int metatileHeight;
     bool clobberSize;
     bool byteOrder;
+    bool version101;
 };
 
 

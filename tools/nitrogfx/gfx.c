@@ -359,7 +359,7 @@ void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int m
 	free(buffer);
 }
 
-void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder)
+void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder, bool version101)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -407,7 +407,7 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
             break;
     }
 
-    WriteGenericNtrHeader(fp, "RGCN", bufferSize + 0x20, byteOrder);
+    WriteGenericNtrHeader(fp, "RGCN", bufferSize + 0x20, byteOrder, version101);
 
     unsigned char charHeader[0x20] = { 0x52, 0x41, 0x48, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00 };
@@ -545,7 +545,7 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
     uint32_t extSize = size + (ncpr ? 0x10 : 0x18);
 
     //NCLR header
-    WriteGenericNtrHeader(fp, (ncpr ? "RPCN" : "RLCN"), extSize, !ncpr);
+    WriteGenericNtrHeader(fp, (ncpr ? "RPCN" : "RLCN"), extSize, !ncpr, false);
 
     unsigned char palHeader[0x18] =
             {

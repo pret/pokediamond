@@ -124,12 +124,17 @@ void WriteWholeFile(char *path, void *buffer, int bufferSize)
 	fclose(fp);
 }
 
-void WriteGenericNtrHeader(FILE* fp, const char* magicNumber, uint32_t size, bool byteorder)
+void WriteGenericNtrHeader(FILE* fp, const char* magicNumber, uint32_t size, bool byteorder, bool version101)
 {
     unsigned char header[0x10] =
             { 0x00, 0x00, 0x00, 0x00, 0xFF, 0xFE, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x01, 0x00 };
     //magic number
     memcpy(header, magicNumber, 4);
+
+    if (version101)
+    {
+        header[6] = 0x01;
+    }
 
     //byte order
     if (!byteorder)

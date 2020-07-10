@@ -794,6 +794,13 @@ files/wazaeffect/effectclact/wecellanm.narc: \
         files/wazaeffect/effectclact/wecellanm/narc_0013.NANR.lz \
         files/wazaeffect/effectclact/wecellanm/narc_0007.NANR.lz
 
+files/graphic/bag_gra.narc: \
+        files/graphic/bag_gra/narc_0002.NCGR \
+        files/graphic/bag_gra/narc_0003.NCLR \
+        files/graphic/bag_gra/narc_0006.NCGR \
+        files/graphic/bag_gra/narc_0034.NCGR \
+        files/graphic/bag_gra/narc_0034.NCLR
+
 files/graphic/box.narc: \
         files/graphic/box/narc_0022.NANR.lz \
         files/graphic/box/narc_0036.NSCR.lz \

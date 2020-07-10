@@ -88,7 +88,7 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
 
     ReadPng(inputPath, &image);
 
-    WriteNtrImage(outputPath, options->numTiles, options->bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder);
+    WriteNtrImage(outputPath, options->numTiles, options->bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101);
 
     FreeImage(&image);
 }
@@ -320,6 +320,7 @@ void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **a
     options.metatileHeight = 1;
     options.clobberSize = false;
     options.byteOrder = true;
+    options.version101 = false;
 
     for (int i = 3; i < argc; i++)
     {
@@ -384,6 +385,10 @@ void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **a
         else if (strcmp(option, "-nobyteorder") == 0)
         {
             options.byteOrder = false;
+        }
+        else if (strcmp(option, "-version101") == 0)
+        {
+            options.version101 = true;
         }
         else
         {
