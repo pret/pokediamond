@@ -1583,7 +1583,7 @@ files/itemtool/itemdata/item_icon.narc: \
         files/itemtool/itemdata/item_icon/narc_0022.NCLR \
         files/itemtool/itemdata/item_icon/narc_0023.NCGR \
         files/itemtool/itemdata/item_icon/narc_0024.NCGR \
-        files/itemtool/itemdata/item_icon/narc_0024.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0025.NCLR \
         files/itemtool/itemdata/item_icon/narc_0026.NCGR \
         files/itemtool/itemdata/item_icon/narc_0027.NCLR \
         files/itemtool/itemdata/item_icon/narc_0028.NCLR \
@@ -1597,7 +1597,24 @@ files/itemtool/itemdata/item_icon.narc: \
         files/itemtool/itemdata/item_icon/narc_0036.NCLR \
         files/itemtool/itemdata/item_icon/narc_0037.NCLR \
         files/itemtool/itemdata/item_icon/narc_0038.NCGR \
-        files/itemtool/itemdata/item_icon/narc_0038.NCLR
+        files/itemtool/itemdata/item_icon/narc_0038.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0040.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0041.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0042.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0043.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0043.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0045.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0045.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0047.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0047.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0049.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0049.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0051.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0052.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0053.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0053.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0055.NCLR
+
 
 files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0195.NCGR.lz \
