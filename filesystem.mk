@@ -1593,7 +1593,11 @@ files/itemtool/itemdata/item_icon.narc: \
         files/itemtool/itemdata/item_icon/narc_0032.NCLR \
         files/itemtool/itemdata/item_icon/narc_0033.NCGR \
         files/itemtool/itemdata/item_icon/narc_0034.NCLR \
-        files/itemtool/itemdata/item_icon/narc_0035.NCLR
+        files/itemtool/itemdata/item_icon/narc_0035.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0036.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0037.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0038.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0038.NCLR
 
 files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0195.NCGR.lz \
