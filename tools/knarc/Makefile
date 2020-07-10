@@ -10,7 +10,7 @@ UNAME_S  := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 LDFLAGS  += -lstdc++ -lc++ -lc
 else
-LDFLAGS  += -lstdc++fs
+LDFLAGS  += -lstdc++fs -lstdc++ -lc++ -lc
 endif
 endif
 CXX_SRCS := Source.cpp Narc.cpp
@@ -28,7 +28,7 @@ clean:
 	$(RM) knarc knarc.exe $(OBJS)
 
 knarc: $(OBJS)
-	$(LD) $(LDFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c -o $@ $<
