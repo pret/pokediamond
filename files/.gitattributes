@@ -2,3 +2,4 @@
 *.txt eol=crlf
 .knarcignore eol=lf
 .knarckeep eol=lf
+*.pal eol=crlf
