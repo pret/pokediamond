@@ -1559,6 +1559,30 @@ files/poketool/pokefoot/pokefoot.narc: \
         files/poketool/pokefoot/pokefoot/narc_0371.NCGR.lz \
         files/poketool/pokefoot/pokefoot/narc_0359.NCGR.lz
 
+files/itemtool/itemdata/item_icon.narc: \
+        files/itemtool/itemdata/item_icon/narc_0002.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0002.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0004.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0004.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0006.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0006.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0008.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0008.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0010.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0010.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0012.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0012.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0014.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0014.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0016.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0016.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0018.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0018.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0020.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0021.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0022.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0023.NCGR
+
 files/application/custom_ball/data/cb_data.narc: \
         files/application/custom_ball/data/cb_data/narc_0195.NCGR.lz \
         files/application/custom_ball/data/cb_data/narc_0181.NCER.lz \
