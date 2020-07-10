@@ -184,7 +184,7 @@ _021D765C:
 	and r0, r1
 	cmp r0, #2
 	beq _021D7678
-	ldr r0, _021D76AC ; =0x021C48F8
+	ldr r0, _021D76AC ; =UNK_021C48F8
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	beq _021D76A0
@@ -214,7 +214,7 @@ _021D76A0:
 	pop {r3, r4, r5, r6, pc}
 	nop
 _021D76A8: .word gUnknown21C48B8
-_021D76AC: .word 0x021C48F8
+_021D76AC: .word UNK_021C48F8
 	thumb_func_end MOD86_021D758C
 
 	thumb_func_start MOD86_021D76B0
