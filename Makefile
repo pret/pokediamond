@@ -257,6 +257,9 @@ $(CLOBBER_SIZE_VERSION101_NCGR_FILES): %.NCGR: %.png
 %.NCLR: %.pal
 	$(GFX) $< $@
 
+$(IR_NCLR_FILES): %.NCLR: %.pal
+	$(GFX) $< $@ -ir
+
 %.png: ;
 %.pal: ;
 

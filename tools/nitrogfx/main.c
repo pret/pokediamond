@@ -411,6 +411,7 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
 {
     struct Palette palette;
     bool ncpr = false;
+    bool ir = false;
 
     for (int i = 3; i < argc; i++)
     {
@@ -420,6 +421,10 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
         {
             ncpr = true;
         }
+        else if (strcmp(option, "-ir") == 0)
+        {
+            ir = true;
+        }
         else
         {
             FATAL_ERROR("Unrecognized option \"%s\".\n", option);
@@ -427,7 +432,7 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
     }
 
     ReadPngPalette(inputPath, &palette);
-    WriteNtrPalette(outputPath, &palette, ncpr);
+    WriteNtrPalette(outputPath, &palette, ncpr, ir);
 }
 
 void HandleGbaToJascPaletteCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
@@ -487,6 +492,7 @@ void HandleJascToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, 
 {
     int numColors = 0;
     bool ncpr = false;
+    bool ir = false;
 
     for (int i = 3; i < argc; i++)
     {
@@ -509,6 +515,10 @@ void HandleJascToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, 
         {
             ncpr = true;
         }
+        else if (strcmp(option, "-ir") == 0)
+        {
+            ir = true;
+        }
         else
         {
             FATAL_ERROR("Unrecognized option \"%s\".\n", option);
@@ -522,7 +532,7 @@ void HandleJascToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, 
     if (numColors != 0)
         palette.numColors = numColors;
 
-    WriteNtrPalette(outputPath, &palette, ncpr);
+    WriteNtrPalette(outputPath, &palette, ncpr, ir);
 }
 
 void HandleLatinFontToPngCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)

@@ -534,7 +534,7 @@ void WriteGbaPalette(char *path, struct Palette *palette)
 	fclose(fp);
 }
 
-void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
+void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -592,6 +592,12 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
             colours[i * 2] = 0x00;
             colours[i * 2 + 1] = 0x00;
         }
+    }
+
+    if (ir)
+    {
+        colours[510] = 'I';
+        colours[511] = 'R';
     }
 
     fwrite(colours, 1, 256 * 2, fp);
