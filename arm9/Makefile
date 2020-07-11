@@ -48,14 +48,16 @@ LD_SPEC := $(TARGET).lsf
 LD_TEMPLATE := ARM9-TS.lcf.template
 
 # Directories containing source files
-SRC_DIRS := src lib lib/src $(wildcard modules/*/src)
-ASM_DIRS := asm data files $(wildcard modules/*/asm)
+
+# sorting wildcards required for versions of make >= 3.8.2 and < 4.3 for consistent builds
+SRC_DIRS := src lib lib/src $(sort $(wildcard modules/*/src))
+ASM_DIRS := asm data files $(sort $(wildcard modules/*/asm))
 LIBASM_DIRS := lib/syscall
 
-C_FILES    := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-CXX_FILES  := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
-S_FILES    := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
-LIBS_FILES := $(foreach dir,$(LIBASM_DIRS),$(wildcard $(dir)/*.s))
+C_FILES    := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.c)))
+CXX_FILES  := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.cpp)))
+S_FILES    := $(foreach dir,$(ASM_DIRS),$(sort $(wildcard $(dir)/*.s)))
+LIBS_FILES := $(foreach dir,$(LIBASM_DIRS),$(sort $(wildcard $(dir)/*.s)))
 
 C_OBJS = $(C_FILES:%.c=$(BUILD_DIR)/%.o)
 CXX_OBJS = $(CXX_FILES:%.cpp=$(BUILD_DIR)/%.o)

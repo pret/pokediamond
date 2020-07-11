@@ -49,8 +49,9 @@ LD_TEMPLATE := ARM7-TS.lcf.template
 SRC_DIRS := src lib lib/src
 ASM_DIRS := asm data files
 
-C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+# sorting wildcards required for versions of make >= 3.8.2 and < 4.3 for consistent builds
+C_FILES := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.c)))
+S_FILES := $(foreach dir,$(ASM_DIRS),$(sort $(wildcard $(dir)/*.s)))
 
 C_OBJS = $(C_FILES:%.c=$(BUILD_DIR)/%.o)
 S_OBJS = $(S_FILES:%.s=$(BUILD_DIR)/%.o)
