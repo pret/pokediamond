@@ -251,6 +251,9 @@ $(CLOBBER_SIZE_NCGR_FILES): %.NCGR: %.png
 $(CLOBBER_SIZE_VERSION101_NCGR_FILES): %.NCGR: %.png
 	$(GFX) $< $@ -clobbersize -version101
 
+$(VERSION101_SOPC_8BPP_NCGR_FILES): %.NCGR: %.png
+	$(GFX) $< $@ -version101 -sopc -bitdepth 8
+
 %.NCLR: %.png
 	$(GFX) $< $@
 

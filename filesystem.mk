@@ -2219,6 +2219,12 @@ files/data/namein.narc: \
         files/data/namein/narc_0013.NCER.lz \
         files/data/namein/narc_0007.NSCR.lz
 
+files/demo/title/titledemo.narc: \
+        files/demo/title/titledemo/narc_0001.NCGR \
+        files/demo/title/titledemo/narc_0001.NCLR \
+        files/demo/title/titledemo/narc_0003.NCGR \
+        files/demo/title/titledemo/narc_0003.NCLR
+
 .PHONY: filesystem
 
 filesystem: $(HOSTFS_FILES)

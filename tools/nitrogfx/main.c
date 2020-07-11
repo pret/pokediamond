@@ -88,7 +88,7 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
 
     ReadPng(inputPath, &image);
 
-    WriteNtrImage(outputPath, options->numTiles, options->bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101, options->sopc);
+    WriteNtrImage(outputPath, options->numTiles, image.bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101, options->sopc);
 
     FreeImage(&image);
 }

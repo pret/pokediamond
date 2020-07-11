@@ -419,11 +419,14 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
 
     if (!clobberSize)
     {
-        charHeader[8] = numTiles & 0xFF;
-        charHeader[9] = (numTiles >> 8) & 0xFF;
+        //charHeader[8] = numTiles & 0xFF;
+        //charHeader[9] = (numTiles >> 8) & 0xFF;
+        charHeader[8] = (bufferSize / (256 * bitDepth)) & 0xFF;
+        charHeader[9] = ((bufferSize / (256 * bitDepth)) >> 8) & 0xFF;
 
-        charHeader[10] = tileSize & 0xFF;
-        charHeader[11] = (tileSize >> 8) & 0xFF;
+        //charHeader[10] = tileSize & 0xFF;
+        //charHeader[11] = (tileSize >> 8) & 0xFF;
+        charHeader[10] = 0x20; //todo figure out if this changes
     }
     else
     {
@@ -449,8 +452,8 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
     if (sopc)
 	{
     	unsigned char sopcBuffer[0x10] = { 0x53, 0x4F, 0x50, 0x43, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00 };
-		sopcBuffer[14] = numTiles & 0xFF;
-		sopcBuffer[15] = (numTiles >> 8) & 0xFF;
+		sopcBuffer[14] = (bufferSize / (256 * bitDepth)) & 0xFF;
+		sopcBuffer[15] = ((bufferSize / (256 * bitDepth)) >> 8) & 0xFF;
 
 		fwrite(sopcBuffer, 1, 0x10, fp);
 	}
