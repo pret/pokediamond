@@ -4,10 +4,12 @@ language: c
 env:
     global:
         - LM_LICENSE_FILE="$TRAVIS_BUILD_DIR/tools/mwccarm/license.dat"
+        - CC=gcc-8
+        - CXX=g++-8
 addons:
     apt:
         packages:
-            - gcc-multilib
+            - g++-8-multilib
             - linux-libc-dev
             - binutils-arm-none-eabi
             - wine32
