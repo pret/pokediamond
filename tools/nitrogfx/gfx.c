@@ -359,7 +359,7 @@ void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int m
 	free(buffer);
 }
 
-void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder, bool version101)
+void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -407,7 +407,7 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
             break;
     }
 
-    WriteGenericNtrHeader(fp, "RGCN", bufferSize + 0x20, byteOrder, version101);
+    WriteGenericNtrHeader(fp, "RGCN", bufferSize + (sopc ? 0x30 : 0x20), byteOrder, version101, sopc ? 2 : 1);
 
     unsigned char charHeader[0x20] = { 0x52, 0x41, 0x48, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00 };
@@ -445,6 +445,15 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
     fwrite(charHeader, 1, 0x20, fp);
 
     fwrite(pixelBuffer, 1, bufferSize, fp);
+
+    if (sopc)
+	{
+    	unsigned char sopcBuffer[0x10] = { 0x53, 0x4F, 0x50, 0x43, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00 };
+		sopcBuffer[14] = numTiles & 0xFF;
+		sopcBuffer[15] = (numTiles >> 8) & 0xFF;
+
+		fwrite(sopcBuffer, 1, 0x10, fp);
+	}
 
     free(pixelBuffer);
     fclose(fp);
@@ -545,7 +554,7 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir)
     uint32_t extSize = size + (ncpr ? 0x10 : 0x18);
 
     //NCLR header
-    WriteGenericNtrHeader(fp, (ncpr ? "RPCN" : "RLCN"), extSize, !ncpr, false);
+    WriteGenericNtrHeader(fp, (ncpr ? "RPCN" : "RLCN"), extSize, !ncpr, false, 1);
 
     unsigned char palHeader[0x18] =
             {

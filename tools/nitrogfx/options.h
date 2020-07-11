@@ -29,6 +29,7 @@ struct PngToNtrOptions {
     bool clobberSize;
     bool byteOrder;
     bool version101;
+    bool sopc;
 };
 
 

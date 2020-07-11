@@ -124,7 +124,7 @@ void WriteWholeFile(char *path, void *buffer, int bufferSize)
 	fclose(fp);
 }
 
-void WriteGenericNtrHeader(FILE* fp, const char* magicNumber, uint32_t size, bool byteorder, bool version101)
+void WriteGenericNtrHeader(FILE* fp, const char* magicNumber, uint32_t size, bool byteorder, bool version101, uint16_t sectionCount)
 {
     unsigned char header[0x10] =
             { 0x00, 0x00, 0x00, 0x00, 0xFF, 0xFE, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x01, 0x00 };
@@ -148,6 +148,10 @@ void WriteGenericNtrHeader(FILE* fp, const char* magicNumber, uint32_t size, boo
     header[9] = (size >> 8) & 0xFF;
     header[10] = (size >> 16) & 0xFF;
     header[11] = (size >> 24) & 0xFF;
+
+    //section count
+    header[14] = sectionCount & 0xFF;
+    header[15] = (sectionCount >> 8) & 0xFF;
 
     fwrite(header, 1, 0x10, fp);
 }
