@@ -1,6 +1,7 @@
 CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch
 CFLAGS   := -O2 -Wall -Wno-switch
 
+WSLENV ?= no
 ifeq ($(OS),Windows_NT)
 C_SRCS   := fnmatch.c
 LDFLAGS  += -lstdc++fs
@@ -10,7 +11,9 @@ UNAME_S  := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 LDFLAGS  += -lstdc++ -lc++ -lc
 else
-LDFLAGS  += -lstdc++fs -lstdc++ -lc++ -lc
+ifneq ($(WSLENV),)
+LDFLAGS  += -lstdc++fs
+endif
 endif
 endif
 CXX_SRCS := Source.cpp Narc.cpp
@@ -27,11 +30,16 @@ all: knarc
 clean:
 	$(RM) knarc knarc.exe $(OBJS)
 
+ifeq ($(OS),Windows_NT)
 knarc: $(OBJS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@ $^
+	$(CXX) $^ -o $@ $(LDFLAGS) $(CXXFLAGS)
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
+else
+knarc: $(CXX_SRCS) $(HEADERS)
+	$(CXX) $(CXX_SRCS) -o $@ $(LDFLAGS) $(CXXFLAGS)
+endif

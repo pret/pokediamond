@@ -141,7 +141,7 @@ endif
 .SECONDARY:
 .DELETE_ON_ERROR:
 .SECONDEXPANSION:
-.PHONY: all libs clean mostlyclean tidy tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
+.PHONY: all libs clean mostlyclean tidy tools clean-tools $(TOOLDIRS) patch_mwasmarm arm9 arm7
 
 MAKEFLAGS += --no-print-directory
 
@@ -150,10 +150,9 @@ ifeq ($(COMPARE),1)
 	@$(SHA1SUM) -c $(TARGET).sha1
 endif
 
-clean: mostlyclean clean-fs
+clean: mostlyclean clean-fs clean-tools
 	$(MAKE) -C arm9 clean
 	$(MAKE) -C arm7 clean
-	$(MAKE) -C tools/mwasmarm_patcher clean
 
 clean-fs:
 	$(RM) $(filter %.narc %.arc,$(HOSTFS_FILES))
@@ -174,10 +173,13 @@ tools: $(TOOLDIRS)
 $(TOOLDIRS):
 	@$(HOST_VARS) $(MAKE) -C $@
 
+clean-tools:
+	$(foreach tool,$(TOOLDIRS),$(MAKE) clean -C $(tool);)
+
 $(MWASMARM): patch_mwasmarm
 	@:
 
-patch_mwasmarm:
+patch_mwasmarm: tools/mwasmarm_patcher
 	$(MWASMARM_PATCHER) $(MWASMARM)
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
