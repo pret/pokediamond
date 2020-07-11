@@ -65,8 +65,9 @@ BNR := $(BUILD_DIR)/$(TARGET).bnr
 SRC_DIRS := src
 ASM_DIRS := asm data files
 
-C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+# sorting wildcards required for versions of make >= 3.8.2 and < 4.3 for consistent builds
+C_FILES := $(foreach dir,$(SRC_DIRS),$(sort $(wildcard $(dir)/*.c)))
+S_FILES := $(foreach dir,$(ASM_DIRS),$(sort $(wildcard $(dir)/*.s)))
 
 # Object files
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
