@@ -359,7 +359,7 @@ void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int m
 	free(buffer);
 }
 
-void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder)
+void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -407,7 +407,7 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
             break;
     }
 
-    WriteGenericNtrHeader(fp, "RGCN", bufferSize + 0x20, byteOrder);
+    WriteGenericNtrHeader(fp, "RGCN", bufferSize + (sopc ? 0x30 : 0x20), byteOrder, version101, sopc ? 2 : 1);
 
     unsigned char charHeader[0x20] = { 0x52, 0x41, 0x48, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
                                        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00, 0x00 };
@@ -419,11 +419,14 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
 
     if (!clobberSize)
     {
-        charHeader[8] = numTiles & 0xFF;
-        charHeader[9] = (numTiles >> 8) & 0xFF;
+        //charHeader[8] = numTiles & 0xFF;
+        //charHeader[9] = (numTiles >> 8) & 0xFF;
+        charHeader[8] = (bufferSize / (256 * bitDepth)) & 0xFF;
+        charHeader[9] = ((bufferSize / (256 * bitDepth)) >> 8) & 0xFF;
 
-        charHeader[10] = tileSize & 0xFF;
-        charHeader[11] = (tileSize >> 8) & 0xFF;
+        //charHeader[10] = tileSize & 0xFF;
+        //charHeader[11] = (tileSize >> 8) & 0xFF;
+        charHeader[10] = 0x20; //todo figure out if this changes
     }
     else
     {
@@ -445,6 +448,15 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
     fwrite(charHeader, 1, 0x20, fp);
 
     fwrite(pixelBuffer, 1, bufferSize, fp);
+
+    if (sopc)
+	{
+    	unsigned char sopcBuffer[0x10] = { 0x53, 0x4F, 0x50, 0x43, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00 };
+		sopcBuffer[14] = (bufferSize / (256 * bitDepth)) & 0xFF;
+		sopcBuffer[15] = ((bufferSize / (256 * bitDepth)) >> 8) & 0xFF;
+
+		fwrite(sopcBuffer, 1, 0x10, fp);
+	}
 
     free(pixelBuffer);
     fclose(fp);
@@ -534,7 +546,7 @@ void WriteGbaPalette(char *path, struct Palette *palette)
 	fclose(fp);
 }
 
-void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
+void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -545,7 +557,7 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
     uint32_t extSize = size + (ncpr ? 0x10 : 0x18);
 
     //NCLR header
-    WriteGenericNtrHeader(fp, (ncpr ? "RPCN" : "RLCN"), extSize, !ncpr);
+    WriteGenericNtrHeader(fp, (ncpr ? "RPCN" : "RLCN"), extSize, !ncpr, false, 1);
 
     unsigned char palHeader[0x18] =
             {
@@ -592,6 +604,12 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr)
             colours[i * 2] = 0x00;
             colours[i * 2 + 1] = 0x00;
         }
+    }
+
+    if (ir)
+    {
+        colours[510] = 'I';
+        colours[511] = 'R';
     }
 
     fwrite(colours, 1, 256 * 2, fp);
