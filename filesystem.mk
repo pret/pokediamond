@@ -2223,7 +2223,15 @@ files/demo/title/titledemo.narc: \
         files/demo/title/titledemo/narc_0001.NCGR \
         files/demo/title/titledemo/narc_0001.NCLR \
         files/demo/title/titledemo/narc_0003.NCGR \
-        files/demo/title/titledemo/narc_0003.NCLR
+        files/demo/title/titledemo/narc_0003.NCLR \
+        files/demo/title/titledemo/narc_0007.NCGR \
+        files/demo/title/titledemo/narc_0009.NCLR \
+        files/demo/title/titledemo/narc_0010.NCLR \
+        files/demo/title/titledemo/narc_0011.NCGR \
+        files/demo/title/titledemo/narc_0013.NCLR \
+        files/demo/title/titledemo/narc_0014.NCLR \
+        files/demo/title/titledemo/narc_0015.NCGR \
+        files/demo/title/titledemo/narc_0016.NCLR
 
 .PHONY: filesystem
 

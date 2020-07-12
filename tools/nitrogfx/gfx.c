@@ -419,14 +419,11 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
 
     if (!clobberSize)
     {
-        //charHeader[8] = numTiles & 0xFF;
-        //charHeader[9] = (numTiles >> 8) & 0xFF;
-        charHeader[8] = (bufferSize / (256 * bitDepth)) & 0xFF;
-        charHeader[9] = ((bufferSize / (256 * bitDepth)) >> 8) & 0xFF;
+        charHeader[8] = tilesHeight & 0xFF;
+        charHeader[9] = (tilesHeight >> 8) & 0xFF;
 
-        //charHeader[10] = tileSize & 0xFF;
-        //charHeader[11] = (tileSize >> 8) & 0xFF;
-        charHeader[10] = 0x20; //todo figure out if this changes
+        charHeader[10] = tilesWidth & 0xFF;
+        charHeader[11] = (tilesWidth >> 8) & 0xFF;
     }
     else
     {
@@ -451,11 +448,15 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
 
     if (sopc)
 	{
-    	unsigned char sopcBuffer[0x10] = { 0x53, 0x4F, 0x50, 0x43, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00 };
-		sopcBuffer[14] = (bufferSize / (256 * bitDepth)) & 0xFF;
-		sopcBuffer[15] = ((bufferSize / (256 * bitDepth)) >> 8) & 0xFF;
+    	unsigned char sopcBuffer[0x10] = { 0x53, 0x4F, 0x50, 0x43, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
-		fwrite(sopcBuffer, 1, 0x10, fp);
+        sopcBuffer[12] = tilesWidth & 0xFF;
+        sopcBuffer[13] = (tilesWidth >> 8) & 0xFF;
+
+        sopcBuffer[14] = tilesHeight & 0xFF;
+        sopcBuffer[15] = (tilesHeight >> 8) & 0xFF;
+
+        fwrite(sopcBuffer, 1, 0x10, fp);
 	}
 
     free(pixelBuffer);
@@ -488,7 +489,7 @@ void ReadGbaPalette(char *path, struct Palette *palette)
 	free(data);
 }
 
-void ReadNtrPalette(char *path, struct Palette *palette)
+void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth)
 {
     int fileSize;
     unsigned char *data = ReadWholeFile(path, &fileSize);
@@ -510,7 +511,9 @@ void ReadNtrPalette(char *path, struct Palette *palette)
 
     palette->bitDepth = paletteHeader[0x8] == 3 ? 4 : 8;
 
-    palette->numColors = palette->bitDepth == 4 ? 16 : 256; //remove header and divide by 2
+    bitdepth = bitdepth ? bitdepth : palette->bitDepth;
+
+    palette->numColors = bitdepth == 4 ? 16 : 256; //remove header and divide by 2
 
     unsigned char *paletteData = paletteHeader + 0x18;
 
@@ -546,7 +549,7 @@ void WriteGbaPalette(char *path, struct Palette *palette)
 	fclose(fp);
 }
 
-void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir)
+void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -573,8 +576,11 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir)
 
     if (!palette->bitDepth)
         palette->bitDepth = 4;
+
+    bitdepth = bitdepth ? bitdepth : palette->bitDepth;
+
     //bit depth
-    palHeader[8] = palette->bitDepth == 4 ? 0x03: 0x04;
+    palHeader[8] = bitdepth == 4 ? 0x03: 0x04;
 
     //size
     palHeader[16] = size & 0xFF;

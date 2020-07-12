@@ -255,6 +255,9 @@ $(CLOBBER_SIZE_VERSION101_NCGR_FILES): %.NCGR: %.png
 $(VERSION101_SOPC_8BPP_NCGR_FILES): %.NCGR: %.png
 	$(GFX) $< $@ -version101 -sopc -bitdepth 8
 
+$(VERSION101_SOPC_NCGR_FILES): %.NCGR: %.png
+	$(GFX) $< $@ -version101 -sopc
+
 %.NCLR: %.png
 	$(GFX) $< $@
 
@@ -263,6 +266,9 @@ $(VERSION101_SOPC_8BPP_NCGR_FILES): %.NCGR: %.png
 
 $(IR_NCLR_FILES): %.NCLR: %.pal
 	$(GFX) $< $@ -ir
+
+$(4BPP_NCLR_FILES): %.NCLR: %.pal
+	$(GFX) $< $@ -bitdepth 4
 
 %.png: ;
 %.pal: ;

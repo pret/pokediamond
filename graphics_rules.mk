@@ -1,6 +1,5 @@
 #todo data/dp_areawindow.NCGR (weirdness with size)
 #todo data/graphic/bag_gra/narc_0007.NCGR (SOPC section) (width 32, palette narc_0003.NCLR)
-#todo data/demo/title/titledemo/narc_0007.NCGR (weidness with size, needs investigating)
 
 CLOBBER_SIZE_NCGR_FILES := files/data/cell0.NCGR
 
@@ -51,6 +50,8 @@ CLOBBER_SIZE_VERSION101_NCGR_FILES := files/graphic/bag_gra/narc_0002.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0109.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0112.NCGR
 
+4BPP_NCLR_FILES := files/demo/title/titledemo/narc_0016.NCLR
+
 IR_NCLR_FILES := files/itemtool/itemdata/item_icon/narc_0028.NCLR \
                  files/itemtool/itemdata/item_icon/narc_0029.NCLR \
                  files/itemtool/itemdata/item_icon/narc_0032.NCLR \
@@ -85,9 +86,16 @@ IR_NCLR_FILES := files/itemtool/itemdata/item_icon/narc_0028.NCLR \
 VERSION101_SOPC_8BPP_NCGR_FILES := files/demo/title/titledemo/narc_0001.NCGR \
                                    files/demo/title/titledemo/narc_0003.NCGR
 
+VERSION101_SOPC_NCGR_FILES := files/demo/title/titledemo/narc_0007.NCGR \
+                              files/demo/title/titledemo/narc_0011.NCGR \
+                              files/demo/title/titledemo/narc_0015.NCGR
+
 NCGR_CLEAN_LIST := files/data/cell0.NCGR \
                    files/demo/title/titledemo/narc_0001.NCGR \
                    files/demo/title/titledemo/narc_0003.NCGR \
+                   files/demo/title/titledemo/narc_0007.NCGR \
+                   files/demo/title/titledemo/narc_0011.NCGR \
+                   files/demo/title/titledemo/narc_0015.NCGR \
                    files/graphic/bag_gra/narc_0002.NCGR \
                    files/graphic/bag_gra/narc_0006.NCGR \
                    files/graphic/bag_gra/narc_0034.NCGR \
@@ -139,6 +147,11 @@ NCGR_CLEAN_LIST := files/data/cell0.NCGR \
 NCLR_CLEAN_LIST := files/data/cell0.NCLR \
                    files/demo/title/titledemo/narc_0001.NCLR \
                    files/demo/title/titledemo/narc_0003.NCLR \
+                   files/demo/title/titledemo/narc_0009.NCLR \
+                   files/demo/title/titledemo/narc_0010.NCLR \
+                   files/demo/title/titledemo/narc_0013.NCLR \
+                   files/demo/title/titledemo/narc_0014.NCLR \
+                   files/demo/title/titledemo/narc_0016.NCLR \
                    files/graphic/bag_gra/narc_0003.NCLR \
                    files/graphic/bag_gra/narc_0034.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0002.NCLR \
