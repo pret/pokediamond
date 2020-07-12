@@ -50,7 +50,7 @@ void ConvertNtrToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
 
     if (options->paletteFilePath != NULL)
     {
-        ReadNtrPalette(options->paletteFilePath, &image.palette);
+        ReadNtrPalette(options->paletteFilePath, &image.palette, options->bitDepth);
         image.hasPalette = true;
     }
     else
@@ -437,7 +437,7 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
     }
 
     ReadPngPalette(inputPath, &palette);
-    WriteNtrPalette(outputPath, &palette, ncpr, ir);
+    WriteNtrPalette(outputPath, &palette, ncpr, ir, palette.bitDepth);
 }
 
 void HandleGbaToJascPaletteCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
@@ -448,11 +448,35 @@ void HandleGbaToJascPaletteCommand(char *inputPath, char *outputPath, int argc U
     WriteJascPalette(outputPath, &palette);
 }
 
-void HandleNtrToJascPaletteCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
+void HandleNtrToJascPaletteCommand(char *inputPath, char *outputPath, int argc, char **argv)
 {
     struct Palette palette;
+    int bitdepth = 0;
 
-    ReadNtrPalette(inputPath, &palette);
+    for (int i = 3; i < argc; i++)
+    {
+        char *option = argv[i];
+
+        if (strcmp(option, "-bitdepth") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No bitdepth following \"-bitdepth\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &bitdepth))
+                FATAL_ERROR("Failed to parse bitdepth.\n");
+
+            if (bitdepth != 4 && bitdepth != 8)
+                FATAL_ERROR("Bitdepth must be 4 or 8.\n");
+        }
+        else
+        {
+            FATAL_ERROR("Unrecognized option \"%s\".\n", option);
+        }
+    }
+
+    ReadNtrPalette(inputPath, &palette, bitdepth);
     WriteJascPalette(outputPath, &palette);
 }
 
@@ -498,6 +522,7 @@ void HandleJascToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, 
     int numColors = 0;
     bool ncpr = false;
     bool ir = false;
+    int bitdepth = 0;
 
     for (int i = 3; i < argc; i++)
     {
@@ -515,6 +540,19 @@ void HandleJascToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, 
 
             if (numColors < 1)
                 FATAL_ERROR("Number of colors must be positive.\n");
+        }
+        if (strcmp(option, "-bitdepth") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No bitdepth following \"-bitdepth\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &bitdepth))
+                FATAL_ERROR("Failed to parse bitdepth.\n");
+
+            if (bitdepth != 4 && bitdepth != 8)
+                FATAL_ERROR("Bitdepth must be 4 or 8.\n");
         }
         else if (strcmp(option, "-ncpr") == 0)
         {
@@ -537,7 +575,7 @@ void HandleJascToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, 
     if (numColors != 0)
         palette.numColors = numColors;
 
-    WriteNtrPalette(outputPath, &palette, ncpr, ir);
+    WriteNtrPalette(outputPath, &palette, ncpr, ir, bitdepth);
 }
 
 void HandleLatinFontToPngCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)
