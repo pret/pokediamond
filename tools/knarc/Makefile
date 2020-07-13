@@ -1,15 +1,45 @@
-CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch -lstdc++fs
+CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch
+CFLAGS   := -O2 -Wall -Wno-switch
 
-SRCS := Source.cpp Narc.cpp fnmatch.c
-HEADERS := Narc.h fnmatch.h
+WSLENV ?= no
+ifeq ($(OS),Windows_NT)
+C_SRCS   := fnmatch.c
+LDFLAGS  += -lstdc++fs
+else
+C_SRCS   :=
+UNAME_S  := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+LDFLAGS  += -lstdc++ -lc++ -lc
+else
+ifneq ($(WSLENV),)
+LDFLAGS  += -lstdc++fs
+endif
+endif
+endif
+CXX_SRCS := Source.cpp Narc.cpp
+C_OBJS   := $(C_SRCS:%.c=%.o)
+CXX_OBJS := $(CXX_SRCS:%.cpp=%.o)
+OBJS     := $(C_OBJS) $(CXX_OBJS)
+HEADERS  := Narc.h fnmatch.h
 
 .PHONY: all clean
 
 all: knarc
 	@:
 
-knarc: $(SRCS) $(HEADERS)
-	$(CXX) $(SRCS) -o $@ $(LDFLAGS) $(CXXFLAGS)
-
 clean:
-	$(RM) knarc knarc.exe
+	$(RM) knarc knarc.exe $(OBJS)
+
+ifeq ($(OS),Windows_NT)
+knarc: $(OBJS)
+	$(CXX) $^ -o $@ $(LDFLAGS) $(CXXFLAGS)
+
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+%.o: %.cpp $(HEADERS)
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+else
+knarc: $(CXX_SRCS) $(HEADERS)
+	$(CXX) $(CXX_SRCS) -o $@ $(LDFLAGS) $(CXXFLAGS)
+endif
