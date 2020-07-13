@@ -8,8 +8,6 @@ static u16 OSi_UseTick = FALSE;
 vu64 OSi_TickCounter;
 BOOL OSi_NeedResetTimer = FALSE;
 
-extern void OSi_SetTimerReserved(u32 param1);
-
 ARM_FUNC void OS_InitTick(void)
 {
     if (OSi_UseTick)

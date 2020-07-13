@@ -1,7 +1,3 @@
-//
-// Created by mart on 4/12/20.
-//
-
 #include "function_target.h"
 #include "OS_init.h"
 

@@ -6,6 +6,7 @@
 #include "OS_tcm.h"
 #include "OS_spinLock.h"
 #include "OS_context.h"
+#include "OS_timer.h"
 #include "OS_tick.h"
 #include "OS_alarm.h"
 #include "OS_mutex.h"
@@ -22,8 +23,6 @@
 #include "OS_irqTable.h"
 #include "OS_interrupt.h"
 #include "OS_reset.h"
-#include "OS_spinLock.h"
-#include "OS_tick.h"
 
 void OS_Init(void);
 

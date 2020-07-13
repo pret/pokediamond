@@ -1,6 +1,9 @@
-#ifndef POKEDIAMOND_OS_TIMER_H
-#define POKEDIAMOND_OS_TIMER_H
+#ifndef POKEDIAMOND_ARM9_OS_TIMER_H
+#define POKEDIAMOND_ARM9_OS_TIMER_H
 
 #include "nitro/OS_timer_shared.h"
+#include "nitro/types.h"
 
-#endif //POKEDIAMOND_OS_TIMER_H
+void OSi_SetTimerReserved(s32 timerNum);
+
+#endif //POKEDIAMOND_ARM9_OS_TIMER_H
