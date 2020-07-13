@@ -1,5 +1,6 @@
 #todo data/dp_areawindow.NCGR (weirdness with size)
 #todo data/graphic/bag_gra/narc_0007.NCGR (SOPC section) (width 32, palette narc_0003.NCLR)
+#todo poketool/trgra/trbgra (unknown compression)
 
 CLOBBER_SIZE_NCGR_FILES := files/data/cell0.NCGR
 
@@ -48,7 +49,9 @@ CLOBBER_SIZE_VERSION101_NCGR_FILES := files/graphic/bag_gra/narc_0002.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0105.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0107.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0109.NCGR \
-                                      files/itemtool/itemdata/item_icon/narc_0112.NCGR
+                                      files/itemtool/itemdata/item_icon/narc_0112.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0115.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0117.NCGR
 
 4BPP_NCLR_FILES := files/demo/title/titledemo/narc_0016.NCLR
 
@@ -141,7 +144,9 @@ NCGR_CLEAN_LIST := files/data/cell0.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0105.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0107.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0109.NCGR \
-                   files/itemtool/itemdata/item_icon/narc_0112.NCGR
+                   files/itemtool/itemdata/item_icon/narc_0112.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0115.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0117.NCGR
 
 
 NCLR_CLEAN_LIST := files/data/cell0.NCLR \
@@ -223,4 +228,6 @@ NCLR_CLEAN_LIST := files/data/cell0.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0110.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0111.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0112.NCLR \
-                   files/itemtool/itemdata/item_icon/narc_0114.NCLR
+                   files/itemtool/itemdata/item_icon/narc_0114.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0115.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0117.NCLR
