@@ -36,6 +36,6 @@ void FreeImage(struct Image *image);
 void ReadGbaPalette(char *path, struct Palette *palette);
 void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth);
 void WriteGbaPalette(char *path, struct Palette *palette);
-void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth);
+void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth, bool pad, int compNum);
 
 #endif // GFX_H

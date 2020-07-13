@@ -549,14 +549,16 @@ void WriteGbaPalette(char *path, struct Palette *palette)
 	fclose(fp);
 }
 
-void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth)
+void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, int bitdepth, bool pad, int compNum)
 {
     FILE *fp = fopen(path, "wb");
 
     if (fp == NULL)
         FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
 
-    uint32_t size = 256 * 2; //todo check if there's a better way to detect :/
+    int colourNum = pad ? 256 : 16;
+
+    uint32_t size = colourNum * 2; //todo check if there's a better way to detect :/
     uint32_t extSize = size + (ncpr ? 0x10 : 0x18);
 
     //NCLR header
@@ -582,6 +584,11 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, in
     //bit depth
     palHeader[8] = bitdepth == 4 ? 0x03: 0x04;
 
+    if (compNum)
+    {
+        palHeader[10] = compNum; //assuming this is an indicator of compression, literally no docs for it though
+    }
+
     //size
     palHeader[16] = size & 0xFF;
     palHeader[17] = (size >> 8) & 0xFF;
@@ -590,9 +597,9 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, in
 
     fwrite(palHeader, 1, 0x18, fp);
 
-    unsigned char colours[256 * 2];
+    unsigned char colours[colourNum * 2];
     //palette data
-    for (int i = 0; i < 256; i++)
+    for (int i = 0; i < colourNum; i++)
     {
         if (i < palette->numColors)
         {
@@ -614,11 +621,11 @@ void WriteNtrPalette(char *path, struct Palette *palette, bool ncpr, bool ir, in
 
     if (ir)
     {
-        colours[510] = 'I';
-        colours[511] = 'R';
+        colours[colourNum * 2 - 2] = 'I';
+        colours[colourNum * 2 - 1] = 'R';
     }
 
-    fwrite(colours, 1, 256 * 2, fp);
+    fwrite(colours, 1, colourNum * 2, fp);
 
     fclose(fp);
 }
