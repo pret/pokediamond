@@ -418,7 +418,7 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
     bool ncpr = false;
     bool ir = false;
     bool nopad = false;
-    int compNum;
+    int compNum = 0;
 
     for (int i = 3; i < argc; i++)
     {
