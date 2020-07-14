@@ -4,8 +4,6 @@
 #include "OS_timer.h"
 #include "function_target.h"
 
-extern void OSi_SetTimerReserved(u32);
-
 static u16 OSi_UseTick;
 static OSTick OSi_TickCounter;
 static BOOL OSi_NeedResetTimer;
