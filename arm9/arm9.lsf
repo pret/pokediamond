@@ -516,6 +516,7 @@ Overlay MODULE_05
 {
 	##Overworld##
 	After arm9
+	Object mod05_021D74E0.o
 	Object module_05.o
 }
 
