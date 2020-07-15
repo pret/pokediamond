@@ -1,5 +1,8 @@
 # Pokémon Diamond
 
+[![Build Status](https://travis-ci.org/pret/pokediamond.svg?branch=master)](https://travis-ci.org/pret/pokediamond)
+![Docker Image CI](https://github.com/pret/pokediamond/workflows/Docker%20Image%20CI/badge.svg)
+
 This is a decompilation of Pokémon Diamond.
 
 It builds the following ROMs:
