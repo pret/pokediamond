@@ -526,6 +526,7 @@ Overlay MODULE_05
 	Object mod05_021DB900.o
 	Object mod05_021DBA00.o
 	Object mod05_021DBABC.o
+	Object mod05_021DBD84.o
 	Object module_05.o
 }
 
