@@ -93,6 +93,34 @@ static void ConvertFromTiles4Bpp(unsigned char *src, unsigned char *dest, int nu
 	}
 }
 
+static uint32_t ConvertFromScanned4Bpp(unsigned char *src, unsigned char *dest, int fileSize, bool invertColours)
+{
+    uint32_t encValue = (src[fileSize - 1] << 8) | src[fileSize - 2];
+    for (int i = fileSize; i > 0; i -= 2)
+    {
+        uint16_t val = (src[i - 1] << 8) | src[i - 2];
+        val ^= (encValue & 0xFFFF);
+        src[i - 1] = (val >> 8);
+        src[i - 2] = val;
+        encValue = encValue * 1103515245;
+        encValue = encValue + 24691;
+    }
+    for (int i = 0; i < fileSize; i++)
+    {
+        unsigned char srcPixelPair = src[i];
+        unsigned char leftPixel = srcPixelPair & 0xF;
+        unsigned char rightPixel = srcPixelPair >> 4;
+
+        if (invertColours) {
+            leftPixel = 15 - leftPixel;
+            rightPixel = 15 - rightPixel;
+        }
+
+        dest[i] = (leftPixel << 4) | rightPixel;
+    }
+    return encValue;
+}
+
 static void ConvertFromTiles8Bpp(unsigned char *src, unsigned char *dest, int numTiles, int metatilesWide, int metatileWidth, int metatileHeight, bool invertColors)
 {
 	int subTileX = 0;
@@ -175,6 +203,30 @@ static void ConvertToTiles4Bpp(unsigned char *src, unsigned char *dest, int numT
 
 		AdvanceMetatilePosition(&subTileX, &subTileY, &metatileX, &metatileY, metatilesWide, metatileWidth, metatileHeight);
 	}
+}
+
+static void ConvertToScanned4Bpp(unsigned char *src, unsigned char *dest, int fileSize, bool invertColours, uint32_t encValue)
+{
+    for (int i = 0; i < fileSize; i++)
+    {
+        unsigned char srcPixelPair = src[i];
+        unsigned char leftPixel = srcPixelPair & 0xF;
+        unsigned char rightPixel = srcPixelPair >> 4;
+        if (invertColours) {
+            leftPixel = 15 - leftPixel;
+            rightPixel = 15 - rightPixel;
+        }
+        dest[i] = (leftPixel << 4) | rightPixel;
+    }
+
+    for (int i = 1; i < fileSize; i += 2)
+    {
+        uint16_t val = (dest[i] << 8) | dest[i - 1];
+        encValue = (encValue - 24691) * 4005161829;
+        val ^= (encValue & 0xFFFF);
+        dest[i] = (val >> 8);
+        dest[i - 1] = val;
+    }
 }
 
 static void ConvertToTiles8Bpp(unsigned char *src, unsigned char *dest, int numTiles, int metatilesWide, int metatileWidth, int metatileHeight, bool invertColors)
@@ -272,6 +324,8 @@ void ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, i
 
     unsigned char *imageData = charHeader + 0x20;
 
+    bool scanned = charHeader[0x14];
+
     int tileSize = bitDepth * 8;
 
     int numTiles = (charHeader[0x18] + (charHeader[0x19] << 8) + (charHeader[0x1A] << 16) + (charHeader[0x1B] << 24))
@@ -296,13 +350,37 @@ void ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, i
     
     int metatilesWide = tilesWidth / metatileWidth;
 
-    switch (bitDepth) {
-        case 4:
-            ConvertFromTiles4Bpp(imageData, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-            break;
-        case 8:
-            ConvertFromTiles8Bpp(imageData, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-            break;
+    if (scanned)
+    {
+        uint32_t key;
+        switch (bitDepth)
+        {
+            case 4:
+                key = ConvertFromScanned4Bpp(imageData, image->pixels, fileSize - 0x30, invertColors);
+                break;
+            case 8:
+                FATAL_ERROR("8bpp is not implemented yet\n");
+                break;
+        }
+        FILE *fp = fopen(strcat(path, ".key"), "wb");
+        if (fp == NULL)
+            FATAL_ERROR("Failed to open key file for writing.\n");
+        fwrite(&key, 4, 1, fp);
+        fclose(fp);
+    }
+    else
+    {
+        switch (bitDepth)
+        {
+            case 4:
+                ConvertFromTiles4Bpp(imageData, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight,
+                                     invertColors);
+                break;
+            case 8:
+                ConvertFromTiles8Bpp(imageData, image->pixels, numTiles, metatilesWide, metatileWidth, metatileHeight,
+                                     invertColors);
+                break;
+        }
     }
 
     free(buffer);
@@ -359,7 +437,7 @@ void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int m
 	free(buffer);
 }
 
-void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc)
+void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc, bool scanned)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -398,13 +476,39 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
 
     int metatilesWide = tilesWidth / metatileWidth;
 
-    switch (bitDepth) {
-        case 4:
-            ConvertToTiles4Bpp(image->pixels, pixelBuffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-            break;
-        case 8:
-            ConvertToTiles8Bpp(image->pixels, pixelBuffer, numTiles, metatilesWide, metatileWidth, metatileHeight, invertColors);
-            break;
+    if (scanned)
+    {
+        FILE *fp2 = fopen(strcat(path, ".key"), "rb");
+        if (fp2 == NULL)
+            FATAL_ERROR("Failed to open key file for reading.\n");
+        uint32_t key;
+        size_t count = fread(&key, 4, 1, fp2);
+        if (count != 1)
+            FATAL_ERROR("Not a valid key file.\n");
+        fclose(fp2);
+        switch (bitDepth)
+        {
+            case 4:
+                ConvertToScanned4Bpp(image->pixels, pixelBuffer, bufferSize, invertColors, key);
+                break;
+            case 8:
+                FATAL_ERROR("8Bpp not supported yet.\n");
+                break;
+        }
+    }
+    else
+    {
+        switch (bitDepth)
+        {
+            case 4:
+                ConvertToTiles4Bpp(image->pixels, pixelBuffer, numTiles, metatilesWide, metatileWidth, metatileHeight,
+                                   invertColors);
+                break;
+            case 8:
+                ConvertToTiles8Bpp(image->pixels, pixelBuffer, numTiles, metatilesWide, metatileWidth, metatileHeight,
+                                   invertColors);
+                break;
+        }
     }
 
     WriteGenericNtrHeader(fp, "RGCN", bufferSize + (sopc ? 0x30 : 0x20), byteOrder, version101, sopc ? 2 : 1);
@@ -436,6 +540,11 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
     }
 
     charHeader[12] = bitDepth == 4 ? 3 : 4;
+
+    if (scanned)
+    {
+        charHeader[20] = 1;
+    }
 
     charHeader[24] = bufferSize & 0xFF;
     charHeader[25] = (bufferSize >> 8) & 0xFF;
