@@ -362,7 +362,9 @@ void ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, i
                 FATAL_ERROR("8bpp is not implemented yet\n");
                 break;
         }
-        FILE *fp = fopen(strcat(path, ".key"), "wb");
+        char string[strlen(path) + 6];
+        strcpy(string, path);
+        FILE *fp = fopen(strcat(string, ".key"), "wb");
         if (fp == NULL)
             FATAL_ERROR("Failed to open key file for writing.\n");
         fwrite(&key, 4, 1, fp);
@@ -478,7 +480,9 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
 
     if (scanned)
     {
-        FILE *fp2 = fopen(strcat(path, ".key"), "rb");
+        char string[strlen(path) + 6];
+        strcpy(string, path);
+        FILE *fp2 = fopen(strcat(string, ".key"), "rb");
         if (fp2 == NULL)
             FATAL_ERROR("Failed to open key file for reading.\n");
         uint32_t key;
