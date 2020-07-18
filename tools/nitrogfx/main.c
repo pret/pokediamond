@@ -62,9 +62,9 @@ void ConvertNtrToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
 
     if (key)
     {
-        char string[strlen(outputPath) + 6];
-        strcpy(string, outputPath);
-        FILE *fp = fopen(strcat(string, ".key"), "wb");
+        char string[strlen(outputPath) + 5];
+        sprintf(string, "%s.key", outputPath);
+        FILE *fp = fopen(string, "wb");
         if (fp == NULL)
             FATAL_ERROR("Failed to open key file for writing.\n");
         fwrite(&key, 4, 1, fp);
@@ -102,9 +102,9 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
     uint32_t key = 0;
     if (options->scanned)
     {
-        char string[strlen(inputPath) + 6];
-        strcpy(string, inputPath);
-        FILE *fp2 = fopen(strcat(string, ".key"), "rb");
+        char string[strlen(inputPath) + 5];
+        sprintf(string, "%s.key", inputPath);
+        FILE *fp2 = fopen(string, "rb");
         if (fp2 == NULL)
             FATAL_ERROR("Failed to open key file for reading.\n");
         size_t count = fread(&key, 4, 1, fp2);
