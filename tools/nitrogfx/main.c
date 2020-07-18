@@ -58,7 +58,18 @@ void ConvertNtrToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
         image.hasPalette = false;
     }
     
-    ReadNtrImage(inputPath, options->width, 0, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette);
+    uint32_t key = ReadNtrImage(inputPath, options->width, 0, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette);
+
+    if (key)
+    {
+        char string[strlen(outputPath) + 5];
+        sprintf(string, "%s.key", outputPath);
+        FILE *fp = fopen(string, "wb");
+        if (fp == NULL)
+            FATAL_ERROR("Failed to open key file for writing.\n");
+        fwrite(&key, 4, 1, fp);
+        fclose(fp);
+    }
 
     image.hasTransparency = options->hasTransparency;
 
@@ -88,7 +99,21 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
 
     ReadPng(inputPath, &image);
 
-    WriteNtrImage(outputPath, options->numTiles, image.bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101, options->sopc);
+    uint32_t key = 0;
+    if (options->scanned)
+    {
+        char string[strlen(inputPath) + 5];
+        sprintf(string, "%s.key", inputPath);
+        FILE *fp2 = fopen(string, "rb");
+        if (fp2 == NULL)
+            FATAL_ERROR("Failed to open key file for reading.\n");
+        size_t count = fread(&key, 4, 1, fp2);
+        if (count != 1)
+            FATAL_ERROR("Not a valid key file.\n");
+        fclose(fp2);
+    }
+
+    WriteNtrImage(outputPath, options->numTiles, image.bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101, options->sopc, options->scanned, key);
 
     FreeImage(&image);
 }
@@ -322,6 +347,7 @@ void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **a
     options.byteOrder = true;
     options.version101 = false;
     options.sopc = false;
+    options.scanned = false;
 
     for (int i = 3; i < argc; i++)
     {
@@ -395,6 +421,10 @@ void HandlePngToNtrCommand(char *inputPath, char *outputPath, int argc, char **a
         {
             options.sopc = true;
         }
+        else if (strcmp(option, "-scanned") == 0)
+        {
+            options.scanned = true;
+        }
         else
         {
             FATAL_ERROR("Unrecognized option \"%s\".\n", option);
@@ -418,6 +448,7 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
     bool ncpr = false;
     bool ir = false;
     bool nopad = false;
+    int bitdepth = 0;
     int compNum = 0;
 
     for (int i = 3; i < argc; i++)
@@ -436,7 +467,20 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
         {
             nopad = true;
         }
-        if (strcmp(option, "-comp") == 0)
+        else if (strcmp(option, "-bitdepth") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No bitdepth following \"-bitdepth\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &bitdepth))
+                FATAL_ERROR("Failed to parse bitdepth.\n");
+
+            if (bitdepth != 4 && bitdepth != 8)
+                FATAL_ERROR("Bitdepth must be 4 or 8.\n");
+        }
+        else if (strcmp(option, "-comp") == 0)
         {
             if (i + 1 >= argc)
                 FATAL_ERROR("No compression value following \"-comp\".\n");
@@ -456,7 +500,7 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
     }
 
     ReadPngPalette(inputPath, &palette);
-    WriteNtrPalette(outputPath, &palette, ncpr, ir, palette.bitDepth, !nopad, compNum);
+    WriteNtrPalette(outputPath, &palette, ncpr, ir, bitdepth, !nopad, compNum);
 }
 
 void HandleGbaToJascPaletteCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)

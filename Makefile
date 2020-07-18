@@ -260,6 +260,9 @@ $(VERSION101_SOPC_8BPP_NCGR_FILES): %.NCGR: %.png
 $(VERSION101_SOPC_NCGR_FILES): %.NCGR: %.png
 	$(GFX) $< $@ -version101 -sopc
 
+$(SCANNED_NCGR_FILES): %.NCGR: %.png
+	$(GFX) $< $@ -scanned
+
 %.NCLR: %.png
 	$(GFX) $< $@
 
@@ -271,6 +274,9 @@ $(IR_NCLR_FILES): %.NCLR: %.pal
 
 $(4BPP_NCLR_FILES): %.NCLR: %.pal
 	$(GFX) $< $@ -bitdepth 4
+
+$(8BPP_COMP10_NOPAD_NCLR_FILES): %.NCLR: %.png
+	$(GFX) $< $@ -bitdepth 8 -nopad -comp 10
 
 %.png: ;
 %.pal: ;

@@ -30,6 +30,7 @@ struct PngToNtrOptions {
     bool byteOrder;
     bool version101;
     bool sopc;
+    bool scanned;
 };
 
 
