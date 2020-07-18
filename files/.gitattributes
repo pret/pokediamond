@@ -3,3 +3,4 @@
 .knarcignore eol=lf
 .knarckeep eol=lf
 *.pal eol=crlf
+*.key binary
