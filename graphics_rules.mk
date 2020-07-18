@@ -59,7 +59,11 @@ CLOBBER_SIZE_VERSION101_NCGR_FILES := files/graphic/bag_gra/narc_0002.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0127.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0128.NCGR \
                                       files/itemtool/itemdata/item_icon/narc_0130.NCGR \
-                                      files/itemtool/itemdata/item_icon/narc_0132.NCGR
+                                      files/itemtool/itemdata/item_icon/narc_0132.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0133.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0135.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0136.NCGR \
+                                      files/itemtool/itemdata/item_icon/narc_0138.NCGR
 
 4BPP_NCLR_FILES := files/demo/title/titledemo/narc_0016.NCLR
 
@@ -162,7 +166,11 @@ NCGR_CLEAN_LIST := files/data/cell0.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0127.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0128.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0130.NCGR \
-                   files/itemtool/itemdata/item_icon/narc_0132.NCGR
+                   files/itemtool/itemdata/item_icon/narc_0132.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0133.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0135.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0136.NCGR \
+                   files/itemtool/itemdata/item_icon/narc_0138.NCGR
 
 
 NCLR_CLEAN_LIST := files/data/cell0.NCLR \
@@ -252,4 +260,7 @@ NCLR_CLEAN_LIST := files/data/cell0.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0123.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0125.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0129.NCLR \
-                   files/itemtool/itemdata/item_icon/narc_0131.NCLR
+                   files/itemtool/itemdata/item_icon/narc_0131.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0134.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0136.NCLR \
+                   files/itemtool/itemdata/item_icon/narc_0138.NCLR
