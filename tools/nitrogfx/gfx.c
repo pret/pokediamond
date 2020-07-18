@@ -298,7 +298,7 @@ void ReadImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int 
 	free(buffer);
 }
 
-void ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors)
+uint32_t ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors)
 {
     int fileSize;
     unsigned char *buffer = ReadWholeFile(path, &fileSize);
@@ -350,9 +350,9 @@ void ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, i
     
     int metatilesWide = tilesWidth / metatileWidth;
 
+    uint32_t key = 0;
     if (scanned)
     {
-        uint32_t key;
         switch (bitDepth)
         {
             case 4:
@@ -362,13 +362,6 @@ void ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, i
                 FATAL_ERROR("8bpp is not implemented yet\n");
                 break;
         }
-        char string[strlen(path) + 6];
-        strcpy(string, path);
-        FILE *fp = fopen(strcat(string, ".key"), "wb");
-        if (fp == NULL)
-            FATAL_ERROR("Failed to open key file for writing.\n");
-        fwrite(&key, 4, 1, fp);
-        fclose(fp);
     }
     else
     {
@@ -386,6 +379,7 @@ void ReadNtrImage(char *path, int tilesWidth, int bitDepth, int metatileWidth, i
     }
 
     free(buffer);
+    return key;
 }
 
 void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors)
@@ -439,7 +433,7 @@ void WriteImage(char *path, int numTiles, int bitDepth, int metatileWidth, int m
 	free(buffer);
 }
 
-void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc, bool scanned)
+void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, int metatileHeight, struct Image *image, bool invertColors, bool clobberSize, bool byteOrder, bool version101, bool sopc, bool scanned, uint32_t key)
 {
     FILE *fp = fopen(path, "wb");
 
@@ -480,16 +474,6 @@ void WriteNtrImage(char *path, int numTiles, int bitDepth, int metatileWidth, in
 
     if (scanned)
     {
-        char string[strlen(path) + 6];
-        strcpy(string, path);
-        FILE *fp2 = fopen(strcat(string, ".key"), "rb");
-        if (fp2 == NULL)
-            FATAL_ERROR("Failed to open key file for reading.\n");
-        uint32_t key;
-        size_t count = fread(&key, 4, 1, fp2);
-        if (count != 1)
-            FATAL_ERROR("Not a valid key file.\n");
-        fclose(fp2);
         switch (bitDepth)
         {
             case 4:

@@ -58,7 +58,18 @@ void ConvertNtrToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
         image.hasPalette = false;
     }
     
-    ReadNtrImage(inputPath, options->width, 0, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette);
+    uint32_t key = ReadNtrImage(inputPath, options->width, 0, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette);
+
+    if (key)
+    {
+        char string[strlen(outputPath) + 6];
+        strcpy(string, outputPath);
+        FILE *fp = fopen(strcat(string, ".key"), "wb");
+        if (fp == NULL)
+            FATAL_ERROR("Failed to open key file for writing.\n");
+        fwrite(&key, 4, 1, fp);
+        fclose(fp);
+    }
 
     image.hasTransparency = options->hasTransparency;
 
@@ -88,7 +99,21 @@ void ConvertPngToNtr(char *inputPath, char *outputPath, struct PngToNtrOptions *
 
     ReadPng(inputPath, &image);
 
-    WriteNtrImage(outputPath, options->numTiles, image.bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101, options->sopc, options->scanned);
+    uint32_t key = 0;
+    if (options->scanned)
+    {
+        char string[strlen(inputPath) + 6];
+        strcpy(string, inputPath);
+        FILE *fp2 = fopen(strcat(string, ".key"), "rb");
+        if (fp2 == NULL)
+            FATAL_ERROR("Failed to open key file for reading.\n");
+        size_t count = fread(&key, 4, 1, fp2);
+        if (count != 1)
+            FATAL_ERROR("Not a valid key file.\n");
+        fclose(fp2);
+    }
+
+    WriteNtrImage(outputPath, options->numTiles, image.bitDepth, options->metatileWidth, options->metatileHeight, &image, !image.hasPalette, options->clobberSize, options->byteOrder, options->version101, options->sopc, options->scanned, key);
 
     FreeImage(&image);
 }
