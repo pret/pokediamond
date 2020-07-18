@@ -448,6 +448,7 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
     bool ncpr = false;
     bool ir = false;
     bool nopad = false;
+    int bitdepth = 0;
     int compNum = 0;
 
     for (int i = 3; i < argc; i++)
@@ -466,7 +467,20 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
         {
             nopad = true;
         }
-        if (strcmp(option, "-comp") == 0)
+        else if (strcmp(option, "-bitdepth") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No bitdepth following \"-bitdepth\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &bitdepth))
+                FATAL_ERROR("Failed to parse bitdepth.\n");
+
+            if (bitdepth != 4 && bitdepth != 8)
+                FATAL_ERROR("Bitdepth must be 4 or 8.\n");
+        }
+        else if (strcmp(option, "-comp") == 0)
         {
             if (i + 1 >= argc)
                 FATAL_ERROR("No compression value following \"-comp\".\n");
@@ -486,7 +500,7 @@ void HandlePngToNtrPaletteCommand(char *inputPath, char *outputPath, int argc, c
     }
 
     ReadPngPalette(inputPath, &palette);
-    WriteNtrPalette(outputPath, &palette, ncpr, ir, palette.bitDepth, !nopad, compNum);
+    WriteNtrPalette(outputPath, &palette, ncpr, ir, bitdepth, !nopad, compNum);
 }
 
 void HandleGbaToJascPaletteCommand(char *inputPath, char *outputPath, int argc UNUSED, char **argv UNUSED)

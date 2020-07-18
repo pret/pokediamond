@@ -2258,6 +2258,10 @@ files/demo/title/titledemo.narc: \
         files/demo/title/titledemo/narc_0015.NCGR \
         files/demo/title/titledemo/narc_0016.NCLR
 
+files/poketool/trgra/trbgra.narc: \
+        files/poketool/trgra/trbgra/narc_0000.NCGR \
+        files/poketool/trgra/trbgra/narc_0000.NCLR
+
 .PHONY: filesystem
 
 filesystem: $(HOSTFS_FILES)
