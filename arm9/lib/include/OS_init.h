@@ -23,6 +23,7 @@
 #include "OS_irqTable.h"
 #include "OS_interrupt.h"
 #include "OS_reset.h"
+#include "OS_exception.h"
 
 void OS_Init(void);
 

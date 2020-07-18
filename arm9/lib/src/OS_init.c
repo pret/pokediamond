@@ -2,7 +2,6 @@
 #include "OS_init.h"
 
 extern void PXI_Init(void);
-extern void OS_InitException(void);
 extern void MI_Init(void);
 extern void OS_InitVAlarm(void);
 extern void OSi_InitVramExclusive(void);
