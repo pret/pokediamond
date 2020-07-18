@@ -2260,7 +2260,21 @@ files/demo/title/titledemo.narc: \
 
 files/poketool/trgra/trbgra.narc: \
         files/poketool/trgra/trbgra/narc_0000.NCGR \
-        files/poketool/trgra/trbgra/narc_0000.NCLR
+        files/poketool/trgra/trbgra/narc_0000.NCLR \
+        files/poketool/trgra/trbgra/narc_0002.NCGR \
+        files/poketool/trgra/trbgra/narc_0002.NCLR \
+        files/poketool/trgra/trbgra/narc_0004.NCGR \
+        files/poketool/trgra/trbgra/narc_0004.NCLR \
+        files/poketool/trgra/trbgra/narc_0006.NCGR \
+        files/poketool/trgra/trbgra/narc_0006.NCLR \
+        files/poketool/trgra/trbgra/narc_0008.NCGR \
+        files/poketool/trgra/trbgra/narc_0008.NCLR \
+        files/poketool/trgra/trbgra/narc_0010.NCGR \
+        files/poketool/trgra/trbgra/narc_0010.NCLR \
+        files/poketool/trgra/trbgra/narc_0012.NCGR \
+        files/poketool/trgra/trbgra/narc_0012.NCLR \
+        files/poketool/trgra/trbgra/narc_0014.NCGR \
+        files/poketool/trgra/trbgra/narc_0014.NCLR
 
 .PHONY: filesystem
 

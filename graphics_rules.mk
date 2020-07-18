@@ -105,9 +105,23 @@ VERSION101_SOPC_NCGR_FILES := files/demo/title/titledemo/narc_0007.NCGR \
                               files/demo/title/titledemo/narc_0011.NCGR \
                               files/demo/title/titledemo/narc_0015.NCGR
 
-8BPP_COMP10_NOPAD_NCLR_FILES := files/poketool/trgra/trbgra/narc_0000.NCLR
+8BPP_COMP10_NOPAD_NCLR_FILES := files/poketool/trgra/trbgra/narc_0000.NCLR \
+                                files/poketool/trgra/trbgra/narc_0002.NCLR \
+                                files/poketool/trgra/trbgra/narc_0004.NCLR \
+                                files/poketool/trgra/trbgra/narc_0006.NCLR \
+                                files/poketool/trgra/trbgra/narc_0008.NCLR \
+                                files/poketool/trgra/trbgra/narc_0010.NCLR \
+                                files/poketool/trgra/trbgra/narc_0012.NCLR \
+                                files/poketool/trgra/trbgra/narc_0014.NCLR
 
-SCANNED_NCGR_FILES := files/poketool/trgra/trbgra/narc_0000.NCGR
+SCANNED_NCGR_FILES := files/poketool/trgra/trbgra/narc_0000.NCGR \
+                      files/poketool/trgra/trbgra/narc_0002.NCGR \
+                      files/poketool/trgra/trbgra/narc_0004.NCGR \
+                      files/poketool/trgra/trbgra/narc_0006.NCGR \
+                      files/poketool/trgra/trbgra/narc_0008.NCGR \
+                      files/poketool/trgra/trbgra/narc_0010.NCGR \
+                      files/poketool/trgra/trbgra/narc_0012.NCGR \
+                      files/poketool/trgra/trbgra/narc_0014.NCGR
 
 NCGR_CLEAN_LIST := files/data/cell0.NCGR \
                    files/demo/title/titledemo/narc_0001.NCGR \
@@ -175,7 +189,14 @@ NCGR_CLEAN_LIST := files/data/cell0.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0135.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0136.NCGR \
                    files/itemtool/itemdata/item_icon/narc_0138.NCGR \
-                   files/poketool/trgra/trbgra/narc_0000.NCGR
+                   files/poketool/trgra/trbgra/narc_0000.NCGR \
+                   files/poketool/trgra/trbgra/narc_0002.NCGR \
+                   files/poketool/trgra/trbgra/narc_0004.NCGR \
+                   files/poketool/trgra/trbgra/narc_0006.NCGR \
+                   files/poketool/trgra/trbgra/narc_0008.NCGR \
+                   files/poketool/trgra/trbgra/narc_0010.NCGR \
+                   files/poketool/trgra/trbgra/narc_0012.NCGR \
+                   files/poketool/trgra/trbgra/narc_0014.NCGR
 
 
 NCLR_CLEAN_LIST := files/data/cell0.NCLR \
@@ -269,4 +290,11 @@ NCLR_CLEAN_LIST := files/data/cell0.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0134.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0136.NCLR \
                    files/itemtool/itemdata/item_icon/narc_0138.NCLR \
-                   files/poketool/trgra/trbgra/narc_0000.NCLR
+                   files/poketool/trgra/trbgra/narc_0000.NCLR \
+                   files/poketool/trgra/trbgra/narc_0002.NCLR \
+                   files/poketool/trgra/trbgra/narc_0004.NCLR \
+                   files/poketool/trgra/trbgra/narc_0006.NCLR \
+                   files/poketool/trgra/trbgra/narc_0008.NCLR \
+                   files/poketool/trgra/trbgra/narc_0010.NCLR \
+                   files/poketool/trgra/trbgra/narc_0012.NCLR \
+                   files/poketool/trgra/trbgra/narc_0014.NCLR
