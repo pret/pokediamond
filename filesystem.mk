@@ -1697,7 +1697,15 @@ files/itemtool/itemdata/item_icon.narc: \
         files/itemtool/itemdata/item_icon/narc_0136.NCGR \
         files/itemtool/itemdata/item_icon/narc_0136.NCLR \
         files/itemtool/itemdata/item_icon/narc_0138.NCGR \
-        files/itemtool/itemdata/item_icon/narc_0138.NCLR
+        files/itemtool/itemdata/item_icon/narc_0138.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0140.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0140.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0142.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0142.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0144.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0144.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0146.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0146.NCLR
 
 
 files/application/custom_ball/data/cb_data.narc: \
