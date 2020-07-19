@@ -1697,7 +1697,15 @@ files/itemtool/itemdata/item_icon.narc: \
         files/itemtool/itemdata/item_icon/narc_0136.NCGR \
         files/itemtool/itemdata/item_icon/narc_0136.NCLR \
         files/itemtool/itemdata/item_icon/narc_0138.NCGR \
-        files/itemtool/itemdata/item_icon/narc_0138.NCLR
+        files/itemtool/itemdata/item_icon/narc_0138.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0140.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0140.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0142.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0142.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0144.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0144.NCLR \
+        files/itemtool/itemdata/item_icon/narc_0146.NCGR \
+        files/itemtool/itemdata/item_icon/narc_0146.NCLR
 
 
 files/application/custom_ball/data/cb_data.narc: \
@@ -2260,7 +2268,35 @@ files/demo/title/titledemo.narc: \
 
 files/poketool/trgra/trbgra.narc: \
         files/poketool/trgra/trbgra/narc_0000.NCGR \
-        files/poketool/trgra/trbgra/narc_0000.NCLR
+        files/poketool/trgra/trbgra/narc_0000.NCLR \
+        files/poketool/trgra/trbgra/narc_0002.NCGR \
+        files/poketool/trgra/trbgra/narc_0002.NCLR \
+        files/poketool/trgra/trbgra/narc_0004.NCGR \
+        files/poketool/trgra/trbgra/narc_0004.NCLR \
+        files/poketool/trgra/trbgra/narc_0006.NCGR \
+        files/poketool/trgra/trbgra/narc_0006.NCLR \
+        files/poketool/trgra/trbgra/narc_0008.NCGR \
+        files/poketool/trgra/trbgra/narc_0008.NCLR \
+        files/poketool/trgra/trbgra/narc_0010.NCGR \
+        files/poketool/trgra/trbgra/narc_0010.NCLR \
+        files/poketool/trgra/trbgra/narc_0012.NCGR \
+        files/poketool/trgra/trbgra/narc_0012.NCLR \
+        files/poketool/trgra/trbgra/narc_0014.NCGR \
+        files/poketool/trgra/trbgra/narc_0014.NCLR
+
+files/poketool/pokegra/pokegra.narc: \
+        files/poketool/pokegra/pokegra/narc_0006.NCGR \
+        files/poketool/pokegra/pokegra/narc_0007.NCGR \
+        files/poketool/pokegra/pokegra/narc_0008.NCGR \
+        files/poketool/pokegra/pokegra/narc_0009.NCGR \
+        files/poketool/pokegra/pokegra/narc_0010.NCLR \
+        files/poketool/pokegra/pokegra/narc_0011.NCLR \
+        files/poketool/pokegra/pokegra/narc_0012.NCGR \
+        files/poketool/pokegra/pokegra/narc_0013.NCGR \
+        files/poketool/pokegra/pokegra/narc_0014.NCGR \
+        files/poketool/pokegra/pokegra/narc_0015.NCGR \
+        files/poketool/pokegra/pokegra/narc_0016.NCLR \
+        files/poketool/pokegra/pokegra/narc_0017.NCLR
 
 .PHONY: filesystem
 

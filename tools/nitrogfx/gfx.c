@@ -586,7 +586,7 @@ void ReadGbaPalette(char *path, struct Palette *palette)
 	free(data);
 }
 
-void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth)
+void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth, int palIndex)
 {
     int fileSize;
     unsigned char *data = ReadWholeFile(path, &fileSize);
@@ -613,13 +613,23 @@ void ReadNtrPalette(char *path, struct Palette *palette, int bitdepth)
     palette->numColors = bitdepth == 4 ? 16 : 256; //remove header and divide by 2
 
     unsigned char *paletteData = paletteHeader + 0x18;
+    palIndex = palIndex - 1;
 
-    for (int i = 0; i < palette->numColors; i++)
+    for (int i = 0; i < 256; i++)
     {
-        uint16_t paletteEntry = (paletteData[i * 2 + 1] << 8) | paletteData[i * 2];
-        palette->colors[i].red = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_RED(paletteEntry));
-        palette->colors[i].green = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_GREEN(paletteEntry));
-        palette->colors[i].blue = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_BLUE(paletteEntry));
+		if (i < palette->numColors)
+		{
+			uint16_t paletteEntry = (paletteData[(32 * palIndex) + i * 2 + 1] << 8) | paletteData[(32 * palIndex) + i * 2];
+			palette->colors[i].red = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_RED(paletteEntry));
+			palette->colors[i].green = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_GREEN(paletteEntry));
+			palette->colors[i].blue = UPCONVERT_BIT_DEPTH(GET_GBA_PAL_BLUE(paletteEntry));
+		}
+		else
+		{
+			palette->colors[i].red = 0;
+			palette->colors[i].green = 0;
+			palette->colors[i].blue = 0;
+		}
     }
 
     free(data);
