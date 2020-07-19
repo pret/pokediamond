@@ -50,7 +50,7 @@ void ConvertNtrToPng(char *inputPath, char *outputPath, struct GbaToPngOptions *
 
     if (options->paletteFilePath != NULL)
     {
-        ReadNtrPalette(options->paletteFilePath, &image.palette, options->bitDepth);
+        ReadNtrPalette(options->paletteFilePath, &image.palette, options->bitDepth, options->palIndex);
         image.hasPalette = true;
     }
     else
@@ -205,6 +205,7 @@ void HandleNtrToPngCommand(char *inputPath, char *outputPath, int argc, char **a
     options.width = 1;
     options.metatileWidth = 1;
     options.metatileHeight = 1;
+    options.palIndex = 1;
 
     for (int i = 3; i < argc; i++)
     {
@@ -222,6 +223,19 @@ void HandleNtrToPngCommand(char *inputPath, char *outputPath, int argc, char **a
         else if (strcmp(option, "-object") == 0)
         {
             options.hasTransparency = true;
+        }
+        else if (strcmp(option, "-palindex") == 0)
+        {
+            if (i + 1 >= argc)
+                FATAL_ERROR("No palette index following \"-palindex\".\n");
+
+            i++;
+
+            if (!ParseNumber(argv[i], NULL, 10, &options.palIndex))
+                FATAL_ERROR("Failed to parse palette index.\n");
+
+            if (options.width < 1)
+                FATAL_ERROR("Palette index must be positive.\n");
         }
         else if (strcmp(option, "-width") == 0)
         {
@@ -539,7 +553,7 @@ void HandleNtrToJascPaletteCommand(char *inputPath, char *outputPath, int argc, 
         }
     }
 
-    ReadNtrPalette(inputPath, &palette, bitdepth);
+    ReadNtrPalette(inputPath, &palette, bitdepth, 1);
     WriteJascPalette(outputPath, &palette);
 }
 

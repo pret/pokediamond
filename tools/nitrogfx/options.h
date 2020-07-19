@@ -12,6 +12,7 @@ struct GbaToPngOptions {
     int width;
     int metatileWidth;
     int metatileHeight;
+    int palIndex;
 };
 
 struct PngToGbaOptions {
