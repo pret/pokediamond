@@ -2284,6 +2284,14 @@ files/poketool/trgra/trbgra.narc: \
         files/poketool/trgra/trbgra/narc_0014.NCGR \
         files/poketool/trgra/trbgra/narc_0014.NCLR
 
+files/poketool/pokegra/pokegra.narc: \
+        files/poketool/pokegra/pokegra/narc_0006.NCGR \
+        files/poketool/pokegra/pokegra/narc_0007.NCGR \
+        files/poketool/pokegra/pokegra/narc_0008.NCGR \
+        files/poketool/pokegra/pokegra/narc_0009.NCGR \
+        files/poketool/pokegra/pokegra/narc_0010.NCLR \
+        files/poketool/pokegra/pokegra/narc_0011.NCLR
+
 .PHONY: filesystem
 
 filesystem: $(HOSTFS_FILES)

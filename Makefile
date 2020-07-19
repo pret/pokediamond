@@ -275,7 +275,10 @@ $(IR_NCLR_FILES): %.NCLR: %.pal
 $(4BPP_NCLR_FILES): %.NCLR: %.pal
 	$(GFX) $< $@ -bitdepth 4
 
-$(8BPP_COMP10_NOPAD_NCLR_FILES): %.NCLR: %.png
+$(8BPP_COMP10_NOPAD_NCLR_PNG_FILES): %.NCLR: %.png
+	$(GFX) $< $@ -bitdepth 8 -nopad -comp 10
+
+$(8BPP_COMP10_NOPAD_NCLR_PAL_FILES): %.NCLR: %.pal
 	$(GFX) $< $@ -bitdepth 8 -nopad -comp 10
 
 %.png: ;
