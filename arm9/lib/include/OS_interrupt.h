@@ -5,6 +5,7 @@
 #include "nitro/OS_interrupt_shared.h"
 
 #define OS_IE_TIMER0        (1UL << REG_OS_IE_T0_SHIFT)
+#define OS_IE_TIMER1        (1UL << REG_OS_IE_T1_SHIFT)
 
 extern OSIrqFunction OS_IRQTable[];
 extern OSIrqCallbackInfo OSi_IrqCallbackInfo[8];
