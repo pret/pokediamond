@@ -2296,7 +2296,13 @@ files/poketool/pokegra/pokegra.narc: \
         files/poketool/pokegra/pokegra/narc_0014.NCGR \
         files/poketool/pokegra/pokegra/narc_0015.NCGR \
         files/poketool/pokegra/pokegra/narc_0016.NCLR \
-        files/poketool/pokegra/pokegra/narc_0017.NCLR
+        files/poketool/pokegra/pokegra/narc_0017.NCLR \
+        files/poketool/pokegra/pokegra/narc_0018.NCGR \
+        files/poketool/pokegra/pokegra/narc_0019.NCGR \
+        files/poketool/pokegra/pokegra/narc_0020.NCGR \
+        files/poketool/pokegra/pokegra/narc_0021.NCGR \
+        files/poketool/pokegra/pokegra/narc_0022.NCLR \
+        files/poketool/pokegra/pokegra/narc_0023.NCLR
 
 .PHONY: filesystem
 
