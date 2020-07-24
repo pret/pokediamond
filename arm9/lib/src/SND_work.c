@@ -1,11 +1,9 @@
 #include "SND_work.h"
 #include "SND_alarm.h"
 #include "SND_main.h"
+#include "OS_cache.h"
 
 struct SNDSharedWork *SNDi_SharedWork;
-
-void DC_InvalidateRange(void *mem, u32 size);
-void DC_FlushRange(void *mem, u32 size);
 
 u32 SND_GetPlayerStatus(void) {
     DC_InvalidateRange(&SNDi_SharedWork->playerStatus, 4);

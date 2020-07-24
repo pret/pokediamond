@@ -1,9 +1,16 @@
-#ifndef NITRO_OS_CACHE_H_
-#define NITRO_OS_CACHE_H_
+#ifndef POKEDIAMOND_OS_CACHE_H
+#define POKEDIAMOND_OS_CACHE_H
 
-void IC_InvalidateRange(void *startAddr, u32 nBytes);
-void IC_FlushRange(void *startAddr, u32 nBytes);
-void DC_InvalidateRange(void *startAddr, u32 nBytes);
-void DC_FlushRange(void *startAddr, u32 nBytes);
+#include "nitro/types.h"
 
-#endif //NITRO_OS_CACHE_H_
+void DC_InvalidateAll(void);
+void DC_StoreAll(void);
+void DC_FlushAll(void);
+void DC_InvalidateRange(register void *startAddr, register u32 nBytes);
+void DC_StoreRange(register void *startAddr, register u32 nBytes);
+void DC_FlushRange(register const void *startAddr, register u32 nBytes);
+void DC_WaitWriteBufferEmpty(void);
+void IC_InvalidateAll(void);
+void IC_InvalidateRange(register void *startAddr, register u32 nBytes);
+
+#endif //POKEDIAMOND_OS_CACHE_H
