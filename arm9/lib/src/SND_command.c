@@ -1,6 +1,7 @@
 #include "SND_command.h"
 #include "SND_work.h"
 #include "OS_system.h"
+#include "OS_cache.h"
 
 #define SND_CMD_WAIT_QUEUE_COUNT 8
 
@@ -21,7 +22,6 @@ static struct SNDCommand *sFreeList;
 extern s32 PXI_SendWordByFifo(u32, u32, u32);
 extern void PXI_SetFifoRecvCallback(u32, void (*)(s32, s32));
 extern BOOL PXI_IsCallbackReady(u32, u32);
-extern void DC_FlushRange(void*, u32);
 
 static void InitPXI(void);
 static void RequestCommandProc(void);

@@ -5,6 +5,7 @@
 #include "OS_interrupt.h"
 #include "OS_system.h"
 #include "OS_spinLock.h"
+#include "OS_cache.h"
 #include "sections.h"
 
 static u16 OSi_IsInitReset = 0;
@@ -16,10 +17,6 @@ extern void PXI_SetFifoRecvCallback(u32 param1, void* callback);
 extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 extern void CARD_LockRom(u16 lockId);
 extern void MI_StopDma(u32 dma);
-extern void DC_StoreAll(void);
-extern void DC_InvalidateAll(void);
-extern void IC_InvalidateAll(void);
-extern void DC_WaitWriteBufferEmpty(void);
 
 ARM_FUNC void OS_InitReset(void) {
     if (OSi_IsInitReset) {
