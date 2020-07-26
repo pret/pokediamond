@@ -45,7 +45,7 @@ _02380080:
 	str	r3, [r1], #4
 	cmp	r1, r2
 	bmi	_02380080
-	bl	FUN_2380100
+	bl	do_autoload
 	ldr	r0, _23800ec
 	ldr	r1, [r0, #12]
 	ldr	r2, [r0, #16]
@@ -54,7 +54,7 @@ _023800a4:
 	cmp	r1, r2
 	strcc	r0, [r1], #4
 	bcc	_023800a4
-	bl	FUN_238015C
+	bl	detect_main_memory_size
 	ldr	r1, _23800f0
 	ldr	r0, _23800f4
 	str	r0, [r1]
@@ -69,15 +69,15 @@ _23800dc:	.word 0x00000400
 _23800e0:	.word 0x023fe940
 _23800e4:	.word 0x027ffa80
 _23800e8:	.word 0x023fe904
-_23800ec:	.word _2380198
+_23800ec:	.word _start_ModuleParams
 _23800f0:	.word 0x0380fffc
-_23800f4:	.word 0x037f853c
-_23800f8:	.word 0x037f8468
+_23800f4:	.word OS_IrqHandler
+_23800f8:	.word NitroSpMain
 _23800fc:	.word 0xffff0000
 	arm_func_end _start
 
-	arm_func_start FUN_2380100
-FUN_2380100:
+	arm_func_start do_autoload
+do_autoload:
 	ldr	r0, _2380154
 	ldr	r1, [r0]
 	ldr	r2, [r0, #4]
@@ -103,13 +103,16 @@ _02380140:
 	beq	_02380110
 _02380150:
 	b	_start_AutoloadDoneCallback
-_2380154:	.word _2380198
+_2380154:	.word _start_ModuleParams
+	arm_func_end do_autoload
+
+	arm_func_start _start_AutoloadDoneCallback
 _start_AutoloadDoneCallback:
 	bx	lr
-	arm_func_end FUN_2380100
+	arm_func_end _start_AutoloadDoneCallback
 
-	arm_func_start FUN_238015C
-FUN_238015C:
+	arm_func_start detect_main_memory_size
+detect_main_memory_size:
 	mov	r0, #1
 	mov	r1, #0
 	ldr	r2, _2380194
@@ -127,9 +130,9 @@ _0238018c:
 	strh	r0, [r2]
 	bx	lr
 _2380194:	.word 0x027ffffa
-	arm_func_end FUN_238015C
+	arm_func_end detect_main_memory_size
 
-_2380198:
+_start_ModuleParams:
 	.word SDK_AUTOLOAD_LIST
 	.word SDK_AUTOLOAD_LIST_END
 	.word SDK_AUTOLOAD_START
