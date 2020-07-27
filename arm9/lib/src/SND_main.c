@@ -8,11 +8,6 @@
 static struct OSMutex sSndMutex;
 static s32 sSndInitialized;
 
-// TODO remove these declarations once we have the functions in the headers
-void OS_InitMutex(struct OSMutex *);
-void OS_UnlockMutex(struct OSMutex *);
-void OS_LockMutex(struct OSMutex *);
-
 ARM_FUNC void SND_Init(void) {
     if (sSndInitialized)
         return;
