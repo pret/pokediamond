@@ -3,17 +3,6 @@
 	.section .text
 	.balign 4, 0
 
-	thumb_func_start MOD62_0222D5C0
-MOD62_0222D5C0: ; 0x0222D5C0
-	ldr r3, _0222D5C8 ; =HandleLoadOverlay
-	ldr r0, _0222D5CC ; =SDK_OVERLAY_MODULE_08_ID
-	mov r1, #2
-	bx r3
-	.align 2, 0
-_0222D5C8: .word HandleLoadOverlay
-_0222D5CC: .word SDK_OVERLAY_MODULE_08_ID
-	thumb_func_end MOD62_0222D5C0
-
 	thumb_func_start MOD62_0222D5D0
 MOD62_0222D5D0: ; 0x0222D5D0
 	add r3, r2, #0
@@ -7631,6 +7620,3 @@ MOD62_02231358: ; 0x02231358
 	.word 0x02, MOD62_0222F94C
 	.word 0x03, MOD62_0222F970
 	.word 0x04, MOD62_0222F980
-
-	.section .sinit
-	.word MOD62_0222D5C0

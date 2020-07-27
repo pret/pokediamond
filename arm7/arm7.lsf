@@ -70,7 +70,6 @@ Autoload WRAM
 	Object CTRDG.o
 	Object CTRDG_sp.o
 	Object NVRAM.o
-	Object RTC_unk_03805064.o
 	Object RTC_external.o
 	Object wram2.o
 	Object wram_bss.o

@@ -255,7 +255,6 @@
 .extern NVRAM_ExecuteProcess
 .extern NVRAM_Init
 .extern NVRAM_ReadDataBytes
-.extern RTC_Init
 .extern RTC_ReadAdjust
 .extern RTC_ReadAlarm1
 .extern RTC_ReadAlarm2
@@ -277,10 +276,6 @@
 .extern RTC_WriteStatus1
 .extern RTC_WriteStatus2
 .extern RTC_WriteTime
-.extern FUN_03805158
-.extern FUN_0380528C
-.extern FUN_0380531C
-.extern FUN_03805818
 .extern WVR_Shutdown
 .extern WVR_Init
 .extern FUN_038073EC

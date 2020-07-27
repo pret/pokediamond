@@ -933,6 +933,7 @@ Overlay MODULE_61
 Overlay MODULE_62
 {
 	After MODULE_08
+	Object module_62_sinit.o
 	Object module_62.o
 }
 
