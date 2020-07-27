@@ -29,6 +29,18 @@ static s32 OSi_ThreadIdCount = 0;
 OSThread OSi_LauncherThread;
 OSThread OSi_IdleThread;
 
+static s32 OSi_GetUnusedThreadId(void);
+static void OSi_InsertLinkToQueue(OSThreadQueue *queue, OSThread *thread);
+static OSThread *OSi_RemoveLinkFromQueue(OSThreadQueue *queue);
+static OSThread *OSi_RemoveSpecifiedLinkFromQueue(OSThreadQueue *queue, OSThread *thread);
+static void OSi_InsertThreadToList(OSThread *thread);
+static void OSi_RemoveThreadFromList(OSThread *thread);
+static void OSi_RescheduleThread(void);
+static void OSi_ExitThread_ArgSpecified(OSThread *thread, void *arg);
+static void OSi_ExitThread(void *arg);
+static void OSi_ExitThread_Destroy(void);
+static void OSi_SleepAlarmCallback(void *arg);
+
 ARM_FUNC static s32 OSi_GetUnusedThreadId(void)
 {
     return ++OSi_ThreadIdCount;
