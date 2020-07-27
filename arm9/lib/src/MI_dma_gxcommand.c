@@ -110,6 +110,7 @@ ARM_FUNC static void MIi_FIFOCallback(void)
 
 ARM_FUNC static void MIi_DMACallback(void *arg)
 {
+#pragma unused(arg)
     (void)OS_DisableIrqMask(OS_IE_GXFIFO);
 
     G3X_SetFifoIntrCond(MIi_GXDmaParams.fifoCond);
@@ -147,6 +148,7 @@ ARM_FUNC void MI_SendGXCommandAsyncFast(u32 dmaNo, const void *src, u32 commandL
 
 ARM_FUNC static void MIi_DMAFastCallback(void *arg)
 {
+#pragma unused(arg)
     MIi_GXDmaParams.isBusy = FALSE;
 
     MIi_CallCallback(MIi_GXDmaParams.callback, MIi_GXDmaParams.arg);
