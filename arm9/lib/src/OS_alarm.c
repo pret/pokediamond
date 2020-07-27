@@ -10,6 +10,10 @@ static struct OSiAlarmQueue OSi_AlarmQueue;
 
 static u16 OSi_UseAlarm = FALSE;
 
+static void OSi_SetTimer(OSAlarm *alarm);
+static void OSi_InsertAlarm(OSAlarm *alarm, OSTick fire);
+static void OSi_ArrangeTimer(void);
+
 ARM_FUNC static void OSi_SetTimer(OSAlarm *alarm)
 {
     OSTick tick = OS_GetTick();

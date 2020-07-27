@@ -18,6 +18,13 @@ extern u32 PXI_SendWordByFifo(u32 param1, u32 data, u32 param2);
 extern void CARD_LockRom(u16 lockId);
 extern void MI_StopDma(u32 dma);
 
+static void OSi_CommonCallback(PXIFifoTag tag, u32 data, BOOL err);
+static void OSi_SendToPxi(u16 data);
+static void OSi_DoResetSystem(void);
+static void OSi_CpuClear32(register u32 data, register void *destp, register u32 size);
+static void OSi_ReloadRomData(void);
+static void OSi_ReadCardRom32(u32 src, void *dst, s32 len);
+
 ARM_FUNC void OS_InitReset(void) {
     if (OSi_IsInitReset) {
         return;

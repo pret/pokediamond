@@ -8,42 +8,42 @@ void MI_Copy36B(void *src, void *dst);
 
 ARM_FUNC asm void GXi_NopClearFifo128_(void *reg){
     mov r1, #0x0
-	mov r2, #0x0
-	mov r3, #0x0
-	mov r12, #0x0
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	stmia r0, {r1-r3,r12}
-	bx lr
+    mov r2, #0x0
+    mov r3, #0x0
+    mov r12, #0x0
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    stmia r0, {r1-r3,r12}
+    bx lr
 }
 
 ARM_FUNC void G3X_Init(){
@@ -56,10 +56,10 @@ ARM_FUNC void G3X_Init(){
     reg_G3X_DISP3DCNT |= 0x2000;
     reg_G3X_DISP3DCNT |= 0x1000;
     reg_G3X_DISP3DCNT &= ~0x3002;
-    reg_G3X_DISP3DCNT = (u16)(reg_G3X_DISP3DCNT & ~0x3000 | 0x10);
+    reg_G3X_DISP3DCNT = (u16)((reg_G3X_DISP3DCNT & ~0x3000) | 0x10);
     reg_G3X_DISP3DCNT = (u16)(reg_G3X_DISP3DCNT & (u16)~0x3004);
     reg_G3X_GXSTAT |= 0x8000;
-    reg_G3X_GXSTAT = reg_G3X_GXSTAT & ~0xC0000000 | 0x80000000;
+    reg_G3X_GXSTAT = (reg_G3X_GXSTAT & ~0xC0000000) | 0x80000000;
     G3X_InitMtxStack();
     reg_G3X_CLEAR_COLOR = 0x0;
     reg_G3X_CLEAR_DEPTH = 0x7FFF;

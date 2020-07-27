@@ -11,6 +11,10 @@ static void *OSi_DebuggerHandler = NULL;
 
 #define HW_EXCEP_VECTOR_BUF_FOR_DEBUGGER 0x027ffd9c
 
+static void OSi_GetAndDisplayContext(void);
+static void OSi_SetExContext(void);
+static void OSi_DisplayExContext(void);
+
 ARM_FUNC void OS_InitException(void)
 {
     if (0x2600000 <= *(u32 *)HW_EXCEP_VECTOR_BUF_FOR_DEBUGGER
