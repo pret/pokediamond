@@ -646,6 +646,7 @@ Overlay MODULE_21
 Overlay MODULE_22
 {
 	After MODULE_20
+	Object module_22_sinit.o
 	Object module_22.o
 }
 
@@ -661,6 +662,7 @@ Overlay MODULE_24
 {
 	##Memo Pad##
 	After MODULE_20
+	Object module_24_sinit.o
 	Object module_24.o
 }
 
@@ -668,12 +670,14 @@ Overlay MODULE_25
 {
 	##Analogue Watch##
 	After MODULE_20
+	Object module_25_sinit.o
 	Object module_25.o
 }
 
 Overlay MODULE_26
 {
 	After MODULE_20
+	Object module_26_sinit.o
 	Object module_26.o
 }
 
