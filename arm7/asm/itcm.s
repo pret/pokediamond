@@ -20,10 +20,10 @@ _027E0014:
 	cmp	r1, #100663296	; 0x6000000
 	bne	_027E00AC
 	ldr	r3, _027E00CC	; =0x027E00DC
-	ldr	r0, _027E00D0	; =0x0380A3F4
+	ldr	r0, _027E00D0	; =_0380A3F4
 	str	r3, [r0]
 	add	r2, r5, r4
-	ldr	r0, _027E00D4	; =0x0380A3FC
+	ldr	r0, _027E00D4	; =_0380A3FC
 	str	r2, [r0]
 	ldr	r1, _027E00D8	; =0x027FAFCC
 	add	r0, r3, r2
@@ -31,7 +31,7 @@ _027E0014:
 	beq	_027E0060
 	bl	OS_Terminate
 _027E0060:
-	ldr	r0, _027E00D0	; =0x0380A3F4
+	ldr	r0, _027E00D0	; =_0380A3F4
 	ldr	r3, [r0]
 	mov	r2, #0
 	mov	r1, r5, lsr #2
@@ -66,6 +66,6 @@ _027E00C0: .word 0x023801B0
 _027E00C4: .word 0x023A92F8
 _027E00C8: .word 0x023A931C
 _027E00CC: .word 0x027E00DC
-_027E00D0: .word 0x0380A3F4
-_027E00D4: .word 0x0380A3FC
+_027E00D0: .word _0380A3F4
+_027E00D4: .word _0380A3FC
 _027E00D8: .word 0x027FAFCC
