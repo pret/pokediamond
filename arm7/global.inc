@@ -255,6 +255,7 @@
 .extern NVRAM_ExecuteProcess
 .extern NVRAM_Init
 .extern NVRAM_ReadDataBytes
+.extern RTC_Init
 .extern RTC_ReadAdjust
 .extern RTC_ReadAlarm1
 .extern RTC_ReadAlarm2
