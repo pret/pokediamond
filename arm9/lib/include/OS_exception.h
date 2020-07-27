@@ -15,12 +15,7 @@ typedef struct
 
 typedef void (*OSExceptionHandler) (u32, void *);
 
-static void OSi_ExceptionHandler(void);
-
 void OS_InitException(void);
 void OSi_ExceptionHandler(void);
-static void OSi_GetAndDisplayContext(void);
-static void OSi_SetExContext(void);
-static void OSi_DisplayExContext(void);
 
 #endif //POKEDIAMOND_OS_EXCEPTION_H

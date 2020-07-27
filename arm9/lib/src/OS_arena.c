@@ -1,6 +1,3 @@
-//
-// Created by red031000 on 2020-04-27.
-//
 #include "function_target.h"
 #include "consts.h"
 #include "OS_arena.h"

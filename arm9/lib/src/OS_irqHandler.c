@@ -49,7 +49,7 @@ _01FF8070:
     str r3, [ip, #0x80]
     mov ip, r0
     cmp ip, #0x0
-bne _01FF8070
+    bne _01FF8070
     ldr ip, =OSi_IrqThreadQueue
     str r3, [ip]
     str r3, [ip, #0x4]
