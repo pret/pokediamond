@@ -103,7 +103,6 @@ ARM_FUNC asm void MTX_Copy44To43_(struct Mtx44 *src, struct Mtx43 *dst){
     bx lr
 }
 
-
 THUMB_FUNC asm void MTX_RotX44_(struct Mtx44 *mtx, fx32 sinphi, fx32 cosphi){
     str r2, [r0, #0x14]
 	str r2, [r0, #0x28]

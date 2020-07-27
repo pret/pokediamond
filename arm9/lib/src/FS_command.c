@@ -40,6 +40,8 @@ ARM_FUNC FSResult FSi_TranslateCommand(FSFile *p_file, FSCommandType command)
             ret = FS_RESULT_PROC_DEFAULT;
             p_arc->proc_flag &= ~bit;
             break;
+        default:
+            break;
         }
     }
     else

@@ -177,7 +177,6 @@ FSFile; // size = 0x50
 void FS_Init(u32 default_dma_no);
 BOOL FS_IsAvailable(void);
 void FS_InitFile(FSFile * p_file);
-static BOOL FSi_FindPath(FSFile * p_dir, const char * path, FSFileID * p_file_id, FSDirPos * p_dir_pos);
 int FSi_ReadFileCore(FSFile * p_file, void * dst, s32 len, BOOL async);
 BOOL FS_ConvertPathToFileID(FSFileID * p_file_id, const char * path);
 BOOL FS_OpenFileDirect(FSFile * p_file, FSArchive * p_arc, u32 image_top, u32 image_bottom, u32 file_index);

@@ -29,9 +29,6 @@ typedef struct
 
 void MI_SendGXCommand(u32 dmaNo, const void *src, u32 commandLength);
 void MI_SendGXCommandAsync(u32 dmaNo, const void *src, u32 commandLength, MIDmaCallback callback, void *arg);
-static void MIi_FIFOCallback(void);
-static void MIi_DMACallback(void *);
 void MI_SendGXCommandAsyncFast(u32 dmaNo, const void *src, u32 commandLength, MIDmaCallback callback, void *arg);
-static void MIi_DMAFastCallback(void *);
 
 #endif //POKEDIAMOND_MI_DMA_GXCOMMAND_H

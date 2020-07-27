@@ -83,7 +83,7 @@ ARM_FUNC void GX_DispOn(){
     sIsDispOn = 0x1;
     if (sDispMode)
     {
-        reg_GX_DISPCNT = reg_GX_DISPCNT & ~0x30000 | (sDispMode << 0x10);
+        reg_GX_DISPCNT = (reg_GX_DISPCNT & ~0x30000) | (sDispMode << 0x10);
     }
     else
     {
@@ -102,7 +102,7 @@ ARM_FUNC void GX_SetGraphicsMode(u32 mode1, u32 mode2, u32 mode3){
 }
 
 ARM_FUNC void GXS_SetGraphicsMode(u32 mode){
-    reg_GXS_DB_DISPCNT = reg_GXS_DB_DISPCNT & ~0x7 | mode;
+    reg_GXS_DB_DISPCNT = (reg_GXS_DB_DISPCNT & ~0x7) | mode;
 }
 
 ARM_FUNC void GXx_SetMasterBrightness_(vu16 *dst, s32 brightness){
