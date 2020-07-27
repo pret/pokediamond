@@ -569,8 +569,9 @@ Overlay MODULE_11
 {
 	##Battles##
 	After MODULE_08
-	Object module_11.o
+	Object module_11_thumb1.o
 	Object module_11_sinit.o
+	Object module_11_thumb2.o
 }
 
 Overlay MODULE_12
@@ -638,8 +639,8 @@ Overlay MODULE_21
 {
 	##Pokétch Clock##
 	After MODULE_20
-	Object module_21.o
 	Object module_21_sinit.o
+	Object module_21.o
 }
 
 Overlay MODULE_22
@@ -652,8 +653,8 @@ Overlay MODULE_23
 {
 	##Pokétch Calculator##
 	After MODULE_20
-	Object module_23.o
 	Object module_23_sinit.o
+	Object module_23.o
 }
 
 Overlay MODULE_24
@@ -680,31 +681,31 @@ Overlay MODULE_27
 {
 	##Pokétch Party##
 	After MODULE_20
-	Object module_27.o
 	Object module_27_sinit.o
+	Object module_27.o
 }
 
 Overlay MODULE_28
 {
 	##Friendship Checker##
 	After MODULE_20
-	Object module_28.o
 	Object module_28_sinit.o
+	Object module_28.o
 }
 
 Overlay MODULE_29
 {
 	##Dowsing Machine##
 	After MODULE_20
-	Object module_29.o
 	Object module_29_sinit.o
+	Object module_29.o
 }
 
 Overlay MODULE_30
 {
 	After MODULE_20
-	Object module_30.o
 	Object module_30_sinit.o
+	Object module_30.o
 }
 
 Overlay MODULE_31
@@ -717,8 +718,8 @@ Overlay MODULE_31
 Overlay MODULE_32
 {
 	After MODULE_20
-	Object module_32.o
 	Object module_32_sinit.o
+	Object module_32.o
 }
 
 Overlay MODULE_33
@@ -730,8 +731,8 @@ Overlay MODULE_33
 Overlay MODULE_34
 {
 	After MODULE_20
-	Object module_34.o
 	Object module_34_sinit.o
+	Object module_34.o
 }
 
 Overlay MODULE_35
@@ -744,8 +745,8 @@ Overlay MODULE_35
 Overlay MODULE_36
 {
 	After MODULE_20
-	Object module_36.o
 	Object module_36_sinit.o
+	Object module_36.o
 }
 
 Overlay MODULE_37
@@ -765,8 +766,8 @@ Overlay MODULE_38
 Overlay MODULE_39
 {
 	After MODULE_20
-	Object module_39.o
 	Object module_39_sinit.o
+	Object module_39.o
 }
 
 Overlay MODULE_40
@@ -778,31 +779,31 @@ Overlay MODULE_40
 Overlay MODULE_41
 {
 	After MODULE_20
-	Object module_41.o
 	Object module_41_sinit.o
+	Object module_41.o
 }
 
 Overlay MODULE_42
 {
 	##Marking Map##
 	After MODULE_20
-	Object module_42.o
 	Object module_42_sinit.o
+	Object module_42.o
 }
 
 Overlay MODULE_43
 {
 	##Berry Searcher##
 	After MODULE_20
-	Object module_43.o
 	Object module_43_sinit.o
+	Object module_43.o
 }
 
 Overlay MODULE_44
 {
 	After MODULE_20
-	Object module_44.o
 	Object module_44_sinit.o
+	Object module_44.o
 }
 
 Overlay MODULE_45
@@ -821,8 +822,8 @@ Overlay MODULE_47
 {
 	##Link Searcher##
 	After MODULE_20
-	Object module_47.o
 	Object module_47_sinit.o
+	Object module_47.o
 }
 
 Overlay MODULE_48
