@@ -2,110 +2,9 @@
 	.include "global.inc"
 	.section .text
 
-	.extern MOD63_021DB450
-	.extern MOD63_021DB474
-
-	thumb_func_start MOD63_021DB49C
-MOD63_021DB49C: ; 0x021DB49C
-	push {r4, r5, r6, r7, lr}
-	sub sp, #0x2c
-	ldr r3, _021DB56C ; =MOD63_021DBECC
-	add r5, r0, #0
-	ldmia r3!, {r0, r1}
-	add r2, sp, #0x10
-	stmia r2!, {r0, r1}
-	ldr r0, [r3]
-	str r0, [r2]
-	mov r0, #0x4c
-	bl FUN_02006D98
-	ldr r7, _021DB570 ; =MOD63_021DBEF0
-	str r0, [r5]
-	mov r4, #0
-_021DB4BA:
-	mov r0, #0
-	str r0, [sp]
-	str r0, [sp, #4]
-	str r0, [sp, #8]
-	lsl r6, r4, #2
-	add r1, sp, #0x10
-	ldr r1, [r1, r6]
-	add r0, sp, #0x1c
-	lsl r1, r1, #0x10
-	lsr r1, r1, #0x10
-	mov r2, #0
-	mov r3, #2
-	bl FUN_02068C00
-	ldr r0, _021DB574 ; =0x000003FF
-	lsl r2, r4, #3
-	str r0, [sp]
-	str r4, [sp, #4]
-	mov r0, #0
-	str r0, [sp, #8]
-	str r0, [sp, #0xc]
-	add r3, r7, r2
-	ldr r0, [r5]
-	ldr r2, [r7, r2]
-	ldr r3, [r3, #4]
-	add r1, sp, #0x1c
-	add r6, r5, r6
-	bl FUN_020073A0
-	mov r1, #6
-	mov r2, #1
-	str r0, [r6, #4]
-	bl FUN_02007558
-	add r0, r4, #1
-	lsl r0, r0, #0x18
-	lsr r4, r0, #0x18
-	cmp r4, #3
-	blo _021DB4BA
-	ldr r0, [r5, #8]
-	mov r1, #0x23
-	mov r2, #1
-	bl FUN_02007558
-	mov r0, #1
-	str r0, [r5, #0x10]
-	bl FUN_02012CC8
-	mov r1, #0x12
-	mov r0, #0x4c
-	lsl r1, r1, #0xa
-	bl AllocFromHeap
-	str r0, [r5, #0x14]
-	mov r0, #1
-	str r0, [sp]
-	mov r0, #0x4c
-	str r0, [sp, #4]
-	mov r3, #0x12
-	ldr r0, _021DB578 ; =MOD63_021DB450
-	ldr r1, _021DB57C ; =MOD63_021DB474
-	ldr r2, [r5, #0x14]
-	lsl r3, r3, #0xa
-	bl FUN_02012CDC
-	str r0, [r5, #0x18]
-	bl FUN_0201343C
-	add r2, r0, #0
-	mov r0, #1
-	mov r1, #0xe1
-	lsl r0, r0, #0xc
-	lsl r1, r1, #0xe
-	bl FUN_0201EC94
-	mov r0, #0x3d
-	mov r1, #4
-	mov r2, #0x4c
-	bl FUN_0201318C
-	add r1, r0, #0
-	ldr r0, [r5, #0x18]
-	mov r2, #0xa
-	mov r3, #1
-	bl FUN_02013194
-	add sp, #0x2c
-	pop {r4, r5, r6, r7, pc}
-	nop
-_021DB56C: .word MOD63_021DBECC
-_021DB570: .word MOD63_021DBEF0
-_021DB574: .word 0x000003FF
-_021DB578: .word MOD63_021DB450
-_021DB57C: .word MOD63_021DB474
-	thumb_func_end MOD63_021DB49C
+	.extern MOD63_021DBED8
+	.extern MOD63_021DBEC0
+	.extern MOD63_021DBEDC
 
 	thumb_func_start MOD63_021DB580
 MOD63_021DB580: ; 0x021DB580
@@ -642,29 +541,6 @@ MOD63_021DB940: ; 0x021DB940
 	thumb_func_end MOD63_021DB940
 
 	.section .rodata
-
-	.global MOD63_021DBEC0
-MOD63_021DBEC0: ; 0x021DBEC0
-	.byte 0x03, 0x07, 0x00, 0x00, 0xCE, 0x07, 0x00, 0x00
-	.byte 0xA8, 0x08, 0x00, 0x00
-
-	.global MOD63_021DBECC
-MOD63_021DBECC: ; 0x021DBECC
-	.byte 0x83, 0x01, 0x00, 0x00, 0x86, 0x01, 0x00, 0x00, 0x89, 0x01, 0x00, 0x00
-
-	.global MOD63_021DBED8
-MOD63_021DBED8: ; 0x021DBED8
-	.word MOD63_021DB720
-
-	.global MOD63_021DBEDC
-MOD63_021DBEDC: ; 0x021DBEDC
-	.word MOD63_021DB784, MOD63_021DB7D0, MOD63_021DB838, MOD63_021DB884
-	.word MOD63_021DB8E8
-
-	.global MOD63_021DBEF0
-MOD63_021DBEF0: ; 0x021DBEF0
-	.byte 0x80, 0x00, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00
-	.byte 0x00, 0x01, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00, 0x50, 0x00, 0x00, 0x00, 0xC0, 0x00, 0x00, 0x00
 
 	.global MOD63_021DBF08
 MOD63_021DBF08: ; 0x021DBF08
