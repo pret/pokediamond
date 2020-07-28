@@ -3,32 +3,7 @@
 	.section .text
 
 	.extern MOD63_021DB450
-
-	thumb_func_start MOD63_021DB474
-MOD63_021DB474: ; 0x021DB474
-	push {r4, lr}
-	ldr r3, _021DB494 ; =UNK_021064C0
-	mov r2, #1
-	ldr r3, [r3]
-	blx r3
-	add r4, r0, #0
-	bne _021DB486
-	bl ErrorHandling
-_021DB486:
-	add r0, r4, #0
-	bl FUN_020132BC
-	lsl r0, r4, #0x10
-	lsr r0, r0, #0xd
-	pop {r4, pc}
-	nop
-_021DB494: .word UNK_021064C0
-	thumb_func_end MOD63_021DB474
-
-	thumb_func_start MOD63_021DB498
-MOD63_021DB498: ; 0x021DB498
-	mov r0, #0x20
-	bx lr
-	thumb_func_end MOD63_021DB498
+	.extern MOD63_021DB474
 
 	thumb_func_start MOD63_021DB49C
 MOD63_021DB49C: ; 0x021DB49C
