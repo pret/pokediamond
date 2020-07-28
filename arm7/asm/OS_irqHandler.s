@@ -1,7 +1,13 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 
-    .section .text
+	.section .bss
+
+	.global OSi_IrqThreadQueue
+OSi_IrqThreadQueue: ;0x0380770C
+	.space 0x03807714 - 0x0380770C
+
+	.section .text
 
 	arm_func_start OS_IrqHandler
 OS_IrqHandler: ; 0x037F853C
