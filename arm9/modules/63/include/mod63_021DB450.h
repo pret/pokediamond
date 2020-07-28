@@ -1,0 +1,8 @@
+#ifndef POKEDIAMOND_MOD63_021DB450_H
+#define POKEDIAMOND_MOD63_021DB450_H
+
+#include "global.h"
+
+u32 MOD63_021DB450(u32 param0, u32 param1);
+
+#endif //POKEDIAMOND_MOD63_021DB450_H
