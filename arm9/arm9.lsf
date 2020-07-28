@@ -941,7 +941,11 @@ Overlay MODULE_63
 {
 	### Title Demo ###
 	After arm9
-	Object module_63.o
+	Object mod63_021D74E0.o
+	Object mod63_021D8890.o
+	Object mod63_021DA640.o
+	Object mod63_021DAE5C.o
+	Object mod63_021DB450.o
 }
 
 Overlay MODULE_64
