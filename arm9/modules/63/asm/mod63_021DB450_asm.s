@@ -1,27 +1,8 @@
 	.include "asm/macros.inc"
 	.include "global.inc"
 	.section .text
-	.balign 4, 0
 
-	thumb_func_start MOD63_021DB450
-MOD63_021DB450: ; 0x021DB450
-	push {r4, lr}
-	ldr r3, _021DB470 ; =UNK_021064B8
-	mov r2, #0
-	ldr r3, [r3]
-	blx r3
-	add r4, r0, #0
-	bl FUN_0201327C
-	cmp r4, #0
-	bne _021DB468
-	bl ErrorHandling
-_021DB468:
-	lsl r0, r4, #0x10
-	lsr r0, r0, #0xd
-	pop {r4, pc}
-	nop
-_021DB470: .word UNK_021064B8
-	thumb_func_end MOD63_021DB450
+	.extern MOD63_021DB450
 
 	thumb_func_start MOD63_021DB474
 MOD63_021DB474: ; 0x021DB474
