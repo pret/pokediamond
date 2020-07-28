@@ -4,5 +4,7 @@
 #include "global.h"
 
 u32 MOD63_021DB450(u32 param0, u32 param1);
+u32 MOD63_021DB474(u32 param0, u32 param1);
+u32 MOD63_021DB498(void);
 
 #endif //POKEDIAMOND_MOD63_021DB450_H
