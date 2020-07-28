@@ -900,7 +900,7 @@ MOD63_021D7C18: ; 0x021D7C18
 	bl MOD63_021D83A8
 	ldr r0, _021D7D5C ; =gGameVersion
 	ldrb r0, [r0]
-	cmp r0, #0xa
+	cmp r0, #0xa ; VERSION_DIAMOND
 	bne _021D7C46
 	add r0, r5, #4
 	mov r1, #6
@@ -1913,7 +1913,7 @@ MOD63_021D83A8: ; 0x021D83A8
 	bl FUN_020068C8
 	ldr r0, _021D85C8 ; =gGameVersion
 	ldrb r7, [r0]
-	cmp r7, #0xa
+	cmp r7, #0xa ; VERSION_DIAMOND
 	bne _021D841A
 	mov r0, #0xd
 	mov r1, #9
@@ -2131,7 +2131,7 @@ MOD63_021D85D8: ; 0x021D85D8
 	bne _021D863A
 	ldr r0, _021D8640 ; =gGameVersion
 	ldrb r0, [r0]
-	cmp r0, #0xa
+	cmp r0, #0xa ; VERSION_DIAMOND
 	bne _021D85F8
 	mov r1, #0xb
 	mov r6, #0xa
@@ -2273,7 +2273,7 @@ MOD63_021D86E0: ; 0x021D86E0
 	add r4, r0, #0
 	ldr r0, _021D8858 ; =gGameVersion
 	ldrb r0, [r0]
-	cmp r0, #0xa
+	cmp r0, #0xa ; VERSION_DIAMOND
 	bne _021D8788
 	add r0, r4, #0
 	mov r2, #0
