@@ -6,24 +6,6 @@
 	.extern MOD63_021DBEC0
 	.extern MOD63_021DBEDC
 
-	thumb_func_start MOD63_021DB5A8
-MOD63_021DB5A8: ; 0x021DB5A8
-	push {r4, lr}
-	add r4, r0, #0
-	beq _021DB5C8
-	bl FUN_020222AC
-	bl FUN_020B02C8
-	ldr r0, [r4]
-	bl FUN_02006ED4
-	bl MOD63_021DB934
-	mov r0, #1
-	mov r1, #0
-	bl FUN_020222B4
-_021DB5C8:
-	pop {r4, pc}
-	.align 2, 0
-	thumb_func_end MOD63_021DB5A8
-
 	thumb_func_start MOD63_021DB5CC
 MOD63_021DB5CC: ; 0x021DB5CC
 	push {r3, r4, r5, r6, r7, lr}

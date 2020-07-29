@@ -39,11 +39,17 @@ typedef struct UnkStruct63_021DB598 //part of the above?
     u32 field_00;
 } UnkStruct63_021DB598;
 
+typedef struct UnkStruct63_021DB5A8 //possibly the same as above
+{
+    u32 field_00;
+} UnkStruct63_021DB5A8;
+
 u32 MOD63_021DB450(u32 param0, u32 param1);
 u32 MOD63_021DB474(u32 param0, u32 param1);
 u32 MOD63_021DB498(void);
 void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB49C * arg0);
 void MOD63_021DB580(UnkStruct63_021DB580 *param0);
 void MOD63_021DB598(UnkStruct63_021DB598 *param0);
+void MOD63_021DB5A8(UnkStruct63_021DB5A8 *param0);
 
 #endif //POKEDIAMOND_MOD63_021DB450_H

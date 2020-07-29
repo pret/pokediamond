@@ -27,6 +27,12 @@ extern void FUN_020072E8(u32);
 
 extern void FUN_020081C4(u32);
 
+extern void FUN_020222AC(void);
+extern void FUN_020B02C8(void);
+extern u32 FUN_02006ED4(u32 param0);
+extern void MOD63_021DB934(void);
+extern void FUN_020222B4(u32, u32);
+
 //todo funcs
 void MOD63_021DB720();
 void MOD63_021DB784();
@@ -96,6 +102,19 @@ THUMB_FUNC void MOD63_021DB598(UnkStruct63_021DB598 *param0)
         return;
     }
     FUN_020081C4(param0->field_00);
+}
+
+THUMB_FUNC void MOD63_021DB5A8(UnkStruct63_021DB5A8 *param0)
+{
+    if (param0 == NULL)
+    {
+        return;
+    }
+    FUN_020222AC();
+    FUN_020B02C8();
+    (void)FUN_02006ED4(param0->field_00);
+    MOD63_021DB934();
+    FUN_020222B4(1, 0);
 }
 
 void * const MOD63_021DBED8 = MOD63_021DB720;
