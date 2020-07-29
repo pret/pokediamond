@@ -6,19 +6,6 @@
 	.extern MOD63_021DBEC0
 	.extern MOD63_021DBEDC
 
-	thumb_func_start MOD63_021DB580
-MOD63_021DB580: ; 0x021DB580
-	push {r4, lr}
-	add r4, r0, #0
-	ldr r0, [r4, #0x18]
-	bl FUN_02012DE4
-	ldr r0, [r4, #0x14]
-	bl FreeToHeap
-	ldr r0, [r4]
-	bl FUN_020072E8
-	pop {r4, pc}
-	thumb_func_end MOD63_021DB580
-
 	thumb_func_start MOD63_021DB598
 MOD63_021DB598: ; 0x021DB598
 	push {r3, lr}
