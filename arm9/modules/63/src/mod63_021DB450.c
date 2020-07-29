@@ -55,16 +55,16 @@ THUMB_FUNC u32 MOD63_021DB498(void)
     return 32;
 }
 
-THUMB_FUNC void MOD63_021DB49C(struct UnkStruct63_021DB49C * arg0)
+THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB49C * arg0)
 {
     struct UnkStruct63_021DB49C_2 sp1C;
-    int sp10[3] = {SPECIES_TURTWIG, SPECIES_CHIMCHAR, SPECIES_PIPLUP};
+    int introMonArray[3] = {SPECIES_TURTWIG, SPECIES_CHIMCHAR, SPECIES_PIPLUP};
 
     arg0->field_00 = FUN_02006D98(76);
 
-    for (u8 i = 0; i < 3; i++)
+    for (u8 i = 0; i < 3; i++) //some kind of animation assignment TODO: investigate further
     {
-        FUN_02068C00(&sp1C, (u16)sp10[i], 0, 2, 0, 0, 0);
+        FUN_02068C00(&sp1C, (u16)introMonArray[i], 0, 2, 0, 0, 0);
         arg0->field_04[i] = FUN_020073A0(arg0->field_00, &sp1C, MOD63_021DBEF0[i].field_00, MOD63_021DBEF0[i].field_04, 0x3FF, i, 0, 0);
         FUN_02007558(arg0->field_04[i], 6, 1);
     }
@@ -77,8 +77,8 @@ THUMB_FUNC void MOD63_021DB49C(struct UnkStruct63_021DB49C * arg0)
     FUN_02013194(arg0->field_18, FUN_0201318C(0x3D, 4, 0x4C), 10, 1);
 }
 
-const void * const MOD63_021DBED8 = MOD63_021DB720;
-const void * const MOD63_021DBEDC[5] = { MOD63_021DB784, MOD63_021DB7D0, MOD63_021DB838, MOD63_021DB884, MOD63_021DB8E8 };
+void * const MOD63_021DBED8 = MOD63_021DB720;
+void * const MOD63_021DBEDC[5] = { MOD63_021DB784, MOD63_021DB7D0, MOD63_021DB838, MOD63_021DB884, MOD63_021DB8E8 };
 
 const struct UnkStruct63_021DBEF0 MOD63_021DBEF0[3] = {
         {0x080, 0xC0},

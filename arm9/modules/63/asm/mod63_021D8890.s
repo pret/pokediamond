@@ -1540,7 +1540,7 @@ MOD63_021D9498: ; 0x021D9498
 	add r0, #0x3b
 	strb r1, [r0]
 	ldr r0, [r5, #0x4c]
-	bl MOD63_021DB49C
+	bl Title_SetupMonAnimationSprites
 	ldr r0, [r5, #0xc]
 	mov r1, #1
 	str r0, [r5, #0x40]
