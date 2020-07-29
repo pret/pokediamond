@@ -25,6 +25,8 @@ extern u32 FUN_0201318C(u32, u32, u32);
 extern void FUN_02012DE4(u32);
 extern void FUN_020072E8(u32);
 
+extern void FUN_020081C4(u32);
+
 //todo funcs
 void MOD63_021DB720();
 void MOD63_021DB784();
@@ -85,6 +87,15 @@ THUMB_FUNC void MOD63_021DB580(UnkStruct63_021DB580 *param0)
     FUN_02012DE4(param0->field_24);
     FreeToHeap(param0->field_20);
     FUN_020072E8(param0->field_00);
+}
+
+THUMB_FUNC void MOD63_021DB598(UnkStruct63_021DB598 *param0)
+{
+    if (param0 == NULL)
+    {
+        return;
+    }
+    FUN_020081C4(param0->field_00);
 }
 
 void * const MOD63_021DBED8 = MOD63_021DB720;
