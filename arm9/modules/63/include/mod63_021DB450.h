@@ -59,6 +59,23 @@ typedef struct UnkStruct63_021DBED8
     BOOL (*unk_04)(struct UnkStruct63_021DB5CC *, u32);
 } UnkStruct63_021DBED8;
 
+typedef struct UnkStruct_02090A58
+{
+    struct UnkStruct_02090A58 * unk_00;
+    u32 unk_04;
+    u32 unk_08;
+    u32 unk_0C;
+    u32 unk_10;
+    u32 unk_14;
+    u32 unk_18;
+    u32 unk_1C;
+    u32 ** unk_20;
+    u32 unk_24;
+    u32 unk_28;
+    u32 unk_2C;
+    u32 unk_30;
+} UnkStruct_02090A58;
+
 u32 MOD63_021DB450(u32 param0, u32 param1);
 u32 MOD63_021DB474(u32 param0, u32 param1);
 u32 MOD63_021DB498(void);
@@ -74,5 +91,6 @@ BOOL MOD63_021DB838(UnkStruct63_021DB5CC *param0, u32 param1);
 BOOL MOD63_021DB884(UnkStruct63_021DB5CC *param0, u32 param1);
 BOOL MOD63_021DB8E8(UnkStruct63_021DB5CC *param0, u32 param1);
 void MOD63_021DB934(void);
+void MOD63_021DB940(struct UnkStruct_02090A58 * a0);
 
 #endif //POKEDIAMOND_MOD63_021DB450_H

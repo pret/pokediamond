@@ -946,7 +946,6 @@ Overlay MODULE_63
 	Object mod63_021DA640.o
 	Object mod63_021DAE5C.o
 	Object mod63_021DB450.o
-	Object mod63_021DB450_asm.o
 }
 
 Overlay MODULE_64
