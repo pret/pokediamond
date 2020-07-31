@@ -271,3 +271,18 @@ THUMB_FUNC BOOL MOD63_021DB884(UnkStruct63_021DB5CC *param0, u32 param1)
     }
     return FALSE;
 }
+
+THUMB_FUNC BOOL MOD63_021DB8E8(UnkStruct63_021DB5CC *param0, u32 param1)
+{
+    u32 field = param0->field_04[param1];
+    FUN_020079E0(field, 0, 0x6);
+    FUN_020079E0(field, 1, -0x14);
+    param0->field_1D++;
+    if (param0->field_1D >= 6)
+    {
+        FUN_02007558(field, 0xC, 0x100);
+        FUN_02007558(field, 0xD, 0x100);
+        return TRUE;
+    }
+    return FALSE;
+}
