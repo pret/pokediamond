@@ -31,7 +31,6 @@ extern void FUN_020081C4(u32);
 extern void FUN_020222AC(void);
 extern void FUN_020B02C8(void);
 extern u32 FUN_02006ED4(u32 param0);
-extern void MOD63_021DB934(void);
 extern void FUN_020222B4(u32, u32);
 
 extern void FUN_02013440(u32, u32);
@@ -40,8 +39,10 @@ extern BOOL FUN_020133C8(u32);
 
 extern void FUN_020079E0(u32, u32, s32);
 
+extern void FUN_02013364(void);
+extern void FUN_02013388(void);
+
 //todo funcs
-extern BOOL MOD63_021DB8E8(struct UnkStruct63_021DB5CC *, u32);
 extern void MOD63_021DB940();
 
 //todo data
@@ -285,4 +286,10 @@ THUMB_FUNC BOOL MOD63_021DB8E8(UnkStruct63_021DB5CC *param0, u32 param1)
         return TRUE;
     }
     return FALSE;
+}
+
+THUMB_FUNC void MOD63_021DB934(void)
+{
+    FUN_02013364();
+    FUN_02013388();
 }
