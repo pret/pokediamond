@@ -38,8 +38,9 @@ extern void FUN_02013440(u32, u32);
 extern void FUN_020133AC(u32, u32, const void *, u32);
 extern BOOL FUN_020133C8(u32);
 
+extern void FUN_020079E0(u32, u32, s32);
+
 //todo funcs
-extern BOOL MOD63_021DB720(struct UnkStruct63_021DB5CC *, u32);
 extern BOOL MOD63_021DB784(struct UnkStruct63_021DB5CC *, u32);
 extern BOOL MOD63_021DB7D0(struct UnkStruct63_021DB5CC *, u32);
 extern BOOL MOD63_021DB838(struct UnkStruct63_021DB5CC *, u32);
@@ -190,6 +191,23 @@ THUMB_FUNC BOOL MOD63_021DB5CC(UnkStruct63_021DB5CC *param0, u32 param1, s32 par
                 return TRUE;
             }
             break;
+    }
+    return FALSE;
+}
+
+THUMB_FUNC BOOL MOD63_021DB720(UnkStruct63_021DB5CC *param0, u32 param1)
+{
+    u32 field = param0->field_04[param1];
+    FUN_020079E0(field, 0x0, 0x6);
+    FUN_020079E0(field, 0x1, -0x10);
+    FUN_020079E0(field, 0xC, -0x80);
+    FUN_020079E0(field, 0xD, -0x80);
+    param0->field_1D++;
+    if (param0->field_1D >= 6)
+    {
+        FUN_02007558(field, 0xC, 0x100);
+        FUN_02007558(field, 0xD, 0x100);
+        return TRUE;
     }
     return FALSE;
 }

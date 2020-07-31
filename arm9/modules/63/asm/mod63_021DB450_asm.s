@@ -2,60 +2,6 @@
 	.include "global.inc"
 	.section .text
 
-	.extern MOD63_021DBED8
-	.extern MOD63_021DBEC0
-	.extern MOD63_021DBEDC
-	.extern MOD63_021DBF08
-
-	thumb_func_start MOD63_021DB720
-MOD63_021DB720: ; 0x021DB720
-	push {r3, r4, r5, lr}
-	add r5, r0, #0
-	lsl r0, r1, #2
-	add r0, r5, r0
-	ldr r4, [r0, #4]
-	mov r1, #0
-	add r0, r4, #0
-	mov r2, #6
-	bl FUN_020079E0
-	mov r1, #1
-	add r2, r1, #0
-	add r0, r4, #0
-	sub r2, #0x11
-	bl FUN_020079E0
-	mov r1, #0xc
-	add r2, r1, #0
-	add r0, r4, #0
-	sub r2, #0x8c
-	bl FUN_020079E0
-	mov r1, #0xd
-	add r2, r1, #0
-	add r0, r4, #0
-	sub r2, #0x8d
-	bl FUN_020079E0
-	ldrb r0, [r5, #0x1d]
-	add r0, r0, #1
-	strb r0, [r5, #0x1d]
-	ldrb r0, [r5, #0x1d]
-	cmp r0, #6
-	blo _021DB780
-	mov r1, #0xc
-	add r2, r1, #0
-	add r0, r4, #0
-	add r2, #0xf4
-	bl FUN_02007558
-	mov r1, #0xd
-	add r2, r1, #0
-	add r0, r4, #0
-	add r2, #0xf3
-	bl FUN_02007558
-	mov r0, #1
-	pop {r3, r4, r5, pc}
-_021DB780:
-	mov r0, #0
-	pop {r3, r4, r5, pc}
-	thumb_func_end MOD63_021DB720
-
 	thumb_func_start MOD63_021DB784
 MOD63_021DB784: ; 0x021DB784
 	push {r3, r4, r5, lr}
