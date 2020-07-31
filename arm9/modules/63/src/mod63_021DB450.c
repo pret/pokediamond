@@ -1,6 +1,7 @@
 #include "global.h"
 #include "heap.h"
 #include "constants/species.h"
+#include "gx.h"
 #include "mod63_021DB450.h"
 
 //todo resolve to static code
@@ -33,16 +34,21 @@ extern u32 FUN_02006ED4(u32 param0);
 extern void MOD63_021DB934(void);
 extern void FUN_020222B4(u32, u32);
 
+extern void FUN_02013440(u32, u32);
+extern void FUN_020133AC(u32, u32, const void *, u32);
+extern BOOL FUN_020133C8(u32);
+
 //todo funcs
-void MOD63_021DB720();
-void MOD63_021DB784();
-void MOD63_021DB7D0();
-void MOD63_021DB838();
-void MOD63_021DB884();
-void MOD63_021DB8E8();
+extern BOOL MOD63_021DB720(struct UnkStruct63_021DB5CC *, u32);
+extern BOOL MOD63_021DB784(struct UnkStruct63_021DB5CC *, u32);
+extern BOOL MOD63_021DB7D0(struct UnkStruct63_021DB5CC *, u32);
+extern BOOL MOD63_021DB838(struct UnkStruct63_021DB5CC *, u32);
+extern BOOL MOD63_021DB884(struct UnkStruct63_021DB5CC *, u32);
+extern BOOL MOD63_021DB8E8(struct UnkStruct63_021DB5CC *, u32);
+extern void MOD63_021DB940();
 
 //todo data
-const u32 MOD63_021DBEC0[3] = {0x703, 0x7CE, 0x8A8};
+const s32 MOD63_021DBEC0[3] = {0x703, 0x7CE, 0x8A8};
 const struct UnkStruct63_021DBEF0 MOD63_021DBEF0[3];
 
 THUMB_FUNC u32 MOD63_021DB450(u32 param0, u32 param1)
@@ -117,11 +123,74 @@ THUMB_FUNC void MOD63_021DB5A8(UnkStruct63_021DB5A8 *param0)
     FUN_020222B4(1, 0);
 }
 
-void * const MOD63_021DBED8 = MOD63_021DB720;
-void * const MOD63_021DBEDC[5] = { MOD63_021DB784, MOD63_021DB7D0, MOD63_021DB838, MOD63_021DB884, MOD63_021DB8E8 };
+const struct UnkStruct63_021DBED8 MOD63_021DBED8[3] = {
+        {MOD63_021DB720, MOD63_021DB784},
+        {MOD63_021DB7D0, MOD63_021DB838},
+        {MOD63_021DB884, MOD63_021DB8E8}
+};
 
 const struct UnkStruct63_021DBEF0 MOD63_021DBEF0[3] = {
         {0x080, 0xC0},
         {0x100, 0xC0},
         {0x050, 0xC0}
 };
+
+const struct UnkStruct63_021DBEF0 MOD63_021DBF08[3] = { //no idea if this is the right type
+        {4, 5},
+        {2, 3},
+        {0, 1}
+};
+
+THUMB_FUNC BOOL MOD63_021DB5CC(UnkStruct63_021DB5CC *param0, u32 param1, s32 param2)
+{
+    u8 * state = &param0->field_1C;
+    switch(*state)
+    {
+        case 0:
+            G2_SetWndOutsidePlane(GX_WND_PLANEMASK_OBJ | GX_WND_PLANEMASK_BG0, TRUE);
+            FUN_02007558(param0->field_04[param1], 12, 0x400);
+            FUN_02007558(param0->field_04[param1], 13, 0x400);
+            FUN_02007558(param0->field_04[param1], 6, 0);
+            (*state)++;
+            // fallthrough
+        case 1:
+            if (MOD63_021DBED8[param1].unk_00(param0, param1))
+            {
+                param0->field_1D = 0;
+                (*state)++;
+            }
+            break;
+        case 2:
+            FUN_02013440(param0->field_18, 1);
+            FUN_020133AC(param0->field_18, MOD63_021DBF08[param1].field_00, MOD63_021DB940, param0->field_04[param1]);
+            FUN_020133AC(param0->field_18, MOD63_021DBF08[param1].field_04, MOD63_021DB940, param0->field_04[param1]);
+            (*state)++;
+            break;
+        case 3:
+            if (!FUN_020133C8(param0->field_18) && param2 >= MOD63_021DBEC0[param1])
+            {
+                G2_SetWndOutsidePlane(GX_WND_PLANEMASK_OBJ, TRUE);
+                (*state)++;
+            }
+            break;
+        case 4:
+            if (MOD63_021DBED8[param1].unk_04(param0, param1))
+            {
+                FUN_02007558(param0->field_04[param1], 6, 1);
+                param0->field_1D = 0;
+                (*state)++;
+            }
+            break;
+        case 5:
+            param0->field_1D++;
+            if (param0->field_1D >= 20)
+            {
+                param0->field_1D = 0;
+                *state = 0;
+                return TRUE;
+            }
+            break;
+    }
+    return FALSE;
+}
+

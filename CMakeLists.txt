@@ -15,7 +15,7 @@ add_compile_options(-fms-extensions)
 file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c" "*.cpp")
 
 add_executable(PokeDiamond ${SOURCES})
-target_include_directories(PokeDiamond PRIVATE include include-mw arm9/lib/include arm7/lib/include)
+target_include_directories(PokeDiamond PRIVATE include include-mw arm9/lib/include arm7/lib/include arm9/modules/63/include)
 
 add_executable(calcrom .travis/calcrom/calcrom.cpp)
 target_include_directories(calcrom PRIVATE /usr/local/include)
