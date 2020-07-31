@@ -44,6 +44,21 @@ typedef struct UnkStruct63_021DB5A8 //possibly the same as above
     u32 field_00;
 } UnkStruct63_021DB5A8;
 
+typedef struct UnkStruct63_021DB5CC
+{
+    u8 filler_00[4];
+    u32 field_04[5];
+    u32 field_18;
+    u8 field_1C;
+    u8 field_1D;
+} UnkStruct63_021DB5CC;
+
+typedef struct UnkStruct63_021DBED8
+{
+    BOOL (*unk_00)(struct UnkStruct63_021DB5CC *, u32);
+    BOOL (*unk_04)(struct UnkStruct63_021DB5CC *, u32);
+} UnkStruct63_021DBED8;
+
 u32 MOD63_021DB450(u32 param0, u32 param1);
 u32 MOD63_021DB474(u32 param0, u32 param1);
 u32 MOD63_021DB498(void);
@@ -51,5 +66,6 @@ void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB49C * arg0);
 void MOD63_021DB580(UnkStruct63_021DB580 *param0);
 void MOD63_021DB598(UnkStruct63_021DB598 *param0);
 void MOD63_021DB5A8(UnkStruct63_021DB5A8 *param0);
+BOOL MOD63_021DB5CC(UnkStruct63_021DB5CC *param0, u32 param1, s32 param2);
 
 #endif //POKEDIAMOND_MOD63_021DB450_H

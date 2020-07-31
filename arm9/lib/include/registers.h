@@ -454,6 +454,19 @@
 #define REG_PAD_KEYCNT_A_SIZE                              1
 #define REG_PAD_KEYCNT_A_MASK                              0x0001
 
+#define REG_G2_WINOUT_OBJWININ_SHIFT                       8
+#define REG_G2_WINOUT_OBJWININ_SIZE                        6
+#define REG_G2_WINOUT_OBJWININ_MASK                        0x3f00
+
+#define REG_G2_WINOUT_WINOUT_SHIFT                         0
+#define REG_G2_WINOUT_WINOUT_SIZE                          6
+#define REG_G2_WINOUT_WINOUT_MASK                          0x003f
+
+#define REG_G2_WINOUT_FIELD( objwinin, winout ) \
+    (u16)( \
+    ((u32)(objwinin) << REG_G2_WINOUT_OBJWININ_SHIFT) | \
+    ((u32)(winout) << REG_G2_WINOUT_WINOUT_SHIFT))
+
 #ifndef SDK_ASM
 #define REG_PAD_KEYCNT_FIELD( logic, intr, l, r, down, up, left, right, start, sel, b, a ) \
     (u16)( \
