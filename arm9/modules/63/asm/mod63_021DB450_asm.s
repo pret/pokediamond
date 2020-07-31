@@ -2,14 +2,6 @@
 	.include "global.inc"
 	.section .text
 
-	thumb_func_start MOD63_021DB934
-MOD63_021DB934: ; 0x021DB934
-	push {r3, lr}
-	bl FUN_02013364
-	bl FUN_02013388
-	pop {r3, pc}
-	thumb_func_end MOD63_021DB934
-
 	thumb_func_start MOD63_021DB940
 MOD63_021DB940: ; 0x021DB940
 	push {r4, r5, lr}
