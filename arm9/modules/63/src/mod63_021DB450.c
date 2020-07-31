@@ -42,10 +42,9 @@ extern void FUN_020079E0(u32, u32, s32);
 extern void FUN_02013364(void);
 extern void FUN_02013388(void);
 
-//todo funcs
-extern void MOD63_021DB940();
+void * FUN_0201341C(struct UnkStruct_02090A58 *);
+int FUN_0200782C(void *, int);
 
-//todo data
 const s32 MOD63_021DBEC0[3] = {0x703, 0x7CE, 0x8A8};
 const struct UnkStruct63_021DBEF0 MOD63_021DBEF0[3];
 
@@ -292,4 +291,16 @@ THUMB_FUNC void MOD63_021DB934(void)
 {
     FUN_02013364();
     FUN_02013388();
+}
+
+THUMB_FUNC void MOD63_021DB940(struct UnkStruct_02090A58 * a0)
+{
+    void * r4 = FUN_0201341C(a0);
+    int sp0[3] = {0, 0, 0};
+    sp0[0] = (FUN_0200782C(r4, 0) - 0x80) * 0xAC;
+    sp0[1] = (FUN_0200782C(r4, 1) - 0x60) * 0xAC;
+    sp0[2] = 0x40;
+    a0->unk_28 = sp0[0] + (*a0->unk_20)[1];
+    a0->unk_2C = sp0[1] + (*a0->unk_20)[2];
+    a0->unk_30 = sp0[2] + (*a0->unk_20)[3];
 }
