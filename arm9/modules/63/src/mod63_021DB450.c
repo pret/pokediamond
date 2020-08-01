@@ -12,10 +12,10 @@ extern void FUN_0201327C(u32 param0);
 extern void FUN_020132BC(u32 param0);
 
 extern void * FUN_02012CDC(void *, void *, void *, u32, u32, u32);
-extern u32 FUN_020073A0(u32, struct UnkStruct63_021DB49C_2 *, u32, u32, u32, u32, u32, u32);
+extern u32 FUN_020073A0(struct UnkStruct63_021DB450 *, struct UnkStruct63_021DB49C *, u32, u32, u32, u32, u32, u32);
 
-extern u32 FUN_02006D98(u32);
-extern void FUN_02068C00(struct UnkStruct63_021DB49C_2*, u16, u32, u32, u32, u32, u32);
+extern struct UnkStruct63_021DB450 * FUN_02006D98(u32);
+extern void FUN_02068C00(struct UnkStruct63_021DB49C*, u16, u32, u32, u32, u32, u32);
 extern void FUN_02012CC8(void);
 extern void FUN_02007558(u32, u32, u32);
 extern void FUN_0201EC94(u32, u32, u32);
@@ -26,23 +26,23 @@ extern u32 FUN_0201318C(u32, u32, u32);
 extern void FUN_02012DE4(u32);
 extern void FUN_020072E8(u32);
 
-extern void FUN_020081C4(u32);
+extern void FUN_020081C4(struct UnkStruct63_021DB450 *);
 
 extern void FUN_020222AC(void);
 extern void FUN_020B02C8(void);
-extern u32 FUN_02006ED4(u32 param0);
+extern u32 FUN_02006ED4(struct UnkStruct63_021DB450 *);
 extern void FUN_020222B4(u32, u32);
 
-extern void FUN_02013440(u32, u32);
-extern void FUN_020133AC(u32, u32, const void *, u32);
-extern BOOL FUN_020133C8(u32);
+extern void FUN_02013440(void *, u32);
+extern void FUN_020133AC(void *, u32, const void *, u32);
+extern BOOL FUN_020133C8(void *);
 
 extern void FUN_020079E0(u32, u32, s32);
 
 extern void FUN_02013364(void);
 extern void FUN_02013388(void);
 
-void * FUN_0201341C(struct UnkStruct_02090A58 *);
+void * FUN_0201341C(struct UnkStruct63_021DB450 *);
 int FUN_0200782C(void *, int);
 
 const s32 MOD63_021DBEC0[3] = {0x703, 0x7CE, 0x8A8};
@@ -69,9 +69,9 @@ THUMB_FUNC u32 MOD63_021DB498(void)
     return 32;
 }
 
-THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB49C * arg0)
+THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg0)
 {
-    struct UnkStruct63_021DB49C_2 sp1C;
+    struct UnkStruct63_021DB49C sp1C;
     int introMonArray[3] = {SPECIES_TURTWIG, SPECIES_CHIMCHAR, SPECIES_PIPLUP};
 
     arg0->field_00 = FUN_02006D98(76);
@@ -98,7 +98,7 @@ THUMB_FUNC void MOD63_021DB580(UnkStruct63_021DB580 *param0)
     FUN_020072E8(param0->field_00);
 }
 
-THUMB_FUNC void MOD63_021DB598(UnkStruct63_021DB598 *param0)
+THUMB_FUNC void MOD63_021DB598(UnkStruct63_021DB450 *param0)
 {
     if (param0 == NULL)
     {
@@ -107,7 +107,7 @@ THUMB_FUNC void MOD63_021DB598(UnkStruct63_021DB598 *param0)
     FUN_020081C4(param0->field_00);
 }
 
-THUMB_FUNC void MOD63_021DB5A8(UnkStruct63_021DB5A8 *param0)
+THUMB_FUNC void MOD63_021DB5A8(UnkStruct63_021DB450 *param0)
 {
     if (param0 == NULL)
     {
@@ -138,7 +138,7 @@ const struct UnkStruct63_021DBEF0 MOD63_021DBF08[3] = { //no idea if this is the
         {0, 1}
 };
 
-THUMB_FUNC BOOL MOD63_021DB5CC(UnkStruct63_021DB5CC *param0, u32 param1, s32 param2)
+THUMB_FUNC BOOL MOD63_021DB5CC(UnkStruct63_021DB450 *param0, u32 param1, s32 param2)
 {
     u8 * state = &param0->field_1C;
     switch(*state)
@@ -191,7 +191,7 @@ THUMB_FUNC BOOL MOD63_021DB5CC(UnkStruct63_021DB5CC *param0, u32 param1, s32 par
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB720(UnkStruct63_021DB5CC *param0, u32 param1)
+THUMB_FUNC BOOL MOD63_021DB720(UnkStruct63_021DB450 *param0, u32 param1)
 {
     u32 field = param0->field_04[param1];
     FUN_020079E0(field, 0x0, 0x6);
@@ -208,7 +208,7 @@ THUMB_FUNC BOOL MOD63_021DB720(UnkStruct63_021DB5CC *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB784(UnkStruct63_021DB5CC *param0, u32 param1)
+THUMB_FUNC BOOL MOD63_021DB784(UnkStruct63_021DB450 *param0, u32 param1)
 {
     u32 field = param0->field_04[param1];
     FUN_020079E0(field, 0x0, -0x3);
@@ -223,7 +223,7 @@ THUMB_FUNC BOOL MOD63_021DB784(UnkStruct63_021DB5CC *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB7D0(UnkStruct63_021DB5CC *param0, u32 param1)
+THUMB_FUNC BOOL MOD63_021DB7D0(UnkStruct63_021DB450 *param0, u32 param1)
 {
     u32 field = param0->field_04[param1];
     FUN_020079E0(field, 0x0, -0x10);
@@ -240,7 +240,7 @@ THUMB_FUNC BOOL MOD63_021DB7D0(UnkStruct63_021DB5CC *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB838(UnkStruct63_021DB5CC *param0, u32 param1)
+THUMB_FUNC BOOL MOD63_021DB838(UnkStruct63_021DB450 *param0, u32 param1)
 {
     u32 field = param0->field_04[param1];
     FUN_020079E0(field, 0, -0x6);
@@ -255,7 +255,7 @@ THUMB_FUNC BOOL MOD63_021DB838(UnkStruct63_021DB5CC *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB884(UnkStruct63_021DB5CC *param0, u32 param1)
+THUMB_FUNC BOOL MOD63_021DB884(UnkStruct63_021DB450 *param0, u32 param1)
 {
     u32 field = param0->field_04[param1];
     FUN_020079E0(field, 0, 0x8);
@@ -272,7 +272,7 @@ THUMB_FUNC BOOL MOD63_021DB884(UnkStruct63_021DB5CC *param0, u32 param1)
     return FALSE;
 }
 
-THUMB_FUNC BOOL MOD63_021DB8E8(UnkStruct63_021DB5CC *param0, u32 param1)
+THUMB_FUNC BOOL MOD63_021DB8E8(UnkStruct63_021DB450 *param0, u32 param1)
 {
     u32 field = param0->field_04[param1];
     FUN_020079E0(field, 0, 0x6);
@@ -293,14 +293,14 @@ THUMB_FUNC void MOD63_021DB934(void)
     FUN_02013388();
 }
 
-THUMB_FUNC void MOD63_021DB940(struct UnkStruct_02090A58 * a0)
+THUMB_FUNC void MOD63_021DB940(struct UnkStruct63_021DB450 * a0)
 {
     void * r4 = FUN_0201341C(a0);
     int sp0[3] = {0, 0, 0};
     sp0[0] = (FUN_0200782C(r4, 0) - 0x80) * 0xAC;
     sp0[1] = (FUN_0200782C(r4, 1) - 0x60) * 0xAC;
     sp0[2] = 0x40;
-    a0->unk_28 = sp0[0] + (*a0->unk_20)[1];
-    a0->unk_2C = sp0[1] + (*a0->unk_20)[2];
-    a0->unk_30 = sp0[2] + (*a0->unk_20)[3];
+    a0->field_28 = sp0[0] + (*a0->field_20)[1];
+    a0->field_2C = sp0[1] + (*a0->field_20)[2];
+    a0->field_30 = sp0[2] + (*a0->field_20)[3];
 }
