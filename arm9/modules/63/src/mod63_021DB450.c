@@ -23,8 +23,8 @@ extern u32 FUN_0201343C(void);
 extern void FUN_02013194(void *, u32, u32, u32);
 extern u32 FUN_0201318C(u32, u32, u32);
 
-extern void FUN_02012DE4(u32);
-extern void FUN_020072E8(u32);
+extern void FUN_02012DE4(void *);
+extern void FUN_020072E8(struct UnkStruct63_021DB450 *);
 
 extern void FUN_020081C4(struct UnkStruct63_021DB450 *);
 
@@ -91,10 +91,10 @@ THUMB_FUNC void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg
     FUN_02013194(arg0->field_18, FUN_0201318C(0x3D, 4, 0x4C), 10, 1);
 }
 
-THUMB_FUNC void MOD63_021DB580(UnkStruct63_021DB580 *param0)
+THUMB_FUNC void MOD63_021DB580(UnkStruct63_021DB450 *param0)
 {
-    FUN_02012DE4(param0->field_24);
-    FreeToHeap(param0->field_20);
+    FUN_02012DE4(param0->field_18);
+    FreeToHeap(param0->field_14);
     FUN_020072E8(param0->field_00);
 }
 
