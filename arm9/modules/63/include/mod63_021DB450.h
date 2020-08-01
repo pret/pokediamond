@@ -35,14 +35,6 @@ typedef struct UnkStruct63_021DBEF0
     u32 field_04;
 } UnkStruct63_021DBEF0;
 
-typedef struct UnkStruct63_021DB580
-{
-    u32 field_00;
-    u8 filler[0x10];
-    void *field_20;
-    u32 field_24;
-} UnkStruct63_021DB580;
-
 typedef struct UnkStruct63_021DBED8
 {
     BOOL (*unk_00)(struct UnkStruct63_021DB450 *, u32);
@@ -53,7 +45,7 @@ u32 MOD63_021DB450(u32 param0, u32 param1);
 u32 MOD63_021DB474(u32 param0, u32 param1);
 u32 MOD63_021DB498(void);
 void Title_SetupMonAnimationSprites(struct UnkStruct63_021DB450 * arg0);
-void MOD63_021DB580(UnkStruct63_021DB580 *param0);
+void MOD63_021DB580(UnkStruct63_021DB450 *param0);
 void MOD63_021DB598(UnkStruct63_021DB450 *param0);
 void MOD63_021DB5A8(UnkStruct63_021DB450 *param0);
 BOOL MOD63_021DB5CC(UnkStruct63_021DB450 *param0, u32 param1, s32 param2);
