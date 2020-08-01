@@ -4,6 +4,7 @@
 #include "consts.h"
 #include "nitro/OS_interrupt_shared.h"
 
+#define OS_IE_V_COUNT       (1UL << REG_OS_IE_VE_SHIFT)
 #define OS_IE_TIMER0        (1UL << REG_OS_IE_T0_SHIFT)
 #define OS_IE_TIMER1        (1UL << REG_OS_IE_T1_SHIFT)
 
