@@ -4,6 +4,7 @@
 #include "fx.h"
 #include "MI_memory.h"
 #include "MI_dma.h"
+#include "OS_vramExclusive.h"
 
 //temporary while other files aren't decompiled
 
@@ -11,7 +12,6 @@ void GXi_NopClearFifo128_(void *);
 void MI_Copy16B(const void *, void *);
 void MI_Copy64B(void *src, void *dst);
 void MIi_CpuCopy32(const void *src, void *dst, u32 size);
-void OSi_UnlockVram(u16, u16);
 
 #include "GXcommon.h"
 #include "GX_struct_2d.h"

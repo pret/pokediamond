@@ -26,6 +26,7 @@
 #include "OS_exception.h"
 #include "OS_message.h"
 #include "OS_valarm.h"
+#include "OS_vramExclusive.h"
 
 void OS_Init(void);
 
