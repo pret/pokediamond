@@ -25,6 +25,7 @@
 #include "OS_reset.h"
 #include "OS_exception.h"
 #include "OS_message.h"
+#include "OS_valarm.h"
 
 void OS_Init(void);
 
