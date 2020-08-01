@@ -7413,7 +7413,7 @@
 .extern MOD63_021DB1AC
 .extern MOD63_021DB38C
 .extern MOD63_021DB498
-.extern MOD63_021DB49C
+.extern Title_SetupMonAnimationSprites
 .extern MOD63_021DB580
 .extern MOD63_021DB598
 .extern MOD63_021DB5A8
