@@ -3,8 +3,6 @@
 
 extern void PXI_Init(void);
 extern void MI_Init(void);
-extern void OS_InitVAlarm(void);
-extern void OSi_InitVramExclusive(void);
 extern void CTRDG_Init(void);
 extern void CARD_Init(void);
 extern void PM_Init(void);
