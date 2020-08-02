@@ -1,0 +1,14 @@
+Start debug
+Select Name
+Continue
+Opening
+Sound test
+Pokémon graphics
+Back
+Debug Fight
+Wi-Fi settings
+Wi-Fi Test
+Trainer graphics
+Save data corrupted
+Modify RTC
+{STRVAR 330, 1, 0} {STRVAR 307, 1, 1} Time: {STRVAR 307, 1, 2}:{STRVAR 307, 1, 3}

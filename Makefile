@@ -87,6 +87,7 @@ MWCCARM  = tools/mwccarm/$(MWCCVERSION)/mwccarm.exe
 # TODO: Is there a hack workaround to let us go back to GNU LD? Ideally, the
 # only dependency should be MWCCARM.
 KNARC = tools/knarc/knarc$(EXE)
+MSGENC = tools/msgenc/msgenc$(EXE)
 MWLDARM  = tools/mwccarm/$(MWCCVERSION)/mwldarm.exe
 MWASMARM = tools/mwccarm/$(MWCCVERSION)/mwasmarm.exe
 SCANINC = tools/scaninc/scaninc$(EXE)
@@ -159,6 +160,7 @@ clean-fs:
 	$(RM) $(filter %.narc %.arc,$(HOSTFS_FILES))
 	$(RM) $(NCGR_CLEAN_LIST) $(NCLR_CLEAN_LIST)
 	find . \( -iname '*.1bpp' -o -iname '*.4bpp' -o -iname '*.8bpp' -o -iname '*.gbapal' -o -iname '*.lz' \) -exec $(RM) {} +
+	$(RM) files/msgdata/msg/narc_*.bin
 
 mostlyclean: tidy
 	$(MAKE) -C arm9 mostlyclean

@@ -1,0 +1,10 @@
+Hello.\nI’m pleased to meet you.\rI’m Maylene, and I’m the Gym\nLeader.\rI don’t really know what it means to\nbe strong, or how I got to be the\fGym Leader.\rBut I will do the best I can as the\nGym Leader.\rI take battling very seriously.\nWhenever you’re ready!\r
+...OK.\nYou win.\rThat was a tough loss.\nI learned a lot from it.\rPlease, accept this Gym Badge.\r
+{STRVAR 259, 1, 0} received\nthe Cobble Badge from Maylene.
+Um...\nI should explain about that Badge.\rIf you have that official Pokémon\nLeague Badge, you can use the hidden\fmove Fly outside of battle.\rOh, and please take this as well.\r
+That {STRVAR 264, 1, 0} contains\nthe move {STRVAR 262, 1, 1}.\rUm... That move inflicts damage,\nand it robs the target’s HP.
+Gee, I’m hungry...\rOh, sorry, it’s nothing.\nI didn’t say anything.\r{STRVAR 259, 1, 0}, I can’t explain what\nit means to be strong.\rI don’t know how much effort goes\ninto being strong...\rBut being with Pokémon lets us\nkeep making the effort, doesn’t it?
+Hey, there!\nHow’s it going, Champ-to-be?\rThe Gym Leader is a user of\nFighting-type Pokémon.\rShe’d be a terror against Normal-type\nPokémon.\rBut! And it’s a big but!\nJust between you and me...\rMaylene, the Gym Leader, said Flying-\nand Psychic-type Pokémon could be\freal trouble for her!
+Oh! {STRVAR 259, 1, 0}!\nYou’ve beaten the Gym Leader!\rOf course, I thought you’d win.
+Veilstone City Pokémon Gym\nLeader: Maylene\rCertified Trainers:\n{STRVAR 259, 1, 1}
+Veilstone City Pokémon Gym\nLeader: Maylene\rCertified Trainers:\n{STRVAR 259, 1, 0}\f{STRVAR 259, 1, 1}

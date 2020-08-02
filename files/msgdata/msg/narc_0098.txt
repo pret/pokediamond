@@ -1,0 +1,67 @@
+Oh, thank goodness that you happened\nto be there!\rIf it weren’t for you, who knows how\nfar away my BUNEARY could have run...\r
+Baby BUNEARY, back into the Poké\nBall you go!\r
+I’m Keira!\nI’m a Pokémon Contest Judge.\rPlease drop by the Contest Hall\nso I can thank you properly!\r
+Oh, I’m so sorry!\nPlease excuse me.\rAre you entering a Contest?\nTehehe... Enjoy yourself, please!\rIncidentally, Fantina, the Hearthome\nGym Leader, also happens to be\fa Contest expert.\rAnd you may ask yourself, how do\nI know this? Well, I am Fantina!\rYou may challenge me, but not yet!\nYou must become much stronger.\fThen, you may challenge me!\r
+{STRVAR 259, 1, 0}: Ta-daah!\nKept me waiting again, {STRVAR 259, 1, 1}!\rLet’s see how much tougher you and\nI have gotten, right here and now!\rHey, you’re a Trainer now. You’re\nexpected to be ready for a battle.\rNo whining! No waiting!\nLet’s get the show started!\r
+{STRVAR 259, 1, 0}: Waaaagh!\nYou KO’d my team again?!\rThis messes up my dream of becoming\nthe greatest Trainer ever...\rNo! I just need to get tougher and\nkeep winning. One day...\rThat’s it! I’m going to challenge\nthe Veilstone Gym next!\rSee you around, {STRVAR 259, 1, 1}!\rYou’ll be blown away by how much\ntougher I’ll be next time we meet!\r
+You’re kidding! They found an Egg at\nthe Day Care in Solaceon Town?
+I hear they found Eggs in the Johto\nregion, too.
+Cynthia: I’m so glad to see you!\nYou’re not very easy to track down.\rMy grandma told me about what took\nplace in Celestic Town.\rThanks for what you did in the ruins!\r
+But that Team Galactic...\rI thought they were just an\neccentric bunch of freaks...\rYou know, talking about how they’re\ngoing to make a new universe and all.\rAnd that weird way they dress, too.\nI thought they were harmless.\rIt appears as if they’re a lot more\ntrouble than I thought...\rI mean, stealing and hoarding\nPokémon... That’s just plain wrong.\r
+By the way, did you find the ruins\ninteresting at all?\rIf you did, you may want to visit the\nlibrary in Canalave City.\rThey have some ancient books that\nyou might find interesting.\rIt may also be of help to the\ncompletion of your Pokédex.\rI think you ought to go there.\nOK, bye-bye for now!\r
+You’re a Trainer, are you?\rYou’ve got two choices of challenges,\neither the Gym or a Contest, right?
+I was given the HM Strength at\nthe Lost Tower.\rThe Lost Tower is on Route 209 on\nthe way to Solaceon Town.
+                                                     
+There are just so many Accessories\nto dress up Pokémon with.\rI can’t decide what I should use.
+I get to see Pokémon all day long,\nbut there sure are many kinds.\rHow many are there now?
+I used a Water Stone on my Pokémon,\nand it evolved!
+I’m visiting here all the way from\nthe Hoenn region.\rI had been hoping to find the Contest\nHall, but being new, I lost my way.\rFortunately, the local people very\nkindly led me to my destination.\rI was impressed by their kindness and\ngenerosity to a complete stranger.\rNow, may I offer you the courtesy\nof showing you to the Contest Hall?
+Ah.\nPlease follow me.\r
+This is the Contest Hall.\nPlease, do go inside.
+It makes me happy knowing I’ve\nhelped another person.
+Oh, I do apologize.\nI should mind my own business.
+When I take my baby out in his stroller,\nI see the town in a different way.\rI notice things like stairs and bumps\nin the sidewalk.
+Apapapu!
+I went for a stroll in Amity Square\nwith my PACHIRISU today.\rWe came across a Pokémon feather\nwhile we walked.\rDo you think it’d make my PACHIRISU\nlook any cuter?
+PACHIRISU: Kyukyuuh!
+Hi, hi.\nDo you want a Pokémon Egg?\rThey found this at the Day Care in\nSolaceon Town...\rWant to take it?
+Here you go!
+This is what I heard about Eggs.\rIf you take that Egg and travel\nwith energetic Pokémon, it’ll hatch.\rI remember someone announced that...\nProfessor Elm of Johto maybe?
+Hold up. You don’t seem to have\nenough room for the Egg.
+All right, then. I’ll just keep waiting\nfor someone to take care of this Egg.\rOh? Wait a minute. If I wait around,\nwill the Egg hatch for me?
+They call me Mr. Goods.\rNo one knows my real name.\nNo, not even I do...\rI dedicate myself to seeking rarities.\nIt’s what I live for.\r
+Hm!\nHmhmhmhm?!\r
+                   
+I was going to give you something,\nbut I just gave a rare thing away.\rI’ll find something else for you,\nso just talk to me some other time.
+            
+                      
+Oh? Your underground PC appears\nto be full.\rI’ll hold your gift until you make\nroom for it. Tell me when, OK?
+                                             
+I’ll find something rare for you,\nso talk to me some other time.
+Oh!\nHow impressive!\rYour adventure has gone global in\nscale, has it?\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve conquered all the Gyms,\nhave you?\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve finally conquered the Master\nRank of the Cute Contest!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve finally conquered the Master\nRank of the Cool Contest!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve finally conquered the Master\nRank of the Beauty Contest!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve finally conquered the Master\nRank of the Tough Contest!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve finally conquered the Master\nRank of the Smart Contest!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve met so very many people\nin the underground tunnels!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve given away many items to\npeople while underground!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve dug up so many Fossils in\nthe underground tunnels!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve set many Traps in the\nunderground tunnels!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve finally beaten 10 Trainers in\na row at the Battle Tower!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow impressive!\rYou’ve finally beaten 50 Trainers in\na row at the Battle Tower!\rFor a Trainer like you, I have just\nthe thing!\r
+Oh!\nHow incredible!\rYou’ve finally beaten 100 Trainers in\na row at the Battle Tower!\rFor a Trainer like you, I have just\nthe thing!\r
+I can feel the baby stroller getting\nheavier each and every day.\rI wonder what kind of Pokémon my\nchild will become friends with first?
+Papa! Mama!
+I lived in total seclusion up in\nthe mountains for thirty years!\rI’m going to clean up some Contests\nwith a dance move I came up with!
+I’d like to live in Hearthome when\nI get married.\rBut my boyfriend wants to live in\nVeilstone ’cause of its Game Corner...
+Hearthome City\nWarm & Kind
+Hearthome City Pokémon Gym\nLeader: Fantina\fThe Alluring, Soulful Dancer!
+Pokémon Contest Hall\nCalling All Enthusiasts!
+Pokémon Fan Club\nAll Trainers Welcome
+Rt. 208\nRt. 212
+Rt. 209\nSolaceon Town
+Amity Square West Gate\nStroll with Your Pokémon!
+Amity Square East Gate\nStroll with Your Pokémon!
+The Poffin House\nDelicious Poffins--Smiles for All

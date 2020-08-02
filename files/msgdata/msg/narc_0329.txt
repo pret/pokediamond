@@ -1,0 +1,23 @@
+Hi!\nHow’s it going?\rYou’re in the {STRVAR 317, 1, 1} group with\n{STRVAR 259, 1, 0} as leader, right?\rWould you like to leave that group\nand join another one?
+Hi!\nHow’s it going?\rYou’re in the {STRVAR 317, 1, 1} group with\n{STRVAR 259, 1, 0} as leader, right?\rWould you like to leave that group\nand make a new one?
+Hi, I know it’s a little sudden, but\nwould you like to join a group?\rIf you join a group, you can compete\nor cooperate with fellow members.\rIt’s a lot of fun.\nWant to join?\r
+Which group would you like to join?
+Oh.\nThat’s too bad.
+Oh, you want to make a new group?\nSure thing!\rThe group you made before will be\ndisbanded, though. Is that OK?
+Yay, cool! What do you want to name\nyour group?
+The {STRVAR 317, 1, 0} group, huh?\nThat’s a great name!\rThe leader is {STRVAR 259, 1, 1}.\nI hope the group gets more members.
+The {STRVAR 317, 1, 0} group?\n{STRVAR 259, 1, 1} is the leader.\fWould you like to join this group?
+OK! {STRVAR 259, 1, 0} is now a member\nof the {STRVAR 317, 1, 1} group.
+When you form or join a new group,\nbe sure to visit any Union Room.\rMix your records with group members,\nand you’ll become integrated.\rWhen you’re in the same group,\nevents can happen simultaneously.\rIt makes things a lot more fun\nplaying in a group!\rAnyone can make a group, and anyone\ncan join.\rI hope you recruit lots of friends\nso everyone can have fun!
+MAKE GROUP
+JOIN GROUP
+INFO
+EXIT
+{STRVAR 317, 1, 0} Group
+{STRVAR 317, 1, 1} Group
+{STRVAR 317, 1, 2} Group
+{STRVAR 317, 1, 3} Group
+{STRVAR 317, 1, 4} Group
+EXIT
+That group?\nDidn’t {STRVAR 259, 1, 0} make it already?
+Isn’t there already another group\nwith that name?

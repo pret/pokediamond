@@ -1,0 +1,14 @@
+Dawn: Hi, {STRVAR 259, 1, 0}!\nHow’s your Pokédex coming along?\rMe? I’m somewhere between fantastic\nand, uh, hopeless...\rBut this isn’t about me!\nI’ve got something nice for you.\r{STRVAR 259, 1, 0}, choose which hand\nyou want.
+Dawn: I see...\nYou want the Vs. Seeker.\rI’m impressed, {STRVAR 259, 1, 0}.\nYou know what’s important.\r
+Dawn: Using that Vs. Seeker, you can\nfind Trainers who want a rematch\fwith you.\rOh, {STRVAR 259, 1, 0}, do you also have\na Pokétch?\rYup, you do.\nYou can have this too, then.\rYou deserve it for all your hard\nwork, {STRVAR 259, 1, 0}.\r
+Dawn: The {STRVAR 280, 1, 1} is\nsomething you should touch often.\rIt will tell you if there is an item\non the ground that you can’t see.\rIt will be especially useful inside\ndark caves.\rOK, let’s keep working on our\nPokédexes.\rProfessor Rowan is counting on us!\r
+Lucas: Hey, {STRVAR 259, 1, 0}!\nHow’s your Pokédex coming along?\rMe? I’m always doing great!\n...I wish...\rBut that’s not important.\rLately, I’ve been experimenting with\na couple of neat tools.\r{STRVAR 259, 1, 0}, I’ll share with you.\nChoose a hand!
+Lucas: Oh yeah.\nYou want the Vs. Seeker.\rYup, {STRVAR 259, 1, 0}, you know what’s\nimportant.\r
+Lucas: Using that Vs. Seeker, you can\nfind Trainers who want to battle with\fyou again.\r{STRVAR 259, 1, 0}, what about a Pokétch?\nDo you have one?\rYup, you do.\nYou can have this too, then.\rYou deserve it for all of your\neffort, {STRVAR 259, 1, 0}.\r
+Lucas: The {STRVAR 280, 1, 1} is...\nJust try touching it.\rIt’ll alert you if there is an\nunseeable item on the ground.\rIt’s especially handy for finding\nthings in dark caves.\rOK, keep working on your Pokédex.\nProfessor Rowan is counting on us!\r
+                                                           
+That slope’s too slippery.\nYou’ll need a Bike to get up.\rYou don’t have a Bicycle?\nThere’s a Cycle Shop in Eterna City.
+If you change gears on your Bicycle,\nyou can shoot right up that slope.
+Rt. 207\nMt. Coronet
+Rt. 207\nOreburgh City
+Trainer Tips\rPokémon may become immobilized if\nthey are asleep or paralyzed.\rIf it happens to your Pokémon,\nit could be disastrous.\rIf your opponent’s Pokémon can’t\nmove, it’s a big opportunity!

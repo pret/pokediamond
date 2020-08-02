@@ -1,0 +1,7 @@
+Whoa, whoa, whoa! What have we here?\nYou are so not Team Galactic!\fAnd you’re a little kid to boot!\rThose things we made with the energy\nwe took from the Valley Windworks\fare already in Pastoria City.\rHuh?\nThat’s not what this is about?
+Whoa, whoa, whoa! What have we here?\nYou are so not Team Galactic!\rAnd you’re a little kid!\nUmmm... Are you maybe a visitor?\rIf you’re a visitor, you can get to\nour HQ by taking those stairs.\rHuh?\nThat’s not what this is about?
+Whoa, whoa, whoa! Hold it there!\nDo you have the key?\rI don’t know if you do or not, but\na Storage Key is safe with our guard\fin front of the HQ.\rHuh?\nThat’s not what this is about?
+Whoa, whoa, whoa!\nWhat’s going on here?\rAll my fellow Team Galactic members\nhave disappeared!\rBut nobody relieved me from guarding\nthe warehouse, so I’m staying put!\rHuh?\nThat’s not what this is about?
+The rust-encrusted door is locked.\nIt appears to take a special key.\n
+The rust-encrusted door is locked.\nIt appears to take a special key.\rUse the Storage Key?
+{STRVAR 259, 1, 0} inserted and turned the\nStorage Key.\rThe rusty door creaked open!\rThe Storage Key snapped off inside\nthe keyhole...

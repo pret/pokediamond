@@ -1,0 +1,6 @@
+{STRVAR 259, 1, 0}: Hold it!\nDon’t go off without me!\rYou’re challenging the Pokémon\nLeague, aren’t you?\rThat’s why I’m here, too.\rLet’s see who’s more worthy of making\nthe challenge with a battle!\r
+{STRVAR 259, 1, 0}: I guess I’m not ready\nfor the Pokémon League if I’m losing\fto you!\rDarn it!\nYou watch, though!\rI’ll get tougher and win my way\nthrough the Pokémon League!\rBecause I’m going to become the\nChampion, the toughest Trainer!\r{STRVAR 259, 1, 1}! You’d better not\nlose to anyone before me!\r
+Let me confirm that you are qualified\nto challenge the Pokémon League.\rSo! Let us examine the Gym Badges\nyou gathered from Sinnoh.\rOreburgh City’s Coal Badge!\rEterna City’s Forest Badge!\rVeilstone City’s Cobble Badge!\rPastoria City’s Fen Badge!\rHearthome City’s Relic Badge!\rCanalave City’s Mine Badge!\rSnowpoint City’s Icicle Badge!\rAnd...\nSunyshore City’s Beacon Badge!\r
+Very well!\rTrainer, you’ve indeed collected\nall the Gym Badges of Sinnoh!\rDemonstrate the power that brought\nyou here and go for glory!
+You will be facing the Elite Four\nof the Pokémon League.\rIf you can’t beat all four of them\nin a row, you have to start from\fthe first one again.
+Your Pokémon are so calm even though\nthey’re going up against the Elite\fFour.\rI like how they’re so loose and\nrelaxed.

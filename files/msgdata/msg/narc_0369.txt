@@ -1,0 +1,16 @@
+Excuse me, do you have a moment?\rCan you describe your feelings when\nyou’re about to begin a battle?\rI also want to know how you feel\nwhen you win, lose, or become\fnumber one.\r
+OK, how do you feel when\nyou’re about to begin a match?\r
+How do you feel when you win\na match?\r
+How do you feel when you lose a match?\r
+Last question: describe how you’d feel\nif you became number one.\r
+Hunh? You changed your mind?\nI guess you’re fickle.
+Thank you!\nCan you answer another question?
+Gotcha! Thanks!
+Gotcha! Thanks!\nOK, {STRVAR 284, 1, 0}...
+Before battle
+Upon winning
+Upon losing
+Becoming No. 1
+Not saying
+Yes
+No

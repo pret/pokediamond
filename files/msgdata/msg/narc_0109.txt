@@ -1,0 +1,14 @@
+Hello, hello!\nHow, I say, do you do?\rI am the Pokémon Fan Club Chairman!\nIndeed, yes I am!\rWhen you wish to treat your Pokémon\nto a treat, what, I say, do you do?\rIf I may say so, and I will, I feed\nPoffins to my Pokémon!\rAnd why, I say, would I do that?\rBecause the giving of Poffins is\na way of expressing your love!\rFor example! If I were to give a\nSweet Poffin, the Pokémon eating it\fwould become more cute!\rFor example! A Spicy Poffin will add\nto the coolness of a Pokémon!\rIn such ways I say that Poffins have\nnothing but goodness for Pokémon!\rTherefore!\rI declare this Poffin Case to be\na gift from me to you!\r
+I urge you to fill it with Poffins\nand be generous in dispensing them\fto your Pokémon!
+Nationwide, there are other fan\nclubs, but we are number one!\rAnd why are we number one?\nBecause I brag more than anyone!\rBut now I can’t brag as much...\rPeople started complaining, so\nI’ve had to curtail my bragging...
+Welcome to the Pokémon Fan Club!\nOh, your {STRVAR 256, 1, 0}...\r
+It simply adores you!\nWhy, I feel like I’m intruding!
+It’s very friendly toward you.\nI can tell you treat it kindly.
+It’s quite friendly to you.\nIt must be happy being with you.
+It’s warming up to you.\nThat’s my impression.
+It’s feeling neutral toward you.\nIt’s up to you to change that.
+Hmm...\nIt seems to dislike you a little.
+Oh, my... I think this one really\nhasn’t taken too kindly to you.
+PSYDUCK: Gua gwah?!
+BUNEARY: Kukuuh.
+CLEFAIRY: Pip piiih!

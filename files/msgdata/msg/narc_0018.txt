@@ -1,0 +1,81 @@
+Dawn: Hi, {STRVAR 259, 1, 1}!\nAre you catching Pokémon?\r
+Wow! You’ve already got {STRVAR 306, 1, 0} Pokémon\nwith you!\rAt that pace, your Pokédex should\nbe full in no time at all!\r
+...Um...\rI think you’d feel a lot safer if you\nwere to catch some more.\r
+                                                    
+In Jubilife City, there’s the Trainers’\nSchool, which... Well, you know.\r{STRVAR 259, 1, 0}, you should visit it.\nYou’ll get some tips on Pokémon.\rOh yes, {STRVAR 259, 1, 1} went to the\nTrainers’ School earlier.\rOK, bye now!\r
+Lucas: Hey, {STRVAR 259, 1, 1}!\nHow many Pokémon have you caught?\r
+Whoa! You already have {STRVAR 306, 1, 0} Pokémon\nwith you!\r
+Huh?\nI think you should catch some more.\rIt might be more of a challenge\nraising a lot of Pokémon...\rBut it’s worth it. The more Pokémon\nyou have, the happier you’ll be.\r
+                                                         
+In Jubilife City, there’s the Trainers’\nSchool. Check it out, {STRVAR 259, 1, 0}.\rOh yeah, {STRVAR 259, 1, 1} went to the\nTrainers’ School earlier.\rOK, see you around!\nWork hard on your Pokédex!\r
+Jubilife City’s built on land they\ncarved out of a mountain.\rThe people and Pokémon of\nOreburgh City helped out with\fthat undertaking.
+Hello! Let me ask you, have you paid\na visit to the TV station?\rIf you’ve never been, you owe it to\nyourself to make the trip.\rAnd, if you’ve been there before,\nit never hurts to visit again.\rAfter all, you can be a star!\nOr at least dream of being one!
+Jubilife City is the love of my life.\nWords can’t do it justice.\r
+By the way, have you visited the\nTrainers’ School?\rNot yet, right?\nYou really must visit there!\r
+                                          
+By the way, have you participated\nin the Pokétch campaign?\rNot yet, right?\nYou really must try!\r
+Hello! Yes, you!\nYou with that cool scarf!\rYou should have seen the boy that\ncame running by earlier.\rHe ran past me so quickly, I couldn’t\neven manage a hello.
+Jubilife City is a big place.\nTake your time sightseeing.
+Jubilife City is the love of my life\nWords can’t do it justice.
+By the way, have you visited the\nTrainers’ School?\rNot yet, right?\nYou really must visit there!
+By the way, have you participated\nin the Pokétch campaign?\rNot yet, right?\nYou really must try!
+Oh, oh, oh?\rYou call yourself a Pokémon Trainer?\nAnd yet you have no Pokétch?\rThat is, Pokémon Watch, or Pokétch\nfor short!\rOh my, you are a rare case\nindeed!\r
+You see, I invented, and now\nmanufacture, Pokétches.\rNot only that, I’m now conducting\nthe Pokétch promotional campaign!\rAll you have to do is find three\nclowns in Jubilife City.\rIf you can find them...\nI will gift you with a Pokétch!
+The three clowns will each ask you\na skill-testing question.\rThe questions will all have to do\nwith Pokémon.\rAfter all, a Pokétch is a tool for\nPokémon Trainers.\rCollect a Coupon from each clown,\nthen come see me, OK?
+OK, let me count your Coupons!\nI’ll use the Pokétch here...\rOne, two, three!\nBravo! I say, bravo!\rIn return for these Coupons,\nI present you this Pokémon Watch,\for Pokétch for short!\r
+{STRVAR 259, 1, 0} received a {STRVAR 65280, 1, 1}Pokétch{STRVAR 65280, 1, 0}!{STRVAR 512, 1, 1}
+You can add apps to your Pokétch\nto make it even more versatile!\rTouch the Pokétch screen and please\ndo try it out!\r
+Hi! I’m a Pokétch campaign clown!\nLet’s roll out my question!\rDoes a Pokémon grow by defeating\nothers and gaining Exp. Points?
+Ding-ding!\nYou’re absolutely correct!\r
+Bzzzzt!\nThat’s the wrong answer...
+Pokémon grow stronger by defeating\nother Pokémon in battle.\rSome Pokémon even grow into an\nentirely different form in a process\fknown as evolution.\r
+Here you go!\nYour Pokétch Coupon!\r
+Pokémon grow stronger through\nbattling.\rSome Pokémon even grow into an\nentirely different form in a process\fknown as evolution.
+Hi! I’m a Pokétch campaign clown!\nLet’s roll out my question!\rJust like Pokémon types, the moves\nof Pokémon also have types?
+Ding-ding!\nYou’re absolutely correct!\r
+Bzzzzt!\nThat’s the wrong answer...
+If the Pokémon’s type matches its\nmove’s type, that move is made much\fmore powerful!\r
+Here you go!\nYour Pokétch Coupon!\r
+If the Pokémon’s type matches its\nmove’s type, that move is made much\fmore powerful!
+Hi! I’m a Pokétch campaign clown!\nLet’s roll out my question!\rCan a Pokémon hold an item?
+Ding-ding!\nYou’re absolutely correct!\r
+Bzzzzt!\nThat’s the wrong answer...
+A Pokémon may hold a single item.\rSome items become effective as soon\nas they are held by a Pokémon.\rBerries are eaten by Pokémon as\nnecessary during battle.\r
+Here you go!\nYour Pokétch Coupon!\r
+Hi, there. You should stick around.\nWe’re doing a Pokétch campaign soon.\rBefore it starts, I think you should\nbrush up at the Trainers’ School.
+A Pokémon may hold a single item.\rSome items become effective as soon\nas they are held by Pokémon.\rBerries are eaten by Pokémon as\nnecessary during battle.
+Rowan: Ah, {STRVAR 259, 1, 0}.\nImpeccable timing as always.\rThese miscreants are babbling utter\nnonsense that I just can’t stomach.\rShow them some manners, if you will.\r
+Mystery man: Oh, Professor Pokémon,\nmust you be so difficult?\rWe are approaching you strictly\nas businessmen.\rAll you must do is provide us with\nall your research findings.\rIn return, we’ll refrain from causing\nmassive damage to your assistant.\r
+Dawn: {STRVAR 259, 1, 1}!\rLet’s battle together and teach\nthese horrible men a lesson!\r
+Lucas: {STRVAR 259, 1, 1}!\nJoin me and battle these guys!\r
+Grunt: You leave us no option.\nWe will retreat for now.\rBecause Team Galactic is benevolent\nto all, we shall leave.\r
+Rowan: That lot...\nThey called themselves Team Galactic.\rWhen Pokémon evolve, they seem to\nrelease some type of energy...\rHowever, I believe that it’s a mystic\npower far beyond our control.\rBut Team Galactic seems to be trying\nto use that power for something...\rAnyway, {STRVAR 259, 1, 0}, well done!\nYou battle quite capably.\rThe sight of you Trainers and Pokémon\nbattling together...\rI made the right decision in\nentrusting you with a Pokédex!\r
+                                  
+                         
+                                                  
+Dawn: {STRVAR 259, 1, 1}, did you know?\rThe professor studies the evolution\nof Pokémon, too.\rAccording to his research, 90% of\nall Pokémon are somehow tied\fto evolution!\rI guess that means some Pokémon\nmust undergo startling evolutions.\rSo, {STRVAR 259, 1, 1}...\nLet’s keep working on our Pokédex\fproject for the professor!\r
+Lucas: {STRVAR 259, 1, 1}, did you know\nabout this?\rThe professor studies about the\nevolution of Pokémon, too.\rAccording to his research, 90% of\nall Pokémon are somehow tied\fto evolution!\rI guess that means some Pokémon\nmust undergo weird evolutions.\rSo, {STRVAR 259, 1, 1}...\nLet’s keep working on our Pokédex\fproject for the prof!\r
+Oh, that was very good!\nNicely done! Truly excellent!\rOh, I beg your pardon, I’m from\nJubilife TV!\rI’d like you to have something for\nletting me see that smashing battle!\r
+Contained within that Fashion Case...\rYou will find a whole spectrum of chic\nAccessories and tasteful Backdrops!\rDress up your Pokémon and watch\ntheir appeal grow!\rAnd, right now the TV station is\noffering its facilities so visitors\fcan dress up their Pokémon!\rThere are also prize giveaways, too!\nPlease do visit our TV station!\r
+The way you look...\nYou’re obviously a Trainer!\rCan you tell me what type of Pokémon\nyou like?
+The Fire type?\nYou must have a fiery personality.
+A person that likes the Water type\nmust be somewhat cool.
+You chose the Grass type?\nNo wonder you look so calm.
+Did you see me on TV?\nI was in an interview!
+When you walk with your Pokémon,\nthey gradually grow friendlier.
+OK, set six Poké Balls in my\nbelt...\rYeah, that’ll do it. At most, you\ncan have six Pokémon with you.
+                                                         
+Hiya, where’d you come from?\r...\rTwinleaf Town, huh...\nIt’s a nice place. Quiet and all.\rJubilife City is a big place, so it\nmight be a bit of a shock to you.
+Hello, Trainer!\nDo you know much about Pokémon?
+Ah, I see!\nYou are knowledgeable!\rI imagine you wouldn’t see the need\nto visit the Trainers’ School, then.\rBut do visit if you have the time.\nYou may discover something new!
+Oh, you’re not knowledgeable...\nBut not to worry!\fThere’s the Trainers’ School.\rThe school will teach you the\nbasics of Pokémon.
+Past here is the GTS, which stands\nfor Global Trade Station.\rOh, I’m sorry, you don’t have\nany Gym Badges.\rThe GTS is off-limits if you don’t\nhave a Gym Badge. Sorry!\r
+Past here is the GTS, which stands\nfor Global Trade Station.\rTrading Pokémon means connecting\nwith friends, both old and new.\rThat’s awesome!
+I’m trading Pokémon with my buddy!
+I made my Pokémon hold an item\nbefore trading it.\rThat will make the other Trainer\ndouble happy!
+Jubilife City\nCity of Joy
+Jubilife Condominiums\nTenants Wanted!
+The Pokétch Company\nPokémon Watches for the World!
+Trainers’ School\nThe First Step for Trainers!
+Jubilife TV\nThe Fun-and-Games TV Station!
+Global Trade Station\nWorldwide Pokémon Trading!

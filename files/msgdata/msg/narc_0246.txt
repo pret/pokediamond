@@ -1,0 +1,12 @@
+Buck: Hey!\n{STRVAR 259, 1, 0}, right?\rYour zippity little buddy challenged\nme to a battle earlier.\rYeah, I owned the little dude.\nMade sure he was taught a lesson.\rBut I don’t know if I could beat\nhim again the next time.\rSeriously, you’re bound to run into\ntough Trainers wherever you go!\rAnyway, I found out about this place,\nbut the Pokémon here are tough...\rWhat do you say we team up and\ngo together?\r
+{STRVAR 259, 1, 0} decided to go with\nBuck!
+Buck: You won’t regret teaming up!\nI’ll keep your Pokémon healthy!
+Buck: So, yeah, the Pokémon here\nare tough...\rWhat do you say we team up and\ngo together?\r
+Buck: Whoa, wait up!\rI can’t go on by myself if you leave\nme now.\rWell, if you gotta go, you gotta go.\nI’ll stick around here for you.\r
+Buck: There we go!\nThere’s the exit!\rMy instincts tell me the volcano’s\ntreasure is just ahead of us.\rSee you around, {STRVAR 259, 1, 0}!\nYou might be the toughest besides me!\r
+                                                
+                                                
+                                                                    
+                                                                                                  
+                                                                                                                      
+                                                  
