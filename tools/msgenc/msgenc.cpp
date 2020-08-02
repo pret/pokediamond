@@ -232,7 +232,7 @@ void write_messages(path filename) {
 
 int main(int argc, char ** argv) {
     // msgenc TXTFILE KEYFILE CHARMAP OUTFILE
-    if (argc < 4)
+    if (argc < 5)
         throw invalid_argument("usage: msgenc TXTFILE KEYFILE CHARMAP OUTFILE");
     read_msgs(argv[1]);
     read_key(argv[2]);
