@@ -1,0 +1,3 @@
+...Welcome...\r...\n...Kekeke...\rWe’ve had a reservation for you.\nWe’ve held it a long time...\r
+{STRVAR 259, 1, 0} lay down on the bed\nas if bidden there...\r
+{STRVAR 259, 1, 0} awakened!

@@ -1,0 +1,14 @@
+...\n...\r...So, you’re the latest challenger\nup against the Sunyshore Gym...\r
+All right, I’ve decided!\rIf I find you to be weak, I’m going\nto challenge the Pokémon League.\rI’m all done with renovating the\nGym, so I don’t need to be here.\rMore than anything, I want to have\nbattles that can thrill me again.\r
+As the toughest Gym Leader in Sinnoh,\nI’m going to unleash everything in\fmy arsenal on you.\r
+{STRVAR 259, 1, 0} took a look through\nthe binoculars.\r
+The Vista Lighthouse represents\nsafety and protection to us Sailors.
+I love how far away you can see with\nthe binoculars.\rI’m going to go that far away with\nmy Pokémon one day!
+                                                                     
+                 
+                                
+          
+                                                                                          
+                                                                                             
+                                             
+                           

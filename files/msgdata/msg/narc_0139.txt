@@ -1,0 +1,23 @@
+Welcome to the Veilstone Game Corner!\r
+Did you want some Coins for the\nslots?\rOh, I’m sorry, you don’t have\na Coin Case to hold your Coins.
+Did you want some game Coins?\rIt’s $1000 for 50 Coins.\nWould you like some?
+Thank you very much!\nHere are your Coins!
+Um... You don’t appear to have\nenough money...
+Oh?\nYour Coin Case is full.
+Oh... You don’t need Coins, then?\nPlease come again!
+Ten straight bonus rounds on\nthe slots! That’s amazing!\rI would say you had an explosion\nof good luck!\rSo, please take this Technical Machine\nas a memento!\r
+Please keep playing the slots for\nanother explosion of good luck!
+Oh, your Bag is full...\nWe will hold the TM for you.
+You can’t play if you don’t have\na Coin Case.
+I’ll explain how the slot machines\nwork at this Game Corner.\rDuring regular play, you should\nstop the reels from the left.\rDuring the bonus round, watch\nwhere CLEFAIRY points and stop\fthe reels in that order.
+Hey, kid, if you want to play here,\nyou need a Coin Case.\rI think the young man next door\nhad one.
+I’ve been winning a ton today.\nHere, take some Coins!\r{STRVAR 259, 1, 0} received 20 Coins\nfrom the man.\r{STRVAR 259, 1, 0} put the Coins away in\nthe Coin Case.
+Listen, when CLEFAIRY appears, that’s\nyour chance to line up sevens.\rLine those babies up and you’re into\nthe bonus round!
+Woohoo! CLEFAIRY! Look at it!\nIt’s driving me bananas!\rOh, if only you had a Coin Case!\nThen you’d know what fun this is!
+Woohoo! CLEFAIRY! Look!\nYeahah! It’s a carnival!\rLet me share some of my joy with\nyou!\r{STRVAR 259, 1, 0} received 50 Coins\nfrom the man.\r{STRVAR 259, 1, 0} put the Coins away in\nthe Coin Case.
+Woohoo! CLEFAIRY! It’s adorable!\nJust seeing it gets my pulse racing!\rOh, let me impart a piece of advice\nto you!\rIf the moon turns red, you don’t\nwant to get a replay because it\fmakes CLEFAIRY tired!
+I want Coins, of course, but\nsetting records is hot, too!
+When a Poké Ball appears, it’s a\nchance to line up slot marks.\rReplays and PIKACHU line up even if\nyou don’t make an effort.\rBut you need to aim for better marks,\nlike Poké Balls and Moon Stones.
+A friend in my group scored a ton\nof Coins here.\rI’m going to challenge him!
+Sigh...\nNothing’s going my way today...\rAre you a Trainer?\nDid you battle the Gym Leader?\rShe happens to be my daughter.\nShe’s some kind of tough!
+Shoot for 10!\nLine up those bonus rounds!\rIf you accomplish the feat of completing\n10 uninterrupted bonus rounds,\fplease go to the counter.\rYou will be presented with a fabulous\nprize!\rThe current record sits at\n{STRVAR 308, 1, 0} straight bonus rounds!

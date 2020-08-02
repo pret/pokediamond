@@ -1,0 +1,3 @@
+Question: The first room’s answer?\nAnswer: ←2 ↑16 →15
+Correct!\nCongratulations!
+Please answer the quiz!

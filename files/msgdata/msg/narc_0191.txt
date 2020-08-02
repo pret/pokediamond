@@ -1,0 +1,73 @@
+Choose the Judge you want\nto rate the move.
+Performance {STRVAR 65280, 1, 1}no. {STRVAR 306, 1, 0}{STRVAR 65280, 1, 0}!\nWhich move is your choice?
+It’s the {STRVAR 65280, 1, 1}last {STRVAR 65280, 1, 0}performance!\nChoose your move!
+To {STRVAR 259, 1, 1}, {STRVAR 257, 1, 0}\nperformed {STRVAR 262, 1, 2}!\r
+Oh, no! Someone already\nperformed for that Judge!\r
+    
+{STRVAR 259, 1, 0} was strongly\nimpressed by the acting of\r{STRVAR 257, 1, 1} and\n{STRVAR 257, 1, 2}! {STRVAR 65280, 1, 1}+2{STRVAR 65280, 1, 0}!\r
+{STRVAR 259, 1, 0} was impressed\nby the performances of\r{STRVAR 257, 1, 1}, {STRVAR 257, 1, 2},\nand {STRVAR 257, 1, 3}! {STRVAR 65280, 1, 1}+1{STRVAR 65280, 1, 0}!\r
+Everyone performed for\n{STRVAR 259, 1, 0}...\rAnd watered down the\nJudge’s impressions.\r
+{STRVAR 259, 1, 0} was very\nimpressed by {STRVAR 257, 1, 1}’s\fperformance! {STRVAR 65280, 1, 1}+3{STRVAR 65280, 1, 0}!\r
+    
+Upon seeing the Cool move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went up!\r
+Upon seeing the Beauty move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went up!\r
+Upon seeing the Cute move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went up!\r
+Upon seeing the Smart move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went up!\r
+Upon seeing the Tough move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went up!\r
+    
+Upon seeing the Cool move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went down.\r
+Upon seeing the Beauty move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went down.\r
+Upon seeing the Cute move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went down.\r
+Upon seeing the Smart move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went down.\r
+Upon seeing the Tough move\nperformed, {STRVAR 259, 1, 0}’s\fVoltage went down.\r
+    
+    
+The audience is getting\npretty excited!\r
+The audience is going wild\nwith excitement! {STRVAR 65280, 1, 1}+{STRVAR 306, 1, 0}{STRVAR 65280, 1, 0}!\r
+    
+    
+    
+    
+{STRVAR 257, 1, 0} didn’t stand\nout very much...\r
+{STRVAR 257, 1, 0} caught a\nlittle attention.\r
+{STRVAR 257, 1, 0} attracted\ndecent attention.\r
+{STRVAR 257, 1, 0} attracted a\nlot of attention!\r
+{STRVAR 257, 1, 0} commanded\ntotal attention!\r
+OK! It’s time for the\nActing Competition!\rShow off the moves that\nexemplify cuteness!\rFour performances each!\nLet’s see some enthusiasm!\r
+    
+OK! It’s time for the\nActing Competition!\rShow off the moves that\nexemplify smartness!\rFour performances each!\nLet’s see some enthusiasm!\r
+OK! It’s time for the\nActing Competition!\rShow off the moves that\nexemplify toughness!\rFour performances each!\nLet’s see some enthusiasm!\r
+OK! It’s time for the\nActing Competition!\rShow off the moves that\nexemplify beauty!\rFour performances each!\nLet’s see some enthusiasm!\r
+OK! It’s time for the\nActing Competition!\rShow off the moves that\nexemplify coolness!\rFour performances each!\nLet’s see some enthusiasm!\r
+COOL CONTEST
+BEAUTY CONTEST
+CUTE CONTEST
+SMART CONTEST
+TOUGH CONTEST
+NORMAL RANK
+GREAT RANK
+ULTRA RANK
+MASTER RANK
+PRACTICE
+LINK
+CONTEST
+EXIT
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+In the next turn, the\nlowest-scoring contestants\fwill perform first.\r
+That’s it! Performance\njudging is now over!\r
+                                                                                     
+Looks like everyone’s here!\rLet’s begin our practice\nActing Competition!\rFirst, choose the move your\nPokémon will perform.\rNext, choose the Judge\nwho you would like to\frate the performance.\rEach contestant gets to\nperform four times.\rGet your Pokémon to leave\na stronger impression on\rthe Judge, and score more\nhearts than the others!\rWell, here’s to great\nperformances by all!\r
+Communicating.\nPlease standby...
