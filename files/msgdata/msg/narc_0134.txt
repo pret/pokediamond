@@ -1,0 +1,13 @@
+Howdy, there!\rLet me examine your Pokémon to see\nif it’s worthy of a scarf!\r
+Hmhm...\nI see...\r
+This isn’t what I had hoped to see...\rI can’t lie to you, so I’ll just have\nto tell it to you straight.\rThis Pokémon’s not bad, but it’s not\ngood, either. It’s just so-so.\rIf you want to improve this one’s\ncondition, feed it some more Poffins!
+Your Pokémon is growing up really\ngood. My hat’s off to you.\rI was going to give you a scarf,\nbut your Bag’s full.
+Your {STRVAR 256, 1, 0}’s looking good!\nI’d say it’s pretty impressive!\rI’ll tell you what, I’ll give you\nthis {STRVAR 264, 1, 1}!\r
+The Red Scarf stands for passion!\rLet a Pokémon hold it to give it\nan edge in Cool Contests.
+The Blue Scarf represents the\nvastness of the sea!\rLet a Pokémon hold it to give it\nan edge in Beauty Contests.
+The Pink Scarf represents charm!\rLet a Pokémon hold it to give it\nan edge in Cute Contests.
+The Green Scarf represents the\nspring breeze!\rLet a Pokémon hold it to give it\nan edge in Smart Contests.
+The Yellow Scarf stands for\ntoughness!\rLet a Pokémon hold it to give it\nan edge in Tough Contests.
+I’m out of scarves to give you!\nI’m out of things to say, too!
+My brother’s girlfriend is the\nMassage Girl in Veilstone City.\rThey stay in touch by having Pokémon\nhold Mail for each other.
+PACHIRISU: Suuu pasuu!

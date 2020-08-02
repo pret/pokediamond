@@ -1,0 +1,27 @@
+----------
+----------
+Game clear ON
+Game clear OFF
+----------
+----------
+----------
+----------
+Strength ON
+Strength OFF
+----------
+----------
+Dash ON/OFF
+Show D15
+Hide D15
+Show D30
+Hide D30
+Show L04
+Hide L04
+Show D18
+Hide D18
+Distribution flag 1 ON
+Distribution flag 1 OFF
+Distribution flag 2 ON
+Distribution flag 2 OFF
+Distribution flag 3 ON
+Distribution flag 3 OFF

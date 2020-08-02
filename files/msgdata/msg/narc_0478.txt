@@ -1,0 +1,19 @@
+Your quest for power has brought\nyou here...\r...Very well.\rLet me reward your passion with some\nabsolutely astounding moves.\rThey’re the ultimate moves!\nShall I teach them to your Pokémon?
+The ultimate moves!\nShall I teach them to your Pokémon?
+To which Pokémon should I teach\na move?\r
+Hmm... Well, that is fine, as well.\nVisit if you have a change of heart.
+To which Pokémon should I teach\na move?
+That Pokémon can’t learn a move!\nRead the poster! Keh!
+Teach a move to an Egg?\nImpossible even for me! Keh!
+You’ve not bonded strongly enough\nwith your Pokémon! Keh!
+That Pokémon already knows the move\nI’ve offered to teach! Keh!
+I should teach Blast Burn to\nyour {STRVAR 256, 1, 0}?
+I should teach Hydro Cannon to\nyour {STRVAR 256, 1, 0}?
+I should teach Frenzy Plant to\nyour {STRVAR 256, 1, 0}?
+{STRVAR 256, 1, 0} learned\n{STRVAR 262, 1, 1}!
+{STRVAR 256, 1, 0} is trying to learn\n{STRVAR 262, 1, 1}.\rBut {STRVAR 256, 1, 0} can’t learn more\nthan four moves.\rDelete an older move to make\nroom for {STRVAR 262, 1, 1}?
+Is it OK to forget the\nmove {STRVAR 262, 1, 1}?
+1, 2, and... ... ... Poof!\r{STRVAR 256, 1, 0} forgot how to\nuse {STRVAR 262, 1, 1}.\rAnd...\n{STRVAR 256, 1, 0} learned {STRVAR 262, 1, 2}.
+Stop trying to teach {STRVAR 262, 1, 1}?
+{STRVAR 256, 1, 0} did not learn\nthe move {STRVAR 262, 1, 1}.
+To the Pokémon listed here,\nthe ultimate moves may be taught!\rThe blazing fire Pokémon\n{STRVAR 515, 1, 7}CHARIZARD TYPHLOSION\f{STRVAR 515, 1, 7}BLAZIKEN INFERNAPE\rThe restless water Pokémon\n{STRVAR 515, 1, 7}BLASTOISE FERALIGATR\f{STRVAR 515, 1, 7}SWAMPERT EMPOLEON\rThe quiet grass Pokémon\n{STRVAR 515, 1, 7}VENUSAUR MEGANIUM\f{STRVAR 515, 1, 7}SCEPTILE TORTERRA

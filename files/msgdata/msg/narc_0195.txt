@@ -1,0 +1,31 @@
+{STRVAR 259, 1, 0}’s
+Link Contest Record
+Cool
+Beauty
+Cute
+Smart
+Tough
+First
+Second
+Third
+Fourth
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}
+{STRVAR 309, 1, 0}

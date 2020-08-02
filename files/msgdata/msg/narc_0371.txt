@@ -1,0 +1,9 @@
+Your name?{STRVAR 512, 1, 0}
+{STRVAR 257, 1, 0}’s nickname?{STRVAR 512, 1, 0}
+Box name?{STRVAR 512, 1, 0}
+Your friend’s name?{STRVAR 512, 1, 0}
+Enter the Friend Code.{STRVAR 512, 1, 0}
+Group name?{STRVAR 512, 1, 0}
+Thank who?{STRVAR 512, 1, 0}
+Group
+        

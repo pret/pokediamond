@@ -14,6 +14,8 @@
 .extern WVR_ShelterExtWram
 
 ; .wram
+.extern OS_IrqHandler
+.extern NitroSpMain
 .extern CARDi_EraseBackupSectorCore
 .extern CARDi_EraseChipCore
 .extern CARDi_InitCommon

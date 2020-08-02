@@ -1,0 +1,26 @@
+Communicating. Please standby...
+The {STRVAR 264, 1, 0} went in!
+{STRVAR 259, 1, 0}
+It’ll burn! Stir it!
+Too fast! Overflow!
+It’ll burn! Hurry!
+Slow down a little!
+Quick! Quick!
+    
+RESULTS
+Time
+{STRVAR 307, 1, 0}:{STRVAR 307, 1, 1}:{STRVAR 307, 1, 2}
+Overflowed
+{STRVAR 309, 1, 0} time
+Burned
+{STRVAR 309, 1, 0} times
+Poffins made:
+{STRVAR 265, 1, 3} Lv. {STRVAR 307, 1, 1} x {STRVAR 307, 1, 2}
+      
+      
+{STRVAR 259, 1, 0} put away the\n{STRVAR 265, 1, 3}(s) in the case.
+Would you like to keep cooking\nPoffins?
+Someone has dropped out.\nCooking will be canceled.
+Please choose the Berry you want to\ncook from your Bag.
+The Poffin Case is full.
+There isn’t a Berry to cook.

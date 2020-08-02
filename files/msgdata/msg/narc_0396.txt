@@ -1,0 +1,20 @@
+Hello!\n{STRVAR 284, 1, 0}!
+I love {STRVAR 284, 1, 0}!
+I love {STRVAR 284, 1, 0}!\nI love {STRVAR 284, 1, 1}, too!
+This {STRVAR 284, 1, 0} is\n{STRVAR 284, 1, 1}, isn’t it?
+I can do anything for\n{STRVAR 284, 1, 0}!
+This {STRVAR 284, 1, 0} is\n{STRVAR 284, 1, 1}!
+{STRVAR 284, 1, 0} is the real\n{STRVAR 284, 1, 1}!
+It might be {STRVAR 284, 1, 0}...
+There’s only {STRVAR 284, 1, 0}\nleft!
+It’s {STRVAR 284, 1, 0}!\nIt’s {STRVAR 284, 1, 1}!
+I prefer {STRVAR 284, 1, 0}\nafter all!
+Is {STRVAR 284, 1, 0}\n{STRVAR 284, 1, 1}?
+Do you like {STRVAR 284, 1, 0}?
+What do you think of\n{STRVAR 284, 1, 0}?
+{STRVAR 284, 1, 0} is so\n{STRVAR 284, 1, 1}!
+{STRVAR 284, 1, 0} are\n{STRVAR 284, 1, 1}!
+{STRVAR 284, 1, 0}, right?
+Did you know {STRVAR 284, 1, 0}?\nIt’s {STRVAR 284, 1, 1}!
+Excuse me...\nIt’s {STRVAR 284, 1, 0}!
+{STRVAR 284, 1, 0}, right?\n{STRVAR 284, 1, 1}!

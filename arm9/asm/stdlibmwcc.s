@@ -3108,11 +3108,11 @@ __close_console: ; 0x020EC68C
 	mov r0, #0x0
 	bx lr
 
-	.extern SDK_STATIC_SINIT_START
+	.extern __sinit__
 	arm_func_start __call_static_initializers
 __call_static_initializers: ; 0x020EC694
 	stmdb sp!, {r4,lr}
-	ldr r4, _020EC6BC ; =SDK_STATIC_SINIT_START
+	ldr r4, _020EC6BC ; =__sinit__
 	b _020EC6A8
 _020EC6A0:
 	blx r0
@@ -3124,7 +3124,7 @@ _020EC6A8:
 	bne _020EC6A0
 	ldmia sp!, {r4,pc}
 	.balign 4
-_020EC6BC: .word SDK_STATIC_SINIT_START
+_020EC6BC: .word __sinit__
 
 	arm_func_start __destroy_global_chain
 __destroy_global_chain: ; 0x020EC6C0

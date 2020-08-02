@@ -1,0 +1,18 @@
+Please find a partner from the Trainers\nthat are gathered here.\r
+{STRVAR 259, 1, 0}, you have not found\na partner for your tag team.\rWould you like to quit looking and\nreturn to the reception counter?
+Thank you for choosing a partner.\rI will now show you to your\nMulti Battle Room.\r
+Riley: The partners I have now?\rWell, my {STRVAR 256, 1, 0}’s nasty with its\n{STRVAR 262, 1, 1}.\rAnd there’s my {STRVAR 256, 1, 2}, which\nis a sure hand with {STRVAR 262, 1, 3}.\rWould you like to team up with me?
+Riley: ...Oh, is that so?\nThat’s too bad.
+Riley: Ahaha, thanks.\nI’ll be waiting for you.\r
+Cheryl: I have {STRVAR 256, 1, 0} that\nis very good with {STRVAR 262, 1, 1},\rand {STRVAR 256, 1, 2} that likes to\nshow off its {STRVAR 262, 1, 3}.\rWill you team up with me again?
+Cheryl: Oh...\nToo bad...
+Cheryl: I’ll go on ahead, then.\r
+Buck: Yo, are you looking to team\nup? Let me tell you what I’ve got.\rMy {STRVAR 256, 1, 0}’s first-rate\nwith {STRVAR 262, 1, 1}.\rAnd my {STRVAR 256, 1, 2} is the best when\nit comes to using {STRVAR 262, 1, 3}.\rYou want to go with me, don’t you?
+Buck: Huh? What?\nThat’s pretty cold of you!
+Buck: Hehehe! Good choice!\nThere’s no problem when I’m around!\r
+Marley: ...My {STRVAR 256, 1, 0} uses\n{STRVAR 262, 1, 1} well...\rAnd my {STRVAR 256, 1, 2} likes to use\n{STRVAR 262, 1, 3}.\r...What do you want?\nAm I supposed to go with you?
+Marley: ...Whatever...
+Marley: ...I’ll go ahead...\r
+Mira: Hi, hi!\nI’m with my {STRVAR 256, 1, 0}!\fIt’s really good with {STRVAR 262, 1, 1}!\rThe other one is my {STRVAR 256, 1, 2}.\nIts {STRVAR 262, 1, 3} is awesome!\r{STRVAR 259, 1, 4}, do you want to\ngo with me?
+Mira: Oh, OK.\nLet’s go another time!
+Mira: OK! I’ll wait for you!\n{STRVAR 259, 1, 0}, don’t be long!\r

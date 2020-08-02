@@ -1,0 +1,46 @@
+NAME
+BASE FLAG
+ID
+:
+{STRVAR 257, 1, 0}
+{STRVAR 310, 1, 6}
+SCORE
+No. of people met:
+No. of gifts given:
+No. of Flags obtained:
+No. of Spheres dug:
+No. of Fossils dug:
+No. of Trap hits:
+{STRVAR 313, 1, 6}
+ 
+ 
+ 
+ 
+ 
+ 
+Normal Flag
+Bronze Flag
+Silver Flag
+Gold Flag
+Platinum Flag
+Platinum Flag
+Platinum Flag
+Platinum Flag
+Platinum Flag
+Platinum Flag
+Platinum Flag
+Platinum Flag
+There’s something written here...\rThe total score so far:\n{STRVAR 313, 1, 6}
+There’s something written here...\rNumber of people met\nunderground so far: {STRVAR 311, 1, 6}
+There’s something written here...\rNumber of goods given away as\ngifts so far: {STRVAR 311, 1, 6}
+There’s something written here...\rNumber of Secret Base Flags\nobtained so far: {STRVAR 311, 1, 6}
+There’s something written here...\rNumber of Spheres dug so far:\n{STRVAR 311, 1, 6}
+There’s something written here...\rNumber of Fossils dug so far:\n{STRVAR 311, 1, 6}
+There’s something written here...\rNumber of times other people\ntriggered my Traps: {STRVAR 311, 1, 6}
+There’s something written here...\rNumber of times I triggered\nTraps: {STRVAR 311, 1, 6}
+There’s something written here...\rNumber of times others were helped\nwhile underground: {STRVAR 311, 1, 6}
+There’s something written here...\rNumber of gifts received while\nunderground: {STRVAR 311, 1, 6}
+There’s something written here...\rNumber of times my own Flag was\ntaken from the Secret Base: {STRVAR 311, 1, 6}
+There’s something written here...\rNumber of recovered Flags:\n{STRVAR 311, 1, 6}
+There’s something written here...\rNumber of times the Secret Base\nwas moved: {STRVAR 311, 1, 6}
+There’s something written here...\rNumber of captured Flags registered\non the PC: {STRVAR 311, 1, 6}

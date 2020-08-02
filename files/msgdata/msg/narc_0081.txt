@@ -1,0 +1,14 @@
+You kept me waiting!\rI’m Eterna’s Gym Leader, Gardenia,\nthe Grass-type master!\rWhen I first saw you, I was convinced\nyou’d find your way to me.\rMy hunch was right on the money.\nYou have a winning aura about you.\rSo, anyway, this will be fun.\nLet’s have our battle!\r
+I might’ve said it before, but you’re\nreally tough!\rWasn’t it hard for you to raise your\nPokémon to be so good?\rI guess that’s a measure of how much\nyou love your Pokémon.\rIn recognition of that, I proudly\ngrant you this!\r
+{STRVAR 259, 1, 0} received\nthe Forest Badge from Gardenia!
+With the Forest Badge, your Pokémon\ncan use the hidden move Cut outside\fof battle.\rNow that you have two Gym Badges,\nall Pokémon you received in trades\fwill obey you up to Lv. 30.\rI’ve also got something else.\nIt’s a gift from me!\r
+That {STRVAR 264, 1, 0} contains\nthe move {STRVAR 262, 1, 1}.\rIt’s one of my favorite moves.\rThe heavier the foe, the more\ndamage this move will cause.
+Yup! If there’s one thing I can tell\nabout you, it’s this!\rYou and your Pokémon are gonna get\neven tougher, and I mean seriously!
+How did you know where to find me?\nLet’s have our battle!\r
+OK, the next Trainer is at the end,\npast the two boulders...I think.
+My Grass-type Pokémon can dole out\nsome serious special attacks...\rI won’t let you win...easily!\r
+Oh, that’s right...\nA hint about the next Trainer...\rIn the middle of three trees.\nThat’s it for my hint. Good luck.
+Even when you try to conceal it, you\ncan’t hide the aroma of flowers.\r
+Your next opponent is beside four\nflowers.
+Giggle! You found me!\nOf course I’ll battle you!\r
+Giggle! There’s only our Gym Leader\nleft. Go on, don’t be afraid!

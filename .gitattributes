@@ -1,1 +1,4 @@
 *.sha1 text eol=lf
+charmap.txt text eol=crlf working-tree-encoding=utf-16
+files/msgdata/msg/*.txt eol=crlf working-tree-encoding=utf-16
+files/msgdata/msg/*.key binary
