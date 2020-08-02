@@ -2,7 +2,7 @@
  * MSGENC: Encodes a Pokemon DP message file to binary
  *
  * Usage:
- *     msgenc DIR CHARMAP
+ *     msgenc TXTFILE KEYFILE CHARMAP OUTFILE
  */
 
 #include <iostream>
@@ -43,13 +43,13 @@ u16string ReadTextFileU16LE(path filename) {
         ss << "unable to open " << filename << " for reading";
         throw runtime_error(ss.str());
     }
-    wchar_t bom;
+    char16_t bom;
     if (fread(&bom, 2, 1, file) != 1) {
         stringstream ss;
         ss << "read error in " << filename;
         throw runtime_error(ss.str());
     }
-    if (bom != 0xFEFF) {
+    if (bom != u'\uFEFF') {
         stringstream ss;
         ss << "invalid bom in " << filename;
         throw runtime_error(ss.str());
@@ -220,6 +220,16 @@ void encode_messages() {
     }
 }
 
+void write_messages(path filename) {
+    ofstream outfile(filename, ios_base::binary);
+    outfile.write((char *)&header, sizeof(header));
+    outfile.write((char *)alloc_table.data(), sizeof(MsgAlloc) * alloc_table.size());
+    for (auto m : outfiles) {
+        outfile.write((char *)m.c_str(), m.size() * 2);
+    }
+    outfile.close();
+}
+
 int main(int argc, char ** argv) {
     // msgenc TXTFILE KEYFILE CHARMAP OUTFILE
     if (argc < 4)
@@ -228,12 +238,6 @@ int main(int argc, char ** argv) {
     read_key(argv[2]);
     read_charmap(argv[3]);
     encode_messages();
-    ofstream outfile(argv[4], ios_base::binary);
-    outfile.write((char *)&header, sizeof(header));
-    outfile.write((char *)alloc_table.data(), sizeof(MsgAlloc) * alloc_table.size());
-    for (auto m : outfiles) {
-        outfile.write((char *)m.c_str(), m.size() * 2);
-    }
-    outfile.close();
+    write_messages(argv[4]);
     return 0;
 }
