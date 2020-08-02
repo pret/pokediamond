@@ -26,4 +26,4 @@ add_executable(jsonproc tools/jsonproc/jsonproc.cpp)
 target_include_directories(jsonproc PRIVATE SYSTEM tools/jsonproc)
 
 add_executable(o2narc tools/o2narc/o2narc.cpp)
-add_executable(msgenc tools/msgenc/msgenc.cpp tools/msgenc/dir_util.cpp)
+add_executable(msgenc tools/msgenc/msgenc.cpp)
