@@ -49,7 +49,7 @@ u16string ReadTextFileU16LE(path filename) {
         ss << "read error in " << filename;
         throw runtime_error(ss.str());
     }
-    if (bom != u'\uFEFF') {
+    if (bom != u'\uFEFF' && bom != u'\uFFFE') {
         stringstream ss;
         ss << "invalid bom in " << filename;
         throw runtime_error(ss.str());
@@ -63,7 +63,12 @@ u16string ReadTextFileU16LE(path filename) {
         ss << "read error in " << filename;
         throw runtime_error(ss.str());
     }
-    buf[count] = L'\0';
+    if (bom == u'\uFFFE') {
+        for (int i = 0; i < count; i++) {
+            buf[i] = (buf[i] << 8) | (buf[i] >> 8);
+        }
+    }
+    buf[count] = u'\0';
     fclose(file);
     return buf;
 }
