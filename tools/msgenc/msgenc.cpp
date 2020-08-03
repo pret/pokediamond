@@ -13,14 +13,6 @@
 #include <vector>
 #include <algorithm>
 
-#if (__GNUC__ <= 7) && !defined _MSC_VER
-#include <experimental/filesystem>
-namespace fs = std::experimental::filesystem;
-#else
-#include <filesystem>
-namespace fs = std::filesystem;
-#endif
-
 struct MsgArcHeader
 {
     uint16_t count;
@@ -34,9 +26,8 @@ struct MsgAlloc
 };
 
 using namespace std;
-using namespace fs;
 
-string ReadTextFile(path filename) {
+string ReadTextFile(string filename) {
     fstream file(filename);
     stringstream ss;
     ss << file.rdbuf();
@@ -46,7 +37,7 @@ string ReadTextFile(path filename) {
 
 static map<string, uint16_t> charmap;
 
-void read_charmap(path filename) {
+void read_charmap(string filename) {
     string raw = ReadTextFile(filename);
     size_t pos, eqpos, last_pos = 0;
     while (last_pos != string::npos && (pos = raw.find_first_of("\r\n", last_pos)) != string::npos) {
@@ -68,14 +59,14 @@ void read_charmap(path filename) {
 static MsgArcHeader header;
 vector<MsgAlloc> alloc_table;
 static vector<string> files;
-static vector<string> outfiles;
+static vector<u16string> outfiles;
 
-void read_key(path keyfname) {
+void read_key(string keyfname) {
     fstream keyfile(keyfname, ios_base::in | ios_base::binary);
     keyfile.read((char *)&header.key, 2);
 }
 
-void read_msgs(path fname) {
+void read_msgs(string fname) {
     string text = ReadTextFile(fname);
     size_t pos = 0;
     do {
@@ -101,7 +92,7 @@ uint16_t enc_short(uint16_t value, uint16_t & seed) {
 void encode_messages() {
     int i = 1;
     for (auto message : files) {
-        string encoded;
+        u16string encoded;
         uint16_t seed = i * 596947;
         for (size_t j = 0; j < message.size(); j++) {
             if (message[j] == '{') {
@@ -162,7 +153,7 @@ void encode_messages() {
     }
 }
 
-void write_messages(path filename) {
+void write_messages(string filename) {
     ofstream outfile(filename, ios_base::binary);
     outfile.write((char *)&header, sizeof(header));
     outfile.write((char *)alloc_table.data(), sizeof(MsgAlloc) * alloc_table.size());
