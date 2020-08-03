@@ -64,7 +64,7 @@ u16string ReadTextFileU16LE(path filename) {
         throw runtime_error(ss.str());
     }
     if (bom == u'\uFFFE') {
-        for (int i = 0; i < count; i++) {
+        for (size_t i = 0; i < count; i++) {
             buf[i] = (buf[i] << 8) | (buf[i] >> 8);
         }
     }
