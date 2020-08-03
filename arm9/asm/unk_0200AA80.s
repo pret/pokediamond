@@ -5,9 +5,9 @@
 
 	.global UNK_020ECE64
 UNK_020ECE64: ; 0x020ECE64
-	.short 0x017E
-	.short 0x0180
-	.short 0x017F
+	.short 0x017E ; Locations
+	.short 0x0180 ; Gifts/trades
+	.short 0x017F ; Events
 
 	.balign 4
 	.global UNK_020ECE6C
