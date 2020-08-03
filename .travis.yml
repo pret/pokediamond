@@ -31,8 +31,8 @@ install:
     - popd
 
 script:
-    - make
-    - make pearl
+    - travis_retry make
+    - travis_retry make pearl
 
 notifications:
   email: false
