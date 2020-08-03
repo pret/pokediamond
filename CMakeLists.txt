@@ -1,6 +1,7 @@
 cmake_minimum_required (VERSION 2.8.11)
 project(PokeDiamond)
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_STANDARD 11)
 
 # TODO: Add commands
 
