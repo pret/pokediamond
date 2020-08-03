@@ -11,9 +11,7 @@ UNAME_S  := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 LDFLAGS  += -lstdc++ -lc++ -lc
 else
-ifneq ($(WSLENV),)
 LDFLAGS  += -lstdc++fs
-endif
 endif
 endif
 CXX_SRCS := Source.cpp Narc.cpp
