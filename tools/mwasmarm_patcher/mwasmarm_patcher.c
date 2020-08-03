@@ -80,7 +80,7 @@ unsigned char * calculate_sha1 (const void * data, unsigned length) {
   uint32_t state[5] = {0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0};
   const char * current;
   unsigned remaining;
-  for (current = data, remaining = length; remaining >= 64; current += 64, remaining -= 64) sha1_process_block(current, state);
+  for (current = data, remaining = length; remaining >= 64; current += 64, remaining -= 64) sha1_process_block((const uint8_t *)current, state);
   // technically only {0} is necessary, but better safe than sorry
   unsigned char last_block[64] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -224,9 +224,9 @@ int main(int argc, char *argv[]) {
         }
         free(string);
         
-        unsigned char buf[SHA_DIGEST_LENGTH*2];
+        char buf[SHA_DIGEST_LENGTH*2];
         for (int i=0; i < SHA_DIGEST_LENGTH; i++) {
-            sprintf((unsigned char*)&(buf[i*2]), "%02x", sha1[i]);
+            sprintf(&(buf[i*2]), "%02x", sha1[i]);
         }
         free(sha1);
 
