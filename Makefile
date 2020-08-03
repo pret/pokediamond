@@ -186,7 +186,7 @@ $(MWASMARM): patch_mwasmarm
 patch_mwasmarm: tools/mwasmarm_patcher
 	$(MWASMARM_PATCHER) $(MWASMARM)
 
-ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(ASM_DIRS))
+ALL_DIRS := $(BUILD_DIR)
 
 ifeq (,$(NODEP))
 $(BUILD_DIR)/%.o: dep = $(shell $(SCANINC) -I include -I include-mw -I arm9/lib/include $(filter $*.c,$(C_FILES)) $(filter $*.cpp,$(CXX_FILES)) $(filter $*.s,$(S_FILES)))
