@@ -36,102 +36,39 @@ struct MsgAlloc
 using namespace std;
 using namespace fs;
 
-u16string ReadTextFileU16LE(path filename) {
-    FILE * file = fopen(filename.c_str(), "rb");
-    if (file == NULL) {
-        stringstream ss;
-        ss << "unable to open " << filename << " for reading";
-        throw runtime_error(ss.str());
-    }
-    char16_t bom;
-    if (fread(&bom, 2, 1, file) != 1) {
-        stringstream ss;
-        ss << "read error in " << filename;
-        throw runtime_error(ss.str());
-    }
-    if (bom != u'\uFEFF' && bom != u'\uFFFE') {
-        stringstream ss;
-        ss << "invalid bom in " << filename;
-        throw runtime_error(ss.str());
-    }
-    fseek(file, 0, SEEK_END);
-    size_t count = ftell(file) / 2 - 1;
-    fseek(file, 2, SEEK_SET);
-    auto buf = new char16_t[count + 1];
-    if (fread(buf, 2, count, file) != count) {
-        stringstream ss;
-        ss << "read error in " << filename;
-        throw runtime_error(ss.str());
-    }
-    if (bom == u'\uFFFE') {
-        for (size_t i = 0; i < count; i++) {
-            buf[i] = (buf[i] << 8) | (buf[i] >> 8);
-        }
-    }
-    buf[count] = u'\0';
-    fclose(file);
-    return buf;
+string ReadTextFile(path filename) {
+    fstream file(filename);
+    stringstream ss;
+    ss << file.rdbuf();
+    file.close();
+    return ss.str();
 }
 
-static map<u16string, uint16_t> charmap;
-
-uint16_t u16rstoi(u16string s, int base = 10) {
-    int pow = 1;
-    int nybble;
-    uint16_t value_i = 0;
-    if (base != 10 && base != 16) {
-        stringstream ss;
-        ss << "Unrecognized numeric base: " << base;
-        throw runtime_error(ss.str());
-    }
-    reverse(s.begin(), s.end());
-    for (auto c : s) {
-        switch (c) {
-        case u'0' ... u'9':
-            nybble = c - u'0';
-            break;
-        case u'A' ... u'F':
-            if (base == 10)
-                return value_i;
-            nybble = c - u'A' + 10;
-            break;
-        case u'a' ... u'f':
-            if (base == 10)
-                return value_i;
-            nybble = c - u'a' + 10;
-            break;
-        default:
-            return value_i;
-        }
-        value_i += nybble * pow;
-        pow *= base;
-    }
-    return value_i;
-}
+static map<string, uint16_t> charmap;
 
 void read_charmap(path filename) {
-    u16string raw = ReadTextFileU16LE(filename);
+    string raw = ReadTextFile(filename);
     size_t pos, eqpos, last_pos = 0;
-    while (last_pos != u16string::npos && (pos = raw.find_first_of(u"\r\n", last_pos)) != u16string::npos) {
-        eqpos = raw.find(u'=', last_pos);
-        if (eqpos == u16string::npos)
+    while (last_pos != string::npos && (pos = raw.find_first_of("\r\n", last_pos)) != string::npos) {
+        eqpos = raw.find('=', last_pos);
+        if (eqpos == string::npos)
         {
             stringstream s;
             s << "charmap syntax error at " << (charmap.size() + 1);
             throw(runtime_error(s.str()));
         }
-        u16string value = raw.substr(last_pos, eqpos - last_pos);
-        u16string code = raw.substr(eqpos + 1, pos - eqpos - 1);
-        uint16_t value_i = u16rstoi(value, 16);
+        string value = raw.substr(last_pos, eqpos - last_pos);
+        string code = raw.substr(eqpos + 1, pos - eqpos - 1);
+        uint16_t value_i = stoi(value, nullptr, 16);
         charmap[code] = value_i;
-        last_pos = raw.find_last_of(u"\r\n", pos + 1, 2) + 1;
+        last_pos = raw.find_last_of("\r\n", pos + 1, 2) + 1;
     }
 }
 
 static MsgArcHeader header;
 vector<MsgAlloc> alloc_table;
-static vector<u16string> files;
-static vector<u16string> outfiles;
+static vector<string> files;
+static vector<string> outfiles;
 
 void read_key(path keyfname) {
     fstream keyfile(keyfname, ios_base::in | ios_base::binary);
@@ -139,19 +76,19 @@ void read_key(path keyfname) {
 }
 
 void read_msgs(path fname) {
-    u16string text = ReadTextFileU16LE(fname);
+    string text = ReadTextFile(fname);
     size_t pos = 0;
     do {
         text = text.substr(pos);
         if (text.empty())
             break;
-        pos = text.find_first_of(u"\r\n");
+        pos = text.find_first_of("\r\n");
         files.push_back(text.substr(0, pos));
-        pos = text.find_last_of(u"\r\n", pos + 1, 2);
-        if (pos == u16string::npos)
+        pos = text.find_last_of("\r\n", pos + 1, 2);
+        if (pos == string::npos)
             break;
         pos++;
-    } while (pos != u16string::npos);
+    } while (pos != string::npos);
     header.count = files.size();
 }
 
@@ -164,37 +101,37 @@ uint16_t enc_short(uint16_t value, uint16_t & seed) {
 void encode_messages() {
     int i = 1;
     for (auto message : files) {
-        u16string encoded;
+        string encoded;
         uint16_t seed = i * 596947;
         for (size_t j = 0; j < message.size(); j++) {
-            if (message[j] == u'{') {
-                size_t k = message.find(u'}', j);
-                u16string enclosed = message.substr(j + 1, k - j - 1);
+            if (message[j] == '{') {
+                size_t k = message.find('}', j);
+                string enclosed = message.substr(j + 1, k - j - 1);
                 j = k;
-                if (enclosed.find(u"STRVAR ") == 0) {
+                if (enclosed.find("STRVAR ") == 0) {
                     enclosed = enclosed.substr(7);
                     encoded += enc_short(0xFFFE, seed);
                     do {
-                        k = enclosed.find(u',');
-                        u16string num = enclosed.substr(0, k);
-                        uint16_t num_i = u16rstoi(num);
+                        k = enclosed.find(',');
+                        string num = enclosed.substr(0, k);
+                        uint16_t num_i = stoi(num);
                         encoded += enc_short(num_i, seed);
                         enclosed = enclosed.substr(k + 1);
-                    } while (k++ != u16string::npos);
+                    } while (k++ != string::npos);
                 } else {
-                    encoded += enc_short(u16rstoi(enclosed, 16), seed);
+                    encoded += enc_short(stoi(enclosed, nullptr, 16), seed);
                 }
             } else {
                 uint16_t code = 0;
                 size_t k;
-                u16string substr;
+                string substr;
                 for (k = 0; k < message.size() - j; k++) {
                     substr = message.substr(j, k + 1);
                     code = charmap[substr];
-                    if (code != 0 || substr == u"\\x0000")
+                    if (code != 0 || substr == "\\x0000")
                         break;
                 }
-                if (code == 0 && substr != u"\\x0000") {
+                if (code == 0 && substr != "\\x0000") {
                     stringstream ss;
                     ss << "unrecognized character: file " << i << " pos " << (j + 1);
                     throw runtime_error(ss.str());
