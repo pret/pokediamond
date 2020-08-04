@@ -99,10 +99,16 @@ void encode_messages() {
                 size_t k = message.find('}', j);
                 string enclosed = message.substr(j + 1, k - j - 1);
                 j = k;
-                if (enclosed.find("STRVAR ") == 0) {
-                    enclosed = enclosed.substr(7);
+                size_t pos = enclosed.find(' ');
+                string command = enclosed.substr(0, pos);
+                enclosed = enclosed.substr(pos + 1);
+                uint16_t command_i = charmap[command];
+                if (command_i != 0 || command == "STRVAR") {
                     encoded += enc_short(0xFFFE, seed);
                     vector<uint16_t> args;
+                    if (command_i != 0) {
+                        args.push_back(command_i);
+                    }
                     do {
                         k = enclosed.find(',');
                         string num = enclosed.substr(0, k);
