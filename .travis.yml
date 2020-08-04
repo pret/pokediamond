@@ -29,7 +29,6 @@ install:
     - mv include/nitro/specfiles/ARM7-TS.lcf.template $TRAVIS_BUILD_DIR/arm7
     - mv include/nitro/specfiles/ARM9-TS.lcf.template $TRAVIS_BUILD_DIR/arm9
     - popd
-    - for fl in files/msgdata/msg/*.txt; do iconv -f utf-16 $fl > tmp.txt && mv tmp.txt $fl; done || true
 
 script:
     - travis_retry make
