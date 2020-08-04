@@ -816,7 +816,7 @@ MOD86_021D7B80: ; 0x021D7B80
 	ldr r0, [r5, #0x38]
 	add r1, r4, #0
 	add r2, r6, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0x20
 	str r0, [sp]
 	mov r1, #0

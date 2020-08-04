@@ -2668,7 +2668,7 @@ FUN_0206DD6C: ; 0x0206DD6C
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x10]
 	add r2, r5, #0x0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r5, #0x0
 	bl FreeToHeap
 	ldr r0, [r4, #0x4]

@@ -3006,7 +3006,7 @@ MOD54_021D8C90: ; 0x021D8C90
 	ldr r0, [r5, #0x24]
 	ldr r1, [r5, #0x44]
 	add r2, r4, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r4, #0
 	bl String_dtor
 	mov r0, #0xba

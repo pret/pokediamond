@@ -1099,7 +1099,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	add r2, r2, #4
 	ldr r1, [r5, r1]
 	ldr r2, [r5, r2]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r6, #0
 	mov r1, #0xf
 	bl FUN_02019620
@@ -1256,7 +1256,7 @@ _021D7E68:
 	add r2, r2, #4
 	ldr r1, [r5, r1]
 	ldr r2, [r5, r2]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r1, #0
 	str r1, [sp]
 	mov r2, #0xff

@@ -3626,7 +3626,7 @@ MOD53_021D91C8: ; 0x021D91C8
 	ldr r0, [r5, #0xc]
 	ldr r1, [r5, #0x2c]
 	add r2, r6, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #0xb6

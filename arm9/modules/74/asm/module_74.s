@@ -996,7 +996,7 @@ MOD74_021D7C10: ; 0x021D7C10
 	ldr r0, [r5, #0x2c]
 	ldr r1, [r5, #0x30]
 	ldr r2, [r5, #0x5c]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	ldr r1, [r5, #0x30]
 	add r2, r0, #0
@@ -1041,7 +1041,7 @@ MOD74_021D7C10: ; 0x021D7C10
 	ldr r0, [r5, #0x2c]
 	ldr r1, [r5, #0x30]
 	ldr r2, [r5, #0x5c]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	ldr r1, [r5, #0x30]
 	add r2, r0, #0
@@ -1207,7 +1207,7 @@ _021D7E04:
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x60]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	ldr r1, [r4, #0x30]
 	add r2, r0, #0
@@ -1465,7 +1465,7 @@ MOD74_021D8008: ; 0x021D8008
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x38]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	ldr r1, [r4, #0x30]
 	add r2, r0, #0
@@ -1566,7 +1566,7 @@ _021D8108:
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x44]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #4
 	str r0, [sp]
 	mov r1, #0
@@ -1591,7 +1591,7 @@ _021D813C:
 	ldr r0, [r4, #0x2c]
 	ldr r1, [r4, #0x30]
 	ldr r2, [r4, #0x40]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #4
 	str r0, [sp]
 	mov r1, #0

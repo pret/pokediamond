@@ -598,7 +598,7 @@
 .extern FUN_0200B708
 .extern FUN_0200B764
 .extern FUN_0200B7A8
-.extern StringExpandPlaceholders
+.extern FUN_0200B7B8
 .extern FUN_0200B84C
 .extern FUN_0200B870
 .extern FUN_0200B990

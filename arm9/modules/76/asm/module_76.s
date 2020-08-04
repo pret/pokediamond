@@ -1098,7 +1098,7 @@ MOD76_021D7D60: ; 0x021D7D60
 	ldr r0, [r0]
 	ldr r1, [r5, r1]
 	add r2, r4, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r4, #0
 	bl String_dtor
 	add sp, #8
@@ -2000,7 +2000,7 @@ _021D84D8:
 	ldr r0, [r0]
 	ldr r1, [r4, r1]
 	add r2, r5, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r5, #0
 	bl String_dtor
 	pop {r3, r4, r5, pc}

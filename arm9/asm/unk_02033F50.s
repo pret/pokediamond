@@ -220,7 +220,7 @@ _02033FA4:
 	ldr r2, [sp, #0x14]
 	add r0, r4, #0x0
 	add r1, r7, #0x0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	str r1, [sp, #0x4]

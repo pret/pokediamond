@@ -1883,7 +1883,7 @@ _0203A7E0:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r7, #0x0]
 	ldr r2, [r2, #0x0]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, [r4, #0x60]
 	bl MOD05_021E8140
 	mov r3, #0x0
@@ -2011,7 +2011,7 @@ FUN_0203A8B8: ; 0x0203A8B8
 	ldr r1, [r7, #0x0]
 	ldr r0, [r0, #0x0]
 	ldr r2, [r6, #0x0]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, [r4, #0x60]
 	bl MOD05_021E8140
 	add r4, r0, #0x0

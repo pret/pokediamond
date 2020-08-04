@@ -2467,7 +2467,7 @@ _022390F4:
 	ldr r1, [r4, #0x58]
 	ldr r2, [r4, #0x54]
 	add r0, r7, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -2509,7 +2509,7 @@ _02239138:
 	ldr r1, [r4, #0x58]
 	ldr r2, [r4, #0x54]
 	add r0, r7, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, [r4]
 	bl MOD81_02238818
 	mov r1, #0x4c
@@ -9591,7 +9591,7 @@ _0223C982:
 	ldr r1, [r4, #0x5c]
 	ldr r2, [r4, #0x58]
 	add r0, r7, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -9636,7 +9636,7 @@ _0223C9D0:
 	ldr r1, [r4, #0x5c]
 	ldr r2, [r4, #0x58]
 	add r0, r7, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #0xf

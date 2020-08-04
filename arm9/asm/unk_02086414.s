@@ -594,7 +594,7 @@ FUN_020867EC: ; 0x020867EC
 	ldr r2, [sp, #0x14]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r3, #0x0
 	str r3, [sp, #0x0]
 	str r6, [sp, #0x4]

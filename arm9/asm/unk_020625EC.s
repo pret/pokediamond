@@ -1734,7 +1734,7 @@ _02063318:
 	ldr r0, [r4, #0x30]
 	ldr r1, [r4, #0x34]
 	ldr r2, [r4, #0x44]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, [sp, #0x30]
 	mov r1, #0x0
 	str r0, [sp, #0x0]
@@ -1764,7 +1764,7 @@ _02063318:
 	lsl r2, r2, #0x2
 	add r2, r4, r2
 	ldr r2, [r2, #0xc]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0x0
 	ldr r1, [r4, #0x34]
 	add r2, r0, #0x0

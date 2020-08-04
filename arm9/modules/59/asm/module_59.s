@@ -995,7 +995,7 @@ _021D7C5E:
 	ldr r0, [r5, #0x64]
 	ldr r1, [r5, #0x5c]
 	add r2, r6, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r6, #0
 	bl String_dtor
 	ldr r0, [r5, #8]

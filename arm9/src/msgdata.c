@@ -360,7 +360,7 @@ struct String * ReadMsgData_ExpandPlaceholders(u32 * a0, struct MsgData * msgDat
         r5 = NewString_ReadMsgData(msgData, msgno);
         if (r5 != NULL)
         {
-            StringExpandPlaceholders(a0, r4, r5);
+            FUN_0200B7B8(a0, r4, r5);
             ret = StringDup(r4, a3);
             String_dtor(r5);
         }

@@ -1871,7 +1871,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	add r2, r2, #0x4
 	ldr r1, [r7, r1]
 	ldr r2, [r7, r2]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r2, _0207AEAC ; =0x00000674
 	mov r1, #0x0
 	ldr r0, [r7, r2]
@@ -1890,7 +1890,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	add r2, r2, #0x4
 	ldr r1, [r7, r1]
 	ldr r2, [r7, r2]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r2, _0207AEAC ; =0x00000674
 	mov r1, #0xe
 	ldr r0, [r7, r2]
@@ -1909,7 +1909,7 @@ FUN_0207AB0C: ; 0x0207AB0C
 	add r2, r2, #0x4
 	ldr r1, [r7, r1]
 	ldr r2, [r7, r2]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r6, #0x0
 	mov r1, #0x6
 	mov r2, #0x0

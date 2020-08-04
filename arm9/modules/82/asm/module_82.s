@@ -4032,7 +4032,7 @@ MOD82_0222F4D8: ; 0x0222F4D8
 	ldr r0, [r5, r1]
 	add r1, #0x10
 	ldr r1, [r5, r1]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0x36
 	lsl r0, r0, #6
 	add r0, r5, r0
@@ -4370,7 +4370,7 @@ MOD82_0222F740: ; 0x0222F740
 	ldr r0, [r5, r1]
 	add r1, #0x20
 	ldr r1, [r5, r1]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0x37
 	lsl r0, r0, #6
 	add r0, r5, r0

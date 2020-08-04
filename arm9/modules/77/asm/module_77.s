@@ -2008,7 +2008,7 @@ MOD77_021D8510: ; 0x021D8510
 	add r1, r4, #0
 	ldr r0, [r5, r0]
 	add r2, r6, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r1, #0
 	ldr r0, _021D85CC ; =0x0000C044
 	str r1, [sp]

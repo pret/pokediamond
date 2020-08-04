@@ -791,7 +791,7 @@ _0205142C:
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0xc]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r1, [r4, #0x10]
 	add r0, r4, #0x0
 	bl FUN_020517C0
@@ -970,7 +970,7 @@ _020515BA:
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0xc]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r1, [r4, #0x10]
 	add r0, r4, #0x0
 	bl FUN_020517C0
@@ -1025,7 +1025,7 @@ _02051642:
 	ldr r0, [r4, #0x28]
 	ldr r1, [r4, #0x10]
 	ldr r2, [r4, #0xc]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r1, [r4, #0x10]
 	add r0, r4, #0x0
 	bl FUN_020517C0
@@ -2154,7 +2154,7 @@ _02051EF2:
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0x4]
 	ldr r2, [r4, #0x0]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x8]
 	add r1, #0x8

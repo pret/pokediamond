@@ -2101,7 +2101,7 @@ _02066426:
 	add r2, #0x10
 	ldr r1, [r5, r1]
 	ldr r2, [r3, r2]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0x45
 	lsl r0, r0, #0x2
 	ldr r2, [r5, r0]
