@@ -5,7 +5,7 @@ I got my Pokémon back!\rI’m so happy, I feel like riding my Bike\ndown Cyclin
 BUNEARY: Bunbun!
 Hi, you cute little Trainer!\nWhat kinds of Pokémon are with you?\rThis Pokétch app will show how\nclose your Pokémon feel to you.\r
 If you spend enough time with them,\nall Pokémon will open up to you.
-Hi, you cute little Trainer!\nWhat kinds of Pokémon are with you?\rOh, your {STRVAR 256, 1, 0}...\r
+Hi, you cute little Trainer!\nWhat kinds of Pokémon are with you?\rOh, your {STRVAR 256, 0}...\r
 It seems to like you.\nIt must be happy being with you.
 It’s becoming comfortable around\nyou, I think.
 Hmm...\nIt needs to get used to you more.

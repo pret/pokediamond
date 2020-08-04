@@ -1,5 +1,5 @@
 Hello.\nMay I help you with anything?
-Hello, {STRVAR 259, 1, 0}.\nMay I help you with anything?
+Hello, {STRVAR 259, 0}.\nMay I help you with anything?
 Please enjoy yourself.
 False Swipe makes wild Pokémon easier\nto catch.\rMany customers have confided that to\nme recently.
 For Fire-type Pokémon, may I suggest\nFire Blast?

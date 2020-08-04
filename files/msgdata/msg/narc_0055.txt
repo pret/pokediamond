@@ -5,5 +5,5 @@ Remember me if there are moves that\nneed to be forgotten.
 That Pokémon knows only one move,\nso it can’t be forgotten...\r
 What? That’s an Egg.\nNo Egg should know any moves.\r
 OK, then.\nWhich move should be forgotten?\r
-Hm! The move {STRVAR 262, 1, 0}?\nShould that move be forgotten?
-It worked perfectly!\rYour Pokémon has forgotten the move\n{STRVAR 262, 1, 0} completely.
+Hm! The move {STRVAR 262, 0}?\nShould that move be forgotten?
+It worked perfectly!\rYour Pokémon has forgotten the move\n{STRVAR 262, 0} completely.

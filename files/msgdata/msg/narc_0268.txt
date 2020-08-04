@@ -4,7 +4,7 @@ Press the button and set them free.\nIsn’t that why you came?
 Our boss crafted a Red Chain from\ncrystals he took from the three\fPokémon.\rThat Red Chain is what he needed to\nshackle something on Mt. Coronet.\rBut that’s all I know. Who knows\nwhat he’s planning to do up there.\r
 Press the button and set them free.\nIsn’t that why you came?\r
 Press the button and set\nthe Pokémon free?
-{STRVAR 259, 1, 0} pressed the button and\nset the Pokémon free.\r
+{STRVAR 259, 0} pressed the button and\nset the Pokémon free.\r
 The button has been pressed already.\nYou have to leave.
 UXIE is sealed inside! It appears to\nbe suffering, with eyes squeezed shut.
 MESPRIT is sealed inside! It seems to\nbe suffering, with its tail twitching.

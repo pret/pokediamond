@@ -4,7 +4,7 @@ You dare to oppose Team Galactic?\rThat means you’re taking on the\nworld... N
 That’s right! Very smart!\nYou know what’s good for you!\rTeam Galactic has come out to the\nboonies like this for everyone’s sake.\rYour cooperation is appreciated.\nNow, where is my partner...?
 Too much to handle...\nI can’t do anything here...\rThis place is nothing!\nI’ll be happily rid of this place!\r
 Oh, you were magnificent!\nAren’t you quite the Trainer?\rAs the elder of Celestic Town, I give\nyou my thanks.\rOh? That Old Charm...\nMay I see that, dear?\r...\nWhat’s that?\rYou say Cynthia entrusted you with\nit to deliver to me?\rThat Cynthia...\nShe’s my granddaughter.\r
-{STRVAR 259, 1, 0} handed over\nthe {STRVAR 264, 1, 1} to the elder.
+{STRVAR 259, 0} handed over\nthe {STRVAR 264, 1} to the elder.
 This Old Charm is something made in\nCelestic Town long, long ago.\rIt was made in honor of a mythical\ndeity said to have created Sinnoh.\rThese Old Charms are still discovered\nnow and again.\rSince you’re in Celestic Town, why not\nlook around inside the ruins?
 You’ve gone to the trouble\nof visiting Celestic Town.\rWhy not take a little more time\nto examine the ruins?
 There appears to have been\nan insignificant struggle here.\rEveryone should step back and view\nthings from a bigger perspective.\rYes, a bigger perspective, one that\nis on a universal scale.\r

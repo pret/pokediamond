@@ -102,13 +102,20 @@ void encode_messages() {
                 if (enclosed.find("STRVAR ") == 0) {
                     enclosed = enclosed.substr(7);
                     encoded += enc_short(0xFFFE, seed);
+                    vector<uint16_t> args;
                     do {
                         k = enclosed.find(',');
                         string num = enclosed.substr(0, k);
                         uint16_t num_i = stoi(num);
-                        encoded += enc_short(num_i, seed);
+                        args.push_back(num_i);
                         enclosed = enclosed.substr(k + 1);
                     } while (k++ != string::npos);
+                    encoded += enc_short(args[0], seed);
+                    args.erase(args.begin());
+                    encoded += enc_short(args.size(), seed);
+                    for (auto num_i : args) {
+                        encoded += enc_short(num_i, seed);
+                    }
                 } else {
                     encoded += enc_short(stoi(enclosed, nullptr, 16), seed);
                 }

@@ -11,4 +11,4 @@ Wi-Fi Test
 Trainer graphics
 Save data corrupted
 Modify RTC
-{STRVAR 330, 1, 0} {STRVAR 307, 1, 1} Time: {STRVAR 307, 1, 2}:{STRVAR 307, 1, 3}
+{STRVAR 330, 0} {STRVAR 307, 1} Time: {STRVAR 307, 2}:{STRVAR 307, 3}

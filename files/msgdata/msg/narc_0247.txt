@@ -1,6 +1,6 @@
-Buck: Heheh!\nCheck this out, {STRVAR 259, 1, 1}!\rThis is the Magma Stone, the treasure\nof Stark Mountain!\rSince I found it, that makes me the\ngreatest Trainer out of everyone!\rThanks, you all helped it happen!\r
+Buck: Heheh!\nCheck this out, {STRVAR 259, 1}!\rThis is the Magma Stone, the treasure\nof Stark Mountain!\rSince I found it, that makes me the\ngreatest Trainer out of everyone!\rThanks, you all helped it happen!\r
 Buck: Oof!\r
-Buck: Whoa! Wow!\rHehehe! That was wicked!\nThe volcano’s in shock from that!\rIt might be so shocked, it’ll erupt!\nNah, that can’t happen!\rSee ya, {STRVAR 259, 1, 1}!\nSay hi to that zippity Trainer buddy!\r
+Buck: Whoa! Wow!\rHehehe! That was wicked!\nThe volcano’s in shock from that!\rIt might be so shocked, it’ll erupt!\nNah, that can’t happen!\rSee ya, {STRVAR 259, 1}!\nSay hi to that zippity Trainer buddy!\r
 Gwogobo gwobobobo!\r
 HEATRAN disappeared into\nthe volcano...
                                                                                                                                

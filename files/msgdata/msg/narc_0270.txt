@@ -1,33 +1,33 @@
-{STRVAR 259, 1, 0}: What’s going on...?\r
+{STRVAR 259, 0}: What’s going on...?\r
                          
                      
 Professor, there isn’t anything out\nof the ordinary on the other side,\feither!\r
 Professor, there’s nothing out of the\nordinary on the other side, either!\r
 Professor: Hmm...\nI may have been mistaken...\rSomething appears to be different\nthan it was before, but...\rFine! It’s enough that we have\nseen the lake.\r
-{STRVAR 259, 1, 0}, we’re leaving.\r
+{STRVAR 259, 0}, we’re leaving.\r
 Dawn: Professor, how are you enjoying\nbeing back in Sinnoh?\rAfter being away for four years,\nit must be exciting again?\r
 Lucas: Professor, you’ve been gone\nfor four years now.\rHow are you enjoying being back in\nSinnoh?\r
 Professor: ...Hm.\nThere is one thing I can say.\rThere are many rare kinds of Pokémon\nin Sinnoh.\rThe region should serve us very well\nin regard to our studies.\r
 Professor: Excuse me.\nLet us pass, please.\r
 Dawn: I beg your pardon...\nWe’ll be on our way.\r
 Lucas: Sorry, folks.\r
-{STRVAR 259, 1, 0}: What was that about?\nThose two...\r
-Huh? {STRVAR 259, 1, 0}!\nLet’s go check this out!\r
+{STRVAR 259, 0}: What was that about?\nThose two...\r
+Huh? {STRVAR 259, 0}!\nLet’s go check this out!\r
 ...\n...\rWhat’s that?\nDon’t go into the tall grass?\rNo problem, no problem!\rWe won’t be in there long enough\nfor a wild Pokémon to come out.\r
 It’s...\nA briefcase?\rThose people forgot it here.\nWhat are we supposed to do with it?\rWe can try to deliver it, but who are\nthey? I heard them say professor...\r
 Waaah!\nPo-Pokémon?!\r
 What’s going on?!\r
-{STRVAR 259, 1, 0}: Fwaaah!\nYour {STRVAR 256, 1, 1} totally rocked!\rBut my {STRVAR 256, 1, 2} was way tougher\nthan yours!\r...They were other people’s\nPokémon, though...\rBut we had to use them...\nThey won’t mind, will they?\r
+{STRVAR 259, 0}: Fwaaah!\nYour {STRVAR 256, 1} totally rocked!\rBut my {STRVAR 256, 2} was way tougher\nthan yours!\r...They were other people’s\nPokémon, though...\rBut we had to use them...\nThey won’t mind, will they?\r
 Dawn: Oh! There’s the briefcase!\rThe professor would have been furious\nif I’d lost it...\r
 Dawn: Huh?\nOh, no!\rDid you...\nDid you use the Pokémon in here?\rYou did?! Oh, my gosh!\nWhat’s the professor going to say...?\r...This is so not good...\nI’ll take this briefcase for now.\r
 Lucas: Whew! You found the briefcase?\rThe professor would’ve gone through\nthe roof if he knew I forgot it here.\r
 Lucas: Hunh?\nWhaaaat?!\rDid you guys...\nDid you use these Pokémon?!\rOh, man... How am I gonna explain\nthis to the professor?\r...This briefcase is the professor’s,\nso I’ll take it, OK?\r
-{STRVAR 259, 1, 0}: What was that about?\r
-I don’t know what’s going on.\n{STRVAR 259, 1, 0}, let’s get out of here.\rMy Pokémon got hurt from that\nbattle.\rIf we get attacked by another\nPokémon, we might be in trouble.\r
-Rowan: Hmmm...\rNo legendary Pokémon, nothing out\nof the ordinary...\r{STRVAR 259, 1, 0}, how was Lake Valor?\nAnything to report?\rWhat? You’re just going there now?\nYou’ve got to move faster than that!
-Rowan: {STRVAR 259, 1, 0}, how was Lake\nValor? Anything to report?\rWhat? You’re just going there now?\nYou’ve got to move faster than that!
-Dawn: {STRVAR 259, 1, 0}, how was\nLake Valor?\rThere’s nothing wrong here.\nThe lake hasn’t changed at all.\rWe haven’t found a legendary\nPokémon, either, though...
-Lucas: Hiya, {STRVAR 259, 1, 0}!\nHow’s Lake Valor?\rThere’s nothing wrong here.\nThe lake is ordinary, as usual.\rThere’s no legendary Pokémon,\neither...
+{STRVAR 259, 0}: What was that about?\r
+I don’t know what’s going on.\n{STRVAR 259, 0}, let’s get out of here.\rMy Pokémon got hurt from that\nbattle.\rIf we get attacked by another\nPokémon, we might be in trouble.\r
+Rowan: Hmmm...\rNo legendary Pokémon, nothing out\nof the ordinary...\r{STRVAR 259, 0}, how was Lake Valor?\nAnything to report?\rWhat? You’re just going there now?\nYou’ve got to move faster than that!
+Rowan: {STRVAR 259, 0}, how was Lake\nValor? Anything to report?\rWhat? You’re just going there now?\nYou’ve got to move faster than that!
+Dawn: {STRVAR 259, 0}, how was\nLake Valor?\rThere’s nothing wrong here.\nThe lake hasn’t changed at all.\rWe haven’t found a legendary\nPokémon, either, though...
+Lucas: Hiya, {STRVAR 259, 0}!\nHow’s Lake Valor?\rThere’s nothing wrong here.\nThe lake is ordinary, as usual.\rThere’s no legendary Pokémon,\neither...
                                                                              
                                                                                         
                                                 

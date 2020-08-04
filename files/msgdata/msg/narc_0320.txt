@@ -1,7 +1,7 @@
 Look! These are Poké Balls!\nLet’s battle using these!\r
-{STRVAR 65280, 1, 3}Tiny Leaf Pokémon TURTWIG{STRVAR 65280, 1, 0}!\nWill you take this Pokémon?
-{STRVAR 65280, 1, 1}Chimp Pokémon CHIMCHAR{STRVAR 65280, 1, 0}!\nWill you take this Pokémon?
-{STRVAR 65280, 1, 2}Penguin Pokémon{STRVAR 65280, 1, 0} {STRVAR 65280, 1, 2}PIPLUP{STRVAR 65280, 1, 0}!\nWill you take this Pokémon?
+{STRVAR 65280, 3}Tiny Leaf Pokémon TURTWIG{STRVAR 65280, 0}!\nWill you take this Pokémon?
+{STRVAR 65280, 1}Chimp Pokémon CHIMCHAR{STRVAR 65280, 0}!\nWill you take this Pokémon?
+{STRVAR 65280, 2}Penguin Pokémon{STRVAR 65280, 0} {STRVAR 65280, 2}PIPLUP{STRVAR 65280, 0}!\nWill you take this Pokémon?
                         
                        
                          

@@ -43,13 +43,13 @@ Please decide which of you two\nwill become the leader.\rThe other player must t
                  
 Please decide which of you four\nwill become the group leader.\rThe other players must then choose\n“JOIN GROUP.”
 Please choose the leader\nfor a Multi Battle.
-{STRVAR 259, 1, 0} was asked to register\nyou as a member. Please wait.
-{STRVAR 259, 1, 0} replied, “No...”
-{STRVAR 259, 1, 0} OK’d your registration\nas a member.
+{STRVAR 259, 0} was asked to register\nyou as a member. Please wait.
+{STRVAR 259, 0} replied, “No...”
+{STRVAR 259, 0} OK’d your registration\nas a member.
 Multi Battle!\nAwaiting other members!
 Multi Battle! Awaiting\ncommunication from another player.
 Cancel the Multi Battle Mode\nwith these members?
-{STRVAR 259, 1, 0} contacted you.
+{STRVAR 259, 0} contacted you.
 The members have gathered.\nPlease enter the room.
                                               
                        
@@ -60,7 +60,7 @@ The Trainers in the Union Room\nwill be those players around you\fwho have also 
 Would you like to save the game?
 There is already a saved file.\nIs it OK to overwrite it?
 Saving...\nDon’t turn off the power.
-{STRVAR 259, 1, 0} saved the game.
+{STRVAR 259, 0} saved the game.
 I hope you enjoy your time in\nthe Union Room.\r
                                                                                             
                                                                                                                    
@@ -105,13 +105,13 @@ Would you like to sign your\nTrainer Card?
 Please do visit again.
 You may sign the back of your\nTrainer Card here.\rYou may show your signature to\nother players in the Union Room.\rIf you write a new signature, the\nold one will be deleted, however.\fPlease be aware of that.\r
 Which set of rules would you like\nto use?
-You need at least {STRVAR 306, 1, 1} Pokémon that\nqualify under {STRVAR 282, 1, 0} Cup\frules.
+You need at least {STRVAR 306, 1} Pokémon that\nqualify under {STRVAR 282, 0} Cup\frules.
         
        
       
       
       
-{STRVAR 282, 1, 0} Cup
+{STRVAR 282, 0} Cup
 CANCEL
 CONFIRM
 RULES
@@ -119,7 +119,7 @@ RULES
                           
                             
                  
-It’s impossible to form a team of\nPokémon that qualify under the\r{STRVAR 282, 1, 0} Cup rules with a\ntotal level limit of {STRVAR 308, 1, 1}.
+It’s impossible to form a team of\nPokémon that qualify under the\r{STRVAR 282, 0} Cup rules with a\ntotal level limit of {STRVAR 308, 1}.
                   
 NO RESTRICTIONS
 DS Wireless Communications will be\nlaunched.

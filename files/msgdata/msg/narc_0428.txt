@@ -3,11 +3,11 @@ Berries are gifts of nature.\rI encourage you to feed Berries to\nPokémon.\rTha
 Are you the forgetful type who\nforgets where Berries are planted?
 Yes, yes, I thought so!\nI’m the same way!\rI feel a sort of kinship with you!\nYou can have this Pokétch app!\r
 Oh, is that so.\rThen you’re OK even if I don’t give\nyou this nice thing.
-The {STRVAR 280, 1, 0} shows you\nwhere there are ripe Berries\fthat are ready to be picked.
+The {STRVAR 280, 0} shows you\nwhere there are ripe Berries\fthat are ready to be picked.
 Certain kinds of Berries need lots\nand lots of water.
 Um... Would you like some Mulch?\rIf you’re going to grow Berries,\nMulch is a good fertilizer.
-That {STRVAR 264, 1, 0}...\rI made it by mixing high-grade soil\nwith Pokémon...um...you know...\rIt will promote healthy Berry growth.
+That {STRVAR 264, 0}...\rI made it by mixing high-grade soil\nwith Pokémon...um...you know...\rIt will promote healthy Berry growth.
 Um...\nPlease come again.
-You bought some {STRVAR 264, 1, 0}.\r
+You bought some {STRVAR 264, 0}.\r
 I’m so sorry...\nYour Bag appears to be full...
 Um... You don’t appear to have\nenough money...

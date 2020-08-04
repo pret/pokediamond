@@ -6,7 +6,7 @@ Fine, fine, now pick the Pokémon\nI should teach the move to.
 Sorry to disappoint you...\rThat Pokémon you have can learn this\nmove, but it hasn’t come to trust\fyou fully yet...\rUntil then, I can’t make it learn\nthis move.
 Sorry to disappoint you...\nThat Pokémon can’t learn this move.
 Hmmmm...\rTeaching a move to an Egg is\na challenge that’s beyond me.
-Oh? That Pokémon already knows\n{STRVAR 262, 1, 0}.
+Oh? That Pokémon already knows\n{STRVAR 262, 0}.
                            
                        
                                                                                     

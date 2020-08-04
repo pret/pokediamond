@@ -1,7 +1,7 @@
-{STRVAR 65280, 1, 1}Status{STRVAR 65280, 1, 0}
-{STRVAR 65280, 1, 1}VS demo{STRVAR 65280, 1, 0}
-{STRVAR 65280, 1, 1}Move Tutor{STRVAR 65280, 1, 0}
-{STRVAR 65280, 1, 1}Journal{STRVAR 65280, 1, 0}
+{STRVAR 65280, 1}Status{STRVAR 65280, 0}
+{STRVAR 65280, 1}VS demo{STRVAR 65280, 0}
+{STRVAR 65280, 1}Move Tutor{STRVAR 65280, 0}
+{STRVAR 65280, 1}Journal{STRVAR 65280, 0}
 Sleep
 Touch screen
 msg location
@@ -32,8 +32,8 @@ Pokémon icon
 Item icon
 F Note Clear
 ｘ
-{STRVAR 264, 1, 0}
-{STRVAR 308, 1, 0}
+{STRVAR 264, 0}
+{STRVAR 308, 0}
 Class
 Level
 Exp. Points
@@ -96,12 +96,12 @@ None
 -
 ON
 OFF
-{STRVAR 315, 1, 0}
-{STRVAR 256, 1, 0}
-{STRVAR 262, 1, 0}
-{STRVAR 264, 1, 0}
-{STRVAR 261, 1, 0}
-{STRVAR 263, 1, 0}
+{STRVAR 315, 0}
+{STRVAR 256, 0}
+{STRVAR 262, 0}
+{STRVAR 264, 0}
+{STRVAR 261, 0}
+{STRVAR 263, 0}
 Added a Pokémon to your party.
 Added a Pokémon to the Box.
 Create Pokémon\n  LR: Switch   START: Add
@@ -112,5 +112,5 @@ Diamond
 Pearl
 Emerald
 Sapphire
-{STRVAR 256, 1, 0}
-{STRVAR 264, 1, 0}
+{STRVAR 256, 0}
+{STRVAR 264, 0}

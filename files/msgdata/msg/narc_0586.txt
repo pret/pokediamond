@@ -1,25 +1,25 @@
-Teach which move to\n{STRVAR 257, 1, 0}?
-Teach the move\n{STRVAR 262, 1, 1}?
-Give up trying to teach a new\nmove to {STRVAR 257, 1, 0}?
-{STRVAR 257, 1, 0} learned\n{STRVAR 262, 1, 1}.\r
-{STRVAR 257, 1, 0} is trying to learn\n{STRVAR 262, 1, 1}.\rBut {STRVAR 257, 1, 0} can’t learn more\nthan four moves.\rDelete an older move to make\nroom for {STRVAR 262, 1, 1}?
-1{STRVAR 513, 1, 20}, 2{STRVAR 513, 1, 20}, and{STRVAR 513, 1, 20}... {STRVAR 513, 1, 20}... Poof!{STRVAR 514, 1, 3}{STRVAR 514, 1, 5}\r{STRVAR 257, 1, 0} forgot\n{STRVAR 262, 1, 1}.\rAnd...\r
-{STRVAR 257, 1, 0} learned\n{STRVAR 262, 1, 1}.{STRVAR 514, 1, 4}{STRVAR 514, 1, 2}\r
-Stop trying to teach\n{STRVAR 262, 1, 1}?
-{STRVAR 257, 1, 0} did not learn the\nmove {STRVAR 262, 1, 1}.\r
+Teach which move to\n{STRVAR 257, 0}?
+Teach the move\n{STRVAR 262, 1}?
+Give up trying to teach a new\nmove to {STRVAR 257, 0}?
+{STRVAR 257, 0} learned\n{STRVAR 262, 1}.\r
+{STRVAR 257, 0} is trying to learn\n{STRVAR 262, 1}.\rBut {STRVAR 257, 0} can’t learn more\nthan four moves.\rDelete an older move to make\nroom for {STRVAR 262, 1}?
+1{STRVAR 513, 20}, 2{STRVAR 513, 20}, and{STRVAR 513, 20}... {STRVAR 513, 20}... Poof!{STRVAR 514, 3}{STRVAR 514, 5}\r{STRVAR 257, 0} forgot\n{STRVAR 262, 1}.\rAnd...\r
+{STRVAR 257, 0} learned\n{STRVAR 262, 1}.{STRVAR 514, 4}{STRVAR 514, 2}\r
+Stop trying to teach\n{STRVAR 262, 1}?
+{STRVAR 257, 0} did not learn the\nmove {STRVAR 262, 1}.\r
                              
-{STRVAR 262, 1, 0} is the move that\nyou want forgotten?
-Which move should {STRVAR 257, 1, 0}\nremember?
-Should the move {STRVAR 262, 1, 1}\nbe remembered?
-Give up trying to make\n{STRVAR 257, 1, 0} remember a move?
-{STRVAR 257, 1, 0} remembered the move\n{STRVAR 262, 1, 1} it had forgotten!\r
-{STRVAR 257, 1, 0} wants to remember\nthe move {STRVAR 262, 1, 1}.\rBut {STRVAR 257, 1, 0} can’t learn more\nthan four moves.\rDelete an existing move to make\nroom for {STRVAR 262, 1, 1}?
-1{STRVAR 513, 1, 20}, 2{STRVAR 513, 1, 20}, and{STRVAR 513, 1, 20}... {STRVAR 513, 1, 20}... Poof!{STRVAR 514, 1, 3}{STRVAR 514, 1, 5}\r{STRVAR 257, 1, 0} forgot\n{STRVAR 262, 1, 1}.\rAnd...\r
-{STRVAR 257, 1, 0} remembered the move\n{STRVAR 262, 1, 1}.{STRVAR 514, 1, 4}{STRVAR 514, 1, 2}\r
-Give up making the Pokémon\nremember {STRVAR 262, 1, 1}?
-{STRVAR 257, 1, 0} did not remember the\nmove {STRVAR 262, 1, 1}.\r
-{STRVAR 259, 1, 2} handed over one\nHeart Scale in exchange.\r
-Is it OK to make this Pokémon\nforget the move {STRVAR 262, 1, 0}?
+{STRVAR 262, 0} is the move that\nyou want forgotten?
+Which move should {STRVAR 257, 0}\nremember?
+Should the move {STRVAR 262, 1}\nbe remembered?
+Give up trying to make\n{STRVAR 257, 0} remember a move?
+{STRVAR 257, 0} remembered the move\n{STRVAR 262, 1} it had forgotten!\r
+{STRVAR 257, 0} wants to remember\nthe move {STRVAR 262, 1}.\rBut {STRVAR 257, 0} can’t learn more\nthan four moves.\rDelete an existing move to make\nroom for {STRVAR 262, 1}?
+1{STRVAR 513, 20}, 2{STRVAR 513, 20}, and{STRVAR 513, 20}... {STRVAR 513, 20}... Poof!{STRVAR 514, 3}{STRVAR 514, 5}\r{STRVAR 257, 0} forgot\n{STRVAR 262, 1}.\rAnd...\r
+{STRVAR 257, 0} remembered the move\n{STRVAR 262, 1}.{STRVAR 514, 4}{STRVAR 514, 2}\r
+Give up making the Pokémon\nremember {STRVAR 262, 1}?
+{STRVAR 257, 0} did not remember the\nmove {STRVAR 262, 1}.\r
+{STRVAR 259, 2} handed over one\nHeart Scale in exchange.\r
+Is it OK to make this Pokémon\nforget the move {STRVAR 262, 0}?
 CATEGORY
 POWER
 ACCURACY
@@ -27,8 +27,8 @@ PP
 BATTLE MOVES
 APPEAL PTS
 C0NTEST MOVES
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
-{STRVAR 307, 1, 0}/{STRVAR 307, 1, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
+{STRVAR 307, 0}/{STRVAR 307, 0}
 CANCEL
 ---

@@ -1,21 +1,21 @@
-{STRVAR 65280, 1, 1}Pokémon Diamond{STRVAR 65280, 1, 0}
-{STRVAR 65280, 1, 1}Pokémon Pearl{STRVAR 65280, 1, 0}
-{STRVAR 65280, 1, 1}Credits{STRVAR 65280, 1, 0}
-{STRVAR 65280, 1, 2}Director{STRVAR 65280, 1, 0}
+{STRVAR 65280, 1}Pokémon Diamond{STRVAR 65280, 0}
+{STRVAR 65280, 1}Pokémon Pearl{STRVAR 65280, 0}
+{STRVAR 65280, 1}Credits{STRVAR 65280, 0}
+{STRVAR 65280, 2}Director{STRVAR 65280, 0}
     Junichi Masuda
-{STRVAR 65280, 1, 2}Art Director{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Art Director{STRVAR 65280, 0}
     Ken Sugimori
-{STRVAR 65280, 1, 2}Battle Director{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Battle Director{STRVAR 65280, 0}
     Shigeki Morimoto
-{STRVAR 65280, 1, 2}Program Leader{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Program Leader{STRVAR 65280, 0}
     Tetsuya Watanabe
-{STRVAR 65280, 1, 2}Battle System Programmer{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Battle System Programmer{STRVAR 65280, 0}
     Hisashi Sogabe
-{STRVAR 65280, 1, 2}Field System Programmer{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Field System Programmer{STRVAR 65280, 0}
     Sousuke Tamada
-{STRVAR 65280, 1, 2}Communication System Programmer{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Communication System Programmer{STRVAR 65280, 0}
     Akito Mori
-{STRVAR 65280, 1, 2}Programmers{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Programmers{STRVAR 65280, 0}
     Yoshinori Matsuda
     Keita Kagaya
     Hiroyuki Nakamura
@@ -28,11 +28,11 @@
     Tomoya Takahashi
     Katsumi Ono
     Satoshi Mitsuhara
-{STRVAR 65280, 1, 2}Graphic Leader{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Graphic Leader{STRVAR 65280, 0}
     Takao Unno
-{STRVAR 65280, 1, 2}Pokémon Designers{STRVAR 65280, 1, 0}
-{STRVAR 65280, 1, 2}{STRVAR 515, 1, 86}&{STRVAR 65280, 1, 0}
-{STRVAR 65280, 1, 2}{STRVAR 515, 1, 58}Graphic Designers{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Pokémon Designers{STRVAR 65280, 0}
+{STRVAR 65280, 2}{STRVAR 515, 86}&{STRVAR 65280, 0}
+{STRVAR 65280, 2}{STRVAR 515, 58}Graphic Designers{STRVAR 65280, 0}
     Ken Sugimori
     Takao Unno
     Motofumi Fujiwara
@@ -45,22 +45,22 @@
     Emi Yoshida
     Yusuke Omura
     Hiroyuki Goto
-{STRVAR 65280, 1, 2}Pokémon Designer{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Pokémon Designer{STRVAR 65280, 0}
     Atsuko Nishida
-{STRVAR 65280, 1, 2}Graphic Designer{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Graphic Designer{STRVAR 65280, 0}
     Kei Hoshiba
-{STRVAR 65280, 1, 2}Music Leader{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Music Leader{STRVAR 65280, 0}
     Go Ichinose
-{STRVAR 65280, 1, 2}Music Composition{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Music Composition{STRVAR 65280, 0}
     Hitomi Sato
     Junichi Masuda
-{STRVAR 65280, 1, 2}Sound Effects{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Sound Effects{STRVAR 65280, 0}
     Satoshi Nohara
-{STRVAR 65280, 1, 2}Pokémon Voices{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Pokémon Voices{STRVAR 65280, 0}
     Go Ichinose
-{STRVAR 65280, 1, 2}Game Design Leader{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Game Design Leader{STRVAR 65280, 0}
     Shigeru Ohmori
-{STRVAR 65280, 1, 2}Game Designers{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Game Designers{STRVAR 65280, 0}
     Kouji Nishino
     Kenji Matsushima
     Tetsuji Ohta
@@ -71,17 +71,17 @@
     Akihito Tomisawa
     Suguru Nakatsui
     Hiro Nakamura
-{STRVAR 65280, 1, 2}Plot Scenario{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Plot Scenario{STRVAR 65280, 0}
     Junichi Masuda
     Toshinobu Matsumiya
     Kouji Nishino
     Shigeru Ohmori
-{STRVAR 65280, 1, 2}Game Scenario{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Game Scenario{STRVAR 65280, 0}
     Toshinobu Matsumiya
     Hitomi Sato
     Akihito Tomisawa
     Suguru Nakatsui
-{STRVAR 65280, 1, 2}Map Designers{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Map Designers{STRVAR 65280, 0}
     Tadashi Takahashi
     Suguru Nakatsui
     Shigeru Ohmori
@@ -89,14 +89,14 @@
     Hiro Nakamura
     Kouji Nishino
     Teruyuki Shimoyamada
-{STRVAR 65280, 1, 2}Pokédex Text{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Pokédex Text{STRVAR 65280, 0}
     Kenji Matsushima
-{STRVAR 65280, 1, 2}Parametric Designers{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Parametric Designers{STRVAR 65280, 0}
     Kouji Nishino
     Tetsuji Ohta
     Teruyuki Shimoyamada
     Shigeki Morimoto
-{STRVAR 65280, 1, 2}Battle Tower Data{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Battle Tower Data{STRVAR 65280, 0}
     Osamu Fujita
     Takeshi Saigo
     Yoshihito Tsuji
@@ -105,30 +105,30 @@
     Etsuko Fukushima
     Keisuke Fukushima
     Tetsuji Ohta
-{STRVAR 65280, 1, 2}Script Designers{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Script Designers{STRVAR 65280, 0}
     Satoshi Nohara
     Tomomichi Ohta
     Miyuki Iwasawa
     Sousuke Tamada
-{STRVAR 65280, 1, 2}Environment & Tool Programmers{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Environment & Tool Programmers{STRVAR 65280, 0}
     Hisashi Sogabe
     Sousuke Tamada
     Hiroyuki Nakamura
     Masao Taya
     Miyuki Iwasawa
-{STRVAR 65280, 1, 2}Nintendo Wi-Fi Connection{STRVAR 65280, 1, 0}
-  {STRVAR 65280, 1, 2}Server System Director{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Nintendo Wi-Fi Connection{STRVAR 65280, 0}
+  {STRVAR 65280, 2}Server System Director{STRVAR 65280, 0}
     Mikihiro Ishikawa
-  {STRVAR 65280, 1, 2}Server System Programmers{STRVAR 65280, 1, 0}
+  {STRVAR 65280, 2}Server System Programmers{STRVAR 65280, 0}
     Daisuke Nakamura
     Shigetoshi Kitayama
     Yuuki Hayashi
-  {STRVAR 65280, 1, 2}Program Support{STRVAR 65280, 1, 0}
+  {STRVAR 65280, 2}Program Support{STRVAR 65280, 0}
     Kazuki Yoshihara
-{STRVAR 65280, 1, 2}NCL Product Testing{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}NCL Product Testing{STRVAR 65280, 0}
     Akira Yano
     Super Mario Club
-{STRVAR 65280, 1, 2}Special Thanks{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Special Thanks{STRVAR 65280, 0}
     Kenji Tominaga
     Yoshio Tajiri
     Masafumi Saito
@@ -157,40 +157,40 @@
     Akira Kinashi
     Hiroshi Akune
     Takao Nakano
-{STRVAR 65280, 1, 2}Information Supervisors{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Information Supervisors{STRVAR 65280, 0}
     Hiromi Sagawa
     Yuri Sakurai
     Naoko Yanase
-{STRVAR 65280, 1, 2}Artwork{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Artwork{STRVAR 65280, 0}
     Sachiko Nakamichi
     Kiyomi Oe
     Yasuko Sugiyama
-{STRVAR 65280, 1, 2}Coordinators{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Coordinators{STRVAR 65280, 0}
     Shusaku Egami
     Kazuki Yoshihara
     Kaori Ando
-{STRVAR 65280, 1, 2}English Version Coordinators{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}English Version Coordinators{STRVAR 65280, 0}
     Seth McMahill
     Keisuke Tominaga
-{STRVAR 65280, 1, 2}English Version Assistant Coordinator{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}English Version Assistant Coordinator{STRVAR 65280, 0}
     Joel Simon
-{STRVAR 65280, 1, 2}Translator{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Translator{STRVAR 65280, 0}
     Nob Ogasawara
-{STRVAR 65280, 1, 2}Text Editors{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Text Editors{STRVAR 65280, 0}
     Teresa Lillygren
     Seth McMahill
-{STRVAR 65280, 1, 2}NOA Product Testing{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}NOA Product Testing{STRVAR 65280, 0}
     Thomas Hertzog
     Leland Jones
     Patrick Taylor
     Mika Kurosawa
-{STRVAR 65280, 1, 2}NOA Special Thanks{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}NOA Special Thanks{STRVAR 65280, 0}
     Nicola Wright
     Devon Ryning
     Hitomi Ross
     Kyle Hudson
     Joshua Newman
-{STRVAR 65280, 1, 2}Localization{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Localization{STRVAR 65280, 0}
     Teruki Murakawa
     Kimiko Nakamichi
     Souichi Yamamoto
@@ -204,12 +204,12 @@
     Kazuhiro Fujihara
     Yuuki Tanikawa
     Ryo Yamaguchi
-{STRVAR 65280, 1, 2}Producers{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Producers{STRVAR 65280, 0}
     Hiroyuki Jinnai
     Hitoshi Yamagami
     Gakuji Nomoto
     Hiroaki Tsuru
-{STRVAR 65280, 1, 2}Executive Producers{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Executive Producers{STRVAR 65280, 0}
     Satoshi Tajiri
     Satoru Iwata
     Tsunekaz Ishihara

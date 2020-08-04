@@ -1,5 +1,5 @@
-...I’m Marley.\n...You are?\rOh... {STRVAR 259, 1, 0}, will you help me,\nplease?\rI want to get through this tunnel.\nWill you let me go with you?\r
-{STRVAR 259, 1, 0} decided to go with\nMarley!
+...I’m Marley.\n...You are?\rOh... {STRVAR 259, 0}, will you help me,\nplease?\rI want to get through this tunnel.\nWill you let me go with you?\r
+{STRVAR 259, 0} decided to go with\nMarley!
 Marley: ...Pokémon shouldn’t be\nhurt... I’ll heal them...
 Marley: ...You took so long...\nPlease, don’t make me wait...\rI felt a little forlorn waiting...\r
 Marley: ...You’re going back...\nToo bad... Bye-bye...\r

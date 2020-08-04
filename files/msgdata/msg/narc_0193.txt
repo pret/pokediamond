@@ -7,8 +7,8 @@ Excellent!
 Good!
 Miss!
 The Dance Competition is ready to\nget under way!\rCan the backup dancers flawlessly\nfollow the main dancer’s steps?!\rOK! Everybody, let’s dance!\nStart the music!\r
-{STRVAR 65280, 1, 2}Perform {STRVAR 306, 1, 0} steps as the main dancer!{STRVAR 65280, 1, 0}
-{STRVAR 65280, 1, 1}Copy the Pokémon before you!{STRVAR 65280, 1, 0}
+{STRVAR 65280, 2}Perform {STRVAR 306, 0} steps as the main dancer!{STRVAR 65280, 0}
+{STRVAR 65280, 1}Copy the Pokémon before you!{STRVAR 65280, 0}
                                 
                                                                                                                                                                                                                                                                  
                             
@@ -16,6 +16,6 @@ The Dance Competition is ready to\nget under way!\rCan the backup dancers flawle
   
    
         
-That’s it for the Dance Competition!\rLeading in points right now is\n{STRVAR 259, 1, 0}!\rCan anyone turn things around in the\nActing Competition?\r
+That’s it for the Dance Competition!\rLeading in points right now is\n{STRVAR 259, 0}!\rCan anyone turn things around in the\nActing Competition?\r
 Welcome! Thanks for joining our\npractice Contest!\rFeel free to practice all you want\nand train for the big show!\rI’ll be taking part to practice up\non being an MC!\r
-Looks like everyone’s here, so let’s\nget on with our dance practice!\r{STRVAR 257, 1, 0}, you need to dance just\nlike the main dancer.\rAfter dancing twice, the main dancer\nswitches with a backup dancer.\rYou get to be the main dancer last.\nDo a dance that no one can imitate!\rOK! Start it up!\r
+Looks like everyone’s here, so let’s\nget on with our dance practice!\r{STRVAR 257, 0}, you need to dance just\nlike the main dancer.\rAfter dancing twice, the main dancer\nswitches with a backup dancer.\rYou get to be the main dancer last.\nDo a dance that no one can imitate!\rOK! Start it up!\r
