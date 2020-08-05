@@ -1,7 +1,6 @@
 CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch
 CFLAGS   := -O2 -Wall -Wno-switch
 
-WSLENV ?= no
 ifeq ($(OS),Windows_NT)
 C_SRCS   := fnmatch.c
 LDFLAGS  += -lstdc++fs
