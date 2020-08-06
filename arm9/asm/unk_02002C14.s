@@ -15,45 +15,18 @@ UNK_02106FCC: ; 0x02106FCC
 
 	.global UNK_020ECB54
 UNK_020ECB54: ; 0x020ECB54
-	.byte 0x00, 0x00
-
-	.global UNK_020ECB56
-UNK_020ECB56: ; 0x020ECB56
-	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00
+	.short 0x0000, 0x0000
+	.short 0x0001, 0x0000
+	.short 0x0002, 0x0000
+	.short 0x0003, 0x0000
 
 	.global UNK_020ECB64
 UNK_020ECB64: ; 0x020ECB64
-	.byte 0x0B
-
-	.global UNK_020ECB65
-UNK_020ECB65: ; 0x020ECB65
-	.byte 0x10
-
-	.global UNK_020ECB66
-UNK_020ECB66: ; 0x020ECB66
-	.byte 0x00
-
-	.global UNK_020ECB67
-UNK_020ECB67: ; 0x020ECB67
-	.byte 0x00
-
-	.global UNK_020ECB68
-UNK_020ECB68: ; 0x020ECB68
-	.byte 0x00
-
-	.global UNK_020ECB69
-UNK_020ECB69: ; 0x020ECB69
-	.byte 0x01
-
-	.global UNK_020ECB6A
-UNK_020ECB6A: ; 0x020ECB6A
-	.byte 0x0F
-
-	.global UNK_020ECB6B
-UNK_020ECB6B: ; 0x020ECB6B
-	.byte 0x02, 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F, 0x02, 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F
-	.byte 0x02, 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00
+	.byte 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F, 0x02
+	.byte 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F, 0x02
+	.byte 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F, 0x02
+	.byte 0x0B, 0x10, 0x00, 0x00, 0x00, 0x01, 0x0F, 0x02
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
 	.text
 
@@ -94,7 +67,7 @@ FUN_02002C50: ; 0x02002C50
 	str r1, [sp, #0x0]
 	lsl r4, r0, #0x2
 	ldr r1, _02002C78 ; =UNK_020ECB54
-	ldr r3, _02002C7C ; =UNK_020ECB56
+	ldr r3, _02002C7C ; =UNK_020ECB54 + 2
 	ldrh r1, [r1, r4]
 	ldrh r3, [r3, r4]
 	mov r0, #0xe
@@ -109,7 +82,7 @@ FUN_02002C50: ; 0x02002C50
 	pop {r3-r4, pc}
 	nop
 _02002C78: .word UNK_020ECB54
-_02002C7C: .word UNK_020ECB56
+_02002C7C: .word UNK_020ECB54 + 2
 _02002C80: .word UNK_02106FC8
 
 	thumb_func_start FUN_02002C84
@@ -381,50 +354,50 @@ _02002E6E:
 	b _02002EAC
 _02002E76:
 	lsl r1, r0, #0x3
-	ldr r0, _02002EB4 ; =UNK_020ECB65
+	ldr r0, _02002EB4 ; =UNK_020ECB64 + 1
 	ldrb r2, [r0, r1]
 	b _02002EAC
 _02002E7E:
 	lsl r1, r0, #0x3
-	ldr r0, _02002EB8 ; =UNK_020ECB66
+	ldr r0, _02002EB8 ; =UNK_020ECB64 + 2
 	ldrb r2, [r0, r1]
 	b _02002EAC
 _02002E86:
 	lsl r1, r0, #0x3
-	ldr r0, _02002EBC ; =UNK_020ECB67
+	ldr r0, _02002EBC ; =UNK_020ECB64 + 3
 	ldrb r2, [r0, r1]
 	b _02002EAC
 _02002E8E:
 	lsl r1, r0, #0x3
-	ldr r0, _02002EC0 ; =UNK_020ECB68
+	ldr r0, _02002EC0 ; =UNK_020ECB64 + 4
 	ldrb r2, [r0, r1]
 	b _02002EAC
 _02002E96:
 	lsl r1, r0, #0x3
-	ldr r0, _02002EC4 ; =UNK_020ECB69
+	ldr r0, _02002EC4 ; =UNK_020ECB64 + 5
 	ldrb r2, [r0, r1]
 	b _02002EAC
 _02002E9E:
 	lsl r1, r0, #0x3
-	ldr r0, _02002EC8 ; =UNK_020ECB6A
+	ldr r0, _02002EC8 ; =UNK_020ECB64 + 6
 	ldrb r2, [r0, r1]
 	b _02002EAC
 _02002EA6:
 	lsl r1, r0, #0x3
-	ldr r0, _02002ECC ; =UNK_020ECB6B
+	ldr r0, _02002ECC ; =UNK_020ECB64 + 7
 	ldrb r2, [r0, r1]
 _02002EAC:
 	add r0, r2, #0x0
 	bx lr
 	.balign 4
 _02002EB0: .word UNK_020ECB64
-_02002EB4: .word UNK_020ECB65
-_02002EB8: .word UNK_020ECB66
-_02002EBC: .word UNK_020ECB67
-_02002EC0: .word UNK_020ECB68
-_02002EC4: .word UNK_020ECB69
-_02002EC8: .word UNK_020ECB6A
-_02002ECC: .word UNK_020ECB6B
+_02002EB4: .word UNK_020ECB64 + 1
+_02002EB8: .word UNK_020ECB64 + 2
+_02002EBC: .word UNK_020ECB64 + 3
+_02002EC0: .word UNK_020ECB64 + 4
+_02002EC4: .word UNK_020ECB64 + 5
+_02002EC8: .word UNK_020ECB64 + 6
+_02002ECC: .word UNK_020ECB64 + 7
 
 	thumb_func_start FUN_02002ED0
 FUN_02002ED0: ; 0x02002ED0

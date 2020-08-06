@@ -30,8 +30,8 @@ UNK_020FF4D8: ; 0x020FF4D8
 
 	.section .bss
 
-	.global UNK_021C8C58
-UNK_021C8C58: ; 0x021C8C58
+	.global sErrorMessagePrinterLock
+sErrorMessagePrinterLock: ; 0x021C8C58
 	.space 0x4
 
 	.text
@@ -52,11 +52,11 @@ _0208A9AC: .word 0x027E0000
 _0208A9B0: .word 0x00003FF8
 _0208A9B4: .word MI_WaitDma
 
-	thumb_func_start FUN_0208A9B8
-FUN_0208A9B8: ; 0x0208A9B8
+	thumb_func_start PrintErrorMessageAndReset
+PrintErrorMessageAndReset: ; 0x0208A9B8
 	push {r4-r7, lr}
 	sub sp, #0x24
-	ldr r0, _0208ABC8 ; =UNK_021C8C58
+	ldr r0, _0208ABC8 ; =sErrorMessagePrinterLock
 	ldr r1, [r0, #0x0]
 	cmp r1, #0x1
 	bne _0208A9C6
@@ -273,7 +273,7 @@ _0208ABC4:
 	add sp, #0x24
 	pop {r4-r7, pc}
 	.balign 4
-_0208ABC8: .word UNK_021C8C58
+_0208ABC8: .word sErrorMessagePrinterLock
 _0208ABCC: .word UNK_020FF4A4
 _0208ABD0: .word FUN_0208A998
 _0208ABD4: .word 0xFFFFE0FF

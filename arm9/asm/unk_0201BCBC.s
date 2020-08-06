@@ -5,7 +5,7 @@
 
 	.global UNK_02105BB4
 UNK_02105BB4: ; 0x02105BB4
-	.byte 0x00, 0x00, 0x00, 0x00
+	.word 0
 
 	.section .bss
 
