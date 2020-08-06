@@ -1003,7 +1003,7 @@ _0207781A:
 	add r4, #0x1c
 	add r1, r4, #0x0
 	mov r2, #0xa
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	pop {r4-r6, pc}
 _02077836:
 	cmp r0, #0x3
@@ -1027,7 +1027,7 @@ _02077836:
 	add r4, #0x1c
 	add r1, r4, #0x0
 	mov r2, #0xa
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	pop {r4-r6, pc}
 _02077864:
 	mov r0, #0x1
@@ -1132,7 +1132,7 @@ _0207790E:
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x18]
 	add r1, #0xd8
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 _02077932:
 	mov r0, #0x61
 	lsl r0, r0, #0x2
@@ -1642,7 +1642,7 @@ FUN_02077CD4: ; 0x02077CD4
 	beq _02077D88
 	add r1, r4, r1
 	mov r2, #0x20
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 _02077D88:
 	add r1, r4, #0x0
 	mov r0, #0x1
@@ -1866,7 +1866,7 @@ _02077F50:
 	add r1, r5, #0x0
 	add r0, r7, #0x0
 	add r1, #0xd8
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	mov r0, #0x5a
@@ -3814,7 +3814,7 @@ _02078F0A:
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
 	add r1, sp, #0x38
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [sp, #0x20]
 	sub r3, r6, r5
 	str r0, [sp, #0x0]
@@ -3944,7 +3944,7 @@ _02079012:
 	bl FUN_02019620
 	add r0, r4, #0x0
 	add r1, sp, #0xc
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r3, _0207906C ; =0x000D0E0F
 	add r0, r6, r7
 	add r1, r4, #0x0

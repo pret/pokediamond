@@ -115,14 +115,14 @@ _02023970:
 
 	thumb_func_start FUN_0202397C
 FUN_0202397C: ; 0x0202397C
-	ldr r3, _02023988 ; =FUN_02021EF0
+	ldr r3, _02023988 ; =CopyStringToU16Array
 	add r2, r0, #0x0
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	mov r2, #0x8
 	bx r3
 	.balign 4
-_02023988: .word FUN_02021EF0
+_02023988: .word CopyStringToU16Array
 
 	thumb_func_start FUN_0202398C
 FUN_0202398C: ; 0x0202398C
@@ -131,13 +131,13 @@ FUN_0202398C: ; 0x0202398C
 
 	thumb_func_start FUN_02023990
 FUN_02023990: ; 0x02023990
-	ldr r3, _0202399C ; =FUN_02021E28
+	ldr r3, _0202399C ; =CopyU16ArrayToString
 	add r2, r0, #0x0
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	bx r3
 	nop
-_0202399C: .word FUN_02021E28
+_0202399C: .word CopyU16ArrayToString
 
 	thumb_func_start FUN_020239A0
 FUN_020239A0: ; 0x020239A0

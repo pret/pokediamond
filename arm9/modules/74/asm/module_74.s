@@ -1298,7 +1298,7 @@ _021D7EB8:
 	b _021D7F0C
 _021D7F06:
 	add r1, r6, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 _021D7F0C:
 	ldr r0, [sp, #4]
 	add r4, #0x10

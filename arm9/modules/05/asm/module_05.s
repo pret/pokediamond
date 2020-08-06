@@ -27128,7 +27128,7 @@ _021EFF2E:
 	bl FUN_020283A4
 	add r1, r0, #0
 	ldr r0, [r5, #8]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [r5]
 	ldr r1, [r5, #8]
 	add r2, r4, #0

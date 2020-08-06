@@ -29,7 +29,7 @@ _02002F22:
 	add r0, r0, r4
 	add r0, #0x94
 	ldr r0, [r0, #0x0]
-	bl FUN_02021934
+	bl StringGetWidth
 	pop {r4-r6, pc}
 	.balign 4
 _02002F3C: .word UNK_02106FC8
@@ -113,7 +113,7 @@ _02002FB4:
 	add r0, r0, r4
 	add r0, #0x94
 	ldr r0, [r0, #0x0]
-	bl FUN_0202199C
+	bl StringGetWidthNoSpacing
 	pop {r3-r5, pc}
 	.balign 4
 _02002FCC: .word UNK_02106FC8

@@ -2819,7 +2819,7 @@ _021D8AE0:
 	add r1, r6, #0
 	add r0, r5, #0
 	add r1, #8
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r7, #0
 	mov r2, #0
 	add r0, #0x10

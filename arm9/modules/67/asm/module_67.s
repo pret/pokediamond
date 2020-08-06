@@ -1692,7 +1692,7 @@ _021D822A:
 	mov r3, #0x2a
 	bl ReadMsgData_NewNarc_NewString
 	add r6, r0, #0
-	bl FUN_02021D3C
+	bl StringGetLength
 	add r5, r0, #0
 	add r0, r6, #0
 	bl String_dtor
@@ -1717,7 +1717,7 @@ _021D822A:
 	add r2, r6, #0
 	bl FUN_0200B7B8
 	ldr r0, [r4, #0x58]
-	bl FUN_02021D3C
+	bl StringGetLength
 	add r5, r5, r0
 	add r0, r6, #0
 	bl String_dtor
@@ -1732,7 +1732,7 @@ _021D828A:
 	mov r3, #0x2a
 	bl ReadMsgData_NewNarc_NewString
 	add r6, r0, #0
-	bl FUN_02021D3C
+	bl StringGetLength
 	add r5, r5, r0
 	add r0, r6, #0
 	bl String_dtor
@@ -3503,7 +3503,7 @@ MOD67_021D9098: ; 0x021D9098
 	bl String_ctor
 	add r1, r6, #0
 	add r4, r0, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r0, #1
 	str r0, [sp]
 	mov r0, #2

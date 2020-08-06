@@ -1569,7 +1569,7 @@ _0225548C:
 	bl FUN_020254F0
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r6, #0
 	add r1, r5, #0
 	bl FUN_020254F8
@@ -1647,7 +1647,7 @@ _02255530:
 	mov r0, #0x1c
 	mul r0, r2
 	ldr r0, [r4, r0]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [r5]
 	mov r1, #0x1c
 	add r2, r0, #0

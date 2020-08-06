@@ -6102,7 +6102,7 @@ FUN_0204F9BC: ; 0x0204F9BC
 	mov r1, #0xf
 	bl FUN_020239A0
 	str r0, [sp, #0x0]
-	bl FUN_02021D3C
+	bl StringGetLength
 	cmp r0, #0x0
 	beq _0204F9FE
 	ldr r0, _0204FA54 ; =UNK_021C5A68

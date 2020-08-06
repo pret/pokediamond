@@ -22563,7 +22563,7 @@ MOD06_02244820: ; 0x02244820
 	add r4, r0, #0
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r7, #0
@@ -31009,7 +31009,7 @@ _0224886C:
 	add r5, r0, #0
 	add r1, sp, #4
 	mov r2, #0x80
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r5, #0
 	bl String_dtor
 	ldr r0, [r4, #8]

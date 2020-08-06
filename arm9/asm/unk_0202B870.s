@@ -277,7 +277,7 @@ _0202BA38:
 	add r0, r7, #0x0
 	add r1, #0x8
 	mov r2, #0x8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r0, [r5, #0x0]
 	add r6, r6, #0x1
 	str r0, [r4, #0x4]
@@ -822,7 +822,7 @@ _0202BE14:
 	add r1, r5, #0x0
 	ldr r0, [r0, #0xc]
 	add r1, #0x8
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [r4, #0x0]
 	add r0, r0, #0x1
 	str r0, [r4, #0x0]

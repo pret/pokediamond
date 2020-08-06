@@ -142,7 +142,7 @@ _0202B0BA:
 	add r0, r6, #0x0
 	add r1, #0xc
 	mov r2, #0xb
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r4, #0x0
 	mov r1, #0x90
 	add r2, r6, #0x0
@@ -151,7 +151,7 @@ _0202B0BA:
 	add r0, r6, #0x0
 	add r1, #0x22
 	mov r2, #0x8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	b _0202B17C
 _0202B176:
 	ldr r0, _0202B1EC ; =0x0000FFFF
@@ -359,11 +359,11 @@ _0202B2CE:
 	ldrb r0, [r5, #0x3]
 	strb r0, [r4, #0x13]
 	ldr r0, [r4, #0x0]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r1, r5, #0x0
 	ldr r0, [r4, #0x4]
 	add r1, #0x22
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r1, #0x0
 _0202B306:
 	ldrh r0, [r5, #0x32]

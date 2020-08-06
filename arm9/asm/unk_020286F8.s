@@ -146,7 +146,7 @@ FUN_020287C0: ; 0x020287C0
 	add r1, r4, r2
 	add r0, r3, #0x0
 	mov r2, #0x8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	pop {r4, pc}
 _020287D8:
 	mov r2, #0x2c
@@ -155,7 +155,7 @@ _020287D8:
 	add r0, r3, #0x0
 	add r1, #0x10
 	mov r2, #0x8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	pop {r4, pc}
 	.balign 4
 

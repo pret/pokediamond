@@ -2307,7 +2307,7 @@ MOD69_0222E89C: ; 0x0222E89C
 	add r5, r0, #0
 	ldr r0, [r5, #0x1c]
 	add r4, r1, #0
-	bl FUN_02021D5C
+	bl StringCountLines
 	mov r6, #0
 	str r0, [sp, #0x10]
 	cmp r0, #0
@@ -2316,7 +2316,7 @@ _0222E8B2:
 	ldr r0, [r5, #0x18]
 	ldr r1, [r5, #0x1c]
 	add r2, r6, #0
-	bl FUN_02021D9C
+	bl StringGetLineN
 	mov r0, #0
 	ldr r1, [r5, #0x18]
 	add r2, r0, #0
@@ -4094,7 +4094,7 @@ _0222F726:
 	ldr r0, [r5, r1]
 	add r1, r1, #4
 	ldr r1, [r5, r1]
-	bl FUN_02021CE0
+	bl StringCompare
 	cmp r0, #0
 	beq _0222F750
 	mov r5, #2

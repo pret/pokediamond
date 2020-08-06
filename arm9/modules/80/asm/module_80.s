@@ -5013,7 +5013,7 @@ MOD80_0222FD28: ; 0x0222FD28
 	add r6, r0, #0
 	add r0, r4, #0
 	add r1, r7, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r2, #0
 	ldr r0, _0222FD84 ; =0x000F0200
 	str r2, [sp]

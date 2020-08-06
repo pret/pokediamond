@@ -12209,7 +12209,7 @@ FUN_0203FA58: ; 0x0203FA58
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r7, #0x0
-	bl FUN_02021CE0
+	bl StringCompare
 	cmp r0, #0x0
 	bne _0203FB24
 	mov r0, #0x1

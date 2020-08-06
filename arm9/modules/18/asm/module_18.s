@@ -23489,7 +23489,7 @@ MOD18_02244BB4: ; 0x02244BB4
 	add r1, r5, #0
 	add r1, #0x94
 	mov r2, #0x50
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r5, #0
 	add r0, #0x94
 	ldrh r2, [r0]
@@ -23542,7 +23542,7 @@ _02244C14:
 	add r1, r5, #0
 	ldr r0, [r0]
 	add r1, #0x94
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r5, #0
 	add r0, #0x88
 	add r1, r6, #1
@@ -23550,7 +23550,7 @@ _02244C14:
 	add r5, #0x94
 	lsl r1, r1, #1
 	add r1, r5, r1
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r0, #2
 	pop {r3, r4, r5, r6, r7, pc}
 	nop

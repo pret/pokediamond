@@ -1817,7 +1817,7 @@ _020384D6:
 	bne _020384F2
 	ldr r0, [r1, #0x18]
 	ldr r1, [r4, #0x10]
-	bl FUN_02021CE0
+	bl StringCompare
 	cmp r0, #0x0
 	bne _02038514
 	ldr r0, [r4, #0xc]
@@ -1990,12 +1990,12 @@ _02038620:
 	beq _0203866E
 	ldr r0, [r4, #0x10]
 	add r1, r5, #0x0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	b _0203866E
 _02038656:
 	ldr r0, [r4, #0x10]
 	add r1, r5, #0x0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	b _0203866E
 _02038660:
 	cmp r5, #0x0
@@ -2003,7 +2003,7 @@ _02038660:
 	ldr r0, [r4, #0xc]
 	add r1, r5, #0x0
 	ldr r0, [r0, #0x18]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 _0203866E:
 	ldr r0, [sp, #0x4]
 	ldr r1, _0203867C ; =FUN_0203847C

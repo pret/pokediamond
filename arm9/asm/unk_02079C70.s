@@ -716,7 +716,7 @@ FUN_0207A1A0: ; 0x0207A1A0
 	cmp r1, #0x0
 	beq _0207A24C
 	ldr r0, [r4, r2]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 _0207A24C:
 	pop {r4, pc}
 	nop

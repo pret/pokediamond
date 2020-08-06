@@ -1967,7 +1967,7 @@ MOD55_021D84C8: ; 0x021D84C8
 	add r0, #0xd8
 	ldr r0, [r0]
 	add r1, sp, #4
-	bl FUN_02021C38
+	bl String_atoi
 	str r0, [sp]
 	ldr r0, [sp, #4]
 	add r7, r1, #0
@@ -2081,7 +2081,7 @@ _021D85B2:
 	add r0, #0xd8
 	ldr r0, [r0]
 	add r1, sp, #8
-	bl FUN_02021C38
+	bl String_atoi
 	add r7, r0, #0
 	ldr r0, [sp, #4]
 	add r6, r1, #0
@@ -2689,7 +2689,7 @@ _021D8A46:
 	bl FUN_020283A4
 	add r1, r0, #0
 	ldr r0, [r5, #0x38]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [sp]
 	add r1, r4, #1
 	add r0, r0, r6
@@ -5090,7 +5090,7 @@ MOD55_021D9E40: ; 0x021D9E40
 	bne _021D9EB8
 	ldr r0, [r0, #0x18]
 	add r1, r5, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	b _021D9EBE
 _021D9EB8:
 	ldr r0, [r0, #0x18]

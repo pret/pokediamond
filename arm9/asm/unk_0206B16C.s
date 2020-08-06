@@ -464,7 +464,7 @@ _0206B492:
 	mov r2, #0x28
 	mul r2, r1
 	add r1, r3, r2
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	pop {r3, pc}
 _0206B4A8:
 	bl ErrorHandling
@@ -491,7 +491,7 @@ _0206B4C2:
 	mul r2, r1
 	add r1, r3, r2
 	mov r2, #0x14
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	bl FUN_02022830
 _0206B4DC:
 	pop {r3, pc}

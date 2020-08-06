@@ -5062,7 +5062,7 @@ MOD07_02214720: ; 0x02214720
 	ldr r0, [r0, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r1, [sp, #0x10]
 	ldr r3, [r4, #0x24]
 	add r0, r5, #0
@@ -5114,7 +5114,7 @@ _022147BC:
 	ldr r0, [r0, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r1, [sp, #0x14]
 	ldr r3, [r4, #0x24]
 	add r0, r5, #0
@@ -5147,7 +5147,7 @@ _02214808:
 	ldr r0, [r0, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r1, [sp, #0x18]
 	ldr r3, [r4, #0x24]
 	add r0, r5, #0
@@ -5180,7 +5180,7 @@ _02214854:
 	ldr r0, [r0, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r1, [sp, #0x1c]
 	ldr r3, [r4, #0x24]
 	add r0, r5, #0
@@ -5215,11 +5215,11 @@ _022148A0:
 	ldr r0, [r4, #0x18]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r0, [r4, #0x20]
 	add r1, r7, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	b _02214914
 _022148EA:
 	add r0, #0x29
@@ -5234,11 +5234,11 @@ _022148EA:
 	ldr r0, [r4, #0x14]
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	ldr r0, [r4, #0x1c]
 	add r1, r7, #0
 	mov r2, #8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 _02214914:
 	str r6, [sp]
 	ldr r0, [r4, #0x24]

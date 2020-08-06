@@ -3361,7 +3361,7 @@ MOD83_0222F074: ; 0x0222F074
 	add r7, r0, #0
 	add r1, r4, r1
 	mov r2, #0x24
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r7, #0
 	bl String_dtor
 	mov r0, #0xc
@@ -3418,7 +3418,7 @@ MOD83_0222F074: ; 0x0222F074
 	lsl r1, r1, #2
 	add r1, r4, r1
 	mov r2, #0xfa
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r7, #0
 	bl String_dtor
 	mov r0, #0xd2
@@ -6052,7 +6052,7 @@ MOD83_022305A4: ; 0x022305A4
 	add r1, r6, #0
 	mov r2, #0x24
 	add r4, r0, #0
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	mov r0, #0
 	mov r1, #6
 	bl FUN_02002E4C
@@ -8557,7 +8557,7 @@ MOD83_02231A4C: ; 0x02231A4C
 	lsl r1, r1, #2
 	add r1, r2, r1
 	mov r2, #0x24
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -8713,7 +8713,7 @@ MOD83_02231B84: ; 0x02231B84
 	lsl r1, r1, #2
 	add r1, r2, r1
 	mov r2, #0xfa
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -15576,7 +15576,7 @@ _02235004:
 	ldr r1, [r5, #0x38]
 	add r7, r0, #0
 	mov r2, #0x40
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	add r0, r5, #0
 	add r1, r7, #0
 	add r2, r4, #0
@@ -18164,7 +18164,7 @@ MOD83_02236484: ; 0x02236484
 	bl String_ctor
 	add r1, sp, #8
 	add r6, r0, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r1, #1
 	str r1, [sp]
 	mov r0, #2
