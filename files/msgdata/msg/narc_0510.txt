@@ -1,7 +1,7 @@
 Ah, so that Rowan fellow is back?\nHe’s quite the remarkable man.\rHe’s been studying Pokémon since way,\nway back.\rMy son and grandchild help Rowan\nwith his studies now.
 Oh, my!\nYou’ve got a National Pokédex?\fHow fantastic is that?!\rRowan should be delighted.\nIt will greatly help his research.\rBut, young Trainer...\nYou should know this.\rIn this world, there are 300...\nNo, 400...\rNo, no, no! There’re a lot more\nkinds of Pokémon than that!
-Who are you?\r...\rOh...\nYou’re {STRVAR 259, 0}?\rHey, you’re doing that Pokédex thingy\nfor the professor!\rWow! That’s the same as my big\nsister! Go for it!
-Who are you?\r...\rOh...\nYou’re {STRVAR 259, 0}?\rYou’re doing that Pokédex thingy\nfor the professor!\rWow! That’s the same as my big\nbrother! Go for it!
-Oh, hi, {STRVAR 259, 0}!\rThere was news on TV saying there\nis a massive outbreak of Pokémon!\rThat’d be great for filling up your\nPokédex!
-Let me see...\nWhat did that news say now...?\r{STRVAR 260, 1}! They said there’s\na whole bunch of {STRVAR 256, 2} there!\r{STRVAR 259, 0}, you have to hurry!\rI want you to do better than my\nsister Dawn!
-Let me see...\nWhat did that news say now...?\r{STRVAR 260, 1}! They said there’s\na whole bunch of {STRVAR 256, 2} there!\r{STRVAR 259, 0}, you have to hurry!\rI want you to do better than my\nbrother Lucas!
+Who are you?\r...\rOh...\nYou’re {STRVAR 3, 0}?\rHey, you’re doing that Pokédex thingy\nfor the professor!\rWow! That’s the same as my big\nsister! Go for it!
+Who are you?\r...\rOh...\nYou’re {STRVAR 3, 0}?\rYou’re doing that Pokédex thingy\nfor the professor!\rWow! That’s the same as my big\nbrother! Go for it!
+Oh, hi, {STRVAR 3, 0}!\rThere was news on TV saying there\nis a massive outbreak of Pokémon!\rThat’d be great for filling up your\nPokédex!
+Let me see...\nWhat did that news say now...?\r{STRVAR 4, 1}! They said there’s\na whole bunch of {STRVAR 0, 2} there!\r{STRVAR 3, 0}, you have to hurry!\rI want you to do better than my\nsister Dawn!
+Let me see...\nWhat did that news say now...?\r{STRVAR 4, 1}! They said there’s\na whole bunch of {STRVAR 0, 2} there!\r{STRVAR 3, 0}, you have to hurry!\rI want you to do better than my\nbrother Lucas!

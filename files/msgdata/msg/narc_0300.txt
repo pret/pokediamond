@@ -1,4 +1,4 @@
-{STRVAR 306, 0}
+{STRVAR 50, 0}
 Battle Tower
 Count up
 Rec Contest

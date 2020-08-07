@@ -1,6 +1,6 @@
-{STRVAR 256, 0} will be\nsent to {STRVAR 259, 2}.
-Bye-bye, {STRVAR 256, 0}!
-{STRVAR 259, 2} sent over\n{STRVAR 256, 1}.
-Take good care of {STRVAR 256, 1}!
-{STRVAR 256, 0} will be put on offer.
-{STRVAR 256, 1} was taken out.
+{STRVAR 0, 0} will be\nsent to {STRVAR 3, 2}.
+Bye-bye, {STRVAR 0, 0}!
+{STRVAR 3, 2} sent over\n{STRVAR 0, 1}.
+Take good care of {STRVAR 0, 1}!
+{STRVAR 0, 0} will be put on offer.
+{STRVAR 0, 1} was taken out.

@@ -1,3 +1,3 @@
-I have something for your Pokémon\nto hold. Take this {STRVAR 264, 0}.\r
-The Pokémon that’s holding the\n{STRVAR 264, 0} will regain HP\fa little by inflicting damage.\rIt was given to me when I was on\nvacation, but I already had one.
+I have something for your Pokémon\nto hold. Take this {STRVAR 8, 0}.\r
+The Pokémon that’s holding the\n{STRVAR 8, 0} will regain HP\fa little by inflicting damage.\rIt was given to me when I was on\nvacation, but I already had one.
 CLEFAIRY: Pippi!

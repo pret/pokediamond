@@ -12,15 +12,15 @@ PALKIA: Gagyagyaah!\r
 Boss: This world cannot be molded\ninto the ultimate world I seek!\rIt’s far easier to create an entirely\nnew world than to change this one!\rA new world in which I am the ruler\nof all things! I shall become a deity!
 Mars: There’s no need to rush.\rI can understand you want to battle\nour boss real bad, but you’ll have\fto go through me first.\rAfter all, you’ve made me look bad\nmore times than I care to remember!\r
 Jupiter: And I’ll be next.\rYou might be tough, but this time,\nthe gloves are coming off!\r
-{STRVAR 259, 0}: Hold on one second!\rDon’t you start the party without\nme!\r
+{STRVAR 3, 0}: Hold on one second!\rDon’t you start the party without\nme!\r
 Jupiter: Humph!\rWell, if it isn’t the little boy who\nran off crying at Lake Acuity!\rDid you get any tougher since then?\nWe’ll beat you two-on-two!\r
 Mars: You don’t think you can just\nrun off now, do you?\r
 Mars: Well, hotshot?\nNow what?
 Jupiter: Oh? You chickening out now?\rYou finally realized that you can’t\nbeat our boss, eh?\r
 Jupiter: What’s the matter?\nDon’t tell me you’re shaking?
-{STRVAR 259, 0}: ...Heh.\nMy Pokémon are tough, right?\fI can get even tougher!\r...But, you know, that’s it for us.\nWe’ve hit the wall...\r{STRVAR 259, 1}, I’ll help you with\nthis!\r
-{STRVAR 259, 0} fully healed\n{STRVAR 259, 1}’s Pokémon!\r
-{STRVAR 259, 0}: Hey, {STRVAR 259, 1}!\nThis is it! It’s your show now!
+{STRVAR 3, 0}: ...Heh.\nMy Pokémon are tough, right?\fI can get even tougher!\r...But, you know, that’s it for us.\nWe’ve hit the wall...\r{STRVAR 3, 1}, I’ll help you with\nthis!\r
+{STRVAR 3, 0} fully healed\n{STRVAR 3, 1}’s Pokémon!\r
+{STRVAR 3, 0}: Hey, {STRVAR 3, 1}!\nThis is it! It’s your show now!
 Boss: Oh! DIALGA...\nThis is...\rFantastic!\nBeautiful!\rIt’s the creation of a new galaxy!\nMy new world!\r
 Boss: Oh! PALKIA...\nThis is...\rFantastic!\nBeautiful!\rIt’s the creation of a new galaxy!\nMy new world!\r
 Boss: ...Wh-what?!\r
@@ -34,19 +34,19 @@ DIALGA: Gugyugubah!
 PALKIA: Gagyagyaah!
 DIALGA returned to the world from\nwhich it came...
 PALKIA returned to the world from\nwhich it came...
-Rowan: DIALGA, the master of\ntime...\rIt’s impossible to tell if it is\nenraged or saddened...\rBut to me, DIALGA appears to be\nwaiting for you, {STRVAR 259, 0}...\rIt seems to be challenging you\nas a test...\rGo on, {STRVAR 259, 0}.\nFace up to DIALGA!\rListen to its heart.\nUnderstand its thoughts.\rDIALGA is out of control after being\ndragged out by the Red Chain\fand forced to use its power.\rDIALGA seems to be entrusting you\nwith stopping it...
-Rowan: PALKIA, the master of\nspace and the dimensions...\rIt’s impossible to tell if it is\nenraged or saddened...\rBut to me, PALKIA appears to be\nwaiting for you, {STRVAR 259, 0}...\rIt seems to be challenging you\nas a test...\rGo on, {STRVAR 259, 0}.\nFace up to PALKIA!\rListen to its heart.\nUnderstand its thoughts.\rPALKIA is out of control after being\ndragged out by the Red Chain\fand forced to use its power.\rPALKIA seems to be entrusting you\nwith stopping it...
-Rowan: Go on, {STRVAR 259, 0}.\nFace up to the Pokémon!\rListen to its heart.\nUnderstand its thoughts.\rThe mythical Pokémon seems to be\nentrusting you with stopping it...\r
-Dawn: {STRVAR 259, 0}... I ran into\n{STRVAR 259, 1} a little while ago.\rHe said that he believed in you,\n{STRVAR 259, 0}.\rHe said that you could get the job\ndone.\rI feel the same way.\rPlease help that Pokémon!\rIt’s suffering from being dragged\nout by Team Galactic!
-Lucas: {STRVAR 259, 0}...\nI just ran into {STRVAR 259, 1}.\rHe said that he believed in you,\n{STRVAR 259, 0}.\rHe said that you could get the job\ndone.\rI think so too.\rYou’ve got to help that Pokémon!\rIt’s suffering from being dragged\nout by Team Galactic!
-Rowan: {STRVAR 259, 1}!\nI don’t know how...\rYou were magnificent.\nTruly, you were incredible.\rI’ve lived for sixty years, but I’ve\nnever been thrilled like this!\r
-Dawn: Since the last time, the\nprofessor did a lot of research...\rHe became very concerned about you,\n{STRVAR 259, 1}, so he came out to\fa place as treacherous as this...\r{STRVAR 259, 1}, I’m so glad you’re\nsafe.\rLet’s go home!\r
-Lucas: Since the last time, the\nprofessor did a lot of research...\rHe became very worried about you,\n{STRVAR 259, 1}, so he came out to\fa place as terrible as this...\r{STRVAR 259, 1}, I’m glad to see\nyou’re safe.\rLet’s leave this place already!\r
+Rowan: DIALGA, the master of\ntime...\rIt’s impossible to tell if it is\nenraged or saddened...\rBut to me, DIALGA appears to be\nwaiting for you, {STRVAR 3, 0}...\rIt seems to be challenging you\nas a test...\rGo on, {STRVAR 3, 0}.\nFace up to DIALGA!\rListen to its heart.\nUnderstand its thoughts.\rDIALGA is out of control after being\ndragged out by the Red Chain\fand forced to use its power.\rDIALGA seems to be entrusting you\nwith stopping it...
+Rowan: PALKIA, the master of\nspace and the dimensions...\rIt’s impossible to tell if it is\nenraged or saddened...\rBut to me, PALKIA appears to be\nwaiting for you, {STRVAR 3, 0}...\rIt seems to be challenging you\nas a test...\rGo on, {STRVAR 3, 0}.\nFace up to PALKIA!\rListen to its heart.\nUnderstand its thoughts.\rPALKIA is out of control after being\ndragged out by the Red Chain\fand forced to use its power.\rPALKIA seems to be entrusting you\nwith stopping it...
+Rowan: Go on, {STRVAR 3, 0}.\nFace up to the Pokémon!\rListen to its heart.\nUnderstand its thoughts.\rThe mythical Pokémon seems to be\nentrusting you with stopping it...\r
+Dawn: {STRVAR 3, 0}... I ran into\n{STRVAR 3, 1} a little while ago.\rHe said that he believed in you,\n{STRVAR 3, 0}.\rHe said that you could get the job\ndone.\rI feel the same way.\rPlease help that Pokémon!\rIt’s suffering from being dragged\nout by Team Galactic!
+Lucas: {STRVAR 3, 0}...\nI just ran into {STRVAR 3, 1}.\rHe said that he believed in you,\n{STRVAR 3, 0}.\rHe said that you could get the job\ndone.\rI think so too.\rYou’ve got to help that Pokémon!\rIt’s suffering from being dragged\nout by Team Galactic!
+Rowan: {STRVAR 3, 1}!\nI don’t know how...\rYou were magnificent.\nTruly, you were incredible.\rI’ve lived for sixty years, but I’ve\nnever been thrilled like this!\r
+Dawn: Since the last time, the\nprofessor did a lot of research...\rHe became very concerned about you,\n{STRVAR 3, 1}, so he came out to\fa place as treacherous as this...\r{STRVAR 3, 1}, I’m so glad you’re\nsafe.\rLet’s go home!\r
+Lucas: Since the last time, the\nprofessor did a lot of research...\rHe became very worried about you,\n{STRVAR 3, 1}, so he came out to\fa place as terrible as this...\r{STRVAR 3, 1}, I’m glad to see\nyou’re safe.\rLet’s leave this place already!\r
 Rowan: No one has the right to take\naway anyone’s future or anyone’s\fworld...
-Rowan: {STRVAR 259, 0}, I’ll be looking\nforward to seeing your Pokédex.\rGo wherever you’ve never visited\nbefore.\rThat way, you should see Pokémon\nyou haven’t yet seen.
+Rowan: {STRVAR 3, 0}, I’ll be looking\nforward to seeing your Pokédex.\rGo wherever you’ve never visited\nbefore.\rThat way, you should see Pokémon\nyou haven’t yet seen.
 Dawn: ...You know, that Pokémon was\nextraordinary, wasn’t it?\rWas it really the Pokémon that\ncreated the Sinnoh region...?
 Lucas: ...You know, that Pokémon was\nextraordinary, wasn’t it?\rWas it really the Pokémon that\ncreated the Sinnoh region...?
-{STRVAR 259, 0}’s Azure Flute is\nmaking a sound.\rWould you like to play\nthe Azure Flute?
-{STRVAR 259, 0} played\nthe Azure Flute.\r
+{STRVAR 3, 0}’s Azure Flute is\nmaking a sound.\rWould you like to play\nthe Azure Flute?
+{STRVAR 3, 0} played\nthe Azure Flute.\r
 A stairway of light appeared!
 The Azure Flute’s notes rang hollowly\nto no effect...\rIt appears to be useless here...

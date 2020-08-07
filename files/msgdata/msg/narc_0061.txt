@@ -2,7 +2,7 @@ Yay! I got a Pal Pad at the\nPokémon Wi-Fi Club downstairs!
 Switch on the PC at any Pokémon\nCenter and connect to the\fPokémon Storage System.\rThat’s all you need to do to store\nor bring out your Pokémon.
 Hmmm...\rWhat is your favorite kind of\nTrainer? Can you tell me?\r
 Which kind of Trainer would you like\nto be?
-{STRVAR 270, 0} is the kind of\nTrainer you want to be?
-I see! So {STRVAR 270, 0} is the\nkind of Trainer you like.\rIf that’s the case, others may come\nto see you in the same way.\r
+{STRVAR 14, 0} is the kind of\nTrainer you want to be?
+I see! So {STRVAR 14, 0} is the\nkind of Trainer you like.\rIf that’s the case, others may come\nto see you in the same way.\r
 OK, then I’ll just talk to you later!
-Hello! You’ve been mistaken for\n{STRVAR 270, 0}, haven’t you?\rBut I think you can also pass for\na different kind of Trainer.\rSo, how about telling me what kind of\nTrainer that you like?\r
+Hello! You’ve been mistaken for\n{STRVAR 14, 0}, haven’t you?\rBut I think you can also pass for\na different kind of Trainer.\rSo, how about telling me what kind of\nTrainer that you like?\r

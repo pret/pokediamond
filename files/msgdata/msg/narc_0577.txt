@@ -1,14 +1,14 @@
 You’ve got a Sphere or two?\nIf you do, I’ll trade you something.
-Which Sphere will you trade me for\nmy {STRVAR 281, 2}?
+Which Sphere will you trade me for\nmy {STRVAR 25, 2}?
 All right!\nLet’s do this trade!
 Oh, now wait a second!\nYou don’t have any room for this!
 That’s not the right kind of Sphere!
 Hmm...\nNo, this Sphere’s not big enough.
-The {STRVAR 281, 2}\nwas obtained!
-You obtained a {STRVAR 281, 2},\nsize {STRVAR 307, 6}.
+The {STRVAR 25, 2}\nwas obtained!
+You obtained a {STRVAR 25, 2},\nsize {STRVAR 51, 6}.
 Do you need anything else?
 I’ll be seeing you, then!
-You’ll trade your {STRVAR 281, 2}\nfor my {STRVAR 281, 4}?
+You’ll trade your {STRVAR 25, 2}\nfor my {STRVAR 25, 4}?
 All right!\nLet’s trade!
 Oh, now wait a second! You don’t\nhave room for another Sphere!
 GET TRAP
@@ -23,7 +23,7 @@ Goods on\n hand
 CANCEL
 Required Sphere
 Offered Sphere
-{STRVAR 281, 2} {STRVAR 307, 6}
+{STRVAR 25, 2} {STRVAR 51, 6}
 NOT FOR SALE
 You have any treasures? I’ll trade\nyou some Spheres for them.
 GIVE TREASURES
@@ -89,4 +89,4 @@ Treasures\n on hand
                                    
                        
                                        
-Roark: Hey! {STRVAR 259, 0}!\nIs this maybe your first time here?\rWelcome to Sinnoh’s Underground!\rHuh? Where is this, you ask?\nDoesn’t the Radar make it obvious?\rThis is a giant underground network\nof passages underneath Sinnoh.\rHuh? What am I doing down in this\nexpanse of a place?\rThat’s kind of hard to answer.\rI mean, you can do pretty much\nanything you want down here.\rFor instance, you can dig up Treasure,\nSpheres, and make a Secret Base.\rYou can play with your friends down\nhere, too.\rYou should talk to the Underground\nMan in Eterna City.\rI have to get going now.\nI’ll see you around!
+Roark: Hey! {STRVAR 3, 0}!\nIs this maybe your first time here?\rWelcome to Sinnoh’s Underground!\rHuh? Where is this, you ask?\nDoesn’t the Radar make it obvious?\rThis is a giant underground network\nof passages underneath Sinnoh.\rHuh? What am I doing down in this\nexpanse of a place?\rThat’s kind of hard to answer.\rI mean, you can do pretty much\nanything you want down here.\rFor instance, you can dig up Treasure,\nSpheres, and make a Secret Base.\rYou can play with your friends down\nhere, too.\rYou should talk to the Underground\nMan in Eterna City.\rI have to get going now.\nI’ll see you around!

@@ -6,7 +6,7 @@ Last question: describe how you’d feel\nif you became number one.\r
 Hunh? You changed your mind?\nI guess you’re fickle.
 Thank you!\nCan you answer another question?
 Gotcha! Thanks!
-Gotcha! Thanks!\nOK, {STRVAR 284, 0}...
+Gotcha! Thanks!\nOK, {STRVAR 28, 0}...
 Before battle
 Upon winning
 Upon losing

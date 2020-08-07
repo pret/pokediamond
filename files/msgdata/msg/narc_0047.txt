@@ -1,11 +1,11 @@
-{STRVAR 259, 0}: Whoops!\nHey, {STRVAR 259, 1}!\rYou’re going to challenge the Gym\nLeader up past here, eh?\rSomeone should check to see if you’re\nready for this challenge!\rThat someone is me!\nWith my brand-new Gym Badge!\r
-{STRVAR 259, 0}: Yeah, yeah, you’re just\na bit better than me, as usual.\rBut listen up!\rLet me tell you who’s going to take\non the Pokémon League and become\fthe Champion.\rYou guessed right!\nIt’s going to be me!\rAnyways, you should be able to\ntake the Gym Leader here.\rHurry up and go make the challenge!\r
-{STRVAR 259, 0}: Hey! That’s the Mine\nBadge! Good going!\rYou’re tough enough to consider\nbecoming the Pokémon Champ.\rOf course, I’m tougher, so it’s\nnot going to actually happen.\rAnyways, {STRVAR 259, 1}, come with\nme to the library.\r
+{STRVAR 3, 0}: Whoops!\nHey, {STRVAR 3, 1}!\rYou’re going to challenge the Gym\nLeader up past here, eh?\rSomeone should check to see if you’re\nready for this challenge!\rThat someone is me!\nWith my brand-new Gym Badge!\r
+{STRVAR 3, 0}: Yeah, yeah, you’re just\na bit better than me, as usual.\rBut listen up!\rLet me tell you who’s going to take\non the Pokémon League and become\fthe Champion.\rYou guessed right!\nIt’s going to be me!\rAnyways, you should be able to\ntake the Gym Leader here.\rHurry up and go make the challenge!\r
+{STRVAR 3, 0}: Hey! That’s the Mine\nBadge! Good going!\rYou’re tough enough to consider\nbecoming the Pokémon Champ.\rOf course, I’m tougher, so it’s\nnot going to actually happen.\rAnyways, {STRVAR 3, 1}, come with\nme to the library.\r
 Rowan: !\r...That tremor...\nThat wasn’t a natural occurrence.\r
-Hey, hey! Old dude and kids!\nSomething big just happened!\rThey’re saying there was a huge\nexplosion at Lake Valor!\r{STRVAR 65281, 200}Ka-boom!!{STRVAR 65281, 100}\r{STRVAR 65281, 200}{STRVAR 65281, 100}Like that!\r
-{STRVAR 259, 0}: Gramps!\rI’m going to the lake!\nI have a bad feeling about this!\r
-Rowan: !\r...That {STRVAR 259, 0}...\nCan’t sit still...\r{STRVAR 259, 1}, I’m worried about\nLake Valor.\rBut I have no idea what is taking\nplace. You must find out!\rBut before you go, let me stress:\ndon’t get in over your head.\rWe will try to join you as soon as\nwe inspect Lake Verity.\r
-Dawn: ...{STRVAR 259, 0}, you’ll be OK,\nwon’t you?
+Hey, hey! Old dude and kids!\nSomething big just happened!\rThey’re saying there was a huge\nexplosion at Lake Valor!\r{SIZE 200}Ka-boom!!{SIZE 100}\r{SIZE 200}{SIZE 100}Like that!\r
+{STRVAR 3, 0}: Gramps!\rI’m going to the lake!\nI have a bad feeling about this!\r
+Rowan: !\r...That {STRVAR 3, 0}...\nCan’t sit still...\r{STRVAR 3, 1}, I’m worried about\nLake Valor.\rBut I have no idea what is taking\nplace. You must find out!\rBut before you go, let me stress:\ndon’t get in over your head.\rWe will try to join you as soon as\nwe inspect Lake Verity.\r
+Dawn: ...{STRVAR 3, 0}, you’ll be OK,\nwon’t you?
 Lucas: Lake Valor...\nI wonder what happened?
 Dawn: We’re going off to Lake Verity\nfirst...\rDon’t do anything rash if something\ndoes happen.
 Lucas: We’re going to investigate\nLake Verity before we join you.\rDon’t try to be a hero if anything\ncrazy happens.

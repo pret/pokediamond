@@ -1,7 +1,7 @@
-{STRVAR 259, 1}: Hey, {STRVAR 259, 0}!\nDid you come to study, too?\rI went ahead and memorized everything\nthat was up on the blackboard.\rAfter all, it’s the Trainer’s job to\navoid having their precious Pokémon\fhurt in battle, right?\rSo, {STRVAR 259, 0}, what brings you?\nHuh?\fYou’ve got something for me?\r
-{STRVAR 259, 0} delivered the Parcel.
-{STRVAR 259, 1}: So, what is this...?\rScore!\nIt’s a Town Map!\rHuh?!\nWhy are there two in here?\rI like it a lot, but I don’t need two.\nHere, {STRVAR 259, 0}, you take one!\r
-{STRVAR 259, 1}: Hmm...\rWell, according to the Town Map,\nI guess Oreburgh City is where\fI should be going next.\rThere’s a Gym, so it’d be perfect for\nraising the Pokémon I just caught.\rWell, I’m on the road to becoming\nthe greatest Trainer of all time!\rSee you around!\r
+{STRVAR 3, 1}: Hey, {STRVAR 3, 0}!\nDid you come to study, too?\rI went ahead and memorized everything\nthat was up on the blackboard.\rAfter all, it’s the Trainer’s job to\navoid having their precious Pokémon\fhurt in battle, right?\rSo, {STRVAR 3, 0}, what brings you?\nHuh?\fYou’ve got something for me?\r
+{STRVAR 3, 0} delivered the Parcel.
+{STRVAR 3, 1}: So, what is this...?\rScore!\nIt’s a Town Map!\rHuh?!\nWhy are there two in here?\rI like it a lot, but I don’t need two.\nHere, {STRVAR 3, 0}, you take one!\r
+{STRVAR 3, 1}: Hmm...\rWell, according to the Town Map,\nI guess Oreburgh City is where\fI should be going next.\rThere’s a Gym, so it’d be perfect for\nraising the Pokémon I just caught.\rWell, I’m on the road to becoming\nthe greatest Trainer of all time!\rSee you around!\r
 You just became a Trainer, did you?\rYou should look up topics that you’re\nnot familiar with.
                              
 We learned about Pokémon types\ntoday. Umm...\rGrass is weak to Fire,\nFire is weak to Water, and\fWater is weak to Grass!\rI think that’s how it goes!

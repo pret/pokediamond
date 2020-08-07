@@ -5,16 +5,16 @@ Use that Sprayduck to water the soil\nwhere you’ve planted Berries.\rYou shoul
 Hello!\rWould you like to exchange your\nBerries for some Accessories?
 Thank you so much for trading us so\nmany Berries!
 Which Accessory would you like?
-Will you exchange {STRVAR 308, 1} {STRVAR 264, 0}\nfor the {STRVAR 287, 2}?
+Will you exchange {STRVAR 52, 1} {STRVAR 8, 0}\nfor the {STRVAR 31, 2}?
 Thank you!
 You don’t have enough Berries.
 Oh, you can’t carry any more\nthan that.
 Please come again!
-You got the {STRVAR 287, 2} in return\nfor {STRVAR 308, 1} {STRVAR 264, 0}.
+You got the {STRVAR 31, 2} in return\nfor {STRVAR 52, 1} {STRVAR 8, 0}.
 Wow! I traded away every single\nAccessory I had!
 YES
 NO
-{STRVAR 264, 0}
-Needed: {STRVAR 308, 1} 
-In Bag: {STRVAR 308, 2}
+{STRVAR 8, 0}
+Needed: {STRVAR 52, 1} 
+In Bag: {STRVAR 52, 2}
 EXIT

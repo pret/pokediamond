@@ -1,4 +1,4 @@
-Oh, is that a Pokédex?\nYou must be helping Professor Rowan?\rWhat’s your name?\r...\rOK, hello, {STRVAR 259, 0}.\nI’ll be sure to remember that name!\rMy name is Cynthia.\nI’m a Trainer just like you.\rI’ve been studying Pokémon mythology\nlately, just out of curiosity.\r
+Oh, is that a Pokédex?\nYou must be helping Professor Rowan?\rWhat’s your name?\r...\rOK, hello, {STRVAR 3, 0}.\nI’ll be sure to remember that name!\rMy name is Cynthia.\nI’m a Trainer just like you.\rI’ve been studying Pokémon mythology\nlately, just out of curiosity.\r
 Here in Eterna City, there is a\nstatue of an ancient Pokémon.\rAccording to myth, it was an\nextremely powerful Pokémon.\rWho knows? You may encounter\nsomething like it while you’re\ftraveling with your Pokédex.\rTry using this.\nIt should help you on your way.\r
 Cynthia: Remember, the hidden move\nCut can be used in the field.\rIt will let you go places that were\npreviously inaccessible to you.\rThat’s important for filling up your\nPokédex, right?\rThen luck be with you, young Trainer!\r
 Hey! You there, kid!\nStay away from that Pokémon statue!\rTeam Galactic is conducting an\nofficial investigation here!

@@ -1,14 +1,14 @@
 Prism Sphere
 Prism Sphere
-{STRVAR 65280, 4}Pale Sphere{STRVAR 65280, 0}
-{STRVAR 65280, 1}Red Sphere{STRVAR 65280, 0}
-{STRVAR 65280, 2}Blue Sphere{STRVAR 65280, 0}
-{STRVAR 65280, 3}Green Sphere{STRVAR 65280, 0}
+{COLOR 4}Pale Sphere{COLOR 0}
+{COLOR 1}Red Sphere{COLOR 0}
+{COLOR 2}Blue Sphere{COLOR 0}
+{COLOR 3}Green Sphere{COLOR 0}
 Prism Sphere
-{STRVAR 65280, 4}Pale Sphere{STRVAR 65280, 0}
-{STRVAR 65280, 1}Red Sphere{STRVAR 65280, 0}
-{STRVAR 65280, 2}Blue Sphere{STRVAR 65280, 0}
-{STRVAR 65280, 3}Green Sphere{STRVAR 65280, 0}
+{COLOR 4}Pale Sphere{COLOR 0}
+{COLOR 1}Red Sphere{COLOR 0}
+{COLOR 2}Blue Sphere{COLOR 0}
+{COLOR 3}Green Sphere{COLOR 0}
 Oval Stone
 Odd Keystone
 Sun Stone

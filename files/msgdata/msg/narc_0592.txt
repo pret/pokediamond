@@ -1,19 +1,19 @@
                  
 Logging on to Nintendo WFC.\nPlease wait...
-{STRVAR 259, 0} is seeking someone\nto battle.
-{STRVAR 259, 0} is seeking someone\nto trade with.
-{STRVAR 259, 0} is on standby.
+{STRVAR 3, 0} is seeking someone\nto battle.
+{STRVAR 3, 0} is seeking someone\nto trade with.
+{STRVAR 3, 0} is on standby.
 What would you like to seek?
 Suspend your invitation?
-{STRVAR 259, 0} contacted you!
+{STRVAR 3, 0} contacted you!
 Would you like to log out of\nNintendo WFC?
                             
-{STRVAR 259, 0} invites you for\na voice chat!
-{STRVAR 259, 0} appears to be busy...
-You can’t connect with\n{STRVAR 259, 0}.
-Communicating with {STRVAR 259, 0}...
-{STRVAR 259, 0} failed to respond...
-{STRVAR 259, 0} ended the voice chat.
+{STRVAR 3, 0} invites you for\na voice chat!
+{STRVAR 3, 0} appears to be busy...
+You can’t connect with\n{STRVAR 3, 0}.
+Communicating with {STRVAR 3, 0}...
+{STRVAR 3, 0} failed to respond...
+{STRVAR 3, 0} ended the voice chat.
 Would you like to end\nthis voice chat?
 Nintendo Wi-Fi Connection
 Connected Friends
@@ -30,24 +30,24 @@ INVITE
 APPLY
 RECORDS
 CANCEL
-{STRVAR 259, 0}
+{STRVAR 3, 0}
 GROUP
 BATTLE RECORD
-WIN: {STRVAR 309, 0}
-LOSE: {STRVAR 309, 0}
+WIN: {STRVAR 53, 0}
+LOSE: {STRVAR 53, 0}
 POKéMON TRADES
-{STRVAR 309, 0} time
+{STRVAR 53, 0} time
 DATE LAST PLAYED
-{STRVAR 330, 1} {STRVAR 307, 2}, {STRVAR 309, 0}
-This is your record with\n{STRVAR 259, 0}.
-{STRVAR 259, 0} wants to play with you!
-Would you like to have another\nbattle against {STRVAR 259, 0}?
-Would you like to do another\ntrade with {STRVAR 259, 0}?
+{STRVAR 74, 1} {STRVAR 51, 2}, {STRVAR 53, 0}
+This is your record with\n{STRVAR 3, 0}.
+{STRVAR 3, 0} wants to play with you!
+Would you like to have another\nbattle against {STRVAR 3, 0}?
+Would you like to do another\ntrade with {STRVAR 3, 0}?
 Standing by...
 DISCONNECT
-{STRVAR 259, 0} is in a battle.
-{STRVAR 259, 0} is trading.
-{STRVAR 259, 0} is having\na voice chat.
+{STRVAR 3, 0} is in a battle.
+{STRVAR 3, 0} is trading.
+{STRVAR 3, 0} is having\na voice chat.
                               
 Reconnect to Nintendo WFC?
 You need at least two Pokémon\nif you want to trade!
@@ -76,5 +76,5 @@ Waiting for the other player to\ndecide. Please wait...
                       
 Delay will be turned ON.\r
 Delay OFF = Standard mode\r
-{STRVAR 259, 0}
-{STRVAR 309, 0} times
+{STRVAR 3, 0}
+{STRVAR 53, 0} times

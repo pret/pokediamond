@@ -39,7 +39,7 @@ Please pick up your gift from the\ndeliveryman in any Poké Mart.
 You have already received\nthis gift before.
 This card does not have\na gift attached.
 Date received
-This gift can be distributed {STRVAR 308, 0} time(s).
+This gift can be distributed {STRVAR 52, 0} time(s).
 INFO
 SHARE
 TRASH
@@ -47,14 +47,14 @@ EXIT
 Would you like to share this gift?
 YES
 NO
-{STRVAR 330, 1} {STRVAR 307, 2}, {STRVAR 309, 0}
+{STRVAR 74, 1} {STRVAR 51, 2}, {STRVAR 53, 0}
                
 This gift can be shared with as\nmany friends as you like.
 Pal Distribution Registration
-{STRVAR 259, 0}
-IDNo.{STRVAR 310, 0}
+{STRVAR 3, 0}
+IDNo.{STRVAR 54, 0}
 Current\nentries
-{STRVAR 65280, 1}{STRVAR 306, 0}{STRVAR 65280, 0}/4
+{COLOR 1}{STRVAR 50, 0}{COLOR 0}/4
 SEND
 CANCEL
 Gift distribution under way...\nDon’t turn off the power.
@@ -64,10 +64,10 @@ Throw this card away?
 Discarding...\nDon’t turn off the power.
 YES
 NO
-{STRVAR 65280, 3}{STRVAR 259, 0}{STRVAR 65280, 2} {STRVAR 65280, 0}IDNo.{STRVAR 310, 1}
+{COLOR 3}{STRVAR 3, 0}{COLOR 2} {COLOR 0}IDNo.{STRVAR 54, 1}
          
 Registration No.
-{STRVAR 309, 0}-{STRVAR 309, 1}
+{STRVAR 53, 0}-{STRVAR 53, 1}
 Receiving a solicitation from\nPokémon Ranger.
 Awaiting transfer from Pokémon\nRanger.
 Receiving the MANAPHY Egg...\nDon’t turn off the power.

@@ -39,11 +39,11 @@ OK, our theme this time is...\n“The Flexible”!\r
 OK, our theme this time is...\n“The Festive”!\r
 OK, our theme this time is...\n“The Intangible”!\r
 OK, our theme this time is...\n“The Relaxed”!\r
-The time limit is 60 seconds!\nYou are allowed {STRVAR 307, 0} Accessories!\rMake sure they are securely set!\nBegin dressing up now!\r
-The time limit is 60 seconds!\nYou are allowed {STRVAR 307, 0} Accessories!\rYour fashion sense is on trial!\nBegin dressing up now!\r
-{STRVAR 290, 0} {STRVAR 291, 1}
-{STRVAR 259, 3}’s {STRVAR 257, 4}
-{STRVAR 284, 0}
+The time limit is 60 seconds!\nYou are allowed {STRVAR 51, 0} Accessories!\rMake sure they are securely set!\nBegin dressing up now!\r
+The time limit is 60 seconds!\nYou are allowed {STRVAR 51, 0} Accessories!\rYour fashion sense is on trial!\nBegin dressing up now!\r
+{STRVAR 34, 0} {STRVAR 35, 1}
+{STRVAR 3, 3}’s {STRVAR 1, 4}
+{STRVAR 28, 0}
 Communicating. Please standby...
 You can see your Accessories on the\nleft side of the lower screen.\rTouch an Accessory, drag it to\nyour Pokémon on the right, and\fposition it securely.\rYou can put on ten Accessories,\nso you should check for the right\fones using the arrow buttons.\rChange the background with the\nsquare button at the center right.\rOK? Let’s begin dressing up!
 
