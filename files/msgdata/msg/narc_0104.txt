@@ -1,6 +1,6 @@
-{STRVAR 65281, 1, 200}Ohohoho!!{STRVAR 65281, 1, 100}\rFinally, you have arrived!\rSince I came to this country, always\nI try to learn new things.\rThey hold Contests in this city?\nI say to myself, enfin, I will excel.\rThat is why I dress this way.\nC’est une performance!\rAlso, I study Pokémon very much.\nI have come to be Gym Leader.\rAnd, uh, so it shall be that you\nchallenge me.\rBut I shall win.\nThat is what a Gym Leader does, non?\r
+{STRVAR 65281, 200}Ohohoho!!{STRVAR 65281, 100}\rFinally, you have arrived!\rSince I came to this country, always\nI try to learn new things.\rThey hold Contests in this city?\nI say to myself, enfin, I will excel.\rThat is why I dress this way.\nC’est une performance!\rAlso, I study Pokémon very much.\nI have come to be Gym Leader.\rAnd, uh, so it shall be that you\nchallenge me.\rBut I shall win.\nThat is what a Gym Leader does, non?\r
 I am dumbfounded!\rSo very, very strong!\nYou, your Pokémon, so strong!\rYour power is admirable!\nI shall honor it with this Gym Badge!\r
-{STRVAR 259, 1, 0} received\nthe Relic Badge from Fantina!
+{STRVAR 259, 0} received\nthe Relic Badge from Fantina!
 That Badge will let you use the\nhidden move Surf outside of battle.\rAlso, you can make use of this\nTechnical Machine.\rThat is what I think.\r
-That {STRVAR 264, 1, 0}...\nIt contains {STRVAR 262, 1, 1}.\rA very startling move it is.\nIts hits turn critical often!
+That {STRVAR 264, 0}...\nIt contains {STRVAR 262, 1}.\rA very startling move it is.\nIts hits turn critical often!
 Five Gym Badges...\rBut you must not forget this.\nThere are many other Trainers.\rStrong Trainers, too.\nThere are many more in Sinnoh.\rHave patience! You must become\nstronger, one at a time.

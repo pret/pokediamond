@@ -1088,7 +1088,7 @@ _02255048:
 	sub r3, r5, r3
 	add r0, r4, #0
 	lsr r3, r3, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl FUN_02019548
 	add sp, #0x10
@@ -1126,7 +1126,7 @@ MOD38_02255084: ; 0x02255084
 	ldr r2, [r5]
 	add r0, r4, #0
 	add r3, r1, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl FUN_02019548
 	add sp, #0x10

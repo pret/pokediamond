@@ -1,44 +1,44 @@
 PAL PAD
 CHECK FRIEND ROSTER
 REGISTER FRIEND CODE
-{STRVAR 259, 1, 0}’s CODE
+{STRVAR 259, 0}’s CODE
 EXIT
 FRIEND ROSTER
-{STRVAR 259, 1, 0}
+{STRVAR 259, 0}
 CANCEL
 DETAILS
 REWRITE NAMES
 DELETE
 CANCEL
-What would you like to do\nwith {STRVAR 259, 1, 0}’s data?
-RECORD WITH {STRVAR 259, 1, 0}
+What would you like to do\nwith {STRVAR 259, 0}’s data?
+RECORD WITH {STRVAR 259, 0}
 GROUP
 BATTLE RECORD
-WIN: {STRVAR 309, 1, 0}
-LOSE: {STRVAR 309, 1, 0}
+WIN: {STRVAR 309, 0}
+LOSE: {STRVAR 309, 0}
 POKéMON TRADES
-{STRVAR 309, 1, 0} time
+{STRVAR 309, 0} time
 DATE LAST PLAYED
-{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, {STRVAR 309, 1, 0}
-{STRVAR 259, 1, 0}’s CODE
+{STRVAR 330, 1} {STRVAR 307, 2}, {STRVAR 309, 0}
+{STRVAR 259, 0}’s CODE
 By exchanging Friend Codes\nwith other players, you may\ntrade and battle with them\nover Nintendo WFC.
 To obtain your Friend Code,\nplease log on to the\nNintendo WFC.
-{STRVAR 309, 1, 1} {STRVAR 309, 1, 2} {STRVAR 309, 1, 3}\n{STRVAR 259, 1, 0} will be registered.
-The Friend Code is wrong.\n{STRVAR 309, 1, 1} {STRVAR 309, 1, 2} {STRVAR 309, 1, 3}
-{STRVAR 309, 1, 1} {STRVAR 309, 1, 2} {STRVAR 309, 1, 3}
-{STRVAR 259, 1, 0} will be deleted.\nAre you sure about this?
+{STRVAR 309, 1} {STRVAR 309, 2} {STRVAR 309, 3}\n{STRVAR 259, 0} will be registered.
+The Friend Code is wrong.\n{STRVAR 309, 1} {STRVAR 309, 2} {STRVAR 309, 3}
+{STRVAR 309, 1} {STRVAR 309, 2} {STRVAR 309, 3}
+{STRVAR 259, 0} will be deleted.\nAre you sure about this?
 Your Friend Roster is full!
 That Friend Code has already been\nregistered before.
-{STRVAR 259, 1, 0}’s Friend Code:\n{STRVAR 309, 1, 1} {STRVAR 309, 1, 2} {STRVAR 309, 1, 3}
+{STRVAR 259, 0}’s Friend Code:\n{STRVAR 309, 1} {STRVAR 309, 2} {STRVAR 309, 3}
 CHECK FRIEND CODE
-Register {STRVAR 259, 1, 0} in your\nPal Pad?
+Register {STRVAR 259, 0} in your\nPal Pad?
 Your Friend Roster is full.\nWill you delete someone?
-Give up on registering\n{STRVAR 259, 1, 0}?
-Delete {STRVAR 259, 1, 0}’s data from\nyour Friend Roster?
+Give up on registering\n{STRVAR 259, 0}?
+Delete {STRVAR 259, 0}’s data from\nyour Friend Roster?
 
 
 
 
 
-{STRVAR 259, 1, 0}
-{STRVAR 309, 1, 0} times
+{STRVAR 259, 0}
+{STRVAR 309, 0} times

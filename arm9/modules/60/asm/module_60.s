@@ -273,7 +273,7 @@ _021D7706:
 	mov r0, #0
 	pop {r3, r4, pc}
 _021D7714:
-	ldr r0, _021D77AC ; =gUnknown21C48B8
+	ldr r0, _021D77AC ; =gMain
 	mov r1, #1
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -352,7 +352,7 @@ _021D77A0:
 	add sp, #0xc
 	pop {r3, r4, pc}
 	.align 2, 0
-_021D77AC: .word gUnknown21C48B8
+_021D77AC: .word gMain
 _021D77B0: .word 0x0000061B
 	thumb_func_end MOD60_021D76B8
 
@@ -1016,7 +1016,7 @@ MOD60_021D7D18: ; 0x021D7D18
 	add r0, #0x2c
 	add r2, r5, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0
 	bl StringSetEmpty
 	ldr r1, _021D7DF0 ; =gGameVersion
@@ -1036,7 +1036,7 @@ MOD60_021D7D18: ; 0x021D7D18
 	mov r1, #1
 	add r2, r5, #0
 	mov r3, #4
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r7, r6, #0
 	mov r4, #0
 	add r7, #0x3c
@@ -1059,7 +1059,7 @@ _021D7D7E:
 	add r0, r7, #0
 	add r2, r5, #0
 	mov r3, #4
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	lsr r4, r0, #0x10
@@ -1235,7 +1235,7 @@ MOD60_021D7EA4: ; 0x021D7EA4
 	add r2, r3, r2
 	ldr r2, [r2, #0x60]
 	mov r3, #0x94
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	add r0, #0x3c
 	bl FUN_020191D0
@@ -1321,7 +1321,7 @@ _021D7F8E:
 	ldr r2, [r6, #0x60]
 	mov r1, #0
 	add r3, #0x64
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0
 	ldr r1, [r6, #0x60]
 	add r2, r0, #0
@@ -1351,7 +1351,7 @@ _021D7FC8:
 	ldr r0, [sp, #0x20]
 	ldr r2, [r2, #0x60]
 	add r3, r6, r3
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _021D7FF2:
 	add r0, r4, #1
 	lsl r0, r0, #0x10
@@ -1388,7 +1388,7 @@ MOD60_021D801C: ; 0x021D801C
 	add r4, r1, r0
 	cmp r2, #6
 	beq _021D8080
-	ldr r0, _021D80F8 ; =gUnknown21C48B8
+	ldr r0, _021D80F8 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x10
 	tst r0, r1
@@ -1424,7 +1424,7 @@ _021D805C:
 	lsr r1, r1, #0x10
 	bl MOD60_021D7EA4
 _021D8080:
-	ldr r0, _021D80F8 ; =gUnknown21C48B8
+	ldr r0, _021D80F8 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x40
 	tst r0, r1
@@ -1483,7 +1483,7 @@ _021D80BE:
 _021D80F6:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_021D80F8: .word gUnknown21C48B8
+_021D80F8: .word gMain
 	thumb_func_end MOD60_021D801C
 
 	.rodata

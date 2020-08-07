@@ -1,8 +1,8 @@
-Oak: Ah, {STRVAR 259, 1, 0}!\nIt’s good to see you!\rWithout any further ado, I’d like you\nto examine this stone tablet.\rSomething just like it was also\ndiscovered in the Kanto region.\rI want to ask for your help in\nsolving the mystery behind this.\r
-Oak: Ah, {STRVAR 259, 1, 0}!\nIt’s good to see you!\rWithout any further ado, I’d like you\nto examine this stone tablet.\rSomething just like it was also\ndiscovered in the Kanto region.\rI want to ask for your help in\nsolving the mystery behind this.\r
+Oak: Ah, {STRVAR 259, 0}!\nIt’s good to see you!\rWithout any further ado, I’d like you\nto examine this stone tablet.\rSomething just like it was also\ndiscovered in the Kanto region.\rI want to ask for your help in\nsolving the mystery behind this.\r
+Oak: Ah, {STRVAR 259, 0}!\nIt’s good to see you!\rWithout any further ado, I’d like you\nto examine this stone tablet.\rSomething just like it was also\ndiscovered in the Kanto region.\rI want to ask for your help in\nsolving the mystery behind this.\r
 I tried deciphering the engravings on\nthe stone tablet.\rApparently, it is for a Trainer to\nengrave their thoughts after growing\fas a person through adventure.\rA Trainer fitting that description\nwould be you.\rThat’s why I’m asking you for your\nhelp.\rYou’ve met many people and Pokémon,\nand experienced many things that\fshaped you into the person you are.\rI want you to sincerely tell me who\naffected you the most.\rTell me, to whom do you most want\nto say your thanks?\r
-Hm...\rYou most want to express your\nthanks to {STRVAR 284, 1, 1}?\rYou’re absolutely certain of it?
+Hm...\rYou most want to express your\nthanks to {STRVAR 284, 1}?\rYou’re absolutely certain of it?
 Oak: ?!\nWhat was that Pokémon?\rIs it somehow connected to\nthe stone tablet?\rHmm... Where did that Pokémon go?\nIts destination is intriguing...
 Oak: What’s wrong? You’re not\nsuggesting there’s no one?\rTell me, to whom do you most want\nto say your thanks?\r
 The surface is unmarked.\nIt is polished like a mirror.
-{STRVAR 284, 1, 1}, to whom I give\nmy thanks.
+{STRVAR 284, 1}, to whom I give\nmy thanks.

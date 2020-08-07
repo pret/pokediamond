@@ -3,7 +3,7 @@ You’ll find a cave if you walk straight\ndown this road.\fYou should go there 
 You’ll find a cave if you walk straight\ndown this road.\fYou should go there and check it out!\r
 A Pokémon Watch is for all Trainers!\nWe call it a Pokétch for short!\r
 There are various Pokétch apps\nthat you can add to it!
-{STRVAR 259, 1, 0} obtained the Digital Watch\nPokétch app!\r
+{STRVAR 259, 0} obtained the Digital Watch\nPokétch app!\r
 Wow! You’ve done a great job.\rI can sense that you could be a truly\ngreat Pokémon Trainer.\rYou have the Thorn Pokémon ROSELIA.\nSome Pokémon that haven’t evolved in\rother regions might evolve here in\nthe Sinnoh region.\rHmm... Let’s see what happens with\nyour ROSELIA...\r
 Wow! You’ve done a great job.\rI can sense that you could be a truly\ngreat Pokémon Trainer.\rYou have the Thorn Pokémon ROSELIA.\nSome Pokémon that haven’t evolved in\rother regions might evolve here in\nthe Sinnoh region.\rLet’s heal your ROSELIA and see what\nhappens...\r
 A wondrous journey awaits you in\nthe Sinnoh region!\r

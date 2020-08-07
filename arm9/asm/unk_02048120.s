@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -178,7 +178,7 @@ _02048258:
 	str r0, [r4, #0x0]
 	b _020482EA
 _02048268:
-	ldr r0, _020482F0 ; =gUnknown21C48B8
+	ldr r0, _020482F0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -241,7 +241,7 @@ _020482EA:
 	add sp, #0xc
 	pop {r3-r4, pc}
 	.balign 4
-_020482F0: .word gUnknown21C48B8
+_020482F0: .word gMain
 
 	thumb_func_start FUN_020482F4
 FUN_020482F4: ; 0x020482F4
@@ -271,7 +271,7 @@ FUN_020482F4: ; 0x020482F4
 	ldr r0, [r5, #0x20]
 	add r1, r4, #0x0
 	add r2, r6, #0x0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0x0
 	add r1, r4, #0x0
 	add r2, r0, #0x0
@@ -295,7 +295,7 @@ FUN_020482F4: ; 0x020482F4
 	sub r3, r3, #0x4
 	lsl r3, r3, #0x18
 	lsr r3, r3, #0x18
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0x0
 	bl String_dtor
 	add r0, r4, #0x0

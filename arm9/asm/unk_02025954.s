@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -61,7 +61,7 @@ FUN_0202597C: ; 0x0202597C
 	add r0, sp, #0xc
 	add r1, sp, #0x0
 	bl FUN_0201265C
-	ldr r0, _020259D8 ; =gUnknown21C48B8
+	ldr r0, _020259D8 ; =gMain
 	ldr r6, [sp, #0xc]
 	ldr r1, [sp, #0x8]
 	ldr r0, [r0, #0x2c]
@@ -99,7 +99,7 @@ FUN_0202597C: ; 0x0202597C
 	add sp, #0x1c
 	pop {r4-r7, pc}
 	nop
-_020259D8: .word gUnknown21C48B8
+_020259D8: .word gMain
 _020259DC: .word 0x000009B4
 
 	thumb_func_start FUN_020259E0

@@ -333,7 +333,7 @@ _02033B22:
 	bl FUN_0202DFFC
 	add r1, r0, #0x0
 	ldr r0, [sp, #0x10]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r2, [sp, #0x10]
 	add r0, r4, #0x0
 	add r1, r5, #0x0

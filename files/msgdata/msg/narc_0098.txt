@@ -2,8 +2,8 @@ Oh, thank goodness that you happened\nto be there!\rIf it weren’t for you, who
 Baby BUNEARY, back into the Poké\nBall you go!\r
 I’m Keira!\nI’m a Pokémon Contest Judge.\rPlease drop by the Contest Hall\nso I can thank you properly!\r
 Oh, I’m so sorry!\nPlease excuse me.\rAre you entering a Contest?\nTehehe... Enjoy yourself, please!\rIncidentally, Fantina, the Hearthome\nGym Leader, also happens to be\fa Contest expert.\rAnd you may ask yourself, how do\nI know this? Well, I am Fantina!\rYou may challenge me, but not yet!\nYou must become much stronger.\fThen, you may challenge me!\r
-{STRVAR 259, 1, 0}: Ta-daah!\nKept me waiting again, {STRVAR 259, 1, 1}!\rLet’s see how much tougher you and\nI have gotten, right here and now!\rHey, you’re a Trainer now. You’re\nexpected to be ready for a battle.\rNo whining! No waiting!\nLet’s get the show started!\r
-{STRVAR 259, 1, 0}: Waaaagh!\nYou KO’d my team again?!\rThis messes up my dream of becoming\nthe greatest Trainer ever...\rNo! I just need to get tougher and\nkeep winning. One day...\rThat’s it! I’m going to challenge\nthe Veilstone Gym next!\rSee you around, {STRVAR 259, 1, 1}!\rYou’ll be blown away by how much\ntougher I’ll be next time we meet!\r
+{STRVAR 259, 0}: Ta-daah!\nKept me waiting again, {STRVAR 259, 1}!\rLet’s see how much tougher you and\nI have gotten, right here and now!\rHey, you’re a Trainer now. You’re\nexpected to be ready for a battle.\rNo whining! No waiting!\nLet’s get the show started!\r
+{STRVAR 259, 0}: Waaaagh!\nYou KO’d my team again?!\rThis messes up my dream of becoming\nthe greatest Trainer ever...\rNo! I just need to get tougher and\nkeep winning. One day...\rThat’s it! I’m going to challenge\nthe Veilstone Gym next!\rSee you around, {STRVAR 259, 1}!\rYou’ll be blown away by how much\ntougher I’ll be next time we meet!\r
 You’re kidding! They found an Egg at\nthe Day Care in Solaceon Town?
 I hear they found Eggs in the Johto\nregion, too.
 Cynthia: I’m so glad to see you!\nYou’re not very easy to track down.\rMy grandma told me about what took\nplace in Celestic Town.\rThanks for what you did in the ruins!\r

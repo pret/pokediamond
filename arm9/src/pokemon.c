@@ -867,7 +867,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
         }
         else
         {
-            FUN_02021E28(dest, blockC->nickname);
+            CopyU16ArrayToString(dest, blockC->nickname);
         }
         break;
     case MON_DATA_UNK_120:
@@ -911,7 +911,7 @@ u32 GetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * dest)
     }
         break;
     case MON_DATA_OT_NAME_2:
-        FUN_02021E28(dest, blockD->otTrainerName);
+        CopyU16ArrayToString(dest, blockD->otTrainerName);
         break;
     case MON_DATA_EGG_MET_YEAR:
         ret = blockD->dateEggReceived[0];
@@ -1321,11 +1321,11 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         break;
     case MON_DATA_NICKNAME_4:
         GetSpeciesNameIntoArray(blockA->species, 0, namebuf2);
-        FUN_02021EF0(value, namebuf3, POKEMON_NAME_LENGTH + 1);
+        CopyStringToU16Array(value, namebuf3, POKEMON_NAME_LENGTH + 1);
         blockB->isNicknamed = StringNotEqual(namebuf2, namebuf3);
         // fallthrough
     case MON_DATA_NICKNAME_3:
-        FUN_02021EF0(value, blockC->nickname, POKEMON_NAME_LENGTH + 1);
+        CopyStringToU16Array(value, blockC->nickname, POKEMON_NAME_LENGTH + 1);
         break;
     case MON_DATA_UNK_120:
         blockC->Unused = VALUE(u8);
@@ -1368,7 +1368,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         }
         break;
     case MON_DATA_OT_NAME_2:
-        FUN_02021EF0(value, blockD->otTrainerName, OT_NAME_LENGTH + 1);
+        CopyStringToU16Array(value, blockD->otTrainerName, OT_NAME_LENGTH + 1);
         break;
     case MON_DATA_EGG_MET_YEAR:
         blockD->dateEggReceived[0] = VALUE(u8);
@@ -1422,7 +1422,7 @@ void SetBoxMonDataInternal(struct BoxPokemon * boxmon, int attr, void * value)
         break;
     case MON_DATA_SPECIES_NAME:
         speciesName = GetSpeciesName(blockA->species, 0);
-        FUN_02021EF0(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
+        CopyStringToU16Array(speciesName, blockC->nickname, POKEMON_NAME_LENGTH + 1);
         String_dtor(speciesName);
         break;
     }
@@ -3686,7 +3686,7 @@ BOOL FUN_0206A9AC(struct BoxPokemon * boxmon, struct SaveBlock2 * sb2, u32 heap_
     struct String * r6 = String_ctor(OT_NAME_LENGTH + 1, heap_id);
     BOOL ret = FALSE;
     GetBoxMonData(boxmon, MON_DATA_OT_NAME_2, r6);
-    if (myId == otId && myGender == otGender && FUN_02021CE0(r7, r6) == 0)
+    if (myId == otId && myGender == otGender && StringCompare(r7, r6) == 0)
         ret = TRUE;
     String_dtor(r6);
     String_dtor(r7);

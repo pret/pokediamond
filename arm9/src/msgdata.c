@@ -102,7 +102,7 @@ static void ReadMsgData_ExistingTable_ExistingString(struct MsgDataTable * table
         {
             MI_CpuCopy16((char *)table + alloc.offset, buf, 2 * alloc.length);
             Decrypt2(buf, alloc.length, num);
-            FUN_02021E8C(dest, buf, alloc.length);
+            CopyU16ArrayToStringN(dest, buf, alloc.length);
             FreeToHeap(buf);
         }
     }
@@ -129,7 +129,7 @@ static struct String * ReadMsgData_ExistingTable_NewString(struct MsgDataTable *
             Decrypt2(buf, alloc.length, num);
             dest = String_ctor(alloc.length, heap_id);
             if (dest != NULL)
-                FUN_02021E8C(dest, buf, alloc.length);
+                CopyU16ArrayToStringN(dest, buf, alloc.length);
             FreeToHeap(buf);
             return dest;
         }
@@ -173,7 +173,7 @@ static void ReadMsgData_ExistingNarc_ExistingString(NARC * narc, u32 group, u32 
         {
             NARC_ReadFromMember(narc, group, alloc.offset, size, buf);
             Decrypt2(buf, alloc.length, num);
-            FUN_02021E8C(dest, buf, alloc.length);
+            CopyU16ArrayToStringN(dest, buf, alloc.length);
             FreeToHeap(buf);
             return;
         }
@@ -223,7 +223,7 @@ static struct String * ReadMsgData_ExistingNarc_NewString(NARC * narc, u32 group
             {
                 NARC_ReadFromMember(narc, group, alloc.offset, size, buf);
                 Decrypt2(buf, alloc.length, num);
-                FUN_02021E8C(dest, buf, alloc.length);
+                CopyU16ArrayToStringN(dest, buf, alloc.length);
                 FreeToHeap(buf);
             }
         }
@@ -360,7 +360,7 @@ struct String * ReadMsgData_ExpandPlaceholders(u32 * a0, struct MsgData * msgDat
         r5 = NewString_ReadMsgData(msgData, msgno);
         if (r5 != NULL)
         {
-            StringExpandPlaceholders(a0, r4, r5);
+            FUN_0200B7B8(a0, r4, r5);
             ret = StringDup(r4, a3);
             String_dtor(r5);
         }

@@ -677,7 +677,7 @@ _02035526:
 	ldr r2, [sp, #0x20]
 	add r0, r6, #0x0
 	add r1, r7, #0x0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r2, r4, r5
 	add r2, #0x30
 	ldrb r2, [r2, #0x0]
@@ -991,7 +991,7 @@ _020357D6:
 	add r2, r7, #0x0
 	add r3, r1, #0x0
 	str r1, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r7, #0x0
 	bl String_dtor
 	mov r0, #0xb
@@ -1035,7 +1035,7 @@ _0203584C:
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x14]
 	add r0, r7, #0x0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0x10
 	str r0, [sp, #0x0]
 	mov r0, #0xff
@@ -1046,7 +1046,7 @@ _0203584C:
 	add r0, #0x10
 	add r3, r1, #0x0
 	str r1, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x18]
 	bl String_dtor
 	ldr r0, [sp, #0x14]

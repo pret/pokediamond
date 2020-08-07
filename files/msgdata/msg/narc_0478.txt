@@ -7,13 +7,13 @@ That Pokémon can’t learn a move!\nRead the poster! Keh!
 Teach a move to an Egg?\nImpossible even for me! Keh!
 You’ve not bonded strongly enough\nwith your Pokémon! Keh!
 That Pokémon already knows the move\nI’ve offered to teach! Keh!
-I should teach Blast Burn to\nyour {STRVAR 256, 1, 0}?
-I should teach Hydro Cannon to\nyour {STRVAR 256, 1, 0}?
-I should teach Frenzy Plant to\nyour {STRVAR 256, 1, 0}?
-{STRVAR 256, 1, 0} learned\n{STRVAR 262, 1, 1}!
-{STRVAR 256, 1, 0} is trying to learn\n{STRVAR 262, 1, 1}.\rBut {STRVAR 256, 1, 0} can’t learn more\nthan four moves.\rDelete an older move to make\nroom for {STRVAR 262, 1, 1}?
-Is it OK to forget the\nmove {STRVAR 262, 1, 1}?
-1, 2, and... ... ... Poof!\r{STRVAR 256, 1, 0} forgot how to\nuse {STRVAR 262, 1, 1}.\rAnd...\n{STRVAR 256, 1, 0} learned {STRVAR 262, 1, 2}.
-Stop trying to teach {STRVAR 262, 1, 1}?
-{STRVAR 256, 1, 0} did not learn\nthe move {STRVAR 262, 1, 1}.
-To the Pokémon listed here,\nthe ultimate moves may be taught!\rThe blazing fire Pokémon\n{STRVAR 515, 1, 7}CHARIZARD TYPHLOSION\f{STRVAR 515, 1, 7}BLAZIKEN INFERNAPE\rThe restless water Pokémon\n{STRVAR 515, 1, 7}BLASTOISE FERALIGATR\f{STRVAR 515, 1, 7}SWAMPERT EMPOLEON\rThe quiet grass Pokémon\n{STRVAR 515, 1, 7}VENUSAUR MEGANIUM\f{STRVAR 515, 1, 7}SCEPTILE TORTERRA
+I should teach Blast Burn to\nyour {STRVAR 256, 0}?
+I should teach Hydro Cannon to\nyour {STRVAR 256, 0}?
+I should teach Frenzy Plant to\nyour {STRVAR 256, 0}?
+{STRVAR 256, 0} learned\n{STRVAR 262, 1}!
+{STRVAR 256, 0} is trying to learn\n{STRVAR 262, 1}.\rBut {STRVAR 256, 0} can’t learn more\nthan four moves.\rDelete an older move to make\nroom for {STRVAR 262, 1}?
+Is it OK to forget the\nmove {STRVAR 262, 1}?
+1, 2, and... ... ... Poof!\r{STRVAR 256, 0} forgot how to\nuse {STRVAR 262, 1}.\rAnd...\n{STRVAR 256, 0} learned {STRVAR 262, 2}.
+Stop trying to teach {STRVAR 262, 1}?
+{STRVAR 256, 0} did not learn\nthe move {STRVAR 262, 1}.
+To the Pokémon listed here,\nthe ultimate moves may be taught!\rThe blazing fire Pokémon\n{STRVAR 515, 7}CHARIZARD TYPHLOSION\f{STRVAR 515, 7}BLAZIKEN INFERNAPE\rThe restless water Pokémon\n{STRVAR 515, 7}BLASTOISE FERALIGATR\f{STRVAR 515, 7}SWAMPERT EMPOLEON\rThe quiet grass Pokémon\n{STRVAR 515, 7}VENUSAUR MEGANIUM\f{STRVAR 515, 7}SCEPTILE TORTERRA

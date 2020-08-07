@@ -8,14 +8,14 @@ Take goods displayed in your Secret\nBase and put them away in your PC.
 Move displayed decoration goods inside\nyour Secret Base.
 Cancel decorating.
 Goods Set
-{STRVAR 307, 1, 0}/{STRVAR 307, 1, 1}
-The {STRVAR 266, 1, 0} was placed.
+{STRVAR 307, 0}/{STRVAR 307, 1}
+The {STRVAR 266, 0} was placed.
 It can’t be placed here.
-The {STRVAR 266, 1, 0} was\nreturned to the PC.
+The {STRVAR 266, 0} was\nreturned to the PC.
 The Big Boulder was removed.
 You can’t remove a Big Boulder.
 You can’t move a Big Boulder.
-You are able to remove {STRVAR 307, 1, 0} more\nBig Boulder.
+You are able to remove {STRVAR 307, 0} more\nBig Boulder.
 No more Big Boulders can be removed.
 There are no decoration goods stored\non your PC.
 No more decoration goods can be\ndisplayed.
@@ -23,4 +23,4 @@ That decoration good is already out\non display.
 The PC cannot be put away.
 The PC cannot be moved.
 Quit decorating.
-You are able to remove {STRVAR 307, 1, 0} more\nBig Boulders.
+You are able to remove {STRVAR 307, 0} more\nBig Boulders.

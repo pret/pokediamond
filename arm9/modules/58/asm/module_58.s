@@ -1045,7 +1045,7 @@ MOD58_021DA2CC: ; 0x021DA2CC
 	lsr r3, r4, #0x1f
 	add r3, r4, r3
 	asr r3, r3, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [r5, #0xc]
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
@@ -1206,7 +1206,7 @@ _021DA3C2:
 	add r0, r5, r0
 	mov r1, #1
 	asr r3, r3, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0
 	str r0, [sp, #0x14]
 	mov r0, #0x9d
@@ -2210,7 +2210,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	ldr r0, [r5, #0x10]
 	ldr r1, [r5, #0x34]
 	add r2, r4, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r4, #0
 	bl String_dtor
 	mov r0, #0xb5
@@ -2236,7 +2236,7 @@ MOD58_021DAB94: ; 0x021DAB94
 	ldr r2, [r5, #0x34]
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	str r0, [r5, #0x38]
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}

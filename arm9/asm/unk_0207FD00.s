@@ -606,7 +606,7 @@ FUN_02080108: ; 0x02080108
 	ldr r0, [r5, #0x8]
 	ldr r1, [r5, #0x20]
 	add r2, r4, #0x0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r4, #0x0
 	bl String_dtor
 	add sp, #0x8
@@ -764,7 +764,7 @@ _0208036E:
 	ldr r0, [r4, #0x8]
 	ldr r1, [r4, #0x20]
 	add r2, r5, #0x0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r5, #0x0
 	bl String_dtor
 	add sp, #0x8
@@ -881,7 +881,7 @@ _02080478:
 	ldr r0, [r5, #0x8]
 	ldr r1, [r5, #0x20]
 	add r2, r4, #0x0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r4, #0x0
 	bl String_dtor
 	add sp, #0x8

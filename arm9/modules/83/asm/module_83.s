@@ -70,7 +70,7 @@ _0222D632:
 	blt _0222D5E0
 	b _0222D668
 _0222D63C:
-	ldr r0, _0222D674 ; =gUnknown21C48B8
+	ldr r0, _0222D674 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -96,7 +96,7 @@ _0222D668:
 	pop {r4, r5, r6, r7, pc}
 	nop
 _0222D670: .word MOD83_0223A794
-_0222D674: .word gUnknown21C48B8
+_0222D674: .word gMain
 _0222D678: .word 0x000005DC
 	thumb_func_end MOD83_0222D5C4
 
@@ -477,7 +477,7 @@ _0222D932:
 	str r0, [r4, r1]
 	b _0222D994
 _0222D94A:
-	ldr r0, _0222D9B8 ; =gUnknown21C48B8
+	ldr r0, _0222D9B8 ; =gMain
 	ldr r2, [r0, #0x48]
 	mov r0, #3
 	tst r0, r2
@@ -489,7 +489,7 @@ _0222D94A:
 	mov r1, #0x13
 	lsl r0, r0, #2
 	str r1, [r4, r0]
-	ldr r1, _0222D9B8 ; =gUnknown21C48B8
+	ldr r1, _0222D9B8 ; =gMain
 	add r0, #0xc
 	ldr r1, [r1, #0x48]
 	str r1, [r4, r0]
@@ -522,7 +522,7 @@ _0222D9A8: .word MOD83_0223A804
 _0222D9AC: .word MOD83_0223A818
 _0222D9B0: .word MOD83_0223A82C
 _0222D9B4: .word MOD83_0223A840
-_0222D9B8: .word gUnknown21C48B8
+_0222D9B8: .word gMain
 _0222D9BC: .word 0x000005DC
 	thumb_func_end MOD83_0222D7E0
 
@@ -920,7 +920,7 @@ MOD83_0222DCA0: ; 0x0222DCA0
 	add r0, r6, #0
 	add r2, r5, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0
 	bl String_dtor
 	add sp, #0x10
@@ -1027,7 +1027,7 @@ _0222DD88:
 	add r2, r7, #0
 	ldr r0, [r0, #0x10]
 	mov r3, #0x20
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r7, #0
 	bl String_dtor
 _0222DDB8:
@@ -2119,7 +2119,7 @@ _0222E616:
 	str r1, [r4, r0]
 	b _0222E788
 _0222E656:
-	ldr r0, _0222E7A4 ; =gUnknown21C48B8
+	ldr r0, _0222E7A4 ; =gMain
 	mov r1, #3
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -2207,7 +2207,7 @@ _0222E6FA:
 	sub r1, #0x41
 	bl MOD83_0222E2A8
 _0222E708:
-	ldr r0, _0222E7A4 ; =gUnknown21C48B8
+	ldr r0, _0222E7A4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x80
 	tst r0, r1
@@ -2281,7 +2281,7 @@ _0222E788:
 	.align 2, 0
 _0222E79C: .word 0x00007D8C
 _0222E7A0: .word MOD83_0222E464
-_0222E7A4: .word gUnknown21C48B8
+_0222E7A4: .word gMain
 _0222E7A8: .word 0x000005DC
 	thumb_func_end MOD83_0222E540
 
@@ -2727,7 +2727,7 @@ MOD83_0222EB04: ; 0x0222EB04
 	mov r0, #1
 	pop {r3, r4, pc}
 _0222EB4E:
-	ldr r0, _0222EB78 ; =gUnknown21C48B8
+	ldr r0, _0222EB78 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -2747,7 +2747,7 @@ _0222EB70:
 	add sp, #0x5c
 	pop {r3, r4, pc}
 	nop
-_0222EB78: .word gUnknown21C48B8
+_0222EB78: .word gMain
 	thumb_func_end MOD83_0222EB04
 
 	thumb_func_start MOD83_0222EB7C
@@ -3206,7 +3206,7 @@ _0222EF5A:
 	bl FUN_0201BD70
 	cmp r0, #0
 	bne _0222F02C
-	ldr r0, _0222F040 ; =gUnknown21C48B8
+	ldr r0, _0222F040 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r1, r0
@@ -3271,7 +3271,7 @@ _0222EFC2:
 	strb r2, [r4, r1]
 	b _0222F02C
 _0222EFFC:
-	ldr r0, _0222F040 ; =gUnknown21C48B8
+	ldr r0, _0222F040 ; =gMain
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _0222F02C
@@ -3302,7 +3302,7 @@ _0222F02C:
 	nop
 _0222F038: .word 0x00003174
 _0222F03C: .word 0x0000317C
-_0222F040: .word gUnknown21C48B8
+_0222F040: .word gMain
 _0222F044: .word 0x000032D2
 	thumb_func_end MOD83_0222EE8C
 
@@ -3361,7 +3361,7 @@ MOD83_0222F074: ; 0x0222F074
 	add r7, r0, #0
 	add r1, r4, r1
 	mov r2, #0x24
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r7, #0
 	bl String_dtor
 	mov r0, #0xc
@@ -3418,7 +3418,7 @@ MOD83_0222F074: ; 0x0222F074
 	lsl r1, r1, #2
 	add r1, r4, r1
 	mov r2, #0xfa
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r7, #0
 	bl String_dtor
 	mov r0, #0xd2
@@ -3504,7 +3504,7 @@ _0222F1D6:
 _0222F1EE:
 	cmp r4, #0
 	beq _0222F206
-	ldr r0, _0222F20C ; =gUnknown21C48B8
+	ldr r0, _0222F20C ; =gMain
 	ldr r0, [r0, #0x48]
 	tst r0, r4
 	beq _0222F206
@@ -3517,7 +3517,7 @@ _0222F206:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_0222F20C: .word gUnknown21C48B8
+_0222F20C: .word gMain
 	thumb_func_end MOD83_0222F1B4
 
 	thumb_func_start MOD83_0222F210
@@ -3711,7 +3711,7 @@ _0222F35E:
 	str r0, [r4, r5]
 	b _0222F736
 _0222F39C:
-	ldr r0, _0222F5F4 ; =gUnknown21C48B8
+	ldr r0, _0222F5F4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -3991,7 +3991,7 @@ _0222F5E4: .word 0x000034D8
 _0222F5E8: .word 0x00000708
 _0222F5EC: .word 0x00003170
 _0222F5F0: .word 0x000005DC
-_0222F5F4: .word gUnknown21C48B8
+_0222F5F4: .word gMain
 _0222F5F8: .word MOD83_0223AD6C
 _0222F5FC:
 	mov r0, #0x16
@@ -4060,7 +4060,7 @@ _0222F664:
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 _0222F686:
-	ldr r0, _0222F748 ; =gUnknown21C48B8
+	ldr r0, _0222F748 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -4113,7 +4113,7 @@ _0222F6D0:
 	lsl r0, r0, #2
 	str r1, [r4, r0]
 _0222F6F2:
-	ldr r0, _0222F748 ; =gUnknown21C48B8
+	ldr r0, _0222F748 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -4151,7 +4151,7 @@ _0222F736:
 _0222F73C: .word 0x00003170
 _0222F740: .word 0x000034D8
 _0222F744: .word 0x000005DC
-_0222F748: .word gUnknown21C48B8
+_0222F748: .word gMain
 	thumb_func_end MOD83_0222F210
 
 	thumb_func_start MOD83_0222F74C
@@ -6013,7 +6013,7 @@ _02230554:
 	str r0, [sp, #8]
 	str r3, [sp, #0xc]
 	add r0, r5, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	str r0, [r4, #0x6c]
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
@@ -6052,7 +6052,7 @@ MOD83_022305A4: ; 0x022305A4
 	add r1, r6, #0
 	mov r2, #0x24
 	add r4, r0, #0
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	mov r0, #0
 	mov r1, #6
 	bl FUN_02002E4C
@@ -6069,7 +6069,7 @@ MOD83_022305A4: ; 0x022305A4
 	add r0, r5, #0
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0
 	mov r1, #0
 	mov r2, #0x1f
@@ -6931,7 +6931,7 @@ _02230CFA:
 	mov r0, #8
 	str r0, [r5]
 _02230D20:
-	ldr r0, _02230D80 ; =gUnknown21C48B8
+	ldr r0, _02230D80 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -6970,7 +6970,7 @@ _02230D70: .word MOD83_0223B888
 _02230D74: .word MOD83_02230084
 _02230D78: .word 0x00000624
 _02230D7C: .word 0x00000438
-_02230D80: .word gUnknown21C48B8
+_02230D80: .word gMain
 _02230D84: .word 0x00000434
 _02230D88: .word MOD83_0222FFD8
 _02230D8C:
@@ -7031,7 +7031,7 @@ _02230DE4:
 	str r0, [r5]
 	b _02231334
 _02230E14:
-	ldr r0, _02231124 ; =gUnknown21C48B8
+	ldr r0, _02231124 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -7064,7 +7064,7 @@ _02230E4C:
 	str r0, [r5]
 _02230E58:
 	bl FUN_02031190
-	ldr r1, _02231124 ; =gUnknown21C48B8
+	ldr r1, _02231124 ; =gMain
 	ldr r2, [r1, #0x48]
 	mov r1, #2
 	tst r1, r2
@@ -7292,7 +7292,7 @@ _02231030:
 	str r0, [r5]
 	b _02231334
 _0223105A:
-	ldr r0, _02231124 ; =gUnknown21C48B8
+	ldr r0, _02231124 ; =gMain
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	bne _02231064
@@ -7390,7 +7390,7 @@ _0223111A:
 	b _02231334
 	.align 2, 0
 _02231120: .word 0x00000434
-_02231124: .word gUnknown21C48B8
+_02231124: .word gMain
 _02231128: .word 0x00002990
 _0223112C: .word 0x0000043C
 _02231130: .word 0x00000624
@@ -7527,7 +7527,7 @@ _02231244:
 	str r0, [r5]
 	b _02231334
 _02231252:
-	ldr r0, _02231354 ; =gUnknown21C48B8
+	ldr r0, _02231354 ; =gMain
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _02231334
@@ -7570,7 +7570,7 @@ _02231298:
 	str r0, [r4, r1]
 	pop {r4, r5, r6, r7, pc}
 _022312AA:
-	ldr r0, _02231354 ; =gUnknown21C48B8
+	ldr r0, _02231354 ; =gMain
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _02231334
@@ -7647,7 +7647,7 @@ _02231340:
 	nop
 _0223134C: .word 0x0000043C
 _02231350: .word 0x00000624
-_02231354: .word gUnknown21C48B8
+_02231354: .word gMain
 _02231358: .word 0x000005DC
 _0223135C: .word 0x000015D8
 _02231360: .word 0x0000298C
@@ -7939,7 +7939,7 @@ _02231572:
 _0223157A:
 	pop {r4, pc}
 _0223157C:
-	ldr r0, _022315CC ; =gUnknown21C48B8
+	ldr r0, _022315CC ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -7978,7 +7978,7 @@ _022315BC:
 _022315C0: .word MOD83_0223B888
 _022315C4: .word MOD83_02231440
 _022315C8: .word 0x000005D4
-_022315CC: .word gUnknown21C48B8
+_022315CC: .word gMain
 	thumb_func_end MOD83_022314B4
 
 	thumb_func_start MOD83_022315D0
@@ -8254,7 +8254,7 @@ MOD83_022317A8: ; 0x022317A8
 	add r0, r5, #0
 	add r2, r7, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0
 	bl FUN_020191D0
 	add r0, r7, #0
@@ -8557,7 +8557,7 @@ MOD83_02231A4C: ; 0x02231A4C
 	lsl r1, r1, #2
 	add r1, r2, r1
 	mov r2, #0x24
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -8567,7 +8567,7 @@ MOD83_02231A4C: ; 0x02231A4C
 	mov r1, #1
 	add r2, r6, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #1
@@ -8629,7 +8629,7 @@ _02231ADE:
 	mov r1, #1
 	add r2, r4, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl String_dtor
 	mov r0, #1
@@ -8713,7 +8713,7 @@ MOD83_02231B84: ; 0x02231B84
 	lsl r1, r1, #2
 	add r1, r2, r1
 	mov r2, #0xfa
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	mov r3, #0
 	str r3, [sp]
 	mov r0, #0xff
@@ -8723,7 +8723,7 @@ MOD83_02231B84: ; 0x02231B84
 	mov r1, #1
 	add r2, r6, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #0
@@ -8768,7 +8768,7 @@ MOD83_02231BD8: ; 0x02231BD8
 	mov r1, #1
 	add r2, r4, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl String_dtor
 	add sp, #0x10
@@ -9156,7 +9156,7 @@ _02231EBE:
 	ldr r1, [r4, #0x14]
 	ldr r3, [r4, #0x28]
 	add r0, r6, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x30]
 	bl String_dtor
 _02231F20:
@@ -9293,7 +9293,7 @@ _02231FFE:
 	str r3, [sp, #0xc]
 	ldr r1, [r4, #0x14]
 	add r0, r6, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x14]
 	bl String_dtor
 	ldr r0, _02232090 ; =0x000029A4
@@ -10078,7 +10078,7 @@ _02232664: .word 0x00003CE8
 MOD83_02232668: ; 0x02232668
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r2, #0
-	ldr r2, _02232768 ; =gUnknown21C48B8
+	ldr r2, _02232768 ; =gMain
 	add r6, r1, #0
 	ldr r3, [r2, #0x48]
 	ldr r1, _0223276C ; =0x00003CEC
@@ -10092,7 +10092,7 @@ MOD83_02232668: ; 0x02232668
 	mov r2, #1
 	str r2, [r5, r1]
 _02232686:
-	ldr r1, _02232768 ; =gUnknown21C48B8
+	ldr r1, _02232768 ; =gMain
 	ldr r2, [r1, #0x48]
 	mov r1, #0x20
 	tst r1, r2
@@ -10131,7 +10131,7 @@ _022326C4:
 	ldr r0, [r5, r0]
 	bl FUN_02020130
 _022326CC:
-	ldr r0, _02232768 ; =gUnknown21C48B8
+	ldr r0, _02232768 ; =gMain
 	mov r4, #0
 	ldr r1, [r0, #0x48]
 	mov r0, #2
@@ -10209,7 +10209,7 @@ _0223275A:
 _02232764:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_02232768: .word gUnknown21C48B8
+_02232768: .word gMain
 _0223276C: .word 0x00003CEC
 _02232770: .word 0x00002D64
 _02232774: .word 0x00002D68
@@ -10381,7 +10381,7 @@ _022328DC:
 	ldr r1, _02232B6C ; =0x00002B60
 	mov r2, #0x40
 	ldr r6, [r4, r1]
-	ldr r1, _02232B74 ; =gUnknown21C48B8
+	ldr r1, _02232B74 ; =gMain
 	ldr r1, [r1, #0x48]
 	add r3, r1, #0
 	tst r3, r2
@@ -10461,7 +10461,7 @@ _0223297E:
 	add r1, r5, #0
 	mov r2, #0
 	bl MOD83_02232208
-	ldr r0, _02232B74 ; =gUnknown21C48B8
+	ldr r0, _02232B74 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -10513,7 +10513,7 @@ _022329D6:
 	b _02232CF4
 _022329FA:
 	bl MOD83_022324DC
-	ldr r0, _02232B74 ; =gUnknown21C48B8
+	ldr r0, _02232B74 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r1, r0
@@ -10672,7 +10672,7 @@ _02232B64: .word 0x00002B58
 _02232B68: .word 0x00002B5C
 _02232B6C: .word 0x00002B60
 _02232B70: .word 0x0000299C
-_02232B74: .word gUnknown21C48B8
+_02232B74: .word gMain
 _02232B78: .word 0x000005DC
 _02232B7C: .word 0x00002B70
 _02232B80: .word 0x00002B90
@@ -10813,7 +10813,7 @@ _02232C90:
 	bl MOD83_02233084
 	b _02232CF4
 _02232CB8:
-	ldr r0, _02232D38 ; =gUnknown21C48B8
+	ldr r0, _02232D38 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -10869,7 +10869,7 @@ _02232D28: .word 0x00002BE0
 _02232D2C: .word 0x00002BD4
 _02232D30: .word 0x00002D78
 _02232D34: .word 0x00003CF0
-_02232D38: .word gUnknown21C48B8
+_02232D38: .word gMain
 _02232D3C: .word 0x00002BE4
 _02232D40: .word 0x00003CE8
 	thumb_func_end MOD83_02232788
@@ -11125,7 +11125,7 @@ _02232EE6:
 	ldr r0, [sp, #0x10]
 	ldr r2, [sp, #0x20]
 	add r3, r1, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	b _02232F4A
 _02232F30:
 	mov r0, #0xff
@@ -11139,7 +11139,7 @@ _02232F30:
 	ldr r0, [sp, #0x10]
 	ldr r2, [sp, #0x20]
 	add r3, r1, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _02232F4A:
 	ldr r0, [sp, #0x20]
 	bl String_dtor
@@ -11173,7 +11173,7 @@ _02232F4A:
 	ldr r0, [sp, #0x10]
 	add r2, r7, #0
 	mov r3, #0x50
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r7, #0
 	bl String_dtor
 	add r5, #0x18
@@ -11257,7 +11257,7 @@ MOD83_02232FE4: ; 0x02232FE4
 	add r0, r4, #0
 	add r2, r6, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl FUN_020191D0
 	add r0, r6, #0
@@ -15551,7 +15551,7 @@ _02234FB2:
 	str r0, [sp, #0xc]
 	ldr r0, [r5]
 	ldr r1, [r5, #0x28]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	str r0, [r5, #0x48]
 	ldr r0, [sp, #0x18]
 	bl String_dtor
@@ -15576,7 +15576,7 @@ _02235004:
 	ldr r1, [r5, #0x38]
 	add r7, r0, #0
 	mov r2, #0x40
-	bl FUN_02021E8C
+	bl CopyU16ArrayToStringN
 	add r0, r5, #0
 	add r1, r7, #0
 	add r2, r4, #0
@@ -15592,7 +15592,7 @@ _02235004:
 	str r0, [sp, #0xc]
 	ldr r0, [r5]
 	ldr r1, [r5, #0x28]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	str r0, [r5, #0x48]
 	add r0, r7, #0
 	bl String_dtor
@@ -15616,7 +15616,7 @@ _0223504C:
 	ldr r0, [r5]
 	ldr r1, [r5, #0x28]
 	ldr r2, [r5, #0x3c]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	str r0, [r5, #0x48]
 	mov r0, #0
 	str r0, [r5, #0x3c]
@@ -18164,7 +18164,7 @@ MOD83_02236484: ; 0x02236484
 	bl String_ctor
 	add r1, sp, #8
 	add r6, r0, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r1, #1
 	str r1, [sp]
 	mov r0, #2
@@ -18479,7 +18479,7 @@ _02236730:
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _02236740
-	ldr r0, _02236760 ; =gUnknown21C48B8
+	ldr r0, _02236760 ; =gMain
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _02236750
@@ -18497,7 +18497,7 @@ _02236750:
 _02236754: .word 0x000005DC
 _02236758: .word 0x00000474
 _0223675C: .word UNK_021C48F8
-_02236760: .word gUnknown21C48B8
+_02236760: .word gMain
 	thumb_func_end MOD83_022366D0
 
 	thumb_func_start MOD83_02236764
@@ -18795,7 +18795,7 @@ _022369CE:
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _022369DE
-	ldr r0, _02236B58 ; =gUnknown21C48B8
+	ldr r0, _02236B58 ; =gMain
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _02236A0E
@@ -18972,7 +18972,7 @@ _02236B48: .word 0x0000E880
 _02236B4C: .word MOD83_0223650C
 _02236B50: .word 0x0000E88C
 _02236B54: .word UNK_021C48F8
-_02236B58: .word gUnknown21C48B8
+_02236B58: .word gMain
 _02236B5C: .word 0x00000498
 _02236B60: .word 0x0000E898
 _02236B64: .word 0x0000E888
@@ -19225,7 +19225,7 @@ _02236D54:
 	ldrh r0, [r0, #0x20]
 	cmp r0, #0
 	bne _02236D64
-	ldr r0, _02236DCC ; =gUnknown21C48B8
+	ldr r0, _02236DCC ; =gMain
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _02236D90
@@ -19270,7 +19270,7 @@ _02236DBC: .word 0x0000E898
 _02236DC0: .word 0x0000061B
 _02236DC4: .word 0x0000042C
 _02236DC8: .word UNK_021C48F8
-_02236DCC: .word gUnknown21C48B8
+_02236DCC: .word gMain
 	thumb_func_end MOD83_02236804
 
 	thumb_func_start MOD83_02236DD0
@@ -23124,7 +23124,7 @@ _0223899C:
 	ldr r0, [r5, #0x10]
 	ldr r1, [r5, #0x40]
 	ldr r3, [r5, #0x20]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r7, r0, #0
 	b _02238A12
 _022389D0:
@@ -23153,7 +23153,7 @@ _022389D0:
 	str r0, [sp, #0xc]
 	ldr r0, [r5, #0x10]
 	ldr r1, [r5, #0x40]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r7, r0, #0
 	mov r0, #0
 	str r0, [r5, #0xc]
@@ -26076,7 +26076,7 @@ _0223A02C:
 	bl MOD83_02239DF0
 	str r0, [r5]
 _0223A034:
-	ldr r0, _0223A280 ; =gUnknown21C48B8
+	ldr r0, _0223A280 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -26120,7 +26120,7 @@ _0223A07A:
 	ldr r0, _0223A274 ; =0x0000100D
 	str r0, [r5]
 _0223A088:
-	ldr r0, _0223A280 ; =gUnknown21C48B8
+	ldr r0, _0223A280 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -26241,7 +26241,7 @@ _0223A174:
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _0223A1C4
-	ldr r0, _0223A280 ; =gUnknown21C48B8
+	ldr r0, _0223A280 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -26353,7 +26353,7 @@ _0223A270: .word MOD83_0223CADC
 _0223A274: .word 0x0000100D
 _0223A278: .word MOD04_021DD984
 _0223A27C: .word 0x00001004
-_0223A280: .word gUnknown21C48B8
+_0223A280: .word gMain
 _0223A284: .word 0x00001005
 _0223A288: .word 0x00001006
 _0223A28C: .word MOD83_02239EF4
@@ -26380,7 +26380,7 @@ _0223A2CE:
 	str r0, [r5]
 	b _0223A342
 _0223A2D4:
-	ldr r0, _0223A34C ; =gUnknown21C48B8
+	ldr r0, _0223A34C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -26406,7 +26406,7 @@ _0223A2F8:
 	str r0, [r5]
 	b _0223A342
 _0223A30C:
-	ldr r0, _0223A34C ; =gUnknown21C48B8
+	ldr r0, _0223A34C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -26427,7 +26427,7 @@ _0223A31E:
 	str r0, [r5]
 	b _0223A342
 _0223A332:
-	ldr r0, _0223A34C ; =gUnknown21C48B8
+	ldr r0, _0223A34C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #2
 	tst r0, r1
@@ -26440,7 +26440,7 @@ _0223A342:
 	pop {r3, r4, r5, pc}
 	nop
 _0223A348: .word 0x00001010
-_0223A34C: .word gUnknown21C48B8
+_0223A34C: .word gMain
 _0223A350: .word 0x00002620
 _0223A354: .word MOD83_0223CADC
 _0223A358: .word 0x000015F4

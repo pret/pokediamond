@@ -12,6 +12,6 @@ ErrorHandling: ; 0x02020C2C
 	bl OS_GetProcMode
 	cmp r0, #0x12
 	beq _02020C42
-	bl FUN_0208A9B8
+	bl PrintErrorMessageAndReset
 _02020C42:
 	pop {r3, pc}

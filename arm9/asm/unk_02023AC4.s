@@ -47,14 +47,14 @@ _02023AE0: .word memset
 
 	thumb_func_start FUN_02023AE4
 FUN_02023AE4: ; 0x02023AE4
-	ldr r3, _02023AF0 ; =FUN_02021E8C
+	ldr r3, _02023AF0 ; =CopyU16ArrayToStringN
 	add r2, r0, #0x0
 	add r0, r1, #0x0
 	add r1, r2, #0x0
 	mov r2, #0xc
 	bx r3
 	.balign 4
-_02023AF0: .word FUN_02021E8C
+_02023AF0: .word CopyU16ArrayToStringN
 
 	thumb_func_start FUN_02023AF4
 FUN_02023AF4: ; 0x02023AF4
@@ -64,7 +64,7 @@ FUN_02023AF4: ; 0x02023AF4
 	bl String_ctor
 	add r1, r5, #0x0
 	add r4, r0, #0x0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4

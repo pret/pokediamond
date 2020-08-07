@@ -629,7 +629,7 @@ MOD63_021D8D98: ; 0x021D8D98
 	ldrb r0, [r5, r0]
 	cmp r0, #0
 	beq _021D8DD4
-	ldr r0, _021D8E5C ; =gUnknown21C48B8
+	ldr r0, _021D8E5C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -640,7 +640,7 @@ MOD63_021D8D98: ; 0x021D8D98
 _021D8DBC:
 	mov r0, #1
 	str r0, [r5, #8]
-	ldr r1, _021D8E5C ; =gUnknown21C48B8
+	ldr r1, _021D8E5C ; =gMain
 	mov r0, #0
 	str r0, [r1, #0x6c]
 	ldr r1, _021D8E60 ; =0x00007FFF
@@ -722,7 +722,7 @@ _021D8E50:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D8E5C: .word gUnknown21C48B8
+_021D8E5C: .word gMain
 _021D8E60: .word 0x00007FFF
 _021D8E64: .word 0x00000A8C
 	thumb_func_end MOD63_021D8D98

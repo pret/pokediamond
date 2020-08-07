@@ -99,8 +99,8 @@ THUMB_FUNC void NitroMain(void)
             break;
         }
     }
-    gUnknown21C48B8.unk6C = 1;
-    gUnknown21C48B8.unk30 = 0;
+    gMain.unk6C = 1;
+    gMain.unk30 = 0;
     InitializeMainRNG();
     FUN_0200A2AC();
     FUN_02015E30();
@@ -110,34 +110,34 @@ THUMB_FUNC void NitroMain(void)
         FUN_02000EE8();
         FUN_02000FE8();
         FUN_02016464();
-        if ((gUnknown21C48B8.unk38 & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gUnk021C4918.unk8) // soft reset?
+        if ((gMain.unk38 & SOFT_RESET_KEY) == SOFT_RESET_KEY && !gUnk021C4918.unk8) // soft reset?
         {
             DoSoftReset(0); // soft reset?
         }
         if (FUN_0202FB80())
         {
             FUN_02000E0C();
-            FUN_0201B5CC(gUnknown21C48B8.unk18);
-            FUN_0201B5CC(gUnknown21C48B8.unk24);
-            if (!gUnknown21C48B8.unk30)
+            FUN_0201B5CC(gMain.unk18);
+            FUN_0201B5CC(gMain.unk24);
+            if (!gMain.unk30)
             {
                 OS_WaitIrq(1, 1);
-                gUnknown21C48B8.unk2C++;
+                gMain.unk2C++;
             }
         }
         FUN_020125D4();
         FUN_02015E60();
         FUN_020222C4();
-        FUN_0201B5CC(gUnknown21C48B8.unk24);
+        FUN_0201B5CC(gMain.unk24);
         OS_WaitIrq(1, 1);
-        gUnknown21C48B8.unk2C++;
-        gUnknown21C48B8.unk30 = 0;
+        gMain.unk2C++;
+        gMain.unk30 = 0;
         FUN_0200A318();
         FUN_0200E2D8();
-        if (gUnknown21C48B8.unk0)
-            gUnknown21C48B8.unk0(gUnknown21C48B8.unk4);
+        if (gMain.unk0)
+            gMain.unk0(gMain.unk4);
         DoSoundUpdateFrame();
-        FUN_0201B5CC(gUnknown21C48B8.unk20);
+        FUN_0201B5CC(gMain.unk20);
     }
 }
 
@@ -183,10 +183,10 @@ THUMB_FUNC void FUN_02000E9C(void)
 {
     FUN_0202FB80();
     OS_WaitIrq(TRUE, OS_IE_V_BLANK);
-    gUnknown21C48B8.unk2C++;
-    gUnknown21C48B8.unk30 = 0;
-    if (gUnknown21C48B8.unk0 != NULL)
-        gUnknown21C48B8.unk0(gUnknown21C48B8.unk4);
+    gMain.unk2C++;
+    gMain.unk30 = 0;
+    if (gMain.unk0 != NULL)
+        gMain.unk0(gMain.unk4);
 }
 
 THUMB_FUNC void FUN_02000EC8(u32 parameter)
@@ -258,7 +258,7 @@ THUMB_FUNC void FUN_02000F4C(u32 arg0, u32 arg1)
     {
         FUN_02000FE8();
         FUN_02016464();
-        if (gUnknown21C48B8.unk48 & 1)
+        if (gMain.unk48 & 1)
             break;
         FUN_02000E9C();
     }
@@ -275,7 +275,7 @@ THUMB_FUNC void InitializeMainRNG(void)
     struct Unk21C4828 sp0;
     FUN_0201265C(&spC, &sp0);
     {
-        u32 r4 = gUnknown21C48B8.unk2C;
+        u32 r4 = gMain.unk2C;
         u32 r5 = ((sp0.unk4 + sp0.unk8) << 24) + (spC.unk0 + ((256 * spC.unk4 * spC.unk8) << 16) + (sp0.unk0 << 16));
         SetMTRNGSeed(r4 + r5);
         SetLCRNGSeed(r4 + r5);

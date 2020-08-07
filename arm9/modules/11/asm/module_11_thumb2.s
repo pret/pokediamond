@@ -215,7 +215,7 @@ _0222F30E:
 	ldr r0, [r5, #8]
 	mov r1, #1
 	add r2, r6, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -4864,7 +4864,7 @@ _022316CC:
 	str r0, [sp, #8]
 	add r0, r6, #0
 	add r2, r4, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r5, r0, #0
 	add r0, r4, #0
 	bl String_dtor
@@ -4902,7 +4902,7 @@ _02231708:
 	str r0, [sp, #8]
 	add r0, r6, #0
 	add r2, r4, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r5, r0, #0
 	add r0, r4, #0
 	bl String_dtor
@@ -4927,7 +4927,7 @@ _0223174C:
 	str r0, [sp, #8]
 	ldr r2, [r5, #0x18]
 	add r0, r6, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r5, r0, #0
 _02231778:
 	lsl r0, r5, #0x18
@@ -4971,7 +4971,7 @@ MOD11_0223178C: ; 0x0223178C
 	ldr r2, [r5, #0x18]
 	add r0, r7, #0
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -5027,7 +5027,7 @@ _0223182E:
 	ldr r4, [sp, #0x20]
 	ldr r2, [r5, #0x18]
 	add r3, r4, r3
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add sp, #0xc
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -6224,7 +6224,7 @@ MOD11_022321EC: ; 0x022321EC
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x18]
 	add r2, r4, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r4, #0
 	bl String_dtor
 	pop {r3, r4, r5, pc}
@@ -8728,7 +8728,7 @@ MOD11_02233598: ; 0x02233598
 	mov r1, #4
 	tst r0, r1
 	bne _022335D2
-	ldr r0, _022335FC ; =gUnknown21C48B8
+	ldr r0, _022335FC ; =gMain
 	ldr r1, [r0, #0x48]
 	ldr r0, _02233600 ; =0x00000C03
 	tst r0, r1
@@ -8763,7 +8763,7 @@ _022335F2:
 	mov r0, #0
 	pop {r4, r5, r6, pc}
 	nop
-_022335FC: .word gUnknown21C48B8
+_022335FC: .word gMain
 _02233600: .word 0x00000C03
 
 	thumb_func_start MOD11_02233604
@@ -24031,7 +24031,7 @@ _0223ADEC:
 	str r0, [r4, #0x28]
 	pop {r4, r5, r6, r7, pc}
 _0223AE3C:
-	ldr r0, _0223AF68 ; =gUnknown21C48B8
+	ldr r0, _0223AF68 ; =gMain
 	ldr r1, [r0, #0x48]
 	ldr r0, _0223AF6C ; =0x00000C03
 	tst r0, r1
@@ -24169,7 +24169,7 @@ _0223AF58: .word MOD11_0225DC60
 _0223AF5C: .word 0x000003B3
 _0223AF60: .word MOD11_0225DC90
 _0223AF64: .word 0x000003B5
-_0223AF68: .word gUnknown21C48B8
+_0223AF68: .word gMain
 _0223AF6C: .word 0x00000C03
 _0223AF70: .word 0x000005DC
 _0223AF74: .word 0x0000FFFE
@@ -25397,7 +25397,7 @@ _0223B990:
 	bl MOD16_021EEF84
 	cmp r0, #0
 	beq _0223BA4C
-	ldr r0, _0223BBE0 ; =gUnknown21C48B8
+	ldr r0, _0223BBE0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -25659,7 +25659,7 @@ _0223BBCA:
 _0223BBD4: .word 0x0000FFFF
 _0223BBD8: .word 0x00000367
 _0223BBDC: .word 0x0000219C
-_0223BBE0: .word gUnknown21C48B8
+_0223BBE0: .word gMain
 _0223BBE4: .word 0x000005DC
 _0223BBE8: .word 0x00000496
 _0223BBEC:
@@ -28095,7 +28095,7 @@ _0223CF5C:
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x20]
 	add r2, r6, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r6, #0
 	bl String_dtor
 	add r0, sp, #0x68
@@ -28118,7 +28118,7 @@ _0223CF5C:
 	add r0, sp, #0x68
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, sp, #0x68
 	mov r1, #1
 	mov r2, #5
@@ -41251,7 +41251,7 @@ _022435DC:
 	add r4, #0x36
 	add r0, r3, #0
 	add r1, r4, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	b _02243798
 _022435E8:
 	ldr r0, [r4, #0x4c]
@@ -69293,7 +69293,7 @@ _02250D98:
 	strb r0, [r4, #0xa]
 	pop {r4, r5, r6, r7, pc}
 _02250DA0:
-	ldr r0, _02250E98 ; =gUnknown21C48B8
+	ldr r0, _02250E98 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #8
 	tst r0, r1
@@ -69404,7 +69404,7 @@ _02250E88: .word 0x000004CA
 _02250E8C: .word 0x0000039A
 _02250E90: .word 0x000004C6
 _02250E94: .word 0x00000197
-_02250E98: .word gUnknown21C48B8
+_02250E98: .word gMain
 _02250E9C: .word 0x000005DD
 _02250EA0:
 	ldrb r1, [r4, #9]
@@ -82473,7 +82473,7 @@ MOD11_022574F0: ; 0x022574F0
 	ldr r1, [sp, #0x18]
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xf
@@ -82495,7 +82495,7 @@ MOD11_022574F0: ; 0x022574F0
 	str r1, [sp, #0x14]
 	add r0, sp, #0x24
 	add r3, r1, #0
-	bl FUN_0201BE3C
+	bl AddTextPrinterParameterized3
 	ldr r0, [r5, #4]
 	ldr r6, [sp, #0x30]
 	ldr r0, [r0]
@@ -83068,7 +83068,7 @@ _02257A26:
 	str r1, [sp, #0x14]
 	add r0, sp, #0x18
 	add r3, r1, #0
-	bl FUN_0201BE3C
+	bl AddTextPrinterParameterized3
 	ldr r0, [r4, #4]
 	ldr r5, [sp, #0x24]
 	ldr r0, [r0]
@@ -83172,7 +83172,7 @@ _02257B1E:
 	ldr r2, [sp, #0x18]
 	add r0, r7, #0
 	add r1, r6, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	str r0, [sp]
 	mov r0, #0xf
@@ -83194,7 +83194,7 @@ _02257B1E:
 	str r1, [sp, #0x14]
 	add r0, sp, #0x24
 	add r3, r1, #0
-	bl FUN_0201BE3C
+	bl AddTextPrinterParameterized3
 	ldr r0, [r4, #4]
 	ldr r5, [sp, #0x30]
 	ldr r0, [r0]
@@ -86994,11 +86994,11 @@ MOD11_022599CC: ; 0x022599CC
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
 	add r1, r6, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r2, [sp, #0x20]
 	add r0, r4, #0
 	add r1, r7, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, _02259AA0 ; =0x00010203
 	ldr r1, _02259AA4 ; =0x000004CC
 	str r0, [sp]
@@ -87090,11 +87090,11 @@ MOD11_02259AB0: ; 0x02259AB0
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
 	add r1, r6, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r2, [sp, #0x20]
 	add r0, r4, #0
 	add r1, r7, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, _02259B84 ; =0x00010203
 	ldr r1, _02259B88 ; =0x000004CC
 	str r0, [sp]
@@ -87187,11 +87187,11 @@ MOD11_02259B94: ; 0x02259B94
 	ldr r2, [sp, #0x1c]
 	add r0, r4, #0
 	add r1, r6, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r2, [sp, #0x20]
 	add r0, r4, #0
 	add r1, r7, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, _02259C64 ; =0x00010203
 	ldr r1, _02259C68 ; =0x000004CC
 	str r0, [sp]
@@ -87348,7 +87348,7 @@ _02259D2A:
 	ldr r0, [sp, #0x1c]
 	ldr r1, [sp, #0x28]
 	ldr r2, [sp, #0x24]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #1
 	tst r0, r4
 	beq _02259D5A
@@ -88303,7 +88303,7 @@ _0225A49C:
 	ldr r2, [sp, #0x18]
 	add r0, sp, #0x3c
 	str r3, [sp, #0x14]
-	bl FUN_0201BE3C
+	bl AddTextPrinterParameterized3
 	b _0225A4E6
 _0225A4DA:
 	add r3, r4, #0
@@ -88794,7 +88794,7 @@ _0225A876:
 	ldr r0, [sp, #0x24]
 	ldr r1, [sp, #0x30]
 	ldr r2, [sp, #0x2c]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldrh r0, [r5, #8]
 	ldrh r1, [r5, #0x10]
 	bl MOD11_0225B3D4
@@ -88938,7 +88938,7 @@ _0225A994:
 	add r0, r4, #0
 	add r2, r6, #0
 	str r3, [sp, #0x14]
-	bl FUN_0201BE3C
+	bl AddTextPrinterParameterized3
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -90879,7 +90879,7 @@ _0225B8D4:
 	ldrb r0, [r5, r0]
 	cmp r0, #1
 	beq _0225B8EC
-	ldr r1, _0225B918 ; =gUnknown21C48B8
+	ldr r1, _0225B918 ; =gMain
 	ldr r2, [r1, #0x48]
 	ldr r1, _0225B91C ; =0x00000CF3
 	tst r1, r2
@@ -90908,7 +90908,7 @@ _0225B90C:
 	pop {r4, r5, r6, pc}
 	nop
 _0225B914: .word MOD11_0225FAAC
-_0225B918: .word gUnknown21C48B8
+_0225B918: .word gMain
 _0225B91C: .word 0x00000CF3
 _0225B920: .word 0x000005DC
 _0225B924: .word 0x000006F4
@@ -91006,7 +91006,7 @@ _0225B9CA:
 	str r0, [sp, #0xc]
 	cmp r0, #3
 	bne _0225B9EC
-	ldr r0, _0225BAF8 ; =gUnknown21C48B8
+	ldr r0, _0225BAF8 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x40
 	tst r0, r1
@@ -91022,7 +91022,7 @@ _0225B9EC:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0
 	bne _0225BA34
-	ldr r0, _0225BAF8 ; =gUnknown21C48B8
+	ldr r0, _0225BAF8 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x20
 	tst r0, r1
@@ -91153,7 +91153,7 @@ _0225BAE8: .word MOD11_0225FAAC
 _0225BAEC: .word MOD11_0225F698
 _0225BAF0: .word 0x000006EC
 _0225BAF4: .word 0x0000069F
-_0225BAF8: .word gUnknown21C48B8
+_0225BAF8: .word gMain
 _0225BAFC: .word 0x000005DC
 _0225BB00: .word 0x000006A3
 
@@ -92596,7 +92596,7 @@ _0225C594:
 	str r1, [sp]
 	ldrsb r1, [r0, r5]
 	mov ip, r1
-	ldr r1, _0225C764 ; =gUnknown21C48B8
+	ldr r1, _0225C764 ; =gMain
 	ldr r1, [r1, #0x48]
 	tst r3, r1
 	beq _0225C5FA
@@ -92846,7 +92846,7 @@ _0225C75E:
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_0225C764: .word gUnknown21C48B8
+_0225C764: .word gMain
 _0225C768: .word 0x000005DC
 
 	thumb_func_start MOD11_0225C76C

@@ -3,7 +3,7 @@
 
 	.extern UNK_021C48F8
 	.extern gUnk021C4918
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -706,7 +706,7 @@ _02077594:
 	lsl r2, r2, #0x6
 	ldr r2, [r4, r2]
 	add r0, r4, r0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r1, _020776B4 ; =0x00000458
 	str r0, [r4, r1]
 	sub r1, #0x10
@@ -828,7 +828,7 @@ FUN_020776C4: ; 0x020776C4
 	add r5, r0, #0x0
 	add r4, r1, #0x0
 	bl FUN_02078C98
-	ldr r0, _020777BC ; =gUnknown21C48B8
+	ldr r0, _020777BC ; =gMain
 	mov r1, #0x4
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -947,7 +947,7 @@ _020777B8:
 	add r0, r4, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_020777BC: .word gUnknown21C48B8
+_020777BC: .word gMain
 _020777C0: .word 0x0000045C
 _020777C4: .word 0x0000069E
 _020777C8: .word 0x000005C8
@@ -1003,7 +1003,7 @@ _0207781A:
 	add r4, #0x1c
 	add r1, r4, #0x0
 	mov r2, #0xa
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	pop {r4-r6, pc}
 _02077836:
 	cmp r0, #0x3
@@ -1027,7 +1027,7 @@ _02077836:
 	add r4, #0x1c
 	add r1, r4, #0x0
 	mov r2, #0xa
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	pop {r4-r6, pc}
 _02077864:
 	mov r0, #0x1
@@ -1132,7 +1132,7 @@ _0207790E:
 	add r1, r4, #0x0
 	ldr r0, [r5, #0x18]
 	add r1, #0xd8
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 _02077932:
 	mov r0, #0x61
 	lsl r0, r0, #0x2
@@ -1642,7 +1642,7 @@ FUN_02077CD4: ; 0x02077CD4
 	beq _02077D88
 	add r1, r4, r1
 	mov r2, #0x20
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 _02077D88:
 	add r1, r4, #0x0
 	mov r0, #0x1
@@ -1866,7 +1866,7 @@ _02077F50:
 	add r1, r5, #0x0
 	add r0, r7, #0x0
 	add r1, #0xd8
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r1, #0x0
 	str r1, [sp, #0x0]
 	mov r0, #0x5a
@@ -3011,7 +3011,7 @@ FUN_02078894: ; 0x02078894
 	mov r1, #0x1
 	add r2, r4, #0x0
 	str r3, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r5, #0x0
 	bl FUN_020191D0
 	add sp, #0xc
@@ -3044,7 +3044,7 @@ _020788DE:
 	add r2, r6, #0x0
 	add r3, r4, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0x0
 	bl FUN_020191D0
 	add sp, #0x10
@@ -3496,7 +3496,7 @@ _02078C94: .word 0x0000E001
 FUN_02078C98: ; 0x02078C98
 	push {r4-r6, lr}
 	add r5, r0, #0x0
-	ldr r0, _02078D70 ; =gUnknown21C48B8
+	ldr r0, _02078D70 ; =gMain
 	mov r4, #0x0
 	ldr r1, [r0, #0x4c]
 	mov r0, #0x40
@@ -3513,7 +3513,7 @@ FUN_02078C98: ; 0x02078C98
 	mov r6, #0x1
 	add r4, r4, #0x1
 _02078CC0:
-	ldr r0, _02078D70 ; =gUnknown21C48B8
+	ldr r0, _02078D70 ; =gMain
 	ldr r1, [r0, #0x4c]
 	mov r0, #0x80
 	tst r0, r1
@@ -3528,7 +3528,7 @@ _02078CC0:
 	mov r6, #0x2
 	add r4, r4, #0x1
 _02078CE0:
-	ldr r0, _02078D70 ; =gUnknown21C48B8
+	ldr r0, _02078D70 ; =gMain
 	ldr r1, [r0, #0x4c]
 	mov r0, #0x20
 	tst r0, r1
@@ -3543,7 +3543,7 @@ _02078CE0:
 	mov r6, #0x3
 	add r4, r4, #0x1
 _02078D00:
-	ldr r0, _02078D70 ; =gUnknown21C48B8
+	ldr r0, _02078D70 ; =gMain
 	ldr r1, [r0, #0x4c]
 	mov r0, #0x10
 	tst r0, r1
@@ -3558,7 +3558,7 @@ _02078D00:
 	mov r6, #0x4
 	add r4, r4, #0x1
 _02078D20:
-	ldr r0, _02078D70 ; =gUnknown21C48B8
+	ldr r0, _02078D70 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x8
 	tst r0, r1
@@ -3597,7 +3597,7 @@ _02078D5A:
 _02078D6E:
 	pop {r4-r6, pc}
 	.balign 4
-_02078D70: .word gUnknown21C48B8
+_02078D70: .word gMain
 _02078D74: .word 0x000005DC
 _02078D78: .word 0x000005C8
 
@@ -3814,7 +3814,7 @@ _02078F0A:
 	add r5, r0, #0x0
 	ldr r0, [sp, #0x28]
 	add r1, sp, #0x38
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [sp, #0x20]
 	sub r3, r6, r5
 	str r0, [sp, #0x0]
@@ -3837,7 +3837,7 @@ _02078F0A:
 	ldr r2, [sp, #0x28]
 	mov r1, #0x0
 	add r3, r5, r3
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _02078F56:
 	add r4, r4, #0x1
 _02078F58:
@@ -3872,7 +3872,7 @@ FUN_02078F7C: ; 0x02078F7C
 	add r3, r5, #0x0
 	add r4, r0, #0x0
 	str r5, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [r4, #0xc]
 	add sp, #0x10
 	pop {r4-r6, pc}
@@ -3944,7 +3944,7 @@ _02079012:
 	bl FUN_02019620
 	add r0, r4, #0x0
 	add r1, sp, #0xc
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r3, _0207906C ; =0x000D0E0F
 	add r0, r6, r7
 	add r1, r4, #0x0

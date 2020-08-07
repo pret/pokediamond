@@ -550,7 +550,7 @@ FUN_02083888: ; 0x02083888
 	bl StringSetEmpty
 	ldr r0, [r4, r7]
 	add r1, r5, #0x4
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, _020838B0 ; =0x00000584
 	ldrb r1, [r6, r0]
 	add r1, r1, #0x1
@@ -567,7 +567,7 @@ FUN_020838B4: ; 0x020838B4
 	add r0, r2, #0x0
 	add r1, sp, #0x0
 	mov r2, #0x8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	mov r0, #0x14
 	add r1, r0, #0x0
 	bl AllocFromHeap

@@ -311,7 +311,7 @@ MOD05_021E2DD4: ; 0x021E2DD4
 	ldr r0, [r4, #8]
 	ldr r1, [r4]
 	ldr r2, [r4, #4]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	pop {r4, pc}
 	.balign 4, 0
 
@@ -384,7 +384,7 @@ MOD05_021E2E68: ; 0x021E2E68
 	str r3, [sp, #8]
 	ldr r0, [r4, #0xc]
 	ldr r2, [r4]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r1, [r4, #0x14]
 	strb r0, [r1]
 	add sp, #0xc
@@ -835,7 +835,7 @@ MOD05_021E31D4: ; 0x021E31D4
 	add r3, #0x30
 	ldrb r3, [r3]
 	add r0, #0x20
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x10
 	pop {r3, pc}
 	nop
@@ -7957,7 +7957,7 @@ _021E6824:
 _021E682A:
 	ldr r0, [r4, #0xc]
 	bl FUN_020552F8
-	ldr r2, _021E68D4 ; =gUnknown21C48B8
+	ldr r2, _021E68D4 ; =gMain
 	str r0, [sp]
 	ldr r1, [r2, #0x48]
 	ldr r2, [r2, #0x44]
@@ -8031,7 +8031,7 @@ _021E68C6:
 	.balign 4, 0
 _021E68CC: .word 0x00000651
 _021E68D0: .word 0x00000652
-_021E68D4: .word gUnknown21C48B8
+_021E68D4: .word gMain
 
 	thumb_func_start MOD05_021E68D8
 MOD05_021E68D8: ; 0x021E68D8
@@ -11660,7 +11660,7 @@ MOD05_021E8410: ; 0x021E8410
 	ldr r0, [r5, #0x10]
 	add r2, r6, #0
 	add r3, r1, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r6, #0
 	bl String_dtor
 	mov r0, #1
@@ -11691,7 +11691,7 @@ _021E846E:
 	ldr r0, [r5, #0x10]
 	add r2, r6, #0
 	add r3, r1, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r6, #0
 	bl String_dtor
 	sub r2, r7, #4
@@ -11718,7 +11718,7 @@ _021E846E:
 	ldr r0, [r5, #0x10]
 	mov r1, #0
 	add r2, r6, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r6, #0
 	bl String_dtor
 _021E84D6:
@@ -27128,7 +27128,7 @@ _021EFF2E:
 	bl FUN_020283A4
 	add r1, r0, #0
 	ldr r0, [r5, #8]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [r5]
 	ldr r1, [r5, #8]
 	add r2, r4, #0
@@ -27473,7 +27473,7 @@ _021F0204:
 	ldr r0, [r4, #0x38]
 	ldr r1, [r4, #0xc]
 	ldr r2, [r4, #8]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, [r4, #0x30]
 	add r1, r4, #0
 	ldr r0, [r0, #8]
@@ -39943,7 +39943,7 @@ _021F6088:
 
 	thumb_func_start MOD05_021F6098
 MOD05_021F6098: ; 0x021F6098
-	ldr r0, _021F60A8 ; =gUnknown21C48B8
+	ldr r0, _021F60A8 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r1, r0
@@ -39952,11 +39952,11 @@ MOD05_021F6098: ; 0x021F6098
 _021F60A4:
 	bx lr
 	nop
-_021F60A8: .word gUnknown21C48B8
+_021F60A8: .word gMain
 
 	thumb_func_start MOD05_021F60AC
 MOD05_021F60AC: ; 0x021F60AC
-	ldr r0, _021F60C0 ; =gUnknown21C48B8
+	ldr r0, _021F60C0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -39967,7 +39967,7 @@ _021F60BA:
 	mov r0, #0
 	bx lr
 	nop
-_021F60C0: .word gUnknown21C48B8
+_021F60C0: .word gMain
 
 	thumb_func_start MOD05_021F60C4
 MOD05_021F60C4: ; 0x021F60C4
@@ -40043,7 +40043,7 @@ MOD05_021F6140: ; 0x021F6140
 	ldr r0, [r5, #0x34]
 	ldr r1, [r5, #0x2c]
 	ldr r2, [r5, #0x30]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, [r4, #0xc]
 	bl LoadPlayerDataAddress
 	add r2, r0, #0

@@ -1,8 +1,8 @@
 All right, thanks for your patience!\nLet’s begin the Visual Competition!\r
-Dexter: Entry number 1!\n{STRVAR 259, 1, 0}!\r{STRVAR 259, 1, 0} has entered the Contest\nwith {STRVAR 256, 1, 1}!\r
-Dexter: Entry number 2!\n{STRVAR 259, 1, 0}!\r{STRVAR 259, 1, 0} enters our Contest with\n{STRVAR 256, 1, 1}!\r
-Dexter: Entry number 3!\n{STRVAR 259, 1, 0}!\r{STRVAR 259, 1, 0} is in the Contest with\n{STRVAR 256, 1, 1}!\r
-Dexter: Entry number 4!\n{STRVAR 259, 1, 0}!\r{STRVAR 259, 1, 0}’s Contest hopes ride\nwith {STRVAR 256, 1, 1}!\r
+Dexter: Entry number 1!\n{STRVAR 259, 0}!\r{STRVAR 259, 0} has entered the Contest\nwith {STRVAR 256, 1}!\r
+Dexter: Entry number 2!\n{STRVAR 259, 0}!\r{STRVAR 259, 0} enters our Contest with\n{STRVAR 256, 1}!\r
+Dexter: Entry number 3!\n{STRVAR 259, 0}!\r{STRVAR 259, 0} is in the Contest with\n{STRVAR 256, 1}!\r
+Dexter: Entry number 4!\n{STRVAR 259, 0}!\r{STRVAR 259, 0}’s Contest hopes ride\nwith {STRVAR 256, 1}!\r
 The Dance Competition is next!\nIs everyone up and ready for this?!\r
     
     

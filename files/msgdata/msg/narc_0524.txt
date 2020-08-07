@@ -1,12 +1,12 @@
 Oh?\nWelcome!\rYou saw the notice outside about\nus hiring, right?\rIs that a Pokédex there?\nThen you must know Professor Rowan!\rYou’re just the Pokémon-searching\nexpert we’ve been looking for!\r
 Here you are!\nGood!\rWe’ve got a deadline to meet.\nHere’s your assignment.\r
-{STRVAR 256, 1, 0}.\nI want you to bring me one.\rYou must bring it today, or we’re not\ngonna be able to run our main article.\rRemember, it has to be today.\nBefore the date rolls over!
+{STRVAR 256, 0}.\nI want you to bring me one.\rYou must bring it today, or we’re not\ngonna be able to run our main article.\rRemember, it has to be today.\nBefore the date rolls over!
 What’s up? Did you bring us\nthe Pokémon we needed?\r
-Oh! Ohh! Ohhh!\nThat’s it! {STRVAR 256, 1, 0}!\rThanks!\nLet me get a closer look!\r...I see, hmhm...\nRight, right... That’s it!\rThank you!\nI can write a great article now!\rThis is for your trouble.\nIt’s not much, but thanks!\r
+Oh! Ohh! Ohhh!\nThat’s it! {STRVAR 256, 0}!\rThanks!\nLet me get a closer look!\r...I see, hmhm...\nRight, right... That’s it!\rThank you!\nI can write a great article now!\rThis is for your trouble.\nIt’s not much, but thanks!\r
 You really came through for us!\nI hope you’ll help us again tomorrow!
 Whoops! What’s all this?\nYour Bag is stuffed full.\rI’ll hold on to these until\nthe next time.
 Oh, there you are! Here’s your\nreward for the last assignment!\rIt’s not much, but thanks!
-What’s wrong? You still haven’t\ncaught the {STRVAR 256, 1, 0} we need?\rWe’re counting on you to come\nthrough for us!\rBring us the {STRVAR 256, 1, 0}\nbefore the date rolls over!
+What’s wrong? You still haven’t\ncaught the {STRVAR 256, 0} we need?\rWe’re counting on you to come\nthrough for us!\rBring us the {STRVAR 256, 0}\nbefore the date rolls over!
 Now, now! You failed to bring me the\nPokémon I asked for...\rThings like that can happen, but\nwe need you to come up big for us!
 OK! I’ll crank out a riveting story\nbased on this!\rOh, right! I’ll have another\nassignment for you tomorrow!
 The Sinnoh region’s newspaper is\ntiny, but it has many fans.\rThat newspaper is printed right\nhere!

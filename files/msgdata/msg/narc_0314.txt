@@ -1,9 +1,9 @@
 There appears to be a problem...
-Waiting for {STRVAR 259, 1, 1}’s\nresponse...
-Asking {STRVAR 259, 1, 1} to do member\nregistration. Please wait.
+Waiting for {STRVAR 259, 1}’s\nresponse...
+Asking {STRVAR 259, 1} to do member\nregistration. Please wait.
 Do you want to leave the group?
-{STRVAR 259, 1, 1} replied, “OK.”
-{STRVAR 259, 1, 1} refused...\r
+{STRVAR 259, 1} replied, “OK.”
+{STRVAR 259, 1} refused...\r
 You have left the group.
                                 
 Single Battle!\nAwaiting contact from your friend.
@@ -14,13 +14,13 @@ When the group is ready:\nA Button: Proceed   B Button: Cancel
 Record Corner!\nAwaiting contact from your friend(s).
 When the group is ready:\nA Button: Proceed   B Button: Cancel
 Battle Tower!\nAwaiting contact from your friend.
-{STRVAR 259, 1, 1} has contacted you.\nWould you like to trade?
-{STRVAR 259, 1, 1} has contacted you.\nStart a Single Battle?
-{STRVAR 259, 1, 1} has contacted you.\nStart a Double Battle?
-{STRVAR 259, 1, 1} has contacted you.\nStart a Mix Battle?
-{STRVAR 259, 1, 1} has contacted you.\nLet {STRVAR 259, 1, 1} join your group?
-{STRVAR 259, 1, 1} has contacted you.\nTake the Battle Tower challenge?
-{STRVAR 259, 1, 1} has contacted you.\nLet {STRVAR 259, 1, 1} join your group?
+{STRVAR 259, 1} has contacted you.\nWould you like to trade?
+{STRVAR 259, 1} has contacted you.\nStart a Single Battle?
+{STRVAR 259, 1} has contacted you.\nStart a Double Battle?
+{STRVAR 259, 1} has contacted you.\nStart a Mix Battle?
+{STRVAR 259, 1} has contacted you.\nLet {STRVAR 259, 1} join your group?
+{STRVAR 259, 1} has contacted you.\nTake the Battle Tower challenge?
+{STRVAR 259, 1} has contacted you.\nLet {STRVAR 259, 1} join your group?
 Multi Battle!\nIs this group OK?
 Is this group OK?
 Record Corner!\nIs this group OK?
@@ -41,18 +41,18 @@ Choose the friend you want to take\nto the Battle Tower.
 A member has dropped out.\rPlease repeat the registration\nprocess from the beginning.
 Record mixing with this group will\nbe canceled.
 A Contest involving this group will\nbe canceled.
-Replied “OK” to {STRVAR 259, 1, 1}.
+Replied “OK” to {STRVAR 259, 1}.
 Multi Battle!\nWaiting for the rest of the group.
 Waiting for the rest of the group.
 Record Corner!\nWaiting for the rest of the group.
 Contest!\nWaiting for the rest of the group.
-{STRVAR 259, 1, 0}\nID{STRVAR 310, 1, 1}
-{STRVAR 307, 1, 0}:{STRVAR 259, 1, 1}
-{STRVAR 307, 1, 0}:
-ID{STRVAR 310, 1, 2}
-{STRVAR 259, 1, 0}
-{STRVAR 306, 1, 0} more\nneeded.
-{STRVAR 306, 1, 0} Players
+{STRVAR 259, 0}\nID{STRVAR 310, 1}
+{STRVAR 307, 0}:{STRVAR 259, 1}
+{STRVAR 307, 0}:
+ID{STRVAR 310, 2}
+{STRVAR 259, 0}
+{STRVAR 306, 0} more\nneeded.
+{STRVAR 306, 0} Players
  
 STANDARD
 FANCY
@@ -68,18 +68,18 @@ Evolved Pokémon:
 Special Pokémon:
 Same Pokémon:
 Same items:
-{STRVAR 306, 1, 0}
-Max. {STRVAR 308, 1, 0}
-Max. {STRVAR 308, 1, 0}
-Max. {STRVAR 306, 1, 0}’ {STRVAR 306, 1, 1}”
-Min. {STRVAR 306, 1, 0}’ {STRVAR 306, 1, 1}”
-Max. {STRVAR 307, 1, 0} lbs.
-Min. {STRVAR 307, 1, 0} lbs.
+{STRVAR 306, 0}
+Max. {STRVAR 308, 0}
+Max. {STRVAR 308, 0}
+Max. {STRVAR 306, 0}’ {STRVAR 306, 1}”
+Min. {STRVAR 306, 0}’ {STRVAR 306, 1}”
+Max. {STRVAR 307, 0} lbs.
+Min. {STRVAR 307, 0} lbs.
 Permitted
 Banned
 Permitted
 Banned
-{STRVAR 282, 1, 0} Cup
+{STRVAR 282, 0} Cup
 NO RESTRICTIONS
 Players have chosen different rules.\nThe same rules must be chosen.
 Cool Contest!\nAwaiting contact from another player.

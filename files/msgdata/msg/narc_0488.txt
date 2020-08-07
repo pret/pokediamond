@@ -2,24 +2,24 @@ Welcome!\nHow may I serve you?
 Please come again!
 Is there anything else I may do\nfor you?
 You don’t have enough money.
-{STRVAR 264, 1, 0}? Certainly.\nHow many would you like?
-{STRVAR 264, 1, 0}, and you want {STRVAR 307, 1, 1}.\nThat will be ${STRVAR 311, 1, 2}. OK?
-Here you are!\nThank you!\rYou put away the {STRVAR 264, 1, 0}\nin the {STRVAR 283, 1, 1} Pocket.
+{STRVAR 264, 0}? Certainly.\nHow many would you like?
+{STRVAR 264, 0}, and you want {STRVAR 307, 1}.\nThat will be ${STRVAR 311, 2}. OK?
+Here you are!\nThank you!\rYou put away the {STRVAR 264, 0}\nin the {STRVAR 283, 1} Pocket.
 You have no more room for this\nitem.
 CANCEL
-${STRVAR 309, 1, 0}
+${STRVAR 309, 0}
 You also get a Premier Ball as\nan added bonus.
-Thank you! We’ll send\nthe {STRVAR 266, 1, 0} to your PC.
+Thank you! We’ll send\nthe {STRVAR 266, 0} to your PC.
 Your PC is full.\nYou have no more room for goods.
-You placed the {STRVAR 266, 1, 0}\nin the Seal Case.
+You placed the {STRVAR 266, 0}\nin the Seal Case.
 The Seal Case is full.\nYou have no more room for Seals.
 BUY
 SELL
 SEE YA!
 Money
-${STRVAR 311, 1, 0}
-In Bag: {STRVAR 308, 1, 0}
-x{STRVAR 307, 1, 0}
-${STRVAR 311, 1, 0}
+${STRVAR 311, 0}
+In Bag: {STRVAR 308, 0}
+x{STRVAR 307, 0}
+${STRVAR 311, 0}
 YES
 NO

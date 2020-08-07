@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -141,7 +141,7 @@ FUN_02001C78: ; 0x02001C78
 	push {r3-r5, lr}
 	add r4, r0, #0x0
 	mov r1, #0x0
-	ldr r2, _02001D24 ; =gUnknown21C48B8
+	ldr r2, _02001D24 ; =gMain
 	strb r1, [r4, #0x1b]
 	ldr r2, [r2, #0x48]
 	mov r5, #0x1
@@ -228,7 +228,7 @@ _02001D1C:
 	add r0, r1, #0x0
 	pop {r3-r5, pc}
 	nop
-_02001D24: .word gUnknown21C48B8
+_02001D24: .word gMain
 _02001D28: .word 0x000005DC
 
 	thumb_func_start FUN_02001D2C
@@ -237,7 +237,7 @@ FUN_02001D2C: ; 0x02001D2C
 	add r2, r1, #0x0
 	add r4, r0, #0x0
 	mov r1, #0x0
-	ldr r3, _02001DD4 ; =gUnknown21C48B8
+	ldr r3, _02001DD4 ; =gMain
 	strb r1, [r4, #0x1b]
 	ldr r5, [r3, #0x48]
 	mov r3, #0x1
@@ -322,7 +322,7 @@ _02001DCE:
 	add r0, r1, #0x0
 	pop {r4-r6, pc}
 	.balign 4
-_02001DD4: .word gUnknown21C48B8
+_02001DD4: .word gMain
 _02001DD8: .word 0x000005DC
 
 	thumb_func_start FUN_02001DDC
@@ -676,7 +676,7 @@ _0200202A:
 	ldrb r1, [r5, #0x8]
 	ldr r0, [r5, #0x4]
 	add r3, r7, #0x0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0x1
 	lsl r0, r0, #0x18
 	ldrb r2, [r5, #0xa]

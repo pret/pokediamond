@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.text
 
@@ -164,7 +164,7 @@ _020602A2:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0x3c
 	bhs _020602B8
-	ldr r0, _02060340 ; =gUnknown21C48B8
+	ldr r0, _02060340 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -230,4 +230,4 @@ _02060332:
 	.balign 4
 _02060338: .word 0x00000679
 _0206033C: .word 0x0000FFFF
-_02060340: .word gUnknown21C48B8
+_02060340: .word gMain

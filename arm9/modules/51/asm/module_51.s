@@ -817,7 +817,7 @@ MOD51_02254E48: ; 0x02254E48
 	ldr r2, [r6]
 	add r0, r7, r4
 	mov r1, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #6
 	str r0, [sp]
 	mov r0, #0xff
@@ -830,7 +830,7 @@ MOD51_02254E48: ; 0x02254E48
 	ldr r2, [r6, #4]
 	add r0, r0, r4
 	mov r1, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r7, r4
 	bl FUN_02019220
 	ldr r0, [sp, #0x1c]
@@ -849,7 +849,7 @@ MOD51_02254E48: ; 0x02254E48
 	add r0, r5, r4
 	mov r1, #1
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _02254F22:
 	add r0, r5, r4
 	bl FUN_02019220
@@ -1303,7 +1303,7 @@ _02255290: .word MOD51_02255740
 MOD51_02255294: ; 0x02255294
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _022552F4 ; =gUnknown21C48B8
+	ldr r0, _022552F4 ; =gMain
 	mov r1, #2
 	ldr r2, [r0, #0x48]
 	lsl r1, r1, #8
@@ -1347,7 +1347,7 @@ _022552C6:
 _022552F0:
 	pop {r4, pc}
 	nop
-_022552F4: .word gUnknown21C48B8
+_022552F4: .word gMain
 _022552F8: .word 0x000005E5
 	thumb_func_end MOD51_02255294
 
@@ -1569,7 +1569,7 @@ _0225548C:
 	bl FUN_020254F0
 	add r1, r0, #0
 	add r0, r4, #0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r6, #0
 	add r1, r5, #0
 	bl FUN_020254F8
@@ -1647,7 +1647,7 @@ _02255530:
 	mov r0, #0x1c
 	mul r0, r2
 	ldr r0, [r4, r0]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [r5]
 	mov r1, #0x1c
 	add r2, r0, #0

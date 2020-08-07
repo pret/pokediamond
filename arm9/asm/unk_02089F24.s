@@ -158,7 +158,7 @@ FUN_02089F24: ; 0x02089F24
 	add r2, r4, #0x0
 	add r3, r1, #0x0
 	str r1, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0x0
 	bl String_dtor
 	bl FUN_0201E788
@@ -327,7 +327,7 @@ _0208A0C8:
 	add r2, r4, #0x0
 	add r3, r1, #0x0
 	str r1, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0x0
 	bl String_dtor
 	bl FUN_0201E788

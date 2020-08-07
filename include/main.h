@@ -94,7 +94,7 @@ extern struct Unk2106FA0 gBacklightTop_2; // same as the first one, it's referen
 
 void NitroMain(void);
 
-extern struct Unk21C48B8 gUnknown21C48B8;
+extern struct Unk21C48B8 gMain;
 
 void FUN_02000DF4(void);
 void FUN_02000E0C(void);

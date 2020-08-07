@@ -1,5 +1,5 @@
-Started from {STRVAR 260, 1, 0}.
-{STRVAR 330, 1, 0} {STRVAR 307, 1, 1}
+Started from {STRVAR 260, 0}.
+{STRVAR 330, 0} {STRVAR 307, 1}
 Sunday
 Monday
 Tuesday
@@ -15,71 +15,71 @@ Did lots of shopping at a Poké Mart.
 Sold a little at a Poké Mart.
 Sold a lot at a Poké Mart.
 Did some business at a Poké Mart.
-{STRVAR 288, 1, 0} was too tough...
-Beat {STRVAR 288, 1, 0}’s {STRVAR 323, 1, 1}!
-Beat Elite 4 {STRVAR 323, 1, 0}!
-Defeated the Champion, {STRVAR 323, 1, 0}!
-Arrived in {STRVAR 260, 1, 0}.
-Got through {STRVAR 260, 1, 0}.
-Departed from {STRVAR 260, 1, 0}.
-Exited from {STRVAR 260, 1, 0}.
+{STRVAR 288, 0} was too tough...
+Beat {STRVAR 288, 0}’s {STRVAR 323, 1}!
+Beat Elite 4 {STRVAR 323, 0}!
+Defeated the Champion, {STRVAR 323, 0}!
+Arrived in {STRVAR 260, 0}.
+Got through {STRVAR 260, 0}.
+Departed from {STRVAR 260, 0}.
+Exited from {STRVAR 260, 0}.
 Had fun at the Game Corner.
 Went wild on the Safari Game.
 Dug for Treasure underground.
 Built a Secret Base underground.
-{STRVAR 322, 1, 0} was obtained.
-Used Cut at {STRVAR 260, 1, 0}.
-Flew to {STRVAR 260, 1, 0}.
-Used Surf at {STRVAR 260, 1, 0}.
-Used Strength at {STRVAR 260, 1, 0}.
-Used Flash at {STRVAR 260, 1, 0}.
-Used Rock Smash at {STRVAR 260, 1, 0}.
-Used Waterfall at {STRVAR 260, 1, 0}.
-Used Rock Climb at {STRVAR 260, 1, 0}.
-Used Defog at {STRVAR 260, 1, 0}.
-Used Dig at {STRVAR 260, 1, 0}.
+{STRVAR 322, 0} was obtained.
+Used Cut at {STRVAR 260, 0}.
+Flew to {STRVAR 260, 0}.
+Used Surf at {STRVAR 260, 0}.
+Used Strength at {STRVAR 260, 0}.
+Used Flash at {STRVAR 260, 0}.
+Used Rock Smash at {STRVAR 260, 0}.
+Used Waterfall at {STRVAR 260, 0}.
+Used Rock Climb at {STRVAR 260, 0}.
+Used Defog at {STRVAR 260, 0}.
+Used Dig at {STRVAR 260, 0}.
 Lured Pokémon with a sweet aroma.
-Warped to {STRVAR 260, 1, 0}.
+Warped to {STRVAR 260, 0}.
 Shared HP using Softboiled.
 Shared HP using Milk Drink.
-Caught {STRVAR 325, 1, 0} ({STRVAR 289, 1, 1}).
-{STRVAR 325, 1, 0} was caught ({STRVAR 289, 1, 1}).
-Caught a male {STRVAR 325, 1, 0}.
-Caught a female {STRVAR 325, 1, 0}.
-{STRVAR 325, 1, 0} was defeated ({STRVAR 289, 1, 1}).
-Defeated {STRVAR 325, 1, 0} ({STRVAR 289, 1, 1}).
-Defeated a male {STRVAR 325, 1, 0}.
-Defeated a female {STRVAR 325, 1, 0}.
-Battled {STRVAR 323, 1, 1} at {STRVAR 326, 1, 0}.
-Beat {STRVAR 323, 1, 1} at {STRVAR 327, 1, 0}.
-Beat {STRVAR 323, 1, 1} at {STRVAR 328, 1, 0}.
-Met {STRVAR 329, 1, 0}’s {STRVAR 323, 1, 1}!
-{STRVAR 323, 1, 1}
-Beat {STRVAR 331, 1, 0} (Single).
-Lost to {STRVAR 331, 1, 0} (Single).
-Tied {STRVAR 331, 1, 0} (Single).
-Beat {STRVAR 331, 1, 0} (Double).
-Lost to {STRVAR 331, 1, 0} (Double).
-Tied {STRVAR 331, 1, 0} (Double).
-Beat {STRVAR 331, 1, 0} & {STRVAR 331, 1, 1} (Multi).
-Lost to {STRVAR 331, 1, 0} & {STRVAR 331, 1, 1} (Multi).
-Tied {STRVAR 331, 1, 0} & {STRVAR 331, 1, 1} (Multi).
-Beat {STRVAR 331, 1, 0} (Mix).
-Lost to {STRVAR 331, 1, 0} (Mix).
-Tied {STRVAR 331, 1, 0} (Mix).
-Beat {STRVAR 331, 1, 0} & {STRVAR 331, 1, 1} (Mix).
-Lost to {STRVAR 331, 1, 0} & {STRVAR 331, 1, 1} (Mix).
-Tied {STRVAR 331, 1, 0} & {STRVAR 331, 1, 1} (Mix).
-Greeted {STRVAR 323, 1, 0} in Union Room.
-Got {STRVAR 324, 1, 1} from {STRVAR 323, 1, 0}.
+Caught {STRVAR 325, 0} ({STRVAR 289, 1}).
+{STRVAR 325, 0} was caught ({STRVAR 289, 1}).
+Caught a male {STRVAR 325, 0}.
+Caught a female {STRVAR 325, 0}.
+{STRVAR 325, 0} was defeated ({STRVAR 289, 1}).
+Defeated {STRVAR 325, 0} ({STRVAR 289, 1}).
+Defeated a male {STRVAR 325, 0}.
+Defeated a female {STRVAR 325, 0}.
+Battled {STRVAR 323, 1} at {STRVAR 326, 0}.
+Beat {STRVAR 323, 1} at {STRVAR 327, 0}.
+Beat {STRVAR 323, 1} at {STRVAR 328, 0}.
+Met {STRVAR 329, 0}’s {STRVAR 323, 1}!
+{STRVAR 323, 1}
+Beat {STRVAR 331, 0} (Single).
+Lost to {STRVAR 331, 0} (Single).
+Tied {STRVAR 331, 0} (Single).
+Beat {STRVAR 331, 0} (Double).
+Lost to {STRVAR 331, 0} (Double).
+Tied {STRVAR 331, 0} (Double).
+Beat {STRVAR 331, 0} & {STRVAR 331, 1} (Multi).
+Lost to {STRVAR 331, 0} & {STRVAR 331, 1} (Multi).
+Tied {STRVAR 331, 0} & {STRVAR 331, 1} (Multi).
+Beat {STRVAR 331, 0} (Mix).
+Lost to {STRVAR 331, 0} (Mix).
+Tied {STRVAR 331, 0} (Mix).
+Beat {STRVAR 331, 0} & {STRVAR 331, 1} (Mix).
+Lost to {STRVAR 331, 0} & {STRVAR 331, 1} (Mix).
+Tied {STRVAR 331, 0} & {STRVAR 331, 1} (Mix).
+Greeted {STRVAR 323, 0} in Union Room.
+Got {STRVAR 324, 1} from {STRVAR 323, 0}.
 Drew pictures with others.
-Got {STRVAR 324, 1, 0} in a friend trade.
+Got {STRVAR 324, 0} in a friend trade.
 Chatted with others.
-Beat {STRVAR 323, 1, 0} (Union).
-Lost to {STRVAR 323, 1, 0} (Union).
-Tied {STRVAR 323, 1, 0} (Union).
+Beat {STRVAR 323, 0} (Union).
+Lost to {STRVAR 323, 0} (Union).
+Tied {STRVAR 323, 0} (Union).
 Mixed records with friends.
-Placed no. {STRVAR 306, 1, 0} in a Contest.
+Placed no. {STRVAR 306, 0} in a Contest.
 Made Poffins in a group.
-Got {STRVAR 323, 1, 0}’s {STRVAR 324, 1, 1} (GTS).
+Got {STRVAR 323, 0}’s {STRVAR 324, 1} (GTS).
 Won at the Battle Tower!

@@ -1,7 +1,7 @@
-Target {STRVAR 306, 1, 3}
-Effect No. {STRVAR 308, 1, 0}
-Effect name {STRVAR 262, 1, 1}
-No. of turns {STRVAR 307, 1, 2}
+Target {STRVAR 306, 3}
+Effect No. {STRVAR 308, 0}
+Effect name {STRVAR 262, 1}
+No. of turns {STRVAR 307, 2}
 Shadow (perspective)
 Shadow (direct)
 Shadow (basic)

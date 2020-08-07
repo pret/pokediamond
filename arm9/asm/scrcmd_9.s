@@ -527,7 +527,7 @@ FUN_0204224C: ; 0x0204224C
 	bl String_ctor
 	add r1, r7, #0x0
 	add r4, r0, #0x0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [sp, #0x24]
 	ldr r3, [sp, #0x8]
 	str r0, [sp, #0x0]

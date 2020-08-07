@@ -86,7 +86,7 @@ _020220A2:
 _020220B2:
 	ldr r0, [sp, #0x0]
 	add r1, r4, #0x0
-	bl FUN_02021F4C
+	bl StringCat
 	pop {r3-r7, pc}
 	.balign 4
 _020220BC: .word 0x000001FF

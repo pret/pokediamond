@@ -4,16 +4,16 @@ Thank you for sharing your thoughts\nwith us.\rWe’ll be featuring this intervi
        
 Thank you very much!\nLet’s not waste any time...\rSo, may I hear about your Battle\nTower challenge?\rCan you tell me what you’re feeling\nnow?\r
        
-Thank you very much!\nLet’s not waste any time...\rYour {STRVAR 256, 1, 0} is quite appealing,\nisn’t it?\rMay I have your comment on your\n{STRVAR 256, 1, 0}?\r
+Thank you very much!\nLet’s not waste any time...\rYour {STRVAR 256, 0} is quite appealing,\nisn’t it?\rMay I have your comment on your\n{STRVAR 256, 0}?\r
        
-Thank you very much!\nLet’s not waste any time...\rMay I ask you which Pokétch app you\nuse the most?\r...The {STRVAR 280, 1, 0}...\nI see!\rMay I have your comment on\nthe {STRVAR 280, 1, 0}?\r
+Thank you very much!\nLet’s not waste any time...\rMay I ask you which Pokétch app you\nuse the most?\r...The {STRVAR 280, 0}...\nI see!\rMay I have your comment on\nthe {STRVAR 280, 0}?\r
 Thank you very much!\nLet’s not waste any time...\rSo, may I hear about your Contest\nchallenge?\rCan you tell me what you’re feeling\nnow?\r
        
 Thank you very much!\nLet’s not waste any time...\rMay I have your comment on\nthe finished photograph?\r
 Thank you very much!\nLet’s not waste any time...\rPlease select your favorite Pokémon\ntype from this list.\r
 Thank you very much!\nLet’s not waste any time...\rCan you describe your feelings\nabout preparing Poffins?\r
        
-Thank you very much!\nLet’s not waste any time...\rI’d like to hear about your stroll\nwith your {STRVAR 256, 1, 0}.\rCan you tell me what you’re feeling\nnow?\r
+Thank you very much!\nLet’s not waste any time...\rI’d like to hear about your stroll\nwith your {STRVAR 256, 0}.\rCan you tell me what you’re feeling\nnow?\r
 Normal
 Fire
 Water

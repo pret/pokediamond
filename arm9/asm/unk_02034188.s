@@ -155,7 +155,7 @@ FUN_02034188: ; 0x02034188
 	add r2, r4, #0x0
 	add r3, r1, #0x0
 	str r1, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0x0
 	bl String_dtor
 	bl FUN_0201E788

@@ -1,73 +1,73 @@
-{STRVAR 257, 1, 0}
+{STRVAR 257, 0}
 ♂
 ♀
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
 Item
-{STRVAR 264, 1, 0}
+{STRVAR 264, 0}
 None
 POKéMON INFO
 Pokédex No.
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
 Name
-{STRVAR 256, 1, 0}
+{STRVAR 256, 0}
 Type
 OT
-{STRVAR 259, 1, 0}
+{STRVAR 259, 0}
 ID No.
-{STRVAR 310, 1, 0}
+{STRVAR 310, 0}
 Exp. Points
-{STRVAR 312, 1, 0}
+{STRVAR 312, 0}
 To Next Lv.
   
-{STRVAR 311, 1, 0}
+{STRVAR 311, 0}
 ???
 TRAINER MEMO
-{STRVAR 65280, 1, 2}Hardy{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Lonely{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Brave{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Adamant{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Naughty{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Bold{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Docile{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Relaxed{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Impish{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Lax{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Timid{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Hasty{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Serious{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Jolly{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Naive{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Modest{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Mild{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Quiet{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Bashful{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Rash{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Calm{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Gentle{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Sassy{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Careful{STRVAR 65280, 1, 0} nature.
-{STRVAR 65280, 1, 2}Quirky{STRVAR 65280, 1, 0} nature.
-{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nMet at Lv. {STRVAR 308, 1, 3}.
-{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nApparently met at\nLv. {STRVAR 308, 1, 3}.
-{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nArrived at Lv. {STRVAR 308, 1, 3}.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg obtained.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg hatched.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg obtained.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg apparently hatched.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg received.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg hatched.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg received.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg apparently hatched.
-{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nHad a fateful encounter\nat Lv. {STRVAR 308, 1, 3}.
-{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nApparently had a\nfateful encounter at\nLv. {STRVAR 308, 1, 3}.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg obtained.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg hatched.\nFateful encounter.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg obtained.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg apparently hatched.\nFateful encounter.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg arrived.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg hatched.\nFateful encounter.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg arrived.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg apparently hatched.\nFateful encounter.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg obtained.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg hatched.\nFateful encounter.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}\nEgg obtained.\n{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nEgg apparently hatched.\nFateful encounter.
-{STRVAR 330, 1, 1} {STRVAR 307, 1, 2}, 20{STRVAR 307, 1, 0}\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 4}{STRVAR 65280, 1, 0}\nArrived at Lv. {STRVAR 308, 1, 3}.
-Likes {STRVAR 65280, 1, 2}spicy{STRVAR 65280, 1, 0} food.
-Likes {STRVAR 65280, 1, 2}dry{STRVAR 65280, 1, 0} food.
-Likes {STRVAR 65280, 1, 2}sweet{STRVAR 65280, 1, 0} food.
-Likes {STRVAR 65280, 1, 2}bitter{STRVAR 65280, 1, 0} food.
-Likes {STRVAR 65280, 1, 2}sour{STRVAR 65280, 1, 0} food.
+{STRVAR 65280, 2}Hardy{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Lonely{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Brave{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Adamant{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Naughty{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Bold{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Docile{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Relaxed{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Impish{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Lax{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Timid{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Hasty{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Serious{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Jolly{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Naive{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Modest{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Mild{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Quiet{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Bashful{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Rash{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Calm{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Gentle{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Sassy{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Careful{STRVAR 65280, 0} nature.
+{STRVAR 65280, 2}Quirky{STRVAR 65280, 0} nature.
+{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nMet at Lv. {STRVAR 308, 3}.
+{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nApparently met at\nLv. {STRVAR 308, 3}.
+{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nArrived at Lv. {STRVAR 308, 3}.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg obtained.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg hatched.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg obtained.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg apparently hatched.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg received.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg hatched.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg received.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg apparently hatched.
+{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nHad a fateful encounter\nat Lv. {STRVAR 308, 3}.
+{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nApparently had a\nfateful encounter at\nLv. {STRVAR 308, 3}.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg obtained.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg hatched.\nFateful encounter.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg obtained.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg apparently hatched.\nFateful encounter.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg arrived.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg hatched.\nFateful encounter.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg arrived.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg apparently hatched.\nFateful encounter.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg obtained.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg hatched.\nFateful encounter.
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}\nEgg obtained.\n{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nEgg apparently hatched.\nFateful encounter.
+{STRVAR 330, 1} {STRVAR 307, 2}, 20{STRVAR 307, 0}\n{STRVAR 65280, 2}{STRVAR 260, 4}{STRVAR 65280, 0}\nArrived at Lv. {STRVAR 308, 3}.
+Likes {STRVAR 65280, 2}spicy{STRVAR 65280, 0} food.
+Likes {STRVAR 65280, 2}dry{STRVAR 65280, 0} food.
+Likes {STRVAR 65280, 2}sweet{STRVAR 65280, 0} food.
+Likes {STRVAR 65280, 2}bitter{STRVAR 65280, 0} food.
+Likes {STRVAR 65280, 2}sour{STRVAR 65280, 0} food.
 Happily eats anything.
 Loves to eat.
 Often dozes off.
@@ -99,10 +99,10 @@ Somewhat vain.
 Strongly defiant.
 Hates to lose.
 Somewhat stubborn.
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\nA mysterious Pokémon\nEgg received from\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}.\n
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\nA mysterious Pokémon\nEgg obtained in\n{STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}.\n
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\nA very mysterious\nPokémon Egg obtained\nat {STRVAR 65280, 1, 1}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}.\n
-{STRVAR 330, 1, 6} {STRVAR 307, 1, 7}, 20{STRVAR 307, 1, 5}\nA very mysterious\nPokémon Egg that came\nfrom {STRVAR 65280, 1, 2}{STRVAR 260, 1, 8}{STRVAR 65280, 1, 0}.\n
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\nA mysterious Pokémon\nEgg received from\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}.\n
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\nA mysterious Pokémon\nEgg obtained in\n{STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}.\n
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\nA very mysterious\nPokémon Egg obtained\nat {STRVAR 65280, 1}{STRVAR 260, 8}{STRVAR 65280, 0}.\n
+{STRVAR 330, 6} {STRVAR 307, 7}, 20{STRVAR 307, 5}\nA very mysterious\nPokémon Egg that came\nfrom {STRVAR 65280, 2}{STRVAR 260, 8}{STRVAR 65280, 0}.\n
 “The Egg Watch”\nSounds can be heard\ncoming from inside!\nIt will hatch soon!
 “The Egg Watch”\nIt appears to move\noccasionally. It may\nbe close to hatching.
 “The Egg Watch”\nWhat will hatch from\nthis? It doesn’t seem\nclose to hatching.
@@ -116,40 +116,40 @@ Sp. Def
 Speed
 Ability
 /
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
-{STRVAR 261, 1, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
+{STRVAR 261, 0}
 CONDITION
 SHEEN
 BATTLE MOVES
 INFO
-{STRVAR 262, 1, 0}
-{STRVAR 262, 1, 0}
-{STRVAR 262, 1, 0}
-{STRVAR 262, 1, 0}
-{STRVAR 262, 1, 0}
+{STRVAR 262, 0}
+{STRVAR 262, 0}
+{STRVAR 262, 0}
+{STRVAR 262, 0}
+{STRVAR 262, 0}
 PP
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
 CANCEL
 POWER
 ACCURACY
 CATEGORY
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
 SWITCH
 --
 ---
@@ -164,11 +164,11 @@ Close window.
 OK
    
 FAVORITE FOOD
-Likes it {STRVAR 65280, 1, 2}spicy{STRVAR 65280, 1, 0}.
-Likes it {STRVAR 65280, 1, 2}dry{STRVAR 65280, 1, 0}.
-Likes it {STRVAR 65280, 1, 2}sweet{STRVAR 65280, 1, 0}.
-Likes it {STRVAR 65280, 1, 2}bitter{STRVAR 65280, 1, 0}.
-Likes it {STRVAR 65280, 1, 2}sour{STRVAR 65280, 1, 0}.
+Likes it {STRVAR 65280, 2}spicy{STRVAR 65280, 0}.
+Likes it {STRVAR 65280, 2}dry{STRVAR 65280, 0}.
+Likes it {STRVAR 65280, 2}sweet{STRVAR 65280, 0}.
+Likes it {STRVAR 65280, 2}bitter{STRVAR 65280, 0}.
+Likes it {STRVAR 65280, 2}sour{STRVAR 65280, 0}.
 Eats anything.
 Coolness was enhanced!
 Toughness was enhanced!
@@ -181,7 +181,7 @@ RIBBONS
 INFO
 CANCEL
 No. of Ribbons:
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
 /
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}

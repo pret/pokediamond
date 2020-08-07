@@ -70,7 +70,7 @@ _0206AC26:
 	add r6, r0, #0x0
 	add r1, r5, #0x0
 	mov r2, #0x8
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r6, #0x0
 	bl String_dtor
 _0206AC3E:

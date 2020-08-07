@@ -5,37 +5,37 @@
    
     
     
-{STRVAR 284, 1, 2}{STRVAR 513, 1, 15}\r{STRVAR 259, 1, 0}\nhas contacted you.
+{STRVAR 284, 2}{STRVAR 513, 15}\r{STRVAR 259, 0}\nhas contacted you.
 The chat has been dropped.
-Awaiting a response from\n{STRVAR 259, 1, 0}...
+Awaiting a response from\n{STRVAR 259, 0}...
 The chat was ended.
-You have an offer to see\n{STRVAR 259, 1, 0}’s Trainer Case.\rWould you like to show your\nTrainer Case?
-This is the Trainer Case of\n{STRVAR 259, 1, 0}, who lives in\r{STRVAR 293, 1, 4},\n{STRVAR 292, 1, 3}.
-This is the Trainer Case of\n{STRVAR 259, 1, 0}, who lives in\f{STRVAR 292, 1, 3}.\n
-This is the Trainer Case of\n{STRVAR 259, 1, 0}, who lives in\f{STRVAR 293, 1, 4}.\n
-This is {STRVAR 259, 1, 0}’s\nTrainer Case.
+You have an offer to see\n{STRVAR 259, 0}’s Trainer Case.\rWould you like to show your\nTrainer Case?
+This is the Trainer Case of\n{STRVAR 259, 0}, who lives in\r{STRVAR 293, 4},\n{STRVAR 292, 3}.
+This is the Trainer Case of\n{STRVAR 259, 0}, who lives in\f{STRVAR 292, 3}.\n
+This is the Trainer Case of\n{STRVAR 259, 0}, who lives in\f{STRVAR 293, 4}.\n
+This is {STRVAR 259, 0}’s\nTrainer Case.
 Awaiting the other player to finish.
 You declined the offer.
-{STRVAR 259, 1, 0} has invited you to\ndraw something.\rWould you like to join the other\nplayer and draw?
+{STRVAR 259, 0} has invited you to\ndraw something.\rWould you like to join the other\nplayer and draw?
 Let’s get drawing!
 You declined the invitation.
-{STRVAR 259, 1, 0} challenges you to\na battle.\rWill you accept the battle\nchallenge?
+{STRVAR 259, 0} challenges you to\na battle.\rWill you accept the battle\nchallenge?
 The battle will be started.
 You declined to take part.
 For a battle, you need two\nPokémon that are Lv. 30 or below.
 The battle has been canceled.
-{STRVAR 259, 1, 0} has offered to\nmake a trade.\rWill you accept this trade offer?
+{STRVAR 259, 0} has offered to\nmake a trade.\rWill you accept this trade offer?
 The trade will be started.
 You declined the offer.
 For trading, you must have at\nleast two Pokémon with you.
-{STRVAR 259, 1, 0} invites you to mix\nrecords.\rWould you like to mix records with\nthe other player?
+{STRVAR 259, 0} invites you to mix\nrecords.\rWould you like to mix records with\nthe other player?
 Record mixing will be started.
 You declined the invitation.
                                                  
                    
 You declined the invitation.
                             
-{STRVAR 284, 1, 2}{STRVAR 513, 1, 15}\rThis is {STRVAR 259, 1, 0}! Is there\nsomething that you wanted to do?
+{STRVAR 284, 2}{STRVAR 513, 15}\rThis is {STRVAR 259, 0}! Is there\nsomething that you wanted to do?
 Whoops! Sorry, but I have to do\nsomething else.\fAnother time, OK?
 Do you want to\ndo anything else?
 ... ...\nThe Trainer appears to be busy...
@@ -47,7 +47,7 @@ I hope I get to know you better!
 Oh, did you want to draw with me?\nSure thing, but wait just a second.
 Thanks for waiting!\nLet’s get drawing!
 Oh, sorry! I can’t now.\nLet’s draw another time.
-{STRVAR 259, 1, 0}: We’re drawing right\nnow.\rOh, I know! {STRVAR 259, 1, 1}, would\nyou like to draw with us?
+{STRVAR 259, 0}: We’re drawing right\nnow.\rOh, I know! {STRVAR 259, 1}, would\nyou like to draw with us?
 Oh, all right.\nCome see me anytime, OK?
 OK! Let’s do some drawing\ntogether!
                                           
@@ -73,7 +73,7 @@ If you want to do something with\nme, just give me a shout!
 You want to mix records with me?\nOK, I just need a little time.
 Thanks for waiting!\nLet’s mix our records, then.
 Oh, I’m sorry.\nI have too much to do right now.\fAnother time, OK?
-{STRVAR 259, 1, 0}: We’re going to mix our\nrecords now.\rI know! {STRVAR 259, 1, 1}, do you want\nto mix your records with us, too?
+{STRVAR 259, 0}: We’re going to mix our\nrecords now.\rI know! {STRVAR 259, 1}, do you want\nto mix your records with us, too?
 Oh, all right.\nCome see me anytime, OK?
 OK! Let’s mix our records!
 Oh, sorry!\nI just can’t right this instant.\fAnother time, OK?
@@ -94,7 +94,7 @@ You should mix records, too!
              
               
                      
-{STRVAR 284, 1, 2}{STRVAR 513, 1, 15}\rHello, it’s {STRVAR 259, 1, 0}!\nWould you like to do something?
+{STRVAR 284, 2}{STRVAR 513, 15}\rHello, it’s {STRVAR 259, 0}!\nWould you like to do something?
 Whoops! Sorry, but I have to do\nsomething else.\fAnother time, OK?
 Want to do\nsomething else?
 ... ...\nThe Trainer appears to be busy...
@@ -106,7 +106,7 @@ Glad to meet you.\nPlease don’t be a stranger!
 You want to draw with me?\nSure! Just give me a second...
 Sorry I made you wait!\nLet’s get started!
 Oh, I’m sorry!\nLet’s draw another time!
-{STRVAR 259, 1, 0}: We were drawing right\nnow.\rOh, I know! {STRVAR 259, 1, 1}, would you\nlike to draw with us?
+{STRVAR 259, 0}: We were drawing right\nnow.\rOh, I know! {STRVAR 259, 1}, would you\nlike to draw with us?
 Oh...\nPlease come by anytime.
 OK! Thanks for waiting!\nLet’s get drawing!
 Sorry!\nI just can’t right now!\fLet’s draw some other time.
@@ -132,7 +132,7 @@ If you want to do something with\nme, don’t be shy. Just ask!
 You want to mix records?\nSure! But I need a little time!
 Sorry I made you wait!\nLet’s get started!
 Oh, sorry!\nLet’s do this another time!
-{STRVAR 259, 1, 0}: We were just mixing\nour records.\rI know! {STRVAR 259, 1, 1}, would you like\nto mix your records with us, too?
+{STRVAR 259, 0}: We were just mixing\nour records.\rI know! {STRVAR 259, 1}, would you like\nto mix your records with us, too?
 Oh...\nPlease come by anytime.
 Thanks for waiting!\nLet’s mix some records!
 Oh, sorry!\nLet’s do this another time!
@@ -164,27 +164,27 @@ You may get together with others\nand draw.\rYou all get to work on one sheet\no
 You can chat with other people\nby selecting “CHAT” in the menu.\rGo out and meet other players in\nthe Union Room!\rLet people know what you’re like\nand what you’d like to do.\rMingle, chat, and add to your\ncircle of friends!\r
 Oh!\nHere comes someone now!\rInstead of me, why not strike up\na chat with our newcomer?\r
 It’s rather boring if no one comes\nto visit...\rWhat might we do for\nentertainment...?\r
-Do you sometimes get mistaken for\na real {STRVAR 270, 1, 0}?\rI just seem to get that feeling\nfrom you.\r
+Do you sometimes get mistaken for\na real {STRVAR 270, 0}?\rI just seem to get that feeling\nfrom you.\r
 Hello!\rThat’s right!\nIt’s important to say a greeting!\rIf someone arrives, let’s try to\nbe friendly!\r
-Greetings!\r{STRVAR 284, 1, 0}?\nIt’s wonderful!\fI really like it, too!\rWhen you meet someone for the first\ntime, the proper etiquette is to\fintroduce yourself.\rBy introducing yourself, you’ll get to\nknow about the other person, too!\r
-{STRVAR 284, 1, 0} Trainer?\nThat’s what you are?\fIsn’t that something!\rBut I’m sorry to say, I don’t have\nany Pokémon...\rI would rather watch than battle,\nyou see.\r
-Oh! Your {STRVAR 284, 1, 0}!\nI would love to have it!\fPlease trade me!\r...\rI was actually joking.\rI don’t have any Pokémon, so\nI can’t trade with anyone...\r
-{STRVAR 284, 1, 0}?\nI can understand you’d want one...\rBut you shouldn’t expect people to\nmake trades just for you.\rYou also have to consider what\nPokémon the other person wants.\r
+Greetings!\r{STRVAR 284, 0}?\nIt’s wonderful!\fI really like it, too!\rWhen you meet someone for the first\ntime, the proper etiquette is to\fintroduce yourself.\rBy introducing yourself, you’ll get to\nknow about the other person, too!\r
+{STRVAR 284, 0} Trainer?\nThat’s what you are?\fIsn’t that something!\rBut I’m sorry to say, I don’t have\nany Pokémon...\rI would rather watch than battle,\nyou see.\r
+Oh! Your {STRVAR 284, 0}!\nI would love to have it!\fPlease trade me!\r...\rI was actually joking.\rI don’t have any Pokémon, so\nI can’t trade with anyone...\r
+{STRVAR 284, 0}?\nI can understand you’d want one...\rBut you shouldn’t expect people to\nmake trades just for you.\rYou also have to consider what\nPokémon the other person wants.\r
 Welcome to the Union Room!\rI’m the only one here now, but\nplease do bring your friends for\fsome fun and excitement!\rIf you have time on your hands,\nI’m also here to chat.\rYou see, I have a lot of time on\nmy hands...\r
-I’m quite good at drawing!\rIf it’s {STRVAR 284, 1, 0},\nleave it to me!\fNo one’s better than me at it!\r
+I’m quite good at drawing!\rIf it’s {STRVAR 284, 0},\nleave it to me!\fNo one’s better than me at it!\r
 Oh, you’re leaving...\r...\rIt makes me feel lonesome...\rPlease do come visit again!\r
 What’s wrong?\nAre you feeling down about something?\rIf you’re feeling blue, it’s much\nbetter to have fun with friends\fthan to be alone.\r
-{STRVAR 284, 1, 0}?\nYes, please!\r...I do want to join in, but I’m\non duty here, so I can’t...\rSigh... {STRVAR 284, 1, 0}...\nI wish I could...\r
-{STRVAR 284, 1, 0}?\nMe, too, please!\rBut I need to stay here and attend\nto our visitors...\rPlease enjoy it with your friends!\r
-{STRVAR 284, 1, 0}?\nYou’re inviting me?\rOh, but I have to stay here and\nattend to our visitors.\rI’m sorry. I’d love to accept,\nbut I really can’t.\r
-That’s right!\rSometimes, it might be better to\njust go and invite other people.\rBut don’t get too selfish or pushy\nbecause you want to {STRVAR 284, 1, 0}.\r
+{STRVAR 284, 0}?\nYes, please!\r...I do want to join in, but I’m\non duty here, so I can’t...\rSigh... {STRVAR 284, 0}...\nI wish I could...\r
+{STRVAR 284, 0}?\nMe, too, please!\rBut I need to stay here and attend\nto our visitors...\rPlease enjoy it with your friends!\r
+{STRVAR 284, 0}?\nYou’re inviting me?\rOh, but I have to stay here and\nattend to our visitors.\rI’m sorry. I’d love to accept,\nbut I really can’t.\r
+That’s right!\rSometimes, it might be better to\njust go and invite other people.\rBut don’t get too selfish or pushy\nbecause you want to {STRVAR 284, 0}.\r
 Yes!\nIt’s OK!\rNothing is impossible.\rThink positively and keep your\nchin up!\r
-Everyone has at least one thing\nthey aren’t good at.\rYou should never try to make someone\ndo what they don’t want to do.\rIncidentally, {STRVAR 284, 1, 0} is\nsomething that I would like to do.\r
+Everyone has at least one thing\nthey aren’t good at.\rYou should never try to make someone\ndo what they don’t want to do.\rIncidentally, {STRVAR 284, 0} is\nsomething that I would like to do.\r
 Good luck! I hope you enjoy\nserious battles.\rYou can’t experience ones like\nthis in the Union Room!\r
 You want to chat?\rWell, you shouldn’t be wasting your\ntime chatting with me.\rYou need to be more active and\ntalk to other players.\rAfter all, you can’t make friends\nif you don’t talk to people.\r
 Where are you?\nUm... Right before my eyes.\rOh!\nAre you maybe an impostor?\rThe real player is somewhere else?\r...That’s ridiculous!\nPlease, don’t be silly!\fMy word!\r
-{STRVAR 284, 1, 0} trade?\nThat sounds fun!\fI would love to as well.\rBut telling me that won’t help.\nI can’t trade with anyone.\r
-If you want to have a {STRVAR 284, 1, 0}\nBattle, you need to be more\fassertive and talk to other players.\rIf you can’t assert yourself, you\nmay never get a chance at a\f{STRVAR 284, 1, 0} Battle!\r
+{STRVAR 284, 0} trade?\nThat sounds fun!\fI would love to as well.\rBut telling me that won’t help.\nI can’t trade with anyone.\r
+If you want to have a {STRVAR 284, 0}\nBattle, you need to be more\fassertive and talk to other players.\rIf you can’t assert yourself, you\nmay never get a chance at a\f{STRVAR 284, 0} Battle!\r
 INFO
 CHAT
 EXIT
@@ -195,7 +195,7 @@ RECORDS
 DRAW
 CHAT
 CANCEL
-Talking to {STRVAR 259, 1, 0}...
+Talking to {STRVAR 259, 0}...
                   
 Whoops! Sorry, but I have to do\nsomething else.\fAnother time, OK?
 Waiting for the other player’s choice.
@@ -204,9 +204,9 @@ Waiting for the other player’s choice.
                                  
                 
                  
-{STRVAR 259, 1, 0}’s friend
-{STRVAR 259, 1, 1}’s friend
-{STRVAR 259, 1, 2}’s friend
+{STRVAR 259, 0}’s friend
+{STRVAR 259, 1}’s friend
+{STRVAR 259, 2}’s friend
 こんにちは！
 Hello!
 Bonjour!

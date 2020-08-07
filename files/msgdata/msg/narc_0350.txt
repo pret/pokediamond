@@ -1,5 +1,5 @@
 It’s soft, earthy soil.\r
-{STRVAR 264, 1, 0} has been laid down.\r
+{STRVAR 264, 0} has been laid down.\r
 FERTILIZE
 PLANT BERRY
 EXIT
@@ -9,30 +9,30 @@ NO
 Want to plant a Berry?
 YES
 NO
-The {STRVAR 264, 1, 0} was scattered\non the soil.\r
-The {STRVAR 264, 1, 0} was planted\nin the soft, earthy soil.
-{STRVAR 264, 1, 0} was planted\nhere.\r
-The {STRVAR 264, 1, 0} Berry Plant\nhas sprouted.\r
-This {STRVAR 264, 1, 0} Plant is growing\nbigger.\r
-This {STRVAR 264, 1, 0} Plant is\nin bloom!\r
+The {STRVAR 264, 0} was scattered\non the soil.\r
+The {STRVAR 264, 0} was planted\nin the soft, earthy soil.
+{STRVAR 264, 0} was planted\nhere.\r
+The {STRVAR 264, 0} Berry Plant\nhas sprouted.\r
+This {STRVAR 264, 0} Plant is growing\nbigger.\r
+This {STRVAR 264, 0} Plant is\nin bloom!\r
 Want to sprinkle some water?
 YES
 NO
 There! All happy!
-There are {STRVAR 307, 1, 1} {STRVAR 264, 1, 0}!\nWant to pick them?
+There are {STRVAR 307, 1} {STRVAR 264, 0}!\nWant to pick them?
 YES
 NO
-{STRVAR 259, 1, 0} left the {STRVAR 264, 1, 1}\nwhere they were.
-You picked the {STRVAR 307, 1, 1} {STRVAR 264, 1, 0}.\r
-Your Bag is full.\nThe {STRVAR 264, 1, 0} couldn’t be taken.
-{STRVAR 259, 1, 0} put away the {STRVAR 264, 1, 1}\nin the Bag’s {STRVAR 274, 1, 3} Pocket.\rThe soil returned to its soft and\nearthy state.
+{STRVAR 259, 0} left the {STRVAR 264, 1}\nwhere they were.
+You picked the {STRVAR 307, 1} {STRVAR 264, 0}.\r
+Your Bag is full.\nThe {STRVAR 264, 0} couldn’t be taken.
+{STRVAR 259, 0} put away the {STRVAR 264, 1}\nin the Bag’s {STRVAR 274, 3} Pocket.\rThe soil returned to its soft and\nearthy state.
 It’s soft, earthy soil.
-{STRVAR 264, 1, 0} has been laid down.
-The {STRVAR 264, 1, 0} was scattered\non the soil.
-{STRVAR 264, 1, 0} was planted\nhere.
-The {STRVAR 264, 1, 0} Berry Plant\nhas sprouted.
-The {STRVAR 264, 1, 0} Plant is growing\nbigger.
-This {STRVAR 264, 1, 0} Plant is\nin bloom!
-There is {STRVAR 264, 1, 0}!\nWant to pick it?
-{STRVAR 259, 1, 0} left the {STRVAR 264, 1, 1}\nwhere it was.
-You picked the {STRVAR 264, 1, 0}.\r
+{STRVAR 264, 0} has been laid down.
+The {STRVAR 264, 0} was scattered\non the soil.
+{STRVAR 264, 0} was planted\nhere.
+The {STRVAR 264, 0} Berry Plant\nhas sprouted.
+The {STRVAR 264, 0} Plant is growing\nbigger.
+This {STRVAR 264, 0} Plant is\nin bloom!
+There is {STRVAR 264, 0}!\nWant to pick it?
+{STRVAR 259, 0} left the {STRVAR 264, 1}\nwhere it was.
+You picked the {STRVAR 264, 0}.\r

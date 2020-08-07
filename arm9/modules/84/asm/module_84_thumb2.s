@@ -707,7 +707,7 @@ _021D864C:
 	str r1, [sp, #0xc]
 	ldr r0, [r5, #0x24]
 	ldr r2, [r5, #0x30]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	cmp r4, #0xf0
 	ble _021D86D0
 	ldr r0, [r5, #0x28]
@@ -723,7 +723,7 @@ _021D864C:
 	str r1, [sp, #0xc]
 	ldr r0, [r5, #0x28]
 	ldr r2, [r5, #0x30]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r1, [r5, #0x28]
 	sub r4, #0xf0
 	ldrb r2, [r1, #7]
@@ -911,7 +911,7 @@ _021D87D0:
 	str r1, [sp, #0x14]
 	ldr r0, [r5, #0x24]
 	ldr r2, [r5, #0x30]
-	bl FUN_0201BE3C
+	bl AddTextPrinterParameterized3
 	ldr r0, [r5, #0x24]
 	bl FUN_02019548
 	add sp, #0x18

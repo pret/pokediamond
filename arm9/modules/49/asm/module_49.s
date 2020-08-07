@@ -448,7 +448,7 @@ MOD49_02254AD4: ; 0x02254AD4
 	add r0, sp, #0x1c
 	lsr r3, r3, #1
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, sp, #0x1c
 	bl FUN_02019548
 	add r0, r4, #0

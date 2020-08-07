@@ -5,7 +5,7 @@
 	.extern UNK_020F34E8
 	.extern UNK_020F34FC
 	.extern UNK_020F3538
-	.extern gUnknown21C48B8
+	.extern gMain
 	.extern gUnk021C4918
 
 	.section .bss
@@ -1417,7 +1417,7 @@ _0203A468: .word FUN_0203A46C
 
 	thumb_func_start FUN_0203A46C
 FUN_0203A46C: ; 0x0203A46C
-	ldr r0, _0203A480 ; =gUnknown21C48B8
+	ldr r0, _0203A480 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -1428,7 +1428,7 @@ _0203A47A:
 	mov r0, #0x0
 	bx lr
 	nop
-_0203A480: .word gUnknown21C48B8
+_0203A480: .word gMain
 
 	thumb_func_start FUN_0203A484
 FUN_0203A484: ; 0x0203A484
@@ -1451,7 +1451,7 @@ _0203A4A8: .word FUN_0203A4AC
 
 	thumb_func_start FUN_0203A4AC
 FUN_0203A4AC: ; 0x0203A4AC
-	ldr r1, _0203A4CC ; =gUnknown21C48B8
+	ldr r1, _0203A4CC ; =gMain
 	ldr r2, [r1, #0x48]
 	mov r1, #0x3
 	tst r1, r2
@@ -1469,7 +1469,7 @@ _0203A4C6:
 	mov r0, #0x0
 	bx lr
 	nop
-_0203A4CC: .word gUnknown21C48B8
+_0203A4CC: .word gMain
 
 	thumb_func_start FUN_0203A4D0
 FUN_0203A4D0: ; 0x0203A4D0
@@ -1484,7 +1484,7 @@ _0203A4DC: .word FUN_0203A4E0
 	thumb_func_start FUN_0203A4E0
 FUN_0203A4E0: ; 0x0203A4E0
 	push {r4, lr}
-	ldr r1, _0203A55C ; =gUnknown21C48B8
+	ldr r1, _0203A55C ; =gMain
 	ldr r2, [r1, #0x48]
 	mov r1, #0x3
 	add r3, r2, #0x0
@@ -1547,7 +1547,7 @@ _0203A556:
 	mov r0, #0x1
 	pop {r4, pc}
 	nop
-_0203A55C: .word gUnknown21C48B8
+_0203A55C: .word gMain
 
 	thumb_func_start FUN_0203A560
 FUN_0203A560: ; 0x0203A560
@@ -1561,7 +1561,7 @@ _0203A56C: .word FUN_0203A570
 
 	thumb_func_start FUN_0203A570
 FUN_0203A570: ; 0x0203A570
-	ldr r0, _0203A58C ; =gUnknown21C48B8
+	ldr r0, _0203A58C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -1578,7 +1578,7 @@ _0203A588:
 	mov r0, #0x0
 	bx lr
 	.balign 4
-_0203A58C: .word gUnknown21C48B8
+_0203A58C: .word gMain
 
 	thumb_func_start FUN_0203A590
 FUN_0203A590: ; 0x0203A590
@@ -1883,7 +1883,7 @@ _0203A7E0:
 	ldr r0, [r0, #0x0]
 	ldr r1, [r7, #0x0]
 	ldr r2, [r2, #0x0]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, [r4, #0x60]
 	bl MOD05_021E8140
 	mov r3, #0x0
@@ -1892,7 +1892,7 @@ _0203A7E0:
 	str r3, [sp, #0x8]
 	ldr r2, [r7, #0x0]
 	mov r1, #0x1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r0, #0x1
 	add sp, #0x1c
 	pop {r4-r7, pc}
@@ -2011,7 +2011,7 @@ FUN_0203A8B8: ; 0x0203A8B8
 	ldr r1, [r7, #0x0]
 	ldr r0, [r0, #0x0]
 	ldr r2, [r6, #0x0]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r0, [r4, #0x60]
 	bl MOD05_021E8140
 	add r4, r0, #0x0
@@ -2066,7 +2066,7 @@ FUN_0203A94C: ; 0x0203A94C
 	mov r0, #0x1
 	pop {r3-r7, pc}
 _0203A986:
-	ldr r0, _0203A9EC ; =gUnknown21C48B8
+	ldr r0, _0203A9EC ; =gMain
 	mov r1, #0x40
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -2120,7 +2120,7 @@ _0203A9E4:
 	pop {r3-r7, pc}
 	.balign 4
 _0203A9E8: .word 0x0000FFFF
-_0203A9EC: .word gUnknown21C48B8
+_0203A9EC: .word gMain
 
 	thumb_func_start FUN_0203A9F0
 FUN_0203A9F0: ; 0x0203A9F0
@@ -2147,7 +2147,7 @@ FUN_0203AA0C: ; 0x0203AA0C
 	lsr r1, r1, #0x10
 	bl FUN_020394B8
 	add r4, r0, #0x0
-	ldr r0, _0203AA88 ; =gUnknown21C48B8
+	ldr r0, _0203AA88 ; =gMain
 	ldr r1, _0203AA8C ; =0x0000FFFF
 	ldr r2, [r0, #0x48]
 	mov r0, #0x3
@@ -2205,7 +2205,7 @@ _0203AA82:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	nop
-_0203AA88: .word gUnknown21C48B8
+_0203AA88: .word gMain
 _0203AA8C: .word 0x0000FFFF
 
 	thumb_func_start FUN_0203AA90
@@ -7715,7 +7715,7 @@ FUN_0203D6E0: ; 0x0203D6E0
 	ldr r0, [r0, #0x0]
 	ldr r0, [r0, #0x78]
 	bl FUN_02052648
-	ldr r1, _0203D724 ; =gUnknown21C48B8
+	ldr r1, _0203D724 ; =gMain
 	ldr r2, [r1, #0x48]
 	mov r1, #0x2
 	tst r1, r2
@@ -7735,7 +7735,7 @@ _0203D720:
 	mov r0, #0x0
 	pop {r3-r5, pc}
 	.balign 4
-_0203D724: .word gUnknown21C48B8
+_0203D724: .word gMain
 
 	thumb_func_start FUN_0203D728
 FUN_0203D728: ; 0x0203D728
@@ -12209,7 +12209,7 @@ FUN_0203FA58: ; 0x0203FA58
 	str r0, [sp, #0x0]
 	ldr r1, [sp, #0x0]
 	add r0, r7, #0x0
-	bl FUN_02021CE0
+	bl StringCompare
 	cmp r0, #0x0
 	bne _0203FB24
 	mov r0, #0x1

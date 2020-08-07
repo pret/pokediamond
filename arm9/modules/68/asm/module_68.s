@@ -540,7 +540,7 @@ MOD68_021D7904: ; 0x021D7904
 	add r0, r5, r4
 	lsr r3, r3, #1
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r5, r4
@@ -699,7 +699,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	ldr r0, [r0]
 	add r1, r6, #0
 	add r2, r7, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -710,7 +710,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	add r0, r4, #0
 	mov r3, #0x10
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r7, #0
 	bl String_dtor
 	add r0, r6, #0
@@ -732,7 +732,7 @@ MOD68_021D7A18: ; 0x021D7A18
 	add r0, r4, #0
 	mov r3, #0x28
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0
 	bl String_dtor
 	add r0, r4, #0
@@ -770,7 +770,7 @@ MOD68_021D7AE4: ; 0x021D7AE4
 	add r0, r5, #0
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -806,7 +806,7 @@ MOD68_021D7B34: ; 0x021D7B34
 	add r0, r5, #0
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -851,7 +851,7 @@ _021D7BA4:
 	add r0, r5, #0
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -887,7 +887,7 @@ MOD68_021D7BDC: ; 0x021D7BDC
 	add r0, r5, #0
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r5, #0
@@ -963,7 +963,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	ldr r0, [r5]
 	ldr r2, [sp, #0x10]
 	add r1, r4, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r1, #0
 	str r1, [sp]
 	mov r0, #0xff
@@ -974,7 +974,7 @@ MOD68_021D7C28: ; 0x021D7C28
 	add r0, r6, #0
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, #0
@@ -1084,7 +1084,7 @@ _021D7D98: .word 0x04000050
 	thumb_func_start MOD68_021D7D9C
 MOD68_021D7D9C: ; 0x021D7D9C
 	push {r4, lr}
-	ldr r1, _021D7E70 ; =gUnknown21C48B8
+	ldr r1, _021D7E70 ; =gMain
 	add r4, r0, #0
 	ldr r3, [r1, #0x44]
 	mov r2, #0x40
@@ -1197,7 +1197,7 @@ _021D7E6C:
 	mov r0, #1
 	pop {r4, pc}
 	.align 2, 0
-_021D7E70: .word gUnknown21C48B8
+_021D7E70: .word gMain
 _021D7E74: .word UNK_021C48F8
 	thumb_func_end MOD68_021D7D9C
 

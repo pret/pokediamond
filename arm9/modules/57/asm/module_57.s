@@ -1669,7 +1669,7 @@ _021D8282:
 _021D8288:
 	cmp r6, #0
 	bne _021D82A2
-	ldr r0, _021D82B8 ; =gUnknown21C48B8
+	ldr r0, _021D82B8 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	tst r0, r1
@@ -1689,7 +1689,7 @@ _021D82A8: .word 0x000030D4
 _021D82AC: .word UNK_021C48F8
 _021D82B0: .word MOD57_021D9754
 _021D82B4: .word 0x00003318
-_021D82B8: .word gUnknown21C48B8
+_021D82B8: .word gMain
 	thumb_func_end MOD57_021D81F8
 
 	thumb_func_start MOD57_021D82BC
@@ -2788,7 +2788,7 @@ _021D8AB6:
 	add r0, r7, r0
 	add r2, r5, #0
 	add r3, r1, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _021D8AE0:
 	add r0, r4, #1
 	lsl r0, r0, #0x18
@@ -2819,7 +2819,7 @@ _021D8AE0:
 	add r1, r6, #0
 	add r0, r5, #0
 	add r1, #8
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r7, #0
 	mov r2, #0
 	add r0, #0x10
@@ -2843,7 +2843,7 @@ _021D8AE0:
 	ldr r2, [sp, #0x10]
 	add r0, r4, #0
 	add r1, r5, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	add r1, r5, #0
 	add r2, r0, #0
@@ -2859,7 +2859,7 @@ _021D8AE0:
 	str r1, [sp, #0xc]
 	add r0, #0x20
 	add r2, r5, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldrb r0, [r6, #4]
 	lsl r0, r0, #0x1c
 	lsr r0, r0, #0x1f
@@ -2945,7 +2945,7 @@ _021D8C32:
 	ldr r2, [sp, #0x10]
 	add r0, r4, #0
 	add r1, r5, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	add r1, r5, #0
 	add r2, r0, #0
@@ -2961,7 +2961,7 @@ _021D8C32:
 	add r0, #0x50
 	add r2, r5, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r1, #2
 	add r2, r6, #0
 	str r1, [sp]
@@ -2994,7 +2994,7 @@ _021D8C32:
 	ldr r2, [sp, #0x10]
 	add r0, r4, #0
 	add r1, r5, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	add r1, r5, #0
 	add r2, r0, #0
@@ -3010,7 +3010,7 @@ _021D8C32:
 	add r0, r7, #0
 	add r2, r5, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, #0
@@ -3103,7 +3103,7 @@ _021D8D72:
 	add r0, r6, r0
 	add r2, r5, #0
 	add r3, r1, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #1
 	lsl r0, r0, #0x18
 	lsr r4, r0, #0x18
@@ -3173,7 +3173,7 @@ _021D8D72:
 	ldr r2, [sp, #0x14]
 	add r0, r4, #0
 	add r1, r5, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	b _021D8E74
 _021D8E3C:
 	ldr r2, [sp, #0x14]
@@ -3216,7 +3216,7 @@ _021D8E74:
 	add r0, #0x70
 	add r2, r5, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r2, [sp, #0x14]
 	add r0, r7, #0
 	mov r1, #0xf
@@ -3224,7 +3224,7 @@ _021D8E74:
 	ldr r2, [sp, #0x14]
 	add r0, r4, #0
 	add r1, r5, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	add r1, r5, #0
 	add r2, r0, #0
@@ -3241,7 +3241,7 @@ _021D8E74:
 	add r0, #0x70
 	add r2, r5, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r2, #0
 	ldr r0, [sp, #0x10]
 	str r5, [sp]
@@ -3270,7 +3270,7 @@ _021D8E74:
 	add r2, r5, #0
 	mov r3, #0x70
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r2, #0
 	ldr r0, [sp, #0x10]
 	str r5, [sp]
@@ -3299,7 +3299,7 @@ _021D8E74:
 	add r2, r5, #0
 	mov r3, #0xb0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	str r5, [sp]
 	ldr r0, [r0, #0x3c]
@@ -3396,7 +3396,7 @@ MOD57_021D8FD8: ; 0x021D8FD8
 	add r0, r7, #0
 	sub r3, r5, r3
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -3426,7 +3426,7 @@ MOD57_021D9024: ; 0x021D9024
 	add r0, r7, #0
 	sub r3, r5, r3
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3501,7 +3501,7 @@ _021D906E:
 	ldr r2, [sp, #0x14]
 	add r0, r6, #0
 	add r1, r4, #0
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	mov r0, #0
 	add r1, r4, #0
 	add r2, r0, #0
@@ -3517,7 +3517,7 @@ _021D906E:
 	add r0, r7, #0
 	add r2, r4, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	bl DestroyMsgData
 	add r0, r4, #0
@@ -3547,7 +3547,7 @@ MOD57_021D9144: ; 0x021D9144
 	str r3, [sp, #8]
 	mov r3, #0xcd
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x10
 	pop {r4, pc}
 _021D9164:

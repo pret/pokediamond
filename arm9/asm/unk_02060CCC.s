@@ -267,7 +267,7 @@ FUN_02060D90: ; 0x02060D90
 	bl String_ctor
 	add r1, r7, #0x0
 	add r4, r0, #0x0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, [sp, #0x24]
 	ldr r3, [sp, #0x8]
 	str r0, [sp, #0x0]
@@ -327,7 +327,7 @@ FUN_02060E04: ; 0x02060E04
 	add r0, r4, #0x0
 	add r1, r5, #0x0
 	mov r2, #0xb
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r4, #0x0
 	bl String_dtor
 	pop {r4-r6, pc}
@@ -436,7 +436,7 @@ FUN_02060ECC: ; 0x02060ECC
 	add r0, r4, #0x0
 	add r1, r7, #0x0
 	mov r2, #0xb
-	bl FUN_02021EF0
+	bl CopyStringToU16Array
 	add r0, r4, #0x0
 	bl String_dtor
 _02060F0C:

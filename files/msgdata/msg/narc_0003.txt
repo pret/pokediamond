@@ -1,13 +1,13 @@
-{STRVAR 257, 1, 0}
-{STRVAR 257, 1, 0}
-{STRVAR 257, 1, 0}
-{STRVAR 257, 1, 0}
-{STRVAR 257, 1, 0}
-{STRVAR 257, 1, 0}
+{STRVAR 257, 0}
+{STRVAR 257, 0}
+{STRVAR 257, 0}
+{STRVAR 257, 0}
+{STRVAR 257, 0}
+{STRVAR 257, 0}
 Choose a Pokémon.
 Use on which Pokémon?
-{STRVAR 261, 1, 0}
-{STRVAR 264, 1, 0}
+{STRVAR 261, 0}
+{STRVAR 264, 0}
     
     
     
@@ -19,38 +19,38 @@ SHIFT
 SUMMARY
 CHECK MOVES
 No item held
-{STRVAR 257, 1, 0}
-{STRVAR 257, 1, 0}
+{STRVAR 257, 0}
+{STRVAR 257, 0}
 Lv.
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
 NEXT LV
-{STRVAR 311, 1, 0}
-{STRVAR 261, 1, 0}
+{STRVAR 311, 0}
+{STRVAR 261, 0}
 HP
-{STRVAR 308, 1, 0}
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
+{STRVAR 308, 0}
 /
 ATTACK
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
 DEFENSE
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
 SP. ATK
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
 SP. DEF
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
 SPEED
-{STRVAR 308, 1, 0}
-{STRVAR 262, 1, 0}
+{STRVAR 308, 0}
+{STRVAR 262, 0}
 PP
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
 /
   
 POWER
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
 ---
 ACCURACY
-{STRVAR 308, 1, 0}
+{STRVAR 308, 0}
 CATEGORY
 PHYSICAL
 STATUS
@@ -59,38 +59,38 @@ APPEAL PTS
 FORGET
 CANCEL
 HM moves can’t be\nforgotten now.
-{STRVAR 262, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 262, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 262, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 262, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 262, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 307, 1, 0}
-{STRVAR 257, 1, 0} is already\nin battle!
-{STRVAR 257, 1, 0} has no energy\nleft to battle!
-{STRVAR 257, 1, 0} can’t be switched\nout!
+{STRVAR 262, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 262, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 262, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 262, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 262, 0}
+{STRVAR 307, 0}
+{STRVAR 307, 0}
+{STRVAR 257, 0} is already\nin battle!
+{STRVAR 257, 0} has no energy\nleft to battle!
+{STRVAR 257, 0} can’t be switched\nout!
 An Egg can’t battle!
-You can’t switch {STRVAR 259, 1, 0}’s\nPokémon with one of yours!
+You can’t switch {STRVAR 259, 0}’s\nPokémon with one of yours!
 It won’t have any effect.
-{STRVAR 257, 1, 0}’s HP was restored\nby {STRVAR 308, 1, 1} point(s).
-{STRVAR 257, 1, 0} was cured of its\npoisoning.
-{STRVAR 257, 1, 0} was cured of\nparalysis.
-{STRVAR 257, 1, 0}’s burn was healed.
-{STRVAR 257, 1, 0} was thawed out.
+{STRVAR 257, 0}’s HP was restored\nby {STRVAR 308, 1} point(s).
+{STRVAR 257, 0} was cured of its\npoisoning.
+{STRVAR 257, 0} was cured of\nparalysis.
+{STRVAR 257, 0}’s burn was healed.
+{STRVAR 257, 0} was thawed out.
 PP was restored.
-{STRVAR 257, 1, 0} recovered from\nfainting!
-{STRVAR 257, 1, 0} became healthy.
-{STRVAR 257, 1, 0} snapped out of its\nconfusion.
-{STRVAR 257, 1, 0} got over its\ninfatuation.
-{STRVAR 257, 1, 0} woke up.
-{STRVAR 257, 1, 0} has already been\nselected.
+{STRVAR 257, 0} recovered from\nfainting!
+{STRVAR 257, 0} became healthy.
+{STRVAR 257, 0} snapped out of its\nconfusion.
+{STRVAR 257, 0} got over its\ninfatuation.
+{STRVAR 257, 0} woke up.
+{STRVAR 257, 0} has already been\nselected.
 Restore which move?
-{STRVAR 262, 1, 1}’s effect prevents\nthe item’s use on {STRVAR 257, 1, 0}!
+{STRVAR 262, 1}’s effect prevents\nthe item’s use on {STRVAR 257, 0}!

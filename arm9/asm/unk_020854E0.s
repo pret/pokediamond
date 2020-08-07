@@ -302,7 +302,7 @@ FUN_020856F0: ; 0x020856F0
 	bl FUN_020257C4
 	add r1, r0, #0x0
 	ldr r0, [r6, #0x10]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	add r0, r4, #0x0
 	bl FUN_020257CC
 	strb r0, [r6, #0xf]

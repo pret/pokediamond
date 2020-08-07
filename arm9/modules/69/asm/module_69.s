@@ -611,7 +611,7 @@ _0222DAB4:
 	str r0, [r4]
 	b _0222DAD4
 _0222DAC4:
-	ldr r0, _0222DAE0 ; =gUnknown21C48B8
+	ldr r0, _0222DAE0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -625,7 +625,7 @@ _0222DAD4:
 	pop {r4, pc}
 	nop
 _0222DADC: .word 0x00001B3C
-_0222DAE0: .word gUnknown21C48B8
+_0222DAE0: .word gMain
 
 	thumb_func_start MOD69_0222DAE4
 MOD69_0222DAE4: ; 0x0222DAE4
@@ -2307,7 +2307,7 @@ MOD69_0222E89C: ; 0x0222E89C
 	add r5, r0, #0
 	ldr r0, [r5, #0x1c]
 	add r4, r1, #0
-	bl FUN_02021D5C
+	bl StringCountLines
 	mov r6, #0
 	str r0, [sp, #0x10]
 	cmp r0, #0
@@ -2316,7 +2316,7 @@ _0222E8B2:
 	ldr r0, [r5, #0x18]
 	ldr r1, [r5, #0x1c]
 	add r2, r6, #0
-	bl FUN_02021D9C
+	bl StringGetLineN
 	mov r0, #0
 	ldr r1, [r5, #0x18]
 	add r2, r0, #0
@@ -2336,7 +2336,7 @@ _0222E8B2:
 	ldr r0, [r5, #0x10]
 	ldr r2, [r5, #0x18]
 	add r3, r3, r7
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	add r6, r6, #1
 	add r4, #0x10
@@ -2398,7 +2398,7 @@ _0222E95E:
 	ldr r0, [r4, #0x14]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x18]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add sp, #8
 	pop {r4, pc}
 
@@ -2431,7 +2431,7 @@ _0222E996:
 	ldr r0, [r5, #0x14]
 	ldr r1, [r5, #0x1c]
 	ldr r2, [r5, #0x18]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	pop {r3, r4, r5, pc}
 
 	thumb_func_start MOD69_0222E9AC
@@ -2511,7 +2511,7 @@ _0222EA2E:
 	ldr r0, [r4, #0x14]
 	ldr r1, [r4, #0x1c]
 	ldr r2, [r4, #0x18]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	add r0, r4, #0
 	mov r1, #0x78
 	bl MOD69_0222E89C
@@ -2663,7 +2663,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	str r1, [sp, #0xc]
 	ldr r2, [r4, r2]
 	add r0, #0x14
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, _0222EC5C ; =0x00001B50
 	ldr r2, [r4, #0xc]
 	ldr r0, [r4, r0]
@@ -2719,7 +2719,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	add r2, #8
 	ldr r1, [r4, r1]
 	ldr r2, [r4, r2]
-	bl StringExpandPlaceholders
+	bl FUN_0200B7B8
 	ldr r1, _0222EC54 ; =0x00001B54
 	mov r0, #0
 	ldr r1, [r4, r1]
@@ -2741,7 +2741,7 @@ MOD69_0222EB4C: ; 0x0222EB4C
 	str r1, [sp, #0xc]
 	ldr r2, [r4, r2]
 	add r0, #0x14
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r4, #0x14
 	add r0, r4, #0
 	bl FUN_02019548
@@ -4094,7 +4094,7 @@ _0222F726:
 	ldr r0, [r5, r1]
 	add r1, r1, #4
 	ldr r1, [r5, r1]
-	bl FUN_02021CE0
+	bl StringCompare
 	cmp r0, #0
 	beq _0222F750
 	mov r5, #2

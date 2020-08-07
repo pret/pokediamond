@@ -893,7 +893,7 @@ FUN_02040DEC: ; 0x02040DEC
 	bl FUN_02024F0C
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r0, _02040E48 ; =gGameLanguage
 	mov r3, #0x0
 	ldrb r0, [r0, #0x0]

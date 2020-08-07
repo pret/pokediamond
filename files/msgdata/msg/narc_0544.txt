@@ -1,4 +1,4 @@
-How may we serve you today?\nPerhaps a spa treatment?\rOur spa treatment will make your\n{STRVAR 257, 1, 1} grow more friendly.\rWould you care to have a spa\ntreatment, {STRVAR 259, 1, 0}?
+How may we serve you today?\nPerhaps a spa treatment?\rOur spa treatment will make your\n{STRVAR 257, 1} grow more friendly.\rWould you care to have a spa\ntreatment, {STRVAR 259, 0}?
 We hope to see you again.
 Ah, yes.\nRight this way, please...\r
 We’re ready to begin.\nPlease, relax all your muscles.\r

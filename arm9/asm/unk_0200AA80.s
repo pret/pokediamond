@@ -206,7 +206,7 @@ FUN_0200ABC0: ; 0x0200ABC0
 	bl FUN_0202398C
 	add r1, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -225,7 +225,7 @@ FUN_0200ABE4: ; 0x0200ABE4
 	bl FUN_02024EE8
 	add r1, r0, #0x0
 	ldr r0, [r5, #0xc]
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -906,7 +906,7 @@ FUN_0200B144: ; 0x0200B144
 	add r2, #0x14
 	add r4, r1, #0x0
 	add r1, r2, #0x0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	ldr r2, [r5, #0xc]
 	add r0, r5, #0x0
 	add r1, r4, #0x0
@@ -1658,7 +1658,7 @@ FUN_0200B708: ; 0x0200B708
 	bl FUN_020287A8
 	add r1, r0, #0x0
 	add r0, r4, #0x0
-	bl FUN_02021E28
+	bl CopyU16ArrayToString
 	mov r0, #0x1
 	str r0, [sp, #0x0]
 	ldr r0, [sp, #0x8]
@@ -1713,14 +1713,14 @@ FUN_0200B7A8: ; 0x0200B7A8
 	ldr r2, [r0, #0x8]
 	lsl r0, r1, #0x3
 	add r0, r2, r0
-	ldr r3, _0200B7B4 ; =FUN_02021FF8
+	ldr r3, _0200B7B4 ; =StrUpperFirstChar
 	ldr r0, [r0, #0x4]
 	bx r3
 	.balign 4
-_0200B7B4: .word FUN_02021FF8
+_0200B7B4: .word StrUpperFirstChar
 
-	thumb_func_start StringExpandPlaceholders
-StringExpandPlaceholders: ; 0x0200B7B8
+	thumb_func_start FUN_0200B7B8
+FUN_0200B7B8: ; 0x0200B7B8
 	push {r3-r7, lr}
 	add r7, r0, #0x0
 	add r6, r1, #0x0
@@ -1738,12 +1738,12 @@ _0200B7D4:
 	cmp r1, r0
 	bne _0200B82E
 	add r0, r5, #0x0
-	bl FUN_0201B8F8
+	bl MsgArray_ControlCodeIsStrVar
 	cmp r0, #0x0
 	beq _0200B810
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	add r4, r0, #0x0
 	ldr r0, [r7, #0x0]
 	cmp r4, r0
@@ -1757,13 +1757,13 @@ _0200B7F8:
 	add r0, r6, #0x0
 	bl FUN_02022048
 	add r0, r5, #0x0
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	add r5, r0, #0x0
 	b _0200B838
 _0200B810:
 	add r0, r5, #0x0
 	add r4, r5, #0x0
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	add r5, r0, #0x0
 	cmp r4, r5
 	bhs _0200B838
@@ -1771,7 +1771,7 @@ _0200B81E:
 	ldrh r1, [r4, #0x0]
 	add r0, r6, #0x0
 	add r4, r4, #0x2
-	bl FUN_02021FB0
+	bl StrAddChar
 	cmp r4, r5
 	blo _0200B81E
 	b _0200B838
@@ -1779,7 +1779,7 @@ _0200B82E:
 	ldrh r1, [r5, #0x0]
 	add r0, r6, #0x0
 	add r5, r5, #0x2
-	bl FUN_02021FB0
+	bl StrAddChar
 _0200B838:
 	ldrh r1, [r5, #0x0]
 	ldr r0, _0200B844 ; =0x0000FFFF

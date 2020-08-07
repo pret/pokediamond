@@ -3,9 +3,9 @@
 
 	.section .data
 
-	.global UNK_02105BB4
-UNK_02105BB4: ; 0x02105BB4
-	.byte 0x00, 0x00, 0x00, 0x00
+	.global gFonts
+gFonts: ; 0x02105BB4
+	.word 0
 
 	.section .bss
 
@@ -25,11 +25,11 @@ UNK_021C5734: ; 0x021C5734
 
 	thumb_func_start FUN_0201BCBC
 FUN_0201BCBC: ; 0x0201BCBC
-	ldr r1, _0201BCC4 ; =UNK_02105BB4
+	ldr r1, _0201BCC4 ; =gFonts
 	str r0, [r1, #0x0]
 	bx lr
 	nop
-_0201BCC4: .word UNK_02105BB4
+_0201BCC4: .word gFonts
 
 	thumb_func_start FUN_0201BCC8
 FUN_0201BCC8: ; 0x0201BCC8
@@ -141,8 +141,8 @@ FUN_0201BD7C: ; 0x0201BD7C
 	.balign 4
 _0201BD80: .word FUN_0201BCFC
 
-	thumb_func_start FUN_0201BD84
-FUN_0201BD84: ; 0x0201BD84
+	thumb_func_start AddTextPrinterParameterized
+AddTextPrinterParameterized: ; 0x0201BD84
 	push {r3, lr}
 	sub sp, #0x18
 	str r0, [sp, #0x4]
@@ -158,7 +158,7 @@ FUN_0201BD84: ; 0x0201BD84
 	strb r0, [r2, #0xb]
 	strb r3, [r2, #0xc]
 	strb r0, [r2, #0xd]
-	ldr r0, _0201BDDC ; =UNK_02105BB4
+	ldr r0, _0201BDDC ; =gFonts
 	lsl r1, r1, #0x3
 	ldr r0, [r0, #0x0]
 	add r1, r0, r1
@@ -182,14 +182,14 @@ FUN_0201BD84: ; 0x0201BD84
 	strb r0, [r2, #0x17]
 	ldr r2, [sp, #0x28]
 	add r0, sp, #0x0
-	bl FUN_0201BE98
+	bl AddTextPrinter
 	add sp, #0x18
 	pop {r3, pc}
 	nop
-_0201BDDC: .word UNK_02105BB4
+_0201BDDC: .word gFonts
 
-	thumb_func_start FUN_0201BDE0
-FUN_0201BDE0: ; 0x0201BDE0
+	thumb_func_start AddTextPrinterParameterized2
+AddTextPrinterParameterized2: ; 0x0201BDE0
 	push {r3, lr}
 	sub sp, #0x18
 	str r0, [sp, #0x4]
@@ -205,7 +205,7 @@ FUN_0201BDE0: ; 0x0201BDE0
 	strb r0, [r2, #0xb]
 	strb r3, [r2, #0xc]
 	strb r0, [r2, #0xd]
-	ldr r0, _0201BE38 ; =UNK_02105BB4
+	ldr r0, _0201BE38 ; =gFonts
 	lsl r1, r1, #0x3
 	ldr r0, [r0, #0x0]
 	add r1, r0, r1
@@ -229,14 +229,14 @@ FUN_0201BDE0: ; 0x0201BDE0
 	ldr r1, [sp, #0x24]
 	ldr r2, [sp, #0x2c]
 	add r0, sp, #0x0
-	bl FUN_0201BE98
+	bl AddTextPrinter
 	add sp, #0x18
 	pop {r3, pc}
 	nop
-_0201BE38: .word UNK_02105BB4
+_0201BE38: .word gFonts
 
-	thumb_func_start FUN_0201BE3C
-FUN_0201BE3C: ; 0x0201BE3C
+	thumb_func_start AddTextPrinterParameterized3
+AddTextPrinterParameterized3: ; 0x0201BE3C
 	push {r3, lr}
 	sub sp, #0x18
 	str r0, [sp, #0x4]
@@ -256,7 +256,7 @@ FUN_0201BE3C: ; 0x0201BE3C
 	strb r0, [r2, #0xe]
 	ldr r0, [sp, #0x30]
 	strb r0, [r2, #0xf]
-	ldr r0, _0201BE94 ; =UNK_02105BB4
+	ldr r0, _0201BE94 ; =gFonts
 	ldr r3, [r0, #0x0]
 	lsl r0, r1, #0x3
 	add r0, r3, r0
@@ -276,17 +276,17 @@ FUN_0201BE3C: ; 0x0201BE3C
 	ldr r1, [sp, #0x24]
 	ldr r2, [sp, #0x34]
 	add r0, sp, #0x0
-	bl FUN_0201BE98
+	bl AddTextPrinter
 	add sp, #0x18
 	pop {r3, pc}
 	nop
-_0201BE94: .word UNK_02105BB4
+_0201BE94: .word gFonts
 
-	thumb_func_start FUN_0201BE98
-FUN_0201BE98: ; 0x0201BE98
+	thumb_func_start AddTextPrinter
+AddTextPrinter: ; 0x0201BE98
 	push {r3-r7, lr}
 	add r7, r0, #0x0
-	ldr r0, _0201BFD0 ; =UNK_02105BB4
+	ldr r0, _0201BFD0 ; =gFonts
 	add r6, r1, #0x0
 	ldr r0, [r0, #0x0]
 	add r5, r2, #0x0
@@ -418,7 +418,7 @@ _0201BF74:
 	lsl r7, r7, #0xa
 _0201BFA4:
 	add r0, r4, #0x0
-	bl FUN_0201C048
+	bl RenderFont
 	cmp r0, #0x1
 	beq _0201BFB4
 	add r5, r5, #0x1
@@ -437,7 +437,7 @@ _0201BFBE:
 	mov r0, #0x8
 	pop {r3-r7, pc}
 	nop
-_0201BFD0: .word UNK_02105BB4
+_0201BFD0: .word gFonts
 _0201BFD4: .word UNK_021C570C
 _0201BFD8: .word FUN_0201BFDC
 
@@ -461,7 +461,7 @@ FUN_0201BFDC: ; 0x0201BFDC
 	ldrb r2, [r4, #0x13]
 	bl FUN_0201C05C
 	add r0, r4, #0x0
-	bl FUN_0201C048
+	bl RenderFont
 	cmp r0, #0x0
 	beq _0201C014
 	cmp r0, #0x1
@@ -499,14 +499,14 @@ _0201C042:
 	.balign 4
 _0201C044: .word UNK_021C570C
 
-	thumb_func_start FUN_0201C048
-FUN_0201C048: ; 0x0201C048
+	thumb_func_start RenderFont
+RenderFont: ; 0x0201C048
 	push {r4, lr}
 	add r4, r0, #0x0
 _0201C04C:
 	ldrb r0, [r4, #0x9]
 	add r1, r4, #0x0
-	bl FUN_02002DB0
+	bl FontFunc
 	cmp r0, #0x2
 	beq _0201C04C
 	pop {r4, pc}
