@@ -136,11 +136,10 @@ void encode_messages() {
                     } while (k++ != string::npos);
 
                     if (command == "STRVAR") {
-                        encoded += enc_short(args[0] | command_i, seed);
+                        command_i |= args[0];
                         args.erase(args.begin());
-                    } else {
-                        encoded += enc_short(command_i, seed);
                     }
+                    encoded += enc_short(command_i, seed);
                     encoded += enc_short(args.size(), seed);
                     for (auto num_i : args) {
                         encoded += enc_short(num_i, seed);
