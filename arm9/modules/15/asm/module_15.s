@@ -5046,7 +5046,7 @@ _021D9B9C:
 	pop {r3, r4, r5, r6, r7, pc}
 _021D9BB6:
 	mov r0, ip
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	str r0, [r4, #4]
 	mov r0, #1
 	b _021D9BD0

@@ -1,6 +1,8 @@
 #ifndef POKEDIAMOND_STRING16_H
 #define POKEDIAMOND_STRING16_H
 
+#include "string_util.h"
+
 struct String
 {
     u16 maxsize;
@@ -24,7 +26,7 @@ void CopyU16ArrayToStringN(struct String *, u16 *, u32); // copy
 void StringSetEmpty(struct String *); // set empty
 struct String * StringDup(struct String *, u32 heap_id);
 int StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6);
-int StringGetWidthNoSpacing(struct UnkStruct_0202199C * r6, const u16 * arr);
+int StringGetWidth_SingleLine_HandleClearToControlCode(struct UnkStruct_0202199C * r6, const u16 * arr);
 void String_dtor(struct String * str);
 void StringCopy(struct String * dest, struct String * src);
 void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strConvMode, BOOL whichCharset);

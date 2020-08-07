@@ -474,7 +474,7 @@ _020218EA:
 	cmp r1, r0
 	bne _02021900
 	add r0, r4, #0x0
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	add r4, r0, #0x0
 	ldrh r1, [r4, #0x0]
 	ldr r0, _0202191C ; =0x0000FFFF

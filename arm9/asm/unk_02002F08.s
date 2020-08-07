@@ -64,7 +64,7 @@ FUN_02002F58: ; 0x02002F58
 _02002F6C:
 	cmp r2, r4
 	bne _02002F76
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	b _02002F82
 _02002F76:
 	cmp r2, r6
@@ -113,7 +113,7 @@ _02002FB4:
 	add r0, r0, r4
 	add r0, #0x94
 	ldr r0, [r0, #0x0]
-	bl StringGetWidthNoSpacing
+	bl StringGetWidth_SingleLine_HandleClearToControlCode
 	pop {r3-r5, pc}
 	.balign 4
 _02002FCC: .word UNK_02106FC8

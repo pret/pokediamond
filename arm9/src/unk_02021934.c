@@ -2,7 +2,7 @@
 #include "string16.h"
 #include "heap.h"
 #include "string_util.h"
-#include "unk_0201B8B88.h"
+#include "unk_0201B8B8.h"
 
 #pragma thumb on
 
@@ -18,9 +18,9 @@ int StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6)
     {
         if (*arr == 0xFFFE)
         {
-            arr = FUN_0201B8B8(arr);
+            arr = MsgArray_SkipControlCode(arr);
         }
-        else if (*arr == 0xE000)
+        else if (*arr == 0xE000) // newline
         {
             if (ret < r4 - r6)
                 ret = (int)(r4 - r6);
@@ -38,18 +38,18 @@ int StringGetWidth(struct UnkStruct_0202199C * r7, const u16 * arr, u32 r6)
     return ret;
 }
 
-int StringGetWidthNoSpacing(struct UnkStruct_0202199C * r6, const u16 * arr)
+int StringGetWidth_SingleLine_HandleClearToControlCode(struct UnkStruct_0202199C * r6, const u16 * arr)
 {
     int ret = 0;
     while (*arr != 0xFFFF)
     {
         if (*arr == 0xFFFE)
         {
-            if (FUN_0201B8E0(arr) == 0x0203)
+            if (MsgArray_GetControlCode(arr) == 515)
             {
-                ret = FUN_0201B914(arr, 0) - 12;
+                ret = MsgArray_ControlCodeGetField(arr, 0) - 12;
             }
-            arr = FUN_0201B8B8(arr);
+            arr = MsgArray_SkipControlCode(arr);
         }
         else
         {
@@ -109,17 +109,17 @@ struct String * StringDup(struct String * src, u32 heap_id)
     return dest;
 }
 
-const u16 UNK_020EE67C[10] = {
+static const u16 sCharset_JP[10] = {
     0xA2, 0xA3, 0xA4, 0xA5, 0xA6,
     0xA7, 0xA8, 0xA9, 0xAA, 0xAB
 };
 
-const u16 UNK_020EE690[10] = {
+static const u16 sCharset_EN[10] = {
     0x121, 0x122, 0x123, 0x124, 0x125,
     0x126, 0x127, 0x128, 0x129, 0x12A
 };
 
-const u32 UNK_020EE6A4[10] = {
+static const u32 sPowersOfTen[10] = {
              1,
             10,
            100,
@@ -141,7 +141,7 @@ void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strCo
 
     if (str->maxsize > ndigits + isNegative)
     {
-        charbase = (whichCharset == 0) ? UNK_020EE67C : UNK_020EE690;
+        charbase = (whichCharset == 0) ? sCharset_JP : sCharset_EN;
         StringSetEmpty(str);
         if (isNegative)
         {
@@ -149,7 +149,7 @@ void String16_FormatInteger(struct String * str, int num, u32 ndigits, int strCo
             u16 hyphen = (u16)((whichCharset == 0) ? 0x00F1 : 0x01BE);
             str->data[str->size++] = hyphen;
         }
-        u32 dividend = UNK_020EE6A4[ndigits - 1];
+        u32 dividend = sPowersOfTen[ndigits - 1];
         while (dividend != 0)
         {
             u16 digit = (u16)(num / dividend);

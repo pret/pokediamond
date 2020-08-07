@@ -1738,12 +1738,12 @@ _0200B7D4:
 	cmp r1, r0
 	bne _0200B82E
 	add r0, r5, #0x0
-	bl FUN_0201B8F8
+	bl MsgArray_ControlCodeIsStrVar
 	cmp r0, #0x0
 	beq _0200B810
 	add r0, r5, #0x0
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	add r4, r0, #0x0
 	ldr r0, [r7, #0x0]
 	cmp r4, r0
@@ -1757,13 +1757,13 @@ _0200B7F8:
 	add r0, r6, #0x0
 	bl FUN_02022048
 	add r0, r5, #0x0
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	add r5, r0, #0x0
 	b _0200B838
 _0200B810:
 	add r0, r5, #0x0
 	add r4, r5, #0x0
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	add r5, r0, #0x0
 	cmp r4, r5
 	bhs _0200B838

@@ -1140,10 +1140,10 @@
 .extern FUN_0201B6D0
 .extern FUN_0201B76C
 .extern FUN_0201B7DC
-.extern FUN_0201B8B8
-.extern FUN_0201B8E0
-.extern FUN_0201B8F8
-.extern FUN_0201B914
+.extern MsgArray_SkipControlCode
+.extern MsgArray_GetControlCode
+.extern MsgArray_ControlCodeIsStrVar
+.extern MsgArray_ControlCodeGetField
 .extern Sin
 .extern Cos
 .extern Sin_Wrap
@@ -1388,7 +1388,7 @@
 .extern FUN_02021750
 .extern FUN_020218D8
 .extern StringGetWidth
-.extern StringGetWidthNoSpacing
+.extern StringGetWidth_SingleLine_HandleClearToControlCode
 .extern String_ctor
 .extern String_dtor
 .extern StringSetEmpty
@@ -8399,3 +8399,4 @@
 .extern MOD06_0224CB54
 .extern gSineTable
 .extern CARDi_IdentifyBackupCore
+.extern CARDi_InitCommon

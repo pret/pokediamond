@@ -213,7 +213,7 @@ _0200251A:
 	ldr r0, [r4, #0x0]
 	sub r0, r0, #0x2
 	str r0, [r4, #0x0]
-	bl FUN_0201B8E0
+	bl MsgArray_GetControlCode
 	lsl r0, r0, #0x10
 	ldr r1, _02002670 ; =0x0000FE06
 	lsr r0, r0, #0x10
@@ -255,7 +255,7 @@ _0200255E:
 _02002566:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	cmp r0, #0xff
@@ -295,7 +295,7 @@ _0200259E:
 _020025B4:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	lsl r0, r0, #0x10
 	lsr r3, r0, #0x10
 	ldrb r1, [r4, #0xc]
@@ -314,12 +314,12 @@ _020025B4:
 _020025DE:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	add r1, r4, #0x0
 	add r1, #0x26
 	strb r0, [r1, #0x0]
 	ldr r0, [r4, #0x0]
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	str r0, [r4, #0x0]
 	mov r0, #0x6
 	add r4, #0x24
@@ -330,10 +330,10 @@ _020025DE:
 _02002600:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	strh r0, [r4, #0x2a]
 	ldr r0, [r4, #0x0]
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	str r0, [r4, #0x0]
 	add sp, #0xc
 	mov r0, #0x3
@@ -341,19 +341,19 @@ _02002600:
 _02002618:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	strb r0, [r4, #0xc]
 	b _020026CA
 _02002624:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	strb r0, [r4, #0xd]
 	b _020026CA
 _02002630:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	cmp r0, #0x64
@@ -385,7 +385,7 @@ _02002674: .word 0x0000FFFC
 _02002678:
 	ldr r0, [r4, #0x0]
 	mov r1, #0x0
-	bl FUN_0201B914
+	bl MsgArray_ControlCodeGetField
 	lsl r0, r0, #0x10
 	lsr r1, r0, #0x10
 	mov r0, #0xfe
@@ -402,7 +402,7 @@ _02002678:
 	add r0, r4, #0x0
 	bl FUN_0200284C
 	ldr r0, [r4, #0x0]
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	str r0, [r4, #0x0]
 	add sp, #0xc
 	mov r0, #0x3
@@ -415,14 +415,14 @@ _020026AE:
 	add r0, r4, #0x0
 	bl FUN_0200284C
 	ldr r0, [r4, #0x0]
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	str r0, [r4, #0x0]
 	add sp, #0xc
 	mov r0, #0x3
 	pop {r3-r6, pc}
 _020026CA:
 	ldr r0, [r4, #0x0]
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	str r0, [r4, #0x0]
 	add sp, #0xc
 	mov r0, #0x2

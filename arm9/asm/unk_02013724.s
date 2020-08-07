@@ -274,13 +274,13 @@ _020138E2:
 	cmp r1, r6
 	bne _020138FC
 	add r0, r4, #0x0
-	bl FUN_0201B8F8
+	bl MsgArray_ControlCodeIsStrVar
 	cmp r0, #0x0
 	beq _020138F2
 	add r5, r5, #0x1
 _020138F2:
 	add r0, r4, #0x0
-	bl FUN_0201B8B8
+	bl MsgArray_SkipControlCode
 	add r4, r0, #0x0
 	b _020138FE
 _020138FC:
