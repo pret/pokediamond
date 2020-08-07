@@ -114,7 +114,7 @@ _021D759E:
 	thumb_func_start MOD61_021D75AC
 MOD61_021D75AC: ; 0x021D75AC
 	push {r3, lr}
-	ldr r0, _021D75C8 ; =gUnknown21C48B8
+	ldr r0, _021D75C8 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -127,14 +127,14 @@ _021D75C2:
 	mov r0, #0
 	pop {r3, pc}
 	nop
-_021D75C8: .word gUnknown21C48B8
+_021D75C8: .word gMain
 _021D75CC: .word 0x000005E3
 	thumb_func_end MOD61_021D75AC
 
 	thumb_func_start MOD61_021D75D0
 MOD61_021D75D0: ; 0x021D75D0
 	push {r3, r4, r5, lr}
-	ldr r1, _021D76E0 ; =gUnknown21C48B8
+	ldr r1, _021D76E0 ; =gMain
 	add r4, r0, #0
 	ldr r2, [r1, #0x48]
 	mov r1, #1
@@ -278,7 +278,7 @@ _021D76DC:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	.align 2, 0
-_021D76E0: .word gUnknown21C48B8
+_021D76E0: .word gMain
 _021D76E4: .word 0x000005DD
 _021D76E8: .word 0x000005E3
 _021D76EC: .word 0x000005DC
@@ -324,12 +324,12 @@ _021D7702:
 	mov r1, #1
 	add r2, r4, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl String_dtor
 	b _021D777C
 _021D774E:
-	ldr r0, _021D778C ; =gUnknown21C48B8
+	ldr r0, _021D778C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #3
 	tst r0, r1
@@ -360,7 +360,7 @@ _021D777C:
 	pop {r3, r4, r5, pc}
 	.align 2, 0
 _021D7788: .word 0x0001020F
-_021D778C: .word gUnknown21C48B8
+_021D778C: .word gMain
 	thumb_func_end MOD61_021D76F0
 
 	thumb_func_start MOD61_021D7790
@@ -452,7 +452,7 @@ _021D77F2:
 	add r0, r5, #0
 	str r3, [sp, #0xc]
 	add r0, #0x94
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	strb r0, [r5, #0xf]
 	add r0, r4, #0
 	bl String_dtor
@@ -1557,7 +1557,7 @@ _021D8122:
 	add r0, r6, #0
 	mov r1, #1
 	mov r3, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r6, #0
@@ -1618,7 +1618,7 @@ _021D8196:
 	add r0, r0, r1
 	mov r1, #1
 	asr r3, r3, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r1, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	add r0, r0, r1
@@ -1643,7 +1643,7 @@ _021D81F8:
 	ldr r2, [r2, #0x10]
 	add r0, #0x74
 	mov r1, #1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r4, #0x74
 	add r0, r4, #0
 	bl FUN_020191D0

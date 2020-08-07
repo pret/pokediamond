@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 	.extern UNK_020FA6E8
 
 	.section .rodata
@@ -451,7 +451,7 @@ _0206CA9C:
 	ldrb r0, [r0, #0x0]
 	cmp r0, #0x8
 	bne _0206CAD6
-	ldr r0, _0206CE0C ; =gUnknown21C48B8
+	ldr r0, _0206CE0C ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x2
 	tst r0, r1
@@ -859,7 +859,7 @@ _0206CDD6:
 	ldr r2, _0206CE14 ; =0x0000F3FF
 	b _0206CE2C
 	.balign 4
-_0206CE0C: .word gUnknown21C48B8
+_0206CE0C: .word gMain
 _0206CE10: .word 0x00007FFF
 _0206CE14: .word 0x0000F3FF
 _0206CE18: .word 0x00000395
@@ -2684,7 +2684,7 @@ FUN_0206DD6C: ; 0x0206DD6C
 	str r0, [sp, #0x8]
 	ldr r0, [r4, #0x4]
 	ldr r2, [r4, #0x10]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add sp, #0xc
 	pop {r4-r5, pc}
 	.balign 4

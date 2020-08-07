@@ -174,7 +174,7 @@ _021D764E:
 	str r0, [r5]
 	b _021D76A0
 _021D765C:
-	ldr r0, _021D76A8 ; =gUnknown21C48B8
+	ldr r0, _021D76A8 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #1
 	and r0, r1
@@ -213,7 +213,7 @@ _021D76A0:
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
 	nop
-_021D76A8: .word gUnknown21C48B8
+_021D76A8: .word gMain
 _021D76AC: .word UNK_021C48F8
 	thumb_func_end MOD86_021D758C
 
@@ -828,7 +828,7 @@ MOD86_021D7B80: ; 0x021D7B80
 	add r2, r4, #0
 	mov r3, #0x30
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x20
 	str r0, [sp]
 	mov r1, #0
@@ -840,7 +840,7 @@ MOD86_021D7B80: ; 0x021D7B80
 	add r2, r4, #0
 	mov r3, #0x30
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0
 	bl String_dtor
 	ldr r0, [r5, #4]
@@ -864,7 +864,7 @@ _021D7C02:
 	add r0, #0x14
 	add r2, r4, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r3, #0x40
 	str r3, [sp]
 	mov r1, #0
@@ -875,7 +875,7 @@ _021D7C02:
 	str r1, [sp, #0xc]
 	add r0, #0x24
 	add r2, r4, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [r5, #0x34]
 	mov r1, #3
 	add r2, r4, #0
@@ -891,7 +891,7 @@ _021D7C02:
 	add r2, r4, #0
 	mov r3, #0x8a
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x90
 	str r0, [sp]
 	mov r1, #0
@@ -903,7 +903,7 @@ _021D7C02:
 	add r2, r4, #0
 	mov r3, #0x8a
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0
 	bl String_dtor
 	add sp, #0x10

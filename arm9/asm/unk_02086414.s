@@ -602,7 +602,7 @@ FUN_020867EC: ; 0x020867EC
 	mov r1, #0x1
 	add r2, r4, #0x0
 	str r3, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r6, r0, #0x0
 	add r0, r7, #0x0
 	bl DestroyMsgData

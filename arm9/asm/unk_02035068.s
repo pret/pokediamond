@@ -991,7 +991,7 @@ _020357D6:
 	add r2, r7, #0x0
 	add r3, r1, #0x0
 	str r1, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r7, #0x0
 	bl String_dtor
 	mov r0, #0xb
@@ -1046,7 +1046,7 @@ _0203584C:
 	add r0, #0x10
 	add r3, r1, #0x0
 	str r1, [sp, #0x8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x18]
 	bl String_dtor
 	ldr r0, [sp, #0x14]

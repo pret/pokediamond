@@ -1387,7 +1387,7 @@ MOD53_021D7FDC: ; 0x021D7FDC
 	add r0, r7, r0
 	mov r1, #1
 	add r3, r3, #2
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0
 	str r0, [sp, #0x14]
 	mov r0, #0x9e
@@ -3459,7 +3459,7 @@ _021D908C:
 	ldr r2, [r4, #0x14]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	b _021D90DC
 _021D90C0:
 	mov r0, #0
@@ -3474,7 +3474,7 @@ _021D90C0:
 	ldr r2, [r4, #0x14]
 	add r0, r5, #0
 	mov r3, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _021D90DC:
 	add r0, r5, #0
 	bl FUN_020191D0
@@ -3654,7 +3654,7 @@ _021D9218:
 	ldr r2, [r5, #0x2c]
 	add r0, r5, r0
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	str r0, [r5, #0x30]
 	cmp r4, #0
 	bne _021D9238

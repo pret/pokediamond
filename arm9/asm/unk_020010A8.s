@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.text
 
@@ -180,7 +180,7 @@ FUN_02001204: ; 0x02001204
 	push {r4-r6, lr}
 	add r4, r0, #0x0
 	add r1, r4, #0x0
-	ldr r6, _020012FC ; =gUnknown21C48B8
+	ldr r6, _020012FC ; =gMain
 	mov r3, #0x0
 	add r1, #0x33
 	strb r3, [r1, #0x0]
@@ -311,7 +311,7 @@ _020012F4:
 	mvn r0, r0
 	pop {r4-r6, pc}
 	nop
-_020012FC: .word gUnknown21C48B8
+_020012FC: .word gMain
 
 	thumb_func_start FUN_02001300
 FUN_02001300: ; 0x02001300
@@ -871,7 +871,7 @@ FUN_0200165C: ; 0x0200165C
 	ldrb r1, [r6, #0x0]
 	lsl r1, r1, #0x19
 	lsr r1, r1, #0x19
-	bl FUN_0201BE3C
+	bl AddTextPrinterParameterized3
 	add sp, #0x18
 	pop {r4-r6, pc}
 _020016CC:
@@ -907,7 +907,7 @@ _020016CC:
 	ldr r0, [r6, #0xc]
 	lsl r1, r1, #0x11
 	lsr r1, r1, #0x1a
-	bl FUN_0201BE3C
+	bl AddTextPrinterParameterized3
 _02001710:
 	add sp, #0x18
 	pop {r4-r6, pc}

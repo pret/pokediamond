@@ -574,7 +574,7 @@ _021D7970:
 MOD76_021D7974: ; 0x021D7974
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
-	ldr r0, _021D7A88 ; =gUnknown21C48B8
+	ldr r0, _021D7A88 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x30
 	tst r1, r0
@@ -699,7 +699,7 @@ _021D7A82:
 	mov r0, #1
 	pop {r3, r4, r5, pc}
 	nop
-_021D7A88: .word gUnknown21C48B8
+_021D7A88: .word gMain
 _021D7A8C: .word 0x000005DD
 _021D7A90: .word 0x00000186
 	thumb_func_end MOD76_021D7974
@@ -1063,7 +1063,7 @@ _021D7D3E:
 	add r0, r1, r0
 	ldr r1, [sp, #0x10]
 	ldr r2, [r5, r2]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	thumb_func_end MOD76_021D7CC8
@@ -1634,7 +1634,7 @@ MOD76_021D81AC: ; 0x021D81AC
 	ldr r2, [r5, r2]
 	add r0, #0xb8
 	add r3, r1, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r7, #0
 	bl DestroyMsgData
 	lsl r1, r4, #0x10
@@ -2065,7 +2065,7 @@ MOD76_021D853C: ; 0x021D853C
 	add r0, r4, #0
 	ldr r2, [r4, r2]
 	add r0, #0xc8
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r1, _021D8590 ; =0x00000185
 	strb r0, [r4, r1]
 	add sp, #0xc

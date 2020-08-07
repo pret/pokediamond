@@ -1563,7 +1563,7 @@ FUN_020136F8: ; 0x020136F8
 	ldr r2, [r6, #0x4]
 	add r0, r5, #0x0
 	add r3, r4, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r5, #0x0
 	bl FUN_02019548
 	add sp, #0x10

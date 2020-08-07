@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .bss
 
@@ -386,7 +386,7 @@ _020375B4:
 	beq _020375D4
 	ldr r0, [r4, #0x38]
 	bl FUN_02055A38
-	ldr r3, _02037758 ; =gUnknown21C48B8
+	ldr r3, _02037758 ; =gMain
 	add r0, sp, #0x8
 	ldr r2, [r3, #0x48]
 	ldr r3, [r3, #0x44]
@@ -500,7 +500,7 @@ _02037672:
 	add sp, #0x10
 	pop {r3-r5, pc}
 _020376A6:
-	ldr r0, _02037758 ; =gUnknown21C48B8
+	ldr r0, _02037758 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -553,7 +553,7 @@ _020376E2:
 	add sp, #0x10
 	pop {r3-r5, pc}
 _0203771C:
-	ldr r0, _02037758 ; =gUnknown21C48B8
+	ldr r0, _02037758 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -583,7 +583,7 @@ _02037754:
 	add sp, #0x10
 	pop {r3-r5, pc}
 	.balign 4
-_02037758: .word gUnknown21C48B8
+_02037758: .word gMain
 _0203775C: .word 0x00000146
 
 	thumb_func_start FUN_02037760

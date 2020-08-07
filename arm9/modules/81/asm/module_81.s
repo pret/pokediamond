@@ -2477,7 +2477,7 @@ _022390F4:
 	ldr r2, [r4, #0x58]
 	add r0, #0x44
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	add r0, #0x44
 	mov r1, #0x6d
@@ -2537,7 +2537,7 @@ _0223918A:
 	ldr r2, [r4, #0x58]
 	add r0, #0x44
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	add r0, #0x44
 	bl FUN_02019548
@@ -9601,7 +9601,7 @@ _0223C982:
 	ldr r2, [r4, #0x5c]
 	add r0, #0x48
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	add r0, #0x48
 	mov r1, #0x6d
@@ -9650,7 +9650,7 @@ _0223C9D0:
 	ldr r2, [r4, #0x5c]
 	add r0, #0x48
 	mov r1, #1
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	add r0, #0x48
 	bl FUN_02019548

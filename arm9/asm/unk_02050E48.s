@@ -2,7 +2,7 @@
     .include "global.inc"
 
 	.extern UNK_020F96DC
-	.extern gUnknown21C48B8
+	.extern gMain
 	.extern UNK_020FA6E8
 
 	.section .rodata
@@ -429,7 +429,7 @@ _0205116A:
 	blx r2
 	b _020517B8
 _0205118A:
-	ldr r0, _020514A4 ; =gUnknown21C48B8
+	ldr r0, _020514A4 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x2
 	tst r0, r1
@@ -823,7 +823,7 @@ _0205148E:
 	str r0, [r4, #0x34]
 	b _020517B8
 	.balign 4
-_020514A4: .word gUnknown21C48B8
+_020514A4: .word gMain
 _020514A8:
 	add r0, r4, #0x0
 	bl FUN_02051A80
@@ -1734,7 +1734,7 @@ _02051BD6:
 	ldr r2, [r5, #0xc]
 	mov r1, #0x0
 	mov r3, #0x10
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x1c]
 	add r7, r7, #0x1
 	add r6, r6, r0
@@ -1754,7 +1754,7 @@ _02051BD6:
 	ldr r0, [sp, #0x20]
 	ldr r2, [r5, #0xc]
 	mov r3, #0x10
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x18]
 	bl DestroyMsgData
 _02051C34:
@@ -1855,7 +1855,7 @@ _02051CE0:
 	add r0, r7, #0x0
 	mov r1, #0x0
 	mov r3, #0x10
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r6, r6, #0x1
 	add r4, #0x10
 	cmp r6, #0x3
@@ -1901,7 +1901,7 @@ FUN_02051D54: ; 0x02051D54
 	push {r4, lr}
 	sub sp, #0x8
 	add r4, r0, #0x0
-	ldr r0, _02051E1C ; =gUnknown21C48B8
+	ldr r0, _02051E1C ; =gMain
 	mov r1, #0x40
 	ldr r0, [r0, #0x48]
 	tst r1, r0
@@ -2001,7 +2001,7 @@ _02051DE0:
 	add sp, #0x8
 	pop {r4, pc}
 	nop
-_02051E1C: .word gUnknown21C48B8
+_02051E1C: .word gMain
 _02051E20: .word 0x000005DC
 
 	thumb_func_start FUN_02051E24
@@ -2186,7 +2186,7 @@ _02051F7C:
 	bl FUN_020546C8
 	cmp r0, #0x0
 	beq _0205203A
-	ldr r0, _02052040 ; =gUnknown21C48B8
+	ldr r0, _02052040 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x1
 	tst r0, r1
@@ -2269,7 +2269,7 @@ _0205203A:
 	mov r0, #0x0
 	pop {r4-r6, pc}
 	nop
-_02052040: .word gUnknown21C48B8
+_02052040: .word gMain
 
 	thumb_func_start FUN_02052044
 FUN_02052044: ; 0x02052044

@@ -218,7 +218,7 @@
 .extern FUN_020021CC
 .extern FUN_020021EC
 .extern FUN_02002218
-.extern FUN_020023C0
+.extern RenderText
 .extern FUN_02002840
 .extern FUN_02002B60
 .extern FUN_02002B7C
@@ -233,7 +233,7 @@
 .extern FUN_02002CC0
 .extern FUN_02002CF8
 .extern FUN_02002D94
-.extern FUN_02002DB0
+.extern FontFunc
 .extern FUN_02002DE0
 .extern FUN_02002E14
 .extern FUN_02002E4C
@@ -1157,9 +1157,9 @@
 .extern FUN_0201BD5C
 .extern FUN_0201BD70
 .extern FUN_0201BD7C
-.extern FUN_0201BD84
-.extern FUN_0201BDE0
-.extern FUN_0201BE3C
+.extern AddTextPrinterParameterized
+.extern AddTextPrinterParameterized2
+.extern AddTextPrinterParameterized3
 .extern FUN_0201C05C
 .extern FUN_0201C100
 .extern FUN_0201C1EC
@@ -8125,7 +8125,7 @@
 .extern UNK_02105BB8
 .extern UNK_021064BC
 .extern UNK_021064C4
-.extern gUnknown21C48B8
+.extern gMain
 .extern gUnk021C4918
 .extern UNK_021CED20
 .extern UNK_021CED98

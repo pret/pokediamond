@@ -1500,7 +1500,7 @@ _021D80C6: ; jump table
 _021D80D2:
 	add r0, r4, #0
 	bl MOD64_021D8384
-	ldr r0, _021D80F8 ; =gUnknown21C48B8
+	ldr r0, _021D80F8 ; =gMain
 	mov r1, #1
 	ldr r0, [r0, #0x48]
 	tst r0, r1
@@ -1517,7 +1517,7 @@ _021D80F4:
 	mov r0, #0
 	pop {r4, pc}
 	.align 2, 0
-_021D80F8: .word gUnknown21C48B8
+_021D80F8: .word gMain
 _021D80FC: .word 0x000005DC
 	thumb_func_end MOD64_021D80A4
 
@@ -1857,7 +1857,7 @@ _021D8362:
 MOD64_021D8384: ; 0x021D8384
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _021D83BC ; =gUnknown21C48B8
+	ldr r0, _021D83BC ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x20
 	tst r0, r1
@@ -1869,7 +1869,7 @@ MOD64_021D8384: ; 0x021D8384
 	ldr r0, _021D83C0 ; =0x000005DC
 	bl FUN_020054C8
 _021D83A0:
-	ldr r0, _021D83BC ; =gUnknown21C48B8
+	ldr r0, _021D83BC ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x10
 	tst r0, r1
@@ -1884,7 +1884,7 @@ _021D83A0:
 _021D83BA:
 	pop {r4, pc}
 	.align 2, 0
-_021D83BC: .word gUnknown21C48B8
+_021D83BC: .word gMain
 _021D83C0: .word 0x000005DC
 	thumb_func_end MOD64_021D8384
 
@@ -2329,7 +2329,7 @@ _021D86F8:
 	add r0, r5, #0
 	add r2, r6, #0
 	str r3, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r1, #0
 	mov r2, #2
 	add r7, r0, #0
@@ -2386,7 +2386,7 @@ _021D8770:
 	str r3, [sp, #0xc]
 	ldr r2, [r4]
 	add r0, r5, #0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r1, #0
 	mov r2, #2
 	add r4, r0, #0
@@ -3522,7 +3522,7 @@ _021D8FEC:
 	add r0, r5, #0
 	mov r3, #1
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0
 	bl String_dtor
 	add r0, r4, #0

@@ -1,7 +1,7 @@
 	.include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.text
 
@@ -79,22 +79,22 @@ _02024FAC:
 	beq _02024FC2
 	b _02024FCA
 _02024FBA:
-	ldr r0, _02024FD4 ; =gUnknown21C48B8
+	ldr r0, _02024FD4 ; =gMain
 	mov r1, #0x1
 	str r1, [r0, #0x34]
 	pop {r3, pc}
 _02024FC2:
-	ldr r0, _02024FD4 ; =gUnknown21C48B8
+	ldr r0, _02024FD4 ; =gMain
 	mov r1, #0x3
 	str r1, [r0, #0x34]
 	pop {r3, pc}
 _02024FCA:
-	ldr r0, _02024FD4 ; =gUnknown21C48B8
+	ldr r0, _02024FD4 ; =gMain
 	mov r1, #0x0
 	str r1, [r0, #0x34]
 	pop {r3, pc}
 	nop
-_02024FD4: .word gUnknown21C48B8
+_02024FD4: .word gMain
 
 	thumb_func_start FUN_02024FD8
 FUN_02024FD8: ; 0x02024FD8

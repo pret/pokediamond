@@ -1063,7 +1063,7 @@ _021E22B8:
 	ldr r0, _021E235C ; =0x000005DC
 	bl FUN_020054C8
 _021E22EE:
-	ldr r0, _021E2360 ; =gUnknown21C48B8
+	ldr r0, _021E2360 ; =gMain
 	mov r1, #0x40
 	ldr r0, [r0, #0x4c]
 	tst r1, r0
@@ -1120,7 +1120,7 @@ _021E235A:
 	pop {r4, r5, r6, pc}
 	.balign 4, 0
 _021E235C: .word 0x000005DC
-_021E2360: .word gUnknown21C48B8
+_021E2360: .word gMain
 _021E2364: .word 0x0000FFFE
 
 	thumb_func_start MOD05_021E2368
@@ -1209,7 +1209,7 @@ MOD05_021E23D0: ; 0x021E23D0
 	ldr r0, [r5, #0x18]
 	mov r1, #1
 	add r2, r6, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r6, #0
@@ -1383,7 +1383,7 @@ MOD05_021E2540: ; 0x021E2540
 	ldr r3, [sp, #0x10]
 	add r0, r5, #0
 	add r2, r6, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r4, #0
 	bl String_dtor
 	add r0, r6, #0
@@ -1769,7 +1769,7 @@ MOD05_021E27E8: ; 0x021E27E8
 	add r2, r6, #0
 	add r3, r1, #0
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r7, #0
 	bl DestroyMsgData
 	add r0, r6, #0
@@ -1855,7 +1855,7 @@ MOD05_021E28A0: ; 0x021E28A0
 	add r0, r5, #0
 	add r2, r4, #0
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, #0
@@ -1982,7 +1982,7 @@ MOD05_021E29C8: ; 0x021E29C8
 	ldr r0, [sp, #0xc]
 	add r2, r4, #0
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, #0
@@ -2102,7 +2102,7 @@ MOD05_021E2AD4: ; 0x021E2AD4
 	ldr r0, [sp, #0xc]
 	add r2, r4, #0
 	str r1, [sp, #8]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldr r0, [sp, #0x10]
 	bl String_dtor
 	add r0, r4, #0

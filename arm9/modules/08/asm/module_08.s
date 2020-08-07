@@ -1196,7 +1196,7 @@ MOD08_022126A4: ; 0x022126A4
 	mov r1, #1
 	add r2, #0x8d
 	strb r1, [r2]
-	ldr r3, _022126D8 ; =gUnknown21C48B8
+	ldr r3, _022126D8 ; =gMain
 	lsl r2, r1, #9
 	ldr r4, [r3, #0x44]
 	tst r2, r4
@@ -1219,7 +1219,7 @@ _022126D4:
 	pop {r3, r4}
 	bx lr
 	.align 2, 0
-_022126D8: .word gUnknown21C48B8
+_022126D8: .word gMain
 
 	thumb_func_start MOD08_022126DC
 MOD08_022126DC: ; 0x022126DC

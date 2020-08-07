@@ -313,7 +313,7 @@ FUN_0207D768: ; 0x0207D768
 	ldr r2, [r5, r2]
 	add r0, r5, r4
 	add r3, r1, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r4, #0x0
 	add r0, #0x3e
 	ldrb r1, [r5, r0]
@@ -425,7 +425,7 @@ FUN_0207D800: ; 0x0207D800
 	ldr r2, [r5, r2]
 	add r0, r5, r6
 	mov r3, #0x10
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _0207D88A:
 	add r0, r5, r6
 	bl FUN_02019220
@@ -617,7 +617,7 @@ _0207D9FE:
 	lsl r2, r2, #0x6
 	ldr r2, [r4, r2]
 	add r0, r6, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x10
 	pop {r3-r7, pc}
 	.balign 4
@@ -729,7 +729,7 @@ FUN_0207DA94: ; 0x0207DA94
 	ldr r2, [r4, r2]
 	ldr r3, [sp, #0x14]
 	add r0, r5, r7
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	add r3, sp, #0x28
@@ -760,7 +760,7 @@ FUN_0207DA94: ; 0x0207DA94
 	ldr r2, [r4, r2]
 	add r0, r5, r7
 	sub r3, r3, r6
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	add r3, sp, #0x28
@@ -782,7 +782,7 @@ FUN_0207DA94: ; 0x0207DA94
 	ldr r2, [r4, r2]
 	ldr r3, [sp, #0x18]
 	add r0, r5, r7
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x20
 	pop {r3-r7, pc}
 	.balign 4
@@ -966,7 +966,7 @@ FUN_0207DB78: ; 0x0207DB78
 	lsl r2, r2, #0x6
 	ldr r2, [r4, r2]
 	add r3, r1, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x0
 	str r0, [sp, #0x0]
 	ldr r3, _0207DD7C ; =0x000F0E00
@@ -1252,7 +1252,7 @@ _0207DF36:
 	lsl r3, r3, #0x3
 	sub r3, r3, r5
 	lsr r3, r3, #0x1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r1, #0x96
 	lsl r1, r1, #0x2
 	mov r0, #0x0
@@ -1285,7 +1285,7 @@ _0207DF36:
 	add r5, #0x14
 	add r0, r2, #0x0
 	ldr r2, [r4, r5]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	b _0207DFD0
 _0207DFB6:
 	mov r1, #0x0
@@ -1299,7 +1299,7 @@ _0207DFB6:
 	add r5, #0x14
 	add r0, r2, #0x0
 	ldr r2, [r4, r5]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _0207DFD0:
 	mov r0, #0x2
 	mov r2, #0x99
@@ -1435,7 +1435,7 @@ FUN_0207E0C4: ; 0x0207E0C4
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _0207E0F8:
 	ldr r2, [r4, #0x20]
 	cmp r2, #0x0
@@ -1452,7 +1452,7 @@ _0207E0F8:
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _0207E11A:
 	ldr r2, [r4, #0x28]
 	cmp r2, #0x0
@@ -1469,7 +1469,7 @@ _0207E11A:
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _0207E13C:
 	ldr r2, [r4, #0x30]
 	cmp r2, #0x0
@@ -1486,7 +1486,7 @@ _0207E13C:
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _0207E15E:
 	ldr r2, [r4, #0x38]
 	cmp r2, #0x0
@@ -1503,7 +1503,7 @@ _0207E15E:
 	str r0, [sp, #0x8]
 	add r0, r5, #0x0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 _0207E180:
 	add r0, r4, #0x0
 	bl FUN_02080094
@@ -1914,7 +1914,7 @@ _0207E4C6:
 	ldr r2, [r4, r2]
 	add r0, #0x10
 	add r3, r1, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2253,7 +2253,7 @@ _0207E7BC:
 	ldr r2, [r4, r2]
 	add r0, #0x10
 	add r3, r1, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r4, r0]
@@ -2329,7 +2329,7 @@ FUN_0207E840: ; 0x0207E840
 	ldr r2, [r5, r2]
 	add r0, #0x10
 	add r3, r4, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, _0207E994 ; =0x00000674
 	mov r1, #0xb9
 	ldr r0, [r5, r0]
@@ -2357,7 +2357,7 @@ FUN_0207E840: ; 0x0207E840
 	ldr r0, [r5, r0]
 	add r3, r4, #0x0
 	add r0, #0x10
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0x0
 	bl String_dtor
 	ldr r0, _0207E994 ; =0x00000674
@@ -2414,7 +2414,7 @@ FUN_0207E840: ; 0x0207E840
 	ldr r0, [r5, r0]
 	ldr r2, [r5, r2]
 	add r0, #0x10
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	mov r0, #0x91
 	lsl r0, r0, #0x2
 	ldr r0, [r5, r0]
@@ -2555,7 +2555,7 @@ _0207EA88:
 	ldr r2, [r5, r2]
 	add r0, r4, r6
 	mov r3, #0x1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	ldr r0, [sp, #0x20]
 	ldr r2, _0207EB5C ; =0x00000674
 	cmp r0, #0x0
@@ -2577,7 +2577,7 @@ _0207EA88:
 	lsl r2, r2, #0x6
 	ldr r2, [r5, r2]
 	add r0, r4, r6
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r7, #0x0
 	add r0, #0x8d
 	str r0, [sp, #0x0]
@@ -2627,7 +2627,7 @@ _0207EB10:
 	lsl r2, r2, #0x6
 	ldr r2, [r5, r2]
 	sub r3, r3, r4
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add sp, #0x24
 	pop {r4-r7, pc}
 	nop
@@ -3009,7 +3009,7 @@ FUN_0207EE2C: ; 0x0207EE2C
 	ldr r2, [r5, r2]
 	add r0, #0x50
 	add r3, r1, #0x0
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0x0
 	bl DestroyMsgData
 	mov r0, #0x75
@@ -3117,7 +3117,7 @@ _0207EF10:
 	ldr r2, [r4, r2]
 	add r0, r6, #0x0
 	mov r1, #0x1
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, r6, #0x0
 	bl FUN_02019220
 	add sp, #0x10

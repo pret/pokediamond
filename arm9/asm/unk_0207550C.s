@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.text
 
@@ -946,7 +946,7 @@ FUN_02075CE4: ; 0x02075CE4
 	mov r0, #0x5
 	pop {r4, pc}
 _02075CF8:
-	ldr r0, _02075D18 ; =gUnknown21C48B8
+	ldr r0, _02075D18 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -963,7 +963,7 @@ _02075D10:
 	pop {r4, pc}
 	.balign 4
 _02075D14: .word 0x00000B24
-_02075D18: .word gUnknown21C48B8
+_02075D18: .word gMain
 _02075D1C: .word 0x000005A4
 
 	thumb_func_start FUN_02075D20
@@ -1706,7 +1706,7 @@ _02076360:
 	bl FUN_0201BD70
 	cmp r0, #0x0
 	bne _020763D6
-	ldr r0, _02076404 ; =gUnknown21C48B8
+	ldr r0, _02076404 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -1769,7 +1769,7 @@ _020763F4: .word 0x0000070E
 _020763F8: .word 0xFFFFF000
 _020763FC: .word 0x000005EC
 _02076400: .word 0x00000706
-_02076404: .word gUnknown21C48B8
+_02076404: .word gMain
 _02076408: .word 0x000005DC
 
 	thumb_func_start FUN_0207640C
@@ -2005,7 +2005,7 @@ _02076612:
 	bl FUN_0201BD70
 	cmp r0, #0x0
 	bne _020766A8
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2019,7 +2019,7 @@ _02076612:
 	strb r1, [r4, r0]
 	b _02076868
 _0207663C:
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2033,7 +2033,7 @@ _0207663C:
 	strb r1, [r4, r0]
 	b _02076868
 _0207665A:
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2174,7 +2174,7 @@ _02076780:
 	bl FUN_0201BD70
 	cmp r0, #0x0
 	bne _02076868
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2186,7 +2186,7 @@ _02076780:
 	strb r1, [r4, r0]
 	b _02076868
 _020767A4:
-	ldr r0, _02076870 ; =gUnknown21C48B8
+	ldr r0, _02076870 ; =gMain
 	ldr r2, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r2
@@ -2282,7 +2282,7 @@ _02076868:
 	pop {r3-r5, pc}
 	.balign 4
 _0207686C: .word 0x00000B27
-_02076870: .word gUnknown21C48B8
+_02076870: .word gMain
 _02076874: .word 0x000005DC
 _02076878: .word 0x000005A4
 _0207687C: .word 0x0000FFFE
@@ -2844,7 +2844,7 @@ _02076D38: .word 0x00000B22
 FUN_02076D3C: ; 0x02076D3C
 	push {r3-r5, lr}
 	add r5, r0, #0x0
-	ldr r0, _02076DC0 ; =gUnknown21C48B8
+	ldr r0, _02076DC0 ; =gMain
 	ldr r1, [r0, #0x48]
 	mov r0, #0x3
 	tst r0, r1
@@ -2903,7 +2903,7 @@ _02076DBC:
 	mov r0, #0x12
 	pop {r3-r5, pc}
 	.balign 4
-_02076DC0: .word gUnknown21C48B8
+_02076DC0: .word gMain
 _02076DC4: .word 0x000005A4
 _02076DC8: .word 0x00000B25
 _02076DCC: .word 0x0000069C

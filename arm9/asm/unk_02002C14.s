@@ -244,8 +244,8 @@ FUN_02002D94: ; 0x02002D94
 	.balign 4
 _02002DAC: .word UNK_02106FC8
 
-	thumb_func_start FUN_02002DB0
-FUN_02002DB0: ; 0x02002DB0
+	thumb_func_start FontFunc
+FontFunc: ; 0x02002DB0
 	push {r4, lr}
 	add r3, r1, #0x0
 	add r3, #0x1c
@@ -268,7 +268,7 @@ FUN_02002DB0: ; 0x02002DB0
 	strb r0, [r3, #0x1]
 _02002DD8:
 	add r0, r1, #0x0
-	bl FUN_020023C0
+	bl RenderText
 	pop {r4, pc}
 
 	thumb_func_start FUN_02002DE0

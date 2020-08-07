@@ -1,7 +1,7 @@
     .include "asm/macros.inc"
     .include "global.inc"
 
-	.extern gUnknown21C48B8
+	.extern gMain
 
 	.section .rodata
 
@@ -1279,7 +1279,7 @@ _0204D4D4: .word 0x00000132
 
 	thumb_func_start FUN_0204D4D8
 FUN_0204D4D8: ; 0x0204D4D8
-	ldr r1, _0204D4E8 ; =gUnknown21C48B8
+	ldr r1, _0204D4E8 ; =gMain
 	mov r0, #0x2
 	ldr r1, [r1, #0x44]
 	tst r1, r0
@@ -1289,7 +1289,7 @@ _0204D4E4:
 	ldr r3, _0204D4EC ; =FUN_02030F60
 	bx r3
 	.balign 4
-_0204D4E8: .word gUnknown21C48B8
+_0204D4E8: .word gMain
 _0204D4EC: .word FUN_02030F60
 
 	thumb_func_start FUN_0204D4F0

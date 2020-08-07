@@ -665,7 +665,7 @@ MOD43_02254CD0: ; 0x02254CD0
 	add r0, sp, #0x14
 	add r3, r1, #0
 	str r1, [sp, #0xc]
-	bl FUN_0201BDE0
+	bl AddTextPrinterParameterized2
 	add r0, sp, #0x14
 	bl FUN_02019270
 	add r0, sp, #0x14

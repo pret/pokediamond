@@ -115,7 +115,7 @@ _021D75B8:
 	beq _021D768A
 	b _021D768E
 _021D75C4:
-	ldr r0, _021D7694 ; =gUnknown21C48B8
+	ldr r0, _021D7694 ; =gMain
 	mov r1, #2
 	ldr r0, [r0, #0x48]
 	add r2, r0, #0
@@ -216,7 +216,7 @@ _021D768E:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 	nop
-_021D7694: .word gUnknown21C48B8
+_021D7694: .word gMain
 	thumb_func_end MOD70_021D758C
 
 	thumb_func_start MOD70_021D7698
@@ -1112,7 +1112,7 @@ MOD70_021D7CE8: ; 0x021D7CE8
 	ldr r2, [r5, r2]
 	add r0, r6, #0
 	add r3, r1, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r0, r6, #0
 	bl FUN_02019548
 	add sp, #0xc
@@ -1154,7 +1154,7 @@ _021D7DC8:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r7]
 	add r3, r1, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r2, #6
 	lsl r2, r2, #6
 	ldr r0, [r5, r2]
@@ -1171,7 +1171,7 @@ _021D7DC8:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	mov r3, #0x48
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r2, #0x61
 	lsl r2, r2, #2
 	ldr r0, [r5, r2]
@@ -1188,7 +1188,7 @@ _021D7DC8:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	mov r3, #0x5e
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	ldrh r0, [r7, #0x10]
 	ldr r1, [r7, #8]
 	bl GetGenderBySpeciesAndPersonality
@@ -1230,7 +1230,7 @@ _021D7E68:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	mov r3, #0xae
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r2, #6
 	lsl r2, r2, #6
 	ldr r0, [r5, r2]
@@ -1266,7 +1266,7 @@ _021D7E68:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	mov r3, #0xc2
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r2, #6
 	lsl r2, r2, #6
 	ldr r0, [r5, r2]
@@ -1284,7 +1284,7 @@ _021D7E68:
 	ldr r0, [sp, #0xc]
 	ldr r2, [r5, r2]
 	add r3, r1, #0
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	mov r1, #0x19
 	lsl r1, r1, #4
 	mov r0, #0
@@ -1300,7 +1300,7 @@ _021D7E68:
 	str r1, [sp, #8]
 	ldr r0, [sp, #0xc]
 	ldr r2, [r7, #4]
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	b _021D7F66
 _021D7F1C:
 	mov r4, #0
@@ -1334,7 +1334,7 @@ _021D7F1E:
 	ldr r2, [r5, r2]
 	mov r1, #0
 	mul r3, r6
-	bl FUN_0201BD84
+	bl AddTextPrinterParameterized
 	add r4, r4, #1
 	add r7, r7, #2
 	cmp r4, #4
